@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "updated": "2026-09-18",
+  "weather": {
+    "groundtruth": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-weather/data/weather-groundtruth/latest.json",
+    "local_now": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-weather/data/weather-groundtruth/local-now.json",
+    "nowcast": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-weather/data/weather-nowcast/latest.json",
+    "air_quality": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-weather/data/weather-aqi/latest.json",
+    "specialist_url": "https://weather.openphuquoc.com"
+  },
+  "airport": {
+    "live_api": "https://jotrip-airport-live.kenzuko.workers.dev",
+    "latest_fallback": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport/latest.json",
+    "health_fallback": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport/health.json",
+    "specialist_url": "https://airport.openphuquoc.com"
+  }
+}
