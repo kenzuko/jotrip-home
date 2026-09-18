@@ -140,7 +140,7 @@ let heroIndex = 0;
 let heroTimer = null;
 let touchStartX = 0;
 let touchStartY = 0;
-const HERO_DELAY = 2800;
+const HERO_DELAY = 4000;
 
 function restartHeroProgress() {
   if (!heroProgress) return;
