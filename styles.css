@@ -2244,11 +2244,11 @@ body{
 }
 
 .motion-on .hero-progress.is-running span{
-  animation:heroProgress 3s linear forwards!important;
+  animation:heroProgress 4s linear forwards!important;
 }
 
 .motion-on .hero-slide{
-  transition:opacity .62s ease,transform 3s cubic-bezier(.2,.65,.2,1)!important;
+  transition:opacity .62s ease,transform 4s cubic-bezier(.2,.65,.2,1)!important;
 }
 
 .motion-on .hero-slide.is-active img{
@@ -2363,7 +2363,7 @@ body{
   }
 
   .motion-on .hero-slide.is-active img{
-    animation-duration:3s!important;
+    animation-duration:4s!important;
   }
 }
 
@@ -2408,15 +2408,15 @@ body{
 }
 
 .motion-on .hero-progress.is-running span{
-  animation-duration:2.8s!important;
+  animation-duration:4s!important;
 }
 
 .motion-on .hero-slide{
-  transition-duration:.52s,2.8s!important;
+  transition-duration:.62s,4s!important;
 }
 
 .motion-on .hero-slide.is-active img{
-  animation-duration:2.8s!important;
+  animation-duration:4s!important;
 }
 
 .motion-on .ticker-track{
