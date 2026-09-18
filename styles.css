@@ -2236,3 +2236,133 @@ body{
     animation:none!important;
   }
 }
+
+
+/* V2.10 - functional motion always works, even when iOS reports reduced motion */
+.motion-on .hero-progress{
+  display:block!important;
+}
+
+.motion-on .hero-progress.is-running span{
+  animation:heroProgress 3s linear forwards!important;
+}
+
+.motion-on .hero-slide{
+  transition:opacity .62s ease,transform 3s cubic-bezier(.2,.65,.2,1)!important;
+}
+
+.motion-on .hero-slide.is-active img{
+  animation:heroKenBurns 3s ease-out both!important;
+}
+
+.motion-on .hero-slide:nth-child(even).is-active img{
+  animation-name:heroKenBurnsAlt!important;
+}
+
+.motion-on .ticker-track{
+  animation:tickerMove 20s linear infinite!important;
+}
+
+.motion-on .rail-peek{
+  animation:railPeek 1.05s cubic-bezier(.2,.72,.25,1)!important;
+}
+
+.motion-on .energy-target{
+  opacity:0;
+  transform:translateY(34px) scale(.985);
+}
+
+.motion-on .energy-target.in-view{
+  opacity:1;
+  transform:none;
+}
+
+.motion-on .energy-target .feature-story,
+.motion-on .energy-target .happening-row,
+.motion-on .energy-target .visual-card,
+.motion-on .energy-target .must-card,
+.motion-on .energy-target .area-card,
+.motion-on .energy-target .food-feature,
+.motion-on .energy-target .food-pick,
+.motion-on .energy-target .essential-grid a,
+.motion-on .energy-target .heritage-card,
+.motion-on .energy-target .guide-card{
+  opacity:0;
+  transform:translateY(26px) scale(.975);
+  transition:
+    opacity .58s ease,
+    transform .68s cubic-bezier(.18,.76,.22,1),
+    box-shadow .2s ease;
+}
+
+.motion-on .energy-target.in-view .feature-story,
+.motion-on .energy-target.in-view .happening-row,
+.motion-on .energy-target.in-view .visual-card,
+.motion-on .energy-target.in-view .must-card,
+.motion-on .energy-target.in-view .area-card,
+.motion-on .energy-target.in-view .food-feature,
+.motion-on .energy-target.in-view .food-pick,
+.motion-on .energy-target.in-view .essential-grid a,
+.motion-on .energy-target.in-view .heritage-card,
+.motion-on .energy-target.in-view .guide-card{
+  opacity:1;
+  transform:none;
+}
+
+.motion-on .energy-target.in-view .happening-row:nth-child(2),
+.motion-on .energy-target.in-view .visual-card:nth-child(2),
+.motion-on .energy-target.in-view .must-card:nth-child(2),
+.motion-on .energy-target.in-view .food-pick:nth-child(2),
+.motion-on .energy-target.in-view .essential-grid a:nth-child(2),
+.motion-on .energy-target.in-view .heritage-card:nth-child(2),
+.motion-on .energy-target.in-view .guide-card:nth-child(2){
+  transition-delay:.08s;
+}
+
+.motion-on .energy-target.in-view .happening-row:nth-child(3),
+.motion-on .energy-target.in-view .visual-card:nth-child(3),
+.motion-on .energy-target.in-view .must-card:nth-child(3),
+.motion-on .energy-target.in-view .food-pick:nth-child(3),
+.motion-on .energy-target.in-view .essential-grid a:nth-child(3),
+.motion-on .energy-target.in-view .heritage-card:nth-child(3),
+.motion-on .energy-target.in-view .guide-card:nth-child(3){
+  transition-delay:.16s;
+}
+
+.motion-on .energy-target.in-view .happening-row:nth-child(4),
+.motion-on .energy-target.in-view .must-card:nth-child(4),
+.motion-on .energy-target.in-view .essential-grid a:nth-child(4){
+  transition-delay:.24s;
+}
+
+.motion-on .energy-target.in-view .essential-grid a:nth-child(5){
+  transition-delay:.32s;
+}
+
+/* When iOS asks for reduced motion, keep the site alive but tone down travel distance */
+.motion-reduced .energy-target{
+  transform:translateY(14px) scale(.995);
+}
+
+.motion-reduced .energy-target .feature-story,
+.motion-reduced .energy-target .happening-row,
+.motion-reduced .energy-target .visual-card,
+.motion-reduced .energy-target .must-card,
+.motion-reduced .energy-target .area-card,
+.motion-reduced .energy-target .food-feature,
+.motion-reduced .energy-target .food-pick,
+.motion-reduced .energy-target .essential-grid a,
+.motion-reduced .energy-target .heritage-card,
+.motion-reduced .energy-target .guide-card{
+  transform:translateY(12px) scale(.99);
+}
+
+@media(max-width:760px){
+  .motion-on .energy-target{
+    transform:translateY(28px) scale(.985);
+  }
+
+  .motion-on .hero-slide.is-active img{
+    animation-duration:3s!important;
+  }
+}
