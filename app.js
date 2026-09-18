@@ -153,7 +153,7 @@ let heroIndex = 0;
 let heroTimer = null;
 let touchStartX = 0;
 let touchStartY = 0;
-const HERO_DELAY = 6200;
+const HERO_DELAY = 4500;
 
 function restartHeroProgress() {
   if (!heroProgress || reduceMotion) return;
@@ -250,7 +250,12 @@ if (!reduceMotion && 'IntersectionObserver' in window && window.matchMedia('(max
       if (!entry.isIntersecting) return;
       const rail = entry.target;
       rail.classList.add('rail-peek');
-      setTimeout(() => rail.classList.remove('rail-peek'), 1150);
+      setTimeout(() => {
+        const start = rail.scrollLeft;
+        rail.scrollTo({ left: start + 34, behavior: 'smooth' });
+        setTimeout(() => rail.scrollTo({ left: start, behavior: 'smooth' }), 520);
+      }, 260);
+      setTimeout(() => rail.classList.remove('rail-peek'), 1350);
       peekObserver.unobserve(rail);
     });
   }, { threshold: 0.38 });
