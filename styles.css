@@ -2622,7 +2622,6 @@ body{
   .motion-on .ticker-track,
   .ticker-track{
     animation:tickerMoveMobile 10.5s linear infinite!important;
-    transform:translate3d(0,0,0)!important;
   }
 }
 
