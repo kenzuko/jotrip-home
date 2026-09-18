@@ -125,3 +125,32 @@ PR:
 #1 - Open Phu Quoc Home V1 - quiet localism
 
 Operational values in the prototype are demonstration UI only until live sources are connected.
+
+
+## Product constraint added 18/09/2026
+
+Open Phu Quoc is a free island super-app, not a marketing landing page.
+
+Homepage must behave like an app home:
+- persistent access to core utilities
+- universal search
+- live island status
+- weather & sea
+- airport
+- ferry
+- bus / shuttle / route planning
+- places
+- events
+- emergency / useful information
+- guide
+
+Photography is used to create desire and orientation, but must not push tools below the fold or turn the product into a campaign page.
+
+Core visual/product sequence:
+1. See the island
+2. Open the tool needed
+3. Understand current conditions
+4. Decide what to do
+5. Continue exploring
+
+Mobile navigation should feel like a product shell, with Home / Live / Search / Move / More.
