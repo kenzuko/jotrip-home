@@ -34,17 +34,53 @@ searchForm?.addEventListener('submit', (event) => {
 dockSearch?.addEventListener('click', focusSearch);
 headerSearch?.addEventListener('click', focusSearch);
 
+const moreSheet = document.querySelector('#more-sheet');
+const moreBackdrop = document.querySelector('.more-backdrop');
+const moreClose = document.querySelector('.more-close');
+const moreButton = document.querySelector('.dock-more');
+
+function openMoreSheet() {
+  if (!moreSheet || !moreBackdrop) return;
+  moreSheet.hidden = false;
+  moreBackdrop.hidden = false;
+  requestAnimationFrame(() => {
+    moreSheet.classList.add('is-open');
+    moreBackdrop.classList.add('is-open');
+  });
+  document.body.classList.add('sheet-open');
+  menuButton?.setAttribute('aria-expanded', 'true');
+  menuButton?.setAttribute('aria-label', 'Đóng menu');
+  setActiveMobileTab?.('more');
+}
+
+function closeMoreSheet() {
+  if (!moreSheet || !moreBackdrop) return;
+  moreSheet.classList.remove('is-open');
+  moreBackdrop.classList.remove('is-open');
+  document.body.classList.remove('sheet-open');
+  menuButton?.setAttribute('aria-expanded', 'false');
+  menuButton?.setAttribute('aria-label', 'Mở menu');
+  setTimeout(() => {
+    moreSheet.hidden = true;
+    moreBackdrop.hidden = true;
+  }, 340);
+}
+
 menuButton?.addEventListener('click', () => {
-  const open = desktopNav?.classList.toggle('open') ?? false;
-  menuButton.setAttribute('aria-expanded', String(open));
-  menuButton.setAttribute('aria-label', open ? 'Đóng menu' : 'Mở menu');
+  if (moreSheet?.classList.contains('is-open')) closeMoreSheet();
+  else openMoreSheet();
+});
+
+moreButton?.addEventListener('click', openMoreSheet);
+moreClose?.addEventListener('click', closeMoreSheet);
+moreBackdrop?.addEventListener('click', closeMoreSheet);
+moreSheet?.addEventListener('click', (event) => {
+  if (event.target.closest('a')) closeMoreSheet();
 });
 
 desktopNav?.addEventListener('click', (event) => {
   if (!(event.target instanceof HTMLAnchorElement)) return;
   desktopNav.classList.remove('open');
-  menuButton?.setAttribute('aria-expanded', 'false');
-  menuButton?.setAttribute('aria-label', 'Mở menu');
 });
 
 filterChips.forEach((chip) => {
@@ -81,8 +117,7 @@ if ('IntersectionObserver' in window) {
 document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
   desktopNav?.classList.remove('open');
-  menuButton?.setAttribute('aria-expanded', 'false');
-  menuButton?.setAttribute('aria-label', 'Mở menu');
+  closeMoreSheet();
 });
 
 const swipeRails = document.querySelectorAll('.must-rail, .heritage-rail');
@@ -268,7 +303,7 @@ function setActiveMobileTab(tabName) {
 mobileTabs.forEach((item) => {
   item.addEventListener('click', () => {
     const tab = item.dataset.tab;
-    if (tab && tab !== 'search') setActiveMobileTab(tab);
+    if (tab && tab !== 'search' && tab !== 'more') setActiveMobileTab(tab);
   });
 });
 
