@@ -1,0 +1,74 @@
+{
+  "version": "R15",
+  "source_file": "JOTRIP_PHUQUOC_2026_FINAL_R15_VISUAL_EDITORIAL.pptx",
+  "source_updated": "2026-09-03",
+  "title": "Sổ tay du lịch Phú Quốc 2026",
+  "sections": [
+    {
+      "id": "lan-dau",
+      "kicker": "LẦN ĐẦU TỚI ĐẢO",
+      "title": "Lần đầu đến Phú Quốc",
+      "summary": "Hiểu đảo trước rồi mới chọn điểm. Bắt đầu từ cách đến, cách đi lại, vùng ở và nhịp di chuyển thay vì lao ngay vào danh sách check-in.",
+      "points": [
+        "Chọn vùng ở theo hành trình, không chỉ theo giá phòng",
+        "Xem thời gian di chuyển, không chỉ nhìn kilomet",
+        "Kiểm tra thời tiết sát ngày trước khi chốt hoạt động biển"
+      ]
+    },
+    {
+      "id": "di-chuyen",
+      "kicker": "DI CHUYỂN TRÊN ĐẢO",
+      "title": "Phú Quốc rộng đến đâu?",
+      "summary": "Với khách du lịch, thời gian ngồi trên xe quyết định một ngày có nhẹ hay không. Bắc - Trung tâm - Nam đảo nên được ghép theo vùng.",
+      "points": [
+        "Sân bay → Bãi Trường khoảng 15 phút",
+        "Sân bay → Dương Đông khoảng 20 phút",
+        "Bắc đảo → Nam đảo có thể khoảng 70-100 phút tùy điểm đầu/cuối và giao thông"
+      ]
+    },
+    {
+      "id": "duong-bien",
+      "kicker": "ĐẾN ĐẢO",
+      "title": "Tàu cao tốc hay phà?",
+      "summary": "Tàu cao tốc hợp khách đi bộ; phà phù hợp khi cần mang xe. Lịch chạy thay đổi theo ngày và thời tiết nên phải xem đúng tuyến, đúng bến.",
+      "points": [
+        "Không dùng ảnh chụp lịch tàu cũ làm lịch cố định",
+        "Nếu nối chuyến bay/xe/tour, chừa dư thời gian",
+        "Kiểm tra bến đi, hành lý và quy định xe trước khi thanh toán"
+      ]
+    },
+    {
+      "id": "bac-dao",
+      "kicker": "BẮC ĐẢO",
+      "title": "Ba nhịp khác nhau",
+      "summary": "Safari hợp buổi sáng và nhịp chậm; VinWonders cần nhiều giờ; Grand World hợp cuối chiều và buổi tối. Không cần nhồi cả ba.",
+      "points": [
+        "Safari + Grand World: nhịp nhẹ hơn",
+        "VinWonders + Grand World: một ngày dài",
+        "Ba điểm chỉ hợp nhóm khỏe và chấp nhận đi nhanh"
+      ]
+    },
+    {
+      "id": "nam-dao",
+      "kicker": "NAM ĐẢO",
+      "title": "Biển, lịch sử và buổi tối",
+      "summary": "Nam đảo có thể nối Bãi Sao/Bãi Khem, Nhà tù Phú Quốc, Chùa Hộ Quốc, Hòn Thơm và Sunset Town - nhưng nên chọn một câu chuyện thay vì gom hết.",
+      "points": [
+        "Nhà tù cần bối cảnh, không nên xem như điểm check-in",
+        "Hộ Quốc là khoảng lặng hợp lý trong ngày Nam đảo",
+        "Biển An Thới/Hòn Thơm nên chọn theo thời tiết và sức đi"
+      ]
+    },
+    {
+      "id": "hanh-trinh",
+      "kicker": "GHÉP HÀNH TRÌNH",
+      "title": "5 ngày 4 đêm - đi sâu hơn một lớp",
+      "summary": "Năm ngày đủ để nhìn Phú Quốc ngoài các khu vui chơi: làm quen trung tâm, một ngày Bắc đảo, một ngày biển Nam đảo và một ngày cho nghề, lịch sử hoặc khoảng trống.",
+      "points": [
+        "Ngày 1 làm quen Dương Đông/bờ Tây",
+        "Ngày 2 chọn Safari hoặc VinWonders rồi Grand World",
+        "Ngày 3 biển An Thới/Hòn Thơm; ngày 4-5 dành cho nghề, lịch sử và ngày trống"
+      ]
+    }
+  ]
+}
