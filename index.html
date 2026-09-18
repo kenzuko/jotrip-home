@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Open Phu Quoc - thông tin miễn phí, trực quan và thực dụng về Phú Quốc: tình hình đảo, sự kiện, di chuyển, điểm đến và câu chuyện địa phương.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260918-2042">
+  <link rel="stylesheet" href="styles.css?v=20260918-2115">
 </head>
 <body>
   <div class="demo-ribbon">
@@ -17,16 +17,16 @@
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Trang chủ Open Phu Quoc">
-      <img src="https://raw.githubusercontent.com/kenzuko/jotrip-home/main/assets/logo-master.png?raw=1" alt="Open Phu Quoc">
+      <img src="assets/logo-master.png?v=approved-20260918-2" width="281" height="77" alt="Open Phu Quoc" decoding="sync">
     </a>
 
     <nav class="desktop-nav" id="primary-nav" aria-label="Điều hướng chính">
-      <a href="#today">Hôm nay</a>
-      <a href="#happening">Đang có gì</a>
-      <a href="#things">Đi đâu</a>
-      <a href="#areas">Khu vực</a>
-      <a href="#essentials">Cần biết</a>
+      <a href="#happening">Hôm nay</a>
+      <a href="#today">Trực tiếp</a>
+      <a href="#things">Khám phá</a>
+      <a href="#food">Ăn uống</a>
       <a href="#guide">Cẩm nang</a>
+      <a href="#essentials">Tiện ích</a>
     </nav>
 
     <button class="header-search" type="button" aria-label="Tìm kiếm">⌕</button>
@@ -387,7 +387,7 @@
 
   <footer class="site-footer">
     <div>
-      <img src="https://raw.githubusercontent.com/kenzuko/jotrip-home/main/assets/logo-master.png?raw=1" alt="Open Phu Quoc">
+      <img src="assets/logo-master.png?v=approved-20260918-2" width="281" height="77" alt="Open Phu Quoc" decoding="sync">
       <p>Thông tin Phú Quốc miễn phí, thực dụng và dễ dùng.<br>Được duy trì bởi JoTrip.</p>
     </div>
     <nav>
@@ -404,10 +404,52 @@
     <a href="#happening" data-tab="today"><span>◷</span>Hôm nay</a>
     <button type="button" class="dock-search" data-tab="search"><span>⌕</span>Tìm kiếm</button>
     <a href="#guide" data-tab="guide"><span>▤</span>Cẩm nang</a>
-    <a href="#essentials" data-tab="more"><span>•••</span>Thêm</a>
+    <button type="button" class="dock-more" data-tab="more" aria-haspopup="dialog" aria-controls="more-sheet"><span>•••</span>Thêm</button>
   </nav>
 
+  <div class="more-backdrop" hidden></div>
+  <section class="more-sheet" id="more-sheet" role="dialog" aria-modal="true" aria-labelledby="more-title" hidden>
+    <div class="more-handle" aria-hidden="true"></div>
+    <div class="more-head">
+      <div>
+        <p>OPEN PHU QUOC</p>
+        <h2 id="more-title">Mở nhanh</h2>
+      </div>
+      <button type="button" class="more-close" aria-label="Đóng">×</button>
+    </div>
+
+    <div class="more-group">
+      <p class="more-label">TRỰC TIẾP & VẬN HÀNH</p>
+      <div class="more-grid">
+        <a href="#today"><span>☀</span><strong>Thời tiết & Biển</strong><small>Mưa, gió, sóng, cano</small></a>
+        <a href="#essentials"><span>✈</span><strong>Sân bay</strong><small>Chuyến bay, trễ chuyến</small></a>
+        <a href="#essentials"><span>⛴</span><strong>Tàu & Phà</strong><small>Lịch chạy, trạng thái</small></a>
+        <a href="#essentials"><span>▣</span><strong>Di chuyển</strong><small>Bus, shuttle, tuyến đường</small></a>
+      </div>
+    </div>
+
+    <div class="more-group">
+      <p class="more-label">KHÁM PHÁ</p>
+      <div class="more-grid">
+        <a href="#areas"><span>⌖</span><strong>Điểm đến</strong><small>Khu vực, bãi biển, điểm đi</small></a>
+        <a href="#food"><span>◎</span><strong>Ăn uống</strong><small>Quán, món, khu ăn uống</small></a>
+        <a href="#happening"><span>◷</span><strong>Sự kiện & Show</strong><small>Lịch hôm nay, giờ diễn</small></a>
+        <a href="#must"><span>✦</span><strong>Không nên bỏ lỡ</strong><small>Gợi ý nhanh theo thời điểm</small></a>
+      </div>
+    </div>
+
+    <div class="more-group">
+      <p class="more-label">HỮU ÍCH</p>
+      <div class="more-list">
+        <a href="#guide"><strong>Cẩm nang Phú Quốc</strong><span>→</span></a>
+        <a href="#heritage"><strong>Di sản & câu chuyện địa phương</strong><span>→</span></a>
+        <a href="#"><strong>Khẩn cấp & số cần thiết</strong><span>→</span></a>
+        <a href="#"><strong>Dữ liệu & nguồn</strong><span>→</span></a>
+      </div>
+    </div>
+  </section>
+
   <div class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20260918-2042"></script>
+  <script src="app.js?v=20260918-2115"></script>
 </body>
 </html>
