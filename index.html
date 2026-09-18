@@ -89,45 +89,18 @@
     <section class="live-strip" id="today" aria-label="Trạng thái đảo trực tiếp">
       <div class="live-title">
         <span class="live-dot"></span>
-        <div><strong>TRẠNG THÁI ĐẢO TRỰC TIẾP</strong><small>Demo · xem nhanh trước khi đi</small></div>
+        <div><strong>TRẠNG THÁI ĐẢO TRỰC TIẾP</strong><small>Dữ liệu đang tự cập nhật</small></div>
       </div>
 
-      <a href="weather/" class="live-item">
-        <span>Thời tiết</span>
-        <strong>29°</strong>
-        <small>Mây rải rác</small>
-      </a>
-      <a href="weather/#marine" class="live-item">
-        <span>Cano</span>
-        <strong>Đang hoạt động</strong>
-        <small>Nam đảo</small>
-      </a>
-      <a href="weather/#marine" class="live-item">
-        <span>Biển</span>
-        <strong>0.7-1.1 m</strong>
-        <small>Vừa</small>
-      </a>
-      <a href="#" class="live-item">
-        <span>Hoàng hôn</span>
-        <strong>17:57</strong>
-        <small>Bờ Tây</small>
-      </a>
+      <a href="weather/" class="live-item" data-live="weather"><span>Thời tiết</span><strong>--</strong><small>Đang tải quan trắc</small></a>
+      <a href="weather/#marine" class="live-item" data-live="cano"><span>Cano</span><strong>--</strong><small>Đang kiểm tra vận hành</small></a>
+      <a href="weather/#marine" class="live-item" data-live="sea"><span>Biển</span><strong>--</strong><small>Đang tải mô hình biển</small></a>
+      <a href="#happening" class="live-item" data-live="sunset"><span>Hoàng hôn</span><strong>--:--</strong><small>Bờ Tây</small></a>
     </section>
 
     <section class="energy-ticker" aria-label="Tin nhanh Phú Quốc">
       <div class="ticker-label"><span></span><strong>TIN NHANH</strong></div>
-      <div class="ticker-window">
-        <div class="ticker-track">
-        <span>BIỂN HÔM NAY</span><b>0.7-1.1 m</b><i>•</i>
-        <span>CANO NAM ĐẢO</span><b>ĐANG HOẠT ĐỘNG</b><i>•</i>
-        <span>HOÀNG HÔN</span><b>17:57</b><i>•</i>
-        <span>TỐI NAY</span><b>SHOW + CHỢ ĐÊM + SUNSET TOWN</b><i>•</i>
-        <span>BIỂN HÔM NAY</span><b>0.7-1.1 m</b><i>•</i>
-        <span>CANO NAM ĐẢO</span><b>ĐANG HOẠT ĐỘNG</b><i>•</i>
-        <span>HOÀNG HÔN</span><b>17:57</b><i>•</i>
-        <span>TỐI NAY</span><b>SHOW + CHỢ ĐÊM + SUNSET TOWN</b><i>•</i>
-        </div>
-      </div>
+      <div class="ticker-window"><div class="ticker-track" id="liveTicker"><span>ĐANG KẾT NỐI</span><b>DỮ LIỆU TRỰC TIẾP</b><i>•</i></div></div>
     </section>
 
     <section class="section happening" id="happening">
@@ -144,33 +117,33 @@
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=1400" alt="Cảng cá An Thới và Sunset Town">
           <div class="feature-gradient"></div>
           <div class="feature-copy">
-            <span>TỐI NAY</span>
-            <h3>Sunset Town đẹp hơn khi nắng dịu xuống.</h3>
-            <p>Demo: ánh sáng bến cảng, hoàng hôn và khung giờ show khiến từ 17:00 trở đi đáng để ghé hơn.</p>
-            <a href="#">Xem kế hoạch tối nay →</a>
+            <span>ĐỌC NHANH · CHẤT ĐẢO</span>
+            <h3>Mùi cay của đất đỏ.</h3>
+            <p>Tiêu Phú Quốc không chỉ là món mua về làm quà. Đi vào một vườn tiêu là đi vào phần nông nghiệp rất thật của hòn đảo.</p>
+            <a href="stories/article.html?id=mui-cay-cua-dat-do">Đọc câu chuyện →</a>
           </div>
         </article>
 
-        <div class="happening-list">
-          <a href="#" class="happening-row">
-            <time><strong>18:30</strong><span>HÔM NAY</span></time>
-            <div><span class="row-type weather">THỜI TIẾT</span><h3>Có thể có mưa rào ngắn ở bờ Tây</h3><p>Khung giờ demo · khoảng 45 phút</p></div>
-            <em>THEO DÕI</em>
+        <div class="happening-list" id="liveHappening">
+          <a href="weather/" class="happening-row" data-happening="weather">
+            <time><strong>NOW</strong><span>THỜI TIẾT</span></time>
+            <div><span class="row-type weather">TRỰC TIẾP</span><h3>Đang tải tình hình thời tiết</h3><p>Quan trắc + nowcast</p></div>
+            <em>...</em>
           </a>
-          <a href="#" class="happening-row">
-            <time><strong>21:00</strong><span>TỐI NAY</span></time>
-            <div><span class="row-type show">SHOW</span><h3>Kiss of the Sea</h3><p>Sunset Town · lịch demo</p></div>
-            <em class="ok">ĐANG CHẠY</em>
+          <a href="weather/#marine" class="happening-row" data-happening="marine">
+            <time><strong>NOW</strong><span>BIỂN</span></time>
+            <div><span class="row-type place">VẬN HÀNH</span><h3>Đang kiểm tra cano, tàu và phà</h3><p>Nguồn vận hành được tách theo từng loại phương tiện</p></div>
+            <em>...</em>
           </a>
-          <a href="#" class="happening-row">
-            <time><strong>16:00</strong><span>ĐÓNG CỬA</span></time>
-            <div><span class="row-type place">ĐIỂM ĐẾN</span><h3>Safari</h3><p>Giờ mở cửa demo</p></div>
-            <em class="ok">MỞ CỬA</em>
+          <a href="airport/" class="happening-row" data-happening="airport">
+            <time><strong>NOW</strong><span>PQC</span></time>
+            <div><span class="row-type travel">SÂN BAY</span><h3>Đang tải bảng chuyến bay</h3><p>Chuyến đến, chuyến đi và trễ chuyến</p></div>
+            <em>...</em>
           </a>
-          <a href="#" class="happening-row">
-            <time><strong>NGAY BÂY GIỜ</strong><span>SÂN BAY</span></time>
-            <div><span class="row-type travel">DI CHUYỂN</span><h3>Lượng chuyến đến tăng dần vào buổi tối</h3><p>Demo · nên kiểm tra trước khi đi đón khách</p></div>
-            <em class="ok">BÌNH THƯỜNG</em>
+          <a href="stories/article.html?id=mot-nam-trong-nha-thung" class="happening-row">
+            <time><strong>5'</strong><span>ĐỌC</span></time>
+            <div><span class="row-type show">CÂU CHUYỆN</span><h3>Một năm trong nhà thùng</h3><p>Cá cơm, muối, thùng gỗ và thứ mùi không thể nhầm của Phú Quốc</p></div>
+            <em class="ok">MỚI</em>
           </a>
         </div>
       </div>
@@ -341,15 +314,15 @@
       </div>
 
       <div class="heritage-rail">
-        <a href="#" class="heritage-card pepper">
+        <a href="stories/article.html?id=mui-cay-cua-dat-do" class="heritage-card pepper">
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Pfefferanbau%20auf%20Phu%20Quoc.jpg?width=1000" alt="Vườn tiêu Phú Quốc">
           <div><span>01 · HỒ TIÊU</span><strong>Mùi cay của đất đỏ</strong><small>Từ vườn tiêu tới câu chuyện nông nghiệp của đảo</small></div>
         </a>
-        <a href="#" class="heritage-card fish">
+        <a href="stories/article.html?id=nhung-doi-mat-tren-mui-ghe" class="heritage-card fish">
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1100" alt="Ghe đánh cá Phú Quốc">
           <div><span>02 · NGHỀ BIỂN</span><strong>Những đôi mắt trên mũi ghe</strong><small>Một chi tiết nhỏ nhưng rất Phú Quốc</small></div>
         </a>
-        <a href="#" class="heritage-card market">
+        <a href="stories/article.html?id=duong-dong-sau-5-gio" class="heritage-card market">
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Selling%20fruit%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1100" alt="Bán trái cây ở chợ đêm Phú Quốc">
           <div><span>03 · CHỢ & ĐỜI SỐNG</span><strong>Đảo khi đèn lên</strong><small>Người địa phương, du khách và nhịp sống buổi tối</small></div>
         </a>
@@ -451,5 +424,5 @@
 
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="app.js?v=20260918-2130"></script>
-</body>
+<script src="home-live.js?v=1"></script></body>
 </html>
