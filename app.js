@@ -1,3 +1,8 @@
+const enhancementStyles = document.createElement('link');
+enhancementStyles.rel = 'stylesheet';
+enhancementStyles.href = 'enhancements.css';
+document.head.appendChild(enhancementStyles);
+
 const searchForm = document.querySelector('.search');
 const searchInput = document.querySelector('#q');
 const suggestionButtons = document.querySelectorAll('[data-query]');
@@ -5,8 +10,12 @@ const menuButton = document.querySelector('.menu-button');
 const desktopNav = document.querySelector('.desktop-nav');
 const dockSearch = document.querySelector('.dock-search');
 const toast = document.querySelector('.toast');
+const heroPhoto = document.querySelector('.hero-photo');
+const parallaxPhoto = document.querySelector('[data-parallax] img');
+const revealItems = document.querySelectorAll('.reveal');
 
 let toastTimer;
+let rafId = null;
 
 function showToast(message) {
   if (!toast) return;
@@ -60,3 +69,42 @@ document.addEventListener('keydown', (event) => {
   menuButton?.setAttribute('aria-expanded', 'false');
   menuButton?.setAttribute('aria-label', 'Open menu');
 });
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if (!reduceMotion && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '40px 0px -30px' });
+
+  revealItems.forEach((item) => observer.observe(item));
+  if (heroPhoto) observer.observe(heroPhoto);
+} else {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+  heroPhoto?.classList.add('is-visible');
+}
+
+function updateParallax() {
+  rafId = null;
+  if (!parallaxPhoto || reduceMotion || window.innerWidth < 800) return;
+
+  const rect = parallaxPhoto.parentElement.getBoundingClientRect();
+  const viewport = window.innerHeight;
+  if (rect.bottom < 0 || rect.top > viewport) return;
+
+  const progress = (viewport - rect.top) / (viewport + rect.height);
+  const offset = (progress - 0.5) * 14;
+  parallaxPhoto.style.translate = `0 ${offset}px`;
+}
+
+window.addEventListener('scroll', () => {
+  if (rafId) return;
+  rafId = requestAnimationFrame(updateParallax);
+}, { passive: true });
+
+window.addEventListener('resize', updateParallax, { passive: true });
+updateParallax();
