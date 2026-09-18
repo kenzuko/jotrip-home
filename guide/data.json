@@ -1,74 +1,138 @@
 {
-  "version": "R15",
-  "source_file": "JOTRIP_PHUQUOC_2026_FINAL_R15_VISUAL_EDITORIAL.pptx",
-  "source_updated": "2026-09-03",
-  "title": "Sổ tay du lịch Phú Quốc 2026",
-  "sections": [
+  "version": "2027 IslandEditorial R3",
+  "source_file": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+  "source_updated": "2026-09-12",
+  "title": "Cẩm nang Phú Quốc",
+  "intro": "Phú Quốc không phải một hòn đảo nhỏ. Chọn vùng trước, chọn khách sạn và điểm đi sau - như vậy chuyến đi nhẹ hơn rất nhiều.",
+  "zones": [
     {
-      "id": "lan-dau",
-      "kicker": "LẦN ĐẦU TỚI ĐẢO",
-      "title": "Lần đầu đến Phú Quốc",
-      "summary": "Hiểu đảo trước rồi mới chọn điểm. Bắt đầu từ cách đến, cách đi lại, vùng ở và nhịp di chuyển thay vì lao ngay vào danh sách check-in.",
-      "points": [
-        "Chọn vùng ở theo hành trình, không chỉ theo giá phòng",
-        "Xem thời gian di chuyển, không chỉ nhìn kilomet",
-        "Kiểm tra thời tiết sát ngày trước khi chốt hoạt động biển"
-      ]
+      "id": "north",
+      "name": "Bắc đảo",
+      "tag": "RỪNG · VUI CHƠI",
+      "summary": "Rừng, Gành Dầu, Rạch Vẹm, Safari, VinWonders và Grand World.",
+      "best_for": "Gia đình · một ngày vui chơi lớn",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20aerial%20view.jpg?width=1200"
     },
     {
-      "id": "di-chuyen",
-      "kicker": "DI CHUYỂN TRÊN ĐẢO",
-      "title": "Phú Quốc rộng đến đâu?",
-      "summary": "Với khách du lịch, thời gian ngồi trên xe quyết định một ngày có nhẹ hay không. Bắc - Trung tâm - Nam đảo nên được ghép theo vùng.",
-      "points": [
-        "Sân bay → Bãi Trường khoảng 15 phút",
-        "Sân bay → Dương Đông khoảng 20 phút",
-        "Bắc đảo → Nam đảo có thể khoảng 70-100 phút tùy điểm đầu/cuối và giao thông"
-      ]
+      "id": "center",
+      "name": "Trung tâm & bờ Tây",
+      "tag": "ĐỜI SỐNG · HOÀNG HÔN",
+      "summary": "Dương Đông, Dinh Cậu, chợ đêm, Bãi Trường, Ông Lang và hoàng hôn.",
+      "best_for": "Khách lần đầu · ăn uống · chiều tối",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Night%20market%20in%20Phu%20Quoc.jpg?width=1200"
     },
     {
-      "id": "duong-bien",
-      "kicker": "ĐẾN ĐẢO",
-      "title": "Tàu cao tốc hay phà?",
-      "summary": "Tàu cao tốc hợp khách đi bộ; phà phù hợp khi cần mang xe. Lịch chạy thay đổi theo ngày và thời tiết nên phải xem đúng tuyến, đúng bến.",
-      "points": [
-        "Không dùng ảnh chụp lịch tàu cũ làm lịch cố định",
-        "Nếu nối chuyến bay/xe/tour, chừa dư thời gian",
-        "Kiểm tra bến đi, hành lý và quy định xe trước khi thanh toán"
-      ]
+      "id": "south",
+      "name": "Nam đảo",
+      "tag": "BIỂN · CÁP TREO · SHOW",
+      "summary": "Bãi Sao, Bãi Khem, Hòn Thơm, tour đảo, Nhà tù, Hộ Quốc và Sunset Town.",
+      "best_for": "Biển · cáp treo · trải nghiệm tối",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kem%20Beach%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1200"
+    }
+  ],
+  "north_rhythm": [
+    {
+      "name": "Vinpearl Safari",
+      "type": "Thiên nhiên",
+      "note": "Nên đi sáng · nhịp chậm · hợp gia đình"
     },
     {
-      "id": "bac-dao",
-      "kicker": "BẮC ĐẢO",
-      "title": "Ba nhịp khác nhau",
-      "summary": "Safari hợp buổi sáng và nhịp chậm; VinWonders cần nhiều giờ; Grand World hợp cuối chiều và buổi tối. Không cần nhồi cả ba.",
-      "points": [
-        "Safari + Grand World: nhịp nhẹ hơn",
-        "VinWonders + Grand World: một ngày dài",
-        "Ba điểm chỉ hợp nhóm khỏe và chấp nhận đi nhanh"
-      ]
+      "name": "VinWonders",
+      "type": "Giải trí",
+      "note": "Cần nhiều giờ · gần trọn ngày"
     },
     {
-      "id": "nam-dao",
-      "kicker": "NAM ĐẢO",
-      "title": "Biển, lịch sử và buổi tối",
-      "summary": "Nam đảo có thể nối Bãi Sao/Bãi Khem, Nhà tù Phú Quốc, Chùa Hộ Quốc, Hòn Thơm và Sunset Town - nhưng nên chọn một câu chuyện thay vì gom hết.",
-      "points": [
-        "Nhà tù cần bối cảnh, không nên xem như điểm check-in",
-        "Hộ Quốc là khoảng lặng hợp lý trong ngày Nam đảo",
-        "Biển An Thới/Hòn Thơm nên chọn theo thời tiết và sức đi"
-      ]
+      "name": "Grand World",
+      "type": "Chiều tối",
+      "note": "Phố đi bộ · kênh đào · show · ăn tối"
+    }
+  ],
+  "hotels": {
+    "tiers": [
+      {
+        "name": "3 sao",
+        "note": "Ưu tiên vị trí, vệ sinh, bữa sáng và khoảng cách tới ăn uống/biển."
+      },
+      {
+        "name": "4 sao",
+        "note": "Quan tâm thêm hồ bơi, bãi biển, phòng gia đình, shuttle và meal plan."
+      },
+      {
+        "name": "5 sao / luxury",
+        "note": "So chất lượng bãi biển, phòng/villa, dịch vụ, nhà hàng, spa, kids club và riêng tư."
+      },
+      {
+        "name": "Ultra-luxury",
+        "note": "Nhìn thương hiệu, villa/phòng, bãi biển và dịch vụ cá nhân thay vì chữ “6 sao”."
+      }
+    ],
+    "areas": [
+      {
+        "name": "Nam đảo",
+        "hotels": "JW Marriott, New World, Premier Residences, Premier Village, La Festa",
+        "note": "Nghỉ dưỡng, honeymoon, biển đẹp và lịch Nam đảo."
+      },
+      {
+        "name": "Bãi Trường",
+        "hotels": "Regent, InterContinental, Pullman, Novotel, Sol by Meliá",
+        "note": "Thuận sân bay, trung tâm, gia đình/luxury và hoàng hôn."
+      },
+      {
+        "name": "Bắc & Tây Bắc",
+        "hotels": "Sheraton, Meliá Vinpearl, Radisson Blu; Ông Lang/Cửa Cạn có Ocean Bay, Camia, Green Bay, Mövenpick",
+        "note": "Gần cụm vui chơi hoặc yên tĩnh hơn."
+      }
+    ]
+  },
+  "food": [
+    {
+      "group": "Món tươi",
+      "items": "Gỏi cá trích, nhum, còi biên mai, ghẹ / mực / cá theo mùa",
+      "note": "Ưu tiên độ tươi và cách chế biến hơn việc cố đủ danh sách."
     },
     {
-      "id": "hanh-trinh",
-      "kicker": "GHÉP HÀNH TRÌNH",
-      "title": "5 ngày 4 đêm - đi sâu hơn một lớp",
-      "summary": "Năm ngày đủ để nhìn Phú Quốc ngoài các khu vui chơi: làm quen trung tâm, một ngày Bắc đảo, một ngày biển Nam đảo và một ngày cho nghề, lịch sử hoặc khoảng trống.",
-      "points": [
-        "Ngày 1 làm quen Dương Đông/bờ Tây",
-        "Ngày 2 chọn Safari hoặc VinWonders rồi Grand World",
-        "Ngày 3 biển An Thới/Hòn Thơm; ngày 4-5 dành cho nghề, lịch sử và ngày trống"
-      ]
+      "group": "Món bình dân",
+      "items": "Bún quậy, bún kèn",
+      "note": "Dễ ăn, phản ánh nhịp quán địa phương; mỗi quán có cách làm riêng."
+    },
+    {
+      "group": "Mang về",
+      "items": "Nước mắm, hồ tiêu, sim, hải sản khô",
+      "note": "Xem nguồn gốc, đóng gói và quy định hành lý nếu đi máy bay."
+    },
+    {
+      "group": "Quà lưu niệm",
+      "items": "Ngọc trai",
+      "note": "Nên mua ở nơi có thông tin sản phẩm và chính sách rõ ràng."
+    }
+  ],
+  "itineraries": [
+    {
+      "name": "3 ngày 2 đêm · gia đình có trẻ",
+      "days": [
+        "Ngày 1 · Trung tâm: nhận phòng, Dinh Cậu, chợ đêm",
+        "Ngày 2 · Nam đảo: Bãi Sao, cáp treo hoặc trải nghiệm biển",
+        "Ngày 3 · Bắc đảo: chọn Safari hoặc VinWonders, không ôm cả hai"
+      ],
+      "note": "Giữ mỗi ngày một trục, chừa giờ nghỉ và thời gian di chuyển cho trẻ."
+    },
+    {
+      "name": "4 ngày 3 đêm · honeymoon",
+      "days": [
+        "Ngày 1 · Check-in, nghỉ phòng/spa, hoàng hôn",
+        "Ngày 2 · Hòn Thơm + Sunset Town + 1 show",
+        "Ngày 3-4 · Resort + một trải nghiệm riêng"
+      ],
+      "note": "Honeymoon đẹp nhất khi lịch còn khoảng trống."
+    },
+    {
+      "name": "5 ngày 4 đêm · đi sâu hơn một lớp",
+      "days": [
+        "Ngày 1-2 · Làm quen trung tâm + một ngày Bắc đảo",
+        "Ngày 3 · Biển An Thới / Hòn Thơm theo thời tiết",
+        "Ngày 4-5 · Nghề đảo, lịch sử và một ngày chậm"
+      ],
+      "note": "Một lịch trình tốt luôn có quyền bỏ bớt."
     }
   ]
 }
