@@ -37,8 +37,19 @@
 
   <main id="top">
     <section class="hero">
-      <div class="hero-media">
-        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kem%20Beach%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=2000" alt="Biển xanh và bãi biển Phú Quốc">
+      <div class="hero-slides" aria-live="polite">
+        <figure class="hero-slide is-active" data-label="BIỂN XANH NAM ĐẢO">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kem%20Beach%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=2000" alt="Biển xanh và bãi biển Phú Quốc">
+        </figure>
+        <figure class="hero-slide" data-label="AN THỚI LÊN ĐÈN">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=2000" alt="An Thới và Sunset Town">
+        </figure>
+        <figure class="hero-slide" data-label="NHÌN ĐẢO TỪ TRÊN CAO">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20aerial%20view.jpg?width=2000" alt="Toàn cảnh Phú Quốc từ trên cao">
+        </figure>
+        <figure class="hero-slide" data-label="NHỊP SỐNG VEN BIỂN">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1800" alt="Ghe tàu ven biển Phú Quốc">
+        </figure>
       </div>
       <div class="hero-shade"></div>
 
@@ -55,7 +66,24 @@
         </form>
       </div>
 
-      <p class="hero-credit">Bãi Kem, Phú Quốc · ảnh dùng thử</p>
+      <div class="hero-scene">
+        <span class="hero-scene-count">01 / 04</span>
+        <strong class="hero-scene-label">BIỂN XANH NAM ĐẢO</strong>
+      </div>
+
+      <div class="hero-controls" aria-label="Chuyển ảnh đầu trang">
+        <button class="hero-prev" type="button" aria-label="Ảnh trước">←</button>
+        <div class="hero-dots" role="tablist" aria-label="Ảnh đầu trang">
+          <button class="is-active" type="button" aria-label="Ảnh 1" aria-selected="true"></button>
+          <button type="button" aria-label="Ảnh 2" aria-selected="false"></button>
+          <button type="button" aria-label="Ảnh 3" aria-selected="false"></button>
+          <button type="button" aria-label="Ảnh 4" aria-selected="false"></button>
+        </div>
+        <button class="hero-next" type="button" aria-label="Ảnh tiếp theo">→</button>
+      </div>
+
+      <div class="hero-progress" aria-hidden="true"><span></span></div>
+      <p class="hero-credit">Ảnh dùng thử · Wikimedia Commons</p>
     </section>
 
     <section class="live-strip" id="today" aria-label="Trạng thái đảo trực tiếp">
