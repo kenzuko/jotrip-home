@@ -6,7 +6,7 @@ const dockSearch = document.querySelector('.dock-search');
 const headerSearch = document.querySelector('.header-search');
 const toast = document.querySelector('.toast');
 const filterChips = document.querySelectorAll('.filter-chips button');
-const energyTargets = document.querySelectorAll('.live-strip, .section, .colour-band');
+const energyTargets = document.querySelectorAll('.live-strip, .section, .colour-band, .heritage-section');
 
 let toastTimer;
 
@@ -55,9 +55,11 @@ filterChips.forEach((chip) => {
   });
 });
 
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.body.classList.add('motion-on');
+if (prefersReducedMotion) document.body.classList.add('motion-reduced');
 
-if (!reduceMotion && 'IntersectionObserver' in window) {
+if ('IntersectionObserver' in window) {
   document.body.classList.add('motion-ready');
   energyTargets.forEach((target) => target.classList.add('energy-target'));
 
@@ -124,21 +126,6 @@ swipeRails.forEach((rail) => {
   window.addEventListener('resize', refresh, { passive: true });
 });
 
-if (!reduceMotion) {
-  const heroImage = document.querySelector('.hero-media img');
-  let parallaxFrame = 0;
-
-  window.addEventListener('scroll', () => {
-    if (!heroImage || parallaxFrame) return;
-    parallaxFrame = requestAnimationFrame(() => {
-      parallaxFrame = 0;
-      const y = Math.min(window.scrollY * 0.055, 24);
-      heroImage.style.translate = `0 ${y}px`;
-    });
-  }, { passive: true });
-}
-
-
 /* Hero slideshow */
 const hero = document.querySelector('.hero');
 const heroSlides = [...document.querySelectorAll('.hero-slide')];
@@ -153,10 +140,10 @@ let heroIndex = 0;
 let heroTimer = null;
 let touchStartX = 0;
 let touchStartY = 0;
-const HERO_DELAY = 4500;
+const HERO_DELAY = 3000;
 
 function restartHeroProgress() {
-  if (!heroProgress || reduceMotion) return;
+  if (!heroProgress) return;
   heroProgress.classList.remove('is-running');
   void heroProgress.offsetWidth;
   heroProgress.classList.add('is-running');
@@ -197,7 +184,7 @@ function stopHeroAutoplay() {
 }
 
 function startHeroAutoplay() {
-  if (reduceMotion || heroSlides.length < 2) return;
+  if (heroSlides.length < 2) return;
   stopHeroAutoplay();
   heroTimer = setInterval(() => showHeroSlide(heroIndex + 1), HERO_DELAY);
   restartHeroProgress();
@@ -244,7 +231,7 @@ startHeroAutoplay();
 /* One-time swipe affordance for mobile discovery rails */
 const discoveryRails = document.querySelectorAll('.must-rail, .heritage-rail, .area-scroll, .food-picks, .essential-grid');
 
-if (!reduceMotion && 'IntersectionObserver' in window && window.matchMedia('(max-width: 760px)').matches) {
+if ('IntersectionObserver' in window && window.matchMedia('(max-width: 760px)').matches) {
   const peekObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
