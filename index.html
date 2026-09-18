@@ -10,21 +10,6 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <svg class="svg-filters" aria-hidden="true" focusable="false">
-    <defs>
-      <filter id="logo-cutout" color-interpolation-filters="sRGB">
-        <feColorMatrix type="matrix"
-          values="1 0 0 0 0
-                  0 1 0 0 0
-                  0 0 1 0 0
-                 -.333 -.333 -.333 0 1" />
-        <feComponentTransfer>
-          <feFuncA type="linear" slope="5" intercept="-.15"/>
-        </feComponentTransfer>
-      </filter>
-    </defs>
-  </svg>
-
   <div class="demo-ribbon">
     <strong>DEMO</strong>
     <span>Sample data for product testing - not live operational information.</span>
@@ -32,9 +17,7 @@
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Open Phu Quoc home">
-      <svg class="brand-logo" viewBox="0 0 285 91" role="img" aria-label="Open Phu Quoc">
-        <image href="assets/logo-master.png" x="0" y="0" width="285" height="91" filter="url(#logo-cutout)"/>
-      </svg>
+      <img class="brand-logo" src="assets/logo-master.png" alt="Open Phu Quoc">
     </a>
 
     <nav class="desktop-nav" id="primary-nav" aria-label="Primary">
@@ -86,27 +69,6 @@
       </div>
 
       <p class="hero-credit">Bai Kem, Phu Quoc · Vivu Vietnam / CC BY-SA 4.0</p>
-    </section>
-
-    <section class="app-launcher section" id="apps">
-      <div class="launcher-head">
-        <div>
-          <p class="eyebrow">QUICK ACCESS</p>
-          <h2>Open what you need.</h2>
-        </div>
-        <span class="free-label">FREE PUBLIC TOOLS</span>
-      </div>
-
-      <div class="app-grid">
-        <a href="#today" class="app-tile aqua"><span class="app-icon">☀</span><strong>Today</strong><small>Island status now</small><em>LIVE</em></a>
-        <a href="#" class="app-tile blue"><span class="app-icon">≈</span><strong>Weather & Sea</strong><small>Rain, wind, waves</small><em>LIVE</em></a>
-        <a href="#airport" class="app-tile coral"><span class="app-icon">✈</span><strong>Airport</strong><small>Flights & delays</small><em>LIVE</em></a>
-        <a href="#move" class="app-tile mint"><span class="app-icon">▣</span><strong>Transport</strong><small>Bus, shuttle, routes</small><em>OPEN</em></a>
-        <a href="#" class="app-tile yellow"><span class="app-icon">⛴</span><strong>Ferry</strong><small>Ports & schedules</small><em>LIVE</em></a>
-        <a href="#explore" class="app-tile blue"><span class="app-icon">⌖</span><strong>Places</strong><small>Beaches & local spots</small><em>EXPLORE</em></a>
-        <a href="#" class="app-tile coral"><span class="app-icon">○</span><strong>Events</strong><small>What is on today</small><em>TODAY</em></a>
-        <a href="#" class="app-tile emergency"><span class="app-icon">+</span><strong>Emergency</strong><small>Useful help & numbers</small><em>HELP</em></a>
-      </div>
     </section>
 
     <section class="section today-section" id="today">
@@ -273,6 +235,23 @@
       </div>
     </section>
 
+    <section class="tool-directory section" id="tools">
+      <div class="tool-directory-head">
+        <div>
+          <p class="eyebrow">ALL TOOLS</p>
+          <h2>Need something else?</h2>
+        </div>
+      </div>
+      <div class="tool-links">
+        <a href="#"><span>≈</span><strong>Weather & Sea</strong><small>Forecast, rain, wind, waves</small></a>
+        <a href="#airport"><span>✈</span><strong>Airport</strong><small>Live flights and delays</small></a>
+        <a href="#"><span>⛴</span><strong>Ferry</strong><small>Ports, schedules, status</small></a>
+        <a href="#move"><span>▣</span><strong>Bus & Shuttle</strong><small>Routes and service info</small></a>
+        <a href="#"><span>○</span><strong>Events</strong><small>What is happening today</small></a>
+        <a href="#"><span>+</span><strong>Emergency</strong><small>Help and useful numbers</small></a>
+      </div>
+    </section>
+
     <section class="section explore-section" id="explore">
       <div class="section-head">
         <div>
@@ -322,9 +301,7 @@
 
   <footer class="site-footer">
     <div class="footer-brand">
-      <svg class="brand-logo footer-logo" viewBox="0 0 285 91" role="img" aria-label="Open Phu Quoc">
-        <image href="assets/logo-master.png" x="0" y="0" width="285" height="91" filter="url(#logo-cutout)"/>
-      </svg>
+      <img class="brand-logo footer-logo" src="assets/logo-master.png" alt="Open Phu Quoc">
       <p>Free practical information for Phu Quoc.<br>Maintained by JoTrip.</p>
     </div>
     <nav class="footer-links">
@@ -338,7 +315,7 @@
     <a href="#today"><span>◉</span>Live</a>
     <button type="button" class="dock-search"><span>⌕</span>Search</button>
     <a href="#move"><span>▣</span>Move</a>
-    <a href="#apps"><span>•••</span>More</a>
+    <a href="#tools"><span>•••</span>More</a>
   </nav>
 
   <div class="toast" role="status" aria-live="polite"></div>
