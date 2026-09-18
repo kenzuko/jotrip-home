@@ -12,7 +12,7 @@
 <body>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Open Phu Quoc home">
-      <img src="assets/logo.svg" alt="Open Phu Quoc">
+      <img src="assets/logo-master.png" alt="Open Phu Quoc">
     </a>
 
     <nav class="desktop-nav" id="primary-nav" aria-label="Primary">
@@ -29,7 +29,7 @@
   </header>
 
   <main id="top">
-    <section class="hero">
+    <section class="hero reveal">
       <div class="hero-copy">
         <p class="eyebrow">FREE · LOCAL · UPDATED</p>
         <h1>Everything you need for Phu Quoc.</h1>
@@ -51,13 +51,21 @@
         </div>
       </div>
 
-      <aside class="hero-art" aria-label="Open Phu Quoc local visual language">
-        <img src="assets/hero-local.svg" alt="Minimal artwork inspired by Phu Quoc fishing-boat eyes and a Melo pearl">
-        <p><strong>Quiet localism.</strong> Local material, kept subtle so information stays first.</p>
-      </aside>
+      <figure class="hero-photo" data-parallax>
+        <img
+          src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1400"
+          alt="Fishing boat near Phu Quoc harbour"
+          loading="eager">
+        <div class="hero-photo-shade"></div>
+        <div class="hero-photo-badge">
+          <span class="badge-pearl"></span>
+          <div><strong>From the island</strong><small>Real places · real local context</small></div>
+        </div>
+        <figcaption>Fishing boat near Phu Quoc harbour · CC0</figcaption>
+      </figure>
     </section>
 
-    <section class="quick-links" aria-label="Quick links">
+    <section class="quick-links reveal" aria-label="Quick links">
       <a href="#today"><span class="quick-icon">◉</span><strong>Today</strong><small>What matters now</small></a>
       <a href="#"><span class="quick-icon">✈</span><strong>Airport</strong><small>Live flights</small></a>
       <a href="#"><span class="quick-icon">≈</span><strong>Weather & Sea</strong><small>Conditions</small></a>
@@ -68,7 +76,7 @@
       <a href="#"><span class="quick-icon">○</span><strong>Events</strong><small>What's on</small></a>
     </section>
 
-    <section class="section" id="today">
+    <section class="section reveal" id="today">
       <div class="section-head">
         <div>
           <p class="eyebrow">PHU QUOC TODAY</p>
@@ -127,6 +135,7 @@
           <p class="eyebrow">WATCH</p>
           <h3>Nothing important should hide in a dashboard.</h3>
           <p>When live feeds are connected, disruptions and meaningful changes will surface here first.</p>
+          <div class="sea-line" aria-hidden="true"><i></i><i></i><i></i></div>
         </article>
 
         <article class="local-note" id="local">
@@ -137,7 +146,7 @@
       </div>
     </section>
 
-    <section class="section transport-section" id="getting-around">
+    <section class="section transport-section reveal" id="getting-around">
       <div class="section-head">
         <div>
           <p class="eyebrow">GETTING AROUND</p>
@@ -178,7 +187,7 @@
       </div>
     </section>
 
-    <section class="section" id="explore">
+    <section class="section reveal" id="explore">
       <div class="section-head">
         <div>
           <p class="eyebrow">EXPLORE PHU QUOC</p>
@@ -188,26 +197,26 @@
       </div>
 
       <div class="explore-grid">
-        <article class="editorial-card sea">
+        <article class="editorial-card photo-beach">
           <span class="card-number">01</span>
           <div><p>Beaches</p><strong>Choose by coast, season and mood.</strong></div>
         </article>
-        <article class="editorial-card north">
+        <article class="editorial-card photo-boats">
           <span class="card-number">02</span>
-          <div><p>North Island</p><strong>Forest, fishing villages and long roads.</strong></div>
+          <div><p>Fishing & Coast</p><strong>Working harbours, boats and island life.</strong></div>
         </article>
-        <article class="editorial-card south">
+        <article class="editorial-card photo-sunset-town">
           <span class="card-number">03</span>
-          <div><p>South Island</p><strong>Islands, cable car and coastal towns.</strong></div>
+          <div><p>South Island</p><strong>Sunset Town, cable car and coastal stops.</strong></div>
         </article>
-        <article class="editorial-card local">
+        <article class="editorial-card photo-sunset">
           <span class="card-number">04</span>
-          <div><p>Local Life</p><strong>Fish sauce, pepper, markets and island stories.</strong></div>
+          <div><p>Local Rhythm</p><strong>Sunset, markets and slower island hours.</strong></div>
         </article>
       </div>
     </section>
 
-    <section class="material-band" aria-label="Open Phu Quoc local identity">
+    <section class="material-band reveal" aria-label="Open Phu Quoc local identity">
       <div class="material-mark" aria-hidden="true">
         <span class="pearl"></span>
       </div>
@@ -218,7 +227,7 @@
       </div>
     </section>
 
-    <section class="section" id="guide">
+    <section class="section reveal" id="guide">
       <div class="section-head">
         <div>
           <p class="eyebrow">THE OPEN GUIDE</p>
@@ -246,7 +255,7 @@
 
   <footer class="site-footer">
     <div>
-      <img src="assets/logo.svg" alt="Open Phu Quoc">
+      <img src="assets/logo-master.png" alt="Open Phu Quoc">
       <p>Free information for Phu Quoc.<br>Maintained by JoTrip.</p>
     </div>
     <nav aria-label="Footer">
@@ -255,6 +264,7 @@
       <a href="#">Report an Update</a>
       <a href="#">Contact</a>
     </nav>
+    <p class="photo-credit">Photo sources: Wikimedia Commons · Fishing boat Phu Quoc - Elmschrat, CC0 · Phu quoc beach - public domain · Boats PhuQuoc - Plicata, public domain · Sunset-town - Vivu Vietnam, CC BY-SA 4.0.</p>
     <p class="footer-note">Local roots · real stories · open information.</p>
   </footer>
 
