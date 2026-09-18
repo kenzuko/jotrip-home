@@ -1,0 +1,308 @@
+/* V1.1 - photography + motion layer */
+
+.brand img,
+.site-footer img{
+  mix-blend-mode:multiply;
+  object-fit:contain;
+}
+
+.hero-photo{
+  position:relative;
+  min-height:410px;
+  margin:0;
+  overflow:hidden;
+  border-radius:30px;
+  border:1px solid rgba(18,61,59,.09);
+  box-shadow:0 24px 56px rgba(18,61,59,.12);
+  background:#d6e5df;
+}
+
+.hero-photo>img{
+  position:absolute;
+  inset:-3%;
+  width:106%;
+  height:106%;
+  object-fit:cover;
+  transform:scale(1.025);
+  transition:transform 1.4s cubic-bezier(.2,.7,.2,1);
+  will-change:transform;
+}
+
+.hero-photo.is-visible>img{
+  transform:scale(1);
+}
+
+.hero-photo-shade{
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(180deg,rgba(18,61,59,.02) 25%,rgba(18,61,59,.66) 100%),
+    linear-gradient(90deg,rgba(18,61,59,.14),transparent 48%);
+}
+
+.hero-photo-badge{
+  position:absolute;
+  left:20px;
+  bottom:28px;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  max-width:280px;
+  padding:12px 14px;
+  color:#fff;
+  background:rgba(15,49,47,.58);
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:15px;
+  backdrop-filter:blur(12px);
+  animation:badgeFloat 6s ease-in-out infinite;
+}
+
+.badge-pearl{
+  flex:0 0 auto;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+  background:#D85B3F;
+  box-shadow:inset 5px 5px 0 rgba(242,235,221,.32);
+}
+
+.hero-photo-badge strong,
+.hero-photo-badge small{
+  display:block;
+}
+
+.hero-photo-badge strong{
+  font-size:12px;
+}
+
+.hero-photo-badge small{
+  margin-top:3px;
+  font-size:9px;
+  color:rgba(255,255,255,.78);
+}
+
+.hero-photo figcaption{
+  position:absolute;
+  right:14px;
+  bottom:9px;
+  z-index:2;
+  color:rgba(255,255,255,.68);
+  font-size:8px;
+}
+
+.status-card,
+.utility-card,
+.guide-card{
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.status-card:hover,
+.utility-card:hover,
+.guide-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 34px rgba(18,61,59,.09);
+  border-color:rgba(18,61,59,.15);
+}
+
+.live-dot{
+  animation:livePulse 2.1s ease-out infinite;
+}
+
+.watch-card{
+  position:relative;
+  overflow:hidden;
+}
+
+.sea-line{
+  position:absolute;
+  left:28px;
+  right:28px;
+  bottom:20px;
+  height:22px;
+  overflow:hidden;
+  opacity:.45;
+}
+
+.sea-line i{
+  position:absolute;
+  left:-10%;
+  width:120%;
+  height:12px;
+  border:1px solid rgba(255,255,255,.72);
+  border-color:rgba(255,255,255,.72) transparent transparent transparent;
+  border-radius:50%;
+  animation:seaDrift 8s linear infinite;
+}
+
+.sea-line i:nth-child(2){
+  top:6px;
+  animation-duration:11s;
+  animation-direction:reverse;
+  opacity:.68;
+}
+
+.sea-line i:nth-child(3){
+  top:12px;
+  animation-duration:14s;
+  opacity:.38;
+}
+
+/* Real Phu Quoc photography - Wikimedia Commons */
+.editorial-card{
+  background-size:cover!important;
+  background-position:center!important;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+
+.editorial-card:before{
+  background:
+    linear-gradient(180deg,rgba(10,34,33,.05) 18%,rgba(10,34,33,.78) 100%),
+    radial-gradient(circle at 78% 14%,rgba(255,255,255,.12),transparent 8rem)!important;
+}
+
+.editorial-card:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background:linear-gradient(120deg,transparent 35%,rgba(216,91,63,.10));
+  opacity:0;
+  transition:opacity .25s ease;
+}
+
+.editorial-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 18px 38px rgba(18,61,59,.13);
+}
+
+.editorial-card:hover:after{
+  opacity:1;
+}
+
+.photo-beach{
+  background-image:url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20quoc%20beach.JPG?width=1200")!important;
+}
+
+.photo-boats{
+  background-image:url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1200")!important;
+}
+
+.photo-sunset-town{
+  background-image:url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset-town.jpg?width=1200")!important;
+}
+
+.photo-sunset{
+  background-image:url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1200")!important;
+  background-position:58% center!important;
+}
+
+/* Scroll reveal */
+.reveal{
+  opacity:0;
+  transform:translateY(18px);
+  transition:
+    opacity .72s cubic-bezier(.2,.7,.2,1),
+    transform .72s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+.quick-links.reveal{
+  transition-delay:.05s;
+}
+
+.editorial-card:nth-child(2){transition-delay:.04s}
+.editorial-card:nth-child(3){transition-delay:.08s}
+.editorial-card:nth-child(4){transition-delay:.12s}
+
+@keyframes livePulse{
+  0%{box-shadow:0 0 0 0 rgba(216,91,63,.25)}
+  70%{box-shadow:0 0 0 9px rgba(216,91,63,0)}
+  100%{box-shadow:0 0 0 0 rgba(216,91,63,0)}
+}
+
+@keyframes badgeFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+
+@keyframes seaDrift{
+  from{transform:translateX(-2%)}
+  to{transform:translateX(2%)}
+}
+
+.photo-credit{
+  grid-column:1/-1;
+  margin:0;
+  font-size:9px;
+  line-height:1.5;
+  color:#7b8582;
+}
+
+@media(max-width:1050px){
+  .hero-photo{
+    max-width:760px;
+    min-height:360px;
+  }
+}
+
+@media(max-width:720px){
+  .brand img{
+    width:156px!important;
+  }
+
+  .hero-photo{
+    min-height:230px;
+    border-radius:20px;
+  }
+
+  .hero-photo-badge{
+    left:12px;
+    bottom:20px;
+    padding:9px 10px;
+    border-radius:12px;
+  }
+
+  .hero-photo-badge strong{
+    font-size:10px;
+  }
+
+  .hero-photo-badge small{
+    font-size:8px;
+  }
+
+  .hero-photo figcaption{
+    display:none;
+  }
+
+  .editorial-card{
+    min-height:245px!important;
+  }
+
+  .reveal{
+    transform:translateY(12px);
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{
+    opacity:1;
+    transform:none;
+  }
+
+  .hero-photo>img,
+  .hero-photo-badge,
+  .live-dot,
+  .sea-line i{
+    animation:none!important;
+    transition:none!important;
+  }
+}
