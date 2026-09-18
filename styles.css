@@ -2366,3 +2366,73 @@ body{
     animation-duration:3s!important;
   }
 }
+
+
+/* V2.11 - iOS motion override and stronger visible transitions */
+.motion-on.motion-ready .energy-target{
+  opacity:0!important;
+  transform:translateY(34px) scale(.985)!important;
+}
+
+.motion-on.motion-ready .energy-target.in-view{
+  opacity:1!important;
+  transform:none!important;
+}
+
+.motion-on.motion-ready .energy-target .feature-story,
+.motion-on.motion-ready .energy-target .happening-row,
+.motion-on.motion-ready .energy-target .visual-card,
+.motion-on.motion-ready .energy-target .must-card,
+.motion-on.motion-ready .energy-target .area-card,
+.motion-on.motion-ready .energy-target .food-feature,
+.motion-on.motion-ready .energy-target .food-pick,
+.motion-on.motion-ready .energy-target .essential-grid a,
+.motion-on.motion-ready .energy-target .heritage-card,
+.motion-on.motion-ready .energy-target .guide-card{
+  opacity:0!important;
+  transform:translateY(26px) scale(.975)!important;
+}
+
+.motion-on.motion-ready .energy-target.in-view .feature-story,
+.motion-on.motion-ready .energy-target.in-view .happening-row,
+.motion-on.motion-ready .energy-target.in-view .visual-card,
+.motion-on.motion-ready .energy-target.in-view .must-card,
+.motion-on.motion-ready .energy-target.in-view .area-card,
+.motion-on.motion-ready .energy-target.in-view .food-feature,
+.motion-on.motion-ready .energy-target.in-view .food-pick,
+.motion-on.motion-ready .energy-target.in-view .essential-grid a,
+.motion-on.motion-ready .energy-target.in-view .heritage-card,
+.motion-on.motion-ready .energy-target.in-view .guide-card{
+  opacity:1!important;
+  transform:none!important;
+}
+
+.motion-on .hero-progress.is-running span{
+  animation-duration:2.8s!important;
+}
+
+.motion-on .hero-slide{
+  transition-duration:.52s,2.8s!important;
+}
+
+.motion-on .hero-slide.is-active img{
+  animation-duration:2.8s!important;
+}
+
+.motion-on .ticker-track{
+  animation-duration:16s!important;
+}
+
+.motion-on .live-dot{
+  animation:pulse 1.2s infinite!important;
+}
+
+@media(max-width:760px){
+  .motion-on.motion-ready .energy-target{
+    transform:translateY(26px) scale(.988)!important;
+  }
+
+  .motion-on .rail-peek{
+    animation-duration:1.25s!important;
+  }
+}
