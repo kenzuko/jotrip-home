@@ -1,0 +1,86 @@
+{
+  "version": "1.0",
+  "modules": [
+    {
+      "id": "home",
+      "label": "Trang chủ",
+      "description": "Headline và nhịp nội dung homepage",
+      "path": "data/home-copy.json",
+      "preview": "../",
+      "read": [
+        "admin",
+        "editor",
+        "operator",
+        "viewer"
+      ],
+      "write": [
+        "admin",
+        "editor"
+      ]
+    },
+    {
+      "id": "stories",
+      "label": "Bài viết",
+      "description": "Editorial / local stories",
+      "path": "data/content.json",
+      "preview": "../stories/",
+      "read": [
+        "admin",
+        "editor",
+        "operator",
+        "viewer"
+      ],
+      "write": [
+        "admin",
+        "editor"
+      ]
+    },
+    {
+      "id": "guide",
+      "label": "Cẩm nang",
+      "description": "Nội dung từ sổ tay Phú Quốc",
+      "path": "guide/data.json",
+      "preview": "../guide/",
+      "read": [
+        "admin",
+        "editor",
+        "operator",
+        "viewer"
+      ],
+      "write": [
+        "admin",
+        "editor"
+      ]
+    },
+    {
+      "id": "utilities",
+      "label": "Tiện ích",
+      "description": "Hotline, giá tham khảo, di chuyển, checklist",
+      "path": "data/utilities.json",
+      "preview": "../utilities/",
+      "read": [
+        "admin",
+        "editor",
+        "operator",
+        "viewer"
+      ],
+      "write": [
+        "admin",
+        "operator"
+      ]
+    },
+    {
+      "id": "users",
+      "label": "Người dùng",
+      "description": "Phân quyền CMS",
+      "path": "cms/users.json",
+      "preview": null,
+      "read": [
+        "admin"
+      ],
+      "write": [
+        "admin"
+      ]
+    }
+  ]
+}
