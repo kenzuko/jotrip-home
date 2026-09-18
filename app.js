@@ -254,3 +254,25 @@ if ('IntersectionObserver' in window && window.matchMedia('(max-width: 760px)').
 
   discoveryRails.forEach((rail) => peekObserver.observe(rail));
 }
+
+
+/* Approved mobile tab behaviour */
+const mobileTabs = [...document.querySelectorAll('.mobile-dock [data-tab]')];
+
+function setActiveMobileTab(tabName) {
+  mobileTabs.forEach((item) => {
+    item.classList.toggle('active', item.dataset.tab === tabName);
+  });
+}
+
+mobileTabs.forEach((item) => {
+  item.addEventListener('click', () => {
+    const tab = item.dataset.tab;
+    if (tab && tab !== 'search') setActiveMobileTab(tab);
+  });
+});
+
+dockSearch?.addEventListener('click', () => {
+  setActiveMobileTab('search');
+  setTimeout(() => setActiveMobileTab('home'), 900);
+});
