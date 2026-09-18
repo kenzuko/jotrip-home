@@ -4,7 +4,15 @@ const OUT = new URL('../../data/utilities.json', import.meta.url);
 const official = {
   phuquoc: 'https://phuquoc.angiang.gov.vn/trang-chu',
   airport: 'https://acv.vn/phuquocairport/vi/tin-tuc/tin-tuc/thong-bao-so-31-tbpqia-ve-viec-ap-dung-thu-gia-dich-vu-dung-do-o-to-de-don-tra-hanh-khach',
-  lost: 'https://acv.vn/phuquocairport/vi/tin-tuc/hanh-ly-that-lac/hanh-ly-that-lac'
+  lost: 'https://acv.vn/phuquocairport/vi/tin-tuc/hanh-ly-that-lac/hanh-ly-that-lac',
+  directory: {
+    superdong: 'https://online.superdong.com.vn/Home/Contact',
+    pqexpress: 'https://phuquocexpress.com/',
+    thanhthoi: 'https://thanhthoi.vn/',
+    vinwonders: 'https://vinwonders.com/en/contact/',
+    sunworld: 'https://sunworld.vn/vi/hon-thom',
+    vinmec: 'https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital'
+  }
 };
 
 async function get(url) {
@@ -47,7 +55,24 @@ try {
   if(m) current.phu_quoc=current.phu_quoc.map(x=>x.id==='pqc-lost'?{...x,phone:'0963 975 644',last_checked:new Date().toISOString()}:x);
 } catch(e){ errors.push(String(e)); }
 
+for (const item of current.directory || []) {
+  const url = official.directory[item.id === 'vinmec-er' ? 'vinmec' : item.id];
+  if (!url) continue;
+  try {
+    const html = await get(url);
+    const expected = String(item.phone || '').replace(/\D/g,'');
+    const normalized = html.replace(/\D/g,'');
+    item.verified = expected ? normalized.includes(expected) : false;
+    item.checked_at = new Date().toISOString();
+    item.source = url;
+  } catch(e) {
+    errors.push(String(e));
+    item.verified = false;
+    item.checked_at = new Date().toISOString();
+  }
+}
+
 current.generated_at=new Date().toISOString();
-current.sync={status:errors.length?'PARTIAL':'OK',errors,source_count:3};
+current.sync={status:errors.length?'PARTIAL':'OK',errors,source_count:3+Object.keys(official.directory).length,note:'Open AutoSync checks official public pages and flags entries when the published number can no longer be found.'};
 await fs.writeFile(OUT,JSON.stringify(current,null,2)+'\n');
 console.log(JSON.stringify({status:current.sync.status,errors},null,2));
