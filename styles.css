@@ -1894,3 +1894,279 @@ body{
     opacity:1!important;
   }
 }
+
+
+/* V2.8 - visible motion system */
+.hero-slides{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+}
+
+.hero-slide{
+  position:absolute;
+  inset:0;
+  margin:0;
+  opacity:0;
+  transform:scale(1.07);
+  transition:
+    opacity 1.05s ease,
+    transform 6.5s cubic-bezier(.2,.65,.2,1);
+  pointer-events:none;
+}
+
+.hero-slide.is-active{
+  opacity:1;
+  transform:scale(1);
+}
+
+.hero-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 54%;
+  filter:saturate(1.18) brightness(1.06) contrast(1.035);
+}
+
+.hero-scene{
+  position:absolute;
+  left:clamp(22px,6vw,92px);
+  bottom:23px;
+  z-index:4;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+}
+
+.hero-scene-count{
+  padding:6px 8px;
+  border:1px solid rgba(255,255,255,.26);
+  border-radius:999px;
+  background:rgba(7,44,41,.22);
+  backdrop-filter:blur(8px);
+  font-size:7px;
+  letter-spacing:.13em;
+  font-weight:900;
+}
+
+.hero-scene-label{
+  font-size:8px;
+  letter-spacing:.15em;
+  font-weight:850;
+  text-shadow:0 1px 8px rgba(0,0,0,.24);
+}
+
+.hero-controls{
+  position:absolute;
+  right:clamp(18px,4vw,55px);
+  bottom:19px;
+  z-index:5;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+
+.hero-prev,
+.hero-next{
+  width:38px;
+  height:38px;
+  border:1px solid rgba(255,255,255,.34);
+  border-radius:50%;
+  background:rgba(6,45,42,.30);
+  color:#fff;
+  backdrop-filter:blur(8px);
+  cursor:pointer;
+  transition:transform .16s ease,background .16s ease;
+}
+
+.hero-prev:hover,
+.hero-next:hover{
+  transform:scale(1.07);
+  background:rgba(6,45,42,.48);
+}
+
+.hero-dots{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 9px;
+  border-radius:999px;
+  background:rgba(6,45,42,.25);
+  backdrop-filter:blur(8px);
+}
+
+.hero-dots button{
+  width:7px;
+  height:7px;
+  padding:0;
+  border:0;
+  border-radius:999px;
+  background:rgba(255,255,255,.46);
+  cursor:pointer;
+  transition:width .22s ease,background .22s ease;
+}
+
+.hero-dots button.is-active{
+  width:23px;
+  background:#fff;
+}
+
+.hero-progress{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:6;
+  height:3px;
+  overflow:hidden;
+  background:rgba(255,255,255,.18);
+}
+
+.hero-progress span{
+  display:block;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,var(--sun),var(--coral));
+  transform:scaleX(0);
+  transform-origin:left center;
+}
+
+.hero-progress.is-running span{
+  animation:heroProgress 6.2s linear forwards;
+}
+
+/* Clearer, visible scroll entrances */
+.motion-ready .energy-target{
+  opacity:0;
+  transform:translateY(34px) scale(.985);
+}
+
+.energy-target{
+  transition:
+    opacity .72s ease,
+    transform .72s cubic-bezier(.18,.76,.22,1);
+}
+
+.motion-ready .energy-target.in-view{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.motion-ready .section-heading{
+  transition:transform .7s cubic-bezier(.18,.76,.22,1),opacity .7s ease;
+}
+
+.motion-ready .energy-target:not(.in-view) .section-heading{
+  opacity:0;
+  transform:translateX(-22px);
+}
+
+.motion-ready .energy-target.in-view .section-heading{
+  opacity:1;
+  transform:none;
+}
+
+/* Give horizontal rails a one-time hint that they can move */
+.rail-peek{
+  animation:railPeek 1.05s cubic-bezier(.2,.72,.25,1);
+}
+
+/* Slight ongoing life in key cards */
+.live-dot{
+  animation:pulse 1.6s infinite;
+}
+
+.happening-row em.ok{
+  position:relative;
+  overflow:hidden;
+}
+
+.happening-row em.ok::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(110deg,transparent 20%,rgba(255,255,255,.62) 48%,transparent 74%);
+  transform:translateX(-120%);
+  animation:statusShine 4.8s ease-in-out infinite;
+}
+
+@keyframes heroProgress{
+  from{transform:scaleX(0)}
+  to{transform:scaleX(1)}
+}
+
+@keyframes railPeek{
+  0%{transform:translateX(0)}
+  42%{transform:translateX(-28px)}
+  72%{transform:translateX(8px)}
+  100%{transform:translateX(0)}
+}
+
+@keyframes statusShine{
+  0%,68%{transform:translateX(-120%)}
+  82%,100%{transform:translateX(120%)}
+}
+
+@media(max-width:760px){
+  .hero-slide img{
+    object-position:58% center;
+  }
+
+  .hero-scene{
+    left:14px;
+    bottom:17px;
+    right:132px;
+    gap:7px;
+  }
+
+  .hero-scene-label{
+    max-width:160px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+  }
+
+  .hero-controls{
+    right:11px;
+    bottom:12px;
+    gap:5px;
+  }
+
+  .hero-prev,
+  .hero-next{
+    width:35px;
+    height:35px;
+  }
+
+  .hero-dots{
+    gap:4px;
+    padding:6px 7px;
+  }
+
+  .hero-dots button{
+    width:6px;
+    height:6px;
+  }
+
+  .hero-dots button.is-active{
+    width:17px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-slide{
+    transition:opacity .35s ease!important;
+    transform:none!important;
+  }
+
+  .hero-progress{
+    display:none!important;
+  }
+
+  .rail-peek,
+  .happening-row em.ok::after{
+    animation:none!important;
+  }
+}
