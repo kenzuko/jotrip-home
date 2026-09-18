@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "updated": "2026-09-18",
+  "hero": {
+    "kicker": "PHÚ QUỐC · NGAY LÚC NÀY",
+    "title": "Phú Quốc, ngay lúc này.",
+    "lead": "Xem đảo đang thế nào, chọn việc đáng làm và đi tiếp bằng thông tin thực dụng."
+  },
+  "sections": {
+    "happening": {
+      "eyebrow": "CÓ GÌ HÔM NAY",
+      "title": "Phú Quốc hôm nay & tối nay."
+    },
+    "things": {
+      "eyebrow": "HÔM NAY ĐI ĐÂU",
+      "title": "Chọn một Phú Quốc hợp với hôm nay."
+    },
+    "must": {
+      "eyebrow": "KHÔNG NÊN BỎ LỠ",
+      "title": "Nếu chỉ có vài ngày ở đảo."
+    },
+    "areas": {
+      "eyebrow": "KHÁM PHÁ THEO KHU VỰC",
+      "title": "Mỗi khu vực của đảo có một nhịp rất khác."
+    },
+    "food": {
+      "eyebrow": "ĂN GÌ Ở PHÚ QUỐC",
+      "title": "Không chỉ là hải sản."
+    },
+    "essentials": {
+      "eyebrow": "CẦN LÀ CÓ",
+      "title": "Thông tin thực dụng."
+    },
+    "heritage": {
+      "eyebrow": "DI SẢN & CHẤT ĐẢO",
+      "title": "Phú Quốc không chỉ có biển.",
+      "lead": "Những thứ làm nên mùi, vị và ký ức của đảo - nghề biển, nước mắm, hồ tiêu và những câu chuyện địa phương."
+    },
+    "guide": {
+      "eyebrow": "HIỂU PHÚ QUỐC NHANH",
+      "title": "Hiểu đảo trong vài phút."
+    }
+  }
+}
