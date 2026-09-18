@@ -1,1 +1,29 @@
-const $=s=>document.querySelector(s);const card=x=>'<article class="u-card"><strong>'+x.label+'</strong><a class="phone" href="tel:'+x.phone.replace(/\s/g,"")+'">'+x.phone+'</a>'+(x.phone_alt?'<a class="phone" style="font-size:17px;margin-left:10px" href="tel:'+x.phone_alt.replace(/\s/g,"")+'">'+x.phone_alt+'</a>':'')+'<small>'+x.note+'</small><a class="source" href="'+x.source+'" target="_blank" rel="noopener">Nguồn chính thức →</a></article>';fetch("../data/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(d=>{$("#national").innerHTML=d.national_emergency.map(card).join("");$("#local").innerHTML=d.phu_quoc.map(card).join("");$("#syncNote").textContent="Open AutoSync · "+(d.sync?.status||"READY")+" · kiểm tra gần nhất "+new Date(d.generated_at).toLocaleString("vi-VN")}).catch(()=>$("#syncNote").textContent="Chưa tải được dữ liệu hotline.");
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const phoneHref=p=>"tel:"+String(p||"").replace(/[^0-9+]/g,"");
+const localCard=x=>'<article class="u-card"><span class="badge '+(x.verified===false?'watch':'')+'">'+(x.verified===false?'CẦN KIỂM TRA':'ĐÃ ĐỐI CHIẾU')+'</span><strong>'+esc(x.label)+'</strong><a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a>'+(x.phone_alt?'<a class="phone" style="font-size:16px;margin-left:9px" href="'+phoneHref(x.phone_alt)+'">'+esc(x.phone_alt)+'</a>':'')+'<small>'+esc(x.note)+'</small><a class="source" href="'+esc(x.source)+'" target="_blank" rel="noopener">Nguồn chính thức →</a></article>';
+const emergency=x=>'<a class="emergency-card" href="'+phoneHref(x.phone)+'"><strong>'+esc(x.phone)+'</strong><span>'+esc(x.label)+'</span><small>'+esc(x.note)+'</small></a>';
+const dirCard=x=>'<article class="u-card"><span class="badge '+(x.verified===false?'watch':'')+'">'+(x.verified===false?'CẦN KIỂM TRA':'AUTO CHECK')+'</span><strong>'+esc(x.label)+'</strong><a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a><small>'+esc(x.note)+'</small><a class="source" href="'+esc(x.source)+'" target="_blank" rel="noopener">Nguồn chính thức →</a></article>';
+function renderDirectory(items){
+  const groups={};
+  (items||[]).forEach(x=>(groups[x.group]||(groups[x.group]=[])).push(x));
+  $("#directoryGroups").innerHTML=Object.entries(groups).map(([g,rows])=>'<div class="dir-group"><h3>'+esc(g)+'</h3><div class="dir-grid">'+rows.map(dirCard).join("")+'</div></div>').join("");
+}
+function renderTravel(rows){
+  const max=Math.max(...(rows||[]).map(x=>x.max||0),1);
+  $("#travelBars").innerHTML=(rows||[]).map(x=>'<div class="travel-row"><span>'+esc(x.from)+' → '+esc(x.to)+'</span><div class="bar-track"><div class="bar-fill" style="width:'+Math.max(8,(x.max/max*100))+'%"></div></div><b>'+x.min+'-'+x.max+' phút</b></div>').join("");
+}
+function renderChoices(rows){$("#transportChoices").innerHTML=(rows||[]).map(x=>'<article class="choice"><span>'+esc(x.trip)+'</span><strong>'+esc(x.choice)+'</strong></article>').join("")}
+function renderPrices(rows){$("#priceGrid").innerHTML=(rows||[]).map(x=>'<article class="price-card"><span>'+esc(x.place)+'</span><h3>'+esc(x.activity)+'</h3><strong>'+esc(x.price)+'</strong><small>'+esc(x.note)+'</small></article>').join("")}
+function renderChecklist(rows){$("#checklistGrid").innerHTML=(rows||[]).map(x=>'<article class="check-card"><h3>'+esc(x.group)+'</h3><ul>'+x.items.map(i=>'<li>'+esc(i)+'</li>').join("")+'</ul></article>').join("")}
+fetch("../data/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(d=>{
+  $("#national").innerHTML=(d.national_emergency||[]).map(emergency).join("");
+  $("#local").innerHTML=(d.phu_quoc||[]).map(localCard).join("");
+  renderDirectory(d.directory||[]);
+  renderTravel(d.travel_times||[]);
+  renderChoices(d.transport_choices||[]);
+  renderPrices(d.ticket_reference||[]);
+  renderChecklist(d.checklist||[]);
+  const stamp=d.generated_at?new Date(d.generated_at).toLocaleString("vi-VN"):"chưa rõ";
+  $("#syncNote").textContent="Open AutoSync · "+(d.sync?.status||"READY")+" · kiểm tra gần nhất "+stamp+" · "+(d.sync?.note||"");
+}).catch(()=>$("#syncNote").textContent="Chưa tải được dữ liệu tiện ích.");
