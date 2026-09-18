@@ -2983,3 +2983,77 @@ body.sheet-open{
 
 /* V2.16 - logo is embedded in HTML; no secondary image request */
 .brand{background:none!important}
+
+
+/* VisitSingapore-inspired reading rhythm: one strong visual, then a short useful layer. */
+.section{padding-top:76px;padding-bottom:76px}
+.section-heading{margin-bottom:27px}
+.section-heading h2{max-width:760px}
+.happening-layout{grid-template-columns:minmax(0,1.35fr) minmax(360px,.82fr);gap:18px}
+.feature-story{min-height:560px}
+.happening-list{gap:10px}
+.happening-row{min-height:126px;padding:16px}
+.things-grid{
+  grid-template-columns:minmax(0,1.35fr) minmax(260px,.8fr);
+  grid-template-rows:1fr 1fr;
+  gap:12px;
+}
+.things-grid .visual-card.wide{grid-row:1/3;min-height:610px}
+.things-grid .visual-card:not(.wide){min-height:299px}
+.must-rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:5px}
+.must-rail::-webkit-scrollbar{display:none}
+.must-card,.must-card:nth-child(1){min-width:330px;min-height:430px;scroll-snap-align:start}
+.must-card:nth-child(1){min-width:430px}
+.area-card{min-width:330px}
+.area-card img{height:270px}
+.food-layout{gap:16px}
+.food-feature{min-height:540px}
+.food-pick{min-height:166px;padding:20px}
+.essential-grid{grid-template-columns:repeat(3,1fr);gap:10px}
+.essential-grid a{min-height:122px;padding:18px}
+.guide-grid{gap:12px}
+.guide-card{min-height:200px;padding:24px}
+.heritage-section{margin-top:60px;margin-bottom:30px;padding-top:72px;padding-bottom:74px}
+.heritage-intro{margin-bottom:30px}
+.heritage-card{min-width:390px;min-height:500px}
+.site-footer{margin-top:68px}
+
+@media(max-width:980px){
+  .happening-layout{grid-template-columns:1fr}
+  .things-grid{grid-template-columns:1.15fr .85fr}
+  .essential-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:760px){
+  .section{padding-top:49px;padding-bottom:49px}
+  .section-heading{margin-bottom:20px}
+  .section-heading h2{font-size:36px;line-height:.98}
+  .feature-story{min-height:470px}
+  .happening-list{padding-bottom:3px}
+  .happening-row{min-width:84%;min-height:132px}
+  .things-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:9px;
+    scroll-snap-type:x mandatory;
+    margin:0 -11px;
+    padding:0 11px 3px;
+  }
+  .things-grid .visual-card.wide,
+  .things-grid .visual-card:not(.wide){
+    min-width:84%;
+    min-height:470px;
+    scroll-snap-align:center;
+  }
+  .must-card,.must-card:nth-child(1){min-width:84%;min-height:470px}
+  .area-card{min-width:82%}
+  .food-layout{grid-template-columns:1fr}
+  .food-feature{min-height:470px}
+  .food-picks{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x mandatory}
+  .food-pick{min-width:82%;min-height:150px;scroll-snap-align:center}
+  .essential-grid{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x mandatory}
+  .essential-grid a{min-width:78%;scroll-snap-align:center}
+  .guide-grid{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x mandatory}
+  .guide-card{min-width:82%;scroll-snap-align:center}
+  .heritage-section{margin-top:48px;padding-top:52px;padding-bottom:56px}
+  .heritage-card{min-width:84%;min-height:480px}
+}
