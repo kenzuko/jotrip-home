@@ -140,7 +140,7 @@ let heroIndex = 0;
 let heroTimer = null;
 let touchStartX = 0;
 let touchStartY = 0;
-const HERO_DELAY = 3000;
+const HERO_DELAY = 2800;
 
 function restartHeroProgress() {
   if (!heroProgress) return;
@@ -186,8 +186,10 @@ function stopHeroAutoplay() {
 function startHeroAutoplay() {
   if (heroSlides.length < 2) return;
   stopHeroAutoplay();
-  heroTimer = setInterval(() => showHeroSlide(heroIndex + 1), HERO_DELAY);
-  restartHeroProgress();
+  heroTimer = setTimeout(() => {
+    showHeroSlide(heroIndex + 1);
+    startHeroAutoplay();
+  }, HERO_DELAY);
 }
 
 function restartHeroAutoplay() {
@@ -217,8 +219,11 @@ hero?.addEventListener('touchend', (event) => {
   showHeroSlide(heroIndex + (dx < 0 ? 1 : -1), true);
 }, { passive: true });
 
-hero?.addEventListener('mouseenter', stopHeroAutoplay);
-hero?.addEventListener('mouseleave', startHeroAutoplay);
+const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+if (canHover) {
+  hero?.addEventListener('mouseenter', stopHeroAutoplay);
+  hero?.addEventListener('mouseleave', startHeroAutoplay);
+}
 
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) stopHeroAutoplay();
@@ -239,8 +244,8 @@ if ('IntersectionObserver' in window && window.matchMedia('(max-width: 760px)').
       rail.classList.add('rail-peek');
       setTimeout(() => {
         const start = rail.scrollLeft;
-        rail.scrollTo({ left: start + 34, behavior: 'smooth' });
-        setTimeout(() => rail.scrollTo({ left: start, behavior: 'smooth' }), 520);
+        rail.scrollTo({ left: start + 72, behavior: 'smooth' });
+        setTimeout(() => rail.scrollTo({ left: start, behavior: 'smooth' }), 620);
       }, 260);
       setTimeout(() => rail.classList.remove('rail-peek'), 1350);
       peekObserver.unobserve(rail);
