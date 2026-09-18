@@ -1883,14 +1883,8 @@ body{
 }
 
 @media(prefers-reduced-motion:reduce){
-  .ticker-track{
-    animation:none!important;
-    transform:none!important;
-  }
-
   .must-card,
   .heritage-card{
-    transform:none!important;
     opacity:1!important;
   }
 }
@@ -2526,4 +2520,113 @@ body{
   .live-item small{
     font-size:7px;
   }
+}
+
+
+/* V2.13 - reliable breaking-news marquee on mobile */
+.energy-ticker{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:center;
+  gap:0;
+  padding:0;
+  min-height:40px;
+}
+
+.ticker-label{
+  position:relative;
+  z-index:3;
+  height:40px;
+  padding:0 13px;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  background:var(--ink);
+  color:#fff;
+  white-space:nowrap;
+}
+
+.ticker-label>span{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:var(--coral);
+  box-shadow:0 0 0 0 rgba(255,112,79,.35);
+  animation:tickerPulse 1.5s ease-out infinite;
+}
+
+.ticker-label strong{
+  font-size:7px;
+  letter-spacing:.16em;
+  font-weight:900;
+}
+
+.ticker-window{
+  min-width:0;
+  overflow:hidden;
+  height:40px;
+  display:flex;
+  align-items:center;
+}
+
+.ticker-track{
+  flex:none;
+  min-width:max-content;
+  will-change:transform;
+  backface-visibility:hidden;
+  transform:translate3d(0,0,0);
+  animation:tickerMove 16s linear infinite!important;
+}
+
+@keyframes tickerPulse{
+  0%{box-shadow:0 0 0 0 rgba(255,112,79,.35)}
+  70%{box-shadow:0 0 0 7px rgba(255,112,79,0)}
+  100%{box-shadow:0 0 0 0 rgba(255,112,79,0)}
+}
+
+@media(max-width:760px){
+  .energy-ticker{
+    position:relative;
+    display:grid;
+    grid-template-columns:auto minmax(0,1fr);
+    min-height:38px;
+    margin-top:12px;
+    overflow:hidden;
+    border-top:1px solid rgba(18,61,59,.08);
+    border-bottom:1px solid rgba(18,61,59,.08);
+  }
+
+  .ticker-label{
+    height:38px;
+    padding:0 10px;
+  }
+
+  .ticker-label strong{
+    font-size:6px;
+    letter-spacing:.13em;
+  }
+
+  .ticker-label>span{
+    width:6px;
+    height:6px;
+  }
+
+  .ticker-window{
+    width:100%;
+    height:38px;
+    overflow:hidden;
+    mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+  }
+
+  .motion-on .ticker-track,
+  .ticker-track{
+    animation:tickerMoveMobile 10.5s linear infinite!important;
+    transform:translate3d(0,0,0)!important;
+  }
+}
+
+@keyframes tickerMoveMobile{
+  from{transform:translate3d(0,0,0)}
+  to{transform:translate3d(-50%,0,0)}
 }
