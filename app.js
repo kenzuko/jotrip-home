@@ -137,3 +137,123 @@ if (!reduceMotion) {
     });
   }, { passive: true });
 }
+
+
+/* Hero slideshow */
+const hero = document.querySelector('.hero');
+const heroSlides = [...document.querySelectorAll('.hero-slide')];
+const heroDots = [...document.querySelectorAll('.hero-dots button')];
+const heroPrev = document.querySelector('.hero-prev');
+const heroNext = document.querySelector('.hero-next');
+const heroCount = document.querySelector('.hero-scene-count');
+const heroLabel = document.querySelector('.hero-scene-label');
+const heroProgress = document.querySelector('.hero-progress');
+
+let heroIndex = 0;
+let heroTimer = null;
+let touchStartX = 0;
+let touchStartY = 0;
+const HERO_DELAY = 6200;
+
+function restartHeroProgress() {
+  if (!heroProgress || reduceMotion) return;
+  heroProgress.classList.remove('is-running');
+  void heroProgress.offsetWidth;
+  heroProgress.classList.add('is-running');
+}
+
+function showHeroSlide(index, userInitiated = false) {
+  if (!heroSlides.length) return;
+  heroIndex = (index + heroSlides.length) % heroSlides.length;
+
+  heroSlides.forEach((slide, i) => {
+    slide.classList.toggle('is-active', i === heroIndex);
+  });
+
+  heroDots.forEach((dot, i) => {
+    const active = i === heroIndex;
+    dot.classList.toggle('is-active', active);
+    dot.setAttribute('aria-selected', String(active));
+  });
+
+  if (heroCount) {
+    heroCount.textContent = `${String(heroIndex + 1).padStart(2, '0')} / ${String(heroSlides.length).padStart(2, '0')}`;
+  }
+
+  if (heroLabel) {
+    heroLabel.textContent = heroSlides[heroIndex]?.dataset.label || '';
+  }
+
+  restartHeroProgress();
+
+  if (userInitiated) {
+    restartHeroAutoplay();
+  }
+}
+
+function stopHeroAutoplay() {
+  clearInterval(heroTimer);
+  heroTimer = null;
+}
+
+function startHeroAutoplay() {
+  if (reduceMotion || heroSlides.length < 2) return;
+  stopHeroAutoplay();
+  heroTimer = setInterval(() => showHeroSlide(heroIndex + 1), HERO_DELAY);
+  restartHeroProgress();
+}
+
+function restartHeroAutoplay() {
+  startHeroAutoplay();
+}
+
+heroPrev?.addEventListener('click', () => showHeroSlide(heroIndex - 1, true));
+heroNext?.addEventListener('click', () => showHeroSlide(heroIndex + 1, true));
+
+heroDots.forEach((dot, index) => {
+  dot.addEventListener('click', () => showHeroSlide(index, true));
+});
+
+hero?.addEventListener('touchstart', (event) => {
+  const touch = event.changedTouches?.[0];
+  if (!touch) return;
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+}, { passive: true });
+
+hero?.addEventListener('touchend', (event) => {
+  const touch = event.changedTouches?.[0];
+  if (!touch) return;
+  const dx = touch.clientX - touchStartX;
+  const dy = touch.clientY - touchStartY;
+  if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
+  showHeroSlide(heroIndex + (dx < 0 ? 1 : -1), true);
+}, { passive: true });
+
+hero?.addEventListener('mouseenter', stopHeroAutoplay);
+hero?.addEventListener('mouseleave', startHeroAutoplay);
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) stopHeroAutoplay();
+  else startHeroAutoplay();
+});
+
+showHeroSlide(0);
+startHeroAutoplay();
+
+/* One-time swipe affordance for mobile discovery rails */
+const discoveryRails = document.querySelectorAll('.must-rail, .heritage-rail, .area-scroll, .food-picks, .essential-grid');
+
+if (!reduceMotion && 'IntersectionObserver' in window && window.matchMedia('(max-width: 760px)').matches) {
+  const peekObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      const rail = entry.target;
+      rail.classList.add('rail-peek');
+      setTimeout(() => rail.classList.remove('rail-peek'), 1150);
+      peekObserver.unobserve(rail);
+    });
+  }, { threshold: 0.38 });
+
+  discoveryRails.forEach((rail) => peekObserver.observe(rail));
+}
