@@ -82,3 +82,58 @@ document.addEventListener('keydown', (event) => {
   menuButton?.setAttribute('aria-expanded', 'false');
   menuButton?.setAttribute('aria-label', 'Mở menu');
 });
+
+const swipeRails = document.querySelectorAll('.must-rail, .heritage-rail');
+
+function updateRailActive(rail) {
+  const cards = [...rail.children];
+  if (!cards.length) return;
+
+  const center = rail.scrollLeft + rail.clientWidth / 2;
+  let active = cards[0];
+  let best = Infinity;
+
+  cards.forEach((card) => {
+    const cardCenter = card.offsetLeft + card.offsetWidth / 2;
+    const distance = Math.abs(center - cardCenter);
+    if (distance < best) {
+      best = distance;
+      active = card;
+    }
+  });
+
+  cards.forEach((card) => card.classList.toggle('is-active', card === active));
+}
+
+swipeRails.forEach((rail) => {
+  let ticking = false;
+
+  const refresh = () => {
+    ticking = false;
+    updateRailActive(rail);
+  };
+
+  updateRailActive(rail);
+
+  rail.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(refresh);
+  }, { passive: true });
+
+  window.addEventListener('resize', refresh, { passive: true });
+});
+
+if (!reduceMotion) {
+  const heroImage = document.querySelector('.hero-media img');
+  let parallaxFrame = 0;
+
+  window.addEventListener('scroll', () => {
+    if (!heroImage || parallaxFrame) return;
+    parallaxFrame = requestAnimationFrame(() => {
+      parallaxFrame = 0;
+      const y = Math.min(window.scrollY * 0.055, 24);
+      heroImage.style.translate = `0 ${y}px`;
+    });
+  }, { passive: true });
+}
