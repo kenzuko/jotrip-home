@@ -2979,3 +2979,7 @@ body.sheet-open{
     font-size:7px;
   }
 }
+
+
+/* V2.16 - logo is embedded in HTML; no secondary image request */
+.brand{background:none!important}
