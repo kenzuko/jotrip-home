@@ -172,6 +172,30 @@
     ];
     renderTicker(ticker);
 
+    const decisionCard = document.querySelector('[data-decision-card]');
+    if (decisionCard) {
+      const tag = decisionCard.querySelector('span');
+      const title = decisionCard.querySelector('strong');
+      const note = decisionCard.querySelector('small');
+      const img = decisionCard.querySelector('img');
+      const unsettled = (convMax != null && convMax >= 75) || (maxRain != null && maxRain >= 5);
+      if (unsettled) {
+        decisionCard.href = 'stories/article.html?id=mot-nam-trong-nha-thung';
+        if (tag) tag.textContent = 'HỢP HÔM NAY';
+        if (title) title.textContent = 'Đổi biển lấy một câu chuyện trong nhà thùng';
+        if (note) note.textContent = 'Lịch linh hoạt · tránh phụ thuộc thời tiết ngoài trời';
+        if (img) {
+          img.src = 'https://statics.vinpearl.com/phu-quoc-fish-sauce-14_1693799607.jpg';
+          img.alt = 'Nhà thùng nước mắm Phú Quốc';
+        }
+      } else {
+        decisionCard.href = '#areas';
+        if (tag) tag.textContent = 'HỢP HÔM NAY';
+        if (title) title.textContent = 'Ra biển trước hoàng hôn';
+        if (note) note.textContent = 'Bờ Tây · theo dõi Live Island Status trước khi đi';
+      }
+    }
+
     window.OPENPQ_HOME = {
       generated_at: new Date().toISOString(),
       live_status: {
