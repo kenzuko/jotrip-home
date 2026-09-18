@@ -11,6 +11,13 @@ export const allowedPaths:Record<string,string[]>={
   "data/utilities.json":["admin","operator"],
   "cms/users.json":["admin"]
 };
+export const readablePaths:Record<string,string[]>={
+  "data/home-copy.json":["admin","editor","operator","viewer"],
+  "data/content.json":["admin","editor","operator","viewer"],
+  "guide/data.json":["admin","editor","operator","viewer"],
+  "data/utilities.json":["admin","editor","operator","viewer"],
+  "cms/users.json":["admin"]
+};
 
 const env=(k:string)=>Netlify.env.get(k)||"";
 const b64u=(b:Buffer)=>b.toString("base64url");
@@ -62,5 +69,5 @@ export async function roleFor(token:string,login:string){
   return u?.role||null;
 }
 export function canWrite(role:string,path:string){return (allowedPaths[path]||[]).includes(role)}
-export function canRead(role:string,path:string){return path in allowedPaths && ["admin","editor","operator","viewer"].includes(role)}
+export function canRead(role:string,path:string){return (readablePaths[path]||[]).includes(role)}
 export function json(data:any,status=200,headers:Record<string,string>={}){return new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store",...headers}})}
