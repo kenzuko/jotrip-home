@@ -154,3 +154,39 @@ Core visual/product sequence:
 5. Continue exploring
 
 Mobile navigation should feel like a product shell, with Home / Live / Search / Move / More.
+
+
+## Homepage hierarchy update - 18/09/2026
+
+Homepage is a hybrid utility + editorial home, not a full dashboard.
+
+Locked hierarchy:
+1. Photo-first hero
+2. Compact Live Island Status snapshot
+3. Phu Quoc Today - hot information that affects travel or is worth reading now
+4. Today & Tonight - shows, events, opening hours, closures, changes, operating status
+5. Getting Around
+6. Explore Phu Quoc
+7. From the Island - local stories
+8. Read Phu Quoc Fast - short practical explainers
+9. Footer / full tool access
+
+Live Island Status is intentionally compact and should show only high-value glanceable signals such as:
+- weather
+- marine / canoe operation
+- wave height / sea state
+- sunset
+- optionally a critical island-wide operational signal if materially useful
+
+Detailed weather, airport, ferry, transport and other operational data belong inside their dedicated tools, not repeated on homepage.
+
+Homepage content feed should prioritize:
+- travel-impacting hot news
+- event/show schedules
+- attraction opening hours
+- operating / closed / changed status
+- temporary disruptions
+- useful local notes
+- timely trip ideas
+
+Avoid duplicative quick-access grids. Search + primary navigation + compact tool access are enough.
