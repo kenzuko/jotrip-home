@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-18T22:10:00+07:00",
+  "generated_at": "2026-09-18T22:35:00+07:00",
   "source_policy": "official_public_sources_only",
   "national_emergency": [
     {
@@ -78,5 +78,279 @@
       "source": "https://acv.vn/phuquocairport/vi/tin-tuc/hanh-ly-that-lac/hanh-ly-that-lac",
       "verified": true
     }
-  ]
+  ],
+  "handbook_source": {
+    "name": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+    "version": "2027 IslandEditorial R3",
+    "library_updated": "2026-09-12"
+  },
+  "directory": [
+    {
+      "group": "Đường biển",
+      "id": "superdong",
+      "label": "Superdong",
+      "phone": "0941 130 033",
+      "note": "Đặt vé / hỗ trợ online",
+      "source": "https://online.superdong.com.vn/Home/Contact",
+      "checked_at": "2026-09-18",
+      "verified": true
+    },
+    {
+      "group": "Đường biển",
+      "id": "pqexpress",
+      "label": "Phú Quốc Express",
+      "phone": "0901 868 878",
+      "note": "Tàu cao tốc",
+      "source": "https://phuquocexpress.com/",
+      "checked_at": "2026-09-18",
+      "verified": true
+    },
+    {
+      "group": "Đường biển",
+      "id": "thanhthoi",
+      "label": "Phà Thạnh Thới",
+      "phone": "1900 966 908",
+      "note": "Phà / chở xe",
+      "source": "https://thanhthoi.vn/",
+      "checked_at": "2026-09-18",
+      "verified": true
+    },
+    {
+      "group": "Vui chơi",
+      "id": "vinwonders",
+      "label": "VinWonders · Safari · Grand World",
+      "phone": "1900 6677",
+      "note": "Giá vé / giờ / show",
+      "source": "https://vinwonders.com/en/contact/",
+      "checked_at": "2026-09-18",
+      "verified": true
+    },
+    {
+      "group": "Vui chơi",
+      "id": "sunworld",
+      "label": "Sun World Hòn Thơm",
+      "phone": "0886 045 888",
+      "note": "Cáp treo / Hòn Thơm / show",
+      "source": "https://sunworld.vn/vi/hon-thom",
+      "checked_at": "2026-09-18",
+      "verified": true
+    },
+    {
+      "group": "Y tế",
+      "id": "vinmec",
+      "label": "Vinmec Phú Quốc",
+      "phone": "0297 3985 588",
+      "note": "Hotline bệnh viện",
+      "source": "https://www.vinmec.com/vie/co-so-y-te/khoa-hoi-suc-cap-cuu-benh-vien-da-khoa-vinmec-phu-quoc",
+      "checked_at": "2026-09-18",
+      "verified": true
+    },
+    {
+      "group": "Y tế",
+      "id": "vinmec-er",
+      "label": "Cấp cứu Vinmec",
+      "phone": "02973 98 55 11",
+      "note": "Cấp cứu 24/24 - số từ sổ tay, cần AutoSync xác nhận định kỳ",
+      "source": "https://www.vinmec.com/vie/co-so-y-te/benh-vien-da-khoa-vinmec-phu-quoc",
+      "checked_at": "2026-09-03",
+      "verified": false
+    }
+  ],
+  "ticket_reference": [
+    {
+      "place": "Vinpearl Safari",
+      "activity": "Vé ngày · mốc từ 01/10/2026",
+      "price": "950.000đ · 710.000đ trẻ em/cao tuổi",
+      "note": "Zoo Tram, VIP/Premium là sản phẩm riêng",
+      "dynamic": true
+    },
+    {
+      "place": "VinWonders",
+      "activity": "Vé ngày · mốc từ 01/10/2026",
+      "price": "1.050.000đ · 800.000đ trẻ em/cao tuổi",
+      "note": "Kiểm tra lại chính sách đúng ngày",
+      "dynamic": true
+    },
+    {
+      "place": "VinWonders + Safari",
+      "activity": "Combo 1 ngày",
+      "price": "1.500.000đ · 1.100.000đ",
+      "note": "Lịch rất dài nếu đi cùng trẻ nhỏ",
+      "dynamic": true
+    },
+    {
+      "place": "VinWonders + Safari",
+      "activity": "Combo 2 ngày",
+      "price": "1.700.000đ · 1.300.000đ",
+      "note": "Không mặc định unlimited / multi-entry",
+      "dynamic": true
+    },
+    {
+      "place": "Grand World",
+      "activity": "Tinh Hoa Việt Nam · mốc 20:15",
+      "price": "300.000đ · 230.000đ trẻ em/cao tuổi",
+      "note": "Giờ có thể đổi theo mùa",
+      "dynamic": true
+    },
+    {
+      "place": "Sun Bavaria Gastropub",
+      "activity": "Dinner Show",
+      "price": "1.000.000đ",
+      "note": "Mốc trong sổ tay - quyền lợi cần kiểm tra lại",
+      "dynamic": true
+    },
+    {
+      "place": "Sunset Town",
+      "activity": "Symphony of the Sea · mốc 19:30",
+      "price": "640.000đ / người",
+      "note": "Vé tiêu chuẩn - giờ/giá động",
+      "dynamic": true
+    },
+    {
+      "place": "Sunset Town",
+      "activity": "Kiss of the Sea & Cầu Hôn",
+      "price": "200.000đ · 150.000đ trẻ em",
+      "note": "Cầu Hôn có vé riêng",
+      "dynamic": true
+    },
+    {
+      "place": "Cáp treo Hòn Thơm",
+      "activity": "Vé ngày",
+      "price": "850.000đ · 700.000đ trẻ em",
+      "note": "Mốc sổ tay - kiểm tra quyền lợi hiện hành",
+      "dynamic": true
+    },
+    {
+      "place": "Cáp treo Hòn Thơm",
+      "activity": "Combo cáp + buffet",
+      "price": "1.150.000đ · 900.000đ",
+      "note": "Mốc sổ tay - kiểm tra trước khi thanh toán",
+      "dynamic": true
+    }
+  ],
+  "travel_times": [
+    {
+      "from": "Sân bay",
+      "to": "Bãi Trường",
+      "min": 10,
+      "max": 20
+    },
+    {
+      "from": "Sân bay",
+      "to": "Dương Đông",
+      "min": 15,
+      "max": 25
+    },
+    {
+      "from": "Sân bay",
+      "to": "Ông Lang",
+      "min": 30,
+      "max": 40
+    },
+    {
+      "from": "Sân bay",
+      "to": "Cửa Cạn",
+      "min": 35,
+      "max": 45
+    },
+    {
+      "from": "Sân bay",
+      "to": "Gành Dầu / Grand World",
+      "min": 45,
+      "max": 60
+    },
+    {
+      "from": "Sân bay",
+      "to": "Bãi Khem / Sunset Town",
+      "min": 25,
+      "max": 35
+    },
+    {
+      "from": "Dương Đông",
+      "to": "Gành Dầu / Grand World",
+      "min": 35,
+      "max": 50
+    },
+    {
+      "from": "Dương Đông",
+      "to": "Bãi Khem / Sunset Town",
+      "min": 35,
+      "max": 50
+    },
+    {
+      "from": "Bắc đảo",
+      "to": "Nam đảo",
+      "min": 70,
+      "max": 100
+    }
+  ],
+  "transport_choices": [
+    {
+      "trip": "1-2 người · quanh Dương Đông / Bãi Trường",
+      "choice": "Taxi, xe công nghệ; xe máy nếu quen lái"
+    },
+    {
+      "trip": "Cặp đôi thích tự do",
+      "choice": "Xe máy hoặc taxi / xe công nghệ / xe dịch vụ"
+    },
+    {
+      "trip": "Gia đình có trẻ nhỏ",
+      "choice": "Taxi hoặc xe dịch vụ đặt riêng"
+    },
+    {
+      "trip": "Đi cùng người lớn tuổi",
+      "choice": "Xe dịch vụ đặt riêng thường nhẹ nhất"
+    },
+    {
+      "trip": "Bắc đảo hoặc Nam đảo nguyên ngày",
+      "choice": "Xe dịch vụ đặt riêng hoặc tour"
+    },
+    {
+      "trip": "Nhiều điểm trong một ngày",
+      "choice": "Xe dịch vụ đặt riêng dễ kiểm soát thời gian hơn"
+    },
+    {
+      "trip": "Lưu trú dài · quen tự lái",
+      "choice": "Xe máy hoặc ô tô tự lái; kiểm tra giấy phép, bảo hiểm, điều kiện thuê"
+    }
+  ],
+  "checklist": [
+    {
+      "group": "Giấy tờ",
+      "items": [
+        "CCCD hoặc hộ chiếu phù hợp",
+        "Vé máy bay / tàu / phà",
+        "Xác nhận đặt phòng",
+        "Visa / e-visa nếu áp dụng",
+        "Bảo hiểm du lịch nếu đã mua",
+        "Thông tin xe đón / resort"
+      ]
+    },
+    {
+      "group": "Đồ dùng",
+      "items": [
+        "Kem chống nắng, kính, nón",
+        "Thuốc cá nhân / say xe-sóng",
+        "Áo mưa mỏng hoặc đồ chống mưa",
+        "Dép + giày phù hợp",
+        "Pin dự phòng",
+        "Một khoản tiền mặt VND dự phòng"
+      ]
+    },
+    {
+      "group": "Trên điện thoại",
+      "items": [
+        "Bản đồ offline",
+        "Google Translate nếu cần",
+        "Ứng dụng gọi xe",
+        "App hãng bay / booking",
+        "Dự báo thời tiết",
+        "Số khách sạn, tour và người đón"
+      ]
+    }
+  ],
+  "sync": {
+    "status": "READY",
+    "note": "Danh bạ và dữ liệu nền lấy từ sổ tay mới nhất; số công khai ưu tiên đối chiếu lại từ nguồn chính thức bằng AutoSync."
+  }
 }
