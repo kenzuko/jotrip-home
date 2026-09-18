@@ -3,27 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#F7F2E8">
-  <title>Open Phu Quoc - Know the island now</title>
-  <meta name="description" content="A practical Phu Quoc dashboard for weather, sea, flights, transport, places and local information.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Open Phu Quoc - Phu Quoc, right now</title>
+  <meta name="description" content="See Phu Quoc right now - weather, sea, flights, transport, places and local guidance.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <svg class="svg-filters" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="logo-cutout" color-interpolation-filters="sRGB">
+        <feColorMatrix type="matrix"
+          values="1 0 0 0 0
+                  0 1 0 0 0
+                  0 0 1 0 0
+                 -.333 -.333 -.333 0 1" />
+        <feComponentTransfer>
+          <feFuncA type="linear" slope="5" intercept="-.15"/>
+        </feComponentTransfer>
+      </filter>
+    </defs>
+  </svg>
+
   <div class="demo-ribbon">
-    <strong>DEMO DATA</strong>
-    <span>Numbers below are sample content for product testing only.</span>
+    <strong>DEMO</strong>
+    <span>Sample data for product testing - not live operational information.</span>
   </div>
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Open Phu Quoc home">
-      <img src="assets/logo-master.png" alt="Open Phu Quoc">
+      <svg class="brand-logo" viewBox="0 0 285 91" role="img" aria-label="Open Phu Quoc">
+        <image href="assets/logo-master.png" x="0" y="0" width="285" height="91" filter="url(#logo-cutout)"/>
+      </svg>
     </a>
 
     <nav class="desktop-nav" id="primary-nav" aria-label="Primary">
       <a href="#today">Today</a>
+      <a href="#now">Do now</a>
       <a href="#move">Transport</a>
-      <a href="#now">What to do</a>
       <a href="#explore">Explore</a>
       <a href="#guide">Guide</a>
     </nav>
@@ -34,153 +51,180 @@
   </header>
 
   <main id="top">
-    <section class="top-shell">
-      <div class="hero-copy">
-        <p class="eyebrow">PHU QUOC, RIGHT NOW</p>
-        <h1>What do you need today?</h1>
-        <p class="hero-lead">Check conditions, get around, track a flight or decide what makes sense to do next.</p>
+    <section class="visual-hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kem%20Beach%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1800" alt="">
+      </div>
+      <div class="hero-wash"></div>
+
+      <div class="hero-content">
+        <p class="hero-kicker"><span></span> PHU QUOC, RIGHT NOW</p>
+        <h1>See the island.<br>Know what to do.</h1>
+        <p class="hero-lead">Fresh island conditions, practical transport and local guidance - all in one place.</p>
 
         <form class="search" role="search">
           <label class="sr-only" for="q">Search Open Phu Quoc</label>
-          <span aria-hidden="true">⌕</span>
-          <input id="q" name="q" type="search" autocomplete="off" placeholder="Try: airport, rain tonight, bus to Grand World...">
+          <span class="search-symbol" aria-hidden="true">⌕</span>
+          <input id="q" name="q" type="search" autocomplete="off" placeholder="Weather, flight, ferry, beach, bus...">
           <button type="submit">Search</button>
         </form>
-
-        <div class="intent-grid" aria-label="Most common tasks">
-          <a href="#today"><span>01</span><strong>How is the island today?</strong><small>Weather, rain, sea, sunset</small></a>
-          <a href="#airport"><span>02</span><strong>Track my flight</strong><small>Arrivals, departures, delays</small></a>
-          <a href="#move"><span>03</span><strong>How do I get there?</strong><small>Bus, shuttle, ferry, transfer</small></a>
-          <a href="#now"><span>04</span><strong>What should I do now?</strong><small>Based on time and conditions</small></a>
-        </div>
       </div>
 
-      <figure class="hero-photo">
-        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=1600" alt="An Thoi fishing harbour and Sunset Town in Phu Quoc">
-        <div class="photo-overlay"></div>
-        <div class="hero-stamp">
-          <i></i>
-          <div><strong>Open from the island</strong><small>Utility first - local context always</small></div>
-        </div>
-        <figcaption>An Thoi fishing harbour · Photo: Vivu Vietnam / CC BY-SA 4.0</figcaption>
-      </figure>
+      <div class="hero-status" aria-label="Demo status snapshot">
+        <a href="#today" class="hero-stat">
+          <span>Weather</span><strong>29°</strong><small>Partly cloudy</small>
+        </a>
+        <a href="#today" class="hero-stat">
+          <span>Sea</span><strong>0.7-1.1 m</strong><small>Moderate</small>
+        </a>
+        <a href="#airport" class="hero-stat">
+          <span>Airport</span><strong>Normal</strong><small>2 delays</small>
+        </a>
+        <a href="#today" class="hero-stat">
+          <span>Sunset</span><strong>17:57</strong><small>West coast</small>
+        </a>
+      </div>
+
+      <p class="hero-credit">Bai Kem, Phu Quoc · Vivu Vietnam / CC BY-SA 4.0</p>
     </section>
 
-    <section class="today section" id="today">
+    <section class="intent-strip" aria-label="Common visitor needs">
+      <a href="#today"><span class="intent-icon sea">≈</span><div><strong>How is the island today?</strong><small>Weather · sea · alerts</small></div><b>→</b></a>
+      <a href="#airport"><span class="intent-icon air">✈</span><div><strong>Track my flight</strong><small>Arrivals · delays</small></div><b>→</b></a>
+      <a href="#move"><span class="intent-icon move">▣</span><div><strong>How do I get there?</strong><small>Bus · shuttle · ferry</small></div><b>→</b></a>
+      <a href="#now"><span class="intent-icon sun">☀</span><div><strong>What should I do now?</strong><small>Time + conditions</small></div><b>→</b></a>
+    </section>
+
+    <section class="section today-section" id="today">
       <div class="section-head">
         <div>
           <p class="eyebrow">TODAY AT A GLANCE</p>
-          <h2>Know the island in 10 seconds.</h2>
+          <h2>The useful stuff, first.</h2>
         </div>
-        <div class="updated"><span class="pulse"></span><span>Demo refreshed 2 min ago</span></div>
+        <div class="updated"><i></i><span>Demo refreshed 2 min ago</span></div>
       </div>
 
-      <div class="today-grid">
-        <article class="primary-status">
-          <div class="primary-top">
+      <div class="today-layout">
+        <article class="weather-card">
+          <div class="weather-main">
             <div>
-              <span class="kicker">WEATHER NOW</span>
-              <strong class="temp">29°</strong>
+              <span class="micro-label">WEATHER NOW</span>
+              <strong class="temperature">29°</strong>
               <p>Feels like 34° · Partly cloudy</p>
             </div>
-            <div class="sun-icon">☀</div>
+            <span class="weather-sun">☀</span>
           </div>
-
-          <div class="mini-metrics">
+          <div class="weather-metrics">
             <div><span>Rain next 3h</span><b>35%</b></div>
             <div><span>Wind</span><b>18 km/h WSW</b></div>
+            <div><span>UV</span><b>High</b></div>
             <div><span>Sunset</span><b>17:57</b></div>
           </div>
-
-          <div class="weather-window">
-            <div class="window-title"><span class="status-pill good">BEST WINDOW</span><strong>Now - 17:30</strong></div>
-            <p>Good for west-coast beach time and town exploring. Shower risk increases toward evening.</p>
+          <div class="best-window">
+            <div><span class="pill good">BEST WINDOW</span><strong>Now - 17:30</strong></div>
+            <p>Good for west-coast beach time. Short shower risk rises toward evening.</p>
           </div>
         </article>
 
-        <article class="signal-card sea-status">
-          <div class="signal-head"><span>≈</span><b>SEA</b><em class="status-pill watch">WATCH</em></div>
-          <strong>0.7 - 1.1 m</strong>
-          <p>South islands: moderate</p>
-          <div class="signal-lines"><span>Wind 20 km/h</span><span>Period 5.8 s</span></div>
-          <a href="#">Marine detail →</a>
-        </article>
+        <div class="ops-grid">
+          <article class="ops-card aqua">
+            <div class="ops-top"><span>≈</span><b>SEA</b><em class="pill watch">WATCH</em></div>
+            <strong>0.7-1.1 m</strong>
+            <p>South islands · moderate</p>
+            <small>Wind 20 km/h · period 5.8 s</small>
+            <a href="#">Marine details →</a>
+          </article>
 
-        <article class="signal-card" id="airport">
-          <div class="signal-head"><span>✈</span><b>AIRPORT</b><em class="status-pill good">NORMAL</em></div>
-          <strong>26 arrivals</strong>
-          <p>2 delayed · avg delay 18 min</p>
-          <div class="next-item"><span>Next arrival</span><b>18:10 · ICN</b></div>
-          <a href="#">Open live board →</a>
-        </article>
+          <article class="ops-card coral" id="airport">
+            <div class="ops-top"><span>✈</span><b>AIRPORT</b><em class="pill good">NORMAL</em></div>
+            <strong>26 arrivals</strong>
+            <p>2 delayed · avg 18 min</p>
+            <small>Next: 18:10 · ICN</small>
+            <a href="#">Live flight board →</a>
+          </article>
 
-        <article class="signal-card">
-          <div class="signal-head"><span>⛴</span><b>FERRY</b><em class="status-pill good">RUNNING</em></div>
-          <strong>Normal</strong>
-          <p>Ha Tien and Rach Gia routes</p>
-          <div class="next-item"><span>Next morning</span><b>07:10</b></div>
-          <a href="#">Schedules →</a>
-        </article>
+          <article class="ops-card mint">
+            <div class="ops-top"><span>⛴</span><b>FERRY</b><em class="pill good">RUNNING</em></div>
+            <strong>Normal</strong>
+            <p>Ha Tien + Rach Gia</p>
+            <small>Tomorrow first: 07:10</small>
+            <a href="#">Schedules →</a>
+          </article>
 
-        <article class="signal-card">
-          <div class="signal-head"><span>▣</span><b>TRANSPORT</b><em class="status-pill good">NORMAL</em></div>
-          <strong>Bus + shuttle</strong>
-          <p>No major service alert</p>
-          <div class="next-item"><span>Airport → Duong Dong</span><b>~20 min</b></div>
-          <a href="#move">Plan a route →</a>
-        </article>
+          <article class="ops-card yellow">
+            <div class="ops-top"><span>▣</span><b>TRANSPORT</b><em class="pill good">NORMAL</em></div>
+            <strong>Bus + shuttle</strong>
+            <p>No major service alert</p>
+            <small>Airport → Duong Dong ~20 min</small>
+            <a href="#move">Plan route →</a>
+          </article>
+        </div>
       </div>
 
       <div class="alert-bar">
-        <span class="alert-icon">!</span>
-        <div><strong>What needs your attention</strong><p>Demo: brief shower risk 18:30 - 19:15. No major airport or ferry disruption.</p></div>
-        <a href="#">All alerts</a>
+        <span class="alert-mark">!</span>
+        <div><strong>Worth knowing now</strong><p>Demo: brief shower risk 18:30-19:15. No major airport or ferry disruption.</p></div>
+        <a href="#">All alerts →</a>
       </div>
     </section>
 
-    <section class="section action-section" id="now">
+    <section class="section now-section" id="now">
       <div class="section-head">
         <div>
-          <p class="eyebrow">WHAT MAKES SENSE NOW?</p>
-          <h2>Turn data into a decision.</h2>
+          <p class="eyebrow">DO NOW</p>
+          <h2>Let the island pull you outside.</h2>
         </div>
-        <span class="small-note">Demo suggestions</span>
+        <span class="small-note">Demo recommendations</span>
       </div>
 
-      <div class="decision-grid">
-        <article class="decision-card featured">
-          <div class="decision-photo">
-            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20beach%2001.jpg?width=1200" alt="Phu Quoc west coast beach">
+      <div class="now-grid">
+        <article class="experience-card featured">
+          <div class="experience-media">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1400" alt="Bright beach in Phu Quoc">
           </div>
-          <div class="decision-body">
-            <span class="status-pill good">GOOD NOW</span>
+          <div class="experience-overlay"></div>
+          <div class="experience-copy">
+            <span class="pill good light">GOOD NOW</span>
             <h3>West coast before sunset</h3>
-            <p>Dry enough, manageable wind and good light. Best if you are already near Duong Dong or Long Beach.</p>
-            <div class="why"><span>Why</span><b>Low rain risk · sunset 17:57 · short transfer</b></div>
+            <p>Low rain risk, warm light and an easy return to Duong Dong for dinner.</p>
+            <a href="#">See beach options →</a>
           </div>
         </article>
 
-        <article class="decision-card">
-          <div class="decision-photo">
-            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Star%20Beach%20%28B%C3%A3i%20Sao%29.jpg?width=1000" alt="Bai Sao beach in Phu Quoc">
+        <article class="experience-card">
+          <div class="experience-media">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=1200" alt="An Thoi fishing harbour and Sunset Town">
           </div>
-          <div class="decision-body">
-            <span class="status-pill watch">MARGINAL</span>
-            <h3>South island beach</h3>
-            <p>Still possible, but travel time and later shower risk make it less efficient from central Phu Quoc.</p>
+          <div class="experience-overlay"></div>
+          <div class="experience-copy">
+            <span class="pill watch light">GOOD EVENING</span>
+            <h3>An Thoi + sunset</h3>
+            <p>Harbour life, coastal views and an easy transition into the evening.</p>
           </div>
         </article>
 
-        <article class="decision-card">
-          <div class="decision-photo local-life">
-            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1000" alt="Fishing boats in Phu Quoc">
+        <article class="experience-card">
+          <div class="experience-media">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1200" alt="Fishing boats in Phu Quoc">
           </div>
-          <div class="decision-body">
-            <span class="status-pill neutral">LOCAL</span>
-            <h3>Duong Dong + harbour</h3>
-            <p>Good fallback if weather turns. Walkable, food nearby and easy to continue into the evening.</p>
+          <div class="experience-overlay"></div>
+          <div class="experience-copy">
+            <span class="pill neutral light">LOCAL</span>
+            <h3>Follow local rhythm</h3>
+            <p>Harbour, market and town are strong fallbacks if the weather turns.</p>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="sea-break" aria-label="Phu Quoc visual break">
+      <div class="sea-break-photo">
+        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20aerial%20view.jpg?width=1800" alt="Aerial view of Phu Quoc">
+      </div>
+      <div class="sea-break-overlay"></div>
+      <div class="sea-break-copy">
+        <p>THE ISLAND IS THE INTERFACE</p>
+        <strong>See more of Phu Quoc.<br>Guess less.</strong>
       </div>
     </section>
 
@@ -188,12 +232,12 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">GETTING AROUND</p>
-          <h2>Where are you going?</h2>
+          <h2>From here to there.</h2>
         </div>
         <a class="text-link" href="#">All transport →</a>
       </div>
 
-      <div class="move-grid">
+      <div class="move-layout">
         <form class="route-planner">
           <div class="route-title"><strong>Plan a route</strong><span>DEMO</span></div>
           <label>From<input value="Phu Quoc Airport"></label>
@@ -206,27 +250,11 @@
           </div>
         </form>
 
-        <div class="transport-cards">
-          <a href="#" class="transport-card">
-            <span class="transport-icon">▣</span>
-            <div><strong>Public Bus</strong><p>Routes, stops, first/last service</p></div>
-            <b>5 routes</b>
-          </a>
-          <a href="#" class="transport-card">
-            <span class="transport-icon">◇</span>
-            <div><strong>Electric Shuttle</strong><p>Grand World and resort-area links</p></div>
-            <b>Running</b>
-          </a>
-          <a href="#" class="transport-card">
-            <span class="transport-icon">⛴</span>
-            <div><strong>Ferry & Speedboat</strong><p>Ha Tien, Rach Gia and island piers</p></div>
-            <b>View times</b>
-          </a>
-          <a href="#" class="transport-card">
-            <span class="transport-icon">✈</span>
-            <div><strong>Airport Transfer</strong><p>Bus, taxi and private transfer options</p></div>
-            <b>Compare</b>
-          </a>
+        <div class="transport-grid">
+          <a href="#" class="transport-card blue"><span>▣</span><div><strong>Public Bus</strong><p>Routes, stops, first and last service</p></div><b>5 routes →</b></a>
+          <a href="#" class="transport-card mint"><span>◇</span><div><strong>Electric Shuttle</strong><p>Grand World and resort-area links</p></div><b>Running →</b></a>
+          <a href="#" class="transport-card coral"><span>⛴</span><div><strong>Ferry & Speedboat</strong><p>Ports, schedules and route status</p></div><b>View times →</b></a>
+          <a href="#" class="transport-card yellow"><span>✈</span><div><strong>Airport Transfer</strong><p>Bus, taxi and private transfer options</p></div><b>Compare →</b></a>
         </div>
       </div>
     </section>
@@ -235,23 +263,27 @@
       <div class="section-head">
         <div>
           <p class="eyebrow">EXPLORE PHU QUOC</p>
-          <h2>Find a place by what you need.</h2>
+          <h2>Pick a feeling, not a listing.</h2>
         </div>
         <a class="text-link" href="#">All places →</a>
       </div>
 
-      <div class="photo-grid">
-        <a class="photo-card large" href="#">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=1400" alt="An Thoi and Sunset Town">
-          <div><span>SOUTH</span><strong>An Thoi + Sunset Town</strong><small>Harbour · cable car · evening</small></div>
+      <div class="explore-mosaic">
+        <a class="place-card place-main" href="#">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai-kem-dong-khach-1.jpg?width=1400" alt="Bai Kem with turquoise water">
+          <div><span>SWIM + SLOW DOWN</span><strong>Bai Kem</strong><small>White sand · turquoise water · south-east</small></div>
         </a>
-        <a class="photo-card" href="#">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Star%20Beach%20%28B%C3%A3i%20Sao%29.jpg?width=1000" alt="Bai Sao">
-          <div><span>BEACH</span><strong>Bai Sao</strong><small>South-east coast</small></div>
-        </a>
-        <a class="photo-card" href="#">
+        <a class="place-card" href="#">
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1000" alt="Fishing boat in Phu Quoc">
-          <div><span>LOCAL LIFE</span><strong>Fishing coast</strong><small>Boats · harbour · local rhythm</small></div>
+          <div><span>LOCAL LIFE</span><strong>Fishing coast</strong><small>Harbour · boats · everyday island</small></div>
+        </a>
+        <a class="place-card" href="#">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=1000" alt="An Thoi and Sunset Town">
+          <div><span>SOUTH</span><strong>An Thoi</strong><small>Harbour · cable car · evening</small></div>
+        </a>
+        <a class="place-card place-wide" href="#">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20beach.jpg?width=1200" alt="Phu Quoc beach">
+          <div><span>WEST COAST</span><strong>Beach + sunset</strong><small>Easy afternoons · warm evening light</small></div>
         </a>
       </div>
     </section>
@@ -260,14 +292,13 @@
       <div class="section-head compact">
         <div>
           <p class="eyebrow">PRACTICAL GUIDE</p>
-          <h2>Everything else, kept smaller.</h2>
+          <h2>Everything else, easy to find.</h2>
         </div>
       </div>
-
       <div class="guide-links">
         <a href="#"><strong>First time in Phu Quoc</strong><span>Arrival, areas, basics →</span></a>
-        <a href="#"><strong>Weather & seasons</strong><span>When each coast works →</span></a>
-        <a href="#"><strong>Beaches</strong><span>Choose by coast and season →</span></a>
+        <a href="#"><strong>Weather & seasons</strong><span>Which coast works when →</span></a>
+        <a href="#"><strong>Beaches</strong><span>Choose by coast and conditions →</span></a>
         <a href="#"><strong>Food & local life</strong><span>Markets, pepper, fish sauce →</span></a>
         <a href="#"><strong>Emergency & useful numbers</strong><span>Help when you need it →</span></a>
         <a href="#"><strong>Events today</strong><span>Shows, markets, local events →</span></a>
@@ -277,16 +308,15 @@
 
   <footer class="site-footer">
     <div class="footer-brand">
-      <img src="assets/logo-master.png" alt="Open Phu Quoc">
+      <svg class="brand-logo footer-logo" viewBox="0 0 285 91" role="img" aria-label="Open Phu Quoc">
+        <image href="assets/logo-master.png" x="0" y="0" width="285" height="91" filter="url(#logo-cutout)"/>
+      </svg>
       <p>Free practical information for Phu Quoc.<br>Maintained by JoTrip.</p>
     </div>
-    <div class="footer-links">
-      <a href="#">Data & Sources</a>
-      <a href="#">Report an Update</a>
-      <a href="#">About</a>
-      <a href="#">Contact</a>
-    </div>
-    <p class="credit">Demo photography from Wikimedia Commons. An Thoi harbour: Vivu Vietnam / CC BY-SA 4.0. Other images shown for prototype testing with source attribution to be finalized before public launch.</p>
+    <nav class="footer-links">
+      <a href="#">Data & Sources</a><a href="#">Report an Update</a><a href="#">About</a><a href="#">Contact</a>
+    </nav>
+    <p class="credit">Prototype photography from Wikimedia Commons. Licensing and final source attribution will be audited before public launch.</p>
   </footer>
 
   <nav class="mobile-dock" aria-label="Mobile shortcuts">
@@ -294,7 +324,7 @@
     <a href="#airport"><span>✈</span>Flights</a>
     <button type="button" class="dock-search"><span>⌕</span>Search</button>
     <a href="#move"><span>▣</span>Move</a>
-    <a href="#now"><span>⌖</span>Do now</a>
+    <a href="#now"><span>☀</span>Do now</a>
   </nav>
 
   <div class="toast" role="status" aria-live="polite"></div>
