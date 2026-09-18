@@ -981,7 +981,7 @@ img{display:block;max-width:100%}
   .toast{bottom:76px}
 }
 @media(prefers-reduced-motion:reduce){
-  *{scroll-behavior:auto!important;animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
 }
 
 /* V2.6 - visual energy pass: brighter, fresher, more island movement */
@@ -2434,5 +2434,96 @@ body{
 
   .motion-on .rail-peek{
     animation-duration:1.25s!important;
+  }
+}
+
+
+/* V2.12 - confirmed mobile motion + compact live status */
+.motion-on .energy-target{
+  transition:
+    opacity .62s ease!important,
+    transform .72s cubic-bezier(.18,.76,.22,1)!important;
+}
+
+.motion-on .energy-target .feature-story,
+.motion-on .energy-target .happening-row,
+.motion-on .energy-target .visual-card,
+.motion-on .energy-target .must-card,
+.motion-on .energy-target .area-card,
+.motion-on .energy-target .food-feature,
+.motion-on .energy-target .food-pick,
+.motion-on .energy-target .essential-grid a,
+.motion-on .energy-target .heritage-card,
+.motion-on .energy-target .guide-card{
+  transition:
+    opacity .56s ease!important,
+    transform .66s cubic-bezier(.18,.76,.22,1)!important,
+    box-shadow .2s ease!important;
+}
+
+.motion-on .energy-target.in-view .feature-story>img,
+.motion-on .energy-target.in-view .food-feature>img{
+  animation:contentDrift 8s ease-in-out infinite alternate!important;
+}
+
+.motion-on .energy-target.in-view .visual-card:first-child img{
+  animation:contentDriftAlt 9s ease-in-out infinite alternate!important;
+}
+
+.motion-on .heritage-section.in-view .heritage-card.is-active img{
+  animation:contentDrift 8.5s ease-in-out infinite alternate!important;
+}
+
+@keyframes contentDrift{
+  from{transform:scale(1.02) translate3d(0,0,0)}
+  to{transform:scale(1.075) translate3d(-1.2%,-.7%,0)}
+}
+
+@keyframes contentDriftAlt{
+  from{transform:scale(1.065) translate3d(-1%,.4%,0)}
+  to{transform:scale(1.02) translate3d(.8%,-.5%,0)}
+}
+
+@media(max-width:760px){
+  .live-strip{
+    position:relative;
+    margin:-18px 0 0;
+    padding:34px 10px 4px;
+    gap:8px;
+    background:#fff;
+  }
+
+  .live-strip::before{
+    content:"TRẠNG THÁI ĐẢO TRỰC TIẾP";
+    position:absolute;
+    left:12px;
+    top:10px;
+    color:var(--ink);
+    font-size:7px;
+    line-height:1;
+    letter-spacing:.15em;
+    font-weight:900;
+  }
+
+  .live-title{
+    display:none!important;
+  }
+
+  .live-item,
+  .live-item:last-child{
+    min-width:44%;
+    min-height:96px;
+    padding:14px 13px;
+    border:1px solid var(--line);
+    border-radius:15px;
+    box-shadow:0 7px 18px rgba(18,61,59,.05);
+  }
+
+  .live-item strong{
+    font-size:20px;
+  }
+
+  .live-item small{
+    font-size:7px;
   }
 }
