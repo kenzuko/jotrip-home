@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520" role="img" aria-labelledby="t d">
+<title id="t">Phu Quoc fishing boat detail</title>
+<desc id="d">Minimal flat illustration inspired by the painted eye on local fishing boats, sea lines and Melo pearl.</desc>
+<rect width="720" height="520" rx="34" fill="#F2EBDD"/>
+<path d="M0 385c95-40 164-31 240 0 90 37 159 47 245 5 76-37 145-39 235-2v132H0Z" fill="#123D3B" opacity=".08"/>
+<path d="M31 409c90-35 153-29 225 0 86 35 155 42 233 7 78-35 144-37 200-17" fill="none" stroke="#123D3B" stroke-width="8" stroke-linecap="round" opacity=".28"/>
+<path d="M128 316c72-95 159-151 273-165 72-9 136 4 194 31-63 5-115 23-157 56-48 37-81 86-132 109-58 26-119 19-178-31Z" fill="#123D3B"/>
+<path d="M151 306c65-78 143-124 244-138 57-8 108 0 154 17-56 11-102 31-140 61-43 35-74 76-119 95-47 20-94 13-139-35Z" fill="#F2EBDD"/>
+<path d="M168 293c55-54 117-88 192-103 45-9 87-9 125-2-49 15-86 37-116 65-34 31-59 61-93 75-37 15-73 6-108-35Z" fill="#123D3B"/>
+<circle cx="308" cy="245" r="35" fill="#D85B3F"/>
+<circle cx="296" cy="232" r="9" fill="#F2EBDD"/>
+<path d="M533 245c35 13 69 16 103 10" fill="none" stroke="#123D3B" stroke-width="9" stroke-linecap="round"/>
+<path d="M565 285c27 8 54 9 82 1" fill="none" stroke="#D85B3F" stroke-width="7" stroke-linecap="round"/>
+<g fill="#123D3B">
+  <circle cx="80" cy="73" r="4" opacity=".24"/><circle cx="103" cy="73" r="4" opacity=".16"/><circle cx="126" cy="73" r="4" opacity=".09"/>
+</g>
+<text x="79" y="105" fill="#123D3B" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" letter-spacing="3">FROM THE ISLAND</text>
+<text x="79" y="137" fill="#667574" font-family="Arial, Helvetica, sans-serif" font-size="14">boat eye · sea · Melo pearl</text>
+</svg>
