@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "users": [
+    {
+      "login": "kenzuko",
+      "name": "Anh",
+      "role": "admin",
+      "enabled": true
+    }
+  ],
+  "roles": {
+    "admin": "Toàn quyền nội dung, người dùng và xuất bản",
+    "editor": "Biên tập trang chủ, bài viết và cẩm nang",
+    "operator": "Cập nhật tiện ích, hotline và dữ liệu vận hành thủ công",
+    "viewer": "Chỉ xem và preview"
+  }
+}
