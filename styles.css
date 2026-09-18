@@ -2170,3 +2170,69 @@ body{
     animation:none!important;
   }
 }
+
+
+/* V2.9 - force visible motion after mobile cache fix */
+.hero-slide.is-active img{
+  animation:heroKenBurns 6.2s ease-out both;
+}
+
+.hero-slide:nth-child(even).is-active img{
+  animation-name:heroKenBurnsAlt;
+}
+
+.hero-copy{
+  animation:heroCopyIn .75s cubic-bezier(.18,.76,.22,1) both;
+}
+
+.hero-scene-label{
+  transition:opacity .22s ease,transform .22s ease;
+}
+
+@keyframes heroKenBurns{
+  from{transform:scale(1.08) translate3d(1.2%,.6%,0)}
+  to{transform:scale(1.015) translate3d(-.8%,-.4%,0)}
+}
+
+@keyframes heroKenBurnsAlt{
+  from{transform:scale(1.07) translate3d(-1%,.4%,0)}
+  to{transform:scale(1.015) translate3d(.8%,-.5%,0)}
+}
+
+@keyframes heroCopyIn{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:none}
+}
+
+@media(max-width:760px){
+  .hero{
+    min-height:520px;
+  }
+
+  .hero-copy{
+    padding-bottom:118px;
+  }
+
+  .hero-scene{
+    bottom:76px;
+  }
+
+  .hero-controls{
+    bottom:70px;
+  }
+
+  .hero-progress{
+    bottom:60px;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .hero-slide.is-active img{
+    animation:none!important;
+    transform:none!important;
+  }
+
+  .hero-copy{
+    animation:none!important;
+  }
+}
