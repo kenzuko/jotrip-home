@@ -1,0 +1,18 @@
+{
+  "contract_version": "1.0",
+  "description": "Open Phu Quoc homepage data contract. The UI consumes this shape; collectors/adapters may change without redesigning the homepage.",
+  "required": {
+    "generated_at": "ISO-8601",
+    "demo": "boolean",
+    "live_status": {
+      "weather": {"label":"string","primary":"string","secondary":"string","state":"GOOD|WATCH|ALERT|UNKNOWN","source_class":"ACTUAL|ESTIMATED_NOW|MODEL|MIXED","updated_at":"ISO-8601|null"},
+      "marine": {"label":"string","primary":"string","secondary":"string","state":"GOOD|WATCH|ALERT|UNKNOWN","source_class":"ACTUAL|ESTIMATED_NOW|MODEL|MIXED","updated_at":"ISO-8601|null"},
+      "sea": {"label":"string","primary":"string","secondary":"string","state":"GOOD|WATCH|ALERT|UNKNOWN","source_class":"ACTUAL|ESTIMATED_NOW|MODEL|MIXED","updated_at":"ISO-8601|null"},
+      "sunset": {"label":"string","primary":"string","secondary":"string","state":"INFO","source_class":"ASTRONOMICAL","updated_at":"ISO-8601|null"}
+    },
+    "breaking": [{"id":"string","severity":"INFO|WATCH|ALERT","title":"string","summary":"string","url":"string|null","starts_at":"ISO-8601|null","ends_at":"ISO-8601|null","source":"string"}],
+    "today": [{"id":"string","type":"WEATHER|SHOW|EVENT|PLACE|TRANSPORT|AIRPORT|LOCAL_NOTE","title":"string","summary":"string","image":"string|null","status":"string|null","time_label":"string|null","url":"string|null"}],
+    "schedule": [{"id":"string","name":"string","type":"SHOW|EVENT|ATTRACTION","starts_at":"ISO-8601|null","ends_at":"ISO-8601|null","status":"OPEN|ON|WATCH|CLOSED|CHANGED|UNKNOWN","place":"string|null","url":"string|null"}],
+    "source_health": [{"source":"string","status":"GOOD|WATCH|STALE|FAILED","updated_at":"ISO-8601|null","note":"string|null"}]
+  }
+}
