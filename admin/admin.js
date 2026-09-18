@@ -33,6 +33,12 @@ function renderChildren(obj,path,depth){
    return primitiveField(k,v,p);
  }).join("");
 }
+function renderUsers(){
+ const users=currentData.users||[];
+ $("#editor").innerHTML='<div class="user-admin-head"><div><strong>Người dùng CMS</strong><p>Thêm GitHub username rồi chọn vai trò. Chỉ admin mới thấy module này.</p></div><button type="button" id="addUserBtn">+ Thêm người dùng</button></div><div class="user-cards">'+users.map((u,i)=>'<article class="user-card"><div class="field"><label>GitHub username</label><input data-path="users.'+i+'.login" value="'+esc(u.login||"")+'"></div><div class="field"><label>Tên hiển thị</label><input data-path="users.'+i+'.name" value="'+esc(u.name||"")+'"></div><div class="field"><label>Vai trò</label><select data-path="users.'+i+'.role"><option '+(u.role==="admin"?"selected":"")+'>admin</option><option '+(u.role==="editor"?"selected":"")+'>editor</option><option '+(u.role==="operator"?"selected":"")+'>operator</option><option '+(u.role==="viewer"?"selected":"")+'>viewer</option></select></div><div class="field"><label>Trạng thái</label><select data-path="users.'+i+'.enabled" data-type="boolean"><option value="true" '+(u.enabled!==false?"selected":"")+'>Đang hoạt động</option><option value="false" '+(u.enabled===false?"selected":"")+'>Tạm khóa</option></select></div>'+(u.login==="kenzuko"?'':'<button type="button" class="remove-user" data-user="'+i+'">Xóa</button>')+'</article>').join("")+'</div>';
+ $("#addUserBtn").onclick=()=>{currentData.users=currentData.users||[];currentData.users.push({login:"",name:"",role:"viewer",enabled:true});dirty=true;renderUsers();bindFields();$("#saveBtn").disabled=false;status("Đã thêm người dùng mới - nhập GitHub username rồi xuất bản.")};
+ document.querySelectorAll(".remove-user").forEach(b=>b.onclick=()=>{currentData.users.splice(Number(b.dataset.user),1);dirty=true;renderUsers();bindFields();$("#saveBtn").disabled=false;status("Đã xóa khỏi danh sách - cần xuất bản để áp dụng.")});
+}
 function bindFields(){
  document.querySelectorAll("[data-path]").forEach(el=>{
    el.addEventListener("input",()=>{
@@ -77,7 +83,7 @@ async function selectModule(id){
  try{
    const b=await api(API.content+"?path="+encodeURIComponent(currentModule.path));
    currentData=b.content;currentSha=b.sha;dirty=false;
-   $("#editor").innerHTML=renderNode(currentData,"",currentModule.label);
+   if(currentModule.id==="users")renderUsers();else $("#editor").innerHTML=renderNode(currentData,"",currentModule.label);
    bindFields();
    const writable=currentModule.write.includes(session.role);$("#saveBtn").disabled=!writable;$("#editor").classList.toggle("readonly",!writable);
    document.querySelectorAll("#editor input,#editor textarea,#editor select").forEach(el=>el.disabled=!writable);
