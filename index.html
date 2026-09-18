@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Open Phu Quoc - thông tin miễn phí, trực quan và thực dụng về Phú Quốc: tình hình đảo, sự kiện, di chuyển, điểm đến và câu chuyện địa phương.">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css?v=20260918-2030">
+  <link rel="stylesheet" href="styles.css?v=20260918-2040">
 </head>
 <body>
   <div class="demo-ribbon">
@@ -399,15 +399,15 @@
     <p class="credit">Ảnh dùng cho bản thử nghiệm từ Wikimedia Commons. Quyền sử dụng và nguồn ảnh sẽ được kiểm tra đầy đủ trước khi phát hành công khai.</p>
   </footer>
 
-  <nav class="mobile-dock" aria-label="Lối tắt trên điện thoại">
-    <a href="#top"><span>⌂</span>Trang chủ</a>
-    <a href="#today"><span>◉</span>Trực tiếp</a>
-    <button type="button" class="dock-search"><span>⌕</span>Tìm kiếm</button>
-    <a href="#happening"><span>◷</span>Hôm nay</a>
-    <a href="#essentials"><span>•••</span>Thêm</a>
+  <nav class="mobile-dock" aria-label="Điều hướng chính trên điện thoại">
+    <a class="active" href="#top" data-tab="home"><span>⌂</span>Trang chủ</a>
+    <a href="#happening" data-tab="today"><span>◷</span>Hôm nay</a>
+    <button type="button" class="dock-search" data-tab="search"><span>⌕</span>Tìm kiếm</button>
+    <a href="#guide" data-tab="guide"><span>▤</span>Cẩm nang</a>
+    <a href="#essentials" data-tab="more"><span>•••</span>Thêm</a>
   </nav>
 
   <div class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20260918-2030"></script>
+  <script src="app.js?v=20260918-2040"></script>
 </body>
 </html>
