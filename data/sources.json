@@ -13,5 +13,9 @@
     "latest_fallback": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport/latest.json",
     "health_fallback": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport/health.json",
     "specialist_url": "https://airport.openphuquoc.com"
+  },
+  "marine_ops": {
+    "latest": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-marine-ops/data/marine_ops/latest.json",
+    "health": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-marine-ops/data/marine_ops/health.json"
   }
 }
