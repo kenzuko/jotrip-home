@@ -190,3 +190,45 @@ Homepage content feed should prioritize:
 - timely trip ideas
 
 Avoid duplicative quick-access grids. Search + primary navigation + compact tool access are enough.
+
+
+## App architecture lock - 18/09/2026
+
+Open Phu Quoc keeps one coherent public-facing ADN across homepage and child pages.
+
+### Specialist apps
+Existing specialist tools remain available and independent:
+- Weather Lab: weather.openphuquoc.com
+- Airport Live: airport.openphuquoc.com
+
+They are not the primary public UX for ordinary travellers. They remain power-user / operations views and may later be redirected or retained as advanced modes.
+
+### Open Phu Quoc child pages
+Open Phu Quoc consumes the same normalized source layers as the specialist apps, but presents them with the Open Phu Quoc visual system and traveller-first information architecture.
+
+Initial child pages:
+- /weather/
+- /airport/
+
+Rule:
+- reuse trusted source/data pipelines
+- do not reuse the specialist UI wholesale
+- preserve source class and freshness labels
+- do not relabel model/estimated data as actual
+- expose a link to the specialist tool for advanced users
+
+### Data layer
+Source registry:
+- /data/sources.json
+
+Homepage contract:
+- /data/home-contract.json
+
+Decision layer:
+- /core/today-engine.js
+
+The homepage should ultimately consume the contract instead of hard-coded values. Individual source adapters may evolve without redesigning the homepage.
+
+### Navigation
+Primary navigation remains need-based, not dataset-based.
+Deep source layers and specialist metrics stay inside their modules.
