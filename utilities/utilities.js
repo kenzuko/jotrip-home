@@ -26,4 +26,8 @@ fetch("../data/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json(
   renderChecklist(d.checklist||[]);
   const stamp=d.generated_at?new Date(d.generated_at).toLocaleString("vi-VN"):"chưa rõ";
   $("#syncNote").textContent="Open AutoSync · "+(d.sync?.status||"READY")+" · kiểm tra gần nhất "+stamp+" · "+(d.sync?.note||"");
+  const sections=[...document.querySelectorAll(".u-section")];
+  const links=[...document.querySelectorAll(".u-menu a[href^='#']")];
+  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));}}),{threshold:.16,rootMargin:"-95px 0px -45%"});
+  sections.forEach(s=>obs.observe(s));
 }).catch(()=>$("#syncNote").textContent="Chưa tải được dữ liệu tiện ích.");
