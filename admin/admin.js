@@ -46,6 +46,7 @@ const LABELS={
   alt:"Mô tả ảnh",
   caption:"Chú thích ảnh",
   layout:"Kiểu hiển thị",
+  cover_position:"Vị trí cắt cover",
   intro:"Mở bài",
   heading:"Tiêu đề đoạn",
   body:"Nội dung",
@@ -342,6 +343,17 @@ function storyLayoutField(val,path){
   </select></div>`;
 }
 
+function coverPositionField(val,path){
+  const value=val||"center";
+  return `<div class="field"><label>Vị trí cắt cover</label><select data-path="${esc(path)}">
+    <option value="center" ${value==="center"?"selected":""}>Giữa ảnh</option>
+    <option value="top" ${value==="top"?"selected":""}>Ưu tiên phía trên</option>
+    <option value="bottom" ${value==="bottom"?"selected":""}>Ưu tiên phía dưới</option>
+    <option value="left" ${value==="left"?"selected":""}>Ưu tiên bên trái</option>
+    <option value="right" ${value==="right"?"selected":""}>Ưu tiên bên phải</option>
+  </select></div>`;
+}
+
 function renderStoryWorkbench(story,i){
   const p="stories."+i;
   const sections=Array.isArray(story.sections)?story.sections:[];
@@ -407,6 +419,7 @@ function renderStoryWorkbench(story,i){
           </div>
           ${primitiveField("dek",story.dek||"",p+".dek")}
           ${primitiveField("image",story.image||"",p+".image")}
+          ${coverPositionField(story.cover_position||"center",p+".cover_position")}
           ${primitiveField("intro",story.intro||"",p+".intro")}
           <button type="button" class="story-readtime" data-story-readtime="${i}">Tính lại thời gian đọc</button>
         </div>
