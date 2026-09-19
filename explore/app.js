@@ -46,7 +46,7 @@
   }
 
   function detailLink(x){
-    return "../places/?q="+encodeURIComponent(x.slug||x.name);
+    return "../places/detail.html?id="+encodeURIComponent(x.slug||x.id);
   }
 
   function renderFilters(){
