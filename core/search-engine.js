@@ -20,7 +20,13 @@
     const aliases=(doc.aliases||[]).map(fold);
     const hay=fold(doc.search_text||'');
     const tokens=q.split(/\s+/).filter(Boolean);
+    const allText=fold([doc.title,...(doc.aliases||[]),doc.search_text||''].join(' '));
+    const allWords=new Set(allText.split(/\s+/).filter(Boolean));
+    const titleWords=new Set(title.split(/\s+/).filter(Boolean));
+    const hayWords=new Set(hay.split(/\s+/).filter(Boolean));
     let s=0;
+
+    if(tokens.length>1 && !allText.includes(q) && !tokens.every(token=>allWords.has(token))) return 0;
 
     if(title===q) s+=200;
     else if(title.startsWith(q)) s+=130;
@@ -32,8 +38,8 @@
 
     if(hay.includes(q)) s+=60;
     for(const token of tokens){
-      if(title.includes(token)) s+=22;
-      if(hay.includes(token)) s+=10;
+      if(titleWords.has(token)) s+=22;
+      if(hayWords.has(token)) s+=10;
     }
     return s;
   }
