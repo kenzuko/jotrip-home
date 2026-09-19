@@ -245,7 +245,7 @@
         "nature",
         "first-time"
       ],
-      "route": "/guide/#zones",
+      "route": "/explore/?zone=zone_north",
       "search_text": "bac dao bac dao north phu quoc north island family nature first-time family nature theme-parks khu bac va tay bac phu quoc, gom rung, ganh dau, rach vem va cum vui choi united center. phu hop gia dinh, thien nhien va cac diem vui choi quy mo lon."
     },
     {
@@ -1343,7 +1343,7 @@
         "family",
         "first-time"
       ],
-      "route": "/guide/#zones",
+      "route": "/explore/?zone=zone_south",
       "search_text": "nam dao nam dao south phu quoc south island an thoi sea couple family first-time sea couple family cum nam dao va quan dao an thoi, gom bai bien, hon thom, sunset town va nhieu hoat dong bien. tap trung trai nghiem bien, cap treo, vui choi va cac diem tham quan phia nam."
     },
     {
@@ -1992,7 +1992,7 @@
         "food",
         "local-life"
       ],
-      "route": "/guide/#zones",
+      "route": "/explore/?zone=zone_central_west",
       "search_text": "trung tam & bo tay trung tam duong dong central phu quoc west coast first-time food local-life first-time food sunset duong dong, bo tay va cac khu vuc thuan tien cho an uong, cho dem, hoang hon va di chuyen. de o, de an, thuan tien cho khach lan dau va lam diem giua de di bac - nam."
     },
     {
