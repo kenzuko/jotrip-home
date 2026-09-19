@@ -42,6 +42,22 @@ for(const entity of entities){
   }
 }
 
+const facetPath=path.join(root,"data","views","explore-facets.json");
+try{
+  const facets=JSON.parse(fs.readFileSync(facetPath,"utf8"));
+  const facetIds=new Set();
+  for(const facet of facets.intents||[]){
+    if(!facet.id) errors.push("explore facet missing id");
+    if(facetIds.has(facet.id)) errors.push("duplicate explore facet id: "+facet.id);
+    facetIds.add(facet.id);
+    for(const entityId of facet.include_ids||[]){
+      if(!knownIds.has(entityId)) errors.push("explore facet "+facet.id+" references missing entity: "+entityId);
+    }
+  }
+}catch(error){
+  errors.push("explore-facets.json invalid or missing: "+error.message);
+}
+
 const searchPath=path.join(root,"data","views","search-index.json");
 try{
   const search=JSON.parse(fs.readFileSync(searchPath,"utf8"));
