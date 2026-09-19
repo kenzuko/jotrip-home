@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.0",
+  "source_file": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+  "sections": [
+    {
+      "id": "start",
+      "label": "Bắt đầu & hiểu đảo",
+      "slides": "3-12",
+      "topics": [
+        "cách dùng sổ tay",
+        "khách lần đầu",
+        "Phú Quốc trong 2 phút",
+        "bản đồ ba vùng",
+        "thiên nhiên",
+        "tên gọi Phú Quốc"
+      ]
+    },
+    {
+      "id": "arrival",
+      "label": "Đến đảo & di chuyển",
+      "slides": "13-16",
+      "topics": [
+        "đường hàng không",
+        "đường biển",
+        "tàu cao tốc",
+        "phà",
+        "từ sân bay/cảng về khách sạn"
+      ]
+    },
+    {
+      "id": "stay",
+      "label": "Chọn nơi ở",
+      "slides": "17-23",
+      "topics": [
+        "chọn khu",
+        "ma trận nhóm khách",
+        "phân khúc khách sạn",
+        "khách sạn theo khu",
+        "kênh đặt",
+        "meal plan"
+      ]
+    },
+    {
+      "id": "mobility",
+      "label": "Di chuyển trên đảo",
+      "slides": "24-26",
+      "topics": [
+        "thời gian di chuyển",
+        "phương tiện",
+        "Grab",
+        "taxi",
+        "xe đặt trước"
+      ]
+    },
+    {
+      "id": "international",
+      "label": "Khách quốc tế",
+      "slides": "27-29",
+      "topics": [
+        "visa",
+        "nhập cảnh",
+        "thanh toán",
+        "tiền mặt",
+        "ngôn ngữ",
+        "ứng xử",
+        "trang phục"
+      ]
+    },
+    {
+      "id": "trip-rhythm",
+      "label": "Nhịp chuyến đi",
+      "slides": "30-31",
+      "topics": [
+        "2-5 ngày",
+        "kiểm tra trước chuyến đi",
+        "thời tiết",
+        "biển"
+      ]
+    },
+    {
+      "id": "north",
+      "label": "Bắc đảo",
+      "slides": "35-45",
+      "topics": [
+        "Safari",
+        "VinWonders",
+        "Grand World",
+        "Rạch Vẹm",
+        "Cửa Cạn"
+      ]
+    },
+    {
+      "id": "center-west",
+      "label": "Dương Đông & bờ Tây",
+      "slides": "47-49",
+      "topics": [
+        "Dương Đông",
+        "Dinh Cậu",
+        "chợ đêm",
+        "Bãi Trường",
+        "hoàng hôn"
+      ]
+    },
+    {
+      "id": "south",
+      "label": "Nam đảo",
+      "slides": "51-56",
+      "topics": [
+        "Bãi Sao",
+        "Bãi Khem",
+        "Sunset Town",
+        "Cầu Hôn",
+        "show",
+        "cáp treo Hòn Thơm",
+        "Aquatopia",
+        "Exotica"
+      ]
+    },
+    {
+      "id": "sea",
+      "label": "Biển & trải nghiệm",
+      "slides": "57-64",
+      "topics": [
+        "tour 3 đảo",
+        "cano",
+        "tàu",
+        "snorkeling",
+        "lặn bình khí",
+        "seawalker",
+        "câu cá",
+        "câu mực"
+      ]
+    },
+    {
+      "id": "nature-food",
+      "label": "Rừng & hương vị",
+      "slides": "65-66",
+      "topics": [
+        "suối",
+        "rừng",
+        "ẩm thực Phú Quốc",
+        "gỏi cá trích",
+        "bún quậy"
+      ]
+    },
+    {
+      "id": "itineraries",
+      "label": "Ghép thành hành trình",
+      "slides": "67-74",
+      "topics": [
+        "tour nên đi",
+        "3N2Đ",
+        "4N3Đ",
+        "5N4Đ",
+        "hành trình theo vùng",
+        "ngày không lên lịch"
+      ]
+    },
+    {
+      "id": "practical",
+      "label": "Giá, danh bạ & quyền lợi",
+      "slides": "76-79",
+      "topics": [
+        "cách đọc giá",
+        "đại lý/DMC",
+        "danh bạ",
+        "bảng giá tham khảo"
+      ]
+    },
+    {
+      "id": "safety",
+      "label": "An toàn & liên hệ",
+      "slides": "80-83",
+      "topics": [
+        "checklist",
+        "số khẩn cấp",
+        "an toàn đi biển",
+        "ứng xử"
+      ]
+    },
+    {
+      "id": "sources",
+      "label": "Nguồn cập nhật",
+      "slides": "84-85",
+      "topics": [
+        "nguồn vận hành",
+        "nguồn giá/show",
+        "pháp lý",
+        "thực địa"
+      ]
+    },
+    {
+      "id": "culture",
+      "label": "Văn hóa & nghề đảo",
+      "slides": "87-92",
+      "topics": [
+        "nhà thùng",
+        "hồ tiêu",
+        "làng chài",
+        "Dinh Cậu",
+        "Nhà tù Phú Quốc"
+      ]
+    },
+    {
+      "id": "history",
+      "label": "Mốc phát triển",
+      "slides": "93-99",
+      "topics": [
+        "trước 2000",
+        "2004-2014",
+        "2015-2021",
+        "2021-2025",
+        "APEC 2027",
+        "sau APEC"
+      ]
+    }
+  ]
+}
