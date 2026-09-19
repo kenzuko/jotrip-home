@@ -288,29 +288,50 @@
         weather: {
           primary: weatherPrimary,
           secondary: weatherSecondary,
+          status: !critical || criticalAge > 90 ? "unknown" : convMax != null && convMax >= 75 ? "watch" : observedRain ? "advisory" : "normal",
           source_class: vvpq ? "ACTUAL" : "ESTIMATED_NOW",
           source_updated_at: weatherObservedAt,
-          freshness: weatherState
+          freshness: weatherAge <= 60 ? "fresh" : weatherAge <= 180 ? "aging" : "stale"
         },
         sea: {
           primary: seaPrimary,
           secondary: seaSecondary,
+          status: seaHs == null ? "unknown" : seaHs >= 1.5 ? "watch" : seaHs >= 1 ? "advisory" : "normal",
           source_class: "MODEL",
           source_updated_at: seaTime,
-          freshness: seaAge <= 360 ? "fresh" : "stale"
+          freshness: seaAge <= 360 ? "fresh" : seaAge <= 720 ? "aging" : "stale"
+        },
+        ferry: {
+          primary: marine ? stateText(ferryState) : "Chưa có dữ liệu",
+          status: !marine ? "unknown" : ferryState === "DIRECT_CONFIRMED" ? "normal" : ferryState === "FIELD_REQUIRED" ? "watch" : "unknown",
+          source_class: "DIRECT_OPERATIONAL"
         },
         marine: {
           primary: marine ? stateText(canoState) : "Chưa có dữ liệu",
+          status: !marine ? "unknown" : canoState === "DIRECT_CONFIRMED" ? "normal" : canoState === "FIELD_REQUIRED" ? "watch" : "unknown",
           source_class: "MIXED"
         },
         airport: {
           primary: !airportAvailable ? "Chưa có dữ liệu" : delayed.length ? delayed.length + " chuyến cần xem" : "Bình thường",
+          status: !airportAvailable ? "unknown" : delayed.length ? "watch" : "normal",
           source_class: "LIVE_OPERATIONAL"
         },
         sunset: {
           primary: sunset,
+          status: "normal",
           source_class: "ASTRONOMICAL"
         }
+      },
+      signals: {
+        weather_snapshot_age_min: Number.isFinite(criticalAge) ? Math.round(criticalAge) : null,
+        convective_max: convMax,
+        observed_rain: observedRain,
+        estimated_rain_max_mm_h: estimatedRainMax,
+        airport_delayed_count: airportAvailable ? delayed.length : null,
+        airport_total: total,
+        cano_state: canoState || null,
+        fast_boat_state: fastState || null,
+        ferry_state: ferryState || null
       },
       source_health: {
         weather_critical: c.status,
@@ -318,5 +339,7 @@
         airport: a.status
       }
     };
+
+    window.dispatchEvent(new CustomEvent("openpq:live-ready", { detail: window.OPENPQ_HOME }));
   });
 })();
