@@ -4,7 +4,29 @@
   "hero": {
     "kicker": "PHÚ QUỐC · NGAY LÚC NÀY",
     "title": "Phú Quốc, ngay lúc này.",
-    "lead": "Xem đảo đang thế nào, chọn việc đáng làm và đi tiếp bằng thông tin thực dụng."
+    "lead": "Xem đảo đang thế nào, chọn việc đáng làm và đi tiếp bằng thông tin thực dụng.",
+    "slides": [
+      {
+        "label": "BIỂN XANH NAM ĐẢO",
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kem%20Beach%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=2000",
+        "alt": "Biển xanh và bãi biển Phú Quốc"
+      },
+      {
+        "label": "AN THỚI LÊN ĐÈN",
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=2000",
+        "alt": "An Thới và Sunset Town"
+      },
+      {
+        "label": "NHÌN ĐẢO TỪ TRÊN CAO",
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20aerial%20view.jpg?width=2000",
+        "alt": "Toàn cảnh Phú Quốc từ trên cao"
+      },
+      {
+        "label": "NHỊP SỐNG VEN BIỂN",
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1800",
+        "alt": "Ghe tàu ven biển Phú Quốc"
+      }
+    ]
   },
   "sections": {
     "happening": {
