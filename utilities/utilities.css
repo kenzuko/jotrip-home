@@ -11,6 +11,8 @@
 .u-hero span,.u-card small,.transport-note p,.dynamic-note,.check-card li,.tip-band span,.sync-note,footer{font-size:14px}
 .u-card .badge,.u-card .source,.travel-line small,.choice span,.price-card span,.price-card small{font-size:11px}
 .u-card strong,.travel-line span,.choice strong{font-size:15px}
+.emergency-card span{font-size:13px}
+.emergency-card small{font-size:12px;line-height:1.45}
 .dir-grid,.u-grid,.price-grid,.check-grid{gap:12px}
 .u-card,.price-card,.check-card{padding:18px}
 

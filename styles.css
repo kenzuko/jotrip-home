@@ -2769,7 +2769,7 @@ body{
 /* V2.15 - scalable app navigation + robust approved-logo rendering */
 .brand{
   background:
-    url("assets/logo-master.png?v=approved-20260918-2")
+    url("assets/logo.svg?v=approved-20260918-2")
     left center / contain no-repeat;
 }
 
@@ -3719,6 +3719,16 @@ body.sheet-open{
   .hero-copy>p:not(.hero-kicker){font-size:15px}
   .live-item small{font-size:11px}
   .task-launcher small{font-size:11px}
+  #top>.live-strip .live-item span{font-size:10px}
+  #top>.live-strip .live-item small{font-size:11px;line-height:1.35}
+  #top>.essentials .essential-grid strong{font-size:13px}
+  #top>.essentials .essential-grid small{font-size:11px;line-height:1.35}
+  #top>.essentials .essential-grid b{font-size:15px}
+  .ticker-label strong,.ticker-track span{font-size:10px}
+  .ticker-track b{font-size:11px}
+  .hero-kicker{font-size:11px}
+  .hero-scene-count,.hero-scene-label{font-size:10px}
+  .search-result-type{font-size:10px}
 }
 
 @media (max-width:760px){

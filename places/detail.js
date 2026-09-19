@@ -9,7 +9,8 @@
   const labels={
     family:"Gia đình",couple:"Cặp đôi",sea:"Biển",evening:"Buổi tối",nature:"Thiên nhiên",
     "local-life":"Đời sống địa phương","rainy-day":"Ngày mưa",show:"Biểu diễn",beach:"Bãi biển",
-    culture:"Văn hóa",history:"Lịch sử",outdoor:"Ngoài trời",indoor:"Trong nhà",waterpark:"Công viên nước"
+    culture:"Văn hóa",history:"Lịch sử",outdoor:"Ngoài trời",indoor:"Trong nhà",waterpark:"Công viên nước",
+    "cable-car":"Cáp treo",resort:"Khu nghỉ dưỡng",architecture:"Kiến trúc",fireworks:"Pháo hoa",marine:"Biển đảo"
   };
   const zoneImages={
     zone_north:"https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20aerial%20view.jpg?width=1800",
@@ -66,7 +67,8 @@
     document.title=entity.name+" - Open Phu Quoc";
 
     root.innerHTML=
-      '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'" style="--detail-image:url(&quot;'+esc(zoneImages[entity.zone_id]||zoneImages.zone_central_west)+'&quot;)">'+
+      '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
+        '<img class="detail-hero-photo" src="'+esc(zoneImages[entity.zone_id]||zoneImages.zone_central_west)+'" alt="Không gian '+esc(zone?.name||"Phú Quốc")+'" decoding="async">'+
         '<div class="detail-hero-inner">'+
           '<p class="detail-kicker">'+esc(typeLabel[entity.entity_type]||entity.entity_type)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
           '<h1>'+esc(entity.name)+'</h1>'+
