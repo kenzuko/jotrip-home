@@ -130,10 +130,13 @@ function inputAttrs(key){
 function stringField(key,val,path){
   const text=String(val??"");
   const long=text.length>90||/(body|summary|description|intro|dek|lead|note|items|content)/i.test(key);
-  return `<div class="field"><label>${esc(labelize(key))}</label>${long
+  const control=long
     ?`<textarea data-path="${esc(path)}">${esc(text)}</textarea>`
-    :`<input${inputAttrs(key)} data-path="${esc(path)}" value="${esc(text)}">`
-  }</div>`;
+    :`<input${inputAttrs(key)} data-path="${esc(path)}" value="${esc(text)}">`;
+  const preview=key==="image"
+    ?`<div class="image-preview ${text.trim()?"":"empty"}" data-image-preview="${esc(path)}">${text.trim()?'<img src="'+esc(text.trim())+'" alt="Xem trước ảnh">':'<span>Dán URL ảnh để xem trước</span>'}</div>`
+    :"";
+  return `<div class="field ${key==="image"?"image-field":""}"><label>${esc(labelize(key))}</label>${control}${preview}</div>`;
 }
 
 function primitiveField(key,val,path){
