@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0",
+  "verified_at": "2026-09-19",
+  "source": {
+    "label": "VinWonders / VinBus public Phú Quốc 2026",
+    "primary": "https://vinwonders.com/vi/wonderpedia/news/xe-bus-di-safari-phu-quoc/",
+    "realtime": "https://maps.vinbus.vn/",
+    "note": "Lịch và tần suất là dữ liệu công bố. Vị trí xe thật chỉ được gắn nhãn LIVE khi có feed VinBus chính thức/machine-readable; nếu chưa có chỉ hiển thị ƯỚC TÍNH THEO LỊCH."
+  },
+  "routes": [
+    {
+      "id": "17",
+      "name": "Sân bay Phú Quốc ↔ Grand World",
+      "operator": "VinBus",
+      "window": "04:00 - 03:10",
+      "frequency": "15 - 30 - 60 phút",
+      "fare_note": "Miễn phí theo điều kiện vé/QR của hệ sinh thái VinWonders/Vinpearl được công bố",
+      "source_kind": "schedule_frequency",
+      "hashtags": [
+        "#bus17",
+        "#airport",
+        "#duong-dong",
+        "#grand-world"
+      ],
+      "stops": [
+        "Sân bay Phú Quốc",
+        "Ngã ba sân bay",
+        "Eden Resort",
+        "Salinda Resort",
+        "Long Beach Center",
+        "Bảo tàng Cội Nguồn",
+        "Trần Hưng Đạo / trung tâm",
+        "Chợ đêm - Sùng Hưng",
+        "Highlands Coffee 10B Hùng Vương",
+        "Sân bay cũ",
+        "K+ Mark",
+        "Ông Lang",
+        "Cửa Cạn",
+        "Fusion Resort",
+        "VinHolidays Fiesta",
+        "Grand World - bãi T2"
+      ]
+    },
+    {
+      "id": "19",
+      "name": "InterContinental ↔ Sân bay ↔ Grand World",
+      "operator": "VinBus",
+      "window": "06:35 - 00:00",
+      "frequency": "40 - 160 phút",
+      "fare_note": "Miễn phí theo điều kiện vé/QR được công bố",
+      "source_kind": "schedule_frequency",
+      "hashtags": [
+        "#bus19",
+        "#bai-truong",
+        "#airport",
+        "#grand-world"
+      ],
+      "stops": [
+        "InterContinental",
+        "Pullman",
+        "Novotel",
+        "Mường Thanh",
+        "Sol Beach",
+        "Sân bay Phú Quốc",
+        "Eden Resort",
+        "Salinda Resort",
+        "Bảo tàng Cội Nguồn",
+        "Chợ đêm - Sùng Hưng",
+        "Highlands Coffee 10B Hùng Vương",
+        "Sân bay cũ",
+        "K+ Mark",
+        "Ông Lang",
+        "Cửa Cạn",
+        "Fusion Resort",
+        "VinHolidays Fiesta",
+        "Grand World - bãi T2"
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Cảng Bãi Vòng ↔ Grand World",
+      "operator": "VinBus",
+      "window": "05:30 - 16:00",
+      "frequency": "30 - 60 phút",
+      "fare_note": "Miễn phí theo điều kiện vé/QR được công bố",
+      "source_kind": "schedule_frequency",
+      "hashtags": [
+        "#bus20",
+        "#bai-vong",
+        "#duong-dong",
+        "#grand-world"
+      ],
+      "stops": [
+        "Cảng Bãi Vòng",
+        "Vòng xoay Bãi Vòng",
+        "Cao đẳng Việt - Hàn",
+        "KDL Suối Tranh",
+        "Ngã ba Suối Mây",
+        "Cổng chào Suối Đá",
+        "Highlands Coffee 10B Hùng Vương",
+        "Sân bay cũ",
+        "K+ Mark",
+        "Ông Lang",
+        "Cửa Cạn",
+        "Fusion Resort",
+        "VinHolidays Fiesta",
+        "Grand World - bãi T2"
+      ]
+    }
+  ]
+}
