@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "id": "handbook_r3",
+    "slides": [
+      30,
+      31,
+      67,
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74
+    ]
+  },
+  "duration_guides": [
+    {
+      "days": 2,
+      "label": "2 ngày 1 đêm",
+      "principle": "Chọn một nửa đảo",
+      "avoid": "Không cố gộp Bắc + Nam + tour biển"
+    },
+    {
+      "days": 3,
+      "label": "3 ngày 2 đêm",
+      "principle": "Một ngày biển/Hòn Thơm, một ngày Bắc hoặc Nam, một ngày nhẹ Dương Đông",
+      "weather_rule": "Dành ngày dự báo đẹp nhất cho biển"
+    },
+    {
+      "days": 4,
+      "label": "4 ngày 3 đêm",
+      "principle": "Một ngày biển, một ngày Bắc, một ngày Nam, thêm nửa ngày/chiều Dương Đông"
+    },
+    {
+      "days": 5,
+      "label": "5 ngày trở lên",
+      "principle": "Có chỗ cho ngày trống, local, câu cá, rừng/suối hoặc bữa ăn trải nghiệm"
+    }
+  ],
+  "templates": [
+    {
+      "id": "family-3d2n",
+      "title": "3N2Đ - Gia đình có trẻ",
+      "cohort": [
+        "family",
+        "kids"
+      ],
+      "days": [
+        [
+          "Dương Đông",
+          "Dinh Cậu",
+          "Chợ đêm"
+        ],
+        [
+          "Bãi Sao",
+          "Hòn Thơm hoặc trải nghiệm biển"
+        ],
+        [
+          "Safari hoặc VinWonders"
+        ]
+      ],
+      "tips": [
+        "Mỗi ngày một trục",
+        "Chừa giờ nghỉ",
+        "Không ôm Safari và VinWonders trong một ngày"
+      ]
+    },
+    {
+      "id": "honeymoon-4d3n",
+      "title": "4N3Đ - Honeymoon & nghỉ dưỡng",
+      "cohort": [
+        "couple",
+        "honeymoon"
+      ],
+      "days": [
+        [
+          "Check-in",
+          "Spa",
+          "Hoàng hôn"
+        ],
+        [
+          "Hòn Thơm",
+          "Sunset Town",
+          "1 show"
+        ],
+        [
+          "Resort / trải nghiệm riêng"
+        ],
+        [
+          "Khoảng trống linh hoạt"
+        ]
+      ],
+      "tips": [
+        "Lịch phải có quyền bỏ bớt",
+        "Chốt thời tiết và giờ bay trước"
+      ]
+    },
+    {
+      "id": "deeper-5d4n",
+      "title": "5N4Đ - Đi sâu hơn một lớp",
+      "cohort": [
+        "first-time",
+        "culture"
+      ],
+      "days": [
+        [
+          "Dương Đông / bờ Tây"
+        ],
+        [
+          "Safari hoặc VinWonders + Grand World"
+        ],
+        [
+          "Biển An Thới hoặc Hòn Thơm"
+        ],
+        [
+          "Dinh Cậu + nhà thùng + vườn tiêu"
+        ],
+        [
+          "Nhà tù + Hộ Quốc + Bãi Sao/Khem hoặc ngày trống"
+        ]
+      ]
+    }
+  ],
+  "thematic_routes": [
+    {
+      "id": "south-first",
+      "title": "Nam đảo lần đầu",
+      "stops": [
+        "Nhà tù",
+        "Hộ Quốc",
+        "Bãi Sao hoặc Bãi Khem",
+        "Sunset Town hoặc cáp treo"
+      ],
+      "rule": "Đừng cố ghép cả cáp treo và tour đảo."
+    },
+    {
+      "id": "understand-island",
+      "title": "Một ngày hiểu Phú Quốc",
+      "stops": [
+        "Dinh Cậu",
+        "Nhà thùng",
+        "Vườn tiêu hoặc nhà vườn",
+        "Bữa trưa địa phương",
+        "Làng ven biển hoặc hoàng hôn Dương Đông"
+      ]
+    },
+    {
+      "id": "north-family",
+      "title": "Bắc đảo cho gia đình",
+      "stops": [
+        "Safari hoặc VinWonders",
+        "Grand World nếu còn sức"
+      ],
+      "rule": "Một điểm lớn làm trục."
+    },
+    {
+      "id": "an-thoi-sea",
+      "title": "Biển An Thới theo điều kiện thật",
+      "stops": [
+        "Cụm hòn theo gió/sóng",
+        "Bơi/lặn vừa sức",
+        "Ăn trưa",
+        "Về bờ trước khi nhóm quá mệt"
+      ],
+      "dynamic_dependency": [
+        "weather_v2",
+        "marine_ops"
+      ]
+    },
+    {
+      "id": "forest-east",
+      "title": "Rừng & phía Đông",
+      "stops": [
+        "Một điểm rừng/suối",
+        "Hàm Ninh hoặc làng ven biển phía Đông"
+      ],
+      "rule": "Cần câu chuyện địa phương, tránh biến thành tuyến mua sắm."
+    },
+    {
+      "id": "past-present-future",
+      "title": "Phú Quốc hôm qua, hôm nay và ngày mai",
+      "stops": [
+        "Nhà tù",
+        "An Thới cũ",
+        "Cảng và nghề biển",
+        "Nam đảo mới"
+      ],
+      "theme": "Ký ức chiến tranh → đời sống hiện tại → đô thị mới"
+    }
+  ],
+  "flexible_day": {
+    "title": "Một ngày không lên lịch",
+    "rule": "Sáng dậy mới quyết định",
+    "good_weather": [
+      "Đi biển",
+      "Tìm bãi tắm"
+    ],
+    "bad_weather": [
+      "Ăn sáng lâu hơn",
+      "Nhà thùng",
+      "Cà phê",
+      "Chợ",
+      "Spa"
+    ]
+  }
+}
