@@ -464,6 +464,28 @@ function bindFields(){
         if(el.dataset.path==="intro")document.querySelector(".guide-overview .overview-copy p")?.replaceChildren(document.createTextNode(String(v||"")));
       }
 
+      if(currentModule?.id==="stories"){
+        const m=el.dataset.path.match(/^stories\.(\d+)\.(title|category|dek|image|read_minutes|intro|sections\..+)$/);
+        if(m){
+          const i=Number(m[1]),field=m[2],story=currentData.stories?.[i];
+          if(field==="title")document.querySelector('[data-story-preview-title="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Tiêu đề bài viết")));
+          if(field==="category")document.querySelector('[data-story-preview-category="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"CHUYÊN MỤC")));
+          if(field==="dek")document.querySelector('[data-story-preview-dek="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Mô tả ngắn của bài viết sẽ xuất hiện ở đây.")));
+          if(field==="read_minutes")document.querySelector('[data-story-preview-minutes="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"1")));
+          if(field==="image"){
+            const cover=document.querySelector('[data-story-preview-image="'+i+'"]');
+            const src=String(v||"").trim();
+            if(cover){
+              if(cover.tagName==="IMG"){cover.src=src||"";cover.style.display=src?"block":"none"}
+              else cover.outerHTML=src?'<img data-story-preview-image="'+i+'" src="'+esc(src)+'" alt="">':'<div class="story-cover-empty" data-story-preview-image="'+i+'">Chưa có ảnh cover</div>';
+            }
+          }
+          if(story){
+            document.querySelector('[data-story-preview-words="'+i+'"]')?.replaceChildren(document.createTextNode(String(storyWordCount(story))));
+          }
+        }
+      }
+
       const imageField=el.closest(".image-field");
       if(imageField){
         const box=imageField.querySelector("[data-image-preview]");
@@ -511,6 +533,13 @@ function bindArrayControls(){
 }
 
 function bindStoryControls(){
+  document.querySelectorAll("[data-story-readtime]").forEach(btn=>btn.onclick=()=>{
+    const i=Number(btn.dataset.storyReadtime),story=currentData.stories?.[i];
+    if(!story)return;
+    story.read_minutes=storyReadMinutes(story);
+    markDirty("Đã tính lại thời gian đọc theo độ dài bài.");
+    rerender();
+  });
   document.querySelectorAll("[data-story-slug]").forEach(btn=>btn.onclick=()=>{const i=Number(btn.dataset.storySlug);const story=currentData.stories?.[i];if(!story)return;story.id=slugifyVi(story.title);markDirty("Đã tạo mã bài từ tiêu đề.");rerender()});
   $("#addStoryBtn")?.addEventListener("click",()=>{
     const arr=currentData.stories;
