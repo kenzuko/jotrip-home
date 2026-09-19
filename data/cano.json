@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "static_source": {
+    "id": "handbook_r3",
+    "slides": [
+      57,
+      58,
+      59,
+      60,
+      61
+    ]
+  },
+  "live_source": {
+    "repo": "kenzuko/Jotrip-Lab",
+    "ref": "data-marine-ops",
+    "latest": "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-marine-ops/data/marine_ops/latest.json",
+    "note": "Cano là category độc lập. Khi không có permit/operator/field evidence thì không suy từ tàu/phà sang cano."
+  },
+  "current_rule": "FIELD_REQUIRED là chưa đủ bằng chứng để kết luận chạy/cấm.",
+  "tour_intro": {
+    "title": "Tour 3 đảo An Thới",
+    "summary": "Một ngày cano chỉ đáng khi cấu hình tour rõ. Điểm dừng có thể đổi theo gió, sóng, mật độ khách và độ trong của nước.",
+    "checklist": [
+      "Số khách/cano",
+      "Áo phao & mặt nạ đúng cỡ",
+      "Bữa ăn",
+      "Thiết bị",
+      "Thời gian thật ở nước",
+      "Phương án đổi điểm/đổi ngày",
+      "Phụ thu & bảo hiểm"
+    ],
+    "hashtags": [
+      "#cano",
+      "#3-dao",
+      "#an-thoi",
+      "#snorkeling",
+      "#marine-safety"
+    ]
+  }
+}
