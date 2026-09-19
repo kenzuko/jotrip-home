@@ -407,6 +407,45 @@ function utilityBadge(item){
   return "";
 }
 
+function renderGuideArray(path,title,lead){
+  const arr=getAtPath(currentData,path);
+  const list=Array.isArray(arr)?arr:[];
+  const cards=list.map((item,i)=>{
+    const p=path+"."+i;
+    const titleText=item?.name||item?.group||item?.title||("Mục "+(i+1));
+    const sub=item?.tag||item?.best_for||item?.note||"";
+    const image=item?.image?`<img class="guide-card-thumb" src="${esc(item.image)}" alt="">`:"";
+    return `<article class="guide-edit-card">
+      <div class="guide-card-head">${image}<div><strong>${esc(titleText)}</strong>${sub?'<span>'+esc(sub)+'</span>':""}</div></div>
+      ${itemTools(path,i,list.length)}
+      ${renderChildren(item,p,1)}
+    </article>`;
+  }).join("");
+
+  return `<details class="field-group guide-workbench cms-anchor" data-anchor-label="${esc(title)}" open>
+    <summary class="group-summary"><span>${esc(title)}</span><small>${list.length} mục</small></summary>
+    <div class="detail-body">
+      ${lead?'<p class="group-lead">'+esc(lead)+'</p>':""}
+      <div class="guide-edit-list">${cards||'<p class="empty-builder">Chưa có dữ liệu.</p>'}</div>
+      <button type="button" class="add-array-item" data-array-path="${esc(path)}">+ Thêm mục</button>
+    </div>
+  </details>`;
+}
+
+function renderGuideWorkbench(){
+  const meta=["version","source_file","source_updated","title","intro"]
+    .map(k=>primitiveField(k,currentData?.[k]??"",k)).join("");
+
+  return moduleOverview()+
+    `<section class="meta-strip guide-meta">${meta}</section>`+
+    renderGuideArray("zones","Ba vùng chính","Khung định hướng Bắc đảo, Trung tâm & bờ Tây, Nam đảo.")+
+    renderGuideArray("north_rhythm","Nhịp Bắc đảo","Cách ghép Safari, VinWonders và Grand World cho hợp nhịp.")+
+    renderGuideArray("hotels.tiers","Phân hạng khách sạn","Giải thích khách nên nhìn gì ở từng phân khúc.")+
+    renderGuideArray("hotels.areas","Khách sạn theo khu vực","Các cụm lưu trú và cách chọn theo vị trí.")+
+    renderGuideArray("food","Ăn gì ở Phú Quốc","Nhóm món và lưu ý thực dụng.")+
+    renderGuideArray("itineraries","Lịch trình gợi ý","Các khung hành trình mẫu, ưu tiên nhịp đi hợp lý.");
+}
+
 function renderUtilityArray(key,title,lead){
   const arr=Array.isArray(currentData?.[key])?currentData[key]:[];
   const cards=arr.map((item,i)=>{
@@ -451,6 +490,7 @@ function renderUtilitiesWorkbench(){
 
 function renderRoot(){
   if(currentModule?.id==="utilities")return renderUtilitiesWorkbench();
+  if(currentModule?.id==="guide")return renderGuideWorkbench();
 
   if(currentModule?.id==="stories"&&Array.isArray(currentData?.stories)){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
