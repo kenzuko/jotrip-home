@@ -753,13 +753,14 @@ function bindFields(){
       }
 
       if(currentModule?.id==="stories"){
-        const m=el.dataset.path.match(/^stories\.(\d+)\.(title|category|dek|image|read_minutes|intro|sections\..+)$/);
+        const m=el.dataset.path.match(/^stories\.(\d+)\.(title|category|dek|image|cover_position|read_minutes|intro|sections\..+)$/);
         if(m){
           const i=Number(m[1]),field=m[2],story=currentData.stories?.[i];
           if(field==="title")document.querySelector('[data-story-preview-title="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Tiêu đề bài viết")));
           if(field==="category")document.querySelector('[data-story-preview-category="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"CHUYÊN MỤC")));
           if(field==="dek")document.querySelector('[data-story-preview-dek="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Mô tả ngắn của bài viết sẽ xuất hiện ở đây.")));
           if(field==="read_minutes")document.querySelector('[data-story-preview-minutes="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"1")));
+          if(field==="cover_position"){const cover=document.querySelector('[data-story-preview-image="'+i+'"]');if(cover&&cover.tagName==="IMG")cover.style.objectPosition={top:"50% 18%",bottom:"50% 82%",left:"18% 50%",right:"82% 50%",center:"50% 50%"}[v]||"50% 50%"}
           if(field==="image"){
             const cover=document.querySelector('[data-story-preview-image="'+i+'"]');
             const src=String(v||"").trim();
@@ -831,7 +832,7 @@ function bindStoryControls(){
   document.querySelectorAll("[data-story-slug]").forEach(btn=>btn.onclick=()=>{const i=Number(btn.dataset.storySlug);const story=currentData.stories?.[i];if(!story)return;story.id=slugifyVi(story.title);markDirty("Đã tạo mã bài từ tiêu đề.");rerender()});
   $("#addStoryBtn")?.addEventListener("click",()=>{
     const arr=currentData.stories;
-    let story=arr.length?blankLike(arr[0]):{id:"",category:"",title:"",dek:"",read_minutes:4,image:"",intro:"",sections:[],sources:[]};
+    let story=arr.length?blankLike(arr[0]):{id:"",category:"",title:"",dek:"",read_minutes:4,image:"",cover_position:"center",intro:"",sections:[],sources:[]};
     story.read_minutes=story.read_minutes||4;
     story.sections=[{heading:"",body:"",image:"",caption:"",layout:"wide"}];
     story.sources=[{label:"",url:""}];
