@@ -10,8 +10,9 @@ function renderDirectory(items){
   $("#directoryGroups").innerHTML=Object.entries(groups).map(([g,rows])=>'<div class="dir-group"><h3>'+esc(g)+'</h3><div class="dir-grid">'+rows.map(dirCard).join("")+'</div></div>').join("");
 }
 function renderTravel(rows){
-  const max=Math.max(...(rows||[]).map(x=>x.max||0),1);
-  $("#travelBars").innerHTML=(rows||[]).map(x=>'<div class="travel-row"><span>'+esc(x.from)+' → '+esc(x.to)+'</span><div class="bar-track"><div class="bar-fill" style="width:'+Math.max(8,(x.max/max*100))+'%"></div></div><b>'+x.min+'-'+x.max+' phút</b></div>').join("");
+  $("#travelBars").innerHTML=(rows||[]).map(x=>
+    '<article class="travel-line"><div><span>'+esc(x.from)+' → '+esc(x.to)+'</span><small>Thời gian tham khảo</small></div><strong>'+x.min+'-'+x.max+' phút</strong></article>'
+  ).join("");
 }
 function renderChoices(rows){$("#transportChoices").innerHTML=(rows||[]).map(x=>'<article class="choice"><span>'+esc(x.trip)+'</span><strong>'+esc(x.choice)+'</strong></article>').join("")}
 function renderPrices(rows){$("#priceGrid").innerHTML=(rows||[]).map(x=>'<article class="price-card"><span>'+esc(x.place)+'</span><h3>'+esc(x.activity)+'</h3><strong>'+esc(x.price)+'</strong><small>'+esc(x.note)+'</small></article>').join("")}
