@@ -310,3 +310,32 @@
   .guide-meta{grid-template-columns:1fr}
   .guide-workbench>.detail-body{padding:12px}
 }
+
+
+/* CMS V2.8 - image upload and section media */
+.media-actions{
+  display:flex;align-items:center;gap:9px;margin-top:8px;flex-wrap:wrap
+}
+.media-upload{
+  border:0;border-radius:999px;background:var(--ink);color:#fff;
+  padding:9px 12px;font-size:10px;font-weight:850;cursor:pointer
+}
+.media-upload:disabled{opacity:.5;cursor:wait}
+.media-actions span{font-size:9px;color:var(--muted);line-height:1.4}
+.section-media-tools{
+  margin-top:12px;border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden
+}
+.section-media-tools>summary{
+  cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px;
+  padding:11px 12px;color:var(--ink);font-size:11px;font-weight:850
+}
+.section-media-tools>summary::-webkit-details-marker{display:none}
+.section-media-tools>summary small{color:var(--muted);font-size:9px;font-weight:700}
+.section-media-body{padding:2px 12px 12px;border-top:1px solid var(--line)}
+.section-media-body .image-preview{min-height:110px}
+.section-media-body .image-preview img{max-height:240px}
+
+@media(max-width:780px){
+  .media-actions{display:grid;grid-template-columns:1fr}
+  .media-upload{width:100%}
+}
