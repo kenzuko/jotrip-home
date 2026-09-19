@@ -112,7 +112,7 @@ function draftKey(id=currentModule?.id){return id&&session?"openpq-cms-draft:"+s
 function clearDraft(id=currentModule?.id){const k=draftKey(id);if(k)localStorage.removeItem(k)}
 function saveDraftNow(){if(!dirty||!currentModule||!session)return;const k=draftKey();if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}))}
 function scheduleDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(()=>{saveDraftNow();status("Có thay đổi chưa xuất bản. Bản nháp đã tự lưu trên trình duyệt.")},650)}
-function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Xuất bản thay đổi";status(msg);scheduleDraft()}
+function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Xuất bản thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
 
 function itemTitle(v,i){
   if(v&&typeof v==="object"){
@@ -449,6 +449,7 @@ async function selectModule(id){
     if(!confirm("Có thay đổi chưa xuất bản. Chuyển mục và bỏ các thay đổi này?"))return;
     clearDraft();
   }
+  $("#resetBtn")?.classList.add("hidden");
 
   currentModule=schema.modules.find(m=>m.id===id);
   if(!currentModule)return;
@@ -538,6 +539,7 @@ async function save(){
     currentSha=b.sha||currentSha;
     dirty=false;
     clearDraft();
+    $("#resetBtn")?.classList.add("hidden");
 
     $("#saveBtn").textContent="Đã xuất bản";
     const commit=b.commit?(" · commit "+String(b.commit).slice(0,7)):"";
@@ -562,6 +564,14 @@ $("#saveBtn").onclick=e=>{
   e.preventDefault();
   save();
 };
+
+$("#resetBtn")?.addEventListener("click",async()=>{
+  if(!dirty)return;
+  if(!confirm("Bỏ toàn bộ thay đổi chưa xuất bản trong mục này?"))return;
+  clearDraft();
+  dirty=false;
+  await selectModule(currentModule.id);
+});
 
 $("#logoutBtn").onclick=async()=>{
   if(dirty&&!confirm("Có thay đổi chưa xuất bản. Vẫn đăng xuất?"))return;
