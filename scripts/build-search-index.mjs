@@ -15,7 +15,7 @@ function fold(value){
 }
 
 function routeFor(e){
-  if(e.entity_type==="zone") return "/guide/#zones";
+  if(e.entity_type==="zone") return "/explore/?zone="+encodeURIComponent(e.id);
   if(e.entity_type==="place"||e.entity_type==="activity") return "/places/?q="+encodeURIComponent(e.slug||e.name);
   if(e.entity_type==="food") return "/food/article.html?id="+encodeURIComponent(e.legacy_id||e.slug);
   if(e.entity_type==="utility"){
