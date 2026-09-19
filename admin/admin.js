@@ -187,6 +187,122 @@ function renderNode(value,path="",label="Nội dung",depth=0){
   return `<details class="field-group cms-anchor" data-anchor-label="${esc(labelize(label))}" ${depth<=1?"open":""}><summary class="group-summary"><span>${esc(labelize(label))}</span></summary><div class="detail-body">${renderChildren(value,path,depth+1)}</div></details>`;
 }
 
+function moduleOverview(){
+  if(!currentModule||!currentData)return "";
+
+  if(currentModule.id==="home"){
+    const hero=currentData.hero||{};
+    const sections=Object.values(currentData.sections||{});
+    return `<section class="module-overview home-overview">
+      <div class="overview-copy">
+        <span class="overview-kicker">${esc(hero.kicker||"TRANG CHỦ")}</span>
+        <h2>${esc(hero.title||"Chưa có tiêu đề hero")}</h2>
+        <p>${esc(hero.lead||"")}</p>
+      </div>
+      <div class="overview-section-list">
+        ${sections.slice(0,6).map(x=>'<span>'+esc(x.title||x.eyebrow||"Mục")+'</span>').join("")}
+      </div>
+    </section>`;
+  }
+
+  if(currentModule.id==="stories"){
+    const stories=currentData.stories||[];
+    const totalMinutes=stories.reduce((n,x)=>n+(Number(x.read_minutes)||0),0);
+    return `<section class="module-overview stats-overview">
+      <div><strong>${stories.length}</strong><span>Bài viết</span></div>
+      <div><strong>${stories.reduce((n,x)=>n+(x.sections?.length||0),0)}</strong><span>Đoạn nội dung</span></div>
+      <div><strong>${totalMinutes}</strong><span>Phút đọc tổng</span></div>
+      <div><strong>${stories.filter(x=>x.image).length}</strong><span>Bài có ảnh</span></div>
+    </section>`;
+  }
+
+  if(currentModule.id==="guide"){
+    const zones=currentData.zones||[];
+    return `<section class="module-overview guide-overview">
+      <div class="overview-copy"><span class="overview-kicker">CẨM NANG</span><h2>${esc(currentData.title||"Cẩm nang Phú Quốc")}</h2><p>${esc(currentData.intro||"")}</p></div>
+      <div class="zone-preview-grid">${zones.map(z=>`<article>${z.image?'<img src="'+esc(z.image)+'" alt="">':""}<div><b>${esc(z.name||"")}</b><span>${esc(z.tag||"")}</span></div></article>`).join("")}</div>
+    </section>`;
+  }
+
+  if(currentModule.id==="utilities"){
+    const emergency=currentData.national_emergency||[];
+    const directory=currentData.directory||[];
+    const verified=[...(currentData.phu_quoc||[]),...directory].filter(x=>x.verified).length;
+    return `<section class="module-overview utilities-overview">
+      <div class="emergency-preview">${emergency.map(x=>`<div><strong>${esc(x.phone||x.id||"")}</strong><span>${esc(x.label||"")}</span></div>`).join("")}</div>
+      <div class="utility-stats"><span><b>${directory.length}</b> mục danh bạ</span><span><b>${verified}</b> mục đã xác minh</span><span><b>${(currentData.ticket_reference||[]).length}</b> giá/show tham khảo</span></div>
+    </section>`;
+  }
+
+  if(currentModule.id==="users"){
+    const users=currentData.users||[];
+    return `<section class="module-overview stats-overview">
+      <div><strong>${users.length}</strong><span>Người dùng</span></div>
+      <div><strong>${users.filter(x=>x.enabled!==false).length}</strong><span>Đang hoạt động</span></div>
+      <div><strong>${users.filter(x=>x.role==="admin"&&x.enabled!==false).length}</strong><span>Admin hoạt động</span></div>
+    </section>`;
+  }
+
+  return "";
+}
+
+function slugifyVi(s){
+  return String(s||"")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/đ/g,"d").replace(/Đ/g,"D")
+    .toLowerCase().trim()
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/^-+|-+$/g,"");
+}
+
+function validateCurrent(){
+  const errors=[];
+
+  if(currentModule.id==="home"){
+    if(!String(currentData?.hero?.title||"").trim())errors.push("Hero cần có tiêu đề.");
+    if(!String(currentData?.hero?.lead||"").trim())errors.push("Hero cần có đoạn dẫn.");
+  }
+
+  if(currentModule.id==="stories"){
+    const stories=currentData?.stories||[];
+    if(!stories.length)errors.push("Cần ít nhất một bài viết.");
+    const ids=new Set();
+    stories.forEach((s,i)=>{
+      if(!String(s.title||"").trim())errors.push("Bài #"+(i+1)+" chưa có tiêu đề.");
+      if(!String(s.id||"").trim())errors.push("Bài #"+(i+1)+" chưa có mã bài.");
+      else if(ids.has(s.id))errors.push("Mã bài bị trùng: "+s.id);
+      else ids.add(s.id);
+      if(!Array.isArray(s.sections)||!s.sections.length)errors.push("Bài “"+(s.title||("#"+(i+1)))+"” chưa có đoạn nội dung.");
+    });
+  }
+
+  if(currentModule.id==="guide"){
+    if(!String(currentData?.title||"").trim())errors.push("Cẩm nang cần có tiêu đề.");
+    (currentData?.zones||[]).forEach((z,i)=>{if(!String(z.name||"").trim())errors.push("Khu vực #"+(i+1)+" chưa có tên.")});
+  }
+
+  if(currentModule.id==="utilities"){
+    (currentData?.national_emergency||[]).forEach((x,i)=>{
+      if(!String(x.label||"").trim()||!String(x.phone||"").trim())errors.push("Số khẩn cấp #"+(i+1)+" thiếu tên hoặc số điện thoại.");
+    });
+  }
+
+  if(currentModule.id==="users"){
+    const users=currentData?.users||[];
+    const activeAdmins=users.filter(x=>x.role==="admin"&&x.enabled!==false);
+    if(!activeAdmins.length)errors.push("CMS phải còn ít nhất một Admin đang hoạt động.");
+    const seen=new Set();
+    users.forEach((u,i)=>{
+      const login=String(u.login||"").trim().toLowerCase();
+      if(!login)errors.push("Người dùng #"+(i+1)+" chưa có GitHub username.");
+      else if(seen.has(login))errors.push("GitHub username bị trùng: "+login);
+      else seen.add(login);
+    });
+  }
+
+  return errors;
+}
+
 function storyTools(i,len){
   return `<div class="item-tools story-tools">
     <button type="button" data-story-action="up" data-index="${i}" ${i===0?"disabled":""}>↑ Lên</button>
@@ -201,11 +317,12 @@ function renderRoot(){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
     const stories=currentData.stories.map((story,i)=>{
       const p="stories."+i;
-      return `<details class="field-group story-editor cms-anchor" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}><summary class="group-summary"><span>${esc(story.title||("Bài "+(i+1)))}</span><small>${esc(story.category||"Bài viết")}</small></summary><div class="detail-body">${storyTools(i,currentData.stories.length)}${renderChildren(story,p,1)}</div></details>`;
+      const slugButton=!String(story.id||"").trim()?`<button type="button" class="story-slug" data-story-slug="${i}">Tạo mã từ tiêu đề</button>`:"";
+      return `<details class="field-group story-editor cms-anchor" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}><summary class="group-summary"><span>${esc(story.title||("Bài "+(i+1)))}</span><small>${esc(story.category||"Bài viết")}</small></summary><div class="detail-body">${storyTools(i,currentData.stories.length)}${slugButton}${renderChildren(story,p,1)}</div></details>`;
     }).join("");
-    return `<section class="meta-strip">${meta}<div class="meta-actions"><button type="button" id="addStoryBtn">+ Bài viết mới</button></div></section>${stories}`;
+    return moduleOverview()+`<section class="meta-strip">${meta}<div class="meta-actions"><button type="button" id="addStoryBtn">+ Bài viết mới</button></div></section>${stories}`;
   }
-  return Object.entries(currentData||{}).map(([k,v])=>{
+  return moduleOverview()+Object.entries(currentData||{}).map(([k,v])=>{
     if(v&&typeof v==="object")return renderNode(v,k,k,0);
     return primitiveField(k,v,k);
   }).join("");
@@ -213,7 +330,7 @@ function renderRoot(){
 
 function renderUsers(){
   const users=currentData.users||[];
-  $("#editor").innerHTML=
+  $("#editor").innerHTML=moduleOverview()+
     '<div class="user-admin-head"><div><strong>Người dùng CMS</strong><p>Thêm đúng GitHub username và chọn vai trò. Quyền được kiểm tra lại lúc xuất bản.</p></div><button type="button" id="addUserBtn">+ Thêm người dùng</button></div>'+
     '<div class="role-legend"><span><b>Admin</b> toàn quyền</span><span><b>Editor</b> nội dung</span><span><b>Operator</b> tiện ích</span><span><b>Viewer</b> chỉ xem</span></div>'+
     '<div class="user-cards">'+users.map((u,i)=>
@@ -296,6 +413,7 @@ function bindArrayControls(){
 }
 
 function bindStoryControls(){
+  document.querySelectorAll("[data-story-slug]").forEach(btn=>btn.onclick=()=>{const i=Number(btn.dataset.storySlug);const story=currentData.stories?.[i];if(!story)return;story.id=slugifyVi(story.title);markDirty("Đã tạo mã bài từ tiêu đề.");rerender()});
   $("#addStoryBtn")?.addEventListener("click",()=>{
     const arr=currentData.stories;
     let story=arr.length?blankLike(arr[0]):{id:"",category:"",title:"",dek:"",read_minutes:4,image:"",intro:"",sections:[],sources:[]};
@@ -520,6 +638,8 @@ async function selectModule(id){
 
 async function save(){
   if(!currentModule||!dirty)return;
+  const validationErrors=validateCurrent();
+  if(validationErrors.length){status("Chưa thể xuất bản: "+validationErrors.slice(0,3).join(" · ")+(validationErrors.length>3?" · …":""),"error");return}
 
   $("#saveBtn").disabled=true;
   $("#saveBtn").textContent="Đang xuất bản...";
