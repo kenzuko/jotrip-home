@@ -114,3 +114,24 @@
   }
   .article-note>p{font-size:14px!important}
 }
+
+
+/* Article typography refinements */
+.section-text p{
+  margin:0;color:#3E5752;font-size:16px;line-height:1.84
+}
+.section-text p+p{margin-top:18px}
+.article-note .note-text p{
+  margin:11px 0 0;color:#46615C;font-size:15px;line-height:1.72
+}
+.article-note .note-text p+p{margin-top:14px}
+.article-note .article-figure.wide,
+.article-note .article-figure.full{
+  width:100%;margin-left:0;transform:none
+}
+
+@media(max-width:700px){
+  .section-text p{font-size:15px;line-height:1.78}
+  .section-text p+p{margin-top:16px}
+  .article-note .note-text p{font-size:14px}
+}
