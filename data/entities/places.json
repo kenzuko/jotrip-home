@@ -493,7 +493,10 @@
         "show"
       ],
       "related_entities": [
-        "activity_hon_thom"
+        "activity_hon_thom",
+        "place_kiss_bridge",
+        "activity_symphony_of_the_sea",
+        "activity_kiss_of_the_sea"
       ],
       "live_refs": [],
       "source_refs": [
@@ -879,6 +882,63 @@
             70,
             72,
             87
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_kiss_bridge",
+      "entity_type": "place",
+      "slug": "kiss-bridge",
+      "name": "Cầu Hôn",
+      "legacy_id": null,
+      "aliases": [
+        "Kiss Bridge",
+        "Cau Hon"
+      ],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "architecture",
+        "sunset",
+        "evening"
+      ],
+      "what_it_is": "Điểm tham quan tại Sunset Town, bán vé riêng và phù hợp nhất khi ghép với cuối chiều - buổi tối.",
+      "why_go": "Ngắm cảnh, kiến trúc và hoàng hôn trước khi nối sang bữa tối hoặc show.",
+      "best_for": [
+        "couple",
+        "sunset",
+        "first-time"
+      ],
+      "best_time": "Trước hoàng hôn",
+      "duration": "30-60 phút",
+      "price_reference": "Giá động - kiểm tra kênh chính thức trong ngày",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Đừng tới sát giờ show mới bắt đầu đổi vé hoặc tìm đường",
+        "Giờ và giá có thể thay đổi theo ngày vận hành"
+      ],
+      "intents": [
+        "couple",
+        "sunset",
+        "architecture",
+        "evening"
+      ],
+      "related_entities": [
+        "place_sunset_town",
+        "activity_symphony_of_the_sea",
+        "activity_kiss_of_the_sea"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-051",
+            "r3-052",
+            "r3-053"
           ]
         }
       ],
