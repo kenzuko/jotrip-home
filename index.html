@@ -15,6 +15,25 @@
     <span>Nội dung và số liệu mẫu chỉ dùng để thử nghiệm sản phẩm.</span>
   </div>
 
+  <aside class="app-left-rail" aria-label="Điều hướng Open Phu Quoc">
+    <a class="app-rail-mark" href="#top" aria-label="Open Phu Quoc">
+      <img src="assets/logo-master.png" alt="Open Phu Quoc" width="281" height="77">
+    </a>
+    <nav class="app-rail-nav">
+      <a href="#happening"><span>◷</span><strong>Hôm nay</strong></a>
+      <a href="#today"><span>●</span><strong>Live</strong></a>
+      <a href="#things"><span>⌖</span><strong>Khám phá</strong></a>
+      <a href="#food"><span>◎</span><strong>Ăn uống</strong></a>
+      <a href="guide/"><span>▤</span><strong>Cẩm nang</strong></a>
+      <a href="#essentials"><span>+</span><strong>Tiện ích</strong></a>
+    </nav>
+    <div class="app-rail-modules">
+      <a href="weather/">Weather</a>
+      <a href="airport/">Airport</a>
+      <a href="ferry/">Transport</a>
+    </div>
+  </aside>
+
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Trang chủ Open Phu Quoc">
       <img src="assets/logo-master.png" width="281" height="77" alt="Open Phu Quoc" decoding="sync">
@@ -99,6 +118,15 @@
       <a href="cano/" class="live-item" data-live="cano"><span>Cano</span><strong>--</strong><small>Đang kiểm tra vận hành</small></a>
       <a href="weather/#marine" class="live-item" data-live="sea"><span>Biển</span><strong>--</strong><small>Đang tải mô hình biển</small></a>
       <a href="#happening" class="live-item" data-live="sunset"><span>Hoàng hôn</span><strong>--:--</strong><small>Bờ Tây</small></a>
+    </section>
+
+    <section class="task-launcher" aria-label="Mở nhanh theo nhu cầu">
+      <a href="#happening"><span>01</span><strong>Tôi đang ở Phú Quốc</strong><small>Live · hôm nay · tối nay</small></a>
+      <a href="guide/#start"><span>02</span><strong>Tôi sắp đến</strong><small>Sân bay · ở đâu · chuẩn bị</small></a>
+      <a href="#things"><span>03</span><strong>Đi đâu hôm nay?</strong><small>Chọn theo thời tiết & nhịp ngày</small></a>
+      <a href="food/"><span>04</span><strong>Ăn gì?</strong><small>Món địa phương · cách ăn</small></a>
+      <a href="guide/#live"><span>05</span><strong>Di chuyển</strong><small>Sân bay · bus · tàu phà</small></a>
+      <a href="utilities/#emergency"><span>06</span><strong>Cần trợ giúp</strong><small>Khẩn cấp · hotline · danh bạ</small></a>
     </section>
 
     <section class="energy-ticker" aria-label="Tin nhanh Phú Quốc">
@@ -363,6 +391,49 @@
       </div>
     </section>
   </main>
+
+  <aside class="app-context-rail" aria-label="Thông tin hiện tại">
+    <div class="context-head">
+      <div><span>PHÚ QUỐC NOW</span><strong>Ngay lúc này</strong></div>
+      <div class="vn-clock" data-vn-clock></div>
+    </div>
+
+    <a class="context-card" href="weather/" data-context-card="weather">
+      <span>THỜI TIẾT</span>
+      <strong data-context-primary="weather">--</strong>
+      <small data-context-secondary="weather">Đang tải quan trắc</small>
+    </a>
+
+    <a class="context-card" href="airport/" data-context-card="airport">
+      <span>SÂN BAY PQC</span>
+      <strong data-context-primary="airport">--</strong>
+      <small data-context-secondary="airport">Đang tải chuyến bay</small>
+    </a>
+
+    <a class="context-card" href="#happening" data-context-card="sunset">
+      <span>HOÀNG HÔN</span>
+      <strong data-context-primary="sunset">--:--</strong>
+      <small data-context-secondary="sunset">Bờ Tây</small>
+    </a>
+
+    <a class="context-card compact" href="#happening">
+      <span>TỐI NAY</span>
+      <strong>Xem có gì đang diễn ra</strong>
+      <small>Show · chợ đêm · gợi ý theo giờ</small>
+    </a>
+
+    <a class="context-card compact emergency" href="utilities/#emergency">
+      <span>TRỢ GIÚP</span>
+      <strong>112 · 113 · 114 · 115</strong>
+      <small>Mở hotline và danh bạ cần thiết</small>
+    </a>
+
+    <a class="context-map" href="guide/#zones">
+      <span>⌖</span>
+      <div><strong>Định hướng nhanh</strong><small>Bắc · Trung tâm · Nam</small></div>
+      <b>→</b>
+    </a>
+  </aside>
 
   <footer class="site-footer">
     <div>
