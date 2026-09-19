@@ -11,15 +11,6 @@ const zoneLabel={
   zone_south:"Nam đảo"
 };
 
-function sourceLabel(x){
-  const refs=x.source_refs||[];
-  const slides=refs.flatMap(r=>r.slides||[]);
-  const chunks=refs.flatMap(r=>r.chunks||[]);
-  if(slides.length)return "slide "+slides.join(", ");
-  if(chunks.length)return chunks.join(", ");
-  return "R3";
-}
-
 function view(x){
   return {
     ...x,
@@ -29,8 +20,7 @@ function view(x){
     play:x.why_go?[x.why_go]:[],
     price_ref:x.price_reference||null,
     price_dynamic:!!x.live_check_required,
-    hashtags:[...(x.categories||[]),...(x.intents||[])].slice(0,8).map(v=>"#"+String(v).replace(/\s+/g,"-")),
-    source_label:sourceLabel(x)
+    hashtags:[...(x.categories||[]),...(x.intents||[])].slice(0,8).map(v=>"#"+String(v).replace(/\s+/g,"-"))
   };
 }
 
@@ -51,7 +41,7 @@ function filtered(){
 function tableRow(x){
   return '<tr><td><a class="place-name-link" href="detail.html?id='+encodeURIComponent(x.slug||x.id)+'"><strong>'+esc(x.name)+'</strong></a><div class="place-tags">'+
     (x.hashtags||[]).slice(0,4).map(t=>'<span>'+esc(t)+'</span>').join("")+
-    '</div><small>Nguồn: '+esc(x.source_label)+'</small></td><td>'+esc(x.region)+'</td><td>'+esc(x.what)+'</td><td>'+
+    '</div></td><td>'+esc(x.region)+'</td><td>'+esc(x.what)+'</td><td>'+
     esc((x.play||[]).join(" · "))+'</td><td><strong>'+esc(x.price_ref||"Cần kiểm tra")+'</strong>'+
     (x.price_dynamic?'<span class="price-dynamic">DỮ LIỆU ĐỘNG · KIỂM TRA LẠI</span>':'')+
     '</td><td><strong>'+esc(x.duration||"-")+'</strong><small>'+esc(x.best_time||"")+

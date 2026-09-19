@@ -152,7 +152,7 @@
       "id": "vinmec-er",
       "label": "Cấp cứu Vinmec",
       "phone": "02973 98 55 11",
-      "note": "Cấp cứu 24/24 - số từ sổ tay, cần AutoSync xác nhận định kỳ",
+      "note": "Đường dây cấp cứu 24/24 - nên kiểm tra lại nếu không kết nối được",
       "source": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
       "checked_at": "2026-09-19T04:51:03.080Z",
       "verified": true
@@ -198,7 +198,7 @@
       "place": "Sun Bavaria Gastropub",
       "activity": "Dinner Show",
       "price": "1.000.000đ",
-      "note": "Mốc trong sổ tay - quyền lợi cần kiểm tra lại",
+      "note": "Mức tham khảo - quyền lợi cần kiểm tra lại trước khi mua",
       "dynamic": true
     },
     {
@@ -219,14 +219,14 @@
       "place": "Cáp treo Hòn Thơm",
       "activity": "Vé ngày",
       "price": "850.000đ · 700.000đ trẻ em",
-      "note": "Mốc sổ tay - kiểm tra quyền lợi hiện hành",
+      "note": "Mức tham khảo - kiểm tra quyền lợi hiện hành",
       "dynamic": true
     },
     {
       "place": "Cáp treo Hòn Thơm",
       "activity": "Combo cáp + buffet",
       "price": "1.150.000đ · 900.000đ",
-      "note": "Mốc sổ tay - kiểm tra trước khi thanh toán",
+      "note": "Mức tham khảo - kiểm tra trước khi thanh toán",
       "dynamic": true
     }
   ],
@@ -359,6 +359,6 @@
       "Error: https://sunworld.vn/vi/hon-thom -> HTTP 404"
     ],
     "source_count": 9,
-    "note": "Open AutoSync checks official public pages and flags entries when the published number can no longer be found."
+    "note": "Các nguồn công khai được kiểm tra định kỳ. Mục không còn tìm thấy tại nguồn sẽ được đánh dấu để rà soát lại."
   }
 }

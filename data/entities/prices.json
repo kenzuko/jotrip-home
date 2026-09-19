@@ -171,7 +171,7 @@
       "what_it_is": "Dinner Show",
       "price_reference": "1.000.000đ",
       "tips": [
-        "Mốc trong sổ tay - quyền lợi cần kiểm tra lại"
+        "Mức tham khảo - quyền lợi cần kiểm tra lại trước khi mua"
       ],
       "live_check_required": true,
       "intents": [
@@ -265,7 +265,7 @@
       "what_it_is": "Vé ngày",
       "price_reference": "850.000đ · 700.000đ trẻ em",
       "tips": [
-        "Mốc sổ tay - kiểm tra quyền lợi hiện hành"
+        "Mức tham khảo - kiểm tra quyền lợi hiện hành"
       ],
       "live_check_required": true,
       "intents": [
@@ -296,7 +296,7 @@
       "what_it_is": "Combo cáp + buffet",
       "price_reference": "1.150.000đ · 900.000đ",
       "tips": [
-        "Mốc sổ tay - kiểm tra trước khi thanh toán"
+        "Mức tham khảo - kiểm tra lại trước khi thanh toán"
       ],
       "live_check_required": true,
       "intents": [

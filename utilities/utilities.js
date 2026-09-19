@@ -3,7 +3,7 @@ const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&
 const phoneHref=p=>"tel:"+String(p||"").replace(/[^0-9+]/g,"");
 const localCard=x=>'<article class="u-card"><span class="badge '+(x.verified===false?'watch':'')+'">'+(x.verified===false?'CẦN KIỂM TRA':'ĐÃ ĐỐI CHIẾU')+'</span><strong>'+esc(x.label)+'</strong><a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a>'+(x.phone_alt?'<a class="phone" style="font-size:16px;margin-left:9px" href="'+phoneHref(x.phone_alt)+'">'+esc(x.phone_alt)+'</a>':'')+'<small>'+esc(x.note)+'</small><a class="source" href="'+esc(x.source)+'" target="_blank" rel="noopener">Nguồn chính thức →</a></article>';
 const emergency=x=>'<a class="emergency-card" href="'+phoneHref(x.phone)+'"><strong>'+esc(x.phone)+'</strong><span>'+esc(x.label)+'</span><small>'+esc(x.note)+'</small></a>';
-const dirCard=x=>'<article class="u-card"><span class="badge '+(x.verified===false?'watch':'')+'">'+(x.verified===false?'CẦN KIỂM TRA':'AUTO CHECK')+'</span><strong>'+esc(x.label)+'</strong><a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a><small>'+esc(x.note)+'</small><a class="source" href="'+esc(x.source)+'" target="_blank" rel="noopener">Nguồn chính thức →</a></article>';
+const dirCard=x=>'<article class="u-card"><span class="badge '+(x.verified===false?'watch':'')+'">'+(x.verified===false?'CẦN KIỂM TRA':'ĐÃ ĐỐI CHIẾU')+'</span><strong>'+esc(x.label)+'</strong><a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a><small>'+esc(x.note)+'</small><a class="source" href="'+esc(x.source)+'" target="_blank" rel="noopener">Xem trang chính thức →</a></article>';
 function renderDirectory(items){
   const groups={};
   (items||[]).forEach(x=>(groups[x.group]||(groups[x.group]=[])).push(x));
@@ -26,7 +26,7 @@ fetch("../data/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json(
   renderPrices(d.ticket_reference||[]);
   renderChecklist(d.checklist||[]);
   const stamp=d.generated_at?new Date(d.generated_at).toLocaleString("vi-VN"):"chưa rõ";
-  $("#syncNote").textContent="Open AutoSync · "+(d.sync?.status||"READY")+" · kiểm tra gần nhất "+stamp+" · "+(d.sync?.note||"");
+  $("#syncNote").textContent="Thông tin được kiểm tra gần nhất: "+stamp+". Các mục chưa xác nhận được đánh dấu rõ để bạn kiểm tra lại trước khi sử dụng.";
   const sections=[...document.querySelectorAll(".u-section")];
   const links=[...document.querySelectorAll(".u-menu a[href^='#']")];
   const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+e.target.id));}}),{threshold:.16,rootMargin:"-95px 0px -45%"});
