@@ -43,6 +43,10 @@ function toDoc(e){
     e.phone,
     e.group,
     e.area_label,
+    e.star_label,
+    e.status_label,
+    e.operational_status,
+    e.address,
     e.period,
     e.year,
     e.price_reference
@@ -55,6 +59,8 @@ function toDoc(e){
     aliases:e.aliases||[],
     zone_id:e.zone_id||null,
     intents:e.intents||[],
+    star_rating:e.star_rating??null,
+    operational_status:e.operational_status||null,
     route:routeFor(e),
     search_text:fold(bits.join(" "))
   };
@@ -76,7 +82,7 @@ documents.push(
 documents.sort((a,b)=>String(a.title).localeCompare(String(b.title),"vi"));
 
 const output={
-  schema_version:"1.3",
+  schema_version:"1.4",
   generated_at:new Date().toISOString(),
   documents
 };

@@ -36,6 +36,14 @@ const knownIds=new Set(ids.keys());
 const externalPrefixes=["live_"];
 
 for(const entity of entities){
+  if(entity.entity_type==="hotel"){
+    const validStatuses=new Set(["active","active_new_not_in_sdl","upcoming"]);
+    if(!validStatuses.has(entity.operational_status)) errors.push(entity.id+": invalid hotel operational_status");
+    if(entity.star_rating!=null && (!Number.isInteger(entity.star_rating) || entity.star_rating<1 || entity.star_rating>5)){
+      errors.push(entity.id+": hotel star_rating must be an integer from 1 to 5 or null");
+    }
+    if(!entity.zone_id) errors.push(entity.id+": hotel missing zone_id");
+  }
   for(const rel of entity.related_entities||[]){
     const external=externalPrefixes.some(prefix=>String(rel).startsWith(prefix));
     if(!external && !knownIds.has(rel)) warnings.push(entity.id+": relationship target not found in entity layer: "+rel);
