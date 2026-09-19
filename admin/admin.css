@@ -167,3 +167,22 @@
   .zone-preview-grid article{flex:0 0 78%;scroll-snap-align:start}
   .emergency-preview{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
+
+
+/* CMS V2.3 - search */
+.cms-filter{
+  display:flex;align-items:center;gap:10px;margin:0 0 12px
+}
+.cms-filter input{
+  width:min(520px,100%);padding:11px 14px;border:1px solid var(--line);border-radius:999px;
+  background:#fff;color:var(--text);outline:none;font-size:12px
+}
+.cms-filter input:focus{border-color:#6CBFB8;box-shadow:0 0 0 3px rgba(84,212,203,.12)}
+.cms-filter span{font-size:10px;color:var(--muted);white-space:nowrap}
+.search-hidden{display:none!important}
+
+@media(max-width:780px){
+  .cms-filter{position:sticky;top:64px;z-index:19;padding:8px 0;background:#F7FAF9}
+  .cms-filter input{font-size:16px}
+  .cms-filter span{display:none}
+}
