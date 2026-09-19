@@ -160,6 +160,15 @@ function renderChildren(obj,path,depth){
   }).join("");
 }
 
+function itemTools(arrayPath,index,length){
+  return `<div class="item-tools">
+    <button type="button" data-array-action="up" data-array-path="${esc(arrayPath)}" data-index="${index}" ${index===0?"disabled":""}>↑ Lên</button>
+    <button type="button" data-array-action="down" data-array-path="${esc(arrayPath)}" data-index="${index}" ${index===length-1?"disabled":""}>↓ Xuống</button>
+    <button type="button" data-array-action="duplicate" data-array-path="${esc(arrayPath)}" data-index="${index}">Nhân bản</button>
+    <button type="button" class="danger" data-array-action="delete" data-array-path="${esc(arrayPath)}" data-index="${index}">Xóa</button>
+  </div>`;
+}
+
 function renderNode(value,path="",label="Nội dung",depth=0){
   if(value===null||typeof value!=="object")return primitiveField(label,value,path);
 
@@ -168,14 +177,23 @@ function renderNode(value,path="",label="Nội dung",depth=0){
       const p=path?path+"."+i:String(i);
       const title=itemTitle(v,i);
       if(v&&typeof v==="object"){
-        return `<details class="array-card" ${i===0&&value.length<4?"open":""}><summary><span>${esc(title)}</span><small>#${i+1}</small></summary><div class="detail-body">${renderChildren(v,p,depth+1)}</div></details>`;
+        return `<details class="array-card" ${i===0&&value.length<4?"open":""}><summary><span>${esc(title)}</span><small>#${i+1}</small></summary><div class="detail-body">${itemTools(path,i,value.length)}${renderChildren(v,p,depth+1)}</div></details>`;
       }
-      return `<div class="array-card primitive-array"><div class="array-title">#${i+1}</div>${primitiveField(String(i),v,p)}</div>`;
+      return `<div class="array-card primitive-array"><div class="array-title">#${i+1}</div>${itemTools(path,i,value.length)}${primitiveField(String(i),v,p)}</div>`;
     }).join("");
-    return `<details class="field-group cms-anchor" data-anchor-label="${esc(labelize(label))}" ${depth<=1?"open":""}><summary class="group-summary"><span>${esc(labelize(label))}</span><small>${value.length} mục</small></summary><div class="detail-body">${cards}</div></details>`;
+    return `<details class="field-group cms-anchor" data-anchor-label="${esc(labelize(label))}" ${depth<=1?"open":""}><summary class="group-summary"><span>${esc(labelize(label))}</span><small>${value.length} mục</small></summary><div class="detail-body">${cards}<button type="button" class="add-array-item" data-array-path="${esc(path)}">+ Thêm mục</button></div></details>`;
   }
 
   return `<details class="field-group cms-anchor" data-anchor-label="${esc(labelize(label))}" ${depth<=1?"open":""}><summary class="group-summary"><span>${esc(labelize(label))}</span></summary><div class="detail-body">${renderChildren(value,path,depth+1)}</div></details>`;
+}
+
+function storyTools(i,len){
+  return `<div class="item-tools story-tools">
+    <button type="button" data-story-action="up" data-index="${i}" ${i===0?"disabled":""}>↑ Lên</button>
+    <button type="button" data-story-action="down" data-index="${i}" ${i===len-1?"disabled":""}>↓ Xuống</button>
+    <button type="button" data-story-action="duplicate" data-index="${i}">Nhân bản bài</button>
+    <button type="button" class="danger" data-story-action="delete" data-index="${i}">Xóa bài</button>
+  </div>`;
 }
 
 function renderRoot(){
@@ -183,9 +201,9 @@ function renderRoot(){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
     const stories=currentData.stories.map((story,i)=>{
       const p="stories."+i;
-      return `<details class="field-group story-editor cms-anchor" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}><summary class="group-summary"><span>${esc(story.title||("Bài "+(i+1)))}</span><small>${esc(story.category||"Bài viết")}</small></summary><div class="detail-body">${renderChildren(story,p,1)}</div></details>`;
+      return `<details class="field-group story-editor cms-anchor" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}><summary class="group-summary"><span>${esc(story.title||("Bài "+(i+1)))}</span><small>${esc(story.category||"Bài viết")}</small></summary><div class="detail-body">${storyTools(i,currentData.stories.length)}${renderChildren(story,p,1)}</div></details>`;
     }).join("");
-    return `<section class="meta-strip">${meta}</section>${stories}`;
+    return `<section class="meta-strip">${meta}<div class="meta-actions"><button type="button" id="addStoryBtn">+ Bài viết mới</button></div></section>${stories}`;
   }
   return Object.entries(currentData||{}).map(([k,v])=>{
     if(v&&typeof v==="object")return renderNode(v,k,k,0);
