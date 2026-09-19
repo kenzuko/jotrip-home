@@ -5,7 +5,8 @@
     "label": "VinWonders / VinBus public Phú Quốc 2026",
     "primary": "https://vinwonders.com/vi/wonderpedia/news/xe-bus-di-safari-phu-quoc/",
     "realtime": "https://maps.vinbus.vn/",
-    "note": "Lịch và tần suất là dữ liệu công bố. Vị trí xe thật chỉ được gắn nhãn LIVE khi có feed VinBus chính thức/machine-readable; nếu chưa có chỉ hiển thị ƯỚC TÍNH THEO LỊCH."
+    "note": "Lịch và tần suất là dữ liệu công bố. Vị trí xe thật chỉ được gắn nhãn LIVE khi có feed VinBus chính thức/machine-readable; nếu chưa có chỉ hiển thị ƯỚC TÍNH THEO LỊCH.",
+    "shuttle_reference": "https://vinwonders.com/vi/wonderpedia/news/vinbus-phu-quoc/"
   },
   "routes": [
     {
@@ -106,6 +107,50 @@
         "VinHolidays Fiesta",
         "Grand World - bãi T2"
       ]
+    }
+  ],
+  "shuttles": [
+    {
+      "id": "V2.1",
+      "name": "Resort & Spa ↔ Grand World / Safari / VinWonders",
+      "window": "08:30 - 16:00",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V2.2",
+      "name": "Resort & Spa ↔ Grand World / VinWonders",
+      "window": "16:30 - 20:00",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V2.3",
+      "name": "Resort & Spa ↔ Grand World",
+      "window": "20:30 - 00:00",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V3.1",
+      "name": "Sheraton ↔ VinWonders / Grand World / Safari",
+      "window": "08:30 - 14:30",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V3.2",
+      "name": "Sheraton ↔ VinWonders / Grand World",
+      "window": "15:30 - 19:30",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V3.3",
+      "name": "Sheraton ↔ Grand World",
+      "window": "20:30 - 23:30",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
     }
   ]
 }
