@@ -3194,3 +3194,89 @@ body.sheet-open{
   #top>.essentials .essential-grid{grid-template-columns:1fr}
   #top>.essentials .essential-grid a:last-child{grid-column:auto}
 }
+
+
+/* V2.21 - desktop-first superapp density
+   Keep mobile discovery flow; first desktop fold should feel like an island app, not a campaign landing page. */
+@media(min-width:1100px){
+  #top{
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    gap:12px;
+    padding-top:12px;
+  }
+  #top>.hero{
+    grid-column:1/9;
+    grid-row:1/4;
+    min-height:545px;
+    max-height:545px;
+    border-radius:24px;
+  }
+  #top>.hero .hero-copy{
+    width:min(650px,76%);
+    padding:58px 42px 46px;
+  }
+  #top>.hero .hero-copy h1{
+    font-size:clamp(52px,4.8vw,72px);
+    line-height:.91;
+  }
+  #top>.hero .hero-copy>p:not(.hero-kicker){
+    max-width:580px;
+    font-size:13px;
+    line-height:1.5;
+  }
+  #top>.live-strip{
+    grid-column:9/13;
+    grid-row:1;
+    gap:6px;
+  }
+  #top>.live-strip .live-title{min-height:58px;padding:10px 12px;border-radius:15px}
+  #top>.live-strip .live-item{min-height:72px;padding:10px 11px;border-radius:14px}
+  #top>.live-strip .live-item strong{font-size:18px}
+  #top>.live-strip .live-item small{font-size:8px}
+
+  #top>.energy-ticker{
+    grid-column:9/13;
+    grid-row:2;
+    min-height:42px;
+    border-radius:14px;
+  }
+
+  #top>.essentials{
+    grid-column:9/13;
+    grid-row:3;
+    padding:11px;
+    border-radius:17px;
+  }
+  #top>.essentials .section-heading{margin-bottom:8px}
+  #top>.essentials .section-heading h2{font-size:16px}
+  #top>.essentials .essential-grid{
+    display:grid!important;
+    grid-template-columns:1fr 1fr!important;
+    gap:6px!important;
+    overflow:visible!important;
+  }
+  #top>.essentials .essential-grid a,
+  #top>.essentials .essential-grid a:last-child{
+    grid-column:auto!important;
+    min-width:0!important;
+    min-height:58px!important;
+    padding:8px 9px!important;
+    border-radius:12px!important;
+  }
+  #top>.essentials .essential-grid a>span{
+    width:27px;height:27px;font-size:13px
+  }
+  #top>.essentials .essential-grid strong{font-size:10px}
+  #top>.essentials .essential-grid small{font-size:7px}
+  #top>.essentials .essential-grid b{font-size:13px}
+
+  #top>.happening{padding-top:38px}
+  #top>.section:not(.essentials){padding-top:58px;padding-bottom:58px}
+  .section-heading{margin-bottom:18px}
+}
+
+@media(min-width:1400px){
+  #top>.hero{grid-column:1/9}
+  #top>.live-strip,#top>.energy-ticker,#top>.essentials{grid-column:9/13}
+  #top>.essentials .essential-grid{grid-template-columns:1fr 1fr!important}
+}
