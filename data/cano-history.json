@@ -1,0 +1,75 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-19",
+  "category": "cano",
+  "source_policy": "Chỉ ghi RUNNING/SUSPENDED khi có xác nhận vận hành/field archive. FIELD_REQUIRED là chưa đủ bằng chứng, không được suy sang chạy hay cấm.",
+  "events": [
+    {
+      "date": "2026-08-25",
+      "state": "SUSPENDED",
+      "label": "Tạm dừng",
+      "scope": "Cano / hoạt động biển",
+      "note": "Ngày có lệnh cấm toàn tuyến theo nhật ký vận hành JoTrip.",
+      "source": {
+        "tier": "FIELD_ARCHIVE",
+        "label": "JoTrip operations archive"
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "state": "SUSPENDED",
+      "label": "Cano tạm dừng",
+      "scope": "Cano",
+      "note": "Tàu cao tốc và phà vẫn khai thác bình thường.",
+      "source": {
+        "tier": "FIELD_ARCHIVE",
+        "label": "JoTrip operations archive"
+      }
+    },
+    {
+      "date": "2026-08-28",
+      "state": "SUSPENDED",
+      "label": "Cano tạm dừng",
+      "scope": "Cano",
+      "note": "Tàu cao tốc và phà vẫn khai thác bình thường.",
+      "source": {
+        "tier": "FIELD_ARCHIVE",
+        "label": "JoTrip operations archive"
+      }
+    },
+    {
+      "date": "2026-08-30",
+      "state": "RUNNING",
+      "label": "Cano hoạt động lại",
+      "scope": "Cano",
+      "note": "Hoạt động được xác nhận chạy lại.",
+      "source": {
+        "tier": "FIELD_ARCHIVE",
+        "label": "JoTrip operations archive"
+      }
+    },
+    {
+      "date": "2026-08-31",
+      "state": "RUNNING",
+      "label": "Hoạt động bình thường",
+      "scope": "Cano",
+      "note": "Các nhóm vận tải biển được ghi nhận vận hành bình thường.",
+      "source": {
+        "tier": "FIELD_ARCHIVE",
+        "label": "JoTrip operations archive"
+      }
+    },
+    {
+      "date": "2026-09-02",
+      "time": "06:00",
+      "state": "SUSPENDED",
+      "label": "Cano tạm dừng",
+      "scope": "Cano",
+      "note": "Tàu cao tốc và phà được ghi nhận hoạt động bình thường.",
+      "source": {
+        "tier": "FIELD_ARCHIVE",
+        "label": "JoTrip operations archive"
+      }
+    }
+  ]
+}
