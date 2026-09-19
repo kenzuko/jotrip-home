@@ -3325,6 +3325,10 @@ body.sheet-open{
   backdrop-filter:blur(18px);
 }
 .search-results[hidden]{display:none}
+.search-group+.search-group{margin-top:6px;padding-top:6px;border-top:1px solid rgba(19,65,61,.09)}
+.search-group-title{padding:7px 12px 3px;color:var(--ink);font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.search-group[data-search-group="main"]{padding:4px;border-radius:16px;background:#f0f8f6}
+.search-group[data-search-group="main"] .search-result strong{font-size:16px}
 .search-result{
   position:relative;
   display:grid;

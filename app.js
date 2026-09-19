@@ -71,20 +71,24 @@ function renderSearchResults(query) {
   const q = query.trim();
   if (q.length < 2) return closeSearchResults();
 
-  const results = window.OpenPQSearch.search(q, 8);
+  const groups = window.OpenPQSearch.searchGrouped ? window.OpenPQSearch.searchGrouped(q, 10) : [{id:'related',label:'Kết quả',items:window.OpenPQSearch.search(q, 8)}];
+  const results = groups.flatMap(group => group.items);
   if (!results.length) {
     searchResults.innerHTML = '<div class="search-empty"><strong>Chưa tìm thấy</strong><span>Thử tên khu vực, địa điểm, món ăn hoặc tiện ích khác.</span></div>';
   } else {
-    searchResults.innerHTML = results.map((item, index) => {
-      const type = escapeSearchHtml(searchTypeLabel[item.type] || item.type || 'OPEN PHU QUOC');
-      const title = escapeSearchHtml(item.title);
-      const route = escapeSearchHtml(item.route || '#');
-      return '<a class="search-result" role="option" data-search-index="' + index + '" href="' + route + '">' +
-        '<span class="search-result-type">' + type + '</span>' +
-        '<strong>' + title + '</strong>' +
-        '<span class="search-result-arrow" aria-hidden="true">→</span>' +
-      '</a>';
-    }).join('');
+    let index = 0;
+    searchResults.innerHTML = groups.map(group => '<section class="search-group" data-search-group="' + escapeSearchHtml(group.id) + '">' +
+      '<div class="search-group-title">' + escapeSearchHtml(group.label) + '</div>' +
+      group.items.map(item => {
+        const type = escapeSearchHtml(searchTypeLabel[item.type] || item.type || 'OPEN PHU QUOC');
+        const title = escapeSearchHtml(item.title);
+        const route = escapeSearchHtml(item.route || '#');
+        return '<a class="search-result" role="option" data-search-index="' + index++ + '" href="' + route + '">' +
+          '<span class="search-result-type">' + type + '</span>' +
+          '<strong>' + title + '</strong>' +
+          '<span class="search-result-arrow" aria-hidden="true">→</span>' +
+        '</a>';
+      }).join('') + '</section>').join('');
   }
   searchResults.hidden = false;
   searchInput.setAttribute('aria-expanded', 'true');

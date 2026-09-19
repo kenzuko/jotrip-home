@@ -31,6 +31,8 @@ jobs:
         run: node scripts/build-search-index.mjs
       - name: Validate data contracts
         run: node scripts/validate-data.mjs
+      - name: Test search ranking and grouping
+        run: node scripts/test-search.mjs
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:

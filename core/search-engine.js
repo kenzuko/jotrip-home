@@ -72,5 +72,55 @@
       .map(item=>item.doc);
   }
 
-  global.OpenPQSearch={load,search,fold,get size(){return documents.length;}};
+  function searchGrouped(query,limit){
+    const max=Number.isFinite(Number(limit))?Number(limit):10;
+    const ranked=documents
+      .map(doc=>({doc,score:score(doc,query)}))
+      .filter(item=>item.score>0)
+      .sort((a,b)=>b.score-a.score || String(a.doc.title).localeCompare(String(b.doc.title),'vi'));
+    if(!ranked.length) return [];
+
+    const top=ranked[0].doc;
+    const linkedPrimary=top.type==='price_reference'
+      ? documents.find(doc=>(top.related_entities||[]).includes(doc.id)&&(doc.type==='place'||doc.type==='activity'))
+      : null;
+    const primary=linkedPrimary||ranked.find(x=>x.doc.type==='place'||x.doc.type==='activity')?.doc||top;
+    const clusterIds=new Set([primary.id,...(primary.related_entities||[])]);
+    const connected=documents.filter(doc=>
+      clusterIds.has(doc.id) ||
+      (doc.type==='price_reference'&&(doc.related_entities||[]).some(id=>clusterIds.has(id))) ||
+      (primary.zone_id && doc.type==='live' && doc.zone_id===primary.zone_id)
+    );
+    const pool=[];const seen=new Set();
+    for(const doc of [primary,...connected,...ranked.map(x=>x.doc)]){
+      if(!seen.has(doc.id)){seen.add(doc.id);pool.push(doc)}
+    }
+
+    const groups=[
+      {id:'main',label:'Kết quả chính',items:[]},
+      {id:'experience',label:'Điểm đến & trải nghiệm',items:[]},
+      {id:'live',label:'Kiểm tra trước khi đi',items:[]},
+      {id:'price',label:'Giá tham khảo',items:[]},
+      {id:'guide',label:'Cẩm nang & lịch trình',items:[]},
+      {id:'related',label:'Liên quan',items:[]}
+    ];
+    for(const doc of pool){
+      let id='related';
+      if(doc.id===primary.id) id='main';
+      else if(doc.type==='place'||doc.type==='activity') id='experience';
+      else if(doc.type==='live') id='live';
+      else if(doc.type==='price_reference') id='price';
+      else if(['itinerary','history','culture','practical','access','island_basic'].includes(doc.type)) id='guide';
+      const group=groups.find(x=>x.id===id);
+      if(group.items.length<(id==='experience'?3:2)) group.items.push(doc);
+    }
+    let remaining=max;
+    return groups.map(group=>{
+      const items=group.items.slice(0,remaining);
+      remaining-=items.length;
+      return{...group,items};
+    }).filter(group=>group.items.length);
+  }
+
+  global.OpenPQSearch={load,search,searchGrouped,fold,get size(){return documents.length;}};
 })(window);

@@ -77,7 +77,7 @@ try{
     if(!doc.route || !String(doc.route).startsWith("/")) errors.push((doc.id||"search doc")+": invalid route");
   }
 
-  const expected=entities.length+3;
+  const expected=entities.length+4;
   const actual=(search.documents||[]).length;
   if(actual!==expected) errors.push("search index count mismatch: expected "+expected+", got "+actual);
 }catch(error){

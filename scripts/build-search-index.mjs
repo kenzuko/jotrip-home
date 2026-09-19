@@ -61,6 +61,7 @@ function toDoc(e){
     intents:e.intents||[],
     star_rating:e.star_rating??null,
     operational_status:e.operational_status||null,
+    related_entities:e.related_entities||[],
     route:routeFor(e),
     search_text:fold(bits.join(" "))
   };
@@ -77,12 +78,13 @@ documents.push(
   {id:"live_weather",type:"live",title:"Thời tiết & biển Phú Quốc",aliases:["weather","mưa","gió","sóng","biển"],zone_id:null,intents:["weather","marine"],route:"/weather/",search_text:"thoi tiet weather mua gio song bien marine"},
   {id:"live_airport",type:"live",title:"Sân bay Phú Quốc",aliases:["airport","PQC","flight","chuyến bay"],zone_id:null,intents:["airport","arrival","departure"],route:"/airport/",search_text:"san bay airport pqc flight chuyen bay den di"},
   {id:"live_transport",type:"live",title:"Tàu, phà & di chuyển",aliases:["ferry","bus","transport","tàu","phà"],zone_id:null,intents:["transport"],route:"/ferry/",search_text:"tau pha ferry bus transport di chuyen rach gia ha tien"}
+  ,{id:"live_south_weather",type:"live",title:"Thời tiết Nam đảo",aliases:["thời tiết Hòn Thơm","thời tiết An Thới","sóng Nam đảo"],zone_id:"zone_south",intents:["weather","marine","south"],related_entities:["activity_hon_thom","activity_tour_3_islands","activity_snorkeling_an_thoi"],route:"/weather/",search_text:"thoi tiet nam dao hon thom an thoi song gio mua bien"}
 );
 
 documents.sort((a,b)=>String(a.title).localeCompare(String(b.title),"vi"));
 
 const output={
-  schema_version:"1.4",
+  schema_version:"1.5",
   generated_at:new Date().toISOString(),
   documents
 };
