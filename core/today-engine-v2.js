@@ -39,7 +39,8 @@
     if(ferry.status==="unknown" && marine.status==="unknown"){
       out.push(item("marine-unknown","TRANSPORT","Vận hành biển chưa đủ dữ liệu","Cano, tàu cao tốc và phà cần được kiểm tra trực tiếp trước khi đi.","unknown","/ferry/",{}));
     }else if(ferry.status==="watch" || marine.status==="watch"){
-      out.push(item("marine-watch","TRANSPORT","Vận hành biển cần xác nhận","Cano: "+(signals.cano_state||"chưa rõ")+" · Phà: "+(signals.ferry_state||"chưa rõ"),"watch","/ferry/",{}));
+      const stateLabel=value=>({DIRECT_CONFIRMED:"Đã xác nhận",FIELD_REQUIRED:"Cần xác nhận",RUNNING:"Đang hoạt động",SUSPENDED:"Tạm dừng",UNKNOWN:"Chưa rõ"})[value]||"Chưa rõ";
+      out.push(item("marine-watch","TRANSPORT","Vận hành biển cần xác nhận","Cano: "+stateLabel(signals.cano_state)+" · Phà: "+stateLabel(signals.ferry_state),"watch","/ferry/",{}));
     }else{
       out.push(item("marine-status","TRANSPORT","Xem trạng thái tàu, phà và cano","Các loại phương tiện biển được tách riêng theo bằng chứng vận hành.","normal","/ferry/",{}));
     }
