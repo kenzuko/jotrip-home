@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "id": "handbook_r3",
+    "slides": [
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      31,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85
+    ]
+  },
+  "travel_times": [
+    {
+      "from": "Sân bay",
+      "to": "Bãi Trường",
+      "min": 10,
+      "max": 20
+    },
+    {
+      "from": "Sân bay",
+      "to": "Dương Đông",
+      "min": 15,
+      "max": 25
+    },
+    {
+      "from": "Sân bay",
+      "to": "Bãi Khem / Sunset Town",
+      "min": 25,
+      "max": 35
+    },
+    {
+      "from": "Sân bay",
+      "to": "Ông Lang / Cửa Cạn",
+      "min": 30,
+      "max": 45
+    },
+    {
+      "from": "Sân bay",
+      "to": "Gành Dầu / Grand World",
+      "min": 45,
+      "max": 60
+    },
+    {
+      "from": "Bắc đảo",
+      "to": "Nam đảo",
+      "min": 70,
+      "max": 100
+    }
+  ],
+  "transport_choices": [
+    {
+      "trip": "1-2 người quanh Dương Đông/Bãi Trường",
+      "choices": [
+        "Taxi",
+        "Xe công nghệ",
+        "Xe máy nếu quen lái"
+      ]
+    },
+    {
+      "trip": "Gia đình có trẻ nhỏ",
+      "choices": [
+        "Taxi",
+        "Xe riêng có tài xế"
+      ]
+    },
+    {
+      "trip": "Người lớn tuổi",
+      "choices": [
+        "Xe riêng có tài xế"
+      ]
+    },
+    {
+      "trip": "Bắc/Nam đảo nguyên ngày",
+      "choices": [
+        "Xe riêng",
+        "Tour"
+      ]
+    },
+    {
+      "trip": "Nhiều điểm trong ngày",
+      "choices": [
+        "Xe riêng"
+      ]
+    },
+    {
+      "trip": "Lưu trú dài, quen tự lái",
+      "choices": [
+        "Xe máy",
+        "Ô tô tự lái"
+      ],
+      "watch": "Kiểm tra giấy phép, bảo hiểm, điều kiện thuê"
+    }
+  ],
+  "international": {
+    "visa": {
+      "phu_quoc": "Miễn thị thực tối đa 30 ngày theo điều kiện pháp luật hiện hành cho khách nước ngoài đến Phú Quốc",
+      "vietnam": "Kiểm tra diện miễn visa chung hoặc e-visa nếu đi tiếp đất liền",
+      "official": "evisa.gov.vn / Bộ Ngoại giao / cơ quan đại diện Việt Nam",
+      "dynamic": true
+    },
+    "payment": [
+      "Mang một khoản VND vừa đủ",
+      "Visa/Mastercard phổ biến ở khu lớn",
+      "VietQR phổ biến nhưng tài khoản nước ngoài không luôn dùng được",
+      "Không phụ thuộc một thẻ/ứng dụng"
+    ],
+    "etiquette": [
+      "Che vai/đầu gối ở nơi thờ tự",
+      "Đồ bơi dùng đúng không gian",
+      "Hỏi trước khi chụp gần người địa phương",
+      "Nhà tù Phú Quốc cần thái độ tôn trọng"
+    ]
+  },
+  "price_reading": [
+    "Ngày áp dụng",
+    "Đối tượng/chiều cao/tuổi",
+    "Quyền lợi kèm",
+    "Lịch vận hành / bảo trì / thời tiết"
+  ],
+  "safety": {
+    "before_trip": [
+      "Giấy tờ",
+      "Vé & booking",
+      "Xe đón",
+      "Điều kiện đổi/hủy",
+      "Kem chống nắng",
+      "Túi chống nước",
+      "Thuốc cá nhân",
+      "Pin dự phòng"
+    ],
+    "before_sea": [
+      "Kiểm tra vận hành thật",
+      "Gió/sóng",
+      "Đầu mối tour",
+      "Áo phao",
+      "Nghe tài công",
+      "Không chạm/bẻ san hô"
+    ],
+    "emergency": [
+      {
+        "number": "112",
+        "label": "Khẩn cấp"
+      },
+      {
+        "number": "113",
+        "label": "Công an"
+      },
+      {
+        "number": "114",
+        "label": "Cứu hỏa - cứu nạn"
+      },
+      {
+        "number": "115",
+        "label": "Cấp cứu y tế"
+      }
+    ]
+  },
+  "source_rules": [
+    {
+      "purpose": "Vận hành trong ngày",
+      "use": [
+        "Cảng",
+        "Hãng tàu/phà",
+        "Sân bay",
+        "Cơ quan địa phương"
+      ]
+    },
+    {
+      "purpose": "Giá/giờ show/quyền lợi",
+      "use": [
+        "Kênh chính thức của điểm đến"
+      ]
+    },
+    {
+      "purpose": "Pháp lý/lịch sử/quy hoạch",
+      "use": [
+        "Văn bản nhà nước",
+        "Cổng thông tin",
+        "Báo cáo/tài liệu có quyết định"
+      ]
+    },
+    {
+      "purpose": "Thực tế tại đảo",
+      "use": [
+        "Đối chiếu nguồn chính thức với hiện trường"
+      ],
+      "rule": "Ghi rõ quan sát vs dự báo vs suy luận"
+    }
+  ]
+}
