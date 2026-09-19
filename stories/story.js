@@ -24,6 +24,16 @@ function card(s){
   '</a>';
 }
 
+function paragraphs(text){
+  const clean=String(text||"").trim();
+  if(!clean)return "";
+  return clean.split(/\n{2,}/).map(block=>'<p>'+esc(block).replace(/\n/g,"<br>")+'</p>').join("");
+}
+
+function coverPosition(value){
+  return {top:"50% 18%",bottom:"50% 82%",left:"18% 50%",right:"82% 50%",center:"50% 50%"}[value]||"50% 50%";
+}
+
 function figure(section){
   if(!section?.image)return "";
   const layout=["body","wide","full"].includes(section.layout)?section.layout:"wide";
@@ -39,12 +49,13 @@ function figure(section){
 function sectionBlock(section,i){
   const heading=String(section?.heading||"").trim();
   const body=String(section?.body||"").trim();
+  const bodyHtml=paragraphs(body);
   const isNote=/^open phu quoc note$/i.test(heading)||/^ghi chú open phu quoc$/i.test(heading);
 
   if(isNote){
     return '<aside class="article-note">'+
       '<span>OPEN PHU QUOC NOTE</span>'+
-      (body?'<p>'+esc(body)+'</p>':"")+
+      (bodyHtml?'<div class="note-text">'+bodyHtml+'</div>':"")+
       figure(section)+
     '</aside>';
   }
@@ -53,7 +64,7 @@ function sectionBlock(section,i){
     '<div class="section-marker">'+String(i+1).padStart(2,"0")+'</div>'+
     (heading?'<h2>'+esc(heading)+'</h2>':"")+
     figure(section)+
-    (body?'<p>'+esc(body)+'</p>':"")+
+    (bodyHtml?'<div class="section-text">'+bodyHtml+'</div>':"")+
   '</section>';
 }
 
@@ -76,7 +87,7 @@ function renderArticle(data){
             '<div class="article-meta">'+esc(s.read_minutes)+' PHÚT ĐỌC · OPEN PHU QUOC</div>'+
           '</div>'+
           '<figure class="article-cover">'+
-            '<img src="'+esc(s.image)+'" alt="'+esc(s.title)+'" onerror="this.style.opacity=.18">'+
+            '<img src="'+esc(s.image)+'" alt="'+esc(s.title)+'" style="object-position:'+coverPosition(s.cover_position)+'" onerror="this.style.opacity=.18">'+
           '</figure>'+
         '</div>'+
       '</header>'+
