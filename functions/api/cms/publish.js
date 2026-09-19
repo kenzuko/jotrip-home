@@ -71,6 +71,9 @@ async function currentRole(login){
 export async function onRequest({request,env}){
   try{
     if(request.method!=="POST")return json({error:"Method not allowed"},405);
+    const origin=request.headers.get("Origin");
+    const expectedOrigin=new URL(request.url).origin;
+    if(origin&&origin!==expectedOrigin)return json({error:"Origin không hợp lệ"},403);
 
     const s=await session(request,String(env.CMS_SESSION_SECRET||""));
     if(!s)return json({error:"Chưa đăng nhập"},401);
