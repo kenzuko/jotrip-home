@@ -1,0 +1,279 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "practical_visa",
+      "entity_type": "practical",
+      "slug": "visa",
+      "name": "Visa & nhập cảnh",
+      "aliases": [
+        "visa Phú Quốc",
+        "e-visa",
+        "khách quốc tế",
+        "nhập cảnh"
+      ],
+      "what_it_is": "Miễn thị thực tối đa 30 ngày theo điều kiện pháp luật hiện hành cho khách nước ngoài đến Phú Quốc",
+      "why_go": "Kiểm tra diện miễn visa chung hoặc e-visa nếu đi tiếp đất liền",
+      "tips": [
+        "Chỉ dùng nguồn chính thức để kiểm tra điều kiện hiện hành",
+        "Tên trên vé, hộ chiếu và e-visa phải trùng khớp"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "international",
+        "arrival",
+        "visa"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-025"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "practical_payment",
+      "entity_type": "practical",
+      "slug": "payment",
+      "name": "Thanh toán & tiền mặt",
+      "aliases": [
+        "tiền mặt",
+        "VND",
+        "thẻ",
+        "QR",
+        "payment"
+      ],
+      "what_it_is": "Cách chuẩn bị tiền mặt, thẻ và phương án thanh toán khi đi Phú Quốc.",
+      "tips": [
+        "Mang một khoản VND vừa đủ",
+        "Visa/Mastercard phổ biến ở khu lớn",
+        "VietQR phổ biến nhưng tài khoản nước ngoài không luôn dùng được",
+        "Không phụ thuộc một thẻ/ứng dụng"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "international",
+        "payment"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-026"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "practical_etiquette",
+      "entity_type": "practical",
+      "slug": "etiquette",
+      "name": "Ứng xử & trang phục",
+      "aliases": [
+        "ứng xử",
+        "trang phục",
+        "văn hóa",
+        "dress code"
+      ],
+      "what_it_is": "Lưu ý ứng xử ở nơi thờ tự, di tích, bãi biển và khi chụp người địa phương.",
+      "tips": [
+        "Che vai/đầu gối ở nơi thờ tự",
+        "Đồ bơi dùng đúng không gian",
+        "Hỏi trước khi chụp gần người địa phương",
+        "Nhà tù Phú Quốc cần thái độ tôn trọng"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "international",
+        "culture"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-027"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "practical_getting_around",
+      "entity_type": "practical",
+      "slug": "getting-around",
+      "name": "Đi lại trên đảo",
+      "aliases": [
+        "Grab",
+        "taxi",
+        "xe riêng",
+        "xe máy",
+        "di chuyển"
+      ],
+      "what_it_is": "Chọn phương tiện theo số người, khoảng cách và nhịp của ngày.",
+      "tips": [
+        "1-2 người quanh Dương Đông/Bãi Trường: Taxi, Xe công nghệ, Xe máy nếu quen lái",
+        "Gia đình có trẻ nhỏ: Taxi, Xe riêng có tài xế",
+        "Người lớn tuổi: Xe riêng có tài xế",
+        "Bắc/Nam đảo nguyên ngày: Xe riêng, Tour",
+        "Nhiều điểm trong ngày: Xe riêng",
+        "Lưu trú dài, quen tự lái: Xe máy, Ô tô tự lái"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "transport",
+        "first-time"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-023",
+            "r3-024"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "practical_travel_times",
+      "entity_type": "practical",
+      "slug": "travel-times",
+      "name": "Thời gian di chuyển tham khảo",
+      "aliases": [
+        "bao lâu",
+        "thời gian đi",
+        "sân bay Dương Đông",
+        "Bắc Nam"
+      ],
+      "what_it_is": "Khoảng thời gian tham khảo để đọc Phú Quốc theo thời gian di chuyển thay vì chỉ theo kilomet.",
+      "travel_time": [
+        {
+          "from": "Sân bay",
+          "to": "Bãi Trường",
+          "min": 10,
+          "max": 20
+        },
+        {
+          "from": "Sân bay",
+          "to": "Dương Đông",
+          "min": 15,
+          "max": 25
+        },
+        {
+          "from": "Sân bay",
+          "to": "Bãi Khem / Sunset Town",
+          "min": 25,
+          "max": 35
+        },
+        {
+          "from": "Sân bay",
+          "to": "Ông Lang / Cửa Cạn",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "from": "Sân bay",
+          "to": "Gành Dầu / Grand World",
+          "min": 45,
+          "max": 60
+        },
+        {
+          "from": "Bắc đảo",
+          "to": "Nam đảo",
+          "min": 70,
+          "max": 100
+        }
+      ],
+      "live_check_required": true,
+      "intents": [
+        "transport",
+        "planning"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-023"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "practical_safety",
+      "entity_type": "practical",
+      "slug": "safety",
+      "name": "An toàn & chuẩn bị",
+      "aliases": [
+        "an toàn",
+        "đi biển",
+        "áo phao",
+        "checklist",
+        "khẩn cấp"
+      ],
+      "what_it_is": "Checklist trước chuyến đi và trước hoạt động biển.",
+      "tips": [
+        "Giấy tờ",
+        "Vé & booking",
+        "Xe đón",
+        "Điều kiện đổi/hủy",
+        "Kem chống nắng",
+        "Túi chống nước",
+        "Thuốc cá nhân",
+        "Pin dự phòng",
+        "Kiểm tra vận hành thật",
+        "Gió/sóng",
+        "Đầu mối tour",
+        "Áo phao",
+        "Nghe tài công",
+        "Không chạm/bẻ san hô"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "safety",
+        "marine",
+        "planning"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "practical_price_rules",
+      "entity_type": "practical",
+      "slug": "price-rules",
+      "name": "Cách đọc giá & quyền lợi",
+      "aliases": [
+        "giá vé",
+        "giá tham khảo",
+        "quyền lợi",
+        "phụ thu"
+      ],
+      "what_it_is": "Giá trong cẩm nang là mốc tham khảo; phải đọc ngày áp dụng, đối tượng, quyền lợi và điều kiện vận hành.",
+      "tips": [
+        "Ngày áp dụng",
+        "Đối tượng/chiều cao/tuổi",
+        "Quyền lợi kèm",
+        "Lịch vận hành / bảo trì / thời tiết"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}
