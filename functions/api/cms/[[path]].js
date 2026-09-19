@@ -23,7 +23,8 @@ const json=(data,status=200,headers={})=>new Response(JSON.stringify(data),{stat
 const parseCookies=req=>{const out={};for(const part of (req.headers.get("cookie")||"").split(";")){const i=part.indexOf("=");if(i>0)out[part.slice(0,i).trim()]=decodeURIComponent(part.slice(i+1).trim())}return out};
 const cookie=(name,value,maxAge)=>`${name}=${encodeURIComponent(value)}; Path=/; HttpOnly; Secure; SameSite=Lax; Max-Age=${maxAge}`;
 const clearCookie=name=>cookie(name,"",0);
-const toB64=u8=>{let s="";for(const b of u8)s+=String.fromCharCode(b);return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")};
+const toStdB64=u8=>{let s="";for(const b of u8)s+=String.fromCharCode(b);return btoa(s)};
+const toB64=u8=>toStdB64(u8).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
 const fromB64=s=>{s=s.replace(/-/g,"+").replace(/_/g,"/");while(s.length%4)s+="=";const bin=atob(s);return Uint8Array.from(bin,c=>c.charCodeAt(0))};
 
 async function aesKey(secret){
@@ -137,7 +138,7 @@ export async function onRequest(context){
       let text=path.endsWith(".json")?JSON.stringify(body.content,null,2)+"\n":String(body.content??"");
       if(path.endsWith(".json"))JSON.parse(text);
       if(text.length>1200000)return json({error:"Nội dung vượt giới hạn CMS"},413);
-      const result=await gh(`/repos/${REPO}/contents/${path}`,s.accessToken,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:String(body.message||"cms: update content"),content:btoa(unescape(encodeURIComponent(text))),sha:body.sha,branch:BRANCH})});
+      const result=await gh(`/repos/${REPO}/contents/${path}`,s.accessToken,{method:"PUT",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:String(body.message||"cms: update content"),content:toStdB64(te.encode(text)),sha:body.sha,branch:BRANCH})});
       return json({ok:true,sha:result.content?.sha||null,commit:result.commit?.sha||null});
     }
 
