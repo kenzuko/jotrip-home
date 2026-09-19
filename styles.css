@@ -455,8 +455,10 @@ img{display:block;max-width:100%}
   scrollbar-width:none;
 }
 .filter-chips::-webkit-scrollbar{display:none}
-.filter-chips button{
+.filter-chips button,.filter-chips a{
   min-height:34px;
+  display:inline-flex;
+  align-items:center;
   padding:0 13px;
   border:1px solid var(--line);
   border-radius:999px;
@@ -466,7 +468,7 @@ img{display:block;max-width:100%}
   font-weight:760;
   white-space:nowrap;
 }
-.filter-chips button.active{
+.filter-chips button.active,.filter-chips a.active{
   background:var(--ink);
   color:#fff;
   border-color:var(--ink);
@@ -1201,16 +1203,16 @@ body{
 .happening-row:nth-child(3){background:linear-gradient(100deg,#EDFFF6,#fff 44%)}
 .happening-row:nth-child(4){background:linear-gradient(100deg,#EEF8FF,#fff 44%)}
 
-.filter-chips button{
+.filter-chips button,.filter-chips a{
   transition:transform .16s ease,background .16s ease,border-color .16s ease;
 }
 
-.filter-chips button:hover{
+.filter-chips button:hover,.filter-chips a:hover{
   transform:translateY(-2px);
   border-color:rgba(18,61,59,.22);
 }
 
-.filter-chips button.active{
+.filter-chips button.active,.filter-chips a.active{
   background:linear-gradient(135deg,#123D3B,#236F69);
   box-shadow:0 6px 15px rgba(18,61,59,.14);
 }
