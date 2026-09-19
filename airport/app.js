@@ -62,19 +62,35 @@ async function fetchLivePayload(){
   if(!payload?.latest?.records||!payload?.health)throw new Error('Open AutoSync trả dữ liệu không hợp lệ');
   return payload;
 }
+function applyPayload(payload,source,liveError=null){
+  if(!payload?.latest||!payload?.health)return;
+  state.latest=payload.latest;state.health=payload.health;state.dataSource=source;state.liveError=liveError;state.lastFetchAt=Date.now();renderAll();
+  if(source==='fallback'||source==='snapshot'){
+    $('#errorBox').textContent='Đang hiển thị snapshot Open AutoSync gần nhất trong khi nguồn live tiếp tục kết nối.';
+    $('#errorBox').classList.remove('hidden');
+  }else $('#errorBox').classList.add('hidden');
+}
 async function load(){
   if(state.loading)return;
   state.loading=true;setLoading(true);
+  const snapshotPromise=fetchSnapshotPayload().then(p=>({payload:p,source:'snapshot'}));
+  const livePromise=LIVE_API_URL
+    ?fetchLivePayload().then(p=>({payload:p,source:'live'})).catch(error=>({error}))
+    :Promise.resolve({error:new Error('LIVE_API_NOT_CONFIGURED')});
   try{
-    let payload=null,liveError=null;
-    if(LIVE_API_URL){
-      try{payload=await fetchLivePayload();state.dataSource='live';}
-      catch(e){liveError=e;console.warn('Live API fallback:',e);}
+    const first=await Promise.race([snapshotPromise,livePromise]);
+    if(first?.payload)applyPayload(first.payload,first.source);
+    else{
+      const snap=await snapshotPromise;
+      applyPayload(snap.payload,'fallback',first?.error||null);
     }
-    if(!payload){payload=await fetchSnapshotPayload();state.dataSource=LIVE_API_URL?'fallback':'snapshot';}
-    state.latest=payload.latest;state.health=payload.health;state.liveError=liveError;state.lastFetchAt=Date.now();renderAll();
-    if(state.dataSource==='fallback'){$('#errorBox').textContent='Open AutoSync tạm gián đoạn - đang dùng snapshot Open AutoSync gần nhất.';$('#errorBox').classList.remove('hidden');}
-    else $('#errorBox').classList.add('hidden');
+    livePromise.then(result=>{
+      if(result?.payload&&result.source==='live'){
+        const liveAt=new Date(result.payload.latest?.collected_at_vn||0).getTime();
+        const currentAt=new Date(state.latest?.collected_at_vn||0).getTime();
+        if(!state.latest||liveAt>=currentAt)applyPayload(result.payload,'live');
+      }
+    }).catch(()=>{});
   }catch(e){
     console.error(e);$('#errorBox').textContent='Không đọc được dữ liệu nguồn chính thức lúc này. Trang không hiển thị số cũ giả làm dữ liệu live.';$('#errorBox').classList.remove('hidden');setHealth('bad','MẤT DỮ LIỆU','Không thể tải nguồn live hoặc snapshot dự phòng.');
   }finally{state.loading=false;setLoading(false)}
