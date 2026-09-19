@@ -24,11 +24,94 @@ function focusSearch() {
   setTimeout(() => searchInput.focus(), 350);
 }
 
-searchForm?.addEventListener('submit', (event) => {
+const searchResults = document.querySelector('#searchResults');
+let searchReady = false;
+let searchDebounce = null;
+
+const searchTypeLabel = {
+  zone: 'KHU VỰC',
+  place: 'ĐỊA ĐIỂM',
+  activity: 'TRẢI NGHIỆM',
+  food: 'ĂN UỐNG',
+  utility: 'TIỆN ÍCH',
+  stay_area: 'LƯU TRÚ',
+  itinerary: 'LỊCH TRÌNH',
+  live: 'TRỰC TIẾP'
+};
+
+function escapeSearchHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function closeSearchResults() {
+  if (!searchResults || !searchInput) return;
+  searchResults.hidden = true;
+  searchResults.innerHTML = '';
+  searchInput.setAttribute('aria-expanded', 'false');
+}
+
+function renderSearchResults(query) {
+  if (!searchResults || !searchInput || !window.OpenPQSearch) return;
+  const q = query.trim();
+  if (q.length < 2) return closeSearchResults();
+
+  const results = window.OpenPQSearch.search(q, 8);
+  if (!results.length) {
+    searchResults.innerHTML = '<div class="search-empty"><strong>Chưa tìm thấy</strong><span>Thử tên khu vực, địa điểm, món ăn hoặc tiện ích khác.</span></div>';
+  } else {
+    searchResults.innerHTML = results.map((item, index) => {
+      const type = escapeSearchHtml(searchTypeLabel[item.type] || item.type || 'OPEN PHU QUOC');
+      const title = escapeSearchHtml(item.title);
+      const route = escapeSearchHtml(item.route || '#');
+      return '<a class="search-result" role="option" data-search-index="' + index + '" href="' + route + '">' +
+        '<span class="search-result-type">' + type + '</span>' +
+        '<strong>' + title + '</strong>' +
+        '<span class="search-result-arrow" aria-hidden="true">→</span>' +
+      '</a>';
+    }).join('');
+  }
+  searchResults.hidden = false;
+  searchInput.setAttribute('aria-expanded', 'true');
+}
+
+async function ensureSearch() {
+  if (searchReady || !window.OpenPQSearch) return searchReady;
+  try {
+    await window.OpenPQSearch.load('data/views/search-index.json');
+    searchReady = true;
+  } catch (error) {
+    showToast('Tìm kiếm đang tạm thời chưa tải được dữ liệu.');
+  }
+  return searchReady;
+}
+
+searchInput?.addEventListener('focus', async () => {
+  await ensureSearch();
+  if (searchInput.value.trim().length >= 2) renderSearchResults(searchInput.value);
+});
+
+searchInput?.addEventListener('input', () => {
+  clearTimeout(searchDebounce);
+  searchDebounce = setTimeout(async () => {
+    if (await ensureSearch()) renderSearchResults(searchInput.value);
+  }, 100);
+});
+
+searchForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const q = searchInput?.value.trim();
   if (!q) return focusSearch();
-  showToast('Tìm kiếm demo - giai đoạn tiếp theo sẽ nối điểm đến, lịch hoạt động, giao thông và dữ liệu trực tiếp.');
+  if (!(await ensureSearch())) return;
+  renderSearchResults(q);
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.search-shell') && !event.target.closest('.header-search')) closeSearchResults();
 });
 
 dockSearch?.addEventListener('click', focusSearch);
@@ -118,6 +201,7 @@ document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
   desktopNav?.classList.remove('open');
   closeMoreSheet();
+  closeSearchResults();
 });
 
 const swipeRails = document.querySelectorAll('.must-rail, .heritage-rail');
