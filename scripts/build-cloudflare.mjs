@@ -5,8 +5,8 @@ const out="dist";
 await rm(out,{recursive:true,force:true});
 await mkdir(out,{recursive:true});
 
-const rootFiles=["index.html","styles.css","enhancements.css","app.js","home-live.js","home-copy.js","subpage.css",".nojekyll"];
-const dirs=["assets","data","airport","guide","stories","utilities","weather","admin"];
+const rootFiles=["index.html","styles.css","enhancements.css","app.js","home-live.js","home-copy.js","subpage.css","island-clock.js","live-module.css",".nojekyll"];
+const dirs=["assets","data","airport","guide","stories","utilities","weather","admin","ferry","bus","cano","places","food"];
 
 for(const file of rootFiles){
   if(existsSync(file)) await copyFile(file,`${out}/${file}`);
