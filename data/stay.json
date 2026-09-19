@@ -1,0 +1,331 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "id": "handbook_r3",
+    "file": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+    "slides": [
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "updated": "2026-09-12"
+  },
+  "areas": [
+    {
+      "id": "duong-dong",
+      "name": "Dương Đông",
+      "vibe": "Trung tâm, nhộn nhịp",
+      "best_for": [
+        "khách lần đầu"
+      ],
+      "pros": [
+        "Ăn uống",
+        "Chợ đêm",
+        "Dễ gọi xe"
+      ],
+      "watch": [
+        "Không phải nơi nào cũng sát biển"
+      ],
+      "hashtags": [
+        "#duong-dong",
+        "#lan-dau",
+        "#food"
+      ]
+    },
+    {
+      "id": "bai-truong",
+      "name": "Bãi Trường",
+      "vibe": "Resort, bờ Tây",
+      "best_for": [
+        "gia đình",
+        "cặp đôi"
+      ],
+      "pros": [
+        "Nhiều lựa chọn",
+        "Hoàng hôn"
+      ],
+      "watch": [
+        "Một số đoạn biển đổi theo mùa"
+      ],
+      "hashtags": [
+        "#bai-truong",
+        "#resort",
+        "#hoang-hon"
+      ]
+    },
+    {
+      "id": "ong-lang",
+      "name": "Ông Lang",
+      "vibe": "Yên, xanh, chậm",
+      "best_for": [
+        "cặp đôi",
+        "nghỉ lâu"
+      ],
+      "pros": [
+        "Thư giãn",
+        "Ít xô bồ"
+      ],
+      "watch": [
+        "Ít lựa chọn về đêm"
+      ],
+      "hashtags": [
+        "#ong-lang",
+        "#slow-travel"
+      ]
+    },
+    {
+      "id": "bai-khem",
+      "name": "Bãi Khem",
+      "vibe": "Chỉn chu, cao cấp",
+      "best_for": [
+        "gia đình",
+        "cặp đôi"
+      ],
+      "pros": [
+        "Bãi đẹp",
+        "Resort tốt"
+      ],
+      "watch": [
+        "Xa trung tâm",
+        "Dịch vụ ngoài ít"
+      ],
+      "hashtags": [
+        "#bai-khem",
+        "#luxury"
+      ]
+    },
+    {
+      "id": "cua-can",
+      "name": "Cửa Cạn",
+      "vibe": "Sông, rừng, địa phương",
+      "best_for": [
+        "trải nghiệm nhẹ"
+      ],
+      "pros": [
+        "Thuyền thúng",
+        "Cảnh ven sông"
+      ],
+      "watch": [
+        "Ít dịch vụ tối",
+        "Đi xa hơn"
+      ],
+      "hashtags": [
+        "#cua-can",
+        "#local"
+      ]
+    },
+    {
+      "id": "ganh-dau",
+      "name": "Gành Dầu",
+      "vibe": "Tổ hợp nghỉ và chơi",
+      "best_for": [
+        "gia đình đi Safari/VinWonders"
+      ],
+      "pros": [
+        "Gần cụm Bắc đảo"
+      ],
+      "watch": [
+        "Xa Nam đảo"
+      ],
+      "hashtags": [
+        "#ganh-dau",
+        "#north",
+        "#family"
+      ]
+    }
+  ],
+  "hotel_tiers": [
+    {
+      "id": "3-star",
+      "label": "3 sao",
+      "choose_by": [
+        "Vị trí",
+        "Vệ sinh",
+        "Bữa sáng",
+        "Khoảng cách ăn uống/biển",
+        "Vận hành thực tế"
+      ]
+    },
+    {
+      "id": "4-star",
+      "label": "4 sao",
+      "choose_by": [
+        "Hồ bơi",
+        "Bãi biển",
+        "Phòng gia đình",
+        "Shuttle",
+        "Meal plan"
+      ]
+    },
+    {
+      "id": "5-luxury",
+      "label": "5 sao / luxury",
+      "choose_by": [
+        "Bãi biển",
+        "Thiết kế phòng/villa",
+        "Dịch vụ",
+        "Nhà hàng",
+        "Spa",
+        "Kids club",
+        "Riêng tư"
+      ]
+    },
+    {
+      "id": "ultra-luxury",
+      "label": "Ultra-luxury",
+      "choose_by": [
+        "Thương hiệu",
+        "Villa/phòng",
+        "Bãi biển",
+        "Dịch vụ cá nhân",
+        "Riêng tư"
+      ],
+      "note": "Không phải hạng 6 sao chính thức."
+    }
+  ],
+  "hotel_clusters": [
+    {
+      "region": "Nam đảo",
+      "examples": [
+        "JW Marriott",
+        "New World",
+        "Premier Residences",
+        "Premier Village",
+        "La Festa"
+      ],
+      "best_for": [
+        "nghỉ dưỡng",
+        "honeymoon",
+        "lịch Nam đảo"
+      ]
+    },
+    {
+      "region": "Bãi Trường",
+      "examples": [
+        "Regent",
+        "InterContinental",
+        "Pullman",
+        "Novotel",
+        "Sol by Meliá"
+      ],
+      "best_for": [
+        "gia đình",
+        "luxury",
+        "hoàng hôn",
+        "gần sân bay"
+      ]
+    },
+    {
+      "region": "Bắc & Tây Bắc",
+      "examples": [
+        "Sheraton",
+        "Meliá Vinpearl",
+        "Radisson Blu",
+        "Ocean Bay",
+        "Camia",
+        "Green Bay",
+        "Mövenpick"
+      ],
+      "best_for": [
+        "United Center",
+        "yên tĩnh",
+        "nghỉ dài"
+      ]
+    }
+  ],
+  "booking_channels": [
+    {
+      "id": "ota",
+      "label": "OTA",
+      "examples": [
+        "Booking",
+        "Agoda",
+        "Trip.com",
+        "Traveloka"
+      ],
+      "best_when": "So giá nhanh, sát ngày, cần hủy linh hoạt",
+      "check": [
+        "Thuế phí",
+        "Bữa sáng",
+        "Loại giường",
+        "Số khách",
+        "Trẻ em",
+        "Điều kiện hỗ trợ"
+      ]
+    },
+    {
+      "id": "direct",
+      "label": "Đặt trực tiếp",
+      "best_when": "Tích điểm, xác nhận phòng, yêu cầu đặc biệt, combo resort",
+      "check": [
+        "Meal plan",
+        "Quyền lợi thành viên",
+        "Hủy đổi"
+      ]
+    },
+    {
+      "id": "dmc",
+      "label": "Đại lý / DMC",
+      "best_when": "Ghép trọn hành trình hoặc nhiều phòng",
+      "check": [
+        "Pháp nhân",
+        "Booking confirmation",
+        "Quyền lợi",
+        "Người nhận tiền",
+        "Hủy đổi",
+        "Đầu mối sự cố"
+      ]
+    }
+  ],
+  "meal_plans": [
+    {
+      "code": "BB",
+      "label": "Breakfast",
+      "meaning": "Phòng + bữa sáng"
+    },
+    {
+      "code": "HB",
+      "label": "Half board",
+      "meaning": "Thường sáng + một bữa chính; cấu hình tùy resort"
+    },
+    {
+      "code": "FB",
+      "label": "Full board",
+      "meaning": "Thường sáng + trưa + tối; đồ uống/quyền lợi cần đọc kỹ"
+    },
+    {
+      "code": "AI",
+      "label": "All inclusive",
+      "meaning": "Có thể gồm ăn uống và nhiều quyền lợi; mỗi resort định nghĩa khác nhau"
+    },
+    {
+      "code": "UAI",
+      "label": "Ultra All Inclusive",
+      "meaning": "Tên thương mại; không mặc định giống nhau giữa thương hiệu"
+    },
+    {
+      "code": "BX",
+      "label": "BX",
+      "meaning": "Bữa sáng + vé vui chơi, phổ biến ở nhóm Vinpearl"
+    },
+    {
+      "code": "BX2",
+      "label": "BX2",
+      "meaning": "Như BX, thường áp dụng tối thiểu 2 đêm"
+    },
+    {
+      "code": "FX",
+      "label": "FX",
+      "meaning": "Ba bữa + vé vui chơi, phổ biến ở nhóm Vinpearl"
+    },
+    {
+      "code": "FX2",
+      "label": "FX2",
+      "meaning": "Như FX, thường áp dụng tối thiểu 2 đêm"
+    }
+  ]
+}
