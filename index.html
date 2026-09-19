@@ -22,7 +22,7 @@
     <nav class="app-rail-nav">
       <a href="#happening"><span>◷</span><strong>Hôm nay</strong></a>
       <a href="#today"><span>●</span><strong>Live</strong></a>
-      <a href="#things"><span>⌖</span><strong>Khám phá</strong></a>
+      <a href="explore/"><span>⌖</span><strong>Khám phá</strong></a>
       <a href="#food"><span>◎</span><strong>Ăn uống</strong></a>
       <a href="guide/"><span>▤</span><strong>Cẩm nang</strong></a>
       <a href="#essentials"><span>+</span><strong>Tiện ích</strong></a>
@@ -42,7 +42,7 @@
     <nav class="desktop-nav" id="primary-nav" aria-label="Điều hướng chính">
       <a href="#happening">Hôm nay</a>
       <a href="#today">Trực tiếp</a>
-      <a href="#things">Khám phá</a>
+      <a href="explore/">Khám phá</a>
       <a href="#food">Ăn uống</a>
       <a href="#guide">Cẩm nang</a>
       <a href="#essentials">Tiện ích</a>
@@ -125,7 +125,7 @@
     <section class="task-launcher" aria-label="Mở nhanh theo nhu cầu">
       <a href="#happening"><span>01</span><strong>Tôi đang ở Phú Quốc</strong><small>Live · hôm nay · tối nay</small></a>
       <a href="guide/#start"><span>02</span><strong>Tôi sắp đến</strong><small>Sân bay · ở đâu · chuẩn bị</small></a>
-      <a href="#things"><span>03</span><strong>Đi đâu hôm nay?</strong><small>Chọn theo thời tiết & nhịp ngày</small></a>
+      <a href="explore/"><span>03</span><strong>Đi đâu hôm nay?</strong><small>Chọn theo vùng & kiểu chuyến đi</small></a>
       <a href="food/"><span>04</span><strong>Ăn gì?</strong><small>Món địa phương · cách ăn</small></a>
       <a href="guide/#live"><span>05</span><strong>Di chuyển</strong><small>Sân bay · bus · tàu phà</small></a>
       <a href="utilities/#emergency"><span>06</span><strong>Cần trợ giúp</strong><small>Khẩn cấp · hotline · danh bạ</small></a>
@@ -188,16 +188,17 @@
           <p class="eyebrow">HÔM NAY ĐI ĐÂU</p>
           <h2>Chọn một Phú Quốc hợp với hôm nay.</h2>
         </div>
-        <a href="stories/">Xem thêm →</a>
+        <a href="explore/">Mở Explore →</a>
       </div>
 
       <div class="filter-chips" aria-label="Danh mục gợi ý đi đâu">
-        <button class="active">Hợp hôm nay</button>
-        <button>Bãi biển</button>
-        <button>Đời sống đảo</button>
-        <button>Ẩm thực địa phương</button>
-        <button>Buổi tối</button>
-        <button>Văn hóa</button>
+        <a class="active" href="explore/">Khám phá tất cả</a>
+        <a href="explore/?intent=sea">Biển</a>
+        <a href="explore/?intent=local-life">Đời sống đảo</a>
+        <a href="food/">Ẩm thực địa phương</a>
+        <a href="explore/?intent=evening">Buổi tối</a>
+        <a href="explore/?intent=nature">Thiên nhiên</a>
+        <a href="explore/?intent=rainy-day">Rainy day</a>
       </div>
 
       <div class="things-grid">
@@ -453,7 +454,7 @@
 
   <nav class="mobile-dock" aria-label="Điều hướng chính trên điện thoại">
     <a class="active" href="#happening" data-tab="today"><span>◷</span>Hôm nay</a>
-    <a href="#things" data-tab="explore"><span>⌖</span>Khám phá</a>
+    <a href="explore/" data-tab="explore"><span>⌖</span>Khám phá</a>
     <button type="button" class="dock-search" data-tab="search"><span>⌕</span>Tìm kiếm</button>
     <a href="#today" data-tab="live"><span>●</span>Live</a>
     <button type="button" class="dock-more" data-tab="more" aria-haspopup="dialog" aria-controls="more-sheet"><span>•••</span>Thêm</button>
