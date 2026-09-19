@@ -1,0 +1,4 @@
+{
+  "marker": "cms-secret-redeploy-check-2026-09-19-01",
+  "purpose": "verify Cloudflare production is on a post-secret deployment"
+}
