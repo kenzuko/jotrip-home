@@ -1,0 +1,318 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "price_vinpearl_safari_day",
+      "entity_type": "price_reference",
+      "slug": "vinpearl-safari-day",
+      "name": "Giá tham khảo Vinpearl Safari - vé ngày",
+      "aliases": [
+        "giá Vinpearl Safari",
+        "Vinpearl Safari price",
+        "Vé ngày · mốc từ 01/10/2026"
+      ],
+      "what_it_is": "Vé ngày · mốc từ 01/10/2026",
+      "price_reference": "950.000đ · 710.000đ trẻ em/cao tuổi",
+      "tips": [
+        "Zoo Tram, VIP/Premium là sản phẩm riêng"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "place_vinpearl_safari"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_vinwonders_day",
+      "entity_type": "price_reference",
+      "slug": "vinwonders-day",
+      "name": "Giá tham khảo VinWonders - vé ngày",
+      "aliases": [
+        "giá VinWonders",
+        "VinWonders price",
+        "Vé ngày · mốc từ 01/10/2026"
+      ],
+      "what_it_is": "Vé ngày · mốc từ 01/10/2026",
+      "price_reference": "1.050.000đ · 800.000đ trẻ em/cao tuổi",
+      "tips": [
+        "Kiểm tra lại chính sách đúng ngày"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "place_vinwonders"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_vin_combo_1d",
+      "entity_type": "price_reference",
+      "slug": "vin-combo-1d",
+      "name": "Giá tham khảo VinWonders + Safari - combo 1 ngày",
+      "aliases": [
+        "giá VinWonders + Safari",
+        "VinWonders + Safari price",
+        "Combo 1 ngày"
+      ],
+      "what_it_is": "Combo 1 ngày",
+      "price_reference": "1.500.000đ · 1.100.000đ",
+      "tips": [
+        "Lịch rất dài nếu đi cùng trẻ nhỏ"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "place_vinwonders",
+        "place_vinpearl_safari"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_vin_combo_2d",
+      "entity_type": "price_reference",
+      "slug": "vin-combo-2d",
+      "name": "Giá tham khảo VinWonders + Safari - combo 2 ngày",
+      "aliases": [
+        "giá VinWonders + Safari",
+        "VinWonders + Safari price",
+        "Combo 2 ngày"
+      ],
+      "what_it_is": "Combo 2 ngày",
+      "price_reference": "1.700.000đ · 1.300.000đ",
+      "tips": [
+        "Không mặc định unlimited / multi-entry"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "place_vinwonders",
+        "place_vinpearl_safari"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_grand_world_tinh_hoa",
+      "entity_type": "price_reference",
+      "slug": "grand-world-tinh-hoa",
+      "name": "Giá tham khảo Tinh Hoa Việt Nam",
+      "aliases": [
+        "giá Grand World",
+        "Grand World price",
+        "Tinh Hoa Việt Nam · mốc 20:15"
+      ],
+      "what_it_is": "Tinh Hoa Việt Nam · mốc 20:15",
+      "price_reference": "300.000đ · 230.000đ trẻ em/cao tuổi",
+      "tips": [
+        "Giờ có thể đổi theo mùa"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_sun_bavaria_dinner_show",
+      "entity_type": "price_reference",
+      "slug": "sun-bavaria-dinner-show",
+      "name": "Giá tham khảo Sun Bavaria Dinner Show",
+      "aliases": [
+        "giá Sun Bavaria Gastropub",
+        "Sun Bavaria Gastropub price",
+        "Dinner Show"
+      ],
+      "what_it_is": "Dinner Show",
+      "price_reference": "1.000.000đ",
+      "tips": [
+        "Mức tham khảo - quyền lợi cần kiểm tra lại trước khi mua"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_symphony",
+      "entity_type": "price_reference",
+      "slug": "symphony",
+      "name": "Giá tham khảo Symphony of the Sea",
+      "aliases": [
+        "giá Sunset Town",
+        "Sunset Town price",
+        "Symphony of the Sea · mốc 19:30"
+      ],
+      "what_it_is": "Symphony of the Sea · mốc 19:30",
+      "price_reference": "640.000đ / người",
+      "tips": [
+        "Vé tiêu chuẩn - giờ/giá động"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "activity_symphony_of_the_sea"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_kiss_bridge_show",
+      "entity_type": "price_reference",
+      "slug": "kiss-bridge-show",
+      "name": "Giá tham khảo Kiss of the Sea & Cầu Hôn",
+      "aliases": [
+        "giá Sunset Town",
+        "Sunset Town price",
+        "Kiss of the Sea & Cầu Hôn"
+      ],
+      "what_it_is": "Kiss of the Sea & Cầu Hôn",
+      "price_reference": "200.000đ · 150.000đ trẻ em",
+      "tips": [
+        "Cầu Hôn có vé riêng"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "activity_kiss_of_the_sea",
+        "place_kiss_bridge"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_hon_thom_day",
+      "entity_type": "price_reference",
+      "slug": "hon-thom-day",
+      "name": "Giá tham khảo cáp treo Hòn Thơm - vé ngày",
+      "aliases": [
+        "giá Cáp treo Hòn Thơm",
+        "Cáp treo Hòn Thơm price",
+        "Vé ngày"
+      ],
+      "what_it_is": "Vé ngày",
+      "price_reference": "850.000đ · 700.000đ trẻ em",
+      "tips": [
+        "Mức tham khảo - kiểm tra quyền lợi hiện hành"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "activity_hon_thom"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "price_hon_thom_buffet",
+      "entity_type": "price_reference",
+      "slug": "hon-thom-buffet",
+      "name": "Giá tham khảo cáp Hòn Thơm + buffet",
+      "aliases": [
+        "giá Cáp treo Hòn Thơm",
+        "Cáp treo Hòn Thơm price",
+        "Combo cáp + buffet"
+      ],
+      "what_it_is": "Combo cáp + buffet",
+      "price_reference": "1.150.000đ · 900.000đ",
+      "tips": [
+        "Mức tham khảo - kiểm tra lại trước khi thanh toán"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "related_entities": [
+        "activity_hon_thom"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "food_goi_ca_trich",
+      "legacy_id": "goi-ca-trich",
+      "entity_type": "food",
+      "slug": "goi-ca-trich",
+      "name": "Gỏi cá trích",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Vị chua, béo, thơm, thường ăn cùng rau và bánh tráng.",
+      "why_go": "Cuốn rau, bánh tráng và cá, cân bằng vị chua-béo-thơm.",
+      "best_for": [
+        "food"
+      ],
+      "tips": [
+        "Ưu tiên cá tươi",
+        "Hỏi rõ phần rau/bánh tráng/nước chấm"
+      ],
+      "intents": [
+        "food",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "food_bun_quay",
+      "legacy_id": "bun-quay",
+      "entity_type": "food",
+      "slug": "bun-quay",
+      "name": "Bún quậy",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Món ăn nóng, đặc trưng ở cách tự pha chén nước chấm theo khẩu vị.",
+      "why_go": "Ăn khi còn nóng, tự pha chén chấm trước rồi điều chỉnh.",
+      "best_for": [
+        "food"
+      ],
+      "tips": [
+        "Dễ thử cho khách lần đầu",
+        "Mỗi quán có cách phối chả/hải sản khác nhau"
+      ],
+      "intents": [
+        "food",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "food_bun_ken",
+      "legacy_id": "bun-ken",
+      "entity_type": "food",
+      "slug": "bun-ken",
+      "name": "Bún kèn",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Một món có chất địa phương rõ, ít phổ biến hơn bún quậy.",
+      "why_go": "Thường ăn với nước kèn cá, rau và topping tùy quán.",
+      "best_for": [
+        "food"
+      ],
+      "tips": [
+        "Nên thử ở quán địa phương",
+        "Hỏi giờ bán vì nhiều quán bán theo buổi"
+      ],
+      "intents": [
+        "food",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "food_nhum",
+      "legacy_id": "nhum",
+      "entity_type": "food",
+      "slug": "nhum",
+      "name": "Nhum",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Hải sản nên chọn theo độ tươi và cách chế biến.",
+      "why_go": "Nướng, mỡ hành hoặc chế biến tùy quán.",
+      "best_for": [
+        "food"
+      ],
+      "tips": [
+        "Không chọn chỉ vì ảnh",
+        "Hỏi giá và kích cỡ trước khi gọi"
+      ],
+      "intents": [
+        "food",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "food_coi_bien_mai",
+      "legacy_id": "coi-bien-mai",
+      "entity_type": "food",
+      "slug": "coi-bien-mai",
+      "name": "Còi biên mai",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Phần cơ của sò biên mai, hợp nướng hoặc xào.",
+      "why_go": "Ưu tiên chế biến đơn giản để giữ độ ngọt và giòn.",
+      "best_for": [
+        "food"
+      ],
+      "tips": [
+        "Hỏi giá theo phần hoặc trọng lượng",
+        "Ưu tiên độ tươi"
+      ],
+      "intents": [
+        "food",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#F7FBF9">
+  <title>Địa điểm - Open Phu Quoc</title>
+  <meta name="description" content="Thông tin địa điểm và trải nghiệm Phú Quốc từ dữ liệu Open Phu Quoc.">
+  <link rel="preload" as="image" href="/assets/logo.svg">
+  <link rel="stylesheet" href="../live-module.css?v=1">
+  <link rel="stylesheet" href="detail.css?v=1">
+</head>
+<body>
+  <header class="detail-head">
+    <a href="../"><img src="/assets/logo.svg?v=2" alt="Open Phu Quoc" width="281" height="77"></a>
+    <div class="detail-head-title"><strong>Khám phá</strong><span>Thông tin điểm đến</span></div>
+    <div class="vn-clock" data-vn-clock></div>
+    <a href="../explore/">← Khám phá</a>
+  </header>
+
+  <main id="detailRoot">
+    <section class="detail-loading">Đang tải dữ liệu địa điểm...</section>
+  </main>
+
+  <nav class="detail-mobile-nav" aria-label="Điều hướng nhanh">
+    <a href="../#happening">Hôm nay</a>
+    <a href="../explore/">Khám phá</a>
+    <a href="../weather/">Thời tiết</a>
+    <a href="../#today">Live</a>
+  </nav>
+
+  <script src="../island-clock.js?v=3"></script>
+  <script src="detail.js?v=1"></script>
+</body>
+</html>

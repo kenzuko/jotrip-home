@@ -43,6 +43,16 @@
     box.dataset.state = state || 'info';
   }
 
+  function setContext(name, primary, secondary, state) {
+    const card = document.querySelector('[data-context-card="' + name + '"]');
+    if (!card) return;
+    const strong = card.querySelector('[data-context-primary="' + name + '"]');
+    const small = card.querySelector('[data-context-secondary="' + name + '"]');
+    if (strong) strong.textContent = primary;
+    if (small) small.textContent = secondary;
+    card.dataset.state = state || 'info';
+  }
+
   function setHappening(name, title, note, badge, good) {
     const row = document.querySelector('[data-happening="' + name + '"]');
     if (!row) return;
@@ -99,6 +109,7 @@
     const weatherPrimary = vvpq?.temperature_c != null ? Math.round(vvpq.temperature_c) + '°' : '--';
     const weatherSecondary = vvpq ? 'Gió ' + Math.round(vvpq.wind_speed_kmh || 0) + ' km/h · VVPQ' : 'Chưa có quan trắc';
     setLive('weather', weatherPrimary, weatherSecondary, vvpq ? 'good' : 'unknown');
+    setContext('weather', weatherPrimary, weatherSecondary, vvpq ? 'good' : 'unknown');
 
     const anThoi = local?.points?.an_thoi;
     setLive('sea',
@@ -116,6 +127,7 @@
 
     const sunset = sunsetFor();
     setLive('sunset', sunset, 'Bờ Tây · tính theo vị trí đảo', 'info');
+    setContext('sunset', sunset, 'Bờ Tây · tính theo vị trí đảo', 'info');
 
     const convScores = ['duong_dong', 'an_thoi', 'ganh_dau']
       .map(k => nowcast?.points?.[k]?.convective_signal?.score)
@@ -152,21 +164,35 @@
     const marineNote = 'Cano: ' + stateText(canoState) + ' · Tàu cao tốc: ' + stateText(fastState) + ' · Phà: ' + stateText(ferryState);
     setHappening('marine', marineTitle, marineNote, ferryState === 'DIRECT_CONFIRMED' ? 'XÁC NHẬN' : 'KIỂM TRA', ferryState === 'DIRECT_CONFIRMED');
 
-    const records = airport?.records || [];
+    const airportAvailable = !!airport;
+    const records = airportAvailable ? (airport.records || []) : [];
     const delayed = records.filter(x => x.status_code === 'DELAYED' || x.status === 'TRỄ' || Number(x.estimated_delay_minutes) > 0);
-    const total = airport?.counts?.total ?? records.length;
+    const total = airportAvailable ? (airport?.counts?.total ?? records.length) : null;
+
     setHappening('airport',
-      delayed.length ? delayed.length + ' chuyến đang cần theo dõi' : 'Bảng chuyến bay chưa thấy trễ đáng kể',
-      total + ' chuyến trong bảng hôm nay · nguồn Sun Airport',
-      delayed.length ? 'THEO DÕI' : 'BÌNH THƯỜNG',
-      delayed.length === 0
+      !airportAvailable
+        ? 'Chưa tải được dữ liệu sân bay'
+        : delayed.length
+          ? delayed.length + ' chuyến đang cần theo dõi'
+          : 'Bảng chuyến bay chưa thấy trễ đáng kể',
+      airportAvailable
+        ? total + ' chuyến trong bảng hôm nay · nguồn Sun Airport'
+        : 'Không dùng trạng thái thiếu dữ liệu để kết luận bình thường',
+      !airportAvailable ? 'CHƯA CÓ' : delayed.length ? 'THEO DÕI' : 'BÌNH THƯỜNG',
+      airportAvailable && delayed.length === 0
+    );
+
+    setContext('airport',
+      !airportAvailable ? 'Chưa có dữ liệu' : delayed.length ? delayed.length + ' chuyến cần xem' : 'Bình thường',
+      airportAvailable ? total + ' chuyến trong bảng hôm nay' : 'Đang thử lại nguồn sân bay',
+      !airportAvailable ? 'unknown' : delayed.length ? 'watch' : 'good'
     );
 
     const ticker = [
       ['THỜI TIẾT', weatherPrimary + (vvpq ? ' · ' + Math.round(vvpq.wind_speed_kmh || 0) + ' km/h' : '')],
       ['BIỂN NAM ĐẢO', anThoi?.wave_hs_m != null ? fmt(anThoi.wave_hs_m) + ' m' : 'CHƯA CÓ'],
       ['CANO', stateText(canoState).toUpperCase()],
-      ['SÂN BAY', delayed.length ? delayed.length + ' CHUYẾN CẦN THEO DÕI' : 'BÌNH THƯỜNG'],
+      ['SÂN BAY', !airportAvailable ? 'CHƯA CÓ DỮ LIỆU' : delayed.length ? delayed.length + ' CHUYẾN CẦN THEO DÕI' : 'BÌNH THƯỜNG'],
       ['PHÀ', stateText(ferryState).toUpperCase()],
       ['HOÀNG HÔN', sunset]
     ];

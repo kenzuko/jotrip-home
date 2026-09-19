@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "zone_north",
+      "entity_type": "zone",
+      "slug": "north",
+      "name": "Bắc đảo",
+      "aliases": [
+        "Bac dao",
+        "North Phu Quoc",
+        "North island"
+      ],
+      "what_it_is": "Khu Bắc và Tây Bắc Phú Quốc, gồm rừng, Gành Dầu, Rạch Vẹm và cụm vui chơi United Center.",
+      "why_go": "Phù hợp gia đình, thiên nhiên và các điểm vui chơi quy mô lớn.",
+      "best_for": [
+        "family",
+        "nature",
+        "theme-parks"
+      ],
+      "intents": [
+        "family",
+        "nature",
+        "first-time"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "zone_central_west",
+      "entity_type": "zone",
+      "slug": "central-west",
+      "name": "Trung tâm & bờ Tây",
+      "aliases": [
+        "Trung tam",
+        "Duong Dong",
+        "Central Phu Quoc",
+        "West coast"
+      ],
+      "what_it_is": "Dương Đông, bờ Tây và các khu vực thuận tiện cho ăn uống, chợ đêm, hoàng hôn và di chuyển.",
+      "why_go": "Dễ ở, dễ ăn, thuận tiện cho khách lần đầu và làm điểm giữa để đi Bắc - Nam.",
+      "best_for": [
+        "first-time",
+        "food",
+        "sunset"
+      ],
+      "intents": [
+        "first-time",
+        "food",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "zone_south",
+      "entity_type": "zone",
+      "slug": "south",
+      "name": "Nam đảo",
+      "aliases": [
+        "Nam dao",
+        "South Phu Quoc",
+        "South island",
+        "An Thoi"
+      ],
+      "what_it_is": "Cụm Nam đảo và quần đảo An Thới, gồm bãi biển, Hòn Thơm, Sunset Town và nhiều hoạt động biển.",
+      "why_go": "Tập trung trải nghiệm biển, cáp treo, vui chơi và các điểm tham quan phía Nam.",
+      "best_for": [
+        "sea",
+        "couple",
+        "family"
+      ],
+      "intents": [
+        "sea",
+        "couple",
+        "family",
+        "first-time"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

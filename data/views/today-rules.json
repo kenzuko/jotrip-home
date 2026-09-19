@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-19",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "rules": [
+    {
+      "id": "morning-major-attraction",
+      "start_hour": 6,
+      "end_hour": 11,
+      "title": "Buổi sáng hợp để bắt đầu một điểm lớn",
+      "summary": "Nếu đi Safari, VinWonders hoặc lịch Nam đảo, đi sớm giúp lịch nhẹ hơn và bớt dồn vào chiều.",
+      "route": "/guide/#days",
+      "source_type": "EDITORIAL",
+      "source_id": "handbook_r3"
+    },
+    {
+      "id": "midday-flex",
+      "start_hour": 11,
+      "end_hour": 15,
+      "title": "Giữ buổi trưa linh hoạt",
+      "summary": "Dành khoảng nghỉ, ăn trưa hoặc nội dung ít phụ thuộc thời tiết trước khi vào lịch chiều.",
+      "route": "/food/",
+      "source_type": "EDITORIAL",
+      "source_id": "handbook_r3"
+    },
+    {
+      "id": "afternoon-sunset",
+      "start_hour": 15,
+      "end_hour": 18,
+      "title": "Sắp tới khung hoàng hôn",
+      "summary": "Nếu weather ổn, bờ Tây là lựa chọn dễ ghép cho cuối chiều. Kiểm tra Live trước khi đi.",
+      "route": "/#today",
+      "source_type": "EDITORIAL",
+      "source_id": "handbook_r3",
+      "weather_sensitive": true
+    },
+    {
+      "id": "evening-options",
+      "start_hour": 18,
+      "end_hour": 23,
+      "title": "Tối nay chọn một khu, đừng chạy xuyên đảo",
+      "summary": "Dương Đông, Grand World hoặc Nam đảo đều có nhịp tối riêng. Chọn khu gần lịch ban ngày để đỡ di chuyển.",
+      "route": "/guide/#zones",
+      "source_type": "EDITORIAL",
+      "source_id": "handbook_r3"
+    }
+  ]
+}

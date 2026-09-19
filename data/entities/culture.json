@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "culture_fish_sauce",
+      "legacy_id": "fish-sauce",
+      "entity_type": "culture",
+      "slug": "fish-sauce",
+      "name": "Nước mắm Phú Quốc - từ biển vào nhà thùng",
+      "aliases": [],
+      "what_it_is": "Cá cơm, muối, thùng gỗ và thời gian tạo thành một nghề sống của đảo.",
+      "why_go": "",
+      "intents": [
+        "culture",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "culture_dinh_cau_belief",
+      "legacy_id": "dinh-cau-belief",
+      "entity_type": "culture",
+      "slug": "dinh-cau-belief",
+      "name": "Dinh Cậu - cửa sông và niềm tin của ngư dân biển",
+      "aliases": [],
+      "what_it_is": "Không gian tín ngưỡng tại cửa sông Dương Đông, gắn với cầu bình an và chuyến biển.",
+      "why_go": "",
+      "intents": [
+        "culture",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "culture_pepper",
+      "legacy_id": "pepper",
+      "entity_type": "culture",
+      "slug": "pepper",
+      "name": "Hồ tiêu - phần đất của một hòn đảo nổi tiếng vì biển",
+      "aliases": [],
+      "what_it_is": "Đất đỏ, mùa vụ và lao động nông nghiệp là một lớp bản sắc của Phú Quốc.",
+      "why_go": "",
+      "intents": [
+        "culture",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "culture_prison",
+      "legacy_id": "prison",
+      "entity_type": "culture",
+      "slug": "prison",
+      "name": "Nhà tù Phú Quốc - đọc một di tích, không phải check-in",
+      "aliases": [],
+      "what_it_is": "Di tích cần được đọc bằng bối cảnh, dấu tích, hiện vật và phần phục dựng.",
+      "why_go": "",
+      "intents": [
+        "culture",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

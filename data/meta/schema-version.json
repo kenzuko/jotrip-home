@@ -1,0 +1,26 @@
+{
+  "schema_version": "3.1.0",
+  "product": "open-phu-quoc",
+  "updated_at": "2026-09-19",
+  "layers": {
+    "sources": "raw and curated source material",
+    "entities": "normalized stable product entities",
+    "live": "normalized volatile operational state",
+    "views": "UI-ready composed payloads",
+    "meta": "contracts and policy"
+  },
+  "id_policy": {
+    "immutable": true,
+    "format": "<entity_type>_<stable_slug>",
+    "examples": [
+      "zone_north",
+      "place_hon_thom",
+      "food_bun_quay",
+      "utility_airport_lost_found"
+    ]
+  },
+  "migration": {
+    "legacy_compatible": true,
+    "remove_legacy_only_after_qa": true
+  }
+}

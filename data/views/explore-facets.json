@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-19",
+  "intents": [
+    {
+      "id": "all",
+      "label": "Tất cả",
+      "match_any": []
+    },
+    {
+      "id": "family",
+      "label": "Gia đình",
+      "match_any": [
+        "family",
+        "kids"
+      ]
+    },
+    {
+      "id": "couple",
+      "label": "Cặp đôi",
+      "match_any": [
+        "couple",
+        "honeymoon",
+        "sunset"
+      ]
+    },
+    {
+      "id": "sea",
+      "label": "Biển",
+      "match_any": [
+        "sea",
+        "marine",
+        "beach",
+        "snorkeling",
+        "diving",
+        "underwater",
+        "fishing",
+        "cable-car"
+      ]
+    },
+    {
+      "id": "local-life",
+      "label": "Đời sống địa phương",
+      "match_any": [
+        "local-life",
+        "culture",
+        "craft",
+        "agriculture",
+        "village"
+      ]
+    },
+    {
+      "id": "evening",
+      "label": "Buổi tối",
+      "match_any": [
+        "evening",
+        "show",
+        "sunset"
+      ]
+    },
+    {
+      "id": "nature",
+      "label": "Thiên nhiên",
+      "match_any": [
+        "nature",
+        "stream",
+        "wildlife",
+        "forest"
+      ]
+    },
+    {
+      "id": "rainy-day",
+      "label": "Ngày mưa",
+      "match_any": [],
+      "include_ids": [
+        "place_fish_sauce_house",
+        "place_phu_quoc_prison"
+      ],
+      "note": "Các lựa chọn này ít phụ thuộc biển hơn, nhưng không có nghĩa là phù hợp trong mọi mức mưa gió. Hãy kiểm tra thời tiết trước khi đi."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "handbook_r3",
+  "title": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+  "version": "2027 IslandEditorial R3",
+  "source_updated": "2026-09-12",
+  "migrated_at": "2026-09-19",
+  "provenance": "USER_LIBRARY_MASTER",
+  "role": "EDITORIAL_SEED",
+  "raw_files": {
+    "corpus": "data/sources/handbook-r3/corpus.json",
+    "index": "data/sources/handbook-r3/index.json"
+  },
+  "rules": [
+    "Do not render raw corpus chunks directly as product UI.",
+    "Normalize into stable entities before use in search, map or place detail.",
+    "Live prices, schedules and operations must override handbook seed data."
+  ]
+}

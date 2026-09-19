@@ -24,11 +24,109 @@ function focusSearch() {
   setTimeout(() => searchInput.focus(), 350);
 }
 
-searchForm?.addEventListener('submit', (event) => {
+const searchResults = document.querySelector('#searchResults');
+let searchReady = false;
+let searchDebounce = null;
+
+const searchTypeLabel = {
+  zone: 'KHU VỰC',
+  place: 'ĐỊA ĐIỂM',
+  activity: 'TRẢI NGHIỆM',
+  food: 'ĂN UỐNG',
+  utility: 'TIỆN ÍCH',
+  stay_area: 'LƯU TRÚ',
+  itinerary: 'LỊCH TRÌNH',
+  practical: 'CẦN BIẾT',
+  culture: 'VĂN HÓA',
+  history: 'LỊCH SỬ',
+  hotel: 'KHÁCH SẠN',
+  access: 'ĐẾN ĐẢO',
+  hotel_tier: 'PHÂN KHÚC KHÁCH SẠN',
+  stay_guide: 'CHỌN KHU Ở',
+  booking_channel: 'ĐẶT PHÒNG',
+  meal_plan: 'GÓI ĂN KÈM',
+  price_reference: 'GIÁ THAM KHẢO',
+  island_basic: 'HIỂU ĐẢO',
+  live: 'TRỰC TIẾP'
+};
+
+function escapeSearchHtml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function closeSearchResults() {
+  if (!searchResults || !searchInput) return;
+  searchResults.hidden = true;
+  searchResults.innerHTML = '';
+  searchInput.setAttribute('aria-expanded', 'false');
+}
+
+function renderSearchResults(query) {
+  if (!searchResults || !searchInput || !window.OpenPQSearch) return;
+  const q = query.trim();
+  if (q.length < 2) return closeSearchResults();
+
+  const groups = window.OpenPQSearch.searchGrouped ? window.OpenPQSearch.searchGrouped(q, 10) : [{id:'related',label:'Kết quả',items:window.OpenPQSearch.search(q, 8)}];
+  const results = groups.flatMap(group => group.items);
+  if (!results.length) {
+    searchResults.innerHTML = '<div class="search-empty"><strong>Chưa tìm thấy</strong><span>Thử tên khu vực, địa điểm, món ăn hoặc tiện ích khác.</span></div>';
+  } else {
+    let index = 0;
+    searchResults.innerHTML = groups.map(group => '<section class="search-group" data-search-group="' + escapeSearchHtml(group.id) + '">' +
+      '<div class="search-group-title">' + escapeSearchHtml(group.label) + '</div>' +
+      group.items.map(item => {
+        const type = escapeSearchHtml(searchTypeLabel[item.type] || item.type || 'OPEN PHU QUOC');
+        const title = escapeSearchHtml(item.title);
+        const route = escapeSearchHtml(item.route || '#');
+        return '<a class="search-result" role="option" data-search-index="' + index++ + '" href="' + route + '">' +
+          '<span class="search-result-type">' + type + '</span>' +
+          '<strong>' + title + '</strong>' +
+          '<span class="search-result-arrow" aria-hidden="true">→</span>' +
+        '</a>';
+      }).join('') + '</section>').join('');
+  }
+  searchResults.hidden = false;
+  searchInput.setAttribute('aria-expanded', 'true');
+}
+
+async function ensureSearch() {
+  if (searchReady || !window.OpenPQSearch) return searchReady;
+  try {
+    await window.OpenPQSearch.load('data/views/search-index.json');
+    searchReady = true;
+  } catch (error) {
+    showToast('Tìm kiếm đang tạm thời chưa tải được dữ liệu.');
+  }
+  return searchReady;
+}
+
+searchInput?.addEventListener('focus', async () => {
+  await ensureSearch();
+  if (searchInput.value.trim().length >= 2) renderSearchResults(searchInput.value);
+});
+
+searchInput?.addEventListener('input', () => {
+  clearTimeout(searchDebounce);
+  searchDebounce = setTimeout(async () => {
+    if (await ensureSearch()) renderSearchResults(searchInput.value);
+  }, 100);
+});
+
+searchForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
   const q = searchInput?.value.trim();
   if (!q) return focusSearch();
-  showToast('Tìm kiếm demo - giai đoạn tiếp theo sẽ nối điểm đến, lịch hoạt động, giao thông và dữ liệu trực tiếp.');
+  if (!(await ensureSearch())) return;
+  renderSearchResults(q);
+});
+
+document.addEventListener('click', (event) => {
+  if (!event.target.closest('.search-shell') && !event.target.closest('.header-search')) closeSearchResults();
 });
 
 dockSearch?.addEventListener('click', focusSearch);
@@ -118,6 +216,7 @@ document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
   desktopNav?.classList.remove('open');
   closeMoreSheet();
+  closeSearchResults();
 });
 
 const swipeRails = document.querySelectorAll('.must-rail, .heritage-rail');
@@ -309,5 +408,5 @@ mobileTabs.forEach((item) => {
 
 dockSearch?.addEventListener('click', () => {
   setActiveMobileTab('search');
-  setTimeout(() => setActiveMobileTab('home'), 900);
+  setTimeout(() => setActiveMobileTab('today'), 900);
 });
