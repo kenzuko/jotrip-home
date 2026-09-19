@@ -1,0 +1,149 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-19",
+  "sources": [
+    {
+      "id": "handbook_r3",
+      "type": "EDITORIAL_MASTER",
+      "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+      "version": "2027 IslandEditorial R3",
+      "updated": "2026-09-12",
+      "trust": "CURATED_MASTER",
+      "dynamic": false,
+      "used_by": [
+        "places",
+        "food",
+        "stay",
+        "itineraries",
+        "practical",
+        "culture_history"
+      ]
+    },
+    {
+      "id": "jotrip_weather_v2",
+      "type": "LIVE_SYSTEM",
+      "label": "JoTrip Weather Intelligence V2",
+      "repo": "kenzuko/Jotrip-Lab",
+      "ref": "feat/weather-lab-data-engine-v1",
+      "dynamic": true,
+      "trust": "OPERATIONAL_PIPELINE",
+      "used_by": [
+        "weather"
+      ]
+    },
+    {
+      "id": "jotrip_airport_live",
+      "type": "LIVE_SYSTEM",
+      "label": "JoTrip Airport Live",
+      "repo": "kenzuko/Jotrip-Lab",
+      "dynamic": true,
+      "trust": "OPERATIONAL_PIPELINE",
+      "used_by": [
+        "airport"
+      ]
+    },
+    {
+      "id": "jotrip_transit",
+      "type": "LIVE_SYSTEM",
+      "label": "JoTrip Transit",
+      "repo": "kenzuko/transit-jotrip",
+      "dynamic": true,
+      "trust": "SOURCE_AWARE_AGGREGATOR",
+      "used_by": [
+        "ferry",
+        "bus"
+      ]
+    },
+    {
+      "id": "jotrip_marine_ops",
+      "type": "LIVE_SYSTEM",
+      "label": "JoTrip Marine Operations",
+      "repo": "kenzuko/Jotrip-Lab",
+      "ref": "data-marine-ops",
+      "dynamic": true,
+      "trust": "EVIDENCE_GRADED",
+      "used_by": [
+        "cano",
+        "ferry"
+      ]
+    },
+    {
+      "id": "vinbus_official_pq",
+      "type": "OFFICIAL_PUBLIC",
+      "label": "VinBus / VinWonders Phú Quốc public schedule",
+      "url": "https://vinwonders.com/vi/wonderpedia/news/vinbus-phu-quoc/",
+      "checked_at": "2026-09-19",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "bus"
+      ]
+    },
+    {
+      "id": "vinbus_live_map",
+      "type": "OFFICIAL_LIVE_UI",
+      "label": "VinBus Map",
+      "url": "https://maps.vinbus.vn/pq",
+      "checked_at": "2026-09-19",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_LIVE",
+      "machine_readable_status": "UNRESOLVED",
+      "used_by": [
+        "bus"
+      ]
+    },
+    {
+      "id": "thanh_thoi",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Phà Thạnh Thới",
+      "url": "https://thanhthoi.vn/",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "ferry"
+      ]
+    },
+    {
+      "id": "superdong",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Superdong",
+      "url": "https://superdong.com.vn/",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "ferry"
+      ]
+    },
+    {
+      "id": "phu_quoc_express",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Phú Quốc Express",
+      "url": "https://phuquocexpress.com/",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "automation_policy": "REFERENCE_ONLY_WHERE_TERMS_RESTRICT",
+      "used_by": [
+        "ferry"
+      ]
+    },
+    {
+      "id": "port_clearance_kgg",
+      "type": "OFFICIAL_OPERATIONAL",
+      "label": "Giấy phép rời cảng KGG",
+      "url": "https://hanghai.moc.gov.vn/giay-phep-roi-cang",
+      "dynamic": true,
+      "trust": "DIRECT_OPERATIONAL_EVIDENCE",
+      "used_by": [
+        "marine_ops",
+        "ferry"
+      ]
+    }
+  ],
+  "rules": [
+    "Mọi entity xuất phát từ handbook phải giữ source.id và source_slides.",
+    "Dữ liệu động phải có checked_at/collected_at và không được lấy mốc handbook làm trạng thái hiện tại.",
+    "Nguồn live vận hành là lớp riêng, không chỉnh bằng CMS editorial.",
+    "Quan sát, dự báo, mô hình và bằng chứng trực tiếp phải giữ nhãn khác nhau.",
+    "Nếu machine-readable live feed chưa resolve, hiển thị trạng thái thiếu thay vì mô phỏng như dữ liệu thật."
+  ]
+}
