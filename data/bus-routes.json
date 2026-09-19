@@ -2,11 +2,12 @@
   "schema_version": "1.0",
   "verified_at": "2026-09-19",
   "source": {
-    "label": "VinWonders / VinBus public Phú Quốc 2026",
+    "label": "VinWonders official public VinBus Phú Quốc schedule",
     "primary": "https://vinwonders.com/vi/wonderpedia/news/xe-bus-di-safari-phu-quoc/",
-    "realtime": "https://maps.vinbus.vn/",
-    "note": "Lịch và tần suất là dữ liệu công bố. Vị trí xe thật chỉ được gắn nhãn LIVE khi có feed VinBus chính thức/machine-readable; nếu chưa có chỉ hiển thị ƯỚC TÍNH THEO LỊCH.",
-    "shuttle_reference": "https://vinwonders.com/vi/wonderpedia/news/vinbus-phu-quoc/"
+    "realtime": "https://maps.vinbus.vn/pq",
+    "note": "Official web/app provides route, stop and estimated arrival / online vehicle location. Open Phu Quoc only republishes LIVE positions after a verified machine-readable feed is resolved; until then it links to the official live map.",
+    "shuttle_reference": "https://vinwonders.com/vi/wonderpedia/news/vinbus-phu-quoc/",
+    "published_at": "2025-07-25"
   },
   "routes": [
     {
@@ -25,22 +26,35 @@
       ],
       "stops": [
         "Sân bay Phú Quốc",
-        "Ngã ba sân bay",
+        "Gần ngã 3 sân bay quốc tế",
+        "Trường mầm non Hồ Thị Nghiêm",
         "Eden Resort",
-        "Salinda Resort",
+        "Salinda",
         "Long Beach Center",
         "Bảo tàng Cội Nguồn",
-        "Trần Hưng Đạo / trung tâm",
-        "Chợ đêm - Sùng Hưng",
-        "Highlands Coffee 10B Hùng Vương",
-        "Sân bay cũ",
-        "K+ Mark",
-        "Ông Lang",
-        "Cửa Cạn",
-        "Fusion Resort",
-        "VinHolidays Fiesta",
-        "Grand World - bãi T2"
-      ]
+        "KLC Holidays Phú Quốc",
+        "Holiday Sense",
+        "Hòa Bình Resort",
+        "Chùa Sùng Hưng Cổ Tự",
+        "Ngân hàng BIDV Phú Quốc",
+        "Gần Bệnh viện đa khoa Phú Quốc",
+        "Highlands Coffee",
+        "Điện máy Chợ Lớn",
+        "Đường băng sân bay cũ",
+        "K+ MARK",
+        "Gần Khu Bắc Dương Đông",
+        "Gần ngã 3 đường vào Dinh Bà Ông Lang",
+        "Gần ngã 3 Ông Lang",
+        "Mộ Bà Lớn Tướng",
+        "Gần ngã 3 Cửa Cạn",
+        "Ngã ba Fusion Resort Phú Quốc",
+        "Gần cây xăng Phương Vy",
+        "VinHolidays Fiesta (Ngoại khu)",
+        "Wyndham Garden (Ngoại khu)",
+        "Quảng Trường Biển (Ngoại khu)",
+        "Bãi đỗ xe T2 Grand World"
+      ],
+      "live_url": "https://maps.vinbus.vn/pq"
     },
     {
       "id": "19",
@@ -57,25 +71,43 @@
         "#grand-world"
       ],
       "stops": [
-        "InterContinental",
-        "Pullman",
-        "Novotel",
-        "Mường Thanh",
+        "InterContinental Phú Quốc",
+        "Pullman Resort",
+        "Novotel Resort",
+        "Mường Thanh Hotel",
+        "Ngã tư Staff House",
         "Sol Beach",
+        "Sunset Sanato",
         "Sân bay Phú Quốc",
+        "Gần ngã 3 sân bay quốc tế",
+        "Trường mầm non Hồ Thị Nghiêm",
         "Eden Resort",
-        "Salinda Resort",
+        "Salinda",
+        "Long Beach Center",
         "Bảo tàng Cội Nguồn",
-        "Chợ đêm - Sùng Hưng",
-        "Highlands Coffee 10B Hùng Vương",
-        "Sân bay cũ",
-        "K+ Mark",
-        "Ông Lang",
-        "Cửa Cạn",
-        "Fusion Resort",
+        "KLC Holidays Phú Quốc",
+        "Holiday Sense",
+        "Hòa Bình Resort",
+        "Chùa Sùng Hưng Cổ Tự",
+        "Ngân hàng BIDV Phú Quốc",
+        "Gần Bệnh viện đa khoa Phú Quốc",
+        "Highlands Coffee",
+        "Điện máy Chợ Lớn",
+        "Đường băng sân bay cũ",
+        "K+ MARK",
+        "Gần Khu dân cư Bắc Dương Đông",
+        "Gần ngã 3 đường vào Dinh Bà Ông Lang",
+        "Gần ngã 3 Ông Lang",
+        "Mộ Bà Lớn Tướng",
+        "Gần ngã 3 Cửa Cạn",
+        "Ngã ba Fusion Resort Phú Quốc",
+        "Gần cây xăng Phương Vy",
         "VinHolidays Fiesta",
-        "Grand World - bãi T2"
-      ]
+        "Wyndham Garden",
+        "Quảng Trường Biển",
+        "Bãi đỗ xe T2 Grand World"
+      ],
+      "live_url": "https://maps.vinbus.vn/pq"
     },
     {
       "id": "20",
@@ -94,61 +126,109 @@
       "stops": [
         "Cảng Bãi Vòng",
         "Vòng xoay Bãi Vòng",
-        "Cao đẳng Việt - Hàn",
+        "Trường Trung cấp Việt Hàn",
         "KDL Suối Tranh",
-        "Ngã ba Suối Mây",
-        "Cổng chào Suối Đá",
-        "Highlands Coffee 10B Hùng Vương",
-        "Sân bay cũ",
-        "K+ Mark",
-        "Ông Lang",
-        "Cửa Cạn",
-        "Fusion Resort",
+        "Gần ngã ba Suối Mây",
+        "Gần cổng chào Suối Đá",
+        "Highlands Coffee - 10B Hùng Vương",
+        "Điện máy Chợ Lớn",
         "VinHolidays Fiesta",
-        "Grand World - bãi T2"
-      ]
+        "Wyndham Garden",
+        "Quảng Trường Biển",
+        "Bãi đỗ xe T2 Grand World"
+      ],
+      "live_url": "https://maps.vinbus.vn/pq"
     }
   ],
   "shuttles": [
     {
+      "id": "V1",
+      "name": "Wyndham Garden → VinHolidays Fiesta → Grand World → Radisson → Wyndham Grand → Safari → VinWonders",
+      "window": "08:00 - 19:30",
+      "frequency": "30 - 60 phút",
+      "kind": "internal_shuttle"
+    },
+    {
       "id": "V2.1",
-      "name": "Resort & Spa ↔ Grand World / Safari / VinWonders",
+      "name": "Vinpearl Resort & Spa Coral/Ocean → Grand World → Safari → VinWonders → Resort",
       "window": "08:30 - 16:00",
       "frequency": "30 phút",
       "kind": "internal_shuttle"
     },
     {
       "id": "V2.2",
-      "name": "Resort & Spa ↔ Grand World / VinWonders",
+      "name": "Vinpearl Resort & Spa Coral/Ocean → Grand World → VinWonders → Resort",
       "window": "16:30 - 20:00",
       "frequency": "30 phút",
       "kind": "internal_shuttle"
     },
     {
       "id": "V2.3",
-      "name": "Resort & Spa ↔ Grand World",
+      "name": "Vinpearl Resort & Spa Coral/Ocean → Grand World → Resort",
       "window": "20:30 - 00:00",
       "frequency": "30 phút",
       "kind": "internal_shuttle"
     },
     {
       "id": "V3.1",
-      "name": "Sheraton ↔ VinWonders / Grand World / Safari",
+      "name": "Sheraton → VinWonders → Grand World → Safari → VinWonders → Sheraton",
       "window": "08:30 - 14:30",
       "frequency": "30 phút",
       "kind": "internal_shuttle"
     },
     {
       "id": "V3.2",
-      "name": "Sheraton ↔ VinWonders / Grand World",
+      "name": "Sheraton → VinWonders → Grand World → VinWonders → Sheraton",
       "window": "15:30 - 19:30",
       "frequency": "30 phút",
       "kind": "internal_shuttle"
     },
     {
       "id": "V3.3",
-      "name": "Sheraton ↔ Grand World",
+      "name": "Sheraton → Grand World → Sheraton",
       "window": "20:30 - 23:30",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V4.1",
+      "name": "Discovery Wonderworld → VinWonders → Grand World → Safari → VinWonders → Discovery Wonderworld",
+      "window": "08:30 - 16:00",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V4.2",
+      "name": "Discovery Wonderworld → VinWonders → Grand World → Discovery Wonderworld",
+      "window": "16:30 - 20:00",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V4.3",
+      "name": "Discovery Wonderworld → Grand World → Discovery Wonderworld",
+      "window": "20:30 - 00:00",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V5.1",
+      "name": "Meliá Vinpearl → VinWonders → Grand World → Safari → VinWonders → Meliá Vinpearl",
+      "window": "09:30 - 16:00",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V5.2",
+      "name": "Meliá Vinpearl → VinWonders → Grand World → VinWonders → Meliá Vinpearl",
+      "window": "17:00 - 19:55",
+      "frequency": "30 phút",
+      "kind": "internal_shuttle"
+    },
+    {
+      "id": "V5.3",
+      "name": "Meliá Vinpearl → Grand World → Meliá Vinpearl",
+      "window": "20:30 - 22:30",
       "frequency": "30 phút",
       "kind": "internal_shuttle"
     }
