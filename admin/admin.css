@@ -285,3 +285,28 @@
   .utility-workbench>.detail-body{padding:12px}
   .utility-card-head{align-items:flex-start}
 }
+
+
+/* CMS V2.7 - guide editorial workbench */
+.guide-meta{grid-template-columns:repeat(2,minmax(0,1fr))}
+.guide-workbench>.detail-body{padding:14px 16px 16px}
+.guide-edit-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.guide-edit-card{
+  padding:13px 14px;border:1px solid var(--line);border-radius:16px;background:#FBFDFC;min-width:0
+}
+.guide-card-head{display:flex;gap:10px;align-items:center;margin-bottom:8px}
+.guide-card-head>div{min-width:0}
+.guide-card-head strong,.guide-card-head span{display:block}
+.guide-card-head strong{font-size:13px;color:var(--ink)}
+.guide-card-head span{margin-top:3px;font-size:10px;color:var(--muted);line-height:1.4}
+.guide-card-thumb{width:72px;height:58px;object-fit:cover;border-radius:10px;flex:0 0 auto}
+.guide-edit-card>.item-tools{margin:6px 0 8px}
+.guide-edit-card .field{margin:10px 0}
+
+@media(max-width:900px){
+  .guide-edit-list{grid-template-columns:1fr}
+}
+@media(max-width:780px){
+  .guide-meta{grid-template-columns:1fr}
+  .guide-workbench>.detail-body{padding:12px}
+}
