@@ -522,6 +522,380 @@
         "#ho-quoc",
         "#van-hoa"
       ]
+    },
+    {
+      "id": "aquatopia",
+      "name": "Aquatopia Water Park",
+      "region": "south-hon-thom",
+      "type": [
+        "waterpark",
+        "family"
+      ],
+      "what": "Công viên nước trên Hòn Thơm với hơn 20 trò và khu gia đình.",
+      "play": [
+        "Trò trượt nước",
+        "Khu gia đình",
+        "Nghỉ giữa ngày"
+      ],
+      "best_time": "Giữa ngày sau khi đi cáp sớm",
+      "duration": "2-4 giờ",
+      "price_ref": "Nằm trong vé cáp Hòn Thơm theo cấu hình vé ngày hiện hành",
+      "price_dynamic": true,
+      "tips": [
+        "Kiểm tra chiều cao trẻ",
+        "Sau 2-3 giờ nên nghỉ ăn/uống",
+        "Mang đồ thay và dép chống trượt"
+      ],
+      "source_slides": [
+        55,
+        56,
+        79
+      ],
+      "hashtags": [
+        "#hon-thom",
+        "#aquatopia",
+        "#waterpark",
+        "#family"
+      ]
+    },
+    {
+      "id": "exotica",
+      "name": "Exotica Village",
+      "region": "south-hon-thom",
+      "type": [
+        "thrill",
+        "theme-park"
+      ],
+      "what": "Cụm trò khô/cảm giác mạnh trên Hòn Thơm.",
+      "play": [
+        "Mộc Xà Thịnh Nộ",
+        "Mắt Đại Bàng"
+      ],
+      "best_time": "Sau công viên nước hoặc đầu/ cuối buổi tùy sức",
+      "duration": "1-2 giờ",
+      "price_ref": "Nằm trong vé cáp Hòn Thơm theo cấu hình vé ngày hiện hành",
+      "price_dynamic": true,
+      "tips": [
+        "Kiểm tra chiều cao và bảo trì trò",
+        "Không cần cố chơi nếu say độ cao/tim mạch",
+        "Giữ giờ cáp lượt về"
+      ],
+      "source_slides": [
+        55,
+        56,
+        79
+      ],
+      "hashtags": [
+        "#hon-thom",
+        "#exotica",
+        "#thrill"
+      ]
+    },
+    {
+      "id": "snorkeling-an-thoi",
+      "name": "Snorkeling An Thới",
+      "region": "south-sea",
+      "type": [
+        "marine",
+        "snorkeling"
+      ],
+      "what": "Bơi mặt nước với kính/mặt nạ ở cụm đảo An Thới.",
+      "play": [
+        "Snorkeling",
+        "Bơi",
+        "Quan sát san hô"
+      ],
+      "best_time": "Ngày biển trong, sóng vừa, mật độ khách hợp lý",
+      "duration": "Theo tour biển",
+      "price_ref": "Phụ thuộc cấu hình tour",
+      "price_dynamic": true,
+      "tips": [
+        "Không đứng/chạm/bẻ san hô",
+        "Không cho cá ăn chỉ để gom cá chụp ảnh",
+        "Ít điểm nhưng đủ thời gian ở nước thường tốt hơn"
+      ],
+      "source_slides": [
+        57,
+        58,
+        59,
+        61
+      ],
+      "hashtags": [
+        "#an-thoi",
+        "#snorkeling",
+        "#san-ho",
+        "#marine-safety"
+      ]
+    },
+    {
+      "id": "scuba",
+      "name": "Lặn bình khí (Scuba)",
+      "region": "south-sea",
+      "type": [
+        "marine",
+        "diving"
+      ],
+      "what": "Lặn sâu hơn snorkeling với thiết bị, hướng dẫn và quy trình an toàn riêng.",
+      "play": [
+        "Discover Scuba",
+        "Diving theo chứng chỉ/điều kiện"
+      ],
+      "best_time": "Theo tình trạng biển và đơn vị lặn",
+      "duration": "Nửa ngày hoặc theo gói",
+      "price_ref": "Theo đơn vị lặn và cấu hình",
+      "price_dynamic": true,
+      "tips": [
+        "Hỏi tiêu chuẩn an toàn và năng lực người hướng dẫn",
+        "Tim mạch/hô hấp/tai xoang cần cân nhắc chuyên môn",
+        "Không chọn chỉ theo ảnh quảng cáo"
+      ],
+      "source_slides": [
+        59,
+        61
+      ],
+      "hashtags": [
+        "#scuba",
+        "#diving",
+        "#an-thoi",
+        "#marine-safety"
+      ]
+    },
+    {
+      "id": "seawalker",
+      "name": "Seawalker",
+      "region": "south-sea",
+      "type": [
+        "marine",
+        "underwater"
+      ],
+      "what": "Đi bộ dưới nước với mũ cấp khí, nằm giữa snorkeling và scuba về trải nghiệm.",
+      "play": [
+        "Đi bộ dưới nước",
+        "Quan sát dưới mặt biển"
+      ],
+      "best_time": "Theo điều kiện biển và vận hành",
+      "duration": "Theo slot dịch vụ",
+      "price_ref": "Theo đơn vị vận hành",
+      "price_dynamic": true,
+      "tips": [
+        "Cần hướng dẫn thao tác",
+        "Sàng lọc sức khỏe cơ bản",
+        "Không mặc định phù hợp với mọi người"
+      ],
+      "source_slides": [
+        59,
+        61
+      ],
+      "hashtags": [
+        "#seawalker",
+        "#underwater",
+        "#marine-safety"
+      ]
+    },
+    {
+      "id": "big-game-fishing",
+      "name": "Câu cá lớn An Thới",
+      "region": "south-sea",
+      "type": [
+        "fishing",
+        "marine"
+      ],
+      "what": "Chuyến câu chuyên biệt ở ngư trường An Thới/Hòn Dăm Trong với thiết bị, máy dò và tài công.",
+      "play": [
+        "Câu đáy",
+        "Jig",
+        "Câu cá lớn bằng mồi phù hợp"
+      ],
+      "best_time": "05:00-14:00 hoặc 14:00-21:00 khi biển cho phép",
+      "duration": "Khoảng 9 giờ",
+      "price_ref": "Theo tàu, số khách, thiết bị và cấu hình",
+      "price_dynamic": true,
+      "tips": [
+        "Không cam kết sản lượng cá",
+        "Hỏi thời gian thật trên biển, thiết bị, bữa ăn, phụ thu",
+        "Tài công cần quyền đổi bãi theo nước/gió/tín hiệu cá"
+      ],
+      "source_slides": [
+        62,
+        63,
+        67
+      ],
+      "hashtags": [
+        "#cau-ca-lon",
+        "#an-thoi",
+        "#hon-dam-trong",
+        "#fishing"
+      ]
+    },
+    {
+      "id": "squid-fishing",
+      "name": "Câu mực đêm",
+      "region": "sea",
+      "type": [
+        "fishing",
+        "evening"
+      ],
+      "what": "Ra biển cuối chiều/buổi tối, bật đèn và thử câu mực theo điều kiện thực tế.",
+      "play": [
+        "Ngắm hoàng hôn",
+        "Câu mực",
+        "Ăn tối tùy tour"
+      ],
+      "best_time": "Cuối chiều - tối, theo mùa gió và luồng mực",
+      "duration": "3-5 giờ",
+      "price_ref": "Theo tour/đơn vị vận hành",
+      "price_dynamic": true,
+      "tips": [
+        "Không hứa đi là có nhiều mực",
+        "Hỏi giờ đi-về và bến theo mùa",
+        "Chọn theo sức đi và tình trạng biển"
+      ],
+      "source_slides": [
+        64,
+        67
+      ],
+      "hashtags": [
+        "#cau-muc",
+        "#evening",
+        "#marine"
+      ]
+    },
+    {
+      "id": "suoi-tranh",
+      "name": "Suối Tranh",
+      "region": "east",
+      "type": [
+        "nature",
+        "stream"
+      ],
+      "what": "Một trong các điểm suối quen thuộc nhất Phú Quốc, đẹp hơn khi có nước.",
+      "play": [
+        "Đi bộ nhẹ",
+        "Rừng/suối",
+        "Nghỉ thiên nhiên"
+      ],
+      "best_time": "Giai đoạn có nước và không có mưa lớn nguy hiểm",
+      "duration": "1-3 giờ",
+      "price_ref": "Cần kiểm tra vận hành/giá hiện hành",
+      "price_dynamic": true,
+      "tips": [
+        "Đá trơn sau mưa",
+        "Nước có thể lên nhanh",
+        "Không xả rác hoặc tách nhóm ở tuyến ít người"
+      ],
+      "source_slides": [
+        65
+      ],
+      "hashtags": [
+        "#suoi-tranh",
+        "#rung",
+        "#nature"
+      ]
+    },
+    {
+      "id": "other-streams",
+      "name": "Suối Đá Bàn · Đá Ngọn · Suối Tiên",
+      "region": "forest-east",
+      "type": [
+        "nature",
+        "stream"
+      ],
+      "what": "Nhóm suối/rừng thay đổi mạnh theo mùa và lượng mưa.",
+      "play": [
+        "Đi rừng nhẹ",
+        "Suối",
+        "Quan sát thiên nhiên"
+      ],
+      "best_time": "Khi có nước nhưng không ngay sau mưa lớn nguy hiểm",
+      "duration": "2-4 giờ tùy điểm",
+      "price_ref": "Tùy điểm/đường vào",
+      "price_dynamic": true,
+      "tips": [
+        "Kiểm tra đường vào",
+        "Không dùng một lời khuyên cố định cho mọi ngày",
+        "Đi có trách nhiệm với rừng"
+      ],
+      "source_slides": [
+        65
+      ],
+      "hashtags": [
+        "#suoi",
+        "#rung",
+        "#weather-dependent"
+      ]
+    },
+    {
+      "id": "fish-sauce-house",
+      "name": "Nhà thùng nước mắm",
+      "region": "island-wide",
+      "type": [
+        "culture",
+        "craft"
+      ],
+      "what": "Nơi có thể nhìn nghề ủ chượp nước mắm bằng thùng gỗ và nghe câu chuyện nghề đảo.",
+      "play": [
+        "Xem nhà thùng",
+        "Nghe quy trình ủ chượp",
+        "Đọc độ đạm/sản phẩm"
+      ],
+      "best_time": "Trong ngày, ưu tiên cơ sở còn vận hành nghề thật",
+      "duration": "45-60 phút",
+      "price_ref": "Thường không có vé chung; tùy cơ sở",
+      "price_dynamic": true,
+      "tips": [
+        "Hỏi nguồn cá, muối, thời gian ủ, độ đạm tự nhiên",
+        "Ưu tiên nơi còn sản xuất thật",
+        "Không coi đây chỉ là điểm mua sắm"
+      ],
+      "source_slides": [
+        11,
+        67,
+        72,
+        87,
+        89
+      ],
+      "hashtags": [
+        "#nuoc-mam",
+        "#nha-thung",
+        "#di-san",
+        "#local"
+      ]
+    },
+    {
+      "id": "pepper-garden",
+      "name": "Vườn tiêu Phú Quốc",
+      "region": "island-wide",
+      "type": [
+        "culture",
+        "agriculture"
+      ],
+      "what": "Lớp nông nghiệp của đảo với trụ tiêu, mùa thu hoạch, phơi và phân loại hạt.",
+      "play": [
+        "Tham quan vườn",
+        "Nghe câu chuyện canh tác",
+        "Thử/đọc sản phẩm"
+      ],
+      "best_time": "Theo mùa và giờ vườn mở",
+      "duration": "30-60 phút",
+      "price_ref": "Tùy vườn",
+      "price_dynamic": true,
+      "tips": [
+        "Ưu tiên vườn còn canh tác thật",
+        "Hỏi về trụ tiêu, mùa thu hoạch, phơi và phân loại",
+        "Không biến mọi điểm thành nơi mua sắm"
+      ],
+      "source_slides": [
+        67,
+        70,
+        72,
+        87
+      ],
+      "hashtags": [
+        "#ho-tieu",
+        "#nong-nghiep",
+        "#dat-do",
+        "#local"
+      ]
     }
   ]
 }
