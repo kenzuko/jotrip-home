@@ -450,6 +450,38 @@ function bindStoryControls(){
   });
 }
 
+function searchableText(el){
+  const values=[...el.querySelectorAll("input,textarea,select")].map(x=>x.value||"");
+  return (el.textContent+" "+values.join(" ")).toLocaleLowerCase("vi");
+}
+
+function filterEditor(){
+  const input=$("#cmsSearch");
+  const counter=$("#searchCount");
+  if(!input||!counter)return;
+  const q=input.value.trim().toLocaleLowerCase("vi");
+  const blocks=[...document.querySelectorAll("#editor > .cms-anchor, #editor > .user-cards > .user-card")];
+  if(!q){
+    blocks.forEach(el=>el.classList.remove("search-hidden"));
+    counter.textContent="";
+    return;
+  }
+  let shown=0;
+  blocks.forEach(el=>{
+    const hit=searchableText(el).includes(q);
+    el.classList.toggle("search-hidden",!hit);
+    if(hit)shown++;
+  });
+  counter.textContent=shown+" kết quả";
+}
+
+function bindSearch(){
+  const input=$("#cmsSearch");
+  if(!input)return;
+  input.oninput=filterEditor;
+  filterEditor();
+}
+
 function buildEditorNav(){
   const host=$("#editorNav");
   if(!host)return;
@@ -497,6 +529,7 @@ function rerender(){
   bindArrayControls();
   bindStoryControls();
   buildEditorNav();
+  bindSearch();
   applyPermissions();
 
   requestAnimationFrame(()=>window.scrollTo(0,y));
@@ -574,6 +607,7 @@ async function selectModule(id){
 
   document.querySelectorAll(".module-btn").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
 
+  $("#cmsSearch").value="";$("#searchCount").textContent="";
   $("#moduleKicker").textContent="OPEN PHU QUOC CMS";
   $("#moduleTitle").textContent=currentModule.label;
   $("#moduleDesc").textContent=currentModule.description;
