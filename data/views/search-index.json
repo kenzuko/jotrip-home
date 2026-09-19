@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "generated_at": "2026-09-19",
   "documents": [
     {
@@ -147,6 +147,23 @@
       ],
       "route": "/places/?q=aquatopia",
       "search_text": "aquatopia water park waterpark family waterpark family waterpark family cong vien nuoc tren hon thom voi hon 20 tro va khu gia dinh. tro truot nuoc · khu gia dinh · nghi giua ngay nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
+    },
+    {
+      "id": "island_basic_three_layers",
+      "type": "island_basic",
+      "title": "Ba lớp khiến Phú Quốc khác biệt",
+      "aliases": [
+        "rừng và nghề đảo",
+        "di sản Phú Quốc"
+      ],
+      "zone_id": null,
+      "intents": [
+        "culture",
+        "nature",
+        "overview"
+      ],
+      "route": "/guide/?q=Ba%20l%E1%BB%9Bp%20khi%E1%BA%BFn%20Ph%C3%BA%20Qu%E1%BB%91c%20kh%C3%A1c%20bi%E1%BB%87t#search",
+      "search_text": "ba lop khien phu quoc khac biet rung va nghe dao di san phu quoc culture nature overview rung & sinh quyen, ha tang du lich quy mo lon va nghe nuoc mam la ba lop cung ton tai tren dao. doc phu quoc nhieu hon mot lop, thay vi chi nhin cong trinh moi hoac chi nhin bien."
     },
     {
       "id": "place_bai_khem",
@@ -741,6 +758,24 @@
       "search_text": "dieu chinh tam nhin 2030 history development moc dieu chinh quy hoach tiep tuc mo rong tam nhin phat trien cua dao. 2010"
     },
     {
+      "id": "island_basic_geography",
+      "type": "island_basic",
+      "title": "Đọc Phú Quốc theo vùng & thời gian di chuyển",
+      "aliases": [
+        "Phú Quốc rộng bao nhiêu",
+        "địa lý Phú Quốc",
+        "Bắc Trung Nam"
+      ],
+      "zone_id": null,
+      "intents": [
+        "planning",
+        "geography",
+        "first-time"
+      ],
+      "route": "/guide/?q=%C4%90%E1%BB%8Dc%20Ph%C3%BA%20Qu%E1%BB%91c%20theo%20v%C3%B9ng%20%26%20th%E1%BB%9Di%20gian%20di%20chuy%E1%BB%83n#search",
+      "search_text": "doc phu quoc theo vung & thoi gian di chuyen phu quoc rong bao nhieu dia ly phu quoc bac trung nam planning geography first-time bac dao, trung tam & bo tay, nam dao la ba nhip dia ly thuc dung de ghep lich. chon sai vung o hoac chay bac - nam trong cung ngay co the lam mat nhieu thoi gian tren duong."
+    },
+    {
       "id": "history_special_zone_2025",
       "type": "history",
       "title": "Đô thị loại I và chuyển sang đặc khu",
@@ -1232,6 +1267,22 @@
       "search_text": "lan binh khi (scuba) marine diving marine diving marine diving lan sau hon snorkeling voi thiet bi, huong dan va quy trinh an toan rieng. discover scuba · diving theo chung chi/dieu kien theo don vi lan va cau hinh"
     },
     {
+      "id": "island_basic_first_time",
+      "type": "island_basic",
+      "title": "Lần đầu đến Phú Quốc - bắt đầu từ đâu?",
+      "aliases": [
+        "khách lần đầu",
+        "first time Phu Quoc"
+      ],
+      "zone_id": null,
+      "intents": [
+        "first-time",
+        "planning"
+      ],
+      "route": "/guide/?q=L%E1%BA%A7n%20%C4%91%E1%BA%A7u%20%C4%91%E1%BA%BFn%20Ph%C3%BA%20Qu%E1%BB%91c%20-%20b%E1%BA%AFt%20%C4%91%E1%BA%A7u%20t%E1%BB%AB%20%C4%91%C3%A2u%3F#search",
+      "search_text": "lan dau den phu quoc - bat dau tu dau? khach lan dau first time phu quoc first-time planning bat dau bang hieu dao, chon nhip di theo so ngay va kiem tra du lieu dong truoc khi dat. giup tranh ghep lich nguoc huong, qua day hoac phu thuoc vao gia/gio cu."
+    },
+    {
       "id": "hotel_melia_vinpearl",
       "type": "hotel",
       "title": "Meliá Vinpearl",
@@ -1485,6 +1536,22 @@
       "search_text": "phu quoc hom qua, hom nay va ngay mai itinerary nha tu · an thoi cu · cang va nghe bien · nam dao moi"
     },
     {
+      "id": "island_basic_two_minutes",
+      "type": "island_basic",
+      "title": "Phú Quốc trong 2 phút",
+      "aliases": [
+        "Phú Quốc nhanh",
+        "Phu Quoc overview"
+      ],
+      "zone_id": null,
+      "intents": [
+        "first-time",
+        "overview"
+      ],
+      "route": "/guide/?q=Ph%C3%BA%20Qu%E1%BB%91c%20trong%202%20ph%C3%BAt#search",
+      "search_text": "phu quoc trong 2 phut phu quoc nhanh phu quoc overview first-time overview phu quoc la dao lon nhat viet nam trong vinh thai lan; khoang cach giua cac vung du lon de anh huong truc tiep toi lich trinh. bien, nhieu kieu luu tru, thien nhien, am thuc va hoat dong phu hop nhieu nhom khach."
+    },
+    {
       "id": "history_pre_2000",
       "type": "history",
       "title": "Phú Quốc trước làn sóng phát triển lớn",
@@ -1616,6 +1683,25 @@
       ],
       "route": "/guide/?q=R%E1%BB%ABng%20%26%20ph%C3%ADa%20%C4%90%C3%B4ng#search",
       "search_text": "rung & phia dong itinerary mot diem rung/suoi · ham ninh hoac lang ven bien phia dong can cau chuyen dia phuong, tranh bien thanh tuyen mua sam."
+    },
+    {
+      "id": "island_basic_nature",
+      "type": "island_basic",
+      "title": "Rừng, san hô & hoàng hôn",
+      "aliases": [
+        "thiên nhiên Phú Quốc",
+        "san hô",
+        "rừng Phú Quốc",
+        "hoàng hôn"
+      ],
+      "zone_id": null,
+      "intents": [
+        "nature",
+        "marine",
+        "sunset"
+      ],
+      "route": "/guide/?q=R%E1%BB%ABng%2C%20san%20h%C3%B4%20%26%20ho%C3%A0ng%20h%C3%B4n#search",
+      "search_text": "rung, san ho & hoang hon thien nhien phu quoc san ho rung phu quoc hoang hon nature marine sunset ba lop tu nhien de bi bo qua khi lich chi xoay quanh cac to hop vui choi: rung, he sinh thai bien va bo tay luc hoang hon. giup nhin dao nhu mot he sinh thai song chu khong chi chuoi diem tham quan."
     },
     {
       "id": "live_airport",
@@ -2011,6 +2097,24 @@
       "intents": [],
       "route": "/utilities/#directory",
       "search_text": "van hoa - xa hoi hoat dong du lich 0948 864 606"
+    },
+    {
+      "id": "island_basic_name",
+      "type": "island_basic",
+      "title": "Vì sao gọi là Phú Quốc?",
+      "aliases": [
+        "tên Phú Quốc",
+        "Koh Tral",
+        "nguồn gốc tên Phú Quốc"
+      ],
+      "zone_id": null,
+      "intents": [
+        "history",
+        "culture",
+        "name-origin"
+      ],
+      "route": "/guide/?q=V%C3%AC%20sao%20g%E1%BB%8Di%20l%C3%A0%20Ph%C3%BA%20Qu%E1%BB%91c%3F#search",
+      "search_text": "vi sao goi la phu quoc? ten phu quoc koh tral nguon goc ten phu quoc history culture name-origin ten dao co nhieu lop lich su va cach giai thich; cach hieu han viet pho bien khong nen duoc coi la chung cu duy nhat ve nguon goc ten. cho thay phu quoc nam trong mot khong gian lich su co nhieu ten goi va lop cu dan."
     },
     {
       "id": "utility_vinmec",
