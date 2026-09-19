@@ -42,6 +42,10 @@ const LABELS={
   dek:"Mô tả ngắn",
   read_minutes:"Thời gian đọc (phút)",
   image:"Ảnh",
+  slides:"Ảnh hero",
+  alt:"Mô tả ảnh",
+  caption:"Chú thích ảnh",
+  layout:"Kiểu hiển thị",
   intro:"Mở bài",
   heading:"Tiêu đề đoạn",
   body:"Nội dung",
@@ -421,6 +425,48 @@ function renderStoryWorkbench(story,i){
   </details>`;
 }
 
+function renderHomeWorkbench(){
+  const hero=currentData.hero||{};
+  const slides=Array.isArray(hero.slides)?hero.slides:[];
+  const sections=currentData.sections||{};
+
+  const slideCards=slides.map((slide,i)=>{
+    const p="hero.slides."+i;
+    return `<article class="home-slide-card">
+      <div class="home-slide-head"><strong>Ảnh hero ${i+1}</strong><span>${esc(slide.label||"")}</span></div>
+      ${primitiveField("label",slide.label||"",p+".label")}
+      ${primitiveField("image",slide.image||"",p+".image")}
+      ${primitiveField("alt",slide.alt||"",p+".alt")}
+    </article>`;
+  }).join("");
+
+  const sectionCards=Object.entries(sections).map(([key,section])=>{
+    return `<article class="home-section-card">
+      <span>${esc(labelize(key))}</span>
+      ${primitiveField("eyebrow",section.eyebrow||"","sections."+key+".eyebrow")}
+      ${primitiveField("title",section.title||"","sections."+key+".title")}
+      ${Object.prototype.hasOwnProperty.call(section,"lead")?primitiveField("lead",section.lead||"","sections."+key+".lead"):""}
+    </article>`;
+  }).join("");
+
+  return moduleOverview()+
+    `<details class="field-group home-workbench cms-anchor" data-anchor-label="Hero đầu trang" open>
+      <summary class="group-summary"><span>Hero đầu trang</span></summary>
+      <div class="detail-body">
+        <div class="home-hero-fields">
+          ${primitiveField("kicker",hero.kicker||"","hero.kicker")}
+          ${primitiveField("title",hero.title||"","hero.title")}
+          ${primitiveField("lead",hero.lead||"","hero.lead")}
+        </div>
+        <div class="home-slide-grid">${slideCards}</div>
+      </div>
+    </details>
+    <details class="field-group home-workbench cms-anchor" data-anchor-label="Tiêu đề các khối" open>
+      <summary class="group-summary"><span>Tiêu đề các khối nội dung</span><small>${Object.keys(sections).length} khối</small></summary>
+      <div class="detail-body"><div class="home-section-grid">${sectionCards}</div></div>
+    </details>`;
+}
+
 function utilityBadge(item){
   if(item?.verified===true)return '<span class="utility-badge verified">Đã xác minh</span>';
   if(item?.verified===false)return '<span class="utility-badge review">Cần kiểm tra</span>';
@@ -510,6 +556,7 @@ function renderUtilitiesWorkbench(){
 }
 
 function renderRoot(){
+  if(currentModule?.id==="home")return renderHomeWorkbench();
   if(currentModule?.id==="utilities")return renderUtilitiesWorkbench();
   if(currentModule?.id==="guide")return renderGuideWorkbench();
 
