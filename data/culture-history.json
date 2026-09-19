@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "id": "handbook_r3",
+    "slides": [
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93,
+      94,
+      95,
+      96,
+      97,
+      98,
+      99
+    ]
+  },
+  "stories": [
+    {
+      "id": "fish-sauce",
+      "title": "Nước mắm Phú Quốc - từ biển vào nhà thùng",
+      "kind": "living-heritage",
+      "summary": "Cá cơm, muối, thùng gỗ và thời gian tạo thành một nghề sống của đảo.",
+      "visit_time": "45-60 phút",
+      "tips": [
+        "Ưu tiên nhà thùng còn vận hành thật",
+        "Hỏi nguồn cá, muối, thời gian ủ, độ đạm tự nhiên",
+        "Không biến chuyến ghé thành điểm ép mua"
+      ],
+      "hashtags": [
+        "#nuoc-mam",
+        "#nha-thung",
+        "#di-san"
+      ]
+    },
+    {
+      "id": "dinh-cau-belief",
+      "title": "Dinh Cậu - cửa sông và niềm tin của ngư dân biển",
+      "kind": "belief",
+      "summary": "Không gian tín ngưỡng tại cửa sông Dương Đông, gắn với cầu bình an và chuyến biển.",
+      "visit_time": "30-45 phút",
+      "tips": [
+        "Đi cuối chiều đẹp nhưng đông",
+        "Ăn mặc lịch sự",
+        "Phân biệt truyền thuyết với sử liệu"
+      ],
+      "hashtags": [
+        "#dinh-cau",
+        "#tin-nguong",
+        "#nghe-bien"
+      ]
+    },
+    {
+      "id": "pepper",
+      "title": "Hồ tiêu - phần đất của một hòn đảo nổi tiếng vì biển",
+      "kind": "agriculture",
+      "summary": "Đất đỏ, mùa vụ và lao động nông nghiệp là một lớp bản sắc của Phú Quốc.",
+      "visit_time": "30-45 phút",
+      "tips": [
+        "Ưu tiên vườn còn canh tác thật",
+        "Hỏi về trụ, mùa thu hoạch, phơi, phân loại"
+      ],
+      "hashtags": [
+        "#ho-tieu",
+        "#nong-nghiep",
+        "#dat-do"
+      ]
+    },
+    {
+      "id": "prison",
+      "title": "Nhà tù Phú Quốc - đọc một di tích, không phải check-in",
+      "kind": "history",
+      "summary": "Di tích cần được đọc bằng bối cảnh, dấu tích, hiện vật và phần phục dựng.",
+      "visit_time": "60-90 phút",
+      "tips": [
+        "Tránh selfie/tạo dáng ở cảnh tra tấn",
+        "Chuẩn bị cho trẻ nhỏ/người nhạy cảm",
+        "Đọc bảng để phân biệt hiện vật và phục dựng"
+      ],
+      "hashtags": [
+        "#nha-tu",
+        "#lich-su",
+        "#tuong-niem"
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "period": "Trước 2000",
+      "title": "Biển, nghề cá, nước mắm, hồ tiêu và các làng ven biển",
+      "hashtags": [
+        "#old-phu-quoc"
+      ]
+    },
+    {
+      "year": 2004,
+      "title": "Quy hoạch tổng thể",
+      "source_slide": 94
+    },
+    {
+      "year": 2010,
+      "title": "Điều chỉnh tầm nhìn 2030",
+      "source_slide": 94
+    },
+    {
+      "year": 2012,
+      "title": "Sân bay quốc tế vận hành",
+      "source_slide": 94
+    },
+    {
+      "year": 2014,
+      "title": "Hòa lưới điện quốc gia",
+      "source_slide": 94
+    },
+    {
+      "year": 2015,
+      "title": "Vinpearl Safari mở cửa",
+      "source_slide": 95
+    },
+    {
+      "year": 2018,
+      "title": "Cáp treo Hòn Thơm khai trương",
+      "source_slide": 95
+    },
+    {
+      "year": 2020,
+      "title": "VinWonders Phú Quốc vận hành",
+      "source_slide": 95
+    },
+    {
+      "year": 2021,
+      "title": "Phú Quốc United Center/Grand World và mốc thành phố",
+      "source_slides": [
+        95,
+        96
+      ]
+    },
+    {
+      "year": 2025,
+      "title": "Đô thị loại I; sau sắp xếp hành chính chuyển sang đặc khu thuộc tỉnh An Giang",
+      "source_slide": 96
+    },
+    {
+      "year": 2027,
+      "title": "APEC và một nhịp hạ tầng mới",
+      "source_slides": [
+        97,
+        98,
+        99
+      ],
+      "dynamic_context": true
+    }
+  ],
+  "editorial_rule": "Khi kể phát triển, không chỉ kể thành tích. Luôn đặt hạ tầng mới cạnh rừng, biển, nghề truyền thống, không gian sống và áp lực môi trường."
+}
