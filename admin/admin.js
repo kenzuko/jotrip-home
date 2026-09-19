@@ -136,7 +136,10 @@ function stringField(key,val,path){
   const preview=key==="image"
     ?`<div class="image-preview ${text.trim()?"":"empty"}" data-image-preview="${esc(path)}">${text.trim()?'<img src="'+esc(text.trim())+'" alt="Xem trước ảnh">':'<span>Dán URL ảnh để xem trước</span>'}</div>`
     :"";
-  return `<div class="field ${key==="image"?"image-field":""}"><label>${esc(labelize(key))}</label>${control}${preview}</div>`;
+  let quick="";
+  if((key==="source"||key==="url")&&/^https?:\/\//i.test(text.trim()))quick=`<a class="field-quick" href="${esc(text.trim())}" target="_blank" rel="noopener">Mở nguồn ↗</a>`;
+  if(/phone/i.test(key)&&text.trim())quick=`<a class="field-quick" href="tel:${esc(text.replace(/[^+\d]/g,""))}">Gọi thử ↗</a>`;
+  return `<div class="field ${key==="image"?"image-field":""}"><label>${esc(labelize(key))}</label>${control}${preview}${quick}</div>`;
 }
 
 function primitiveField(key,val,path){
@@ -368,6 +371,16 @@ function bindFields(){
       if(el.dataset.type==="number")v=Number(v);
       if(el.dataset.type==="boolean")v=v==="true";
       setAtPath(currentData,el.dataset.path,v);
+
+      if(currentModule?.id==="home"){
+        if(el.dataset.path==="hero.kicker")document.querySelector(".home-overview .overview-kicker")?.replaceChildren(document.createTextNode(String(v||"")));
+        if(el.dataset.path==="hero.title")document.querySelector(".home-overview h2")?.replaceChildren(document.createTextNode(String(v||"")));
+        if(el.dataset.path==="hero.lead")document.querySelector(".home-overview .overview-copy p")?.replaceChildren(document.createTextNode(String(v||"")));
+      }
+      if(currentModule?.id==="guide"){
+        if(el.dataset.path==="title")document.querySelector(".guide-overview h2")?.replaceChildren(document.createTextNode(String(v||"")));
+        if(el.dataset.path==="intro")document.querySelector(".guide-overview .overview-copy p")?.replaceChildren(document.createTextNode(String(v||"")));
+      }
 
       const imageField=el.closest(".image-field");
       if(imageField){
