@@ -26,7 +26,11 @@
     const hayWords=new Set(hay.split(/\s+/).filter(Boolean));
     let s=0;
 
-    if(tokens.length>1 && !allText.includes(q) && !tokens.every(token=>allWords.has(token))) return 0;
+    if(tokens.length>1){
+      const hasShortToken=tokens.some(token=>token.length<=2);
+      if(hasShortToken && !allText.includes(q)) return 0;
+      if(!allText.includes(q) && !tokens.every(token=>allWords.has(token))) return 0;
+    }
 
     if(title===q) s+=200;
     else if(title.startsWith(q)) s+=130;
