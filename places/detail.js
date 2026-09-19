@@ -2,6 +2,7 @@
   "use strict";
 
   const $=s=>document.querySelector(s);
+  const planningStyle=document.createElement("style");planningStyle.textContent='.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pros-cons>div{padding:16px;border-radius:16px;background:#eef9f5}.pros-cons>.watch{background:#fff7e8}.pros-cons strong{display:block;margin-bottom:8px;color:var(--ink);font-size:15px}.pros-cons .tips li:before{content:"+"}.pros-cons .watch .tips li:before{content:"!";color:#a86b12}.price-dimensions{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.price-dimensions span{padding:9px 11px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--ink);font-size:13px;font-weight:800}@media(max-width:760px){.pros-cons{grid-template-columns:1fr}.price-dimensions span{font-size:12px}}';document.head.appendChild(planningStyle);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const id=new URLSearchParams(location.search).get("id")||"";
 
@@ -12,6 +13,7 @@
     culture:"Văn hóa",history:"Lịch sử",outdoor:"Ngoài trời",indoor:"Trong nhà",waterpark:"Công viên nước",
     "cable-car":"Cáp treo",resort:"Khu nghỉ dưỡng",architecture:"Kiến trúc",fireworks:"Pháo hoa",marine:"Biển đảo"
   };
+  const priceDimensionLabel={travel_date:"Ngày đi",height_band:"Chiều cao",age_band:"Độ tuổi",ticket_bundle:"Loại vé hoặc combo",time_slot:"Khung giờ"};
   const zoneImages={
     zone_north:"https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20aerial%20view.jpg?width=1800",
     zone_central_west:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1800",
@@ -49,12 +51,14 @@
     ).join("")+'</div>';
   }
 
-  function render(entity,zones,all,prices){
+  function render(entity,zones,all,prices,planningData){
     const root=$("#detailRoot");
     const zone=zones.find(z=>z.id===entity.zone_id);
     const lookup=new Map(all.map(x=>[x.id,x]));
     const priceRows=prices.filter(p=>(p.related_entities||[]).includes(entity.id));
     const tags=[...(entity.categories||[]),...(entity.intents||[]),...(entity.best_for||[])];
+    const planning=(planningData.items||[]).find(x=>x.entity_id===entity.id)||{};
+    const level=(planningData.levels||[]).find(x=>x.id===planning.level);
     const facts=[
       ["Khu vực",zone?.name||"Toàn đảo"],
       ["Lúc nên đi",entity.best_time||"Tùy lịch"],
@@ -63,6 +67,7 @@
       ["Giá tham khảo",entity.price_reference||priceRows[0]?.price_reference||"Kiểm tra theo ngày"],
       ["Cần kiểm tra trước khi đi",entity.live_check_required?"Có":"Không bắt buộc"]
     ];
+    if(level) facts.unshift(["Vai trò chuyến đi","Cấp "+level.id+" · "+level.label]);
 
     document.title=entity.name+" - Open Phu Quoc";
 
@@ -79,7 +84,9 @@
       '<section class="detail-shell">'+
         '<div class="detail-main">'+
           (entity.why_go?'<article class="detail-panel"><span>VÌ SAO ĐI</span><h2>Điểm này đáng cân nhắc khi nào?</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
+          ((planning.strengths||[]).length|| (planning.watch_outs||[]).length?'<article class="detail-panel"><span>ĐIỂM HAY & ĐIỀU CẦN CÂN NHẮC</span><h2>Phù hợp với ai, và cần biết gì trước?</h2><div class="pros-cons">'+((planning.strengths||[]).length?'<div><strong>Điểm hay</strong><ul class="tips">'+planning.strengths.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>':'')+((planning.watch_outs||[]).length?'<div class="watch"><strong>Cần cân nhắc</strong><ul class="tips">'+planning.watch_outs.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>':'')+'</div></article>':'')+
           '<article class="detail-panel"><span>ĐỌC NHANH</span><h2>Những thứ cần biết trước khi đi.</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
+          ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>CÁCH CHỌN GIÁ</span><h2>Giá đúng phụ thuộc thông tin nào?</h2><p>Open Phu Quoc chưa tự điền giá khi nguồn hiện hành không công bố đủ. Khi kiểm tra vé, hãy chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||x)+'</span>').join("")+'</div></article>':'')+
           ((entity.tips||[]).length?'<article class="detail-panel"><span>MẸO THỰC TẾ</span><h2>Nhớ mấy điều này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+
           (priceRows.length?'<article class="detail-panel"><span>GIÁ THAM KHẢO</span><h2>Mốc để so, không phải cam kết giá.</h2><div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>GIÁ ĐỘNG</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
           '<article class="detail-panel"><span>GỢI Ý GẦN ĐÂY</span><h2>Đi tiếp từ đây.</h2>'+renderRelated(entity,lookup)+'</article>'+
@@ -98,15 +105,16 @@
     fetch("../data/entities/places.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/entities/activities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/entities/zones.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/entities/prices.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
-  ]).then(([places,activities,zones,prices])=>{
+    fetch("../data/entities/prices.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+    fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
+  ]).then(([places,activities,zones,prices,planning])=>{
     const all=[...(places.entities||[]),...(activities.entities||[])];
     const entity=all.find(x=>x.id===id||x.slug===id||x.legacy_id===id);
     if(!entity){
       $("#detailRoot").innerHTML='<section class="detail-loading"><strong>Không tìm thấy địa điểm.</strong><br><br><a href="../explore/">← Quay lại Explore</a></section>';
       return;
     }
-    render(entity,zones.entities||[],all,prices.entities||[]);
+    render(entity,zones.entities||[],all,prices.entities||[],planning);
   }).catch(error=>{
     console.warn(error);
     $("#detailRoot").innerHTML='<section class="detail-loading">Không tải được dữ liệu địa điểm lúc này.</section>';

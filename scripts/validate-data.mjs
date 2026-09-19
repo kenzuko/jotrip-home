@@ -84,6 +84,24 @@ try{
   errors.push("search-index.json invalid or missing: "+error.message);
 }
 
+const planningPath=path.join(root,"data","views","place-planning-levels.json");
+try{
+  const planning=JSON.parse(fs.readFileSync(planningPath,"utf8"));
+  const placeActivityIds=new Set(entities.filter(x=>x.entity_type==="place"||x.entity_type==="activity").map(x=>x.id));
+  const seen=new Set();
+  for(const item of planning.items||[]){
+    if(!placeActivityIds.has(item.entity_id)) errors.push("planning level references missing place/activity: "+item.entity_id);
+    if(seen.has(item.entity_id)) errors.push("duplicate planning level entity: "+item.entity_id);
+    seen.add(item.entity_id);
+    if(![1,2,3].includes(item.level)) errors.push(item.entity_id+": planning level must be 1, 2 or 3");
+  }
+  for(const id of placeActivityIds){
+    if(!seen.has(id)) errors.push("planning level missing entity: "+id);
+  }
+}catch(error){
+  errors.push("place-planning-levels.json invalid or missing: "+error.message);
+}
+
 for(const warning of warnings) console.warn("WARN",warning);
 
 if(errors.length){

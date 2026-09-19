@@ -2,6 +2,7 @@
   "use strict";
 
   const $=s=>document.querySelector(s);
+  const levelStyle=document.createElement("style");levelStyle.textContent='.card-level{display:inline-flex;width:max-content;margin:10px 0 0;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:850}.card-level.level-1{background:#fff0e8;color:#9a452f}.card-level.level-2{background:#e8f5fb;color:#17638f}.card-level.level-3{background:#eef6f4;color:#315f5b}';document.head.appendChild(levelStyle);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const params=new URLSearchParams(location.search);
   const labels={
@@ -15,6 +16,8 @@
     zones:[],
     entities:[],
     facets:[],
+    levels:[],
+    planning:new Map(),
     zone:params.get("zone")||"all",
     intent:params.get("intent")||"all"
   };
@@ -97,6 +100,8 @@
   }
 
   function renderCard(x){
+    const planning=state.planning.get(x.id)||{};
+    const level=state.levels.find(l=>l.id===planning.level);
     const tags=[...(x.categories||[]),...(x.intents||[])];
     const meta=[];
     if(x.best_time) meta.push(["Lúc nên đi",x.best_time]);
@@ -106,6 +111,7 @@
     return '<article class="explore-card" data-zone="'+esc(x.zone_id||"")+'">'+
       '<div class="card-top"><span class="card-type">'+entityType(x)+' · '+esc(zoneName(x.zone_id))+'</span>'+
       (x.live_check_required?'<span class="card-live">KIỂM TRA TRƯỚC KHI ĐI</span>':'')+'</div>'+
+      (level?'<span class="card-level level-'+level.id+'">Cấp '+level.id+' · '+esc(level.label)+'</span>':'')+
       '<h3>'+esc(x.name)+'</h3>'+
       '<p>'+esc(x.what_it_is||x.why_go||"")+'</p>'+
       (meta.length?'<div class="card-meta">'+meta.map(([k,v])=>'<div><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div>':'')+
@@ -152,11 +158,14 @@
     fetch("../data/entities/zones.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/entities/places.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/entities/activities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/views/explore-facets.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
-  ]).then(([zones,places,activities,facets])=>{
+    fetch("../data/views/explore-facets.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+    fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
+  ]).then(([zones,places,activities,facets,planning])=>{
     state.zones=zones.entities||[];
     state.entities=[...(places.entities||[]),...(activities.entities||[])];
     state.facets=facets.intents||[];
+    state.levels=planning.levels||[];
+    state.planning=new Map((planning.items||[]).map(x=>[x.entity_id,x]));
     if(!state.zones.some(z=>z.id===state.zone)) state.zone="all";
     if(!state.facets.some(f=>f.id===state.intent)) state.intent="all";
     render();
