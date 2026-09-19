@@ -16,7 +16,7 @@ function fold(value){
 
 function routeFor(e){
   if(e.entity_type==="zone") return "/explore/?zone="+encodeURIComponent(e.id);
-  if(e.entity_type==="place"||e.entity_type==="activity") return "/places/?q="+encodeURIComponent(e.slug||e.name);
+  if(e.entity_type==="place"||e.entity_type==="activity") return "/places/detail.html?id="+encodeURIComponent(e.slug||e.id);
   if(e.entity_type==="food") return "/food/article.html?id="+encodeURIComponent(e.legacy_id||e.slug);
   if(e.entity_type==="utility"){
     return ["utility_112","utility_113","utility_114","utility_115"].includes(e.id)
