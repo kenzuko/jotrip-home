@@ -49,7 +49,7 @@ function filtered(){
 }
 
 function tableRow(x){
-  return '<tr><td><strong>'+esc(x.name)+'</strong><div class="place-tags">'+
+  return '<tr><td><a class="place-name-link" href="detail.html?id='+encodeURIComponent(x.slug||x.id)+'"><strong>'+esc(x.name)+'</strong></a><div class="place-tags">'+
     (x.hashtags||[]).slice(0,4).map(t=>'<span>'+esc(t)+'</span>').join("")+
     '</div><small>Nguồn: '+esc(x.source_label)+'</small></td><td>'+esc(x.region)+'</td><td>'+esc(x.what)+'</td><td>'+
     esc((x.play||[]).join(" · "))+'</td><td><strong>'+esc(x.price_ref||"Cần kiểm tra")+'</strong>'+
@@ -64,7 +64,7 @@ function card(x){
     '</div><dl><div><dt>LÀ GÌ</dt><dd>'+esc(x.what)+'</dd></div><div><dt>VÌ SAO ĐI</dt><dd>'+esc((x.play||[]).join(" · "))+ 
     '</dd></div><div><dt>GIÁ</dt><dd>'+esc(x.price_ref||"-")+'</dd></div><div><dt>THỜI LƯỢNG</dt><dd>'+
     esc(x.duration||"-")+' · '+esc(x.best_time||"")+'</dd></div><div><dt>TIPS</dt><dd>'+esc((x.tips||[]).join(" · "))+
-    '</dd></div></dl><div class="place-tags">'+(x.hashtags||[]).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div></article>';
+    '</dd></div></dl><div class="place-tags">'+(x.hashtags||[]).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div><a class="place-detail-link" href="detail.html?id='+encodeURIComponent(x.slug||x.id)+'">Xem chi tiết →</a></article>';
 }
 
 function render(){
