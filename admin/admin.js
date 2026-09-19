@@ -558,6 +558,122 @@ function renderUsers(){
 }
 
 
+function readAsDataURL(blob){
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(String(reader.result||""));
+    reader.onerror=()=>reject(new Error("Không đọc được ảnh"));
+    reader.readAsDataURL(blob);
+  });
+}
+
+function loadBrowserImage(file){
+  return new Promise((resolve,reject)=>{
+    const url=URL.createObjectURL(file);
+    const img=new Image();
+    img.onload=()=>{URL.revokeObjectURL(url);resolve(img)};
+    img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error("Trình duyệt không đọc được định dạng ảnh này"))};
+    img.src=url;
+  });
+}
+
+async function prepareImage(file){
+  if(!file)throw new Error("Chưa chọn ảnh");
+  if(file.size>18*1024*1024)throw new Error("Ảnh gốc quá lớn. Chọn ảnh dưới 18 MB.");
+
+  const img=await loadBrowserImage(file);
+  const maxEdge=2200;
+  const scale=Math.min(1,maxEdge/Math.max(img.naturalWidth||1,img.naturalHeight||1));
+  const width=Math.max(1,Math.round(img.naturalWidth*scale));
+  const height=Math.max(1,Math.round(img.naturalHeight*scale));
+
+  const canvas=document.createElement("canvas");
+  canvas.width=width;canvas.height=height;
+  const ctx=canvas.getContext("2d",{alpha:true});
+  ctx.drawImage(img,0,0,width,height);
+
+  let blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/webp",0.86));
+  let mime="image/webp",ext="webp";
+
+  if(!blob){
+    blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/jpeg",0.88));
+    mime="image/jpeg";ext="jpg";
+  }
+
+  if(!blob)throw new Error("Không tối ưu được ảnh này");
+  if(blob.size>6*1024*1024)throw new Error("Ảnh sau tối ưu vẫn lớn hơn 6 MB");
+
+  const original=String(file.name||"image").replace(/\.[^.]+$/,"");
+  return {blob,mime,filename:original+"."+ext,width,height};
+}
+
+async function uploadMedia(path,button){
+  const picker=document.createElement("input");
+  picker.type="file";
+  picker.accept="image/jpeg,image/png,image/webp,image/heic,image/heif";
+  picker.style.display="none";
+  document.body.appendChild(picker);
+
+  picker.onchange=async()=>{
+    const file=picker.files?.[0];
+    picker.remove();
+    if(!file)return;
+
+    const oldText=button.textContent;
+    button.disabled=true;
+    button.textContent="Đang xử lý ảnh...";
+    status("Đang tối ưu ảnh để tải lên...");
+
+    try{
+      const prepared=await prepareImage(file);
+      const dataUrl=await readAsDataURL(prepared.blob);
+      const base64=dataUrl.split(",")[1]||"";
+
+      button.textContent="Đang tải ảnh...";
+      const result=await api(API.media,{
+        method:"POST",
+        body:JSON.stringify({
+          filename:prepared.filename,
+          mime:prepared.mime,
+          content_base64:base64
+        })
+      });
+
+      const input=document.querySelector('[data-path="'+CSS.escape(path)+'"]');
+      if(!input)throw new Error("Không tìm thấy ô ảnh");
+      input.value=result.url;
+      input.dispatchEvent(new Event("input",{bubbles:true}));
+
+      const box=input.closest(".image-field")?.querySelector("[data-image-preview]");
+      if(box){
+        box.classList.remove("empty");
+        box.innerHTML='<img src="'+dataUrl+'" alt="Ảnh vừa chọn">';
+      }
+
+      const m=path.match(/^stories\.(\d+)\.image$/);
+      if(m){
+        const cover=document.querySelector('[data-story-preview-image="'+m[1]+'"]');
+        if(cover)cover.outerHTML='<img data-story-preview-image="'+m[1]+'" src="'+dataUrl+'" alt="">';
+      }
+
+      status("Đã tải ảnh lên thư viện Open Phu Quoc. Bấm Xuất bản để gắn ảnh vào nội dung.","success");
+    }catch(e){
+      status(e.message||String(e),"error");
+    }finally{
+      button.disabled=false;
+      button.textContent=oldText;
+    }
+  };
+
+  picker.click();
+}
+
+function bindMediaControls(){
+  document.querySelectorAll("[data-media-path]").forEach(btn=>{
+    btn.onclick=()=>uploadMedia(btn.dataset.mediaPath,btn);
+  });
+}
+
 function bindFields(){
   document.querySelectorAll("[data-path]").forEach(el=>{
     el.addEventListener("input",()=>{
@@ -765,6 +881,7 @@ function rerender(){
   else $("#editor").innerHTML=renderRoot();
 
   bindFields();
+  bindMediaControls();
   bindArrayControls();
   bindStoryControls();
   buildEditorNav();
