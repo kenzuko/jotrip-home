@@ -41,6 +41,12 @@ const searchTypeLabel = {
   history: 'LỊCH SỬ',
   hotel: 'KHÁCH SẠN',
   access: 'ĐẾN ĐẢO',
+  hotel_tier: 'PHÂN KHÚC KHÁCH SẠN',
+  stay_guide: 'CHỌN KHU Ở',
+  booking_channel: 'ĐẶT PHÒNG',
+  meal_plan: 'MEAL PLAN',
+  price_reference: 'GIÁ THAM KHẢO',
+  island_basic: 'HIỂU ĐẢO',
   live: 'TRỰC TIẾP'
 };
 
