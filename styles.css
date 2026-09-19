@@ -3731,8 +3731,8 @@ body.sheet-open{
   .hero-copy>p:not(.hero-kicker){font-size:15px}
   .live-item small{font-size:11px}
   .task-launcher small{font-size:11px}
-  #top>.live-strip .live-item span{font-size:10px}
-  #top>.live-strip .live-item small{font-size:11px;line-height:1.35}
+  #top>.live-strip .live-item span{font-size:12px}
+  #top>.live-strip .live-item small{font-size:12px;line-height:1.4}
   #top>.essentials .essential-grid strong{font-size:13px}
   #top>.essentials .essential-grid small{font-size:11px;line-height:1.35}
   #top>.essentials .essential-grid b{font-size:15px}
@@ -3748,7 +3748,7 @@ body.sheet-open{
   .live-strip{scroll-padding-left:12px}
   .live-title strong{font-size:11px}
   .live-title small,.live-item small{font-size:11px}
-  .live-item span{font-size:10px}
+  .live-item span{font-size:11px}
   .task-launcher strong{font-size:13px}
   .task-launcher small{font-size:11px}
   .mobile-dock a,.mobile-dock button{font-size:11px}
