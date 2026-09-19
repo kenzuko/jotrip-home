@@ -27,6 +27,10 @@ jobs:
         uses: actions/configure-pages@v5
         with:
           enablement: true
+      - name: Build derived data views
+        run: node scripts/build-search-index.mjs
+      - name: Validate data contracts
+        run: node scripts/validate-data.mjs
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
