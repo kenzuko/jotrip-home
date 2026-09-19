@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-19",
+  "taxonomy": [
+    {
+      "group": "region",
+      "tags": [
+        "#bac-dao",
+        "#duong-dong",
+        "#bo-tay",
+        "#nam-dao",
+        "#an-thoi",
+        "#cua-can",
+        "#ganh-dau",
+        "#bai-truong",
+        "#bai-khem"
+      ]
+    },
+    {
+      "group": "traveler",
+      "tags": [
+        "#lan-dau",
+        "#family",
+        "#kids",
+        "#couple",
+        "#honeymoon",
+        "#luxury",
+        "#slow-travel"
+      ]
+    },
+    {
+      "group": "experience",
+      "tags": [
+        "#bien",
+        "#snorkeling",
+        "#cano",
+        "#3-dao",
+        "#cap-treo",
+        "#show",
+        "#waterpark",
+        "#aquarium",
+        "#rung",
+        "#kayak",
+        "#hoang-hon"
+      ]
+    },
+    {
+      "group": "culture",
+      "tags": [
+        "#nuoc-mam",
+        "#nha-thung",
+        "#ho-tieu",
+        "#lang-chai",
+        "#dinh-cau",
+        "#nha-tu",
+        "#di-san",
+        "#lich-su"
+      ]
+    },
+    {
+      "group": "food",
+      "tags": [
+        "#food",
+        "#mon-dia-phuong",
+        "#hai-san",
+        "#goi-ca-trich",
+        "#bun-quay",
+        "#bun-ken",
+        "#nhum"
+      ]
+    },
+    {
+      "group": "live",
+      "tags": [
+        "#live",
+        "#weather",
+        "#marine",
+        "#airport",
+        "#pqc",
+        "#ferry",
+        "#fast-boat",
+        "#bus",
+        "#bus17",
+        "#bus19",
+        "#bus20"
+      ]
+    },
+    {
+      "group": "planning",
+      "tags": [
+        "#gia-ve",
+        "#tips",
+        "#checklist",
+        "#visa",
+        "#payment",
+        "#emergency",
+        "#meal-plan",
+        "#khach-san"
+      ]
+    }
+  ],
+  "behavior": {
+    "filterable": true,
+    "searchable": true,
+    "can_connect_entities": true,
+    "url_future_pattern": "/search/?tag={tag}"
+  }
+}
