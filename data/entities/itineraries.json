@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "itinerary_family_3d2n",
+      "entity_type": "itinerary",
+      "slug": "family-3d2n",
+      "name": "3N2Đ - Gia đình có trẻ",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Ngày 1: Dương Đông · Dinh Cậu · Chợ đêm | Ngày 2: Bãi Sao · Hòn Thơm hoặc trải nghiệm biển | Ngày 3: Safari hoặc VinWonders",
+      "best_for": [
+        "family",
+        "kids"
+      ],
+      "tips": [
+        "Mỗi ngày một trục",
+        "Chừa giờ nghỉ",
+        "Không ôm Safari và VinWonders trong một ngày"
+      ],
+      "intents": [
+        "family",
+        "kids"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "itinerary_honeymoon_4d3n",
+      "entity_type": "itinerary",
+      "slug": "honeymoon-4d3n",
+      "name": "4N3Đ - Honeymoon & nghỉ dưỡng",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Ngày 1: Check-in · Spa · Hoàng hôn | Ngày 2: Hòn Thơm · Sunset Town · 1 show | Ngày 3: Resort / trải nghiệm riêng | Ngày 4: Khoảng trống linh hoạt",
+      "best_for": [
+        "couple",
+        "honeymoon"
+      ],
+      "tips": [
+        "Lịch phải có quyền bỏ bớt",
+        "Chốt thời tiết và giờ bay trước"
+      ],
+      "intents": [
+        "couple",
+        "honeymoon"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "itinerary_deeper_5d4n",
+      "entity_type": "itinerary",
+      "slug": "deeper-5d4n",
+      "name": "5N4Đ - Đi sâu hơn một lớp",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Ngày 1: Dương Đông / bờ Tây | Ngày 2: Safari hoặc VinWonders + Grand World | Ngày 3: Biển An Thới hoặc Hòn Thơm | Ngày 4: Dinh Cậu + nhà thùng + vườn tiêu | Ngày 5: Nhà tù + Hộ Quốc + Bãi Sao/Khem hoặc ngày trống",
+      "best_for": [
+        "first-time",
+        "culture"
+      ],
+      "tips": [],
+      "intents": [
+        "first-time",
+        "culture"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "itinerary_south_first",
+      "entity_type": "itinerary",
+      "slug": "south-first",
+      "name": "Nam đảo lần đầu",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Nhà tù · Hộ Quốc · Bãi Sao hoặc Bãi Khem · Sunset Town hoặc cáp treo",
+      "why_go": "Đừng cố ghép cả cáp treo và tour đảo.",
+      "best_for": [],
+      "tips": [
+        "Đừng cố ghép cả cáp treo và tour đảo."
+      ],
+      "intents": [
+        "itinerary"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "itinerary_understand_island",
+      "entity_type": "itinerary",
+      "slug": "understand-island",
+      "name": "Một ngày hiểu Phú Quốc",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Dinh Cậu · Nhà thùng · Vườn tiêu hoặc nhà vườn · Bữa trưa địa phương · Làng ven biển hoặc hoàng hôn Dương Đông",
+      "why_go": "",
+      "best_for": [],
+      "tips": [],
+      "intents": [
+        "itinerary"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "itinerary_north_family",
+      "entity_type": "itinerary",
+      "slug": "north-family",
+      "name": "Bắc đảo cho gia đình",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Safari hoặc VinWonders · Grand World nếu còn sức",
+      "why_go": "Một điểm lớn làm trục.",
+      "best_for": [],
+      "tips": [
+        "Một điểm lớn làm trục."
+      ],
+      "intents": [
+        "itinerary"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "itinerary_an_thoi_sea",
+      "entity_type": "itinerary",
+      "slug": "an-thoi-sea",
+      "name": "Biển An Thới theo điều kiện thật",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Cụm hòn theo gió/sóng · Bơi/lặn vừa sức · Ăn trưa · Về bờ trước khi nhóm quá mệt",
+      "why_go": "",
+      "best_for": [],
+      "tips": [],
+      "intents": [
+        "itinerary"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "itinerary_forest_east",
+      "entity_type": "itinerary",
+      "slug": "forest-east",
+      "name": "Rừng & phía Đông",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Một điểm rừng/suối · Hàm Ninh hoặc làng ven biển phía Đông",
+      "why_go": "Cần câu chuyện địa phương, tránh biến thành tuyến mua sắm.",
+      "best_for": [],
+      "tips": [
+        "Cần câu chuyện địa phương, tránh biến thành tuyến mua sắm."
+      ],
+      "intents": [
+        "itinerary"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "itinerary_past_present_future",
+      "entity_type": "itinerary",
+      "slug": "past-present-future",
+      "name": "Phú Quốc hôm qua, hôm nay và ngày mai",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Nhà tù · An Thới cũ · Cảng và nghề biển · Nam đảo mới",
+      "why_go": "",
+      "best_for": [],
+      "tips": [],
+      "intents": [
+        "itinerary"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

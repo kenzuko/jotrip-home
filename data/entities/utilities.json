@@ -1,0 +1,357 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "utility_112",
+      "legacy_id": "112",
+      "entity_type": "utility",
+      "slug": "112",
+      "name": "Khẩn cấp quốc gia",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "112",
+      "what_it_is": "Sự cố, thiên tai, thảm họa, tai nạn và tình huống nguy cấp",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://xaydungchinhsach.chinhphu.vn/tong-dai-so-112-tiep-nhan-24-7-cac-thong-tin-ve-su-co-thien-tai-tham-hoa-119250902150528929.htm",
+          "checked_at": "2026-09-19T04:51:03.080Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_113",
+      "legacy_id": "113",
+      "entity_type": "utility",
+      "slug": "113",
+      "name": "Công an",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "113",
+      "what_it_is": "An ninh, trật tự",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/3/36965/40179-1-2022289-29004-vbhn-btttt.pdf",
+          "checked_at": "2026-09-19T04:51:03.080Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_114",
+      "legacy_id": "114",
+      "entity_type": "utility",
+      "slug": "114",
+      "name": "Cứu hỏa",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "114",
+      "what_it_is": "Cháy, cứu nạn cứu hộ",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/3/36965/40179-1-2022289-29004-vbhn-btttt.pdf",
+          "checked_at": "2026-09-19T04:51:03.080Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_115",
+      "legacy_id": "115",
+      "entity_type": "utility",
+      "slug": "115",
+      "name": "Cấp cứu y tế",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "115",
+      "what_it_is": "Cấp cứu y tế",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/3/36965/40179-1-2022289-29004-vbhn-btttt.pdf",
+          "checked_at": "2026-09-19T04:51:03.080Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_pq_police",
+      "legacy_id": "pq-police",
+      "entity_type": "utility",
+      "slug": "pq-police",
+      "name": "Công an Đặc khu Phú Quốc",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "0988 014 569",
+      "what_it_is": "An ninh trật tự",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://phuquoc.angiang.gov.vn/trang-chu",
+          "checked_at": "2026-09-19T04:50:36.622Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:50:36.622Z"
+    },
+    {
+      "id": "utility_pq_tourism",
+      "legacy_id": "pq-tourism",
+      "entity_type": "utility",
+      "slug": "pq-tourism",
+      "name": "Văn hóa - Xã hội",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "0948 864 606",
+      "what_it_is": "Hoạt động du lịch",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://phuquoc.angiang.gov.vn/trang-chu",
+          "checked_at": "2026-09-19T04:51:03.080Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_pq_hcc",
+      "legacy_id": "pq-hcc",
+      "entity_type": "utility",
+      "slug": "pq-hcc",
+      "name": "Trung tâm Phục vụ HCC",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "0988 014 569",
+      "what_it_is": "Thủ tục hành chính",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://phuquoc.angiang.gov.vn/trang-chu",
+          "checked_at": "2026-09-19T04:50:36.622Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:50:36.622Z"
+    },
+    {
+      "id": "utility_pqc_hotline",
+      "legacy_id": "pqc-hotline",
+      "entity_type": "utility",
+      "slug": "pqc-hotline",
+      "name": "Cảng hàng không quốc tế Phú Quốc",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "02973 848 486",
+      "what_it_is": "Đường dây nóng sân bay",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://acv.vn/phuquocairport/vi/tin-tuc/tin-tuc/thong-bao-so-31-tbpqia-ve-viec-ap-dung-thu-gia-dich-vu-dung-do-o-to-de-don-tra-hanh-khach",
+          "checked_at": "2026-09-19T04:51:03.080Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_pqc_lost",
+      "legacy_id": "pqc-lost",
+      "entity_type": "utility",
+      "slug": "pqc-lost",
+      "name": "Hành lý thất lạc PQC",
+      "aliases": [],
+      "zone_id": null,
+      "group": null,
+      "phone": "0963 975 644",
+      "what_it_is": "Lost & Found tại ga đến",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://acv.vn/phuquocairport/vi/tin-tuc/hanh-ly-that-lac/hanh-ly-that-lac",
+          "checked_at": "2026-09-19T04:51:03.080Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_superdong",
+      "legacy_id": "superdong",
+      "entity_type": "utility",
+      "slug": "superdong",
+      "name": "Superdong",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Đường biển",
+      "phone": "0941 130 033",
+      "what_it_is": "Đặt vé / hỗ trợ online",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://online.superdong.com.vn/Home/Contact",
+          "checked_at": "2026-09-19T04:50:58.552Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:50:58.552Z"
+    },
+    {
+      "id": "utility_pqexpress",
+      "legacy_id": "pqexpress",
+      "entity_type": "utility",
+      "slug": "pqexpress",
+      "name": "Phú Quốc Express",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Đường biển",
+      "phone": "0901 868 878",
+      "what_it_is": "Tàu cao tốc",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://phuquocexpress.com/",
+          "checked_at": "2026-09-19T04:50:59.500Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:50:59.500Z"
+    },
+    {
+      "id": "utility_thanhthoi",
+      "legacy_id": "thanhthoi",
+      "entity_type": "utility",
+      "slug": "thanhthoi",
+      "name": "Phà Thạnh Thới",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Đường biển",
+      "phone": "1900 966 908",
+      "what_it_is": "Phà / chở xe",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://thanhthoi.vn/",
+          "checked_at": "2026-09-19T04:51:01.615Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:01.615Z"
+    },
+    {
+      "id": "utility_vinwonders",
+      "legacy_id": "vinwonders",
+      "entity_type": "utility",
+      "slug": "vinwonders",
+      "name": "VinWonders · Safari · Grand World",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Vui chơi",
+      "phone": "1900 6677",
+      "what_it_is": "Giá vé / giờ / show",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://vinwonders.com/en/contact/",
+          "checked_at": "2026-09-19T04:51:01.937Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:01.937Z"
+    },
+    {
+      "id": "utility_sunworld",
+      "legacy_id": "sunworld",
+      "entity_type": "utility",
+      "slug": "sunworld",
+      "name": "Sun World Hòn Thơm",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Vui chơi",
+      "phone": "0886 045 888",
+      "what_it_is": "Cáp treo / Hòn Thơm / show",
+      "live_check_required": false,
+      "verified": false,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://sunworld.vn/vi/hon-thom",
+          "checked_at": "2026-09-19T04:51:02.989Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:02.989Z"
+    },
+    {
+      "id": "utility_vinmec",
+      "legacy_id": "vinmec",
+      "entity_type": "utility",
+      "slug": "vinmec",
+      "name": "Vinmec Phú Quốc",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Y tế",
+      "phone": "0297 3985 588",
+      "what_it_is": "Hotline bệnh viện",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
+          "checked_at": "2026-09-19T04:51:03.054Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.054Z"
+    },
+    {
+      "id": "utility_vinmec_er",
+      "legacy_id": "vinmec-er",
+      "entity_type": "utility",
+      "slug": "vinmec-er",
+      "name": "Cấp cứu Vinmec",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Y tế",
+      "phone": "02973 98 55 11",
+      "what_it_is": "Cấp cứu 24/24 - số từ sổ tay, cần AutoSync xác nhận định kỳ",
+      "live_check_required": false,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "external",
+          "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
+          "checked_at": "2026-09-19T04:51:03.080Z"
+        }
+      ],
+      "updated_at": "2026-09-19T04:51:03.080Z"
+    }
+  ]
+}

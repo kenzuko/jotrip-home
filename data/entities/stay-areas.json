@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "stay_area_duong_dong",
+      "legacy_id": "duong-dong",
+      "entity_type": "stay_area",
+      "slug": "duong-dong",
+      "name": "Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "what_it_is": "Trung tâm, nhộn nhịp",
+      "why_go": "Ăn uống · Chợ đêm · Dễ gọi xe",
+      "best_for": [
+        "khách lần đầu"
+      ],
+      "tips": [
+        "Không phải nơi nào cũng sát biển"
+      ],
+      "intents": [
+        "khách lần đầu"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "stay_area_bai_truong",
+      "legacy_id": "bai-truong",
+      "entity_type": "stay_area",
+      "slug": "bai-truong",
+      "name": "Bãi Trường",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "what_it_is": "Resort, bờ Tây",
+      "why_go": "Nhiều lựa chọn · Hoàng hôn",
+      "best_for": [
+        "gia đình",
+        "cặp đôi"
+      ],
+      "tips": [
+        "Một số đoạn biển đổi theo mùa"
+      ],
+      "intents": [
+        "gia đình",
+        "cặp đôi"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "stay_area_ong_lang",
+      "legacy_id": "ong-lang",
+      "entity_type": "stay_area",
+      "slug": "ong-lang",
+      "name": "Ông Lang",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "what_it_is": "Yên, xanh, chậm",
+      "why_go": "Thư giãn · Ít xô bồ",
+      "best_for": [
+        "cặp đôi",
+        "nghỉ lâu"
+      ],
+      "tips": [
+        "Ít lựa chọn về đêm"
+      ],
+      "intents": [
+        "cặp đôi",
+        "nghỉ lâu"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "stay_area_bai_khem",
+      "legacy_id": "bai-khem",
+      "entity_type": "stay_area",
+      "slug": "bai-khem",
+      "name": "Bãi Khem",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Chỉn chu, cao cấp",
+      "why_go": "Bãi đẹp · Resort tốt",
+      "best_for": [
+        "gia đình",
+        "cặp đôi"
+      ],
+      "tips": [
+        "Xa trung tâm",
+        "Dịch vụ ngoài ít"
+      ],
+      "intents": [
+        "gia đình",
+        "cặp đôi"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "stay_area_cua_can",
+      "legacy_id": "cua-can",
+      "entity_type": "stay_area",
+      "slug": "cua-can",
+      "name": "Cửa Cạn",
+      "aliases": [],
+      "zone_id": null,
+      "what_it_is": "Sông, rừng, địa phương",
+      "why_go": "Thuyền thúng · Cảnh ven sông",
+      "best_for": [
+        "trải nghiệm nhẹ"
+      ],
+      "tips": [
+        "Ít dịch vụ tối",
+        "Đi xa hơn"
+      ],
+      "intents": [
+        "trải nghiệm nhẹ"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "stay_area_ganh_dau",
+      "legacy_id": "ganh-dau",
+      "entity_type": "stay_area",
+      "slug": "ganh-dau",
+      "name": "Gành Dầu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "what_it_is": "Tổ hợp nghỉ và chơi",
+      "why_go": "Gần cụm Bắc đảo",
+      "best_for": [
+        "gia đình đi Safari/VinWonders"
+      ],
+      "tips": [
+        "Xa Nam đảo"
+      ],
+      "intents": [
+        "gia đình đi Safari/VinWonders"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}
