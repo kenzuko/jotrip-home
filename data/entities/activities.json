@@ -358,6 +358,115 @@
         }
       ],
       "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_symphony_of_the_sea",
+      "entity_type": "activity",
+      "slug": "symphony-of-the-sea",
+      "name": "Symphony of the Sea",
+      "aliases": [
+        "Symphony",
+        "show 19:30 Sunset Town"
+      ],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "show",
+        "evening",
+        "outdoor"
+      ],
+      "what_it_is": "Show jetski, flyboard, ánh sáng và hiệu ứng trên mặt nước tại Sunset Town.",
+      "why_go": "Phù hợp ghép sau hoàng hôn và trước Kiss of the Sea trong một buổi tối Nam đảo.",
+      "best_for": [
+        "couple",
+        "family",
+        "evening"
+      ],
+      "best_time": "Buổi tối theo lịch vận hành",
+      "duration": "Theo lịch show",
+      "price_reference": "Giá động - kiểm tra kênh chính thức",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Show ngoài trời có thể đổi do gió/mưa",
+        "Đến sớm để ổn định chỗ"
+      ],
+      "intents": [
+        "show",
+        "evening",
+        "sunset-town"
+      ],
+      "related_entities": [
+        "place_sunset_town",
+        "place_kiss_bridge",
+        "activity_kiss_of_the_sea"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-052",
+            "r3-053"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_kiss_of_the_sea",
+      "entity_type": "activity",
+      "slug": "kiss-of-the-sea",
+      "name": "Kiss of the Sea",
+      "aliases": [
+        "Kiss of the Sea show",
+        "show pháo hoa Sunset Town"
+      ],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "show",
+        "evening",
+        "multimedia"
+      ],
+      "what_it_is": "Show đa phương tiện lớn kèm pháo hoa tại Sunset Town, tách riêng với Symphony of the Sea.",
+      "why_go": "Là một mốc buổi tối để dựng lịch ngược cho Sunset Town.",
+      "best_for": [
+        "couple",
+        "family",
+        "evening"
+      ],
+      "best_time": "Buổi tối theo lịch vận hành",
+      "duration": "Theo lịch show",
+      "price_reference": "Theo hạng chỗ/combo - kiểm tra kênh chính thức",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Tính trước xe về sau show",
+        "Đừng mua combo nếu thời gian nối quá sát"
+      ],
+      "intents": [
+        "show",
+        "evening",
+        "sunset-town",
+        "fireworks"
+      ],
+      "related_entities": [
+        "place_sunset_town",
+        "place_kiss_bridge",
+        "activity_symphony_of_the_sea"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-052",
+            "r3-053"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
     }
   ]
 }
