@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-19",
+  "generated_at": "2026-09-19T06:10:00Z",
   "documents": [
     {
       "id": "zone_north",
@@ -17,7 +17,7 @@
         "nature",
         "first-time"
       ],
-      "route": "/explore/north/",
+      "route": "/guide/#zones",
       "search_text": "bac dao bac dao north phu quoc north island family nature first-time khu bac va tay bac phu quoc, gom rung, ganh dau, rach vem va cum vui choi united center. phu hop gia dinh, thien nhien va cac diem vui choi quy mo lon."
     },
     {
@@ -36,7 +36,7 @@
         "food",
         "local-life"
       ],
-      "route": "/explore/central-west/",
+      "route": "/guide/#zones",
       "search_text": "trung tam & bo tay trung tam duong dong central phu quoc west coast first-time food local-life duong dong, bo tay va cac khu vuc thuan tien cho an uong, cho dem, hoang hon va di chuyen. de o, de an, thuan tien cho khach lan dau va lam diem giua de di bac - nam."
     },
     {
@@ -56,7 +56,7 @@
         "family",
         "first-time"
       ],
-      "route": "/explore/south/",
+      "route": "/guide/#zones",
       "search_text": "nam dao nam dao south phu quoc south island an thoi sea couple family first-time cum nam dao va quan dao an thoi, gom bai bien, hon thom, sunset town va nhieu hoat dong bien. tap trung trai nghiem bien, cap treo, vui choi va cac diem tham quan phia nam."
     },
     {
@@ -69,7 +69,7 @@
         "wildlife",
         "family"
       ],
-      "route": "/places/vinpearl-safari/",
+      "route": "/places/?q=vinpearl-safari",
       "search_text": "vinpearl safari phu quoc wildlife family wildlife family open zoo + khu ban hoang da bang bus safari bus · open zoo · animal show · night safari theo lich"
     },
     {
@@ -82,7 +82,7 @@
         "theme-park",
         "family"
       ],
-      "route": "/places/vinwonders/",
+      "route": "/places/?q=vinwonders",
       "search_text": "vinwonders phu quoc theme-park family theme-park family 6 phan khu, thuy cung, cong vien nuoc, tro choi, show cung dien hai vuong · the gioi loc xoay · the gioi phieu luu · once"
     },
     {
@@ -95,7 +95,7 @@
         "evening",
         "entertainment"
       ],
-      "route": "/places/grand-world/",
+      "route": "/places/?q=grand-world",
       "search_text": "grand world phu quoc evening entertainment evening entertainment khu pho mo, kenh venice, bao tang, show dao pho · gondola · teddy bear museum · tinh hoa viet nam · sac mau venice"
     },
     {
@@ -108,7 +108,7 @@
         "village",
         "nature"
       ],
-      "route": "/places/rach-vem/",
+      "route": "/places/?q=rach-vem",
       "search_text": "rach vem village nature village nature lang chai, nha be, vung nuoc nong phia bac nhin nhip lang chai · nha be · bai nuoc nong"
     },
     {
@@ -121,7 +121,7 @@
         "river",
         "local-life"
       ],
-      "route": "/places/cua-can/",
+      "route": "/places/?q=cua-can",
       "search_text": "cua can river local-life river local-life nhip song, nha ven bo, kayak/thuyen thung kayak · thuyen thung · an dia phuong"
     },
     {
@@ -134,7 +134,7 @@
         "culture",
         "sunset"
       ],
-      "route": "/places/dinh-cau/",
+      "route": "/places/?q=dinh-cau",
       "search_text": "dinh cau culture sunset culture sunset khong gian tin nguong cua cu dan bien o cua song duong dong tham quan · ngam cua song · ngam chieu"
     },
     {
@@ -147,7 +147,7 @@
         "food",
         "evening"
       ],
-      "route": "/places/night-market/",
+      "route": "/places/?q=night-market",
       "search_text": "cho dem duong dong food evening food evening khu an uong va mua sam buoi toi an toi · di bo · thu mon"
     },
     {
@@ -160,7 +160,7 @@
         "beach",
         "sunset"
       ],
-      "route": "/places/bai-truong/",
+      "route": "/places/?q=bai-truong",
       "search_text": "bai truong beach sunset beach sunset dai bo tay dai, thuan nghi duong va ngam hoang hon tam bien · beach club · ngam hoang hon"
     },
     {
@@ -173,7 +173,7 @@
         "beach",
         "family"
       ],
-      "route": "/places/bai-sao/",
+      "route": "/places/?q=bai-sao",
       "search_text": "bai sao beach family beach family bai tam de tiep can o nam dao tam bien · an uong · nghi bai"
     },
     {
@@ -186,7 +186,7 @@
         "beach",
         "resort"
       ],
-      "route": "/places/bai-khem/",
+      "route": "/places/?q=bai-khem",
       "search_text": "bai khem beach resort beach resort vinh cat sang gan voi cac resort cao cap tam bien · nghi duong"
     },
     {
@@ -200,7 +200,7 @@
         "architecture",
         "show"
       ],
-      "route": "/places/sunset-town/",
+      "route": "/places/?q=sunset-town",
       "search_text": "sunset town evening architecture show evening architecture show khu pho mo, hoang hon, cau hon va chuoi show dao pho · cau hon · symphony of the sea · kiss of the sea · an toi"
     },
     {
@@ -213,7 +213,7 @@
         "history",
         "culture"
       ],
-      "route": "/places/phu-quoc-prison/",
+      "route": "/places/?q=phu-quoc-prison",
       "search_text": "nha tu phu quoc history culture history culture di tich lich su gan voi ky uc chien tranh tham quan · doc tu lieu"
     },
     {
@@ -226,7 +226,7 @@
         "culture",
         "viewpoint"
       ],
-      "route": "/places/ho-quoc/",
+      "route": "/places/?q=ho-quoc",
       "search_text": "chua ho quoc culture viewpoint culture viewpoint diem van hoa - tam linh va goc nhin bien phia dong nam tham quan · ngam canh"
     },
     {
@@ -239,7 +239,7 @@
         "waterpark",
         "family"
       ],
-      "route": "/places/aquatopia/",
+      "route": "/places/?q=aquatopia",
       "search_text": "aquatopia water park waterpark family waterpark family cong vien nuoc tren hon thom voi hon 20 tro va khu gia dinh. tro truot nuoc · khu gia dinh · nghi giua ngay"
     },
     {
@@ -252,7 +252,7 @@
         "thrill",
         "theme-park"
       ],
-      "route": "/places/exotica/",
+      "route": "/places/?q=exotica",
       "search_text": "exotica village thrill theme-park thrill theme-park cum tro kho/cam giac manh tren hon thom. moc xa thinh no · mat dai bang"
     },
     {
@@ -265,7 +265,7 @@
         "nature",
         "stream"
       ],
-      "route": "/places/suoi-tranh/",
+      "route": "/places/?q=suoi-tranh",
       "search_text": "suoi tranh nature stream nature stream mot trong cac diem suoi quen thuoc nhat phu quoc, dep hon khi co nuoc. di bo nhe · rung/suoi · nghi thien nhien"
     },
     {
@@ -278,7 +278,7 @@
         "nature",
         "stream"
       ],
-      "route": "/places/other-streams/",
+      "route": "/places/?q=other-streams",
       "search_text": "suoi da ban · da ngon · suoi tien nature stream nature stream nhom suoi/rung thay doi manh theo mua va luong mua. di rung nhe · suoi · quan sat thien nhien"
     },
     {
@@ -291,7 +291,7 @@
         "culture",
         "craft"
       ],
-      "route": "/places/fish-sauce-house/",
+      "route": "/places/?q=fish-sauce-house",
       "search_text": "nha thung nuoc mam culture craft culture craft noi co the nhin nghe u chuop nuoc mam bang thung go va nghe cau chuyen nghe dao. xem nha thung · nghe quy trinh u chuop · doc do dam/san pham"
     },
     {
@@ -304,7 +304,7 @@
         "culture",
         "agriculture"
       ],
-      "route": "/places/pepper-garden/",
+      "route": "/places/?q=pepper-garden",
       "search_text": "vuon tieu phu quoc culture agriculture culture agriculture lop nong nghiep cua dao voi tru tieu, mua thu hoach, phoi va phan loai hat. tham quan vuon · nghe cau chuyen canh tac · thu/doc san pham"
     },
     {
@@ -317,7 +317,7 @@
         "cable-car",
         "family"
       ],
-      "route": "/places/hon-thom/",
+      "route": "/places/?q=hon-thom",
       "search_text": "cap treo hon thom cable-car family cable-car family tuyen cap 3 day vuot bien qua quan dao an thoi cap treo · aquatopia · exotica · bai bien"
     },
     {
@@ -330,7 +330,7 @@
         "marine",
         "snorkeling"
       ],
-      "route": "/places/tour-3-islands/",
+      "route": "/places/?q=tour-3-islands",
       "search_text": "tour 3 dao an thoi marine snorkeling marine snorkeling cano/tau ra cum dao an thoi, 2-3 hon tuy bien tam dao · snorkeling · an trua · check-in"
     },
     {
@@ -343,7 +343,7 @@
         "marine",
         "snorkeling"
       ],
-      "route": "/places/snorkeling-an-thoi/",
+      "route": "/places/?q=snorkeling-an-thoi",
       "search_text": "snorkeling an thoi marine snorkeling marine snorkeling boi mat nuoc voi kinh/mat na o cum dao an thoi. snorkeling · boi · quan sat san ho"
     },
     {
@@ -356,7 +356,7 @@
         "marine",
         "diving"
       ],
-      "route": "/places/scuba/",
+      "route": "/places/?q=scuba",
       "search_text": "lan binh khi (scuba) marine diving marine diving lan sau hon snorkeling voi thiet bi, huong dan va quy trinh an toan rieng. discover scuba · diving theo chung chi/dieu kien"
     },
     {
@@ -369,7 +369,7 @@
         "marine",
         "underwater"
       ],
-      "route": "/places/seawalker/",
+      "route": "/places/?q=seawalker",
       "search_text": "seawalker marine underwater marine underwater di bo duoi nuoc voi mu cap khi, nam giua snorkeling va scuba ve trai nghiem. di bo duoi nuoc · quan sat duoi mat bien"
     },
     {
@@ -382,7 +382,7 @@
         "fishing",
         "marine"
       ],
-      "route": "/places/big-game-fishing/",
+      "route": "/places/?q=big-game-fishing",
       "search_text": "cau ca lon an thoi fishing marine fishing marine chuyen cau chuyen biet o ngu truong an thoi/hon dam trong voi thiet bi, may do va tai cong. cau day · jig · cau ca lon bang moi phu hop"
     },
     {
@@ -395,7 +395,7 @@
         "fishing",
         "evening"
       ],
-      "route": "/places/squid-fishing/",
+      "route": "/places/?q=squid-fishing",
       "search_text": "cau muc dem fishing evening fishing evening ra bien cuoi chieu/buoi toi, bat den va thu cau muc theo dieu kien thuc te. ngam hoang hon · cau muc · an toi tuy tour"
     },
     {
@@ -408,7 +408,7 @@
         "food",
         "local-life"
       ],
-      "route": "/food/?q=goi-ca-trich",
+      "route": "/food/article.html?id=goi-ca-trich",
       "search_text": "goi ca trich food local-life vi chua, beo, thom, thuong an cung rau va banh trang. cuon rau, banh trang va ca, can bang vi chua-beo-thom."
     },
     {
@@ -421,7 +421,7 @@
         "food",
         "local-life"
       ],
-      "route": "/food/?q=bun-quay",
+      "route": "/food/article.html?id=bun-quay",
       "search_text": "bun quay food local-life mon an nong, dac trung o cach tu pha chen nuoc cham theo khau vi. an khi con nong, tu pha chen cham truoc roi dieu chinh."
     },
     {
@@ -434,7 +434,7 @@
         "food",
         "local-life"
       ],
-      "route": "/food/?q=bun-ken",
+      "route": "/food/article.html?id=bun-ken",
       "search_text": "bun ken food local-life mot mon co chat dia phuong ro, it pho bien hon bun quay. thuong an voi nuoc ken ca, rau va topping tuy quan."
     },
     {
@@ -447,7 +447,7 @@
         "food",
         "local-life"
       ],
-      "route": "/food/?q=nhum",
+      "route": "/food/article.html?id=nhum",
       "search_text": "nhum food local-life hai san nen chon theo do tuoi va cach che bien. nuong, mo hanh hoac che bien tuy quan."
     },
     {
@@ -460,7 +460,7 @@
         "food",
         "local-life"
       ],
-      "route": "/food/?q=coi-bien-mai",
+      "route": "/food/article.html?id=coi-bien-mai",
       "search_text": "coi bien mai food local-life phan co cua so bien mai, hop nuong hoac xao. uu tien che bien don gian de giu do ngot va gion."
     },
     {
@@ -470,7 +470,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=112",
+      "route": "/utilities/#emergency",
       "search_text": "khan cap quoc gia su co, thien tai, tham hoa, tai nan va tinh huong nguy cap 112"
     },
     {
@@ -480,7 +480,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=113",
+      "route": "/utilities/#emergency",
       "search_text": "cong an an ninh, trat tu 113"
     },
     {
@@ -490,7 +490,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=114",
+      "route": "/utilities/#emergency",
       "search_text": "cuu hoa chay, cuu nan cuu ho 114"
     },
     {
@@ -500,7 +500,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=115",
+      "route": "/utilities/#emergency",
       "search_text": "cap cuu y te cap cuu y te 115"
     },
     {
@@ -510,7 +510,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=pq-police",
+      "route": "/utilities/#directory",
       "search_text": "cong an dac khu phu quoc an ninh trat tu 0988 014 569"
     },
     {
@@ -520,7 +520,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=pq-tourism",
+      "route": "/utilities/#directory",
       "search_text": "van hoa - xa hoi hoat dong du lich 0948 864 606"
     },
     {
@@ -530,7 +530,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=pq-hcc",
+      "route": "/utilities/#directory",
       "search_text": "trung tam phuc vu hcc thu tuc hanh chinh 0988 014 569"
     },
     {
@@ -540,7 +540,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=pqc-hotline",
+      "route": "/utilities/#directory",
       "search_text": "cang hang khong quoc te phu quoc duong day nong san bay 02973 848 486"
     },
     {
@@ -550,7 +550,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=pqc-lost",
+      "route": "/utilities/#directory",
       "search_text": "hanh ly that lac pqc lost & found tai ga den 0963 975 644"
     },
     {
@@ -560,7 +560,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=superdong",
+      "route": "/utilities/#directory",
       "search_text": "superdong dat ve / ho tro online 0941 130 033 duong bien"
     },
     {
@@ -570,7 +570,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=pqexpress",
+      "route": "/utilities/#directory",
       "search_text": "phu quoc express tau cao toc 0901 868 878 duong bien"
     },
     {
@@ -580,7 +580,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=thanhthoi",
+      "route": "/utilities/#directory",
       "search_text": "pha thanh thoi pha / cho xe 1900 966 908 duong bien"
     },
     {
@@ -590,7 +590,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=vinwonders",
+      "route": "/utilities/#directory",
       "search_text": "vinwonders · safari · grand world gia ve / gio / show 1900 6677 vui choi"
     },
     {
@@ -600,7 +600,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=sunworld",
+      "route": "/utilities/#directory",
       "search_text": "sun world hon thom cap treo / hon thom / show 0886 045 888 vui choi"
     },
     {
@@ -610,7 +610,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=vinmec",
+      "route": "/utilities/#directory",
       "search_text": "vinmec phu quoc hotline benh vien 0297 3985 588 y te"
     },
     {
@@ -620,7 +620,7 @@
       "aliases": [],
       "zone_id": null,
       "intents": [],
-      "route": "/utilities/?q=vinmec-er",
+      "route": "/utilities/#directory",
       "search_text": "cap cuu vinmec cap cuu 24/24 - so tu so tay, can autosync xac nhan dinh ky 02973 98 55 11 y te"
     },
     {
@@ -632,7 +632,7 @@
       "intents": [
         "khách lần đầu"
       ],
-      "route": "/guide/?q=duong-dong",
+      "route": "/guide/#stay",
       "search_text": "duong dong khach lan dau trung tam, nhon nhip an uong · cho dem · de goi xe"
     },
     {
@@ -645,7 +645,7 @@
         "gia đình",
         "cặp đôi"
       ],
-      "route": "/guide/?q=bai-truong",
+      "route": "/guide/#stay",
       "search_text": "bai truong gia dinh cap doi resort, bo tay nhieu lua chon · hoang hon"
     },
     {
@@ -658,7 +658,7 @@
         "cặp đôi",
         "nghỉ lâu"
       ],
-      "route": "/guide/?q=ong-lang",
+      "route": "/guide/#stay",
       "search_text": "ong lang cap doi nghi lau yen, xanh, cham thu gian · it xo bo"
     },
     {
@@ -671,7 +671,7 @@
         "gia đình",
         "cặp đôi"
       ],
-      "route": "/guide/?q=bai-khem",
+      "route": "/guide/#stay",
       "search_text": "bai khem gia dinh cap doi chin chu, cao cap bai dep · resort tot"
     },
     {
@@ -683,7 +683,7 @@
       "intents": [
         "trải nghiệm nhẹ"
       ],
-      "route": "/guide/?q=cua-can",
+      "route": "/guide/#stay",
       "search_text": "cua can trai nghiem nhe song, rung, dia phuong thuyen thung · canh ven song"
     },
     {
@@ -695,7 +695,7 @@
       "intents": [
         "gia đình đi Safari/VinWonders"
       ],
-      "route": "/guide/?q=ganh-dau",
+      "route": "/guide/#stay",
       "search_text": "ganh dau gia dinh di safari/vinwonders to hop nghi va choi gan cum bac dao"
     },
     {
@@ -708,7 +708,7 @@
         "family",
         "kids"
       ],
-      "route": "/guide/?q=family-3d2n",
+      "route": "/guide/#days",
       "search_text": "3n2d - gia dinh co tre family kids ngay 1: duong dong · dinh cau · cho dem | ngay 2: bai sao · hon thom hoac trai nghiem bien | ngay 3: safari hoac vinwonders"
     },
     {
@@ -721,7 +721,7 @@
         "couple",
         "honeymoon"
       ],
-      "route": "/guide/?q=honeymoon-4d3n",
+      "route": "/guide/#days",
       "search_text": "4n3d - honeymoon & nghi duong couple honeymoon ngay 1: check-in · spa · hoang hon | ngay 2: hon thom · sunset town · 1 show | ngay 3: resort / trai nghiem rieng | ngay 4: khoang trong linh hoat"
     },
     {
@@ -734,7 +734,7 @@
         "first-time",
         "culture"
       ],
-      "route": "/guide/?q=deeper-5d4n",
+      "route": "/guide/#days",
       "search_text": "5n4d - di sau hon mot lop first-time culture ngay 1: duong dong / bo tay | ngay 2: safari hoac vinwonders + grand world | ngay 3: bien an thoi hoac hon thom | ngay 4: dinh cau + nha thung + vuon tieu | ngay 5: nha tu + ho quoc + bai sao/khem hoac ngay trong"
     },
     {
@@ -746,7 +746,7 @@
       "intents": [
         "itinerary"
       ],
-      "route": "/guide/?q=south-first",
+      "route": "/guide/#days",
       "search_text": "nam dao lan dau itinerary nha tu · ho quoc · bai sao hoac bai khem · sunset town hoac cap treo dung co ghep ca cap treo va tour dao."
     },
     {
@@ -758,7 +758,7 @@
       "intents": [
         "itinerary"
       ],
-      "route": "/guide/?q=understand-island",
+      "route": "/guide/#days",
       "search_text": "mot ngay hieu phu quoc itinerary dinh cau · nha thung · vuon tieu hoac nha vuon · bua trua dia phuong · lang ven bien hoac hoang hon duong dong"
     },
     {
@@ -770,7 +770,7 @@
       "intents": [
         "itinerary"
       ],
-      "route": "/guide/?q=north-family",
+      "route": "/guide/#days",
       "search_text": "bac dao cho gia dinh itinerary safari hoac vinwonders · grand world neu con suc mot diem lon lam truc."
     },
     {
@@ -782,7 +782,7 @@
       "intents": [
         "itinerary"
       ],
-      "route": "/guide/?q=an-thoi-sea",
+      "route": "/guide/#days",
       "search_text": "bien an thoi theo dieu kien that itinerary cum hon theo gio/song · boi/lan vua suc · an trua · ve bo truoc khi nhom qua met"
     },
     {
@@ -794,7 +794,7 @@
       "intents": [
         "itinerary"
       ],
-      "route": "/guide/?q=forest-east",
+      "route": "/guide/#days",
       "search_text": "rung & phia dong itinerary mot diem rung/suoi · ham ninh hoac lang ven bien phia dong can cau chuyen dia phuong, tranh bien thanh tuyen mua sam."
     },
     {
@@ -806,7 +806,7 @@
       "intents": [
         "itinerary"
       ],
-      "route": "/guide/?q=past-present-future",
+      "route": "/guide/#days",
       "search_text": "phu quoc hom qua, hom nay va ngay mai itinerary nha tu · an thoi cu · cang va nghe bien · nam dao moi"
     },
     {
