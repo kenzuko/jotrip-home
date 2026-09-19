@@ -32,19 +32,25 @@
     }[s] || "Chưa rõ");
   }
 
-  async function getJson(url) {
-    const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), { cache: "no-store" });
-    if (!r.ok) throw new Error(String(r.status));
-    return r.json();
+  async function getJson(url, timeoutMs = 10000) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), {
+        cache: "no-store",
+        signal: controller.signal
+      });
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json();
+    } finally {
+      clearTimeout(timeout);
+    }
   }
 
   async function getAirport() {
     try {
-      const r = await fetch(SRC.airport + "?t=" + Date.now(), { cache: "no-store" });
-      if (r.ok) {
-        const b = await r.json();
-        return b.latest || b;
-      }
+      const b = await getJson(SRC.airport);
+      return b.latest || b;
     } catch (e) {}
     return getJson(SRC.airportFallback);
   }

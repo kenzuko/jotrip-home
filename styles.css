@@ -1742,9 +1742,17 @@ body{
   display:block;
   margin-top:6px;
   max-width:310px;
-  font-size:8px;
+  font-size:11px;
   line-height:1.45;
   color:rgba(255,255,255,.78);
+}
+
+/* Product copy must stay readable across editorial cards. */
+.visual-card small,
+.must-card small,
+.food-pick small{
+  font-size:11px;
+  line-height:1.4;
 }
 
 @keyframes tickerMove{
