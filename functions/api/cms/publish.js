@@ -68,6 +68,67 @@ async function currentRole(login){
   return u?.role||null;
 }
 
+function validatePayload(path,content){
+  const errors=[];
+
+  if(!content||typeof content!=="object")return ["Dữ liệu không hợp lệ"];
+
+  if(path==="data/home-copy.json"){
+    if(!String(content?.hero?.title||"").trim())errors.push("Hero cần có tiêu đề");
+    if(!String(content?.hero?.lead||"").trim())errors.push("Hero cần có đoạn dẫn");
+  }
+
+  if(path==="data/content.json"){
+    const stories=Array.isArray(content.stories)?content.stories:[];
+    if(!stories.length)errors.push("Cần ít nhất một bài viết");
+    const ids=new Set();
+
+    stories.forEach((story,i)=>{
+      const id=String(story?.id||"").trim();
+      const title=String(story?.title||"").trim();
+
+      if(!title)errors.push("Bài #"+(i+1)+" chưa có tiêu đề");
+      if(!id)errors.push("Bài #"+(i+1)+" chưa có mã bài");
+      else if(ids.has(id))errors.push("Mã bài bị trùng: "+id);
+      else ids.add(id);
+
+      if(!Array.isArray(story?.sections)||!story.sections.length){
+        errors.push("Bài "+(title||("#"+(i+1)))+" chưa có nội dung");
+      }
+    });
+  }
+
+  if(path==="guide/data.json"){
+    if(!String(content?.title||"").trim())errors.push("Cẩm nang cần có tiêu đề");
+  }
+
+  if(path==="data/utilities.json"){
+    const emergency=Array.isArray(content.national_emergency)?content.national_emergency:[];
+    emergency.forEach((x,i)=>{
+      if(!String(x?.label||"").trim()||!String(x?.phone||"").trim()){
+        errors.push("Số khẩn cấp #"+(i+1)+" thiếu tên hoặc số điện thoại");
+      }
+    });
+  }
+
+  if(path==="cms/users.json"){
+    const users=Array.isArray(content.users)?content.users:[];
+    const activeAdmins=users.filter(x=>x?.role==="admin"&&x?.enabled!==false);
+    if(!activeAdmins.length)errors.push("Phải còn ít nhất một Admin đang hoạt động");
+
+    const seen=new Set();
+    users.forEach((u,i)=>{
+      const login=String(u?.login||"").trim().toLowerCase();
+      if(!login)errors.push("Người dùng #"+(i+1)+" chưa có GitHub username");
+      else if(seen.has(login))errors.push("GitHub username bị trùng: "+login);
+      else seen.add(login);
+    });
+  }
+
+  return errors;
+}
+
+
 export async function onRequest({request,env}){
   try{
     if(request.method!=="POST")return json({error:"Method not allowed"},405);
@@ -84,6 +145,9 @@ export async function onRequest({request,env}){
     if(!role||!(writable[path]||[]).includes(role))return json({error:"Vai trò hiện tại không được xuất bản module này"},403);
     if(!body.sha)return json({error:"Thiếu SHA phiên bản hiện tại"},409);
 
+    const validationErrors=validatePayload(path,body.content);
+    if(validationErrors.length)return json({error:"Dữ liệu chưa hợp lệ",detail:validationErrors.slice(0,5).join(" · ")},422);
+
     const text=path.endsWith(".json")?JSON.stringify(body.content,null,2)+"\n":String(body.content??"");
     if(path.endsWith(".json"))JSON.parse(text);
     if(text.length>1200000)return json({error:"Nội dung vượt giới hạn CMS"},413);
@@ -98,7 +162,7 @@ export async function onRequest({request,env}){
         "User-Agent":"Open-Phu-Quoc-CMS"
       },
       body:JSON.stringify({
-        message:String(body.message||"cms: update content"),
+        message:String(body.message||"cms: update content").slice(0,120),
         content:toStdB64(te.encode(text)),
         sha:body.sha,
         branch:"main"
