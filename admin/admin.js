@@ -1,7 +1,7 @@
 const $=s=>document.querySelector(s);
 const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish"};
 
-let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false;
+let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null;
 
 const ROLE_LABELS={
   admin:"Quản trị viên",
@@ -99,6 +99,20 @@ function labelize(k){
 }
 function pathParts(p){return String(p).split(".").filter(Boolean).map(x=>/^\d+$/.test(x)?Number(x):x)}
 function setAtPath(obj,path,val){const parts=pathParts(path);let cur=obj;for(let i=0;i<parts.length-1;i++)cur=cur[parts[i]];cur[parts.at(-1)]=val}
+function getAtPath(obj,path){return pathParts(path).reduce((a,k)=>a?.[k],obj)}
+function deepClone(v){return JSON.parse(JSON.stringify(v))}
+function blankLike(v,key=""){
+ if(Array.isArray(v))return [];
+ if(v&&typeof v==="object")return Object.fromEntries(Object.entries(v).map(([k,x])=>[k,blankLike(x,k)]));
+ if(typeof v==="boolean")return false;
+ if(typeof v==="number")return /read_minutes/i.test(key)?4:0;
+ return "";
+}
+function draftKey(id=currentModule?.id){return id&&session?"openpq-cms-draft:"+session.login+":"+id:null}
+function clearDraft(id=currentModule?.id){const k=draftKey(id);if(k)localStorage.removeItem(k)}
+function saveDraftNow(){if(!dirty||!currentModule||!session)return;const k=draftKey();if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}))}
+function scheduleDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(()=>{saveDraftNow();status("Có thay đổi chưa xuất bản. Bản nháp đã tự lưu trên trình duyệt.")},650)}
+function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Xuất bản thay đổi";status(msg);scheduleDraft()}
 
 function itemTitle(v,i){
   if(v&&typeof v==="object"){
