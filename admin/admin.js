@@ -400,7 +400,58 @@ function renderStoryWorkbench(story,i){
   </details>`;
 }
 
+function utilityBadge(item){
+  if(item?.verified===true)return '<span class="utility-badge verified">Đã xác minh</span>';
+  if(item?.verified===false)return '<span class="utility-badge review">Cần kiểm tra</span>';
+  if(item?.dynamic===true)return '<span class="utility-badge dynamic">Dữ liệu động</span>';
+  return "";
+}
+
+function renderUtilityArray(key,title,lead){
+  const arr=Array.isArray(currentData?.[key])?currentData[key]:[];
+  const cards=arr.map((item,i)=>{
+    const p=key+"."+i;
+    const titleText=item?.label||item?.place||item?.trip||item?.group||item?.from||("Mục "+(i+1));
+    const sub=item?.phone||item?.price||item?.choice||item?.to||item?.activity||"";
+    return `<article class="utility-edit-card">
+      <div class="utility-card-head">
+        <div><strong>${esc(titleText)}</strong>${sub?'<span>'+esc(sub)+'</span>':""}</div>
+        ${utilityBadge(item)}
+      </div>
+      ${itemTools(key,i,arr.length)}
+      ${renderChildren(item,p,1)}
+    </article>`;
+  }).join("");
+
+  return `<details class="field-group utility-workbench cms-anchor" data-anchor-label="${esc(title)}" open>
+    <summary class="group-summary"><span>${esc(title)}</span><small>${arr.length} mục</small></summary>
+    <div class="detail-body">
+      ${lead?'<p class="group-lead">'+esc(lead)+'</p>':""}
+      <div class="utility-edit-list">${cards||'<p class="empty-builder">Chưa có dữ liệu.</p>'}</div>
+      <button type="button" class="add-array-item" data-array-path="${esc(key)}">+ Thêm mục</button>
+    </div>
+  </details>`;
+}
+
+function renderUtilitiesWorkbench(){
+  const meta=["schema_version","generated_at","source_policy"].map(k=>primitiveField(k,currentData?.[k]??"",k)).join("");
+  const support=["handbook_source","sync"].map(k=>currentData?.[k]?renderNode(currentData[k],k,k,0):"").join("");
+
+  return moduleOverview()+
+    `<section class="meta-strip utility-meta">${meta}</section>`+
+    renderUtilityArray("national_emergency","Khẩn cấp quốc gia","Nhóm số cần nhìn thấy nhanh nhất. Chỉ dùng nguồn chính thức.")+
+    renderUtilityArray("phu_quoc","Danh bạ Phú Quốc","Cơ quan và đầu mối địa phương.")+
+    renderUtilityArray("directory","Danh bạ hữu ích","Tàu, vui chơi, y tế và các đầu mối du khách thường cần.")+
+    renderUtilityArray("ticket_reference","Giá vé & show","Giá tham khảo động. Luôn giữ ghi chú và điều kiện kiểm tra lại.")+
+    renderUtilityArray("travel_times","Thời gian di chuyển","Khoảng thời gian thực dụng để khách hình dung quy mô đảo.")+
+    renderUtilityArray("transport_choices","Chọn phương tiện","Gợi ý theo nhu cầu chuyến đi.")+
+    renderUtilityArray("checklist","Checklist trước chuyến đi","Những thứ nên kiểm tra trước khi ra đảo.")+
+    support;
+}
+
 function renderRoot(){
+  if(currentModule?.id==="utilities")return renderUtilitiesWorkbench();
+
   if(currentModule?.id==="stories"&&Array.isArray(currentData?.stories)){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
     const stories=currentData.stories.map((story,i)=>renderStoryWorkbench(story,i)).join("");
