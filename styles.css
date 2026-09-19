@@ -3534,6 +3534,24 @@ body.sheet-open{
     border-left:1px solid var(--line);
     background:#f8faf9;
   }
+  .app-context-rail .vn-clock{
+    width:100%;
+    grid-template-columns:1fr;
+    row-gap:5px;
+    white-space:normal;
+  }
+  .app-context-rail .vn-clock>span,
+  .app-context-rail .vn-clock>strong,
+  .app-context-rail .vn-clock>small{
+    grid-column:1;
+  }
+  .app-context-rail .vn-clock>small{
+    grid-row:auto;
+    padding-left:0;
+    padding-top:7px;
+    border-left:0;
+    border-top:1px solid #DCE8E5;
+  }
   .context-head{
     min-height:64px;
     padding:4px 4px 12px;
