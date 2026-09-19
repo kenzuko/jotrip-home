@@ -3700,3 +3700,35 @@ body.sheet-open{
   .task-launcher strong{font-size:11px}
   .task-launcher small{font-size:8px}
 }
+
+/* V3 review - readable type and calmer information density */
+.live-title strong,.task-launcher small,.site-footer>div p,.site-footer>div small,.site-footer nav{font-size:12px}
+.live-title small,.live-item small,.context-card>small{font-size:12px;line-height:1.4}
+.live-item span,.context-card>span,.context-head span{font-size:10px}
+.task-launcher strong{font-size:14px}
+.site-footer>div small{display:block;margin-top:7px;color:var(--muted);line-height:1.5}
+.credit{font-size:11px;line-height:1.55}
+
+@media (min-width:1220px){
+  .app-rail-nav strong{font-size:13px}
+  .app-rail-modules a{font-size:11px}
+  .site-header:before{content:"OPEN PHU QUOC · TRỢ LÝ TRÊN ĐẢO";font-size:10px}
+  .context-head span,.context-card>span{font-size:10px}
+  .context-card>small,.context-map small{font-size:11px}
+  .context-card.compact>strong,.context-map strong{font-size:13px}
+  .hero-copy>p:not(.hero-kicker){font-size:15px}
+  .live-item small{font-size:11px}
+  .task-launcher small{font-size:11px}
+}
+
+@media (max-width:760px){
+  .hero-copy>p:not(.hero-kicker){font-size:15px;line-height:1.5}
+  .live-strip{scroll-padding-left:12px}
+  .live-title strong{font-size:11px}
+  .live-title small,.live-item small{font-size:11px}
+  .live-item span{font-size:10px}
+  .task-launcher strong{font-size:13px}
+  .task-launcher small{font-size:11px}
+  .mobile-dock a,.mobile-dock button{font-size:11px}
+  .site-footer{padding-bottom:96px}
+}

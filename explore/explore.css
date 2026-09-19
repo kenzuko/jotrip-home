@@ -297,3 +297,20 @@ button{font:inherit}
   }
   .explore-mobile-nav a.active{background:var(--ink);color:#fff}
 }
+
+/* V3 review - customer-facing language needs customer-readable type */
+.explore-head-copy span,.home-link,.explore-hero p,.filter-block>span,.explore-toolbar p,.card-type{font-size:11px}
+.explore-hero span,.filter-stack button,.weather-link small,.active-note,.loading,.explore-card p{font-size:14px}
+.weather-link b,.explore-toolbar button,.card-link{font-size:13px}
+.card-live,.card-tags span{font-size:10px;line-height:1.25}
+.card-meta span{font-size:11px}
+.card-meta strong{font-size:12px}
+
+@media(max-width:760px){
+  .explore-hero{min-height:220px;padding-top:36px}
+  .explore-hero h1{font-size:42px}
+  .explore-hero span{font-size:15px}
+  .filter-stack button{min-height:44px;font-size:14px}
+  .explore-card{padding:17px;min-height:240px}
+  .explore-mobile-nav a{font-size:11px}
+}

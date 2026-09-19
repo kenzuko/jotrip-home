@@ -44,7 +44,7 @@ const searchTypeLabel = {
   hotel_tier: 'PHÂN KHÚC KHÁCH SẠN',
   stay_guide: 'CHỌN KHU Ở',
   booking_channel: 'ĐẶT PHÒNG',
-  meal_plan: 'MEAL PLAN',
+  meal_plan: 'GÓI ĂN KÈM',
   price_reference: 'GIÁ THAM KHẢO',
   island_basic: 'HIỂU ĐẢO',
   live: 'TRỰC TIẾP'

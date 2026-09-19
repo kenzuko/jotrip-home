@@ -4,6 +4,11 @@
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const params=new URLSearchParams(location.search);
+  const labels={
+    family:"Gia đình",couple:"Cặp đôi",sea:"Biển",evening:"Buổi tối",nature:"Thiên nhiên",
+    "local-life":"Đời sống địa phương","rainy-day":"Ngày mưa",show:"Biểu diễn",beach:"Bãi biển",
+    culture:"Văn hóa",history:"Lịch sử",outdoor:"Ngoài trời",indoor:"Trong nhà",waterpark:"Công viên nước"
+  };
 
   const state={
     zones:[],
@@ -43,6 +48,15 @@
 
   function entityType(x){
     return x.entity_type==="activity"?"TRẢI NGHIỆM":"ĐỊA ĐIỂM";
+  }
+
+  function friendly(value){
+    const raw=String(value??"");
+    return labels[raw.toLowerCase()]||raw.replaceAll("-"," ");
+  }
+
+  function weatherLevel(value){
+    return ({high:"Cao",medium:"Vừa",low:"Thấp",none:"Không đáng kể"})[String(value||"").toLowerCase()]||friendly(value);
   }
 
   function detailLink(x){
@@ -86,15 +100,15 @@
     const meta=[];
     if(x.best_time) meta.push(["Lúc nên đi",x.best_time]);
     if(x.duration) meta.push(["Thời lượng",x.duration]);
-    if(x.weather_dependency) meta.push(["Phụ thuộc weather",String(x.weather_dependency).toUpperCase()]);
+    if(x.weather_dependency) meta.push(["Phụ thuộc thời tiết",weatherLevel(x.weather_dependency)]);
 
     return '<article class="explore-card" data-zone="'+esc(x.zone_id||"")+'">'+
       '<div class="card-top"><span class="card-type">'+entityType(x)+' · '+esc(zoneName(x.zone_id))+'</span>'+
-      (x.live_check_required?'<span class="card-live">CHECK LIVE</span>':'')+'</div>'+
+      (x.live_check_required?'<span class="card-live">KIỂM TRA TRƯỚC KHI ĐI</span>':'')+'</div>'+
       '<h3>'+esc(x.name)+'</h3>'+
       '<p>'+esc(x.what_it_is||x.why_go||"")+'</p>'+
       (meta.length?'<div class="card-meta">'+meta.map(([k,v])=>'<div><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div>':'')+
-      '<div class="card-tags">'+[...new Set(tags)].slice(0,5).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div>'+
+      '<div class="card-tags">'+[...new Set(tags)].slice(0,5).map(t=>'<span>'+esc(friendly(t))+'</span>').join("")+'</div>'+
       '<a class="card-link" href="'+detailLink(x)+'"><span>Xem chi tiết</span><b>→</b></a>'+
     '</article>';
   }
@@ -123,7 +137,7 @@
     const grid=$("#exploreGrid");
     grid.innerHTML=rows.length
       ? rows.map(renderCard).join("")
-      : '<div class="loading">Chưa có entity phù hợp với bộ lọc này. Thử bỏ bớt một điều kiện.</div>';
+      : '<div class="loading">Chưa có lựa chọn phù hợp. Hãy thử bỏ bớt một điều kiện lọc.</div>';
   }
 
   $("#clearFilters")?.addEventListener("click",()=>{
@@ -147,7 +161,7 @@
     render();
   }).catch(error=>{
     console.warn(error);
-    $("#resultTitle").textContent="Chưa tải được Explore";
-    $("#exploreGrid").innerHTML='<div class="loading">Dữ liệu Explore đang tạm thời chưa tải được.</div>';
+    $("#resultTitle").textContent="Chưa tải được nội dung khám phá";
+    $("#exploreGrid").innerHTML='<div class="loading">Thông tin khám phá đang tạm thời chưa tải được. Vui lòng thử lại sau.</div>';
   });
 })();

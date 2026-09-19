@@ -5,3 +5,22 @@
 .u-menu a.active{background:var(--ink);color:#fff;border-color:var(--ink)}
 
 @media(prefers-reduced-motion:reduce){.u-section{opacity:1;transform:none}}
+
+/* V3 review - practical information must scan as easily as island status */
+.u-head>a:last-child,.u-menu a,.u-hero p,.u-section>p,.sec-row>span{font-size:12px}
+.u-hero span,.u-card small,.transport-note p,.dynamic-note,.check-card li,.tip-band span,.sync-note,footer{font-size:14px}
+.u-card .badge,.u-card .source,.travel-line small,.choice span,.price-card span,.price-card small{font-size:11px}
+.u-card strong,.travel-line span,.choice strong{font-size:15px}
+.dir-grid,.u-grid,.price-grid,.check-grid{gap:12px}
+.u-card,.price-card,.check-card{padding:18px}
+
+@media(max-width:760px){
+  .u-hero{padding-top:36px;padding-bottom:36px}
+  .u-hero h1{font-size:44px}
+  .u-hero span{font-size:15px}
+  .u-menu a{min-height:42px;display:flex;align-items:center;font-size:13px}
+  .travel-line{align-items:flex-start}
+  .travel-line span{font-size:14px;line-height:1.4}
+  .travel-line small{font-size:12px}
+  .travel-line strong{font-size:16px}
+}

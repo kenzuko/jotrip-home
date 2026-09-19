@@ -25,6 +25,7 @@
     const titleWords=new Set(title.split(/\s+/).filter(Boolean));
     const hayWords=new Set(hay.split(/\s+/).filter(Boolean));
     let s=0;
+    const asksPrice=/(^|\s)(gia|ve|ticket|combo)(\s|$)/.test(q);
 
     if(tokens.length>1){
       const hasShortToken=tokens.some(token=>token.length<=2);
@@ -44,6 +45,11 @@
     for(const token of tokens){
       if(titleWords.has(token)) s+=22;
       if(hayWords.has(token)) s+=10;
+    }
+    if(s>0){
+      if(asksPrice && doc.type==='price_reference') s+=90;
+      if(!asksPrice && doc.type==='price_reference') s-=55;
+      if(!asksPrice && (doc.type==='place'||doc.type==='activity')) s+=30;
     }
     return s;
   }

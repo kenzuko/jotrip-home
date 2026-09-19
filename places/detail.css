@@ -35,11 +35,9 @@ a{text-decoration:none;color:inherit}
   display:flex;align-items:flex-end;
   color:#fff;
   background:
-    radial-gradient(circle at 90% 10%,rgba(255,211,92,.40),transparent 18rem),
-    linear-gradient(135deg,#123D3B,#1E6862 60%,#54D4CB);
+    linear-gradient(90deg,rgba(8,47,45,.88),rgba(8,47,45,.42) 62%,rgba(8,47,45,.18)),
+    var(--detail-image) center/cover;
 }
-.detail-hero[data-zone="zone_north"]{background:radial-gradient(circle at 88% 14%,rgba(255,211,92,.55),transparent 18rem),linear-gradient(135deg,#193E32,#436F49 65%,#B8D46C)}
-.detail-hero[data-zone="zone_south"]{background:radial-gradient(circle at 88% 12%,rgba(255,211,92,.45),transparent 18rem),linear-gradient(135deg,#113E45,#1D7680 55%,#FF704F)}
 .detail-hero-inner{max-width:900px}
 .detail-kicker{margin:0 0 10px;font-size:8px;letter-spacing:.17em;font-weight:900;color:rgba(255,255,255,.78)}
 .detail-hero h1{margin:0;font-size:clamp(52px,7vw,88px);line-height:.88;letter-spacing:-.065em}
@@ -125,4 +123,18 @@ a{text-decoration:none;color:inherit}
     box-shadow:0 12px 32px rgba(18,61,59,.15);backdrop-filter:blur(14px)
   }
   .detail-mobile-nav a{height:46px;display:grid;place-items:center;border-radius:13px;color:var(--muted);font-size:8px;font-weight:800}
+}
+
+/* V3 review - remove tiny technical typography from the visitor view */
+.detail-head-title span,.detail-head>a:last-child,.detail-kicker,.detail-panel>span,.detail-context>span,.fact span,.related-card span,.context-card>span{font-size:11px}
+.detail-loading,.detail-hero .lead,.detail-panel p,.tips li{font-size:15px}
+.detail-badges span,.source-row{font-size:11px}
+.fact strong,.related-card small,.context-card>small,.context-link small{font-size:13px}
+.related-card b,.context-link strong{font-size:13px}
+
+@media(max-width:760px){
+  .detail-hero{min-height:260px;padding-top:40px}
+  .detail-hero h1{font-size:44px}
+  .detail-hero .lead{font-size:15px}
+  .detail-mobile-nav a{font-size:11px}
 }
