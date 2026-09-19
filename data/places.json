@@ -1,0 +1,527 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "id": "handbook_r3",
+    "file": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+    "updated": "2026-09-12"
+  },
+  "entities": [
+    {
+      "id": "vinpearl-safari",
+      "name": "Vinpearl Safari Phú Quốc",
+      "region": "north",
+      "type": [
+        "wildlife",
+        "family"
+      ],
+      "what": "Open Zoo + khu bán hoang dã bằng bus",
+      "play": [
+        "Safari bus",
+        "Open Zoo",
+        "Animal Show",
+        "Night Safari theo lịch"
+      ],
+      "best_time": "Buổi sáng",
+      "duration": "3-5 giờ",
+      "price_ref": "950.000đ người lớn / 710.000đ trẻ em-cao tuổi từ 01/10/2026",
+      "price_dynamic": true,
+      "tips": [
+        "Ưu tiên bus bán hoang dã sớm",
+        "Zoo Tram là dịch vụ riêng",
+        "Không cố ghép Safari + VinWonders nếu có trẻ nhỏ"
+      ],
+      "source_slides": [
+        36,
+        37,
+        38,
+        79
+      ],
+      "hashtags": [
+        "#bac-dao",
+        "#gia-dinh",
+        "#dong-vat",
+        "#safari",
+        "#buoi-sang"
+      ]
+    },
+    {
+      "id": "vinwonders",
+      "name": "VinWonders Phú Quốc",
+      "region": "north",
+      "type": [
+        "theme-park",
+        "family"
+      ],
+      "what": "6 phân khu, thủy cung, công viên nước, trò chơi, show",
+      "play": [
+        "Cung điện Hải Vương",
+        "Thế giới Lốc xoáy",
+        "Thế giới Phiêu lưu",
+        "ONCE"
+      ],
+      "best_time": "Gần trọn ngày",
+      "duration": "6-10 giờ",
+      "price_ref": "1.050.000đ người lớn / 800.000đ trẻ em-cao tuổi từ 01/10/2026",
+      "price_dynamic": true,
+      "tips": [
+        "Xem giới hạn chiều cao đầu ngày",
+        "Giữ sức cho ONCE",
+        "Thủy cung là khoảng nghỉ tốt giữa trưa"
+      ],
+      "source_slides": [
+        39,
+        40,
+        41,
+        79
+      ],
+      "hashtags": [
+        "#bac-dao",
+        "#cong-vien",
+        "#gia-dinh",
+        "#waterpark",
+        "#aquarium"
+      ]
+    },
+    {
+      "id": "grand-world",
+      "name": "Grand World Phú Quốc",
+      "region": "north",
+      "type": [
+        "evening",
+        "entertainment"
+      ],
+      "what": "Khu phố mở, kênh Venice, bảo tàng, show",
+      "play": [
+        "Dạo phố",
+        "Gondola",
+        "Teddy Bear Museum",
+        "Tinh Hoa Việt Nam",
+        "Sắc Màu Venice"
+      ],
+      "best_time": "16:30 trở đi",
+      "duration": "3-5 giờ",
+      "price_ref": "Vào khu phố miễn phí; trải nghiệm/show bán riêng",
+      "price_dynamic": true,
+      "tips": [
+        "Đến cuối chiều đỡ nắng",
+        "Chốt xe về nếu ở xa Bắc đảo",
+        "Không mặc định mọi cửa hàng mở xuyên đêm"
+      ],
+      "source_slides": [
+        42,
+        43,
+        79
+      ],
+      "hashtags": [
+        "#bac-dao",
+        "#buoi-toi",
+        "#show",
+        "#grand-world"
+      ]
+    },
+    {
+      "id": "rach-vem",
+      "name": "Rạch Vẹm",
+      "region": "north",
+      "type": [
+        "village",
+        "nature"
+      ],
+      "what": "Làng chài, nhà bè, vùng nước nông phía Bắc",
+      "play": [
+        "Nhìn nhịp làng chài",
+        "Nhà bè",
+        "Bãi nước nông"
+      ],
+      "best_time": "Theo mùa và tình trạng đường/bãi",
+      "duration": "2-4 giờ",
+      "price_ref": "Không có vé chung",
+      "price_dynamic": false,
+      "tips": [
+        "Không hứa có sao biển mọi ngày",
+        "Không nhấc sao biển khỏi nước",
+        "Bãi Sao Nam đảo không phải Rạch Vẹm"
+      ],
+      "source_slides": [
+        44
+      ],
+      "hashtags": [
+        "#bac-dao",
+        "#rach-vem",
+        "#lang-chai",
+        "#sao-bien"
+      ]
+    },
+    {
+      "id": "cua-can",
+      "name": "Cửa Cạn",
+      "region": "north-west",
+      "type": [
+        "river",
+        "local-life"
+      ],
+      "what": "Nhịp sông, nhà ven bờ, kayak/thuyền thúng",
+      "play": [
+        "Kayak",
+        "Thuyền thúng",
+        "Ăn địa phương"
+      ],
+      "best_time": "Sáng hoặc chiều dịu",
+      "duration": "2-4 giờ",
+      "price_ref": "Tùy dịch vụ địa phương",
+      "price_dynamic": true,
+      "tips": [
+        "Chốt xe nếu ở xa",
+        "Mặc áo phao",
+        "Không ghép Cửa Cạn với Nam đảo cùng ngày"
+      ],
+      "source_slides": [
+        45
+      ],
+      "hashtags": [
+        "#cua-can",
+        "#kayak",
+        "#song",
+        "#dia-phuong"
+      ]
+    },
+    {
+      "id": "dinh-cau",
+      "name": "Dinh Cậu",
+      "region": "center-west",
+      "type": [
+        "culture",
+        "sunset"
+      ],
+      "what": "Không gian tín ngưỡng của cư dân biển ở cửa sông Dương Đông",
+      "play": [
+        "Tham quan",
+        "Ngắm cửa sông",
+        "Ngắm chiều"
+      ],
+      "best_time": "Cuối chiều",
+      "duration": "30-60 phút",
+      "price_ref": "Miễn phí",
+      "price_dynamic": false,
+      "tips": [
+        "Giữ thái độ tôn trọng không gian tín ngưỡng",
+        "Có thể ghép chợ đêm"
+      ],
+      "source_slides": [
+        47,
+        87,
+        88
+      ],
+      "hashtags": [
+        "#duong-dong",
+        "#dinh-cau",
+        "#van-hoa",
+        "#hoang-hon"
+      ]
+    },
+    {
+      "id": "night-market",
+      "name": "Chợ đêm Dương Đông",
+      "region": "center-west",
+      "type": [
+        "food",
+        "evening"
+      ],
+      "what": "Khu ăn uống và mua sắm buổi tối",
+      "play": [
+        "Ăn tối",
+        "Đi bộ",
+        "Thử món"
+      ],
+      "best_time": "Buổi tối",
+      "duration": "1-2 giờ",
+      "price_ref": "Theo quán/món",
+      "price_dynamic": true,
+      "tips": [
+        "Hải sản hỏi rõ giá theo cân, cách chế biến và phụ phí",
+        "Không xem chợ đêm là toàn bộ ẩm thực Phú Quốc"
+      ],
+      "source_slides": [
+        47
+      ],
+      "hashtags": [
+        "#duong-dong",
+        "#cho-dem",
+        "#food",
+        "#buoi-toi"
+      ]
+    },
+    {
+      "id": "bai-truong",
+      "name": "Bãi Trường",
+      "region": "west",
+      "type": [
+        "beach",
+        "sunset"
+      ],
+      "what": "Dải bờ Tây dài, thuận nghỉ dưỡng và ngắm hoàng hôn",
+      "play": [
+        "Tắm biển",
+        "Beach club",
+        "Ngắm hoàng hôn"
+      ],
+      "best_time": "Chiều",
+      "duration": "2-4 giờ",
+      "price_ref": "Không có vé chung; chi phí tùy cơ sở",
+      "price_dynamic": true,
+      "tips": [
+        "Giữ 30-45 phút cuối ngày cho hoàng hôn",
+        "Chất lượng bãi đổi theo thời tiết"
+      ],
+      "source_slides": [
+        48,
+        49
+      ],
+      "hashtags": [
+        "#bo-tay",
+        "#bai-truong",
+        "#hoang-hon",
+        "#bien"
+      ]
+    },
+    {
+      "id": "bai-sao",
+      "name": "Bãi Sao",
+      "region": "south",
+      "type": [
+        "beach",
+        "family"
+      ],
+      "what": "Bãi tắm dễ tiếp cận ở Nam đảo",
+      "play": [
+        "Tắm biển",
+        "Ăn uống",
+        "Nghỉ bãi"
+      ],
+      "best_time": "Sáng hoặc đầu chiều ngày biển êm",
+      "duration": "2-4 giờ",
+      "price_ref": "Không có vé chung; dịch vụ tính riêng",
+      "price_dynamic": true,
+      "tips": [
+        "Chọn đoạn bãi thực tế đẹp nhất trong ngày",
+        "Không nhầm với bãi sao biển Rạch Vẹm"
+      ],
+      "source_slides": [
+        51
+      ],
+      "hashtags": [
+        "#nam-dao",
+        "#bai-sao",
+        "#bien",
+        "#gia-dinh"
+      ]
+    },
+    {
+      "id": "bai-khem",
+      "name": "Bãi Khem",
+      "region": "south",
+      "type": [
+        "beach",
+        "resort"
+      ],
+      "what": "Vịnh cát sáng gắn với các resort cao cấp",
+      "play": [
+        "Tắm biển",
+        "Nghỉ dưỡng"
+      ],
+      "best_time": "Theo điều kiện biển",
+      "duration": "2-4 giờ",
+      "price_ref": "Quyền tiếp cận và tiện ích tùy lối vào/resort",
+      "price_dynamic": true,
+      "tips": [
+        "Không mặc định toàn bộ bãi có cùng quyền tiếp cận/dịch vụ"
+      ],
+      "source_slides": [
+        51
+      ],
+      "hashtags": [
+        "#nam-dao",
+        "#bai-khem",
+        "#bien",
+        "#resort"
+      ]
+    },
+    {
+      "id": "sunset-town",
+      "name": "Sunset Town",
+      "region": "south",
+      "type": [
+        "evening",
+        "architecture",
+        "show"
+      ],
+      "what": "Khu phố mở, hoàng hôn, Cầu Hôn và chuỗi show",
+      "play": [
+        "Dạo phố",
+        "Cầu Hôn",
+        "Symphony of the Sea",
+        "Kiss of the Sea",
+        "Ăn tối"
+      ],
+      "best_time": "Cuối chiều sang tối",
+      "duration": "4-6 giờ",
+      "price_ref": "Khu phố miễn phí; cầu/show bán riêng",
+      "price_dynamic": true,
+      "tips": [
+        "Dựng lịch ngược từ giờ show",
+        "Tới trước hoàng hôn",
+        "Chốt xe về sau show"
+      ],
+      "source_slides": [
+        52,
+        53,
+        54,
+        79
+      ],
+      "hashtags": [
+        "#nam-dao",
+        "#sunset-town",
+        "#show",
+        "#hoang-hon"
+      ]
+    },
+    {
+      "id": "hon-thom",
+      "name": "Cáp treo Hòn Thơm",
+      "region": "south",
+      "type": [
+        "cable-car",
+        "family"
+      ],
+      "what": "Tuyến cáp 3 dây vượt biển qua quần đảo An Thới",
+      "play": [
+        "Cáp treo",
+        "Aquatopia",
+        "Exotica",
+        "Bãi biển"
+      ],
+      "best_time": "Đi theo khung cáp đầu hoặc nửa ngày-trọn ngày",
+      "duration": "4-8 giờ",
+      "price_ref": "Khoảng 700-850K tùy độ tuổi; kiểm tra lại đúng ngày",
+      "price_dynamic": true,
+      "tips": [
+        "Chốt giờ cáp lượt về trước",
+        "Mang đồ bơi và túi chống nước",
+        "Combo buffet có thể khác mua lẻ"
+      ],
+      "source_slides": [
+        55,
+        56,
+        79
+      ],
+      "hashtags": [
+        "#nam-dao",
+        "#hon-thom",
+        "#cap-treo",
+        "#aquatopia",
+        "#exotica"
+      ]
+    },
+    {
+      "id": "tour-3-islands",
+      "name": "Tour 3 đảo An Thới",
+      "region": "south-sea",
+      "type": [
+        "marine",
+        "snorkeling"
+      ],
+      "what": "Cano/tàu ra cụm đảo An Thới, 2-3 hòn tùy biển",
+      "play": [
+        "Tắm đảo",
+        "Snorkeling",
+        "Ăn trưa",
+        "Check-in"
+      ],
+      "best_time": "Chốt theo dự báo và vận hành trong ngày",
+      "duration": "Một ngày",
+      "price_ref": "Theo cấu hình tour, không dùng giá cũ làm chuẩn",
+      "price_dynamic": true,
+      "tips": [
+        "So số khách/cano, bữa ăn, thiết bị, thời gian ở nước",
+        "Đổi hòn theo gió/sóng là bình thường",
+        "An toàn trước ảnh đẹp"
+      ],
+      "source_slides": [
+        57,
+        58,
+        59,
+        60,
+        61
+      ],
+      "hashtags": [
+        "#nam-dao",
+        "#3-dao",
+        "#cano",
+        "#snorkeling",
+        "#bien"
+      ]
+    },
+    {
+      "id": "phu-quoc-prison",
+      "name": "Nhà tù Phú Quốc",
+      "region": "south",
+      "type": [
+        "history",
+        "culture"
+      ],
+      "what": "Di tích lịch sử gắn với ký ức chiến tranh",
+      "play": [
+        "Tham quan",
+        "Đọc tư liệu"
+      ],
+      "best_time": "Sáng/chiều",
+      "duration": "1-2 giờ",
+      "price_ref": "Cần kiểm tra vận hành",
+      "price_dynamic": true,
+      "tips": [
+        "Nên đi với mạch lịch sử, không chỉ check-in"
+      ],
+      "source_slides": [
+        72,
+        73,
+        90,
+        91
+      ],
+      "hashtags": [
+        "#nam-dao",
+        "#lich-su",
+        "#nha-tu"
+      ]
+    },
+    {
+      "id": "ho-quoc",
+      "name": "Chùa Hộ Quốc",
+      "region": "south-east",
+      "type": [
+        "culture",
+        "viewpoint"
+      ],
+      "what": "Điểm văn hóa - tâm linh và góc nhìn biển phía Đông Nam",
+      "play": [
+        "Tham quan",
+        "Ngắm cảnh"
+      ],
+      "best_time": "Sáng hoặc chiều dịu",
+      "duration": "1-2 giờ",
+      "price_ref": "Không có vé chung",
+      "price_dynamic": false,
+      "tips": [
+        "Trang phục phù hợp",
+        "Ghép Bãi Sao/Bãi Khem hoặc Nhà tù"
+      ],
+      "source_slides": [
+        72
+      ],
+      "hashtags": [
+        "#nam-dao",
+        "#ho-quoc",
+        "#van-hoa"
+      ]
+    }
+  ]
+}
