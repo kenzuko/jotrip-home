@@ -315,16 +315,98 @@ function storyTools(i,len){
   </div>`;
 }
 
+function storyWordCount(story){
+  const text=[story?.title,story?.dek,story?.intro,...(story?.sections||[]).flatMap(x=>[x?.heading,x?.body])]
+    .filter(Boolean).join(" ").trim();
+  return text?text.split(/\s+/).length:0;
+}
+
+function storyReadMinutes(story){
+  return Math.max(1,Math.ceil(storyWordCount(story)/220));
+}
+
+function renderStoryWorkbench(story,i){
+  const p="stories."+i;
+  const sections=Array.isArray(story.sections)?story.sections:[];
+  const sources=Array.isArray(story.sources)?story.sources:[];
+  const slugButton=!String(story.id||"").trim()
+    ?`<button type="button" class="story-slug" data-story-slug="${i}">Tạo mã từ tiêu đề</button>`
+    :"";
+
+  const cover=story.image
+    ?`<img data-story-preview-image="${i}" src="${esc(story.image)}" alt="">`
+    :`<div class="story-cover-empty" data-story-preview-image="${i}">Chưa có ảnh cover</div>`;
+
+  const sectionHtml=sections.map((section,j)=>{
+    const sp=p+".sections."+j;
+    return `<article class="story-section-card">
+      <div class="story-card-head"><strong>Đoạn ${j+1}</strong>${itemTools(p+".sections",j,sections.length)}</div>
+      ${primitiveField("heading",section.heading||"",sp+".heading")}
+      ${primitiveField("body",section.body||"",sp+".body")}
+    </article>`;
+  }).join("");
+
+  const sourceHtml=sources.map((source,j)=>{
+    const sp=p+".sources."+j;
+    return `<article class="story-source-card">
+      <div class="story-card-head"><strong>Nguồn ${j+1}</strong>${itemTools(p+".sources",j,sources.length)}</div>
+      ${primitiveField("label",source.label||"",sp+".label")}
+      ${primitiveField("url",source.url||"",sp+".url")}
+    </article>`;
+  }).join("");
+
+  return `<details class="field-group story-editor story-workbench cms-anchor" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}>
+    <summary class="group-summary">
+      <span>${esc(story.title||("Bài "+(i+1)))}</span>
+      <small>${esc(story.category||"Bài viết")} · ${storyReadMinutes(story)} phút</small>
+    </summary>
+    <div class="detail-body">
+      ${storyTools(i,currentData.stories.length)}
+      <div class="story-editor-grid">
+        <aside class="story-live-preview">
+          <div class="story-cover">${cover}</div>
+          <span data-story-preview-category="${i}">${esc(story.category||"CHUYÊN MỤC")}</span>
+          <h2 data-story-preview-title="${i}">${esc(story.title||"Tiêu đề bài viết")}</h2>
+          <p class="story-preview-dek" data-story-preview-dek="${i}">${esc(story.dek||"Mô tả ngắn của bài viết sẽ xuất hiện ở đây.")}</p>
+          <div class="story-preview-meta"><b data-story-preview-minutes="${i}">${story.read_minutes||storyReadMinutes(story)}</b> phút đọc · <b data-story-preview-words="${i}">${storyWordCount(story)}</b> từ</div>
+        </aside>
+        <div class="story-main-fields">
+          <div class="story-fields-2">
+            ${primitiveField("category",story.category||"",p+".category")}
+            ${primitiveField("read_minutes",Number(story.read_minutes)||storyReadMinutes(story),p+".read_minutes")}
+          </div>
+          ${primitiveField("title",story.title||"",p+".title")}
+          <div class="story-slug-row">
+            ${primitiveField("id",story.id||"",p+".id")}
+            ${slugButton}
+          </div>
+          ${primitiveField("dek",story.dek||"",p+".dek")}
+          ${primitiveField("image",story.image||"",p+".image")}
+          ${primitiveField("intro",story.intro||"",p+".intro")}
+          <button type="button" class="story-readtime" data-story-readtime="${i}">Tính lại thời gian đọc</button>
+        </div>
+      </div>
+
+      <section class="story-builder-block">
+        <div class="story-builder-head"><div><span>NỘI DUNG</span><h3>Các đoạn trong bài</h3></div><button type="button" class="add-array-item" data-array-path="${esc(p+".sections")}">+ Thêm đoạn</button></div>
+        <div class="story-section-list">${sectionHtml||'<p class="empty-builder">Chưa có đoạn nội dung.</p>'}</div>
+      </section>
+
+      <section class="story-builder-block">
+        <div class="story-builder-head"><div><span>NGUỒN</span><h3>Tài liệu tham khảo</h3></div><button type="button" class="add-array-item" data-array-path="${esc(p+".sources")}">+ Thêm nguồn</button></div>
+        <div class="story-source-list">${sourceHtml||'<p class="empty-builder">Chưa có nguồn tham khảo.</p>'}</div>
+      </section>
+    </div>
+  </details>`;
+}
+
 function renderRoot(){
   if(currentModule?.id==="stories"&&Array.isArray(currentData?.stories)){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
-    const stories=currentData.stories.map((story,i)=>{
-      const p="stories."+i;
-      const slugButton=!String(story.id||"").trim()?`<button type="button" class="story-slug" data-story-slug="${i}">Tạo mã từ tiêu đề</button>`:"";
-      return `<details class="field-group story-editor cms-anchor" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}><summary class="group-summary"><span>${esc(story.title||("Bài "+(i+1)))}</span><small>${esc(story.category||"Bài viết")}</small></summary><div class="detail-body">${storyTools(i,currentData.stories.length)}${slugButton}${renderChildren(story,p,1)}</div></details>`;
-    }).join("");
+    const stories=currentData.stories.map((story,i)=>renderStoryWorkbench(story,i)).join("");
     return moduleOverview()+`<section class="meta-strip">${meta}<div class="meta-actions"><button type="button" id="addStoryBtn">+ Bài viết mới</button></div></section>${stories}`;
   }
+
   return moduleOverview()+Object.entries(currentData||{}).map(([k,v])=>{
     if(v&&typeof v==="object")return renderNode(v,k,k,0);
     return primitiveField(k,v,k);
