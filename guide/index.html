@@ -1,15 +1,28 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><title>Cẩm nang Phú Quốc - Open Phu Quoc</title><link rel="stylesheet" href="guide.css?v=2"></head><body>
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#ffffff"><title>Cẩm nang Phú Quốc - Open Phu Quoc</title><link rel="stylesheet" href="guide.css?v=3"></head><body>
 <header class="guide-head"><a href="../"><img src="../assets/logo-master.png" alt="Open Phu Quoc"></a><a href="../">← Trang chủ</a></header>
-<nav class="guide-menu"><a href="#zones">Ba vùng</a><a href="#distance">Di chuyển</a><a href="#hotels">Khách sạn</a><a href="#food">Ăn gì</a><a href="#itinerary">Lịch gợi ý</a><a href="../utilities/">Tra cứu</a></nav>
+<nav class="guide-menu"><a href="#quick">Tra nhanh</a><a href="#zones">Ba vùng</a><a href="#distance">Đi lại</a><a href="#hotels">Ở đâu</a><a href="#food">Ăn gì</a><a href="#itinerary">Lịch gợi ý</a><a href="../utilities/">Tiện ích</a></nav>
 <main>
 <section class="guide-hero"><div><p>OPEN PHU QUOC · SỔ TAY MỚI NHẤT</p><h1>Hiểu đảo trước.<br>Đi nhẹ hơn.</h1><span id="sourceMeta">Đang tải cẩm nang...</span></div></section>
 <section class="guide-shell">
+  <section id="quick" class="guide-quick">
+    <div class="quick-head">
+      <div><p>TRA NHANH SỔ TAY</p><h2>Đừng đọc từ đầu tới cuối. Tìm đúng việc cậu đang cần.</h2></div>
+      <span id="handbookCoverage">Đang nạp toàn bộ sổ tay...</span>
+    </div>
+    <form id="guideSearch" class="guide-search" role="search">
+      <span aria-hidden="true">⌕</span>
+      <input id="guideQ" type="search" autocomplete="off" placeholder="Thử: lần đầu, Safari, visa, meal plan, Hòn Thơm, snorkeling, câu cá...">
+      <button type="submit">Tìm</button>
+    </form>
+    <div id="knowledgeGrid" class="knowledge-grid"></div>
+    <div id="guideSearchResults" class="guide-search-results" hidden></div>
+  </section>
   <section id="zones" class="g-section"><div class="g-head"><div><p>ĐỌC ĐẢO THEO VÙNG</p><h2>Ba Phú Quốc rất khác nhau.</h2></div><span>Vuốt để xem</span></div><div id="zoneRail" class="zone-rail"></div></section>
-  <section id="distance" class="g-section"><div class="g-head"><div><p>DI CHUYỂN</p><h2>Đừng nhìn mỗi kilomet.</h2></div><span>Infographic thời gian</span></div><div class="distance-layout"><div id="distanceBars" class="distance-bars"></div><div class="distance-card"><strong>70-100 phút</strong><span>Bắc đảo ↔ Nam đảo</span><p>Nếu đổi vùng trong ngày, hãy coi quãng di chuyển là một phần của lịch trình và giảm số điểm.</p></div></div></section>
+  <section id="distance" class="g-section"><div class="g-head"><div><p>DI CHUYỂN</p><h2>Mất bao lâu để đi từ A tới B?</h2></div><span>Đọc bằng phút, không bằng biểu đồ</span></div><div class="distance-layout"><div id="distanceBars" class="distance-cards"></div><div class="distance-card"><strong>70-100 phút</strong><span>Bắc đảo ↔ Nam đảo</span><p>Đây là quãng đổi vùng thật sự. Nếu đi xuyên đảo trong ngày, bớt điểm lại sẽ dễ chịu hơn.</p></div></div></section>
   <section id="north" class="g-section"><div class="g-head"><div><p>BẮC ĐẢO</p><h2>Ba nhịp, không phải ba checkbox.</h2></div></div><div id="northRhythm" class="rhythm-grid"></div></section>
   <section id="hotels" class="g-section"><div class="g-head"><div><p>CHỌN NƠI Ở</p><h2>Chọn khu trước, chọn sao sau.</h2></div><span>Không có hạng 6 sao chính thức</span></div><div id="hotelTiers" class="tier-grid"></div><div id="hotelAreas" class="hotel-area-grid"></div></section>
   <section id="food" class="g-section food-section"><div class="g-head"><div><p>ĂN PHÚ QUỐC</p><h2>Ăn bằng mắt trước, rồi mới chọn món.</h2></div></div><div class="food-visual"><div class="food-photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Night%20market%20in%20Phu%20Quoc.jpg?width=1400" alt="Chợ đêm Phú Quốc"><div><span>ĐỪNG CHỈ HỎI MÓN NÀO NỔI TIẾNG</span><strong>Nhìn cách người đảo ăn cá, nêm nước mắm và dùng tiêu.</strong></div></div><div id="foodGrid" class="food-grid"></div></div></section>
   <section id="itinerary" class="g-section"><div class="g-head"><div><p>GHÉP HÀNH TRÌNH</p><h2>Ít điểm hơn, chuyến đi tốt hơn.</h2></div></div><div id="itineraryRail" class="itinerary-rail"></div></section>
   <a class="lookup-band" href="../utilities/"><div><span>TRA CỨU</span><strong>Giá vé, hotline, tàu/phà, checklist và số khẩn cấp.</strong></div><b>→</b></a>
 </section></main>
-<footer><div>Open Phu Quoc · nội dung nền lấy từ bản Sổ tay Phú Quốc mới nhất trong thư viện dự án.</div></footer><script src="guide.js?v=2"></script></body></html>
+<footer><div>Open Phu Quoc · nội dung nền lấy từ bản Sổ tay Phú Quốc mới nhất trong thư viện dự án.</div></footer><script src="guide.js?v=3"></script></body></html>
