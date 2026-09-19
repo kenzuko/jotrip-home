@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "source": {
+    "id": "handbook_r3",
+    "slides": [
+      66
+    ],
+    "file": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx"
+  },
+  "dishes": [
+    {
+      "id": "goi-ca-trich",
+      "name": "Gỏi cá trích",
+      "category": "local",
+      "intro": "Vị chua, béo, thơm, thường ăn cùng rau và bánh tráng.",
+      "how_to_eat": "Cuốn rau, bánh tráng và cá, cân bằng vị chua-béo-thơm.",
+      "tips": [
+        "Ưu tiên cá tươi",
+        "Hỏi rõ phần rau/bánh tráng/nước chấm"
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#goi-ca-trich",
+        "#hai-san"
+      ]
+    },
+    {
+      "id": "bun-quay",
+      "name": "Bún quậy",
+      "category": "local",
+      "intro": "Món ăn nóng, đặc trưng ở cách tự pha chén nước chấm theo khẩu vị.",
+      "how_to_eat": "Ăn khi còn nóng, tự pha chén chấm trước rồi điều chỉnh.",
+      "tips": [
+        "Dễ thử cho khách lần đầu",
+        "Mỗi quán có cách phối chả/hải sản khác nhau"
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#bun-quay"
+      ]
+    },
+    {
+      "id": "bun-ken",
+      "name": "Bún kèn",
+      "category": "local",
+      "intro": "Một món có chất địa phương rõ, ít phổ biến hơn bún quậy.",
+      "how_to_eat": "Thường ăn với nước kèn cá, rau và topping tùy quán.",
+      "tips": [
+        "Nên thử ở quán địa phương",
+        "Hỏi giờ bán vì nhiều quán bán theo buổi"
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#bun-ken"
+      ]
+    },
+    {
+      "id": "nhum",
+      "name": "Nhum",
+      "category": "seafood",
+      "intro": "Hải sản nên chọn theo độ tươi và cách chế biến.",
+      "how_to_eat": "Nướng, mỡ hành hoặc chế biến tùy quán.",
+      "tips": [
+        "Không chọn chỉ vì ảnh",
+        "Hỏi giá và kích cỡ trước khi gọi"
+      ],
+      "hashtags": [
+        "#hai-san",
+        "#nhum"
+      ]
+    },
+    {
+      "id": "coi-bien-mai",
+      "name": "Còi biên mai",
+      "category": "seafood",
+      "intro": "Phần cơ của sò biên mai, hợp nướng hoặc xào.",
+      "how_to_eat": "Ưu tiên chế biến đơn giản để giữ độ ngọt và giòn.",
+      "tips": [
+        "Hỏi giá theo phần hoặc trọng lượng",
+        "Ưu tiên độ tươi"
+      ],
+      "hashtags": [
+        "#hai-san",
+        "#bien-mai"
+      ]
+    }
+  ]
+}
