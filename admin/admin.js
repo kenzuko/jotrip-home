@@ -346,14 +346,17 @@ function renderUsers(){
   $("#addUserBtn").onclick=()=>{
     currentData.users=currentData.users||[];
     currentData.users.push({login:"",name:"",role:"viewer",enabled:true});
-    dirty=true;renderUsers();bindFields();buildEditorNav();$("#saveBtn").disabled=false;
-    status("Đã thêm người dùng mới. Nhập GitHub username rồi bấm Xuất bản.");
+    markDirty("Đã thêm người dùng mới. Nhập GitHub username rồi bấm Xuất bản.");
+    rerender();
   };
 
   document.querySelectorAll(".remove-user").forEach(b=>b.onclick=()=>{
-    currentData.users.splice(Number(b.dataset.user),1);
-    dirty=true;renderUsers();bindFields();buildEditorNav();$("#saveBtn").disabled=false;
-    status("Đã xóa khỏi danh sách. Bấm Xuất bản để áp dụng.");
+    const i=Number(b.dataset.user);
+    const user=currentData.users[i];
+    if(!confirm("Xóa "+(user?.name||user?.login||"người dùng này")+" khỏi CMS?"))return;
+    currentData.users.splice(i,1);
+    markDirty("Đã xóa khỏi danh sách. Bấm Xuất bản để áp dụng.");
+    rerender();
   });
 }
 
