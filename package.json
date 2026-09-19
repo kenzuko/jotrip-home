@@ -2,7 +2,7 @@
   "name": "openphuquoc-cms",
   "private": true,
   "version": "1.0.0",
-  "devDependencies": {
-    "@netlify/functions": "latest"
+  "scripts": {
+    "build": "node scripts/build-cloudflare.mjs"
   }
 }
