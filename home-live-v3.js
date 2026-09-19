@@ -160,13 +160,14 @@
     setContext("sunset", sunset, "Bờ Tây · tính theo vị trí đảo", "info");
 
     const pointList = Object.values(critical?.points || {});
-    const convScores = pointList.map(p => Number(p?.nowcast?.convective_score)).filter(Number.isFinite);
-    const convMax = convScores.length ? Math.max(...convScores) : null;
+    const convectiveLevels = pointList
+      .map(p => String(p?.nowcast?.convective_level || "").toUpperCase())
+      .filter(Boolean);
+    const hasHighConvective = convectiveLevels.includes("HIGH");
+    const hasElevatedConvective = convectiveLevels.includes("ELEVATED");
 
     const gauges = Array.isArray(critical?.actual?.rain_gauges) ? critical.actual.rain_gauges : [];
     const observedRain = gauges.some(g => g?.rain_observed === true || Number(g?.rain_intensity_mm_h) > 0);
-    const estimatedRainRates = pointList.map(p => Number(p?.local?.rain_rate_mm_h)).filter(Number.isFinite);
-    const estimatedRainMax = estimatedRainRates.length ? Math.max(...estimatedRainRates) : null;
 
     let wxTitle = "Weather engine chưa có dữ liệu";
     let wxNote = "Mở Weather để xem nguồn và độ mới dữ liệu.";
@@ -178,17 +179,17 @@
       if (criticalAge > 90) {
         wxTitle = "Snapshot Weather V2 đang cũ";
         wxBadge = "DỮ LIỆU CŨ";
-      } else if (convMax != null && convMax >= 75) {
-        wxTitle = "Nowcast ghi nhận tín hiệu đối lưu mạnh";
+      } else if (hasHighConvective) {
+        wxTitle = "Weather V2 đang đánh dấu đối lưu mức cao";
         wxBadge = "THEO DÕI";
+      } else if (hasElevatedConvective) {
+        wxTitle = "Weather V2 đang đánh dấu đối lưu tăng";
+        wxBadge = "LƯU Ý";
       } else if (observedRain) {
         wxTitle = "Có trạm quan trắc ghi nhận mưa";
         wxBadge = "ĐO THỰC";
-      } else if (estimatedRainMax != null && estimatedRainMax >= 2) {
-        wxTitle = "Ước tính hiện tại cho thấy mưa đáng chú ý";
-        wxBadge = "ƯỚC TÍNH";
       } else {
-        wxTitle = "Chưa có cảnh báo weather nổi bật";
+        wxTitle = "Weather V2 đang hoạt động";
         wxBadge = "CẬP NHẬT";
         wxGood = weatherState === "good";
       }
@@ -265,7 +266,7 @@
         if (tag) tag.textContent = "KIỂM TRA TRƯỚC";
         if (title) title.textContent = "Weather snapshot cần cập nhật";
         if (note) note.textContent = "Mở Weather trước khi chọn hoạt động phụ thuộc thời tiết";
-      } else if ((convMax != null && convMax >= 75) || observedRain || (estimatedRainMax != null && estimatedRainMax >= 2)) {
+      } else if (hasHighConvective || hasElevatedConvective || observedRain) {
         decisionCard.href = "stories/article.html?id=mot-nam-trong-nha-thung";
         if (tag) tag.textContent = "LỊCH LINH HOẠT";
         if (title) title.textContent = "Đổi biển lấy một câu chuyện trong nhà thùng";
@@ -288,7 +289,7 @@
         weather: {
           primary: weatherPrimary,
           secondary: weatherSecondary,
-          status: !critical || criticalAge > 90 ? "unknown" : convMax != null && convMax >= 75 ? "watch" : observedRain ? "advisory" : "normal",
+          status: !critical || criticalAge > 90 ? "unknown" : hasHighConvective ? "watch" : (hasElevatedConvective || observedRain) ? "advisory" : "normal",
           source_class: vvpq ? "ACTUAL" : "ESTIMATED_NOW",
           source_updated_at: weatherObservedAt,
           freshness: weatherAge <= 60 ? "fresh" : weatherAge <= 180 ? "aging" : "stale"
@@ -296,7 +297,7 @@
         sea: {
           primary: seaPrimary,
           secondary: seaSecondary,
-          status: seaHs == null ? "unknown" : seaHs >= 1.5 ? "watch" : seaHs >= 1 ? "advisory" : "normal",
+          status: seaHs == null || seaAge > 720 ? "unknown" : "info",
           source_class: "MODEL",
           source_updated_at: seaTime,
           freshness: seaAge <= 360 ? "fresh" : seaAge <= 720 ? "aging" : "stale"
@@ -324,9 +325,8 @@
       },
       signals: {
         weather_snapshot_age_min: Number.isFinite(criticalAge) ? Math.round(criticalAge) : null,
-        convective_max: convMax,
+        convective_levels: [...new Set(convectiveLevels)],
         observed_rain: observedRain,
-        estimated_rain_max_mm_h: estimatedRainMax,
         airport_delayed_count: airportAvailable ? delayed.length : null,
         airport_total: total,
         cano_state: canoState || null,
