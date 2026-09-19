@@ -1,15 +1,25 @@
-# Open Phu Quoc CMS - activation
+# Open Phu Quoc CMS - Cloudflare Pages
 
-The CMS UI, role model and Netlify functions are already in the repository.
-
-## Runtime
+## Architecture
 
 - Public website: GitHub Pages / production domain.
-- CMS runtime: Netlify project `openphuquoc-preview`.
-- Admin URL after deployment: `https://openphuquoc-preview.netlify.app/admin/`.
+- CMS runtime: Cloudflare Pages + Pages Functions.
+- CMS target domain: `https://cms.openphuquoc.com/`.
 - Login: GitHub OAuth.
 - Session: encrypted HttpOnly cookie.
-- Publishing: the signed-in user's GitHub OAuth token writes only whitelisted content files.
+- Publishing: the signed-in user's GitHub OAuth token can write only whitelisted content files.
+
+## Cloudflare Pages build
+
+Create a **Pages** project, not a Worker project.
+
+- Repository: `kenzuko/jotrip-home`
+- Production branch: `main`
+- Build command: `node scripts/build-cloudflare.mjs`
+- Build output directory: `dist`
+- Root directory: blank
+
+The `functions/` directory is deployed as Pages Functions. Static assets are copied to `dist/`.
 
 ## Roles
 
@@ -20,22 +30,21 @@ The CMS UI, role model and Netlify functions are already in the repository.
 
 Initial admin: `kenzuko`.
 
-## Netlify environment
+## Runtime secrets
 
-`CMS_SESSION_SECRET` is already stored as a secret in the Netlify project.
+Set these in Cloudflare Pages > Settings > Variables and Secrets:
 
-Create a GitHub OAuth App and set these two Netlify secrets:
-
+- `CMS_SESSION_SECRET`
 - `GITHUB_OAUTH_CLIENT_ID`
 - `GITHUB_OAUTH_CLIENT_SECRET`
 
-OAuth callback URL:
+Create a GitHub OAuth App after the Pages domain is known. Callback:
 
-`https://openphuquoc-preview.netlify.app/api/cms/auth?action=callback`
+`https://cms.openphuquoc.com/api/cms/auth?action=callback`
 
-The OAuth request uses only `public_repo read:user`.
+During first testing you may temporarily use the `*.pages.dev` callback instead.
 
-Never put the client secret in GitHub or frontend JavaScript.
+Never put the OAuth client secret in GitHub or frontend JavaScript.
 
 ## Editable files
 
