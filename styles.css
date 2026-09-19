@@ -189,7 +189,7 @@ img{display:block;max-width:100%}
   outline:0;
   background:transparent;
   color:var(--text);
-  font-size:14px;
+  font-size:16px;
 }
 .search button{
   width:48px;height:48px;
@@ -829,7 +829,7 @@ img{display:block;max-width:100%}
     margin-top:20px;
     border-radius:15px;
   }
-  .search input{font-size:13px}
+  .search input{font-size:16px}
   .search button{
     width:42px;height:42px;
   }
@@ -3314,7 +3314,7 @@ body.sheet-open{
   top:calc(100% + 9px);
   left:0;
   right:0;
-  max-height:min(430px,58vh);
+  max-height:min(430px,42vh);
   overflow:auto;
   padding:8px;
   border:1px solid rgba(19,65,61,.12);
