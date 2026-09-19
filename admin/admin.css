@@ -186,3 +186,11 @@
   .cms-filter input{font-size:16px}
   .cms-filter span{display:none}
 }
+
+
+/* CMS V2.4 - source and phone quick actions */
+.field-quick{
+  display:inline-flex;align-items:center;width:max-content;margin-top:7px;padding:6px 9px;
+  border-radius:999px;background:#EEF7F5;color:var(--ink2);font-size:10px;font-weight:800
+}
+.field-quick:hover{background:#DFF2EE}
