@@ -1,0 +1,274 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "history_pre_2000",
+      "slug": "pre-2000",
+      "name": "Phú Quốc trước làn sóng phát triển lớn",
+      "period": "Trước 2000",
+      "what_it_is": "Biển, nghề cá, nước mắm, hồ tiêu và các làng ven biển là lớp nhận diện chính trước giai đoạn phát triển hạ tầng lớn.",
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-091"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_master_plan_2004",
+      "slug": "master-plan-2004",
+      "name": "Quy hoạch tổng thể",
+      "year": 2004,
+      "what_it_is": "Mốc quy hoạch mở đầu giai đoạn nhìn Phú Quốc như một trung tâm du lịch, dịch vụ và giao thương quy mô lớn hơn.",
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-092"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_vision_2030_2010",
+      "slug": "vision-2030-2010",
+      "name": "Điều chỉnh tầm nhìn 2030",
+      "year": 2010,
+      "what_it_is": "Mốc điều chỉnh quy hoạch tiếp tục mở rộng tầm nhìn phát triển của đảo.",
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-092"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_airport_2012",
+      "slug": "airport-2012",
+      "name": "Sân bay quốc tế Phú Quốc vận hành",
+      "year": 2012,
+      "what_it_is": "Sân bay quốc tế đi vào hoạt động, thay đổi mạnh khả năng kết nối hàng không của đảo.",
+      "related_entities": [
+        "live_airport"
+      ],
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-092"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_grid_2014",
+      "slug": "national-grid-2014",
+      "name": "Hòa lưới điện quốc gia",
+      "year": 2014,
+      "what_it_is": "Điện lưới quốc gia tạo nền tảng để khách sạn, dịch vụ và dự án lớn vận hành ổn định hơn.",
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-092"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_safari_2015",
+      "slug": "safari-2015",
+      "name": "Vinpearl Safari mở cửa",
+      "year": 2015,
+      "related_entities": [
+        "place_vinpearl_safari"
+      ],
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-092"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_cable_car_2018",
+      "slug": "hon-thom-cable-car-2018",
+      "name": "Cáp treo Hòn Thơm khai trương",
+      "year": 2018,
+      "related_entities": [
+        "activity_hon_thom"
+      ],
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-054",
+            "r3-092"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_vinwonders_2020",
+      "slug": "vinwonders-2020",
+      "name": "VinWonders Phú Quốc vận hành",
+      "year": 2020,
+      "related_entities": [
+        "place_vinwonders"
+      ],
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-092"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_city_2021",
+      "slug": "city-2021",
+      "name": "United Center, Grand World và mốc thành phố",
+      "year": 2021,
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "live_check_required": false,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-092",
+            "r3-093"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_special_zone_2025",
+      "slug": "special-zone-2025",
+      "name": "Đô thị loại I và chuyển sang đặc khu",
+      "year": 2025,
+      "what_it_is": "Một lớp thay đổi hành chính và đô thị hóa mới trong quá trình phát triển của Phú Quốc.",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-093"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "intents": [
+        "history",
+        "development"
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "history_apec_2027",
+      "slug": "apec-2027",
+      "name": "APEC 2027 và nhịp hạ tầng mới",
+      "year": 2027,
+      "what_it_is": "Hạ tầng phục vụ APEC và các dự án mới có thể tạo một tầng phát triển khác về hàng không, MICE, đô thị và kết nối quốc tế.",
+      "live_check_required": true,
+      "intents": [
+        "history",
+        "apec",
+        "development"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-094",
+            "r3-095",
+            "r3-096"
+          ]
+        }
+      ],
+      "entity_type": "history",
+      "aliases": [],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}
