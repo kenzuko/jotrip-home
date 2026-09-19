@@ -145,7 +145,7 @@
         "waterpark",
         "family"
       ],
-      "route": "/places/?q=aquatopia",
+      "route": "/places/detail.html?id=aquatopia",
       "search_text": "aquatopia water park waterpark family waterpark family waterpark family cong vien nuoc tren hon thom voi hon 20 tro va khu gia dinh. tro truot nuoc · khu gia dinh · nghi giua ngay nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
     },
     {
@@ -175,7 +175,7 @@
         "beach",
         "resort"
       ],
-      "route": "/places/?q=bai-khem",
+      "route": "/places/detail.html?id=bai-khem",
       "search_text": "bai khem beach resort beach resort beach resort vinh cat sang gan voi cac resort cao cap tam bien · nghi duong quyen tiep can va tien ich tuy loi vao/resort"
     },
     {
@@ -201,7 +201,7 @@
         "beach",
         "family"
       ],
-      "route": "/places/?q=bai-sao",
+      "route": "/places/detail.html?id=bai-sao",
       "search_text": "bai sao beach family beach family beach family bai tam de tiep can o nam dao tam bien · an uong · nghi bai khong co ve chung; dich vu tinh rieng"
     },
     {
@@ -214,7 +214,7 @@
         "beach",
         "sunset"
       ],
-      "route": "/places/?q=bai-truong",
+      "route": "/places/detail.html?id=bai-truong",
       "search_text": "bai truong beach sunset beach sunset beach sunset dai bo tay dai, thuan nghi duong va ngam hoang hon tam bien · beach club · ngam hoang hon khong co ve chung; chi phi tuy co so"
     },
     {
@@ -406,7 +406,7 @@
         "cable-car",
         "family"
       ],
-      "route": "/places/?q=hon-thom",
+      "route": "/places/detail.html?id=hon-thom",
       "search_text": "cap treo hon thom cable-car family cable-car family cable-car family tuyen cap 3 day vuot bien qua quan dao an thoi cap treo · aquatopia · exotica · bai bien khoang 700-850k tuy do tuoi; kiem tra lai dung ngay"
     },
     {
@@ -470,7 +470,7 @@
         "fishing",
         "marine"
       ],
-      "route": "/places/?q=big-game-fishing",
+      "route": "/places/detail.html?id=big-game-fishing",
       "search_text": "cau ca lon an thoi fishing marine fishing marine fishing marine chuyen cau chuyen biet o ngu truong an thoi/hon dam trong voi thiet bi, may do va tai cong. cau day · jig · cau ca lon bang moi phu hop theo tau, so khach, thiet bi va cau hinh"
     },
     {
@@ -488,7 +488,7 @@
         "architecture",
         "evening"
       ],
-      "route": "/places/?q=kiss-bridge",
+      "route": "/places/detail.html?id=kiss-bridge",
       "search_text": "cau hon kiss bridge cau hon architecture sunset evening couple sunset architecture evening couple sunset first-time diem tham quan tai sunset town, ban ve rieng va phu hop nhat khi ghep voi cuoi chieu - buoi toi. ngam canh, kien truc va hoang hon truoc khi noi sang bua toi hoac show. gia dong - kiem tra kenh chinh thuc trong ngay"
     },
     {
@@ -501,7 +501,7 @@
         "fishing",
         "evening"
       ],
-      "route": "/places/?q=squid-fishing",
+      "route": "/places/detail.html?id=squid-fishing",
       "search_text": "cau muc dem fishing evening fishing evening fishing evening ra bien cuoi chieu/buoi toi, bat den va thu cau muc theo dieu kien thuc te. ngam hoang hon · cau muc · an toi tuy tour theo tour/don vi van hanh"
     },
     {
@@ -514,7 +514,7 @@
         "food",
         "evening"
       ],
-      "route": "/places/?q=night-market",
+      "route": "/places/detail.html?id=night-market",
       "search_text": "cho dem duong dong food evening food evening food evening khu an uong va mua sam buoi toi an toi · di bo · thu mon theo quan/mon"
     },
     {
@@ -527,7 +527,7 @@
         "culture",
         "viewpoint"
       ],
-      "route": "/places/?q=ho-quoc",
+      "route": "/places/detail.html?id=ho-quoc",
       "search_text": "chua ho quoc culture viewpoint culture viewpoint culture viewpoint diem van hoa - tam linh va goc nhin bien phia dong nam tham quan · ngam canh khong co ve chung"
     },
     {
@@ -573,7 +573,7 @@
         "river",
         "local-life"
       ],
-      "route": "/places/?q=cua-can",
+      "route": "/places/detail.html?id=cua-can",
       "search_text": "cua can river local-life river local-life river local-life nhip song, nha ven bo, kayak/thuyen thung kayak · thuyen thung · an dia phuong tuy dich vu dia phuong"
     },
     {
@@ -608,7 +608,7 @@
         "culture",
         "sunset"
       ],
-      "route": "/places/?q=dinh-cau",
+      "route": "/places/detail.html?id=dinh-cau",
       "search_text": "dinh cau culture sunset culture sunset culture sunset khong gian tin nguong cua cu dan bien o cua song duong dong tham quan · ngam cua song · ngam chieu mien phi"
     },
     {
@@ -798,7 +798,7 @@
         "thrill",
         "theme-park"
       ],
-      "route": "/places/?q=exotica",
+      "route": "/places/detail.html?id=exotica",
       "search_text": "exotica village thrill theme-park thrill theme-park thrill theme-park cum tro kho/cam giac manh tren hon thom. moc xa thinh no · mat dai bang nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
     },
     {
@@ -1087,7 +1087,7 @@
         "evening",
         "entertainment"
       ],
-      "route": "/places/?q=grand-world",
+      "route": "/places/detail.html?id=grand-world",
       "search_text": "grand world phu quoc evening entertainment evening entertainment evening entertainment khu pho mo, kenh venice, bao tang, show dao pho · gondola · teddy bear museum · tinh hoa viet nam · sac mau venice vao khu pho mien phi; trai nghiem/show ban rieng"
     },
     {
@@ -1234,7 +1234,7 @@
         "sunset-town",
         "fireworks"
       ],
-      "route": "/places/?q=kiss-of-the-sea",
+      "route": "/places/detail.html?id=kiss-of-the-sea",
       "search_text": "kiss of the sea kiss of the sea show show phao hoa sunset town show evening multimedia show evening sunset-town fireworks couple family evening show da phuong tien lon kem phao hoa tai sunset town, tach rieng voi symphony of the sea. la mot moc buoi toi de dung lich nguoc cho sunset town. theo hang cho/combo - kiem tra kenh chinh thuc"
     },
     {
@@ -1263,7 +1263,7 @@
         "marine",
         "diving"
       ],
-      "route": "/places/?q=scuba",
+      "route": "/places/detail.html?id=scuba",
       "search_text": "lan binh khi (scuba) marine diving marine diving marine diving lan sau hon snorkeling voi thiet bi, huong dan va quy trinh an toan rieng. discover scuba · diving theo chung chi/dieu kien theo don vi lan va cau hinh"
     },
     {
@@ -1384,7 +1384,7 @@
         "culture",
         "craft"
       ],
-      "route": "/places/?q=fish-sauce-house",
+      "route": "/places/detail.html?id=fish-sauce-house",
       "search_text": "nha thung nuoc mam culture craft culture craft culture craft noi co the nhin nghe u chuop nuoc mam bang thung go va nghe cau chuyen nghe dao. xem nha thung · nghe quy trinh u chuop · doc do dam/san pham thuong khong co ve chung; tuy co so"
     },
     {
@@ -1397,7 +1397,7 @@
         "history",
         "culture"
       ],
-      "route": "/places/?q=phu-quoc-prison",
+      "route": "/places/detail.html?id=phu-quoc-prison",
       "search_text": "nha tu phu quoc history culture history culture history culture di tich lich su gan voi ky uc chien tranh tham quan · doc tu lieu can kiem tra van hanh"
     },
     {
@@ -1636,7 +1636,7 @@
         "village",
         "nature"
       ],
-      "route": "/places/?q=rach-vem",
+      "route": "/places/detail.html?id=rach-vem",
       "search_text": "rach vem village nature village nature village nature lang chai, nha be, vung nuoc nong phia bac nhin nhip lang chai · nha be · bai nuoc nong khong co ve chung"
     },
     {
@@ -1745,7 +1745,7 @@
         "marine",
         "underwater"
       ],
-      "route": "/places/?q=seawalker",
+      "route": "/places/detail.html?id=seawalker",
       "search_text": "seawalker marine underwater marine underwater marine underwater di bo duoi nuoc voi mu cap khi, nam giua snorkeling va scuba ve trai nghiem. di bo duoi nuoc · quan sat duoi mat bien theo don vi van hanh"
     },
     {
@@ -1774,7 +1774,7 @@
         "marine",
         "snorkeling"
       ],
-      "route": "/places/?q=snorkeling-an-thoi",
+      "route": "/places/detail.html?id=snorkeling-an-thoi",
       "search_text": "snorkeling an thoi marine snorkeling marine snorkeling marine snorkeling boi mat nuoc voi kinh/mat na o cum dao an thoi. snorkeling · boi · quan sat san ho phu thuoc cau hinh tour"
     },
     {
@@ -1815,7 +1815,7 @@
         "architecture",
         "show"
       ],
-      "route": "/places/?q=sunset-town",
+      "route": "/places/detail.html?id=sunset-town",
       "search_text": "sunset town evening architecture show evening architecture show evening architecture show khu pho mo, hoang hon, cau hon va chuoi show dao pho · cau hon · symphony of the sea · kiss of the sea · an toi khu pho mien phi; cau/show ban rieng"
     },
     {
@@ -1828,7 +1828,7 @@
         "nature",
         "stream"
       ],
-      "route": "/places/?q=other-streams",
+      "route": "/places/detail.html?id=other-streams",
       "search_text": "suoi da ban · da ngon · suoi tien nature stream nature stream nature stream nhom suoi/rung thay doi manh theo mua va luong mua. di rung nhe · suoi · quan sat thien nhien tuy diem/duong vao"
     },
     {
@@ -1841,7 +1841,7 @@
         "nature",
         "stream"
       ],
-      "route": "/places/?q=suoi-tranh",
+      "route": "/places/detail.html?id=suoi-tranh",
       "search_text": "suoi tranh nature stream nature stream nature stream mot trong cac diem suoi quen thuoc nhat phu quoc, dep hon khi co nuoc. di bo nhe · rung/suoi · nghi thien nhien can kiem tra van hanh/gia hien hanh"
     },
     {
@@ -1868,7 +1868,7 @@
         "evening",
         "sunset-town"
       ],
-      "route": "/places/?q=symphony-of-the-sea",
+      "route": "/places/detail.html?id=symphony-of-the-sea",
       "search_text": "symphony of the sea symphony show 19:30 sunset town show evening outdoor show evening sunset-town couple family evening show jetski, flyboard, anh sang va hieu ung tren mat nuoc tai sunset town. phu hop ghep sau hoang hon va truoc kiss of the sea trong mot buoi toi nam dao. gia dong - kiem tra kenh chinh thuc"
     },
     {
@@ -1955,7 +1955,7 @@
         "marine",
         "snorkeling"
       ],
-      "route": "/places/?q=tour-3-islands",
+      "route": "/places/detail.html?id=tour-3-islands",
       "search_text": "tour 3 dao an thoi marine snorkeling marine snorkeling marine snorkeling cano/tau ra cum dao an thoi, 2-3 hon tuy bien tam dao · snorkeling · an trua · check-in theo cau hinh tour, khong dung gia cu lam chuan"
     },
     {
@@ -2149,7 +2149,7 @@
         "wildlife",
         "family"
       ],
-      "route": "/places/?q=vinpearl-safari",
+      "route": "/places/detail.html?id=vinpearl-safari",
       "search_text": "vinpearl safari phu quoc wildlife family wildlife family wildlife family open zoo + khu ban hoang da bang bus safari bus · open zoo · animal show · night safari theo lich 950.000d nguoi lon / 710.000d tre em-cao tuoi tu 01/10/2026"
     },
     {
@@ -2172,7 +2172,7 @@
         "theme-park",
         "family"
       ],
-      "route": "/places/?q=vinwonders",
+      "route": "/places/detail.html?id=vinwonders",
       "search_text": "vinwonders phu quoc theme-park family theme-park family theme-park family 6 phan khu, thuy cung, cong vien nuoc, tro choi, show cung dien hai vuong · the gioi loc xoay · the gioi phieu luu · once 1.050.000d nguoi lon / 800.000d tre em-cao tuoi tu 01/10/2026"
     },
     {
@@ -2217,7 +2217,7 @@
         "culture",
         "agriculture"
       ],
-      "route": "/places/?q=pepper-garden",
+      "route": "/places/detail.html?id=pepper-garden",
       "search_text": "vuon tieu phu quoc culture agriculture culture agriculture culture agriculture lop nong nghiep cua dao voi tru tieu, mua thu hoach, phoi va phan loai hat. tham quan vuon · nghe cau chuyen canh tac · thu/doc san pham tuy vuon"
     }
   ]
