@@ -142,7 +142,8 @@ function stringField(key,val,path){
   let quick="";
   if((key==="source"||key==="url")&&/^https?:\/\//i.test(text.trim()))quick=`<a class="field-quick" href="${esc(text.trim())}" target="_blank" rel="noopener">Mở nguồn ↗</a>`;
   if(/phone/i.test(key)&&text.trim())quick=`<a class="field-quick" href="tel:${esc(text.replace(/[^+\d]/g,""))}">Gọi thử ↗</a>`;
-  return `<div class="field ${key==="image"?"image-field":""}"><label>${esc(labelize(key))}</label>${control}${media}${preview}${quick}</div>`;
+  const fieldLabel=key==="image"&&/^stories\.\d+\.image$/.test(path)?"Ảnh cover":key==="image"&&/\.sections\.\d+\.image$/.test(path)?"Ảnh trong bài":labelize(key);
+  return `<div class="field ${key==="image"?"image-field":""}"><label>${esc(fieldLabel)}</label>${control}${media}${preview}${quick}</div>`;
 }
 
 function primitiveField(key,val,path){
@@ -328,6 +329,15 @@ function storyReadMinutes(story){
   return Math.max(1,Math.ceil(storyWordCount(story)/220));
 }
 
+function storyLayoutField(val,path){
+  const value=val||"wide";
+  return `<div class="field"><label>Kiểu hiển thị ảnh</label><select data-path="${esc(path)}">
+    <option value="body" ${value==="body"?"selected":""}>Trong cột bài viết</option>
+    <option value="wide" ${value==="wide"?"selected":""}>Ảnh rộng</option>
+    <option value="full" ${value==="full"?"selected":""}>Ảnh lớn toàn khung</option>
+  </select></div>`;
+}
+
 function renderStoryWorkbench(story,i){
   const p="stories."+i;
   const sections=Array.isArray(story.sections)?story.sections:[];
@@ -346,6 +356,14 @@ function renderStoryWorkbench(story,i){
       <div class="story-card-head"><strong>Đoạn ${j+1}</strong>${itemTools(p+".sections",j,sections.length)}</div>
       ${primitiveField("heading",section.heading||"",sp+".heading")}
       ${primitiveField("body",section.body||"",sp+".body")}
+      <details class="section-media-tools" ${section.image?"open":""}>
+        <summary>Ảnh cho đoạn này <small>${section.image?"đã có ảnh":"không bắt buộc"}</small></summary>
+        <div class="section-media-body">
+          ${primitiveField("image",section.image||"",sp+".image")}
+          ${primitiveField("caption",section.caption||"",sp+".caption")}
+          ${storyLayoutField(section.layout||"wide",sp+".layout")}
+        </div>
+      </details>
     </article>`;
   }).join("");
 
@@ -639,7 +657,7 @@ function bindStoryControls(){
     const arr=currentData.stories;
     let story=arr.length?blankLike(arr[0]):{id:"",category:"",title:"",dek:"",read_minutes:4,image:"",intro:"",sections:[],sources:[]};
     story.read_minutes=story.read_minutes||4;
-    story.sections=[{heading:"",body:""}];
+    story.sections=[{heading:"",body:"",image:"",caption:"",layout:"wide"}];
     story.sources=[{label:"",url:""}];
     arr.push(story);
     markDirty("Đã tạo bài viết mới. Điền tiêu đề, nội dung và nguồn trước khi xuất bản.");
