@@ -10,3 +10,27 @@
 .mobile-nav a{border:0;background:transparent;display:flex;align-items:center;justify-content:center;gap:4px;text-decoration:none;color:inherit}
 @media(max-width:900px){.openpq-arrival{margin:12px 0 0}.openpq-arrival-rail{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.openpq-arrival-rail a{min-width:82%;scroll-snap-align:center}.brand-logo{width:154px!important;height:52px!important}}
 @media(max-width:680px){.brand-logo{width:120px!important;height:46px!important}.openpq-arrival{padding:18px 12px;border-radius:18px}.openpq-arrival-head h3{font-size:29px}.openpq-arrival-rail a{min-width:84%;min-height:270px}.mobile-nav a{flex-direction:column;font-size:9px}.mobile-nav a span{font-size:16px}}
+
+
+/* Open Phu Quoc logo is the canonical header asset.
+   Override legacy Airport Live crop/background rules completely. */
+.brand-home .brand-logo{
+  background:none!important;
+  background-image:none!important;
+  overflow:visible!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:flex-start!important;
+}
+.brand-home .brand-logo img{
+  visibility:visible!important;
+  opacity:1!important;
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  max-width:100%!important;
+  max-height:100%!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  position:static!important;
+}
