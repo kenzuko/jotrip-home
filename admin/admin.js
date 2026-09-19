@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);
-const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish"};
+const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media"};
 
 let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null;
 
@@ -134,12 +134,15 @@ function stringField(key,val,path){
     ?`<textarea data-path="${esc(path)}">${esc(text)}</textarea>`
     :`<input${inputAttrs(key)} data-path="${esc(path)}" value="${esc(text)}">`;
   const preview=key==="image"
-    ?`<div class="image-preview ${text.trim()?"":"empty"}" data-image-preview="${esc(path)}">${text.trim()?'<img src="'+esc(text.trim())+'" alt="Xem trước ảnh">':'<span>Dán URL ảnh để xem trước</span>'}</div>`
+    ?`<div class="image-preview ${text.trim()?"":"empty"}" data-image-preview="${esc(path)}">${text.trim()?'<img src="'+esc(text.trim())+'" alt="Xem trước ảnh">':'<span>Chưa có ảnh</span>'}</div>`
+    :"";
+  const media=key==="image"
+    ?`<div class="media-actions"><button type="button" class="media-upload" data-media-path="${esc(path)}">Chọn ảnh từ máy</button><span>CMS sẽ thu nhỏ và tối ưu ảnh trước khi tải lên.</span></div>`
     :"";
   let quick="";
   if((key==="source"||key==="url")&&/^https?:\/\//i.test(text.trim()))quick=`<a class="field-quick" href="${esc(text.trim())}" target="_blank" rel="noopener">Mở nguồn ↗</a>`;
   if(/phone/i.test(key)&&text.trim())quick=`<a class="field-quick" href="tel:${esc(text.replace(/[^+\d]/g,""))}">Gọi thử ↗</a>`;
-  return `<div class="field ${key==="image"?"image-field":""}"><label>${esc(labelize(key))}</label>${control}${preview}${quick}</div>`;
+  return `<div class="field ${key==="image"?"image-field":""}"><label>${esc(labelize(key))}</label>${control}${media}${preview}${quick}</div>`;
 }
 
 function primitiveField(key,val,path){
