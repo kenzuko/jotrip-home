@@ -362,8 +362,9 @@ function renderStoryWorkbench(story,i){
     ?`<button type="button" class="story-slug" data-story-slug="${i}">Tạo mã từ tiêu đề</button>`
     :"";
 
+  const previewPos={top:"50% 18%",bottom:"50% 82%",left:"18% 50%",right:"82% 50%",center:"50% 50%"}[story.cover_position]||"50% 50%";
   const cover=story.image
-    ?`<img data-story-preview-image="${i}" src="${esc(story.image)}" alt="">`
+    ?`<img data-story-preview-image="${i}" src="${esc(story.image)}" alt="" style="object-position:${previewPos}">`
     :`<div class="story-cover-empty" data-story-preview-image="${i}">Chưa có ảnh cover</div>`;
 
   const sectionHtml=sections.map((section,j)=>{
