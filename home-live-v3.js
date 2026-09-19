@@ -198,6 +198,13 @@
 
     const ferryState = marine?.categories?.ferry?.state;
     const fastState = marine?.categories?.fast_boat?.state;
+
+    setLive(
+      "ferry",
+      marine ? stateText(ferryState) : "Chưa có dữ liệu",
+      !marine ? "Nguồn vận hành chưa tải được" : "Phà · kiểm tra bằng chứng vận hành",
+      !marine ? "unknown" : ferryState === "DIRECT_CONFIRMED" ? "good" : ferryState === "FIELD_REQUIRED" ? "watch" : "unknown"
+    );
     if (!marine) {
       setHappening("marine", "Chưa tải được trạng thái vận hành biển", "Không dùng thiếu dữ liệu để kết luận đang chạy bình thường.", "CHƯA CÓ", false);
     } else {
@@ -227,6 +234,15 @@
       airportAvailable ? total + " chuyến trong bảng hôm nay" : "Đang thử lại nguồn sân bay",
       !airportAvailable ? "unknown" : delayed.length ? "watch" : "good"
     );
+
+    setLive(
+      "airport",
+      !airportAvailable ? "Chưa có dữ liệu" : delayed.length ? delayed.length + " cần xem" : "Bình thường",
+      airportAvailable ? total + " chuyến hôm nay" : "Đang thử lại nguồn sân bay",
+      !airportAvailable ? "unknown" : delayed.length ? "watch" : "good"
+    );
+
+    setLive("tonight", "Mở lịch", "Show · chợ đêm · gợi ý theo giờ", "info");
 
     renderTicker([
       ["THỜI TIẾT", critical ? weatherPrimary + " · " + (criticalAge > 90 ? "DỮ LIỆU CŨ" : weatherSource.toUpperCase()) : "CHƯA CÓ"],
