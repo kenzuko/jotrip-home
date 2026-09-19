@@ -36,6 +36,11 @@ const searchTypeLabel = {
   utility: 'TIỆN ÍCH',
   stay_area: 'LƯU TRÚ',
   itinerary: 'LỊCH TRÌNH',
+  practical: 'CẦN BIẾT',
+  culture: 'VĂN HÓA',
+  history: 'LỊCH SỬ',
+  hotel: 'KHÁCH SẠN',
+  access: 'ĐẾN ĐẢO',
   live: 'TRỰC TIẾP'
 };
 
