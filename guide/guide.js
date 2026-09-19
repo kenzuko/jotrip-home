@@ -1,120 +1,37 @@
-const $=s=>document.querySelector(s);
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const norm=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase();
+const state={corpus:null,index:null,stay:null,itineraries:null,practical:null,guide:null};
 
-function searchCorpus(corpus,query){
-  const q=norm(query).trim();
-  if(!q)return [];
-  const terms=q.split(/\s+/).filter(Boolean);
-  return (corpus.chunks||[]).map(ch=>{
-    const title=norm(ch.title),text=norm(ch.text);
-    let score=0;
-    if(title.includes(q))score+=20;
-    if(text.includes(q))score+=10;
-    terms.forEach(t=>{
-      if(title.includes(t))score+=4;
-      if(text.includes(t))score+=1;
-    });
-    return {ch,score};
-  }).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,8);
+function searchCorpus(corpus,query){const q=norm(query).trim();if(!q)return[];const terms=q.split(/\s+/).filter(Boolean);return(corpus.chunks||[]).map(ch=>{const title=norm(ch.title),text=norm(ch.text);let score=0;if(title.includes(q))score+=20;if(text.includes(q))score+=10;terms.forEach(t=>{if(title.includes(t))score+=4;if(text.includes(t))score+=1});return{ch,score}}).filter(x=>x.score>0).sort((a,b)=>b.score-a.score).slice(0,8)}
+function snippet(text,query){const raw=String(text||"").replace(/\s+/g," ").trim(),q=norm(query),n=norm(raw);let pos=n.indexOf(q);if(pos<0){const first=q.split(/\s+/).find(Boolean);pos=first?n.indexOf(first):-1}if(pos<0)pos=0;const start=Math.max(0,pos-90),end=Math.min(raw.length,pos+260);return(start>0?"…":"")+raw.slice(start,end)+(end<raw.length?"…":"")}
+function renderSearch(query){const box=$("#guideSearchResults"),results=searchCorpus(state.corpus,query);box.hidden=false;box.innerHTML='<div class="search-results-head"><div><span>KẾT QUẢ SỔ TAY</span><strong>'+esc(query)+'</strong></div><b>'+results.length+' kết quả gần nhất</b></div>'+(results.length?results.map(({ch})=>'<details class="handbook-result"><summary><strong>'+esc(ch.title)+'</strong><span>'+esc(snippet(ch.text,query))+'</span></summary><div>'+esc(ch.text).replace(/\n/g,"<br>")+'</div></details>').join(""):'<div class="search-empty">Chưa thấy mục phù hợp. Thử từ ngắn hơn.</div>');box.scrollIntoView({behavior:"smooth",block:"nearest"})}
+
+const INTENTS={
+ first:{title:"Lần đầu tới đảo: làm 3 việc trước.",steps:["Chọn một vùng làm trục cho mỗi ngày","Chọn khu ở theo nhịp chuyến đi, không theo tên resort trước","Để ngày biển vào ngày dự báo đẹp nhất"],links:[["Ba vùng","#zones"],["Chọn nơi ở","#stay"],["Xem thời tiết live","../weather/"]]},
+ family:{title:"Gia đình: đừng biến chuyến đi thành cuộc chạy điểm.",steps:["Nếu đi Bắc đảo, chọn Safari hoặc VinWonders làm trục chính","Ở gần Bắc đảo nếu phần lớn ngày dành cho Safari/VinWonders","Xe riêng hoặc taxi thường nhẹ hơn gọi từng chặng"],links:[["Điểm tham quan","../places/"],["Có mấy ngày?","#days"],["Xe buýt & shuttle","../bus/"]]},
+ beach:{title:"Đi biển: tình trạng trong ngày quan trọng hơn tên mùa.",steps:["Xem đúng bờ biển, gió và sóng","Tour An Thới cần xác nhận cano/đơn vị vận hành sáng hôm đi","Luôn giữ phương án B trong đảo nếu biển đổi nhanh"],links:[["Thời tiết & biển","../weather/"],["Cano & tour đảo","../cano/"],["Điểm biển","../places/"]]},
+ rain:{title:"Trời xấu không có nghĩa là mất ngày.",steps:["Đừng cố giữ tour biển chỉ vì đã lên lịch","Có thể chuyển sang nhà thùng, vườn tiêu, chợ, spa hoặc ăn uống","Dùng thời tiết live để tìm cửa sổ tốt hơn trong ngày"],links:[["Thời tiết live","../weather/"],["Ăn Phú Quốc","../food/"],["Tìm trong sổ tay","#search"]]},
+ stay:{title:"Chọn khu trước, rồi mới chọn khách sạn.",steps:["Dương Đông cân bằng cho khách lần đầu","Bãi Trường thuận sân bay, resort và hoàng hôn","Bắc đảo hợp gia đình dành nhiều thời gian cho cụm vui chơi; Nam đảo hợp Hòn Thơm/Sunset Town"],links:[["Xem các khu","#stay"],["Điểm tham quan","../places/"]]},
+ transport:{title:"Di chuyển: đọc bằng thời gian, không chỉ kilomet.",steps:["Sân bay → Dương Đông thường 15-25 phút","Bắc ↔ Nam có thể 70-100 phút","Chuyến bay, tàu/phà, bus là lớp live riêng"],links:[["Sân bay","../airport/"],["Tàu & phà","../ferry/"],["Bus & shuttle","../bus/"]]},
+ culture:{title:"Muốn hiểu đảo: đi qua nghề, làng và ký ức.",steps:["Nhà thùng còn vận hành thật đáng hơn điểm chỉ bán hàng","Vườn tiêu cho thấy phần đất và nông nghiệp của đảo","Dinh Cậu và Nhà tù cần được đọc bằng bối cảnh, không chỉ check-in"],links:[["Tìm nước mắm","#search"],["Tìm hồ tiêu","#search"],["Điểm tham quan","../places/"]]},
+ international:{title:"Khách quốc tế: kiểm tra giấy tờ trước khi mua vé khó hoàn.",steps:["Cơ chế miễn thị thực Phú Quốc có điều kiện riêng, không tự động áp dụng cho đi tiếp đất liền","Mang cả thẻ và một ít VND","Ở nơi tín ngưỡng/di tích nên ăn mặc và ứng xử phù hợp"],links:[["Tìm visa","#search"],["Khẩn cấp & tiện ích","../utilities/"]]}
+};
+function renderIntent(id){const x=INTENTS[id];if(!x)return;$$("[data-intent]").forEach(b=>b.classList.toggle("active",b.dataset.intent===id));$("#smartAnswer").innerHTML='<div><span>CÂU TRẢ LỜI NHANH</span><h3>'+esc(x.title)+'</h3><ol>'+x.steps.map(s=>'<li>'+esc(s)+'</li>').join("")+'</ol><div class="answer-links">'+x.links.map(([label,url])=>'<a href="'+esc(url)+'">'+esc(label)+' →</a>').join("")+'</div></div>'}
+function renderStatic(){
+ $("#zoneRail").innerHTML=state.guide.zones.map(z=>'<article class="zone-card"><img src="'+esc(z.image)+'" alt="'+esc(z.name)+'"><div><span>'+esc(z.tag)+'</span><h3>'+esc(z.name)+'</h3><p>'+esc(z.summary)+'</p><small>'+esc(z.best_for)+'</small></div></article>').join("");
+ $("#stayGrid").innerHTML=state.stay.areas.map(a=>'<article class="stay-card"><span>'+esc(a.vibe)+'</span><h3>'+esc(a.name)+'</h3><p><b>Hợp:</b> '+esc(a.best_for.join(" · "))+'</p><p><b>Điểm mạnh:</b> '+esc(a.pros.join(" · "))+'</p><small>'+esc(a.watch.join(" · "))+'</small></article>').join("");
+ $("#mealPlans").innerHTML=state.stay.meal_plans.map(x=>'<div><strong>'+esc(x.code)+'</strong><span>'+esc(x.meaning)+'</span></div>').join("");
+ $("#dayGrid").innerHTML=state.itineraries.duration_guides.map(x=>'<button type="button" data-days="'+x.days+'"><span>'+esc(x.label)+'</span><strong>'+esc(x.principle)+'</strong><small>'+esc(x.weather_rule||x.avoid||"")+'</small></button>').join("");
+ $("#routeIdeas").innerHTML='<div class="route-answer"><span>CHỌN SỐ NGÀY Ở TRÊN</span><strong>Cẩm nang sẽ đưa đúng nhịp đi.</strong></div>';
+ $$("[data-days]").forEach(b=>b.onclick=()=>{const days=Number(b.dataset.days),d=state.itineraries.duration_guides.find(x=>x.days===days),templates=state.itineraries.templates.filter(x=>x.title.startsWith(String(days)));$$("[data-days]").forEach(x=>x.classList.toggle("active",x===b));$("#routeIdeas").innerHTML='<div class="route-answer"><span>'+esc(d.label)+'</span><strong>'+esc(d.principle)+'</strong><p>'+esc(d.weather_rule||d.avoid||"")+'</p>'+(templates.length?'<div class="route-template">'+templates.map(t=>'<b>'+esc(t.title)+'</b><ol>'+t.days.map(day=>'<li>'+esc(Array.isArray(day)?day.join(" · "):day)+'</li>').join("")+'</ol>').join("")+'</div>':'')+'</div>'});
 }
-
-function snippet(text,query){
-  const raw=String(text||"").replace(/\s+/g," ").trim();
-  const q=norm(query);
-  const n=norm(raw);
-  let pos=n.indexOf(q);
-  if(pos<0){
-    const first=q.split(/\s+/).find(Boolean);
-    pos=first?n.indexOf(first):-1;
-  }
-  if(pos<0)pos=0;
-  const start=Math.max(0,pos-90),end=Math.min(raw.length,pos+260);
-  return (start>0?"…":"")+raw.slice(start,end)+(end<raw.length?"…":"");
-}
-
-function renderSearch(corpus,query){
-  const box=$("#guideSearchResults");
-  const results=searchCorpus(corpus,query);
-  box.hidden=false;
-  box.innerHTML=
-    '<div class="search-results-head"><div><span>KẾT QUẢ SỔ TAY</span><strong>'+esc(query)+'</strong></div><b>'+results.length+' kết quả gần nhất</b></div>'+
-    (results.length?results.map(({ch})=>
-      '<details class="handbook-result">'+
-        '<summary><strong>'+esc(ch.title)+'</strong><span>'+esc(snippet(ch.text,query))+'</span></summary>'+
-        '<div>'+esc(ch.text).replace(/\n/g,"<br>")+'</div>'+
-      '</details>'
-    ).join(""):'<div class="search-empty">Chưa thấy mục phù hợp. Thử từ ngắn hơn như “visa”, “Safari”, “Bãi Sao”, “câu cá”, “khách sạn”.</div>');
-  box.scrollIntoView({behavior:"smooth",block:"nearest"});
-}
-
 Promise.all([
-  fetch("data.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-  fetch("../data/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-  fetch("../data/handbook-r3-index.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-  fetch("../data/handbook-r3-corpus.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
-]).then(([d,u,index,corpus])=>{
-  $("#sourceMeta").textContent="Sổ tay "+d.version+" · nội dung nền đã nạp đầy đủ để tra cứu, dữ liệu động vẫn đối chiếu nguồn live.";
-  $("#handbookCoverage").textContent=(index.sections||[]).length+" nhóm nội dung · tìm trực tiếp trong toàn bộ sổ tay R3";
-
-  const featuredIds=["start","arrival","stay","mobility","international","north","south","sea","practical","safety","culture","history"];
-  const featured=(index.sections||[]).filter(x=>featuredIds.includes(x.id));
-  $("#knowledgeGrid").innerHTML=featured.map(x=>{
-    const q=(x.topics||[])[0]||x.label;
-    return '<button type="button" data-guide-query="'+esc(q)+'"><span>'+esc(x.slides||"")+'</span><strong>'+esc(x.label)+'</strong><small>'+esc((x.topics||[]).slice(0,3).join(" · "))+'</small></button>';
-  }).join("");
-
-  document.querySelectorAll("[data-guide-query]").forEach(btn=>btn.onclick=()=>{
-    const q=btn.dataset.guideQuery||"";
-    $("#guideQ").value=q;
-    renderSearch(corpus,q);
-  });
-
-  $("#guideSearch").onsubmit=e=>{
-    e.preventDefault();
-    const q=$("#guideQ").value.trim();
-    if(q)renderSearch(corpus,q);
-  };
-
-  $("#guideQ").addEventListener("input",()=>{
-    if(!$("#guideQ").value.trim())$("#guideSearchResults").hidden=true;
-  });
-
-  $("#zoneRail").innerHTML=d.zones.map(z=>
-    '<article class="zone-card reveal"><img src="'+esc(z.image)+'" alt="'+esc(z.name)+'"><div><span>'+esc(z.tag)+'</span><h3>'+esc(z.name)+'</h3><p>'+esc(z.summary)+'</p><small>'+esc(z.best_for)+'</small></div></article>'
-  ).join("");
-
-  const times=(u.travel_times||[]).filter(x=>!(x.from==="Bắc đảo"&&x.to==="Nam đảo"));
-  $("#distanceBars").innerHTML=times.map(x=>
-    '<article class="distance-route reveal"><div><span>'+esc(x.from)+'</span><b>→</b><span>'+esc(x.to)+'</span></div><strong>'+x.min+'-'+x.max+' phút</strong></article>'
-  ).join("");
-
-  $("#northRhythm").innerHTML=d.north_rhythm.map(x=>
-    '<article class="rhythm-card reveal"><span>'+esc(x.type)+'</span><strong>'+esc(x.name)+'</strong><p>'+esc(x.note)+'</p></article>'
-  ).join("");
-
-  $("#hotelTiers").innerHTML=d.hotels.tiers.map(x=>
-    '<article class="tier-card reveal"><strong>'+esc(x.name)+'</strong><p>'+esc(x.note)+'</p></article>'
-  ).join("");
-
-  $("#hotelAreas").innerHTML=d.hotels.areas.map(x=>
-    '<article class="hotel-area reveal"><span>'+esc(x.name)+'</span><strong>'+esc(x.hotels)+'</strong><p>'+esc(x.note)+'</p></article>'
-  ).join("");
-
-  $("#foodGrid").innerHTML=d.food.map(x=>
-    '<article class="food-card reveal"><span>'+esc(x.group)+'</span><strong>'+esc(x.items)+'</strong><p>'+esc(x.note)+'</p></article>'
-  ).join("");
-
-  $("#itineraryRail").innerHTML=d.itineraries.map(x=>
-    '<article class="itinerary-card reveal"><h3>'+esc(x.name)+'</h3><ol>'+x.days.map(day=>'<li>'+esc(day)+'</li>').join("")+'</ol><p>'+esc(x.note)+'</p></article>'
-  ).join("");
-
-  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{
-    if(e.isIntersecting){e.target.classList.add("in");obs.unobserve(e.target)}
-  }),{threshold:.08,rootMargin:"60px 0px -10px"});
-  document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
-}).catch(err=>{
-  console.warn("[Guide]",err);
-  $("#sourceMeta").textContent="Chưa tải được cẩm nang lúc này.";
-  $("#handbookCoverage").textContent="Dữ liệu tạm thời chưa sẵn sàng";
-});
+ fetch("data.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+ fetch("../data/handbook-r3-index.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+ fetch("../data/handbook-r3-corpus.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+ fetch("../data/stay.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+ fetch("../data/itineraries.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+ fetch("../data/practical-guide.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
+]).then(([guide,index,corpus,stay,itineraries,practical])=>{Object.assign(state,{guide,index,corpus,stay,itineraries,practical});$("#sourceMeta").textContent="Sổ tay "+guide.version+" · "+(corpus.chunk_count||0)+" khối nội dung đã nạp · dữ liệu động tách sang live." ;$("#handbookCoverage").textContent=(index.sections||[]).length+" nhóm · "+(corpus.chunk_count||0)+" khối văn bản";const featured=(index.sections||[]).slice(0,8);$("#knowledgeGrid").innerHTML=featured.map(x=>'<button type="button" data-guide-query="'+esc((x.topics||[])[0]||x.label)+'"><span>'+esc(x.slides||"")+'</span><strong>'+esc(x.label)+'</strong><small>'+esc((x.topics||[]).slice(0,3).join(" · "))+'</small></button>').join("");$$("[data-guide-query]").forEach(b=>b.onclick=()=>{$("#guideQ").value=b.dataset.guideQuery;renderSearch(b.dataset.guideQuery)});renderStatic();renderIntent("first")}).catch(e=>{$("#sourceMeta").textContent="Chưa tải được cẩm nang lúc này.";console.warn(e)});
+$$("[data-intent]").forEach(b=>b.onclick=()=>renderIntent(b.dataset.intent));$("#guideSearch").onsubmit=e=>{e.preventDefault();const q=$("#guideQ").value.trim();if(q)renderSearch(q)};$("#guideQ").oninput=()=>{if(!$("#guideQ").value.trim())$("#guideSearchResults").hidden=true};
