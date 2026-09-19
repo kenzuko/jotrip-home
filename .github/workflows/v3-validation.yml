@@ -29,3 +29,4 @@ jobs:
           node --check places/app.js
           node --check guide/guide.js
           node --check utilities/utilities.js
+          node --check explore/app.js
