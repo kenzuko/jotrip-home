@@ -1,0 +1,593 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "hotel_jw_marriott",
+      "entity_type": "hotel",
+      "slug": "jw-marriott",
+      "name": "JW Marriott",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_label": "Nam đảo",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Nam đảo.",
+      "why_go": "",
+      "best_for": [
+        "nghỉ dưỡng",
+        "honeymoon",
+        "lịch Nam đảo"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "nghi-duong",
+        "honeymoon",
+        "lich-nam-dao"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_new_world",
+      "entity_type": "hotel",
+      "slug": "new-world",
+      "name": "New World",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_label": "Nam đảo",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Nam đảo.",
+      "why_go": "",
+      "best_for": [
+        "nghỉ dưỡng",
+        "honeymoon",
+        "lịch Nam đảo"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "nghi-duong",
+        "honeymoon",
+        "lich-nam-dao"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_premier_residences",
+      "entity_type": "hotel",
+      "slug": "premier-residences",
+      "name": "Premier Residences",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_label": "Nam đảo",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Nam đảo.",
+      "why_go": "",
+      "best_for": [
+        "nghỉ dưỡng",
+        "honeymoon",
+        "lịch Nam đảo"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "nghi-duong",
+        "honeymoon",
+        "lich-nam-dao"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_premier_village",
+      "entity_type": "hotel",
+      "slug": "premier-village",
+      "name": "Premier Village",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_label": "Nam đảo",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Nam đảo.",
+      "why_go": "",
+      "best_for": [
+        "nghỉ dưỡng",
+        "honeymoon",
+        "lịch Nam đảo"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "nghi-duong",
+        "honeymoon",
+        "lich-nam-dao"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_la_festa",
+      "entity_type": "hotel",
+      "slug": "la-festa",
+      "name": "La Festa",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_label": "Nam đảo",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Nam đảo.",
+      "why_go": "",
+      "best_for": [
+        "nghỉ dưỡng",
+        "honeymoon",
+        "lịch Nam đảo"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "nghi-duong",
+        "honeymoon",
+        "lich-nam-dao"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_regent",
+      "entity_type": "hotel",
+      "slug": "regent",
+      "name": "Regent",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_label": "Bãi Trường",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bãi Trường.",
+      "why_go": "",
+      "best_for": [
+        "gia đình",
+        "luxury",
+        "hoàng hôn",
+        "gần sân bay"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "gia-dinh",
+        "luxury",
+        "hoang-hon",
+        "gan-san-bay"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_intercontinental",
+      "entity_type": "hotel",
+      "slug": "intercontinental",
+      "name": "InterContinental",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_label": "Bãi Trường",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bãi Trường.",
+      "why_go": "",
+      "best_for": [
+        "gia đình",
+        "luxury",
+        "hoàng hôn",
+        "gần sân bay"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "gia-dinh",
+        "luxury",
+        "hoang-hon",
+        "gan-san-bay"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_pullman",
+      "entity_type": "hotel",
+      "slug": "pullman",
+      "name": "Pullman",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_label": "Bãi Trường",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bãi Trường.",
+      "why_go": "",
+      "best_for": [
+        "gia đình",
+        "luxury",
+        "hoàng hôn",
+        "gần sân bay"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "gia-dinh",
+        "luxury",
+        "hoang-hon",
+        "gan-san-bay"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_novotel",
+      "entity_type": "hotel",
+      "slug": "novotel",
+      "name": "Novotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_label": "Bãi Trường",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bãi Trường.",
+      "why_go": "",
+      "best_for": [
+        "gia đình",
+        "luxury",
+        "hoàng hôn",
+        "gần sân bay"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "gia-dinh",
+        "luxury",
+        "hoang-hon",
+        "gan-san-bay"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_sol_by_melia",
+      "entity_type": "hotel",
+      "slug": "sol-by-melia",
+      "name": "Sol by Meliá",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_label": "Bãi Trường",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bãi Trường.",
+      "why_go": "",
+      "best_for": [
+        "gia đình",
+        "luxury",
+        "hoàng hôn",
+        "gần sân bay"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "gia-dinh",
+        "luxury",
+        "hoang-hon",
+        "gan-san-bay"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_sheraton",
+      "entity_type": "hotel",
+      "slug": "sheraton",
+      "name": "Sheraton",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_label": "Bắc & Tây Bắc",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bắc & Tây Bắc.",
+      "why_go": "",
+      "best_for": [
+        "United Center",
+        "yên tĩnh",
+        "nghỉ dài"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "united-center",
+        "yen-tinh",
+        "nghi-dai"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_melia_vinpearl",
+      "entity_type": "hotel",
+      "slug": "melia-vinpearl",
+      "name": "Meliá Vinpearl",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_label": "Bắc & Tây Bắc",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bắc & Tây Bắc.",
+      "why_go": "",
+      "best_for": [
+        "United Center",
+        "yên tĩnh",
+        "nghỉ dài"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "united-center",
+        "yen-tinh",
+        "nghi-dai"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_radisson_blu",
+      "entity_type": "hotel",
+      "slug": "radisson-blu",
+      "name": "Radisson Blu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_label": "Bắc & Tây Bắc",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bắc & Tây Bắc.",
+      "why_go": "",
+      "best_for": [
+        "United Center",
+        "yên tĩnh",
+        "nghỉ dài"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "united-center",
+        "yen-tinh",
+        "nghi-dai"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_ocean_bay",
+      "entity_type": "hotel",
+      "slug": "ocean-bay",
+      "name": "Ocean Bay",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_label": "Bắc & Tây Bắc",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bắc & Tây Bắc.",
+      "why_go": "",
+      "best_for": [
+        "United Center",
+        "yên tĩnh",
+        "nghỉ dài"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "united-center",
+        "yen-tinh",
+        "nghi-dai"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_camia",
+      "entity_type": "hotel",
+      "slug": "camia",
+      "name": "Camia",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_label": "Bắc & Tây Bắc",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bắc & Tây Bắc.",
+      "why_go": "",
+      "best_for": [
+        "United Center",
+        "yên tĩnh",
+        "nghỉ dài"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "united-center",
+        "yen-tinh",
+        "nghi-dai"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_green_bay",
+      "entity_type": "hotel",
+      "slug": "green-bay",
+      "name": "Green Bay",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_label": "Bắc & Tây Bắc",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bắc & Tây Bắc.",
+      "why_go": "",
+      "best_for": [
+        "United Center",
+        "yên tĩnh",
+        "nghỉ dài"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "united-center",
+        "yen-tinh",
+        "nghi-dai"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_movenpick",
+      "entity_type": "hotel",
+      "slug": "movenpick",
+      "name": "Mövenpick",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_label": "Bắc & Tây Bắc",
+      "what_it_is": "Khách sạn/resort được Sổ tay R3 liệt kê trong nhóm Bắc & Tây Bắc.",
+      "why_go": "",
+      "best_for": [
+        "United Center",
+        "yên tĩnh",
+        "nghỉ dài"
+      ],
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "intents": [
+        "stay",
+        "hotel",
+        "united-center",
+        "yen-tinh",
+        "nghi-dai"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-020"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}
