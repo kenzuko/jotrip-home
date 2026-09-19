@@ -1,7 +1,21 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "generated_at": "2026-09-19",
   "documents": [
+    {
+      "id": "hotel_tier_3_star",
+      "type": "hotel_tier",
+      "title": "3 sao",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "hotel",
+        "hotel-tier"
+      ],
+      "route": "/guide/?q=3%20sao#search",
+      "search_text": "3 sao stay hotel hotel-tier cac tieu chi nen so khi chon phan khuc 3 sao."
+    },
     {
       "id": "itinerary_family_3d2n",
       "type": "itinerary",
@@ -14,6 +28,20 @@
       ],
       "route": "/guide/?q=3N2%C4%90%20-%20Gia%20%C4%91%C3%ACnh%20c%C3%B3%20tr%E1%BA%BB#search",
       "search_text": "3n2d - gia dinh co tre family kids family kids ngay 1: duong dong · dinh cau · cho dem | ngay 2: bai sao · hon thom hoac trai nghiem bien | ngay 3: safari hoac vinwonders"
+    },
+    {
+      "id": "hotel_tier_4_star",
+      "type": "hotel_tier",
+      "title": "4 sao",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "hotel",
+        "hotel-tier"
+      ],
+      "route": "/guide/?q=4%20sao#search",
+      "search_text": "4 sao stay hotel hotel-tier cac tieu chi nen so khi chon phan khuc 4 sao."
     },
     {
       "id": "itinerary_honeymoon_4d3n",
@@ -29,6 +57,20 @@
       "search_text": "4n3d - honeymoon & nghi duong couple honeymoon couple honeymoon ngay 1: check-in · spa · hoang hon | ngay 2: hon thom · sunset town · 1 show | ngay 3: resort / trai nghiem rieng | ngay 4: khoang trong linh hoat"
     },
     {
+      "id": "hotel_tier_5_luxury",
+      "type": "hotel_tier",
+      "title": "5 sao / luxury",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "hotel",
+        "hotel-tier"
+      ],
+      "route": "/guide/?q=5%20sao%20%2F%20luxury#search",
+      "search_text": "5 sao / luxury stay hotel hotel-tier cac tieu chi nen so khi chon phan khuc 5 sao / luxury."
+    },
+    {
       "id": "itinerary_deeper_5d4n",
       "type": "itinerary",
       "title": "5N4Đ - Đi sâu hơn một lớp",
@@ -40,6 +82,24 @@
       ],
       "route": "/guide/?q=5N4%C4%90%20-%20%C4%90i%20s%C3%A2u%20h%C6%A1n%20m%E1%BB%99t%20l%E1%BB%9Bp#search",
       "search_text": "5n4d - di sau hon mot lop first-time culture first-time culture ngay 1: duong dong / bo tay | ngay 2: safari hoac vinwonders + grand world | ngay 3: bien an thoi hoac hon thom | ngay 4: dinh cau + nha thung + vuon tieu | ngay 5: nha tu + ho quoc + bai sao/khem hoac ngay trong"
+    },
+    {
+      "id": "meal_plan_ai",
+      "type": "meal_plan",
+      "title": "AI - All inclusive",
+      "aliases": [
+        "AI",
+        "All inclusive",
+        "meal plan AI"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=AI%20-%20All%20inclusive#search",
+      "search_text": "ai - all inclusive ai all inclusive meal plan ai stay meal-plan booking co the gom an uong va nhieu quyen loi; moi resort dinh nghia khac nhau"
     },
     {
       "id": "practical_safety",
@@ -86,7 +146,7 @@
         "family"
       ],
       "route": "/places/?q=aquatopia",
-      "search_text": "aquatopia water park waterpark family waterpark family waterpark family cong vien nuoc tren hon thom voi hon 20 tro va khu gia dinh. tro truot nuoc · khu gia dinh · nghi giua ngay"
+      "search_text": "aquatopia water park waterpark family waterpark family waterpark family cong vien nuoc tren hon thom voi hon 20 tro va khu gia dinh. tro truot nuoc · khu gia dinh · nghi giua ngay nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
     },
     {
       "id": "place_bai_khem",
@@ -99,7 +159,7 @@
         "resort"
       ],
       "route": "/places/?q=bai-khem",
-      "search_text": "bai khem beach resort beach resort beach resort vinh cat sang gan voi cac resort cao cap tam bien · nghi duong"
+      "search_text": "bai khem beach resort beach resort beach resort vinh cat sang gan voi cac resort cao cap tam bien · nghi duong quyen tiep can va tien ich tuy loi vao/resort"
     },
     {
       "id": "stay_area_bai_khem",
@@ -125,7 +185,7 @@
         "family"
       ],
       "route": "/places/?q=bai-sao",
-      "search_text": "bai sao beach family beach family beach family bai tam de tiep can o nam dao tam bien · an uong · nghi bai"
+      "search_text": "bai sao beach family beach family beach family bai tam de tiep can o nam dao tam bien · an uong · nghi bai khong co ve chung; dich vu tinh rieng"
     },
     {
       "id": "place_bai_truong",
@@ -138,7 +198,7 @@
         "sunset"
       ],
       "route": "/places/?q=bai-truong",
-      "search_text": "bai truong beach sunset beach sunset beach sunset dai bo tay dai, thuan nghi duong va ngam hoang hon tam bien · beach club · ngam hoang hon"
+      "search_text": "bai truong beach sunset beach sunset beach sunset dai bo tay dai, thuan nghi duong va ngam hoang hon tam bien · beach club · ngam hoang hon khong co ve chung; chi phi tuy co so"
     },
     {
       "id": "stay_area_bai_truong",
@@ -184,6 +244,24 @@
       "search_text": "bac dao cho gia dinh itinerary safari hoac vinwonders · grand world neu con suc mot diem lon lam truc."
     },
     {
+      "id": "meal_plan_bb",
+      "type": "meal_plan",
+      "title": "BB - Breakfast",
+      "aliases": [
+        "BB",
+        "Breakfast",
+        "meal plan BB"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=BB%20-%20Breakfast#search",
+      "search_text": "bb - breakfast bb breakfast meal plan bb stay meal-plan booking phong + bua sang"
+    },
+    {
       "id": "itinerary_an_thoi_sea",
       "type": "itinerary",
       "title": "Biển An Thới theo điều kiện thật",
@@ -220,6 +298,42 @@
       ],
       "route": "/food/article.html?id=bun-quay",
       "search_text": "bun quay food local-life food mon an nong, dac trung o cach tu pha chen nuoc cham theo khau vi. an khi con nong, tu pha chen cham truoc roi dieu chinh."
+    },
+    {
+      "id": "meal_plan_bx",
+      "type": "meal_plan",
+      "title": "BX - BX",
+      "aliases": [
+        "BX",
+        "BX",
+        "meal plan BX"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=BX%20-%20BX#search",
+      "search_text": "bx - bx bx bx meal plan bx stay meal-plan booking bua sang + ve vui choi, pho bien o nhom vinpearl"
+    },
+    {
+      "id": "meal_plan_bx2",
+      "type": "meal_plan",
+      "title": "BX2 - BX2",
+      "aliases": [
+        "BX2",
+        "BX2",
+        "meal plan BX2"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=BX2%20-%20BX2#search",
+      "search_text": "bx2 - bx2 bx2 bx2 meal plan bx2 stay meal-plan booking nhu bx, thuong ap dung toi thieu 2 dem"
     },
     {
       "id": "practical_price_rules",
@@ -276,7 +390,7 @@
         "family"
       ],
       "route": "/places/?q=hon-thom",
-      "search_text": "cap treo hon thom cable-car family cable-car family cable-car family tuyen cap 3 day vuot bien qua quan dao an thoi cap treo · aquatopia · exotica · bai bien"
+      "search_text": "cap treo hon thom cable-car family cable-car family cable-car family tuyen cap 3 day vuot bien qua quan dao an thoi cap treo · aquatopia · exotica · bai bien khoang 700-850k tuy do tuoi; kiem tra lai dung ngay"
     },
     {
       "id": "history_cable_car_2018",
@@ -290,6 +404,24 @@
       ],
       "route": "/guide/?q=C%C3%A1p%20treo%20H%C3%B2n%20Th%C6%A1m%20khai%20tr%C6%B0%C6%A1ng#search",
       "search_text": "cap treo hon thom khai truong history development 2018"
+    },
+    {
+      "id": "stay_match_couple",
+      "type": "stay_guide",
+      "title": "Cặp đôi / honeymoon - chọn khu ở",
+      "aliases": [
+        "honeymoon",
+        "couple",
+        "cặp đôi"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "couple",
+        "honeymoon"
+      ],
+      "route": "/guide/?q=C%E1%BA%B7p%20%C4%91%C3%B4i%20%2F%20honeymoon%20-%20ch%E1%BB%8Dn%20khu%20%E1%BB%9F#search",
+      "search_text": "cap doi / honeymoon - chon khu o honeymoon couple cap doi stay couple honeymoon couple honeymoon bai truong, ong lang va bai khem la ba lua chon noi bat cho cap doi, tuy uu tien hoang hon, yen tinh hay resort cao cap."
     },
     {
       "id": "utility_vinmec_er",
@@ -322,7 +454,7 @@
         "marine"
       ],
       "route": "/places/?q=big-game-fishing",
-      "search_text": "cau ca lon an thoi fishing marine fishing marine fishing marine chuyen cau chuyen biet o ngu truong an thoi/hon dam trong voi thiet bi, may do va tai cong. cau day · jig · cau ca lon bang moi phu hop"
+      "search_text": "cau ca lon an thoi fishing marine fishing marine fishing marine chuyen cau chuyen biet o ngu truong an thoi/hon dam trong voi thiet bi, may do va tai cong. cau day · jig · cau ca lon bang moi phu hop theo tau, so khach, thiet bi va cau hinh"
     },
     {
       "id": "place_kiss_bridge",
@@ -340,7 +472,7 @@
         "evening"
       ],
       "route": "/places/?q=kiss-bridge",
-      "search_text": "cau hon kiss bridge cau hon architecture sunset evening couple sunset architecture evening couple sunset first-time diem tham quan tai sunset town, ban ve rieng va phu hop nhat khi ghep voi cuoi chieu - buoi toi. ngam canh, kien truc va hoang hon truoc khi noi sang bua toi hoac show."
+      "search_text": "cau hon kiss bridge cau hon architecture sunset evening couple sunset architecture evening couple sunset first-time diem tham quan tai sunset town, ban ve rieng va phu hop nhat khi ghep voi cuoi chieu - buoi toi. ngam canh, kien truc va hoang hon truoc khi noi sang bua toi hoac show. gia dong - kiem tra kenh chinh thuc trong ngay"
     },
     {
       "id": "activity_squid_fishing",
@@ -353,7 +485,7 @@
         "evening"
       ],
       "route": "/places/?q=squid-fishing",
-      "search_text": "cau muc dem fishing evening fishing evening fishing evening ra bien cuoi chieu/buoi toi, bat den va thu cau muc theo dieu kien thuc te. ngam hoang hon · cau muc · an toi tuy tour"
+      "search_text": "cau muc dem fishing evening fishing evening fishing evening ra bien cuoi chieu/buoi toi, bat den va thu cau muc theo dieu kien thuc te. ngam hoang hon · cau muc · an toi tuy tour theo tour/don vi van hanh"
     },
     {
       "id": "place_night_market",
@@ -366,7 +498,7 @@
         "evening"
       ],
       "route": "/places/?q=night-market",
-      "search_text": "cho dem duong dong food evening food evening food evening khu an uong va mua sam buoi toi an toi · di bo · thu mon"
+      "search_text": "cho dem duong dong food evening food evening food evening khu an uong va mua sam buoi toi an toi · di bo · thu mon theo quan/mon"
     },
     {
       "id": "place_ho_quoc",
@@ -379,7 +511,7 @@
         "viewpoint"
       ],
       "route": "/places/?q=ho-quoc",
-      "search_text": "chua ho quoc culture viewpoint culture viewpoint culture viewpoint diem van hoa - tam linh va goc nhin bien phia dong nam tham quan · ngam canh"
+      "search_text": "chua ho quoc culture viewpoint culture viewpoint culture viewpoint diem van hoa - tam linh va goc nhin bien phia dong nam tham quan · ngam canh khong co ve chung"
     },
     {
       "id": "food_coi_bien_mai",
@@ -425,7 +557,7 @@
         "local-life"
       ],
       "route": "/places/?q=cua-can",
-      "search_text": "cua can river local-life river local-life river local-life nhip song, nha ven bo, kayak/thuyen thung kayak · thuyen thung · an dia phuong"
+      "search_text": "cua can river local-life river local-life river local-life nhip song, nha ven bo, kayak/thuyen thung kayak · thuyen thung · an dia phuong tuy dich vu dia phuong"
     },
     {
       "id": "stay_area_cua_can",
@@ -460,7 +592,7 @@
         "sunset"
       ],
       "route": "/places/?q=dinh-cau",
-      "search_text": "dinh cau culture sunset culture sunset culture sunset khong gian tin nguong cua cu dan bien o cua song duong dong tham quan · ngam cua song · ngam chieu"
+      "search_text": "dinh cau culture sunset culture sunset culture sunset khong gian tin nguong cua cu dan bien o cua song duong dong tham quan · ngam cua song · ngam chieu mien phi"
     },
     {
       "id": "culture_dinh_cau_belief",
@@ -486,6 +618,37 @@
       ],
       "route": "/guide/?q=D%C6%B0%C6%A1ng%20%C4%90%C3%B4ng#search",
       "search_text": "duong dong khach lan dau khach lan dau trung tam, nhon nhip an uong · cho dem · de goi xe"
+    },
+    {
+      "id": "booking_channel_dmc",
+      "type": "booking_channel",
+      "title": "Đại lý / DMC",
+      "aliases": [
+        "travel agent",
+        "DMC"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "booking"
+      ],
+      "route": "/guide/?q=%C4%90%E1%BA%A1i%20l%C3%BD%20%2F%20DMC#search",
+      "search_text": "dai ly / dmc travel agent dmc stay booking hop khi ghep tron hanh trinh hoac dat nhieu phong."
+    },
+    {
+      "id": "booking_channel_direct",
+      "type": "booking_channel",
+      "title": "Đặt trực tiếp với khách sạn",
+      "aliases": [
+        "direct booking"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "booking"
+      ],
+      "route": "/guide/?q=%C4%90%E1%BA%B7t%20tr%E1%BB%B1c%20ti%E1%BA%BFp%20v%E1%BB%9Bi%20kh%C3%A1ch%20s%E1%BA%A1n#search",
+      "search_text": "dat truc tiep voi khach san direct booking stay booking hop khi can tich diem, xac nhan phong, yeu cau dac biet hoac combo resort."
     },
     {
       "id": "access_air",
@@ -601,7 +764,61 @@
         "theme-park"
       ],
       "route": "/places/?q=exotica",
-      "search_text": "exotica village thrill theme-park thrill theme-park thrill theme-park cum tro kho/cam giac manh tren hon thom. moc xa thinh no · mat dai bang"
+      "search_text": "exotica village thrill theme-park thrill theme-park thrill theme-park cum tro kho/cam giac manh tren hon thom. moc xa thinh no · mat dai bang nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
+    },
+    {
+      "id": "meal_plan_fb",
+      "type": "meal_plan",
+      "title": "FB - Full board",
+      "aliases": [
+        "FB",
+        "Full board",
+        "meal plan FB"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=FB%20-%20Full%20board#search",
+      "search_text": "fb - full board fb full board meal plan fb stay meal-plan booking thuong sang + trua + toi; do uong/quyen loi can doc ky"
+    },
+    {
+      "id": "meal_plan_fx",
+      "type": "meal_plan",
+      "title": "FX - FX",
+      "aliases": [
+        "FX",
+        "FX",
+        "meal plan FX"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=FX%20-%20FX#search",
+      "search_text": "fx - fx fx fx meal plan fx stay meal-plan booking ba bua + ve vui choi, pho bien o nhom vinpearl"
+    },
+    {
+      "id": "meal_plan_fx2",
+      "type": "meal_plan",
+      "title": "FX2 - FX2",
+      "aliases": [
+        "FX2",
+        "FX2",
+        "meal plan FX2"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=FX2%20-%20FX2#search",
+      "search_text": "fx2 - fx2 fx2 fx2 meal plan fx2 stay meal-plan booking nhu fx, thuong ap dung toi thieu 2 dem"
     },
     {
       "id": "stay_area_ganh_dau",
@@ -614,6 +831,203 @@
       ],
       "route": "/guide/?q=G%C3%A0nh%20D%E1%BA%A7u#search",
       "search_text": "ganh dau gia dinh di safari/vinwonders gia dinh di safari/vinwonders to hop nghi va choi gan cum bac dao"
+    },
+    {
+      "id": "stay_match_family",
+      "type": "stay_guide",
+      "title": "Gia đình - chọn khu ở",
+      "aliases": [
+        "gia đình có trẻ",
+        "ở đâu gần Safari"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "family",
+        "kids"
+      ],
+      "route": "/guide/?q=Gia%20%C4%91%C3%ACnh%20-%20ch%E1%BB%8Dn%20khu%20%E1%BB%9F#search",
+      "search_text": "gia dinh - chon khu o gia dinh co tre o dau gan safari stay family kids family kids gia dinh nen chon khu theo diem lon cua chuyen di; ganh dau tien neu lich co safari/vinwonders, bai truong va bai khem co nhieu resort gia dinh."
+    },
+    {
+      "id": "price_hon_thom_buffet",
+      "type": "price_reference",
+      "title": "Giá tham khảo cáp Hòn Thơm + buffet",
+      "aliases": [
+        "giá Cáp treo Hòn Thơm",
+        "Cáp treo Hòn Thơm price",
+        "Combo cáp + buffet"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao cap hon thom + buffet gia cap treo hon thom cap treo hon thom price combo cap + buffet price ticket booking combo cap + buffet 1.150.000d · 900.000d"
+    },
+    {
+      "id": "price_hon_thom_day",
+      "type": "price_reference",
+      "title": "Giá tham khảo cáp treo Hòn Thơm - vé ngày",
+      "aliases": [
+        "giá Cáp treo Hòn Thơm",
+        "Cáp treo Hòn Thơm price",
+        "Vé ngày"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao cap treo hon thom - ve ngay gia cap treo hon thom cap treo hon thom price ve ngay price ticket booking ve ngay 850.000d · 700.000d tre em"
+    },
+    {
+      "id": "price_kiss_bridge_show",
+      "type": "price_reference",
+      "title": "Giá tham khảo Kiss of the Sea & Cầu Hôn",
+      "aliases": [
+        "giá Sunset Town",
+        "Sunset Town price",
+        "Kiss of the Sea & Cầu Hôn"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao kiss of the sea & cau hon gia sunset town sunset town price kiss of the sea & cau hon price ticket booking kiss of the sea & cau hon 200.000d · 150.000d tre em"
+    },
+    {
+      "id": "price_sun_bavaria_dinner_show",
+      "type": "price_reference",
+      "title": "Giá tham khảo Sun Bavaria Dinner Show",
+      "aliases": [
+        "giá Sun Bavaria Gastropub",
+        "Sun Bavaria Gastropub price",
+        "Dinner Show"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao sun bavaria dinner show gia sun bavaria gastropub sun bavaria gastropub price dinner show price ticket booking dinner show 1.000.000d"
+    },
+    {
+      "id": "price_symphony",
+      "type": "price_reference",
+      "title": "Giá tham khảo Symphony of the Sea",
+      "aliases": [
+        "giá Sunset Town",
+        "Sunset Town price",
+        "Symphony of the Sea · mốc 19:30"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao symphony of the sea gia sunset town sunset town price symphony of the sea · moc 19:30 price ticket booking symphony of the sea · moc 19:30 640.000d / nguoi"
+    },
+    {
+      "id": "price_grand_world_tinh_hoa",
+      "type": "price_reference",
+      "title": "Giá tham khảo Tinh Hoa Việt Nam",
+      "aliases": [
+        "giá Grand World",
+        "Grand World price",
+        "Tinh Hoa Việt Nam · mốc 20:15"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao tinh hoa viet nam gia grand world grand world price tinh hoa viet nam · moc 20:15 price ticket booking tinh hoa viet nam · moc 20:15 300.000d · 230.000d tre em/cao tuoi"
+    },
+    {
+      "id": "price_vinpearl_safari_day",
+      "type": "price_reference",
+      "title": "Giá tham khảo Vinpearl Safari - vé ngày",
+      "aliases": [
+        "giá Vinpearl Safari",
+        "Vinpearl Safari price",
+        "Vé ngày · mốc từ 01/10/2026"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao vinpearl safari - ve ngay gia vinpearl safari vinpearl safari price ve ngay · moc tu 01/10/2026 price ticket booking ve ngay · moc tu 01/10/2026 950.000d · 710.000d tre em/cao tuoi"
+    },
+    {
+      "id": "price_vinwonders_day",
+      "type": "price_reference",
+      "title": "Giá tham khảo VinWonders - vé ngày",
+      "aliases": [
+        "giá VinWonders",
+        "VinWonders price",
+        "Vé ngày · mốc từ 01/10/2026"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao vinwonders - ve ngay gia vinwonders vinwonders price ve ngay · moc tu 01/10/2026 price ticket booking ve ngay · moc tu 01/10/2026 1.050.000d · 800.000d tre em/cao tuoi"
+    },
+    {
+      "id": "price_vin_combo_1d",
+      "type": "price_reference",
+      "title": "Giá tham khảo VinWonders + Safari - combo 1 ngày",
+      "aliases": [
+        "giá VinWonders + Safari",
+        "VinWonders + Safari price",
+        "Combo 1 ngày"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao vinwonders + safari - combo 1 ngay gia vinwonders + safari vinwonders + safari price combo 1 ngay price ticket booking combo 1 ngay 1.500.000d · 1.100.000d"
+    },
+    {
+      "id": "price_vin_combo_2d",
+      "type": "price_reference",
+      "title": "Giá tham khảo VinWonders + Safari - combo 2 ngày",
+      "aliases": [
+        "giá VinWonders + Safari",
+        "VinWonders + Safari price",
+        "Combo 2 ngày"
+      ],
+      "zone_id": null,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "route": "/utilities/#prices",
+      "search_text": "gia tham khao vinwonders + safari - combo 2 ngay gia vinwonders + safari vinwonders + safari price combo 2 ngay price ticket booking combo 2 ngay 1.700.000d · 1.300.000d"
     },
     {
       "id": "food_goi_ca_trich",
@@ -639,7 +1053,7 @@
         "entertainment"
       ],
       "route": "/places/?q=grand-world",
-      "search_text": "grand world phu quoc evening entertainment evening entertainment evening entertainment khu pho mo, kenh venice, bao tang, show dao pho · gondola · teddy bear museum · tinh hoa viet nam · sac mau venice"
+      "search_text": "grand world phu quoc evening entertainment evening entertainment evening entertainment khu pho mo, kenh venice, bao tang, show dao pho · gondola · teddy bear museum · tinh hoa viet nam · sac mau venice vao khu pho mien phi; trai nghiem/show ban rieng"
     },
     {
       "id": "hotel_green_bay",
@@ -666,6 +1080,24 @@
       "intents": [],
       "route": "/utilities/#directory",
       "search_text": "hanh ly that lac pqc lost & found tai ga den 0963 975 644"
+    },
+    {
+      "id": "meal_plan_hb",
+      "type": "meal_plan",
+      "title": "HB - Half board",
+      "aliases": [
+        "HB",
+        "Half board",
+        "meal plan HB"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=HB%20-%20Half%20board#search",
+      "search_text": "hb - half board hb half board meal plan hb stay meal-plan booking thuong sang + mot bua chinh; cau hinh tuy resort"
     },
     {
       "id": "history_grid_2014",
@@ -727,6 +1159,22 @@
       "search_text": "jw marriott stay hotel nghi-duong honeymoon lich-nam-dao nghi duong honeymoon lich nam dao khach san/resort duoc so tay r3 liet ke trong nhom nam dao. nam dao"
     },
     {
+      "id": "stay_match_first_time",
+      "type": "stay_guide",
+      "title": "Khách lần đầu - chọn khu ở",
+      "aliases": [
+        "lần đầu Phú Quốc",
+        "ở đâu lần đầu"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "first-time"
+      ],
+      "route": "/guide/?q=Kh%C3%A1ch%20l%E1%BA%A7n%20%C4%91%E1%BA%A7u%20-%20ch%E1%BB%8Dn%20khu%20%E1%BB%9F#search",
+      "search_text": "khach lan dau - chon khu o lan dau phu quoc o dau lan dau stay first-time first-time duong dong la lua chon can bang cho khach lan dau vi gan an uong, cho dem va de goi xe."
+    },
+    {
       "id": "utility_112",
       "type": "utility",
       "title": "Khẩn cấp quốc gia",
@@ -752,7 +1200,7 @@
         "fireworks"
       ],
       "route": "/places/?q=kiss-of-the-sea",
-      "search_text": "kiss of the sea kiss of the sea show show phao hoa sunset town show evening multimedia show evening sunset-town fireworks couple family evening show da phuong tien lon kem phao hoa tai sunset town, tach rieng voi symphony of the sea. la mot moc buoi toi de dung lich nguoc cho sunset town."
+      "search_text": "kiss of the sea kiss of the sea show show phao hoa sunset town show evening multimedia show evening sunset-town fireworks couple family evening show da phuong tien lon kem phao hoa tai sunset town, tach rieng voi symphony of the sea. la mot moc buoi toi de dung lich nguoc cho sunset town. theo hang cho/combo - kiem tra kenh chinh thuc"
     },
     {
       "id": "hotel_la_festa",
@@ -781,7 +1229,7 @@
         "diving"
       ],
       "route": "/places/?q=scuba",
-      "search_text": "lan binh khi (scuba) marine diving marine diving marine diving lan sau hon snorkeling voi thiet bi, huong dan va quy trinh an toan rieng. discover scuba · diving theo chung chi/dieu kien"
+      "search_text": "lan binh khi (scuba) marine diving marine diving marine diving lan sau hon snorkeling voi thiet bi, huong dan va quy trinh an toan rieng. discover scuba · diving theo chung chi/dieu kien theo don vi lan va cau hinh"
     },
     {
       "id": "hotel_melia_vinpearl",
@@ -886,7 +1334,7 @@
         "craft"
       ],
       "route": "/places/?q=fish-sauce-house",
-      "search_text": "nha thung nuoc mam culture craft culture craft culture craft noi co the nhin nghe u chuop nuoc mam bang thung go va nghe cau chuyen nghe dao. xem nha thung · nghe quy trinh u chuop · doc do dam/san pham"
+      "search_text": "nha thung nuoc mam culture craft culture craft culture craft noi co the nhin nghe u chuop nuoc mam bang thung go va nghe cau chuyen nghe dao. xem nha thung · nghe quy trinh u chuop · doc do dam/san pham thuong khong co ve chung; tuy co so"
     },
     {
       "id": "place_phu_quoc_prison",
@@ -899,7 +1347,7 @@
         "culture"
       ],
       "route": "/places/?q=phu-quoc-prison",
-      "search_text": "nha tu phu quoc history culture history culture history culture di tich lich su gan voi ky uc chien tranh tham quan · doc tu lieu"
+      "search_text": "nha tu phu quoc history culture history culture history culture di tich lich su gan voi ky uc chien tranh tham quan · doc tu lieu can kiem tra van hanh"
     },
     {
       "id": "culture_prison",
@@ -972,6 +1420,24 @@
       ],
       "route": "/guide/?q=Ocean%20Bay#search",
       "search_text": "ocean bay stay hotel united-center yen-tinh nghi-dai united center yen tinh nghi dai khach san/resort duoc so tay r3 liet ke trong nhom bac & tay bac. bac & tay bac"
+    },
+    {
+      "id": "booking_channel_ota",
+      "type": "booking_channel",
+      "title": "OTA",
+      "aliases": [
+        "Booking",
+        "Agoda",
+        "Trip.com",
+        "Traveloka"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "booking"
+      ],
+      "route": "/guide/?q=OTA#search",
+      "search_text": "ota booking agoda trip.com traveloka stay booking hop khi can so gia nhanh, dat sat ngay hoac muon dieu kien huy linh hoat."
     },
     {
       "id": "stay_area_ong_lang",
@@ -1104,7 +1570,7 @@
         "nature"
       ],
       "route": "/places/?q=rach-vem",
-      "search_text": "rach vem village nature village nature village nature lang chai, nha be, vung nuoc nong phia bac nhin nhip lang chai · nha be · bai nuoc nong"
+      "search_text": "rach vem village nature village nature village nature lang chai, nha be, vung nuoc nong phia bac nhin nhip lang chai · nha be · bai nuoc nong khong co ve chung"
     },
     {
       "id": "hotel_radisson_blu",
@@ -1194,7 +1660,7 @@
         "underwater"
       ],
       "route": "/places/?q=seawalker",
-      "search_text": "seawalker marine underwater marine underwater marine underwater di bo duoi nuoc voi mu cap khi, nam giua snorkeling va scuba ve trai nghiem. di bo duoi nuoc · quan sat duoi mat bien"
+      "search_text": "seawalker marine underwater marine underwater marine underwater di bo duoi nuoc voi mu cap khi, nam giua snorkeling va scuba ve trai nghiem. di bo duoi nuoc · quan sat duoi mat bien theo don vi van hanh"
     },
     {
       "id": "hotel_sheraton",
@@ -1223,7 +1689,7 @@
         "snorkeling"
       ],
       "route": "/places/?q=snorkeling-an-thoi",
-      "search_text": "snorkeling an thoi marine snorkeling marine snorkeling marine snorkeling boi mat nuoc voi kinh/mat na o cum dao an thoi. snorkeling · boi · quan sat san ho"
+      "search_text": "snorkeling an thoi marine snorkeling marine snorkeling marine snorkeling boi mat nuoc voi kinh/mat na o cum dao an thoi. snorkeling · boi · quan sat san ho phu thuoc cau hinh tour"
     },
     {
       "id": "hotel_sol_by_melia",
@@ -1264,7 +1730,7 @@
         "show"
       ],
       "route": "/places/?q=sunset-town",
-      "search_text": "sunset town evening architecture show evening architecture show evening architecture show khu pho mo, hoang hon, cau hon va chuoi show dao pho · cau hon · symphony of the sea · kiss of the sea · an toi"
+      "search_text": "sunset town evening architecture show evening architecture show evening architecture show khu pho mo, hoang hon, cau hon va chuoi show dao pho · cau hon · symphony of the sea · kiss of the sea · an toi khu pho mien phi; cau/show ban rieng"
     },
     {
       "id": "place_other_streams",
@@ -1277,7 +1743,7 @@
         "stream"
       ],
       "route": "/places/?q=other-streams",
-      "search_text": "suoi da ban · da ngon · suoi tien nature stream nature stream nature stream nhom suoi/rung thay doi manh theo mua va luong mua. di rung nhe · suoi · quan sat thien nhien"
+      "search_text": "suoi da ban · da ngon · suoi tien nature stream nature stream nature stream nhom suoi/rung thay doi manh theo mua va luong mua. di rung nhe · suoi · quan sat thien nhien tuy diem/duong vao"
     },
     {
       "id": "place_suoi_tranh",
@@ -1290,7 +1756,7 @@
         "stream"
       ],
       "route": "/places/?q=suoi-tranh",
-      "search_text": "suoi tranh nature stream nature stream nature stream mot trong cac diem suoi quen thuoc nhat phu quoc, dep hon khi co nuoc. di bo nhe · rung/suoi · nghi thien nhien"
+      "search_text": "suoi tranh nature stream nature stream nature stream mot trong cac diem suoi quen thuoc nhat phu quoc, dep hon khi co nuoc. di bo nhe · rung/suoi · nghi thien nhien can kiem tra van hanh/gia hien hanh"
     },
     {
       "id": "utility_superdong",
@@ -1317,7 +1783,7 @@
         "sunset-town"
       ],
       "route": "/places/?q=symphony-of-the-sea",
-      "search_text": "symphony of the sea symphony show 19:30 sunset town show evening outdoor show evening sunset-town couple family evening show jetski, flyboard, anh sang va hieu ung tren mat nuoc tai sunset town. phu hop ghep sau hoang hon va truoc kiss of the sea trong mot buoi toi nam dao."
+      "search_text": "symphony of the sea symphony show 19:30 sunset town show evening outdoor show evening sunset-town couple family evening show jetski, flyboard, anh sang va hieu ung tren mat nuoc tai sunset town. phu hop ghep sau hoang hon va truoc kiss of the sea trong mot buoi toi nam dao. gia dong - kiem tra kenh chinh thuc"
     },
     {
       "id": "live_transport",
@@ -1404,7 +1870,25 @@
         "snorkeling"
       ],
       "route": "/places/?q=tour-3-islands",
-      "search_text": "tour 3 dao an thoi marine snorkeling marine snorkeling marine snorkeling cano/tau ra cum dao an thoi, 2-3 hon tuy bien tam dao · snorkeling · an trua · check-in"
+      "search_text": "tour 3 dao an thoi marine snorkeling marine snorkeling marine snorkeling cano/tau ra cum dao an thoi, 2-3 hon tuy bien tam dao · snorkeling · an trua · check-in theo cau hinh tour, khong dung gia cu lam chuan"
+    },
+    {
+      "id": "stay_match_slow_local",
+      "type": "stay_guide",
+      "title": "Trải nghiệm nhẹ & sông nước - chọn khu ở",
+      "aliases": [
+        "Cửa Cạn",
+        "sông nước",
+        "slow travel"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "local-life",
+        "slow-travel"
+      ],
+      "route": "/guide/?q=Tr%E1%BA%A3i%20nghi%E1%BB%87m%20nh%E1%BA%B9%20%26%20s%C3%B4ng%20n%C6%B0%E1%BB%9Bc%20-%20ch%E1%BB%8Dn%20khu%20%E1%BB%9F#search",
+      "search_text": "trai nghiem nhe & song nuoc - chon khu o cua can song nuoc slow travel stay local-life slow-travel slow-travel local-life cua can hop nguoi muon nhip cham, ven song va khong khi dia phuong hon."
     },
     {
       "id": "zone_central_west",
@@ -1454,6 +1938,38 @@
       ],
       "route": "/guide/?q=T%E1%BB%AB%20s%C3%A2n%20bay%20v%E1%BB%81%20kh%C3%A1ch%20s%E1%BA%A1n#search",
       "search_text": "tu san bay ve khach san san bay ve duong dong airport transfer grab san bay taxi san bay arrival airport transfer transport tu san bay phu quoc co the dung grabcar, taxi, xe rieng hoac shuttle resort tuy khu o, gio den va so nguoi. khoang cach tren dao nen doc theo huong di va thoi gian, khong chi kilomet."
+    },
+    {
+      "id": "meal_plan_uai",
+      "type": "meal_plan",
+      "title": "UAI - Ultra All Inclusive",
+      "aliases": [
+        "UAI",
+        "Ultra All Inclusive",
+        "meal plan UAI"
+      ],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "route": "/guide/?q=UAI%20-%20Ultra%20All%20Inclusive#search",
+      "search_text": "uai - ultra all inclusive uai ultra all inclusive meal plan uai stay meal-plan booking ten thuong mai; khong mac dinh giong nhau giua thuong hieu"
+    },
+    {
+      "id": "hotel_tier_ultra_luxury",
+      "type": "hotel_tier",
+      "title": "Ultra-luxury",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "stay",
+        "hotel",
+        "hotel-tier"
+      ],
+      "route": "/guide/?q=Ultra-luxury#search",
+      "search_text": "ultra-luxury stay hotel hotel-tier cac tieu chi nen so khi chon phan khuc ultra-luxury."
     },
     {
       "id": "history_city_2021",
@@ -1530,7 +2046,7 @@
         "family"
       ],
       "route": "/places/?q=vinpearl-safari",
-      "search_text": "vinpearl safari phu quoc wildlife family wildlife family wildlife family open zoo + khu ban hoang da bang bus safari bus · open zoo · animal show · night safari theo lich"
+      "search_text": "vinpearl safari phu quoc wildlife family wildlife family wildlife family open zoo + khu ban hoang da bang bus safari bus · open zoo · animal show · night safari theo lich 950.000d nguoi lon / 710.000d tre em-cao tuoi tu 01/10/2026"
     },
     {
       "id": "utility_vinwonders",
@@ -1553,7 +2069,7 @@
         "family"
       ],
       "route": "/places/?q=vinwonders",
-      "search_text": "vinwonders phu quoc theme-park family theme-park family theme-park family 6 phan khu, thuy cung, cong vien nuoc, tro choi, show cung dien hai vuong · the gioi loc xoay · the gioi phieu luu · once"
+      "search_text": "vinwonders phu quoc theme-park family theme-park family theme-park family 6 phan khu, thuy cung, cong vien nuoc, tro choi, show cung dien hai vuong · the gioi loc xoay · the gioi phieu luu · once 1.050.000d nguoi lon / 800.000d tre em-cao tuoi tu 01/10/2026"
     },
     {
       "id": "history_vinwonders_2020",
@@ -1598,7 +2114,7 @@
         "agriculture"
       ],
       "route": "/places/?q=pepper-garden",
-      "search_text": "vuon tieu phu quoc culture agriculture culture agriculture culture agriculture lop nong nghiep cua dao voi tru tieu, mua thu hoach, phoi va phan loai hat. tham quan vuon · nghe cau chuyen canh tac · thu/doc san pham"
+      "search_text": "vuon tieu phu quoc culture agriculture culture agriculture culture agriculture lop nong nghiep cua dao voi tru tieu, mua thu hoach, phoi va phan loai hat. tham quan vuon · nghe cau chuyen canh tac · thu/doc san pham tuy vuon"
     }
   ]
 }
