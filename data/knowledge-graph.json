@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-19",
+  "source_registry": {
+    "handbook_r3": {
+      "title": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+      "version": "2027 IslandEditorial R3",
+      "updated": "2026-09-12",
+      "corpus": "data/handbook-r3-corpus.json",
+      "index": "data/handbook-r3-index.json",
+      "provenance": "USER_LIBRARY_MASTER"
+    },
+    "weather_v2": {
+      "title": "JoTrip Weather Intelligence V2",
+      "repo": "kenzuko/Jotrip-Lab",
+      "ref": "feat/weather-lab-data-engine-v1",
+      "layer": "LIVE_OPERATIONAL",
+      "cms_managed": false
+    },
+    "airport_live": {
+      "title": "JoTrip Airport Live",
+      "repo": "kenzuko/Jotrip-Lab",
+      "layer": "LIVE_OPERATIONAL",
+      "cms_managed": false
+    },
+    "transit_live": {
+      "title": "JoTrip Transit",
+      "repo": "kenzuko/transit-jotrip",
+      "layer": "LIVE_OPERATIONAL",
+      "cms_managed": false
+    },
+    "marine_ops": {
+      "title": "JoTrip Marine Operations",
+      "repo": "kenzuko/Jotrip-Lab",
+      "ref": "data-marine-ops",
+      "layer": "LIVE_OPERATIONAL",
+      "cms_managed": false
+    }
+  },
+  "tree": [
+    {
+      "id": "understand",
+      "label": "Hiểu Phú Quốc",
+      "parent": null,
+      "source": "handbook_r3",
+      "slides": "7-31",
+      "hashtags": [
+        "#lan-dau",
+        "#ban-do",
+        "#ba-vung",
+        "#di-chuyen",
+        "#luu-tru",
+        "#khach-quoc-te"
+      ]
+    },
+    {
+      "id": "explore",
+      "label": "Khám phá",
+      "parent": null,
+      "source": "handbook_r3",
+      "slides": "33-74",
+      "hashtags": [
+        "#bac-dao",
+        "#duong-dong",
+        "#bo-tay",
+        "#nam-dao",
+        "#bien",
+        "#rung",
+        "#hanh-trinh"
+      ]
+    },
+    {
+      "id": "practical",
+      "label": "Tra cứu",
+      "parent": null,
+      "source": "handbook_r3",
+      "slides": "76-85",
+      "hashtags": [
+        "#gia-ve",
+        "#danh-ba",
+        "#an-toan",
+        "#nguon",
+        "#checklist"
+      ]
+    },
+    {
+      "id": "culture-history",
+      "label": "Văn hóa & lịch sử",
+      "parent": null,
+      "source": "handbook_r3",
+      "slides": "87-99",
+      "hashtags": [
+        "#nuoc-mam",
+        "#ho-tieu",
+        "#lang-chai",
+        "#dinh-cau",
+        "#nha-tu",
+        "#apec"
+      ]
+    },
+    {
+      "id": "live-weather",
+      "label": "Thời tiết & biển",
+      "parent": "practical",
+      "source": "weather_v2",
+      "dynamic": true,
+      "hashtags": [
+        "#live",
+        "#weather",
+        "#marine",
+        "#rain",
+        "#wind",
+        "#wave"
+      ]
+    },
+    {
+      "id": "live-airport",
+      "label": "Sân bay",
+      "parent": "practical",
+      "source": "airport_live",
+      "dynamic": true,
+      "hashtags": [
+        "#live",
+        "#airport",
+        "#pqc",
+        "#flight"
+      ]
+    },
+    {
+      "id": "live-ferry",
+      "label": "Tàu & phà",
+      "parent": "practical",
+      "source": "transit_live",
+      "dynamic": true,
+      "hashtags": [
+        "#live",
+        "#ferry",
+        "#fast-boat",
+        "#rach-gia",
+        "#ha-tien"
+      ]
+    },
+    {
+      "id": "live-bus",
+      "label": "Xe buýt & shuttle",
+      "parent": "practical",
+      "source": "transit_live",
+      "dynamic": true,
+      "hashtags": [
+        "#live",
+        "#bus",
+        "#vinbus",
+        "#route17",
+        "#route19",
+        "#route20"
+      ]
+    },
+    {
+      "id": "live-cano",
+      "label": "Cano & tour đảo",
+      "parent": "explore",
+      "source": "marine_ops",
+      "dynamic": true,
+      "hashtags": [
+        "#cano",
+        "#an-thoi",
+        "#3-dao",
+        "#snorkeling",
+        "#marine-ops"
+      ]
+    }
+  ],
+  "relation_types": [
+    "PARENT_OF",
+    "RELATED_TO",
+    "SAME_REGION",
+    "GOOD_WITH",
+    "AVOID_WITH",
+    "SOURCE_OF",
+    "LIVE_LAYER_FOR",
+    "PRICE_OF",
+    "OPERATES_AT"
+  ],
+  "rules": {
+    "dynamic_data": "Không lấy số động trong sổ tay làm trạng thái hiện tại. Luôn nối sang live/official source.",
+    "provenance_required": true,
+    "entity_hashtags_required": true,
+    "live_layers_not_cms_managed": true
+  }
+}
