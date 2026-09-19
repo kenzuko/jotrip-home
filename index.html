@@ -58,12 +58,15 @@
         <h1>Phú Quốc,<br>ngay lúc này.</h1>
         <p>Xem hôm nay đảo đang thế nào, có gì đang diễn ra, nên đi đâu và những điều cần biết trước khi lên đường.</p>
 
-        <form class="search" role="search">
-          <label class="sr-only" for="q">Tìm trên Open Phu Quoc</label>
-          <span aria-hidden="true">⌕</span>
-          <input id="q" name="q" type="search" autocomplete="off" placeholder="Tìm bãi biển, thời tiết, tàu phà, show, xe buýt...">
-          <button type="submit">→</button>
-        </form>
+        <div class="search-shell">
+          <form class="search" role="search" aria-controls="searchResults">
+            <label class="sr-only" for="q">Tìm trên Open Phu Quoc</label>
+            <span aria-hidden="true">⌕</span>
+            <input id="q" name="q" type="search" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="searchResults" placeholder="Tìm bãi biển, thời tiết, tàu phà, show, xe buýt...">
+            <button type="submit" aria-label="Tìm kiếm">→</button>
+          </form>
+          <div class="search-results" id="searchResults" role="listbox" aria-label="Kết quả tìm kiếm" hidden></div>
+        </div>
       </div>
 
       <div class="hero-scene">
@@ -428,6 +431,10 @@
   </section>
 
   <div class="toast" role="status" aria-live="polite"></div>
-  <script src="app.js?v=20260918-2130"></script><script src="island-clock.js?v=1"></script>
-<script src="home-live.js?v=2"></script><script src="home-copy.js?v=2"></script></body>
+  <script src="core/search-engine.js?v=3"></script>
+  <script src="app.js?v=20260919-superapp3"></script>
+  <script src="island-clock.js?v=1"></script>
+  <script src="home-live.js?v=2"></script>
+  <script src="home-copy.js?v=2"></script>
+</body>
 </html>
