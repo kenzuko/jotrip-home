@@ -404,5 +404,5 @@ mobileTabs.forEach((item) => {
 
 dockSearch?.addEventListener('click', () => {
   setActiveMobileTab('search');
-  setTimeout(() => setActiveMobileTab('home'), 900);
+  setTimeout(() => setActiveMobileTab('today'), 900);
 });
