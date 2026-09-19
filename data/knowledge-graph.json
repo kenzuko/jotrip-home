@@ -168,6 +168,97 @@
         "#snorkeling",
         "#marine-ops"
       ]
+    },
+    {
+      "id": "stay",
+      "label": "Ở đâu",
+      "parent": "understand",
+      "source": "handbook_r3",
+      "dataset": "data/stay.json",
+      "hashtags": [
+        "#khach-san",
+        "#luu-tru",
+        "#meal-plan",
+        "#chon-khu"
+      ]
+    },
+    {
+      "id": "itineraries",
+      "label": "Ghép hành trình",
+      "parent": "explore",
+      "source": "handbook_r3",
+      "dataset": "data/itineraries.json",
+      "hashtags": [
+        "#3n2d",
+        "#4n3d",
+        "#5n4d",
+        "#family",
+        "#honeymoon"
+      ]
+    },
+    {
+      "id": "places",
+      "label": "Điểm tham quan",
+      "parent": "explore",
+      "source": "handbook_r3",
+      "dataset": "data/places.json",
+      "hashtags": [
+        "#places",
+        "#gia-ve",
+        "#tips",
+        "#what-to-do"
+      ]
+    },
+    {
+      "id": "food-dishes",
+      "label": "Món ăn",
+      "parent": "explore",
+      "source": "handbook_r3",
+      "dataset": "data/food.json",
+      "hashtags": [
+        "#food",
+        "#mon-dia-phuong",
+        "#hai-san"
+      ]
+    },
+    {
+      "id": "practical-guide",
+      "label": "An toàn & chuẩn bị",
+      "parent": "practical",
+      "source": "handbook_r3",
+      "dataset": "data/practical-guide.json",
+      "hashtags": [
+        "#safety",
+        "#visa",
+        "#payment",
+        "#emergency",
+        "#checklist"
+      ]
+    },
+    {
+      "id": "culture",
+      "label": "Nghề & di sản",
+      "parent": "culture-history",
+      "source": "handbook_r3",
+      "dataset": "data/culture-history.json",
+      "hashtags": [
+        "#nuoc-mam",
+        "#ho-tieu",
+        "#dinh-cau",
+        "#nha-tu"
+      ]
+    },
+    {
+      "id": "history-timeline",
+      "label": "Mốc phát triển",
+      "parent": "culture-history",
+      "source": "handbook_r3",
+      "dataset": "data/culture-history.json",
+      "hashtags": [
+        "#history",
+        "#apec",
+        "#infrastructure"
+      ]
     }
   ],
   "relation_types": [
@@ -186,5 +277,70 @@
     "provenance_required": true,
     "entity_hashtags_required": true,
     "live_layers_not_cms_managed": true
-  }
+  },
+  "data_catalog": {
+    "handbook_corpus": "data/handbook-r3-corpus.json",
+    "handbook_index": "data/handbook-r3-index.json",
+    "places": "data/places.json",
+    "food": "data/food.json",
+    "stay": "data/stay.json",
+    "itineraries": "data/itineraries.json",
+    "practical": "data/practical-guide.json",
+    "culture_history": "data/culture-history.json",
+    "bus_routes": "data/bus-routes.json",
+    "cano": "data/cano.json",
+    "cano_history": "data/cano-history.json"
+  },
+  "relations": [
+    {
+      "from": "live-weather",
+      "type": "LIVE_LAYER_FOR",
+      "to": "itineraries"
+    },
+    {
+      "from": "live-weather",
+      "type": "LIVE_LAYER_FOR",
+      "to": "places"
+    },
+    {
+      "from": "live-cano",
+      "type": "LIVE_LAYER_FOR",
+      "to": "tour-3-islands"
+    },
+    {
+      "from": "live-ferry",
+      "type": "LIVE_LAYER_FOR",
+      "to": "practical-guide"
+    },
+    {
+      "from": "live-bus",
+      "type": "LIVE_LAYER_FOR",
+      "to": "practical-guide"
+    },
+    {
+      "from": "live-airport",
+      "type": "LIVE_LAYER_FOR",
+      "to": "practical-guide"
+    },
+    {
+      "from": "places",
+      "type": "RELATED_TO",
+      "to": "itineraries"
+    },
+    {
+      "from": "food-dishes",
+      "type": "RELATED_TO",
+      "to": "itineraries"
+    },
+    {
+      "from": "stay",
+      "type": "RELATED_TO",
+      "to": "itineraries"
+    },
+    {
+      "from": "culture",
+      "type": "RELATED_TO",
+      "to": "places"
+    }
+  ]
 }
