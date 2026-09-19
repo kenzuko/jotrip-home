@@ -240,6 +240,7 @@ function renderUsers(){
   });
 }
 
+
 function bindFields(){
   document.querySelectorAll("[data-path]").forEach(el=>{
     el.addEventListener("input",()=>{
@@ -247,11 +248,87 @@ function bindFields(){
       if(el.dataset.type==="number")v=Number(v);
       if(el.dataset.type==="boolean")v=v==="true";
       setAtPath(currentData,el.dataset.path,v);
-      dirty=true;
-      $("#saveBtn").disabled=false;
-      $("#saveBtn").textContent="Xuất bản thay đổi";
-      status("Có thay đổi chưa xuất bản.");
+
+      const imageField=el.closest(".image-field");
+      if(imageField){
+        const box=imageField.querySelector("[data-image-preview]");
+        if(box){
+          const src=String(v||"").trim();
+          box.classList.toggle("empty",!src);
+          box.innerHTML=src?'<img src="'+esc(src)+'" alt="Xem trước ảnh">':'<span>Dán URL ảnh để xem trước</span>';
+        }
+      }
+      markDirty();
     });
+  });
+}
+
+function bindArrayControls(){
+  document.querySelectorAll("[data-array-action]").forEach(btn=>btn.onclick=()=>{
+    const arr=getAtPath(currentData,btn.dataset.arrayPath);
+    const i=Number(btn.dataset.index);
+    if(!Array.isArray(arr)||!Number.isInteger(i))return;
+    const action=btn.dataset.arrayAction;
+
+    if(action==="delete"){
+      if(!confirm("Xóa mục này? Thay đổi chỉ có hiệu lực sau khi bấm Xuất bản."))return;
+      arr.splice(i,1);
+    }else if(action==="duplicate"){
+      arr.splice(i+1,0,deepClone(arr[i]));
+    }else if(action==="up"&&i>0){
+      [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+    }else if(action==="down"&&i<arr.length-1){
+      [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+    }
+
+    markDirty();
+    rerender();
+  });
+
+  document.querySelectorAll(".add-array-item").forEach(btn=>btn.onclick=()=>{
+    const arr=getAtPath(currentData,btn.dataset.arrayPath);
+    if(!Array.isArray(arr))return;
+    const template=arr.length?blankLike(arr[0]):"";
+    arr.push(template);
+    markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Xuất bản.");
+    rerender();
+  });
+}
+
+function bindStoryControls(){
+  $("#addStoryBtn")?.addEventListener("click",()=>{
+    const arr=currentData.stories;
+    let story=arr.length?blankLike(arr[0]):{id:"",category:"",title:"",dek:"",read_minutes:4,image:"",intro:"",sections:[],sources:[]};
+    story.read_minutes=story.read_minutes||4;
+    story.sections=[{heading:"",body:""}];
+    story.sources=[{label:"",url:""}];
+    arr.push(story);
+    markDirty("Đã tạo bài viết mới. Điền tiêu đề, nội dung và nguồn trước khi xuất bản.");
+    rerender();
+    setTimeout(()=>document.querySelectorAll(".story-editor").item(document.querySelectorAll(".story-editor").length-1)?.scrollIntoView({behavior:"smooth",block:"start"}),50);
+  });
+
+  document.querySelectorAll("[data-story-action]").forEach(btn=>btn.onclick=()=>{
+    const arr=currentData.stories;
+    const i=Number(btn.dataset.index);
+    const action=btn.dataset.storyAction;
+
+    if(action==="delete"){
+      if(!confirm("Xóa bài viết này? Thay đổi chỉ có hiệu lực sau khi bấm Xuất bản."))return;
+      arr.splice(i,1);
+    }else if(action==="duplicate"){
+      const copy=deepClone(arr[i]);
+      copy.id=copy.id?copy.id+"-copy":"";
+      copy.title=copy.title?copy.title+" - bản sao":"";
+      arr.splice(i+1,0,copy);
+    }else if(action==="up"&&i>0){
+      [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+    }else if(action==="down"&&i<arr.length-1){
+      [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+    }
+
+    markDirty();
+    rerender();
   });
 }
 
@@ -259,21 +336,52 @@ function buildEditorNav(){
   const host=$("#editorNav");
   if(!host)return;
   const anchors=[...document.querySelectorAll("#editor > .cms-anchor")];
-  if(anchors.length<2){host.classList.add("hidden");host.innerHTML="";return}
+
+  if(anchors.length<2){
+    host.classList.add("hidden");
+    host.innerHTML="";
+    return;
+  }
+
   anchors.forEach((el,i)=>el.id="cms-section-"+i);
-  host.innerHTML='<span>Đi nhanh:</span>'+anchors.map((el,i)=>
-    '<button type="button" data-target="cms-section-'+i+'">'+esc(el.dataset.anchorLabel||("Mục "+(i+1)))+'</button>'
-  ).join("")+'<button type="button" class="collapse-all">Thu gọn</button>';
+  host.innerHTML='<span>Đi nhanh:</span>'+
+    anchors.map((el,i)=>'<button type="button" data-target="cms-section-'+i+'">'+esc(el.dataset.anchorLabel||("Mục "+(i+1)))+'</button>').join("")+
+    '<button type="button" class="collapse-all">Thu gọn</button>';
+
   host.classList.remove("hidden");
+
   host.querySelectorAll("[data-target]").forEach(b=>b.onclick=()=>{
     const el=document.getElementById(b.dataset.target);
     if(el?.tagName==="DETAILS")el.open=true;
     el?.scrollIntoView({behavior:"smooth",block:"start"});
   });
+
   host.querySelector(".collapse-all")?.addEventListener("click",()=>{
     document.querySelectorAll("#editor details").forEach(d=>d.open=false);
     window.scrollTo({top:0,behavior:"smooth"});
   });
+}
+
+function applyPermissions(){
+  const writable=currentModule?.write?.includes(session.role);
+  $("#saveBtn").disabled=!writable||!dirty;
+  $("#editor").classList.toggle("readonly",!writable);
+  document.querySelectorAll("#editor input,#editor textarea,#editor select,#editor button").forEach(el=>el.disabled=!writable);
+  return writable;
+}
+
+function rerender(){
+  const y=window.scrollY;
+  if(currentModule.id==="users")renderUsers();
+  else $("#editor").innerHTML=renderRoot();
+
+  bindFields();
+  bindArrayControls();
+  bindStoryControls();
+  buildEditorNav();
+  applyPermissions();
+
+  requestAnimationFrame(()=>window.scrollTo(0,y));
 }
 
 async function api(url,opts={}){
@@ -282,19 +390,30 @@ async function api(url,opts={}){
     ...opts,
     headers:{"Content-Type":"application/json",...(opts.headers||{})}
   });
-  let b=null;try{b=await r.json()}catch{}
+
+  let b=null;
+  try{b=await r.json()}catch{}
+
   if(!r.ok){
     const msg=[b?.error,b?.detail].filter(Boolean).join(" · ")||("HTTP "+r.status);
-    const err=new Error(msg);err.status=r.status;throw err;
+    const err=new Error(msg);
+    err.status=r.status;
+    throw err;
   }
+
   return b;
 }
 
 async function boot(){
   show("boot");
   let r;
-  try{r=await fetch(API.session,{credentials:"include",cache:"no-store"})}
-  catch{show("remoteGate");return}
+
+  try{
+    r=await fetch(API.session,{credentials:"include",cache:"no-store"});
+  }catch{
+    show("remoteGate");
+    return;
+  }
 
   if(r.status===404){show("remoteGate");return}
   if(r.status===401){show("login");return}
@@ -309,7 +428,9 @@ async function boot(){
   $("#userRole").textContent=ROLE_LABELS[session.role]||session.role;
   $("#userRole").dataset.role=session.role;
 
-  renderNav();show("cms");
+  renderNav();
+  show("cms");
+
   const first=schema.modules.find(m=>m.read.includes(session.role));
   if(first)selectModule(first.id);
 }
@@ -317,13 +438,21 @@ async function boot(){
 function renderNav(){
   $("#moduleNav").innerHTML=schema.modules
     .filter(m=>m.read.includes(session.role))
-    .map(m=>`<button class="module-btn" data-id="${m.id}"><strong>${esc(m.label)}</strong><small>${esc(m.description)}</small></button>`).join("");
+    .map(m=>'<button class="module-btn" data-id="'+esc(m.id)+'"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></button>')
+    .join("");
+
   document.querySelectorAll(".module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
 }
 
 async function selectModule(id){
-  if(dirty&&!confirm("Có thay đổi chưa xuất bản. Chuyển mục và bỏ các thay đổi này?"))return;
-  currentModule=schema.modules.find(m=>m.id===id);if(!currentModule)return;
+  if(dirty){
+    if(!confirm("Có thay đổi chưa xuất bản. Chuyển mục và bỏ các thay đổi này?"))return;
+    clearDraft();
+  }
+
+  currentModule=schema.modules.find(m=>m.id===id);
+  if(!currentModule)return;
+
   document.querySelectorAll(".module-btn").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
 
   $("#moduleKicker").textContent="OPEN PHU QUOC CMS";
@@ -334,26 +463,53 @@ async function selectModule(id){
   if(currentModule.preview){
     $("#previewBtn").href=currentModule.preview;
     $("#previewBtn").classList.remove("hidden");
-  }else $("#previewBtn").classList.add("hidden");
+  }else{
+    $("#previewBtn").classList.add("hidden");
+  }
 
   status("Đang tải "+currentModule.label+"...");
 
   try{
     const b=await api(API.content+"?path="+encodeURIComponent(currentModule.path));
-    currentData=b.content;currentSha=b.sha;dirty=false;
+    currentData=b.content;
+    currentSha=b.sha;
+    dirty=false;
 
-    if(currentModule.id==="users")renderUsers();
-    else $("#editor").innerHTML=renderRoot();
+    const k=draftKey();
+    const raw=k?localStorage.getItem(k):null;
 
-    bindFields();buildEditorNav();
+    if(raw){
+      try{
+        const draft=JSON.parse(raw);
 
-    const writable=currentModule.write.includes(session.role);
-    $("#saveBtn").disabled=!writable;
-    $("#editor").classList.toggle("readonly",!writable);
-    document.querySelectorAll("#editor input,#editor textarea,#editor select,#editor button.remove-user,#addUserBtn")
-      .forEach(el=>el.disabled=!writable);
+        if(draft.sha===currentSha&&draft.data){
+          const when=new Date(draft.at).toLocaleString("vi-VN");
+          if(confirm("Có bản nháp chưa xuất bản lưu lúc "+when+". Khôi phục bản nháp?")){
+            currentData=draft.data;
+            dirty=true;
+          }else{
+            clearDraft();
+          }
+        }else{
+          clearDraft();
+        }
+      }catch{
+        clearDraft();
+      }
+    }
 
-    status(writable?"Sẵn sàng chỉnh sửa. Thay đổi chỉ lên website sau khi bấm Xuất bản.":"Vai trò của bạn chỉ được xem module này.");
+    rerender();
+    const writable=applyPermissions();
+
+    if(dirty){
+      $("#saveBtn").disabled=!writable;
+      $("#saveBtn").textContent="Xuất bản thay đổi";
+      status("Đã khôi phục bản nháp trên trình duyệt.","success");
+    }else{
+      status(writable
+        ?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; chỉ lên website khi bấm Xuất bản."
+        :"Vai trò của bạn chỉ được xem module này.");
+    }
   }catch(e){
     $("#editor").innerHTML="";
     $("#editorNav")?.classList.add("hidden");
@@ -363,6 +519,7 @@ async function selectModule(id){
 
 async function save(){
   if(!currentModule||!dirty)return;
+
   $("#saveBtn").disabled=true;
   $("#saveBtn").textContent="Đang xuất bản...";
   status("Đang xuất bản lên Open Phu Quoc...");
@@ -377,22 +534,47 @@ async function save(){
         message:"cms: update "+currentModule.label.toLowerCase()
       })
     });
-    currentSha=b.sha||currentSha;dirty=false;
+
+    currentSha=b.sha||currentSha;
+    dirty=false;
+    clearDraft();
+
     $("#saveBtn").textContent="Đã xuất bản";
     const commit=b.commit?(" · commit "+String(b.commit).slice(0,7)):"";
     status("Đã xuất bản thành công"+commit+". Website sẽ cập nhật sau deployment.","success");
-    setTimeout(()=>{if(!dirty)$("#saveBtn").textContent="Xuất bản"},1800);
+
+    setTimeout(()=>{
+      if(!dirty)$("#saveBtn").textContent="Xuất bản";
+    },1800);
   }catch(e){
-    status(e.message,"error");
+    status(
+      e.status===409
+        ?"Nội dung trên GitHub đã đổi trong lúc cậu đang sửa. Tải lại module rồi áp dụng lại thay đổi để tránh ghi đè."
+        :e.message,
+      "error"
+    );
     $("#saveBtn").disabled=false;
     $("#saveBtn").textContent="Thử xuất bản lại";
   }
 }
 
-$("#saveBtn").onclick=e=>{e.preventDefault();save()};
+$("#saveBtn").onclick=e=>{
+  e.preventDefault();
+  save();
+};
+
 $("#logoutBtn").onclick=async()=>{
+  if(dirty&&!confirm("Có thay đổi chưa xuất bản. Vẫn đăng xuất?"))return;
   await fetch(API.auth+"?action=logout",{method:"POST",credentials:"include"});
   location.reload();
 };
-window.addEventListener("beforeunload",e=>{if(dirty){e.preventDefault();e.returnValue=""}});
+
+window.addEventListener("beforeunload",e=>{
+  if(dirty){
+    saveDraftNow();
+    e.preventDefault();
+    e.returnValue="";
+  }
+});
+
 boot();
