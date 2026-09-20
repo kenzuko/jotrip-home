@@ -238,15 +238,35 @@ Kiểm tra syntax cho file JS vừa sửa bằng `node --check <file>`.
 - Cụm này nằm quá xa khối hero và context rail, chưa tạo cảm giác là navigation tiếp nối ngay sau Search/Live.
 - Thẻ số và nội dung chưa thẳng hàng hoàn toàn theo một baseline.
 
-Hướng sửa đã chốt:
+Hướng sửa đã chốt và Work đã triển khai:
 
-- Desktop rộng: 5 tab trên cùng một hàng, chia đều chiều rộng và cùng chiều cao.
-- Desktop hẹp hoặc tablet: có thể 3 + 2 nhưng hàng cuối phải cân giữa hoặc hai thẻ phải kéo giãn đều, không để một ô trống vô nghĩa.
+- Desktop từ 900px: 5 tab trên cùng một hàng, chia đều chiều rộng và cùng chiều cao.
+- Tablet 761-899px: 3 + 2, hai thẻ hàng cuối cân giữa, không để ô trống lệch về một bên.
 - Mobile: rail ngang 5 tab, snap từng thẻ, thao tác một tay; không ép thành lưới chữ nhỏ.
-- Giảm khoảng trắng phía dưới cụm tab và nối trực tiếp tới phần "Có gì hôm nay".
+- Đã giảm khoảng trắng phía dưới cụm tab và nối gần hơn tới phần "Có gì hôm nay".
 - Giữ thứ tự: Tôi đang ở Phú Quốc, Tôi sắp đến, Đi đâu hôm nay, Ăn gì, Di chuyển & trợ giúp.
 - Không thêm tab thứ sáu chỉ để lấp chỗ trống.
 
-Commit `main` mới nhất sau các bản sửa Work: `aa7a2bb1db27ef606fa8470c89bb47cc95ca4669`.
+Commit giao diện homepage: `d4afa4b12a598c1b9851375b00c4f3bdd8ea2c69`.
 
-Commit này gồm tối ưu `/airport`: tải nguồn trực tiếp và snapshot song song, fallback sau 2,5 giây, đồng thời đổi copy kỹ thuật thành ngôn ngữ khách hàng. Cần đợi Cloudflare build xong rồi QA trực tiếp.
+Commit trước đó gồm tối ưu `/airport`: tải nguồn trực tiếp và snapshot song song, fallback sau 2,5 giây, đồng thời đổi copy kỹ thuật thành ngôn ngữ khách hàng.
+
+## 14. Phần giao cho luồng Chat tiếp tục
+
+Luồng Chat có thể tiếp tục các phần không đòi hỏi thay đổi kiến trúc lớn:
+
+1. Mở Worker sau khi Cloudflare build xong và QA trực quan homepage ở desktop và mobile.
+2. So sánh ảnh mới với feedback tại mục 13, ghi rõ pass hoặc lỗi còn lại.
+3. Rà ngôn ngữ khách hàng còn mang tính kỹ thuật và lập danh sách câu cần thay.
+4. Rà mạch đọc giữa Search, Live, 5 lối vào, Today và phần nội dung phía dưới.
+5. Chuẩn bị checklist nhận danh sách khách sạn, nhưng chưa viết bài khách sạn khi người dùng chưa gửi danh sách.
+6. Chuẩn bị kế hoạch ảnh theo từng module, chỉ dùng ảnh xác định đúng địa điểm và có nguồn phù hợp.
+7. Theo dõi trạng thái CI/Cloudflare và báo nếu build fail.
+
+Những phần Chat không được tự làm nếu không có công cụ ghi repo hoặc nguồn xác minh:
+
+- Không tự cập nhật live status.
+- Không tự tạo giá, giờ vận hành, inventory vé hoặc tọa độ.
+- Không thay Weather engine.
+- Không đổi DNS hoặc Worker production.
+- Không đánh dấu mobile visual QA pass nếu chưa thật sự mở đúng viewport.
