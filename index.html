@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Open Phu Quoc - thông tin miễn phí, trực quan và thực dụng về Phú Quốc: tình hình đảo, sự kiện, di chuyển, điểm đến và câu chuyện địa phương.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260920-foundation11">
+  <link rel="stylesheet" href="styles.css?v=20260920-homev2">
 </head>
 <body>
   <aside class="app-left-rail" aria-label="Điều hướng Open Phu Quoc">
@@ -18,9 +18,9 @@
       <a href="#happening"><span>◷</span><strong>Hôm nay</strong></a>
       <a href="#today"><span>●</span><strong>Live</strong></a>
       <a href="explore/"><span>⌖</span><strong>Khám phá</strong></a>
-      <a href="#food"><span>◎</span><strong>Ăn uống</strong></a>
+      <a href="food/"><span>◎</span><strong>Ăn uống</strong></a>
       <a href="guide/"><span>▤</span><strong>Cẩm nang</strong></a>
-      <a href="#essentials"><span>+</span><strong>Tiện ích</strong></a>
+      <a href="#near-me"><span>+</span><strong>Tiện ích</strong></a>
     </nav>
     <div class="app-rail-modules">
       <a href="weather/">Thời tiết</a>
@@ -38,9 +38,9 @@
       <a href="#happening">Hôm nay</a>
       <a href="#today">Trực tiếp</a>
       <a href="explore/">Khám phá</a>
-      <a href="#food">Ăn uống</a>
-      <a href="#guide">Cẩm nang</a>
-      <a href="#essentials">Tiện ích</a>
+      <a href="food/">Ăn uống</a>
+      <a href="guide/">Cẩm nang</a>
+      <a href="#near-me">Tiện ích</a>
     </nav>
 
     <div class="vn-clock header-clock" data-vn-clock></div><button class="header-search" type="button" aria-label="Tìm kiếm">⌕</button>
@@ -151,244 +151,62 @@
       </div>
     </aside>
 
-    <section class="task-launcher" aria-label="Mở nhanh theo nhu cầu">
-      <a href="#happening"><span>01</span><strong>Tôi đang ở Phú Quốc</strong><small>Đang diễn ra · hôm nay · tối nay</small></a>
-      <a href="guide/#start"><span>02</span><strong>Tôi sắp đến</strong><small>Sân bay · ở đâu · chuẩn bị</small></a>
-      <a href="explore/"><span>03</span><strong>Đi đâu hôm nay?</strong><small>Chọn theo vùng & kiểu chuyến đi</small></a>
-      <a href="food/"><span>04</span><strong>Ăn gì?</strong><small>Món địa phương · cách ăn</small></a>
-      <a href="utilities/"><span>05</span><strong>Di chuyển & trợ giúp</strong><small>Sân bay · xe · tàu phà · khẩn cấp</small></a>
-    </section>
-
-    <section class="section happening" id="happening">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">CÓ GÌ HÔM NAY</p>
-          <h2>Phú Quốc hôm nay & tối nay.</h2>
-        </div>
-        <a href="stories/">Xem thêm →</a>
+    <section class="section trip-clock-section" id="happening" aria-labelledby="tripClockTitle">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">TODAY / TRIP CLOCK</p><h2 id="tripClockTitle">Hôm nay còn kịp gì?</h2></div>
+        <a href="explore/">Mở Explore →</a>
       </div>
-
-      <div class="happening-layout">
-        <article class="feature-story">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Pfefferanbau%20auf%20Phu%20Quoc.jpg?width=1400" alt="Vườn tiêu Phú Quốc">
-          <div class="feature-gradient"></div>
-          <div class="feature-copy">
-            <span>ĐỌC NHANH · CHẤT ĐẢO</span>
-            <h3>Mùi cay của đất đỏ.</h3>
-            <p>Tiêu Phú Quốc không chỉ là món mua về làm quà. Đi vào một vườn tiêu là đi vào phần nông nghiệp rất thật của hòn đảo.</p>
-            <a href="stories/article.html?id=mui-cay-cua-dat-do">Đọc câu chuyện →</a>
-          </div>
-        </article>
-
-        <div class="happening-list" id="liveHappening">
-          <a href="weather/" class="happening-row" data-happening="weather">
-            <time><strong>NOW</strong><span>THỜI TIẾT</span></time>
-            <div><span class="row-type weather">TRỰC TIẾP</span><h3>Đang tải tình hình thời tiết</h3><p>Tình hình hiện tại và vài giờ tới</p></div>
-            <em>...</em>
-          </a>
-          <a href="cano/" class="happening-row" data-happening="marine">
-            <time><strong>NOW</strong><span>BIỂN</span></time>
-            <div><span class="row-type place">VẬN HÀNH</span><h3>Đang kiểm tra cano, tàu và phà</h3><p>Mỗi loại phương tiện có trạng thái riêng, không suy từ nhau</p></div>
-            <em>...</em>
-          </a>
-          <a href="airport/" class="happening-row" data-happening="airport">
-            <time><strong>NOW</strong><span>PQC</span></time>
-            <div><span class="row-type travel">SÂN BAY</span><h3>Đang tải bảng chuyến bay</h3><p>Chuyến đến, chuyến đi và trễ chuyến</p></div>
-            <em>...</em>
-          </a>
-          <a href="stories/article.html?id=mot-nam-trong-nha-thung" class="happening-row">
-            <time><strong>5'</strong><span>ĐỌC</span></time>
-            <div><span class="row-type show">CÂU CHUYỆN</span><h3>Một năm trong nhà thùng</h3><p>Cá cơm, muối, thùng gỗ và thứ mùi không thể nhầm của Phú Quốc</p></div>
-            <em class="ok">MỚI</em>
-          </a>
-        </div>
+      <div class="trip-clock-grid">
+        <article class="trip-clock-now"><span>GIỜ PHÚ QUỐC</span><strong id="tripClockNow">--:--</strong><p id="tripClockDate">Đang lấy giờ địa phương</p><div class="trip-sunset"><small>Hoàng hôn bờ Tây</small><b id="tripClockSunset">--:--</b></div></article>
+        <div class="trip-clock-list" id="tripClockList"><div class="surface-loading">Chỉ những hoạt động có giờ vận hành đủ nguồn mới được đánh dấu “còn kịp”.</div></div>
       </div>
     </section>
 
-    <section class="section essentials" id="essentials">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">CẦN LÀ CÓ</p>
-          <h2>Mở nhanh trên đảo.</h2>
-        </div>
-      </div>
+    <section class="section activity-board-section" id="activities" aria-labelledby="activityBoardTitle">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">HÔM NAY CHƠI GÌ?</p><h2 id="activityBoardTitle">Trạng thái hoạt động, nhìn một lượt.</h2></div></div>
+      <div class="activity-board-grid" id="activityBoard"><div class="surface-loading">Đang nối dữ liệu vận hành và giờ hoạt động...</div></div>
+      <aside class="plan-b-card" id="planBCard" hidden><div><span>PLAN B</span><strong>Hoạt động biển đang không thuận.</strong></div><p>Ưu tiên nơi ít phụ thuộc biển và giữ lịch linh hoạt.</p><div><a href="places/detail.html?id=vinpearl-safari">Safari</a><a href="places/detail.html?id=vinwonders">VinWonders</a><a href="stories/article.html?id=mot-nam-trong-nha-thung">Nhà thùng</a><a href="food/">Ăn địa phương</a></div></aside>
+    </section>
 
-      <div class="essential-grid">
-        <a href="airport/"><span>✈</span><div><strong>Sân bay</strong><small>Chuyến bay, trễ chuyến, đón khách</small></div><b>→</b></a>
-        <a href="weather/"><span>≈</span><div><strong>Thời tiết & Biển</strong><small>Mưa, gió, sóng, rủi ro biển</small></div><b>→</b></a>
-        <a href="ferry/"><span>⛴</span><div><strong>Phà & Tàu cao tốc</strong><small>Tuyến, hãng, lịch chạy, tình trạng vé</small></div><b>→</b></a>
-        <a href="bus/"><span>🚌</span><div><strong>Xe buýt & trung chuyển</strong><small>Tuyến 17, 19, 20 và xe trung chuyển</small></div><b>→</b></a>
-        <a href="cano/"><span>≈</span><div><strong>Cano & Tour đảo</strong><small>Vận hành cano, lịch sử, tour 3 đảo</small></div><b>→</b></a>
-        <a href="places/"><span>⌖</span><div><strong>Điểm tham quan</strong><small>Có gì, chơi gì, giá, lưu ý</small></div><b>→</b></a>
-        <a href="food/"><span>◎</span><div><strong>Ăn Phú Quốc</strong><small>Từng món, cách ăn và lưu ý</small></div><b>→</b></a>
-        <a href="utilities/#emergency"><span>+</span><div><strong>Khẩn cấp</strong><small>Hỗ trợ, y tế và số cần thiết</small></div><b>→</b></a>
+    <section class="section near-me-section" id="near-me" aria-labelledby="nearMeTitle">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">NEAR ME / ESSENTIALS</p><h2 id="nearMeTitle">Cần gì quanh đây?</h2></div><a href="utilities/">Mở toàn bộ tiện ích →</a></div>
+      <div class="near-me-shell">
+        <div class="near-me-controls"><button class="near-location-btn" id="nearLocationBtn" type="button">⌖ Dùng vị trí của tôi</button><div class="near-manual" id="nearManualAreas" aria-label="Chọn khu vực thủ công"></div><p>Open Phu Quoc không xin GPS khi trang vừa mở. Chỉ khi bạn chủ động dùng “Near Me”.</p></div>
+        <div class="near-category-grid" id="nearCategories"></div>
+        <div class="near-results" id="nearResults"><strong>Chọn một tiện ích.</strong><span>Sau đó dùng vị trí hoặc chọn khu vực thủ công.</span></div>
       </div>
     </section>
 
-    <section class="section things" id="things">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">KHÁM PHÁ THEO NHU CẦU</p>
-          <h2>Hôm nay bạn muốn thấy một Phú Quốc kiểu nào?</h2>
-        </div>
-        <a href="explore/">Xem theo nhu cầu →</a>
-      </div>
-
-      <div class="filter-chips" aria-label="Danh mục gợi ý đi đâu">
-        <a class="active" href="explore/">Khám phá tất cả</a>
-        <a href="explore/?intent=sea">Biển</a>
-        <a href="explore/?intent=local-life">Đời sống đảo</a>
-        <a href="food/">Ẩm thực địa phương</a>
-        <a href="explore/?intent=evening">Buổi tối</a>
-        <a href="explore/?intent=nature">Thiên nhiên</a>
-        <a href="explore/?intent=rainy-day">Ngày mưa</a>
-      </div>
-
-      <div class="things-grid">
-        <a href="explore/?intent=sea" class="visual-card wide" data-decision-card>
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1400" alt="Bãi biển Phú Quốc">
-          <div><span>GỢI Ý HÔM NAY</span><strong>Ra biển trước hoàng hôn</strong><small>Bờ Tây · một buổi chiều thong thả</small></div>
-        </a>
-        <a href="explore/?intent=local-life" class="visual-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1100" alt="Ghe tàu đánh cá ở Phú Quốc">
-          <div><span>ĐỜI SỐNG ĐỊA PHƯƠNG</span><strong>Nhịp sống ven biển</strong><small>Cảng · ghe tàu · chợ</small></div>
-        </a>
-        <a href="explore/?zone=zone_south&amp;intent=evening" class="visual-card">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=1100" alt="Sunset Town và An Thới">
-          <div><span>BUỔI TỐI</span><strong>Một tối ở Nam đảo</strong><small>Hoàng hôn · show · bến cảng</small></div>
-        </a>
-      </div>
+    <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle" hidden>
+      <div class="section-heading compact-heading"><div><p class="eyebrow">HOT NOW</p><h2 id="hotNowTitle">Đang có gì cần biết?</h2></div></div>
+      <div class="hot-now-list" id="hotNowList"></div>
     </section>
 
-    <section class="section food-section" id="food">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">ĂN GÌ Ở PHÚ QUỐC</p>
-          <h2>Không chỉ là hải sản.</h2>
-        </div>
-        <a href="food/">Mở cẩm nang ăn uống →</a>
-      </div>
-
-      <div class="food-layout">
-        <a href="food/" class="food-feature">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Night%20market%20in%20Phu%20Quoc.jpg?width=1400" alt="Chợ đêm Phú Quốc">
-          <div class="food-copy">
-            <span>TỐI NAY</span>
-            <strong>Ăn một vòng Dương Đông</strong>
-            <p>Chợ đêm là chỗ dễ bắt đầu. Ăn một món đang thèm, đi bộ thêm một vòng rồi hãy quyết định có gọi tiếp hay không.</p>
-          </div>
-        </a>
-
-        <div class="food-picks">
-          <a href="food/article.html?id=bun-quay" class="food-pick coral">
-            <div class="food-symbol">◎</div>
-            <div><span>MÓN ĐỊA PHƯƠNG</span><strong>Bún quậy</strong><small>Ăn nhanh · dễ thử · rất Phú Quốc</small></div>
-          </a>
-          <a href="food/" class="food-pick aqua">
-            <div class="food-symbol">≈</div>
-            <div><span>HẢI SẢN</span><strong>Ăn theo khu vực</strong><small>Dương Đông · Hàm Ninh · Nam đảo</small></div>
-          </a>
-          <a href="food/" class="food-pick yellow">
-            <div class="food-symbol">✦</div>
-            <div><span>QUÁN ĐỊA PHƯƠNG</span><strong>Danh sách đáng thử</strong><small>Chọn theo khu vực, món ăn và khoảng giá</small></div>
-          </a>
-        </div>
-      </div>
+    <section class="section discover-section" id="discover" aria-labelledby="discoverTitle">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">DISCOVER / LORE / CURIOSITY</p><h2 id="discoverTitle">Có những câu hỏi làm mình muốn hiểu đảo sâu hơn.</h2></div><a href="stories/">Mở Stories →</a></div>
+      <div class="curiosity-rail" id="curiosityRail"></div>
     </section>
 
-    <section class="heritage-section" id="heritage">
-      <div class="heritage-intro">
-        <p class="eyebrow">DI SẢN & CHẤT ĐẢO</p>
-        <h2>Phú Quốc không chỉ có biển.</h2>
-        <p>Những thứ làm nên mùi, vị và ký ức của đảo - nghề biển, nước mắm, hồ tiêu và những câu chuyện địa phương.</p>
-      </div>
-
-      <div class="heritage-rail">
-        <a href="stories/article.html?id=mui-cay-cua-dat-do" class="heritage-card pepper">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Pfefferanbau%20auf%20Phu%20Quoc.jpg?width=1000" alt="Vườn tiêu Phú Quốc">
-          <div><span>01 · HỒ TIÊU</span><strong>Mùi cay của đất đỏ</strong><small>Từ vườn tiêu tới câu chuyện nông nghiệp của đảo</small></div>
-        </a>
-        <a href="stories/article.html?id=nhung-doi-mat-tren-mui-ghe" class="heritage-card fish">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1100" alt="Ghe đánh cá Phú Quốc">
-          <div><span>02 · NGHỀ BIỂN</span><strong>Những đôi mắt trên mũi ghe</strong><small>Một chi tiết nhỏ nhưng rất Phú Quốc</small></div>
-        </a>
-        <a href="stories/article.html?id=duong-dong-sau-5-gio" class="heritage-card market">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Selling%20fruit%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1100" alt="Bán trái cây ở chợ đêm Phú Quốc">
-          <div><span>03 · CHỢ & ĐỜI SỐNG</span><strong>Đảo khi đèn lên</strong><small>Người địa phương, du khách và nhịp sống buổi tối</small></div>
-        </a>
-      </div>
-    </section>
-
-    <section class="section guide" id="guide">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">HIỂU PHÚ QUỐC NHANH</p>
-          <h2>Hiểu đảo trong vài phút.</h2>
-        </div>
-        <a href="guide/">Mở cẩm nang →</a>
-      </div>
-
-      <div class="guide-grid">
-        <a href="guide/" class="guide-card">
-          <span>01</span>
-          <strong>Lần đầu đến Phú Quốc</strong>
-          <p>Chọn khu ở, chia ngày theo vùng và tránh mất quá nhiều thời gian trên xe.</p>
-        </a>
-        <a href="guide/" class="guide-card">
-          <span>02</span>
-          <strong>Nên chọn bờ biển nào?</strong>
-          <p>Mỗi bờ biển có một nhịp khác nhau theo gió, sóng và mùa.</p>
-        </a>
-        <a href="guide/" class="guide-card">
-          <span>03</span>
-          <strong>Phú Quốc trong 5 phút</strong>
-          <p>Nghề biển, hồ tiêu, nước mắm và phần đời sống dễ bị bỏ qua sau những khu nghỉ dưỡng.</p>
-        </a>
+    <section class="section explore-more-section" id="explore-more" aria-labelledby="exploreMoreTitle">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">EXPLORE MORE</p><h2 id="exploreMoreTitle">Đi sâu hơn khi bạn cần.</h2></div></div>
+      <div class="explore-more-grid">
+        <a href="places/"><span>⌖</span><strong>Places</strong><small>Điểm đến và trải nghiệm</small></a>
+        <a href="food/"><span>◎</span><strong>Food</strong><small>Món địa phương và cách ăn</small></a>
+        <a href="explore/"><span>◇</span><strong>Map & Explore</strong><small>Chọn theo vùng và nhu cầu</small></a>
+        <a href="guide/"><span>▤</span><strong>Knowledge</strong><small>Cần biết trước khi đi</small></a>
+        <a href="stories/"><span>✦</span><strong>Stories</strong><small>Đời sống, ký ức và câu chuyện đảo</small></a>
+        <a href="#today"><span>●</span><strong>Live systems</strong><small>Weather, airport, sea và transit</small></a>
       </div>
     </section>
   </main>
 
-  <aside class="app-context-rail" aria-label="Thông tin hiện tại">
-    <div class="context-head">
-      <div><span>PHÚ QUỐC HIỆN TẠI</span><strong>Ngay lúc này</strong></div>
-      <div class="vn-clock" data-vn-clock></div>
-    </div>
-
-    <a class="context-card" href="weather/" data-context-card="weather">
-      <span>THỜI TIẾT</span>
-      <strong data-context-primary="weather">--</strong>
-      <small data-context-secondary="weather">Đang tải quan trắc</small>
-    </a>
-
-    <a class="context-card" href="airport/" data-context-card="airport">
-      <span>SÂN BAY PQC</span>
-      <strong data-context-primary="airport">--</strong>
-      <small data-context-secondary="airport">Đang tải chuyến bay</small>
-    </a>
-
-    <a class="context-card" href="#happening" data-context-card="sunset">
-      <span>HOÀNG HÔN</span>
-      <strong data-context-primary="sunset">--:--</strong>
-      <small data-context-secondary="sunset">Bờ Tây</small>
-    </a>
-
-    <a class="context-card compact" href="#happening">
-      <span>TỐI NAY</span>
-      <strong>Xem có gì đang diễn ra</strong>
-      <small>Show · chợ đêm · gợi ý theo giờ</small>
-    </a>
-
-    <a class="context-card compact emergency" href="utilities/#emergency">
-      <span>TRỢ GIÚP</span>
-      <strong>112 · 113 · 114 · 115</strong>
-      <small>Mở hotline và danh bạ cần thiết</small>
-    </a>
-
-    <a class="context-map" href="explore/">
-      <span>⌖</span>
-      <div><strong>Định hướng nhanh</strong><small>Bắc · Trung tâm · Nam</small></div>
-      <b>→</b>
-    </a>
+  <aside class="app-context-rail" aria-label="Mở nhanh">
+    <div class="context-head"><div><span>PHÚ QUỐC</span><strong>Mở nhanh</strong></div><div class="vn-clock" data-vn-clock></div></div>
+    <a class="context-card compact" href="#happening"><span>HÔM NAY</span><strong>Còn kịp làm gì?</strong><small>Giờ địa phương · khung hoạt động</small></a>
+    <a class="context-card compact" href="#near-me"><span>GẦN TÔI</span><strong>Tiện ích quanh đây</strong><small>GPS chỉ bật khi bạn chủ động</small></a>
+    <a class="context-card compact" href="#discover"><span>KHÁM PHÁ</span><strong>Một câu hỏi về đảo</strong><small>Stories · lore · curiosity</small></a>
+    <a class="context-card compact emergency" href="utilities/#emergency"><span>TRỢ GIÚP</span><strong>112 · 113 · 114 · 115</strong><small>Mở hotline và danh bạ cần thiết</small></a>
+    <a class="context-map" href="explore/"><span>⌖</span><div><strong>Định hướng nhanh</strong><small>Bắc · Trung tâm · Nam</small></div><b>→</b></a>
   </aside>
 
   <footer class="site-footer">
@@ -440,7 +258,7 @@
         <a href="places/"><span>⌖</span><strong>Điểm đến</strong><small>Có gì, chơi gì, giá, lưu ý</small></a>
         <a href="food/"><span>◎</span><strong>Ăn uống</strong><small>Từng món và cách ăn</small></a>
         <a href="hotels/"><span>⌂</span><strong>Khách sạn</strong><small>Lọc theo khu vực và hạng sao</small></a>
-        <a href="#must"><span>✦</span><strong>Không nên bỏ lỡ</strong><small>Gợi ý nhanh theo thời điểm</small></a>
+        <a href="#discover"><span>✦</span><strong>Khám phá sâu hơn</strong><small>Stories · lore · curiosity</small></a>
       </div>
     </div>
 
@@ -462,7 +280,7 @@
   <script src="core/today-engine-v2.js?v=3"></script>
   <script src="app.js?v=20260919-superapp4"></script>
   <script src="island-clock.js?v=6"></script>
-  <script src="home-today-v3.js?v=3"></script>
+  <script src="home-foundation-v2.js?v=1"></script>
   <script src="home-live-v3.js?v=8"></script>
   <script src="home-copy.js?v=2"></script>
 </body>
