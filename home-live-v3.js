@@ -135,11 +135,11 @@
     const weatherWind = vvpq?.wind_kmh ?? dd?.local?.wind_kmh ?? null;
     const weatherObservedAt = vvpq?.observed_at || criticalStamp;
     const weatherAge = ageMinutes(weatherObservedAt);
-    const weatherSource = vvpq ? "VVPQ" : dd?.local?.temperature_class === "ESTIMATED_NOW" ? "Ước tính hiện tại" : "Weather V2";
+    const weatherSource = vvpq ? "Quan trắc sân bay" : dd?.local?.temperature_class === "ESTIMATED_NOW" ? "Ước tính hiện tại" : "JoTrip Weather";
     const weatherPrimary = weatherTemp != null ? Math.round(weatherTemp) + "°" : "--";
     const weatherSecondary = weatherTemp != null
       ? (weatherWind != null ? "Gió " + Math.round(weatherWind) + " km/h · " : "") + weatherSource + " · " + ageText(weatherObservedAt)
-      : "Chưa có dữ liệu weather";
+      : "Chưa có dữ liệu thời tiết";
     const weatherState = !critical ? "unknown" : weatherAge <= 60 ? "good" : weatherAge <= 180 ? "watch" : "unknown";
 
     setLive("weather", weatherPrimary, weatherSecondary, weatherState);
@@ -151,7 +151,7 @@
     const seaAge = ageMinutes(seaTime);
     const seaPrimary = seaHs != null ? fmt(seaHs) + " m" : "--";
     const seaSecondary = seaHs != null
-      ? "Nam đảo" + (seaHmax != null ? " · Hmax " + fmt(seaHmax) + " m" : "") + " · mô hình " + ageText(seaTime)
+      ? "Nam đảo" + (seaHmax != null ? " · Hmax " + fmt(seaHmax) + " m" : "") + " · dự báo " + ageText(seaTime)
       : "Chưa có dữ liệu biển";
     setLive("sea", seaPrimary, seaSecondary, seaAge <= 360 ? "info" : "unknown");
 
@@ -177,27 +177,27 @@
     const gauges = Array.isArray(critical?.actual?.rain_gauges) ? critical.actual.rain_gauges : [];
     const observedRain = gauges.some(g => g?.rain_observed === true || Number(g?.rain_intensity_mm_h) > 0);
 
-    let wxTitle = "Weather engine chưa có dữ liệu";
-    let wxNote = "Mở Weather để xem nguồn và độ mới dữ liệu.";
+    let wxTitle = "Chưa có dữ liệu thời tiết";
+    let wxNote = "Mở Thời tiết & Biển để xem chi tiết và thời điểm cập nhật.";
     let wxBadge = "CHƯA CÓ";
     let wxGood = false;
 
     if (critical) {
       wxNote = weatherSecondary;
       if (criticalAge > 90) {
-        wxTitle = "Snapshot Weather V2 đang cũ";
+        wxTitle = "Dữ liệu thời tiết cần cập nhật";
         wxBadge = "DỮ LIỆU CŨ";
       } else if (hasHighConvective) {
-        wxTitle = "Weather V2 đang đánh dấu đối lưu mức cao";
+        wxTitle = "Nguy cơ dông đang ở mức cao";
         wxBadge = "THEO DÕI";
       } else if (hasElevatedConvective) {
-        wxTitle = "Weather V2 đang đánh dấu đối lưu tăng";
+        wxTitle = "Nguy cơ dông đang tăng";
         wxBadge = "LƯU Ý";
       } else if (observedRain) {
         wxTitle = "Có trạm quan trắc ghi nhận mưa";
         wxBadge = "ĐO THỰC";
       } else {
-        wxTitle = "Weather V2 đang hoạt động";
+        wxTitle = "Dữ liệu thời tiết đang cập nhật";
         wxBadge = "CẬP NHẬT";
         wxGood = weatherState === "good";
       }
@@ -284,8 +284,8 @@
       if (!critical || criticalAge > 90) {
         decisionCard.href = "weather/";
         if (tag) tag.textContent = "KIỂM TRA TRƯỚC";
-        if (title) title.textContent = "Weather snapshot cần cập nhật";
-        if (note) note.textContent = "Mở Weather trước khi chọn hoạt động phụ thuộc thời tiết";
+        if (title) title.textContent = "Dữ liệu thời tiết cần cập nhật";
+        if (note) note.textContent = "Mở Thời tiết & Biển trước khi chọn hoạt động phụ thuộc thời tiết";
       } else if (hasHighConvective || hasElevatedConvective || observedRain) {
         decisionCard.href = "stories/article.html?id=mot-nam-trong-nha-thung";
         if (tag) tag.textContent = "LỊCH LINH HOẠT";
@@ -299,7 +299,7 @@
         decisionCard.href = "explore/?intent=sea";
         if (tag) tag.textContent = "HỢP HÔM NAY";
         if (title) title.textContent = "Ra biển trước hoàng hôn";
-        if (note) note.textContent = "Bờ Tây · kiểm tra Live Island Status trước khi đi";
+        if (note) note.textContent = "Bờ Tây · kiểm tra tình hình đảo trước khi đi";
       }
     }
 
