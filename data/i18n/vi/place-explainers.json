@@ -369,6 +369,402 @@
           "url": "https://visitphuquoc.com.vn/vi/kinh-nghiem-tham-quan-va-mua-ho-tieu-phu-quoc-lam-qua-8473"
         }
       ]
+    },
+    "place_sunset_town": {
+      "lede": "Sunset Town là một cụm đô thị - giải trí ở bờ Tây Nam đảo, không phải một điểm đơn lẻ. Cách đi hợp lý nhất là chọn một trục buổi chiều - tối rồi nối Cầu Hôn, ăn uống và show theo đúng giờ.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Cụm trải nghiệm Nam đảo",
+          "note": "Kiến trúc ven biển, ga cáp treo, Cầu Hôn, phố đi bộ, ăn uống và show nằm trong cùng một hệ sinh thái."
+        },
+        {
+          "icon": "02",
+          "label": "ĐI KHI NÀO?",
+          "value": "Cuối chiều đến tối",
+          "note": "Đi sớm hơn hoàng hôn một chút để có thời gian đi bộ, tìm chỗ và không phải chạy giữa các mốc giờ."
+        },
+        {
+          "icon": "03",
+          "label": "ĐỪNG NHỒI LỊCH",
+          "value": "Chọn 2-3 điểm chính",
+          "note": "Khoảng cách đi bộ và giờ show khiến việc cố gom mọi thứ trong một tối dễ thành chạy điểm."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Hiểu đúng để đỡ mệt",
+          "body": "Sunset Town nằm ở bờ Tây Nam Phú Quốc và hiện là một cụm lớn gồm cảnh quan đô thị, Cầu Hôn, khu cáp treo Hòn Thơm, các show và nhiều điểm ăn uống. Với khách lần đầu, nên coi đây là một buổi chiều - tối hoàn chỉnh hơn là một điểm chụp ảnh."
+        },
+        {
+          "heading": "Hoàng hôn chỉ là một mốc trong cả buổi",
+          "body": "Nếu mục tiêu là Cầu Hôn hoặc show tối, hãy dựng lịch ngược từ giờ biểu diễn rồi mới chèn ăn uống và đi bộ. Cách này dễ chịu hơn nhiều so với tới nơi rồi mới quyết định từng điểm."
+        }
+      ],
+      "visitor_questions": [
+        "Show tối nay chạy lúc nào và có thay đổi do thời tiết không?",
+        "Điểm đón xe về sau show thuận nhất ở đâu?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Thị trấn Hoàng Hôn ở đâu?",
+          "url": "https://visitphuquoc.com.vn/vi/thi-tran-hoang-hon-o-dau-cach-di-chuyen-va-trai-nghiem-noi-bat-16197"
+        }
+      ]
+    },
+    "place_kiss_bridge": {
+      "lede": "Cầu Hôn được thiết kế như một công trình đi bộ ngắm biển và hoàng hôn với hai nhánh không chạm nhau. Trải nghiệm tốt phụ thuộc khá nhiều vào giờ nắng, mật độ khách và cách ghép với cả buổi tối ở Sunset Town.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐIỂM KHÁC BIỆT",
+          "value": "Hai nhánh cầu không chạm nhau",
+          "note": "Khoảng hở ở giữa là chủ ý thiết kế, không phải một đoạn cầu bị thiếu."
+        },
+        {
+          "icon": "02",
+          "label": "LÚC ĐẸP",
+          "value": "Cuối chiều",
+          "note": "Ánh sáng hoàng hôn làm thay đổi rõ cảm giác của công trình và ảnh chụp."
+        },
+        {
+          "icon": "03",
+          "label": "GHÉP CÙNG",
+          "value": "Sunset Town + show tối",
+          "note": "Hợp để làm mốc chuyển từ chiều sang tối thay vì đi riêng chỉ 20-30 phút."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một công trình được xây quanh ý niệm khoảng cách và kết nối",
+          "body": "Cầu Hôn nằm tại Sunset Town, gồm hai nhánh vươn ra biển nhưng để lại một khoảng hở nhỏ ở điểm cuối. Đây là phần cốt lõi của hình thức kiến trúc và câu chuyện biểu tượng của công trình."
+        },
+        {
+          "heading": "Đừng mặc định giá và quyền vào luôn giống nhau",
+          "body": "Cách bán vé, combo và quyền lợi có thể thay đổi theo thời điểm. Trước khi đi, nên kiểm tra đúng ngày thay vì dựa vào ảnh chụp giá cũ trên mạng."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay Cầu Hôn mở tới mấy giờ?",
+        "Vé hoặc combo hôm nay bao gồm những quyền lợi nào?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Cầu Hôn do ai thiết kế?",
+          "url": "https://visitphuquoc.com.vn/vi/cau-hon-phu-quoc-do-ai-thiet-ke-kham-pha-cong-trinh-bieu-tuong-15561"
+        },
+        {
+          "label": "VisitPhuQuoc - Thời điểm đẹp nhất đi Cầu Hôn",
+          "url": "https://visitphuquoc.com.vn/vi/thoi-diem-dep-nhat-di-cau-hon-phu-quoc-ngam-hoang-hon-12789"
+        }
+      ]
+    },
+    "place_bai_sao": {
+      "lede": "Bãi Sao là một bãi biển Nam đảo nổi tiếng từ rất sớm trong du lịch Phú Quốc. Điều đáng nhớ là màu nước, cát sáng và nhịp biển thay đổi mạnh theo mùa, nắng và gió.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "HỢP KHI",
+          "value": "Muốn một buổi biển Nam đảo",
+          "note": "Dễ ghép cùng Hộ Quốc, Nhà tù Phú Quốc hoặc Bãi Khem."
+        },
+        {
+          "icon": "02",
+          "label": "MÀU NƯỚC",
+          "value": "Phụ thuộc nắng và mùa biển",
+          "note": "Ảnh quảng bá không đại diện cho mọi ngày. Trời âm u hoặc gió khác hướng sẽ làm bãi đổi cảm giác rõ rệt."
+        },
+        {
+          "icon": "03",
+          "label": "Ở BAO LÂU?",
+          "value": "2-4 giờ",
+          "note": "Đủ cho tắm biển, nghỉ và ăn nhẹ nếu không muốn lịch quá dày."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một bãi biển nên đi theo điều kiện ngày hôm đó",
+          "body": "Bãi Sao nằm ở Nam đảo và có lịch sử lâu năm trong các cẩm nang Phú Quốc. Cảm giác thực tế của bãi thay đổi theo mùa, thủy triều, gió và mật độ khách, nên xem thời tiết trong ngày hữu ích hơn việc chỉ nhìn ảnh đẹp."
+        },
+        {
+          "heading": "Đừng nhầm Bãi Sao với Rạch Vẹm",
+          "body": "Bãi Sao ở Nam đảo. Rạch Vẹm là làng chài phía Bắc, thường được nhắc cùng sao biển. Đây là hai nơi hoàn toàn khác nhau."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay sóng và gió ở bãi có mạnh không?",
+        "Khu nào dễ tắm và ít tàu thuyền hơn?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Bãi Sao, Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/bai-sao-phu-quoc-vi-ngoi-sao-sinh-ra-de-toa-sang-229"
+        }
+      ]
+    },
+    "place_vinwonders": {
+      "lede": "VinWonders là một công viên chủ đề quy mô lớn, không phải điểm ghé nhanh. Nếu đã chọn đi, nên dành phần lớn ngày cho nó và chọn vài phân khu ưu tiên thay vì cố hoàn thành toàn bộ.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "QUY MÔ",
+          "value": "6 phân khu lớn",
+          "note": "Có công viên nước, trò chơi, thủy cung và show nên thời gian di chuyển bên trong cũng đáng kể."
+        },
+        {
+          "icon": "02",
+          "label": "ĐI CÙNG TRẺ?",
+          "value": "Xem giới hạn chiều cao trước",
+          "note": "Đọc quy định trò chơi từ đầu ngày sẽ tránh đi tới nơi rồi mới biết trẻ chưa đủ điều kiện."
+        },
+        {
+          "icon": "03",
+          "label": "MỐC CUỐI NGÀY",
+          "value": "Giữ sức cho show tối",
+          "note": "Nếu muốn xem ONCE hoặc các show cuối ngày, đừng dùng hết năng lượng ở nửa đầu lịch trình."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một ngày ở đây nên có chiến lược",
+          "body": "Trang chính thức hiện công bố nhiều khu chức năng và lịch show trong ngày. Với khách gia đình, cách dễ nhất là chọn 2-3 trải nghiệm quan trọng trước, xen các khu trong nhà để nghỉ giữa trưa."
+        },
+        {
+          "heading": "Giờ show và giờ hoạt động là dữ liệu cần kiểm tra theo ngày",
+          "body": "Lịch vận hành có thể cập nhật. Open Phu Quoc chỉ dùng giờ hiện hành từ kênh chính thức khi hiển thị trực tiếp, còn phần cẩm nang chỉ giải thích cách lên kế hoạch."
+        }
+      ],
+      "visitor_questions": [
+        "Show nào hôm nay phù hợp nhất với lịch của gia đình?",
+        "Trò nào có giới hạn chiều cao hoặc cần xếp hàng lâu?"
+      ],
+      "sources": [
+        {
+          "label": "VinWonders Phú Quốc - Website chính thức",
+          "url": "https://vinwonders.com/vi/vinwonders-phu-quoc/"
+        }
+      ]
+    },
+    "place_vinpearl_safari": {
+      "lede": "Safari là trải nghiệm xem động vật bán hoang dã và vườn thú mở. Buổi sáng thường dễ chịu hơn vì thời tiết mát hơn và khách chưa quá mệt.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "TRỤC CHÍNH",
+          "value": "Safari bus + Open Zoo",
+          "note": "Nếu thời gian hạn chế, nên ưu tiên bus bán hoang dã rồi mới chọn các khu phụ."
+        },
+        {
+          "icon": "02",
+          "label": "ĐI VỚI TRẺ",
+          "value": "Nhẹ hơn nếu đi sớm",
+          "note": "Nắng và quãng đi bộ có thể làm trẻ nhanh mệt hơn dự kiến."
+        },
+        {
+          "icon": "03",
+          "label": "ĐỪNG NHỒI CẢ HAI",
+          "value": "Safari + VinWonders không phải lúc nào cũng hợp",
+          "note": "Với trẻ nhỏ hoặc người lớn tuổi, cố gộp hai công viên trong một ngày dễ quá tải."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Không chỉ là một sở thú truyền thống",
+          "body": "Trang vận hành chính thức mô tả Vinpearl Safari là công viên chăm sóc và bảo tồn động vật bán hoang dã, với khu bus quan sát động vật, vườn thú mở và các khu theo nhóm loài."
+        },
+        {
+          "heading": "Nhịp đi quan trọng hơn số lượng khu đã check",
+          "body": "Nếu đi gia đình, nên nhìn sức đi bộ và nắng trong ngày. Một lịch ngắn nhưng có thời gian ngồi nghỉ thường dễ chịu hơn cố đi đủ mọi khu."
+        }
+      ],
+      "visitor_questions": [
+        "Bus bán hoang dã hiện mất khoảng bao lâu?",
+        "Show hoặc hoạt động nào hôm nay cần tới sớm?"
+      ],
+      "sources": [
+        {
+          "label": "Vinpearl Safari Phú Quốc - Website chính thức",
+          "url": "https://vinwonders.com/vi/vinpearl-safari-phu-quoc/"
+        }
+      ]
+    },
+    "place_grand_world": {
+      "lede": "Grand World là một khu phố giải trí - mua sắm quy mô lớn ở Bắc đảo. Giá trị trải nghiệm phụ thuộc khá nhiều vào giờ đến, khu nào đang hoạt động và bạn có định xem show hay chỉ đi dạo.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐI KHI NÀO?",
+          "value": "Cuối chiều đến tối",
+          "note": "Dễ chịu hơn về nhiệt độ và hợp với nhịp show, ánh sáng và ăn tối."
+        },
+        {
+          "icon": "02",
+          "label": "CÓ GÌ?",
+          "value": "Kênh Venice - bảo tàng - phố - show",
+          "note": "Không cần cố đi hết. Chọn một trục phù hợp với thời gian của mình."
+        },
+        {
+          "icon": "03",
+          "label": "CẦN BIẾT",
+          "value": "Không mặc định mọi cửa hàng mở khuya",
+          "note": "Khu rất rộng, nhưng mật độ hoạt động thực tế có thể thay đổi theo ngày và mùa."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một khu lớn cần đi có mục tiêu",
+          "body": "Website chính thức giới thiệu Grand World như tổ hợp giải trí và mua sắm với kênh Venice, gondola, bảo tàng và các chương trình biểu diễn. Nếu chỉ tới mà không biết muốn xem gì, rất dễ đi nhiều nhưng cảm thấy ít trải nghiệm."
+        },
+        {
+          "heading": "Chọn điểm dừng trước khi tới",
+          "body": "Nếu đi cùng trẻ nhỏ, bảo tàng hoặc hoạt động có cấu trúc rõ thường dễ hơn đi bộ kéo dài. Nếu đi cặp đôi, cuối chiều - tối hợp hơn để kết hợp ánh sáng, ăn uống và show."
+        }
+      ],
+      "visitor_questions": [
+        "Show nào đang chạy hôm nay?",
+        "Khu nào còn hoạt động muộn nhất tối nay?"
+      ],
+      "sources": [
+        {
+          "label": "Grand World Phú Quốc - Website chính thức",
+          "url": "https://vinwonders.com/vi/grand-world-phu-quoc/"
+        }
+      ]
+    },
+    "place_aquatopia": {
+      "lede": "Aquatopia là công viên nước trên Hòn Thơm. Trải nghiệm phụ thuộc vào chiều cao, mức chịu trò cảm giác mạnh, thời tiết và việc bạn muốn dành bao nhiêu thời gian cho biển bên ngoài công viên.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐI CÙNG AI?",
+          "value": "Gia đình và nhóm thích trò nước",
+          "note": "Trẻ em cần xem giới hạn chiều cao từng trò trước khi xếp hàng."
+        },
+        {
+          "icon": "02",
+          "label": "MỚI 2026",
+          "value": "Có thêm trò Wavy Whirl",
+          "note": "Sun World công bố bổ sung làn trượt thế hệ mới trong mùa hè 2026."
+        },
+        {
+          "icon": "03",
+          "label": "ĐỪNG QUÊN",
+          "value": "Hòn Thơm còn có biển và Exotica",
+          "note": "Nếu vé và thời gian cho phép, nên cân bằng công viên nước với phần còn lại của đảo."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Đây là một phần của ngày Hòn Thơm",
+          "body": "Aquatopia nằm trên Hòn Thơm và thường đi cùng hành trình cáp treo. Với nhiều gia đình, công viên nước là trục chính của ngày; với người muốn ngắm biển, không nên để toàn bộ lịch bị hút vào các máng trượt."
+        },
+        {
+          "heading": "Đọc giới hạn trò chơi trước khi xếp hàng",
+          "body": "Chiều cao, tình trạng sức khỏe và điều kiện vận hành có thể giới hạn một số trò. Xem quy định từ đầu giúp tránh mất thời gian và giảm thất vọng cho trẻ."
+        }
+      ],
+      "visitor_questions": [
+        "Trò nào hôm nay tạm đóng hoặc có giới hạn chiều cao?",
+        "Có tủ đồ, khăn hoặc khu thay đồ nào cần mua thêm không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Sun World Hòn Thơm ra mắt trò mới 2026",
+          "url": "https://visitphuquoc.com.vn/vi/sun-world-hon-thom-ra-mat-lan-truot-nuoc-chua-tung-co-tren-the-gioi-10208"
+        },
+        {
+          "label": "VisitPhuQuoc - Sun World Hòn Thơm",
+          "url": "https://visitphuquoc.com.vn/vi/sun-world-hon-thom"
+        }
+      ]
+    },
+    "activity_symphony_of_the_sea": {
+      "lede": "Symphony of the Sea là show ngoài trời ở Sunset Town kết hợp jetski, flyboard, ánh sáng và hiệu ứng trên mặt nước. Vì là show ngoài trời, trải nghiệm phụ thuộc thời tiết và vị trí xem rõ hơn một show trong nhà.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Show jetski + flyboard + ánh sáng",
+          "note": "Xem trên mặt nước, với nhịp nhanh và nhiều hiệu ứng trực quan."
+        },
+        {
+          "icon": "02",
+          "label": "ĐI KHI NÀO?",
+          "value": "Theo lịch show trong ngày",
+          "note": "Nên có mặt sớm hơn giờ bắt đầu để ổn định vị trí xem."
+        },
+        {
+          "icon": "03",
+          "label": "PHỤ THUỘC",
+          "value": "Gió, mưa và vận hành",
+          "note": "Show ngoài trời có thể thay đổi nếu điều kiện không phù hợp."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Nên xem như một phần của buổi tối Nam đảo",
+          "body": "Show dễ ghép cùng Cầu Hôn và Sunset Town. Nếu cùng tối còn xem Kiss of the Sea, cần kiểm tra khoảng cách thời gian giữa hai show để không phải chạy."
+        },
+        {
+          "heading": "Vị trí xem tạo khác biệt lớn",
+          "body": "Một show trên mặt nước có nhiều lớp chuyển động. Nếu tới quá sát giờ, vị trí còn lại có thể hạn chế tầm nhìn hơn nhiều so với trải nghiệm trong ảnh quảng bá."
+        }
+      ],
+      "visitor_questions": [
+        "Show hôm nay có chạy đúng lịch không?",
+        "Khu xem nào phù hợp nếu đi cùng trẻ nhỏ?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Show Jetski và Flyboard tại Sunset Town",
+          "url": "https://visitphuquoc.com.vn/vi/da-mat-voi-show-dien-jetski-va-flyboard-tai-thi-tran-hoang-hon-427"
+        }
+      ]
+    },
+    "activity_kiss_of_the_sea": {
+      "lede": "Kiss of the Sea là show đa phương tiện ngoài trời tại Sunset Town, thường được xem như điểm chốt của buổi tối Nam đảo. Đừng mua vé chỉ vì thấy pháo hoa trong ảnh - hãy xem vị trí ngồi, giờ show và quyền lợi đúng ngày.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Show đa phương tiện + pháo hoa",
+          "note": "Sân khấu ngoài trời lớn, kết hợp hình ảnh, nước, ánh sáng và hiệu ứng."
+        },
+        {
+          "icon": "02",
+          "label": "TRƯỚC KHI MUA",
+          "value": "Xem đúng hạng vé",
+          "note": "Vị trí ngồi và quyền lợi combo có thể khác nhau."
+        },
+        {
+          "icon": "03",
+          "label": "GHÉP LỊCH",
+          "value": "Dựng ngược từ giờ show",
+          "note": "Sau đó mới chèn ăn tối, Cầu Hôn và các điểm khác để tránh nối lịch quá sát."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Đây là show cần lên lịch chứ không phải ghé ngẫu hứng",
+          "body": "Với show lớn và giờ bắt đầu cố định, toàn bộ buổi tối dễ chịu hơn nếu lấy giờ show làm mốc. Điều này đặc biệt quan trọng nếu đi cùng trẻ, người lớn tuổi hoặc nhóm đông."
+        },
+        {
+          "heading": "Ảnh pháo hoa không nói hết trải nghiệm",
+          "body": "Tầm nhìn, vị trí ngồi, thời tiết và quyền lợi vé ảnh hưởng trực tiếp tới cảm giác thực tế. Trước khi thanh toán, nên xem sơ đồ khu ngồi và điều kiện đổi lịch nếu thời tiết xấu."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay show có thay đổi do thời tiết không?",
+        "Hạng vé này nằm ở khu nào trên sơ đồ?",
+        "Sau show nên đón xe ở đâu?"
+      ],
+      "sources": [
+        {
+          "label": "Sunset Town / Sun World - kiểm tra lịch và vé hiện hành",
+          "url": "https://sunworld.vn/"
+        }
+      ]
     }
   }
 }
