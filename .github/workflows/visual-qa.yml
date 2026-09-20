@@ -11,6 +11,11 @@ on:
         options:
           - full
           - smoke
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/visual-qa.yml"
+      - "scripts/visual-qa.mjs"
 
 permissions:
   contents: read
@@ -20,8 +25,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout
+      - name: Checkout latest main
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -50,7 +57,7 @@ jobs:
       - name: Run visual QA
         env:
           VISUAL_QA_BASE_URL: http://127.0.0.1:4173
-          VISUAL_QA_SCOPE: ${{ inputs.scope }}
+          VISUAL_QA_SCOPE: ${{ inputs.scope || 'smoke' }}
         run: node scripts/visual-qa.mjs
 
       - name: Preserve server log
