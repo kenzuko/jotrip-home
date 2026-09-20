@@ -1,0 +1,213 @@
+{
+  "schema_version": "1.0",
+  "locale": "vi",
+  "updated_at": "2026-09-20",
+  "items": {
+    "goi-ca-trich": {
+      "origin": "Gỏi cá trích là món hải sản địa phương lâu đời gắn với nguồn cá trích quanh Phú Quốc. Đây không phải món salad theo kiểu phương Tây mà là một cách ăn cá tươi cùng rau, dừa, bánh tráng và nước chấm.",
+      "why_name": "Tên món đi thẳng từ nguyên liệu chính - cá trích - và cách trộn/gỏi. Trải nghiệm thực tế thường là tự cuốn bánh tráng rồi chấm, chứ không chỉ ăn bằng đũa như một đĩa salad.",
+      "ingredients": [
+        "Cá trích tươi",
+        "Hành tây",
+        "Rau thơm / húng",
+        "Dừa nạo",
+        "Rau sống",
+        "Bánh tráng",
+        "Nước chấm từ nước mắm, tỏi, ớt",
+        "Đậu phộng rang - thường có"
+      ],
+      "taste_texture": "Tươi, béo nhẹ từ dừa, thơm rau, giòn từ rau sống và đậu phộng, đậm vị ở nước chấm. Cá thường được dùng ở trạng thái sống/tái tùy cách làm của quán.",
+      "how_to_eat": "Đặt cá, rau và dừa vào bánh tráng, cuốn vừa tay rồi chấm nước mắm. Không nên cuốn quá nhiều một lần vì sẽ mất vị cá.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "high"
+        },
+        {
+          "key": "peanut",
+          "label": "Đậu phộng",
+          "level": "high"
+        }
+      ],
+      "allergy_note": "Món thường có cá và đậu phộng trong phần nước chấm hoặc topping. Nếu không ăn cá sống/tái hoặc có dị ứng, hãy hỏi rõ cách sơ chế và thành phần nước chấm trước khi gọi.",
+      "ask_staff": [
+        "Nước chấm có đậu phộng không?",
+        "Cá được phục vụ sống, tái hay đã xử lý nhiệt?",
+        "Có thể làm phần không đậu phộng riêng không?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Đặc sản hải sản Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood"
+        }
+      ]
+    },
+    "bun-quay": {
+      "origin": "Vietnam Tourism ghi nhận bún quậy được đưa tới Phú Quốc từ miền Trung vào khoảng năm 1955, ban đầu là bún tôm với tôm xay. Từ thập niên 1990, món được biến tấu thêm hải sản và gia vị địa phương rồi trở thành một món gắn rất mạnh với Phú Quốc.",
+      "why_name": "Tên “bún quậy” gắn với động tác quậy/khuấy trong trải nghiệm ăn. Nguồn mô tả hơi khác nhau: có nguồn nhấn vào việc tự quậy chén nước chấm, nguồn khác dùng nghĩa rộng hơn cho cách ăn và chế biến tương tác.",
+      "ingredients": [
+        "Bún tươi làm từ bột gạo",
+        "Chả tôm",
+        "Chả cá",
+        "Mực - tùy tô/quán",
+        "Hành lá và rau thơm",
+        "Nước chấm thường có nước mắm, tắc/quất, đường và ớt"
+      ],
+      "taste_texture": "Nước dùng thanh, hải sản ngọt, chả tươi có độ dai mềm. Điểm đặc biệt nằm ở chén nước chấm do người ăn tự pha, thường cân bằng chua - cay - mặn - ngọt.",
+      "how_to_eat": "Pha chén nước chấm trước theo khẩu vị, quậy cho hòa đều rồi ăn bún khi còn nóng. Có thể chấm chả và hải sản riêng để cảm nhận rõ hơn vị nguyên liệu.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "high"
+        },
+        {
+          "key": "crustacean",
+          "label": "Tôm / giáp xác",
+          "level": "high"
+        },
+        {
+          "key": "mollusc",
+          "label": "Mực / nhuyễn thể",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nếu dị ứng cá, tôm hoặc hải sản, cần hỏi quán trước khi gọi vì nước dùng, chả, topping và khu chế biến thường dùng chung nguyên liệu biển. Không nên tự mặc định món hoàn toàn không gluten chỉ vì bún làm từ gạo - gia vị và quy trình từng quán có thể khác.",
+      "ask_staff": [
+        "Tô này có chả tôm, chả cá và mực không?",
+        "Nước dùng hoặc nước chấm có thành phần hải sản nào khác không?",
+        "Nếu dị ứng nặng, có dùng chung dụng cụ chế biến với hải sản khác không?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Bún quậy Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-signature-noodle-bun-quay"
+        },
+        {
+          "label": "VnExpress - Bún 'quậy' Phú Quốc",
+          "url": "https://vnexpress.net/bun-quay-phu-quoc-4066543.html"
+        }
+      ]
+    },
+    "bun-ken": {
+      "origin": "Vietnam Tourism mô tả bún kèn Phú Quốc là món có ảnh hưởng Campuchia, dùng cá, nước cốt dừa và một chút cà ri. Trên đảo, món thường đi cùng bún gạo sợi nhỏ và nhiều rau.",
+      "why_name": "“Kèn” là tên món/nước kèn trong ẩm thực vùng Nam Bộ - Khmer. Cách gọi này không liên quan đến nhạc cụ; phần nổi bật là nước chan cá béo thơm từ nước cốt dừa và gia vị.",
+      "ingredients": [
+        "Bún gạo sợi nhỏ",
+        "Cá - cách làm thay đổi theo quán",
+        "Nước cốt dừa",
+        "Gia vị cà ri",
+        "Rau thơm / rau răm",
+        "Dưa leo",
+        "Đu đủ bào - thường gặp"
+      ],
+      "taste_texture": "Béo thơm từ nước cốt dừa, có mùi gia vị cà ri nhẹ, cá đậm vị và rau tạo độ tươi giòn.",
+      "how_to_eat": "Trộn đều bún, rau và nước kèn trước khi ăn để vị cá, dừa và rau hòa nhau. Đây thường là món bán theo buổi nên nên kiểm tra giờ quán.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "high"
+        }
+      ],
+      "allergy_note": "Cá là thành phần cốt lõi. Công thức nước kèn và hỗn hợp gia vị có thể khác từng quán; nếu dị ứng hải sản hoặc gia vị cụ thể, nên hỏi thành phần trước.",
+      "ask_staff": [
+        "Loại cá nào được dùng hôm nay?",
+        "Nước kèn có thêm mắm, tôm hoặc hải sản khác không?",
+        "Hỗn hợp cà ri/gia vị có thành phần nào đóng gói sẵn không?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Phú Quốc dành cho người yêu thiên nhiên",
+          "url": "https://beta.vietnam.travel/vi/things-to-do/phu-quoc-nature-lovers"
+        },
+        {
+          "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ]
+    },
+    "nhum": {
+      "origin": "Nhum biển là hải sản quen thuộc ở Phú Quốc, thường được nướng trực tiếp trên than sau khi bổ đôi. Mỡ hành và đậu phộng là kiểu phục vụ phổ biến.",
+      "why_name": "“Nhum” là cách gọi địa phương/phổ biến ở miền Nam cho cầu gai biển. Trên menu tiếng Anh thường thấy sea urchin.",
+      "ingredients": [
+        "Nhum biển",
+        "Dầu hoặc mỡ hành",
+        "Hành lá",
+        "Đậu phộng rang - thường có",
+        "Muối tiêu chanh hoặc sốt chua cay - tùy quán"
+      ],
+      "taste_texture": "Béo, mềm, hơi ngọt và có vị biển rõ. Khi nướng đúng độ, phần thịt/trứng nhum vẫn mềm chứ không khô.",
+      "how_to_eat": "Dùng muỗng nhỏ xúc phần thịt/trứng trong vỏ, ăn trực tiếp hoặc chấm nhẹ muối tiêu chanh. Không cần nêm quá mạnh nếu muốn cảm nhận vị nhum.",
+      "allergen_flags": [
+        {
+          "key": "seafood",
+          "label": "Hải sản / nhum biển",
+          "level": "high"
+        },
+        {
+          "key": "peanut",
+          "label": "Đậu phộng",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nhum là hải sản và nhiều cách phục vụ có đậu phộng. Nếu dị ứng hải sản hoặc đậu phộng, cần hỏi quán trước vì topping và khu nướng có thể dùng chung.",
+      "ask_staff": [
+        "Món có đậu phộng hoặc dầu đậu phộng không?",
+        "Nhum được nướng riêng hay trên cùng vỉ với hải sản khác?",
+        "Có thể bỏ mỡ hành/đậu phộng không?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Đặc sản hải sản Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood"
+        },
+        {
+          "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ]
+    },
+    "coi-bien-mai": {
+      "origin": "Còi biên mai là phần cơ thịt nối hai mảnh vỏ của sò biên mai. Phần thân còn lại mềm hơn, còn hai phần “còi” dày và chắc nên thường được tách riêng để nướng, xào hoặc nhúng lẩu.",
+      "why_name": "Tên gọi mô tả đúng phần ăn ngon nhất của con biên mai: “còi” là phần cơ đóng mở hai mảnh vỏ.",
+      "ingredients": [
+        "Còi biên mai",
+        "Muối ớt hoặc sa tế - tùy cách nướng",
+        "Chao - ở một số kiểu nướng",
+        "Rau ăn kèm - tùy quán"
+      ],
+      "taste_texture": "Giòn, dai vừa và ngọt. Nếu nướng quá lâu phần còi dễ khô và cứng, nên món ngon phụ thuộc khá nhiều vào độ chín.",
+      "how_to_eat": "Ăn khi vừa nướng xong. Kiểu muối ớt nhấn vị ngọt và độ giòn; kiểu chao hoặc sa tế đậm và béo hơn.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Nhuyễn thể / sò",
+          "level": "high"
+        },
+        {
+          "key": "soy",
+          "label": "Đậu nành - có thể có trong chao",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Biên mai là nhuyễn thể. Kiểu nướng chao có thể chứa đậu nành; sa tế và sốt pha sẵn thay đổi theo quán. Nếu dị ứng hải sản, đậu nành hoặc đậu phộng, nên hỏi chính xác loại sốt trước khi gọi.",
+      "ask_staff": [
+        "Món nướng dùng muối ớt, sa tế hay chao?",
+        "Sốt có đậu nành hoặc đậu phộng không?",
+        "Có dùng chung vỉ nướng với các loại hải sản khác không?"
+      ],
+      "sources": [
+        {
+          "label": "VietnamNet - Còi biên mai nướng Phú Quốc",
+          "url": "https://vietnamnet.vn/xep-hang-doi-lan-bien-san-dac-san-tru-danh-cua-phu-quoc-dem-nuong-muoi-ot-778244.html"
+        },
+        {
+          "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ]
+    }
+  }
+}
