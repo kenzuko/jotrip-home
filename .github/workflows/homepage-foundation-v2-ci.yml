@@ -1,0 +1,25 @@
+name: Homepage Foundation V2 CI
+
+on:
+  push:
+    branches: ["homepage-foundation-v2-ci"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build search
+        run: node scripts/build-search-index.mjs
+      - name: Validate entity and homepage contracts
+        run: |
+          node scripts/validate-data.mjs
+          node scripts/validate-home-support.mjs
+      - name: Test search
+        run: node scripts/test-search.mjs
