@@ -27,6 +27,20 @@
     '</section>';
   }
 
+  function pickHero(images) {
+    const rows = Array.isArray(images) ? images.filter(x => x?.url) : [];
+    if (!rows.length) return null;
+    const priority = {primary:4,preferred:3,default:2,archive:1};
+    return [...rows].sort((a,b)=>{
+      const pa=priority[a.hero_priority]||2;
+      const pb=priority[b.hero_priority]||2;
+      if(pb!==pa)return pb-pa;
+      const da=Date.parse(String(a.captured_at||"").length===4?a.captured_at+"-01-01":a.captured_at||"1970-01-01")||0;
+      const db=Date.parse(String(b.captured_at||"").length===4?b.captured_at+"-01-01":b.captured_at||"1970-01-01")||0;
+      return db-da;
+    })[0]||rows[0];
+  }
+
   function quickFacts(facts, options = {}) {
     const rows = Array.isArray(facts) ? facts.filter(x => Array.isArray(x) && x.length >= 2) : [];
     if (!rows.length) return "";
@@ -131,5 +145,5 @@
     '</div>';
   }
 
-  window.OpenPQVisual = { esc, gallery, quickFacts, infographic, locator, bindLazyMaps, placeholder };
+  window.OpenPQVisual = { esc, gallery, quickFacts, infographic, locator, bindLazyMaps, placeholder, pickHero };
 })();
