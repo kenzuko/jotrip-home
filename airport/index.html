@@ -17,7 +17,7 @@
   <div class="brand">
     <a class="brand-home" href="../" aria-label="Về Open Phu Quoc"><div class="brand-logo"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361" decoding="sync" fetchpriority="high"></div></a>
     <span class="brand-divider"></span>
-    <div><h1>Airport Live</h1><p>PQC · tiện ích chuyến bay</p></div>
+    <div><h1>Sân bay trực tiếp</h1><p>PQC · tiện ích chuyến bay</p></div>
   </div>
   <div class="top-actions"><div class="vn-clock" data-vn-clock></div>
     <a class="openpq-home-btn" href="../" title="Open Phu Quoc">⌂</a>
@@ -28,8 +28,8 @@
 <main class="layout">
   <section class="content">
     <div class="source-strip">
-      <span class="live-pill"><i></i> LIVE</span>
-      <span id="healthPill" class="health-pill loading">LOADING</span>
+      <span class="live-pill"><i></i> TRỰC TIẾP</span>
+      <span id="healthPill" class="health-pill loading">ĐANG TẢI</span>
       <span class="source-label">Nguồn chuyến bay chính thức</span>
       <span id="updatedAt" class="updated-at">Đang đồng bộ dữ liệu...</span>
     </div>
@@ -37,7 +37,7 @@
 
     <section class="hero live-only">
       <div class="hero-copy">
-        <div class="eyebrow">PQC · PHU QUOC INTERNATIONAL AIRPORT</div>
+        <div class="eyebrow">PQC · SÂN BAY QUỐC TẾ PHÚ QUỐC</div>
         <h2>Hôm nay tại Phú Quốc</h2>
         <p>3 giây để biết sân bay đang ra sao.</p>
       </div>
@@ -47,12 +47,12 @@
         <article><strong id="departuresCount">-</strong><span>Chuyến đi</span></article>
         <article><strong id="internationalCount">-</strong><span>Quốc tế đến</span></article>
       </div>
-      <div id="opsState" class="ops-state">CHECKING</div>
+      <div id="opsState" class="ops-state">ĐANG KIỂM TRA</div>
       <div class="hero-plane">✈</div>
     </section>
 
     <section class="card live-only" id="flightBoard">
-      <div class="card-head"><div><span class="section-kicker">FLIGHT BOARD</span><h3>Chuyến bay hôm nay</h3></div><button id="searchToggle" class="text-button">Tìm chuyến</button></div>
+      <div class="card-head"><div><span class="section-kicker">BẢNG CHUYẾN BAY</span><h3>Chuyến bay hôm nay</h3></div><button id="searchToggle" class="text-button">Tìm chuyến</button></div>
       <div id="searchWrap" class="search-wrap hidden"><input id="flightSearch" placeholder="Tìm số chuyến, hãng hoặc nơi đi/đến: VJ339, Hà Nội, Incheon..."></div>
       <div class="segmented" id="directionTabs">
         <button class="active" data-direction="arrival">Chuyến đến</button>
@@ -71,7 +71,7 @@
     </section>
 
     <section class="card live-only">
-      <div class="card-head"><div><span class="section-kicker">NEXT 3 HOURS</span><h3>Nhịp sân bay sắp tới</h3></div><span class="muted" id="nextWindowText"></span></div>
+      <div class="card-head"><div><span class="section-kicker">3 GIỜ TỚI</span><h3>Nhịp sân bay sắp tới</h3></div><span class="muted" id="nextWindowText"></span></div>
       <div class="metric-grid">
         <article><span>Chuyến đến</span><strong id="nextArrivals">-</strong><small>trong 3 giờ</small></article>
         <article><span>Chuyến đi</span><strong id="nextDepartures">-</strong><small>trong 3 giờ</small></article>
@@ -107,7 +107,7 @@
         </a>
         <a href="../utilities/">
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1200" alt="Bãi biển Phú Quốc">
-          <div><span>TIỆN ÍCH</span><strong>Mất hành lý hay cần hỗ trợ?</strong><small>Hotline, Lost & Found và số khẩn cấp ở một chỗ.</small></div>
+          <div><span>TIỆN ÍCH</span><strong>Mất hành lý hay cần hỗ trợ?</strong><small>Hotline, hỗ trợ thất lạc hành lý và số khẩn cấp ở một chỗ.</small></div>
         </a>
       </div>
     </section>
@@ -122,7 +122,7 @@
       <dl class="health-meta">
         <div><dt>Dữ liệu trực tiếp</dt><dd>Chuyến bay PQC</dd></div>
         <div><dt>Nguồn</dt><dd>Nguồn chính thức</dd></div>
-        <div><dt>QA</dt><dd id="qaText">-</dd></div>
+        <div><dt>Kiểm tra chất lượng</dt><dd id="qaText">-</dd></div>
         <div><dt>Độ trễ dữ liệu</dt><dd id="dataAge">-</dd></div>
       </dl>
     </section>
@@ -143,7 +143,7 @@
 <aside id="flightDrawer" class="flight-drawer hidden" aria-hidden="true"><div class="drawer-grab"></div><button id="drawerClose" class="drawer-close">×</button><div id="drawerContent"></div></aside>
 
 <script src="./live-config.js?v=20260918a"></script>
-<script src="./app.js?v=20260919-fast1"></script>
+<script src="./app.js?v=20260920-fast2"></script>
 <script defer src="./board-days.js?v=20260918a"></script>
 <script defer src="./openpq-copy.js?v=20260918a"></script><script src="../island-clock.js?v=5"></script>
 </body>
