@@ -47,7 +47,9 @@ const searchTypeLabel = {
   meal_plan: 'GÓI ĂN KÈM',
   price_reference: 'GIÁ THAM KHẢO',
   island_basic: 'HIỂU ĐẢO',
-  live: 'TRỰC TIẾP',\n  story: 'CÂU CHUYỆN',\n  lore: 'TÒ MÒ / HUYỀN TÍCH'
+  live: 'TRỰC TIẾP',
+  story: 'CÂU CHUYỆN',
+  lore: 'TÒ MÒ / HUYỀN TÍCH'
 };
 
 function escapeSearchHtml(value) {
