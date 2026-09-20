@@ -4214,3 +4214,19 @@ body.sheet-open{
     padding-top:30px;
   }
 }
+
+
+/* V3.4 - measured island pulse speed */
+.motion-on .ticker-track,
+.ticker-track,
+.motion-on #top>.energy-ticker .ticker-track,
+#top>.energy-ticker .ticker-track{
+  animation-duration:var(--ticker-duration,11s)!important;
+}
+#top>.energy-ticker:hover .ticker-track{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){
+  .ticker-track{
+    animation:none!important;
+    transform:none!important;
+  }
+}
