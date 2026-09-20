@@ -251,7 +251,10 @@
           "caption": "Sunset Town nhìn từ khu vực ven biển phía Nam đảo.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg",
+          "captured_at": "2026-03-28",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
         },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20Town%20Phu%20Quoc%20at%20night.jpg?width=1800",
@@ -259,7 +262,10 @@
           "caption": "Sunset Town về đêm trong thời gian diễn ra Kiss of the Sea.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_Town_Phu_Quoc_at_night.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_Town_Phu_Quoc_at_night.jpg",
+          "captured_at": "2026-04-25",
+          "hero_priority": "preferred",
+          "visual_quality": "hero"
         }
       ],
       "infographic": [
@@ -291,7 +297,10 @@
           "caption": "Cầu Hôn trong ánh chiều ở Sunset Town, ảnh công bố năm 2026.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_at_sunset_Phu_Quoc_Island_Vietnam.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_at_sunset_Phu_Quoc_Island_Vietnam.jpg",
+          "captured_at": "2026-03-14",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
         },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kiss%20Bridge%20Phu%20Quoc%20aerial%20sunset%20view.jpg?width=1800",
@@ -299,7 +308,10 @@
           "caption": "Nhìn từ trên cao để thấy rõ Cầu Hôn nằm trong toàn bộ cụm Sunset Town.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_Phu_Quoc_aerial_sunset_view.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_Phu_Quoc_aerial_sunset_view.jpg",
+          "captured_at": "2026",
+          "hero_priority": "preferred",
+          "visual_quality": "hero"
         }
       ],
       "infographic": [
@@ -631,7 +643,10 @@
           "caption": "Bãi Khem nhìn từ trên cao, ảnh 2026 độ phân giải cao.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Kem_Beach_aerial_view_Phu_Quoc_Island_Vietnam.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kem_Beach_aerial_view_Phu_Quoc_Island_Vietnam.jpg",
+          "captured_at": "2026-03-05",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
         }
       ],
       "infographic": [
@@ -819,7 +834,10 @@
           "caption": "Symphony of the Sea nhìn từ khu Campanile, ảnh công bố tháng 3/2026.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Symphony_of_the_Sea_fireworks_Campanile_scenic_observatory_Phu_Quoc_Vietnam.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Symphony_of_the_Sea_fireworks_Campanile_scenic_observatory_Phu_Quoc_Vietnam.jpg",
+          "captured_at": "2026-03",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
         },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Artist%20Symphony%20of%20the%20Sea.jpg?width=1800",
@@ -827,7 +845,10 @@
           "caption": "Một khoảnh khắc biểu diễn trong Symphony of the Sea.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Artist_Symphony_of_the_Sea.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Artist_Symphony_of_the_Sea.jpg",
+          "captured_at": "2026-04-23",
+          "hero_priority": "preferred",
+          "visual_quality": "hero"
         }
       ],
       "infographic": [
@@ -869,7 +890,10 @@
           "caption": "Kiss of the Sea với sân khấu và pháo hoa về đêm, ảnh công bố tháng 4/2026.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_of_the_Sea_fireworks_show_Sunset_Town_Sun_World_Phu_Quoc_night_Vietnam.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_of_the_Sea_fireworks_show_Sunset_Town_Sun_World_Phu_Quoc_night_Vietnam.jpg",
+          "captured_at": "2026-04",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
         }
       ],
       "infographic": [
@@ -1074,5 +1098,16 @@
         "rights": "JoTrip licensed photo library"
       }
     ]
+  },
+  "image_selection_policy": {
+    "exact_subject_first": true,
+    "prefer_recent": true,
+    "hero_priority_order": [
+      "primary",
+      "preferred",
+      "default",
+      "archive"
+    ],
+    "note": "Hero nên ưu tiên ảnh đúng chủ thể, mới, độ phân giải tốt và bố cục mạnh. Ảnh cũ chỉ dùng khi không có lựa chọn tốt hơn và phải ghi rõ nếu là tư liệu."
   }
 }
