@@ -174,14 +174,52 @@
     "place_kiss_bridge": {
       "images": [
         {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kiss%20Bridge%20at%20sunset%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1800",
+          "alt": "Cầu Hôn Phú Quốc lúc hoàng hôn",
+          "caption": "Cầu Hôn trong ánh chiều ở Sunset Town, ảnh công bố năm 2026.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_at_sunset_Phu_Quoc_Island_Vietnam.jpg"
+        },
+        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kiss%20Bridge%20Phu%20Quoc%20aerial%20sunset%20view.jpg?width=1800",
-          "alt": "Cầu Hôn Phú Quốc nhìn từ trên cao",
-          "caption": "Cầu Hôn và Sunset Town lúc chạng vạng.",
+          "alt": "Cầu Hôn và Sunset Town nhìn từ trên cao",
+          "caption": "Nhìn từ trên cao để thấy rõ Cầu Hôn nằm trong toàn bộ cụm Sunset Town.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
           "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_Phu_Quoc_aerial_sunset_view.jpg"
         }
-      ]
+      ],
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Đi lúc nào",
+          "value": "Cuối chiều",
+          "note": "Canh đủ thời gian để đi bộ trước lúc nắng xuống."
+        },
+        {
+          "icon": "⌖",
+          "label": "Nằm trong",
+          "value": "Sunset Town",
+          "note": "Có thể đi cùng khu thay vì tách thành một chuyến riêng."
+        },
+        {
+          "icon": "✓",
+          "label": "Trước khi mua vé",
+          "value": "Xem đúng ngày và khung giờ",
+          "note": "Quyền lợi có thể đi theo vé lẻ hoặc combo."
+        }
+      ],
+      "map": {
+        "lat": 10.028002,
+        "lon": 104.005182,
+        "precision": "area_anchor",
+        "anchor_name": "Cầu Hôn - Sunset Town",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_at_sunset_Phu_Quoc_Island_Vietnam.jpg",
+        "verified_at": "2026-09-20",
+        "note": "Tọa độ điểm chụp tại Cầu Hôn, dùng để định hướng vị trí trong cụm Sunset Town."
+      }
     },
     "place_bai_sao": {
       "images": [
@@ -316,6 +354,162 @@
         "verified_at": "2026-09-20",
         "note": "Điểm neo nằm trên tuyến cáp treo tại khu An Thới, không phải vị trí đại diện cho toàn tuyến hoặc Hòn Thơm."
       }
+    },
+    "place_bai_khem": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kem%20Beach%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1800",
+          "alt": "Bãi Khem Phú Quốc nhìn từ trên cao",
+          "caption": "Bãi Khem nhìn từ trên cao, ảnh 2026 độ phân giải cao.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kem_Beach_aerial_view_Phu_Quoc_Island_Vietnam.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Đẹp nhất khi",
+          "value": "Trời sáng, biển êm",
+          "note": "Màu nước thay đổi khá nhiều theo nắng và mùa biển."
+        },
+        {
+          "icon": "⌖",
+          "label": "Khu vực",
+          "value": "Nam đảo",
+          "note": "Hợp ghép cùng các điểm phía Nam hơn là chạy vòng lên Bắc đảo."
+        },
+        {
+          "icon": "≈",
+          "label": "Ở bao lâu",
+          "value": "2-4 giờ",
+          "note": "Đủ để tắm biển, nghỉ và ăn trưa nếu lịch không quá dày."
+        }
+      ],
+      "map": {
+        "lat": 9.9823,
+        "lon": 103.9756,
+        "precision": "area_anchor",
+        "anchor_name": "Bãi Khem",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kem_Beach_aerial_view_Phu_Quoc_Island_Vietnam.jpg",
+        "verified_at": "2026-09-20",
+        "note": "Tọa độ điểm chụp trên Bãi Khem, dùng để định hướng khu vực bãi biển."
+      }
+    },
+    "place_ho_quoc": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ch%C3%B9a%20H%E1%BB%99%20Qu%E1%BB%91c%20%2852681384143%29.jpg?width=1800",
+          "alt": "Chùa Hộ Quốc Phú Quốc",
+          "caption": "Chùa Hộ Quốc nhìn từ khuôn viên hướng ra biển.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Kevin Rutherford",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_(52681384143).jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Dễ chịu nhất",
+          "value": "Sáng sớm hoặc chiều",
+          "note": "Tránh giữa trưa nếu muốn đi bộ lâu trong khuôn viên."
+        },
+        {
+          "icon": "◌",
+          "label": "Không khí",
+          "value": "Yên và trang nghiêm",
+          "note": "Giữ giọng nói, trang phục và cách chụp ảnh phù hợp."
+        },
+        {
+          "icon": "⌖",
+          "label": "Khu vực",
+          "value": "Nam đảo",
+          "note": "Dễ ghép với Bãi Khem hoặc các điểm phía Nam."
+        }
+      ],
+      "map": {
+        "lat": 10.110433,
+        "lon": 104.028314,
+        "precision": "area_anchor",
+        "anchor_name": "Chùa Hộ Quốc",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%B9a_H%E1%BB%99_Qu%E1%BB%91c_(52681384143).jpg",
+        "verified_at": "2026-09-20",
+        "note": "Tọa độ điểm chụp trong khu Chùa Hộ Quốc."
+      }
+    },
+    "place_suoi_tranh": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Su%E1%BB%91i%20Tranh%20Ph%C3%BA%20Qu%E1%BB%91c%20%2837732306046%29.jpg?width=1800",
+          "alt": "Suối Tranh Phú Quốc",
+          "caption": "Suối Tranh trong mùa có nước.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Sketyl",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Su%E1%BB%91i_Tranh_Ph%C3%BA_Qu%E1%BB%91c_(37732306046).jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "≈",
+          "label": "Điểm quyết định",
+          "value": "Có nước hay không",
+          "note": "Suối Tranh thay đổi mạnh theo mùa, đừng chỉ nhìn ảnh đẹp rồi đi."
+        },
+        {
+          "icon": "↟",
+          "label": "Chuẩn bị",
+          "value": "Giày bám tốt",
+          "note": "Đá ướt và đường rừng có thể trơn sau mưa."
+        },
+        {
+          "icon": "⌖",
+          "label": "Hợp khi",
+          "value": "Muốn đổi nhịp khỏi biển",
+          "note": "Đi nửa buổi là vừa nếu đang ở khu trung tâm."
+        }
+      ]
+    },
+    "place_phu_quoc_prison": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Prison%20DSC%200607.jpg?width=1800",
+          "alt": "Khu di tích Nhà tù Phú Quốc",
+          "caption": "Một phần khu di tích Nhà tù Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Mrfly911",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Phu_Quoc_Prison_DSC_0607.jpg"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Prison%20DSC%200628.jpg?width=1800",
+          "alt": "Không gian trưng bày tại Nhà tù Phú Quốc",
+          "caption": "Không gian tái hiện trong khu di tích Nhà tù Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Mrfly911",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Phu_Quoc_Prison_DSC_0628.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "◫",
+          "label": "Nên dành",
+          "value": "1-2 giờ",
+          "note": "Đi chậm và đọc bối cảnh sẽ đáng hơn đi lướt."
+        },
+        {
+          "icon": "!",
+          "label": "Nội dung",
+          "value": "Nặng về lịch sử",
+          "note": "Không phải điểm giải trí, trẻ nhỏ có thể cần người lớn giải thích."
+        },
+        {
+          "icon": "⌖",
+          "label": "Khu vực",
+          "value": "Nam đảo",
+          "note": "Có thể ghép cùng một ngày Nam đảo nhưng đừng xếp lịch quá dày."
+        }
+      ]
     }
   },
   "food": {
@@ -329,17 +523,57 @@
           "source_label": "Wikimedia Commons - OlBoes",
           "source_url": "https://commons.wikimedia.org/wiki/File:G%E1%BB%8Fi_C%C3%A1_Tr%C3%ADch.jpg"
         }
+      ],
+      "infographic": [
+        {
+          "icon": "1",
+          "label": "Cuốn",
+          "value": "Cá + rau + bánh tráng",
+          "note": "Đừng cuốn quá dày, vị cá sẽ bị chìm."
+        },
+        {
+          "icon": "2",
+          "label": "Chấm",
+          "value": "Vừa đủ nước chấm",
+          "note": "Chén chấm quyết định khá nhiều độ ngon của món."
+        },
+        {
+          "icon": "3",
+          "label": "Quan trọng nhất",
+          "value": "Độ tươi của cá",
+          "note": "Nếu cá không tươi thì những phần còn lại khó cứu được món."
+        }
       ]
     },
     "bun-quay": {
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%BAn%20qu%E1%BA%ADy%20%E1%BB%9F%20qu%C3%A1n%20Qu%C3%AA%20T%C3%B4i%20ng%C3%A0y%2015%20th%C3%A1ng%2010%20n%C4%83m%202018%20%282%29.jpg?width=1400",
-          "alt": "Bún quậy",
-          "caption": "Một tô bún quậy - món gắn với trải nghiệm ẩm thực Phú Quốc.",
+          "url": "https://visitphuquoc.com.vn/VisitPhuQuoc/POINT/%C4%82N%20U%E1%BB%90NG/M%C3%B3n%20%C4%83n/1832/image-thumb__1832__720_jpg/B%C3%BAn%20qu%E1%BA%ADy%20Ki%E1%BA%BFn%20X%C3%A2y.ec5c87e9.jpg",
+          "alt": "Tô bún quậy Kiến Xây ở Phú Quốc",
+          "caption": "Tô bún quậy với chả, mực và hành - nhìn món trước, rồi mới nói chuyện cách ăn.",
           "scope": "exact_subject",
-          "source_label": "Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_qu%E1%BA%ADy_%E1%BB%9F_qu%C3%A1n_Qu%C3%AA_T%C3%B4i_ng%C3%A0y_15_th%C3%A1ng_10_n%C4%83m_2018_(2).jpg"
+          "source_label": "Cổng du lịch Phú Quốc - Bún quậy Kiến Xây",
+          "source_url": "https://visitphuquoc.com.vn/vi/bun-quay-kien-xay"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "1",
+          "label": "Pha chén chấm",
+          "value": "Chua, mặn, ngọt vừa miệng",
+          "note": "Quậy kỹ rồi nếm trước khi cho thêm vào tô."
+        },
+        {
+          "icon": "2",
+          "label": "Ăn lúc",
+          "value": "Còn thật nóng",
+          "note": "Bún và chả ngon nhất khi vừa ra khỏi bếp."
+        },
+        {
+          "icon": "3",
+          "label": "Nếm rồi chỉnh",
+          "value": "Đừng đổ cả chén ngay",
+          "note": "Thêm từng ít để giữ vị nước lèo."
         }
       ]
     }
