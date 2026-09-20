@@ -1,0 +1,374 @@
+{
+  "schema_version": "1.0",
+  "locale": "vi",
+  "updated_at": "2026-09-20",
+  "items": {
+    "place_dinh_cau": {
+      "lede": "Dinh Cậu đáng ghé không phải vì đây là một điểm ngắm hoàng hôn, mà vì nó nằm đúng chỗ giao nhau giữa cửa sông, biển và đời sống tín ngưỡng của cư dân làm nghề biển ở Dương Đông.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Không gian tín ngưỡng ven biển",
+          "note": "Một ngôi miếu nhỏ trên ghềnh đá cạnh cửa sông Dương Đông, gắn với niềm tin cầu bình an trước những chuyến ra khơi."
+        },
+        {
+          "icon": "02",
+          "label": "VÌ SAO QUAN TRỌNG?",
+          "value": "Một lát cắt của văn hóa biển",
+          "note": "Nguồn du lịch địa phương ghi nhận Dinh Cậu đã hiện diện qua nhiều thế hệ và trở thành một điểm tựa tinh thần quen thuộc của cư dân đảo."
+        },
+        {
+          "icon": "03",
+          "label": "NHÌN GÌ?",
+          "value": "Ghềnh đá - cửa sông - không gian thờ",
+          "note": "Đừng chỉ nhìn ra biển. Hãy để ý cách một nơi thờ tự nhỏ nằm sát hoạt động tàu thuyền và nhịp sống Dương Đông."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một nơi nên đọc bằng bối cảnh",
+          "body": "Các nguồn du lịch địa phương đặt lịch sử Dinh Cậu từ khoảng thế kỷ XVII, sau đó công trình được xây dựng kiên cố hơn vào năm 1937 và trùng tu vào năm 1997. Những mốc này nên được hiểu như phần lịch sử của một nơi thờ tự đã sống cùng cộng đồng cư dân biển qua nhiều thế hệ, không phải chỉ là một “điểm check-in”."
+        },
+        {
+          "heading": "Đi như khách nhưng cư xử như đang vào nơi thờ tự",
+          "body": "Dinh Cậu vẫn là không gian tín ngưỡng. Khi vào khu thờ, nên ăn mặc gọn gàng, nói nhỏ, không chắn lối hành lễ và không xem bậc thềm hay ban thờ như đạo cụ chụp ảnh."
+        }
+      ],
+      "visitor_questions": [
+        "Có nghi lễ hoặc thời điểm thờ cúng nào đang diễn ra không?",
+        "Khu vực nào nên tránh đứng lâu để không cản người hành lễ?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Lịch sử Dinh Cậu Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/lich-su-dinh-cau-phu-quoc-va-dau-an-van-hoa-tam-linh-tren-dao-ngoc-15109"
+        },
+        {
+          "label": "VisitPhuQuoc - Tất cả về Dinh Cậu Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/tat-ca-ve-dinh-cau-phu-quoc-diem-den-linh-thieng-tren-dao-ngoc-134"
+        }
+      ]
+    },
+    "place_rach_vem": {
+      "lede": "Rạch Vẹm trước hết là một làng chài ở Bắc đảo. Sao biển chỉ là một phần của trải nghiệm và không nên trở thành lời hứa rằng tới đây lúc nào cũng thấy.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Làng chài ven biển Bắc đảo",
+          "note": "Khu dân cư gắn với đánh bắt gần bờ và nuôi trồng thủy sản quy mô hộ gia đình."
+        },
+        {
+          "icon": "02",
+          "label": "ĐI VÌ GÌ?",
+          "value": "Nước nông, nhà bè và nhịp làng chài",
+          "note": "Hợp với người muốn nhìn một Phú Quốc đời thường hơn thay vì chỉ đi resort và khu vui chơi."
+        },
+        {
+          "icon": "03",
+          "label": "ĐỪNG KỲ VỌNG SAI",
+          "value": "Sao biển không phải lúc nào cũng có",
+          "note": "Mùa, thủy triều và điều kiện bãi thay đổi. Không nên nhấc sao biển khỏi nước để chụp ảnh."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Rạch Vẹm không phải một “bãi sao biển” cố định",
+          "body": "Nguồn du lịch địa phương mô tả Rạch Vẹm là một làng chài phía Bắc đảo, cách Dương Đông khoảng 20-25 km theo tuyến đường hiện hành. Trải nghiệm đáng giá nhất là nhìn không gian làng chài, bãi nước nông và sinh hoạt ven biển. Việc có thấy nhiều sao biển hay không phụ thuộc điều kiện tự nhiên."
+        },
+        {
+          "heading": "Điểm cần để ý là cách mình tương tác với bãi",
+          "body": "Sao biển là sinh vật sống. Nếu bắt gặp, nên quan sát tại chỗ và tránh cầm lên khỏi nước. Với khu nhà bè và bến nhỏ, cũng nên nhớ đây là nơi người dân làm việc chứ không phải sân khấu du lịch."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay bãi nào dễ tiếp cận và đường đi ra sao?",
+        "Mực nước và điều kiện bãi hiện tại có phù hợp để ghé không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Cách đi Rạch Vẹm Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/cach-di-rach-vem-phu-quoc-chi-tiet-va-de-hieu-nhat-9970"
+        }
+      ]
+    },
+    "place_ho_quoc": {
+      "lede": "Hộ Quốc là một thiền viện Trúc Lâm nằm ở Suối Lớn, nơi kiến trúc, sườn núi và tầm nhìn ra biển tạo nên trải nghiệm hoàn toàn khác các điểm vui chơi ở Nam đảo.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Thiền viện Trúc Lâm Hộ Quốc",
+          "note": "Một không gian Phật giáo lớn ở Phú Quốc, nằm tại khu Suối Lớn."
+        },
+        {
+          "icon": "02",
+          "label": "CẢNH QUAN",
+          "value": "Lưng núi - mặt biển",
+          "note": "Nguồn du lịch địa phương mô tả vị thế “tựa sơn hướng hải”, một phần quan trọng tạo nên cảm giác của nơi này."
+        },
+        {
+          "icon": "03",
+          "label": "CÁCH GHÉ",
+          "value": "Đi chậm và giữ sự tôn trọng",
+          "note": "Hợp để ghé buổi sáng hoặc khi muốn có một khoảng lặng giữa các điểm vui chơi."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Không chỉ là một điểm có view đẹp",
+          "body": "Thiền viện Trúc Lâm Hộ Quốc nằm tại ấp Suối Lớn. Cảnh quan núi phía sau và biển phía trước khiến nhiều người đến đây vì tầm nhìn, nhưng đây trước hết vẫn là một không gian tôn giáo đang được sử dụng."
+        },
+        {
+          "heading": "Ứng xử quan trọng hơn việc tìm góc chụp",
+          "body": "Nên mặc trang phục kín đáo, nói nhỏ, tránh chụp sát người đang hành lễ và không bước vào khu vực có chỉ dẫn hạn chế. Nếu đi cùng trẻ nhỏ, nên giải thích trước đây là nơi thờ tự chứ không phải điểm vui chơi."
+        }
+      ],
+      "visitor_questions": [
+        "Khu vực nào đang có lễ hoặc cần giữ yên lặng?",
+        "Có khu vực nào không nên chụp ảnh không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Chùa Hộ Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/chua-ho-quoc-chon-bong-lai-tien-canh-giua-dao-ngoc"
+        }
+      ]
+    },
+    "place_phu_quoc_prison": {
+      "lede": "Nhà tù Phú Quốc là một di tích lịch sử nhạy cảm. Đây không phải một điểm “tham quan cho đủ”, mà là nơi cần thời gian đọc bối cảnh trước khi nhìn các mô hình tái hiện.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Di tích lịch sử về hệ thống trại giam thời chiến",
+          "note": "Nơi lưu giữ ký ức về tù binh và những điều kiện giam giữ khắc nghiệt trong các giai đoạn chiến tranh."
+        },
+        {
+          "icon": "02",
+          "label": "NÊN ĐỌC THẾ NÀO?",
+          "value": "Bối cảnh trước - mô hình sau",
+          "note": "Các con số và mốc thành lập khác nhau giữa một số nguồn phổ thông. Open Phu Quoc tránh rút gọn lịch sử thành một mốc duy nhất khi chưa đối chiếu hồ sơ gốc."
+        },
+        {
+          "icon": "03",
+          "label": "ỨNG XỬ",
+          "value": "Đây là nơi tưởng niệm",
+          "note": "Không nên tạo dáng đùa cợt trong khu tái hiện tra tấn hoặc biến các hiện vật thành phông chụp ảnh."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một nơi có nhiều lớp lịch sử",
+          "body": "Các nguồn công khai mô tả khu trại giam tại Phú Quốc qua nhiều giai đoạn khác nhau và không hoàn toàn thống nhất về năm bắt đầu. Điều chắc chắn là địa điểm này gắn với hệ thống giam giữ quy mô lớn trong thời chiến và được công nhận là di tích lịch sử quốc gia trong thập niên 1990."
+        },
+        {
+          "heading": "Nên dành thời gian đọc bảng thông tin",
+          "body": "Các mô hình tái hiện rất trực diện. Nếu chỉ đi qua nhanh, người xem dễ nhớ phần gây sốc mà bỏ qua bối cảnh lịch sử. Nên đọc phần giới thiệu, sơ đồ khu trại và các tài liệu tại chỗ trước khi đi sâu vào khu tái hiện."
+        }
+      ],
+      "visitor_questions": [
+        "Có thuyết minh hoặc tài liệu tiếng Anh nào tại điểm không?",
+        "Khu nào phù hợp nếu đi cùng trẻ nhỏ hoặc người nhạy cảm với nội dung bạo lực?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Di tích lịch sử Nhà tù Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/di-tich-lich-su-nha-tu-phu-quoc"
+        },
+        {
+          "label": "VisitPhuQuoc - 73 years of transformation of Phu Quoc",
+          "url": "https://visitphuquoc.com.vn/en/73-years-of-transformation-of-phu-quoc-from-cay-dua-prison-to-apec-2027-4818"
+        }
+      ]
+    },
+    "place_bai_khem": {
+      "lede": "Bãi Khem là một dải biển Nam đảo gần An Thới, nổi bật bởi cát sáng màu, vịnh cong và không gian resort. Cần phân biệt phần bãi công cộng, lối tiếp cận và khu vực thuộc các cơ sở lưu trú.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "Ở ĐÂU?",
+          "value": "Nam đảo - khu An Thới",
+          "note": "Nguồn du lịch địa phương mô tả Bãi Khem nằm phía Nam Phú Quốc, cách trung tâm Dương Đông khoảng 25 km."
+        },
+        {
+          "icon": "02",
+          "label": "HỢP VỚI AI?",
+          "value": "Muốn một buổi biển nhẹ nhàng",
+          "note": "Hợp để ghép với các điểm Nam đảo thay vì chạy ngược lên Bắc trong cùng ngày."
+        },
+        {
+          "icon": "03",
+          "label": "CẦN BIẾT",
+          "value": "Lối vào và khu sử dụng có thể khác nhau",
+          "note": "Một phần bãi gắn với khu nghỉ dưỡng. Nên kiểm tra lối tiếp cận phù hợp trước khi đi."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Đẹp nhất khi coi đây là một phần của ngày Nam đảo",
+          "body": "Bãi Khem nằm gần An Thới và thuận để ghép với Hộ Quốc, Nhà tù Phú Quốc hoặc các điểm phía Nam. Giá trị của nó nằm ở bãi biển và nhịp nghỉ, không phải ở việc cố gom thêm nhiều điểm sau đó."
+        },
+        {
+          "heading": "Đừng mặc định toàn bộ bãi vận hành như một bãi công cộng duy nhất",
+          "body": "Khu vực có nhiều cơ sở lưu trú và lối tiếp cận khác nhau. Trước khi đi, nên xác định mình đang vào khu nào, gửi xe ở đâu và có yêu cầu sử dụng dịch vụ hay không."
+        }
+      ],
+      "visitor_questions": [
+        "Lối vào nào đang mở cho khách không lưu trú?",
+        "Khu vực nào có thể tắm biển và gửi xe thuận tiện?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Cách đi đến Bãi Khem",
+          "url": "https://visitphuquoc.com.vn/vi/cach-di-den-bai-khem-phu-quoc-nhanh-chong-va-thuan-tien-nhat-5752"
+        }
+      ]
+    },
+    "activity_hon_thom": {
+      "lede": "Hòn Thơm không chỉ là một chuyến cáp treo. Cáp treo là cách tiếp cận một đảo lớn trong quần đảo An Thới, nơi hiện có công viên nước, khu vui chơi và các bãi biển.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "HÀNH TRÌNH",
+          "value": "Ga An Thới → cáp treo → Hòn Thơm",
+          "note": "Cáp treo là một phần của trải nghiệm, không phải toàn bộ ngày đi Hòn Thơm."
+        },
+        {
+          "icon": "02",
+          "label": "TRÊN ĐẢO CÓ GÌ?",
+          "value": "Aquatopia - Exotica - bãi biển",
+          "note": "Nên chọn trước thứ mình ưu tiên thay vì cố làm tất cả trong vài giờ."
+        },
+        {
+          "icon": "03",
+          "label": "CẦN KIỂM TRA",
+          "value": "Giờ cáp, quyền lợi vé và thời tiết",
+          "note": "Lịch vận hành, combo và điều kiện biển có thể thay đổi theo ngày."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Hiểu đúng: Hòn Thơm là một hòn đảo, không phải tên của tuyến cáp treo",
+          "body": "Hòn Thơm nằm trong quần đảo An Thới và là một trong những đảo lớn nhất ở khu vực này. Cáp treo nối từ An Thới ra Hòn Thơm giúp việc tiếp cận thuận tiện hơn, nhưng trải nghiệm trên đảo còn gồm công viên nước Aquatopia, Exotica và các khu vực biển."
+        },
+        {
+          "heading": "Một ngày tốt thường bắt đầu từ việc chọn ưu tiên",
+          "body": "Nếu đi gia đình có trẻ nhỏ, Aquatopia có thể là trục chính. Nếu muốn biển và ngắm cảnh, đừng để toàn bộ thời gian bị hút vào trò chơi. Với vé combo, hãy đọc rõ quyền lợi trước khi mua vì không phải mọi gói đều giống nhau."
+        }
+      ],
+      "visitor_questions": [
+        "Vé hôm nay bao gồm những khu nào?",
+        "Chuyến cáp cuối về An Thới lúc mấy giờ?",
+        "Trò nào có giới hạn chiều cao hoặc điều kiện sức khỏe?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Hòn Thơm Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/hon-thom-phu-quoc"
+        },
+        {
+          "label": "VisitPhuQuoc - Sun World Hòn Thơm",
+          "url": "https://visitphuquoc.com.vn/vi/sun-world-hon-thom"
+        }
+      ]
+    },
+    "place_fish_sauce_house": {
+      "lede": "Nhà thùng là nơi dễ hiểu nghề nước mắm Phú Quốc nhất vì khách có thể nhìn thấy quy mô thật của quá trình ủ chượp: cá cơm, muối, thùng gỗ và thời gian.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "NGUYÊN LIỆU",
+          "value": "Cá cơm + muối",
+          "note": "Nguồn du lịch địa phương mô tả cá cơm là nguyên liệu chính; độ tươi và loại cá ảnh hưởng nhiều tới chất lượng mắm."
+        },
+        {
+          "icon": "02",
+          "label": "VÌ SAO GỌI NHÀ THÙNG?",
+          "value": "Không gian chứa những thùng ủ lớn",
+          "note": "Các cơ sở truyền thống xây khu riêng để đặt hàng chục tới hàng trăm thùng gỗ."
+        },
+        {
+          "icon": "03",
+          "label": "ĐI ĐỂ HIỂU GÌ?",
+          "value": "Thời gian tạo nên vị",
+          "note": "Nước mắm truyền thống không phải một thứ pha xong trong ngày. Quá trình ủ và rút mắm là phần quan trọng nhất của câu chuyện."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Đừng ghé nhà thùng chỉ để mua chai nước mắm",
+          "body": "Điều đáng xem nhất là quy mô của nghề. Những thùng gỗ lớn, đường ống, mùi lên men và cách người làm mắm nói về cá cơm - muối - thời gian khiến sản phẩm quen thuộc trên bàn ăn trở thành một câu chuyện có nơi chốn."
+        },
+        {
+          "heading": "Nếu muốn hiểu sâu hơn, hãy hỏi về nguyên liệu và cách rút mắm",
+          "body": "Nguồn du lịch địa phương ghi nhận nhiều loại cá cơm được dùng tại Phú Quốc, cùng yêu cầu khá cao về độ tươi. Mỗi nhà thùng có cách vận hành và phân hạng sản phẩm khác nhau, nên đây là nơi tốt để hỏi sự khác nhau giữa nước mắm cốt, độ đạm và các dòng pha chế."
+        }
+      ],
+      "visitor_questions": [
+        "Cá cơm nào đang được dùng cho mẻ này?",
+        "Mẻ này đã ủ bao lâu?",
+        "Nước mắm cốt khác dòng đóng chai thông thường ở điểm nào?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Làng nghề làm nước mắm tại Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/lang-nghe-lam-nuoc-mam-tai-phu-quoc"
+        },
+        {
+          "label": "VisitPhuQuoc - Quy trình làm nước mắm truyền thống Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/quy-trinh-lam-nuoc-mam-truyen-thong-phu-quoc-dam-vi-bien-dao-16845"
+        }
+      ]
+    },
+    "place_pepper_garden": {
+      "lede": "Vườn tiêu là cách nhìn thấy phần nông nghiệp của Phú Quốc - một phần thường bị che khuất bởi câu chuyện biển, resort và khu vui chơi.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "TRỒNG Ở ĐÂU?",
+          "value": "Khu Tượng - Cửa Dương - Gành Dầu",
+          "note": "Các nguồn du lịch địa phương ghi nhận đây là những vùng tập trung nhiều vườn tiêu."
+        },
+        {
+          "icon": "02",
+          "label": "NHÌN GÌ?",
+          "value": "Trụ tiêu, chùm quả và cách thu hoạch",
+          "note": "Ảnh đẹp chỉ là lớp đầu. Điều đáng hỏi là mùa vụ, cách phơi và sự khác nhau giữa tiêu đen, tiêu đỏ, tiêu sọ."
+        },
+        {
+          "icon": "03",
+          "label": "MẤT BAO LÂU?",
+          "value": "20-40 phút thường đã đủ",
+          "note": "Nếu có người giải thích tốt, một điểm dừng ngắn vẫn giúp hiểu nghề rõ hơn một điểm check-in kéo dài."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một sản phẩm nông nghiệp có mùi của nơi chốn",
+          "body": "Hồ tiêu Phú Quốc được nhắc đến nhiều như một món quà, nhưng trải nghiệm tại vườn giúp thấy phần đất, khí hậu và lao động đứng phía sau hạt tiêu khô. Những hàng trụ tiêu thẳng đứng cũng cho thấy một kiểu cảnh quan nông nghiệp rất khác bãi biển."
+        },
+        {
+          "heading": "Hỏi người trồng thay vì chỉ chụp ảnh",
+          "body": "Nếu có cơ hội, hãy hỏi về mùa thu hoạch, cách phơi và cách phân loại. Một cuộc trò chuyện ngắn thường mang lại nhiều giá trị hơn việc chỉ đứng giữa hai hàng tiêu để chụp hình."
+        }
+      ],
+      "visitor_questions": [
+        "Hiện đang là giai đoạn nào của mùa tiêu?",
+        "Tiêu đen, tiêu đỏ và tiêu sọ khác nhau thế nào?",
+        "Sản phẩm bán tại vườn có phải do chính vườn này trồng không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Khám phá vườn tiêu Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/kham-pha-vuon-tieu-phu-quoc-va-nhung-trai-nghiem-thu-vi-16690"
+        },
+        {
+          "label": "VisitPhuQuoc - Kinh nghiệm tham quan và mua hồ tiêu",
+          "url": "https://visitphuquoc.com.vn/vi/kinh-nghiem-tham-quan-va-mua-ho-tieu-phu-quoc-lam-qua-8473"
+        }
+      ]
+    }
+  }
+}
