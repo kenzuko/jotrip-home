@@ -2,6 +2,7 @@
   "use strict";
 
   const $=s=>document.querySelector(s);
+  const VISUALS="../data/visual-context.json";
   const planningStyle=document.createElement("style");planningStyle.textContent='.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pros-cons>div{padding:16px;border-radius:16px;background:#eef9f5}.pros-cons>.watch{background:#fff7e8}.pros-cons strong{display:block;margin-bottom:8px;color:var(--ink);font-size:15px}.pros-cons .tips li:before{content:"+"}.pros-cons .watch .tips li:before{content:"!";color:#a86b12}.price-dimensions{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.price-dimensions span{padding:9px 11px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--ink);font-size:13px;font-weight:800}@media(max-width:760px){.pros-cons{grid-template-columns:1fr}.price-dimensions span{font-size:12px}}';document.head.appendChild(planningStyle);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const id=new URLSearchParams(location.search).get("id")||"";
@@ -51,7 +52,7 @@
     ).join("")+'</div>';
   }
 
-  function render(entity,zones,all,prices,planningData){
+  function render(entity,zones,all,prices,planningData,visualData){
     const root=$("#detailRoot");
     const zone=zones.find(z=>z.id===entity.zone_id);
     const lookup=new Map(all.map(x=>[x.id,x]));
@@ -62,6 +63,12 @@
     const tags=[...(entity.categories||[]),...(entity.intents||[]),...(entity.best_for||[])];
     const planning=(planningData.items||[]).find(x=>x.entity_id===entity.id)||{};
     const level=(planningData.levels||[]).find(x=>x.id===planning.level);
+    const visual=visualData?.places?.[entity.id]||{};
+    const visualImages=Array.isArray(visual.images)?visual.images:[];
+    const heroVisual=visualImages[0]||null;
+    const heroImage=heroVisual?.url||zoneImages[entity.zone_id]||zoneImages.zone_central_west;
+    const heroAlt=heroVisual?.alt||("Không gian "+(zone?.name||"Phú Quốc"));
+    const extraVisuals=heroVisual?visualImages.slice(1):visualImages;
     const facts=[
       ["Khu vực",zone?.name||"Toàn đảo"],
       ["Lúc nên đi",entity.best_time||"Tùy lịch"],
@@ -76,7 +83,8 @@
 
     root.innerHTML=
       '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
-        '<img class="detail-hero-photo" src="'+esc(zoneImages[entity.zone_id]||zoneImages.zone_central_west)+'" alt="Không gian '+esc(zone?.name||"Phú Quốc")+'" decoding="async">'+
+        '<img class="detail-hero-photo" src="'+esc(heroImage)+'" alt="'+esc(heroAlt)+'" decoding="async">'+
+        (heroVisual?.source_url?'<a class="detail-hero-credit" href="'+esc(heroVisual.source_url)+'" target="_blank" rel="noopener">Nguồn ảnh ↗</a>':'')+
         '<div class="detail-hero-inner">'+
           '<p class="detail-kicker">'+esc(typeLabel[entity.entity_type]||entity.entity_type)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
           '<h1>'+esc(entity.name)+'</h1>'+
@@ -91,6 +99,8 @@
           '<div class="watch"><span>CẦN CÂN NHẮC</span><strong>'+esc((planning.watch_outs||[])[0]||(entity.live_check_required?'Cần kiểm tra tình hình trước khi đi':'Chưa có lưu ý đặc biệt'))+'</strong></div>'+
         '</section>'+
         '<div class="detail-main">'+
+          (window.OpenPQVisual&&extraVisuals.length?OpenPQVisual.gallery(extraVisuals,{eyebrow:"HÌNH ẢNH",title:"Nhìn địa điểm này rõ hơn"}):"")+
+          (window.OpenPQVisual?OpenPQVisual.locator(zone,{title:"Nằm ở đâu trên đảo?",label:zone?.name||"Phú Quốc",map:entity.map||visual.map||zone?.map}):"")+
           (entity.why_go?'<article class="detail-panel"><span>VÌ SAO ĐI</span><h2>Điểm này đáng cân nhắc khi nào?</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
           '<article class="detail-panel"><span>ĐỌC NHANH</span><h2>Những thứ cần biết trước khi đi.</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
           ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>CÁCH CHỌN GIÁ</span><h2>Giá đúng phụ thuộc thông tin nào?</h2><p>Open Phu Quoc chưa tự điền giá khi nguồn hiện hành không công bố đủ. Khi kiểm tra vé, hãy chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||x)+'</span>').join("")+'</div></article>':'')+
@@ -106,6 +116,8 @@
           (priceRows.length?'<a class="context-link alt" href="../utilities/#prices"><span>₫</span><div><strong>Giá & quyền lợi</strong><small>Chọn đúng ngày đi để xem mức áp dụng</small></div><b>→</b></a>':'')+
         '</aside>'+
       '</section>';
+
+    window.OpenPQVisual?.bindLazyMaps(root);
   }
 
   Promise.all([
@@ -113,15 +125,16 @@
     fetch("../data/entities/activities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/entities/zones.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/entities/prices.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
-  ]).then(([places,activities,zones,prices,planning])=>{
+    fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+    fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{})
+  ]).then(([places,activities,zones,prices,planning,visualData])=>{
     const all=[...(places.entities||[]),...(activities.entities||[])];
     const entity=all.find(x=>x.id===id||x.slug===id||x.legacy_id===id);
     if(!entity){
       $("#detailRoot").innerHTML='<section class="detail-loading"><strong>Không tìm thấy địa điểm.</strong><br><br><a href="../explore/">← Quay lại Explore</a></section>';
       return;
     }
-    render(entity,zones.entities||[],all,prices.entities||[],planning);
+    render(entity,zones.entities||[],all,prices.entities||[],planning,visualData);
   }).catch(error=>{
     console.warn(error);
     $("#detailRoot").innerHTML='<section class="detail-loading">Không tải được dữ liệu địa điểm lúc này.</section>';
