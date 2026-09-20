@@ -1,0 +1,196 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-20",
+  "map_policy": {
+    "provider": "OpenStreetMap",
+    "load_mode": "click_to_load",
+    "exact_point_requires": ["lat", "lon", "precision", "source"],
+    "area_anchor_note": "Điểm neo chỉ để định hướng khu vực, không được trình bày như tọa độ chính xác của địa điểm."
+  },
+  "stories": {
+    "mui-cay-cua-dat-do": {
+      "zone_id": "zone_north",
+      "location_label": "Bắc đảo - vùng trồng tiêu",
+      "quick_facts": [
+        ["Thời lượng đọc", "4 phút"],
+        ["Hợp khi", "Muốn hiểu nông nghiệp đảo"],
+        ["Cách trải nghiệm", "Hỏi mùa vụ - ngửi - nếm - quan sát"]
+      ],
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pepper%20farm%20in%20vietnam.JPG?width=1600",
+          "alt": "Vườn tiêu trên đảo Phú Quốc",
+          "caption": "Một vườn tiêu tại Phú Quốc - ảnh bối cảnh nghề trồng tiêu trên đảo.",
+          "scope": "context",
+          "source_label": "Wikimedia Commons - Tonbi ko",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Pepper_farm_in_vietnam.JPG"
+        }
+      ]
+    },
+    "mot-nam-trong-nha-thung": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - nghề nước mắm",
+      "quick_facts": [
+        ["Thời lượng đọc", "5 phút"],
+        ["Hợp khi", "Ngày mưa hoặc muốn hiểu nghề địa phương"],
+        ["Điểm cần nhìn", "Thùng gỗ - cá cơm - muối - thời gian"]
+      ],
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fish%20sauce%20factory%2C%20Phu%20Quoc.jpg?width=1600",
+          "alt": "Những thùng ủ nước mắm tại Phú Quốc",
+          "caption": "Thùng ủ cá trong một cơ sở sản xuất nước mắm tại Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Stefan",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Fish_sauce_factory,_Phu_Quoc.jpg"
+        }
+      ]
+    },
+    "duong-dong-sau-5-gio": {
+      "zone_id": "zone_central_west",
+      "location_label": "Dương Đông - trung tâm & bờ Tây",
+      "quick_facts": [
+        ["Thời điểm", "Cuối chiều - tối"],
+        ["Nhịp trải nghiệm", "Đi bộ - ăn nhẹ - chợ - cửa sông"],
+        ["Lưu ý", "Giờ từng quầy có thể thay đổi"]
+      ],
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Selling%20fruit%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1600",
+          "alt": "Quầy trái cây tại chợ đêm Phú Quốc",
+          "caption": "Một góc chợ đêm Phú Quốc cuối năm 2025.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - FrogsLegs71",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Selling_fruit_in_Phu_Quoc_night_market_Vietnam.jpg"
+        }
+      ]
+    },
+    "nhung-doi-mat-tren-mui-ghe": {
+      "zone_id": "zone_south",
+      "location_label": "Bến cá & không gian nghề biển",
+      "quick_facts": [
+        ["Cách xem", "Nhìn gần các chi tiết trên ghe"],
+        ["Nơi dễ gặp", "Bến cá - cảng - làng ven biển"],
+        ["Ứng xử", "Không cản lối làm việc và bốc dỡ"]
+      ],
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20port.jpg?width=1600",
+          "alt": "Cảng An Thới ở Phú Quốc",
+          "caption": "Cảng An Thới - một bối cảnh nghề biển ở phía Nam đảo.",
+          "scope": "context",
+          "source_label": "Wikimedia Commons - Dương Đăng Khôi",
+          "source_url": "https://commons.wikimedia.org/wiki/File:An_Thoi_port.jpg"
+        }
+      ]
+    }
+  },
+  "places": {
+    "place_dinh_cau": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1800",
+          "alt": "Dinh Cậu ở Phú Quốc",
+          "caption": "Dinh Cậu bên cửa sông Dương Đông.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Hoangvantoanajc",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Dinh_C%E1%BA%ADu_Ph%C3%BA_Qu%E1%BB%91c.jpg"
+        }
+      ]
+    },
+    "place_night_market": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Night%20market%20in%20Phu%20Quoc.jpg?width=1800",
+          "alt": "Chợ đêm Phú Quốc",
+          "caption": "Không khí chợ đêm ở Dương Đông.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Tonbi ko",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Night_market_in_Phu_Quoc.jpg"
+        }
+      ]
+    },
+    "place_sunset_town": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset-town-phu-quoc-2.jpg?width=1800",
+          "alt": "Sunset Town Phú Quốc",
+          "caption": "Sunset Town nhìn từ khu vực ven biển phía Nam đảo.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20Town%20Phu%20Quoc%20at%20night.jpg?width=1800",
+          "alt": "Sunset Town Phú Quốc về đêm",
+          "caption": "Sunset Town về đêm trong thời gian diễn ra Kiss of the Sea.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_Town_Phu_Quoc_at_night.jpg"
+        }
+      ]
+    },
+    "place_kiss_bridge": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kiss%20Bridge%20Phu%20Quoc%20aerial%20sunset%20view.jpg?width=1800",
+          "alt": "Cầu Hôn Phú Quốc nhìn từ trên cao",
+          "caption": "Cầu Hôn và Sunset Town lúc chạng vạng.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_Phu_Quoc_aerial_sunset_view.jpg"
+        }
+      ]
+    },
+    "place_bai_sao": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai%20Sao%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam%20%283870300491%29.jpg?width=1800",
+          "alt": "Bãi Sao Phú Quốc",
+          "caption": "Bãi Sao ở phía Nam Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bai_Sao,_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3870300491).jpg"
+        }
+      ]
+    },
+    "place_vinwonders": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%20%28C%C3%B4ng%20vi%C3%AAn%20ch%E1%BB%A7%20%C4%91%E1%BB%81%2C%20%C4%91u%20quay%20nh%C3%ACn%20xa%29%20%282%29.jpg?width=1800",
+          "alt": "VinWonders Phú Quốc",
+          "caption": "Một góc VinWonders Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Phương Huy",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA_Qu%E1%BB%91c_2022_(C%C3%B4ng_vi%C3%AAn_ch%E1%BB%A7_%C4%91%E1%BB%81,_đu_quay_nh%C3%ACn_xa)_(2).jpg"
+        }
+      ]
+    }
+  },
+  "food": {
+    "goi-ca-trich": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/G%E1%BB%8Fi%20C%C3%A1%20Tr%C3%ADch.jpg?width=1400",
+          "alt": "Gỏi cá trích",
+          "caption": "Gỏi cá trích - ảnh món ăn chụp tại Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - OlBoes",
+          "source_url": "https://commons.wikimedia.org/wiki/File:G%E1%BB%8Fi_C%C3%A1_Tr%C3%ADch.jpg"
+        }
+      ]
+    },
+    "bun-quay": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%BAn%20qu%E1%BA%ADy%20%E1%BB%9F%20qu%C3%A1n%20Qu%C3%AA%20T%C3%B4i%20ng%C3%A0y%2015%20th%C3%A1ng%2010%20n%C4%83m%202018%20%282%29.jpg?width=1400",
+          "alt": "Bún quậy",
+          "caption": "Một tô bún quậy - món gắn với trải nghiệm ẩm thực Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:B%C3%BAn_qu%E1%BA%ADy_%E1%BB%9F_qu%C3%A1n_Qu%C3%AA_T%C3%B4i_ng%C3%A0y_15_th%C3%A1ng_10_n%C4%83m_2018_(2).jpg"
+        }
+      ]
+    }
+  }
+}
