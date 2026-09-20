@@ -12,11 +12,11 @@
       "id": "goi-ca-trich",
       "name": "Gỏi cá trích",
       "category": "local",
-      "intro": "Vị chua, béo, thơm, thường ăn cùng rau và bánh tráng.",
-      "how_to_eat": "Cuốn rau, bánh tráng và cá, cân bằng vị chua-béo-thơm.",
+      "intro": "Cá trích tươi trộn dừa, hành và vị chua nhẹ, ăn cuốn với rau và bánh tráng. Món này ngon nhất khi cá thật tươi và chén nước chấm cân vị.",
+      "how_to_eat": "Gắp cá cùng rau vào bánh tráng, cuốn vừa tay rồi chấm. Ăn chậm một hai cuốn đầu để chỉnh lượng rau và nước chấm theo khẩu vị.",
       "tips": [
-        "Ưu tiên cá tươi",
-        "Hỏi rõ phần rau/bánh tráng/nước chấm"
+        "Hỏi cá có được làm trong ngày không",
+        "Đừng bỏ qua phần rau, dừa và nước chấm - chúng quyết định nửa cái ngon của món"
       ],
       "hashtags": [
         "#mon-dia-phuong",
@@ -28,11 +28,11 @@
       "id": "bun-quay",
       "name": "Bún quậy",
       "category": "local",
-      "intro": "Món ăn nóng, đặc trưng ở cách tự pha chén nước chấm theo khẩu vị.",
-      "how_to_eat": "Ăn khi còn nóng, tự pha chén chấm trước rồi điều chỉnh.",
+      "intro": "Một tô bún nóng với chả tôm, chả cá hoặc mực, bún tươi và rất nhiều hành. Cái vui là tự pha chén chấm rồi nếm tới khi vừa miệng.",
+      "how_to_eat": "Pha chén chấm trước, ăn bún khi còn thật nóng. Nếm một thìa nước lèo rồi mới thêm chén chấm vào tô nếu muốn đậm hơn.",
       "tips": [
-        "Dễ thử cho khách lần đầu",
-        "Mỗi quán có cách phối chả/hải sản khác nhau"
+        "Đi lúc bụng đang đói - món này ngon nhất khi ăn nóng",
+        "Mỗi quán phối chả và hải sản hơi khác nhau, không cần cố tìm một phiên bản 'chuẩn tuyệt đối'"
       ],
       "hashtags": [
         "#mon-dia-phuong",
@@ -43,11 +43,11 @@
       "id": "bun-ken",
       "name": "Bún kèn",
       "category": "local",
-      "intro": "Một món có chất địa phương rõ, ít phổ biến hơn bún quậy.",
-      "how_to_eat": "Thường ăn với nước kèn cá, rau và topping tùy quán.",
+      "intro": "Bún kèn có nước dùng cá béo thơm, màu vàng cam và ăn cùng rau sống. Ít nổi tiếng hơn bún quậy nhưng lại rất có chất Phú Quốc.",
+      "how_to_eat": "Trộn rau với bún vừa đủ rồi chan nước kèn. Vị béo khá rõ, nên ăn từng ít một để cảm được mùi cá và gia vị.",
       "tips": [
-        "Nên thử ở quán địa phương",
-        "Hỏi giờ bán vì nhiều quán bán theo buổi"
+        "Nhiều quán bán theo buổi, đi trễ có thể hết",
+        "Hợp nhất khi muốn thử một món địa phương không quá 'du lịch'"
       ],
       "hashtags": [
         "#mon-dia-phuong",
@@ -58,11 +58,11 @@
       "id": "nhum",
       "name": "Nhum",
       "category": "seafood",
-      "intro": "Hải sản nên chọn theo độ tươi và cách chế biến.",
-      "how_to_eat": "Nướng, mỡ hành hoặc chế biến tùy quán.",
+      "intro": "Nhum ngon ở vị béo mặn của biển. Cách dễ ăn nhất là nướng vừa tới, thêm chút mỡ hành để vẫn còn vị ngọt tự nhiên.",
+      "how_to_eat": "Nếu gọi nướng, ăn ngay khi vừa ra bếp. Có thể thêm chanh hoặc mỡ hành nhưng đừng phủ quá nhiều gia vị lên phần thịt nhum.",
       "tips": [
-        "Không chọn chỉ vì ảnh",
-        "Hỏi giá và kích cỡ trước khi gọi"
+        "Hỏi giá và kích cỡ trước khi gọi",
+        "Nhum nhỏ hoặc để lâu sẽ kém béo và mất nhiều cái hay"
       ],
       "hashtags": [
         "#hai-san",
@@ -73,11 +73,11 @@
       "id": "coi-bien-mai",
       "name": "Còi biên mai",
       "category": "seafood",
-      "intro": "Phần cơ của sò biên mai, hợp nướng hoặc xào.",
-      "how_to_eat": "Ưu tiên chế biến đơn giản để giữ độ ngọt và giòn.",
+      "intro": "Còi biên mai là phần cơ giòn của sò biên mai. Nướng hoặc xào nhanh thường hợp hơn những cách nấu nhiều sốt.",
+      "how_to_eat": "Ăn lúc còn nóng, ưu tiên cách làm đơn giản. Miếng ngon có độ giòn nhẹ, ngọt và không bị dai.",
       "tips": [
-        "Hỏi giá theo phần hoặc trọng lượng",
-        "Ưu tiên độ tươi"
+        "Hỏi quán tính giá theo phần hay theo trọng lượng",
+        "Nếu muốn nếm rõ vị, chọn món nướng hoặc xào ít sốt"
       ],
       "hashtags": [
         "#hai-san",
