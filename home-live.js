@@ -11,6 +11,8 @@
   const $ = s => document.querySelector(s);
   const fmt = (n, d = 1) => Number.isFinite(Number(n)) ? Number(n).toFixed(d) : '--';
   const stateText = s => ({
+    RUNNING: 'Đang hoạt động',
+    SUSPENDED: 'Tạm dừng',
     DIRECT_CONFIRMED: 'Đã xác nhận',
     FIELD_REQUIRED: 'Cần xác nhận',
     UNKNOWN: 'Chưa rõ'
@@ -122,7 +124,7 @@
     setLive('cano',
       stateText(canoState),
       canoState === 'FIELD_REQUIRED' ? 'Chưa có bằng chứng trực tiếp' : 'Nam đảo',
-      canoState === 'DIRECT_CONFIRMED' ? 'good' : canoState === 'FIELD_REQUIRED' ? 'watch' : 'unknown'
+      ['RUNNING', 'DIRECT_CONFIRMED'].includes(canoState) ? 'good' : canoState === 'SUSPENDED' ? 'bad' : canoState === 'FIELD_REQUIRED' ? 'watch' : 'unknown'
     );
 
     const sunset = sunsetFor();

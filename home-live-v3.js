@@ -26,6 +26,8 @@
 
   function stateText(s) {
     return ({
+      RUNNING: "Đang hoạt động",
+      SUSPENDED: "Tạm dừng",
       DIRECT_CONFIRMED: "Đã xác nhận",
       FIELD_REQUIRED: "Cần xác nhận",
       UNKNOWN: "Chưa rõ"
@@ -158,7 +160,7 @@
       "cano",
       marine ? stateText(canoState) : "Chưa có dữ liệu",
       !marine ? "Nguồn vận hành chưa tải được" : canoState === "FIELD_REQUIRED" ? "Chưa có bằng chứng trực tiếp" : "Nam đảo",
-      !marine ? "unknown" : canoState === "DIRECT_CONFIRMED" ? "good" : canoState === "FIELD_REQUIRED" ? "watch" : "unknown"
+      !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "good" : canoState === "SUSPENDED" ? "bad" : canoState === "FIELD_REQUIRED" ? "watch" : "unknown"
     );
 
     const sunset = sunsetFor();
@@ -315,7 +317,7 @@
         },
         marine: {
           primary: marine ? stateText(canoState) : "Chưa có dữ liệu",
-          status: !marine ? "unknown" : canoState === "DIRECT_CONFIRMED" ? "normal" : canoState === "FIELD_REQUIRED" ? "watch" : "unknown",
+          status: !marine ? "unknown" : canoState === "RUNNING" || canoState === "DIRECT_CONFIRMED" ? "normal" : canoState === "SUSPENDED" || canoState === "FIELD_REQUIRED" ? "watch" : "unknown",
           source_class: "MIXED"
         },
         airport: {
