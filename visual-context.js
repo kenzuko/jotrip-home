@@ -82,6 +82,12 @@
     const title = options.title || "Ở đâu trên đảo?";
     const label = options.label || zone?.name || "Phú Quốc";
     const anchor = map?.anchor_name || label;
+    const eyebrow = options.eyebrow || "VỊ TRÍ";
+    const buttonLabel = options.buttonLabel || "Xem bản đồ khu vực";
+    const openLabel = options.openLabel || "Mở bản đồ lớn ↗";
+    const loadedLabel = options.loadedLabel || "Bản đồ đã mở";
+    const lazyNote = options.lazyNote || "Bản đồ chỉ tải khi bạn mở";
+    const missingNote = options.missingNote || "Chưa đặt pin khi tọa độ chưa đủ chắc";
     const note = options.note || (exact
       ? "Tọa độ đã có nguồn xác minh cho điểm này."
       : hasMap
@@ -90,19 +96,19 @@
 
     return '<section class="visual-locator">'+
       '<div class="visual-locator-copy">'+
-        '<span>VỊ TRÍ</span>'+
+        '<span>'+esc(eyebrow)+'</span>'+
         '<h2>'+esc(title)+'</h2>'+
         '<strong>'+esc(label)+'</strong>'+
         '<p>'+esc(note)+'</p>'+
         (hasMap
           ? '<div class="visual-map-actions">'+
-              '<button type="button" data-lazy-map data-lat="'+lat+'" data-lon="'+lon+'" data-precision="'+esc(precision)+'" data-anchor="'+esc(anchor)+'">Xem bản đồ khu vực</button>'+
-              '<a href="https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map=12/'+lat+'/'+lon+'" target="_blank" rel="noopener">Mở bản đồ lớn ↗</a>'+
+              '<button type="button" data-lazy-map data-lat="'+lat+'" data-lon="'+lon+'" data-precision="'+esc(precision)+'" data-anchor="'+esc(anchor)+'" data-loaded-label="'+esc(loadedLabel)+'">'+esc(buttonLabel)+'</button>'+
+              '<a href="https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map=12/'+lat+'/'+lon+'" target="_blank" rel="noopener">'+esc(openLabel)+'</a>'+
             '</div>'
           : '')+
       '</div>'+
       '<div class="visual-locator-map" data-map-frame>'+
-        '<div class="visual-map-placeholder"><span>⌖</span><strong>'+esc(label)+'</strong><small>'+(hasMap ? 'Bản đồ chỉ tải khi bạn mở' : 'Chưa đặt pin khi tọa độ chưa đủ chắc')+'</small></div>'+
+        '<div class="visual-map-placeholder"><span>⌖</span><strong>'+esc(label)+'</strong><small>'+(hasMap ? esc(lazyNote) : esc(missingNote))+'</small></div>'+
       '</div>'+
     '</section>';
   }
@@ -133,7 +139,7 @@
 
         frame.innerHTML = '<iframe title="Bản đồ '+esc(button.dataset.anchor || "Phú Quốc")+'" src="'+src+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
         frame.dataset.loaded = "1";
-        button.textContent = "Bản đồ đã mở";
+        button.textContent = button.dataset.loadedLabel || "Bản đồ đã mở";
         button.disabled = true;
       });
     });
