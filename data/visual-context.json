@@ -985,7 +985,10 @@
           "source_file_id": "1XzniKE3moLhhzb7JrVK2GiieXnUfA36c",
           "source_library": "JOTRIP_LICENSED_IMAGES",
           "source_modified_at": "2026-02-01",
-          "rights": "JoTrip licensed photo library"
+          "rights": "JoTrip licensed photo library",
+          "captured_at": "2026-02-01",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
         },
         {
           "url": "/assets/media/jotrip-big-game-fishing-golden-hour-2025.jpg",
@@ -996,7 +999,10 @@
           "source_file_id": "1WAhZ39PfDGHafv7GqqDJS5NAoc3_OXpd",
           "source_library": "JOTRIP_LICENSED_IMAGES",
           "source_modified_at": "2025-05-21",
-          "rights": "JoTrip licensed photo library"
+          "rights": "JoTrip licensed photo library",
+          "captured_at": "2025-05-21",
+          "hero_priority": "preferred",
+          "visual_quality": "hero"
         }
       ],
       "infographic": [
@@ -1031,7 +1037,10 @@
           "source_file_id": "1SIrqziMxGIvvD7WnKMwk7ARj_Iqio5yr",
           "source_library": "JOTRIP_LICENSED_IMAGES",
           "source_modified_at": "2025-11-18",
-          "rights": "JoTrip licensed photo library"
+          "rights": "JoTrip licensed photo library",
+          "captured_at": "2025-11-18",
+          "hero_priority": "primary",
+          "visual_quality": "field"
         }
       ],
       "infographic": [
@@ -1183,7 +1192,10 @@
         "source_file_id": "1UO_EbKDcqenkGpcDxuT-WLDqQpg4GV0-",
         "source_library": "JOTRIP_LICENSED_IMAGES",
         "source_modified_at": "2025-12-15",
-        "rights": "JoTrip licensed photo library"
+        "rights": "JoTrip licensed photo library",
+        "captured_at": "2025-12-15",
+        "hero_priority": "primary",
+        "visual_quality": "field"
       },
       {
         "url": "/assets/media/jotrip-fresh-squid-2025.jpg",
@@ -1193,7 +1205,10 @@
         "source_file_id": "1LMrx5shPKCMTREEClbA1v6AeEsBn9SnN",
         "source_library": "JOTRIP_LICENSED_IMAGES",
         "source_modified_at": "2025-12-15",
-        "rights": "JoTrip licensed photo library"
+        "rights": "JoTrip licensed photo library",
+        "captured_at": "2025-12-15",
+        "hero_priority": "preferred",
+        "visual_quality": "field"
       }
     ]
   },
