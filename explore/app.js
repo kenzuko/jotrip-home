@@ -121,14 +121,14 @@
       '<div class="explore-card-body">'+
       '<div class="card-top"><span class="card-type">'+entityType(x)+' · '+esc(zoneName(x.zone_id))+'</span>'+
       (x.live_check_required?'<span class="card-live">KIỂM TRA TRƯỚC KHI ĐI</span>':'')+'</div>'+
-      (level?'<span class="card-level level-'+level.id+'">Vai trò '+level.id+' · '+esc(level.label)+'</span>':'')+
+      (level?'<span class="card-level level-'+level.id+'">'+esc(level.label)+'</span>':'')+
       '<h3>'+esc(x.name)+'</h3>'+
       '<p>'+esc(x.what_it_is||x.why_go||"")+'</p>'+
       (strength?'<div class="card-decision"><span>HỢP KHI</span><strong>'+esc(strength)+'</strong></div>':'')+
-      (watch?'<div class="card-watch"><span>CẦN BIẾT</span><strong>'+esc(watch)+'</strong></div>':'')+
+      (watch?'<div class="card-watch"><span>TRƯỚC KHI ĐI</span><strong>'+esc(watch)+'</strong></div>':'')+
       (meta.length?'<div class="card-meta">'+meta.map(([k,v])=>'<div><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div>':'')+
       '<div class="card-tags">'+[...new Set(tags)].slice(0,5).map(t=>'<span>'+esc(friendly(t))+'</span>').join("")+'</div>'+
-      '<a class="card-link" href="'+detailLink(x)+'"><span>Xem chi tiết</span><b>→</b></a>'+
+      '<a class="card-link" href="'+detailLink(x)+'"><span>Xem kỹ hơn</span><b>→</b></a>'+
       '</div>'+
     '</article>';
   }
