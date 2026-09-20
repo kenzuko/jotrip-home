@@ -371,13 +371,13 @@
         ? "watch"
         : operationalStates.every(x => x === "RUNNING" || x === "DIRECT_CONFIRMED") ? "normal" : "unknown";
 
-    setLive(
-      "ferry",
-      marine ? stateText(ferryState) : "Chưa có dữ liệu",
-      !marine ? "Nguồn vận hành chưa tải được" : "Phà · kiểm tra bằng chứng vận hành riêng",
-      !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "good" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
-      marine ? freshnessText(marineStamp) : "Chưa rõ thời điểm cập nhật"
-    );
+    const transitStates = [fastState, ferryState];
+    const transitGood = transitStates.every(x => ["RUNNING", "DIRECT_CONFIRMED"].includes(x));
+    const transitBad = transitStates.some(x => x === "SUSPENDED");
+    const transitWatch = transitStates.some(x => x === "FIELD_REQUIRED" || x === "UNKNOWN" || !x);
+    const transitPrimary = !marine ? "Chưa có dữ liệu" : transitBad ? "Có thay đổi" : transitWatch ? "Cần kiểm tra" : transitGood ? "Đang hoạt động" : "Chưa rõ";
+    const transitContext = !marine ? "Nguồn vận hành chưa tải được" : "Tàu cao tốc: " + stateText(fastState) + " · Phà: " + stateText(ferryState);
+    setLive("ferry", transitPrimary, transitContext, !marine ? "unknown" : transitBad || transitWatch ? "watch" : transitGood ? "good" : "unknown", marine ? freshnessText(marineStamp) : "Chưa rõ thời điểm cập nhật");
     if (!marine) {
       setHappening("marine", "Chưa tải được trạng thái vận hành biển", "Không dùng thiếu dữ liệu để kết luận đang chạy bình thường.", "CHƯA CÓ", false);
     } else {
@@ -422,13 +422,25 @@
 
     setLive("tonight", "Mở lịch", "Show · chợ đêm · gợi ý theo giờ", "info");
 
-    renderTicker([
-      ["THỜI TIẾT", critical ? weatherPrimary + " · " + (criticalAge > 90 ? "DỮ LIỆU CŨ" : weatherSource.toUpperCase()) : "CHƯA CÓ"],
-      ["BIỂN NAM ĐẢO", seaHs != null ? fmt(seaHs) + " m" : "CHƯA CÓ"],
-      ["CANO", marine ? stateText(canoState).toUpperCase() : "CHƯA CÓ"],
-      ["SÂN BAY", !airportAvailable ? "CẦN KIỂM TRA DỮ LIỆU" : delayed.length ? delayed.length + " CHUYẾN CẦN THEO DÕI" : "ĐANG CẬP NHẬT"],
-      ["HOÀNG HÔN", sunset]
-    ]);
+    const quickAlerts = [];
+    let quickAlertLevel = "watch";
+    if (!critical || criticalAge > 90) quickAlerts.push(["THỜI TIẾT", "DỮ LIỆU CẦN CẬP NHẬT"]);
+    if (hasHighConvective) { quickAlerts.push(["THỜI TIẾT", "NGUY CƠ DÔNG CAO"]); quickAlertLevel = "alert"; }
+    else if (hasElevatedConvective) quickAlerts.push(["THỜI TIẾT", "NGUY CƠ DÔNG ĐANG TĂNG"]);
+    if (canoState === "SUSPENDED") { quickAlerts.push(["CANO", "TẠM DỪNG"]); quickAlertLevel = "alert"; }
+    else if (canoState === "FIELD_REQUIRED") quickAlerts.push(["CANO", "CẦN XÁC NHẬN"]);
+    if (fastState === "SUSPENDED") { quickAlerts.push(["TÀU CAO TỐC", "TẠM DỪNG"]); quickAlertLevel = "alert"; }
+    else if (fastState === "FIELD_REQUIRED") quickAlerts.push(["TÀU CAO TỐC", "CẦN XÁC NHẬN"]);
+    if (ferryState === "SUSPENDED") { quickAlerts.push(["PHÀ", "TẠM DỪNG"]); quickAlertLevel = "alert"; }
+    else if (ferryState === "FIELD_REQUIRED") quickAlerts.push(["PHÀ", "CẦN XÁC NHẬN"]);
+    if (!airportAvailable) quickAlerts.push(["SÂN BAY", "DỮ LIỆU CẦN KIỂM TRA"]);
+    else if (delayed.length) quickAlerts.push(["SÂN BAY", delayed.length + " CHUYẾN CẦN THEO DÕI"]);
+    renderTicker(quickAlerts, quickAlertLevel);
+    const pulseDot = document.querySelector(".island-pulse .live-dot");
+    if (pulseDot) {
+      const hasOperationalAlert = hasHighConvective || [canoState, fastState, ferryState].includes("SUSPENDED");
+      pulseDot.dataset.level = hasOperationalAlert ? "alert" : quickAlerts.length ? "noteworthy" : "normal";
+    }
 
     const decisionCard = document.querySelector("[data-decision-card]");
     if (decisionCard) {
