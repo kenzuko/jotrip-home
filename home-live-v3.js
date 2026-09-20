@@ -231,8 +231,8 @@
 
       let cfg = {
         tone: "default",
-        title: "Xem tình hình đảo trước khi chọn điểm đi",
-        note: "Thời tiết, vận hành và thời điểm trong ngày được đặt cạnh nhau để bạn quyết định nhanh hơn.",
+        title: "Chưa biết đi đâu? Nhìn tình hình đảo trước.",
+        note: "Chỉ cần biết trời đang ra sao, biển thế nào và còn bao nhiêu thời gian trong ngày là dễ chọn hơn nhiều.",
         primaryText: "Xem hôm nay →",
         primaryHref: "#happening",
         secondaryText: "Khám phá",
@@ -244,18 +244,18 @@
       if (!critical || currentCriticalAge > 90) {
         cfg = {
           tone: "watch",
-          title: "Kiểm tra thời tiết trước khi quyết định",
-          note: "Dữ liệu thời tiết hiện tại chưa đủ mới để dùng như trạng thái tức thời.",
+          title: "Khoan chốt lịch ngoài trời.",
+          note: "Dữ liệu thời tiết chưa đủ mới. Mở lại mục Thời tiết & Biển trước khi rời chỗ ở.",
           primaryText: "Mở Thời tiết & Biển →",
           primaryHref: "weather/",
-          secondaryText: "Xem gợi ý ít phụ thuộc thời tiết",
+          secondaryText: "Tìm chỗ ít phụ thuộc thời tiết",
           secondaryHref: "explore/?intent=rainy-day"
         };
       } else if (hasHighConvective || hasElevatedConvective || observedRain) {
         cfg = {
           tone: "watch",
-          title: observedRain ? "Mưa đang được ghi nhận - giữ lịch linh hoạt" : "Thời tiết đang thay đổi - giữ lịch linh hoạt",
-          note: "Ưu tiên kiểm tra khu vực cụ thể trước khi đi xa hoặc chọn hoạt động ngoài trời.",
+          title: observedRain ? "Đang có mưa - đừng khóa lịch quá chặt" : "Trời đang đổi - giữ lịch linh hoạt",
+          note: "Phú Quốc có thể mưa chỗ này mà chỗ khác vẫn ráo. Xem đúng khu mình sắp đi trước khi chạy xa.",
           primaryText: "Xem Thời tiết & Biển →",
           primaryHref: "weather/",
           secondaryText: "Gợi ý ngày mưa",
@@ -265,7 +265,7 @@
         cfg = {
           tone: "sunset",
           title: "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn",
-          note: "Nếu định ngắm hoàng hôn, đây là lúc nên chọn điểm và tính thời gian di chuyển.",
+          note: "Muốn ngắm hoàng hôn thì nên chọn điểm ngay bây giờ, nhất là nếu còn phải chạy qua bờ Tây.",
           primaryText: "Xem điểm ngắm hoàng hôn →",
           primaryHref: "explore/?intent=evening",
           secondaryText: "Tối nay có gì",
@@ -274,8 +274,8 @@
       } else if (now.minutes < 12 * 60) {
         cfg = {
           tone: "default",
-          title: "Bắt đầu ngày với tình hình đảo",
-          note: "Xem thời tiết và vận hành trước, rồi chọn khu vực phù hợp để đỡ chạy xuyên đảo.",
+          title: "Buổi sáng, chọn một hướng rồi đi.",
+          note: "Xem trời và tình hình vận hành trước. Sau đó chọn Bắc, trung tâm hoặc Nam đảo làm trục cho ngày hôm nay.",
           primaryText: "Xem trạng thái đảo →",
           primaryHref: "#today",
           secondaryText: "Chọn nơi đi",
@@ -284,8 +284,8 @@
       } else if (Number.isFinite(minutesToSunset) && minutesToSunset > 120) {
         cfg = {
           tone: "default",
-          title: "Còn thời gian cho một buổi chiều trên đảo",
-          note: "Chọn hoạt động gần khu bạn đang ở, rồi để dành cuối chiều cho bờ Tây nếu phù hợp.",
+          title: "Chiều vẫn còn đủ dài để đi thêm một chỗ.",
+          note: "Ưu tiên chỗ gần mình đang ở. Nếu muốn ngắm hoàng hôn, đừng để tới sát giờ mới chạy qua bờ Tây.",
           primaryText: "Chọn nơi đi →",
           primaryHref: "explore/",
           secondaryText: "Kiểm tra thời tiết",
@@ -294,8 +294,8 @@
       } else {
         cfg = {
           tone: "default",
-          title: "Phú Quốc đã vào buổi tối",
-          note: "Xem show, chợ đêm và gợi ý ăn uống thay vì tiếp tục chạy nhiều điểm.",
+          title: "Tối rồi, đừng chạy thêm cho mệt.",
+          note: "Chọn một khu để ăn, đi bộ hoặc xem show. Buổi tối vui hơn khi mình bớt chạy xe.",
           primaryText: "Xem tối nay có gì →",
           primaryHref: "#happening",
           secondaryText: "Tìm món ăn",
