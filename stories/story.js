@@ -1,4 +1,6 @@
 const CONTENT="../data/content.json";
+const VISUALS="../data/visual-context.json";
+const ZONES="../data/entities/zones.json";
 const $=s=>document.querySelector(s);
 
 async function load(){
@@ -68,7 +70,7 @@ function sectionBlock(section,i){
   '</section>';
 }
 
-function renderArticle(data){
+function renderArticle(data,visualData,zones){
   const id=new URLSearchParams(location.search).get("id");
   const s=data.stories.find(x=>x.id===id)||data.stories[0];
   if(!s)return;
@@ -93,6 +95,16 @@ function renderArticle(data){
       '</header>'+
       '<div class="article-body">'+
         '<p class="intro">'+esc(s.intro)+'</p>'+
+        (()=>{
+          const meta=visualData?.stories?.[s.id]||{};
+          const zone=(zones||[]).find(z=>z.id===meta.zone_id);
+          if(!window.OpenPQVisual)return "";
+          return [
+            OpenPQVisual.quickFacts(meta.quick_facts||[],{label:"Đọc nhanh"}),
+            OpenPQVisual.gallery(meta.images||[],{eyebrow:"HÌNH ẢNH",title:"Nhìn câu chuyện này bằng hình"}),
+            OpenPQVisual.locator(zone,{title:"Bài viết này nằm ở đâu?",label:meta.location_label||zone?.name})
+          ].join("");
+        })()+
         (s.sections||[]).map(sectionBlock).join("")+
         '<div class="editorial-note">Giờ mở cửa, giá vé, lịch biểu diễn và điều kiện thời tiết có thể thay đổi. Trước khi đi, bạn nên mở mục Trực tiếp hoặc Tiện ích để kiểm tra thông tin mới nhất.</div>'+
         '<div class="sources">'+
@@ -101,6 +113,8 @@ function renderArticle(data){
         '</div>'+
       '</div>'+
     '</article>';
+
+  window.OpenPQVisual?.bindLazyMaps(root);
 
   const i=data.stories.indexOf(s);
   const n=data.stories[(i+1)%data.stories.length];
@@ -113,10 +127,21 @@ function renderArticle(data){
   }
 }
 
-load().then(data=>{
+load().then(async data=>{
   const grid=$("#storyGrid");
   if(grid)grid.innerHTML=data.stories.map(card).join("");
-  if($("#articleRoot"))renderArticle(data);
+  if($("#articleRoot")){
+    try{
+      const [visualData,zonesData]=await Promise.all([
+        fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}),
+        fetch(ZONES+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{entities:[]})
+      ]);
+      renderArticle(data,visualData,zonesData.entities||[]);
+    }catch(e){
+      console.warn(e);
+      renderArticle(data,{},[]);
+    }
+  }
 }).catch(()=>{
   const root=$("#articleRoot")||$("#storyGrid");
   if(root)root.innerHTML='<div class="wrap"><p>Chưa tải được nội dung.</p></div>';
