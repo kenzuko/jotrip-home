@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Open Phu Quoc - thông tin miễn phí, trực quan và thực dụng về Phú Quốc: tình hình đảo, sự kiện, di chuyển, điểm đến và câu chuyện địa phương.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260920-superapp4">
+  <link rel="stylesheet" href="styles.css?v=20260920-superapp5">
 </head>
 <body>
   <aside class="app-left-rail" aria-label="Điều hướng Open Phu Quoc">
@@ -23,9 +23,9 @@
       <a href="#essentials"><span>+</span><strong>Tiện ích</strong></a>
     </nav>
     <div class="app-rail-modules">
-      <a href="weather/">Weather</a>
-      <a href="airport/">Airport</a>
-      <a href="ferry/">Transport</a>
+      <a href="weather/">Thời tiết</a>
+      <a href="airport/">Sân bay</a>
+      <a href="ferry/">Tàu & phà</a>
     </div>
   </aside>
 
@@ -110,7 +110,7 @@
       </div>
 
       <a href="weather/" class="live-item" data-live="weather"><span>Thời tiết</span><strong>--</strong><small>Đang tải quan trắc</small></a>
-      <a href="weather/#marine" class="live-item" data-live="sea"><span>Biển</span><strong>--</strong><small>Đang tải mô hình biển</small></a>
+      <a href="weather/#marine" class="live-item" data-live="sea"><span>Biển</span><strong>--</strong><small>Đang kiểm tra tình hình biển</small></a>
       <a href="airport/" class="live-item" data-live="airport"><span>Sân bay</span><strong>--</strong><small>Đang tải chuyến bay</small></a>
       <a href="ferry/" class="live-item" data-live="ferry"><span>Tàu & Phà</span><strong>--</strong><small>Đang kiểm tra vận hành</small></a>
       <a href="#happening" class="live-item" data-live="sunset"><span>Hoàng hôn</span><strong>--:--</strong><small>Bờ Tây</small></a>
@@ -154,7 +154,7 @@
         <div class="happening-list" id="liveHappening">
           <a href="weather/" class="happening-row" data-happening="weather">
             <time><strong>NOW</strong><span>THỜI TIẾT</span></time>
-            <div><span class="row-type weather">TRỰC TIẾP</span><h3>Đang tải tình hình thời tiết</h3><p>Quan trắc + nowcast</p></div>
+            <div><span class="row-type weather">TRỰC TIẾP</span><h3>Đang tải tình hình thời tiết</h3><p>Tình hình hiện tại và vài giờ tới</p></div>
             <em>...</em>
           </a>
           <a href="cano/" class="happening-row" data-happening="marine">
@@ -190,7 +190,7 @@
         <a href="ferry/"><span>⛴</span><div><strong>Phà & Tàu cao tốc</strong><small>Tuyến, hãng, lịch chạy, tình trạng vé</small></div><b>→</b></a>
         <a href="bus/"><span>🚌</span><div><strong>Xe buýt & Shuttle</strong><small>Tuyến 17, 19, 20 và shuttle</small></div><b>→</b></a>
         <a href="cano/"><span>≈</span><div><strong>Cano & Tour đảo</strong><small>Vận hành cano, lịch sử, tour 3 đảo</small></div><b>→</b></a>
-        <a href="places/"><span>⌖</span><div><strong>Điểm tham quan</strong><small>Có gì, chơi gì, giá, tips</small></div><b>→</b></a>
+        <a href="places/"><span>⌖</span><div><strong>Điểm tham quan</strong><small>Có gì, chơi gì, giá, lưu ý</small></div><b>→</b></a>
         <a href="food/"><span>◎</span><div><strong>Ăn Phú Quốc</strong><small>Từng món, cách ăn và lưu ý</small></div><b>→</b></a>
         <a href="utilities/#emergency"><span>+</span><div><strong>Khẩn cấp</strong><small>Hỗ trợ, y tế và số cần thiết</small></div><b>→</b></a>
       </div>
@@ -400,7 +400,7 @@
         <a href="weather/"><span>☀</span><strong>Thời tiết & Biển</strong><small>Mưa, gió, sóng, radar</small></a>
         <a href="airport/"><span>✈</span><strong>Sân bay</strong><small>Chuyến bay, trễ chuyến</small></a>
         <a href="ferry/"><span>⛴</span><strong>Tàu & Phà</strong><small>Lịch chạy, tình trạng vé</small></a>
-        <a href="bus/"><span>🚌</span><strong>Bus & Shuttle</strong><small>Tuyến 17, 19, 20</small></a>
+        <a href="bus/"><span>🚌</span><strong>Xe buýt & xe trung chuyển</strong><small>Tuyến 17, 19, 20</small></a>
         <a href="cano/"><span>≈</span><strong>Cano & Tour đảo</strong><small>Vận hành biển, lịch sử</small></a>
       </div>
     </div>
@@ -408,7 +408,7 @@
     <div class="more-group">
       <p class="more-label">KHÁM PHÁ</p>
       <div class="more-grid">
-        <a href="places/"><span>⌖</span><strong>Điểm đến</strong><small>Có gì, chơi gì, giá, tips</small></a>
+        <a href="places/"><span>⌖</span><strong>Điểm đến</strong><small>Có gì, chơi gì, giá, lưu ý</small></a>
         <a href="food/"><span>◎</span><strong>Ăn uống</strong><small>Từng món và cách ăn</small></a>
         <a href="hotels/"><span>⌂</span><strong>Khách sạn</strong><small>Lọc theo khu vực và hạng sao</small></a>
         <a href="#must"><span>✦</span><strong>Không nên bỏ lỡ</strong><small>Gợi ý nhanh theo thời điểm</small></a>
@@ -430,11 +430,11 @@
 
   <div class="toast" role="status" aria-live="polite"></div>
   <script src="core/search-engine.js?v=4"></script>
-  <script src="core/today-engine-v2.js?v=2"></script>
+  <script src="core/today-engine-v2.js?v=3"></script>
   <script src="app.js?v=20260919-superapp4"></script>
   <script src="island-clock.js?v=5"></script>
   <script src="home-today-v3.js?v=3"></script>
-  <script src="home-live-v3.js?v=3"></script>
+  <script src="home-live-v3.js?v=4"></script>
   <script src="home-copy.js?v=2"></script>
 </body>
 </html>
