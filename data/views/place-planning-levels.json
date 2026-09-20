@@ -2,39 +2,329 @@
   "schema_version": "1.0",
   "description": "Vai trò của điểm đến trong kế hoạch chuyến đi, không phải xếp hạng chất lượng.",
   "levels": [
-    {"id": 1, "label": "Dấu ấn Phú Quốc", "description": "Giúp khách lần đầu nhận ra bản sắc hoặc cảnh quan tiêu biểu của đảo."},
-    {"id": 2, "label": "Trải nghiệm chủ đích", "description": "Cần dành riêng một buổi hoặc một ngày và nên kiểm tra điều kiện trước khi đi."},
-    {"id": 3, "label": "Lựa chọn bổ sung", "description": "Phù hợp khi đúng sở thích, đúng khu vực hoặc còn thời gian."}
+    {
+      "id": 1,
+      "label": "Dấu ấn của đảo",
+      "description": "Lần đầu tới Phú Quốc, nhóm này giúp bạn cảm được một phần khá rõ của hòn đảo."
+    },
+    {
+      "id": 2,
+      "label": "Nên dành riêng thời gian",
+      "description": "Những chỗ này thường chiếm nửa ngày hoặc cả ngày. Chọn trước rồi xếp các điểm khác quanh nó."
+    },
+    {
+      "id": 3,
+      "label": "Đi nếu đúng gu",
+      "description": "Hay khi đúng sở thích hoặc đang ở gần. Không cần cố nhét vào mọi lịch trình."
+    }
   ],
   "items": [
-    {"entity_id":"place_dinh_cau","level":1,"strengths":["Biểu tượng gắn với đời sống biển và trung tâm Dương Đông"],"watch_outs":["Không gian tín ngưỡng, nên ăn mặc và ứng xử phù hợp"]},
-    {"entity_id":"place_bai_sao","level":1,"strengths":["Bãi biển dễ hình dung với khách lần đầu"],"watch_outs":["Trải nghiệm thay đổi theo mùa biển và tình trạng bãi"]},
-    {"entity_id":"place_sunset_town","level":1,"strengths":["Cụm kiến trúc, hoàng hôn và hoạt động buổi tối"],"watch_outs":["Khu vực rộng, không nên gom mọi điểm trong một lượt ngắn"]},
-    {"entity_id":"activity_hon_thom","level":1,"strengths":["Góc nhìn toàn cảnh quần đảo An Thới từ cáp treo"],"watch_outs":["Lịch vận hành và cấu hình vé có thể đổi theo ngày"]},
-    {"entity_id":"place_fish_sauce_house","level":1,"strengths":["Giúp hiểu nghề truyền thống đặc trưng của đảo"],"watch_outs":["Nên chọn nhà thùng còn hoạt động thật, không chỉ là điểm bán hàng"]},
-    {"entity_id":"place_night_market","level":1,"strengths":["Dễ kết hợp vào buổi tối ở Dương Đông"],"watch_outs":["Giá và chất lượng khác nhau theo từng quầy"]},
-    {"entity_id":"place_vinpearl_safari","level":2,"strengths":["Một trục tham quan lớn cho gia đình ở Bắc đảo"],"watch_outs":["Cần dành đủ thời gian, tránh ghép quá nhiều điểm lớn cùng ngày"]},
-    {"entity_id":"place_vinwonders","level":2,"strengths":["Tổ hợp vui chơi quy mô lớn cho gia đình và nhóm bạn"],"watch_outs":["Nên chọn trước nhóm trò ưu tiên vì khó trải nghiệm hết trong thời gian ngắn"]},
-    {"entity_id":"place_grand_world","level":2,"strengths":["Phù hợp đi dạo và giải trí buổi tối ở Bắc đảo"],"watch_outs":["Hoạt động và mật độ khách thay đổi theo ngày"]},
-    {"entity_id":"place_rach_vem","level":2,"strengths":["Không gian làng biển và thiên nhiên phía Bắc"],"watch_outs":["Đường đi, mùa biển và trải nghiệm sao biển cần kiểm tra trước"]},
-    {"entity_id":"place_bai_khem","level":2,"strengths":["Cảnh quan bãi biển đẹp ở Nam đảo"],"watch_outs":["Quyền tiếp cận và tiện ích phụ thuộc lối vào hoặc cơ sở lưu trú"]},
-    {"entity_id":"place_phu_quoc_prison","level":2,"strengths":["Bổ sung chiều sâu lịch sử cho hành trình Nam đảo"],"watch_outs":["Nội dung nặng, không phải trải nghiệm giải trí"]},
-    {"entity_id":"place_ho_quoc","level":2,"strengths":["Không gian tín ngưỡng và tầm nhìn ven biển"],"watch_outs":["Giữ trang phục và thái độ phù hợp nơi tôn nghiêm"]},
-    {"entity_id":"place_aquatopia","level":2,"strengths":["Công viên nước phù hợp gia đình và nhóm bạn trong ngày Hòn Thơm"],"watch_outs":["Nên ghép trong ngày Hòn Thơm thay vì tách thành một hành trình riêng","Điều kiện trò chơi và vé phụ thuộc ngày đi, chiều cao, độ tuổi và cấu hình combo"],"price_dimensions":["travel_date","height_band","age_band","ticket_bundle"]},
-    {"entity_id":"place_exotica","level":2,"strengths":["Nhóm trò cảm giác mạnh trong tổ hợp Hòn Thơm"],"watch_outs":["Kiểm tra giới hạn chiều cao, sức khỏe và lịch vận hành từng trò"],"price_dimensions":["travel_date","height_band","ticket_bundle"]},
-    {"entity_id":"place_kiss_bridge","level":2,"strengths":["Kiến trúc và hoàng hôn trong cụm Sunset Town"],"watch_outs":["Giá và quyền lợi thay đổi theo khung giờ hoặc combo"],"price_dimensions":["travel_date","time_slot","ticket_bundle"]},
-    {"entity_id":"activity_tour_3_islands","level":2,"strengths":["Trải nghiệm biển đảo đặc trưng của cụm An Thới"],"watch_outs":["Phụ thuộc vận hành cano, thời tiết biển và cấu hình tour"]},
-    {"entity_id":"activity_snorkeling_an_thoi","level":2,"strengths":["Tiếp cận cảnh quan dưới nước ở quần đảo An Thới"],"watch_outs":["Chất lượng phụ thuộc điểm lặn, dòng chảy và cách tổ chức của đơn vị tour"]},
-    {"entity_id":"activity_symphony_of_the_sea","level":2,"strengths":["Hoạt động buổi tối dễ kết hợp tại Sunset Town"],"watch_outs":["Show ngoài trời, cần kiểm tra lịch và thời tiết"]},
-    {"entity_id":"activity_kiss_of_the_sea","level":2,"strengths":["Show quy mô lớn trong cụm giải trí Nam đảo"],"watch_outs":["Chọn hạng vé và vị trí ngồi theo nhu cầu; kiểm tra lịch đúng ngày"]},
-    {"entity_id":"place_cua_can","level":3,"strengths":["Nhịp sông nước và đời sống địa phương nhẹ nhàng"],"watch_outs":["Phù hợp người thích đi chậm hơn là khách muốn nhiều hoạt động"]},
-    {"entity_id":"place_bai_truong","level":3,"strengths":["Thuận tiện ngắm hoàng hôn và kết hợp resort bờ Tây"],"watch_outs":["Trải nghiệm phụ thuộc đoạn bãi và cơ sở bạn chọn"]},
-    {"entity_id":"place_suoi_tranh","level":3,"strengths":["Lựa chọn thiên nhiên gần khu trung tâm"],"watch_outs":["Tính mùa vụ cao; cần kiểm tra nước và vận hành"]},
-    {"entity_id":"place_other_streams","level":3,"strengths":["Hợp người thích khám phá thiên nhiên ít phổ thông"],"watch_outs":["Đường vào và điều kiện an toàn không đồng đều"]},
-    {"entity_id":"place_pepper_garden","level":3,"strengths":["Giới thiệu nông nghiệp và một phần lịch sử kinh tế của đảo"],"watch_outs":["Nên chọn vườn còn canh tác thực tế"]},
-    {"entity_id":"activity_scuba","level":3,"strengths":["Trải nghiệm chuyên biệt cho người muốn lặn sâu hơn"],"watch_outs":["Cần đơn vị đủ năng lực, khai báo sức khỏe và tuân thủ hướng dẫn an toàn"]},
-    {"entity_id":"activity_seawalker","level":3,"strengths":["Tiếp cận trải nghiệm dưới nước với yêu cầu kỹ năng thấp hơn scuba"],"watch_outs":["Cần kiểm tra điều kiện sức khỏe, môi trường và cách tổ chức"]},
-    {"entity_id":"activity_big_game_fishing","level":3,"strengths":["Trải nghiệm chuyên sâu cho người thực sự thích câu cá"],"watch_outs":["Thời lượng dài, phụ thuộc biển và không phù hợp mọi nhóm khách"]},
-    {"entity_id":"activity_squid_fishing","level":3,"strengths":["Hoạt động buổi tối dễ ghép vào lịch trình"],"watch_outs":["Sản lượng không được bảo đảm và trải nghiệm phụ thuộc thời tiết biển"]}
+    {
+      "entity_id": "place_dinh_cau",
+      "level": 1,
+      "strengths": [
+        "Biểu tượng gắn với đời sống biển và trung tâm Dương Đông"
+      ],
+      "watch_outs": [
+        "Không gian tín ngưỡng, nên ăn mặc và ứng xử phù hợp"
+      ]
+    },
+    {
+      "entity_id": "place_bai_sao",
+      "level": 1,
+      "strengths": [
+        "Bãi biển dễ hình dung với khách lần đầu"
+      ],
+      "watch_outs": [
+        "Trải nghiệm thay đổi theo mùa biển và tình trạng bãi"
+      ]
+    },
+    {
+      "entity_id": "place_sunset_town",
+      "level": 1,
+      "strengths": [
+        "Cụm kiến trúc, hoàng hôn và hoạt động buổi tối"
+      ],
+      "watch_outs": [
+        "Khu vực rộng, không nên gom mọi điểm trong một lượt ngắn"
+      ]
+    },
+    {
+      "entity_id": "activity_hon_thom",
+      "level": 1,
+      "strengths": [
+        "Góc nhìn toàn cảnh quần đảo An Thới từ cáp treo"
+      ],
+      "watch_outs": [
+        "Lịch vận hành và cấu hình vé có thể đổi theo ngày"
+      ]
+    },
+    {
+      "entity_id": "place_fish_sauce_house",
+      "level": 1,
+      "strengths": [
+        "Giúp hiểu nghề truyền thống đặc trưng của đảo"
+      ],
+      "watch_outs": [
+        "Nên chọn nhà thùng còn hoạt động thật, không chỉ là điểm bán hàng"
+      ]
+    },
+    {
+      "entity_id": "place_night_market",
+      "level": 1,
+      "strengths": [
+        "Dễ kết hợp vào buổi tối ở Dương Đông"
+      ],
+      "watch_outs": [
+        "Giá và chất lượng khác nhau theo từng quầy"
+      ]
+    },
+    {
+      "entity_id": "place_vinpearl_safari",
+      "level": 2,
+      "strengths": [
+        "Một trục tham quan lớn cho gia đình ở Bắc đảo"
+      ],
+      "watch_outs": [
+        "Cần dành đủ thời gian, tránh ghép quá nhiều điểm lớn cùng ngày"
+      ]
+    },
+    {
+      "entity_id": "place_vinwonders",
+      "level": 2,
+      "strengths": [
+        "Tổ hợp vui chơi quy mô lớn cho gia đình và nhóm bạn"
+      ],
+      "watch_outs": [
+        "Nên chọn trước nhóm trò ưu tiên vì khó trải nghiệm hết trong thời gian ngắn"
+      ]
+    },
+    {
+      "entity_id": "place_grand_world",
+      "level": 2,
+      "strengths": [
+        "Phù hợp đi dạo và giải trí buổi tối ở Bắc đảo"
+      ],
+      "watch_outs": [
+        "Hoạt động và mật độ khách thay đổi theo ngày"
+      ]
+    },
+    {
+      "entity_id": "place_rach_vem",
+      "level": 2,
+      "strengths": [
+        "Không gian làng biển và thiên nhiên phía Bắc"
+      ],
+      "watch_outs": [
+        "Đường đi, mùa biển và trải nghiệm sao biển cần kiểm tra trước"
+      ]
+    },
+    {
+      "entity_id": "place_bai_khem",
+      "level": 2,
+      "strengths": [
+        "Cảnh quan bãi biển đẹp ở Nam đảo"
+      ],
+      "watch_outs": [
+        "Quyền tiếp cận và tiện ích phụ thuộc lối vào hoặc cơ sở lưu trú"
+      ]
+    },
+    {
+      "entity_id": "place_phu_quoc_prison",
+      "level": 2,
+      "strengths": [
+        "Bổ sung chiều sâu lịch sử cho hành trình Nam đảo"
+      ],
+      "watch_outs": [
+        "Nội dung nặng, không phải trải nghiệm giải trí"
+      ]
+    },
+    {
+      "entity_id": "place_ho_quoc",
+      "level": 2,
+      "strengths": [
+        "Không gian tín ngưỡng và tầm nhìn ven biển"
+      ],
+      "watch_outs": [
+        "Giữ trang phục và thái độ phù hợp nơi tôn nghiêm"
+      ]
+    },
+    {
+      "entity_id": "place_aquatopia",
+      "level": 2,
+      "strengths": [
+        "Công viên nước phù hợp gia đình và nhóm bạn trong ngày Hòn Thơm"
+      ],
+      "watch_outs": [
+        "Nên ghép trong ngày Hòn Thơm thay vì tách thành một hành trình riêng",
+        "Điều kiện trò chơi và vé phụ thuộc ngày đi, chiều cao, độ tuổi và cấu hình combo"
+      ],
+      "price_dimensions": [
+        "travel_date",
+        "height_band",
+        "age_band",
+        "ticket_bundle"
+      ]
+    },
+    {
+      "entity_id": "place_exotica",
+      "level": 2,
+      "strengths": [
+        "Nhóm trò cảm giác mạnh trong tổ hợp Hòn Thơm"
+      ],
+      "watch_outs": [
+        "Kiểm tra giới hạn chiều cao, sức khỏe và lịch vận hành từng trò"
+      ],
+      "price_dimensions": [
+        "travel_date",
+        "height_band",
+        "ticket_bundle"
+      ]
+    },
+    {
+      "entity_id": "place_kiss_bridge",
+      "level": 2,
+      "strengths": [
+        "Kiến trúc và hoàng hôn trong cụm Sunset Town"
+      ],
+      "watch_outs": [
+        "Giá và quyền lợi thay đổi theo khung giờ hoặc combo"
+      ],
+      "price_dimensions": [
+        "travel_date",
+        "time_slot",
+        "ticket_bundle"
+      ]
+    },
+    {
+      "entity_id": "activity_tour_3_islands",
+      "level": 2,
+      "strengths": [
+        "Trải nghiệm biển đảo đặc trưng của cụm An Thới"
+      ],
+      "watch_outs": [
+        "Phụ thuộc vận hành cano, thời tiết biển và cấu hình tour"
+      ]
+    },
+    {
+      "entity_id": "activity_snorkeling_an_thoi",
+      "level": 2,
+      "strengths": [
+        "Tiếp cận cảnh quan dưới nước ở quần đảo An Thới"
+      ],
+      "watch_outs": [
+        "Chất lượng phụ thuộc điểm lặn, dòng chảy và cách tổ chức của đơn vị tour"
+      ]
+    },
+    {
+      "entity_id": "activity_symphony_of_the_sea",
+      "level": 2,
+      "strengths": [
+        "Hoạt động buổi tối dễ kết hợp tại Sunset Town"
+      ],
+      "watch_outs": [
+        "Show ngoài trời, cần kiểm tra lịch và thời tiết"
+      ]
+    },
+    {
+      "entity_id": "activity_kiss_of_the_sea",
+      "level": 2,
+      "strengths": [
+        "Show quy mô lớn trong cụm giải trí Nam đảo"
+      ],
+      "watch_outs": [
+        "Chọn hạng vé và vị trí ngồi theo nhu cầu; kiểm tra lịch đúng ngày"
+      ]
+    },
+    {
+      "entity_id": "place_cua_can",
+      "level": 3,
+      "strengths": [
+        "Nhịp sông nước và đời sống địa phương nhẹ nhàng"
+      ],
+      "watch_outs": [
+        "Phù hợp người thích đi chậm hơn là khách muốn nhiều hoạt động"
+      ]
+    },
+    {
+      "entity_id": "place_bai_truong",
+      "level": 3,
+      "strengths": [
+        "Thuận tiện ngắm hoàng hôn và kết hợp resort bờ Tây"
+      ],
+      "watch_outs": [
+        "Trải nghiệm phụ thuộc đoạn bãi và cơ sở bạn chọn"
+      ]
+    },
+    {
+      "entity_id": "place_suoi_tranh",
+      "level": 3,
+      "strengths": [
+        "Lựa chọn thiên nhiên gần khu trung tâm"
+      ],
+      "watch_outs": [
+        "Tính mùa vụ cao; cần kiểm tra nước và vận hành"
+      ]
+    },
+    {
+      "entity_id": "place_other_streams",
+      "level": 3,
+      "strengths": [
+        "Hợp người thích khám phá thiên nhiên ít phổ thông"
+      ],
+      "watch_outs": [
+        "Đường vào và điều kiện an toàn không đồng đều"
+      ]
+    },
+    {
+      "entity_id": "place_pepper_garden",
+      "level": 3,
+      "strengths": [
+        "Giới thiệu nông nghiệp và một phần lịch sử kinh tế của đảo"
+      ],
+      "watch_outs": [
+        "Nên chọn vườn còn canh tác thực tế"
+      ]
+    },
+    {
+      "entity_id": "activity_scuba",
+      "level": 3,
+      "strengths": [
+        "Trải nghiệm chuyên biệt cho người muốn lặn sâu hơn"
+      ],
+      "watch_outs": [
+        "Cần đơn vị đủ năng lực, khai báo sức khỏe và tuân thủ hướng dẫn an toàn"
+      ]
+    },
+    {
+      "entity_id": "activity_seawalker",
+      "level": 3,
+      "strengths": [
+        "Tiếp cận trải nghiệm dưới nước với yêu cầu kỹ năng thấp hơn scuba"
+      ],
+      "watch_outs": [
+        "Cần kiểm tra điều kiện sức khỏe, môi trường và cách tổ chức"
+      ]
+    },
+    {
+      "entity_id": "activity_big_game_fishing",
+      "level": 3,
+      "strengths": [
+        "Trải nghiệm chuyên sâu cho người thực sự thích câu cá"
+      ],
+      "watch_outs": [
+        "Thời lượng dài, phụ thuộc biển và không phù hợp mọi nhóm khách"
+      ]
+    },
+    {
+      "entity_id": "activity_squid_fishing",
+      "level": 3,
+      "strengths": [
+        "Hoạt động buổi tối dễ ghép vào lịch trình"
+      ],
+      "watch_outs": [
+        "Sản lượng không được bảo đảm và trải nghiệm phụ thuộc thời tiết biển"
+      ]
+    }
   ]
 }
