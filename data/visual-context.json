@@ -902,6 +902,87 @@
         "verified_at": "2026-09-20",
         "note": "Điểm chụp trong cụm sân khấu Sunset Town, dùng để định hướng khu vực show."
       }
+    },
+    "activity_big_game_fishing": {
+      "images": [
+        {
+          "url": "/assets/media/jotrip-big-game-fishing-2026.jpg",
+          "alt": "Khách câu được cá lớn trên tàu câu tại vùng biển Phú Quốc",
+          "caption": "Một chuyến câu cá lớn thực tế của JoTrip trên vùng biển Phú Quốc.",
+          "scope": "field_evidence",
+          "source_label": "Ảnh: JoTrip",
+          "source_file_id": "1XzniKE3moLhhzb7JrVK2GiieXnUfA36c",
+          "source_library": "JOTRIP_LICENSED_IMAGES",
+          "source_modified_at": "2026-02-01",
+          "rights": "JoTrip licensed photo library"
+        },
+        {
+          "url": "/assets/media/jotrip-big-game-fishing-golden-hour-2025.jpg",
+          "alt": "Khách cầm cá lớn trên tàu câu lúc ánh sáng cuối ngày",
+          "caption": "Câu cá ngoài khơi trong ánh sáng cuối ngày - ảnh thực tế từ thư viện JoTrip.",
+          "scope": "field_evidence",
+          "source_label": "Ảnh: JoTrip",
+          "source_file_id": "1WAhZ39PfDGHafv7GqqDJS5NAoc3_OXpd",
+          "source_library": "JOTRIP_LICENSED_IMAGES",
+          "source_modified_at": "2025-05-21",
+          "rights": "JoTrip licensed photo library"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "THỜI GIAN",
+          "value": "Khoảng 9 giờ",
+          "note": "Chuyến sáng hoặc chiều - tối theo cấu hình và điều kiện biển."
+        },
+        {
+          "icon": "02",
+          "label": "CÁCH CÂU",
+          "value": "Đáy + jig",
+          "note": "Tài công đổi bãi theo nước, gió và tín hiệu cá."
+        },
+        {
+          "icon": "03",
+          "label": "ĐIỀU QUAN TRỌNG",
+          "value": "Không cam kết sản lượng",
+          "note": "Đây là hoạt động đánh cá thật, kết quả phụ thuộc tự nhiên."
+        }
+      ]
+    },
+    "activity_squid_fishing": {
+      "images": [
+        {
+          "url": "/assets/media/jotrip-night-fishing-2025.jpg",
+          "alt": "Khách và thủy thủ trên tàu câu ban đêm với cá vừa đánh bắt",
+          "caption": "Một chuyến câu đêm thực tế trong thư viện JoTrip.",
+          "scope": "field_evidence",
+          "source_label": "Ảnh: JoTrip",
+          "source_file_id": "1SIrqziMxGIvvD7WnKMwk7ARj_Iqio5yr",
+          "source_library": "JOTRIP_LICENSED_IMAGES",
+          "source_modified_at": "2025-11-18",
+          "rights": "JoTrip licensed photo library"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "THỜI ĐIỂM",
+          "value": "Cuối chiều - tối",
+          "note": "Giờ đi và bến có thể thay đổi theo mùa gió."
+        },
+        {
+          "icon": "02",
+          "label": "TRẢI NGHIỆM",
+          "value": "Ra biển + câu",
+          "note": "Không nên hiểu tên tour như một lời hứa chắc chắn sẽ có nhiều mực."
+        },
+        {
+          "icon": "03",
+          "label": "TRƯỚC KHI ĐI",
+          "value": "Kiểm tra biển",
+          "note": "Gió, sóng và tình trạng vận hành quan trọng hơn lịch cố định."
+        }
+      ]
     }
   },
   "food": {
@@ -969,5 +1050,29 @@
         }
       ]
     }
+  },
+  "food_context": {
+    "seafood": [
+      {
+        "url": "/assets/media/jotrip-grilled-squid-2025.jpg",
+        "alt": "Mực và tôm nướng trên vỉ",
+        "caption": "Hải sản nướng - ảnh từ thư viện JoTrip, dùng như bối cảnh ẩm thực chứ không đại diện cho một món cụ thể.",
+        "source_label": "Ảnh: JoTrip",
+        "source_file_id": "1UO_EbKDcqenkGpcDxuT-WLDqQpg4GV0-",
+        "source_library": "JOTRIP_LICENSED_IMAGES",
+        "source_modified_at": "2025-12-15",
+        "rights": "JoTrip licensed photo library"
+      },
+      {
+        "url": "/assets/media/jotrip-fresh-squid-2025.jpg",
+        "alt": "Mực tươi ăn cùng rau",
+        "caption": "Mực tươi và rau ăn kèm - ảnh bối cảnh nguyên liệu từ thư viện JoTrip.",
+        "source_label": "Ảnh: JoTrip",
+        "source_file_id": "1LMrx5shPKCMTREEClbA1v6AeEsBn9SnN",
+        "source_library": "JOTRIP_LICENSED_IMAGES",
+        "source_modified_at": "2025-12-15",
+        "rights": "JoTrip licensed photo library"
+      }
+    ]
   }
 }
