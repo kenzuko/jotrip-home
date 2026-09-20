@@ -34,7 +34,8 @@ const dirs=[
   "cano",
   "places",
   "food",
-  "explore"
+  "explore",
+  "hotels"
 ];
 
 for(const file of rootFiles){
