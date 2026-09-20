@@ -224,30 +224,34 @@
       setHappening("marine", marineTitle, marineNote, ferryState === "DIRECT_CONFIRMED" ? "XÁC NHẬN" : "KIỂM TRA", ferryState === "DIRECT_CONFIRMED");
     }
 
-    const airportAvailable = !!airport;
+    const airportStamp = airport?.collected_at_vn || airport?.generated_at || null;
+    const airportAge = ageMinutes(airportStamp);
+    const airportQaUsable = airport?.quality?.usable !== false;
+    const airportAvailable = !!airport && airportQaUsable && airportAge <= 15;
+    const airportLoaded = !!airport;
     const records = airportAvailable ? (airport.records || []) : [];
     const delayed = records.filter(x => x.status_code === "DELAYED" || x.status === "TRỄ" || Number(x.estimated_delay_minutes) > 0);
     const total = airportAvailable ? (airport?.counts?.total ?? records.length) : null;
 
     setHappening(
       "airport",
-      !airportAvailable ? "Chưa tải được dữ liệu sân bay" : delayed.length ? delayed.length + " chuyến đang cần theo dõi" : "Bảng chuyến bay chưa thấy trễ đáng kể",
-      airportAvailable ? total + " chuyến trong bảng hôm nay · nguồn Airport Live" : "Không dùng trạng thái thiếu dữ liệu để kết luận bình thường",
-      !airportAvailable ? "CHƯA CÓ" : delayed.length ? "THEO DÕI" : "BÌNH THƯỜNG",
+      !airportAvailable ? (airportLoaded ? "Dữ liệu sân bay cần cập nhật lại" : "Chưa tải được dữ liệu sân bay") : delayed.length ? delayed.length + " chuyến đang cần theo dõi" : "Chưa thấy chuyến trễ đáng kể",
+      airportAvailable ? total + " chuyến trong bảng hôm nay · cập nhật " + ageText(airportStamp) : "Không dùng dữ liệu thiếu hoặc cũ để kết luận bình thường",
+      !airportAvailable ? "CẦN KIỂM TRA" : delayed.length ? "THEO DÕI" : "ĐANG CẬP NHẬT",
       airportAvailable && delayed.length === 0
     );
 
     setContext(
       "airport",
-      !airportAvailable ? "Chưa có dữ liệu" : delayed.length ? delayed.length + " chuyến cần xem" : "Bình thường",
-      airportAvailable ? total + " chuyến trong bảng hôm nay" : "Đang thử lại nguồn sân bay",
+      !airportAvailable ? "Cần kiểm tra" : delayed.length ? delayed.length + " chuyến cần xem" : "Đang cập nhật",
+      airportAvailable ? total + " chuyến hôm nay · " + ageText(airportStamp) : airportLoaded ? "Dữ liệu hiện có không còn đủ mới" : "Đang thử lại nguồn sân bay",
       !airportAvailable ? "unknown" : delayed.length ? "watch" : "good"
     );
 
     setLive(
       "airport",
-      !airportAvailable ? "Chưa có dữ liệu" : delayed.length ? delayed.length + " cần xem" : "Bình thường",
-      airportAvailable ? total + " chuyến hôm nay" : "Đang thử lại nguồn sân bay",
+      !airportAvailable ? "Cần kiểm tra" : delayed.length ? delayed.length + " cần xem" : "Đang cập nhật",
+      airportAvailable ? total + " chuyến hôm nay · " + ageText(airportStamp) : airportLoaded ? "Dữ liệu hiện có không còn đủ mới" : "Đang thử lại nguồn sân bay",
       !airportAvailable ? "unknown" : delayed.length ? "watch" : "good"
     );
 
@@ -257,7 +261,7 @@
       ["THỜI TIẾT", critical ? weatherPrimary + " · " + (criticalAge > 90 ? "DỮ LIỆU CŨ" : weatherSource.toUpperCase()) : "CHƯA CÓ"],
       ["BIỂN NAM ĐẢO", seaHs != null ? fmt(seaHs) + " m" : "CHƯA CÓ"],
       ["CANO", marine ? stateText(canoState).toUpperCase() : "CHƯA CÓ"],
-      ["SÂN BAY", !airportAvailable ? "CHƯA CÓ DỮ LIỆU" : delayed.length ? delayed.length + " CHUYẾN CẦN THEO DÕI" : "BÌNH THƯỜNG"],
+      ["SÂN BAY", !airportAvailable ? "CẦN KIỂM TRA DỮ LIỆU" : delayed.length ? delayed.length + " CHUYẾN CẦN THEO DÕI" : "ĐANG CẬP NHẬT"],
       ["PHÀ", marine ? stateText(ferryState).toUpperCase() : "CHƯA CÓ"],
       ["HOÀNG HÔN", sunset]
     ]);
@@ -284,7 +288,7 @@
           img.alt = "Nhà thùng nước mắm Phú Quốc";
         }
       } else {
-        decisionCard.href = "#areas";
+        decisionCard.href = "explore/?intent=sea";
         if (tag) tag.textContent = "HỢP HÔM NAY";
         if (title) title.textContent = "Ra biển trước hoàng hôn";
         if (note) note.textContent = "Bờ Tây · kiểm tra Live Island Status trước khi đi";
@@ -321,9 +325,11 @@
           source_class: "MIXED"
         },
         airport: {
-          primary: !airportAvailable ? "Chưa có dữ liệu" : delayed.length ? delayed.length + " chuyến cần xem" : "Bình thường",
+          primary: !airportAvailable ? "Cần kiểm tra" : delayed.length ? delayed.length + " chuyến cần xem" : "Đang cập nhật",
           status: !airportAvailable ? "unknown" : delayed.length ? "watch" : "normal",
-          source_class: "LIVE_OPERATIONAL"
+          source_class: "LIVE_OPERATIONAL",
+          source_updated_at: airportStamp,
+          freshness: !airportLoaded || !Number.isFinite(airportAge) ? "unknown" : airportAge <= 8 ? "fresh" : airportAge <= 15 ? "aging" : "stale"
         },
         sunset: {
           primary: sunset,
