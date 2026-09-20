@@ -208,20 +208,8 @@
   },
   "places": {
     "place_dinh_cau": {
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20%2837111073673%29.jpg?width=1800",
-          "alt": "Dinh Cậu ở Phú Quốc",
-          "caption": "Dinh Cậu trên ghềnh đá ở cửa sông Dương Đông. Đây là ảnh tư liệu có giấy phép mở, mới hơn ảnh 2013 từng dùng.",
-          "scope": "exact_subject",
-          "source_label": "Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Dinh_C%E1%BA%ADu_(37111073673).jpg",
-          "freshness": "archive",
-          "hero_priority": "temporary"
-        }
-      ],
-      "map": null,
-      "visual_note": "Ảnh hiện tại chỉ là phương án tạm có quyền sử dụng rõ. Khi có ảnh 2025-2026 nguồn chính thức hoặc quyền dùng phù hợp, ưu tiên thay ngay."
+      "images": [],
+      "visual_note": "Không dùng ảnh Dinh Cậu cũ làm hero. Chờ ảnh 2025-2026 đúng chủ thể và có quyền sử dụng phù hợp; trong thời gian này chỉ dùng bối cảnh khu vực + locator."
     },
     "place_night_market": {
       "images": [
