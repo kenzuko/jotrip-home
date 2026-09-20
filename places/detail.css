@@ -223,3 +223,41 @@ a{text-decoration:none;color:inherit}
   .explainer-sections p,.detail-questions li{font-size:14px}
   .detail-sources .source-row{font-size:12px}
 }
+
+.detail-hero-fallback{
+  position:absolute;inset:0;overflow:hidden;
+  background:
+    radial-gradient(circle at 78% 24%,rgba(255,211,92,.28),transparent 22rem),
+    radial-gradient(circle at 20% 110%,rgba(84,212,203,.28),transparent 24rem),
+    linear-gradient(135deg,#123D3B,#1E6862 62%,#287B74)
+}
+.detail-hero-fallback>img{
+  position:absolute;right:clamp(20px,8vw,120px);top:50%;transform:translateY(-50%);
+  width:min(250px,28vw);height:82%;object-fit:contain;
+  opacity:.16;filter:brightness(0) invert(1)
+}
+.detail-hero-fallback>div{
+  position:absolute;right:clamp(22px,7vw,100px);top:50%;transform:translateY(-50%);
+  width:min(260px,30vw);padding:18px;
+  border:1px solid rgba(255,255,255,.15);border-radius:20px;
+  background:rgba(255,255,255,.08);backdrop-filter:blur(8px)
+}
+.detail-hero-fallback span,.detail-hero-fallback strong,.detail-hero-fallback small{display:block}
+.detail-hero-fallback span{font-size:10px;letter-spacing:.15em;font-weight:900;color:#BDEDE8}
+.detail-hero-fallback strong{margin-top:7px;color:#fff;font-size:24px;line-height:1.05}
+.detail-hero-fallback small{margin-top:7px;color:rgba(255,255,255,.72);font-size:12px;line-height:1.4}
+.detail-hero[data-zone="zone_north"] .detail-hero-fallback{
+  background:radial-gradient(circle at 80% 15%,rgba(255,211,92,.34),transparent 22rem),linear-gradient(135deg,#123D3B,#2A6558)
+}
+.detail-hero[data-zone="zone_south"] .detail-hero-fallback{
+  background:radial-gradient(circle at 78% 18%,rgba(255,112,79,.30),transparent 23rem),linear-gradient(135deg,#123D3B,#1E6862)
+}
+@media(max-width:760px){
+  .detail-hero-fallback>img{right:-16px;width:210px;height:86%;opacity:.12}
+  .detail-hero-fallback>div{
+    right:12px;top:20px;transform:none;width:150px;padding:11px;border-radius:14px
+  }
+  .detail-hero-fallback span{font-size:8px}
+  .detail-hero-fallback strong{font-size:16px}
+  .detail-hero-fallback small{font-size:10px}
+}
