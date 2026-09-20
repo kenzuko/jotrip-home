@@ -1,0 +1,505 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "p0_batch_01",
+  "created_at": "2026-09-20",
+  "scope": "First source-aware crawl batch from the 150-topic backlog.",
+  "topics": [
+    {
+      "backlog_no": 1,
+      "topic_id": "topic_001_dinh_cau",
+      "title": "Dinh Cậu",
+      "canonical_id": "place_dinh_cau",
+      "entity_type": "place",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "dinh_cau_location",
+          "claim": "Dinh Cậu is on the rocky headland at the mouth of the Dương Đông river/harbour area in Dương Đông.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_dinh_checkin",
+            "src_dinh_visit"
+          ]
+        },
+        {
+          "claim_id": "dinh_cau_hours",
+          "claim": "The An Giang tourism listing currently shows opening hours 07:00-21:00.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "volatile": true,
+          "source_ids": [
+            "src_dinh_checkin"
+          ]
+        },
+        {
+          "claim_id": "dinh_cau_current_altar",
+          "claim": "Current visitor-facing sources describe Chúa Ngọc Nương Nương in the principal position with Cậu Tài and Cậu Quý associated/enshrined at Dinh Cậu.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_dinh_checkin",
+            "src_dinh_thanhnien_2026"
+          ]
+        },
+        {
+          "claim_id": "dinh_cau_exact_origin",
+          "claim": "Sources do not fully agree on the exact historical origin and original object(s) of worship. Treat the origin narrative and changes in worship practice as a research question, not a settled single story.",
+          "status": "DISPUTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_dinh_visit",
+            "src_dinh_thanhnien_2026"
+          ]
+        },
+        {
+          "claim_id": "dinh_cau_festival",
+          "claim": "A major annual observance is described on the 15th-16th days of the 10th lunar month.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_dinh_checkin",
+            "src_dinh_visit"
+          ]
+        },
+        {
+          "claim_id": "dinh_cau_steps",
+          "claim": "Recent reporting describes 29 stone steps up to the shrine.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_dinh_thanhnien_2026"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_dinh_checkin",
+          "source_type": "OFFICIAL",
+          "publisher": "An Giang tourism platform",
+          "title": "Dinh Cậu",
+          "url": "https://checkinangiang.vn/vi/dinhcau",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_dinh_visit",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Dinh Cậu Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/dinh-cau-phu-quoc",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_dinh_thanhnien_2026",
+          "source_type": "REPUTABLE_MEDIA",
+          "publisher": "Thanh Niên",
+          "title": "Dinh Cậu Phú Quốc: Tên Cậu nhưng giữa chánh điện lại là Bà?",
+          "url": "https://thanhnien.vn/dinh-cau-phu-quoc-ten-cau-nhung-giua-chanh-dien-lai-la-ba-185260912213326147.htm",
+          "published_at": "2026-09-13",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Exact chronology of the shrine before the documented 20th-century rebuilds/renovations.",
+        "Primary-source evidence for changes in the worship configuration over time.",
+        "Current etiquette guidance suitable for international visitors."
+      ],
+      "next_research": [
+        "Find heritage/cultural-research or archival sources for original worship practice and reconstruction timeline.",
+        "Verify current visitor etiquette and access details with official/local field source.",
+        "Collect rights-clear current photographs and historical images with provenance."
+      ]
+    },
+    {
+      "backlog_no": 56,
+      "topic_id": "topic_056_bun_quay",
+      "title": "Bún quậy Phú Quốc",
+      "canonical_id": "food_bun_quay",
+      "entity_type": "food",
+      "crawl_status": "NEEDS_VERIFICATION",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "bun_quay_lineage",
+          "claim": "Multiple tourism sources connect bún quậy to bún tôm from Bình Định / Central Vietnam, later adapted in Phú Quốc.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_bun_pqgov",
+            "src_bun_vietnamtravel",
+            "src_bun_localtourism"
+          ]
+        },
+        {
+          "claim_id": "bun_quay_arrival_date",
+          "claim": "The date of arrival/development is inconsistent: a Phú Quốc government article says the dish followed Central Vietnamese migrants to the island around 1995-1996, while Vietnam.travel states an earlier arrival in 1955 and later Kiến Xây experimentation from 1996.",
+          "status": "DISPUTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_bun_pqgov",
+            "src_bun_vietnamtravel"
+          ]
+        },
+        {
+          "claim_id": "bun_quay_noodle",
+          "claim": "A defining practical feature is rice noodles pressed/made fresh at the shop rather than simply using pre-made market noodles.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_bun_localtourism",
+            "src_bun_vietnamtravel"
+          ]
+        },
+        {
+          "claim_id": "bun_quay_ingredients",
+          "claim": "Common described components include fresh rice noodles, ground shrimp/fish paste and seafood such as squid, plus herbs/scallions and broth; recipes vary by shop.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_bun_pqgov",
+            "src_bun_vietnamtravel"
+          ]
+        },
+        {
+          "claim_id": "bun_quay_allergens",
+          "claim": "Because common recipes contain fish and shrimp, fish and crustacean shellfish are relevant allergen flags. Exact recipes and cross-contact vary by restaurant and must be checked on site.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_bun_pqgov",
+            "src_fda_allergens"
+          ]
+        },
+        {
+          "claim_id": "bun_quay_kienxay_hours",
+          "claim": "Kiến Xây's operator site currently lists the 28 Bạch Đằng branch as 07:00-23:45.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "volatile": true,
+          "source_ids": [
+            "src_bun_operator"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_bun_pqgov",
+          "source_type": "OFFICIAL",
+          "publisher": "UBND Đặc khu Phú Quốc",
+          "title": "Bún quậy món ngon Phú Quốc",
+          "url": "https://phuquoc.angiang.gov.vn/bun-quay-mon-ngon-phu-quoc",
+          "published_at": "2026-09-17",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_bun_vietnamtravel",
+          "source_type": "OFFICIAL",
+          "publisher": "Vietnam.travel",
+          "title": "Bún quậy - món bún đặc sản của Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-signature-noodle-bun-quay",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_bun_localtourism",
+          "source_type": "OFFICIAL",
+          "publisher": "Phú Quốc tourism portal",
+          "title": "Bún quậy Kiến Xây",
+          "url": "https://dulich.phuquoc.gov.vn/vi/bunquaykienxay",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_bun_operator",
+          "source_type": "OPERATOR",
+          "publisher": "Bún Quậy Kiến Xây",
+          "title": "Hệ thống cơ sở",
+          "url": "https://bunquay.vn/he-thong-co-so/",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fda_allergens",
+          "source_type": "OFFICIAL",
+          "publisher": "U.S. FDA",
+          "title": "Food Allergies: What You Need to Know",
+          "url": "https://www.fda.gov/food/buy-store-serve-safe-food/food-allergies-what-you-need-know",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Reliable primary evidence for the migration/development timeline.",
+        "Original naming history of 'bún quậy' versus earlier 'bún tôm'.",
+        "Restaurant-by-restaurant allergen and MSG/cross-contact information."
+      ],
+      "next_research": [
+        "Locate interviews/archive material from early Phú Quốc bún quậy families.",
+        "Separate dish history from Kiến Xây brand history.",
+        "Build allergen/practical fields that can be verified per restaurant rather than assumed globally."
+      ]
+    },
+    {
+      "backlog_no": 57,
+      "topic_id": "topic_057_goi_ca_trich",
+      "title": "Gỏi cá trích",
+      "canonical_id": "food_goi_ca_trich",
+      "entity_type": "food",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "goi_ca_trich_core",
+          "claim": "Local official sources describe herring fillets dressed/cured with lime and eaten in rice paper with herbs, coconut and dipping sauce.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_goi_pqgov",
+            "src_goi_vietnamtravel"
+          ]
+        },
+        {
+          "claim_id": "goi_ca_trich_raw",
+          "claim": "The fish is not heat-cooked in the described preparation; for product design it should be flagged RAW_OR_ACID_CURED rather than simply 'cooked'.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_goi_pqgov"
+          ]
+        },
+        {
+          "claim_id": "goi_ca_trich_allergens",
+          "claim": "Fish is intrinsic to the dish; official descriptions also include peanuts in common accompaniments/sauce, so fish and peanut are important allergen flags while restaurant recipes still need confirmation.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_goi_pqgov",
+            "src_goi_vietnamtravel",
+            "src_fda_allergens"
+          ]
+        },
+        {
+          "claim_id": "goi_ca_trich_herbs",
+          "claim": "Local descriptions include mixed herbs/forest leaves, star fruit and grated coconut among common accompaniments.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_goi_pqgov"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_goi_pqgov",
+          "source_type": "OFFICIAL",
+          "publisher": "UBND Đặc khu Phú Quốc",
+          "title": "Gỏi Cá Trích",
+          "url": "https://phuquoc.angiang.gov.vn/goi-ca-trich",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_goi_vietnamtravel",
+          "source_type": "OFFICIAL",
+          "publisher": "Vietnam.travel",
+          "title": "Đặc sản hải sản Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fda_allergens",
+          "source_type": "OFFICIAL",
+          "publisher": "U.S. FDA",
+          "title": "Food Allergies: What You Need to Know",
+          "url": "https://www.fda.gov/food/buy-store-serve-safe-food/food-allergies-what-you-need-know",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Species identification used locally under the common name cá trích.",
+        "Food-safety handling standards used by individual restaurants.",
+        "Seasonality evidence strong enough to publish."
+      ],
+      "next_research": [
+        "Find fisheries/scientific source for local herring species and seasonality.",
+        "Add practical guidance for international visitors without overstating safety.",
+        "Verify recipe variants across several local establishments."
+      ]
+    },
+    {
+      "backlog_no": 66,
+      "topic_id": "topic_066_nuoc_mam_phu_quoc",
+      "title": "Nước mắm Phú Quốc",
+      "canonical_id": "food_nuoc_mam_phu_quoc",
+      "entity_type": "food_product",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "fish_sauce_vn_gi",
+          "claim": "Phú Quốc fish sauce is listed by Vietnam's IP authority as geographical indication no. 00001, granted 01/06/2001.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_fish_ipvn"
+          ]
+        },
+        {
+          "claim_id": "fish_sauce_eu_pdo",
+          "claim": "The European Commission registered 'Phú Quốc' as a Protected Designation of Origin (PDO) in 2012 under Implementing Regulation (EU) No 928/2012.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_fish_eu_reg"
+          ]
+        },
+        {
+          "claim_id": "fish_sauce_process",
+          "claim": "The EU registration dossier describes natural long fermentation of fresh fish in wooden barrels and defines product characteristics and nitrogen levels for the protected product.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_fish_eu_dossier"
+          ]
+        },
+        {
+          "claim_id": "fish_sauce_label",
+          "claim": "The EU dossier specifies labeling information including the name Phú Quốc, product type, PDO indication for export, ingredients, nitrogen quality indication, bottling/expiry and preservation/use information.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_fish_eu_dossier"
+          ]
+        },
+        {
+          "claim_id": "fish_sauce_geography",
+          "claim": "The EU dossier defines the protected geographical area around Phú Quốc and specified surrounding Vietnamese territorial waters. Administrative wording in the historical dossier should not be reused as a current administrative description without checking.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_fish_eu_dossier"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_fish_ipvn",
+          "source_type": "OFFICIAL",
+          "publisher": "Cục Sở hữu trí tuệ Việt Nam",
+          "title": "Danh sách các Chỉ dẫn địa lý được bảo hộ tại Việt Nam",
+          "url": "https://www.ipvietnam.gov.vn/danh-sach-cac-chi-dan-ia-ly-uoc-bao-ho-tai-viet-nam",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fish_eu_reg",
+          "source_type": "OFFICIAL",
+          "publisher": "EUR-Lex / European Commission",
+          "title": "Commission Implementing Regulation (EU) No 928/2012",
+          "url": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32012R0928",
+          "published_at": "2012-10-11",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fish_eu_dossier",
+          "source_type": "OFFICIAL",
+          "publisher": "EUR-Lex / European Commission",
+          "title": "Phú Quốc PDO single document",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A52012XC0104%2803%29",
+          "published_at": "2012-01-04",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current authorized producer/packer registry.",
+        "Current visitor-ready fish sauce houses with verified hours and access.",
+        "Historical timeline of the craft before modern GI documentation."
+      ],
+      "next_research": [
+        "Retrieve current GI management/producer records from competent Vietnamese authority or association.",
+        "Crawl house-by-house visitor practical data separately from heritage claims.",
+        "Build a sourced explainer for reading labels and độ đạm without turning brand marketing into fact."
+      ]
+    },
+    {
+      "backlog_no": 68,
+      "topic_id": "topic_068_tieu_phu_quoc",
+      "title": "Tiêu Phú Quốc",
+      "canonical_id": "food_tieu_phu_quoc",
+      "entity_type": "food_product",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "pepper_types",
+          "claim": "The Phú Quốc government portal describes local harvest sorting into red pepper, white/peeled pepper (tiêu sọ) and black pepper.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_pepper_pqgov"
+          ]
+        },
+        {
+          "claim_id": "pepper_manual_harvest",
+          "claim": "The same official source describes harvesting in successive ripe batches, primarily by hand.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_pepper_pqgov"
+          ]
+        },
+        {
+          "claim_id": "pepper_culture_tourism",
+          "claim": "Local government presents pepper growing as both an economic activity and a cultural/tourism value of Phú Quốc.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_pepper_pqgov"
+          ]
+        },
+        {
+          "claim_id": "pepper_khu_tuong",
+          "claim": "The Phú Quốc tourism portal identifies Khu Tượng in Cửa Dương as a notable pepper-growing/visitor area.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_pepper_khutuong"
+          ]
+        },
+        {
+          "claim_id": "pepper_2007_stats",
+          "claim": "A tourism page cites 470 ha and 1,250 tonnes/year for 2007. These figures are historical only and must not be shown as current production.",
+          "status": "STALE_HISTORICAL_ONLY",
+          "confidence": "high",
+          "source_ids": [
+            "src_pepper_khutuong"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_pepper_pqgov",
+          "source_type": "OFFICIAL",
+          "publisher": "UBND Đặc khu Phú Quốc",
+          "title": "Đặc sản Phú Quốc",
+          "url": "https://phuquoc.angiang.gov.vn/dac-san-phu-quoc",
+          "published_at": "2026-09",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_pepper_khutuong",
+          "source_type": "OFFICIAL",
+          "publisher": "Phú Quốc tourism portal",
+          "title": "Vườn tiêu Khu Tượng",
+          "url": "https://dulich.phuquoc.gov.vn/vi/vuontieukhutuong",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current cultivation area/output and major producing zones.",
+        "Named cultivars and agronomic characteristics supported by agricultural/scientific sources.",
+        "Whether any current collective mark/GI or other protected-origin scheme applies to pepper and under what exact legal instrument."
+      ],
+      "next_research": [
+        "Find 2025-2026 agriculture/statistics sources for current production.",
+        "Find agricultural research on varieties, soil and cultivation practice.",
+        "Verify visitor farms individually for hours, access, sales and image rights."
+      ]
+    }
+  ]
+}

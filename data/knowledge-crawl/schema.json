@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.0",
+  "purpose": "Source-aware crawl records for the 150 Open Phu Quoc knowledge/content topics. These are research objects, not finished articles.",
+  "required_topic_fields": [
+    "backlog_no",
+    "topic_id",
+    "title",
+    "canonical_id",
+    "entity_type",
+    "crawl_status",
+    "claims",
+    "sources",
+    "known_unknowns",
+    "next_research",
+    "verified_at"
+  ],
+  "crawl_status_values": [
+    "NOT_STARTED",
+    "DISCOVERY",
+    "PARTIAL_VERIFIED",
+    "VERIFIED_FOR_DRAFT",
+    "NEEDS_VERIFICATION"
+  ],
+  "claim_status_values": [
+    "SUPPORTED",
+    "DISPUTED",
+    "DERIVED",
+    "STALE_HISTORICAL_ONLY",
+    "NEEDS_VERIFICATION"
+  ],
+  "source_type_values": [
+    "OFFICIAL",
+    "OPERATOR",
+    "RESEARCH",
+    "ARCHIVE",
+    "REPUTABLE_MEDIA",
+    "LOCAL_VERIFIED",
+    "COMMUNITY",
+    "EDITORIAL",
+    "MODEL"
+  ],
+  "story_type_values": [
+    "HISTORICAL_FACT",
+    "DOCUMENTED_HISTORY",
+    "ORAL_HISTORY",
+    "FOLKLORE",
+    "LEGEND",
+    "LOCAL_BELIEF",
+    "DISPUTED",
+    "UNVERIFIED"
+  ],
+  "rules": [
+    "Do not copy prose from sources.",
+    "Store claims, dates, names, aliases, practical facts, operational facts, lore variants, source references and known unknowns.",
+    "If sources conflict, preserve both claims and mark DISPUTED or NEEDS_VERIFICATION.",
+    "Do not publish an image without provenance and rights information.",
+    "Volatile practical data must carry checked/verified timestamps and should not be treated as evergreen.",
+    "ONE ENTITY -> ONE CANONICAL ID -> OPERATIONAL + KNOWLEDGE + MEMORY -> MANY SURFACES."
+  ]
+}
