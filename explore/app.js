@@ -2,6 +2,7 @@
   "use strict";
 
   const $=s=>document.querySelector(s);
+  const VISUALS="../data/visual-context.json";
   const levelStyle=document.createElement("style");levelStyle.textContent='.card-level{display:inline-flex;width:max-content;margin:10px 0 0;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:850}.card-level.level-1{background:#fff0e8;color:#9a452f}.card-level.level-2{background:#e8f5fb;color:#17638f}.card-level.level-3{background:#eef6f4;color:#315f5b}';document.head.appendChild(levelStyle);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const params=new URLSearchParams(location.search);
@@ -18,6 +19,7 @@
     facets:[],
     levels:[],
     planning:new Map(),
+    visuals:{},
     zone:params.get("zone")||"all",
     intent:params.get("intent")||"all"
   };
@@ -101,6 +103,10 @@
 
   function renderCard(x){
     const planning=state.planning.get(x.id)||{};
+    const visual=state.visuals?.places?.[x.id]?.images?.[0]||null;
+    const visualHtml=visual
+      ? '<figure class="explore-card-media"><img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async"><figcaption>'+esc(visual.caption||"")+'</figcaption></figure>'
+      : '<div class="explore-card-illustration" data-zone="'+esc(x.zone_id||"all")+'"><span>⌖</span><strong>'+esc(zoneName(x.zone_id))+'</strong><small>Bối cảnh khu vực</small></div>';
     const level=state.levels.find(l=>l.id===planning.level);
     const strength=(planning.strengths||[])[0];
     const watch=(planning.watch_outs||[])[0];
@@ -111,6 +117,8 @@
     if(x.weather_dependency) meta.push(["Phụ thuộc thời tiết",weatherLevel(x.weather_dependency)]);
 
     return '<article class="explore-card" data-zone="'+esc(x.zone_id||"")+'">'+
+      visualHtml+
+      '<div class="explore-card-body">'+
       '<div class="card-top"><span class="card-type">'+entityType(x)+' · '+esc(zoneName(x.zone_id))+'</span>'+
       (x.live_check_required?'<span class="card-live">KIỂM TRA TRƯỚC KHI ĐI</span>':'')+'</div>'+
       (level?'<span class="card-level level-'+level.id+'">Vai trò '+level.id+' · '+esc(level.label)+'</span>':'')+
@@ -121,6 +129,7 @@
       (meta.length?'<div class="card-meta">'+meta.map(([k,v])=>'<div><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div>':'')+
       '<div class="card-tags">'+[...new Set(tags)].slice(0,5).map(t=>'<span>'+esc(friendly(t))+'</span>').join("")+'</div>'+
       '<a class="card-link" href="'+detailLink(x)+'"><span>Xem chi tiết</span><b>→</b></a>'+
+      '</div>'+
     '</article>';
   }
 
@@ -163,13 +172,15 @@
     fetch("../data/entities/places.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/entities/activities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/views/explore-facets.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
-  ]).then(([zones,places,activities,facets,planning])=>{
+    fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+    fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({}))
+  ]).then(([zones,places,activities,facets,planning,visuals])=>{
     state.zones=zones.entities||[];
     state.entities=[...(places.entities||[]),...(activities.entities||[])];
     state.facets=facets.intents||[];
     state.levels=planning.levels||[];
     state.planning=new Map((planning.items||[]).map(x=>[x.entity_id,x]));
+    state.visuals=visuals||{};
     if(!state.zones.some(z=>z.id===state.zone)) state.zone="all";
     if(!state.facets.some(f=>f.id===state.intent)) state.intent="all";
     render();
