@@ -114,6 +114,19 @@
     if (!track || !items.length) return;
     const one = items.map(x => "<span>" + x[0] + "</span><b>" + x[1] + "</b><i>•</i>").join("");
     track.innerHTML = one + one;
+
+    const tuneSpeed = () => {
+      const halfWidth = Math.max(1, track.scrollWidth / 2);
+      const mobile = matchMedia("(max-width:760px)").matches;
+      const pxPerSecond = mobile ? 104 : 92;
+      const seconds = Math.max(mobile ? 8.5 : 9.5, Math.min(17, halfWidth / pxPerSecond));
+      track.style.setProperty("--ticker-duration", seconds.toFixed(2) + "s");
+    };
+    requestAnimationFrame(tuneSpeed);
+    if (!track.dataset.speedBound) {
+      track.dataset.speedBound = "1";
+      addEventListener("resize", tuneSpeed, { passive: true });
+    }
   }
 
   function vnClockParts(date = new Date()) {
