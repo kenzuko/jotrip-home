@@ -84,7 +84,7 @@ async function load(){
   }catch(e){
     console.warn('[Airport Live] Nguồn live chưa phản hồi, chuyển sang snapshot:',e);
     try{applyPayload(await snapshotPromise,'fallback',e)}catch(snapshotError){
-      console.error(snapshotError);$('#errorBox').textContent='Không đọc được dữ liệu nguồn chính thức lúc này. Trang không hiển thị số cũ giả làm dữ liệu live.';$('#errorBox').classList.remove('hidden');setHealth('bad','MẤT DỮ LIỆU','Không thể tải nguồn live hoặc snapshot dự phòng.');
+      console.error(snapshotError);$('#errorBox').textContent='Không đọc được dữ liệu nguồn chính thức lúc này. Trang không hiển thị số cũ giả làm dữ liệu live.';$('#errorBox').classList.remove('hidden');setHealth('bad','MẤT DỮ LIỆU','Không thể tải nguồn trực tiếp hoặc bản dữ liệu dự phòng.');
     }
   }finally{state.loading=false;setLoading(false)}
 }
