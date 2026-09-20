@@ -1,0 +1,67 @@
+name: OpenPQ Visual QA
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: Routes to capture
+        required: true
+        default: full
+        type: choice
+        options:
+          - full
+          - smoke
+
+permissions:
+  contents: read
+
+jobs:
+  visual-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright
+        run: npm install --no-save --package-lock=false playwright@1.63.0
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Start local site
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/openpq-visual-server.log 2>&1 &
+          echo $! > /tmp/openpq-visual-server.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then
+              exit 0
+            fi
+            sleep 1
+          done
+          cat /tmp/openpq-visual-server.log
+          exit 1
+
+      - name: Run visual QA
+        env:
+          VISUAL_QA_BASE_URL: http://127.0.0.1:4173
+          VISUAL_QA_SCOPE: ${{ inputs.scope }}
+        run: node scripts/visual-qa.mjs
+
+      - name: Preserve server log
+        if: always()
+        run: cp /tmp/openpq-visual-server.log visual-qa-results/server.log 2>/dev/null || true
+
+      - name: Upload screenshots and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: openpq-visual-qa-${{ github.run_number }}
+          path: visual-qa-results/
+          retention-days: 7
+          if-no-files-found: error
