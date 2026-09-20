@@ -49,7 +49,7 @@
       .filter(Boolean)
       .filter(x=>x.entity_type==="place"||x.entity_type==="activity");
 
-    if(!related.length) return '<p>Hiện chưa có gợi ý liên quan cho địa điểm này.</p>';
+    if(!related.length) return '<p>Chưa có điểm nào đủ liên quan để ghép vào đây.</p>';
 
     return '<div class="related-grid">'+related.map(x=>
       '<a class="related-card" href="'+detailHref(x)+'">'+
@@ -86,9 +86,9 @@
       ["Thời lượng",entity.duration||"Tùy trải nghiệm"],
       ["Phụ thuộc thời tiết",entity.weather_dependency?weatherLevel(entity.weather_dependency):"Chưa xác định"],
       ["Giá tham khảo",entity.price_reference||priceRows[0]?.price_reference||"Kiểm tra theo ngày"],
-      ["Cần kiểm tra trước khi đi",entity.live_check_required?"Có":"Không bắt buộc"]
+      ["Trước khi đi",entity.live_check_required?"Xem lại tình hình mới nhất":"Không có bước bắt buộc"]
     ];
-    if(level) facts.unshift(["Vai trò chuyến đi","Cấp "+level.id+" · "+level.label]);
+    if(level) facts.unshift(["Kiểu ghé phù hợp",level.label]);
 
     document.title=entity.name+" - Open Phu Quoc";
 
@@ -105,26 +105,27 @@
       '</section>'+
       '<section class="detail-shell">'+
         '<section class="decision-summary">'+
-          '<div class="decision-title"><span>QUYẾT ĐỊNH NHANH</span><strong>'+(level?'Vai trò '+level.id+' · '+esc(level.label):'Xem nhanh trước khi đi')+'</strong><small>'+(level?esc(level.description):'Kiểm tra mức độ phù hợp với lịch trình của bạn.')+'</small></div>'+
-          '<div><span>NÊN ĐI NẾU</span><strong>'+esc((planning.strengths||[])[0]||entity.why_go||entity.what_it_is||'Phù hợp với sở thích của bạn')+'</strong></div>'+
-          '<div class="watch"><span>CẦN CÂN NHẮC</span><strong>'+esc((planning.watch_outs||[])[0]||(entity.live_check_required?'Cần kiểm tra tình hình trước khi đi':'Chưa có lưu ý đặc biệt'))+'</strong></div>'+
+          '<div class="decision-title"><span>CHỌN NHANH</span><strong>'+(level?esc(level.label):'Có hợp lịch của bạn không?')+'</strong><small>'+(level?esc(level.description):'Nhìn nhanh thời gian, thời tiết và cách ghép điểm trước khi đi.')+'</small></div>'+
+          '<div><span>HỢP KHI</span><strong>'+esc((planning.strengths||[])[0]||entity.why_go||entity.what_it_is||'Bạn thấy chỗ này đúng gu của mình')+'</strong></div>'+
+          '<div class="watch"><span>TRƯỚC KHI ĐI</span><strong>'+esc((planning.watch_outs||[])[0]||(entity.live_check_required?'Xem lại tình hình trong ngày trước khi khởi hành':'Chưa có lưu ý đặc biệt'))+'</strong></div>'+
         '</section>'+
         '<div class="detail-main">'+
-          (window.OpenPQVisual&&extraVisuals.length?OpenPQVisual.gallery(extraVisuals,{eyebrow:"HÌNH ẢNH",title:"Nhìn địa điểm này rõ hơn"}):"")+
-          (window.OpenPQVisual?OpenPQVisual.locator(zone,{title:"Nằm ở đâu trên đảo?",label:zone?.name||"Phú Quốc",map:entity.map||visual.map||zone?.map}):"")+
-          (entity.why_go?'<article class="detail-panel"><span>VÌ SAO ĐI</span><h2>Điểm này đáng cân nhắc khi nào?</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
-          '<article class="detail-panel"><span>ĐỌC NHANH</span><h2>Những thứ cần biết trước khi đi.</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
-          ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>CÁCH CHỌN GIÁ</span><h2>Giá đúng phụ thuộc thông tin nào?</h2><p>Open Phu Quoc chưa tự điền giá khi nguồn hiện hành không công bố đủ. Khi kiểm tra vé, hãy chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||x)+'</span>').join("")+'</div></article>':'')+
-          ((entity.tips||[]).length?'<article class="detail-panel"><span>MẸO THỰC TẾ</span><h2>Nhớ mấy điều này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+
-          (priceRows.length?'<article class="detail-panel"><span>'+(inheritedPrice?'GIÁ CỦA CỤM TRẢI NGHIỆM':'GIÁ THAM KHẢO')+'</span><h2>'+(inheritedPrice?'Điểm này dùng quyền lợi trong vé trải nghiệm chính.':'Mốc để so, không phải cam kết giá.')+'</h2>'+(inheritedPrice?'<p>Giá bên dưới thuộc vé hoặc combo của trải nghiệm liên quan. Hãy chọn đúng ngày đi, chiều cao, độ tuổi và quyền lợi trước khi thanh toán.</p>':'')+'<div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>KIỂM TRA ĐÚNG NGÀY</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
-          '<article class="detail-panel"><span>GỢI Ý GẦN ĐÂY</span><h2>Đi tiếp từ đây.</h2>'+renderRelated(entity,lookup)+'</article>'+
+          (window.OpenPQVisual&&extraVisuals.length?OpenPQVisual.gallery(extraVisuals,{eyebrow:"HÌNH ẢNH",title:"Nhìn một vòng trước khi đi"}):"")+
+          (window.OpenPQVisual?OpenPQVisual.locator(zone,{title:"Ở đâu trên đảo?",label:zone?.name||"Phú Quốc",map:entity.map||visual.map||zone?.map}):"")+
+          (window.OpenPQVisual?OpenPQVisual.infographic(visual.infographic||[],{eyebrow:"NHÌN NHANH",title:"Hiểu chỗ này trong vài giây"}):"")+
+          (entity.why_go?'<article class="detail-panel"><span>CÓ GÌ Ở ĐÂY</span><h2>Chỗ này đáng ghé vì điều gì?</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
+          '<article class="detail-panel"><span>NẮM NHANH</span><h2>Mấy chuyện chính trước khi đi.</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
+          ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>GIÁ VÉ</span><h2>Giá thay đổi theo những gì?</h2><p>Nếu nguồn chưa công bố đủ, Open Phu Quoc sẽ không tự điền số. Khi xem vé, nhớ chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||x)+'</span>').join("")+'</div></article>':'')+
+          ((entity.tips||[]).length?'<article class="detail-panel"><span>TRƯỚC KHI ĐI</span><h2>Nhớ mấy chuyện này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+
+          (priceRows.length?'<article class="detail-panel"><span>'+(inheritedPrice?'GIÁ ĐI CÙNG TRẢI NGHIỆM CHÍNH':'GIÁ THAM KHẢO')+'</span><h2>'+(inheritedPrice?'Quyền lợi này thường đi chung trong vé hoặc combo chính.':'Dùng để dự trù, không phải giá cố định.')+'</h2>'+(inheritedPrice?'<p>Giá bên dưới thuộc vé hoặc combo của trải nghiệm liên quan. Hãy chọn đúng ngày đi, chiều cao, độ tuổi và quyền lợi trước khi thanh toán.</p>':'')+'<div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>KIỂM TRA ĐÚNG NGÀY</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
+          '<article class="detail-panel"><span>ĐI CÙNG GÌ CHO TIỆN</span><h2>Nếu còn thời gian, đi tiếp đâu?</h2>'+renderRelated(entity,lookup)+'</article>'+
         '</div>'+
         '<aside class="detail-context">'+
-          '<span>THÔNG TIN HỮU ÍCH</span>'+
+          '<span>CẦN DÙNG KHI ĐANG ĐI</span>'+
           '<div class="context-card"><span>KHU VỰC</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>'+esc(entity.area_code||"")+'</small></div>'+
           '<a class="context-link" href="../weather/"><span>☀</span><div><strong>Thời tiết & biển</strong><small>Xem tình hình mới nhất trước hoạt động ngoài trời</small></div><b>→</b></a>'+
-          '<a class="context-link alt" href="../explore/?zone='+encodeURIComponent(entity.zone_id||"all")+'"><span>⌖</span><div><strong>Xem cùng khu</strong><small>'+esc(zone?.name||"Toàn đảo")+'</small></div><b>→</b></a>'+
-          (priceRows.length?'<a class="context-link alt" href="../utilities/#prices"><span>₫</span><div><strong>Giá & quyền lợi</strong><small>Chọn đúng ngày đi để xem mức áp dụng</small></div><b>→</b></a>':'')+
+          '<a class="context-link alt" href="../explore/?zone='+encodeURIComponent(entity.zone_id||"all")+'"><span>⌖</span><div><strong>Xem thêm quanh đây</strong><small>'+esc(zone?.name||"Toàn đảo")+'</small></div><b>→</b></a>'+
+          (priceRows.length?'<a class="context-link alt" href="../utilities/#prices"><span>₫</span><div><strong>Giá & quyền lợi</strong><small>Chọn đúng ngày đi trước khi so giá</small></div><b>→</b></a>':'')+
         '</aside>'+
       '</section>';
 
