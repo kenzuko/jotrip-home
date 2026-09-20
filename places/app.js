@@ -64,22 +64,22 @@ function filtered(){
 
 function tableRow(x){
   return '<tr><td><div class="place-table-main">'+mediaFor(x,true)+'<div><a class="place-name-link" href="detail.html?id='+encodeURIComponent(x.slug||x.id)+'"><strong>'+esc(x.name)+'</strong></a><div class="place-tags">'+
-    (x.planning_label?'<span class="level level-'+x.planning_level+'">CẤP '+x.planning_level+' · '+esc(x.planning_label)+'</span>':'')+
+    (x.planning_label?'<span class="level level-'+x.planning_level+'">'+esc(x.planning_label)+'</span>':'')+
     (x.hashtags||[]).slice(0,4).map(t=>'<span>'+esc(t)+'</span>').join("")+
     '</div></div></div></td><td>'+esc(x.region)+'</td><td>'+esc(x.what)+'</td><td>'+
     esc((x.play||[]).join(" · "))+'</td><td><strong>'+esc(x.price_ref||"Cần kiểm tra")+'</strong>'+
-    (x.price_dynamic?'<span class="price-dynamic">DỮ LIỆU ĐỘNG · KIỂM TRA LẠI</span>':'')+
+    (x.price_dynamic?'<span class="price-dynamic">GIÁ CÓ THỂ ĐỔI</span>':'')+
     '</td><td><strong>'+esc(x.duration||"-")+'</strong><small>'+esc(x.best_time||"")+
     '</small></td><td><ul class="tips-list">'+(x.tips||[]).map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></td></tr>';
 }
 
 function card(x){
   return '<article class="place-card">'+mediaFor(x)+'<div class="place-card-head"><div><span class="region">'+esc(x.region)+
-    '</span><h3>'+esc(x.name)+'</h3>'+(x.planning_label?'<span class="planning-level level-'+x.planning_level+'">Cấp '+x.planning_level+' · '+esc(x.planning_label)+'</span>':'')+'</div>'+(x.price_dynamic?'<span class="pill watch">Cần kiểm tra trước khi đi</span>':'')+
-    '</div><dl><div><dt>LÀ GÌ</dt><dd>'+esc(x.what)+'</dd></div><div><dt>VÌ SAO ĐI</dt><dd>'+esc((x.play||[]).join(" · "))+ 
-    '</dd></div><div><dt>GIÁ</dt><dd>'+esc(x.price_ref||"-")+'</dd></div><div><dt>THỜI LƯỢNG</dt><dd>'+
-    esc(x.duration||"-")+' · '+esc(x.best_time||"")+'</dd></div><div><dt>TIPS</dt><dd>'+esc((x.tips||[]).join(" · "))+
-    '</dd></div>'+(x.strengths.length?'<div><dt>ĐIỂM HAY</dt><dd>'+esc(x.strengths.join(" · "))+'</dd></div>':'')+(x.watch_outs.length?'<div><dt>CẦN CÂN NHẮC</dt><dd>'+esc(x.watch_outs.join(" · "))+'</dd></div>':'')+'</dl><div class="place-tags">'+(x.hashtags||[]).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div><a class="place-detail-link" href="detail.html?id='+encodeURIComponent(x.slug||x.id)+'">Xem chi tiết →</a></article>';
+    '</span><h3>'+esc(x.name)+'</h3>'+(x.planning_label?'<span class="planning-level level-'+x.planning_level+'">'+esc(x.planning_label)+'</span>':'')+'</div>'+(x.price_dynamic?'<span class="pill watch">Xem lại trước khi đi</span>':'')+
+    '</div><dl><div><dt>CHỖ NÀY CÓ GÌ</dt><dd>'+esc(x.what)+'</dd></div><div><dt>VÌ SAO GHÉ</dt><dd>'+esc((x.play||[]).join(" · "))+ 
+    '</dd></div><div><dt>GIÁ</dt><dd>'+esc(x.price_ref||"-")+'</dd></div><div><dt>Ở BAO LÂU</dt><dd>'+
+    esc(x.duration||"-")+' · '+esc(x.best_time||"")+'</dd></div><div><dt>NHỚ TRƯỚC KHI ĐI</dt><dd>'+esc((x.tips||[]).join(" · "))+
+    '</dd></div>'+(x.strengths.length?'<div><dt>HỢP KHI</dt><dd>'+esc(x.strengths.join(" · "))+'</dd></div>':'')+(x.watch_outs.length?'<div><dt>TRƯỚC KHI ĐI</dt><dd>'+esc(x.watch_outs.join(" · "))+'</dd></div>':'')+'</dl><div class="place-tags">'+(x.hashtags||[]).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div><a class="place-detail-link" href="detail.html?id='+encodeURIComponent(x.slug||x.id)+'">Xem kỹ hơn →</a></article>';
 }
 
 function render(){
@@ -105,7 +105,7 @@ async function load(){
   const types=[...new Set(views.flatMap(x=>x.type||[]))].sort();
 
   $("#regionFilter").innerHTML='<option value="all">Tất cả khu vực</option>'+regions.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");
-  $("#levelFilter").innerHTML='<option value="all">Tất cả vai trò chuyến đi</option>'+state.levels.map(x=>'<option value="'+x.id+'">Cấp '+x.id+' · '+esc(x.label)+'</option>').join("");
+  $("#levelFilter").innerHTML='<option value="all">Tất cả kiểu ghé</option>'+state.levels.map(x=>'<option value="'+x.id+'">'+esc(x.label)+'</option>').join("");
   $("#typeFilter").innerHTML='<option value="all">Tất cả loại trải nghiệm</option>'+types.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");
   $("#placeCount").textContent=state.entities.length;
   $("#regionCount").textContent=regions.length;
