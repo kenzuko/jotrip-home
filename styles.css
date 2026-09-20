@@ -690,33 +690,39 @@ img{display:block;max-width:100%}
 }
 .site-footer{
   margin-top:40px;
-  padding:32px clamp(18px,4vw,56px);
+  padding:42px clamp(18px,4vw,56px) 30px;
   display:grid;
-  grid-template-columns:1fr auto;
-  gap:22px;
-  align-items:end;
+  grid-template-columns:minmax(320px,.9fr) minmax(480px,1.1fr);
+  gap:44px;
+  align-items:start;
   background:#F5FAF9;
   border-top:1px solid var(--line);
 }
-.site-footer>div img{
-  width:180px;
-  height:56px;
+.site-footer .footer-brand{display:grid;grid-template-columns:88px minmax(0,1fr);gap:18px;align-items:start}
+.site-footer .footer-brand img{
+  width:88px;
+  height:auto;
   object-fit:contain;
-  object-position:left center;
+  object-position:top center;
 }
-.site-footer>div p{
+.site-footer .footer-brand strong{display:block;color:var(--ink);font-size:16px;line-height:1.3}
+.site-footer .footer-brand p{
   margin:8px 0 0;
-  font-size:9px;
-  line-height:1.45;
+  font-size:12px;
+  line-height:1.6;
   color:var(--muted);
 }
+.site-footer .footer-brand small{display:block;margin-top:9px;color:#7d8e8a;font-size:11px}
+.footer-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .site-footer nav{
-  display:flex;
-  gap:18px;
-  flex-wrap:wrap;
-  font-size:9px;
-  font-weight:760;
+  display:grid;
+  align-content:start;
+  gap:9px;
+  font-size:12px;
 }
+.site-footer nav strong{color:var(--ink);font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.site-footer nav a{color:var(--muted)}
+.site-footer nav a:hover{color:var(--ink)}
 .credit{
   grid-column:1/-1;
   margin:0;
@@ -726,6 +732,8 @@ img{display:block;max-width:100%}
   color:#82918E;
 }
 .mobile-dock{display:none}
+@media(max-width:900px){.site-footer{grid-template-columns:1fr;gap:28px}.footer-groups{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){.site-footer{padding:30px 18px 96px}.site-footer .footer-brand{grid-template-columns:68px minmax(0,1fr);gap:14px}.site-footer .footer-brand img{width:68px}.footer-groups{grid-template-columns:1fr 1fr;gap:24px 18px}.site-footer nav:last-child{grid-column:1/-1}}
 .toast{
   position:fixed;
   left:50%;

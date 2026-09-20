@@ -1,0 +1,29 @@
+/* V3: practical information should scan like answers, not a dense data table. */
+.u-card{min-height:148px;padding:18px}
+.u-card strong{font-size:17px;line-height:1.3}
+.u-card small{font-size:12px;line-height:1.55}
+.u-card .source{font-size:10px}
+.travel-line{min-height:68px;padding:14px 12px}
+.travel-line span{font-size:13px}
+.travel-line small{font-size:10px}
+.travel-line strong{font-size:18px}
+.choice{padding:16px}
+.choice span{font-size:11px}
+.choice strong{font-size:14px}
+.price-card{padding:18px}
+.price-card h3{font-size:18px}
+.price-card strong{font-size:22px}
+.price-card small{font-size:11px;line-height:1.5}
+.check-card li{font-size:12px;line-height:1.5}
+.dynamic-note,.sync-note{font-size:11px;line-height:1.55}
+
+@media(max-width:760px){
+  .emergency-grid{grid-template-columns:1fr}
+  .emergency-card{min-height:118px}
+  .dir-grid{display:grid;grid-template-columns:1fr;overflow:visible}
+  .dir-grid .u-card{min-width:0}
+  .price-grid,.check-grid{display:grid;grid-template-columns:1fr;overflow:visible}
+  .price-card,.check-card{min-width:0}
+  .travel-line{align-items:flex-start}
+  .travel-line strong{font-size:17px;text-align:right}
+}
