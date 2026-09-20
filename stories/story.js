@@ -56,7 +56,7 @@ function sectionBlock(section,i){
 
   if(isNote){
     return '<aside class="article-note">'+
-      '<span>OPEN PHU QUOC NOTE</span>'+
+      '<span>MỘT LƯU Ý</span>'+
       (bodyHtml?'<div class="note-text">'+bodyHtml+'</div>':"")+
       figure(section)+
     '</aside>';
@@ -100,8 +100,9 @@ function renderArticle(data,visualData,zones){
           const zone=(zones||[]).find(z=>z.id===meta.zone_id);
           if(!window.OpenPQVisual)return "";
           return [
-            OpenPQVisual.quickFacts(meta.quick_facts||[],{label:"Đọc nhanh"}),
+            OpenPQVisual.quickFacts(meta.quick_facts||[],{label:"Nắm nhanh"}),
             OpenPQVisual.gallery(meta.images||[],{eyebrow:"HÌNH ẢNH",title:"Nhìn câu chuyện này bằng hình"}),
+            OpenPQVisual.infographic(meta.infographic||[],{eyebrow:"NHÌN NHANH",title:"Ba ý để nhớ"}),
             OpenPQVisual.locator(zone,{title:"Bài viết này nằm ở đâu?",label:meta.location_label||zone?.name})
           ].join("");
         })()+
