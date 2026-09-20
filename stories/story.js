@@ -94,7 +94,7 @@ function renderArticle(data){
       '<div class="article-body">'+
         '<p class="intro">'+esc(s.intro)+'</p>'+
         (s.sections||[]).map(sectionBlock).join("")+
-        '<div class="editorial-note">Thông tin vận hành như giờ mở cửa, giá, trạng thái show và điều kiện thời tiết nên được kiểm tra ở các lớp dữ liệu trực tiếp của Open Phu Quoc thay vì xem là dữ liệu cố định trong bài.</div>'+
+        '<div class="editorial-note">Giờ mở cửa, giá vé, lịch biểu diễn và điều kiện thời tiết có thể thay đổi. Trước khi đi, bạn nên mở mục Trực tiếp hoặc Tiện ích để kiểm tra thông tin mới nhất.</div>'+
         '<div class="sources">'+
           '<h3>Nguồn tham khảo</h3>'+
           (s.sources||[]).map(x=>'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+' →</a>').join("")+

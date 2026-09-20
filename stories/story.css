@@ -135,3 +135,24 @@
   .section-text p+p{margin-top:16px}
   .article-note .note-text p{font-size:14px}
 }
+
+/* Readability baseline V3 */
+.back{font-size:13px}
+.eyebrow,.story-copy span,.story-pause span,.section-marker,.article-note>span{font-size:11px}
+.listing-hero p{font-size:16px;line-height:1.65}
+.story-copy p{font-size:14px;line-height:1.55}
+.article-meta,.article-head-copy .article-meta{font-size:12px;line-height:1.5}
+.article-figure figcaption{font-size:13px;line-height:1.55}
+.story-pause p{font-size:15px!important;line-height:1.65!important}
+.editorial-note,.note{font-size:14px;line-height:1.65}
+.sources a{font-size:14px;line-height:1.55}
+.next a small{font-size:11px}
+footer{font-size:13px;line-height:1.55}
+
+@media(max-width:700px){
+  .back{font-size:12px}
+  .listing-hero p{font-size:15px}
+  .story-copy p{font-size:14px}
+  .article-head-copy .dek{font-size:15px}
+  .article-note .note-text p{font-size:15px}
+}
