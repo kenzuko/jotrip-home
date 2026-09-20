@@ -139,3 +139,37 @@ footer small{color:rgba(255,255,255,.64);font-size:13px}
   .about-story-grid h3{margin-top:28px}
   .about-section-head h2,.about-made h2,.about-open h2{font-size:34px}
 }
+
+.about-island-gallery{
+  padding-top:26px;padding-bottom:18px;
+  display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.65fr);gap:10px
+}
+.about-island-gallery figure{
+  position:relative;margin:0;overflow:hidden;border-radius:24px;background:#E8F1EF
+}
+.about-island-gallery img{display:block;width:100%;height:100%;object-fit:cover}
+.about-island-main{min-height:520px}
+.about-island-side{display:grid;grid-template-rows:1fr 1fr;gap:10px}
+.about-island-side figure{min-height:255px}
+.about-island-gallery figcaption{
+  position:absolute;left:12px;right:12px;bottom:12px;
+  padding:10px 12px;display:flex;justify-content:space-between;gap:12px;align-items:flex-end;
+  border:1px solid rgba(255,255,255,.16);border-radius:13px;
+  background:rgba(8,42,40,.68);backdrop-filter:blur(10px);
+  color:#fff;font-size:12px;line-height:1.4
+}
+.about-island-gallery figcaption span{flex:1}
+.about-island-gallery figcaption a{flex:none;color:#fff;font-weight:800;white-space:nowrap}
+@media(max-width:900px){
+  .about-island-gallery{grid-template-columns:1fr}
+  .about-island-main{min-height:420px}
+  .about-island-side{grid-template-columns:1fr 1fr;grid-template-rows:none}
+  .about-island-side figure{min-height:250px}
+}
+@media(max-width:760px){
+  .about-island-gallery{padding-top:14px;padding-bottom:10px;gap:8px}
+  .about-island-main{min-height:330px}
+  .about-island-side{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+  .about-island-side figure{flex:0 0 86%;min-height:250px;scroll-snap-align:center}
+  .about-island-gallery figcaption{font-size:11px}
+}
