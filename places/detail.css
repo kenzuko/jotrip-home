@@ -166,3 +166,13 @@ a{text-decoration:none;color:inherit}
 @media(max-width:760px){
   .detail-hero-credit{right:10px;bottom:9px;font-size:10px}
 }
+
+.detail-hero-context{
+  position:absolute;z-index:2;left:16px;bottom:14px;
+  padding:7px 9px;border:1px solid rgba(255,255,255,.22);border-radius:999px;
+  background:rgba(7,35,33,.48);backdrop-filter:blur(8px);
+  color:#fff;font-size:10px;font-weight:900;letter-spacing:.09em
+}
+@media(max-width:760px){
+  .detail-hero-context{left:10px;bottom:9px;font-size:9px}
+}
