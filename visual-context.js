@@ -28,7 +28,8 @@
   }
 
   function pickHero(images) {
-    const rows = Array.isArray(images) ? images.filter(x => x?.url) : [];
+    const allRows = Array.isArray(images) ? images.filter(x => x?.url) : [];
+    const rows = allRows.filter(x => x.hero_eligible !== false);
     if (!rows.length) return null;
     const priority = {primary:4,preferred:3,default:2,archive:1};
     return [...rows].sort((a,b)=>{
