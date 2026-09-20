@@ -210,34 +210,18 @@
     "place_dinh_cau": {
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1800",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20%2837111073673%29.jpg?width=1800",
           "alt": "Dinh Cậu ở Phú Quốc",
-          "caption": "Dinh Cậu bên cửa sông Dương Đông.",
+          "caption": "Dinh Cậu trên ghềnh đá ở cửa sông Dương Đông. Đây là ảnh tư liệu có giấy phép mở, mới hơn ảnh 2013 từng dùng.",
           "scope": "exact_subject",
-          "source_label": "Wikimedia Commons - Hoangvantoanajc",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Dinh_C%E1%BA%ADu_Ph%C3%BA_Qu%E1%BB%91c.jpg"
+          "source_label": "Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Dinh_C%E1%BA%ADu_(37111073673).jpg",
+          "freshness": "archive",
+          "hero_priority": "temporary"
         }
       ],
-      "infographic": [
-        {
-          "icon": "☀",
-          "label": "Đi lúc",
-          "value": "Cuối chiều",
-          "note": "Ánh sáng dịu và cửa sông Dương Đông có nhiều nhịp sống để nhìn hơn."
-        },
-        {
-          "icon": "◷",
-          "label": "Ở lại",
-          "value": "30-60 phút",
-          "note": "Đủ để đi một vòng, ngồi nhìn cửa sông và không cần biến thành điểm chạy cho xong."
-        },
-        {
-          "icon": "◌",
-          "label": "Nhớ",
-          "value": "Đây là nơi tín ngưỡng",
-          "note": "Ăn mặc và chụp ảnh vừa phải sẽ phù hợp hơn."
-        }
-      ]
+      "map": null,
+      "visual_note": "Ảnh hiện tại chỉ là phương án tạm có quyền sử dụng rõ. Khi có ảnh 2025-2026 nguồn chính thức hoặc quyền dùng phù hợp, ưu tiên thay ngay."
     },
     "place_night_market": {
       "images": [
