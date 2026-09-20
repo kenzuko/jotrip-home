@@ -3157,12 +3157,12 @@ body.sheet-open{
     background:#fff;
   }
   #top>.task-launcher{
-    grid-column:1/-1;
-    grid-row:4;
+    grid-column:1/9;
+    grid-row:4/6;
   }
   #top>.essentials{
     grid-column:9/13;
-    grid-row:3;
+    grid-row:3/6;
     width:100%;
     max-width:none;
     margin:0;
@@ -3310,6 +3310,7 @@ body.sheet-open{
 @media(min-width:1400px){
   #top>.hero{grid-column:1/9}
   #top>.live-strip,#top>.energy-ticker,#top>.essentials{grid-column:9/13}
+  #top>.task-launcher{grid-column:1/9}
   #top>.essentials .essential-grid{grid-template-columns:1fr 1fr!important}
 }
 
@@ -3702,8 +3703,8 @@ body.sheet-open{
   .live-item strong{font-size:17px}
 
   .task-launcher{
-    grid-column:1/-1;
-    grid-row:4;
+    grid-column:1/9;
+    grid-row:4/6;
     max-width:none;
     margin:12px 14px 0;
     padding:0;
