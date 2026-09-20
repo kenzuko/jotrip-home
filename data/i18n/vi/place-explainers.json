@@ -765,6 +765,556 @@
           "url": "https://sunworld.vn/"
         }
       ]
+    },
+    "place_cua_can": {
+      "lede": "Cửa Cạn là một khu dân cư ven sông ở phía Tây Bắc Phú Quốc. Giá trị của nơi này nằm ở nhịp sông, nhà ven bờ và trải nghiệm chèo kayak/thuyền chậm hơn là một điểm check-in duy nhất.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Khu dân cư ven sông",
+          "note": "Sông Cửa Cạn tạo ra một kiểu cảnh quan khác hẳn bãi biển: nhà ven bờ, cửa sông, rừng và sinh hoạt địa phương."
+        },
+        {
+          "icon": "02",
+          "label": "TRẢI NGHIỆM",
+          "value": "Kayak hoặc đi thuyền chậm",
+          "note": "Đi chậm giúp nhìn đời sống ven sông rõ hơn chạy xe ghé vài phút rồi đi."
+        },
+        {
+          "icon": "03",
+          "label": "CẦN BIẾT",
+          "value": "Nước, mưa và gió làm trải nghiệm đổi khác",
+          "note": "Hoạt động trên sông vẫn cần áo phao và kiểm tra điều kiện trong ngày."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một Phú Quốc không chỉ có biển",
+          "body": "Cửa Cạn cho thấy hệ sông và đời sống ven bờ của đảo. Một số hành trình địa phương kết hợp chèo kayak, đi thuyền và ăn uống quanh khu vực, phù hợp với người muốn đổi nhịp khỏi resort và bãi biển."
+        },
+        {
+          "heading": "Đi để quan sát, không cần cố biến thành tour phiêu lưu",
+          "body": "Nếu mới chèo kayak, nên chọn đoạn nước yên, mặc áo phao và đi cùng đơn vị có hướng dẫn. Trải nghiệm hay nhất thường nằm ở cảnh quan và nhịp sống hai bên bờ hơn là quãng đường đi được."
+        }
+      ],
+      "visitor_questions": [
+        "Mực nước và dòng chảy hôm nay có phù hợp cho người mới chèo không?",
+        "Áo phao và hướng dẫn an toàn đã bao gồm chưa?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Lịch trình Phú Quốc 4 ngày 3 đêm có trải nghiệm kayak Cửa Cạn",
+          "url": "https://visitphuquoc.com.vn/vi/du-lich-phu-quoc-4-ngay-3-dem-lich-trinh-chi-tiet-vui-quen-loi-ve-178"
+        }
+      ]
+    },
+    "place_night_market": {
+      "lede": "Chợ đêm Dương Đông là nơi dễ cảm nhận nhịp ăn uống và mua sắm buổi tối ở trung tâm đảo. Điểm đáng giá không phải ăn thật nhiều, mà là biết mình đang mua gì, giá tính theo cách nào và thử vài món đúng khẩu vị.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Khu ăn uống - mua sắm buổi tối",
+          "note": "Chợ nằm ở khu Bạch Đằng, trung tâm Dương Đông và tập trung nhiều quầy hải sản, đặc sản, đồ ăn vặt và quà lưu niệm."
+        },
+        {
+          "icon": "02",
+          "label": "ĂN HẢI SẢN",
+          "value": "Hỏi giá và đơn vị tính trước",
+          "note": "Món theo cân, kích cỡ hoặc có phí chế biến cần chốt rõ trước khi gọi."
+        },
+        {
+          "icon": "03",
+          "label": "ĐI THẾ NÀO?",
+          "value": "Ăn vừa đủ rồi đi bộ tiếp",
+          "note": "Có thể ghép Dinh Cậu, cửa sông và phố quanh trung tâm thay vì coi chợ là toàn bộ buổi tối."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Chợ đêm là một lát cắt của Dương Đông về tối",
+          "body": "Nguồn du lịch địa phương mô tả chợ hiện nay hình thành từ sự kết hợp của chợ đêm Dinh Cậu và chợ Bạch Đằng cũ. Khu đầu chợ thiên về đồ ăn, hải sản và đặc sản; các khu sau có thêm quà lưu niệm và hàng thủ công."
+        },
+        {
+          "heading": "Khách quốc tế nên hỏi thành phần trước khi thử món lạ",
+          "body": "Nước chấm, sa tế, sốt ướp và topping có thể chứa cá, tôm, nhuyễn thể, đậu phộng hoặc đậu nành. Nếu có dị ứng, nên hỏi trực tiếp từng quầy vì công thức và dụng cụ chế biến khác nhau."
+        }
+      ],
+      "visitor_questions": [
+        "Món này tính theo phần hay theo cân?",
+        "Sốt hoặc nước chấm có đậu phộng, tôm hay cá không?",
+        "Giá đã gồm phí chế biến chưa?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Chợ đêm Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/cho-dem-phu-quoc"
+        },
+        {
+          "label": "VisitPhuQuoc - Chợ đêm Phú Quốc, 17/04/2026",
+          "url": "https://visitphuquoc.com.vn/vi/cho-dem-phu-quoc-thien-duong-am-thuc-va-mua-sam-tren-dao-ngoc-8445"
+        }
+      ]
+    },
+    "place_bai_truong": {
+      "lede": "Bãi Trường không phải một bãi nhỏ có một cổng vào duy nhất. Đây là dải bờ biển rất dài ở phía Tây đảo, gồm nhiều đoạn bãi, resort, nhà hàng và điểm ngắm hoàng hôn khác nhau.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "QUY MÔ",
+          "value": "Dải bờ Tây dài gần 20 km",
+          "note": "Vì rất dài, trải nghiệm ở hai đoạn Bãi Trường có thể khác nhau rõ rệt."
+        },
+        {
+          "icon": "02",
+          "label": "ĐI VÌ GÌ?",
+          "value": "Hoàng hôn + nghỉ dưỡng + tiện di chuyển",
+          "note": "Khu này gần sân bay và có mật độ khách sạn, nhà hàng, resort cao."
+        },
+        {
+          "icon": "03",
+          "label": "CẦN CHỌN",
+          "value": "Chọn đúng đoạn bãi",
+          "note": "Đừng tìm 'Bãi Trường' như một pin duy nhất rồi mặc định đó là chỗ đẹp nhất."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Tên một bãi nhưng thực tế là cả một dải bờ biển",
+          "body": "Các nguồn du lịch địa phương mô tả Bãi Trường trải dài gần 20 km dọc bờ Tây Nam Phú Quốc. Vì vậy, chất lượng bãi, mật độ dịch vụ, lối xuống biển và mức độ riêng tư khác nhau theo từng đoạn."
+        },
+        {
+          "heading": "Hoàng hôn là thế mạnh, nhưng bãi hôm đó vẫn phụ thuộc thời tiết",
+          "body": "Bờ Tây thuận hướng ngắm hoàng hôn. Tuy nhiên màu trời, sóng, rong và tình trạng bãi thay đổi theo mùa và thời tiết, nên ảnh đẹp của một ngày không đại diện cho toàn bộ dải bờ biển."
+        }
+      ],
+      "visitor_questions": [
+        "Đoạn bãi này có lối công cộng hay thuộc cơ sở lưu trú?",
+        "Hôm nay khu nào thuận để tắm và ngắm hoàng hôn?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Bãi Trường Phú Quốc, 17/09/2026",
+          "url": "https://visitphuquoc.com.vn/vi/bai-truong-phu-quoc-bai-bien-dai-dep-tien-nghi-de-di-chuyen-16748"
+        },
+        {
+          "label": "VisitPhuQuoc - Bãi Trường, 09/11/2025",
+          "url": "https://visitphuquoc.com.vn/vi/bai-truong-phu-quoc-thien-duong-nghi-duong-tren-dao-ngoc-5851"
+        }
+      ]
+    },
+    "place_exotica": {
+      "lede": "Exotica Village là phân khu trò chơi cảm giác mạnh trên Hòn Thơm. Đây là nơi nên xem giới hạn chiều cao, sức khỏe và thời gian xếp hàng trước khi quyết định dành bao lâu.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÂY LÀ GÌ?",
+          "value": "Phân khu trò chơi mạo hiểm",
+          "note": "Nằm trong Sun World Hòn Thơm, khác với công viên nước Aquatopia."
+        },
+        {
+          "icon": "02",
+          "label": "ĐIỂM NỔI BẬT",
+          "value": "Mộc Xà Thịnh Nộ + Mắt Đại Bàng",
+          "note": "Hai trải nghiệm thường được nhắc nhiều nhất trong phân khu."
+        },
+        {
+          "icon": "03",
+          "label": "TRƯỚC KHI XẾP HÀNG",
+          "value": "Xem chiều cao và sức khỏe",
+          "note": "Trò cảm giác mạnh có thể có điều kiện tham gia riêng."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Đừng gộp Aquatopia và Exotica thành một trải nghiệm",
+          "body": "Sun World giới thiệu Exotica như khu thiên về phiêu lưu và cảm giác mạnh, trong khi Aquatopia là công viên nước. Nếu đi cùng gia đình nhiều độ tuổi, nên thống nhất trước khu nào là ưu tiên chính."
+        },
+        {
+          "heading": "Một ngày Hòn Thơm tốt không nhất thiết phải chơi hết",
+          "body": "Cáp treo, công viên nước, trò mạo hiểm và bãi biển đều cạnh tranh cùng một quỹ thời gian. Chọn vài trải nghiệm quan trọng thường dễ chịu hơn chạy từ trò này sang trò khác."
+        }
+      ],
+      "visitor_questions": [
+        "Trò này có giới hạn chiều cao hoặc sức khỏe nào?",
+        "Hôm nay Mộc Xà Thịnh Nộ và Mắt Đại Bàng có đang vận hành không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Sun World Hòn Thơm và Exotica Village",
+          "url": "https://visitphuquoc.com.vn/vi/sun-world-hon-thom-hanh-trinh-kham-pha-thien-duong-bien-dao-phu-quoc-5657"
+        },
+        {
+          "label": "VisitPhuQuoc - Sun World Hòn Thơm",
+          "url": "https://visitphuquoc.com.vn/vi/sun-world-hon-thom"
+        }
+      ]
+    },
+    "place_suoi_tranh": {
+      "lede": "Suối Tranh là điểm thiên nhiên gần trung tâm nhưng trải nghiệm phụ thuộc rất mạnh vào mùa nước. Cùng một con suối có thể trông hoàn toàn khác giữa mùa mưa và thời kỳ khô.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐIỂM QUYẾT ĐỊNH",
+          "value": "Có nước hay không",
+          "note": "Mùa mưa thường nhiều nước hơn; ảnh thác đầy nước không đại diện cho mọi tháng."
+        },
+        {
+          "icon": "02",
+          "label": "CẦN MANG",
+          "value": "Giày có độ bám",
+          "note": "Đá ướt và đường rừng dễ trơn sau mưa."
+        },
+        {
+          "icon": "03",
+          "label": "HỢP KHI",
+          "value": "Muốn đổi nhịp khỏi biển",
+          "note": "Từ Dương Đông có thể ghé nửa buổi thay vì dành trọn ngày."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một điểm phải xem mùa trước khi xem ảnh",
+          "body": "Nguồn du lịch địa phương nhấn mạnh giai đoạn có mưa là lúc dòng suối rõ và cảnh quan xanh hơn. Vì vậy Open Phu Quoc không dùng một bức ảnh nhiều nước để hứa rằng hiện trường luôn như vậy."
+        },
+        {
+          "heading": "Sau mưa đẹp hơn nhưng cũng trơn hơn",
+          "body": "Lượng nước tăng làm cảnh quan hấp dẫn hơn nhưng bề mặt đá và đường tiếp cận cũng có thể trơn. Với trẻ nhỏ hoặc người lớn tuổi, nên cân nhắc quãng đi bộ và điều kiện ngay hôm đó."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay suối có nhiều nước không?",
+        "Đường đi bộ sau mưa có trơn hoặc khu vực nào đang hạn chế không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Suối Tranh",
+          "url": "https://visitphuquoc.com.vn/vi/suoi-tranh-1477"
+        },
+        {
+          "label": "VisitPhuQuoc - Suối Tranh, 10/09/2026",
+          "url": "https://visitphuquoc.com.vn/vi/suoi-tranh-phu-quoc-co-gi-hap-dan-giua-khu-rung-xanh-16111"
+        }
+      ]
+    },
+    "place_other_streams": {
+      "lede": "Suối Đá Bàn, Đá Ngọn và Suối Tiên không nên được hiểu như ba phiên bản giống nhau của Suối Tranh. Mỗi nơi có mức độ tiếp cận, địa hình và mùa nước khác nhau.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "ĐÁ BÀN",
+          "value": "Phiến đá rộng, dễ nhận diện",
+          "note": "Tên gọi gắn với những mặt đá lớn và khá phẳng dọc dòng suối."
+        },
+        {
+          "icon": "02",
+          "label": "SUỐI TIÊN",
+          "value": "Thiên về dã ngoại và rừng",
+          "note": "Nguồn địa phương mô tả suối ở khu Hàm Ninh, cách trung tâm xa hơn và có tính hoang dã."
+        },
+        {
+          "icon": "03",
+          "label": "ĐÁ NGỌN",
+          "value": "Khó hơn, cần thận trọng",
+          "note": "Địa hình và đá trơn khiến điểm này không phù hợp để coi như một điểm ghé nhẹ cho mọi khách."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Không nên dùng một nhãn 'đi suối' cho tất cả",
+          "body": "Suối Đá Bàn nổi bật bởi các phiến đá phẳng; Suối Tiên thiên về không gian rừng và dã ngoại; Đá Ngọn thường được mô tả khó tiếp cận hơn. Hãy chọn theo sức đi và điều kiện nước thay vì chỉ chọn theo ảnh."
+        },
+        {
+          "heading": "Mùa nước vừa tạo cảnh đẹp vừa làm tăng rủi ro",
+          "body": "Mưa giúp suối nhiều nước nhưng làm đá trơn và đường khó hơn. Nếu vừa có mưa lớn, nên hỏi điều kiện tiếp cận thực tế trước khi đi sâu."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay đường vào có đi được bằng xe thông thường không?",
+        "Mực nước và đá trơn có phù hợp với trẻ nhỏ/người lớn tuổi không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Suối Đá Bàn",
+          "url": "https://visitphuquoc.com.vn/vi/suoi-da-ban-1479"
+        },
+        {
+          "label": "VisitPhuQuoc - Suối Tiên Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/suoi-tien-phu-quoc-lac-vao-tien-canh-giua-rung-nguyen-sinh-tren-dao"
+        }
+      ]
+    },
+    "activity_tour_3_islands": {
+      "lede": "“Tour 3 đảo” là tên một định dạng hành trình ở quần đảo An Thới, không phải một bộ ba đảo cố định cho mọi đơn vị và mọi ngày. Điểm dừng có thể đổi theo biển, mật độ khách và cấu hình tour.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "HIỂU ĐÚNG",
+          "value": "3 đảo là format, không phải tên tuyến cố định",
+          "note": "Danh sách đảo và thứ tự dừng có thể khác giữa đơn vị vận hành."
+        },
+        {
+          "icon": "02",
+          "label": "CHẤT LƯỢNG",
+          "value": "Thời gian ở nước quan trọng hơn số điểm",
+          "note": "Ít điểm nhưng đủ thời gian bơi/snorkel thường tốt hơn chạy nhiều điểm."
+        },
+        {
+          "icon": "03",
+          "label": "TRƯỚC KHI ĐI",
+          "value": "Xem biển + xác nhận cano",
+          "note": "Thời tiết đẹp trên bờ không tự động nghĩa là biển An Thới phù hợp."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Đừng mua chỉ bằng danh sách tên đảo",
+          "body": "Quần đảo An Thới có nhiều điểm dừng có thể kết hợp. Một tour tốt cần nói rõ thời gian thật trên biển, thời gian tại từng điểm, hoạt động bao gồm và phương án đổi điểm nếu điều kiện không phù hợp."
+        },
+        {
+          "heading": "San hô không phải đạo cụ của tour",
+          "body": "Khi snorkeling, không đứng lên san hô, không bẻ/chạm và không cho cá ăn chỉ để gom cá chụp ảnh. Trải nghiệm tốt cần giữ được hệ sinh thái sau khi khách rời đi."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay dự kiến dừng những đảo nào và vì sao?",
+        "Thời gian snorkeling thực tế là bao lâu?",
+        "Nếu biển đổi, phương án thay thế là gì?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Snorkeling Hòn Thơm, 21/08/2026",
+          "url": "https://visitphuquoc.com.vn/vi/snorkeling-hon-thom-phu-quoc-thien-duong-san-ho-giua-bien-xanh-14648"
+        },
+        {
+          "label": "VisitPhuQuoc - Hòn Rỏi, lặn ngắm san hô và câu cá",
+          "url": "https://visitphuquoc.com.vn/vi/hon-roi-phu-quoc-trai-nghiem-lan-ngam-san-ho-va-cau-ca-7392"
+        }
+      ]
+    },
+    "activity_snorkeling_an_thoi": {
+      "lede": "Snorkeling là cách quan sát rạn san hô từ mặt nước bằng kính và ống thở. Dễ tiếp cận hơn scuba nhưng vẫn cần điều kiện biển phù hợp, áo phao khi cần và người hướng dẫn biết điểm.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "DỤNG CỤ",
+          "value": "Kính + ống thở + chân vịt tùy tour",
+          "note": "Không cần bình khí, nhưng mask phải vừa mặt để trải nghiệm dễ chịu."
+        },
+        {
+          "icon": "02",
+          "label": "ĐIỀU KIỆN TỐT",
+          "value": "Nước đủ trong, sóng vừa",
+          "note": "Độ nhìn dưới nước thay đổi theo mưa, sóng và dòng chảy."
+        },
+        {
+          "icon": "03",
+          "label": "NGUYÊN TẮC",
+          "value": "Không đứng/chạm san hô",
+          "note": "Quan sát từ khoảng cách an toàn để không làm hỏng rạn."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Dễ thử không có nghĩa là không cần an toàn",
+          "body": "Người không bơi giỏi vẫn có thể trải nghiệm trong điều kiện phù hợp nếu có áo phao và hướng dẫn, nhưng không nên ép xuống nước khi hoảng sợ hoặc biển xấu."
+        },
+        {
+          "heading": "Chất lượng điểm lặn thay đổi theo ngày",
+          "body": "Nước trong, dòng chảy và mật độ tàu khách ảnh hưởng trực tiếp tới trải nghiệm. Đừng đánh giá một điểm chỉ qua ảnh quảng cáo chụp vào ngày lý tưởng."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay độ trong của nước và dòng chảy thế nào?",
+        "Có áo phao và người kèm riêng cho người bơi yếu không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Snorkeling Hòn Thơm, 21/08/2026",
+          "url": "https://visitphuquoc.com.vn/vi/snorkeling-hon-thom-phu-quoc-thien-duong-san-ho-giua-bien-xanh-14648"
+        }
+      ]
+    },
+    "activity_scuba": {
+      "lede": "Scuba đưa người tham gia xuống sâu hơn snorkeling bằng bình khí và thiết bị riêng. Đây là hoạt động cần quy trình an toàn, hướng dẫn chuyên môn và sàng lọc sức khỏe nghiêm túc hơn một tour bơi biển.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "KHÁC SNORKEL",
+          "value": "Thở bằng bình khí dưới nước",
+          "note": "Người mới cần briefing và đi cùng người hướng dẫn trong chương trình phù hợp."
+        },
+        {
+          "icon": "02",
+          "label": "TRƯỚC KHI LẶN",
+          "value": "Khai báo sức khỏe",
+          "note": "Tai xoang, hô hấp, tim mạch và một số tình trạng khác cần được hỏi kỹ."
+        },
+        {
+          "icon": "03",
+          "label": "SAU KHI LẶN",
+          "value": "Không xếp chuyến bay quá sát",
+          "note": "Khoảng thời gian an toàn trước khi bay phụ thuộc hồ sơ lặn; hãy theo hướng dẫn chuyên môn của đơn vị lặn."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Đây là hoạt động kỹ thuật, không chỉ là phiên bản snorkeling sâu hơn",
+          "body": "Nguồn địa phương mô tả lặn bình khí sử dụng bình dưỡng khí và có huấn luyện viên hướng dẫn cách thở, ký hiệu và giữ thăng bằng trước khi xuống nước. Người mới nên chọn chương trình có quy trình rõ ràng thay vì chỉ so giá."
+        },
+        {
+          "heading": "Hỏi về tiêu chuẩn an toàn trước khi hỏi ảnh đẹp",
+          "body": "Nên biết ai là người hướng dẫn, tỷ lệ khách/người hướng dẫn, thiết bị được kiểm tra thế nào và quy trình xử lý khi khách không thoải mái dưới nước."
+        }
+      ],
+      "visitor_questions": [
+        "Người hướng dẫn có chứng chỉ gì và kèm bao nhiêu khách?",
+        "Có bảng câu hỏi sức khỏe trước khi lặn không?",
+        "Sau lần lặn này tôi cần chờ bao lâu trước khi bay?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Lặn biển Hòn Thơm, cập nhật 2026",
+          "url": "https://visitphuquoc.com.vn/vi/lan-bien-hon-thom-phu-quoc-ngam-san-ho-dep-giua-bien-xanh-14636"
+        }
+      ]
+    },
+    "activity_seawalker": {
+      "lede": "Seawalker cho phép khách đi bộ dưới nước với mũ cấp khí thay vì bình khí đeo lưng. Dễ tiếp cận hơn scuba với nhiều người, nhưng vẫn cần briefing và sàng lọc sức khỏe cơ bản.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "DỤNG CỤ",
+          "value": "Mũ cấp khí",
+          "note": "Khách thở trong mũ khi đi bộ dưới nước theo khu vực được tổ chức."
+        },
+        {
+          "icon": "02",
+          "label": "KHÔNG PHẢI SCUBA",
+          "value": "Ít kỹ thuật hơn nhưng vẫn có quy trình",
+          "note": "Người tham gia cần nghe hướng dẫn cách cân bằng áp lực và giao tiếp."
+        },
+        {
+          "icon": "03",
+          "label": "CẦN HỎI",
+          "value": "Sức khỏe và giới hạn tham gia",
+          "note": "Không mặc định hoạt động phù hợp với mọi người chỉ vì không cần biết lặn."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Trải nghiệm được thiết kế để người mới dễ tiếp cận",
+          "body": "Nguồn du lịch địa phương mô tả seawalker như hình thức đi bộ dưới đáy biển với mũ cấp khí. Khách thường được hướng dẫn trước và đi trong khu vực kiểm soát."
+        },
+        {
+          "heading": "Dễ tham gia vẫn không đồng nghĩa bỏ qua sức khỏe",
+          "body": "Các vấn đề tai xoang, hô hấp, tim mạch hoặc cảm giác hoảng sợ dưới nước cần được trao đổi với đơn vị vận hành trước khi xuống."
+        }
+      ],
+      "visitor_questions": [
+        "Ai không nên tham gia hoạt động này?",
+        "Có hướng dẫn cân bằng áp lực tai trước khi xuống không?",
+        "Thời gian thật dưới nước là bao lâu?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Những lưu ý khi tham gia tour đi bộ dưới biển",
+          "url": "https://visitphuquoc.com.vn/vi/nhung-luu-y-khi-tham-gia-tour-di-bo-duoi-bien-phu-quoc"
+        }
+      ]
+    },
+    "activity_big_game_fishing": {
+      "lede": "Câu cá lớn ở An Thới là chuyến đi dài và chuyên biệt hơn tour câu cá ngắn. Giá trị nằm ở ngư trường, thiết bị, tài công và cách đổi bãi theo nước - gió - tín hiệu cá, không phải lời hứa chắc chắn sẽ có cá lớn.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "THỜI GIAN",
+          "value": "Chuyến dài nhiều giờ",
+          "note": "Nên xem rõ thời gian thật trên biển, không chỉ giờ xe đón - trả."
+        },
+        {
+          "icon": "02",
+          "label": "KỸ THUẬT",
+          "value": "Câu đáy hoặc jig tùy bãi",
+          "note": "Loại mồi, độ sâu và dòng nước quyết định cách câu."
+        },
+        {
+          "icon": "03",
+          "label": "KHÔNG CAM KẾT",
+          "value": "Sản lượng cá",
+          "note": "Ngay cả ekip tốt vẫn không thể biến hoạt động đánh bắt tự nhiên thành kết quả chắc chắn."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Đi câu chuyên biệt khác với một điểm phụ trong tour đảo",
+          "body": "Chuyến câu dài cần tàu phù hợp, thiết bị, máy dò, tài công hiểu ngư trường và quyền thay đổi bãi khi điều kiện không tốt. Nếu mục tiêu thật sự là câu, đừng chọn chỉ vì tour có thêm chữ 'fishing'."
+        },
+        {
+          "heading": "An toàn và sức đi biển cần được tính từ đầu",
+          "body": "Chuyến nhiều giờ ngoài khơi dễ gây say sóng và mệt hơn hành trình tham quan đảo. Nên kiểm tra gió, sóng, thuốc say tàu phù hợp với bản thân và khả năng nghỉ trên tàu."
+        }
+      ],
+      "visitor_questions": [
+        "Thiết bị câu và máy dò nào được dùng?",
+        "Tài công có thể đổi bãi theo nước/gió không?",
+        "Giá đã gồm mồi, thiết bị, bữa ăn và phụ phí chưa?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Kinh nghiệm câu cá ở Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/bo-tui-bi-kip-danh-cho-nguoi-me-cau-ca-o-phu-quoc"
+        }
+      ]
+    },
+    "activity_squid_fishing": {
+      "lede": "Câu mực đêm là một trải nghiệm biển sau hoàng hôn: tàu bật đèn, thả mồi giả và chờ mực. Niềm vui nằm ở quá trình hơn là lời hứa rằng ai cũng sẽ câu được nhiều.",
+      "infographic": [
+        {
+          "icon": "01",
+          "label": "BẮT ĐẦU",
+          "value": "Cuối chiều - tối",
+          "note": "Nhiều tour kết hợp đoạn ngắm hoàng hôn trước khi bắt đầu câu."
+        },
+        {
+          "icon": "02",
+          "label": "CÁCH CÂU",
+          "value": "Đèn + mồi giả + nhấp cần",
+          "note": "Thuyền viên thường hướng dẫn người mới cách thả và kéo mồi."
+        },
+        {
+          "icon": "03",
+          "label": "ĐỪNG KỲ VỌNG",
+          "value": "Đi là chắc chắn có mực",
+          "note": "Mực tự nhiên phụ thuộc mùa, nước và điều kiện biển."
+        }
+      ],
+      "sections": [
+        {
+          "heading": "Một hoạt động du lịch bắt nguồn từ nhịp đánh bắt biển đêm",
+          "body": "Nguồn du lịch địa phương mô tả tour thường xuất phát từ Dương Đông hoặc An Thới, sử dụng ánh đèn để thu hút mực và hướng dẫn khách thử câu trong vài giờ."
+        },
+        {
+          "heading": "Chọn bến theo mùa và điều kiện biển",
+          "body": "Điểm xuất phát và vùng câu có thể đổi theo mùa gió. Hãy xác nhận bến thật trong ngày, đặc biệt nếu lịch trình ban đầu ghi từ nhiều tháng trước."
+        }
+      ],
+      "visitor_questions": [
+        "Hôm nay tàu đi từ Dương Đông hay An Thới?",
+        "Biển tối nay có phù hợp với người dễ say sóng không?",
+        "Bữa ăn và chế biến mực câu được có nằm trong giá không?"
+      ],
+      "sources": [
+        {
+          "label": "VisitPhuQuoc - Câu mực đêm Phú Quốc, 01/06/2026",
+          "url": "https://visitphuquoc.com.vn/vi/cau-muc-dem-phu-quoc-trai-nghiem-thu-vi-phai-thu-9654"
+        },
+        {
+          "label": "VisitPhuQuoc - Tour câu mực cho người mới 2026",
+          "url": "https://visitphuquoc.com.vn/vi/thong-tin-ve-tour-cau-muc-dem-phu-quoc-cho-nguoi-moi-2026-15898"
+        }
+      ]
     }
   }
 }
