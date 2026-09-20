@@ -1,19 +1,19 @@
 {
   "version": "1.0",
-  "updated": "2026-09-18",
+  "updated": "2026-09-20",
   "stories": [
     {
       "id": "mui-cay-cua-dat-do",
       "category": "HỒ TIÊU · CHẤT ĐẢO",
       "title": "Mùi cay của đất đỏ",
-      "dek": "Một vườn tiêu nhìn qua thì chỉ toàn những hàng trụ xanh. Đi vào sâu hơn mới thấy đây là một phần rất thật của Phú Quốc - đất, nắng, mưa và một thứ mùi cay lưu lại trên đầu ngón tay.",
+      "dek": "Nhìn từ ngoài, vườn tiêu chỉ là những hàng trụ xanh nối nhau. Bước vào trong mới thấy cái hay nằm ở đất đỏ, nắng, mưa và mùi cay bám lại trên đầu ngón tay.",
       "read_minutes": 4,
       "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pfefferanbau%20auf%20Phu%20Quoc.jpg?width=1600",
-      "intro": "Người ta thường mua tiêu Phú Quốc ở phút cuối của chuyến đi, như một món quà gọn nhẹ để bỏ vào vali. Nhưng nếu chỉ nhìn hạt tiêu trong túi, mình bỏ lỡ phần hay nhất: câu chuyện nằm ngoài vườn.",
+      "intro": "Nhiều người mua tiêu ở phút cuối trước khi ra sân bay. Nhưng muốn nhớ món quà này lâu hơn, hãy ghé nơi nó được trồng.",
       "sections": [
         {
           "heading": "Đừng đi vườn tiêu chỉ để chụp hình",
-          "body": "Những hàng tiêu thẳng đứng, xanh kín và có lúc lấm tấm chùm quả đỏ tạo ra một khung hình rất dễ nhận ra. Nhưng thứ đáng xem hơn là cách người trồng tiêu làm việc với khí hậu của đảo. Tiêu được hái theo chùm, phơi dưới nắng rồi sàng lại trước khi thành thứ gia vị cay nồng mà du khách mang về."
+          "body": "Những hàng tiêu thẳng đứng, xanh kín, có lúc lấm tấm chùm quả đỏ rất dễ chụp đẹp. Nhưng đứng thêm một lúc sẽ thấy nhiều thứ thú vị hơn: cách người trồng giữ ẩm, thu hái, phơi và sàng hạt trong khí hậu của đảo."
         },
         {
           "heading": "Cái hay nằm ở mùi",
@@ -21,7 +21,7 @@
         },
         {
           "heading": "Đi như một người tò mò",
-          "body": "Nếu ghé vườn tiêu, hãy hỏi người làm vườn về mùa thu hoạch, cách phơi, cách phân biệt tiêu đen, tiêu đỏ và tiêu sọ. Một chuyến dừng 20-30 phút có thể đủ, miễn là mình không biến nó thành một điểm check-in rồi đi ngay."
+          "body": "Nếu ghé vườn, cứ hỏi thẳng người làm về mùa thu hoạch, cách phơi và sự khác nhau giữa tiêu đen, tiêu đỏ, tiêu sọ. Hai mươi hay ba mươi phút là đủ nếu mình thật sự nhìn và hỏi, thay vì xuống xe chụp vài tấm rồi đi."
         },
         {
           "heading": "Open Phu Quoc note",
@@ -43,7 +43,7 @@
       "id": "mot-nam-trong-nha-thung",
       "category": "NƯỚC MẮM · DI SẢN",
       "title": "Một năm trong nhà thùng",
-      "dek": "Mùi trong nhà thùng không dịu dàng. Nhưng chính cá cơm, muối, thời gian và những thùng gỗ lớn lại kể một trong những câu chuyện dễ nhớ nhất của Phú Quốc.",
+      "dek": "Nhà thùng có một mùi rất riêng. Cá cơm, muối, gỗ và thời gian nằm cạnh nhau đủ lâu để thành thứ nước mắm mà người Phú Quốc đã làm qua nhiều thế hệ.",
       "read_minutes": 5,
       "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fish%20sauce%20barrels%20Phu%20Quoc.jpg?width=1600",
       "intro": "Có những đặc sản chỉ cần nếm. Nước mắm Phú Quốc thì nên được nhìn thấy nơi nó được làm ra.",
@@ -57,12 +57,12 @@
           "body": "Năm 2012, tên gọi Phú Quốc được Liên minh châu Âu đăng ký bảo hộ PDO cho sản phẩm nước mắm. Điều này đáng chú ý vì một sản phẩm làm từ nghề biển trên đảo đã trở thành một tên gọi xuất xứ được nhận diện ở thị trường quốc tế."
         },
         {
-          "heading": "Đi nhà thùng để hiểu chứ không chỉ mua",
-          "body": "Không gian nhà thùng giúp người mới đến đảo hiểu quy mô của nghề: những dãy thùng cao, mùi lên men rõ rệt, đường ống và khu chiết rót. Nếu có người thuyết minh tốt, du khách sẽ hiểu vì sao cá, muối, thời gian và cách rút nước mắm lại quan trọng hơn một nhãn chai đẹp."
+          "heading": "Đi nhà thùng để nhìn nghề cho rõ",
+          "body": "Đứng giữa những dãy thùng gỗ cao, nhìn đường ống và cách rút nước mắm, người mới tới đảo sẽ hiểu quy mô của nghề nhanh hơn đọc một trang giới thiệu dài. Có người thuyết minh tốt thì càng hay, vì lúc đó chuyện cá, muối và thời gian bắt đầu có hình dáng."
         },
         {
           "heading": "Một trải nghiệm rất Phú Quốc",
-          "body": "Đây là loại điểm đến phù hợp cho một ngày mưa, một buổi trưa nắng gắt hoặc khi bạn muốn nghỉ khỏi biển. Nó không hoành tráng, nhưng rất có tính địa phương - đúng kiểu trải nghiệm giúp chuyến đi có thêm chiều sâu."
+          "body": "Nhà thùng khá hợp cho một ngày mưa, buổi trưa nắng gắt hoặc lúc bạn muốn nghỉ khỏi biển. Chỗ này không ồn ào, nhưng lại giữ được một phần Phú Quốc mà resort và bãi biển không kể hết."
         }
       ],
       "sources": [
@@ -91,7 +91,7 @@
       "sections": [
         {
           "heading": "Chợ đêm là điểm bắt đầu, không phải toàn bộ buổi tối",
-          "body": "Vietnam Tourism mô tả khu chợ đêm gần Dinh Cậu là nơi các tuyến phố trở thành không gian đi bộ từ khoảng chiều tối, với nhiều quầy đồ ăn và hải sản. Nhưng trải nghiệm Dương Đông không nhất thiết phải dừng ở việc đi một vòng chợ rồi về."
+          "body": "Chợ đêm gần Dinh Cậu thường là nơi khách bắt đầu buổi tối. Từ chiều muộn, các tuyến phố đông dần lên với đồ ăn và hải sản. Nhưng nếu chỉ đi hết một vòng chợ rồi về thì hơi phí Dương Đông."
         },
         {
           "heading": "Đi chậm hơn một chút",
@@ -99,7 +99,7 @@
         },
         {
           "heading": "Ăn gì?",
-          "body": "Đừng cố ăn tất cả trong một tối. Một món nhẹ, một món hải sản hoặc một món địa phương rồi đi bộ tiếp thường dễ chịu hơn. Open Phu Quoc sau này sẽ gắn lớp quán ăn, giờ mở cửa, khoảng giá và tình trạng đông để phần này thực dụng hơn."
+          "body": "Một tối không cần ăn cho đủ danh sách. Chọn một món đang thèm, thêm một món địa phương nếu còn bụng, rồi đi bộ tiếp thường vui hơn gọi kín cả bàn chỉ vì sợ bỏ sót."
         },
         {
           "heading": "Lưu ý",
@@ -120,7 +120,7 @@
       "dek": "Có những chi tiết nhỏ nhìn một lần rồi quên. Có những chi tiết khiến mình biết ngay đây là một chiếc ghe của miền biển phương Nam. Mắt ghe thuộc về nhóm thứ hai.",
       "read_minutes": 3,
       "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1600",
-      "intro": "Bài này không cố kể một huyền thoại nguồn gốc. Nó chỉ bắt đầu từ một quan sát rất đơn giản: đi gần bến cá và nhìn vào mũi ghe.",
+      "intro": "Không cần bắt đầu bằng một truyền thuyết. Chỉ cần đứng gần bến cá, nhìn vào mũi ghe và để ý hai con mắt được vẽ ở đó.",
       "sections": [
         {
           "heading": "Một chi tiết tạo ra tính cách",
@@ -128,7 +128,7 @@
         },
         {
           "heading": "Nhìn nghề biển bằng những thứ nhỏ",
-          "body": "Du khách thường nhìn nghề biển qua một bức ảnh rộng: hàng chục tàu, bến cảng, lưới, thúng. Nhưng khi lại gần, những chi tiết nhỏ như mắt ghe, vết sơn, dây neo, bóng đèn, thùng đá hay tiếng máy mới tạo cảm giác thật."
+          "body": "Từ xa, nghề biển là cả một bến tàu. Lại gần mới thấy những thứ làm nó có đời sống: mắt ghe, lớp sơn tróc, dây neo, bóng đèn, thùng đá, tiếng máy nổ và mùi dầu lẫn trong gió."
         },
         {
           "heading": "Đi đâu để thấy?",
