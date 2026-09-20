@@ -3157,12 +3157,12 @@ body.sheet-open{
     background:#fff;
   }
   #top>.task-launcher{
-    grid-column:1/9;
-    grid-row:4/6;
+    grid-column:1/-1;
+    grid-row:4;
   }
   #top>.essentials{
-    grid-column:9/13;
-    grid-row:3/6;
+    grid-column:1/-1;
+    grid-row:auto;
     width:100%;
     max-width:none;
     margin:0;
@@ -3181,8 +3181,8 @@ body.sheet-open{
   }
   #top>.essentials .essential-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:7px;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:9px;
   }
   #top>.essentials .essential-grid a{
     min-height:76px;
@@ -3196,7 +3196,7 @@ body.sheet-open{
   }
   #top>.essentials .essential-grid strong{font-size:11px}
   #top>.essentials .essential-grid small{font-size:8px;line-height:1.35}
-  #top>.essentials .essential-grid a:last-child{grid-column:1/-1}
+  #top>.essentials .essential-grid a:last-child{grid-column:auto}
 
   #top>.section:not(.essentials),
   #top>.heritage-section,
@@ -3222,8 +3222,9 @@ body.sheet-open{
 @media(min-width:1400px){
   #top{padding-left:34px;padding-right:34px}
   #top>.hero{grid-column:1/10}
-  #top>.live-strip,#top>.energy-ticker,#top>.essentials{grid-column:10/13}
-  #top>.essentials .essential-grid{grid-template-columns:1fr}
+  #top>.live-strip,#top>.energy-ticker{grid-column:10/13}
+  #top>.essentials{grid-column:1/-1}
+  #top>.essentials .essential-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
   #top>.essentials .essential-grid a:last-child{grid-column:auto}
 }
 
@@ -3258,7 +3259,7 @@ body.sheet-open{
   }
   #top>.live-strip{
     grid-column:9/13;
-    grid-row:1;
+    grid-row:1/3;
     gap:6px;
   }
   #top>.live-strip .live-title{min-height:58px;padding:10px 12px;border-radius:15px}
@@ -3268,32 +3269,32 @@ body.sheet-open{
 
   #top>.energy-ticker{
     grid-column:9/13;
-    grid-row:2;
+    grid-row:3;
     min-height:42px;
     border-radius:14px;
   }
 
   #top>.essentials{
-    grid-column:9/13;
-    grid-row:3;
-    padding:11px;
-    border-radius:17px;
+    grid-column:1/-1;
+    grid-row:auto;
+    padding:22px;
+    border-radius:20px;
   }
   #top>.essentials .section-heading{margin-bottom:8px}
   #top>.essentials .section-heading h2{font-size:16px}
   #top>.essentials .essential-grid{
     display:grid!important;
-    grid-template-columns:1fr 1fr!important;
-    gap:6px!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    gap:9px!important;
     overflow:visible!important;
   }
   #top>.essentials .essential-grid a,
   #top>.essentials .essential-grid a:last-child{
     grid-column:auto!important;
     min-width:0!important;
-    min-height:58px!important;
-    padding:8px 9px!important;
-    border-radius:12px!important;
+    min-height:76px!important;
+    padding:11px 12px!important;
+    border-radius:14px!important;
   }
   #top>.essentials .essential-grid a>span{
     width:27px;height:27px;font-size:13px
@@ -3309,9 +3310,9 @@ body.sheet-open{
 
 @media(min-width:1400px){
   #top>.hero{grid-column:1/9}
-  #top>.live-strip,#top>.energy-ticker,#top>.essentials{grid-column:9/13}
-  #top>.task-launcher{grid-column:1/9}
-  #top>.essentials .essential-grid{grid-template-columns:1fr 1fr!important}
+  #top>.live-strip,#top>.energy-ticker{grid-column:9/13}
+  #top>.task-launcher,#top>.essentials{grid-column:1/-1}
+  #top>.essentials .essential-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
 }
 
 
@@ -3413,7 +3414,7 @@ body.sheet-open{
   margin:14px auto 0;
   padding:0 clamp(14px,3vw,38px);
   display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
+  grid-template-columns:repeat(5,minmax(0,1fr));
   gap:9px;
 }
 .task-launcher a{
@@ -3703,12 +3704,12 @@ body.sheet-open{
   .live-item strong{font-size:17px}
 
   .task-launcher{
-    grid-column:1/9;
-    grid-row:4/6;
+    grid-column:1/-1;
+    grid-row:4;
     max-width:none;
     margin:12px 14px 0;
     padding:0;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:repeat(5,minmax(0,1fr));
   }
   .task-launcher a{min-height:72px;padding:11px 12px}
 
