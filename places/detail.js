@@ -82,9 +82,13 @@
         '</div>'+
       '</section>'+
       '<section class="detail-shell">'+
+        '<section class="decision-summary">'+
+          '<div class="decision-title"><span>QUYẾT ĐỊNH NHANH</span><strong>'+(level?'Vai trò '+level.id+' · '+esc(level.label):'Xem nhanh trước khi đi')+'</strong><small>'+(level?esc(level.description):'Kiểm tra mức độ phù hợp với lịch trình của bạn.')+'</small></div>'+
+          '<div><span>NÊN ĐI NẾU</span><strong>'+esc((planning.strengths||[])[0]||entity.why_go||entity.what_it_is||'Phù hợp với sở thích của bạn')+'</strong></div>'+
+          '<div class="watch"><span>CẦN CÂN NHẮC</span><strong>'+esc((planning.watch_outs||[])[0]||(entity.live_check_required?'Cần kiểm tra tình hình trước khi đi':'Chưa có lưu ý đặc biệt'))+'</strong></div>'+
+        '</section>'+
         '<div class="detail-main">'+
           (entity.why_go?'<article class="detail-panel"><span>VÌ SAO ĐI</span><h2>Điểm này đáng cân nhắc khi nào?</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
-          ((planning.strengths||[]).length|| (planning.watch_outs||[]).length?'<article class="detail-panel"><span>ĐIỂM HAY & ĐIỀU CẦN CÂN NHẮC</span><h2>Phù hợp với ai, và cần biết gì trước?</h2><div class="pros-cons">'+((planning.strengths||[]).length?'<div><strong>Điểm hay</strong><ul class="tips">'+planning.strengths.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>':'')+((planning.watch_outs||[]).length?'<div class="watch"><strong>Cần cân nhắc</strong><ul class="tips">'+planning.watch_outs.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></div>':'')+'</div></article>':'')+
           '<article class="detail-panel"><span>ĐỌC NHANH</span><h2>Những thứ cần biết trước khi đi.</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
           ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>CÁCH CHỌN GIÁ</span><h2>Giá đúng phụ thuộc thông tin nào?</h2><p>Open Phu Quoc chưa tự điền giá khi nguồn hiện hành không công bố đủ. Khi kiểm tra vé, hãy chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||x)+'</span>').join("")+'</div></article>':'')+
           ((entity.tips||[]).length?'<article class="detail-panel"><span>MẸO THỰC TẾ</span><h2>Nhớ mấy điều này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+

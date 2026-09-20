@@ -102,6 +102,8 @@
   function renderCard(x){
     const planning=state.planning.get(x.id)||{};
     const level=state.levels.find(l=>l.id===planning.level);
+    const strength=(planning.strengths||[])[0];
+    const watch=(planning.watch_outs||[])[0];
     const tags=[...(x.categories||[]),...(x.intents||[])];
     const meta=[];
     if(x.best_time) meta.push(["Lúc nên đi",x.best_time]);
@@ -111,9 +113,11 @@
     return '<article class="explore-card" data-zone="'+esc(x.zone_id||"")+'">'+
       '<div class="card-top"><span class="card-type">'+entityType(x)+' · '+esc(zoneName(x.zone_id))+'</span>'+
       (x.live_check_required?'<span class="card-live">KIỂM TRA TRƯỚC KHI ĐI</span>':'')+'</div>'+
-      (level?'<span class="card-level level-'+level.id+'">Cấp '+level.id+' · '+esc(level.label)+'</span>':'')+
+      (level?'<span class="card-level level-'+level.id+'">Vai trò '+level.id+' · '+esc(level.label)+'</span>':'')+
       '<h3>'+esc(x.name)+'</h3>'+
       '<p>'+esc(x.what_it_is||x.why_go||"")+'</p>'+
+      (strength?'<div class="card-decision"><span>HỢP KHI</span><strong>'+esc(strength)+'</strong></div>':'')+
+      (watch?'<div class="card-watch"><span>CẦN BIẾT</span><strong>'+esc(watch)+'</strong></div>':'')+
       (meta.length?'<div class="card-meta">'+meta.map(([k,v])=>'<div><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div>':'')+
       '<div class="card-tags">'+[...new Set(tags)].slice(0,5).map(t=>'<span>'+esc(friendly(t))+'</span>').join("")+'</div>'+
       '<a class="card-link" href="'+detailLink(x)+'"><span>Xem chi tiết</span><b>→</b></a>'+

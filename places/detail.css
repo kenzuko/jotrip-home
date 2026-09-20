@@ -49,6 +49,16 @@ a{text-decoration:none;color:inherit}
   max-width:1200px;margin:0 auto;padding:24px 18px 84px;
   display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:18px;align-items:start
 }
+.decision-summary{grid-column:1/-1;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px}
+.decision-summary>div{min-height:132px;padding:18px;border:1px solid var(--line);border-radius:20px;background:#fff}
+.decision-summary .decision-title{background:linear-gradient(135deg,#123D3B,#1F6762);color:#fff}
+.decision-summary .watch{background:#FFF7E8}
+.decision-summary span,.decision-summary strong,.decision-summary small{display:block}
+.decision-summary span{font-size:10px;font-weight:900;letter-spacing:.12em;color:#28766F}
+.decision-summary .decision-title span{color:#A7EDE6}
+.decision-summary strong{margin-top:9px;color:var(--ink);font-size:16px;line-height:1.35}
+.decision-summary .decision-title strong{color:#fff;font-size:20px}
+.decision-summary small{margin-top:7px;color:rgba(255,255,255,.72);font-size:12px;line-height:1.45}
 .detail-main{min-width:0}
 .detail-panel{
   padding:22px;border:1px solid var(--line);border-radius:22px;background:#fff
@@ -101,6 +111,8 @@ a{text-decoration:none;color:inherit}
 
 @media(max-width:850px){
   .detail-shell{grid-template-columns:1fr}
+  .decision-summary{grid-template-columns:1fr 1fr}
+  .decision-summary .decision-title{grid-column:1/-1}
   .detail-context{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:760px){
@@ -113,6 +125,9 @@ a{text-decoration:none;color:inherit}
   .detail-hero h1{font-size:50px}
   .detail-hero .lead{font-size:10px}
   .detail-shell{padding:14px 10px 76px}
+  .decision-summary{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -10px;padding:0 10px 4px}
+  .decision-summary>div{flex:0 0 84%;min-height:126px;scroll-snap-align:center}
+  .decision-summary .decision-title{grid-column:auto}
   .detail-panel{padding:16px}
   .fact-grid{grid-template-columns:1fr}
   .related-grid{grid-template-columns:1fr}
