@@ -18,6 +18,8 @@ const rootFiles=[
   "island-clock.js",
   "live-module.css",
   "live-module-v2.css",
+  "visual-context.css",
+  "visual-context.js",
   ".nojekyll"
 ];
 const dirs=[
@@ -36,7 +38,8 @@ const dirs=[
   "places",
   "food",
   "explore",
-  "hotels"
+  "hotels",
+  "about"
 ];
 
 for(const file of rootFiles){
