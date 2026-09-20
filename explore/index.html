@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#F7FBF9">
+  <title>Khám phá Phú Quốc - Open Phu Quoc</title>
+  <meta name="description" content="Khám phá Phú Quốc theo vùng và kiểu chuyến đi: Bắc đảo, trung tâm, Nam đảo, gia đình, couple, biển, local life và rainy day.">
+  <link rel="preload" as="image" href="/assets/logo-master.png">
+  <link rel="stylesheet" href="../live-module.css?v=1">
+  <link rel="stylesheet" href="explore.css?v=1">
+</head>
+<body>
+  <header class="explore-head">
+    <a class="explore-brand" href="../"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
+    <div class="explore-head-copy"><strong>Khám phá</strong><span>Chọn theo vùng hoặc nhu cầu</span></div>
+    <div class="vn-clock" data-vn-clock></div>
+    <a class="home-link" href="../">← Trang chủ</a>
+  </header>
+
+  <main>
+    <section class="explore-hero">
+      <div>
+        <p>KHÁM PHÁ PHÚ QUỐC</p>
+        <h1>Chọn đúng vùng,<br>đỡ chạy vòng đảo.</h1>
+        <span>Chọn khu vực và kiểu trải nghiệm phù hợp để dành nhiều thời gian cho chuyến đi, thay vì mất thời gian chạy vòng quanh đảo.</span>
+      </div>
+    </section>
+
+    <section class="explore-shell">
+      <aside class="explore-filter" aria-label="Bộ lọc khám phá">
+        <div class="filter-block">
+          <span>VÙNG</span>
+          <div id="zoneFilters" class="filter-stack"></div>
+        </div>
+        <div class="filter-block">
+          <span>KIỂU CHUYẾN ĐI</span>
+          <div id="intentFilters" class="filter-stack"></div>
+        </div>
+        <a class="weather-link" href="../weather/"><b>Thời tiết & biển</b><small>Kiểm tra tình hình mới nhất trước các hoạt động ngoài trời</small><i>→</i></a>
+      </aside>
+
+      <section class="explore-workspace">
+        <div class="explore-toolbar">
+          <div><p id="resultEyebrow">TẤT CẢ PHÚ QUỐC</p><h2 id="resultTitle">Đang nạp dữ liệu...</h2></div>
+          <button id="clearFilters" type="button">Xóa lọc</button>
+        </div>
+
+        <div class="active-note" id="facetNote" hidden></div>
+        <div class="explore-grid" id="exploreGrid">
+          <div class="loading">Đang tải dữ liệu khám phá...</div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <nav class="explore-mobile-nav" aria-label="Điều hướng nhanh">
+    <a href="../#happening">Hôm nay</a>
+    <a class="active" href="./">Khám phá</a>
+    <a href="../#top">Tìm kiếm</a>
+    <a href="../#today">Live</a>
+  </nav>
+
+  <script src="../island-clock.js?v=4"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>

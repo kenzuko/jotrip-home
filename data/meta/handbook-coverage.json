@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "handbook": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+  "source_updated": "2026-09-12",
+  "audited_at": "2026-09-19",
+  "section_count": 17,
+  "structured_sections": 17,
+  "entity_counts": {
+    "data/entities/island-basics.json": 6,
+    "data/entities/zones.json": 3,
+    "data/entities/access.json": 4,
+    "data/entities/stay-areas.json": 6,
+    "data/entities/hotels.json": 17,
+    "data/entities/stay-planning.json": 20,
+    "data/entities/practical.json": 7,
+    "data/entities/itineraries.json": 9,
+    "data/entities/places.json": 20,
+    "data/entities/activities.json": 9,
+    "data/entities/food.json": 5,
+    "data/entities/prices.json": 10,
+    "data/entities/utilities.json": 16,
+    "data/entities/culture.json": 4,
+    "data/entities/history.json": 11
+  },
+  "sections": [
+    {
+      "id": "start",
+      "label": "Bắt đầu & hiểu đảo",
+      "status": "COMPLETE",
+      "assets": [
+        "data/entities/island-basics.json",
+        "data/entities/zones.json"
+      ],
+      "note": "Các khái niệm nền đã thành entity; nội dung dài vẫn giữ trong corpus để đọc sâu."
+    },
+    {
+      "id": "arrival",
+      "label": "Đến đảo & di chuyển",
+      "status": "COMPLETE_LIVE_HANDOFF",
+      "assets": [
+        "data/entities/access.json",
+        "data/entities/utilities.json"
+      ],
+      "note": "Cách đến đảo là entity; lịch/chuyến/vận hành phải chuyển sang Airport/Ferry live."
+    },
+    {
+      "id": "stay",
+      "label": "Chọn nơi ở",
+      "status": "COMPLETE",
+      "assets": [
+        "data/entities/stay-areas.json",
+        "data/entities/hotels.json",
+        "data/entities/stay-planning.json"
+      ],
+      "note": "Khu ở, hotel seed, cohort, phân khúc, booking channel và meal plan đã tách riêng."
+    },
+    {
+      "id": "mobility",
+      "label": "Di chuyển trên đảo",
+      "status": "COMPLETE_LIVE_HANDOFF",
+      "assets": [
+        "data/entities/practical.json"
+      ],
+      "note": "Travel time và cách chọn phương tiện đã cấu trúc; giá/availability phương tiện là dữ liệu động."
+    },
+    {
+      "id": "international",
+      "label": "Khách quốc tế",
+      "status": "COMPLETE_DYNAMIC_RULES",
+      "assets": [
+        "data/entities/practical.json"
+      ],
+      "note": "Visa, thanh toán, ứng xử đã cấu trúc và đánh dấu nội dung cần kiểm tra live."
+    },
+    {
+      "id": "trip-rhythm",
+      "label": "Nhịp chuyến đi",
+      "status": "COMPLETE",
+      "assets": [
+        "data/entities/itineraries.json"
+      ],
+      "note": "2N-5N, template và thematic route đã cấu trúc."
+    },
+    {
+      "id": "north",
+      "label": "Bắc đảo",
+      "status": "COMPLETE",
+      "assets": [
+        "data/entities/places.json",
+        "data/entities/activities.json"
+      ],
+      "note": "Các điểm Bắc đảo chính đã là entity."
+    },
+    {
+      "id": "center-west",
+      "label": "Dương Đông & bờ Tây",
+      "status": "COMPLETE",
+      "assets": [
+        "data/entities/places.json",
+        "data/entities/stay-areas.json"
+      ],
+      "note": "Dương Đông, Dinh Cậu, chợ đêm, Bãi Trường và vùng lưu trú đã có cấu trúc."
+    },
+    {
+      "id": "south",
+      "label": "Nam đảo",
+      "status": "COMPLETE_LIVE_HANDOFF",
+      "assets": [
+        "data/entities/places.json",
+        "data/entities/activities.json"
+      ],
+      "note": "Bãi biển, Sunset Town, Cầu Hôn, Hòn Thơm và show đã tách entity; giờ/giá là live check."
+    },
+    {
+      "id": "sea",
+      "label": "Biển & trải nghiệm",
+      "status": "COMPLETE_LIVE_HANDOFF",
+      "assets": [
+        "data/entities/activities.json"
+      ],
+      "note": "Tour đảo, snorkeling, scuba, seawalker, câu cá/câu mực đã cấu trúc; phụ thuộc weather/marine live."
+    },
+    {
+      "id": "nature-food",
+      "label": "Rừng & hương vị",
+      "status": "COMPLETE",
+      "assets": [
+        "data/entities/places.json",
+        "data/entities/food.json"
+      ],
+      "note": "Suối/rừng và các món địa phương chính đã cấu trúc."
+    },
+    {
+      "id": "itineraries",
+      "label": "Ghép thành hành trình",
+      "status": "COMPLETE",
+      "assets": [
+        "data/entities/itineraries.json"
+      ],
+      "note": "Template theo số ngày và route theo chủ đề đã có."
+    },
+    {
+      "id": "practical",
+      "label": "Giá, danh bạ & quyền lợi",
+      "status": "COMPLETE_LIVE_HANDOFF",
+      "assets": [
+        "data/entities/prices.json",
+        "data/entities/utilities.json",
+        "data/entities/practical.json"
+      ],
+      "note": "Bảng giá seed tách riêng và luôn đánh dấu dynamic; danh bạ/utility có source."
+    },
+    {
+      "id": "safety",
+      "label": "An toàn & liên hệ",
+      "status": "COMPLETE_LIVE_HANDOFF",
+      "assets": [
+        "data/entities/practical.json",
+        "data/entities/utilities.json"
+      ],
+      "note": "Checklist, biển, hotline đã cấu trúc; trạng thái vận hành phải ưu tiên live."
+    },
+    {
+      "id": "sources",
+      "label": "Nguồn cập nhật",
+      "status": "COMPLETE",
+      "assets": [
+        "data/meta/sources.json",
+        "data/meta/freshness-rules.json",
+        "data/sources/handbook-r3/manifest.json"
+      ],
+      "note": "Nguồn và freshness được tách khỏi nội dung editorial."
+    },
+    {
+      "id": "culture",
+      "label": "Văn hóa & nghề đảo",
+      "status": "COMPLETE",
+      "assets": [
+        "data/entities/culture.json",
+        "data/entities/places.json"
+      ],
+      "note": "Nước mắm, Dinh Cậu, hồ tiêu, Nhà tù đã tách lớp culture/place."
+    },
+    {
+      "id": "history",
+      "label": "Mốc phát triển",
+      "status": "COMPLETE_DYNAMIC_CONTEXT",
+      "assets": [
+        "data/entities/history.json"
+      ],
+      "note": "Timeline đã thành entity; các mốc tương lai/dynamic như APEC 2027 phải kiểm tra nguồn mới trước khi hiển thị như hiện trạng."
+    }
+  ]
+}

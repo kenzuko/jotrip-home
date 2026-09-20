@@ -1,0 +1,472 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "activity_hon_thom",
+      "legacy_id": "hon-thom",
+      "entity_type": "activity",
+      "slug": "hon-thom",
+      "name": "Cáp treo Hòn Thơm",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "cable-car",
+        "family"
+      ],
+      "what_it_is": "Tuyến cáp 3 dây vượt biển qua quần đảo An Thới",
+      "why_go": "Cáp treo · Aquatopia · Exotica · Bãi biển",
+      "best_for": [
+        "cable-car",
+        "family"
+      ],
+      "best_time": "Đi theo khung cáp đầu hoặc nửa ngày-trọn ngày",
+      "duration": "4-8 giờ",
+      "price_reference": "Khoảng 700-850K tùy độ tuổi; kiểm tra lại đúng ngày",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Chốt giờ cáp lượt về trước",
+        "Mang đồ bơi và túi chống nước",
+        "Combo buffet có thể khác mua lẻ"
+      ],
+      "intents": [
+        "cable-car",
+        "family"
+      ],
+      "related_entities": [
+        "place_aquatopia",
+        "place_exotica",
+        "place_sunset_town"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            55,
+            56,
+            79
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_tour_3_islands",
+      "legacy_id": "tour-3-islands",
+      "entity_type": "activity",
+      "slug": "tour-3-islands",
+      "name": "Tour 3 đảo An Thới",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south-sea",
+      "categories": [
+        "marine",
+        "snorkeling"
+      ],
+      "what_it_is": "Cano/tàu ra cụm đảo An Thới, 2-3 hòn tùy biển",
+      "why_go": "Tắm đảo · Snorkeling · Ăn trưa · Check-in",
+      "best_for": [
+        "marine",
+        "snorkeling"
+      ],
+      "best_time": "Chốt theo dự báo và vận hành trong ngày",
+      "duration": "Một ngày",
+      "price_reference": "Theo cấu hình tour, không dùng giá cũ làm chuẩn",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "So số khách/cano, bữa ăn, thiết bị, thời gian ở nước",
+        "Đổi hòn theo gió/sóng là bình thường",
+        "An toàn trước ảnh đẹp"
+      ],
+      "intents": [
+        "marine",
+        "snorkeling"
+      ],
+      "related_entities": [
+        "activity_snorkeling_an_thoi",
+        "activity_scuba",
+        "activity_seawalker"
+      ],
+      "live_refs": [
+        "live_weather_south",
+        "live_marine_south"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            57,
+            58,
+            59,
+            60,
+            61
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_snorkeling_an_thoi",
+      "legacy_id": "snorkeling-an-thoi",
+      "entity_type": "activity",
+      "slug": "snorkeling-an-thoi",
+      "name": "Snorkeling An Thới",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south-sea",
+      "categories": [
+        "marine",
+        "snorkeling"
+      ],
+      "what_it_is": "Bơi mặt nước với kính/mặt nạ ở cụm đảo An Thới.",
+      "why_go": "Snorkeling · Bơi · Quan sát san hô",
+      "best_for": [
+        "marine",
+        "snorkeling"
+      ],
+      "best_time": "Ngày biển trong, sóng vừa, mật độ khách hợp lý",
+      "duration": "Theo tour biển",
+      "price_reference": "Phụ thuộc cấu hình tour",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Không đứng/chạm/bẻ san hô",
+        "Không cho cá ăn chỉ để gom cá chụp ảnh",
+        "Ít điểm nhưng đủ thời gian ở nước thường tốt hơn"
+      ],
+      "intents": [
+        "marine",
+        "snorkeling"
+      ],
+      "related_entities": [
+        "activity_tour_3_islands"
+      ],
+      "live_refs": [
+        "live_weather_south",
+        "live_marine_south"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            57,
+            58,
+            59,
+            61
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_scuba",
+      "legacy_id": "scuba",
+      "entity_type": "activity",
+      "slug": "scuba",
+      "name": "Lặn bình khí (Scuba)",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south-sea",
+      "categories": [
+        "marine",
+        "diving"
+      ],
+      "what_it_is": "Lặn sâu hơn snorkeling với thiết bị, hướng dẫn và quy trình an toàn riêng.",
+      "why_go": "Discover Scuba · Diving theo chứng chỉ/điều kiện",
+      "best_for": [
+        "marine",
+        "diving"
+      ],
+      "best_time": "Theo tình trạng biển và đơn vị lặn",
+      "duration": "Nửa ngày hoặc theo gói",
+      "price_reference": "Theo đơn vị lặn và cấu hình",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Hỏi tiêu chuẩn an toàn và năng lực người hướng dẫn",
+        "Tim mạch/hô hấp/tai xoang cần cân nhắc chuyên môn",
+        "Không chọn chỉ theo ảnh quảng cáo"
+      ],
+      "intents": [
+        "marine",
+        "diving"
+      ],
+      "related_entities": [
+        "activity_tour_3_islands"
+      ],
+      "live_refs": [
+        "live_weather_south",
+        "live_marine_south"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            59,
+            61
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_seawalker",
+      "legacy_id": "seawalker",
+      "entity_type": "activity",
+      "slug": "seawalker",
+      "name": "Seawalker",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south-sea",
+      "categories": [
+        "marine",
+        "underwater"
+      ],
+      "what_it_is": "Đi bộ dưới nước với mũ cấp khí, nằm giữa snorkeling và scuba về trải nghiệm.",
+      "why_go": "Đi bộ dưới nước · Quan sát dưới mặt biển",
+      "best_for": [
+        "marine",
+        "underwater"
+      ],
+      "best_time": "Theo điều kiện biển và vận hành",
+      "duration": "Theo slot dịch vụ",
+      "price_reference": "Theo đơn vị vận hành",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Cần hướng dẫn thao tác",
+        "Sàng lọc sức khỏe cơ bản",
+        "Không mặc định phù hợp với mọi người"
+      ],
+      "intents": [
+        "marine",
+        "underwater"
+      ],
+      "related_entities": [
+        "activity_tour_3_islands"
+      ],
+      "live_refs": [
+        "live_weather_south",
+        "live_marine_south"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            59,
+            61
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_big_game_fishing",
+      "legacy_id": "big-game-fishing",
+      "entity_type": "activity",
+      "slug": "big-game-fishing",
+      "name": "Câu cá lớn An Thới",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south-sea",
+      "categories": [
+        "fishing",
+        "marine"
+      ],
+      "what_it_is": "Chuyến câu chuyên biệt ở ngư trường An Thới/Hòn Dăm Trong với thiết bị, máy dò và tài công.",
+      "why_go": "Câu đáy · Jig · Câu cá lớn bằng mồi phù hợp",
+      "best_for": [
+        "fishing",
+        "marine"
+      ],
+      "best_time": "05:00-14:00 hoặc 14:00-21:00 khi biển cho phép",
+      "duration": "Khoảng 9 giờ",
+      "price_reference": "Theo tàu, số khách, thiết bị và cấu hình",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Không cam kết sản lượng cá",
+        "Hỏi thời gian thật trên biển, thiết bị, bữa ăn, phụ thu",
+        "Tài công cần quyền đổi bãi theo nước/gió/tín hiệu cá"
+      ],
+      "intents": [
+        "fishing",
+        "marine"
+      ],
+      "related_entities": [],
+      "live_refs": [
+        "live_weather_south",
+        "live_marine_south"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            62,
+            63,
+            67
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_squid_fishing",
+      "legacy_id": "squid-fishing",
+      "entity_type": "activity",
+      "slug": "squid-fishing",
+      "name": "Câu mực đêm",
+      "aliases": [],
+      "zone_id": null,
+      "area_code": "sea",
+      "categories": [
+        "fishing",
+        "evening"
+      ],
+      "what_it_is": "Ra biển cuối chiều/buổi tối, bật đèn và thử câu mực theo điều kiện thực tế.",
+      "why_go": "Ngắm hoàng hôn · Câu mực · Ăn tối tùy tour",
+      "best_for": [
+        "fishing",
+        "evening"
+      ],
+      "best_time": "Cuối chiều - tối, theo mùa gió và luồng mực",
+      "duration": "3-5 giờ",
+      "price_reference": "Theo tour/đơn vị vận hành",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Không hứa đi là có nhiều mực",
+        "Hỏi giờ đi-về và bến theo mùa",
+        "Chọn theo sức đi và tình trạng biển"
+      ],
+      "intents": [
+        "fishing",
+        "evening"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            64,
+            67
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_symphony_of_the_sea",
+      "entity_type": "activity",
+      "slug": "symphony-of-the-sea",
+      "name": "Symphony of the Sea",
+      "aliases": [
+        "Symphony",
+        "show 19:30 Sunset Town"
+      ],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "show",
+        "evening",
+        "outdoor"
+      ],
+      "what_it_is": "Show jetski, flyboard, ánh sáng và hiệu ứng trên mặt nước tại Sunset Town.",
+      "why_go": "Phù hợp ghép sau hoàng hôn và trước Kiss of the Sea trong một buổi tối Nam đảo.",
+      "best_for": [
+        "couple",
+        "family",
+        "evening"
+      ],
+      "best_time": "Buổi tối theo lịch vận hành",
+      "duration": "Theo lịch show",
+      "price_reference": "Giá động - kiểm tra kênh chính thức",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Show ngoài trời có thể đổi do gió/mưa",
+        "Đến sớm để ổn định chỗ"
+      ],
+      "intents": [
+        "show",
+        "evening",
+        "sunset-town"
+      ],
+      "related_entities": [
+        "place_sunset_town",
+        "place_kiss_bridge",
+        "activity_kiss_of_the_sea"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-052",
+            "r3-053"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "activity_kiss_of_the_sea",
+      "entity_type": "activity",
+      "slug": "kiss-of-the-sea",
+      "name": "Kiss of the Sea",
+      "aliases": [
+        "Kiss of the Sea show",
+        "show pháo hoa Sunset Town"
+      ],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "show",
+        "evening",
+        "multimedia"
+      ],
+      "what_it_is": "Show đa phương tiện lớn kèm pháo hoa tại Sunset Town, tách riêng với Symphony of the Sea.",
+      "why_go": "Là một mốc buổi tối để dựng lịch ngược cho Sunset Town.",
+      "best_for": [
+        "couple",
+        "family",
+        "evening"
+      ],
+      "best_time": "Buổi tối theo lịch vận hành",
+      "duration": "Theo lịch show",
+      "price_reference": "Theo hạng chỗ/combo - kiểm tra kênh chính thức",
+      "live_check_required": true,
+      "weather_dependency": "high",
+      "tips": [
+        "Tính trước xe về sau show",
+        "Đừng mua combo nếu thời gian nối quá sát"
+      ],
+      "intents": [
+        "show",
+        "evening",
+        "sunset-town",
+        "fireworks"
+      ],
+      "related_entities": [
+        "place_sunset_town",
+        "place_kiss_bridge",
+        "activity_symphony_of_the_sea"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-052",
+            "r3-053"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

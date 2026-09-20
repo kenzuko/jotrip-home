@@ -1,0 +1,948 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "place_vinpearl_safari",
+      "legacy_id": "vinpearl-safari",
+      "entity_type": "place",
+      "slug": "vinpearl-safari",
+      "name": "Vinpearl Safari Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_code": "north",
+      "categories": [
+        "wildlife",
+        "family"
+      ],
+      "what_it_is": "Open Zoo + khu bán hoang dã bằng bus",
+      "why_go": "Safari bus · Open Zoo · Animal Show · Night Safari theo lịch",
+      "best_for": [
+        "wildlife",
+        "family"
+      ],
+      "best_time": "Buổi sáng",
+      "duration": "3-5 giờ",
+      "price_reference": "950.000đ người lớn / 710.000đ trẻ em-cao tuổi từ 01/10/2026",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Ưu tiên bus bán hoang dã sớm",
+        "Zoo Tram là dịch vụ riêng",
+        "Không cố ghép Safari + VinWonders nếu có trẻ nhỏ"
+      ],
+      "intents": [
+        "wildlife",
+        "family"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            36,
+            37,
+            38,
+            79
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_vinwonders",
+      "legacy_id": "vinwonders",
+      "entity_type": "place",
+      "slug": "vinwonders",
+      "name": "VinWonders Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_code": "north",
+      "categories": [
+        "theme-park",
+        "family"
+      ],
+      "what_it_is": "6 phân khu, thủy cung, công viên nước, trò chơi, show",
+      "why_go": "Cung điện Hải Vương · Thế giới Lốc xoáy · Thế giới Phiêu lưu · ONCE",
+      "best_for": [
+        "theme-park",
+        "family"
+      ],
+      "best_time": "Gần trọn ngày",
+      "duration": "6-10 giờ",
+      "price_reference": "1.050.000đ người lớn / 800.000đ trẻ em-cao tuổi từ 01/10/2026",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Xem giới hạn chiều cao đầu ngày",
+        "Giữ sức cho ONCE",
+        "Thủy cung là khoảng nghỉ tốt giữa trưa"
+      ],
+      "intents": [
+        "theme-park",
+        "family"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            39,
+            40,
+            41,
+            79
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_grand_world",
+      "legacy_id": "grand-world",
+      "entity_type": "place",
+      "slug": "grand-world",
+      "name": "Grand World Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_code": "north",
+      "categories": [
+        "evening",
+        "entertainment"
+      ],
+      "what_it_is": "Khu phố mở, kênh Venice, bảo tàng, show",
+      "why_go": "Dạo phố · Gondola · Teddy Bear Museum · Tinh Hoa Việt Nam · Sắc Màu Venice",
+      "best_for": [
+        "evening",
+        "entertainment"
+      ],
+      "best_time": "16:30 trở đi",
+      "duration": "3-5 giờ",
+      "price_reference": "Vào khu phố miễn phí; trải nghiệm/show bán riêng",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Đến cuối chiều đỡ nắng",
+        "Chốt xe về nếu ở xa Bắc đảo",
+        "Không mặc định mọi cửa hàng mở xuyên đêm"
+      ],
+      "intents": [
+        "evening",
+        "entertainment"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            42,
+            43,
+            79
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_rach_vem",
+      "legacy_id": "rach-vem",
+      "entity_type": "place",
+      "slug": "rach-vem",
+      "name": "Rạch Vẹm",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_code": "north",
+      "categories": [
+        "village",
+        "nature"
+      ],
+      "what_it_is": "Làng chài, nhà bè, vùng nước nông phía Bắc",
+      "why_go": "Nhìn nhịp làng chài · Nhà bè · Bãi nước nông",
+      "best_for": [
+        "village",
+        "nature"
+      ],
+      "best_time": "Theo mùa và tình trạng đường/bãi",
+      "duration": "2-4 giờ",
+      "price_reference": "Không có vé chung",
+      "live_check_required": false,
+      "weather_dependency": "medium",
+      "tips": [
+        "Không hứa có sao biển mọi ngày",
+        "Không nhấc sao biển khỏi nước",
+        "Bãi Sao Nam đảo không phải Rạch Vẹm"
+      ],
+      "intents": [
+        "village",
+        "nature"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            44
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_cua_can",
+      "legacy_id": "cua-can",
+      "entity_type": "place",
+      "slug": "cua-can",
+      "name": "Cửa Cạn",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "area_code": "north-west",
+      "categories": [
+        "river",
+        "local-life"
+      ],
+      "what_it_is": "Nhịp sông, nhà ven bờ, kayak/thuyền thúng",
+      "why_go": "Kayak · Thuyền thúng · Ăn địa phương",
+      "best_for": [
+        "river",
+        "local-life"
+      ],
+      "best_time": "Sáng hoặc chiều dịu",
+      "duration": "2-4 giờ",
+      "price_reference": "Tùy dịch vụ địa phương",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Chốt xe nếu ở xa",
+        "Mặc áo phao",
+        "Không ghép Cửa Cạn với Nam đảo cùng ngày"
+      ],
+      "intents": [
+        "river",
+        "local-life"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            45
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_dinh_cau",
+      "legacy_id": "dinh-cau",
+      "entity_type": "place",
+      "slug": "dinh-cau",
+      "name": "Dinh Cậu",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "center-west",
+      "categories": [
+        "culture",
+        "sunset"
+      ],
+      "what_it_is": "Không gian tín ngưỡng của cư dân biển ở cửa sông Dương Đông",
+      "why_go": "Tham quan · Ngắm cửa sông · Ngắm chiều",
+      "best_for": [
+        "culture",
+        "sunset"
+      ],
+      "best_time": "Cuối chiều",
+      "duration": "30-60 phút",
+      "price_reference": "Miễn phí",
+      "live_check_required": false,
+      "weather_dependency": "medium",
+      "tips": [
+        "Giữ thái độ tôn trọng không gian tín ngưỡng",
+        "Có thể ghép chợ đêm"
+      ],
+      "intents": [
+        "culture",
+        "sunset"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            47,
+            87,
+            88
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_night_market",
+      "legacy_id": "night-market",
+      "entity_type": "place",
+      "slug": "night-market",
+      "name": "Chợ đêm Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "center-west",
+      "categories": [
+        "food",
+        "evening"
+      ],
+      "what_it_is": "Khu ăn uống và mua sắm buổi tối",
+      "why_go": "Ăn tối · Đi bộ · Thử món",
+      "best_for": [
+        "food",
+        "evening"
+      ],
+      "best_time": "Buổi tối",
+      "duration": "1-2 giờ",
+      "price_reference": "Theo quán/món",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Hải sản hỏi rõ giá theo cân, cách chế biến và phụ phí",
+        "Không xem chợ đêm là toàn bộ ẩm thực Phú Quốc"
+      ],
+      "intents": [
+        "food",
+        "evening"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            47
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_bai_truong",
+      "legacy_id": "bai-truong",
+      "entity_type": "place",
+      "slug": "bai-truong",
+      "name": "Bãi Trường",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "west",
+      "categories": [
+        "beach",
+        "sunset"
+      ],
+      "what_it_is": "Dải bờ Tây dài, thuận nghỉ dưỡng và ngắm hoàng hôn",
+      "why_go": "Tắm biển · Beach club · Ngắm hoàng hôn",
+      "best_for": [
+        "beach",
+        "sunset"
+      ],
+      "best_time": "Chiều",
+      "duration": "2-4 giờ",
+      "price_reference": "Không có vé chung; chi phí tùy cơ sở",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Giữ 30-45 phút cuối ngày cho hoàng hôn",
+        "Chất lượng bãi đổi theo thời tiết"
+      ],
+      "intents": [
+        "beach",
+        "sunset"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            48,
+            49
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_bai_sao",
+      "legacy_id": "bai-sao",
+      "entity_type": "place",
+      "slug": "bai-sao",
+      "name": "Bãi Sao",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "beach",
+        "family"
+      ],
+      "what_it_is": "Bãi tắm dễ tiếp cận ở Nam đảo",
+      "why_go": "Tắm biển · Ăn uống · Nghỉ bãi",
+      "best_for": [
+        "beach",
+        "family"
+      ],
+      "best_time": "Sáng hoặc đầu chiều ngày biển êm",
+      "duration": "2-4 giờ",
+      "price_reference": "Không có vé chung; dịch vụ tính riêng",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Chọn đoạn bãi thực tế đẹp nhất trong ngày",
+        "Không nhầm với bãi sao biển Rạch Vẹm"
+      ],
+      "intents": [
+        "beach",
+        "family"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            51
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_bai_khem",
+      "legacy_id": "bai-khem",
+      "entity_type": "place",
+      "slug": "bai-khem",
+      "name": "Bãi Khem",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "beach",
+        "resort"
+      ],
+      "what_it_is": "Vịnh cát sáng gắn với các resort cao cấp",
+      "why_go": "Tắm biển · Nghỉ dưỡng",
+      "best_for": [
+        "beach",
+        "resort"
+      ],
+      "best_time": "Theo điều kiện biển",
+      "duration": "2-4 giờ",
+      "price_reference": "Quyền tiếp cận và tiện ích tùy lối vào/resort",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Không mặc định toàn bộ bãi có cùng quyền tiếp cận/dịch vụ"
+      ],
+      "intents": [
+        "beach",
+        "resort"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            51
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_sunset_town",
+      "legacy_id": "sunset-town",
+      "entity_type": "place",
+      "slug": "sunset-town",
+      "name": "Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "evening",
+        "architecture",
+        "show"
+      ],
+      "what_it_is": "Khu phố mở, hoàng hôn, Cầu Hôn và chuỗi show",
+      "why_go": "Dạo phố · Cầu Hôn · Symphony of the Sea · Kiss of the Sea · Ăn tối",
+      "best_for": [
+        "evening",
+        "architecture",
+        "show"
+      ],
+      "best_time": "Cuối chiều sang tối",
+      "duration": "4-6 giờ",
+      "price_reference": "Khu phố miễn phí; cầu/show bán riêng",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Dựng lịch ngược từ giờ show",
+        "Tới trước hoàng hôn",
+        "Chốt xe về sau show"
+      ],
+      "intents": [
+        "evening",
+        "architecture",
+        "show"
+      ],
+      "related_entities": [
+        "activity_hon_thom",
+        "place_kiss_bridge",
+        "activity_symphony_of_the_sea",
+        "activity_kiss_of_the_sea"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            52,
+            53,
+            54,
+            79
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_phu_quoc_prison",
+      "legacy_id": "phu-quoc-prison",
+      "entity_type": "place",
+      "slug": "phu-quoc-prison",
+      "name": "Nhà tù Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "history",
+        "culture"
+      ],
+      "what_it_is": "Di tích lịch sử gắn với ký ức chiến tranh",
+      "why_go": "Tham quan · Đọc tư liệu",
+      "best_for": [
+        "history",
+        "culture"
+      ],
+      "best_time": "Sáng/chiều",
+      "duration": "1-2 giờ",
+      "price_reference": "Cần kiểm tra vận hành",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Nên đi với mạch lịch sử, không chỉ check-in"
+      ],
+      "intents": [
+        "history",
+        "culture"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            72,
+            73,
+            90,
+            91
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_ho_quoc",
+      "legacy_id": "ho-quoc",
+      "entity_type": "place",
+      "slug": "ho-quoc",
+      "name": "Chùa Hộ Quốc",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south-east",
+      "categories": [
+        "culture",
+        "viewpoint"
+      ],
+      "what_it_is": "Điểm văn hóa - tâm linh và góc nhìn biển phía Đông Nam",
+      "why_go": "Tham quan · Ngắm cảnh",
+      "best_for": [
+        "culture",
+        "viewpoint"
+      ],
+      "best_time": "Sáng hoặc chiều dịu",
+      "duration": "1-2 giờ",
+      "price_reference": "Không có vé chung",
+      "live_check_required": false,
+      "weather_dependency": "medium",
+      "tips": [
+        "Trang phục phù hợp",
+        "Ghép Bãi Sao/Bãi Khem hoặc Nhà tù"
+      ],
+      "intents": [
+        "culture",
+        "viewpoint"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            72
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_aquatopia",
+      "legacy_id": "aquatopia",
+      "entity_type": "place",
+      "slug": "aquatopia",
+      "name": "Aquatopia Water Park",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south-hon-thom",
+      "categories": [
+        "waterpark",
+        "family"
+      ],
+      "what_it_is": "Công viên nước trên Hòn Thơm với hơn 20 trò và khu gia đình.",
+      "why_go": "Trò trượt nước · Khu gia đình · Nghỉ giữa ngày",
+      "best_for": [
+        "waterpark",
+        "family"
+      ],
+      "best_time": "Giữa ngày sau khi đi cáp sớm",
+      "duration": "2-4 giờ",
+      "price_reference": "Nằm trong vé cáp Hòn Thơm theo cấu hình vé ngày hiện hành",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Kiểm tra chiều cao trẻ",
+        "Sau 2-3 giờ nên nghỉ ăn/uống",
+        "Mang đồ thay và dép chống trượt"
+      ],
+      "intents": [
+        "waterpark",
+        "family"
+      ],
+      "related_entities": [
+        "activity_hon_thom"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            55,
+            56,
+            79
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_exotica",
+      "legacy_id": "exotica",
+      "entity_type": "place",
+      "slug": "exotica",
+      "name": "Exotica Village",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "area_code": "south-hon-thom",
+      "categories": [
+        "thrill",
+        "theme-park"
+      ],
+      "what_it_is": "Cụm trò khô/cảm giác mạnh trên Hòn Thơm.",
+      "why_go": "Mộc Xà Thịnh Nộ · Mắt Đại Bàng",
+      "best_for": [
+        "thrill",
+        "theme-park"
+      ],
+      "best_time": "Sau công viên nước hoặc đầu/ cuối buổi tùy sức",
+      "duration": "1-2 giờ",
+      "price_reference": "Nằm trong vé cáp Hòn Thơm theo cấu hình vé ngày hiện hành",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Kiểm tra chiều cao và bảo trì trò",
+        "Không cần cố chơi nếu say độ cao/tim mạch",
+        "Giữ giờ cáp lượt về"
+      ],
+      "intents": [
+        "thrill",
+        "theme-park"
+      ],
+      "related_entities": [
+        "activity_hon_thom"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            55,
+            56,
+            79
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_suoi_tranh",
+      "legacy_id": "suoi-tranh",
+      "entity_type": "place",
+      "slug": "suoi-tranh",
+      "name": "Suối Tranh",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "east",
+      "categories": [
+        "nature",
+        "stream"
+      ],
+      "what_it_is": "Một trong các điểm suối quen thuộc nhất Phú Quốc, đẹp hơn khi có nước.",
+      "why_go": "Đi bộ nhẹ · Rừng/suối · Nghỉ thiên nhiên",
+      "best_for": [
+        "nature",
+        "stream"
+      ],
+      "best_time": "Giai đoạn có nước và không có mưa lớn nguy hiểm",
+      "duration": "1-3 giờ",
+      "price_reference": "Cần kiểm tra vận hành/giá hiện hành",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Đá trơn sau mưa",
+        "Nước có thể lên nhanh",
+        "Không xả rác hoặc tách nhóm ở tuyến ít người"
+      ],
+      "intents": [
+        "nature",
+        "stream"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            65
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_other_streams",
+      "legacy_id": "other-streams",
+      "entity_type": "place",
+      "slug": "other-streams",
+      "name": "Suối Đá Bàn · Đá Ngọn · Suối Tiên",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "forest-east",
+      "categories": [
+        "nature",
+        "stream"
+      ],
+      "what_it_is": "Nhóm suối/rừng thay đổi mạnh theo mùa và lượng mưa.",
+      "why_go": "Đi rừng nhẹ · Suối · Quan sát thiên nhiên",
+      "best_for": [
+        "nature",
+        "stream"
+      ],
+      "best_time": "Khi có nước nhưng không ngay sau mưa lớn nguy hiểm",
+      "duration": "2-4 giờ tùy điểm",
+      "price_reference": "Tùy điểm/đường vào",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Kiểm tra đường vào",
+        "Không dùng một lời khuyên cố định cho mọi ngày",
+        "Đi có trách nhiệm với rừng"
+      ],
+      "intents": [
+        "nature",
+        "stream"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            65
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_fish_sauce_house",
+      "legacy_id": "fish-sauce-house",
+      "entity_type": "place",
+      "slug": "fish-sauce-house",
+      "name": "Nhà thùng nước mắm",
+      "aliases": [],
+      "zone_id": null,
+      "area_code": "island-wide",
+      "categories": [
+        "culture",
+        "craft"
+      ],
+      "what_it_is": "Nơi có thể nhìn nghề ủ chượp nước mắm bằng thùng gỗ và nghe câu chuyện nghề đảo.",
+      "why_go": "Xem nhà thùng · Nghe quy trình ủ chượp · Đọc độ đạm/sản phẩm",
+      "best_for": [
+        "culture",
+        "craft"
+      ],
+      "best_time": "Trong ngày, ưu tiên cơ sở còn vận hành nghề thật",
+      "duration": "45-60 phút",
+      "price_reference": "Thường không có vé chung; tùy cơ sở",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Hỏi nguồn cá, muối, thời gian ủ, độ đạm tự nhiên",
+        "Ưu tiên nơi còn sản xuất thật",
+        "Không coi đây chỉ là điểm mua sắm"
+      ],
+      "intents": [
+        "culture",
+        "craft"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            11,
+            67,
+            72,
+            87,
+            89
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_pepper_garden",
+      "legacy_id": "pepper-garden",
+      "entity_type": "place",
+      "slug": "pepper-garden",
+      "name": "Vườn tiêu Phú Quốc",
+      "aliases": [],
+      "zone_id": null,
+      "area_code": "island-wide",
+      "categories": [
+        "culture",
+        "agriculture"
+      ],
+      "what_it_is": "Lớp nông nghiệp của đảo với trụ tiêu, mùa thu hoạch, phơi và phân loại hạt.",
+      "why_go": "Tham quan vườn · Nghe câu chuyện canh tác · Thử/đọc sản phẩm",
+      "best_for": [
+        "culture",
+        "agriculture"
+      ],
+      "best_time": "Theo mùa và giờ vườn mở",
+      "duration": "30-60 phút",
+      "price_reference": "Tùy vườn",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Ưu tiên vườn còn canh tác thật",
+        "Hỏi về trụ tiêu, mùa thu hoạch, phơi và phân loại",
+        "Không biến mọi điểm thành nơi mua sắm"
+      ],
+      "intents": [
+        "culture",
+        "agriculture"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "slides": [
+            67,
+            70,
+            72,
+            87
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_kiss_bridge",
+      "entity_type": "place",
+      "slug": "kiss-bridge",
+      "name": "Cầu Hôn",
+      "legacy_id": null,
+      "aliases": [
+        "Kiss Bridge",
+        "Cau Hon"
+      ],
+      "zone_id": "zone_south",
+      "area_code": "south",
+      "categories": [
+        "architecture",
+        "sunset",
+        "evening"
+      ],
+      "what_it_is": "Điểm tham quan tại Sunset Town, bán vé riêng và phù hợp nhất khi ghép với cuối chiều - buổi tối.",
+      "why_go": "Ngắm cảnh, kiến trúc và hoàng hôn trước khi nối sang bữa tối hoặc show.",
+      "best_for": [
+        "couple",
+        "sunset",
+        "first-time"
+      ],
+      "best_time": "Trước hoàng hôn",
+      "duration": "30-60 phút",
+      "price_reference": "Giá động - kiểm tra kênh chính thức trong ngày",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Đừng tới sát giờ show mới bắt đầu đổi vé hoặc tìm đường",
+        "Giờ và giá có thể thay đổi theo ngày vận hành"
+      ],
+      "intents": [
+        "couple",
+        "sunset",
+        "architecture",
+        "evening"
+      ],
+      "related_entities": [
+        "place_sunset_town",
+        "activity_symphony_of_the_sea",
+        "activity_kiss_of_the_sea"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-051",
+            "r3-052",
+            "r3-053"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

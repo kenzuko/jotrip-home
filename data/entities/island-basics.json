@@ -1,0 +1,190 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "island_basic_first_time",
+      "entity_type": "island_basic",
+      "slug": "first-time",
+      "name": "Lần đầu đến Phú Quốc - bắt đầu từ đâu?",
+      "aliases": [
+        "khách lần đầu",
+        "first time Phu Quoc"
+      ],
+      "what_it_is": "Bắt đầu bằng hiểu đảo, chọn nhịp đi theo số ngày và kiểm tra dữ liệu động trước khi đặt.",
+      "why_go": "Giúp tránh ghép lịch ngược hướng, quá dày hoặc phụ thuộc vào giá/giờ cũ.",
+      "tips": [
+        "Mỗi ngày chọn một vùng làm trục",
+        "Ưu tiên biển vào ngày dự báo đẹp",
+        "Giờ, giá và vận hành cần kiểm tra sát ngày"
+      ],
+      "intents": [
+        "first-time",
+        "planning"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-004"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "island_basic_two_minutes",
+      "entity_type": "island_basic",
+      "slug": "two-minutes",
+      "name": "Phú Quốc trong 2 phút",
+      "aliases": [
+        "Phú Quốc nhanh",
+        "Phu Quoc overview"
+      ],
+      "what_it_is": "Phú Quốc là đảo lớn nhất Việt Nam trong vịnh Thái Lan; khoảng cách giữa các vùng đủ lớn để ảnh hưởng trực tiếp tới lịch trình.",
+      "why_go": "Biển, nhiều kiểu lưu trú, thiên nhiên, ẩm thực và hoạt động phù hợp nhiều nhóm khách.",
+      "tips": [
+        "Đọc theo vùng trước khi chọn khách sạn",
+        "Không coi toàn đảo như một điểm nhỏ có thể ghé thêm bất kỳ lúc nào"
+      ],
+      "intents": [
+        "first-time",
+        "overview"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-007",
+            "r3-008"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "island_basic_geography",
+      "entity_type": "island_basic",
+      "slug": "geography",
+      "name": "Đọc Phú Quốc theo vùng & thời gian di chuyển",
+      "aliases": [
+        "Phú Quốc rộng bao nhiêu",
+        "địa lý Phú Quốc",
+        "Bắc Trung Nam"
+      ],
+      "what_it_is": "Bắc đảo, Trung tâm & bờ Tây, Nam đảo là ba nhịp địa lý thực dụng để ghép lịch.",
+      "why_go": "Chọn sai vùng ở hoặc chạy Bắc - Nam trong cùng ngày có thể làm mất nhiều thời gian trên đường.",
+      "related_entities": [
+        "zone_north",
+        "zone_central_west",
+        "zone_south",
+        "practical_travel_times"
+      ],
+      "intents": [
+        "planning",
+        "geography",
+        "first-time"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-008",
+            "r3-009"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "island_basic_nature",
+      "entity_type": "island_basic",
+      "slug": "nature",
+      "name": "Rừng, san hô & hoàng hôn",
+      "aliases": [
+        "thiên nhiên Phú Quốc",
+        "san hô",
+        "rừng Phú Quốc",
+        "hoàng hôn"
+      ],
+      "what_it_is": "Ba lớp tự nhiên dễ bị bỏ qua khi lịch chỉ xoay quanh các tổ hợp vui chơi: rừng, hệ sinh thái biển và bờ Tây lúc hoàng hôn.",
+      "why_go": "Giúp nhìn đảo như một hệ sinh thái sống chứ không chỉ chuỗi điểm tham quan.",
+      "tips": [
+        "Không đứng, chạm, bẻ hoặc mang san hô về",
+        "Độ trong nước thay đổi theo gió, dòng chảy và lượng mưa"
+      ],
+      "weather_dependency": "high",
+      "live_check_required": true,
+      "intents": [
+        "nature",
+        "marine",
+        "sunset"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-010"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "island_basic_three_layers",
+      "entity_type": "island_basic",
+      "slug": "three-layers",
+      "name": "Ba lớp khiến Phú Quốc khác biệt",
+      "aliases": [
+        "rừng và nghề đảo",
+        "di sản Phú Quốc"
+      ],
+      "what_it_is": "Rừng & sinh quyển, hạ tầng du lịch quy mô lớn và nghề nước mắm là ba lớp cùng tồn tại trên đảo.",
+      "why_go": "Đọc Phú Quốc nhiều hơn một lớp, thay vì chỉ nhìn công trình mới hoặc chỉ nhìn biển.",
+      "related_entities": [
+        "culture_fish_sauce",
+        "activity_hon_thom"
+      ],
+      "intents": [
+        "culture",
+        "nature",
+        "overview"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-011"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "island_basic_name",
+      "entity_type": "island_basic",
+      "slug": "name-origin",
+      "name": "Vì sao gọi là Phú Quốc?",
+      "aliases": [
+        "tên Phú Quốc",
+        "Koh Tral",
+        "nguồn gốc tên Phú Quốc"
+      ],
+      "what_it_is": "Tên đảo có nhiều lớp lịch sử và cách giải thích; cách hiểu Hán Việt phổ biến không nên được coi là chứng cứ duy nhất về nguồn gốc tên.",
+      "why_go": "Cho thấy Phú Quốc nằm trong một không gian lịch sử có nhiều tên gọi và lớp cư dân.",
+      "intents": [
+        "history",
+        "culture",
+        "name-origin"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-012"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#F7FBF9">
+  <title>Khách sạn Phú Quốc - Open Phu Quoc</title>
+  <meta name="description" content="Tìm khách sạn và khu nghỉ dưỡng Phú Quốc theo khu vực, hạng sao và trạng thái hoạt động.">
+  <link rel="preload" as="image" href="/assets/logo-master.png">
+  <link rel="stylesheet" href="hotels.css?v=1">
+</head>
+<body>
+  <header class="hotel-head">
+    <a class="hotel-brand" href="../"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
+    <div class="hotel-head-copy"><strong>Khách sạn</strong><span>Chọn nơi ở theo khu vực</span></div>
+    <div class="vn-clock" data-vn-clock></div>
+    <a class="home-link" href="../">← Trang chủ</a>
+  </header>
+
+  <main>
+    <section class="hotel-hero">
+      <div>
+        <p>LƯU TRÚ Ở PHÚ QUỐC</p>
+        <h1>Chọn nơi ở,<br>đừng chỉ nhìn số sao.</h1>
+        <span>Khu vực quyết định quãng đường, nhịp chuyến đi và phần lớn trải nghiệm. Hãy chọn vị trí trước, rồi mới so hạng sao và tiện nghi.</span>
+      </div>
+    </section>
+
+    <section class="hotel-shell">
+      <aside class="hotel-filter" aria-label="Bộ lọc khách sạn">
+        <label class="search-field"><span>TÌM KHÁCH SẠN</span><input id="hotelSearch" type="search" autocomplete="off" placeholder="Tên khách sạn hoặc khu vực"></label>
+        <label><span>KHU VỰC</span><select id="areaFilter"><option value="all">Tất cả khu vực</option></select></label>
+        <label><span>HẠNG SAO</span><select id="starFilter"><option value="all">Tất cả hạng</option><option value="5">5 sao</option><option value="4">4 sao</option><option value="3">3 sao</option><option value="2">2 sao</option><option value="unknown">Chưa xác định</option></select></label>
+        <label><span>TRẠNG THÁI</span><select id="statusFilter"><option value="active">Đang hoạt động</option><option value="upcoming">Sắp mở hoặc đã công bố</option><option value="all">Tất cả</option></select></label>
+        <button id="clearFilters" type="button">Xóa bộ lọc</button>
+        <p class="filter-note">Số sao và thông tin liên hệ có thể thay đổi. Hãy xác nhận lại với cơ sở trước khi đặt phòng.</p>
+      </aside>
+
+      <section class="hotel-workspace">
+        <div class="hotel-toolbar"><div><p id="resultEyebrow">ĐANG HOẠT ĐỘNG</p><h2 id="resultTitle">Đang tải danh sách...</h2></div></div>
+        <div class="hotel-grid" id="hotelGrid"><div class="loading">Đang tải thông tin khách sạn...</div></div>
+      </section>
+    </section>
+  </main>
+
+  <nav class="hotel-mobile-nav" aria-label="Điều hướng nhanh">
+    <a href="../#happening">Hôm nay</a><a href="../explore/">Khám phá</a><a class="active" href="./">Khách sạn</a><a href="../#today">Live</a>
+  </nav>
+  <script src="../island-clock.js?v=4"></script>
+  <script src="app.js?v=1"></script>
+</body>
+</html>

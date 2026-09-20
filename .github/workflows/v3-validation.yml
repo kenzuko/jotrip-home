@@ -1,0 +1,36 @@
+name: Validate Open Phu Quoc V3
+
+on:
+  push:
+    branches: ["feat/openpq-superapp-v3"]
+  pull_request:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build search index
+        run: node scripts/build-search-index.mjs
+      - name: Validate data contracts
+        run: node scripts/validate-data.mjs
+      - name: Test search ranking and grouping
+        run: node scripts/test-search.mjs
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check core/search-engine.js
+          node --check core/today-engine-v2.js
+          node --check home-live-v3.js
+          node --check home-today-v3.js
+          node --check places/app.js
+          node --check guide/guide.js
+          node --check utilities/utilities.js
+          node --check explore/app.js
+          node --check places/detail.js
+          node --check hotels/app.js

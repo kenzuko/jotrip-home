@@ -1,0 +1,51 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-19",
+  "states": [
+    "fresh",
+    "aging",
+    "stale",
+    "unknown"
+  ],
+  "live_status": [
+    "normal",
+    "advisory",
+    "watch",
+    "disrupted",
+    "unavailable",
+    "unknown"
+  ],
+  "required_time_fields": [
+    "observed_at",
+    "source_updated_at",
+    "fetched_at"
+  ],
+  "policy": [
+    "Never present stale data as current live truth.",
+    "Keep observation time, publisher update time and fetch time distinct.",
+    "Fallback use must be explicit.",
+    "Editorial source dates are not live operational freshness."
+  ],
+  "defaults": {
+    "weather": {
+      "fresh_minutes": 20,
+      "aging_minutes": 60
+    },
+    "airport": {
+      "fresh_minutes": 15,
+      "aging_minutes": 45
+    },
+    "ferry": {
+      "fresh_minutes": 30,
+      "aging_minutes": 120
+    },
+    "transport": {
+      "fresh_minutes": 30,
+      "aging_minutes": 120
+    },
+    "events": {
+      "fresh_minutes": 360,
+      "aging_minutes": 1440
+    }
+  }
+}

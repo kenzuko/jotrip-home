@@ -1,0 +1,641 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "stay_match_first_time",
+      "entity_type": "stay_guide",
+      "slug": "first-time",
+      "name": "Khách lần đầu - chọn khu ở",
+      "aliases": [
+        "lần đầu Phú Quốc",
+        "ở đâu lần đầu"
+      ],
+      "what_it_is": "Dương Đông là lựa chọn cân bằng cho khách lần đầu vì gần ăn uống, chợ đêm và dễ gọi xe.",
+      "best_for": [
+        "first-time"
+      ],
+      "related_entities": [
+        "stay_area_duong_dong"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "stay",
+        "first-time"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-016",
+            "r3-017"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "stay_match_family",
+      "entity_type": "stay_guide",
+      "slug": "family",
+      "name": "Gia đình - chọn khu ở",
+      "aliases": [
+        "gia đình có trẻ",
+        "ở đâu gần Safari"
+      ],
+      "what_it_is": "Gia đình nên chọn khu theo điểm lớn của chuyến đi; Gành Dầu tiện nếu lịch có Safari/VinWonders, Bãi Trường và Bãi Khem có nhiều resort gia đình.",
+      "best_for": [
+        "family",
+        "kids"
+      ],
+      "related_entities": [
+        "stay_area_ganh_dau",
+        "stay_area_bai_truong",
+        "stay_area_bai_khem"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "stay",
+        "family",
+        "kids"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-016",
+            "r3-017"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "stay_match_couple",
+      "entity_type": "stay_guide",
+      "slug": "couple",
+      "name": "Cặp đôi / honeymoon - chọn khu ở",
+      "aliases": [
+        "honeymoon",
+        "couple",
+        "cặp đôi"
+      ],
+      "what_it_is": "Bãi Trường, Ông Lang và Bãi Khem là ba lựa chọn nổi bật cho cặp đôi, tùy ưu tiên hoàng hôn, yên tĩnh hay resort cao cấp.",
+      "best_for": [
+        "couple",
+        "honeymoon"
+      ],
+      "related_entities": [
+        "stay_area_bai_truong",
+        "stay_area_ong_lang",
+        "stay_area_bai_khem"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "stay",
+        "couple",
+        "honeymoon"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-017"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "stay_match_slow_local",
+      "entity_type": "stay_guide",
+      "slug": "slow-local",
+      "name": "Trải nghiệm nhẹ & sông nước - chọn khu ở",
+      "aliases": [
+        "Cửa Cạn",
+        "sông nước",
+        "slow travel"
+      ],
+      "what_it_is": "Cửa Cạn hợp người muốn nhịp chậm, ven sông và không khí địa phương hơn.",
+      "best_for": [
+        "slow-travel",
+        "local-life"
+      ],
+      "related_entities": [
+        "stay_area_cua_can"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "stay",
+        "local-life",
+        "slow-travel"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-017"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_tier_3_star",
+      "entity_type": "hotel_tier",
+      "slug": "3-star",
+      "name": "3 sao",
+      "aliases": [],
+      "what_it_is": "Các tiêu chí nên so khi chọn phân khúc 3 sao.",
+      "tips": [
+        "Vị trí",
+        "Vệ sinh",
+        "Bữa sáng",
+        "Khoảng cách ăn uống/biển",
+        "Vận hành thực tế"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "stay",
+        "hotel",
+        "hotel-tier"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-019"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_tier_4_star",
+      "entity_type": "hotel_tier",
+      "slug": "4-star",
+      "name": "4 sao",
+      "aliases": [],
+      "what_it_is": "Các tiêu chí nên so khi chọn phân khúc 4 sao.",
+      "tips": [
+        "Hồ bơi",
+        "Bãi biển",
+        "Phòng gia đình",
+        "Shuttle",
+        "Meal plan"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "stay",
+        "hotel",
+        "hotel-tier"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-019"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_tier_5_luxury",
+      "entity_type": "hotel_tier",
+      "slug": "5-luxury",
+      "name": "5 sao / luxury",
+      "aliases": [],
+      "what_it_is": "Các tiêu chí nên so khi chọn phân khúc 5 sao / luxury.",
+      "tips": [
+        "Bãi biển",
+        "Thiết kế phòng/villa",
+        "Dịch vụ",
+        "Nhà hàng",
+        "Spa",
+        "Kids club",
+        "Riêng tư"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "stay",
+        "hotel",
+        "hotel-tier"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-019"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "hotel_tier_ultra_luxury",
+      "entity_type": "hotel_tier",
+      "slug": "ultra-luxury",
+      "name": "Ultra-luxury",
+      "aliases": [],
+      "what_it_is": "Các tiêu chí nên so khi chọn phân khúc Ultra-luxury.",
+      "tips": [
+        "Thương hiệu",
+        "Villa/phòng",
+        "Bãi biển",
+        "Dịch vụ cá nhân",
+        "Riêng tư"
+      ],
+      "live_check_required": false,
+      "intents": [
+        "stay",
+        "hotel",
+        "hotel-tier"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-019"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "booking_channel_ota",
+      "entity_type": "booking_channel",
+      "slug": "ota",
+      "name": "OTA",
+      "aliases": [
+        "Booking",
+        "Agoda",
+        "Trip.com",
+        "Traveloka"
+      ],
+      "what_it_is": "Hợp khi cần so giá nhanh, đặt sát ngày hoặc muốn điều kiện hủy linh hoạt.",
+      "tips": [
+        "Thuế phí",
+        "Bữa sáng",
+        "Loại giường",
+        "Số khách",
+        "Trẻ em",
+        "Điều kiện hỗ trợ"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-021"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "booking_channel_direct",
+      "entity_type": "booking_channel",
+      "slug": "direct",
+      "name": "Đặt trực tiếp với khách sạn",
+      "aliases": [
+        "direct booking"
+      ],
+      "what_it_is": "Hợp khi cần tích điểm, xác nhận phòng, yêu cầu đặc biệt hoặc combo resort.",
+      "tips": [
+        "Meal plan",
+        "Quyền lợi thành viên",
+        "Hủy đổi"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-021"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "booking_channel_dmc",
+      "entity_type": "booking_channel",
+      "slug": "dmc",
+      "name": "Đại lý / DMC",
+      "aliases": [
+        "travel agent",
+        "DMC"
+      ],
+      "what_it_is": "Hợp khi ghép trọn hành trình hoặc đặt nhiều phòng.",
+      "tips": [
+        "Pháp nhân",
+        "Booking confirmation",
+        "Quyền lợi",
+        "Người nhận tiền",
+        "Hủy đổi",
+        "Đầu mối sự cố"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-021"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_bb",
+      "entity_type": "meal_plan",
+      "slug": "bb",
+      "name": "BB - Breakfast",
+      "aliases": [
+        "BB",
+        "Breakfast",
+        "meal plan BB"
+      ],
+      "what_it_is": "Phòng + bữa sáng",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_hb",
+      "entity_type": "meal_plan",
+      "slug": "hb",
+      "name": "HB - Half board",
+      "aliases": [
+        "HB",
+        "Half board",
+        "meal plan HB"
+      ],
+      "what_it_is": "Thường sáng + một bữa chính; cấu hình tùy resort",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_fb",
+      "entity_type": "meal_plan",
+      "slug": "fb",
+      "name": "FB - Full board",
+      "aliases": [
+        "FB",
+        "Full board",
+        "meal plan FB"
+      ],
+      "what_it_is": "Thường sáng + trưa + tối; đồ uống/quyền lợi cần đọc kỹ",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_ai",
+      "entity_type": "meal_plan",
+      "slug": "ai",
+      "name": "AI - All inclusive",
+      "aliases": [
+        "AI",
+        "All inclusive",
+        "meal plan AI"
+      ],
+      "what_it_is": "Có thể gồm ăn uống và nhiều quyền lợi; mỗi resort định nghĩa khác nhau",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_uai",
+      "entity_type": "meal_plan",
+      "slug": "uai",
+      "name": "UAI - Ultra All Inclusive",
+      "aliases": [
+        "UAI",
+        "Ultra All Inclusive",
+        "meal plan UAI"
+      ],
+      "what_it_is": "Tên thương mại; không mặc định giống nhau giữa thương hiệu",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_bx",
+      "entity_type": "meal_plan",
+      "slug": "bx",
+      "name": "BX - BX",
+      "aliases": [
+        "BX",
+        "BX",
+        "meal plan BX"
+      ],
+      "what_it_is": "Bữa sáng + vé vui chơi, phổ biến ở nhóm Vinpearl",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_bx2",
+      "entity_type": "meal_plan",
+      "slug": "bx2",
+      "name": "BX2 - BX2",
+      "aliases": [
+        "BX2",
+        "BX2",
+        "meal plan BX2"
+      ],
+      "what_it_is": "Như BX, thường áp dụng tối thiểu 2 đêm",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_fx",
+      "entity_type": "meal_plan",
+      "slug": "fx",
+      "name": "FX - FX",
+      "aliases": [
+        "FX",
+        "FX",
+        "meal plan FX"
+      ],
+      "what_it_is": "Ba bữa + vé vui chơi, phổ biến ở nhóm Vinpearl",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "meal_plan_fx2",
+      "entity_type": "meal_plan",
+      "slug": "fx2",
+      "name": "FX2 - FX2",
+      "aliases": [
+        "FX2",
+        "FX2",
+        "meal plan FX2"
+      ],
+      "what_it_is": "Như FX, thường áp dụng tối thiểu 2 đêm",
+      "tips": [
+        "Tên gói không đồng nghĩa quyền lợi giống nhau giữa các resort",
+        "Đọc kỹ bữa ăn, đồ uống, nhà hàng áp dụng và phụ thu"
+      ],
+      "live_check_required": true,
+      "intents": [
+        "stay",
+        "meal-plan",
+        "booking"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-022"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}

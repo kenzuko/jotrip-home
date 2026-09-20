@@ -15,7 +15,7 @@
 <div id="app" class="app">
 <header class="topbar">
   <div class="brand">
-    <a class="brand-home" href="../" aria-label="Về Open Phu Quoc"><div class="brand-logo"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="281" height="77" decoding="sync" fetchpriority="high"></div></a>
+    <a class="brand-home" href="../" aria-label="Về Open Phu Quoc"><div class="brand-logo"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361" decoding="sync" fetchpriority="high"></div></a>
     <span class="brand-divider"></span>
     <div><h1>Airport Live</h1><p>PQC · tiện ích chuyến bay</p></div>
   </div>
@@ -114,16 +114,16 @@
   </section>
 
   <aside class="sidebar">
-    <section class="side-card live-only"><div class="side-head"><h3>Operations Watch</h3><span id="watchCount" class="count-pill">0</span></div><div id="watchList" class="watch-list"></div></section>
-    <section class="side-card live-only"><div class="side-head"><h3>Next Arrivals</h3><span class="muted">PQC</span></div><div id="nextArrivalsList" class="arrival-list"></div></section>
+    <section class="side-card live-only"><div class="side-head"><h3>Chuyến cần theo dõi</h3><span id="watchCount" class="count-pill">0</span></div><div id="watchList" class="watch-list"></div></section>
+    <section class="side-card live-only"><div class="side-head"><h3>Chuyến đến tiếp theo</h3><span class="muted">PQC</span></div><div id="nextArrivalsList" class="arrival-list"></div></section>
     <section class="side-card">
-      <div class="side-head"><h3>Data Health</h3><span id="qaBadge" class="qa-badge">...</span></div>
-      <div class="health-summary"><div id="healthIcon" class="health-icon">⋯</div><div><strong id="healthTitle">CHECKING</strong><p id="healthDescription">Đang kiểm tra Open AutoSync và độ mới của dữ liệu.</p></div></div>
+      <div class="side-head"><h3>Tình trạng dữ liệu</h3><span id="qaBadge" class="qa-badge">...</span></div>
+      <div class="health-summary"><div id="healthIcon" class="health-icon">⋯</div><div><strong id="healthTitle">ĐANG KIỂM TRA</strong><p id="healthDescription">Đang kiểm tra Open AutoSync và độ mới của dữ liệu.</p></div></div>
       <dl class="health-meta">
-        <div><dt>Live</dt><dd>Open AutoSync</dd></div>
+        <div><dt>Dữ liệu trực tiếp</dt><dd>Open AutoSync</dd></div>
         <div><dt>Nguồn</dt><dd>Nguồn chính thức</dd></div>
         <div><dt>QA</dt><dd id="qaText">-</dd></div>
-        <div><dt>Data age</dt><dd id="dataAge">-</dd></div>
+        <div><dt>Độ trễ dữ liệu</dt><dd id="dataAge">-</dd></div>
       </dl>
     </section>
     <section class="side-card analytics-only hidden" aria-hidden="true"><div id="statusSummary"></div></section>
@@ -131,8 +131,8 @@
 </main>
 
 <nav class="mobile-nav">
-  <button class="active" data-mobile-mode="live"><span>⌂</span>Live</button>
-  <button id="mobileFlights"><span>✈</span>Flights</button>
+  <button class="active" data-mobile-mode="live"><span>⌂</span>Trực tiếp</button>
+  <button id="mobileFlights"><span>✈</span>Chuyến bay</button>
   <button id="mobileSearch"><span>⌕</span>Tìm</button>
   <a href="../guide/"><span>▤</span>Cẩm nang</a>
   <button id="mobileRefresh"><span>↻</span>Làm mới</button>
@@ -145,6 +145,6 @@
 <script src="./live-config.js?v=20260918a"></script>
 <script src="./app.js?v=20260919-fast1"></script>
 <script defer src="./board-days.js?v=20260918a"></script>
-<script defer src="./openpq-copy.js?v=20260918a"></script><script src="../island-clock.js?v=1"></script>
+<script defer src="./openpq-copy.js?v=20260918a"></script><script src="../island-clock.js?v=4"></script>
 </body>
 </html>

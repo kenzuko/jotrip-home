@@ -3,6 +3,6 @@
   "private": true,
   "version": "1.0.1",
   "scripts": {
-    "build": "node scripts/build-cloudflare.mjs"
+    "build": "node scripts/build-map-coverage.mjs && node scripts/build-cloudflare.mjs"
   }
 }

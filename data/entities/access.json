@@ -1,0 +1,167 @@
+{
+  "schema_version": "1.0",
+  "entities": [
+    {
+      "id": "access_air",
+      "entity_type": "access",
+      "slug": "air",
+      "name": "Đến Phú Quốc bằng máy bay",
+      "aliases": [
+        "bay Phú Quốc",
+        "sân bay PQC",
+        "flight to Phu Quoc"
+      ],
+      "what_it_is": "Phương án nhanh và dễ nối lịch, phù hợp khi quỹ thời gian trên đảo ngắn hoặc đi cùng trẻ nhỏ.",
+      "why_go": "Ưu tiên khi ở đảo 3-4 ngày, muốn lịch gọn và không mang xe cá nhân.",
+      "live_check_required": true,
+      "intents": [
+        "arrival",
+        "airport",
+        "flight"
+      ],
+      "live_refs": [
+        "live_airport"
+      ],
+      "related_entities": [
+        "practical_travel_times"
+      ],
+      "tips": [
+        "Kiểm tra chuyến bay và giờ đón",
+        "Nếu resort có shuttle, kiểm tra booking trước khi đặt thêm xe"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-013",
+            "r3-015"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "access_fast_boat",
+      "entity_type": "access",
+      "slug": "fast-boat",
+      "name": "Đến Phú Quốc bằng tàu cao tốc",
+      "aliases": [
+        "tàu cao tốc",
+        "Superdong",
+        "Phú Quốc Express",
+        "Rạch Giá Phú Quốc",
+        "Hà Tiên Phú Quốc"
+      ],
+      "what_it_is": "Phù hợp khách đi bộ từ Hà Tiên/Rạch Giá và muốn nối hành trình đường bộ.",
+      "why_go": "Hợp khi xuất phát từ miền Tây hoặc muốn kết hợp đường bộ - đường biển.",
+      "live_check_required": true,
+      "intents": [
+        "arrival",
+        "ferry",
+        "fast-boat",
+        "transport"
+      ],
+      "live_refs": [
+        "live_transport"
+      ],
+      "related_entities": [
+        "utility_superdong",
+        "utility_pqexpress"
+      ],
+      "tips": [
+        "Kiểm tra đúng bến",
+        "Có mặt sớm",
+        "Kiểm tra khai thác trong ngày và hành lý"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-013",
+            "r3-014"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "access_ferry",
+      "entity_type": "access",
+      "slug": "ferry",
+      "name": "Đến Phú Quốc bằng phà",
+      "aliases": [
+        "phà Phú Quốc",
+        "Thạnh Thới",
+        "mang xe ra Phú Quốc"
+      ],
+      "what_it_is": "Phương án đường biển phù hợp khi cần mang xe cá nhân hoặc nối hành trình từ đất liền.",
+      "why_go": "Khác tàu cao tốc ở khả năng chở xe và cấu hình vận hành.",
+      "live_check_required": true,
+      "intents": [
+        "arrival",
+        "ferry",
+        "vehicle",
+        "transport"
+      ],
+      "live_refs": [
+        "live_transport"
+      ],
+      "related_entities": [
+        "utility_thanhthoi"
+      ],
+      "tips": [
+        "Kiểm tra loại xe và quy định chở xe",
+        "Đúng bến, đúng giờ có mặt",
+        "Không dùng bảng giờ cũ như lịch cố định"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-013",
+            "r3-014"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    },
+    {
+      "id": "access_airport_transfer",
+      "entity_type": "access",
+      "slug": "airport-transfer",
+      "name": "Từ sân bay về khách sạn",
+      "aliases": [
+        "sân bay về Dương Đông",
+        "airport transfer",
+        "Grab sân bay",
+        "taxi sân bay"
+      ],
+      "what_it_is": "Từ sân bay Phú Quốc có thể dùng GrabCar, taxi, xe riêng hoặc shuttle resort tùy khu ở, giờ đến và số người.",
+      "why_go": "Khoảng cách trên đảo nên đọc theo hướng đi và thời gian, không chỉ kilomet.",
+      "live_check_required": true,
+      "intents": [
+        "arrival",
+        "airport",
+        "transfer",
+        "transport"
+      ],
+      "related_entities": [
+        "practical_travel_times",
+        "practical_getting_around"
+      ],
+      "tips": [
+        "Khu xa trung tâm có thể ít xe ứng dụng",
+        "Nếu có giờ bay/cáp hoặc trẻ nhỏ, nên chốt chiều về trước"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3",
+          "chunks": [
+            "r3-015"
+          ]
+        }
+      ],
+      "updated_at": "2026-09-12"
+    }
+  ]
+}
