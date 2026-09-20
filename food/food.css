@@ -16,3 +16,50 @@
   .dish-media img{aspect-ratio:16/9}
   .dish-card-copy{padding:15px}
 }
+
+.food-section-label{
+  margin-bottom:7px;color:#A45A42;font-size:11px;font-weight:900;letter-spacing:.14em
+}
+.ingredient-panel,.food-safety,.food-sources{
+  margin-top:28px;padding:22px;border:1px solid var(--line);border-radius:20px;background:#fff
+}
+.ingredient-panel h2,.food-safety h2{margin:0 0 14px!important}
+.ingredient-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.ingredient-grid>div{
+  min-height:72px;padding:12px;display:grid;grid-template-columns:30px minmax(0,1fr);gap:9px;align-items:start;
+  border:1px solid var(--line);border-radius:14px;background:#FFFDF9
+}
+.ingredient-grid span{
+  width:28px;height:28px;display:grid;place-items:center;border-radius:50%;background:#F7EEE9;color:#A45A42;
+  font-size:10px;font-weight:900
+}
+.ingredient-grid strong{color:var(--ink);font-size:13px;line-height:1.4}
+.ingredient-panel>small{
+  display:block;margin-top:12px;color:var(--muted);font-size:12px;line-height:1.55
+}
+.food-safety{background:linear-gradient(145deg,#FFF8F4,#fff)}
+.food-safety>p{margin:10px 0 0!important}
+.allergen-chips{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 12px}
+.allergen-chips span{
+  padding:7px 9px;border-radius:999px;background:#FFF0EA;color:#9A4936;font-size:12px;font-weight:850
+}
+.allergen-chips span[data-level="possible"]{background:#FFF6DB;color:#806216}
+.ask-staff{
+  margin-top:15px;padding:14px;border-radius:15px;background:#fff;border:1px solid var(--line)
+}
+.ask-staff strong{display:block;color:var(--ink);font-size:13px}
+.ask-staff ul{margin:8px 0 0;padding-left:19px}
+.ask-staff li{font-size:13px!important;line-height:1.55!important}
+.food-sources{display:grid;gap:7px;background:var(--soft)}
+.food-sources .food-section-label{margin-bottom:2px}
+.food-sources a{
+  padding:10px 0;border-top:1px solid var(--line);color:#2D6F69;font-size:13px;font-weight:750
+}
+.food-sources a:first-of-type{border-top:0}
+.food-article .visual-infographic{margin-top:30px}
+.food-article .visual-infographic-grid article{min-height:170px}
+@media(max-width:640px){
+  .ingredient-panel,.food-safety,.food-sources{padding:16px}
+  .ingredient-grid{grid-template-columns:1fr}
+  .food-article .visual-infographic-grid{grid-template-columns:1fr}
+}
