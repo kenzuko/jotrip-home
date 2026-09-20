@@ -4241,3 +4241,15 @@ body.sheet-open{
 @media (hover:hover) and (pointer:fine){
   #top>.energy-ticker:hover .ticker-track{animation-play-state:paused!important}
 }
+
+
+/* Readability floor - keep operational microcopy legible without enlarging the layout. */
+.ticker-label strong,
+.ticker-track span,
+.live-title strong,
+.live-title small,
+.live-item span,
+.live-item small,
+.hero-scene-count,
+.hero-scene-label{font-size:11px}
+.feature-copy p{font-size:12px}

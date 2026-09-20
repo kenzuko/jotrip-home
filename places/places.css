@@ -38,3 +38,12 @@
   .place-card>.place-thumb figcaption{font-size:12px}
   .place-card>.place-zone-visual{min-height:150px}
 }
+
+
+/* Place cards: metadata is supporting information, not fine print. */
+.place-tags span,
+.place-card .region,
+.place-card dt,
+.place-detail-link{font-size:11px}
+.place-card dd{font-size:12px}
+.price-dynamic{font-size:10px}

@@ -1,1 +1,5 @@
 .tour-panel{padding:20px}.tour-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.tour-tags span{padding:6px 8px;border-radius:999px;background:#EAF7F4;color:#276B66;font-size:8px;font-weight:850}.state-box{display:grid;gap:4px}.state-box strong{font-size:12px}.state-box small{font-size:8px;color:var(--muted)}@media(max-width:720px){.tour-panel{padding:14px}}
+
+/* Marine supporting text readability */
+.tour-tags span,
+.state-box small{font-size:11px}

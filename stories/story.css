@@ -156,3 +156,16 @@ footer{font-size:13px;line-height:1.55}
   .article-head-copy .dek{font-size:15px}
   .article-note .note-text p{font-size:15px}
 }
+
+
+/* Editorial supporting text readability */
+.eyebrow,
+.story-copy span,
+.article-meta,
+.sources a,
+.story-pause span,
+.article-head-copy .article-meta,
+.section-marker,
+.article-note>span,
+.next a small{font-size:11px}
+.story-copy p{font-size:12px}

@@ -410,3 +410,25 @@ button{font:inherit}
   .explore-card-media figcaption{font-size:12px}
   .explore-card-illustration{min-height:130px}
 }
+
+
+/* Explore cards are decision UI, so supporting labels must stay readable. */
+.explore-head-copy span,
+.home-link,
+.explore-hero p,
+.filter-block>span,
+.filter-stack button,
+.weather-link small,
+.explore-toolbar p,
+.explore-toolbar button,
+.active-note,
+.card-type,
+.card-live,
+.explore-card p,
+.card-decision span,
+.card-watch span,
+.card-meta span,
+.card-meta strong,
+.card-tags span,
+.card-link,
+.explore-mobile-nav a{font-size:11px}

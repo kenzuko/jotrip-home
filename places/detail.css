@@ -261,3 +261,25 @@ a{text-decoration:none;color:inherit}
   .detail-hero-fallback strong{font-size:16px}
   .detail-hero-fallback small{font-size:10px}
 }
+
+
+/* Place detail readability floor */
+.detail-head-title span,
+.detail-head>a:last-child,
+.detail-kicker,
+.detail-badges span,
+.decision-summary span,
+.detail-panel>span,
+.detail-context>span,
+.fact span,
+.related-card span,
+.related-card small,
+.related-card b,
+.context-card>span,
+.context-card>small,
+.context-link small,
+.source-row,
+.detail-mobile-nav a,
+.detail-hero-fallback span,
+.detail-hero-fallback small{font-size:11px}
+.tips li{font-size:12px}

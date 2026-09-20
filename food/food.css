@@ -73,3 +73,11 @@
   .food-context-visual{margin:14px 0 18px}
   .food-context-visual .visual-gallery{display:flex}
 }
+
+
+/* Food editorial readability */
+.dish-card span,
+.dish-card .dish-foot small,
+.food-article .crumb,
+.food-hashtags span,
+.more-dish-links a{font-size:11px}
