@@ -1,0 +1,214 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "p0_batch_05",
+  "created_at": "2026-09-20",
+  "scope": "Topic 138 decision content - Phú Quốc khi trời mưa. Source-aware Plan B data, not a generic top-list.",
+  "topics": [
+    {
+      "backlog_no": 138,
+      "topic_id": "topic_138_phu_quoc_when_raining",
+      "title": "Phú Quốc khi trời mưa",
+      "canonical_id": "activity_rainy_day",
+      "entity_type": "decision_content",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "rain_season_window",
+          "claim": "The official destination portal describes Phú Quốc's rainy season as generally May-October, with rainfall concentrated most strongly around July-September. This is seasonal context, not a forecast for a particular day.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_rain_visitpq"
+          ]
+        },
+        {
+          "claim_id": "rain_decision_live_first",
+          "claim": "A rainy-day recommendation should be driven by current weather/operational data rather than the seasonal label alone. Seasonal climate context must not be used to claim it is raining now or that rain will persist island-wide.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_rain_visitpq"
+          ]
+        },
+        {
+          "claim_id": "rain_neptune_indoor",
+          "claim": "Cung điện Hải Vương is a covered aquarium experience inside VinWonders Phú Quốc. The operator currently lists it 10:00-18:00 daily and included in VinWonders admission.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_rain_neptune"
+          ]
+        },
+        {
+          "claim_id": "rain_teddy_indoor",
+          "claim": "Teddy Bear Museum is an indoor museum experience at Grand World. The operator currently lists opening time 10:00-21:00.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_rain_teddy"
+          ]
+        },
+        {
+          "claim_id": "rain_parent_place_rule",
+          "claim": "Do not label all of VinWonders or Grand World as indoor/rain-proof. Store covered/indoor status at the sub-attraction or experience level because access between zones and many surrounding activities remain outdoors.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_rain_neptune",
+            "src_rain_teddy"
+          ]
+        },
+        {
+          "claim_id": "rain_fish_sauce_house",
+          "claim": "Official destination material confirms that traditional fish-sauce production uses dedicated roofed 'nhà thùng' buildings and that some houses accept visitors. A fish-sauce house can be a lower-weather-dependency cultural option only after visitor access and current hours are verified per house.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_rain_fish_sauce_craft",
+            "src_rain_phung_hung"
+          ]
+        },
+        {
+          "claim_id": "rain_do_not_overpromise",
+          "claim": "Open Phu Quoc should not automatically recommend Safari, beaches, cable car, sea tours or an entire theme park merely because the category is popular. Each option needs weather dependency, operating status, access friction and covered_level before Plan B can surface it.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_rain_neptune",
+            "src_rain_teddy"
+          ]
+        }
+      ],
+      "decision_model": {
+        "live_inputs": [
+          "current_rain",
+          "convective_risk",
+          "wind",
+          "sea_operations",
+          "attraction_status"
+        ],
+        "candidate_fields": [
+          "entity_id",
+          "sub_attraction_id",
+          "zone_id",
+          "covered_level",
+          "opening_hours",
+          "last_entry",
+          "estimated_duration",
+          "travel_buffer_min",
+          "weather_dependency",
+          "current_status",
+          "verified_at"
+        ],
+        "covered_level_values": [
+          "INDOOR",
+          "MOSTLY_COVERED",
+          "PARTLY_COVERED",
+          "OUTDOOR",
+          "UNKNOWN"
+        ],
+        "ranking_notes": [
+          "Prefer verified OPEN + indoor/mostly-covered + reasonable travel time.",
+          "Do not infer OPEN from evergreen article content.",
+          "Use parent attraction only for navigation; weather suitability belongs to the specific experience.",
+          "If current status/hours are stale, show 'check before going' rather than 'good now'."
+        ]
+      },
+      "verified_options": [
+        {
+          "sub_attraction_id": "sub_vinwonders_neptune_palace",
+          "parent_entity_id": "place_vinwonders",
+          "name": "Cung điện Hải Vương",
+          "zone_id": "zone_north",
+          "covered_level": "INDOOR",
+          "opening_hours_reference": "10:00-18:00 daily",
+          "access_note": "Inside VinWonders; standard park admission currently includes access.",
+          "source_ids": [
+            "src_rain_neptune"
+          ]
+        },
+        {
+          "sub_attraction_id": "sub_grandworld_teddy_bear_museum",
+          "parent_entity_id": "place_grand_world",
+          "name": "Teddy Bear Museum",
+          "zone_id": "zone_north",
+          "covered_level": "INDOOR",
+          "opening_hours_reference": "10:00-21:00",
+          "access_note": "Ticketed museum inside Grand World.",
+          "source_ids": [
+            "src_rain_teddy"
+          ]
+        }
+      ],
+      "candidate_options_needing_verification": [
+        {
+          "type": "fish_sauce_house",
+          "covered_level": "MOSTLY_COVERED",
+          "zone_id": "zone_central_west_or_south",
+          "note": "Verify current visitor access, opening hours and exact house before surfacing."
+        },
+        {
+          "type": "local_food",
+          "covered_level": "UNKNOWN",
+          "note": "Useful fallback category but requires venue-level open status and location; do not turn into an unsourced top list."
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_rain_visitpq",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Khám phá mùa mưa Phú Quốc: trải nghiệm khác biệt đầy thú vị",
+          "url": "https://visitphuquoc.com.vn/vi/kham-pha-mua-mua-phu-quoc-trai-nghiem-khac-biet-day-thu-vi-5629",
+          "published_at": "2025-10-27",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_rain_neptune",
+          "source_type": "OPERATOR",
+          "publisher": "VinWonders",
+          "title": "Cung điện Hải Vương VinWonders Phú Quốc",
+          "url": "https://vinwonders.com/vi/cung-dien-hai-vuong/",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_rain_teddy",
+          "source_type": "OPERATOR",
+          "publisher": "Vinpearl / Phú Quốc United Center",
+          "title": "Teddy Bear Museum",
+          "url": "https://vinpearl.com/vi/phu-quoc/kham-pha-hoat-dong/teddy-bear-museum",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_rain_fish_sauce_craft",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Làng nghề làm nước mắm tại Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/lang-nghe-lam-nuoc-mam-tai-phu-quoc",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_rain_phung_hung",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Nhà thùng nước mắm Phụng Hưng",
+          "url": "https://visitphuquoc.com.vn/vi/nha-thung-nuoc-mam-phung-hung",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current visitor hours/access for specific fish-sauce houses.",
+        "Reliable indoor/covered options in central and south Phú Quốc beyond commercial food venues.",
+        "Current accessibility, parking and transport friction for rainy conditions.",
+        "Whether individual indoor experiences temporarily close during severe weather or maintenance."
+      ],
+      "next_research": [
+        "Crawl sub-attractions rather than assigning rainy-day suitability to entire parent destinations.",
+        "Build south/central covered-option inventory with official/current hours.",
+        "Connect Plan B to live weather and operational status only after support data is fresh.",
+        "Add travel-buffer calculation by manual area before saying an option is still practical today."
+      ]
+    }
+  ]
+}
