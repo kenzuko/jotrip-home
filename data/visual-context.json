@@ -214,12 +214,26 @@
     "place_night_market": {
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Night%20market%20in%20Phu%20Quoc.jpg?width=1800",
-          "alt": "Chợ đêm Phú Quốc",
-          "caption": "Không khí chợ đêm ở Dương Đông.",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Making%20ice%20cream%20rolls%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1800",
+          "alt": "Quầy kem cuộn tại chợ đêm Phú Quốc",
+          "caption": "Một quầy làm kem cuộn tại chợ đêm Phú Quốc, ảnh chụp cuối tháng 12/2025.",
           "scope": "exact_subject",
-          "source_label": "Wikimedia Commons - Tonbi ko",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Night_market_in_Phu_Quoc.jpg"
+          "source_label": "Wikimedia Commons - FrogsLegs71",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Making_ice_cream_rolls_in_Phu_Quoc_night_market_Vietnam.jpg",
+          "captured_at": "2025-12-28",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Selling%20fruit%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1800",
+          "alt": "Quầy trái cây tại chợ đêm Phú Quốc",
+          "caption": "Một góc bán trái cây tại chợ đêm Phú Quốc cuối năm 2025.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - FrogsLegs71",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Selling_fruit_in_Phu_Quoc_night_market_Vietnam.jpg",
+          "captured_at": "2025-12",
+          "hero_priority": "preferred",
+          "visual_quality": "hero"
         }
       ],
       "infographic": [
@@ -412,12 +426,25 @@
     "place_vinpearl_safari": {
       "images": [
         {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Herd%20of%20Rhinos.jpg?width=1800",
+          "alt": "Đàn tê giác trong Vinpearl Safari Phú Quốc",
+          "caption": "Đàn tê giác trong hành trình Safari Phú Quốc, ảnh chụp tháng 1/2026.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Aidashhk",
+          "source_url": "https://commons.wikimedia.org/wiki/File:The_Herd_of_Rhinos.jpg",
+          "captured_at": "2026-01-05",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
+        },
+        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vinpearl%20Safari%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1800",
           "alt": "Cổng vào Vinpearl Safari Phú Quốc",
           "caption": "Cổng vào Vinpearl Safari Phú Quốc.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Khoitran1957",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Vinpearl_Safari_Ph%C3%BA_Qu%E1%BB%91c.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Vinpearl_Safari_Ph%C3%BA_Qu%E1%BB%91c.jpg",
+          "hero_priority": "archive",
+          "hero_eligible": false
         }
       ],
       "map": {
@@ -501,7 +528,10 @@
           "caption": "Bãi Trường Phú Quốc - ảnh tư liệu năm 2009, dùng để nhận diện bối cảnh bờ Tây.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Dan Searle",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Bai_Truong_(Long_Beach)_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3859473907).jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bai_Truong_(Long_Beach)_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3859473907).jpg",
+          "hero_priority": "archive",
+          "hero_eligible": false,
+          "visual_note": "Ảnh tư liệu cũ, chỉ dùng trong gallery; không dùng làm hero hiện tại."
         }
       ],
       "map": {
