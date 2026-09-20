@@ -267,7 +267,7 @@ function renderStatus(){
   const m=ageMinutes(liveTimestamp());
   const stale=m>60,delayed=m>25;
   $("liveDot").className=stale||delayed?"warn":"ok";
-  $("liveLabel").textContent=(stale?"DỮ LIỆU CŨ":delayed?"CẬP NHẬT CHẬM":critical.report_status==="LIVE"?"ĐANG HOẠT ĐỘNG":"SUY GIẢM")+" · "+ageText(liveTimestamp());
+  $("liveLabel").textContent=(stale?"DỮ LIỆU CŨ":delayed?"CẬP NHẬT CHẬM":critical.report_status==="LIVE"?"DỮ LIỆU MỚI":"DỮ LIỆU HẠN CHẾ")+" · "+ageText(liveTimestamp());
 
   const assessment=islandAssessment();
   const coverage=coverageScore();
@@ -688,7 +688,7 @@ function renderHealth(){
   $("gapGrid").innerHTML=(critical.gaps||[]).length?(critical.gaps||[]).map(g=>'<div class="gap-card"><b>'+esc(g.name||"Phần còn thiếu")+'</b><span>'+esc(g.detail||"")+'</span></div>').join(""):'<div class="gap-card"><b>Không có khoảng trống nghiêm trọng</b><span>Chu kỳ hiện tại chưa ghi nhận lớp dữ liệu bắt buộc bị thiếu.</span></div>';
   $("cycleGrid").innerHTML=Object.entries(critical.source_cycles||{}).map(([k,v])=>'<span class="cycle-chip">'+esc(k)+' · '+localTime(v)+'</span>').join("");
   const headline=String(critical.headline||"").includes("Live D0-D10")?"Các nguồn đầu vào đã cập nhật. Trang chỉ công bố Dự báo JoTrip đã tổng hợp, không hiển thị riêng dự báo nguyên bản của từng mô hình.":(critical.headline||"-");
-  const next=String(critical.next_review||"").includes("watch cycle")?"Trang public làm mới dữ liệu khoảng mỗi 10 phút; mô hình nặng cập nhật theo chu kỳ nguồn.":(critical.next_review||"-");
+  const next=String(critical.next_review||"").includes("watch cycle")?"Trang này làm mới dữ liệu khoảng mỗi 10 phút; các nguồn dự báo lớn cập nhật theo chu kỳ riêng.":(critical.next_review||"-");
   $("auditGrid").innerHTML=
     '<div class="audit-item"><span>Mã lần cập nhật</span><b>'+esc(critical.snapshot_id||"-")+'</b></div>'+
     '<div class="audit-item"><span>Mã phiên bản</span><b>'+esc(critical.git_commit_sha||"-")+'</b></div>'+
