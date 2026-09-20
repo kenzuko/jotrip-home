@@ -1,4 +1,6 @@
-const DATA="../data/food.json";
+const CONTENT_LOCALE=(document.documentElement.lang||"vi").split("-")[0]||"vi";
+const DATA="../data/i18n/"+CONTENT_LOCALE+"/food.json";
+const DATA_FALLBACK="../data/food.json";
 const VISUALS="../data/visual-context.json";
 const $=s=>document.querySelector(s);
 const all=s=>[...document.querySelectorAll(s)];
@@ -139,7 +141,10 @@ function renderArticle(){
 
 async function load(){
   const [r,v]=await Promise.all([
-    fetch(DATA+"?t="+Date.now(),{cache:"no-store"}),
+    fetch(DATA+"?t="+Date.now(),{cache:"no-store"}).then(async res=>{
+      if(res.ok)return res;
+      return fetch(DATA_FALLBACK+"?t="+Date.now(),{cache:"no-store"});
+    }),
     fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).catch(()=>null)
   ]);
   state.data=await r.json();
