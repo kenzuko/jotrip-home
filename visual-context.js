@@ -17,7 +17,9 @@
           '<figure class="visual-photo">'+
             '<img src="'+esc(img.url)+'" alt="'+esc(img.alt || img.caption || "Ảnh Phú Quốc")+'" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')">'+
             '<figcaption><span>'+esc(img.caption || "")+'</span>'+
-              (img.source_url ? '<a href="'+esc(img.source_url)+'" target="_blank" rel="noopener">Nguồn ảnh ↗</a>' : '')+
+              (img.source_url
+                ? '<a href="'+esc(img.source_url)+'" target="_blank" rel="noopener">'+esc(img.source_label || "Nguồn ảnh")+' ↗</a>'
+                : (img.source_label ? '<small class="visual-source-credit">'+esc(img.source_label)+'</small>' : ''))+
             '</figcaption>'+
           '</figure>'
         ).join("")+
