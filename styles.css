@@ -3814,7 +3814,7 @@ body.sheet-open{
   }
   .task-launcher a>span{width:32px;height:32px;font-size:10px}
   .task-launcher strong{font-size:14px;line-height:1.25}
-  .task-launcher small{font-size:11px;line-height:1.4}
+  .task-launcher small{font-size:13px;line-height:1.4}
   #top>.happening{padding-top:34px}
 }
 
@@ -3825,6 +3825,7 @@ body.sheet-open{
   .task-launcher a{grid-column:span 2}
   .task-launcher a:nth-child(4){grid-column:2 / span 2}
   .task-launcher a:nth-child(5){grid-column:4 / span 2}
+  .task-launcher small{font-size:13px;line-height:1.4}
 }
 
 @media (max-width:760px){
@@ -3837,4 +3838,5 @@ body.sheet-open{
     flex-basis:min(82vw,310px);
     min-height:82px;
   }
+  .task-launcher small{font-size:13px;line-height:1.4}
 }
