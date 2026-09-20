@@ -226,7 +226,9 @@
         secondaryHref: "explore/"
       };
 
-      if (!critical || criticalAge > 90) {
+      const currentCriticalAge = ageMinutes(criticalStamp);
+
+      if (!critical || currentCriticalAge > 90) {
         cfg = {
           tone: "watch",
           title: "Kiểm tra thời tiết trước khi quyết định",
