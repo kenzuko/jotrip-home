@@ -65,9 +65,9 @@ img{display:block;max-width:100%}
   border-bottom:1px solid rgba(18,61,59,.07);
 }
 .brand{
-  width:192px;
-  min-width:192px;
-  height:48px;
+  width:58px;
+  min-width:58px;
+  height:58px;
   display:flex;
   align-items:center;
 }
@@ -2672,9 +2672,9 @@ body{
   }
 
   .brand{
-    width:170px;
-    min-width:170px;
-    height:44px;
+    width:48px;
+    min-width:48px;
+    height:48px;
     margin-right:auto;
     overflow:visible;
   }
@@ -3471,8 +3471,8 @@ body.sheet-open{
     border-bottom:1px solid var(--line);
   }
   .app-rail-mark img{
-    width:132px;
-    height:auto;
+    width:62px;
+    height:62px;
     object-fit:contain;
   }
   .app-rail-nav{

@@ -1,7 +1,7 @@
 /* Open Phu Quoc layer on top of the latest Airport Live layout */
 .analytics-only{display:none!important}
 .openpq-home-btn{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:12px;background:#fff;color:#0d4f79;text-decoration:none;font-size:18px}
-.brand-logo{width:178px!important;height:58px!important}
+.brand-logo{width:58px!important;height:58px!important}
 .brand-logo img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:left center!important}
 .source-label{font-weight:800;color:#335d68}
 .openpq-arrival{margin-top:14px;padding:26px;border-radius:22px;background:linear-gradient(135deg,#0f3e3b,#1c655f);color:#fff;overflow:hidden}

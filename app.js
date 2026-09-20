@@ -185,7 +185,7 @@ filterChips.forEach((chip) => {
   chip.addEventListener('click', () => {
     filterChips.forEach((item) => item.classList.remove('active'));
     chip.classList.add('active');
-    showToast(`Bộ lọc demo: ${chip.textContent.trim()}`);
+    showToast(`Đang xem: ${chip.textContent.trim()}`);
   });
 });
 

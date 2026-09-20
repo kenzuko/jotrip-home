@@ -24,7 +24,7 @@ button{font:inherit}
   background:rgba(255,255,255,.96);
   backdrop-filter:blur(16px);
 }
-.explore-brand{display:flex;width:164px;min-width:164px}
+.explore-brand{display:flex;width:62px;min-width:62px}
 .explore-brand img{width:100%;height:auto;object-fit:contain}
 .explore-head-copy{padding-left:13px;border-left:1px solid var(--line)}
 .explore-head-copy strong,.explore-head-copy span{display:block}
@@ -247,7 +247,7 @@ button{font:inherit}
 @media(max-width:760px){
   body{padding-bottom:68px}
   .explore-head{min-height:60px;padding:6px 10px}
-  .explore-brand{width:145px;min-width:145px}
+  .explore-brand{width:52px;min-width:52px}
   .explore-head-copy{display:none}
   .explore-head .vn-clock{display:none}
   .home-link{margin-left:auto}
