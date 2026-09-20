@@ -154,3 +154,15 @@ a{text-decoration:none;color:inherit}
   .detail-hero .lead{font-size:15px}
   .detail-mobile-nav a{font-size:11px}
 }
+
+.detail-hero-credit{
+  position:absolute;z-index:2;right:16px;bottom:14px;
+  padding:7px 9px;border:1px solid rgba(255,255,255,.24);border-radius:999px;
+  background:rgba(7,35,33,.48);backdrop-filter:blur(8px);
+  color:#fff;font-size:11px;font-weight:800
+}
+.detail-main>.visual-gallery-block:first-child,
+.detail-main>.visual-locator:first-child{margin-top:0}
+@media(max-width:760px){
+  .detail-hero-credit{right:10px;bottom:9px;font-size:10px}
+}
