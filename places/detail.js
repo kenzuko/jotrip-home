@@ -78,6 +78,7 @@
     const zoneVisual=zoneVisuals[entity.zone_id]||zoneVisuals.zone_central_west;
     const heroImage=heroVisual?.url||zoneVisual.url;
     const heroSource=heroVisual?.source_url||zoneVisual.source_url;
+    const heroIsContext=!heroVisual;
     const heroAlt=heroVisual?.alt||("Bối cảnh "+(zone?.name||"Phú Quốc"));
     const extraVisuals=heroVisual?visualImages.slice(1):visualImages;
     const facts=[
@@ -95,6 +96,7 @@
     root.innerHTML=
       '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
         '<img class="detail-hero-photo" src="'+esc(heroImage)+'" alt="'+esc(heroAlt)+'" decoding="async">'+
+        (heroIsContext?'<span class="detail-hero-context">ẢNH BỐI CẢNH KHU VỰC</span>':'')+
         (heroSource?'<a class="detail-hero-credit" href="'+esc(heroSource)+'" target="_blank" rel="noopener">Nguồn ảnh ↗</a>':'')+
         '<div class="detail-hero-inner">'+
           '<p class="detail-kicker">'+esc(typeLabel[entity.entity_type]||entity.entity_type)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
