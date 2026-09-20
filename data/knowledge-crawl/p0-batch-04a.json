@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "p0_batch_04a",
+  "created_at": "2026-09-20",
+  "scope": "ATM, pharmacy and clinic/hospital source-aware crawl. No point is promoted to Near Me without current coordinates and access verification.",
+  "topics": [
+    {
+      "backlog_no": 88,
+      "topic_id": "topic_088_atm",
+      "title": "ATM ở Phú Quốc",
+      "canonical_id": "utility_type_ATM",
+      "entity_type": "utility_topic",
+      "crawl_status": "NEEDS_VERIFICATION",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "atm_agribank_cdm_2020",
+          "claim": "Agribank reported in 2020 that its Phú Quốc branch had one 24/7 CDM/Autobank and five ATMs. This is historical evidence only, not a current 2026 inventory.",
+          "status": "STALE_HISTORICAL_ONLY",
+          "confidence": "high",
+          "source_ids": [
+            "src_atm_agribank_2020"
+          ]
+        },
+        {
+          "claim_id": "atm_vcb_access_2025",
+          "claim": "Vietcombank officially updated three Phú Quốc banking access addresses effective 01/12/2025: 1A Hùng Vương in Dương Đông, 199 Nguyễn Văn Cừ in An Thới and 193 Nguyễn Trung Trực in Dương Đông. These addresses do not by themselves prove exterior 24/7 ATM availability.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_atm_vcb_2025"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_atm_agribank_2020",
+          "source_type": "OFFICIAL",
+          "publisher": "Agribank",
+          "title": "Agribank Chi nhánh Phú Quốc trang bị máy CDM phục vụ khách hàng",
+          "url": "https://www.agribank.com.vn/wcm/connect/AGBank/ve-agribank/tin-tuc/cac-tin-khac/don-vi-thanh-vien/Agribank-Chi-nhanh-Phu-Quoc-trang-bi-may-CDM-phuc-vu-khach-hang",
+          "published_at": "2020-06-18",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_atm_vcb_2025",
+          "source_type": "OFFICIAL",
+          "publisher": "Vietcombank",
+          "title": "Vietcombank Phú Quốc thay đổi địa điểm trụ sở và 02 phòng giao dịch",
+          "url": "https://www.vietcombank.com.vn/vi-VN/Trang-thong-tin-dien-tu/Articles/2025/12/03/VCB-Phu-Quoc-thay-doi-dia-diem-hoat-dong-Tru-so-CN-va-PGD",
+          "published_at": "2025-12-01",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current ATM/CDM coordinates and 24/7 access per machine.",
+        "Foreign-card compatibility, fees and downtime.",
+        "Whether each current bank office has an exterior ATM."
+      ],
+      "next_research": [
+        "Use current bank ATM locators rather than branch lists.",
+        "Field-check priority zones and airport.",
+        "Store ATM machine points separately from bank branches."
+      ]
+    },
+    {
+      "backlog_no": 91,
+      "topic_id": "topic_091_pharmacy",
+      "title": "Pharmacy",
+      "canonical_id": "utility_type_PHARMACY",
+      "entity_type": "utility_topic",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "pharmacy_longchau_anthoi",
+          "claim": "Long Châu's official page identifies a branch at 46 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, tỉnh An Giang.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_pharmacy_longchau"
+          ]
+        },
+        {
+          "claim_id": "pharmacy_longchau_hours",
+          "claim": "Long Châu gives a general system operating window of 06:00-23:00 but explicitly says hours vary by store, so this must not be assigned to every branch without branch-level confirmation.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_pharmacy_longchau"
+          ]
+        },
+        {
+          "claim_id": "pharmacy_count_conflict",
+          "claim": "Indexed snapshots of Long Châu's own Phú Quốc store list expose inconsistent branch counts, so the current island-wide count remains unconfirmed.",
+          "status": "DISPUTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_pharmacy_longchau"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_pharmacy_longchau",
+          "source_type": "OPERATOR",
+          "publisher": "FPT Long Châu",
+          "title": "Hệ thống nhà thuốc tại 46 Nguyễn Văn Cừ, Đặc khu Phú Quốc",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current coordinates for every branch.",
+        "Branch-specific hours and overnight availability.",
+        "Verified language support by branch."
+      ],
+      "next_research": [
+        "Capture current operator locator output branch by branch.",
+        "Cross-check public pharmacy-license data if available.",
+        "Reject unnamed map listings as canonical records."
+      ]
+    },
+    {
+      "backlog_no": 92,
+      "topic_id": "topic_092_clinic_hospital",
+      "title": "Clinic / Hospital",
+      "canonical_id": "utility_type_CLINIC_HOSPITAL",
+      "entity_type": "utility_topic",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "health_vinmec_hospital",
+          "claim": "Vinmec's current official directory places Vinmec Phú Quốc Hospital at Khu Bãi Dài, Đặc khu Phú Quốc, tỉnh An Giang, hotline 0297 3985 588.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_health_vinmec_hospital"
+          ]
+        },
+        {
+          "claim_id": "health_vinmec_er",
+          "claim": "Vinmec's emergency/ICU department states it operates 24/24 every day, including weekends and holidays.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_health_vinmec_er"
+          ]
+        },
+        {
+          "claim_id": "health_vinmec_duongdong",
+          "claim": "Vinmec's current facility directory lists a Dương Đông general clinic at 114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, tỉnh An Giang.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_health_vinmec_directory"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_health_vinmec_hospital",
+          "source_type": "OPERATOR",
+          "publisher": "Vinmec",
+          "title": "Bệnh viện Đa khoa Quốc tế Vinmec Phú Quốc",
+          "url": "https://www.vinmec.com/vie/co-so-y-te/benh-vien-da-khoa-vinmec-phu-quoc",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_health_vinmec_er",
+          "source_type": "OPERATOR",
+          "publisher": "Vinmec",
+          "title": "Khoa Hồi sức cấp cứu - Bệnh viện Đa khoa Vinmec Phú Quốc",
+          "url": "https://www.vinmec.com/vie/co-so-y-te/khoa-hoi-suc-cap-cuu-benh-vien-da-khoa-vinmec-phu-quoc",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_health_vinmec_directory",
+          "source_type": "OPERATOR",
+          "publisher": "Vinmec",
+          "title": "Danh sách cơ sở y tế",
+          "url": "https://www.vinmec.com/vie/co-so-y-te/",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current official address/hours for public Trung tâm Y tế Phú Quốc.",
+        "Language support and insurance/direct-billing by facility.",
+        "Exact emergency entrance coordinates."
+      ],
+      "next_research": [
+        "Verify the public health center through health authority/field source.",
+        "Add coordinates and access notes.",
+        "Keep emergency-number entities separate from facility numbers."
+      ]
+    }
+  ]
+}
