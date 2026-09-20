@@ -8,6 +8,19 @@
 
   function publicStatus(x){return x.operational_status==="active"?"Đang hoạt động":"Sắp mở hoặc đã công bố"}
   function starText(x){return x.star_rating!=null&&Number.isFinite(Number(x.star_rating))?Number(x.star_rating)+" sao":"Chưa xác định hạng"}
+  function publicArea(x){return !x.area_label||/cần rà/i.test(x.area_label)?"Khu vực đang cập nhật":x.area_label}
+  function publicDescription(x){
+    if(x.what_it_is&&!/cần rà/i.test(x.what_it_is)) return x.what_it_is;
+    const kind=x.accommodation_type||"Cơ sở lưu trú";
+    const stars=x.star_rating?" "+starText(x):"";
+    const area=publicArea(x);
+    return kind+stars+(area!=="Khu vực đang cập nhật"?" tại "+area:" tại Phú Quốc")+".";
+  }
+  function classificationText(x){
+    if(x.official_classification&&/sao/i.test(x.official_classification)) return "Phân hạng được công bố";
+    if(x.star_rating!=null) return "Hạng tham khảo";
+    return "Hạng đang cập nhật";
+  }
   function phoneHref(phone){return "tel:"+String(phone||"").split(";")[0].replace(/[^0-9+]/g,"")}
   function filtered(){
     const q=fold(state.query);
@@ -33,11 +46,14 @@
   function card(x){
     const upcoming=x.operational_status!=="active";
     const rooms=x.room_count?Number(x.room_count).toLocaleString("vi-VN"):"Chưa công bố";
+    const tags=(x.best_for||[]).slice(0,3);
     return '<article class="hotel-card" data-hotel="'+esc(x.slug)+'">'+
       '<div class="hotel-card-top"><span class="hotel-star">'+esc(starText(x))+'</span><span class="hotel-status '+(upcoming?'upcoming':'')+'">'+esc(publicStatus(x))+'</span></div>'+
-      '<h3>'+esc(x.name)+'</h3><p class="hotel-area">'+esc(x.area_label||"Khu vực đang cập nhật")+'</p>'+
-      '<p class="hotel-desc">'+esc(x.what_it_is||"Nơi lưu trú tại Phú Quốc.")+'</p>'+
+      '<h3>'+esc(x.name)+'</h3><p class="hotel-area">'+esc(publicArea(x))+'</p>'+
+      '<p class="hotel-desc">'+esc(publicDescription(x))+'</p>'+
+      (tags.length?'<div class="hotel-tags" aria-label="Phù hợp với">'+tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>':'')+
       '<div class="hotel-facts"><div><span>Loại hình</span><strong>'+esc(x.accommodation_type||"Cơ sở lưu trú")+'</strong></div><div><span>Quy mô</span><strong>'+esc(rooms)+(x.room_count?' phòng':'')+'</strong></div></div>'+
+      '<p class="hotel-classification">'+esc(classificationText(x))+' · Hãy xác nhận lại khi đặt phòng</p>'+
       '<div class="hotel-actions">'+(x.website?'<a class="primary" href="'+esc(x.website)+'" target="_blank" rel="noopener">Website chính thức ↗</a>':'')+(x.phone?'<a href="'+phoneHref(x.phone)+'">Gọi cơ sở</a>':'')+'</div></article>';
   }
   function render(){
@@ -61,7 +77,7 @@
 
   fetch("../data/entities/hotels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(data=>{
     state.hotels=data.entities||[];
-    const areas=[...new Set(state.hotels.map(x=>x.area_label).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"vi"));
+    const areas=[...new Set(state.hotels.map(x=>x.area_label).filter(x=>x&&!/cần rà/i.test(x)))].sort((a,b)=>a.localeCompare(b,"vi"));
     $("#areaFilter").innerHTML='<option value="all">Tất cả khu vực</option>'+areas.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");
     if(state.hotel){const selected=state.hotels.find(x=>x.slug===state.hotel);if(selected)state.status=selected.operational_status||"all";else state.hotel=""}
     bind();render();
