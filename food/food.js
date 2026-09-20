@@ -23,7 +23,8 @@ function filtered(){
 }
 
 function dishMedia(x){
-  const visual=state.visuals?.food?.[x.id]?.images?.[0];
+  const images=state.visuals?.food?.[x.id]?.images||[];
+  const visual=window.OpenPQVisual?.pickHero?.(images)||images[0]||null;
   if(visual){
     return '<div class="dish-media">'+
       '<img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async">'+
