@@ -60,8 +60,18 @@ async function settlePage(page) {
     const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
     for (let y = 0; y < max; y += step) {
       window.scrollTo(0, y);
-      await new Promise(resolve => setTimeout(resolve, 35));
+      await new Promise(resolve => setTimeout(resolve, 90));
     }
+
+    await new Promise(resolve => setTimeout(resolve, 180));
+
+    const motionTargets = [...document.querySelectorAll('.energy-target')];
+    window.__openpqVisualQaMotionPending = motionTargets.filter(el => !el.classList.contains('in-view')).length;
+
+    // Full-page QA must capture the settled visual state, not a transient
+    // IntersectionObserver animation frame. This mutation exists only in the QA browser.
+    motionTargets.forEach(el => el.classList.add('in-view'));
+
     window.scrollTo(0, 0);
   });
   await page.waitForTimeout(500);
@@ -118,6 +128,7 @@ async function inspectPage(page) {
 
     return {
       title: document.title,
+      motionTargetsPending: Number(window.__openpqVisualQaMotionPending || 0),
       documentOverflow,
       documentScrollWidth: Math.max(doc.scrollWidth, body?.scrollWidth || 0),
       viewportWidth,
@@ -265,6 +276,7 @@ const md = [
       ...result.strictFailures,
       remoteBroken ? `${remoteBroken} remote image warning(s)` : null,
       result.consoleErrors.length ? `${result.consoleErrors.length} console error(s)` : null,
+      result.inspection?.motionTargetsPending ? `${result.inspection.motionTargetsPending} motion target(s) needed QA settle` : null,
       result.inspection?.tinyText?.length ? `${result.inspection.tinyText.length} text item(s) under 11px` : null,
       result.mapCta?.found ? `map CTA: ${result.mapCta.iframeInserted ? 'ok' : 'iframe not inserted'}` : null
     ].filter(Boolean).join('; ') || 'OK';
