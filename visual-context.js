@@ -35,6 +35,26 @@
     '</section>';
   }
 
+  function infographic(items, options = {}) {
+    const rows = Array.isArray(items) ? items.filter(x => x && (x.label || x.value || x.note)) : [];
+    if (!rows.length) return "";
+    const eyebrow = options.eyebrow || "NHÌN NHANH";
+    const title = options.title || "Nắm ý chính trong vài giây";
+    return '<section class="visual-infographic" aria-label="'+esc(options.label || title)+'">'+
+      '<div class="visual-block-head"><span>'+esc(eyebrow)+'</span><h2>'+esc(title)+'</h2></div>'+
+      '<div class="visual-infographic-grid">'+
+        rows.map((x,i) =>
+          '<article>'+
+            '<div class="visual-infographic-icon" aria-hidden="true">'+esc(x.icon || String(i+1).padStart(2,"0"))+'</div>'+
+            '<div><span>'+esc(x.label || "")+'</span><strong>'+esc(x.value || "")+'</strong>'+
+              (x.note?'<p>'+esc(x.note)+'</p>':'')+
+            '</div>'+
+          '</article>'
+        ).join("")+
+      '</div>'+
+    '</section>';
+  }
+
   function locator(zone, options = {}) {
     const map = options.map || zone?.map;
     const lat = Number(map?.lat);
@@ -109,5 +129,5 @@
     '</div>';
   }
 
-  window.OpenPQVisual = { esc, gallery, quickFacts, locator, bindLazyMaps, placeholder };
+  window.OpenPQVisual = { esc, gallery, quickFacts, infographic, locator, bindLazyMaps, placeholder };
 })();
