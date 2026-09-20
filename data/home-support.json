@@ -1,0 +1,255 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-20",
+  "scope": "homepage_supporting_operational_data",
+  "id_policy": {
+    "rule": "ONE_ENTITY_ONE_CANONICAL_ID_MANY_SURFACES",
+    "note": "entity_id references the existing canonical entity layer. Homepage data must not clone place/activity knowledge."
+  },
+  "trip_clock": {
+    "timezone": "Asia/Ho_Chi_Minh",
+    "items": [
+      {
+        "id": "clock_hon_thom",
+        "entity_id": "activity_hon_thom",
+        "status_code": "UNKNOWN",
+        "operating_window": null,
+        "last_entry": null,
+        "last_ride": null,
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=hon-thom"
+      },
+      {
+        "id": "clock_safari",
+        "entity_id": "place_vinpearl_safari",
+        "status_code": "UNKNOWN",
+        "operating_window": null,
+        "last_entry": null,
+        "last_ride": null,
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=vinpearl-safari"
+      },
+      {
+        "id": "clock_vinwonders",
+        "entity_id": "place_vinwonders",
+        "status_code": "UNKNOWN",
+        "operating_window": null,
+        "last_entry": null,
+        "last_ride": null,
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=vinwonders"
+      },
+      {
+        "id": "clock_night_market",
+        "entity_id": "place_night_market",
+        "status_code": "UNKNOWN",
+        "operating_window": null,
+        "last_entry": null,
+        "last_ride": null,
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=night-market"
+      }
+    ]
+  },
+  "activity_board": [
+    {
+      "surface_id": "activity_three_islands",
+      "entity_id": "activity_tour_3_islands",
+      "operational_binding": "cano",
+      "status_code": "DYNAMIC",
+      "operating_window": null,
+      "warning_rule": "SEA_DEPENDENT",
+      "route": "cano/"
+    },
+    {
+      "surface_id": "activity_hon_thom",
+      "entity_id": "activity_hon_thom",
+      "operational_binding": null,
+      "status_code": "UNKNOWN",
+      "operating_window": null,
+      "warning_rule": "WEATHER_DEPENDENT",
+      "route": "places/detail.html?id=hon-thom"
+    },
+    {
+      "surface_id": "activity_safari",
+      "entity_id": "place_vinpearl_safari",
+      "operational_binding": null,
+      "status_code": "UNKNOWN",
+      "operating_window": null,
+      "warning_rule": "WEATHER_DEPENDENT",
+      "route": "places/detail.html?id=vinpearl-safari"
+    },
+    {
+      "surface_id": "activity_vinwonders",
+      "entity_id": "place_vinwonders",
+      "operational_binding": null,
+      "status_code": "UNKNOWN",
+      "operating_window": null,
+      "warning_rule": "WEATHER_DEPENDENT",
+      "route": "places/detail.html?id=vinwonders"
+    },
+    {
+      "surface_id": "activity_sunset_town",
+      "entity_id": "place_sunset_town",
+      "operational_binding": null,
+      "status_code": "UNKNOWN",
+      "operating_window": null,
+      "warning_rule": "WEATHER_DEPENDENT",
+      "route": "places/detail.html?id=sunset-town"
+    },
+    {
+      "surface_id": "activity_night_market",
+      "entity_id": "place_night_market",
+      "operational_binding": null,
+      "status_code": "UNKNOWN",
+      "operating_window": null,
+      "warning_rule": "WEATHER_DEPENDENT",
+      "route": "places/detail.html?id=night-market"
+    },
+    {
+      "surface_id": "activity_big_game_fishing",
+      "entity_id": "activity_big_game_fishing",
+      "operational_binding": null,
+      "status_code": "UNKNOWN",
+      "operating_window": null,
+      "warning_rule": "SEA_DEPENDENT",
+      "route": "places/detail.html?id=big-game-fishing"
+    },
+    {
+      "surface_id": "activity_kiss_of_the_sea",
+      "entity_id": "activity_kiss_of_the_sea",
+      "operational_binding": null,
+      "status_code": "UNKNOWN",
+      "operating_window": null,
+      "warning_rule": "SCHEDULE_DEPENDENT",
+      "route": "places/detail.html?id=activity_kiss_of_the_sea"
+    }
+  ],
+  "near_me": {
+    "request_location_on_load": false,
+    "ranking": [
+      "distance",
+      "open_status"
+    ],
+    "manual_areas": [
+      {
+        "id": "zone_central_west",
+        "label": "Dương Đông",
+        "type": "zone"
+      },
+      {
+        "id": "zone_south",
+        "label": "An Thới",
+        "type": "zone"
+      },
+      {
+        "id": "place_sunset_town",
+        "label": "Sunset Town",
+        "type": "place"
+      },
+      {
+        "id": "zone_north",
+        "label": "Gành Dầu",
+        "type": "zone"
+      }
+    ],
+    "categories": [
+      {
+        "id": "TOILET",
+        "label": "Toilet",
+        "icon": "WC"
+      },
+      {
+        "id": "ATM",
+        "label": "ATM",
+        "icon": "ATM"
+      },
+      {
+        "id": "PHARMACY",
+        "label": "Nhà thuốc",
+        "icon": "+"
+      },
+      {
+        "id": "FUEL",
+        "label": "Cây xăng",
+        "icon": "⛽"
+      },
+      {
+        "id": "PARKING",
+        "label": "Bãi đỗ",
+        "icon": "P"
+      },
+      {
+        "id": "MINIMART",
+        "label": "Minimart",
+        "icon": "□"
+      },
+      {
+        "id": "CLINIC_HOSPITAL",
+        "label": "Y tế",
+        "icon": "✚"
+      },
+      {
+        "id": "CHARGING",
+        "label": "Sạc",
+        "icon": "⚡"
+      },
+      {
+        "id": "SHOWER_LOCKER",
+        "label": "Tắm / locker",
+        "icon": "↧"
+      }
+    ],
+    "items": []
+  },
+  "hot_now": {
+    "items": [],
+    "empty_behavior": "HIDE_SECTION",
+    "temporary_items_require_expiry": true
+  },
+  "curiosity": [
+    {
+      "prompt_id": "curiosity_fish_sauce_year",
+      "question": "Một năm trong nhà thùng diễn ra như thế nào?",
+      "story_id": "mot-nam-trong-nha-thung",
+      "story_type": "DOCUMENTED_HISTORY",
+      "verification_status": "EXISTING_EDITORIAL",
+      "route": "stories/article.html?id=mot-nam-trong-nha-thung"
+    },
+    {
+      "prompt_id": "curiosity_pepper_soil",
+      "question": "Vì sao hồ tiêu lại gắn với ký ức về đất đỏ Phú Quốc?",
+      "story_id": "mui-cay-cua-dat-do",
+      "story_type": "DOCUMENTED_HISTORY",
+      "verification_status": "EXISTING_EDITORIAL",
+      "route": "stories/article.html?id=mui-cay-cua-dat-do"
+    },
+    {
+      "prompt_id": "curiosity_duong_dong_evening",
+      "question": "Dương Đông thay đổi thế nào sau 5 giờ chiều?",
+      "story_id": "duong-dong-sau-5-gio",
+      "story_type": "DOCUMENTED_HISTORY",
+      "verification_status": "EXISTING_EDITORIAL",
+      "route": "stories/article.html?id=duong-dong-sau-5-gio"
+    }
+  ],
+  "rules": {
+    "volatile_fields": [
+      "source",
+      "source_type",
+      "updated_at",
+      "verified_at",
+      "valid_until",
+      "expires_at",
+      "confidence"
+    ],
+    "public_state_codes": [
+      "OPEN",
+      "CLOSED",
+      "TEMPORARILY_CLOSED",
+      "UNKNOWN"
+    ],
+    "no_live_without_freshness": true,
+    "no_location_prompt_on_load": true
+  }
+}
