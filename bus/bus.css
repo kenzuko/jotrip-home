@@ -4,3 +4,22 @@
 .vehicle-card small,
 .stop-row small,
 .near-stop{font-size:11px}
+
+
+/* Mobile header guard after clock readability update */
+@media (max-width:420px){
+  .module-head{
+    padding-left:8px;
+    padding-right:8px;
+    gap:6px;
+  }
+  .module-title{min-width:0}
+  .module-actions{
+    min-width:0;
+    gap:4px;
+  }
+  .refresh-btn{
+    width:32px;
+    padding:7px;
+  }
+}

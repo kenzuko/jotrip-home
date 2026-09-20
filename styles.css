@@ -4326,3 +4326,13 @@ body.sheet-open{
     font-size:11px!important;
   }
 }
+
+
+/* V3.6 - Today rail readability after QA */
+.hero-kicker,
+.happening-row time span,
+.row-type,
+.happening-row p,
+.happening-row em{
+  font-size:11px;
+}
