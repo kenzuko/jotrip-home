@@ -77,13 +77,13 @@
     const visual=visualData?.places?.[entity.id]||{};
     const explainer=explainerData?.items?.[entity.id]||{};
     const visualImages=Array.isArray(visual.images)?visual.images:[];
-    const heroVisual=visualImages[0]||null;
+    const heroVisual=window.OpenPQVisual?.pickHero?.(visualImages)||visualImages[0]||null;
     const zoneVisual=zoneVisuals[entity.zone_id]||zoneVisuals.zone_central_west;
     const heroImage=heroVisual?.url||zoneVisual.url;
     const heroSource=heroVisual?.source_url||zoneVisual.source_url;
     const heroIsContext=!heroVisual;
     const heroAlt=heroVisual?.alt||("Bối cảnh "+(zone?.name||"Phú Quốc"));
-    const extraVisuals=heroVisual?visualImages.slice(1):visualImages;
+    const extraVisuals=heroVisual?visualImages.filter(x=>x!==heroVisual):visualImages;
     const facts=[
       ["Khu vực",zone?.name||"Toàn đảo"],
       ["Lúc nên đi",entity.best_time||"Tùy lịch"],
