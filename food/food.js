@@ -145,6 +145,13 @@ async function load(){
   state.data=await r.json();
   state.visuals=v?.ok?await v.json():{};
   if($("#dishCount"))$("#dishCount").textContent=state.data.dishes.length;
+  const context=$("#foodVisualContext");
+  if(context && window.OpenPQVisual){
+    context.innerHTML=OpenPQVisual.gallery(state.visuals?.food_context?.seafood||[],{
+      eyebrow:"TỪ BẾP & BÀN ĂN",
+      title:"Nhìn nguyên liệu thật trước khi chọn món"
+    });
+  }
   renderGrid();
   renderArticle();
 }
