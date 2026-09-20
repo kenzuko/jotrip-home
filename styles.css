@@ -4310,3 +4310,19 @@ body.sheet-open{
     font-size:11px;
   }
 }
+
+
+/* V3.5 - homepage readability cleanup after visual QA */
+.eyebrow,
+.section-heading>a,
+.feature-copy>span,
+.feature-copy a,
+.task-launcher a>span{
+  font-size:11px;
+}
+@media (max-width:760px){
+  .ticker-label strong,
+  .ticker-track span{
+    font-size:11px!important;
+  }
+}
