@@ -38,6 +38,12 @@ The 150-file is the topic list + crawl specification, not finished article copy.
   - Cung điện Hải Vương and Teddy Bear Museum are verified indoor candidates with current operator hours.
   - Fish-sauce houses remain candidate covered experiences until visitor access/hours are verified per house.
 
+## Completed in P0 batch 06
+- 058 Ghẹ Hàm Ninh - PARTIAL_VERIFIED
+  - Collective trademark and authorized-user concept verified.
+  - Restaurant location must not be used as proof of crab origin.
+  - Current price and exact scientific species remain open research.
+
 ## Next P0 crawl
 
 ## Rules

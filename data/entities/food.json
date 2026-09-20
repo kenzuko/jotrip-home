@@ -145,6 +145,39 @@
         }
       ],
       "updated_at": "2026-09-12"
+    },
+    {
+      "id": "food_ghe_ham_ninh",
+      "legacy_id": "ghe-ham-ninh",
+      "entity_type": "food",
+      "slug": "ghe-ham-ninh",
+      "name": "Ghẹ Hàm Ninh",
+      "aliases": [
+        "Hàm Ninh flower crab"
+      ],
+      "zone_id": "zone_east",
+      "category": "local-seafood",
+      "what_it_is": "Đặc sản hải sản gắn với Hàm Ninh và có nhãn hiệu tập thể; không nên mặc định mọi ghẹ bán tại Hàm Ninh đều thuộc cùng nguồn/nhãn hiệu.",
+      "why_go": "Thưởng thức kiểu chế biến đơn giản để cảm nhận vị ghẹ, đồng thời hiểu câu chuyện nghề khai thác ven biển Hàm Ninh.",
+      "best_for": [
+        "food",
+        "local-life"
+      ],
+      "tips": [
+        "Hỏi rõ giá theo kg trước khi gọi.",
+        "Ưu tiên ghẹ còn sống nếu muốn kiểm tra độ tươi.",
+        "Nếu cần xác thực nguồn gốc, hỏi cơ sở về nguồn ghẹ thay vì suy từ địa điểm bán."
+      ],
+      "intents": [
+        "food",
+        "local-life"
+      ],
+      "source_refs": [
+        {
+          "source_id": "crawl_topic_058_ghe_ham_ninh"
+        }
+      ],
+      "updated_at": "2026-09-20"
     }
   ]
 }

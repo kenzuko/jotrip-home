@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "p0_batch_06",
+  "created_at": "2026-09-20",
+  "scope": "Topic 058 Ghẹ Hàm Ninh - food identity, trademark, eating practical and source-origin caveats.",
+  "topics": [
+    {
+      "backlog_no": 58,
+      "topic_id": "topic_058_ghe_ham_ninh",
+      "title": "Ghẹ Hàm Ninh",
+      "canonical_id": "food_ghe_ham_ninh",
+      "entity_type": "food",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "ghe_collective_mark",
+          "claim": "A collective trademark for 'Ghẹ Hàm Ninh, Phú Quốc' was certified in 2022; local-government and related institutional reporting documents the certification and later use by authorized households.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_ghe_nbc_2022",
+            "src_ghe_hnd_2025"
+          ]
+        },
+        {
+          "claim_id": "ghe_authorized_users",
+          "claim": "In February 2025, the provincial Farmers' Association reported that collective-mark signage was handed to 14 households directly involved in harvesting, catching and trading Ghẹ Hàm Ninh.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_ghe_hnd_2025"
+          ]
+        },
+        {
+          "claim_id": "ghe_name_not_every_sale",
+          "claim": "The existence of an authorized collective mark means Open Phu Quoc should not assume every crab sold by a restaurant in Hàm Ninh is automatically collective-mark Ghẹ Hàm Ninh or was caught locally. Source/origin must be verified separately.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_ghe_hnd_2025"
+          ]
+        },
+        {
+          "claim_id": "ghe_tourism_description",
+          "claim": "Vietnam's official tourism site describes Ghẹ Hàm Ninh as a small rosy-speckled flower crab associated with Hàm Ninh and commonly enjoyed boiled with lime-pepper salt.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_ghe_vietnamtravel"
+          ]
+        },
+        {
+          "claim_id": "ghe_nearshore_supply",
+          "claim": "Current destination content describes Hàm Ninh seafood as primarily nearshore catch with short transport time. This supports a local-fishing context but does not establish origin for every restaurant's inventory.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_ghe_visitpq_seafood"
+          ]
+        },
+        {
+          "claim_id": "ghe_price_unlocked",
+          "claim": "Recent tourism pages publish indicative crab prices, but price is highly volatile by size, sex, supply and venue. No single current price is locked for Open Phu Quoc yet.",
+          "status": "NEEDS_VERIFICATION",
+          "confidence": "high",
+          "source_ids": [
+            "src_ghe_visitpq_today"
+          ]
+        },
+        {
+          "claim_id": "ghe_allergen",
+          "claim": "Ghẹ is a crustacean shellfish, so crustacean shellfish must be flagged as a major allergen in food content.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_ghe_fda_allergen"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_ghe_nbc_2022",
+          "source_type": "OFFICIAL",
+          "publisher": "Trung tâm Mã số Mã vạch Quốc gia",
+          "title": "Hội nghị giới thiệu tài liệu truy xuất nguồn gốc đối với nước mắm Phú Quốc",
+          "url": "https://www.nbc.gov.vn/tintuc/hoi-nghi-gioi-thieu-tai-lieu-truy-xuat-nguon-goc-doi-voi-nuoc-mam-phu-quoc/",
+          "published_at": "2022-08-02",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ghe_hnd_2025",
+          "source_type": "OFFICIAL",
+          "publisher": "Hội Nông dân Kiên Giang",
+          "title": "Trao Nhãn hiệu tập thể “Ghẹ Hàm Ninh Phú Quốc”",
+          "url": "https://hnd.kiengiang.gov.vn/Trang/TinTuc/ChiTiet.aspx?chuyenmuc=113&nid=3211",
+          "published_at": "2025-03-14",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ghe_vietnamtravel",
+          "source_type": "OFFICIAL",
+          "publisher": "Vietnam.travel",
+          "title": "Đặc sản hải sản Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ghe_visitpq_seafood",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Kinh nghiệm ăn hải sản ở Hàm Ninh Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/kinh-nghiem-an-hai-san-o-ham-ninh-phu-quoc-tuoi-ngon-chuan-vi-15025",
+          "published_at": "2026-08-24",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ghe_visitpq_today",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Ghẹ Hàm Ninh Phú Quốc: Khám phá từ A-Z món đặc sản không thể bỏ lỡ",
+          "url": "https://visitphuquoc.com.vn/vi/ghe-ham-ninh-phu-quoc-kham-pha-tu-a-z-mon-dac-san-khong-the-bo-lo-172",
+          "published_at": "2026-09-20",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ghe_fda_allergen",
+          "source_type": "OFFICIAL",
+          "publisher": "U.S. FDA",
+          "title": "Food Allergies: What You Need to Know",
+          "url": "https://www.fda.gov/food/buy-store-serve-safe-food/food-allergies-what-you-need-know",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Exact scientific species covered by the collective trademark specification.",
+        "Current authorized-user list and rules of use for the collective mark.",
+        "Seasonality evidence strong enough to publish as a fixed 'best season'.",
+        "Current source mix at individual restaurants and markets.",
+        "Reliable live price range by size/sex with timestamp."
+      ],
+      "next_research": [
+        "Retrieve the collective-mark registration/specification and rights holder directly.",
+        "Find fisheries/scientific source for species and habitat instead of relying on tourism prose.",
+        "Build price observations as timestamped market data, not evergreen article text.",
+        "For restaurant content, store claimed origin separately from verified origin."
+      ]
+    }
+  ]
+}
