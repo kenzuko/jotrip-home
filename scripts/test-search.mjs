@@ -26,6 +26,9 @@ for(const [query,expected] of cases){
   if(first?.id!==expected) throw new Error(query+": expected "+expected+", got "+(first?.id||"none"));
 }
 
+const regent=context.window.OpenPQSearch.search("Regent",1)[0];
+if(regent?.route!=="/hotels/?hotel=regent") throw new Error("Regent must route to canonical hotel directory");
+
 const honThom=context.window.OpenPQSearch.searchGrouped("hon thom",10);
 const groupMap=new Map(honThom.map(group=>[group.id,group.items.map(x=>x.id)]));
 if(groupMap.get("main")?.[0]!=="activity_hon_thom") throw new Error("Hòn Thơm cluster missing canonical primary");

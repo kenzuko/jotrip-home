@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-19T16:51:57.523Z",
+  "generated_at": "2026-09-20T00:27:21.076Z",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -137,7 +137,7 @@
       "star_rating": null,
       "operational_status": "active_new_not_in_sdl",
       "related_entities": [],
-      "route": "/guide/?q=Alana%20Seaview%20Phu%20Quoc%20Hotel#search",
+      "route": "/hotels/?hotel=alana-seaview-phu-quoc-hotel",
       "search_text": "alana seaview phu quoc hotel stay hotel central_west duong-dong khach san tai duong dong. 0905391918 duong dong chua xac dinh moi 2026 - chua co trong sdl 27/07/2026 active_new_not_in_sdl 69c tran hung dao, to 5, khu pho 7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -154,7 +154,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Amarin%20Resort%20and%20Spa#search",
+      "route": "/hotels/?hotel=amarin-resort-and-spa",
       "search_text": "amarin resort and spa stay hotel central_west khach san nghi duong tai cua lap - ba keo. 02976259666; 0974000111 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 2, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -172,7 +172,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Amorii#search",
+      "route": "/hotels/?hotel=amorii",
       "search_text": "amorii stay hotel central_west bai-truong khach san tai bai truong - duong bao. 0376953246; 0345992367 bai truong - duong bao chua xac dinh dang hoat dong - trong sdl 27/07/2026 active b9-206 waterfront, khu phuc hop bai truong, to 5, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -190,7 +190,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=An%20Ph%C3%BA#search",
+      "route": "/hotels/?hotel=an-phu",
       "search_text": "an phu stay hotel central_west duong-dong khach san tai duong dong. 02973898777 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 182a duong 30/4, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -248,7 +248,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Aquasun#search",
+      "route": "/hotels/?hotel=aquasun",
       "search_text": "aquasun stay hotel central_west 4-sao khach san 4 sao tai khac / can ra. 02972629999 khac / can ra 4 sao dang hoat dong - trong sdl 27/07/2026 active hem 124, tran hung dao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -285,7 +285,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=AVS%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=avs-hotel-phu-quoc",
       "search_text": "avs hotel phu quoc stay hotel central_west duong-dong 4-sao khach san 4 sao tai duong dong. 1900998875 duong dong 4 sao dang hoat dong - trong sdl 27/07/2026 active 100c tran hung dao, to 7, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -326,7 +326,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=B%E1%BA%A1ch%20D%C6%B0%C6%A1ng%20Resort#search",
+      "route": "/hotels/?hotel=bach-duong-resort",
       "search_text": "bach duong resort stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973999565 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 13 ly thuong kiet, kp5, dac khu phu quoc, tinh an giang"
     },
     {
@@ -482,7 +482,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Best%20Western%20Premier%20Sonasea%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=best-western-premier-sonasea-phu-quoc",
       "search_text": "best western premier sonasea phu quoc stay hotel central_west bai-truong 5-sao khach san nghi duong 5 sao tai bai truong - duong bao. 02973980026; 02976279999 bai truong - duong bao 5 sao dang hoat dong - trong sdl 27/07/2026 active khu to hop du lich sonasea villas and resort, to 5, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -515,7 +515,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Bi%E1%BB%83n%20Xanh#search",
+      "route": "/hotels/?hotel=bien-xanh",
       "search_text": "bien xanh stay hotel central_west duong-dong khach san tai duong dong. 0916846383; 0918123789 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 85 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -533,7 +533,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Boulevard#search",
+      "route": "/hotels/?hotel=boulevard",
       "search_text": "boulevard stay hotel central_west duong-dong khach san tai duong dong. 02973978989; 0941388181 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 89 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -552,7 +552,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Brenta%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=brenta-phu-quoc",
       "search_text": "brenta phu quoc stay hotel central_west duong-dong 3-sao khach san 3 sao tai duong dong. 02973848588 duong dong 3 sao dang hoat dong - trong sdl 27/07/2026 active hem 118, kp8, dac khu phu quoc, tinh an giang"
     },
     {
@@ -664,7 +664,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Caesar%20Vi%E1%BB%87t%20Nam#search",
+      "route": "/hotels/?hotel=caesar-viet-nam",
       "search_text": "caesar viet nam stay hotel central_west khach san tai cua lap - ba keo. 0915627628 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active thua dat so 200, to ban do 11, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -682,7 +682,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Camellia%20Resort%20%26%20Spa#search",
+      "route": "/hotels/?hotel=camellia-resort-spa",
       "search_text": "camellia resort & spa stay hotel north ong-lang khach san nghi duong tai ong lang - cua can. 02973849948; 0903960455 ong lang - cua can chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 3, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -860,7 +860,7 @@
       "star_rating": 2,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Chensea#search",
+      "route": "/hotels/?hotel=chensea",
       "search_text": "chensea stay hotel north ong-lang 2-sao khach san nghi duong 2 sao tai ong lang - cua can. 02973995896 ong lang - cua can 2 sao dang hoat dong - trong sdl 27/07/2026 active bai xep, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -913,7 +913,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Coco%20Palm%20Beach%20Resort%20%26%20Spa#search",
+      "route": "/hotels/?hotel=coco-palm-beach-resort-spa",
       "search_text": "coco palm beach resort & spa cocopalm resort stay hotel north ong-lang 3-sao khach san nghi duong 3 sao tai ong lang - cua can. 02973987979; 0971111348 ong lang - cua can 3 sao dang hoat dong - trong sdl 27/07/2026 active ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -950,7 +950,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Coral%20Bay%20Resort%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=coral-bay-resort-phu-quoc",
       "search_text": "coral bay resort phu quoc vinh san ho (coral bay) stay hotel central_west duong-dong 3-sao khach san 3 sao tai duong dong. 02973844142; 0916522788 duong dong 3 sao dang hoat dong - trong sdl 27/07/2026 active hem 118/2, tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -968,7 +968,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Cottage%20Village#search",
+      "route": "/hotels/?hotel=cottage-village",
       "search_text": "cottage village stay hotel north ong-lang khach san tai ong lang - cua can. 02973973789; 0913820902 ong lang - cua can chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 3, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1011,7 +1011,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=C%C3%B4ng%20ty%20C%E1%BB%95%20ph%E1%BA%A7n%20Th%C3%A1c%20B%E1%BA%A1c#search",
+      "route": "/hotels/?hotel=cong-ty-co-phan-thac-bac",
       "search_text": "cong ty co phan thac bac stay hotel central_west khach san tai cua lap - ba keo. 02973846767 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1031,7 +1031,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Crowne%20Plaza%20Ph%C3%BA%20Qu%E1%BB%91c%20Starbay#search",
+      "route": "/hotels/?hotel=crowne-plaza-phu-quoc-starbay",
       "search_text": "crowne plaza phu quoc starbay stay hotel north bai-dai ganh-dau 5-sao khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973683999 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active kdl bai dai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1048,7 +1048,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Cty%20CP%20du%20l%E1%BB%8Bch%20v%C3%A0%20ph%C3%A1t%20tri%E1%BB%83n%20B%C3%A0%20K%C3%A8o#search",
+      "route": "/hotels/?hotel=cty-cp-du-lich-va-phat-trien-ba-keo",
       "search_text": "cty cp du lich va phat trien ba keo stay hotel central_west khach san nghi duong tai cua lap - ba keo. 02973982988; 0372909819 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active (hem 118) to 8 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1110,7 +1110,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Daisy%20Resort#search",
+      "route": "/hotels/?hotel=daisy-resort",
       "search_text": "daisy resort stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973844412; 0946666806 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 7 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1160,7 +1160,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Dusit%20Princess%20Moonrise%20Beach%20Resort%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=dusit-princess-moonrise-beach-resort-phu-quoc",
       "search_text": "dusit princess moonrise beach resort phu quoc stay hotel central_west 5-sao khach san nghi duong 5 sao tai cua lap - ba keo. 02976266688 cua lap - ba keo 5 sao dang hoat dong - trong sdl 27/07/2026 active to 2, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1177,7 +1177,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=D%C6%B0%C6%A1ng%20%C4%90%C3%B4ng#search",
+      "route": "/hotels/?hotel=duong-dong",
       "search_text": "duong dong stay hotel central_west khach san tai cua lap - ba keo. 0918828188 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active thua dat so 355, to ban do so 10, to 3, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1229,7 +1229,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=%C4%90%E1%BA%A3o%20Ng%E1%BB%8Dc%20Th%E1%BA%BF%20K%E1%BB%B7%2021#search",
+      "route": "/hotels/?hotel=dao-ngoc-the-ky-21",
       "search_text": "dao ngoc the ky 21 stay hotel central_west duong-dong khach san tai duong dong. 02973848040 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 76a duong 30/4, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1418,7 +1418,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=%C4%90%E1%BB%A9c%20Lam%20H%C3%A0#search",
+      "route": "/hotels/?hotel=duc-lam-ha",
       "search_text": "duc lam ha stay hotel central_west khach san tai cua lap - ba keo. 0912430357 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 4, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1436,7 +1436,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=ECO%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=eco-resort-phu-quoc",
       "search_text": "eco resort phu quoc stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973991333 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 143 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1454,7 +1454,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Elwood%20Resort%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=elwood-resort-phu-quoc",
       "search_text": "elwood resort phu quoc stay hotel north ong-lang khach san nghi duong tai ong lang - cua can. 02973846759 ong lang - cua can chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 5, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1472,7 +1472,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Eo%20Xo%C3%A0i#search",
+      "route": "/hotels/?hotel=eo-xoai",
       "search_text": "eo xoai stay hotel north ong-lang khach san nghi duong tai ong lang - cua can. 02973981693; 0913820953 ong lang - cua can chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 3, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1507,7 +1507,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=%C3%8A%20%C4%90en#search",
+      "route": "/hotels/?hotel=e-den",
       "search_text": "e den stay hotel central_west khach san tai cua lap - ba keo. 02973985598 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 2, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1526,7 +1526,7 @@
       "star_rating": null,
       "operational_status": "upcoming",
       "related_entities": [],
-      "route": "/guide/?q=Fairfield%20by%20Marriott%20Phu%20Quoc%20Hon%20Thom#search",
+      "route": "/hotels/?hotel=fairfield-by-marriott-phu-quoc-hon-thom",
       "search_text": "fairfield by marriott phu quoc hon thom stay hotel sap-khai-truong south hon-thom du an luu tru da cong bo tai hon thom, moc du kien q1/2027. hon thom chua xac dinh sap khai truong - chua nhan dat cho upcoming"
     },
     {
@@ -1544,7 +1544,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Famiana%20Resort%20%26%20Spa#search",
+      "route": "/hotels/?hotel=famiana-resort-spa",
       "search_text": "famiana resort & spa stay hotel central_west 4-sao khach san nghi duong 4 sao tai cua lap - ba keo. 02973983366 cua lap - ba keo 4 sao dang hoat dong - trong sdl 27/07/2026 active ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1561,7 +1561,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Family%20Resort#search",
+      "route": "/hotels/?hotel=family-resort",
       "search_text": "family resort stay hotel central_west khach san nghi duong tai khac / can ra. 0989017757 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active thua dat so 29, to ban do so 6, ap 3, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1601,7 +1601,7 @@
       "star_rating": null,
       "operational_status": "upcoming",
       "related_entities": [],
-      "route": "/guide/?q=Fusion%20Resort%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=fusion-resort-phu-quoc",
       "search_text": "fusion resort phu quoc stay hotel sap-khai-truong central_west bai-truong du an luu tru da cong bo tai bai truong - duong bao, moc du kien chua cong bo. 02973690000 bai truong - duong bao chua xac dinh dang phat trien / da ky quan ly upcoming"
     },
     {
@@ -1661,7 +1661,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Gaia%20Hotel#search",
+      "route": "/hotels/?hotel=gaia-hotel",
       "search_text": "gaia hotel stay hotel central_west duong-dong khach san tai duong dong. 02973982888; 0362804844 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 71 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1679,7 +1679,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Galaxy#search",
+      "route": "/hotels/?hotel=galaxy",
       "search_text": "galaxy stay hotel central_west duong-dong khach san tai duong dong. 02973844377 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 77 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -1985,7 +1985,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Golden%20Daisy%20Hotel%20%26%20Spa#search",
+      "route": "/hotels/?hotel=golden-daisy-hotel-spa",
       "search_text": "golden daisy hotel & spa stay hotel central_west duong-dong khach san tai duong dong. 0986102080 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 7, tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2025,7 +2025,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Green%20Bay%20Phu%20Quoc%20Resort%20%26%20Spa#search",
+      "route": "/hotels/?hotel=green-bay",
       "search_text": "green bay phu quoc resort & spa green bay greenbay resort stay hotel united-center yen-tinh nghi-dai central_west 5-sao united center yen tinh nghi dai khach san nghi duong 5 sao tai khac / can ra. 02973900004; 0963591459 khac / can ra 5 sao dang hoat dong - trong sdl 27/07/2026 active to 1, ap 4, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2043,7 +2043,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Green%20Tree#search",
+      "route": "/hotels/?hotel=green-tree",
       "search_text": "green tree stay hotel central_west bai-truong khach san tai bai truong - duong bao. 0934277999 bai truong - duong bao chua xac dinh dang hoat dong - trong sdl 27/07/2026 active lo ss22 khu to hop dl sonasea villas & resort, khu phuc hop bai truong, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2060,7 +2060,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Halona#search",
+      "route": "/hotels/?hotel=halona",
       "search_text": "halona stay hotel central_west khach san tai khac / can ra. 02973980678; 0939601579 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 66 tran phu, kp3, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2129,7 +2129,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Home%20Park#search",
+      "route": "/hotels/?hotel=home-park",
       "search_text": "home park stay hotel central_west duong-dong 3-sao khach san 3 sao tai duong dong. 0353961512; 0977509171 duong dong 3 sao dang hoat dong - trong sdl 27/07/2026 active 124 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2147,7 +2147,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Homestead%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort#search",
+      "route": "/hotels/?hotel=homestead-phu-quoc-resort",
       "search_text": "homestead phu quoc resort stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973991333 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 143a tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2164,7 +2164,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Homestead%20Seaview%20Phu%20Quoc%20Hotel#search",
+      "route": "/hotels/?hotel=homestead-seaview-phu-quoc-hotel",
       "search_text": "homestead seaview phu quoc hotel stay hotel central_west khach san tai cua lap - ba keo. 02973991333; 0937552233 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 2, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2182,7 +2182,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=HOPAPA#search",
+      "route": "/hotels/?hotel=hopapa",
       "search_text": "hopapa stay hotel central_west duong-dong khach san tai duong dong. 0913612334; 0989690350 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 127/5 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2216,7 +2216,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=H%E1%BB%93ng%20Tuy%E1%BA%BFt#search",
+      "route": "/hotels/?hotel=hong-tuyet",
       "search_text": "hong tuyet stay hotel central_west duong-dong khach san tai duong dong. 0888218821; 0918622636 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 10 bach dang, kp2, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2234,7 +2234,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Hu%E1%BB%B3nh%20Tr%C3%A2m#search",
+      "route": "/hotels/?hotel=huynh-tram",
       "search_text": "huynh tram stay hotel central_west duong-dong khach san tai duong dong. 02973990505; 0989789621 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 84 nguyen truong to, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2252,7 +2252,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=H%C6%B0%C6%A1ng%20To%C3%A0n%20II#search",
+      "route": "/hotels/?hotel=huong-toan-ii",
       "search_text": "huong toan ii stay hotel central_west duong-dong khach san tai duong dong. 02973999988 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 205 nguyen trung truc, kp5, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2278,7 +2278,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=InterContinental%20Phu%20Quoc%20Long%20Beach%20Resort#search",
+      "route": "/hotels/?hotel=intercontinental",
       "search_text": "intercontinental phu quoc long beach resort intercontinental intercontinental phu quoc stay hotel gia-dinh luxury hoang-hon gan-san-bay central_west bai-truong 5-sao gia dinh luxury hoang hon gan san bay khach san nghi duong 5 sao tai bai truong - duong bao. 02973990514; 02973978888 bai truong - duong bao 5 sao dang hoat dong - trong sdl 27/07/2026 active khu phuc hop bai truong, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2296,7 +2296,7 @@
       "star_rating": null,
       "operational_status": "active_new_not_in_sdl",
       "related_entities": [],
-      "route": "/guide/?q=JMO%20Boutique%20Hotel%20%26%20Spa%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=jmo-boutique-hotel-spa-phu-quoc",
       "search_text": "jmo boutique hotel & spa phu quoc stay hotel central_west bai-truong khach san tai bai truong - duong bao. bai truong - duong bao chua xac dinh moi 2026 - chua co trong sdl 27/07/2026 active_new_not_in_sdl b2-204 waterfront, bim group, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2319,7 +2319,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=JW%20Marriott%20Ph%C3%BA%20Qu%E1%BB%91c%20Emerald%20Bay#search",
+      "route": "/hotels/?hotel=jw-marriott",
       "search_text": "jw marriott phu quoc emerald bay jw marriott stay hotel nghi-duong honeymoon lich-nam-dao south 5-sao nghi duong honeymoon lich nam dao khach san nghi duong 5 sao tai nam dao - bai khem / mui ong doi. 02973779999 nam dao - bai khem / mui ong doi 5 sao dang hoat dong - trong sdl 27/07/2026 active kdl du lich sinh thai bai khem, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2372,7 +2372,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Kim%20Hoa%20Resort#search",
+      "route": "/hotels/?hotel=kim-hoa-resort",
       "search_text": "kim hoa resort stay hotel central_west duong-dong 3-sao khach san nghi duong 3 sao tai duong dong. 02973848969 duong dong 3 sao dang hoat dong - trong sdl 27/07/2026 active 82/2 tran hung dao, kp7, dac khu phu quoc"
     },
     {
@@ -2416,7 +2416,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Kosmos%20Apart%20Hotel#search",
+      "route": "/hotels/?hotel=kosmos-apart-hotel",
       "search_text": "kosmos apart hotel stay hotel central_west bai-truong 3-sao khach san 3 sao tai bai truong - duong bao. 0907100846 bai truong - duong bao 3 sao dang hoat dong - trong sdl 27/07/2026 active ss02, sonasea vill & resort, to 5, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2434,7 +2434,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=K%E1%BB%B3%20Hoa#search",
+      "route": "/hotels/?hotel=ky-hoa",
       "search_text": "ky hoa stay hotel central_west duong-dong khach san tai duong dong. 02973981322; 0918006500 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 86 nguyen trung truc, kp4, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2455,7 +2455,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=L'Azure%20Resort%20%26%20Spa%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=l-azure-resort-spa-phu-quoc",
       "search_text": "l'azure resort & spa phu quoc l'azure stay hotel central_west duong-dong 4-sao khach san nghi duong 4 sao tai duong dong. 02973994499 duong dong 4 sao dang hoat dong - trong sdl 27/07/2026 active 64 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2473,7 +2473,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=La%20Casa%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=la-casa-resort-phu-quoc",
       "search_text": "la casa resort phu quoc stay hotel north ong-lang khach san nghi duong tai ong lang - cua can. 0919042827 ong lang - cua can chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 4, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2497,7 +2497,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=La%20Festa%20Phu%20Quoc%2C%20Curio%20Collection%20by%20Hilton#search",
+      "route": "/hotels/?hotel=la-festa",
       "search_text": "la festa phu quoc, curio collection by hilton la festa la festa phu quoc stay hotel nghi-duong honeymoon lich-nam-dao central_west 5-sao nghi duong honeymoon lich nam dao khach san 5 sao tai khac / can ra. 02973525555 khac / can ra 5 sao dang hoat dong - trong sdl 27/07/2026 active khu khach san + thap dong ho (so ky hieu so 9) va khach san 2 (so ky hieu o dat khach san-02) thuoc khu do thi gate way, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2516,7 +2516,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=La%20Mer%20Resort#search",
+      "route": "/hotels/?hotel=la-mer-resort",
       "search_text": "la mer resort stay hotel central_west duong-dong 3-sao khach san nghi duong 3 sao tai duong dong. 02973992218; 0979758417 duong dong 3 sao dang hoat dong - trong sdl 27/07/2026 active 118/2/6 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2534,7 +2534,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Labe#search",
+      "route": "/hotels/?hotel=labe",
       "search_text": "labe stay hotel south sunset-town khach san tai sunset town - an thoi. 0944411325 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 199 milan, khu thi tran hoang hon, dac khu phu quoc"
     },
     {
@@ -2589,7 +2589,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Le%20Bonheur#search",
+      "route": "/hotels/?hotel=le-bonheur",
       "search_text": "le bonheur stay hotel south sunset-town khach san tai sunset town - an thoi. 02973992668; 0792196469 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active a32-a34 duong amalfi, thi tran dia trung hai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2607,7 +2607,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=LeVan%20Hotel#search",
+      "route": "/hotels/?hotel=levan-hotel",
       "search_text": "levan hotel stay hotel central_west duong-dong khach san tai duong dong. 02973900606; 0908288035 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 79 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2625,7 +2625,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Li%C3%AAn%20M%E1%BB%B9%20T%C3%A2m#search",
+      "route": "/hotels/?hotel=lien-my-tam",
       "search_text": "lien my tam stay hotel central_west duong-dong khach san tai duong dong. 0939050425 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 09 hung vuong, to 7, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2642,7 +2642,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Lotus#search",
+      "route": "/hotels/?hotel=lotus",
       "search_text": "lotus stay hotel central_west khach san tai khac / can ra. 02976613999; 0932831668 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 4, ap suoi da, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2660,7 +2660,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Lucky%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=lucky-phu-quoc",
       "search_text": "lucky phu quoc stay hotel central_west duong-dong khach san tai duong dong. 0297385979; 0939009076 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 127d tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2679,7 +2679,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=M%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=m-hotel-phu-quoc",
       "search_text": "m hotel phu quoc stay hotel central_west duong-dong 4-sao khach san 4 sao tai duong dong. 02972200555 duong dong 4 sao dang hoat dong - trong sdl 27/07/2026 active to 3, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2696,7 +2696,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=M%20Resort#search",
+      "route": "/hotels/?hotel=m-resort",
       "search_text": "m resort stay hotel central_west khach san nghi duong tai cua lap - ba keo. 02972210555 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 4, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2714,7 +2714,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Maison%20Du%20Vietnam%20Resort%20%26%20Spa#search",
+      "route": "/hotels/?hotel=maison-du-vietnam-resort-spa",
       "search_text": "maison du vietnam resort & spa stay hotel central_west 4-sao khach san nghi duong 4 sao tai noi dao - suoi may / suoi da / ben tram. 0909827068; 0918536898 noi dao - suoi may / suoi da / ben tram 4 sao dang hoat dong - trong sdl 27/07/2026 active to 12, ap ben tram, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2732,7 +2732,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Maison%20Hotel#search",
+      "route": "/hotels/?hotel=maison-hotel",
       "search_text": "maison hotel stay hotel central_west duong-dong khach san tai duong dong. 0888668803; 0949266171 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active thua dat so 5, to ban do so 103, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2751,7 +2751,7 @@
       "star_rating": null,
       "operational_status": "upcoming",
       "related_entities": [],
-      "route": "/guide/?q=Marriott%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=marriott-phu-quoc",
       "search_text": "marriott phu quoc stay hotel sap-khai-truong south hon-thom du an luu tru da cong bo tai hon thom, moc du kien q3/2027. hon thom chua xac dinh da cong bo upcoming"
     },
     {
@@ -2776,7 +2776,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Melia%20Vinpearl%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=melia-vinpearl",
       "search_text": "melia vinpearl phu quoc melia vinpearl stay hotel united-center yen-tinh nghi-dai north bai-dai ganh-dau 5-sao united center yen tinh nghi dai khach san 5 sao tai bac dao - bai dai / ganh dau. 02973625888 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2794,7 +2794,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Mercury%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort%20%26%20Villas#search",
+      "route": "/hotels/?hotel=mercury-phu-quoc-resort-villas",
       "search_text": "mercury phu quoc resort & villas stay hotel central_west 4-sao khach san nghi duong 4 sao tai khac / can ra. 02976263999 khac / can ra 4 sao dang hoat dong - trong sdl 27/07/2026 active to 1, ap duong to, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2811,7 +2811,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Mey%20Mansion%20Hotel#search",
+      "route": "/hotels/?hotel=mey-mansion-hotel",
       "search_text": "mey mansion hotel stay hotel central_west khach san tai khac / can ra. 0912029922; 0986469079 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 45,47,49,51,53,55,57,59,61,63 dai lo anh sao, khu dan cu va do thi cao cap hung phat, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2829,7 +2829,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=MoJo%20Boutique#search",
+      "route": "/hotels/?hotel=mojo-boutique",
       "search_text": "mojo boutique stay hotel central_west bai-truong khach san tai bai truong - duong bao. 02976553377; 0944477743 bai truong - duong bao chua xac dinh dang hoat dong - trong sdl 27/07/2026 active lo ss04, khu to hop du lich sonasea villas & resort, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2847,7 +2847,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Mon%20Ami#search",
+      "route": "/hotels/?hotel=mon-ami",
       "search_text": "mon ami stay hotel central_west duong-dong khach san tai duong dong. 02973989200 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 150 nguyen trung truc, kp8, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2871,7 +2871,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=M%C3%B6venpick%20Resort%20Waverly%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=movenpick",
       "search_text": "movenpick resort waverly phu quoc movenpick stay hotel united-center yen-tinh nghi-dai north ong-lang 5-sao united center yen tinh nghi dai khach san nghi duong 5 sao tai ong lang - cua can. 02976592828 ong lang - cua can 5 sao dang hoat dong - trong sdl 27/07/2026 active to 1, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2890,7 +2890,7 @@
       "star_rating": null,
       "operational_status": "upcoming",
       "related_entities": [],
-      "route": "/guide/?q=Moxy%20Phu%20Quoc%20Hon%20Thom#search",
+      "route": "/hotels/?hotel=moxy-phu-quoc-hon-thom",
       "search_text": "moxy phu quoc hon thom stay hotel sap-khai-truong south hon-thom du an luu tru da cong bo tai hon thom, moc du kien q1/2027. hon thom chua xac dinh sap khai truong - chua nhan dat cho upcoming"
     },
     {
@@ -2925,7 +2925,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Muong%20Thanh%20Luxury%20Phu%20Quoc%20Hotel#search",
+      "route": "/hotels/?hotel=muong-thanh-luxury-phu-quoc-hotel",
       "search_text": "muong thanh luxury phu quoc hotel muong thanh phu quoc stay hotel central_west 4-sao khach san 4 sao tai khac / can ra. 02973645555 khac / can ra 4 sao dang hoat dong - trong sdl 27/07/2026 active to 3, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2943,7 +2943,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=M%E1%BB%B9%20Nh%E1%BB%B1t#search",
+      "route": "/hotels/?hotel=my-nhut",
       "search_text": "my nhut stay hotel central_west duong-dong khach san tai duong dong. 0764347579 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 129 ly thuong kiet, kp5, dac khu phu quoc, tinh an giang"
     },
     {
@@ -2960,7 +2960,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=My%20Place%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=my-place-phu-quoc",
       "search_text": "my place phu quoc stay hotel central_west khach san tai cua lap - ba keo. 02973702882; 0899675858 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 1, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3016,7 +3016,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Nesta#search",
+      "route": "/hotels/?hotel=nesta",
       "search_text": "nesta stay hotel central_west duong-dong khach san tai duong dong. 02973998866; 02973998868 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active tang tret so 100c/2 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3039,7 +3039,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=New%20World%20Phu%20Quoc%20Resort#search",
+      "route": "/hotels/?hotel=new-world",
       "search_text": "new world phu quoc resort new world stay hotel nghi-duong honeymoon lich-nam-dao south 5-sao nghi duong honeymoon lich nam dao khach san nghi duong 5 sao tai nam dao - bai khem / mui ong doi. 02973716666 nam dao - bai khem / mui ong doi 5 sao dang hoat dong - trong sdl 27/07/2026 active khu du lich sinh thai bai khem, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3057,7 +3057,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Ng%E1%BB%8Dc%20Ch%C3%A2u#search",
+      "route": "/hotels/?hotel=ngoc-chau",
       "search_text": "ngoc chau stay hotel central_west duong-dong khach san tai duong dong. 02976253838 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 66d tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3075,7 +3075,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Nguy%C3%AAn%20Phan%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=nguyen-phan-phu-quoc",
       "search_text": "nguyen phan phu quoc stay hotel central_west duong-dong khach san tai duong dong. 02973848849; 0906883844 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 76 nguyen trung truc, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3092,7 +3092,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Nh%C3%A0%20kh%C3%A1ch%20-%20Tr%E1%BA%A1m%20giao%20d%E1%BB%8Bch%20v%C3%A9%20s%E1%BB%91%20ki%E1%BA%BFn%20thi%E1%BA%BFt%20C%E1%BA%A7n%20Th%C6%A1#search",
+      "route": "/hotels/?hotel=nha-khach-tram-giao-dich-ve-so-kien-thiet-can-tho",
       "search_text": "nha khach - tram giao dich ve so kien thiet can tho stay hotel central_west khach san tai cua lap - ba keo. 02973994823; 0906946496 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 2, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3110,7 +3110,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Nh%C3%A0%20kh%C3%A1ch%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=nha-khach-phu-quoc",
       "search_text": "nha khach phu quoc stay hotel central_west duong-dong khach san tai duong dong. 0826262999; 0909996262 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 01 nguyen hue, kp5, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3144,7 +3144,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Nh%C3%A0%20Tranh%20-%20Gia%20V%E1%BB%8B#search",
+      "route": "/hotels/?hotel=nha-tranh-gia-vi",
       "search_text": "nha tranh - gia vi stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973848395; 0917785557 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 7 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3210,7 +3210,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Nice%20Life%20Hotel#search",
+      "route": "/hotels/?hotel=nice-life-hotel",
       "search_text": "nice life hotel stay hotel central_west duong-dong khach san tai duong dong. 02973996066; 0919447595 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 88 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3228,7 +3228,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Nipola#search",
+      "route": "/hotels/?hotel=nipola",
       "search_text": "nipola stay hotel central_west duong-dong khach san tai duong dong. 02973696869; 0913974770 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 40 bach dang, kp2, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3253,7 +3253,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Novotel%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=novotel",
       "search_text": "novotel phu quoc novotel stay hotel gia-dinh luxury hoang-hon gan-san-bay central_west bai-truong 5-sao gia dinh luxury hoang hon gan san bay khach san nghi duong 5 sao tai bai truong - duong bao. 02976260999 bai truong - duong bao 5 sao dang hoat dong - trong sdl 27/07/2026 active khu to hop du lich sonasea villas and resort, to 5, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3286,7 +3286,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Ola%20Phu%20Quoc%20Hotel#search",
+      "route": "/hotels/?hotel=ola-phu-quoc-hotel",
       "search_text": "ola phu quoc hotel stay hotel central_west khach san tai cua lap - ba keo. 02973900689; 0788089399 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 2, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3305,7 +3305,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Orange%20Resort#search",
+      "route": "/hotels/?hotel=orange-resort",
       "search_text": "orange resort stay hotel central_west duong-dong 3-sao khach san nghi duong 3 sao tai duong dong. 02973846319 duong dong 3 sao dang hoat dong - trong sdl 27/07/2026 active 88/5 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3322,7 +3322,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=ORI#search",
+      "route": "/hotels/?hotel=ori",
       "search_text": "ori stay hotel central_west khach san tai cua lap - ba keo. 0966638566; 0888129688 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 4, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3339,7 +3339,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Orient%20Resort%20(C%C5%A9%20Vich%20Resort)#search",
+      "route": "/hotels/?hotel=orient-resort-cu-vich-resort",
       "search_text": "orient resort (cu vich resort) stay hotel central_west khach san nghi duong tai dong dao - ham ninh / cay sao. 0989112268 dong dao - ham ninh / cay sao chua xac dinh dang hoat dong - trong sdl 27/07/2026 active so 53, to 8, ap chuong vich, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3394,7 +3394,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Palm%20Hill%20Resort#search",
+      "route": "/hotels/?hotel=palm-hill-resort",
       "search_text": "palm hill resort stay hotel north ong-lang khach san nghi duong tai ong lang - cua can. 02973846725; 0976896868 ong lang - cua can chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 3, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3412,7 +3412,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Paralia#search",
+      "route": "/hotels/?hotel=paralia",
       "search_text": "paralia stay hotel central_west 4-sao khach san 4 sao tai khac / can ra. 0834440496; 0933144039 khac / can ra 4 sao dang hoat dong - trong sdl 27/07/2026 active d107, d109, d111, d115, d129-d131, d133-d135 khu biet thu sun premier village kem beach resort, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3431,7 +3431,7 @@
       "star_rating": 5,
       "operational_status": "upcoming",
       "related_entities": [],
-      "route": "/guide/?q=Park%20Hyatt%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=park-hyatt-phu-quoc",
       "search_text": "park hyatt phu quoc stay hotel sap-khai-truong south 5-sao du an luu tru da cong bo tai nam dao - bai khem / mui ong doi, moc du kien 2027 (dang nhan reservation). 02973991234 nam dao - bai khem / mui ong doi 5 sao sap khai truong - dang nhan dat cho upcoming"
     },
     {
@@ -3461,7 +3461,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Philip%20Cozy%20Bungalow#search",
+      "route": "/hotels/?hotel=philip-cozy-bungalow",
       "search_text": "philip cozy bungalow stay hotel central_west khach san tai khac / can ra. 02973610666 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 131 tran hung dao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3479,7 +3479,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Ph%C3%BA%20H%E1%BB%93ng#search",
+      "route": "/hotels/?hotel=phu-hong",
       "search_text": "phu hong stay hotel central_west duong-dong khach san tai duong dong. 0944131142; 0909094520 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 16 bach dang, kp2, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3500,7 +3500,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Phu%20Quoc%20Eco%20Beach%20Resort#search",
+      "route": "/hotels/?hotel=phu-quoc-eco-beach-resort",
       "search_text": "phu quoc eco beach resort eco beach resort stay hotel north ong-lang 3-sao khach san nghi duong 3 sao tai ong lang - cua can. 02973986986 ong lang - cua can 3 sao dang hoat dong - trong sdl 27/07/2026 active to 3, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3545,7 +3545,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Ph%C3%BA%20Qu%E1%BB%91c%20Ph%E1%BB%A5ng%20H%C6%B0ng#search",
+      "route": "/hotels/?hotel=phu-quoc-phung-hung",
       "search_text": "phu quoc phung hung stay hotel central_west khach san tai khac / can ra. 02973991929; 0899797909 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 60-62 nguyen van cu, kp3, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3598,7 +3598,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Ph%C3%BA%20V%C3%A2n#search",
+      "route": "/hotels/?hotel=phu-van",
       "search_text": "phu van stay hotel central_west duong-dong khach san tai duong dong. 02973997779; 0912405366 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 126 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3616,7 +3616,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Ph%C3%BAc%20L%E1%BB%99c#search",
+      "route": "/hotels/?hotel=phuc-loc",
       "search_text": "phuc loc stay hotel central_west duong-dong khach san tai duong dong. 02973976868; 0919707576 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 193 nguyen trung truc, kp5, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3634,7 +3634,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Ph%C6%B0%C6%A1ng%20%C4%90%C3%B4ng#search",
+      "route": "/hotels/?hotel=phuong-dong",
       "search_text": "phuong dong stay hotel central_west duong-dong khach san tai duong dong. 02973994111; 0913820968 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 19 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3652,7 +3652,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Positano%20Horse#search",
+      "route": "/hotels/?hotel=positano-horse",
       "search_text": "positano horse stay hotel south sunset-town khach san tai sunset town - an thoi. 0908186186; 0828606886 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 2, kp6 (can so 10, duong positano), dac khu phu quoc"
     },
     {
@@ -3672,7 +3672,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=PQ%20Quang%20Trung#search",
+      "route": "/hotels/?hotel=pq-quang-trung",
       "search_text": "pq quang trung p q quang trung stay hotel central_west duong-dong khach san tai duong dong. 0704799233; 0938124437 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 5/24 nguyen an ninh, kp2, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3690,7 +3690,7 @@
       "star_rating": 3,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Praha#search",
+      "route": "/hotels/?hotel=praha",
       "search_text": "praha stay hotel central_west 3-sao khach san 3 sao tai cua lap - ba keo. 0909666685 cua lap - ba keo 3 sao dang hoat dong - trong sdl 27/07/2026 active to 2, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3713,7 +3713,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Premier%20Residences%20Ph%C3%BA%20Qu%E1%BB%91c%20Emerald%20Bay#search",
+      "route": "/hotels/?hotel=premier-residences",
       "search_text": "premier residences phu quoc emerald bay premier residences stay hotel nghi-duong honeymoon lich-nam-dao south 5-sao nghi duong honeymoon lich nam dao khach san nghi duong 5 sao tai nam dao - bai khem / mui ong doi. 02973927777 nam dao - bai khem / mui ong doi 5 sao dang hoat dong - trong sdl 27/07/2026 active kdl sinh thai bai khem, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3736,7 +3736,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Premier%20Village%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=premier-village",
       "search_text": "premier village phu quoc premier village stay hotel nghi-duong honeymoon lich-nam-dao central_west 5-sao nghi duong honeymoon lich nam dao khach san nghi duong 5 sao tai khac / can ra. 02973546666 khac / can ra 5 sao dang hoat dong - trong sdl 27/07/2026 active mui ong doi, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3760,7 +3760,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Pullman%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=pullman",
       "search_text": "pullman phu quoc pullman stay hotel gia-dinh luxury hoang-hon gan-san-bay central_west 5-sao gia dinh luxury hoang hon gan san bay khach san nghi duong 5 sao tai khac / can ra. 02973679999 khac / can ra 5 sao dang hoat dong - trong sdl 27/07/2026 active to 6, xom ban quy, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3777,7 +3777,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Qu%E1%BB%91c%20Th%E1%BA%AFng#search",
+      "route": "/hotels/?hotel=quoc-thang",
       "search_text": "quoc thang stay hotel central_west khach san tai cua lap - ba keo. 02973997779; 0939322227 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 4, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3810,7 +3810,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Qu%E1%BB%B3nh%20Mai%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort#search",
+      "route": "/hotels/?hotel=quynh-mai-phu-quoc-resort",
       "search_text": "quynh mai phu quoc resort stay hotel central_west khach san nghi duong tai noi dao - suoi may / suoi da / ben tram. 02973702998; 0913949081 noi dao - suoi may / suoi da / ben tram chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 5, ap suoi may, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3851,7 +3851,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Radisson%20Blu%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=radisson-blu",
       "search_text": "radisson blu resort phu quoc radisson blu stay hotel united-center yen-tinh nghi-dai north bai-dai ganh-dau 5-sao united center yen tinh nghi dai khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973660000 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3876,7 +3876,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Regent%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=regent",
       "search_text": "regent phu quoc regent stay hotel gia-dinh luxury hoang-hon gan-san-bay central_west bai-truong 5-sao gia dinh luxury hoang hon gan san bay khach san nghi duong 5 sao tai bai truong - duong bao. 02973880000 bai truong - duong bao 5 sao dang hoat dong - trong sdl 27/07/2026 active lo m1, m2, khu phuc hop bai truong, dac khu phu quoc, tinh an giang"
     },
     {
@@ -3894,7 +3894,7 @@
       "star_rating": null,
       "operational_status": "upcoming",
       "related_entities": [],
-      "route": "/guide/?q=Rivora%20Retreat%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=rivora-retreat-phu-quoc",
       "search_text": "rivora retreat phu quoc stay hotel sap-khai-truong central_west du an luu tru da cong bo tai khac / can ra, moc du kien du kien tu 10/2026. khac / can ra chua xac dinh chuan bi van hanh / mo ban ota upcoming"
     },
     {
@@ -3914,7 +3914,7 @@
       "star_rating": 5,
       "operational_status": "upcoming",
       "related_entities": [],
-      "route": "/guide/?q=Rixos%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=rixos-phu-quoc",
       "search_text": "rixos phu quoc stay hotel sap-khai-truong south hon-thom 5-sao du an luu tru da cong bo tai hon thom, moc du kien chua chot ngay tren website. 0889898607 hon thom 5 sao sap khai truong / thuong hieu da cong bo upcoming"
     },
     {
@@ -3932,7 +3932,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Roma%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=roma-hotel-phu-quoc",
       "search_text": "roma hotel phu quoc stay hotel south sunset-town khach san tai sunset town - an thoi. 0899727729 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 312-316 sorrento, khu sun premier village primavera, khu pho 6, dac khu phu quoc"
     },
     {
@@ -3950,7 +3950,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Roma%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c%203#search",
+      "route": "/hotels/?hotel=roma-hotel-phu-quoc-3",
       "search_text": "roma hotel phu quoc 3 stay hotel south sunset-town khach san tai sunset town - an thoi. 0899727729 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 312-316 sorrento, khu sun premier village primavera, khu pho 6, dac khu phu quoc"
     },
     {
@@ -3968,7 +3968,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Rova%20Hotel#search",
+      "route": "/hotels/?hotel=rova-hotel",
       "search_text": "rova hotel stay hotel south sunset-town khach san tai sunset town - an thoi. 0971186868 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 41-43 positano, khu sun premier village primavera, dac khu phu quoc"
     },
     {
@@ -3985,7 +3985,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Ru%20By#search",
+      "route": "/hotels/?hotel=ru-by",
       "search_text": "ru by stay hotel central_west khach san tai khac / can ra. 0902792793 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 1, ap suoi lon, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4043,7 +4043,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Saigon%20Phu%20Quoc%20Resort%20%26%20Spa#search",
+      "route": "/hotels/?hotel=saigon-phu-quoc-resort-spa",
       "search_text": "saigon phu quoc resort & spa sai gon phu quoc stay hotel central_west duong-dong 4-sao khach san nghi duong 4 sao tai duong dong. 02973846999 duong dong 4 sao dang hoat dong - trong sdl 27/07/2026 active 62 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4064,7 +4064,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sailing%20Club%20Signature%20Resort%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=sailing-club-signature-resort-phu-quoc",
       "search_text": "sailing club signature resort phu quoc sailing club phu quoc stay hotel central_west bai-truong 5-sao khach san nghi duong 5 sao tai bai truong - duong bao. 02973559888 bai truong - duong bao 5 sao dang hoat dong - trong sdl 27/07/2026 active lo n8, n9, n10, n11, n12, n13, n14, n14a, x11, x12 khu phuc hop bai truong, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4082,7 +4082,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sakurakyo%20Hotel%20%26%20Spa#search",
+      "route": "/hotels/?hotel=sakurakyo-hotel-spa",
       "search_text": "sakurakyo hotel & spa stay hotel south sunset-town khach san tai sunset town - an thoi. 0978965483 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active a44-a406, amalfi, kdt the center, to 10, khu pho 6 - an thoi, dac khu phu quoc"
     },
     {
@@ -4100,7 +4100,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Salinda%20Resort#search",
+      "route": "/hotels/?hotel=salinda-resort",
       "search_text": "salinda resort stay hotel central_west 5-sao khach san nghi duong 5 sao tai cua lap - ba keo. 02973990011 cua lap - ba keo 5 sao dang hoat dong - trong sdl 27/07/2026 active to 1, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4156,7 +4156,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sea%20Sense%20Resort#search",
+      "route": "/hotels/?hotel=sea-sense-resort",
       "search_text": "sea sense resort stay hotel north ong-lang 4-sao khach san nghi duong 4 sao tai ong lang - cua can. 02977309899 ong lang - cua can 4 sao dang hoat dong - trong sdl 27/07/2026 active to 3, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4174,7 +4174,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Seahorse%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=seahorse-phu-quoc",
       "search_text": "seahorse phu quoc stay hotel central_west bai-truong khach san tai bai truong - duong bao. 0918930464; 0813924669 bai truong - duong bao chua xac dinh dang hoat dong - trong sdl 27/07/2026 active can v50 va v51 lo sv12 duong donasea 01 thuoc khu to hop dl sonasea and resort, to 5, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4192,7 +4192,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Seahorse%20Ph%C3%BA%20Qu%E1%BB%91c%20II#search",
+      "route": "/hotels/?hotel=seahorse-phu-quoc-ii",
       "search_text": "seahorse phu quoc ii stay hotel central_west bai-truong khach san tai bai truong - duong bao. 0813924669; 0916661115 bai truong - duong bao chua xac dinh dang hoat dong - trong sdl 27/07/2026 active can v07-v08, lo 09 duong donasea 01 thuoc khu to hop dl sonasea and resort, to 5, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4213,7 +4213,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Seashells%20Phu%20Quoc%20Hotel%20%26%20Spa#search",
+      "route": "/hotels/?hotel=seashells-phu-quoc-hotel-spa",
       "search_text": "seashells phu quoc hotel & spa seashells hotel and spa stay hotel central_west duong-dong 5-sao khach san 5 sao tai duong dong. 02973923999 duong dong 5 sao dang hoat dong - trong sdl 27/07/2026 active so 01 vo thi sau, kp2, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4249,7 +4249,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=SEN#search",
+      "route": "/hotels/?hotel=sen",
       "search_text": "sen stay hotel central_west duong-dong khach san tai duong dong. 0979323589 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active hem 63, tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4267,7 +4267,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sentina#search",
+      "route": "/hotels/?hotel=sentina",
       "search_text": "sentina stay hotel south sunset-town khach san tai sunset town - an thoi. 0834292868 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 16 venice, sunset town, dac khu phu quoc"
     },
     {
@@ -4292,7 +4292,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sheraton%20Ph%C3%BA%20Qu%E1%BB%91c%20Long%20Beach%20Resort#search",
+      "route": "/hotels/?hotel=sheraton",
       "search_text": "sheraton phu quoc long beach resort sheraton stay hotel united-center yen-tinh nghi-dai north bai-dai ganh-dau 5-sao united center yen tinh nghi dai khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973619999 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4334,7 +4334,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=SOL%20by%20Meli%C3%A1%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=sol-by-melia",
       "search_text": "sol by melia phu quoc sol by melia stay hotel gia-dinh luxury hoang-hon gan-san-bay central_west 5-sao gia dinh luxury hoang hon gan san bay khach san 5 sao tai khac / can ra. 02973869999 khac / can ra 5 sao dang hoat dong - trong sdl 27/07/2026 active to 2, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4353,7 +4353,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sonaga%20Beach%20Resort#search",
+      "route": "/hotels/?hotel=sonaga-beach-resort",
       "search_text": "sonaga beach resort stay hotel central_west bai-truong 5-sao khach san nghi duong 5 sao tai bai truong - duong bao. 02972678888; 0988856606 bai truong - duong bao 5 sao dang hoat dong - trong sdl 27/07/2026 active khu to hop dl sonasea villas & resort, to 5, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4371,7 +4371,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Star%20Hill%20Resort#search",
+      "route": "/hotels/?hotel=star-hill-resort",
       "search_text": "star hill resort stay hotel central_west duong-dong khach san nghi duong tai duong dong. 0933936247 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 7, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4389,7 +4389,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Stellar#search",
+      "route": "/hotels/?hotel=stellar",
       "search_text": "stellar stay hotel central_west duong-dong khach san tai duong dong. 02973979779; 0855452299 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 63 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4420,7 +4420,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Suncosy%20Central%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=suncosy-central-resort-phu-quoc",
       "search_text": "suncosy central resort phu quoc stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973977888; 0989896265 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 47/8 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4437,7 +4437,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sunrise%20Boutique#search",
+      "route": "/hotels/?hotel=sunrise-boutique",
       "search_text": "sunrise boutique stay hotel central_west khach san tai khac / can ra. 02976268111 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 51-53 tran hung dao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4456,7 +4456,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sunset%20Beach%20Resort%20%26%20Spa#search",
+      "route": "/hotels/?hotel=sunset-beach-resort-spa",
       "search_text": "sunset beach resort & spa stay hotel central_west duong-dong 4-sao khach san nghi duong 4 sao tai duong dong. 0977287777 duong dong 4 sao dang hoat dong - trong sdl 27/07/2026 active 100c/2 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4474,7 +4474,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Sunset%20Sanato#search",
+      "route": "/hotels/?hotel=sunset-sanato",
       "search_text": "sunset sanato stay hotel central_west 5-sao khach san nghi duong 5 sao tai khac / can ra. 02976266662 khac / can ra 5 sao dang hoat dong - trong sdl 27/07/2026 active to 3, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4515,7 +4515,7 @@
       "star_rating": 2,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Suny%20Hotel#search",
+      "route": "/hotels/?hotel=suny-hotel",
       "search_text": "suny hotel stay hotel central_west duong-dong 2-sao khach san 2 sao tai duong dong. 02973999099 duong dong 2 sao dang hoat dong - trong sdl 27/07/2026 active nguyen dinh chieu, to 8, kp2, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4548,7 +4548,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Su%E1%BB%91i%20M%C3%A2y%20Garden#search",
+      "route": "/hotels/?hotel=suoi-may-garden",
       "search_text": "suoi may garden stay hotel central_west khach san tai noi dao - suoi may / suoi da / ben tram. 0902429663; 0364790289 noi dao - suoi may / suoi da / ben tram chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 5, ap suoi may, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4618,7 +4618,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=T%C3%A0i%20Phong%20Ti%E1%BA%BFn#search",
+      "route": "/hotels/?hotel=tai-phong-tien",
       "search_text": "tai phong tien stay hotel central_west khach san tai khac / can ra. 0946758877 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 137 tran hung dao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4654,7 +4654,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=T%C3%A2n%20Anh%20Tu%E1%BA%A5n#search",
+      "route": "/hotels/?hotel=tan-anh-tuan",
       "search_text": "tan anh tuan stay hotel central_west duong-dong khach san tai duong dong. 02973848857; 02973981076 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 102 duong 30/4, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4672,7 +4672,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=T%C3%A2n%20Anh%20Tu%E1%BA%A5n%202#search",
+      "route": "/hotels/?hotel=tan-anh-tuan-2",
       "search_text": "tan anh tuan 2 stay hotel central_west duong-dong khach san tai duong dong. 02973981072; 02973981075 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 179 duong 30/4, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4690,7 +4690,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Th%C3%A1i%20Ho%C3%A0ng%20Gia#search",
+      "route": "/hotels/?hotel=thai-hoang-gia",
       "search_text": "thai hoang gia stay hotel central_west duong-dong khach san tai duong dong. 02973993050 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 89 nguyen trung truc, kp4, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4708,7 +4708,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Thala%20Hotel#search",
+      "route": "/hotels/?hotel=thala-hotel",
       "search_text": "thala hotel stay hotel south sunset-town khach san tai sunset town - an thoi. 0934625266 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 239-241 sorrento, tt. hoang hon, dac khu phu quoc"
     },
     {
@@ -4748,7 +4748,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Th%C3%A0nh%20Trung#search",
+      "route": "/hotels/?hotel=thanh-trung",
       "search_text": "thanh trung stay hotel central_west duong-dong khach san tai duong dong. 02973775775; 0918312042 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 14/1 duong 30/4, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4769,7 +4769,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=The%20Shells%20Resort%20%26%20Spa%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=the-shells-resort-spa-phu-quoc",
       "search_text": "the shells resort & spa phu quoc the shell resort & spa phu quoc stay hotel central_west duong-dong 5-sao khach san nghi duong 5 sao tai duong dong. 02973718888 duong dong 5 sao dang hoat dong - trong sdl 27/07/2026 active to 18, kp9, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4787,7 +4787,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=The%20Up%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=the-up-phu-quoc",
       "search_text": "the up phu quoc stay hotel central_west 4-sao khach san 4 sao tai cua lap - ba keo. 0922186588 cua lap - ba keo 4 sao dang hoat dong - trong sdl 27/07/2026 active thua dat so 253, to ban do so 10, to 3, khu pho cua lap, dac khu phu quoc"
     },
     {
@@ -4805,7 +4805,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Thi%20Long%20Ph%E1%BB%A5ng#search",
+      "route": "/hotels/?hotel=thi-long-phung",
       "search_text": "thi long phung stay hotel central_west duong-dong khach san tai duong dong. 02973990777; 0912429420 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 155 duong 30/4, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4824,7 +4824,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Thi%C3%AAn%20Thanh%20Resort#search",
+      "route": "/hotels/?hotel=thien-thanh-resort",
       "search_text": "thien thanh resort stay hotel central_west duong-dong 5-sao khach san nghi duong 5 sao tai duong dong. 02973983111; 02973983113 duong dong 5 sao dang hoat dong - trong sdl 27/07/2026 active 78 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4905,7 +4905,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Thu%E1%BA%ADn%20H%E1%BA%A3i#search",
+      "route": "/hotels/?hotel=thuan-hai",
       "search_text": "thuan hai stay hotel central_west duong-dong khach san tai duong dong. 02973848779; 0913820757 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 26 nguyen du, kp2, dac khu phu quoc, tinh an giang"
     },
     {
@@ -4923,7 +4923,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Times%20Corner%20Amalfi#search",
+      "route": "/hotels/?hotel=times-corner-amalfi",
       "search_text": "times corner amalfi stay hotel south sunset-town khach san tai sunset town - an thoi. 0949075099 sunset town - an thoi chua xac dinh dang hoat dong - trong sdl 27/07/2026 active a48-a50-a52-a54 duong amalfi dia trung hai, dac khu phu quoc"
     },
     {
@@ -4940,7 +4940,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Times%20Corner%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=times-corner-phu-quoc",
       "search_text": "times corner phu quoc stay hotel central_west khach san tai khac / can ra. 02793669988 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active tang 1, toa sor 201 dia trung hai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5001,7 +5001,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Tropicana%20Resort#search",
+      "route": "/hotels/?hotel=tropicana-resort",
       "search_text": "tropicana resort stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973847127 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 100c/4 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5054,7 +5054,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=T%C3%B9ng%20H%C6%B0%C6%A1ng#search",
+      "route": "/hotels/?hotel=tung-huong",
       "search_text": "tung huong stay hotel central_west duong-dong khach san tai duong dong. 0765454136 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 11 duong 30/4, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5072,7 +5072,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Tuy%E1%BA%BFt%20Hi%E1%BB%83n#search",
+      "route": "/hotels/?hotel=tuyet-hien",
       "search_text": "tuyet hien stay hotel central_west duong-dong khach san tai duong dong. 02976586464; 0909366933 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 77 duong 30/4, kp1, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5172,7 +5172,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Uy%C3%AAn%20Gia#search",
+      "route": "/hotels/?hotel=uyen-gia",
       "search_text": "uyen gia stay hotel central_west duong-dong khach san tai duong dong. 0985565000 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 42 chu van an, kp5, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5210,7 +5210,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Valentina%20Resort#search",
+      "route": "/hotels/?hotel=valentina-resort",
       "search_text": "valentina resort stay hotel central_west khach san nghi duong tai cua lap - ba keo. 0972347456 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 6, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5242,7 +5242,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Venice%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=venice-hotel-phu-quoc",
       "search_text": "venice hotel phu quoc stay hotel south sunset-town 4-sao khach san 4 sao tai sunset town - an thoi. 0898522528 sunset town - an thoi 4 sao dang hoat dong - trong sdl 27/07/2026 active 15-17 venice, khu sun premier village primavera, khu pho 6, dac khu phu quoc"
     },
     {
@@ -5259,7 +5259,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Venus%20Hotel%20-%20Sky%20Bar%20-%20Massage#search",
+      "route": "/hotels/?hotel=venus-hotel-sky-bar-massage",
       "search_text": "venus hotel - sky bar - massage stay hotel central_west khach san tai khac / can ra. 0966683683 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 60 tran hung dao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5300,7 +5300,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=VinHolidays%20Fiesta%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=vinholidays-fiesta-phu-quoc",
       "search_text": "vinholidays fiesta phu quoc stay hotel north bai-dai ganh-dau 4-sao khach san 4 sao tai bac dao - bai dai / ganh dau. 02973681888 bac dao - bai dai / ganh dau 4 sao dang hoat dong - trong sdl 27/07/2026 active kdl bai dai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5333,7 +5333,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Vinpearl%20Resort%20%26%20Spa%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=vinpearl-resort-spa-phu-quoc",
       "search_text": "vinpearl resort & spa phu quoc stay hotel north bai-dai ganh-dau 5-sao khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973998999 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5387,7 +5387,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Vinpearl%20Wonderworld%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=vinpearl-wonderworld-phu-quoc",
       "search_text": "vinpearl wonderworld phu quoc stay hotel north bai-dai ganh-dau 5-sao khach san 5 sao tai bac dao - bai dai / ganh dau. 02973779888 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5491,7 +5491,7 @@
       "star_rating": null,
       "operational_status": "upcoming",
       "related_entities": [],
-      "route": "/guide/?q=W%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=w-phu-quoc",
       "search_text": "w phu quoc stay hotel sap-khai-truong south hon-thom du an luu tru da cong bo tai hon thom, moc du kien q3/2027. hon thom chua xac dinh da cong bo upcoming"
     },
     {
@@ -5508,7 +5508,7 @@
       "star_rating": null,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Wildland%20Resort#search",
+      "route": "/hotels/?hotel=wildland-resort",
       "search_text": "wildland resort stay hotel central_west khach san nghi duong tai dong dao - ham ninh / cay sao. 0902806881; 0971515158 dong dao - ham ninh / cay sao chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 5, ap cay sao, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5528,7 +5528,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=WorldHotels%20Long%20Beach%20Resort%20Phu%20Quoc#search",
+      "route": "/hotels/?hotel=worldhotels-long-beach-resort-phu-quoc",
       "search_text": "worldhotels long beach resort phu quoc worldhotel long beach resort phu quoc stay hotel central_west 5-sao khach san nghi duong 5 sao tai cua lap - ba keo. 02973981818 cua lap - ba keo 5 sao dang hoat dong - trong sdl 27/07/2026 active so 152 tran hung dao, khu pho cua lap duong to, dac khu phu quoc"
     },
     {
@@ -5548,7 +5548,7 @@
       "star_rating": 4,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Wyndham%20Garden%20Grandworld#search",
+      "route": "/hotels/?hotel=wyndham-garden-grandworld",
       "search_text": "wyndham garden grandworld stay hotel north bai-dai ganh-dau 4-sao khach san nghi duong 4 sao tai bac dao - bai dai / ganh dau. 02973612999 bac dao - bai dai / ganh dau 4 sao dang hoat dong - trong sdl 27/07/2026 active khu dl bai dai, dac khu phu quoc, tinh an giang"
     },
     {
@@ -5568,7 +5568,7 @@
       "star_rating": 5,
       "operational_status": "active",
       "related_entities": [],
-      "route": "/guide/?q=Wyndham%20Grand%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "route": "/hotels/?hotel=wyndham-grand-phu-quoc",
       "search_text": "wyndham grand phu quoc stay hotel north bai-dai ganh-dau 5-sao khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973691555 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
     }
   ]
