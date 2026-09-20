@@ -4216,17 +4216,28 @@ body.sheet-open{
 }
 
 
-/* V3.4 - measured island pulse speed */
+/* V3.5 - reliable island pulse speed across desktop + iOS */
+#top>.energy-ticker{--ticker-duration:14s}
+
 .motion-on .ticker-track,
 .ticker-track,
 .motion-on #top>.energy-ticker .ticker-track,
 #top>.energy-ticker .ticker-track{
-  animation-duration:var(--ticker-duration,11s)!important;
+  animation-name:tickerMove!important;
+  animation-duration:var(--ticker-duration)!important;
+  animation-timing-function:linear!important;
+  animation-iteration-count:infinite!important;
+  animation-play-state:running!important;
 }
-#top>.energy-ticker:hover .ticker-track{animation-play-state:paused}
-@media (prefers-reduced-motion:reduce){
-  .ticker-track{
-    animation:none!important;
-    transform:none!important;
+
+@media (max-width:760px){
+  #top>.energy-ticker{--ticker-duration:8.5s}
+  .motion-on #top>.energy-ticker .ticker-track,
+  #top>.energy-ticker .ticker-track{
+    animation-name:tickerMoveMobile!important;
   }
+}
+
+@media (hover:hover) and (pointer:fine){
+  #top>.energy-ticker:hover .ticker-track{animation-play-state:paused!important}
 }
