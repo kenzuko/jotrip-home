@@ -22,9 +22,23 @@ The 150-file is the topic list + crawl specification, not finished article copy.
   - Important correction: scheduled fast boats are passenger-focused but not universally passenger-only.
   - Ferry vehicle carriage is verified directly from current Thạnh Thới vehicle ticketing.
 
+## Completed in P0 batch 04
+- 088 ATM - NEEDS_VERIFICATION; historical ATM/CDM evidence is kept separate from current banking addresses.
+- 091 Pharmacy - PARTIAL_VERIFIED; exact operator branch data exists but branch count/current hours still need point-level lock.
+- 092 Clinic / Hospital - PARTIAL_VERIFIED; current Vinmec hospital, 24/7 emergency department and Dương Đông clinic verified.
+- 093 Toilet - DISCOVERY; no island-wide public point dataset accepted yet.
+- 094 Parking - DISCOVERY.
+- 095 Fuel stations - DISCOVERY; operator locator exists but exact Phú Quốc retail points still need current verification.
+- 096 Minimart - DISCOVERY; WinMart+ 2026 Phú Quốc rollout verified, exact current stores pending.
+- 097 Shower / changing room / locker - DISCOVERY.
+
+## Completed in P0 batch 05
+- 138 Phú Quốc khi trời mưa - PARTIAL_VERIFIED.
+  - Rainy-day suitability belongs to sub-attraction/experience, not automatically to the whole parent destination.
+  - Cung điện Hải Vương and Teddy Bear Museum are verified indoor candidates with current operator hours.
+  - Fish-sauce houses remain candidate covered experiences until visitor access/hours are verified per house.
+
 ## Next P0 crawl
-- Toilet / ATM / pharmacy / parking / fuel / minimart
-- Phú Quốc khi trời mưa
 
 ## Rules
 - Research objects first, article rendering later.

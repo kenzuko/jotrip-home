@@ -1,0 +1,156 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "p0_batch_04b",
+  "created_at": "2026-09-20",
+  "scope": "Utility categories where exact current public POI data is still incomplete. Discovery findings are kept without fabricating Near Me points.",
+  "topics": [
+    {
+      "backlog_no": 93,
+      "topic_id": "topic_093_toilet",
+      "title": "Toilet",
+      "canonical_id": "utility_type_TOILET",
+      "entity_type": "utility_topic",
+      "crawl_status": "DISCOVERY",
+      "verified_at": "2026-09-20",
+      "claims": [],
+      "sources": [],
+      "known_unknowns": [
+        "No sufficiently sourced island-wide public-toilet point dataset has been locked yet.",
+        "Need public/private, fee, hours, accessibility and exact coordinates per point."
+      ],
+      "next_research": [
+        "Extract toilets from official attraction and transport-node facility maps.",
+        "Field-verify municipal/public toilets.",
+        "Never infer public access from a toilet inside a private business."
+      ]
+    },
+    {
+      "backlog_no": 94,
+      "topic_id": "topic_094_parking",
+      "title": "Parking",
+      "canonical_id": "utility_type_PARKING",
+      "entity_type": "utility_topic",
+      "crawl_status": "DISCOVERY",
+      "verified_at": "2026-09-20",
+      "claims": [],
+      "sources": [],
+      "known_unknowns": [
+        "Exact public parking boundaries, vehicle types, fees and hours are not yet normalized."
+      ],
+      "next_research": [
+        "Start from official attraction, market and transport-node parking instructions.",
+        "Separate motorbike and car access/fees.",
+        "Relate each parking point to place_id."
+      ]
+    },
+    {
+      "backlog_no": 95,
+      "topic_id": "topic_095_fuel",
+      "title": "Fuel stations",
+      "canonical_id": "utility_type_FUEL",
+      "entity_type": "utility_topic",
+      "crawl_status": "DISCOVERY",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "fuel_petrolimex_locator",
+          "claim": "Petrolimex maintains an official store-locator surface and current 2026 Petrolimex An Giang/PKC communications show active market coordination in the province, but this crawl has not yet obtained a current official Phú Quốc station list with exact addresses and hours.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_fuel_petrolimex_locator",
+            "src_fuel_petrolimex_ag_2026"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_fuel_petrolimex_locator",
+          "source_type": "OPERATOR",
+          "publisher": "Petrolimex",
+          "title": "Official store locator",
+          "url": "https://www.petrolimex.com.vn/",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fuel_petrolimex_ag_2026",
+          "source_type": "OPERATOR",
+          "publisher": "Petrolimex An Giang",
+          "title": "Petrolimex An Giang và PKC giao ban công tác phối hợp thị trường",
+          "url": "https://angiang.petrolimex.com.vn/nd/tin-hd/petrolimex-an-giang-va-pkc-giao-ban-cong-tac-phoi-hop-thi-truong.html",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current official station list on Phú Quốc.",
+        "Hours, fuel types and payment methods per station.",
+        "Which sites are retail stations suitable for visitors."
+      ],
+      "next_research": [
+        "Query operator locators interactively or field-verify station IDs.",
+        "Cross-check PVOIL and other licensed operators.",
+        "Do not publish generic map listings until operator/name/address are confirmed."
+      ]
+    },
+    {
+      "backlog_no": 96,
+      "topic_id": "topic_096_minimart",
+      "title": "Minimart / convenience store",
+      "canonical_id": "utility_type_MINIMART",
+      "entity_type": "utility_topic",
+      "crawl_status": "DISCOVERY",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "minimart_winmart_expansion",
+          "claim": "WinCommerce recruitment material for 2026 says WinMart+ is opening in Phú Quốc and recruits across Dương Đông, Dương Tơ, Cửa Dương, Cửa Cạn, Gành Dầu, Hàm Ninh, An Thới, Bãi Thơm and Thổ Châu. This verifies rollout, not exact store locations or operating hours.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_minimart_winmart_recruit"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_minimart_winmart_recruit",
+          "source_type": "OPERATOR",
+          "publisher": "WinCommerce / WinMart+",
+          "title": "[WINMART+ PHÚ QUỐC] tuyển dụng cửa hàng mở mới từ tháng 7/2026",
+          "url": "https://tuyendung.winmart.vn/job/winmart-phu-quoc-nhan-vien-ban-hangcua-hang-truongcua-hang-truong-tiem-nang-55264",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Exact current store addresses and opening dates.",
+        "Branch-specific operating hours and 24h status.",
+        "Other convenience chains with verified operator listings."
+      ],
+      "next_research": [
+        "Capture official store locator once Phú Quốc branches appear.",
+        "Field-check newly opened branches.",
+        "Never infer 24h status from chain name."
+      ]
+    },
+    {
+      "backlog_no": 97,
+      "topic_id": "topic_097_shower_locker",
+      "title": "Shower / changing room / locker",
+      "canonical_id": "utility_type_SHOWER_LOCKER",
+      "entity_type": "utility_topic",
+      "crawl_status": "DISCOVERY",
+      "verified_at": "2026-09-20",
+      "claims": [],
+      "sources": [],
+      "known_unknowns": [
+        "No island-wide reliable dataset yet.",
+        "Facilities are often embedded inside beaches, attractions or transport nodes, so public access and fees must be verified per place."
+      ],
+      "next_research": [
+        "Crawl official attraction and beach facility maps/FAQs.",
+        "Store relation to place_id and access conditions.",
+        "Never assume resort facilities are public."
+      ]
+    }
+  ]
+}
