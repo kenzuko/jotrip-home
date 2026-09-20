@@ -36,13 +36,16 @@
 
     const ferry=live.ferry||{};
     const marine=live.marine||{};
-    if(ferry.status==="unknown" && marine.status==="unknown"){
+    const transport=live.transport||{};
+    const transportStatus=transport.status||((ferry.status==="unknown"&&marine.status==="unknown")?"unknown":(ferry.status==="watch"||marine.status==="watch")?"watch":"normal");
+    const stateLabel=value=>({DIRECT_CONFIRMED:"Đã xác nhận",FIELD_REQUIRED:"Cần xác nhận",RUNNING:"Đang hoạt động",SUSPENDED:"Tạm dừng",UNKNOWN:"Chưa rõ"})[value]||"Chưa rõ";
+    const transportSummary="Cano: "+stateLabel(signals.cano_state)+" · Tàu cao tốc: "+stateLabel(signals.fast_boat_state)+" · Phà: "+stateLabel(signals.ferry_state);
+    if(transportStatus==="unknown"){
       out.push(item("marine-unknown","TRANSPORT","Vận hành biển chưa đủ dữ liệu","Cano, tàu cao tốc và phà cần được kiểm tra trực tiếp trước khi đi.","unknown","/ferry/",{}));
-    }else if(ferry.status==="watch" || marine.status==="watch"){
-      const stateLabel=value=>({DIRECT_CONFIRMED:"Đã xác nhận",FIELD_REQUIRED:"Cần xác nhận",RUNNING:"Đang hoạt động",SUSPENDED:"Tạm dừng",UNKNOWN:"Chưa rõ"})[value]||"Chưa rõ";
-      out.push(item("marine-watch","TRANSPORT","Vận hành biển cần xác nhận","Cano: "+stateLabel(signals.cano_state)+" · Phà: "+stateLabel(signals.ferry_state),"watch","/ferry/",{}));
+    }else if(transportStatus==="watch"){
+      out.push(item("marine-watch","TRANSPORT","Có nhóm vận hành biển cần kiểm tra",transportSummary,"watch","/ferry/",{}));
     }else{
-      out.push(item("marine-status","TRANSPORT","Xem trạng thái tàu, phà và cano","Các loại phương tiện biển được tách riêng theo bằng chứng vận hành.","normal","/ferry/",{}));
+      out.push(item("marine-status","TRANSPORT","Đã có xác nhận riêng cho từng nhóm",transportSummary,"normal","/ferry/",{}));
     }
 
     const airport=live.airport||{};

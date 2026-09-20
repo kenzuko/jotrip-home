@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-20",
+  "bindings": [
+    {
+      "entity_id": "access_air",
+      "live_id": "live_airport",
+      "source_id": "airport_live",
+      "category": "flight",
+      "route": "/airport/"
+    },
+    {
+      "entity_id": "access_airport_transfer",
+      "live_id": "live_airport",
+      "source_id": "airport_live",
+      "category": "airport_transfer",
+      "route": "/airport/"
+    },
+    {
+      "entity_id": "access_fast_boat",
+      "live_id": "live_transport",
+      "source_id": "transit_live",
+      "operational_source_id": "marine_ops",
+      "category": "fast_boat",
+      "route": "/ferry/"
+    },
+    {
+      "entity_id": "access_ferry",
+      "live_id": "live_transport",
+      "source_id": "transit_live",
+      "operational_source_id": "marine_ops",
+      "category": "ferry",
+      "route": "/ferry/"
+    }
+  ]
+}

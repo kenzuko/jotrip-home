@@ -17,6 +17,7 @@ const rootFiles=[
   "subpage.css",
   "island-clock.js",
   "live-module.css",
+  "live-module-v2.css",
   ".nojekyll"
 ];
 const dirs=[

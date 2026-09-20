@@ -207,12 +207,20 @@
 
     const ferryState = marine?.categories?.ferry?.state;
     const fastState = marine?.categories?.fast_boat?.state;
+    const marineStamp = marine?.collected_at_vn || marine?.generated_at || null;
+    const marineAge = ageMinutes(marineStamp);
+    const operationalStates = [canoState, fastState, ferryState].filter(Boolean);
+    const marineOverall = !marine || !operationalStates.length || marineAge > 1440
+      ? "unknown"
+      : operationalStates.some(x => x === "SUSPENDED" || x === "FIELD_REQUIRED")
+        ? "watch"
+        : operationalStates.every(x => x === "RUNNING" || x === "DIRECT_CONFIRMED") ? "normal" : "unknown";
 
     setLive(
       "ferry",
       marine ? stateText(ferryState) : "Chưa có dữ liệu",
       !marine ? "Nguồn vận hành chưa tải được" : "Phà · kiểm tra bằng chứng vận hành",
-      !marine ? "unknown" : ferryState === "DIRECT_CONFIRMED" ? "good" : ferryState === "FIELD_REQUIRED" ? "watch" : "unknown"
+      !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "good" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown"
     );
     if (!marine) {
       setHappening("marine", "Chưa tải được trạng thái vận hành biển", "Không dùng thiếu dữ liệu để kết luận đang chạy bình thường.", "CHƯA CÓ", false);
@@ -316,8 +324,21 @@
         },
         ferry: {
           primary: marine ? stateText(ferryState) : "Chưa có dữ liệu",
-          status: !marine ? "unknown" : ferryState === "DIRECT_CONFIRMED" ? "normal" : ferryState === "FIELD_REQUIRED" ? "watch" : "unknown",
-          source_class: "DIRECT_OPERATIONAL"
+          status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
+          source_class: "DIRECT_OPERATIONAL",
+          source_updated_at: marineStamp
+        },
+        transport: {
+          primary: marineOverall === "normal" ? "Đã có xác nhận vận hành" : marineOverall === "watch" ? "Có nhóm cần kiểm tra" : "Chưa đủ dữ liệu",
+          status: marineOverall,
+          source_class: "DIRECT_OPERATIONAL",
+          source_updated_at: marineStamp,
+          freshness: !marine || !Number.isFinite(marineAge) ? "unknown" : marineAge <= 720 ? "fresh" : marineAge <= 1440 ? "aging" : "stale",
+          categories: {
+            cano: canoState || "UNKNOWN",
+            fast_boat: fastState || "UNKNOWN",
+            ferry: ferryState || "UNKNOWN"
+          }
         },
         marine: {
           primary: marine ? stateText(canoState) : "Chưa có dữ liệu",

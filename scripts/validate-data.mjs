@@ -124,6 +124,24 @@ try{
   errors.push("place-planning-levels.json invalid or missing: "+error.message);
 }
 
+const liveBindingsPath=path.join(root,"data","views","live-bindings.json");
+try{
+  const payload=JSON.parse(fs.readFileSync(liveBindingsPath,"utf8"));
+  const seen=new Set();
+  const allowedLiveIds=new Set(["live_airport","live_transport","live_weather","live_marine"]);
+  for(const binding of payload.bindings||[]){
+    const key=binding.entity_id+":"+binding.category;
+    if(seen.has(key)) errors.push("duplicate live binding: "+key);
+    seen.add(key);
+    if(!knownIds.has(binding.entity_id)) errors.push("live binding references missing entity: "+binding.entity_id);
+    if(!allowedLiveIds.has(binding.live_id)) errors.push(binding.entity_id+": unsupported live_id "+binding.live_id);
+    if(!binding.source_id) errors.push(binding.entity_id+": live binding missing source_id");
+    if(!binding.route||!String(binding.route).startsWith("/")) errors.push(binding.entity_id+": live binding has invalid route");
+  }
+}catch(error){
+  errors.push("live-bindings.json invalid or missing: "+error.message);
+}
+
 for(const warning of warnings) console.warn("WARN",warning);
 
 if(errors.length){
