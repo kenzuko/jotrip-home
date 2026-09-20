@@ -33,6 +33,14 @@ jobs:
         run: node scripts/validate-data.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Validate Cloudflare CMS bundle
+        run: |
+          node scripts/build-cloudflare.mjs
+          test -f dist/about/index.html
+          test -f dist/about/about.css
+          test -f dist/visual-context.css
+          test -f dist/visual-context.js
+          rm -rf dist
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
