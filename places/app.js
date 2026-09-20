@@ -16,7 +16,7 @@ const zoneLabel={
 
 function visualFor(x){
   const images=state.visuals?.places?.[x.id]?.images||[];
-  return window.OpenPQVisual?.pickHero?.(images)||images[0]||null;
+  return window.OpenPQVisual?.pickHero?.(images)||images.find(v=>v?.url&&v.hero_eligible!==false)||null;
 }
 function zoneInitial(x){
   const label=zoneLabel[x.zone_id]||"Phú Quốc";
