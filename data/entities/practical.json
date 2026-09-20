@@ -274,6 +274,30 @@
         }
       ],
       "updated_at": "2026-09-12"
+    },
+    {
+      "id": "practical_sea_transport_modes",
+      "legacy_id": "cano-fast-boat-ferry",
+      "entity_type": "practical",
+      "slug": "cano-fast-boat-ferry",
+      "name": "Cano - tàu cao tốc - phà khác nhau thế nào?",
+      "aliases": [
+        "cano vs fast boat vs ferry",
+        "cách phân biệt cano tàu cao tốc phà"
+      ],
+      "what_it_is": "Giải thích ba nhóm phương tiện biển thường bị gọi lẫn khi đi Phú Quốc.",
+      "why_go": "",
+      "intents": [
+        "practical",
+        "transport",
+        "sea"
+      ],
+      "source_refs": [
+        {
+          "source_id": "crawl_topic_074_sea_transport_modes"
+        }
+      ],
+      "updated_at": "2026-09-20"
     }
   ]
 }

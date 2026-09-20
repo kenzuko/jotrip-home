@@ -17,8 +17,12 @@ The 150-file is the topic list + crawl specification, not finished article copy.
 - 115 Chó Phú Quốc - PARTIAL_VERIFIED
 - 116 Chó Phú Quốc có thật sự leo cây? - NEEDS_VERIFICATION, curiosity claim not published as plain fact
 
+## Completed in P0 batch 03
+- 074 Cano - tàu cao tốc - phà khác nhau thế nào - PARTIAL_VERIFIED
+  - Important correction: scheduled fast boats are passenger-focused but not universally passenger-only.
+  - Ferry vehicle carriage is verified directly from current Thạnh Thới vehicle ticketing.
+
 ## Next P0 crawl
-- Cano / tàu cao tốc / phà terminology + practical
 - Toilet / ATM / pharmacy / parking / fuel / minimart
 - Phú Quốc khi trời mưa
 

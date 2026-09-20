@@ -1,0 +1,171 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "p0_batch_03",
+  "created_at": "2026-09-20",
+  "scope": "Sea transport terminology and practical distinctions.",
+  "topics": [
+    {
+      "backlog_no": 74,
+      "topic_id": "topic_074_cano_fast_boat_ferry",
+      "title": "Cano - tàu cao tốc - phà khác nhau thế nào",
+      "canonical_id": "practical_sea_transport_modes",
+      "entity_type": "practical",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "cano_local_use",
+          "claim": "In current Phú Quốc tourism usage, 'cano' commonly refers to small high-speed craft used for day trips between the small islands, especially from An Thới.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_cano_visitpq"
+          ]
+        },
+        {
+          "claim_id": "cano_not_english_canoe",
+          "claim": "For English UI, translating local 'cano' literally as 'canoe' would be misleading because the referenced craft is a powered speedboat used for island tours. Prefer 'island-tour speedboat' or 'speedboat' with local context.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_cano_visitpq"
+          ]
+        },
+        {
+          "claim_id": "fastboat_passenger_focus",
+          "claim": "Operators such as Superdong and Phú Quốc Express market scheduled high-speed vessels primarily as passenger sea transport linking Phú Quốc with mainland/island routes.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_fast_superdong_schedule",
+            "src_fast_pqe"
+          ]
+        },
+        {
+          "claim_id": "fastboat_vehicle_nuance",
+          "claim": "Do not define all 'tàu cao tốc' as passenger-only. Superdong's current booking system tells passengers carrying a vehicle to contact ticket offices, so vehicle acceptance can exist and is operator/vessel specific.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_fast_superdong_booking"
+          ]
+        },
+        {
+          "claim_id": "ferry_vehicle_core",
+          "claim": "Thạnh Thới explicitly sells both passenger tickets and vehicle tickets, including motorcycles, cars, trucks and containers. This makes vehicle carriage a defining practical distinction for the Phú Quốc ferry experience.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_ferry_thanhthoi_current",
+            "src_ferry_thanhthoi_intro"
+          ]
+        },
+        {
+          "claim_id": "weather_sensitivity_fastboat",
+          "claim": "Superdong states that departure times may change with tides and weather; Phú Quốc Express likewise warns that strong wind, waves or tropical disturbances can delay or cancel sailings.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "volatile": false,
+          "source_ids": [
+            "src_fast_superdong_schedule",
+            "src_fast_pqe_weather"
+          ]
+        },
+        {
+          "claim_id": "operational_independence",
+          "claim": "For Open Phu Quoc operational UI, cano, scheduled fast boat and ferry must remain separate states because their vessel types, routes, operating permissions and weather sensitivities are not interchangeable.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_cano_visitpq",
+            "src_fast_superdong_schedule",
+            "src_ferry_thanhthoi_current"
+          ]
+        },
+        {
+          "claim_id": "english_terms",
+          "claim": "Recommended product terminology: CANO -> island-tour speedboat; TÀU CAO TỐC -> fast ferry / high-speed passenger vessel depending operator; PHÀ -> vehicle ferry / car ferry. These are UX translations, not legal vessel classifications.",
+          "status": "DERIVED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_cano_visitpq",
+            "src_fast_superdong_schedule",
+            "src_ferry_thanhthoi_current"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_cano_visitpq",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Kinh nghiệm đi cano đảo Phú Quốc 2026 chi tiết và cập nhật",
+          "url": "https://visitphuquoc.com.vn/vi/kinh-nghiem-di-cano-dao-phu-quoc-2026-chi-tiet-va-cap-nhat-10002",
+          "published_at": "2026-06-10",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fast_superdong_schedule",
+          "source_type": "OPERATOR",
+          "publisher": "Superdong",
+          "title": "Lịch tàu cao tốc đi các đảo",
+          "url": "https://online.superdong.com.vn/Home/ScheduleBoat",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fast_superdong_booking",
+          "source_type": "OPERATOR",
+          "publisher": "Superdong",
+          "title": "Đặt vé trực tuyến",
+          "url": "https://online.superdong.com.vn/Booking",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fast_pqe",
+          "source_type": "OPERATOR",
+          "publisher": "Phú Quốc Express",
+          "title": "Phú Quốc Express - website chính thức",
+          "url": "https://phuquocexpress.com/",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_fast_pqe_weather",
+          "source_type": "OPERATOR",
+          "publisher": "Phú Quốc Express",
+          "title": "Mẹo xem thời tiết trước khi đi tàu thuyền an toàn",
+          "url": "https://phuquocexpress.com/meo-xem-thoi-tiet-truoc-khi-di-tau-thuyen",
+          "published_at": "2026-08-10",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ferry_thanhthoi_current",
+          "source_type": "OPERATOR",
+          "publisher": "Phà Cao Tốc Thạnh Thới",
+          "title": "Lịch phà và bảng giá hành khách/phương tiện",
+          "url": "https://www.thanhthoi.vn/",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ferry_thanhthoi_intro",
+          "source_type": "OPERATOR",
+          "publisher": "Phà Cao Tốc Thạnh Thới",
+          "title": "Giới thiệu về Phà Cao Tốc Thạnh Thới",
+          "url": "https://www.thanhthoi.vn/Gioi-thieu",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Formal legal vessel-class definitions under current Vietnamese maritime/inland-waterway regulations.",
+        "Which current fast-boat vessels/operators accept which vehicle categories.",
+        "Exact cancellation/suspension thresholds by vessel/route and authority.",
+        "Best multilingual terminology for Korean/Arabic/Chinese without confusing craft class and service type."
+      ],
+      "next_research": [
+        "Retrieve legal/registry definitions separately from tourism usage.",
+        "Build operator-by-operator vehicle acceptance matrix.",
+        "Keep live operating status outside this evergreen article and consume it from the existing operational systems.",
+        "Review multilingual transport terminology with native-language travel usage."
+      ]
+    }
+  ]
+}
