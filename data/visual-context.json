@@ -4,7 +4,12 @@
   "map_policy": {
     "provider": "OpenStreetMap",
     "load_mode": "click_to_load",
-    "exact_point_requires": ["lat", "lon", "precision", "source"],
+    "exact_point_requires": [
+      "lat",
+      "lon",
+      "precision",
+      "source"
+    ],
     "area_anchor_note": "Điểm neo chỉ để định hướng khu vực, không được trình bày như tọa độ chính xác của địa điểm."
   },
   "stories": {
@@ -12,9 +17,18 @@
       "zone_id": "zone_north",
       "location_label": "Bắc đảo - vùng trồng tiêu",
       "quick_facts": [
-        ["Thời lượng đọc", "4 phút"],
-        ["Hợp khi", "Muốn hiểu nông nghiệp đảo"],
-        ["Cách trải nghiệm", "Hỏi mùa vụ - ngửi - nếm - quan sát"]
+        [
+          "Thời lượng đọc",
+          "4 phút"
+        ],
+        [
+          "Hợp khi",
+          "Muốn hiểu nông nghiệp đảo"
+        ],
+        [
+          "Cách trải nghiệm",
+          "Hỏi mùa vụ - ngửi - nếm - quan sát"
+        ]
       ],
       "images": [
         {
@@ -31,9 +45,18 @@
       "zone_id": "zone_central_west",
       "location_label": "Phú Quốc - nghề nước mắm",
       "quick_facts": [
-        ["Thời lượng đọc", "5 phút"],
-        ["Hợp khi", "Ngày mưa hoặc muốn hiểu nghề địa phương"],
-        ["Điểm cần nhìn", "Thùng gỗ - cá cơm - muối - thời gian"]
+        [
+          "Thời lượng đọc",
+          "5 phút"
+        ],
+        [
+          "Hợp khi",
+          "Ngày mưa hoặc muốn hiểu nghề địa phương"
+        ],
+        [
+          "Điểm cần nhìn",
+          "Thùng gỗ - cá cơm - muối - thời gian"
+        ]
       ],
       "images": [
         {
@@ -50,9 +73,18 @@
       "zone_id": "zone_central_west",
       "location_label": "Dương Đông - trung tâm & bờ Tây",
       "quick_facts": [
-        ["Thời điểm", "Cuối chiều - tối"],
-        ["Nhịp trải nghiệm", "Đi bộ - ăn nhẹ - chợ - cửa sông"],
-        ["Lưu ý", "Giờ từng quầy có thể thay đổi"]
+        [
+          "Thời điểm",
+          "Cuối chiều - tối"
+        ],
+        [
+          "Nhịp trải nghiệm",
+          "Đi bộ - ăn nhẹ - chợ - cửa sông"
+        ],
+        [
+          "Lưu ý",
+          "Giờ từng quầy có thể thay đổi"
+        ]
       ],
       "images": [
         {
@@ -69,9 +101,18 @@
       "zone_id": "zone_south",
       "location_label": "Bến cá & không gian nghề biển",
       "quick_facts": [
-        ["Cách xem", "Nhìn gần các chi tiết trên ghe"],
-        ["Nơi dễ gặp", "Bến cá - cảng - làng ven biển"],
-        ["Ứng xử", "Không cản lối làm việc và bốc dỡ"]
+        [
+          "Cách xem",
+          "Nhìn gần các chi tiết trên ghe"
+        ],
+        [
+          "Nơi dễ gặp",
+          "Bến cá - cảng - làng ven biển"
+        ],
+        [
+          "Ứng xử",
+          "Không cản lối làm việc và bốc dỡ"
+        ]
       ],
       "images": [
         {
@@ -165,6 +206,116 @@
           "source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA_Qu%E1%BB%91c_2022_(C%C3%B4ng_vi%C3%AAn_ch%E1%BB%A7_%C4%91%E1%BB%81,_đu_quay_nh%C3%ACn_xa)_(2).jpg"
         }
       ]
+    },
+    "place_vinpearl_safari": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vinpearl%20Safari%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1800",
+          "alt": "Cổng vào Vinpearl Safari Phú Quốc",
+          "caption": "Cổng vào Vinpearl Safari Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Khoitran1957",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Vinpearl_Safari_Ph%C3%BA_Qu%E1%BB%91c.jpg"
+        }
+      ],
+      "map": {
+        "lat": 10.337082,
+        "lon": 103.890933,
+        "precision": "area_anchor",
+        "anchor_name": "Cổng Vinpearl Safari Phú Quốc",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Vinpearl_Safari_Ph%C3%BA_Qu%E1%BB%91c.jpg",
+        "verified_at": "2026-09-20",
+        "note": "Tọa độ điểm chụp tại cổng Safari, dùng để định hướng khu vực, không đại diện toàn bộ công viên."
+      }
+    },
+    "place_grand_world": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2023-07-30%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20193144.jpg?width=1800",
+          "alt": "Grand World Phú Quốc buổi tối",
+          "caption": "Một góc Grand World Phú Quốc vào buổi tối.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - 松岡明芳",
+          "source_url": "https://commons.wikimedia.org/wiki/File:2023-07-30_Grand_World_Ph%C3%BA_Qu%E1%BB%91c_193144.jpg"
+        }
+      ],
+      "map": {
+        "lat": 10.326679,
+        "lon": 103.859804,
+        "precision": "area_anchor",
+        "anchor_name": "Grand World Phú Quốc",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:2023-07-30_Grand_World_Ph%C3%BA_Qu%E1%BB%91c_193144.jpg",
+        "verified_at": "2026-09-20",
+        "note": "Tọa độ điểm chụp trong Grand World, dùng làm điểm neo định hướng, không phải tâm chính xác của toàn khu."
+      }
+    },
+    "place_bai_truong": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai%20Truong%20%28Long%20Beach%29%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam%20%283859473907%29.jpg?width=1600",
+          "alt": "Bãi Trường Phú Quốc",
+          "caption": "Bãi Trường Phú Quốc - ảnh tư liệu năm 2009, dùng để nhận diện bối cảnh bờ Tây.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Dan Searle",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bai_Truong_(Long_Beach)_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3859473907).jpg"
+        }
+      ],
+      "map": {
+        "lat": 10.193635,
+        "lon": 103.963966,
+        "precision": "area_anchor",
+        "anchor_name": "Bãi Trường - điểm chụp tư liệu",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Bai_Truong_(Long_Beach)_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3859473907).jpg",
+        "verified_at": "2026-09-20",
+        "note": "Điểm chụp nằm trên Bãi Trường, chỉ dùng để định hướng dải bờ biển dài, không đại diện cho toàn Bãi Trường."
+      }
+    },
+    "place_aquatopia": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cong-vien-nuoc-aquatopia-5.jpg?width=1800",
+          "alt": "Aquatopia Water Park trên Hòn Thơm",
+          "caption": "Một góc công viên nước Aquatopia trên Hòn Thơm.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Cong-vien-nuoc-aquatopia-5.jpg"
+        }
+      ],
+      "map": {
+        "lat": 9.9558,
+        "lon": 104.016092,
+        "precision": "area_anchor",
+        "anchor_name": "Aquatopia - Hòn Thơm",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cong-vien-nuoc-aquatopia-5.jpg",
+        "verified_at": "2026-09-20",
+        "note": "Tọa độ điểm chụp trong khu Aquatopia, dùng làm điểm neo định hướng."
+      }
+    },
+    "activity_hon_thom": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hon%20Thom%20Cable%20Car%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1800",
+          "alt": "Cáp treo Hòn Thơm nhìn từ trên cao",
+          "caption": "Cáp treo Hòn Thơm vượt biển nối An Thới với Hòn Thơm.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Hon_Thom_Cable_Car_aerial_view_Phu_Quoc_Island_Vietnam.jpg"
+        }
+      ],
+      "map": {
+        "lat": 10.026972,
+        "lon": 104.007235,
+        "precision": "area_anchor",
+        "anchor_name": "Cáp treo Hòn Thơm - khu An Thới",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Cap-treo-hon-thom-qua-thi-tran.jpg",
+        "verified_at": "2026-09-20",
+        "note": "Điểm neo nằm trên tuyến cáp treo tại khu An Thới, không phải vị trí đại diện cho toàn tuyến hoặc Hòn Thơm."
+      }
     }
   },
   "food": {
