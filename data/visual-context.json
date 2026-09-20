@@ -39,6 +39,26 @@
           "source_label": "Wikimedia Commons - Tonbi ko",
           "source_url": "https://commons.wikimedia.org/wiki/File:Pepper_farm_in_vietnam.JPG"
         }
+      ],
+      "infographic": [
+        {
+          "icon": "✋",
+          "label": "Thử bằng tay",
+          "value": "Bóp nhẹ một hạt tiêu",
+          "note": "Mùi bật ra nhanh hơn mọi bảng mô tả."
+        },
+        {
+          "icon": "?",
+          "label": "Nên hỏi",
+          "value": "Mùa hái & cách phơi",
+          "note": "Người làm vườn kể được nhiều thứ mà ảnh check-in không có."
+        },
+        {
+          "icon": "◷",
+          "label": "Ở lại",
+          "value": "20-30 phút là vừa",
+          "note": "Đủ để nhìn, hỏi và nếm mà không biến thành một điểm chạy cho xong."
+        }
       ]
     },
     "mot-nam-trong-nha-thung": {
@@ -66,6 +86,26 @@
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Stefan",
           "source_url": "https://commons.wikimedia.org/wiki/File:Fish_sauce_factory,_Phu_Quoc.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "≈",
+          "label": "Bắt đầu từ",
+          "value": "Cá cơm + muối",
+          "note": "Cái hay nằm ở quá trình ủ và rút nước mắm chứ không chỉ ở chai thành phẩm."
+        },
+        {
+          "icon": "◫",
+          "label": "Nhìn cho kỹ",
+          "value": "Những dãy thùng gỗ",
+          "note": "Kích thước nhà thùng giúp hình dung nghề rõ hơn đọc con số."
+        },
+        {
+          "icon": "☂",
+          "label": "Hợp lúc",
+          "value": "Mưa hoặc nắng gắt",
+          "note": "Một khoảng nghỉ khỏi biển mà vẫn rất Phú Quốc."
         }
       ]
     },
@@ -95,6 +135,26 @@
           "source_label": "Wikimedia Commons - FrogsLegs71",
           "source_url": "https://commons.wikimedia.org/wiki/File:Selling_fruit_in_Phu_Quoc_night_market_Vietnam.jpg"
         }
+      ],
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Bắt đầu",
+          "value": "Cuối chiều",
+          "note": "Dinh Cậu và bờ biển dễ chịu hơn khi nắng đã dịu."
+        },
+        {
+          "icon": "⌖",
+          "label": "Đi bộ",
+          "value": "Chợ đêm - cửa sông - phố quanh Dinh Cậu",
+          "note": "Đừng coi chợ đêm là toàn bộ Dương Đông."
+        },
+        {
+          "icon": "☕",
+          "label": "Nhịp tốt",
+          "value": "Ăn ít rồi đi tiếp",
+          "note": "Một món vừa bụng thường vui hơn cố thử hết trong một tối."
+        }
       ]
     },
     "nhung-doi-mat-tren-mui-ghe": {
@@ -116,12 +176,32 @@
       ],
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20port.jpg?width=1600",
-          "alt": "Cảng An Thới ở Phú Quốc",
-          "caption": "Cảng An Thới - một bối cảnh nghề biển ở phía Nam đảo.",
-          "scope": "context",
-          "source_label": "Wikimedia Commons - Dương Đăng Khôi",
-          "source_url": "https://commons.wikimedia.org/wiki/File:An_Thoi_port.jpg"
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1800",
+          "alt": "Ghe đánh cá gần cảng Phú Quốc",
+          "caption": "Một ghe đánh cá gần cảng Phú Quốc, ảnh chụp tháng 11/2025.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Elmschrat",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Fishing_boat_Phu_Quoc.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "◉",
+          "label": "Nhìn vào",
+          "value": "Mắt ghe & lớp sơn",
+          "note": "Những chi tiết nhỏ thường kể chuyện nghề rõ hơn một bức toàn cảnh."
+        },
+        {
+          "icon": "⌖",
+          "label": "Dễ gặp",
+          "value": "Cảng, bến cá, làng ven biển",
+          "note": "Đây là chỗ người ta đang làm việc, không phải phim trường."
+        },
+        {
+          "icon": "✓",
+          "label": "Cách đứng xem",
+          "value": "Gọn và đừng cản đường",
+          "note": "Muốn chụp gần người hoặc công việc của họ thì nên hỏi trước."
         }
       ]
     }
@@ -314,6 +394,14 @@
     "place_aquatopia": {
       "images": [
         {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aquatopia%20in2026.jpg?width=1800",
+          "alt": "Aquatopia trên Hòn Thơm năm 2026",
+          "caption": "Aquatopia trên Hòn Thơm, ảnh chụp tháng 8/2026.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - 黛梓",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Aquatopia_in2026.jpg"
+        },
+        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cong-vien-nuoc-aquatopia-5.jpg?width=1800",
           "alt": "Aquatopia Water Park trên Hòn Thơm",
           "caption": "Một góc công viên nước Aquatopia trên Hòn Thơm.",
@@ -331,7 +419,27 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Cong-vien-nuoc-aquatopia-5.jpg",
         "verified_at": "2026-09-20",
         "note": "Tọa độ điểm chụp trong khu Aquatopia, dùng làm điểm neo định hướng."
-      }
+      },
+      "infographic": [
+        {
+          "icon": "≈",
+          "label": "Dành bao lâu",
+          "value": "Ít nhất nửa ngày",
+          "note": "Đã sang Hòn Thơm thì nên để đủ thời gian chơi, đừng ghé kiểu chạy điểm."
+        },
+        {
+          "icon": "↕",
+          "label": "Trước khi xếp hàng",
+          "value": "Xem giới hạn chiều cao",
+          "note": "Một số trò có điều kiện riêng theo chiều cao và sức khỏe."
+        },
+        {
+          "icon": "☀",
+          "label": "Mang theo",
+          "value": "Đồ bơi + chống nắng",
+          "note": "Giữa ngày nắng khá gắt, nhất là khi phải đi lại nhiều ngoài trời."
+        }
+      ]
     },
     "activity_hon_thom": {
       "images": [
@@ -510,6 +618,130 @@
           "note": "Có thể ghép cùng một ngày Nam đảo nhưng đừng xếp lịch quá dày."
         }
       ]
+    },
+    "place_exotica": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Exotica%20Park%20Sun%20World%20Phu%20Quoc.jpg?width=1800",
+          "alt": "Tàu lượn tại Exotica Park Hòn Thơm",
+          "caption": "Tàu lượn trong Exotica Park trên Hòn Thơm, ảnh công bố năm 2026.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Exotica_Park_Sun_World_Phu_Quoc.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "⚡",
+          "label": "Hợp nhất với",
+          "value": "Người thích trò mạnh",
+          "note": "Đừng xếp Exotica chỉ vì đang ở Hòn Thơm nếu trong nhóm có người không chơi trò cảm giác mạnh."
+        },
+        {
+          "icon": "↕",
+          "label": "Trước khi chơi",
+          "value": "Xem chiều cao & sức khỏe",
+          "note": "Điều kiện từng trò có thể khác nhau."
+        },
+        {
+          "icon": "⌖",
+          "label": "Đi cùng",
+          "value": "Aquatopia + Hòn Thơm",
+          "note": "Nằm trong cùng cụm nên ghép một ngày sẽ hợp lý hơn."
+        }
+      ]
+    },
+    "activity_symphony_of_the_sea": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Symphony%20of%20the%20Sea%20fireworks%20Campanile%20scenic%20observatory%20Phu%20Quoc%20Vietnam.jpg?width=1800",
+          "alt": "Symphony of the Sea và pháo hoa tại Sunset Town",
+          "caption": "Symphony of the Sea nhìn từ khu Campanile, ảnh công bố tháng 3/2026.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Symphony_of_the_Sea_fireworks_Campanile_scenic_observatory_Phu_Quoc_Vietnam.jpg"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Artist%20Symphony%20of%20the%20Sea.jpg?width=1800",
+          "alt": "Nghệ sĩ biểu diễn trong Symphony of the Sea",
+          "caption": "Một khoảnh khắc biểu diễn trong Symphony of the Sea.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Artist_Symphony_of_the_Sea.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "✦",
+          "label": "Đi vì",
+          "value": "Flyboard, ánh sáng, pháo hoa",
+          "note": "Đây là show ngoài trời nên cảm giác phụ thuộc khá nhiều vào thời tiết và vị trí xem."
+        },
+        {
+          "icon": "⌖",
+          "label": "Ở đâu",
+          "value": "Sunset Town",
+          "note": "Có thể ghép cùng Cầu Hôn và một buổi tối Nam đảo."
+        },
+        {
+          "icon": "✓",
+          "label": "Trước khi đi",
+          "value": "Xem lịch đúng ngày",
+          "note": "Lịch biểu diễn có thể thay đổi, nhất là khi thời tiết xấu."
+        }
+      ],
+      "map": {
+        "lat": 10.028987,
+        "lon": 104.00792,
+        "precision": "area_anchor",
+        "anchor_name": "Symphony of the Sea - Sunset Town",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Symphony_of_the_Sea_fireworks_Campanile_scenic_observatory_Phu_Quoc_Vietnam.jpg",
+        "verified_at": "2026-09-20",
+        "note": "Điểm chụp trong khu Sunset Town, dùng để định hướng khu vực show."
+      }
+    },
+    "activity_kiss_of_the_sea": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kiss%20of%20the%20Sea%20fireworks%20show%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20night%20Vietnam.jpg?width=1800",
+          "alt": "Kiss of the Sea và pháo hoa tại Sunset Town",
+          "caption": "Kiss of the Sea với sân khấu và pháo hoa về đêm, ảnh công bố tháng 4/2026.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_of_the_Sea_fireworks_show_Sunset_Town_Sun_World_Phu_Quoc_night_Vietnam.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "✦",
+          "label": "Đi vì",
+          "value": "Show lớn + pháo hoa",
+          "note": "Nên xem như điểm chốt của buổi tối hơn là một điểm ghé nhanh."
+        },
+        {
+          "icon": "◷",
+          "label": "Trước giờ show",
+          "value": "Đến sớm một chút",
+          "note": "Có thời gian tìm chỗ, đi vệ sinh và ổn định nhóm trước khi bắt đầu."
+        },
+        {
+          "icon": "✓",
+          "label": "Trước khi mua",
+          "value": "Xem đúng hạng vé",
+          "note": "Đừng chỉ nhìn giá - vị trí ngồi và quyền lợi có thể khác nhau."
+        }
+      ],
+      "map": {
+        "lat": 10.029212,
+        "lon": 104.008002,
+        "precision": "area_anchor",
+        "anchor_name": "Kiss of the Sea - Sunset Town",
+        "source": "Wikimedia Commons photo metadata",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_of_the_Sea_fireworks_show_Sunset_Town_Sun_World_Phu_Quoc_night_Vietnam.jpg",
+        "verified_at": "2026-09-20",
+        "note": "Điểm chụp trong cụm sân khấu Sunset Town, dùng để định hướng khu vực show."
+      }
     }
   },
   "food": {
