@@ -116,6 +116,29 @@
     track.innerHTML = one + one;
   }
 
+  function vnClockParts(date = new Date()) {
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "Asia/Ho_Chi_Minh",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false
+    }).formatToParts(date);
+    const hour = Number(parts.find(p => p.type === "hour")?.value || 0);
+    const minute = Number(parts.find(p => p.type === "minute")?.value || 0);
+    return {
+      hour,
+      minute,
+      minutes: hour * 60 + minute,
+      label: String(hour).padStart(2, "0") + ":" + String(minute).padStart(2, "0")
+    };
+  }
+
+  function clockMinutes(label) {
+    const m = String(label || "").match(/^(\d{1,2}):(\d{2})$/);
+    return m ? Number(m[1]) * 60 + Number(m[2]) : NaN;
+  }
+
+
   Promise.allSettled([
     getJson(SRC.critical),
     getJson(SRC.marineOps),
@@ -176,6 +199,115 @@
 
     const gauges = Array.isArray(critical?.actual?.rain_gauges) ? critical.actual.rain_gauges : [];
     const observedRain = gauges.some(g => g?.rain_observed === true || Number(g?.rain_intensity_mm_h) > 0);
+
+    function renderNowSuggestion() {
+      const card = document.querySelector("[data-now-card]");
+      if (!card) return;
+
+      const now = vnClockParts();
+      const todaySunset = sunsetFor();
+      const sunsetMinute = clockMinutes(todaySunset);
+      const minutesToSunset = Number.isFinite(sunsetMinute) ? sunsetMinute - now.minutes : NaN;
+
+      const kicker = card.querySelector("[data-now-kicker]");
+      const time = card.querySelector("[data-now-time]");
+      const title = card.querySelector("[data-now-title]");
+      const note = card.querySelector("[data-now-note]");
+      const primary = card.querySelector("[data-now-primary]");
+      const secondary = card.querySelector("[data-now-secondary]");
+
+      let cfg = {
+        tone: "default",
+        title: "Xem tình hình đảo trước khi chọn điểm đi",
+        note: "Thời tiết, vận hành và thời điểm trong ngày được đặt cạnh nhau để bạn quyết định nhanh hơn.",
+        primaryText: "Xem hôm nay →",
+        primaryHref: "#happening",
+        secondaryText: "Khám phá",
+        secondaryHref: "explore/"
+      };
+
+      if (!critical || criticalAge > 90) {
+        cfg = {
+          tone: "watch",
+          title: "Kiểm tra thời tiết trước khi quyết định",
+          note: "Dữ liệu thời tiết hiện tại chưa đủ mới để dùng như trạng thái tức thời.",
+          primaryText: "Mở Thời tiết & Biển →",
+          primaryHref: "weather/",
+          secondaryText: "Xem gợi ý ít phụ thuộc thời tiết",
+          secondaryHref: "explore/?intent=rainy-day"
+        };
+      } else if (hasHighConvective || hasElevatedConvective || observedRain) {
+        cfg = {
+          tone: "watch",
+          title: observedRain ? "Mưa đang được ghi nhận - giữ lịch linh hoạt" : "Thời tiết đang thay đổi - giữ lịch linh hoạt",
+          note: "Ưu tiên kiểm tra khu vực cụ thể trước khi đi xa hoặc chọn hoạt động ngoài trời.",
+          primaryText: "Xem Thời tiết & Biển →",
+          primaryHref: "weather/",
+          secondaryText: "Gợi ý ngày mưa",
+          secondaryHref: "explore/?intent=rainy-day"
+        };
+      } else if (Number.isFinite(minutesToSunset) && minutesToSunset > 0 && minutesToSunset <= 120) {
+        cfg = {
+          tone: "sunset",
+          title: "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn",
+          note: "Nếu định ngắm hoàng hôn, đây là lúc nên chọn điểm và tính thời gian di chuyển.",
+          primaryText: "Xem điểm ngắm hoàng hôn →",
+          primaryHref: "explore/?intent=evening",
+          secondaryText: "Tối nay có gì",
+          secondaryHref: "#happening"
+        };
+      } else if (now.minutes < 12 * 60) {
+        cfg = {
+          tone: "default",
+          title: "Bắt đầu ngày với tình hình đảo",
+          note: "Xem thời tiết và vận hành trước, rồi chọn khu vực phù hợp để đỡ chạy xuyên đảo.",
+          primaryText: "Xem trạng thái đảo →",
+          primaryHref: "#today",
+          secondaryText: "Chọn nơi đi",
+          secondaryHref: "explore/"
+        };
+      } else if (Number.isFinite(minutesToSunset) && minutesToSunset > 120) {
+        cfg = {
+          tone: "default",
+          title: "Còn thời gian cho một buổi chiều trên đảo",
+          note: "Chọn hoạt động gần khu bạn đang ở, rồi để dành cuối chiều cho bờ Tây nếu phù hợp.",
+          primaryText: "Chọn nơi đi →",
+          primaryHref: "explore/",
+          secondaryText: "Kiểm tra thời tiết",
+          secondaryHref: "weather/"
+        };
+      } else {
+        cfg = {
+          tone: "default",
+          title: "Phú Quốc đã vào buổi tối",
+          note: "Xem show, chợ đêm và gợi ý ăn uống thay vì tiếp tục chạy nhiều điểm.",
+          primaryText: "Xem tối nay có gì →",
+          primaryHref: "#happening",
+          secondaryText: "Tìm món ăn",
+          secondaryHref: "food/"
+        };
+      }
+
+      card.dataset.tone = cfg.tone;
+      if (kicker) kicker.textContent = "GỢI Ý NGAY LÚC NÀY";
+      if (time) {
+        time.textContent = now.label;
+        time.dateTime = now.label;
+      }
+      if (title) title.textContent = cfg.title;
+      if (note) note.textContent = cfg.note;
+      if (primary) {
+        primary.textContent = cfg.primaryText;
+        primary.href = cfg.primaryHref;
+      }
+      if (secondary) {
+        secondary.textContent = cfg.secondaryText;
+        secondary.href = cfg.secondaryHref;
+      }
+    }
+
+    renderNowSuggestion();
+    setInterval(renderNowSuggestion, 60000);
 
     let wxTitle = "Chưa có dữ liệu thời tiết";
     let wxNote = "Mở Thời tiết & Biển để xem chi tiết và thời điểm cập nhật.";
@@ -270,7 +402,6 @@
       ["BIỂN NAM ĐẢO", seaHs != null ? fmt(seaHs) + " m" : "CHƯA CÓ"],
       ["CANO", marine ? stateText(canoState).toUpperCase() : "CHƯA CÓ"],
       ["SÂN BAY", !airportAvailable ? "CẦN KIỂM TRA DỮ LIỆU" : delayed.length ? delayed.length + " CHUYẾN CẦN THEO DÕI" : "ĐANG CẬP NHẬT"],
-      ["PHÀ", marine ? stateText(ferryState).toUpperCase() : "CHƯA CÓ"],
       ["HOÀNG HÔN", sunset]
     ]);
 
