@@ -3840,3 +3840,179 @@ body.sheet-open{
   }
   .task-launcher small{font-size:13px;line-height:1.4}
 }
+
+
+/* V3.2 - desktop island pulse + contextual action card */
+.now-card{display:none}
+
+@media (min-width:1100px){
+  #top{
+    gap:10px 12px;
+    padding-top:10px;
+  }
+
+  #top>.energy-ticker{
+    grid-column:1/-1!important;
+    grid-row:1!important;
+    width:100%;
+    min-height:36px;
+    height:36px;
+    margin:0!important;
+    border:1px solid rgba(18,61,59,.10);
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 6px 18px rgba(18,61,59,.04);
+  }
+  #top>.energy-ticker .ticker-label,
+  #top>.energy-ticker .ticker-window{
+    height:34px;
+  }
+  #top>.energy-ticker .ticker-label{
+    padding:0 12px;
+    border-radius:11px 0 0 11px;
+  }
+  #top>.energy-ticker .ticker-window{
+    mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%);
+  }
+  #top>.energy-ticker .ticker-track{
+    gap:16px;
+  }
+  .motion-on #top>.energy-ticker .ticker-track,
+  #top>.energy-ticker .ticker-track{
+    animation-duration:42s!important;
+  }
+
+  #top>.hero{
+    grid-column:1/9!important;
+    grid-row:2/4!important;
+    min-height:545px;
+    max-height:545px;
+    margin:0!important;
+  }
+
+  #top>.live-strip{
+    grid-column:9/13!important;
+    grid-row:2!important;
+    margin:0!important;
+    align-self:start;
+  }
+
+  #top>.now-card{
+    display:flex;
+    grid-column:9/13;
+    grid-row:3;
+    min-width:0;
+    min-height:0;
+    align-self:stretch;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:11px;
+    padding:16px 16px 14px;
+    position:relative;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    background:
+      radial-gradient(circle at 100% 0,rgba(252,188,18,.18),transparent 46%),
+      linear-gradient(145deg,#123d3b,#0b302f);
+    color:#fff;
+    box-shadow:0 12px 30px rgba(18,61,59,.12);
+  }
+  #top>.now-card:before{
+    content:"";
+    position:absolute;
+    inset:0 0 auto;
+    height:3px;
+    background:linear-gradient(90deg,#FCBC12,#ff7757 58%,transparent);
+  }
+  .now-card-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .now-card-top span{
+    font-size:10px;
+    line-height:1.2;
+    font-weight:900;
+    letter-spacing:.12em;
+    color:rgba(255,255,255,.72);
+  }
+  .now-card-top time{
+    font-size:12px;
+    font-weight:850;
+    color:#fff;
+  }
+  .now-card-copy{
+    display:grid;
+    gap:6px;
+  }
+  .now-card-copy h2{
+    margin:0;
+    font-size:20px;
+    line-height:1.05;
+    letter-spacing:-.025em;
+    color:#fff;
+  }
+  .now-card-copy p{
+    margin:0;
+    font-size:12px;
+    line-height:1.45;
+    color:rgba(255,255,255,.74);
+  }
+  .now-card-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+  .now-card-actions a{
+    min-height:34px;
+    padding:8px 10px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid rgba(255,255,255,.18);
+    border-radius:10px;
+    font-size:11px;
+    line-height:1.2;
+    font-weight:800;
+    color:#fff;
+    text-decoration:none;
+  }
+  .now-card-actions a:first-child{
+    border-color:#fff;
+    background:#fff;
+    color:var(--ink);
+  }
+  .now-card[data-tone="watch"]{
+    background:
+      radial-gradient(circle at 100% 0,rgba(255,112,79,.25),transparent 48%),
+      linear-gradient(145deg,#563b32,#173a38);
+  }
+  .now-card[data-tone="sunset"]{
+    background:
+      radial-gradient(circle at 100% 0,rgba(252,188,18,.30),transparent 48%),
+      linear-gradient(145deg,#243f3a,#573c2b);
+  }
+
+  #top>.task-launcher{
+    grid-column:1/-1!important;
+    grid-row:4!important;
+    margin:2px 0 0!important;
+  }
+  #top>.happening{
+    padding-top:28px;
+  }
+}
+
+@media (min-width:1400px){
+  #top>.hero{grid-column:1/9!important}
+  #top>.live-strip,
+  #top>.now-card{grid-column:9/13!important}
+  #top>.energy-ticker{grid-column:1/-1!important}
+}
+
+@media (max-width:1099px){
+  .now-card{display:none!important}
+}
