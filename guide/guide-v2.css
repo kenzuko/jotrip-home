@@ -1,0 +1,23 @@
+/* Open Phu Quoc V3 - readable visitor typography */
+.guide-head>a:last-child,.guide-menu a{font-size:13px}
+.guide-hero p,.g-head p,.smart-intro>p,.quick-head p{font-size:11px}
+.guide-hero span{font-size:15px;line-height:1.5}
+.smart-intro>span,.quick-head>span,.g-head>span{font-size:13px;line-height:1.55}
+.intent-grid span,.knowledge-grid span,.search-results-head span,.stay-card>span,.day-grid span,.route-answer span{font-size:11px}
+.intent-grid strong{font-size:16px}
+.intent-grid small,.knowledge-grid small,.stay-card small,.day-grid small,.live-links small{font-size:13px;line-height:1.5}
+.smart-answer span{font-size:11px}
+.smart-answer li{font-size:14px;line-height:1.6}
+.answer-links a,.guide-search button,.plain-link{font-size:13px}
+.knowledge-grid strong,.live-links strong{font-size:15px}
+.search-results-head>b{font-size:12px}
+.zone-card span{font-size:11px}
+.zone-card p,.zone-card small{font-size:14px;line-height:1.55}
+.stay-card p{font-size:14px;line-height:1.55}
+.plain-details summary{font-size:14px}
+.meal-grid strong{font-size:14px}
+.meal-grid span{font-size:13px;line-height:1.5}
+.day-grid strong{font-size:15px}
+.route-answer p,.route-template li{font-size:14px;line-height:1.6}
+.route-template>b{font-size:14px}
+footer{font-size:13px;line-height:1.55}
