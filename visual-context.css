@@ -116,3 +116,40 @@
   .visual-map-actions{display:grid;grid-template-columns:1fr 1fr}
   .visual-map-actions button,.visual-map-actions a{font-size:12px}
 }
+
+.visual-infographic{margin:28px 0}
+.visual-infographic-grid{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px
+}
+.visual-infographic-grid article{
+  min-height:150px;padding:16px;display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:start;
+  border:1px solid #E3ECE9;border-radius:18px;
+  background:
+    radial-gradient(circle at 100% 0,rgba(84,212,203,.14),transparent 38%),
+    linear-gradient(145deg,#fff,#F8FCFA)
+}
+.visual-infographic-icon{
+  width:44px;height:44px;display:grid;place-items:center;border-radius:14px;
+  background:#123D3B;color:#fff;font-size:16px;font-weight:900
+}
+.visual-infographic-grid article:nth-child(2) .visual-infographic-icon{background:#1F6762}
+.visual-infographic-grid article:nth-child(3) .visual-infographic-icon{background:#C76645}
+.visual-infographic-grid span,
+.visual-infographic-grid strong{display:block}
+.visual-infographic-grid span{
+  color:#6F807D;font-size:11px;font-weight:850;letter-spacing:.04em
+}
+.visual-infographic-grid strong{
+  margin-top:5px;color:#123D3B;font-size:16px;line-height:1.25
+}
+.visual-infographic-grid p{
+  margin:7px 0 0;color:#6F807D;font-size:12px;line-height:1.45
+}
+@media(max-width:760px){
+  .visual-infographic-grid{
+    display:flex;overflow-x:auto;gap:7px;scroll-snap-type:x mandatory
+  }
+  .visual-infographic-grid article{
+    flex:0 0 82%;min-height:142px;scroll-snap-align:start
+  }
+}
