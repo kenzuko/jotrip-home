@@ -104,7 +104,7 @@
   function renderCard(x){
     const planning=state.planning.get(x.id)||{};
     const images=state.visuals?.places?.[x.id]?.images||[];
-    const visual=window.OpenPQVisual?.pickHero?.(images)||images[0]||null;
+    const visual=window.OpenPQVisual?.pickHero?.(images)||images.find(v=>v?.url&&v.hero_eligible!==false)||null;
     const visualHtml=visual
       ? '<figure class="explore-card-media"><img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async"><figcaption>'+esc(visual.caption||"")+'</figcaption></figure>'
       : '<div class="explore-card-illustration" data-zone="'+esc(x.zone_id||"all")+'"><span>⌖</span><strong>'+esc(zoneName(x.zone_id))+'</strong><small>Bối cảnh khu vực</small></div>';
