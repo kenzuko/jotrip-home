@@ -57,14 +57,21 @@
     return getJson(SRC.airportFallback);
   }
 
-  function setLive(name, primary, secondary, state) {
+  function setLive(name, primary, secondary, state, freshness) {
     const box = document.querySelector('[data-live="' + name + '"]');
     if (!box) return;
     const strong = box.querySelector("strong");
     const small = box.querySelector("small");
+    const time = box.querySelector("[data-live-freshness]");
     if (strong) strong.textContent = primary;
     if (small) small.textContent = secondary;
+    if (time) time.textContent = freshness || "Chưa rõ thời điểm cập nhật";
     box.dataset.state = state || "info";
+  }
+
+  function freshnessText(iso, prefix = "Cập nhật") {
+    if (!Number.isFinite(ageMinutes(iso))) return "Chưa rõ thời điểm cập nhật";
+    return prefix + " " + ageText(iso);
   }
 
   function setContext(name, primary, secondary, state) {
@@ -174,11 +181,11 @@
     const weatherSource = vvpq ? "Quan trắc sân bay" : dd?.local?.temperature_class === "ESTIMATED_NOW" ? "Ước tính hiện tại" : "JoTrip Weather";
     const weatherPrimary = weatherTemp != null ? Math.round(weatherTemp) + "°" : "--";
     const weatherSecondary = weatherTemp != null
-      ? (weatherWind != null ? "Gió " + Math.round(weatherWind) + " km/h · " : "") + weatherSource + " · " + ageText(weatherObservedAt)
+      ? (weatherWind != null ? "Gió " + Math.round(weatherWind) + " km/h · " : "") + weatherSource
       : "Chưa có dữ liệu thời tiết";
     const weatherState = !critical ? "unknown" : weatherAge <= 60 ? "good" : weatherAge <= 180 ? "watch" : "unknown";
 
-    setLive("weather", weatherPrimary, weatherSecondary, weatherState);
+    setLive("weather", weatherPrimary, weatherSecondary, weatherState, freshnessText(weatherObservedAt));
     setContext("weather", weatherPrimary, weatherSecondary, weatherState);
 
     const seaHs = anThoi?.model?.wave_hs_m ?? anThoi?.local?.wave_hs_m ?? null;
@@ -187,16 +194,19 @@
     const seaAge = ageMinutes(seaTime);
     const seaPrimary = seaHs != null ? fmt(seaHs) + " m" : "--";
     const seaSecondary = seaHs != null
-      ? "Nam đảo" + (seaHmax != null ? " · Hmax " + fmt(seaHmax) + " m" : "") + " · dự báo " + ageText(seaTime)
+      ? "Nam đảo" + (seaHmax != null ? " · Hmax " + fmt(seaHmax) + " m" : "") + " · dự báo mô hình"
       : "Chưa có dữ liệu biển";
-    setLive("sea", seaPrimary, seaSecondary, seaAge <= 360 ? "info" : "unknown");
+    setLive("sea", seaPrimary, seaSecondary, seaAge <= 360 ? "info" : "unknown", freshnessText(seaTime, "Mốc dữ liệu"));
 
+    const marineStamp = marine?.collected_at_vn || marine?.generated_at || null;
+    const marineAge = ageMinutes(marineStamp);
     const canoState = marine?.categories?.cano?.state;
     setLive(
       "cano",
       marine ? stateText(canoState) : "Chưa có dữ liệu",
       !marine ? "Nguồn vận hành chưa tải được" : canoState === "FIELD_REQUIRED" ? "Chưa có bằng chứng trực tiếp" : "Nam đảo",
-      !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "good" : canoState === "SUSPENDED" ? "bad" : canoState === "FIELD_REQUIRED" ? "watch" : "unknown"
+      !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "good" : canoState === "SUSPENDED" ? "bad" : canoState === "FIELD_REQUIRED" ? "watch" : "unknown",
+      marine ? freshnessText(marineStamp) : "Chưa rõ thời điểm cập nhật"
     );
 
     const sunset = sunsetFor();
@@ -354,8 +364,6 @@
 
     const ferryState = marine?.categories?.ferry?.state;
     const fastState = marine?.categories?.fast_boat?.state;
-    const marineStamp = marine?.collected_at_vn || marine?.generated_at || null;
-    const marineAge = ageMinutes(marineStamp);
     const operationalStates = [canoState, fastState, ferryState].filter(Boolean);
     const marineOverall = !marine || !operationalStates.length || marineAge > 1440
       ? "unknown"
@@ -366,8 +374,9 @@
     setLive(
       "ferry",
       marine ? stateText(ferryState) : "Chưa có dữ liệu",
-      !marine ? "Nguồn vận hành chưa tải được" : "Phà · kiểm tra bằng chứng vận hành",
-      !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "good" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown"
+      !marine ? "Nguồn vận hành chưa tải được" : "Phà · kiểm tra bằng chứng vận hành riêng",
+      !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "good" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
+      marine ? freshnessText(marineStamp) : "Chưa rõ thời điểm cập nhật"
     );
     if (!marine) {
       setHappening("marine", "Chưa tải được trạng thái vận hành biển", "Không dùng thiếu dữ liệu để kết luận đang chạy bình thường.", "CHƯA CÓ", false);
@@ -406,8 +415,9 @@
     setLive(
       "airport",
       !airportAvailable ? "Cần kiểm tra" : delayed.length ? delayed.length + " cần xem" : "Đang cập nhật",
-      airportAvailable ? total + " chuyến hôm nay · " + ageText(airportStamp) : airportLoaded ? "Dữ liệu hiện có không còn đủ mới" : "Đang thử lại nguồn sân bay",
-      !airportAvailable ? "unknown" : delayed.length ? "watch" : "good"
+      airportAvailable ? total + " chuyến trong bảng hôm nay" : airportLoaded ? "Dữ liệu hiện có không còn đủ mới" : "Đang thử lại nguồn sân bay",
+      !airportAvailable ? "unknown" : delayed.length ? "watch" : "good",
+      airportLoaded ? freshnessText(airportStamp) : "Chưa rõ thời điểm cập nhật"
     );
 
     setLive("tonight", "Mở lịch", "Show · chợ đêm · gợi ý theo giờ", "info");
@@ -453,26 +463,46 @@
       generated_at: new Date().toISOString(),
       live_status: {
         weather: {
+          label: "Thời tiết",
           primary: weatherPrimary,
+          context: weatherSecondary,
           secondary: weatherSecondary,
           status: !critical || criticalAge > 90 ? "unknown" : hasHighConvective ? "watch" : (hasElevatedConvective || observedRain) ? "advisory" : "normal",
           source_class: vvpq ? "ACTUAL" : "ESTIMATED_NOW",
           source_updated_at: weatherObservedAt,
-          freshness: weatherAge <= 60 ? "fresh" : weatherAge <= 180 ? "aging" : "stale"
+          freshness: weatherAge <= 60 ? "fresh" : weatherAge <= 180 ? "aging" : "stale",
+          detail_url: "weather/"
         },
         sea: {
+          label: "Biển",
           primary: seaPrimary,
+          context: seaSecondary,
           secondary: seaSecondary,
           status: seaHs == null || seaAge > 720 ? "unknown" : "info",
           source_class: "MODEL",
           source_updated_at: seaTime,
-          freshness: seaAge <= 360 ? "fresh" : seaAge <= 720 ? "aging" : "stale"
+          freshness: seaAge <= 360 ? "fresh" : seaAge <= 720 ? "aging" : "stale",
+          detail_url: "weather/#marine"
+        },
+        cano: {
+          label: "Cano",
+          primary: marine ? stateText(canoState) : "Chưa có dữ liệu",
+          context: !marine ? "Nguồn vận hành chưa tải được" : canoState === "FIELD_REQUIRED" ? "Chưa có bằng chứng trực tiếp" : "Nam đảo",
+          status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(canoState) ? "watch" : "unknown",
+          source_class: "DIRECT_OPERATIONAL",
+          source_updated_at: marineStamp,
+          freshness: !marine || !Number.isFinite(marineAge) ? "unknown" : marineAge <= 720 ? "fresh" : marineAge <= 1440 ? "aging" : "stale",
+          detail_url: "cano/"
         },
         ferry: {
+          label: "Tàu & Phà",
           primary: marine ? stateText(ferryState) : "Chưa có dữ liệu",
+          context: !marine ? "Nguồn vận hành chưa tải được" : "Phà · trạng thái được kiểm tra độc lập",
           status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
-          source_updated_at: marineStamp
+          source_updated_at: marineStamp,
+          freshness: !marine || !Number.isFinite(marineAge) ? "unknown" : marineAge <= 720 ? "fresh" : marineAge <= 1440 ? "aging" : "stale",
+          detail_url: "ferry/"
         },
         transport: {
           primary: marineOverall === "normal" ? "Đã có xác nhận vận hành" : marineOverall === "watch" ? "Có nhóm cần kiểm tra" : "Chưa đủ dữ liệu",
@@ -492,11 +522,14 @@
           source_class: "MIXED"
         },
         airport: {
+          label: "Sân bay",
           primary: !airportAvailable ? "Cần kiểm tra" : delayed.length ? delayed.length + " chuyến cần xem" : "Đang cập nhật",
+          context: airportAvailable ? total + " chuyến trong bảng hôm nay" : airportLoaded ? "Dữ liệu hiện có không còn đủ mới" : "Đang thử lại nguồn sân bay",
           status: !airportAvailable ? "unknown" : delayed.length ? "watch" : "normal",
           source_class: "LIVE_OPERATIONAL",
           source_updated_at: airportStamp,
-          freshness: !airportLoaded || !Number.isFinite(airportAge) ? "unknown" : airportAge <= 8 ? "fresh" : airportAge <= 15 ? "aging" : "stale"
+          freshness: !airportLoaded || !Number.isFinite(airportAge) ? "unknown" : airportAge <= 8 ? "fresh" : airportAge <= 15 ? "aging" : "stale",
+          detail_url: "airport/"
         },
         sunset: {
           primary: sunset,

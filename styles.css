@@ -4253,3 +4253,60 @@ body.sheet-open{
 .hero-scene-count,
 .hero-scene-label{font-size:11px}
 .feature-copy p{font-size:12px}
+
+
+/* V3.4 - Homepage, Live & Data Foundation Lock 20/09/2026 */
+.island-pulse .live-item{
+  grid-template-rows:auto auto auto auto;
+  align-content:center;
+}
+.island-pulse .live-item time{
+  display:block;
+  margin-top:7px;
+  font-size:11px;
+  line-height:1.35;
+  color:#71827f;
+}
+.island-pulse .live-item b{
+  display:inline-block;
+  margin-top:7px;
+  font-size:11px;
+  line-height:1.2;
+  font-weight:850;
+  color:var(--ink);
+}
+.island-pulse .live-title strong{
+  font-size:11px;
+  line-height:1.25;
+}
+.island-pulse .live-title small{
+  font-size:11px;
+  line-height:1.4;
+}
+@media (min-width:1100px){
+  #top>.island-pulse{
+    grid-template-columns:1fr 1fr;
+  }
+  #top>.island-pulse .live-title{
+    grid-column:1/-1;
+  }
+  #top>.island-pulse .live-item{
+    min-height:88px;
+  }
+}
+@media (max-width:1099px){
+  #top>.island-pulse::before{
+    content:"PHÚ QUỐC LÚC NÀY";
+    font-size:11px;
+  }
+  #top>.island-pulse .live-item,
+  #top>.island-pulse .live-item:last-child{
+    min-height:126px;
+  }
+  #top>.island-pulse .live-item span,
+  #top>.island-pulse .live-item small,
+  #top>.island-pulse .live-item time,
+  #top>.island-pulse .live-item b{
+    font-size:11px;
+  }
+}

@@ -232,3 +232,55 @@ The homepage should ultimately consume the contract instead of hard-coded values
 ### Navigation
 Primary navigation remains need-based, not dataset-based.
 Deep source layers and specialist metrics stay inside their modules.
+
+
+## Homepage, Live & Data Foundation Lock - 20/09/2026
+
+This lock supersedes earlier homepage hierarchy notes where they conflict.
+
+Open Phu Quoc is not a conventional tourism landing page. The long-term product is a living island system built from three coexisting layers:
+
+- Live & Useful: weather, sea, airport, transit, activity status, alerts and utilities.
+- Local Knowledge: places, food, practical information, culture, history and stories.
+- Memory & Discovery: lore, local legends, visual archive, timeline, then/now, lost Phu Quoc and curiosity.
+
+The homepage role is:
+
+> Understand now. Decide today. Discover more.
+
+The homepage is not the whole product. It should answer quickly:
+
+- What matters in Phu Quoc right now?
+- What can I do today?
+- What do I need around me?
+- What is new or worth knowing?
+- What story makes me want to explore further?
+
+Homepage structure should be organized into roughly 7-8 major functional regions, not interpreted as 7-8 individual cards.
+
+### Search / Hero
+
+Search remains the primary entry point and should cover places, activities, food, hotels, weather, airport, transit, utilities, stories, lore and practical information. AI is not required in the current phase.
+
+### Island Pulse
+
+Island Pulse answers: "Phú Quốc lúc này thế nào?"
+
+It may surface weather, sea, airport, transit, major operational state and material disruptions/events. Each visible item should expose:
+
+- status
+- one short line of context
+- freshness
+- a route to detail
+
+Live truth rules remain strict:
+
+- never fake live/current
+- never present stale or missing data as normal
+- never relabel forecast/model data as observation
+- canoe, fast boat and ferry remain independent
+- changing information keeps source/freshness metadata
+
+Foundation intent: the same normalized data should remain reusable by web, future native apps and AI without rebuilding the product model.
+
+Canonical lock file: `docs/OPENPQ_HOMEPAGE_LIVE_DATA_FOUNDATION_LOCK_20260920.md`.

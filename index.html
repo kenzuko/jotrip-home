@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Open Phu Quoc - thông tin miễn phí, trực quan và thực dụng về Phú Quốc: tình hình đảo, sự kiện, di chuyển, điểm đến và câu chuyện địa phương.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260920-superapp9">
+  <link rel="stylesheet" href="styles.css?v=20260920-foundation10">
 </head>
 <body>
   <aside class="app-left-rail" aria-label="Điều hướng Open Phu Quoc">
@@ -108,18 +108,32 @@
       <p class="hero-credit">Phú Quốc nhìn từ những câu chuyện thật trên đảo</p>
     </section>
 
-    <section class="live-strip" id="today" aria-label="Trạng thái đảo trực tiếp">
+    <section class="live-strip island-pulse" id="today" aria-label="Phú Quốc lúc này">
       <div class="live-title">
         <span class="live-dot"></span>
-        <div><strong>TRẠNG THÁI ĐẢO TRỰC TIẾP</strong><small>Dữ liệu đang tự cập nhật</small></div>
+        <div><strong>PHÚ QUỐC LÚC NÀY</strong><small>Những tín hiệu quan trọng để quyết định hôm nay</small></div>
       </div>
 
-      <a href="weather/" class="live-item" data-live="weather"><span>Thời tiết</span><strong>--</strong><small>Đang tải quan trắc</small></a>
-      <a href="weather/#marine" class="live-item" data-live="sea"><span>Biển</span><strong>--</strong><small>Đang kiểm tra tình hình biển</small></a>
-      <a href="airport/" class="live-item" data-live="airport"><span>Sân bay</span><strong>--</strong><small>Đang tải chuyến bay</small></a>
-      <a href="ferry/" class="live-item" data-live="ferry"><span>Tàu & Phà</span><strong>--</strong><small>Đang kiểm tra vận hành</small></a>
-      <a href="#happening" class="live-item" data-live="sunset"><span>Hoàng hôn</span><strong>--:--</strong><small>Bờ Tây</small></a>
-      <a href="#happening" class="live-item" data-live="tonight"><span>Tối nay</span><strong>Mở lịch</strong><small>Show · chợ đêm · gợi ý</small></a>
+      <a href="weather/" class="live-item" data-live="weather">
+        <span>Thời tiết</span><strong>--</strong><small>Đang tải quan trắc</small>
+        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+      </a>
+      <a href="weather/#marine" class="live-item" data-live="sea">
+        <span>Biển</span><strong>--</strong><small>Đang kiểm tra tình hình biển</small>
+        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+      </a>
+      <a href="airport/" class="live-item" data-live="airport">
+        <span>Sân bay</span><strong>--</strong><small>Đang tải chuyến bay</small>
+        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+      </a>
+      <a href="cano/" class="live-item" data-live="cano">
+        <span>Cano</span><strong>--</strong><small>Đang kiểm tra vận hành Nam đảo</small>
+        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+      </a>
+      <a href="ferry/" class="live-item" data-live="ferry">
+        <span>Tàu & Phà</span><strong>--</strong><small>Đang kiểm tra vận hành</small>
+        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+      </a>
     </section>
 
     <aside class="now-card" data-now-card aria-live="polite" aria-label="Gợi ý ngay lúc này">
@@ -449,7 +463,7 @@
   <script src="app.js?v=20260919-superapp4"></script>
   <script src="island-clock.js?v=5"></script>
   <script src="home-today-v3.js?v=3"></script>
-  <script src="home-live-v3.js?v=7"></script>
+  <script src="home-live-v3.js?v=8"></script>
   <script src="home-copy.js?v=2"></script>
 </body>
 </html>
