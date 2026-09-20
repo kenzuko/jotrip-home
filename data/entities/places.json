@@ -943,6 +943,52 @@
         }
       ],
       "updated_at": "2026-09-12"
+    },
+    {
+      "id": "place_gieng_tien",
+      "legacy_id": "gieng-tien",
+      "entity_type": "place",
+      "slug": "gieng-tien",
+      "name": "Giếng Tiên",
+      "aliases": [
+        "Giếng Ngự",
+        "Giếng Gia Long"
+      ],
+      "zone_id": "zone_south",
+      "area_code": "south-an-thoi",
+      "categories": [
+        "history",
+        "lore",
+        "nature"
+      ],
+      "what_it_is": "Mạch nước ngọt trong khu vực An Thới gắn với truyền thuyết dân gian về Nguyễn Ánh.",
+      "why_go": "Đọc một địa điểm thật qua hai lớp: địa hình - mạch nước và truyền thuyết địa phương.",
+      "best_for": [
+        "history",
+        "lore"
+      ],
+      "best_time": "Chưa chuẩn hoá",
+      "duration": "Chưa chuẩn hoá",
+      "price_reference": "Chưa xác minh",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Không kể truyền thuyết Nguyễn Ánh như sự kiện lịch sử đã được chứng minh.",
+        "Cần kiểm tra điều kiện tiếp cận thực tế trước khi đi."
+      ],
+      "intents": [
+        "history",
+        "culture",
+        "local-life"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "crawl_topic_107_gieng_tien"
+        }
+      ],
+      "updated_at": "2026-09-20"
     }
   ]
 }

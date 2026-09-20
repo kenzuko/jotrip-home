@@ -1,0 +1,311 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "p0_batch_02",
+  "created_at": "2026-09-20",
+  "scope": "Legend/belief/dog topics where claim classification matters.",
+  "topics": [
+    {
+      "backlog_no": 107,
+      "topic_id": "topic_107_gieng_tien",
+      "title": "Giếng Tiên",
+      "canonical_id": "place_gieng_tien",
+      "entity_type": "place",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "gieng_tien_place",
+          "claim": "The Phú Quốc government portal describes Giếng Tiên as a freshwater spring emerging from rock in the An Thới area, later enclosed by a small wall for collecting water.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_gieng_pqgov"
+          ]
+        },
+        {
+          "claim_id": "gieng_tien_distance",
+          "claim": "The same official page places Giếng Tiên roughly 2 km from An Thới.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "volatile": false,
+          "source_ids": [
+            "src_gieng_pqgov"
+          ]
+        },
+        {
+          "claim_id": "gieng_tien_nguyen_anh",
+          "claim": "The story that Nguyễn Ánh struck/cut into rock and freshwater appeared, while anchovies came from the sea to sustain his men, is explicitly introduced by the local government page as a folk legend.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "story_type": "LEGEND",
+          "source_ids": [
+            "src_gieng_pqgov"
+          ]
+        },
+        {
+          "claim_id": "gieng_tien_never_dry",
+          "claim": "The tourism text says the small spring does not run dry despite water being taken. This should be treated as a local descriptive claim until hydrological or field evidence is found.",
+          "status": "NEEDS_VERIFICATION",
+          "confidence": "low",
+          "source_ids": [
+            "src_gieng_pqgov"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_gieng_pqgov",
+          "source_type": "OFFICIAL",
+          "publisher": "UBND Đặc khu Phú Quốc",
+          "title": "Những giai thoại, truyền thuyết trên đảo ngọc Phú Quốc",
+          "url": "https://phuquoc.angiang.gov.vn/nhung-giai-thoai-truyen-thuyet-tren-dao-ngoc-phu-quoc",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Exact coordinates and current public access route.",
+        "Hydrological evidence for perennial flow.",
+        "Documented historical evidence linking Nguyễn Ánh to this exact spring, distinct from later folklore."
+      ],
+      "next_research": [
+        "Find old maps/archival records for Mũi Ông Đội and Giếng Tiên.",
+        "Field-verify access, coordinates and current condition.",
+        "Research Nguyễn Ánh's documented movements around Phú Quốc separately from the legend."
+      ]
+    },
+    {
+      "backlog_no": 110,
+      "topic_id": "topic_110_dinh_cau_belief",
+      "title": "Tín ngưỡng Dinh Cậu",
+      "canonical_id": "culture_dinh_cau_belief",
+      "entity_type": "culture",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "belief_current_arrangement",
+          "claim": "Recent reporting and current tourism material describe Chúa Ngọc Nương Nương in the central/principal worship position, with Cậu Tài and Cậu Quý associated at Dinh Cậu.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_belief_thanhnien",
+            "src_belief_checkin"
+          ]
+        },
+        {
+          "claim_id": "belief_ba_cau_term",
+          "claim": "Recent cultural reporting records that fishing was historically referred to locally as 'nghề Bà - Cậu', reflecting a protective belief system among fishing communities.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "story_type": "LOCAL_BELIEF",
+          "source_ids": [
+            "src_belief_thanhnien"
+          ]
+        },
+        {
+          "claim_id": "belief_origin_change",
+          "claim": "The exact original object(s) of worship and how the current altar arrangement developed over time remain contested across popular/local sources.",
+          "status": "DISPUTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_belief_thanhnien",
+            "src_belief_visit"
+          ]
+        },
+        {
+          "claim_id": "belief_festival",
+          "claim": "Current tourism sources place the Dinh Cậu festival on the 15th-16th days of the 10th lunar month.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_belief_checkin",
+            "src_belief_visit"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_belief_thanhnien",
+          "source_type": "REPUTABLE_MEDIA",
+          "publisher": "Thanh Niên",
+          "title": "Dinh Cậu Phú Quốc: Tên Cậu nhưng giữa chánh điện lại là Bà?",
+          "url": "https://thanhnien.vn/dinh-cau-phu-quoc-ten-cau-nhung-giua-chanh-dien-lai-la-ba-185260912213326147.htm",
+          "published_at": "2026-09-13",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_belief_checkin",
+          "source_type": "OFFICIAL",
+          "publisher": "An Giang tourism platform",
+          "title": "Dinh Cậu",
+          "url": "https://checkinangiang.vn/vi/dinhcau",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_belief_visit",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Dinh Cậu Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/dinh-cau-phu-quoc",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Primary historical records for the oldest form of worship at the site.",
+        "Precise relationship among Long Vương, Bà-Cậu, Chúa Ngọc Nương Nương, Cậu Tài and Cậu Quý in different periods.",
+        "Visitor etiquette and ritual practice that should be explained without turning belief into objective fact."
+      ],
+      "next_research": [
+        "Locate cultural-history research and archival documents.",
+        "Separate present-day altar description from historical evolution.",
+        "Create a source-aware etiquette note for visitors."
+      ]
+    },
+    {
+      "backlog_no": 115,
+      "topic_id": "topic_115_phu_quoc_dog",
+      "title": "Chó Phú Quốc",
+      "canonical_id": "culture_phu_quoc_dog",
+      "entity_type": "culture",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "dog_origin_standard",
+          "claim": "The 2023 VKA breed standard states the origin as Phú Quốc Island, Vietnam.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_dog_vka2023"
+          ]
+        },
+        {
+          "claim_id": "dog_ridge",
+          "claim": "The VKA standard identifies the reverse-growing ridge of hair along the back as a defining characteristic.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_dog_vka2023"
+          ]
+        },
+        {
+          "claim_id": "dog_hunting",
+          "claim": "The VKA standard describes the breed's use as a hunting dog and emphasizes speed, agility and endurance.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_dog_vka2023"
+          ]
+        },
+        {
+          "claim_id": "dog_climbing_general",
+          "claim": "The VKA standard says the breed is not afraid of heights or water and is capable of climbing and jumping very well.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_dog_vka2023"
+          ]
+        },
+        {
+          "claim_id": "dog_fci_recognition",
+          "claim": "The VKA standard uses an FCI-style group/subgroup classification. This alone is not evidence that FCI has definitively recognized Phú Quốc Ridgeback as an FCI breed.",
+          "status": "NEEDS_VERIFICATION",
+          "confidence": "high",
+          "source_ids": [
+            "src_dog_vka2023"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_dog_vka2023",
+          "source_type": "OFFICIAL",
+          "publisher": "Vietnam Kennel Association (VKA)",
+          "title": "Bảng tiêu chuẩn giống chó Xoáy Phú Quốc số 001/VN/04.10.2023",
+          "url": "https://vka.vn/wp-content/uploads/2023/10/BANG-TIEU-CHUAN-CPQ-04.10.2023.pdf",
+          "published_at": "2023-10-04",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current FCI recognition status needs explicit verification from FCI nomenclature, not inference from VKA group labels.",
+        "Genetic relationship to Thai Ridgeback/Rhodesian Ridgeback requires scientific sources.",
+        "Historical population and conservation status on the island."
+      ],
+      "next_research": [
+        "Search FCI official nomenclature directly for recognition status.",
+        "Find peer-reviewed genetics/history sources.",
+        "Build an archive timeline from 19th-century European records cited by VKA."
+      ]
+    },
+    {
+      "backlog_no": 116,
+      "topic_id": "topic_116_dog_climb_tree",
+      "title": "Chó Phú Quốc có thật sự leo cây?",
+      "canonical_id": "culture_phu_quoc_dog",
+      "entity_type": "culture",
+      "crawl_status": "NEEDS_VERIFICATION",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "dog_tree_claim",
+          "claim": "The current VKA standard supports strong climbing and jumping ability, but does not specifically establish 'tree climbing' as a universal or diagnostic breed trait.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_dog_vka2023"
+          ]
+        },
+        {
+          "claim_id": "dog_climbing_reports",
+          "claim": "VKA-hosted historical/reporting material contains examples and local descriptions of Phú Quốc dogs climbing obstacles and being strong climbers; these support the origin of the popular claim but are not controlled evidence that the breed routinely climbs trees.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "story_type": "ORAL_HISTORY",
+          "source_ids": [
+            "src_dog_vka_report"
+          ]
+        },
+        {
+          "claim_id": "dog_tree_verdict",
+          "claim": "For Open Phu Quoc, 'chó Phú Quốc biết leo cây' should be presented as a curiosity claim with evidence levels, not as an unqualified biological fact.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_dog_vka2023",
+            "src_dog_vka_report"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_dog_vka2023",
+          "source_type": "OFFICIAL",
+          "publisher": "Vietnam Kennel Association (VKA)",
+          "title": "Bảng tiêu chuẩn giống chó Xoáy Phú Quốc số 001/VN/04.10.2023",
+          "url": "https://vka.vn/wp-content/uploads/2023/10/BANG-TIEU-CHUAN-CPQ-04.10.2023.pdf",
+          "published_at": "2023-10-04",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_dog_vka_report",
+          "source_type": "LOCAL_VERIFIED",
+          "publisher": "Vietnam Kennel Association (VKA)",
+          "title": "Truy tìm căn cước chó Phú Quốc - Phần 4",
+          "url": "https://vka.vn/truy-tim-can-cuoc-cho-phu-quoc-phan-4/",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Whether any controlled behavioral study has tested tree-climbing ability.",
+        "How often 'leo cây' means literal trunk/branch climbing versus climbing fences, rocks or fallen logs in local speech.",
+        "Whether the trait varies by lineage and environment."
+      ],
+      "next_research": [
+        "Search veterinary/behavior/genetics literature.",
+        "Collect field video/photo evidence with provenance and context.",
+        "Interview long-time island breeders/hunters and label testimony as oral history."
+      ]
+    }
+  ]
+}

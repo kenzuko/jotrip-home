@@ -80,6 +80,30 @@
         }
       ],
       "updated_at": "2026-09-12"
+    },
+    {
+      "id": "culture_phu_quoc_dog",
+      "legacy_id": "phu-quoc-dog",
+      "entity_type": "culture",
+      "slug": "phu-quoc-dog",
+      "name": "Chó Xoáy Phú Quốc",
+      "aliases": [
+        "Chó Phú Quốc",
+        "Phu Quoc Ridgeback"
+      ],
+      "what_it_is": "Giống chó bản địa gắn với Phú Quốc, nổi bật với dải lông mọc ngược trên lưng và lịch sử chó săn.",
+      "why_go": "",
+      "intents": [
+        "culture",
+        "local-life",
+        "nature"
+      ],
+      "source_refs": [
+        {
+          "source_id": "crawl_topic_115_phu_quoc_dog"
+        }
+      ],
+      "updated_at": "2026-09-20"
     }
   ]
 }

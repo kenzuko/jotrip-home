@@ -11,10 +11,13 @@ The 150-file is the topic list + crawl specification, not finished article copy.
 - 066 Nước mắm Phú Quốc - PARTIAL_VERIFIED
 - 068 Tiêu Phú Quốc - PARTIAL_VERIFIED
 
+## Completed in P0 batch 02
+- 107 Giếng Tiên - PARTIAL_VERIFIED, legend explicitly separated from documented history
+- 110 Tín ngưỡng Dinh Cậu - PARTIAL_VERIFIED
+- 115 Chó Phú Quốc - PARTIAL_VERIFIED
+- 116 Chó Phú Quốc có thật sự leo cây? - NEEDS_VERIFICATION, curiosity claim not published as plain fact
+
 ## Next P0 crawl
-- Giếng Tiên
-- Chó Phú Quốc / claim "leo cây"
-- Tín ngưỡng Dinh Cậu / tín ngưỡng biển
 - Cano / tàu cao tốc / phà terminology + practical
 - Toilet / ATM / pharmacy / parking / fuel / minimart
 - Phú Quốc khi trời mưa
