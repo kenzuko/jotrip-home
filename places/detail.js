@@ -55,7 +55,10 @@
     const root=$("#detailRoot");
     const zone=zones.find(z=>z.id===entity.zone_id);
     const lookup=new Map(all.map(x=>[x.id,x]));
-    const priceRows=prices.filter(p=>(p.related_entities||[]).includes(entity.id));
+    const directPriceRows=prices.filter(p=>(p.related_entities||[]).includes(entity.id));
+    const relatedPriceRows=prices.filter(p=>(p.related_entities||[]).some(id=>(entity.related_entities||[]).includes(id)));
+    const priceRows=directPriceRows.length?directPriceRows:relatedPriceRows;
+    const inheritedPrice=!directPriceRows.length&&relatedPriceRows.length>0;
     const tags=[...(entity.categories||[]),...(entity.intents||[]),...(entity.best_for||[])];
     const planning=(planningData.items||[]).find(x=>x.entity_id===entity.id)||{};
     const level=(planningData.levels||[]).find(x=>x.id===planning.level);
@@ -92,7 +95,7 @@
           '<article class="detail-panel"><span>ĐỌC NHANH</span><h2>Những thứ cần biết trước khi đi.</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
           ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>CÁCH CHỌN GIÁ</span><h2>Giá đúng phụ thuộc thông tin nào?</h2><p>Open Phu Quoc chưa tự điền giá khi nguồn hiện hành không công bố đủ. Khi kiểm tra vé, hãy chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||x)+'</span>').join("")+'</div></article>':'')+
           ((entity.tips||[]).length?'<article class="detail-panel"><span>MẸO THỰC TẾ</span><h2>Nhớ mấy điều này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+
-          (priceRows.length?'<article class="detail-panel"><span>GIÁ THAM KHẢO</span><h2>Mốc để so, không phải cam kết giá.</h2><div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>GIÁ ĐỘNG</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
+          (priceRows.length?'<article class="detail-panel"><span>'+(inheritedPrice?'GIÁ CỦA CỤM TRẢI NGHIỆM':'GIÁ THAM KHẢO')+'</span><h2>'+(inheritedPrice?'Điểm này dùng quyền lợi trong vé trải nghiệm chính.':'Mốc để so, không phải cam kết giá.')+'</h2>'+(inheritedPrice?'<p>Giá bên dưới thuộc vé hoặc combo của trải nghiệm liên quan. Hãy chọn đúng ngày đi, chiều cao, độ tuổi và quyền lợi trước khi thanh toán.</p>':'')+'<div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>KIỂM TRA ĐÚNG NGÀY</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
           '<article class="detail-panel"><span>GỢI Ý GẦN ĐÂY</span><h2>Đi tiếp từ đây.</h2>'+renderRelated(entity,lookup)+'</article>'+
         '</div>'+
         '<aside class="detail-context">'+
