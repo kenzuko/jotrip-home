@@ -17,20 +17,7 @@
     "cable-car":"Cáp treo",resort:"Khu nghỉ dưỡng",architecture:"Kiến trúc",fireworks:"Pháo hoa",marine:"Biển đảo"
   };
   const priceDimensionLabel={travel_date:"Ngày đi",height_band:"Chiều cao",age_band:"Độ tuổi",ticket_bundle:"Loại vé hoặc combo",time_slot:"Khung giờ"};
-  const zoneVisuals={
-    zone_north:{
-      url:"https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20aerial%20view.jpg?width=1800",
-      source_url:"https://commons.wikimedia.org/wiki/File:2_Phu_Quoc_aerial_view.jpg"
-    },
-    zone_central_west:{
-      url:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1800",
-      source_url:"https://commons.wikimedia.org/wiki/File:Phu_Quoc_Beach.jpg"
-    },
-    zone_south:{
-      url:"https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=1800",
-      source_url:"https://commons.wikimedia.org/wiki/File:An_Thoi_fishing_harbour_Sunset_Town_Sun_World_Phu_Quoc_Vietnam.jpg"
-    }
-  };
+
 
   function friendly(value){
     const raw=String(value??"");
@@ -77,12 +64,11 @@
     const visual=visualData?.places?.[entity.id]||{};
     const explainer=explainerData?.items?.[entity.id]||{};
     const visualImages=Array.isArray(visual.images)?visual.images:[];
-    const heroVisual=window.OpenPQVisual?.pickHero?.(visualImages)||visualImages[0]||null;
-    const zoneVisual=zoneVisuals[entity.zone_id]||zoneVisuals.zone_central_west;
-    const heroImage=heroVisual?.url||zoneVisual.url;
-    const heroSource=heroVisual?.source_url||zoneVisual.source_url;
+    const heroVisual=window.OpenPQVisual?.pickHero?.(visualImages)||visualImages.find(x=>x?.url&&x.hero_eligible!==false)||null;
+    const heroImage=heroVisual?.url||null;
+    const heroSource=heroVisual?.source_url||null;
     const heroIsContext=!heroVisual;
-    const heroAlt=heroVisual?.alt||("Bối cảnh "+(zone?.name||"Phú Quốc"));
+    const heroAlt=heroVisual?.alt||entity.name;
     const extraVisuals=heroVisual?visualImages.filter(x=>x!==heroVisual):visualImages;
     const facts=[
       ["Khu vực",zone?.name||"Toàn đảo"],
@@ -98,9 +84,16 @@
 
     root.innerHTML=
       '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
-        '<img class="detail-hero-photo" src="'+esc(heroImage)+'" alt="'+esc(heroAlt)+'" decoding="async">'+
-        (heroIsContext?'<span class="detail-hero-context">ẢNH BỐI CẢNH KHU VỰC</span>':'')+
-        (heroSource?'<a class="detail-hero-credit" href="'+esc(heroSource)+'" target="_blank" rel="noopener">Nguồn ảnh ↗</a>':'')+
+        (heroImage
+          ? '<img class="detail-hero-photo" src="'+esc(heroImage)+'" alt="'+esc(heroAlt)+'" decoding="async">'
+          : '<div class="detail-hero-fallback" aria-label="Sơ đồ vị trí '+esc(zone?.name||"Phú Quốc")+'">'+
+              '<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/PhuQuocMap.svg?width=900" alt="" aria-hidden="true">'+
+              '<div><span>VỊ TRÍ TRÊN ĐẢO</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>Ảnh điểm đến đang được cập nhật</small></div>'+
+            '</div>')+
+        (heroIsContext?'<span class="detail-hero-context">SƠ ĐỒ VÙNG</span>':'')+
+        (heroSource
+          ? '<a class="detail-hero-credit" href="'+esc(heroSource)+'" target="_blank" rel="noopener">Nguồn ảnh ↗</a>'
+          : '<a class="detail-hero-credit" href="https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg" target="_blank" rel="noopener">Nguồn bản đồ ↗</a>')+
         '<div class="detail-hero-inner">'+
           '<p class="detail-kicker">'+esc(typeLabel[entity.entity_type]||entity.entity_type)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
           '<h1>'+esc(entity.name)+'</h1>'+
