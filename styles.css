@@ -3795,3 +3795,46 @@ body.sheet-open{
   .mobile-dock a,.mobile-dock button{font-size:11px}
   .site-footer{padding-bottom:96px}
 }
+
+/* V3.1 - five primary journeys must read as one navigation row */
+@media (min-width:900px){
+  .task-launcher,
+  #top>.task-launcher{
+    grid-template-columns:repeat(5,minmax(0,1fr));
+    gap:10px;
+    margin-top:12px;
+    margin-bottom:0;
+  }
+  .task-launcher a{
+    min-width:0;
+    min-height:82px;
+    padding:13px 14px;
+    grid-template-columns:34px minmax(0,1fr);
+    align-content:center;
+  }
+  .task-launcher a>span{width:32px;height:32px;font-size:10px}
+  .task-launcher strong{font-size:14px;line-height:1.25}
+  .task-launcher small{font-size:11px;line-height:1.4}
+  #top>.happening{padding-top:34px}
+}
+
+@media (min-width:761px) and (max-width:899px){
+  .task-launcher{
+    grid-template-columns:repeat(6,minmax(0,1fr));
+  }
+  .task-launcher a{grid-column:span 2}
+  .task-launcher a:nth-child(4){grid-column:2 / span 2}
+  .task-launcher a:nth-child(5){grid-column:4 / span 2}
+}
+
+@media (max-width:760px){
+  .task-launcher{
+    padding-left:14px;
+    padding-right:14px;
+    scroll-padding-left:14px;
+  }
+  .task-launcher a{
+    flex-basis:min(82vw,310px);
+    min-height:82px;
+  }
+}
