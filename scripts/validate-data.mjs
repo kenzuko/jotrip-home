@@ -36,6 +36,14 @@ const knownIds=new Set(ids.keys());
 const externalPrefixes=["live_"];
 
 for(const entity of entities){
+  if(entity.map){
+    const {lat,lon,precision,source,verified_at}=entity.map;
+    if(!Number.isFinite(lat)||lat < -90||lat > 90) errors.push(entity.id+": invalid map.lat");
+    if(!Number.isFinite(lon)||lon < -180||lon > 180) errors.push(entity.id+": invalid map.lon");
+    if(!new Set(["exact_entrance","site_centroid","area_anchor","route_anchor"]).has(precision)) errors.push(entity.id+": invalid map.precision");
+    if(!source) errors.push(entity.id+": map source is required");
+    if(!verified_at) errors.push(entity.id+": map verified_at is required");
+  }
   if(entity.entity_type==="hotel"){
     const validStatuses=new Set(["active","active_new_not_in_sdl","upcoming"]);
     if(!validStatuses.has(entity.operational_status)) errors.push(entity.id+": invalid hotel operational_status");
@@ -48,6 +56,20 @@ for(const entity of entities){
     const external=externalPrefixes.some(prefix=>String(rel).startsWith(prefix));
     if(!external && !knownIds.has(rel)) warnings.push(entity.id+": relationship target not found in entity layer: "+rel);
   }
+}
+
+const mapCoveragePath=path.join(root,"data","views","map-coverage.json");
+try{
+  const mapCoverage=JSON.parse(fs.readFileSync(mapCoveragePath,"utf8"));
+  const ready=entities.filter(entity=>Number.isFinite(entity.map?.lat)&&Number.isFinite(entity.map?.lon));
+  if(mapCoverage.summary?.ready_count!==ready.length) errors.push("map coverage ready_count is stale; rebuild map coverage");
+  for(const layer of Object.values(mapCoverage.layers||{})){
+    for(const item of layer||[]){
+      if(!knownIds.has(item.id)) errors.push("map layer references missing entity: "+item.id);
+    }
+  }
+}catch(error){
+  errors.push("map-coverage.json invalid or missing: "+error.message);
 }
 
 const facetPath=path.join(root,"data","views","explore-facets.json");

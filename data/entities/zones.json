@@ -23,6 +23,15 @@
         "nature",
         "first-time"
       ],
+      "map": {
+        "lat": 10.3759,
+        "lon": 103.9,
+        "precision": "area_anchor",
+        "anchor_name": "Gành Dầu",
+        "source": "Open Phu Quoc operational reference",
+        "verified_at": "2026-09-20",
+        "note": "Điểm neo định hướng vùng, không phải tâm hình học hay vị trí của mọi điểm Bắc đảo. Kinh độ hiện ở mức xấp xỉ."
+      },
       "source_refs": [
         {
           "source_id": "handbook_r3"
@@ -53,6 +62,15 @@
         "food",
         "local-life"
       ],
+      "map": {
+        "lat": 10.2172,
+        "lon": 103.9593,
+        "precision": "area_anchor",
+        "anchor_name": "Dương Đông",
+        "source": "Open Phu Quoc operational reference",
+        "verified_at": "2026-09-20",
+        "note": "Điểm neo định hướng vùng, không đại diện cho vị trí của mọi điểm trung tâm và bờ Tây."
+      },
       "source_refs": [
         {
           "source_id": "handbook_r3"
@@ -84,6 +102,15 @@
         "family",
         "first-time"
       ],
+      "map": {
+        "lat": 10.0191,
+        "lon": 104.015,
+        "precision": "area_anchor",
+        "anchor_name": "An Thới",
+        "source": "Open Phu Quoc operational reference",
+        "verified_at": "2026-09-20",
+        "note": "Điểm neo định hướng vùng, không được dùng làm tọa độ cho Hòn Thơm hoặc các đảo nhỏ."
+      },
       "source_refs": [
         {
           "source_id": "handbook_r3"
