@@ -63,3 +63,13 @@
   .ingredient-grid{grid-template-columns:1fr}
   .food-article .visual-infographic-grid{grid-template-columns:1fr}
 }
+
+.food-context-visual{margin:18px 0 22px}
+.food-context-visual .visual-gallery-block{margin:0}
+.food-context-visual .visual-gallery{grid-template-columns:1.15fr .85fr}
+.food-context-visual .visual-photo:first-child img{aspect-ratio:16/9}
+.food-context-visual .visual-photo:last-child img{aspect-ratio:4/3}
+@media(max-width:640px){
+  .food-context-visual{margin:14px 0 18px}
+  .food-context-visual .visual-gallery{display:flex}
+}
