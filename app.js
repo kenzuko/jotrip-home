@@ -6,7 +6,7 @@ const dockSearch = document.querySelector('.dock-search');
 const headerSearch = document.querySelector('.header-search');
 const toast = document.querySelector('.toast');
 const filterChips = document.querySelectorAll('.filter-chips button');
-const energyTargets = document.querySelectorAll('.live-strip, .section, .colour-band, .heritage-section');
+const energyTargets = document.querySelectorAll('.live-strip, .section');
 
 let toastTimer;
 
@@ -47,7 +47,9 @@ const searchTypeLabel = {
   meal_plan: 'GÓI ĂN KÈM',
   price_reference: 'GIÁ THAM KHẢO',
   island_basic: 'HIỂU ĐẢO',
-  live: 'TRỰC TIẾP'
+  live: 'TRỰC TIẾP',
+  story: 'CÂU CHUYỆN',
+  lore: 'TÒ MÒ / HUYỀN TÍCH'
 };
 
 function escapeSearchHtml(value) {
@@ -219,7 +221,7 @@ document.addEventListener('keydown', (event) => {
   closeSearchResults();
 });
 
-const swipeRails = document.querySelectorAll('.must-rail, .heritage-rail');
+const swipeRails = document.querySelectorAll('.activity-board-grid, .curiosity-rail');
 
 function updateRailActive(rail) {
   const cards = [...rail.children];
@@ -368,7 +370,7 @@ showHeroSlide(0);
 startHeroAutoplay();
 
 /* One-time swipe affordance for mobile discovery rails */
-const discoveryRails = document.querySelectorAll('.must-rail, .heritage-rail, .area-scroll, .food-picks, .essential-grid');
+const discoveryRails = document.querySelectorAll('.activity-board-grid, .curiosity-rail, .explore-more-grid');
 
 if ('IntersectionObserver' in window && window.matchMedia('(max-width: 760px)').matches) {
   const peekObserver = new IntersectionObserver((entries) => {

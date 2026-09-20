@@ -30,7 +30,9 @@ jobs:
       - name: Build derived data views
         run: node scripts/build-search-index.mjs
       - name: Validate data contracts
-        run: node scripts/validate-data.mjs
+        run: |
+          node scripts/validate-data.mjs
+          node scripts/validate-home-support.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
       - name: Validate Cloudflare CMS bundle

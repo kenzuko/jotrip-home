@@ -75,6 +75,27 @@ for(const file of files){
 }
 
 const documents=entities.map(toDoc);
+
+let storyDocs=[];
+let curiosityDocs=[];
+try{
+  const content=JSON.parse(fs.readFileSync(path.join(root,"data","content.json"),"utf8"));
+  storyDocs=(content.stories||[]).map(s=>({
+    id:"story_"+s.id,type:"story",title:s.title,aliases:[],zone_id:null,intents:["story"],related_entities:[],
+    route:"/stories/article.html?id="+encodeURIComponent(s.id),
+    search_text:fold([s.title,s.dek,s.intro,s.category].filter(Boolean).join(" "))
+  }));
+}catch(error){}
+try{
+  const support=JSON.parse(fs.readFileSync(path.join(root,"data","home-support.json"),"utf8"));
+  curiosityDocs=(support.curiosity||[]).map(x=>({
+    id:"lore_"+x.prompt_id,type:"lore",title:x.question,aliases:[],zone_id:null,intents:["lore","curiosity"],
+    related_entities:x.place_id?[x.place_id]:[],
+    route:"/"+String(x.route||"stories/").replace(/^\//,""),
+    search_text:fold([x.question,x.short_teaser,x.story_type].filter(Boolean).join(" "))
+  }));
+}catch(error){}
+documents.push(...storyDocs,...curiosityDocs);
 documents.push(
   {id:"live_weather",type:"live",title:"Thời tiết & biển Phú Quốc",aliases:["weather","mưa","gió","sóng","biển"],zone_id:null,intents:["weather","marine"],route:"/weather/",search_text:"thoi tiet weather mua gio song bien marine"},
   {id:"live_airport",type:"live",title:"Sân bay Phú Quốc",aliases:["airport","PQC","flight","chuyến bay"],zone_id:null,intents:["airport","arrival","departure"],route:"/airport/",search_text:"san bay airport pqc flight chuyen bay den di"},
