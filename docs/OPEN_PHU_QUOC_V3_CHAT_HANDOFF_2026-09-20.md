@@ -228,3 +228,25 @@ Kiểm tra syntax cho file JS vừa sửa bằng `node --check <file>`.
 - Báo ngắn theo kết quả đã làm, tránh danh sách kỹ thuật dài nếu chưa cần.
 - Nếu không có quyền ghi repo hoặc browser, nói rõ giới hạn và đưa đúng bước tiếp theo có thể thực hiện.
 - Khi một mục chỉ mới code-pass nhưng chưa visual-pass, phải nói đúng là chưa hoàn tất.
+
+## 13. Feedback hình ảnh cuối cùng lúc chuyển sang Chat
+
+Ảnh người dùng gửi lúc 17:05 ngày 20/09/2026 cho thấy homepage desktop tại `cms.openphuquoc.com` vẫn còn lỗi cân chỉnh ở cụm 5 lối vào theo nhu cầu:
+
+- Hiện đang xếp thành 3 thẻ hàng trên và 2 thẻ hàng dưới.
+- Hàng dưới để trống một ô bên phải nên toàn khối bị lệch, tạo khoảng trắng lớn và làm mạch đọc bị đứt.
+- Cụm này nằm quá xa khối hero và context rail, chưa tạo cảm giác là navigation tiếp nối ngay sau Search/Live.
+- Thẻ số và nội dung chưa thẳng hàng hoàn toàn theo một baseline.
+
+Hướng sửa đã chốt:
+
+- Desktop rộng: 5 tab trên cùng một hàng, chia đều chiều rộng và cùng chiều cao.
+- Desktop hẹp hoặc tablet: có thể 3 + 2 nhưng hàng cuối phải cân giữa hoặc hai thẻ phải kéo giãn đều, không để một ô trống vô nghĩa.
+- Mobile: rail ngang 5 tab, snap từng thẻ, thao tác một tay; không ép thành lưới chữ nhỏ.
+- Giảm khoảng trắng phía dưới cụm tab và nối trực tiếp tới phần "Có gì hôm nay".
+- Giữ thứ tự: Tôi đang ở Phú Quốc, Tôi sắp đến, Đi đâu hôm nay, Ăn gì, Di chuyển & trợ giúp.
+- Không thêm tab thứ sáu chỉ để lấp chỗ trống.
+
+Commit `main` mới nhất sau các bản sửa Work: `aa7a2bb1db27ef606fa8470c89bb47cc95ca4669`.
+
+Commit này gồm tối ưu `/airport`: tải nguồn trực tiếp và snapshot song song, fallback sau 2,5 giây, đồng thời đổi copy kỹ thuật thành ngôn ngữ khách hàng. Cần đợi Cloudflare build xong rồi QA trực tiếp.
