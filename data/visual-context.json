@@ -618,12 +618,25 @@
     "activity_hon_thom": {
       "images": [
         {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sun%20World%20Hon%20Thom%20aerial%20view%20panorama%20sunset%20Phu%20Quoc.jpg?width=1800",
+          "alt": "Toàn cảnh Hòn Thơm và vùng biển phía Nam Phú Quốc",
+          "caption": "Toàn cảnh Hòn Thơm nhìn từ trên cao lúc chiều muộn, ảnh chụp tháng 4/2026.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sun_World_Hon_Thom_aerial_view_panorama_sunset_Phu_Quoc.jpg",
+          "captured_at": "2026-04-11",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
+        },
+        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cap-treo-hon-thom-3.jpg?width=1800",
           "alt": "Nhìn từ cáp treo Hòn Thơm qua quần đảo An Thới",
           "caption": "Nhìn từ cáp treo Hòn Thơm, ảnh công bố tháng 3/2026.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Cap-treo-hon-thom-3.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Cap-treo-hon-thom-3.jpg",
+          "captured_at": "2026-03-21",
+          "hero_priority": "preferred"
         },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hon%20Thom%20Cable%20Car%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1800",
@@ -631,7 +644,8 @@
           "caption": "Cáp treo Hòn Thơm vượt biển nối An Thới với Hòn Thơm.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Hon_Thom_Cable_Car_aerial_view_Phu_Quoc_Island_Vietnam.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Hon_Thom_Cable_Car_aerial_view_Phu_Quoc_Island_Vietnam.jpg",
+          "hero_priority": "default"
         }
       ],
       "map": {
@@ -832,7 +846,10 @@
           "caption": "Tàu lượn trong Exotica Park trên Hòn Thơm, ảnh công bố năm 2026.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Exotica_Park_Sun_World_Phu_Quoc.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Exotica_Park_Sun_World_Phu_Quoc.jpg",
+          "captured_at": "2026-04-22",
+          "hero_priority": "primary",
+          "visual_quality": "hero"
         }
       ],
       "infographic": [
@@ -1037,6 +1054,57 @@
           "note": "Gió, sóng và tình trạng vận hành quan trọng hơn lịch cố định."
         }
       ]
+    },
+    "place_fish_sauce_house": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vats%20at%20a%20Fish%20Sauce%20Factory%20on%20Phu%20Quoc%20Island%20in%20Vietnam%2001.jpg?width=1600",
+          "alt": "Thùng ủ nước mắm tại một nhà thùng ở Phú Quốc",
+          "caption": "Ảnh tư liệu năm 2015 cho thấy các thùng ủ nước mắm truyền thống ở Phú Quốc. Dùng để minh họa quy trình, không đại diện hiện trạng một cơ sở cụ thể hôm nay.",
+          "scope": "archive_process",
+          "source_label": "Wikimedia Commons - Frank Fox",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Vats_at_a_Fish_Sauce_Factory_on_Phu_Quoc_Island_in_Vietnam_01.jpg",
+          "captured_at": "2015-06-27",
+          "hero_priority": "archive",
+          "hero_eligible": false,
+          "visual_quality": "archive"
+        }
+      ],
+      "visual_note": "Chưa có ảnh 2025-2026 đủ quyền và đúng cơ sở để dùng làm hero. Ảnh cũ chỉ xuất hiện như tư liệu quy trình."
+    },
+    "place_pepper_garden": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pepper%20farm%20in%20vietnam.JPG?width=1600",
+          "alt": "Vườn tiêu tại Phú Quốc",
+          "caption": "Ảnh tư liệu một vườn tiêu Phú Quốc năm 2015. Dùng để nhận diện cách trồng tiêu, không đại diện hiện trạng một vườn cụ thể hôm nay.",
+          "scope": "archive_process",
+          "source_label": "Wikimedia Commons - Tonbi ko",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Pepper_farm_in_vietnam.JPG",
+          "captured_at": "2015-02-27",
+          "hero_priority": "archive",
+          "hero_eligible": false,
+          "visual_quality": "archive"
+        }
+      ],
+      "visual_note": "Chờ ảnh mới 2025-2026 xác định đúng vườn và có quyền sử dụng phù hợp trước khi dùng hero."
+    },
+    "activity_tour_3_islands": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=1800",
+          "alt": "Cảng cá An Thới và vùng đô thị phía Nam Phú Quốc",
+          "caption": "Bối cảnh An Thới nhìn từ trên cao tháng 4/2026. Ảnh giúp hình dung vùng xuất phát/hoạt động biển phía Nam, không đại diện bến hoặc điểm dừng của mọi tour 3 đảo.",
+          "scope": "regional_context",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:An_Thoi_fishing_harbour_Sunset_Town_Sun_World_Phu_Quoc_Vietnam.jpg",
+          "captured_at": "2026-04-11",
+          "hero_priority": "context",
+          "hero_eligible": false,
+          "visual_quality": "hero"
+        }
+      ],
+      "visual_note": "Chỉ dùng ảnh An Thới như bối cảnh vùng. Hero chính vẫn dùng locator/infographic cho tới khi có ảnh tour exact đủ mới và đúng quyền."
     }
   },
   "food": {
