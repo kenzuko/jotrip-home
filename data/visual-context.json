@@ -217,6 +217,26 @@
           "source_label": "Wikimedia Commons - Hoangvantoanajc",
           "source_url": "https://commons.wikimedia.org/wiki/File:Dinh_C%E1%BA%ADu_Ph%C3%BA_Qu%E1%BB%91c.jpg"
         }
+      ],
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Đi lúc",
+          "value": "Cuối chiều",
+          "note": "Ánh sáng dịu và cửa sông Dương Đông có nhiều nhịp sống để nhìn hơn."
+        },
+        {
+          "icon": "◷",
+          "label": "Ở lại",
+          "value": "30-60 phút",
+          "note": "Đủ để đi một vòng, ngồi nhìn cửa sông và không cần biến thành điểm chạy cho xong."
+        },
+        {
+          "icon": "◌",
+          "label": "Nhớ",
+          "value": "Đây là nơi tín ngưỡng",
+          "note": "Ăn mặc và chụp ảnh vừa phải sẽ phù hợp hơn."
+        }
       ]
     },
     "place_night_market": {
@@ -228,6 +248,26 @@
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Tonbi ko",
           "source_url": "https://commons.wikimedia.org/wiki/File:Night_market_in_Phu_Quoc.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "☽",
+          "label": "Đi lúc",
+          "value": "Sau khi trời dịu",
+          "note": "Ghép với Dinh Cậu và một vòng Dương Đông sẽ tự nhiên hơn đi riêng."
+        },
+        {
+          "icon": "₫",
+          "label": "Gọi hải sản",
+          "value": "Hỏi giá trước",
+          "note": "Nhất là món tính theo cân, kích cỡ hoặc có thêm phí chế biến."
+        },
+        {
+          "icon": "◷",
+          "label": "Ở lại",
+          "value": "1-2 giờ là vừa",
+          "note": "Chợ đêm không phải toàn bộ ẩm thực Phú Quốc, đừng cố ăn hết ở đây."
         }
       ]
     },
@@ -248,6 +288,26 @@
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
           "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_Town_Phu_Quoc_at_night.jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Bắt đầu",
+          "value": "Từ cuối chiều",
+          "note": "Đến sớm hơn hoàng hôn để còn thời gian đi bộ và chọn góc."
+        },
+        {
+          "icon": "⌖",
+          "label": "Khu này rộng",
+          "value": "Chọn 2-3 điểm chính",
+          "note": "Cầu Hôn, show và khu phố có thể ghép, nhưng đừng chạy kín lịch."
+        },
+        {
+          "icon": "☽",
+          "label": "Nếu ở lại tối",
+          "value": "Tính luôn đường về",
+          "note": "Đặc biệt nếu khách sạn ở Dương Đông hoặc Bắc đảo."
         }
       ]
     },
@@ -311,6 +371,26 @@
           "source_label": "Wikimedia Commons",
           "source_url": "https://commons.wikimedia.org/wiki/File:Bai_Sao,_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3870300491).jpg"
         }
+      ],
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Đẹp hay không",
+          "value": "Phụ thuộc ngày và đoạn bãi",
+          "note": "Nắng, mùa biển và tình trạng bãi ảnh hưởng cảm giác nhiều hơn ảnh quảng cáo."
+        },
+        {
+          "icon": "◷",
+          "label": "Nên dành",
+          "value": "2-4 giờ",
+          "note": "Tắm biển, nghỉ và ăn nhẹ là đủ cho một buổi không quá vội."
+        },
+        {
+          "icon": "⌖",
+          "label": "Ghép cùng",
+          "value": "Một ngày Nam đảo",
+          "note": "Đỡ mất thời gian hơn chạy lên Bắc đảo rồi quay lại."
+        }
       ]
     },
     "place_vinwonders": {
@@ -322,6 +402,26 @@
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Phương Huy",
           "source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA_Qu%E1%BB%91c_2022_(C%C3%B4ng_vi%C3%AAn_ch%E1%BB%A7_%C4%91%E1%BB%81,_đu_quay_nh%C3%ACn_xa)_(2).jpg"
+        }
+      ],
+      "infographic": [
+        {
+          "icon": "◷",
+          "label": "Nên dành",
+          "value": "Gần trọn ngày",
+          "note": "Khu rất rộng. Chọn trước vài phân khu chính sẽ đỡ mệt hơn cố đi hết."
+        },
+        {
+          "icon": "☂",
+          "label": "Giữa trưa",
+          "value": "Thủy cung là khoảng nghỉ tốt",
+          "note": "Có chỗ mát để hạ nhịp trước khi quay lại các trò ngoài trời."
+        },
+        {
+          "icon": "✓",
+          "label": "Đi cùng trẻ",
+          "value": "Xem giới hạn chiều cao",
+          "note": "Kiểm tra trước để khỏi đi vòng rồi mới biết trò không phù hợp."
         }
       ]
     },
@@ -345,7 +445,27 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Vinpearl_Safari_Ph%C3%BA_Qu%E1%BB%91c.jpg",
         "verified_at": "2026-09-20",
         "note": "Tọa độ điểm chụp tại cổng Safari, dùng để định hướng khu vực, không đại diện toàn bộ công viên."
-      }
+      },
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Đi lúc",
+          "value": "Buổi sáng",
+          "note": "Trời dịu hơn và còn nhiều thời gian nếu muốn xem cả khu bán hoang dã lẫn Open Zoo."
+        },
+        {
+          "icon": "◷",
+          "label": "Nên dành",
+          "value": "3-5 giờ",
+          "note": "Đi cùng trẻ nhỏ thì đừng ghép quá nhiều điểm lớn trong ngày."
+        },
+        {
+          "icon": "↗",
+          "label": "Ưu tiên trước",
+          "value": "Bus bán hoang dã",
+          "note": "Nếu khu này là lý do chính bạn tới Safari, đi sớm sẽ chủ động hơn."
+        }
+      ]
     },
     "place_grand_world": {
       "images": [
@@ -367,7 +487,27 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:2023-07-30_Grand_World_Ph%C3%BA_Qu%E1%BB%91c_193144.jpg",
         "verified_at": "2026-09-20",
         "note": "Tọa độ điểm chụp trong Grand World, dùng làm điểm neo định hướng, không phải tâm chính xác của toàn khu."
-      }
+      },
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Đi lúc",
+          "value": "Cuối chiều trở đi",
+          "note": "Đỡ nắng hơn và hợp với nhịp dạo phố, ăn tối, xem show."
+        },
+        {
+          "icon": "◷",
+          "label": "Nên dành",
+          "value": "3-5 giờ",
+          "note": "Không cần cố xem hết mọi thứ trong một lượt."
+        },
+        {
+          "icon": "⌖",
+          "label": "Nếu ở xa Bắc đảo",
+          "value": "Chốt đường về trước",
+          "note": "Tối muộn rồi mới tìm xe sẽ dễ mệt, nhất là đi cùng trẻ."
+        }
+      ]
     },
     "place_bai_truong": {
       "images": [
@@ -389,7 +529,27 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Bai_Truong_(Long_Beach)_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3859473907).jpg",
         "verified_at": "2026-09-20",
         "note": "Điểm chụp nằm trên Bãi Trường, chỉ dùng để định hướng dải bờ biển dài, không đại diện cho toàn Bãi Trường."
-      }
+      },
+      "infographic": [
+        {
+          "icon": "☀",
+          "label": "Đi vì",
+          "value": "Hoàng hôn bờ Tây",
+          "note": "Bãi Trường rất dài, trải nghiệm thay đổi theo đoạn bãi bạn chọn."
+        },
+        {
+          "icon": "⌖",
+          "label": "Thuận khi",
+          "value": "Ở gần sân bay hoặc resort bờ Tây",
+          "note": "Không cần chạy xa chỉ để check-in một đoạn bãi cụ thể."
+        },
+        {
+          "icon": "◷",
+          "label": "Nhịp hợp",
+          "value": "Cuối chiều chậm rãi",
+          "note": "Đây là chỗ hợp ngồi lâu hơn là chạy nhiều hoạt động."
+        }
+      ]
     },
     "place_aquatopia": {
       "images": [
@@ -444,6 +604,14 @@
     "activity_hon_thom": {
       "images": [
         {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cap-treo-hon-thom-3.jpg?width=1800",
+          "alt": "Nhìn từ cáp treo Hòn Thơm qua quần đảo An Thới",
+          "caption": "Nhìn từ cáp treo Hòn Thơm, ảnh công bố tháng 3/2026.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Cap-treo-hon-thom-3.jpg"
+        },
+        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hon%20Thom%20Cable%20Car%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1800",
           "alt": "Cáp treo Hòn Thơm nhìn từ trên cao",
           "caption": "Cáp treo Hòn Thơm vượt biển nối An Thới với Hòn Thơm.",
@@ -461,7 +629,27 @@
         "source_url": "https://commons.wikimedia.org/wiki/File:Cap-treo-hon-thom-qua-thi-tran.jpg",
         "verified_at": "2026-09-20",
         "note": "Điểm neo nằm trên tuyến cáp treo tại khu An Thới, không phải vị trí đại diện cho toàn tuyến hoặc Hòn Thơm."
-      }
+      },
+      "infographic": [
+        {
+          "icon": "↔",
+          "label": "Đi vì",
+          "value": "Góc nhìn vượt biển",
+          "note": "Phần đáng nhớ nhất bắt đầu ngay từ lúc cabin rời ga và nhìn xuống quần đảo An Thới."
+        },
+        {
+          "icon": "◷",
+          "label": "Nên dành",
+          "value": "Gần trọn một ngày",
+          "note": "Nếu đã sang Hòn Thơm, đừng xếp lịch kiểu qua cho biết rồi quay về ngay."
+        },
+        {
+          "icon": "✓",
+          "label": "Trước khi mua",
+          "value": "Xem combo & giờ vận hành",
+          "note": "Vé có thể đi cùng Aquatopia hoặc quyền lợi khác tùy ngày."
+        }
+      ]
     },
     "place_bai_khem": {
       "images": [
