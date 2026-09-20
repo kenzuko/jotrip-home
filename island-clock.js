@@ -26,5 +26,34 @@
       el.setAttribute("aria-label","Giờ Phú Quốc "+time+", "+date);
     });
   }
+  const moduleFooter=document.querySelector(".module-footer");
+  if(moduleFooter&&!moduleFooter.querySelector(".module-footer-inner")){
+    const note=moduleFooter.textContent.trim();
+    moduleFooter.innerHTML=`
+      <div class="shell module-footer-inner">
+        <div class="module-footer-brand">
+          <img src="/assets/logo-master.png" alt="Open Phu Quoc">
+          <div><strong>Hiểu đảo để đi nhẹ hơn.</strong><p>Thông tin đang diễn ra và kiến thức điểm đến trong cùng một hệ sinh thái dành cho người đang ở Phú Quốc.</p></div>
+        </div>
+        <nav class="module-footer-nav" aria-label="Mở phần khác">
+          <a href="/">Hôm nay</a><a href="/explore/">Khám phá</a><a href="/guide/">Cẩm nang</a><a href="/about/">Về chúng tôi</a>
+        </nav>
+        <div class="module-footer-note">${note}</div>
+      </div>`;
+    const fs=document.createElement("style");fs.id="openpq-module-footer-style";
+    fs.textContent=`
+      .module-footer{padding:30px 0 90px!important;background:#fff;color:#6C7E7A!important;font-size:12px!important}
+      .module-footer-inner{display:grid;grid-template-columns:minmax(260px,1.2fr) minmax(220px,.8fr);gap:24px;align-items:start}
+      .module-footer-brand{display:grid;grid-template-columns:58px minmax(0,1fr);gap:14px;align-items:center}
+      .module-footer-brand img{width:58px;height:58px;object-fit:contain}
+      .module-footer-brand strong{display:block;color:#123D3B;font-size:17px;letter-spacing:-.02em}
+      .module-footer-brand p{max-width:560px;margin:5px 0 0;font-size:12px;line-height:1.55}
+      .module-footer-nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px}
+      .module-footer-nav a{padding:9px 11px;border:1px solid #DDE9E6;border-radius:999px;background:#F5F9F8;color:#123D3B;font-size:11px;font-weight:800;text-decoration:none}
+      .module-footer-note{grid-column:1/-1;padding-top:14px;border-top:1px solid #DDE9E6;font-size:11px;line-height:1.55}
+      @media(max-width:720px){.module-footer-inner{grid-template-columns:1fr}.module-footer-nav{justify-content:flex-start}.module-footer-note{grid-column:auto}.module-footer{padding-top:24px!important}}
+    `;
+    document.head.appendChild(fs);
+  }
   tick();setInterval(tick,1000);
 })();

@@ -3414,7 +3414,7 @@ body.sheet-open{
   margin:14px auto 0;
   padding:0 clamp(14px,3vw,38px);
   display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:9px;
 }
 .task-launcher a{
@@ -3735,11 +3735,18 @@ body.sheet-open{
 
 @media (max-width:760px){
   .task-launcher{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:7px;
+    display:flex;
+    gap:8px;
     margin-top:10px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    padding-bottom:4px;
   }
+  .task-launcher::-webkit-scrollbar{display:none}
   .task-launcher a{
+    flex:0 0 min(78vw,290px);
+    scroll-snap-align:start;
     min-height:78px;
     padding:11px;
   }
