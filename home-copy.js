@@ -21,7 +21,8 @@
 
       if(d.hero?.slides?.[0]?.label)set(".hero-scene-label",d.hero.slides[0].label);
 
-      for(const [id,v] of Object.entries(d.sections||{})){\n        if(id==="happening") continue;
+      for(const [id,v] of Object.entries(d.sections||{})){
+        if(id==="happening") continue;
         set("#"+id+" .eyebrow",v.eyebrow);
         set("#"+id+" .section-heading h2",v.title);
         if(id==="heritage"){
