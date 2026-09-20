@@ -1,0 +1,277 @@
+import { chromium } from 'playwright';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+const BASE_URL = process.env.VISUAL_QA_BASE_URL || 'http://127.0.0.1:4173';
+const OUTPUT_DIR = process.env.VISUAL_QA_OUTPUT || 'visual-qa-results';
+const SCOPE = process.env.VISUAL_QA_SCOPE || 'full';
+
+const allRoutes = [
+  { name: 'home', path: '/' },
+  { name: 'explore', path: '/explore/' },
+  { name: 'places', path: '/places/' },
+  { name: 'aquatopia', path: '/places/detail.html?id=aquatopia' },
+  { name: 'hon-thom', path: '/places/detail.html?id=activity_hon_thom' },
+  { name: 'vinwonders', path: '/places/detail.html?id=place_vinwonders' },
+  { name: 'dinh-cau', path: '/places/detail.html?id=place_dinh_cau' },
+  { name: 'food', path: '/food/' },
+  { name: 'food-bun-quay', path: '/food/article.html?id=bun-quay' },
+  { name: 'stories', path: '/stories/' },
+  { name: 'story-duong-dong', path: '/stories/article.html?id=duong-dong-sau-5-gio' },
+  { name: 'about', path: '/about/' },
+  { name: 'ferry', path: '/ferry/' },
+  { name: 'bus', path: '/bus/' },
+  { name: 'cano', path: '/cano/' }
+];
+
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus']);
+const routes = SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
+
+const viewports = [
+  { name: 'desktop-1366x768', width: 1366, height: 768 },
+  { name: 'desktop-1440x900', width: 1440, height: 900 },
+  { name: 'mobile-390x844', width: 390, height: 844 },
+  { name: 'mobile-430x932', width: 430, height: 932 }
+];
+
+await fs.rm(OUTPUT_DIR, { recursive: true, force: true });
+await fs.mkdir(path.join(OUTPUT_DIR, 'screenshots'), { recursive: true });
+
+const browser = await chromium.launch({ headless: true });
+const results = [];
+
+function sameOrigin(url) {
+  try {
+    return new URL(url).origin === new URL(BASE_URL).origin;
+  } catch {
+    return false;
+  }
+}
+
+async function settlePage(page) {
+  await page.waitForLoadState('domcontentloaded');
+  await page.waitForLoadState('networkidle', { timeout: 5000 }).catch(() => {});
+  await page.evaluate(async () => {
+    if (document.fonts?.ready) await document.fonts.ready;
+  }).catch(() => {});
+
+  await page.evaluate(async () => {
+    const step = Math.max(500, Math.floor(window.innerHeight * 0.8));
+    const max = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
+    for (let y = 0; y < max; y += step) {
+      window.scrollTo(0, y);
+      await new Promise(resolve => setTimeout(resolve, 35));
+    }
+    window.scrollTo(0, 0);
+  });
+  await page.waitForTimeout(500);
+}
+
+async function inspectPage(page) {
+  return page.evaluate(() => {
+    const viewportWidth = window.innerWidth;
+    const doc = document.documentElement;
+    const body = document.body;
+    const documentOverflow = Math.max(doc.scrollWidth, body?.scrollWidth || 0) > viewportWidth + 1;
+
+    const overflowElements = [...document.querySelectorAll('body *')]
+      .filter(el => {
+        const style = getComputedStyle(el);
+        if (style.display === 'none' || style.visibility === 'hidden') return false;
+        const rect = el.getBoundingClientRect();
+        if (rect.width === 0 || rect.height === 0) return false;
+        return rect.left < -1 || rect.right > viewportWidth + 1;
+      })
+      .slice(0, 12)
+      .map(el => {
+        const rect = el.getBoundingClientRect();
+        return {
+          tag: el.tagName.toLowerCase(),
+          id: el.id || null,
+          className: typeof el.className === 'string' ? el.className.slice(0, 140) : null,
+          left: Math.round(rect.left),
+          right: Math.round(rect.right),
+          width: Math.round(rect.width)
+        };
+      });
+
+    const brokenImages = [...document.images]
+      .filter(img => img.complete && img.naturalWidth === 0)
+      .map(img => ({ src: img.currentSrc || img.src, alt: img.alt || '' }));
+
+    const tinyText = [...document.querySelectorAll('body *')]
+      .filter(el => {
+        if (['SCRIPT', 'STYLE', 'SVG', 'PATH'].includes(el.tagName)) return false;
+        if (el.children.length) return false;
+        const text = (el.textContent || '').trim();
+        if (!text) return false;
+        const style = getComputedStyle(el);
+        const rect = el.getBoundingClientRect();
+        return rect.width > 0 && rect.height > 0 && parseFloat(style.fontSize) < 11;
+      })
+      .slice(0, 12)
+      .map(el => ({
+        text: (el.textContent || '').trim().slice(0, 100),
+        fontSize: getComputedStyle(el).fontSize,
+        className: typeof el.className === 'string' ? el.className.slice(0, 120) : null
+      }));
+
+    return {
+      title: document.title,
+      documentOverflow,
+      documentScrollWidth: Math.max(doc.scrollWidth, body?.scrollWidth || 0),
+      viewportWidth,
+      overflowElements,
+      brokenImages,
+      tinyText
+    };
+  });
+}
+
+async function testMapCta(page) {
+  const buttons = page.getByRole('button', { name: /bản đồ/i });
+  const count = await buttons.count();
+  if (!count) return { found: false, iframeInserted: false };
+  const button = buttons.first();
+  await button.click().catch(() => {});
+  await page.waitForTimeout(250);
+  const iframeInserted = await page.locator('.visual-locator-map iframe').count().then(n => n > 0).catch(() => false);
+  return { found: true, iframeInserted };
+}
+
+try {
+  for (const viewport of viewports) {
+    const context = await browser.newContext({
+      viewport: { width: viewport.width, height: viewport.height },
+      deviceScaleFactor: 1,
+      locale: 'vi-VN',
+      timezoneId: 'Asia/Ho_Chi_Minh',
+      colorScheme: 'light'
+    });
+
+    for (const route of routes) {
+      const page = await context.newPage();
+      const consoleErrors = [];
+      const pageErrors = [];
+      const failedRequests = [];
+      const badResponses = [];
+
+      page.on('console', msg => {
+        if (msg.type() === 'error') consoleErrors.push(msg.text());
+      });
+      page.on('pageerror', error => pageErrors.push(error.message));
+      page.on('requestfailed', request => {
+        if (sameOrigin(request.url())) failedRequests.push({ url: request.url(), error: request.failure()?.errorText || 'request failed' });
+      });
+      page.on('response', response => {
+        if (sameOrigin(response.url()) && response.status() >= 400) {
+          badResponses.push({ url: response.url(), status: response.status() });
+        }
+      });
+
+      const url = new URL(route.path, BASE_URL).toString();
+      let navigationError = null;
+      try {
+        await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 30000 });
+        await settlePage(page);
+      } catch (error) {
+        navigationError = error.message;
+      }
+
+      const inspection = navigationError ? null : await inspectPage(page);
+      const screenshotName = `${route.name}__${viewport.width}x${viewport.height}.png`;
+      const screenshotPath = path.join(OUTPUT_DIR, 'screenshots', screenshotName);
+      await page.screenshot({ path: screenshotPath, fullPage: true }).catch(() => {});
+
+      let mapCta = null;
+      if (!navigationError && route.path.includes('/places/detail.html')) {
+        mapCta = await testMapCta(page);
+      }
+
+      const sameOriginBrokenImages = (inspection?.brokenImages || []).filter(img => sameOrigin(img.src));
+      const strictFailures = [
+        navigationError ? `navigation: ${navigationError}` : null,
+        inspection?.documentOverflow ? `horizontal overflow: ${inspection.documentScrollWidth}px > ${inspection.viewportWidth}px` : null,
+        sameOriginBrokenImages.length ? `${sameOriginBrokenImages.length} broken same-origin image(s)` : null,
+        pageErrors.length ? `${pageErrors.length} page error(s)` : null,
+        failedRequests.length ? `${failedRequests.length} failed same-origin request(s)` : null,
+        badResponses.length ? `${badResponses.length} bad same-origin response(s)` : null
+      ].filter(Boolean);
+
+      results.push({
+        route: route.name,
+        path: route.path,
+        viewport,
+        url,
+        screenshot: `screenshots/${screenshotName}`,
+        status: strictFailures.length ? 'fail' : 'pass',
+        strictFailures,
+        inspection,
+        mapCta,
+        consoleErrors,
+        pageErrors,
+        failedRequests,
+        badResponses
+      });
+
+      console.log(`${strictFailures.length ? 'FAIL' : 'PASS'} ${route.name} ${viewport.width}x${viewport.height}${strictFailures.length ? ` - ${strictFailures.join('; ')}` : ''}`);
+      await page.close();
+    }
+
+    await context.close();
+  }
+} finally {
+  await browser.close();
+}
+
+const failures = results.filter(result => result.status === 'fail');
+const warnings = results.reduce((count, result) => {
+  const remoteBroken = (result.inspection?.brokenImages || []).filter(img => !sameOrigin(img.src)).length;
+  const tiny = result.inspection?.tinyText?.length || 0;
+  return count + remoteBroken + result.consoleErrors.length + tiny;
+}, 0);
+
+const summary = {
+  generatedAt: new Date().toISOString(),
+  scope: SCOPE,
+  baseUrl: BASE_URL,
+  routeCount: routes.length,
+  viewportCount: viewports.length,
+  screenshotCount: results.length,
+  passCount: results.length - failures.length,
+  failCount: failures.length,
+  warningSignals: warnings,
+  results
+};
+
+await fs.writeFile(path.join(OUTPUT_DIR, 'report.json'), JSON.stringify(summary, null, 2));
+
+const md = [
+  '# Open Phu Quoc Visual QA',
+  '',
+  `- Generated: ${summary.generatedAt}`,
+  `- Scope: ${summary.scope}`,
+  `- Routes: ${summary.routeCount}`,
+  `- Viewports: ${summary.viewportCount}`,
+  `- Screenshots: ${summary.screenshotCount}`,
+  `- Passed: ${summary.passCount}`,
+  `- Failed: ${summary.failCount}`,
+  '',
+  '| Route | Viewport | Status | Notes |',
+  '| --- | --- | --- | --- |',
+  ...results.map(result => {
+    const remoteBroken = (result.inspection?.brokenImages || []).filter(img => !sameOrigin(img.src)).length;
+    const notes = [
+      ...result.strictFailures,
+      remoteBroken ? `${remoteBroken} remote image warning(s)` : null,
+      result.consoleErrors.length ? `${result.consoleErrors.length} console error(s)` : null,
+      result.inspection?.tinyText?.length ? `${result.inspection.tinyText.length} text item(s) under 11px` : null,
+      result.mapCta?.found ? `map CTA: ${result.mapCta.iframeInserted ? 'ok' : 'iframe not inserted'}` : null
+    ].filter(Boolean).join('; ') || 'OK';
+    return `| ${result.route} | ${result.viewport.width}x${result.viewport.height} | ${result.status.toUpperCase()} | ${notes.replaceAll('|', '\|')} |`;
+  })
+];
+
+await fs.writeFile(path.join(OUTPUT_DIR, 'report.md'), `${md.join('\n')}\n`);
+
+if (failures.length) process.exitCode = 1;
