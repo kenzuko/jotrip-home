@@ -25,13 +25,13 @@
 
     const wx=live.weather||{};
     if(wx.freshness==="stale" || wx.status==="unknown"){
-      out.push(item("weather-stale","WEATHER","Weather cần kiểm tra lại","Dữ liệu hiện tại không đủ mới để dùng như trạng thái trực tiếp.","unknown","/weather/",{freshness:wx.freshness||"unknown"}));
+      out.push(item("weather-stale","WEATHER","Thời tiết cần kiểm tra lại","Dữ liệu hiện tại không đủ mới để dùng như trạng thái trực tiếp.","unknown","/weather/",{freshness:wx.freshness||"unknown"}));
     }else if(wx.status==="watch"){
-      out.push(item("weather-watch","WEATHER","Thời tiết cần theo dõi","Weather V2 đang phát classification cần chú ý trước khi chọn hoạt động ngoài trời.","watch","/weather/",{convective_levels:signals.convective_levels||[]}));
+      out.push(item("weather-watch","WEATHER","Thời tiết cần theo dõi","Dữ liệu hiện tại cho thấy thời tiết cần chú ý trước khi chọn hoạt động ngoài trời.","watch","/weather/",{convective_levels:signals.convective_levels||[]}));
     }else if(wx.status==="advisory"){
       out.push(item("weather-rain","WEATHER","Có mưa được ghi nhận","Giữ lịch linh hoạt và xem chi tiết khu vực trước khi di chuyển.","advisory","/weather/",{}));
     }else{
-      out.push(item("weather-normal","WEATHER","Weather V2 chưa gắn cảnh báo nổi bật ở snapshot này",wx.secondary||"Xem Weather nếu hoạt động phụ thuộc biển hoặc mưa.","normal","/weather/",{}));
+      out.push(item("weather-normal","WEATHER","Chưa thấy cảnh báo thời tiết nổi bật",wx.secondary||"Xem Thời tiết & Biển nếu hoạt động phụ thuộc biển hoặc mưa.","normal","/weather/",{}));
     }
 
     const ferry=live.ferry||{};
