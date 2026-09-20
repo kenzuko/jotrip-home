@@ -116,12 +116,18 @@
     return String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0");
   }
 
-  function renderTicker(items) {
+  function renderTicker(items, level = "watch") {
     const track = $("#liveTicker");
-    if (!track || !items.length) return;
+    const shell = document.querySelector(".energy-ticker");
+    if (!track || !shell) return;
+    if (!items.length) {
+      shell.hidden = true;
+      return;
+    }
+    shell.hidden = false;
+    shell.dataset.level = level;
     const one = items.map(x => "<span>" + x[0] + "</span><b>" + x[1] + "</b><i>•</i>").join("");
     track.innerHTML = one + one;
-
     const tuneSpeed = () => {
       const halfWidth = Math.max(1, track.scrollWidth / 2);
       const mobile = matchMedia("(max-width:760px)").matches;
