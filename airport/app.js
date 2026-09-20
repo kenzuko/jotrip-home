@@ -73,26 +73,14 @@ function applyPayload(payload,source,liveError=null){
 async function load(){
   if(state.loading)return;
   state.loading=true;setLoading(true);
-  const snapshotPromise=fetchSnapshotPayload().then(p=>({payload:p,source:'snapshot'}));
-  const livePromise=LIVE_API_URL
-    ?fetchLivePayload().then(p=>({payload:p,source:'live'})).catch(error=>({error}))
-    :Promise.resolve({error:new Error('LIVE_API_NOT_CONFIGURED')});
   try{
-    const first=await Promise.race([snapshotPromise,livePromise]);
-    if(first?.payload)applyPayload(first.payload,first.source);
-    else{
-      const snap=await snapshotPromise;
-      applyPayload(snap.payload,'fallback',first?.error||null);
-    }
-    livePromise.then(result=>{
-      if(result?.payload&&result.source==='live'){
-        const liveAt=new Date(result.payload.latest?.collected_at_vn||0).getTime();
-        const currentAt=new Date(state.latest?.collected_at_vn||0).getTime();
-        if(!state.latest||liveAt>=currentAt)applyPayload(result.payload,'live');
-      }
-    }).catch(()=>{});
+    if(!LIVE_API_URL)throw new Error('LIVE_API_NOT_CONFIGURED');
+    applyPayload(await fetchLivePayload(),'live');
   }catch(e){
-    console.error(e);$('#errorBox').textContent='Không đọc được dữ liệu nguồn chính thức lúc này. Trang không hiển thị số cũ giả làm dữ liệu live.';$('#errorBox').classList.remove('hidden');setHealth('bad','MẤT DỮ LIỆU','Không thể tải nguồn live hoặc snapshot dự phòng.');
+    console.warn('[Airport Live] Nguồn live chưa phản hồi, chuyển sang snapshot:',e);
+    try{applyPayload(await fetchSnapshotPayload(),'fallback',e)}catch(snapshotError){
+      console.error(snapshotError);$('#errorBox').textContent='Không đọc được dữ liệu nguồn chính thức lúc này. Trang không hiển thị số cũ giả làm dữ liệu live.';$('#errorBox').classList.remove('hidden');setHealth('bad','MẤT DỮ LIỆU','Không thể tải nguồn live hoặc snapshot dự phòng.');
+    }
   }finally{state.loading=false;setLoading(false)}
 }
 function setLoading(on){$('#refreshBtn').textContent=on?'…':'↻';$('#mobileRefresh').querySelector('span').textContent=on?'…':'↻'}
