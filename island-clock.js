@@ -4,11 +4,13 @@
   if(!document.querySelector("#openpq-clock-style")){
     const s=document.createElement("style");s.id="openpq-clock-style";
     s.textContent=`
-      .vn-clock{display:grid;grid-template-columns:auto auto;column-gap:11px;align-items:center;min-height:46px;padding:7px 12px;border:1px solid rgba(18,61,59,.12);border-radius:15px;background:rgba(255,255,255,.82);box-shadow:0 8px 26px rgba(18,61,59,.06);line-height:1;white-space:nowrap}
-      .vn-clock>span{grid-column:1;font-size:10px;letter-spacing:.13em;font-weight:850;color:#536f6b}
-      .vn-clock>strong{grid-column:1;margin-top:4px;color:#123D3B;font-size:21px;font-weight:780;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
-      .vn-clock>small{grid-column:2;grid-row:1/3;align-self:center;padding-left:11px;border-left:1px solid #DCE8E5;font-size:12px;line-height:1.45;color:#607773}
-      @media(max-width:760px){.vn-clock{min-height:40px;padding:6px 9px;border-radius:12px}.vn-clock>small{display:none}.vn-clock>strong{font-size:18px}.vn-clock>span{font-size:9px}}
+      .vn-clock{position:relative;display:grid;grid-template-columns:auto auto;column-gap:12px;align-items:center;min-height:48px;padding:7px 13px 7px 16px;border:1px solid rgba(18,61,59,.11);border-radius:16px;background:linear-gradient(135deg,rgba(255,255,255,.96),rgba(242,235,221,.48));box-shadow:0 9px 28px rgba(18,61,59,.055);line-height:1;white-space:nowrap;overflow:hidden}
+      .vn-clock::before{content:"";position:absolute;inset:9px auto 9px 0;width:3px;border-radius:0 3px 3px 0;background:#D85B3F}
+      .vn-clock>span{grid-column:1;font-size:8px;letter-spacing:.16em;font-weight:900;color:#607773}
+      .vn-clock>strong{grid-column:1;margin-top:4px;color:#123D3B;font-size:22px;font-weight:760;font-variant-numeric:tabular-nums;letter-spacing:-.035em}
+      .vn-clock>small{grid-column:2;grid-row:1/3;align-self:center;padding-left:12px;border-left:1px solid #DCE8E5;font-size:10px;line-height:1.5;color:#607773}
+      .vn-clock>small b{color:#123D3B;font-size:9px;letter-spacing:.08em;text-transform:uppercase}
+      @media(max-width:760px){.vn-clock{min-height:40px;padding:6px 10px 6px 13px;border-radius:13px}.vn-clock::before{inset:8px auto 8px 0}.vn-clock>small{display:none}.vn-clock>strong{font-size:18px}.vn-clock>span{font-size:7px}}
     `;
     document.head.appendChild(s);
   }
@@ -19,7 +21,7 @@
     const time=fmtTime.format(now);
     const date=fmtDate.format(now).replace(",","");
     targets.forEach(el=>{
-      el.innerHTML='<span>GIỜ TRÊN ĐẢO</span><strong>'+time+'</strong><small>'+date+'<br>UTC+7 · Việt Nam</small>';
+      el.innerHTML='<span>GIỜ PHÚ QUỐC</span><strong>'+time+'</strong><small>'+date+'<br><b>Việt Nam · UTC+7</b></small>';
       el.setAttribute("title","Giờ hiện tại tại Việt Nam (Asia/Ho_Chi_Minh)");
       el.setAttribute("aria-label","Giờ Phú Quốc "+time+", "+date);
     });
