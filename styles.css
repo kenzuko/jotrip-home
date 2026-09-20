@@ -3156,6 +3156,10 @@ body.sheet-open{
     overflow:hidden;
     background:#fff;
   }
+  #top>.task-launcher{
+    grid-column:1/-1;
+    grid-row:4;
+  }
   #top>.essentials{
     grid-column:9/13;
     grid-row:3;
@@ -3698,6 +3702,8 @@ body.sheet-open{
   .live-item strong{font-size:17px}
 
   .task-launcher{
+    grid-column:1/-1;
+    grid-row:4;
     max-width:none;
     margin:12px 14px 0;
     padding:0;
