@@ -409,9 +409,18 @@
           "slides": [
             51
           ]
+        },
+        {
+          "source_id": "visitpq_bai_sao_2026",
+          "url": "https://visitphuquoc.com.vn/vi/bai-sao-phu-quoc-vi-ngoi-sao-sinh-ra-de-toa-sang-229",
+          "checked_at": "2026-09-20"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-20",
+      "access_status": "PARTIAL_VERIFIED",
+      "parking_status": "UNKNOWN",
+      "toilet_status": "UNKNOWN",
+      "verified_at": "2026-09-20"
     },
     {
       "id": "place_bai_khem",
@@ -438,7 +447,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Không mặc định toàn bộ bãi có cùng quyền tiếp cận/dịch vụ"
+        "Quy hoạch có không gian bãi tắm/quảng trường công cộng, nhưng lối vào thực tế và quyền dùng tiện ích resort phải kiểm tra riêng.",
+        "Không gọi toàn bộ Bãi Khem là 'bãi private' hoặc 'bãi resort' như một mô tả pháp lý.",
+        "Không mặc định tiện ích resort như ghế, hồ bơi, nhà vệ sinh, parking là dịch vụ công cộng."
       ],
       "intents": [
         "beach",
@@ -452,9 +463,19 @@
           "slides": [
             51
           ]
+        },
+        {
+          "source_id": "angiang_bai_khem_plan_1635",
+          "url": "https://angiang.gov.vn/vi/do-an-quy-hoach-phan-khu-xay-dung-khu-vuc-bai-khem-va-mui-ong-doi-phuong-an-thoi-thanh-pho-phu-quoc-tinh-kien-giang-nay-la-dac-khu-phu-quoc-tinh-an-giang-ty-le-12000-quy-mo-12868ha",
+          "checked_at": "2026-09-20"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-20",
+      "access_status": "NEEDS_VERIFICATION",
+      "planning_public_access": "PUBLIC_BEACH_AND_PUBLIC_SPACE_PLANNED",
+      "parking_status": "NEEDS_VERIFICATION",
+      "toilet_status": "NEEDS_VERIFICATION",
+      "verified_at": "2026-09-20"
     },
     {
       "id": "place_sunset_town",
@@ -988,6 +1009,111 @@
           "source_id": "crawl_topic_107_gieng_tien"
         }
       ],
+      "updated_at": "2026-09-20"
+    },
+    {
+      "id": "place_duong_dong_market",
+      "legacy_id": "cho-duong-dong",
+      "entity_type": "place",
+      "slug": "cho-duong-dong",
+      "name": "Chợ Dương Đông",
+      "aliases": [
+        "Dương Đông Market"
+      ],
+      "zone_id": "zone_central_west",
+      "area_code": "center-west",
+      "categories": [
+        "market",
+        "local-life",
+        "food"
+      ],
+      "what_it_is": "Chợ truyền thống bên sông Dương Đông, phục vụ cả nhu cầu địa phương và du khách.",
+      "why_go": "Quan sát nhịp chợ địa phương, hải sản tươi/khô và các sản vật của đảo.",
+      "best_for": [
+        "local-life",
+        "food"
+      ],
+      "best_time": "Buổi sáng sớm nếu muốn xem nhịp hải sản rõ nhất",
+      "duration": "45-90 phút",
+      "price_reference": "Không có vé vào chợ; giá hàng hóa theo sạp và thời điểm.",
+      "live_check_required": true,
+      "weather_dependency": "low",
+      "tips": [
+        "Giờ mở cửa hiện được nguồn du lịch chính thức niêm yết 05:00-19:00, nhưng nên coi là dữ liệu vận hành cần cập nhật.",
+        "Không nhầm Chợ Dương Đông ban ngày với Chợ đêm Phú Quốc.",
+        "Parking, thanh toán và điều kiện lối đi cần xác minh theo thực địa."
+      ],
+      "intents": [
+        "food",
+        "local-life",
+        "practical"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "visitpq_cho_duong_dong_2026",
+          "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-1069",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "verified_at": "2026-09-20",
+      "updated_at": "2026-09-20"
+    },
+    {
+      "id": "place_ham_ninh",
+      "legacy_id": "ham-ninh",
+      "entity_type": "place",
+      "slug": "ham-ninh",
+      "name": "Hàm Ninh",
+      "aliases": [
+        "Làng chài Hàm Ninh"
+      ],
+      "zone_id": null,
+      "area_code": "east",
+      "categories": [
+        "village",
+        "local-life",
+        "seafood"
+      ],
+      "what_it_is": "Khu dân cư ven biển phía Đông Phú Quốc gắn lâu dài với nghề khai thác hải sản và hoạt động làng chài.",
+      "why_go": "Đọc nhịp sống ven biển, ăn hải sản và hiểu một lớp nghề biển phía Đông đảo.",
+      "best_for": [
+        "local-life",
+        "food"
+      ],
+      "best_time": "Sáng hoặc chiều dịu, tùy mục đích tham quan và thời tiết",
+      "duration": "1-3 giờ",
+      "price_reference": "Không có vé chung; ăn uống/dịch vụ tính riêng.",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Không dùng từ 'làng cổ' như một fact lịch sử nếu chưa có nguồn chuyên sâu.",
+        "Cầu cảng, cảnh quan và lối tiếp cận đã thay đổi theo thời gian - cần tách ảnh/tư liệu cũ khỏi thực tế hiện tại.",
+        "Nguồn ghẹ/hải sản tại từng quán cần xác minh riêng, không suy từ vị trí Hàm Ninh."
+      ],
+      "intents": [
+        "local-life",
+        "food",
+        "culture"
+      ],
+      "related_entities": [
+        "food_ghe_ham_ninh"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "visitpq_ham_ninh_2026",
+          "url": "https://visitphuquoc.com.vn/vi/ham-ninh-phu-quoc-review-chi-tiet-lang-chai-yen-binh-giua-dao-ngoc-15023",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "pqgov_ham_ninh_2026",
+          "url": "https://phuquoc.angiang.gov.vn/ham-ninh-diem-den-ly-tuong-cua-phu-quoc",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "verified_at": "2026-09-20",
       "updated_at": "2026-09-20"
     }
   ]

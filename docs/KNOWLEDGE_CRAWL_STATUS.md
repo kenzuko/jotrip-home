@@ -44,6 +44,14 @@ The 150-file is the topic list + crawl specification, not finished article copy.
   - Restaurant location must not be used as proof of crab origin.
   - Current price and exact scientific species remain open research.
 
+## Completed in P0 batch 07
+- 003 Chợ Dương Đông - PARTIAL_VERIFIED
+- 006 Hàm Ninh - PARTIAL_VERIFIED; pier/landscape history still open
+- 014 Bãi Sao - PARTIAL_VERIFIED; public amenities remain UNKNOWN
+- 013 Bãi Khem - NEEDS_VERIFICATION
+  - planning/public-space intent is stored separately from current visitor access
+  - never describe the entire beach simply as "private" or assume resort facilities are public
+
 ## Next P0 crawl
 
 ## Rules

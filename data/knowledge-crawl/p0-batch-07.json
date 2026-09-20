@@ -1,0 +1,355 @@
+{
+  "schema_version": "1.0",
+  "batch_id": "p0_batch_07",
+  "created_at": "2026-09-20",
+  "scope": "Priority place operational + knowledge crawl: Dương Đông Market, Hàm Ninh, Bãi Sao, Bãi Khem.",
+  "topics": [
+    {
+      "backlog_no": 3,
+      "topic_id": "topic_003_cho_duong_dong",
+      "title": "Chợ Dương Đông",
+      "canonical_id": "place_duong_dong_market",
+      "entity_type": "place",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "ddm_location",
+          "claim": "The current Visit Phu Quoc destination listing places Chợ Dương Đông beside the Dương Đông river near the sea mouth and lists 21 Trần Phú as its address.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_ddm_visitpq"
+          ]
+        },
+        {
+          "claim_id": "ddm_hours",
+          "claim": "The current official destination listing shows opening hours 05:00-19:00.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "volatile": true,
+          "source_ids": [
+            "src_ddm_visitpq"
+          ]
+        },
+        {
+          "claim_id": "ddm_goods",
+          "claim": "Official destination material describes fresh seafood outside/around the market and daily goods, dried seafood and local products inside.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_ddm_visitpq",
+            "src_ddm_faq"
+          ]
+        },
+        {
+          "claim_id": "ddm_morning",
+          "claim": "A current Visit Phu Quoc article recommends morning for the strongest fresh-seafood market activity. Treat this as practical editorial guidance rather than a formal operating rule.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_ddm_article2025"
+          ]
+        },
+        {
+          "claim_id": "ddm_admin_address",
+          "claim": "Some official tourism pages still render the legacy Kiên Giang administrative wording in the street address. Store the place relation/canonical coordinates separately from display-address snapshots so administrative changes do not create duplicate entities.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_ddm_visitpq"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_ddm_visitpq",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Chợ Dương Đông",
+          "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-1069",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ddm_article2025",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Chợ Dương Đông (Phú Quốc): Địa điểm mua sắm nổi tiếng đảo Ngọc",
+          "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-phu-quoc-dia-diem-mua-sam-noi-tieng-dao-ngoc-6057",
+          "published_at": "2025-11-17",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_ddm_faq",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Câu hỏi thường gặp - chợ truyền thống",
+          "url": "https://visitphuquoc.com.vn/vi/cau-hoi-thuong-gap",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Exact current public parking point(s), vehicle types and fees.",
+        "Card/QR acceptance by stall and availability of ATMs inside/near market.",
+        "Step-free/accessibility conditions through wet-market areas.",
+        "Reliable crowd/peak windows beyond general morning guidance."
+      ],
+      "next_research": [
+        "Field-verify entrance/parking/toilet/accessibility.",
+        "Add exact coordinates from authoritative map/field GPS.",
+        "Build stall/category map only if stable enough to maintain."
+      ]
+    },
+    {
+      "backlog_no": 6,
+      "topic_id": "topic_006_ham_ninh",
+      "title": "Hàm Ninh",
+      "canonical_id": "place_ham_ninh",
+      "entity_type": "place",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "hamninh_location",
+          "claim": "Current official/local destination sources place Hàm Ninh on the east side of Phú Quốc at the foot of the Hàm Ninh mountain range, around 15-20 km from central Dương Đông.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_hamninh_visitpq2026",
+            "src_hamninh_pqgov2026"
+          ]
+        },
+        {
+          "claim_id": "hamninh_fishing_context",
+          "claim": "Hàm Ninh is documented as a coastal community historically tied to fishing/seafood harvesting; tourism and seafood commerce now add to local livelihoods.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_hamninh_pqgov2026",
+            "src_hamninh_visitpq2026"
+          ]
+        },
+        {
+          "claim_id": "hamninh_pier_planning",
+          "claim": "Government planning material identifies Hàm Ninh pier as infrastructure intended for transport, fishing and tourism services. This planning description should not be used as a live statement about the pier's exact present condition.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_hamninh_planning"
+          ]
+        },
+        {
+          "claim_id": "hamninh_old_village_label",
+          "claim": "Current tourism articles often call Hàm Ninh a 'làng chài cổ', but this crawl has not yet found historical/archival evidence sufficient to assign a precise age or founding period.",
+          "status": "NEEDS_VERIFICATION",
+          "confidence": "high",
+          "source_ids": [
+            "src_hamninh_visitpq2026"
+          ]
+        },
+        {
+          "claim_id": "hamninh_landscape_change",
+          "claim": "The backlog requires a then/now treatment of the pier and village landscape; current crawl has not yet locked a reliable historical image/timeline set, so visual-change claims remain open.",
+          "status": "NEEDS_VERIFICATION",
+          "confidence": "high",
+          "source_ids": []
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_hamninh_visitpq2026",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Hàm Ninh Phú Quốc review chi tiết làng chài yên bình giữa đảo ngọc",
+          "url": "https://visitphuquoc.com.vn/vi/ham-ninh-phu-quoc-review-chi-tiet-lang-chai-yen-binh-giua-dao-ngoc-15023",
+          "published_at": "2026-08-24",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_hamninh_pqgov2026",
+          "source_type": "OFFICIAL",
+          "publisher": "UBND Đặc khu Phú Quốc",
+          "title": "Hàm Ninh điểm đến lý tưởng của Phú Quốc",
+          "url": "https://phuquoc.angiang.gov.vn/ham-ninh-diem-den-ly-tuong-cua-phu-quoc",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_hamninh_planning",
+          "source_type": "OFFICIAL",
+          "publisher": "UBND Đặc khu Phú Quốc",
+          "title": "Định hướng quy hoạch chung khu đô thị Hàm Ninh",
+          "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-chung-khu-do-thi-ham-ninh",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Current pier physical status and exact visitor access.",
+        "Historical timeline/settlement evidence for the village.",
+        "Then/Now photographs with provenance.",
+        "Current public parking/toilet and accessibility data."
+      ],
+      "next_research": [
+        "Field-verify pier/access and photograph current condition.",
+        "Find archival maps/photos and local-history sources.",
+        "Keep Ghẹ Hàm Ninh trademark/origin data linked through food_ghe_ham_ninh instead of repeating it here."
+      ]
+    },
+    {
+      "backlog_no": 14,
+      "topic_id": "topic_014_bai_sao",
+      "title": "Bãi Sao",
+      "canonical_id": "place_bai_sao",
+      "entity_type": "place",
+      "crawl_status": "PARTIAL_VERIFIED",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "baisao_south",
+          "claim": "Current destination material places Bãi Sao in the southern-island travel context and describes it as a bay/crescent beach used for swimming and beach activities.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_baisao_visitpq2026"
+          ]
+        },
+        {
+          "claim_id": "baisao_infra_gap",
+          "claim": "A current Visit Phu Quoc article explicitly describes Bãi Sao's infrastructure/services as historically underdeveloped and in need of improvement. This is editorial context, not a precise inventory of current facilities.",
+          "status": "SUPPORTED",
+          "confidence": "medium",
+          "source_ids": [
+            "src_baisao_visitpq2026"
+          ]
+        },
+        {
+          "claim_id": "baisao_parking_toilet",
+          "claim": "This crawl did not find a sufficiently authoritative current source for public parking, toilet access, fees or accessibility. These fields remain UNKNOWN rather than inferred from individual businesses.",
+          "status": "NEEDS_VERIFICATION",
+          "confidence": "high",
+          "source_ids": []
+        },
+        {
+          "claim_id": "baisao_season",
+          "claim": "Do not publish a fixed claim that Bãi Sao is calm/clear year-round. Beach quality and sea state are weather- and season-dependent and should connect to live/marine context.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_baisao_visitpq2026"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_baisao_visitpq2026",
+          "source_type": "OFFICIAL",
+          "publisher": "Visit Phu Quoc",
+          "title": "Bãi Sao, Phú Quốc - Vì ngôi sao sinh ra để tỏa sáng",
+          "url": "https://visitphuquoc.com.vn/vi/bai-sao-phu-quoc-vi-ngoi-sao-sinh-ra-de-toa-sang-229",
+          "published_at": "2026-08-07",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Exact public parking locations/fees.",
+        "Public toilet/changing/shower facilities and hours.",
+        "Current beach-access segments and business-specific charges.",
+        "Seasonality/wave/rubbish condition timeline suitable for operational advice."
+      ],
+      "next_research": [
+        "Field-verify public amenities/access.",
+        "Connect daily suitability to Weather/Marine rather than evergreen prose.",
+        "Build current visual record because older Bãi Sao imagery may no longer represent services/access."
+      ]
+    },
+    {
+      "backlog_no": 13,
+      "topic_id": "topic_013_bai_khem",
+      "title": "Bãi Khem",
+      "canonical_id": "place_bai_khem",
+      "entity_type": "place",
+      "crawl_status": "NEEDS_VERIFICATION",
+      "verified_at": "2026-09-20",
+      "claims": [
+        {
+          "claim_id": "baikhem_plan_approved",
+          "claim": "An Giang officially published approval information for the 1/2000 Bãi Khem - Mũi Ông Đội subdivision plan under Decision 1635/QĐ-UBND dated 22/10/2025, covering about 128.68 ha.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_baikhem_official_plan"
+          ]
+        },
+        {
+          "claim_id": "baikhem_public_space_planning",
+          "claim": "The Phú Quốc 2040 planning direction describes coastal parks linked to public bathing beaches and requires connections to public coastal space without closed gates/fences; the approved subdivision also includes public sea-square/open-space concepts.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_baikhem_plan_summary",
+            "src_baikhem_official_plan"
+          ]
+        },
+        {
+          "claim_id": "baikhem_planning_not_live_access",
+          "claim": "Planning intent for public beach/open space does not by itself prove that every beach segment or approach is physically accessible to a non-resort visitor today. Current public approach, parking and access friction require field/current verification.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_baikhem_official_plan",
+            "src_baikhem_plan_summary"
+          ]
+        },
+        {
+          "claim_id": "baikhem_resort_services",
+          "claim": "Resort-fronted services and facilities are separate from public-beach access. Do not treat resort pools, loungers, toilets, parking or restaurants as public amenities without explicit permission/fee data.",
+          "status": "DERIVED",
+          "confidence": "high",
+          "source_ids": [
+            "src_baikhem_official_plan"
+          ]
+        },
+        {
+          "claim_id": "baikhem_development_change",
+          "claim": "The area has active/current planning and development documentation, so access/service information may change and should carry a verified_at timestamp.",
+          "status": "SUPPORTED",
+          "confidence": "high",
+          "source_ids": [
+            "src_baikhem_official_plan"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "source_id": "src_baikhem_official_plan",
+          "source_type": "OFFICIAL",
+          "publisher": "Cổng thông tin tỉnh An Giang",
+          "title": "Đồ án quy hoạch phân khu xây dựng Khu vực Bãi Khem và Mũi Ông Đội",
+          "url": "https://angiang.gov.vn/vi/do-an-quy-hoach-phan-khu-xay-dung-khu-vuc-bai-khem-va-mui-ong-doi-phuong-an-thoi-thanh-pho-phu-quoc-tinh-kien-giang-nay-la-dac-khu-phu-quoc-tinh-an-giang-ty-le-12000-quy-mo-12868ha",
+          "published_at": "2025-10-24",
+          "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "src_baikhem_plan_summary",
+          "source_type": "REPUTABLE_MEDIA",
+          "publisher": "Thư Viện Nhà Đất",
+          "title": "Vị trí lập quy hoạch phân khu xây dựng Khu vực Bãi Khem và Mũi Ông Đội",
+          "url": "https://thuviennhadat.vn/bat-dong-san/vi-tri-lap-quy-hoach-phan-khu-xay-dung-khu-vuc-bai-khem-va-mui-ong-doi-25991.html",
+          "published_at": "2025-10-27",
+          "checked_at": "2026-09-20"
+        }
+      ],
+      "known_unknowns": [
+        "Exact current public-access route(s) and whether any temporary security/construction restrictions apply.",
+        "Public parking/toilet/shower points distinct from resort facilities.",
+        "Current step-free/accessibility route to the public sand.",
+        "How active development changes access over the next 6-12 months."
+      ],
+      "next_research": [
+        "Field-verify a non-resort public access route and GPS.",
+        "Record parking/toilet/access notes with photos and timestamp.",
+        "Use planning documents as legal/planning context, not as live visitor-access evidence.",
+        "Re-check access whenever major project phases change."
+      ]
+    }
+  ]
+}
