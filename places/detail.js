@@ -5,6 +5,8 @@
   const VISUALS="../data/visual-context.json";
   const CONTENT_LOCALE=(document.documentElement.lang||"vi").split("-")[0]||"vi";
   const EXPLAINERS="../data/i18n/"+CONTENT_LOCALE+"/place-explainers.json";
+  const UI="../data/i18n/"+CONTENT_LOCALE+"/ui.json";
+  const UI_FALLBACK="../data/i18n/vi/ui.json";
   const planningStyle=document.createElement("style");planningStyle.textContent='.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pros-cons>div{padding:16px;border-radius:16px;background:#eef9f5}.pros-cons>.watch{background:#fff7e8}.pros-cons strong{display:block;margin-bottom:8px;color:var(--ink);font-size:15px}.pros-cons .tips li:before{content:"+"}.pros-cons .watch .tips li:before{content:"!";color:#a86b12}.price-dimensions{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.price-dimensions span{padding:9px 11px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--ink);font-size:13px;font-weight:800}@media(max-width:760px){.pros-cons{grid-template-columns:1fr}.price-dimensions span{font-size:12px}}';document.head.appendChild(planningStyle);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const id=new URLSearchParams(location.search).get("id")||"";
@@ -50,7 +52,7 @@
     ).join("")+'</div>';
   }
 
-  function render(entity,zones,all,prices,planningData,visualData,explainerData){
+  function render(entity,zones,all,prices,planningData,visualData,explainerData,uiData){
     const root=$("#detailRoot");
     const zone=zones.find(z=>z.id===entity.zone_id);
     const lookup=new Map(all.map(x=>[x.id,x]));
@@ -63,6 +65,9 @@
     const level=(planningData.levels||[]).find(x=>x.id===planning.level);
     const visual=visualData?.places?.[entity.id]||{};
     const explainer=explainerData?.items?.[entity.id]||{};
+    const pc=uiData?.place_detail||{};
+    const cc=uiData?.common||{};
+    const placeTypeLabel=entity.entity_type==="activity"?(pc.type_activity||"TRẢI NGHIỆM"):(pc.type_place||"ĐỊA ĐIỂM");
     const visualImages=Array.isArray(visual.images)?visual.images:[];
     const heroVisual=window.OpenPQVisual?.pickHero?.(visualImages)||visualImages.find(x=>x?.url&&x.hero_eligible!==false)||null;
     const heroImage=heroVisual?.url||null;
@@ -71,14 +76,14 @@
     const heroAlt=heroVisual?.alt||entity.name;
     const extraVisuals=heroVisual?visualImages.filter(x=>x!==heroVisual):visualImages;
     const facts=[
-      ["Khu vực",zone?.name||"Toàn đảo"],
-      ["Lúc nên đi",entity.best_time||"Tùy lịch"],
-      ["Thời lượng",entity.duration||"Tùy trải nghiệm"],
-      ["Phụ thuộc thời tiết",entity.weather_dependency?weatherLevel(entity.weather_dependency):"Chưa xác định"],
-      ["Giá tham khảo",entity.price_reference||priceRows[0]?.price_reference||"Kiểm tra theo ngày"],
-      ["Trước khi đi",entity.live_check_required?"Xem lại tình hình mới nhất":"Không có bước bắt buộc"]
+      [pc.fact_area||"Khu vực",zone?.name||"Toàn đảo"],
+      [pc.fact_best_time||"Lúc nên đi",entity.best_time||"Tùy lịch"],
+      [pc.fact_duration||"Thời lượng",entity.duration||"Tùy trải nghiệm"],
+      [pc.fact_weather||"Phụ thuộc thời tiết",entity.weather_dependency?weatherLevel(entity.weather_dependency):"Chưa xác định"],
+      [pc.fact_price||"Giá tham khảo",entity.price_reference||priceRows[0]?.price_reference||"Kiểm tra theo ngày"],
+      [pc.fact_before||"Trước khi đi",entity.live_check_required?"Xem lại tình hình mới nhất":"Không có bước bắt buộc"]
     ];
-    if(level) facts.unshift(["Kiểu ghé phù hợp",level.label]);
+    if(level) facts.unshift([pc.fact_role||"Kiểu ghé phù hợp",level.label]);
 
     document.title=entity.name+" - Open Phu Quoc";
 
@@ -88,14 +93,14 @@
           ? '<img class="detail-hero-photo" src="'+esc(heroImage)+'" alt="'+esc(heroAlt)+'" decoding="async">'
           : '<div class="detail-hero-fallback" aria-label="Sơ đồ vị trí '+esc(zone?.name||"Phú Quốc")+'">'+
               '<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/PhuQuocMap.svg?width=900" alt="" aria-hidden="true">'+
-              '<div><span>VỊ TRÍ TRÊN ĐẢO</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>Ảnh điểm đến đang được cập nhật</small></div>'+
+              '<div><span>'+esc(cc.island_location||"Vị trí trên đảo")+'</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>'+esc(cc.image_updating||"Ảnh điểm đến đang được cập nhật")+'</small></div>'+
             '</div>')+
-        (heroIsContext?'<span class="detail-hero-context">SƠ ĐỒ VÙNG</span>':'')+
+        (heroIsContext?'<span class="detail-hero-context">'+esc(cc.zone_diagram||"Sơ đồ vùng")+'</span>':'')+
         (heroSource
           ? '<a class="detail-hero-credit" href="'+esc(heroSource)+'" target="_blank" rel="noopener">Nguồn ảnh ↗</a>'
           : '<a class="detail-hero-credit" href="https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg" target="_blank" rel="noopener">Nguồn bản đồ ↗</a>')+
         '<div class="detail-hero-inner">'+
-          '<p class="detail-kicker">'+esc(typeLabel[entity.entity_type]||entity.entity_type)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
+          '<p class="detail-kicker">'+esc(placeTypeLabel)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
           '<h1>'+esc(entity.name)+'</h1>'+
           '<p class="lead">'+esc(entity.what_it_is||entity.why_go||"")+'</p>'+
           '<div class="detail-badges">'+[...new Set(tags)].slice(0,7).map(t=>'<span>'+esc(friendly(t))+'</span>').join("")+'</div>'+
@@ -103,28 +108,28 @@
       '</section>'+
       '<section class="detail-shell">'+
         '<section class="decision-summary">'+
-          '<div class="decision-title"><span>CHỌN NHANH</span><strong>'+(level?esc(level.label):'Có hợp lịch của bạn không?')+'</strong><small>'+(level?esc(level.description):'Nhìn nhanh thời gian, thời tiết và cách ghép điểm trước khi đi.')+'</small></div>'+
-          '<div><span>HỢP KHI</span><strong>'+esc((planning.strengths||[])[0]||entity.why_go||entity.what_it_is||'Bạn thấy chỗ này đúng gu của mình')+'</strong></div>'+
-          '<div class="watch"><span>TRƯỚC KHI ĐI</span><strong>'+esc((planning.watch_outs||[])[0]||(entity.live_check_required?'Xem lại tình hình trong ngày trước khi khởi hành':'Chưa có lưu ý đặc biệt'))+'</strong></div>'+
+          '<div class="decision-title"><span>'+esc(pc.quick_choice||"CHỌN NHANH")+'</span><strong>'+(level?esc(level.label):'Có hợp lịch của bạn không?')+'</strong><small>'+(level?esc(level.description):'Nhìn nhanh thời gian, thời tiết và cách ghép điểm trước khi đi.')+'</small></div>'+
+          '<div><span>'+esc(pc.suitable_when||"HỢP KHI")+'</span><strong>'+esc((planning.strengths||[])[0]||entity.why_go||entity.what_it_is||'Bạn thấy chỗ này đúng gu của mình')+'</strong></div>'+
+          '<div class="watch"><span>'+esc(pc.before_go||"TRƯỚC KHI ĐI")+'</span><strong>'+esc((planning.watch_outs||[])[0]||(entity.live_check_required?'Xem lại tình hình trong ngày trước khi khởi hành':'Chưa có lưu ý đặc biệt'))+'</strong></div>'+
         '</section>'+
         '<div class="detail-main">'+
-          (explainer.lede?'<article class="detail-panel detail-explainer-intro"><span>VÌ SAO NƠI NÀY ĐÁNG HIỂU</span><h2>'+esc(explainer.lede)+'</h2></article>':'')+
-          (window.OpenPQVisual&&extraVisuals.length?OpenPQVisual.gallery(extraVisuals,{eyebrow:"HÌNH ẢNH",title:"Nhìn một vòng trước khi đi"}):"")+
-          (window.OpenPQVisual?OpenPQVisual.locator(zone,{title:"Ở đâu trên đảo?",label:zone?.name||"Phú Quốc",map:entity.map||visual.map||zone?.map}):"")+
-          (window.OpenPQVisual?OpenPQVisual.infographic(explainer.infographic||visual.infographic||[],{eyebrow:"HIỂU ĐIỂM ĐẾN",title:"Ba chuyện đáng biết trước khi ghé"}):"")+
-          ((explainer.sections||[]).length?'<article class="detail-panel"><span>BỐI CẢNH</span><h2>Đọc chỗ này như một nơi có câu chuyện.</h2><div class="explainer-sections">'+explainer.sections.map(x=>'<section><h3>'+esc(x.heading||"")+'</h3><p>'+esc(x.body||"")+'</p></section>').join("")+'</div></article>':'')+
-          ((explainer.visitor_questions||[]).length?'<article class="detail-panel detail-questions"><span>HỎI GÌ KHI TỚI?</span><h2>Mấy câu hỏi giúp hiểu nơi này hơn.</h2><ul>'+explainer.visitor_questions.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></article>':'')+
-          (entity.why_go?'<article class="detail-panel"><span>CÓ GÌ Ở ĐÂY</span><h2>Chỗ này đáng ghé vì điều gì?</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
-          '<article class="detail-panel"><span>NẮM NHANH</span><h2>Mấy chuyện chính trước khi đi.</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
+          (explainer.lede?'<article class="detail-panel detail-explainer-intro"><span>'+esc(pc.why_understand||"VÌ SAO NƠI NÀY ĐÁNG HIỂU")+'</span><h2>'+esc(explainer.lede)+'</h2></article>':'')+
+          (window.OpenPQVisual&&extraVisuals.length?OpenPQVisual.gallery(extraVisuals,{eyebrow:pc.images||"HÌNH ẢNH",title:pc.images_title||"Nhìn một vòng trước khi đi"}):"")+
+          (window.OpenPQVisual?OpenPQVisual.locator(zone,{title:pc.location_title||"Ở đâu trên đảo?",label:zone?.name||"Phú Quốc",map:entity.map||visual.map||zone?.map,eyebrow:cc.island_location||"Vị trí",buttonLabel:cc.view_area_map||"Xem bản đồ khu vực",openLabel:cc.open_map||"Mở bản đồ lớn ↗",loadedLabel:cc.map_loaded||"Bản đồ đã mở"}):"")+
+          (window.OpenPQVisual?OpenPQVisual.infographic(explainer.infographic||visual.infographic||[],{eyebrow:pc.explainer_eyebrow||"HIỂU ĐIỂM ĐẾN",title:pc.explainer_title||"Ba chuyện đáng biết trước khi ghé"}):"")+
+          ((explainer.sections||[]).length?'<article class="detail-panel"><span>'+esc(pc.context||"BỐI CẢNH")+'</span><h2>'+esc(pc.context_title||"Đọc chỗ này như một nơi có câu chuyện.")+'</h2><div class="explainer-sections">'+explainer.sections.map(x=>'<section><h3>'+esc(x.heading||"")+'</h3><p>'+esc(x.body||"")+'</p></section>').join("")+'</div></article>':'')+
+          ((explainer.visitor_questions||[]).length?'<article class="detail-panel detail-questions"><span>'+esc(pc.questions||"HỎI GÌ KHI TỚI?")+'</span><h2>'+esc(pc.questions_title||"Mấy câu hỏi giúp hiểu nơi này hơn.")+'</h2><ul>'+explainer.visitor_questions.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></article>':'')+
+          (entity.why_go?'<article class="detail-panel"><span>'+esc(pc.what_here||"CÓ GÌ Ở ĐÂY")+'</span><h2>'+esc(pc.what_here_title||"Chỗ này đáng ghé vì điều gì?")+'</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
+          '<article class="detail-panel"><span>'+esc(pc.quick_facts||"NẮM NHANH")+'</span><h2>'+esc(pc.quick_facts_title||"Mấy chuyện chính trước khi đi.")+'</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
           ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>GIÁ VÉ</span><h2>Giá thay đổi theo những gì?</h2><p>Nếu nguồn chưa công bố đủ, Open Phu Quoc sẽ không tự điền số. Khi xem vé, nhớ chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||x)+'</span>').join("")+'</div></article>':'')+
           ((entity.tips||[]).length?'<article class="detail-panel"><span>TRƯỚC KHI ĐI</span><h2>Nhớ mấy chuyện này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+
           (priceRows.length?'<article class="detail-panel"><span>'+(inheritedPrice?'GIÁ ĐI CÙNG TRẢI NGHIỆM CHÍNH':'GIÁ THAM KHẢO')+'</span><h2>'+(inheritedPrice?'Quyền lợi này thường đi chung trong vé hoặc combo chính.':'Dùng để dự trù, không phải giá cố định.')+'</h2>'+(inheritedPrice?'<p>Giá bên dưới thuộc vé hoặc combo của trải nghiệm liên quan. Hãy chọn đúng ngày đi, chiều cao, độ tuổi và quyền lợi trước khi thanh toán.</p>':'')+'<div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>KIỂM TRA ĐÚNG NGÀY</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
-          '<article class="detail-panel"><span>ĐI CÙNG GÌ CHO TIỆN</span><h2>Nếu còn thời gian, đi tiếp đâu?</h2>'+renderRelated(entity,lookup)+'</article>'+
-          ((explainer.sources||[]).length?'<article class="detail-panel detail-sources"><span>NGUỒN ĐỌC THÊM</span><h2>Thông tin nền được đối chiếu từ đâu?</h2><div class="source-list">'+explainer.sources.map(x=>'<a class="source-row" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+' ↗</a>').join("")+'</div></article>':'')+
+          '<article class="detail-panel"><span>'+esc(pc.nearby||"ĐI CÙNG GÌ CHO TIỆN")+'</span><h2>'+esc(pc.nearby_title||"Nếu còn thời gian, đi tiếp đâu?")+'</h2>'+renderRelated(entity,lookup)+'</article>'+
+          ((explainer.sources||[]).length?'<article class="detail-panel detail-sources"><span>'+esc(pc.sources||"NGUỒN ĐỌC THÊM")+'</span><h2>'+esc(pc.sources_title||"Thông tin nền được đối chiếu từ đâu?")+'</h2><div class="source-list">'+explainer.sources.map(x=>'<a class="source-row" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+' ↗</a>').join("")+'</div></article>':'')+
         '</div>'+
         '<aside class="detail-context">'+
-          '<span>CẦN DÙNG KHI ĐANG ĐI</span>'+
-          '<div class="context-card"><span>KHU VỰC</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>'+esc(entity.area_code||"")+'</small></div>'+
+          '<span>'+esc(pc.useful_now||"CẦN DÙNG KHI ĐANG ĐI")+'</span>'+
+          '<div class="context-card"><span>'+esc(pc.area||"KHU VỰC")+'</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>'+esc(entity.area_code||"")+'</small></div>'+
           '<a class="context-link" href="../weather/"><span>☀</span><div><strong>Thời tiết & biển</strong><small>Xem tình hình mới nhất trước hoạt động ngoài trời</small></div><b>→</b></a>'+
           '<a class="context-link alt" href="../explore/?zone='+encodeURIComponent(entity.zone_id||"all")+'"><span>⌖</span><div><strong>Xem thêm quanh đây</strong><small>'+esc(zone?.name||"Toàn đảo")+'</small></div><b>→</b></a>'+
           (priceRows.length?'<a class="context-link alt" href="../utilities/#prices"><span>₫</span><div><strong>Giá & quyền lợi</strong><small>Chọn đúng ngày đi trước khi so giá</small></div><b>→</b></a>':'')+
@@ -141,15 +146,16 @@
     fetch("../data/entities/prices.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}),
-    fetch(EXPLAINERS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{items:{}}).catch(()=>fetch("../data/i18n/vi/place-explainers.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).catch(()=>({items:{}})))
-  ]).then(([places,activities,zones,prices,planning,visualData,explainerData])=>{
+    fetch(EXPLAINERS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{items:{}}).catch(()=>fetch("../data/i18n/vi/place-explainers.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).catch(()=>({items:{}}))),
+    fetch(UI+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch(UI_FALLBACK+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({})))
+  ]).then(([places,activities,zones,prices,planning,visualData,explainerData,uiData])=>{
     const all=[...(places.entities||[]),...(activities.entities||[])];
     const entity=all.find(x=>x.id===id||x.slug===id||x.legacy_id===id);
     if(!entity){
       $("#detailRoot").innerHTML='<section class="detail-loading"><strong>Không tìm thấy địa điểm.</strong><br><br><a href="../explore/">← Quay lại Explore</a></section>';
       return;
     }
-    render(entity,zones.entities||[],all,prices.entities||[],planning,visualData,explainerData);
+    render(entity,zones.entities||[],all,prices.entities||[],planning,visualData,explainerData,uiData);
   }).catch(error=>{
     console.warn(error);
     $("#detailRoot").innerHTML='<section class="detail-loading">Không tải được dữ liệu địa điểm lúc này.</section>';
