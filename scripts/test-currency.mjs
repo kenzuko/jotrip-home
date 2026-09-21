@@ -1,4 +1,4 @@
-import { parseVcbXml, vcbTimeToIso } from "../workers/currency/src/index.js";
+import fs from "node:fs";\nimport { parseVcbXml, vcbTimeToIso } from "../workers/currency/src/index.js";
 
 const iso=vcbTimeToIso("8/21/2026 2:42:34 PM");
 if(iso!=="2026-08-21T14:42:34+07:00"){
@@ -26,3 +26,14 @@ if(aud?.cash_buy!==18130.53 || aud?.transfer_buy!==18313.67 || aud?.sell!==18900
 }
 
 console.log("Currency parser QA OK: timestamp formats, XML fields and comma-separated rates");
+
+
+const history=JSON.parse(fs.readFileSync("data/currency-history.json","utf8"));
+const daily=history.points.filter(point=>point.granularity==="daily");
+const required=["USD","KRW","CNY","RUB","EUR"];
+for(const code of required){
+  const count=daily.filter(point=>point.currency===code).length;
+  if(count<30) throw new Error("Currency history regression: "+code+" has only "+count+" daily points");
+}
+if(history.backfill?.calendar_days!==30) throw new Error("Currency history must retain 30-day official VCB backfill metadata");
+console.log("Currency history QA OK: 30-day Vietcombank backfill retained for core currencies");
