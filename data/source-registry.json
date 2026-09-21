@@ -637,6 +637,47 @@
         "news",
         "activity_hon_thom"
       ]
+    },
+    {
+      "id": "vinwonders_grandworld_show_schedule_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "VinWonders - lịch show Grand World Phú Quốc 2026",
+      "url": "https://vinwonders.com/vi/wonderpedia/news/show-dien-grand-world-phu-quoc/",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "activity_tinh_hoa_viet_nam",
+        "trip_clock",
+        "place_grand_world"
+      ]
+    },
+    {
+      "id": "vinwonders_grandworld_hours_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "VinWonders - giờ hoạt động Grand World Phú Quốc 2026",
+      "url": "https://vinwonders.com/vi/wonderpedia/news/kinh-nghiem-di-grand-world-phu-quoc/",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "place_teddy_bear_museum",
+        "trip_clock",
+        "place_grand_world"
+      ]
+    },
+    {
+      "id": "vinwonders_safari_hours_detail_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "VinWonders - giờ Safari Phú Quốc và phân khu 2026",
+      "url": "https://vinwonders.com/vi/wonderpedia/news/update-gio-mo-cua-vinpearl-safari-phu-quoc-va-gia-ve-moi-nhat/",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "place_vinpearl_safari",
+        "trip_clock"
+      ]
     }
   ],
   "rules": [
