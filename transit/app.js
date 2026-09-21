@@ -78,12 +78,12 @@ function renderSummary(){
   $("#nextTime").textContent=next?hhmm(next.departure_time):"--:--";
   $("#nextRoute").textContent=next?`${next.origin} → ${next.destination}`:state.mode==="bus"?"Xem tuyến bên dưới":"Chưa có chuyến sắp tới";
   $("#selectedDateLabel").textContent=dayLabel(state.date);
-  $("#boardMeta").textContent=`${filtered().length} mục theo bộ lọc`;
+  $("#boardMeta").textContent=`${filtered().length} kết quả phù hợp`;
   setModeCopy();
 }
 function renderHealth(){
   const age=ageMin(state.data?.generated_at),h=state.data?.health?.status||"bad";
-  $("#healthState").textContent=!state.data?"Chưa lấy được lịch":h==="good"?(age<=30?"Đang cập nhật":"Thông tin hơi cũ"):h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được từ hãng";
+  $("#healthState").textContent=!state.data?"Chưa lấy được lịch":h==="good"?(age<=30?"Lịch còn mới":"Thông tin hơi cũ"):h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được từ hãng";
   $("#updatedAt").textContent=Number.isFinite(age)&&state.data?.generated_at?`Cập nhật ${new Date(state.data.generated_at).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ})} · ${age} phút trước`:"Chưa biết lần cập nhật gần nhất";
   const el=$("#sourceHealth");el.className=`status-chip ${h==="good"?"good":h==="watch"?"watch":"bad"}`;el.textContent=h==="good"?"Đã lấy được lịch":h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được lịch";
 }
@@ -94,7 +94,7 @@ function renderSources(){
   const total=entries.length;
   const newest=state.data?.generated_at?new Date(state.data.generated_at).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ}):"--:--";
   $("#sourceList").innerHTML=`
-    <div class="source-item"><div><strong>Các hãng</strong><small>${ok}/${total||0} nhóm đã có lịch mới</small></div><span class="status-chip ${ok===total&&total?"good":"watch"}">${ok===total&&total?"Đủ lịch":"Đang bổ sung"}</span></div>
+    <div class="source-item"><div><strong>Các hãng</strong><small>${ok===total&&total?"Các hãng cần xem đã có lịch":"Vẫn còn hãng chưa có lịch cho ngày này"}</small></div><span class="status-chip ${ok===total&&total?"good":"watch"}">${ok===total&&total?"Đủ cho ngày này":"Còn thiếu"}</span></div>
     <div class="source-item"><div><strong>Theo ngày thực tế</strong><small>Không dùng lịch tháng để khẳng định chuyến trong ngày</small></div><span class="status-chip neutral">${newest}</span></div>
   `;
 }
@@ -107,7 +107,7 @@ function renderNotice(){
 }
 function fareCell(r,compact=false){
   if(r.type==="bus")return compact?"Theo tuyến":'<span class="fare-main">Theo tuyến</span>';
-  const f=fareFor(r);if(!f.adult)return compact?"Kiểm tra hãng":'<span class="fare-main">Kiểm tra hãng</span><small class="fare-note">Chưa có giá chuẩn hóa</small>';
+  const f=fareFor(r);if(!f.adult)return compact?"Kiểm tra hãng":'<span class="fare-main">Kiểm tra hãng</span><small class="fare-note">Chưa có giá để hiện</small>';
   const note=f.note||`Người lớn${f.checked?` · kiểm tra ${f.checked}`:""}`;
   return compact?money(f.adult):`<span class="fare-main">${money(f.adult)}</span><small class="fare-note">${esc(note)}</small>`
 }
