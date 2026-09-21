@@ -89,9 +89,13 @@ function renderTripClock(){
     const practical=applyPracticalStartCutoff(item,decision,now);
     decision=practical.decision;
     const minDuration=durationMin(e.duration);
+    const tooShort=decision.state==="active"&&Number.isFinite(decision.remainingMin)&&minDuration&&decision.remainingMin<minDuration;
+    if(tooShort){
+      decision={...decision,label:"Không đủ thời gian cho một lượt đi trọn vẹn",detail:"Nên chọn một hoạt động ngắn hơn"};
+    }
     let score=decision.state==="active"?10:decision.state==="future"?60:decision.state==="unknown"?180:9999;
     if(Number.isFinite(decision.nextMin))score+=Math.max(0,decision.nextMin-now)/12;
-    if(Number.isFinite(decision.remainingMin)&&minDuration&&decision.remainingMin<minDuration)score+=120;
+    if(tooShort)score+=120;
     const best=String(e.best_time||item.timing_note||"").toLowerCase();
     if(/cuối chiều/.test(best)&&now>=15*60&&Number.isFinite(sunset)&&now<sunset)score-=28;
     if(/buổi tối|16:30|tối/.test(best)&&now>=16*60)score-=20;
