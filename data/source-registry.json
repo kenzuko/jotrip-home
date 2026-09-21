@@ -343,6 +343,75 @@
         "home_near_me",
         "utility_type_ATM"
       ]
+    },
+    {
+      "id": "visitpq_fuel_directory_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Phú Quốc Tourism - danh bạ cây xăng",
+      "url": "https://dulich.phuquoc.gov.vn/vi/detailutilities/?child=1240&id=1240",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "home_near_me",
+        "utility_type_FUEL"
+      ]
+    },
+    {
+      "id": "pqgov_nhiphung_fuel_permit_2024",
+      "type": "OFFICIAL_GOVERNMENT",
+      "label": "UBND Phú Quốc - giấy phép môi trường Cửa hàng bán lẻ xăng dầu Nhi Phụng",
+      "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/375_GPMT-UBND.signed.pdf",
+      "published_at": "2024-06-19",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "OFFICIAL_GOVERNMENT_RECORD",
+      "used_by": [
+        "home_near_me",
+        "utility_fuel_nhi_phung"
+      ]
+    },
+    {
+      "id": "sunworld_sunset_nightmarket_parking_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World - Chợ đêm Sunset Town, di chuyển và gửi xe",
+      "url": "https://sunworld.vn/vi/hon-thom/an-choi/kham-pha-cho-dem-sunset-town-thien-duong-am-thuc-va-mua-sam-ben-bien-17527",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "home_near_me",
+        "utility_type_PARKING",
+        "place_sunset_town"
+      ]
+    },
+    {
+      "id": "map_directory_phuquoc_20260921",
+      "type": "COMMUNITY_DIRECTORY",
+      "label": "Current business map directory - Phú Quốc utility verification",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "SECONDARY_CURRENT_DIRECTORY",
+      "used_by": [
+        "home_near_me",
+        "utility_type_FUEL",
+        "utility_type_TOILET",
+        "utility_type_MINIMART"
+      ]
+    },
+    {
+      "id": "winmart_phuquoc_rollout_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "WinCommerce - WinMart+ Phú Quốc rollout",
+      "url": "https://tuyendung.winmart.vn/job/winmart-phu-quoc-nhan-vien-ban-hangcua-hang-truongcua-hang-truong-tiem-nang-55264",
+      "published_at": "2026-07-03",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "utility_type_MINIMART",
+        "discovery_only"
+      ]
     }
   ],
   "rules": [
