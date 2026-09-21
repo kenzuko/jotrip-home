@@ -169,3 +169,10 @@ footer{font-size:13px;line-height:1.55}
 .article-note>span,
 .next a small{font-size:11px}
 .story-copy p{font-size:12px}
+
+.sources>summary{cursor:pointer;list-style:none;font-size:12px;font-weight:850;color:var(--muted)}
+.sources>summary::-webkit-details-marker{display:none}
+.sources>summary:after{content:" +";color:var(--coral)}
+.sources[open]>summary:after{content:" −"}
+.sources>div{display:grid;gap:7px;margin-top:12px}
+.sources>div a{font-size:12px}
