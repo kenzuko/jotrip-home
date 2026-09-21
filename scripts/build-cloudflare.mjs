@@ -12,6 +12,7 @@ const rootFiles=[
   "app.js",
   "home-live.js",
   "home-live-v3.js",
+  "home-foundation-v2.js",
   "home-today-v3.js",
   "home-copy.js",
   "subpage.css",

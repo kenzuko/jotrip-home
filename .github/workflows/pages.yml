@@ -44,6 +44,7 @@ jobs:
           test -f dist/about/about.css
           test -f dist/visual-context.css
           test -f dist/visual-context.js
+          test -f dist/home-foundation-v2.js
           test -f dist/currency/index.html
           test -f dist/currency/currency.js
           rm -rf dist
