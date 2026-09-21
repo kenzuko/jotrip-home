@@ -5550,3 +5550,12 @@ body.sheet-open{
     object-position:center!important;
   }
 }
+
+
+/* Anchor alignment lock - 21/09/2026 */
+#today{
+  scroll-margin-top:74px;
+}
+@media(max-width:760px){
+  #today{scroll-margin-top:68px}
+}
