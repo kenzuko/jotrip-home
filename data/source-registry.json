@@ -412,6 +412,31 @@
         "utility_type_MINIMART",
         "discovery_only"
       ]
+    },
+    {
+      "id": "sunworld_sunset_town_always_open",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World - Sunset Town overview",
+      "url": "https://sunworld.vn/hon-thom/tin-tuc-du-lich/phu-quoc-co-gi-choi-tong-hop-tu-diem-vui-choi-hang-dau-dao-ngoc-5886",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "place_sunset_town",
+        "activity_board"
+      ]
+    },
+    {
+      "id": "jotrip_big_game_fishing_current",
+      "type": "FIRST_PARTY_OPERATOR",
+      "label": "JoTrip - Câu cá lớn An Thới current operating windows",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "FIRST_PARTY_OPERATOR",
+      "used_by": [
+        "activity_big_game_fishing",
+        "activity_board"
+      ]
     }
   ],
   "rules": [
