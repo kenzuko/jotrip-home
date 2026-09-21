@@ -1,4 +1,5 @@
-import fs from "node:fs";\nimport { parseVcbXml, vcbTimeToIso } from "../workers/currency/src/index.js";
+import fs from "node:fs";
+import { parseVcbXml, vcbTimeToIso } from "../workers/currency/src/index.js";
 
 const iso=vcbTimeToIso("8/21/2026 2:42:34 PM");
 if(iso!=="2026-08-21T14:42:34+07:00"){
