@@ -63,3 +63,43 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --config wrangler.jsonc
+
+
+      - name: Verify deployed Worker version
+        if: env.CLOUDFLARE_READY == 'true'
+        run: |
+          url="https://openphuquoc-v3.kenzuko.workers.dev/build.json?t=$GITHUB_SHA"
+          for i in {1..20}; do
+            body="$(curl -fsS "$url" || true)"
+            echo "$body"
+            if echo "$body" | grep -q "$GITHUB_SHA"; then
+              echo "Worker build matches $GITHUB_SHA"
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "::error::Worker build.json did not match deployed commit $GITHUB_SHA"
+          exit 1
+
+      - name: Install production smoke browser
+        if: env.CLOUDFLARE_READY == 'true'
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+
+      - name: Smoke test deployed Worker homepage
+        if: env.CLOUDFLARE_READY == 'true'
+        env:
+          VISUAL_QA_BASE_URL: https://openphuquoc-v3.kenzuko.workers.dev
+          VISUAL_QA_SCOPE: home
+          VISUAL_QA_OUTPUT: production-smoke-results
+        run: node scripts/visual-qa.mjs
+
+      - name: Upload production smoke report
+        if: always() && env.CLOUDFLARE_READY == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: openpq-production-smoke-${{ github.run_number }}
+          path: production-smoke-results/
+          retention-days: 7
+          if-no-files-found: warn
