@@ -31,15 +31,32 @@ function attr(tag,name){
 function vcbTimeToIso(raw){
   if(!raw) return null;
   const text=String(raw).trim();
-  let m=text.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})\s+(\d{1,2}):(\d{2})(?::(\d{2}))?/);
-  if(!m) m=text.match(/(\d{1,2}):(\d{2})(?::(\d{2}))?\s+(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  const m=text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})\s+(\d{1,2}):(\d{2})(?::(\d{2}))?\s*(AM|PM)?$/i);
   if(!m) return null;
-  if(text.indexOf('/') < text.indexOf(':')){
-    const [,d,mo,y,h,mi,s='00']=m;
-    return y+'-'+mo.padStart(2,'0')+'-'+d.padStart(2,'0')+'T'+h.padStart(2,'0')+':'+mi+':'+s+'+07:00';
+
+  let [,a,b,y,h,mi,s='00',amp='']=m;
+  let day,month;
+  const first=Number(a),second=Number(b);
+
+  // The current VCB XML feed uses M/D/YYYY with AM/PM.
+  // Keep a DD/MM fallback for legacy/no-AM responses where the first field is > 12.
+  if(amp || first<=12){
+    month=first;
+    day=second;
+  }else{
+    day=first;
+    month=second;
   }
-  const [,h,mi,s='00',d,mo,y]=m;
-  return y+'-'+mo.padStart(2,'0')+'-'+d.padStart(2,'0')+'T'+h.padStart(2,'0')+':'+mi+':'+s+'+07:00';
+
+  let hour=Number(h);
+  if(amp){
+    const upper=amp.toUpperCase();
+    if(upper==='PM' && hour<12) hour+=12;
+    if(upper==='AM' && hour===12) hour=0;
+  }
+
+  if(month<1||month>12||day<1||day>31||hour<0||hour>23) return null;
+  return y+'-'+String(month).padStart(2,'0')+'-'+String(day).padStart(2,'0')+'T'+String(hour).padStart(2,'0')+':'+mi+':'+s+'+07:00';
 }
 function parseVcbXml(xml){
   const timeMatch=xml.match(/<DateTime>([\s\S]*?)<\/DateTime>/i);
