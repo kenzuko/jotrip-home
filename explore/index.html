@@ -7,10 +7,9 @@
   <title>Khám phá Phú Quốc - Open Phu Quoc</title>
   <meta name="description" content="Khám phá Phú Quốc theo vùng và kiểu chuyến đi: Bắc đảo, trung tâm, Nam đảo, gia đình, couple, biển, local life và rainy day.">
   <link rel="preload" as="image" href="/assets/logo-master.png">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
-  <link rel="stylesheet" href="../live-module.css?v=1">
+    <link rel="stylesheet" href="../live-module.css?v=1">
   <link rel="stylesheet" href="../live-module-v2.css?v=1">
-  <link rel="stylesheet" href="explore.css?v=5"><link rel="stylesheet" href="../visual-context.css?v=3">
+  <link rel="stylesheet" href="explore.css?v=6"><link rel="stylesheet" href="../visual-context.css?v=3">
 <link rel="stylesheet" href="../ecosystem-shell.css?v=20260921b">
   <link rel="canonical" href="https://openphuquoc.com/explore/">
   <meta property="og:site_name" content="Open Phu Quoc">
@@ -54,8 +53,15 @@
 
     <section class="explore-map-overview" aria-label="Bản đồ định hướng Phú Quốc">
       <figure class="explore-map-card">
-        <div id="exploreMap" aria-label="Bản đồ tương tác Phú Quốc"></div>
-        <figcaption><span>Chạm vào Bắc đảo, Dương Đông hoặc Nam đảo để lọc. Có thể bật tắt lớp vùng và nhãn ngay trên bản đồ.</span></figcaption>
+        <div class="explore-map-embed-wrap">
+          <iframe class="explore-map-embed" src="https://www.openstreetmap.org/export/embed.html?bbox=103.78%2C9.86%2C104.20%2C10.52&amp;layer=mapnik" title="Bản đồ Phú Quốc" loading="eager"></iframe>
+        </div>
+        <div class="explore-map-zones" aria-label="Chọn vùng trên bản đồ">
+          <a href="?zone=zone_north">Bắc đảo</a>
+          <a href="?zone=zone_central_west">Dương Đông &amp; trung tâm</a>
+          <a href="?zone=zone_south">Nam đảo</a>
+        </div>
+        <figcaption><span>Bản đồ để hình dung chiều dài đảo. Chọn một vùng để lọc nội dung bên dưới.</span><a href="https://www.openstreetmap.org/#map=10/10.20/103.97" target="_blank" rel="noopener">Mở bản đồ lớn ↗</a></figcaption>
       </figure>
       <div>
         <span>ĐỊNH HƯỚNG</span>
@@ -98,10 +104,8 @@
     <a href="../#today">Lúc này</a>
   </nav>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="../island-clock.js?v=5"></script>
   <script src="../visual-context.js?v=4"></script>
-  <script src="../map-basemap.js?v=1"></script>
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
