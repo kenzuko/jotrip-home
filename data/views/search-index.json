@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-21T16:30:00+07:00",
+  "generated_at": "2026-09-21T16:35:00+07:00",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -5684,26 +5684,6 @@
       "related_entities": [],
       "route": "/utilities/#directory",
       "search_text": "taxi nam thang phu quoc 0297 3 757 575 hang dia phuong"
-    },
-    {
-      "id": "utility_taxi_vinasun",
-      "type": "utility",
-      "title": "Vinasun Phú Quốc - 0297 38 272 727",
-      "aliases": [
-        "Vinasun",
-        "taxi Vinasun"
-      ],
-      "zone_id": null,
-      "intents": [
-        "transport",
-        "taxi",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/utilities/#directory",
-      "search_text": "vinasun phu quoc 0297 38 272 727 taxi"
     }
   ]
 }
