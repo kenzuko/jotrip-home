@@ -6,11 +6,5 @@
   "preview_urls": true,
   "assets": {
     "directory": "./dist"
-  },
-  "routes": [
-    {
-      "pattern": "cms.openphuquoc.com/*",
-      "zone_name": "openphuquoc.com"
-    }
-  ]
+  }
 }
