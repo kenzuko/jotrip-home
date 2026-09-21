@@ -5591,3 +5591,12 @@ body.sheet-open{
 .trip-clock-empty a{padding:9px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;font-size:12px;font-weight:850;color:var(--ink)}
 .curiosity-rail{align-items:start!important}
 .curiosity-card{align-self:start!important}
+
+
+/* Public type-case rule: labels uppercase, human values sentence case. */
+.eyebrow,.hero-kicker,.more-label,.curiosity-question>span,.island-story-card>div>span{
+  text-transform:uppercase
+}
+.live-item>span,.near-result-card>span,.trip-item>span{
+  text-transform:none
+}
