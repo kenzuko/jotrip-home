@@ -106,7 +106,9 @@
         "theme-park",
         "family"
       ],
-      "related_entities": [],
+      "related_entities": [
+        "activity_once_show"
+      ],
       "live_refs": [],
       "source_refs": [
         {
@@ -178,7 +180,8 @@
       ],
       "related_entities": [
         "place_teddy_bear_museum",
-        "activity_tinh_hoa_viet_nam"
+        "activity_tinh_hoa_viet_nam",
+        "activity_sac_mau_venice"
       ],
       "live_refs": [],
       "source_refs": [
