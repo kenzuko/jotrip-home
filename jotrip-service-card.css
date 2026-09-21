@@ -1,0 +1,59 @@
+/* Light first-party service suggestion - Open Phu Quoc / JoTrip */
+.jotrip-service-card{
+  margin:34px 0 0;
+  padding:18px 19px;
+  border:1px solid rgba(18,61,59,.10);
+  border-radius:18px;
+  background:
+    radial-gradient(circle at 96% 0,rgba(252,188,18,.12),transparent 34%),
+    linear-gradient(135deg,#f7fbf9,#fffdf7);
+  color:#123d3b;
+}
+.jotrip-service-card>span{
+  display:block;
+  color:#55716d;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+.jotrip-service-card strong{
+  display:block;
+  margin-top:7px;
+  font-size:18px;
+  line-height:1.25;
+}
+.jotrip-service-card p{
+  margin:7px 0 0!important;
+  color:#617572!important;
+  font-size:13px!important;
+  line-height:1.55!important;
+}
+.jotrip-service-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-top:13px;
+}
+.jotrip-service-actions a{
+  min-height:36px;
+  display:inline-flex;
+  align-items:center;
+  padding:8px 11px;
+  border:1px solid rgba(18,61,59,.13);
+  border-radius:999px;
+  background:#fff;
+  color:#123d3b!important;
+  font-size:12px!important;
+  font-weight:850;
+  text-decoration:none;
+}
+.jotrip-service-actions a:first-child{
+  background:#123d3b;
+  color:#fff!important;
+  border-color:#123d3b;
+}
+@media(max-width:700px){
+  .jotrip-service-card{margin-top:28px;padding:16px}
+  .jotrip-service-card strong{font-size:17px}
+  .jotrip-service-actions a{flex:1 1 auto;justify-content:center}
+}
