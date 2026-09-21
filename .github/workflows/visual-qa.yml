@@ -11,6 +11,7 @@ on:
         options:
           - full
           - smoke
+          - home
   push:
     branches: ["main"]
     paths:
@@ -57,7 +58,7 @@ jobs:
       - name: Run visual QA
         env:
           VISUAL_QA_BASE_URL: http://127.0.0.1:4173
-          VISUAL_QA_SCOPE: ${{ inputs.scope || 'smoke' }}
+          VISUAL_QA_SCOPE: ${{ inputs.scope || 'home' }}
         run: |
           scope="$VISUAL_QA_SCOPE"
           if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.run_attempt }}" -gt 1 ]; then
