@@ -147,13 +147,14 @@ async function testHomeFoundation(page) {
     return value && value !== '--:--';
   }, { timeout: 6000 }).catch(() => {});
 
+  const initialNearClean = await page.locator('#nearResults .near-result-card').count().then(n => n === 0).catch(() => false);
   const area = page.locator('#nearManualAreas [data-area]').first();
   if (await area.count()) {
     await area.click().catch(() => {});
     await page.waitForTimeout(450);
   }
 
-  return page.evaluate(() => {
+  return page.evaluate((initialNearClean) => {
     const text = selector => document.querySelector(selector)?.textContent?.trim() || '';
     const count = selector => document.querySelectorAll(selector).length;
     const frame = document.querySelector('#nearMapFrame');
@@ -162,13 +163,15 @@ async function testHomeFoundation(page) {
       tripCards: count('#tripClockList .trip-item') >= 3,
       manualAreas: count('#nearManualAreas [data-area]') >= 4,
       nearCategories: count('#nearCategories [data-category]') >= 5,
+      initialNearClean,
       manualResults: count('#nearResults .near-result-card') >= 1,
       mapCreated: !!frame?.src && !frame.hidden,
       hotNow: count('#hotNowList .hot-card') >= 1,
-      currency: count('#homeCurrencyGrid .home-currency-card') >= 3
+      currency: count('#homeCurrencyGrid .home-currency-card') >= 3,
+      noSyntheticZero: ![...document.querySelectorAll('#homeCurrencyGrid .home-currency-card strong')].some(el => /^0([,.]0+)?\s*₫$/.test(el.textContent.trim()))
     };
     return { ok: Object.values(checks).every(Boolean), checks };
-  });
+  }, initialNearClean);
 }
 
 async function testCurrencyPage(page) {
