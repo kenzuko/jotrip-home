@@ -23,6 +23,7 @@ const rootFiles=[
   "live-module-v2.css",
   "visual-context.css",
   "visual-context.js",
+  "jotrip-service-card.css",
   ".nojekyll"
 ];
 const dirs=[
@@ -45,7 +46,8 @@ const dirs=[
   "food",
   "explore",
   "hotels",
-  "about"
+  "about",
+  "news"
 ];
 
 for(const file of rootFiles){
