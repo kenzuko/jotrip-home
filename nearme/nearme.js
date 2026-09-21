@@ -11,16 +11,25 @@
   };
   let support=null,entities=new Map(),selectedArea="all",selectedCategory=null,position=null,map=null,userMarker=null;
 
+  function mapEmbedUrl(lat=10.20,lon=103.97,zoom=11){
+    return "https://www.google.com/maps?q="+encodeURIComponent(lat+","+lon)+"&z="+zoom+"&output=embed";
+  }
+  function showMapFallback(lat=10.20,lon=103.97,zoom=11){
+    const host=$("#nearMap");if(!host)return;
+    host.innerHTML='<iframe class="near-map-fallback" title="Bản đồ Phú Quốc" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="'+mapEmbedUrl(lat,lon,zoom)+'"></iframe>';
+  }
   function initMap(){
     const host=$("#nearMap");
-    if(!host||!window.L){if(host)host.innerHTML='<div class="empty">Chưa mở được bản đồ. Danh sách bên dưới vẫn dùng được.</div>';return}
+    if(!host)return;
+    if(!window.L){showMapFallback();return}
     map=L.map(host,{zoomControl:true,attributionControl:true}).setView(AREA_VIEW.all.center,AREA_VIEW.all.zoom);
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap contributors"}).addTo(map);
   }
   function setAreaView(id){
-    if(!map||position)return;
+    if(position)return;
     const view=AREA_VIEW[id]||AREA_VIEW.all;
-    map.setView(view.center,view.zoom);
+    if(map){map.setView(view.center,view.zoom);return}
+    showMapFallback(view.center[0],view.center[1],view.zoom);
   }
   function haversine(a,b){const R=6371,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),h=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
   function nearestArea(pos){
@@ -72,7 +81,7 @@
     }
     $("#resultsTitle").textContent=areaLabel()+(selectedCategory?" · "+(support.near_me.categories.find(x=>x.id===selectedCategory)?.label||""):"");
     $("#resultsCount").textContent=rows.length+" điểm có dữ liệu";
-    $("#nearStatus").textContent=position?(gpsFallback?"Đã nhận vị trí. Chưa đủ tọa độ để xếp chính xác từng điểm, nên danh sách đang ưu tiên khu vực gần bạn nhất.":"Đang xếp theo vị trí bạn vừa chia sẻ."):"Đang xem theo khu vực, không dùng GPS.";
+    $("#nearStatus").textContent=position?(gpsFallback?"Đã nhận vị trí. Một số điểm chưa có tọa độ đủ chắc, nên danh sách đang ưu tiên khu vực gần bạn nhất.":"Đang ưu tiên những điểm gần vị trí bạn vừa chia sẻ."):"Bạn đang xem theo khu vực, chưa dùng GPS.";
     const host=$("#nearResults");
     if(!rows.length){host.innerHTML='<div class="empty">Chưa có điểm đủ dữ liệu cho lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';return}
     host.innerHTML=rows.map(x=>{
@@ -111,6 +120,8 @@
           if(userMarker)map.removeLayer(userMarker);
           userMarker=L.marker([position.lat,position.lon]).addTo(map).bindPopup("Vị trí bạn vừa chia sẻ");
           map.setView([position.lat,position.lon],14);
+        }else{
+          showMapFallback(position.lat,position.lon,15);
         }
         renderControls();render();
       },()=>{
