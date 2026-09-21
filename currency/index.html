@@ -7,7 +7,7 @@
   <meta name="openpq-currency-api" content="/api/exchange-rates">
   <title>Tỷ giá - Open Phu Quoc</title>
   <link rel="stylesheet" href="../subpage.css?v=2">
-  <link rel="stylesheet" href="currency.css?v=8">
+  <link rel="stylesheet" href="currency.css?v=9">
 </head>
 <body>
 <header class="currency-head">
@@ -75,6 +75,17 @@
       <div id="rateCards" class="rate-cards"><div class="empty-state">Đang tải tỷ giá...</div></div>
     </section>
 
+    <section class="panel comparison-panel" aria-labelledby="comparisonTitle">
+      <div class="section-head">
+        <div><p class="eyebrow">SO SÁNH NHANH</p><h2 id="comparisonTitle">Hôm nay so với trước đây</h2></div>
+        <span class="mini-note">Giá mua tiền mặt</span>
+      </div>
+      <div id="comparisonTable" class="comparison-table">
+        <div class="empty-state">Đang tải dữ liệu so sánh...</div>
+      </div>
+      <p class="comparison-note">Nếu Vietcombank không công bố giá mua tiền mặt, hệ thống dùng giá mua chuyển khoản.</p>
+    </section>
+
     <section class="panel chart-panel" aria-labelledby="chartTitle">
       <div class="section-head">
         <div><p class="eyebrow">LỊCH SỬ</p><h2 id="chartTitle">Diễn biến tỷ giá</h2></div>
@@ -125,7 +136,7 @@
 </main>
 
 <footer class="module-footer">Tỷ giá mang tính tham khảo và có thể thay đổi theo thời điểm Vietcombank cập nhật.</footer>
-<script src="currency.js?v=5"></script>
+<script src="currency.js?v=6"></script>
 <script src="../island-clock.js?v=6"></script>
 </body>
 </html>
