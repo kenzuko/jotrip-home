@@ -69,15 +69,159 @@ function foldSearch(value){
 }
 function detectSearchCurrency(raw){
   const original=String(raw||'');
-  if(original.includes('₩')) return 'KRW';
-  if(original.includes('₽')) return 'RUB';
-  if(original.includes('€')) return 'EUR';
-  if(original.includes('£')) return 'GBP';
-  if(original.includes('
+  if(original.includes('\u20A9')) return 'KRW';
+  if(original.includes('\u20BD')) return 'RUB';
+  if(original.includes('\u20AC')) return 'EUR';
+  if(original.includes('\u00A3')) return 'GBP';
+  if(original.includes(String.fromCharCode(36))) return 'USD';
+  const q=' '+foldSearch(original).replace(/[^a-z0-9]+/g,' ')+' ';
+  for(const [alias,code] of SEARCH_ALIASES){
+    if(q.includes(' '+alias+' ')) return code;
+  }
+  return null;
+}
+function searchReferenceDate(){
+  const source=state.payload?.source_updated_at || state.payload?.fetched_at;
+  const key=source && String(source).slice(0,10);
+  if(/^\d{4}-\d{2}-\d{2}$/.test(key||'')) return key;
+  const now=new Date();
+  return now.getUTCFullYear()+'-'+String(now.getUTCMonth()+1).padStart(2,'0')+'-'+String(now.getUTCDate()).padStart(2,'0');
+}
+function shiftIsoDate(iso,days){
+  const [y,m,d]=iso.split('-').map(Number);
+  const dt=new Date(Date.UTC(y,m-1,d));
+  dt.setUTCDate(dt.getUTCDate()+days);
+  return dt.getUTCFullYear()+'-'+String(dt.getUTCMonth()+1).padStart(2,'0')+'-'+String(dt.getUTCDate()).padStart(2,'0');
+}
+function detectSearchDate(raw){
+  const q=foldSearch(raw);
+  const rel=q.match(/(\d{1,3})\s*ngay\s*truoc/);
+  if(rel) return shiftIsoDate(searchReferenceDate(),-Number(rel[1]));
+  const exact=String(raw||'').match(/\b(\d{1,2})[\/-](\d{1,2})(?:[\/-](\d{2,4}))?\b/);
+  if(!exact) return null;
+  let year=exact[3]?Number(exact[3]):Number(searchReferenceDate().slice(0,4));
+  if(year<100) year+=2000;
+  const month=Number(exact[2]),day=Number(exact[1]);
+  const dt=new Date(Date.UTC(year,month-1,day));
+  if(dt.getUTCFullYear()!==year || dt.getUTCMonth()+1!==month || dt.getUTCDate()!==day) return null;
+  return year+'-'+String(month).padStart(2,'0')+'-'+String(day).padStart(2,'0');
+}
+function detectSearchAmount(raw){
+  const original=String(raw||'');
+  const symbolPattern=new RegExp('(?:[\\\\x24\\\\u20AC\\\\u00A3\\\\u20A9\\\\u20BD]\\\\s*)?(\\\\d[\\\\d.,]*)(?:\\\\s*[\\\\x24\\\\u20AC\\\\u00A3\\\\u20A9\\\\u20BD])');
+  const symbolAmount=original.match(symbolPattern);
+  if(symbolAmount){
+    let symbolText=symbolAmount[1];
+    if(/^\d{1,3}([.,]\d{3})+$/.test(symbolText)) symbolText=symbolText.replace(/[.,]/g,'');
+    else symbolText=symbolText.replace(',','.');
+    const symbolValue=Number(symbolText);
+    if(Number.isFinite(symbolValue)&&symbolValue>0) return symbolValue;
+  }
+  let q=foldSearch(original);
+  q=q.replace(/\b\d{1,2}[\/-]\d{1,2}(?:[\/-]\d{2,4})?\b/g,' ');
+  q=q.replace(/\b\d{1,3}\s*ngay\s*truoc\b/g,' ');
+  const m=q.match(/(?:^|\s)(\d[\d.,]*)\s*(trieu|nghin|ngan|k|m)?(?:\s|$)/);
+  if(!m) return null;
+  let text=m[1].trim();
+  if(/^\d{1,3}([.,]\d{3})+$/.test(text)) text=text.replace(/[.,]/g,'');
+  else text=text.replace(',','.');
+  let value=Number(text);
+  if(!Number.isFinite(value)||value<=0) return null;
+  const unit=m[2]||'';
+  if(unit==='trieu'||unit==='m') value*=1000000;
+  if(unit==='nghin'||unit==='ngan'||unit==='k') value*=1000;
+  return value;
+}
+function formatSearchDate(iso){
+  const [y,m,d]=iso.split('-');
+  return d+'/'+m+'/'+y;
+}
+function preferredBuy(item){
+  const cash=number(item?.cash_buy);
+  if(Number.isFinite(cash)) return {value:cash,label:'Giá mua tiền mặt'};
+  const transfer=number(item?.transfer_buy);
+  if(Number.isFinite(transfer)) return {value:transfer,label:'Giá mua chuyển khoản'};
+  return {value:null,label:'Chưa có giá mua'};
+}
+async function loadSearchHistory(){
+  if(state.searchHistory) return state.searchHistory;
+  const payload=await getJson('../data/currency-history.json');
+  state.searchHistory=payload.points||[];
+  return state.searchHistory;
+}
+function hideCurrencySearch(){
+  const box=$('#currencySearchResults');
+  const input=$('#currencySearch');
+  if(box) box.hidden=true;
+  if(input) input.setAttribute('aria-expanded','false');
+}
+function showCurrencySearch(html){
+  const box=$('#currencySearchResults');
+  const input=$('#currencySearch');
+  if(!box) return;
+  box.innerHTML=html;
+  box.hidden=false;
+  if(input) input.setAttribute('aria-expanded','true');
+}
+function currentSearchResult(code,amount){
+  const item=rate(code);
+  if(!item) return '<div class="search-empty">Chưa có tỷ giá '+esc(code)+' trong nguồn hiện tại.</div>';
+  const buy=preferredBuy(item);
+  if(amount && Number.isFinite(buy.value)){
+    return '<button class="search-result" type="button" data-search-action="convert" data-search-code="'+code+'" data-search-amount="'+amount+'"><span><strong>'+formatAmount(amount)+' '+code+' ≈ '+formatVnd(amount*buy.value)+'</strong><small>'+buy.label+' Vietcombank · tỷ giá hiện tại</small></span><b>→</b></button>';
+  }
+  return '<button class="search-result" type="button" data-search-action="inspect" data-search-code="'+code+'"><span><strong>'+code+' · '+formatRate(buy.value)+' ₫</strong><small>Mua tiền mặt '+formatRate(number(item.cash_buy))+' · CK '+formatRate(number(item.transfer_buy))+' · Bán '+formatRate(number(item.sell))+'</small></span><b>Chi tiết</b></button>';
+}
+function historicResult(row,amount){
+  const buy=preferredBuy(row);
+  const date=row.source_date||String(row.at||'').slice(0,10);
+  const headline=amount && Number.isFinite(buy.value)
+    ? formatAmount(amount)+' '+row.currency+' ≈ '+formatVnd(amount*buy.value)
+    : row.currency+' · '+formatRate(buy.value)+' ₫';
+  return '<button class="search-result" type="button" data-search-action="history" data-search-code="'+esc(row.currency)+'"><span><strong>'+headline+'</strong><small>'+formatSearchDate(date)+' · '+buy.label+' · CK '+formatRate(number(row.transfer_buy))+' · Bán '+formatRate(number(row.sell))+'</small></span><b>Lịch sử</b></button>';
+}
+async function runCurrencySearch(){
+  const input=$('#currencySearch');
+  if(!input) return;
+  const raw=input.value.trim();
+  const clear=$('#currencySearchClear');
+  if(clear) clear.hidden=!raw;
+  if(!raw){hideCurrencySearch();return;}
+  const token=++state.searchToken;
+  const code=detectSearchCurrency(raw);
+  const date=detectSearchDate(raw);
+  const amount=detectSearchAmount(raw);
+
+  if(date){
+    showCurrencySearch('<div class="search-empty">Đang tra tỷ giá '+formatSearchDate(date)+'...</div>');
+    try{
+      const history=await loadSearchHistory();
+      if(token!==state.searchToken) return;
+      let rows=history.filter(x=>(x.source_date||String(x.at||'').slice(0,10))===date);
+      if(code) rows=rows.filter(x=>x.currency===code);
+      else rows=PRIORITY.map(c=>rows.find(x=>x.currency===c)).filter(Boolean).slice(0,5);
+      showCurrencySearch(rows.length
+        ? rows.map(row=>historicResult(row,amount)).join('')
+        : '<div class="search-empty">Chưa có dữ liệu Vietcombank cho '+formatSearchDate(date)+'. Hiện kho lịch sử đang có 30 ngày gần nhất.</div>');
+    }catch(error){
+      showCurrencySearch('<div class="search-empty">Không đọc được dữ liệu lịch sử lúc này.</div>');
+    }
+    return;
+  }
+
+  if(code){
+    showCurrencySearch(currentSearchResult(code,amount));
+    return;
+  }
+
+  showCurrencySearch('<div class="search-empty">Thử “100 USD”, “1 triệu won”, “CNY”, “USD 15/09” hoặc “KRW 30 ngày trước”.</div>');
+}
+function freshnessClass(status){
   if(status === 'live') return 'live';
   if(status === 'cached') return 'cached';
   return 'stale';
 }
+
 function normalizePayload(payload){
   const rates = (payload.rates || []).map(x => ({
     currency: String(x.currency || x.code || '').toUpperCase(),
