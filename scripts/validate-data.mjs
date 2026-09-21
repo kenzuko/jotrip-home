@@ -102,7 +102,7 @@ try{
   let storyCount=0,curiosityCount=0;
   try{storyCount=(JSON.parse(fs.readFileSync(path.join(root,"data","content.json"),"utf8")).stories||[]).length}catch(error){}
   try{curiosityCount=(JSON.parse(fs.readFileSync(path.join(root,"data","home-support.json"),"utf8")).curiosity||[]).length}catch(error){}
-  const expected=entities.length+4+storyCount+curiosityCount;
+  const expected=entities.length+5+storyCount+curiosityCount;
   const actual=(search.documents||[]).length;
   if(actual!==expected) errors.push("search index count mismatch: expected "+expected+", got "+actual);
 }catch(error){
