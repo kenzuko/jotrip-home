@@ -22,10 +22,11 @@ const allRoutes = [
   { name: 'ferry', path: '/ferry/' },
   { name: 'transit', path: '/transit/' },
   { name: 'bus', path: '/bus/' },
-  { name: 'cano', path: '/cano/' }
+  { name: 'cano', path: '/cano/' },
+  { name: 'currency', path: '/currency/' }
 ];
 
-const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus', 'transit']);
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus', 'transit', 'currency']);
 const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
@@ -170,6 +171,23 @@ async function testHomeFoundation(page) {
   });
 }
 
+async function testCurrencyPage(page) {
+  await page.waitForFunction(() => {
+    const badge=document.querySelector('#sourceBadge')?.textContent?.trim();
+    return badge && badge !== 'ĐANG TẢI';
+  }, { timeout: 7000 }).catch(() => {});
+  return page.evaluate(() => {
+    const count = selector => document.querySelectorAll(selector).length;
+    const checks = {
+      sourceResolved: !!document.querySelector('#sourceBadge')?.textContent?.trim() && document.querySelector('#sourceBadge').textContent.trim() !== 'ĐANG TẢI',
+      converter: !!document.querySelector('#converterTitle') && !!document.querySelector('[data-mode="foreign-to-vnd"]'),
+      rateRows: count('[data-currency], .rate-row, .board-card, .rate-card') >= 3,
+      historySurface: !!document.querySelector('canvas, svg, .history-chart, [data-history], #historyChart')
+    };
+    return { ok:Object.values(checks).every(Boolean), checks };
+  });
+}
+
 async function testMapCta(page) {
   const buttons = page.getByRole('button', { name: /bản đồ/i });
   const count = await buttons.count();
@@ -227,8 +245,12 @@ try {
 
       let mapCta = null;
       let homeFunctional = null;
+      let currencyFunctional = null;
       if (!navigationError && route.name === 'home') {
         homeFunctional = await testHomeFoundation(page);
+      }
+      if (!navigationError && route.name === 'currency') {
+        currencyFunctional = await testCurrencyPage(page);
       }
       if (!navigationError && route.path.includes('/places/detail.html')) {
         mapCta = await testMapCta(page);
@@ -242,7 +264,8 @@ try {
         pageErrors.length ? `${pageErrors.length} page error(s)` : null,
         failedRequests.length ? `${failedRequests.length} failed same-origin request(s)` : null,
         badResponses.length ? `${badResponses.length} bad same-origin response(s)` : null,
-        homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null
+        homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
+        currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null
       ].filter(Boolean);
 
       results.push({
@@ -256,6 +279,7 @@ try {
         inspection,
         mapCta,
         homeFunctional,
+        currencyFunctional,
         consoleErrors,
         pageErrors,
         failedRequests,
@@ -316,7 +340,8 @@ const md = [
       result.inspection?.motionTargetsPending ? `${result.inspection.motionTargetsPending} motion target(s) needed QA settle` : null,
       result.inspection?.tinyText?.length ? `${result.inspection.tinyText.length} text item(s) under 11px` : null,
       result.mapCta?.found ? `map CTA: ${result.mapCta.iframeInserted ? 'ok' : 'iframe not inserted'}` : null,
-      result.homeFunctional?.ok ? `home functional: ok` : null
+      result.homeFunctional?.ok ? `home functional: ok` : null,
+      result.currencyFunctional?.ok ? `currency functional: ok` : null
     ].filter(Boolean).join('; ') || 'OK';
     return `| ${result.route} | ${result.viewport.width}x${result.viewport.height} | ${result.status.toUpperCase()} | ${notes.replaceAll('|', '\|')} |`;
   })
