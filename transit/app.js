@@ -23,7 +23,7 @@ function routeKey(r){return `${r.origin||""}|${r.destination||""}`}
 function modeName(r){return r.type==="bus"?"Bus":r.mode==="FERRY"?"Phà":"Tàu cao tốc"}
 function isFast(r){return r.type==="sea"&&r.mode!=="FERRY"}
 function statusTone(v=""){const s=fold(v);if(/da xuat ben|running|on time|mo ban/.test(s))return"good";if(/delay|watch|limited|con it|gan het|can xac nhan/.test(s))return"watch";if(/cancel|suspend|closed|het|ngung|huy/.test(s))return"bad";return"neutral"}
-function sourceKind(r){if(r.data_kind==="operational_public")return"Vận hành";if(r.data_kind==="schedule_frequency")return"Tần suất";return"Theo lịch"}
+function sourceKind(r){if(r.data_kind==="operational_public")return"Cập nhật";if(r.data_kind==="schedule_frequency")return"Tần suất";return"Cập nhật theo ngày"}
 function direction(r){const o=fold(r.origin),d=fold(r.destination);if(d.includes("phu quoc"))return"Đến đảo";if(o.includes("phu quoc"))return"Rời đảo";return"Liên tuyến"}
 function fareFor(r){
   const f=r.fare||r.fares;
@@ -88,13 +88,15 @@ function renderHealth(){
   const el=$("#sourceHealth");el.className=`status-chip ${h==="good"?"good":h==="watch"?"watch":"bad"}`;el.textContent=h==="good"?"Nguồn online":h==="watch"?"Cần kiểm tra":"Thiếu nguồn";
 }
 function renderSources(){
-  const reg=state.data?.sources?.registry||{},items=[];
-  for(const [id,s] of Object.entries(reg)){if(state.mode==="bus"&&id!=="bus")continue;if(state.mode!=="bus"&&id==="bus")continue;items.push({id,...s})}
-  const pqe=state.data?.sources?.phu_quoc_express;if(state.mode!=="bus"&&pqe)items.push({id:"phu_quoc_express",...pqe});
-  $("#sourceList").innerHTML=items.length?items.map(s=>{
-    const undated=s.id==="superdong"&&s.data_kind==="schedule_reference"&&s.date_specific!==true;const st=undated?"Lịch tham khảo - chưa xác nhận ngày":s.status==="ok"?"Đang đọc được":s.status==="reference_only"?"Chưa đồng bộ theo ngày":s.status==="empty"?"Không có bản ghi":"Cần kiểm tra";
-    return `<div class="source-item"><div><strong>${esc(s.label||s.id)}</strong><small>${esc(st)}${s.records!==undefined?` · ${s.records} bản ghi`:""}</small></div>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">Nguồn ↗</a>`:""}</div>`
-  }).join(""):'<div class="empty-state">Chưa có metadata nguồn.</div>';
+  const reg=state.data?.sources?.registry||{};
+  const entries=Object.entries(reg).filter(([id])=>state.mode==="bus"?id==="bus":id!=="bus");
+  const ok=entries.filter(([,s])=>s?.status==="ok").length;
+  const total=entries.length;
+  const newest=state.data?.generated_at?new Date(state.data.generated_at).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ}):"--:--";
+  $("#sourceList").innerHTML=`
+    <div class="source-item"><div><strong>Nguồn chính thức</strong><small>${ok}/${total||0} nhóm dữ liệu đang cập nhật</small></div><span class="status-chip ${ok===total&&total?"good":"watch"}">${ok===total&&total?"Đã cập nhật":"Đang kiểm tra"}</span></div>
+    <div class="source-item"><div><strong>Theo ngày thực tế</strong><small>Không dùng lịch tháng để khẳng định chuyến trong ngày</small></div><span class="status-chip neutral">${newest}</span></div>
+  `;
 }
 function renderNotice(){
   const box=$("#boardNotice");let msg="";
@@ -131,7 +133,7 @@ function renderRows(){
   }).join("");
   $("#mobileRows").innerHTML=rows.map((r,i)=>{
     const bus=r.type==="bus",time=bus?`Bus ${esc(r.route_id||"")}`:hhmm(r.departure_time);
-    return `<article class="mobile-trip"><div class="mobile-trip-head"><div><div class="mobile-time">${time}</div><div class="mobile-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")}</div><div class="mobile-service">${esc(r.operator||"-")} · ${esc(r.vessel_or_service||r.frequency||"-")}</div></div>${statusChip(r)}</div><div class="mobile-trip-grid"><div class="mobile-kv"><span>GIÁ NGƯỜI</span><strong>${esc(fareCell(r,true))}</strong></div><div class="mobile-kv"><span>${r.mode==="FERRY"?"GIÁ XE":"LOẠI"}</span><strong>${esc(r.mode==="FERRY"?vehicleCell(r,true):modeName(r))}</strong></div></div><div class="mobile-actions"><span class="mode-label">${esc(sourceKind(r))}</span>${bus?'<span class="status-chip neutral">Theo lịch</span>':`<button class="ticket-btn" data-mobile-ticket="${i}">Kiểm tra vé</button>`}</div></article>`
+    return `<article class="mobile-trip"><div class="mobile-trip-head"><div><div class="mobile-time">${time}</div><div class="mobile-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")}</div><div class="mobile-service">${esc(r.operator||"-")} · ${esc(r.vessel_or_service||r.frequency||"-")}</div></div>${statusChip(r)}</div><div class="mobile-trip-grid"><div class="mobile-kv"><span>GIÁ NGƯỜI</span><strong>${esc(fareCell(r,true))}</strong></div><div class="mobile-kv"><span>${r.mode==="FERRY"?"GIÁ XE":"XE / HÀNG"}</span><strong>${esc(vehicleCell(r,true))}</strong></div></div><div class="mobile-actions"><span class="mode-label">${esc(sourceKind(r))}</span>${bus?'<span class="status-chip neutral">Theo lịch</span>':`<button class="ticket-btn" data-mobile-ticket="${i}">Kiểm tra vé</button>`}</div></article>`
   }).join("");
   $$("[data-ticket]").forEach(b=>b.onclick=()=>openTicket(rows[Number(b.dataset.ticket)]));
   $$("[data-mobile-ticket]").forEach(b=>b.onclick=()=>openTicket(rows[Number(b.dataset.mobileTicket)]));
@@ -140,7 +142,7 @@ function render(){fillFilters();renderSummary();renderHealth();renderSources();r
 function openTicket(r){
   const av=availability(r),source=BOOKING[r.operator]||r.source_url||"#",checked=new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ});
   const label=av?.label||"Chưa xác định",tone=av?.tone||"neutral";
-  $("#ticketContent").innerHTML=`<div class="ticket-kicker">KIỂM TRA VÉ · ${esc(r.operator||"")}</div><h2>${hhmm(r.departure_time)}</h2><div class="ticket-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")} · ${esc(r.vessel_or_service||"")}</div><div class="ticket-result"><span class="status-chip ${tone}">${esc(label)}</span><strong>${av?"Trạng thái từ nguồn hiện có":"Kiểm tra trực tiếp tại hãng"}</strong><p>${av?"Chỉ hiển thị trạng thái tổng hợp, không hiển thị số ghế cụ thể.":"Snapshot chưa có inventory theo chuyến. Open Phu Quoc không tự đoán còn bao nhiêu vé."}</p></div><div class="ticket-actions"><a href="${esc(source)}" target="_blank" rel="noopener">Mở hệ thống hãng ↗</a><button id="ticketDone">Đóng</button></div><div class="ticket-meta">Kiểm tra lúc ${checked} · ${dayLabel(state.date)}</div>`;
+  $("#ticketContent").innerHTML=`<div class="ticket-kicker">KIỂM TRA VÉ · ${esc(r.operator||"")}</div><h2>${hhmm(r.departure_time)}</h2><div class="ticket-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")} · ${esc(r.vessel_or_service||"")}</div><div class="ticket-result"><span class="status-chip ${tone}">${esc(label)}</span><strong>${av?"Trạng thái hiện có":"Kiểm tra trực tiếp với hãng"}</strong><p>${av?"Chỉ hiển thị trạng thái tổng hợp, không hiển thị số ghế cụ thể.":"Chưa có trạng thái vé đủ mới để kết luận. Open Phu Quoc không tự đoán còn bao nhiêu vé."}</p>${r.vehicle_cargo?`<p><b>Xe / hàng:</b> ${esc(vehicleCell(r,true))}${cargoNote(r)?` · ${esc(cargoNote(r))}`:""}</p>`:""}</div><div class="ticket-actions"><a href="${esc(source)}" target="_blank" rel="noopener">Liên hệ / kiểm tra ↗</a><button id="ticketDone">Đóng</button></div><div class="ticket-meta">Kiểm tra lúc ${checked} · ${dayLabel(state.date)}</div>`;
   $("#ticketDrawer").classList.remove("hidden");$("#ticketBackdrop").classList.remove("hidden");$("#ticketDrawer").setAttribute("aria-hidden","false");$("#ticketDone").onclick=closeTicket;
 }
 function closeTicket(){$("#ticketDrawer").classList.add("hidden");$("#ticketBackdrop").classList.add("hidden");$("#ticketDrawer").setAttribute("aria-hidden","true")}
