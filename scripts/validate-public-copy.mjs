@@ -2,8 +2,10 @@ import fs from "node:fs";
 
 const files=[
   "index.html",
+  "app.js",
   "home-foundation-v2.js",
   "home-live-v3.js",
+  "home-experience-v1.js",
   "nearme/index.html",
   "nearme/nearme.js",
   "news/index.html",
@@ -47,7 +49,15 @@ const banned=[
   "Nguồn online",
   "Unknown, stale",
   "DỮ LIỆU DI CHUYỂN",
-  "VẬN HÀNH BIỂN"
+  "VẬN HÀNH BIỂN",
+  "JoTrip Marine Ops",
+  "Hạng đang dùng để lọc",
+  "Khu vực đang cập nhật",
+  "LIVE · VIETCOMBANK",
+  "Chưa có giá chuẩn hóa",
+  "LẦN KIỂM TRA",
+  "ĐO THỰC",
+  "CẦN CẬP NHẬT"
 ];
 
 const violations=[];
