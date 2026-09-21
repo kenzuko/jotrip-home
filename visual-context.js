@@ -109,6 +109,7 @@
       '</div>'+
       '<div class="visual-locator-map" data-map-frame>'+
         '<div class="visual-map-placeholder"><span>⌖</span><strong>'+esc(label)+'</strong><small>'+(hasMap ? esc(lazyNote) : esc(missingNote))+'</small></div>'+
+        (hasMap?'<div class="visual-map-orientation"><span>'+(exact?'ĐIỂM':'KHU VỰC')+'</span><strong>'+esc(label)+'</strong><small>'+(!exact&&anchor!==label?'Điểm neo: '+esc(anchor):'Dùng để định hướng trên đảo')+'</small></div>':'')+
       '</div>'+
     '</section>';
   }
@@ -130,7 +131,11 @@
           encodeURIComponent(lat+","+lon)+
           "&z=14&output=embed";
 
-        frame.innerHTML = '<iframe title="Bản đồ '+esc(button.dataset.anchor || "Phú Quốc")+'" src="'+src+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+        const precision=String(button.dataset.precision||"");
+        const isExact=["exact","point","verified_point"].includes(precision);
+        const anchor=button.dataset.anchor||"Phú Quốc";
+        frame.innerHTML = '<iframe title="Bản đồ '+esc(anchor)+'" src="'+src+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'+
+          '<div class="visual-map-orientation"><span>'+(isExact?'ĐIỂM':'KHU VỰC')+'</span><strong>'+esc(anchor)+'</strong><small>'+(isExact?'Vị trí đã có điểm':'Điểm neo để định hướng, không phải ranh giới chính xác')+'</small></div>';
         frame.dataset.loaded = "1";
         button.textContent = button.dataset.loadedLabel || "Bản đồ đã mở";
         button.disabled = true;
