@@ -34,3 +34,10 @@ jobs:
           node --check explore/app.js
           node --check places/detail.js
           node --check hotels/app.js
+          node --check transit/app.js
+      - name: Validate Cloudflare route bundle
+        run: |
+          node scripts/build-cloudflare.mjs
+          test -f dist/transit/index.html
+          test -f dist/transit/app.js
+          rm -rf dist
