@@ -4,29 +4,35 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7fbfd">
-<title>Sân bay Phú Quốc - Open Phu Quoc</title><link rel="preload" as="image" href="/assets/logo-master.png">
-<link rel="stylesheet" href="./style.css?v=20260918a">
-<link rel="stylesheet" href="./ui-fixes.css?v=20260918a">
-<link rel="stylesheet" href="./board-days.css?v=20260918a">
-<link rel="stylesheet" href="./mobile-logo-fix.css?v=20260918a">
-<link rel="stylesheet" href="./openpq-airport.css?v=20260919b">
+<title>Sân bay Phú Quốc - Open Phu Quoc</title>
+<meta name="description" content="Chuyến bay đến và đi Phú Quốc (PQC), giờ dự kiến - thực tế, trạng thái, cửa ra máy bay, quầy check-in, băng hành lý và các thay đổi đang cần chú ý.">
+<link rel="canonical" href="https://openphuquoc.com/airport/">
+<link rel="preconnect" href="https://jotrip-airport-live.kenzuko.workers.dev" crossorigin>
+<link rel="dns-prefetch" href="//jotrip-airport-live.kenzuko.workers.dev">
+<link rel="dns-prefetch" href="//raw.githubusercontent.com">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:site_name" content="Open Phu Quoc">
+<meta property="og:title" content="Sân bay Phú Quốc - Open Phu Quoc">
+<meta property="og:description" content="Xem chuyến bay Phú Quốc (PQC), trạng thái, giờ dự kiến - thực tế và những thay đổi đang cần chú ý.">
+<meta property="og:url" content="https://openphuquoc.com/airport/">
+<meta property="og:image" content="https://openphuquoc.com/assets/logo-master.png">
+<meta property="og:image:alt" content="Open Phu Quoc - Sân bay Phú Quốc">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sân bay Phú Quốc - Open Phu Quoc">
+<meta name="twitter:description" content="Xem chuyến bay Phú Quốc (PQC), trạng thái, giờ dự kiến - thực tế và những thay đổi đang cần chú ý.">
+<meta name="twitter:image" content="https://openphuquoc.com/assets/logo-master.png">
+<link rel="icon" href="/assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/assets/logo-master.png">
+<link rel="preload" as="image" href="/assets/logo-master.png">
+<link rel="stylesheet" href="./style.css?v=20260921-opq1">
+<link rel="stylesheet" href="./fids-board.css?v=20260921-opq1">
+<link rel="stylesheet" href="./i18n.css?v=20260921-opq1">
+<link rel="stylesheet" href="./ui-fixes.css?v=20260921-opq1">
+<link rel="stylesheet" href="./board-days.css?v=20260921-opq1">
+<link rel="stylesheet" href="./mobile-logo-fix.css?v=20260921-opq1">
+<link rel="stylesheet" href="./openpq-airport.css?v=20260921-opq2">
 <link rel="stylesheet" href="../ecosystem-shell.css?v=20260921b">
-  <link rel="canonical" href="https://openphuquoc.com/airport/">
-  <meta property="og:site_name" content="Open Phu Quoc">
-  <meta property="og:locale" content="vi_VN">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Sân bay Phú Quốc - Open Phu Quoc">
-  <meta property="og:description" content="Open Phu Quoc - thông tin thực dụng về Phú Quốc: thời tiết, di chuyển, điểm đến, tiện ích và câu chuyện địa phương.">
-  <meta property="og:url" content="https://openphuquoc.com/airport/">
-  <meta property="og:image" content="https://openphuquoc.com/assets/logo-master.png">
-  <meta property="og:image:alt" content="Open Phu Quoc">
-  <meta property="og:image:width" content="380">
-  <meta property="og:image:height" content="361">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Sân bay Phú Quốc - Open Phu Quoc">
-  <meta name="twitter:description" content="Open Phu Quoc - thông tin thực dụng về Phú Quốc: thời tiết, di chuyển, điểm đến, tiện ích và câu chuyện địa phương.">
-  <meta name="twitter:image" content="https://openphuquoc.com/assets/logo-master.png">
-  <meta name="application-name" content="Open Phu Quoc">
 </head>
 <body>
 <div id="app" class="app">
@@ -36,9 +42,10 @@
     <span class="brand-divider"></span>
     <div><h1>Sân bay Phú Quốc</h1><p>PQC · chuyến bay hôm nay</p></div>
   </div>
-  <div class="top-actions"><div class="vn-clock" data-vn-clock></div>
-    <a class="openpq-home-btn" href="../" title="Open Phu Quoc">⌂</a>
-    <button class="icon-button" id="refreshBtn" title="Làm mới">↻</button>
+  <div class="top-actions">
+    <label class="lang-switch" title="Ngôn ngữ"><select id="languageSelect" aria-label="Ngôn ngữ"><option value="vi">VI</option><option value="en">EN</option><option value="ko">한국</option><option value="ru">RU</option><option value="zh">中文</option></select></label>
+    <a class="openpq-home-btn" href="../" title="Open Phu Quoc" aria-label="Về trang chủ Open Phu Quoc">⌂</a>
+    <button class="icon-button" id="refreshBtn" title="Làm mới" aria-label="Làm mới">↻</button>
   </div>
 </header>
 
@@ -47,64 +54,47 @@
     <div class="source-strip">
       <span class="live-pill"><i></i> ĐANG DIỄN RA</span>
       <span id="healthPill" class="health-pill loading">ĐANG TẢI</span>
-      <span class="source-label">Nguồn chuyến bay chính thức</span>
+      <span class="source-label">Dữ liệu chuyến bay · tự động làm mới</span>
       <span id="updatedAt" class="updated-at">Đang đồng bộ dữ liệu...</span>
     </div>
     <div id="errorBox" class="error-box hidden"></div>
 
     <section class="hero live-only">
-      <div class="hero-copy">
-        <div class="eyebrow">PQC · SÂN BAY QUỐC TẾ PHÚ QUỐC</div>
-        <h2>Hôm nay tại Phú Quốc</h2>
-        <p>3 giây để biết sân bay đang ra sao.</p>
+      <div class="hero-copy"><div class="eyebrow">PQC · SÂN BAY QUỐC TẾ PHÚ QUỐC</div><h2>Hôm nay tại Phú Quốc</h2><p>3 giây để biết sân bay đang ra sao.</p></div>
+      <div class="hero-stats"><article><strong id="totalFlights">-</strong><span>Tổng chuyến</span></article><article><strong id="arrivalsCount">-</strong><span>Chuyến đến</span></article><article><strong id="departuresCount">-</strong><span>Chuyến đi</span></article><article><strong id="internationalCount">-</strong><span>Quốc tế đến</span></article></div>
+      <div id="opsState" class="ops-state">ĐANG KIỂM TRA</div><div class="hero-plane">✈</div>
+    </section>
+
+    <section class="card live-only operation-watch-card operation-watch-mobile next-relative">
+      <div class="side-head"><div><h3 class="operation-watch-title">Chuyến cần chú ý</h3><p class="operation-watch-subtitle">Thay đổi đang còn hiệu lực</p></div><span class="count-pill operation-watch-count">0</span></div>
+      <div class="watch-list operation-watch-list"></div>
+    </section>
+
+    <section class="card live-only fids-card next-relative" id="fidsBoard">
+      <div class="card-head fids-head">
+        <div><span class="section-kicker">THÔNG TIN NHÀ GA</span><h3>Bảng thông tin chuyến bay</h3><p>Giờ bay, dự kiến - thực tế, trạng thái, cửa ra máy bay, quầy check-in và băng hành lý.</p></div>
+        <div class="fids-head-state"><i></i><span id="fidsBoardStatus">Đang đồng bộ</span></div>
       </div>
-      <div class="hero-stats">
-        <article><strong id="totalFlights">-</strong><span>Tổng chuyến</span></article>
-        <article><strong id="arrivalsCount">-</strong><span>Chuyến đến</span></article>
-        <article><strong id="departuresCount">-</strong><span>Chuyến đi</span></article>
-        <article><strong id="internationalCount">-</strong><span>Quốc tế đến</span></article>
+      <div class="segmented fids-direction-tabs" id="fidsDirectionTabs">
+        <button class="active" type="button" data-fids-direction="departure">Chuyến đi</button>
+        <button type="button" data-fids-direction="arrival">Chuyến đến</button>
+        <button type="button" data-fids-direction="all">Tất cả</button>
       </div>
-      <div id="opsState" class="ops-state">ĐANG KIỂM TRA</div>
-      <div class="hero-plane">✈</div>
+      <div id="fidsTicker" class="fids-ticker" aria-live="polite"></div>
+      <div class="fids-table-wrap">
+        <div class="fids-columns" aria-hidden="true"><span>LỊCH</span><span>DỰ KIẾN / THỰC TẾ</span><span>CHUYẾN</span><span>HÀNH TRÌNH</span><span>TRẠNG THÁI</span><span>CỬA</span><span>QUẦY / BĂNG</span><span>THAY ĐỔI</span></div>
+        <div id="fidsGrid" class="fids-grid"><div class="empty-state">Đang đồng bộ thông tin nhà ga...</div></div>
+      </div>
+      <div class="fids-foot"><span>Cập nhật theo dữ liệu sân bay</span><span id="fidsUpdated"></span></div>
+      <div class="hidden" aria-hidden="true"><span id="nextWindowText"></span><span id="nextArrivals"></span><span id="nextDepartures"></span><span id="nextInternational"></span><span id="nextWatch"></span></div>
     </section>
 
     <section class="card live-only" id="flightBoard">
       <div class="card-head"><div><span class="section-kicker">BẢNG CHUYẾN BAY</span><h3>Chuyến bay hôm nay</h3></div><button id="searchToggle" class="text-button">Tìm chuyến</button></div>
-      <div id="searchWrap" class="search-wrap hidden"><input id="flightSearch" placeholder="Tìm số chuyến, hãng hoặc nơi đi/đến: VJ339, Hà Nội, Incheon..."></div>
-      <div class="segmented" id="directionTabs">
-        <button class="active" data-direction="arrival">Chuyến đến</button>
-        <button data-direction="departure">Chuyến đi</button>
-        <button data-direction="all">Tất cả</button>
-      </div>
-      <div class="chips" id="filterChips">
-        <button class="active" data-filter="all">Tất cả</button>
-        <button data-filter="next3">3 giờ tới</button>
-        <button data-filter="international">Quốc tế</button>
-        <button data-filter="domestic">Nội địa</button>
-        <button data-filter="changed">Có thay đổi</button>
-      </div>
-      <div id="flightList" class="flight-list"></div>
-      <button id="showMore" class="show-more hidden">Xem thêm</button>
-    </section>
-
-    <section class="card live-only">
-      <div class="card-head"><div><span class="section-kicker">3 GIỜ TỚI</span><h3>Nhịp sân bay sắp tới</h3></div><span class="muted" id="nextWindowText"></span></div>
-      <div class="metric-grid">
-        <article><span>Chuyến đến</span><strong id="nextArrivals">-</strong><small>trong 3 giờ</small></article>
-        <article><span>Chuyến đi</span><strong id="nextDepartures">-</strong><small>trong 3 giờ</small></article>
-        <article><span>Quốc tế đến</span><strong id="nextInternational">-</strong><small>trong 3 giờ</small></article>
-        <article><span>Cần chú ý</span><strong id="nextWatch">-</strong><small>trạng thái khác thường</small></article>
-      </div>
-    </section>
-
-    <section class="card analytics-only hidden" id="analytics" aria-hidden="true">
-      <div class="metric-grid analytics-metrics">
-        <article><strong id="aIntlArr">-</strong><small id="aIntlArrPct"></small></article>
-        <article><strong id="aDomArr">-</strong><small id="aDomArrPct"></small></article>
-        <article><strong id="aIntlDep">-</strong><small id="aIntlDepPct"></small></article>
-        <article><strong id="aDomDep">-</strong><small id="aDomDepPct"></small></article>
-      </div>
-      <div id="routeBars"></div><div id="timeBankBars"></div><div class="airline-performance"></div>
+      <div id="searchWrap" class="search-wrap hidden"><input id="flightSearch" placeholder="Tìm số chuyến, hãng hoặc nơi đi/đến: VJ339, Hà Nội, Da Nang..."></div>
+      <div class="segmented" id="directionTabs"><button class="active" data-direction="arrival">Chuyến đến</button><button data-direction="departure">Chuyến đi</button><button data-direction="all">Tất cả</button></div>
+      <div class="chips" id="filterChips"><button class="active" data-filter="all">Tất cả</button><button data-filter="next3">3 giờ tới</button><button data-filter="international">Quốc tế</button><button data-filter="domestic">Nội địa</button><button data-filter="changed">Có thay đổi</button></div>
+      <div id="flightList" class="flight-list"></div><button id="showMore" class="show-more hidden">Xem thêm</button>
     </section>
 
     <section class="openpq-arrival live-only">
@@ -128,40 +118,41 @@
         </a>
       </div>
     </section>
+  
   </section>
 
   <aside class="sidebar">
-    <section class="side-card live-only"><div class="side-head"><h3>Chuyến cần theo dõi</h3><span id="watchCount" class="count-pill">0</span></div><div id="watchList" class="watch-list"></div></section>
-    <section class="side-card live-only"><div class="side-head"><h3>Chuyến đến tiếp theo</h3><span class="muted">PQC</span></div><div id="nextArrivalsList" class="arrival-list"></div></section>
-    <section class="side-card">
+    <section class="side-card live-only operation-watch-card operation-watch-desktop next-relative">
+      <div class="side-head"><div><h3 class="operation-watch-title">Chuyến cần chú ý</h3><p class="operation-watch-subtitle">Thay đổi đang còn hiệu lực</p></div><span class="count-pill operation-watch-count">0</span></div>
+      <div class="watch-list operation-watch-list"></div>
+    </section>
+    <section class="side-card" id="dataHealthCard">
       <div class="side-head"><h3>Tình trạng dữ liệu</h3><span id="qaBadge" class="qa-badge">...</span></div>
       <div class="health-summary"><div id="healthIcon" class="health-icon">⋯</div><div><strong id="healthTitle">ĐANG KIỂM TRA</strong><p id="healthDescription">Đang kiểm tra nguồn và độ mới của dữ liệu chuyến bay.</p></div></div>
-      <dl class="health-meta">
-        <div><dt>Dữ liệu trực tiếp</dt><dd>Chuyến bay PQC</dd></div>
-        <div><dt>Nguồn</dt><dd>Nguồn chính thức</dd></div>
-        <div><dt>Kiểm tra chất lượng</dt><dd id="qaText">-</dd></div>
-        <div><dt>Độ trễ dữ liệu</dt><dd id="dataAge">-</dd></div>
-      </dl>
+      <dl class="health-meta"><div><dt>Trực tiếp</dt><dd>JoTrip Live</dd></div><div><dt>Dự phòng</dt><dd>JoTrip AutoSync</dd></div><div><dt>QA</dt><dd id="qaText">-</dd></div><div><dt>Độ trễ dữ liệu</dt><dd id="dataAge">-</dd></div></dl>
     </section>
-    <section class="side-card analytics-only hidden" aria-hidden="true"><div id="statusSummary"></div></section>
   </aside>
 </main>
 
-<nav class="mobile-nav">
-  <button class="active" data-mobile-mode="live"><span>⌂</span>Trực tiếp</button>
+<nav class="mobile-nav" aria-label="Điều hướng sân bay">
+  <button class="active" data-mobile-mode="live"><span>⌂</span>Lúc này</button>
   <button id="mobileFlights"><span>✈</span>Chuyến bay</button>
-  <button id="mobileSearch"><span>⌕</span>Tìm</button>
   <a href="../guide/"><span>▤</span>Cẩm nang</a>
   <button id="mobileRefresh"><span>↻</span>Làm mới</button>
 </nav>
 </div>
 
 <div id="drawerBackdrop" class="drawer-backdrop hidden"></div>
-<aside id="flightDrawer" class="flight-drawer hidden" aria-hidden="true"><div class="drawer-grab"></div><button id="drawerClose" class="drawer-close">×</button><div id="drawerContent"></div></aside>
+<aside id="flightDrawer" class="flight-drawer hidden" aria-hidden="true"><div class="drawer-grab"></div><button id="drawerClose" class="drawer-close" aria-label="Đóng">×</button><div id="drawerContent"></div></aside>
 
-<script src="./live-config.js?v=20260918a"></script>
-<script src="./app.js?v=20260920-fast2"></script>
-<script defer src="./board-days.js?v=20260918a"></script>
-<script defer src="./openpq-copy.js?v=20260918a"></script><script src="../island-clock.js?v=5"></script>
+<script src="./live-config.js?v=20260918ab"></script>
+<script src="./live-source.js?v=20260921-opq1"></script>
+<script src="./app.js?v=20260921-opq1"></script>
+<script src="./flight-status-policy.js?v=20260921-opq1"></script>
+<script src="./board-days.js?v=20260921-opq1"></script>
+<script src="./app-copy.js?v=20260921-opq1"></script>
+<script src="./i18n.js?v=20260921-opq1"></script>
+<script src="./fids-board.js?v=20260921-opq1"></script>
+<script src="./openpq-stability.js?v=20260921-opq1"></script>
 </body>
 </html>

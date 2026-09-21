@@ -34,3 +34,21 @@
   object-position:left center!important;
   position:static!important;
 }
+
+/* Open Phu Quoc Airport sync 21/09/2026 */
+.drawer-backdrop.hidden{display:none!important;pointer-events:none!important}
+.flight-drawer.hidden{display:none!important;pointer-events:none!important}
+.operation-watch-mobile{display:none}
+.fids-card{margin-top:14px}
+.lang-switch select{min-height:38px;padding:0 9px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--navy);font-weight:800}
+@media(max-width:1020px){
+  .operation-watch-desktop{display:none!important}
+  .operation-watch-mobile{display:block}
+}
+@media(max-width:680px){
+  .mobile-nav{grid-template-columns:repeat(4,1fr)!important}
+  .mobile-nav a{border:0;background:transparent;color:#718095;font-size:9px;font-weight:800;display:grid;place-items:center;padding:6px 2px;text-decoration:none}
+  .mobile-nav a span{font-size:19px;line-height:1}
+  .lang-switch{display:none}
+  .fids-card{margin-top:11px}
+}

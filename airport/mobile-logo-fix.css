@@ -1,20 +1,19 @@
 /* JoTrip Airport Live - logo + mobile navigation stability */
-.brand-logo{position:relative!important;overflow:visible!important;background:none!important;width:138px!important;height:64px!important;flex:none!important;display:flex!important;align-items:center!important;justify-content:flex-start!important}
-.brand-logo picture{display:block!important;width:auto!important;height:auto!important}
-.brand-logo img{visibility:visible!important;display:block!important;position:static!important;width:auto!important;height:auto!important;max-width:100%!important;max-height:60px!important;top:auto!important;left:auto!important;object-fit:contain!important;object-position:left center!important;opacity:1!important}
-@media(max-width:1180px){.brand-logo{width:130px!important;height:60px!important}.brand-logo img{max-height:56px!important}}
-@media(max-width:820px){.brand-logo{width:118px!important;height:56px!important}.brand-logo img{max-height:52px!important}}
+.brand-logo{position:relative!important;overflow:visible!important;background:url('./jotrip-logo-wordmark.svg?v=20260916o') no-repeat left center/contain!important;width:154px!important;height:70px!important;flex:none!important}
+.brand-logo picture,.brand-logo img{display:none!important;visibility:hidden!important}
+@media(max-width:1180px){.brand-logo{width:143px!important;height:65px!important}}
+@media(max-width:820px){.brand-logo{width:132px!important;height:60px!important}}
 @media(max-width:680px){
   .app,.history-app{padding-bottom:calc(78px + env(safe-area-inset-bottom))!important}
   .topbar{position:sticky!important;top:0!important;z-index:60!important;height:64px!important;min-height:64px!important;padding:0 12px!important;flex-wrap:nowrap!important}
   .brand{gap:7px!important;min-width:0!important}
   .brand-home{max-width:none!important;flex:0 0 auto!important}
-  .brand-logo{width:108px!important;height:52px!important}
-  .brand-logo img{max-width:100%!important;max-height:48px!important}
+  .brand-logo{width:132px!important;height:58px!important}
   .brand-divider{height:29px!important;margin-left:0!important}
   .brand h1{font-size:16px!important;white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
   .brand p{display:none!important}
-  .history-app .top-actions{display:none!important}
+  .history-app .top-actions{display:flex!important;margin-left:auto!important}
+  .history-app .top-actions .mode-switch{display:none!important}
   .history-shell{padding-bottom:calc(90px + env(safe-area-inset-bottom))!important}
   .mobile-nav{position:fixed!important;left:0!important;right:0!important;bottom:0!important;height:calc(66px + env(safe-area-inset-bottom))!important;display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;background:rgba(255,255,255,.97)!important;border-top:1px solid var(--line)!important;z-index:100!important;padding-bottom:max(5px,env(safe-area-inset-bottom))!important;backdrop-filter:blur(15px)!important}
   .mobile-nav button{min-width:0!important;border:0!important;background:transparent!important;color:#718095!important;font-size:9px!important;font-weight:800!important;display:grid!important;place-items:center!important;padding:6px 1px!important}
@@ -26,4 +25,31 @@
   .arrival-item .status-pill{grid-column:3!important;grid-row:1!important;justify-self:end!important;align-self:start!important;white-space:nowrap!important;max-width:none!important}
   .arrival-main strong,.arrival-main span{overflow-wrap:normal!important;word-break:normal!important;hyphens:none!important}
 }
-@media(max-width:390px){.brand-logo{width:100px!important;height:48px!important}.brand-logo img{max-height:44px!important}.brand h1{font-size:15px!important}.arrival-item{grid-template-columns:50px minmax(0,1fr) auto!important;gap:6px!important}.arrival-item .status-pill{font-size:8.5px!important;padding:6px!important}}
+@media(max-width:390px){.brand-logo{width:126px!important;height:55px!important}.brand h1{font-size:15px!important}.arrival-item{grid-template-columns:50px minmax(0,1fr) auto!important;gap:6px!important}.arrival-item .status-pill{font-size:8.5px!important;padding:6px!important}}
+
+/* Mobile horizontal overflow guard - 2026-09-17 */
+@media(max-width:680px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden!important}
+  .app,.layout,.content,.card,.flight-list,.search-wrap,.segmented,.chips,.sidebar,.side-card{min-width:0!important;max-width:100%!important}
+  .topbar{width:100%;max-width:100vw;overflow:hidden!important}
+  .brand{flex:1 1 auto!important;max-width:calc(100% - 46px)!important}
+  .brand>div:last-child{min-width:0!important;overflow:hidden!important}
+  .top-actions{flex:0 0 auto!important;min-width:38px!important}
+  .icon-button{flex:none!important}
+  .layout{width:100%!important;overflow-x:hidden!important}
+  .card,.side-card{width:100%!important;overflow:hidden!important}
+  .card-head{min-width:0!important}
+  .search-wrap input{width:100%!important;min-width:0!important;max-width:100%!important}
+  .segmented{width:100%!important}
+  .segmented button{min-width:0!important}
+  .chips{width:100%!important;overscroll-behavior-x:contain}
+  .flight-row{width:100%!important;min-width:0!important;grid-template-columns:64px minmax(0,1fr) minmax(0,112px)!important;gap:8px!important}
+  .flight-row>*{min-width:0!important}
+  .route{min-width:0!important;overflow-wrap:anywhere!important;word-break:normal!important}
+  .status-pill{max-width:112px!important;white-space:normal!important;line-height:1.15!important;text-align:center!important;overflow-wrap:anywhere!important}
+  .mobile-nav{width:100%!important;max-width:100vw!important;overflow:hidden!important}
+}
+@media(max-width:390px){
+  .flight-row{grid-template-columns:58px minmax(0,1fr) minmax(0,96px)!important;gap:6px!important}
+  .status-pill{max-width:96px!important;font-size:8.5px!important;padding:6px!important}
+}

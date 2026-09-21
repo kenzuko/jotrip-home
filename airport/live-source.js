@@ -1,6 +1,8 @@
 (() => {
   const endpoint = () => String(window.JOTRIP_LIVE_API_URL || '').trim();
   const nativeFetch = window.fetch.bind(window);
+  // Expose the untouched fetch so app.js can reach GitHub fallback directly without retrying the live Worker through this interceptor.
+  window.JOTRIP_NATIVE_FETCH = nativeFetch;
   let cachedPayload = null;
   let cachedAt = 0;
   let inFlight = null;

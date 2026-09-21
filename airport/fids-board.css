@@ -1,0 +1,105 @@
+
+/* JoTrip Airport Live - FIDS board */
+.fids-card{position:relative;overflow:hidden;background:#fbfdff;border-color:#d7e4ec}
+.fids-card:before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--blue),var(--yellow),var(--green))}
+.fids-head{align-items:flex-start;margin-bottom:12px}
+.fids-head h3{font-size:19px}.fids-head p{margin:4px 0 0;color:#708095;font-size:11px;line-height:1.4}
+.fids-head-state{margin-left:auto;display:flex;align-items:center;gap:7px;color:#557086;font-size:10.5px;font-weight:900;white-space:nowrap}
+.fids-head-state i{width:8px;height:8px;border-radius:50%;background:#23b75f;box-shadow:0 0 0 4px rgba(35,183,95,.12)}
+.fids-ticker{display:flex;gap:8px;overflow-x:auto;padding:1px 0 12px;scrollbar-width:none}.fids-ticker::-webkit-scrollbar{display:none}
+.fids-steady{width:100%;padding:9px 12px;border-radius:11px;background:#f1f7f4;color:#567067;font-size:10.5px;border:1px solid #dfebe4}.fids-steady span{color:var(--green);margin-right:5px}
+.fids-tape{flex:0 0 auto;display:flex;align-items:center;gap:7px;min-height:35px;padding:8px 11px;border:1px solid #dfe9f0;border-radius:10px;background:#fff;color:#52677a;font-size:10.5px;cursor:pointer}
+.fids-tape strong{color:var(--navy);font-size:11.5px}.fids-tape-dot{width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.fids-tape.gate{background:#fff8df;border-color:#f2dda0}.fids-tape.gate .fids-tape-dot{background:var(--yellow)}
+.fids-tape.checkin_row{background:#edf8fd;border-color:#c9e3ef}.fids-tape.checkin_row .fids-tape-dot{background:var(--blue)}
+.fids-tape.belt{background:#eef7e8;border-color:#d6e6c8}.fids-tape.belt .fids-tape-dot{background:var(--green)}
+.fids-tape.hot{animation:fidsFlash 1.05s ease-in-out 5}
+@keyframes fidsFlash{0%,100%{transform:translateY(0);box-shadow:none}50%{transform:translateY(-1px);box-shadow:0 0 0 4px rgba(252,188,18,.14),0 7px 18px rgba(14,60,91,.09)}}
+
+.fids-table-wrap{border:1px solid #cfdde6;border-radius:15px;overflow:hidden;background:#fff}
+.fids-columns,.fids-row{display:grid;grid-template-columns:56px 86px 76px minmax(110px,1.15fr) minmax(102px,.9fr) 46px minmax(104px,.86fr) minmax(138px,1.08fr);align-items:center}
+.fids-columns{min-height:35px;background:#123d5a;color:#dceaf2;font-size:8.5px;font-weight:900;letter-spacing:.07em}
+.fids-columns span{padding:0 6px;border-left:1px solid rgba(255,255,255,.09);line-height:1.15;text-align:center;white-space:normal}.fids-columns span:first-child{border-left:0}
+.fids-grid{overflow:hidden}
+.fids-row{min-height:57px;border-top:1px solid #e8eff4;background:#fff;cursor:pointer;transition:.15s}
+.fids-row:nth-child(even){background:#f8fbfd}.fids-row:hover{background:#eef7fb}
+.fids-cell{min-width:0;padding:8px;border-left:1px solid #edf2f5}.fids-cell:first-child{border-left:0}
+.fids-cell strong{display:block;color:var(--navy);font-size:12px;line-height:1.15}.fids-cell>span:not(.fids-status-pill):not(.fids-change-badge){display:block;margin-top:3px;color:#7a8999;font-size:8.5px;font-weight:800}
+.fids-scheduled strong,.fids-live-time strong{font-size:15px;font-variant-numeric:tabular-nums}
+.fids-dir{display:inline-flex!important;width:max-content;margin-top:4px!important;padding:2px 5px;border-radius:999px;font-size:7.5px!important;letter-spacing:.07em}
+.fids-dir.arrival{background:#e8f8ee;color:#117b44!important}.fids-dir.departure{background:#e8f5fb;color:#126da6!important}
+.fids-live-time.actual strong{color:#117b44}.fids-live-time.estimated strong{color:#176f9f}
+.fids-flight strong{font-size:12.5px}.fids-flight span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fids-route strong{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.fids-route span{letter-spacing:.05em}
+.fids-status-pill{display:inline-block;max-width:100%;padding:6px 7px;border-radius:999px;font-size:8.5px;font-weight:900;line-height:1.15;text-align:center;white-space:normal}
+.fids-status-pill.green{background:#e8f8ee;color:#117b44}.fids-status-pill.blue{background:#e8f5fb;color:#126da6}.fids-status-pill.amber{background:#fff2cc;color:#8e6200}.fids-status-pill.red{background:#fde8eb;color:#ad3140}.fids-status-pill.gray{background:#edf2f5;color:#65758a}
+.fids-gate,.fids-service{text-align:center}.fids-gate strong,.fids-service strong{font-size:14px}.fids-gate.changed{background:#fff8df}.fids-service.changed{background:#eef7fb}.fids-service-kind{margin-top:0!important;color:#8291a0!important;font-size:7.2px!important;letter-spacing:.045em;white-space:nowrap}.fids-service-prev{color:#6f7f90!important;font-size:7.8px!important;white-space:nowrap}
+
+.fids-change{padding:8px 9px;text-align:left;overflow:hidden}.fids-change-badge{display:block;width:100%;box-sizing:border-box;padding:6px 7px;border-radius:8px;background:#fff4ce;color:#765600;font-size:8px;font-weight:900;line-height:1.25;white-space:normal;overflow-wrap:anywhere}
+.fids-no-change{color:#a5b0bb!important}
+.fids-row.has-change{box-shadow:inset 3px 0 0 var(--yellow)}
+.fids-row.hot-change{animation:fidsRowFlash 1.05s ease-in-out 5}
+@keyframes fidsRowFlash{0%,100%{background-color:inherit}50%{background-color:#fff9e8}}
+.fids-foot{display:flex;justify-content:space-between;gap:10px;margin-top:9px;color:#8592a1;font-size:9.5px}
+#nextWindowText,#nextArrivals,#nextDepartures,#nextInternational,#nextWatch{display:none!important}
+
+@media(max-width:900px) and (min-width:681px){
+  .fids-columns,.fids-row{grid-template-columns:52px 78px 70px minmax(100px,1fr) minmax(96px,.9fr) 42px minmax(90px,.82fr) minmax(122px,1fr)}
+  .fids-columns{font-size:7.8px}.fids-cell{padding:7px 6px}.fids-status-pill{font-size:8px}
+}
+
+@media(max-width:680px){
+  .fids-card{padding:14px!important;background:#fff}
+  .fids-head{gap:8px}.fids-head h3{font-size:16px}.fids-head p{font-size:9.5px;max-width:235px}
+  .fids-head-state{font-size:9px;max-width:116px;text-align:right;white-space:normal}
+  .fids-ticker{margin-left:-2px;margin-right:-2px}.fids-tape{font-size:9.5px;min-height:34px;padding:7px 9px}
+  .fids-table-wrap{border-radius:13px}
+  .fids-columns{display:none}
+  .fids-row{display:grid;grid-template-columns:54px minmax(0,1fr) 82px;gap:0;min-height:0;padding:10px 8px;border-top:1px solid #e5edf2;background:#fff!important;box-shadow:none}
+  .fids-row.has-change{box-shadow:inset 3px 0 0 var(--yellow)}
+  .fids-cell{border-left:0;padding:3px 6px;min-width:0}
+  .fids-cell:before{content:attr(data-label);display:block;margin-bottom:3px;color:#8a98a7;font-size:7px;font-weight:900;letter-spacing:.06em}
+  .fids-scheduled{grid-column:1;grid-row:1 / span 2}.fids-scheduled strong{font-size:16px}
+  .fids-live-time{grid-column:3;grid-row:1}.fids-live-time strong{font-size:15px;text-align:right}.fids-live-time span{text-align:right}
+  .fids-flight{grid-column:2;grid-row:1}.fids-flight strong{font-size:12px}.fids-flight span{font-size:8.5px}
+  .fids-route{grid-column:2;grid-row:2}.fids-route strong{font-size:10px}
+  .fids-status{grid-column:3;grid-row:2;text-align:right}.fids-status:before{text-align:right}.fids-status-pill{font-size:7.8px;padding:5px 6px;max-width:82px}
+  .fids-gate{grid-column:1;grid-row:3;text-align:left;margin-top:6px;background:transparent!important}.fids-gate strong{font-size:12px}
+  .fids-service{grid-column:2;grid-row:3;text-align:left;margin-top:6px;background:transparent!important}.fids-service strong{font-size:12px}.fids-service-kind{display:none!important}.fids-service-prev{font-size:7.3px!important}
+  .fids-change{grid-column:3;grid-row:3;text-align:right;margin-top:6px;padding:3px 6px}.fids-change:before{text-align:right}.fids-change-badge{display:inline-block;width:auto;font-size:7.2px;padding:4px 5px;max-width:82px}
+  .fids-foot{font-size:9px}
+}
+
+.fids-direction-tabs{margin:0 0 11px}
+@media(max-width:680px){.fids-direction-tabs{margin-bottom:9px}.fids-direction-tabs button{font-size:10.5px;padding:8px 5px}}
+
+/* FIDS alignment refinement */
+@media(min-width:681px){
+  .fids-status{text-align:center}
+  .fids-status-pill{margin-left:auto;margin-right:auto}
+}
+
+
+/* Arrival FIDS: gate is operationally irrelevant to public users */
+@media(min-width:681px){
+  .fids-card.fids-mode-arrival .fids-columns,
+  .fids-card.fids-mode-arrival .fids-row{
+    grid-template-columns:56px 86px 76px minmax(120px,1.2fr) minmax(108px,.92fr) minmax(120px,.95fr) minmax(142px,1.08fr);
+  }
+  .fids-card.fids-mode-arrival .fids-columns span:nth-child(6),
+  .fids-card.fids-mode-arrival .fids-gate{display:none}
+}
+@media(max-width:900px) and (min-width:681px){
+  .fids-card.fids-mode-arrival .fids-columns,
+  .fids-card.fids-mode-arrival .fids-row{
+    grid-template-columns:52px 78px 70px minmax(106px,1fr) minmax(98px,.9fr) minmax(100px,.88fr) minmax(126px,1fr);
+  }
+}
+@media(max-width:680px){
+  .fids-card.fids-mode-arrival .fids-gate{display:none}
+  .fids-card.fids-mode-arrival .fids-service{
+    grid-column:1 / span 2;
+    grid-row:3;
+    text-align:left;
+  }
+}

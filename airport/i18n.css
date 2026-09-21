@@ -1,0 +1,44 @@
+
+/* JoTrip Airport Live - language switcher */
+.lang-switch{position:relative;display:flex;align-items:center;height:42px;border:1px solid var(--line);background:#fff;border-radius:13px;padding:0 8px 0 10px;gap:5px;color:var(--navy)}
+.lang-switch:before{content:"◉";font-size:10px;color:var(--blue)}
+.lang-switch select{appearance:none;-webkit-appearance:none;border:0;background:transparent;color:var(--navy);font:inherit;font-size:11px;font-weight:900;outline:none;cursor:pointer;padding:0 14px 0 0;min-width:43px}
+.lang-switch:after{content:"⌄";position:absolute;right:8px;top:11px;font-size:12px;color:#758598;pointer-events:none}
+@media(max-width:680px){
+  .lang-switch{height:38px;padding-left:8px;padding-right:6px;border-radius:12px}
+  .lang-switch:before{display:none}
+  .lang-switch select{font-size:10px;min-width:39px;padding-right:12px}
+  .lang-switch:after{right:5px;top:9px;font-size:11px}
+}
+
+.watch-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:8px 0 10px;border-bottom:1px solid #edf2f5;margin-bottom:2px}
+.watch-summary span{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 8px;border:1px solid #e6edf2;border-radius:10px;background:#f8fbfd;color:#68798b;font-size:9.5px;font-weight:800}
+.watch-summary b{font-size:12px;color:var(--navy)}
+@media(max-width:680px){.watch-summary span{font-size:9px;padding:6px 7px}.watch-summary b{font-size:11px}}
+
+.operations-watch-card{transition:none}
+@media(max-width:680px){
+  .operations-watch-card{margin-top:11px!important;margin-bottom:0!important;width:100%!important;border-radius:20px!important;box-shadow:none!important}
+  .operations-watch-card .side-head{margin-bottom:8px}
+}
+
+
+.operation-watch-mobile{display:none}
+.operation-watch-card .side-head{margin-bottom:4px;align-items:center}
+.operation-watch-card .side-head>div{min-width:0}
+.operation-watch-card .side-head h3{font-size:15px;margin:3px 0 0}
+.operation-watch-card .watch-item{padding:9px 0}
+.operation-watch-card .watch-icon{width:29px;height:29px;border-radius:9px}
+.operation-watch-card .quick-clear{padding:9px 0;color:#708095;font-size:11px}
+@media(max-width:680px){
+  .operation-watch-desktop{display:none!important}
+  .operation-watch-mobile{display:block!important;padding:12px 13px;margin-top:11px!important;border-radius:18px!important;background:#fffdf8;border-color:#eadfb9}
+  .operation-watch-mobile .watch-item{padding:8px 0}
+}
+
+.operation-watch-card .operation-watch-title{margin:0!important;font-size:15px!important}
+.operation-watch-card .operation-watch-subtitle{margin:3px 0 0;color:#708095;font-size:10px;font-weight:700;line-height:1.25}
+@media(max-width:680px){.operation-watch-card .operation-watch-subtitle{font-size:9.5px}}
+
+.operation-watch-desktop .operation-watch-list{max-height:460px;overflow-y:auto;overscroll-behavior:contain}
+@media(max-width:680px){.operation-watch-mobile .operation-watch-list{max-height:none;overflow:visible}}
