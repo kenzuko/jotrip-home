@@ -4381,16 +4381,11 @@ body.sheet-open{
 .near-manual-label{margin-top:14px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
 .near-manual-label strong{font-size:12px;color:var(--ink)}
 .near-manual-label span{font-size:11px;color:var(--muted)}
-.near-map-shell{grid-column:1/-1;position:relative;min-height:280px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#f7faf9}
-.near-map-shell iframe{display:block;width:100%;height:330px;border:0;background:#edf3f1}
-.near-map-empty{min-height:240px;padding:28px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:7px}
-.near-map-empty strong{font-size:18px;color:var(--ink)}
-.near-map-empty span{max-width:620px;font-size:12px;line-height:1.5;color:var(--muted)}
-.near-map-caption{display:flex;justify-content:space-between;gap:14px;padding:11px 14px;background:#fff;border-top:1px solid var(--line)}
-.near-map-caption strong{font-size:12px;color:var(--ink)}
-.near-map-caption span{font-size:11px;color:var(--muted);text-align:right}
 .near-result-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
 .near-result-actions a{padding:7px 9px;border:1px solid var(--line);border-radius:999px;font-size:11px;font-weight:850;color:var(--ink);background:#fff}
+.near-home-note{grid-column:1/-1;padding:12px 14px;border:1px solid var(--line);border-radius:14px;background:#f7faf9;display:flex;gap:8px;align-items:baseline}
+.near-home-note strong{font-size:12px;color:var(--ink)}
+.near-home-note span{font-size:11px;line-height:1.45;color:var(--muted)}
 .home-currency-section{padding-top:36px!important}
 .home-currency-status{margin:-6px 0 14px;font-size:12px;color:var(--muted)}
 .home-currency-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
@@ -4403,9 +4398,8 @@ body.sheet-open{
 @media(max-width:1099px){.home-currency-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){
   .near-manual-label{align-items:flex-start;flex-direction:column;gap:2px}
-  .near-map-shell iframe{height:280px}
-  .near-map-caption{display:block}
-  .near-map-caption span{display:block;margin-top:4px;text-align:left}
+  .near-home-note{display:block}
+  .near-home-note span{display:block;margin-top:3px}
   .home-currency-grid{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x mandatory}
   .home-currency-card{min-width:72vw;scroll-snap-align:start}
 }
