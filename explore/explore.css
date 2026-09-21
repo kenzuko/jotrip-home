@@ -343,7 +343,7 @@ button{font:inherit}
 .explore-map-overview figure{
   margin:0;overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#fff
 }
-.explore-map-overview img{
+.explore-map-overview figure > img{
   display:block;width:100%;height:240px;object-fit:contain;padding:12px;background:#F7FBF9
 }
 .explore-map-overview figcaption{
@@ -396,11 +396,11 @@ button{font:inherit}
 
 @media(max-width:900px){
   .explore-map-overview{grid-template-columns:1fr}
-  .explore-map-overview img{height:220px}
+  .explore-map-overview figure > img{height:220px}
 }
 @media(max-width:760px){
   .explore-map-overview{margin-top:10px;padding:0 10px}
-  .explore-map-overview img{height:210px}
+  .explore-map-overview figure > img{height:210px}
   .explore-map-overview figcaption{display:block;font-size:12px}
   .explore-map-overview figcaption a{display:inline-block;margin-top:6px}
   .explore-map-overview>div{padding:17px}
