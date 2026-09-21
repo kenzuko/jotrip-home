@@ -53,6 +53,19 @@ function durationMin(value){
   if(one){const n=Number(one[1].replace(",","."));return one[2]==="giờ"?n*60:n}
   return null;
 }
+function applyPracticalStartCutoff(item,decision,now){
+  const cutoff=hhmmToMinutes(item?.latest_sensible_start);
+  if(!Number.isFinite(cutoff)||now<cutoff)return{decision,hidden:false};
+  if(!["active","future"].includes(decision?.state))return{decision,hidden:false};
+  const lateDecision={
+    ...decision,
+    state:"past",
+    label:item.late_label||"Đã muộn để bắt đầu hôm nay",
+    detail:item.late_detail||"Nên để ngày mai",
+    practicalCutoff:true
+  };
+  return{decision:lateDecision,hidden:item.hide_after_sensible_start===true};
+}
 function renderTripClock(){
   if(!support)return;
   renderClock();
@@ -73,6 +86,8 @@ function renderTripClock(){
         :{state:"active",label:"Đang là lúc hợp để đi",detail:"Thời điểm trải nghiệm dễ chịu hơn"};
       summary=item.timing_note||e.best_time||"Hợp từ cuối chiều";
     }
+    const practical=applyPracticalStartCutoff(item,decision,now);
+    decision=practical.decision;
     const minDuration=durationMin(e.duration);
     let score=decision.state==="active"?10:decision.state==="future"?60:decision.state==="unknown"?180:9999;
     if(Number.isFinite(decision.nextMin))score+=Math.max(0,decision.nextMin-now)/12;
@@ -80,8 +95,9 @@ function renderTripClock(){
     const best=String(e.best_time||item.timing_note||"").toLowerCase();
     if(/cuối chiều/.test(best)&&now>=15*60&&Number.isFinite(sunset)&&now<sunset)score-=28;
     if(/buổi tối|16:30|tối/.test(best)&&now>=16*60)score-=20;
-    return{item,e,opening,decision,summary,score,minDuration};
+    return{item,e,opening,decision,summary,score,minDuration,hiddenByPracticalCutoff:practical.hidden};
   });
+  rows=rows.filter(x=>!x.hiddenByPracticalCutoff);
   const available=rows.filter(x=>x.decision.state!=="past");
   if(available.length>=4)rows=available;
   rows.sort((a,b)=>a.score-b.score);
@@ -107,6 +123,8 @@ function buildLocalNowHint(){
   for(const item of support.trip_clock?.items||[]){
     const e=entities.get(item.entity_id)||{},opening=e.opening_hours||null;
     if(!opening)continue;
+    const practicalCutoff=hhmmToMinutes(item.latest_sensible_start);
+    if(item.hide_after_sensible_start===true&&Number.isFinite(practicalCutoff)&&now>=practicalCutoff)continue;
     if(opening.schedule_type==="FIXED_START"){
       for(const t of opening.times||[]){
         const start=hhmmToMinutes(t.start),delta=start-now;
