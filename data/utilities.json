@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-21T16:35:00+07:00",
+  "generated_at": "2026-09-21T16:38:00+07:00",
   "source_policy": "official_public_sources_only",
   "national_emergency": [
     {
@@ -159,13 +159,22 @@
     },
     {
       "group": "Taxi & xe",
-      "id": "jotrip-local-service",
-      "label": "JoTrip - dịch vụ trọn gói tại Phú Quốc",
-      "phone": "+84 817 060 067",
-      "note": "Xe riêng, đón tiễn, tour, vé và hỗ trợ lịch trình",
-      "source": "https://jotrip.vn/",
-      "whatsapp": "https://wa.me/84817060067",
-      "zalo": "https://zalo.me/0817060067",
+      "id": "nam-thang-taxi",
+      "label": "Taxi Nam Thắng",
+      "phone": "0297 3 757 575",
+      "note": "Hãng taxi địa phương tại Phú Quốc.",
+      "source": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
+      "checked_at": "2026-09-21",
+      "verified": true
+    },
+    {
+      "group": "Taxi & xe",
+      "id": "mai-linh-taxi",
+      "label": "Mai Linh Phú Quốc",
+      "phone": "0297 3 979 797",
+      "phone_alt": "1055",
+      "note": "Taxi Mai Linh tại Phú Quốc; có thể gọi số địa phương hoặc tổng đài 1055.",
+      "source": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
       "checked_at": "2026-09-21",
       "verified": true
     },
@@ -174,7 +183,7 @@
       "id": "green-sm",
       "label": "Green SM (Xanh SM)",
       "phone": "1555",
-      "note": "Ưu tiên đặt qua app Green SM; cũng có thể gọi 1555. Đầu số cũ 1900 2088 đã ngừng từ 01/06/2026.",
+      "note": "Đặt qua app Green SM hoặc gọi 1555.",
       "source": "https://www.greensm.com/vn-vi/news/so-dien-thoai-tong-dai-taxi-xanh-sm-tren-toan-quoc-hotline-24-7",
       "app_url": "https://www.greensm.com/vn-vi",
       "checked_at": "2026-09-21",
@@ -185,7 +194,7 @@
       "id": "grab-phu-quoc",
       "label": "Grab tại Phú Quốc",
       "phone": null,
-      "note": "Đặt trực tiếp trên app Grab. GrabCar/GrabCar Premium và các biến thể đang có hoạt động tại Phú Quốc trong 2026.",
+      "note": "Đặt trực tiếp qua app Grab tại Phú Quốc.",
       "source": "https://www.grab.com/vn/blog/driver/grabcartietkiem-gialai-binhdinh-phuyen/",
       "app_url": "https://www.grab.com/vn/",
       "checked_at": "2026-09-21",
@@ -193,22 +202,13 @@
     },
     {
       "group": "Taxi & xe",
-      "id": "mai-linh-taxi",
-      "label": "Mai Linh Phú Quốc",
-      "phone": "0297 3 979 797",
-      "phone_alt": "1055",
-      "note": "Số Phú Quốc theo Visit Phu Quoc 2026; có thể gọi tổng đài 1055.",
-      "source": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
-      "checked_at": "2026-09-21",
-      "verified": true
-    },
-    {
-      "group": "Taxi & xe",
-      "id": "nam-thang-taxi",
-      "label": "Taxi Nam Thắng",
-      "phone": "0297 3 757 575",
-      "note": "Hãng taxi địa phương có độ phủ lớn tại Phú Quốc.",
-      "source": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
+      "id": "jotrip-local-service",
+      "label": "JoTrip - dịch vụ trọn gói tại Phú Quốc",
+      "phone": "+84 817 060 067",
+      "note": "Xe riêng, đón tiễn, tour, vé và hỗ trợ lịch trình trọn gói.",
+      "source": "https://jotrip.vn/",
+      "whatsapp": "https://wa.me/84817060067",
+      "zalo": "https://zalo.me/0817060067",
       "checked_at": "2026-09-21",
       "verified": true
     }
