@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-21T16:35:00+07:00",
+  "generated_at": "2026-09-21T17:40:00+07:00",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -5684,6 +5684,28 @@
       "related_entities": [],
       "route": "/utilities/#directory",
       "search_text": "taxi nam thang phu quoc 0297 3 757 575 hang dia phuong"
+    },
+    {
+      "id": "openpq_news",
+      "type": "utility",
+      "title": "Tin & cập nhật Phú Quốc",
+      "aliases": [
+        "tin Phú Quốc",
+        "cập nhật Phú Quốc",
+        "có gì mới",
+        "news"
+      ],
+      "zone_id": null,
+      "intents": [
+        "news",
+        "live",
+        "updates"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/news/",
+      "search_text": "tin cap nhat phu quoc co gi moi thay doi show su kien dich vu dang dien ra"
     }
   ]
 }
