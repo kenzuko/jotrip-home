@@ -42,13 +42,13 @@ const searchTypeLabel = {
   history: 'LỊCH SỬ',
   hotel: 'KHÁCH SẠN',
   access: 'ĐẾN ĐẢO',
-  hotel_tier: 'PHÂN KHÚC KHÁCH SẠN',
+  hotel_tier: 'NHÓM KHÁCH SẠN',
   stay_guide: 'CHỌN KHU Ở',
   booking_channel: 'ĐẶT PHÒNG',
   meal_plan: 'GÓI ĂN KÈM',
   price_reference: 'GIÁ THAM KHẢO',
   island_basic: 'HIỂU ĐẢO',
-  live: 'TRỰC TIẾP',
+  live: 'LÚC NÀY',
   story: 'CÂU CHUYỆN',
   lore: 'TÒ MÒ / HUYỀN TÍCH'
 };
