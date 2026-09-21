@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-21T17:50:00+07:00",
+  "generated_at": "2026-09-21T18:02:00+07:00",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -5746,7 +5746,7 @@
       "star_rating": null,
       "operational_status": null,
       "related_entities": [],
-      "route": "/nearme/?category=ATM",
+      "route": "/nearme/?area=zone_central_west&category=ATM",
       "search_text": "vietcombank pgd duong dong atm 193 nguyen trung truc phu quoc"
     },
     {
@@ -5767,7 +5767,7 @@
       "star_rating": null,
       "operational_status": null,
       "related_entities": [],
-      "route": "/nearme/?category=ATM",
+      "route": "/nearme/?area=zone_south&category=ATM",
       "search_text": "vietcombank pgd an thoi atm 199 nguyen van cu phu quoc"
     }
   ]
