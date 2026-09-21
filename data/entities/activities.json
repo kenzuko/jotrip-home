@@ -575,6 +575,72 @@
         "confidence": "HIGH",
         "note": "Operator công bố 21:00-21:30 hằng ngày, trừ thứ Ba. Lịch đặc biệt vẫn cần kiểm tra lại."
       }
+    },
+    {
+      "id": "activity_tinh_hoa_viet_nam",
+      "legacy_id": "tinh-hoa-viet-nam",
+      "entity_type": "activity",
+      "slug": "tinh-hoa-viet-nam",
+      "name": "Tinh Hoa Việt Nam",
+      "aliases": [
+        "Show Tinh Hoa Việt Nam",
+        "Tinh Hoa Việt Nam Grand World"
+      ],
+      "zone_id": "zone_north",
+      "area_code": "north",
+      "categories": [
+        "show",
+        "culture",
+        "evening"
+      ],
+      "what_it_is": "Vở diễn thực cảnh buổi tối tại Grand World Phú Quốc.",
+      "why_go": "Show thực cảnh · âm nhạc · sân khấu ngoài trời",
+      "best_for": [
+        "show",
+        "culture",
+        "evening"
+      ],
+      "best_time": "20:15 theo lịch show",
+      "duration": "45 phút",
+      "price_reference": "Kiểm tra vé theo ngày tại Grand World/VinWonders",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Nên có mặt trước giờ diễn để tìm vị trí và ổn định chỗ ngồi",
+        "Lịch có thể thay đổi khi có sự kiện đặc biệt hoặc thời tiết xấu"
+      ],
+      "intents": [
+        "show",
+        "culture",
+        "evening"
+      ],
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "vinwonders_grandworld_show_schedule_2026"
+        }
+      ],
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "FIXED_START",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "times": [
+          {
+            "start": "20:15",
+            "label": "Vở diễn thực cảnh Tinh Hoa Việt Nam"
+          }
+        ],
+        "source_id": "vinwonders_grandworld_show_schedule_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "Lịch operator công bố show chính 20:15-21:00. Lịch đặc biệt vẫn cần kiểm tra lại."
+      }
     }
   ]
 }
