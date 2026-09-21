@@ -77,9 +77,9 @@
         "schedule_source": "canonical_entity.opening_hours",
         "latest_sensible_start": "13:30",
         "hide_after_sensible_start": true,
-        "late_label": "Đã muộn để bắt đầu Safari hôm nay",
-        "late_detail": "Vườn thú kết thúc sớm và chuyến bán hoang dã cuối vào buổi chiều.",
-        "timing_note": "Nên bắt đầu từ buổi sáng; sau 13:30 không còn là một lượt đi hợp lý.",
+        "late_label": "Giờ này không nên bắt đầu Safari nữa",
+        "late_detail": "Safari hợp đi từ sáng; chiều muộn sẽ lỡ nhiều phần.",
+        "timing_note": "Đi buổi sáng sẽ thoải mái hơn; sau 13:30 thì nên để hôm khác.",
         "practical_source_id": "vinwonders_safari_hours_detail_2026"
       },
       {
@@ -91,9 +91,9 @@
         "schedule_source": "canonical_entity.opening_hours",
         "latest_sensible_start": "15:00",
         "hide_after_sensible_start": true,
-        "late_label": "Đã muộn để bắt đầu VinWonders hôm nay",
-        "late_detail": "Nhiều phân khu chính đóng từ 17:30-18:00 dù công viên mở tới 19:30.",
-        "timing_note": "Nên bắt đầu trước 15:00 nếu muốn có một lượt đi đủ ý nghĩa.",
+        "late_label": "Giờ này không nên bắt đầu VinWonders nữa",
+        "late_detail": "Nhiều phân khu sắp đóng, vào lúc này sẽ khá phí.",
+        "timing_note": "Nếu muốn chơi tử tế, nên vào trước khoảng 15:00.",
         "practical_source_id": "vinwonders_phuquoc_hours_2026"
       },
       {
@@ -105,9 +105,9 @@
         "schedule_source": "canonical_entity.opening_hours",
         "latest_sensible_start": "19:30",
         "hide_after_sensible_start": true,
-        "late_label": "Đã muộn để vào Bảo tàng Gấu hôm nay",
-        "late_detail": "Nên chừa khoảng 60-90 phút trước giờ đóng cửa.",
-        "timing_note": "Có thể ghép với Grand World và Tinh Hoa Việt Nam.",
+        "late_label": "Giờ này vào Bảo tàng Gấu hơi muộn",
+        "late_detail": "Nên chừa ít nhất khoảng 60-90 phút để xem thong thả.",
+        "timing_note": "Hợp để ghép Grand World rồi xem Tinh Hoa Việt Nam buổi tối.",
         "practical_source_id": "vinwonders_grandworld_hours_2026"
       },
       {
