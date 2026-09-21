@@ -23,6 +23,7 @@
   function renderDayLeft() {
     const value = $("#tripClockDaylight");
     const note = $("#tripClockDayNote");
+    const sunsetBlock = document.querySelector(".trip-sunset");
     const sunsetLabel = $("#tripClockSunset")?.textContent;
     if (!value || !note) return;
     const now = vnClock();
@@ -33,6 +34,7 @@
       return;
     }
     const remain = sunset - now.total;
+    if (sunsetBlock) sunsetBlock.hidden = remain <= 0;
     if (remain > 120) {
       const h = Math.floor(remain / 60), m = remain % 60;
       value.textContent = "Còn " + h + (m >= 15 ? " giờ " + m + " phút" : " giờ") + " tới hoàng hôn";
