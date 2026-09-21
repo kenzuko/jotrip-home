@@ -626,9 +626,30 @@
             54,
             79
           ]
+        },
+        {
+          "source_id": "sunworld_sunset_town_always_open"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "ALWAYS_OPEN",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "windows": [
+          {
+            "start": "00:00",
+            "end": "23:59",
+            "label": "Khu phố mở"
+          }
+        ],
+        "source_id": "sunworld_sunset_town_always_open",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "Sun World mô tả Sunset Town luôn mở cửa và miễn phí; các điểm vé, nhà hàng, show và dịch vụ bên trong có lịch riêng."
+      }
     },
     {
       "id": "place_phu_quoc_prison",
