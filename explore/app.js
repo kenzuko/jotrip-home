@@ -24,6 +24,89 @@
     intent:params.get("intent")||"all"
   };
 
+  const MAP_ZONES={
+    zone_north:{label:"Bắc đảo",center:[10.3759,103.90],zoom:12,radius:8500},
+    zone_central_west:{label:"Dương Đông & trung tâm",center:[10.2172,103.9593],zoom:13,radius:6500},
+    zone_south:{label:"Nam đảo",center:[10.0191,104.0150],zoom:12,radius:7000}
+  };
+  let exploreMap=null,zoneLayer=null,labelLayer=null,lastMapZone=null;
+  const zoneShapes=new Map();
+
+  function initExploreMap(){
+    const host=$("#exploreMap");
+    if(!host)return;
+    if(!window.L){
+      host.innerHTML='<div class="explore-map-unavailable"><strong>Chưa mở được bản đồ.</strong><span>Bộ lọc khu vực bên dưới vẫn dùng được.</span></div>';
+      return;
+    }
+    exploreMap=L.map(host,{zoomControl:true,attributionControl:true,preferCanvas:true,scrollWheelZoom:false})
+      .setView([10.20,103.97],10);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+      maxZoom:18,
+      attribution:"© OpenStreetMap contributors"
+    }).addTo(exploreMap);
+
+    zoneLayer=L.layerGroup().addTo(exploreMap);
+    labelLayer=L.layerGroup().addTo(exploreMap);
+
+    Object.entries(MAP_ZONES).forEach(([id,z])=>{
+      const shape=L.circle(z.center,{
+        radius:z.radius,
+        weight:1.5,
+        color:"#28766f",
+        fillColor:"#54d4cb",
+        fillOpacity:.10
+      }).addTo(zoneLayer);
+      shape.on("click",()=>{
+        state.zone=id;
+        syncUrl();
+        render();
+      });
+      zoneShapes.set(id,shape);
+
+      const label=L.marker(z.center,{
+        interactive:true,
+        icon:L.divIcon({
+          className:"explore-zone-label",
+          html:"<span>"+esc(z.label)+"</span>",
+          iconSize:[126,28],
+          iconAnchor:[63,14]
+        })
+      }).addTo(labelLayer);
+      label.on("click",()=>{
+        state.zone=id;
+        syncUrl();
+        render();
+      });
+    });
+
+    L.control.layers(null,{
+      "Vùng định hướng":zoneLayer,
+      "Tên khu vực":labelLayer
+    },{collapsed:true,position:"topright"}).addTo(exploreMap);
+    setTimeout(()=>exploreMap?.invalidateSize(),120);
+  }
+
+  function syncExploreMap(){
+    if(!exploreMap||lastMapZone===state.zone)return;
+    lastMapZone=state.zone;
+    zoneShapes.forEach((shape,id)=>{
+      const active=id===state.zone;
+      shape.setStyle({
+        weight:active?2.5:1.5,
+        color:active?"#ff704f":"#28766f",
+        fillColor:active?"#ffd35c":"#54d4cb",
+        fillOpacity:active?.18:.10
+      });
+    });
+    if(state.zone==="all"){
+      exploreMap.flyTo([10.20,103.97],10,{duration:.45});
+    }else{
+      const z=MAP_ZONES[state.zone];
+      if(z)exploreMap.flyTo(z.center,z.zoom,{duration:.45});
+    }
+  }
+
   function tagsOf(x){
     return new Set([
       ...(x.categories||[]),
@@ -159,6 +242,7 @@
     grid.innerHTML=rows.length
       ? rows.map(renderCard).join("")
       : '<div class="loading">Chưa có lựa chọn phù hợp. Hãy thử bỏ bớt một điều kiện lọc.</div>';
+    syncExploreMap();
   }
 
   $("#clearFilters")?.addEventListener("click",()=>{
@@ -167,6 +251,8 @@
     syncUrl();
     render();
   });
+
+  initExploreMap();
 
   Promise.all([
     fetch("../data/entities/zones.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
