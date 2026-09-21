@@ -395,9 +395,18 @@
       "source_refs": [
         {
           "source_id": "longchau_phuquoc_storelist_2026"
+        },
+        {
+          "source_id": "longchau_327_official_map_2026"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-21",
+      "map": {
+        "lat": 10.2236257,
+        "lon": 103.9719213,
+        "accuracy": "ADDRESS_PIN",
+        "source_id": "longchau_327_official_map_2026"
+      }
     },
     {
       "id": "utility_longchau_an_thoi",
