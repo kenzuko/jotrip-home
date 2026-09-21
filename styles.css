@@ -5461,8 +5461,7 @@ body.sheet-open{
 }
 @media(prefers-reduced-motion:reduce){
   .energy-ticker .ticker-track{
-    animation:none!important;
-    transform:none!important;
+    animation-duration:24s!important;
   }
 }
 
