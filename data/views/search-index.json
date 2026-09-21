@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-21T19:20:00+07:00",
+  "generated_at": "2026-09-21T21:30:00+07:00",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -5816,6 +5816,54 @@
       ],
       "route": "/places/detail.html?id=tinh-hoa-viet-nam",
       "search_text": "show tinh hoa viet nam grand world phu quoc 20 15 21 00 van hoa buoi toi"
+    },
+    {
+      "id": "activity_once_show",
+      "type": "activity",
+      "title": "ONCE Show",
+      "aliases": [
+        "ONCE",
+        "Once Show VinWonders",
+        "Show ONCE Phú Quốc"
+      ],
+      "zone_id": "zone_north",
+      "intents": [
+        "show",
+        "family",
+        "evening"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_vinwonders"
+      ],
+      "route": "/places/detail.html?id=once-show",
+      "search_text": "once show vinwonders phu quoc 18 45 19 05 show buoi toi gia dinh vinwonders"
+    },
+    {
+      "id": "activity_sac_mau_venice",
+      "type": "activity",
+      "title": "Sắc Màu Venice",
+      "aliases": [
+        "Show Sắc Màu Venice",
+        "Sắc Màu Venice Grand World",
+        "Big Show Sắc Màu Venice"
+      ],
+      "zone_id": "zone_north",
+      "intents": [
+        "show",
+        "couple",
+        "family",
+        "evening"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_grand_world",
+        "activity_tinh_hoa_viet_nam"
+      ],
+      "route": "/places/detail.html?id=sac-mau-venice",
+      "search_text": "sac mau venice grand world phu quoc 21 30 22 00 show ho tinh yeu buoi toi mien phi"
     }
   ]
 }
