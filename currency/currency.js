@@ -53,7 +53,7 @@ function formatAmount(value){
   return new Intl.NumberFormat('vi-VN',{maximumFractionDigits:value < 100 ? 2 : 0}).format(value);
 }
 function parseInput(value){
-  const normalized = String(value||'').trim().replace(/s/g,'').replace(/.(?=d{3}(?:\D|$))/g,'').replace(',','.');
+  const normalized = String(value||'').trim().replace(/\s/g,'').replace(/\.(?=\d{3}(?:\D|$))/g,'').replace(',','.');
   const n = Number(normalized);
   return Number.isFinite(n) ? n : 0;
 }
@@ -214,7 +214,7 @@ async function runCurrencySearch(){
     return;
   }
 
-  showCurrencySearch('<div class="search-empty">Thử “100 USD”, “1 triệu won”, “CNY”, “USD 15/09” hoặc “KRW 30 ngày trước”.</div>');
+  showCurrencySearch('<div class="search-empty">Bạn có thể tra như: “100 USD”, “1 triệu won”, “USD 15/09” hoặc “KRW 30 ngày trước”.</div>');
 }
 function freshnessClass(status){
   if(status === 'live') return 'live';
@@ -258,7 +258,7 @@ function renderStatus(){
   badge.textContent = status === 'live' ? 'LIVE · VIETCOMBANK' : status === 'cached' ? 'BẢN GẦN NHẤT' : 'CHƯA CÓ DỮ LIỆU';
   const raw = state.payload?.source_updated_at || state.payload?.updated_at;
   $('#updatedAt').textContent = raw ? 'Cập nhật ' + new Date(raw).toLocaleString('vi-VN',{timeZone:'Asia/Ho_Chi_Minh',hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}) : 'Chưa có thời điểm cập nhật';
-  $('#sourceDetail').textContent = state.payload?.message || 'Dữ liệu được đọc từ nguồn Vietcombank, cache ngắn và giữ bản gần nhất khi nguồn tạm lỗi.';
+  $('#sourceDetail').textContent = state.payload?.message || 'Cập nhật tự động từ Vietcombank. Khi nguồn tạm lỗi, hệ thống dùng bản gần nhất và ghi rõ thời điểm.';
 }
 function renderCurrencyOptions(){
   const options = PRIORITY.filter(code=>rate(code)).map(code => '<option value="'+code+'">'+code+'</option>').join('');
@@ -279,8 +279,8 @@ function renderConverter(){
   const amount = parseInput($('#amountInput').value);
   const item = rate(state.currency);
   const r = activeRate();
-  $('#amountLabel').textContent = state.mode === 'foreign-to-vnd' ? 'Số ngoại tệ' : 'Số VND';
-  $('#resultLabel').textContent = state.mode === 'foreign-to-vnd' ? 'Bạn nhận khoảng' : 'Bạn mua được khoảng';
+  $('#amountLabel').textContent = state.mode === 'foreign-to-vnd' ? 'Số tiền' : 'Số tiền VND';
+  $('#resultLabel').textContent = state.mode === 'foreign-to-vnd' ? 'Ước tính nhận được' : 'Ước tính mua được';
   $('#rateTypeRow').hidden = state.mode === 'vnd-to-foreign';
   if(!item || !r){
     $('#convertResult').textContent = '-';
@@ -289,11 +289,11 @@ function renderConverter(){
   }
   if(state.mode === 'foreign-to-vnd'){
     $('#convertResult').textContent = formatVnd(amount * r);
-    $('#rateExplanation').textContent = state.rateType === 'cash_buy' ? 'Theo giá mua tiền mặt Vietcombank.' : 'Theo giá mua chuyển khoản Vietcombank.';
+    $('#rateExplanation').textContent = state.rateType === 'cash_buy' ? 'Theo tỷ giá mua tiền mặt của Vietcombank.' : 'Theo tỷ giá mua chuyển khoản của Vietcombank.';
   }else{
     const result = amount / r;
     $('#convertResult').textContent = formatAmount(result) + ' ' + state.currency;
-    $('#rateExplanation').textContent = 'Theo giá bán Vietcombank.';
+    $('#rateExplanation').textContent = 'Theo tỷ giá bán ra của Vietcombank.';
   }
 }
 function renderRateCards(){
@@ -305,11 +305,11 @@ function renderRateCards(){
     return '<article class="rate-card"><button type="button" data-rate-card="'+esc(item.currency)+'">'+
       '<span class="rate-title"><strong>'+esc(item.currency)+'</strong><span class="flag">'+(FLAGS[item.currency]||'')+'</span></span>'+
       '<span class="rate-main">'+formatRate(buy)+' ₫</span>'+
-      '<small>Mua tiền mặt</small>'+
-      '<small>CK '+formatRate(number(item.transfer_buy))+' · Bán '+formatRate(sell)+'</small>'+
-      '<small>'+(Number.isFinite(gap)?'Chênh mua - bán '+formatRate(gap)+' ₫':'Chưa đủ dữ liệu')+'</small>'+
+      '<small>Giá mua tiền mặt</small>'+
+      '<small>Mua CK '+formatRate(number(item.transfer_buy))+' · Bán '+formatRate(sell)+'</small>'+
+      '<small>'+(Number.isFinite(gap)?'Chênh lệch mua - bán '+formatRate(gap)+' ₫':'Chưa đủ dữ liệu')+'</small>'+
     '</button></article>';
-  }).join('') : '<div class="empty-state">Chưa có snapshot tỷ giá. Hệ thống không hiển thị số giả.</div>';
+  }).join('') : '<div class="empty-state">Chưa có dữ liệu tỷ giá. Hệ thống không tự tạo số liệu thay thế.</div>';
 }
 function renderCurrencyTabs(){
   const items = PRIORITY.filter(code=>rate(code));
@@ -362,7 +362,7 @@ function renderHistoryChart(points){
   $('#chartPair').textContent = state.currency + ' / VND';
   $('#chartCurrent').textContent = item ? formatRate(number(item.cash_buy))+' ₫' : '-';
   if(!geom){
-    $('#historyChart').innerHTML = '<div class="empty-state">Chưa đủ dữ liệu lịch sử cho '+esc(state.currency)+'. Biểu đồ sẽ hình thành khi collector bắt đầu lưu snapshot Vietcombank.</div>';
+    $('#historyChart').innerHTML = '<div class="empty-state">Chưa đủ dữ liệu lịch sử cho '+esc(state.currency)+'. Chưa đủ dữ liệu để vẽ biểu đồ.</div>';
     $('#chartChange').className='change';
     $('#chartChange').textContent='-';
     return;
@@ -390,7 +390,7 @@ function renderMetrics(){
     ['Mua tiền mặt',formatRate(cash)+' ₫'],
     ['Mua chuyển khoản',formatRate(transfer)+' ₫'],
     ['Bán',formatRate(sell)+' ₫'],
-    ['Chênh mua - bán',Number.isFinite(gap)?formatRate(gap)+' ₫':'-']
+    ['Chênh lệch mua - bán',Number.isFinite(gap)?formatRate(gap)+' ₫':'-']
   ].map(x=>'<div class="metric"><span>'+x[0]+'</span><strong>'+x[1]+'</strong></div>').join('');
 }
 function renderBoard(points){
@@ -410,7 +410,7 @@ function renderBoard(points){
     if(normalized.length>=2) series.push({code,rows:normalized});
   }
   if(!series.length){
-    $('#marketBoard').innerHTML='<div class="empty-state">Chartboard cần lịch sử của ít nhất một đồng tiền. Không tạo dữ liệu minh họa giả.</div>';
+    $('#marketBoard').innerHTML='<div class="empty-state">Chưa đủ dữ liệu lịch sử để so sánh.</div>';
     $('#boardLegend').innerHTML='';
     return;
   }
@@ -513,7 +513,7 @@ document.addEventListener('click',event=>{
   const quick=event.target.closest('[data-quick]'); if(quick){$('#amountInput').value=quick.dataset.quick;renderConverter();}
   const card=event.target.closest('[data-rate-card]'); if(card) setCurrency(card.dataset.rateCard);
   const tab=event.target.closest('[data-currency-tab]'); if(tab) setCurrency(tab.dataset.currencyTab);
-  const range=event.target.closest('[data-range]'); if(range){state.range=range.dataset.range;$$('[data-range]').forEach(b=>b.classList.toggle('active',b===range));refreshCharts();}
+  const range=event.target.closest('[data-range]'); if(range){state.range=range.dataset.range;$('[data-range]').forEach(b=>b.classList.toggle('active',b===range));refreshCharts();}
   if(event.target.closest('#addWalletRow')){const first=PRIORITY.find(code=>rate(code))||'USD';state.wallet.push({currency:first,amount:0});renderWallet();}
   const remove=event.target.closest('[data-wallet-remove]'); if(remove){const row=remove.closest('[data-wallet-index]');state.wallet.splice(Number(row.dataset.walletIndex),1);renderWallet();}
 });
