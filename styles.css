@@ -5465,3 +5465,88 @@ body.sheet-open{
     transform:none!important;
   }
 }
+
+
+/* Desktop editorial image geometry lock v7 - 21/09/2026 */
+@media(min-width:1100px){
+  /* Curiosity cards: every thumbnail uses the same box, regardless of source image ratio. */
+  .curiosity-rail{
+    align-items:stretch!important;
+  }
+  .curiosity-card{
+    height:auto!important;
+    min-height:0!important;
+  }
+  .curiosity-toggle{
+    display:grid!important;
+    grid-template-columns:124px minmax(0,1fr)!important;
+    height:150px!important;
+    min-height:150px!important;
+    max-height:150px!important;
+    overflow:hidden!important;
+    align-items:stretch!important;
+  }
+  .curiosity-media{
+    width:124px!important;
+    min-width:124px!important;
+    max-width:124px!important;
+    height:150px!important;
+    min-height:150px!important;
+    max-height:150px!important;
+    aspect-ratio:124/150!important;
+    overflow:hidden!important;
+  }
+  .curiosity-card .curiosity-media img{
+    display:block!important;
+    width:124px!important;
+    min-width:124px!important;
+    max-width:124px!important;
+    height:150px!important;
+    min-height:150px!important;
+    max-height:150px!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+  .curiosity-question{
+    min-width:0!important;
+    height:150px!important;
+    min-height:150px!important;
+    max-height:150px!important;
+    overflow:hidden!important;
+    padding:16px 17px!important;
+  }
+  .curiosity-question strong{
+    display:-webkit-box!important;
+    -webkit-box-orient:vertical!important;
+    -webkit-line-clamp:3!important;
+    overflow:hidden!important;
+  }
+
+  /* "Phú Quốc không chỉ có biển": lead and secondary stories share one image height. */
+  .island-story-grid{
+    align-items:start!important;
+  }
+  .island-story-card,
+  .island-story-card.lead{
+    grid-template-rows:230px auto!important;
+  }
+  .island-story-card figure,
+  .island-story-card.lead figure{
+    width:100%!important;
+    height:230px!important;
+    min-height:230px!important;
+    max-height:230px!important;
+    aspect-ratio:16/10!important;
+    overflow:hidden!important;
+  }
+  .island-story-card img,
+  .island-story-card.lead img{
+    display:block!important;
+    width:100%!important;
+    height:230px!important;
+    min-height:230px!important;
+    max-height:230px!important;
+    object-fit:cover!important;
+    object-position:center!important;
+  }
+}
