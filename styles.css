@@ -5276,3 +5276,192 @@ body.sheet-open{
     padding-top:2px;
   }
 }
+
+
+/* Breaking-news marquee + light contextual suggestion v6 - 21/09/2026 */
+/* "Tin nhanh" is the slim moving line. The larger "Tin & cập nhật Phú Quốc"
+   remains a normal content section lower on the homepage. */
+.energy-ticker,
+#top>.energy-ticker{
+  display:grid!important;
+  grid-template-columns:auto minmax(0,1fr)!important;
+  align-items:center!important;
+  min-height:40px!important;
+  height:40px!important;
+  padding:0!important;
+  overflow:hidden!important;
+  border:1px solid rgba(18,61,59,.09)!important;
+  border-radius:12px!important;
+  background:linear-gradient(90deg,#fff9e8,#f4fbf8 56%,#fff6f1)!important;
+  box-shadow:0 5px 16px rgba(18,61,59,.035)!important;
+}
+.energy-ticker .ticker-label{
+  position:relative;
+  z-index:3;
+  height:40px!important;
+  padding:0 12px!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:7px!important;
+  border-radius:11px 0 0 11px!important;
+  background:var(--ink)!important;
+  color:#fff!important;
+  white-space:nowrap!important;
+}
+.energy-ticker .ticker-label>span{
+  width:7px!important;
+  height:7px!important;
+  flex:0 0 7px;
+  border-radius:50%;
+  background:var(--coral)!important;
+  animation:tickerPulse 1.5s ease-out infinite!important;
+}
+.energy-ticker .ticker-label strong{
+  font-size:8px!important;
+  line-height:1!important;
+  letter-spacing:.15em!important;
+  font-weight:900!important;
+  color:#fff!important;
+}
+.energy-ticker .ticker-window{
+  min-width:0!important;
+  width:100%!important;
+  height:40px!important;
+  display:flex!important;
+  align-items:center!important;
+  overflow:hidden!important;
+  mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%)!important;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 3%,#000 97%,transparent 100%)!important;
+}
+.energy-ticker .ticker-track,
+.motion-on .energy-ticker .ticker-track,
+#top>.energy-ticker .ticker-track{
+  width:max-content!important;
+  min-width:max-content!important;
+  flex:none!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:12px!important;
+  padding:0!important;
+  white-space:nowrap!important;
+  transform:translate3d(0,0,0);
+  animation:tickerMove var(--ticker-duration,11s) linear infinite!important;
+  will-change:transform;
+  backface-visibility:hidden;
+}
+.energy-ticker .ticker-track span{
+  font-size:9px!important;
+  line-height:1!important;
+  letter-spacing:.13em!important;
+  font-weight:900!important;
+  color:#55716d!important;
+}
+.energy-ticker .ticker-track b{
+  font-size:11px!important;
+  line-height:1!important;
+  font-weight:780!important;
+  color:var(--ink)!important;
+}
+.energy-ticker .ticker-track i{
+  font-size:10px!important;
+  line-height:1!important;
+  font-style:normal!important;
+  color:var(--coral)!important;
+}
+#top>.energy-ticker:hover .ticker-track{animation-play-state:paused!important}
+.energy-ticker[data-level="alert"]{
+  background:linear-gradient(90deg,#fff3e9,#fff9e8 55%,#f4fbf8)!important;
+}
+.energy-ticker[data-level="watch"]{
+  background:linear-gradient(90deg,#fff8df,#f5fbf7 62%,#fff)!important;
+}
+
+/* Contextual suggestion should read as a gentle decision aid, not another dark live panel. */
+#top>.now-card{
+  border:1px solid rgba(18,61,59,.10)!important;
+  background:
+    radial-gradient(circle at 96% 0,rgba(252,188,18,.10),transparent 35%),
+    linear-gradient(135deg,#f6fbf9,#fffdf7)!important;
+  color:var(--ink)!important;
+  box-shadow:0 10px 26px rgba(18,61,59,.055)!important;
+}
+#top>.now-card:before{
+  height:3px!important;
+  background:linear-gradient(90deg,#ff7757,#FCBC12 45%,#8fd8cf 82%,transparent)!important;
+}
+#top>.now-card .now-card-top span{
+  color:#53716d!important;
+}
+#top>.now-card .now-card-top time{
+  color:#315d59!important;
+}
+#top>.now-card .now-card-copy h2{
+  color:var(--ink)!important;
+}
+#top>.now-card .now-card-copy p{
+  color:#617572!important;
+}
+#top>.now-card .now-card-actions a{
+  border-color:rgba(18,61,59,.15)!important;
+  background:rgba(255,255,255,.72)!important;
+  color:var(--ink)!important;
+}
+#top>.now-card .now-card-actions a:first-child{
+  border-color:#d9ebe6!important;
+  background:#fff!important;
+  box-shadow:0 4px 12px rgba(18,61,59,.05);
+}
+#top>.now-card[data-tone="watch"]{
+  background:
+    radial-gradient(circle at 96% 0,rgba(255,119,87,.10),transparent 36%),
+    linear-gradient(135deg,#fff8f4,#fffdf7)!important;
+}
+#top>.now-card[data-tone="sunset"]{
+  background:
+    radial-gradient(circle at 96% 0,rgba(252,188,18,.13),transparent 36%),
+    linear-gradient(135deg,#fffaf1,#f7fbf9)!important;
+}
+#top>.now-card .now-card-pager button{
+  background:rgba(18,61,59,.18)!important;
+}
+#top>.now-card .now-card-pager button.is-active{
+  background:#315d59!important;
+}
+
+/* Keep the full news section in the regular content flow. */
+#top>.hot-now-section{
+  grid-column:1/-1!important;
+  grid-row:auto!important;
+  order:initial!important;
+}
+
+@media(max-width:760px){
+  .energy-ticker,
+  #top>.energy-ticker{
+    min-height:38px!important;
+    height:38px!important;
+    margin-top:10px!important;
+  }
+  .energy-ticker .ticker-label{
+    height:38px!important;
+    padding:0 10px!important;
+  }
+  .energy-ticker .ticker-label strong{font-size:7px!important}
+  .energy-ticker .ticker-label>span{
+    width:6px!important;height:6px!important;flex-basis:6px!important
+  }
+  .energy-ticker .ticker-window{height:38px!important}
+  .energy-ticker .ticker-track span{font-size:8px!important}
+  .energy-ticker .ticker-track b{font-size:10px!important}
+  #top>.now-card{
+    background:
+      radial-gradient(circle at 96% 0,rgba(252,188,18,.09),transparent 35%),
+      linear-gradient(135deg,#f6fbf9,#fffdf8)!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .energy-ticker .ticker-track{
+    animation:none!important;
+    transform:none!important;
+  }
+}
