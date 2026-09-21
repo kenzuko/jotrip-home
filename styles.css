@@ -4913,3 +4913,14 @@ body.sheet-open{
     font-size:23px;
   }
 }
+
+.near-gps-note{
+  grid-column:1/-1;
+  width:100%;
+  padding:11px 13px;
+  border:1px solid #dbe8e5;
+  border-radius:13px;
+  background:#f7faf9;
+}
+.near-gps-note strong{font-size:12px;color:var(--ink)}
+.near-gps-note span{display:block;margin-top:3px;font-size:11px;line-height:1.45;color:var(--muted)}
