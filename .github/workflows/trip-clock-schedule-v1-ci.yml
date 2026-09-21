@@ -1,0 +1,61 @@
+name: Trip Clock Schedule V1 CI
+
+on:
+  push:
+    branches: ["trip-clock-schedule-v1-ci"]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Syntax check
+        run: |
+          node --check home-foundation-v2.js
+          node --check home-live-v3.js
+      - name: Build and validate
+        run: |
+          node scripts/build-search-index.mjs
+          node scripts/validate-data.mjs
+          node scripts/validate-home-support.mjs
+          node scripts/test-search.mjs
+
+  visual-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Playwright
+        run: npm install --no-save --package-lock=false playwright@1.63.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Start local site
+        run: |
+          node scripts/build-search-index.mjs
+          python3 -m http.server 4173 --bind 127.0.0.1 > /tmp/openpq-schedule.log 2>&1 &
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          exit 1
+      - name: Browser smoke QA
+        env:
+          VISUAL_QA_BASE_URL: http://127.0.0.1:4173
+          VISUAL_QA_SCOPE: smoke
+        run: node scripts/visual-qa.mjs
+      - name: Upload smoke artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trip-clock-schedule-v1-smoke
+          path: visual-qa-results/
+          retention-days: 7
