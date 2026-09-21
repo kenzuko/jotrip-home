@@ -18,7 +18,7 @@
   }
   function classificationText(x){
     if(x.official_classification&&/sao/i.test(x.official_classification)) return "Phân hạng được công bố";
-    if(x.star_rating!=null) return "Hạng tham khảo";
+    if(x.star_rating!=null) return "Hạng đang dùng để lọc";
     return "Hạng đang cập nhật";
   }
   function phoneHref(phone){return "tel:"+String(phone||"").split(";")[0].replace(/[^0-9+]/g,"")}
@@ -53,13 +53,13 @@
       '<p class="hotel-desc">'+esc(publicDescription(x))+'</p>'+
       (tags.length?'<div class="hotel-tags" aria-label="Phù hợp với">'+tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>':'')+
       '<div class="hotel-facts"><div><span>Loại hình</span><strong>'+esc(x.accommodation_type||"Cơ sở lưu trú")+'</strong></div><div><span>Quy mô</span><strong>'+esc(rooms)+(x.room_count?' phòng':'')+'</strong></div></div>'+
-      '<p class="hotel-classification">'+esc(classificationText(x))+' · Hãy xác nhận lại khi đặt phòng</p>'+
+      '<p class="hotel-classification">'+esc(classificationText(x))+' · Xem lại khi đặt phòng</p>'+
       '<div class="hotel-actions">'+(x.website?'<a class="primary" href="'+esc(x.website)+'" target="_blank" rel="noopener">Website chính thức ↗</a>':'')+(x.phone?'<a href="'+phoneHref(x.phone)+'">Gọi cơ sở</a>':'')+'</div></article>';
   }
   function render(){
     const rows=filtered();
     $("#resultTitle").textContent=rows.length+" cơ sở phù hợp";
-    $("#resultEyebrow").textContent=state.hotel?"KẾT QUẢ ĐƯỢC CHỌN":state.status==="active"?"ĐANG HOẠT ĐỘNG":state.status==="upcoming"?"SẮP MỞ HOẶC ĐÃ CÔNG BỐ":"TẤT CẢ TRẠNG THÁI";
+    $("#resultEyebrow").textContent=state.hotel?"KẾT QUẢ ĐƯỢC CHỌN":state.status==="active"?"ĐANG HOẠT ĐỘNG":state.status==="upcoming"?"SẮP MỞ HOẶC ĐÃ CÔNG BỐ":"TẤT CẢ";
     $("#hotelGrid").innerHTML=rows.length?rows.map(card).join(""):'<div class="loading">Chưa có cơ sở phù hợp. Hãy thử bỏ bớt một điều kiện lọc.</div>';
   }
   function bind(){
