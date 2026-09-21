@@ -122,3 +122,42 @@
   }
   .guide-map-zones a{flex:0 0 auto;padding:8px 12px}
 }
+
+
+/* 21/09 guide clarity pass */
+.guide-map-embed-wrap{position:relative}
+.guide-map-layer{position:absolute;inset:0;pointer-events:none}
+.guide-map-layer>span{
+  position:absolute;display:flex;flex-direction:column;gap:2px;max-width:185px;
+  padding:7px 9px;border:1px solid rgba(18,61,59,.18);border-radius:11px;
+  background:rgba(255,255,255,.92);box-shadow:0 5px 18px rgba(18,61,59,.12);
+  color:#123d3b;line-height:1.15
+}
+.guide-map-layer b{font-size:11px}
+.guide-map-layer small{font-size:9px;color:#566f6b}
+.guide-map-layer .north{top:12%;left:51%}
+.guide-map-layer .center{top:48%;left:24%}
+.guide-map-layer .south{bottom:8%;left:53%}
+.guide-hotel-groups{
+  margin-top:14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px
+}
+.guide-hotel-head{
+  grid-column:1/-1;padding:15px 16px;border:1px solid var(--line);border-radius:16px;background:#f7faf9
+}
+.guide-hotel-head span{display:block;font-size:10px;font-weight:900;letter-spacing:.11em;color:#46726c;text-transform:uppercase}
+.guide-hotel-head strong{display:block;margin-top:6px;font-size:18px;color:var(--ink)}
+.guide-hotel-head small{display:block;margin-top:5px;font-size:12px;line-height:1.45;color:var(--muted)}
+.guide-hotel-group{padding:15px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.guide-hotel-group>span{font-size:10px;font-weight:900;letter-spacing:.08em;color:#b45b49;text-transform:uppercase}
+.guide-hotel-group>strong{display:block;margin-top:7px;font-size:14px;line-height:1.45;color:var(--ink)}
+.guide-hotel-group p{margin:7px 0 0;font-size:12px;line-height:1.45;color:var(--muted)}
+.g-head>div>p,.quick-head p,.smart-intro>p{ text-transform:uppercase }
+@media(max-width:760px){
+  .guide-map-layer>span{max-width:135px;padding:6px 7px}
+  .guide-map-layer b{font-size:10px}
+  .guide-map-layer small{font-size:8px}
+  .guide-map-layer .north{left:48%}
+  .guide-map-layer .center{left:9%}
+  .guide-map-layer .south{left:45%}
+  .guide-hotel-groups{grid-template-columns:1fr}
+}
