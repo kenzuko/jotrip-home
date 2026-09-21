@@ -54,7 +54,8 @@ function availability(r){
   if(/available|open|con ve|co the dat/.test(s))return{label:"Có thể đặt vé",tone:"good"};
   return{label:"Chưa xác định",tone:"neutral"};
 }
-function dateReliable(r){return r.data_kind==="operational_public"||r.date_specific===true||r.service_date_basis==="date_specific"}\nfunction seaRows(){return (state.data?.departures||[]).filter(r=>r.type==="sea"&&dateReliable(r))}
+function dateReliable(r){return r.data_kind==="operational_public"||r.date_specific===true||r.service_date_basis==="date_specific"}
+function seaRows(){return (state.data?.departures||[]).filter(r=>r.type==="sea"&&dateReliable(r))}
 function busRows(){return (state.data?.services||[]).filter(r=>r.type==="bus").map(r=>({...r,mode:"BUS",vessel_or_service:r.vessel_or_service||`Bus ${r.route_id||""}`}))}
 function baseRows(){
   if(state.mode==="bus")return busRows();
