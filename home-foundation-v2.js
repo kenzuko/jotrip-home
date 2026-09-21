@@ -3,7 +3,7 @@
 const SUPPORT="data/home-support.json",PLACES="data/entities/places.json",ACTIVITIES="data/entities/activities.json",UTILITIES="data/entities/utilities.json",STORIES="data/content.json",CURRENCY="data/currency-snapshot.json";
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
-const stateText={OPEN:"Đang mở",CLOSED:"Đã đóng",TEMPORARILY_CLOSED:"Tạm đóng",UNKNOWN:"Chưa xác nhận"};
+const stateText={OPEN:"Đang mở",CLOSED:"Đã đóng",TEMPORARILY_CLOSED:"Tạm đóng",UNKNOWN:"Chưa có thông tin mới"};
 const liveStateText={normal:"Hôm nay hoạt động bình thường",good:"Hôm nay hoạt động bình thường",watch:"Có điều cần xem",advisory:"Có lưu ý",bad:"Tạm dừng",unknown:"Chưa có thông tin mới",info:"Theo lịch hôm nay"};
 let support=null,currencyPayload=null,entities=new Map(),stories=new Map(),selectedCategory=null,selectedArea=null,position=null,nearBound=false,utilitiesLoaded=false;
 function vnParts(date=new Date()){const d=new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",weekday:"long",day:"2-digit",month:"2-digit"}).format(date).replace(",","");const t=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Ho_Chi_Minh",hour:"2-digit",minute:"2-digit",hour12:false}).format(date);return{time:t,date:d}}
@@ -18,10 +18,10 @@ function ageText(iso){
   return Math.floor(h/24)===1?"Hôm qua":Math.floor(h/24)+" ngày trước";
 }
 function hhmmToMinutes(value){const m=String(value||"").match(/^(\d{1,2}):(\d{2})$/);return m?Number(m[1])*60+Number(m[2]):NaN}
-function scheduleSummary(opening){if(!opening)return"Giờ vận hành đang chờ nguồn chính thức";if(opening.state==="NEEDS_VERIFICATION")return"Nguồn giờ mở cửa đang mâu thuẫn";if(opening.schedule_type==="FIXED_START"&&(opening.times||[]).length)return(opening.times||[]).map(x=>x.start+(x.label?" · "+x.label:"")).join(" · ");const windows=(opening.windows||[]).filter(x=>x.start&&x.end);if(!windows.length)return"Giờ vận hành đang chờ nguồn chính thức";const prefix=opening.state==="APPROXIMATE_SCHEDULE"?"Khoảng ":"";return prefix+windows.map(x=>x.start+"-"+x.end).join(" · ")}
+function scheduleSummary(opening){if(!opening)return"Chưa có giờ đáng tin để hiển thị";if(opening.state==="NEEDS_VERIFICATION")return"Giờ hôm nay đang được kiểm tra lại";if(opening.schedule_type==="FIXED_START"&&(opening.times||[]).length)return(opening.times||[]).map(x=>x.start+(x.label?" · "+x.label:"")).join(" · ");const windows=(opening.windows||[]).filter(x=>x.start&&x.end);if(!windows.length)return"Chưa có giờ đáng tin để hiển thị";const prefix=opening.state==="APPROXIMATE_SCHEDULE"?"Khoảng ":"";return prefix+windows.map(x=>x.start+"-"+x.end).join(" · ")}
 function scheduleDecision(opening){
   if(!opening||!["PUBLISHED_SCHEDULE","APPROXIMATE_SCHEDULE"].includes(opening.state)){
-    return{state:"unknown",label:"Chưa có giờ chắc chắn",detail:"Xem thông tin điểm đến"};
+    return{state:"unknown",label:"Chưa rõ giờ hôm nay",detail:"Xem thông tin điểm đến"};
   }
   const dayName=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Ho_Chi_Minh",weekday:"short"}).format(new Date());
   const dayIndex=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(dayName);
@@ -37,9 +37,9 @@ function scheduleDecision(opening){
   const windows=(opening.windows||[]).map(x=>({...x,startMin:hhmmToMinutes(x.start),endMin:hhmmToMinutes(x.end)})).filter(x=>Number.isFinite(x.startMin)&&Number.isFinite(x.endMin)).sort((a,b)=>a.startMin-b.startMin);
   if(!windows.length)return{state:"unknown",label:"Chưa có giờ chắc chắn",detail:"Xem thông tin điểm đến"};
   const active=windows.find(x=>now>=x.startMin&&now<=x.endMin);
-  if(active)return{state:"active",label:"Vẫn còn kịp",detail,startMin:active.startMin,endMin:active.endMin,remainingMin:active.endMin-now};
+  if(active)return{state:"active",label:"Đi lúc này vẫn kịp",detail,startMin:active.startMin,endMin:active.endMin,remainingMin:active.endMin-now};
   const next=windows.find(x=>now<x.startMin);
-  if(next)return{state:"future",label:(approx?"Thường từ ":"Mở từ ")+next.start,detail,nextMin:next.startMin,endMin:next.endMin};
+  if(next)return{state:"future",label:(approx?"Thường bắt đầu khoảng ":"Mở từ ")+next.start,detail,nextMin:next.startMin,endMin:next.endMin};
   return{state:"past",label:"Để ngày mai",detail};
 }
 function scheduleFreshness(opening){if(!opening?.verified_at)return"Chưa có mốc kiểm tra lịch";return"Lịch kiểm tra "+opening.verified_at}
@@ -63,14 +63,14 @@ function renderTripClock(){
     let decision=scheduleDecision(opening),summary=scheduleSummary(opening);
     if(item.schedule_source==="SOFT_DAYLIGHT"){
       decision=Number.isFinite(sunset)&&now<sunset
-        ?{state:"active",label:"Vẫn còn hợp để đi",detail:"Nên đi khi còn sáng",endMin:sunset,remainingMin:sunset-now}
+        ?{state:"active",label:"Đi lúc này vẫn hợp",detail:"Nên đi khi còn sáng",endMin:sunset,remainingMin:sunset-now}
         :{state:"past",label:"Nên để ngày mai",detail:"Hợp hơn khi còn sáng"};
       summary=item.timing_note||"Nên đi ban ngày hoặc chiều dịu";
     }else if(item.schedule_source==="SOFT_EVENING"){
       const start=16*60+30;
       decision=now<start
-        ?{state:"future",label:"Hợp từ cuối chiều",detail:"Gợi ý theo nhịp trải nghiệm",nextMin:start}
-        :{state:"active",label:"Hợp lúc này",detail:"Gợi ý theo nhịp trải nghiệm"};
+        ?{state:"future",label:"Hợp hơn từ cuối chiều",detail:"Thời điểm trải nghiệm dễ chịu hơn",nextMin:start}
+        :{state:"active",label:"Đang là lúc hợp để đi",detail:"Thời điểm trải nghiệm dễ chịu hơn"};
       summary=item.timing_note||e.best_time||"Hợp từ cuối chiều";
     }
     const minDuration=durationMin(e.duration);
@@ -85,7 +85,7 @@ function renderTripClock(){
   const available=rows.filter(x=>x.decision.state!=="past");
   if(available.length>=4)rows=available;
   rows.sort((a,b)=>a.score-b.score);
-  host.innerHTML=rows.slice(0,6).map(({item,e,decision,summary,minDuration})=>{
+  host.innerHTML=rows.slice(0,9).map(({item,e,decision,summary,minDuration})=>{
     const duration=e.duration||"";
     let note=item.timing_note||e.best_time||decision.detail;
     if(Number.isFinite(decision.remainingMin)&&minDuration&&decision.remainingMin<minDuration){
@@ -126,7 +126,7 @@ function buildLocalNowHint(){
       if(remain>0&&remain<=90)candidates.push({
         score:180+remain,priority:"deadline",tone:"default",
         title:(e.name||item.entity_id)+" vẫn còn kịp",
-        note:"Nếu bạn đang ở gần, vẫn còn một khoảng thời gian hợp lý để ghé.",
+        note:"Nếu không phải đi quá xa, bạn vẫn còn đủ thời gian để ghé.",
         primaryText:"Xem "+(e.name||"điểm này")+" →",primaryHref:item.route,
         secondaryText:"Lựa chọn khác",secondaryHref:"#happening"
       });
@@ -137,7 +137,7 @@ function buildLocalNowHint(){
 let lastLocalHintKey="";
 function publishLocalNowHint(){const hint=buildLocalNowHint(),payload={now_hint:hint,updated_at:new Date().toISOString()};window.OPENPQ_HOME_LOCAL=payload;const key=JSON.stringify(hint||null);if(key!==lastLocalHintKey){lastLocalHintKey=key;window.dispatchEvent(new CustomEvent("openpq:local-ready",{detail:payload}))}}
 function liveFor(binding){return binding?window.OPENPQ_HOME?.live_status?.[binding]||null:null}
-function renderActivities(){if(!support)return;const host=$("#activityBoard");if(!host)return;host.innerHTML=(support.activity_board||[]).map(item=>{const e=entities.get(item.entity_id)||{},live=liveFor(item.operational_binding),opening=e.opening_hours||null,decision=scheduleDecision(opening);const state=live?.status||(opening?.state==="PUBLISHED_SCHEDULE"?"info":"unknown");const primary=live?(liveStateText[state]||live.primary||"Chưa xác nhận"):(opening?.state==="PUBLISHED_SCHEDULE"?decision.label:(stateText[item.status_code]||"Chưa xác nhận"));const context=live?.context||live?.secondary||(opening?scheduleSummary(opening):("Khung phù hợp: "+(e.best_time||"chưa khóa")+" · "+(e.duration||"chưa khóa")));const fresh=live?.source_updated_at?ageText(live.source_updated_at):(opening?scheduleFreshness(opening):"Chưa có nguồn vận hành đủ mới");return'<a class="activity-status-card" data-state="'+esc(state)+'" href="'+esc(item.route)+'"><span>'+esc(primary)+'</span><strong>'+esc(e.name||item.entity_id)+'</strong><p>'+esc(context)+'</p><small>'+esc(fresh)+'</small><b>Chi tiết →</b></a>'}).join("");const live=window.OPENPQ_HOME?.live_status||{};const bad=live.cano?.status==="bad"||live.weather?.status==="watch";const plan=$("#planBCard");if(plan)plan.hidden=!bad}
+function renderActivities(){if(!support)return;const host=$("#activityBoard");if(!host)return;host.innerHTML=(support.activity_board||[]).map(item=>{const e=entities.get(item.entity_id)||{},live=liveFor(item.operational_binding),opening=e.opening_hours||null,decision=scheduleDecision(opening);const state=live?.status||(opening?.state==="PUBLISHED_SCHEDULE"?"info":"unknown");const primary=live?(liveStateText[state]||live.primary||"Chưa xác nhận"):(opening?.state==="PUBLISHED_SCHEDULE"?decision.label:(stateText[item.status_code]||"Chưa xác nhận"));const context=live?.context||live?.secondary||(opening?scheduleSummary(opening):("Khung phù hợp: "+(e.best_time||"chưa khóa")+" · "+(e.duration||"chưa khóa")));const fresh=live?.source_updated_at?ageText(live.source_updated_at):(opening?scheduleFreshness(opening):"Chưa có nguồn vận hành đủ mới");return'<a class="activity-status-card" data-state="'+esc(state)+'" href="'+esc(item.route)+'"><span>'+esc(primary)+'</span><strong>'+esc(e.name||item.entity_id)+'</strong><p>'+esc(context)+'</p><small>'+esc(fresh)+'</small><b>Xem hôm nay →</b></a>'}).join("");const live=window.OPENPQ_HOME?.live_status||{};const bad=live.cano?.status==="bad"||live.weather?.status==="watch";const plan=$("#planBCard");if(plan)plan.hidden=!bad}
 function renderNearControls(){
   if(!support)return;
   const a=$("#nearManualAreas"),c=$("#nearCategories");
