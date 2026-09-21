@@ -15,6 +15,42 @@ function esc(s){
   }[m]));
 }
 
+function setMeta(selector,attr,value){
+  let el=document.querySelector(selector);
+  if(!el){
+    el=document.createElement("meta");
+    const m=selector.match(/^meta\[(name|property)="([^"]+)"\]$/);
+    if(!m)return;
+    el.setAttribute(m[1],m[2]);
+    document.head.appendChild(el);
+  }
+  el.setAttribute(attr,value);
+}
+function setCanonical(url){
+  let el=document.querySelector('link[rel="canonical"]');
+  if(!el){el=document.createElement("link");el.rel="canonical";document.head.appendChild(el)}
+  el.href=url;
+}
+function applyStoryMeta(story){
+  const title=story.title+" - Open Phu Quoc";
+  const description=story.dek||story.intro||"Câu chuyện về Phú Quốc.";
+  const url="https://openphuquoc.com/stories/article.html?id="+encodeURIComponent(story.id);
+  const image=story.image||"https://openphuquoc.com/assets/logo-master.png";
+  document.title=title;
+  setCanonical(url);
+  setMeta('meta[name="description"]',"content",description);
+  setMeta('meta[property="og:type"]',"content","article");
+  setMeta('meta[property="og:title"]',"content",title);
+  setMeta('meta[property="og:description"]',"content",description);
+  setMeta('meta[property="og:url"]',"content",url);
+  setMeta('meta[property="og:image"]',"content",image);
+  setMeta('meta[property="og:image:alt"]',"content",story.title);
+  setMeta('meta[name="twitter:card"]',"content","summary_large_image");
+  setMeta('meta[name="twitter:title"]',"content",title);
+  setMeta('meta[name="twitter:description"]',"content",description);
+  setMeta('meta[name="twitter:image"]',"content",image);
+}
+
 function card(s){
   return '<a class="story-card" href="article.html?id='+encodeURIComponent(s.id)+'">'+
     '<img src="'+esc(s.image)+'" alt="'+esc(s.title)+'" onerror="this.style.opacity=.18">'+
@@ -75,7 +111,7 @@ function renderArticle(data,visualData,zones){
   const s=data.stories.find(x=>x.id===id)||data.stories[0];
   if(!s)return;
 
-  document.title=s.title+" - Open Phu Quoc";
+  applyStoryMeta(s);
 
   const root=$("#articleRoot");
   root.innerHTML=
