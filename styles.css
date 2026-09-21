@@ -5559,3 +5559,15 @@ body.sheet-open{
 @media(max-width:760px){
   #today{scroll-margin-top:68px}
 }
+
+
+/* Curiosity expanded-answer positioning fix - 21/09/2026 */
+.curiosity-card>.curiosity-answer{
+  position:static!important;
+  inset:auto!important;
+  left:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  z-index:auto!important;
+  width:auto!important;
+}
