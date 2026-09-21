@@ -23,10 +23,11 @@ const allRoutes = [
   { name: 'transit', path: '/transit/' },
   { name: 'bus', path: '/bus/' },
   { name: 'cano', path: '/cano/' },
-  { name: 'currency', path: '/currency/' }
+  { name: 'currency', path: '/currency/' },
+  { name: 'airport', path: '/airport/' }
 ];
 
-const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus', 'transit', 'currency']);
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus', 'transit', 'currency', 'airport']);
 const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
@@ -200,6 +201,35 @@ async function testMapCta(page) {
   const iframeInserted = await page.locator('.visual-locator-map iframe').count().then(n => n > 0).catch(() => false);
   return { found: true, iframeInserted };
 }
+async function testAirportPage(page) {
+  await page.waitForFunction(() => {
+    const health=document.querySelector('#healthPill')?.textContent?.trim();
+    const error=document.querySelector('#errorBox');
+    return (health && !/ĐANG TẢI|LOADING/i.test(health)) || (error && !error.classList.contains('hidden'));
+  }, { timeout: 9000 }).catch(() => {});
+
+  return page.evaluate(() => {
+    const visible = el => !!el && getComputedStyle(el).display !== 'none' && getComputedStyle(el).visibility !== 'hidden';
+    const backdrop=document.querySelector('#drawerBackdrop');
+    const drawer=document.querySelector('#flightDrawer');
+    const refresh=document.querySelector('#refreshBtn');
+    const mobileRefresh=document.querySelector('#mobileRefresh');
+    const health=document.querySelector('#healthPill')?.textContent?.trim() || '';
+    const error=document.querySelector('#errorBox');
+    const resolved = (!!health && !/ĐANG TẢI|LOADING/i.test(health)) || (!!error && !error.classList.contains('hidden'));
+    const checks = {
+      resolved,
+      fidsPresent: !!document.querySelector('#fidsBoard') && !!document.querySelector('#fidsGrid'),
+      flightBoardPresent: !!document.querySelector('#flightBoard') && !!document.querySelector('#flightList'),
+      noBlockingBackdrop: !visible(backdrop),
+      drawerClosedInitially: !visible(drawer),
+      refreshUsable: !!refresh && !refresh.disabled,
+      mobileRefreshUsable: !!mobileRefresh && !mobileRefresh.disabled
+    };
+    return { ok:Object.values(checks).every(Boolean), checks, health };
+  });
+}
+
 
 try {
   for (const viewport of viewports) {
@@ -252,11 +282,15 @@ try {
       let mapCta = null;
       let homeFunctional = null;
       let currencyFunctional = null;
+      let airportFunctional = null;
       if (!navigationError && route.name === 'home') {
         homeFunctional = await testHomeFoundation(page);
       }
       if (!navigationError && route.name === 'currency') {
         currencyFunctional = await testCurrencyPage(page);
+      }
+      if (!navigationError && route.name === 'airport') {
+        airportFunctional = await testAirportPage(page);
       }
       if (!navigationError && route.path.includes('/places/detail.html')) {
         mapCta = await testMapCta(page);
@@ -272,6 +306,7 @@ try {
         badResponses.length ? `${badResponses.length} bad same-origin response(s)` : null,
         homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
+        airportFunctional && !airportFunctional.ok ? `airport functional checks failed: ${Object.entries(airportFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         route.name === 'home' && externalMapRequests.length ? `homepage made ${externalMapRequests.length} external map request(s)` : null
       ].filter(Boolean);
 
@@ -287,6 +322,7 @@ try {
         mapCta,
         homeFunctional,
         currencyFunctional,
+        airportFunctional,
         consoleErrors,
         pageErrors,
         failedRequests,
@@ -349,7 +385,8 @@ const md = [
       result.inspection?.tinyText?.length ? `${result.inspection.tinyText.length} text item(s) under 11px` : null,
       result.mapCta?.found ? `map CTA: ${result.mapCta.iframeInserted ? 'ok' : 'iframe not inserted'}` : null,
       result.homeFunctional?.ok ? `home functional: ok` : null,
-      result.currencyFunctional?.ok ? `currency functional: ok` : null
+      result.currencyFunctional?.ok ? `currency functional: ok` : null,
+      result.airportFunctional?.ok ? `airport functional: ok` : null
     ].filter(Boolean).join('; ') || 'OK';
     return `| ${result.route} | ${result.viewport.width}x${result.viewport.height} | ${result.status.toUpperCase()} | ${notes.replaceAll('|', '\|')} |`;
   })
