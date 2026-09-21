@@ -136,26 +136,34 @@ function freshnessText(iso, prefix = "Cập nhật") {
     return String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0");
   }
 
-  function renderTicker(alert, level = "watch") {
+  function renderTicker(items, level = "normal") {
     const track = $("#liveTicker");
     const shell = document.querySelector(".energy-ticker");
-    if (!track || !shell) return;
-    if (!alert) {
-      shell.hidden = true;
-      shell.classList.remove("is-static");
-      track.innerHTML = "";
-      return;
-    }
+    if (!track || !shell || !Array.isArray(items) || !items.length) return;
     const safe = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
       "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
     }[ch]));
     shell.hidden = false;
     shell.dataset.level = level;
-    shell.classList.add("is-static");
-    track.innerHTML =
-      "<span>" + safe(alert.label || "LƯU Ý") + "</span>" +
-      "<b>" + safe(alert.text || "") + "</b>" +
-      (alert.href ? '<a class="ticker-action" href="' + safe(alert.href) + '">' + safe(alert.action || "Xem thêm") + " →</a>" : "");
+    shell.classList.remove("is-static");
+
+    const one = items.map(x =>
+      "<span>" + safe(x[0]) + "</span><b>" + safe(x[1]) + "</b><i>•</i>"
+    ).join("");
+    track.innerHTML = one + one;
+
+    const tuneSpeed = () => {
+      const halfWidth = Math.max(1, track.scrollWidth / 2);
+      const mobile = matchMedia("(max-width:760px)").matches;
+      const pxPerSecond = mobile ? 104 : 92;
+      const seconds = Math.max(mobile ? 8.5 : 9.5, Math.min(17, halfWidth / pxPerSecond));
+      track.style.setProperty("--ticker-duration", seconds.toFixed(2) + "s");
+    };
+    requestAnimationFrame(tuneSpeed);
+    if (!track.dataset.speedBound) {
+      track.dataset.speedBound = "1";
+      addEventListener("resize", tuneSpeed, { passive:true });
+    }
   }
 
   function vnClockParts(date = new Date()) {
@@ -591,7 +599,16 @@ function freshnessText(iso, prefix = "Cập nhật") {
       });
     }
     const topAlert = quickAlerts.sort((a,b) => b.priority - a.priority)[0] || null;
-    renderTicker(topAlert, topAlert?.level || "watch");
+    const tickerItems = [];
+    if (topAlert) tickerItems.push(["LƯU Ý", topAlert.text]);
+    tickerItems.push(
+      ["THỜI TIẾT", critical ? weatherPrimary + " · " + (criticalAge > 90 ? "cần cập nhật" : weatherSource) : "chưa có thông tin mới"],
+      ["BIỂN NAM ĐẢO", seaHs != null ? fmt(seaHs) + " m" : "chưa có thông tin mới"],
+      ["CANO", marine ? stateText(canoState) : "chưa có cập nhật mới"],
+      ["SÂN BAY", !airportAvailable ? "chưa có cập nhật đủ mới" : delayed.length ? delayed.length + " chuyến cần xem" : "chưa thấy bất thường"],
+      ["HOÀNG HÔN", sunset]
+    );
+    renderTicker(tickerItems, topAlert?.level || "normal");
 
     const pulseDot = document.querySelector(".island-pulse .live-dot");
     if (pulseDot) {
