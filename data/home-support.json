@@ -482,6 +482,22 @@
   "hot_now": {
     "items": [
       {
+        "event_id": "hot_honthom_midautumn_menu_2026",
+        "title": "Hòn Thơm có menu Trung thu đặc biệt dịp 25/09",
+        "short_summary": "Sun World Hòn Thơm giới thiệu menu ẩm thực mùa Trung thu chỉ xuất hiện theo dịp lễ. Trung thu năm nay rơi vào 25/09.",
+        "category": "ĂN UỐNG / THEO MÙA",
+        "affected_entity_id": "activity_hon_thom",
+        "starts_at": "2026-09-18",
+        "source_id": "sunworld_honthom_midautumn_20260918",
+        "source_type": "OPERATOR",
+        "published_at": "2026-09-18",
+        "verified_at": "2026-09-21",
+        "expires_at": "2026-09-26T23:59:59+07:00",
+        "expiry_reason": "SEASONAL_EVENT_END",
+        "confidence": "HIGH",
+        "route": "places/detail.html?id=hon-thom"
+      },
+      {
         "event_id": "hot_symphony_season3_2026",
         "title": "Symphony vẫn diễn 19:30; Sun World công bố bản mùa 3",
         "short_summary": "Sun World vẫn công bố Symphony of the Sea lúc 19:30 hằng ngày. Bài ngày 12/09 giới thiệu bản mùa 3 được nâng cấp, không phải thông báo ngưng lịch diễn hiện tại.",
