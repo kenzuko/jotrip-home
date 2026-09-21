@@ -157,7 +157,6 @@ async function testHomeFoundation(page) {
   return page.evaluate((initialNearClean) => {
     const text = selector => document.querySelector(selector)?.textContent?.trim() || '';
     const count = selector => document.querySelectorAll(selector).length;
-    const frame = document.querySelector('#nearMapFrame');
     const checks = {
       localTime: !!text('#tripClockNow') && text('#tripClockNow') !== '--:--',
       tripCards: count('#tripClockList .trip-item') >= 3,
@@ -165,7 +164,7 @@ async function testHomeFoundation(page) {
       nearCategories: count('#nearCategories [data-category]') >= 5,
       initialNearClean,
       manualResults: count('#nearResults .near-result-card') >= 1,
-      mapCreated: !!frame?.src && !frame.hidden,
+      noEmbeddedMap: !document.querySelector('#nearMapFrame, .near-map-shell iframe'),
       hotNow: count('#hotNowList .hot-card') >= 1,
       currency: count('#homeCurrencyGrid .home-currency-card') >= 3,
       noSyntheticZero: ![...document.querySelectorAll('#homeCurrencyGrid .home-currency-card strong')].some(el => /^0([,.]0+)?\s*₫$/.test(el.textContent.trim()))
@@ -218,11 +217,15 @@ try {
       const pageErrors = [];
       const failedRequests = [];
       const badResponses = [];
+      const externalMapRequests = [];
 
       page.on('console', msg => {
         if (msg.type() === 'error') consoleErrors.push(msg.text());
       });
       page.on('pageerror', error => pageErrors.push(error.message));
+      page.on('request', request => {
+        if (/google\.com\/maps|maps\.googleapis\.com|openstreetmap|mapbox/i.test(request.url())) externalMapRequests.push(request.url());
+      });
       page.on('requestfailed', request => {
         if (sameOrigin(request.url())) failedRequests.push({ url: request.url(), error: request.failure()?.errorText || 'request failed' });
       });
@@ -268,7 +271,8 @@ try {
         failedRequests.length ? `${failedRequests.length} failed same-origin request(s)` : null,
         badResponses.length ? `${badResponses.length} bad same-origin response(s)` : null,
         homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
-        currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null
+        currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
+        route.name === 'home' && externalMapRequests.length ? `homepage made ${externalMapRequests.length} external map request(s)` : null
       ].filter(Boolean);
 
       results.push({
@@ -286,7 +290,8 @@ try {
         consoleErrors,
         pageErrors,
         failedRequests,
-        badResponses
+        badResponses,
+        externalMapRequests
       });
 
       console.log(`${strictFailures.length ? 'FAIL' : 'PASS'} ${route.name} ${viewport.width}x${viewport.height}${strictFailures.length ? ` - ${strictFailures.join('; ')}` : ''}`);
