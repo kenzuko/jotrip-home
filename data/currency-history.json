@@ -1,8 +1,5678 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "source": "vietcombank",
-  "generated_at": "2026-09-21T02:45:15.071Z",
+  "generated_at": "2026-09-21T02:47:33Z",
   "points": [
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18258.85,
+      "transfer_buy": 18443.28,
+      "sell": 19034.13
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18495.45,
+      "transfer_buy": 18682.28,
+      "sell": 19280.78
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31785.67,
+      "transfer_buy": 32106.74,
+      "sell": 33135.31
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3787.7,
+      "transfer_buy": 3825.96,
+      "sell": 3948.53
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 4006.64,
+      "sell": 4159.89
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29727.25,
+      "transfer_buy": 30027.53,
+      "sell": 31294.81
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34705.55,
+      "transfer_buy": 35056.11,
+      "sell": 36179.17
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3237.68,
+      "transfer_buy": 3270.38,
+      "sell": 3395.47
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.4,
+      "sell": 283.08
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 158.61,
+      "transfer_buy": 160.21,
+      "sell": 169.55
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.3,
+      "transfer_buy": 18.11,
+      "sell": 19.65
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84676.07,
+      "sell": 88781.11
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6404.36,
+      "sell": 6543.75
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2755.13,
+      "sell": 2871.98
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 300.59,
+      "sell": 332.74
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6917.07,
+      "sell": 7214.83
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2703.26,
+      "sell": 2817.91
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20036.31,
+      "transfer_buy": 20238.7,
+      "sell": 20928.89
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 704.91,
+      "transfer_buy": 783.23,
+      "sell": 816.45
+    },
+    {
+      "at": "2026-08-22T00:00:00+07:00",
+      "source_date": "2026-08-22",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25900.0,
+      "transfer_buy": 25930.0,
+      "sell": 26310.0
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18258.85,
+      "transfer_buy": 18443.28,
+      "sell": 19034.13
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18495.45,
+      "transfer_buy": 18682.28,
+      "sell": 19280.78
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31785.67,
+      "transfer_buy": 32106.74,
+      "sell": 33135.31
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3787.7,
+      "transfer_buy": 3825.96,
+      "sell": 3948.53
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 4006.64,
+      "sell": 4159.89
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29727.25,
+      "transfer_buy": 30027.53,
+      "sell": 31294.81
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34705.55,
+      "transfer_buy": 35056.11,
+      "sell": 36179.17
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3237.68,
+      "transfer_buy": 3270.38,
+      "sell": 3395.47
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.4,
+      "sell": 283.08
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 158.61,
+      "transfer_buy": 160.21,
+      "sell": 169.55
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.3,
+      "transfer_buy": 18.11,
+      "sell": 19.65
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84676.07,
+      "sell": 88781.11
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6404.36,
+      "sell": 6543.75
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2755.13,
+      "sell": 2871.98
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 300.59,
+      "sell": 332.74
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6917.07,
+      "sell": 7214.83
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2703.26,
+      "sell": 2817.91
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20036.31,
+      "transfer_buy": 20238.7,
+      "sell": 20928.89
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 704.91,
+      "transfer_buy": 783.23,
+      "sell": 816.45
+    },
+    {
+      "at": "2026-08-23T00:00:00+07:00",
+      "source_date": "2026-08-23",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25900.0,
+      "transfer_buy": 25930.0,
+      "sell": 26310.0
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18263.22,
+      "transfer_buy": 18447.7,
+      "sell": 19038.64
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18441.12,
+      "transfer_buy": 18627.39,
+      "sell": 19224.09
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31790.99,
+      "transfer_buy": 32112.11,
+      "sell": 33140.76
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3794.11,
+      "transfer_buy": 3832.44,
+      "sell": 3955.2
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 4008.68,
+      "sell": 4161.99
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29743.4,
+      "transfer_buy": 30043.84,
+      "sell": 31311.72
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34751.64,
+      "transfer_buy": 35102.66,
+      "sell": 36227.11
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3245.33,
+      "transfer_buy": 3278.11,
+      "sell": 3403.49
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.76,
+      "sell": 283.46
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 158.68,
+      "transfer_buy": 160.28,
+      "sell": 169.63
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.36,
+      "transfer_buy": 18.18,
+      "sell": 19.72
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84838.28,
+      "sell": 88950.93
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6408.69,
+      "sell": 6548.15
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2750.37,
+      "sell": 2867.0
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 297.37,
+      "sell": 329.18
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6930.14,
+      "sell": 7228.44
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2701.25,
+      "sell": 2815.8
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20057.31,
+      "transfer_buy": 20259.91,
+      "sell": 20950.77
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 706.04,
+      "transfer_buy": 784.49,
+      "sell": 817.76
+    },
+    {
+      "at": "2026-08-24T00:00:00+07:00",
+      "source_date": "2026-08-24",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25950.0,
+      "transfer_buy": 25980.0,
+      "sell": 26360.0
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18182.49,
+      "transfer_buy": 18366.15,
+      "sell": 18954.53
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18367.35,
+      "transfer_buy": 18552.88,
+      "sell": 19147.24
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31667.05,
+      "transfer_buy": 31986.92,
+      "sell": 33011.66
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3786.46,
+      "transfer_buy": 3824.71,
+      "sell": 3947.24
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3997.65,
+      "sell": 4150.55
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29661.08,
+      "transfer_buy": 29960.69,
+      "sell": 31225.14
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34692.82,
+      "transfer_buy": 35043.26,
+      "sell": 36165.91
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3238.34,
+      "transfer_buy": 3271.05,
+      "sell": 3396.17
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.35,
+      "sell": 283.03
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 158.18,
+      "transfer_buy": 159.78,
+      "sell": 169.09
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.3,
+      "transfer_buy": 18.11,
+      "sell": 19.65
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84648.47,
+      "sell": 88752.17
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6390.1,
+      "sell": 6529.19
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2741.37,
+      "sell": 2857.64
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 294.87,
+      "sell": 326.4
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6917.07,
+      "sell": 7214.83
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2688.43,
+      "sell": 2802.45
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20006.36,
+      "transfer_buy": 20208.45,
+      "sell": 20897.61
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 703.19,
+      "transfer_buy": 781.32,
+      "sell": 814.46
+    },
+    {
+      "at": "2026-08-25T00:00:00+07:00",
+      "source_date": "2026-08-25",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25900.0,
+      "transfer_buy": 25930.0,
+      "sell": 26310.0
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18231.5,
+      "transfer_buy": 18415.65,
+      "sell": 19005.63
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18389.5,
+      "transfer_buy": 18575.25,
+      "sell": 19170.34
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31753.67,
+      "transfer_buy": 32074.41,
+      "sell": 33101.97
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3786.64,
+      "transfer_buy": 3824.89,
+      "sell": 3947.43
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 4002.86,
+      "sell": 4155.96
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29700.6,
+      "transfer_buy": 30000.6,
+      "sell": 31266.77
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34720.24,
+      "transfer_buy": 35070.95,
+      "sell": 36194.51
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3236.73,
+      "transfer_buy": 3269.42,
+      "sell": 3394.48
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 272.08,
+      "sell": 283.8
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 158.34,
+      "transfer_buy": 159.94,
+      "sell": 169.26
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.31,
+      "transfer_buy": 18.12,
+      "sell": 19.67
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84616.03,
+      "sell": 88718.22
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6400.32,
+      "sell": 6539.63
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2745.47,
+      "sell": 2861.91
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 297.06,
+      "sell": 328.83
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6914.42,
+      "sell": 7212.07
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2706.57,
+      "sell": 2821.36
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20028.63,
+      "transfer_buy": 20230.94,
+      "sell": 20920.88
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 704.42,
+      "transfer_buy": 782.69,
+      "sell": 815.89
+    },
+    {
+      "at": "2026-08-26T00:00:00+07:00",
+      "source_date": "2026-08-26",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25890.0,
+      "transfer_buy": 25920.0,
+      "sell": 26300.0
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18246.11,
+      "transfer_buy": 18430.41,
+      "sell": 19020.9
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18312.77,
+      "transfer_buy": 18497.75,
+      "sell": 19090.39
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31551.8,
+      "transfer_buy": 31870.5,
+      "sell": 32891.59
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3782.23,
+      "transfer_buy": 3820.44,
+      "sell": 3942.84
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3988.47,
+      "sell": 4141.04
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29592.75,
+      "transfer_buy": 29891.67,
+      "sell": 31153.29
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34504.97,
+      "transfer_buy": 34853.5,
+      "sell": 35970.16
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3233.13,
+      "transfer_buy": 3265.79,
+      "sell": 3390.71
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.38,
+      "sell": 283.06
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 157.92,
+      "transfer_buy": 159.51,
+      "sell": 168.81
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.32,
+      "transfer_buy": 18.14,
+      "sell": 19.68
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84518.74,
+      "sell": 88616.36
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6402.48,
+      "sell": 6541.85
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2731.73,
+      "sell": 2847.59
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 290.28,
+      "sell": 321.33
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6906.47,
+      "sell": 7203.79
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2680.51,
+      "sell": 2794.2
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19970.99,
+      "transfer_buy": 20172.71,
+      "sell": 20860.71
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 699.97,
+      "transfer_buy": 777.75,
+      "sell": 810.74
+    },
+    {
+      "at": "2026-08-27T00:00:00+07:00",
+      "source_date": "2026-08-27",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25860.0,
+      "transfer_buy": 25890.0,
+      "sell": 26270.0
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18270.2,
+      "transfer_buy": 18454.74,
+      "sell": 19060.63
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18330.41,
+      "transfer_buy": 18515.57,
+      "sell": 19123.46
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31602.12,
+      "transfer_buy": 31921.33,
+      "sell": 32969.34
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3779.28,
+      "transfer_buy": 3817.45,
+      "sell": 3942.78
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3984.23,
+      "sell": 4139.81
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29557.34,
+      "transfer_buy": 29855.9,
+      "sell": 31139.91
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34483.57,
+      "transfer_buy": 34831.89,
+      "sell": 35975.46
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.11,
+      "transfer_buy": 3262.74,
+      "sell": 3390.15
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.56,
+      "sell": 283.47
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 157.55,
+      "transfer_buy": 159.14,
+      "sell": 168.55
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.43,
+      "transfer_buy": 18.25,
+      "sell": 19.82
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84453.87,
+      "sell": 88616.36
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6410.29,
+      "sell": 6554.86
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2739.32,
+      "sell": 2857.7
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 289.72,
+      "sell": 320.95
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.72,
+      "sell": 7204.37
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2680.03,
+      "sell": 2795.84
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19969.8,
+      "transfer_buy": 20171.51,
+      "sell": 20875.48
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 697.95,
+      "transfer_buy": 775.5,
+      "sell": 809.01
+    },
+    {
+      "at": "2026-08-28T00:00:00+07:00",
+      "source_date": "2026-08-28",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25850.0,
+      "transfer_buy": 25880.0,
+      "sell": 26260.0
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18270.2,
+      "transfer_buy": 18454.74,
+      "sell": 19060.63
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18330.41,
+      "transfer_buy": 18515.57,
+      "sell": 19123.46
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31602.12,
+      "transfer_buy": 31921.33,
+      "sell": 32969.34
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3779.28,
+      "transfer_buy": 3817.45,
+      "sell": 3942.78
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3984.23,
+      "sell": 4139.81
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29557.34,
+      "transfer_buy": 29855.9,
+      "sell": 31139.91
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34483.57,
+      "transfer_buy": 34831.89,
+      "sell": 35975.46
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.11,
+      "transfer_buy": 3262.74,
+      "sell": 3390.15
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.56,
+      "sell": 283.47
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 157.55,
+      "transfer_buy": 159.14,
+      "sell": 168.55
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.43,
+      "transfer_buy": 18.25,
+      "sell": 19.82
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84453.87,
+      "sell": 88616.36
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6410.29,
+      "sell": 6554.86
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2739.32,
+      "sell": 2857.7
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 289.72,
+      "sell": 320.95
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.72,
+      "sell": 7204.37
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2680.03,
+      "sell": 2795.84
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19969.8,
+      "transfer_buy": 20171.51,
+      "sell": 20875.48
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 697.95,
+      "transfer_buy": 775.5,
+      "sell": 809.01
+    },
+    {
+      "at": "2026-08-29T00:00:00+07:00",
+      "source_date": "2026-08-29",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25850.0,
+      "transfer_buy": 25880.0,
+      "sell": 26260.0
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18270.2,
+      "transfer_buy": 18454.74,
+      "sell": 19060.63
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18330.41,
+      "transfer_buy": 18515.57,
+      "sell": 19123.46
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31602.12,
+      "transfer_buy": 31921.33,
+      "sell": 32969.34
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3779.28,
+      "transfer_buy": 3817.45,
+      "sell": 3942.78
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3984.23,
+      "sell": 4139.81
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29557.34,
+      "transfer_buy": 29855.9,
+      "sell": 31139.91
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34483.57,
+      "transfer_buy": 34831.89,
+      "sell": 35975.46
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.11,
+      "transfer_buy": 3262.74,
+      "sell": 3390.15
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.56,
+      "sell": 283.47
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 157.55,
+      "transfer_buy": 159.14,
+      "sell": 168.55
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.43,
+      "transfer_buy": 18.25,
+      "sell": 19.82
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84453.87,
+      "sell": 88616.36
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6410.29,
+      "sell": 6554.86
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2739.32,
+      "sell": 2857.7
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 289.72,
+      "sell": 320.95
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.72,
+      "sell": 7204.37
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2680.03,
+      "sell": 2795.84
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19969.8,
+      "transfer_buy": 20171.51,
+      "sell": 20875.48
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 697.95,
+      "transfer_buy": 775.5,
+      "sell": 809.01
+    },
+    {
+      "at": "2026-08-30T00:00:00+07:00",
+      "source_date": "2026-08-30",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25850.0,
+      "transfer_buy": 25880.0,
+      "sell": 26260.0
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18270.2,
+      "transfer_buy": 18454.74,
+      "sell": 19060.63
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18330.41,
+      "transfer_buy": 18515.57,
+      "sell": 19123.46
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31602.12,
+      "transfer_buy": 31921.33,
+      "sell": 32969.34
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3779.28,
+      "transfer_buy": 3817.45,
+      "sell": 3942.78
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3984.23,
+      "sell": 4139.81
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29557.34,
+      "transfer_buy": 29855.9,
+      "sell": 31139.91
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34483.57,
+      "transfer_buy": 34831.89,
+      "sell": 35975.46
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.11,
+      "transfer_buy": 3262.74,
+      "sell": 3390.15
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.56,
+      "sell": 283.47
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 157.55,
+      "transfer_buy": 159.14,
+      "sell": 168.55
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.43,
+      "transfer_buy": 18.25,
+      "sell": 19.82
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84453.87,
+      "sell": 88616.36
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6410.29,
+      "sell": 6554.86
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2739.32,
+      "sell": 2857.7
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 289.72,
+      "sell": 320.95
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.72,
+      "sell": 7204.37
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2680.03,
+      "sell": 2795.84
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19969.8,
+      "transfer_buy": 20171.51,
+      "sell": 20875.48
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 697.95,
+      "transfer_buy": 775.5,
+      "sell": 809.01
+    },
+    {
+      "at": "2026-08-31T00:00:00+07:00",
+      "source_date": "2026-08-31",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25850.0,
+      "transfer_buy": 25880.0,
+      "sell": 26260.0
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18270.2,
+      "transfer_buy": 18454.74,
+      "sell": 19060.63
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18330.41,
+      "transfer_buy": 18515.57,
+      "sell": 19123.46
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31602.12,
+      "transfer_buy": 31921.33,
+      "sell": 32969.34
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3779.28,
+      "transfer_buy": 3817.45,
+      "sell": 3942.78
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3984.23,
+      "sell": 4139.81
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29557.34,
+      "transfer_buy": 29855.9,
+      "sell": 31139.91
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34483.57,
+      "transfer_buy": 34831.89,
+      "sell": 35975.46
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.11,
+      "transfer_buy": 3262.74,
+      "sell": 3390.15
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.56,
+      "sell": 283.47
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 157.55,
+      "transfer_buy": 159.14,
+      "sell": 168.55
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.43,
+      "transfer_buy": 18.25,
+      "sell": 19.82
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84453.87,
+      "sell": 88616.36
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6410.29,
+      "sell": 6554.86
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2739.32,
+      "sell": 2857.7
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 289.72,
+      "sell": 320.95
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.72,
+      "sell": 7204.37
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2680.03,
+      "sell": 2795.84
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19969.8,
+      "transfer_buy": 20171.51,
+      "sell": 20875.48
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 697.95,
+      "transfer_buy": 775.5,
+      "sell": 809.01
+    },
+    {
+      "at": "2026-09-01T00:00:00+07:00",
+      "source_date": "2026-09-01",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25850.0,
+      "transfer_buy": 25880.0,
+      "sell": 26260.0
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18270.2,
+      "transfer_buy": 18454.74,
+      "sell": 19060.63
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18330.41,
+      "transfer_buy": 18515.57,
+      "sell": 19123.46
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31602.12,
+      "transfer_buy": 31921.33,
+      "sell": 32969.34
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3779.28,
+      "transfer_buy": 3817.45,
+      "sell": 3942.78
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3984.23,
+      "sell": 4139.81
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29557.34,
+      "transfer_buy": 29855.9,
+      "sell": 31139.91
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34483.57,
+      "transfer_buy": 34831.89,
+      "sell": 35975.46
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.11,
+      "transfer_buy": 3262.74,
+      "sell": 3390.15
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 271.56,
+      "sell": 283.47
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 157.55,
+      "transfer_buy": 159.14,
+      "sell": 168.55
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.43,
+      "transfer_buy": 18.25,
+      "sell": 19.82
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84453.87,
+      "sell": 88616.36
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6410.29,
+      "sell": 6554.86
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2739.32,
+      "sell": 2857.7
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 289.72,
+      "sell": 320.95
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.72,
+      "sell": 7204.37
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2680.03,
+      "sell": 2795.84
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19969.8,
+      "transfer_buy": 20171.51,
+      "sell": 20875.48
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 697.95,
+      "transfer_buy": 775.5,
+      "sell": 809.01
+    },
+    {
+      "at": "2026-09-02T00:00:00+07:00",
+      "source_date": "2026-09-02",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25850.0,
+      "transfer_buy": 25880.0,
+      "sell": 26260.0
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18263.28,
+      "transfer_buy": 18447.76,
+      "sell": 19038.79
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18411.33,
+      "transfer_buy": 18597.3,
+      "sell": 19193.12
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31411.84,
+      "transfer_buy": 31729.13,
+      "sell": 32745.66
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3784.47,
+      "transfer_buy": 3822.7,
+      "sell": 3945.17
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3975.82,
+      "sell": 4127.89
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29494.79,
+      "transfer_buy": 29792.72,
+      "sell": 31050.14
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34304.66,
+      "transfer_buy": 34651.18,
+      "sell": 35761.33
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3233.3,
+      "transfer_buy": 3265.96,
+      "sell": 3390.88
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 274.56,
+      "sell": 286.38
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 161.17,
+      "transfer_buy": 162.8,
+      "sell": 172.29
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.61,
+      "transfer_buy": 18.46,
+      "sell": 20.03
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84496.09,
+      "sell": 88592.56
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6389.87,
+      "sell": 6528.96
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2742.95,
+      "sell": 2859.29
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 285.66,
+      "sell": 316.22
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6908.39,
+      "sell": 7205.78
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2664.21,
+      "sell": 2777.21
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20029.06,
+      "transfer_buy": 20231.37,
+      "sell": 20921.35
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 697.69,
+      "transfer_buy": 775.21,
+      "sell": 808.09
+    },
+    {
+      "at": "2026-09-03T00:00:00+07:00",
+      "source_date": "2026-09-03",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25850.0,
+      "transfer_buy": 25880.0,
+      "sell": 26260.0
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18283.86,
+      "transfer_buy": 18468.55,
+      "sell": 19060.27
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18407.0,
+      "transfer_buy": 18592.93,
+      "sell": 19188.63
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31412.76,
+      "transfer_buy": 31730.06,
+      "sell": 32746.67
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3785.58,
+      "transfer_buy": 3823.82,
+      "sell": 3946.33
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3978.43,
+      "sell": 4130.61
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29514.76,
+      "transfer_buy": 29812.89,
+      "sell": 31071.21
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34355.58,
+      "transfer_buy": 34702.61,
+      "sell": 35814.46
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.32,
+      "transfer_buy": 3262.95,
+      "sell": 3387.77
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 274.26,
+      "sell": 286.07
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 160.9,
+      "transfer_buy": 162.53,
+      "sell": 172.01
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.67,
+      "transfer_buy": 18.52,
+      "sell": 20.1
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84415.06,
+      "sell": 88507.74
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6378.22,
+      "sell": 6517.06
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2746.13,
+      "sell": 2862.6
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 285.84,
+      "sell": 316.41
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.76,
+      "sell": 7198.88
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2674.98,
+      "sell": 2788.44
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20027.22,
+      "transfer_buy": 20229.52,
+      "sell": 20919.47
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 698.51,
+      "transfer_buy": 776.12,
+      "sell": 809.04
+    },
+    {
+      "at": "2026-09-04T00:00:00+07:00",
+      "source_date": "2026-09-04",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25845.0,
+      "transfer_buy": 25875.0,
+      "sell": 26255.0
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18283.86,
+      "transfer_buy": 18468.55,
+      "sell": 19060.27
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18407.0,
+      "transfer_buy": 18592.93,
+      "sell": 19188.63
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31412.76,
+      "transfer_buy": 31730.06,
+      "sell": 32746.67
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3785.58,
+      "transfer_buy": 3823.82,
+      "sell": 3946.33
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3978.43,
+      "sell": 4130.61
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29514.76,
+      "transfer_buy": 29812.89,
+      "sell": 31071.21
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34355.58,
+      "transfer_buy": 34702.61,
+      "sell": 35814.46
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.32,
+      "transfer_buy": 3262.95,
+      "sell": 3387.77
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 274.26,
+      "sell": 286.07
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 160.9,
+      "transfer_buy": 162.53,
+      "sell": 172.01
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.67,
+      "transfer_buy": 18.52,
+      "sell": 20.1
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84415.06,
+      "sell": 88507.74
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6378.22,
+      "sell": 6517.06
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2746.13,
+      "sell": 2862.6
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 285.84,
+      "sell": 316.41
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.76,
+      "sell": 7198.88
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2674.98,
+      "sell": 2788.44
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20027.22,
+      "transfer_buy": 20229.52,
+      "sell": 20919.47
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 698.51,
+      "transfer_buy": 776.12,
+      "sell": 809.04
+    },
+    {
+      "at": "2026-09-05T00:00:00+07:00",
+      "source_date": "2026-09-05",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25845.0,
+      "transfer_buy": 25875.0,
+      "sell": 26255.0
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18283.86,
+      "transfer_buy": 18468.55,
+      "sell": 19060.27
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18407.0,
+      "transfer_buy": 18592.93,
+      "sell": 19188.63
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31412.76,
+      "transfer_buy": 31730.06,
+      "sell": 32746.67
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3785.58,
+      "transfer_buy": 3823.82,
+      "sell": 3946.33
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3978.43,
+      "sell": 4130.61
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29514.76,
+      "transfer_buy": 29812.89,
+      "sell": 31071.21
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34355.58,
+      "transfer_buy": 34702.61,
+      "sell": 35814.46
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3230.32,
+      "transfer_buy": 3262.95,
+      "sell": 3387.77
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 274.26,
+      "sell": 286.07
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 160.9,
+      "transfer_buy": 162.53,
+      "sell": 172.01
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.67,
+      "transfer_buy": 18.52,
+      "sell": 20.1
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84415.06,
+      "sell": 88507.74
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6378.22,
+      "sell": 6517.06
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2746.13,
+      "sell": 2862.6
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 285.84,
+      "sell": 316.41
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6901.76,
+      "sell": 7198.88
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2674.98,
+      "sell": 2788.44
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20027.22,
+      "transfer_buy": 20229.52,
+      "sell": 20919.47
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 698.51,
+      "transfer_buy": 776.12,
+      "sell": 809.04
+    },
+    {
+      "at": "2026-09-06T00:00:00+07:00",
+      "source_date": "2026-09-06",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25845.0,
+      "transfer_buy": 25875.0,
+      "sell": 26255.0
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18297.91,
+      "transfer_buy": 18482.74,
+      "sell": 19074.96
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18345.95,
+      "transfer_buy": 18531.26,
+      "sell": 19125.04
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31346.86,
+      "transfer_buy": 31663.49,
+      "sell": 32678.06
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3778.92,
+      "transfer_buy": 3817.1,
+      "sell": 3939.4
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3971.62,
+      "sell": 4123.55
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29466.3,
+      "transfer_buy": 29763.94,
+      "sell": 31020.28
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34311.43,
+      "transfer_buy": 34658.01,
+      "sell": 35768.53
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3225.11,
+      "transfer_buy": 3257.69,
+      "sell": 3382.31
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 273.85,
+      "sell": 285.64
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 162.62,
+      "transfer_buy": 164.27,
+      "sell": 173.85
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.74,
+      "transfer_buy": 18.61,
+      "sell": 20.19
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84324.14,
+      "sell": 88412.65
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6365.62,
+      "sell": 6504.21
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2748.86,
+      "sell": 2865.46
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 286.29,
+      "sell": 316.92
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6890.02,
+      "sell": 7186.66
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2654.81,
+      "sell": 2767.42
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 20016.31,
+      "transfer_buy": 20218.5,
+      "sell": 20908.13
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 698.36,
+      "transfer_buy": 775.96,
+      "sell": 808.87
+    },
+    {
+      "at": "2026-09-07T00:00:00+07:00",
+      "source_date": "2026-09-07",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25800.0,
+      "transfer_buy": 25830.0,
+      "sell": 26210.0
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18250.07,
+      "transfer_buy": 18434.41,
+      "sell": 19025.15
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18333.22,
+      "transfer_buy": 18518.4,
+      "sell": 19111.83
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31197.88,
+      "transfer_buy": 31513.01,
+      "sell": 32522.85
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3771.83,
+      "transfer_buy": 3809.93,
+      "sell": 3932.02
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3960.9,
+      "sell": 4112.43
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29386.86,
+      "transfer_buy": 29683.7,
+      "sell": 30936.74
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34227.74,
+      "transfer_buy": 34573.47,
+      "sell": 35681.39
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3218.21,
+      "transfer_buy": 3250.72,
+      "sell": 3375.08
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 272.32,
+      "sell": 284.05
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 162.78,
+      "transfer_buy": 164.43,
+      "sell": 174.02
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.72,
+      "transfer_buy": 18.58,
+      "sell": 20.16
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84216.88,
+      "sell": 88300.45
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6333.02,
+      "sell": 6470.92
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2746.8,
+      "sell": 2863.33
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 285.64,
+      "sell": 316.19
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6875.67,
+      "sell": 7171.71
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2647.59,
+      "sell": 2759.9
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19976.24,
+      "transfer_buy": 20178.02,
+      "sell": 20866.33
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 695.75,
+      "transfer_buy": 773.05,
+      "sell": 805.85
+    },
+    {
+      "at": "2026-09-08T00:00:00+07:00",
+      "source_date": "2026-09-08",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25750.0,
+      "transfer_buy": 25780.0,
+      "sell": 26160.0
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18256.36,
+      "transfer_buy": 18440.77,
+      "sell": 19031.79
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18328.9,
+      "transfer_buy": 18514.04,
+      "sell": 19107.41
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31217.61,
+      "transfer_buy": 31532.94,
+      "sell": 32543.56
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3763.56,
+      "transfer_buy": 3801.57,
+      "sell": 3923.41
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3958.95,
+      "sell": 4110.43
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29368.16,
+      "transfer_buy": 29664.81,
+      "sell": 30917.18
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34216.16,
+      "transfer_buy": 34561.78,
+      "sell": 35669.47
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3209.2,
+      "transfer_buy": 3241.62,
+      "sell": 3365.65
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 270.74,
+      "sell": 282.4
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 163.05,
+      "transfer_buy": 164.7,
+      "sell": 174.31
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.77,
+      "transfer_buy": 18.63,
+      "sell": 20.21
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 83989.71,
+      "sell": 88062.62
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6303.51,
+      "sell": 6440.79
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2757.41,
+      "sell": 2874.39
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 287.96,
+      "sell": 318.76
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6858.04,
+      "sell": 7153.35
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2649.32,
+      "sell": 2761.72
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19950.73,
+      "transfer_buy": 20152.25,
+      "sell": 20839.77
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 695.35,
+      "transfer_buy": 772.61,
+      "sell": 805.39
+    },
+    {
+      "at": "2026-09-09T00:00:00+07:00",
+      "source_date": "2026-09-09",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25680.0,
+      "transfer_buy": 25710.0,
+      "sell": 26090.0
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18202.28,
+      "transfer_buy": 18386.14,
+      "sell": 18975.38
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18289.94,
+      "transfer_buy": 18474.69,
+      "sell": 19066.77
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31153.12,
+      "transfer_buy": 31467.8,
+      "sell": 32476.29
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3766.69,
+      "transfer_buy": 3804.74,
+      "sell": 3926.67
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3959.6,
+      "sell": 4111.1
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29378.23,
+      "transfer_buy": 29674.98,
+      "sell": 30927.74
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34199.67,
+      "transfer_buy": 34545.12,
+      "sell": 35652.23
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3212.17,
+      "transfer_buy": 3244.62,
+      "sell": 3368.76
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.98,
+      "sell": 281.61
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 162.76,
+      "transfer_buy": 164.4,
+      "sell": 173.99
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.7,
+      "transfer_buy": 18.55,
+      "sell": 20.13
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84054.61,
+      "sell": 88130.57
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6313.04,
+      "sell": 6450.52
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2753.82,
+      "sell": 2870.65
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 292.75,
+      "sell": 324.06
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6863.52,
+      "sell": 7159.06
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2643.86,
+      "sell": 2756.02
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19942.48,
+      "transfer_buy": 20143.92,
+      "sell": 20831.12
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 694.2,
+      "transfer_buy": 771.33,
+      "sell": 804.05
+    },
+    {
+      "at": "2026-09-10T00:00:00+07:00",
+      "source_date": "2026-09-10",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25700.0,
+      "transfer_buy": 25730.0,
+      "sell": 26110.0
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18101.25,
+      "transfer_buy": 18284.09,
+      "sell": 18870.07
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18247.67,
+      "transfer_buy": 18431.99,
+      "sell": 19022.7
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31015.43,
+      "transfer_buy": 31328.72,
+      "sell": 32332.75
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3766.07,
+      "transfer_buy": 3804.11,
+      "sell": 3926.03
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3948.85,
+      "sell": 4099.94
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29297.41,
+      "transfer_buy": 29593.34,
+      "sell": 30842.66
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34116.32,
+      "transfer_buy": 34460.93,
+      "sell": 35565.35
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3211.89,
+      "transfer_buy": 3244.33,
+      "sell": 3368.46
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.71,
+      "sell": 281.33
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 162.3,
+      "transfer_buy": 163.94,
+      "sell": 173.5
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.69,
+      "transfer_buy": 18.55,
+      "sell": 20.12
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84054.61,
+      "sell": 88130.57
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6306.83,
+      "sell": 6444.18
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2730.4,
+      "sell": 2846.23
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 292.61,
+      "sell": 323.91
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6863.52,
+      "sell": 7159.06
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2621.94,
+      "sell": 2733.17
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19909.44,
+      "transfer_buy": 20110.54,
+      "sell": 20796.61
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 691.88,
+      "transfer_buy": 768.76,
+      "sell": 801.37
+    },
+    {
+      "at": "2026-09-11T00:00:00+07:00",
+      "source_date": "2026-09-11",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25700.0,
+      "transfer_buy": 25730.0,
+      "sell": 26110.0
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18101.25,
+      "transfer_buy": 18284.09,
+      "sell": 18870.07
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18247.67,
+      "transfer_buy": 18431.99,
+      "sell": 19022.7
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31015.43,
+      "transfer_buy": 31328.72,
+      "sell": 32332.75
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3766.07,
+      "transfer_buy": 3804.11,
+      "sell": 3926.03
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3948.85,
+      "sell": 4099.94
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29297.41,
+      "transfer_buy": 29593.34,
+      "sell": 30842.66
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34116.32,
+      "transfer_buy": 34460.93,
+      "sell": 35565.35
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3211.89,
+      "transfer_buy": 3244.33,
+      "sell": 3368.46
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.71,
+      "sell": 281.33
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 162.3,
+      "transfer_buy": 163.94,
+      "sell": 173.5
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.69,
+      "transfer_buy": 18.55,
+      "sell": 20.12
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84054.61,
+      "sell": 88130.57
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6306.83,
+      "sell": 6444.18
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2730.4,
+      "sell": 2846.23
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 292.61,
+      "sell": 323.91
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6863.52,
+      "sell": 7159.06
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2621.94,
+      "sell": 2733.17
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19909.44,
+      "transfer_buy": 20110.54,
+      "sell": 20796.61
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 691.88,
+      "transfer_buy": 768.76,
+      "sell": 801.37
+    },
+    {
+      "at": "2026-09-12T00:00:00+07:00",
+      "source_date": "2026-09-12",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25700.0,
+      "transfer_buy": 25730.0,
+      "sell": 26110.0
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18101.25,
+      "transfer_buy": 18284.09,
+      "sell": 18870.07
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18247.67,
+      "transfer_buy": 18431.99,
+      "sell": 19022.7
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 31015.43,
+      "transfer_buy": 31328.72,
+      "sell": 32332.75
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3766.07,
+      "transfer_buy": 3804.11,
+      "sell": 3926.03
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3948.85,
+      "sell": 4099.94
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29297.41,
+      "transfer_buy": 29593.34,
+      "sell": 30842.66
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34116.32,
+      "transfer_buy": 34460.93,
+      "sell": 35565.35
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3211.89,
+      "transfer_buy": 3244.33,
+      "sell": 3368.46
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.71,
+      "sell": 281.33
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 162.3,
+      "transfer_buy": 163.94,
+      "sell": 173.5
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.69,
+      "transfer_buy": 18.55,
+      "sell": 20.12
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84054.61,
+      "sell": 88130.57
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6306.83,
+      "sell": 6444.18
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2730.4,
+      "sell": 2846.23
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 292.61,
+      "sell": 323.91
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6863.52,
+      "sell": 7159.06
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2621.94,
+      "sell": 2733.17
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19909.44,
+      "transfer_buy": 20110.54,
+      "sell": 20796.61
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 691.88,
+      "transfer_buy": 768.76,
+      "sell": 801.37
+    },
+    {
+      "at": "2026-09-13T00:00:00+07:00",
+      "source_date": "2026-09-13",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25700.0,
+      "transfer_buy": 25730.0,
+      "sell": 26110.0
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18074.2,
+      "transfer_buy": 18256.77,
+      "sell": 18841.79
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18256.1,
+      "transfer_buy": 18440.51,
+      "sell": 19031.42
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 30951.06,
+      "transfer_buy": 31263.69,
+      "sell": 32265.51
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3776.53,
+      "transfer_buy": 3814.68,
+      "sell": 3936.92
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3943.36,
+      "sell": 4094.22
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29257.56,
+      "transfer_buy": 29553.09,
+      "sell": 30800.59
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34170.54,
+      "transfer_buy": 34515.7,
+      "sell": 35621.72
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3220.2,
+      "transfer_buy": 3252.73,
+      "sell": 3377.16
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 270.44,
+      "sell": 282.09
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 162.49,
+      "transfer_buy": 164.13,
+      "sell": 173.7
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.69,
+      "transfer_buy": 18.55,
+      "sell": 20.13
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84226.84,
+      "sell": 88310.79
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6309.91,
+      "sell": 6447.3
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2738.28,
+      "sell": 2854.43
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 294.97,
+      "sell": 326.52
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6880.6,
+      "sell": 7176.85
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2612.78,
+      "sell": 2723.62
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19928.66,
+      "transfer_buy": 20129.96,
+      "sell": 20816.61
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 690.62,
+      "transfer_buy": 767.35,
+      "sell": 799.9
+    },
+    {
+      "at": "2026-09-14T00:00:00+07:00",
+      "source_date": "2026-09-14",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25770.0,
+      "transfer_buy": 25800.0,
+      "sell": 26180.0
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 17996.43,
+      "transfer_buy": 18178.21,
+      "sell": 18760.77
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18189.49,
+      "transfer_buy": 18373.23,
+      "sell": 18962.03
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 30925.48,
+      "transfer_buy": 31237.85,
+      "sell": 32238.94
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3766.46,
+      "transfer_buy": 3804.5,
+      "sell": 3926.42
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3930.24,
+      "sell": 4080.61
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29163.32,
+      "transfer_buy": 29457.9,
+      "sell": 30701.46
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34049.15,
+      "transfer_buy": 34393.08,
+      "sell": 35495.28
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3213.71,
+      "transfer_buy": 3246.17,
+      "sell": 3370.37
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 268.94,
+      "sell": 280.52
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 161.66,
+      "transfer_buy": 163.29,
+      "sell": 172.82
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.5,
+      "transfer_buy": 18.34,
+      "sell": 19.89
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84009.92,
+      "sell": 88083.6
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6290.81,
+      "sell": 6427.8
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2718.27,
+      "sell": 2833.59
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 292.34,
+      "sell": 323.62
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6866.26,
+      "sell": 7161.91
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2598.66,
+      "sell": 2708.9
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19854.33,
+      "transfer_buy": 20054.88,
+      "sell": 20739.03
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 687.63,
+      "transfer_buy": 764.03,
+      "sell": 796.45
+    },
+    {
+      "at": "2026-09-15T00:00:00+07:00",
+      "source_date": "2026-09-15",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25720.0,
+      "transfer_buy": 25750.0,
+      "sell": 26130.0
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18064.07,
+      "transfer_buy": 18246.53,
+      "sell": 18831.23
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18181.41,
+      "transfer_buy": 18365.06,
+      "sell": 18953.55
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 30951.06,
+      "transfer_buy": 31263.69,
+      "sell": 32265.51
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3777.49,
+      "transfer_buy": 3815.65,
+      "sell": 3937.92
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3943.67,
+      "sell": 4094.54
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29262.63,
+      "transfer_buy": 29558.21,
+      "sell": 30805.92
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 34142.69,
+      "transfer_buy": 34487.56,
+      "sell": 35592.68
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3219.87,
+      "transfer_buy": 3252.39,
+      "sell": 3376.82
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.34,
+      "sell": 280.94
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 161.91,
+      "transfer_buy": 163.55,
+      "sell": 173.09
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.46,
+      "transfer_buy": 18.29,
+      "sell": 19.85
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84171.97,
+      "sell": 88253.26
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6298.32,
+      "sell": 6435.45
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2726.26,
+      "sell": 2841.9
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 294.01,
+      "sell": 325.46
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6880.42,
+      "sell": 7176.66
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2606.28,
+      "sell": 2716.84
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19894.19,
+      "transfer_buy": 20095.14,
+      "sell": 20780.6
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 689.79,
+      "transfer_buy": 766.43,
+      "sell": 798.94
+    },
+    {
+      "at": "2026-09-16T00:00:00+07:00",
+      "source_date": "2026-09-16",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25770.0,
+      "transfer_buy": 25800.0,
+      "sell": 26180.0
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18035.83,
+      "transfer_buy": 18218.01,
+      "sell": 18801.76
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18128.65,
+      "transfer_buy": 18311.77,
+      "sell": 18898.52
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 30718.11,
+      "transfer_buy": 31028.4,
+      "sell": 32022.62
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3780.39,
+      "transfer_buy": 3818.58,
+      "sell": 3940.94
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3920.38,
+      "sell": 4070.35
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29090.54,
+      "transfer_buy": 29384.38,
+      "sell": 30624.71
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 33957.55,
+      "transfer_buy": 34300.56,
+      "sell": 35399.63
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3222.6,
+      "transfer_buy": 3255.15,
+      "sell": 3379.68
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.64,
+      "sell": 281.25
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 161.31,
+      "transfer_buy": 162.94,
+      "sell": 172.44
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.25,
+      "transfer_buy": 18.05,
+      "sell": 19.59
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84170.75,
+      "sell": 88251.84
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6282.07,
+      "sell": 6418.84
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2706.11,
+      "sell": 2820.89
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 293.37,
+      "sell": 324.75
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6885.76,
+      "sell": 7182.22
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2596.33,
+      "sell": 2706.46
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19855.59,
+      "transfer_buy": 20056.15,
+      "sell": 20740.25
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 687.76,
+      "transfer_buy": 764.18,
+      "sell": 796.59
+    },
+    {
+      "at": "2026-09-17T00:00:00+07:00",
+      "source_date": "2026-09-17",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25795.0,
+      "transfer_buy": 25825.0,
+      "sell": 26205.0
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18067.19,
+      "transfer_buy": 18249.69,
+      "sell": 18834.45
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18117.89,
+      "transfer_buy": 18300.9,
+      "sell": 18887.3
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 30753.83,
+      "transfer_buy": 31064.47,
+      "sell": 32059.85
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3786.37,
+      "transfer_buy": 3824.62,
+      "sell": 3947.17
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3924.2,
+      "sell": 4074.32
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29118.95,
+      "transfer_buy": 29413.09,
+      "sell": 30654.61
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 33885.49,
+      "transfer_buy": 34227.77,
+      "sell": 35324.5
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3223.1,
+      "transfer_buy": 3255.65,
+      "sell": 3380.2
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.9,
+      "sell": 281.52
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 158.98,
+      "transfer_buy": 160.58,
+      "sell": 169.95
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.23,
+      "transfer_buy": 18.03,
+      "sell": 19.57
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84186.94,
+      "sell": 88268.79
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6309.45,
+      "sell": 6446.82
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2706.4,
+      "sell": 2821.2
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 294.35,
+      "sell": 325.84
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6887.09,
+      "sell": 7183.59
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2596.69,
+      "sell": 2706.84
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19836.08,
+      "transfer_buy": 20036.45,
+      "sell": 20719.87
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 688.51,
+      "transfer_buy": 765.01,
+      "sell": 797.46
+    },
+    {
+      "at": "2026-09-18T00:00:00+07:00",
+      "source_date": "2026-09-18",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25800.0,
+      "transfer_buy": 25830.0,
+      "sell": 26210.0
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18067.19,
+      "transfer_buy": 18249.69,
+      "sell": 18834.45
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18117.89,
+      "transfer_buy": 18300.9,
+      "sell": 18887.3
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 30753.83,
+      "transfer_buy": 31064.47,
+      "sell": 32059.85
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3786.37,
+      "transfer_buy": 3824.62,
+      "sell": 3947.17
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3924.2,
+      "sell": 4074.32
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29118.95,
+      "transfer_buy": 29413.09,
+      "sell": 30654.61
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 33885.49,
+      "transfer_buy": 34227.77,
+      "sell": 35324.5
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3223.1,
+      "transfer_buy": 3255.65,
+      "sell": 3380.2
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.9,
+      "sell": 281.52
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 158.98,
+      "transfer_buy": 160.58,
+      "sell": 169.95
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.23,
+      "transfer_buy": 18.03,
+      "sell": 19.57
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84186.94,
+      "sell": 88268.79
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6309.45,
+      "sell": 6446.82
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2706.4,
+      "sell": 2821.2
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 294.35,
+      "sell": 325.84
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6887.09,
+      "sell": 7183.59
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2596.69,
+      "sell": 2706.84
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19836.08,
+      "transfer_buy": 20036.45,
+      "sell": 20719.87
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 688.51,
+      "transfer_buy": 765.01,
+      "sell": 797.46
+    },
+    {
+      "at": "2026-09-19T00:00:00+07:00",
+      "source_date": "2026-09-19",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25800.0,
+      "transfer_buy": 25830.0,
+      "sell": 26210.0
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "AUD",
+      "cash_buy": 18067.19,
+      "transfer_buy": 18249.69,
+      "sell": 18834.45
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "CAD",
+      "cash_buy": 18117.89,
+      "transfer_buy": 18300.9,
+      "sell": 18887.3
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "CHF",
+      "cash_buy": 30753.83,
+      "transfer_buy": 31064.47,
+      "sell": 32059.85
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "CNY",
+      "cash_buy": 3786.37,
+      "transfer_buy": 3824.62,
+      "sell": 3947.17
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3924.2,
+      "sell": 4074.32
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "EUR",
+      "cash_buy": 29118.95,
+      "transfer_buy": 29413.09,
+      "sell": 30654.61
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "GBP",
+      "cash_buy": 33885.49,
+      "transfer_buy": 34227.77,
+      "sell": 35324.5
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "HKD",
+      "cash_buy": 3223.1,
+      "transfer_buy": 3255.65,
+      "sell": 3380.2
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.9,
+      "sell": 281.52
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "JPY",
+      "cash_buy": 158.98,
+      "transfer_buy": 160.58,
+      "sell": 169.95
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "KRW",
+      "cash_buy": 16.23,
+      "transfer_buy": 18.03,
+      "sell": 19.57
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84186.94,
+      "sell": 88268.79
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6309.45,
+      "sell": 6446.82
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "NAN",
+      "cash_buy": NaN,
+      "transfer_buy": NaN,
+      "sell": NaN
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2706.4,
+      "sell": 2821.2
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 294.35,
+      "sell": 325.84
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6887.09,
+      "sell": 7183.59
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2596.69,
+      "sell": 2706.84
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "SGD",
+      "cash_buy": 19836.08,
+      "transfer_buy": 20036.45,
+      "sell": 20719.87
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "THB",
+      "cash_buy": 688.51,
+      "transfer_buy": 765.01,
+      "sell": 797.46
+    },
+    {
+      "at": "2026-09-20T00:00:00+07:00",
+      "source_date": "2026-09-20",
+      "granularity": "daily",
+      "currency": "USD",
+      "cash_buy": 25800.0,
+      "transfer_buy": 25830.0,
+      "sell": 26210.0
+    },
     {
       "at": "2026-09-21T09:29:11+07:00",
       "currency": "AUD",
@@ -283,5 +5953,14 @@
       "transfer_buy": 25820,
       "sell": 26200
     }
-  ]
+  ],
+  "source_endpoint": "https://www.vietcombank.com.vn/api/exchangerates/exportexcel",
+  "backfill": {
+    "start_date": "2026-08-22",
+    "end_date": "2026-09-20",
+    "calendar_days": 30,
+    "published_days": 30,
+    "method": "official_vietcombank_excel_export",
+    "date_anchor": "00:00 Asia/Ho_Chi_Minh for date-only historical records"
+  }
 }
