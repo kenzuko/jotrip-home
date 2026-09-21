@@ -21,6 +21,10 @@ jobs:
         run: node scripts/validate-data.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test Vietcombank currency parser
+        run: node scripts/test-currency.mjs
+      - name: Build Cloudflare assets
+        run: npm run build
       - name: Check JavaScript syntax
         run: |
           node --check app.js
