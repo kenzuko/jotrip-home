@@ -1,0 +1,39 @@
+name: Open Phu Quoc Currency AutoSync
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["feat/currency-utility-v1"]
+    paths:
+      - ".github/workflows/currency-autosync.yml"
+      - "tools/currency-sync/**"
+      - "workers/currency/src/index.js"
+  schedule:
+    - cron: "*/15 * * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Sync Vietcombank exchange rates
+        run: node tools/currency-sync/collect.mjs
+      - name: Commit currency snapshot
+        run: |
+          if git diff --quiet -- data/currency-snapshot.json data/currency-history.json; then
+            echo "No currency changes"
+            exit 0
+          fi
+          git config user.name "openphuquoc-autosync"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/currency-snapshot.json data/currency-history.json
+          git commit -m "data: sync Vietcombank exchange rates"
+          git push origin HEAD:${{ github.ref_name }}
