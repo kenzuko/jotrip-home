@@ -9,7 +9,7 @@
   },
   "routes": [
     {
-      "pattern": "openphuquoc.com",
+      "pattern": "cms.openphuquoc.com",
       "custom_domain": true
     }
   ]

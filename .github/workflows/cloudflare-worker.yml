@@ -68,7 +68,7 @@ jobs:
       - name: Verify deployed Worker version
         if: env.CLOUDFLARE_READY == 'true'
         run: |
-          url="https://openphuquoc.com/build.json?t=$GITHUB_SHA"
+          url="https://cms.openphuquoc.com/build.json?t=$GITHUB_SHA"
           for i in {1..20}; do
             body="$(curl -fsS "$url" || true)"
             echo "$body"
@@ -90,7 +90,7 @@ jobs:
       - name: Smoke test production homepage
         if: env.CLOUDFLARE_READY == 'true'
         env:
-          VISUAL_QA_BASE_URL: https://openphuquoc.com
+          VISUAL_QA_BASE_URL: https://cms.openphuquoc.com
           VISUAL_QA_SCOPE: home
           VISUAL_QA_OUTPUT: production-smoke-results
         run: node scripts/visual-qa.mjs
@@ -99,7 +99,7 @@ jobs:
         if: always() && env.CLOUDFLARE_READY == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: openpq-openphuquoc-production-smoke-${{ github.run_number }}
+          name: openpq-cms-production-smoke-${{ github.run_number }}
           path: production-smoke-results/
           retention-days: 7
           if-no-files-found: warn
