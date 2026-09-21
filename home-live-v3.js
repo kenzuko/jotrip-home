@@ -319,8 +319,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
       } else if (now.minutes < 17 * 60) {
         push({
           tone:"default",
-          title:"Chiều nay vẫn còn kịp thêm một điểm.",
-          note:"Đừng cố chạy nhiều nơi. Chọn một điểm chính rồi chừa thời gian cho cuối chiều.",
+          title:"Chiều nay chỉ nên chọn thêm một điểm vừa sức.",
+          note:"Chọn một điểm hợp giờ này rồi chừa thời gian cho cuối chiều, đừng chạy vòng cả đảo.",
           primaryText:"Chọn nơi đi →", primaryHref:"explore/",
           secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
         });
@@ -348,7 +348,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         });
       }
 
-      if (now.minutes < 19 * 60 + 30) {
+      if (now.minutes < 20 * 60) {
         push({
           tone:"default",
           title:"Tối nay vẫn còn nhiều lựa chọn.",
@@ -356,11 +356,19 @@ function freshnessText(iso, prefix = "Cập nhật") {
           primaryText:"Xem tối nay →", primaryHref:"#happening",
           secondaryText:"Bây giờ ăn gì?", secondaryHref:"#food-now"
         });
+      } else if (now.minutes < 21 * 60) {
+        push({
+          tone:"default",
+          title:"Tối nay vẫn còn chỗ để đi.",
+          note:"Chợ đêm, đi bộ và một số show vẫn còn theo giờ. Xem danh sách trước khi chạy tới.",
+          primaryText:"Xem tối nay →", primaryHref:"#happening",
+          secondaryText:"Bây giờ ăn gì?", secondaryHref:"#food-now"
+        });
       } else {
         push({
           tone:"default",
-          title:"Muộn rồi thì ưu tiên ăn uống và đi bộ.",
-          note:"Giữ lịch nhẹ sẽ dễ chịu hơn là cố thêm một điểm xa.",
+          title:"Giờ này hợp ăn uống và đi bộ hơn.",
+          note:"Muốn xem show thì kiểm tra giờ trước khi chạy tới; nhiều show tối đã vào giờ.",
           primaryText:"Tìm món ăn →", primaryHref:"#food-now",
           secondaryText:"Khám phá gần đây", secondaryHref:"nearme/"
         });
@@ -466,19 +474,19 @@ function freshnessText(iso, prefix = "Cập nhật") {
       wxNote = weatherSecondary;
       if (criticalAge > 90) {
         wxTitle = "Chưa xem được thời tiết mới nhất";
-        wxBadge = "CẦN CẬP NHẬT";
+        wxBadge = "TIN ĐÃ CŨ";
       } else if (hasHighConvective) {
         wxTitle = "Dông mạnh có thể phát triển nhanh";
         wxBadge = "THEO DÕI";
       } else if (hasElevatedConvective) {
-        wxTitle = "Mây dông đang tăng";
+        wxTitle = "Mây dông đang dày lên";
         wxBadge = "LƯU Ý";
       } else if (observedRain) {
         wxTitle = "Một số điểm trên đảo đang có mưa";
-        wxBadge = "ĐO THỰC";
+        wxBadge = "ĐANG MƯA";
       } else {
         wxTitle = "Chưa thấy dấu hiệu thời tiết đáng lo lúc này";
-        wxBadge = "CẬP NHẬT";
+        wxBadge = "ỔN LÚC NÀY";
         wxGood = weatherState === "good";
       }
     }
@@ -542,7 +550,18 @@ function freshnessText(iso, prefix = "Cập nhật") {
       airportLoaded ? freshnessText(airportStamp) : "Chưa có tin mới"
     );
 
-    setLive("tonight", "Còn nhiều lựa chọn", "Chợ đêm · show · đi dạo", "info", "Theo giờ Phú Quốc");
+    const tonightMinute = vnClockParts().minutes;
+    let tonightPrimary = "Còn nhiều lựa chọn";
+    let tonightContext = "Show theo giờ · chợ đêm · đi dạo";
+    if (tonightMinute >= 21 * 60) {
+      tonightPrimary = "Giờ này hợp đi nhẹ hơn";
+      tonightContext = "Chợ đêm · ăn uống · đi dạo";
+    }
+    if (tonightMinute >= 23 * 60) {
+      tonightPrimary = "Muộn rồi, nên chọn chỗ gần";
+      tonightContext = "Xem giờ mở cửa trước khi đi";
+    }
+    setLive("tonight", tonightPrimary, tonightContext, "info", "Theo giờ Phú Quốc");
 
     const quickAlerts = [];
     const weatherFreshForAlert = !!critical && criticalAge <= 90;
@@ -621,7 +640,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
       ["THỜI TIẾT", critical ? weatherPrimary + " · " + (criticalAge > 90 ? "cần cập nhật" : weatherSource) : "chưa có thông tin mới"],
       ["BIỂN NAM ĐẢO", seaHs != null ? fmt(seaHs) + " m" : "chưa có thông tin mới"],
       ["CANO", marine ? stateText(canoState) : "chưa có cập nhật mới"],
-      ["SÂN BAY", !airportAvailable ? "chưa có cập nhật đủ mới" : delayed.length ? delayed.length + " chuyến cần xem" : "chưa thấy bất thường"],
+      ["SÂN BAY", !airportAvailable ? "chưa có tin mới lúc này" : delayed.length ? delayed.length + " chuyến cần xem" : "chưa thấy chuyến trễ đáng kể"],
       ["HOÀNG HÔN", sunset]
     );
     renderTicker(tickerItems, topAlert?.level || "normal");
@@ -699,7 +718,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         ferry: {
           label: "Tàu & Phà",
           primary: marine ? stateText(ferryState) : "Chưa có thông tin mới",
-          context: !marine ? "Chưa lấy được cập nhật hôm nay" : "Tình trạng phà được kiểm tra riêng",
+          context: !marine ? "Hôm nay chưa có tin mới" : "Phà hôm nay xem riêng từng chuyến",
           status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
@@ -725,7 +744,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         },
         airport: {
           label: "Sân bay",
-          primary: !airportAvailable ? "Chưa có cập nhật đủ mới" : delayed.length ? delayed.length + " chuyến cần xem" : "Chưa thấy bất thường",
+          primary: !airportAvailable ? "Chưa có tin mới lúc này" : delayed.length ? delayed.length + " chuyến cần xem" : "Chưa thấy chuyến trễ đáng kể",
           context: airportAvailable ? total + " chuyến hôm nay" : airportLoaded ? "Chưa có tin mới" : "Chưa xem được sân bay lúc này",
           status: !airportAvailable ? "unknown" : delayed.length ? "watch" : "normal",
           source_class: "LIVE_OPERATIONAL",
