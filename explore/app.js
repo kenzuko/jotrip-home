@@ -96,7 +96,7 @@
         weight:active?2.5:1.5,
         color:active?"#ff704f":"#28766f",
         fillColor:active?"#ffd35c":"#54d4cb",
-        fillOpacity:active?.18:.10
+        fillOpacity:active ? .18 : .10
       });
     });
     if(state.zone==="all"){
