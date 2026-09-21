@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-21T17:40:00+07:00",
+  "generated_at": "2026-09-21T17:50:00+07:00",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -5706,6 +5706,69 @@
       "related_entities": [],
       "route": "/news/",
       "search_text": "tin cap nhat phu quoc co gi moi thay doi show su kien dich vu dang dien ra"
+    },
+    {
+      "id": "utility_longchau_suoi_da",
+      "type": "utility",
+      "title": "Nhà thuốc Long Châu - Suối Đá",
+      "aliases": [
+        "Long Châu Suối Đá",
+        "nhà thuốc Dương Tơ",
+        "Ngã Ba Chợ Loan Sang"
+      ],
+      "zone_id": null,
+      "intents": [
+        "pharmacy",
+        "health",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/nearme/?category=PHARMACY",
+      "search_text": "nha thuoc long chau suoi da duong to nga ba cho loan sang phu quoc 18006928"
+    },
+    {
+      "id": "utility_vcb_atm_nguyen_trung_truc",
+      "type": "utility",
+      "title": "Vietcombank PGD Dương Đông - ATM",
+      "aliases": [
+        "Vietcombank 193 Nguyễn Trung Trực",
+        "ATM Vietcombank Dương Đông"
+      ],
+      "zone_id": "zone_central_west",
+      "intents": [
+        "atm",
+        "bank",
+        "cash",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/nearme/?category=ATM",
+      "search_text": "vietcombank pgd duong dong atm 193 nguyen trung truc phu quoc"
+    },
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "type": "utility",
+      "title": "Vietcombank PGD An Thới - ATM",
+      "aliases": [
+        "Vietcombank 199 Nguyễn Văn Cừ",
+        "ATM Vietcombank An Thới"
+      ],
+      "zone_id": "zone_south",
+      "intents": [
+        "atm",
+        "bank",
+        "cash",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/nearme/?category=ATM",
+      "search_text": "vietcombank pgd an thoi atm 199 nguyen van cu phu quoc"
     }
   ]
 }
