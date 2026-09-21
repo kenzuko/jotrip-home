@@ -6,7 +6,7 @@ on:
     branches: ["feat/currency-utility-v1"]
     paths:
       - ".github/workflows/currency-autosync.yml"
-      - "tools/currency-sync/**"
+      - "tools/currency-sync/collect.mjs"
       - "workers/currency/src/index.js"
   schedule:
     - cron: "*/15 * * * *"
