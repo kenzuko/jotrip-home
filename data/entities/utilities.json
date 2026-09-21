@@ -818,6 +818,86 @@
         }
       ],
       "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_taxi_mailinh",
+      "legacy_id": "taxi-mailinh",
+      "entity_type": "utility",
+      "slug": "taxi-mailinh",
+      "name": "Taxi Mai Linh",
+      "aliases": [
+        "Mai Linh",
+        "Taxi 1055"
+      ],
+      "zone_id": null,
+      "group": "Taxi & xe",
+      "utility_type": "TAXI_TRANSPORT",
+      "phone": "1055",
+      "what_it_is": "Tổng đài đặt taxi Mai Linh",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "mailinh_taxi_hotline_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_taxi_xanhsm",
+      "legacy_id": "taxi-xanh-sm",
+      "entity_type": "utility",
+      "slug": "taxi-xanh-sm",
+      "name": "Xanh SM",
+      "aliases": [
+        "Xanh SM Taxi",
+        "GSM"
+      ],
+      "zone_id": null,
+      "group": "Taxi & xe",
+      "utility_type": "TAXI_TRANSPORT",
+      "phone": "1900 27 27 27",
+      "what_it_is": "Tổng đài và ứng dụng đặt xe Xanh SM",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "xanhsm_phuquoc_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_jotrip_local_service",
+      "legacy_id": "jotrip-local-service",
+      "entity_type": "utility",
+      "slug": "jotrip-local-service",
+      "name": "JoTrip - dịch vụ trọn gói tại Phú Quốc",
+      "aliases": [
+        "JoTrip",
+        "xe riêng Phú Quốc",
+        "tour trọn gói Phú Quốc"
+      ],
+      "zone_id": null,
+      "group": "Dịch vụ địa phương",
+      "utility_type": "LOCAL_TRAVEL_SERVICE",
+      "phone": "+84 817 060 067",
+      "what_it_is": "Xe riêng, đón tiễn, tour, vé và hỗ trợ lịch trình tại Phú Quốc",
+      "live_check_required": false,
+      "verified": true,
+      "related_entities": [],
+      "contact": {
+        "whatsapp": "https://wa.me/84817060067",
+        "zalo": "https://zalo.me/0817060067"
+      },
+      "source_refs": [
+        {
+          "source_id": "jotrip_local_service_current"
+        }
+      ],
+      "updated_at": "2026-09-21"
     }
   ]
 }
