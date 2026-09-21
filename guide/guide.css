@@ -161,3 +161,6 @@
   .guide-map-layer .south{left:45%}
   .guide-hotel-groups{grid-template-columns:1fr}
 }
+
+.zone-card>div>span,.g-head>div>p,.quick-head p,.smart-intro>p{ text-transform:uppercase }
+.stay-card>span,.stay-card p,.stay-card small{ text-transform:none }
