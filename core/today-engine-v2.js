@@ -25,9 +25,9 @@
 
     const wx=live.weather||{};
     if(wx.freshness==="stale" || wx.status==="unknown"){
-      out.push(item("weather-stale","WEATHER","Thời tiết cần kiểm tra lại","Dữ liệu hiện tại không đủ mới để dùng như trạng thái trực tiếp.","unknown","/weather/",{freshness:wx.freshness||"unknown"}));
+      out.push(item("weather-stale","WEATHER","Thời tiết chưa có cập nhật mới","Mở Thời tiết & Biển để xem lần cập nhật gần nhất.","unknown","/weather/",{freshness:wx.freshness||"unknown"}));
     }else if(wx.status==="watch"){
-      out.push(item("weather-watch","WEATHER","Thời tiết cần theo dõi","Dữ liệu hiện tại cho thấy thời tiết cần chú ý trước khi chọn hoạt động ngoài trời.","watch","/weather/",{convective_levels:signals.convective_levels||[]}));
+      out.push(item("weather-watch","WEATHER","Thời tiết cần theo dõi","Thời tiết có dấu hiệu cần chú ý trước khi chọn hoạt động ngoài trời.","watch","/weather/",{convective_levels:signals.convective_levels||[]}));
     }else if(wx.status==="advisory"){
       out.push(item("weather-rain","WEATHER","Có mưa được ghi nhận","Giữ lịch linh hoạt và xem chi tiết khu vực trước khi di chuyển.","advisory","/weather/",{}));
     }else{
@@ -38,19 +38,19 @@
     const marine=live.marine||{};
     const transport=live.transport||{};
     const transportStatus=transport.status||((ferry.status==="unknown"&&marine.status==="unknown")?"unknown":(ferry.status==="watch"||marine.status==="watch")?"watch":"normal");
-    const stateLabel=value=>({DIRECT_CONFIRMED:"Đã xác nhận",FIELD_REQUIRED:"Cần xác nhận",RUNNING:"Đang hoạt động",SUSPENDED:"Tạm dừng",UNKNOWN:"Chưa rõ"})[value]||"Chưa rõ";
+    const stateLabel=value=>({DIRECT_CONFIRMED:"Chạy bình thường",FIELD_REQUIRED:"Chưa rõ hôm nay",RUNNING:"Chạy bình thường",SUSPENDED:"Tạm dừng",UNKNOWN:"Chưa rõ"})[value]||"Chưa rõ";
     const transportSummary="Cano: "+stateLabel(signals.cano_state)+" · Tàu cao tốc: "+stateLabel(signals.fast_boat_state)+" · Phà: "+stateLabel(signals.ferry_state);
     if(transportStatus==="unknown"){
-      out.push(item("marine-unknown","TRANSPORT","Vận hành biển chưa đủ dữ liệu","Cano, tàu cao tốc và phà cần được kiểm tra trực tiếp trước khi đi.","unknown","/ferry/",{}));
+      out.push(item("marine-unknown","TRANSPORT","Cano, tàu và phà chưa có cập nhật mới","Mở Tàu & Phà để xem thông tin hôm nay.","unknown","/ferry/",{}));
     }else if(transportStatus==="watch"){
-      out.push(item("marine-watch","TRANSPORT","Có nhóm vận hành biển cần kiểm tra",transportSummary,"watch","/ferry/",{}));
+      out.push(item("marine-watch","TRANSPORT","Có dịch vụ biển cần xem lại",transportSummary,"watch","/ferry/",{}));
     }else{
-      out.push(item("marine-status","TRANSPORT","Đã có xác nhận riêng cho từng nhóm",transportSummary,"normal","/ferry/",{}));
+      out.push(item("marine-status","TRANSPORT","Hôm nay chưa thấy gián đoạn lớn",transportSummary,"normal","/ferry/",{}));
     }
 
     const airport=live.airport||{};
     if(airport.status==="unknown"){
-      out.push(item("airport-unknown","AIRPORT","Sân bay chưa có dữ liệu cập nhật","Không dùng trạng thái thiếu dữ liệu để kết luận chuyến bay đang bình thường.","unknown","/airport/",{}));
+      out.push(item("airport-unknown","AIRPORT","Sân bay chưa có cập nhật mới","Mở Sân bay để xem các chuyến hôm nay.","unknown","/airport/",{}));
     }else if(airport.status==="watch"){
       out.push(item("airport-watch","AIRPORT",airport.primary||"Có chuyến bay cần theo dõi",(signals.airport_total==null?"-":signals.airport_total)+" chuyến trong bảng hiện tại.","watch","/airport/",{}));
     }else{
