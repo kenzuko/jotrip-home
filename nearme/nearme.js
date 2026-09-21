@@ -91,7 +91,10 @@
     return support?.near_me?.manual_areas?.find(x=>x.id===selectedArea)?.label||"Toàn đảo";
   }
   function renderControls(){
-    const areas=support?.near_me?.manual_areas||[],cats=support?.near_me?.categories||[];
+    const areas=support?.near_me?.manual_areas||[];
+    const availableTypes=new Set(mergedItems().map(x=>x.utility_type).filter(Boolean));
+    const cats=(support?.near_me?.categories||[]).filter(x=>availableTypes.has(x.id));
+    if(selectedCategory&&!availableTypes.has(selectedCategory))selectedCategory=null;
     $("#areaRow").innerHTML=areas.map(x=>'<button type="button" data-area="'+esc(x.id)+'" class="'+(x.id===selectedArea?"active":"")+'">'+esc(x.label)+'</button>').join("");
     $("#categoryRow").innerHTML='<button type="button" data-category="" class="'+(!selectedCategory?"active":"")+'">Tất cả</button>'+cats.map(x=>'<button type="button" data-category="'+esc(x.id)+'" class="'+(x.id===selectedCategory?"active":"")+'">'+esc(x.label)+'</button>').join("");
   }
@@ -120,7 +123,8 @@
         }
       }
     }else if(selectedArea!=="all"){
-      rows=rows.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea);
+      rows=rows.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea)
+        .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
     }else{
       rows.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
     }
