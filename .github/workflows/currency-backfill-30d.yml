@@ -1,4 +1,5 @@
 name: Open Phu Quoc Currency 30D Backfill
+# Backfill parser v2 - excludes blank Excel currency rows
 
 concurrency:
   group: currency-data-${{ github.ref }}
