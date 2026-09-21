@@ -109,6 +109,14 @@ function fareCell(r,compact=false){
   const note=f.note||`Người lớn${f.checked?` · kiểm tra ${f.checked}`:""}`;
   return compact?money(f.adult):`<span class="fare-main">${money(f.adult)}</span><small class="fare-note">${esc(note)}</small>`
 }
+function cargoNote(r){
+  const svc=r.vehicle_cargo||r.vehicleCargo||null;
+  if(!svc)return "";
+  const bits=[];
+  if(svc.contact_required)bits.push("Cần liên hệ trước");
+  if(svc.contact_note)bits.push(svc.contact_note);
+  return bits.join(" · ");
+}
 function vehicleCell(r,compact=false){
   if(r.type==="bus")return"-";if(r.mode!=="FERRY")return"Không áp dụng";
   const f=fareFor(r);return f.vehicle?f.vehicle:"Kiểm tra hãng";
@@ -140,7 +148,7 @@ function render(){fillFilters();renderSummary();renderHealth();renderSources();r
 function openTicket(r){
   const av=availability(r),source=BOOKING[r.operator]||r.source_url||"#",checked=new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ});
   const label=av?.label||"Chưa xác định",tone=av?.tone||"neutral";
-  $("#ticketContent").innerHTML=`<div class="ticket-kicker">KIỂM TRA VÉ · ${esc(r.operator||"")}</div><h2>${hhmm(r.departure_time)}</h2><div class="ticket-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")} · ${esc(r.vessel_or_service||"")}</div><div class="ticket-result"><span class="status-chip ${tone}">${esc(label)}</span><strong>${av?"Trạng thái từ nguồn hiện có":"Kiểm tra trực tiếp tại hãng"}</strong><p>${av?"Chỉ hiển thị trạng thái tổng hợp, không hiển thị số ghế cụ thể.":"Snapshot chưa có inventory theo chuyến. Open Phu Quoc không tự đoán còn bao nhiêu vé."}</p></div><div class="ticket-actions"><a href="${esc(source)}" target="_blank" rel="noopener">Mở hệ thống hãng ↗</a><button id="ticketDone">Đóng</button></div><div class="ticket-meta">Kiểm tra lúc ${checked} · ${dayLabel(state.date)}</div>`;
+  $("#ticketContent").innerHTML=`<div class="ticket-kicker">KIỂM TRA VÉ · ${esc(r.operator||"")}</div><h2>${hhmm(r.departure_time)}</h2><div class="ticket-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")} · ${esc(r.vessel_or_service||"")}</div><div class="ticket-result"><span class="status-chip ${tone}">${esc(label)}</span><strong>${av?"Trạng thái hiện có":"Kiểm tra trực tiếp với hãng"}</strong><p>${av?"Chỉ hiển thị trạng thái tổng hợp, không hiển thị số ghế cụ thể.":"Chưa có trạng thái vé đủ mới để kết luận. Open Phu Quoc không tự đoán còn bao nhiêu vé."}</p>${r.vehicle_cargo?`<p><b>Xe / hàng:</b> ${esc(vehicleCell(r,true))}${cargoNote(r)?` · ${esc(cargoNote(r))}`:""}</p>`:""}</div><div class="ticket-actions"><a href="${esc(source)}" target="_blank" rel="noopener">Liên hệ / kiểm tra ↗</a><button id="ticketDone">Đóng</button></div><div class="ticket-meta">Kiểm tra lúc ${checked} · ${dayLabel(state.date)}</div>`;
   $("#ticketDrawer").classList.remove("hidden");$("#ticketBackdrop").classList.remove("hidden");$("#ticketDrawer").setAttribute("aria-hidden","false");$("#ticketDone").onclick=closeTicket;
 }
 function closeTicket(){$("#ticketDrawer").classList.add("hidden");$("#ticketBackdrop").classList.add("hidden");$("#ticketDrawer").setAttribute("aria-hidden","true")}
