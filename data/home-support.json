@@ -521,9 +521,11 @@
       "verification_status": "PARTIAL_VERIFIED",
       "story_type": "LOCAL_BELIEF",
       "route": "places/detail.html?id=dinh-cau",
-      "image": "assets/hero-local.svg",
-      "image_alt": "Minh họa chủ đề tín ngưỡng biển Phú Quốc",
-      "image_scope": "editorial_illustration"
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1200",
+      "image_alt": "Dinh Cậu trên ghềnh đá ở Dương Đông, Phú Quốc",
+      "image_scope": "exact_subject",
+      "image_source_label": "Wikimedia Commons - Bùi Thụy Đào Nguyên",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Dinh_C%E1%BA%ADu_%E1%BB%9F_Ph%C3%BA_Qu%E1%BB%91c.jpg"
     },
     {
       "prompt_id": "curiosity_dog_tree",
@@ -535,9 +537,11 @@
       ],
       "verification_status": "VERIFIED",
       "story_type": "ORAL_HISTORY",
-      "image": "assets/hero-local.svg",
-      "image_alt": "Minh họa chủ đề đời sống địa phương Phú Quốc",
-      "image_scope": "editorial_illustration"
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Ridgeback.jpg?width=1200",
+      "image_alt": "Chó Xoáy Phú Quốc trên đảo Phú Quốc",
+      "image_scope": "exact_subject",
+      "image_source_label": "Wikimedia Commons - Fox Frank",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phu_Quoc_Ridgeback.jpg"
     },
     {
       "prompt_id": "curiosity_gieng_tien",
@@ -549,9 +553,11 @@
       ],
       "verification_status": "NEEDS_VERIFICATION",
       "story_type": "LEGEND",
-      "image": "assets/hero-local.svg",
-      "image_alt": "Minh họa chủ đề truyền thuyết Phú Quốc",
-      "image_scope": "editorial_illustration"
+      "image": "https://static.vinwonders.com/2022/02/gieng-tien-phu-quoc-7.jpg",
+      "image_alt": "Giếng Tiên ở Mũi Ông Đội, Phú Quốc",
+      "image_scope": "exact_subject",
+      "image_source_label": "VinWonders - Giếng Tiên Phú Quốc",
+      "image_source_url": "https://vinwonders.com/vi/wonderpedia/news/kham-pha-dieu-ky-thu-cua-gieng-tien-phu-quoc-gieng-nuoc-ngot-giua-bien/"
     },
     {
       "prompt_id": "curiosity_fish_sauce_pdo",
