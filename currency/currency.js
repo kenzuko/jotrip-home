@@ -386,6 +386,48 @@ function historicalPointAtOrBefore(points,code,targetDate){
     .filter(point=>point.currency===code && pointDate(point) && pointDate(point)<=targetDate && Number.isFinite(valueFromPoint(point)))
     .sort((a,b)=>pointDate(b).localeCompare(pointDate(a)))[0] || null;
 }
+function formatShortDate(iso){
+  const [y,m,d]=String(iso||'').split('-');
+  return y&&m&&d ? d+'/'+m : '-';
+}
+function formatComparePct(current,old){
+  if(!Number.isFinite(current)||!Number.isFinite(old)||!old) return null;
+  const pct=(current-old)/old*100;
+  const sign=pct>0?'+':'';
+  return {text:sign+pct.toFixed(2).replace('.',',')+'%',className:pct>0?'up':pct<0?'down':''};
+}
+function comparisonValue(value,delta){
+  return '<span class="comparison-cell"><strong>'+formatRate(value)+' ₫</strong>'+(delta?'<small class="'+delta.className+'">'+delta.text+'</small>':'')+'</span>';
+}
+async function renderComparisonTable(){
+  const host=$('#comparisonTable');
+  if(!host) return;
+  try{
+    const points=await loadSearchHistory();
+    const reference=searchReferenceDate();
+    const date7=shiftIsoDate(reference,-7);
+    const date30=shiftIsoDate(reference,-30);
+    const codes=BOARD.filter(code=>rate(code));
+    const rows=codes.map(code=>{
+      const current=valueFromPoint(rate(code));
+      const p7=historicalPointAtOrBefore(points,code,date7);
+      const p30=historicalPointAtOrBefore(points,code,date30);
+      const v7=valueFromPoint(p7);
+      const v30=valueFromPoint(p30);
+      return '<button type="button" class="comparison-row" data-comparison-code="'+code+'">'+
+        '<span class="comparison-code"><span class="flag">'+(FLAGS[code]||'')+'</span>'+code+'</span>'+
+        comparisonValue(current,null)+
+        comparisonValue(v7,null)+
+        comparisonValue(v30,formatComparePct(current,v30))+
+      '</button>';
+    }).join('');
+    host.innerHTML=
+      '<div class="comparison-head"><span>Ngoại tệ</span><span>Hôm nay</span><span>'+formatShortDate(date7)+'</span><span>'+formatShortDate(date30)+'</span></div>'+
+      (rows||'<div class="empty-state">Chưa có đủ dữ liệu để so sánh.</div>');
+  }catch(error){
+    host.innerHTML='<div class="empty-state">Không đọc được dữ liệu so sánh lúc này.</div>';
+  }
+}
 function compareCard(label,point,currentValue){
   if(!point || !Number.isFinite(currentValue)) return '<div class="compare-card"><span>'+label+'</span><strong>-</strong><small>Chưa có dữ liệu</small></div>';
   const oldValue=valueFromPoint(point);
@@ -532,6 +574,7 @@ async function refreshCharts(){
   const history=await fetchHistory([state.currency]);
   renderHistoryChart(history);
   await renderHistoryCompare();
+  await renderComparisonTable();
   const board=await fetchHistory(BOARD);
   renderBoard(board);
 }
@@ -554,6 +597,12 @@ function setCurrency(code){
   renderQuickAmounts();renderConverter();renderCurrencyTabs();renderMetrics();renderPinCurrent();refreshCharts();
 }
 document.addEventListener('click',event=>{
+  const comparisonRow=event.target.closest('[data-comparison-code]');
+  if(comparisonRow){
+    setCurrency(comparisonRow.dataset.comparisonCode);
+    document.querySelector('.chart-panel')?.scrollIntoView({behavior:'smooth',block:'start'});
+    return;
+  }
   const searchAction=event.target.closest('[data-search-action]');
   if(searchAction){
     const code=searchAction.dataset.searchCode;
