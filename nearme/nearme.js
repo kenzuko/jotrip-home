@@ -148,11 +148,11 @@
       rows.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
     }
     $("#resultsTitle").textContent=areaLabel()+(selectedCategory?" · "+(support.near_me.categories.find(x=>x.id===selectedCategory)?.label||""):"");
-    $("#resultsCount").textContent=rows.length+" điểm có dữ liệu";
+    $("#resultsCount").textContent=rows.length+" điểm";
     $("#nearStatus").textContent=position?(gpsFallback?"Đã thấy vị trí của bạn trên bản đồ. Một số tiện ích chưa có tọa độ đủ chắc, nên danh sách đang ưu tiên khu vực gần nhất.":"Đã thấy vị trí của bạn trên bản đồ và đang ưu tiên những điểm gần đó."):"Bạn đang xem theo khu vực, chưa dùng GPS.";
     renderMapPoints(rows);
     const host=$("#nearResults");
-    if(!rows.length){host.innerHTML='<div class="empty">Chưa có điểm đủ dữ liệu cho lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';return}
+    if(!rows.length){host.innerHTML='<div class="empty">Chưa có điểm phù hợp với lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';return}
     host.innerHTML=rows.map(x=>{
       const distance=Number.isFinite(x.distance_km)?x.distance_km.toFixed(1)+" km":"";
       const type=support.near_me.categories.find(c=>c.id===x.utility_type)?.label||x.group||"Tiện ích";
@@ -203,7 +203,7 @@
       support=a;(b.entities||[]).forEach(x=>entities.set(x.id,x));
       renderControls();bind();render();setAreaView("all");
     }catch{
-      $("#nearStatus").textContent="Chưa mở được dữ liệu tiện ích.";
+      $("#nearStatus").textContent="Danh sách tiện ích đang tạm gián đoạn.";
       $("#nearResults").innerHTML='<div class="empty">Bạn vẫn có thể mở Danh bạ từ thanh trên.</div>';
     }
   }
