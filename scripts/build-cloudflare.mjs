@@ -33,6 +33,7 @@ const dirs=[
   "weather",
   "admin",
   "ferry",
+  "transit",
   "bus",
   "cano",
   "places",
