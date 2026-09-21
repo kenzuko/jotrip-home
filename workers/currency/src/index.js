@@ -156,6 +156,8 @@ async function health(env){
   return json({ok:!!latest,source:'vietcombank',latest_source_updated_at:latest?.source_updated_at||null,stored_currencies:latest?.rates?.length||0});
 }
 
+export { parseVcbXml, vcbTimeToIso };
+
 export default {
   async fetch(request,env,ctx){
     const url=new URL(request.url);
