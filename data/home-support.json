@@ -52,6 +52,15 @@
         "schedule_source": "canonical_entity.opening_hours"
       },
       {
+        "id": "clock_grand_world",
+        "entity_id": "place_grand_world",
+        "status_code": "UNKNOWN",
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=grand-world",
+        "schedule_source": "SOFT_EVENING",
+        "timing_note": "Hợp từ cuối chiều; đây là gợi ý thời điểm trải nghiệm, không phải giờ đóng cửa."
+      },
+      {
         "id": "clock_hon_thom",
         "entity_id": "activity_hon_thom",
         "status_code": "UNKNOWN",
@@ -131,6 +140,11 @@
       "open_status"
     ],
     "manual_areas": [
+      {
+        "id": "all",
+        "label": "Toàn đảo",
+        "type": "all"
+      },
       {
         "id": "zone_central_west",
         "label": "Dương Đông",
