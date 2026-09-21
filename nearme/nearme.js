@@ -10,6 +10,10 @@
     zone_north:{center:[10.3759,103.90],zoom:13}
   };
   let support=null,entities=new Map(),selectedArea="all",selectedCategory=null,position=null,mapFrame=null;
+  const initialParams=new URLSearchParams(location.search);
+  const requestedArea=initialParams.get("area");
+  const requestedCategory=initialParams.get("category");
+
 
   function mapUrl(query,zoom=12){
     return "https://www.google.com/maps?q="+encodeURIComponent(query)+"&z="+zoom+"&output=embed";
@@ -179,7 +183,11 @@
         fetch("../data/entities/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
       ]);
       support=a;(b.entities||[]).forEach(x=>entities.set(x.id,x));
-      renderControls();bind();render();setAreaView("all");
+      const validAreas=new Set((support.near_me?.manual_areas||[]).map(x=>x.id));
+      const validCategories=new Set((support.near_me?.categories||[]).map(x=>x.id));
+      if(requestedArea&&validAreas.has(requestedArea))selectedArea=requestedArea;
+      if(requestedCategory&&validCategories.has(requestedCategory))selectedCategory=requestedCategory;
+      renderControls();bind();render();setAreaView(selectedArea);
     }catch{
       $("#nearStatus").textContent="Danh sách tiện ích đang tạm gián đoạn.";
       $("#nearResults").innerHTML='<div class="empty">Bạn vẫn có thể mở Danh bạ từ thanh trên.</div>';
