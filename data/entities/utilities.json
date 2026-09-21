@@ -954,31 +954,6 @@
         }
       ],
       "updated_at": "2026-09-21"
-    },
-    {
-      "id": "utility_taxi_vinasun",
-      "legacy_id": "taxi-vinasun-phuquoc",
-      "entity_type": "utility",
-      "slug": "taxi-vinasun-phuquoc",
-      "name": "Vinasun Phú Quốc",
-      "aliases": [
-        "Vinasun",
-        "taxi Vinasun"
-      ],
-      "zone_id": null,
-      "group": "Taxi & xe",
-      "utility_type": "TAXI_TRANSPORT",
-      "phone": "0297 38 272 727",
-      "what_it_is": "Taxi Vinasun tại Phú Quốc",
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "source_refs": [
-        {
-          "source_id": "visitpq_taxi_2026"
-        }
-      ],
-      "updated_at": "2026-09-21"
     }
   ]
 }
