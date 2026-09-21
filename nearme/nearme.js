@@ -195,7 +195,7 @@
       if(requestedCategory&&validCategories.has(requestedCategory))selectedCategory=requestedCategory;
       renderControls();bind();render();setAreaView(selectedArea);
     }catch{
-      $("#nearStatus").textContent="Danh sách tiện ích đang tạm gián đoạn.";
+      $("#nearStatus").textContent="Chưa mở được danh sách tiện ích lúc này.";
       $("#nearResults").innerHTML='<div class="empty">Bạn vẫn có thể mở Danh bạ từ thanh trên.</div>';
     }
   }
