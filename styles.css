@@ -5012,3 +5012,16 @@ body.sheet-open{
   }
   .energy-ticker.is-static .ticker-action{padding:6px 7px;font-size:10px}
 }
+
+
+/* Homepage legibility floor - 21/09/2026 */
+#top>.island-pulse .live-item small,
+#top>.island-pulse .live-item time,
+#top>.island-pulse .live-item b,
+.trip-day-left small,
+.food-now-card>span,
+.food-now-card>small,
+.curiosity-question span,
+.island-story-card span{
+  font-size:11px;
+}
