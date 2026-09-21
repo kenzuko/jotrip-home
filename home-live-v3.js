@@ -520,7 +520,7 @@
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
           freshness: !marine || !Number.isFinite(marineAge) ? "unknown" : marineAge <= 720 ? "fresh" : marineAge <= 1440 ? "aging" : "stale",
-          detail_url: "ferry/"
+          detail_url: "transit/"
         },
         transport: {
           primary: marineOverall === "normal" ? "Đã có xác nhận vận hành" : marineOverall === "watch" ? "Có nhóm cần kiểm tra" : "Chưa đủ dữ liệu",

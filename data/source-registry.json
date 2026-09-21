@@ -51,7 +51,8 @@
       "trust": "SOURCE_AWARE_AGGREGATOR",
       "used_by": [
         "ferry",
-        "bus"
+        "bus",
+        "transit"
       ]
     },
     {
@@ -76,7 +77,8 @@
       "dynamic": true,
       "trust": "OFFICIAL_OPERATOR_PUBLIC",
       "used_by": [
-        "bus"
+        "bus",
+        "transit"
       ]
     },
     {
@@ -89,7 +91,8 @@
       "trust": "OFFICIAL_OPERATOR_LIVE",
       "machine_readable_status": "UNRESOLVED",
       "used_by": [
-        "bus"
+        "bus",
+        "transit"
       ]
     },
     {
@@ -100,7 +103,8 @@
       "dynamic": true,
       "trust": "OFFICIAL_OPERATOR_PUBLIC",
       "used_by": [
-        "ferry"
+        "ferry",
+        "transit"
       ]
     },
     {
@@ -111,8 +115,12 @@
       "dynamic": true,
       "trust": "OFFICIAL_OPERATOR_PUBLIC",
       "used_by": [
-        "ferry"
-      ]
+        "ferry",
+        "transit"
+      ],
+      "automation_policy": "DATE_SPECIFIC_LOW_FREQUENCY_NO_INVENTORY_POLLING",
+      "integration_status": "DATE_SPECIFIC_ADAPTER_READY",
+      "booking_url": "https://online.superdong.com.vn/Booking"
     },
     {
       "id": "phu_quoc_express",
@@ -121,10 +129,13 @@
       "url": "https://phuquocexpress.com/",
       "dynamic": true,
       "trust": "OFFICIAL_OPERATOR_PUBLIC",
-      "automation_policy": "REFERENCE_ONLY_WHERE_TERMS_RESTRICT",
+      "automation_policy": "DATE_SPECIFIC_LOW_FREQUENCY_NO_INVENTORY_POLLING",
       "used_by": [
-        "ferry"
-      ]
+        "ferry",
+        "transit"
+      ],
+      "integration_status": "DATE_SPECIFIC_ADAPTER_READY",
+      "booking_url": "https://online.phuquocexpress.com/"
     },
     {
       "id": "port_clearance_kgg",
