@@ -352,6 +352,213 @@
         }
       ],
       "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_vinmec_phuquoc_hospital",
+      "legacy_id": "vinmec-phuquoc-hospital",
+      "entity_type": "utility",
+      "slug": "vinmec-phuquoc-hospital",
+      "name": "Bệnh viện Vinmec Phú Quốc",
+      "aliases": [
+        "Vinmec Phu Quoc Hospital"
+      ],
+      "zone_id": "zone_north",
+      "group": "Y tế",
+      "utility_type": "CLINIC_HOSPITAL",
+      "address": "Khu vực Bãi Dài, Đặc khu Phú Quốc, Tỉnh An Giang",
+      "phone": "0297 3985 588",
+      "emergency_phone": "02973 98 55 11",
+      "what_it_is": "Bệnh viện đa khoa quốc tế tại Bãi Dài, có khoa Cấp cứu - Hồi sức.",
+      "current_status": "UNKNOWN",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "regular": [
+          {
+            "days": [
+              "MON",
+              "TUE",
+              "WED",
+              "THU",
+              "FRI"
+            ],
+            "windows": [
+              {
+                "start": "08:00",
+                "end": "12:00"
+              },
+              {
+                "start": "13:00",
+                "end": "17:00"
+              }
+            ]
+          },
+          {
+            "days": [
+              "SAT"
+            ],
+            "windows": [
+              {
+                "start": "08:00",
+                "end": "12:00"
+              }
+            ]
+          }
+        ],
+        "emergency_24h": true,
+        "source_id": "vinmec_phuquoc_current_20260921",
+        "verified_at": "2026-09-21",
+        "confidence": "HIGH"
+      },
+      "availability_note": "Cấp cứu - hồi sức 24/24; giờ khám chuyên khoa khác với cấp cứu.",
+      "location_quality": "ADDRESS_ONLY",
+      "gps_eligible": false,
+      "map": null,
+      "live_check_required": true,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "vinmec_phuquoc_current_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_vinmec_duong_dong_clinic",
+      "legacy_id": "vinmec-duong-dong-clinic",
+      "entity_type": "utility",
+      "slug": "vinmec-duong-dong-clinic",
+      "name": "Phòng khám Vinmec Dương Đông",
+      "aliases": [
+        "Vinmec Duong Dong Clinic"
+      ],
+      "zone_id": "zone_central_west",
+      "group": "Y tế",
+      "utility_type": "CLINIC_HOSPITAL",
+      "address": "114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, Tỉnh An Giang",
+      "phone": "0297 3985 588",
+      "what_it_is": "Phòng khám thuộc hệ thống Vinmec tại trung tâm Dương Đông.",
+      "current_status": "UNKNOWN",
+      "availability_note": "Địa chỉ và dịch vụ đã xác minh; giờ mở cửa hiện chưa khóa từ trang operator.",
+      "location_quality": "ADDRESS_ONLY",
+      "gps_eligible": false,
+      "map": null,
+      "live_check_required": true,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "vinmec_duongdong_current_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_longchau_tran_phu_42",
+      "legacy_id": "longchau-42-tran-phu",
+      "entity_type": "utility",
+      "slug": "longchau-42-tran-phu",
+      "name": "Nhà thuốc Long Châu - 42 Trần Phú",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "42 Trần Phú, Đặc khu Phú Quốc, Tỉnh An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc FPT Long Châu tại Dương Đông.",
+      "current_status": "UNKNOWN",
+      "availability_note": "Operator xác nhận địa chỉ. Giờ hệ thống công bố 06:00-23:00 nhưng có thể khác theo từng nhà thuốc.",
+      "location_quality": "ADDRESS_ONLY",
+      "gps_eligible": false,
+      "map": null,
+      "live_check_required": true,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_locations_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_longchau_nguyen_trung_truc_327",
+      "legacy_id": "longchau-327-nguyen-trung-truc",
+      "entity_type": "utility",
+      "slug": "longchau-327-nguyen-trung-truc",
+      "name": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "327 Nguyễn Trung Trực, Đặc khu Phú Quốc, Tỉnh An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc FPT Long Châu tại Dương Đông.",
+      "current_status": "UNKNOWN",
+      "availability_note": "Operator xác nhận địa chỉ. Giờ hệ thống công bố 06:00-23:00 nhưng có thể khác theo từng nhà thuốc.",
+      "location_quality": "ADDRESS_ONLY",
+      "gps_eligible": false,
+      "map": null,
+      "live_check_required": true,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_locations_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_longchau_nguyen_van_cu_46",
+      "legacy_id": "longchau-46-nguyen-van-cu",
+      "entity_type": "utility",
+      "slug": "longchau-46-nguyen-van-cu",
+      "name": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "46 Nguyễn Văn Cừ, Đặc khu Phú Quốc, Tỉnh An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc FPT Long Châu tại khu An Thới.",
+      "current_status": "UNKNOWN",
+      "availability_note": "Operator xác nhận địa chỉ. Giờ hệ thống công bố 06:00-23:00 nhưng có thể khác theo từng nhà thuốc.",
+      "location_quality": "ADDRESS_ONLY",
+      "gps_eligible": false,
+      "map": null,
+      "live_check_required": true,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_locations_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_longchau_ganh_dau",
+      "legacy_id": "longchau-ganh-dau",
+      "entity_type": "utility",
+      "slug": "longchau-ganh-dau",
+      "name": "Nhà thuốc Long Châu - Gành Dầu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "Thửa đất 19, Bản đồ 12, ngay Chợ Gành Dầu, Đặc khu Phú Quốc, Tỉnh An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc FPT Long Châu tại Gành Dầu.",
+      "current_status": "UNKNOWN",
+      "availability_note": "Operator xác nhận địa chỉ. Giờ hệ thống công bố 06:00-23:00 nhưng có thể khác theo từng nhà thuốc.",
+      "location_quality": "ADDRESS_ONLY",
+      "gps_eligible": false,
+      "map": null,
+      "live_check_required": true,
+      "verified": true,
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_locations_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
     }
   ]
 }
