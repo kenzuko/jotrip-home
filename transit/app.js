@@ -106,7 +106,7 @@ function renderSources(){
   for(const [id,s] of Object.entries(reg)){if(state.mode==="bus"&&id!=="bus")continue;if(state.mode!=="bus"&&id==="bus")continue;items.push({id,...s})}
   const pqe=state.data?.sources?.phu_quoc_express;if(state.mode!=="bus"&&pqe)items.push({id:"phu_quoc_express",...pqe});
   $("#sourceList").innerHTML=items.length?items.map(s=>{
-    const st=s.status==="ok"?"Đang đọc được":s.status==="reference_only"?"Chưa đồng bộ theo ngày":s.status==="empty"?"Không có bản ghi":"Cần kiểm tra";
+    const undated=s.id==="superdong"&&s.data_kind==="schedule"&&s.date_specific!==true;const st=undated?"Lịch tham khảo - chưa xác nhận ngày":s.status==="ok"?"Đang đọc được":s.status==="reference_only"?"Chưa đồng bộ theo ngày":s.status==="empty"?"Không có bản ghi":"Cần kiểm tra";
     return `<div class="source-item"><div><strong>${esc(s.label||s.id)}</strong><small>${esc(st)}${s.records!==undefined?` · ${s.records} bản ghi`:""}</small></div>${s.url?`<a href="${esc(s.url)}" target="_blank" rel="noopener">Nguồn ↗</a>`:""}</div>`
   }).join(""):'<div class="empty-state">Chưa có metadata nguồn.</div>';
 }
@@ -114,7 +114,7 @@ function renderNotice(){
   const box=$("#boardNotice");let msg="";
   if(state.mode!=="bus"&&!baseRows().length&&state.date!==today())msg="Collector chưa có snapshot cho ngày đã chọn. Trang giữ trống thay vì lấy lịch tháng để điền vào.";
   const pqe=state.data?.sources?.phu_quoc_express;
-  const reg=state.data?.sources?.registry||{};const pending=[];if(reg.superdong&&reg.superdong.date_specific===false)pending.push("Superdong");if(pqe&&pqe.status!=="ok")pending.push("Phú Quốc Express");if(state.mode!=="bus"&&pending.length)msg=(msg?msg+" ":"")+pending.join(" và ")+" chưa có dữ liệu xác nhận theo đúng ngày trong snapshot hiện tại, nên không đưa lịch tham khảo vào bảng chuyến.";
+  const reg=state.data?.sources?.registry||{};const pending=[];if(reg.superdong&&(reg.superdong.date_specific===false||(reg.superdong.data_kind==="schedule"&&reg.superdong.date_specific!==true)))pending.push("Superdong");if(pqe&&pqe.status!=="ok")pending.push("Phú Quốc Express");if(state.mode!=="bus"&&pending.length)msg=(msg?msg+" ":"")+pending.join(" và ")+" chưa có dữ liệu xác nhận theo đúng ngày trong snapshot hiện tại, nên không đưa lịch tham khảo vào bảng chuyến.";
   box.textContent=msg;box.classList.toggle("hidden",!msg);
 }
 function fareCell(r,compact=false){
