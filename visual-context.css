@@ -163,3 +163,18 @@
 @media(max-width:760px){
   .visual-source-credit{font-size:12px;white-space:normal}
 }
+
+
+/* Source attribution stays available without becoming a primary CTA. */
+.visual-source-details{margin-left:auto;max-width:52%;text-align:right}
+.visual-source-details summary{
+  list-style:none;cursor:pointer;color:var(--muted);font-size:10px;font-weight:750;line-height:1.35
+}
+.visual-source-details summary::-webkit-details-marker{display:none}
+.visual-source-details[open] summary{color:var(--ink)}
+.visual-source-details a{
+  display:inline-block;margin-top:5px;color:var(--ink);font-size:10px;font-weight:800
+}
+@media(max-width:760px){
+  .visual-source-details{max-width:100%;margin:6px 0 0;text-align:left}
+}
