@@ -54,7 +54,7 @@ function availability(r){
   if(/available|open|con ve|co the dat/.test(s))return{label:"Có thể đặt vé",tone:"good"};
   return{label:"Chưa xác định",tone:"neutral"};
 }
-function seaRows(){return (state.data?.departures||[]).filter(r=>r.type==="sea")}
+function dateReliable(r){return r.data_kind==="operational_public"||r.date_specific===true||r.service_date_basis==="date_specific"}\nfunction seaRows(){return (state.data?.departures||[]).filter(r=>r.type==="sea"&&dateReliable(r))}
 function busRows(){return (state.data?.services||[]).filter(r=>r.type==="bus").map(r=>({...r,mode:"BUS",vessel_or_service:r.vessel_or_service||`Bus ${r.route_id||""}`}))}
 function baseRows(){
   if(state.mode==="bus")return busRows();
@@ -114,7 +114,7 @@ function renderNotice(){
   const box=$("#boardNotice");let msg="";
   if(state.mode!=="bus"&&!baseRows().length&&state.date!==today())msg="Collector chưa có snapshot cho ngày đã chọn. Trang giữ trống thay vì lấy lịch tháng để điền vào.";
   const pqe=state.data?.sources?.phu_quoc_express;
-  if(state.mode!=="bus"&&pqe?.status==="reference_only")msg=(msg?msg+" ":"")+"Phú Quốc Express chưa được đồng bộ theo ngày trong snapshot hiện tại, nên chưa đưa lịch tháng vào bảng chuyến.";
+  const reg=state.data?.sources?.registry||{};const pending=[];if(reg.superdong&&reg.superdong.date_specific===false)pending.push("Superdong");if(pqe&&pqe.status!=="ok")pending.push("Phú Quốc Express");if(state.mode!=="bus"&&pending.length)msg=(msg?msg+" ":"")+pending.join(" và ")+" chưa có dữ liệu xác nhận theo đúng ngày trong snapshot hiện tại, nên không đưa lịch tham khảo vào bảng chuyến.";
   box.textContent=msg;box.classList.toggle("hidden",!msg);
 }
 function fareCell(r,compact=false){
