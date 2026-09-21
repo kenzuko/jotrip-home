@@ -4377,3 +4377,36 @@ body.sheet-open{
 .hot-card small{font-size:11px;line-height:1.4}
 .curiosity-card em{font-size:11px;line-height:1.25}
 
+/* Homepage functional surfaces - 21/09/2026 */
+.near-manual-label{margin-top:14px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.near-manual-label strong{font-size:12px;color:var(--ink)}
+.near-manual-label span{font-size:11px;color:var(--muted)}
+.near-map-shell{grid-column:1/-1;position:relative;min-height:280px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#f7faf9}
+.near-map-shell iframe{display:block;width:100%;height:330px;border:0;background:#edf3f1}
+.near-map-empty{min-height:240px;padding:28px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:7px}
+.near-map-empty strong{font-size:18px;color:var(--ink)}
+.near-map-empty span{max-width:620px;font-size:12px;line-height:1.5;color:var(--muted)}
+.near-map-caption{display:flex;justify-content:space-between;gap:14px;padding:11px 14px;background:#fff;border-top:1px solid var(--line)}
+.near-map-caption strong{font-size:12px;color:var(--ink)}
+.near-map-caption span{font-size:11px;color:var(--muted);text-align:right}
+.near-result-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.near-result-actions a{padding:7px 9px;border:1px solid var(--line);border-radius:999px;font-size:11px;font-weight:850;color:var(--ink);background:#fff}
+.home-currency-section{padding-top:36px!important}
+.home-currency-status{margin:-6px 0 14px;font-size:12px;color:var(--muted)}
+.home-currency-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.home-currency-card{min-width:0;padding:16px;border:1px solid var(--line);border-radius:18px;background:#fff;display:flex;flex-direction:column;gap:7px}
+.home-currency-card span{font-size:11px;font-weight:900;letter-spacing:.06em;color:var(--muted)}
+.home-currency-card strong{font-size:22px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.home-currency-card small{font-size:11px;line-height:1.4;color:var(--muted)}
+.home-currency-empty{grid-column:1/-1;padding:18px;border:1px dashed var(--line);border-radius:16px;color:var(--muted);font-size:13px}
+.home-currency-empty a{font-weight:850;color:var(--ink)}
+@media(max-width:1099px){.home-currency-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){
+  .near-manual-label{align-items:flex-start;flex-direction:column;gap:2px}
+  .near-map-shell iframe{height:280px}
+  .near-map-caption{display:block}
+  .near-map-caption span{display:block;margin-top:4px;text-align:left}
+  .home-currency-grid{display:flex;overflow-x:auto;gap:8px;scroll-snap-type:x mandatory}
+  .home-currency-card{min-width:72vw;scroll-snap-align:start}
+}
+

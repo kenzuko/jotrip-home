@@ -135,22 +135,26 @@
       {
         "id": "zone_central_west",
         "label": "Dương Đông",
-        "type": "zone"
+        "type": "zone",
+        "map_query": "Dương Đông, Phú Quốc, An Giang, Việt Nam"
       },
       {
         "id": "zone_south",
         "label": "An Thới",
-        "type": "zone"
+        "type": "zone",
+        "map_query": "An Thới, Phú Quốc, An Giang, Việt Nam"
       },
       {
         "id": "place_sunset_town",
         "label": "Sunset Town",
-        "type": "place"
+        "type": "place",
+        "map_query": "Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam"
       },
       {
         "id": "zone_north",
         "label": "Gành Dầu",
-        "type": "zone"
+        "type": "zone",
+        "map_query": "Gành Dầu, Phú Quốc, An Giang, Việt Nam"
       }
     ],
     "categories": [

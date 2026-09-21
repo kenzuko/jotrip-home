@@ -171,15 +171,31 @@
     <section class="section near-me-section" id="near-me" aria-labelledby="nearMeTitle">
       <div class="section-heading compact-heading"><div><p class="eyebrow">GẦN TÔI / TIỆN ÍCH</p><h2 id="nearMeTitle">Cần gì quanh đây?</h2></div><a href="utilities/">Mở toàn bộ tiện ích →</a></div>
       <div class="near-me-shell">
-        <div class="near-me-controls"><button class="near-location-btn" id="nearLocationBtn" type="button">⌖ Dùng vị trí của tôi</button><div class="near-manual" id="nearManualAreas" aria-label="Chọn khu vực thủ công"></div><p>Open Phu Quoc không xin GPS khi trang vừa mở. Chỉ khi bạn chủ động dùng “Gần tôi”.</p></div>
+        <div class="near-me-controls">
+          <button class="near-location-btn" id="nearLocationBtn" type="button">⌖ Dùng vị trí của tôi</button>
+          <div class="near-manual-label"><strong>Không dùng GPS?</strong><span>Chọn khu vực thủ công.</span></div>
+          <div class="near-manual" id="nearManualAreas" aria-label="Chọn khu vực thủ công"></div>
+          <p>GPS chỉ được hỏi khi bạn chủ động bấm nút. Chọn khu vực vẫn dùng được đầy đủ mà không cần chia sẻ vị trí.</p>
+        </div>
         <div class="near-category-grid" id="nearCategories"></div>
-        <div class="near-results" id="nearResults"><strong>Chọn một tiện ích.</strong><span>Sau đó dùng vị trí hoặc chọn khu vực thủ công.</span></div>
+        <div class="near-results" id="nearResults"><strong>Đang tải tiện ích đã kiểm tra...</strong><span>Bạn có thể dùng GPS hoặc chọn khu vực thủ công.</span></div>
+        <div class="near-map-shell" id="nearMapShell">
+          <div class="near-map-empty" id="nearMapEmpty"><strong>Bản đồ Gần tôi</strong><span>Chọn Dương Đông, An Thới, Sunset Town hoặc Gành Dầu để mở bản đồ. Bản đồ không tải trước khi bạn chọn.</span></div>
+          <iframe id="nearMapFrame" title="Bản đồ khu vực đã chọn" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe>
+          <div class="near-map-caption"><strong id="nearMapLabel">Chưa chọn khu vực</strong><span>Điểm tiện ích chỉ xếp theo khoảng cách khi có tọa độ đủ tin cậy.</span></div>
+        </div>
       </div>
     </section>
 
-    <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle" hidden>
-      <div class="section-heading compact-heading"><div><p class="eyebrow">ĐANG CÓ GÌ MỚI</p><h2 id="hotNowTitle">Đang có gì cần biết?</h2></div></div>
-      <div class="hot-now-list" id="hotNowList"></div>
+    <section class="section home-currency-section" id="currency-home" aria-labelledby="currencyHomeTitle">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">TỶ GIÁ / ĐỔI TIỀN</p><h2 id="currencyHomeTitle">Tỷ giá hôm nay, nhìn nhanh.</h2></div><a href="currency/">Mở trang tỷ giá →</a></div>
+      <div class="home-currency-status" id="homeCurrencyStatus">Đang đọc bản tỷ giá Vietcombank mới nhất...</div>
+      <div class="home-currency-grid" id="homeCurrencyGrid"></div>
+    </section>
+
+    <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">TIN NHANH / ĐANG CÓ GÌ MỚI</p><h2 id="hotNowTitle">Đang có gì cần biết?</h2></div></div>
+      <div class="hot-now-list" id="hotNowList"><div class="surface-loading">Đang kiểm tra cập nhật mới trên đảo...</div></div>
     </section>
 
     <section class="section discover-section" id="discover" aria-labelledby="discoverTitle">
@@ -217,7 +233,7 @@
     <div class="footer-groups">
       <nav><strong>Khám phá</strong><a href="explore/">Theo vùng và nhu cầu</a><a href="places/">Điểm đến</a><a href="hotels/">Nơi ở</a><a href="food/">Ăn uống</a></nav>
       <nav><strong>Đang diễn ra</strong><a href="weather/">Thời tiết & Biển</a><a href="airport/">Sân bay</a><a href="transit/">Tàu & Phà</a><a href="cano/">Cano An Thới</a></nav>
-      <nav><strong>Open Phu Quoc</strong><a href="guide/">Cẩm nang</a><a href="utilities/">Tiện ích</a><a href="about/">Về chúng tôi</a><a href="about/#sources">Cách kiểm chứng</a></nav>
+      <nav><strong>Open Phu Quoc</strong><a href="guide/">Cẩm nang</a><a href="utilities/">Tiện ích</a><a href="currency/">Tỷ giá</a><a href="about/">Về chúng tôi</a><a href="about/#sources">Cách kiểm chứng</a></nav>
     </div>
     <p class="credit">Thông tin vận hành có thể thay đổi theo thời tiết và đơn vị cung cấp. Hãy kiểm tra lại trước giờ khởi hành. Hình ảnh được ghi nguồn theo từng nội dung.</p>
   </footer>
@@ -267,6 +283,7 @@
       <div class="more-list">
         <a href="guide/"><strong>Cẩm nang Phú Quốc</strong><span>→</span></a>
         <a href="utilities/#directory"><strong>Danh bạ & hotline</strong><span>→</span></a>
+        <a href="currency/"><strong>Tỷ giá & đổi tiền</strong><span>→</span></a>
         <a href="utilities/#prices"><strong>Giá vé & show</strong><span>→</span></a>
         <a href="utilities/#checklist"><strong>Checklist trước chuyến đi</strong><span>→</span></a>
         <a href="stories/"><strong>Di sản & câu chuyện địa phương</strong><span>→</span></a>

@@ -140,6 +140,36 @@ async function inspectPage(page) {
   });
 }
 
+async function testHomeFoundation(page) {
+  await page.waitForFunction(() => {
+    const value = document.querySelector('#tripClockNow')?.textContent?.trim();
+    return value && value !== '--:--';
+  }, { timeout: 6000 }).catch(() => {});
+
+  const area = page.locator('#nearManualAreas [data-area]').first();
+  if (await area.count()) {
+    await area.click().catch(() => {});
+    await page.waitForTimeout(450);
+  }
+
+  return page.evaluate(() => {
+    const text = selector => document.querySelector(selector)?.textContent?.trim() || '';
+    const count = selector => document.querySelectorAll(selector).length;
+    const frame = document.querySelector('#nearMapFrame');
+    const checks = {
+      localTime: !!text('#tripClockNow') && text('#tripClockNow') !== '--:--',
+      tripCards: count('#tripClockList .trip-item') >= 3,
+      manualAreas: count('#nearManualAreas [data-area]') >= 4,
+      nearCategories: count('#nearCategories [data-category]') >= 5,
+      manualResults: count('#nearResults .near-result-card') >= 1,
+      mapCreated: !!frame?.src && !frame.hidden,
+      hotNow: count('#hotNowList .hot-card') >= 1,
+      currency: count('#homeCurrencyGrid .home-currency-card') >= 3
+    };
+    return { ok: Object.values(checks).every(Boolean), checks };
+  });
+}
+
 async function testMapCta(page) {
   const buttons = page.getByRole('button', { name: /bản đồ/i });
   const count = await buttons.count();
@@ -196,6 +226,10 @@ try {
       await page.screenshot({ path: screenshotPath, fullPage: true }).catch(() => {});
 
       let mapCta = null;
+      let homeFunctional = null;
+      if (!navigationError && route.name === 'home') {
+        homeFunctional = await testHomeFoundation(page);
+      }
       if (!navigationError && route.path.includes('/places/detail.html')) {
         mapCta = await testMapCta(page);
       }
@@ -207,7 +241,8 @@ try {
         sameOriginBrokenImages.length ? `${sameOriginBrokenImages.length} broken same-origin image(s)` : null,
         pageErrors.length ? `${pageErrors.length} page error(s)` : null,
         failedRequests.length ? `${failedRequests.length} failed same-origin request(s)` : null,
-        badResponses.length ? `${badResponses.length} bad same-origin response(s)` : null
+        badResponses.length ? `${badResponses.length} bad same-origin response(s)` : null,
+        homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null
       ].filter(Boolean);
 
       results.push({
@@ -220,6 +255,7 @@ try {
         strictFailures,
         inspection,
         mapCta,
+        homeFunctional,
         consoleErrors,
         pageErrors,
         failedRequests,
@@ -279,7 +315,8 @@ const md = [
       result.consoleErrors.length ? `${result.consoleErrors.length} console error(s)` : null,
       result.inspection?.motionTargetsPending ? `${result.inspection.motionTargetsPending} motion target(s) needed QA settle` : null,
       result.inspection?.tinyText?.length ? `${result.inspection.tinyText.length} text item(s) under 11px` : null,
-      result.mapCta?.found ? `map CTA: ${result.mapCta.iframeInserted ? 'ok' : 'iframe not inserted'}` : null
+      result.mapCta?.found ? `map CTA: ${result.mapCta.iframeInserted ? 'ok' : 'iframe not inserted'}` : null,
+      result.homeFunctional?.ok ? `home functional: ok` : null
     ].filter(Boolean).join('; ') || 'OK';
     return `| ${result.route} | ${result.viewport.width}x${result.viewport.height} | ${result.status.toUpperCase()} | ${notes.replaceAll('|', '\|')} |`;
   })
