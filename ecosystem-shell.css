@@ -1,0 +1,205 @@
+/* Open Phu Quoc ecosystem header lock - 21/09/2026
+   Shared chrome only. Each specialised module keeps its own internal layout and logic. */
+:root{
+  --openpq-shell-ink:#123d3b;
+  --openpq-shell-muted:#6f807d;
+  --openpq-shell-line:#e4ecea;
+  --openpq-shell-paper:rgba(255,255,255,.96);
+}
+.vn-clock[data-vn-clock]{display:none!important}
+
+header.topbar,
+header.module-head,
+header.guide-head,
+header.u-head,
+header.currency-head,
+header.near-header,
+header.explore-head,
+header.hotel-head{
+  min-height:72px!important;
+  height:auto!important;
+  padding:8px clamp(14px,3vw,34px)!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:13px!important;
+  background:var(--openpq-shell-paper)!important;
+  border-bottom:1px solid var(--openpq-shell-line)!important;
+  box-shadow:none!important;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+  position:sticky!important;
+  top:0!important;
+  z-index:80!important;
+}
+header.top{
+  min-height:72px!important;
+  background:var(--openpq-shell-paper)!important;
+  border-bottom:1px solid var(--openpq-shell-line)!important;
+  position:sticky!important;
+  top:0!important;
+  z-index:80!important;
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+header.top .top-inner,
+header.topbar .shell{
+  min-height:71px!important;
+  padding:8px clamp(14px,3vw,34px)!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:13px!important;
+  max-width:none!important;
+  width:100%!important;
+  margin:0!important;
+}
+
+header.topbar img[src*="logo-master"],
+header.module-head img[src*="logo-master"],
+header.guide-head img[src*="logo-master"],
+header.u-head img[src*="logo-master"],
+header.currency-head img[src*="logo-master"],
+header.near-header img[src*="logo-master"],
+header.explore-head img[src*="logo-master"],
+header.hotel-head img[src*="logo-master"],
+header.top img[src*="logo-master"]{
+  width:58px!important;
+  height:54px!important;
+  max-width:58px!important;
+  max-height:54px!important;
+  object-fit:contain!important;
+  object-position:left center!important;
+  display:block!important;
+  margin:0!important;
+}
+
+header.topbar .brand,
+header.topbar .brand-home,
+header.module-head>a:first-child,
+header.guide-head>a:first-child,
+header.u-head>a:first-child,
+header.currency-head .brand,
+header.explore-head .explore-brand,
+header.hotel-head .hotel-brand,
+header.top .top-inner>a:first-child{
+  flex:0 0 auto!important;
+  margin:0!important;
+}
+
+header.topbar .brand{margin-right:auto!important}
+header.topbar .top-actions,
+header.module-head .module-actions,
+header.top .top-actions{margin-left:auto!important}
+header.module-head .module-title{min-width:0;margin-right:auto!important}
+header.module-head .module-title h1,
+header.topbar h1,
+header.explore-head-copy strong,
+header.hotel-head-copy strong{
+  color:var(--openpq-shell-ink)!important;
+}
+header.module-head .module-title p,
+header.topbar .brand p,
+header.explore-head-copy span,
+header.hotel-head-copy span{
+  color:var(--openpq-shell-muted)!important;
+}
+
+header.guide-head>a:last-child,
+header.u-head>a:last-child,
+header.currency-head .back,
+header.near-header .back,
+header.near-header .directory,
+header.explore-head .home-link,
+header.hotel-head .home-link,
+header.top .back,
+header.topbar .openpq-back,
+header.topbar .openpq-home-btn,
+header.module-head .home-btn{
+  min-height:36px!important;
+  padding:8px 11px!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  border:1px solid var(--openpq-shell-line)!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  color:var(--openpq-shell-ink)!important;
+  font-size:12px!important;
+  line-height:1!important;
+  font-weight:800!important;
+  text-decoration:none!important;
+  white-space:nowrap!important;
+}
+
+header.guide-head>a:last-child,
+header.u-head>a:last-child,
+header.currency-head .back,
+header.explore-head .home-link,
+header.hotel-head .home-link{margin-left:auto!important}
+
+header.near-header{justify-content:flex-start!important}
+header.near-header .brand{order:-3!important}
+header.near-header .back{order:-2!important;margin-left:0!important}
+header.near-header .directory{margin-left:auto!important}
+
+header.topbar .health{margin-left:0!important}
+header.topbar .brand span small{
+  letter-spacing:.04em!important;
+  text-transform:none!important;
+}
+
+@media(max-width:720px){
+  header.topbar,
+  header.module-head,
+  header.guide-head,
+  header.u-head,
+  header.currency-head,
+  header.near-header,
+  header.explore-head,
+  header.hotel-head,
+  header.top{
+    min-height:62px!important;
+  }
+  header.top .top-inner,
+  header.topbar .shell{
+    min-height:61px!important;
+  }
+  header.topbar img[src*="logo-master"],
+  header.module-head img[src*="logo-master"],
+  header.guide-head img[src*="logo-master"],
+  header.u-head img[src*="logo-master"],
+  header.currency-head img[src*="logo-master"],
+  header.near-header img[src*="logo-master"],
+  header.explore-head img[src*="logo-master"],
+  header.hotel-head img[src*="logo-master"],
+  header.top img[src*="logo-master"]{
+    width:46px!important;
+    height:44px!important;
+    max-width:46px!important;
+    max-height:44px!important;
+  }
+  header.topbar .brand-divider,
+  header.module-head .divider{display:none!important}
+  header.topbar .brand p,
+  header.module-head .module-title p,
+  header.explore-head-copy span,
+  header.hotel-head-copy span,
+  header.topbar .brand span small{display:none!important}
+  header.module-head .module-title h1,
+  header.topbar h1{font-size:15px!important;line-height:1.1!important}
+  header.guide-head>a:last-child,
+  header.u-head>a:last-child,
+  header.currency-head .back,
+  header.near-header .back,
+  header.near-header .directory,
+  header.explore-head .home-link,
+  header.hotel-head .home-link,
+  header.top .back,
+  header.topbar .openpq-back,
+  header.module-head .home-btn{
+    min-height:34px!important;
+    padding:7px 9px!important;
+    font-size:11px!important;
+  }
+  header.near-header .back{display:none!important}
+  header.topbar .health{font-size:10px!important}
+}
