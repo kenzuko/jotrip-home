@@ -45,9 +45,33 @@
             38,
             79
           ]
+        },
+        {
+          "source_id": "vinwonders_safari_current"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "DAILY",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "windows": [
+          {
+            "start": "09:00",
+            "end": "16:00",
+            "label": "Giờ mở cửa"
+          }
+        ],
+        "source_id": "vinwonders_safari_current",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "MEDIUM",
+        "known_unknowns": [
+          "Một bài hướng dẫn 2026 khác của cùng operator nêu 08:30-16:00; Homepage dùng mốc 09:00 từ landing page hiện hành để tránh khẳng định giờ mở sớm hơn."
+        ],
+        "note": "Giờ công bố không đồng nghĩa xác nhận vận hành thời gian thực."
+      }
     },
     {
       "id": "place_vinwonders",
@@ -93,9 +117,31 @@
             41,
             79
           ]
+        },
+        {
+          "source_id": "vinwonders_phuquoc_hours_2026"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "DAILY",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "windows": [
+          {
+            "start": "09:00",
+            "end": "19:30",
+            "label": "Giờ mở cửa"
+          }
+        ],
+        "source_id": "vinwonders_phuquoc_hours_2026",
+        "source_type": "OPERATOR",
+        "published_at": "2026-01-01",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "Các phân khu có thể đóng sớm hơn; Homepage chỉ dùng giờ chung của công viên."
+      }
     },
     {
       "id": "place_grand_world",
@@ -320,9 +366,39 @@
           "slides": [
             47
           ]
+        },
+        {
+          "source_id": "visitpq_night_market_20260809"
+        },
+        {
+          "source_id": "visitpq_night_market_place"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "NEEDS_VERIFICATION",
+        "schedule_type": "CONFLICTING_CLAIMS",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "windows": [],
+        "source_type": "OFFICIAL_TOURISM",
+        "source_ids": [
+          "visitpq_night_market_20260809",
+          "visitpq_night_market_place"
+        ],
+        "verified_at": "2026-09-21",
+        "confidence": "LOW",
+        "claims": [
+          {
+            "source_id": "visitpq_night_market_20260809",
+            "window": "15:00-23:00"
+          },
+          {
+            "source_id": "visitpq_night_market_place",
+            "window": "18:00-23:30"
+          }
+        ],
+        "note": "Hai trang trên cùng cổng Visit Phu Quoc đang công bố giờ khác nhau; giữ UNKNOWN cho tới khi xác minh trực tiếp."
+      }
     },
     {
       "id": "place_bai_truong",
