@@ -82,7 +82,7 @@ jobs:
       - name: Run visual QA
         env:
           VISUAL_QA_BASE_URL: http://127.0.0.1:4173
-          VISUAL_QA_SCOPE: ${{ inputs.scope || 'home' }}
+          VISUAL_QA_SCOPE: ${{ inputs.scope || 'smoke' }}
         run: VISUAL_QA_SCOPE="$VISUAL_QA_SCOPE" node scripts/visual-qa.mjs
 
       - name: Preserve server log
