@@ -342,9 +342,35 @@
             63,
             67
           ]
+        },
+        {
+          "source_id": "jotrip_big_game_fishing_current"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "MULTI_WINDOW",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "windows": [
+          {
+            "start": "05:00",
+            "end": "14:00",
+            "label": "Chuyến sáng"
+          },
+          {
+            "start": "14:00",
+            "end": "21:00",
+            "label": "Chuyến chiều - tối"
+          }
+        ],
+        "source_id": "jotrip_big_game_fishing_current",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "Khung sản phẩm JoTrip tại An Thới. Lịch chạy thực tế vẫn phụ thuộc điều kiện biển và xác nhận chuyến; không suy trạng thái từ cano, tàu cao tốc hoặc phà."
+      }
     },
     {
       "id": "activity_squid_fishing",
