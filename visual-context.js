@@ -78,7 +78,7 @@
     const lon = Number(map?.lon);
     const hasMap = Number.isFinite(lat) && Number.isFinite(lon) && map?.source;
     const precision = String(map?.precision || "");
-    const exact = ["exact","point","verified_point"].includes(precision);
+    const exact = ["exact","point","verified_point","exact_entrance"].includes(precision);
     const title = options.title || "Ở đâu trên đảo?";
     const label = options.label || zone?.name || "Phú Quốc";
     const anchor = map?.anchor_name || label;
@@ -132,7 +132,7 @@
           "&z=14&output=embed";
 
         const precision=String(button.dataset.precision||"");
-        const isExact=["exact","point","verified_point"].includes(precision);
+        const isExact=["exact","point","verified_point","exact_entrance"].includes(precision);
         const anchor=button.dataset.anchor||"Phú Quốc";
         frame.innerHTML = '<iframe title="Bản đồ '+esc(anchor)+'" src="'+src+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'+
           '<div class="visual-map-orientation"><span>'+(isExact?'ĐIỂM':'KHU VỰC')+'</span><strong>'+esc(anchor)+'</strong><small>'+(isExact?'Vị trí đã có điểm':'Điểm neo để định hướng, không phải ranh giới chính xác')+'</small></div>';
