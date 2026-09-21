@@ -609,6 +609,47 @@
         "stories",
         "places"
       ]
+    },
+    {
+      "id": "green_sm_hotline_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Green SM - hotline 1555 từ 14/04/2026",
+      "url": "https://www.greensm.com/vn-vi/news/so-dien-thoai-tong-dai-taxi-xanh-sm-tren-toan-quoc-hotline-24-7",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "utilities",
+        "utility_taxi_xanhsm"
+      ]
+    },
+    {
+      "id": "grab_phuquoc_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Grab - dịch vụ GrabCar tại Phú Quốc 2026",
+      "url": "https://www.grab.com/vn/blog/driver/grabcartietkiem-gialai-binhdinh-phuyen/",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "utilities",
+        "utility_grab_phuquoc"
+      ]
+    },
+    {
+      "id": "visitpq_taxi_2026",
+      "type": "OFFICIAL_DESTINATION_PORTAL",
+      "label": "Visit Phu Quoc - hãng taxi và số liên hệ cập nhật 2026",
+      "url": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_DESTINATION_PUBLIC",
+      "used_by": [
+        "utilities",
+        "utility_taxi_mailinh",
+        "utility_taxi_namthang",
+        "utility_taxi_vinasun"
+      ]
     }
   ],
   "rules": [
