@@ -9,8 +9,8 @@
   },
   "routes": [
     {
-      "pattern": "cms.openphuquoc.com",
-      "custom_domain": true
+      "pattern": "cms.openphuquoc.com/*",
+      "zone_name": "openphuquoc.com"
     }
   ]
 }
