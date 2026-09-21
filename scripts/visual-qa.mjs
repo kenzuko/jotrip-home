@@ -20,11 +20,12 @@ const allRoutes = [
   { name: 'story-duong-dong', path: '/stories/article.html?id=duong-dong-sau-5-gio' },
   { name: 'about', path: '/about/' },
   { name: 'ferry', path: '/ferry/' },
+  { name: 'transit', path: '/transit/' },
   { name: 'bus', path: '/bus/' },
   { name: 'cano', path: '/cano/' }
 ];
 
-const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus']);
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus', 'transit']);
 const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
