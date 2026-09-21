@@ -133,8 +133,8 @@
             '</div>')+
         (heroIsContext?'<span class="detail-hero-context">'+esc(cc.zone_diagram||"Sơ đồ vùng")+'</span>':'')+
         (heroSource
-          ? '<a class="detail-hero-credit" href="'+esc(heroSource)+'" target="_blank" rel="noopener">Nguồn ảnh ↗</a>'
-          : '<a class="detail-hero-credit" href="https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg" target="_blank" rel="noopener">Nguồn bản đồ ↗</a>')+
+          ? '<details class="detail-hero-credit"><summary>Nguồn ảnh</summary><a href="'+esc(heroSource)+'" target="_blank" rel="noopener">Xem nguồn gốc ảnh ↗</a></details>'
+          : '<details class="detail-hero-credit"><summary>Nguồn bản đồ</summary><a href="https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg" target="_blank" rel="noopener">Xem nguồn gốc bản đồ ↗</a></details>')+
         '<div class="detail-hero-inner">'+
           '<p class="detail-kicker">'+esc(placeTypeLabel)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
           '<h1>'+esc(entity.name)+'</h1>'+
@@ -162,7 +162,7 @@
           (priceRows.length?'<article class="detail-panel"><span>'+(inheritedPrice?'GIÁ ĐI CÙNG TRẢI NGHIỆM CHÍNH':'GIÁ THAM KHẢO')+'</span><h2>'+(inheritedPrice?'Quyền lợi này thường đi chung trong vé hoặc combo chính.':'Dùng để dự trù, không phải giá cố định.')+'</h2>'+(inheritedPrice?'<p>Giá bên dưới thuộc vé hoặc combo của trải nghiệm liên quan. Hãy chọn đúng ngày đi, chiều cao, độ tuổi và quyền lợi trước khi thanh toán.</p>':'')+'<div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>KIỂM TRA ĐÚNG NGÀY</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
           '<aside class="jotrip-service-card" aria-label="Gợi ý từ JoTrip"><span>GỢI Ý TỪ JOTRIP</span><strong>Muốn có xe riêng hoặc ghép trải nghiệm này vào một ngày trọn gói?</strong><p>JoTrip hỗ trợ xe, tour, vé và lịch trình tại Phú Quốc.</p><div class="jotrip-service-actions"><a href="tel:+84817060067">Gọi +84 817 060 067</a><a href="https://wa.me/84817060067" target="_blank" rel="noopener">WhatsApp</a><a href="https://zalo.me/0817060067" target="_blank" rel="noopener">Zalo</a></div></aside>'+
           '<article class="detail-panel"><span>'+esc(pc.nearby||"ĐI CÙNG GÌ CHO TIỆN")+'</span><h2>'+esc(pc.nearby_title||"Nếu còn thời gian, đi tiếp đâu?")+'</h2>'+renderRelated(entity,lookup)+'</article>'+
-          ((explainer.sources||[]).length?'<article class="detail-panel detail-sources"><span>'+esc(pc.sources||"ĐỌC THÊM")+'</span><h2>'+esc(pc.sources_title||"Muốn xem kỹ hơn?")+'</h2><div class="source-list">'+explainer.sources.map(x=>'<a class="source-row" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+' ↗</a>').join("")+'</div></article>':'')+
+          ((explainer.sources||[]).length?'<details class="detail-panel detail-sources"><summary>'+esc(pc.sources||"Nguồn tham khảo")+'</summary><div class="source-list">'+explainer.sources.map(x=>'<a class="source-row" href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+' ↗</a>').join("")+'</div></details>':'')+
         '</div>'+
         '<aside class="detail-context">'+
           '<span>'+esc(pc.useful_now||"CẦN DÙNG KHI ĐANG ĐI")+'</span>'+
