@@ -42,7 +42,7 @@ function scheduleDecision(opening){
   if(next)return{state:"future",label:(approx?"Thường bắt đầu khoảng ":"Mở từ ")+next.start,detail,nextMin:next.startMin,endMin:next.endMin};
   return{state:"past",label:"Để ngày mai",detail};
 }
-function scheduleFreshness(opening){if(!opening?.verified_at)return"Chưa biết lần xem lại gần nhất";return"Xem lại "+ageText(opening.verified_at)}
+function scheduleFreshness(opening){if(!opening?.verified_at)return"Chưa biết lần cập nhật gần nhất";return ageText(opening.verified_at)}
 function localSunsetPhuQuoc(date=new Date()){const lat=10.2172,lon=103.9593,tz=7;const d=new Date(date.getTime()+tz*3600000);const start=Date.UTC(d.getUTCFullYear(),0,0);const day=Math.floor((Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())-start)/86400000);const lngHour=lon/15;const t=day+((18-lngHour)/24);const M=(0.9856*t)-3.289;let L=M+(1.916*Math.sin(M*Math.PI/180))+(0.020*Math.sin(2*M*Math.PI/180))+282.634;L=(L+360)%360;let RA=Math.atan(0.91764*Math.tan(L*Math.PI/180))*180/Math.PI;RA=(RA+360)%360;RA=RA+(Math.floor(L/90)*90-Math.floor(RA/90)*90);RA/=15;const sinDec=0.39782*Math.sin(L*Math.PI/180);const cosDec=Math.cos(Math.asin(sinDec));const cosH=(Math.cos(90.833*Math.PI/180)-(sinDec*Math.sin(lat*Math.PI/180)))/(cosDec*Math.cos(lat*Math.PI/180));if(cosH>1||cosH<-1)return"—";let H=Math.acos(cosH)*180/Math.PI;H/=15;const T=H+RA-(0.06571*t)-6.622;let UT=(T-lngHour)%24;if(UT<0)UT+=24;let local=(UT+tz)%24;const hh=Math.floor(local),mm=Math.round((local-hh)*60);const H2=(hh+(mm===60?1:0))%24,M2=mm===60?0:mm;return String(H2).padStart(2,"0")+":"+String(M2).padStart(2,"0")}
 function renderClock(){const p=vnParts();if($("#tripClockNow"))$("#tripClockNow").textContent=p.time;if($("#tripClockDate"))$("#tripClockDate").textContent=p.date;const sunset=$("#tripClockSunset");if(sunset)sunset.textContent=localSunsetPhuQuoc()}
 function durationMin(value){
@@ -91,7 +91,7 @@ function renderTripClock(){
     const minDuration=durationMin(e.duration);
     const tooShort=decision.state==="active"&&Number.isFinite(decision.remainingMin)&&minDuration&&decision.remainingMin<minDuration;
     if(tooShort){
-      decision={...decision,label:"Không đủ thời gian cho một lượt đi trọn vẹn",detail:"Nên chọn một hoạt động ngắn hơn"};
+      decision={...decision,label:"Giờ này vào sẽ hơi phí",detail:"Chọn một chỗ ngắn hơn sẽ hợp hơn"};
     }
     let score=decision.state==="active"?10:decision.state==="future"?60:decision.state==="unknown"?180:9999;
     if(Number.isFinite(decision.nextMin))score+=Math.max(0,decision.nextMin-now)/12;
@@ -113,7 +113,7 @@ function renderTripClock(){
     const duration=e.duration||"";
     let note=item.timing_note||e.best_time||decision.detail;
     if(Number.isFinite(decision.remainingMin)&&minDuration&&decision.remainingMin<minDuration){
-      note="Thời gian còn lại khá ngắn cho một lượt đi trọn vẹn";
+      note="Thời gian còn lại hơi ngắn, để mai đi sẽ trọn hơn";
     }
     const detail=[summary,duration].filter(Boolean).join(" · ");
     return '<a class="trip-item" data-decision="'+esc(decision.state)+'" href="'+esc(item.route)+'">'+
