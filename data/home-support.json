@@ -40,6 +40,14 @@
         "travel_buffer_min": null,
         "route": "places/detail.html?id=night-market",
         "schedule_source": "canonical_entity.opening_hours"
+      },
+      {
+        "id": "clock_kiss_of_the_sea",
+        "entity_id": "activity_kiss_of_the_sea",
+        "status_code": "UNKNOWN",
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=activity_kiss_of_the_sea",
+        "schedule_source": "canonical_entity.opening_hours"
       }
     ]
   },
@@ -85,9 +93,9 @@
       "entity_id": "place_sunset_town",
       "operational_binding": null,
       "status_code": "UNKNOWN",
-      "operating_window": null,
       "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=sunset-town"
+      "route": "places/detail.html?id=sunset-town",
+      "schedule_source": "canonical_entity.opening_hours"
     },
     {
       "surface_id": "activity_night_market",
@@ -103,9 +111,9 @@
       "entity_id": "activity_big_game_fishing",
       "operational_binding": null,
       "status_code": "UNKNOWN",
-      "operating_window": null,
       "warning_rule": "SEA_DEPENDENT",
-      "route": "places/detail.html?id=big-game-fishing"
+      "route": "places/detail.html?id=big-game-fishing",
+      "schedule_source": "canonical_entity.opening_hours"
     },
     {
       "surface_id": "activity_kiss_of_the_sea",
