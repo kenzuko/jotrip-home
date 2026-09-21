@@ -49,6 +49,7 @@ img{display:block;max-width:100%}
 .currency-head .vn-clock{margin-left:auto}
 .currency-head .back{
   flex:none;
+  margin-left:0;
   padding:9px 11px;
   border:1px solid var(--line);
   border-radius:999px;
