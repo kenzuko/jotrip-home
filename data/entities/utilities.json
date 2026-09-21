@@ -513,9 +513,19 @@
         },
         {
           "source_id": "vietcombank_phuquoc_locations_20251201"
+        },
+        {
+          "source_id": "map_directory_phuquoc_20260921"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-21",
+      "map": {
+        "lat": 10.2171875,
+        "lon": 103.9708125,
+        "accuracy": "PIN",
+        "plus_code": "6X8C+V8P",
+        "source_id": "map_directory_phuquoc_20260921"
+      }
     },
     {
       "id": "utility_vcb_atm_nguyen_trung_truc",
@@ -619,7 +629,14 @@
           "source_id": "map_directory_phuquoc_20260921"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-21",
+      "map": {
+        "lat": 10.0534375,
+        "lon": 104.0170625,
+        "accuracy": "PIN",
+        "plus_code": "3238+9R8",
+        "source_id": "map_directory_phuquoc_20260921"
+      }
     },
     {
       "id": "utility_fuel_nhi_phung_ganh_dau",
