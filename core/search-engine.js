@@ -86,8 +86,12 @@
     const hayWords=new Set(hay.split(/\s+/).filter(Boolean));
     let s=0;
     const asksPrice=/(^|\s)(gia|ve|ticket|combo)(\s|$)/.test(q);
+    const currencyIntent=doc.type==='currency' && (
+      q.includes('ty gia') || q.includes('doi tien') || q.includes('exchange rate') ||
+      tokens.some(token=>currencyAliases[token])
+    );
 
-    if(tokens.length>1){
+    if(tokens.length>1 && !currencyIntent){
       const hasShortToken=tokens.some(token=>token.length<=2);
       if(hasShortToken && !allText.includes(q)) return 0;
       if(!allText.includes(q) && !tokens.every(token=>allWords.has(token))) return 0;
