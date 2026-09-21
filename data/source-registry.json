@@ -623,6 +623,20 @@
         "utility_taxi_mailinh",
         "utility_taxi_namthang"
       ]
+    },
+    {
+      "id": "sunworld_honthom_midautumn_20260918",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World Hòn Thơm - menu Trung thu 2026",
+      "url": "https://sunworld.vn/vi/hon-thom/an-choi/hon-thom-phu-quoc-chieu-dai-du-khach-bang-menu-am-thuc-chi-xuat-hien-2-lan-trong-nam-dip-trung-thu-28585",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "home_hot_now",
+        "news",
+        "activity_hon_thom"
+      ]
     }
   ],
   "rules": [
