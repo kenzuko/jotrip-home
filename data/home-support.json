@@ -568,5 +568,11 @@
     "no_live_without_freshness": true,
     "no_location_prompt_on_load": true,
     "scheduled_hours_are_not_live_status": true
+  },
+  "curiosity_policy": {
+    "display_count": 3,
+    "rotation": "DAILY_STABLE",
+    "timezone": "Asia/Ho_Chi_Minh",
+    "note": "Luân phiên theo ngày nhưng ổn định trong cùng một ngày; không random mỗi lần tải trang."
   }
 }

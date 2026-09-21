@@ -17,6 +17,15 @@ on:
     paths:
       - ".github/workflows/visual-qa.yml"
       - "scripts/visual-qa.mjs"
+      - "index.html"
+      - "styles.css"
+      - "home-foundation-v2.js"
+      - "home-live-v3.js"
+      - "home-data-pulse.js"
+      - "data/home-support.json"
+      - "data/entities/utilities.json"
+      - "data/entities/places.json"
+      - "data/entities/activities.json"
 
 permissions:
   contents: read
