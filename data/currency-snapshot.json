@@ -3,11 +3,153 @@
   "source": {
     "id": "vietcombank",
     "name": "Vietcombank",
-    "official_url": "https://www.vietcombank.com.vn/vi-VN/KHCN/Cong-cu-Tien-ich/Ty-gia"
+    "official_url": "https://www.vietcombank.com.vn/vi-VN/KHCN/Cong-cu-Tien-ich/Ty-gia",
+    "xml_url": "https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx"
   },
-  "data_status": "unavailable",
-  "source_updated_at": null,
-  "fetched_at": null,
-  "rates": [],
-  "message": "Currency collector has not populated the fallback snapshot yet. No synthetic exchange-rate values are shown."
+  "data_status": "live",
+  "source_updated_at": "2026-09-21T09:29:11+07:00",
+  "fetched_at": "2026-09-21T02:40:37.595Z",
+  "rates": [
+    {
+      "currency": "AUD",
+      "name": "AUSTRALIAN DOLLAR   ",
+      "cash_buy": 18083.62,
+      "transfer_buy": 18266.29,
+      "sell": 18837.09
+    },
+    {
+      "currency": "CAD",
+      "name": "CANADIAN DOLLAR     ",
+      "cash_buy": 18137.01,
+      "transfer_buy": 18320.21,
+      "sell": 18892.7
+    },
+    {
+      "currency": "CHF",
+      "name": "SWISS FRANC         ",
+      "cash_buy": 30740.21,
+      "transfer_buy": 31050.71,
+      "sell": 32021.01
+    },
+    {
+      "currency": "CNY",
+      "name": "YUAN RENMINBI       ",
+      "cash_buy": 3784.03,
+      "transfer_buy": 3822.25,
+      "sell": 3941.69
+    },
+    {
+      "currency": "DKK",
+      "name": "DANISH KRONE        ",
+      "cash_buy": null,
+      "transfer_buy": 3926.86,
+      "sell": 4073.95
+    },
+    {
+      "currency": "EUR",
+      "name": "EURO                ",
+      "cash_buy": 29115.98,
+      "transfer_buy": 29410.08,
+      "sell": 30627.92
+    },
+    {
+      "currency": "GBP",
+      "name": "POUND STERLING      ",
+      "cash_buy": 33972.45,
+      "transfer_buy": 34315.61,
+      "sell": 35387.93
+    },
+    {
+      "currency": "HKD",
+      "name": "HONGKONG DOLLAR     ",
+      "cash_buy": 3225.7,
+      "transfer_buy": 3258.28,
+      "sell": 3380.33
+    },
+    {
+      "currency": "INR",
+      "name": "INDIAN RUPEE        ",
+      "cash_buy": null,
+      "transfer_buy": 269.9,
+      "sell": 281.31
+    },
+    {
+      "currency": "JPY",
+      "name": "YEN                 ",
+      "cash_buy": 160.36,
+      "transfer_buy": 161.98,
+      "sell": 171.3
+    },
+    {
+      "currency": "KRW",
+      "name": "KOREAN WON          ",
+      "cash_buy": 16.26,
+      "transfer_buy": 18.07,
+      "sell": 19.59
+    },
+    {
+      "currency": "KWD",
+      "name": "KUWAITI DINAR       ",
+      "cash_buy": null,
+      "transfer_buy": 84251.7,
+      "sell": 88268.79
+    },
+    {
+      "currency": "MYR",
+      "name": "MALAYSIAN RINGGIT   ",
+      "cash_buy": null,
+      "transfer_buy": 6288.11,
+      "sell": 6420.07
+    },
+    {
+      "currency": "NOK",
+      "name": "NORWEGIAN KRONER    ",
+      "cash_buy": null,
+      "transfer_buy": 2709.4,
+      "sell": 2822.15
+    },
+    {
+      "currency": "RUB",
+      "name": "RUSSIAN RUBLE       ",
+      "cash_buy": null,
+      "transfer_buy": 293.68,
+      "sell": 324.85
+    },
+    {
+      "currency": "SAR",
+      "name": "SAUDI RIAL          ",
+      "cash_buy": null,
+      "transfer_buy": 6892.38,
+      "sell": 7183.59
+    },
+    {
+      "currency": "SEK",
+      "name": "SWEDISH KRONA       ",
+      "cash_buy": null,
+      "transfer_buy": 2594.46,
+      "sell": 2702.44
+    },
+    {
+      "currency": "SGD",
+      "name": "SINGAPORE DOLLAR    ",
+      "cash_buy": 19882.48,
+      "transfer_buy": 20083.31,
+      "sell": 20752.36
+    },
+    {
+      "currency": "THB",
+      "name": "THAILAND BAHT       ",
+      "cash_buy": 688.83,
+      "transfer_buy": 765.37,
+      "sell": 797.22
+    },
+    {
+      "currency": "USD",
+      "name": "US DOLLAR           ",
+      "cash_buy": 25790,
+      "transfer_buy": 25820,
+      "sell": 26200
+    }
+  ],
+  "message": "Tỷ giá Vietcombank được Open Phu Quoc đồng bộ tự động từ feed chính thức."
 }
