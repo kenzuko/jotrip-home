@@ -492,11 +492,10 @@
       "prompt_id": "curiosity_dinh_cau_before_sea",
       "question": "Vì sao ngư dân lại ghé Dinh Cậu trước chuyến biển?",
       "place_id": "place_dinh_cau",
-      "short_teaser": "Tín ngưỡng Bà - Cậu gắn với mong cầu bình an cho người đi biển, nhưng lịch sử thờ tự tại Dinh Cậu còn có những lớp và dị bản cần tách rõ.",
+      "short_teaser": "Lễ hội Dinh Cậu ghi nhận ngư dân trên đảo về dâng hương, cầu trời yên biển lặng và tôm cá đầy thuyền. Những giai thoại về nguồn gốc thờ tự vẫn cần kể như tín ngưỡng, không phải sử liệu tuyệt đối.",
       "source_ids": [
-        "src_belief_thanhnien",
-        "src_belief_checkin",
-        "src_belief_visit"
+        "visitpq_dinh_cau_festival_current",
+        "visitpq_dinh_cau_2026"
       ],
       "verification_status": "PARTIAL_VERIFIED",
       "story_type": "LOCAL_BELIEF",
@@ -506,24 +505,48 @@
       "prompt_id": "curiosity_dog_tree",
       "question": "Chó Phú Quốc có thật sự biết leo cây?",
       "topic_id": "topic_116_dog_climb_tree",
-      "short_teaser": "Tiêu chuẩn VKA xác nhận giống chó này leo trèo và bật nhảy tốt, nhưng chưa đủ để nói “leo cây” là đặc tính phổ quát của mọi chó Phú Quốc.",
+      "short_teaser": "Tiêu chuẩn VKA 2023 ghi rõ chó Xoáy Phú Quốc không sợ độ cao, leo trèo và nhảy cao rất tốt. Điều đó xác nhận khả năng leo trèo của giống, nhưng không có nghĩa mọi cá thể đều biết “leo cây”.",
       "source_ids": [
-        "src_dog_vka2023",
-        "src_dog_vka_report"
+        "vka_phuquoc_standard_2023"
       ],
-      "verification_status": "PARTIAL_VERIFIED",
+      "verification_status": "VERIFIED",
       "story_type": "ORAL_HISTORY"
     },
     {
       "prompt_id": "curiosity_gieng_tien",
       "question": "Giếng Tiên là lịch sử hay truyền thuyết?",
       "topic_id": "topic_107_gieng_tien",
-      "short_teaser": "Nguồn địa phương lưu truyền câu chuyện gắn Giếng Tiên với Nguyễn Ánh, nhưng bằng chứng lịch sử cho chính địa điểm này vẫn chưa đủ để kể như một sự kiện đã được xác lập.",
+      "short_teaser": "Cổng du lịch Phú Quốc giới thiệu nơi này bằng chính cụm “sự tích Giếng Tiên”. Vì vậy câu chuyện nên được giữ ở lớp truyền thuyết, không nâng thành sự kiện lịch sử đã được chứng minh.",
       "source_ids": [
-        "src_gieng_pqgov"
+        "visitpq_gieng_tien_current"
       ],
       "verification_status": "NEEDS_VERIFICATION",
       "story_type": "LEGEND"
+    },
+    {
+      "prompt_id": "curiosity_fish_sauce_pdo",
+      "question": "Vì sao chữ “Phú Quốc” trên nước mắm lại được bảo hộ ở châu Âu?",
+      "story_id": "mot-nam-trong-nha-thung",
+      "short_teaser": "EU đã đưa “Phú Quốc” vào sổ đăng ký PDO theo Quy định 928/2012. Hội Nước mắm Phú Quốc cho biết đây là sản phẩm đầu tiên của Việt Nam được bảo hộ tại thị trường EU.",
+      "source_ids": [
+        "eurlex_phuquoc_pdo_2012",
+        "phuquoc_fishsauce_gi_association"
+      ],
+      "verification_status": "VERIFIED",
+      "story_type": "DOCUMENTED_HISTORY",
+      "route": "stories/article.html?id=mot-nam-trong-nha-thung"
+    },
+    {
+      "prompt_id": "curiosity_pepper_colors",
+      "question": "Tiêu đỏ, tiêu đen và tiêu sọ Phú Quốc khác nhau ở đâu?",
+      "story_id": "mui-cay-cua-dat-do",
+      "short_teaser": "Nguồn du lịch địa phương mô tả: hạt chín đỏ được phơi riêng thành tiêu đỏ; hạt còn xanh phơi khô thành tiêu đen; tiêu đen bỏ vỏ còn lõi gọi là tiêu sọ.",
+      "source_ids": [
+        "pq_tourism_pepper_basol_current"
+      ],
+      "verification_status": "VERIFIED",
+      "story_type": "LOCAL_CRAFT",
+      "route": "stories/article.html?id=mui-cay-cua-dat-do"
     }
   ],
   "rules": {

@@ -437,6 +437,84 @@
         "activity_big_game_fishing",
         "activity_board"
       ]
+    },
+    {
+      "id": "visitpq_dinh_cau_festival_current",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - Lễ hội Dinh Cậu",
+      "url": "https://visitphuquoc.com.vn/vi/le-hoi-dinh-cau-phu-quoc-1338",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "home_curiosity",
+        "place_dinh_cau"
+      ]
+    },
+    {
+      "id": "visitpq_gieng_tien_current",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Phú Quốc Tourism - Giếng Tiên (Giếng Ngự)",
+      "url": "https://dulich.phuquoc.gov.vn/vi/giengtiengiengng",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "home_curiosity"
+      ]
+    },
+    {
+      "id": "vka_phuquoc_standard_2023",
+      "type": "BREED_STANDARD",
+      "label": "VKA - Bảng tiêu chuẩn chó Xoáy Phú Quốc 001/VN/04.10.2023",
+      "url": "https://vka.vn/bang-tieu-chuan-cho-phu-quoc-so-001-vn-04-10-2023-do-vka-ban-hanh/",
+      "published_at": "2023-10-04",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "BREED_ASSOCIATION_STANDARD",
+      "used_by": [
+        "home_curiosity"
+      ]
+    },
+    {
+      "id": "eurlex_phuquoc_pdo_2012",
+      "type": "LEGAL_REGISTER",
+      "label": "EUR-Lex - Commission Implementing Regulation (EU) No 928/2012, Phú Quốc PDO",
+      "url": "https://eur-lex.europa.eu/eli/reg_impl/2012/928/oj/eng",
+      "published_at": "2012-10-08",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "EU_LEGAL_REGISTER",
+      "used_by": [
+        "home_curiosity",
+        "story_mot_nam_trong_nha_thung"
+      ]
+    },
+    {
+      "id": "phuquoc_fishsauce_gi_association",
+      "type": "INDUSTRY_ASSOCIATION",
+      "label": "Hội Nước mắm Phú Quốc - Chỉ dẫn địa lý",
+      "url": "https://hoinuocmamphuquoc.org/chi-dan-dia-ly/",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "PRIMARY_INDUSTRY_ASSOCIATION",
+      "used_by": [
+        "home_curiosity",
+        "story_mot_nam_trong_nha_thung"
+      ]
+    },
+    {
+      "id": "pq_tourism_pepper_basol_current",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Phú Quốc Tourism - Nông trại Hồ tiêu Ba Sol",
+      "url": "https://dulich.phuquoc.gov.vn/vi/nongtraihotieuba",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "home_curiosity",
+        "story_mui_cay_cua_dat_do"
+      ]
     }
   ],
   "rules": [
