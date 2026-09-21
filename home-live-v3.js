@@ -245,10 +245,11 @@
       const primary = card.querySelector("[data-now-primary]");
       const secondary = card.querySelector("[data-now-secondary]");
 
-      let cfg = {
+      const localHint = window.OPENPQ_HOME_LOCAL?.now_hint || null;
+      let cfg = localHint ? {...localHint} : {
         tone: "default",
         title: "Chưa biết đi đâu? Nhìn tình hình đảo trước.",
-        note: "Chỉ cần biết trời đang ra sao, biển thế nào và còn bao nhiêu thời gian trong ngày là dễ chọn hơn nhiều.",
+        note: "Giờ địa phương, hoàng hôn và lịch hoạt động đủ để đưa một gợi ý cơ bản. Dữ liệu trực tiếp chỉ ghi đè khi thật sự cần.",
         primaryText: "Xem hôm nay →",
         primaryHref: "#happening",
         secondaryText: "Khám phá",
@@ -267,6 +268,18 @@
           secondaryText: "Gợi ý ngày mưa",
           secondaryHref: "explore/?intent=rainy-day"
         };
+      } else if (canoState === "SUSPENDED") {
+        cfg = {
+          tone: "watch",
+          title: "Cano đang tạm dừng.",
+          note: "Đừng dùng lịch đảo biển làm gợi ý chính lúc này. Chuyển sang điểm trên bờ hoặc kiểm tra lại trạng thái vận hành.",
+          primaryText: "Xem tình trạng hoạt động →",
+          primaryHref: "#activities",
+          secondaryText: "Tìm phương án trên bờ",
+          secondaryHref: "explore/?intent=rainy-day"
+        };
+      } else if (localHint?.priority === "deadline") {
+        cfg = {...localHint};
       } else if (Number.isFinite(minutesToSunset) && minutesToSunset > 0 && minutesToSunset <= 120) {
         cfg = {
           tone: "sunset",
@@ -328,6 +341,7 @@
     }
 
     renderNowSuggestion();
+    window.addEventListener("openpq:local-ready", renderNowSuggestion);
     setInterval(renderNowSuggestion, 60000);
 
     let wxTitle = "Chưa có dữ liệu thời tiết";

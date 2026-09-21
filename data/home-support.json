@@ -506,7 +506,10 @@
       ],
       "verification_status": "PARTIAL_VERIFIED",
       "story_type": "LOCAL_BELIEF",
-      "route": "places/detail.html?id=dinh-cau"
+      "route": "places/detail.html?id=dinh-cau",
+      "image": "assets/hero-local.svg",
+      "image_alt": "Minh họa chủ đề tín ngưỡng biển Phú Quốc",
+      "image_scope": "editorial_illustration"
     },
     {
       "prompt_id": "curiosity_dog_tree",
@@ -517,7 +520,10 @@
         "vka_phuquoc_standard_2023"
       ],
       "verification_status": "VERIFIED",
-      "story_type": "ORAL_HISTORY"
+      "story_type": "ORAL_HISTORY",
+      "image": "assets/hero-local.svg",
+      "image_alt": "Minh họa chủ đề đời sống địa phương Phú Quốc",
+      "image_scope": "editorial_illustration"
     },
     {
       "prompt_id": "curiosity_gieng_tien",
@@ -528,7 +534,10 @@
         "visitpq_gieng_tien_current"
       ],
       "verification_status": "NEEDS_VERIFICATION",
-      "story_type": "LEGEND"
+      "story_type": "LEGEND",
+      "image": "assets/hero-local.svg",
+      "image_alt": "Minh họa chủ đề truyền thuyết Phú Quốc",
+      "image_scope": "editorial_illustration"
     },
     {
       "prompt_id": "curiosity_fish_sauce_pdo",
@@ -578,8 +587,9 @@
   },
   "curiosity_policy": {
     "display_count": 3,
-    "rotation": "DAILY_STABLE",
+    "rotation": "SESSION_RANDOM",
+    "stability": "SESSION",
     "timezone": "Asia/Ho_Chi_Minh",
-    "note": "Luân phiên theo ngày nhưng ổn định trong cùng một ngày; không random mỗi lần tải trang."
+    "note": "Random theo phiên mở trang; câu hỏi và câu trả lời luôn đi cùng một record, không đổi liên tục trong cùng phiên."
   }
 }

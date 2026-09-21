@@ -43,7 +43,7 @@
       <a href="#near-me">Tiện ích</a>
     </nav>
 
-    <div class="vn-clock header-clock" data-vn-clock></div><button class="header-search" type="button" aria-label="Tìm kiếm">⌕</button>
+    <button class="header-search" type="button" aria-label="Tìm kiếm">⌕</button>
     <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Mở menu">
       <span></span><span></span>
     </button>
@@ -168,6 +168,11 @@
       <aside class="plan-b-card" id="planBCard" hidden><div><span>PHƯƠNG ÁN B</span><strong>Hoạt động biển đang không thuận.</strong></div><p>Ưu tiên nơi ít phụ thuộc biển và giữ lịch linh hoạt.</p><div><a href="places/detail.html?id=vinpearl-safari">Safari</a><a href="places/detail.html?id=vinwonders">VinWonders</a><a href="stories/article.html?id=mot-nam-trong-nha-thung">Nhà thùng</a><a href="food/">Ăn địa phương</a></div></aside>
     </section>
 
+    <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">TIN & CẬP NHẬT PHÚ QUỐC</p><h2 id="hotNowTitle">Mới ở Phú Quốc.</h2></div></div>
+      <div class="hot-now-list" id="hotNowList"><div class="surface-loading">Đang kiểm tra cập nhật mới trên đảo...</div></div>
+    </section>
+
     <section class="section near-me-section" id="near-me" aria-labelledby="nearMeTitle">
       <div class="section-heading compact-heading"><div><p class="eyebrow">GẦN TÔI / TIỆN ÍCH</p><h2 id="nearMeTitle">Cần gì quanh đây?</h2></div><a href="utilities/">Mở toàn bộ tiện ích →</a></div>
       <div class="near-me-shell">
@@ -189,11 +194,6 @@
       <div class="home-currency-grid" id="homeCurrencyGrid"></div>
     </section>
 
-    <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle">
-      <div class="section-heading compact-heading"><div><p class="eyebrow">TIN & CẬP NHẬT PHÚ QUỐC</p><h2 id="hotNowTitle">Mới ở Phú Quốc.</h2></div></div>
-      <div class="hot-now-list" id="hotNowList"><div class="surface-loading">Đang kiểm tra cập nhật mới trên đảo...</div></div>
-    </section>
-
     <section class="section discover-section" id="discover" aria-labelledby="discoverTitle">
       <div class="section-heading compact-heading"><div><p class="eyebrow">KHÁM PHÁ / HUYỀN TÍCH / TÒ MÒ</p><h2 id="discoverTitle">Có những câu hỏi làm mình muốn hiểu đảo sâu hơn.</h2></div><a href="stories/">Mở câu chuyện →</a></div>
       <div class="curiosity-rail" id="curiosityRail"></div>
@@ -213,7 +213,7 @@
   </main>
 
   <aside class="app-context-rail" aria-label="Mở nhanh">
-    <div class="context-head"><div><span>PHÚ QUỐC</span><strong>Mở nhanh</strong></div><div class="vn-clock" data-vn-clock></div></div>
+    <div class="context-head"><div><span>PHÚ QUỐC</span><strong>Mở nhanh</strong></div></div>
     <a class="context-card compact" href="#happening"><span>HÔM NAY</span><strong>Còn kịp làm gì?</strong><small>Giờ địa phương · khung hoạt động</small></a>
     <a class="context-card compact" href="#near-me"><span>GẦN TÔI</span><strong>Tiện ích quanh đây</strong><small>GPS chỉ bật khi bạn chủ động</small></a>
     <a class="context-card compact" href="#discover"><span>KHÁM PHÁ</span><strong>Một câu hỏi về đảo</strong><small>Câu chuyện · huyền tích · điều tò mò</small></a>
@@ -292,7 +292,6 @@
   <script src="core/search-engine.js?v=4"></script>
   <script src="core/today-engine-v2.js?v=3"></script>
   <script src="app.js?v=20260919-superapp4"></script>
-  <script src="island-clock.js?v=6"></script>
   <script src="home-foundation-v2.js?v=2"></script>
   <script src="home-live-v3.js?v=8"></script>
   <script src="home-copy.js?v=2"></script>
