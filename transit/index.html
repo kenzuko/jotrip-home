@@ -38,21 +38,21 @@
 
 <main class="module-main"><div class="shell transit-shell">
   <div class="source-strip">
-    <span class="live-dot"><i></i> DỮ LIỆU DI CHUYỂN</span>
+    <span class="live-dot"><i></i> ĐI LẠI HÔM NAY</span>
     <b id="healthState">Đang tải</b>
-    <small id="updatedAt">Đang đồng bộ dữ liệu hãng...</small>
+    <small id="updatedAt">Đang xem lịch từ các hãng...</small>
   </div>
 
   <section class="transit-overview">
     <div class="overview-copy">
       <span class="eyebrow">OPEN PHU QUOC · DI CHUYỂN</span>
       <h2>Đi chuyến nào, lúc mấy giờ?</h2>
-      <p>Dữ liệu chuyến phải theo đúng ngày đi. Lịch tháng chỉ dùng tham khảo, không được dùng để khẳng định chuyến thực tế.</p>
+      <p>Muốn đi ngày nào, xem đúng ngày đó. Lịch tháng chỉ để hình dung, không dùng để khẳng định chuyến sẽ chạy.</p>
     </div>
     <div class="overview-metrics">
       <article><span>CHUYẾN BIỂN</span><strong id="seaCount">-</strong><small>ngày đã chọn</small></article>
       <article><span>CHUYẾN KẾ</span><strong id="nextTime">--:--</strong><small id="nextRoute">Chưa có dữ liệu</small></article>
-      <article><span>HÃNG</span><strong id="operatorCount">-</strong><small>đang có dữ liệu</small></article>
+      <article><span>HÃNG</span><strong id="operatorCount">-</strong><small>đang có lịch</small></article>
     </div>
   </section>
 
@@ -71,12 +71,12 @@
 
   <section class="panel board-panel">
     <div class="panel-head">
-      <div><span class="section-kicker">LỊCH THEO NGÀY</span><h3 id="boardTitle">Tàu & phà</h3><p id="boardSubtitle">Giờ chạy, hãng, tàu/phà, giá và mức xác nhận của nguồn.</p></div>
+      <div><span class="section-kicker">LỊCH THEO NGÀY</span><h3 id="boardTitle">Tàu & phà</h3><p id="boardSubtitle">Giờ chạy, hãng, tàu/phà và giá cho đúng ngày bạn chọn.</p></div>
       <div class="board-meta"><strong id="selectedDateLabel">-</strong><small id="boardMeta">-</small></div>
     </div>
     <div id="boardNotice" class="board-notice hidden"></div>
     <div class="desktop-board">
-      <div class="transit-columns"><span>GIỜ</span><span>TUYẾN</span><span>HÃNG / TÀU</span><span>GIÁ NGƯỜI</span><span>GIÁ XE</span><span>VẬN HÀNH</span><span>VÉ</span></div>
+      <div class="transit-columns"><span>GIỜ</span><span>TUYẾN</span><span>HÃNG / TÀU</span><span>GIÁ NGƯỜI</span><span>GIÁ XE</span><span>TÌNH HÌNH</span><span>VÉ</span></div>
       <div id="boardRows" class="transit-rows"><div class="empty-state">Đang tải dữ liệu...</div></div>
     </div>
     <div id="mobileRows" class="mobile-board"></div>
@@ -84,18 +84,18 @@
 
   <section class="transit-info-grid">
     <article class="side-card">
-      <div class="info-head"><div><span>TÌNH TRẠNG CẬP NHẬT</span><h3>Dữ liệu theo ngày thực tế</h3></div><span id="sourceHealth" class="status-chip neutral">Đang tải</span></div>
+      <div class="info-head"><div><span>LỊCH NÀY LẤY TỪ ĐÂU?</span><h3>Theo đúng ngày bạn chọn</h3></div><span id="sourceHealth" class="status-chip neutral">Đang tải</span></div>
       <div id="sourceList" class="source-list"></div>
     </article>
     <article class="side-card">
       <span class="info-kicker">KIỂM TRA VÉ</span><h3>Chỉ kiểm tra khi cần.</h3>
-      <p>Không poll số ghế liên tục. Khi người dùng bấm <b>Kiểm tra vé</b>, hệ thống chỉ cần trả trạng thái chung và thời điểm kiểm tra.</p>
+      <p>Open Phu Quoc không hiện số ghế chi tiết. Khi bạn bấm <b>Kiểm tra vé</b>, trang chỉ báo mức chung như Còn vé / Còn ít / Hết vé và giờ vừa kiểm tra.</p>
       <div class="status-examples"><span>Có thể đặt vé</span><span>Còn hạn chế</span><span>Hết vé</span><span>Chưa xác định</span></div>
     </article>
   </section>
 </div></main>
 
-<footer class="module-footer"><div class="shell">Open Phu Quoc · Transit ưu tiên dữ liệu theo ngày thực tế. Hãy xác nhận lại trước giờ khởi hành khi có thay đổi vận hành.</div></footer>
+<footer class="module-footer"><div class="shell">Open Phu Quoc · chọn đúng ngày để xem lịch. Trước giờ đi, nếu có thay đổi thì nên mở lại trang hãng.</div></footer>
 
 <div id="ticketBackdrop" class="ticket-backdrop hidden"></div>
 <aside id="ticketDrawer" class="ticket-drawer hidden" aria-hidden="true">
@@ -103,6 +103,6 @@
 </aside>
 
 <script src="../island-clock.js?v=6"></script>
-<script src="./app.js?v=20260921b"></script>
+<script src="./app.js?v=20260921c"></script>
 </body>
 </html>
