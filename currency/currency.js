@@ -202,7 +202,7 @@ function showCurrencySearch(html){
 }
 function currentSearchResult(code,amount){
   const item=rate(code);
-  if(!item) return '<div class="search-empty">Chưa có tỷ giá '+esc(code)+' trong nguồn hiện tại.</div>';
+  if(!item) return '<div class="search-empty">Chưa thấy tỷ giá '+esc(code)+' trong bảng hiện tại.</div>';
   const buy=preferredBuy(item);
   if(amount && Number.isFinite(buy.value)){
     return '<button class="search-result" type="button" data-search-action="convert" data-search-code="'+code+'" data-search-amount="'+amount+'"><span><strong>'+formatAmount(amount)+' '+code+' ≈ '+formatVnd(amount*buy.value)+'</strong><small>'+buy.label+' Vietcombank · tỷ giá hiện tại</small></span><b>→</b></button>';
@@ -239,9 +239,9 @@ async function runCurrencySearch(){
       else rows=PRIORITY.map(c=>rows.find(x=>x.currency===c)).filter(Boolean).slice(0,5);
       showCurrencySearch(rows.length
         ? rows.map(row=>historicResult(row,amount)).join('')
-        : '<div class="search-empty">Chưa có dữ liệu Vietcombank cho '+formatSearchDate(date)+'. Hiện kho lịch sử đang có 30 ngày gần nhất.</div>');
+        : '<div class="search-empty">Chưa có tỷ giá Vietcombank cho '+formatSearchDate(date)+'. Hiện trang đang giữ 30 ngày gần nhất.</div>');
     }catch(error){
-      showCurrencySearch('<div class="search-empty">Không đọc được dữ liệu lịch sử lúc này.</div>');
+      showCurrencySearch('<div class="search-empty">Chưa mở được lịch sử tỷ giá lúc này.</div>');
     }
     return;
   }
@@ -292,10 +292,10 @@ function renderStatus(){
   const badge = $('#sourceBadge');
   const status = state.payload?.data_status || (state.rates.length ? 'cached' : 'unavailable');
   badge.className = 'status-pill ' + freshnessClass(status);
-  badge.textContent = status === 'live' ? 'LIVE · VIETCOMBANK' : status === 'cached' ? 'BẢN GẦN NHẤT' : 'CHƯA CÓ DỮ LIỆU';
+  badge.textContent = status === 'live' ? 'LIVE · VIETCOMBANK' : status === 'cached' ? 'BẢN GẦN NHẤT' : 'CHƯA LẤY ĐƯỢC';
   const raw = state.payload?.source_updated_at || state.payload?.updated_at;
   $('#updatedAt').textContent = raw ? 'Cập nhật ' + new Date(raw).toLocaleString('vi-VN',{timeZone:'Asia/Ho_Chi_Minh',hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}) : 'Chưa có thời điểm cập nhật';
-  $('#sourceDetail').textContent = state.payload?.message || 'Cập nhật tự động từ Vietcombank. Khi nguồn tạm lỗi, hệ thống dùng bản gần nhất và ghi rõ thời điểm.';
+  $('#sourceDetail').textContent = state.payload?.message || 'Lấy trực tiếp từ Vietcombank. Nếu kết nối chậm, trang giữ bản gần nhất và ghi rõ giờ.';
 }
 function renderCurrencyOptions(){
   const options = orderedCodes().map(code => '<option value="'+code+'">'+code+'</option>').join('');
@@ -321,7 +321,7 @@ function renderConverter(){
   $('#rateTypeRow').hidden = state.mode === 'vnd-to-foreign';
   if(!item || !r){
     $('#convertResult').textContent = '-';
-    $('#rateExplanation').textContent = 'Chưa có dữ liệu tỷ giá hợp lệ.';
+    $('#rateExplanation').textContent = 'Chưa lấy được tỷ giá lúc này.';
     return;
   }
   if(state.mode === 'foreign-to-vnd'){
@@ -344,9 +344,9 @@ function renderRateCards(){
       '<span class="rate-main">'+formatRate(buy)+' ₫</span>'+
       '<small>Giá mua tiền mặt</small>'+
       '<small>Mua CK '+formatRate(number(item.transfer_buy))+' · Bán '+formatRate(sell)+'</small>'+
-      '<small>'+(Number.isFinite(gap)?'Chênh lệch mua - bán '+formatRate(gap)+' ₫':'Chưa đủ dữ liệu')+'</small>'+
+      '<small>'+(Number.isFinite(gap)?'Chênh lệch mua - bán '+formatRate(gap)+' ₫':'Chưa đủ số để tính')+'</small>'+
     '</button></article>';
-  }).join('') : '<div class="empty-state">Chưa có dữ liệu tỷ giá. Hệ thống không tự tạo số liệu thay thế.</div>';
+  }).join('') : '<div class="empty-state">Chưa có tỷ giá để hiển thị. Trang không tự điền số thay thế.</div>';
 }
 function renderCurrencyTabs(){
   const items = orderedCodes();
@@ -423,13 +423,13 @@ async function renderComparisonTable(){
     }).join('');
     host.innerHTML=
       '<div class="comparison-head"><span>Ngoại tệ</span><span>Hôm nay</span><span>'+formatShortDate(date7)+'</span><span>'+formatShortDate(date30)+'</span></div>'+
-      (rows||'<div class="empty-state">Chưa có đủ dữ liệu để so sánh.</div>');
+      (rows||'<div class="empty-state">Chưa đủ số để so sánh.</div>');
   }catch(error){
-    host.innerHTML='<div class="empty-state">Không đọc được dữ liệu so sánh lúc này.</div>';
+    host.innerHTML='<div class="empty-state">Chưa mở được phần so sánh lúc này.</div>';
   }
 }
 function compareCard(label,point,currentValue){
-  if(!point || !Number.isFinite(currentValue)) return '<div class="compare-card"><span>'+label+'</span><strong>-</strong><small>Chưa có dữ liệu</small></div>';
+  if(!point || !Number.isFinite(currentValue)) return '<div class="compare-card"><span>'+label+'</span><strong>-</strong><small>Chưa có số</small></div>';
   const oldValue=valueFromPoint(point);
   const delta=currentValue-oldValue;
   const pct=oldValue ? delta/oldValue*100 : 0;
@@ -471,7 +471,7 @@ function renderHistoryChart(points){
   $('#chartPair').textContent = state.currency + ' / VND';
   $('#chartCurrent').textContent = item ? formatRate(valueFromPoint(item))+' ₫' : '-';
   if(!geom){
-    $('#historyChart').innerHTML = '<div class="empty-state">Chưa đủ dữ liệu lịch sử cho '+esc(state.currency)+'. Chưa đủ dữ liệu để vẽ biểu đồ.</div>';
+    $('#historyChart').innerHTML = '<div class="empty-state">Chưa có đủ lịch sử của '+esc(state.currency)+' để vẽ biểu đồ.</div>';
     $('#chartChange').className='change';
     $('#chartChange').textContent='-';
     return;
@@ -519,7 +519,7 @@ function renderBoard(points){
     if(normalized.length>=2) series.push({code,rows:normalized});
   }
   if(!series.length){
-    $('#marketBoard').innerHTML='<div class="empty-state">Chưa đủ dữ liệu lịch sử để so sánh.</div>';
+    $('#marketBoard').innerHTML='<div class="empty-state">Chưa có đủ lịch sử để so sánh.</div>';
     $('#boardLegend').innerHTML='';
     return;
   }
@@ -682,7 +682,7 @@ loadPins();
 
 loadCurrent().catch(error=>{
   console.error(error);
-  state.payload={data_status:'unavailable',message:'Không đọc được Vietcombank hoặc snapshot dự phòng lúc này.'};
+  state.payload={data_status:'unavailable',message:'Chưa lấy được tỷ giá Vietcombank lúc này.'};
   state.rates=[];
   renderAll();
 });
