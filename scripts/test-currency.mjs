@@ -38,3 +38,9 @@ for(const code of required){
 }
 if(history.backfill?.calendar_days!==30) throw new Error("Currency history must retain 30-day official VCB backfill metadata");
 console.log("Currency history QA OK: 30-day Vietcombank backfill retained for core currencies");
+
+const dailyCodes=[...new Set(daily.map(point=>point.currency))].sort();
+if(dailyCodes.includes("NAN")) throw new Error("Currency history contains synthetic NAN currency code");
+if(dailyCodes.length!==20) throw new Error("Currency history expected 20 VCB currencies, got "+dailyCodes.length);
+if(daily.length<600) throw new Error("Currency history expected at least 600 daily points, got "+daily.length);
+console.log("Currency history hygiene QA OK: 20 real currencies, no synthetic codes");
