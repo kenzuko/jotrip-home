@@ -192,7 +192,34 @@
         "icon": "↧"
       }
     ],
-    "items": []
+    "items": [
+      {
+        "utility_id": "utility_vinmec_phuquoc_hospital",
+        "utility_type": "CLINIC_HOSPITAL"
+      },
+      {
+        "utility_id": "utility_vinmec_duong_dong_clinic",
+        "utility_type": "CLINIC_HOSPITAL"
+      },
+      {
+        "utility_id": "utility_longchau_tran_phu_42",
+        "utility_type": "PHARMACY"
+      },
+      {
+        "utility_id": "utility_longchau_nguyen_trung_truc_327",
+        "utility_type": "PHARMACY"
+      },
+      {
+        "utility_id": "utility_longchau_nguyen_van_cu_46",
+        "utility_type": "PHARMACY"
+      },
+      {
+        "utility_id": "utility_longchau_ganh_dau",
+        "utility_type": "PHARMACY"
+      }
+    ],
+    "data_stage": "ADDRESS_VERIFIED_MANUAL_FALLBACK",
+    "gps_rule": "Only utilities with gps_eligible=true and verified coordinates participate in distance ranking."
   },
   "hot_now": {
     "items": [],
