@@ -321,13 +321,21 @@ try {
       }
 
       const sameOriginBrokenImages = (inspection?.brokenImages || []).filter(img => sameOrigin(img.src));
+      const expectedStaticApiResponses = route.name === 'currency'
+        ? badResponses.filter(item => {
+            try { return new URL(item.url).pathname.startsWith('/api/exchange-rates'); }
+            catch { return false; }
+          })
+        : [];
+      const unexpectedBadResponses = badResponses.filter(item => !expectedStaticApiResponses.includes(item));
+
       const strictFailures = [
         navigationError ? `navigation: ${navigationError}` : null,
         inspection?.documentOverflow ? `horizontal overflow: ${inspection.documentScrollWidth}px > ${inspection.viewportWidth}px` : null,
         sameOriginBrokenImages.length ? `${sameOriginBrokenImages.length} broken same-origin image(s)` : null,
         pageErrors.length ? `${pageErrors.length} page error(s)` : null,
         failedRequests.length ? `${failedRequests.length} failed same-origin request(s)` : null,
-        badResponses.length ? `${badResponses.length} bad same-origin response(s)` : null,
+        unexpectedBadResponses.length ? `${unexpectedBadResponses.length} bad same-origin response(s)` : null,
         homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         airportFunctional && !airportFunctional.ok ? `airport functional checks failed: ${Object.entries(airportFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
@@ -351,6 +359,7 @@ try {
         pageErrors,
         failedRequests,
         badResponses,
+        expectedStaticApiResponses,
         externalMapRequests
       });
 
@@ -410,6 +419,7 @@ const md = [
       result.mapCta?.found ? `map CTA: ${result.mapCta.iframeInserted ? 'ok' : 'iframe not inserted'}` : null,
       result.homeFunctional?.ok ? `home functional: ok` : null,
       result.currencyFunctional?.ok ? `currency functional: ok` : null,
+      result.expectedStaticApiResponses?.length ? `${result.expectedStaticApiResponses.length} expected static API fallback response(s)` : null,
       result.airportFunctional?.ok ? `airport functional: ok` : null
     ].filter(Boolean).join('; ') || 'OK';
     return `| ${result.route} | ${result.viewport.width}x${result.viewport.height} | ${result.status.toUpperCase()} | ${notes.replaceAll('|', '\|')} |`;
