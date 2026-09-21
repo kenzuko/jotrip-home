@@ -297,6 +297,65 @@
         "confidence": "HIGH",
         "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
         "route": "utilities/"
+      },
+      {
+        "utility_id": "utility_vcb_atm_hung_vuong",
+        "utility_type": "ATM",
+        "name": "ATM Vietcombank - 1A Hùng Vương",
+        "zone_id": "zone_central_west",
+        "current_status": "UNKNOWN",
+        "address": "1A Hùng Vương, Khu phố 1 Dương Đông, Đặc khu Phú Quốc, An Giang",
+        "opening_hours_note": "Có nguồn danh bạ nhận diện ATM tại địa chỉ này; chưa dùng nhãn 24/7 vì Vietcombank chưa xác nhận riêng quyền truy cập ATM ngoài giờ.",
+        "access_notes": "Vietcombank xác nhận đây là địa điểm Chi nhánh Phú Quốc hiện hành. Danh bạ ATM 2026 ghi nhận ATM tại cùng địa chỉ.",
+        "source_id": "tienmat_atm_phuquoc_2026",
+        "supporting_source_ids": [
+          "vietcombank_phuquoc_locations_20251201"
+        ],
+        "source_type": "COMMUNITY",
+        "verified_at": "2026-09-21",
+        "confidence": "MEDIUM",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "featured": true,
+        "route": "utilities/"
+      },
+      {
+        "utility_id": "utility_vcb_atm_nguyen_trung_truc",
+        "utility_type": "ATM",
+        "name": "ATM Vietcombank - 193 Nguyễn Trung Trực",
+        "zone_id": "zone_central_west",
+        "current_status": "UNKNOWN",
+        "address": "193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang",
+        "opening_hours_note": "Có nguồn danh bạ nhận diện ATM tại địa chỉ này; chưa dùng nhãn 24/7 vì Vietcombank chưa xác nhận riêng quyền truy cập ATM ngoài giờ.",
+        "access_notes": "Vietcombank xác nhận đây là địa điểm PGD Dương Đông hiện hành. Danh bạ ATM 2026 ghi nhận ATM tại cùng địa chỉ.",
+        "source_id": "tienmat_atm_phuquoc_2026",
+        "supporting_source_ids": [
+          "vietcombank_phuquoc_locations_20251201"
+        ],
+        "source_type": "COMMUNITY",
+        "verified_at": "2026-09-21",
+        "confidence": "MEDIUM",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "route": "utilities/"
+      },
+      {
+        "utility_id": "utility_vcb_atm_an_thoi",
+        "utility_type": "ATM",
+        "name": "ATM Vietcombank - 199 Nguyễn Văn Cừ",
+        "zone_id": "zone_south",
+        "current_status": "UNKNOWN",
+        "address": "199 Nguyễn Văn Cừ, Khu phố 8 An Thới, Đặc khu Phú Quốc, An Giang",
+        "opening_hours_note": "Có nguồn danh bạ nhận diện ATM tại địa chỉ này; chưa dùng nhãn 24/7 vì Vietcombank chưa xác nhận riêng quyền truy cập ATM ngoài giờ.",
+        "access_notes": "Vietcombank xác nhận đây là địa điểm PGD An Thới hiện hành. Danh bạ ATM 2026 ghi nhận ATM tại cùng địa chỉ.",
+        "source_id": "tienmat_atm_phuquoc_2026",
+        "supporting_source_ids": [
+          "vietcombank_phuquoc_locations_20251201"
+        ],
+        "source_type": "COMMUNITY",
+        "verified_at": "2026-09-21",
+        "confidence": "MEDIUM",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "featured": true,
+        "route": "utilities/"
       }
     ]
   },
