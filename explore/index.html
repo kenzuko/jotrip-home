@@ -7,9 +7,10 @@
   <title>Khám phá Phú Quốc - Open Phu Quoc</title>
   <meta name="description" content="Khám phá Phú Quốc theo vùng và kiểu chuyến đi: Bắc đảo, trung tâm, Nam đảo, gia đình, couple, biển, local life và rainy day.">
   <link rel="preload" as="image" href="/assets/logo-master.png">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
   <link rel="stylesheet" href="../live-module.css?v=1">
   <link rel="stylesheet" href="../live-module-v2.css?v=1">
-  <link rel="stylesheet" href="explore.css?v=3"><link rel="stylesheet" href="../visual-context.css?v=3">
+  <link rel="stylesheet" href="explore.css?v=4"><link rel="stylesheet" href="../visual-context.css?v=3">
 <link rel="stylesheet" href="../ecosystem-shell.css?v=20260921b">
   <link rel="canonical" href="https://openphuquoc.com/explore/">
   <meta property="og:site_name" content="Open Phu Quoc">
@@ -52,9 +53,9 @@
     </section>
 
     <section class="explore-map-overview" aria-label="Bản đồ định hướng Phú Quốc">
-      <figure>
-        <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/PhuQuocMap.svg?width=900" alt="Bản đồ đảo Phú Quốc" loading="lazy">
-        <figcaption><span>Nhìn nhanh trục Bắc - Trung tâm - Nam trước khi lọc điểm đến.</span><a href="https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg" target="_blank" rel="noopener">Nguồn bản đồ ↗</a></figcaption>
+      <figure class="explore-map-card">
+        <div id="exploreMap" aria-label="Bản đồ tương tác Phú Quốc"></div>
+        <figcaption><span>Chạm vào Bắc đảo, Dương Đông hoặc Nam đảo để lọc. Có thể bật tắt lớp vùng và nhãn ngay trên bản đồ.</span></figcaption>
       </figure>
       <div>
         <span>ĐỊNH HƯỚNG</span>
@@ -94,11 +95,12 @@
     <a href="../#happening">Hôm nay</a>
     <a class="active" href="./">Khám phá</a>
     <a href="../#top">Tìm kiếm</a>
-    <a href="../#today">Live</a>
+    <a href="../#today">Lúc này</a>
   </nav>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
   <script src="../island-clock.js?v=5"></script>
   <script src="../visual-context.js?v=4"></script>
-  <script src="app.js?v=4"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
