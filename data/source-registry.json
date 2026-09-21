@@ -51,7 +51,8 @@
       "trust": "SOURCE_AWARE_AGGREGATOR",
       "used_by": [
         "ferry",
-        "bus"
+        "bus",
+        "transit"
       ]
     },
     {
@@ -76,7 +77,8 @@
       "dynamic": true,
       "trust": "OFFICIAL_OPERATOR_PUBLIC",
       "used_by": [
-        "bus"
+        "bus",
+        "transit"
       ]
     },
     {
@@ -89,7 +91,8 @@
       "trust": "OFFICIAL_OPERATOR_LIVE",
       "machine_readable_status": "UNRESOLVED",
       "used_by": [
-        "bus"
+        "bus",
+        "transit"
       ]
     },
     {
@@ -100,7 +103,8 @@
       "dynamic": true,
       "trust": "OFFICIAL_OPERATOR_PUBLIC",
       "used_by": [
-        "ferry"
+        "ferry",
+        "transit"
       ]
     },
     {
@@ -111,7 +115,8 @@
       "dynamic": true,
       "trust": "OFFICIAL_OPERATOR_PUBLIC",
       "used_by": [
-        "ferry"
+        "ferry",
+        "transit"
       ]
     },
     {
@@ -121,10 +126,12 @@
       "url": "https://phuquocexpress.com/",
       "dynamic": true,
       "trust": "OFFICIAL_OPERATOR_PUBLIC",
-      "automation_policy": "REFERENCE_ONLY_WHERE_TERMS_RESTRICT",
+      "automation_policy": "DATE_SPECIFIC_LOW_FREQUENCY_NO_INVENTORY_POLLING",
       "used_by": [
-        "ferry"
-      ]
+        "ferry",
+        "transit"
+      ],
+      "integration_status": "DATE_ADAPTER_PENDING"
     },
     {
       "id": "port_clearance_kgg",
@@ -446,4 +453,4 @@
     "Quan sát, dự báo, mô hình và bằng chứng trực tiếp phải giữ nhãn khác nhau.",
     "Nếu machine-readable live feed chưa resolve, hiển thị trạng thái thiếu thay vì mô phỏng như dữ liệu thật."
   ]
-}
+}\n
