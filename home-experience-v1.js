@@ -38,13 +38,16 @@
       value.textContent = "Còn " + h + (m >= 15 ? " giờ " + m + " phút" : " giờ") + " tới hoàng hôn";
       note.textContent = now.total < 14 * 60
         ? "Vẫn còn đủ thời gian cho một điểm chính trước cuối chiều."
-        : "Vẫn còn kịp ghé thêm một điểm trước khi trời tối.";
+        : "Chọn một điểm vừa sức cho phần chiều còn lại.";
     } else if (remain > 0) {
       value.textContent = "Còn khoảng " + remain + " phút tới hoàng hôn";
       note.textContent = "Muốn ngắm chiều ở bờ Tây thì nên chọn điểm từ bây giờ.";
-    } else if (now.total < 22 * 60) {
+    } else if (now.total < 21 * 60) {
       value.textContent = "Đã sang nhịp buổi tối";
-      note.textContent = "Chợ đêm, show và một bữa tối thong thả sẽ hợp hơn chạy thêm điểm xa.";
+      note.textContent = "Chợ đêm, show theo giờ và một bữa tối thong thả sẽ hợp hơn chạy thêm điểm xa.";
+    } else if (now.total < 23 * 60) {
+      value.textContent = "Giờ này hợp lịch nhẹ hơn";
+      note.textContent = "Ăn tối, chợ đêm hoặc đi bộ gần sẽ hợp hơn cố thêm một điểm xa.";
     } else {
       value.textContent = "Ngày hôm nay gần khép lại";
       note.textContent = "Giữ phần còn lại nhẹ nhàng, hoặc xem trước lịch cho ngày mai.";
