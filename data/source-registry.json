@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-19",
+  "generated_at": "2026-09-21",
   "sources": [
     {
       "id": "handbook_r3",
@@ -136,6 +136,77 @@
       "used_by": [
         "marine_ops",
         "ferry"
+      ]
+    },
+    {
+      "id": "sunworld_hon_thom_schedule_20260723",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World Hòn Thơm - lịch vận hành cáp treo/Aquatopia",
+      "url": "https://sunworld.vn/vi/hon-thom/an-choi/top-cac-tro-choi-tai-aquatopia-cong-vien-nuoc-hon-thom-hot-nhat-phu-quoc-20615",
+      "published_at": "2026-07-23",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "activity_hon_thom",
+        "trip_clock",
+        "activity_board"
+      ]
+    },
+    {
+      "id": "vinwonders_safari_current",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Vinpearl Safari Phú Quốc - official current page",
+      "url": "https://vinwonders.com/vi/vinpearl-safari-phu-quoc/",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "place_vinpearl_safari",
+        "trip_clock",
+        "activity_board"
+      ]
+    },
+    {
+      "id": "vinwonders_phuquoc_hours_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "VinWonders Phú Quốc opening hours 2026",
+      "url": "https://vinwonders.com/en/wonderpedia/news/vinwonders-phu-quoc-opening-hours/",
+      "published_at": "2026-01-01",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "place_vinwonders",
+        "trip_clock",
+        "activity_board"
+      ]
+    },
+    {
+      "id": "visitpq_night_market_20260809",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - night market food guide",
+      "url": "https://visitphuquoc.com.vn/vi/thien-duong-am-thuc-trong-cho-dem-lon-nhat-phu-quoc-126",
+      "published_at": "2026-08-09",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "place_night_market",
+        "trip_clock"
+      ]
+    },
+    {
+      "id": "visitpq_night_market_place",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - Chợ đêm Phú Quốc place page",
+      "url": "https://visitphuquoc.com.vn/vi/cho-dem-phu-quoc",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "place_night_market",
+        "trip_clock"
       ]
     }
   ],

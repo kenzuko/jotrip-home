@@ -48,9 +48,42 @@
             56,
             79
           ]
+        },
+        {
+          "source_id": "sunworld_hon_thom_schedule_20260723"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "MULTI_WINDOW",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "windows": [
+          {
+            "start": "09:30",
+            "end": "11:30",
+            "label": "Khung 1"
+          },
+          {
+            "start": "13:30",
+            "end": "14:00",
+            "label": "Khung 2"
+          },
+          {
+            "start": "15:30",
+            "end": "17:30",
+            "label": "Khung 3"
+          }
+        ],
+        "last_ride": "17:30",
+        "source_id": "sunworld_hon_thom_schedule_20260723",
+        "source_type": "OPERATOR",
+        "published_at": "2026-07-23",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "Lịch operator áp dụng từ 03/2026; ngày bảo trì hoặc vận hành đặc biệt vẫn cần kiểm tra lại."
+      }
     },
     {
       "id": "activity_tour_3_islands",

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-20",
+  "updated_at": "2026-09-21",
   "scope": "homepage_supporting_operational_data",
   "id_policy": {
     "rule": "ONE_ENTITY_ONE_CANONICAL_ID_MANY_SURFACES",
@@ -13,41 +13,33 @@
         "id": "clock_hon_thom",
         "entity_id": "activity_hon_thom",
         "status_code": "UNKNOWN",
-        "operating_window": null,
-        "last_entry": null,
-        "last_ride": null,
         "travel_buffer_min": null,
-        "route": "places/detail.html?id=hon-thom"
+        "route": "places/detail.html?id=hon-thom",
+        "schedule_source": "canonical_entity.opening_hours"
       },
       {
         "id": "clock_safari",
         "entity_id": "place_vinpearl_safari",
         "status_code": "UNKNOWN",
-        "operating_window": null,
-        "last_entry": null,
-        "last_ride": null,
         "travel_buffer_min": null,
-        "route": "places/detail.html?id=vinpearl-safari"
+        "route": "places/detail.html?id=vinpearl-safari",
+        "schedule_source": "canonical_entity.opening_hours"
       },
       {
         "id": "clock_vinwonders",
         "entity_id": "place_vinwonders",
         "status_code": "UNKNOWN",
-        "operating_window": null,
-        "last_entry": null,
-        "last_ride": null,
         "travel_buffer_min": null,
-        "route": "places/detail.html?id=vinwonders"
+        "route": "places/detail.html?id=vinwonders",
+        "schedule_source": "canonical_entity.opening_hours"
       },
       {
         "id": "clock_night_market",
         "entity_id": "place_night_market",
         "status_code": "UNKNOWN",
-        "operating_window": null,
-        "last_entry": null,
-        "last_ride": null,
         "travel_buffer_min": null,
-        "route": "places/detail.html?id=night-market"
+        "route": "places/detail.html?id=night-market",
+        "schedule_source": "canonical_entity.opening_hours"
       }
     ]
   },
@@ -66,27 +58,27 @@
       "entity_id": "activity_hon_thom",
       "operational_binding": null,
       "status_code": "UNKNOWN",
-      "operating_window": null,
       "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=hon-thom"
+      "route": "places/detail.html?id=hon-thom",
+      "schedule_source": "canonical_entity.opening_hours"
     },
     {
       "surface_id": "activity_safari",
       "entity_id": "place_vinpearl_safari",
       "operational_binding": null,
       "status_code": "UNKNOWN",
-      "operating_window": null,
       "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=vinpearl-safari"
+      "route": "places/detail.html?id=vinpearl-safari",
+      "schedule_source": "canonical_entity.opening_hours"
     },
     {
       "surface_id": "activity_vinwonders",
       "entity_id": "place_vinwonders",
       "operational_binding": null,
       "status_code": "UNKNOWN",
-      "operating_window": null,
       "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=vinwonders"
+      "route": "places/detail.html?id=vinwonders",
+      "schedule_source": "canonical_entity.opening_hours"
     },
     {
       "surface_id": "activity_sunset_town",
@@ -102,9 +94,9 @@
       "entity_id": "place_night_market",
       "operational_binding": null,
       "status_code": "UNKNOWN",
-      "operating_window": null,
       "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=night-market"
+      "route": "places/detail.html?id=night-market",
+      "schedule_source": "canonical_entity.opening_hours"
     },
     {
       "surface_id": "activity_big_game_fishing",
@@ -250,6 +242,7 @@
       "UNKNOWN"
     ],
     "no_live_without_freshness": true,
-    "no_location_prompt_on_load": true
+    "no_location_prompt_on_load": true,
+    "scheduled_hours_are_not_live_status": true
   }
 }
