@@ -126,16 +126,9 @@
         const lon = Number(button.dataset.lon);
         if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
 
-        const precision = button.dataset.precision || "";
-        const delta = ["exact","point","verified_point"].includes(precision) ? 0.012 : 0.055;
-        const bbox = [
-          lon - delta, lat - delta,
-          lon + delta, lat + delta
-        ].join(",");
-
-        const src = "https://www.openstreetmap.org/export/embed.html?bbox="+
-          encodeURIComponent(bbox)+
-          "&layer=mapnik&marker="+encodeURIComponent(lat+","+lon);
+        const src = "https://www.google.com/maps?q="+
+          encodeURIComponent(lat+","+lon)+
+          "&z=14&output=embed";
 
         frame.innerHTML = '<iframe title="Bản đồ '+esc(button.dataset.anchor || "Phú Quốc")+'" src="'+src+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>';
         frame.dataset.loaded = "1";
