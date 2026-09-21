@@ -407,7 +407,8 @@
         "home_near_me",
         "utility_type_FUEL",
         "utility_type_TOILET",
-        "utility_type_MINIMART"
+        "utility_type_MINIMART",
+        "utility_type_ATM"
       ]
     },
     {
