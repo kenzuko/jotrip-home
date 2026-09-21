@@ -303,6 +303,22 @@
   "hot_now": {
     "items": [
       {
+        "event_id": "hot_symphony_season3_2026",
+        "title": "Symphony of the Sea đang chuẩn bị mùa 3",
+        "short_summary": "Sun World cho biết show đang được nâng cấp và dự kiến hoàn tất trong tháng 11/2026. Chưa khóa ngày mở lại cụ thể trên Homepage.",
+        "category": "SẮP TRỞ LẠI",
+        "affected_entity_id": "activity_symphony_of_the_sea",
+        "expected_window": "2026-11",
+        "source_id": "sunworld_symphony_season3_20260912",
+        "source_type": "OPERATOR",
+        "published_at": "2026-09-12",
+        "verified_at": "2026-09-21",
+        "expires_at": "2026-11-30T23:59:59+07:00",
+        "expiry_reason": "EXPECTED_RETURN_WINDOW",
+        "confidence": "HIGH",
+        "route": "places/detail.html?id=sunset-town"
+      },
+      {
         "event_id": "hot_aquatopia_wavy_whirl_2026",
         "title": "Aquatopia có thêm Wavy Whirl - Lốc Xoáy Nhiệt Đới",
         "short_summary": "Sun World Hòn Thơm giới thiệu làn trượt PowerRAPIDS mới tại Aquatopia từ mùa hè 2026.",
