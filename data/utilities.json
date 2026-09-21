@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-21T16:25:00+07:00",
+  "generated_at": "2026-09-21T16:35:00+07:00",
   "source_policy": "official_public_sources_only",
   "national_emergency": [
     {
@@ -208,16 +208,6 @@
       "label": "Taxi Nam Thắng",
       "phone": "0297 3 757 575",
       "note": "Hãng taxi địa phương có độ phủ lớn tại Phú Quốc.",
-      "source": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
-      "checked_at": "2026-09-21",
-      "verified": true
-    },
-    {
-      "group": "Taxi & xe",
-      "id": "vinasun-phuquoc",
-      "label": "Vinasun Phú Quốc",
-      "phone": "0297 38 272 727",
-      "note": "Số chi nhánh Phú Quốc theo Visit Phu Quoc 2026.",
       "source": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
       "checked_at": "2026-09-21",
       "verified": true
