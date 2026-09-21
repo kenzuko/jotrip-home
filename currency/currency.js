@@ -63,7 +63,11 @@ function rate(code){ return state.rates.find(x => x.currency === code); }
 function activeRate(){
   const item = rate(state.currency);
   if(!item) return null;
-  return state.mode === 'vnd-to-foreign' ? number(item.sell) : number(item[state.rateType]);
+  if(state.mode === 'vnd-to-foreign') return number(item.sell);
+  const direct=number(item[state.rateType]);
+  if(Number.isFinite(direct)) return direct;
+  if(state.rateType === 'cash_buy') return number(item.transfer_buy);
+  return null;
 }
 
 function loadPins(){
@@ -326,7 +330,10 @@ function renderConverter(){
   }
   if(state.mode === 'foreign-to-vnd'){
     $('#convertResult').textContent = formatVnd(amount * r);
-    $('#rateExplanation').textContent = state.rateType === 'cash_buy' ? 'Theo tỷ giá mua tiền mặt của Vietcombank.' : 'Theo tỷ giá mua chuyển khoản của Vietcombank.';
+    const cashMissing=state.rateType === 'cash_buy' && !Number.isFinite(number(item.cash_buy)) && Number.isFinite(number(item.transfer_buy));
+    $('#rateExplanation').textContent = cashMissing
+      ? 'Vietcombank không niêm yết giá mua tiền mặt cho đồng này; đang tính theo giá mua chuyển khoản.'
+      : state.rateType === 'cash_buy' ? 'Theo tỷ giá mua tiền mặt của Vietcombank.' : 'Theo tỷ giá mua chuyển khoản của Vietcombank.';
   }else{
     const result = amount / r;
     $('#convertResult').textContent = formatAmount(result) + ' ' + state.currency;
@@ -336,13 +343,15 @@ function renderConverter(){
 function renderRateCards(){
   const items = orderedCodes().map(rate).filter(Boolean);
   $('#rateCards').innerHTML = items.length ? items.map(item => {
-    const buy = number(item.cash_buy);
+    const preferred = preferredBuy(item);
+    const buy = preferred.value;
     const sell = number(item.sell);
     const gap = Number.isFinite(buy) && Number.isFinite(sell) ? sell-buy : null;
+    const buyLabel = Number.isFinite(number(item.cash_buy)) ? 'Giá mua tiền mặt' : Number.isFinite(number(item.transfer_buy)) ? 'Giá mua chuyển khoản' : 'Chưa có giá mua';
     return '<article class="rate-card"><button type="button" data-rate-card="'+esc(item.currency)+'">'+
       '<span class="rate-title"><strong>'+(isPinned(item.currency)?'★ ':'')+esc(item.currency)+'</strong><span class="flag">'+(FLAGS[item.currency]||'')+'</span></span>'+
       '<span class="rate-main">'+formatRate(buy)+' ₫</span>'+
-      '<small>Giá mua tiền mặt</small>'+
+      '<small>'+buyLabel+'</small>'+
       '<small>Mua CK '+formatRate(number(item.transfer_buy))+' · Bán '+formatRate(sell)+'</small>'+
       '<small>'+(Number.isFinite(gap)?'Chênh lệch mua - bán '+formatRate(gap)+' ₫':'Chưa đủ số để tính')+'</small>'+
     '</button></article>';
