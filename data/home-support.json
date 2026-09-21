@@ -148,7 +148,7 @@
     "categories": [
       {
         "id": "TOILET",
-        "label": "Toilet",
+        "label": "Nhà vệ sinh",
         "icon": "WC"
       },
       {
@@ -173,7 +173,7 @@
       },
       {
         "id": "MINIMART",
-        "label": "Minimart",
+        "label": "Cửa hàng tiện lợi",
         "icon": "□"
       },
       {
@@ -188,7 +188,7 @@
       },
       {
         "id": "SHOWER_LOCKER",
-        "label": "Tắm / locker",
+        "label": "Tắm / tủ gửi đồ",
         "icon": "↧"
       }
     ],
