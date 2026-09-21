@@ -352,6 +352,446 @@
         }
       ],
       "updated_at": "2026-09-19T04:51:03.080Z"
+    },
+    {
+      "id": "utility_longchau_tran_phu",
+      "legacy_id": "longchau-tran-phu",
+      "entity_type": "utility",
+      "slug": "longchau-tran-phu",
+      "name": "Nhà thuốc Long Châu - 42 Trần Phú",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "42 Trần Phú, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_storelist_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_longchau_nguyen_trung_truc",
+      "legacy_id": "longchau-nguyen-trung-truc",
+      "entity_type": "utility",
+      "slug": "longchau-nguyen-trung-truc",
+      "name": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "327 Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_storelist_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_longchau_an_thoi",
+      "legacy_id": "longchau-an-thoi",
+      "entity_type": "utility",
+      "slug": "longchau-an-thoi",
+      "name": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "46 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_storelist_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_longchau_ganh_dau",
+      "legacy_id": "longchau-ganh-dau",
+      "entity_type": "utility",
+      "slug": "longchau-ganh-dau",
+      "name": "Nhà thuốc Long Châu - Gành Dầu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "Thửa đất 19, Bản đồ 12, gần Chợ Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_storelist_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_vinmec_duong_dong_clinic",
+      "legacy_id": "vinmec-duong-dong-clinic",
+      "entity_type": "utility",
+      "slug": "vinmec-duong-dong-clinic",
+      "name": "Phòng khám Đa khoa Vinmec Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Y tế",
+      "utility_type": "CLINIC_HOSPITAL",
+      "address": "114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, An Giang",
+      "phone": "0297 3985 588",
+      "what_it_is": "Cơ sở y tế",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "vinmec_duongdong_current"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_vinmec_phuquoc_emergency",
+      "legacy_id": "vinmec-phuquoc-emergency",
+      "entity_type": "utility",
+      "slug": "vinmec-phuquoc-emergency",
+      "name": "Cấp cứu Vinmec Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "group": "Y tế",
+      "utility_type": "CLINIC_HOSPITAL",
+      "address": "Khu Bãi Dài, Đặc khu Phú Quốc, An Giang",
+      "phone": "02973 98 55 11",
+      "what_it_is": "Cơ sở y tế",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "vinmec_phuquoc_current"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_vcb_atm_hung_vuong",
+      "legacy_id": "vcb-atm-hung-vuong",
+      "entity_type": "utility",
+      "slug": "vcb-atm-hung-vuong",
+      "name": "ATM Vietcombank - 1A Hùng Vương",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "ATM",
+      "utility_type": "ATM",
+      "address": "1A Hùng Vương, Khu phố 1 Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Điểm ATM/rút tiền",
+      "live_check_required": true,
+      "verified": false,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "tienmat_atm_phuquoc_2026"
+        },
+        {
+          "source_id": "vietcombank_phuquoc_locations_20251201"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_vcb_atm_nguyen_trung_truc",
+      "legacy_id": "vcb-atm-nguyen-trung-truc",
+      "entity_type": "utility",
+      "slug": "vcb-atm-nguyen-trung-truc",
+      "name": "ATM Vietcombank - 193 Nguyễn Trung Trực",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "ATM",
+      "utility_type": "ATM",
+      "address": "193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Điểm ATM/rút tiền",
+      "live_check_required": true,
+      "verified": false,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "tienmat_atm_phuquoc_2026"
+        },
+        {
+          "source_id": "vietcombank_phuquoc_locations_20251201"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "legacy_id": "vcb-atm-an-thoi",
+      "entity_type": "utility",
+      "slug": "vcb-atm-an-thoi",
+      "name": "ATM Vietcombank - 199 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "ATM",
+      "utility_type": "ATM",
+      "address": "199 Nguyễn Văn Cừ, Khu phố 8 An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Điểm ATM/rút tiền",
+      "live_check_required": true,
+      "verified": false,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "tienmat_atm_phuquoc_2026"
+        },
+        {
+          "source_id": "vietcombank_phuquoc_locations_20251201"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_fuel_dong_loi_1",
+      "legacy_id": "fuel-dong-loi-1",
+      "entity_type": "utility",
+      "slug": "fuel-dong-loi-1",
+      "name": "Trạm xăng dầu Đông Lợi 1",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Xăng dầu",
+      "utility_type": "FUEL",
+      "address": "Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "0297 3848 639",
+      "what_it_is": "Điểm bán lẻ xăng dầu",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "visitpq_fuel_directory_2026"
+        },
+        {
+          "source_id": "map_directory_phuquoc_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_fuel_my_anh_an_thoi",
+      "legacy_id": "fuel-my-anh-an-thoi",
+      "entity_type": "utility",
+      "slug": "fuel-my-anh-an-thoi",
+      "name": "Cây xăng Mỹ Anh",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Xăng dầu",
+      "utility_type": "FUEL",
+      "address": "Đường Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": "0913 944 422",
+      "what_it_is": "Điểm bán lẻ xăng dầu",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "visitpq_fuel_directory_2026"
+        },
+        {
+          "source_id": "map_directory_phuquoc_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_fuel_nhi_phung_ganh_dau",
+      "legacy_id": "fuel-nhi-phung-ganh-dau",
+      "entity_type": "utility",
+      "slug": "fuel-nhi-phung-ganh-dau",
+      "name": "Cửa hàng bán lẻ xăng dầu Nhi Phụng",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "group": "Xăng dầu",
+      "utility_type": "FUEL",
+      "address": "Thửa đất 43, tờ bản đồ 12, ấp Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Điểm bán lẻ xăng dầu",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "pqgov_nhiphung_fuel_permit_2024"
+        },
+        {
+          "source_id": "visitpq_fuel_directory_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_parking_sunset_nightmarket",
+      "legacy_id": "parking-sunset-nightmarket",
+      "entity_type": "utility",
+      "slug": "parking-sunset-nightmarket",
+      "name": "Bãi gửi xe khu chợ đêm Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Bãi đỗ",
+      "utility_type": "PARKING",
+      "address": "Khu chợ đêm Sunset Town, An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Điểm/bãi gửi xe",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "source_refs": [
+        {
+          "source_id": "sunworld_sunset_nightmarket_parking_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_67",
+      "legacy_id": "toilet-sunset-venice-67",
+      "entity_type": "utility",
+      "slug": "toilet-sunset-venice-67",
+      "name": "Nhà vệ sinh công cộng - 67 Venice, Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Nhà vệ sinh",
+      "utility_type": "TOILET",
+      "address": "67 Đường Venice, Sunset Town, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Nhà vệ sinh công cộng",
+      "live_check_required": true,
+      "verified": false,
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "source_refs": [
+        {
+          "source_id": "map_directory_phuquoc_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_02",
+      "legacy_id": "toilet-sunset-venice-02",
+      "entity_type": "utility",
+      "slug": "toilet-sunset-venice-02",
+      "name": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Nhà vệ sinh",
+      "utility_type": "TOILET",
+      "address": "02 Đường Venice, Sunset Town, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Nhà vệ sinh công cộng",
+      "live_check_required": true,
+      "verified": false,
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "source_refs": [
+        {
+          "source_id": "map_directory_phuquoc_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "legacy_id": "minimart-one-mart-duong-dong",
+      "entity_type": "utility",
+      "slug": "minimart-one-mart-duong-dong",
+      "name": "One Mart - 16 đường 30 Tháng 4",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Cửa hàng tiện lợi",
+      "utility_type": "MINIMART",
+      "address": "16 đường 30 Tháng 4, Khu 1, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "0834 590 676",
+      "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
+      "live_check_required": true,
+      "verified": false,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "map_directory_phuquoc_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_minimart_homemart_an_thoi",
+      "legacy_id": "minimart-homemart-an-thoi",
+      "entity_type": "utility",
+      "slug": "minimart-homemart-an-thoi",
+      "name": "HomeMart - Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Cửa hàng tiện lợi",
+      "utility_type": "MINIMART",
+      "address": "334 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": "0932 811 123",
+      "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
+      "live_check_required": true,
+      "verified": false,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "map_directory_phuquoc_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_minimart_cs68_sunset",
+      "legacy_id": "minimart-cs68-sunset",
+      "entity_type": "utility",
+      "slug": "minimart-cs68-sunset",
+      "name": "CS68 - Cửa hàng tiện lợi Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Cửa hàng tiện lợi",
+      "utility_type": "MINIMART",
+      "address": "Sorento 2, Sunset Town, Đặc khu Phú Quốc, An Giang",
+      "phone": "0915 757 782",
+      "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
+      "live_check_required": true,
+      "verified": false,
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "source_refs": [
+        {
+          "source_id": "map_directory_phuquoc_20260921"
+        }
+      ],
+      "updated_at": "2026-09-21"
     }
   ]
 }
