@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Quanh đây - Open Phu Quoc</title>
   <meta name="description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi và các tiện ích cần thiết ở Phú Quốc.">
-  <link rel="stylesheet" href="nearme.css?v=4">
+  <link rel="stylesheet" href="nearme.css?v=5">
 <link rel="stylesheet" href="../ecosystem-shell.css?v=20260921b">
   <link rel="canonical" href="https://openphuquoc.com/nearme/">
   <meta property="og:site_name" content="Open Phu Quoc">
@@ -48,7 +48,10 @@
 
       <div class="map-shell">
         <div id="nearMap" aria-label="Bản đồ Phú Quốc"></div>
-        <small id="mapNote">Bật vị trí để thấy chính xác mình đang đứng ở đâu. Điểm tiện ích chỉ được ghim khi có tọa độ đủ chắc.</small>
+        <div class="map-shell-note">
+          <small id="mapNote">Bật vị trí để định tâm gần bạn. Khoảng cách chỉ hiện với những điểm có tọa độ đủ chắc.</small>
+          <a id="mapOpenLink" href="https://www.google.com/maps/search/?api=1&query=Phu+Quoc+Vietnam" target="_blank" rel="noopener">Mở Google Maps ↗</a>
+        </div>
       </div>
 
       <div class="results-head">
@@ -64,6 +67,6 @@
     <span>Vị trí của bạn chỉ được dùng trong phiên này khi bạn chủ động bật.</span>
   </footer>
 
-  <script src="nearme.js?v=6"></script>
+  <script src="nearme.js?v=7"></script>
 </body>
 </html>
