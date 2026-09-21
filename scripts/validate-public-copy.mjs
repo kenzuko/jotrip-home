@@ -1,0 +1,48 @@
+import fs from "node:fs";
+
+const files=[
+  "index.html",
+  "home-foundation-v2.js",
+  "home-live-v3.js",
+  "nearme/index.html",
+  "nearme/nearme.js",
+  "news/index.html",
+  "news/news.js",
+  "utilities/index.html",
+  "utilities/utilities.js",
+  "explore/index.html",
+  "guide/index.html",
+  "guide/guide.js",
+  "places/detail.js"
+];
+
+const banned=[
+  "Hợp nhất:",
+  "ĐÃ ĐỐI CHIẾU",
+  "CẦN KIỂM TRA",
+  "Chưa có giờ đáng tin",
+  "Khung giờ tham khảo",
+  "Đang nạp dữ liệu",
+  "Đang tải dữ liệu",
+  "cập nhật còn hiệu lực",
+  "trạng thái kiểm tra",
+  "xác nhận vận hành",
+  "link đi thẳng tới dữ liệu live",
+  "Thông tin nền được đối chiếu từ đâu?"
+];
+
+const violations=[];
+for(const file of files){
+  if(!fs.existsSync(file))continue;
+  const text=fs.readFileSync(file,"utf8");
+  for(const phrase of banned){
+    if(text.includes(phrase))violations.push({file,phrase});
+  }
+}
+
+if(violations.length){
+  console.error("Public copy validation failed. Machine-like phrases found:");
+  for(const v of violations)console.error(" - "+v.file+": "+v.phrase);
+  process.exit(1);
+}
+console.log("Public copy validation passed:",files.length,"surfaces checked");
