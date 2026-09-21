@@ -13,7 +13,20 @@ const files=[
   "explore/index.html",
   "guide/index.html",
   "guide/guide.js",
-  "places/detail.js"
+  "places/detail.js",
+  "currency/index.html",
+  "currency/currency.js",
+  "hotels/index.html",
+  "hotels/app.js",
+  "bus/index.html",
+  "bus/app.js",
+  "cano/index.html",
+  "cano/app.js",
+  "ferry/index.html",
+  "ferry/app.js",
+  "transit/index.html",
+  "transit/app.js",
+  "about/index.html"
 ];
 
 const banned=[
@@ -28,7 +41,13 @@ const banned=[
   "trạng thái kiểm tra",
   "xác nhận vận hành",
   "link đi thẳng tới dữ liệu live",
-  "Thông tin nền được đối chiếu từ đâu?"
+  "Thông tin nền được đối chiếu từ đâu?",
+  "Không poll số ghế",
+  "Collector chưa có snapshot",
+  "Nguồn online",
+  "Unknown, stale",
+  "DỮ LIỆU DI CHUYỂN",
+  "VẬN HÀNH BIỂN"
 ];
 
 const violations=[];
