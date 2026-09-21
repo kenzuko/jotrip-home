@@ -158,6 +158,22 @@ function freshnessText(iso, prefix = "Cập nhật") {
       const pxPerSecond = mobile ? 104 : 92;
       const seconds = Math.max(mobile ? 8.5 : 9.5, Math.min(17, halfWidth / pxPerSecond));
       track.style.setProperty("--ticker-duration", seconds.toFixed(2) + "s");
+
+      if (typeof track.animate === "function") {
+        try { track._openpqTickerAnimation?.cancel(); } catch {}
+        track.style.setProperty("animation","none","important");
+        track._openpqTickerAnimation = track.animate(
+          [
+            { transform:"translate3d(0,0,0)" },
+            { transform:"translate3d(-50%,0,0)" }
+          ],
+          {
+            duration:seconds * 1000,
+            easing:"linear",
+            iterations:Infinity
+          }
+        );
+      }
     };
     requestAnimationFrame(tuneSpeed);
     if (!track.dataset.speedBound) {
