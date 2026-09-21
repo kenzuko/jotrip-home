@@ -30,6 +30,7 @@ const dirs=[
   "guide",
   "stories",
   "utilities",
+  "currency",
   "weather",
   "admin",
   "ferry",
