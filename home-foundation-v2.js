@@ -160,10 +160,16 @@ function renderNearResults(){
   if(!utilitiesLoaded){host.innerHTML='<div><strong>Đang mở danh sách tiện ích...</strong><span>Chờ một chút nhé.</span></div>';return}
   let items=[...(support.near_me?.items||[])].map(resolveNearItem);
   if(selectedCategory)items=items.filter(x=>x.utility_type===selectedCategory);
+  let gpsFallback=false;
   if(position){
-    items=items.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon))
-      .map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
-      .sort((a,b)=>(a.current_status==="OPEN"?0:1)-(b.current_status==="OPEN"?0:1)||a.distance_km-b.distance_km);
+    const withCoords=items.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon));
+    if(withCoords.length){
+      items=withCoords.map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
+        .sort((a,b)=>(a.current_status==="OPEN"?0:1)-(b.current_status==="OPEN"?0:1)||a.distance_km-b.distance_km);
+    }else{
+      gpsFallback=true;
+      items.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+    }
   }else if(selectedArea&&selectedArea!=="all"){
     items=items.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea);
   }else if(selectedArea==="all"){
@@ -180,7 +186,7 @@ function renderNearResults(){
     if(x.current_status==="OPEN"&&/24\/?24/i.test(x.opening_hours_note||""))return"Mở 24/24";
     return"";
   };
-  host.innerHTML='<div class="near-result-list">'+items.slice(0,6).map(x=>{
+  host.innerHTML=(gpsFallback?'<div class="near-gps-note"><strong>Đã nhận vị trí.</strong><span>Các điểm tiện ích hiện chưa có tọa độ đủ chắc để xếp theo khoảng cách, nên tạm hiển thị danh sách toàn đảo.</span></div>':"")+'<div class="near-result-list">'+items.slice(0,6).map(x=>{
     const state=stateLabel(x),distance=Number.isFinite(x.distance_km)?x.distance_km.toFixed(1)+" km":"";
     const top=[state,distance].filter(Boolean).join(" · ");
     return '<article class="near-result-card">'+
