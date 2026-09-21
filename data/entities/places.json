@@ -1250,6 +1250,76 @@
       ],
       "verified_at": "2026-09-20",
       "updated_at": "2026-09-20"
+    },
+    {
+      "id": "place_teddy_bear_museum",
+      "legacy_id": "teddy-bear-museum",
+      "entity_type": "place",
+      "slug": "teddy-bear-museum",
+      "name": "Teddy Bear Museum Phú Quốc",
+      "aliases": [
+        "Bảo tàng Gấu Teddy",
+        "Teddy Bear Museum",
+        "Bảo tàng Gấu Grand World"
+      ],
+      "zone_id": "zone_north",
+      "area_code": "north",
+      "categories": [
+        "museum",
+        "family",
+        "indoor"
+      ],
+      "what_it_is": "Bảo tàng chủ đề gấu Teddy tại Grand World Phú Quốc.",
+      "why_go": "Không gian trong nhà · gia đình · trẻ nhỏ · phù hợp buổi tối hoặc lúc nắng/mưa",
+      "best_for": [
+        "museum",
+        "family",
+        "indoor"
+      ],
+      "best_time": "Chiều tối hoặc khi cần trải nghiệm trong nhà",
+      "duration": "1-1,5 giờ",
+      "price_reference": "Kiểm tra vé theo ngày tại Grand World/VinWonders",
+      "live_check_required": true,
+      "weather_dependency": "low",
+      "tips": [
+        "Hợp để ghép với Grand World và show Tinh Hoa Việt Nam",
+        "Nếu đến muộn nên chừa ít nhất khoảng 60-90 phút để xem thoải mái"
+      ],
+      "intents": [
+        "museum",
+        "family",
+        "indoor",
+        "evening"
+      ],
+      "related_entities": [
+        "place_grand_world",
+        "activity_tinh_hoa_viet_nam"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "vinwonders_grandworld_hours_2026"
+        }
+      ],
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "DAILY",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "windows": [
+          {
+            "start": "09:30",
+            "end": "21:00",
+            "label": "Giờ hoạt động"
+          }
+        ],
+        "source_id": "vinwonders_grandworld_hours_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "Giờ công bố của Teddy Bear Museum trên hướng dẫn Grand World 2026."
+      }
     }
   ]
 }
