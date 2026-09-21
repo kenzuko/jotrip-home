@@ -316,6 +316,33 @@
         "activity_symphony_of_the_sea",
         "home_hot_now"
       ]
+    },
+    {
+      "id": "vietcombank_phuquoc_locations_20251201",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Vietcombank Phú Quốc - địa điểm Chi nhánh và PGD hiện hành",
+      "url": "https://www.vietcombank.com.vn/vi-VN/Trang-thong-tin-dien-tu/Articles/2025/12/03/VCB-Phu-Quoc-thay-doi-dia-diem-hoat-dong-Tru-so-CN-va-PGD",
+      "published_at": "2025-12-01",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "home_near_me",
+        "utility_type_ATM"
+      ]
+    },
+    {
+      "id": "tienmat_atm_phuquoc_2026",
+      "type": "COMMUNITY",
+      "label": "TienMat.com.vn - danh bạ ATM Phú Quốc",
+      "url": "https://tienmat.com.vn/atm/phu-quoc",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "SECONDARY_DIRECTORY",
+      "used_by": [
+        "home_near_me",
+        "utility_type_ATM"
+      ]
     }
   ],
   "rules": [
