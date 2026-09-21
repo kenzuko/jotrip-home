@@ -40,8 +40,8 @@
       <h1>Tỷ giá hôm nay.<br>Lịch sử 30 ngày.</h1>
       <p class="hero-copy">Xem tỷ giá Vietcombank hiện tại, quy đổi nhanh và tra lại lịch sử 30 ngày gần nhất.</p>
       <div class="source-line">
-        <span id="sourceBadge" class="status-pill">ĐANG TẢI</span>
-        <span id="updatedAt">Đang kiểm tra dữ liệu...</span>
+        <span id="sourceBadge" class="status-pill">ĐANG XEM</span>
+        <span id="updatedAt">Đang xem tỷ giá Vietcombank...</span>
       </div>
       <div class="currency-search-wrap">
         <div class="currency-search" role="search">
@@ -89,7 +89,7 @@
         <div><p class="eyebrow">TỶ GIÁ HÔM NAY</p><h2 id="ratesTitle">Tỷ giá phổ biến</h2></div>
         <span class="mini-note">Mua tiền mặt · Mua chuyển khoản · Bán ra</span>
       </div>
-      <div id="rateCards" class="rate-cards"><div class="empty-state">Đang tải tỷ giá...</div></div>
+      <div id="rateCards" class="rate-cards"><div class="empty-state">Đang lấy tỷ giá...</div></div>
     </section>
 
     <section class="panel comparison-panel" aria-labelledby="comparisonTitle">
@@ -98,9 +98,9 @@
         <span class="mini-note">Giá mua tiền mặt</span>
       </div>
       <div id="comparisonTable" class="comparison-table">
-        <div class="empty-state">Đang tải dữ liệu so sánh...</div>
+        <div class="empty-state">Đang so sánh...</div>
       </div>
-      <p class="comparison-note">Nếu Vietcombank không công bố giá mua tiền mặt, hệ thống dùng giá mua chuyển khoản.</p>
+      <p class="comparison-note">Nếu Vietcombank không có giá mua tiền mặt, bảng sẽ dùng giá mua chuyển khoản và ghi rõ.</p>
     </section>
 
     <section class="panel chart-panel" aria-labelledby="chartTitle">
@@ -120,7 +120,7 @@
       </div>
       <div id="historyCompare" class="history-compare" aria-label="So sánh tỷ giá với trước đây"></div>
       <div id="historyChart" class="history-chart" role="img" aria-label="Biểu đồ lịch sử tỷ giá">
-        <div class="empty-state">Biểu đồ sẽ xuất hiện khi có dữ liệu lịch sử.</div>
+        <div class="empty-state">Chưa có đủ lịch sử để vẽ biểu đồ.</div>
       </div>
       <div id="rateMetrics" class="rate-metrics"></div>
     </section>
@@ -131,7 +131,7 @@
         <span class="mini-note">Mốc đầu kỳ = 100</span>
       </div>
       <p class="board-explainer">Để so sánh công bằng giữa các đồng tiền có mệnh giá khác nhau, mỗi đồng được quy về 100 ở đầu kỳ. Phần này chỉ cho biết mức tăng hoặc giảm tương đối so với VND.</p>
-      <div id="marketBoard" class="market-board"><div class="empty-state">Đang chờ dữ liệu lịch sử.</div></div>
+      <div id="marketBoard" class="market-board"><div class="empty-state">Đang lấy 30 ngày gần nhất...</div></div>
       <div id="boardLegend" class="board-legend"></div>
     </section>
 
@@ -146,14 +146,14 @@
     </section>
 
     <section class="source-panel">
-      <div><strong>Nguồn: Vietcombank</strong><span id="sourceDetail">Cập nhật tự động. Khi nguồn tạm lỗi, hệ thống dùng bản gần nhất và ghi rõ thời điểm.</span></div>
+      <div><strong>Nguồn: Vietcombank</strong><span id="sourceDetail">Lấy trực tiếp từ Vietcombank. Nếu kết nối chậm, trang giữ bản gần nhất và ghi rõ giờ.</span></div>
       <a href="https://www.vietcombank.com.vn/vi-VN/KHCN/Cong-cu-Tien-ich/Ty-gia" target="_blank" rel="noopener">Xem tại Vietcombank ↗</a>
     </section>
   </div>
 </main>
 
 <footer class="module-footer">Tỷ giá mang tính tham khảo và có thể thay đổi theo thời điểm Vietcombank cập nhật.</footer>
-<script src="currency.js?v=6"></script>
+<script src="currency.js?v=7"></script>
 <script src="../island-clock.js?v=6"></script>
 </body>
 </html>
