@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f9f8">
+<title>Transit Phú Quốc - Open Phu Quoc</title>
+<meta name="description" content="Lịch tàu cao tốc, phà và xe buýt Phú Quốc theo ngày, hãng, giờ chạy, tàu/phà và giá vé.">
+<link rel="preload" as="image" href="/assets/logo-master.png">
+<link rel="stylesheet" href="../live-module.css?v=20260921">
+<link rel="stylesheet" href="../live-module-v2.css?v=20260921">
+<link rel="stylesheet" href="./transit.css?v=20260921b">
+</head>
+<body>
+<header class="module-head transit-head">
+  <a href="../" aria-label="Về Open Phu Quoc"><img class="logo" src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
+  <span class="divider"></span>
+  <div class="module-title"><h1>Transit</h1><p>Tàu cao tốc · Phà · Bus Phú Quốc</p></div>
+  <div class="module-actions"><div class="vn-clock" data-vn-clock></div><a class="home-btn" href="../">⌂ Trang chủ</a><button id="refreshBtn" class="refresh-btn" aria-label="Làm mới">↻</button></div>
+</header>
+
+<main class="module-main"><div class="shell transit-shell">
+  <div class="source-strip">
+    <span class="live-dot"><i></i> TRANSIT DATA</span>
+    <b id="healthState">Đang tải</b>
+    <small id="updatedAt">Đang đồng bộ dữ liệu hãng...</small>
+  </div>
+
+  <section class="transit-overview">
+    <div class="overview-copy">
+      <span class="eyebrow">OPEN PHU QUOC · DI CHUYỂN</span>
+      <h2>Đi chuyến nào, lúc mấy giờ?</h2>
+      <p>Dữ liệu chuyến phải theo đúng ngày đi. Lịch tháng chỉ dùng tham khảo, không được dùng để khẳng định chuyến thực tế.</p>
+    </div>
+    <div class="overview-metrics">
+      <article><span>CHUYẾN BIỂN</span><strong id="seaCount">-</strong><small>ngày đã chọn</small></article>
+      <article><span>CHUYẾN KẾ</span><strong id="nextTime">--:--</strong><small id="nextRoute">Chưa có dữ liệu</small></article>
+      <article><span>HÃNG</span><strong id="operatorCount">-</strong><small>đang có dữ liệu</small></article>
+    </div>
+  </section>
+
+  <section class="transit-controls">
+    <label><span>Ngày đi</span><input id="travelDate" type="date"></label>
+    <label><span>Tuyến</span><select id="routeFilter"><option value="all">Tất cả tuyến</option></select></label>
+    <label><span>Hãng</span><select id="operatorFilter"><option value="all">Tất cả hãng</option></select></label>
+    <label class="search"><span>Tìm nhanh</span><input id="searchInput" type="search" placeholder="Rạch Giá, Hà Tiên, PQ Express..."></label>
+    <div class="mode-tabs" id="modeTabs">
+      <button class="active" data-mode="sea">Tàu & phà</button>
+      <button data-mode="fast">Tàu cao tốc</button>
+      <button data-mode="ferry">Phà</button>
+      <button data-mode="bus">Bus</button>
+    </div>
+  </section>
+
+  <section class="panel board-panel">
+    <div class="panel-head">
+      <div><span class="section-kicker">LỊCH THEO NGÀY</span><h3 id="boardTitle">Tàu & phà</h3><p id="boardSubtitle">Giờ chạy, hãng, tàu/phà, giá và mức xác nhận của nguồn.</p></div>
+      <div class="board-meta"><strong id="selectedDateLabel">-</strong><small id="boardMeta">-</small></div>
+    </div>
+    <div id="boardNotice" class="board-notice hidden"></div>
+    <div class="desktop-board">
+      <div class="transit-columns"><span>GIỜ</span><span>TUYẾN</span><span>HÃNG / TÀU</span><span>GIÁ NGƯỜI</span><span>GIÁ XE</span><span>VẬN HÀNH</span><span>VÉ</span></div>
+      <div id="boardRows" class="transit-rows"><div class="empty-state">Đang tải dữ liệu...</div></div>
+    </div>
+    <div id="mobileRows" class="mobile-board"></div>
+  </section>
+
+  <section class="transit-info-grid">
+    <article class="side-card">
+      <div class="info-head"><div><span>NGUỒN DỮ LIỆU</span><h3>Ưu tiên dữ liệu ngày thực tế</h3></div><span id="sourceHealth" class="status-chip neutral">Đang tải</span></div>
+      <div id="sourceList" class="source-list"></div>
+    </article>
+    <article class="side-card">
+      <span class="info-kicker">KIỂM TRA VÉ</span><h3>Chỉ kiểm tra khi cần.</h3>
+      <p>Không poll số ghế liên tục. Khi người dùng bấm <b>Kiểm tra vé</b>, hệ thống chỉ cần trả trạng thái chung và thời điểm kiểm tra.</p>
+      <div class="status-examples"><span>Có thể đặt vé</span><span>Còn hạn chế</span><span>Hết vé</span><span>Chưa xác định</span></div>
+    </article>
+  </section>
+</div></main>
+
+<footer class="module-footer"><div class="shell">Open Phu Quoc · Transit ưu tiên nguồn hãng theo ngày thực tế. Hãy xác nhận lại trước giờ khởi hành khi có thay đổi vận hành.</div></footer>
+
+<div id="ticketBackdrop" class="ticket-backdrop hidden"></div>
+<aside id="ticketDrawer" class="ticket-drawer hidden" aria-hidden="true">
+  <div class="drawer-grab"></div><button id="ticketClose" class="ticket-close" aria-label="Đóng">×</button><div id="ticketContent"></div>
+</aside>
+
+<script src="../island-clock.js?v=6"></script>
+<script src="./app.js?v=20260921b"></script>
+</body>
+</html>
