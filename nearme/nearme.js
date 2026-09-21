@@ -19,10 +19,14 @@
       return;
     }
     map=L.map(host,{zoomControl:true,attributionControl:true,preferCanvas:true}).setView(AREA_VIEW.all.center,AREA_VIEW.all.zoom);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
-      maxZoom:18,
-      attribution:"© OpenStreetMap contributors"
-    }).addTo(map);
+    if(window.OpenPQMapBase?.add){
+      window.OpenPQMapBase.add(map,{maxZoom:19});
+    }else{
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{
+        maxZoom:19,
+        attribution:"© OpenStreetMap contributors"
+      }).addTo(map);
+    }
 
     areaLayer=L.layerGroup().addTo(map);
     utilityLayer=L.layerGroup().addTo(map);
