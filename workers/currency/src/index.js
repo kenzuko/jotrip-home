@@ -25,7 +25,7 @@ function numeric(value){
   return Number.isFinite(n)?n:null;
 }
 function attr(tag,name){
-  const match=tag.match(new RegExp(name+'\\s*=\\s*["\\']([^"\\']*)["\\']','i'));
+  const match=tag.match(new RegExp(name+"\\s*=\\s*[\"']([^\"']*)[\"']","i"));
   return match?decodeXml(match[1]):null;
 }
 function vcbTimeToIso(raw){
