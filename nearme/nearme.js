@@ -68,7 +68,7 @@
 
   function showUserLocation(coords){
     if(!mapFrame)return;
-    mapFrame.src=mapUrl(coords.lat+","+coords.lon,15);
+    updateMapFrame(coords.lat+","+coords.lon,15);
     const note=$("#mapNote");
     if(note)note.textContent="Bản đồ đang định tâm theo vị trí thiết bị trong phiên này. Khoảng cách trong danh sách chỉ tính với những điểm có tọa độ đã xác minh.";
   }
@@ -108,19 +108,21 @@
     if(selectedCategory)rows=rows.filter(x=>x.utility_type===selectedCategory);
     let gpsFallback=false;
     if(position){
-      const withCoords=rows.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon));
-      if(withCoords.length){
-        rows=withCoords.map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})})).sort((a,b)=>a.distance_km-b.distance_km);
-      }else{
-        gpsFallback=true;
-        const fallbackArea=selectedArea!=="all"?selectedArea:nearestArea(position);
-        const areaRows=rows.filter(x=>x.zone_id===fallbackArea||x.place_id===fallbackArea);
-        if(areaRows.length){
-          selectedArea=fallbackArea;
-          rows=areaRows;
-        }else{
-          rows.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-        }
+      const withCoords=rows
+        .filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon))
+        .map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
+        .sort((a,b)=>a.distance_km-b.distance_km);
+      const fallbackArea=selectedArea!=="all"?selectedArea:nearestArea(position);
+      const areaOnly=rows
+        .filter(x=>!Number.isFinite(x.lat)||!Number.isFinite(x.lon))
+        .filter(x=>x.zone_id===fallbackArea||x.place_id===fallbackArea)
+        .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+      gpsFallback=areaOnly.length>0;
+      rows=[...withCoords,...areaOnly];
+      if(!rows.length){
+        rows=mergedItems()
+          .filter(x=>!selectedCategory||x.utility_type===selectedCategory)
+          .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
       }
     }else if(selectedArea!=="all"){
       rows=rows.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea)
@@ -130,7 +132,7 @@
     }
     $("#resultsTitle").textContent=areaLabel()+(selectedCategory?" · "+(support.near_me.categories.find(x=>x.id===selectedCategory)?.label||""):"");
     $("#resultsCount").textContent=rows.length+" điểm";
-    $("#nearStatus").textContent=position?(gpsFallback?"Đã thấy vị trí của bạn trên bản đồ. Một số tiện ích chưa có tọa độ đủ chắc, nên danh sách đang ưu tiên khu vực gần nhất.":"Đã thấy vị trí của bạn trên bản đồ và đang ưu tiên những điểm gần đó."):"Bạn đang xem theo khu vực, chưa dùng GPS.";
+    $("#nearStatus").textContent=position?(gpsFallback?"Điểm có tọa độ được xếp theo khoảng cách. Các điểm còn lại được giữ theo khu vực gần vị trí của bạn.":"Đã thấy vị trí của bạn và đang xếp các điểm theo khoảng cách."):"Bạn đang xem theo khu vực, chưa dùng GPS.";
     renderMapPoints(rows);
     const host=$("#nearResults");
     if(!rows.length){host.innerHTML='<div class="empty">Chưa có điểm phù hợp với lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';return}
