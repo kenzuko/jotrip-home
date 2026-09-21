@@ -7,8 +7,17 @@ const files=fs.readdirSync(entityDir).filter(name=>name.endsWith(".json")).sort(
 const entities=files.flatMap(file=>JSON.parse(fs.readFileSync(path.join(entityDir,file),"utf8")).entities||[]);
 const mappableTypes=new Set(["zone","place","activity","hotel","utility","access"]);
 const candidates=entities.filter(entity=>mappableTypes.has(entity.entity_type));
-const ready=candidates.filter(entity=>Number.isFinite(entity.map?.lat)&&Number.isFinite(entity.map?.lon));
-const missing=candidates.filter(entity=>!Number.isFinite(entity.map?.lat)||!Number.isFinite(entity.map?.lon));
+const precisionValues=new Set(["exact_entrance","site_centroid","area_anchor","route_anchor"]);
+const mapReady=entity=>{
+  const map=entity.map||{};
+  return Number.isFinite(map.lat)&&
+    Number.isFinite(map.lon)&&
+    precisionValues.has(map.precision)&&
+    typeof map.source==="string"&&map.source.trim().length>0&&
+    typeof map.verified_at==="string"&&map.verified_at.trim().length>0;
+};
+const ready=candidates.filter(mapReady);
+const missing=candidates.filter(entity=>!mapReady(entity));
 
 const output={
   schema_version:"1.0",
