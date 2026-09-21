@@ -23,15 +23,24 @@
       zone_north:"Gành Dầu, Phú Quốc, Việt Nam"
     })[id]||"Phú Quốc, Việt Nam";
   }
-  function updateMapFrame(){
+  function updateMapFrame(queryOverride=null,zoomOverride=null){
     if(!mapFrame)return;
-    if(position){
-      mapFrame.src=mapUrl(position.lat+","+position.lon,15);
-      return;
+    let query="";
+    let zoom=zoomOverride||12;
+    if(queryOverride){
+      query=queryOverride;
+    }else if(position){
+      query=position.lat+","+position.lon;
+      zoom=15;
+    }else{
+      const category=support?.near_me?.categories?.find(x=>x.id===selectedCategory)?.label||"";
+      const base=areaQuery(selectedArea);
+      query=category?category+" "+base:base;
+      zoom=selectedArea==="all"?10:13;
     }
-    const category=support?.near_me?.categories?.find(x=>x.id===selectedCategory)?.label||"";
-    const base=areaQuery(selectedArea);
-    mapFrame.src=mapUrl(category?category+" "+base:base,selectedArea==="all"?10:13);
+    mapFrame.src=mapUrl(query,zoom);
+    const link=$("#mapOpenLink");
+    if(link)link.href="https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(query);
   }
   function initMap(){
     const host=$("#nearMap");
@@ -126,7 +135,7 @@
         '<strong>'+esc(x.name)+'</strong>'+
         (x.address?'<p>'+esc(x.address)+'</p>':"")+
         (x.opening_hours_note?'<small>'+esc(x.opening_hours_note)+'</small>':"")+
-        '<div>'+(x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+(maps?'<a href="'+esc(maps)+'" target="_blank" rel="noopener">Mở đường đi ↗</a>':"")+'</div>'+
+        '<div>'+(x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+(x.address?'<button type="button" data-map-query="'+esc(x.address)+'">Xem trên bản đồ</button>':"")+(maps?'<a href="'+esc(maps)+'" target="_blank" rel="noopener">Mở đường đi ↗</a>':"")+'</div>'+
       '</article>';
     }).join("");
   }
@@ -141,6 +150,11 @@
     $("#categoryRow").addEventListener("click",e=>{
       const b=e.target.closest("[data-category]");if(!b)return;
       selectedCategory=b.dataset.category||null;renderControls();updateMapFrame();render();
+    });
+    $("#nearResults").addEventListener("click",e=>{
+      const b=e.target.closest("[data-map-query]");if(!b)return;
+      updateMapFrame(b.dataset.mapQuery||"",15);
+      $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
     });
     $("#useLocation").addEventListener("click",()=>{
       const button=$("#useLocation");
