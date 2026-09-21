@@ -257,17 +257,7 @@
 
       const currentCriticalAge = ageMinutes(criticalStamp);
 
-      if (!critical || currentCriticalAge > 90) {
-        cfg = {
-          tone: "watch",
-          title: "Khoan chốt lịch ngoài trời.",
-          note: "Dữ liệu thời tiết chưa đủ mới. Mở lại mục Thời tiết & Biển trước khi rời chỗ ở.",
-          primaryText: "Mở Thời tiết & Biển →",
-          primaryHref: "weather/",
-          secondaryText: "Tìm chỗ ít phụ thuộc thời tiết",
-          secondaryHref: "explore/?intent=rainy-day"
-        };
-      } else if (hasHighConvective || hasElevatedConvective || observedRain) {
+      if (critical && currentCriticalAge <= 90 && (hasHighConvective || hasElevatedConvective || observedRain)) {
         cfg = {
           tone: "watch",
           title: observedRain ? "Đang có mưa - đừng khóa lịch quá chặt" : "Trời đang đổi - giữ lịch linh hoạt",

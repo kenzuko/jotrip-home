@@ -42,10 +42,12 @@ for(const item of support.trip_clock?.items||[]){
     errors.push("trip_clock schedule missing canonical opening_hours: "+item.entity_id);
     continue;
   }
-  if(opening.state==="PUBLISHED_SCHEDULE"){
-    if(!(opening.windows||[]).length) errors.push(item.entity_id+": published schedule missing windows");
-    if(!opening.source_id) errors.push(item.entity_id+": published schedule missing source_id");
-    if(!opening.verified_at) errors.push(item.entity_id+": published schedule missing verified_at");
+  if(["PUBLISHED_SCHEDULE","APPROXIMATE_SCHEDULE"].includes(opening.state)){
+    const hasWindows=(opening.windows||[]).length>0;
+    const hasTimes=(opening.times||[]).length>0;
+    if(!hasWindows&&!hasTimes) errors.push(item.entity_id+": schedule missing windows/times");
+    if(!opening.source_id) errors.push(item.entity_id+": schedule missing source_id");
+    if(!opening.verified_at) errors.push(item.entity_id+": schedule missing verified_at");
   }
   if(opening.state==="NEEDS_VERIFICATION"&&(opening.claims||[]).length<2){
     errors.push(item.entity_id+": schedule conflict needs multiple claims");

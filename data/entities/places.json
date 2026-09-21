@@ -393,32 +393,28 @@
         },
         {
           "source_id": "visitpq_night_market_place"
+        },
+        {
+          "source_id": "visitpq_night_market_current_20260417"
         }
       ],
       "updated_at": "2026-09-21",
       "opening_hours": {
-        "state": "NEEDS_VERIFICATION",
-        "schedule_type": "CONFLICTING_CLAIMS",
+        "state": "APPROXIMATE_SCHEDULE",
+        "schedule_type": "DAILY_APPROXIMATE",
         "timezone": "Asia/Ho_Chi_Minh",
-        "windows": [],
-        "source_type": "OFFICIAL_TOURISM",
-        "source_ids": [
-          "visitpq_night_market_20260809",
-          "visitpq_night_market_place"
-        ],
-        "verified_at": "2026-09-21",
-        "confidence": "LOW",
-        "claims": [
+        "windows": [
           {
-            "source_id": "visitpq_night_market_20260809",
-            "window": "15:00-23:00"
-          },
-          {
-            "source_id": "visitpq_night_market_place",
-            "window": "18:00-23:30"
+            "start": "18:00",
+            "end": "23:30",
+            "label": "Khung hoạt động thường thấy"
           }
         ],
-        "note": "Hai trang trên cùng cổng Visit Phu Quoc đang công bố giờ khác nhau; giữ UNKNOWN cho tới khi xác minh trực tiếp."
+        "source_id": "visitpq_night_market_current_20260417",
+        "source_type": "OFFICIAL_TOURISM",
+        "verified_at": "2026-09-21",
+        "confidence": "MEDIUM",
+        "note": "Visit Phu Quoc 2026 ghi chợ thường hoạt động khoảng 18:00-23:30; một số gian có thể mở từ khoảng 15:00. Đây là khung tham khảo, không phải giờ đóng cửa đồng loạt."
       }
     },
     {
@@ -737,9 +733,12 @@
           "slides": [
             72
           ]
+        },
+        {
+          "source_id": "visitpq_ho_quoc_current"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21"
     },
     {
       "id": "place_aquatopia",

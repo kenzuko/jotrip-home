@@ -526,6 +526,48 @@
         "home_curiosity",
         "story_mui_cay_cua_dat_do"
       ]
+    },
+    {
+      "id": "sunworld_symphony_schedule_current_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World Hòn Thơm - Symphony of the Sea 19:30",
+      "url": "https://sunworld.vn/vi/hon-thom/cam-nang-du-lich/kinh-nghiem-du-lich-sunset-town-phu-quoc-tron-ven-va-tiet-kiem-17546",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "activity_symphony_of_the_sea",
+        "trip_clock",
+        "home_news"
+      ]
+    },
+    {
+      "id": "visitpq_ho_quoc_current",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Phú Quốc Tourism - Chùa Hộ Quốc Trúc Lâm",
+      "url": "https://dulich.phuquoc.gov.vn/vi/chuahoquoctrucla",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "place_ho_quoc",
+        "trip_clock"
+      ]
+    },
+    {
+      "id": "visitpq_night_market_current_20260417",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - Chợ đêm Phú Quốc 2026",
+      "url": "https://visitphuquoc.com.vn/vi/cho-dem-phu-quoc-thien-duong-am-thuc-va-mua-sam-tren-dao-ngoc-8445",
+      "published_at": "2026-04-17",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "place_night_market",
+        "trip_clock",
+        "home_news"
+      ]
     }
   ],
   "rules": [

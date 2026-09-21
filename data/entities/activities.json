@@ -468,9 +468,32 @@
             "r3-052",
             "r3-053"
           ]
+        },
+        {
+          "source_id": "sunworld_symphony_schedule_current_2026"
+        },
+        {
+          "source_id": "sunworld_symphony_season3_20260912"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "FIXED_START",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "times": [
+          {
+            "start": "19:30",
+            "label": "Symphony of the Sea"
+          }
+        ],
+        "source_id": "sunworld_symphony_schedule_current_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "Sun World hiện công bố Symphony of the Sea lúc 19:30 hằng ngày. Thông tin mùa 3 là nâng cấp phiên bản, không được dùng để suy ra show hiện tại đã ngưng."
+      }
     },
     {
       "id": "activity_kiss_of_the_sea",

@@ -10,6 +10,48 @@
     "timezone": "Asia/Ho_Chi_Minh",
     "items": [
       {
+        "id": "clock_symphony",
+        "entity_id": "activity_symphony_of_the_sea",
+        "status_code": "UNKNOWN",
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=symphony-of-the-sea",
+        "schedule_source": "canonical_entity.opening_hours"
+      },
+      {
+        "id": "clock_kiss_of_the_sea",
+        "entity_id": "activity_kiss_of_the_sea",
+        "status_code": "UNKNOWN",
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=activity_kiss_of_the_sea",
+        "schedule_source": "canonical_entity.opening_hours"
+      },
+      {
+        "id": "clock_dinh_cau",
+        "entity_id": "place_dinh_cau",
+        "status_code": "UNKNOWN",
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=dinh-cau",
+        "schedule_source": "canonical_entity.opening_hours",
+        "timing_note": "Đẹp nhất vào cuối chiều, có thể ghép chợ đêm."
+      },
+      {
+        "id": "clock_ho_quoc",
+        "entity_id": "place_ho_quoc",
+        "status_code": "UNKNOWN",
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=ho-quoc",
+        "schedule_source": "SOFT_DAYLIGHT",
+        "timing_note": "Nên đi ban ngày hoặc chiều dịu. Đây là gợi ý trải nghiệm, không phải giờ đóng cửa."
+      },
+      {
+        "id": "clock_night_market",
+        "entity_id": "place_night_market",
+        "status_code": "UNKNOWN",
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=night-market",
+        "schedule_source": "canonical_entity.opening_hours"
+      },
+      {
         "id": "clock_hon_thom",
         "entity_id": "activity_hon_thom",
         "status_code": "UNKNOWN",
@@ -31,22 +73,6 @@
         "status_code": "UNKNOWN",
         "travel_buffer_min": null,
         "route": "places/detail.html?id=vinwonders",
-        "schedule_source": "canonical_entity.opening_hours"
-      },
-      {
-        "id": "clock_night_market",
-        "entity_id": "place_night_market",
-        "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
-        "route": "places/detail.html?id=night-market",
-        "schedule_source": "canonical_entity.opening_hours"
-      },
-      {
-        "id": "clock_kiss_of_the_sea",
-        "entity_id": "activity_kiss_of_the_sea",
-        "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
-        "route": "places/detail.html?id=activity_kiss_of_the_sea",
         "schedule_source": "canonical_entity.opening_hours"
       }
     ]
@@ -71,42 +97,6 @@
       "schedule_source": "canonical_entity.opening_hours"
     },
     {
-      "surface_id": "activity_safari",
-      "entity_id": "place_vinpearl_safari",
-      "operational_binding": null,
-      "status_code": "UNKNOWN",
-      "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=vinpearl-safari",
-      "schedule_source": "canonical_entity.opening_hours"
-    },
-    {
-      "surface_id": "activity_vinwonders",
-      "entity_id": "place_vinwonders",
-      "operational_binding": null,
-      "status_code": "UNKNOWN",
-      "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=vinwonders",
-      "schedule_source": "canonical_entity.opening_hours"
-    },
-    {
-      "surface_id": "activity_sunset_town",
-      "entity_id": "place_sunset_town",
-      "operational_binding": null,
-      "status_code": "UNKNOWN",
-      "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=sunset-town",
-      "schedule_source": "canonical_entity.opening_hours"
-    },
-    {
-      "surface_id": "activity_night_market",
-      "entity_id": "place_night_market",
-      "operational_binding": null,
-      "status_code": "UNKNOWN",
-      "warning_rule": "WEATHER_DEPENDENT",
-      "route": "places/detail.html?id=night-market",
-      "schedule_source": "canonical_entity.opening_hours"
-    },
-    {
       "surface_id": "activity_big_game_fishing",
       "entity_id": "activity_big_game_fishing",
       "operational_binding": null,
@@ -116,13 +106,22 @@
       "schedule_source": "canonical_entity.opening_hours"
     },
     {
+      "surface_id": "activity_symphony",
+      "entity_id": "activity_symphony_of_the_sea",
+      "operational_binding": null,
+      "status_code": "UNKNOWN",
+      "warning_rule": "WEATHER_DEPENDENT",
+      "route": "places/detail.html?id=symphony-of-the-sea",
+      "schedule_source": "canonical_entity.opening_hours"
+    },
+    {
       "surface_id": "activity_kiss_of_the_sea",
       "entity_id": "activity_kiss_of_the_sea",
       "operational_binding": null,
       "status_code": "UNKNOWN",
-      "operating_window": null,
-      "warning_rule": "SCHEDULE_DEPENDENT",
-      "route": "places/detail.html?id=activity_kiss_of_the_sea"
+      "warning_rule": "WEATHER_DEPENDENT",
+      "route": "places/detail.html?id=activity_kiss_of_the_sea",
+      "schedule_source": "canonical_entity.opening_hours"
     }
   ],
   "near_me": {
@@ -458,19 +457,22 @@
     "items": [
       {
         "event_id": "hot_symphony_season3_2026",
-        "title": "Symphony of the Sea đang chuẩn bị mùa 3",
-        "short_summary": "Sun World cho biết show đang được nâng cấp và dự kiến hoàn tất trong tháng 11/2026. Chưa khóa ngày mở lại cụ thể trên Homepage.",
-        "category": "SẮP TRỞ LẠI",
+        "title": "Symphony vẫn diễn 19:30, mùa 3 đang được nâng cấp",
+        "short_summary": "Sun World hiện vẫn công bố Symphony of the Sea lúc 19:30 hằng ngày. Bài ngày 12/09 giới thiệu nâng cấp mùa 3, không phải thông báo ngưng show hiện tại.",
+        "category": "SHOW / CẬP NHẬT",
         "affected_entity_id": "activity_symphony_of_the_sea",
         "expected_window": "2026-11",
-        "source_id": "sunworld_symphony_season3_20260912",
+        "source_id": "sunworld_symphony_schedule_current_2026",
         "source_type": "OPERATOR",
         "published_at": "2026-09-12",
         "verified_at": "2026-09-21",
         "expires_at": "2026-11-30T23:59:59+07:00",
         "expiry_reason": "EXPECTED_RETURN_WINDOW",
         "confidence": "HIGH",
-        "route": "places/detail.html?id=sunset-town"
+        "route": "places/detail.html?id=sunset-town",
+        "supporting_source_ids": [
+          "sunworld_symphony_season3_20260912"
+        ]
       },
       {
         "event_id": "hot_aquatopia_wavy_whirl_2026",
@@ -488,8 +490,9 @@
         "route": "places/detail.html?id=aquatopia"
       }
     ],
-    "empty_behavior": "HIDE_SECTION",
-    "temporary_items_require_expiry": true
+    "empty_behavior": "SHOW_EMPTY_STATE",
+    "temporary_items_require_expiry": true,
+    "display_label": "TIN & CẬP NHẬT PHÚ QUỐC"
   },
   "curiosity": [
     {
