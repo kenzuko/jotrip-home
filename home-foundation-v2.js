@@ -99,11 +99,15 @@ function renderTripClock(){
     const best=String(e.best_time||item.timing_note||"").toLowerCase();
     if(/cuối chiều/.test(best)&&now>=15*60&&Number.isFinite(sunset)&&now<sunset)score-=28;
     if(/buổi tối|16:30|tối/.test(best)&&now>=16*60)score-=20;
-    return{item,e,opening,decision,summary,score,minDuration,hiddenByPracticalCutoff:practical.hidden};
+    return{item,e,opening,decision,summary,score,minDuration,tooShort,hiddenByPracticalCutoff:practical.hidden};
   });
   rows=rows.filter(x=>!x.hiddenByPracticalCutoff);
-  const available=rows.filter(x=>x.decision.state!=="past");
-  if(available.length>=4)rows=available;
+  const viable=rows.filter(x=>x.decision.state!=="past"&&!x.tooShort);
+  if(viable.length>=4)rows=viable;
+  else{
+    const available=rows.filter(x=>x.decision.state!=="past");
+    if(available.length>=4)rows=available;
+  }
   rows.sort((a,b)=>a.score-b.score);
   host.innerHTML=rows.slice(0,9).map(({item,e,decision,summary,minDuration})=>{
     const duration=e.duration||"";
@@ -144,8 +148,8 @@ function buildLocalNowHint(){
     for(const w of opening.windows||[]){
       const end=hhmmToMinutes(w.end),start=hhmmToMinutes(w.start);
       if(!Number.isFinite(start)||!Number.isFinite(end)||now<start||now>end)continue;
-      const remain=end-now;
-      if(remain>0&&remain<=90)candidates.push({
+      const remain=end-now,minDuration=durationMin(e.duration);
+      if(remain>0&&remain<=90&&(!minDuration||remain>=minDuration))candidates.push({
         score:180+remain,priority:"deadline",tone:"default",
         title:(e.name||item.entity_id)+" vẫn còn kịp",
         note:"Nếu không phải đi quá xa, bạn vẫn còn đủ thời gian để ghé.",
