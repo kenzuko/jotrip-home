@@ -119,6 +119,16 @@
         "schedule_source": "canonical_entity.opening_hours",
         "timing_note": "Show chính 20:15-21:00 tại Grand World.",
         "practical_source_id": "vinwonders_grandworld_show_schedule_2026"
+      },
+      {
+        "id": "clock_sac_mau_venice",
+        "entity_id": "activity_sac_mau_venice",
+        "status_code": "UNKNOWN",
+        "travel_buffer_min": null,
+        "route": "places/detail.html?id=sac-mau-venice",
+        "schedule_source": "canonical_entity.opening_hours",
+        "timing_note": "Show 21:30-22:00 tại Grand World. Nếu đang ở xa Bắc đảo, đừng chờ sát giờ mới đi.",
+        "practical_source_id": "vinwonders_grandworld_show_schedule_2026"
       }
     ]
   },
