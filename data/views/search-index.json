@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-21T09:15:00+07:00",
+  "generated_at": "2026-09-21T16:30:00+07:00",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -5572,51 +5572,6 @@
       "search_text": "wyndham grand phu quoc stay hotel north bai-dai ganh-dau 5-sao khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973691555 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
     },
     {
-      "id": "utility_taxi_mailinh",
-      "type": "utility",
-      "title": "Taxi Mai Linh - 1055",
-      "aliases": [
-        "Mai Linh",
-        "taxi",
-        "1055",
-        "taxi Phú Quốc"
-      ],
-      "zone_id": null,
-      "intents": [
-        "transport",
-        "taxi",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/utilities/#directory",
-      "search_text": "taxi mai linh 1055 taxi phu quoc tong dai dat xe di chuyen"
-    },
-    {
-      "id": "utility_taxi_xanhsm",
-      "type": "utility",
-      "title": "Xanh SM - 1900 27 27 27",
-      "aliases": [
-        "Xanh SM",
-        "taxi điện",
-        "taxi",
-        "GSM",
-        "1900272727"
-      ],
-      "zone_id": null,
-      "intents": [
-        "transport",
-        "taxi",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/utilities/#directory",
-      "search_text": "xanh sm taxi dien phu quoc 1900 27 27 27 tong dai dat xe"
-    },
-    {
       "id": "utility_jotrip_local_service",
       "type": "utility",
       "title": "JoTrip - xe và dịch vụ trọn gói Phú Quốc",
@@ -5640,6 +5595,115 @@
       "related_entities": [],
       "route": "/utilities/#directory",
       "search_text": "jotrip xe rieng tour ve lich trinh tron goi phu quoc whatsapp zalo 817060067"
+    },
+    {
+      "id": "utility_taxi_xanhsm",
+      "type": "utility",
+      "title": "Green SM (Xanh SM) - 1555",
+      "aliases": [
+        "Green SM",
+        "Xanh SM",
+        "taxi điện",
+        "1555",
+        "app Green SM"
+      ],
+      "zone_id": null,
+      "intents": [
+        "transport",
+        "taxi",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "green sm xanh sm taxi dien phu quoc 1555 dat xe qua app green sm"
+    },
+    {
+      "id": "utility_grab_phuquoc",
+      "type": "utility",
+      "title": "Grab tại Phú Quốc",
+      "aliases": [
+        "Grab",
+        "GrabCar",
+        "GrabCar Premium",
+        "GrabCar Tiết Kiệm",
+        "đặt Grab"
+      ],
+      "zone_id": null,
+      "intents": [
+        "transport",
+        "ride-hailing",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "grab phu quoc grabcar premium tiet kiem dat xe qua app grab"
+    },
+    {
+      "id": "utility_taxi_mailinh",
+      "type": "utility",
+      "title": "Mai Linh Phú Quốc - 0297 3 979 797 / 1055",
+      "aliases": [
+        "Mai Linh",
+        "taxi Mai Linh",
+        "1055"
+      ],
+      "zone_id": null,
+      "intents": [
+        "transport",
+        "taxi",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "mai linh phu quoc 0297 3 979 797 1055 taxi"
+    },
+    {
+      "id": "utility_taxi_namthang",
+      "type": "utility",
+      "title": "Taxi Nam Thắng - 0297 3 757 575",
+      "aliases": [
+        "Nam Thắng",
+        "taxi địa phương",
+        "Taxi Phú Quốc Nam Thắng"
+      ],
+      "zone_id": null,
+      "intents": [
+        "transport",
+        "taxi",
+        "utility",
+        "local"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "taxi nam thang phu quoc 0297 3 757 575 hang dia phuong"
+    },
+    {
+      "id": "utility_taxi_vinasun",
+      "type": "utility",
+      "title": "Vinasun Phú Quốc - 0297 38 272 727",
+      "aliases": [
+        "Vinasun",
+        "taxi Vinasun"
+      ],
+      "zone_id": null,
+      "intents": [
+        "transport",
+        "taxi",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "vinasun phu quoc 0297 38 272 727 taxi"
     }
   ]
 }
