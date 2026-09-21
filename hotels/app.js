@@ -8,18 +8,18 @@
 
   function publicStatus(x){return x.operational_status==="active"?"Đang hoạt động":"Sắp mở hoặc đã công bố"}
   function starText(x){return x.star_rating!=null&&Number.isFinite(Number(x.star_rating))?Number(x.star_rating)+" sao":"Chưa xác định hạng"}
-  function publicArea(x){return !x.area_label||/cần rà/i.test(x.area_label)?"Khu vực đang cập nhật":x.area_label}
+  function publicArea(x){return !x.area_label||/cần rà/i.test(x.area_label)?"Chưa rõ khu vực":x.area_label}
   function publicDescription(x){
     if(x.what_it_is&&!/cần rà/i.test(x.what_it_is)) return x.what_it_is;
     const kind=x.accommodation_type||"Cơ sở lưu trú";
     const stars=x.star_rating?" "+starText(x):"";
     const area=publicArea(x);
-    return kind+stars+(area!=="Khu vực đang cập nhật"?" tại "+area:" tại Phú Quốc")+".";
+    return kind+stars+(area!=="Chưa rõ khu vực"?" tại "+area:" tại Phú Quốc")+".";
   }
   function classificationText(x){
     if(x.official_classification&&/sao/i.test(x.official_classification)) return "Phân hạng được công bố";
-    if(x.star_rating!=null) return "Hạng đang dùng để lọc";
-    return "Hạng đang cập nhật";
+    if(x.star_rating!=null) return "Hạng tham khảo";
+    return "Chưa rõ hạng";
   }
   function phoneHref(phone){return "tel:"+String(phone||"").split(";")[0].replace(/[^0-9+]/g,"")}
   function filtered(){
@@ -81,5 +81,5 @@
     $("#areaFilter").innerHTML='<option value="all">Tất cả khu vực</option>'+areas.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");
     if(state.hotel){const selected=state.hotels.find(x=>x.slug===state.hotel);if(selected)state.status=selected.operational_status||"all";else state.hotel=""}
     bind();render();
-  }).catch(()=>{$("#resultTitle").textContent="Chưa tải được danh sách";$("#hotelGrid").innerHTML='<div class="loading">Thông tin khách sạn đang tạm thời chưa tải được. Vui lòng thử lại sau.</div>'});
+  }).catch(()=>{$("#resultTitle").textContent="Chưa mở được danh sách";$("#hotelGrid").innerHTML='<div class="loading">Chưa mở được thông tin khách sạn lúc này. Thử lại sau một chút nhé.</div>'});
 })();
