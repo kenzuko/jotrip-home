@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Open Phu Quoc - thông tin miễn phí, trực quan và thực dụng về Phú Quốc: tình hình đảo, sự kiện, di chuyển, điểm đến và câu chuyện địa phương.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260921-homev2a">
+  <link rel="stylesheet" href="styles.css?v=20260921-human1">
 </head>
 <body>
   <aside class="app-left-rail" aria-label="Điều hướng Open Phu Quoc">
@@ -20,7 +20,7 @@
       <a href="explore/"><span>⌖</span><strong>Khám phá</strong></a>
       <a href="food/"><span>◎</span><strong>Ăn uống</strong></a>
       <a href="guide/"><span>▤</span><strong>Cẩm nang</strong></a>
-      <a href="#near-me"><span>+</span><strong>Tiện ích</strong></a>
+      <a href="nearme/"><span>⌖</span><strong>Quanh đây</strong></a>
     </nav>
     <div class="app-rail-modules">
       <a href="weather/">Thời tiết</a>
@@ -40,7 +40,7 @@
       <a href="explore/">Khám phá</a>
       <a href="food/">Ăn uống</a>
       <a href="guide/">Cẩm nang</a>
-      <a href="#near-me">Tiện ích</a>
+      <a href="nearme/">Quanh đây</a>
     </nav>
 
     <button class="header-search" type="button" aria-label="Tìm kiếm">⌕</button>
@@ -63,8 +63,8 @@
         <figure class="hero-slide" data-label="AN THỚI LÊN ĐÈN">
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=2000" alt="An Thới và Sunset Town">
         </figure>
-        <figure class="hero-slide" data-label="NHÌN ĐẢO TỪ TRÊN CAO">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20aerial%20view.jpg?width=2000" alt="Toàn cảnh Phú Quốc từ trên cao">
+        <figure class="hero-slide" data-label="MÙI CAY CỦA ĐẤT ĐỎ">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Pfefferanbau%20auf%20Phu%20Quoc.jpg?width=1600" alt="Vườn tiêu Phú Quốc">
         </figure>
         <figure class="hero-slide" data-label="NHỊP SỐNG VEN BIỂN">
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1800" alt="Ghe tàu ven biển Phú Quốc">
@@ -131,8 +131,12 @@
         <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
       </a>
       <a href="transit/" class="live-item" data-live="ferry">
-        <span>Tàu & Phà</span><strong>--</strong><small>Đang kiểm tra vận hành</small>
-        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+        <span>Tàu & Phà</span><strong>--</strong><small>Đang xem lịch hoạt động hôm nay</small>
+        <time data-live-freshness>Đang lấy mốc cập nhật</time><b>Xem lịch tàu →</b>
+      </a>
+      <a href="#happening" class="live-item" data-live="tonight">
+        <span>Tối nay</span><strong>--</strong><small>Show, chợ đêm và những lựa chọn còn kịp</small>
+        <time data-live-freshness>Giờ Phú Quốc</time><b>Xem tối nay →</b>
       </a>
     </section>
 
@@ -157,34 +161,50 @@
         <a href="explore/">Mở khám phá →</a>
       </div>
       <div class="trip-clock-grid">
-        <article class="trip-clock-now"><span>GIỜ PHÚ QUỐC</span><strong id="tripClockNow">--:--</strong><p id="tripClockDate">Đang lấy giờ địa phương</p><div class="trip-sunset"><small>Hoàng hôn bờ Tây</small><b id="tripClockSunset">--:--</b></div></article>
+        <article class="trip-clock-now">
+          <span>GIỜ PHÚ QUỐC</span>
+          <strong id="tripClockNow">--:--</strong>
+          <p id="tripClockDate">Đang lấy giờ địa phương</p>
+          <div class="trip-day-left">
+            <small>PHẦN NGÀY CÒN LẠI</small>
+            <b id="tripClockDaylight">Đang tính...</b>
+            <p id="tripClockDayNote">Mỗi khung giờ sẽ hợp với một kiểu đi khác nhau.</p>
+          </div>
+          <div class="trip-sunset"><small>Hoàng hôn bờ Tây</small><b id="tripClockSunset">--:--</b></div>
+        </article>
         <div class="trip-clock-list" id="tripClockList"><div class="surface-loading">Chỉ những hoạt động có giờ vận hành đủ nguồn mới được đánh dấu “còn kịp”.</div></div>
       </div>
     </section>
 
-    <section class="section activity-board-section" id="activities" aria-labelledby="activityBoardTitle">
-      <div class="section-heading compact-heading"><div><p class="eyebrow">TÌNH TRẠNG HOẠT ĐỘNG HÔM NAY</p><h2 id="activityBoardTitle">Có gì cần kiểm tra trước khi đi?</h2></div></div>
-      <div class="activity-board-grid" id="activityBoard"><div class="surface-loading">Đang nối dữ liệu vận hành và giờ hoạt động...</div></div>
-      <aside class="plan-b-card" id="planBCard" hidden><div><span>PHƯƠNG ÁN B</span><strong>Hoạt động biển đang không thuận.</strong></div><p>Ưu tiên nơi ít phụ thuộc biển và giữ lịch linh hoạt.</p><div><a href="places/detail.html?id=vinpearl-safari">Safari</a><a href="places/detail.html?id=vinwonders">VinWonders</a><a href="stories/article.html?id=mot-nam-trong-nha-thung">Nhà thùng</a><a href="food/">Ăn địa phương</a></div></aside>
-    </section>
-
     <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle">
-      <div class="section-heading compact-heading"><div><p class="eyebrow">TIN & CẬP NHẬT PHÚ QUỐC</p><h2 id="hotNowTitle">Mới ở Phú Quốc.</h2></div></div>
+      <div class="section-heading compact-heading"><div><p class="eyebrow">TIN & CẬP NHẬT PHÚ QUỐC</p><h2 id="hotNowTitle">Có gì mới ở Phú Quốc?</h2></div></div>
       <div class="hot-now-list" id="hotNowList"><div class="surface-loading">Đang kiểm tra cập nhật mới trên đảo...</div></div>
     </section>
 
+    <section class="section food-now-section" id="food-now" aria-labelledby="foodNowTitle">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">BÂY GIỜ ĂN GÌ?</p><h2 id="foodNowTitle">Chọn một món hợp với giờ này.</h2></div>
+        <a href="food/">Xem tất cả món →</a>
+      </div>
+      <div class="food-now-head">
+        <strong id="foodNowContext">Gợi ý theo giờ Phú Quốc</strong>
+        <span id="foodNowMeta">Hiện gợi ý theo món. Khi dữ liệu quán đủ chắc, phần này mới xếp theo khoảng cách.</span>
+      </div>
+      <div class="food-now-grid" id="foodNowGrid"><div class="surface-loading">Đang chọn món phù hợp...</div></div>
+    </section>
+
     <section class="section near-me-section" id="near-me" aria-labelledby="nearMeTitle">
-      <div class="section-heading compact-heading"><div><p class="eyebrow">GẦN TÔI / TIỆN ÍCH</p><h2 id="nearMeTitle">Cần gì quanh đây?</h2></div><a href="utilities/">Mở toàn bộ tiện ích →</a></div>
+      <div class="section-heading compact-heading"><div><p class="eyebrow">TIỆN ÍCH QUANH ĐÂY</p><h2 id="nearMeTitle">Cần gì quanh đây?</h2></div><a href="nearme/">Mở bản đồ tiện ích →</a></div>
       <div class="near-me-shell">
         <div class="near-me-controls">
           <button class="near-location-btn" id="nearLocationBtn" type="button">⌖ Dùng vị trí của tôi</button>
           <div class="near-manual-label"><strong>Không dùng GPS?</strong><span>Chọn khu vực thủ công.</span></div>
           <div class="near-manual" id="nearManualAreas" aria-label="Chọn khu vực thủ công"></div>
-          <p>GPS chỉ được hỏi khi bạn chủ động bấm nút. Chọn khu vực vẫn dùng được đầy đủ mà không cần chia sẻ vị trí.</p>
+          <p>Chỉ dùng vị trí khi bạn chủ động bấm. Không muốn chia sẻ vị trí thì chọn khu vực.</p>
         </div>
         <div class="near-category-grid" id="nearCategories"></div>
         <div class="near-results" id="nearResults"><strong>Đang tải tiện ích đã kiểm tra...</strong><span>Bạn có thể dùng GPS hoặc chọn khu vực thủ công.</span></div>
-        <div class="near-home-note"><strong>Không cần GPS.</strong><span>Chọn khu vực và loại tiện ích để xem danh sách đã kiểm tra. Bản đồ chỉ mở khi bạn chủ động vào chi tiết.</span></div>
+        <div class="near-home-note"><strong>Muốn xem trên bản đồ?</strong><span>Mở trang Quanh đây để lọc theo khu vực, loại tiện ích hoặc vị trí của bạn.</span><a href="nearme/">Mở Quanh đây →</a></div>
       </div>
     </section>
 
@@ -197,6 +217,14 @@
     <section class="section discover-section" id="discover" aria-labelledby="discoverTitle">
       <div class="section-heading compact-heading"><div><p class="eyebrow">KHÁM PHÁ / HUYỀN TÍCH / TÒ MÒ</p><h2 id="discoverTitle">Có những câu hỏi làm mình muốn hiểu đảo sâu hơn.</h2></div><a href="stories/">Mở câu chuyện →</a></div>
       <div class="curiosity-rail" id="curiosityRail"></div>
+    </section>
+
+    <section class="section island-stories-section" id="island-stories" aria-labelledby="islandStoriesTitle">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">PHÚ QUỐC KHÔNG CHỈ CÓ BIỂN</p><h2 id="islandStoriesTitle">Những câu chuyện làm hòn đảo có chiều sâu.</h2></div>
+        <a href="stories/">Đọc thêm câu chuyện →</a>
+      </div>
+      <div class="island-story-grid" id="islandStoryGrid"><div class="surface-loading">Đang mở những câu chuyện của đảo...</div></div>
     </section>
 
     <section class="section explore-more-section" id="explore-more" aria-labelledby="exploreMoreTitle">
@@ -215,7 +243,7 @@
   <aside class="app-context-rail" aria-label="Mở nhanh">
     <div class="context-head"><div><span>PHÚ QUỐC</span><strong>Mở nhanh</strong></div></div>
     <a class="context-card compact" href="#happening"><span>HÔM NAY</span><strong>Còn kịp làm gì?</strong><small>Giờ địa phương · khung hoạt động</small></a>
-    <a class="context-card compact" href="#near-me"><span>GẦN TÔI</span><strong>Tiện ích quanh đây</strong><small>GPS chỉ bật khi bạn chủ động</small></a>
+    <a class="context-card compact" href="nearme/"><span>QUANH ĐÂY</span><strong>Tìm thứ bạn cần</strong><small>Chọn khu vực hoặc dùng vị trí khi cần</small></a>
     <a class="context-card compact" href="#discover"><span>KHÁM PHÁ</span><strong>Một câu hỏi về đảo</strong><small>Câu chuyện · huyền tích · điều tò mò</small></a>
     <a class="context-card compact emergency" href="utilities/#emergency"><span>TRỢ GIÚP</span><strong>112 · 113 · 114 · 115</strong><small>Mở hotline và danh bạ cần thiết</small></a>
     <a class="context-map" href="explore/"><span>⌖</span><div><strong>Định hướng nhanh</strong><small>Bắc · Trung tâm · Nam</small></div><b>→</b></a>
@@ -292,8 +320,9 @@
   <script src="core/search-engine.js?v=4"></script>
   <script src="core/today-engine-v2.js?v=3"></script>
   <script src="app.js?v=20260919-superapp4"></script>
-  <script src="home-foundation-v2.js?v=2"></script>
-  <script src="home-live-v3.js?v=8"></script>
-  <script src="home-copy.js?v=2"></script>
+  <script src="home-foundation-v2.js?v=3"></script>
+  <script src="home-live-v3.js?v=9"></script>
+  <script src="home-copy.js?v=3"></script>
+  <script src="home-experience-v1.js?v=1"></script>
 </body>
 </html>
