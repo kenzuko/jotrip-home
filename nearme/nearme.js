@@ -9,84 +9,55 @@
     place_sunset_town:{center:[10.0191,104.0150],zoom:14},
     zone_north:{center:[10.3759,103.90],zoom:13}
   };
-  let support=null,entities=new Map(),selectedArea="all",selectedCategory=null,position=null,map=null,userMarker=null,userAccuracy=null,areaLayer=null,utilityLayer=null;
+  let support=null,entities=new Map(),selectedArea="all",selectedCategory=null,position=null,mapFrame=null;
 
+  function mapUrl(query,zoom=12){
+    return "https://www.google.com/maps?q="+encodeURIComponent(query)+"&z="+zoom+"&output=embed";
+  }
+  function areaQuery(id){
+    return ({
+      all:"Phú Quốc, Việt Nam",
+      zone_central_west:"Dương Đông, Phú Quốc, Việt Nam",
+      zone_south:"An Thới, Phú Quốc, Việt Nam",
+      place_sunset_town:"Sunset Town, Phú Quốc, Việt Nam",
+      zone_north:"Gành Dầu, Phú Quốc, Việt Nam"
+    })[id]||"Phú Quốc, Việt Nam";
+  }
+  function updateMapFrame(){
+    if(!mapFrame)return;
+    if(position){
+      mapFrame.src=mapUrl(position.lat+","+position.lon,15);
+      return;
+    }
+    const category=support?.near_me?.categories?.find(x=>x.id===selectedCategory)?.label||"";
+    const base=areaQuery(selectedArea);
+    mapFrame.src=mapUrl(category?category+" "+base:base,selectedArea==="all"?10:13);
+  }
   function initMap(){
     const host=$("#nearMap");
     if(!host)return;
-    if(!window.L){
-      host.innerHTML='<div class="map-unavailable"><strong>Chưa mở được bản đồ.</strong><span>Danh sách tiện ích bên dưới vẫn dùng được. Thử tải lại trang để mở bản đồ.</span></div>';
-      return;
-    }
-    map=L.map(host,{zoomControl:true,attributionControl:true,preferCanvas:true}).setView(AREA_VIEW.all.center,AREA_VIEW.all.zoom);
-    if(window.OpenPQMapBase?.add){
-      window.OpenPQMapBase.add(map,{maxZoom:19});
-    }else{
-      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{
-        maxZoom:19,
-        attribution:"© OpenStreetMap contributors"
-      }).addTo(map);
-    }
-
-    areaLayer=L.layerGroup().addTo(map);
-    utilityLayer=L.layerGroup().addTo(map);
-    [
-      ["Dương Đông","zone_central_west",10.2172,103.9593,2500],
-      ["An Thới","zone_south",10.0191,104.0150,2500],
-      ["Gành Dầu","zone_north",10.3759,103.90,2500]
-    ].forEach(([label,id,lat,lon,radius])=>{
-      const circle=L.circle([lat,lon],{
-        radius,
-        weight:1,
-        color:"#6fa89f",
-        fillColor:"#cfe9e3",
-        fillOpacity:.16
-      }).addTo(areaLayer);
-      circle.bindTooltip(label,{permanent:false,direction:"top"});
-      circle.on("click",()=>{
-        position=null;
-        selectedArea=id;
-        clearUserLocation();
-        renderControls();
-        setAreaView(id);
-        render();
-      });
-    });
-    setTimeout(()=>map?.invalidateSize(),120);
+    host.innerHTML='<iframe class="near-map-embed" title="Bản đồ quanh đây Phú Quốc" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe>';
+    mapFrame=host.querySelector("iframe");
+    updateMapFrame();
+    const note=$("#mapNote");
+    if(note)note.textContent="Bản đồ hiển thị khu vực đang xem. Dùng vị trí để định tâm gần bạn; mở từng điểm bên dưới để đi tới đúng pin.";
   }
 
   function clearUserLocation(){
-    if(userMarker&&map){map.removeLayer(userMarker);userMarker=null}
-    if(userAccuracy&&map){map.removeLayer(userAccuracy);userAccuracy=null}
+    position=null;
   }
 
   function setAreaView(id){
-    if(position||!map)return;
-    const view=AREA_VIEW[id]||AREA_VIEW.all;
-    map.flyTo(view.center,view.zoom,{duration:.45});
+    if(position)return;
+    selectedArea=id||selectedArea;
+    updateMapFrame();
   }
 
   function showUserLocation(coords){
-    if(!map||!window.L)return;
-    clearUserLocation();
-    const latlng=[coords.lat,coords.lon];
-    userAccuracy=L.circle(latlng,{
-      radius:Math.max(30,Number(coords.accuracy)||80),
-      weight:1,
-      color:"#28766f",
-      fillColor:"#54d4cb",
-      fillOpacity:.10
-    }).addTo(map);
-    userMarker=L.circleMarker(latlng,{
-      radius:8,
-      weight:3,
-      color:"#ffffff",
-      fillColor:"#123d3b",
-      fillOpacity:1
-    }).addTo(map).bindPopup("<strong>Bạn đang ở đây</strong><br><span>Vị trí chỉ dùng trong phiên này.</span>");
-    map.flyTo(latlng,15,{duration:.55});
-    userMarker.openPopup();
-    setTimeout(()=>map?.invalidateSize(),120);
+    if(!mapFrame)return;
+    mapFrame.src=mapUrl(coords.lat+","+coords.lon,15);
+    const note=$("#mapNote");
+    if(note)note.textContent="Bản đồ đang định tâm theo vị trí thiết bị trong phiên này. Khoảng cách trong danh sách chỉ tính với những điểm có tọa độ đã xác minh.";
   }
   function haversine(a,b){const R=6371,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),h=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
   function nearestArea(pos){
@@ -111,19 +82,8 @@
     $("#areaRow").innerHTML=areas.map(x=>'<button type="button" data-area="'+esc(x.id)+'" class="'+(x.id===selectedArea?"active":"")+'">'+esc(x.label)+'</button>').join("");
     $("#categoryRow").innerHTML='<button type="button" data-category="" class="'+(!selectedCategory?"active":"")+'">Tất cả</button>'+cats.map(x=>'<button type="button" data-category="'+esc(x.id)+'" class="'+(x.id===selectedCategory?"active":"")+'">'+esc(x.label)+'</button>').join("");
   }
-  function renderMapPoints(rows){
-    if(!map||!utilityLayer)return;
-    utilityLayer.clearLayers();
-    rows.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)).forEach(x=>{
-      const marker=L.circleMarker([x.lat,x.lon],{
-        radius:6,
-        weight:2,
-        color:"#ffffff",
-        fillColor:"#28766f",
-        fillOpacity:.92
-      }).addTo(utilityLayer);
-      marker.bindPopup("<strong>"+esc(x.name)+"</strong>"+(x.address?"<br><span>"+esc(x.address)+"</span>":""));
-    });
+  function renderMapPoints(){
+    if(!position)updateMapFrame();
   }
 
   function render(){
@@ -160,7 +120,7 @@
     host.innerHTML=rows.map(x=>{
       const distance=Number.isFinite(x.distance_km)?x.distance_km.toFixed(1)+" km":"";
       const type=support.near_me.categories.find(c=>c.id===x.utility_type)?.label||x.group||"Tiện ích";
-      const maps=x.address?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(x.address):"";
+      const maps=x.address?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(x.address):(Number.isFinite(x.lat)&&Number.isFinite(x.lon)?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(x.lat+","+x.lon):"");
       return '<article class="near-card">'+
         '<span>'+esc([type,distance].filter(Boolean).join(" · "))+'</span>'+
         '<strong>'+esc(x.name)+'</strong>'+
@@ -180,7 +140,7 @@
     });
     $("#categoryRow").addEventListener("click",e=>{
       const b=e.target.closest("[data-category]");if(!b)return;
-      selectedCategory=b.dataset.category||null;renderControls();render();
+      selectedCategory=b.dataset.category||null;renderControls();updateMapFrame();render();
     });
     $("#useLocation").addEventListener("click",()=>{
       const button=$("#useLocation");
