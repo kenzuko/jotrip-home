@@ -640,6 +640,143 @@
         "confidence": "HIGH",
         "note": "Lịch operator công bố show chính 20:15-21:00. Lịch đặc biệt vẫn cần kiểm tra lại."
       }
+    },
+    {
+      "id": "activity_once_show",
+      "legacy_id": "once-show",
+      "entity_type": "activity",
+      "slug": "once-show",
+      "name": "ONCE Show",
+      "aliases": [
+        "ONCE",
+        "Once Show VinWonders",
+        "Show ONCE Phú Quốc"
+      ],
+      "zone_id": "zone_north",
+      "area_code": "north",
+      "categories": [
+        "show",
+        "evening",
+        "multimedia"
+      ],
+      "what_it_is": "Show đa phương tiện buổi tối tại VinWonders Phú Quốc.",
+      "why_go": "Ánh sáng · mapping · hiệu ứng sân khấu · hợp để kết thúc ngày ở VinWonders",
+      "best_for": [
+        "show",
+        "family",
+        "evening"
+      ],
+      "best_time": "18:45 theo lịch show",
+      "duration": "20 phút",
+      "price_reference": "Bao gồm trong vé vào cửa VinWonders",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Nếu đã ở VinWonders, nên canh giờ từ trước để không phải chạy ngược trong công viên",
+        "Lịch có thể thay đổi khi có sự kiện đặc biệt"
+      ],
+      "intents": [
+        "show",
+        "family",
+        "evening"
+      ],
+      "related_entities": [
+        "place_vinwonders"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "vinwonders_phuquoc_hours_2026"
+        }
+      ],
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "FIXED_START",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "times": [
+          {
+            "start": "18:45",
+            "label": "ONCE Show"
+          }
+        ],
+        "source_id": "vinwonders_phuquoc_hours_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "VinWonders hiện công bố ONCE Show 18:45-19:05 hằng ngày. Lịch đặc biệt vẫn cần kiểm tra lại."
+      }
+    },
+    {
+      "id": "activity_sac_mau_venice",
+      "legacy_id": "sac-mau-venice",
+      "entity_type": "activity",
+      "slug": "sac-mau-venice",
+      "name": "Sắc Màu Venice",
+      "aliases": [
+        "Show Sắc Màu Venice",
+        "Sắc Màu Venice Grand World",
+        "Big Show Sắc Màu Venice"
+      ],
+      "zone_id": "zone_north",
+      "area_code": "north",
+      "categories": [
+        "show",
+        "evening",
+        "outdoor"
+      ],
+      "what_it_is": "Show ánh sáng và trình diễn trên mặt nước tại Hồ Tình Yêu, Grand World Phú Quốc.",
+      "why_go": "Show buổi tối · mặt nước · ánh sáng · hợp ghép sau Tinh Hoa Việt Nam",
+      "best_for": [
+        "show",
+        "couple",
+        "family",
+        "evening"
+      ],
+      "best_time": "21:30 theo lịch show",
+      "duration": "30 phút",
+      "price_reference": "Miễn phí theo thông tin VinWonders hiện hành",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Nếu xem Tinh Hoa Việt Nam trước đó, vẫn còn một khoảng để đi bộ sang khu Hồ Tình Yêu",
+        "Show ngoài trời có thể thay đổi khi có thời tiết xấu hoặc sự kiện đặc biệt"
+      ],
+      "intents": [
+        "show",
+        "couple",
+        "family",
+        "evening"
+      ],
+      "related_entities": [
+        "place_grand_world",
+        "activity_tinh_hoa_viet_nam"
+      ],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "vinwonders_grandworld_show_schedule_2026"
+        }
+      ],
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "FIXED_START",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "times": [
+          {
+            "start": "21:30",
+            "label": "Sắc Màu Venice"
+          }
+        ],
+        "source_id": "vinwonders_grandworld_show_schedule_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "VinWonders hiện công bố Sắc Màu Venice 21:30-22:00. Lịch đặc biệt vẫn cần kiểm tra lại."
+      }
     }
   ]
 }
