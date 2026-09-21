@@ -20,7 +20,7 @@
       .filter(x=>isActive(x,now))
       .sort((a,b)=>Date.parse(b.published_at||b.verified_at||0)-Date.parse(a.published_at||a.verified_at||0));
 
-    $("#newsCount").textContent=items.length?items.length+" cập nhật còn mới":"Hôm nay chưa có gì mới";
+    $("#newsCount").textContent=items.length?items.length+" điều đáng chú ý":"Hôm nay chưa có gì mới";
     $("#newsUpdated").textContent=fmtDate(support.updated_at)||"Hôm nay";
 
     if(!items.length){
