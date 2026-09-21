@@ -200,6 +200,7 @@ header.topbar .brand span small{
     padding:7px 9px!important;
     font-size:11px!important;
   }
+  header.near-header .brand{display:flex!important}
   header.near-header .back{display:none!important}
   header.topbar .health{font-size:10px!important}
 }
