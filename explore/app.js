@@ -41,10 +41,14 @@
     }
     exploreMap=L.map(host,{zoomControl:true,attributionControl:true,preferCanvas:true,scrollWheelZoom:false})
       .setView([10.20,103.97],10);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
-      maxZoom:18,
-      attribution:"© OpenStreetMap contributors"
-    }).addTo(exploreMap);
+    if (window.OpenPQMapBase?.add) {
+      window.OpenPQMapBase.add(exploreMap,{maxZoom:19});
+    } else {
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{
+        maxZoom:19,
+        attribution:"© OpenStreetMap contributors"
+      }).addTo(exploreMap);
+    }
 
     zoneLayer=L.layerGroup().addTo(exploreMap);
     labelLayer=L.layerGroup().addTo(exploreMap);
