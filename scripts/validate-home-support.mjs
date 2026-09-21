@@ -59,11 +59,22 @@ for(const area of support.near_me?.manual_areas||[]){
 if(categorySet.size!==categoryIds.length) errors.push("duplicate near_me category id");
 
 for(const item of support.near_me?.items||[]){
-  if(!item.utility_id) errors.push("near_me item missing utility_id");
-  if(!categorySet.has(item.utility_type)) errors.push("near_me item has unknown utility type: "+item.utility_id);
-  if(!item.address&&!Number.isFinite(item.lat)) errors.push("near_me item missing address/coordinates: "+item.utility_id);
+  if(!item.utility_id){
+    errors.push("near_me item missing utility_id");
+    continue;
+  }
+  const utility=entityMap.get(item.utility_id);
+  if(!utility||utility.entity_type!=="utility"){
+    errors.push("near_me item references missing canonical utility: "+item.utility_id);
+    continue;
+  }
+  if(!categorySet.has(utility.utility_type)) errors.push("near_me canonical utility has unknown utility type: "+item.utility_id);
+  if(!utility.address&&!Number.isFinite(utility.map?.lat)) errors.push("near_me canonical utility missing address/coordinates: "+item.utility_id);
   if(!item.source_id||!sourceIds.has(item.source_id)) errors.push("near_me item source missing from registry: "+item.utility_id);
   if(!item.verified_at) errors.push("near_me item missing verified_at: "+item.utility_id);
+  for(const field of ["name","address","phone","zone_id","utility_type","lat","lon"]){
+    if(Object.hasOwn(item,field)) errors.push("near_me item duplicates canonical utility field "+field+": "+item.utility_id);
+  }
 }
 
 for(const item of support.hot_now?.items||[]){
