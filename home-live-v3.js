@@ -246,100 +246,129 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const gauges = Array.isArray(critical?.actual?.rain_gauges) ? critical.actual.rain_gauges : [];
     const observedRain = gauges.some(g => g?.rain_observed === true || Number(g?.rain_intensity_mm_h) > 0);
 
-    function renderNowSuggestion() {
-      const card = document.querySelector("[data-now-card]");
-      if (!card) return;
+    let nowSuggestionSlides = [];
+    let nowSuggestionIndex = 0;
+    let nowSuggestionTimer = null;
 
+    function buildNowSuggestions() {
       const now = vnClockParts();
       const todaySunset = sunsetFor();
       const sunsetMinute = clockMinutes(todaySunset);
       const minutesToSunset = Number.isFinite(sunsetMinute) ? sunsetMinute - now.minutes : NaN;
+      const localHint = window.OPENPQ_HOME_LOCAL?.now_hint || null;
+      const slides = [];
 
+      const push = cfg => {
+        if (!cfg || !cfg.title) return;
+        const key = (cfg.title + "|" + (cfg.primaryHref || "")).toLowerCase();
+        if (slides.some(x => x._key === key)) return;
+        slides.push({...cfg, _key:key});
+      };
+
+      const currentCriticalAge = ageMinutes(criticalStamp);
+      if (critical && currentCriticalAge <= 90 && (hasHighConvective || hasElevatedConvective || observedRain)) {
+        push({
+          tone:"watch",
+          title:"Nếu đi ngoài trời, giữ lịch linh hoạt.",
+          note:"Thời tiết có dấu hiệu thay đổi. Ưu tiên nơi dễ đổi kế hoạch nếu mưa tới.",
+          primaryText:"Xem thời tiết →", primaryHref:"weather/",
+          secondaryText:"Tìm chỗ dễ đổi lịch", secondaryHref:"explore/?intent=rainy-day"
+        });
+      } else if (canoState === "SUSPENDED") {
+        push({
+          tone:"watch",
+          title:"Hôm nay nên ưu tiên lịch trên bờ.",
+          note:"Cano đang tạm dừng. Chọn một điểm ít phụ thuộc biển sẽ nhẹ lịch hơn.",
+          primaryText:"Xem tình trạng cano →", primaryHref:"cano/",
+          secondaryText:"Chọn chỗ trên bờ", secondaryHref:"explore/?intent=rainy-day"
+        });
+      } else if (localHint?.priority === "deadline") {
+        push({...localHint});
+      } else if (now.minutes < 12 * 60) {
+        push({
+          tone:"default",
+          title:"Buổi sáng, chọn một hướng rồi đi.",
+          note:"Chọn Bắc, trung tâm hoặc Nam đảo làm trục sẽ đỡ mất thời gian chạy qua lại.",
+          primaryText:"Chọn nơi đi →", primaryHref:"explore/",
+          secondaryText:"Xem tình hình đảo", secondaryHref:"#today"
+        });
+      } else if (now.minutes < 17 * 60) {
+        push({
+          tone:"default",
+          title:"Chiều nay vẫn còn kịp thêm một điểm.",
+          note:"Đừng cố chạy nhiều nơi. Chọn một điểm chính rồi chừa thời gian cho cuối chiều.",
+          primaryText:"Chọn nơi đi →", primaryHref:"explore/",
+          secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
+        });
+      } else {
+        push({
+          tone:"default",
+          title:"Tối nay cứ chọn một khu rồi đi chậm lại.",
+          note:"Ăn một món, đi bộ hoặc xem show. Không cần chạy hết đảo trong một buổi tối.",
+          primaryText:"Xem tối nay có gì →", primaryHref:"#happening",
+          secondaryText:"Tìm món ăn", secondaryHref:"food/"
+        });
+      }
+
+      if (Number.isFinite(minutesToSunset) && minutesToSunset > 0 && minutesToSunset <= 240) {
+        push({
+          tone:"sunset",
+          title:minutesToSunset <= 120
+            ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
+            : "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
+          note:minutesToSunset <= 120
+            ? "Nếu muốn ra bờ Tây, nên tính đường đi từ bây giờ."
+            : "Đừng để tới sát giờ mới chạy qua bờ Tây.",
+          primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
+          secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
+        });
+      }
+
+      if (now.minutes < 19 * 60 + 30) {
+        push({
+          tone:"default",
+          title:"Tối nay vẫn còn nhiều lựa chọn.",
+          note:"Chợ đêm, ăn uống, đi bộ và các show tối phù hợp hơn với một lịch nhẹ.",
+          primaryText:"Xem tối nay →", primaryHref:"#happening",
+          secondaryText:"Bây giờ ăn gì?", secondaryHref:"#food-now"
+        });
+      } else {
+        push({
+          tone:"default",
+          title:"Muộn rồi thì ưu tiên ăn uống và đi bộ.",
+          note:"Giữ lịch nhẹ sẽ dễ chịu hơn là cố thêm một điểm xa.",
+          primaryText:"Tìm món ăn →", primaryHref:"#food-now",
+          secondaryText:"Khám phá gần đây", secondaryHref:"nearme/"
+        });
+      }
+
+      if (slides.length < 3) {
+        push({
+          tone:"default",
+          title:"Muốn đi gần hơn? Chọn khu vực trước.",
+          note:"Dương Đông, An Thới, Sunset Town hay Gành Dầu đều có thể xem riêng, không cần bật GPS.",
+          primaryText:"Xem quanh đây →", primaryHref:"nearme/",
+          secondaryText:"Mở khám phá", secondaryHref:"explore/"
+        });
+      }
+
+      return slides.slice(0,3);
+    }
+
+    function paintNowSuggestion(index = 0) {
+      const card = document.querySelector("[data-now-card]");
+      if (!card || !nowSuggestionSlides.length) return;
+      const cfg = nowSuggestionSlides[index % nowSuggestionSlides.length];
+      const now = vnClockParts();
       const kicker = card.querySelector("[data-now-kicker]");
       const time = card.querySelector("[data-now-time]");
       const title = card.querySelector("[data-now-title]");
       const note = card.querySelector("[data-now-note]");
       const primary = card.querySelector("[data-now-primary]");
       const secondary = card.querySelector("[data-now-secondary]");
+      const pager = card.querySelector("[data-now-pager]");
 
-      const localHint = window.OPENPQ_HOME_LOCAL?.now_hint || null;
-      let cfg = localHint ? {...localHint} : {
-        tone: "default",
-        title: "Chưa biết đi đâu? Nhìn tình hình đảo trước.",
-        note: "Giờ địa phương, hoàng hôn và lịch hoạt động đủ để đưa một gợi ý cơ bản. Dữ liệu trực tiếp chỉ ghi đè khi thật sự cần.",
-        primaryText: "Xem hôm nay →",
-        primaryHref: "#happening",
-        secondaryText: "Khám phá",
-        secondaryHref: "explore/"
-      };
-
-      const currentCriticalAge = ageMinutes(criticalStamp);
-
-      if (critical && currentCriticalAge <= 90 && (hasHighConvective || hasElevatedConvective || observedRain)) {
-        cfg = {
-          tone: "watch",
-          title: "Giữ lịch ngoài trời linh hoạt một chút.",
-          note: "Thời tiết đang có tín hiệu thay đổi. Nếu sắp đi xa, xem khu vực mình định tới trước.",
-          primaryText: "Xem thời tiết →",
-          primaryHref: "weather/",
-          secondaryText: "Chọn điểm dễ đổi lịch",
-          secondaryHref: "explore/?intent=rainy-day"
-        };
-      } else if (canoState === "SUSPENDED") {
-        cfg = {
-          tone: "watch",
-          title: "Hôm nay nên ưu tiên lịch trên bờ.",
-          note: "Cano đang tạm dừng. Chọn một điểm ít phụ thuộc biển sẽ nhẹ lịch hơn.",
-          primaryText: "Xem cano →",
-          primaryHref: "cano/",
-          secondaryText: "Tìm phương án trên bờ",
-          secondaryHref: "explore/?intent=rainy-day"
-        };
-      } else if (localHint?.priority === "deadline") {
-        cfg = {...localHint};
-      } else if (Number.isFinite(minutesToSunset) && minutesToSunset > 0 && minutesToSunset <= 120) {
-        cfg = {
-          tone: "sunset",
-          title: "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn",
-          note: "Muốn ngắm hoàng hôn thì nên chọn điểm ngay bây giờ, nhất là nếu còn phải chạy qua bờ Tây.",
-          primaryText: "Xem điểm ngắm hoàng hôn →",
-          primaryHref: "explore/?intent=evening",
-          secondaryText: "Tối nay có gì",
-          secondaryHref: "#happening"
-        };
-      } else if (now.minutes < 12 * 60) {
-        cfg = {
-          tone: "default",
-          title: "Buổi sáng, chọn một hướng rồi đi.",
-          note: "Xem trời và tình hình vận hành trước. Sau đó chọn Bắc, trung tâm hoặc Nam đảo làm trục cho ngày hôm nay.",
-          primaryText: "Xem trạng thái đảo →",
-          primaryHref: "#today",
-          secondaryText: "Chọn nơi đi",
-          secondaryHref: "explore/"
-        };
-      } else if (Number.isFinite(minutesToSunset) && minutesToSunset > 120) {
-        cfg = {
-          tone: "default",
-          title: "Chiều nay vẫn còn kịp ghé thêm một điểm.",
-          note: "Nếu muốn ngắm hoàng hôn ở bờ Tây, nên đi sớm hơn một chút.",
-          primaryText: "Chọn nơi đi →",
-          primaryHref: "explore/",
-          secondaryText: "Kiểm tra thời tiết",
-          secondaryHref: "weather/"
-        };
-      } else {
-        cfg = {
-          tone: "default",
-          title: "Tối nay cứ chọn một khu rồi đi chậm lại.",
-          note: "Ăn một món, đi bộ hoặc xem show. Không cần chạy hết đảo trong một buổi tối.",
-          primaryText: "Xem tối nay có gì →",
-          primaryHref: "#happening",
-          secondaryText: "Tìm món ăn",
-          secondaryHref: "food/"
-        };
-      }
-
-      card.dataset.tone = cfg.tone;
+      card.dataset.tone = cfg.tone || "default";
       if (kicker) kicker.textContent = "GỢI Ý NGAY LÚC NÀY";
       if (time) {
         time.textContent = now.label;
@@ -355,6 +384,49 @@ function freshnessText(iso, prefix = "Cập nhật") {
         secondary.textContent = cfg.secondaryText;
         secondary.href = cfg.secondaryHref;
       }
+      if (pager) {
+        pager.hidden = nowSuggestionSlides.length < 2;
+        pager.innerHTML = nowSuggestionSlides.map((_, i) =>
+          '<button type="button" data-now-slide="'+i+'" class="'+(i===index?"is-active":"")+'" aria-label="Gợi ý '+(i+1)+'"></button>'
+        ).join("");
+      }
+    }
+
+    function renderNowSuggestion() {
+      const card = document.querySelector("[data-now-card]");
+      if (!card) return;
+      nowSuggestionSlides = buildNowSuggestions();
+      nowSuggestionIndex = Math.min(nowSuggestionIndex, Math.max(0, nowSuggestionSlides.length - 1));
+      if (!nowSuggestionSlides.length) {
+        card.hidden = true;
+        return;
+      }
+      card.hidden = false;
+      paintNowSuggestion(nowSuggestionIndex);
+      if (nowSuggestionTimer) clearInterval(nowSuggestionTimer);
+      if (nowSuggestionSlides.length > 1) {
+        nowSuggestionTimer = setInterval(() => {
+          nowSuggestionIndex = (nowSuggestionIndex + 1) % nowSuggestionSlides.length;
+          paintNowSuggestion(nowSuggestionIndex);
+        }, 8000);
+      }
+    }
+
+    const nowCard = document.querySelector("[data-now-card]");
+    if (nowCard) {
+      nowCard.addEventListener("click", e => {
+        const b = e.target.closest("[data-now-slide]");
+        if (!b) return;
+        nowSuggestionIndex = Number(b.dataset.nowSlide) || 0;
+        paintNowSuggestion(nowSuggestionIndex);
+        if (nowSuggestionTimer) {
+          clearInterval(nowSuggestionTimer);
+          nowSuggestionTimer = setInterval(() => {
+            nowSuggestionIndex = (nowSuggestionIndex + 1) % nowSuggestionSlides.length;
+            paintNowSuggestion(nowSuggestionIndex);
+          }, 8000);
+        }
+      });
     }
 
     renderNowSuggestion();
