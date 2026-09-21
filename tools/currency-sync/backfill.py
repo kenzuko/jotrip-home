@@ -9,7 +9,7 @@ from datetime import date, datetime, timedelta
 from io import BytesIO
 from pathlib import Path
 
-from openpyxl import load_workbook
+import pandas as pd
 
 API = "https://www.vietcombank.com.vn/api/exchangerates/exportexcel"
 ROOT = Path(__file__).resolve().parents[2]
@@ -42,27 +42,26 @@ def fetch_day(day):
     if not encoded:
         return []
 
-    workbook = load_workbook(BytesIO(base64.b64decode(encoded)), read_only=True, data_only=True)
-    if "ExchangeRate" not in workbook.sheetnames:
-        raise RuntimeError(f"{day}: ExchangeRate sheet missing")
+    frame = pd.read_excel(BytesIO(base64.b64decode(encoded)), sheet_name="ExchangeRate")
+    if frame.empty or len(frame.columns) != 5 or len(frame) < 3:
+        return []
 
-    sheet = workbook["ExchangeRate"]
+    frame.columns = ["CurrencyCode", "CurrencyName", "BuyCash", "BuyTransfer", "Sell"]
+    frame = frame.iloc[2:].copy()
+    frame["CurrencyCode"] = frame["CurrencyCode"].astype(str).str.strip().str.upper()
+    frame = frame[frame["CurrencyCode"].str.fullmatch(r"[A-Z]{3}", na=False)]
+
     rows = []
-    for values in sheet.iter_rows(values_only=True):
-        if not values:
-            continue
-        code = str(values[0] or "").strip().upper()
-        if len(code) != 3 or not code.isalpha():
-            continue
+    for _, item in frame.iterrows():
         rows.append(
             {
                 "at": day.isoformat() + "T00:00:00+07:00",
                 "source_date": day.isoformat(),
                 "granularity": "daily",
-                "currency": code,
-                "cash_buy": number(values[2] if len(values) > 2 else None),
-                "transfer_buy": number(values[3] if len(values) > 3 else None),
-                "sell": number(values[4] if len(values) > 4 else None),
+                "currency": item["CurrencyCode"],
+                "cash_buy": number(item["BuyCash"]),
+                "transfer_buy": number(item["BuyTransfer"]),
+                "sell": number(item["Sell"]),
             }
         )
     return rows
