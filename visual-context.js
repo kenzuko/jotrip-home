@@ -103,7 +103,7 @@
         (hasMap
           ? '<div class="visual-map-actions">'+
               '<button type="button" data-lazy-map data-lat="'+lat+'" data-lon="'+lon+'" data-precision="'+esc(precision)+'" data-anchor="'+esc(anchor)+'" data-loaded-label="'+esc(loadedLabel)+'">'+esc(buttonLabel)+'</button>'+
-              '<a href="https://www.openstreetmap.org/?mlat='+lat+'&mlon='+lon+'#map=12/'+lat+'/'+lon+'" target="_blank" rel="noopener">'+esc(openLabel)+'</a>'+
+              '<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(lat+','+lon)+'" target="_blank" rel="noopener">'+esc(openLabel)+'</a>'+
             '</div>'
           : '')+
       '</div>'+
