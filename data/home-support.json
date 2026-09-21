@@ -41,7 +41,7 @@
         "travel_buffer_min": null,
         "route": "places/detail.html?id=ho-quoc",
         "schedule_source": "SOFT_DAYLIGHT",
-        "timing_note": "Nên đi ban ngày hoặc chiều dịu. Đây là gợi ý trải nghiệm, không phải giờ đóng cửa."
+        "timing_note": "Đi lúc còn sáng sẽ dễ ngắm biển và đỡ vội hơn."
       },
       {
         "id": "clock_night_market",
@@ -58,7 +58,7 @@
         "travel_buffer_min": null,
         "route": "places/detail.html?id=grand-world",
         "schedule_source": "SOFT_EVENING",
-        "timing_note": "Hợp từ cuối chiều; đây là gợi ý thời điểm trải nghiệm, không phải giờ đóng cửa."
+        "timing_note": "Từ cuối chiều trở đi dễ chịu hơn, lên đèn cũng đẹp hơn."
       },
       {
         "id": "clock_hon_thom",
