@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-21T18:02:00+07:00",
+  "generated_at": "2026-09-21T19:20:00+07:00",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -5769,6 +5769,53 @@
       "related_entities": [],
       "route": "/nearme/?area=zone_south&category=ATM",
       "search_text": "vietcombank pgd an thoi atm 199 nguyen van cu phu quoc"
+    },
+    {
+      "id": "place_teddy_bear_museum",
+      "type": "place",
+      "title": "Teddy Bear Museum Phú Quốc",
+      "aliases": [
+        "Bảo tàng Gấu Teddy",
+        "Teddy Bear Museum",
+        "Bảo tàng Gấu Grand World"
+      ],
+      "zone_id": "zone_north",
+      "intents": [
+        "museum",
+        "family",
+        "indoor",
+        "evening"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_grand_world",
+        "activity_tinh_hoa_viet_nam"
+      ],
+      "route": "/places/detail.html?id=teddy-bear-museum",
+      "search_text": "teddy bear museum bao tang gau phu quoc grand world gia dinh tre em trong nha buoi toi"
+    },
+    {
+      "id": "activity_tinh_hoa_viet_nam",
+      "type": "activity",
+      "title": "Tinh Hoa Việt Nam",
+      "aliases": [
+        "Show Tinh Hoa Việt Nam",
+        "Tinh Hoa Việt Nam Grand World"
+      ],
+      "zone_id": "zone_north",
+      "intents": [
+        "show",
+        "culture",
+        "evening"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "route": "/places/detail.html?id=tinh-hoa-viet-nam",
+      "search_text": "show tinh hoa viet nam grand world phu quoc 20 15 21 00 van hoa buoi toi"
     }
   ]
 }
