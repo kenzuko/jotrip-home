@@ -330,8 +330,14 @@ function setMode(mode){
   renderQuickAmounts();renderConverter();
 }
 function setCurrency(code){
+  if(!rate(code)) return;
   state.currency=code;
-  $('#currencySelect').value=code;
+  const select=$('#currencySelect');
+  if(select && ![...select.options].some(option=>option.value===code)){
+    const option=document.createElement('option');
+    option.value=code;option.textContent=code;select.appendChild(option);
+  }
+  if(select) select.value=code;
   renderQuickAmounts();renderConverter();renderCurrencyTabs();renderMetrics();refreshCharts();
 }
 document.addEventListener('click',event=>{
@@ -339,7 +345,7 @@ document.addEventListener('click',event=>{
   if(searchAction){
     const code=searchAction.dataset.searchCode;
     const action=searchAction.dataset.searchAction;
-    if(code && PRIORITY.includes(code)) setCurrency(code);
+    if(code && rate(code)) setCurrency(code);
     if(action==='convert'){
       setMode('foreign-to-vnd');
       $('#amountInput').value=searchAction.dataset.searchAmount||'100';
@@ -449,6 +455,14 @@ function detectSearchDate(raw){
   return year+'-'+String(month).padStart(2,'0')+'-'+String(day).padStart(2,'0');
 }
 function detectSearchAmount(raw){
+  const symbolAmount=String(raw||'').match(/(?:[$€£₩₽]\s*)?(\d[\d.,]*)(?:\s*[$€£₩₽])/);
+  if(symbolAmount){
+    let symbolText=symbolAmount[1];
+    if(/^\d{1,3}([.,]\d{3})+$/.test(symbolText)) symbolText=symbolText.replace(/[.,]/g,'');
+    else symbolText=symbolText.replace(',','.');
+    const symbolValue=Number(symbolText);
+    if(Number.isFinite(symbolValue)&&symbolValue>0) return symbolValue;
+  }
   let q=foldSearch(raw);
   q=q.replace(/\b\d{1,2}[\/-]\d{1,2}(?:[\/-]\d{2,4})?\b/g,' ');
   q=q.replace(/\b\d{1,3}\s*ngay\s*truoc\b/g,' ');
