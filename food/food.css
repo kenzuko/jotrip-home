@@ -81,3 +81,11 @@
 .food-article .crumb,
 .food-hashtags span,
 .more-dish-links a{font-size:11px}
+
+.food-sources{margin-top:24px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.food-sources>summary{cursor:pointer;list-style:none;font-size:12px;font-weight:850;color:var(--muted)}
+.food-sources>summary::-webkit-details-marker{display:none}
+.food-sources>summary:after{content:" +";color:var(--coral)}
+.food-sources[open]>summary:after{content:" −"}
+.food-sources>div{display:grid;gap:7px;margin-top:12px}
+.food-sources a{font-size:12px;color:var(--ink);font-weight:750}
