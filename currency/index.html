@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6faf9">
+  <meta name="openpq-currency-api" content="/api/exchange-rates">
+  <title>Tỷ giá - Open Phu Quoc</title>
+  <link rel="stylesheet" href="../subpage.css?v=2">
+  <link rel="stylesheet" href="currency.css?v=9">
+</head>
+<body>
+<header class="currency-head">
+  <a class="brand" href="../"><img src="../assets/logo-master.png?v=2" alt="Open Phu Quoc"></a>
+  <div class="vn-clock" data-vn-clock></div>
+  <a class="back" href="../utilities/">Tiện ích</a>
+</header>
+
+<main>
+  <section class="currency-hero">
+    <div class="currency-shell">
+      <p class="eyebrow">TỶ GIÁ</p>
+      <h1>Tỷ giá hôm nay.<br>Lịch sử 30 ngày.</h1>
+      <p class="hero-copy">Xem tỷ giá Vietcombank hiện tại, quy đổi nhanh và tra lại lịch sử 30 ngày gần nhất.</p>
+      <div class="source-line">
+        <span id="sourceBadge" class="status-pill">ĐANG TẢI</span>
+        <span id="updatedAt">Đang kiểm tra dữ liệu...</span>
+      </div>
+      <div class="currency-search-wrap">
+        <div class="currency-search" role="search">
+          <span aria-hidden="true">⌕</span>
+          <input id="currencySearch" type="search" autocomplete="off" spellcheck="false" aria-controls="currencySearchResults" aria-expanded="false" placeholder="Tra USD, won, 100 USD, USD 15/09...">
+          <button id="currencySearchClear" type="button" aria-label="Xóa tìm kiếm" hidden>×</button>
+        </div>
+        <div id="currencySearchResults" class="currency-search-results" role="listbox" aria-label="Kết quả tra tỷ giá" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="currency-shell currency-workspace">
+    <section class="panel converter-panel" aria-labelledby="converterTitle">
+      <div class="section-head">
+        <div><p class="eyebrow">QUY ĐỔI</p><h2 id="converterTitle">Đổi ngoại tệ</h2></div>
+        <div class="mode-toggle" role="group" aria-label="Hướng đổi tiền">
+          <button class="mode active" data-mode="foreign-to-vnd">Ngoại tệ → VND</button>
+          <button class="mode" data-mode="vnd-to-foreign">VND → Ngoại tệ</button>
+        </div>
+      </div>
+
+      <div class="converter-grid">
+        <label class="money-input">
+          <span id="amountLabel">Số tiền</span>
+          <div><input id="amountInput" inputmode="decimal" value="100" aria-label="Số tiền"><select id="currencySelect" aria-label="Loại ngoại tệ"></select></div>
+        </label>
+        <div class="convert-result">
+          <span id="resultLabel">Ước tính nhận được</span>
+          <strong id="convertResult">-</strong>
+          <small id="rateExplanation">Theo tỷ giá mua tiền mặt của Vietcombank.</small>
+        </div>
+      </div>
+
+      <div class="rate-type-row" id="rateTypeRow">
+        <button class="rate-type active" data-rate-type="cash_buy">Tiền mặt</button>
+        <button class="rate-type" data-rate-type="transfer_buy">Chuyển khoản</button>
+      </div>
+      <div id="quickAmounts" class="quick-amounts"></div>
+      <p class="fine-print">Tỷ giá tại quầy hoặc điểm đổi tiền thực tế có thể khác.</p>
+    </section>
+
+    <section class="panel rates-panel" aria-labelledby="ratesTitle">
+      <div class="section-head">
+        <div><p class="eyebrow">TỶ GIÁ HÔM NAY</p><h2 id="ratesTitle">Tỷ giá phổ biến</h2></div>
+        <span class="mini-note">Mua tiền mặt · Mua chuyển khoản · Bán ra</span>
+      </div>
+      <div id="rateCards" class="rate-cards"><div class="empty-state">Đang tải tỷ giá...</div></div>
+    </section>
+
+    <section class="panel comparison-panel" aria-labelledby="comparisonTitle">
+      <div class="section-head">
+        <div><p class="eyebrow">SO SÁNH NHANH</p><h2 id="comparisonTitle">Hôm nay so với trước đây</h2></div>
+        <span class="mini-note">Giá mua tiền mặt</span>
+      </div>
+      <div id="comparisonTable" class="comparison-table">
+        <div class="empty-state">Đang tải dữ liệu so sánh...</div>
+      </div>
+      <p class="comparison-note">Nếu Vietcombank không công bố giá mua tiền mặt, hệ thống dùng giá mua chuyển khoản.</p>
+    </section>
+
+    <section class="panel chart-panel" aria-labelledby="chartTitle">
+      <div class="section-head">
+        <div><p class="eyebrow">LỊCH SỬ</p><h2 id="chartTitle">Diễn biến tỷ giá</h2></div>
+        <div id="rangeTabs" class="range-tabs">
+          <button data-range="7d">7 ngày</button><button data-range="30d" class="active">30 ngày</button>
+        </div>
+      </div>
+      <div id="currencyTabs" class="currency-tabs"></div>
+      <div class="chart-summary">
+        <div><span id="chartPair">USD / VND</span><strong id="chartCurrent">-</strong></div>
+        <div class="chart-actions">
+          <span id="chartChange" class="change">-</span>
+          <button id="pinCurrent" class="pin-current" type="button" aria-pressed="false">☆ Ghim</button>
+        </div>
+      </div>
+      <div id="historyCompare" class="history-compare" aria-label="So sánh tỷ giá với trước đây"></div>
+      <div id="historyChart" class="history-chart" role="img" aria-label="Biểu đồ lịch sử tỷ giá">
+        <div class="empty-state">Biểu đồ sẽ xuất hiện khi có dữ liệu lịch sử.</div>
+      </div>
+      <div id="rateMetrics" class="rate-metrics"></div>
+    </section>
+
+    <section class="panel board-panel" aria-labelledby="boardTitle">
+      <div class="section-head">
+        <div><p class="eyebrow">SO SÁNH</p><h2 id="boardTitle">So sánh mức tăng giảm</h2></div>
+        <span class="mini-note">Mốc đầu kỳ = 100</span>
+      </div>
+      <p class="board-explainer">Để so sánh công bằng giữa các đồng tiền có mệnh giá khác nhau, mỗi đồng được quy về 100 ở đầu kỳ. Phần này chỉ cho biết mức tăng hoặc giảm tương đối so với VND.</p>
+      <div id="marketBoard" class="market-board"><div class="empty-state">Đang chờ dữ liệu lịch sử.</div></div>
+      <div id="boardLegend" class="board-legend"></div>
+    </section>
+
+    <section class="panel wallet-panel" aria-labelledby="walletTitle">
+      <div class="section-head">
+        <div><p class="eyebrow">NHIỀU LOẠI TIỀN</p><h2 id="walletTitle">Cộng và quy đổi</h2></div>
+        <span class="mini-note">Không lưu số tiền bạn nhập</span>
+      </div>
+      <div id="walletRows" class="wallet-rows"></div>
+      <button id="addWalletRow" class="add-row" type="button">+ Thêm ngoại tệ</button>
+      <div class="wallet-total"><span>Tổng quy đổi</span><strong id="walletTotal">-</strong><small>Theo tỷ giá mua tiền mặt.</small></div>
+    </section>
+
+    <section class="source-panel">
+      <div><strong>Nguồn: Vietcombank</strong><span id="sourceDetail">Cập nhật tự động. Khi nguồn tạm lỗi, hệ thống dùng bản gần nhất và ghi rõ thời điểm.</span></div>
+      <a href="https://www.vietcombank.com.vn/vi-VN/KHCN/Cong-cu-Tien-ich/Ty-gia" target="_blank" rel="noopener">Xem tại Vietcombank ↗</a>
+    </section>
+  </div>
+</main>
+
+<footer class="module-footer">Tỷ giá mang tính tham khảo và có thể thay đổi theo thời điểm Vietcombank cập nhật.</footer>
+<script src="currency.js?v=6"></script>
+<script src="../island-clock.js?v=6"></script>
+</body>
+</html>

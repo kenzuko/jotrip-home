@@ -1,0 +1,18 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "openpq-currency",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-21",
+  "workers_dev": true,
+  "preview_urls": true,
+  "triggers": {
+    "crons": ["*/5 * * * *"]
+  },
+  "d1_databases": [
+    {
+      "binding": "CURRENCY_DB",
+      "database_name": "openpq-currency",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+    }
+  ]
+}

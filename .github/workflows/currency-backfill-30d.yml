@@ -1,0 +1,43 @@
+name: Open Phu Quoc Currency 30D Backfill
+# Backfill parser v3 - hard-filters blank Excel currency rows
+
+concurrency:
+  group: currency-data-${{ github.ref }}
+  cancel-in-progress: false
+
+on:
+  push:
+    branches: ["feat/currency-utility-v1"]
+    paths:
+      - ".github/workflows/currency-backfill-30d.yml"
+      - "tools/currency-sync/backfill.py"
+
+permissions:
+  contents: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Excel reader
+        run: python -m pip install --disable-pip-version-check pandas==2.2.3 openpyxl==3.1.5
+      - name: Backfill 30 calendar days before current snapshot
+        run: python tools/currency-sync/backfill.py 2026-08-22 2026-09-20
+      - name: Commit historical Vietcombank data
+        run: |
+          if git diff --quiet -- data/currency-history.json; then
+            echo "No history changes"
+            exit 0
+          fi
+          git config user.name "openphuquoc-autosync"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/currency-history.json
+          git commit -m "data: backfill 30d Vietcombank exchange rates"
+          git pull --rebase origin ${{ github.ref_name }}
+          git push origin HEAD:${{ github.ref_name }}

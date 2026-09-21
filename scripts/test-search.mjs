@@ -18,7 +18,8 @@ const cases=[
   ["Regent","hotel_regent"],
   ["tau cao toc","access_fast_boat"],
   ["APEC","history_apec_2027"],
-  ["Kiss of the Sea","activity_kiss_of_the_sea"]
+  ["Kiss of the Sea","activity_kiss_of_the_sea"],
+  ["ty gia usd","live_currency"]
 ];
 
 for(const [query,expected] of cases){
@@ -36,4 +37,7 @@ if(!groupMap.get("experience")?.includes("place_aquatopia")) throw new Error("H�
 if(!groupMap.get("price")?.includes("price_hon_thom_day")) throw new Error("Hòn Thơm cluster missing day price");
 if(!groupMap.get("live")?.includes("live_south_weather")) throw new Error("Hòn Thơm cluster missing South weather");
 
-console.log("Search QA OK:",cases.length,"queries and Hòn Thơm entity cluster");
+const currency=context.window.OpenPQSearch.search("100 USD",1)[0];
+if(currency?.type!=="currency" || !currency?.route?.startsWith("/currency/?")) throw new Error("100 USD must create a currency quick route");
+
+console.log("Search QA OK:",cases.length,"queries, currency quick route and Hòn Thơm entity cluster");
