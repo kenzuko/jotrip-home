@@ -292,7 +292,7 @@ function renderStatus(){
   const badge = $('#sourceBadge');
   const status = state.payload?.data_status || (state.rates.length ? 'cached' : 'unavailable');
   badge.className = 'status-pill ' + freshnessClass(status);
-  badge.textContent = status === 'live' ? 'LIVE · VIETCOMBANK' : status === 'cached' ? 'BẢN GẦN NHẤT' : 'CHƯA LẤY ĐƯỢC';
+  badge.textContent = status === 'live' ? 'VIETCOMBANK · MỚI NHẤT' : status === 'cached' ? 'BẢN GẦN NHẤT' : 'CHƯA LẤY ĐƯỢC';
   const raw = state.payload?.source_updated_at || state.payload?.updated_at;
   $('#updatedAt').textContent = raw ? 'Cập nhật ' + new Date(raw).toLocaleString('vi-VN',{timeZone:'Asia/Ho_Chi_Minh',hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'}) : 'Chưa có thời điểm cập nhật';
   $('#sourceDetail').textContent = state.payload?.message || 'Lấy trực tiếp từ Vietcombank. Nếu kết nối chậm, trang giữ bản gần nhất và ghi rõ giờ.';
