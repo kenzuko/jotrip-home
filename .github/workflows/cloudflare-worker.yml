@@ -1,0 +1,51 @@
+name: Deploy Open Phu Quoc Worker
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: openphuquoc-worker
+  cancel-in-progress: true
+
+jobs:
+  deploy-worker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build derived data
+        run: node scripts/build-search-index.mjs
+
+      - name: Validate data
+        run: |
+          node scripts/validate-data.mjs
+          node scripts/validate-home-support.mjs
+          node scripts/test-search.mjs
+          node scripts/test-currency.mjs
+
+      - name: Build Worker assets
+        run: |
+          node scripts/build-cloudflare.mjs
+          printf '{"sha":"%s","built_at":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
+          test -f dist/index.html
+          test -f dist/home-foundation-v2.js
+          test -f dist/currency/index.html
+          test -f dist/transit/index.html
+
+      - name: Deploy openphuquoc-v3 Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy --config wrangler.jsonc
