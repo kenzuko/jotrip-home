@@ -541,14 +541,17 @@
       "legacy_id": "vcb-atm-nguyen-trung-truc",
       "entity_type": "utility",
       "slug": "vcb-atm-nguyen-trung-truc",
-      "name": "ATM Vietcombank - 193 Nguyễn Trung Trực",
-      "aliases": [],
+      "name": "Vietcombank PGD Dương Đông - ATM",
+      "aliases": [
+        "Vietcombank 193 Nguyễn Trung Trực",
+        "ATM Vietcombank Dương Đông"
+      ],
       "zone_id": "zone_central_west",
       "group": "ATM",
       "utility_type": "ATM",
       "address": "193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang",
-      "phone": null,
-      "what_it_is": "Điểm ATM/rút tiền",
+      "phone": "0297 3996 888",
+      "what_it_is": "Phòng giao dịch Vietcombank; danh bạ hiện hành ghi nhận ATM tại cùng địa chỉ",
       "live_check_required": true,
       "verified": false,
       "related_entities": [],
@@ -567,14 +570,17 @@
       "legacy_id": "vcb-atm-an-thoi",
       "entity_type": "utility",
       "slug": "vcb-atm-an-thoi",
-      "name": "ATM Vietcombank - 199 Nguyễn Văn Cừ",
-      "aliases": [],
+      "name": "Vietcombank PGD An Thới - ATM",
+      "aliases": [
+        "Vietcombank 199 Nguyễn Văn Cừ",
+        "ATM Vietcombank An Thới"
+      ],
       "zone_id": "zone_south",
       "group": "ATM",
       "utility_type": "ATM",
       "address": "199 Nguyễn Văn Cừ, Khu phố 8 An Thới, Đặc khu Phú Quốc, An Giang",
       "phone": null,
-      "what_it_is": "Điểm ATM/rút tiền",
+      "what_it_is": "Phòng giao dịch Vietcombank; danh bạ hiện hành ghi nhận ATM tại cùng địa chỉ",
       "live_check_required": true,
       "verified": false,
       "related_entities": [],
@@ -951,6 +957,32 @@
       "source_refs": [
         {
           "source_id": "visitpq_taxi_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_longchau_suoi_da",
+      "legacy_id": "longchau-suoi-da",
+      "entity_type": "utility",
+      "slug": "longchau-suoi-da",
+      "name": "Nhà thuốc Long Châu - Suối Đá",
+      "aliases": [
+        "Long Châu Suối Đá",
+        "Nhà thuốc Long Châu Dương Tơ"
+      ],
+      "zone_id": null,
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang), Đặc khu Phú Quốc, An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc Long Châu tại khu Suối Đá - Dương Tơ",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_storelist_2026"
         }
       ],
       "updated_at": "2026-09-21"
