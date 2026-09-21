@@ -31,7 +31,7 @@ function stateText(s) {
       RUNNING: "Hôm nay chạy bình thường",
       SUSPENDED: "Tạm dừng",
       DIRECT_CONFIRMED: "Hôm nay chạy bình thường",
-      FIELD_REQUIRED: "Hôm nay chưa có xác nhận mới",
+      FIELD_REQUIRED: "Chưa có cập nhật hôm nay",
       UNKNOWN: "Chưa có thông tin mới"
     }[s] || "Chưa có thông tin mới");
   }
@@ -68,7 +68,7 @@ function setLive(name, primary, secondary, state, freshness) {
     const action = box.querySelector("b");
     if (strong) strong.textContent = primary;
     if (small) small.textContent = secondary;
-    if (time) time.textContent = freshness || "Chưa có mốc cập nhật";
+    if (time) time.textContent = freshness || "Chưa có cập nhật mới";
     const actions = {
       weather:"Xem thời tiết →",
       sea:"Xem tình hình biển →",
@@ -84,7 +84,7 @@ function setLive(name, primary, secondary, state, freshness) {
 function freshnessText(iso, prefix = "Cập nhật") {
     const age = ageMinutes(iso);
     const t = Date.parse(iso || "");
-    if (!Number.isFinite(age) || !Number.isFinite(t)) return "Chưa có mốc cập nhật";
+    if (!Number.isFinite(age) || !Number.isFinite(t)) return "Chưa có cập nhật mới";
     if (age < 180) {
       const hhmm = new Intl.DateTimeFormat("vi-VN", {
         timeZone:"Asia/Ho_Chi_Minh",hour:"2-digit",minute:"2-digit",hour12:false
@@ -226,15 +226,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const seaSecondary = seaHs != null
       ? "Sóng Nam đảo · dự báo biển"
       : "Chưa có thông tin biển mới";
-    setLive("sea", seaPrimary, seaSecondary, seaAge <= 360 ? "info" : "unknown", freshnessText(seaTime, "Mốc dữ liệu"));
+    setLive("sea", seaPrimary, seaSecondary, seaAge <= 360 ? "info" : "unknown", freshnessText(seaTime));
 
     const marineStamp = marine?.collected_at_vn || marine?.generated_at || null;
     const marineAge = ageMinutes(marineStamp);
     const canoState = marine?.categories?.cano?.state;
     setLive(
       "cano",
-      marine ? stateText(canoState) : "Chưa có dữ liệu",
-      !marine ? "Chưa có thông tin vận hành mới" : canoState === "FIELD_REQUIRED" ? "Đang chờ xác nhận trong ngày" : "Cano Nam đảo",
+      marine ? stateText(canoState) : "Chưa có cập nhật mới",
+      !marine ? "Chưa có cập nhật hôm nay" : canoState === "FIELD_REQUIRED" ? "Chưa có cập nhật hôm nay" : "Cano Nam đảo",
       !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "good" : canoState === "SUSPENDED" ? "bad" : canoState === "FIELD_REQUIRED" ? "watch" : "unknown",
       marine ? freshnessText(marineStamp) : "Chưa rõ thời điểm cập nhật"
     );
@@ -442,15 +442,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
     setInterval(renderNowSuggestion, 60000);
 
     let wxTitle = "Chưa có thông tin thời tiết mới";
-    let wxNote = "Mở Thời tiết & Biển để xem chi tiết và thời điểm cập nhật.";
+    let wxNote = "Mở Thời tiết & Biển để xem tình hình và lần cập nhật gần nhất.";
     let wxBadge = "CHƯA CÓ";
     let wxGood = false;
 
     if (critical) {
       wxNote = weatherSecondary;
       if (criticalAge > 90) {
-        wxTitle = "Thông tin thời tiết chưa đủ mới";
-        wxBadge = "DỮ LIỆU CŨ";
+        wxTitle = "Thời tiết chưa có cập nhật mới";
+        wxBadge = "CẦN CẬP NHẬT";
       } else if (hasHighConvective) {
         wxTitle = "Dông mạnh có thể phát triển nhanh";
         wxBadge = "THEO DÕI";
@@ -461,7 +461,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         wxTitle = "Một số điểm trên đảo đang có mưa";
         wxBadge = "ĐO THỰC";
       } else {
-        wxTitle = "Dữ liệu thời tiết đang cập nhật";
+        wxTitle = "Chưa thấy dấu hiệu thời tiết đáng lo lúc này";
         wxBadge = "CẬP NHẬT";
         wxGood = weatherState === "good";
       }
@@ -484,12 +484,12 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const transitWatch = transitStates.some(x => x === "FIELD_REQUIRED" || x === "UNKNOWN" || !x);
     const transitPrimary = !marine ? "Chưa có thông tin mới" : transitBad ? "Có thay đổi hôm nay" : transitWatch ? "Nên xem lại trước khi đi" : transitGood ? "Hôm nay chạy bình thường" : "Chưa rõ";
     const transitContext = !marine ? "Chưa có cập nhật mới" : transitGood ? "Tàu cao tốc và phà đều hoạt động hôm nay" : "Tàu cao tốc " + stateText(fastState).toLowerCase() + " · Phà " + stateText(ferryState).toLowerCase();
-    setLive("ferry", transitPrimary, transitContext, !marine ? "unknown" : transitBad || transitWatch ? "watch" : transitGood ? "good" : "unknown", marine ? freshnessText(marineStamp) : "Chưa có mốc cập nhật");
+    setLive("ferry", transitPrimary, transitContext, !marine ? "unknown" : transitBad || transitWatch ? "watch" : transitGood ? "good" : "unknown", marine ? freshnessText(marineStamp) : "Chưa có cập nhật mới");
 
     if (!marine) {
       setHappening("marine", "Chưa có cập nhật mới về tàu và phà", "Mở Tàu & Phà để xem thông tin gần nhất.", "CHƯA RÕ", false);
     } else if (transitBad) {
-      setHappening("marine", "Có thay đổi vận hành hôm nay", transitContext, "LƯU Ý", false);
+      setHappening("marine", "Tàu hoặc phà có thay đổi hôm nay", transitContext, "LƯU Ý", false);
     } else {
       setHappening("marine", transitGood ? "Tàu và phà chạy bình thường" : "Nên xem lại lịch trước khi đi", transitContext, transitGood ? "BÌNH THƯỜNG" : "XEM LẠI", transitGood);
     }
@@ -505,8 +505,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     setHappening(
       "airport",
-      !airportAvailable ? "Chưa có thông tin sân bay đủ mới" : delayed.length ? delayed.length + " chuyến đang trễ" : "Chưa thấy chuyến trễ đáng kể",
-      airportAvailable ? total + " chuyến trong bảng hôm nay" : "Mở Sân bay để xem trạng thái mới nhất.",
+      !airportAvailable ? "Sân bay chưa có cập nhật mới" : delayed.length ? delayed.length + " chuyến đang trễ" : "Chưa thấy chuyến trễ đáng kể",
+      airportAvailable ? total + " chuyến trong bảng hôm nay" : "Mở Sân bay để xem các chuyến hôm nay.",
       !airportAvailable ? "CHƯA RÕ" : delayed.length ? "CÓ TRỄ" : "BÌNH THƯỜNG",
       airportAvailable && delayed.length === 0
     );
@@ -521,9 +521,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
     setLive(
       "airport",
       !airportAvailable ? "Chưa có thông tin mới" : delayed.length ? delayed.length + " chuyến đang trễ" : "Chưa thấy bất thường",
-      airportAvailable ? total + " chuyến trong bảng hôm nay" : "Mở Sân bay để xem trạng thái mới nhất",
+      airportAvailable ? total + " chuyến trong bảng hôm nay" : "Mở Sân bay để xem các chuyến hôm nay",
       !airportAvailable ? "unknown" : delayed.length ? "watch" : "good",
-      airportLoaded ? freshnessText(airportStamp) : "Chưa có mốc cập nhật"
+      airportLoaded ? freshnessText(airportStamp) : "Chưa có cập nhật mới"
     );
 
     setLive("tonight", "Còn nhiều lựa chọn", "Chợ đêm · show · đi dạo", "info", "Theo giờ Phú Quốc");
@@ -626,7 +626,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
       if (!critical || criticalAge > 90) {
         decisionCard.href = "weather/";
         if (tag) tag.textContent = "KIỂM TRA TRƯỚC";
-        if (title) title.textContent = "Dữ liệu thời tiết cần cập nhật";
+        if (title) title.textContent = "Thời tiết chưa có cập nhật mới";
         if (note) note.textContent = "Mở Thời tiết & Biển trước khi chọn hoạt động phụ thuộc thời tiết";
       } else if (hasHighConvective || hasElevatedConvective || observedRain) {
         decisionCard.href = "stories/article.html?id=mot-nam-trong-nha-thung";
@@ -673,7 +673,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         cano: {
           label: "Cano",
           primary: marine ? stateText(canoState) : "Chưa có thông tin mới",
-          context: !marine ? "Chưa lấy được cập nhật hôm nay" : canoState === "FIELD_REQUIRED" ? "Hôm nay chưa có xác nhận trực tiếp" : "Khu vực Nam đảo",
+          context: !marine ? "Chưa có cập nhật hôm nay" : canoState === "FIELD_REQUIRED" ? "Chưa có cập nhật hôm nay" : "Khu vực Nam đảo",
           status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(canoState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
@@ -710,7 +710,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         airport: {
           label: "Sân bay",
           primary: !airportAvailable ? "Chưa có cập nhật đủ mới" : delayed.length ? delayed.length + " chuyến cần xem" : "Chưa thấy bất thường",
-          context: airportAvailable ? total + " chuyến trong bảng hôm nay" : airportLoaded ? "Bản hiện có đã cũ" : "Chưa lấy được dữ liệu sân bay",
+          context: airportAvailable ? total + " chuyến trong bảng hôm nay" : airportLoaded ? "Chưa có cập nhật mới" : "Chưa có cập nhật sân bay",
           status: !airportAvailable ? "unknown" : delayed.length ? "watch" : "normal",
           source_class: "LIVE_OPERATIONAL",
           source_updated_at: airportStamp,
