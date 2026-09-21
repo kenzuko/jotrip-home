@@ -31,6 +31,7 @@ on:
       - "data/currency-snapshot.json"
       - "data/currency-history.json"
       - "transit/**"
+      - "airport/**"
 
 permissions:
   contents: read
