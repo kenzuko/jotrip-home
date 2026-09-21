@@ -31,6 +31,8 @@ jobs:
           node --check places/app.js
           node --check guide/guide.js
           node --check utilities/utilities.js
+          node --check currency/currency.js
+          node --check workers/currency/src/index.js
           node --check explore/app.js
           node --check places/detail.js
           node --check hotels/app.js
