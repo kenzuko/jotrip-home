@@ -53,7 +53,7 @@
     mapFrame=host.querySelector("iframe");
     updateMapFrame();
     const note=$("#mapNote");
-    if(note)note.textContent="Bản đồ hiển thị khu vực đang xem. Dùng vị trí để định tâm gần bạn; mở từng điểm bên dưới để đi tới đúng pin.";
+    if(note)note.textContent="Bản đồ đang theo khu vực bạn chọn. Muốn xem đường đi tới đâu, mở ngay điểm đó bên dưới.";
   }
 
   function clearUserLocation(){
@@ -70,7 +70,7 @@
     if(!mapFrame)return;
     updateMapFrame(coords.lat+","+coords.lon,15);
     const note=$("#mapNote");
-    if(note)note.textContent="Bản đồ đang định tâm theo vị trí thiết bị trong phiên này. Khoảng cách trong danh sách chỉ tính với những điểm có tọa độ đã xác minh.";
+    if(note)note.textContent="Bản đồ đang theo vị trí của bạn. Khoảng cách chỉ hiện ở những chỗ mình biết đúng vị trí.";
   }
   function haversine(a,b){const R=6371,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),h=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
   function nearestArea(pos){
@@ -132,7 +132,7 @@
     }
     $("#resultsTitle").textContent=areaLabel()+(selectedCategory?" · "+(support.near_me.categories.find(x=>x.id===selectedCategory)?.label||""):"");
     $("#resultsCount").textContent=rows.length+" điểm";
-    $("#nearStatus").textContent=position?(gpsFallback?"Điểm có tọa độ được xếp theo khoảng cách. Các điểm còn lại được giữ theo khu vực gần vị trí của bạn.":"Đã thấy vị trí của bạn và đang xếp các điểm theo khoảng cách."):"Bạn đang xem theo khu vực, chưa dùng GPS.";
+    $("#nearStatus").textContent=position?(gpsFallback?"Chỗ nào biết đúng vị trí sẽ được xếp theo khoảng cách. Những chỗ còn lại vẫn giữ theo khu vực gần bạn.":"Đã thấy vị trí của bạn. Mình xếp chỗ gần lên trước nhé."):"Bạn đang xem theo khu vực.";
     renderMapPoints(rows);
     const host=$("#nearResults");
     if(!rows.length){host.innerHTML='<div class="empty">Chưa có điểm phù hợp với lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';return}
