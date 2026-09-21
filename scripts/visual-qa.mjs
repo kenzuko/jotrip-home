@@ -208,7 +208,26 @@ async function testAirportPage(page) {
     return (health && !/ĐANG TẢI|LOADING/i.test(health)) || (error && !error.classList.contains('hidden'));
   }, { timeout: 9000 }).catch(() => {});
 
-  return page.evaluate(() => {
+  let drawerInteraction = { found:false, opened:false, closed:false };
+  const firstFlight = page.locator('#flightList .flight-row').first();
+  if (await firstFlight.count()) {
+    drawerInteraction.found=true;
+    await firstFlight.click().catch(() => {});
+    await page.waitForTimeout(120);
+    drawerInteraction.opened=await page.locator('#flightDrawer:not(.hidden)').count().then(n=>n>0).catch(()=>false);
+    if (drawerInteraction.opened) {
+      await page.locator('#drawerClose').click().catch(() => {});
+      await page.waitForTimeout(100);
+      drawerInteraction.closed=await page.evaluate(() => {
+        const drawer=document.querySelector('#flightDrawer');
+        const backdrop=document.querySelector('#drawerBackdrop');
+        const hidden=el=>!el || el.classList.contains('hidden') || getComputedStyle(el).display==='none' || getComputedStyle(el).visibility==='hidden';
+        return hidden(drawer) && hidden(backdrop);
+      }).catch(()=>false);
+    }
+  }
+
+  const base=await page.evaluate(() => {
     const visible = el => !!el && getComputedStyle(el).display !== 'none' && getComputedStyle(el).visibility !== 'hidden';
     const backdrop=document.querySelector('#drawerBackdrop');
     const drawer=document.querySelector('#flightDrawer');
@@ -226,8 +245,13 @@ async function testAirportPage(page) {
       refreshUsable: !!refresh && !refresh.disabled,
       mobileRefreshUsable: !!mobileRefresh && !mobileRefresh.disabled
     };
-    return { ok:Object.values(checks).every(Boolean), checks, health };
+    return { checks, health };
   });
+  if(drawerInteraction.found){
+    base.checks.drawerOpens=drawerInteraction.opened;
+    base.checks.drawerClosesCleanly=drawerInteraction.closed;
+  }
+  return { ok:Object.values(base.checks).every(Boolean), checks:base.checks, health:base.health, drawerInteraction };
 }
 
 
