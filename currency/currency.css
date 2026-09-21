@@ -513,6 +513,72 @@ img{display:block;max-width:100%}
   .currency-footer{padding-bottom:54px}
 }
 
+
+/* Mobile density pass: keep converter primary without dominating the viewport */
+@media(max-width:760px){
+  .converter-panel{padding:13px}
+  .converter-panel .section-head{gap:8px;margin-bottom:10px}
+  .converter-panel .eyebrow{margin-bottom:6px;font-size:9px}
+  .converter-panel .section-head h2{font-size:24px}
+  .converter-panel .mode-toggle{padding:3px}
+  .converter-panel .mode{padding:7px 6px;font-size:9.5px}
+
+  .converter-grid{gap:6px}
+  .money-input,.convert-result{
+    min-height:94px;
+    padding:12px 13px;
+    border-radius:14px;
+  }
+  .money-input>span,.convert-result>span{
+    margin-bottom:6px;
+    font-size:9px;
+    line-height:1.2;
+  }
+  .money-input input{font-size:32px;line-height:1}
+  .money-input select{
+    min-width:72px;max-width:82px;
+    padding:7px 7px;
+    border-radius:10px;
+    font-size:11px;
+  }
+  .convert-result strong{font-size:29px;line-height:.98}
+  .convert-result small{
+    margin-top:7px;
+    font-size:9px;
+    line-height:1.35;
+  }
+
+  .rate-type-row{
+    margin-top:8px;
+    padding:3px;
+  }
+  .rate-type{padding:7px 10px;font-size:9.5px}
+  .quick-amounts{gap:6px;margin-top:8px}
+  .quick-amounts button{
+    min-height:30px;
+    padding:5px 10px;
+    font-size:10px;
+  }
+  .converter-panel .fine-print{
+    margin-top:10px;
+    font-size:9px;
+    line-height:1.45;
+  }
+
+  .panel{box-shadow:0 8px 26px rgba(18,61,59,.055)}
+  .rates-panel .section-head,
+  .chart-panel .section-head,
+  .board-panel .section-head,
+  .wallet-panel .section-head{margin-bottom:12px}
+  .rates-panel .section-head h2,
+  .chart-panel .section-head h2,
+  .board-panel .section-head h2,
+  .wallet-panel .section-head h2{font-size:24px}
+  .rate-card{flex-basis:72%;padding:13px}
+  .rate-main{margin-top:11px;font-size:22px}
+  .rate-card small{font-size:9px}
+}
+
 @media(max-width:390px){
   .currency-head .brand{width:34px;min-width:34px;height:34px}
   .currency-head img{width:34px;height:34px}
