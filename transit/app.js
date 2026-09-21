@@ -67,7 +67,7 @@ function fillFilters(){
   $("#routeFilter").value=state.route;$("#operatorFilter").value=state.operator;
 }
 function setModeCopy(){
-  const map={sea:["Tàu & phà","Giờ chạy, hãng, tàu/phà, giá và mức xác nhận của nguồn."],fast:["Tàu cao tốc","Chuyến tàu khách theo đúng ngày đi, không suy từ lịch tháng."],ferry:["Phà","Chuyến phà theo ngày, kèm giá người và giá xe khi nguồn có."],bus:["Bus","Tuyến và tần suất công bố. Chỉ gọi trực tiếp khi có vị trí xe thật."]};
+  const map={sea:["Tàu & phà","Giờ chạy, hãng, tàu/phà và giá cho đúng ngày bạn chọn."],fast:["Tàu cao tốc","Xem đúng ngày đi, không lấy lịch tháng điền vào cho đủ."],ferry:["Phà","Chuyến phà theo ngày, có giá người và giá xe khi hãng công bố."],bus:["Bus","Tuyến và tần suất theo lịch. Vị trí xe chỉ hiện khi có thật."]};
   const [title,sub]=map[state.mode];$("#boardTitle").textContent=title;$("#boardSubtitle").textContent=sub;
 }
 function renderSummary(){
@@ -83,9 +83,9 @@ function renderSummary(){
 }
 function renderHealth(){
   const age=ageMin(state.data?.generated_at),h=state.data?.health?.status||"bad";
-  $("#healthState").textContent=!state.data?"Chưa có dữ liệu":h==="good"?(age<=30?"Dữ liệu đang cập nhật":"Dữ liệu đã cũ"):h==="watch"?"Một phần nguồn cần kiểm tra":"Nguồn chưa sẵn sàng";
-  $("#updatedAt").textContent=Number.isFinite(age)&&state.data?.generated_at?`Snapshot ${new Date(state.data.generated_at).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ})} · ${age} phút trước`:"Chưa rõ thời điểm cập nhật";
-  const el=$("#sourceHealth");el.className=`status-chip ${h==="good"?"good":h==="watch"?"watch":"bad"}`;el.textContent=h==="good"?"Nguồn online":h==="watch"?"Cần kiểm tra":"Thiếu nguồn";
+  $("#healthState").textContent=!state.data?"Chưa lấy được lịch":h==="good"?(age<=30?"Đang cập nhật":"Thông tin hơi cũ"):h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được từ hãng";
+  $("#updatedAt").textContent=Number.isFinite(age)&&state.data?.generated_at?`Cập nhật ${new Date(state.data.generated_at).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ})} · ${age} phút trước`:"Chưa biết lần cập nhật gần nhất";
+  const el=$("#sourceHealth");el.className=`status-chip ${h==="good"?"good":h==="watch"?"watch":"bad"}`;el.textContent=h==="good"?"Đã lấy được lịch":h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được lịch";
 }
 function renderSources(){
   const reg=state.data?.sources?.registry||{};
@@ -94,15 +94,15 @@ function renderSources(){
   const total=entries.length;
   const newest=state.data?.generated_at?new Date(state.data.generated_at).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ}):"--:--";
   $("#sourceList").innerHTML=`
-    <div class="source-item"><div><strong>Nguồn chính thức</strong><small>${ok}/${total||0} nhóm dữ liệu đang cập nhật</small></div><span class="status-chip ${ok===total&&total?"good":"watch"}">${ok===total&&total?"Đã cập nhật":"Đang kiểm tra"}</span></div>
+    <div class="source-item"><div><strong>Các hãng</strong><small>${ok}/${total||0} nhóm đã có lịch mới</small></div><span class="status-chip ${ok===total&&total?"good":"watch"}">${ok===total&&total?"Đủ lịch":"Đang bổ sung"}</span></div>
     <div class="source-item"><div><strong>Theo ngày thực tế</strong><small>Không dùng lịch tháng để khẳng định chuyến trong ngày</small></div><span class="status-chip neutral">${newest}</span></div>
   `;
 }
 function renderNotice(){
   const box=$("#boardNotice");let msg="";
-  if(state.mode!=="bus"&&!baseRows().length&&state.date!==today())msg="Collector chưa có snapshot cho ngày đã chọn. Trang giữ trống thay vì lấy lịch tháng để điền vào.";
+  if(state.mode!=="bus"&&!baseRows().length&&state.date!==today())msg="Ngày này chưa có lịch riêng, nên mình để trống thay vì lấy lịch tháng điền vào cho đủ." ;
   const pqe=state.data?.sources?.phu_quoc_express;
-  const reg=state.data?.sources?.registry||{};const pending=[];if(reg.superdong&&(reg.superdong.date_specific===false||(reg.superdong.data_kind==="schedule_reference"&&reg.superdong.date_specific!==true)))pending.push("Superdong");if(pqe&&pqe.status!=="ok")pending.push("Phú Quốc Express");if(state.mode!=="bus"&&pending.length)msg=(msg?msg+" ":"")+pending.join(" và ")+" chưa có dữ liệu xác nhận theo đúng ngày trong snapshot hiện tại, nên không đưa lịch tham khảo vào bảng chuyến.";
+  const reg=state.data?.sources?.registry||{};const pending=[];if(reg.superdong&&(reg.superdong.date_specific===false||(reg.superdong.data_kind==="schedule_reference"&&reg.superdong.date_specific!==true)))pending.push("Superdong");if(pqe&&pqe.status!=="ok")pending.push("Phú Quốc Express");if(state.mode!=="bus"&&pending.length)msg=(msg?msg+" ":"")+pending.join(" và ")+" chưa có lịch chắc cho đúng ngày này, nên chưa đưa vào bảng chuyến." ;
   box.textContent=msg;box.classList.toggle("hidden",!msg);
 }
 function fareCell(r,compact=false){
@@ -118,7 +118,7 @@ function vehicleCell(r,compact=false){
 function statusChip(r){return `<span class="status-chip ${statusTone(r.status)}">${esc(r.status||"Theo lịch công bố")}</span>`}
 function renderRows(){
   const rows=filtered();
-  if(!rows.length){const empty='<div class="empty-state">Chưa có dữ liệu theo ngày hoặc bộ lọc này. Open Phu Quoc không tự suy từ lịch tháng.</div>';$("#boardRows").innerHTML=empty;$("#mobileRows").innerHTML=empty;return}
+  if(!rows.length){const empty='<div class="empty-state">Chưa có chuyến phù hợp với ngày hoặc bộ lọc này. Mình không lấy lịch tháng điền vào cho đủ.</div>';$("#boardRows").innerHTML=empty;$("#mobileRows").innerHTML=empty;return}
   $("#boardRows").innerHTML=rows.map((r,i)=>{
     const bus=r.type==="bus",time=bus?`Bus ${esc(r.route_id||"")}`:hhmm(r.departure_time),sub=bus?esc(r.operating_window||r.frequency||"Theo lịch"):(r.arrival_time?`Đến ${hhmm(r.arrival_time)}`:direction(r));
     return `<article class="transit-row">
@@ -142,14 +142,14 @@ function render(){fillFilters();renderSummary();renderHealth();renderSources();r
 function openTicket(r){
   const av=availability(r),source=BOOKING[r.operator]||r.source_url||"#",checked=new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ});
   const label=av?.label||"Chưa xác định",tone=av?.tone||"neutral";
-  $("#ticketContent").innerHTML=`<div class="ticket-kicker">KIỂM TRA VÉ · ${esc(r.operator||"")}</div><h2>${hhmm(r.departure_time)}</h2><div class="ticket-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")} · ${esc(r.vessel_or_service||"")}</div><div class="ticket-result"><span class="status-chip ${tone}">${esc(label)}</span><strong>${av?"Trạng thái hiện có":"Kiểm tra trực tiếp với hãng"}</strong><p>${av?"Chỉ hiển thị trạng thái tổng hợp, không hiển thị số ghế cụ thể.":"Chưa có trạng thái vé đủ mới để kết luận. Open Phu Quoc không tự đoán còn bao nhiêu vé."}</p>${r.vehicle_cargo?`<p><b>Xe / hàng:</b> ${esc(vehicleCell(r,true))}${cargoNote(r)?` · ${esc(cargoNote(r))}`:""}</p>`:""}</div><div class="ticket-actions"><a href="${esc(source)}" target="_blank" rel="noopener">Liên hệ / kiểm tra ↗</a><button id="ticketDone">Đóng</button></div><div class="ticket-meta">Kiểm tra lúc ${checked} · ${dayLabel(state.date)}</div>`;
+  $("#ticketContent").innerHTML=`<div class="ticket-kicker">KIỂM TRA VÉ · ${esc(r.operator||"")}</div><h2>${hhmm(r.departure_time)}</h2><div class="ticket-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")} · ${esc(r.vessel_or_service||"")}</div><div class="ticket-result"><span class="status-chip ${tone}">${esc(label)}</span><strong>${av?"Tình hình lúc này":"Mở trang hãng để xem lại"}</strong><p>${av?"Chỉ hiển thị trạng thái tổng hợp, không hiển thị số ghế cụ thể.":"Chưa biết chắc còn vé hay không. Mở trang hãng để xem lại nhé."}</p>${r.vehicle_cargo?`<p><b>Xe / hàng:</b> ${esc(vehicleCell(r,true))}${cargoNote(r)?` · ${esc(cargoNote(r))}`:""}</p>`:""}</div><div class="ticket-actions"><a href="${esc(source)}" target="_blank" rel="noopener">Liên hệ / kiểm tra ↗</a><button id="ticketDone">Đóng</button></div><div class="ticket-meta">Kiểm tra lúc ${checked} · ${dayLabel(state.date)}</div>`;
   $("#ticketDrawer").classList.remove("hidden");$("#ticketBackdrop").classList.remove("hidden");$("#ticketDrawer").setAttribute("aria-hidden","false");$("#ticketDone").onclick=closeTicket;
 }
 function closeTicket(){$("#ticketDrawer").classList.add("hidden");$("#ticketBackdrop").classList.add("hidden");$("#ticketDrawer").setAttribute("aria-hidden","true")}
 async function load(){
   $("#refreshBtn").textContent="…";
   try{const r=await fetch(`${DATA_URL}?t=${Date.now()}`,{cache:"no-store"});if(!r.ok)throw new Error(String(r.status));state.data=await r.json();render()}
-  catch(e){state.data=null;$("#healthState").textContent="Chưa tải được";$("#updatedAt").textContent="Không kết luận lịch chạy khi nguồn chưa phản hồi";const empty='<div class="empty-state">Không tải được dữ liệu Transit. Vui lòng kiểm tra trực tiếp tại hãng.</div>';$("#boardRows").innerHTML=empty;$("#mobileRows").innerHTML=empty}
+  catch(e){state.data=null;$("#healthState").textContent="Chưa tải được";$("#updatedAt").textContent="Chưa lấy được lịch mới từ các hãng";const empty='<div class="empty-state">Chưa mở được lịch lúc này. Bạn có thể kiểm tra trực tiếp với hãng.</div>';$("#boardRows").innerHTML=empty;$("#mobileRows").innerHTML=empty}
   finally{$("#refreshBtn").textContent="↻"}
 }
 $("#travelDate").value=state.date;
