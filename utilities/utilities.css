@@ -44,3 +44,24 @@
   .u-island-map img{max-height:300px}
   .u-island-map figcaption{padding:14px}
 }
+
+
+/* Direct contact actions - 21/09/2026 */
+.dir-contact-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:9px;
+}
+.dir-contact-actions a{
+  display:inline-flex;
+  min-height:34px;
+  align-items:center;
+  padding:7px 10px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#f7fbf9;
+  color:var(--ink);
+  font-size:11px;
+  font-weight:850;
+}
