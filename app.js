@@ -103,7 +103,7 @@ async function ensureSearch() {
     await window.OpenPQSearch.load('data/views/search-index.json');
     searchReady = true;
   } catch (error) {
-    showToast('Tìm kiếm đang tạm thời chưa tải được dữ liệu.');
+    showToast('Tìm kiếm đang tạm gián đoạn. Thử lại sau một chút.');
   }
   return searchReady;
 }
