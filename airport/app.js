@@ -180,7 +180,15 @@ async function loadFidsHistory(){
 }
 function changed(r){return isAbnormal(r)||isEarly(r,10)||hasFidsAlert(r)}
 
-async function fetchJson(path){\n  const snapshotFetch=window.JOTRIP_NATIVE_FETCH||window.fetch.bind(window);\n  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),SNAPSHOT_TIMEOUT_MS);\n  try{\n    const res=await snapshotFetch(`${DATA_BASE}/${path}?t=${Date.now()}`,{cache:'no-store',signal:controller.signal});\n    if(!res.ok)throw new Error(`${path}: HTTP ${res.status}`);\n    return res.json();\n  }finally{clearTimeout(timer)}\n}
+async function fetchJson(path){
+  const snapshotFetch=window.JOTRIP_NATIVE_FETCH||window.fetch.bind(window);
+  const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),SNAPSHOT_TIMEOUT_MS);
+  try{
+    const res=await snapshotFetch(`${DATA_BASE}/${path}?t=${Date.now()}`,{cache:'no-store',signal:controller.signal});
+    if(!res.ok)throw new Error(`${path}: HTTP ${res.status}`);
+    return res.json();
+  }finally{clearTimeout(timer)}
+}
 async function fetchSnapshotPayload(){const [latest,health]=await Promise.all([fetchJson('latest.json'),fetchJson('health.json')]);return{latest,health}}
 async function fetchLivePayload(){
   if(!LIVE_API_URL)throw new Error('Live API chưa cấu hình');
@@ -229,7 +237,12 @@ async function load(){
     console.error(e);$('#errorBox').textContent=uiT('loadError','Không đọc được dữ liệu chuyến bay lúc này. Trang sẽ không dùng dữ liệu cũ như dữ liệu live.');$('#errorBox').classList.remove('hidden');setHealth('bad',uiT('healthLostTitle','MẤT DỮ LIỆU'),uiT('healthLostDesc','Không thể tải nguồn live hoặc bản lưu dự phòng.'));
   }finally{state.loading=false;setLoading(false)}
 }
-function setLoading(on){\n  const refresh=$('#refreshBtn'),mobile=$('#mobileRefresh');\n  if(refresh){refresh.textContent=on?'…':'↻';refresh.disabled=!!on}\n  const icon=mobile?.querySelector('span');if(icon)icon.textContent=on?'…':'↻';\n  if(mobile)mobile.disabled=!!on;\n}
+function setLoading(on){
+  const refresh=$('#refreshBtn'),mobile=$('#mobileRefresh');
+  if(refresh){refresh.textContent=on?'…':'↻';refresh.disabled=!!on}
+  const icon=mobile?.querySelector('span');if(icon)icon.textContent=on?'…':'↻';
+  if(mobile)mobile.disabled=!!on;
+}
 function setHealth(level,title,desc){const pill=$('#healthPill');pill.className='health-pill '+level;pill.textContent=title;const icon=$('#healthIcon');icon.className='health-icon '+level;icon.textContent=level==='good'?'✓':level==='watch'||level==='stale'?'!':'×';$('#healthTitle').textContent=title;$('#healthDescription').textContent=desc}
 function renderAll(){renderSummary();renderHealth();renderFlights();renderNextWindow();renderWatch();renderAnalytics()}
 function buildOperationWatchItems(){
