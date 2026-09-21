@@ -9,27 +9,80 @@
     place_sunset_town:{center:[10.0191,104.0150],zoom:14},
     zone_north:{center:[10.3759,103.90],zoom:13}
   };
-  let support=null,entities=new Map(),selectedArea="all",selectedCategory=null,position=null,map=null,userMarker=null;
+  let support=null,entities=new Map(),selectedArea="all",selectedCategory=null,position=null,map=null,userMarker=null,userAccuracy=null,areaLayer=null,utilityLayer=null;
 
-  function mapEmbedUrl(lat=10.20,lon=103.97,zoom=11){
-    return "https://www.google.com/maps?q="+encodeURIComponent(lat+","+lon)+"&z="+zoom+"&output=embed";
-  }
-  function showMapFallback(lat=10.20,lon=103.97,zoom=11){
-    const host=$("#nearMap");if(!host)return;
-    host.innerHTML='<iframe class="near-map-fallback" title="Bản đồ Phú Quốc" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="'+mapEmbedUrl(lat,lon,zoom)+'"></iframe>';
-  }
   function initMap(){
     const host=$("#nearMap");
     if(!host)return;
-    if(!window.L){showMapFallback();return}
-    map=L.map(host,{zoomControl:true,attributionControl:true}).setView(AREA_VIEW.all.center,AREA_VIEW.all.zoom);
-    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap contributors"}).addTo(map);
+    if(!window.L){
+      host.innerHTML='<div class="map-unavailable"><strong>Chưa mở được bản đồ.</strong><span>Danh sách tiện ích bên dưới vẫn dùng được. Thử tải lại trang để mở bản đồ.</span></div>';
+      return;
+    }
+    map=L.map(host,{zoomControl:true,attributionControl:true,preferCanvas:true}).setView(AREA_VIEW.all.center,AREA_VIEW.all.zoom);
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+      maxZoom:18,
+      attribution:"© OpenStreetMap contributors"
+    }).addTo(map);
+
+    areaLayer=L.layerGroup().addTo(map);
+    utilityLayer=L.layerGroup().addTo(map);
+    [
+      ["Dương Đông","zone_central_west",10.2172,103.9593,2500],
+      ["An Thới","zone_south",10.0191,104.0150,2500],
+      ["Gành Dầu","zone_north",10.3759,103.90,2500]
+    ].forEach(([label,id,lat,lon,radius])=>{
+      const circle=L.circle([lat,lon],{
+        radius,
+        weight:1,
+        color:"#6fa89f",
+        fillColor:"#cfe9e3",
+        fillOpacity:.16
+      }).addTo(areaLayer);
+      circle.bindTooltip(label,{permanent:false,direction:"top"});
+      circle.on("click",()=>{
+        position=null;
+        selectedArea=id;
+        clearUserLocation();
+        renderControls();
+        setAreaView(id);
+        render();
+      });
+    });
+    setTimeout(()=>map?.invalidateSize(),120);
   }
+
+  function clearUserLocation(){
+    if(userMarker&&map){map.removeLayer(userMarker);userMarker=null}
+    if(userAccuracy&&map){map.removeLayer(userAccuracy);userAccuracy=null}
+  }
+
   function setAreaView(id){
-    if(position)return;
+    if(position||!map)return;
     const view=AREA_VIEW[id]||AREA_VIEW.all;
-    if(map){map.setView(view.center,view.zoom);return}
-    showMapFallback(view.center[0],view.center[1],view.zoom);
+    map.flyTo(view.center,view.zoom,{duration:.45});
+  }
+
+  function showUserLocation(coords){
+    if(!map||!window.L)return;
+    clearUserLocation();
+    const latlng=[coords.lat,coords.lon];
+    userAccuracy=L.circle(latlng,{
+      radius:Math.max(30,Number(coords.accuracy)||80),
+      weight:1,
+      color:"#28766f",
+      fillColor:"#54d4cb",
+      fillOpacity:.10
+    }).addTo(map);
+    userMarker=L.circleMarker(latlng,{
+      radius:8,
+      weight:3,
+      color:"#ffffff",
+      fillColor:"#123d3b",
+      fillOpacity:1
+    }).addTo(map).bindPopup("<strong>Bạn đang ở đây</strong><br><span>Vị trí chỉ dùng trong phiên này.</span>");
+    map.flyTo(latlng,15,{duration:.55});
+    userMarker.openPopup();
+    setTimeout(()=>map?.invalidateSize(),120);
   }
   function haversine(a,b){const R=6371,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),h=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
   function nearestArea(pos){
@@ -54,6 +107,21 @@
     $("#areaRow").innerHTML=areas.map(x=>'<button type="button" data-area="'+esc(x.id)+'" class="'+(x.id===selectedArea?"active":"")+'">'+esc(x.label)+'</button>').join("");
     $("#categoryRow").innerHTML='<button type="button" data-category="" class="'+(!selectedCategory?"active":"")+'">Tất cả</button>'+cats.map(x=>'<button type="button" data-category="'+esc(x.id)+'" class="'+(x.id===selectedCategory?"active":"")+'">'+esc(x.label)+'</button>').join("");
   }
+  function renderMapPoints(rows){
+    if(!map||!utilityLayer)return;
+    utilityLayer.clearLayers();
+    rows.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)).forEach(x=>{
+      const marker=L.circleMarker([x.lat,x.lon],{
+        radius:6,
+        weight:2,
+        color:"#ffffff",
+        fillColor:"#28766f",
+        fillOpacity:.92
+      }).addTo(utilityLayer);
+      marker.bindPopup("<strong>"+esc(x.name)+"</strong>"+(x.address?"<br><span>"+esc(x.address)+"</span>":""));
+    });
+  }
+
   function render(){
     if(!support)return;
     let rows=mergedItems();
@@ -81,7 +149,8 @@
     }
     $("#resultsTitle").textContent=areaLabel()+(selectedCategory?" · "+(support.near_me.categories.find(x=>x.id===selectedCategory)?.label||""):"");
     $("#resultsCount").textContent=rows.length+" điểm có dữ liệu";
-    $("#nearStatus").textContent=position?(gpsFallback?"Đã nhận vị trí. Một số điểm chưa có tọa độ đủ chắc, nên danh sách đang ưu tiên khu vực gần bạn nhất.":"Đang ưu tiên những điểm gần vị trí bạn vừa chia sẻ."):"Bạn đang xem theo khu vực, chưa dùng GPS.";
+    $("#nearStatus").textContent=position?(gpsFallback?"Đã thấy vị trí của bạn trên bản đồ. Một số tiện ích chưa có tọa độ đủ chắc, nên danh sách đang ưu tiên khu vực gần nhất.":"Đã thấy vị trí của bạn trên bản đồ và đang ưu tiên những điểm gần đó."):"Bạn đang xem theo khu vực, chưa dùng GPS.";
+    renderMapPoints(rows);
     const host=$("#nearResults");
     if(!rows.length){host.innerHTML='<div class="empty">Chưa có điểm đủ dữ liệu cho lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';return}
     host.innerHTML=rows.map(x=>{
@@ -101,7 +170,7 @@
     $("#areaRow").addEventListener("click",e=>{
       const b=e.target.closest("[data-area]");if(!b)return;
       selectedArea=b.dataset.area;position=null;
-      if(userMarker&&map){map.removeLayer(userMarker);userMarker=null}
+      clearUserLocation();
       $("#useLocation").textContent="⌖ Dùng vị trí của tôi";
       renderControls();setAreaView(selectedArea);render();
     });
@@ -114,15 +183,9 @@
       if(!navigator.geolocation){$("#nearStatus").textContent="Thiết bị này không chia sẻ được vị trí. Hãy chọn khu vực.";return}
       button.disabled=true;button.textContent="Đang lấy vị trí...";
       navigator.geolocation.getCurrentPosition(p=>{
-        position={lat:p.coords.latitude,lon:p.coords.longitude};selectedArea=nearestArea(position);
+        position={lat:p.coords.latitude,lon:p.coords.longitude,accuracy:p.coords.accuracy};selectedArea=nearestArea(position);
         button.disabled=false;button.textContent="✓ Đang dùng vị trí này";
-        if(map){
-          if(userMarker)map.removeLayer(userMarker);
-          userMarker=L.marker([position.lat,position.lon]).addTo(map).bindPopup("Vị trí bạn vừa chia sẻ");
-          map.setView([position.lat,position.lon],14);
-        }else{
-          showMapFallback(position.lat,position.lon,15);
-        }
+        showUserLocation(position);
         renderControls();render();
       },()=>{
         button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi";
