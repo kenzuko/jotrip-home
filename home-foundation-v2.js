@@ -172,20 +172,21 @@ function renderNearResults(){
   if(selectedCategory)items=items.filter(x=>x.utility_type===selectedCategory);
   let gpsFallback=false;
   if(position){
-    const withCoords=items.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon));
-    if(withCoords.length){
-      items=withCoords.map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
-        .sort((a,b)=>(a.current_status==="OPEN"?0:1)-(b.current_status==="OPEN"?0:1)||a.distance_km-b.distance_km);
-    }else{
-      gpsFallback=true;
-      const fallbackArea=selectedArea&&selectedArea!=="all"?selectedArea:nearestNearArea(position);
-      const areaItems=items.filter(x=>x.zone_id===fallbackArea||x.place_id===fallbackArea);
-      if(areaItems.length){
-        selectedArea=fallbackArea;
-        items=areaItems;
-      }else{
-        items.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-      }
+    const withCoords=items
+      .filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon))
+      .map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
+      .sort((a,b)=>(a.current_status==="OPEN"?0:1)-(b.current_status==="OPEN"?0:1)||a.distance_km-b.distance_km);
+    const fallbackArea=selectedArea&&selectedArea!=="all"?selectedArea:nearestNearArea(position);
+    const areaOnly=items
+      .filter(x=>!Number.isFinite(x.lat)||!Number.isFinite(x.lon))
+      .filter(x=>x.zone_id===fallbackArea||x.place_id===fallbackArea)
+      .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+    gpsFallback=areaOnly.length>0;
+    items=[...withCoords,...areaOnly];
+    if(!items.length){
+      items=[...(support.near_me?.items||[])].map(resolveNearItem)
+        .filter(x=>!selectedCategory||x.utility_type===selectedCategory)
+        .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
     }
   }else if(selectedArea&&selectedArea!=="all"){
     items=items.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea);
