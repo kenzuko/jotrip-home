@@ -20,7 +20,7 @@ const INTENTS={
 }
 function renderIntent(id){const x=INTENTS[id];if(!x)return;$$("[data-intent]").forEach(b=>b.classList.toggle("active",b.dataset.intent===id));$("#smartAnswer").innerHTML='<div><span>GỢI Ý CHO BẠN</span><h3>'+esc(x.title)+'</h3><ol>'+x.steps.map(s=>'<li>'+esc(s)+'</li>').join("")+'</ol><div class="answer-links">'+x.links.map(([label,url])=>'<a href="'+esc(url)+'">'+esc(label)+' →</a>').join("")+'</div></div>'}
 function renderStatic(){
- $("#zoneRail").innerHTML=state.guide.zones.map(z=>'<article class="zone-card"><img src="'+esc(z.image)+'" alt="'+esc(z.name)+'"><div><span>'+esc(z.tag)+'</span><h3>'+esc(z.name)+'</h3><p>'+esc(z.summary)+'</p><small>'+esc(z.best_for)+'</small></div></article>').join("");
+ $("#zoneRail").innerHTML=state.guide.zones.map(z=>'<article class="zone-card" data-zone-id="'+esc(z.id)+'"><img src="'+esc(z.image)+'" alt="'+esc(z.name)+'"><div><span>'+esc(z.tag)+'</span><h3>'+esc(z.name)+'</h3><p>'+esc(z.summary)+'</p><small>'+esc(z.best_for)+'</small></div></article>').join("");
  $("#stayGrid").innerHTML=state.stay.areas.map(a=>'<article class="stay-card"><span>'+esc(a.vibe)+'</span><h3>'+esc(a.name)+'</h3><p><b>Hợp:</b> '+esc(a.best_for.join(" · "))+'</p><p><b>Điểm mạnh:</b> '+esc(a.pros.join(" · "))+'</p><small>'+esc(a.watch.join(" · "))+'</small></article>').join("");
  $("#mealPlans").innerHTML=state.stay.meal_plans.map(x=>'<div><strong>'+esc(x.code)+'</strong><span>'+esc(x.meaning)+'</span></div>').join("");
  $("#dayGrid").innerHTML=state.itineraries.duration_guides.map(x=>'<button type="button" data-days="'+x.days+'"><span>'+esc(x.label)+'</span><strong>'+esc(x.principle)+'</strong><small>'+esc(x.weather_rule||x.avoid||"")+'</small></button>').join("");
