@@ -34,6 +34,7 @@ const searchTypeLabel = {
   activity: 'TRẢI NGHIỆM',
   food: 'ĂN UỐNG',
   utility: 'TIỆN ÍCH',
+  currency: 'TỶ GIÁ',
   stay_area: 'LƯU TRÚ',
   itinerary: 'LỊCH TRÌNH',
   practical: 'CẦN BIẾT',
