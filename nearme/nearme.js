@@ -43,8 +43,15 @@
     if(!support)return;
     let rows=mergedItems();
     if(selectedCategory)rows=rows.filter(x=>x.utility_type===selectedCategory);
+    let gpsFallback=false;
     if(position){
-      rows=rows.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)).map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})})).sort((a,b)=>a.distance_km-b.distance_km);
+      const withCoords=rows.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon));
+      if(withCoords.length){
+        rows=withCoords.map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})})).sort((a,b)=>a.distance_km-b.distance_km);
+      }else{
+        gpsFallback=true;
+        rows.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+      }
     }else if(selectedArea!=="all"){
       rows=rows.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea);
     }else{
@@ -52,7 +59,7 @@
     }
     $("#resultsTitle").textContent=areaLabel()+(selectedCategory?" · "+(support.near_me.categories.find(x=>x.id===selectedCategory)?.label||""):"");
     $("#resultsCount").textContent=rows.length+" điểm có dữ liệu";
-    $("#nearStatus").textContent=position?"Đang xếp theo vị trí bạn vừa chia sẻ.":"Đang xem theo khu vực, không dùng GPS.";
+    $("#nearStatus").textContent=position?(gpsFallback?"Đã nhận vị trí. Tọa độ từng tiện ích chưa đủ chắc để xếp theo khoảng cách, nên danh sách vẫn đang hiển thị toàn đảo.":"Đang xếp theo vị trí bạn vừa chia sẻ."):"Đang xem theo khu vực, không dùng GPS.";
     const host=$("#nearResults");
     if(!rows.length){host.innerHTML='<div class="empty">Chưa có điểm đủ dữ liệu cho lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';return}
     host.innerHTML=rows.map(x=>{
