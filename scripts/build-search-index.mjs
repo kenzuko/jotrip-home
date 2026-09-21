@@ -99,7 +99,8 @@ documents.push(...storyDocs,...curiosityDocs);
 documents.push(
   {id:"live_weather",type:"live",title:"Thời tiết & biển Phú Quốc",aliases:["weather","mưa","gió","sóng","biển"],zone_id:null,intents:["weather","marine"],route:"/weather/",search_text:"thoi tiet weather mua gio song bien marine"},
   {id:"live_airport",type:"live",title:"Sân bay Phú Quốc",aliases:["airport","PQC","flight","chuyến bay"],zone_id:null,intents:["airport","arrival","departure"],route:"/airport/",search_text:"san bay airport pqc flight chuyen bay den di"},
-  {id:"live_transport",type:"live",title:"Tàu, phà & di chuyển",aliases:["ferry","bus","transport","tàu","phà"],zone_id:null,intents:["transport"],route:"/ferry/",search_text:"tau pha ferry bus transport di chuyen rach gia ha tien"}
+  {id:"live_transport",type:"live",title:"Tàu, phà & di chuyển",aliases:["ferry","bus","transport","tàu","phà"],zone_id:null,intents:["transport"],route:"/ferry/",search_text:"tau pha ferry bus transport di chuyen rach gia ha tien"},
+  {id:"live_currency",type:"currency",title:"Tỷ giá & đổi tiền",aliases:["currency","exchange rate","tỷ giá","đổi tiền","usd","krw","won","cny","rmb","rub","eur","jpy"],zone_id:null,intents:["currency","utility"],route:"/currency/",search_text:"ty gia doi tien currency exchange rate usd dollar do krw won cny rmb yuan rub ruble eur euro jpy yen vnd vietcombank"}
   ,{id:"live_south_weather",type:"live",title:"Thời tiết Nam đảo",aliases:["thời tiết Hòn Thơm","thời tiết An Thới","sóng Nam đảo"],zone_id:"zone_south",intents:["weather","marine","south"],related_entities:["activity_hon_thom","activity_tour_3_islands","activity_snorkeling_an_thoi"],route:"/weather/",search_text:"thoi tiet nam dao hon thom an thoi song gio mua bien"}
 );
 

@@ -21,6 +21,8 @@ jobs:
         run: node scripts/validate-data.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test Vietcombank currency parser
+        run: node scripts/test-currency.mjs
       - name: Check JavaScript syntax
         run: |
           node --check app.js
@@ -35,9 +37,13 @@ jobs:
           node --check places/detail.js
           node --check hotels/app.js
           node --check transit/app.js
+          node --check currency/currency.js
+          node --check workers/currency/src/index.js
       - name: Validate Cloudflare route bundle
         run: |
           node scripts/build-cloudflare.mjs
           test -f dist/transit/index.html
           test -f dist/transit/app.js
+          test -f dist/currency/index.html
+          test -f dist/currency/currency.js
           rm -rf dist

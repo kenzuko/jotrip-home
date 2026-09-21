@@ -2,6 +2,23 @@
 (function(global){
   let documents=[];
 
+  const currencyAliases={
+    usd:'USD',dollar:'USD',do:'USD',
+    eur:'EUR',euro:'EUR',
+    gbp:'GBP',pound:'GBP',
+    jpy:'JPY',yen:'JPY',
+    aud:'AUD',
+    sgd:'SGD',
+    thb:'THB',baht:'THB',
+    cad:'CAD',
+    chf:'CHF',
+    hkd:'HKD',
+    cny:'CNY',rmb:'CNY',yuan:'CNY',
+    inr:'INR',rupee:'INR',
+    krw:'KRW',won:'KRW',
+    rub:'RUB',ruble:'RUB'
+  };
+
   function fold(value){
     return String(value||'')
       .normalize('NFD')
@@ -11,6 +28,49 @@
       .toLowerCase()
       .replace(/[^a-z0-9]+/g,' ')
       .trim();
+  }
+
+  function amountNumber(raw,multiplier){
+    let text=String(raw||'').trim();
+    if(/^\d{1,3}([.,]\d{3})+$/.test(text)) text=text.replace(/[.,]/g,'');
+    else text=text.replace(',','.');
+    const value=Number(text);
+    if(!Number.isFinite(value)||value<=0) return null;
+    return value*(multiplier||1);
+  }
+
+  function currencyQuickDoc(rawQuery){
+    const original=String(rawQuery||'').trim();
+    const q=fold(original);
+    let match=q.match(/^(\d[\d.,]*)\s*(trieu|nghin|k|m)?\s*([a-z]+)\b/);
+    let code=null,amount=null;
+
+    if(match){
+      const unit=match[2];
+      const multiplier=unit==='trieu'||unit==='m'?1000000:unit==='nghin'||unit==='k'?1000:1;
+      code=currencyAliases[match[3]]||null;
+      amount=amountNumber(match[1],multiplier);
+    }
+
+    if(!code && /\$/.test(original)){
+      const money=original.match(/(\d[\d.,]*)\s*\$/);
+      if(money){code='USD';amount=amountNumber(money[1],1);}
+    }
+
+    if(!code||!amount) return null;
+    const label=new Intl.NumberFormat('vi-VN',{maximumFractionDigits:2}).format(amount);
+    return {
+      id:'currency_quick_'+code+'_'+String(amount).replace('.','_'),
+      type:'currency',
+      title:'Đổi '+label+' '+code+' sang VND',
+      aliases:[],
+      zone_id:null,
+      intents:['currency','utility'],
+      related_entities:[],
+      route:'/currency/?amount='+encodeURIComponent(amount)+'&from='+encodeURIComponent(code),
+      search_text:q,
+      synthetic:true
+    };
   }
 
   function score(doc, rawQuery){
@@ -26,8 +86,12 @@
     const hayWords=new Set(hay.split(/\s+/).filter(Boolean));
     let s=0;
     const asksPrice=/(^|\s)(gia|ve|ticket|combo)(\s|$)/.test(q);
+    const currencyIntent=doc.type==='currency' && (
+      q.includes('ty gia') || q.includes('doi tien') || q.includes('exchange rate') ||
+      tokens.some(token=>currencyAliases[token])
+    );
 
-    if(tokens.length>1){
+    if(tokens.length>1 && !currencyIntent){
       const hasShortToken=tokens.some(token=>token.length<=2);
       if(hasShortToken && !allText.includes(q)) return 0;
       if(!allText.includes(q) && !tokens.every(token=>allWords.has(token))) return 0;
@@ -62,23 +126,30 @@
     return documents.length;
   }
 
-  function search(query,limit){
-    const max=Number.isFinite(Number(limit))?Number(limit):8;
+  function rankedDocs(query){
     return documents
       .map(doc=>({doc,score:score(doc,query)}))
       .filter(item=>item.score>0)
-      .sort((a,b)=>b.score-a.score || String(a.doc.title).localeCompare(String(b.doc.title),'vi'))
-      .slice(0,max)
-      .map(item=>item.doc);
+      .sort((a,b)=>b.score-a.score || String(a.doc.title).localeCompare(String(b.doc.title),'vi'));
+  }
+
+  function search(query,limit){
+    const max=Number.isFinite(Number(limit))?Number(limit):8;
+    const quick=currencyQuickDoc(query);
+    const out=[];const seen=new Set();
+    for(const doc of [quick,...rankedDocs(query).map(item=>item.doc)]){
+      if(!doc||seen.has(doc.id)) continue;
+      seen.add(doc.id);out.push(doc);
+      if(out.length>=max) break;
+    }
+    return out;
   }
 
   function searchGrouped(query,limit){
     const max=Number.isFinite(Number(limit))?Number(limit):10;
-    const ranked=documents
-      .map(doc=>({doc,score:score(doc,query)}))
-      .filter(item=>item.score>0)
-      .sort((a,b)=>b.score-a.score || String(a.doc.title).localeCompare(String(b.doc.title),'vi'));
-    if(!ranked.length) return [];
+    const quick=currencyQuickDoc(query);
+    const ranked=rankedDocs(query);
+    if(!ranked.length) return quick?[{id:'quick',label:'Tính nhanh',items:[quick]}]:[];
 
     const top=ranked[0].doc;
     const linkedPrimary=top.type==='price_reference'
@@ -93,13 +164,15 @@
     );
     const pool=[];const seen=new Set();
     for(const doc of [primary,...connected,...ranked.map(x=>x.doc)]){
-      if(!seen.has(doc.id)){seen.add(doc.id);pool.push(doc)}
+      if(!seen.has(doc.id)){seen.add(doc.id);pool.push(doc);}
     }
 
     const groups=[
+      {id:'quick',label:'Tính nhanh',items:quick?[quick]:[]},
       {id:'main',label:'Kết quả chính',items:[]},
       {id:'experience',label:'Điểm đến & trải nghiệm',items:[]},
       {id:'live',label:'Kiểm tra trước khi đi',items:[]},
+      {id:'utility',label:'Tiện ích nhanh',items:[]},
       {id:'price',label:'Giá tham khảo',items:[]},
       {id:'guide',label:'Cẩm nang & lịch trình',items:[]},
       {id:'related',label:'Liên quan',items:[]}
@@ -109,6 +182,7 @@
       if(doc.id===primary.id) id='main';
       else if(doc.type==='place'||doc.type==='activity') id='experience';
       else if(doc.type==='live') id='live';
+      else if(doc.type==='currency'||doc.type==='utility') id='utility';
       else if(doc.type==='price_reference') id='price';
       else if(['itinerary','history','culture','practical','access','island_basic'].includes(doc.type)) id='guide';
       const group=groups.find(x=>x.id===id);

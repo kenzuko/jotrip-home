@@ -35,6 +35,8 @@ jobs:
           node scripts/validate-home-support.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test Vietcombank currency parser
+        run: node scripts/test-currency.mjs
       - name: Validate Cloudflare CMS bundle
         run: |
           node scripts/build-cloudflare.mjs
@@ -42,6 +44,8 @@ jobs:
           test -f dist/about/about.css
           test -f dist/visual-context.css
           test -f dist/visual-context.js
+          test -f dist/currency/index.html
+          test -f dist/currency/currency.js
           rm -rf dist
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
