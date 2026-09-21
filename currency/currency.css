@@ -104,24 +104,28 @@ img{display:block;max-width:100%}
 .status-pill.cached{background:#fff4d6;color:var(--warn)}
 .status-pill.stale{background:#ffeaea;color:#b74e4e}
 
-.currency-workspace{display:grid;gap:12px;padding:22px 0 58px}
+.currency-workspace{display:grid;gap:12px;padding:22px 0 58px;min-width:0;max-width:100%}
 .panel,.source-panel{
   border:1px solid var(--line);
   border-radius:20px;
   background:var(--paper);
   box-shadow:var(--shadow);
 }
-.panel{padding:22px}
+.panel{padding:22px;min-width:0;max-width:100%;overflow:hidden}
 .section-head{
+  min-width:0;max-width:100%;
   display:flex;align-items:flex-end;justify-content:space-between;
   gap:18px;margin-bottom:16px;
 }
-.section-head>div{min-width:0}
+.section-head>div{min-width:0;max-width:100%}
 .section-head h2{
   margin:0;color:var(--ink);
   font-size:clamp(28px,3.1vw,38px);
   line-height:1;
   letter-spacing:-.045em;
+  max-width:100%;
+  white-space:normal;
+  overflow-wrap:break-word;
 }
 .mini-note{
   max-width:250px;
@@ -196,8 +200,11 @@ img{display:block;max-width:100%}
   color:var(--ink);font-size:11px;font-weight:800;
 }
 .fine-print,.board-explainer{
+  min-width:0;max-width:100%;
   margin:14px 0 0;color:var(--muted);
   font-size:11px;line-height:1.55;
+  white-space:normal;
+  overflow-wrap:break-word;
 }
 
 .rate-cards{
@@ -340,23 +347,33 @@ img{display:block;max-width:100%}
   .currency-shell{width:calc(100% - 22px)}
 
   .currency-head{
-    height:60px;min-height:60px;
-    padding:6px 11px;gap:8px;
+    height:56px;min-height:56px;
+    padding:5px 10px;gap:7px;
   }
   .currency-head .brand{
-    width:46px;min-width:46px;height:46px;
+    width:38px;min-width:38px;height:38px;
   }
-  .currency-head img{width:46px;height:46px}
-  .currency-head .vn-clock{margin-left:auto}
+  .currency-head img{width:38px;height:38px}
+  .currency-head .vn-clock{
+    margin-left:auto;
+    min-height:36px;
+    padding:5px 8px 5px 11px;
+    border-radius:12px;
+    column-gap:8px;
+  }
+  .currency-head .vn-clock::before{inset:7px auto 7px 0}
+  .currency-head .vn-clock>span{font-size:9px;letter-spacing:.13em}
+  .currency-head .vn-clock>strong{font-size:16px;margin-top:3px}
+  .currency-head .vn-clock>small{display:none}
   .currency-head .back{
-    padding:8px 9px;
-    font-size:10px;
+    padding:7px 8px;
+    font-size:9px;
   }
 
-  .currency-hero{padding:34px 0 28px}
+  .currency-hero{padding:28px 0 22px}
   .currency-hero h1{
     max-width:100%;
-    font-size:44px;
+    font-size:40px;
     line-height:.9;
   }
   .hero-copy{
@@ -368,15 +385,17 @@ img{display:block;max-width:100%}
 
   .currency-workspace{gap:10px;padding:12px 0 48px}
   .panel,.source-panel{border-radius:18px}
-  .panel{padding:16px}
+  .panel{padding:15px}
 
   .section-head{
     display:grid;gap:11px;
     margin-bottom:14px;
   }
   .section-head h2{
-    max-width:100%;
-    font-size:28px;line-height:1.02;
+    width:100%;max-width:100%;
+    font-size:26px;line-height:1.04;
+    white-space:normal;
+    overflow-wrap:break-word;
   }
   .mini-note{max-width:none;text-align:left;font-size:10px}
 
@@ -396,12 +415,12 @@ img{display:block;max-width:100%}
     padding:15px;border-radius:16px;
   }
   .money-input>span,.convert-result>span{margin-bottom:9px;font-size:10px}
-  .money-input input{font-size:39px}
+  .money-input input{font-size:36px}
   .money-input select{
     min-width:78px;max-width:90px;
     padding:9px 8px;font-size:12px;
   }
-  .convert-result strong{font-size:35px}
+  .convert-result strong{font-size:32px}
   .convert-result small{font-size:10px}
   .rate-type-row{
     max-width:100%;
@@ -454,6 +473,7 @@ img{display:block;max-width:100%}
   .metric{padding:11px}
   .metric strong{font-size:15px}
 
+  .fine-print,.board-explainer{font-size:10px;max-width:100%;white-space:normal;overflow-wrap:break-word}
   .board-explainer{font-size:10px}
   .board-legend{
     flex-wrap:nowrap;overflow:auto;
@@ -494,11 +514,13 @@ img{display:block;max-width:100%}
 }
 
 @media(max-width:390px){
-  .currency-head .brand{width:42px;min-width:42px;height:42px}
-  .currency-head img{width:42px;height:42px}
-  .currency-head .back{padding:7px 8px;font-size:9px}
-  .currency-head .vn-clock{transform:scale(.92);transform-origin:right center}
-  .currency-hero h1{font-size:40px}
+  .currency-head .brand{width:34px;min-width:34px;height:34px}
+  .currency-head img{width:34px;height:34px}
+  .currency-head .vn-clock{min-height:34px;padding:4px 7px 4px 10px}
+  .currency-head .vn-clock>span{font-size:8px}
+  .currency-head .vn-clock>strong{font-size:15px}
+  .currency-head .back{padding:6px 7px;font-size:9px}
+  .currency-hero h1{font-size:38px}
   .rate-card{flex-basis:86%}
   .chart-summary strong{font-size:29px}
 }
