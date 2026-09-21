@@ -117,7 +117,10 @@
       "used_by": [
         "ferry",
         "transit"
-      ]
+      ],
+      "automation_policy": "DATE_SPECIFIC_LOW_FREQUENCY_NO_INVENTORY_POLLING",
+      "integration_status": "DATE_SPECIFIC_ADAPTER_READY",
+      "booking_url": "https://online.superdong.com.vn/Booking"
     },
     {
       "id": "phu_quoc_express",
@@ -131,7 +134,8 @@
         "ferry",
         "transit"
       ],
-      "integration_status": "DATE_ADAPTER_PENDING"
+      "integration_status": "DATE_SPECIFIC_ADAPTER_READY",
+      "booking_url": "https://online.phuquocexpress.com/"
     },
     {
       "id": "port_clearance_kgg",
