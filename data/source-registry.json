@@ -302,6 +302,20 @@
         "place_duong_dong_market",
         "place_operational"
       ]
+    },
+    {
+      "id": "sunworld_symphony_season3_20260912",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World Hòn Thơm - Symphony of the Sea mùa 3",
+      "url": "https://sunworld.vn/vi/hon-thom/tin-tuc-sunworld/show-dien-chay-ve-nhat-phu-quoc-ra-mat-phien-ban-moi-voi-luong-phao-hoa-gap-3-27972",
+      "published_at": "2026-09-12",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "activity_symphony_of_the_sea",
+        "home_hot_now"
+      ]
     }
   ],
   "rules": [
