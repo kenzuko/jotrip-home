@@ -23,7 +23,7 @@ function routeKey(r){return `${r.origin||""}|${r.destination||""}`}
 function modeName(r){return r.type==="bus"?"Bus":r.mode==="FERRY"?"Phà":"Tàu cao tốc"}
 function isFast(r){return r.type==="sea"&&r.mode!=="FERRY"}
 function statusTone(v=""){const s=fold(v);if(/da xuat ben|running|on time|mo ban/.test(s))return"good";if(/delay|watch|limited|con it|gan het|can xac nhan/.test(s))return"watch";if(/cancel|suspend|closed|het|ngung|huy/.test(s))return"bad";return"neutral"}
-function sourceKind(r){if(r.data_kind==="operational_public")return"Vận hành";if(r.data_kind==="schedule_frequency")return"Tần suất";return"Theo lịch"}
+function sourceKind(r){if(r.data_kind==="operational_public")return"Cập nhật";if(r.data_kind==="schedule_frequency")return"Tần suất";return"Theo lịch"}
 function direction(r){const o=fold(r.origin),d=fold(r.destination);if(d.includes("phu quoc"))return"Đến đảo";if(o.includes("phu quoc"))return"Rời đảo";return"Liên tuyến"}
 function fareFor(r){
   const f=r.fare||r.fares;
