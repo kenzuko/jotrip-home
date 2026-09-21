@@ -299,3 +299,13 @@ a{text-decoration:none;color:inherit}
     z-index:auto!important;
   }
 }
+
+.detail-hero-credit>summary{cursor:pointer;list-style:none}
+.detail-hero-credit>summary::-webkit-details-marker{display:none}
+.detail-hero-credit[open]{padding:7px 9px;background:rgba(255,255,255,.92);border-radius:10px}
+.detail-hero-credit a{display:block;margin-top:5px;font-size:10px;color:inherit}
+.detail-sources>summary{cursor:pointer;list-style:none;font-size:12px;font-weight:850;color:var(--muted)}
+.detail-sources>summary::-webkit-details-marker{display:none}
+.detail-sources>summary:after{content:" +";color:var(--coral)}
+.detail-sources[open]>summary:after{content:" −"}
+.detail-sources .source-list{margin-top:12px}
