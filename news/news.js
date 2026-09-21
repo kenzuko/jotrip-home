@@ -20,11 +20,11 @@
       .filter(x=>isActive(x,now))
       .sort((a,b)=>Date.parse(b.published_at||b.verified_at||0)-Date.parse(a.published_at||a.verified_at||0));
 
-    $("#newsCount").textContent=items.length?items.length+" cập nhật còn hiệu lực":"Chưa có cập nhật mới";
+    $("#newsCount").textContent=items.length?items.length+" cập nhật còn mới":"Hôm nay chưa có gì mới";
     $("#newsUpdated").textContent=fmtDate(support.updated_at)||"Hôm nay";
 
     if(!items.length){
-      $("#newsList").innerHTML='<div class="news-empty">Hiện chưa có thay đổi nào đủ đáng kể để đưa vào mục này.</div>';
+      $("#newsList").innerHTML='<div class="news-empty">Hôm nay chưa có thay đổi nào đủ lớn để phải để ý.</div>';
       return;
     }
 
@@ -40,7 +40,7 @@
       '</article>';
     }).join("");
   }).catch(()=>{
-    $("#newsCount").textContent="Tạm gián đoạn";
-    $("#newsList").innerHTML='<div class="news-empty">Chưa mở được mục cập nhật lúc này.</div>';
+    $("#newsCount").textContent="Chưa mở được lúc này";
+    $("#newsList").innerHTML='<div class="news-empty">Mục này chưa mở được. Thử lại sau một chút nhé.</div>';
   });
 })();
