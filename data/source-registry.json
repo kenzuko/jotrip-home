@@ -208,6 +208,48 @@
         "place_night_market",
         "trip_clock"
       ]
+    },
+    {
+      "id": "vinmec_phuquoc_current_20260921",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Vinmec Phu Quoc Hospital - current hospital page",
+      "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "near_me",
+        "utility_vinmec_phuquoc_hospital"
+      ]
+    },
+    {
+      "id": "vinmec_duongdong_current_20260921",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Vinmec Duong Dong Clinic (Phu Quoc) - current clinic page",
+      "url": "https://www.vinmec.com/eng/hospital/vinmec-duong-dong-clinic-phu-quoc",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "near_me",
+        "utility_vinmec_duong_dong_clinic"
+      ]
+    },
+    {
+      "id": "longchau_phuquoc_locations_20260921",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "FPT Long Chau - Phu Quoc pharmacy locations",
+      "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "near_me",
+        "utility_longchau_tran_phu_42",
+        "utility_longchau_nguyen_trung_truc_327",
+        "utility_longchau_nguyen_van_cu_46",
+        "utility_longchau_ganh_dau"
+      ]
     }
   ],
   "rules": [
