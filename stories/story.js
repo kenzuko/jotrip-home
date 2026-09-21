@@ -145,10 +145,9 @@ function renderArticle(data,visualData,zones){
         (s.sections||[]).map(sectionBlock).join("")+
         '<aside class="jotrip-service-card" aria-label="Gợi ý từ JoTrip"><span>GỢI Ý TỪ JOTRIP</span><strong>Cần xe riêng, tour, vé hoặc một lịch trình gọn hơn?</strong><p>JoTrip hỗ trợ trực tiếp tại Phú Quốc nếu bạn muốn gom mọi thứ vào một đầu mối.</p><div class="jotrip-service-actions"><a href="tel:+84817060067">Gọi +84 817 060 067</a><a href="https://wa.me/84817060067" target="_blank" rel="noopener">WhatsApp</a><a href="https://zalo.me/0817060067" target="_blank" rel="noopener">Zalo</a></div></aside>'+
         '<div class="editorial-note">Giờ mở cửa, giá vé, lịch biểu diễn và điều kiện thời tiết có thể thay đổi. Trước khi đi, bạn nên mở mục Trực tiếp hoặc Tiện ích để kiểm tra thông tin mới nhất.</div>'+
-        '<div class="sources">'+
-          '<h3>Nguồn tham khảo</h3>'+
+        '<details class="sources"><summary>Nguồn tham khảo</summary><div>'+
           (s.sources||[]).map(x=>'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+' →</a>').join("")+
-        '</div>'+
+        '</div></details>'+
       '</div>'+
     '</article>';
 
