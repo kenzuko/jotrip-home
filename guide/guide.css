@@ -24,3 +24,57 @@
   .guide-island-map figcaption{display:block;font-size:12px}
   .guide-island-map figcaption a{display:inline-block;margin-top:7px}
 }
+
+
+/* Interactive three-zone map - 21/09/2026 */
+#guideZoneMap{
+  width:100%;
+  height:310px;
+  min-height:310px;
+  background:#eaf2ef;
+}
+.guide-map-card{position:relative}
+.guide-zone-label{
+  background:transparent!important;
+  border:0!important;
+}
+.guide-zone-label span{
+  display:inline-flex;
+  min-height:30px;
+  padding:6px 10px;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(18,61,59,.14);
+  border-radius:999px;
+  background:rgba(255,255,255,.95);
+  box-shadow:0 5px 16px rgba(18,61,59,.10);
+  color:var(--ink);
+  font-size:11px;
+  line-height:1;
+  font-weight:850;
+  white-space:nowrap;
+}
+.guide-map-unavailable{
+  min-height:310px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  padding:22px;
+  color:var(--muted);
+  text-align:center;
+}
+.guide-map-unavailable strong{color:var(--ink);font-size:15px}
+.guide-map-unavailable span{font-size:12px;line-height:1.45}
+.zone-card[data-map-active="true"]{
+  outline:3px solid rgba(84,212,203,.55);
+  outline-offset:-3px;
+}
+@media(max-width:900px){
+  #guideZoneMap{height:300px;min-height:300px}
+}
+@media(max-width:700px){
+  #guideZoneMap{height:300px;min-height:300px}
+  .smart-start,.guide-quick,.plain-section{scroll-margin-top:128px}
+}
