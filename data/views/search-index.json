@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-20T00:27:21.076Z",
+  "generated_at": "2026-09-21T09:15:00+07:00",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -5570,6 +5570,76 @@
       "related_entities": [],
       "route": "/hotels/?hotel=wyndham-grand-phu-quoc",
       "search_text": "wyndham grand phu quoc stay hotel north bai-dai ganh-dau 5-sao khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973691555 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "utility_taxi_mailinh",
+      "type": "utility",
+      "title": "Taxi Mai Linh - 1055",
+      "aliases": [
+        "Mai Linh",
+        "taxi",
+        "1055",
+        "taxi Phú Quốc"
+      ],
+      "zone_id": null,
+      "intents": [
+        "transport",
+        "taxi",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "taxi mai linh 1055 taxi phu quoc tong dai dat xe di chuyen"
+    },
+    {
+      "id": "utility_taxi_xanhsm",
+      "type": "utility",
+      "title": "Xanh SM - 1900 27 27 27",
+      "aliases": [
+        "Xanh SM",
+        "taxi điện",
+        "taxi",
+        "GSM",
+        "1900272727"
+      ],
+      "zone_id": null,
+      "intents": [
+        "transport",
+        "taxi",
+        "utility"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "xanh sm taxi dien phu quoc 1900 27 27 27 tong dai dat xe"
+    },
+    {
+      "id": "utility_jotrip_local_service",
+      "type": "utility",
+      "title": "JoTrip - xe và dịch vụ trọn gói Phú Quốc",
+      "aliases": [
+        "JoTrip",
+        "xe riêng",
+        "tour trọn gói",
+        "WhatsApp",
+        "Zalo",
+        "+84 817 060 067"
+      ],
+      "zone_id": null,
+      "intents": [
+        "transport",
+        "tour",
+        "utility",
+        "local-service"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "jotrip xe rieng tour ve lich trinh tron goi phu quoc whatsapp zalo 817060067"
     }
   ]
 }
