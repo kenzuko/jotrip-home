@@ -571,32 +571,6 @@
       ]
     },
     {
-      "id": "mailinh_taxi_hotline_2026",
-      "type": "OFFICIAL_OPERATOR",
-      "label": "Mai Linh - tổng đài taxi 1055",
-      "url": "https://mailinh.vn/",
-      "checked_at": "2026-09-21",
-      "dynamic": true,
-      "trust": "OFFICIAL_OPERATOR_PUBLIC",
-      "used_by": [
-        "utilities",
-        "utility_taxi_mailinh"
-      ]
-    },
-    {
-      "id": "xanhsm_phuquoc_2026",
-      "type": "OFFICIAL_OPERATOR",
-      "label": "Xanh SM - hotline và hoạt động tại Phú Quốc",
-      "url": "https://tuyentaixe.xanhsm.com/thuexe6thang",
-      "checked_at": "2026-09-21",
-      "dynamic": true,
-      "trust": "OFFICIAL_OPERATOR_PUBLIC",
-      "used_by": [
-        "utilities",
-        "utility_taxi_xanhsm"
-      ]
-    },
-    {
       "id": "jotrip_local_service_current",
       "type": "FIRST_PARTY_OPERATOR",
       "label": "JoTrip - dịch vụ địa phương Phú Quốc",
