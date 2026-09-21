@@ -68,7 +68,7 @@ jobs:
       - name: Verify deployed Worker version
         if: env.CLOUDFLARE_READY == 'true'
         run: |
-          url="https://openphuquoc-v3.kenzuko.workers.dev/build.json?t=$GITHUB_SHA"
+          url="https://openphuquoc.com/build.json?t=$GITHUB_SHA"
           for i in {1..20}; do
             body="$(curl -fsS "$url" || true)"
             echo "$body"
@@ -87,10 +87,10 @@ jobs:
           npm install --no-save --package-lock=false playwright@1.63.0
           npx playwright install --with-deps chromium
 
-      - name: Smoke test deployed Worker homepage
+      - name: Smoke test production homepage
         if: env.CLOUDFLARE_READY == 'true'
         env:
-          VISUAL_QA_BASE_URL: https://openphuquoc-v3.kenzuko.workers.dev
+          VISUAL_QA_BASE_URL: https://openphuquoc.com
           VISUAL_QA_SCOPE: home
           VISUAL_QA_OUTPUT: production-smoke-results
         run: node scripts/visual-qa.mjs
@@ -99,7 +99,7 @@ jobs:
         if: always() && env.CLOUDFLARE_READY == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: openpq-production-smoke-${{ github.run_number }}
+          name: openpq-openphuquoc-production-smoke-${{ github.run_number }}
           path: production-smoke-results/
           retention-days: 7
           if-no-files-found: warn

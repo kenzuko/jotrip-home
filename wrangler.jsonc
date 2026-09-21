@@ -6,5 +6,11 @@
   "preview_urls": true,
   "assets": {
     "directory": "./dist"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "openphuquoc.com",
+      "custom_domain": true
+    }
+  ]
 }
