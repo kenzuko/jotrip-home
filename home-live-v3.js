@@ -31,7 +31,7 @@ function stateText(s) {
       RUNNING: "Hôm nay chạy bình thường",
       SUSPENDED: "Tạm dừng",
       DIRECT_CONFIRMED: "Hôm nay chạy bình thường",
-      FIELD_REQUIRED: "Chưa có xác nhận mới",
+      FIELD_REQUIRED: "Hôm nay chưa có xác nhận mới",
       UNKNOWN: "Chưa có thông tin mới"
     }[s] || "Chưa có thông tin mới");
   }
@@ -361,7 +361,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
     window.addEventListener("openpq:local-ready", renderNowSuggestion);
     setInterval(renderNowSuggestion, 60000);
 
-    let wxTitle = "Chưa có dữ liệu thời tiết";
+    let wxTitle = "Chưa có thông tin thời tiết mới";
     let wxNote = "Mở Thời tiết & Biển để xem chi tiết và thời điểm cập nhật.";
     let wxBadge = "CHƯA CÓ";
     let wxGood = false;
@@ -369,16 +369,16 @@ function freshnessText(iso, prefix = "Cập nhật") {
     if (critical) {
       wxNote = weatherSecondary;
       if (criticalAge > 90) {
-        wxTitle = "Dữ liệu thời tiết cần cập nhật";
+        wxTitle = "Thông tin thời tiết chưa đủ mới";
         wxBadge = "DỮ LIỆU CŨ";
       } else if (hasHighConvective) {
-        wxTitle = "Nguy cơ dông đang ở mức cao";
+        wxTitle = "Dông mạnh có thể phát triển nhanh";
         wxBadge = "THEO DÕI";
       } else if (hasElevatedConvective) {
-        wxTitle = "Nguy cơ dông đang tăng";
+        wxTitle = "Mây dông đang tăng";
         wxBadge = "LƯU Ý";
       } else if (observedRain) {
-        wxTitle = "Có trạm quan trắc ghi nhận mưa";
+        wxTitle = "Một số điểm trên đảo đang có mưa";
         wxBadge = "ĐO THỰC";
       } else {
         wxTitle = "Dữ liệu thời tiết đang cập nhật";
@@ -403,11 +403,11 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const transitBad = transitStates.some(x => x === "SUSPENDED");
     const transitWatch = transitStates.some(x => x === "FIELD_REQUIRED" || x === "UNKNOWN" || !x);
     const transitPrimary = !marine ? "Chưa có thông tin mới" : transitBad ? "Có thay đổi hôm nay" : transitWatch ? "Nên xem lại trước khi đi" : transitGood ? "Hôm nay chạy bình thường" : "Chưa rõ";
-    const transitContext = !marine ? "Đang chờ dữ liệu vận hành" : transitGood ? "Tàu cao tốc và phà đều hoạt động hôm nay" : "Tàu cao tốc: " + stateText(fastState) + " · Phà: " + stateText(ferryState);
+    const transitContext = !marine ? "Chưa có cập nhật mới" : transitGood ? "Tàu cao tốc và phà đều hoạt động hôm nay" : "Tàu cao tốc " + stateText(fastState).toLowerCase() + " · Phà " + stateText(ferryState).toLowerCase();
     setLive("ferry", transitPrimary, transitContext, !marine ? "unknown" : transitBad || transitWatch ? "watch" : transitGood ? "good" : "unknown", marine ? freshnessText(marineStamp) : "Chưa có mốc cập nhật");
 
     if (!marine) {
-      setHappening("marine", "Chưa có thông tin vận hành mới", "Mở Tàu & Phà để xem nguồn hiện có.", "CHƯA RÕ", false);
+      setHappening("marine", "Chưa có cập nhật mới về tàu và phà", "Mở Tàu & Phà để xem thông tin gần nhất.", "CHƯA RÕ", false);
     } else if (transitBad) {
       setHappening("marine", "Có thay đổi vận hành hôm nay", transitContext, "LƯU Ý", false);
     } else {
@@ -583,8 +583,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
         },
         cano: {
           label: "Cano",
-          primary: marine ? stateText(canoState) : "Chưa có dữ liệu",
-          context: !marine ? "Nguồn vận hành chưa tải được" : canoState === "FIELD_REQUIRED" ? "Chưa có bằng chứng trực tiếp" : "Nam đảo",
+          primary: marine ? stateText(canoState) : "Chưa có thông tin mới",
+          context: !marine ? "Chưa lấy được cập nhật hôm nay" : canoState === "FIELD_REQUIRED" ? "Hôm nay chưa có xác nhận trực tiếp" : "Khu vực Nam đảo",
           status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(canoState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
@@ -593,8 +593,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
         },
         ferry: {
           label: "Tàu & Phà",
-          primary: marine ? stateText(ferryState) : "Chưa có dữ liệu",
-          context: !marine ? "Nguồn vận hành chưa tải được" : "Phà · trạng thái được kiểm tra độc lập",
+          primary: marine ? stateText(ferryState) : "Chưa có thông tin mới",
+          context: !marine ? "Chưa lấy được cập nhật hôm nay" : "Tình trạng phà được kiểm tra riêng",
           status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
@@ -602,7 +602,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           detail_url: "transit/"
         },
         transport: {
-          primary: marineOverall === "normal" ? "Đã có xác nhận vận hành" : marineOverall === "watch" ? "Có nhóm cần kiểm tra" : "Chưa đủ dữ liệu",
+          primary: marineOverall === "normal" ? "Hôm nay chưa thấy gián đoạn lớn" : marineOverall === "watch" ? "Có dịch vụ cần xem lại" : "Chưa có đủ thông tin",
           status: marineOverall,
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
@@ -614,14 +614,14 @@ function freshnessText(iso, prefix = "Cập nhật") {
           }
         },
         marine: {
-          primary: marine ? stateText(canoState) : "Chưa có dữ liệu",
+          primary: marine ? stateText(canoState) : "Chưa có thông tin mới",
           status: !marine ? "unknown" : canoState === "RUNNING" || canoState === "DIRECT_CONFIRMED" ? "normal" : canoState === "SUSPENDED" || canoState === "FIELD_REQUIRED" ? "watch" : "unknown",
           source_class: "MIXED"
         },
         airport: {
           label: "Sân bay",
-          primary: !airportAvailable ? "Cần kiểm tra" : delayed.length ? delayed.length + " chuyến cần xem" : "Đang cập nhật",
-          context: airportAvailable ? total + " chuyến trong bảng hôm nay" : airportLoaded ? "Dữ liệu hiện có không còn đủ mới" : "Đang thử lại nguồn sân bay",
+          primary: !airportAvailable ? "Chưa có cập nhật đủ mới" : delayed.length ? delayed.length + " chuyến cần xem" : "Chưa thấy bất thường",
+          context: airportAvailable ? total + " chuyến trong bảng hôm nay" : airportLoaded ? "Bản hiện có đã cũ" : "Chưa lấy được dữ liệu sân bay",
           status: !airportAvailable ? "unknown" : delayed.length ? "watch" : "normal",
           source_class: "LIVE_OPERATIONAL",
           source_updated_at: airportStamp,
