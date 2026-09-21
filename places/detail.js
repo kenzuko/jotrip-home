@@ -9,6 +9,42 @@
   const UI_FALLBACK="../data/i18n/vi/ui.json";
   const planningStyle=document.createElement("style");planningStyle.textContent='.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pros-cons>div{padding:16px;border-radius:16px;background:#eef9f5}.pros-cons>.watch{background:#fff7e8}.pros-cons strong{display:block;margin-bottom:8px;color:var(--ink);font-size:15px}.pros-cons .tips li:before{content:"+"}.pros-cons .watch .tips li:before{content:"!";color:#a86b12}.price-dimensions{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.price-dimensions span{padding:9px 11px;border:1px solid var(--line);border-radius:999px;background:var(--soft);color:var(--ink);font-size:13px;font-weight:800}@media(max-width:760px){.pros-cons{grid-template-columns:1fr}.price-dimensions span{font-size:12px}}';document.head.appendChild(planningStyle);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+  function setMeta(selector,attr,value){
+    let el=document.querySelector(selector);
+    if(!el){
+      el=document.createElement("meta");
+      const m=selector.match(/^meta\[(name|property)="([^"]+)"\]$/);
+      if(!m)return;
+      el.setAttribute(m[1],m[2]);
+      document.head.appendChild(el);
+    }
+    el.setAttribute(attr,value);
+  }
+  function setCanonical(url){
+    let el=document.querySelector('link[rel="canonical"]');
+    if(!el){el=document.createElement("link");el.rel="canonical";document.head.appendChild(el)}
+    el.href=url;
+  }
+  function applyEntityMeta(entity,image){
+    const title=entity.name+" - Open Phu Quoc";
+    const description=entity.what_it_is||entity.why_go||"Thông tin điểm đến Phú Quốc.";
+    const key=entity.slug||entity.id;
+    const url="https://openphuquoc.com/places/detail.html?id="+encodeURIComponent(key);
+    const shareImage=image||"https://openphuquoc.com/assets/logo-master.png";
+    document.title=title;
+    setCanonical(url);
+    setMeta('meta[name="description"]',"content",description);
+    setMeta('meta[property="og:type"]',"content","article");
+    setMeta('meta[property="og:title"]',"content",title);
+    setMeta('meta[property="og:description"]',"content",description);
+    setMeta('meta[property="og:url"]',"content",url);
+    setMeta('meta[property="og:image"]',"content",shareImage);
+    setMeta('meta[property="og:image:alt"]',"content",entity.name);
+    setMeta('meta[name="twitter:card"]',"content","summary_large_image");
+    setMeta('meta[name="twitter:title"]',"content",title);
+    setMeta('meta[name="twitter:description"]',"content",description);
+    setMeta('meta[name="twitter:image"]',"content",shareImage);
+  }
   const id=new URLSearchParams(location.search).get("id")||"";
 
   const typeLabel={place:"ĐỊA ĐIỂM",activity:"TRẢI NGHIỆM"};
@@ -85,7 +121,7 @@
     ];
     if(level) facts.unshift([pc.fact_role||"Kiểu ghé phù hợp",level.label]);
 
-    document.title=entity.name+" - Open Phu Quoc";
+    applyEntityMeta(entity,heroImage);
 
     root.innerHTML=
       '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
