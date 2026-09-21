@@ -2,6 +2,7 @@
 import argparse
 import base64
 import json
+import math
 import time
 import urllib.parse
 import urllib.request
@@ -22,7 +23,8 @@ def number(value):
     if not text or text == "-":
         return None
     try:
-        return float(text)
+        parsed = float(text)
+        return parsed if math.isfinite(parsed) else None
     except ValueError:
         return None
 
