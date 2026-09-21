@@ -21,7 +21,7 @@ function hhmmToMinutes(value){const m=String(value||"").match(/^(\d{1,2}):(\d{2}
 function scheduleSummary(opening){if(!opening)return"Chưa có giờ rõ ràng";if(opening.state==="NEEDS_VERIFICATION")return"Giờ hôm nay chưa chắc, nên xem lại trước khi đi";if(opening.schedule_type==="FIXED_START"&&(opening.times||[]).length)return(opening.times||[]).map(x=>x.start+(x.label?" · "+x.label:"")).join(" · ");const windows=(opening.windows||[]).filter(x=>x.start&&x.end);if(!windows.length)return"Chưa có giờ rõ ràng";const prefix=opening.state==="APPROXIMATE_SCHEDULE"?"Khoảng ":"";return prefix+windows.map(x=>x.start+"-"+x.end).join(" · ")}
 function scheduleDecision(opening){
   if(!opening||!["PUBLISHED_SCHEDULE","APPROXIMATE_SCHEDULE"].includes(opening.state)){
-    return{state:"unknown",label:"Chưa biết chắc giờ hôm nay",detail:"Mở điểm này để xem thêm"};
+    return{state:"unknown",label:"Chưa biết chắc giờ hôm nay",detail:"Bấm vào để xem giờ và lưu ý gần nhất"};
   }
   const dayName=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Ho_Chi_Minh",weekday:"short"}).format(new Date());
   const dayIndex=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(dayName);
@@ -35,14 +35,14 @@ function scheduleDecision(opening){
     return{state:"past",label:"Đã qua giờ hôm nay",detail};
   }
   const windows=(opening.windows||[]).map(x=>({...x,startMin:hhmmToMinutes(x.start),endMin:hhmmToMinutes(x.end)})).filter(x=>Number.isFinite(x.startMin)&&Number.isFinite(x.endMin)).sort((a,b)=>a.startMin-b.startMin);
-  if(!windows.length)return{state:"unknown",label:"Chưa biết chắc giờ hôm nay",detail:"Mở điểm này để xem thêm"};
+  if(!windows.length)return{state:"unknown",label:"Chưa biết chắc giờ hôm nay",detail:"Bấm vào để xem giờ và lưu ý gần nhất"};
   const active=windows.find(x=>now>=x.startMin&&now<=x.endMin);
   if(active)return{state:"active",label:"Đi lúc này vẫn kịp",detail,startMin:active.startMin,endMin:active.endMin,remainingMin:active.endMin-now};
   const next=windows.find(x=>now<x.startMin);
   if(next)return{state:"future",label:(approx?"Thường bắt đầu khoảng ":"Mở từ ")+next.start,detail,nextMin:next.startMin,endMin:next.endMin};
   return{state:"past",label:"Để ngày mai",detail};
 }
-function scheduleFreshness(opening){if(!opening?.verified_at)return"Chưa biết lần cập nhật gần nhất";return ageText(opening.verified_at)}
+function scheduleFreshness(opening){if(!opening?.verified_at)return"Chưa rõ lần cập nhật gần nhất";return ageText(opening.verified_at)}
 function localSunsetPhuQuoc(date=new Date()){const lat=10.2172,lon=103.9593,tz=7;const d=new Date(date.getTime()+tz*3600000);const start=Date.UTC(d.getUTCFullYear(),0,0);const day=Math.floor((Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())-start)/86400000);const lngHour=lon/15;const t=day+((18-lngHour)/24);const M=(0.9856*t)-3.289;let L=M+(1.916*Math.sin(M*Math.PI/180))+(0.020*Math.sin(2*M*Math.PI/180))+282.634;L=(L+360)%360;let RA=Math.atan(0.91764*Math.tan(L*Math.PI/180))*180/Math.PI;RA=(RA+360)%360;RA=RA+(Math.floor(L/90)*90-Math.floor(RA/90)*90);RA/=15;const sinDec=0.39782*Math.sin(L*Math.PI/180);const cosDec=Math.cos(Math.asin(sinDec));const cosH=(Math.cos(90.833*Math.PI/180)-(sinDec*Math.sin(lat*Math.PI/180)))/(cosDec*Math.cos(lat*Math.PI/180));if(cosH>1||cosH<-1)return"—";let H=Math.acos(cosH)*180/Math.PI;H/=15;const T=H+RA-(0.06571*t)-6.622;let UT=(T-lngHour)%24;if(UT<0)UT+=24;let local=(UT+tz)%24;const hh=Math.floor(local),mm=Math.round((local-hh)*60);const H2=(hh+(mm===60?1:0))%24,M2=mm===60?0:mm;return String(H2).padStart(2,"0")+":"+String(M2).padStart(2,"0")}
 function renderClock(){const p=vnParts();if($("#tripClockNow"))$("#tripClockNow").textContent=p.time;if($("#tripClockDate"))$("#tripClockDate").textContent=p.date;const sunset=$("#tripClockSunset");if(sunset)sunset.textContent=localSunsetPhuQuoc()}
 function durationMin(value){
@@ -60,8 +60,8 @@ function applyPracticalStartCutoff(item,decision,now){
   const lateDecision={
     ...decision,
     state:"past",
-    label:item.late_label||"Đã muộn để bắt đầu hôm nay",
-    detail:item.late_detail||"Nên để ngày mai",
+    label:item.late_label||"Giờ này bắt đầu sẽ hơi muộn",
+    detail:item.late_detail||"Để mai đi sẽ thoải mái hơn",
     practicalCutoff:true
   };
   return{decision:lateDecision,hidden:item.hide_after_sensible_start===true};
@@ -80,10 +80,12 @@ function renderTripClock(){
         :{state:"past",label:"Nên để ngày mai",detail:"Hợp hơn khi còn sáng"};
       summary=item.timing_note||"Nên đi ban ngày hoặc chiều dịu";
     }else if(item.schedule_source==="SOFT_EVENING"){
-      const start=16*60+30;
+      const start=16*60+30,late=23*60;
       decision=now<start
-        ?{state:"future",label:"Hợp hơn từ cuối chiều",detail:"Thời điểm trải nghiệm dễ chịu hơn",nextMin:start}
-        :{state:"active",label:"Đang là lúc hợp để đi",detail:"Thời điểm trải nghiệm dễ chịu hơn"};
+        ?{state:"future",label:"Hợp hơn từ cuối chiều",detail:"Từ lúc bớt nắng sẽ dễ đi hơn",nextMin:start}
+        :now<late
+          ?{state:"active",label:"Giờ này đi khá hợp",detail:"Khu này hợp để đi chậm và ở lại buổi tối"}
+          :{state:"past",label:"Giờ này đã khá muộn",detail:"Nếu còn đi, chọn chỗ gần và xem giờ mở cửa"};
       summary=item.timing_note||e.best_time||"Hợp từ cuối chiều";
     }
     const practical=applyPracticalStartCutoff(item,decision,now);
@@ -163,7 +165,7 @@ function buildLocalNowHint(){
 let lastLocalHintKey="";
 function publishLocalNowHint(){const hint=buildLocalNowHint(),payload={now_hint:hint,updated_at:new Date().toISOString()};window.OPENPQ_HOME_LOCAL=payload;const key=JSON.stringify(hint||null);if(key!==lastLocalHintKey){lastLocalHintKey=key;window.dispatchEvent(new CustomEvent("openpq:local-ready",{detail:payload}))}}
 function liveFor(binding){return binding?window.OPENPQ_HOME?.live_status?.[binding]||null:null}
-function renderActivities(){if(!support)return;const host=$("#activityBoard");if(!host)return;host.innerHTML=(support.activity_board||[]).map(item=>{const e=entities.get(item.entity_id)||{},live=liveFor(item.operational_binding),opening=e.opening_hours||null,decision=scheduleDecision(opening);const state=live?.status||(opening?.state==="PUBLISHED_SCHEDULE"?"info":"unknown");const primary=live?(liveStateText[state]||live.primary||"Chưa có cập nhật mới"):(opening?.state==="PUBLISHED_SCHEDULE"?decision.label:(stateText[item.status_code]||"Chưa có cập nhật mới"));const context=live?.context||live?.secondary||(opening?scheduleSummary(opening):([e.best_time,e.duration].filter(Boolean).join(" · ")||"Mở ra để xem kỹ hơn"));const fresh=live?.source_updated_at?ageText(live.source_updated_at):(opening?scheduleFreshness(opening):"Chưa có cập nhật mới");return'<a class="activity-status-card" data-state="'+esc(state)+'" href="'+esc(item.route)+'"><span>'+esc(primary)+'</span><strong>'+esc(e.name||item.entity_id)+'</strong><p>'+esc(context)+'</p><small>'+esc(fresh)+'</small><b>Xem hôm nay →</b></a>'}).join("");const live=window.OPENPQ_HOME?.live_status||{};const bad=live.cano?.status==="bad"||live.weather?.status==="watch";const plan=$("#planBCard");if(plan)plan.hidden=!bad}
+function renderActivities(){if(!support)return;const host=$("#activityBoard");if(!host)return;host.innerHTML=(support.activity_board||[]).map(item=>{const e=entities.get(item.entity_id)||{},live=liveFor(item.operational_binding),opening=e.opening_hours||null,decision=scheduleDecision(opening);const state=live?.status||(opening?.state==="PUBLISHED_SCHEDULE"?"info":"unknown");const primary=live?(liveStateText[state]||live.primary||"Hôm nay chưa có tin mới"):(opening?.state==="PUBLISHED_SCHEDULE"?decision.label:(stateText[item.status_code]||"Hôm nay chưa có tin mới"));const context=live?.context||live?.secondary||(opening?scheduleSummary(opening):([e.best_time,e.duration].filter(Boolean).join(" · ")||"Mở ra để xem kỹ hơn"));const fresh=live?.source_updated_at?ageText(live.source_updated_at):(opening?scheduleFreshness(opening):"Hôm nay chưa có tin mới");return'<a class="activity-status-card" data-state="'+esc(state)+'" href="'+esc(item.route)+'"><span>'+esc(primary)+'</span><strong>'+esc(e.name||item.entity_id)+'</strong><p>'+esc(context)+'</p><small>'+esc(fresh)+'</small><b>Xem hôm nay →</b></a>'}).join("");const live=window.OPENPQ_HOME?.live_status||{};const bad=live.cano?.status==="bad"||live.weather?.status==="watch";const plan=$("#planBCard");if(plan)plan.hidden=!bad}
 function renderNearControls(){
   if(!support)return;
   const a=$("#nearManualAreas"),c=$("#nearCategories");
