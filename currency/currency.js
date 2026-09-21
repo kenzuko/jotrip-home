@@ -5,6 +5,7 @@ const PRIORITY = ['USD','KRW','CNY','RUB','EUR','AUD','SGD','THB','JPY','GBP'];
 const FLAGS = {USD:'🇺🇸',KRW:'🇰🇷',CNY:'🇨🇳',RUB:'🇷🇺',EUR:'🇪🇺',AUD:'🇦🇺',SGD:'🇸🇬',THB:'🇹🇭',JPY:'🇯🇵',GBP:'🇬🇧',CAD:'🇨🇦',CHF:'🇨🇭',HKD:'🇭🇰',INR:'🇮🇳'};
 const BOARD = ['USD','KRW','CNY','RUB','EUR'];
 const BOARD_COLORS = ['#123d3b','#ff704f','#5b7ca5','#9b6c3f','#7e6aa8'];
+const PIN_KEY = 'openpq_currency_pins_v1';
 const SEARCH_ALIASES = [
   ['won han','KRW'],['won','KRW'],['krw','KRW'],
   ['nhan dan te','CNY'],['yuan','CNY'],['rmb','CNY'],['cny','CNY'],
@@ -28,6 +29,7 @@ const state = {
   boardHistory: {},
   searchHistory: null,
   searchToken: 0,
+  pins: [],
   wallet: [{currency:'USD',amount:500},{currency:'CNY',amount:0},{currency:'KRW',amount:0}]
 };
 
@@ -62,6 +64,41 @@ function activeRate(){
   const item = rate(state.currency);
   if(!item) return null;
   return state.mode === 'vnd-to-foreign' ? number(item.sell) : number(item[state.rateType]);
+}
+
+function loadPins(){
+  try{
+    const parsed=JSON.parse(localStorage.getItem(PIN_KEY)||'[]');
+    state.pins=Array.isArray(parsed)?parsed.filter(code=>typeof code==='string'):[];
+  }catch{
+    state.pins=[];
+  }
+}
+function savePins(){
+  try{localStorage.setItem(PIN_KEY,JSON.stringify(state.pins));}catch{}
+}
+function isPinned(code){ return state.pins.includes(code); }
+function orderedCodes(){
+  const pinned=state.pins.filter(code=>rate(code));
+  const base=PRIORITY.filter(code=>rate(code)&&!pinned.includes(code));
+  return [...pinned,...base];
+}
+function renderPinCurrent(){
+  const button=$('#pinCurrent');
+  if(!button) return;
+  const pinned=isPinned(state.currency);
+  button.textContent=pinned?'★ Đã ghim':'☆ Ghim';
+  button.setAttribute('aria-pressed',pinned?'true':'false');
+}
+function toggleCurrentPin(){
+  const code=state.currency;
+  if(isPinned(code)) state.pins=state.pins.filter(item=>item!==code);
+  else state.pins=[code,...state.pins.filter(item=>item!==code)].slice(0,8);
+  savePins();
+  renderPinCurrent();
+  renderRateCards();
+  renderCurrencyTabs();
+  renderCurrencyOptions();
 }
 
 function foldSearch(value){
@@ -261,7 +298,7 @@ function renderStatus(){
   $('#sourceDetail').textContent = state.payload?.message || 'Cập nhật tự động từ Vietcombank. Khi nguồn tạm lỗi, hệ thống dùng bản gần nhất và ghi rõ thời điểm.';
 }
 function renderCurrencyOptions(){
-  const options = PRIORITY.filter(code=>rate(code)).map(code => '<option value="'+code+'">'+code+'</option>').join('');
+  const options = orderedCodes().map(code => '<option value="'+code+'">'+code+'</option>').join('');
   $('#currencySelect').innerHTML = options || '<option value="USD">USD</option>';
   $('#currencySelect').value = state.currency;
 }
@@ -297,13 +334,13 @@ function renderConverter(){
   }
 }
 function renderRateCards(){
-  const items = PRIORITY.map(rate).filter(Boolean);
+  const items = orderedCodes().map(rate).filter(Boolean);
   $('#rateCards').innerHTML = items.length ? items.map(item => {
     const buy = number(item.cash_buy);
     const sell = number(item.sell);
     const gap = Number.isFinite(buy) && Number.isFinite(sell) ? sell-buy : null;
     return '<article class="rate-card"><button type="button" data-rate-card="'+esc(item.currency)+'">'+
-      '<span class="rate-title"><strong>'+esc(item.currency)+'</strong><span class="flag">'+(FLAGS[item.currency]||'')+'</span></span>'+
+      '<span class="rate-title"><strong>'+(isPinned(item.currency)?'★ ':'')+esc(item.currency)+'</strong><span class="flag">'+(FLAGS[item.currency]||'')+'</span></span>'+
       '<span class="rate-main">'+formatRate(buy)+' ₫</span>'+
       '<small>Giá mua tiền mặt</small>'+
       '<small>Mua CK '+formatRate(number(item.transfer_buy))+' · Bán '+formatRate(sell)+'</small>'+
@@ -312,7 +349,7 @@ function renderRateCards(){
   }).join('') : '<div class="empty-state">Chưa có dữ liệu tỷ giá. Hệ thống không tự tạo số liệu thay thế.</div>';
 }
 function renderCurrencyTabs(){
-  const items = PRIORITY.filter(code=>rate(code));
+  const items = orderedCodes();
   $('#currencyTabs').innerHTML = items.map(code => '<button type="button" class="'+(code===state.currency?'active':'')+'" data-currency-tab="'+code+'">'+code+'</button>').join('');
 }
 function rangeDays(range){ return range==='7d'?7:range==='30d'?30:range==='90d'?90:365; }
@@ -342,6 +379,36 @@ async function fetchHistory(currencies){
   }
 }
 function valueFromPoint(point){ return number(point.cash_buy ?? point.buy ?? point.transfer_buy); }
+
+function pointDate(point){ return point?.source_date || String(point?.at || point?.source_updated_at || '').slice(0,10); }
+function historicalPointAtOrBefore(points,code,targetDate){
+  return points
+    .filter(point=>point.currency===code && pointDate(point) && pointDate(point)<=targetDate && Number.isFinite(valueFromPoint(point)))
+    .sort((a,b)=>pointDate(b).localeCompare(pointDate(a)))[0] || null;
+}
+function compareCard(label,point,currentValue){
+  if(!point || !Number.isFinite(currentValue)) return '<div class="compare-card"><span>'+label+'</span><strong>-</strong><small>Chưa có dữ liệu</small></div>';
+  const oldValue=valueFromPoint(point);
+  const delta=currentValue-oldValue;
+  const pct=oldValue ? delta/oldValue*100 : 0;
+  const sign=delta>0?'+':'';
+  return '<div class="compare-card"><span>'+label+'</span><strong>'+formatRate(oldValue)+' ₫</strong><small>'+formatSearchDate(pointDate(point))+' · Hôm nay '+sign+formatRate(delta)+' ₫ ('+sign+pct.toFixed(2)+'%)</small></div>';
+}
+async function renderHistoryCompare(){
+  const box=$('#historyCompare');
+  if(!box) return;
+  const current=valueFromPoint(rate(state.currency));
+  if(!Number.isFinite(current)){box.innerHTML='';return;}
+  try{
+    const points=await loadSearchHistory();
+    const reference=searchReferenceDate();
+    const p7=historicalPointAtOrBefore(points,state.currency,shiftIsoDate(reference,-7));
+    const p30=historicalPointAtOrBefore(points,state.currency,shiftIsoDate(reference,-30));
+    box.innerHTML=compareCard('7 ngày trước',p7,current)+compareCard('30 ngày trước',p30,current);
+  }catch{
+    box.innerHTML='';
+  }
+}
 function svgLine(points, width, height, pad){
   const clean = points.filter(p=>Number.isFinite(valueFromPoint(p)));
   if(clean.length < 2) return null;
@@ -360,7 +427,7 @@ function renderHistoryChart(points){
   const geom = svgLine(own,800,260,24);
   const item = rate(state.currency);
   $('#chartPair').textContent = state.currency + ' / VND';
-  $('#chartCurrent').textContent = item ? formatRate(number(item.cash_buy))+' ₫' : '-';
+  $('#chartCurrent').textContent = item ? formatRate(valueFromPoint(item))+' ₫' : '-';
   if(!geom){
     $('#historyChart').innerHTML = '<div class="empty-state">Chưa đủ dữ liệu lịch sử cho '+esc(state.currency)+'. Chưa đủ dữ liệu để vẽ biểu đồ.</div>';
     $('#chartChange').className='change';
@@ -370,7 +437,7 @@ function renderHistoryChart(points){
   const first=valueFromPoint(geom.clean[0]), last=valueFromPoint(geom.clean[geom.clean.length-1]);
   const pct=first ? (last-first)/first*100 : 0;
   $('#chartChange').className='change '+(pct>0?'up':pct<0?'down':'');
-  $('#chartChange').textContent=(pct>0?'+':'')+pct.toFixed(2)+'% · '+state.range.toUpperCase();
+  $('#chartChange').textContent=(pct>0?'+':'')+pct.toFixed(2)+'% · '+(state.range==='7d'?'7 ngày':'30 ngày');
   const area = geom.path + ' L '+geom.coords[geom.coords.length-1][0].toFixed(1)+' 236 L '+geom.coords[0][0].toFixed(1)+' 236 Z';
   const firstLabel = new Date(geom.clean[0].at||geom.clean[0].source_updated_at).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'});
   const lastLabel = new Date(geom.clean[geom.clean.length-1].at||geom.clean[geom.clean.length-1].source_updated_at).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'});
@@ -432,7 +499,7 @@ function renderBoard(points){
   }).join('');
 }
 function walletOptions(selected){
-  return PRIORITY.filter(code=>rate(code)).map(code=>'<option value="'+code+'" '+(code===selected?'selected':'')+'>'+code+'</option>').join('');
+  return orderedCodes().map(code=>'<option value="'+code+'" '+(code===selected?'selected':'')+'>'+code+'</option>').join('');
 }
 function renderWallet(){
   $('#walletRows').innerHTML=state.wallet.map((row,index)=>{
@@ -458,11 +525,13 @@ function renderAll(){
   renderCurrencyTabs();
   renderMetrics();
   renderWallet();
+  renderPinCurrent();
   refreshCharts();
 }
 async function refreshCharts(){
   const history=await fetchHistory([state.currency]);
   renderHistoryChart(history);
+  await renderHistoryCompare();
   const board=await fetchHistory(BOARD);
   renderBoard(board);
 }
@@ -482,7 +551,7 @@ function setCurrency(code){
     option.value=code;option.textContent=code;select.appendChild(option);
   }
   if(select) select.value=code;
-  renderQuickAmounts();renderConverter();renderCurrencyTabs();renderMetrics();refreshCharts();
+  renderQuickAmounts();renderConverter();renderCurrencyTabs();renderMetrics();renderPinCurrent();refreshCharts();
 }
 document.addEventListener('click',event=>{
   const searchAction=event.target.closest('[data-search-action]');
@@ -508,6 +577,7 @@ document.addEventListener('click',event=>{
     }
     return;
   }
+  if(event.target.closest('#pinCurrent')){toggleCurrentPin();return;}
   const mode=event.target.closest('[data-mode]'); if(mode) setMode(mode.dataset.mode);
   const type=event.target.closest('[data-rate-type]'); if(type){state.rateType=type.dataset.rateType;$$('.rate-type').forEach(b=>b.classList.toggle('active',b===type));renderConverter();}
   const quick=event.target.closest('[data-quick]'); if(quick){$('#amountInput').value=quick.dataset.quick;renderConverter();}
@@ -558,6 +628,8 @@ const qAmount=Number(params.get('amount'));
 const qFrom=(params.get('from')||'').toUpperCase();
 if(Number.isFinite(qAmount)&&qAmount>0) $('#amountInput').value=String(qAmount);
 if(PRIORITY.includes(qFrom)) state.currency=qFrom;
+
+loadPins();
 
 loadCurrent().catch(error=>{
   console.error(error);
