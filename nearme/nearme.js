@@ -23,6 +23,12 @@
     map.setView(view.center,view.zoom);
   }
   function haversine(a,b){const R=6371,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),h=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
+  function nearestArea(pos){
+    return Object.entries(AREA_VIEW)
+      .filter(([id])=>["zone_central_west","zone_south","zone_north"].includes(id))
+      .map(([id,v])=>({id,d:haversine(pos,{lat:v.center[0],lon:v.center[1]})}))
+      .sort((a,b)=>a.d-b.d)[0]?.id||"all";
+  }
   function mergedItems(){
     return (support?.near_me?.items||[]).map(x=>{
       const e=entities.get(x.utility_id)||{};
@@ -50,7 +56,14 @@
         rows=withCoords.map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})})).sort((a,b)=>a.distance_km-b.distance_km);
       }else{
         gpsFallback=true;
-        rows.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+        const fallbackArea=selectedArea!=="all"?selectedArea:nearestArea(position);
+        const areaRows=rows.filter(x=>x.zone_id===fallbackArea||x.place_id===fallbackArea);
+        if(areaRows.length){
+          selectedArea=fallbackArea;
+          rows=areaRows;
+        }else{
+          rows.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+        }
       }
     }else if(selectedArea!=="all"){
       rows=rows.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea);
@@ -59,7 +72,7 @@
     }
     $("#resultsTitle").textContent=areaLabel()+(selectedCategory?" · "+(support.near_me.categories.find(x=>x.id===selectedCategory)?.label||""):"");
     $("#resultsCount").textContent=rows.length+" điểm có dữ liệu";
-    $("#nearStatus").textContent=position?(gpsFallback?"Đã nhận vị trí. Tọa độ từng tiện ích chưa đủ chắc để xếp theo khoảng cách, nên danh sách vẫn đang hiển thị toàn đảo.":"Đang xếp theo vị trí bạn vừa chia sẻ."):"Đang xem theo khu vực, không dùng GPS.";
+    $("#nearStatus").textContent=position?(gpsFallback?"Đã nhận vị trí. Chưa đủ tọa độ để xếp chính xác từng điểm, nên danh sách đang ưu tiên khu vực gần bạn nhất.":"Đang xếp theo vị trí bạn vừa chia sẻ."):"Đang xem theo khu vực, không dùng GPS.";
     const host=$("#nearResults");
     if(!rows.length){host.innerHTML='<div class="empty">Chưa có điểm đủ dữ liệu cho lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';return}
     host.innerHTML=rows.map(x=>{
@@ -92,7 +105,7 @@
       if(!navigator.geolocation){$("#nearStatus").textContent="Thiết bị này không chia sẻ được vị trí. Hãy chọn khu vực.";return}
       button.disabled=true;button.textContent="Đang lấy vị trí...";
       navigator.geolocation.getCurrentPosition(p=>{
-        position={lat:p.coords.latitude,lon:p.coords.longitude};selectedArea="all";
+        position={lat:p.coords.latitude,lon:p.coords.longitude};selectedArea=nearestArea(position);
         button.disabled=false;button.textContent="✓ Đang dùng vị trí này";
         if(map){
           if(userMarker)map.removeLayer(userMarker);

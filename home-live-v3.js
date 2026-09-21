@@ -136,30 +136,26 @@ function freshnessText(iso, prefix = "Cập nhật") {
     return String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0");
   }
 
-  function renderTicker(items, level = "watch") {
+  function renderTicker(alert, level = "watch") {
     const track = $("#liveTicker");
     const shell = document.querySelector(".energy-ticker");
     if (!track || !shell) return;
-    if (!items.length) {
+    if (!alert) {
       shell.hidden = true;
+      shell.classList.remove("is-static");
+      track.innerHTML = "";
       return;
     }
+    const safe = value => String(value ?? "").replace(/[&<>"']/g, ch => ({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[ch]));
     shell.hidden = false;
     shell.dataset.level = level;
-    const one = items.map(x => "<span>" + x[0] + "</span><b>" + x[1] + "</b><i>•</i>").join("");
-    track.innerHTML = one + one;
-    const tuneSpeed = () => {
-      const halfWidth = Math.max(1, track.scrollWidth / 2);
-      const mobile = matchMedia("(max-width:760px)").matches;
-      const pxPerSecond = mobile ? 104 : 92;
-      const seconds = Math.max(mobile ? 8.5 : 9.5, Math.min(17, halfWidth / pxPerSecond));
-      track.style.setProperty("--ticker-duration", seconds.toFixed(2) + "s");
-    };
-    requestAnimationFrame(tuneSpeed);
-    if (!track.dataset.speedBound) {
-      track.dataset.speedBound = "1";
-      addEventListener("resize", tuneSpeed, { passive: true });
-    }
+    shell.classList.add("is-static");
+    track.innerHTML =
+      "<span>" + safe(alert.label || "LƯU Ý") + "</span>" +
+      "<b>" + safe(alert.text || "") + "</b>" +
+      (alert.href ? '<a class="ticker-action" href="' + safe(alert.href) + '">' + safe(alert.action || "Xem thêm") + " →</a>" : "");
   }
 
   function vnClockParts(date = new Date()) {
@@ -453,34 +449,77 @@ function freshnessText(iso, prefix = "Cập nhật") {
     setLive("tonight", "Còn nhiều lựa chọn", "Chợ đêm · show · đi dạo", "info", "Theo giờ Phú Quốc");
 
     const quickAlerts = [];
-    let quickAlertLevel = "watch";
     const weatherFreshForAlert = !!critical && criticalAge <= 90;
     if (weatherFreshForAlert && hasHighConvective) {
-      quickAlerts.push(["THỜI TIẾT", "DÔNG HOẶC MƯA MẠNH CÓ THỂ PHÁT TRIỂN NHANH"]);
-      quickAlertLevel = "alert";
+      quickAlerts.push({
+        label:"THỜI TIẾT",
+        text:"Mưa dông mạnh có thể phát triển nhanh ở một số khu vực.",
+        href:"weather/",
+        action:"Xem thời tiết",
+        priority:100,
+        level:"alert"
+      });
     } else if (weatherFreshForAlert && hasElevatedConvective) {
-      quickAlerts.push(["THỜI TIẾT", "MÂY ĐỐI LƯU ĐANG TĂNG - NÊN XEM TRƯỚC KHI ĐI XA"]);
-    } else if (weatherFreshForAlert && hasWatchConvective) {
-      quickAlerts.push(["THỜI TIẾT", "MÂY ĐỐI LƯU ĐANG CẦN THEO DÕI"]);
+      quickAlerts.push({
+        label:"THỜI TIẾT",
+        text:"Mây đối lưu đang tăng. Nếu phải đi xa, nên xem khu vực mình sắp tới.",
+        href:"weather/",
+        action:"Xem thời tiết",
+        priority:80,
+        level:"watch"
+      });
     } else if (weatherFreshForAlert && observedRain) {
-      quickAlerts.push(["THỜI TIẾT", "CÓ NƠI ĐANG GHI NHẬN MƯA"]);
+      quickAlerts.push({
+        label:"THỜI TIẾT",
+        text:"Có nơi trên đảo đang ghi nhận mưa. Xem khu vực mình sắp đi trước khi chạy xa.",
+        href:"weather/",
+        action:"Xem thời tiết",
+        priority:60,
+        level:"watch"
+      });
     }
     if (canoState === "SUSPENDED") {
-      quickAlerts.push(["CANO", "HÔM NAY ĐANG TẠM DỪNG"]);
-      quickAlertLevel = "alert";
+      quickAlerts.push({
+        label:"CANO",
+        text:"Cano Nam đảo hôm nay đang tạm dừng.",
+        href:"cano/",
+        action:"Xem tình hình cano",
+        priority:95,
+        level:"alert"
+      });
     }
     if (fastState === "SUSPENDED") {
-      quickAlerts.push(["TÀU CAO TỐC", "CÓ THAY ĐỔI VẬN HÀNH HÔM NAY"]);
-      quickAlertLevel = "alert";
+      quickAlerts.push({
+        label:"TÀU CAO TỐC",
+        text:"Có thay đổi vận hành tàu cao tốc hôm nay.",
+        href:"transit/",
+        action:"Xem lịch tàu",
+        priority:90,
+        level:"alert"
+      });
     }
     if (ferryState === "SUSPENDED") {
-      quickAlerts.push(["PHÀ", "CÓ THAY ĐỔI VẬN HÀNH HÔM NAY"]);
-      quickAlertLevel = "alert";
+      quickAlerts.push({
+        label:"PHÀ",
+        text:"Có thay đổi vận hành phà hôm nay.",
+        href:"transit/",
+        action:"Xem lịch phà",
+        priority:90,
+        level:"alert"
+      });
     }
     if (airportAvailable && delayed.length >= 3) {
-      quickAlerts.push(["SÂN BAY", delayed.length + " CHUYẾN ĐANG TRỄ"]);
+      quickAlerts.push({
+        label:"SÂN BAY",
+        text:delayed.length + " chuyến đang trễ. Nếu sắp ra sân bay, nên xem lại chuyến của mình.",
+        href:"airport/",
+        action:"Xem chuyến bay",
+        priority:50,
+        level:"watch"
+      });
     }
-    renderTicker(quickAlerts.slice(0,3), quickAlertLevel);
+    const topAlert = quickAlerts.sort((a,b) => b.priority - a.priority)[0] || null;
+    renderTicker(topAlert, topAlert?.level || "watch");
 
     const pulseDot = document.querySelector(".island-pulse .live-dot");
     if (pulseDot) {

@@ -4924,3 +4924,91 @@ body.sheet-open{
 }
 .near-gps-note strong{font-size:12px;color:var(--ink)}
 .near-gps-note span{display:block;margin-top:3px;font-size:11px;line-height:1.45;color:var(--muted)}
+
+
+/* Homepage single-warning lock + nearest-area GPS fallback - 21/09/2026 */
+.energy-ticker[hidden]{display:none!important}
+.energy-ticker.is-static{
+  padding:0!important;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr);
+  align-items:stretch;
+  overflow:hidden;
+}
+.energy-ticker.is-static .ticker-label{
+  min-height:42px;
+  height:auto!important;
+  padding:0 13px;
+  display:flex;
+  align-items:center;
+}
+.energy-ticker.is-static .ticker-window{
+  min-width:0;
+  min-height:42px;
+  height:auto!important;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+}
+.energy-ticker.is-static .ticker-track{
+  width:100%;
+  min-width:0;
+  transform:none!important;
+  animation:none!important;
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:10px;
+  padding:7px 12px;
+  white-space:normal;
+}
+.energy-ticker.is-static .ticker-track span{
+  font-size:10px;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:.11em;
+  color:#58726e;
+}
+.energy-ticker.is-static .ticker-track b{
+  min-width:0;
+  font-size:12px;
+  line-height:1.35;
+  color:var(--ink);
+}
+.energy-ticker.is-static .ticker-action{
+  white-space:nowrap;
+  padding:6px 9px;
+  border:1px solid rgba(18,61,59,.14);
+  border-radius:9px;
+  background:rgba(255,255,255,.72);
+  font-size:10.5px;
+  font-weight:900;
+  color:var(--ink);
+}
+.energy-ticker.is-static[data-level="alert"]{
+  background:linear-gradient(90deg,#fff4ec,#fff9e7 58%,#f4fbf8);
+}
+@media(min-width:1100px){
+  #top>.energy-ticker.is-static{
+    height:auto!important;
+    min-height:42px!important;
+  }
+}
+@media(max-width:760px){
+  .energy-ticker.is-static .ticker-label{min-height:46px;padding:0 9px}
+  .energy-ticker.is-static .ticker-track{
+    min-height:46px;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:7px;
+    padding:7px 9px;
+  }
+  .energy-ticker.is-static .ticker-track span{display:none}
+  .energy-ticker.is-static .ticker-track b{
+    font-size:11px;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    overflow:hidden;
+  }
+  .energy-ticker.is-static .ticker-action{padding:6px 7px;font-size:10px}
+}

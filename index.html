@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Open Phu Quoc - thông tin miễn phí, trực quan và thực dụng về Phú Quốc: tình hình đảo, sự kiện, di chuyển, điểm đến và câu chuyện địa phương.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
-  <link rel="stylesheet" href="styles.css?v=20260921-human1">
+  <link rel="stylesheet" href="styles.css?v=20260921-human3">
 </head>
 <body>
   <aside class="app-left-rail" aria-label="Điều hướng Open Phu Quoc">
@@ -50,15 +50,15 @@
   </header>
 
   <main id="top">
-    <section class="energy-ticker" aria-label="Tin nhanh Phú Quốc">
-      <div class="ticker-label"><span></span><strong>CẦN LƯU Ý</strong></div>
-      <div class="ticker-window"><div class="ticker-track" id="liveTicker"><span>ĐANG KẾT NỐI</span><b>DỮ LIỆU TRỰC TIẾP</b><i>•</i></div></div>
+    <section class="energy-ticker" hidden aria-label="Lưu ý cho chuyến đi">
+      <div class="ticker-label"><span></span><strong>LƯU Ý</strong></div>
+      <div class="ticker-window"><div class="ticker-track" id="liveTicker"><span>PHÚ QUỐC</span><b>Đang kiểm tra tình hình hôm nay...</b></div></div>
     </section>
 
     <section class="hero">
       <div class="hero-slides" aria-live="polite">
-        <figure class="hero-slide is-active" data-label="BIỂN XANH NAM ĐẢO">
-          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kem%20Beach%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=2000" alt="Biển xanh và bãi biển Phú Quốc">
+        <figure class="hero-slide is-active" data-label="MỘT NĂM TRONG NHÀ THÙNG">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Vats%20at%20a%20Fish%20Sauce%20Factory%20on%20Phu%20Quoc%20Island%20in%20Vietnam%2001.jpg?width=1800" alt="Những thùng gỗ ủ nước mắm truyền thống ở Phú Quốc">
         </figure>
         <figure class="hero-slide" data-label="AN THỚI LÊN ĐÈN">
           <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=2000" alt="An Thới và Sunset Town">
@@ -90,7 +90,7 @@
 
       <div class="hero-scene">
         <span class="hero-scene-count">01 / 04</span>
-        <strong class="hero-scene-label">BIỂN XANH NAM ĐẢO</strong>
+        <strong class="hero-scene-label">MỘT NĂM TRONG NHÀ THÙNG</strong>
       </div>
 
       <div class="hero-controls" aria-label="Chuyển ảnh đầu trang">
@@ -111,24 +111,24 @@
     <section class="live-strip island-pulse" id="today" aria-label="Phú Quốc lúc này">
       <div class="live-title">
         <span class="live-dot"></span>
-        <div><strong>PHÚ QUỐC LÚC NÀY</strong><small>Những tín hiệu quan trọng để quyết định hôm nay</small></div>
+        <div><strong>PHÚ QUỐC LÚC NÀY</strong><small>Thời tiết, biển và di chuyển hôm nay</small></div>
       </div>
 
       <a href="weather/" class="live-item" data-live="weather">
-        <span>Thời tiết</span><strong>--</strong><small>Đang tải quan trắc</small>
-        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+        <span>Thời tiết</span><strong>--</strong><small>Đang xem thời tiết mới nhất</small>
+        <time data-live-freshness>Chờ cập nhật</time><b>Xem thời tiết →</b>
       </a>
       <a href="weather/#marine" class="live-item" data-live="sea">
-        <span>Biển</span><strong>--</strong><small>Đang kiểm tra tình hình biển</small>
-        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+        <span>Biển</span><strong>--</strong><small>Đang xem sóng và tình hình biển</small>
+        <time data-live-freshness>Chờ cập nhật</time><b>Xem tình hình biển →</b>
       </a>
       <a href="airport/" class="live-item" data-live="airport">
-        <span>Sân bay</span><strong>--</strong><small>Đang tải chuyến bay</small>
-        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+        <span>Sân bay</span><strong>--</strong><small>Đang xem các chuyến hôm nay</small>
+        <time data-live-freshness>Chờ cập nhật</time><b>Xem chuyến bay →</b>
       </a>
       <a href="cano/" class="live-item" data-live="cano">
-        <span>Cano</span><strong>--</strong><small>Đang kiểm tra vận hành Nam đảo</small>
-        <time data-live-freshness>Đang kiểm tra cập nhật</time><b>Chi tiết →</b>
+        <span>Cano</span><strong>--</strong><small>Đang xem tình hình Nam đảo</small>
+        <time data-live-freshness>Chờ cập nhật</time><b>Xem cano →</b>
       </a>
       <a href="transit/" class="live-item" data-live="ferry">
         <span>Tàu & Phà</span><strong>--</strong><small>Đang xem lịch hoạt động hôm nay</small>
@@ -188,7 +188,7 @@
       </div>
       <div class="food-now-head">
         <strong id="foodNowContext">Gợi ý theo giờ Phú Quốc</strong>
-        <span id="foodNowMeta">Hiện gợi ý theo món. Khi dữ liệu quán đủ chắc, phần này mới xếp theo khoảng cách.</span>
+        <span id="foodNowMeta">Gợi ý món theo giờ Phú Quốc. Quán gần bạn chỉ hiện khi có đủ vị trí và giờ mở cửa đáng tin.</span>
       </div>
       <div class="food-now-grid" id="foodNowGrid"><div class="surface-loading">Đang chọn món phù hợp...</div></div>
     </section>
@@ -320,9 +320,9 @@
   <script src="core/search-engine.js?v=4"></script>
   <script src="core/today-engine-v2.js?v=3"></script>
   <script src="app.js?v=20260919-superapp4"></script>
-  <script src="home-foundation-v2.js?v=3"></script>
-  <script src="home-live-v3.js?v=9"></script>
-  <script src="home-copy.js?v=3"></script>
-  <script src="home-experience-v1.js?v=1"></script>
+  <script src="home-foundation-v2.js?v=5"></script>
+  <script src="home-live-v3.js?v=11"></script>
+  <script src="home-copy.js?v=5"></script>
+  <script src="home-experience-v1.js?v=3"></script>
 </body>
 </html>

@@ -147,6 +147,16 @@ function renderNearControls(){
   if(c)c.innerHTML=categories.map(x=>'<button type="button" class="near-category" data-category="'+esc(x.id)+'"><span>'+esc(x.icon)+'</span><strong>'+esc(x.label)+'</strong></button>').join("");
 }
 function haversine(a,b){const R=6371,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),h=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
+const nearAreaCenters={
+  zone_central_west:{lat:10.2172,lon:103.9593},
+  zone_south:{lat:10.0191,lon:104.0150},
+  zone_north:{lat:10.3759,lon:103.90}
+};
+function nearestNearArea(pos){
+  return Object.entries(nearAreaCenters)
+    .map(([id,coords])=>({id,d:haversine(pos,coords)}))
+    .sort((a,b)=>a.d-b.d)[0]?.id||"all";
+}
 function resolveNearItem(x){const e=entities.get(x.utility_id)||{},map=e.map||{};return{...x,name:e.name||x.utility_id,address:e.address||"",phone:e.phone||null,zone_id:e.zone_id||null,utility_type:e.utility_type||null,lat:Number.isFinite(map.lat)?map.lat:null,lon:Number.isFinite(map.lon)?map.lon:null}}
 function renderNearResults(){
   const host=$("#nearResults");if(!host||!support)return;
@@ -168,7 +178,14 @@ function renderNearResults(){
         .sort((a,b)=>(a.current_status==="OPEN"?0:1)-(b.current_status==="OPEN"?0:1)||a.distance_km-b.distance_km);
     }else{
       gpsFallback=true;
-      items.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+      const fallbackArea=selectedArea&&selectedArea!=="all"?selectedArea:nearestNearArea(position);
+      const areaItems=items.filter(x=>x.zone_id===fallbackArea||x.place_id===fallbackArea);
+      if(areaItems.length){
+        selectedArea=fallbackArea;
+        items=areaItems;
+      }else{
+        items.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+      }
     }
   }else if(selectedArea&&selectedArea!=="all"){
     items=items.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea);
@@ -186,7 +203,7 @@ function renderNearResults(){
     if(x.current_status==="OPEN"&&/24\/?24/i.test(x.opening_hours_note||""))return"Mở 24/24";
     return"";
   };
-  host.innerHTML=(gpsFallback?'<div class="near-gps-note"><strong>Đã nhận vị trí.</strong><span>Các điểm tiện ích hiện chưa có tọa độ đủ chắc để xếp theo khoảng cách, nên tạm hiển thị danh sách toàn đảo.</span></div>':"")+'<div class="near-result-list">'+items.slice(0,6).map(x=>{
+  host.innerHTML=(gpsFallback?'<div class="near-gps-note"><strong>Đã nhận vị trí.</strong><span>Các điểm tiện ích chưa có đủ tọa độ để xếp chính xác theo khoảng cách, nên tạm ưu tiên khu vực gần vị trí bạn vừa chia sẻ.</span></div>':"")+'<div class="near-result-list">'+items.slice(0,6).map(x=>{
     const state=stateLabel(x),distance=Number.isFinite(x.distance_km)?x.distance_km.toFixed(1)+" km":"";
     const top=[state,distance].filter(Boolean).join(" · ");
     return '<article class="near-result-card">'+
@@ -271,8 +288,8 @@ function bindNear(){
     }
     if(button){button.disabled=true;button.textContent="Đang lấy vị trí..."}
     navigator.geolocation.getCurrentPosition(p=>{
-      position={lat:p.coords.latitude,lon:p.coords.longitude};selectedArea=null;
-      document.querySelectorAll("[data-area]").forEach(x=>x.classList.remove("active"));
+      position={lat:p.coords.latitude,lon:p.coords.longitude};selectedArea=nearestNearArea(position);
+      document.querySelectorAll("[data-area]").forEach(x=>x.classList.toggle("active",x.dataset.area===selectedArea));
       if(button){button.disabled=false;button.textContent="✓ Đang dùng vị trí này"}
       renderNearResults();
     },()=>{
