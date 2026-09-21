@@ -40,7 +40,7 @@ function scheduleDecision(opening){
   if(active)return{state:"active",label:"Đi lúc này vẫn kịp",detail,startMin:active.startMin,endMin:active.endMin,remainingMin:active.endMin-now};
   const next=windows.find(x=>now<x.startMin);
   if(next)return{state:"future",label:(approx?"Thường bắt đầu khoảng ":"Mở từ ")+next.start,detail,nextMin:next.startMin,endMin:next.endMin};
-  return{state:"past",label:"Để ngày mai",detail};
+  return{state:"past",label:"Hôm nay đã qua giờ",detail};
 }
 function scheduleFreshness(opening){if(!opening?.verified_at)return"Chưa rõ lần cập nhật gần nhất";return ageText(opening.verified_at)}
 function localSunsetPhuQuoc(date=new Date()){const lat=10.2172,lon=103.9593,tz=7;const d=new Date(date.getTime()+tz*3600000);const start=Date.UTC(d.getUTCFullYear(),0,0);const day=Math.floor((Date.UTC(d.getUTCFullYear(),d.getUTCMonth(),d.getUTCDate())-start)/86400000);const lngHour=lon/15;const t=day+((18-lngHour)/24);const M=(0.9856*t)-3.289;let L=M+(1.916*Math.sin(M*Math.PI/180))+(0.020*Math.sin(2*M*Math.PI/180))+282.634;L=(L+360)%360;let RA=Math.atan(0.91764*Math.tan(L*Math.PI/180))*180/Math.PI;RA=(RA+360)%360;RA=RA+(Math.floor(L/90)*90-Math.floor(RA/90)*90);RA/=15;const sinDec=0.39782*Math.sin(L*Math.PI/180);const cosDec=Math.cos(Math.asin(sinDec));const cosH=(Math.cos(90.833*Math.PI/180)-(sinDec*Math.sin(lat*Math.PI/180)))/(cosDec*Math.cos(lat*Math.PI/180));if(cosH>1||cosH<-1)return"—";let H=Math.acos(cosH)*180/Math.PI;H/=15;const T=H+RA-(0.06571*t)-6.622;let UT=(T-lngHour)%24;if(UT<0)UT+=24;let local=(UT+tz)%24;const hh=Math.floor(local),mm=Math.round((local-hh)*60);const H2=(hh+(mm===60?1:0))%24,M2=mm===60?0:mm;return String(H2).padStart(2,"0")+":"+String(M2).padStart(2,"0")}
@@ -77,7 +77,7 @@ function renderTripClock(){
     if(item.schedule_source==="SOFT_DAYLIGHT"){
       decision=Number.isFinite(sunset)&&now<sunset
         ?{state:"active",label:"Đi lúc này vẫn hợp",detail:"Nên đi khi còn sáng",endMin:sunset,remainingMin:sunset-now}
-        :{state:"past",label:"Nên để ngày mai",detail:"Hợp hơn khi còn sáng"};
+        :{state:"past",label:"Hôm nay đã qua lúc hợp để đi",detail:"Chỗ này hợp hơn khi còn sáng"};
       summary=item.timing_note||"Nên đi ban ngày hoặc chiều dịu";
     }else if(item.schedule_source==="SOFT_EVENING"){
       const start=16*60+30,late=23*60;
@@ -103,14 +103,15 @@ function renderTripClock(){
     if(/buổi tối|16:30|tối/.test(best)&&now>=16*60)score-=20;
     return{item,e,opening,decision,summary,score,minDuration,tooShort,hiddenByPracticalCutoff:practical.hidden};
   });
-  rows=rows.filter(x=>!x.hiddenByPracticalCutoff);
-  const viable=rows.filter(x=>x.decision.state!=="past"&&!x.tooShort);
-  if(viable.length>=4)rows=viable;
-  else{
-    const available=rows.filter(x=>x.decision.state!=="past");
-    if(available.length>=4)rows=available;
-  }
+  rows=rows
+    .filter(x=>!x.hiddenByPracticalCutoff)
+    .filter(x=>["active","future"].includes(x.decision.state)&&!x.tooShort);
   rows.sort((a,b)=>a.score-b.score);
+  if(!rows.length){
+    host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua giờ hợp lý.</strong><p>Ăn uống, đi bộ gần hoặc xem trước lịch ngày mai sẽ thoải mái hơn.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
+    publishLocalNowHint();
+    return;
+  }
   host.innerHTML=rows.slice(0,9).map(({item,e,decision,summary,minDuration})=>{
     const duration=e.duration||"";
     let note=item.timing_note||e.best_time||decision.detail;
@@ -246,7 +247,7 @@ function renderNearResults(){
   }).join("")+'</div>';
 }
 function currencyRate(value){if(value===null||value===undefined||value==="")return"—";const n=Number(value);if(!Number.isFinite(n)||n<=0)return"—";const digits=n<100?2:n<1000?1:0;return new Intl.NumberFormat("vi-VN",{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(n)+" ₫"}
-function renderHomeCurrency(payload=currencyPayload){const host=$("#homeCurrencyGrid"),status=$("#homeCurrencyStatus");if(!host||!status)return;const rates=payload?.rates||[];if(!rates.length){host.innerHTML='<div class="home-currency-empty">Chưa lấy được tỷ giá lúc này. <a href="currency/">Mở trang tỷ giá →</a></div>';status.textContent="Thử lại sau một chút nhé.";return}const flags={USD:"🇺🇸",KRW:"🇰🇷",CNY:"🇨🇳",RUB:"🇷🇺",EUR:"🇪🇺"},wanted=["USD","KRW","CNY","RUB","EUR"],by=new Map(rates.map(x=>[x.currency,x]));host.innerHTML=wanted.map(code=>{const r=by.get(code);if(!r)return"";const hasCash=r.cash_buy!==null&&r.cash_buy!==undefined&&r.cash_buy!==""&&Number(r.cash_buy)>0;const note=hasCash?"VCB mua tiền mặt · bán "+currencyRate(r.sell):"VCB chưa niêm yết mua tiền mặt · bán "+currencyRate(r.sell);return'<a class="home-currency-card" href="currency/?from='+code+'&amount=100"><span>'+esc((flags[code]||"¤")+" "+code)+'</span><strong>'+esc(currencyRate(r.cash_buy))+'</strong><small>'+esc(note)+'</small></a>'}).join("");const source=payload.source_updated_at||payload.fetched_at,when=source?new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}).format(new Date(source)):"chưa biết";status.textContent=(payload.data_status==="live"?"Vietcombank · cập nhật ":"Bản gần nhất · ")+when+" · mở /currency để quy đổi và xem 30 ngày."}
+function renderHomeCurrency(payload=currencyPayload){const host=$("#homeCurrencyGrid"),status=$("#homeCurrencyStatus");if(!host||!status)return;const rates=payload?.rates||[];if(!rates.length){host.innerHTML='<div class="home-currency-empty">Chưa lấy được tỷ giá lúc này. <a href="currency/">Mở trang tỷ giá →</a></div>';status.textContent="Thử lại sau một chút nhé.";return}const flags={USD:"🇺🇸",KRW:"🇰🇷",CNY:"🇨🇳",RUB:"🇷🇺",EUR:"🇪🇺"},wanted=["USD","KRW","CNY","RUB","EUR"],by=new Map(rates.map(x=>[x.currency,x]));host.innerHTML=wanted.map(code=>{const r=by.get(code);if(!r)return"";const cash=Number(r.cash_buy),transfer=Number(r.transfer_buy),hasCash=r.cash_buy!==null&&r.cash_buy!==undefined&&r.cash_buy!==""&&Number.isFinite(cash)&&cash>0,hasTransfer=r.transfer_buy!==null&&r.transfer_buy!==undefined&&r.transfer_buy!==""&&Number.isFinite(transfer)&&transfer>0;const buy=hasCash?r.cash_buy:hasTransfer?r.transfer_buy:null;const note=hasCash?"VCB mua tiền mặt · bán "+currencyRate(r.sell):hasTransfer?"VCB mua chuyển khoản · bán "+currencyRate(r.sell):"VCB chưa có giá mua · bán "+currencyRate(r.sell);return'<a class="home-currency-card" href="currency/?from='+code+'&amount=100"><span>'+esc((flags[code]||"¤")+" "+code)+'</span><strong>'+esc(currencyRate(buy))+'</strong><small>'+esc(note)+'</small></a>'}).join("");const source=payload.source_updated_at||payload.fetched_at,when=source?new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}).format(new Date(source)):"chưa biết";status.textContent=(payload.data_status==="live"?"Vietcombank · cập nhật ":"Bản gần nhất · ")+when+" · mở trang tỷ giá để quy đổi và xem 30 ngày."}
 function renderHotNow(){
   const section=$("#hot-now"),host=$("#hotNowList");if(!section||!host)return;
   section.hidden=false;
