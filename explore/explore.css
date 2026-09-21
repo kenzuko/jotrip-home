@@ -559,3 +559,28 @@ button{font:inherit}
     z-index:auto!important;
   }
 }
+
+
+/* 21/09 orientation layer + label consistency */
+.explore-map-embed-wrap{position:relative}
+.explore-map-layer{position:absolute;inset:0;pointer-events:none}
+.explore-map-layer>span{
+  position:absolute;display:flex;flex-direction:column;gap:2px;max-width:190px;
+  padding:7px 9px;border:1px solid rgba(18,61,59,.18);border-radius:11px;
+  background:rgba(255,255,255,.92);box-shadow:0 5px 18px rgba(18,61,59,.12);
+  color:var(--ink);line-height:1.15
+}
+.explore-map-layer b{font-size:11px}
+.explore-map-layer small{font-size:9px;color:#566f6b}
+.explore-map-layer .north{top:12%;left:52%}
+.explore-map-layer .center{top:48%;left:22%}
+.explore-map-layer .south{bottom:8%;left:54%}
+.explore-hero>div>p,.filter-block>span,.explore-toolbar p,.card-type{ text-transform:uppercase }
+@media(max-width:760px){
+  .explore-map-layer>span{max-width:138px;padding:6px 7px}
+  .explore-map-layer b{font-size:10px}
+  .explore-map-layer small{font-size:8px}
+  .explore-map-layer .north{left:48%}
+  .explore-map-layer .center{left:8%}
+  .explore-map-layer .south{left:45%}
+}
