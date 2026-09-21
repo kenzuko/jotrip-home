@@ -1,6 +1,8 @@
 import { existsSync } from "node:fs";
 
 const required=[
+  "worker.js",
+  "wrangler.jsonc",
   "dist/index.html",
   "dist/styles.css",
   "dist/jotrip-service-card.css",
