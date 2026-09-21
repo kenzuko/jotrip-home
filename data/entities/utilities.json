@@ -820,56 +820,6 @@
       "updated_at": "2026-09-21"
     },
     {
-      "id": "utility_taxi_mailinh",
-      "legacy_id": "taxi-mailinh",
-      "entity_type": "utility",
-      "slug": "taxi-mailinh",
-      "name": "Taxi Mai Linh",
-      "aliases": [
-        "Mai Linh",
-        "Taxi 1055"
-      ],
-      "zone_id": null,
-      "group": "Taxi & xe",
-      "utility_type": "TAXI_TRANSPORT",
-      "phone": "1055",
-      "what_it_is": "Tổng đài đặt taxi Mai Linh",
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "source_refs": [
-        {
-          "source_id": "mailinh_taxi_hotline_2026"
-        }
-      ],
-      "updated_at": "2026-09-21"
-    },
-    {
-      "id": "utility_taxi_xanhsm",
-      "legacy_id": "taxi-xanh-sm",
-      "entity_type": "utility",
-      "slug": "taxi-xanh-sm",
-      "name": "Xanh SM",
-      "aliases": [
-        "Xanh SM Taxi",
-        "GSM"
-      ],
-      "zone_id": null,
-      "group": "Taxi & xe",
-      "utility_type": "TAXI_TRANSPORT",
-      "phone": "1900 27 27 27",
-      "what_it_is": "Tổng đài và ứng dụng đặt xe Xanh SM",
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "source_refs": [
-        {
-          "source_id": "xanhsm_phuquoc_2026"
-        }
-      ],
-      "updated_at": "2026-09-21"
-    },
-    {
       "id": "utility_jotrip_local_service",
       "legacy_id": "jotrip-local-service",
       "entity_type": "utility",
@@ -895,6 +845,137 @@
       "source_refs": [
         {
           "source_id": "jotrip_local_service_current"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_taxi_xanhsm",
+      "legacy_id": "taxi-xanh-sm",
+      "entity_type": "utility",
+      "slug": "taxi-xanh-sm",
+      "name": "Green SM (Xanh SM)",
+      "aliases": [
+        "Xanh SM",
+        "Green SM",
+        "taxi điện",
+        "1555"
+      ],
+      "zone_id": null,
+      "group": "Taxi & xe",
+      "utility_type": "TAXI_TRANSPORT",
+      "phone": "1555",
+      "what_it_is": "Đặt qua app Green SM hoặc hotline 1555",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "green_sm_hotline_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_grab_phuquoc",
+      "legacy_id": "grab-phuquoc",
+      "entity_type": "utility",
+      "slug": "grab-phuquoc",
+      "name": "Grab tại Phú Quốc",
+      "aliases": [
+        "Grab",
+        "GrabCar",
+        "GrabCar Premium",
+        "GrabCar Tiết Kiệm"
+      ],
+      "zone_id": null,
+      "group": "Taxi & xe",
+      "utility_type": "RIDE_HAILING",
+      "phone": null,
+      "what_it_is": "Đặt xe trực tiếp trên ứng dụng Grab",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "grab_phuquoc_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_taxi_mailinh",
+      "legacy_id": "taxi-mailinh",
+      "entity_type": "utility",
+      "slug": "taxi-mailinh",
+      "name": "Mai Linh Phú Quốc",
+      "aliases": [
+        "Mai Linh",
+        "taxi Mai Linh",
+        "1055"
+      ],
+      "zone_id": null,
+      "group": "Taxi & xe",
+      "utility_type": "TAXI_TRANSPORT",
+      "phone": "0297 3 979 797",
+      "phone_alt": "1055",
+      "what_it_is": "Taxi Mai Linh tại Phú Quốc",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "visitpq_taxi_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_taxi_namthang",
+      "legacy_id": "taxi-nam-thang",
+      "entity_type": "utility",
+      "slug": "taxi-nam-thang",
+      "name": "Taxi Nam Thắng",
+      "aliases": [
+        "Nam Thắng",
+        "Taxi Phú Quốc Nam Thắng"
+      ],
+      "zone_id": null,
+      "group": "Taxi & xe",
+      "utility_type": "TAXI_TRANSPORT",
+      "phone": "0297 3 757 575",
+      "what_it_is": "Hãng taxi địa phương tại Phú Quốc",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "visitpq_taxi_2026"
+        }
+      ],
+      "updated_at": "2026-09-21"
+    },
+    {
+      "id": "utility_taxi_vinasun",
+      "legacy_id": "taxi-vinasun-phuquoc",
+      "entity_type": "utility",
+      "slug": "taxi-vinasun-phuquoc",
+      "name": "Vinasun Phú Quốc",
+      "aliases": [
+        "Vinasun",
+        "taxi Vinasun"
+      ],
+      "zone_id": null,
+      "group": "Taxi & xe",
+      "utility_type": "TAXI_TRANSPORT",
+      "phone": "0297 38 272 727",
+      "what_it_is": "Taxi Vinasun tại Phú Quốc",
+      "live_check_required": true,
+      "verified": true,
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "visitpq_taxi_2026"
         }
       ],
       "updated_at": "2026-09-21"
