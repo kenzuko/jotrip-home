@@ -89,6 +89,10 @@ for(const item of support.curiosity||[]){
   if(item.story_id&&!storyIds.has(item.story_id)) errors.push("curiosity references missing story: "+item.story_id);
   if(item.place_id&&!ids.has(item.place_id)) errors.push("curiosity references missing place: "+item.place_id);
   if(!item.story_id&&!item.place_id&&!item.topic_id) errors.push("curiosity missing story/place/topic reference: "+item.prompt_id);
+  if(!(item.source_ids||[]).length) errors.push("curiosity missing source_ids: "+item.prompt_id);
+  for(const sourceId of item.source_ids||[]){
+    if(!sourceIds.has(sourceId)) errors.push("curiosity source missing from registry: "+item.prompt_id+" -> "+sourceId);
+  }
 }
 
 if(support.near_me?.request_location_on_load!==false){

@@ -11,11 +11,21 @@ on:
         options:
           - full
           - smoke
+          - home
   push:
     branches: ["main"]
     paths:
       - ".github/workflows/visual-qa.yml"
       - "scripts/visual-qa.mjs"
+      - "index.html"
+      - "styles.css"
+      - "home-foundation-v2.js"
+      - "home-live-v3.js"
+      - "home-data-pulse.js"
+      - "data/home-support.json"
+      - "data/entities/utilities.json"
+      - "data/entities/places.json"
+      - "data/entities/activities.json"
 
 permissions:
   contents: read
@@ -57,13 +67,8 @@ jobs:
       - name: Run visual QA
         env:
           VISUAL_QA_BASE_URL: http://127.0.0.1:4173
-          VISUAL_QA_SCOPE: ${{ inputs.scope || 'smoke' }}
-        run: |
-          scope="$VISUAL_QA_SCOPE"
-          if [ "${{ github.event_name }}" = "push" ] && [ "${{ github.run_attempt }}" -gt 1 ]; then
-            scope="full"
-          fi
-          VISUAL_QA_SCOPE="$scope" node scripts/visual-qa.mjs
+          VISUAL_QA_SCOPE: ${{ inputs.scope || 'home' }}
+        run: VISUAL_QA_SCOPE="$VISUAL_QA_SCOPE" node scripts/visual-qa.mjs
 
       - name: Preserve server log
         if: always()

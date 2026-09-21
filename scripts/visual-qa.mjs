@@ -25,7 +25,7 @@ const allRoutes = [
 ];
 
 const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus']);
-const routes = SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
+const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
   { name: 'desktop-1366x768', width: 1366, height: 768 },
