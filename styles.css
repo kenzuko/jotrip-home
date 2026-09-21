@@ -4522,3 +4522,394 @@ body.sheet-open{
   .curiosity-media{height:178px}
   .curiosity-question strong{font-size:21px}
 }
+
+
+/* Homepage human-language + decision UX lock - 21/09/2026 */
+#top>.food-now-section,
+#top>.island-stories-section{
+  grid-column:1/-1!important;
+  width:100%;
+  max-width:none;
+}
+
+@media(min-width:1100px){
+  #top>.island-pulse .live-item{
+    min-height:102px;
+    padding:13px 14px;
+  }
+  #top>.island-pulse .live-item strong{
+    font-size:19px;
+    line-height:1.05;
+  }
+  #top>.island-pulse .live-item small,
+  #top>.island-pulse .live-item time,
+  #top>.island-pulse .live-item b{
+    font-size:10.5px;
+  }
+  #top>.now-card{
+    max-height:235px;
+  }
+}
+
+.now-card-copy h2{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+.now-card-copy p{
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+}
+
+.trip-clock-grid{
+  grid-template-columns:minmax(280px,.78fr) minmax(0,1.22fr);
+}
+.trip-clock-now{
+  min-height:100%;
+}
+.trip-day-left{
+  margin-top:26px;
+  padding:16px 0 18px;
+  border-top:1px solid rgba(255,255,255,.15);
+  display:grid;
+  gap:6px;
+}
+.trip-day-left small{
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+  color:rgba(255,255,255,.58);
+}
+.trip-day-left b{
+  max-width:340px;
+  font-size:19px;
+  line-height:1.18;
+  color:#fff;
+}
+.trip-day-left p{
+  max-width:360px;
+  margin:0;
+  font-size:12px;
+  line-height:1.5;
+  color:rgba(255,255,255,.72);
+}
+.trip-item{
+  min-height:150px;
+}
+.trip-item span{
+  color:#52726e;
+}
+.trip-item b{
+  margin-top:auto;
+  line-height:1.4;
+  color:#3f625f;
+}
+
+.near-location-btn:disabled{
+  opacity:.68;
+  cursor:wait;
+}
+.near-home-note a{
+  margin-left:auto;
+  white-space:nowrap;
+  font-size:11px;
+  font-weight:900;
+  color:var(--ink);
+}
+.near-result-card>em{display:none!important}
+
+/* Food now is deliberately a compact decision strip, not another large dashboard. */
+.food-now-section{
+  padding-top:38px!important;
+  padding-bottom:42px!important;
+}
+.food-now-head{
+  margin:-5px 0 13px;
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  align-items:baseline;
+}
+.food-now-head strong{
+  font-size:13px;
+  color:var(--ink);
+}
+.food-now-head span{
+  max-width:620px;
+  font-size:11px;
+  line-height:1.45;
+  color:var(--muted);
+  text-align:right;
+}
+.food-now-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:9px;
+}
+.food-now-card{
+  min-width:0;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:linear-gradient(145deg,#fffaf5,#fff);
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+.food-now-card>span{
+  font-size:10px;
+  letter-spacing:.1em;
+  font-weight:900;
+  color:#a65d43;
+}
+.food-now-card>strong{
+  font-size:21px;
+  line-height:1.06;
+  color:var(--ink);
+}
+.food-now-card>p{
+  margin:0;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  overflow:hidden;
+  font-size:12px;
+  line-height:1.5;
+  color:var(--muted);
+}
+.food-now-card>small{
+  margin-top:3px;
+  font-size:10.5px;
+  line-height:1.4;
+  color:#7c7168;
+}
+.food-now-card>b{
+  margin-top:auto;
+  padding-top:4px;
+  font-size:12px;
+  color:var(--ink);
+}
+
+/* Curiosity: the question leads; the image only gives context. */
+.curiosity-card{
+  min-height:0;
+}
+.curiosity-toggle{
+  display:grid;
+  grid-template-columns:118px minmax(0,1fr);
+  min-height:142px;
+  align-items:stretch;
+}
+.curiosity-media{
+  height:auto;
+  min-height:142px;
+}
+.curiosity-media:after{
+  background:linear-gradient(180deg,rgba(5,33,31,.02),rgba(5,33,31,.18));
+}
+.curiosity-question{
+  padding:17px!important;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.curiosity-question span{
+  display:block;
+  margin-bottom:8px;
+  font-size:10px;
+  line-height:1.2;
+  font-weight:900;
+  letter-spacing:.09em;
+  color:#4f746f;
+}
+.curiosity-question strong{
+  font-size:20px;
+}
+.curiosity-question small{
+  margin-top:8px;
+}
+
+/* Editorial rhythm: not every homepage surface should look like a utility card. */
+.island-stories-section{
+  padding-top:48px!important;
+  padding-bottom:52px!important;
+  background:linear-gradient(180deg,#f7faf9 0,#fff 100%);
+}
+.island-story-grid{
+  display:grid;
+  grid-template-columns:1.35fr 1fr 1fr;
+  gap:10px;
+}
+.island-story-card{
+  min-width:0;
+  overflow:hidden;
+  border-top:1px solid rgba(18,61,59,.14);
+  display:grid;
+  grid-template-rows:210px auto;
+  background:#fff;
+}
+.island-story-card.lead{
+  grid-template-rows:280px auto;
+}
+.island-story-card figure{
+  margin:0;
+  overflow:hidden;
+  background:#dce9e6;
+}
+.island-story-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:transform .35s ease;
+}
+.island-story-card:hover img{
+  transform:scale(1.025);
+}
+.island-story-card>div{
+  padding:15px 4px 6px;
+}
+.island-story-card span{
+  font-size:10px;
+  letter-spacing:.09em;
+  font-weight:900;
+  color:#54736f;
+}
+.island-story-card strong{
+  display:block;
+  margin-top:8px;
+  font-size:24px;
+  line-height:1.02;
+  letter-spacing:-.025em;
+  color:var(--ink);
+}
+.island-story-card.lead strong{
+  font-size:30px;
+}
+.island-story-card p{
+  margin:8px 0 0;
+  font-size:12px;
+  line-height:1.5;
+  color:var(--muted);
+}
+.island-story-card small{
+  display:block;
+  margin-top:12px;
+  font-size:11px;
+  font-weight:850;
+  color:var(--ink);
+}
+
+@media(max-width:1099px){
+  .trip-clock-grid{grid-template-columns:1fr}
+  .trip-clock-now{min-height:260px}
+  .food-now-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .island-story-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .island-story-card.lead{grid-template-rows:210px auto}
+  .island-story-card.lead strong{font-size:24px}
+}
+
+@media(max-width:760px){
+  .trip-clock-section,
+  .food-now-section,
+  .near-me-section,
+  .hot-now-section,
+  .discover-section,
+  .island-stories-section,
+  .explore-more-section{
+    padding-top:32px!important;
+    padding-bottom:32px!important;
+  }
+  .trip-clock-now{
+    min-height:250px;
+    padding:20px;
+  }
+  .trip-day-left{
+    margin-top:20px;
+    padding:13px 0 15px;
+  }
+  .trip-day-left b{font-size:18px}
+  .trip-clock-list{
+    display:flex;
+    overflow-x:auto;
+  }
+  .trip-item{
+    min-width:76vw;
+    min-height:156px;
+  }
+  .food-now-head{
+    display:block;
+  }
+  .food-now-head span{
+    display:block;
+    margin-top:5px;
+    text-align:left;
+  }
+  .food-now-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:8px;
+    scroll-snap-type:x mandatory;
+  }
+  .food-now-card{
+    min-width:78vw;
+    scroll-snap-align:start;
+  }
+  .near-me-controls{
+    padding:14px;
+  }
+  .near-category-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:6px;
+  }
+  .near-category{
+    min-height:65px;
+    padding:10px;
+  }
+  .near-category strong{
+    font-size:12px;
+  }
+  .near-home-note a{
+    display:inline-block;
+    margin:7px 0 0;
+  }
+  .curiosity-toggle{
+    grid-template-columns:92px minmax(0,1fr);
+    min-height:128px;
+  }
+  .curiosity-media{
+    min-height:128px;
+    height:auto;
+  }
+  .curiosity-question{
+    padding:14px!important;
+  }
+  .curiosity-question strong{
+    font-size:18px;
+  }
+  .curiosity-question small{
+    font-size:11px;
+  }
+  .curiosity-answer>div{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+  .island-story-grid{
+    display:flex;
+    overflow-x:auto;
+    gap:9px;
+    scroll-snap-type:x mandatory;
+  }
+  .island-story-card,
+  .island-story-card.lead{
+    min-width:82vw;
+    grid-template-rows:190px auto;
+    scroll-snap-align:start;
+  }
+  .island-story-card strong,
+  .island-story-card.lead strong{
+    font-size:23px;
+  }
+}
