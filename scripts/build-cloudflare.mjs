@@ -8,6 +8,7 @@ await mkdir(out,{recursive:true});
 const rootFiles=[
   "index.html",
   "styles.css",
+  "ecosystem-shell.css",
   "enhancements.css",
   "app.js",
   "home-live.js",
