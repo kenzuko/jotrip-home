@@ -50,8 +50,10 @@ def fetch_day(day):
 
     frame.columns = ["CurrencyCode", "CurrencyName", "BuyCash", "BuyTransfer", "Sell"]
     frame = frame.iloc[2:].copy()
+    frame = frame[frame["CurrencyCode"].notna()].copy()
     frame["CurrencyCode"] = frame["CurrencyCode"].astype(str).str.strip().str.upper()
     frame = frame[frame["CurrencyCode"].str.fullmatch(r"[A-Z]{3}", na=False)]
+    frame = frame[frame["CurrencyCode"] != "NAN"]
 
     rows = []
     for _, item in frame.iterrows():
