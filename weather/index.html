@@ -33,12 +33,13 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebApplication","name":"JoTrip Weather Intelligence","url":"https://weather.openphuquoc.com/","applicationCategory":"WeatherApplication","operatingSystem":"Web","inLanguage":"vi","description":"Hệ thống thời tiết dành riêng cho Phú Quốc với quan trắc thực tế, radar - vệ tinh, biển, AQI và dự báo JoTrip 10 ngày."}
   </script>
+<link rel="stylesheet" href="../ecosystem-shell.css?v=20260921b">
 </head>
 <body>
 <header class="topbar">
   <a class="brand" href="../" aria-label="Open Phu Quoc - Thời tiết và Biển">
     <img src="/assets/logo-master.png?v=master-20260920" alt="Open Phu Quoc" width="380" height="361">
-    <span><strong>Thời tiết & Biển</strong><small>WEATHER INTELLIGENCE · LIVE</small></span>
+    <span><strong>Thời tiết & Biển</strong><small>Quan trắc · dự báo · biển</small></span>
   </a>
   <div class="vn-clock" data-vn-clock></div><a class="openpq-back" href="../">← Open Phu Quoc</a><div class="health"><i id="liveDot"></i><span id="liveLabel">ĐANG TẢI</span></div>
 </header>
@@ -48,7 +49,7 @@
     <img decoding="async" fetchpriority="high" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20beach%2001.jpg?width=1600" alt="Bờ biển phía tây Phú Quốc gần Dương Đông, ảnh tháng 11 năm 2025">
     <div class="weather-scene-shade"></div>
     <div class="weather-scene-copy">
-      <span class="scene-badge">PHÚ QUỐC WEATHER INTELLIGENCE · V2</span>
+      <span class="scene-badge">PHÚ QUỐC · THỜI TIẾT & BIỂN</span>
       <small>ẢNH THAM CHIẾU · DƯƠNG ĐÔNG · 15/11/2025</small>
       <h1 id="placeName">Dương Đông</h1>
       <p id="heroSummary">Đang đọc dữ liệu quan trắc và phân tích địa phương...</p>
@@ -65,9 +66,9 @@
   <section id="quickAlert" class="quick-alert neutral" aria-live="polite" aria-label="Cảnh báo thời tiết sắp tới">
     <div class="quick-alert-icon"><span></span></div>
     <div class="quick-alert-copy">
-      <small>QUICK ALERT · 12 GIỜ TỚI</small>
-      <b id="quickAlertTitle">Đang quét tín hiệu nhiễu động...</b>
-      <p id="quickAlertText">Hệ thống đang đối chiếu nowcast và ensemble.</p>
+      <small>LƯU Ý NHANH · 12 GIỜ TỚI</small>
+      <b id="quickAlertTitle">Đang xem diễn biến thời tiết sắp tới...</b>
+      <p id="quickAlertText">Đang đối chiếu quan trắc và các mô hình dự báo.</p>
     </div>
     <time id="quickAlertTime">-</time>
   </section>
@@ -333,7 +334,7 @@
   </section>
 
   <footer>
-    <b>JoTrip Weather Intelligence · Phú Quốc</b>
+    <b>Open Phu Quoc · Thời tiết & Biển</b>
     <span>Miễn phí · Phi thương mại · Không thay thế bản tin/cảnh báo chính thức.</span>
   </footer>
 </main>
