@@ -497,9 +497,35 @@
             "r3-052",
             "r3-053"
           ]
+        },
+        {
+          "source_id": "sunworld_kiss_schedule_2026"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-21",
+      "opening_hours": {
+        "state": "PUBLISHED_SCHEDULE",
+        "schedule_type": "WEEKLY",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "windows": [
+          {
+            "start": "21:00",
+            "end": "21:30",
+            "label": "Show Nụ hôn của Biển cả"
+          }
+        ],
+        "closed_weekdays": [
+          2
+        ],
+        "weekday_basis": "JS_0_SUN",
+        "source_id": "sunworld_kiss_schedule_2026",
+        "source_type": "OPERATOR",
+        "published_at": "2026-03-20",
+        "verified_at": "2026-09-21",
+        "valid_until": null,
+        "confidence": "HIGH",
+        "note": "Operator công bố 21:00-21:30 hằng ngày, trừ thứ Ba. Lịch đặc biệt vẫn cần kiểm tra lại."
+      }
     }
   ]
 }

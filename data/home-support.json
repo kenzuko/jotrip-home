@@ -192,37 +192,172 @@
         "icon": "↧"
       }
     ],
-    "items": []
+    "items": [
+      {
+        "utility_id": "utility_longchau_tran_phu",
+        "utility_type": "PHARMACY",
+        "name": "Nhà thuốc Long Châu - 42 Trần Phú",
+        "zone_id": "zone_central_west",
+        "current_status": "UNKNOWN",
+        "address": "42 Trần Phú, Dương Đông, Đặc khu Phú Quốc, An Giang",
+        "phone": "1800 6928",
+        "opening_hours_note": "Hệ thống Long Châu công bố khung 06:00-23:00, nhưng giờ từng cơ sở có thể khác.",
+        "access_notes": "Địa chỉ hiện hành có trong danh sách chính thức Long Châu tại Phú Quốc.",
+        "source_id": "longchau_phuquoc_storelist_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "confidence": "HIGH",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "featured": true,
+        "route": "utilities/"
+      },
+      {
+        "utility_id": "utility_longchau_nguyen_trung_truc",
+        "utility_type": "PHARMACY",
+        "name": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực",
+        "zone_id": "zone_central_west",
+        "current_status": "UNKNOWN",
+        "address": "327 Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang",
+        "phone": "1800 6928",
+        "opening_hours_note": "Hệ thống Long Châu công bố khung 06:00-23:00, nhưng giờ từng cơ sở có thể khác.",
+        "access_notes": "Địa chỉ hiện hành có trong danh sách chính thức Long Châu tại Phú Quốc.",
+        "source_id": "longchau_phuquoc_storelist_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "confidence": "HIGH",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "route": "utilities/"
+      },
+      {
+        "utility_id": "utility_longchau_an_thoi",
+        "utility_type": "PHARMACY",
+        "name": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ",
+        "zone_id": "zone_south",
+        "current_status": "UNKNOWN",
+        "address": "46 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang",
+        "phone": "1800 6928",
+        "opening_hours_note": "Hệ thống Long Châu công bố khung 06:00-23:00, nhưng giờ từng cơ sở có thể khác.",
+        "access_notes": "Địa chỉ hiện hành có trong danh sách chính thức Long Châu tại Phú Quốc.",
+        "source_id": "longchau_phuquoc_storelist_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "confidence": "HIGH",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "featured": true,
+        "route": "utilities/"
+      },
+      {
+        "utility_id": "utility_longchau_ganh_dau",
+        "utility_type": "PHARMACY",
+        "name": "Nhà thuốc Long Châu - Gành Dầu",
+        "zone_id": "zone_north",
+        "current_status": "UNKNOWN",
+        "address": "Thửa đất 19, Bản đồ 12, gần Chợ Gành Dầu, Đặc khu Phú Quốc, An Giang",
+        "phone": "1800 6928",
+        "opening_hours_note": "Hệ thống Long Châu công bố khung 06:00-23:00, nhưng giờ từng cơ sở có thể khác.",
+        "access_notes": "Địa chỉ hiện hành có trong danh sách chính thức Long Châu tại Phú Quốc.",
+        "source_id": "longchau_phuquoc_storelist_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "confidence": "HIGH",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "route": "utilities/"
+      },
+      {
+        "utility_id": "utility_vinmec_duong_dong_clinic",
+        "utility_type": "CLINIC_HOSPITAL",
+        "name": "Phòng khám Đa khoa Vinmec Dương Đông",
+        "zone_id": "zone_central_west",
+        "current_status": "UNKNOWN",
+        "address": "114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, An Giang",
+        "phone": "0297 3985 588",
+        "opening_hours_note": "Trang chính thức xác nhận cơ sở và dịch vụ; giờ khám nên kiểm tra trước khi đi.",
+        "access_notes": "Có khám chuyên khoa, cấp cứu, xét nghiệm và chẩn đoán hình ảnh theo thông tin Vinmec.",
+        "source_id": "vinmec_duongdong_current",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "confidence": "HIGH",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "featured": true,
+        "route": "utilities/"
+      },
+      {
+        "utility_id": "utility_vinmec_phuquoc_emergency",
+        "utility_type": "CLINIC_HOSPITAL",
+        "name": "Cấp cứu Vinmec Phú Quốc",
+        "zone_id": "zone_north",
+        "current_status": "OPEN",
+        "address": "Khu Bãi Dài, Đặc khu Phú Quốc, An Giang",
+        "phone": "02973 98 55 11",
+        "opening_hours_note": "Cấp cứu hồi sức 24/24, kể cả cuối tuần và ngày lễ.",
+        "access_notes": "Đây là trạng thái của khoa cấp cứu, không đồng nghĩa mọi phòng khám chuyên khoa mở 24/24.",
+        "source_id": "vinmec_phuquoc_current",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "confidence": "HIGH",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "route": "utilities/"
+      }
+    ]
   },
   "hot_now": {
-    "items": [],
+    "items": [
+      {
+        "event_id": "hot_aquatopia_wavy_whirl_2026",
+        "title": "Aquatopia có thêm Wavy Whirl - Lốc Xoáy Nhiệt Đới",
+        "short_summary": "Sun World Hòn Thơm giới thiệu làn trượt PowerRAPIDS mới tại Aquatopia từ mùa hè 2026.",
+        "category": "TRẢI NGHIỆM MỚI",
+        "affected_entity_id": "place_aquatopia",
+        "starts_at": "2026-06-24",
+        "source_id": "sunworld_wavy_whirl_20260624",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "expires_at": "2026-10-15T23:59:59+07:00",
+        "expiry_reason": "EDITORIAL_NEWNESS_WINDOW",
+        "confidence": "HIGH",
+        "route": "places/detail.html?id=aquatopia"
+      }
+    ],
     "empty_behavior": "HIDE_SECTION",
     "temporary_items_require_expiry": true
   },
   "curiosity": [
     {
-      "prompt_id": "curiosity_fish_sauce_year",
-      "question": "Một năm trong nhà thùng diễn ra như thế nào?",
-      "story_id": "mot-nam-trong-nha-thung",
-      "story_type": "DOCUMENTED_HISTORY",
-      "verification_status": "EXISTING_EDITORIAL",
-      "route": "stories/article.html?id=mot-nam-trong-nha-thung"
+      "prompt_id": "curiosity_dinh_cau_before_sea",
+      "question": "Vì sao ngư dân lại ghé Dinh Cậu trước chuyến biển?",
+      "place_id": "place_dinh_cau",
+      "short_teaser": "Tín ngưỡng Bà - Cậu gắn với mong cầu bình an cho người đi biển, nhưng lịch sử thờ tự tại Dinh Cậu còn có những lớp và dị bản cần tách rõ.",
+      "source_ids": [
+        "src_belief_thanhnien",
+        "src_belief_checkin",
+        "src_belief_visit"
+      ],
+      "verification_status": "PARTIAL_VERIFIED",
+      "story_type": "LOCAL_BELIEF",
+      "route": "places/detail.html?id=dinh-cau"
     },
     {
-      "prompt_id": "curiosity_pepper_soil",
-      "question": "Vì sao hồ tiêu lại gắn với ký ức về đất đỏ Phú Quốc?",
-      "story_id": "mui-cay-cua-dat-do",
-      "story_type": "DOCUMENTED_HISTORY",
-      "verification_status": "EXISTING_EDITORIAL",
-      "route": "stories/article.html?id=mui-cay-cua-dat-do"
+      "prompt_id": "curiosity_dog_tree",
+      "question": "Chó Phú Quốc có thật sự biết leo cây?",
+      "topic_id": "topic_116_dog_climb_tree",
+      "short_teaser": "Tiêu chuẩn VKA xác nhận giống chó này leo trèo và bật nhảy tốt, nhưng chưa đủ để nói “leo cây” là đặc tính phổ quát của mọi chó Phú Quốc.",
+      "source_ids": [
+        "src_dog_vka2023",
+        "src_dog_vka_report"
+      ],
+      "verification_status": "PARTIAL_VERIFIED",
+      "story_type": "ORAL_HISTORY"
     },
     {
-      "prompt_id": "curiosity_duong_dong_evening",
-      "question": "Dương Đông thay đổi thế nào sau 5 giờ chiều?",
-      "story_id": "duong-dong-sau-5-gio",
-      "story_type": "DOCUMENTED_HISTORY",
-      "verification_status": "EXISTING_EDITORIAL",
-      "route": "stories/article.html?id=duong-dong-sau-5-gio"
+      "prompt_id": "curiosity_gieng_tien",
+      "question": "Giếng Tiên là lịch sử hay truyền thuyết?",
+      "topic_id": "topic_107_gieng_tien",
+      "short_teaser": "Nguồn địa phương lưu truyền câu chuyện gắn Giếng Tiên với Nguyễn Ánh, nhưng bằng chứng lịch sử cho chính địa điểm này vẫn chưa đủ để kể như một sự kiện đã được xác lập.",
+      "source_ids": [
+        "src_gieng_pqgov"
+      ],
+      "verification_status": "NEEDS_VERIFICATION",
+      "story_type": "LEGEND"
     }
   ],
   "rules": {

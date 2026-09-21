@@ -4360,3 +4360,10 @@ body.sheet-open{
 .trip-item[data-decision="future"]{border-color:#c9dfdc;background:#fbfdfc}
 .trip-item[data-decision="past"]{opacity:.72}
 .activity-status-card[data-state="info"]{border-color:#c9dfdc;background:#fbfdfc}
+
+/* Homepage data density pass - verified utility + curiosity surfaces */
+.near-result-card>span{display:block;margin-bottom:6px;font-size:10px;line-height:1.2;font-weight:900;letter-spacing:.06em;color:#16765D}
+.near-result-card>small{display:block;margin-top:5px;font-size:11px;line-height:1.4;color:var(--muted)}
+.near-result-card>em{display:block;margin-top:8px;font-size:10px;font-style:normal;color:#7d8e8a}
+.hot-card small{display:block;margin-top:9px;font-size:10px;color:#7d8e8a}
+.curiosity-card em{display:inline-flex;margin-top:10px;padding:5px 7px;border:1px solid rgba(255,255,255,.28);border-radius:999px;font-size:10px;line-height:1.2;font-style:normal;font-weight:850;color:rgba(255,255,255,.88)}

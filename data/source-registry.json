@@ -208,6 +208,74 @@
         "place_night_market",
         "trip_clock"
       ]
+    },
+    {
+      "id": "sunworld_kiss_schedule_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World Hòn Thơm - lịch Kiss of the Sea 2026",
+      "url": "https://sunworld.vn/vi/hon-thom/cam-nang-du-lich/kinh-nghiem-du-lich-sunset-town-phu-quoc-tron-ven-va-tiet-kiem-17546",
+      "published_at": "2026-03-20",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "activity_kiss_of_the_sea",
+        "activity_board",
+        "trip_clock"
+      ]
+    },
+    {
+      "id": "sunworld_wavy_whirl_20260624",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World Hòn Thơm - Wavy Whirl tại Aquatopia",
+      "url": "https://sunworld.vn/vi/hon-thom/tin-tuc-sunworld/sun-world-hon-thom-ra-mat-lan-truot-nuoc-chua-tung-co-tren-the-gioi-20639",
+      "published_at": "2026-06-24",
+      "checked_at": "2026-09-21",
+      "dynamic": false,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "home_hot_now",
+        "place_aquatopia"
+      ]
+    },
+    {
+      "id": "longchau_phuquoc_storelist_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Long Châu - danh sách nhà thuốc tại Đặc khu Phú Quốc",
+      "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "home_near_me",
+        "utility_type_PHARMACY"
+      ]
+    },
+    {
+      "id": "vinmec_duongdong_current",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Vinmec - Phòng khám Đa khoa Dương Đông",
+      "url": "https://www.vinmec.com/vie/co-so-y-te/phong-kham-da-khoa-vinmec-duong-dong-phu-quoc",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "home_near_me",
+        "utility_type_CLINIC_HOSPITAL"
+      ]
+    },
+    {
+      "id": "vinmec_phuquoc_current",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Vinmec - Bệnh viện Phú Quốc",
+      "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "home_near_me",
+        "utility_type_CLINIC_HOSPITAL"
+      ]
     }
   ],
   "rules": [
