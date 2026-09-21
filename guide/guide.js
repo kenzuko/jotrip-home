@@ -22,6 +22,9 @@ function renderIntent(id){const x=INTENTS[id];if(!x)return;$$("[data-intent]").f
 function renderStatic(){
  $("#zoneRail").innerHTML=state.guide.zones.map(z=>'<article class="zone-card" data-zone-id="'+esc(z.id)+'"><img src="'+esc(z.image)+'" alt="'+esc(z.name)+'"><div><span>'+esc(z.tag)+'</span><h3>'+esc(z.name)+'</h3><p>'+esc(z.summary)+'</p><small>'+esc(z.best_for)+'</small></div></article>').join("");
  $("#stayGrid").innerHTML=state.stay.areas.map(a=>'<article class="stay-card"><span>'+esc(a.vibe)+'</span><h3>'+esc(a.name)+'</h3><p><b>Hợp:</b> '+esc(a.best_for.join(" · "))+'</p><p><b>Điểm mạnh:</b> '+esc(a.pros.join(" · "))+'</p><small>'+esc(a.watch.join(" · "))+'</small></article>').join("");
+ const hotelAreas=state.guide?.hotels?.areas||[];
+ const hotelHost=$("#guideHotelGroups");
+ if(hotelHost)hotelHost.innerHTML=hotelAreas.length?'<div class="guide-hotel-head"><span>KHÁCH SẠN THEO KHU</span><strong>Một vài cái tên để bạn hình dung khu này có gì.</strong><small>Không phải bảng xếp hạng. Danh sách đầy đủ nằm ở mục Khách sạn.</small></div>'+hotelAreas.map(a=>'<article class="guide-hotel-group"><span>'+esc(a.name)+'</span><strong>'+esc(a.hotels)+'</strong><p>'+esc(a.note||"")+'</p></article>').join(""):'';
  $("#mealPlans").innerHTML=state.stay.meal_plans.map(x=>'<div><strong>'+esc(x.code)+'</strong><span>'+esc(x.meaning)+'</span></div>').join("");
  $("#dayGrid").innerHTML=state.itineraries.duration_guides.map(x=>'<button type="button" data-days="'+x.days+'"><span>'+esc(x.label)+'</span><strong>'+esc(x.principle)+'</strong><small>'+esc(x.weather_rule||x.avoid||"")+'</small></button>').join("");
  $("#routeIdeas").innerHTML='<div class="route-answer"><span>CHỌN SỐ NGÀY Ở TRÊN</span><strong>Chọn số ngày để xem nhịp đi vừa sức hơn.</strong></div>';
