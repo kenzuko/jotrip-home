@@ -269,6 +269,18 @@
         "route": "utilities/"
       },
       {
+        "utility_id": "utility_longchau_suoi_da",
+        "current_status": "UNKNOWN",
+        "opening_hours_note": "Hệ thống Long Châu công bố khung 06:00-23:00, nhưng giờ từng cơ sở có thể khác.",
+        "access_notes": "Địa chỉ Suối Đá - Dương Tơ có trong danh sách chính thức Long Châu tại Phú Quốc.",
+        "source_id": "longchau_phuquoc_storelist_2026",
+        "source_type": "OPERATOR",
+        "verified_at": "2026-09-21",
+        "confidence": "HIGH",
+        "proximity_mode": "AREA_ONLY_UNTIL_COORDINATES_VERIFIED",
+        "route": "utilities/"
+      },
+      {
         "utility_id": "utility_vinmec_duong_dong_clinic",
         "current_status": "UNKNOWN",
         "opening_hours_note": "Trang chính thức xác nhận cơ sở và dịch vụ; giờ khám nên kiểm tra trước khi đi.",
@@ -471,17 +483,16 @@
     "items": [
       {
         "event_id": "hot_symphony_season3_2026",
-        "title": "Symphony vẫn diễn 19:30, mùa 3 đang được nâng cấp",
-        "short_summary": "Sun World hiện vẫn công bố Symphony of the Sea lúc 19:30 hằng ngày. Bài ngày 12/09 giới thiệu nâng cấp mùa 3, không phải thông báo ngưng show hiện tại.",
+        "title": "Symphony vẫn diễn 19:30; Sun World công bố bản mùa 3",
+        "short_summary": "Sun World vẫn công bố Symphony of the Sea lúc 19:30 hằng ngày. Bài ngày 12/09 giới thiệu bản mùa 3 được nâng cấp, không phải thông báo ngưng lịch diễn hiện tại.",
         "category": "SHOW / CẬP NHẬT",
         "affected_entity_id": "activity_symphony_of_the_sea",
-        "expected_window": "2026-11",
         "source_id": "sunworld_symphony_schedule_current_2026",
         "source_type": "OPERATOR",
         "published_at": "2026-09-12",
         "verified_at": "2026-09-21",
-        "expires_at": "2026-11-30T23:59:59+07:00",
-        "expiry_reason": "EXPECTED_RETURN_WINDOW",
+        "expires_at": "2026-10-12T23:59:59+07:00",
+        "expiry_reason": "EDITORIAL_NEWNESS_WINDOW",
         "confidence": "HIGH",
         "route": "places/detail.html?id=sunset-town",
         "supporting_source_ids": [
