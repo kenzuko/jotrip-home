@@ -554,12 +554,11 @@
       "updated_at": "2026-09-21",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
-        "schedule_type": "WEEKLY",
+        "schedule_type": "FIXED_START",
         "timezone": "Asia/Ho_Chi_Minh",
-        "windows": [
+        "times": [
           {
             "start": "21:00",
-            "end": "21:30",
             "label": "Show Nụ hôn của Biển cả"
           }
         ],
