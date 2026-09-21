@@ -276,6 +276,32 @@
         "home_near_me",
         "utility_type_CLINIC_HOSPITAL"
       ]
+    },
+    {
+      "id": "visitpq_dinh_cau_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - Dinh Cậu Phú Quốc",
+      "url": "https://visitphuquoc.com.vn/vi/dinh-cau-phu-quoc",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "place_dinh_cau",
+        "place_operational"
+      ]
+    },
+    {
+      "id": "visitpq_cho_duong_dong_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - Chợ Dương Đông",
+      "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-1069",
+      "checked_at": "2026-09-21",
+      "dynamic": true,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "place_duong_dong_market",
+        "place_operational"
+      ]
     }
   ],
   "rules": [
