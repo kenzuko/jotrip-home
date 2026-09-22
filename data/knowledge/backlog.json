@@ -27,8 +27,9 @@
     },
     "linked_to_canonical_entity": 33,
     "unlinked": 117,
-    "ready_internal": 38,
-    "queued": 112
+    "ready_internal": 46,
+    "queued": 102,
+    "hold": 2
   },
   "topics": [
     {
@@ -1408,7 +1409,7 @@
       "crawl_brief": "Loài, mùa, nguồn cung hiện tại, cách ăn, giá biến động.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2113,8 +2114,11 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Cảng, tuyến, thời gian, weather sensitivity, vehicle rules.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "access_fast_boat",
+        "access_ferry"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2630,7 +2634,7 @@
       "crawl_brief": "Địa điểm thật, truyền thuyết Nguyễn Ánh, nguồn lịch sử, alternate versions.",
       "canonical_entity_id": "place_gieng_tien",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2700,9 +2704,9 @@
       "section": "HISTORY / CULTURE / LORE",
       "topic_type": "HISTORY_LORE",
       "crawl_brief": "Đối tượng thờ, cộng đồng, lễ tục, nguồn văn hóa.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "place_dinh_cau",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2726,7 +2730,7 @@
       "crawl_brief": "Tín ngưỡng ngư dân, nghi lễ, địa điểm, nguồn văn hóa.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2750,7 +2754,7 @@
       "crawl_brief": "Lễ hội, lịch, nghi thức, nguồn chính thống.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2774,7 +2778,7 @@
       "crawl_brief": "Oral history/local belief, ghi rõ không phải universal fact.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2798,7 +2802,7 @@
       "crawl_brief": "Local knowledge, source attribution, không biến thành forecast.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2822,7 +2826,7 @@
       "crawl_brief": "Lịch sử giống, xoáy lưng, bơi, săn, nguồn khoa học/kennel.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2846,7 +2850,7 @@
       "crawl_brief": "Phân loại claim, nguồn, local lore, evidence.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
