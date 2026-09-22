@@ -365,6 +365,17 @@
 
     const result=filteredRows();
     const visible=result.rows;
+    window.__openpqNearState={
+      ...(window.__openpqNearState||{}),
+      rowsCount:rows.length,
+      visibleCount:visible.length,
+      selectedArea,
+      selectedCategory,
+      searchText,
+      href:location.href,
+      activeArea:$("#areaRow .active")?.dataset?.area||null,
+      activeCategory:$("#categoryRow .active")?.dataset?.category??null
+    };
     const label=selectedCategory?category()?.label:"";
     $("#resultsTitle").textContent=searchText.trim()
       ?'Kết quả cho “'+searchText.trim()+'”'
@@ -486,6 +497,16 @@
 
       support=a;
       rows=buildRows(locationIndex);
+      window.__openpqNearState={
+        indexCount:Array.isArray(locationIndex?.documents)?locationIndex.documents.length:0,
+        rowsCount:rows.length,
+        requestedArea,
+        requestedCategory,
+        requestedQuery,
+        selectedArea,
+        selectedCategory,
+        searchText
+      };
 
       const validAreas=new Set((support.near_me?.manual_areas||[]).map(x=>x.id));
       const validCategories=new Set((support.near_me?.categories||[]).map(x=>x.id));
