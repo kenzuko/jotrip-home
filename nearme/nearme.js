@@ -163,14 +163,24 @@
   }
 
   function buildRows(index){
-    return (index?.documents||[]).map(doc=>({
-      ...doc,
-      lat:Number.isFinite(doc.map?.lat)?doc.map.lat:null,
-      lon:Number.isFinite(doc.map?.lon)?doc.map.lon:null,
-      map_precision:doc.map?.precision||null,
-      group:doc.group||null,
-      utility_type:doc.utility_type||null
-    }));
+    const utilityMeta=new Map((support?.near_me?.items||[]).map(x=>[x.utility_id,x]));
+    return (index?.documents||[]).map(doc=>{
+      const meta=doc.entity_type==="utility"?(utilityMeta.get(doc.id)||{}):{};
+      return {
+        ...doc,
+        ...meta,
+        id:doc.id,
+        name:doc.name,
+        address:doc.address||"",
+        tags:doc.tags||[],
+        route:doc.route||meta.route||null,
+        lat:Number.isFinite(doc.map?.lat)?doc.map.lat:null,
+        lon:Number.isFinite(doc.map?.lon)?doc.map.lon:null,
+        map_precision:doc.map?.precision||null,
+        group:doc.group||null,
+        utility_type:doc.utility_type||null
+      };
+    });
   }
 
   function areaLabel(){
