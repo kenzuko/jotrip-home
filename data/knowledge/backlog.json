@@ -39,8 +39,8 @@
     },
     "linked_to_canonical_entity": 41,
     "unlinked": 109,
-    "ready_internal": 114,
-    "queued": 18,
+    "ready_internal": 117,
+    "queued": 15,
     "hold": 18
   },
   "topics": [
@@ -3026,7 +3026,7 @@
       "crawl_brief": "Timeline, nhà thùng, thương mại, chỉ dẫn địa lý.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3050,7 +3050,7 @@
       "crawl_brief": "Timeline, vùng sản xuất, bến/tàu/lưới/câu, biến đổi nghề.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3193,8 +3193,10 @@
       "topic_type": "ACTIVITY",
       "crawl_brief": "Khu vực, tide/wind dependency, safety.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_cua_can"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
