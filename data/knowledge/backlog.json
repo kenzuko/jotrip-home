@@ -27,9 +27,9 @@
     },
     "linked_to_canonical_entity": 33,
     "unlinked": 117,
-    "ready_internal": 46,
-    "queued": 102,
-    "hold": 2
+    "ready_internal": 64,
+    "queued": 77,
+    "hold": 9
   },
   "topics": [
     {
@@ -761,7 +761,7 @@
       "crawl_brief": "Gió mùa, sóng, mưa, biển theo mùa, tác động trải nghiệm.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -785,7 +785,7 @@
       "crawl_brief": "Thời gian, tác động bờ Tây/bờ Đông, hoạt động biển, nguồn khí tượng.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -809,7 +809,7 @@
       "crawl_brief": "Thời gian, tác động bờ Đông/bờ Tây, hoạt động biển.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -833,7 +833,7 @@
       "crawl_brief": "Chu kỳ, tác động bãi biển, sao biển, câu cá, bến tàu.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -857,7 +857,7 @@
       "crawl_brief": "Loài, mùa/điều kiện xuất hiện, thủy triều, bảo tồn, hành vi không nên làm.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -881,7 +881,7 @@
       "crawl_brief": "Phân bố, vai trò sinh thái, đe dọa, liên hệ dugong.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -905,7 +905,7 @@
       "crawl_brief": "Tình trạng bảo tồn, habitat, nguồn nghiên cứu, không sensationalize.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -929,7 +929,7 @@
       "crawl_brief": "Khu vực, mùa, sức khỏe rạn, snorkeling/diving, quy tắc bảo tồn.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -953,7 +953,7 @@
       "crawl_brief": "Phân bố, chức năng, access, bảo tồn.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -977,7 +977,7 @@
       "crawl_brief": "Loài đặc trưng, vai trò, mùa, khu bảo vệ.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1001,7 +1001,7 @@
       "crawl_brief": "Các nhóm/loài đáng chú ý, mùa, khu quan sát, nguồn bảo tồn.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1025,7 +1025,7 @@
       "crawl_brief": "Loài, bằng chứng hiện diện, bảo tồn, tránh khẳng định quá mức.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1049,7 +1049,7 @@
       "crawl_brief": "Mùa/điều kiện, khu vực, safety, nguồn thực địa nếu có.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1073,7 +1073,7 @@
       "crawl_brief": "Khi nào xuất hiện, bờ nào, tác động trải nghiệm, cách diễn giải.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1097,7 +1097,7 @@
       "crawl_brief": "Nguyên nhân khả dĩ, phù sa/tảo/thời tiết, cách xác minh.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1121,7 +1121,7 @@
       "crawl_brief": "Vì sao khu này mưa khu kia không, địa hình, đối lưu, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1145,7 +1145,7 @@
       "crawl_brief": "Đặc điểm hình thành, dấu hiệu, rủi ro hoạt động biển, nguồn khí tượng.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1169,7 +1169,7 @@
       "crawl_brief": "Bờ nào chịu tác động theo mùa, practical cho beaches/tours.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1193,7 +1193,7 @@
       "crawl_brief": "Ảnh hưởng thời tiết/khói mù, practical cho sightseeing.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1217,7 +1217,7 @@
       "crawl_brief": "Hướng bờ Tây, mùa, mây, thời gian, điểm quan sát.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1241,7 +1241,7 @@
       "crawl_brief": "Bờ Đông/Nam, mùa, các điểm phù hợp, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1265,7 +1265,7 @@
       "crawl_brief": "Các loại trái cây theo mùa, nguồn local/agri, không suy đoán.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1289,7 +1289,7 @@
       "crawl_brief": "Hồ, suối, tầng nước, mùa khô, lịch sử hạ tầng nước.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1313,7 +1313,7 @@
       "crawl_brief": "Nền địa chất, bờ đá/bãi cát, nguồn khoa học.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1337,7 +1337,7 @@
       "crawl_brief": "Thủy văn, nghề cá, đô thị, thay đổi bờ.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
