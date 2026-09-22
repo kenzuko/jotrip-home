@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-23",
   "public_source_urls": false,
   "objects": [
     {
@@ -9,8 +9,8 @@
       "title": "Dinh Cậu",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_dinh_cau",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -123,8 +123,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": "zone_central_west",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -187,8 +187,8 @@
       "title": "Chợ Dương Đông",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_duong_dong_market",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -292,8 +292,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": "zone_south",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -356,8 +356,8 @@
       "title": "Sunset Town",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_sunset_town",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -479,8 +479,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": "place_ham_ninh",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -562,8 +562,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": "zone_north",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -625,8 +625,8 @@
       "title": "Rạch Vẹm",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_rach_vem",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -714,8 +714,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": "place_cua_can",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -804,8 +804,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -861,8 +861,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -917,8 +917,8 @@
       "title": "Bãi Trường",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_bai_truong",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1005,8 +1005,8 @@
       "title": "Bãi Khem",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_bai_khem",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1102,8 +1102,8 @@
       "title": "Bãi Sao",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_bai_sao",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1192,8 +1192,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1269,8 +1269,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1326,8 +1326,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1392,8 +1392,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1451,8 +1451,8 @@
       "related_entity_ids": [
         "place_gieng_tien"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1534,8 +1534,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": "activity_hon_thom",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1599,8 +1599,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1657,8 +1657,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1713,8 +1713,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1769,8 +1769,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1826,8 +1826,8 @@
       "title": "Suối Tranh",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_suoi_tranh",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1906,8 +1906,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -1963,8 +1963,8 @@
       "topic_type": "PLACE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -2019,8 +2019,8 @@
       "title": "Chùa Hộ Quốc",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_ho_quoc",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -2107,8 +2107,8 @@
       "title": "Nhà tù Phú Quốc",
       "topic_type": "PLACE",
       "canonical_entity_id": "place_phu_quoc_prison",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -2196,8 +2196,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2260,8 +2260,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2316,8 +2316,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2372,8 +2372,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2420,8 +2420,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2468,8 +2468,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2532,8 +2532,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2598,8 +2598,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2646,8 +2646,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2694,8 +2694,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2766,8 +2766,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -2825,8 +2825,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -3047,8 +3047,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -3122,8 +3122,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -3170,8 +3170,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -3262,8 +3262,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -3326,8 +3326,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -3376,8 +3376,8 @@
       "topic_type": "NATURE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "NATURE",
       "research": {
         "claims": [
@@ -3439,8 +3439,8 @@
       "title": "Bún quậy Phú Quốc",
       "topic_type": "FOOD",
       "canonical_entity_id": "food_bun-quay",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -3542,8 +3542,8 @@
       "title": "Gỏi cá trích",
       "topic_type": "FOOD",
       "canonical_entity_id": "food_goi-ca-trich",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -3633,8 +3633,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -3692,8 +3692,8 @@
       "title": "Nhum biển",
       "topic_type": "FOOD",
       "canonical_entity_id": "food_nhum",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -3789,8 +3789,8 @@
       "title": "Còi biên mai",
       "topic_type": "FOOD",
       "canonical_entity_id": "food_coi-bien-mai",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -3886,8 +3886,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -3937,8 +3937,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4002,8 +4002,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4051,8 +4051,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4119,8 +4119,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4167,8 +4167,8 @@
       "title": "Nước mắm Phú Quốc",
       "topic_type": "FOOD",
       "canonical_entity_id": "place_fish_sauce_house",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4248,8 +4248,8 @@
       "title": "Nhà thùng nước mắm",
       "topic_type": "FOOD",
       "canonical_entity_id": "place_fish_sauce_house",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PLACE_GUIDE",
       "research": {
         "claims": [
@@ -4329,8 +4329,8 @@
       "title": "Tiêu Phú Quốc",
       "topic_type": "FOOD",
       "canonical_entity_id": "place_pepper_garden",
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4429,8 +4429,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4477,8 +4477,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4552,8 +4552,8 @@
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "FOOD",
       "research": {
         "claims": [
@@ -4620,8 +4620,8 @@
         "access_ferry",
         "activity_tour_3_islands"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -4687,8 +4687,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": "access_airport_transfer",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -4739,8 +4739,8 @@
       "related_entity_ids": [
         "place_sunset_town"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -4793,8 +4793,8 @@
         "place_vinwonders",
         "place_vinpearl_safari"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -4868,8 +4868,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -4918,8 +4918,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -4978,8 +4978,8 @@
       "related_entity_ids": [
         "place_rach_vem"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5031,8 +5031,8 @@
       "related_entity_ids": [
         "place_ham_ninh"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5081,8 +5081,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5145,8 +5145,8 @@
         "utility_taxi_namthang",
         "utility_jotrip_local_service"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5249,8 +5249,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5307,8 +5307,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5365,8 +5365,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": "access_airport_transfer",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5449,8 +5449,8 @@
         "access_fast_boat",
         "access_ferry"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5512,8 +5512,8 @@
         "utility_vcb_atm_nguyen_trung_truc",
         "utility_vcb_atm_an_thoi"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5599,8 +5599,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5673,8 +5673,8 @@
       "topic_type": "PRACTICAL",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5744,8 +5744,8 @@
         "utility_longchau_ganh_dau",
         "utility_longchau_suoi_da"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5839,8 +5839,8 @@
         "utility_vinmec",
         "utility_vinmec_er"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5931,8 +5931,8 @@
         "utility_toilet_sunset_venice_67",
         "utility_toilet_sunset_venice_02"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -5991,8 +5991,8 @@
       "related_entity_ids": [
         "utility_parking_sunset_nightmarket"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -6046,8 +6046,8 @@
         "utility_fuel_my_anh_an_thoi",
         "utility_fuel_nhi_phung_ganh_dau"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -6134,8 +6134,8 @@
         "utility_minimart_homemart_an_thoi",
         "utility_minimart_cs68_sunset"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -6233,8 +6233,8 @@
         "utility_pqc_hotline",
         "utility_pqc_lost"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "PRACTICAL",
       "research": {
         "claims": [
@@ -6329,8 +6329,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": "place_gieng_tien",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LEGEND",
       "research": {
         "claims": [
@@ -6394,8 +6394,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": "place_dinh_cau",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LOCAL_BELIEF",
       "research": {
         "claims": [
@@ -6459,8 +6459,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LOCAL_BELIEF",
       "research": {
         "claims": [
@@ -6508,8 +6508,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LOCAL_BELIEF",
       "research": {
         "claims": [
@@ -6612,8 +6612,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DOCUMENTED_HISTORY",
       "research": {
         "claims": [
@@ -6677,8 +6677,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DISPUTED",
       "research": {
         "claims": [
@@ -6760,8 +6760,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "activity_tour_3_islands",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -6808,8 +6808,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "activity_big_game_fishing",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -6875,8 +6875,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "activity_squid_fishing",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -6923,8 +6923,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "activity_snorkeling_an_thoi",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -6971,8 +6971,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "activity_scuba",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -7019,8 +7019,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "place_night_market",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -7111,8 +7111,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "activity_hon_thom",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -7176,8 +7176,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "place_vinpearl_safari",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -7250,8 +7250,8 @@
       "topic_type": "ACTIVITY",
       "canonical_entity_id": "place_vinwonders",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -7327,8 +7327,8 @@
         "place_fish_sauce_house",
         "place_pepper_garden"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -7387,8 +7387,8 @@
         "place_teddy_bear_museum",
         "place_vinwonders"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY",
       "research": {
         "claims": [
@@ -7495,8 +7495,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DOCUMENTED_HISTORY",
       "research": {
         "claims": [
@@ -7792,8 +7792,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": "place_cua_can",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DOCUMENTED_HISTORY",
       "research": {
         "claims": [
@@ -7855,8 +7855,8 @@
         "place_aquatopia",
         "place_exotica"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LEGEND",
       "research": {
         "claims": [
@@ -7932,8 +7932,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LOCAL_EXPLANATION",
       "research": {
         "claims": [
@@ -8002,8 +8002,8 @@
       "related_entity_ids": [
         "place_gieng_tien"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DOCUMENTED_HISTORY",
       "research": {
         "claims": [
@@ -8088,8 +8088,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DOCUMENTED_HISTORY",
       "research": {
         "claims": [
@@ -8167,8 +8167,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LEGEND",
       "research": {
         "claims": [
@@ -8246,8 +8246,8 @@
       "related_entity_ids": [
         "place_gieng_tien"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LEGEND_COLLECTION",
       "research": {
         "claims": [
@@ -8341,8 +8341,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": "venue_phu_quoc_prison",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DOCUMENTED_HISTORY",
       "research": {
         "claims": [
@@ -8488,8 +8488,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DOCUMENTED_HISTORY",
       "research": {
         "claims": [
@@ -8574,8 +8574,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "DOCUMENTED_HISTORY",
       "research": {
         "claims": [
@@ -8668,8 +8668,8 @@
       "topic_type": "HISTORY_LORE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LIVELIHOOD_HISTORY",
       "research": {
         "claims": [
@@ -8773,8 +8773,8 @@
       "related_entity_ids": [
         "place_cua_can"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY_DECISION",
       "research": {
         "claims": [
@@ -8847,8 +8847,8 @@
         "place_bai_sao",
         "place_bai_khem"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY_DECISION",
       "research": {
         "claims": [
@@ -8935,8 +8935,8 @@
         "place_bai_truong",
         "place_dinh_cau"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY_DECISION",
       "research": {
         "claims": [
@@ -9015,8 +9015,8 @@
       "related_entity_ids": [
         "place_ham_ninh"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ACTIVITY_DECISION",
       "research": {
         "claims": [
@@ -9084,8 +9084,8 @@
       "topic_type": "MEMORY_CHANGE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "CHANGE_OVER_TIME",
       "research": {
         "claims": [
@@ -9171,8 +9171,8 @@
       "related_entity_ids": [
         "place_dinh_cau"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "CHANGE_OVER_TIME",
       "research": {
         "claims": [
@@ -9334,8 +9334,8 @@
       "topic_type": "MEMORY_CHANGE",
       "canonical_entity_id": "place_ham_ninh",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "CHANGE_OVER_TIME",
       "research": {
         "claims": [
@@ -9534,8 +9534,8 @@
         "place_vinwonders",
         "place_cua_can"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "CHANGE_OVER_TIME",
       "research": {
         "claims": [
@@ -9653,8 +9653,8 @@
       "topic_type": "MEMORY_CHANGE",
       "canonical_entity_id": "place_bai_truong",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "CHANGE_OVER_TIME",
       "research": {
         "claims": [
@@ -9806,8 +9806,8 @@
       "topic_type": "MEMORY_CHANGE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "CHANGE_OVER_TIME",
       "research": {
         "claims": [
@@ -9973,8 +9973,8 @@
       "topic_type": "MEMORY_CHANGE",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "LIVELIHOOD_CHANGE",
       "research": {
         "claims": [
@@ -10077,8 +10077,8 @@
         "place_ham_ninh",
         "place_dinh_cau"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "story_type": "ISLAND_DAILY_RHYTHM",
       "research": {
         "claims": [
