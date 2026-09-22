@@ -3222,8 +3222,7 @@
       "related_entity_ids": [
         "place_bai_truong",
         "place_bai_sao",
-        "place_bai_khem",
-        "place_cua_can"
+        "place_bai_khem"
       ],
       "status": "READY_INTERNAL",
       "public_ready": false,
@@ -3249,7 +3248,8 @@
       "crawl_brief": "Giờ, bờ Tây, cloud/weather dependency, travel buffer.",
       "canonical_entity_id": null,
       "related_entity_ids": [
-        "place_bai_truong"
+        "place_bai_truong",
+        "place_dinh_cau"
       ],
       "status": "READY_INTERNAL",
       "public_ready": false,
@@ -3275,8 +3275,7 @@
       "crawl_brief": "Giờ, khu vực, weather dependency, access.",
       "canonical_entity_id": null,
       "related_entity_ids": [
-        "place_ham_ninh",
-        "place_bai_khem"
+        "place_ham_ninh"
       ],
       "status": "READY_INTERNAL",
       "public_ready": false,
