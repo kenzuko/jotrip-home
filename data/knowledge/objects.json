@@ -7836,6 +7836,244 @@
         ]
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_105_nguon-goc-ten-hon-thom",
+      "number": 105,
+      "title": "Nguồn gốc tên Hòn Thơm",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "activity_hon_thom",
+        "place_aquatopia",
+        "place_exotica"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LEGEND",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn Visit Phu Quoc ghi nhận các câu chuyện truyền miệng cho rằng tên Hòn Thơm có thể gắn với hương thơm của hoa dại, cây trái rừng trên đảo; đồng thời cũng nêu một cách kể khác liên hệ với mùi đặc trưng của hải sản và tảo biển.",
+            "source_ids": [
+              "visitpq_hon_thom_history"
+            ],
+            "verification_status": "VERIFIED_AS_RECORDED_FOLKLORE",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nguồn điểm đến chính thức xác nhận Hòn Thơm là đảo lớn nhất trong quần đảo An Thới, nhưng không cung cấp sử liệu sơ cấp để xác định một nguồn gốc tên gọi duy nhất.",
+            "source_ids": [
+              "visitpq_hon_thom_current",
+              "dulichpq_hon_thom"
+            ],
+            "verification_status": "VERIFIED_WITH_LIMITATION",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_hon_thom_history",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Lịch sử Hòn Thơm và hành trình khám phá đảo Ngọc năng động",
+            "url": "https://visitphuquoc.com.vn/vi/lich-su-hon-thom-va-hanh-trinh-kham-pha-dao-ngoc-nang-dong-14448",
+            "published_at": "2026-08",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_hon_thom_current",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Hòn Thơm",
+            "url": "https://visitphuquoc.com.vn/vi/hon-thom-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "dulichpq_hon_thom",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Cổng thông tin du lịch Phú Quốc - Hòn Thơm",
+            "url": "https://dulich.phuquoc.gov.vn/vi/honthom",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có sử liệu hoặc nghiên cứu địa danh học xác nhận một cách giải thích duy nhất về tên Hòn Thơm.",
+          "Không kể giả thuyết 'hương hoa/cây trái' hay 'mùi hải sản, tảo biển' như sự kiện lịch sử.",
+          "Cần tìm bản đồ/tài liệu cũ nếu muốn khóa mốc tên Hòn Thơm xuất hiện sớm nhất."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Tên Hòn Thơm hiện có vài cách kể dân gian chứ chưa có một lời giải thích lịch sử được chứng minh. Cách kể phổ biến nhất gắn chữ “thơm” với hương cây trái, hoa dại trên đảo; một dị bản khác lại gắn với mùi đặc trưng của biển và hải sản.",
+        "practical": "Khi kể cho khách, nên mở đầu bằng 'người địa phương có vài cách kể' thay vì 'Hòn Thơm được đặt tên vì...'.",
+        "expectation_vs_reality": "Tên gọi nghe như có một câu chuyện rất rõ, nhưng nguồn hiện nay chỉ đủ để ghi nhận các dị bản dân gian. Phần chắc chắn hơn là Hòn Thơm đã là địa danh lâu đời trong quần đảo An Thới.",
+        "before_you_go": [
+          "Không biến một dị bản truyền miệng thành lịch sử.",
+          "Nếu dùng trong bài khám phá đảo, đặt phần tên gọi ở khung 'chuyện kể địa phương'."
+        ],
+        "curiosity_questions": [
+          "Tên Hòn Thơm xuất hiện sớm nhất trên bản đồ nào?",
+          "Trong ký ức ngư dân An Thới, cách kể nào về tên Hòn Thơm phổ biến nhất?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_106_nguon-goc-ten-hon-mong-tay",
+      "number": 106,
+      "title": "Nguồn gốc tên Hòn Móng Tay",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LOCAL_EXPLANATION",
+      "research": {
+        "claims": [
+          {
+            "claim": "Cơ sở dữ liệu ngành Du lịch Việt Nam giải thích tên Hòn Móng Tay xuất phát từ cây móng tay, còn được gọi là sơn hải tùng, từng mọc nhiều trên đảo.",
+            "source_ids": [
+              "vietnamtourism_hon_mong_tay"
+            ],
+            "verification_status": "VERIFIED_AS_OFFICIAL_TOURISM_EXPLANATION",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Visit Phu Quoc cũng ghi nhận cách giải thích tên gọi từ loài cây móng tay từng phổ biến trên đảo, nhưng dùng cách diễn đạt 'được cho là', cho thấy đây chưa phải kết luận địa danh học từ sử liệu sơ cấp.",
+            "source_ids": [
+              "visitpq_hon_mong_tay_origin"
+            ],
+            "verification_status": "CORROBORATED_OFFICIAL_NARRATIVE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vietnamtourism_hon_mong_tay",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Cơ sở dữ liệu ngành Du lịch - Hòn Móng Tay",
+            "url": "https://csdl.vietnamtourism.gov.vn/dest/?item=693",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_hon_mong_tay_origin",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Hòn Móng Tay Phú Quốc mùa nào đẹp để du lịch trọn vẹn",
+            "url": "https://visitphuquoc.com.vn/vi/hon-mong-tay-phu-quoc-mua-nao-dep-de-du-lich-tron-ven-15015",
+            "published_at": "2026-08",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có nghiên cứu thực vật/địa danh học xác nhận lịch sử phân bố của cây móng tay trên đảo ở thời điểm tên địa danh hình thành.",
+          "Tên 'sơn hải tùng' cần kiểm tra thực vật học riêng trước khi dùng để mô tả loài chi tiết.",
+          "Chưa khóa được mốc sớm nhất tên Hòn Móng Tay xuất hiện trên bản đồ hoặc hải đồ."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Cách giải thích được các nguồn du lịch chính thức lặp lại là Hòn Móng Tay mang tên một loài cây từng mọc nhiều trên đảo, thường được gọi là cây móng tay hoặc sơn hải tùng.",
+        "practical": "Có thể dùng cách giải thích này trong nội dung cho khách, nhưng nên giữ chữ 'được cho là' vì hiện chưa có nghiên cứu địa danh học hay thực vật học đủ mạnh để biến nó thành kết luận tuyệt đối.",
+        "expectation_vs_reality": "Tên đảo không được các nguồn chính thức giải thích theo hình dáng giống móng tay. Cách kể hiện hành lại gắn với một loài cây từng phổ biến trên đảo.",
+        "before_you_go": [
+          "Không khẳng định khách hôm nay vẫn dễ dàng thấy cây móng tay trên đảo.",
+          "Không suy tên gọi từ hình dạng đảo nếu không có nguồn."
+        ],
+        "curiosity_questions": [
+          "Cây móng tay trên đảo thực chất là loài nào?",
+          "Tên Hòn Móng Tay có trên hải đồ từ thời điểm nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_108_nguyen-anh-tai-phu-quoc",
+      "number": 108,
+      "title": "Nguyễn Ánh tại Phú Quốc",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_gieng_tien"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Bảo tàng Lịch sử Quốc gia dẫn Đại Nam thực lục cho biết sau thất bại năm 1782 Nguyễn Phúc Ánh chạy ra Phú Quốc; năm 1783, sau khi thoát vòng vây ở Côn Lôn, ông lại trở về Phú Quốc.",
+            "source_ids": [
+              "vnmh_nguyen_anh_phu_quoc"
+            ],
+            "verification_status": "VERIFIED_HISTORICAL_RECORD",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Cục Văn thư và Lưu trữ Nhà nước cho biết việc Nguyễn Ánh và gia quyến từng lưu trú, bôn tẩu tại Phú Quốc có cơ sở lịch sử; Châu bản triều Nguyễn xác nhận một hoàng tử con Gia Long từng được chôn tại thôn An Hòa, Phú Quốc và được cải táng về Huế năm 1862.",
+            "source_ids": [
+              "archives_hoangtu_phuquoc"
+            ],
+            "verification_status": "VERIFIED_PRIMARY_RECORD_REFERENCE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Các chuyện Giếng Tiên, Bãi Ngự, Ngai vua và Mũi Ông Đội là lớp giai thoại dân gian gắn với giai đoạn Nguyễn Ánh ở Phú Quốc, không phải mọi chi tiết đều được sử liệu xác nhận.",
+            "source_ids": [
+              "archives_hoangtu_phuquoc",
+              "pqgov_giai_thoai_truyen_thuyet"
+            ],
+            "verification_status": "FOLKLORE_SEPARATED_FROM_HISTORY",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vnmh_nguyen_anh_phu_quoc",
+            "source_type": "NATIONAL_MUSEUM",
+            "label": "Bảo tàng Lịch sử Quốc gia - Theo dấu người xưa: Chúa Nguyễn ở Phú Quốc",
+            "url": "https://baotanglichsu.vn/vi/Articles/3096/13541/theo-dau-nguoi-xua-ky-29-ngoi-chua-cua-an-nhan-chua-nguyen.html",
+            "published_at": "2013-01-22",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "archives_hoangtu_phuquoc",
+            "source_type": "NATIONAL_ARCHIVES",
+            "label": "Cục Văn thư và Lưu trữ Nhà nước - Ngôi mộ và miếu Hoàng tử ở đảo Phú Quốc từ truyền thuyết đến hiện thực qua tài liệu Châu bản",
+            "url": "https://www.archives.org.vn/gioi-thieu-tai-lieu-nghiep-vu/ngoi-mo-va-mieu-hoang-tu-o-dao-phu-quoc-tu-truyen-thuyet-den-hien-thuc-qua-tai-lieu-chau-ban.htm",
+            "published_at": "2018-12-12",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pqgov_giai_thoai_truyen_thuyet",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Những giai thoại, truyền thuyết trên đảo ngọc Phú Quốc",
+            "url": "https://phuquoc.angiang.gov.vn/nhung-giai-thoai-truyen-thuyet-tren-dao-ngoc-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không gom tất cả giai thoại Nguyễn Ánh ở Phú Quốc thành một timeline lịch sử duy nhất.",
+          "Các mốc di chuyển năm 1782-1783 cần giữ đúng theo nguồn sử liệu, không thay bằng mốc truyền miệng.",
+          "Chi tiết Giếng Tiên, dấu kiếm, ghế ngự, cá cơm và Mũi Ông Đội phải giữ nhãn truyền thuyết/giai thoại trừ khi có sử liệu riêng xác nhận."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nguyễn Ánh không chỉ xuất hiện trong truyền thuyết Phú Quốc. Sử liệu cho thấy ông thực sự nhiều lần chạy ra đảo trong các năm 1782-1783 khi bị quân Tây Sơn truy đuổi. Từ giai đoạn có thật ấy, người dân về sau lưu truyền thêm nhiều câu chuyện về Giếng Tiên, Bãi Ngự, Mũi Ông Đội và những dấu tích quanh Nam đảo.",
+        "practical": "Khi kể cho khách nên chia câu chuyện thành hai lớp rất rõ: 'sử liệu xác nhận Nguyễn Ánh từng bôn tẩu và lưu trú ở Phú Quốc' và 'giai thoại địa phương kể thêm những sự việc xảy ra tại từng điểm'.",
+        "expectation_vs_reality": "Không phải mọi dấu tích gắn tên Gia Long trên đảo đều có giá trị chứng cứ như nhau. Châu bản về mộ Hoàng tử là bằng chứng lưu trữ mạnh; chuyện cắm kiếm làm bật nước ngọt ở Giếng Tiên là truyền thuyết.",
+        "before_you_go": [
+          "Dùng mốc 1782-1783 theo nguồn sử liệu khi kể timeline cơ bản.",
+          "Gắn nhãn truyền thuyết cho Giếng Tiên, Mũi Ông Đội và các dấu vết dân gian.",
+          "Không dùng câu chuyện Phi Yến - Hoàng tử Cải như lịch sử Phú Quốc; tài liệu lưu trữ chỉ ra hoàng tử được chôn trên đảo là Hoàng tử Nhật."
+        ],
+        "curiosity_questions": [
+          "Vì sao Phú Quốc trở thành nơi Nguyễn Ánh nhiều lần tìm đến khi bị truy đuổi?",
+          "Dấu tích nào về Nguyễn Ánh trên đảo có sử liệu, dấu tích nào chỉ còn trong truyền thuyết?",
+          "Châu bản năm 1862 đã giúp sửa lại câu chuyện dân gian về ngôi mộ Hoàng tử như thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
