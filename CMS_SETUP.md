@@ -15,7 +15,7 @@ Create a **Pages** project, not a Worker project.
 
 - Repository: `kenzuko/jotrip-home`
 - Production branch: `main`
-- Build command: `node scripts/build-cloudflare.mjs`
+- Build command: `node scripts/build-cloudflare.mjs` (automatically rebuilds the public knowledge view and search index; no extra build commands needed).
 - Build output directory: `dist`
 - Root directory: blank
 
