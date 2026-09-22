@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-21T21:30:00+07:00",
+  "generated_at": "2026-09-22T01:09:53.370Z",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -267,7 +267,20 @@
         "activity_hon_thom"
       ],
       "route": "/places/detail.html?id=aquatopia",
-      "search_text": "aquatopia water park waterpark family waterpark family waterpark family cong vien nuoc tren hon thom voi hon 20 tro va khu gia dinh. tro truot nuoc · khu gia dinh · nghi giua ngay nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
+      "search_text": "aquatopia water park waterpark family waterpark family waterpark family cong vien nuoc tren hon thom voi hon 20 tro va khu gia dinh. tro truot nuoc · khu gia dinh · nghi giua ngay aquatopia water park, hon thom, an thoi, phu quoc, an giang, viet nam nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
+    },
+    {
+      "id": "utility_vcb_atm_hung_vuong",
+      "type": "utility",
+      "title": "ATM Vietcombank - 1A Hùng Vương",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "atm vietcombank - 1a hung vuong diem atm/rut tien atm 1a hung vuong, khu pho 1 duong dong, dac khu phu quoc, an giang"
     },
     {
       "id": "hotel_avs_hotel_phu_quoc",
@@ -330,6 +343,21 @@
       "search_text": "bach duong resort stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973999565 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 13 ly thuong kiet, kp5, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "utility_parking_sunset_nightmarket",
+      "type": "utility",
+      "title": "Bãi gửi xe khu chợ đêm Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "route": "/utilities/#directory",
+      "search_text": "bai gui xe khu cho dem sunset town diem/bai gui xe bai do khu cho dem sunset town, an thoi, dac khu phu quoc, an giang"
+    },
+    {
       "id": "place_bai_khem",
       "type": "place",
       "title": "Bãi Khem",
@@ -343,7 +371,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=bai-khem",
-      "search_text": "bai khem beach resort beach resort beach resort vinh cat sang gan voi cac resort cao cap tam bien · nghi duong quyen tiep can va tien ich tuy loi vao/resort"
+      "search_text": "bai khem beach resort beach resort beach resort vinh cat sang gan voi cac resort cao cap tam bien · nghi duong bai khem, an thoi, phu quoc, an giang, viet nam quyen tiep can va tien ich tuy loi vao/resort"
     },
     {
       "id": "stay_area_bai_khem",
@@ -375,7 +403,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=bai-sao",
-      "search_text": "bai sao beach family beach family beach family bai tam de tiep can o nam dao tam bien · an uong · nghi bai khong co ve chung; dich vu tinh rieng"
+      "search_text": "bai sao beach family beach family beach family bai tam de tiep can o nam dao tam bien · an uong · nghi bai bai sao, an thoi, phu quoc, an giang, viet nam khong co ve chung; dich vu tinh rieng"
     },
     {
       "id": "place_bai_truong",
@@ -391,7 +419,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=bai-truong",
-      "search_text": "bai truong beach sunset beach sunset beach sunset dai bo tay dai, thuan nghi duong va ngam hoang hon tam bien · beach club · ngam hoang hon khong co ve chung; chi phi tuy co so"
+      "search_text": "bai truong beach sunset beach sunset beach sunset dai bo tay dai, thuan nghi duong va ngam hoang hon tam bien · beach club · ngam hoang hon duong tran hung dao, phu quoc, an giang, viet nam khong co ve chung; chi phi tuy co so"
     },
     {
       "id": "stay_area_bai_truong",
@@ -699,6 +727,26 @@
       "search_text": "cang hang khong quoc te phu quoc duong day nong san bay 02973 848 486"
     },
     {
+      "id": "practical_sea_transport_modes",
+      "type": "practical",
+      "title": "Cano - tàu cao tốc - phà khác nhau thế nào?",
+      "aliases": [
+        "cano vs fast boat vs ferry",
+        "cách phân biệt cano tàu cao tốc phà"
+      ],
+      "zone_id": null,
+      "intents": [
+        "practical",
+        "transport",
+        "sea"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=Cano%20-%20t%C3%A0u%20cao%20t%E1%BB%91c%20-%20ph%C3%A0%20kh%C3%A1c%20nhau%20th%E1%BA%BF%20n%C3%A0o%3F#search",
+      "search_text": "cano - tau cao toc - pha khac nhau the nao? cano vs fast boat vs ferry cach phan biet cano tau cao toc pha practical transport sea giai thich ba nhom phuong tien bien thuong bi goi lan khi di phu quoc."
+    },
+    {
       "id": "activity_hon_thom",
       "type": "activity",
       "title": "Cáp treo Hòn Thơm",
@@ -775,6 +823,19 @@
       "search_text": "cap cuu vinmec duong day cap cuu 24/24 - nen kiem tra lai neu khong ket noi duoc 02973 98 55 11 y te"
     },
     {
+      "id": "utility_vinmec_phuquoc_emergency",
+      "type": "utility",
+      "title": "Cấp cứu Vinmec Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "cap cuu vinmec phu quoc co so y te 02973 98 55 11 y te khu bai dai, dac khu phu quoc, an giang"
+    },
+    {
       "id": "utility_115",
       "type": "utility",
       "title": "Cấp cứu y tế",
@@ -826,7 +887,7 @@
         "activity_kiss_of_the_sea"
       ],
       "route": "/places/detail.html?id=kiss-bridge",
-      "search_text": "cau hon kiss bridge cau hon architecture sunset evening couple sunset architecture evening couple sunset first-time diem tham quan tai sunset town, ban ve rieng va phu hop nhat khi ghep voi cuoi chieu - buoi toi. ngam canh, kien truc va hoang hon truoc khi noi sang bua toi hoac show. gia dong - kiem tra kenh chinh thuc trong ngay"
+      "search_text": "cau hon kiss bridge cau hon architecture sunset evening couple sunset architecture evening couple sunset first-time diem tham quan tai sunset town, ban ve rieng va phu hop nhat khi ghep voi cuoi chieu - buoi toi. ngam canh, kien truc va hoang hon truoc khi noi sang bua toi hoac show. cau hon, sunset town, an thoi, phu quoc, an giang, viet nam gia dong - kiem tra kenh chinh thuc trong ngay"
     },
     {
       "id": "activity_squid_fishing",
@@ -843,6 +904,19 @@
       "related_entities": [],
       "route": "/places/detail.html?id=squid-fishing",
       "search_text": "cau muc dem fishing evening fishing evening fishing evening ra bien cuoi chieu/buoi toi, bat den va thu cau muc theo dieu kien thuc te. ngam hoang hon · cau muc · an toi tuy tour theo tour/don vi van hanh"
+    },
+    {
+      "id": "utility_fuel_my_anh_an_thoi",
+      "type": "utility",
+      "title": "Cây xăng Mỹ Anh",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "cay xang my anh diem ban le xang dau 0913 944 422 xang dau duong nguyen van cu, an thoi, dac khu phu quoc, an giang"
     },
     {
       "id": "hotel_chensea",
@@ -864,6 +938,59 @@
       "search_text": "chensea stay hotel north ong-lang 2-sao khach san nghi duong 2 sao tai ong lang - cua can. 02973995896 ong lang - cua can 2 sao dang hoat dong - trong sdl 27/07/2026 active bai xep, ap ong lang, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "lore_curiosity_dog_tree",
+      "type": "lore",
+      "title": "Chó Phú Quốc có thật sự biết leo cây?",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "lore",
+        "curiosity"
+      ],
+      "related_entities": [],
+      "route": "/stories/",
+      "search_text": "cho phu quoc co that su biet leo cay? tieu chuan vka 2023 ghi ro cho xoay phu quoc khong so do cao, leo treo va nhay cao rat tot. dieu do xac nhan kha nang leo treo cua giong, nhung khong co nghia moi ca the deu biet “leo cay”. oral_history"
+    },
+    {
+      "id": "culture_phu_quoc_dog",
+      "type": "culture",
+      "title": "Chó Xoáy Phú Quốc",
+      "aliases": [
+        "Chó Phú Quốc",
+        "Phu Quoc Ridgeback"
+      ],
+      "zone_id": null,
+      "intents": [
+        "culture",
+        "local-life",
+        "nature"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=Ch%C3%B3%20Xo%C3%A1y%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "search_text": "cho xoay phu quoc cho phu quoc phu quoc ridgeback culture local-life nature giong cho ban dia gan voi phu quoc, noi bat voi dai long moc nguoc tren lung va lich su cho san."
+    },
+    {
+      "id": "place_duong_dong_market",
+      "type": "place",
+      "title": "Chợ Dương Đông",
+      "aliases": [
+        "Dương Đông Market"
+      ],
+      "zone_id": "zone_central_west",
+      "intents": [
+        "food",
+        "local-life",
+        "practical"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/places/detail.html?id=cho-duong-dong",
+      "search_text": "cho duong dong duong dong market market local-life food food local-life practical local-life food cho truyen thong ben song duong dong, phuc vu ca nhu cau dia phuong va du khach. quan sat nhip cho dia phuong, hai san tuoi/kho va cac san vat cua dao. cho duong dong, duong ngo quyen, duong dong, phu quoc, an giang, viet nam khong co ve vao cho; gia hang hoa theo sap va thoi diem."
+    },
+    {
       "id": "place_night_market",
       "type": "place",
       "title": "Chợ đêm Dương Đông",
@@ -877,7 +1004,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=night-market",
-      "search_text": "cho dem duong dong food evening food evening food evening khu an uong va mua sam buoi toi an toi · di bo · thu mon theo quan/mon"
+      "search_text": "cho dem duong dong food evening food evening food evening khu an uong va mua sam buoi toi an toi · di bo · thu mon 54 nguyen trai, duong dong, phu quoc, an giang, viet nam theo quan/mon"
     },
     {
       "id": "place_ho_quoc",
@@ -893,7 +1020,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=ho-quoc",
-      "search_text": "chua ho quoc culture viewpoint culture viewpoint culture viewpoint diem van hoa - tam linh va goc nhin bien phia dong nam tham quan · ngam canh khong co ve chung"
+      "search_text": "chua ho quoc culture viewpoint culture viewpoint culture viewpoint diem van hoa - tam linh va goc nhin bien phia dong nam tham quan · ngam canh 426h+2hj, thien vien truc lam ho quoc, duong to, phu quoc, an giang, viet nam khong co ve chung"
     },
     {
       "id": "hotel_coco_palm_beach_resort_spa",
@@ -1035,6 +1162,21 @@
       "search_text": "crowne plaza phu quoc starbay stay hotel north bai-dai ganh-dau 5-sao khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973683999 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active kdl bai dai, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "utility_minimart_cs68_sunset",
+      "type": "utility",
+      "title": "CS68 - Cửa hàng tiện lợi Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "route": "/utilities/#directory",
+      "search_text": "cs68 - cua hang tien loi sunset town cua hang tien loi va nhu yeu pham 0915 757 782 cua hang tien loi sorento 2, sunset town, dac khu phu quoc, an giang"
+    },
+    {
       "id": "hotel_cty_cp_du_lich_va_phat_trien_ba_keo",
       "type": "hotel",
       "title": "Cty CP du lịch và phát triển Bà Kèo",
@@ -1065,7 +1207,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=cua-can",
-      "search_text": "cua can river local-life river local-life river local-life nhip song, nha ven bo, kayak/thuyen thung kayak · thuyen thung · an dia phuong tuy dich vu dia phuong"
+      "search_text": "cua can river local-life river local-life river local-life nhip song, nha ven bo, kayak/thuyen thung kayak · thuyen thung · an dia phuong cua can, phu quoc, an giang, viet nam tuy dich vu dia phuong"
     },
     {
       "id": "stay_area_cua_can",
@@ -1081,6 +1223,19 @@
       "related_entities": [],
       "route": "/guide/?q=C%E1%BB%ADa%20C%E1%BA%A1n#search",
       "search_text": "cua can trai nghiem nhe trai nghiem nhe song, rung, dia phuong thuyen thung · canh ven song"
+    },
+    {
+      "id": "utility_fuel_nhi_phung_ganh_dau",
+      "type": "utility",
+      "title": "Cửa hàng bán lẻ xăng dầu Nhi Phụng",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "cua hang ban le xang dau nhi phung diem ban le xang dau xang dau thua dat 43, to ban do 12, ap ganh dau, dac khu phu quoc, an giang"
     },
     {
       "id": "utility_114",
@@ -1127,7 +1282,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=dinh-cau",
-      "search_text": "dinh cau culture sunset culture sunset culture sunset khong gian tin nguong cua cu dan bien o cua song duong dong tham quan · ngam cua song · ngam chieu mien phi"
+      "search_text": "dinh cau culture sunset culture sunset culture sunset khong gian tin nguong cua cu dan bien o cua song duong dong tham quan · ngam cua song · ngam chieu khu pho 2, duong dong, phu quoc, an giang 92500, viet nam mien phi"
     },
     {
       "id": "culture_dinh_cau_belief",
@@ -1194,6 +1349,19 @@
       "related_entities": [],
       "route": "/guide/?q=D%C6%B0%C6%A1ng%20%C4%90%C3%B4ng#search",
       "search_text": "duong dong khach lan dau khach lan dau trung tam, nhon nhip an uong · cho dem · de goi xe"
+    },
+    {
+      "id": "story_duong-dong-sau-5-gio",
+      "type": "story",
+      "title": "Dương Đông sau 5 giờ chiều",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "story"
+      ],
+      "related_entities": [],
+      "route": "/stories/article.html?id=duong-dong-sau-5-gio",
+      "search_text": "duong dong sau 5 gio chieu khi nang bot gat, duong dong doi nhip. cho, do an, bo bien va nhung con duong quanh dinh cau bat dau dong len - mot phu quoc khac voi buoi trua. neu ban ngay phu quoc keo nguoi ta ra bien, buoi toi duong dong lai keo moi thu tro ve gan nhau. duong dong · buoi toi"
     },
     {
       "id": "booking_channel_dmc",
@@ -1491,7 +1659,7 @@
         "activity_hon_thom"
       ],
       "route": "/places/detail.html?id=exotica",
-      "search_text": "exotica village thrill theme-park thrill theme-park thrill theme-park cum tro kho/cam giac manh tren hon thom. moc xa thinh no · mat dai bang nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
+      "search_text": "exotica village thrill theme-park thrill theme-park thrill theme-park cum tro kho/cam giac manh tren hon thom. moc xa thinh no · mat dai bang exotica village, hon thom, an thoi, phu quoc, an giang, viet nam nam trong ve cap hon thom theo cau hinh ve ngay hien hanh"
     },
     {
       "id": "hotel_e_den",
@@ -1696,6 +1864,24 @@
       "related_entities": [],
       "route": "/guide/?q=G%C3%A0nh%20D%E1%BA%A7u#search",
       "search_text": "ganh dau gia dinh di safari/vinwonders gia dinh di safari/vinwonders to hop nghi va choi gan cum bac dao"
+    },
+    {
+      "id": "food_ghe_ham_ninh",
+      "type": "food",
+      "title": "Ghẹ Hàm Ninh",
+      "aliases": [
+        "Hàm Ninh flower crab"
+      ],
+      "zone_id": "zone_east",
+      "intents": [
+        "food",
+        "local-life"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/food/article.html?id=ghe-ham-ninh",
+      "search_text": "ghe ham ninh ham ninh flower crab food local-life food local-life dac san hai san gan voi ham ninh va co nhan hieu tap the; khong nen mac dinh moi ghe ban tai ham ninh deu thuoc cung nguon/nhan hieu. thuong thuc kieu che bien don gian de cam nhan vi ghe, dong thoi hieu cau chuyen nghe khai thac ven bien ham ninh."
     },
     {
       "id": "stay_match_family",
@@ -1955,6 +2141,40 @@
       "search_text": "gia tham khao vinwonders + safari - combo 2 ngay gia vinwonders + safari vinwonders + safari price combo 2 ngay price ticket booking combo 2 ngay 1.700.000d · 1.300.000d"
     },
     {
+      "id": "place_gieng_tien",
+      "type": "place",
+      "title": "Giếng Tiên",
+      "aliases": [
+        "Giếng Ngự",
+        "Giếng Gia Long"
+      ],
+      "zone_id": "zone_south",
+      "intents": [
+        "history",
+        "culture",
+        "local-life"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/places/detail.html?id=gieng-tien",
+      "search_text": "gieng tien gieng ngu gieng gia long history lore nature history culture local-life history lore mach nuoc ngot trong khu vuc an thoi gan voi truyen thuyet dan gian ve nguyen anh. doc mot dia diem that qua hai lop: dia hinh - mach nuoc va truyen thuyet dia phuong. gieng tien, mui ong doi, an thoi, phu quoc, an giang, viet nam chua xac minh"
+    },
+    {
+      "id": "lore_curiosity_gieng_tien",
+      "type": "lore",
+      "title": "Giếng Tiên là lịch sử hay truyền thuyết?",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "lore",
+        "curiosity"
+      ],
+      "related_entities": [],
+      "route": "/stories/",
+      "search_text": "gieng tien la lich su hay truyen thuyet? cong du lich phu quoc gioi thieu noi nay bang chinh cum “su tich gieng tien”. vi vay cau chuyen nen duoc giu o lop truyen thuyet, khong nang thanh su kien lich su da duoc chung minh. legend"
+    },
+    {
       "id": "food_goi_ca_trich",
       "type": "food",
       "title": "Gỏi cá trích",
@@ -1989,6 +2209,24 @@
       "search_text": "golden daisy hotel & spa stay hotel central_west duong-dong khach san tai duong dong. 0986102080 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 7, tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "utility_grab_phuquoc",
+      "type": "utility",
+      "title": "Grab tại Phú Quốc",
+      "aliases": [
+        "Grab",
+        "GrabCar",
+        "GrabCar Premium",
+        "GrabCar Tiết Kiệm"
+      ],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "grab tai phu quoc grab grabcar grabcar premium grabcar tiet kiem dat xe truc tiep tren ung dung grab taxi & xe"
+    },
+    {
       "id": "place_grand_world",
       "type": "place",
       "title": "Grand World Phú Quốc",
@@ -2000,9 +2238,13 @@
       ],
       "star_rating": null,
       "operational_status": null,
-      "related_entities": [],
+      "related_entities": [
+        "place_teddy_bear_museum",
+        "activity_tinh_hoa_viet_nam",
+        "activity_sac_mau_venice"
+      ],
       "route": "/places/detail.html?id=grand-world",
-      "search_text": "grand world phu quoc evening entertainment evening entertainment evening entertainment khu pho mo, kenh venice, bao tang, show dao pho · gondola · teddy bear museum · tinh hoa viet nam · sac mau venice vao khu pho mien phi; trai nghiem/show ban rieng"
+      "search_text": "grand world phu quoc evening entertainment evening entertainment evening entertainment khu pho mo, kenh venice, bao tang, show dao pho · gondola · teddy bear museum · tinh hoa viet nam · sac mau venice grand world, khu bai dai, ganh dau, phu quoc, an giang, viet nam vao khu pho mien phi; trai nghiem/show ban rieng"
     },
     {
       "id": "hotel_green_bay",
@@ -2027,6 +2269,24 @@
       "related_entities": [],
       "route": "/hotels/?hotel=green-bay",
       "search_text": "green bay phu quoc resort & spa green bay greenbay resort stay hotel united-center yen-tinh nghi-dai central_west 5-sao united center yen tinh nghi dai khach san nghi duong 5 sao tai khac / can ra. 02973900004; 0963591459 khac / can ra 5 sao dang hoat dong - trong sdl 27/07/2026 active to 1, ap 4, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "utility_taxi_xanhsm",
+      "type": "utility",
+      "title": "Green SM (Xanh SM)",
+      "aliases": [
+        "Xanh SM",
+        "Green SM",
+        "taxi điện",
+        "1555"
+      ],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "green sm (xanh sm) xanh sm green sm taxi dien 1555 dat qua app green sm hoac hotline 1555 1555 taxi & xe"
     },
     {
       "id": "hotel_green_tree",
@@ -2062,6 +2322,27 @@
       "related_entities": [],
       "route": "/hotels/?hotel=halona",
       "search_text": "halona stay hotel central_west khach san tai khac / can ra. 02973980678; 0939601579 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 66 tran phu, kp3, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "place_ham_ninh",
+      "type": "place",
+      "title": "Hàm Ninh",
+      "aliases": [
+        "Làng chài Hàm Ninh"
+      ],
+      "zone_id": null,
+      "intents": [
+        "local-life",
+        "food",
+        "culture"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "food_ghe_ham_ninh"
+      ],
+      "route": "/places/detail.html?id=ham-ninh",
+      "search_text": "ham ninh lang chai ham ninh village local-life seafood local-life food culture local-life food khu dan cu ven bien phia dong phu quoc gan lau dai voi nghe khai thac hai san va hoat dong lang chai. doc nhip song ven bien, an hai san va hieu mot lop nghe bien phia dong dao. 52jv+6xx, tl47, rach ham, phu quoc, an giang, viet nam khong co ve chung; an uong/dich vu tinh rieng."
     },
     {
       "id": "utility_pqc_lost",
@@ -2131,6 +2412,19 @@
       "related_entities": [],
       "route": "/hotels/?hotel=home-park",
       "search_text": "home park stay hotel central_west duong-dong 3-sao khach san 3 sao tai duong dong. 0353961512; 0977509171 duong dong 3 sao dang hoat dong - trong sdl 27/07/2026 active 124 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "utility_minimart_homemart_an_thoi",
+      "type": "utility",
+      "title": "HomeMart - Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "homemart - nguyen van cu cua hang tien loi va nhu yeu pham 0932 811 123 cua hang tien loi 334 nguyen van cu, an thoi, dac khu phu quoc, an giang"
     },
     {
       "id": "hotel_homestead_phu_quoc_resort",
@@ -2298,6 +2592,23 @@
       "related_entities": [],
       "route": "/hotels/?hotel=jmo-boutique-hotel-spa-phu-quoc",
       "search_text": "jmo boutique hotel & spa phu quoc stay hotel central_west bai-truong khach san tai bai truong - duong bao. bai truong - duong bao chua xac dinh moi 2026 - chua co trong sdl 27/07/2026 active_new_not_in_sdl b2-204 waterfront, bim group, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "utility_jotrip_local_service",
+      "type": "utility",
+      "title": "JoTrip - dịch vụ trọn gói tại Phú Quốc",
+      "aliases": [
+        "JoTrip",
+        "xe riêng Phú Quốc",
+        "tour trọn gói Phú Quốc"
+      ],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "jotrip - dich vu tron goi tai phu quoc jotrip xe rieng phu quoc tour tron goi phu quoc xe rieng, don tien, tour, ve va ho tro lich trinh tai phu quoc +84 817 060 067 dich vu dia phuong"
     },
     {
       "id": "hotel_jw_marriott",
@@ -2700,6 +3011,23 @@
       "search_text": "m resort stay hotel central_west khach san nghi duong tai cua lap - ba keo. 02972210555 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 4, ap cua lap, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "utility_taxi_mailinh",
+      "type": "utility",
+      "title": "Mai Linh Phú Quốc",
+      "aliases": [
+        "Mai Linh",
+        "taxi Mai Linh",
+        "1055"
+      ],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "mai linh phu quoc mai linh taxi mai linh 1055 taxi mai linh tai phu quoc 0297 3 979 797 taxi & xe"
+    },
+    {
       "id": "hotel_maison_du_vietnam_resort_spa",
       "type": "hotel",
       "title": "Maison Du Vietnam Resort & Spa",
@@ -2894,6 +3222,19 @@
       "search_text": "moxy phu quoc hon thom stay hotel sap-khai-truong south hon-thom du an luu tru da cong bo tai hon thom, moc du kien q1/2027. hon thom chua xac dinh sap khai truong - chua nhan dat cho upcoming"
     },
     {
+      "id": "story_mot-nam-trong-nha-thung",
+      "type": "story",
+      "title": "Một năm trong nhà thùng",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "story"
+      ],
+      "related_entities": [],
+      "route": "/stories/article.html?id=mot-nam-trong-nha-thung",
+      "search_text": "mot nam trong nha thung nha thung co mot mui rat rieng. ca com, muoi, go va thoi gian nam canh nhau du lau de thanh thu nuoc mam ma nguoi phu quoc da lam qua nhieu the he. co nhung dac san chi can nem. nuoc mam phu quoc thi nen duoc nhin thay noi no duoc lam ra. nuoc mam · di san"
+    },
+    {
       "id": "itinerary_understand_island",
       "type": "itinerary",
       "title": "Một ngày hiểu Phú Quốc",
@@ -2907,6 +3248,19 @@
       "related_entities": [],
       "route": "/guide/?q=M%E1%BB%99t%20ng%C3%A0y%20hi%E1%BB%83u%20Ph%C3%BA%20Qu%E1%BB%91c#search",
       "search_text": "mot ngay hieu phu quoc itinerary dinh cau · nha thung · vuon tieu hoac nha vuon · bua trua dia phuong · lang ven bien hoac hoang hon duong dong"
+    },
+    {
+      "id": "story_mui-cay-cua-dat-do",
+      "type": "story",
+      "title": "Mùi cay của đất đỏ",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "story"
+      ],
+      "related_entities": [],
+      "route": "/stories/article.html?id=mui-cay-cua-dat-do",
+      "search_text": "mui cay cua dat do nhin tu ngoai, vuon tieu chi la nhung hang tru xanh noi nhau. buoc vao trong moi thay cai hay nam o dat do, nang, mua va mui cay bam lai tren dau ngon tay. nhieu nguoi mua tieu o phut cuoi truoc khi ra san bay. nhung muon nho mon qua nay lau hon, hay ghe noi no duoc trong. ho tieu · chat dao"
     },
     {
       "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
@@ -3130,6 +3484,74 @@
       "search_text": "nha thung nuoc mam culture craft culture craft culture craft noi co the nhin nghe u chuop nuoc mam bang thung go va nghe cau chuyen nghe dao. xem nha thung · nghe quy trinh u chuop · doc do dam/san pham thuong khong co ve chung; tuy co so"
     },
     {
+      "id": "utility_longchau_nguyen_trung_truc",
+      "type": "utility",
+      "title": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "nha thuoc long chau - 327 nguyen trung truc nha thuoc phuc vu nhu cau y te va thuoc thiet yeu 1800 6928 nha thuoc 327 nguyen trung truc, duong dong, dac khu phu quoc, an giang"
+    },
+    {
+      "id": "utility_longchau_tran_phu",
+      "type": "utility",
+      "title": "Nhà thuốc Long Châu - 42 Trần Phú",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "nha thuoc long chau - 42 tran phu nha thuoc phuc vu nhu cau y te va thuoc thiet yeu 1800 6928 nha thuoc 42 tran phu, duong dong, dac khu phu quoc, an giang"
+    },
+    {
+      "id": "utility_longchau_an_thoi",
+      "type": "utility",
+      "title": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "nha thuoc long chau - 46 nguyen van cu nha thuoc phuc vu nhu cau y te va thuoc thiet yeu 1800 6928 nha thuoc 46 nguyen van cu, an thoi, dac khu phu quoc, an giang"
+    },
+    {
+      "id": "utility_longchau_ganh_dau",
+      "type": "utility",
+      "title": "Nhà thuốc Long Châu - Gành Dầu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "nha thuoc long chau - ganh dau nha thuoc phuc vu nhu cau y te va thuoc thiet yeu 1800 6928 nha thuoc thua dat 19, ban do 12, gan cho ganh dau, dac khu phu quoc, an giang"
+    },
+    {
+      "id": "utility_longchau_suoi_da",
+      "type": "utility",
+      "title": "Nhà thuốc Long Châu - Suối Đá",
+      "aliases": [
+        "Long Châu Suối Đá",
+        "Nhà thuốc Long Châu Dương Tơ"
+      ],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "nha thuoc long chau - suoi da long chau suoi da nha thuoc long chau duong to nha thuoc long chau tai khu suoi da - duong to 1800 6928 nha thuoc ap suoi da, duong to (nga ba cho loan sang), dac khu phu quoc, an giang"
+    },
+    {
       "id": "hotel_nha_tranh_gia_vi",
       "type": "hotel",
       "title": "Nhà Tranh - Gia Vị",
@@ -3161,7 +3583,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=phu-quoc-prison",
-      "search_text": "nha tu phu quoc history culture history culture history culture di tich lich su gan voi ky uc chien tranh tham quan · doc tu lieu can kiem tra van hanh"
+      "search_text": "nha tu phu quoc history culture history culture history culture di tich lich su gan voi ky uc chien tranh tham quan · doc tu lieu 350 nguyen van cu, an thoi, phu quoc, an giang, viet nam can kiem tra van hanh"
     },
     {
       "id": "culture_prison",
@@ -3180,6 +3602,36 @@
       "search_text": "nha tu phu quoc - doc mot di tich, khong phai check-in culture local-life di tich can duoc doc bang boi canh, dau tich, hien vat va phan phuc dung."
     },
     {
+      "id": "utility_toilet_sunset_venice_02",
+      "type": "utility",
+      "title": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "route": "/utilities/#directory",
+      "search_text": "nha ve sinh cong cong - 02 venice, sunset town nha ve sinh cong cong nha ve sinh 02 duong venice, sunset town, dac khu phu quoc, an giang"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_67",
+      "type": "utility",
+      "title": "Nhà vệ sinh công cộng - 67 Venice, Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_sunset_town"
+      ],
+      "route": "/utilities/#directory",
+      "search_text": "nha ve sinh cong cong - 67 venice, sunset town nha ve sinh cong cong nha ve sinh 67 duong venice, sunset town, dac khu phu quoc, an giang"
+    },
+    {
       "id": "food_nhum",
       "type": "food",
       "title": "Nhum",
@@ -3194,6 +3646,19 @@
       "related_entities": [],
       "route": "/food/article.html?id=nhum",
       "search_text": "nhum food local-life food hai san nen chon theo do tuoi va cach che bien. nuong, mo hanh hoac che bien tuy quan."
+    },
+    {
+      "id": "story_nhung-doi-mat-tren-mui-ghe",
+      "type": "story",
+      "title": "Những đôi mắt trên mũi ghe",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "story"
+      ],
+      "related_entities": [],
+      "route": "/stories/article.html?id=nhung-doi-mat-tren-mui-ghe",
+      "search_text": "nhung doi mat tren mui ghe co nhung chi tiet nho nhin mot lan roi quen. co nhung chi tiet khien minh biet ngay day la mot chiec ghe cua mien bien phuong nam. mat ghe thuoc ve nhom thu hai. khong can bat dau bang mot truyen thuyet. chi can dung gan ben ca, nhin vao mui ghe va de y hai con mat duoc ve o do. nghe bien · local note"
     },
     {
       "id": "hotel_nice_life_hotel",
@@ -3288,6 +3753,42 @@
       "related_entities": [],
       "route": "/hotels/?hotel=ola-phu-quoc-hotel",
       "search_text": "ola phu quoc hotel stay hotel central_west khach san tai cua lap - ba keo. 02973900689; 0788089399 cua lap - ba keo chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 2, ap cua lap, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "activity_once_show",
+      "type": "activity",
+      "title": "ONCE Show",
+      "aliases": [
+        "ONCE",
+        "Once Show VinWonders",
+        "Show ONCE Phú Quốc"
+      ],
+      "zone_id": "zone_north",
+      "intents": [
+        "show",
+        "family",
+        "evening"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_vinwonders"
+      ],
+      "route": "/places/detail.html?id=once-show",
+      "search_text": "once show once once show vinwonders show once phu quoc show evening multimedia show family evening show family evening show da phuong tien buoi toi tai vinwonders phu quoc. anh sang · mapping · hieu ung san khau · hop de ket thuc ngay o vinwonders bao gom trong ve vao cua vinwonders"
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "type": "utility",
+      "title": "One Mart - 16 đường 30 Tháng 4",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "one mart - 16 duong 30 thang 4 cua hang tien loi va nhu yeu pham 0834 590 676 cua hang tien loi 16 duong 30 thang 4, khu 1, duong dong, dac khu phu quoc, an giang"
     },
     {
       "id": "hotel_orange_resort",
@@ -3463,6 +3964,19 @@
       "related_entities": [],
       "route": "/hotels/?hotel=philip-cozy-bungalow",
       "search_text": "philip cozy bungalow stay hotel central_west khach san tai khac / can ra. 02973610666 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 131 tran hung dao, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "utility_vinmec_duong_dong_clinic",
+      "type": "utility",
+      "title": "Phòng khám Đa khoa Vinmec Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "phong kham da khoa vinmec duong dong co so y te 0297 3985 588 y te 114 nguyen trung truc, khu pho 4, dac khu phu quoc, an giang"
     },
     {
       "id": "hotel_phu_hong",
@@ -3827,7 +4341,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=rach-vem",
-      "search_text": "rach vem village nature village nature village nature lang chai, nha be, vung nuoc nong phia bac nhin nhip lang chai · nha be · bai nuoc nong khong co ve chung"
+      "search_text": "rach vem village nature village nature village nature lang chai, nha be, vung nuoc nong phia bac nhin nhip lang chai · nha be · bai nuoc nong rach vem, ganh dau, phu quoc, an giang, viet nam khong co ve chung"
     },
     {
       "id": "hotel_radisson_blu",
@@ -4102,6 +4616,31 @@
       "related_entities": [],
       "route": "/hotels/?hotel=salinda-resort",
       "search_text": "salinda resort stay hotel central_west 5-sao khach san nghi duong 5 sao tai cua lap - ba keo. 02973990011 cua lap - ba keo 5 sao dang hoat dong - trong sdl 27/07/2026 active to 1, ap cua lap, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "activity_sac_mau_venice",
+      "type": "activity",
+      "title": "Sắc Màu Venice",
+      "aliases": [
+        "Show Sắc Màu Venice",
+        "Sắc Màu Venice Grand World",
+        "Big Show Sắc Màu Venice"
+      ],
+      "zone_id": "zone_north",
+      "intents": [
+        "show",
+        "couple",
+        "family",
+        "evening"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_grand_world",
+        "activity_tinh_hoa_viet_nam"
+      ],
+      "route": "/places/detail.html?id=sac-mau-venice",
+      "search_text": "sac mau venice show sac mau venice sac mau venice grand world big show sac mau venice show evening outdoor show couple family evening show couple family evening show anh sang va trinh dien tren mat nuoc tai ho tinh yeu, grand world phu quoc. show buoi toi · mat nuoc · anh sang · hop ghep sau tinh hoa viet nam mien phi theo thong tin vinwonders hien hanh"
     },
     {
       "id": "live_airport",
@@ -4497,7 +5036,7 @@
         "activity_kiss_of_the_sea"
       ],
       "route": "/places/detail.html?id=sunset-town",
-      "search_text": "sunset town evening architecture show evening architecture show evening architecture show khu pho mo, hoang hon, cau hon va chuoi show dao pho · cau hon · symphony of the sea · kiss of the sea · an toi khu pho mien phi; cau/show ban rieng"
+      "search_text": "sunset town evening architecture show evening architecture show evening architecture show khu pho mo, hoang hon, cau hon va chuoi show dao pho · cau hon · symphony of the sea · kiss of the sea · an toi sunset town, an thoi, phu quoc, an giang, viet nam khu pho mien phi; cau/show ban rieng"
     },
     {
       "id": "hotel_suny_hotel",
@@ -4565,7 +5104,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=suoi-tranh",
-      "search_text": "suoi tranh nature stream nature stream nature stream mot trong cac diem suoi quen thuoc nhat phu quoc, dep hon khi co nuoc. di bo nhe · rung/suoi · nghi thien nhien can kiem tra van hanh/gia hien hanh"
+      "search_text": "suoi tranh nature stream nature stream nature stream mot trong cac diem suoi quen thuoc nhat phu quoc, dep hon khi co nuoc. di bo nhe · rung/suoi · nghi thien nhien 52g6+gqq, suoi may, phu quoc, an giang, viet nam can kiem tra van hanh/gia hien hanh"
     },
     {
       "id": "utility_superdong",
@@ -4640,6 +5179,22 @@
       "search_text": "tau pha ferry bus transport di chuyen rach gia ha tien"
     },
     {
+      "id": "utility_taxi_namthang",
+      "type": "utility",
+      "title": "Taxi Nam Thắng",
+      "aliases": [
+        "Nam Thắng",
+        "Taxi Phú Quốc Nam Thắng"
+      ],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "taxi nam thang nam thang taxi phu quoc nam thang hang taxi dia phuong tai phu quoc 0297 3 757 575 taxi & xe"
+    },
+    {
       "id": "hotel_tan_anh_tuan",
       "type": "hotel",
       "title": "Tân Anh Tuấn",
@@ -4674,6 +5229,31 @@
       "related_entities": [],
       "route": "/hotels/?hotel=tan-anh-tuan-2",
       "search_text": "tan anh tuan 2 stay hotel central_west duong-dong khach san tai duong dong. 02973981072; 02973981075 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 179 duong 30/4, kp1, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "place_teddy_bear_museum",
+      "type": "place",
+      "title": "Teddy Bear Museum Phú Quốc",
+      "aliases": [
+        "Bảo tàng Gấu Teddy",
+        "Teddy Bear Museum",
+        "Bảo tàng Gấu Grand World"
+      ],
+      "zone_id": "zone_north",
+      "intents": [
+        "museum",
+        "family",
+        "indoor",
+        "evening"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_grand_world",
+        "activity_tinh_hoa_viet_nam"
+      ],
+      "route": "/places/detail.html?id=teddy-bear-museum",
+      "search_text": "teddy bear museum phu quoc bao tang gau teddy teddy bear museum bao tang gau grand world museum family indoor museum family indoor evening museum family indoor bao tang chu de gau teddy tai grand world phu quoc. khong gian trong nha · gia dinh · tre nho · phu hop buoi toi hoac luc nang/mua grand world, khu bai dai, ganh dau, phu quoc, an giang, viet nam kiem tra ve theo ngay tai grand world/vinwonders"
     },
     {
       "id": "hotel_thai_hoang_gia",
@@ -4909,6 +5489,20 @@
       "search_text": "thuan hai stay hotel central_west duong-dong khach san tai duong dong. 02973848779; 0913820757 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 26 nguyen du, kp2, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "lore_curiosity_pepper_colors",
+      "type": "lore",
+      "title": "Tiêu đỏ, tiêu đen và tiêu sọ Phú Quốc khác nhau ở đâu?",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "lore",
+        "curiosity"
+      ],
+      "related_entities": [],
+      "route": "/stories/article.html?id=mui-cay-cua-dat-do",
+      "search_text": "tieu do, tieu den va tieu so phu quoc khac nhau o dau? nguon du lich dia phuong mo ta: hat chin do duoc phoi rieng thanh tieu do; hat con xanh phoi kho thanh tieu den; tieu den bo vo con loi goi la tieu so. local_craft"
+    },
+    {
       "id": "hotel_times_corner_amalfi",
       "type": "hotel",
       "title": "Times Corner Amalfi",
@@ -4942,6 +5536,28 @@
       "related_entities": [],
       "route": "/hotels/?hotel=times-corner-phu-quoc",
       "search_text": "times corner phu quoc stay hotel central_west khach san tai khac / can ra. 02793669988 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active tang 1, toa sor 201 dia trung hai, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "activity_tinh_hoa_viet_nam",
+      "type": "activity",
+      "title": "Tinh Hoa Việt Nam",
+      "aliases": [
+        "Show Tinh Hoa Việt Nam",
+        "Tinh Hoa Việt Nam Grand World"
+      ],
+      "zone_id": "zone_north",
+      "intents": [
+        "show",
+        "culture",
+        "evening"
+      ],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "route": "/places/detail.html?id=tinh-hoa-viet-nam",
+      "search_text": "tinh hoa viet nam show tinh hoa viet nam tinh hoa viet nam grand world show culture evening show culture evening show culture evening vo dien thuc canh buoi toi tai grand world phu quoc. show thuc canh · am nhac · san khau ngoai troi kiem tra ve theo ngay tai grand world/vinwonders"
     },
     {
       "id": "activity_tour_3_islands",
@@ -4985,6 +5601,19 @@
       ],
       "route": "/guide/?q=Tr%E1%BA%A3i%20nghi%E1%BB%87m%20nh%E1%BA%B9%20%26%20s%C3%B4ng%20n%C6%B0%E1%BB%9Bc%20-%20ch%E1%BB%8Dn%20khu%20%E1%BB%9F#search",
       "search_text": "trai nghiem nhe & song nuoc - chon khu o cua can song nuoc slow travel stay local-life slow-travel slow-travel local-life cua can hop nguoi muon nhip cham, ven song va khong khi dia phuong hon."
+    },
+    {
+      "id": "utility_fuel_dong_loi_1",
+      "type": "utility",
+      "title": "Trạm xăng dầu Đông Lợi 1",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "tram xang dau dong loi 1 diem ban le xang dau 0297 3848 639 xang dau nguyen trung truc, duong dong, dac khu phu quoc, an giang"
     },
     {
       "id": "hotel_tropicana_resort",
@@ -5100,6 +5729,32 @@
       ],
       "route": "/guide/?q=T%E1%BB%AB%20s%C3%A2n%20bay%20v%E1%BB%81%20kh%C3%A1ch%20s%E1%BA%A1n#search",
       "search_text": "tu san bay ve khach san san bay ve duong dong airport transfer grab san bay taxi san bay arrival airport transfer transport tu san bay phu quoc co the dung grabcar, taxi, xe rieng hoac shuttle resort tuy khu o, gio den va so nguoi. khoang cach tren dao nen doc theo huong di va thoi gian, khong chi kilomet."
+    },
+    {
+      "id": "live_currency",
+      "type": "currency",
+      "title": "Tỷ giá & đổi tiền",
+      "aliases": [
+        "currency",
+        "exchange rate",
+        "tỷ giá",
+        "đổi tiền",
+        "usd",
+        "krw",
+        "won",
+        "cny",
+        "rmb",
+        "rub",
+        "eur",
+        "jpy"
+      ],
+      "zone_id": null,
+      "intents": [
+        "currency",
+        "utility"
+      ],
+      "route": "/currency/",
+      "search_text": "ty gia doi tien currency exchange rate usd dollar do krw won cny rmb yuan rub ruble eur euro jpy yen vnd vietcombank"
     },
     {
       "id": "meal_plan_uai",
@@ -5263,6 +5918,20 @@
       "search_text": "venus hotel - sky bar - massage stay hotel central_west khach san tai khac / can ra. 0966683683 khac / can ra chua xac dinh dang hoat dong - trong sdl 27/07/2026 active 60 tran hung dao, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "lore_curiosity_fish_sauce_pdo",
+      "type": "lore",
+      "title": "Vì sao chữ “Phú Quốc” trên nước mắm lại được bảo hộ ở châu Âu?",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "lore",
+        "curiosity"
+      ],
+      "related_entities": [],
+      "route": "/stories/article.html?id=mot-nam-trong-nha-thung",
+      "search_text": "vi sao chu “phu quoc” tren nuoc mam lai duoc bao ho o chau au? eu da dua “phu quoc” vao so dang ky pdo theo quy dinh 928/2012. hoi nuoc mam phu quoc cho biet day la san pham dau tien cua viet nam duoc bao ho tai thi truong eu. documented_history"
+    },
+    {
       "id": "island_basic_name",
       "type": "island_basic",
       "title": "Vì sao gọi là Phú Quốc?",
@@ -5282,6 +5951,54 @@
       "related_entities": [],
       "route": "/guide/?q=V%C3%AC%20sao%20g%E1%BB%8Di%20l%C3%A0%20Ph%C3%BA%20Qu%E1%BB%91c%3F#search",
       "search_text": "vi sao goi la phu quoc? ten phu quoc koh tral nguon goc ten phu quoc history culture name-origin ten dao co nhieu lop lich su va cach giai thich; cach hieu han viet pho bien khong nen duoc coi la chung cu duy nhat ve nguon goc ten. cho thay phu quoc nam trong mot khong gian lich su co nhieu ten goi va lop cu dan."
+    },
+    {
+      "id": "lore_curiosity_dinh_cau_before_sea",
+      "type": "lore",
+      "title": "Vì sao ngư dân lại ghé Dinh Cậu trước chuyến biển?",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [
+        "lore",
+        "curiosity"
+      ],
+      "related_entities": [
+        "place_dinh_cau"
+      ],
+      "route": "/places/detail.html?id=dinh-cau",
+      "search_text": "vi sao ngu dan lai ghe dinh cau truoc chuyen bien? le hoi dinh cau ghi nhan ngu dan tren dao ve dang huong, cau troi yen bien lang va tom ca day thuyen. nhung giai thoai ve nguon goc tho tu van can ke nhu tin nguong, khong phai su lieu tuyet doi. local_belief"
+    },
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "type": "utility",
+      "title": "Vietcombank PGD An Thới - ATM",
+      "aliases": [
+        "Vietcombank 199 Nguyễn Văn Cừ",
+        "ATM Vietcombank An Thới"
+      ],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "vietcombank pgd an thoi - atm vietcombank 199 nguyen van cu atm vietcombank an thoi phong giao dich vietcombank; danh ba hien hanh ghi nhan atm tai cung dia chi atm 199 nguyen van cu, khu pho 8 an thoi, dac khu phu quoc, an giang"
+    },
+    {
+      "id": "utility_vcb_atm_nguyen_trung_truc",
+      "type": "utility",
+      "title": "Vietcombank PGD Dương Đông - ATM",
+      "aliases": [
+        "Vietcombank 193 Nguyễn Trung Trực",
+        "ATM Vietcombank Dương Đông"
+      ],
+      "zone_id": "zone_central_west",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "vietcombank pgd duong dong - atm vietcombank 193 nguyen trung truc atm vietcombank duong dong phong giao dich vietcombank; danh ba hien hanh ghi nhan atm tai cung dia chi 0297 3996 888 atm 193 nguyen trung truc, khu pho 5 duong dong, dac khu phu quoc, an giang"
     },
     {
       "id": "hotel_vinholidays_fiesta_phu_quoc",
@@ -5368,7 +6085,7 @@
       "operational_status": null,
       "related_entities": [],
       "route": "/places/detail.html?id=vinpearl-safari",
-      "search_text": "vinpearl safari phu quoc wildlife family wildlife family wildlife family open zoo + khu ban hoang da bang bus safari bus · open zoo · animal show · night safari theo lich 950.000d nguoi lon / 710.000d tre em-cao tuoi tu 01/10/2026"
+      "search_text": "vinpearl safari phu quoc wildlife family wildlife family wildlife family open zoo + khu ban hoang da bang bus safari bus · open zoo · animal show · night safari theo lich bai dai, ganh dau, phu quoc, an giang 922200, viet nam 950.000d nguoi lon / 710.000d tre em-cao tuoi tu 01/10/2026"
     },
     {
       "id": "hotel_vinpearl_wonderworld_phu_quoc",
@@ -5415,9 +6132,11 @@
       ],
       "star_rating": null,
       "operational_status": null,
-      "related_entities": [],
+      "related_entities": [
+        "activity_once_show"
+      ],
       "route": "/places/detail.html?id=vinwonders",
-      "search_text": "vinwonders phu quoc theme-park family theme-park family theme-park family 6 phan khu, thuy cung, cong vien nuoc, tro choi, show cung dien hai vuong · the gioi loc xoay · the gioi phieu luu · once 1.050.000d nguoi lon / 800.000d tre em-cao tuoi tu 01/10/2026"
+      "search_text": "vinwonders phu quoc theme-park family theme-park family theme-park family 6 phan khu, thuy cung, cong vien nuoc, tro choi, show cung dien hai vuong · the gioi loc xoay · the gioi phieu luu · once khu bai dai, ganh dau, phu quoc, an giang 92512, viet nam 1.050.000d nguoi lon / 800.000d tre em-cao tuoi tu 01/10/2026"
     },
     {
       "id": "history_vinwonders_2020",
@@ -5570,300 +6289,6 @@
       "related_entities": [],
       "route": "/hotels/?hotel=wyndham-grand-phu-quoc",
       "search_text": "wyndham grand phu quoc stay hotel north bai-dai ganh-dau 5-sao khach san nghi duong 5 sao tai bac dao - bai dai / ganh dau. 02973691555 bac dao - bai dai / ganh dau 5 sao dang hoat dong - trong sdl 27/07/2026 active khu bai dai, dac khu phu quoc, tinh an giang"
-    },
-    {
-      "id": "utility_jotrip_local_service",
-      "type": "utility",
-      "title": "JoTrip - xe và dịch vụ trọn gói Phú Quốc",
-      "aliases": [
-        "JoTrip",
-        "xe riêng",
-        "tour trọn gói",
-        "WhatsApp",
-        "Zalo",
-        "+84 817 060 067"
-      ],
-      "zone_id": null,
-      "intents": [
-        "transport",
-        "tour",
-        "utility",
-        "local-service"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/utilities/#directory",
-      "search_text": "jotrip xe rieng tour ve lich trinh tron goi phu quoc whatsapp zalo 817060067"
-    },
-    {
-      "id": "utility_taxi_xanhsm",
-      "type": "utility",
-      "title": "Green SM (Xanh SM) - 1555",
-      "aliases": [
-        "Green SM",
-        "Xanh SM",
-        "taxi điện",
-        "1555",
-        "app Green SM"
-      ],
-      "zone_id": null,
-      "intents": [
-        "transport",
-        "taxi",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/utilities/#directory",
-      "search_text": "green sm xanh sm taxi dien phu quoc 1555 dat xe qua app green sm"
-    },
-    {
-      "id": "utility_grab_phuquoc",
-      "type": "utility",
-      "title": "Grab tại Phú Quốc",
-      "aliases": [
-        "Grab",
-        "GrabCar",
-        "GrabCar Premium",
-        "GrabCar Tiết Kiệm",
-        "đặt Grab"
-      ],
-      "zone_id": null,
-      "intents": [
-        "transport",
-        "ride-hailing",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/utilities/#directory",
-      "search_text": "grab phu quoc grabcar premium tiet kiem dat xe qua app grab"
-    },
-    {
-      "id": "utility_taxi_mailinh",
-      "type": "utility",
-      "title": "Mai Linh Phú Quốc - 0297 3 979 797 / 1055",
-      "aliases": [
-        "Mai Linh",
-        "taxi Mai Linh",
-        "1055"
-      ],
-      "zone_id": null,
-      "intents": [
-        "transport",
-        "taxi",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/utilities/#directory",
-      "search_text": "mai linh phu quoc 0297 3 979 797 1055 taxi"
-    },
-    {
-      "id": "utility_taxi_namthang",
-      "type": "utility",
-      "title": "Taxi Nam Thắng - 0297 3 757 575",
-      "aliases": [
-        "Nam Thắng",
-        "taxi địa phương",
-        "Taxi Phú Quốc Nam Thắng"
-      ],
-      "zone_id": null,
-      "intents": [
-        "transport",
-        "taxi",
-        "utility",
-        "local"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/utilities/#directory",
-      "search_text": "taxi nam thang phu quoc 0297 3 757 575 hang dia phuong"
-    },
-    {
-      "id": "openpq_news",
-      "type": "utility",
-      "title": "Tin & cập nhật Phú Quốc",
-      "aliases": [
-        "tin Phú Quốc",
-        "cập nhật Phú Quốc",
-        "có gì mới",
-        "news"
-      ],
-      "zone_id": null,
-      "intents": [
-        "news",
-        "live",
-        "updates"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/news/",
-      "search_text": "tin cap nhat phu quoc co gi moi thay doi show su kien dich vu dang dien ra"
-    },
-    {
-      "id": "utility_longchau_suoi_da",
-      "type": "utility",
-      "title": "Nhà thuốc Long Châu - Suối Đá",
-      "aliases": [
-        "Long Châu Suối Đá",
-        "nhà thuốc Dương Tơ",
-        "Ngã Ba Chợ Loan Sang"
-      ],
-      "zone_id": null,
-      "intents": [
-        "pharmacy",
-        "health",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/nearme/?category=PHARMACY",
-      "search_text": "nha thuoc long chau suoi da duong to nga ba cho loan sang phu quoc 18006928"
-    },
-    {
-      "id": "utility_vcb_atm_nguyen_trung_truc",
-      "type": "utility",
-      "title": "Vietcombank PGD Dương Đông - ATM",
-      "aliases": [
-        "Vietcombank 193 Nguyễn Trung Trực",
-        "ATM Vietcombank Dương Đông"
-      ],
-      "zone_id": "zone_central_west",
-      "intents": [
-        "atm",
-        "bank",
-        "cash",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/nearme/?area=zone_central_west&category=ATM",
-      "search_text": "vietcombank pgd duong dong atm 193 nguyen trung truc phu quoc"
-    },
-    {
-      "id": "utility_vcb_atm_an_thoi",
-      "type": "utility",
-      "title": "Vietcombank PGD An Thới - ATM",
-      "aliases": [
-        "Vietcombank 199 Nguyễn Văn Cừ",
-        "ATM Vietcombank An Thới"
-      ],
-      "zone_id": "zone_south",
-      "intents": [
-        "atm",
-        "bank",
-        "cash",
-        "utility"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [],
-      "route": "/nearme/?area=zone_south&category=ATM",
-      "search_text": "vietcombank pgd an thoi atm 199 nguyen van cu phu quoc"
-    },
-    {
-      "id": "place_teddy_bear_museum",
-      "type": "place",
-      "title": "Teddy Bear Museum Phú Quốc",
-      "aliases": [
-        "Bảo tàng Gấu Teddy",
-        "Teddy Bear Museum",
-        "Bảo tàng Gấu Grand World"
-      ],
-      "zone_id": "zone_north",
-      "intents": [
-        "museum",
-        "family",
-        "indoor",
-        "evening"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [
-        "place_grand_world",
-        "activity_tinh_hoa_viet_nam"
-      ],
-      "route": "/places/detail.html?id=teddy-bear-museum",
-      "search_text": "teddy bear museum bao tang gau phu quoc grand world gia dinh tre em trong nha buoi toi"
-    },
-    {
-      "id": "activity_tinh_hoa_viet_nam",
-      "type": "activity",
-      "title": "Tinh Hoa Việt Nam",
-      "aliases": [
-        "Show Tinh Hoa Việt Nam",
-        "Tinh Hoa Việt Nam Grand World"
-      ],
-      "zone_id": "zone_north",
-      "intents": [
-        "show",
-        "culture",
-        "evening"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [
-        "place_grand_world"
-      ],
-      "route": "/places/detail.html?id=tinh-hoa-viet-nam",
-      "search_text": "show tinh hoa viet nam grand world phu quoc 20 15 21 00 van hoa buoi toi"
-    },
-    {
-      "id": "activity_once_show",
-      "type": "activity",
-      "title": "ONCE Show",
-      "aliases": [
-        "ONCE",
-        "Once Show VinWonders",
-        "Show ONCE Phú Quốc"
-      ],
-      "zone_id": "zone_north",
-      "intents": [
-        "show",
-        "family",
-        "evening"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [
-        "place_vinwonders"
-      ],
-      "route": "/places/detail.html?id=once-show",
-      "search_text": "once show vinwonders phu quoc 18 45 19 05 show buoi toi gia dinh vinwonders"
-    },
-    {
-      "id": "activity_sac_mau_venice",
-      "type": "activity",
-      "title": "Sắc Màu Venice",
-      "aliases": [
-        "Show Sắc Màu Venice",
-        "Sắc Màu Venice Grand World",
-        "Big Show Sắc Màu Venice"
-      ],
-      "zone_id": "zone_north",
-      "intents": [
-        "show",
-        "couple",
-        "family",
-        "evening"
-      ],
-      "star_rating": null,
-      "operational_status": null,
-      "related_entities": [
-        "place_grand_world",
-        "activity_tinh_hoa_viet_nam"
-      ],
-      "route": "/places/detail.html?id=sac-mau-venice",
-      "search_text": "sac mau venice grand world phu quoc 21 30 22 00 show ho tinh yeu buoi toi mien phi"
     }
   ]
 }
