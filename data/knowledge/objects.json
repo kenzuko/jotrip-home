@@ -6177,16 +6177,16 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Cửa hàng tiện lợi hữu ích nhất khi cần nước, đồ dùng nhỏ, đồ ăn nhanh hoặc quên vật dụng trước chuyến đi. Không cần biến thành một danh sách dài nếu map đã tìm được quanh vị trí.",
-        "practical": "Gần tôi nên ưu tiên khoảng cách và giờ đã xác minh. Trước tour biển, mua nước hoặc đồ cá nhân từ tối hôm trước thường đỡ cập rập.",
-        "expectation_vs_reality": "Một cửa hàng được gắn nhãn mở muộn trên danh bạ cộng đồng chưa chắc giữ giờ đó mọi ngày.",
+        "short_summary": "Cần mua nước, đồ ăn nhẹ hay quên món đồ cá nhân nào đó? Ở Dương Đông và Sunset Town đã có một số cửa hàng tiện lợi được ghi nhận. Bạn có thể tìm cửa hàng gần chỗ ở thay vì chạy lòng vòng tìm một địa chỉ nổi tiếng.",
+        "practical": "Mở Gần tôi để xem cửa hàng trên đường đi và kiểm tra giờ mở cửa của từng nơi. Nếu sáng sớm mai đi đảo, mua trước nước uống và những món cần dùng từ chiều hoặc tối hôm trước sẽ chủ động hơn.",
+        "expectation_vs_reality": "Một cửa hàng có tên trên bản đồ chưa chắc còn mở vào lúc khuya. Hàng hóa ở từng cửa hàng cũng khác nhau, nên với món thực sự cần, bạn có thể gọi hỏi trước.",
         "before_you_go": [
-          "Kiểm tra giờ nếu đi rất sớm hoặc rất muộn.",
-          "Đừng dựa vào một minimart xa khu ở cho vật dụng quan trọng.",
-          "Thuốc và nhu cầu y tế vẫn nên tìm nhà thuốc."
+          "Xem cửa hàng nào thuận đường về khách sạn hoặc đường ra bến.",
+          "Nếu đi tour từ sáng sớm, chuẩn bị nước uống và vật dụng cá nhân từ hôm trước.",
+          "Cần mua thuốc thì tìm nhà thuốc, không mặc định cửa hàng tiện lợi có bán."
         ],
         "curiosity_questions": [
-          "Khách thường thiếu món gì nhất trước một ngày đi đảo?"
+          "Sáng sớm chuẩn bị đi đảo mà quên mua đồ, nên tìm cửa hàng thế nào cho thuận đường?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6308,16 +6308,16 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Khi có chuyện khẩn cấp, số đúng quan trọng hơn một trang hướng dẫn dài: 112 cho tình huống khẩn cấp quốc gia, 113 công an, 114 cứu hỏa, 115 cấp cứu y tế.",
-        "practical": "Trang Practical nên cho gọi trực tiếp bằng một chạm và tách rõ số khẩn cấp với hotline sân bay, hành lý hay hỗ trợ du lịch.",
-        "expectation_vs_reality": "Không phải mọi vấn đề du lịch đều nên gọi số khẩn cấp. Mất hành lý, hỏi chuyến bay hoặc dịch vụ nên dùng đúng hotline chuyên trách.",
+        "short_summary": "Khi gặp tình huống nguy cấp ở Phú Quốc, hãy gọi đúng số để được hỗ trợ: 112 tiếp nhận sự cố, thiên tai, tai nạn và các tình huống khẩn cấp; 113 là công an, 114 là cứu hỏa và cứu nạn, 115 là cấp cứu y tế. Tổng đài 112 hoạt động cả ngày lẫn đêm và miễn phí cước gọi.",
+        "practical": "Khi gọi, hãy nói mình đang ở đâu, có mốc nào dễ nhận biết, chuyện gì đã xảy ra và có bao nhiêu người cần trợ giúp. Nếu đang trên biển, cung cấp tên tàu hoặc tour, vị trí nếu biết và số điện thoại có thể liên lạc lại.",
+        "expectation_vs_reality": "112 có thể chuyển thông tin đến lực lượng 113, 114 hoặc 115 theo tình huống. Những việc như thất lạc hành lý, hỏi giờ bay hoặc đổi vé nên liên hệ hãng và bộ phận hỗ trợ tương ứng, để đường dây khẩn cấp dành cho người thực sự cần.",
         "before_you_go": [
-          "Lưu vị trí hiện tại hoặc mốc gần nhất để mô tả khi gọi.",
-          "Nếu ở biển, nói rõ tên tour/tàu và khu vực nếu biết.",
-          "Giữ pin điện thoại cho liên lạc trong tình huống khẩn cấp."
+          "Lưu số 112, 113, 114 và 115 trong điện thoại.",
+          "Khi đi biển hoặc tới nơi vắng, ghi nhớ tên điểm đến và cách liên lạc với đơn vị tổ chức.",
+          "Trong lúc chờ hỗ trợ, giữ điện thoại còn pin và làm theo hướng dẫn của người tiếp nhận."
         ],
         "curiosity_questions": [
-          "Khi nào nên gọi 112 thay vì 113, 114 hoặc 115?"
+          "Khi nào nên gọi 112, và khi nào nên gọi thẳng 113, 114 hoặc 115?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6372,17 +6372,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Giếng Tiên là một mạch nước ngọt nhỏ ở khu Mũi Ông Đội. Điều làm nơi này nổi tiếng không phải quy mô cái giếng mà là lớp truyền thuyết gắn với Nguyễn Ánh trong thời gian lánh quân Tây Sơn.",
-        "practical": "Nên xem đây là điểm địa phương có yếu tố truyền thuyết, không phải di tích đã chứng minh từng chi tiết bằng sử liệu. Đường tiếp cận và phương án đi cần kiểm tra thực tế trước.",
-        "expectation_vs_reality": "Câu chuyện cắm kiếm xuống đá rồi nước ngọt trào lên là truyền thuyết dân gian được nguồn địa phương ghi lại, không nên kể như một sự kiện lịch sử đã được chứng minh.",
+        "short_summary": "Giếng Tiên là một mạch nước ngọt nhỏ ở khu Mũi Ông Đội, gần An Thới. Nơi này được nhớ đến nhiều vì câu chuyện dân gian kể rằng Nguyễn Ánh từng cắm kiếm xuống đá cầu xin nước uống khi lánh quân Tây Sơn. Câu chuyện ấy là truyền thuyết, không phải bằng chứng lịch sử về dấu kiếm.",
+        "practical": "Nếu muốn ghé Giếng Tiên, hãy hỏi trước về đường đến và khả năng tiếp cận trong ngày. Đây không phải một điểm tham quan giữa phố với lối vào lúc nào cũng thuận tiện; tìm hiểu câu chuyện địa phương trước khi đến sẽ thú vị hơn việc chỉ đi tìm một cái giếng.",
+        "expectation_vs_reality": "Giếng thực tế chỉ là một mạch nước nhỏ. Những dấu tích được gắn với Nguyễn Ánh quanh khu vực hiện thuộc cách kể và niềm tin dân gian, chưa thể xem từng chi tiết là sự kiện đã được sử liệu xác nhận.",
         "before_you_go": [
-          "Tách rõ 'địa điểm có thật' với 'truyền thuyết về địa điểm'.",
-          "Không tự ý làm hỏng các dấu vết được người dân gắn ý nghĩa truyền thống.",
-          "Kiểm tra đường đi trước vì khu này không phải điểm đô thị dễ tiếp cận."
+          "Kiểm tra đường đi và phương tiện phù hợp trước khi khởi hành.",
+          "Tôn trọng cảnh quan, không tác động vào giếng hay những dấu tích người dân gìn giữ.",
+          "Nếu nghe nhiều dị bản về Nguyễn Ánh, hãy xem đó là những cách kể dân gian, không phải các mốc lịch sử đã được chứng minh."
         ],
         "curiosity_questions": [
-          "Giếng Tiên là lịch sử hay truyền thuyết?",
-          "Vì sao nhiều địa danh ở Nam đảo lại gắn với Nguyễn Ánh?"
+          "Vì sao một mạch nước nhỏ ở Nam đảo lại gắn với câu chuyện Nguyễn Ánh?",
+          "Giếng Tiên có thật, vậy câu chuyện dấu kiếm thuộc lịch sử hay truyền thuyết?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6437,17 +6437,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Dinh Cậu gắn với đời sống tín ngưỡng của cư dân biển. Lễ hội giữa tháng 10 âm lịch cho thấy rất rõ mong ước trời yên, biển lặng và chuyến biển bình an.",
-        "practical": "Khách có thể tham quan, nhưng nên hiểu đây là nơi người địa phương vẫn tới dâng hương chứ không phải một sân khấu văn hóa dựng riêng cho du lịch.",
-        "expectation_vs_reality": "Có nhiều giai thoại về đối tượng thờ ở Dinh Cậu. Nguồn du lịch chính thức hiện còn nhắc tới việc nhiều cách kể phổ biến đã gọi sai đối tượng thờ, vì vậy không nên lặp lại một phiên bản như sự thật duy nhất.",
+        "short_summary": "Dinh Cậu không chỉ là nơi ngắm cửa biển Dương Đông. Nhiều người dân và chủ ghe tàu vẫn đến dâng hương, cầu bình an cho những chuyến ra khơi. Dịp lễ giữa tháng Mười âm lịch, nơi đây có những sinh hoạt tín ngưỡng gắn với đời sống người đi biển.",
+        "practical": "Bạn có thể ghé thăm khi đi dạo khu Dinh Cậu, nhưng hãy giữ không gian yên tĩnh nếu có người đang hành lễ. Muốn tìm hiểu sâu hơn, nên phân biệt việc thờ phụng tại miếu với các giai thoại được kể quanh địa điểm này.",
+        "expectation_vs_reality": "Về vị thần được thờ, bạn có thể gặp nhiều cách kể khác nhau. Trang giới thiệu du lịch địa phương mô tả Dinh Cậu là miếu Long Vương và lưu ý có những câu chuyện về Cậu Tài, Cậu Quý bị gán nhầm cho nơi này. Những chi tiết còn tranh luận cần được tìm hiểu bằng khảo cứu, thay vì xem một giai thoại là lời giải cuối cùng.",
         "before_you_go": [
-          "Giữ yên lặng khi có người hành lễ.",
-          "Không chen vào lễ cúng để chụp ảnh.",
-          "Nếu kể chuyện Dinh Cậu, dùng từ 'tín ngưỡng/giai thoại' cho phần chưa phải sử liệu."
+          "Giữ giọng nói nhỏ khi có người đang dâng hương.",
+          "Hỏi trước khi chụp cận cảnh người hành lễ hoặc khu thờ tự.",
+          "Nếu ghé vào dịp lễ, nhường lối cho người dân và các hoạt động nghi thức."
         ],
         "curiosity_questions": [
-          "Ngư dân cầu gì ở Dinh Cậu trước và sau chuyến biển?",
-          "Vì sao đối tượng thờ ở Dinh Cậu lại có nhiều cách kể khác nhau?"
+          "Người đi biển đến Dinh Cậu cầu mong điều gì?",
+          "Vì sao có nhiều cách kể khác nhau về vị thần được thờ ở Dinh Cậu?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6486,17 +6486,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Tín ngưỡng thờ Cá Ông là một lớp văn hóa của cộng đồng ngư dân ven biển Nam Bộ. Ở Phú Quốc, lễ Nghinh Ông hiện được giới thiệu như dịp bày tỏ lòng tôn kính và cầu bình an cho đời sống biển.",
-        "practical": "Khi gặp lăng Ông hoặc lễ Nghinh Ông, nên nhìn như một sinh hoạt tín ngưỡng đang sống, không phải tiết mục biểu diễn.",
-        "expectation_vs_reality": "Không nên gom mọi tín ngưỡng biển trên đảo thành một câu chuyện duy nhất. Dinh Cậu và thờ Cá Ông có liên hệ với đời sống ngư dân nhưng là những lớp thực hành khác nhau.",
+        "short_summary": "Với nhiều cộng đồng ngư dân ven biển Nam Bộ, cá voi được gọi kính trọng là Cá Ông. Tín ngưỡng thờ Cá Ông thể hiện lòng biết ơn và mong ước bình an khi ra khơi. Ở Phú Quốc, bạn có thể tìm hiểu niềm tin ấy qua câu chuyện về lễ Nghinh Ông.",
+        "practical": "Nếu gặp một lăng Ông hay dịp người dân làm lễ, hãy xem đó là nơi sinh hoạt tín ngưỡng của cộng đồng. Quan sát từ vị trí phù hợp, hỏi trước khi chụp ảnh khu thờ tự hoặc người đang hành lễ.",
+        "expectation_vs_reality": "Cùng gắn với đời sống ngư dân nhưng thờ Cá Ông và tín ngưỡng Dinh Cậu không phải một. Mỗi nơi có đối tượng thờ, câu chuyện và nghi lễ riêng; gọi chung thành một lễ hội biển sẽ bỏ mất những khác biệt đó.",
         "before_you_go": [
-          "Không sờ/chạm đồ thờ tự khi chưa được phép.",
-          "Không dùng ngôn ngữ giễu cợt với niềm tin địa phương.",
-          "Nếu chụp lễ, ưu tiên không cản đoàn rước hoặc người hành lễ."
+          "Giữ trật tự và hỏi trước khi vào khu thờ tự.",
+          "Tránh chạm vào đồ thờ hoặc đứng chắn nơi người dân đang làm lễ.",
+          "Nếu có đoàn rước, nhường đường và quan sát từ bên ngoài đoàn."
         ],
         "curiosity_questions": [
-          "Vì sao cá voi lại được ngư dân gọi kính trọng là Cá Ông?",
-          "Tín ngưỡng Cá Ông khác gì với tín ngưỡng ở Dinh Cậu?"
+          "Vì sao ngư dân gọi cá voi là Cá Ông?",
+          "Thờ Cá Ông khác với tín ngưỡng ở Dinh Cậu như thế nào?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6535,17 +6535,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Nghinh Ông là lễ hội gắn với tín ngưỡng Cá Ông. Phần rước đi từ biển về lăng và phần lễ tế cho thấy đây là nghi lễ của cộng đồng ngư dân trước khi là một sản phẩm cho khách xem.",
-        "practical": "Nếu trùng dịp lễ, khách nên đứng ngoài luồng nghi thức chính, quan sát và hỏi trước khi chụp cận cảnh.",
-        "expectation_vs_reality": "Lịch và quy mô lễ có thể thay đổi theo năm; phần nội dung này chỉ giải thích ý nghĩa, còn ngày tổ chức cụ thể phải lấy từ event/dữ liệu vận hành.",
+        "short_summary": "Nghinh Ông là lễ hội gắn với tín ngưỡng Cá Ông của người đi biển. Theo tư liệu giới thiệu lễ hội tại Phú Quốc, nghi thức có phần rước Ông từ ngoài biển về, sau đó đưa về lăng làm lễ. Với người dân, đây trước hết là dịp bày tỏ lòng tôn kính và cầu bình an cho cuộc sống trên biển.",
+        "practical": "Nếu tình cờ đến đúng dịp Nghinh Ông, bạn có thể quan sát đoàn rước và các nghi thức từ vị trí phù hợp. Hãy để người hành lễ và đoàn rước đi trước; nếu muốn chụp ảnh gần, nên hỏi người phụ trách.",
+        "expectation_vs_reality": "Đây là lễ hội của cộng đồng, không phải chương trình biểu diễn có lịch giống nhau mỗi năm. Ngày tổ chức, địa điểm và quy mô từng kỳ cần kiểm tra theo thông báo thực tế.",
         "before_you_go": [
-          "Kiểm tra lịch chính thức của năm đang đi.",
-          "Không chen đoàn rước.",
-          "Không biến nghi thức thành phông check-in."
+          "Xem thông báo về thời gian và nơi tổ chức của năm mình đến.",
+          "Đến sớm nếu muốn tìm chỗ quan sát mà không cản đoàn rước.",
+          "Tôn trọng không gian làm lễ và hỏi trước khi chụp ảnh cận cảnh."
         ],
         "curiosity_questions": [
-          "Đoàn rước Nghinh Ông đi theo trình tự nào?",
-          "Vì sao nghi lễ bắt đầu từ ngoài biển?"
+          "Vì sao lễ Nghinh Ông có phần rước từ ngoài biển vào bờ?",
+          "Sau khi rước về lăng, người dân thường thực hiện những nghi thức gì?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6655,17 +6655,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Chó Phú Quốc được nhận diện mạnh nhất bởi dải lông mọc ngược trên lưng, thân hình gọn và tính linh hoạt. Muốn nói về giống này nên dựa vào tiêu chuẩn giống, không chỉ vào những câu chuyện 'quốc khuyển' trên mạng.",
-        "practical": "Nếu tham quan trại chó, nhìn cách người nuôi quản lý phả hệ, sức khỏe và hành vi sẽ đáng hơn chỉ xem biểu diễn vượt chướng ngại.",
-        "expectation_vs_reality": "Có xoáy lưng chưa đủ để tự kết luận một con chó là Phú Quốc thuần chủng. VKA có tiêu chuẩn và quy trình đánh giá riêng.",
+        "short_summary": "Nhắc đến chó Phú Quốc, nhiều người nghĩ ngay đến dải lông mọc ngược thành xoáy trên lưng. Giống chó này còn có tiêu chuẩn riêng về hình thể và nhiều đặc điểm khác, chứ không phải con nào có xoáy lưng cũng được xác định là chó Phú Quốc thuần chủng.",
+        "practical": "Nếu tham quan trại chó, bạn có thể hỏi người nuôi về nguồn gốc, cách chăm sóc và việc đánh giá theo tiêu chuẩn giống. Xem chó chạy nhảy hay vượt chướng ngại thì vui, nhưng một màn biểu diễn không nói hết về giống chó.",
+        "expectation_vs_reality": "Xoáy lưng là dấu hiệu dễ thấy chứ không phải giấy chứng nhận. Hiệp hội Những người nuôi chó giống Việt Nam (VKA) đã ban hành tiêu chuẩn chó Phú Quốc năm 2023; việc xác định giống cần dựa vào nhiều đặc điểm và hồ sơ phù hợp.",
         "before_you_go": [
-          "Không chọc hoặc cho chó ăn khi chưa được phép.",
-          "Nếu mua chó, đừng quyết định chỉ vì một vài đặc điểm truyền miệng.",
-          "Tách tiêu chuẩn giống khỏi các giai thoại về khả năng săn bắt."
+          "Hỏi người nuôi trước khi chạm hoặc cho chó ăn.",
+          "Nếu muốn tìm hiểu giống chó, xem tiêu chuẩn giống thay vì chỉ nghe các lời đồn về xoáy lưng.",
+          "Nếu định mua chó, tìm hiểu kỹ nguồn gốc và cách chăm sóc thay vì quyết định ngay sau buổi biểu diễn."
         ],
         "curiosity_questions": [
-          "Xoáy lưng hình thành như thế nào?",
-          "Vì sao tiêu chuẩn giống quan trọng hơn câu 'nhìn giống chó Phú Quốc'?"
+          "Có xoáy lưng đã đủ để gọi là chó Phú Quốc chưa?",
+          "Vì sao giống chó này cần một bảng tiêu chuẩn riêng?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6738,17 +6738,17 @@
         ]
       },
       "editorial": {
-        "short_summary": "Chó Phú Quốc nổi tiếng là nhanh nhẹn và leo trèo tốt. Nhưng câu 'chó Phú Quốc biết leo cây' nên hiểu là khả năng được nhiều nguồn và người nuôi ghi nhận, không phải mọi con đều trèo cây như một đặc điểm bắt buộc của giống.",
-        "practical": "Nếu xem biểu diễn ở trại chó, coi đó là khả năng của những cá thể đã được nuôi/huấn luyện, không dùng một màn trình diễn để suy ra toàn bộ giống.",
-        "expectation_vs_reality": "Tiêu chuẩn giống và khả năng biểu diễn là hai chuyện khác nhau. Nguồn báo chí/chính phủ có ghi nhận leo trèo, nhưng không nên biến thành lời khẳng định 'mọi chó Phú Quốc đều leo cây'.",
+        "short_summary": "Chó Phú Quốc có tiếng là nhanh nhẹn, leo trèo giỏi. Một số trại chó có biểu diễn các bài leo trèo và vượt chướng ngại, nhưng điều đó không có nghĩa con chó Phú Quốc nào cũng biết leo cây.",
+        "practical": "Nếu xem biểu diễn, hãy coi đó là khả năng của những con chó cụ thể, thường đã quen với bài tập. Bạn có thể hỏi người nuôi cách huấn luyện và cách bảo đảm an toàn thay vì thử cho chó lạ leo theo.",
+        "expectation_vs_reality": "Leo qua chướng ngại, trèo trên thân cây nghiêng và leo thẳng một thân cây không phải cùng một việc. Các nguồn hiện có ghi nhận khả năng leo trèo, nhưng chưa đủ để khẳng định mọi cá thể đều tự nhiên leo được cây; đây cũng không phải dấu hiệu duy nhất để nhận diện giống.",
         "before_you_go": [
-          "Không thử ép chó leo cao để kiểm chứng.",
-          "Không mua chó chỉ vì lời quảng cáo 'leo cây'.",
-          "Nếu viết bài, dùng 'được ghi nhận có khả năng leo trèo tốt' thay vì khẳng định tuyệt đối."
+          "Không ép chó trèo cao hoặc làm lại một tiết mục vừa xem để thử khả năng của chúng.",
+          "Quan sát cách người nuôi chăm sóc và huấn luyện, không chỉ nhìn màn trình diễn.",
+          "Nếu nghe quảng cáo chó nào cũng leo cây, hãy hỏi rõ đó là quan sát thực tế hay cách nói phóng đại."
         ],
         "curiosity_questions": [
-          "Chó Phú Quốc thật sự leo cây hay chỉ leo địa hình dốc và chướng ngại?",
-          "Khả năng leo trèo có nằm trong tiêu chuẩn giống không?"
+          "Chó Phú Quốc leo cây thật hay chủ yếu giỏi leo trèo địa hình?",
+          "Khả năng leo trèo có phải tiêu chí bắt buộc trong tiêu chuẩn giống không?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6787,16 +6787,16 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Tour 3 đảo không phải ngày nào cũng đi y chang một tuyến. Tài công đổi hòn hoặc đổi thứ tự theo gió, sóng và tình trạng bãi là chuyện bình thường nếu mục tiêu là an toàn và trải nghiệm tốt hơn.",
-        "practical": "Tính gần một ngày. Trước khi đặt nên hỏi số khách trên cano, thời gian thật ở nước, bữa ăn, thiết bị và cả phương án nếu biển xấu.",
-        "expectation_vs_reality": "Nhiều điểm hơn không tự động tốt hơn. Chạy quá nhiều hòn có thể làm thời gian ngồi cano nhiều hơn thời gian bơi/lặn ngắm san hô bằng ống thở.",
+        "short_summary": "Tour cano 3 đảo đưa bạn khám phá các hòn nhỏ ở khu An Thới. Những điểm dừng và thứ tự ghé đảo có thể khác nhau theo ngày vì gió, sóng và điều kiện ở từng bãi. Điều đáng quan tâm là thời gian bạn thực sự được tắm biển, ngắm san hô và nghỉ ngơi, không chỉ là số hòn trên lịch.",
+        "practical": "Trước khi đặt, hỏi rõ tuyến dự kiến, số khách trên cano, thời gian dừng ở mỗi điểm, bữa ăn và thiết bị đi kèm. Nếu biển không phù hợp, đơn vị tổ chức cần thông báo phương án đổi tuyến hoặc dời chuyến thay vì cố chạy đúng lịch đã quảng cáo.",
+        "expectation_vs_reality": "Đi nhiều hòn hơn chưa chắc có nhiều thời gian vui chơi hơn. Một ngày di chuyển liên tục có thể khiến bạn ngồi trên cano lâu mà ít thời gian xuống nước.",
         "before_you_go": [
-          "Xem tình trạng cano trong ngày.",
-          "Mang túi chống nước và đồ chống nắng.",
-          "Không ép tài công đi đúng một hòn nếu điều kiện biển không phù hợp."
+          "Kiểm tra tình trạng hoạt động của cano trong ngày và phương án khi biển xấu.",
+          "Chuẩn bị đồ chống nắng, quần áo thay và túi chống nước cho đồ cá nhân.",
+          "Mặc áo phao theo hướng dẫn và nghe tài công khi cần đổi điểm dừng."
         ],
         "curiosity_questions": [
-          "Vì sao cùng tên tour 3 đảo nhưng hôm nay và ngày mai có thể đi khác hòn?"
+          "Vì sao cùng là tour 3 đảo mà hai ngày khác nhau có thể ghé những hòn khác nhau?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6854,16 +6854,16 @@
         ]
       },
       "editorial": {
-        "short_summary": "Câu cá lớn là chuyến biển chuyên biệt, không phải tour câu cá ngắn ghép tham quan. Ở An Thới, vị trí câu thay đổi theo nước, gió và tín hiệu cá.",
-        "practical": "Khung sản phẩm hiện có chuyến sáng 05:00-14:00 và chiều-tối 14:00-21:00 khi biển cho phép. Tài công cần quyền đổi bãi theo điều kiện thực tế.",
-        "expectation_vs_reality": "Không ai có thể cam kết số lượng hay kích thước cá trước chuyến.",
+        "short_summary": "Câu cá lớn ở An Thới là một chuyến biển dành nhiều thời gian cho việc tìm bãi và câu cá, khác với tour tham quan có thêm một đoạn câu ngắn. Tài công có thể đổi vị trí câu theo gió, dòng nước và tình hình thực tế trong ngày.",
+        "practical": "JoTrip hiện có khung chuyến sáng 05:00-14:00 và chuyến chiều tối 14:00-21:00 khi điều kiện biển cho phép. Trước khi đặt, hãy xác nhận lại giờ đi thực tế, dụng cụ câu, bữa ăn, số người trên tàu và cách xử lý nếu thời tiết thay đổi.",
+        "expectation_vs_reality": "Có máy dò và tài công nhiều kinh nghiệm vẫn không thể bảo đảm sẽ câu được cá lớn hoặc câu được bao nhiêu con. Một ngày câu cá tốt còn phụ thuộc thời tiết, con nước và việc tìm đúng bãi.",
         "before_you_go": [
-          "Ngủ đủ trước chuyến dài.",
-          "Báo sớm nếu dễ say sóng.",
-          "Hỏi rõ thiết bị, bữa ăn và những gì được mang cá về."
+          "Nghỉ ngơi trước chuyến vì thời gian ở biển khá dài.",
+          "Báo sớm nếu dễ say sóng hoặc lần đầu đi câu biển.",
+          "Hỏi rõ trang bị đi kèm, quy định mang cá về và phương án đổi hoặc hoãn chuyến khi biển xấu."
         ],
         "curiosity_questions": [
-          "Tài công dựa vào đâu để đổi bãi câu trong ngày?"
+          "Tài công dựa vào những gì để quyết định chuyển bãi câu trong ngày?"
         ]
       },
       "updated_at": "2026-09-22"
