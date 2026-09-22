@@ -7679,6 +7679,163 @@
         ]
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_102_nguon-goc-ten-ham-ninh",
+      "number": 102,
+      "title": "Nguồn gốc tên Hàm Ninh",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": "place_ham_ninh",
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn chính thức hiện mô tả Hàm Ninh là khu làng chài phía Đông đảo, nằm dưới chân dãy núi Hàm Ninh và gắn lâu dài với nghề khai thác hải sản.",
+            "source_ids": [
+              "pqgov_ham_ninh_2026"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_ham_ninh_2026",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Hàm Ninh điểm đến lý tưởng của Phú Quốc",
+            "url": "https://phuquoc.angiang.gov.vn/ham-ninh-diem-den-ly-tuong-cua-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa tìm được nguồn địa danh học hoặc sử liệu giải thích vì sao tên Hàm Ninh được đặt cho dãy núi/làng cư dân này.",
+          "Không suy nghĩa Hán-Việt của 'Hàm Ninh' rồi coi đó là nguồn gốc địa danh.",
+          "Chưa xác định được tên Hàm Ninh xuất hiện sớm nhất ở tài liệu nào."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Hàm Ninh là một địa danh lâu đời ở phía Đông Phú Quốc, gắn với dãy núi và làng chài cùng tên. Nguồn chính thức hiện mô tả khá rõ địa hình và đời sống cư dân, nhưng chưa giải thích đáng tin cậy vì sao nơi này mang tên Hàm Ninh.",
+        "practical": null,
+        "expectation_vs_reality": "Có thể kể Hàm Ninh là địa danh gắn với dãy núi và làng chài phía Đông đảo, nhưng chưa nên giải nghĩa hai chữ 'Hàm Ninh' thành câu chuyện nguồn gốc nếu chưa có sử liệu.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "Tên Hàm Ninh xuất hiện sớm nhất trong bản đồ hay địa bạ nào?",
+          "Dãy núi có tên trước hay làng cư dân có tên trước?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_103_nguon-goc-ten-ganh-dau",
+      "number": 103,
+      "title": "Nguồn gốc tên Gành Dầu",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn chính thức xác nhận Gành Dầu là khu vực ở cực Tây Bắc Phú Quốc, có làng ngư dân và vai trò cửa ngõ hướng về phía Campuchia.",
+            "source_ids": [
+              "pqgov_ganh_dau_planning"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_ganh_dau_planning",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch chung khu đô thị Gành Dầu",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-chung-khu-do-thi-ganh-dau",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa tìm được nguồn chính thức hoặc nghiên cứu địa danh học giải thích chắc chắn nguồn gốc tên Gành Dầu.",
+          "Có cách giải thích phổ biến liên hệ 'gành đá' với cây dầu/dầu rái, nhưng hiện chưa đủ nguồn mạnh để public như fact.",
+          "Không suy từ địa hình hiện tại rồi kết luận đó là căn nguyên tên gọi."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Gành Dầu là địa danh ở cực Tây Bắc Phú Quốc, gắn với làng biển và mũi đất hướng sang phía Campuchia. Phần vị trí thì rõ, nhưng nguồn hiện có chưa đủ chắc để chốt vì sao tên gọi là Gành Dầu.",
+        "practical": null,
+        "expectation_vs_reality": "Cách giải thích 'gành đá có cây dầu' nghe hợp lý và khá phổ biến, nhưng hiện chưa đủ bằng chứng để Open Phu Quoc kể như lịch sử đã xác minh.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "Tên Gành Dầu có xuất hiện trên bản đồ hoặc địa bạ cũ từ khi nào?",
+          "Cây dầu từng phổ biến ở khu mũi này đến mức nào và có thực sự liên quan tới địa danh?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_104_nguon-goc-ten-cua-can",
+      "number": 104,
+      "title": "Nguồn gốc tên Cửa Cạn",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": "place_cua_can",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Trang thông tin chính thức của Phú Quốc giải thích sông Cửa Cạn gần như bị lấp ở cửa sông vào mùa gió Nam và nêu đây là lý do địa danh được gọi là Cửa Cạn.",
+            "source_ids": [
+              "pqgov_cua_can_origin"
+            ],
+            "verification_status": "VERIFIED_AS_OFFICIAL_LOCAL_EXPLANATION",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nguồn này mô tả sông Cửa Cạn dài khoảng 15 km, bắt nguồn từ dãy Hàm Ninh và đổ ra bờ Tây tại làng Cửa Cạn.",
+            "source_ids": [
+              "pqgov_cua_can_origin"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_cua_can_origin",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Cửa Cạn, dòng sông thơ mộng",
+            "url": "https://phuquoc.angiang.gov.vn/cua-can-dong-song-tho-mong",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Nguồn hiện có là lời giải thích địa phương được cổng chính thức ghi lại, chưa phải nghiên cứu địa danh học dựa trên tài liệu lịch sử sơ cấp.",
+          "Chưa khóa được mốc sớm nhất tên Cửa Cạn xuất hiện trong bản đồ hoặc địa bạ."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Cửa Cạn là một trong số ít địa danh trong batch này có lời giải thích khá trực tiếp từ nguồn chính thức: vào mùa gió Nam, cửa sông có thể bị bồi lấp gần như kín, và đặc điểm ấy được giải thích là nguồn gốc của tên Cửa Cạn.",
+        "practical": "Khách đi Cửa Cạn nên hiểu đây trước hết là một vùng sông - cửa biển và khu dân cư, không phải một điểm đơn lẻ. Tình trạng cửa sông có thể thay đổi theo mùa và dòng chảy.",
+        "expectation_vs_reality": "Tên gọi có một cách giải thích địa phương khá rõ, nhưng chưa nên nâng nó thành kết luận địa danh học tuyệt đối nếu chưa có tài liệu lịch sử sơ cấp đối chiếu.",
+        "before_you_go": [
+          "Xem Cửa Cạn theo cả hệ sông và làng ven bờ, không chỉ một pin trên bản đồ.",
+          "Nếu đi kayak/thuyền, kiểm tra thời tiết và điều kiện nước trong ngày."
+        ],
+        "curiosity_questions": [
+          "Cửa sông bị bồi lấp theo mùa diễn ra như thế nào?",
+          "Tên Cửa Cạn xuất hiện từ bao giờ trên bản đồ Phú Quốc?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
