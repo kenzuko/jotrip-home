@@ -1,4 +1,5 @@
 const $=s=>document.querySelector(s);
+const $=s=>Array.from(document.querySelectorAll(s));
 const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics"};
 
 let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null;
