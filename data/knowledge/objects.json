@@ -3355,13 +3355,13 @@
         ]
       },
       "editorial": {
-        "short_summary": "Dưới lớp rừng và bãi biển, Phú Quốc nằm trong một cấu trúc địa chất trầm tích phức tạp có lịch sử từ Mesozoi muộn. Địa chất giúp giải thích vì sao đảo có núi, bờ đá, cát và các dạng địa hình khác nhau.",
-        "practical": "nội dung này nên dùng để giải thích cảnh quan, không biến thành một bài địa chất học nặng thuật ngữ trên mặt khách.",
-        "expectation_vs_reality": "Không phải mọi tảng đá ở bờ biển đều có thể tự gắn tuổi/nguồn gốc chỉ bằng nhìn màu và hình dạng.",
+        "short_summary": "Nhìn Phú Quốc hôm nay là rừng, núi, bãi cát và bờ đá, nhưng phía dưới là cả một lịch sử địa chất rất dài. Phần này giúp giải thích vì sao cùng một hòn đảo lại có nhiều kiểu địa hình khác nhau.",
+        "practical": "Khi kể cho khách, chỉ cần dùng địa chất để giải thích cảnh quan. Không cần kéo câu chuyện thành một bài học đầy thuật ngữ.",
+        "expectation_vs_reality": "Nhìn màu hay hình một tảng đá ngoài bờ biển chưa đủ để kết luận nó bao nhiêu tuổi hay hình thành từ đâu.",
         "before_you_go": [
-          "Không bẻ/lấy mẫu ở khu bảo tồn.",
-          "Nếu kể tuổi đá cụ thể phải có bản đồ/nguồn địa chất tương ứng.",
-          "Tách geology của đảo với geology bể trầm tích rộng hơn quanh Phú Quốc."
+          "Không lấy đá hoặc mẫu vật ở khu bảo tồn.",
+          "Nếu nói tuổi đá cụ thể phải có nguồn địa chất tương ứng.",
+          "Không lấy thông tin của cả vùng biển rộng rồi gắn thẳng cho một điểm nhỏ trên đảo."
         ],
         "curiosity_questions": [
           "Vì sao Phú Quốc vừa có dãy núi dài vừa có những bãi cát rất phẳng?"
@@ -3419,13 +3419,13 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Sông Dương Đông là một phần của hệ thống nước và đời sống đô thị trung tâm đảo. Dòng sông nối lưu vực phía trong với cửa biển, chợ, cảng và khu dân cư Dương Đông.",
-        "practical": "Khi kể câu chuyện Dương Đông, nên nhìn cả sông chứ không chỉ đường phố. Nước, tàu thuyền và chợ bên sông giải thích khá nhiều về cách thị trấn hình thành.",
-        "expectation_vs_reality": "Sông hiện nay chịu tác động đô thị và sử dụng đất, nên không nên mô tả bằng một hình ảnh ‘làng chài nguyên sơ’ cố định.",
+        "short_summary": "Sông Dương Đông chảy qua khu trung tâm rồi ra biển, đi ngang chợ, cảng và khu dân cư. Nhìn con sông sẽ dễ hiểu hơn vì sao Dương Đông hình thành và đông đúc ở khu vực này.",
+        "practical": "Nếu muốn hiểu Dương Đông, đừng chỉ nhìn đường phố. Dòng sông, tàu thuyền và khu chợ bên bờ kể khá nhiều về cách nơi này lớn lên.",
+        "expectation_vs_reality": "Sông Dương Đông hôm nay chịu tác động đô thị khá rõ, nên hình ảnh 'làng chài nguyên sơ' không còn phù hợp để mô tả cả khu vực.",
         "before_you_go": [
-          "Không suy chất lượng nước bằng màu/mùi quan sát đơn lẻ.",
-          "Nếu nói biến đổi dòng chảy cần gắn thời kỳ và nguồn.",
-          "Phân biệt sông Dương Đông với hồ chứa Dương Đông ở thượng lưu."
+          "Đừng kết luận nước sạch hay bẩn chỉ bằng màu hoặc mùi nhìn thấy tại một thời điểm.",
+          "Nếu nói dòng sông thay đổi theo thời gian, cần gắn đúng mốc và nguồn.",
+          "Phân biệt sông Dương Đông với hồ Dương Đông ở phía thượng lưu."
         ],
         "curiosity_questions": [
           "Sông Dương Đông đã định hình chợ và khu trung tâm đảo như thế nào?"
@@ -3486,9 +3486,9 @@
         ]
       },
       "editorial": {
-        "short_summary": "Bún quậy vui ở chỗ người ăn tham gia vào tô bún: tự pha chén chấm, nếm rồi quậy tới khi vừa miệng. Tô thường có chả tôm, chả cá và có thể thêm mực tùy quán.",
-        "practical": "Ăn lúc còn nóng. Nếu lần đầu thử, đừng pha chén chấm quá mặn hoặc quá cay ngay từ đầu - nêm dần dễ ngon hơn.",
-        "expectation_vs_reality": "Không có một tô 'chuẩn tuyệt đối' cho mọi quán. Tỷ lệ chả, hải sản và cách pha nước chấm thay đổi.",
+        "short_summary": "Bún quậy vui ở chỗ mình tự pha chén chấm rồi chỉnh dần cho vừa miệng. Một tô thường có chả tôm, chả cá và có thể thêm mực tùy quán.",
+        "practical": "Ăn lúc còn nóng là ngon nhất. Nếu lần đầu thử, pha nước chấm nhẹ tay trước rồi nêm thêm, đỡ bị quá mặn hoặc quá cay.",
+        "expectation_vs_reality": "Mỗi quán có cách làm và tỷ lệ chả, hải sản, nước chấm hơi khác nhau, nên không có một tô 'chuẩn duy nhất' cho cả Phú Quốc.",
         "before_you_go": [
           "Dị ứng cá, tôm hoặc nhuyễn thể phải hỏi kỹ trước khi gọi.",
           "Khu chế biến có thể dùng chung dụng cụ cho nhiều loại hải sản.",
@@ -3579,9 +3579,9 @@
         ]
       },
       "editorial": {
-        "short_summary": "Gỏi cá trích là cách ăn cá tươi cùng dừa, rau, bánh tráng và nước chấm. Cái ngon không chỉ nằm ở cá mà ở cả độ tươi, rau và chén chấm.",
-        "practical": "Cuốn vừa tay và ăn ngay. Nếu không quen cá sống hoặc tái, hỏi rõ cách sơ chế của quán trước khi gọi.",
-        "expectation_vs_reality": "Đây không phải một đĩa salad cá đơn giản. Trải nghiệm đúng nhịp thường là tự cuốn và chấm.",
+        "short_summary": "Gỏi cá trích ngon ở sự cân bằng giữa cá tươi, dừa, rau, bánh tráng và chén nước chấm. Ăn món này thường là tự cuốn từng cuốn nhỏ rồi chấm, chứ không phải chỉ gắp cá ăn riêng.",
+        "practical": "Cuốn vừa tay và ăn ngay. Nếu không quen cá sống hoặc tái, hỏi quán cách sơ chế trước khi gọi.",
+        "expectation_vs_reality": "Gỏi cá trích không chỉ là một đĩa cá trộn. Cách cuốn với rau, dừa và nước chấm mới tạo ra đúng kiểu ăn của món này.",
         "before_you_go": [
           "Cá là dị ứng chính; đậu phộng cũng thường xuất hiện trong nước chấm hoặc topping.",
           "Người mang thai, trẻ nhỏ hoặc người cần hạn chế đồ sống nên hỏi kỹ mức xử lý nhiệt.",
@@ -3671,9 +3671,9 @@
         ]
       },
       "editorial": {
-        "short_summary": "Ghẹ gắn với Hàm Ninh từ lâu trong câu chuyện ẩm thực của làng chài, nhưng khi ăn hôm nay nên quan tâm con ghẹ đang bán đến từ đâu, còn sống/tươi không và giá tính thế nào hơn là chỉ dựa vào tên gọi.",
-        "practical": "Hấp đơn giản thường dễ biết độ tươi nhất. Hỏi giá theo kg, kích cỡ và cách tính công chế biến trước khi gọi.",
-        "expectation_vs_reality": "Tên 'ghẹ Hàm Ninh' trên menu không tự động chứng minh con ghẹ được đánh bắt ngay tại Hàm Ninh trong ngày.",
+        "short_summary": "Ghẹ gắn với Hàm Ninh từ lâu, nhưng khi ngồi vào bàn hôm nay thì độ tươi, kích cỡ và giá quan trọng hơn cái tên trên menu.",
+        "practical": "Hấp hoặc luộc đơn giản thường dễ nếm vị ghẹ nhất. Hỏi giá theo kg, kích cỡ và công chế biến trước khi gọi để khỏi bất ngờ lúc tính tiền.",
+        "expectation_vs_reality": "Menu ghi 'ghẹ Hàm Ninh' không có nghĩa chắc chắn con ghẹ đó vừa được đánh bắt ngay tại Hàm Ninh trong ngày.",
         "before_you_go": [
           "Hỏi giá và trọng lượng trước khi chế biến.",
           "Nếu muốn nếm vị ghẹ, chọn cách hấp/luộc ít sốt.",
@@ -3739,9 +3739,9 @@
         ]
       },
       "editorial": {
-        "short_summary": "Nhum có vị béo, mềm và mặn ngọt của biển. Cách dễ ăn nhất là nướng vừa tới, thêm mỡ hành nhưng đừng nêm quá tay.",
-        "practical": "Hỏi kích cỡ và giá trước khi gọi. Nhum nướng quá lâu sẽ khô, mất phần béo mềm đáng ăn nhất.",
-        "expectation_vs_reality": "Không phải con nào cũng đầy thịt/trứng như nhau, nên kích cỡ và mùa ảnh hưởng trải nghiệm khá nhiều.",
+        "short_summary": "Nhum có phần thịt mềm, béo và vị biển khá rõ. Nướng vừa chín rồi thêm chút mỡ hành thường dễ ăn nhất, miễn đừng nướng quá lâu.",
+        "practical": "Hỏi kích cỡ và giá trước khi gọi. Nhum nướng quá kỹ sẽ khô và mất phần mềm béo đáng ăn nhất.",
+        "expectation_vs_reality": "Không phải con nhum nào cũng đầy phần ăn được như nhau. Kích cỡ và mùa có thể làm món này khác khá nhiều.",
         "before_you_go": [
           "Nhum là hải sản, cần tránh nếu có dị ứng phù hợp.",
           "Mỡ hành thường có thể kèm đậu phộng.",
@@ -3836,9 +3836,9 @@
         ]
       },
       "editorial": {
-        "short_summary": "Còi biên mai là phần cơ chắc, giòn của sò biên mai. Nướng hoặc xào nhanh thường giữ được độ ngọt và giòn tốt hơn món quá nhiều sốt.",
-        "practical": "Nếu muốn nếm rõ vị, chọn nướng muối ớt hoặc kiểu ít sốt. Hỏi quán tính giá theo phần hay theo trọng lượng.",
-        "expectation_vs_reality": "Nướng quá lâu là phần còi dễ chuyển từ giòn sang cứng.",
+        "short_summary": "Còi biên mai là phần cơ của sò biên mai, ăn giòn và chắc. Nướng hoặc xào nhanh thường giữ được vị ngọt và độ giòn tốt hơn cách làm quá nhiều sốt.",
+        "practical": "Muốn nếm rõ vị thì chọn kiểu nướng hoặc xào ít sốt. Hỏi trước quán tính theo phần hay theo trọng lượng.",
+        "expectation_vs_reality": "Phần còi mà nướng quá lâu sẽ chuyển từ giòn sang dai cứng khá nhanh.",
         "before_you_go": [
           "Biên mai là nhuyễn thể.",
           "Kiểu nướng chao có thể chứa đậu nành; sa tế hoặc sốt pha sẵn thay đổi theo quán.",
@@ -3915,9 +3915,9 @@
         ]
       },
       "editorial": {
-        "short_summary": "Cá sòng là kiểu cá biển địa phương hợp cách nướng đơn giản vì thịt chắc và vị cá rõ. Nhưng 'cá sòng Phú Quốc' nên được hiểu là món thường gặp ở đảo, không phải một loài chỉ có ở Phú Quốc.",
-        "practical": "Nếu gặp cá tươi, nướng than hoặc nướng muối ớt là cách dễ nếm vị nhất. Hỏi cá theo con hay theo kg và cá đang dùng là cá tươi hay cấp đông.",
-        "expectation_vs_reality": "Tên món địa phương không bảo đảm nguồn cá đánh bắt ngay vùng Phú Quốc trong ngày.",
+        "short_summary": "Cá sòng là loại cá biển khá hợp nướng vì thịt chắc và vị cá rõ. Ở Phú Quốc món này gặp khá thường, nhưng không phải loài cá chỉ riêng đảo mới có.",
+        "practical": "Nếu cá tươi, nướng than hoặc nướng muối ớt là cách dễ ăn. Hỏi cá tính theo con hay theo kg và đang dùng cá tươi hay cá cấp đông.",
+        "expectation_vs_reality": "Tên món địa phương không có nghĩa con cá chắc chắn được đánh bắt quanh Phú Quốc trong ngày.",
         "before_you_go": [
           "Cá là dị ứng chính.",
           "Hỏi giá/trọng lượng trước khi chế biến.",
@@ -3980,9 +3980,9 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Ốc giác, còn gọi là Melo melo/ốc hoàng đế ở một số nơi, vừa là hải sản vừa gắn với câu chuyện ngọc Melo cực hiếm. Hai chuyện này nên tách rõ để không biến món ăn thành huyền thoại về viên ngọc.",
-        "practical": "Khi ăn, hỏi trọng lượng và cách chế biến vì con lớn. Khi nói về ngọc Melo, chỉ coi là hiện tượng tự nhiên rất hiếm, không hứa rằng ốc mua ở chợ có thể có ngọc.",
-        "expectation_vs_reality": "Ngọc Melo không phải ngọc trai nuôi cấy thông thường và việc tìm thấy là cực hiếm.",
+        "short_summary": "Ốc giác là một loại hải sản lớn, còn ngọc Melo lại là câu chuyện rất hiếm gặp bên trong cùng loài. Hai chuyện nên tách riêng để khỏi biến một món ăn thành câu chuyện săn ngọc.",
+        "practical": "Khi ăn, hỏi trọng lượng và cách chế biến trước vì con thường khá lớn. Còn chuyện ngọc Melo thì chỉ nên hiểu là hiện tượng tự nhiên rất hiếm, không phải mua ốc là có cơ hội thấy ngọc.",
+        "expectation_vs_reality": "Ngọc Melo không giống ngọc trai nuôi thông thường và việc tìm thấy cực kỳ hiếm.",
         "before_you_go": [
           "Ốc giác là nhuyễn thể, lưu ý dị ứng.",
           "Hỏi giá theo kg/con.",
@@ -4029,9 +4029,9 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Bánh tét mật cật khác chiếc bánh tét quen thuộc trước hết ở lớp lá gói. Lá mật cật dai, thơm nhẹ và tạo cho món bánh một dấu nhận diện rất Phú Quốc.",
-        "practical": "Ăn như bánh tét mặn bình thường, cắt khoanh. Nếu mua làm quà, hỏi ngày gói và cách bảo quản thay vì chỉ nhìn màu lá.",
-        "expectation_vs_reality": "Không phải cứ gói lá xanh là bánh tét mật cật; phần đặc trưng nằm ở đúng loại lá và cách làm.",
+        "short_summary": "Bánh tét mật cật dễ nhận ra trước hết ở lớp lá gói. Lá mật cật tạo mùi thơm nhẹ và khiến chiếc bánh có nét riêng so với bánh tét gói bằng lá chuối quen thuộc.",
+        "practical": "Ăn như bánh tét mặn bình thường, cắt khoanh. Nếu mua mang về, hỏi ngày gói và cách bảo quản trước khi chọn.",
+        "expectation_vs_reality": "Không phải bánh nào gói lá xanh cũng là bánh tét mật cật. Điểm khác nằm ở đúng loại lá và cách làm.",
         "before_you_go": [
           "Nhân truyền thống có nếp, đậu xanh và thịt mỡ - không phù hợp ăn chay.",
           "Người dị ứng/thực hiện chế độ ăn đặc biệt nên hỏi thành phần thực tế.",
