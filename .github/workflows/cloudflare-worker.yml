@@ -24,6 +24,7 @@ jobs:
 
       - name: Build derived data
         run: |
+          node scripts/build-knowledge-public.mjs
           node scripts/build-search-index.mjs
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
@@ -32,6 +33,7 @@ jobs:
         run: |
           node scripts/validate-data.mjs
           node scripts/validate-home-support.mjs
+          node scripts/validate-knowledge.mjs
           node scripts/test-search.mjs
           node scripts/test-currency.mjs
 
