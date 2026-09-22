@@ -44,3 +44,21 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           npx --yes wrangler@4 pages deploy dist --project-name jotrip-home --branch main --commit-dirty=true
+
+      - name: Verify custom CMS domain
+        run: |
+          set -euo pipefail
+          ok=0
+          for i in {1..20}; do
+            curl -fsS "https://cms.openphuquoc.com/admin/admin.js?v=16&t=$i" -o live-admin.js || true
+            if grep -q 'const qsa=s=>Array.from(document.querySelectorAll(s));' live-admin.js; then
+              ok=1
+              break
+            fi
+            sleep 3
+          done
+          echo "custom_domain_qsa=$ok"
+          test "$ok" = "1"
+          code="$(curl -sS -o analytics.json -w '%{http_code}' "https://cms.openphuquoc.com/api/cms/analytics")"
+          echo "analytics_unauth_http=$code"
+          test "$code" = "401"
