@@ -667,7 +667,25 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.0389761,
+        "lon": 104.0273246,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 1290225377,
+        "matched_name": "New World Phu Quoc Resort",
+        "formatted_address": null,
+        "lookup_query": "New World Phu Quoc Resort, Khu du lịch sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      }
     },
     {
       "id": "hotel_novotel",
@@ -2709,7 +2727,25 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.0308471,
+        "lon": 104.0054519,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "node",
+        "osm_id": 11383154942,
+        "matched_name": "Atina Boutique Homestay",
+        "formatted_address": "19, Venice Street, Thành phố Phú Quốc",
+        "lookup_query": "Venice Hotel Phú Quốc, 15-17 Venice, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      }
     },
     {
       "id": "hotel_vinholidays_fiesta_phu_quoc",
@@ -3960,7 +3996,25 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "node",
+        "osm_id": 10169154217,
+        "matched_name": "Phu Quoc Pomelo Garden",
+        "formatted_address": "Tồ 2, ấp Ông Lang, Xã Cửa Dương, Phú Quốc, Kiên Giang, Ong Lang, Phu Quoc, Vietnam",
+        "lookup_query": "Caesar Việt Nam, Thửa đất số 200, Tờ bản đồ 11, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      }
     },
     {
       "id": "hotel_camellia_resort_spa",
@@ -4281,7 +4335,25 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.1825933,
+        "lon": 103.9721868,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 1327555000,
+        "matched_name": "Dương Đông",
+        "formatted_address": null,
+        "lookup_query": "Dương Đông, Thửa đất số 355, Tờ bản đồ số 10, Tổ 3, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      }
     },
     {
       "id": "hotel_dao_ngoc_the_ky_21",

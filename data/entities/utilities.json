@@ -830,7 +830,25 @@
           "source_id": "visitpq_fuel_directory_2026"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.3705026,
+        "lon": 103.8459941,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "node",
+        "osm_id": 1650671964,
+        "matched_name": "Trạm xăng dầu Gành Dầu (KTC)",
+        "formatted_address": null,
+        "lookup_query": "Cửa hàng bán lẻ xăng dầu Nhi Phụng, Thửa đất 43, tờ bản đồ 12, ấp Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      }
     },
     {
       "id": "utility_parking_sunset_nightmarket",
@@ -1210,7 +1228,25 @@
           "source_id": "longchau_phuquoc_storelist_2026"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.3695587,
+        "lon": 103.8464427,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "node",
+        "osm_id": 11849971252,
+        "matched_name": "Nhà Thuốc Linh Chi",
+        "formatted_address": null,
+        "lookup_query": "Nhà thuốc Long Châu - Suối Đá, Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang), Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      }
     }
   ]
 }

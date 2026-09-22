@@ -1,6 +1,6 @@
 {
   "schema_version": "1.5",
-  "generated_at": "2026-09-22T01:34:22.339Z",
+  "generated_at": "2026-09-22T06:49:55.496Z",
   "documents": [
     {
       "id": "hotel_tier_3_star",
@@ -358,6 +358,19 @@
       "search_text": "bai gui xe khu cho dem sunset town diem/bai gui xe bai do khu cho dem sunset town, an thoi, dac khu phu quoc, an giang"
     },
     {
+      "id": "venue_bai_khem",
+      "type": "venue",
+      "title": "Bãi Khem",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=B%C3%A3i%20Khem#search",
+      "search_text": "bai khem bai khem, an thoi, phu quoc, an giang, viet nam"
+    },
+    {
       "id": "place_bai_khem",
       "type": "place",
       "title": "Bãi Khem",
@@ -390,6 +403,19 @@
       "search_text": "bai khem gia dinh cap doi gia dinh cap doi chin chu, cao cap bai dep · resort tot"
     },
     {
+      "id": "venue_bai_sao",
+      "type": "venue",
+      "title": "Bãi Sao",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=B%C3%A3i%20Sao#search",
+      "search_text": "bai sao bai sao, an thoi, phu quoc, an giang, viet nam"
+    },
+    {
       "id": "place_bai_sao",
       "type": "place",
       "title": "Bãi Sao",
@@ -404,6 +430,19 @@
       "related_entities": [],
       "route": "/places/detail.html?id=bai-sao",
       "search_text": "bai sao beach family beach family beach family bai tam de tiep can o nam dao tam bien · an uong · nghi bai bai sao, an thoi, phu quoc, an giang, viet nam khong co ve chung; dich vu tinh rieng"
+    },
+    {
+      "id": "venue_bai_truong",
+      "type": "venue",
+      "title": "Bãi Trường",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=B%C3%A3i%20Tr%C6%B0%E1%BB%9Dng#search",
+      "search_text": "bai truong duong tran hung dao, phu quoc, an giang, viet nam"
     },
     {
       "id": "place_bai_truong",
@@ -972,6 +1011,19 @@
       "search_text": "cho xoay phu quoc cho phu quoc phu quoc ridgeback culture local-life nature giong cho ban dia gan voi phu quoc, noi bat voi dai long moc nguoc tren lung va lich su cho san."
     },
     {
+      "id": "venue_duong_dong_market",
+      "type": "venue",
+      "title": "Chợ Dương Đông",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=Ch%E1%BB%A3%20D%C6%B0%C6%A1ng%20%C4%90%C3%B4ng#search",
+      "search_text": "cho duong dong cho duong dong, duong ngo quyen, duong dong, phu quoc, an giang, viet nam"
+    },
+    {
       "id": "place_duong_dong_market",
       "type": "place",
       "title": "Chợ Dương Đông",
@@ -1005,6 +1057,19 @@
       "related_entities": [],
       "route": "/places/detail.html?id=night-market",
       "search_text": "cho dem duong dong food evening food evening food evening khu an uong va mua sam buoi toi an toi · di bo · thu mon 54 nguyen trai, duong dong, phu quoc, an giang, viet nam theo quan/mon"
+    },
+    {
+      "id": "venue_ho_quoc",
+      "type": "venue",
+      "title": "Chùa Hộ Quốc",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=Ch%C3%B9a%20H%E1%BB%99%20Qu%E1%BB%91c#search",
+      "search_text": "chua ho quoc 426h+2hj, thien vien truc lam ho quoc, duong to, phu quoc, an giang, viet nam"
     },
     {
       "id": "place_ho_quoc",
@@ -1267,6 +1332,19 @@
       "related_entities": [],
       "route": "/hotels/?hotel=daisy-resort",
       "search_text": "daisy resort stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973844412; 0946666806 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 7 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "venue_dinh_cau",
+      "type": "venue",
+      "title": "Dinh Cậu",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=Dinh%20C%E1%BA%ADu#search",
+      "search_text": "dinh cau khu pho 2, duong dong, phu quoc, an giang 92500, viet nam"
     },
     {
       "id": "place_dinh_cau",
@@ -3570,6 +3648,19 @@
       "search_text": "nha tranh - gia vi stay hotel central_west duong-dong khach san nghi duong tai duong dong. 02973848395; 0917785557 duong dong chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 7 tran hung dao, kp7, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "venue_phu_quoc_prison",
+      "type": "venue",
+      "title": "Nhà tù Phú Quốc",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=Nh%C3%A0%20t%C3%B9%20Ph%C3%BA%20Qu%E1%BB%91c#search",
+      "search_text": "nha tu phu quoc 350 nguyen van cu, an thoi, phu quoc, an giang, viet nam"
+    },
+    {
       "id": "place_phu_quoc_prison",
       "type": "place",
       "title": "Nhà tù Phú Quốc",
@@ -4328,6 +4419,19 @@
       "search_text": "quynh mai phu quoc resort stay hotel central_west khach san nghi duong tai noi dao - suoi may / suoi da / ben tram. 02973702998; 0913949081 noi dao - suoi may / suoi da / ben tram chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 5, ap suoi may, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "venue_rach_vem",
+      "type": "venue",
+      "title": "Rạch Vẹm",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=R%E1%BA%A1ch%20V%E1%BA%B9m#search",
+      "search_text": "rach vem rach vem, ganh dau, phu quoc, an giang, viet nam"
+    },
+    {
       "id": "place_rach_vem",
       "type": "place",
       "title": "Rạch Vẹm",
@@ -5017,6 +5121,19 @@
       "search_text": "sunset sanato stay hotel central_west 5-sao khach san nghi duong 5 sao tai khac / can ra. 02976266662 khac / can ra 5 sao dang hoat dong - trong sdl 27/07/2026 active to 3, ap duong bao, dac khu phu quoc, tinh an giang"
     },
     {
+      "id": "venue_sunset_town",
+      "type": "venue",
+      "title": "Sunset Town",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=Sunset%20Town#search",
+      "search_text": "sunset town sunset town, an thoi, phu quoc, an giang, viet nam"
+    },
+    {
       "id": "place_sunset_town",
       "type": "place",
       "title": "Sunset Town",
@@ -5089,6 +5206,19 @@
       "related_entities": [],
       "route": "/hotels/?hotel=suoi-may-garden",
       "search_text": "suoi may garden stay hotel central_west khach san tai noi dao - suoi may / suoi da / ben tram. 0902429663; 0364790289 noi dao - suoi may / suoi da / ben tram chua xac dinh dang hoat dong - trong sdl 27/07/2026 active to 5, ap suoi may, dac khu phu quoc, tinh an giang"
+    },
+    {
+      "id": "venue_suoi_tranh",
+      "type": "venue",
+      "title": "Suối Tranh",
+      "aliases": [],
+      "zone_id": null,
+      "intents": [],
+      "star_rating": null,
+      "operational_status": null,
+      "related_entities": [],
+      "route": "/guide/?q=Su%E1%BB%91i%20Tranh#search",
+      "search_text": "suoi tranh 52g6+gqq, suoi may, phu quoc, an giang, viet nam"
     },
     {
       "id": "place_suoi_tranh",

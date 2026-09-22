@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-22T01:34:22.276Z",
+  "generated_at": "2026-09-22T06:49:55.441Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 204,
     "with_address": 204,
-    "with_map": 161,
+    "with_map": 167,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -556,7 +556,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Caesar%20Vi%E1%BB%87t%20Nam",
-      "map": null,
+      "map": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Overpass catalog",
+        "source_id": "osm_overpass_catalog",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Caesar Việt Nam, Thửa đất số 200, Tờ bản đồ 11, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -865,7 +872,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=D%C6%B0%C6%A1ng%20%C4%90%C3%B4ng",
-      "map": null,
+      "map": {
+        "lat": 10.1825933,
+        "lon": 103.9721868,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Overpass catalog",
+        "source_id": "osm_overpass_catalog",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Dương Đông, Thửa đất số 355, Tờ bản đồ số 10, Tổ 3, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2303,7 +2317,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Nam đảo - Bãi Khem / Mũi Ông Đội.",
       "route": "/hotels/?q=New%20World%20Phu%20Quoc%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.0389761,
+        "lon": 104.0273246,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Overpass catalog",
+        "source_id": "osm_overpass_catalog",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "New World Phu Quoc Resort, Khu du lịch sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4366,7 +4387,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn 4 sao tại Sunset Town - An Thới.",
       "route": "/hotels/?q=Venice%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.0308471,
+        "lon": 104.0054519,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Overpass catalog",
+        "source_id": "osm_overpass_catalog",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Venice Hotel Phú Quốc, 15-17 Venice, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc, Phú Quốc"
     },
@@ -5461,7 +5489,14 @@
       "star_rating": null,
       "what_it_is": "Điểm bán lẻ xăng dầu",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.3705026,
+        "lon": 103.8459941,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Overpass catalog",
+        "source_id": "osm_overpass_catalog",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Cửa hàng bán lẻ xăng dầu Nhi Phụng, Thửa đất 43, tờ bản đồ 12, ấp Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -5631,7 +5666,14 @@
       "star_rating": null,
       "what_it_is": "Nhà thuốc Long Châu tại khu Suối Đá - Dương Tơ",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.3695587,
+        "lon": 103.8464427,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Overpass catalog",
+        "source_id": "osm_overpass_catalog",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà thuốc Long Châu - Suối Đá, Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang), Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-22T01:34:22.110Z",
+  "generated_at": "2026-09-22T06:49:55.372Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 249,
-    "ready_count": 158,
-    "missing_count": 91
+    "ready_count": 164,
+    "missing_count": 85
   },
   "layers": {
     "zones": [
@@ -494,6 +494,26 @@
         "matched_name": null,
         "formatted_address": "Tồ 2, ấp Ông Lang, Xã Cửa Dương, Phú Quốc, Kiên Giang, Ong Lang, Phu Quoc, Vietnam, Phú Quốc, An Giang, Việt Nam",
         "lookup_query": "Mövenpick Resort Waverly Phu Quoc, Tổ 1, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      {
+        "id": "hotel_new_world",
+        "name": "New World Phu Quoc Resort",
+        "lat": 10.0389761,
+        "lon": 104.0273246,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 1290225377,
+        "matched_name": "New World Phu Quoc Resort",
+        "formatted_address": null,
+        "lookup_query": "New World Phu Quoc Resort, Khu du lịch sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
       },
@@ -998,6 +1018,26 @@
         "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
       },
       {
+        "id": "hotel_venice_hotel_phu_quoc",
+        "name": "Venice Hotel Phú Quốc",
+        "lat": 10.0308471,
+        "lon": 104.0054519,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "node",
+        "osm_id": 11383154942,
+        "matched_name": "Atina Boutique Homestay",
+        "formatted_address": "19, Venice Street, Thành phố Phú Quốc",
+        "lookup_query": "Venice Hotel Phú Quốc, 15-17 Venice, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      {
         "id": "hotel_vinholidays_fiesta_phu_quoc",
         "name": "VinHolidays Fiesta Phu Quoc",
         "lat": 10.3242259,
@@ -1338,6 +1378,26 @@
         "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
       },
       {
+        "id": "hotel_caesar_viet_nam",
+        "name": "Caesar Việt Nam",
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "node",
+        "osm_id": 10169154217,
+        "matched_name": "Phu Quoc Pomelo Garden",
+        "formatted_address": "Tồ 2, ấp Ông Lang, Xã Cửa Dương, Phú Quốc, Kiên Giang, Ong Lang, Phu Quoc, Vietnam",
+        "lookup_query": "Caesar Việt Nam, Thửa đất số 200, Tờ bản đồ 11, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      {
         "id": "hotel_camellia_resort_spa",
         "name": "Camellia Resort & Spa",
         "lat": 10.262797,
@@ -1414,6 +1474,26 @@
         "matched_name": "Daisy Resort",
         "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
         "lookup_query": "Daisy Resort, Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      {
+        "id": "hotel_duong_dong",
+        "name": "Dương Đông",
+        "lat": 10.1825933,
+        "lon": 103.9721868,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 1327555000,
+        "matched_name": "Dương Đông",
+        "formatted_address": null,
+        "lookup_query": "Dương Đông, Thửa đất số 355, Tờ bản đồ số 10, Tổ 3, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
       },
@@ -2926,6 +3006,27 @@
         "verified_at": "2026-09-21"
       },
       {
+        "id": "utility_fuel_nhi_phung_ganh_dau",
+        "name": "Cửa hàng bán lẻ xăng dầu Nhi Phụng",
+        "type": "utility",
+        "lat": 10.3705026,
+        "lon": 103.8459941,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "node",
+        "osm_id": 1650671964,
+        "matched_name": "Trạm xăng dầu Gành Dầu (KTC)",
+        "formatted_address": null,
+        "lookup_query": "Cửa hàng bán lẻ xăng dầu Nhi Phụng, Thửa đất 43, tờ bản đồ 12, ấp Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      {
         "id": "utility_toilet_sunset_venice_02",
         "name": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town",
         "type": "utility",
@@ -3008,6 +3109,27 @@
         "lookup_query": "CS68 - Cửa hàng tiện lợi Sunset Town, Sorento 2, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      },
+      {
+        "id": "utility_longchau_suoi_da",
+        "name": "Nhà thuốc Long Châu - Suối Đá",
+        "type": "utility",
+        "lat": 10.3695587,
+        "lon": 103.8464427,
+        "precision": "site_centroid",
+        "source_id": "osm_overpass_catalog",
+        "source": "OpenStreetMap Overpass catalog",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_OVERPASS",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "node",
+        "osm_id": 11849971252,
+        "matched_name": "Nhà Thuốc Linh Chi",
+        "formatted_address": null,
+        "lookup_query": "Nhà thuốc Long Châu - Suối Đá, Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang), Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
       }
     ]
   },
@@ -3029,7 +3151,6 @@
     "activity_once_show",
     "activity_sac_mau_venice",
     "hotel_la_festa",
-    "hotel_new_world",
     "hotel_pullman",
     "hotel_regent",
     "hotel_sailing_club_signature_resort_phu_quoc",
@@ -3037,13 +3158,10 @@
     "hotel_worldhotels_long_beach_resort_phu_quoc",
     "hotel_paralia",
     "hotel_the_up_phu_quoc",
-    "hotel_venice_hotel_phu_quoc",
     "hotel_kosmos_apart_hotel",
     "hotel_suny_hotel",
     "hotel_amorii",
-    "hotel_caesar_viet_nam",
     "hotel_cty_cp_du_lich_va_phat_trien_ba_keo",
-    "hotel_duong_dong",
     "hotel_family_resort",
     "hotel_green_tree",
     "hotel_huynh_tram",
@@ -3094,14 +3212,12 @@
     "utility_sunworld",
     "utility_vinmec",
     "utility_vinmec_er",
-    "utility_fuel_nhi_phung_ganh_dau",
     "utility_parking_sunset_nightmarket",
     "utility_toilet_sunset_venice_67",
     "utility_jotrip_local_service",
     "utility_taxi_xanhsm",
     "utility_grab_phuquoc",
     "utility_taxi_mailinh",
-    "utility_taxi_namthang",
-    "utility_longchau_suoi_da"
+    "utility_taxi_namthang"
   ]
 }
