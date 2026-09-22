@@ -162,65 +162,15 @@
       .sort((a,b)=>a.d-b.d)[0]?.id||"all";
   }
 
-  function derivedTags(entity){
-    const tags=new Set();
-    if(entity.entity_type==="hotel")tags.add("HOTEL");
-    if(entity.entity_type==="place"){
-      tags.add("DESTINATION");
-      const cats=new Set(entity.categories||[]);
-      if(cats.has("beach"))tags.add("BEACH");
-      if(["theme-park","waterpark","wildlife","museum","entertainment","show","thrill"].some(x=>cats.has(x)))tags.add("ENTERTAINMENT");
-      if(["culture","history","lore","craft","agriculture"].some(x=>cats.has(x)))tags.add("CULTURE");
-      if(["market","food"].some(x=>cats.has(x))||/chợ/i.test(entity.name||""))tags.add("MARKET");
-    }
-    if(entity.entity_type==="utility"&&entity.utility_type)tags.add(entity.utility_type);
-    return [...tags];
-  }
-
-  function makeEntityRow(entity,extra={}){
-    const mapData=entity.map||{};
-    return {
-      ...extra,
-      id:entity.id,
-      entity_type:entity.entity_type,
-      name:entity.name||entity.id,
-      aliases:entity.aliases||[],
-      address:entity.address||"",
-      address_precision:entity.address_precision||null,
-      phone:entity.phone||null,
-      zone_id:entity.zone_id||null,
-      place_id:extra.place_id||null,
-      group:entity.group||null,
-      utility_type:entity.utility_type||null,
-      tags:derivedTags(entity),
-      what_it_is:entity.what_it_is||"",
-      star_rating:entity.star_rating??null,
-      related_entities:entity.related_entities||[],
-      lat:Number.isFinite(mapData.lat)?mapData.lat:null,
-      lon:Number.isFinite(mapData.lon)?mapData.lon:null,
-      map_precision:mapData.precision||null,
-      route:extra.route||entity.route||null
-    };
-  }
-
-  function buildRows(payloads){
-    const utilityById=new Map((payloads.utilities.entities||[]).map(x=>[x.id,x]));
-    const utilityRows=(support?.near_me?.items||[])
-      .map(meta=>{
-        const e=utilityById.get(meta.utility_id);
-        return e?makeEntityRow(e,{...meta,featured:!!meta.featured}):null;
-      })
-      .filter(Boolean);
-
-    const placeRows=(payloads.places.entities||[])
-      .filter(e=>e.name)
-      .map(e=>makeEntityRow(e,{route:"../places/detail.html?id="+encodeURIComponent(e.slug||e.legacy_id||e.id.replace(/^place_/,""))}));
-
-    const hotelRows=(payloads.hotels.entities||[])
-      .filter(e=>e.name)
-      .map(e=>makeEntityRow(e,{route:"../hotels/?q="+encodeURIComponent(e.name)}));
-
-    return [...placeRows,...utilityRows,...hotelRows];
+  function buildRows(index){
+    return (index?.documents||[]).map(doc=>({
+      ...doc,
+      lat:Number.isFinite(doc.map?.lat)?doc.map.lat:null,
+      lon:Number.isFinite(doc.map?.lon)?doc.map.lon:null,
+      map_precision:doc.map?.precision||null,
+      group:doc.group||null,
+      utility_type:doc.utility_type||null
+    }));
   }
 
   function areaLabel(){
@@ -290,6 +240,7 @@
 
   function typeLabel(item){
     if(item.entity_type==="hotel")return item.star_rating?"Khách sạn "+item.star_rating+" sao":"Khách sạn";
+    if(item.entity_type==="activity")return(item.categories||[]).includes("show")?"Show":"Trải nghiệm";
     if(item.entity_type==="place"){
       if(item.tags.includes("BEACH"))return"Bãi biển";
       if(item.tags.includes("ENTERTAINMENT"))return"Vui chơi";
@@ -518,15 +469,13 @@
   async function load(){
     initMap();
     try{
-      const [a,u,p,h]=await Promise.all([
+      const [a,locationIndex]=await Promise.all([
         fetch("../data/home-support.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-        fetch("../data/entities/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-        fetch("../data/entities/places.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-        fetch("../data/entities/hotels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
+        fetch("../data/views/location-index.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
       ]);
 
       support=a;
-      rows=buildRows({utilities:u,places:p,hotels:h});
+      rows=buildRows(locationIndex);
 
       const validAreas=new Set((support.near_me?.manual_areas||[]).map(x=>x.id));
       const validCategories=new Set((support.near_me?.categories||[]).map(x=>x.id));
