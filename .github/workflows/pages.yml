@@ -28,7 +28,10 @@ jobs:
         with:
           enablement: true
       - name: Build derived data views
-        run: node scripts/build-search-index.mjs
+        run: |
+          node scripts/build-search-index.mjs
+          node scripts/build-map-coverage.mjs
+          node scripts/build-location-index.mjs
       - name: Validate data contracts
         run: |
           node scripts/validate-data.mjs
