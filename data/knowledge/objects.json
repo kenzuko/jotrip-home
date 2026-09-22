@@ -1577,6 +1577,1572 @@
         "address": null
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_074_cano-tau-cao-toc-pha-khac-nhau-the-nao",
+      "number": 74,
+      "title": "Cano - tàu cao tốc - phà khác nhau thế nào",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "access_fast_boat",
+        "access_ferry",
+        "activity_tour_3_islands"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Đến Phú Quốc bằng tàu cao tốc: Phù hợp khách đi bộ từ Hà Tiên/Rạch Giá và muốn nối hành trình đường bộ.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Đến Phú Quốc bằng phà: Phương án đường biển phù hợp khi cần mang xe cá nhân hoặc nối hành trình từ đất liền.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Tour 3 đảo An Thới: Cano/tàu ra cụm đảo An Thới, 2-3 hòn tùy biển",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": [
+          "Trạng thái chạy trong ngày phải lấy từ operational/live layer, không đóng cứng trong knowledge object."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Ở Phú Quốc, ba chữ cano, tàu cao tốc và phà không nên dùng lẫn. Cano thường phục vụ tour biển; tàu cao tốc chở hành khách giữa đất liền và đảo; phà phù hợp khi cần chở cả xe và hàng.",
+        "practical": "Khi hỏi lịch hoặc tình trạng chạy, phải gọi đúng loại phương tiện. Một tuyến cano dừng không có nghĩa tàu cao tốc hay phà cũng dừng, và ngược lại.",
+        "expectation_vs_reality": "Khách hay gọi chung mọi thứ là 'tàu', nhưng logic vận hành, bến, thời tiết và khả năng chở xe khác nhau khá nhiều.",
+        "before_you_go": [
+          "Xác định mình đang hỏi cano tour, tàu cao tốc hay phà.",
+          "Kiểm tra đúng bến và đúng ngày đi.",
+          "Nếu mang xe, xem riêng quy định của phà thay vì lịch tàu cao tốc."
+        ],
+        "curiosity_questions": [
+          "Vì sao biển xấu có ngày cano nghỉ nhưng phà vẫn chạy?",
+          "Tàu cao tốc và phà khác nhau ở điểm nào ngoài tốc độ?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_083_taxi-phu-quoc",
+      "number": 83,
+      "title": "Taxi Phú Quốc",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_taxi_xanhsm",
+        "utility_grab_phuquoc",
+        "utility_taxi_mailinh",
+        "utility_taxi_namthang",
+        "utility_jotrip_local_service"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Green SM (Xanh SM): Đặt qua app Green SM hoặc hotline 1555",
+            "source_ids": [
+              "green_sm_hotline_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Grab tại Phú Quốc: Đặt xe trực tiếp trên ứng dụng Grab",
+            "source_ids": [
+              "grab_phuquoc_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Mai Linh Phú Quốc: Taxi Mai Linh tại Phú Quốc",
+            "source_ids": [
+              "visitpq_taxi_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Taxi Nam Thắng: Hãng taxi địa phương tại Phú Quốc",
+            "source_ids": [
+              "visitpq_taxi_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "JoTrip - dịch vụ trọn gói tại Phú Quốc: Xe riêng, đón tiễn, tour, vé và hỗ trợ lịch trình tại Phú Quốc",
+            "source_ids": [
+              "jotrip_local_service_current"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "green_sm_hotline_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Green SM - hotline 1555 từ 14/04/2026",
+            "url": "https://www.greensm.com/vn-vi/news/so-dien-thoai-tong-dai-taxi-xanh-sm-tren-toan-quoc-hotline-24-7",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "grab_phuquoc_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Grab - dịch vụ GrabCar tại Phú Quốc 2026",
+            "url": "https://www.grab.com/vn/blog/driver/grabcartietkiem-gialai-binhdinh-phuyen/",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "visitpq_taxi_2026",
+            "source_type": "OFFICIAL_DESTINATION_PORTAL",
+            "label": "Visit Phu Quoc - hãng taxi và số liên hệ cập nhật 2026",
+            "url": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "jotrip_local_service_current",
+            "source_type": "FIRST_PARTY_OPERATOR",
+            "label": "JoTrip - dịch vụ địa phương Phú Quốc",
+            "url": "https://jotrip.vn/",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Trên đảo có cả taxi truyền thống, Xanh SM, Grab và xe đặt trước. Cách chọn đơn giản nhất là nhìn quãng đường, giờ đi và việc có cần xe chờ hay không.",
+        "practical": "Đi quãng ngắn trong khu đông có thể gọi app hoặc taxi. Đi Bắc - Nam đảo, đón sân bay giờ muộn hoặc có lịch show/cáp sát giờ thì xe đặt trước thường đỡ rủi ro hơn.",
+        "expectation_vs_reality": "Có app trên điện thoại không đồng nghĩa lúc nào ở khu xa cũng có xe nhận ngay.",
+        "before_you_go": [
+          "Nếu có chuyến bay, show hoặc cáp treo cần đúng giờ, chừa buffer.",
+          "Hỏi rõ giá nếu thuê xe chờ nhiều điểm.",
+          "Ở khu xa trung tâm, nên tính luôn chiều về."
+        ],
+        "curiosity_questions": [
+          "Vì sao cùng một chuyến ở Phú Quốc nhưng thời gian chờ xe khác nhiều giữa các khu?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_088_atm-o-phu-quoc",
+      "number": 88,
+      "title": "ATM ở Phú Quốc",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_vcb_atm_hung_vuong",
+        "utility_vcb_atm_nguyen_trung_truc",
+        "utility_vcb_atm_an_thoi"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "ATM Vietcombank - 1A Hùng Vương: Điểm ATM/rút tiền",
+            "source_ids": [
+              "tienmat_atm_phuquoc_2026",
+              "vietcombank_phuquoc_locations_20251201",
+              "map_directory_phuquoc_20260921"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Vietcombank PGD Dương Đông - ATM: Phòng giao dịch Vietcombank; danh bạ hiện hành ghi nhận ATM tại cùng địa chỉ",
+            "source_ids": [
+              "tienmat_atm_phuquoc_2026",
+              "vietcombank_phuquoc_locations_20251201"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Vietcombank PGD An Thới - ATM: Phòng giao dịch Vietcombank; danh bạ hiện hành ghi nhận ATM tại cùng địa chỉ",
+            "source_ids": [
+              "tienmat_atm_phuquoc_2026",
+              "vietcombank_phuquoc_locations_20251201"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "tienmat_atm_phuquoc_2026",
+            "source_type": "COMMUNITY",
+            "label": "TienMat.com.vn - danh bạ ATM Phú Quốc",
+            "url": "https://tienmat.com.vn/atm/phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "vietcombank_phuquoc_locations_20251201",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Vietcombank Phú Quốc - địa điểm Chi nhánh và PGD hiện hành",
+            "url": "https://www.vietcombank.com.vn/vi-VN/Trang-thong-tin-dien-tu/Articles/2025/12/03/VCB-Phu-Quoc-thay-doi-dia-diem-hoat-dong-Tru-so-CN-va-PGD",
+            "published_at": "2025-12-01",
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "map_directory_phuquoc_20260921",
+            "source_type": "COMMUNITY_DIRECTORY",
+            "label": "Current business map directory - Phú Quốc utility verification",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": [
+          "Mức phí và hạn mức phụ thuộc ngân hàng/thẻ, không lưu cứng trong knowledge layer."
+        ]
+      },
+      "editorial": {
+        "short_summary": "ATM trên đảo tập trung dễ tìm hơn ở Dương Đông và các trục dân cư lớn. Với khách quốc tế hoặc đi khu xa, đừng chờ tới lúc hết tiền mặt mới tìm máy.",
+        "practical": "Near Me nên dùng để tìm máy gần nhất theo vị trí. Trạng thái 24/7 không được mặc định nếu ngân hàng chưa xác nhận quyền truy cập ngoài giờ.",
+        "expectation_vs_reality": "Một địa điểm ngân hàng có ATM không có nghĩa cửa phòng giao dịch cũng mở cùng giờ.",
+        "before_you_go": [
+          "Rút tiền trước khi đi vùng xa hoặc tour biển.",
+          "Giữ một ít tiền mặt cho quầy nhỏ/chợ.",
+          "Nếu thẻ bị giữ hoặc giao dịch lỗi, liên hệ ngân hàng phát hành trước khi thử quá nhiều lần."
+        ],
+        "curiosity_questions": [
+          "Ở Phú Quốc khu nào dễ thiếu ATM hơn khi đi chơi cả ngày?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_091_pharmacy",
+      "number": 91,
+      "title": "Pharmacy",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_longchau_tran_phu",
+        "utility_longchau_nguyen_trung_truc",
+        "utility_longchau_an_thoi",
+        "utility_longchau_ganh_dau",
+        "utility_longchau_suoi_da"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nhà thuốc Long Châu - 42 Trần Phú: Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+            "source_ids": [
+              "longchau_phuquoc_storelist_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực: Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+            "source_ids": [
+              "longchau_phuquoc_storelist_2026",
+              "longchau_327_official_map_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ: Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+            "source_ids": [
+              "longchau_phuquoc_storelist_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nhà thuốc Long Châu - Gành Dầu: Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+            "source_ids": [
+              "longchau_phuquoc_storelist_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nhà thuốc Long Châu - Suối Đá: Nhà thuốc Long Châu tại khu Suối Đá - Dương Tơ",
+            "source_ids": [
+              "longchau_phuquoc_storelist_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "longchau_phuquoc_storelist_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Long Châu - danh sách nhà thuốc tại Đặc khu Phú Quốc",
+            "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "longchau_327_official_map_2026",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "longchau_327_official_map_2026",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Nhà thuốc có ở cả trung tâm, Nam đảo và phía Bắc. Near Me nên ưu tiên địa chỉ đã xác minh thay vì một danh sách tên chung chung.",
+        "practical": "Nếu cần thuốc thông thường, tìm cơ sở gần nhất rồi gọi trước khi đi nếu sát giờ. Trường hợp nặng, khó thở, đau ngực hoặc tai nạn thì đi y tế/cấp cứu, không xử lý như nhu cầu mua thuốc.",
+        "expectation_vs_reality": "Khung giờ của một chuỗi không nên áp cứng cho từng cửa hàng nếu chưa có giờ riêng của cơ sở.",
+        "before_you_go": [
+          "Mang theo tên hoạt chất hoặc ảnh vỏ thuốc đang dùng.",
+          "Nếu có dị ứng thuốc, nói rõ với dược sĩ.",
+          "Tình huống khẩn cấp dùng kênh y tế thay vì chỉ tìm nhà thuốc."
+        ],
+        "curiosity_questions": [
+          "Khi đang ở Nam đảo hoặc Bắc đảo, nhà thuốc gần nhất có thể cách mình bao xa?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_092_clinic-hospital",
+      "number": 92,
+      "title": "Clinic / Hospital",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_vinmec_duong_dong_clinic",
+        "utility_vinmec_phuquoc_emergency",
+        "utility_vinmec",
+        "utility_vinmec_er"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Phòng khám Đa khoa Vinmec Dương Đông: Cơ sở y tế",
+            "source_ids": [
+              "vinmec_duongdong_current"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cấp cứu Vinmec Phú Quốc: Cơ sở y tế",
+            "source_ids": [
+              "vinmec_phuquoc_current"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Vinmec Phú Quốc: Hotline bệnh viện",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cấp cứu Vinmec: Đường dây cấp cứu 24/24 - nên kiểm tra lại nếu không kết nối được",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vinmec_duongdong_current",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Vinmec - Phòng khám Đa khoa Dương Đông",
+            "url": "https://www.vinmec.com/vie/co-so-y-te/phong-kham-da-khoa-vinmec-duong-dong-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "vinmec_phuquoc_current",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Vinmec - Bệnh viện Phú Quốc",
+            "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "external",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "external",
+            "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
+            "published_at": null,
+            "verified_at": "2026-09-19T04:51:03.054Z"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Phú Quốc có cơ sở khám và cấp cứu, nhưng cần phân biệt phòng khám với khoa cấp cứu 24/24. Khi tình huống nặng, đừng chọn theo khoảng cách một cách máy móc.",
+        "practical": "Near Me có thể chỉ đường tới cơ sở phù hợp; trường hợp khẩn cấp nên gọi cấp cứu hoặc cơ sở y tế trước nếu có thể.",
+        "expectation_vs_reality": "Một bệnh viện có cấp cứu 24/24 không đồng nghĩa mọi chuyên khoa và dịch vụ đều mở 24 giờ.",
+        "before_you_go": [
+          "Mang giấy tờ tùy thân và thông tin bảo hiểm nếu có.",
+          "Ghi sẵn thuốc đang dùng và tiền sử dị ứng.",
+          "Nếu nghi đột quỵ, đau ngực, khó thở hoặc chấn thương nặng, ưu tiên cấp cứu."
+        ],
+        "curiosity_questions": [
+          "Phòng khám và cấp cứu trên đảo khác nhau thế nào khi cần đi ban đêm?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_093_toilet",
+      "number": 93,
+      "title": "Toilet",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_toilet_sunset_venice_67",
+        "utility_toilet_sunset_venice_02"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nhà vệ sinh công cộng - 67 Venice, Sunset Town: Nhà vệ sinh công cộng",
+            "source_ids": [
+              "map_directory_phuquoc_20260921"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town: Nhà vệ sinh công cộng",
+            "source_ids": [
+              "map_directory_phuquoc_20260921"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "map_directory_phuquoc_20260921",
+            "source_type": "COMMUNITY_DIRECTORY",
+            "label": "Current business map directory - Phú Quốc utility verification",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": [
+          "Dataset hiện còn mỏng, cần tiếp tục field verification."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nhà vệ sinh công cộng là loại dữ liệu nhỏ nhưng cực hữu ích khi đang đi. Open Phu Quoc chỉ nên ghim những điểm có địa chỉ hoặc pin đủ chắc.",
+        "practical": "Dùng Near Me theo khu vực hiện tại. Ở điểm tham quan hoặc resort, nhà vệ sinh có thể thuộc cơ sở và không phải lúc nào cũng là tiện ích công cộng.",
+        "expectation_vs_reality": "Bản đồ có biểu tượng WC không đủ để khẳng định đang mở, miễn phí hoặc phù hợp xe lăn.",
+        "before_you_go": [
+          "Nếu đi cùng trẻ nhỏ hoặc người lớn tuổi, xem trước WC ở điểm đến.",
+          "Đừng mặc định WC của resort/nhà hàng là công cộng.",
+          "Giờ và quyền truy cập cần cập nhật theo thực địa."
+        ],
+        "curiosity_questions": [
+          "Vì sao dữ liệu WC lại quan trọng với một bản đồ du lịch hơn nhiều người nghĩ?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_094_parking",
+      "number": 94,
+      "title": "Parking",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_parking_sunset_nightmarket"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Bãi gửi xe khu chợ đêm Sunset Town: Điểm/bãi gửi xe",
+            "source_ids": [
+              "sunworld_sunset_nightmarket_parking_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "sunworld_sunset_nightmarket_parking_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Sun World - Chợ đêm Sunset Town, di chuyển và gửi xe",
+            "url": "https://sunworld.vn/vi/hon-thom/an-choi/kham-pha-cho-dem-sunset-town-thien-duong-am-thuc-va-mua-sam-ben-bien-17527",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": [
+          "Coverage parking hiện còn hạn chế."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Chỗ gửi xe ở Phú Quốc nên gắn với từng điểm đến, không làm một danh sách bãi đỗ rời rạc. Cái khách cần biết là tới đâu thì bỏ xe ở đâu.",
+        "practical": "Near Me và Place Page nên hiện parking khi đã biết đúng lối vào. Với khu lớn như Sunset Town, pin khu vực không nên giả thành cổng bãi xe chính xác.",
+        "expectation_vs_reality": "Có bãi gửi xe trong khu không có nghĩa ô tô, xe máy đều vào cùng cổng hoặc cùng mức phí.",
+        "before_you_go": [
+          "Xem loại xe được nhận.",
+          "Hỏi phí nếu bảng giá không rõ.",
+          "Không đỗ chắn lối dân cư hoặc lối dịch vụ."
+        ],
+        "curiosity_questions": [
+          "Một pin parking nên đại diện cho cả khu hay từng cổng vào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_095_fuel-stations",
+      "number": 95,
+      "title": "Fuel stations",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_fuel_dong_loi_1",
+        "utility_fuel_my_anh_an_thoi",
+        "utility_fuel_nhi_phung_ganh_dau"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Trạm xăng dầu Đông Lợi 1: Điểm bán lẻ xăng dầu",
+            "source_ids": [
+              "visitpq_fuel_directory_2026",
+              "map_directory_phuquoc_20260921"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cây xăng Mỹ Anh: Điểm bán lẻ xăng dầu",
+            "source_ids": [
+              "visitpq_fuel_directory_2026",
+              "map_directory_phuquoc_20260921"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cửa hàng bán lẻ xăng dầu Nhi Phụng: Điểm bán lẻ xăng dầu",
+            "source_ids": [
+              "pqgov_nhiphung_fuel_permit_2024",
+              "visitpq_fuel_directory_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_fuel_directory_2026",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Phú Quốc Tourism - danh bạ cây xăng",
+            "url": "https://dulich.phuquoc.gov.vn/vi/detailutilities/?child=1240&id=1240",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "map_directory_phuquoc_20260921",
+            "source_type": "COMMUNITY_DIRECTORY",
+            "label": "Current business map directory - Phú Quốc utility verification",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "pqgov_nhiphung_fuel_permit_2024",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "UBND Phú Quốc - giấy phép môi trường Cửa hàng bán lẻ xăng dầu Nhi Phụng",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/375_GPMT-UBND.signed.pdf",
+            "published_at": "2024-06-19",
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Đi xe máy hoặc ô tô quanh đảo không khó, nhưng nếu chạy Bắc đảo hoặc đường vòng dài thì nên đổ xăng trước khi rời khu đông.",
+        "practical": "Near Me dùng các cây xăng đã có địa chỉ để tìm theo khu vực. Giờ mở cửa cộng đồng chỉ nên xem tham khảo nếu chưa có nguồn vận hành mạnh hơn.",
+        "expectation_vs_reality": "Khoảng cách trên bản đồ nhìn ngắn nhưng đi đường vòng hoặc quay về muộn có thể làm việc tìm cây xăng khó chịu hơn dự tính.",
+        "before_you_go": [
+          "Đổ đủ xăng trước chuyến đi xa.",
+          "Không để bình gần cạn rồi mới tìm ở vùng thưa dân.",
+          "Nếu đi sát giờ tối, kiểm tra giờ trước."
+        ],
+        "curiosity_questions": [
+          "Khi đi Rạch Vẹm hoặc Bắc đảo, nên đổ xăng ở đâu trước khi rẽ vào đường xa?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_096_minimart-convenience-store",
+      "number": 96,
+      "title": "Minimart / convenience store",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_minimart_one_mart_duong_dong",
+        "utility_minimart_homemart_an_thoi",
+        "utility_minimart_cs68_sunset"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "One Mart - 16 đường 30 Tháng 4: Cửa hàng tiện lợi và nhu yếu phẩm",
+            "source_ids": [
+              "map_directory_phuquoc_20260921"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "HomeMart - Nguyễn Văn Cừ: Cửa hàng tiện lợi và nhu yếu phẩm",
+            "source_ids": [
+              "map_directory_phuquoc_20260921"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "CS68 - Cửa hàng tiện lợi Sunset Town: Cửa hàng tiện lợi và nhu yếu phẩm",
+            "source_ids": [
+              "map_directory_phuquoc_20260921"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "map_directory_phuquoc_20260921",
+            "source_type": "COMMUNITY_DIRECTORY",
+            "label": "Current business map directory - Phú Quốc utility verification",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Cửa hàng tiện lợi hữu ích nhất khi cần nước, đồ dùng nhỏ, đồ ăn nhanh hoặc quên vật dụng trước chuyến đi. Không cần biến thành một danh sách dài nếu map đã tìm được quanh vị trí.",
+        "practical": "Near Me nên ưu tiên khoảng cách và giờ đã xác minh. Trước tour biển, mua nước hoặc đồ cá nhân từ tối hôm trước thường đỡ cập rập.",
+        "expectation_vs_reality": "Một cửa hàng được gắn nhãn mở muộn trên danh bạ cộng đồng chưa chắc giữ giờ đó mọi ngày.",
+        "before_you_go": [
+          "Kiểm tra giờ nếu đi rất sớm hoặc rất muộn.",
+          "Đừng dựa vào một minimart xa khu ở cho vật dụng quan trọng.",
+          "Thuốc và nhu cầu y tế vẫn nên tìm nhà thuốc."
+        ],
+        "curiosity_questions": [
+          "Khách thường thiếu món gì nhất trước một ngày đi đảo?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_098_emergency-numbers-practical-help",
+      "number": 98,
+      "title": "Emergency numbers & practical help",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "utility_112",
+        "utility_113",
+        "utility_114",
+        "utility_115",
+        "utility_pq_police",
+        "utility_pqc_hotline",
+        "utility_pqc_lost"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Khẩn cấp quốc gia: Sự cố, thiên tai, thảm họa, tai nạn và tình huống nguy cấp",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Công an: An ninh, trật tự",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cứu hỏa: Cháy, cứu nạn cứu hộ",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cấp cứu y tế: Cấp cứu y tế",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Công an Đặc khu Phú Quốc: An ninh trật tự",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cảng hàng không quốc tế Phú Quốc: Đường dây nóng sân bay",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Hành lý thất lạc PQC: Lost & Found tại ga đến",
+            "source_ids": [
+              "external"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "external",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "external",
+            "url": "https://xaydungchinhsach.chinhphu.vn/tong-dai-so-112-tiep-nhan-24-7-cac-thong-tin-ve-su-co-thien-tai-tham-hoa-119250902150528929.htm",
+            "published_at": null,
+            "verified_at": "2026-09-19T04:51:03.080Z"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Khi có chuyện khẩn cấp, số đúng quan trọng hơn một trang hướng dẫn dài: 112 cho tình huống khẩn cấp quốc gia, 113 công an, 114 cứu hỏa, 115 cấp cứu y tế.",
+        "practical": "Trang Practical nên cho gọi trực tiếp bằng một chạm và tách rõ số khẩn cấp với hotline sân bay, hành lý hay hỗ trợ du lịch.",
+        "expectation_vs_reality": "Không phải mọi vấn đề du lịch đều nên gọi số khẩn cấp. Mất hành lý, hỏi chuyến bay hoặc dịch vụ nên dùng đúng hotline chuyên trách.",
+        "before_you_go": [
+          "Lưu vị trí hiện tại hoặc mốc gần nhất để mô tả khi gọi.",
+          "Nếu ở biển, nói rõ tên tour/tàu và khu vực nếu biết.",
+          "Giữ pin điện thoại cho liên lạc trong tình huống khẩn cấp."
+        ],
+        "curiosity_questions": [
+          "Khi nào nên gọi 112 thay vì 113, 114 hoặc 115?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_124_cano-3-dao",
+      "number": 124,
+      "title": "Cano 3 đảo",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "activity_tour_3_islands",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Tour 3 đảo An Thới: Cano/tàu ra cụm đảo An Thới, 2-3 hòn tùy biển",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Tour 3 đảo không phải ngày nào cũng đi y chang một tuyến. Tài công đổi hòn hoặc đổi thứ tự theo gió, sóng và tình trạng bãi là chuyện bình thường nếu mục tiêu là an toàn và trải nghiệm tốt hơn.",
+        "practical": "Tính gần một ngày. Trước khi đặt nên hỏi số khách trên cano, thời gian thật ở nước, bữa ăn, thiết bị và cả phương án nếu biển xấu.",
+        "expectation_vs_reality": "Nhiều điểm hơn không tự động tốt hơn. Chạy quá nhiều hòn có thể làm thời gian ngồi cano nhiều hơn thời gian bơi/snorkel.",
+        "before_you_go": [
+          "Xem tình trạng cano trong ngày.",
+          "Mang túi chống nước và đồ chống nắng.",
+          "Không ép tài công đi đúng một hòn nếu điều kiện biển không phù hợp."
+        ],
+        "curiosity_questions": [
+          "Vì sao cùng tên tour 3 đảo nhưng hôm nay và ngày mai có thể đi khác hòn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_125_cau-ca-lon",
+      "number": 125,
+      "title": "Câu cá lớn",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "activity_big_game_fishing",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Câu cá lớn An Thới: Chuyến câu chuyên biệt ở ngư trường An Thới/Hòn Dăm Trong với thiết bị, máy dò và tài công.",
+            "source_ids": [
+              "handbook_r3",
+              "jotrip_big_game_fishing_current"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Câu cá lớn An Thới - lịch niêm yết: 05:00-14:00, 14:00-21:00",
+            "source_ids": [
+              "jotrip_big_game_fishing_current"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "jotrip_big_game_fishing_current",
+            "source_type": "FIRST_PARTY_OPERATOR",
+            "label": "JoTrip - Câu cá lớn An Thới current operating windows",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": [
+          "Trạng thái chạy thực tế phụ thuộc biển và xác nhận chuyến."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Câu cá lớn là chuyến biển chuyên biệt, không phải tour câu cá ngắn ghép tham quan. Ở An Thới, vị trí câu thay đổi theo nước, gió và tín hiệu cá.",
+        "practical": "Khung sản phẩm hiện có chuyến sáng 05:00-14:00 và chiều-tối 14:00-21:00 khi biển cho phép. Tài công cần quyền đổi bãi theo điều kiện thực tế.",
+        "expectation_vs_reality": "Không ai có thể cam kết số lượng hay kích thước cá trước chuyến.",
+        "before_you_go": [
+          "Ngủ đủ trước chuyến dài.",
+          "Báo sớm nếu dễ say sóng.",
+          "Hỏi rõ thiết bị, bữa ăn và những gì được mang cá về."
+        ],
+        "curiosity_questions": [
+          "Tài công dựa vào đâu để đổi bãi câu trong ngày?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_126_cau-muc-dem",
+      "number": 126,
+      "title": "Câu mực đêm",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "activity_squid_fishing",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Câu mực đêm: Ra biển cuối chiều/buổi tối, bật đèn và thử câu mực theo điều kiện thực tế.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Câu mực đêm là trải nghiệm ra biển lúc chiều tối, bật đèn và chờ mực theo điều kiện thật. Có hôm vui vì cảnh biển và bữa tối hơn là số mực câu được.",
+        "practical": "Thường 3-5 giờ, giờ đi và bến có thể đổi theo mùa. Xem gió/sóng trước vì trải nghiệm ban đêm nhạy với say sóng hơn nhiều người nghĩ.",
+        "expectation_vs_reality": "Mua tour không đồng nghĩa chắc chắn câu được nhiều mực.",
+        "before_you_go": [
+          "Mang áo khoác mỏng nếu dễ lạnh.",
+          "Báo trước nếu say sóng.",
+          "Hỏi giờ về và bến cập trước khi đi."
+        ],
+        "curiosity_questions": [
+          "Vì sao có đêm mực vào đèn nhiều, có đêm gần như không?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_127_snorkeling",
+      "number": 127,
+      "title": "Snorkeling",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "activity_snorkeling_an_thoi",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Snorkeling An Thới: Bơi mặt nước với kính/mặt nạ ở cụm đảo An Thới.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Snorkeling ở Nam đảo là bơi mặt nước với kính và ống thở. Chất lượng chuyến phụ thuộc nước trong, sóng, mật độ khách và cách đơn vị tổ chức bảo vệ rạn.",
+        "practical": "Ít điểm nhưng có đủ thời gian ở nước thường dễ chịu hơn chạy nhiều điểm. Người bơi yếu nên mặc áo phao đúng cách và ở gần hướng dẫn.",
+        "expectation_vs_reality": "Ảnh san hô quảng cáo không bảo đảm tầm nhìn và màu sắc giống hệt ngày mình đi.",
+        "before_you_go": [
+          "Không đứng lên san hô.",
+          "Không bẻ, chạm hoặc cho cá ăn để chụp ảnh.",
+          "Báo rõ khả năng bơi của mình với hướng dẫn."
+        ],
+        "curiosity_questions": [
+          "Tại sao nước trong hay đục thay đổi rất nhanh giữa các ngày?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_128_diving",
+      "number": 128,
+      "title": "Diving",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "activity_scuba",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Lặn bình khí (Scuba): Lặn sâu hơn snorkeling với thiết bị, hướng dẫn và quy trình an toàn riêng.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Scuba đi sâu hơn snorkeling và cần quy trình an toàn riêng. Chọn đơn vị lặn dựa trên người hướng dẫn, thiết bị và sàng lọc sức khỏe quan trọng hơn chọn theo ảnh đẹp.",
+        "practical": "Thường nửa ngày hoặc theo gói. Người mới cần briefing kỹ; người có vấn đề tai xoang, tim mạch hoặc hô hấp nên hỏi chuyên môn trước.",
+        "expectation_vs_reality": "Lặn bình khí không phải snorkeling có thêm bình dưỡng khí. Áp suất, kỹ thuật thở và quy trình nổi lên đều khác.",
+        "before_you_go": [
+          "Khai thật tình trạng sức khỏe.",
+          "Không bay ngay sau lặn theo khuyến cáo chuyên môn của đơn vị lặn.",
+          "Không cố xuống nếu tai không cân bằng áp suất."
+        ],
+        "curiosity_questions": [
+          "Vì sao sau lặn lại có quy tắc liên quan tới chuyến bay?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_133_night-market",
+      "number": 133,
+      "title": "Night Market",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "place_night_market",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Chợ đêm Dương Đông: Khu ăn uống và mua sắm buổi tối",
+            "source_ids": [
+              "handbook_r3",
+              "visitpq_night_market_20260809",
+              "visitpq_night_market_place",
+              "visitpq_night_market_current_20260417",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Chợ đêm Dương Đông - lịch niêm yết: 18:00-23:30",
+            "source_ids": [
+              "visitpq_night_market_current_20260417"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "visitpq_night_market_20260809",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - night market food guide",
+            "url": "https://visitphuquoc.com.vn/vi/thien-duong-am-thuc-trong-cho-dem-lon-nhat-phu-quoc-126",
+            "published_at": "2026-08-09",
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "visitpq_night_market_place",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Chợ đêm Phú Quốc place page",
+            "url": "https://visitphuquoc.com.vn/vi/cho-dem-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "visitpq_night_market_current_20260417",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Chợ đêm Phú Quốc 2026",
+            "url": "https://visitphuquoc.com.vn/vi/cho-dem-phu-quoc-thien-duong-am-thuc-va-mua-sam-tren-dao-ngoc-8445",
+            "published_at": "2026-04-17",
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Chợ đêm Phú Quốc là chỗ dễ đi bộ, ăn và mua quà buổi tối ở Dương Đông. Đi vui nhất khi coi đây là một phần của buổi tối, không phải toàn bộ ẩm thực của đảo.",
+        "practical": "Dành khoảng 1-2 giờ. Hải sản nên hỏi rõ giá theo cân, cách chế biến và phụ phí trước khi gọi.",
+        "expectation_vs_reality": "Không phải quầy nào cũng mở cùng giờ và giá không giống nhau giữa các gian.",
+        "before_you_go": [
+          "Hỏi giá trước khi gọi hải sản.",
+          "Giữ đồ cá nhân khi khu đông.",
+          "Nếu muốn ăn món địa phương thật sâu, đừng chỉ giới hạn ở chợ đêm."
+        ],
+        "curiosity_questions": [
+          "Chợ đêm và Chợ Dương Đông ban ngày khác nhau thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_134_cable-car-hon-thom",
+      "number": 134,
+      "title": "Cable car Hòn Thơm",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "activity_hon_thom",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Cáp treo Hòn Thơm: Tuyến cáp 3 dây vượt biển qua quần đảo An Thới",
+            "source_ids": [
+              "handbook_r3",
+              "sunworld_hon_thom_schedule_20260723"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cáp treo Hòn Thơm - lịch niêm yết: 09:30-11:30, 13:30-14:00, 15:30-17:30",
+            "source_ids": [
+              "sunworld_hon_thom_schedule_20260723"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "sunworld_hon_thom_schedule_20260723",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Sun World Hòn Thơm - lịch vận hành cáp treo/Aquatopia",
+            "url": "https://sunworld.vn/vi/hon-thom/an-choi/top-cac-tro-choi-tai-aquatopia-cong-vien-nuoc-hon-thom-hot-nhat-phu-quoc-20615",
+            "published_at": "2026-07-23",
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Cáp treo Hòn Thơm là tuyến vượt biển qua quần đảo An Thới, nhưng điều cần nhớ nhất là nó chạy theo các khung giờ chứ không phải lúc nào tới cũng lên ngay.",
+        "practical": "Nếu đi nửa ngày hoặc cả ngày, chốt giờ lượt về trước rồi mới xếp công viên nước, bãi biển và ăn uống.",
+        "expectation_vs_reality": "Giữa các khung cáp có thể có khoảng nghỉ vận hành. Tới ga mà không xem giờ trước dễ mất thời gian.",
+        "before_you_go": [
+          "Kiểm tra lịch đúng ngày đi.",
+          "Giữ đủ thời gian quay lại ga trước chuyến cuối.",
+          "Ngày bảo trì hoặc thời tiết đặc biệt có thể đổi lịch."
+        ],
+        "curiosity_questions": [
+          "Vì sao cáp treo Hòn Thơm có nhiều khung chạy trong ngày thay vì chạy liên tục?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_135_safari-visit",
+      "number": 135,
+      "title": "Safari visit",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "place_vinpearl_safari",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Vinpearl Safari Phú Quốc: Open Zoo + khu bán hoang dã bằng bus",
+            "source_ids": [
+              "handbook_r3",
+              "vinwonders_safari_current",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Vinpearl Safari Phú Quốc - lịch niêm yết: 09:00-16:00",
+            "source_ids": [
+              "vinwonders_safari_current"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "vinwonders_safari_current",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Vinpearl Safari Phú Quốc - official current page",
+            "url": "https://vinwonders.com/vi/vinpearl-safari-phu-quoc/",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Safari hợp nhất với buổi sáng, nhất là đi cùng trẻ nhỏ. Khu rộng nên chọn phần muốn xem trước thay vì cố đi hết mọi thứ cho đủ.",
+        "practical": "Tính 3-5 giờ. Ưu tiên khu bán hoang dã sớm, chừa thời gian nghỉ giữa trưa nếu đi gia đình.",
+        "expectation_vs_reality": "Safari và VinWonders trong cùng một ngày có thể quá tải với trẻ nhỏ dù nhìn trên bản đồ ở gần nhau.",
+        "before_you_go": [
+          "Mang nón và nước.",
+          "Xem lịch show/xe trong khu nếu có mục tiêu cụ thể.",
+          "Đừng bắt trẻ chạy theo lịch người lớn."
+        ],
+        "curiosity_questions": [
+          "Nên ghép Safari và VinWonders cùng ngày hay tách ra?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_136_vinwonders-visit",
+      "number": 136,
+      "title": "VinWonders visit",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": "place_vinwonders",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "VinWonders Phú Quốc: 6 phân khu, thủy cung, công viên nước, trò chơi, show",
+            "source_ids": [
+              "handbook_r3",
+              "vinwonders_phuquoc_hours_2026",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "VinWonders Phú Quốc - lịch niêm yết: 09:00-19:30",
+            "source_ids": [
+              "vinwonders_phuquoc_hours_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "vinwonders_phuquoc_hours_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "VinWonders Phú Quốc opening hours 2026",
+            "url": "https://vinwonders.com/en/wonderpedia/news/vinwonders-phu-quoc-opening-hours/",
+            "published_at": "2026-01-01",
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "VinWonders là điểm gần trọn ngày với nhiều phân khu, nên cách đi hiệu quả là chọn ưu tiên trước chứ không chạy theo bản đồ từng trò.",
+        "practical": "Tính 6-10 giờ nếu muốn chơi khá đầy đủ. Thủy cung là khoảng nghỉ tốt lúc nắng gắt; show tối cần giữ sức từ đầu ngày.",
+        "expectation_vs_reality": "Giờ đóng cửa chung không có nghĩa mọi phân khu và trò chơi đều nhận khách tới phút cuối.",
+        "before_you_go": [
+          "Xem giới hạn chiều cao nếu đi cùng trẻ.",
+          "Giữ đồ khô cho khu công viên nước.",
+          "Canh giờ show trước để không phải chạy ngược công viên."
+        ],
+        "curiosity_questions": [
+          "Một ngày ở VinWonders nên chia nhịp thế nào để không đuối từ giữa chiều?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_137_visit-fish-sauce-house-pepper-farm",
+      "number": 137,
+      "title": "Visit fish sauce house / pepper farm",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_fish_sauce_house",
+        "place_pepper_garden"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nhà thùng nước mắm: Nơi có thể nhìn nghề ủ chượp nước mắm bằng thùng gỗ và nghe câu chuyện nghề đảo.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Vườn tiêu Phú Quốc: Lớp nông nghiệp của đảo với trụ tiêu, mùa thu hoạch, phơi và phân loại hạt.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Nhà thùng và vườn tiêu là hai điểm giúp thấy Phú Quốc ngoài biển và resort. Một bên là nghề ủ cá với muối, một bên là nông nghiệp trên đất đảo.",
+        "practical": "Mỗi điểm khoảng 30-60 phút. Ghé nơi còn sản xuất/canh tác thật sẽ đáng hơn nơi chỉ còn quầy bán hàng.",
+        "expectation_vs_reality": "Không phải điểm nào gắn tên 'nhà thùng' hay 'vườn tiêu' cũng có cùng mức hoạt động nghề.",
+        "before_you_go": [
+          "Hỏi quy trình thay vì chỉ thử sản phẩm.",
+          "Không mặc định sản phẩm bán tại chỗ đều làm ngay ở đó.",
+          "Tôn trọng khu sản xuất và không tự ý chạm thiết bị."
+        ],
+        "curiosity_questions": [
+          "Một ngày không đi biển ở Phú Quốc có thể kể được câu chuyện gì qua nước mắm và hồ tiêu?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_138_phu-quoc-khi-troi-mua",
+      "number": 138,
+      "title": "Phú Quốc khi trời mưa",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_fish_sauce_house",
+        "place_teddy_bear_museum",
+        "place_vinwonders"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nhà thùng nước mắm: Nơi có thể nhìn nghề ủ chượp nước mắm bằng thùng gỗ và nghe câu chuyện nghề đảo.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Teddy Bear Museum Phú Quốc: Bảo tàng chủ đề gấu Teddy tại Grand World Phú Quốc.",
+            "source_ids": [
+              "vinwonders_grandworld_hours_2026",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Teddy Bear Museum Phú Quốc - lịch niêm yết: 09:30-21:00",
+            "source_ids": [
+              "vinwonders_grandworld_hours_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "VinWonders Phú Quốc: 6 phân khu, thủy cung, công viên nước, trò chơi, show",
+            "source_ids": [
+              "handbook_r3",
+              "vinwonders_phuquoc_hours_2026",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "VinWonders Phú Quốc - lịch niêm yết: 09:00-19:30",
+            "source_ids": [
+              "vinwonders_phuquoc_hours_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "vinwonders_grandworld_hours_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "VinWonders - giờ hoạt động Grand World Phú Quốc 2026",
+            "url": "https://vinwonders.com/vi/wonderpedia/news/kinh-nghiem-di-grand-world-phu-quoc/",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vinwonders_phuquoc_hours_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "VinWonders Phú Quốc opening hours 2026",
+            "url": "https://vinwonders.com/en/wonderpedia/news/vinwonders-phu-quoc-opening-hours/",
+            "published_at": "2026-01-01",
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Mưa ở Phú Quốc không nhất thiết làm hỏng cả ngày. Quan trọng là đừng cố giữ nguyên một lịch toàn ngoài trời khi mưa đã thành đợt.",
+        "practical": "Nếu mưa ngắn, đổi thứ tự và chờ qua cơn có thể đủ. Nếu mưa kéo dài, chuyển sang nhà thùng, bảo tàng, thủy cung, ăn uống hoặc các điểm có mái che theo khu đang ở.",
+        "expectation_vs_reality": "Một nơi 'indoor' không có nghĩa đường đi tới đó không bị ảnh hưởng bởi mưa, ngập cục bộ hoặc giao thông chậm.",
+        "before_you_go": [
+          "Xem radar/nowcast trước khi chạy xuyên đảo chỉ để tránh một cơn mưa nhỏ.",
+          "Ưu tiên Plan B cùng khu thay vì đổi từ Bắc xuống Nam.",
+          "Hoạt động biển cần kiểm tra vận hành riêng, không suy từ việc trên bờ chỉ đang mưa nhẹ."
+        ],
+        "curiosity_questions": [
+          "Vì sao có lúc Dương Đông mưa nhưng Nam đảo vẫn khô?",
+          "Khi nào nên chờ mưa qua, khi nào nên đổi hẳn kế hoạch?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
