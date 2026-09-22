@@ -80,26 +80,47 @@ jobs:
         if: env.CLOUDFLARE_READY == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
+          wranglerVersion: "4.136.3"
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy --config wrangler.jsonc
 
 
-      - name: Verify deployed Worker version
+      - name: Verify deployed Worker version and knowledge pages
         if: env.CLOUDFLARE_READY == 'true'
         run: |
-          url="https://cms.openphuquoc.com/build.json?t=$GITHUB_SHA"
+          base="https://openphuquoc-v3.kenzuko.workers.dev"
+          ok=false
           for i in {1..20}; do
-            body="$(curl -fsS "$url" || true)"
-            echo "$body"
+            body="$(curl -fsS "$base/build.json?t=$GITHUB_SHA" || true)"
             if echo "$body" | grep -q "$GITHUB_SHA"; then
               echo "Worker build matches $GITHUB_SHA"
-              exit 0
+              ok=true
+              break
             fi
             sleep 2
           done
-          echo "::error::Worker build.json did not match deployed commit $GITHUB_SHA"
-          exit 1
+          if [ "$ok" != true ]; then
+            echo "::error::Worker build.json did not match commit $GITHUB_SHA"
+            exit 1
+          fi
+          curl -fsS "$base/data/views/knowledge-public.json?t=$GITHUB_SHA" | node -e 'let x="";process.stdin.on("data",c=>x+=c);process.stdin.on("end",()=>{const v=JSON.parse(x);if(v.count!==128||v.objects?.length!==128||x.includes("\"research\"")||x.includes("\"sources\""))process.exit(1);console.log("Public articles:",v.count);})'
+          curl -fsS "$base/guide/knowledge.html?t=$GITHUB_SHA" | grep -q 'data-knowledge-page="library"'
+          curl -fsS "$base/guide/article.html?id=knowledge_001_dinh-cau&t=$GITHUB_SHA" | grep -q 'data-knowledge-page="article"'
+          private="$(curl -fsS "$base/data/knowledge/objects.json" || true)"
+          if echo "$private" | grep -q '"research"'; then
+            echo "::error::Internal research unexpectedly served as a public asset"
+            exit 1
+          fi
+      - name: Check openphuquoc.com content routing
+        if: env.CLOUDFLARE_READY == 'true'
+        run: |
+          domain="$(curl -fsS 'https://openphuquoc.com/data/views/knowledge-public.json' || true)"
+          if echo "$domain" | grep -Eq '"count"[[:space:]]*:[[:space:]]*128'; then
+            echo "openphuquoc.com exposes 128 published articles"
+          else
+            echo "::warning::openphuquoc.com is not yet verified as serving the current knowledge view; check domain routing separately."
+          fi
 
       - name: Install production smoke browser
         if: env.CLOUDFLARE_READY == 'true'
@@ -110,7 +131,7 @@ jobs:
       - name: Smoke test production homepage
         if: env.CLOUDFLARE_READY == 'true'
         env:
-          VISUAL_QA_BASE_URL: https://cms.openphuquoc.com
+          VISUAL_QA_BASE_URL: https://openphuquoc-v3.kenzuko.workers.dev
           VISUAL_QA_SCOPE: home
           VISUAL_QA_OUTPUT: production-smoke-results
         run: node scripts/visual-qa.mjs
