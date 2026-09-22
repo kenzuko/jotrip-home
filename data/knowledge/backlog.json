@@ -39,9 +39,9 @@
     },
     "linked_to_canonical_entity": 41,
     "unlinked": 109,
-    "ready_internal": 120,
-    "queued": 12,
-    "hold": 18
+    "ready_internal": 122,
+    "queued": 9,
+    "hold": 19
   },
   "topics": [
     {
@@ -3452,7 +3452,7 @@
       "crawl_brief": "Ảnh, maps, transport, tourism scale, source.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3475,8 +3475,10 @@
       "topic_type": "MEMORY_CHANGE",
       "crawl_brief": "Then/Now assets, roads, market, waterfront.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_dinh_cau"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3499,8 +3501,10 @@
       "topic_type": "MEMORY_CHANGE",
       "crawl_brief": "Then/Now assets, port, housing, tourism.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "activity_hon_thom"
+      ],
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
