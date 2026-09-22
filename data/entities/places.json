@@ -293,6 +293,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -305,7 +309,7 @@
         "lon": 103.94166,
         "precision": "area_anchor",
         "source": "Mapcarta / OpenStreetMap Rạch Vẹm Beach area anchor",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://mapcarta.com/W451772442",
         "note": "Rạch Vẹm là vùng làng/bãi biển trải dài; pin dùng để định hướng khu vực.",
         "verified_at": "2026-09-22"
@@ -356,6 +360,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -368,7 +376,7 @@
         "lon": 103.9147,
         "precision": "area_anchor",
         "source": "Apple Maps locality coordinate cross-check",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://maps.apple.com/place?auid=1992426072982825904",
         "note": "Cửa Cạn là khu vực, không phải một điểm đơn lẻ.",
         "verified_at": "2026-09-22"
@@ -590,6 +598,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -602,7 +614,7 @@
         "lon": 103.9809272,
         "precision": "area_anchor",
         "source": "Mapy/OpenStreetMap Bãi Trường Beach reference",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://mapy.com/en/?id=1053691053&source=osm",
         "note": "Bãi Trường trải dài nhiều km; pin là điểm neo tham khảo trên trục bãi biển.",
         "verified_at": "2026-09-22"
@@ -729,6 +741,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -746,7 +762,7 @@
         "lon": 104.03333,
         "precision": "area_anchor",
         "source": "Mapcarta / GeoNames Bãi Khem area anchor",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://mapcarta.com/15504504",
         "note": "Bãi Khem là khu bãi biển dài; pin dùng để định hướng khu vực, không phải một cổng vào duy nhất.",
         "verified_at": "2026-09-22"
@@ -811,6 +827,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -841,7 +861,7 @@
         "lon": 104.007917,
         "precision": "area_anchor",
         "source": "Wikimedia Commons WGS84 camera geotag inside Sunset Town",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg",
         "note": "Điểm neo trung tâm Sunset Town, không đại diện cho mọi cổng/điểm trong khu.",
         "verified_at": "2026-09-22"
@@ -893,6 +913,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -905,7 +929,7 @@
         "lon": 104.018179,
         "precision": "site_centroid",
         "source": "Published WGS84 coordinate cross-check for Phú Quốc Prison",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://olps.co.za/kiwix/content/wikipedia_en_all_maxi_2024-01/A/Ph%C3%BA_Qu%E1%BB%91c_Prison",
         "note": "Tọa độ khu di tích Nhà tù Phú Quốc.",
         "verified_at": "2026-09-22"
@@ -1024,6 +1048,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -1036,7 +1064,7 @@
         "lon": 104.01589,
         "precision": "site_centroid",
         "source": "Mapcarta / OpenStreetMap water_park centroid cross-check",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://mapcarta.com/W1092523953",
         "note": "Tâm khu Aquatopia trên Hòn Thơm.",
         "verified_at": "2026-09-22"
@@ -1091,6 +1119,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -1103,7 +1135,7 @@
         "lon": 104.01784,
         "precision": "area_anchor",
         "source": "Mapcarta / GeoNames Hòn Thơm area anchor",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://mapcarta.com/de/15475982",
         "note": "Exotica nằm trong tổ hợp Hòn Thơm; pin hiện là điểm neo Hòn Thơm cho tới khi có pin trò chơi chính xác.",
         "verified_at": "2026-09-22"
@@ -1370,6 +1402,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -1382,7 +1418,7 @@
         "lon": 104.006208,
         "precision": "area_anchor",
         "source": "Wikimedia Commons WGS84 camera geotag at Kiss Bridge",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge,_Phu_Quoc_(52680897656).jpg",
         "note": "Tọa độ ảnh GPS tại Cầu Hôn, dùng làm điểm neo khu công trình; không coi là cổng soát vé.",
         "verified_at": "2026-09-22"
@@ -1434,6 +1470,10 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "map_crosscheck_20260922",
+          "checked_at": "2026-09-22"
         }
       ],
       "updated_at": "2026-09-22",
@@ -1446,7 +1486,7 @@
         "lon": 104.04825,
         "precision": "area_anchor",
         "source": "Mapcarta / GeoNames Mũi Ông Đội area anchor",
-        "source_id": "external",
+        "source_id": "map_crosscheck_20260922",
         "source_url": "https://mapcarta.com/15488872",
         "note": "Giếng Tiên nằm tại khu Mũi Ông Đội; pin là điểm neo khu vực, chưa coi là tọa độ miệng giếng chính xác.",
         "verified_at": "2026-09-22"
