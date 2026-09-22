@@ -163,6 +163,35 @@ function stringField(key,val,path){
 }
 
 function primitiveField(key,val,path){
+  if(currentModule?.id==="venues"&&key==="category"){
+    const value=String(val||"");
+    return `<div class="field"><label>Loại địa điểm</label><select data-path="${esc(path)}">
+      <option value="LOCAL_FOOD" ${value==="LOCAL_FOOD"?"selected":""}>Quán ăn địa phương</option>
+      <option value="RESTAURANT" ${value==="RESTAURANT"?"selected":""}>Nhà hàng</option>
+      <option value="CAFE" ${value==="CAFE"?"selected":""}>Cà phê</option>
+      <option value="ATTRACTION" ${value==="ATTRACTION"?"selected":""}>Điểm chơi / trải nghiệm</option>
+    </select></div>`;
+  }
+  if(currentModule?.id==="venues"&&key==="zone_code"){
+    const value=String(val||"");
+    return `<div class="field"><label>Khu vực</label><select data-path="${esc(path)}">
+      <option value="" ${!value?"selected":""}>Chưa gán</option>
+      <option value="north" ${value==="north"?"selected":""}>Bắc đảo</option>
+      <option value="north_central" ${value==="north_central"?"selected":""}>Ông Lang / Bắc-trung</option>
+      <option value="duong_dong" ${value==="duong_dong"?"selected":""}>Dương Đông</option>
+      <option value="long_beach" ${value==="long_beach"?"selected":""}>Bãi Trường / Dương Tơ</option>
+      <option value="east" ${value==="east"?"selected":""}>Đông đảo / Hàm Ninh</option>
+      <option value="south" ${value==="south"?"selected":""}>Nam đảo / An Thới</option>
+    </select></div>`;
+  }
+  if(currentModule?.id==="venues"&&key==="status"){
+    const value=String(val||"REVIEW");
+    return `<div class="field"><label>Trạng thái</label><select data-path="${esc(path)}">
+      <option value="ACTIVE" ${value==="ACTIVE"?"selected":""}>Đang dùng</option>
+      <option value="REVIEW" ${value==="REVIEW"?"selected":""}>Cần kiểm tra</option>
+      <option value="CLOSED" ${value==="CLOSED"?"selected":""}>Đã đóng</option>
+    </select></div>`;
+  }
   if(typeof val==="boolean"){
     return `<div class="field"><label>${esc(labelize(key))}</label><select data-path="${esc(path)}" data-type="boolean"><option value="true" ${val?"selected":""}>Có / bật</option><option value="false" ${!val?"selected":""}>Không / tắt</option></select></div>`;
   }
@@ -916,7 +945,7 @@ function bindVenueControls(){
       address:"",
       phone:"",
       tags:[],
-      opening_hours:null,
+      opening_hours:{state:"UNKNOWN",note:""},
       price_level:"",
       source_ref:"",
       source_type:"",
