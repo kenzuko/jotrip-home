@@ -55,3 +55,26 @@ Never put the OAuth client secret in GitHub or frontend JavaScript.
 - `cms/users.json` (admin only)
 
 Live weather/airport feeds are intentionally not editable through CMS.
+
+
+## Internal Analytics + D1
+
+The CMS includes an admin-only read-only Analytics module.
+
+The Pages project should bind the existing D1 database using one of these binding names:
+
+- `ANALYTICS_DB` (preferred)
+- `CMS_DB`
+- `OPENPQ_DB`
+- `DATA_DB`
+- `DB`
+- `METRICS_DB`
+
+No manual migration is required for V1. The Analytics API creates its own tables with `CREATE TABLE IF NOT EXISTS`.
+
+Current live inputs:
+
+- Sea / Transit: normalized snapshot from `kenzuko/transit-jotrip`
+- Aviation: `jotrip-airport-live.kenzuko.workers.dev`
+
+Analytics is admin-only, read-only and stores only whitelisted operational fields. It intentionally does not persist customer names, phone numbers, email addresses, license plates, booking codes, payment data, session IDs or raw booking payloads.

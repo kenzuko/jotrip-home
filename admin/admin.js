@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);
-const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media"};
+const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics"};
 
 let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null;
 
@@ -929,6 +929,141 @@ function buildEditorNav(){
   });
 }
 
+
+function fmtInt(v){
+  const n=Number(v);
+  return Number.isFinite(n)?new Intl.NumberFormat("vi-VN").format(n):"—";
+}
+function fmtMoney(v){
+  const n=Number(v);
+  return Number.isFinite(n)?new Intl.NumberFormat("vi-VN").format(n)+"đ":"—";
+}
+function fmtPct(v,digits=0){
+  const n=Number(v);
+  return Number.isFinite(n)?n.toFixed(digits)+"%":"—";
+}
+function fmtDateTime(v){
+  if(!v)return "—";
+  const d=new Date(v);
+  if(Number.isNaN(d.getTime()))return esc(v);
+  return d.toLocaleString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",hour:"2-digit",minute:"2-digit",day:"2-digit",month:"2-digit"});
+}
+function fmtClock(v){
+  if(!v)return "—";
+  const d=new Date(v);
+  if(!Number.isNaN(d.getTime()))return d.toLocaleTimeString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",hour:"2-digit",minute:"2-digit"});
+  const m=String(v).match(/(\d{1,2}:\d{2})/);
+  return m?m[1]:String(v);
+}
+function analyticsKpi(label,value,note="",tone=""){
+  return `<article class="analytics-kpi ${tone}"><span>${esc(label)}</span><strong>${esc(value)}</strong><small>${esc(note)}</small></article>`;
+}
+function loadLabel(v){
+  const n=Number(v);
+  if(!Number.isFinite(n))return '<span class="analytics-muted">Chưa có</span>';
+  const cls=n>=85?"hot":n>=65?"warm":"calm";
+  return `<span class="analytics-load ${cls}">${fmtPct(n,0)}</span>`;
+}
+function renderTrendBars(rows){
+  if(!rows?.length)return '<div class="analytics-empty">D1 mới bắt đầu tích lịch sử. Sau vài lần snapshot, xu hướng theo ngày sẽ hiện ở đây.</div>';
+  const max=Math.max(1,...rows.flatMap(r=>[Number(r.sea_in)||0,Number(r.sea_out)||0,Number(r.air_in)||0,Number(r.air_out)||0]));
+  return '<div class="analytics-trends">'+rows.map(r=>{
+    const bars=[
+      ["Sea vào",Number(r.sea_in)||0,"sea-in"],
+      ["Sea ra",Number(r.sea_out)||0,"sea-out"],
+      ["Bay đến",Number(r.air_in)||0,"air-in"],
+      ["Bay đi",Number(r.air_out)||0,"air-out"]
+    ];
+    return `<div class="analytics-trend-row"><time>${esc(r.day||"")}</time><div class="analytics-trend-bars">${bars.map(([label,val,cls])=>`<div class="analytics-trend-bar"><span>${esc(label)}</span><i class="${cls}" style="width:${Math.max(3,val/max*100)}%"></i><b>${fmtInt(val)}</b></div>`).join("")}</div></div>`;
+  }).join("")+'</div>';
+}
+function renderSeaTable(rows){
+  const list=(rows||[]).slice().sort((a,b)=>String(a.departure_time||"").localeCompare(String(b.departure_time||"")));
+  if(!list.length)return '<div class="analytics-empty">Chưa có snapshot Sea/Transit.</div>';
+  return `<div class="analytics-table-wrap"><table class="analytics-table"><thead><tr><th>Hãng</th><th>Tuyến</th><th>Đi</th><th>Đến</th><th>Giá NL</th><th>Phủ</th></tr></thead><tbody>${list.map(r=>`<tr>
+    <td><strong>${esc(r.operator||"—")}</strong><small>${esc(r.mode||"")}</small></td>
+    <td>${esc((r.origin||"—")+" → "+(r.destination||"—"))}</td>
+    <td>${esc(fmtClock(r.departure_time))}</td>
+    <td>${esc(fmtClock(r.arrival_time))}</td>
+    <td>${fmtMoney(r.adult_fare)}</td>
+    <td>${loadLabel(r.load_factor_proxy)}</td>
+  </tr>`).join("")}</tbody></table></div>`;
+}
+function renderAviationTable(rows){
+  const list=(rows||[]).slice().sort((a,b)=>String(a.scheduled_time||"").localeCompare(String(b.scheduled_time||"")));
+  if(!list.length)return '<div class="analytics-empty">Chưa đọc được snapshot Aviation.</div>';
+  return `<div class="analytics-table-wrap"><table class="analytics-table"><thead><tr><th>Chuyến</th><th>Chiều</th><th>Hãng</th><th>Điểm</th><th>Giờ</th><th>Trạng thái</th><th>Phủ</th></tr></thead><tbody>${list.map(r=>`<tr>
+    <td><strong>${esc(r.flight_number||"—")}</strong></td>
+    <td>${/arrival/i.test(r.direction||"")?"Đến PQ":"Rời PQ"}</td>
+    <td>${esc(r.airline||"—")}</td>
+    <td>${esc(r.station||"—")}</td>
+    <td>${esc(fmtClock(r.scheduled_time))}</td>
+    <td>${esc(r.status||"—")}${Number.isFinite(Number(r.delay_minutes))&&Number(r.delay_minutes)>0?'<small>+'+fmtInt(r.delay_minutes)+' phút</small>':""}</td>
+    <td>${loadLabel(r.load_factor_proxy)}</td>
+  </tr>`).join("")}</tbody></table></div>`;
+}
+function renderSync(rows,storage){
+  const dbOk=storage?.d1;
+  return `<div class="analytics-health-head"><span class="analytics-health-dot ${dbOk?"ok":"bad"}"></span><div><strong>D1 ${dbOk?"đã kết nối":"chưa thấy binding"}</strong><small>${dbOk?"Snapshot analytics đang được lưu vào D1.":"Dashboard vẫn đọc live, nhưng chưa lưu được lịch sử."}</small></div></div>
+  <div class="analytics-source-grid">${(rows||[]).map(x=>`<article><span>${esc(x.source||"Nguồn")}</span><strong class="${x.status==="ok"?"ok":"bad"}">${esc(String(x.status||"unknown").toUpperCase())}</strong><small>${fmtInt(x.records)} bản ghi · ${esc(fmtDateTime(x.last_success_at))}</small>${x.message?'<em>'+esc(x.message)+'</em>':""}</article>`).join("")}</div>`;
+}
+function renderAnalytics(){
+  const d=currentData||{};
+  const sea=d.sea?.summary||{};
+  const air=d.aviation?.summary||{};
+  $("#editor").classList.add("analytics-editor");
+  $("#editor").innerHTML=`
+    <section class="analytics-head">
+      <div><span>INTERNAL INTELLIGENCE</span><h2>Phú Quốc Demand & Operations</h2><p>Chỉ tổng hợp dữ liệu vận hành. Không lưu tên khách, số điện thoại, email, biển số, mã đặt chỗ hay thanh toán.</p></div>
+      <button type="button" id="analyticsRefresh" class="analytics-refresh">↻ Làm mới dữ liệu</button>
+    </section>
+
+    <section class="analytics-kpis">
+      ${analyticsKpi("Chuyến biển",fmtInt(sea.departures),`${fmtInt(sea.inbound_departures)} vào đảo · ${fmtInt(sea.outbound_departures)} rời đảo`)}
+      ${analyticsKpi("Hãng biển",fmtInt(sea.operators),(sea.operator_names||[]).join(" · ")||"Chưa có")}
+      ${analyticsKpi("Chuyến bay",fmtInt(air.flights),`${fmtInt(air.arrivals)} đến · ${fmtInt(air.departures)} đi`)}
+      ${analyticsKpi("Bất thường bay",fmtInt((Number(air.delayed)||0)+(Number(air.cancelled)||0)),`${fmtInt(air.delayed)} trễ · ${fmtInt(air.cancelled)} hủy`,(Number(air.delayed)||0)+(Number(air.cancelled)||0)>0?"watch":"")}
+      ${analyticsKpi("Phủ biển",fmtPct(sea.avg_load_factor_proxy),`Coverage ${fmtPct(sea.load_factor_coverage)}`,Number(sea.load_factor_coverage)>0?"accent":"")}
+      ${analyticsKpi("Phủ hàng không",fmtPct(air.avg_load_factor_proxy),`Coverage ${fmtPct(air.load_factor_coverage)}`,Number(air.load_factor_coverage)>0?"accent":"")}
+    </section>
+
+    <section class="analytics-panel">
+      <div class="analytics-panel-head"><div><span>XU HƯỚNG</span><h3>Nhịp khách vào - ra đảo</h3></div><small>Đếm chuyến, chưa phải số hành khách.</small></div>
+      ${renderTrendBars(d.trends||[])}
+    </section>
+
+    <section class="analytics-grid-2">
+      <article class="analytics-panel">
+        <div class="analytics-panel-head"><div><span>SEA / TRANSIT</span><h3>Tàu & phà hôm nay</h3></div><small>${fmtInt(sea.departures)} chuyến</small></div>
+        ${renderSeaTable(d.sea?.rows||[])}
+      </article>
+      <article class="analytics-panel">
+        <div class="analytics-panel-head"><div><span>AVIATION</span><h3>Hàng không hôm nay</h3></div><small>${fmtInt(air.flights)} chuyến</small></div>
+        ${renderAviationTable(d.aviation?.rows||[])}
+      </article>
+    </section>
+
+    <section class="analytics-panel">
+      <div class="analytics-panel-head"><div><span>DATA HEALTH</span><h3>Nguồn & lưu trữ</h3></div><small>Cập nhật ${esc(fmtDateTime(d.generated_at))}</small></div>
+      ${renderSync(d.sync||[],d.storage||{})}
+      <p class="analytics-note">${esc(d.evidence_note||"")}</p>
+    </section>`;
+  $("#analyticsRefresh")?.addEventListener("click",refreshAnalytics);
+}
+async function refreshAnalytics(){
+  const btn=$("#analyticsRefresh");
+  if(btn){btn.disabled=true;btn.textContent="Đang làm mới...";}
+  status("Đang đồng bộ Analytics từ Transit và Airport...");
+  try{
+    currentData=await api(API.analytics+"?refresh=1");
+    renderAnalytics();
+    status("Analytics đã cập nhật từ nguồn live.","success");
+  }catch(e){
+    status(e.message,"error");
+    if(btn){btn.disabled=false;btn.textContent="↻ Làm mới dữ liệu";}
+  }
+}
+
 function applyPermissions(){
   const writable=currentModule?.write?.includes(session.role);
   $("#saveBtn").disabled=!writable||!dirty;
@@ -939,6 +1074,13 @@ function applyPermissions(){
 
 function rerender(){
   const y=window.scrollY;
+  if(currentModule.id==="analytics"){
+    $("#editorNav")?.classList.add("hidden");
+    renderAnalytics();
+    requestAnimationFrame(()=>window.scrollTo(0,y));
+    return;
+  }
+  $("#editor").classList.remove("analytics-editor");
   if(currentModule.id==="users")renderUsers();
   else $("#editor").innerHTML=renderRoot();
 
@@ -1026,10 +1168,15 @@ async function selectModule(id){
   document.querySelectorAll(".module-btn").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
 
   $("#cmsSearch").value="";$("#searchCount").textContent="";
-  $("#moduleKicker").textContent="OPEN PHU QUOC CMS";
+  $("#moduleKicker").textContent=currentModule.id==="analytics"?"OPEN PHU QUOC INTELLIGENCE":"OPEN PHU QUOC CMS";
   $("#moduleTitle").textContent=currentModule.label;
   $("#moduleDesc").textContent=currentModule.description;
   $("#saveBtn").textContent="Xuất bản";
+
+  const isAnalytics=currentModule.id==="analytics";
+  $("#saveBtn").classList.toggle("hidden",isAnalytics);
+  $("#resetBtn")?.classList.add("hidden");
+  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics);
 
   if(currentModule.preview){
     $("#previewBtn").href=currentModule.preview;
@@ -1039,6 +1186,21 @@ async function selectModule(id){
   }
 
   status("Đang tải "+currentModule.label+"...");
+
+  if(isAnalytics){
+    try{
+      currentData=await api(API.analytics);
+      currentSha=null;
+      dirty=false;
+      rerender();
+      status("Analytics nội bộ · chỉ admin · read-only.","success");
+    }catch(e){
+      $("#editor").innerHTML="";
+      $("#editorNav")?.classList.add("hidden");
+      status(e.message,"error");
+    }
+    return;
+  }
 
   try{
     const b=await api(API.content+"?path="+encodeURIComponent(currentModule.path));
