@@ -7480,6 +7480,205 @@
         ]
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_099_vi-sao-goi-la-phu-quoc",
+      "number": 99,
+      "title": "Vì sao gọi là Phú Quốc",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Các nguồn chính thức hiện nay của Phú Quốc và tài liệu hỏi đáp biển đảo của Thông tấn xã Việt Nam đều ghi nhận đảo từng được gọi là Koh Tral và về sau mang tên Phú Quốc, được giải thích theo nghĩa một vùng đất giàu có, trù phú.",
+            "source_ids": [
+              "pqgov_history_phuquoc_name",
+              "ttxvn_hoi_dap_bien_dao_t1"
+            ],
+            "verification_status": "VERIFIED_AS_OFFICIAL_NARRATIVE",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nguồn hiện có chưa đủ để chốt một ngày đổi tên chính xác hoặc khẳng định đích danh Mạc Cửu là người trực tiếp đặt tên Phú Quốc.",
+            "source_ids": [
+              "pqgov_history_phuquoc_name",
+              "ttxvn_hoi_dap_bien_dao_t1"
+            ],
+            "verification_status": "SOURCE_LIMITATION",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_history_phuquoc_name",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Lịch sử hình thành Phú Quốc",
+            "url": "https://phuquoc.angiang.gov.vn/lich-su-hinh-thanh-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ttxvn_hoi_dap_bien_dao_t1",
+            "source_type": "STATE_PUBLISHING",
+            "label": "Thông tấn xã Việt Nam - Hỏi đáp về biển, đảo Việt Nam, tập 1",
+            "url": "https://portal.ttxvn.gov.vn/Images/Pdf/d2c28bbe-5515-4d1b-a3cb-51261012ac19.pdf",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có nguồn sơ cấp đương thời được khóa trong dataset để xác định chính xác ai đặt tên Phú Quốc và vào năm nào.",
+          "Không suy diễn thêm nguồn gốc ngôn ngữ của Koh Tral nếu chưa có nghiên cứu Khmer/địa danh học đủ mạnh."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Tên Phú Quốc được các nguồn chính thức hiện nay giải thích là tên gọi xuất hiện khi vùng Hà Tiên - Phú Quốc bước vào giai đoạn khai phá và giao thương mạnh hơn, thay cho tên Koh Tral trong cách gọi trước đó. Các nguồn này giải thích Phú Quốc theo ý một vùng đất giàu có, trù phú.",
+        "practical": "Khi kể cho khách, có thể nói đây là cách giải thích đang được nguồn chính thức sử dụng. Không nên chốt một năm đổi tên hoặc nói chắc Mạc Cửu tự tay đặt tên nếu chưa có sử liệu sơ cấp chứng minh.",
+        "expectation_vs_reality": "Phần chắc nhất hiện nay là mạch kể Koh Tral - Phú Quốc và cách giải thích 'vùng đất giàu có'. Chi tiết ai đặt, đặt đúng năm nào vẫn cần sử liệu mạnh hơn.",
+        "before_you_go": [
+          "Tách phần đã được nguồn chính thức ghi nhận với phần suy đoán về người đặt tên.",
+          "Không biến một cách giải thích địa danh thành câu chuyện tuyệt đối nếu chưa có nguồn sơ cấp."
+        ],
+        "curiosity_questions": [
+          "Tên Koh Tral và Phú Quốc đã được dùng song song trong những giai đoạn nào?",
+          "Tài liệu sớm nhất hiện biết có chữ Phú Quốc là tài liệu nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_100_nguon-goc-ten-duong-dong",
+      "number": 100,
+      "title": "Nguồn gốc tên Dương Đông",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Địa danh Dương Đông đã được ghi trong địa bạ triều Nguyễn năm 1836 với tư cách một thôn của tổng Phú Quốc.",
+            "source_ids": [
+              "mod_huyenthoai_phuquoc_p1"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Tài liệu lưu trữ thời Pháp cho thấy đến năm 1921 Dương Đông là trung tâm quận Phú Quốc, chứng minh tính liên tục lâu dài của địa danh nhưng không giải thích nguồn gốc tên gọi.",
+            "source_ids": [
+              "archives_hatien_rachgia_admin"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "mod_huyenthoai_phuquoc_p1",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Ban Quản lý Lăng Chủ tịch Hồ Chí Minh - Huyền thoại Phú Quốc, phần 1",
+            "url": "https://btllang.mod.gov.vn/tin-tuc/tin-tong-hop/4613-10-dai-pho-sach-huyen-thoai-luu-danh-anh-hung-liet-si-viet-nam-huyen-thoai-phu-quoc-phan-1.html?showall=1",
+            "published_at": "2015",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "archives_hatien_rachgia_admin",
+            "source_type": "NATIONAL_ARCHIVES",
+            "label": "Cục Văn thư và Lưu trữ Nhà nước - Địa giới hành chính tỉnh Hà Tiên và Rạch Giá dưới thời Pháp thuộc",
+            "url": "https://archives.org.vn/gioi-thieu-tai-lieu-nghiep-vu/dia-gioi-hanh-chinh-tinh-ha-tien-va-rach-gia-duoi-thoi-phap-thuoc.htm",
+            "published_at": "2024",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa tìm được nguồn địa danh học hoặc sử liệu nói rõ vì sao thôn được gọi là Dương Đông.",
+          "Nguồn địa phương có nhắc khu Dương Đông xưa có rừng dương, nhưng chưa đủ để kết luận đó là căn nguyên của tên gọi.",
+          "Không tự giải nghĩa chữ 'Dương' và 'Đông' rồi coi đó là lịch sử tên địa phương."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dương Đông là địa danh cũ, ít nhất đã có trong địa bạ triều Nguyễn năm 1836 và tiếp tục là trung tâm hành chính quan trọng dưới thời Pháp. Tuy vậy, các nguồn hiện có chưa giải thích đáng tin cậy vì sao nơi này mang tên Dương Đông.",
+        "practical": null,
+        "expectation_vs_reality": "Có thể kể lịch sử lâu đời của địa danh Dương Đông, nhưng chưa nên kể một câu chuyện nguồn gốc tên gọi như sự thật.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "Tên Dương Đông xuất hiện sớm nhất trong tài liệu nào?",
+          "Rừng dương xưa ở cửa sông có liên quan đến tên Dương Đông hay chỉ là một đặc điểm địa phương?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_101_nguon-goc-ten-an-thoi",
+      "number": 101,
+      "title": "Nguồn gốc tên An Thới",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Cục Văn thư và Lưu trữ Nhà nước dẫn tài liệu cho biết năm 1819 danh sách thôn trên Phú Quốc có An Hòa và Thới Thạnh, còn địa bạ năm 1836 đã ghi thôn An Thới.",
+            "source_ids": [
+              "archives_hoangtu_phuquoc"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Sự thay đổi tên thôn giữa các mốc tài liệu cho thấy An Thới đã là địa danh hành chính từ năm 1836, nhưng nguồn không giải thích An Thới được đặt tên theo cơ chế nào.",
+            "source_ids": [
+              "archives_hoangtu_phuquoc",
+              "mod_huyenthoai_phuquoc_p1"
+            ],
+            "verification_status": "VERIFIED_WITH_LIMITATION",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "archives_hoangtu_phuquoc",
+            "source_type": "NATIONAL_ARCHIVES",
+            "label": "Cục Văn thư và Lưu trữ Nhà nước - Ngôi mộ và miếu Hoàng tử ở đảo Phú Quốc từ truyền thuyết đến hiện thực qua tài liệu Châu bản",
+            "url": "https://www.archives.org.vn/gioi-thieu-tai-lieu-nghiep-vu/ngoi-mo-va-mieu-hoang-tu-o-dao-phu-quoc-tu-truyen-thuyet-den-hien-thuc-qua-tai-lieu-chau-ban.htm",
+            "published_at": "2018-12-12",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "mod_huyenthoai_phuquoc_p1",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Ban Quản lý Lăng Chủ tịch Hồ Chí Minh - Huyền thoại Phú Quốc, phần 1",
+            "url": "https://btllang.mod.gov.vn/tin-tuc/tin-tong-hop/4613-10-dai-pho-sach-huyen-thoai-luu-danh-anh-hung-liet-si-viet-nam-huyen-thoai-phu-quoc-phan-1.html?showall=1",
+            "published_at": "2015",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có nguồn chứng minh tên An Thới được ghép từ An Hòa và Thới Thạnh; đây chỉ là một khả năng dễ suy diễn từ danh sách thôn và không được phép public như fact.",
+          "Chưa tìm được tài liệu địa danh học giải thích nghĩa tên An Thới tại Phú Quốc."
+        ]
+      },
+      "editorial": {
+        "short_summary": "An Thới đã xuất hiện như một thôn của tổng Phú Quốc trong địa bạ năm 1836. Tài liệu năm 1819 được Cục Văn thư và Lưu trữ dẫn lại cho thấy hệ thống thôn trước đó dùng những tên khác, nhưng chưa có chứng cứ cho biết An Thới được đặt tên từ đâu.",
+        "practical": null,
+        "expectation_vs_reality": "Không nên nhìn hai chữ 'An Thới' rồi tự giải nghĩa, cũng không nên suy rằng tên này chắc chắn ghép từ An Hòa và Thới Thạnh chỉ vì các tên đó xuất hiện ở mốc tài liệu trước.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "An Thới xuất hiện lần đầu chính xác ở tài liệu nào trước địa bạ 1836?",
+          "Việc thay đổi tên thôn đầu thế kỷ XIX ở Phú Quốc diễn ra theo quyết định hành chính nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
