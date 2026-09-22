@@ -218,6 +218,36 @@
     ],
     "categories": [
       {
+        "id": "DESTINATION",
+        "label": "Điểm đến",
+        "icon": "●"
+      },
+      {
+        "id": "BEACH",
+        "label": "Bãi biển",
+        "icon": "≈"
+      },
+      {
+        "id": "ENTERTAINMENT",
+        "label": "Vui chơi",
+        "icon": "★"
+      },
+      {
+        "id": "CULTURE",
+        "label": "Văn hóa",
+        "icon": "◇"
+      },
+      {
+        "id": "MARKET",
+        "label": "Chợ",
+        "icon": "▦"
+      },
+      {
+        "id": "HOTEL",
+        "label": "Khách sạn",
+        "icon": "H"
+      },
+      {
         "id": "TOILET",
         "label": "Nhà vệ sinh",
         "icon": "WC"
@@ -544,7 +574,14 @@
         "featured": true,
         "route": "utilities/"
       }
-    ]
+    ],
+    "scope": "ALL_LOCATION_NEEDS",
+    "entity_sources": [
+      "utilities",
+      "places",
+      "hotels"
+    ],
+    "rule": "Near Me phục vụ tra địa chỉ/vị trí trên toàn đảo. Entity có tên hoặc địa chỉ được đưa vào tìm kiếm; tọa độ đã xác minh dùng pin Open Phu Quoc, còn entity chưa có tọa độ vẫn mở được đúng truy vấn Google Maps theo tên + địa chỉ."
   },
   "hot_now": {
     "items": [
