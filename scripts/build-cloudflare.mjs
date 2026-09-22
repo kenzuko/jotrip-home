@@ -1,5 +1,12 @@
 import { rm, mkdir, cp, copyFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
+
+// Cloudflare Pages Git builds run this file alone. Generate the public view
+// before copying data so CMS never serves a stale or empty knowledge library.
+for (const script of ["scripts/build-knowledge-public.mjs","scripts/build-search-index.mjs"]) {
+  execFileSync(process.execPath,[script],{stdio:"inherit"});
+}
 
 const out="dist";
 await rm(out,{recursive:true,force:true});
