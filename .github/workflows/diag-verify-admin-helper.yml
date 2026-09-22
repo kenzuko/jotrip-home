@@ -1,0 +1,28 @@
+name: Diagnostic - Verify Admin Helper
+
+on:
+  push:
+    branches:
+      - "diag/verify-admin-helper-20260922"
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Poll production admin asset
+        run: |
+          set -euo pipefail
+          ok=0
+          for i in {1..20}; do
+            curl -fsS "https://cms.openphuquoc.com/admin/admin.js?v=16&t=$i" -o admin.js || true
+            if grep -q 'const \$\$=s=>Array.from(document.querySelectorAll(s));' admin.js; then
+              ok=1
+              break
+            fi
+            sleep 3
+          done
+          echo "helper_present=$ok"
+          test "$ok" = "1"
