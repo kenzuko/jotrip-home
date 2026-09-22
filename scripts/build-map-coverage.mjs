@@ -26,7 +26,7 @@ const output={
     coordinate_system:"WGS84",
     required_fields:["lat","lon","precision","source","verified_at"],
     precision_values:["exact_entrance","site_centroid","area_anchor","route_anchor"],
-    rule:"Không hiển thị pin công khai nếu thiếu nguồn hoặc mức độ chính xác. area_anchor chỉ dùng định hướng vùng."
+    rule:"Ưu tiên tọa độ đã xác minh. Nếu chưa có, có thể dùng tọa độ suy từ Google Maps theo tên/địa chỉ khi lưu đủ nguồn, ngày kiểm tra và precision. area_anchor chỉ dùng định hướng vùng."
   },
   summary:{candidate_count:candidates.length,ready_count:ready.length,missing_count:missing.length},
   layers:{
