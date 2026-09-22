@@ -693,6 +693,20 @@
         "hotels",
         "utilities"
       ]
+    },
+    {
+      "id": "map_crosscheck_20260922",
+      "type": "MAP_CROSSCHECK",
+      "label": "Secondary map/GPS cross-check for legacy Phú Quốc locations",
+      "checked_at": "2026-09-22",
+      "dynamic": true,
+      "trust": "SECONDARY_LOCATION_CROSSCHECK",
+      "used_by": [
+        "location_enrichment",
+        "home_near_me",
+        "places"
+      ],
+      "note": "Google Maps lookup remains preferred. This source ID groups secondary map/GPS cross-checks when Google search does not expose coordinates directly; each entity stores its exact source URL."
     }
   ],
   "rules": [
