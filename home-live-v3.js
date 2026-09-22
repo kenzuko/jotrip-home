@@ -229,6 +229,81 @@ function freshnessText(iso, prefix = "Cập nhật") {
     return m ? Number(m[1]) * 60 + Number(m[2]) : NaN;
   }
 
+  function sunsetWeatherAssessment(criticalData, sunsetLabel) {
+    if (!criticalData || !Number.isFinite(clockMinutes(sunsetLabel))) {
+      return { level:"unknown", reason:"no_forecast", rain_mm_max:null, rain_mm_typical:null, points:[] };
+    }
+
+    const criticalAgeNow = ageMinutes(criticalData.generated_at || criticalData.local_generated_at);
+    if (!Number.isFinite(criticalAgeNow) || criticalAgeNow > 720) {
+      return { level:"unknown", reason:"stale_forecast", rain_mm_max:null, rain_mm_typical:null, points:[] };
+    }
+
+    const sunsetMin = clockMinutes(sunsetLabel);
+    const westIds = ["duong_dong","cua_can","ganh_dau","an_thoi"];
+    const rows = [];
+
+    westIds.forEach(id => {
+      const point = criticalData?.points?.[id];
+      const today = Array.isArray(point?.today) ? point.today : [];
+      let best = null;
+      today.forEach(row => {
+        const d = new Date(row?.t || "");
+        if (!Number.isFinite(d.getTime())) return;
+        const parts = new Intl.DateTimeFormat("en-GB", {
+          timeZone:"Asia/Ho_Chi_Minh", hour:"2-digit", minute:"2-digit", hour12:false
+        }).formatToParts(d);
+        const hour = Number(parts.find(p => p.type === "hour")?.value || 0);
+        const minute = Number(parts.find(p => p.type === "minute")?.value || 0);
+        const diff = Math.abs(hour * 60 + minute - sunsetMin);
+        if (!best || diff < best.diff) best = { diff, row };
+      });
+      if (!best || best.diff > 180 || !Number.isFinite(Number(best.row?.rain))) return;
+      rows.push({
+        id,
+        name:point?.name || id,
+        rain:Number(best.row.rain),
+        time:best.row.t
+      });
+    });
+
+    if (!rows.length) {
+      return { level:"unknown", reason:"no_sunset_window", rain_mm_max:null, rain_mm_typical:null, points:[] };
+    }
+
+    const rainValues = rows.map(x => x.rain).sort((a,b) => a-b);
+    const rainMax = Math.max(...rainValues);
+    const mid = Math.floor(rainValues.length / 2);
+    const rainTypical = rainValues.length % 2
+      ? rainValues[mid]
+      : (rainValues[mid - 1] + rainValues[mid]) / 2;
+
+    const freshNowcast = criticalAgeNow <= 120;
+    const convection = freshNowcast
+      ? westIds.map(id => String(criticalData?.points?.[id]?.nowcast?.convective_level || "").toUpperCase()).filter(Boolean)
+      : [];
+    const highConvective = convection.includes("HIGH");
+    const elevatedConvective = convection.includes("ELEVATED");
+
+    let level = "good";
+    let reason = "low_rain";
+    if (highConvective || rainMax >= 2 || rainTypical >= 1.5) {
+      level = "bad";
+      reason = highConvective ? "convective" : "rain";
+    } else if (elevatedConvective || rainMax >= 0.5 || rainTypical >= 0.3) {
+      level = "watch";
+      reason = elevatedConvective ? "convective" : "rain";
+    }
+
+    return {
+      level,
+      reason,
+      rain_mm_max:Number(rainMax.toFixed(2)),
+      rain_mm_typical:Number(rainTypical.toFixed(2)),
+      points:rows
+    };
+  }
+
 
   function buildAirportWatchSummary(airport, eventsText = "") {
     const records = Array.isArray(airport?.records) ? airport.records : [];
@@ -488,17 +563,38 @@ function freshnessText(iso, prefix = "Cập nhật") {
       }
 
       if (Number.isFinite(minutesToSunset) && minutesToSunset > 0 && minutesToSunset <= 240) {
-        push({
-          tone:"sunset",
-          title:minutesToSunset <= 120
-            ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
-            : "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
-          note:minutesToSunset <= 120
-            ? "Nếu muốn ra bờ Tây, nên tính đường đi từ bây giờ."
-            : "Đừng để tới sát giờ mới chạy qua bờ Tây.",
-          primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
-          secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
-        });
+        const sunsetWx = sunsetWeatherAssessment(critical, todaySunset);
+        if (sunsetWx.level === "bad") {
+          push({
+            tone:"watch",
+            title:"Hoàng hôn chiều nay có thể bị mưa ảnh hưởng.",
+            note:"Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn. Đừng chạy xa chỉ để ngắm chiều - xem thời tiết trước khi đi.",
+            primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
+            secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
+          });
+        } else if (sunsetWx.level === "watch") {
+          push({
+            tone:"watch",
+            title:minutesToSunset <= 120
+              ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn, nhưng có thể có mưa."
+              : "Cuối chiều có thể có mưa cục bộ ở bờ Tây.",
+            note:"Nếu muốn ngắm chiều, nên chọn điểm gần và xem lại thời tiết trước khi chạy qua bờ Tây.",
+            primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
+            secondaryText:"Xem điểm gần hơn", secondaryHref:"nearme/"
+          });
+        } else {
+          push({
+            tone:"sunset",
+            title:minutesToSunset <= 120
+              ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
+              : "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
+            note:minutesToSunset <= 120
+              ? "Nếu muốn ra bờ Tây, nên tính đường đi từ bây giờ."
+              : "Đừng để tới sát giờ mới chạy qua bờ Tây.",
+            primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
+            secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
+          });
+        }
       }
 
       if (now.minutes < 20 * 60) {
@@ -924,6 +1020,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         weather_snapshot_age_min: Number.isFinite(criticalAge) ? Math.round(criticalAge) : null,
         convective_levels: [...new Set(convectiveLevels)],
         observed_rain: observedRain,
+        sunset_weather: sunsetWeatherAssessment(critical, sunset),
         airport_attention_count: airportAvailable ? airportWatch.count : null,
         airport_attention_flights: airportAvailable ? airportWatch.flightCount : null,
         airport_delayed_15m_count: airportAvailable ? airportWatch.delayed15Count : null,
