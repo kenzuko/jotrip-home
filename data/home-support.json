@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-21",
+  "updated_at": "2026-09-22",
   "scope": "homepage_supporting_operational_data",
   "id_policy": {
     "rule": "ONE_ENTITY_ONE_CANONICAL_ID_MANY_SURFACES",
@@ -261,6 +261,27 @@
         "id": "SHOWER_LOCKER",
         "label": "Tắm / tủ gửi đồ",
         "icon": "↧"
+      },
+      {
+        "id": "LOCAL_FOOD",
+        "label": "Quán ăn",
+        "icon": "Ăn",
+        "mode": "directory_search",
+        "search_query": "quán ăn"
+      },
+      {
+        "id": "RESTAURANT",
+        "label": "Nhà hàng",
+        "icon": "NH",
+        "mode": "directory_search",
+        "search_query": "nhà hàng"
+      },
+      {
+        "id": "CAFE",
+        "label": "Cà phê",
+        "icon": "☕",
+        "mode": "directory_search",
+        "search_query": "cafe"
       }
     ],
     "items": [
