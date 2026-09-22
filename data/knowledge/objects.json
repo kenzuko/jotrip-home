@@ -1153,6 +1153,66 @@
       "updated_at": "2026-09-22"
     },
     {
+      "topic_id": "knowledge_058_ghe-ham-ninh",
+      "number": 58,
+      "title": "Ghẹ Hàm Ninh",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Chợ Hàm Ninh và nội dung du lịch điểm đến hiện vẫn nhận diện ghẹ là một đặc sản gắn với Hàm Ninh.",
+            "source_ids": [
+              "visitpq_ghe_ham_ninh_20260915",
+              "visitpq_cho_ham_ninh"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_ghe_ham_ninh_20260915",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Ghẹ Hàm Ninh",
+            "url": "https://visitphuquoc.com.vn/vi/ghe-ham-ninh-phu-quoc-dac-san-khong-the-bo-qua-173",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_cho_ham_ninh",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Chợ Hàm Ninh",
+            "url": "https://visitphuquoc.com.vn/vi/cho-ham-ninh-1073",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Nguồn cung ghẹ theo ngày cần dữ liệu người bán/thực địa; không suy toàn bộ ghẹ bán tại Hàm Ninh là đánh bắt tại chỗ."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Ghẹ gắn với Hàm Ninh từ lâu trong câu chuyện ẩm thực của làng chài, nhưng khi ăn hôm nay nên quan tâm con ghẹ đang bán đến từ đâu, còn sống/tươi không và giá tính thế nào hơn là chỉ dựa vào tên gọi.",
+        "practical": "Hấp đơn giản thường dễ biết độ tươi nhất. Hỏi giá theo kg, kích cỡ và cách tính công chế biến trước khi gọi.",
+        "expectation_vs_reality": "Tên 'ghẹ Hàm Ninh' trên menu không tự động chứng minh con ghẹ được đánh bắt ngay tại Hàm Ninh trong ngày.",
+        "before_you_go": [
+          "Hỏi giá và trọng lượng trước khi chế biến.",
+          "Nếu muốn nếm vị ghẹ, chọn cách hấp/luộc ít sốt.",
+          "Người dị ứng giáp xác phải tránh món này và lưu ý dùng chung dụng cụ."
+        ],
+        "curiosity_questions": [
+          "Ghẹ bán ở Hàm Ninh hiện nay có còn chủ yếu từ vùng biển ngay trước làng chài?",
+          "Vì sao ghẹ hấp lại là cách dễ kiểm tra chất lượng nhất?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
       "topic_id": "knowledge_059_nhum-bien",
       "number": 59,
       "title": "Nhum biển",
@@ -1755,6 +1815,68 @@
         ],
         "curiosity_questions": [
           "Vì sao cùng một chuyến ở Phú Quốc nhưng thời gian chờ xe khác nhiều giữa các khu?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_087_ferry-high-speed-boat-den-phu-quoc",
+      "number": 87,
+      "title": "Ferry / high-speed boat đến Phú Quốc",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "access_fast_boat",
+        "access_ferry"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Phù hợp khách đi bộ từ Hà Tiên/Rạch Giá và muốn nối hành trình đường bộ.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Phương án đường biển phù hợp khi cần mang xe cá nhân hoặc nối hành trình từ đất liền.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": [
+          "Giờ, giá, chỗ và tình trạng khai thác thuộc operational Transit, không đóng cứng trong knowledge layer."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Từ đất liền ra Phú Quốc bằng đường biển có hai nhóm khách hay nhầm: tàu cao tốc thiên về chở hành khách, còn phà phù hợp khi cần mang xe theo.",
+        "practical": "Lịch chạy phải tìm theo đúng ngày, đúng cảng và đúng hãng. Nếu mang xe, kiểm tra loại xe, giờ có mặt và quy định riêng trước khi mua vé.",
+        "expectation_vs_reality": "Lịch tháng hoặc ảnh chụp cũ không nên dùng như lịch cố định cho ngày đi thật.",
+        "before_you_go": [
+          "Xác nhận Hà Tiên hay Rạch Giá.",
+          "Xác nhận tàu cao tốc hay phà.",
+          "Đi sớm hơn giờ xuất bến để xử lý hành lý/xe.",
+          "Ngày biển xấu phải xem trạng thái khai thác thực tế."
+        ],
+        "curiosity_questions": [
+          "Vì sao cùng tuyến về Phú Quốc nhưng phà và tàu cao tốc có thể chịu ảnh hưởng thời tiết khác nhau?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -2405,6 +2527,437 @@
         ],
         "curiosity_questions": [
           "Khi nào nên gọi 112 thay vì 113, 114 hoặc 115?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_107_gieng-tien",
+      "number": 107,
+      "title": "Giếng Tiên",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": "place_gieng_tien",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LEGEND",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn chính quyền địa phương mô tả Giếng Tiên là mạch nước ngọt ở khu An Thới/Mũi Ông Đội và ghi lại truyền thuyết Nguyễn Ánh.",
+            "source_ids": [
+              "pqgov_giai_thoai_truyen_thuyet"
+            ],
+            "verification_status": "VERIFIED_AS_RECORDED_FOLKLORE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Chi tiết nước ngọt xuất hiện sau khi Nguyễn Ánh cắm kiếm xuống đá thuộc lớp truyền thuyết dân gian.",
+            "source_ids": [
+              "pqgov_giai_thoai_truyen_thuyet"
+            ],
+            "verification_status": "FOLKLORE_NOT_HISTORICAL_PROOF",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_giai_thoai_truyen_thuyet",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Những giai thoại, truyền thuyết trên đảo ngọc",
+            "url": "https://phuquoc.angiang.gov.vn/nhung-giai-thoai-truyen-thuyet-tren-dao-ngoc-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_mui_ong_doi_20260820",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Lịch sử Mũi Ông Đội",
+            "url": "https://visitphuquoc.com.vn/vi/kham-pha-lich-su-mui-ong-doi-qua-nhung-dau-an-dac-biet-14483",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Giếng Tiên là một mạch nước ngọt nhỏ ở khu Mũi Ông Đội. Điều làm nơi này nổi tiếng không phải quy mô cái giếng mà là lớp truyền thuyết gắn với Nguyễn Ánh trong thời gian lánh quân Tây Sơn.",
+        "practical": "Nên xem đây là điểm địa phương có yếu tố truyền thuyết, không phải di tích đã chứng minh từng chi tiết bằng sử liệu. Đường tiếp cận và phương án đi cần kiểm tra thực tế trước.",
+        "expectation_vs_reality": "Câu chuyện cắm kiếm xuống đá rồi nước ngọt trào lên là truyền thuyết dân gian được nguồn địa phương ghi lại, không nên kể như một sự kiện lịch sử đã được chứng minh.",
+        "before_you_go": [
+          "Tách rõ 'địa điểm có thật' với 'truyền thuyết về địa điểm'.",
+          "Không tự ý làm hỏng các dấu vết được người dân gắn ý nghĩa truyền thống.",
+          "Kiểm tra đường đi trước vì khu này không phải điểm đô thị dễ tiếp cận."
+        ],
+        "curiosity_questions": [
+          "Giếng Tiên là lịch sử hay truyền thuyết?",
+          "Vì sao nhiều địa danh ở Nam đảo lại gắn với Nguyễn Ánh?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_110_tin-nguong-dinh-cau",
+      "number": 110,
+      "title": "Tín ngưỡng Dinh Cậu",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": "place_dinh_cau",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LOCAL_BELIEF",
+      "research": {
+        "claims": [
+          {
+            "claim": "Visit Phu Quoc ghi nhận ngày 15/10 âm lịch ngư dân về Dinh Cậu dâng hương, cầu trời yên biển lặng và tôm cá đầy thuyền.",
+            "source_ids": [
+              "visitpq_le_hoi_dinh_cau"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nguồn điểm đến hiện cảnh báo có các giai thoại hiện đại gọi sai đối tượng thờ trong miếu.",
+            "source_ids": [
+              "visitpq_dinh_cau_current"
+            ],
+            "verification_status": "VERIFIED_SOURCE_POSITION",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_dinh_cau_current",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Dinh Cậu",
+            "url": "https://visitphuquoc.com.vn/vi/dinh-cau-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_le_hoi_dinh_cau",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Lễ hội Dinh Cậu",
+            "url": "https://visitphuquoc.com.vn/vi/le-hoi-dinh-cau-phu-quoc-1338",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Dinh Cậu gắn với đời sống tín ngưỡng của cư dân biển. Lễ hội giữa tháng 10 âm lịch cho thấy rất rõ mong ước trời yên, biển lặng và chuyến biển bình an.",
+        "practical": "Khách có thể tham quan, nhưng nên hiểu đây là nơi người địa phương vẫn tới dâng hương chứ không phải một sân khấu văn hóa dựng riêng cho du lịch.",
+        "expectation_vs_reality": "Có nhiều giai thoại về đối tượng thờ ở Dinh Cậu. Nguồn du lịch chính thức hiện còn nhắc tới việc nhiều cách kể phổ biến đã gọi sai đối tượng thờ, vì vậy không nên lặp lại một phiên bản như sự thật duy nhất.",
+        "before_you_go": [
+          "Giữ yên lặng khi có người hành lễ.",
+          "Không chen vào lễ cúng để chụp ảnh.",
+          "Nếu kể chuyện Dinh Cậu, dùng từ 'tín ngưỡng/giai thoại' cho phần chưa phải sử liệu."
+        ],
+        "curiosity_questions": [
+          "Ngư dân cầu gì ở Dinh Cậu trước và sau chuyến biển?",
+          "Vì sao đối tượng thờ ở Dinh Cậu lại có nhiều cách kể khác nhau?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_111_tho-ca-ong",
+      "number": 111,
+      "title": "Thờ cá Ông",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LOCAL_BELIEF",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn điểm đến Phú Quốc mô tả lễ Nghinh Ông là dịp bày tỏ sự tôn kính, biết ơn Đức ngài Cá Ông và cầu mưa thuận gió hòa, cuộc sống bình yên.",
+            "source_ids": [
+              "visitpq_nghinh_ong"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_nghinh_ong",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Lễ hội Nghinh Ông",
+            "url": "https://visitphuquoc.com.vn/vi/le-hoi-nghinh-ong-phu-quoc-1343",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Tín ngưỡng thờ Cá Ông là một lớp văn hóa của cộng đồng ngư dân ven biển Nam Bộ. Ở Phú Quốc, lễ Nghinh Ông hiện được giới thiệu như dịp bày tỏ lòng tôn kính và cầu bình an cho đời sống biển.",
+        "practical": "Khi gặp lăng Ông hoặc lễ Nghinh Ông, nên nhìn như một sinh hoạt tín ngưỡng đang sống, không phải tiết mục biểu diễn.",
+        "expectation_vs_reality": "Không nên gom mọi tín ngưỡng biển trên đảo thành một câu chuyện duy nhất. Dinh Cậu và thờ Cá Ông có liên hệ với đời sống ngư dân nhưng là những lớp thực hành khác nhau.",
+        "before_you_go": [
+          "Không sờ/chạm đồ thờ tự khi chưa được phép.",
+          "Không dùng ngôn ngữ giễu cợt với niềm tin địa phương.",
+          "Nếu chụp lễ, ưu tiên không cản đoàn rước hoặc người hành lễ."
+        ],
+        "curiosity_questions": [
+          "Vì sao cá voi lại được ngư dân gọi kính trọng là Cá Ông?",
+          "Tín ngưỡng Cá Ông khác gì với tín ngưỡng ở Dinh Cậu?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_112_nghinh-ong",
+      "number": 112,
+      "title": "Nghinh Ông",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LOCAL_BELIEF",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn Visit Phu Quoc mô tả lễ rước gồm rước Ông từ ngoài biển về và rước về lăng để lễ tế.",
+            "source_ids": [
+              "visitpq_nghinh_ong"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_nghinh_ong",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Lễ hội Nghinh Ông",
+            "url": "https://visitphuquoc.com.vn/vi/le-hoi-nghinh-ong-phu-quoc-1343",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Nghinh Ông là lễ hội gắn với tín ngưỡng Cá Ông. Phần rước đi từ biển về lăng và phần lễ tế cho thấy đây là nghi lễ của cộng đồng ngư dân trước khi là một sản phẩm cho khách xem.",
+        "practical": "Nếu trùng dịp lễ, khách nên đứng ngoài luồng nghi thức chính, quan sát và hỏi trước khi chụp cận cảnh.",
+        "expectation_vs_reality": "Lịch và quy mô lễ có thể thay đổi theo năm; knowledge layer chỉ giải thích ý nghĩa, còn ngày tổ chức cụ thể phải lấy từ event/operational data.",
+        "before_you_go": [
+          "Kiểm tra lịch chính thức của năm đang đi.",
+          "Không chen đoàn rước.",
+          "Không biến nghi thức thành phông check-in."
+        ],
+        "curiosity_questions": [
+          "Đoàn rước Nghinh Ông đi theo trình tự nào?",
+          "Vì sao nghi lễ bắt đầu từ ngoài biển?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_113_kieng-ky-truoc-khi-ra-bien",
+      "number": 113,
+      "title": "Kiêng kỵ trước khi ra biển",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "ORAL_HISTORY",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Chưa có corpus oral-history đủ rõ để phân biệt tập quán cá nhân, gia đình, nghề và cộng đồng.",
+          "Không được trình bày một kiêng kỵ như quy tắc chung cho mọi ngư dân."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Chủ đề này cần phỏng vấn ngư dân và nguồn dân tộc học/local-history rõ người kể, địa bàn và thế hệ. Không nên lấy vài câu truyền miệng trên blog rồi gọi là 'kiêng kỵ của ngư dân Phú Quốc'.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_114_dau-hieu-thien-nhien-ngu-dan-thuong-quan-sat",
+      "number": 114,
+      "title": "Dấu hiệu thiên nhiên ngư dân thường quan sát",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "ORAL_HISTORY",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần phỏng vấn thực địa có attribution.",
+          "Cần tách dấu hiệu kinh nghiệm với quan trắc khí tượng hiện đại.",
+          "Không dùng để đưa quyết định GO/CANCEL cho hoạt động biển."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Kinh nghiệm nhìn mây, gió, dòng nước hay hành vi sinh vật của ngư dân có giá trị như tri thức địa phương, nhưng không được biến thành dự báo thời tiết thay cho nguồn khí tượng.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_115_cho-phu-quoc",
+      "number": 115,
+      "title": "Chó Phú Quốc",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "VKA có tiêu chuẩn giống chó Phú Quốc riêng và đã cập nhật bảng tiêu chuẩn vào năm 2023.",
+            "source_ids": [
+              "vka_phu_quoc_standard_2023"
+            ],
+            "verification_status": "VERIFIED",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "VKA dẫn lại tư liệu cuối thế kỷ 19 về chó Phú Quốc và lịch sử việc mô tả tiêu chuẩn giống.",
+            "source_ids": [
+              "vka_phu_quoc_history"
+            ],
+            "verification_status": "DOCUMENTED_SECONDARY_HISTORY",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vka_phu_quoc_standard_2023",
+            "source_type": "BREED_ASSOCIATION",
+            "label": "VKA - Bảng tiêu chuẩn chó Phú Quốc 2023",
+            "url": "https://vka.vn/bang-tieu-chuan-cho-phu-quoc-so-001-vn-04-10-2023-do-vka-ban-hanh/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vka_phu_quoc_history",
+            "source_type": "BREED_ASSOCIATION",
+            "label": "VKA - Truy tìm căn cước chó Phú Quốc",
+            "url": "https://vka.vn/truy-tim-can-cuoc-cho-phu-quoc-phan-5/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Chó Phú Quốc được nhận diện mạnh nhất bởi dải lông mọc ngược trên lưng, thân hình gọn và tính linh hoạt. Muốn nói về giống này nên dựa vào tiêu chuẩn giống, không chỉ vào những câu chuyện 'quốc khuyển' trên mạng.",
+        "practical": "Nếu tham quan trại chó, nhìn cách người nuôi quản lý phả hệ, sức khỏe và hành vi sẽ đáng hơn chỉ xem biểu diễn vượt chướng ngại.",
+        "expectation_vs_reality": "Có xoáy lưng chưa đủ để tự kết luận một con chó là Phú Quốc thuần chủng. VKA có tiêu chuẩn và quy trình đánh giá riêng.",
+        "before_you_go": [
+          "Không chọc hoặc cho chó ăn khi chưa được phép.",
+          "Nếu mua chó, đừng quyết định chỉ vì một vài đặc điểm truyền miệng.",
+          "Tách tiêu chuẩn giống khỏi các giai thoại về khả năng săn bắt."
+        ],
+        "curiosity_questions": [
+          "Xoáy lưng hình thành như thế nào?",
+          "Vì sao tiêu chuẩn giống quan trọng hơn câu 'nhìn giống chó Phú Quốc'?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_116_cho-phu-quoc-co-that-su-leo-cay",
+      "number": 116,
+      "title": "Chó Phú Quốc có thật sự leo cây?",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DISPUTED",
+      "research": {
+        "claims": [
+          {
+            "claim": "Báo Chính phủ từng mô tả chó Phú Quốc là linh hoạt, biết leo trèo và nhảy cao.",
+            "source_ids": [
+              "baochinhphu_phu_quoc_dog_2018"
+            ],
+            "verification_status": "REPORTED_TRAIT",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Visit Phu Quoc hiện mô tả biểu diễn tại trại chó có các bài leo trèo, bơi lội và vượt địa hình.",
+            "source_ids": [
+              "visitpq_phu_quoc_dog_farm_2026"
+            ],
+            "verification_status": "VERIFIED_CURRENT_TOURISM_DESCRIPTION",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Không dùng khả năng leo cây như một tiêu chí duy nhất để xác định giống.",
+            "source_ids": [
+              "vka_phu_quoc_standard_2023"
+            ],
+            "verification_status": "EDITORIAL_INFERENCE_FROM_BREED_STANDARD",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "baochinhphu_phu_quoc_dog_2018",
+            "source_type": "GOVERNMENT_PRESS",
+            "label": "Báo Chính phủ - Tứ đại danh khuyển",
+            "url": "https://baochinhphu.vn/nam-tuat-tim-hieu-ve-tu-dai-danh-khuyen-dat-viet-102234765.htm",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_phu_quoc_dog_farm_2026",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Trại chó xoáy",
+            "url": "https://visitphuquoc.com.vn/vi/kham-pha-trai-cho-xoay-phu-quoc-quoc-khuyen-noi-tieng-cua-dao-ngoc-8258",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vka_phu_quoc_standard_2023",
+            "source_type": "BREED_ASSOCIATION",
+            "label": "VKA - Bảng tiêu chuẩn chó Phú Quốc 2023",
+            "url": "https://vka.vn/bang-tieu-chuan-cho-phu-quoc-so-001-vn-04-10-2023-do-vka-ban-hanh/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có bằng chứng cho thấy mọi cá thể chó Phú Quốc đều có hành vi leo cây tự nhiên."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Chó Phú Quốc nổi tiếng là nhanh nhẹn và leo trèo tốt. Nhưng câu 'chó Phú Quốc biết leo cây' nên hiểu là khả năng được nhiều nguồn và người nuôi ghi nhận, không phải mọi con đều trèo cây như một đặc điểm bắt buộc của giống.",
+        "practical": "Nếu xem biểu diễn ở trại chó, coi đó là khả năng của những cá thể đã được nuôi/huấn luyện, không dùng một màn trình diễn để suy ra toàn bộ giống.",
+        "expectation_vs_reality": "Tiêu chuẩn giống và khả năng biểu diễn là hai chuyện khác nhau. Nguồn báo chí/chính phủ có ghi nhận leo trèo, nhưng không nên biến thành claim 'mọi chó Phú Quốc đều leo cây'.",
+        "before_you_go": [
+          "Không thử ép chó leo cao để kiểm chứng.",
+          "Không mua chó chỉ vì lời quảng cáo 'leo cây'.",
+          "Nếu viết bài, dùng 'được ghi nhận có khả năng leo trèo tốt' thay vì khẳng định tuyệt đối."
+        ],
+        "curiosity_questions": [
+          "Chó Phú Quốc thật sự leo cây hay chỉ leo địa hình dốc và chướng ngại?",
+          "Khả năng leo trèo có nằm trong tiêu chuẩn giống không?"
         ]
       },
       "updated_at": "2026-09-22"
