@@ -41,15 +41,73 @@ function cleanLegacyAddress(address=""){
     .trim();
 }
 
+function normalizeText(value=""){
+  return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+}
+
+function nameTokens(name=""){
+  const stop=new Set(["phu","quoc","hotel","resort","spa","homestay","bungalow","villa","villas","the","by","and","beach"]);
+  return normalizeText(name).split(/\s+/).filter(x=>x.length>2&&!stop.has(x));
+}
+
+function nameLooksRight(entity,result){
+  const wanted=nameTokens(entity.name);
+  if(!wanted.length)return true;
+  const hay=normalizeText([result.name,result.formatted_address].filter(Boolean).join(" "));
+  const hits=wanted.filter(t=>hay.includes(t)).length;
+  return hits>=Math.min(2,wanted.length);
+}
+
+function zoneMatches(entity,lat,lon){
+  const zone=entity.zone_id;
+  if(!zone)return true;
+  if(zone==="zone_south")return lat<=10.13&&lon>=103.94;
+  if(zone==="zone_north")return lat>=10.24;
+  if(zone==="zone_central_west")return lat>=10.10&&lat<=10.31&&lon<=104.035;
+  return true;
+}
+
+function categoryLooksRight(entity,result){
+  const cls=String(result.class||"").toLowerCase();
+  const type=String(result.type||"").toLowerCase();
+  if(entity.entity_type==="hotel"){
+    return cls==="tourism"&&["hotel","guest_house","resort","hostel","motel","apartment"].includes(type);
+  }
+  if(entity.entity_type!=="utility")return true;
+  const allowed={
+    PHARMACY:[["amenity","pharmacy"],["shop","chemist"]],
+    ATM:[["amenity","atm"],["amenity","bank"]],
+    FUEL:[["amenity","fuel"]],
+    PARKING:[["amenity","parking"]],
+    TOILET:[["amenity","toilets"]],
+    MINIMART:[["shop","convenience"],["shop","supermarket"]],
+    CLINIC_HOSPITAL:[["amenity","clinic"],["amenity","hospital"],["healthcare","clinic"],["healthcare","hospital"]]
+  }[entity.utility_type];
+  if(!allowed)return true;
+  return allowed.some(([a,b])=>cls===a&&type===b);
+}
+
+function pickCandidate(entity,candidates,queryKind){
+  const zoneSafe=candidates.filter(x=>inPhuQuoc(x.lat,x.lon)&&zoneMatches(entity,x.lat,x.lon));
+  if(queryKind==="name"){
+    return zoneSafe.find(x=>nameLooksRight(entity,x)&&categoryLooksRight(entity,x))||null;
+  }
+  return zoneSafe[0]||null;
+}
+
 function precisionForGoogleTypes(types=[]){
   const broad=new Set(["locality","administrative_area_level_1","administrative_area_level_2","administrative_area_level_3","route","neighborhood","sublocality"]);
   return types.some(x=>broad.has(x))?"area_anchor":"site_centroid";
 }
 
-function precisionForNominatim(result){
+function precisionForNominatim(result,entity){
   const broadTypes=new Set(["administrative","village","town","city","suburb","neighbourhood","quarter","residential","road","hamlet","island","beach"]);
-  const broadClasses=new Set(["boundary","place","highway"]);
+  const broadClasses=new Set(["boundary","place"]);
+  if(result.query_kind==="address"&&!categoryLooksRight(entity,result)){
+    return result.class==="highway"||result.type==="road"?"route_anchor":"area_anchor";
+  }
   if(broadTypes.has(result.type)||broadClasses.has(result.class))return"area_anchor";
+  if(result.class==="highway")return"route_anchor";
   return"site_centroid";
 }
 
@@ -119,7 +177,7 @@ async function googleGeocode(address){
   };
 }
 
-async function nominatimQuery(q){
+async function nominatimQuery(entity,q,queryKind){
   const url=new URL("https://nominatim.openstreetmap.org/search");
   url.searchParams.set("q",q);
   url.searchParams.set("format","jsonv2");
@@ -138,7 +196,7 @@ async function nominatimQuery(q){
   });
   if(!response.ok)throw new Error("Nominatim HTTP "+response.status);
   const payload=await response.json();
-  const result=(payload||[]).map(r=>({
+  const candidates=(payload||[]).map(r=>({
     resolver:"OSM_NOMINATIM",
     source_id:"osm_nominatim_geocode",
     source:"OpenStreetMap Nominatim address geocoding",
@@ -150,8 +208,10 @@ async function nominatimQuery(q){
     lat:Number(r.lat),
     lon:Number(r.lon),
     class:r.class||null,
-    type:r.type||null
-  })).find(x=>inPhuQuoc(x.lat,x.lon));
+    type:r.type||null,
+    query_kind:queryKind
+  }));
+  const result=pickCandidate(entity,candidates,queryKind);
   await sleep(1100);
   return result||null;
 }
@@ -160,15 +220,18 @@ async function nominatimSearch(entity){
   if(!entity.address)return null;
   const cleaned=cleanLegacyAddress(entity.address);
   const queries=[
-    [entity.name,"Phú Quốc","Việt Nam"].filter(Boolean).join(", "),
-    [cleaned,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")
+    {kind:"name",q:[entity.name,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")},
+    {kind:"address",q:[cleaned,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")}
   ];
-  for(const q of [...new Set(queries)]){
+  const seen=new Set();
+  for(const item of queries){
+    if(seen.has(item.q))continue;
+    seen.add(item.q);
     try{
-      const result=await nominatimQuery(q);
+      const result=await nominatimQuery(entity,item.q,item.kind);
       if(result)return result;
     }catch(error){
-      console.warn("WARN Nominatim query",entity.id,q,error.message);
+      console.warn("WARN Nominatim query",entity.id,item.q,error.message);
     }
   }
   return null;
@@ -177,14 +240,17 @@ async function nominatimSearch(entity){
 async function photonSearch(entity){
   const cleaned=cleanLegacyAddress(entity.address);
   const queries=[
-    [entity.name,"Phu Quoc","Vietnam"].filter(Boolean).join(", "),
-    [cleaned,"Phu Quoc","Vietnam"].filter(Boolean).join(", ")
+    {kind:"name",q:[entity.name,"Phu Quoc","Vietnam"].filter(Boolean).join(", ")},
+    {kind:"address",q:[cleaned,"Phu Quoc","Vietnam"].filter(Boolean).join(", ")}
   ];
-  for(const q of [...new Set(queries)]){
+  const seen=new Set();
+  for(const item of queries){
+    if(seen.has(item.q))continue;
+    seen.add(item.q);
     try{
       const url=new URL("https://photon.komoot.io/api/");
-      url.searchParams.set("q",q);
-      url.searchParams.set("limit","5");
+      url.searchParams.set("q",item.q);
+      url.searchParams.set("limit","8");
       url.searchParams.set("lat","10.227");
       url.searchParams.set("lon","103.967");
       const response=await fetch(url,{
@@ -193,11 +259,7 @@ async function photonSearch(entity){
       });
       if(!response.ok)continue;
       const payload=await response.json();
-      const feature=(payload.features||[]).find(f=>{
-        const lon=Number(f.geometry?.coordinates?.[0]),lat=Number(f.geometry?.coordinates?.[1]);
-        return inPhuQuoc(lat,lon);
-      });
-      if(feature){
+      const candidates=(payload.features||[]).map(feature=>{
         const p=feature.properties||{};
         return{
           resolver:"OSM_PHOTON",
@@ -208,14 +270,17 @@ async function photonSearch(entity){
           osm_id:p.osm_id||null,
           name:p.name||null,
           formatted_address:[p.housenumber,p.street,p.district,p.city,p.county,p.state,p.country].filter(Boolean).join(", "),
-          lat:Number(feature.geometry.coordinates[1]),
-          lon:Number(feature.geometry.coordinates[0]),
+          lat:Number(feature.geometry?.coordinates?.[1]),
+          lon:Number(feature.geometry?.coordinates?.[0]),
           class:p.osm_key||null,
-          type:p.osm_value||null
+          type:p.osm_value||null,
+          query_kind:item.kind
         };
-      }
+      });
+      const result=pickCandidate(entity,candidates,item.kind);
+      if(result)return result;
     }catch(error){
-      console.warn("WARN Photon",entity.id,q,error.message);
+      console.warn("WARN Photon",entity.id,item.q,error.message);
     }
   }
   return null;
@@ -275,7 +340,7 @@ for(const file of files){
 
     const precision=match.resolver.startsWith("GOOGLE")
       ? precisionForGoogleTypes(match.types||[])
-      : precisionForNominatim(match);
+      : precisionForNominatim(match,entity);
 
     entity.map={
       lat:match.lat,
@@ -294,8 +359,10 @@ for(const file of files){
       lookup_query:query,
       location_type:match.location_type||null,
       note:precision==="area_anchor"
-        ?"Kết quả geocode ở mức khu vực/đường; dùng để định hướng, không giả là cửa vào chính xác."
-        :"Tọa độ suy từ tên + địa chỉ và được lưu lại để dùng chung trên các bản đồ."
+        ?"Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+        :precision==="route_anchor"
+          ?"Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
+          :"Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
     };
     entity.updated_at=TODAY;
     changed=true;
