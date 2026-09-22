@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "entity": "knowledge_object",
+  "statuses": [
+    "QUEUED",
+    "RESEARCHING",
+    "READY_INTERNAL",
+    "READY_PUBLIC",
+    "HOLD"
+  ],
+  "story_types": [
+    "HISTORICAL_FACT",
+    "DOCUMENTED_HISTORY",
+    "ORAL_HISTORY",
+    "FOLKLORE",
+    "LEGEND",
+    "LOCAL_BELIEF",
+    "DISPUTED",
+    "UNVERIFIED",
+    "PRACTICAL",
+    "PLACE_GUIDE",
+    "FOOD",
+    "NATURE",
+    "ACTIVITY",
+    "MEMORY_CHANGE"
+  ],
+  "required": [
+    "topic_id",
+    "number",
+    "title",
+    "topic_type",
+    "status",
+    "public_ready",
+    "research",
+    "editorial"
+  ],
+  "research": {
+    "claims": [
+      "claim",
+      "source_ids",
+      "verification_status",
+      "confidence"
+    ],
+    "sources": [
+      "source_id",
+      "source_type",
+      "label",
+      "url",
+      "published_at",
+      "verified_at"
+    ],
+    "known_unknowns": "array"
+  },
+  "editorial": {
+    "fields": [
+      "short_summary",
+      "practical",
+      "expectation_vs_reality",
+      "before_you_go",
+      "curiosity_questions"
+    ],
+    "public_rule": "Không render source URL ra mặt khách. Public copy phải tự đứng được, ngắn, tự nhiên và có ích."
+  },
+  "source_rules": [
+    "Ưu tiên cơ quan nhà nước/operator/tài liệu nghiên cứu trước báo chí và community.",
+    "Nếu nguồn mâu thuẫn, giữ cả hai claim và đánh NEEDS_VERIFICATION.",
+    "Không crawl để copy prose.",
+    "Không public placeholder hoặc object chưa READY_PUBLIC.",
+    "URL nguồn chỉ dùng nội bộ để audit và cập nhật."
+  ]
+}
