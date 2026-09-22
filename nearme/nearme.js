@@ -32,8 +32,17 @@
     return support?.near_me?.categories?.find(x=>x.id===id)||null;
   }
 
+  function hasStoredVenueData(id=selectedCategory){
+    if(!id)return false;
+    return rows.some(row=>
+      row.entity_type==="venue" &&
+      (row.tags||[]).includes(id) &&
+      matchesArea(row)
+    );
+  }
+
   function isDiscoveryCategory(id=selectedCategory){
-    return category(id)?.mode==="directory_search";
+    return category(id)?.mode==="directory_search" && !hasStoredVenueData(id);
   }
 
   function areaQuery(id=selectedArea){
@@ -162,6 +171,36 @@
       .sort((a,b)=>a.d-b.d)[0]?.id||"all";
   }
 
+  function buildVenueRows(doc){
+    return (doc?.entities||[])
+      .filter(x=>x?.status==="ACTIVE"&&x?.id&&x?.name)
+      .map(x=>({
+        id:x.id,
+        entity_type:"venue",
+        name:x.name,
+        aliases:[],
+        address:x.address||"",
+        phone:x.phone||null,
+        zone_id:x.zone_code||null,
+        place_id:null,
+        tags:[x.category,...(x.tags||[])].filter(Boolean),
+        utility_type:x.category,
+        group:x.category,
+        route:null,
+        map:{
+          lat:Number.isFinite(Number(x.latitude))?Number(x.latitude):null,
+          lon:Number.isFinite(Number(x.longitude))?Number(x.longitude):null,
+          precision:"verified_venue"
+        },
+        lat:Number.isFinite(Number(x.latitude))?Number(x.latitude):null,
+        lon:Number.isFinite(Number(x.longitude))?Number(x.longitude):null,
+        opening_hours_note:x.opening_hours?.note||"",
+        verified_at:x.verified_at||null,
+        source_ref:x.source_ref||null,
+        status:x.status
+      }));
+  }
+
   function buildRows(index){
     const utilityMeta=new Map((support?.near_me?.items||[]).map(x=>[x.utility_id,x]));
     return (index?.documents||[]).map(doc=>{
@@ -249,6 +288,7 @@
   }
 
   function typeLabel(item){
+    if(item.entity_type==="venue")return category(item.utility_type)?.label||item.group||"Địa điểm";
     if(item.entity_type==="hotel")return item.star_rating?"Khách sạn "+item.star_rating+" sao":"Khách sạn";
     if(item.entity_type==="activity")return(item.categories||[]).includes("show")?"Show":"Trải nghiệm";
     if(item.entity_type==="place"){
@@ -490,15 +530,19 @@
   async function load(){
     initMap();
     try{
-      const [a,locationIndex]=await Promise.all([
+      const [a,locationIndex,venueDirectory]=await Promise.all([
         fetch("../data/home-support.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-        fetch("../data/views/location-index.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
+        fetch("../data/views/location-index.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+        fetch("../data/entities/destination-venues.json?t="+Date.now(),{cache:"no-store"})
+          .then(r=>r.ok?r.json():({entities:[]}))
+          .catch(()=>({entities:[]}))
       ]);
 
       support=a;
-      rows=buildRows(locationIndex);
+      rows=[...buildRows(locationIndex),...buildVenueRows(venueDirectory)];
       window.__openpqNearState={
         indexCount:Array.isArray(locationIndex?.documents)?locationIndex.documents.length:0,
+        venueCount:Array.isArray(venueDirectory?.entities)?venueDirectory.entities.filter(x=>x.status==="ACTIVE").length:0,
         rowsCount:rows.length,
         requestedArea,
         requestedCategory,
