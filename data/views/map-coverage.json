@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-22T00:45:58.066Z",
+  "generated_at": "2026-09-22T00:55:28.802Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 249,
-    "ready_count": 16,
-    "missing_count": 233
+    "ready_count": 27,
+    "missing_count": 222
   },
   "layers": {
     "zones": [
@@ -101,6 +101,32 @@
         "note": "Điểm neo khu trung tâm Grand World, không đại diện cho mọi cổng của tổ hợp."
       },
       {
+        "id": "place_rach_vem",
+        "name": "Rạch Vẹm",
+        "type": "place",
+        "lat": 10.38602,
+        "lon": 103.94166,
+        "precision": "area_anchor",
+        "source": "Mapcarta / OpenStreetMap Rạch Vẹm Beach area anchor",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://mapcarta.com/W451772442",
+        "note": "Rạch Vẹm là vùng làng/bãi biển trải dài; pin dùng để định hướng khu vực.",
+        "verified_at": "2026-09-22"
+      },
+      {
+        "id": "place_cua_can",
+        "name": "Cửa Cạn",
+        "type": "place",
+        "lat": 10.29216,
+        "lon": 103.9147,
+        "precision": "area_anchor",
+        "source": "Apple Maps locality coordinate cross-check",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://maps.apple.com/place?auid=1992426072982825904",
+        "note": "Cửa Cạn là khu vực, không phải một điểm đơn lẻ.",
+        "verified_at": "2026-09-22"
+      },
+      {
         "id": "place_dinh_cau",
         "name": "Dinh Cậu",
         "type": "place",
@@ -127,6 +153,19 @@
         "plus_code": "6X96+83R"
       },
       {
+        "id": "place_bai_truong",
+        "name": "Bãi Trường",
+        "type": "place",
+        "lat": 10.1143458,
+        "lon": 103.9809272,
+        "precision": "area_anchor",
+        "source": "Mapy/OpenStreetMap Bãi Trường Beach reference",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://mapy.com/en/?id=1053691053&source=osm",
+        "note": "Bãi Trường trải dài nhiều km; pin là điểm neo tham khảo trên trục bãi biển.",
+        "verified_at": "2026-09-22"
+      },
+      {
         "id": "place_bai_sao",
         "name": "Bãi Sao",
         "type": "place",
@@ -139,6 +178,45 @@
         "accuracy": "GOOGLE_PLUS_CODE",
         "plus_code": "323P+M58",
         "note": "Điểm neo Bãi Sao, dùng định hướng khu bãi biển."
+      },
+      {
+        "id": "place_bai_khem",
+        "name": "Bãi Khem",
+        "type": "place",
+        "lat": 10.03333,
+        "lon": 104.03333,
+        "precision": "area_anchor",
+        "source": "Mapcarta / GeoNames Bãi Khem area anchor",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://mapcarta.com/15504504",
+        "note": "Bãi Khem là khu bãi biển dài; pin dùng để định hướng khu vực, không phải một cổng vào duy nhất.",
+        "verified_at": "2026-09-22"
+      },
+      {
+        "id": "place_sunset_town",
+        "name": "Sunset Town",
+        "type": "place",
+        "lat": 10.026903,
+        "lon": 104.007917,
+        "precision": "area_anchor",
+        "source": "Wikimedia Commons WGS84 camera geotag inside Sunset Town",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg",
+        "note": "Điểm neo trung tâm Sunset Town, không đại diện cho mọi cổng/điểm trong khu.",
+        "verified_at": "2026-09-22"
+      },
+      {
+        "id": "place_phu_quoc_prison",
+        "name": "Nhà tù Phú Quốc",
+        "type": "place",
+        "lat": 10.043948,
+        "lon": 104.018179,
+        "precision": "site_centroid",
+        "source": "Published WGS84 coordinate cross-check for Phú Quốc Prison",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://olps.co.za/kiwix/content/wikipedia_en_all_maxi_2024-01/A/Ph%C3%BA_Qu%E1%BB%91c_Prison",
+        "note": "Tọa độ khu di tích Nhà tù Phú Quốc.",
+        "verified_at": "2026-09-22"
       },
       {
         "id": "place_ho_quoc",
@@ -154,6 +232,32 @@
         "plus_code": "426H+2HJ"
       },
       {
+        "id": "place_aquatopia",
+        "name": "Aquatopia Water Park",
+        "type": "place",
+        "lat": 9.95644,
+        "lon": 104.01589,
+        "precision": "site_centroid",
+        "source": "Mapcarta / OpenStreetMap water_park centroid cross-check",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://mapcarta.com/W1092523953",
+        "note": "Tâm khu Aquatopia trên Hòn Thơm.",
+        "verified_at": "2026-09-22"
+      },
+      {
+        "id": "place_exotica",
+        "name": "Exotica Village",
+        "type": "place",
+        "lat": 9.95432,
+        "lon": 104.01784,
+        "precision": "area_anchor",
+        "source": "Mapcarta / GeoNames Hòn Thơm area anchor",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://mapcarta.com/de/15475982",
+        "note": "Exotica nằm trong tổ hợp Hòn Thơm; pin hiện là điểm neo Hòn Thơm cho tới khi có pin trò chơi chính xác.",
+        "verified_at": "2026-09-22"
+      },
+      {
         "id": "place_suoi_tranh",
         "name": "Suối Tranh",
         "type": "place",
@@ -165,6 +269,32 @@
         "verified_at": "2026-09-22",
         "accuracy": "GOOGLE_PLUS_CODE",
         "plus_code": "52G6+GQQ"
+      },
+      {
+        "id": "place_kiss_bridge",
+        "name": "Cầu Hôn",
+        "type": "place",
+        "lat": 10.029458,
+        "lon": 104.006208,
+        "precision": "area_anchor",
+        "source": "Wikimedia Commons WGS84 camera geotag at Kiss Bridge",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge,_Phu_Quoc_(52680897656).jpg",
+        "note": "Tọa độ ảnh GPS tại Cầu Hôn, dùng làm điểm neo khu công trình; không coi là cổng soát vé.",
+        "verified_at": "2026-09-22"
+      },
+      {
+        "id": "place_gieng_tien",
+        "name": "Giếng Tiên",
+        "type": "place",
+        "lat": 10.00934,
+        "lon": 104.04825,
+        "precision": "area_anchor",
+        "source": "Mapcarta / GeoNames Mũi Ông Đội area anchor",
+        "source_id": "map_crosscheck_20260922",
+        "source_url": "https://mapcarta.com/15488872",
+        "note": "Giếng Tiên nằm tại khu Mũi Ông Đội; pin là điểm neo khu vực, chưa coi là tọa độ miệng giếng chính xác.",
+        "verified_at": "2026-09-22"
       },
       {
         "id": "place_duong_dong_market",
@@ -192,6 +322,18 @@
         "accuracy": "GOOGLE_PLUS_CODE",
         "plus_code": "52JV+6XX",
         "note": "Điểm neo làng chài Hàm Ninh."
+      },
+      {
+        "id": "place_teddy_bear_museum",
+        "name": "Teddy Bear Museum Phú Quốc",
+        "type": "place",
+        "lat": 10.3275625,
+        "lon": 103.8625625,
+        "precision": "area_anchor",
+        "source": "Inherited Grand World central area anchor from Google location lookup",
+        "source_id": "google_maps_location_lookup",
+        "note": "Bảo tàng nằm trong Grand World; pin hiện dùng điểm neo trung tâm Grand World cho tới khi có pin cửa vào bảo tàng.",
+        "verified_at": "2026-09-22"
       }
     ],
     "stay": [],
@@ -419,20 +561,9 @@
     "hotel_moxy_phu_quoc_hon_thom",
     "hotel_rivora_retreat_phu_quoc",
     "hotel_w_phu_quoc",
-    "place_rach_vem",
-    "place_cua_can",
-    "place_bai_truong",
-    "place_bai_khem",
-    "place_sunset_town",
-    "place_phu_quoc_prison",
-    "place_aquatopia",
-    "place_exotica",
     "place_other_streams",
     "place_fish_sauce_house",
     "place_pepper_garden",
-    "place_kiss_bridge",
-    "place_gieng_tien",
-    "place_teddy_bear_museum",
     "utility_112",
     "utility_113",
     "utility_114",
