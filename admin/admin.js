@@ -1271,7 +1271,7 @@ function renderAnalytics(){
 
   $("#analyticsRefresh")?.addEventListener("click",()=>a2Load(true));
   $("#analyticsApply")?.addEventListener("click",()=>a2Load(false));
-  $qsa("#editor [data-a2range]").forEach(b=>b.addEventListener("click",()=>a2Quick(Number(b.dataset.a2range)||7)));
+  qsa("#editor [data-a2range]").forEach(b=>b.addEventListener("click",()=>a2Quick(Number(b.dataset.a2range)||7)));
 }
 async function refreshAnalytics(){return a2Load(true)}
 
