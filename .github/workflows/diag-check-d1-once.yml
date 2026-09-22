@@ -1,0 +1,37 @@
+name: Diagnostic - Check Cloudflare D1 Once
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check-d1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Query Cloudflare D1 inventory
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CF_API_TOKEN:-}" ] || [ -z "${CF_ACCOUNT_ID:-}" ]; then
+            echo "CLOUDFLARE_CREDENTIALS_MISSING"
+            exit 2
+          fi
+          code="$(curl -sS -o d1.json -w '%{http_code}'             -H "Authorization: Bearer $CF_API_TOKEN"             -H "Content-Type: application/json"             "https://api.cloudflare.com/client/v4/accounts/$CF_ACCOUNT_ID/d1/database?per_page=100")"
+          echo "http_status=$code"
+          python - <<'PY'
+          import json
+          doc=json.load(open("d1.json", encoding="utf-8"))
+          print("success=", doc.get("success"))
+          for e in doc.get("errors") or []:
+              print("error=", e.get("code"), e.get("message"))
+          rows=doc.get("result") or []
+          print("d1_count=", len(rows))
+          for i,row in enumerate(rows,1):
+              ident=str(row.get("uuid") or row.get("id") or "")
+              print(f"d1_{i}: name={row.get('name')} id_prefix={ident[:8]} created_at={row.get('created_at')}")
+          PY
