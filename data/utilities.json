@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-22T05:14:06.229Z",
+  "generated_at": "2026-09-22T17:07:57.488Z",
   "source_policy": "official_public_sources_only",
   "national_emergency": [
     {
@@ -44,7 +44,7 @@
       "note": "An ninh trật tự",
       "source": "https://phuquoc.angiang.gov.vn/trang-chu",
       "verified": true,
-      "last_checked": "2026-09-22T05:13:33.705Z"
+      "last_checked": "2026-09-22T17:07:21.688Z"
     },
     {
       "id": "pq-tourism",
@@ -61,7 +61,7 @@
       "note": "Thủ tục hành chính",
       "source": "https://phuquoc.angiang.gov.vn/trang-chu",
       "verified": true,
-      "last_checked": "2026-09-22T05:13:33.705Z"
+      "last_checked": "2026-09-22T17:07:21.688Z"
     },
     {
       "id": "pqc-hotline",
@@ -94,7 +94,7 @@
       "phone": "0941 130 033",
       "note": "Đặt vé / hỗ trợ online",
       "source": "https://online.superdong.com.vn/Home/Contact",
-      "checked_at": "2026-09-22T05:13:56.124Z",
+      "checked_at": "2026-09-22T17:07:44.114Z",
       "verified": true
     },
     {
@@ -104,8 +104,8 @@
       "phone": "0901 868 878",
       "note": "Tàu cao tốc",
       "source": "https://phuquocexpress.com/",
-      "checked_at": "2026-09-22T05:13:58.252Z",
-      "verified": true
+      "checked_at": "2026-09-22T17:07:53.020Z",
+      "verified": false
     },
     {
       "group": "Đường biển",
@@ -114,7 +114,7 @@
       "phone": "1900 966 908",
       "note": "Phà / chở xe",
       "source": "https://thanhthoi.vn/",
-      "checked_at": "2026-09-22T05:14:01.499Z",
+      "checked_at": "2026-09-22T17:07:55.568Z",
       "verified": true
     },
     {
@@ -124,7 +124,7 @@
       "phone": "1900 6677",
       "note": "Giá vé / giờ / show",
       "source": "https://vinwonders.com/en/contact/",
-      "checked_at": "2026-09-22T05:14:01.585Z",
+      "checked_at": "2026-09-22T17:07:56.287Z",
       "verified": true
     },
     {
@@ -134,7 +134,7 @@
       "phone": "0886 045 888",
       "note": "Cáp treo / Hòn Thơm / show",
       "source": "https://sunworld.vn/vi/hon-thom",
-      "checked_at": "2026-09-22T05:14:06.114Z",
+      "checked_at": "2026-09-22T17:07:57.291Z",
       "verified": false
     },
     {
@@ -144,7 +144,7 @@
       "phone": "0297 3985 588",
       "note": "Hotline bệnh viện",
       "source": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
-      "checked_at": "2026-09-22T05:14:06.200Z",
+      "checked_at": "2026-09-22T17:07:57.449Z",
       "verified": true
     },
     {
@@ -154,7 +154,7 @@
       "phone": "02973 98 55 11",
       "note": "Đường dây cấp cứu 24/24 - nên kiểm tra lại nếu không kết nối được",
       "source": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
-      "checked_at": "2026-09-22T05:14:06.229Z",
+      "checked_at": "2026-09-22T17:07:57.488Z",
       "verified": true
     },
     {
@@ -411,6 +411,7 @@
     "errors": [
       "TypeError: fetch failed",
       "TypeError: fetch failed",
+      "Error: https://phuquocexpress.com/ -> HTTP 525",
       "Error: https://sunworld.vn/vi/hon-thom -> HTTP 404"
     ],
     "source_count": 9,
