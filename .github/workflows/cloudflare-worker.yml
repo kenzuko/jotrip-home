@@ -125,7 +125,7 @@ jobs:
       - name: Check openphuquoc.com content routing
         if: env.CLOUDFLARE_READY == 'true'
         run: |
-          domain="$(curl -fsS 'https://openphuquoc.com/data/views/knowledge-public.json' || true)"
+          domain="$(curl --connect-timeout 4 --max-time 10 -fsS 'https://openphuquoc.com/data/views/knowledge-public.json' || true)"
           if echo "$domain" | grep -Eq '"count"[[:space:]]*:[[:space:]]*128'; then
             echo "openphuquoc.com exposes 128 published articles"
           else
