@@ -37,11 +37,11 @@
       "ACTIVITY": 15,
       "MEMORY_CHANGE": 12
     },
-    "linked_to_canonical_entity": 40,
-    "unlinked": 110,
-    "ready_internal": 112,
-    "queued": 21,
-    "hold": 17
+    "linked_to_canonical_entity": 41,
+    "unlinked": 109,
+    "ready_internal": 114,
+    "queued": 18,
+    "hold": 18
   },
   "topics": [
     {
@@ -2952,9 +2952,9 @@
       "section": "HISTORY / CULTURE / LORE",
       "topic_type": "HISTORY_LORE",
       "crawl_brief": "Timeline, nguồn bảo tàng/chính thống, terminology.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "venue_phu_quoc_prison",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2978,7 +2978,7 @@
       "crawl_brief": "Lịch sử khai phá, nhóm cư dân, nguồn nghiên cứu.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3002,7 +3002,7 @@
       "crawl_brief": "Quan hệ lịch sử vùng, maps, administrative context.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
