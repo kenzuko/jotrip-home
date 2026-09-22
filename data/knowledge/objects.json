@@ -8823,8 +8823,8 @@
         ]
       },
       "editorial": {
-        "short_summary": "Kayak ở Phú Quốc hay nhất khi mặt nước êm, gió không quất ngang mặt và mình còn đủ thư thả để nhìn bờ, nghe tiếng nước, chứ không phải cúi đầu chèo cho kịp quay vào. Với người mới, một đoạn sông hoặc vịnh kín thường dễ chịu hơn vùng biển trống.",
-        "practical": "Trước khi xuống nước, nhìn mặt nước một lúc chứ đừng chỉ nhìn trời. Nếu gió đang đẩy mạnh ra xa bờ, sóng nhỏ nhưng dồn liên tục, hoặc cano chạy cắt ngang tuyến thì nên đổi chỗ hoặc dừng. Đi xa bao nhiêu cũng phải chừa sức cho đoạn quay về.",
+        "short_summary": "Kayak ở Phú Quốc hay nhất khi mặt nước êm, gió nhẹ và mình còn đủ thư thả để nhìn bờ, nghe tiếng nước. Với người mới, một đoạn sông hoặc vịnh kín thường dễ chịu hơn vùng biển trống.",
+        "practical": "Trước khi xuống nước, nhìn mặt nước một lúc chứ đừng chỉ nhìn trời. Nếu gió đang mạnh dần, sóng nhỏ nhưng dồn liên tục, hoặc cano chạy cắt ngang tuyến thì nên đổi chỗ hoặc dừng. Đi xa bao nhiêu cũng phải chừa sức cho đoạn quay về.",
         "expectation_vs_reality": "Kayak không cần nước xanh trong như ảnh quảng cáo mới vui. Một đoạn sông yên, bờ cây thấp và tiếng nước đập mạn thuyền đôi khi đáng nhớ hơn nhiều. Ngược lại, trời nắng đẹp vẫn có thể là một buổi chèo rất mệt nếu gió đang lên.",
         "before_you_go": [
           "Mặc áo phao từ lúc xuống kayak.",
@@ -8914,7 +8914,7 @@
         ]
       },
       "editorial": {
-        "short_summary": "Một ngày đi biển ở Phú Quốc nên bắt đầu bằng câu 'hôm nay bờ nào dễ chịu?' hơn là 'bãi nào đẹp nhất?'. Có hôm Bãi Trường xanh và êm tới mức chỉ muốn nằm lì đến chiều. Cũng có ngày gió Tây Nam quất thẳng vào bờ Tây, nước đục và sóng dồn, lúc đó đổi sang phía Nam lại hợp lý hơn nhiều.",
+        "short_summary": "Một ngày đi biển ở Phú Quốc nên bắt đầu bằng câu 'hôm nay bờ nào dễ chịu?' hơn là 'bãi nào đẹp nhất?'. Có hôm Bãi Trường xanh và êm tới mức chỉ muốn nằm lì đến chiều. Cũng có ngày gió Tây Nam mạnh, biển bờ Tây động hơn, sóng dồn và nước kém trong; lúc đó đổi sang phía Nam có thể hợp lý hơn.",
         "practical": "Đừng chọn bãi từ tối hôm trước rồi giữ bằng mọi giá. Sáng mở Weather/Live, nhìn gió, mưa và sóng trước; sau đó mới chọn Bãi Trường, Bãi Sao, Bãi Khem hay một bãi gần chỗ ở. Nếu đi với trẻ nhỏ, ưu tiên nơi có người trông bãi, chỗ thay đồ và đường xuống biển rõ ràng.",
         "expectation_vs_reality": "Ảnh đẹp của một bãi chỉ nói được hôm người ta chụp. Biển Phú Quốc đổi sắc rất nhanh theo gió, mây, dòng nước và mùa. Một bãi hôm qua trong veo có thể hôm nay không còn như vậy, và chuyện đó hoàn toàn bình thường ở đảo.",
         "before_you_go": [
@@ -9083,6 +9083,258 @@
           "Hàm Ninh bắt đầu một ngày mới như thế nào trước khi khách du lịch tới?",
           "Vì sao ánh sáng trước lúc mặt trời mọc đôi khi đẹp hơn lúc mặt trời đã lên?",
           "Bờ Đông và bờ Tây Phú Quốc khác nhau ra sao vào đầu ngày?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_139_phu-quoc-truoc-san-bay-quoc-te",
+      "number": 139,
+      "title": "Phú Quốc trước sân bay quốc tế",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Trước sân bay quốc tế hiện nay, Phú Quốc đã có sân bay Dương Đông. Báo cáo VITRANSS2 của JICA ghi sân bay Phú Quốc cũ có nhà ga khoảng 2.491 m², công suất ước tính khoảng 194.000 hành khách/năm, đường băng dài 2.100 m và khai thác tối đa nhóm tàu bay cỡ ATR72.",
+            "source_ids": [
+              "jica_vitranss2_air_transport_2010"
+            ],
+            "verification_status": "TRANSPORT_STUDY_BASELINE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "VITRANSS2 coi sân bay mới Phú Quốc là một dự án đã cam kết, với mục tiêu ban đầu khoảng 2 triệu hành khách/năm và phục vụ chiến lược phát triển du lịch đảo.",
+            "source_ids": [
+              "jica_vitranss2_air_transport_2010"
+            ],
+            "verification_status": "TRANSPORT_PLANNING_RECORD",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Báo cáo Chính phủ năm 2013 liệt kê sân bay Phú Quốc trong nhóm công trình giao thông đã hoàn thành, đánh dấu việc chuyển từ sân bay cũ trong khu Dương Đông sang hạ tầng hàng không quy mô lớn hơn.",
+            "source_ids": [
+              "gov_vn_socioeconomic_report_2013"
+            ],
+            "verification_status": "OFFICIAL_COMPLETION_RECORD",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "jica_vitranss2_air_transport_2010",
+            "source_type": "INTERNATIONAL_DEVELOPMENT_STUDY",
+            "label": "JICA - The Comprehensive Study on the Sustainable Development of Transport System in Vietnam (VITRANSS 2), Subsector Report No. 05: Air Transport",
+            "url": "https://openjicareport.jica.go.jp/700/700_123.html",
+            "published_at": "2010-05",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "gov_vn_socioeconomic_report_2013",
+            "source_type": "OFFICIAL_GOVERNMENT_RECORD",
+            "label": "Chính phủ - Báo cáo tình hình kinh tế xã hội năm 2013, kết quả 3 năm 2011-2013",
+            "url": "https://chinhphu.vn/chinh-sach-thanh-tuu-68351/bao-cao-cua-chinh-phu-ve-tinh-hinh-kinh-te-xa-hoi-nam-2013-ket-qua-3-nam-thuc-hien-ke-hoach-5-na-10061352",
+            "published_at": "2013",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "duong_dong_old_airport_planning",
+            "source_type": "OFFICIAL_URBAN_PLANNING",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch chung thị trấn Dương Đông",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-chung-thi-tran-duong-dong",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không dùng ký ức kiểu 'Phú Quốc ngày xưa chỉ đi tàu' vì trước 2012 đảo đã có đường bay thương mại.",
+          "Cần bổ sung bộ ảnh sân bay Dương Đông cũ và ảnh vệ tinh trước-sau 2012 để làm then/now trực quan.",
+          "Không quy toàn bộ tăng trưởng du lịch sau 2012 cho riêng sân bay; đường bộ, điện lưới, cảng và đầu tư du lịch cùng thay đổi."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Trước sân bay quốc tế, Phú Quốc không phải là một hòn đảo 'chưa có máy bay'. Khách vẫn bay xuống sân bay Dương Đông, ngay gần khu trung tâm, nhưng sân bay nhỏ hơn rất nhiều: đường băng ngắn hơn, chủ yếu đón máy bay cỡ ATR72 và năng lực chỉ ở mức vài trăm nghìn khách mỗi năm. Khi sân bay mới đi vào hoạt động, cái thay đổi lớn nhất là quy mô kết nối - Phú Quốc có thể đón những dòng khách và loại máy bay mà sân bay cũ khó đáp ứng.",
+        "practical": "Nếu làm nội dung then-now, nên đặt bản đồ sân bay cũ trong Dương Đông cạnh sân bay hiện nay ở Dương Tơ. Chỉ một cặp bản đồ đã giải thích khá rõ vì sao đô thị Dương Đông có thêm không gian phát triển và vì sao luồng khách vào đảo thay đổi.",
+        "expectation_vs_reality": "Mốc sân bay quốc tế rất quan trọng, nhưng không phải một cái nút bấm khiến Phú Quốc đổi khác trong một đêm. Nó là một phần của cả giai đoạn đảo mở rộng giao thông, điện, đường và hạ tầng du lịch.",
+        "before_you_go": [
+          "Khi kể 'Phú Quốc trước 2012', nhớ rằng đảo đã có sân bay Dương Đông.",
+          "Không dùng số khách hiện tại để so trực tiếp với công suất thiết kế cũ nếu chưa cùng một định nghĩa thống kê.",
+          "Ảnh sân bay cũ cần ghi rõ năm chụp."
+        ],
+        "curiosity_questions": [
+          "Sân bay Dương Đông cũ nằm ở đâu nếu đặt lên bản đồ Dương Đông hôm nay?",
+          "Loại máy bay nào từng bay thường xuyên tới Phú Quốc trước 2012?",
+          "Việc dời sân bay đã làm cấu trúc Dương Đông thay đổi ra sao?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_140_duong-dong-truoc-va-sau-do-thi-hoa",
+      "number": 140,
+      "title": "Dương Đông trước và sau đô thị hóa",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_dinh_cau"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy hoạch Phú Quốc giai đoạn giữa những năm 2000 ghi dân số Dương Đông năm 2005 khoảng 29.414 người và định hướng mở rộng đô thị lên khoảng 55.000-65.000 người vào năm 2020.",
+            "source_ids": [
+              "phuquoc_urban_system_plan",
+              "duong_dong_general_plan"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_BASELINE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Quy hoạch Dương Đông xác định hướng phát triển chính về phía Bắc và Đông; việc di dời sân bay cũ được xem là một điều kiện mở thêm quỹ đất phía Bắc đô thị.",
+            "source_ids": [
+              "duong_dong_general_plan"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_RECORD",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu viễn thám 2003-2023 về toàn Phú Quốc ghi nhận đô thị hóa nhanh do phát triển du lịch và hạ tầng quy mô lớn, cùng sự suy giảm rừng và đất nông nghiệp; Dương Đông cần được đọc như một phần của quá trình đảo-wide này, không phải một biến đổi tách riêng.",
+            "source_ids": [
+              "nguyen_downes_2025_phuquoc_lulc"
+            ],
+            "verification_status": "PEER_REVIEWED_REMOTE_SENSING",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "nguyen_downes_2025_phuquoc_lulc",
+            "source_type": "PEER_REVIEWED_RESEARCH",
+            "label": "Nguyen Can Trong et al. - Tourism-Induced Land Use Transformations, Urbanisation, and Habitat Degradation in the Phu Quoc Special Economic Zone - Urban Science 9(1), 2025",
+            "url": "https://www.mdpi.com/2413-8851/9/1/11",
+            "published_at": "2025-01-06",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_urban_system_plan",
+            "source_type": "OFFICIAL_URBAN_PLANNING",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch hệ thống đô thị",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-he-thong-do-thi",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "duong_dong_general_plan",
+            "source_type": "OFFICIAL_URBAN_PLANNING",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch chung thị trấn Dương Đông",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-chung-thi-tran-duong-dong",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có bộ then/now chuẩn hóa theo cùng góc chụp cho chợ Dương Đông, sông Dương Đông, Dinh Cậu và khu sân bay cũ.",
+          "Không dùng từ 'đô thị hóa' như đồng nghĩa với 'tốt hơn' hoặc 'xấu đi'; từng thay đổi cần mô tả cụ thể.",
+          "Nghiên cứu viễn thám 2025 phân tích toàn đảo; không được lấy con số toàn đảo gắn riêng cho Dương Đông nếu bài không tách khu vực."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dương Đông lớn lên từng lớp chứ không đổi hình trong một lần. Đầu những năm 2000, đây đã là trung tâm đông dân nhất đảo, có chợ, bến tàu, sân bay và dải dịch vụ ven biển. Sau đó đô thị mở dần về phía Bắc và Đông, sân bay cũ được dời đi, đường sá và khu ở mới nối những khoảng trước kia còn thưa. Vì vậy người từng sống ở Dương Đông lâu năm thường nhận ra thành phố cũ ở vài điểm rất quen - khúc sông, khu chợ, Dinh Cậu - nhưng quãng giữa các điểm ấy đã khác nhiều.",
+        "practical": "Mục này sẽ hay nhất khi xem bằng ảnh cũ và bản đồ, không phải bằng một đoạn kể dài. Nên làm các cặp then-now ở chợ Dương Đông, ven sông, khu sân bay cũ và trục đi Cửa Dương/Gành Gió.",
+        "expectation_vs_reality": "Dương Đông không đi từ 'làng chài' thẳng thành đô thị du lịch. Trước làn sóng đầu tư lớn, nơi đây đã là trung tâm hành chính, thương mại và giao thông của đảo. Điều thay đổi mạnh sau đó là quy mô xây dựng, mật độ và cách đất được sử dụng.",
+        "before_you_go": [
+          "Ảnh cũ phải ghi năm hoặc khoảng thời gian, tránh chú thích kiểu 'ngày xưa'.",
+          "Không dùng một bức ảnh khu chợ để đại diện cho toàn Dương Đông.",
+          "Nếu so bản đồ, giữ cùng phạm vi và tỷ lệ để người xem thấy thay đổi thật."
+        ],
+        "curiosity_questions": [
+          "Khu sân bay cũ của Dương Đông hôm nay đã trở thành những gì?",
+          "Chợ và bờ sông Dương Đông thay đổi ra sao qua các giai đoạn?",
+          "Những con đường nào từng là rìa đô thị nhưng giờ đã nằm giữa khu dân cư?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_141_an-thoi-truoc-va-sau-cap-treo",
+      "number": 141,
+      "title": "An Thới trước và sau cáp treo",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "activity_hon_thom"
+      ],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy hoạch du lịch Phú Quốc năm 2007 đã xác định An Thới và vùng phụ cận, gồm Bãi Sao và Bãi Khem, là một cụm du lịch tham quan và nghỉ dưỡng cao cấp. Vì vậy quá trình chuyển đổi Nam đảo đã được định hướng từ trước khi cáp treo xuất hiện.",
+            "source_ids": [
+              "pm_decision_01_2007_phuquoc_tourism"
+            ],
+            "verification_status": "OFFICIAL_PRE_CABLE_PLANNING",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Tuyến cáp treo Hòn Thơm nối An Thới với Hòn Thơm được khai trương ngày 4/2/2018 và đón khách từ tháng 2/2018, trở thành một mốc rất dễ nhận biết trong quá trình phát triển du lịch Nam đảo.",
+            "source_ids": [
+              "vietnamplus_hon_thom_2018"
+            ],
+            "verification_status": "DATED_INFRASTRUCTURE_MILESTONE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Không có đủ bằng chứng trong batch hiện tại để quy thay đổi về nhà ở, cảng, dân cư và không gian phố An Thới cho riêng tuyến cáp treo.",
+            "source_ids": [
+              "pm_decision_01_2007_phuquoc_tourism",
+              "vietnamplus_hon_thom_2018"
+            ],
+            "verification_status": "CAUSALITY_LIMITATION",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pm_decision_01_2007_phuquoc_tourism",
+            "source_type": "OFFICIAL_GOVERNMENT_PLANNING",
+            "label": "Quyết định 01/2007/QĐ-TTg - Quy hoạch tổng thể phát triển du lịch đảo Phú Quốc 2006-2020",
+            "url": "https://chinhphu.vn/default.aspx?docid=19535&pageid=27160",
+            "published_at": "2007-01-08",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnamplus_hon_thom_2018",
+            "source_type": "STATE_NEWS_AGENCY_RECORD",
+            "label": "VietnamPlus/TTXVN - Kiên Giang khai trương tuyến cáp treo 3 dây Hòn Thơm",
+            "url": "https://www.vietnamplus.vn/kien-giang-khai-truong-tuyen-cap-treo-3-day-dai-nhat-the-gioi-post487231.amp",
+            "published_at": "2018-02-04",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Cần ảnh vệ tinh/ảnh mặt đất cùng khu vực trước 2015, giai đoạn 2018 và hiện nay để đọc thay đổi quanh ga An Thới, cảng, nhà ở và bờ biển.",
+          "Cần tách khu phố An Thới cũ, Bãi Đất Đỏ/khu ga cáp treo và phần phát triển về sau của Sunset Town; không gom tất cả thành 'An Thới'.",
+          "Không dùng câu 'cáp treo làm thay đổi An Thới' như quan hệ nhân quả nếu chưa có nghiên cứu và dữ liệu đất đai cụ thể."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nếu nhìn Nam đảo hôm nay rồi quay về trước 2018, cáp treo là một mốc rất dễ nhớ. Nhưng nói 'An Thới thay đổi vì cáp treo' thì quá đơn giản. Trước khi công trình này xuất hiện, Bãi Sao, Bãi Khem và An Thới đã nằm trong quy hoạch phát triển du lịch quy mô lớn. Cáp treo đến sau, trở thành một phần rất rõ của giai đoạn chuyển đổi đó.",
+        "practical": null,
+        "expectation_vs_reality": "Cáp treo là mốc để chia ảnh trước - sau, không phải lời giải thích cho mọi thay đổi ở Nam đảo.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "An Thới năm 2010 nhìn khác khu vực ga cáp treo hôm nay như thế nào?",
+          "Phần nào của An Thới thay đổi trước 2018, phần nào xuất hiện sau đó?",
+          "Cảng An Thới và đời sống dân cư thay đổi ra sao song song với du lịch?"
         ]
       },
       "updated_at": "2026-09-22"
