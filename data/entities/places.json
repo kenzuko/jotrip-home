@@ -48,9 +48,13 @@
         },
         {
           "source_id": "vinwonders_safari_current"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-22",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "DAILY",
@@ -71,7 +75,20 @@
           "Một bài hướng dẫn 2026 khác của cùng operator nêu 08:30-16:00; Homepage dùng mốc 09:00 từ landing page hiện hành để tránh khẳng định giờ mở sớm hơn."
         ],
         "note": "Giờ công bố không đồng nghĩa xác nhận vận hành thời gian thực."
-      }
+      },
+      "address": "Bãi Dài, Gành Dầu, Phú Quốc, An Giang 922200, Việt Nam",
+      "map": {
+        "lat": 10.3370625,
+        "lon": 103.8914375,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 8VPR+RH",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "8VPR+RH"
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_vinwonders",
@@ -122,9 +139,13 @@
         },
         {
           "source_id": "vinwonders_phuquoc_hours_2026"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-22",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "DAILY",
@@ -143,7 +164,20 @@
         "valid_until": null,
         "confidence": "HIGH",
         "note": "Các phân khu có thể đóng sớm hơn; Homepage chỉ dùng giờ chung của công viên."
-      }
+      },
+      "address": "Khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang 92512, Việt Nam",
+      "map": {
+        "lat": 10.3406875,
+        "lon": 103.8540625,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 8VR3+7J",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "8VR3+7J"
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_grand_world",
@@ -192,9 +226,27 @@
             43,
             79
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "address": "Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+      "map": {
+        "lat": 10.3275625,
+        "lon": 103.8625625,
+        "precision": "area_anchor",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps Grand World central Venice area + Plus Code 8VH7+22",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_AREA_ANCHOR",
+        "plus_code": "8VH7+22",
+        "note": "Điểm neo khu trung tâm Grand World, không đại diện cho mọi cổng của tổ hợp."
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_rach_vem",
@@ -237,9 +289,17 @@
           "slides": [
             44
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-22",
+      "address": "Rạch Vẹm, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_cua_can",
@@ -282,9 +342,17 @@
           "slides": [
             45
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-22",
+      "address": "Cửa Cạn, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_dinh_cau",
@@ -331,9 +399,13 @@
         },
         {
           "source_id": "visitpq_dinh_cau_2026"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-22",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "DAILY",
@@ -351,7 +423,20 @@
         "valid_until": null,
         "confidence": "MEDIUM",
         "note": "Mốc giờ theo official listing đã kiểm tra trong batch dữ liệu 21/09/2026; đây là lịch niêm yết, không phải xác nhận mở cửa thời gian thực."
-      }
+      },
+      "address": "Khu phố 2, Dương Đông, Phú Quốc, An Giang 92500, Việt Nam",
+      "map": {
+        "lat": 10.2171875,
+        "lon": 103.9564375,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 6X84+VH",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "6X84+VH"
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_night_market",
@@ -402,9 +487,13 @@
         },
         {
           "source_id": "visitpq_night_market_current_20260417"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-22",
       "opening_hours": {
         "state": "APPROXIMATE_SCHEDULE",
         "schedule_type": "DAILY_APPROXIMATE",
@@ -421,7 +510,20 @@
         "verified_at": "2026-09-21",
         "confidence": "MEDIUM",
         "note": "Visit Phu Quoc 2026 ghi chợ thường hoạt động khoảng 18:00-23:30; một số gian có thể mở từ khoảng 15:00. Đây là khung tham khảo, không phải giờ đóng cửa đồng loạt."
-      }
+      },
+      "address": "54 Nguyễn Trãi, Dương Đông, Phú Quốc, An Giang, Việt Nam",
+      "map": {
+        "lat": 10.2183125,
+        "lon": 103.9601875,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 6X96+83R",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "6X96+83R"
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_bai_truong",
@@ -464,9 +566,17 @@
             48,
             49
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-22",
+      "address": "Đường Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_bai_sao",
@@ -513,13 +623,31 @@
           "source_id": "visitpq_bai_sao_2026",
           "url": "https://visitphuquoc.com.vn/vi/bai-sao-phu-quoc-vi-ngoi-sao-sinh-ra-de-toa-sang-229",
           "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-20",
+      "updated_at": "2026-09-22",
       "access_status": "PARTIAL_VERIFIED",
       "parking_status": "UNKNOWN",
       "toilet_status": "UNKNOWN",
-      "verified_at": "2026-09-20"
+      "verified_at": "2026-09-20",
+      "address": "Bãi Sao, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "map": {
+        "lat": 10.0541875,
+        "lon": 104.0354375,
+        "precision": "area_anchor",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps Sao Beach result + Plus Code 323P+M58",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "323P+M58",
+        "note": "Điểm neo Bãi Sao, dùng định hướng khu bãi biển."
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_bai_khem",
@@ -567,14 +695,22 @@
           "source_id": "angiang_bai_khem_plan_1635",
           "url": "https://angiang.gov.vn/vi/do-an-quy-hoach-phan-khu-xay-dung-khu-vuc-bai-khem-va-mui-ong-doi-phuong-an-thoi-thanh-pho-phu-quoc-tinh-kien-giang-nay-la-dac-khu-phu-quoc-tinh-an-giang-ty-le-12000-quy-mo-12868ha",
           "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-20",
+      "updated_at": "2026-09-22",
       "access_status": "NEEDS_VERIFICATION",
       "planning_public_access": "PUBLIC_BEACH_AND_PUBLIC_SPACE_PLANNED",
       "parking_status": "NEEDS_VERIFICATION",
       "toilet_status": "NEEDS_VERIFICATION",
-      "verified_at": "2026-09-20"
+      "verified_at": "2026-09-20",
+      "address": "Bãi Khem, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_sunset_town",
@@ -631,9 +767,13 @@
         },
         {
           "source_id": "sunworld_sunset_town_always_open"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-22",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "ALWAYS_OPEN",
@@ -651,7 +791,11 @@
         "valid_until": null,
         "confidence": "HIGH",
         "note": "Sun World mô tả Sunset Town luôn mở cửa và miễn phí; các điểm vé, nhà hàng, show và dịch vụ bên trong có lịch riêng."
-      }
+      },
+      "address": "Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_phu_quoc_prison",
@@ -695,9 +839,17 @@
             90,
             91
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-22",
+      "address": "350 Nguyễn Văn Cừ, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "STREET",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_ho_quoc",
@@ -742,9 +894,26 @@
         },
         {
           "source_id": "visitpq_ho_quoc_current"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "address": "426H+2HJ, Thiền viện Trúc Lâm Hộ Quốc, Dương Tơ, Phú Quốc, An Giang, Việt Nam",
+      "map": {
+        "lat": 10.1100625,
+        "lon": 104.0289375,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps/official destination address + Plus Code 426H+2HJ",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "426H+2HJ"
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_aquatopia",
@@ -791,9 +960,17 @@
             56,
             79
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-22",
+      "address": "Aquatopia Water Park, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_exotica",
@@ -840,9 +1017,17 @@
             56,
             79
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-22",
+      "address": "Exotica Village, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_suoi_tranh",
@@ -885,9 +1070,26 @@
           "slides": [
             65
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-22",
+      "address": "52G6+GQQ, Suối Mây, Phú Quốc, An Giang, Việt Nam",
+      "map": {
+        "lat": 10.1763125,
+        "lon": 104.0119375,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 52G6+GQQ",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "52G6+GQQ"
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_other_streams",
@@ -1084,9 +1286,17 @@
             "r3-052",
             "r3-053"
           ]
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-12"
+      "updated_at": "2026-09-22",
+      "address": "Cầu Hôn, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_gieng_tien",
@@ -1130,9 +1340,17 @@
       "source_refs": [
         {
           "source_id": "crawl_topic_107_gieng_tien"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-20"
+      "updated_at": "2026-09-22",
+      "address": "Giếng Tiên, Mũi Ông Đội, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_duong_dong_market",
@@ -1178,10 +1396,14 @@
           "source_id": "visitpq_cho_duong_dong_2026",
           "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-1069",
           "checked_at": "2026-09-21"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
       "verified_at": "2026-09-21",
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-22",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "DAILY",
@@ -1199,7 +1421,20 @@
         "valid_until": null,
         "confidence": "HIGH",
         "note": "Giờ niêm yết trên cổng du lịch điểm đến; không đồng nghĩa xác nhận từng sạp đang hoạt động."
-      }
+      },
+      "address": "Chợ Dương Đông, đường Ngô Quyền, Dương Đông, Phú Quốc, An Giang, Việt Nam",
+      "map": {
+        "lat": 10.2206875,
+        "lon": 103.9591875,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps market result + Plus Code 6XC5+7MW",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "6XC5+7MW"
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_ham_ninh",
@@ -1252,10 +1487,28 @@
           "source_id": "pqgov_ham_ninh_2026",
           "url": "https://phuquoc.angiang.gov.vn/ham-ninh-diem-den-ly-tuong-cua-phu-quoc",
           "checked_at": "2026-09-20"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
       "verified_at": "2026-09-20",
-      "updated_at": "2026-09-20"
+      "updated_at": "2026-09-22",
+      "address": "52JV+6XX, TL47, Rạch Hàm, Phú Quốc, An Giang, Việt Nam",
+      "map": {
+        "lat": 10.1805625,
+        "lon": 104.0449375,
+        "precision": "area_anchor",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps Ham Ninh fishing town result + Plus Code 52JV+6XX",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "52JV+6XX",
+        "note": "Điểm neo làng chài Hàm Ninh."
+      },
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     },
     {
       "id": "place_teddy_bear_museum",
@@ -1305,9 +1558,13 @@
       "source_refs": [
         {
           "source_id": "vinwonders_grandworld_hours_2026"
+        },
+        {
+          "source_id": "google_maps_location_lookup",
+          "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-22",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "DAILY",
@@ -1325,7 +1582,11 @@
         "valid_until": null,
         "confidence": "HIGH",
         "note": "Giờ công bố của Teddy Bear Museum trên hướng dẫn Grand World 2026."
-      }
+      },
+      "address": "Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "SITE",
+      "address_source_id": "google_maps_location_lookup",
+      "address_verified_at": "2026-09-22"
     }
   ]
 }
