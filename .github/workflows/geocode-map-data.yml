@@ -1,4 +1,5 @@
 name: Enrich Open Phu Quoc map coordinates
+# resolver-revision: 2
 
 on:
   workflow_dispatch:
