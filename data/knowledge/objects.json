@@ -4681,6 +4681,458 @@
       "updated_at": "2026-09-22"
     },
     {
+      "topic_id": "knowledge_075_tu-san-bay-ve-duong-dong",
+      "number": 75,
+      "title": "Từ sân bay về Dương Đông",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": "access_airport_transfer",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Data nền Open Phu Quoc xác định taxi, GrabCar, xe riêng hoặc shuttle resort là các lựa chọn từ sân bay; thời gian nên đọc theo hướng đi và tình hình thực tế, không chỉ kilomet.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": [
+          "Khoảng cách và thời gian đường bộ phải tính từ địa chỉ khách sạn cụ thể ở runtime."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dương Đông là hướng về trung tâm và bờ Tây, nên đây thường là chặng sân bay dễ xử lý nhất bằng taxi, Grab, xe riêng hoặc shuttle khách sạn.",
+        "practical": "Nếu khách sạn có shuttle thì kiểm tra trước. Nếu tự gọi xe, gửi tên khách sạn đầy đủ thay vì chỉ nói 'Dương Đông'. Thời gian thực tế nên lấy từ route live lúc hạ cánh.",
+        "expectation_vs_reality": "Không nên đóng cứng một con số phút vì vị trí khách sạn trong Dương Đông, giờ xe ra sân bay và giao thông đều khác.",
+        "before_you_go": [
+          "Kiểm tra khách sạn có shuttle không.",
+          "Có chuyến bay muộn thì đừng mặc định Grab luôn có xe ngay.",
+          "Gửi pin/tên khách sạn chính xác cho tài xế."
+        ],
+        "curiosity_questions": [
+          "Vì sao hai khách sạn đều ghi Dương Đông nhưng thời gian từ sân bay có thể chênh khá nhiều?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_076_tu-san-bay-ve-an-thoi-sunset-town",
+      "number": 76,
+      "title": "Từ sân bay về An Thới/Sunset Town",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": "access_airport_transfer",
+      "related_entity_ids": [
+        "place_sunset_town"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Data nền Open Phu Quoc xác định taxi, GrabCar, xe riêng hoặc shuttle resort là các lựa chọn từ sân bay; thời gian nên đọc theo hướng đi và tình hình thực tế, không chỉ kilomet.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": [
+          "Thời gian đường bộ dynamic; không đóng cứng trong knowledge."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Từ sân bay đi An Thới/Sunset Town là chặng về Nam đảo. Xe riêng, taxi hoặc Grab đều có thể dùng, nhưng chiều về muộn sau show nên tính trước thay vì chờ sát giờ mới gọi.",
+        "practical": "Nếu đi thẳng Sunset Town để xem show, dựng giờ khởi hành từ giờ show và cộng buffer nhận hành lý, lấy xe, giao thông.",
+        "expectation_vs_reality": "An Thới và Sunset Town gần nhau nhưng không phải cùng một pin; khách sạn hoặc điểm đón có thể nằm ở khu dân cư, cảng hay bên trong Sunset Town.",
+        "before_you_go": [
+          "Gửi đúng tên khách sạn/điểm trong Sunset Town.",
+          "Nếu show kết thúc muộn, chốt phương án chiều về.",
+          "Không dùng thời gian Google của một ngày khác làm cam kết."
+        ],
+        "curiosity_questions": [
+          "Sân bay nằm giữa đảo giúp Nam đảo thuận hơn hay Bắc đảo thuận hơn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_077_tu-san-bay-ve-bac-dao",
+      "number": 77,
+      "title": "Từ sân bay về Bắc đảo",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": "access_airport_transfer",
+      "related_entity_ids": [
+        "place_grand_world",
+        "place_vinwonders",
+        "place_vinpearl_safari"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Data nền Open Phu Quoc xác định taxi, GrabCar, xe riêng hoặc shuttle resort là các lựa chọn từ sân bay; thời gian nên đọc theo hướng đi và tình hình thực tế, không chỉ kilomet.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "VinBus hiện công bố các tuyến 17, 19 và 20 ở Phú Quốc; tuyến 17/19 đi qua sân bay và kết nối hướng Grand World.",
+            "source_ids": [
+              "vinbus_phuquoc_network_20260922",
+              "vinwonders_bus_phuquoc_2026"
+            ],
+            "verification_status": "CURRENT_OPERATOR_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "vinbus_phuquoc_network_20260922",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "VinBus - mạng lưới tuyến Phú Quốc",
+            "url": "https://vinbus.vn/gioi-thieu/mang-luoi-tuyen",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vinwonders_bus_phuquoc_2026",
+            "source_type": "OFFICIAL_OPERATOR_EDITORIAL",
+            "label": "VinWonders - lịch VinBus Phú Quốc 2026",
+            "url": "https://vinwonders.com/vi/wonderpedia/news/lich-trinh-xe-bus-vinwonders-phu-quoc/",
+            "published_at": "2025-12-12",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Điểm dừng và lịch xe cần runtime lookup trên VinBus vì có thể thay đổi."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Bắc đảo là chặng sân bay dài hơn và ít nên để tới phút cuối mới tìm xe. Nếu ở Grand World/Vinpearl hoặc có vé vui chơi, kiểm tra VinBus/shuttle trước khi đặt xe riêng.",
+        "practical": "Khách có nhiều hành lý, trẻ nhỏ hoặc đến khuya nên chốt phương án đón trước. Ban ngày có thể tận dụng VinBus nếu đúng tuyến và điều kiện sử dụng.",
+        "expectation_vs_reality": "Có VinBus trên đảo không có nghĩa mọi resort Bắc đảo đều có một tuyến thẳng từ sân bay tới cửa.",
+        "before_you_go": [
+          "Kiểm tra điểm dừng bus gần khách sạn.",
+          "Giờ khuya nên có phương án B.",
+          "Không mặc định app gọi xe có xe trống ngay ở Bắc đảo."
+        ],
+        "curiosity_questions": [
+          "Khi nào VinBus hợp hơn taxi từ sân bay lên Bắc đảo?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_078_di-chuyen-duong-dong-an-thoi",
+      "number": 78,
+      "title": "Di chuyển Dương Đông - An Thới",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Handbook vận hành Open Phu Quoc coi Dương Đông và An Thới là hai trục/khu khác nhau và khuyến nghị đọc thời gian theo tuyến thực tế.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": [
+          "Không đóng cứng số phút; runtime routing cần lấy từ điểm đi/đến thật."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dương Đông - An Thới là trục Bắc-Nam nội đảo thường gặp nhất. Taxi/xe riêng phù hợp khi có lịch cố định; xe máy hợp người có giấy phép đúng và quen chạy đường dài.",
+        "practical": "Nếu đi show, cano hoặc cáp treo thì tính ngược từ giờ cần có mặt. Đừng chỉ nhìn thời gian chạy xe lý tưởng rồi bỏ qua thời gian đón xe, gửi xe và đi bộ trong khu.",
+        "expectation_vs_reality": "Khoảng cách giữa hai vùng không quá khó nhưng một lịch chạy qua lại nhiều lần trong ngày sẽ rất phí thời gian.",
+        "before_you_go": [
+          "Gom điểm Nam đảo vào cùng ngày.",
+          "Có show/cáp thì cộng buffer.",
+          "Chiều về khuya nên chốt xe."
+        ],
+        "curiosity_questions": [
+          "Vì sao Open Phu Quoc luôn khuyên mỗi ngày chọn một khu chính?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_079_di-chuyen-duong-dong-ganh-dau",
+      "number": 79,
+      "title": "Di chuyển Dương Đông - Gành Dầu",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Mạng VinBus chính thức hiện có các tuyến Phú Quốc kết nối trung tâm/sân bay với Grand World ở Bắc đảo.",
+            "source_ids": [
+              "vinbus_phuquoc_network_20260922"
+            ],
+            "verification_status": "CURRENT_OPERATOR_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "vinbus_phuquoc_network_20260922",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "VinBus - mạng lưới tuyến Phú Quốc",
+            "url": "https://vinbus.vn/gioi-thieu/mang-luoi-tuyen",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Thời gian Dương Đông - từng điểm Gành Dầu cần route live."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dương Đông - Gành Dầu là chặng lên Bắc đảo. Nếu đi Safari, VinWonders hoặc Grand World, nên ghép các điểm cùng tuyến thay vì lên Bắc rồi quay về giữa ngày.",
+        "practical": "Xe riêng/taxi dễ chủ động nhất nếu đi gia đình hoặc nhiều điểm; VinBus có thể hữu ích nếu điểm đến nằm đúng mạng tuyến.",
+        "expectation_vs_reality": "Gành Dầu là vùng rộng, không phải mọi chỗ ở Bắc đảo nằm gần Grand World.",
+        "before_you_go": [
+          "Xác định đúng điểm Bắc đảo.",
+          "Xem VinBus nếu phù hợp.",
+          "Tính chiều về sau show tối."
+        ],
+        "curiosity_questions": [
+          "Vì sao cùng ghi Gành Dầu nhưng có resort cách nhau khá xa?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_080_di-chuyen-duong-dong-rach-vem",
+      "number": 80,
+      "title": "Di chuyển Dương Đông - Rạch Vẹm",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_rach_vem"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Open Phu Quoc xử lý Rạch Vẹm như điểm cần kiểm tra access/road condition cùng thời tiết, không chỉ khoảng cách.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": [
+          "Road condition phải cập nhật theo thực địa/nguồn mới."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dương Đông - Rạch Vẹm không chỉ là chuyện quãng đường. Đoạn cuối và điều kiện sau mưa mới là thứ quyết định nên đi xe gì và mất bao lâu.",
+        "practical": "Đi xe máy chỉ khi quen đường và thời tiết ổn; nhóm gia đình hoặc sau mưa nên cân nhắc ô tô/xe địa phương phù hợp. Kiểm tra đường trước khi xuất phát.",
+        "expectation_vs_reality": "Một thời gian chạy xe trên bản đồ không phản ánh được mặt đường, đoạn vào bãi và điểm làng/bè cụ thể.",
+        "before_you_go": [
+          "Xem mưa gần đây.",
+          "Đổ đủ xăng.",
+          "Xác định đúng bãi/làng muốn tới.",
+          "Không đi quá muộn nếu chưa biết đường về."
+        ],
+        "curiosity_questions": [
+          "Vì sao đường Rạch Vẹm sau mưa làm thời gian đi thay đổi mạnh?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_081_di-chuyen-duong-dong-ham-ninh",
+      "number": 81,
+      "title": "Di chuyển Dương Đông - Hàm Ninh",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_ham_ninh"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Handbook và entity hiện hành tách Hàm Ninh ở bờ Đông khỏi trục trung tâm bờ Tây, cần route theo điểm cụ thể.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          }
+        ],
+        "known_unknowns": [
+          "Thời gian đường bộ cần runtime route."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dương Đông - Hàm Ninh là chặng cắt ngang đảo về bờ Đông, thường dễ ghép với Suối Tranh hoặc tuyến Nam/Đông hơn là chạy riêng chỉ để ăn một bữa.",
+        "practical": "Taxi, xe riêng hoặc xe máy hợp lệ đều dùng được. Nếu mục tiêu là bình minh thì phải tính thời gian xuất phát khi còn tối và ưu tiên an toàn.",
+        "expectation_vs_reality": "Hàm Ninh là một vùng/làng, không phải chỉ một nhà hàng hay cầu cảng.",
+        "before_you_go": [
+          "Gửi đúng điểm muốn tới.",
+          "Đi bình minh thì chuẩn bị đường tối.",
+          "Đừng dựa vào ảnh cầu cảng cũ để tìm đường."
+        ],
+        "curiosity_questions": [
+          "Tại sao đi từ Dương Đông sang Hàm Ninh lại có cảm giác đổi hẳn một mặt đảo?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_082_bus-phu-quoc",
+      "number": 82,
+      "title": "Bus Phú Quốc",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Trang mạng lưới VinBus hiện liệt kê tại Phú Quốc: tuyến 17 Sân bay - Grand World, tuyến 19 InterContinental - Sân bay - Grand World, tuyến 20 Grand World - Cảng Bãi Vòng.",
+            "source_ids": [
+              "vinbus_phuquoc_network_20260922"
+            ],
+            "verification_status": "CURRENT_OFFICIAL_OPERATOR",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vinbus_phuquoc_network_20260922",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "VinBus - mạng lưới tuyến Phú Quốc",
+            "url": "https://vinbus.vn/gioi-thieu/mang-luoi-tuyen",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vinwonders_bus_phuquoc_2026",
+            "source_type": "OFFICIAL_OPERATOR_EDITORIAL",
+            "label": "VinWonders - lịch VinBus Phú Quốc 2026",
+            "url": "https://vinwonders.com/vi/wonderpedia/news/lich-trinh-xe-bus-vinwonders-phu-quoc/",
+            "published_at": "2025-12-12",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Lịch/tần suất/điểm dừng là dynamic, không đóng cứng trong knowledge."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Bus ở Phú Quốc hiện hữu ích nhất với các tuyến VinBus kết nối sân bay, trục trung tâm, Cảng Bãi Vòng và Phú Quốc United Center. Đây không phải mạng bus phủ mọi điểm du lịch trên đảo.",
+        "practical": "Các tuyến chính đang được VinBus công bố cho Phú Quốc là 17, 19 và 20. Tra app/web VinBus trước khi đi vì giờ và điểm dừng có thể đổi.",
+        "expectation_vs_reality": "Bus miễn phí phục vụ United Center có điều kiện sử dụng theo sản phẩm/vé trong một số hướng dẫn, nên đừng mặc định mọi chuyến đều là bus công cộng tự do cho mọi hành trình.",
+        "before_you_go": [
+          "Tra tuyến ngay trước chuyến.",
+          "Kiểm tra điểm dừng gần nhất thay vì đứng ở tên khu chung.",
+          "Có chuyến bay/show thì chừa buffer và phương án taxi dự phòng."
+        ],
+        "curiosity_questions": [
+          "Ba tuyến 17, 19, 20 thực tế giúp khách nối những khu nào trên đảo?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
       "topic_id": "knowledge_083_taxi-phu-quoc",
       "number": 83,
       "title": "Taxi Phú Quốc",
@@ -4786,6 +5238,202 @@
         ],
         "curiosity_questions": [
           "Vì sao cùng một chuyến ở Phú Quốc nhưng thời gian chờ xe khác nhiều giữa các khu?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_084_thue-xe-may",
+      "number": 84,
+      "title": "Thuê xe máy",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Luật Việt Nam công nhận IDP theo Công ước Viên 1968 khi đi kèm giấy phép lái xe quốc gia phù hợp hạng xe và còn hiệu lực.",
+            "source_ids": [
+              "vietnam_road_safety_law_2024"
+            ],
+            "verification_status": "OFFICIAL_LAW",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vietnam_road_safety_law_2024",
+            "source_type": "OFFICIAL_LAW",
+            "label": "Luật Trật tự, an toàn giao thông đường bộ",
+            "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-luat-trat-tu-an-toan-giao-thong-duong-bo-119240909105718285.htm",
+            "published_at": "2024",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnam_decree_168_2024",
+            "source_type": "OFFICIAL_LAW",
+            "label": "Nghị định 168/2024/NĐ-CP",
+            "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm",
+            "published_at": "2024",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Thuê xe máy chỉ thật sự tiện khi người lái có giấy phép hợp lệ cho loại xe ở Việt Nam và tự tin với đường đảo. 'Cửa hàng cho thuê xe' không đồng nghĩa người thuê tự động đủ điều kiện pháp lý để lái.",
+        "practical": "Khách dùng IDP theo Công ước Viên 1968 phải mang cả IDP và giấy phép quốc gia phù hợp hạng xe, còn hiệu lực. Nếu giấy phép không thuộc trường hợp được công nhận tại Việt Nam, đừng tự lái.",
+        "expectation_vs_reality": "IDP không phải một tờ dịch bằng lái bất kỳ và không phải mọi bằng lái nước ngoài đều tự động có giá trị ở Việt Nam.",
+        "before_you_go": [
+          "Kiểm tra giấy phép trước khi thuê.",
+          "Đội mũ bảo hiểm.",
+          "Chụp tình trạng xe khi nhận.",
+          "Kiểm tra phanh, lốp, đèn và xăng.",
+          "Không lái sau khi uống rượu bia."
+        ],
+        "curiosity_questions": [
+          "Khách quốc tế cần mang những giấy phép nào để chạy xe máy hợp pháp ở Việt Nam?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_085_thue-o-to-tu-lai",
+      "number": 85,
+      "title": "Thuê ô tô tự lái",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Luật giao thông đường bộ Việt Nam quy định các nhóm giấy phép có giá trị trên lãnh thổ Việt Nam; IDP Công ước Viên phải đi cùng giấy phép quốc gia phù hợp.",
+            "source_ids": [
+              "vietnam_road_safety_law_2024"
+            ],
+            "verification_status": "OFFICIAL_LAW",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vietnam_road_safety_law_2024",
+            "source_type": "OFFICIAL_LAW",
+            "label": "Luật Trật tự, an toàn giao thông đường bộ",
+            "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-luat-trat-tu-an-toan-giao-thong-duong-bo-119240909105718285.htm",
+            "published_at": "2024",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnam_decree_168_2024",
+            "source_type": "OFFICIAL_LAW",
+            "label": "Nghị định 168/2024/NĐ-CP",
+            "url": "https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-168-2024-nd-cp-quy-dinh-xu-phat-vi-pham-hanh-chinh-ve-trat-tu-atgt-duong-bo-119241231164556785.htm",
+            "published_at": "2024",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Ô tô tự lái hợp nhóm muốn chủ động và có giấy phép hợp lệ ở Việt Nam, nhưng parking, đường khu du lịch và trách nhiệm khi nhận xe cần được kiểm tra kỹ hơn taxi.",
+        "practical": "Khách quốc tế chỉ nên thuê khi giấy phép của mình có giá trị ở Việt Nam và đúng hạng. Với IDP Công ước Viên 1968, phải mang cả IDP lẫn giấy phép quốc gia.",
+        "expectation_vs_reality": "Có bằng lái ở nước mình chưa đủ để kết luận được tự lái tại Việt Nam.",
+        "before_you_go": [
+          "Kiểm tra giấy phép và điều khoản bảo hiểm.",
+          "Chụp xe khi nhận.",
+          "Hỏi giới hạn km/đặt cọc/phí giao nhận.",
+          "Xem parking nơi ở và điểm tham quan."
+        ],
+        "curiosity_questions": [
+          "Khi nào thuê ô tô tự lái thực sự lợi hơn thuê xe có tài xế ở Phú Quốc?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_086_airport-transfer",
+      "number": 86,
+      "title": "Airport transfer",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": "access_airport_transfer",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Data nền Open Phu Quoc xác định taxi, GrabCar, xe riêng hoặc shuttle resort là các lựa chọn từ sân bay; thời gian nên đọc theo hướng đi và tình hình thực tế, không chỉ kilomet.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "green_sm_hotline_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Green SM - hotline 1555 từ 14/04/2026",
+            "url": "https://www.greensm.com/vn-vi/news/so-dien-thoai-tong-dai-taxi-xanh-sm-tren-toan-quoc-hotline-24-7",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "grab_phuquoc_2026",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Grab - dịch vụ GrabCar tại Phú Quốc 2026",
+            "url": "https://www.grab.com/vn/blog/driver/grabcartietkiem-gialai-binhdinh-phuyen/",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "visitpq_taxi_2026",
+            "source_type": "OFFICIAL_DESTINATION_PORTAL",
+            "label": "Visit Phu Quoc - hãng taxi và số liên hệ cập nhật 2026",
+            "url": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "jotrip_local_service_current",
+            "source_type": "FIRST_PARTY_OPERATOR",
+            "label": "JoTrip - dịch vụ địa phương Phú Quốc",
+            "url": "https://jotrip.vn/",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Airport transfer không chỉ là gọi một chiếc xe. Với khách đến khuya, gia đình, nhóm đông hoặc resort xa, giá trị chính là biết chắc ai đón, xe nào và đi đâu ngay khi ra sảnh.",
+        "practical": "Shuttle resort đáng kiểm tra trước tiên. Sau đó mới so taxi, Grab hoặc xe riêng. Nếu cần ghế trẻ em, xe lớn hoặc biển tên đón, phải nói trước khi đặt.",
+        "expectation_vs_reality": "Giá app/taxi và thời gian chờ thay đổi theo giờ, khu đến và cung xe, nên knowledge không giữ một bảng giá cố định.",
+        "before_you_go": [
+          "Gửi số chuyến bay.",
+          "Gửi tên khách sạn đầy đủ.",
+          "Báo số hành lý/trẻ em.",
+          "Có chuyến đến muộn thì xác nhận tài xế trước khi cất cánh."
+        ],
+        "curiosity_questions": [
+          "Một transfer đặt trước khác taxi sân bay ở giá trị nào ngoài chuyện giá?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -4938,6 +5586,144 @@
         ],
         "curiosity_questions": [
           "Ở Phú Quốc khu nào dễ thiếu ATM hơn khi đi chơi cả ngày?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_089_thanh-toan-the-va-qr",
+      "number": 89,
+      "title": "Thanh toán thẻ và QR",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Ngân hàng Nhà nước mô tả thẻ quốc tế có thể dùng rút tiền và thanh toán hàng hóa/dịch vụ trong nước tại điểm chấp nhận.",
+            "source_ids": [
+              "sbv_bank_cards"
+            ],
+            "verification_status": "OFFICIAL_CENTRAL_BANK",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "NAPAS đang mở rộng VietQRGlobal cho khách quốc tế và đã có các kết nối xuyên biên giới với một số thị trường, không phải mọi ví nước ngoài.",
+            "source_ids": [
+              "napas_vietqrglobal_2026",
+              "napas_crossborder_qr_2026"
+            ],
+            "verification_status": "PAYMENT_INFRASTRUCTURE_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "sbv_bank_cards",
+            "source_type": "OFFICIAL_CENTRAL_BANK",
+            "label": "Ngân hàng Nhà nước - thông tin về thẻ ngân hàng",
+            "url": "https://www.sbv.gov.vn/vi/web/sbv_portal/m%E1%BB%99t-s%E1%BB%91-th%C3%B4ng-tin-v%E1%BB%81-th%E1%BA%BB-ng%C3%A2n-h%C3%A0ng",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "napas_vietqrglobal_2026",
+            "source_type": "PAYMENT_INFRASTRUCTURE",
+            "label": "NAPAS - VietQRGlobal cho du khách quốc tế",
+            "url": "https://napas.com.vn/napas-kiotviet-hop-tac-mo-rong-he-sinh-thai-thanh-toan-vietqr-182260805162011485.htm",
+            "published_at": "2026-08-05",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "napas_crossborder_qr_2026",
+            "source_type": "PAYMENT_INFRASTRUCTURE",
+            "label": "NAPAS - kết nối QR xuyên biên giới 2026",
+            "url": "https://napas.com.vn/hoat-dong-tin-tuc-su-kien",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Thẻ quốc tế dùng được ở nhiều khách sạn, resort, chuỗi và điểm có máy POS, nhưng khách vẫn nên có tiền mặt dự phòng. QR ở Việt Nam đang mở rộng rất nhanh, song không phải ví/ngân hàng nước ngoài nào cũng quét được mọi mã VietQR.",
+        "practical": "Visa/Mastercard và các thẻ quốc tế khác phụ thuộc điểm chấp nhận. Với QR, kiểm tra app của mình có hỗ trợ VietQRGlobal/kết nối xuyên biên giới hay không; đừng thấy QR là mặc định thanh toán được.",
+        "expectation_vs_reality": "Một mã QR chuyển khoản nội địa Việt Nam khác với khả năng thanh toán QR xuyên biên giới dành cho khách quốc tế.",
+        "before_you_go": [
+          "Mang một thẻ thứ hai hoặc tiền mặt dự phòng.",
+          "Xem phí chuyển đổi ngoại tệ của ngân hàng phát hành.",
+          "Khi QR lỗi, chuyển sang thẻ/tiền mặt thay vì quét lặp nhiều lần."
+        ],
+        "curiosity_questions": [
+          "Tại sao khách Singapore/Trung Quốc có thể quét một số QR ở Việt Nam nhưng không phải mọi mã QR?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_090_doi-tien",
+      "number": 90,
+      "title": "Đổi tiền",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [
+          {
+            "claim": "Khuôn khổ quản lý ngoại hối cho phép tổ chức tín dụng được cấp phép và các đại lý đổi ngoại tệ đã đăng ký thực hiện đổi ngoại tệ tại các địa điểm đủ điều kiện.",
+            "source_ids": [
+              "sbv_fx_agents"
+            ],
+            "verification_status": "OFFICIAL_CENTRAL_BANK",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Open Phu Quoc đang đồng bộ tỷ giá Vietcombank để tham khảo mặt bằng mua/bán; cash-buy và transfer-buy là hai trường khác nhau.",
+            "source_ids": [
+              "vietcombank_rates_live"
+            ],
+            "verification_status": "OFFICIAL_BANK_FEED",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "sbv_fx_agents",
+            "source_type": "OFFICIAL_CENTRAL_BANK",
+            "label": "Ngân hàng Nhà nước - khuôn khổ đại lý đổi ngoại tệ",
+            "url": "https://sbv.gov.vn/documents/d/sbv_portal/587242.pdf?download=true",
+            "published_at": "2025",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietcombank_rates_live",
+            "source_type": "OFFICIAL_BANK",
+            "label": "Vietcombank - tỷ giá chính thức",
+            "url": "https://www.vietcombank.com.vn/vi-VN/KHCN/Cong-cu-Tien-ich/Ty-gia",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Đổi tiền nên làm qua ngân hàng hoặc điểm/đại lý đổi ngoại tệ được phép. Open Phu Quoc có thể cho xem tỷ giá Vietcombank để biết mặt bằng trước, nhưng tỷ giá thực nhận còn phụ thuộc loại tiền và hình thức giao dịch.",
+        "practical": "Trước khi đổi tiền mặt, xem tỷ giá mua tiền mặt của ngân hàng và hỏi điểm đổi có nhận đúng loại ngoại tệ đó không. Một số đồng tiền chỉ có tỷ giá chuyển khoản chứ không có cash-buy niêm yết.",
+        "expectation_vs_reality": "Tỷ giá trên màn hình không phải cam kết mọi quầy đổi tiền đều mua đúng mức đó, và tỷ giá chuyển khoản không phải tỷ giá mua tiền mặt.",
+        "before_you_go": [
+          "Ưu tiên ngân hàng/đại lý được phép.",
+          "Đếm tiền tại quầy.",
+          "Giữ biên nhận nếu có.",
+          "Không đổi số tiền lớn ở người lạ chỉ vì tỷ giá cao hơn."
+        ],
+        "curiosity_questions": [
+          "Vì sao cùng một ngoại tệ lại có giá mua tiền mặt và mua chuyển khoản khác nhau?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -5395,6 +6181,33 @@
         "curiosity_questions": [
           "Khách thường thiếu món gì nhất trước một ngày đi đảo?"
         ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_097_shower-changing-room-locker",
+      "number": 97,
+      "title": "Shower / changing room / locker",
+      "topic_type": "PRACTICAL",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "PRACTICAL",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần entity thật với địa chỉ/pin, public/private, phí, giờ, accessibility và verified_at.",
+          "Có thể ưu tiên Hòn Thơm, Sunset Town, bãi công cộng và các nút vận tải để field-check."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Tắm, phòng thay đồ và locker là tiện ích rất cần trong Near Me nhưng dataset hiện chưa có đủ điểm đã xác minh. Không nên dựng danh sách từ trí nhớ hoặc suy từ việc một bãi biển/điểm vui chơi 'chắc là có'.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
       },
       "updated_at": "2026-09-22"
     },
