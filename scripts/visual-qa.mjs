@@ -185,7 +185,8 @@ async function testNearMePage(page) {
     resultCount: document.querySelectorAll('#nearResults .near-card').length,
     mapBadge: document.querySelector('#mapDataBadge')?.textContent?.trim() || '',
     status: document.querySelector('#nearStatus')?.textContent?.trim() || '',
-    resultsText: document.querySelector('#nearResults')?.textContent?.trim().slice(0,240) || ''
+    resultsText: document.querySelector('#nearResults')?.textContent?.trim().slice(0,240) || '',
+    state: window.__openpqNearState || null
   }));
   console.log('NEARME_DIAG', JSON.stringify(base));
 
