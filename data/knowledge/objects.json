@@ -8168,68 +8168,67 @@
       "research": {
         "claims": [
           {
-            "claim": "Nguồn chính quyền Phú Quốc ghi Bà Kim Giao là nhân vật lịch sử đã đi vào truyền thuyết dân gian và được xem là người có công khai phá đảo; truyền thuyết kể bà thuộc dòng dõi hoàng tộc Chân Lạp, sang Phú Quốc sau biến động chính trị.",
+            "claim": "Khảo cứu điền dã của Trần Thị An phân biệt Dinh Bà Ngoài ở Dương Đông thờ Thủy Long Thánh Mẫu và Dinh Bà Trong ở Cửa Cạn thờ Bà Kim Giao. Hai đối tượng thờ không nên đồng nhất.",
             "source_ids": [
-              "pqgov_giai_thoai_truyen_thuyet"
+              "tran_thi_an_2014_tho_nu_than_phu_quoc"
             ],
-            "verification_status": "VERIFIED_AS_RECORDED_FOLKLORE",
+            "verification_status": "ACADEMIC_FIELDWORK",
             "confidence": "HIGH"
           },
           {
-            "claim": "Cùng nguồn này ghi các địa danh Đồng Bà, Búng Dinh Bà và hai Dinh Bà ở Cửa Cạn và khu Dương Đông như những dấu vết gắn với truyền thuyết và tín ngưỡng về bà.",
+            "claim": "Trong lớp truyền thuyết về người mở cõi, Bà Kim Giao được kể là một phụ nữ thuộc dòng dõi hoàng gia Campuchia, có công khai khẩn Phú Quốc và dạy dân làm ruộng. Đây là truyền thuyết được khảo cứu ghi nhận, không phải tiểu sử lịch sử đã được sử liệu sơ cấp chứng minh.",
             "source_ids": [
-              "pqgov_giai_thoai_truyen_thuyet",
-              "visitpq_thuy_long_thanh_mau_2026"
+              "tran_thi_an_2014_tho_nu_than_phu_quoc"
             ],
-            "verification_status": "VERIFIED_CURRENT_LOCAL_TRADITION",
-            "confidence": "MEDIUM"
+            "verification_status": "RECORDED_FOLKLORE",
+            "confidence": "HIGH"
           },
           {
-            "claim": "Truyền thuyết còn kể Bà Kim Giao từng giúp lương thực cho Nguyễn Ánh khi ông lánh nạn Tây Sơn trên đảo; chi tiết này chưa được khóa bằng sử liệu sơ cấp.",
+            "claim": "Khảo cứu cũng tách Dinh Bà Ông Lang khỏi cả Kim Giao lẫn Thủy Long Thánh Mẫu: đối tượng chính được thờ ở đó là Bà Lê Kim Định, còn gọi Bà Lớn Tướng, tương truyền là vợ Nguyễn Trung Trực.",
             "source_ids": [
-              "pqgov_giai_thoai_truyen_thuyet"
+              "tran_thi_an_2014_tho_nu_than_phu_quoc"
             ],
-            "verification_status": "FOLKLORE_NOT_HISTORICAL_PROOF",
+            "verification_status": "ACADEMIC_FIELDWORK",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Một số nguồn du lịch và nội dung phổ thông hiện nay nhập Bà Kim Giao với Thủy Long Thánh Mẫu hoặc gọi Bà Kim Giao là vợ Nguyễn Trung Trực. Các cách kể này xung đột với khảo cứu điền dã và không được dùng làm nguồn gốc chính cho Open Phu Quoc.",
+            "source_ids": [
+              "tran_thi_an_2014_tho_nu_than_phu_quoc"
+            ],
+            "verification_status": "SOURCE_CONFLICT_IDENTIFIED",
             "confidence": "HIGH"
           }
         ],
         "sources": [
           {
-            "source_id": "pqgov_giai_thoai_truyen_thuyet",
-            "source_type": "OFFICIAL_GOVERNMENT",
-            "label": "Đặc khu Phú Quốc - Những giai thoại, truyền thuyết trên đảo ngọc Phú Quốc",
-            "url": "https://phuquoc.angiang.gov.vn/nhung-giai-thoai-truyen-thuyet-tren-dao-ngoc-phu-quoc",
-            "published_at": null,
-            "verified_at": "2026-09-22"
-          },
-          {
-            "source_id": "visitpq_thuy_long_thanh_mau_2026",
-            "source_type": "OFFICIAL_TOURISM",
-            "label": "Visit Phu Quoc - Lễ hội Thủy Long Thánh Mẫu",
-            "url": "https://visitphuquoc.com.vn/vi/le-hoi-thuy-long-thanh-mau-tri-an-than-nu-khai-hoang-dao-ngoc-8394",
-            "published_at": "2026-04-15",
+            "source_id": "tran_thi_an_2014_tho_nu_than_phu_quoc",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Trần Thị An - Thờ Nữ thần ở đảo Phú Quốc: Từ tín ngưỡng thờ Bà Thủy đến tín ngưỡng thờ Thánh Mẫu - Nghiên cứu Tôn giáo, số 1/2014, tr. 87-97",
+            "url": "https://vjol.info.vn/rsr/en/article/view/23757/",
+            "published_at": "2014",
             "verified_at": "2026-09-22"
           }
         ],
         "known_unknowns": [
-          "Chưa có sử liệu sơ cấp đủ mạnh để xác nhận tiểu sử Bà Kim Giao, xuất thân hoàng tộc Chân Lạp hay niên đại khai phá như một nhân vật lịch sử theo nghĩa chặt.",
-          "Một số bài du lịch hiện hành kể không thống nhất về quan hệ thân thế của Bà Kim Giao; không dùng các quan hệ gia đình này nếu chưa có nguồn lịch sử độc lập.",
-          "Cần tách Bà Kim Giao trong truyền thuyết khai hoang với lớp tín ngưỡng Thủy Long Thánh Mẫu hiện nay, dù hai hình tượng được đồng nhất trong thực hành địa phương."
+          "Chưa có sử liệu sơ cấp đủ mạnh để xác nhận tiểu sử Bà Kim Giao, xuất thân hoàng gia Campuchia hoặc niên đại khai khẩn như một nhân vật lịch sử theo nghĩa chặt.",
+          "Cần khảo sát thêm văn tế, thần vị và tư liệu tại Dinh Bà Trong ở Cửa Cạn để đối chiếu cách gọi Kim Giao qua các thời kỳ.",
+          "Không dùng nguồn du lịch làm nguồn quyết định khi chúng nhập Kim Giao với Thủy Long Thánh Mẫu hoặc Bà Lớn Tướng."
         ]
       },
       "editorial": {
-        "short_summary": "Bà Kim Giao là một trong những nhân vật đặc biệt nhất trong ký ức dân gian Phú Quốc. Người địa phương thờ bà dưới hình tượng Thủy Long Thánh Mẫu và kể rằng bà từng khai khẩn đất, lập dinh trại, chăn nuôi và giúp mở mang vùng đảo. Phần tiểu sử cụ thể của bà vẫn thuộc lớp truyền thuyết nhiều hơn là lịch sử đã được chứng minh.",
-        "practical": "Khi ghé Dinh Bà, nên nhìn đây là một tín ngưỡng địa phương đang sống. Nội dung cho khách cần dùng các từ 'tương truyền', 'dân gian kể' ở những đoạn nói về xuất thân và công cuộc khai phá.",
-        "expectation_vs_reality": "Bà Kim Giao vừa được nhắc như người khai phá, vừa được thờ như Thủy Long Thánh Mẫu. Hai lớp này hòa vào nhau trong ký ức cộng đồng, nhưng không có nghĩa mọi chi tiết tiểu sử đều là sử kiện.",
+        "short_summary": "Trong ký ức dân gian Phú Quốc, Bà Kim Giao thuộc lớp chuyện về người mở cõi: bà được kể là người từ Campuchia sang đảo, khai khẩn đất và dạy dân làm ruộng. Khảo cứu về hệ thống Dinh Bà cho thấy cần tách bà khỏi Thủy Long Thánh Mẫu - nữ thần nước được thờ ở Dinh Bà Ngoài Dương Đông.",
+        "practical": "Khi kể cho khách, gọi đúng từng đối tượng thờ. Bà Kim Giao gắn với Dinh Bà Trong ở Cửa Cạn và lớp truyền thuyết khai khẩn. Thủy Long Thánh Mẫu thuộc lớp tín ngưỡng nữ thần nước. Dinh Bà Ông Lang lại gắn với Bà Lê Kim Định/Bà Lớn Tướng.",
+        "expectation_vs_reality": "Nhiều bài du lịch hiện nay gộp các 'Bà' thành một nhân vật nên rất dễ kể sai. Khảo cứu điền dã cho thấy hệ thống tín ngưỡng nữ thần trên đảo có nhiều lớp và nhiều đối tượng thờ khác nhau.",
         "before_you_go": [
-          "Không kể xuất thân hoàng tộc Chân Lạp như fact tuyệt đối.",
-          "Không gán quan hệ gia đình với nhân vật lịch sử khác nếu nguồn đang mâu thuẫn.",
-          "Khi tham quan Dinh Bà, giữ thái độ như tại một nơi thờ tự đang hoạt động."
+          "Không gọi Bà Kim Giao là Thủy Long Thánh Mẫu.",
+          "Không gọi Bà Kim Giao là vợ Nguyễn Trung Trực.",
+          "Ưu tiên tên thần vị, văn tế, khảo cứu điền dã và tư liệu học thuật trước nội dung du lịch."
         ],
         "curiosity_questions": [
-          "Đồng Bà và Búng Dinh Bà còn lưu dấu gì của câu chuyện Kim Giao?",
-          "Vì sao Bà Kim Giao lại được đồng nhất với Thủy Long Thánh Mẫu?",
-          "Nguồn nào sớm nhất ghi lại truyền thuyết về bà?"
+          "Dinh Bà Trong và Dinh Bà Ngoài khác nhau ở đối tượng thờ như thế nào?",
+          "Vì sao các nguồn du lịch về sau lại nhập Bà Kim Giao với Thủy Long Thánh Mẫu?",
+          "Những lớp tín ngưỡng nữ thần nào đã cùng tồn tại trên đảo Phú Quốc?"
         ]
       },
       "updated_at": "2026-09-22"
