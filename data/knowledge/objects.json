@@ -8566,6 +8566,279 @@
         ]
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_122_lich-su-nghe-nuoc-mam",
+      "number": 122,
+      "title": "Lịch sử nghề nước mắm",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu về PDO Phú Quốc cho biết nước mắm Phú Quốc có danh tiếng hơn 200 năm, được biết đến ngoài đảo từ cuối thập niên 1950 và đặc biệt phổ biến trong giai đoạn 1965-1975.",
+            "source_ids": [
+              "ueh_pdo_phu_quoc_fish_sauce_2019"
+            ],
+            "verification_status": "ACADEMIC_RESEARCH",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Chỉ dẫn địa lý 'Phú Quốc' cho nước mắm được cấp tại Việt Nam năm 2001; đến năm 2012 tên Phú Quốc được đăng ký PDO tại Liên minh châu Âu.",
+            "source_ids": [
+              "ipvietnam_phu_quoc_gi",
+              "eurlex_phu_quoc_pdo_2012"
+            ],
+            "verification_status": "OFFICIAL_IP_RECORD",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu sản xuất năm 2019 ghi quy trình truyền thống sử dụng ủ chượp trong thùng gỗ khoảng một năm; điều này cho thấy 'nhà thùng' không chỉ là không gian tham quan mà là hạ tầng cốt lõi của nghề.",
+            "source_ids": [
+              "ntu_phu_quoc_fish_sauce_quality_2019"
+            ],
+            "verification_status": "ACADEMIC_RESEARCH",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "ueh_pdo_phu_quoc_fish_sauce_2019",
+            "source_type": "ACADEMIC_BOOK_CHAPTER",
+            "label": "Hoang V., Nguyen A. - PDO Phu Quoc Fish Sauce in Vietnam - Sustainability of European Food Quality Schemes",
+            "url": "https://digital.lib.ueh.edu.vn/handle/UEH/62317",
+            "published_at": "2019",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ntu_phu_quoc_fish_sauce_quality_2019",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Nguyễn Anh Tuấn và cs. - Hiện trạng sản xuất và chất lượng của nước mắm mang chỉ dẫn địa lý Phú Quốc - Tạp chí Khoa học Công nghệ Thủy sản",
+            "url": "https://www.researchgate.net/publication/373911157_Hien_trang_san_xuat_va_chat_luong_cua_nuoc_mam_mang_chi_dan_dia_ly_Phu_Quoc",
+            "published_at": "2019",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ipvietnam_phu_quoc_gi",
+            "source_type": "OFFICIAL_IP_RECORD",
+            "label": "Cục Sở hữu trí tuệ - Chỉ dẫn địa lý Phú Quốc cho sản phẩm nước mắm",
+            "url": "https://ipvietnam.gov.vn/chi-dan-dia-ly",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "eurlex_phu_quoc_pdo_2012",
+            "source_type": "OFFICIAL_EU_LEGAL_RECORD",
+            "label": "Commission Implementing Regulation (EU) No 928/2012 - Phú Quốc PDO",
+            "url": "https://eur-lex.europa.eu/legal-content/en/TXT/?uri=CELEX%3A32012R0928",
+            "published_at": "2012-10-08",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Mốc 'hơn 200 năm' được nghiên cứu và hồ sơ GI sử dụng như lịch sử danh tiếng của nghề, nhưng chưa thay thế cho một chuỗi tư liệu sơ cấp liên tục theo từng nhà thùng.",
+          "Không gán một nhà thùng hiện nay là 'lâu đời nhất Phú Quốc' nếu chưa có hồ sơ doanh nghiệp/gia phả nghề đủ chắc.",
+          "Thông tin nhà thùng đang mở cửa, giá bán và loại nước mắm phải lấy từ lớp operational/current data, không khóa trong lịch sử nghề."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nước mắm Phú Quốc đi lên từ một cách giữ cá của người sống giữa biển, rồi thành cả một nghề. Cá cơm được trộn muối, ủ lâu trong những thùng gỗ lớn và rút ra thành thứ nước mắm có màu, mùi và vị rất riêng. Từ một sản phẩm của đảo, nước mắm Phú Quốc dần đi xa hơn, được biết đến rộng từ nửa sau thế kỷ XX và sau này trở thành tên gọi được bảo hộ.",
+        "practical": "Nếu ghé nhà thùng, đừng chỉ chụp mấy chiếc thùng gỗ. Hãy nhìn cách cá được muối, thời gian ủ và cách rút nước mắm - đó mới là phần làm nên nghề.",
+        "expectation_vs_reality": "Chỉ dẫn địa lý không có nghĩa chai nào ghi chữ 'Phú Quốc' cũng giống nhau. Nó bảo vệ tên gọi và quy chuẩn nguồn gốc, còn chất lượng thực tế vẫn phụ thuộc nguyên liệu, quá trình ủ và cách từng nhà sản xuất làm nghề.",
+        "before_you_go": [
+          "Nếu muốn hiểu nghề, ưu tiên nhà thùng còn sản xuất thật chứ không chỉ có quầy bán hàng.",
+          "Mùi trong nhà thùng khá đậm - đó là một phần bình thường của quá trình ủ cá.",
+          "Giá, độ đạm và sản phẩm bán trong ngày nên kiểm tra trực tiếp, không lấy từ bài lịch sử."
+        ],
+        "curiosity_questions": [
+          "Vì sao Phú Quốc lại dùng những thùng gỗ lớn thay vì chum nhỏ như cách làm gia đình?",
+          "Từ khi nào nước mắm Phú Quốc bắt đầu được bán ra ngoài đảo?",
+          "Một mẻ nước mắm nằm trong thùng bao lâu trước khi được rút?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_123_lich-su-nghe-ho-tieu-va-nghe-bien",
+      "number": 123,
+      "title": "Lịch sử nghề hồ tiêu và nghề biển",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LIVELIHOOD_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Tài liệu chuyên ngành bảo vệ thực vật ghi đến cuối thế kỷ XIX hồ tiêu đã được trồng với diện tích đáng kể ở Phú Quốc, Hòn Chông và Hà Tiên, gắn với cộng đồng người Hoa gốc Hải Nam tại vùng này.",
+            "source_ids": [
+              "ppd_vietnam_pepper_history"
+            ],
+            "verification_status": "OFFICIAL_TECHNICAL_HISTORY",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nghiên cứu của Viện Khoa học Nông nghiệp Việt Nam năm 2022 xác nhận hồ tiêu vẫn là cây gia vị đặc trưng của Phú Quốc nhưng người trồng đang đối mặt với hiệu quả sản xuất thấp và nhiều khó khăn kỹ thuật - kinh tế.",
+            "source_ids": [
+              "vaas_phu_quoc_pepper_2022"
+            ],
+            "verification_status": "ACADEMIC_AGRICULTURAL_RESEARCH",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Các nghiên cứu thủy sản tại Phú Quốc cho thấy nghề biển không phải một nghề đơn nhất: có lưới ghẹ, lặn/thu hái hải sâm, nghề khai thác xa bờ và nuôi cá lồng; quy mô, ngư trường và thu nhập thay đổi theo mùa gió, loại tàu và nguồn lợi.",
+            "source_ids": [
+              "ctu_phu_quoc_crab_net_2014",
+              "seafdec_kien_giang_trawl_2017",
+              "ctu_sea_cucumber_2020"
+            ],
+            "verification_status": "ACADEMIC_FISHERIES_RESEARCH",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "ppd_vietnam_pepper_history",
+            "source_type": "OFFICIAL_TECHNICAL_PUBLICATION",
+            "label": "Cục Bảo vệ thực vật - Pepper: Vietnamese spicy flavor",
+            "url": "https://sansangxuatkhau.ppd.gov.vn/FileUpload/Documents/SanPhamTA/PEPPER.pdf",
+            "published_at": "2023",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vaas_phu_quoc_pepper_2022",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Trương Vĩnh Hải và cs. - Hiện trạng sản xuất và một số giải pháp nâng cao hiệu quả sản xuất hồ tiêu tại Phú Quốc - Tạp chí Viện Khoa học Nông nghiệp Việt Nam",
+            "url": "https://tapchi.vaas.vn/vi/tap-chi/hien-trang-san-xuat-va-mot-so-giai-phap-nang-cao-hieu-qua-san-xuat-ho-tieu-tai-phu-quoc",
+            "published_at": "2022",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ctu_phu_quoc_crab_net_2014",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Đại học Cần Thơ - Hiện trạng kỹ thuật và tài chính của nghề lưới ghẹ ở vùng ven biển đảo Phú Quốc",
+            "url": "https://demo-ojs.cusc.vn/index.php/ctujsvn/article/view/217",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "seafdec_kien_giang_trawl_2017",
+            "source_type": "REGIONAL_FISHERIES_RESEARCH",
+            "label": "SEAFDEC - Study on trawl fishery socio-economics and supply chains in Kien Giang, Viet Nam",
+            "url": "https://repository.seafdec.or.th/bitstream/handle/20.500.12067/1450/VietNam_Socio-economic%20study%20on%20trawl%20fishery%20in%20Kien%20Giang.pdf?sequence=1",
+            "published_at": "2017",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ctu_sea_cucumber_2020",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Lý Văn Khánh và cs. - Survey on the Current Status of Small-Scale Artisanal Sea Cucumber Fishing in Kien Giang Province",
+            "url": "https://qldiem.ctu.edu.vn/ql/docgia/tacgia-78357/baibao-78007.html",
+            "published_at": "2020",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Nguồn hiện có chưa đủ để dựng một timeline đầy đủ từ 'nghề biển đầu tiên' tới đội tàu hiện đại của Phú Quốc.",
+          "Chi tiết người Hải Nam mang giống tiêu vào Phú Quốc được nguồn kỹ thuật nhà nước ghi lại nhưng cần thêm khảo cứu lịch sử/di dân nếu muốn kể sâu về cộng đồng.",
+          "Không gom mọi ngư dân Phú Quốc vào một kiểu nghề hay một mùa đánh bắt; từng nghề có ngư trường, ngư cụ và nhịp mùa khác nhau."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Trước khi Phú Quốc sống bằng khách du lịch, rất nhiều gia đình sống bằng đất và biển. Trên đất là những hàng tiêu được trồng từ ít nhất cuối thế kỷ XIX. Ngoài biển là đủ kiểu nghề - lưới ghẹ, câu, lưới, lặn, tàu đi xa, rồi sau này thêm nuôi cá lồng. Hai thế giới đó tạo nên phần đời thường của đảo lâu trước các khu nghỉ dưỡng.",
+        "practical": "Muốn hiểu hai nghề này, nên gặp người đang làm thật. Ở vườn tiêu hãy hỏi mùa hái, cách phơi và vì sao có tiêu đỏ - đen - sọ. Ở làng biển, hãy nhìn ngư cụ và loại tàu trước khi hỏi họ 'đánh cá gì', vì mỗi nghề khác nhau khá nhiều.",
+        "expectation_vs_reality": "Vườn tiêu không chỉ là điểm chụp hình và làng chài cũng không phải một cảnh quan đứng yên. Cả hai đều là sinh kế đang thay đổi vì giá cả, nguồn lợi, thời tiết, du lịch và quy định khai thác.",
+        "before_you_go": [
+          "Đừng mặc định vườn nào cũng đang đúng mùa thu hoạch.",
+          "Không bước vào khu sản xuất hoặc chạm ngư cụ khi chưa hỏi chủ.",
+          "Nếu muốn nghe chuyện nghề biển, hỏi cụ thể loại nghề - câu, lưới, ghẹ, lặn hay nuôi lồng - câu chuyện sẽ thật hơn nhiều."
+        ],
+        "curiosity_questions": [
+          "Vì sao tiêu Phú Quốc tập trung nhiều ở phần Bắc và giữa đảo?",
+          "Một gia đình đi biển ở Phú Quốc thường theo một nghề cố định hay đổi nghề theo mùa?",
+          "Du lịch đã làm vườn tiêu và làng chài thay đổi thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_129_kayak",
+      "number": 129,
+      "title": "Kayak",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_cua_can"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY_DECISION",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn du lịch chính thức hiện khuyến nghị người mới chọn mặt nước lặng, gần bờ và tránh gió lớn, sóng mạnh, mưa dông; áo phao là trang bị cơ bản.",
+            "source_ids": [
+              "visitpq_kayak_20260814",
+              "visitpq_kayak_2026"
+            ],
+            "verification_status": "CURRENT_VISITOR_GUIDANCE",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cửa Cạn là một trong các khu được nguồn điểm đến hiện nay nhắc tới cho trải nghiệm kayak; tuy nhiên mức phù hợp trong ngày phải phụ thuộc gió, mưa, dòng nước và hoạt động tàu thuyền thực tế.",
+            "source_ids": [
+              "visitpq_kayak_2026"
+            ],
+            "verification_status": "CURRENT_DESTINATION_GUIDANCE_WITH_DYNAMIC_DEPENDENCY",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_kayak_20260814",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Chèo kayak ở Phú Quốc khu nào đẹp? Gợi ý điểm nên thử",
+            "url": "https://visitphuquoc.com.vn/vi/cheo-kayak-o-phu-quoc-khu-nao-dep-goi-y-diem-nen-thu-13750",
+            "published_at": "2026-08-14",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_kayak_2026",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Chèo kayak Phú Quốc ở đâu đẹp? Top điểm đáng trải nghiệm",
+            "url": "https://visitphuquoc.com.vn/vi/cheo-kayak-phu-quoc-o-dau-dep-top-diem-dang-trai-nghiem-9650",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không khóa một bãi/khu là 'an toàn cho kayak' theo mùa cố định; điều kiện trong ngày phải lấy từ Weather/Live và người vận hành tại chỗ.",
+          "Không dùng màu nước bằng mắt thường để kết luận dòng chảy an toàn.",
+          "Giá thuê, giờ hoạt động và tình trạng kayak là operational data và có thể đổi."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Kayak ở Phú Quốc hay nhất khi mặt nước đủ yên để mình thật sự nhìn ngắm xung quanh, chứ không phải vật lộn với gió. Với người mới, sông hoặc vịnh kín thường dễ chịu hơn chèo ra vùng biển trống. Cửa Cạn là một lựa chọn đáng cân nhắc vì trải nghiệm thiên về sông và nhịp ven bờ.",
+        "practical": "Trước khi xuống nước, nhìn ba thứ: gió có đẩy mạnh không, mặt nước có nổi sóng liên tục không, và tuyến mình chèo có tàu/cano chạy qua không. Có áo phao, biết điểm quay đầu và đừng chèo xa chỉ vì lúc đi đang thuận gió.",
+        "expectation_vs_reality": "Kayak không cần biển xanh như ảnh quảng cáo mới vui. Một đoạn sông yên hoặc bờ có rừng ngập mặn đôi khi thú vị hơn nhiều, nhất là với người lần đầu. Ngược lại, trời nắng đẹp không có nghĩa mặt nước đang phù hợp để chèo.",
+        "before_you_go": [
+          "Mặc áo phao từ lúc xuống kayak.",
+          "Mang điện thoại trong túi chống nước.",
+          "Nếu gió tăng, có dông hoặc người vận hành địa phương khuyên dừng thì quay vào.",
+          "Không tự chèo qua luồng tàu/cano nếu chưa biết tuyến."
+        ],
+        "curiosity_questions": [
+          "Hôm nay Cửa Cạn hay biển ngoài bờ hợp chèo hơn?",
+          "Gió đang thổi theo hướng nào và lúc quay về có thành ngược gió không?",
+          "Chèo kayak ở sông khác gì chèo ngoài biển?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
