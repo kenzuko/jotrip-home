@@ -4096,14 +4096,14 @@
         ]
       },
       "editorial": {
-        "short_summary": "Rượu sim là món quà khá quen ở Phú Quốc, làm từ trái sim chín đem ủ hoặc lên men. Điều cần nói rõ là đây vẫn là đồ uống có cồn, không phải 'thuốc bổ' dù nhiều nội dung cũ từng quảng bá theo hướng đó.",
+        "short_summary": "Rượu sim là món quà khá quen ở Phú Quốc, làm từ trái sim chín đem ủ hoặc lên men. Dù được kể nhiều câu chuyện về công dụng, đây vẫn là đồ uống có cồn chứ không phải thuốc bổ.",
         "practical": "Nếm một ít trước khi mua vì mỗi nơi làm có độ ngọt, chát và nồng khác nhau. Nếu mang lên máy bay, nhớ xem nồng độ cồn và quy định hành lý của hãng.",
-        "expectation_vs_reality": "Đừng xem những lời quảng cáo rượu sim chữa bệnh hay bồi bổ sức khỏe như thông tin y khoa nếu không có bằng chứng đáng tin.",
+        "expectation_vs_reality": "Những lời quảng cáo rượu sim chữa bệnh hay bồi bổ sức khỏe không nên được xem như thông tin y khoa nếu không có bằng chứng đáng tin.",
         "before_you_go": [
-          "Không dùng khi lái xe.",
-          "Kiểm tra ABV trên chai.",
-          "Đóng gói kỹ khi bay.",
-          "Phụ nữ mang thai/người cần tránh cồn không nên dùng."
+          "Không uống rượu sim nếu còn phải lái xe.",
+          "Xem nồng độ cồn ghi trên chai.",
+          "Đóng gói kỹ nếu mang theo khi bay.",
+          "Phụ nữ mang thai hoặc người cần tránh cồn không nên dùng."
         ],
         "curiosity_questions": [
           "Rượu sim Phú Quốc bắt đầu thành sản phẩm thương mại từ khi nào?",
@@ -4146,13 +4146,13 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Ngoài rượu, sim còn được làm thành siro, mứt và nhiều món dễ mang về hơn cho người không uống cồn. Mỗi cơ sở có cách làm và lượng đường khác nhau.",
+        "short_summary": "Ngoài rượu, sim còn được làm thành siro, mứt và nhiều món dễ mang về hơn cho người không uống cồn. Mỗi nơi có cách làm và lượng đường khác nhau.",
         "practical": "Đọc kỹ nhãn thành phần và cách bảo quản. Nếu cần tránh cồn hoàn toàn, nên hỏi rõ vì một số sản phẩm gọi là 'mật sim' có thể đã qua lên men nhẹ.",
         "expectation_vs_reality": "Tên 'mật sim' không có nghĩa mặc định là siro hoàn toàn không cồn.",
         "before_you_go": [
-          "Hỏi nồng độ nếu cần tránh cồn.",
-          "Xem hạn dùng sau mở nắp.",
-          "Không coi lời khẳng định sức khỏe trên bao bì/quảng cáo là bằng chứng y khoa."
+          "Nếu cần tránh cồn, hỏi rõ sản phẩm có qua lên men hay không.",
+          "Xem hạn dùng sau khi mở nắp.",
+          "Đừng xem lời quảng cáo về sức khỏe trên bao bì như bằng chứng y khoa."
         ],
         "curiosity_questions": [
           "Mật sim khác rượu sim ở bước nào của quá trình ủ?",
@@ -4222,13 +4222,13 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Nước mắm Phú Quốc bắt đầu từ cá cơm, muối và thời gian ủ trong thùng gỗ. Muốn hiểu loại nước mắm này, nhìn vào cách làm và nguyên liệu sẽ có ý nghĩa hơn chỉ nhìn mỗi con số độ đạm.",
+        "short_summary": "Nước mắm Phú Quốc bắt đầu từ cá cơm, muối và thời gian ủ trong thùng gỗ. Muốn hiểu loại nước mắm này, nhìn vào nguyên liệu và cách làm sẽ ý nghĩa hơn chỉ nhìn mỗi con số độ đạm.",
         "practical": "Khi mua, xem tên sản phẩm, độ đạm, nơi sản xuất và thông tin nguồn gốc. Đừng chọn chỉ vì trên chai in chữ 'Phú Quốc' thật lớn.",
         "expectation_vs_reality": "Độ đạm cao chưa chắc hợp khẩu vị hơn. Mùi, độ mặn và mình định dùng để chấm hay nấu ăn cũng quan trọng.",
         "before_you_go": [
-          "Phân biệt sản phẩm thực sự gắn với chỉ dẫn địa lý với cách dùng tên Phú Quốc trong marketing.",
+          "Xem kỹ nơi sản xuất và thông tin nguồn gốc thay vì chỉ nhìn tên Phú Quốc trên nhãn.",
           "Nếu mua mang máy bay, kiểm tra quy định đóng gói hành lý của hãng.",
-          "Nếm lượng nhỏ nếu chưa quen mùi nước mắm cốt."
+          "Nếu chưa quen nước mắm cốt, nếm một ít trước khi mua."
         ],
         "curiosity_questions": [
           "Vì sao nhà thùng Phú Quốc dùng những thùng gỗ lớn như vậy?",
@@ -4305,7 +4305,7 @@
       "editorial": {
         "short_summary": "Nhà thùng là nơi dễ thấy nghề nước mắm nhất: những thùng gỗ lớn, cá cơm, muối và thời gian ủ kéo dài. Ghé đây mà chỉ mua vài chai rồi đi thì hơi phí.",
         "practical": "Khoảng 45-60 phút là vừa nếu có người giải thích. Hỏi về loại cá, muối, thời gian ủ và cách rút nước mắm sẽ hiểu nghề nhanh hơn.",
-        "expectation_vs_reality": "Không phải nơi nào treo biển nhà thùng cũng có đầy đủ hoạt động sản xuất vào đúng lúc mình ghé.",
+        "expectation_vs_reality": "Không phải nhà thùng nào cũng đang có đầy đủ các công đoạn sản xuất đúng lúc mình ghé.",
         "before_you_go": [
           "Ưu tiên cơ sở còn làm nghề thật.",
           "Sàn có thể ẩm hoặc có mùi mạnh, nên đi giày dễ di chuyển.",
@@ -4376,7 +4376,7 @@
       "editorial": {
         "short_summary": "Vườn tiêu cho thấy một Phú Quốc khác hẳn biển: đất đỏ, những hàng trụ tiêu và công việc hái, phơi, phân loại hạt. Đi chậm và hỏi người trồng thường thú vị hơn ghé vài phút chỉ để chụp hình.",
         "practical": "Khoảng 30-60 phút là đủ. Nếu đúng mùa, hỏi ngay tại vườn cách phân biệt tiêu đen, tiêu đỏ và tiêu sọ.",
-        "expectation_vs_reality": "Không phải vườn nào mở cho khách cũng còn canh tác nhiều như nhau. Có nơi làm nông là chính, có nơi thiên về bán sản phẩm hơn.",
+        "expectation_vs_reality": "Không phải vườn nào mở cho khách cũng còn canh tác nhiều như nhau. Có nơi làm nông là chính, có nơi bán sản phẩm nhiều hơn.",
         "before_you_go": [
           "Ưu tiên vườn còn canh tác thật.",
           "Hỏi mùa thu hoạch trước nếu mục tiêu là xem trái tiêu.",
@@ -4458,7 +4458,7 @@
       "editorial": {
         "short_summary": "Chợ Dương Đông buổi sáng đáng đi không chỉ vì hải sản mà còn vì đồ ăn nóng ngay trong chợ. Bún, hủ tiếu, bánh canh và các món sáng cho cảm giác địa phương hơn hẳn một vòng chỉ ghé mua quà.",
         "practical": "Đi sớm, chọn quầy có nhiều người địa phương ăn và hỏi giá trước. Nếu mua hải sản mang về, hỏi luôn chỗ chế biến nếu mình không tự nấu.",
-        "expectation_vs_reality": "Chợ Dương Đông và chợ đêm là hai kiểu hoàn toàn khác nhau: một bên là chợ dân sinh ban ngày, một bên đông khách du lịch hơn vào buổi tối.",
+        "expectation_vs_reality": "Chợ Dương Đông và chợ đêm là hai kiểu rất khác nhau: một bên là chợ dân sinh ban ngày, một bên đông khách du lịch hơn vào buổi tối.",
         "before_you_go": [
           "Mang tiền mặt nhỏ.",
           "Cẩn thận nền ướt ở khu hải sản.",
@@ -4506,11 +4506,11 @@
       "editorial": {
         "short_summary": "Ăn sáng ở Phú Quốc không cần săn một danh sách 'top quán'. Dễ nhất là chọn theo khu đang ở: bún, hủ tiếu, bánh canh ở trung tâm; ghé chợ sáng nếu muốn nhìn nhịp sinh hoạt địa phương; hoặc ăn ngay khách sạn nếu sáng đó phải đi sớm.",
         "practical": "Nếu có tour, cáp treo hoặc chuyến bay sớm, ưu tiên quán gần đường đi và phục vụ nhanh. Muốn ăn kiểu địa phương thì Dương Đông có nhiều lựa chọn tập trung nhất.",
-        "expectation_vs_reality": "Quán và giờ mở thay đổi khá nhanh. Phần này nên giúp chọn món và khu vực, còn quán nào đang mở thì xem ở Gần tôi.",
+        "expectation_vs_reality": "Quán và giờ mở thay đổi khá nhanh. Phần này chỉ nên giúp chọn món và khu vực, còn quán nào đang mở thì xem ở Gần tôi.",
         "before_you_go": [
           "Kiểm tra giờ quán trong ngày.",
-          "Dị ứng hải sản hỏi topping/nước dùng.",
-          "Đừng chạy xa chỉ vì một quán viral nếu sáng có lịch cố định."
+          "Nếu dị ứng hải sản, hỏi kỹ phần ăn kèm và nước dùng.",
+          "Đừng chạy quá xa chỉ vì một quán đang nổi nếu buổi sáng có lịch cố định."
         ],
         "curiosity_questions": [
           "Bữa sáng nào ở Phú Quốc cho cảm giác địa phương nhất mà không phải xếp hàng dài?"
@@ -4599,9 +4599,9 @@
         "practical": "Muốn ăn gần đời sống địa phương hơn thì vào khu chợ và các đường dân cư An Thới. Muốn tiện lịch show hoặc cáp treo thì ăn ở Sunset Town hay Hòn Thơm.",
         "expectation_vs_reality": "Không phải món gì bán ở Nam đảo cũng là đặc sản riêng của An Thới. Nhiều món hải sản và món Việt có ở khắp đảo.",
         "before_you_go": [
-          "Hải sản hỏi giá theo kg/con.",
-          "Nếu có show tối, tính thời gian ăn trước.",
-          "Venue cụ thể phải kiểm tra giờ hiện hành."
+          "Hải sản nên hỏi giá theo kg hoặc theo con trước khi gọi.",
+          "Nếu có show tối, chừa đủ thời gian ăn trước giờ bắt đầu.",
+          "Quán cụ thể cần kiểm tra lại giờ mở cửa trong ngày."
         ],
         "curiosity_questions": [
           "An Thới ăn khác Dương Đông ở chỗ nào nếu nhìn từ lịch sử cảng và nghề biển?"
