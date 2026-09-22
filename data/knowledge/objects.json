@@ -960,6 +960,1250 @@
       "updated_at": "2026-09-22"
     },
     {
+      "topic_id": "knowledge_031_bo-tay-va-bo-dong-phu-quoc-khac-nhau-the-nao",
+      "number": 31,
+      "title": "Bờ Tây và bờ Đông Phú Quốc khác nhau thế nào",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Bờ Tây Phú Quốc chịu ảnh hưởng rõ của gió mùa Tây Nam; nghiên cứu bờ Tây ghi nhận sóng mùa Tây Nam cao hơn mùa Đông Bắc.",
+            "source_ids": [
+              "phuquoc_west_coast_erosion_2014"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Phú Quốc có mùa mưa rõ vào khoảng giữa năm và mùa khô vào cuối năm - đầu năm.",
+            "source_ids": [
+              "vietnam_tourism_phuquoc_weather"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_CLIMATE_SUMMARY",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vietnam_tourism_phuquoc_weather",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Phú Quốc weather",
+            "url": "https://www.vietnam.travel/vi/places-to-go/southern-vietnam/phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_west_coast_erosion_2014",
+            "source_type": "ACADEMIC",
+            "label": "Mechanism of beach erosion at the west of Phu Quoc Island",
+            "url": "https://www.researchgate.net/publication/313940784_MECHANISM_OF_BEACH_EROSION_AT_THE_WEST_OF_PHU_QUOC_ISLAND_SOUTHERN_VIETNAM",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Bờ Tây và bờ Đông không có một mùa biển đẹp giống nhau. Bờ Tây mở ra Vịnh Thái Lan nên chịu gió và sóng Tây Nam rõ hơn vào mùa mưa; phía Đông có thể êm hơn trong những đợt đó, nhưng không nên biến thành quy tắc tuyệt đối cho từng ngày.",
+        "practical": "Chọn bãi theo gió và sóng của ngày đang đi, không chỉ theo tháng. Nếu bờ Tây xấu, xem tình hình Bãi Sao, Hàm Ninh hoặc vùng Đông/Nam trước khi bỏ cả ngày biển.",
+        "expectation_vs_reality": "Câu 'mùa này bờ kia luôn đẹp' quá đơn giản. Cơn dông, swell, mưa cục bộ và hướng gió trong ngày vẫn có thể đảo trải nghiệm.",
+        "before_you_go": [
+          "Xem gió, sóng và mưa theo đúng khu bờ biển.",
+          "Đừng chạy xuyên đảo chỉ vì một quy tắc mùa chung.",
+          "Hoạt động cano/snorkeling phải xem thêm trạng thái vận hành."
+        ],
+        "curiosity_questions": [
+          "Vì sao cùng một ngày Bãi Trường có sóng nhưng Bãi Sao lại khá êm?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_032_mua-gio-tay-nam",
+      "number": 32,
+      "title": "Mùa gió Tây Nam",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu bờ Tây xác định mùa gió Tây Nam là mùa gió chi phối và sóng đo được cao hơn mùa Đông Bắc.",
+            "source_ids": [
+              "phuquoc_west_coast_erosion_2014"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vietnam_tourism_phuquoc_weather",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Phú Quốc weather",
+            "url": "https://www.vietnam.travel/vi/places-to-go/southern-vietnam/phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_west_coast_erosion_2014",
+            "source_type": "ACADEMIC",
+            "label": "Mechanism of beach erosion at the west of Phu Quoc Island",
+            "url": "https://www.researchgate.net/publication/313940784_MECHANISM_OF_BEACH_EROSION_AT_THE_WEST_OF_PHU_QUOC_ISLAND_SOUTHERN_VIETNAM",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Gió mùa Tây Nam là lý do mùa mưa ở Phú Quốc không chỉ có thêm mưa mà bờ Tây cũng dễ động hơn. Với khách, điều quan trọng là hiểu nó làm thay đổi bãi biển và hoạt động biển chứ không phải nhớ một mốc tháng cứng.",
+        "practical": "Trong giai đoạn gió Tây Nam mạnh, kiểm tra bờ Tây kỹ hơn trước khi tắm hoặc đặt hoạt động biển. Một số ngày vẫn đẹp, nhưng quyết định nên dựa trên forecast/nowcast gần giờ đi.",
+        "expectation_vs_reality": "Mùa gió không đồng nghĩa ngày nào cũng mưa cả ngày hoặc biển đều xấu.",
+        "before_you_go": [
+          "Xem dữ liệu theo giờ.",
+          "Phân biệt mưa trên bờ với điều kiện sóng ngoài biển.",
+          "Không suy tình trạng cano chỉ từ màu trời ở khách sạn."
+        ],
+        "curiosity_questions": [
+          "Tại sao gió Tây Nam làm bờ Tây Phú Quốc khác hẳn mùa khô?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_033_mua-gio-dong-bac",
+      "number": 33,
+      "title": "Mùa gió Đông Bắc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu bờ Tây ghi nhận sóng mùa Đông Bắc thấp hơn mùa Tây Nam trong bộ số liệu được phân tích.",
+            "source_ids": [
+              "phuquoc_west_coast_erosion_2014"
+            ],
+            "verification_status": "ACADEMIC_HISTORICAL_OBSERVATION",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vietnam_tourism_phuquoc_weather",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Phú Quốc weather",
+            "url": "https://www.vietnam.travel/vi/places-to-go/southern-vietnam/phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_west_coast_erosion_2014",
+            "source_type": "ACADEMIC",
+            "label": "Mechanism of beach erosion at the west of Phu Quoc Island",
+            "url": "https://www.researchgate.net/publication/313940784_MECHANISM_OF_BEACH_EROSION_AT_THE_WEST_OF_PHU_QUOC_ISLAND_SOUTHERN_VIETNAM",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Mùa gió Đông Bắc thường trùng phần khô ráo hơn của năm ở Phú Quốc. Bờ Tây thường dễ chịu hơn so với mùa Tây Nam, nhưng phía Đông/Nam vẫn cần xem hướng gió thật trong ngày.",
+        "practical": "Cuối năm đến đầu năm thường là giai đoạn dễ xếp beach day và tour biển hơn, nhưng show, cano và tàu vẫn phải kiểm tra vận hành riêng.",
+        "expectation_vs_reality": "‘Mùa khô’ không có nghĩa không mưa và ‘gió Đông Bắc’ không có nghĩa mọi bờ đều phẳng.",
+        "before_you_go": [
+          "Xem forecast gần ngày đi.",
+          "Với snorkeling, quan tâm thêm visibility chứ không chỉ sóng.",
+          "Không dùng climate bình quân thay cho dự báo ngày thật."
+        ],
+        "curiosity_questions": [
+          "Vì sao mùa Đông Bắc lại thường hợp bờ Tây hơn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_034_thuy-trieu-phu-quoc",
+      "number": 34,
+      "title": "Thủy triều Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu bờ Tây Phú Quốc mô tả chế độ triều tại đảo chịu đặc trưng nhật triều của Vịnh Thái Lan.",
+            "source_ids": [
+              "phuquoc_west_coast_erosion_2014"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "phuquoc_west_coast_erosion_2014",
+            "source_type": "ACADEMIC",
+            "label": "Mechanism of beach erosion at the west of Phu Quoc Island",
+            "url": "https://www.researchgate.net/publication/313940784_MECHANISM_OF_BEACH_EROSION_AT_THE_WEST_OF_PHU_QUOC_ISLAND_SOUTHERN_VIETNAM",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Thủy triều quanh Phú Quốc thay đổi mực nước và có thể làm một bãi nông, vùng sao biển hoặc lối lên xuống tàu nhìn rất khác chỉ sau vài giờ.",
+        "practical": "Nếu mục tiêu phụ thuộc nước nông như chụp bãi, xem sao biển hoặc câu cá, nên xem giờ triều cụ thể thay vì chỉ hỏi ‘sáng hay chiều’.",
+        "expectation_vs_reality": "Triều không phải một con số giống nhau cho toàn đảo và không nên suy từ ảnh hôm qua.",
+        "before_you_go": [
+          "Dùng bảng triều theo ngày/điểm gần nhất.",
+          "Kết hợp triều với gió và sóng.",
+          "Không đi bộ xa trên bãi triều nếu không biết nước lên thế nào."
+        ],
+        "curiosity_questions": [
+          "Vì sao Rạch Vẹm lúc nước thấp và nước cao trông như hai nơi khác nhau?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_035_sao-bien-rach-vem",
+      "number": 35,
+      "title": "Sao biển Rạch Vẹm",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Visit Phu Quoc mô tả khả năng quan sát sao biển chịu ảnh hưởng của thủy triều và điều kiện thời tiết; biển lặng, ít mưa và nước trong dễ quan sát hơn.",
+            "source_ids": [
+              "visitpq_starfish_season_20260609"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_starfish_season_20260609",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Starfish season",
+            "url": "https://visitphuquoc.com.vn/en/phu-quoc-starfish-season-and-beautiful-beach-experiences-throughout-the-year-9966",
+            "published_at": "2026-06-09",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Sao biển ở Rạch Vẹm là động vật sống, không phải đạo cụ check-in. Việc có thấy nhiều hay ít phụ thuộc nước, thời tiết và thời điểm, nên không ai nên hứa chắc trước chuyến.",
+        "practical": "Quan sát trong nước, chụp tại chỗ và giữ khoảng cách. Nếu hôm đó nước đục hoặc không thấy sao biển, coi đó là điều kiện tự nhiên chứ không phải ‘tour lỗi’.",
+        "expectation_vs_reality": "Những bức ảnh một bãi đầy sao biển không đại diện cho mọi ngày trong năm.",
+        "before_you_go": [
+          "Không nhấc sao biển khỏi nước.",
+          "Không xếp, gom hay di chuyển chúng để chụp hình.",
+          "Đi theo lối/bãi phù hợp để giảm giẫm đạp vùng nước nông."
+        ],
+        "curiosity_questions": [
+          "Sao biển ở Rạch Vẹm thay đổi theo mùa hay theo thủy triều nhiều hơn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_036_co-bien-phu-quoc",
+      "number": 36,
+      "title": "Cỏ biển Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu cập nhật ở Nam Việt Nam ước tính thảm cỏ biển Phú Quốc khoảng 7.579 ha, lớn nhất trong các khu vực được so sánh.",
+            "source_ids": [
+              "seagrass_southern_vietnam_2021"
+            ],
+            "verification_status": "ACADEMIC_ESTIMATE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu 2026 tiếp tục xem Phú Quốc là một đảo có hệ sinh thái cỏ biển quan trọng trong nhóm đảo ngoài khơi Việt Nam.",
+            "source_ids": [
+              "seagrass_offshore_islands_2026"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "seagrass_southern_vietnam_2021",
+            "source_type": "ACADEMIC",
+            "label": "Update of seagrass cover and species diversity in Southern Viet Nam",
+            "url": "https://www.sciencedirect.com/science/article/abs/pii/S235248552100195X",
+            "published_at": "2021",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "seagrass_offshore_islands_2026",
+            "source_type": "ACADEMIC",
+            "label": "Spatial variability and environmental drivers of seagrass communities on Offshore Islands in Vietnam",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0025326X2600305X",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Cỏ biển là một phần rất lớn nhưng ít được khách nhìn thấy của hệ sinh thái quanh Phú Quốc. Đây là bãi ‘cỏ’ dưới nước có vai trò làm nơi sống và kiếm ăn cho nhiều loài biển.",
+        "practical": "Khi đi thuyền hoặc chơi ở vùng nước nông, đừng coi cỏ biển là ‘rong bẩn’. Hạn chế giẫm, kéo neo hoặc chạy phương tiện qua vùng cỏ nông nếu có thể tránh.",
+        "expectation_vs_reality": "Cỏ biển và rong biển là hai nhóm khác nhau. Cỏ biển là thực vật có hoa sống dưới nước, không phải rong.",
+        "before_you_go": [
+          "Không nhổ cỏ biển để làm mẫu.",
+          "Không mặc định vùng cỏ nhìn nâu/xanh là nước bẩn.",
+          "Nếu snorkeling, tránh đạp chân xuống đáy."
+        ],
+        "curiosity_questions": [
+          "Vì sao một bãi cỏ dưới nước lại quan trọng với dugong và rùa biển?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_037_dugong-o-vung-bien-phu-quoc",
+      "number": 37,
+      "title": "Dugong ở vùng biển Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Cổng thông tin đa dạng sinh học quốc gia liệt kê dugong trong nhóm loài biển quan trọng/quý hiếm của vùng Phú Quốc.",
+            "source_ids": [
+              "nbca_phuquoc_national_park_2026"
+            ],
+            "verification_status": "OFFICIAL_BIODIVERSITY_RECORD",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nghiên cứu về các đảo ngoài khơi Việt Nam ghi nhận một số đảo có cỏ biển là sinh cảnh của loài bị đe dọa như dugong và rùa biển.",
+            "source_ids": [
+              "seagrass_offshore_islands_2026"
+            ],
+            "verification_status": "ACADEMIC_CONTEXT",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "nbca_phuquoc_national_park_2026",
+            "source_type": "OFFICIAL_BIODIVERSITY",
+            "label": "National biodiversity portal - Phu Quoc National Park",
+            "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-kien-giang/",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "seagrass_offshore_islands_2026",
+            "source_type": "ACADEMIC",
+            "label": "Spatial variability and environmental drivers of seagrass communities on Offshore Islands in Vietnam",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0025326X2600305X",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không có cơ sở trong các nguồn này để công bố xác suất hoặc vị trí sighting hiện tại cho khách."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dugong có liên hệ chặt với thảm cỏ biển, và Phú Quốc nằm trong vùng sinh cảnh từng được ghi nhận có loài này. Điều đó không có nghĩa khách có thể kỳ vọng đi tour rồi gặp dugong.",
+        "practical": "Đối với du lịch, thông tin có ích nhất là bảo vệ sinh cảnh cỏ biển và không quảng cáo ‘săn dugong’. Nếu có ghi nhận thực địa, nên để cơ quan bảo tồn/xác minh xử lý.",
+        "expectation_vs_reality": "‘Có sinh cảnh phù hợp’ và ‘dễ nhìn thấy dugong’ là hai chuyện hoàn toàn khác nhau.",
+        "before_you_go": [
+          "Không chạy tàu truy đuổi động vật biển lớn.",
+          "Không chia sẻ điểm xuất hiện nhạy cảm theo kiểu kéo đám đông tới.",
+          "Không hứa sighting trong sản phẩm du lịch."
+        ],
+        "curiosity_questions": [
+          "Dugong ăn gì và vì sao cỏ biển Phú Quốc quan trọng với chúng?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_038_san-ho-nam-dao",
+      "number": 38,
+      "title": "San hô Nam đảo",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu về Khu bảo tồn biển Phú Quốc mô tả vùng rạn san hô An Thới là một trong các vùng bảo vệ nghiêm ngặt và khu bảo tồn được lập để bảo vệ cỏ biển và rạn san hô.",
+            "source_ids": [
+              "phuquoc_mpa_algae_2019"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "phuquoc_mpa_algae_2019",
+            "source_type": "ACADEMIC",
+            "label": "Marine algal species and marine protected area management - Phu Quoc",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0964569118308901",
+            "published_at": "2019",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "San hô Nam đảo tập trung quanh quần đảo An Thới và là lý do snorkeling/diving ở đây hấp dẫn. Nhưng rạn không phải một ‘công viên dưới nước’ chịu được việc đứng, bẻ hay cho cá ăn.",
+        "practical": "Chọn tour dựa vào thời gian ở nước, hướng dẫn và quy tắc bảo tồn. Visibility thay đổi theo gió, sóng và nước, nên ảnh quảng cáo không phải cam kết cho ngày đi.",
+        "expectation_vs_reality": "Đi nhiều điểm san hô không chắc tốt hơn đi ít điểm nhưng có thời gian và điều kiện phù hợp.",
+        "before_you_go": [
+          "Không đứng hoặc chạm san hô.",
+          "Không bẻ san hô hay mang sinh vật biển về.",
+          "Không cho cá ăn chỉ để gom cá chụp hình."
+        ],
+        "curiosity_questions": [
+          "Vì sao rạn An Thới được đưa vào vùng bảo vệ nghiêm ngặt của khu bảo tồn biển?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_039_rung-ngap-man-phu-quoc",
+      "number": 39,
+      "title": "Rừng ngập mặn Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu Vườn quốc gia Phú Quốc phân biệt hệ sinh thái ngập mặn với các hệ sinh thái rừng/đảo khác và ghi nhận các loài thực vật trong môi trường bãi bùn mặn, cửa sông.",
+            "source_ids": [
+              "vnuf_phuquoc_ntfp_2020"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vnuf_phuquoc_ntfp_2020",
+            "source_type": "ACADEMIC",
+            "label": "Distribution characteristics of plants for non-timber forest products in Phu Quoc National Park",
+            "url": "https://journal.vnuf.edu.vn/vi/article/download/633/550/1097",
+            "published_at": "2020",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Rừng ngập mặn ở Phú Quốc không phải một dải rừng lớn liên tục như Cà Mau. Chúng xuất hiện theo những vùng cửa sông, bãi bùn và hệ sinh thái ngập mặn, nơi nước ngọt và nước biển gặp nhau.",
+        "practical": "Nếu đi kayak/cửa sông, nhìn rừng ngập mặn như một hệ sinh thái sống chứ không phải phông cảnh. Không bẻ cây, xả rác hoặc đi vào vùng bùn/rễ khi không có lối.",
+        "expectation_vs_reality": "Không nên gọi mọi rừng tràm hoặc cây ven sông là ‘rừng ngập mặn’.",
+        "before_you_go": [
+          "Phân biệt vùng ngập mặn với đất ngập nước ngọt.",
+          "Không tự đi sâu vào bãi bùn khi thủy triều lên xuống mạnh.",
+          "Tôn trọng vùng sinh cảnh chim và thủy sinh."
+        ],
+        "curiosity_questions": [
+          "Rừng ngập mặn ở cửa sông khác rừng thường xanh trong Vườn quốc gia thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_040_he-sinh-thai-rung-thuong-xanh",
+      "number": 40,
+      "title": "Hệ sinh thái rừng thường xanh",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Cổng đa dạng sinh học quốc gia mô tả thảm thực vật Vườn quốc gia Phú Quốc chủ yếu là rừng thường xanh trên địa hình đồi núi thấp.",
+            "source_ids": [
+              "nbca_phuquoc_national_park_2026"
+            ],
+            "verification_status": "OFFICIAL_BIODIVERSITY_SOURCE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu 2026 xác định rừng tự nhiên chiếm ưu thế trong các lưu vực được khảo sát và có vai trò điều tiết dòng chảy, chất lượng nước.",
+            "source_ids": [
+              "vnuf_phuquoc_freshwater_wetland_2026"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "nbca_phuquoc_national_park_2026",
+            "source_type": "OFFICIAL_BIODIVERSITY",
+            "label": "National biodiversity portal - Phu Quoc National Park",
+            "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-kien-giang/",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vnuf_phuquoc_dipterocarp_2026",
+            "source_type": "ACADEMIC",
+            "label": "Đặc điểm phân bố và cấu trúc rừng tại Vườn Quốc gia Phú Quốc",
+            "url": "https://journal.vnuf.edu.vn/vi/article/view/2018",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vnuf_phuquoc_freshwater_wetland_2026",
+            "source_type": "ACADEMIC",
+            "label": "Đất ngập nước ngọt ở Vườn quốc gia Phú Quốc",
+            "url": "https://journal.vnuf.edu.vn/vi/article/view/2119",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Phần rừng trên núi đất của Phú Quốc chủ yếu là rừng thường xanh nhiệt đới, tạo nên một lớp đảo rất khác bãi biển. Đây cũng là phần quan trọng của lưu vực nước ngọt và đa dạng sinh học.",
+        "practical": "Nếu đi rừng, chọn tuyến công cộng/được phép và xem mưa trước. Sau mưa, suối và đường đất thay đổi nhanh hơn nhiều so với đường đô thị.",
+        "expectation_vs_reality": "Vườn quốc gia không đồng nghĩa mọi con đường xuyên rừng đều mở cho khách.",
+        "before_you_go": [
+          "Không tự mở đường vào phân khu bảo vệ nghiêm ngặt.",
+          "Mang nước, giày phù hợp và chống côn trùng.",
+          "Không lấy cây, lan hoặc động vật ra khỏi rừng."
+        ],
+        "curiosity_questions": [
+          "Vì sao rừng Phú Quốc vừa quan trọng cho đa dạng sinh học vừa quan trọng cho nguồn nước?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_041_chim-o-phu-quoc",
+      "number": 41,
+      "title": "Chim ở Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Các nguồn đa dạng sinh học quốc gia đều ghi nhận khu hệ chim Phú Quốc phong phú, nhưng số lượng công bố khác nhau theo bộ dữ liệu/khảo sát.",
+            "source_ids": [
+              "nbca_phuquoc_national_park_2026",
+              "vietnam_biodiversity_report_2022_phuquoc"
+            ],
+            "verification_status": "DOCUMENTED_WITH_SURVEY_VARIATION",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "nbca_phuquoc_national_park_2026",
+            "source_type": "OFFICIAL_BIODIVERSITY",
+            "label": "National biodiversity portal - Phu Quoc National Park",
+            "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-kien-giang/",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnam_biodiversity_report_2022_phuquoc",
+            "source_type": "OFFICIAL_BIODIVERSITY",
+            "label": "Báo cáo đa dạng sinh học quốc gia - Phú Quốc",
+            "url": "https://nbca.gov.vn/wp-content/uploads/2023/10/Bao-cao-da-dang-sinh-hoc-2022-Final.pdf",
+            "published_at": "2022",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không dùng một số đếm duy nhất làm ‘con số hiện tại tuyệt đối’ vì phạm vi và năm khảo sát khác nhau."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Phú Quốc có khu hệ chim đa dạng nhờ rừng, suối, đất ngập nước và bờ biển. Với khách, điều đáng làm không phải săn một danh sách thật dài mà là quan sát đúng sinh cảnh và giữ yên tĩnh.",
+        "practical": "Sáng sớm thường thuận hơn để nghe/nhìn chim, nhưng tuyến vào rừng phải theo khu vực được phép. Ống nhòm hữu ích hơn việc cố tiến sát để chụp.",
+        "expectation_vs_reality": "Số loài công bố khác nhau giữa các khảo sát và thời điểm, nên không nên khóa một con số duy nhất như ‘tổng số chim Phú Quốc’.",
+        "before_you_go": [
+          "Không phát tiếng chim giả liên tục để dụ chim.",
+          "Không tới gần tổ.",
+          "Không công khai vị trí tổ/loài nhạy cảm theo kiểu kéo đám đông."
+        ],
+        "curiosity_questions": [
+          "Vì sao các con số về số loài chim ở Phú Quốc lại khác nhau giữa báo cáo?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_042_rua-bien-quanh-phu-quoc",
+      "number": 42,
+      "title": "Rùa biển quanh Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn đa dạng sinh học quốc gia liệt kê đồi mồi trong nhóm loài biển quan trọng/quý hiếm ở vùng Phú Quốc.",
+            "source_ids": [
+              "nbca_phuquoc_national_park_2026"
+            ],
+            "verification_status": "OFFICIAL_BIODIVERSITY_RECORD",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nghiên cứu cỏ biển 2026 đặt một số đảo ngoài khơi Việt Nam, gồm Phú Quốc, trong bối cảnh sinh cảnh có giá trị với loài bị đe dọa như rùa biển.",
+            "source_ids": [
+              "seagrass_offshore_islands_2026"
+            ],
+            "verification_status": "ACADEMIC_CONTEXT",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "nbca_phuquoc_national_park_2026",
+            "source_type": "OFFICIAL_BIODIVERSITY",
+            "label": "National biodiversity portal - Phu Quoc National Park",
+            "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-kien-giang/",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "seagrass_offshore_islands_2026",
+            "source_type": "ACADEMIC",
+            "label": "Spatial variability and environmental drivers of seagrass communities on Offshore Islands in Vietnam",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0025326X2600305X",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không có đủ dữ liệu trong nguồn hiện tại để công bố mùa sighting hoặc bãi đẻ cụ thể cho khách."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Rùa biển có mặt trong bức tranh đa dạng sinh học biển của vùng Phú Quốc, nhưng đây không phải nơi nên quảng cáo tour ‘đi xem rùa’ nếu không có chương trình bảo tồn và dữ liệu hiện hành rõ ràng.",
+        "practical": "Điều khách có thể làm ngay là không mua sản phẩm từ mai rùa, không chạm động vật và tôn trọng vùng cỏ biển/rạn san hô.",
+        "expectation_vs_reality": "Có ghi nhận loài trong vùng không đồng nghĩa có bãi đẻ công khai hoặc sighting ổn định cho du lịch.",
+        "before_you_go": [
+          "Không mua đồ lưu niệm từ mai rùa.",
+          "Không đuổi theo rùa khi snorkeling/diving.",
+          "Không chia sẻ vị trí sinh sản nhạy cảm nếu gặp."
+        ],
+        "curiosity_questions": [
+          "Rùa biển dùng cỏ biển và rạn san hô quanh Phú Quốc như thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_043_sua-quanh-phu-quoc",
+      "number": 43,
+      "title": "Sứa quanh Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần dữ liệu quan trắc hoặc nguồn y tế/hải dương học tại Phú Quốc.",
+          "Không khẳng định loài hoặc mức độ độc nếu chưa xác định.",
+          "Public practical chỉ nên hướng dẫn xử lý an toàn chung sau khi có nguồn y tế phù hợp."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Sứa có thể xuất hiện quanh đảo, nhưng hiện chưa có bộ dữ liệu đủ mạnh để khóa ‘mùa sứa Phú Quốc’ theo tháng và khu vực. Không nên biến kinh nghiệm rời rạc hoặc bài du lịch thành lịch mùa cố định.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_044_rong-bien-theo-mua",
+      "number": 44,
+      "title": "Rong biển theo mùa",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "phuquoc_mpa_algae_2019",
+            "source_type": "ACADEMIC",
+            "label": "Marine algal species and marine protected area management - Phu Quoc",
+            "url": "https://www.sciencedirect.com/science/article/pii/S0964569118308901",
+            "published_at": "2019",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Cần chuỗi quan sát bãi biển theo mùa.",
+          "Không đồng nhất rong biển tự nhiên với ô nhiễm hoặc rác.",
+          "Không suy lịch beach-stranding từ dữ liệu đa dạng loài dưới nước."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Rong/tảo biển có tính mùa và phụ thuộc dòng chảy, gió, sóng, nhưng nghiên cứu hiện tìm được chủ yếu nói về đa dạng loài và vùng phân bố, chưa đủ để khóa lịch ‘bãi nào có rong tháng nào’ cho khách.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_045_nuoc-bien-doi-mau",
+      "number": 45,
+      "title": "Nước biển đổi màu",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần protocol xác minh theo sự kiện: mưa trước đó, ảnh vệ tinh, gió/dòng chảy, quan trắc hoặc cảnh báo môi trường.",
+          "Không gọi là tảo nở hoa nếu không có bằng chứng."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nước biển đổi màu có nhiều nguyên nhân khả dĩ như phù sa, vật chất lơ lửng, tảo và thời tiết, nhưng muốn nói một sự kiện cụ thể ở Phú Quốc cần ảnh vệ tinh/quan trắc nước hoặc lấy mẫu. Không được nhìn màu rồi tự chẩn đoán.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_046_mua-cuc-bo-tren-dao",
+      "number": 46,
+      "title": "Mưa cục bộ trên đảo",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "vietnam_tourism_phuquoc_weather",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Phú Quốc weather",
+            "url": "https://www.vietnam.travel/vi/places-to-go/southern-vietnam/phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không lấy cảm giác thực địa đơn lẻ làm quy luật khí hậu.",
+          "Cần nguồn khí tượng về đối lưu địa phương, địa hình và phân bố mưa.",
+          "Không duplicate logic nowcast từ /weather."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Mưa ở Phú Quốc thường không đều trên toàn đảo, nhưng knowledge object này cần nguồn khí tượng/đối lưu đủ cụ thể cho Phú Quốc trước khi giải thích cơ chế địa phương. Operational weather đã xử lý hiện tượng này theo radar/nowcast riêng.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_047_dong-bien-phu-quoc",
+      "number": 47,
+      "title": "Dông biển Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần tài liệu NCHMF/VISHIPEL hoặc nghiên cứu đối lưu vùng Vịnh Thái Lan.",
+          "Ngưỡng GO/HOLD/CANCEL thuộc weather-marine operational layer."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dông biển là rủi ro thực tế cho hoạt động ngoài khơi, nhưng phần giải thích dấu hiệu/hình thành và ngưỡng hành động phải dựa vào nguồn khí tượng và safety chuyên ngành. Không dùng mẹo dân gian làm forecast.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_048_song-va-huong-song-quanh-dao",
+      "number": 48,
+      "title": "Sóng và hướng sóng quanh đảo",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu bờ Tây ghi nhận sóng mùa Tây Nam lớn hơn mùa Đông Bắc và liên hệ với cơ chế xói lở bờ Tây.",
+            "source_ids": [
+              "phuquoc_west_coast_erosion_2014"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "phuquoc_west_coast_erosion_2014",
+            "source_type": "ACADEMIC",
+            "label": "Mechanism of beach erosion at the west of Phu Quoc Island",
+            "url": "https://www.researchgate.net/publication/313940784_MECHANISM_OF_BEACH_EROSION_AT_THE_WEST_OF_PHU_QUOC_ISLAND_SOUTHERN_VIETNAM",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Sóng quanh Phú Quốc không chỉ cao hay thấp, mà còn quan trọng ở hướng sóng đi vào bờ nào. Bờ Tây chịu sóng Tây Nam rõ hơn trong mùa gió Tây Nam, vì vậy cùng một mức gió nhưng trải nghiệm ở hai phía đảo có thể khác nhau.",
+        "practical": "Khi chọn bãi/tour, nhìn hướng sóng cùng với chiều cao và chu kỳ. Một con số sóng ở điểm ngoài khơi không thay thế được đánh giá tuyến/bờ cụ thể.",
+        "expectation_vs_reality": "‘Sóng 1 mét’ không tạo cảm giác giống nhau ở bãi mở, vịnh kín và phía khuất gió.",
+        "before_you_go": [
+          "Xem hướng sóng, không chỉ Hs.",
+          "Với cano, xem cả tuyến từ cảng tới hòn.",
+          "Không dùng số liệu vùng rộng để kết luận mọi bãi."
+        ],
+        "curiosity_questions": [
+          "Tại sao cùng một ngày bờ này êm mà bờ đối diện lại dập sóng?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_049_tam-nhin-bien-va-haze",
+      "number": 49,
+      "title": "Tầm nhìn biển và haze",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần ghép visibility khí tượng, PM2.5/AQI, gió tầng thấp và ảnh vệ tinh.",
+          "Không quy nguồn haze Indonesia hoặc cháy rừng nếu chưa có trajectory/satellite evidence."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Tầm nhìn biển và haze ảnh hưởng mạnh tới cảm giác ‘biển xanh’ và nhìn xa, nhưng cần tách haze do độ ẩm/mây mù với khói bụi PM2.5. Không nên nhìn đường chân trời mờ rồi kết luận nguồn khói.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_050_hoang-hon-phu-quoc",
+      "number": 50,
+      "title": "Hoàng hôn Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Vietnam Tourism xác định Bãi Trường/Long Beach ở bờ Tây là một trong các điểm ngắm hoàng hôn nổi bật của Phú Quốc do hướng nhìn ra biển.",
+            "source_ids": [
+              "vietnam_tourism_phuquoc_sunset"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vietnam_tourism_phuquoc_sunset",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Sunset in Phu Quoc",
+            "url": "https://www.vietnam.travel/things-to-do/sunset-in-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Hoàng hôn là một lợi thế địa lý rất rõ của bờ Tây Phú Quốc. Bãi Trường, Ông Lang, Gành Dầu và nhiều góc phía Tây nhìn thẳng ra biển nên dễ có đường chân trời mở.",
+        "practical": "Đừng tới đúng phút mặt trời lặn. Chừa 30-45 phút trước đó để tìm chỗ, vì phần ánh sáng đẹp thường bắt đầu trước khi mặt trời chạm chân trời.",
+        "expectation_vs_reality": "Mây dày có thể che mặt trời nhưng vẫn cho một bầu trời đẹp sau đó. ‘Không thấy quả cầu mặt trời’ chưa chắc là hoàng hôn thất bại.",
+        "before_you_go": [
+          "Xem giờ mặt trời lặn theo ngày.",
+          "Tính thời gian chạy xe trước khi trời tối.",
+          "Ở bờ đá, cẩn thận khi ánh sáng xuống nhanh."
+        ],
+        "curiosity_questions": [
+          "Vì sao bờ Tây Phú Quốc nổi tiếng hoàng hôn hơn nhiều bãi biển ở bờ Đông Việt Nam?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_051_binh-minh-phu-quoc",
+      "number": 51,
+      "title": "Bình minh Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Vietnam Tourism gợi ý bắt đầu một ngày ở Phú Quốc bằng bình minh và hoạt động biển buổi sáng.",
+            "source_ids": [
+              "vietnam_tourism_day_phuquoc"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_SOURCE",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Visit Phu Quoc mô tả Hàm Ninh nằm ở phía Đông đảo, tạo hướng nhìn ra biển phù hợp cho bình minh.",
+            "source_ids": [
+              "visitpq_hamninh_20260824"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_LOCATION",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vietnam_tourism_day_phuquoc",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Một ngày ở Phú Quốc",
+            "url": "https://www.vietnam.travel/vi/things-to-do/day-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_hamninh_20260824",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Hàm Ninh",
+            "url": "https://visitphuquoc.com.vn/vi/ham-ninh-phu-quoc-review-chi-tiet-lang-chai-yen-binh-giua-dao-ngoc-15023",
+            "published_at": "2026-08-24",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Muốn xem bình minh, hãy nghĩ về phía Đông trước: Hàm Ninh và các vùng bờ Đông có hướng nhìn phù hợp hơn bờ Tây. Nhưng mây thấp ngoài biển có thể che mặt trời dù trời trên đầu khá sáng.",
+        "practical": "Tới trước giờ mặt trời mọc 20-30 phút. Nếu đi Hàm Ninh, kiểm tra lối bờ/cầu hiện tại thay vì dựa vào ảnh cũ.",
+        "expectation_vs_reality": "Bình minh không cần một ‘điểm check-in’ cố định; điều quan trọng là hướng nhìn Đông đủ thoáng và access an toàn lúc còn tối.",
+        "before_you_go": [
+          "Tính đường đi khi trời chưa sáng.",
+          "Không đứng ở mép cầu/bờ nguy hiểm để chụp ảnh.",
+          "Xem mây và mưa phía chân trời Đông trước khi đi."
+        ],
+        "curiosity_questions": [
+          "Bờ Đông Phú Quốc thức dậy khác bờ Tây như thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_052_mua-trai-cay-tren-dao",
+      "number": 52,
+      "title": "Mùa trái cây trên đảo",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần nguồn nông nghiệp hoặc dữ liệu vườn thực địa.",
+          "Không lấy lịch mùa của Đồng bằng sông Cửu Long rồi áp nguyên cho Phú Quốc.",
+          "Nấm tràm có mùa đầu mưa rõ nhưng không phải ‘trái cây’."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Phú Quốc có vườn cây và nhiều loại trái cây, nhưng chưa nên dựng một ‘lịch mùa trái cây’ nếu chưa có dữ liệu nông nghiệp địa phương theo giống và tháng. Mùa thu hoạch có thể đổi theo mưa, vườn và năm.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_053_nguon-nuoc-ngot-tren-dao",
+      "number": 53,
+      "title": "Nguồn nước ngọt trên đảo",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu 2026 ghi nhận khoảng 349,6 ha đất ngập nước ngọt trong Vườn quốc gia Phú Quốc và nhấn mạnh vai trò rừng đầu nguồn đối với điều tiết dòng chảy, chất lượng nước.",
+            "source_ids": [
+              "vnuf_phuquoc_freshwater_wetland_2026"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Quy hoạch cấp nước địa phương mô tả Hồ Dương Đông là một nguồn chứa nước mặt quan trọng cho cấp nước đảo.",
+            "source_ids": [
+              "phuquoc_water_supply_plan"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vnuf_phuquoc_freshwater_wetland_2026",
+            "source_type": "ACADEMIC",
+            "label": "Đất ngập nước ngọt ở Vườn quốc gia Phú Quốc",
+            "url": "https://journal.vnuf.edu.vn/vi/article/view/2119",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_water_supply_plan",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch cấp nước",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cap-nuoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Phú Quốc là đảo nên nước ngọt là câu chuyện lớn hơn nhiều khách tưởng. Rừng đầu nguồn, suối, đất ngập nước và hồ chứa cùng giữ vai trò trong việc có đủ nước qua mùa khô.",
+        "practical": "Với khách, điều này giải thích vì sao bảo vệ rừng và lưu vực không chỉ là chuyện ‘giữ cảnh đẹp’. Nó liên quan trực tiếp tới nước sinh hoạt của đảo.",
+        "expectation_vs_reality": "Có mưa nhiều vào mùa mưa không có nghĩa đảo luôn dư nước; vấn đề là giữ và phân phối nước qua nhiều tháng ít mưa.",
+        "before_you_go": [
+          "Không xả rác hoặc hóa chất vào suối/hồ.",
+          "Không coi nước suối tự nhiên là nước uống an toàn nếu chưa xử lý.",
+          "Tôn trọng khu vực hồ/công trình cấp nước hạn chế access."
+        ],
+        "curiosity_questions": [
+          "Một hòn đảo giữa biển lấy nước ngọt ở đâu để sống qua mùa khô?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_054_dia-chat-phu-quoc",
+      "number": 54,
+      "title": "Địa chất Phú Quốc",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Luận án tại ĐHQG TP.HCM nghiên cứu cấu trúc bể trầm tích Mesozoi muộn Phú Quốc và mô tả một đơn vị đồng tụ Dương Đông trong lịch sử cấu trúc khu vực.",
+            "source_ids": [
+              "vnuhcm_phuquoc_geology_thesis_2020"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vnuhcm_phuquoc_geology_thesis_2020",
+            "source_type": "ACADEMIC",
+            "label": "Cấu trúc địa chất bể trầm tích Mesozoi muộn Phú Quốc",
+            "url": "https://stg.vnuhcm.edu.vn/dao-tao_33373364/cau-truc-dia-chat-be-tram-tich-mesozoi-muon-phu-quoc-khu-vuc-tay-nam-viet-nam-ncs-dao-viet-canh/323637323364.html",
+            "published_at": "2020",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Cần thêm bản đồ địa chất chi tiết trước khi gắn lithology cụ thể cho từng điểm du lịch."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dưới lớp rừng và bãi biển, Phú Quốc nằm trong một cấu trúc địa chất trầm tích phức tạp có lịch sử từ Mesozoi muộn. Địa chất giúp giải thích vì sao đảo có núi, bờ đá, cát và các dạng địa hình khác nhau.",
+        "practical": "Knowledge này nên dùng để giải thích cảnh quan, không biến thành một bài địa chất học nặng thuật ngữ trên mặt khách.",
+        "expectation_vs_reality": "Không phải mọi tảng đá ở bờ biển đều có thể tự gắn tuổi/nguồn gốc chỉ bằng nhìn màu và hình dạng.",
+        "before_you_go": [
+          "Không bẻ/lấy mẫu ở khu bảo tồn.",
+          "Nếu kể tuổi đá cụ thể phải có bản đồ/nguồn địa chất tương ứng.",
+          "Tách geology của đảo với geology bể trầm tích rộng hơn quanh Phú Quốc."
+        ],
+        "curiosity_questions": [
+          "Vì sao Phú Quốc vừa có dãy núi dài vừa có những bãi cát rất phẳng?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_055_cua-song-duong-dong",
+      "number": 55,
+      "title": "Cửa sông Dương Đông",
+      "topic_type": "NATURE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "NATURE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu Đại học Cần Thơ đã mô hình hóa thủy văn lưu vực sông Dương Đông và khảo sát ảnh hưởng thay đổi sử dụng đất lên dòng chảy.",
+            "source_ids": [
+              "ctu_duongdong_hydrology_2015"
+            ],
+            "verification_status": "ACADEMIC_SOURCE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Quy hoạch cấp nước địa phương xác định sông/hồ Dương Đông là một phần quan trọng của hệ thống nước mặt của đảo.",
+            "source_ids": [
+              "phuquoc_water_supply_plan"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "ctu_duongdong_hydrology_2015",
+            "source_type": "ACADEMIC",
+            "label": "Ảnh hưởng sử dụng đất lên thủy văn lưu vực sông Dương Đông",
+            "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/2151",
+            "published_at": "2015",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_water_supply_plan",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch cấp nước",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cap-nuoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Sông Dương Đông là một phần của hệ thống nước và đời sống đô thị trung tâm đảo. Dòng sông nối lưu vực phía trong với cửa biển, chợ, cảng và khu dân cư Dương Đông.",
+        "practical": "Khi kể câu chuyện Dương Đông, nên nhìn cả sông chứ không chỉ đường phố. Nước, tàu thuyền và chợ bên sông giải thích khá nhiều về cách thị trấn hình thành.",
+        "expectation_vs_reality": "Sông hiện nay chịu tác động đô thị và sử dụng đất, nên không nên mô tả bằng một hình ảnh ‘làng chài nguyên sơ’ cố định.",
+        "before_you_go": [
+          "Không suy chất lượng nước bằng màu/mùi quan sát đơn lẻ.",
+          "Nếu nói biến đổi dòng chảy cần gắn thời kỳ và nguồn.",
+          "Phân biệt sông Dương Đông với hồ chứa Dương Đông ở thượng lưu."
+        ],
+        "curiosity_questions": [
+          "Sông Dương Đông đã định hình chợ và khu trung tâm đảo như thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
       "topic_id": "knowledge_056_bun-quay-phu-quoc",
       "number": 56,
       "title": "Bún quậy Phú Quốc",
