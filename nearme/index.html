@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Quanh đây - Open Phu Quoc</title>
-  <meta name="description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi, quán ăn, nhà hàng và cà phê quanh Phú Quốc.">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="nearme.css?v=6">
+  <meta name="description" content="Tìm địa chỉ, điểm tham quan, khách sạn, bãi biển, quán ăn và tiện ích quanh Phú Quốc.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="nearme.css?v=7">
 <link rel="stylesheet" href="../ecosystem-shell.css?v=20260921b">
   <link rel="canonical" href="https://openphuquoc.com/nearme/">
   <meta property="og:site_name" content="Open Phu Quoc">
   <meta property="og:locale" content="vi_VN">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Quanh đây - Open Phu Quoc">
-  <meta property="og:description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi, quán ăn, nhà hàng và cà phê quanh Phú Quốc.">
+  <meta property="og:description" content="Tìm địa chỉ, điểm tham quan, khách sạn, bãi biển, quán ăn và tiện ích quanh Phú Quốc.">
   <meta property="og:url" content="https://openphuquoc.com/nearme/">
   <meta property="og:image" content="https://openphuquoc.com/assets/logo-master.png">
   <meta property="og:image:alt" content="Open Phu Quoc">
@@ -20,7 +20,7 @@
   <meta property="og:image:height" content="361">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Quanh đây - Open Phu Quoc">
-  <meta name="twitter:description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi, quán ăn, nhà hàng và cà phê quanh Phú Quốc.">
+  <meta name="twitter:description" content="Tìm địa chỉ, điểm tham quan, khách sạn, bãi biển, quán ăn và tiện ích quanh Phú Quốc.">
   <meta name="twitter:image" content="https://openphuquoc.com/assets/logo-master.png">
   <meta name="application-name" content="Open Phu Quoc">
 </head>
@@ -34,12 +34,13 @@
   <main>
     <section class="intro">
       <p>QUANH ĐÂY</p>
-      <h1>Tìm thứ bạn cần quanh đây.</h1>
-      <span>Chọn một khu vực, hoặc bấm dùng vị trí khi bạn muốn tìm gần nơi mình đang đứng.</span>
+      <h1>Tìm địa chỉ và chỗ cần đến quanh đây.</h1>
+      <span>Tìm tên địa điểm, khách sạn hay tiện ích. Chọn khu nếu bạn chỉ muốn xem một phần của đảo.</span>
     </section>
 
     <section class="near-layout">
       <div class="controls">
+        <label class="near-search"><span>Tìm trên đảo</span><input id="nearSearch" type="search" placeholder="Ví dụ: Dinh Cậu, JW Marriott, ATM, Bãi Sao..." autocomplete="off"></label>
         <button id="useLocation" type="button">⌖ Dùng vị trí của tôi</button>
         <div class="area-row" id="areaRow" aria-label="Chọn khu vực"></div>
         <div class="category-row" id="categoryRow" aria-label="Chọn loại tiện ích"></div>
@@ -55,7 +56,7 @@
       </div>
 
       <div class="results-head">
-        <div><p>TIỆN ÍCH</p><h2 id="resultsTitle">Toàn đảo</h2></div>
+        <div><p>ĐỊA CHỈ & QUANH ĐÂY</p><h2 id="resultsTitle">Toàn đảo</h2></div>
         <span id="resultsCount"></span>
       </div>
       <div class="results" id="nearResults"></div>
@@ -67,6 +68,6 @@
     <span>Vị trí của bạn chỉ được dùng trong phiên này khi bạn chủ động bật.</span>
   </footer>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="../map-basemap.js?v=1"></script><script src="nearme.js?v=12"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="../map-basemap.js?v=1"></script><script src="nearme.js?v=13"></script>
 </body>
 </html>
