@@ -678,6 +678,21 @@
         "place_vinpearl_safari",
         "trip_clock"
       ]
+    },
+    {
+      "id": "google_maps_location_lookup",
+      "type": "MAP_DIRECTORY",
+      "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+      "url": "https://maps.google.com/",
+      "dynamic": true,
+      "trust": "LOCATION_LOOKUP",
+      "used_by": [
+        "map_geocoding",
+        "home_near_me",
+        "places",
+        "hotels",
+        "utilities"
+      ]
     }
   ],
   "rules": [
@@ -685,6 +700,11 @@
     "Dữ liệu động phải có checked_at/collected_at và không được lấy mốc handbook làm trạng thái hiện tại.",
     "Nguồn live vận hành là lớp riêng, không chỉnh bằng CMS editorial.",
     "Quan sát, dự báo, mô hình và bằng chứng trực tiếp phải giữ nhãn khác nhau.",
-    "Nếu machine-readable live feed chưa resolve, hiển thị trạng thái thiếu thay vì mô phỏng như dữ liệu thật."
+    "Nếu machine-readable live feed chưa resolve, hiển thị trạng thái thiếu thay vì mô phỏng như dữ liệu thật.",
+    "Entity có lat/lon đã xác minh thì giữ nguyên tọa độ đó, không geocode đè.",
+    "Entity chưa có lat/lon nhưng có tên hoặc địa chỉ phải tra Google Maps trước khi để trống pin.",
+    "Nếu địa chỉ chung chung, dùng tên + địa chỉ + Phú Quốc để tìm kết quả Google phù hợp trong phạm vi đảo rồi lưu lat/lon vào entity.",
+    "Tọa độ suy từ Google phải lưu source, verified_at, lookup_query và mức precision; kết quả ở mức đường/khu vực dùng area_anchor, không giả là cửa vào chính xác.",
+    "Geocode là bước enrich dữ liệu, không chạy lại mỗi lần người dùng mở bản đồ."
   ]
 }
