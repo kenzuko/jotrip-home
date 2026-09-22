@@ -39,9 +39,9 @@
     },
     "linked_to_canonical_entity": 43,
     "unlinked": 107,
-    "ready_internal": 126,
-    "queued": 3,
-    "hold": 21
+    "ready_internal": 128,
+    "queued": 0,
+    "hold": 22
   },
   "topics": [
     {
@@ -3680,7 +3680,7 @@
       "crawl_brief": "Location, photos, changes, local memory.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3704,7 +3704,7 @@
       "crawl_brief": "Vessel types, ports, economics, oral/documentary sources.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3727,8 +3727,11 @@
       "topic_type": "MEMORY_CHANGE",
       "crawl_brief": "Morning market, sea departures, midday heat, sunset, night economy.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_ham_ninh",
+        "place_dinh_cau"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
