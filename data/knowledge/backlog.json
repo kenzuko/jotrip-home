@@ -25,11 +25,11 @@
       "ACTIVITY": 15,
       "MEMORY_CHANGE": 12
     },
-    "linked_to_canonical_entity": 33,
-    "unlinked": 117,
-    "ready_internal": 64,
-    "queued": 77,
-    "hold": 9
+    "linked_to_canonical_entity": 34,
+    "unlinked": 116,
+    "ready_internal": 83,
+    "queued": 57,
+    "hold": 10
   },
   "topics": [
     {
@@ -65,7 +65,7 @@
       "crawl_brief": "Lịch sử đô thị, sông, chợ, cảng cá, khu cũ, thay đổi theo thời gian.",
       "canonical_entity_id": "zone_central_west",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -113,7 +113,7 @@
       "crawl_brief": "Lịch sử, cảng, khu dân cư, chợ, nghề biển, đô thị hóa, practical.",
       "canonical_entity_id": "zone_south",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -161,7 +161,7 @@
       "crawl_brief": "Làng chài, cầu cảng, nghề biển, ghẹ, thay đổi cảnh quan, practical hiện tại.",
       "canonical_entity_id": "place_ham_ninh",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -185,7 +185,7 @@
       "crawl_brief": "Lịch sử khu vực, làng dân cư, bờ biển, practical, thay đổi theo thời gian.",
       "canonical_entity_id": "zone_north",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -233,7 +233,7 @@
       "crawl_brief": "Nguồn gốc tên, sông, làng, bãi biển, practical, lịch sử địa phương.",
       "canonical_entity_id": "place_cua_can",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -257,7 +257,7 @@
       "crawl_brief": "Khu dân cư, trục giao thông, local life, practical, kết nối Bắc đảo.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -281,7 +281,7 @@
       "crawl_brief": "Khu dân cư, suối/hồ, phát triển đô thị, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -377,7 +377,7 @@
       "crawl_brief": "Đặc điểm bãi, sunset, access, mùa, practical, thay đổi du lịch.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -401,7 +401,7 @@
       "crawl_brief": "Đặc điểm bãi, access, mùa biển, practical, mức độ phát triển.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -425,7 +425,7 @@
       "crawl_brief": "Bờ biển, mùa, resort development, access, practical, lịch sử thay đổi.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -449,7 +449,7 @@
       "crawl_brief": "Đường đi, bờ biển, vùng dân cư, thiên nhiên, practical, mùa.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -473,7 +473,7 @@
       "crawl_brief": "Địa lý, góc nhìn biển, access, lịch sử địa phương, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -496,8 +496,10 @@
       "topic_type": "PLACE",
       "crawl_brief": "Nguồn gốc tên, địa lý, access, lịch sử, dị bản nếu có.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_gieng_tien"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -521,7 +523,7 @@
       "crawl_brief": "Lịch sử đảo, cư dân, cáp treo, beach/activity, transport, practical.",
       "canonical_entity_id": "activity_hon_thom",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -545,7 +547,7 @@
       "crawl_brief": "Tên gọi, địa lý, access, tour context, sinh thái, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -569,7 +571,7 @@
       "crawl_brief": "Tên gọi, snorkeling, sinh thái, điều kiện biển, access, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -593,7 +595,7 @@
       "crawl_brief": "Tên gọi, bãi biển, tour access, amenities, sinh thái, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -617,7 +619,7 @@
       "crawl_brief": "Tên gọi, điều kiện biển, tour access, sinh thái, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -665,7 +667,7 @@
       "crawl_brief": "Mùa nước, access, walking, địa chất, safety, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -689,7 +691,7 @@
       "crawl_brief": "Phạm vi, hệ sinh thái, vùng bảo vệ, access công cộng, quy định.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
