@@ -8823,9 +8823,9 @@
         ]
       },
       "editorial": {
-        "short_summary": "Kayak ở Phú Quốc hay nhất khi mặt nước đủ yên để mình thật sự nhìn ngắm xung quanh, chứ không phải vật lộn với gió. Với người mới, sông hoặc vịnh kín thường dễ chịu hơn chèo ra vùng biển trống. Cửa Cạn là một lựa chọn đáng cân nhắc vì trải nghiệm thiên về sông và nhịp ven bờ.",
-        "practical": "Trước khi xuống nước, nhìn ba thứ: gió có đẩy mạnh không, mặt nước có nổi sóng liên tục không, và tuyến mình chèo có tàu/cano chạy qua không. Có áo phao, biết điểm quay đầu và đừng chèo xa chỉ vì lúc đi đang thuận gió.",
-        "expectation_vs_reality": "Kayak không cần biển xanh như ảnh quảng cáo mới vui. Một đoạn sông yên hoặc bờ có rừng ngập mặn đôi khi thú vị hơn nhiều, nhất là với người lần đầu. Ngược lại, trời nắng đẹp không có nghĩa mặt nước đang phù hợp để chèo.",
+        "short_summary": "Kayak ở Phú Quốc vui nhất khi mình còn đủ thong thả để ngẩng lên nhìn bờ, nhìn rừng và nghe tiếng nước, chứ không phải cúi đầu chèo liên tục để chống lại gió. Với người mới, một đoạn sông hoặc vịnh kín thường dễ chịu hơn nhiều so với lao thẳng ra vùng biển trống.",
+        "practical": "Trước khi xuống nước, đứng trên bờ nhìn vài phút. Nếu gió cứ đẩy mặt nước chạy một chiều, sóng nhỏ liên tục táp vào mạn hoặc tàu/cano cắt ngang tuyến mình định chèo, hôm đó nên đổi chỗ hoặc đổi hoạt động. Có áo phao, biết điểm quay đầu và nhớ rằng lúc đi thuận gió thì lúc về có thể sẽ mệt gấp đôi.",
+        "expectation_vs_reality": "Kayak không cần biển xanh phẳng như ảnh quảng cáo mới đáng đi. Một đoạn sông Cửa Cạn có bóng cây, nhà ven bờ và mặt nước chậm đôi khi lại dễ nhớ hơn. Ngược lại, trời nắng đẹp mà gió đẩy mạnh thì trải nghiệm vẫn có thể rất mệt.",
         "before_you_go": [
           "Mặc áo phao từ lúc xuống kayak.",
           "Mang điện thoại trong túi chống nước.",
@@ -8836,6 +8836,255 @@
           "Hôm nay Cửa Cạn hay biển ngoài bờ hợp chèo hơn?",
           "Gió đang thổi theo hướng nào và lúc quay về có thành ngược gió không?",
           "Chèo kayak ở sông khác gì chèo ngoài biển?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_130_beach-day",
+      "number": 130,
+      "title": "Beach day",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_bai_truong",
+        "place_bai_sao",
+        "place_bai_khem",
+        "place_cua_can"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY_DECISION",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu bờ Tây Phú Quốc cho thấy mùa gió Tây Nam tạo sóng cao hơn và năng lượng sóng mạnh hơn mùa gió Đông Bắc; đây là một lý do không nên mặc định bờ Tây lúc nào cũng là lựa chọn đẹp nhất cho một ngày tắm biển.",
+            "source_ids": [
+              "huynh_et_al_2014_west_phu_quoc_erosion"
+            ],
+            "verification_status": "ACADEMIC_RESEARCH",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu năm 2024 tại Cửa Cạn tiếp tục cho thấy bờ biển Phú Quốc biến đổi theo vận chuyển bùn cát ven bờ, nên hình dạng bãi và dải cát không phải lúc nào cũng giống ảnh cũ.",
+            "source_ids": [
+              "nguyen_et_al_2024_cua_can_lstr"
+            ],
+            "verification_status": "ACADEMIC_RESEARCH",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nguồn chính quyền địa phương ghi trong mùa mưa, khi bờ Tây chịu sóng lớn, vùng Hàm Ninh phía Đông có thể trở thành khu neo đậu yên hơn. Điều này hỗ trợ cách chọn bờ theo điều kiện thực tế thay vì một lịch cố định.",
+            "source_ids": [
+              "pqgov_ham_ninh_2026"
+            ],
+            "verification_status": "OFFICIAL_LOCAL_OBSERVATION",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "huynh_et_al_2014_west_phu_quoc_erosion",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Huynh Trung Tin, Le Hoai Nam, Bui Trong Vinh - Mechanism of Beach Erosion at the West of Phu Quoc Island, Southern Vietnam",
+            "url": "https://www.researchgate.net/publication/283504491_MECHANISM_OF_BEACH_EROSION_AT_THE_WEST_OF_PHU_QUOC_ISLAND_SOUTHERN_VIETNAM",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "nguyen_et_al_2024_cua_can_lstr",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Nguyen Anh Huy và cs. - Longshore sediment transport rate at a pocket beach in Phu Quoc City, Kien Giang Province, Vietnam",
+            "url": "https://vjol.info.vn/TCtongcuckhituongthuyvan/vi/article/view/99553/",
+            "published_at": "2024-07-11",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pqgov_ham_ninh_2026",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Hàm Ninh điểm đến lý tưởng của Phú Quốc",
+            "url": "https://phuquoc.angiang.gov.vn/ham-ninh-diem-den-ly-tuong-cua-phu-quoc",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không khóa một bãi 'đẹp nhất' theo tháng. Mưa, gió, sóng, rong, bồi-xói và hoạt động ven bờ thay đổi theo ngày và mùa.",
+          "Không dùng ảnh cũ của resort hay mạng xã hội để suy tình trạng bãi hiện tại.",
+          "Quyết định tắm biển trong ngày phải lấy Weather/Live và quan sát tại chỗ, không chỉ từ knowledge."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Một ngày đi biển ở Phú Quốc nên bắt đầu bằng câu hỏi 'hôm nay bờ nào đang dễ chịu hơn?', chứ không phải 'bãi nào nổi tiếng nhất?'. Có ngày Bãi Trường nắng rất đẹp nhưng sóng và gió làm nước đục, trong khi một bãi phía Đông lại êm hơn. Cũng có những ngày điều ngược lại xảy ra.",
+        "practical": "Nếu mục tiêu là nằm chơi, tắm và ở lâu dưới nước, hãy chọn bãi theo gió và sóng của chính ngày đó. Đứng nhìn mặt biển trước khi xuống: nước có liên tục dồn vào bờ không, gió có cuốn cát bay không, có dòng nước kéo ngang dọc bãi không. Nếu mọi thứ khiến mình phải gồng lên thay vì thư giãn, đổi bãi thường đáng hơn cố giữ lịch.",
+        "expectation_vs_reality": "Bãi biển là thứ thay đổi. Dải cát có thể rộng hơn, hẹp hơn, có rong hoặc nước đục hơn ảnh quảng cáo chỉ vài tuần trước. Một 'beach day' ngon là ngày mình chọn đúng bờ cho thời tiết hôm đó, không phải ngày mình cố tới đúng cái tên đã lưu từ trước chuyến đi.",
+        "before_you_go": [
+          "Xem gió, sóng và mưa trong ngày trước khi chọn bờ.",
+          "Mang nước, chống nắng và chỗ che nắng nếu định ở lâu.",
+          "Nếu biển có dòng kéo mạnh, cờ cảnh báo hoặc nhân viên bãi khuyên không xuống nước thì đổi hoạt động.",
+          "Đừng mặc định bãi đẹp trong ảnh hôm qua sẽ giống hệt hôm nay."
+        ],
+        "curiosity_questions": [
+          "Hôm nay bờ Tây hay bờ Đông dễ chịu hơn để tắm?",
+          "Vì sao cùng một bãi có hôm nước trong, hôm lại đục và nhiều rong?",
+          "Gió mùa làm bờ Tây Phú Quốc thay đổi ra sao?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_131_sunset-watching",
+      "number": 131,
+      "title": "Sunset watching",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_bai_truong"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY_DECISION",
+      "research": {
+        "claims": [
+          {
+            "claim": "Bãi Trường và nhiều đoạn bờ Tây Phú Quốc có hướng nhìn mở về phía Tây, phù hợp để quan sát mặt trời xuống phía vịnh Thái Lan.",
+            "source_ids": [
+              "visitpq_bai_truong_20260922",
+              "visitpq_sunset_views_2026"
+            ],
+            "verification_status": "CURRENT_DESTINATION_GUIDANCE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Khả năng thấy mặt trời chạm đường chân trời phụ thuộc mây, mưa và tầm nhìn; thời điểm mặt trời lặn thay đổi theo ngày nên không nên đóng cứng một giờ trong knowledge object.",
+            "source_ids": [
+              "visitpq_sunset_views_2026"
+            ],
+            "verification_status": "DYNAMIC_CONDITION_NOTE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_bai_truong_20260922",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Bãi Trường Phú Quốc",
+            "url": "https://visitphuquoc.com.vn/vi/bai-truong-phu-quoc-bai-bien-dai-nhat-phu-quoc-20km-228",
+            "published_at": "2026-09-22",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_sunset_views_2026",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Phu Quoc's Best Sunset Views",
+            "url": "https://visitphuquoc.com.vn/en/phu-quocs-best-sunset-views-top-destinations-not-to-be-missed-9646",
+            "published_at": "2026-05-29",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không lưu một giờ sunset cố định; lấy giờ thiên văn theo ngày và vị trí từ utility/live layer.",
+          "Một điểm ở phía Tây không tự động có đường chân trời trống; công trình, mũi đất, đảo nhỏ và mây có thể che.",
+          "Không hứa màu trời cam/đỏ. Màu hoàng hôn phụ thuộc mây, độ ẩm và tầm nhìn."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Hoàng hôn ở Phú Quốc không chỉ là khoảnh khắc mặt trời chạm biển. Cái hay bắt đầu sớm hơn, khi nắng bớt gắt, mặt nước đổi màu và cả bờ biển chậm lại. Bãi Trường là lựa chọn dễ hiểu vì quay về phía Tây, nhưng một chỗ ngồi thoáng, không bị công trình che và hợp đường đi của mình thường quan trọng hơn việc săn đúng một 'tọa độ hot'.",
+        "practical": "Đừng canh tới đúng giờ mặt trời lặn mới chạy ra bờ. Tới sớm hơn một chút để chọn chỗ ngồi, nhìn xem đường chân trời có bị mây che hay không, rồi cứ để buổi chiều trôi. Nếu mây dày đúng phía Tây, đừng thất vọng quá - đôi khi ánh sáng sau khi mặt trời khuất mới là đoạn đẹp nhất.",
+        "expectation_vs_reality": "Không phải chiều nào cũng có quả cầu đỏ rơi thẳng xuống biển. Có hôm trời chỉ sáng dịu rồi tắt sau một lớp mây. Hoàng hôn vẫn đáng xem nếu mình thích cái cảm giác cuối ngày trên bờ biển, chứ không chỉ đi săn một tấm ảnh.",
+        "before_you_go": [
+          "Lấy giờ mặt trời lặn theo đúng ngày, đừng dùng một mốc giờ cố định quanh năm.",
+          "Chọn nơi có hướng nhìn thoáng về Tây và có chỗ ngồi an toàn.",
+          "Nếu kết hợp ăn tối hoặc show, chừa thời gian di chuyển thay vì rời bãi đúng phút cuối.",
+          "Đừng đứng sát mép đá hoặc xuống nước sâu chỉ để lấy góc ảnh."
+        ],
+        "curiosity_questions": [
+          "Hôm nay mặt trời lặn lúc mấy giờ ở Phú Quốc?",
+          "Mây phía Tây hôm nay có che đường chân trời không?",
+          "Bãi Trường và Nam đảo cho cảm giác hoàng hôn khác nhau thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_132_sunrise-watching",
+      "number": 132,
+      "title": "Sunrise watching",
+      "topic_type": "ACTIVITY",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_ham_ninh",
+        "place_bai_khem"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ACTIVITY_DECISION",
+      "research": {
+        "claims": [
+          {
+            "claim": "Hàm Ninh nằm ở phía Đông Phú Quốc và nguồn chính quyền địa phương đặc biệt gợi ý trải nghiệm nơi này vào sáng sớm; vị trí này phù hợp để quan sát ánh sáng đầu ngày trên biển.",
+            "source_ids": [
+              "pqgov_ham_ninh_2026"
+            ],
+            "verification_status": "OFFICIAL_LOCAL_GUIDANCE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nguồn du lịch hiện hành cũng giới thiệu trải nghiệm bình minh ở các khu phía Đông/Đông Nam như Bãi Khem, nhưng giờ mặt trời mọc và khả năng quan sát phải lấy theo ngày và mây thực tế.",
+            "source_ids": [
+              "visitpq_bai_khem_sunrise_2026",
+              "visitpq_sup_sunrise_2026"
+            ],
+            "verification_status": "CURRENT_VISITOR_GUIDANCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_ham_ninh_2026",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Hàm Ninh điểm đến lý tưởng của Phú Quốc",
+            "url": "https://phuquoc.angiang.gov.vn/ham-ninh-diem-den-ly-tuong-cua-phu-quoc",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_bai_khem_sunrise_2026",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Bình minh Bãi Khem Phú Quốc",
+            "url": "https://visitphuquoc.com.vn/vi/binh-minh-bai-kem-phu-quoc-khoanh-khac-bien-troi-ruc-sang-14863",
+            "published_at": "2026-08-21",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_sup_sunrise_2026",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Trải nghiệm chèo SUP ngắm bình minh Phú Quốc 2026",
+            "url": "https://visitphuquoc.com.vn/vi/trai-nghiem-cheo-sup-ngam-binh-minh-phu-quoc-2026-day-me-hoac-15910",
+            "published_at": "2026-09",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không lưu giờ sunrise cố định; dùng utility/live theo ngày.",
+          "Không mặc định mọi bãi phía Đông đều có đường chân trời trống hoặc access công cộng thuận tiện.",
+          "Nếu kết hợp SUP/kayak, quyết định xuống nước phải dựa Weather/Live và người vận hành chứ không chỉ vì trời quang."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Bình minh Phú Quốc có một kiểu đẹp khác hẳn hoàng hôn. Ở phía Đông như Hàm Ninh, buổi sáng đến cùng tiếng tàu thuyền, người đi biển và một mặt nước đang dần sáng lên. Nếu muốn một buổi sớm thật có cảm giác đảo đang thức dậy, Hàm Ninh thường thú vị hơn việc chỉ đi tìm một bãi cát để chụp mặt trời.",
+        "practical": "Đi sớm tới mức mình còn thấy trời đổi từ xám sang xanh, chứ đừng tới đúng phút mặt trời ló lên. Chọn bờ nhìn ra hướng Đông, xem mây thấp ngoài biển có dày không và nhớ rằng lúc sáng sớm nhiều khu còn khá vắng. Nếu đi một mình, ưu tiên chỗ dễ tiếp cận và có người dân hoạt động quanh đó.",
+        "expectation_vs_reality": "Bình minh không phải lúc nào cũng hiện thành một quả cầu đỏ rõ ràng. Có ngày mây thấp che mất mặt trời nhưng ánh sáng vẫn tràn dần lên mặt biển. Nếu mình thích nhịp sống buổi sớm, chuyến đi vẫn đáng ngay cả khi không có tấm ảnh 'mặt trời mọc' hoàn hảo.",
+        "before_you_go": [
+          "Xem giờ mặt trời mọc đúng ngày và đi sớm hơn để thấy cả quá trình trời sáng.",
+          "Ưu tiên chỗ nhìn thoáng về Đông và dễ tiếp cận lúc còn tối.",
+          "Mang đèn nhỏ nếu phải đi qua đoạn đường tối.",
+          "Nếu định xuống SUP/kayak, kiểm tra gió và nước riêng - trời đẹp không đồng nghĩa mặt nước dễ chơi."
+        ],
+        "curiosity_questions": [
+          "Hôm nay mặt trời mọc lúc mấy giờ ở Phú Quốc?",
+          "Hàm Ninh sáng sớm có gì khác một bãi biển resort?",
+          "Mây thấp ngoài biển ảnh hưởng cảnh bình minh như thế nào?"
         ]
       },
       "updated_at": "2026-09-22"
