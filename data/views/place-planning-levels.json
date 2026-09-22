@@ -355,6 +355,46 @@
       "watch_outs": [
         "Tính mùa vụ cao; cần kiểm tra nước và vận hành"
       ]
+    },
+    {
+      "entity_id": "activity_tinh_hoa_viet_nam",
+      "level": 3,
+      "strengths": [
+        "Show thực cảnh dễ ghép khi đã dành buổi tối ở Grand World"
+      ],
+      "watch_outs": [
+        "Kiểm tra lịch đúng ngày và nên có mặt sớm trước giờ diễn"
+      ]
+    },
+    {
+      "entity_id": "activity_once_show",
+      "level": 3,
+      "strengths": [
+        "Hợp để kết thúc ngày nếu bạn đã ở VinWonders tới chiều tối"
+      ],
+      "watch_outs": [
+        "Không cần chạy riêng lên Bắc đảo chỉ để xem show này"
+      ]
+    },
+    {
+      "entity_id": "activity_sac_mau_venice",
+      "level": 3,
+      "strengths": [
+        "Dễ ghép sau Tinh Hoa Việt Nam trong cùng khu Grand World"
+      ],
+      "watch_outs": [
+        "Show ngoài trời, lịch có thể thay đổi khi thời tiết xấu hoặc có sự kiện đặc biệt"
+      ]
+    },
+    {
+      "entity_id": "place_teddy_bear_museum",
+      "level": 3,
+      "strengths": [
+        "Điểm trong nhà nhẹ, hợp gia đình hoặc lúc đang ở Grand World"
+      ],
+      "watch_outs": [
+        "Nên chừa khoảng 60-90 phút; không cần chạy riêng lên Bắc đảo chỉ vì điểm này"
+      ]
     }
   ]
 }
