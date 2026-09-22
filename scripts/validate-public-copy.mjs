@@ -29,7 +29,8 @@ const files=[
   "transit/index.html",
   "transit/app.js",
   "about/index.html",
-  "stories/story.js"
+  "stories/story.js",
+  "food/food.js"
 ];
 
 const banned=[
