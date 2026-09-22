@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-22T01:09:53.318Z",
+  "generated_at": "2026-09-22T01:34:22.276Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 204,
     "with_address": 204,
-    "with_map": 30,
+    "with_map": 161,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -273,7 +273,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Amarin%20Resort%20and%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.1820083,
+        "lon": 103.9676419,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Amarin Resort and Spa, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -317,7 +324,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=An%20Ph%C3%BA",
-      "map": null,
+      "map": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "An Phú, 182A đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -339,7 +353,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn 4 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Aquasun",
-      "map": null,
+      "map": {
+        "lat": 10.1937422,
+        "lon": 103.965529,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Aquasun, Hẻm 124, Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -361,7 +382,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn 4 sao tại Dương Đông.",
       "route": "/hotels/?q=AVS%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.2007569,
+        "lon": 103.9638791,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "AVS Hotel Phú Quốc, 100C Trần Hưng Đạo, Tổ 7, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -383,7 +411,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
       "route": "/hotels/?q=B%E1%BA%A1ch%20D%C6%B0%C6%A1ng%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.2244816,
+        "lon": 103.9679771,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Bạch Dương Resort, 13 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -405,7 +440,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
       "route": "/hotels/?q=Best%20Western%20Premier%20Sonasea%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.1308696,
+        "lon": 103.9891824,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Best Western Premier Sonasea Phú Quốc, Khu tổ hợp du lịch Sonasea Villas and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -427,7 +469,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Bi%E1%BB%83n%20Xanh",
-      "map": null,
+      "map": {
+        "lat": 10.2063333,
+        "lon": 103.9633622,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Biển Xanh, 85 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -449,7 +498,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Boulevard",
-      "map": null,
+      "map": {
+        "lat": 10.2054648,
+        "lon": 103.9640814,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Boulevard, 89 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -471,7 +527,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn 3 sao tại Dương Đông.",
       "route": "/hotels/?q=Brenta%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.1953628,
+        "lon": 103.9649362,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Brenta Phú Quốc, Hẻm 118, KP8, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -515,7 +578,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Camellia%20Resort%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Camellia Resort & Spa, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -537,7 +607,14 @@
       "star_rating": 2,
       "what_it_is": "Khách sạn nghỉ dưỡng 2 sao tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Chensea",
-      "map": null,
+      "map": {
+        "lat": 10.2573819,
+        "lon": 103.936662,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Chensea, Bãi Xếp, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -561,7 +638,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Coco%20Palm%20Beach%20Resort%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.2570102,
+        "lon": 103.9388403,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Coco Palm Beach Resort & Spa, Ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -585,7 +669,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn 3 sao tại Dương Đông.",
       "route": "/hotels/?q=Coral%20Bay%20Resort%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.1933086,
+        "lon": 103.9646826,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Coral Bay Resort Phu Quoc, Hẻm 118/2, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -607,7 +698,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Cottage%20Village",
-      "map": null,
+      "map": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Cottage Village, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -629,7 +727,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=C%C3%B4ng%20ty%20C%E1%BB%95%20ph%E1%BA%A7n%20Th%C3%A1c%20B%E1%BA%A1c",
-      "map": null,
+      "map": {
+        "lat": 10.1871146,
+        "lon": 103.9709938,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Công ty Cổ phần Thác Bạc, Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -651,7 +756,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Crowne%20Plaza%20Ph%C3%BA%20Qu%E1%BB%91c%20Starbay",
-      "map": null,
+      "map": {
+        "lat": 10.3170258,
+        "lon": 103.8578219,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Crowne Plaza Phú Quốc Starbay, KDL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -695,7 +807,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
       "route": "/hotels/?q=Daisy%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.2007166,
+        "lon": 103.9716538,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Daisy Resort, Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -717,7 +836,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Dusit%20Princess%20Moonrise%20Beach%20Resort%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Dusit Princess Moonrise Beach Resort Phu Quoc, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -761,7 +887,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=%C4%90%E1%BA%A3o%20Ng%E1%BB%8Dc%20Th%E1%BA%BF%20K%E1%BB%B7%2021",
-      "map": null,
+      "map": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Đảo Ngọc Thế Kỷ 21, 76A Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -783,7 +916,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=%C4%90%E1%BB%A9c%20Lam%20H%C3%A0",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Đức Lam Hà, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -805,7 +945,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
       "route": "/hotels/?q=ECO%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.1921779,
+        "lon": 103.9665575,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "ECO Resort Phú Quốc, 143 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -827,7 +974,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Elwood%20Resort%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Elwood Resort Phu Quoc, Tổ 5, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -849,7 +1003,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Eo%20Xo%C3%A0i",
-      "map": null,
+      "map": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Eo Xoài, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -871,7 +1032,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=%C3%8A%20%C4%90en",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Ê Đen, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -893,7 +1061,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Famiana%20Resort%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.1871146,
+        "lon": 103.9709938,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Famiana Resort & Spa, Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -937,7 +1112,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Gaia%20Hotel",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Gaia Hotel, 71 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -959,7 +1141,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Galaxy",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Galaxy, 77 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -981,7 +1170,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Golden%20Daisy%20Hotel%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Golden Daisy Hotel & Spa, Tổ 7, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1006,7 +1202,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Green%20Bay%20Phu%20Quoc%20Resort%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.2917059,
+        "lon": 103.898977,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Green Bay Phu Quoc Resort & Spa, Tổ 1, ấp 4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1050,7 +1253,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Khác / cần rà.",
       "route": "/hotels/?q=Halona",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Halona, 66 Trần Phú, KP3, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1072,7 +1282,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn 3 sao tại Dương Đông.",
       "route": "/hotels/?q=Home%20Park",
-      "map": null,
+      "map": {
+        "lat": 10.1931481,
+        "lon": 103.9662541,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Home Park, 124 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1094,7 +1311,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
       "route": "/hotels/?q=Homestead%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.1840441,
+        "lon": 103.9678198,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Homestead Phú Quốc Resort, 143A Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1116,7 +1340,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Homestead%20Seaview%20Phu%20Quoc%20Hotel",
-      "map": null,
+      "map": {
+        "lat": 10.1840441,
+        "lon": 103.9678198,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Homestead Seaview Phu Quoc Hotel, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1138,7 +1369,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=HOPAPA",
-      "map": null,
+      "map": {
+        "lat": 10.1989991,
+        "lon": 103.9685924,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "HOPAPA, 127/5 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1160,7 +1398,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=H%E1%BB%93ng%20Tuy%E1%BA%BFt",
-      "map": null,
+      "map": {
+        "lat": 10.2181693,
+        "lon": 103.9602424,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Hồng Tuyết, 10 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1204,7 +1449,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=H%C6%B0%C6%A1ng%20To%C3%A0n%20II",
-      "map": null,
+      "map": {
+        "lat": 10.2233877,
+        "lon": 103.9675406,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Hương Toàn II, 205 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1229,7 +1481,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
       "route": "/hotels/?q=InterContinental%20Phu%20Quoc%20Long%20Beach%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.1126352,
+        "lon": 103.983524,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "InterContinental Phu Quoc Long Beach Resort, Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1275,7 +1534,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Nam đảo - Bãi Khem / Mũi Ông Đội.",
       "route": "/hotels/?q=JW%20Marriott%20Ph%C3%BA%20Qu%E1%BB%91c%20Emerald%20Bay",
-      "map": null,
+      "map": {
+        "lat": 10.0334818,
+        "lon": 104.0281698,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "JW Marriott Phú Quốc Emerald Bay, KDL du lịch sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1297,7 +1563,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Dương Đông.",
       "route": "/hotels/?q=Kim%20Hoa%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.2041977,
+        "lon": 103.96252,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Kim Hoa Resort, 82/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, Phú Quốc"
     },
@@ -1341,7 +1614,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=K%E1%BB%B3%20Hoa",
-      "map": null,
+      "map": {
+        "lat": 10.2233877,
+        "lon": 103.9675406,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Kỳ Hoa, 86 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1365,7 +1645,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Dương Đông.",
       "route": "/hotels/?q=L'Azure%20Resort%20%26%20Spa%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "L'Azure Resort & Spa Phu Quoc, 64 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1387,7 +1674,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=La%20Casa%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.2632766,
+        "lon": 103.9392854,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "La Casa Resort Phú Quốc, Tổ 4, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1434,7 +1728,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Dương Đông.",
       "route": "/hotels/?q=La%20Mer%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.1948968,
+        "lon": 103.9659163,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "La Mer Resort, 118/2/6 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1500,7 +1801,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=LeVan%20Hotel",
-      "map": null,
+      "map": {
+        "lat": 10.2064837,
+        "lon": 103.9632533,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "LeVan Hotel, 79 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1544,7 +1852,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Khác / cần rà.",
       "route": "/hotels/?q=Lotus",
-      "map": null,
+      "map": {
+        "lat": 10.1961798,
+        "lon": 103.9901978,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Lotus, Tổ 4, ấp Suối Đá, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1566,7 +1881,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Lucky%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.198946,
+        "lon": 103.9685821,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Lucky Phú Quốc, 127D Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1588,7 +1910,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn 4 sao tại Dương Đông.",
       "route": "/hotels/?q=M%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.1324574,
+        "lon": 103.9845258,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "M Hotel Phú Quốc, Tổ 3, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1610,7 +1939,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=M%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.2084622,
+        "lon": 103.9647398,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "M Resort, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1632,7 +1968,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Nội đảo - Suối Mây / Suối Đá / Bến Tràm.",
       "route": "/hotels/?q=Maison%20Du%20Vietnam%20Resort%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.1799257,
+        "lon": 103.9830979,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Maison Du Vietnam Resort & Spa, Tổ 12, ấp Bến Tràm, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1678,7 +2021,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Melia%20Vinpearl%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Melia Vinpearl Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1700,7 +2050,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Mercury%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort%20%26%20Villas",
-      "map": null,
+      "map": {
+        "lat": 10.1613182,
+        "lon": 103.9717978,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Mercury Phú Quốc Resort & Villas, Tổ 1, ấp Dương Tơ, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1766,7 +2123,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Mon%20Ami",
-      "map": null,
+      "map": {
+        "lat": 10.2233877,
+        "lon": 103.9675406,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Mon Ami, 150 Nguyễn Trung Trực, KP8, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1790,7 +2154,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=M%C3%B6venpick%20Resort%20Waverly%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Mövenpick Resort Waverly Phu Quoc, Tổ 1, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1814,7 +2185,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn 4 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Muong%20Thanh%20Luxury%20Phu%20Quoc%20Hotel",
-      "map": null,
+      "map": {
+        "lat": 10.1888255,
+        "lon": 103.99297,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Muong Thanh Luxury Phu Quoc Hotel, Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1836,7 +2214,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=M%E1%BB%B9%20Nh%E1%BB%B1t",
-      "map": null,
+      "map": {
+        "lat": 10.2244816,
+        "lon": 103.9679771,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Mỹ Nhựt, 129 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1858,7 +2243,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=My%20Place%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "My Place Phu Quoc, Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1880,7 +2272,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Nesta",
-      "map": null,
+      "map": {
+        "lat": 10.2003518,
+        "lon": 103.963782,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nesta, Tầng trệt số 100C/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1926,7 +2325,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Ng%E1%BB%8Dc%20Ch%C3%A2u",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Ngọc Châu, 66D Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1948,7 +2354,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Nguy%C3%AAn%20Phan%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.241514,
+        "lon": 103.9854362,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nguyên Phan Phú Quốc, 76 Nguyễn Trung Trực, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1970,7 +2383,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Nh%C3%A0%20kh%C3%A1ch%20-%20Tr%E1%BA%A1m%20giao%20d%E1%BB%8Bch%20v%C3%A9%20s%E1%BB%91%20ki%E1%BA%BFn%20thi%E1%BA%BFt%20C%E1%BA%A7n%20Th%C6%A1",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà khách - Trạm giao dịch vé số kiến thiết Cần Thơ, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -1992,7 +2412,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Nh%C3%A0%20kh%C3%A1ch%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.2196528,
+        "lon": 103.9651595,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà khách Phú Quốc, 01 Nguyễn Huệ, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2014,7 +2441,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
       "route": "/hotels/?q=Nh%C3%A0%20Tranh%20-%20Gia%20V%E1%BB%8B",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà Tranh - Gia Vị, Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2036,7 +2470,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Nice%20Life%20Hotel",
-      "map": null,
+      "map": {
+        "lat": 10.2090043,
+        "lon": 103.9661505,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nice Life Hotel, 88 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2058,7 +2499,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Nipola",
-      "map": null,
+      "map": {
+        "lat": 10.2181693,
+        "lon": 103.9602424,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nipola, 40 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2082,7 +2530,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
       "route": "/hotels/?q=Novotel%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.1287774,
+        "lon": 103.9804778,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Novotel Phú Quốc, Khu tổ hợp du lịch Sonasea Villas and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2104,7 +2559,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Ola%20Phu%20Quoc%20Hotel",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Ola Phu Quoc Hotel, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2126,7 +2588,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Dương Đông.",
       "route": "/hotels/?q=Orange%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.203276,
+        "lon": 103.9625384,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Orange Resort, 88/5 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2148,7 +2617,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=ORI",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "ORI, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2192,7 +2668,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Palm%20Hill%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Palm Hill Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2236,7 +2719,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Khác / cần rà.",
       "route": "/hotels/?q=Philip%20Cozy%20Bungalow",
-      "map": null,
+      "map": {
+        "lat": 10.2023747,
+        "lon": 103.964539,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Philip Cozy Bungalow, 131 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2258,7 +2748,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Ph%C3%BA%20H%E1%BB%93ng",
-      "map": null,
+      "map": {
+        "lat": 10.23531,
+        "lon": 104.0019981,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Phú Hồng, 16 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2282,7 +2779,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Phu%20Quoc%20Eco%20Beach%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Phu Quoc Eco Beach Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2326,7 +2830,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Ph%C3%BA%20V%C3%A2n",
-      "map": null,
+      "map": {
+        "lat": 10.1998486,
+        "lon": 103.9675148,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Phú Vân, 126 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2348,7 +2859,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Ph%C3%BAc%20L%E1%BB%99c",
-      "map": null,
+      "map": {
+        "lat": 10.2233877,
+        "lon": 103.9675406,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Phúc Lộc, 193 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2370,7 +2888,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Ph%C6%B0%C6%A1ng%20%C4%90%C3%B4ng",
-      "map": null,
+      "map": {
+        "lat": 10.2317922,
+        "lon": 103.9865868,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Phương Đông, 19 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2438,7 +2963,14 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn 3 sao tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Praha",
-      "map": null,
+      "map": {
+        "lat": 10.1856893,
+        "lon": 103.9686431,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Praha, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2462,7 +2994,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Nam đảo - Bãi Khem / Mũi Ông Đội.",
       "route": "/hotels/?q=Premier%20Residences%20Ph%C3%BA%20Qu%E1%BB%91c%20Emerald%20Bay",
-      "map": null,
+      "map": {
+        "lat": 10.0349466,
+        "lon": 104.0288404,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Premier Residences Phú Quốc Emerald Bay, KDL sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2486,7 +3025,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Premier%20Village%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Premier Village Phú Quốc, Mũi Ông Đội, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2532,7 +3078,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Qu%E1%BB%91c%20Th%E1%BA%AFng",
-      "map": null,
+      "map": {
+        "lat": 10.2320594,
+        "lon": 103.972816,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Quốc Thắng, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2554,7 +3107,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Nội đảo - Suối Mây / Suối Đá / Bến Tràm.",
       "route": "/hotels/?q=Qu%E1%BB%B3nh%20Mai%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.1799257,
+        "lon": 103.9830979,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Quỳnh Mai Phú Quốc Resort, Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2578,7 +3138,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Radisson%20Blu%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Radisson Blu Resort Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2690,7 +3257,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Khác / cần rà.",
       "route": "/hotels/?q=Ru%20By",
-      "map": null,
+      "map": {
+        "lat": 10.1069986,
+        "lon": 104.0148801,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Ru By, Tổ 1, ấp Suối Lớn, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2714,7 +3288,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Dương Đông.",
       "route": "/hotels/?q=Saigon%20Phu%20Quoc%20Resort%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.2084134,
+        "lon": 103.961314,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Saigon Phu Quoc Resort & Spa, 62 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2782,7 +3363,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Salinda%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.1829558,
+        "lon": 103.9677296,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Salinda Resort, Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2804,7 +3392,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Sea%20Sense%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Sea Sense Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2872,7 +3467,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn 5 sao tại Dương Đông.",
       "route": "/hotels/?q=Seashells%20Phu%20Quoc%20Hotel%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.2153946,
+        "lon": 103.9581976,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Seashells Phu Quoc Hotel & Spa, Số 01 Võ Thị Sáu, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2894,7 +3496,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=SEN",
-      "map": null,
+      "map": {
+        "lat": 10.1880213,
+        "lon": 103.9790444,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "SEN, Hẻm 63, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2916,7 +3525,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
       "route": "/hotels/?q=Sentina",
-      "map": null,
+      "map": {
+        "lat": 10.0296551,
+        "lon": 104.0074053,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Sentina, 16 Venice, Sunset Town, đặc khu Phú Quốc, Phú Quốc"
     },
@@ -2940,7 +3556,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Sheraton%20Ph%C3%BA%20Qu%E1%BB%91c%20Long%20Beach%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Sheraton Phú Quốc Long Beach Resort, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2964,7 +3587,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn 5 sao tại Khác / cần rà.",
       "route": "/hotels/?q=SOL%20by%20Meli%C3%A1%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.1888255,
+        "lon": 103.99297,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "SOL by Meliá Phu Quoc, Tổ 2, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3008,7 +3638,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
       "route": "/hotels/?q=Star%20Hill%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.2001399,
+        "lon": 103.9707514,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Star Hill Resort, Tổ 7, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3030,7 +3667,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Stellar",
-      "map": null,
+      "map": {
+        "lat": 10.2107616,
+        "lon": 103.9611146,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Stellar, 63 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3052,7 +3696,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
       "route": "/hotels/?q=Suncosy%20Central%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.2130163,
+        "lon": 103.9598032,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Suncosy Central Resort Phú Quốc, 47/8 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3074,7 +3725,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Khác / cần rà.",
       "route": "/hotels/?q=Sunrise%20Boutique",
-      "map": null,
+      "map": {
+        "lat": 10.2110187,
+        "lon": 103.9600787,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Sunrise Boutique, 51-53 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3096,7 +3754,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Dương Đông.",
       "route": "/hotels/?q=Sunset%20Beach%20Resort%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.2001894,
+        "lon": 103.9645329,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Sunset Beach Resort & Spa, 100C/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3118,7 +3783,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Sunset%20Sanato",
-      "map": null,
+      "map": {
+        "lat": 10.1888255,
+        "lon": 103.99297,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Sunset Sanato, Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3162,7 +3834,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Nội đảo - Suối Mây / Suối Đá / Bến Tràm.",
       "route": "/hotels/?q=Su%E1%BB%91i%20M%C3%A2y%20Garden",
-      "map": null,
+      "map": {
+        "lat": 10.1799257,
+        "lon": 103.9830979,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Suối Mây Garden, Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3184,7 +3863,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Khác / cần rà.",
       "route": "/hotels/?q=T%C3%A0i%20Phong%20Ti%E1%BA%BFn",
-      "map": null,
+      "map": {
+        "lat": 10.2023747,
+        "lon": 103.964539,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Tài Phong Tiến, 137 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3206,7 +3892,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=T%C3%A2n%20Anh%20Tu%E1%BA%A5n",
-      "map": null,
+      "map": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Tân Anh Tuấn, 102 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3228,7 +3921,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=T%C3%A2n%20Anh%20Tu%E1%BA%A5n%202",
-      "map": null,
+      "map": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Tân Anh Tuấn 2, 179 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3250,7 +3950,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Th%C3%A1i%20Ho%C3%A0ng%20Gia",
-      "map": null,
+      "map": {
+        "lat": 10.2198308,
+        "lon": 103.987724,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Thái Hoàng Gia, 89 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3294,7 +4001,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Th%C3%A0nh%20Trung",
-      "map": null,
+      "map": {
+        "lat": 10.2142741,
+        "lon": 103.9817192,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Thành Trung, 14/1 đường 30/4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3318,7 +4032,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Dương Đông.",
       "route": "/hotels/?q=The%20Shells%20Resort%20%26%20Spa%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.2446464,
+        "lon": 103.9493905,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "The Shells Resort & Spa Phu Quoc, Tổ 18, KP9, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3362,7 +4083,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Thi%20Long%20Ph%E1%BB%A5ng",
-      "map": null,
+      "map": {
+        "lat": 10.2137819,
+        "lon": 103.9648997,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Thi Long Phụng, 155 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3384,7 +4112,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Dương Đông.",
       "route": "/hotels/?q=Thi%C3%AAn%20Thanh%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.2054695,
+        "lon": 103.9626237,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Thiên Thanh Resort, 78 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3406,7 +4141,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Thu%E1%BA%ADn%20H%E1%BA%A3i",
-      "map": null,
+      "map": {
+        "lat": 10.2187445,
+        "lon": 103.9591525,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Thuận Hải, 26 Nguyễn Du, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3428,7 +4170,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
       "route": "/hotels/?q=Times%20Corner%20Amalfi",
-      "map": null,
+      "map": {
+        "lat": 10.0286693,
+        "lon": 104.008551,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Times Corner Amalfi, A48-A50-A52-A54 đường Amalfi Địa Trung Hải, đặc khu Phú Quốc, Phú Quốc"
     },
@@ -3472,7 +4221,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
       "route": "/hotels/?q=Tropicana%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.1995792,
+        "lon": 103.9641202,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Tropicana Resort, 100C/4 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3494,7 +4250,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=T%C3%B9ng%20H%C6%B0%C6%A1ng",
-      "map": null,
+      "map": {
+        "lat": 10.2138989,
+        "lon": 103.9637497,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Tùng Hương, Tổ 11 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3516,7 +4279,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Tuy%E1%BA%BFt%20Hi%E1%BB%83n",
-      "map": null,
+      "map": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Tuyết Hiển, 77 Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3538,7 +4308,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Uy%C3%AAn%20Gia",
-      "map": null,
+      "map": {
+        "lat": 10.2351195,
+        "lon": 104.0070334,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Uyên Gia, 42 Chu Văn An, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3560,7 +4337,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Valentina%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Valentina Resort, Tổ 6, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3604,7 +4388,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Khác / cần rà.",
       "route": "/hotels/?q=Venus%20Hotel%20-%20Sky%20Bar%20-%20Massage",
-      "map": null,
+      "map": {
+        "lat": 10.2110187,
+        "lon": 103.9600787,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Venus Hotel - Sky Bar - Massage, 60 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3626,7 +4417,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn 4 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=VinHolidays%20Fiesta%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.3242259,
+        "lon": 103.8581673,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "VinHolidays Fiesta Phu Quoc, KDL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3648,7 +4446,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Vinpearl%20Resort%20%26%20Spa%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Vinpearl Resort & Spa Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3670,7 +4475,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Vinpearl%20Wonderworld%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Vinpearl Wonderworld Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3692,7 +4504,14 @@
       "star_rating": null,
       "what_it_is": "Khách sạn nghỉ dưỡng tại Đông đảo - Hàm Ninh / Cây Sao.",
       "route": "/hotels/?q=Wildland%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.1799257,
+        "lon": 103.9830979,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Wildland Resort, Tổ 5, ấp Cây Sao, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3738,7 +4557,14 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Wyndham%20Garden%20Grandworld",
-      "map": null,
+      "map": {
+        "lat": 10.3232415,
+        "lon": 103.8562954,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Wyndham Garden Grandworld, Khu DL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3760,7 +4586,14 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Wyndham%20Grand%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.3232415,
+        "lon": 103.8562954,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Wyndham Grand Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4541,7 +5374,14 @@
       "star_rating": null,
       "what_it_is": "Cơ sở y tế",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Cấp cứu Vinmec Phú Quốc, Khu Bãi Dài, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4592,7 +5432,14 @@
       "star_rating": null,
       "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.0296551,
+        "lon": 104.0074053,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "CS68 - Cửa hàng tiện lợi Sunset Town, Sorento 2, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4636,7 +5483,14 @@
       "star_rating": null,
       "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.0504759,
+        "lon": 104.0173718,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "HomeMart - Nguyễn Văn Cừ, 334 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4687,7 +5541,14 @@
       "star_rating": null,
       "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.2284406,
+        "lon": 103.9547422,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà thuốc Long Châu - 42 Trần Phú, 42 Trần Phú, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4709,7 +5570,14 @@
       "star_rating": null,
       "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.0504759,
+        "lon": 104.0173718,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ, 46 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4731,7 +5599,14 @@
       "star_rating": null,
       "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.3695587,
+        "lon": 103.8464427,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà thuốc Long Châu - Gành Dầu, Thửa đất 19, Bản đồ 12, gần Chợ Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4778,7 +5653,14 @@
       "star_rating": null,
       "what_it_is": "Nhà vệ sinh công cộng",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.0300861,
+        "lon": 104.0061776,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town, 02 Đường Venice, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4822,7 +5704,14 @@
       "star_rating": null,
       "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.2142741,
+        "lon": 103.9817192,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "One Mart - 16 đường 30 Tháng 4, 16 đường 30 Tháng 4, Khu 1, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4844,7 +5733,14 @@
       "star_rating": null,
       "what_it_is": "Cơ sở y tế",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.2232687,
+        "lon": 103.96733,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Phòng khám Đa khoa Vinmec Dương Đông, 114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4866,7 +5762,14 @@
       "star_rating": null,
       "what_it_is": "Điểm bán lẻ xăng dầu",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.2273655,
+        "lon": 103.9777613,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Trạm xăng dầu Đông Lợi 1, Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4891,7 +5794,14 @@
       "star_rating": null,
       "what_it_is": "Phòng giao dịch Vietcombank; danh bạ hiện hành ghi nhận ATM tại cùng địa chỉ",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.0441453,
+        "lon": 104.0179346,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Vietcombank PGD An Thới - ATM, 199 Nguyễn Văn Cừ, Khu phố 8 An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -4916,7 +5826,14 @@
       "star_rating": null,
       "what_it_is": "Phòng giao dịch Vietcombank; danh bạ hiện hành ghi nhận ATM tại cùng địa chỉ",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.2300448,
+        "lon": 103.9826352,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Vietcombank PGD Dương Đông - ATM, 193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     }

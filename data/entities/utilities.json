@@ -374,7 +374,25 @@
           "source_id": "longchau_phuquoc_storelist_2026"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.2284406,
+        "lon": 103.9547422,
+        "precision": "area_anchor",
+        "source_id": "osm_nominatim_geocode",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_NOMINATIM",
+        "place_id": 257457075,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 155315719,
+        "matched_name": "Trần Phú",
+        "formatted_address": "Trần Phú, 9 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
+        "lookup_query": "Nhà thuốc Long Châu - 42 Trần Phú, 42 Trần Phú, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_longchau_nguyen_trung_truc",
@@ -432,7 +450,25 @@
           "source_id": "longchau_phuquoc_storelist_2026"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.0504759,
+        "lon": 104.0173718,
+        "precision": "area_anchor",
+        "source_id": "osm_nominatim_geocode",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_NOMINATIM",
+        "place_id": 259619655,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 723101828,
+        "matched_name": "Nguyễn Văn Cừ",
+        "formatted_address": "Nguyễn Văn Cừ, 4 An Thới, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
+        "lookup_query": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ, 46 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_longchau_ganh_dau",
@@ -455,7 +491,25 @@
           "source_id": "longchau_phuquoc_storelist_2026"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.3695587,
+        "lon": 103.8464427,
+        "precision": "site_centroid",
+        "source_id": "osm_photon_geocode",
+        "source": "OpenStreetMap Photon location geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_PHOTON",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "N",
+        "osm_id": 11849971252,
+        "matched_name": "Nhà Thuốc Linh Chi",
+        "formatted_address": "Đường tỉnh 974, Phú Quốc, An Giang, Việt Nam",
+        "lookup_query": "Nhà thuốc Long Châu - Gành Dầu, Thửa đất 19, Bản đồ 12, gần Chợ Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      }
     },
     {
       "id": "utility_vinmec_duong_dong_clinic",
@@ -478,7 +532,25 @@
           "source_id": "vinmec_duongdong_current"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.2232687,
+        "lon": 103.96733,
+        "precision": "area_anchor",
+        "source_id": "osm_photon_geocode",
+        "source": "OpenStreetMap Photon location geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_PHOTON",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "N",
+        "osm_id": 7041287905,
+        "matched_name": "Pho Cuoi",
+        "formatted_address": "Nguyễn Trung Trực, Phú Quốc, An Giang, Việt Nam",
+        "lookup_query": "Phòng khám Đa khoa Vinmec Dương Đông, 114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_vinmec_phuquoc_emergency",
@@ -501,7 +573,25 @@
           "source_id": "vinmec_phuquoc_current"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source_id": "osm_photon_geocode",
+        "source": "OpenStreetMap Photon location geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_PHOTON",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "W",
+        "osm_id": 1490752985,
+        "matched_name": "UBND ĐẶC KHU PHÚ QUỐC TRỤ SỞ KHU PHỐ RẠCH TRÀM BÃI THƠM",
+        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
+        "lookup_query": "Cấp cứu Vinmec Phú Quốc, Khu Bãi Dài, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_vcb_atm_hung_vuong",
@@ -569,7 +659,25 @@
           "source_id": "vietcombank_phuquoc_locations_20251201"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.2300448,
+        "lon": 103.9826352,
+        "precision": "site_centroid",
+        "source_id": "osm_photon_geocode",
+        "source": "OpenStreetMap Photon location geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_PHOTON",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "N",
+        "osm_id": 11930352250,
+        "matched_name": "ATM Vietcombank",
+        "formatted_address": "Nguyễn Trung Trực, Phú Quốc, An Giang, Việt Nam",
+        "lookup_query": "Vietcombank PGD Dương Đông - ATM, 193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      }
     },
     {
       "id": "utility_vcb_atm_an_thoi",
@@ -598,7 +706,25 @@
           "source_id": "vietcombank_phuquoc_locations_20251201"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.0441453,
+        "lon": 104.0179346,
+        "precision": "area_anchor",
+        "source_id": "osm_photon_geocode",
+        "source": "OpenStreetMap Photon location geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_PHOTON",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "N",
+        "osm_id": 13657066126,
+        "matched_name": "PHÂN KHU B II TRAI GIAM PHÚ QUỐC",
+        "formatted_address": "Nguyễn Văn Cừ, Phú Quốc, An Giang, Việt Nam",
+        "lookup_query": "Vietcombank PGD An Thới - ATM, 199 Nguyễn Văn Cừ, Khu phố 8 An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_fuel_dong_loi_1",
@@ -624,7 +750,25 @@
           "source_id": "map_directory_phuquoc_20260921"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.2273655,
+        "lon": 103.9777613,
+        "precision": "area_anchor",
+        "source_id": "osm_nominatim_geocode",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_NOMINATIM",
+        "place_id": 257566245,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 1307054560,
+        "matched_name": "Nguyễn Trung Trực",
+        "formatted_address": "Nguyễn Trung Trực, 11 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
+        "lookup_query": "Trạm xăng dầu Đông Lợi 1, Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_fuel_my_anh_an_thoi",
@@ -761,7 +905,25 @@
           "source_id": "map_directory_phuquoc_20260921"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.0300861,
+        "lon": 104.0061776,
+        "precision": "area_anchor",
+        "source_id": "osm_photon_geocode",
+        "source": "OpenStreetMap Photon location geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_PHOTON",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "W",
+        "osm_id": 1287649535,
+        "matched_name": "King Spa & Massage",
+        "formatted_address": "Ven 02, Venice, Thành phố Phú Quốc, Kiên Giang, Việt Nam",
+        "lookup_query": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town, 02 Đường Venice, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_minimart_one_mart_duong_dong",
@@ -784,7 +946,25 @@
           "source_id": "map_directory_phuquoc_20260921"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.2142741,
+        "lon": 103.9817192,
+        "precision": "area_anchor",
+        "source_id": "osm_nominatim_geocode",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_NOMINATIM",
+        "place_id": 256497191,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 721131934,
+        "matched_name": "Đường 30 Tháng 4",
+        "formatted_address": "Đường 30 Tháng 4, 1 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
+        "lookup_query": "One Mart - 16 đường 30 Tháng 4, 16 đường 30 Tháng 4, Khu 1, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_minimart_homemart_an_thoi",
@@ -807,7 +987,25 @@
           "source_id": "map_directory_phuquoc_20260921"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.0504759,
+        "lon": 104.0173718,
+        "precision": "area_anchor",
+        "source_id": "osm_nominatim_geocode",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_NOMINATIM",
+        "place_id": 258762008,
+        "google_place_id": null,
+        "osm_type": "way",
+        "osm_id": 723101828,
+        "matched_name": "Nguyễn Văn Cừ",
+        "formatted_address": "Nguyễn Văn Cừ, 4 An Thới, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
+        "lookup_query": "HomeMart - Nguyễn Văn Cừ, 334 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_minimart_cs68_sunset",
@@ -832,7 +1030,25 @@
           "source_id": "map_directory_phuquoc_20260921"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-22",
+      "map": {
+        "lat": 10.0296551,
+        "lon": 104.0074053,
+        "precision": "area_anchor",
+        "source_id": "osm_photon_geocode",
+        "source": "OpenStreetMap Photon location geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_PHOTON",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "N",
+        "osm_id": 11499885685,
+        "matched_name": "La Festa Phu Quoc, Curio Collection by Hilton",
+        "formatted_address": "Sunset Town, Thành phố Phú Quốc, Kiên Giang, Việt Nam",
+        "lookup_query": "CS68 - Cửa hàng tiện lợi Sunset Town, Sorento 2, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      }
     },
     {
       "id": "utility_jotrip_local_service",
