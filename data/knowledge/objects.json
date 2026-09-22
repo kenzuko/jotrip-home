@@ -8330,6 +8330,242 @@
         ]
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_119_nha-tu-phu-quoc-qua-cac-thoi-ky",
+      "number": 119,
+      "title": "Nhà tù Phú Quốc qua các thời kỳ",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": "venue_phu_quoc_prison",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Chuyên khảo về Trại giam tù binh Phú Quốc được Bảo tàng Lịch sử Quốc gia giới thiệu chia lịch sử trại thành hai giai đoạn chính: Căng Cây Dừa thời Pháp (1953-1957) và Trại giam tù binh Cộng sản Việt Nam/Phú Quốc trong chiến tranh Việt Nam (1967-1973).",
+            "source_ids": [
+              "vnmh_phu_quoc_prison_bibliography_2026"
+            ],
+            "verification_status": "SCHOLARLY_MONOGRAPH_SUMMARY",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Đề án bảo tồn di sản của Kiên Giang ghi di tích từng mang các tên Trại huấn chính Cây Dừa, Căng Cây Dừa và Trại giam tù binh Cộng sản Việt Nam/Phú Quốc; hiện là Di tích Quốc gia Đặc biệt Trại giam Phú Quốc.",
+            "source_ids": [
+              "kiengiang_heritage_plan_prison"
+            ],
+            "verification_status": "OFFICIAL_HERITAGE_RECORD",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Không nên gộp toàn bộ lịch sử nơi này thành một 'nhà tù từ thời Pháp tới 1975' liền mạch mà bỏ qua thay đổi về cơ chế quản lý, tên gọi, đối tượng giam giữ và giai đoạn hoạt động.",
+            "source_ids": [
+              "vnmh_phu_quoc_prison_bibliography_2026",
+              "kiengiang_heritage_plan_prison"
+            ],
+            "verification_status": "EDITORIAL_SYNTHESIS",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "vnmh_phu_quoc_prison_bibliography_2026",
+            "source_type": "NATIONAL_MUSEUM_RESEARCH",
+            "label": "Bảo tàng Lịch sử Quốc gia - giới thiệu ấn phẩm Trại giam tù binh Phú Quốc thời kỳ chống thực dân Pháp và đế quốc Mỹ xâm lược",
+            "url": "https://baotanglichsu.vn/DataFiles/2026/02/News/Tieng%20Viet/6.2.2026/Thong%20bao%20KH/017.pdf",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "kiengiang_heritage_plan_prison",
+            "source_type": "OFFICIAL_HERITAGE_DOCUMENT",
+            "label": "Đề án bảo tồn và phát huy giá trị di sản văn hóa tỉnh Kiên Giang - mục Nhà tù Phú Quốc",
+            "url": "https://kiengiang.gov.vn/Lists/TinTuc/Attachments/14156/DE%20AN%20.pdf",
+            "published_at": "2022",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Cần đối chiếu trực tiếp hồ sơ xếp hạng di tích và tư liệu lưu trữ Pháp nếu public timeline chi tiết theo từng lần đổi tên/quy mô.",
+          "Không dùng số lượng tù nhân, số người chết hoặc mô tả tra tấn nếu chưa khóa theo nguồn nghiên cứu cụ thể và cùng giai đoạn.",
+          "Tên gọi hiện nay phục vụ khách tham quan không nên thay thế thuật ngữ lịch sử của từng thời kỳ."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nhà tù Phú Quốc không phải một cơ sở duy nhất tồn tại nguyên trạng qua mọi thời kỳ. Nơi này có ít nhất hai lớp lịch sử lớn: Căng Cây Dừa thời Pháp từ 1953-1957 và trại giam tù binh hoạt động mạnh giai đoạn 1967-1973. Di tích khách thấy hôm nay là phần ký ức được bảo tồn từ những giai đoạn ấy.",
+        "practical": "Khi tham quan, nên đọc theo timeline thay vì chỉ nhìn các mô hình tái hiện. Tên gọi, lực lượng quản lý và đối tượng bị giam thay đổi theo từng thời kỳ.",
+        "expectation_vs_reality": "Các mô hình tái hiện tạo cảm giác rất trực diện nhưng không phải mọi hạng mục hiện nay đều là cấu trúc nguyên gốc còn nguyên từ thời chiến. Giá trị chính nằm ở hồ sơ di tích, chứng tích, tư liệu và ký ức nhân chứng.",
+        "before_you_go": [
+          "Đây là điểm lịch sử chiến tranh, không nên biến cảnh tái hiện thành phông chụp ảnh vui đùa.",
+          "Nếu đi cùng trẻ nhỏ, cân nhắc trước vì một số nội dung tái hiện bạo lực khá nặng.",
+          "Đọc mốc thời gian của từng khu để tránh gộp thời Pháp và giai đoạn 1967-1973 thành một."
+        ],
+        "curiosity_questions": [
+          "Căng Cây Dừa thời Pháp khác gì với trại giam giai đoạn 1967-1973?",
+          "Những phần nào tại di tích là chứng tích gốc và phần nào là phục dựng?",
+          "Vì sao Phú Quốc được chọn làm nơi đặt trại giam quy mô lớn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_120_cu-dan-dau-tien-va-qua-trinh-dinh-cu",
+      "number": 120,
+      "title": "Cư dân đầu tiên và quá trình định cư",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Tư liệu lưu trữ về Hà Tiên và nghiên cứu lịch sử vùng cho thấy cuối thế kỷ XVII - đầu XVIII, Mạc Cửu chiêu tập và tổ chức các nhóm cư dân Việt, Hoa đến lập nghiệp tại nhiều điểm ven vịnh Thái Lan, trong đó có Phú Quốc.",
+            "source_ids": [
+              "archives_thuong_cang_ha_tien",
+              "nguyen_van_kim_ha_tien_2026"
+            ],
+            "verification_status": "SUPPORTED_REGIONAL_SETTLEMENT_HISTORY",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Các nguồn mạnh hiện tìm được chưa đủ để xác định 'cư dân đầu tiên của Phú Quốc là ai' theo nghĩa khảo cổ học hoặc dân tộc học. Câu hỏi này phải tách khỏi lịch sử khai khẩn có tư liệu từ thế kỷ XVII.",
+            "source_ids": [
+              "archives_thuong_cang_ha_tien",
+              "nguyen_van_kim_ha_tien_2026"
+            ],
+            "verification_status": "EVIDENCE_LIMITATION",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "archives_thuong_cang_ha_tien",
+            "source_type": "NATIONAL_ARCHIVES",
+            "label": "Cục Văn thư và Lưu trữ Nhà nước - Thương cảng Hà Tiên",
+            "url": "https://www.archives.org.vn/gioi-thieu-tai-lieu-nghiep-vu/thuong-cang-ha-tien.htm",
+            "published_at": "2024-11-25",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "nguyen_van_kim_ha_tien_2026",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Nguyễn Văn Kim - nghiên cứu về Hà Tiên và mạng lưới biển Tây Nam, Vietnam Social Sciences Review",
+            "url": "https://vjol.info.vn/index.php/VSS/article/download/120911/100532/",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có nghiên cứu khảo cổ học chuyên biệt đủ mạnh trong dataset để xác định niên đại và thành phần của cư dân sớm nhất trên đảo.",
+          "Không dùng claim phổ thông 'cư dân đầu tiên thuộc văn hóa Óc Eo cách đây 2.500 năm' nếu chưa truy được báo cáo khảo cổ gốc.",
+          "Cần phân biệt hiện diện cư dân Khmer, Việt, Hoa trong vùng vịnh Thái Lan với câu hỏi chủ quyền và tổ chức hành chính ở từng thời kỳ.",
+          "Cần bổ sung khảo cứu khảo cổ, nhân học lịch sử và tư liệu Khmer nếu muốn nâng mục này khỏi HOLD."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Có thể kể khá chắc về các làn sóng định cư được ghi chép từ cuối thế kỷ XVII, khi Phú Quốc nằm trong mạng lưới Hà Tiên và nhiều nhóm Việt, Hoa được chiêu tập đến khai khẩn. Nhưng câu hỏi 'ai là cư dân đầu tiên trên đảo' hiện chưa có đủ bằng chứng khảo cổ trong bộ nguồn để trả lời nghiêm túc.",
+        "practical": null,
+        "expectation_vs_reality": "Lịch sử khai khẩn có văn bản không đồng nghĩa với lịch sử cư trú bắt đầu từ thời Mạc Cửu. Con người có thể đã hiện diện trên đảo sớm hơn nhiều, nhưng cần khảo cổ học để nói chắc.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "Có di chỉ khảo cổ nào trên Phú Quốc cho biết con người đã ở đây trước thế kỷ XVII?",
+          "Các cộng đồng Việt, Hoa và Khmer đã tương tác với nhau trên đảo và quanh vịnh Thái Lan ra sao?",
+          "Khi nào các làng cư trú được ghi nhận rõ trong địa bạ?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_121_phu-quoc-trong-khong-gian-ha-tien",
+      "number": 121,
+      "title": "Phú Quốc trong không gian Hà Tiên",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Cuối thế kỷ XVII, Phú Quốc nằm trong mạng lưới các điểm cư trú và thương mại ven vịnh Thái Lan mà Mạc Cửu tổ chức quanh Hà Tiên; nguồn lưu trữ ghi ông chiêu mộ cư dân tại Phú Quốc cùng nhiều xứ khác để lập xã thôn.",
+            "source_ids": [
+              "archives_thuong_cang_ha_tien",
+              "nguyen_van_kim_ha_tien_2026"
+            ],
+            "verification_status": "SUPPORTED_BY_ARCHIVES_AND_RESEARCH",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Năm 1708, Mạc Cửu xin đặt vùng Hà Tiên dưới sự bảo hộ của chúa Nguyễn và được phong Tổng binh trấn Hà Tiên. Phú Quốc từ đó được đặt trong cấu trúc chính trị - hành chính Hà Tiên dưới chúa Nguyễn.",
+            "source_ids": [
+              "archives_thuong_cang_ha_tien",
+              "nguyen_van_kim_ha_tien_2026"
+            ],
+            "verification_status": "DOCUMENTED_HISTORY",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu về huyện Hà Châu nửa đầu thế kỷ XIX cho thấy tổng Phú Quốc là một phần của huyện Hà Châu, cùng với các tổng khác bao trùm vùng Hà Tiên hiện nay và một số địa bàn nay thuộc Campuchia.",
+            "source_ids": [
+              "tnu_ha_chau_agriculture_history"
+            ],
+            "verification_status": "ACADEMIC_RESEARCH",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "nguyen_van_kim_ha_tien_2026",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Nguyễn Văn Kim - nghiên cứu về Hà Tiên và mạng lưới biển Tây Nam, Vietnam Social Sciences Review",
+            "url": "https://vjol.info.vn/index.php/VSS/article/download/120911/100532/",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "tnu_ha_chau_agriculture_history",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "TNU Journal of Science and Technology - nghiên cứu huyện Hà Châu nửa đầu thế kỷ XIX",
+            "url": "https://vjol.info.vn/index.php/tnu/article/download/46041/37303/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "archives_thuong_cang_ha_tien",
+            "source_type": "NATIONAL_ARCHIVES",
+            "label": "Cục Văn thư và Lưu trữ Nhà nước - Thương cảng Hà Tiên",
+            "url": "https://www.archives.org.vn/gioi-thieu-tai-lieu-nghiep-vu/thuong-cang-ha-tien.htm",
+            "published_at": "2024-11-25",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Khái niệm 'không gian Hà Tiên' thay đổi theo thời kỳ, không nên chiếu ranh giới hành chính hiện nay ngược về thế kỷ XVII-XIX.",
+          "Cần tách mạng lưới kinh tế - cư trú của họ Mạc, trấn Hà Tiên dưới chúa Nguyễn và đơn vị hành chính Hà Châu thời Nguyễn thành các lớp thời gian khác nhau.",
+          "Không dùng một bản đồ hiện đại để minh họa lãnh thổ lịch sử nếu chưa dựng lại theo nguồn cùng thời."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Muốn hiểu Phú Quốc trước thời hiện đại, phải đặt đảo vào không gian Hà Tiên rộng hơn. Cuối thế kỷ XVII - đầu XVIII, Phú Quốc là một mắt xích trong mạng lưới cư trú và thương mại ven vịnh Thái Lan do Mạc Cửu tổ chức. Sau năm 1708, đảo tiếp tục nằm trong hệ thống Hà Tiên dưới chúa Nguyễn, rồi xuất hiện như một tổng thuộc huyện Hà Châu trong tư liệu thế kỷ XIX.",
+        "practical": "Khi kể lịch sử cho khách, đừng hình dung Hà Tiên khi ấy chỉ là thị xã Hà Tiên ngày nay. Đó từng là một không gian ven biển - hải đảo rộng hơn nhiều, với mạng lưới giao thương nối Phú Quốc, Rạch Giá, Cà Mau, Kampot và các cảng quanh vịnh.",
+        "expectation_vs_reality": "Bản đồ hành chính hiện đại khiến Phú Quốc trông như một đảo tách riêng. Trong lịch sử, nó gắn rất chặt với tuyến hàng hải và vùng Hà Tiên - vịnh Thái Lan.",
+        "before_you_go": [
+          "Nếu dùng bản đồ lịch sử, ghi rõ niên đại và nguồn bản đồ.",
+          "Không lấy biên giới quốc gia hiện nay áp thẳng vào mô tả không gian thế kỷ XVII-XVIII.",
+          "Phân biệt rõ thời Mạc Cửu với tổ chức hành chính nhà Nguyễn thế kỷ XIX."
+        ],
+        "curiosity_questions": [
+          "Vì sao Hà Tiên trở thành cửa ngõ kết nối Phú Quốc với mạng lưới thương mại vùng vịnh?",
+          "Phú Quốc xuất hiện như thế nào trong địa bạ và tổ chức hành chính Hà Châu?",
+          "Tuyến biển Phú Quốc - Kampot - Hà Tiên từng có vai trò gì?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
