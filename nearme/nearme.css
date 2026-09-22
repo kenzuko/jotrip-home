@@ -173,3 +173,25 @@ footer{max-width:1280px;margin:0 auto 40px;padding:22px clamp(14px,3vw,36px);bor
   .map-shell-note a{max-width:100%}
   .map-data-badge{left:10px;top:10px;max-width:calc(100% - 62px)}
 }
+
+
+/* Near Me address finder - 22/09/2026 */
+.near-search{display:block;margin-bottom:12px}
+.near-search>span{display:block;margin-bottom:6px;font-size:10px;font-weight:900;letter-spacing:.10em;color:#4b706c;text-transform:uppercase}
+.near-search input{
+  width:100%;min-height:46px;padding:0 14px;border:1px solid var(--line);border-radius:14px;
+  background:#fff;color:var(--ink);font:inherit;font-size:14px;outline:none
+}
+.near-search input:focus{border-color:#87aaa5;box-shadow:0 0 0 3px rgba(82,132,124,.10)}
+.near-card button{
+  appearance:none;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);
+  padding:8px 10px;font:inherit;font-size:11px;font-weight:850;cursor:pointer
+}
+.results-more{
+  grid-column:1/-1;padding:13px 15px;border:1px dashed var(--line);border-radius:14px;
+  color:var(--muted);font-size:12px;line-height:1.45;background:#fafcfb
+}
+@media(max-width:820px){
+  .near-search input{min-height:44px;font-size:16px}
+  .near-card>div{flex-wrap:wrap}
+}
