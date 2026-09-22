@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Build public knowledge view
+        run: node scripts/build-knowledge-public.mjs
       - name: Build search index
         run: node scripts/build-search-index.mjs
       - name: Validate data contracts
@@ -32,6 +34,8 @@ jobs:
           node --check home-today-v3.js
           node --check places/app.js
           node --check guide/guide.js
+          node --check guide/knowledge.js
+          node --check worker.js
           node --check utilities/utilities.js
           node --check explore/app.js
           node --check places/detail.js
@@ -42,6 +46,9 @@ jobs:
       - name: Validate Cloudflare route bundle
         run: |
           node scripts/build-cloudflare.mjs
+          test ! -e dist/data/knowledge/objects.json
+          test -f dist/guide/knowledge.html
+          test -f dist/guide/article.html
           test -f dist/transit/index.html
           test -f dist/transit/app.js
           test -f dist/currency/index.html

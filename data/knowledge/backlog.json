@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-23",
   "source": {
     "name": "OPEN_PHU_QUOC_150_CONTENT_KNOWLEDGE_CRAWL_BACKLOG_V2.txt",
     "library_file_id": "libfile_a17afaec3f248191b7aeb3459579f9c5",
@@ -53,8 +53,8 @@
       "crawl_brief": "Lịch sử, tín ngưỡng, giờ mở cửa, etiquette, ảnh cũ, nguồn chính thống.",
       "canonical_entity_id": "place_dinh_cau",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -77,8 +77,8 @@
       "crawl_brief": "Lịch sử đô thị, sông, chợ, cảng cá, khu cũ, thay đổi theo thời gian.",
       "canonical_entity_id": "zone_central_west",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -101,8 +101,8 @@
       "crawl_brief": "Giờ hoạt động, khu hàng, ăn gì, cách đi, parking, lịch sử, thực tế cho khách.",
       "canonical_entity_id": "place_duong_dong_market",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -125,8 +125,8 @@
       "crawl_brief": "Lịch sử, cảng, khu dân cư, chợ, nghề biển, đô thị hóa, practical.",
       "canonical_entity_id": "zone_south",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -149,8 +149,8 @@
       "crawl_brief": "Khu vực, lối đi, show/sự kiện, giờ hoạt động, parking, practical, thay đổi mới.",
       "canonical_entity_id": "place_sunset_town",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -173,8 +173,8 @@
       "crawl_brief": "Làng chài, cầu cảng, nghề biển, ghẹ, thay đổi cảnh quan, practical hiện tại.",
       "canonical_entity_id": "place_ham_ninh",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -197,8 +197,8 @@
       "crawl_brief": "Lịch sử khu vực, làng dân cư, bờ biển, practical, thay đổi theo thời gian.",
       "canonical_entity_id": "zone_north",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -221,8 +221,8 @@
       "crawl_brief": "Làng chài, sao biển, mùa, đường đi, thủy triều, practical, bảo tồn.",
       "canonical_entity_id": "place_rach_vem",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -245,8 +245,8 @@
       "crawl_brief": "Nguồn gốc tên, sông, làng, bãi biển, practical, lịch sử địa phương.",
       "canonical_entity_id": "place_cua_can",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -269,8 +269,8 @@
       "crawl_brief": "Khu dân cư, trục giao thông, local life, practical, kết nối Bắc đảo.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -293,8 +293,8 @@
       "crawl_brief": "Khu dân cư, suối/hồ, phát triển đô thị, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -317,8 +317,8 @@
       "crawl_brief": "Quá trình phát triển, bờ Tây, sunset, resort strip, access, practical.",
       "canonical_entity_id": "place_bai_truong",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -341,8 +341,8 @@
       "crawl_brief": "Đặc điểm bãi, mùa biển, access, practical, lịch sử tên gọi, thay đổi.",
       "canonical_entity_id": "place_bai_khem",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -365,8 +365,8 @@
       "crawl_brief": "Mùa gió, sóng, rong/rác, thời điểm đẹp, access, parking, toilet.",
       "canonical_entity_id": "place_bai_sao",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -389,8 +389,8 @@
       "crawl_brief": "Đặc điểm bãi, sunset, access, mùa, practical, thay đổi du lịch.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -437,8 +437,8 @@
       "crawl_brief": "Bờ biển, mùa, resort development, access, practical, lịch sử thay đổi.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -461,8 +461,8 @@
       "crawl_brief": "Đường đi, bờ biển, vùng dân cư, thiên nhiên, practical, mùa.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -485,8 +485,8 @@
       "crawl_brief": "Địa lý, góc nhìn biển, access, lịch sử địa phương, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -511,8 +511,8 @@
       "related_entity_ids": [
         "place_gieng_tien"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -535,8 +535,8 @@
       "crawl_brief": "Lịch sử đảo, cư dân, cáp treo, beach/activity, transport, practical.",
       "canonical_entity_id": "activity_hon_thom",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -559,8 +559,8 @@
       "crawl_brief": "Tên gọi, địa lý, access, tour context, sinh thái, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -583,8 +583,8 @@
       "crawl_brief": "Tên gọi, snorkeling, sinh thái, điều kiện biển, access, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -607,8 +607,8 @@
       "crawl_brief": "Tên gọi, bãi biển, tour access, amenities, sinh thái, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -631,8 +631,8 @@
       "crawl_brief": "Tên gọi, điều kiện biển, tour access, sinh thái, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -655,8 +655,8 @@
       "crawl_brief": "Mùa nước, giờ mở cửa, đường đi, walking, safety, practical.",
       "canonical_entity_id": "place_suoi_tranh",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -679,8 +679,8 @@
       "crawl_brief": "Mùa nước, access, walking, địa chất, safety, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -703,8 +703,8 @@
       "crawl_brief": "Phạm vi, hệ sinh thái, vùng bảo vệ, access công cộng, quy định.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -727,8 +727,8 @@
       "crawl_brief": "Lịch sử, kiến trúc, etiquette, giờ, access, viewpoint, practical.",
       "canonical_entity_id": "place_ho_quoc",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -751,8 +751,8 @@
       "crawl_brief": "Bối cảnh lịch sử, giờ tham quan, exhibits, etiquette, nguồn chính thống.",
       "canonical_entity_id": "place_phu_quoc_prison",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -775,8 +775,8 @@
       "crawl_brief": "Gió mùa, sóng, mưa, biển theo mùa, tác động trải nghiệm.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -799,8 +799,8 @@
       "crawl_brief": "Thời gian, tác động bờ Tây/bờ Đông, hoạt động biển, nguồn khí tượng.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -823,8 +823,8 @@
       "crawl_brief": "Thời gian, tác động bờ Đông/bờ Tây, hoạt động biển.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -847,8 +847,8 @@
       "crawl_brief": "Chu kỳ, tác động bãi biển, sao biển, câu cá, bến tàu.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -871,8 +871,8 @@
       "crawl_brief": "Loài, mùa/điều kiện xuất hiện, thủy triều, bảo tồn, hành vi không nên làm.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -895,8 +895,8 @@
       "crawl_brief": "Phân bố, vai trò sinh thái, đe dọa, liên hệ dugong.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -919,8 +919,8 @@
       "crawl_brief": "Tình trạng bảo tồn, habitat, nguồn nghiên cứu, không sensationalize.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -943,8 +943,8 @@
       "crawl_brief": "Khu vực, mùa, sức khỏe rạn, snorkeling/diving, quy tắc bảo tồn.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -967,8 +967,8 @@
       "crawl_brief": "Phân bố, chức năng, access, bảo tồn.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -991,8 +991,8 @@
       "crawl_brief": "Loài đặc trưng, vai trò, mùa, khu bảo vệ.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1015,8 +1015,8 @@
       "crawl_brief": "Các nhóm/loài đáng chú ý, mùa, khu quan sát, nguồn bảo tồn.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1039,8 +1039,8 @@
       "crawl_brief": "Loài, bằng chứng hiện diện, bảo tồn, tránh khẳng định quá mức.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1183,8 +1183,8 @@
       "crawl_brief": "Bờ nào chịu tác động theo mùa, practical cho beaches/tours.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1231,8 +1231,8 @@
       "crawl_brief": "Hướng bờ Tây, mùa, mây, thời gian, điểm quan sát.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1255,8 +1255,8 @@
       "crawl_brief": "Bờ Đông/Nam, mùa, các điểm phù hợp, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1303,8 +1303,8 @@
       "crawl_brief": "Hồ, suối, tầng nước, mùa khô, lịch sử hạ tầng nước.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1327,8 +1327,8 @@
       "crawl_brief": "Nền địa chất, bờ đá/bãi cát, nguồn khoa học.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1351,8 +1351,8 @@
       "crawl_brief": "Thủy văn, nghề cá, đô thị, thay đổi bờ.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1375,8 +1375,8 @@
       "crawl_brief": "Nguồn gốc, cách ăn, nguyên liệu, allergens, giá tham khảo, dị bản.",
       "canonical_entity_id": "food_bun-quay",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1399,8 +1399,8 @@
       "crawl_brief": "Nguyên liệu, raw fish, herbs, nước chấm, allergens, cách ăn.",
       "canonical_entity_id": "food_goi-ca-trich",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1423,8 +1423,8 @@
       "crawl_brief": "Loài, mùa, nguồn cung hiện tại, cách ăn, giá biến động.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1447,8 +1447,8 @@
       "crawl_brief": "Loài, mùa, cách chế biến, ecology, food safety.",
       "canonical_entity_id": "food_nhum",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1471,8 +1471,8 @@
       "crawl_brief": "Là gì, cách chế biến, nguồn cung, allergens.",
       "canonical_entity_id": "food_coi-bien-mai",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1495,8 +1495,8 @@
       "crawl_brief": "Món địa phương, mùa, cách chế biến, nguồn cung.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1519,8 +1519,8 @@
       "crawl_brief": "Loài, vai trò ẩm thực/văn hóa, ngọc Melo, nguồn khoa học.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1543,8 +1543,8 @@
       "crawl_brief": "Nguồn gốc, nguyên liệu, dịp ăn, nơi còn làm.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1567,8 +1567,8 @@
       "crawl_brief": "Nguyên liệu, quy trình, nguồn gốc thương mại, producer data.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1591,8 +1591,8 @@
       "crawl_brief": "Nguyên liệu, mùa, cách dùng, producer data.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1615,8 +1615,8 @@
       "crawl_brief": "Lịch sử, cá cơm, muối, ủ chượp, chỉ dẫn địa lý, cách đọc nhãn.",
       "canonical_entity_id": "place_fish_sauce_house",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1639,8 +1639,8 @@
       "crawl_brief": "Cấu trúc thùng, quy trình, etiquette, safety, visitor practical.",
       "canonical_entity_id": "place_fish_sauce_house",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1663,8 +1663,8 @@
       "crawl_brief": "Loại tiêu, quy trình, mùa, sản phẩm, cách phân biệt.",
       "canonical_entity_id": "place_pepper_garden",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1711,8 +1711,8 @@
       "crawl_brief": "Món địa phương, giờ phù hợp, practical, thanh toán.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1735,8 +1735,8 @@
       "crawl_brief": "Các món local, giờ, khu vực, không biến thành top list cố định.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1783,8 +1783,8 @@
       "crawl_brief": "Đặc trưng khu vực, chợ, hải sản, local eateries, lịch sử.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1811,8 +1811,8 @@
         "access_ferry",
         "activity_tour_3_islands"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1835,8 +1835,8 @@
       "crawl_brief": "Khoảng cách, thời gian, phương tiện, giá tham khảo, late-night.",
       "canonical_entity_id": "access_airport_transfer",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1861,8 +1861,8 @@
       "related_entity_ids": [
         "place_sunset_town"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1889,8 +1889,8 @@
         "place_vinwonders",
         "place_vinpearl_safari"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1913,8 +1913,8 @@
       "crawl_brief": "Thời gian, taxi/bus/car, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1937,8 +1937,8 @@
       "crawl_brief": "Thời gian, phương tiện, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1963,8 +1963,8 @@
       "related_entity_ids": [
         "place_rach_vem"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -1989,8 +1989,8 @@
       "related_entity_ids": [
         "place_ham_ninh"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2013,8 +2013,8 @@
       "crawl_brief": "Tuyến đang hoạt động, giờ, điểm dừng, fare, source.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2043,8 +2043,8 @@
         "utility_taxi_namthang",
         "utility_jotrip_local_service"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2067,8 +2067,8 @@
       "crawl_brief": "Yêu cầu giấy tờ, giá tham khảo, safety, fuel, parking.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2091,8 +2091,8 @@
       "crawl_brief": "Điều kiện, giấy tờ, parking, fuel, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2115,8 +2115,8 @@
       "crawl_brief": "Loại xe, pickup, buffer, late-night, source.",
       "canonical_entity_id": "access_airport_transfer",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2142,8 +2142,8 @@
         "access_fast_boat",
         "access_ferry"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2170,8 +2170,8 @@
         "utility_vcb_atm_nguyen_trung_truc",
         "utility_vcb_atm_an_thoi"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2194,8 +2194,8 @@
       "crawl_brief": "Mức độ chấp nhận theo loại nơi, cash fallback, source.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2218,8 +2218,8 @@
       "crawl_brief": "Kênh hợp pháp/chính thống, khu vực, practical cho khách quốc tế.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2248,8 +2248,8 @@
         "utility_longchau_ganh_dau",
         "utility_longchau_suoi_da"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2277,8 +2277,8 @@
         "utility_vinmec",
         "utility_vinmec_er"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2304,8 +2304,8 @@
         "utility_toilet_sunset_venice_67",
         "utility_toilet_sunset_venice_02"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2330,8 +2330,8 @@
       "related_entity_ids": [
         "utility_parking_sunset_nightmarket"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2358,8 +2358,8 @@
         "utility_fuel_my_anh_an_thoi",
         "utility_fuel_nhi_phung_ganh_dau"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2386,8 +2386,8 @@
         "utility_minimart_homemart_an_thoi",
         "utility_minimart_cs68_sunset"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2442,8 +2442,8 @@
         "utility_pqc_hotline",
         "utility_pqc_lost"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2466,8 +2466,8 @@
       "crawl_brief": "Tên gọi, tài liệu lịch sử, các giả thuyết, confidence.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2586,8 +2586,8 @@
       "crawl_brief": "Tài liệu, địa lý, alternate explanations.",
       "canonical_entity_id": "place_cua_can",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2614,8 +2614,8 @@
         "place_aquatopia",
         "place_exotica"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2638,8 +2638,8 @@
       "crawl_brief": "Tài liệu/folk explanation, alternate versions.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2662,8 +2662,8 @@
       "crawl_brief": "Địa điểm thật, truyền thuyết Nguyễn Ánh, nguồn lịch sử, alternate versions.",
       "canonical_entity_id": "place_gieng_tien",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2688,8 +2688,8 @@
       "related_entity_ids": [
         "place_gieng_tien"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2712,8 +2712,8 @@
       "crawl_brief": "Timeline, địa điểm, nguồn chính thống, truyền khẩu liên quan.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2736,8 +2736,8 @@
       "crawl_brief": "Đối tượng thờ, cộng đồng, lễ tục, nguồn văn hóa.",
       "canonical_entity_id": "place_dinh_cau",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2760,8 +2760,8 @@
       "crawl_brief": "Tín ngưỡng ngư dân, nghi lễ, địa điểm, nguồn văn hóa.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2784,8 +2784,8 @@
       "crawl_brief": "Lễ hội, lịch, nghi thức, nguồn chính thống.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2856,8 +2856,8 @@
       "crawl_brief": "Lịch sử giống, xoáy lưng, bơi, săn, nguồn khoa học/kennel.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2880,8 +2880,8 @@
       "crawl_brief": "Phân loại claim, nguồn, local lore, evidence.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2904,8 +2904,8 @@
       "crawl_brief": "Giai thoại/truyền thuyết, địa điểm liên quan, nguồn địa phương.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2930,8 +2930,8 @@
       "related_entity_ids": [
         "place_gieng_tien"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -2954,8 +2954,8 @@
       "crawl_brief": "Timeline, nguồn bảo tàng/chính thống, terminology.",
       "canonical_entity_id": "venue_phu_quoc_prison",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3002,8 +3002,8 @@
       "crawl_brief": "Quan hệ lịch sử vùng, maps, administrative context.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3026,8 +3026,8 @@
       "crawl_brief": "Timeline, nhà thùng, thương mại, chỉ dẫn địa lý.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3050,8 +3050,8 @@
       "crawl_brief": "Timeline, vùng sản xuất, bến/tàu/lưới/câu, biến đổi nghề.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3074,8 +3074,8 @@
       "crawl_brief": "Giờ, cảng, duration, dependencies, sea-ban logic, practical.",
       "canonical_entity_id": "activity_tour_3_islands",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3098,8 +3098,8 @@
       "crawl_brief": "Giờ, khu vực, kỹ thuật, sea/weather dependency, practical.",
       "canonical_entity_id": "activity_big_game_fishing",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3122,8 +3122,8 @@
       "crawl_brief": "Mùa, giờ, sea dependency, safety, expectation vs reality.",
       "canonical_entity_id": "activity_squid_fishing",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3146,8 +3146,8 @@
       "crawl_brief": "Khu vực, mùa, visibility, coral etiquette, safety.",
       "canonical_entity_id": "activity_snorkeling_an_thoi",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3170,8 +3170,8 @@
       "crawl_brief": "Operators/areas nếu verified, certification, season, safety.",
       "canonical_entity_id": "activity_scuba",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3196,8 +3196,8 @@
       "related_entity_ids": [
         "place_cua_can"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3224,8 +3224,8 @@
         "place_bai_sao",
         "place_bai_khem"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3251,8 +3251,8 @@
         "place_bai_truong",
         "place_dinh_cau"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3277,8 +3277,8 @@
       "related_entity_ids": [
         "place_ham_ninh"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3301,8 +3301,8 @@
       "crawl_brief": "Giờ, location, food, crowd, payment, practical.",
       "canonical_entity_id": "place_night_market",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3325,8 +3325,8 @@
       "crawl_brief": "Operating windows, last ride, weather/maintenance dependency.",
       "canonical_entity_id": "activity_hon_thom",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3349,8 +3349,8 @@
       "crawl_brief": "Duration, heat/rain, family suitability, practical.",
       "canonical_entity_id": "place_vinpearl_safari",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3373,8 +3373,8 @@
       "crawl_brief": "Duration, weather, family suitability, queue notes nếu verified.",
       "canonical_entity_id": "place_vinwonders",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3400,8 +3400,8 @@
         "place_fish_sauce_house",
         "place_pepper_garden"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3428,8 +3428,8 @@
         "place_teddy_bear_museum",
         "place_vinwonders"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3452,8 +3452,8 @@
       "crawl_brief": "Ảnh, maps, transport, tourism scale, source.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3478,8 +3478,8 @@
       "related_entity_ids": [
         "place_dinh_cau"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3528,8 +3528,8 @@
       "crawl_brief": "Then/Now assets, pier, village, tourism.",
       "canonical_entity_id": "place_ham_ninh",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3584,8 +3584,8 @@
         "place_vinwonders",
         "place_cua_can"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3608,8 +3608,8 @@
       "crawl_brief": "Maps, shoreline imagery, roads, access.",
       "canonical_entity_id": "place_bai_truong",
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3656,8 +3656,8 @@
       "crawl_brief": "Maps, key roads, expansion milestones.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3704,8 +3704,8 @@
       "crawl_brief": "Vessel types, ports, economics, oral/documentary sources.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],
@@ -3731,8 +3731,8 @@
         "place_ham_ninh",
         "place_dinh_cau"
       ],
-      "status": "READY_INTERNAL",
-      "public_ready": false,
+      "status": "READY_PUBLIC",
+      "public_ready": true,
       "research": {
         "claims": [],
         "sources": [],

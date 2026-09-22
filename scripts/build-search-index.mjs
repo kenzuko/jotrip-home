@@ -96,6 +96,20 @@ try{
   }));
 }catch(error){}
 documents.push(...storyDocs,...curiosityDocs);
+const knowledgeView=JSON.parse(fs.readFileSync(path.join(root,"data","views","knowledge-public.json"),"utf8"));
+const knowledgeDocs=(knowledgeView.objects||[]).map(o=>({
+  id:o.topic_id,
+  type:"knowledge",
+  title:o.title,
+  aliases:[],
+  zone_id:null,
+  intents:["knowledge",o.topic_type.toLowerCase()],
+  related_entities:o.related_entity_ids||[],
+  route:o.route,
+  summary:o.editorial.short_summary,
+  search_text:fold([o.title,o.editorial.short_summary,o.editorial.practical,o.editorial.expectation_vs_reality,...o.editorial.before_you_go].join(" "))
+}));
+documents.unshift(...knowledgeDocs);
 documents.push(
   {id:"live_weather",type:"live",title:"Thời tiết & biển Phú Quốc",aliases:["weather","mưa","gió","sóng","biển"],zone_id:null,intents:["weather","marine"],route:"/weather/",search_text:"thoi tiet weather mua gio song bien marine"},
   {id:"live_airport",type:"live",title:"Sân bay Phú Quốc",aliases:["airport","PQC","flight","chuyến bay"],zone_id:null,intents:["airport","arrival","departure"],route:"/airport/",search_text:"san bay airport pqc flight chuyen bay den di"},

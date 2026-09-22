@@ -1,6 +1,17 @@
 name: Deploy Open Phu Quoc Worker
 
 on:
+  push:
+    branches: ["main"]
+    paths:
+      - "data/knowledge/**"
+      - "guide/**"
+      - "scripts/build-knowledge-public.mjs"
+      - "scripts/build-search-index.mjs"
+      - "scripts/build-cloudflare.mjs"
+      - "worker.js"
+      - "wrangler.jsonc"
+      - ".github/workflows/cloudflare-worker.yml"
   workflow_dispatch:
 
 permissions:
@@ -25,6 +36,7 @@ jobs:
       - name: Build derived data
         run: |
           node scripts/build-knowledge-public.mjs
+          node -e "const x=require('./data/views/knowledge-public.json'); if(x.count!==128) process.exit(1)"
           node scripts/build-search-index.mjs
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
@@ -36,6 +48,11 @@ jobs:
           node scripts/validate-knowledge.mjs
           node scripts/test-search.mjs
           node scripts/test-currency.mjs
+
+      - name: Check public knowledge
+        run: |
+          node --check guide/knowledge.js
+          node --check worker.js
 
       - name: Build Worker assets
         run: |

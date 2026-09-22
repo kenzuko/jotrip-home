@@ -30,6 +30,7 @@ jobs:
       - name: Build derived data views
         run: |
           node scripts/build-knowledge-public.mjs
+          node -e "const x=require('./data/views/knowledge-public.json'); if(x.count!==128) process.exit(1)"
           node scripts/build-search-index.mjs
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
@@ -52,11 +53,15 @@ jobs:
           test -f dist/home-foundation-v2.js
           test -f dist/currency/index.html
           test -f dist/currency/currency.js
-          rm -rf dist
+          test ! -e dist/data/knowledge/objects.json
+          test ! -e dist/data/knowledge/backlog.json
+          test -f dist/guide/article.html
+          test -f dist/guide/knowledge.html
+          node --check guide/knowledge.js
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
         with:
-          path: .
+          path: dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

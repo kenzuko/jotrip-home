@@ -61,6 +61,21 @@ async function placeMeta(url, env) {
     imageAlt: cleanText(hero?.alt || entity.name, "Open Phu Quoc")
   };
 }
+async function knowledgeMeta(url,env){
+  const id=url.searchParams.get("id");
+  if(!id)return null;
+  const data=await readAssetJson(env,url,"/data/views/knowledge-public.json");
+  const article=(data.objects||[]).find(o=>o.topic_id===id);
+  if(!article)return null;
+  return {
+    type:"article",
+    title:cleanText(article.title)+" - Cẩm nang Phú Quốc",
+    description:truncate(article.editorial.short_summary),
+    canonical:SITE_ORIGIN+article.route,
+    image:DEFAULT_IMAGE,
+    imageAlt:"Open Phu Quoc"
+  };
+}
 function transformMeta(response, meta) {
   const rewriter = new HTMLRewriter()
     .on("title", {
@@ -118,6 +133,7 @@ export default {
     try {
       if (url.pathname === "/stories/article.html") meta = await storyMeta(url, env);
       else if (url.pathname === "/places/detail.html") meta = await placeMeta(url, env);
+      else if (url.pathname === "/guide/article.html") meta = await knowledgeMeta(url, env);
     } catch (error) {
       console.warn("social metadata lookup failed", error);
     }
