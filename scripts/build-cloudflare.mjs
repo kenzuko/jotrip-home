@@ -57,6 +57,8 @@ for(const file of rootFiles){
 for(const dir of dirs){
   if(existsSync(dir)) await cp(dir,`${out}/${dir}`,{recursive:true});
 }
+await rm(`${out}/data/knowledge`,{recursive:true,force:true});
+await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
 if(existsSync("cms/schema.json")) await copyFile("cms/schema.json",`${out}/cms/schema.json`);
 
