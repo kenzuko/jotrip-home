@@ -25,8 +25,10 @@
       "ACTIVITY": 15,
       "MEMORY_CHANGE": 12
     },
-    "linked_to_canonical_entity": 29,
-    "unlinked": 121
+    "linked_to_canonical_entity": 33,
+    "unlinked": 117,
+    "ready_internal": 17,
+    "queued": 133
   },
   "topics": [
     {
@@ -38,7 +40,7 @@
       "crawl_brief": "Lịch sử, tín ngưỡng, giờ mở cửa, etiquette, ảnh cũ, nguồn chính thống.",
       "canonical_entity_id": "place_dinh_cau",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -86,7 +88,7 @@
       "crawl_brief": "Giờ hoạt động, khu hàng, ăn gì, cách đi, parking, lịch sử, thực tế cho khách.",
       "canonical_entity_id": "place_duong_dong_market",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -134,7 +136,7 @@
       "crawl_brief": "Khu vực, lối đi, show/sự kiện, giờ hoạt động, parking, practical, thay đổi mới.",
       "canonical_entity_id": "place_sunset_town",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -206,7 +208,7 @@
       "crawl_brief": "Làng chài, sao biển, mùa, đường đi, thủy triều, practical, bảo tồn.",
       "canonical_entity_id": "place_rach_vem",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -302,7 +304,7 @@
       "crawl_brief": "Quá trình phát triển, bờ Tây, sunset, resort strip, access, practical.",
       "canonical_entity_id": "place_bai_truong",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -326,7 +328,7 @@
       "crawl_brief": "Đặc điểm bãi, mùa biển, access, practical, lịch sử tên gọi, thay đổi.",
       "canonical_entity_id": "place_bai_khem",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -350,7 +352,7 @@
       "crawl_brief": "Mùa gió, sóng, rong/rác, thời điểm đẹp, access, parking, toilet.",
       "canonical_entity_id": "place_bai_sao",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -638,7 +640,7 @@
       "crawl_brief": "Mùa nước, giờ mở cửa, đường đi, walking, safety, practical.",
       "canonical_entity_id": "place_suoi_tranh",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -710,7 +712,7 @@
       "crawl_brief": "Lịch sử, kiến trúc, etiquette, giờ, access, viewpoint, practical.",
       "canonical_entity_id": "place_ho_quoc",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -734,7 +736,7 @@
       "crawl_brief": "Bối cảnh lịch sử, giờ tham quan, exhibits, etiquette, nguồn chính thống.",
       "canonical_entity_id": "place_phu_quoc_prison",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1356,9 +1358,9 @@
       "section": "FOOD / LOCAL PRODUCTS",
       "topic_type": "FOOD",
       "crawl_brief": "Nguồn gốc, cách ăn, nguyên liệu, allergens, giá tham khảo, dị bản.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "food_bun-quay",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1382,7 +1384,7 @@
       "crawl_brief": "Nguyên liệu, raw fish, herbs, nước chấm, allergens, cách ăn.",
       "canonical_entity_id": "food_goi-ca-trich",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1428,9 +1430,9 @@
       "section": "FOOD / LOCAL PRODUCTS",
       "topic_type": "FOOD",
       "crawl_brief": "Loài, mùa, cách chế biến, ecology, food safety.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "food_nhum",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1454,7 +1456,7 @@
       "crawl_brief": "Là gì, cách chế biến, nguồn cung, allergens.",
       "canonical_entity_id": "food_coi-bien-mai",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1596,9 +1598,9 @@
       "section": "FOOD / LOCAL PRODUCTS",
       "topic_type": "FOOD",
       "crawl_brief": "Lịch sử, cá cơm, muối, ủ chượp, chỉ dẫn địa lý, cách đọc nhãn.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "place_fish_sauce_house",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1622,7 +1624,7 @@
       "crawl_brief": "Cấu trúc thùng, quy trình, etiquette, safety, visitor practical.",
       "canonical_entity_id": "place_fish_sauce_house",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1644,9 +1646,9 @@
       "section": "FOOD / LOCAL PRODUCTS",
       "topic_type": "FOOD",
       "crawl_brief": "Loại tiêu, quy trình, mùa, sản phẩm, cách phân biệt.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "place_pepper_garden",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
