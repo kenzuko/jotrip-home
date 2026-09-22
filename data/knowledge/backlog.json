@@ -39,8 +39,8 @@
     },
     "linked_to_canonical_entity": 41,
     "unlinked": 109,
-    "ready_internal": 117,
-    "queued": 15,
+    "ready_internal": 120,
+    "queued": 12,
     "hold": 18
   },
   "topics": [
@@ -3219,8 +3219,13 @@
       "topic_type": "ACTIVITY",
       "crawl_brief": "Cách chọn bãi theo mùa/gió, practical, sun/heat.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_bai_truong",
+        "place_bai_sao",
+        "place_bai_khem",
+        "place_cua_can"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3243,8 +3248,10 @@
       "topic_type": "ACTIVITY",
       "crawl_brief": "Giờ, bờ Tây, cloud/weather dependency, travel buffer.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_bai_truong"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3267,8 +3274,11 @@
       "topic_type": "ACTIVITY",
       "crawl_brief": "Giờ, khu vực, weather dependency, access.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_ham_ninh",
+        "place_bai_khem"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
