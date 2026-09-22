@@ -89,6 +89,30 @@ jobs:
           curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/admin/?t=$GITHUB_SHA" -o /tmp/cms-admin.html
           grep -q 'admin.js?v=21' /tmp/cms-admin.html
 
+      - name: Independently check the live CMS hostname
+        if: always()
+        run: |
+          node <<'NODE'
+          const root="https://cms.openphuquoc.com";
+          const paths=["/data/views/knowledge-public.json","/guide/knowledge.html","/admin/"];
+          (async()=>{
+            for(const path of paths){
+              const label=path;
+              try{
+                const r=await fetch(root+path+"?v="+process.env.GITHUB_SHA,{signal:AbortSignal.timeout(12000),headers:{"Cache-Control":"no-cache"}});
+                const contentType=r.headers.get("content-type")||"";
+                const body=await r.text();
+                const count=contentType.includes("json")?JSON.parse(body).count:null;
+                const markers={
+                  library:body.includes('data-knowledge-page="library"'),
+                  adminVersion21:body.includes("admin.js?v=21")
+                };
+                console.log("CMS live",label,"HTTP",r.status,"content-type",contentType,"count",count,"library",markers.library,"admin-v21",markers.adminVersion21);
+              }catch(e){console.log("CMS live",label,"unreachable:",e.message);}
+            }
+          })();
+          NODE
+
       - name: Explain missing Pages connection
         if: steps.discover.outputs.ready != 'true'
         run: echo "::warning::CMS build passed, but deployment requires the Cloudflare account containing cms.openphuquoc.com Pages project and a token with Pages Read/Edit. No DNS or other Worker was changed."
