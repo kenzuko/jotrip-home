@@ -248,6 +248,11 @@
         "icon": "H"
       },
       {
+        "id": "ACTIVITY",
+        "label": "Show & trải nghiệm",
+        "icon": "▶"
+      },
+      {
         "id": "TOILET",
         "label": "Nhà vệ sinh",
         "icon": "WC"
