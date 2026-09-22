@@ -75,4 +75,32 @@ jobs:
                   ident=str(row.get("uuid") or row.get("id") or "")
                   print(f"d1: name={row.get('name')} id_prefix={ident[:8]} created_at={row.get('created_at')}")
           print("d1_total=", total)
+
+          # Pages projects can expose D1 binding names even when this token lacks D1 database read permission.
+          for ai,(account_id,account_name) in enumerate(accounts,1):
+              if not account_id:
+                  continue
+              url="https://api.cloudflare.com/client/v4/accounts/"+urllib.parse.quote(account_id,safe="")+"/pages/projects?per_page=100"
+              status,doc=get(url)
+              print(f"pages_account_{ai}: http_status={status} success={doc.get('success')}")
+              if not doc.get("success"):
+                  for e in doc.get("errors") or []:
+                      print("pages_error=", e.get("code"), e.get("message"))
+                  continue
+              projects=doc.get("result") or []
+              print("pages_project_count=", len(projects))
+              for p in projects:
+                  name=p.get("name")
+                  prod=(p.get("deployment_configs") or {}).get("production") or {}
+                  prev=(p.get("deployment_configs") or {}).get("preview") or {}
+                  def bind_names(cfg,key):
+                      val=cfg.get(key) or {}
+                      if isinstance(val,dict):
+                          return sorted(val.keys())
+                      if isinstance(val,list):
+                          return [str(x.get("binding") or x.get("name") or "") for x in val if isinstance(x,dict)]
+                      return []
+                  d1p=bind_names(prod,"d1_databases")
+                  d1v=bind_names(prev,"d1_databases")
+                  print(f"pages_project: name={name} production_d1={d1p} preview_d1={d1v}")
           PY
