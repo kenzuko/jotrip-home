@@ -24,9 +24,13 @@ for(const t of topics){
   if(!t.title||!t.topic_type||!t.status)errors.push((t.topic_id||t.number)+": incomplete backlog metadata");
 }
 
+const backlogById=new Map(topics.map(t=>[t.topic_id,t]));
 const objectIds=new Set();
 for(const o of objects){
   if(!topicIds.has(o.topic_id))errors.push("knowledge object not found in backlog: "+o.topic_id);
+  const topic=backlogById.get(o.topic_id);
+  if(topic&&(topic.status!==o.status||Boolean(topic.public_ready)!==Boolean(o.public_ready)))errors.push(o.topic_id+": backlog/public state mismatch");
+  if(o.status==="READY_PUBLIC"&&o.public_ready!==true)errors.push(o.topic_id+": READY_PUBLIC must have public_ready true");
   if(objectIds.has(o.topic_id))errors.push("duplicate knowledge object: "+o.topic_id);
   objectIds.add(o.topic_id);
   if(o.status==="READY_INTERNAL"||o.status==="READY_PUBLIC"){
