@@ -1209,39 +1209,57 @@ function a2Quick(days){
 }
 
 function renderAnalytics(){
-  const d=currentData||{};
-  const sea=d.sea?.summary||{};
-  const air=d.aviation?.summary||{};
+  const d=currentData||{},sea=d.sea?.summary||{},air=d.aviation?.summary||{},p=d.period||{};
   $("#editor").classList.add("analytics-editor");
   $("#editor").innerHTML=`
-    <section class="analytics-head">
-      <div><span>INTERNAL INTELLIGENCE</span><h2>Phú Quốc Demand & Operations</h2><p>Chỉ tổng hợp dữ liệu vận hành. Không lưu tên khách, số điện thoại, email, biển số, mã đặt chỗ hay thanh toán.</p></div>
-      <button type="button" id="analyticsRefresh" class="analytics-refresh">↻ Làm mới dữ liệu</button>
+    <section class="analytics-head a2-head">
+      <div><span>OPEN PHU QUOC INTELLIGENCE</span><h2>Demand & Operations</h2><p>Phân tích khách vào - ra đảo theo thời gian. % phủ là aggregate load proxy, không phải dữ liệu cá nhân.</p></div>
+      <button id="analyticsRefresh" type="button" class="analytics-refresh">↻ Làm mới</button>
     </section>
 
-    <section class="analytics-kpis">
-      ${analyticsKpi("Chuyến biển",fmtInt(sea.departures),`${fmtInt(sea.inbound_departures)} vào đảo · ${fmtInt(sea.outbound_departures)} rời đảo`)}
-      ${analyticsKpi("Hãng biển",fmtInt(sea.operators),(sea.operator_names||[]).join(" · ")||"Chưa có")}
-      ${analyticsKpi("Chuyến bay",fmtInt(air.flights),`${fmtInt(air.arrivals)} đến · ${fmtInt(air.departures)} đi`)}
-      ${analyticsKpi("Bất thường bay",fmtInt((Number(air.delayed)||0)+(Number(air.cancelled)||0)),`${fmtInt(air.delayed)} trễ · ${fmtInt(air.cancelled)} hủy`,(Number(air.delayed)||0)+(Number(air.cancelled)||0)>0?"watch":"")}
-      ${analyticsKpi("Phủ biển",fmtPct(sea.avg_load_factor_proxy),`Coverage ${fmtPct(sea.load_factor_coverage)}`,Number(sea.load_factor_coverage)>0?"accent":"")}
-      ${analyticsKpi("Phủ hàng không",fmtPct(air.avg_load_factor_proxy),`Coverage ${fmtPct(air.load_factor_coverage)}`,Number(air.load_factor_coverage)>0?"accent":"")}
+    <section class="a2-filter">
+      <label><span>Từ ngày</span><input id="analyticsFrom" type="date" value="${esc(p.from||"")}"></label>
+      <label><span>Đến ngày</span><input id="analyticsTo" type="date" value="${esc(p.to||"")}"></label>
+      <button data-a2range="1">Hôm nay</button><button data-a2range="7">7 ngày</button><button data-a2range="30">30 ngày</button>
+      <button id="analyticsApply">Áp dụng</button><small>${a2Int(p.days)} ngày · tối đa 90 ngày</small>
     </section>
 
     <section class="analytics-panel">
-      <div class="analytics-panel-head"><div><span>XU HƯỚNG</span><h3>Nhịp khách vào - ra đảo</h3></div><small>Đếm chuyến, chưa phải số hành khách.</small></div>
-      ${renderTrendBars(d.trends||[])}
+      <div class="analytics-panel-head"><div><span>TÓM TẮT ĐIỀU HÀNH</span><h3>Điều đáng chú ý</h3></div><small>So kỳ trước cùng số ngày</small></div>
+      ${a2Summary(d)}
+    </section>
+
+    <section class="analytics-kpis">
+      ${analyticsKpi("Chuyến biển hôm nay",a2Int(sea.departures),a2Int(sea.inbound_departures)+" vào · "+a2Int(sea.outbound_departures)+" ra")}
+      ${analyticsKpi("Hãng biển",a2Int(sea.operators),(sea.operator_names||[]).join(" · ")||"Chưa có")}
+      ${analyticsKpi("Chuyến bay hôm nay",a2Int(air.flights),a2Int(air.arrivals)+" đến · "+a2Int(air.departures)+" đi")}
+      ${analyticsKpi("Bất thường bay",a2Int((Number(air.delayed)||0)+(Number(air.cancelled)||0)),a2Int(air.delayed)+" trễ · "+a2Int(air.cancelled)+" hủy",(Number(air.delayed)||0)+(Number(air.cancelled)||0)>0?"watch":"")}
+      ${analyticsKpi("% phủ biển hiện có",a2Pct(sea.avg_load_factor_proxy),"Coverage "+a2Pct(sea.load_factor_coverage),Number(sea.load_factor_coverage)>0?"accent":"")}
+      ${analyticsKpi("Khoảng phân tích",a2Int(p.days)+" ngày",a2Day(p.from)+" → "+a2Day(p.to))}
+    </section>
+
+    <section class="analytics-grid-2 a2-charts">
+      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>SEA</span><h3>Chuyến biển vào - ra theo ngày</h3></div></div>
+        ${a2Chart(d.trends||[],[{key:"sea_in",label:"Vào đảo",cls:"sea-in"},{key:"sea_out",label:"Rời đảo",cls:"sea-out"}])}
+      </article>
+      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>AVIATION</span><h3>Chuyến bay đến - đi theo ngày</h3></div></div>
+        ${a2Chart(d.trends||[],[{key:"air_in",label:"Bay đến",cls:"air-in"},{key:"air_out",label:"Bay đi",cls:"air-out"}])}
+      </article>
     </section>
 
     <section class="analytics-grid-2">
-      <article class="analytics-panel">
-        <div class="analytics-panel-head"><div><span>SEA / TRANSIT</span><h3>Tàu & phà hôm nay</h3></div><small>${fmtInt(sea.departures)} chuyến</small></div>
-        ${renderSeaTable(d.sea?.rows||[])}
-      </article>
-      <article class="analytics-panel">
-        <div class="analytics-panel-head"><div><span>AVIATION</span><h3>Hàng không hôm nay</h3></div><small>${fmtInt(air.flights)} chuyến</small></div>
-        ${renderAviationTable(d.aviation?.rows||[])}
-      </article>
+      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>LOAD FACTOR</span><h3>% phủ theo tuyến</h3></div><small>Capacity-weighted</small></div>${a2LoadBars(d.sea?.route_loads||[])}</article>
+      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>OPERATORS</span><h3>% phủ theo hãng</h3></div><small>Chỉ hãng đủ dữ liệu</small></div>${a2LoadBars(d.sea?.operator_loads||[],true)}</article>
+    </section>
+
+    <section class="analytics-panel">
+      <div class="analytics-panel-head"><div><span>TRIP LOAD</span><h3>% phủ từng chuyến</h3></div><small>Observed / Estimated / Proxy</small></div>
+      ${a2TripTable(d.sea?.trip_loads||[])}
+    </section>
+
+    <section class="analytics-grid-2">
+      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>SEA / TRANSIT</span><h3>Tàu & phà hôm nay</h3></div><small>${a2Int(sea.departures)} chuyến</small></div>${renderSeaTable(d.sea?.rows||[])}</article>
+      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>AVIATION</span><h3>Hàng không hôm nay</h3></div><small>${a2Int(air.flights)} chuyến</small></div>${renderAviationTable(d.aviation?.rows||[])}</article>
     </section>
 
     <section class="analytics-panel">
@@ -1249,21 +1267,12 @@ function renderAnalytics(){
       ${renderSync(d.sync||[],d.storage||{})}
       <p class="analytics-note">${esc(d.evidence_note||"")}</p>
     </section>`;
-  $("#analyticsRefresh")?.addEventListener("click",refreshAnalytics);
+
+  $("#analyticsRefresh")?.addEventListener("click",()=>a2Load(true));
+  $("#analyticsApply")?.addEventListener("click",()=>a2Load(false));
+  $$("#editor [data-a2range]").forEach(b=>b.addEventListener("click",()=>a2Quick(Number(b.dataset.a2range)||7)));
 }
-async function refreshAnalytics(){
-  const btn=$("#analyticsRefresh");
-  if(btn){btn.disabled=true;btn.textContent="Đang làm mới...";}
-  status("Đang đồng bộ Analytics từ Transit và Airport...");
-  try{
-    currentData=await api(API.analytics+"?refresh=1");
-    renderAnalytics();
-    status("Analytics đã cập nhật từ nguồn live.","success");
-  }catch(e){
-    status(e.message,"error");
-    if(btn){btn.disabled=false;btn.textContent="↻ Làm mới dữ liệu";}
-  }
-}
+async function refreshAnalytics(){return a2Load(true)}
 
 function applyPermissions(){
   const writable=currentModule?.write?.includes(session.role);
