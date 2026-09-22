@@ -85,12 +85,8 @@ function ingredientsBlock(dish){
   '</section>';
 }
 
-function sourcesBlock(dish){
-  const rows=Array.isArray(dish.sources)?dish.sources:[];
-  if(!rows.length)return "";
-  return '<details class="food-sources"><summary>'+esc(copy("food.sources","Nguồn tham khảo"))+'</summary><div>'+
-    rows.map(x=>'<a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+' ↗</a>').join("")+
-  '</div></details>';
+function sourcesBlock(){
+  return "";
 }
 
 function renderArticle(){
