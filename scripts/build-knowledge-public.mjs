@@ -7,10 +7,7 @@ const outPath=path.join(root,"data","views","knowledge-public.json");
 const payload=JSON.parse(fs.readFileSync(sourcePath,"utf8"));
 
 function routeFor(o){
-  const id=o.canonical_entity_id||"";
-  if(id.startsWith("place_")||id.startsWith("activity_")) return "/places/detail.html?id="+encodeURIComponent(id);
-  if(id.startsWith("food_")) return "/food/article.html?id="+encodeURIComponent(id.replace(/^food_/,""));
-  return "/guide/?q="+encodeURIComponent(o.title)+"#search";
+  return "/guide/article.html?id="+encodeURIComponent(o.topic_id);
 }
 
 const objects=(payload.objects||[])
@@ -34,6 +31,7 @@ const objects=(payload.objects||[])
     updated_at:o.updated_at||payload.updated_at||null
   }));
 
+if(objects.some(o=>!o.topic_id||!o.editorial.short_summary||!o.editorial.practical||!o.editorial.before_you_go.length))throw new Error("Incomplete public knowledge article");
 const raw=JSON.stringify(objects);
 if(/https?:\/\//i.test(raw)) throw new Error("Public knowledge view contains an external URL");
 if(/"research"\s*:|"sources"\s*:/i.test(raw)) throw new Error("Public knowledge view leaked research/source fields");
