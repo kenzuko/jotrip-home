@@ -1,0 +1,58 @@
+name: Hotfix - Deploy Analytics Buttons Once
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Resolve Cloudflare account
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          ACCOUNT_ID="$(python - <<'PY'
+          import json, os, urllib.request
+          token=os.environ["CF_API_TOKEN"].strip()
+          req=urllib.request.Request("https://api.cloudflare.com/client/v4/accounts",headers={
+            "Authorization":"Bearer "+token,
+            "Content-Type":"application/json",
+            "User-Agent":"OpenPQ-Hotfix/1.0",
+          })
+          with urllib.request.urlopen(req,timeout=20) as r:
+            rows=(json.loads(r.read().decode()).get("result") or [])
+          if not rows: raise SystemExit("No Cloudflare account")
+          print(rows[0]["id"])
+          PY
+          )"
+          echo "CLOUDFLARE_ACCOUNT_ID=$ACCOUNT_ID" >> "$GITHUB_ENV"
+      - name: Build and validate
+        run: |
+          set -euo pipefail
+          node --check admin/admin.js
+          grep -q 'type="button" data-a2range="1"' admin/admin.js
+          grep -q 'type="button" id="analyticsApply"' admin/admin.js
+          node scripts/build-cloudflare.mjs
+      - name: Deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: npx --yes wrangler@4 pages deploy dist --project-name jotrip-home --branch main --commit-dirty=true
+      - name: Verify custom domain
+        run: |
+          set -euo pipefail
+          ok=0
+          for i in {1..25}; do
+            curl -fsS "https://cms.openphuquoc.com/admin/admin.js?v=18&t=$i" -o live.js || true
+            if grep -q 'type="button" data-a2range="1"' live.js && grep -q 'type="button" id="analyticsApply"' live.js; then
+              ok=1; break
+            fi
+            sleep 3
+          done
+          echo "analytics_buttons_live=$ok"
+          test "$ok" = "1"
