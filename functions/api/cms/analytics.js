@@ -94,6 +94,25 @@ async function ensureSchema(db){
     )`,
     "CREATE INDEX IF NOT EXISTS idx_aviation_service_date ON aviation_observations(service_date)",
     "CREATE INDEX IF NOT EXISTS idx_aviation_observed ON aviation_observations(observed_at)",
+    `CREATE TABLE IF NOT EXISTS sea_load_observations (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      observed_at TEXT NOT NULL,
+      service_date TEXT NOT NULL,
+      operator TEXT NOT NULL,
+      origin TEXT NOT NULL,
+      destination TEXT NOT NULL,
+      departure_time TEXT NOT NULL,
+      vessel TEXT,
+      capacity INTEGER,
+      remaining INTEGER,
+      load_factor REAL,
+      load_basis TEXT NOT NULL,
+      evidence_class TEXT NOT NULL,
+      UNIQUE(observed_at,operator,origin,destination,departure_time)
+    )`,
+    "CREATE INDEX IF NOT EXISTS idx_sea_load_service_date ON sea_load_observations(service_date)",
+    "CREATE INDEX IF NOT EXISTS idx_sea_load_route ON sea_load_observations(operator,origin,destination)",
+    "CREATE INDEX IF NOT EXISTS idx_sea_load_departure ON sea_load_observations(departure_time)",
     `CREATE TABLE IF NOT EXISTS ops_observations (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       observed_at TEXT NOT NULL,
@@ -158,6 +177,167 @@ async function fetchJson(url,timeoutMs=6500){
     return r.json();
   }finally{clearTimeout(timer)}
 }
+
+const PQE_ROUTES={
+  1:["Rạch Giá","Phú Quốc"],
+  2:["Phú Quốc","Rạch Giá"],
+  3:["Hà Tiên","Phú Quốc"],
+  4:["Phú Quốc","Hà Tiên"]
+};
+const SUPERDONG_ROUTES={
+  3:["Hà Tiên","Phú Quốc"],
+  4:["Phú Quốc","Hà Tiên"],
+  5:["Rạch Giá","Phú Quốc"],
+  6:["Phú Quốc","Rạch Giá"]
+};
+const PQE_CAPACITY_RULES=[
+  {re:/\bPQE\s*18\b|PHÚ QUỐC EXPRESS\s*18/i,capacity:231,basis:"public_vessel_spec"},
+  {re:/\bPQE\s*27\b|PHÚ QUỐC EXPRESS\s*27/i,capacity:231,basis:"public_vessel_spec"},
+  {re:/\bPQE\s*9\b|PHÚ QUỐC EXPRESS\s*9/i,capacity:300,basis:"public_vessel_spec"}
+];
+
+function localDay(){
+  const parts=new Intl.DateTimeFormat("en-CA",{
+    timeZone:"Asia/Ho_Chi_Minh",year:"numeric",month:"2-digit",day:"2-digit"
+  }).formatToParts(new Date());
+  const m=Object.fromEntries(parts.map(x=>[x.type,x.value]));
+  return `${m.year}-${m.month}-${m.day}`;
+}
+function dateOnlyValid(v){return /^\d{4}-\d{2}-\d{2}$/.test(String(v||""))}
+function addDays(day,n){
+  const d=new Date(day+"T12:00:00Z");
+  d.setUTCDate(d.getUTCDate()+n);
+  return d.toISOString().slice(0,10);
+}
+function diffDays(a,b){
+  return Math.max(0,Math.round((new Date(b+"T12:00:00Z")-new Date(a+"T12:00:00Z"))/86400000));
+}
+function isoLocal(day,hhmm){
+  if(!hhmm)return null;
+  const m=String(hhmm).match(/(\d{1,2}):(\d{2})/);
+  if(!m)return null;
+  return `${day}T${String(Number(m[1])).padStart(2,"0")}:${m[2]}:00+07:00`;
+}
+function capacityForPqe(name){
+  const s=String(name||"");
+  for(const rule of PQE_CAPACITY_RULES)if(rule.re.test(s))return rule;
+  return {capacity:null,basis:"remaining_only"};
+}
+async function fetchJsonDetailed(url,params={},opts={}){
+  const u=new URL(url);
+  for(const [k,v] of Object.entries(params||{}))u.searchParams.set(k,String(v));
+  const controller=new AbortController();
+  const timer=setTimeout(()=>controller.abort(),opts.timeoutMs||8000);
+  try{
+    const r=await fetch(u.toString(),{
+      method:"GET",
+      headers:{
+        "accept":opts.accept||"application/json,text/plain,*/*",
+        "user-agent":"Mozilla/5.0 OpenPQ-Internal-Analytics/1.0",
+        ...(opts.headers||{})
+      },
+      cache:"no-store",
+      signal:controller.signal
+    });
+    if(!r.ok)throw new Error("HTTP "+r.status+" "+u.pathname);
+    return {data:await r.json(),headers:r.headers};
+  }finally{clearTimeout(timer)}
+}
+async function collectPqeLoad(day){
+  const rows=[];
+  for(const [routeId,pair] of Object.entries(PQE_ROUTES)){
+    const {data}=await fetchJsonDetailed(
+      "https://online.phuquocexpress.com/Booking/SearchVoyage",
+      {RouteId:routeId,DepartDate:day,NoOfPassenger:1},
+      {timeoutMs:9000}
+    );
+    for(const x of Array.isArray(data)?data:[]){
+      const depart=isoLocal(day,x?.DepartTime);
+      if(!depart)continue;
+      const vessel=String(x?.BoatNm||"Phú Quốc Express");
+      const remaining=num(x?.NoOfRemain);
+      const capInfo=capacityForPqe(vessel);
+      const capacity=num(capInfo.capacity);
+      const load=capacity!=null&&capacity>0&&remaining!=null
+        ?Math.max(0,Math.min(100,((capacity-remaining)/capacity)*100))
+        :null;
+      rows.push({
+        observed_at:isoNow(),service_date:day,operator:"Phú Quốc Express",
+        origin:pair[0],destination:pair[1],departure_time:depart,vessel,
+        capacity,remaining,load_factor:load,load_basis:capInfo.basis,
+        evidence_class:load==null?"observed_remaining":"estimated"
+      });
+    }
+  }
+  return rows;
+}
+async function collectSuperdongLoad(day){
+  const landing=await fetch("https://online.superdong.com.vn/Booking",{
+    headers:{"user-agent":"Mozilla/5.0","referer":"https://www.superdong.com.vn/"},
+    cache:"no-store"
+  });
+  if(!landing.ok)throw new Error("Superdong landing HTTP "+landing.status);
+  const setCookie=landing.headers.get("set-cookie")||"";
+  const cookie=setCookie.split(";")[0];
+  const rows=[];
+  for(const [routeId,pair] of Object.entries(SUPERDONG_ROUTES)){
+    const {data}=await fetchJsonDetailed(
+      "https://online.superdong.com.vn/api/Boat/getBoat",
+      {RouteId:routeId,DepartDate:day,NoOfPassenger:1},
+      {
+        timeoutMs:9000,
+        accept:"application/json,text/javascript,*/*;q=0.01",
+        headers:{
+          "x-requested-with":"XMLHttpRequest",
+          "referer":"https://online.superdong.com.vn/Booking",
+          ...(cookie?{"cookie":cookie}:{})
+        }
+      }
+    );
+    for(const x of Array.isArray(data)?data:[]){
+      const depart=isoLocal(day,x?.DepartTime);
+      if(!depart)continue;
+      const capacity=num(x?.NoOfSeat);
+      const remaining=num(x?.NoOfRemain);
+      const load=capacity!=null&&capacity>0&&remaining!=null
+        ?Math.max(0,Math.min(100,((capacity-remaining)/capacity)*100))
+        :null;
+      rows.push({
+        observed_at:isoNow(),service_date:day,operator:"Superdong",
+        origin:pair[0],destination:pair[1],departure_time:depart,
+        vessel:String(x?.BoatNm||"Superdong"),
+        capacity,remaining,load_factor:load,load_basis:"booking_capacity_remaining",
+        evidence_class:load==null?"observed":"observed"
+      });
+    }
+  }
+  return rows;
+}
+async function syncSeaLoad(db,day,force=false){
+  const source="sea_load";
+  const prev=await lastSync(db,source);
+  if(!force&&isFresh(prev,5))return {source,status:"cached",records:prev.records||0,last_success_at:prev.last_success_at};
+  let rows=[],errors=[];
+  const [pqe,sd]=await Promise.allSettled([collectPqeLoad(day),collectSuperdongLoad(day)]);
+  if(pqe.status==="fulfilled")rows.push(...pqe.value);else errors.push("PQE: "+(pqe.reason?.message||pqe.reason));
+  if(sd.status==="fulfilled")rows.push(...sd.value);else errors.push("Superdong: "+(sd.reason?.message||sd.reason));
+  if(db&&rows.length){
+    const stmts=rows.map(r=>db.prepare(`
+      INSERT OR IGNORE INTO sea_load_observations(
+        observed_at,service_date,operator,origin,destination,departure_time,vessel,
+        capacity,remaining,load_factor,load_basis,evidence_class
+      ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)
+    `).bind(
+      r.observed_at,r.service_date,r.operator,r.origin,r.destination,r.departure_time,r.vessel,
+      r.capacity,r.remaining,r.load_factor,r.load_basis,r.evidence_class
+    ));
+    await db.batch(stmts);
+  }
+  const status=rows.length?"ok":"error";
+  await markSync(db,source,status,rows.length,errors.join(" | "));
+  return {source,status,records:rows.length,rows,errors};
+}
+
 
 function transitRow(r,observedAt){
   const fare=r?.fare||{};
@@ -299,11 +479,11 @@ function currentAviationSummary(rows=[]){
   };
 }
 
-async function dashboardFromDb(db,transitSync,aviationSync){
+async function dashboardFromDb(db,transitSync,aviationSync,seaLoadSync,fromDay,toDay){
   let seaRows=transitSync.rows||[];
   let airRows=aviationSync.rows||[];
-  let trends=[];
-  let sync=[];
+  let trends=[],sync=[],routeLoads=[],operatorLoads=[],tripLoads=[],comparison={};
+
   if(db){
     if(!seaRows.length){
       const latest=await db.prepare("SELECT MAX(observed_at) at FROM transit_observations").first();
@@ -313,13 +493,14 @@ async function dashboardFromDb(db,transitSync,aviationSync){
       const latest=await db.prepare("SELECT MAX(observed_at) at FROM aviation_observations").first();
       if(latest?.at)airRows=(await db.prepare("SELECT * FROM aviation_observations WHERE observed_at=? ORDER BY scheduled_time").bind(latest.at).all()).results||[];
     }
+
     trends=(await db.prepare(`
       WITH sea AS (
         SELECT service_date day,
           COUNT(DISTINCT CASE WHEN destination LIKE '%Phú Quốc%' THEN operator||'|'||departure_time END) sea_in,
           COUNT(DISTINCT CASE WHEN origin LIKE '%Phú Quốc%' THEN operator||'|'||departure_time END) sea_out
         FROM transit_observations
-        WHERE service_date IS NOT NULL
+        WHERE service_date BETWEEN ? AND ?
         GROUP BY service_date
       ),
       air AS (
@@ -327,29 +508,135 @@ async function dashboardFromDb(db,transitSync,aviationSync){
           COUNT(DISTINCT CASE WHEN lower(direction)='arrival' THEN flight_number||'|'||scheduled_time END) air_in,
           COUNT(DISTINCT CASE WHEN lower(direction)='departure' THEN flight_number||'|'||scheduled_time END) air_out
         FROM aviation_observations
-        WHERE service_date IS NOT NULL
+        WHERE service_date BETWEEN ? AND ?
         GROUP BY service_date
+      ),
+      days AS (
+        SELECT day FROM sea UNION SELECT day FROM air
       )
-      SELECT COALESCE(sea.day,air.day) day,
+      SELECT days.day,
         COALESCE(sea.sea_in,0) sea_in,COALESCE(sea.sea_out,0) sea_out,
         COALESCE(air.air_in,0) air_in,COALESCE(air.air_out,0) air_out
-      FROM sea LEFT JOIN air ON sea.day=air.day
-      UNION
-      SELECT COALESCE(sea.day,air.day) day,
-        COALESCE(sea.sea_in,0),COALESCE(sea.sea_out,0),
-        COALESCE(air.air_in,0),COALESCE(air.air_out,0)
-      FROM air LEFT JOIN sea ON sea.day=air.day
-      ORDER BY day DESC LIMIT 30
-    `).all()).results||[];
+      FROM days LEFT JOIN sea ON sea.day=days.day LEFT JOIN air ON air.day=days.day
+      ORDER BY days.day
+    `).bind(fromDay,toDay,fromDay,toDay).all()).results||[];
+
+    routeLoads=(await db.prepare(`
+      WITH ranked AS (
+        SELECT *,
+          ROW_NUMBER() OVER (
+            PARTITION BY service_date,operator,origin,destination,departure_time
+            ORDER BY observed_at DESC
+          ) rn
+        FROM sea_load_observations
+        WHERE service_date BETWEEN ? AND ?
+      )
+      SELECT operator,origin,destination,
+        COUNT(*) trips,
+        SUM(CASE WHEN load_factor IS NOT NULL THEN 1 ELSE 0 END) load_trips,
+        ROUND(
+          100.0*SUM(CASE WHEN capacity>0 AND remaining IS NOT NULL THEN capacity-remaining ELSE 0 END)/
+          NULLIF(SUM(CASE WHEN capacity>0 AND remaining IS NOT NULL THEN capacity ELSE 0 END),0),1
+        ) load_factor,
+        SUM(CASE WHEN capacity>0 AND remaining IS NOT NULL THEN capacity ELSE 0 END) capacity_observed,
+        SUM(CASE WHEN capacity>0 AND remaining IS NOT NULL THEN capacity-remaining ELSE 0 END) sold_proxy
+      FROM ranked WHERE rn=1
+      GROUP BY operator,origin,destination
+      ORDER BY load_factor DESC, trips DESC
+    `).bind(fromDay,toDay).all()).results||[];
+
+    operatorLoads=(await db.prepare(`
+      WITH ranked AS (
+        SELECT *,
+          ROW_NUMBER() OVER (
+            PARTITION BY service_date,operator,origin,destination,departure_time
+            ORDER BY observed_at DESC
+          ) rn
+        FROM sea_load_observations
+        WHERE service_date BETWEEN ? AND ?
+      )
+      SELECT operator,
+        COUNT(*) trips,
+        SUM(CASE WHEN load_factor IS NOT NULL THEN 1 ELSE 0 END) load_trips,
+        ROUND(
+          100.0*SUM(CASE WHEN capacity>0 AND remaining IS NOT NULL THEN capacity-remaining ELSE 0 END)/
+          NULLIF(SUM(CASE WHEN capacity>0 AND remaining IS NOT NULL THEN capacity ELSE 0 END),0),1
+        ) load_factor
+      FROM ranked WHERE rn=1
+      GROUP BY operator
+      ORDER BY load_factor DESC
+    `).bind(fromDay,toDay).all()).results||[];
+
+    tripLoads=(await db.prepare(`
+      WITH ranked AS (
+        SELECT *,
+          ROW_NUMBER() OVER (
+            PARTITION BY service_date,operator,origin,destination,departure_time
+            ORDER BY observed_at DESC
+          ) rn
+        FROM sea_load_observations
+        WHERE service_date BETWEEN ? AND ?
+      )
+      SELECT service_date,operator,origin,destination,departure_time,vessel,
+        capacity,remaining,ROUND(load_factor,1) load_factor,load_basis,evidence_class
+      FROM ranked WHERE rn=1
+      ORDER BY service_date DESC,departure_time
+      LIMIT 300
+    `).bind(fromDay,toDay).all()).results||[];
+
+    const span=diffDays(fromDay,toDay)+1;
+    const prevTo=addDays(fromDay,-1);
+    const prevFrom=addDays(prevTo,-span+1);
+    const totals=await db.prepare(`
+      WITH sea AS (
+        SELECT
+          COUNT(DISTINCT CASE WHEN service_date BETWEEN ? AND ? AND destination LIKE '%Phú Quốc%' THEN service_date||'|'||operator||'|'||departure_time END) cur_sea_in,
+          COUNT(DISTINCT CASE WHEN service_date BETWEEN ? AND ? AND origin LIKE '%Phú Quốc%' THEN service_date||'|'||operator||'|'||departure_time END) cur_sea_out,
+          COUNT(DISTINCT CASE WHEN service_date BETWEEN ? AND ? AND destination LIKE '%Phú Quốc%' THEN service_date||'|'||operator||'|'||departure_time END) prev_sea_in,
+          COUNT(DISTINCT CASE WHEN service_date BETWEEN ? AND ? AND origin LIKE '%Phú Quốc%' THEN service_date||'|'||operator||'|'||departure_time END) prev_sea_out
+        FROM transit_observations
+      ),
+      air AS (
+        SELECT
+          COUNT(DISTINCT CASE WHEN service_date BETWEEN ? AND ? AND lower(direction)='arrival' THEN service_date||'|'||flight_number||'|'||scheduled_time END) cur_air_in,
+          COUNT(DISTINCT CASE WHEN service_date BETWEEN ? AND ? AND lower(direction)='departure' THEN service_date||'|'||flight_number||'|'||scheduled_time END) cur_air_out,
+          COUNT(DISTINCT CASE WHEN service_date BETWEEN ? AND ? AND lower(direction)='arrival' THEN service_date||'|'||flight_number||'|'||scheduled_time END) prev_air_in,
+          COUNT(DISTINCT CASE WHEN service_date BETWEEN ? AND ? AND lower(direction)='departure' THEN service_date||'|'||flight_number||'|'||scheduled_time END) prev_air_out
+        FROM aviation_observations
+      )
+      SELECT * FROM sea CROSS JOIN air
+    `).bind(
+      fromDay,toDay,fromDay,toDay,prevFrom,prevTo,prevFrom,prevTo,
+      fromDay,toDay,fromDay,toDay,prevFrom,prevTo,prevFrom,prevTo
+    ).first();
+    comparison={...(totals||{}),previous_from:prevFrom,previous_to:prevTo};
+
     sync=(await db.prepare("SELECT source,last_attempt_at,last_success_at,status,records,message FROM analytics_sync ORDER BY source").all()).results||[];
   }
+
+  const loadByTrip=new Map(tripLoads.map(r=>[
+    [r.operator,r.origin,r.destination,r.departure_time].join("|"),r
+  ]));
+  seaRows=seaRows.map(r=>{
+    const hit=loadByTrip.get([r.operator,r.origin,r.destination,r.departure_time].join("|"));
+    return hit?{...r,load_factor_proxy:hit.load_factor,load_basis:hit.load_basis,evidence_class:hit.evidence_class}:r;
+  });
+
   return {
     generated_at:isoNow(),
+    period:{from:fromDay,to:toDay,days:diffDays(fromDay,toDay)+1},
     storage:{d1:Boolean(db),binding:db?"connected":"missing"},
-    evidence_note:"Load factor chỉ được hiển thị khi có capacity/remaining hoặc proxy hợp lệ. Không lưu tên khách, điện thoại, email, biển số, mã đặt chỗ hay dữ liệu thanh toán.",
-    sea:{summary:currentSeaSummary(seaRows),rows:seaRows.slice(0,120)},
-    aviation:{summary:currentAviationSummary(airRows),rows:airRows.slice(0,160)},
-    trends:[...trends].reverse(),
+    evidence_note:"% phủ biển là load proxy từ sức chứa và chỗ còn lại công khai hoặc capacity tàu công khai. Đây không phải số hành khách thực tế. Không lưu tên khách, điện thoại, email, biển số, mã đặt chỗ hay thanh toán.",
+    sea:{
+      summary:currentSeaSummary(seaRows),
+      rows:seaRows.slice(0,160),
+      route_loads:routeLoads,
+      operator_loads:operatorLoads,
+      trip_loads:tripLoads
+    },
+    aviation:{summary:currentAviationSummary(airRows),rows:airRows.slice(0,180)},
+    trends,
+    comparison,
     sync
   };
 }
@@ -366,12 +653,19 @@ export async function onRequest({request,env}){
 
     const url=new URL(request.url);
     const force=url.searchParams.get("refresh")==="1";
-    const [transitSync,aviationSync]=await Promise.all([
+    const today=localDay();
+    let toDay=dateOnlyValid(url.searchParams.get("to"))?url.searchParams.get("to"):today;
+    let fromDay=dateOnlyValid(url.searchParams.get("from"))?url.searchParams.get("from"):addDays(toDay,-6);
+    if(fromDay>toDay)[fromDay,toDay]=[toDay,fromDay];
+    if(diffDays(fromDay,toDay)>89)fromDay=addDays(toDay,-89);
+
+    const [transitSync,aviationSync,seaLoadSync]=await Promise.all([
       syncTransit(db,force),
-      syncAviation(db,force)
+      syncAviation(db,force),
+      syncSeaLoad(db,today,force)
     ]);
-    const dashboard=await dashboardFromDb(db,transitSync,aviationSync);
-    dashboard.sources={transit:transitSync,aviation:aviationSync};
+    const dashboard=await dashboardFromDb(db,transitSync,aviationSync,seaLoadSync,fromDay,toDay);
+    dashboard.sources={transit:transitSync,aviation:aviationSync,sea_load:seaLoadSync};
     return json(dashboard);
   }catch(e){
     return json({error:e?.message||String(e)},500);
