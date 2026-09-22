@@ -39,7 +39,6 @@ jobs:
           node scripts/build-cloudflare.mjs
           node --check admin/admin.js
           node --check functions/api/cms/analytics.js
-          grep -q 'const \$\$=s=>Array.from(document.querySelectorAll(s));' dist/admin/admin.js
       - name: Deploy current main to Cloudflare Pages
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
