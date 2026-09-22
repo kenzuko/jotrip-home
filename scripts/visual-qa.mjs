@@ -19,6 +19,7 @@ const allRoutes = [
   { name: 'stories', path: '/stories/' },
   { name: 'story-duong-dong', path: '/stories/article.html?id=duong-dong-sau-5-gio' },
   { name: 'about', path: '/about/' },
+  { name: 'nearme', path: '/nearme/' },
   { name: 'ferry', path: '/ferry/' },
   { name: 'transit', path: '/transit/' },
   { name: 'bus', path: '/bus/' },
@@ -27,7 +28,7 @@ const allRoutes = [
   { name: 'airport', path: '/airport/' }
 ];
 
-const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'food-bun-quay', 'bus', 'transit', 'currency', 'airport']);
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'food-bun-quay', 'bus', 'transit', 'currency', 'airport']);
 const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
@@ -174,6 +175,49 @@ async function testHomeFoundation(page) {
   }, initialNearClean);
 }
 
+async function testNearMePage(page) {
+  await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-card').length > 0, { timeout: 9000 }).catch(() => {});
+
+  const base = await page.evaluate(() => ({
+    search: !!document.querySelector('#nearSearch'),
+    map: !!document.querySelector('#nearLeaflet'),
+    categoryCount: document.querySelectorAll('#categoryRow [data-category]').length,
+    resultCount: document.querySelectorAll('#nearResults .near-card').length,
+    mapBadge: document.querySelector('#mapDataBadge')?.textContent?.trim() || ''
+  }));
+
+  const search = page.locator('#nearSearch');
+  if (await search.count()) {
+    await search.fill('Dinh Cậu');
+    await page.waitForTimeout(250);
+  }
+  const dinhCauFound = await page.locator('#nearResults .near-card').filter({ hasText: /Dinh Cậu/i }).count().then(n => n > 0).catch(() => false);
+  const pinVisible = await page.locator('#nearLeaflet .leaflet-marker-icon').count().then(n => n > 0).catch(() => false);
+
+  if (await search.count()) {
+    await search.fill('');
+    await page.waitForTimeout(150);
+  }
+  const hotelButton = page.locator('#categoryRow [data-category="HOTEL"]');
+  if (await hotelButton.count()) {
+    await hotelButton.click();
+    await page.waitForTimeout(250);
+  }
+  const hotelResults = await page.locator('#nearResults .near-card').count().catch(() => 0);
+
+  const checks = {
+    searchPresent: base.search,
+    mapPresent: base.map,
+    categoryLayers: base.categoryCount >= 10,
+    initialResults: base.resultCount >= 20,
+    dataBadgeResolved: !!base.mapBadge && !/Đang mở/i.test(base.mapBadge),
+    destinationSearch: dinhCauFound,
+    destinationPin: pinVisible,
+    hotelLayer: hotelResults >= 20
+  };
+  return { ok:Object.values(checks).every(Boolean), checks };
+}
+
 async function testCurrencyPage(page) {
   await page.waitForFunction(() => {
     const badge=document.querySelector('#sourceBadge')?.textContent?.trim();
@@ -307,8 +351,12 @@ try {
       let homeFunctional = null;
       let currencyFunctional = null;
       let airportFunctional = null;
+      let nearmeFunctional = null;
       if (!navigationError && route.name === 'home') {
         homeFunctional = await testHomeFoundation(page);
+      }
+      if (!navigationError && route.name === 'nearme') {
+        nearmeFunctional = await testNearMePage(page);
       }
       if (!navigationError && route.name === 'currency') {
         currencyFunctional = await testCurrencyPage(page);
@@ -339,6 +387,7 @@ try {
         homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         airportFunctional && !airportFunctional.ok ? `airport functional checks failed: ${Object.entries(airportFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
+        nearmeFunctional && !nearmeFunctional.ok ? `nearme functional checks failed: ${Object.entries(nearmeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         route.name === 'home' && externalMapRequests.length ? `homepage made ${externalMapRequests.length} external map request(s)` : null
       ].filter(Boolean);
 
@@ -355,6 +404,7 @@ try {
         homeFunctional,
         currencyFunctional,
         airportFunctional,
+        nearmeFunctional,
         consoleErrors,
         pageErrors,
         failedRequests,
@@ -420,7 +470,8 @@ const md = [
       result.homeFunctional?.ok ? `home functional: ok` : null,
       result.currencyFunctional?.ok ? `currency functional: ok` : null,
       result.expectedStaticApiResponses?.length ? `${result.expectedStaticApiResponses.length} expected static API fallback response(s)` : null,
-      result.airportFunctional?.ok ? `airport functional: ok` : null
+      result.airportFunctional?.ok ? `airport functional: ok` : null,
+      result.nearmeFunctional?.ok ? `nearme functional: ok` : null
     ].filter(Boolean).join('; ') || 'OK';
     return `| ${result.route} | ${result.viewport.width}x${result.viewport.height} | ${result.status.toUpperCase()} | ${notes.replaceAll('|', '\|')} |`;
   })
