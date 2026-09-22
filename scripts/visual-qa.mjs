@@ -183,8 +183,11 @@ async function testNearMePage(page) {
     map: !!document.querySelector('#nearLeaflet'),
     categoryCount: document.querySelectorAll('#categoryRow [data-category]').length,
     resultCount: document.querySelectorAll('#nearResults .near-card').length,
-    mapBadge: document.querySelector('#mapDataBadge')?.textContent?.trim() || ''
+    mapBadge: document.querySelector('#mapDataBadge')?.textContent?.trim() || '',
+    status: document.querySelector('#nearStatus')?.textContent?.trim() || '',
+    resultsText: document.querySelector('#nearResults')?.textContent?.trim().slice(0,240) || ''
   }));
+  console.log('NEARME_DIAG', JSON.stringify(base));
 
   const search = page.locator('#nearSearch');
   if (await search.count()) {
