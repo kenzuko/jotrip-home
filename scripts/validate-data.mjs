@@ -99,10 +99,11 @@ try{
     if(!doc.route || !String(doc.route).startsWith("/")) errors.push((doc.id||"search doc")+": invalid route");
   }
 
-  let storyCount=0,curiosityCount=0;
+  let storyCount=0,curiosityCount=0,knowledgeCount=0;
   try{storyCount=(JSON.parse(fs.readFileSync(path.join(root,"data","content.json"),"utf8")).stories||[]).length}catch(error){}
   try{curiosityCount=(JSON.parse(fs.readFileSync(path.join(root,"data","home-support.json"),"utf8")).curiosity||[]).length}catch(error){}
-  const expected=entities.length+5+storyCount+curiosityCount;
+  try{knowledgeCount=(JSON.parse(fs.readFileSync(path.join(root,"data","views","knowledge-public.json"),"utf8")).objects||[]).length}catch(error){}
+  const expected=entities.length+5+storyCount+curiosityCount+knowledgeCount;
   const actual=(search.documents||[]).length;
   if(actual!==expected) errors.push("search index count mismatch: expected "+expected+", got "+actual);
 }catch(error){
