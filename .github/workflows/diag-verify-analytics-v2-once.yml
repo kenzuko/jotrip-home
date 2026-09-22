@@ -1,0 +1,22 @@
+name: Diagnostic - Verify Analytics V2 Production Once
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify production assets and auth gate
+        run: |
+          set -euo pipefail
+          curl -fsS "https://cms.openphuquoc.com/admin/admin.js?v=15" -o admin.js
+          grep -q "function a2Summary" admin.js
+          code="$(curl -sS -o analytics.json -w '%{http_code}' "https://cms.openphuquoc.com/api/cms/analytics")"
+          echo "analytics_http=$code"
+          test "$code" = "401"
+          echo "analytics_v2_asset=present"
