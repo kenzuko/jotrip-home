@@ -23,7 +23,10 @@ jobs:
           node-version: "22"
 
       - name: Build derived data
-        run: node scripts/build-search-index.mjs
+        run: |
+          node scripts/build-search-index.mjs
+          node scripts/build-map-coverage.mjs
+          node scripts/build-location-index.mjs
 
       - name: Validate data
         run: |
