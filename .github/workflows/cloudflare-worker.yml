@@ -105,8 +105,18 @@ jobs:
             exit 1
           fi
           curl -fsS "$base/data/views/knowledge-public.json?t=$GITHUB_SHA" | node -e 'let x="";process.stdin.on("data",c=>x+=c);process.stdin.on("end",()=>{const v=JSON.parse(x);if(v.count!==128||v.objects?.length!==128||x.includes("\"research\"")||x.includes("\"sources\""))process.exit(1);console.log("Public articles:",v.count);})'
-          curl -fsS "$base/guide/knowledge.html?t=$GITHUB_SHA" | grep -q 'data-knowledge-page="library"'
-          curl -fsS "$base/guide/article.html?id=knowledge_001_dinh-cau&t=$GITHUB_SHA" | grep -q 'data-knowledge-page="article"'
+          curl -fsSL "$base/guide/knowledge.html?t=$GITHUB_SHA" -o /tmp/knowledge-library.html
+          if ! grep -q 'data-knowledge-page="library"' /tmp/knowledge-library.html; then
+            echo "::error::Library page did not return its expected HTML"
+            head -c 500 /tmp/knowledge-library.html
+            exit 1
+          fi
+          curl -fsSL "$base/guide/article.html?id=knowledge_001_dinh-cau&t=$GITHUB_SHA" -o /tmp/knowledge-article.html
+          if ! grep -q 'data-knowledge-page="article"' /tmp/knowledge-article.html; then
+            echo "::error::Article page did not return its expected HTML"
+            head -c 500 /tmp/knowledge-article.html
+            exit 1
+          fi
           private="$(curl -fsS "$base/data/knowledge/objects.json" || true)"
           if echo "$private" | grep -q '"research"'; then
             echo "::error::Internal research unexpectedly served as a public asset"
