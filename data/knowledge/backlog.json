@@ -1,0 +1,3631 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-22",
+  "source": {
+    "name": "OPEN_PHU_QUOC_150_CONTENT_KNOWLEDGE_CRAWL_BACKLOG_V2.txt",
+    "library_file_id": "libfile_a17afaec3f248191b7aeb3459579f9c5",
+    "date": "2026-09-20"
+  },
+  "rules": {
+    "purpose": "Knowledge/content objects, not SEO article backlog.",
+    "one_entity_one_canonical_id": true,
+    "source_urls_internal_only": true,
+    "public_requires_ready_status": true,
+    "no_public_placeholder": true,
+    "public_voice": "natural_local_human_vietnamese"
+  },
+  "summary": {
+    "total": 150,
+    "by_type": {
+      "PLACE": 30,
+      "NATURE": 25,
+      "FOOD": 18,
+      "PRACTICAL": 25,
+      "HISTORY_LORE": 25,
+      "ACTIVITY": 15,
+      "MEMORY_CHANGE": 12
+    }
+  },
+  "topics": [
+    {
+      "number": 1,
+      "topic_id": "knowledge_001_dinh-cau",
+      "title": "Dinh Cậu",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Lịch sử, tín ngưỡng, giờ mở cửa, etiquette, ảnh cũ, nguồn chính thống.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 2,
+      "topic_id": "knowledge_002_duong-dong",
+      "title": "Dương Đông",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Lịch sử đô thị, sông, chợ, cảng cá, khu cũ, thay đổi theo thời gian.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 3,
+      "topic_id": "knowledge_003_cho-duong-dong",
+      "title": "Chợ Dương Đông",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Giờ hoạt động, khu hàng, ăn gì, cách đi, parking, lịch sử, thực tế cho khách.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 4,
+      "topic_id": "knowledge_004_an-thoi",
+      "title": "An Thới",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Lịch sử, cảng, khu dân cư, chợ, nghề biển, đô thị hóa, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 5,
+      "topic_id": "knowledge_005_sunset-town",
+      "title": "Sunset Town",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Khu vực, lối đi, show/sự kiện, giờ hoạt động, parking, practical, thay đổi mới.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 6,
+      "topic_id": "knowledge_006_ham-ninh",
+      "title": "Hàm Ninh",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Làng chài, cầu cảng, nghề biển, ghẹ, thay đổi cảnh quan, practical hiện tại.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 7,
+      "topic_id": "knowledge_007_ganh-dau",
+      "title": "Gành Dầu",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Lịch sử khu vực, làng dân cư, bờ biển, practical, thay đổi theo thời gian.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 8,
+      "topic_id": "knowledge_008_rach-vem",
+      "title": "Rạch Vẹm",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Làng chài, sao biển, mùa, đường đi, thủy triều, practical, bảo tồn.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 9,
+      "topic_id": "knowledge_009_cua-can",
+      "title": "Cửa Cạn",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Nguồn gốc tên, sông, làng, bãi biển, practical, lịch sử địa phương.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 10,
+      "topic_id": "knowledge_010_cua-duong",
+      "title": "Cửa Dương",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Khu dân cư, trục giao thông, local life, practical, kết nối Bắc đảo.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 11,
+      "topic_id": "knowledge_011_duong-to",
+      "title": "Dương Tơ",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Khu dân cư, suối/hồ, phát triển đô thị, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 12,
+      "topic_id": "knowledge_012_bai-truong",
+      "title": "Bãi Trường",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Quá trình phát triển, bờ Tây, sunset, resort strip, access, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 13,
+      "topic_id": "knowledge_013_bai-khem",
+      "title": "Bãi Khem",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Đặc điểm bãi, mùa biển, access, practical, lịch sử tên gọi, thay đổi.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 14,
+      "topic_id": "knowledge_014_bai-sao",
+      "title": "Bãi Sao",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Mùa gió, sóng, rong/rác, thời điểm đẹp, access, parking, toilet.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 15,
+      "topic_id": "knowledge_015_bai-ong-lang",
+      "title": "Bãi Ông Lang",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Đặc điểm bãi, sunset, access, mùa, practical, thay đổi du lịch.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 16,
+      "topic_id": "knowledge_016_vung-bau",
+      "title": "Vũng Bầu",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Đặc điểm bãi, access, mùa biển, practical, mức độ phát triển.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 17,
+      "topic_id": "knowledge_017_bai-dai",
+      "title": "Bãi Dài",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Bờ biển, mùa, resort development, access, practical, lịch sử thay đổi.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 18,
+      "topic_id": "knowledge_018_bai-thom",
+      "title": "Bãi Thơm",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Đường đi, bờ biển, vùng dân cư, thiên nhiên, practical, mùa.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 19,
+      "topic_id": "knowledge_019_mui-ganh-dau",
+      "title": "Mũi Gành Dầu",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Địa lý, góc nhìn biển, access, lịch sử địa phương, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 20,
+      "topic_id": "knowledge_020_mui-ong-doi",
+      "title": "Mũi Ông Đội",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Nguồn gốc tên, địa lý, access, lịch sử, dị bản nếu có.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 21,
+      "topic_id": "knowledge_021_hon-thom",
+      "title": "Hòn Thơm",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Lịch sử đảo, cư dân, cáp treo, beach/activity, transport, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 22,
+      "topic_id": "knowledge_022_hon-mong-tay",
+      "title": "Hòn Móng Tay",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Tên gọi, địa lý, access, tour context, sinh thái, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 23,
+      "topic_id": "knowledge_023_hon-gam-ghi",
+      "title": "Hòn Gầm Ghì",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Tên gọi, snorkeling, sinh thái, điều kiện biển, access, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 24,
+      "topic_id": "knowledge_024_may-rut-trong",
+      "title": "Mây Rút Trong",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Tên gọi, bãi biển, tour access, amenities, sinh thái, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 25,
+      "topic_id": "knowledge_025_may-rut-ngoai",
+      "title": "Mây Rút Ngoài",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Tên gọi, điều kiện biển, tour access, sinh thái, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 26,
+      "topic_id": "knowledge_026_suoi-tranh",
+      "title": "Suối Tranh",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Mùa nước, giờ mở cửa, đường đi, walking, safety, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 27,
+      "topic_id": "knowledge_027_suoi-da-ban",
+      "title": "Suối Đá Bàn",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Mùa nước, access, walking, địa chất, safety, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 28,
+      "topic_id": "knowledge_028_vuon-quoc-gia-phu-quoc",
+      "title": "Vườn quốc gia Phú Quốc",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Phạm vi, hệ sinh thái, vùng bảo vệ, access công cộng, quy định.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 29,
+      "topic_id": "knowledge_029_chua-ho-quoc",
+      "title": "Chùa Hộ Quốc",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Lịch sử, kiến trúc, etiquette, giờ, access, viewpoint, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 30,
+      "topic_id": "knowledge_030_nha-tu-phu-quoc",
+      "title": "Nhà tù Phú Quốc",
+      "section": "PLACE / ZONE / LANDMARK",
+      "topic_type": "PLACE",
+      "crawl_brief": "Bối cảnh lịch sử, giờ tham quan, exhibits, etiquette, nguồn chính thống.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 31,
+      "topic_id": "knowledge_031_bo-tay-va-bo-dong-phu-quoc-khac-nhau-the-nao",
+      "title": "Bờ Tây và bờ Đông Phú Quốc khác nhau thế nào",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Gió mùa, sóng, mưa, biển theo mùa, tác động trải nghiệm.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 32,
+      "topic_id": "knowledge_032_mua-gio-tay-nam",
+      "title": "Mùa gió Tây Nam",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Thời gian, tác động bờ Tây/bờ Đông, hoạt động biển, nguồn khí tượng.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 33,
+      "topic_id": "knowledge_033_mua-gio-dong-bac",
+      "title": "Mùa gió Đông Bắc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Thời gian, tác động bờ Đông/bờ Tây, hoạt động biển.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 34,
+      "topic_id": "knowledge_034_thuy-trieu-phu-quoc",
+      "title": "Thủy triều Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Chu kỳ, tác động bãi biển, sao biển, câu cá, bến tàu.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 35,
+      "topic_id": "knowledge_035_sao-bien-rach-vem",
+      "title": "Sao biển Rạch Vẹm",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Loài, mùa/điều kiện xuất hiện, thủy triều, bảo tồn, hành vi không nên làm.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 36,
+      "topic_id": "knowledge_036_co-bien-phu-quoc",
+      "title": "Cỏ biển Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Phân bố, vai trò sinh thái, đe dọa, liên hệ dugong.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 37,
+      "topic_id": "knowledge_037_dugong-o-vung-bien-phu-quoc",
+      "title": "Dugong ở vùng biển Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Tình trạng bảo tồn, habitat, nguồn nghiên cứu, không sensationalize.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 38,
+      "topic_id": "knowledge_038_san-ho-nam-dao",
+      "title": "San hô Nam đảo",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Khu vực, mùa, sức khỏe rạn, snorkeling/diving, quy tắc bảo tồn.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 39,
+      "topic_id": "knowledge_039_rung-ngap-man-phu-quoc",
+      "title": "Rừng ngập mặn Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Phân bố, chức năng, access, bảo tồn.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 40,
+      "topic_id": "knowledge_040_he-sinh-thai-rung-thuong-xanh",
+      "title": "Hệ sinh thái rừng thường xanh",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Loài đặc trưng, vai trò, mùa, khu bảo vệ.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 41,
+      "topic_id": "knowledge_041_chim-o-phu-quoc",
+      "title": "Chim ở Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Các nhóm/loài đáng chú ý, mùa, khu quan sát, nguồn bảo tồn.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 42,
+      "topic_id": "knowledge_042_rua-bien-quanh-phu-quoc",
+      "title": "Rùa biển quanh Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Loài, bằng chứng hiện diện, bảo tồn, tránh khẳng định quá mức.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 43,
+      "topic_id": "knowledge_043_sua-quanh-phu-quoc",
+      "title": "Sứa quanh Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Mùa/điều kiện, khu vực, safety, nguồn thực địa nếu có.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 44,
+      "topic_id": "knowledge_044_rong-bien-theo-mua",
+      "title": "Rong biển theo mùa",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Khi nào xuất hiện, bờ nào, tác động trải nghiệm, cách diễn giải.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 45,
+      "topic_id": "knowledge_045_nuoc-bien-doi-mau",
+      "title": "Nước biển đổi màu",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Nguyên nhân khả dĩ, phù sa/tảo/thời tiết, cách xác minh.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 46,
+      "topic_id": "knowledge_046_mua-cuc-bo-tren-dao",
+      "title": "Mưa cục bộ trên đảo",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Vì sao khu này mưa khu kia không, địa hình, đối lưu, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 47,
+      "topic_id": "knowledge_047_dong-bien-phu-quoc",
+      "title": "Dông biển Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Đặc điểm hình thành, dấu hiệu, rủi ro hoạt động biển, nguồn khí tượng.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 48,
+      "topic_id": "knowledge_048_song-va-huong-song-quanh-dao",
+      "title": "Sóng và hướng sóng quanh đảo",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Bờ nào chịu tác động theo mùa, practical cho beaches/tours.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 49,
+      "topic_id": "knowledge_049_tam-nhin-bien-va-haze",
+      "title": "Tầm nhìn biển và haze",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Ảnh hưởng thời tiết/khói mù, practical cho sightseeing.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 50,
+      "topic_id": "knowledge_050_hoang-hon-phu-quoc",
+      "title": "Hoàng hôn Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Hướng bờ Tây, mùa, mây, thời gian, điểm quan sát.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 51,
+      "topic_id": "knowledge_051_binh-minh-phu-quoc",
+      "title": "Bình minh Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Bờ Đông/Nam, mùa, các điểm phù hợp, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 52,
+      "topic_id": "knowledge_052_mua-trai-cay-tren-dao",
+      "title": "Mùa trái cây trên đảo",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Các loại trái cây theo mùa, nguồn local/agri, không suy đoán.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 53,
+      "topic_id": "knowledge_053_nguon-nuoc-ngot-tren-dao",
+      "title": "Nguồn nước ngọt trên đảo",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Hồ, suối, tầng nước, mùa khô, lịch sử hạ tầng nước.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 54,
+      "topic_id": "knowledge_054_dia-chat-phu-quoc",
+      "title": "Địa chất Phú Quốc",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Nền địa chất, bờ đá/bãi cát, nguồn khoa học.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 55,
+      "topic_id": "knowledge_055_cua-song-duong-dong",
+      "title": "Cửa sông Dương Đông",
+      "section": "NATURE / SEA / ECOLOGY",
+      "topic_type": "NATURE",
+      "crawl_brief": "Thủy văn, nghề cá, đô thị, thay đổi bờ.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 56,
+      "topic_id": "knowledge_056_bun-quay-phu-quoc",
+      "title": "Bún quậy Phú Quốc",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Nguồn gốc, cách ăn, nguyên liệu, allergens, giá tham khảo, dị bản.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 57,
+      "topic_id": "knowledge_057_goi-ca-trich",
+      "title": "Gỏi cá trích",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Nguyên liệu, raw fish, herbs, nước chấm, allergens, cách ăn.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 58,
+      "topic_id": "knowledge_058_ghe-ham-ninh",
+      "title": "Ghẹ Hàm Ninh",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Loài, mùa, nguồn cung hiện tại, cách ăn, giá biến động.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 59,
+      "topic_id": "knowledge_059_nhum-bien",
+      "title": "Nhum biển",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Loài, mùa, cách chế biến, ecology, food safety.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 60,
+      "topic_id": "knowledge_060_coi-bien-mai",
+      "title": "Còi biên mai",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Là gì, cách chế biến, nguồn cung, allergens.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 61,
+      "topic_id": "knowledge_061_ca-song",
+      "title": "Cá sòng",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Món địa phương, mùa, cách chế biến, nguồn cung.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 62,
+      "topic_id": "knowledge_062_oc-giac-melo",
+      "title": "Ốc giác / Melo",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Loài, vai trò ẩm thực/văn hóa, ngọc Melo, nguồn khoa học.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 63,
+      "topic_id": "knowledge_063_banh-tet-mat-cat",
+      "title": "Bánh tét mật cật",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Nguồn gốc, nguyên liệu, dịp ăn, nơi còn làm.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 64,
+      "topic_id": "knowledge_064_ruou-sim",
+      "title": "Rượu sim",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Nguyên liệu, quy trình, nguồn gốc thương mại, producer data.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 65,
+      "topic_id": "knowledge_065_mat-sim-siro-sim-mut-sim",
+      "title": "Mật sim / siro sim / mứt sim",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Nguyên liệu, mùa, cách dùng, producer data.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 66,
+      "topic_id": "knowledge_066_nuoc-mam-phu-quoc",
+      "title": "Nước mắm Phú Quốc",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Lịch sử, cá cơm, muối, ủ chượp, chỉ dẫn địa lý, cách đọc nhãn.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 67,
+      "topic_id": "knowledge_067_nha-thung-nuoc-mam",
+      "title": "Nhà thùng nước mắm",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Cấu trúc thùng, quy trình, etiquette, safety, visitor practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 68,
+      "topic_id": "knowledge_068_tieu-phu-quoc",
+      "title": "Tiêu Phú Quốc",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Loại tiêu, quy trình, mùa, sản phẩm, cách phân biệt.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 69,
+      "topic_id": "knowledge_069_hai-san-theo-mua",
+      "title": "Hải sản theo mùa",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Nhóm hải sản, mùa, nguồn cung, biến động, không overclaim.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 70,
+      "topic_id": "knowledge_070_cho-duong-dong-an-gi",
+      "title": "Chợ Dương Đông ăn gì",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Món địa phương, giờ phù hợp, practical, thanh toán.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 71,
+      "topic_id": "knowledge_071_an-sang-o-phu-quoc",
+      "title": "Ăn sáng ở Phú Quốc",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Các món local, giờ, khu vực, không biến thành top list cố định.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 72,
+      "topic_id": "knowledge_072_an-khuya-o-phu-quoc",
+      "title": "Ăn khuya ở Phú Quốc",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Nhóm món, khu vực, giờ, dữ liệu open-late xác minh.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 73,
+      "topic_id": "knowledge_073_am-thuc-an-thoi",
+      "title": "Ẩm thực An Thới",
+      "section": "FOOD / LOCAL PRODUCTS",
+      "topic_type": "FOOD",
+      "crawl_brief": "Đặc trưng khu vực, chợ, hải sản, local eateries, lịch sử.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 74,
+      "topic_id": "knowledge_074_cano-tau-cao-toc-pha-khac-nhau-the-nao",
+      "title": "Cano - tàu cao tốc - phà khác nhau thế nào",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Định nghĩa, công năng, chở xe/khách, tác động thời tiết, terminology đa ngôn ngữ.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 75,
+      "topic_id": "knowledge_075_tu-san-bay-ve-duong-dong",
+      "title": "Từ sân bay về Dương Đông",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Khoảng cách, thời gian, phương tiện, giá tham khảo, late-night.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 76,
+      "topic_id": "knowledge_076_tu-san-bay-ve-an-thoi-sunset-town",
+      "title": "Từ sân bay về An Thới/Sunset Town",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Khoảng cách, thời gian, phương tiện, giá tham khảo.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 77,
+      "topic_id": "knowledge_077_tu-san-bay-ve-bac-dao",
+      "title": "Từ sân bay về Bắc đảo",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Khoảng cách, thời gian, phương tiện, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 78,
+      "topic_id": "knowledge_078_di-chuyen-duong-dong-an-thoi",
+      "title": "Di chuyển Dương Đông - An Thới",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Thời gian, taxi/bus/car, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 79,
+      "topic_id": "knowledge_079_di-chuyen-duong-dong-ganh-dau",
+      "title": "Di chuyển Dương Đông - Gành Dầu",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Thời gian, phương tiện, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 80,
+      "topic_id": "knowledge_080_di-chuyen-duong-dong-rach-vem",
+      "title": "Di chuyển Dương Đông - Rạch Vẹm",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Road condition, thời gian, phương tiện phù hợp.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 81,
+      "topic_id": "knowledge_081_di-chuyen-duong-dong-ham-ninh",
+      "title": "Di chuyển Dương Đông - Hàm Ninh",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Thời gian, phương tiện, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 82,
+      "topic_id": "knowledge_082_bus-phu-quoc",
+      "title": "Bus Phú Quốc",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Tuyến đang hoạt động, giờ, điểm dừng, fare, source.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 83,
+      "topic_id": "knowledge_083_taxi-phu-quoc",
+      "title": "Taxi Phú Quốc",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Các hãng/booking channels, payment, airport pickup, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 84,
+      "topic_id": "knowledge_084_thue-xe-may",
+      "title": "Thuê xe máy",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Yêu cầu giấy tờ, giá tham khảo, safety, fuel, parking.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 85,
+      "topic_id": "knowledge_085_thue-o-to-tu-lai",
+      "title": "Thuê ô tô tự lái",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Điều kiện, giấy tờ, parking, fuel, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 86,
+      "topic_id": "knowledge_086_airport-transfer",
+      "title": "Airport transfer",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Loại xe, pickup, buffer, late-night, source.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 87,
+      "topic_id": "knowledge_087_ferry-high-speed-boat-den-phu-quoc",
+      "title": "Ferry / high-speed boat đến Phú Quốc",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Cảng, tuyến, thời gian, weather sensitivity, vehicle rules.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 88,
+      "topic_id": "knowledge_088_atm-o-phu-quoc",
+      "title": "ATM ở Phú Quốc",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Dataset location, opening/access, bank, status, verified_at.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 89,
+      "topic_id": "knowledge_089_thanh-toan-the-va-qr",
+      "title": "Thanh toán thẻ và QR",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Mức độ chấp nhận theo loại nơi, cash fallback, source.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 90,
+      "topic_id": "knowledge_090_doi-tien",
+      "title": "Đổi tiền",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Kênh hợp pháp/chính thống, khu vực, practical cho khách quốc tế.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 91,
+      "topic_id": "knowledge_091_pharmacy",
+      "title": "Pharmacy",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Dataset: location, opening hours, phone, status, source.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 92,
+      "topic_id": "knowledge_092_clinic-hospital",
+      "title": "Clinic / Hospital",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Dataset: location, services/emergency, hours, phone, language support nếu xác minh.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 93,
+      "topic_id": "knowledge_093_toilet",
+      "title": "Toilet",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Dataset: public/private, fee, access, hours, accessibility, verification.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 94,
+      "topic_id": "knowledge_094_parking",
+      "title": "Parking",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Dataset: car/motorbike, fee, hours, access, place relations.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 95,
+      "topic_id": "knowledge_095_fuel-stations",
+      "title": "Fuel stations",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Dataset: location, hours, fuel types, verified status.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 96,
+      "topic_id": "knowledge_096_minimart-convenience-store",
+      "title": "Minimart / convenience store",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Dataset: location, hours, 24h status nếu đúng.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 97,
+      "topic_id": "knowledge_097_shower-changing-room-locker",
+      "title": "Shower / changing room / locker",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Dataset: beach/attraction/transport node, fee, access, hours.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 98,
+      "topic_id": "knowledge_098_emergency-numbers-practical-help",
+      "title": "Emergency numbers & practical help",
+      "section": "PRACTICAL / TRANSPORT / UTILITIES",
+      "topic_type": "PRACTICAL",
+      "crawl_brief": "Official police/fire/medical/tourist support contacts, source, language notes.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 99,
+      "topic_id": "knowledge_099_vi-sao-goi-la-phu-quoc",
+      "title": "Vì sao gọi là Phú Quốc",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tên gọi, tài liệu lịch sử, các giả thuyết, confidence.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 100,
+      "topic_id": "knowledge_100_nguon-goc-ten-duong-dong",
+      "title": "Nguồn gốc tên Dương Đông",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tài liệu, oral history, alternate explanations.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 101,
+      "topic_id": "knowledge_101_nguon-goc-ten-an-thoi",
+      "title": "Nguồn gốc tên An Thới",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tài liệu, old maps, alternate explanations.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 102,
+      "topic_id": "knowledge_102_nguon-goc-ten-ham-ninh",
+      "title": "Nguồn gốc tên Hàm Ninh",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tài liệu, oral history, alternate explanations.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 103,
+      "topic_id": "knowledge_103_nguon-goc-ten-ganh-dau",
+      "title": "Nguồn gốc tên Gành Dầu",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tài liệu, địa hình, oral history, alternate explanations.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 104,
+      "topic_id": "knowledge_104_nguon-goc-ten-cua-can",
+      "title": "Nguồn gốc tên Cửa Cạn",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tài liệu, địa lý, alternate explanations.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 105,
+      "topic_id": "knowledge_105_nguon-goc-ten-hon-thom",
+      "title": "Nguồn gốc tên Hòn Thơm",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tài liệu/folk explanation, alternate versions.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 106,
+      "topic_id": "knowledge_106_nguon-goc-ten-hon-mong-tay",
+      "title": "Nguồn gốc tên Hòn Móng Tay",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tài liệu/folk explanation, alternate versions.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 107,
+      "topic_id": "knowledge_107_gieng-tien",
+      "title": "Giếng Tiên",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Địa điểm thật, truyền thuyết Nguyễn Ánh, nguồn lịch sử, alternate versions.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 108,
+      "topic_id": "knowledge_108_nguyen-anh-tai-phu-quoc",
+      "title": "Nguyễn Ánh tại Phú Quốc",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Sự kiện có tài liệu, địa điểm liên quan, tách legend khỏi fact.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 109,
+      "topic_id": "knowledge_109_nguyen-trung-truc-va-phu-quoc",
+      "title": "Nguyễn Trung Trực và Phú Quốc",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Timeline, địa điểm, nguồn chính thống, truyền khẩu liên quan.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 110,
+      "topic_id": "knowledge_110_tin-nguong-dinh-cau",
+      "title": "Tín ngưỡng Dinh Cậu",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Đối tượng thờ, cộng đồng, lễ tục, nguồn văn hóa.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 111,
+      "topic_id": "knowledge_111_tho-ca-ong",
+      "title": "Thờ cá Ông",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Tín ngưỡng ngư dân, nghi lễ, địa điểm, nguồn văn hóa.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 112,
+      "topic_id": "knowledge_112_nghinh-ong",
+      "title": "Nghinh Ông",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Lễ hội, lịch, nghi thức, nguồn chính thống.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 113,
+      "topic_id": "knowledge_113_kieng-ky-truoc-khi-ra-bien",
+      "title": "Kiêng kỵ trước khi ra biển",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Oral history/local belief, ghi rõ không phải universal fact.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 114,
+      "topic_id": "knowledge_114_dau-hieu-thien-nhien-ngu-dan-thuong-quan-sat",
+      "title": "Dấu hiệu thiên nhiên ngư dân thường quan sát",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Local knowledge, source attribution, không biến thành forecast.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 115,
+      "topic_id": "knowledge_115_cho-phu-quoc",
+      "title": "Chó Phú Quốc",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Lịch sử giống, xoáy lưng, bơi, săn, nguồn khoa học/kennel.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 116,
+      "topic_id": "knowledge_116_cho-phu-quoc-co-that-su-leo-cay",
+      "title": "Chó Phú Quốc có thật sự leo cây?",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Phân loại claim, nguồn, local lore, evidence.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 117,
+      "topic_id": "knowledge_117_ba-kim-giao",
+      "title": "Bà Kim Giao",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Giai thoại/truyền thuyết, địa điểm liên quan, nguồn địa phương.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 118,
+      "topic_id": "knowledge_118_cac-giai-thoai-ve-nguyen-anh-tren-dao",
+      "title": "Các giai thoại về Nguyễn Ánh trên đảo",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Danh mục dị bản, source, story_type, confidence.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 119,
+      "topic_id": "knowledge_119_nha-tu-phu-quoc-qua-cac-thoi-ky",
+      "title": "Nhà tù Phú Quốc qua các thời kỳ",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Timeline, nguồn bảo tàng/chính thống, terminology.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 120,
+      "topic_id": "knowledge_120_cu-dan-dau-tien-va-qua-trinh-dinh-cu",
+      "title": "Cư dân đầu tiên và quá trình định cư",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Lịch sử khai phá, nhóm cư dân, nguồn nghiên cứu.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 121,
+      "topic_id": "knowledge_121_phu-quoc-trong-khong-gian-ha-tien",
+      "title": "Phú Quốc trong không gian Hà Tiên",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Quan hệ lịch sử vùng, maps, administrative context.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 122,
+      "topic_id": "knowledge_122_lich-su-nghe-nuoc-mam",
+      "title": "Lịch sử nghề nước mắm",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Timeline, nhà thùng, thương mại, chỉ dẫn địa lý.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 123,
+      "topic_id": "knowledge_123_lich-su-nghe-ho-tieu-va-nghe-bien",
+      "title": "Lịch sử nghề hồ tiêu và nghề biển",
+      "section": "HISTORY / CULTURE / LORE",
+      "topic_type": "HISTORY_LORE",
+      "crawl_brief": "Timeline, vùng sản xuất, bến/tàu/lưới/câu, biến đổi nghề.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 124,
+      "topic_id": "knowledge_124_cano-3-dao",
+      "title": "Cano 3 đảo",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Giờ, cảng, duration, dependencies, sea-ban logic, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 125,
+      "topic_id": "knowledge_125_cau-ca-lon",
+      "title": "Câu cá lớn",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Giờ, khu vực, kỹ thuật, sea/weather dependency, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 126,
+      "topic_id": "knowledge_126_cau-muc-dem",
+      "title": "Câu mực đêm",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Mùa, giờ, sea dependency, safety, expectation vs reality.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 127,
+      "topic_id": "knowledge_127_snorkeling",
+      "title": "Snorkeling",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Khu vực, mùa, visibility, coral etiquette, safety.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 128,
+      "topic_id": "knowledge_128_diving",
+      "title": "Diving",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Operators/areas nếu verified, certification, season, safety.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 129,
+      "topic_id": "knowledge_129_kayak",
+      "title": "Kayak",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Khu vực, tide/wind dependency, safety.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 130,
+      "topic_id": "knowledge_130_beach-day",
+      "title": "Beach day",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Cách chọn bãi theo mùa/gió, practical, sun/heat.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 131,
+      "topic_id": "knowledge_131_sunset-watching",
+      "title": "Sunset watching",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Giờ, bờ Tây, cloud/weather dependency, travel buffer.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 132,
+      "topic_id": "knowledge_132_sunrise-watching",
+      "title": "Sunrise watching",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Giờ, khu vực, weather dependency, access.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 133,
+      "topic_id": "knowledge_133_night-market",
+      "title": "Night Market",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Giờ, location, food, crowd, payment, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 134,
+      "topic_id": "knowledge_134_cable-car-hon-thom",
+      "title": "Cable car Hòn Thơm",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Operating windows, last ride, weather/maintenance dependency.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 135,
+      "topic_id": "knowledge_135_safari-visit",
+      "title": "Safari visit",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Duration, heat/rain, family suitability, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 136,
+      "topic_id": "knowledge_136_vinwonders-visit",
+      "title": "VinWonders visit",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Duration, weather, family suitability, queue notes nếu verified.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 137,
+      "topic_id": "knowledge_137_visit-fish-sauce-house-pepper-farm",
+      "title": "Visit fish sauce house / pepper farm",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Hours, duration, etiquette, heat/rain, shopping, practical.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 138,
+      "topic_id": "knowledge_138_phu-quoc-khi-troi-mua",
+      "title": "Phú Quốc khi trời mưa",
+      "section": "ACTIVITIES / DECISION CONTENT",
+      "topic_type": "ACTIVITY",
+      "crawl_brief": "Indoor/covered options theo khu vực, transport friction, Plan B data.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 139,
+      "topic_id": "knowledge_139_phu-quoc-truoc-san-bay-quoc-te",
+      "title": "Phú Quốc trước sân bay quốc tế",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Ảnh, maps, transport, tourism scale, source.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 140,
+      "topic_id": "knowledge_140_duong-dong-truoc-va-sau-do-thi-hoa",
+      "title": "Dương Đông trước và sau đô thị hóa",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Then/Now assets, roads, market, waterfront.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 141,
+      "topic_id": "knowledge_141_an-thoi-truoc-va-sau-cap-treo",
+      "title": "An Thới trước và sau cáp treo",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Then/Now assets, port, housing, tourism.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 142,
+      "topic_id": "knowledge_142_ham-ninh-truoc-va-sau-chinh-trang",
+      "title": "Hàm Ninh trước và sau chỉnh trang",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Then/Now assets, pier, village, tourism.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 143,
+      "topic_id": "knowledge_143_nam-dao-truoc-va-sau-sunset-town",
+      "title": "Nam đảo trước và sau Sunset Town",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Maps, imagery, roads, public realm, source.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 144,
+      "topic_id": "knowledge_144_bac-dao-truoc-va-sau-cac-resort-lon",
+      "title": "Bắc đảo trước và sau các resort lớn",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Maps, imagery, access, landscape change.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 145,
+      "topic_id": "knowledge_145_bai-truong-truoc-va-sau-resort-development",
+      "title": "Bãi Trường trước và sau resort development",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Maps, shoreline imagery, roads, access.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 146,
+      "topic_id": "knowledge_146_cac-ben-tau-cu",
+      "title": "Các bến tàu cũ",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Location, period, photos, what replaced them.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 147,
+      "topic_id": "knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan",
+      "title": "Đường sá Phú Quốc qua các giai đoạn",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Maps, key roads, expansion milestones.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 148,
+      "topic_id": "knowledge_148_cho-cu-va-cho-hien-tai",
+      "title": "Chợ cũ và chợ hiện tại",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Location, photos, changes, local memory.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 149,
+      "topic_id": "knowledge_149_tau-ca-va-nghe-bien-thay-doi-the-nao",
+      "title": "Tàu cá và nghề biển thay đổi thế nào",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Vessel types, ports, economics, oral/documentary sources.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    },
+    {
+      "number": 150,
+      "topic_id": "knowledge_150_mot-ngay-o-phu-quoc-van-hanh-the-nao",
+      "title": "Một ngày ở Phú Quốc vận hành thế nào",
+      "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
+      "topic_type": "MEMORY_CHANGE",
+      "crawl_brief": "Morning market, sea departures, midday heat, sunset, night economy.",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "QUEUED",
+      "public_ready": false,
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": null,
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      }
+    }
+  ]
+}
