@@ -9338,6 +9338,327 @@
         ]
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_142_ham-ninh-truoc-va-sau-chinh-trang",
+      "number": 142,
+      "title": "Hàm Ninh trước và sau chỉnh trang",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": "place_ham_ninh",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy hoạch khu đô thị Hàm Ninh từ trước đã xác định cầu cảng vừa phục vụ vận tải, đánh bắt hải sản vừa phục vụ du lịch; không gian làng chài vì vậy được nhìn đồng thời như nơi ở, nơi làm nghề và điểm đón khách.",
+            "source_ids": [
+              "pqgov_ham_ninh_general_plan"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_RECORD",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Cầu cảng Hàm Ninh cũ bị tháo dỡ từ cuối 2019 - đầu 2020 vì xuống cấp. Báo chí thời điểm đó ghi cầu bê tông được xây từ năm 2003, thay cho cầu gỗ do người dân góp sức làm trước đó.",
+            "source_ids": [
+              "dansinh_ham_ninh_pier_2020",
+              "thanhnien_ham_ninh_pier_2019"
+            ],
+            "verification_status": "CONTEMPORARY_REPORTED_HISTORY",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Đến tháng 5/2024, Tuổi Trẻ ghi nhận cầu mới vẫn chưa được xây lại và việc mất cầu cảng đã ảnh hưởng tới sinh hoạt ngư dân lẫn lượng khách ghé làng chài.",
+            "source_ids": [
+              "tuoitre_ham_ninh_pier_2024"
+            ],
+            "verification_status": "CONTEMPORARY_STATUS_AT_DATE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_ham_ninh_general_plan",
+            "source_type": "OFFICIAL_URBAN_PLANNING",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch chung khu đô thị Hàm Ninh",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-chung-khu-do-thi-ham-ninh",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "dansinh_ham_ninh_pier_2020",
+            "source_type": "CONTEMPORARY_PRESS",
+            "label": "Dân Sinh - Phú Quốc tháo dỡ cầu cảng Hàm Ninh để xây lại cầu mới",
+            "url": "https://dansinh.dantri.com.vn/dien-dan-dan-sinh/phu-quoc-thao-do-cau-cang-ham-ninh-de-xay-lai-cau-moi-phuc-vu-nguoi-dan-va-du-khach-20200110182026531.htm",
+            "published_at": "2020-01-11",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "thanhnien_ham_ninh_pier_2019",
+            "source_type": "CONTEMPORARY_PRESS",
+            "label": "Thanh Niên - Phú Quốc tháo dỡ cầu cảng không thể thiếu của du khách",
+            "url": "https://thanhnien.vn/phu-quoc-thao-do-cau-cang-khong-the-thieu-cua-du-khach-185909947.htm",
+            "published_at": "2019-12-17",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "tuoitre_ham_ninh_pier_2024",
+            "source_type": "CONTEMPORARY_PRESS",
+            "label": "Tuổi Trẻ - Đập cầu cảng cũ 4 năm chưa xây cảng mới, dân làng chài Hàm Ninh quá khổ",
+            "url": "https://tuoitre.vn/dap-cau-cang-cu-4-nam-chua-xay-cang-moi-dan-lang-chai-ham-ninh-phu-quoc-qua-kho-20240523105802469.htm",
+            "published_at": "2024-05-23",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có bộ ảnh then-now cùng góc để đọc chính xác thay đổi mép nước, nhà bè, lối xuống biển và không gian buôn bán.",
+          "Không dùng từ 'chỉnh trang' như thể mọi thay đổi đều là nâng cấp. Việc tháo cầu cũ đã tạo một khoảng gián đoạn dài cho đời sống làng chài.",
+          "Trạng thái cầu/cảng sau mốc báo chí tháng 5/2024 cần kiểm tra thực địa hoặc hồ sơ dự án mới trước khi public như tình trạng hiện tại."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Hàm Ninh thay đổi dễ thấy nhất ở chỗ từng là biểu tượng của làng chài: cây cầu vươn ra biển. Trước cầu bê tông năm 2003, người dân đã góp sức làm cầu gỗ để ghe thuyền dễ cập. Cây cầu sau đó vừa phục vụ việc làm ăn, vừa trở thành chỗ khách nào ghé Hàm Ninh cũng muốn đi ra ngắm biển. Khi cầu xuống cấp và bị tháo dỡ vào 2020, làng mất đi không chỉ một điểm chụp hình mà còn một phần nhịp sinh hoạt ven nước.",
+        "practical": "Mục này nên kể bằng ảnh cũ, sơ đồ mép nước và lời người dân hơn là dùng vài chữ 'trước - sau chỉnh trang'. Nếu chưa có ảnh đúng năm, cứ ghi rõ khoảng thời gian thay vì đoán.",
+        "expectation_vs_reality": "Hàm Ninh không đơn giản là một làng chài được 'làm mới cho đẹp hơn'. Có những thay đổi giúp giao thông và dịch vụ tốt hơn, nhưng cũng có giai đoạn người dân mất một hạ tầng quen thuộc trong nhiều năm.",
+        "before_you_go": [
+          "Ảnh cầu Hàm Ninh cần ghi năm vì hình ảnh trên mạng thường bị dùng lẫn giữa các giai đoạn.",
+          "Không gọi mọi cầu cảng ở khu Hàm Ninh - Bãi Vòng là cùng một công trình.",
+          "Tình trạng công trình hiện tại phải kiểm tra lại trước khi hiển thị cho khách."
+        ],
+        "curiosity_questions": [
+          "Cầu gỗ đầu tiên của Hàm Ninh được người dân làm như thế nào?",
+          "Việc mất cầu cảng ảnh hưởng tới ngư dân và hàng quán ven biển ra sao?",
+          "Nhìn cùng một góc bờ Hàm Ninh qua ba thời điểm 2000, 2010 và nay sẽ thấy điều gì?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_143_nam-dao-truoc-va-sau-sunset-town",
+      "number": 143,
+      "title": "Nam đảo trước và sau Sunset Town",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_sunset_town",
+        "activity_hon_thom"
+      ],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy hoạch An Thới từ trước khi Sunset Town hình thành đã xác định thị trấn là trung tâm dịch vụ du lịch, thương mại, đánh bắt hải sản, công nghiệp - tiểu thủ công nghiệp và đầu mối giao thông đường biển quan trọng của Phú Quốc.",
+            "source_ids": [
+              "pqgov_an_thoi_general_plan"
+            ],
+            "verification_status": "OFFICIAL_PRE_DEVELOPMENT_BASELINE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Điều chỉnh quy hoạch năm 2015 đã bổ sung tuyến cáp treo An Thới - Hòn Thơm, cho thấy quá trình tái cấu trúc du lịch Nam đảo đã được triển khai trước khi tên gọi Sunset Town xuất hiện.",
+            "source_ids": [
+              "pm_decision_868_2015"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_MILESTONE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu Landsat 2003-2023 xác định An Thới là một trong các điểm nóng đô thị hóa của Phú Quốc và cho thấy mở rộng đất xây dựng mạnh hơn trong giai đoạn 2013-2023.",
+            "source_ids": [
+              "nguyen_downes_2025_phuquoc_lulc"
+            ],
+            "verification_status": "PEER_REVIEWED_REMOTE_SENSING",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nguồn của đơn vị phát triển mô tả Sunset Town được hình thành sau giai đoạn hoàn thành cáp treo Hòn Thơm, nhưng đây là nguồn chủ đầu tư và chỉ nên dùng để xác định chronology của dự án, không dùng để đánh giá tác động xã hội hay đô thị.",
+            "source_ids": [
+              "sunworld_sunset_town_story"
+            ],
+            "verification_status": "DEVELOPER_CHRONOLOGY_ONLY",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_an_thoi_general_plan",
+            "source_type": "OFFICIAL_URBAN_PLANNING",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch chung thị trấn An Thới",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-chung-thi-tran-an-thoi",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pm_decision_868_2015",
+            "source_type": "OFFICIAL_GOVERNMENT_PLANNING",
+            "label": "Quyết định 868/QĐ-TTg năm 2015 - Điều chỉnh cục bộ Quy hoạch chung xây dựng đảo Phú Quốc",
+            "url": "https://thuvienphapluat.vn/van-ban/xay-dung-do-thi/quyet-dinh-868-qd-ttg-2015-dieu-chinh-cuc-bo-quy-hoach-chung-xay-dung-dao-phu-quoc-kien-giang-278392.aspx",
+            "published_at": "2015-06-17",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "nguyen_downes_2025_phuquoc_lulc",
+            "source_type": "PEER_REVIEWED_RESEARCH",
+            "label": "Nguyen Can Trong et al. - Tourism-Induced Land Use Transformations, Urbanisation, and Habitat Degradation in the Phu Quoc Special Economic Zone - Urban Science 9(1), 2025",
+            "url": "https://www.mdpi.com/2413-8851/9/1/11",
+            "published_at": "2025-01-06",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "sunworld_sunset_town_story",
+            "source_type": "DEVELOPER_SOURCE",
+            "label": "Sun World - Câu chuyện Thị trấn Hoàng Hôn",
+            "url": "https://sunworld.vn/hon-thom/an-choi/thi-tran-hoang-hon-phu-quochtml",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có bộ ảnh vệ tinh và ảnh mặt đất cùng phạm vi để tách rõ khu phố An Thới cũ, Bãi Đất Đỏ, ga cáp treo và Sunset Town qua từng giai đoạn.",
+          "Không dùng Sunset Town như mốc nguyên nhân cho mọi thay đổi của Nam đảo. Đô thị hóa và đầu tư đã diễn ra trước dự án này.",
+          "Cần dữ liệu đất đai, dân cư, đường sá và hoạt động cảng theo cùng mốc thời gian nếu muốn viết 'trước và sau' như một bài phân tích thực sự."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nhìn Nam đảo hôm nay, Sunset Town là phần thay đổi dễ thấy nhất vì hình ảnh khác hẳn An Thới cũ. Nhưng nếu kể lịch sử khu vực chỉ bằng hai mốc 'trước Sunset Town' và 'sau Sunset Town' thì sẽ sai nhịp. An Thới vốn đã là đầu mối cảng biển, khu dân cư và trung tâm dịch vụ của Nam đảo; quá trình mở rộng du lịch, đường sá và cáp treo bắt đầu trước khi thị trấn mới xuất hiện.",
+        "practical": null,
+        "expectation_vs_reality": "Sunset Town là một lớp mới rất lớn của Nam đảo, nhưng không phải điểm bắt đầu của mọi thay đổi ở An Thới.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "Khu phố An Thới cũ nằm ở đâu so với Sunset Town hôm nay?",
+          "Những thay đổi nào ở Nam đảo đã diễn ra trước khi cáp treo và Sunset Town xuất hiện?",
+          "Nếu đặt ba ảnh vệ tinh 2010, 2018 và hiện nay cạnh nhau, đường bờ và khu xây dựng thay đổi ra sao?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_144_bac-dao-truoc-va-sau-cac-resort-lon",
+      "number": 144,
+      "title": "Bắc đảo trước và sau các resort lớn",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_grand_world",
+        "place_vinpearl_safari",
+        "place_vinwonders",
+        "place_cua_can"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy hoạch Bãi Dài trước làn sóng xây dựng lớn đã dành khoảng 480 ha cho phát triển du lịch và sân golf, nhưng đồng thời để một phần rất lớn quỹ đất làm dự trữ phát triển sau năm 2020.",
+            "source_ids": [
+              "pqgov_bai_dai_general_plan"
+            ],
+            "verification_status": "OFFICIAL_PRE_DEVELOPMENT_BASELINE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Điều chỉnh quy hoạch năm 2015 chuyển Bãi Dài thành khu du lịch, dịch vụ và vui chơi giải trí tổng hợp có sân golf, casino và resort thể thao biển với quy mô khoảng 567 ha; đồng thời bổ sung hàng nghìn ha chức năng du lịch - giải trí tại khu Cửa Cạn và phía bắc Vũng Bầu.",
+            "source_ids": [
+              "pm_decision_868_2015"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_SHIFT",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Vinpearl Phú Quốc khai trương tại Bãi Dài ngày 1/11/2014 với quy mô hơn 300 ha; Vinpearl Safari tại Gành Dầu khai trương cuối năm 2015; đến 2021 Phú Quốc United Center đưa thêm Grand World và hệ sinh thái nghỉ dưỡng - giải trí quy mô trên 1.000 ha vào vận hành.",
+            "source_ids": [
+              "vietnamplus_vinpearl_2014",
+              "nhandan_safari_2015",
+              "vietnamplus_united_center_2021"
+            ],
+            "verification_status": "DATED_DEVELOPMENT_MILESTONES",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu Landsat 2003-2023 xác nhận đô thị hóa và mở rộng đất xây dựng trên Phú Quốc tăng mạnh cùng đầu tư du lịch và hạ tầng; tuy nhiên nghiên cứu không cho phép quy toàn bộ biến đổi của Bắc đảo cho riêng một nhóm resort.",
+            "source_ids": [
+              "nguyen_downes_2025_phuquoc_lulc"
+            ],
+            "verification_status": "PEER_REVIEWED_ISLAND_SCALE_CONTEXT",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_bai_dai_general_plan",
+            "source_type": "OFFICIAL_URBAN_PLANNING",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch chung khu du lịch Bãi Dài",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-chung-khu-du-lich-bai-dai",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pm_decision_868_2015",
+            "source_type": "OFFICIAL_GOVERNMENT_PLANNING",
+            "label": "Quyết định 868/QĐ-TTg năm 2015 - Điều chỉnh cục bộ Quy hoạch chung xây dựng đảo Phú Quốc",
+            "url": "https://thuvienphapluat.vn/van-ban/xay-dung-do-thi/quyet-dinh-868-qd-ttg-2015-dieu-chinh-cuc-bo-quy-hoach-chung-xay-dung-dao-phu-quoc-kien-giang-278392.aspx",
+            "published_at": "2015-06-17",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnamplus_vinpearl_2014",
+            "source_type": "STATE_NEWS_AGENCY_RECORD",
+            "label": "VietnamPlus - Khai trương quần thể du lịch nghỉ dưỡng 5 sao đầu tiên ở Phú Quốc",
+            "url": "https://www.vietnamplus.vn/khai-truong-quan-the-du-lich-nghi-duong-5-sao-dau-tien-o-phu-quoc-post289190.vnp",
+            "published_at": "2014-11-01",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "nhandan_safari_2015",
+            "source_type": "STATE_PRESS_RECORD",
+            "label": "Nhân Dân - Khai trương vườn thú bán hoang dã tại Phú Quốc",
+            "url": "https://nhandan.vn/khai-truong-vuon-thu-ban-hoang-da-duy-nhat-viet-nam-tren-dao-phu-quoc-post251205.html",
+            "published_at": "2015-12-24",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnamplus_united_center_2021",
+            "source_type": "STATE_NEWS_AGENCY_RECORD",
+            "label": "VietnamPlus - Phú Quốc United Center chính thức khai trương",
+            "url": "https://www.vietnamplus.vn/phu-quoc-united-center-sieu-to-hop-du-lich-nghi-duong-giai-tri-cua-vingroup-duoc-chinh-thuc-khai-truong-post707133.vnp",
+            "published_at": "2021-04-22",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "nguyen_downes_2025_phuquoc_lulc",
+            "source_type": "PEER_REVIEWED_RESEARCH",
+            "label": "Nguyen Can Trong et al. - Tourism-Induced Land Use Transformations, Urbanisation, and Habitat Degradation in the Phu Quoc Special Economic Zone - Urban Science 9(1), 2025",
+            "url": "https://www.mdpi.com/2413-8851/9/1/11",
+            "published_at": "2025-01-06",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không nên gọi toàn bộ Bắc đảo là 'resort'. Gành Dầu, Cửa Cạn, Rạch Vẹm và vùng rừng quốc gia có lịch sử sử dụng đất và đời sống rất khác nhau.",
+          "Cần ảnh vệ tinh cùng tỷ lệ cho Bãi Dài - Gành Dầu qua các mốc trước 2014, 2015-2016 và sau 2021 để thể hiện thay đổi trực quan.",
+          "Nghiên cứu biến động đất 2003-2023 là quy mô toàn đảo; không lấy các tỷ lệ toàn đảo gắn riêng cho Bắc đảo nếu nghiên cứu không tách số liệu."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Bắc đảo thay đổi rõ nhất ở dải Bãi Dài - Gành Dầu. Trước giữa thập niên 2010, quy hoạch đã dành đất cho du lịch nhưng nhiều khu vẫn còn ở dạng dự trữ hoặc phát triển thưa. Từ 2014 trở đi, các tổ hợp nghỉ dưỡng, sân golf, Safari rồi Grand World và United Center xuất hiện nối tiếp nhau, khiến cách người ta đi tới Bắc đảo, ở lại đó và sử dụng cả một ngày ở khu vực này khác hẳn trước đây.",
+        "practical": "Khi làm then-now, nên khoanh từng vùng nhỏ thay vì tô cả Bắc đảo một màu. Bãi Dài có câu chuyện resort và giải trí quy mô lớn; Gành Dầu còn là khu dân cư - làng biển; Cửa Cạn lại có sông, làng nghề và các dự án riêng. Đặt đúng phạm vi thì người xem mới hiểu cái gì thật sự đã đổi.",
+        "expectation_vs_reality": "Resort lớn làm thay đổi mạnh dải du lịch phía Tây Bắc, nhưng Bắc đảo không biến thành một khu nghỉ dưỡng khép kín. Ngoài các tổ hợp lớn vẫn còn làng dân cư, đường địa phương, rừng và những khu vực có nhịp sống rất khác.",
+        "before_you_go": [
+          "Ảnh 'Bắc đảo ngày xưa' phải ghi rõ đang nói Bãi Dài, Gành Dầu hay khu nào.",
+          "Không dùng ảnh một resort để đại diện cho toàn Bắc đảo.",
+          "Nếu so diện tích xây dựng, phải dùng cùng nguồn bản đồ và cùng mốc phân loại đất."
+        ],
+        "curiosity_questions": [
+          "Bãi Dài trước 2014 nhìn khác hôm nay ở những điểm nào?",
+          "Việc các tổ hợp lớn xuất hiện đã thay đổi tuyến đường và thời gian khách ở Bắc đảo ra sao?",
+          "Phần nào của Gành Dầu vẫn giữ nhịp làng biển bên cạnh khu du lịch lớn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
