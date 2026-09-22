@@ -739,6 +739,23 @@
         "utilities"
       ],
       "note": "Fallback sau Nominatim cho địa chỉ cụ thể chưa resolve; kết quả khu vực phải giữ area_anchor."
+    },
+    {
+      "id": "carto_lds_geocode",
+      "type": "MAP_GEOCODER",
+      "label": "CARTO Location Data Services - geocoding",
+      "url": "https://docs.carto.com/carto-for-developers/key-concepts/apis",
+      "checked_at": "2026-09-22",
+      "dynamic": true,
+      "trust": "LOCATION_GEOCODER",
+      "used_by": [
+        "location_enrichment",
+        "home_near_me",
+        "hotels",
+        "utilities",
+        "places"
+      ],
+      "note": "Server-side/address enrichment only. Token must remain in repository secrets; never render or commit it."
     }
   ],
   "rules": [
