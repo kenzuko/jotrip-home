@@ -707,6 +707,22 @@
         "places"
       ],
       "note": "Google Maps lookup remains preferred. This source ID groups secondary map/GPS cross-checks when Google search does not expose coordinates directly; each entity stores its exact source URL."
+    },
+    {
+      "id": "osm_nominatim_geocode",
+      "type": "MAP_GEOCODER",
+      "label": "OpenStreetMap Nominatim - geocode tên + địa chỉ",
+      "url": "https://nominatim.openstreetmap.org/",
+      "checked_at": "2026-09-22",
+      "dynamic": true,
+      "trust": "SECONDARY_LOCATION_GEOCODER",
+      "used_by": [
+        "location_enrichment",
+        "home_near_me",
+        "hotels",
+        "utilities"
+      ],
+      "note": "Chỉ dùng làm fallback cho địa chỉ đã đủ cụ thể khi Google Maps API chưa khả dụng. Địa chỉ mơ hồ/khu rộng vẫn cần tra Google hoặc giữ area_anchor."
     }
   ],
   "rules": [
@@ -719,6 +735,7 @@
     "Entity chưa có lat/lon nhưng có tên hoặc địa chỉ phải tra Google Maps trước khi để trống pin.",
     "Nếu địa chỉ chung chung, dùng tên + địa chỉ + Phú Quốc để tìm kết quả Google phù hợp trong phạm vi đảo rồi lưu lat/lon vào entity.",
     "Tọa độ suy từ Google phải lưu source, verified_at, lookup_query và mức precision; kết quả ở mức đường/khu vực dùng area_anchor, không giả là cửa vào chính xác.",
-    "Geocode là bước enrich dữ liệu, không chạy lại mỗi lần người dùng mở bản đồ."
+    "Geocode là bước enrich dữ liệu, không chạy lại mỗi lần người dùng mở bản đồ.",
+    "Địa chỉ cụ thể có thể geocode bằng dịch vụ địa lý thứ cấp khi Google API chưa khả dụng; địa chỉ mơ hồ/khu rộng vẫn phải tra Google hoặc giữ area_anchor, không nâng thành pin chính xác."
   ]
 }
