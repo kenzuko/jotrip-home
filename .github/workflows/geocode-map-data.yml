@@ -1,0 +1,68 @@
+name: Enrich Open Phu Quoc map coordinates
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/geocode-map-data.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: openpq-map-geocode
+  cancel-in-progress: false
+
+jobs:
+  geocode:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Check Google Maps key
+        id: key
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: |
+          if [ -n "$GOOGLE_MAPS_API_KEY" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::GOOGLE_MAPS_API_KEY is not configured. Geocoding was not run."
+          fi
+
+      - name: Geocode old entity data
+        if: steps.key.outputs.ready == 'true'
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+        run: node scripts/geocode-google-maps.mjs
+
+      - name: Rebuild derived map/search data
+        if: steps.key.outputs.ready == 'true'
+        run: |
+          node scripts/build-map-coverage.mjs
+          node scripts/build-search-index.mjs
+          node scripts/validate-data.mjs
+          node scripts/validate-home-support.mjs
+
+      - name: Commit enriched coordinates
+        if: steps.key.outputs.ready == 'true'
+        run: |
+          if git diff --quiet; then
+            echo "No coordinate changes."
+            exit 0
+          fi
+          git config user.name "Open Phu Quoc Data Bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/entities data/views
+          git commit -m "maps: enrich old entity coordinates"
+          git push origin HEAD:main
