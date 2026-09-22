@@ -367,6 +367,10 @@ function validateCurrent(){
       else ids.add(id);
       if(!name)errors.push("Địa điểm #"+(i+1)+" chưa có tên.");
       if(!allowed.has(String(x.category||"")))errors.push("Địa điểm “"+(name||id||("#"+(i+1)))+"” chưa chọn đúng loại.");
+      if(String(x.status||"REVIEW")==="ACTIVE"){
+        if(!String(x.verified_at||"").trim())errors.push("Địa điểm đang dùng cần ngày kiểm tra: "+(name||id));
+        if(!String(x.source_ref||"").trim())errors.push("Địa điểm đang dùng cần nguồn: "+(name||id));
+      }
       if(x.latitude!==null&&x.latitude!==""&&x.latitude!==undefined){
         const lat=Number(x.latitude);
         if(!Number.isFinite(lat)||lat<-90||lat>90)errors.push("Vĩ độ không hợp lệ: "+(name||id));
