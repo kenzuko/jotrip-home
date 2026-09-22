@@ -4,6 +4,8 @@ import path from "node:path";
 const root=process.cwd();
 const entityDir=path.join(root,"data","entities");
 const apiKey=process.env.GOOGLE_MAPS_API_KEY||"";
+const cartoToken=process.env.CARTO_API_TOKEN||"";
+const cartoBaseUrl=(process.env.CARTO_API_BASE_URL||"https://gcp-us-east1.api.carto.com").replace(/\/$/,"");
 const args=new Set(process.argv.slice(2));
 const dryRun=args.has("--dry-run");
 const force=args.has("--force");
@@ -177,6 +179,89 @@ async function googleGeocode(address){
   };
 }
 
+function parseCartoPoint(payload){
+  const candidates=[
+    payload?.geometry,payload?.geom,payload?.location,
+    payload?.result?.geometry,payload?.result?.geom,payload?.result?.location,
+    payload?.data?.geometry,payload?.data?.geom,payload?.data?.location
+  ].filter(Boolean);
+
+  for(const value of candidates){
+    if(typeof value==="string"){
+      const match=value.match(/POINT\s*\(\s*(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s*\)/i);
+      if(match)return{lon:Number(match[1]),lat:Number(match[2])};
+      try{
+        const parsed=JSON.parse(value);
+        if(Array.isArray(parsed?.coordinates)&&parsed.coordinates.length>=2){
+          return{lon:Number(parsed.coordinates[0]),lat:Number(parsed.coordinates[1])};
+        }
+      }catch{}
+    }
+    if(Array.isArray(value?.coordinates)&&value.coordinates.length>=2){
+      return{lon:Number(value.coordinates[0]),lat:Number(value.coordinates[1])};
+    }
+    const lat=Number(value?.lat??value?.latitude);
+    const lon=Number(value?.lon??value?.lng??value?.longitude);
+    if(Number.isFinite(lat)&&Number.isFinite(lon))return{lat,lon};
+  }
+
+  const lat=Number(payload?.lat??payload?.latitude??payload?.result?.lat??payload?.result?.latitude);
+  const lon=Number(payload?.lon??payload?.lng??payload?.longitude??payload?.result?.lon??payload?.result?.lng??payload?.result?.longitude);
+  if(Number.isFinite(lat)&&Number.isFinite(lon))return{lat,lon};
+  return null;
+}
+
+async function cartoSearch(entity){
+  if(!cartoToken||!entity.address)return null;
+  const cleaned=cleanLegacyAddress(entity.address);
+  const queries=[
+    {kind:"name",q:[entity.name,cleaned,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")},
+    {kind:"address",q:[cleaned,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")}
+  ];
+  const seen=new Set();
+  for(const item of queries){
+    if(seen.has(item.q))continue;
+    seen.add(item.q);
+    try{
+      const url=new URL(cartoBaseUrl+"/v3/lds/geocoding/geocode");
+      url.searchParams.set("address",item.q);
+      url.searchParams.set("country","VN");
+      url.searchParams.set("options",JSON.stringify({language:"vi"}));
+      const response=await fetch(url,{
+        headers:{
+          "Authorization":cartoToken,
+          "Accept":"application/json"
+        },
+        signal:AbortSignal.timeout(15000)
+      });
+      if(!response.ok){
+        console.warn("WARN CARTO",entity.id,"HTTP",response.status);
+        continue;
+      }
+      const payload=await response.json();
+      const point=parseCartoPoint(payload);
+      if(point&&inPhuQuoc(point.lat,point.lon)&&zoneMatches(entity,point.lat,point.lon)){
+        return{
+          resolver:"CARTO_LDS",
+          source_id:"carto_lds_geocode",
+          source:"CARTO Location Data Services geocoding",
+          place_id:null,
+          name:entity.name||null,
+          formatted_address:item.q,
+          lat:point.lat,
+          lon:point.lon,
+          class:item.kind==="address"?"address":"place",
+          type:"geocoded",
+          query_kind:item.kind
+        };
+      }
+    }catch(error){
+      console.warn("WARN CARTO",entity.id,item.q,error.message);
+    }
+  }
+  return null;
+}
+
 async function nominatimQuery(entity,q,queryKind){
   const url=new URL("https://nominatim.openstreetmap.org/search");
   url.searchParams.set("q",q);
@@ -300,6 +385,11 @@ async function resolveEntity(entity){
     }
   }
   if(!match&&entity.address){
+    try{match=await cartoSearch(entity)}catch(error){
+      console.warn("WARN CARTO",entity.id,error.message);
+    }
+  }
+  if(!match&&entity.address){
     try{match=await nominatimSearch(entity)}catch(error){
       console.warn("WARN Nominatim",entity.id,error.message);
     }
@@ -340,7 +430,9 @@ for(const file of files){
 
     const precision=match.resolver.startsWith("GOOGLE")
       ? precisionForGoogleTypes(match.types||[])
-      : precisionForNominatim(match,entity);
+      : match.resolver==="CARTO_LDS"
+        ? (match.query_kind==="address"?"site_centroid":"area_anchor")
+        : precisionForNominatim(match,entity);
 
     entity.map={
       lat:match.lat,
@@ -379,6 +471,8 @@ for(const file of files){
 
 console.log(JSON.stringify({
   google_key_available:!!apiKey,
+  carto_token_available:!!cartoToken,
+  carto_api_base_url:cartoBaseUrl,
   attempted,
   resolved,
   missed,
