@@ -27,8 +27,8 @@
     },
     "linked_to_canonical_entity": 40,
     "unlinked": 110,
-    "ready_internal": 109,
-    "queued": 24,
+    "ready_internal": 112,
+    "queued": 21,
     "hold": 17
   },
   "topics": [
@@ -2700,7 +2700,7 @@
       "crawl_brief": "Timeline, địa điểm, nguồn chính thống, truyền khẩu liên quan.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2892,7 +2892,7 @@
       "crawl_brief": "Giai thoại/truyền thuyết, địa điểm liên quan, nguồn địa phương.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2915,8 +2915,10 @@
       "topic_type": "HISTORY_LORE",
       "crawl_brief": "Danh mục dị bản, source, story_type, confidence.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_gieng_tien"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
