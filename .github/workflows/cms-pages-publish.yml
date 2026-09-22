@@ -1,0 +1,94 @@
+name: Publish OpenPQ CMS Pages
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - ".github/workflows/cms-pages-publish.yml"
+      - "scripts/build-cloudflare.mjs"
+      - "scripts/build-knowledge-public.mjs"
+      - "data/knowledge/**"
+      - "guide/**"
+      - "admin/**"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: openpq-cms-pages
+  cancel-in-progress: true
+
+jobs:
+  cms-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Build and validate CMS
+        run: |
+          node scripts/build-map-coverage.mjs
+          node scripts/build-location-index.mjs
+          node scripts/build-cloudflare.mjs
+          node scripts/validate-knowledge.mjs
+          node scripts/validate-data.mjs
+          node scripts/test-search.mjs
+          node -e "const d=require('./dist/data/views/knowledge-public.json');if(d.count!==128||d.objects.length!==128||JSON.stringify(d).includes('research'))process.exit(1);console.log('CMS has',d.count,'public articles')"
+          test -f dist/guide/knowledge.html
+          test -f dist/guide/article.html
+          test -f dist/admin/index.html
+          test ! -e dist/data/knowledge/objects.json
+
+      - name: Find exact CMS Pages project
+        id: discover
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          node <<'NODE'
+          const fs=require("node:fs");
+          const {CF_TOKEN,CF_ACCOUNT}=process.env;
+          const output=(k,v)=>fs.appendFileSync(process.env.GITHUB_OUTPUT,k+"="+v+"\n");
+          if(!CF_TOKEN||!CF_ACCOUNT){console.log("Cloudflare credentials unavailable.");output("ready","false");process.exit(0);}
+          (async()=>{
+            const r=await fetch("https://api.cloudflare.com/client/v4/accounts/"+encodeURIComponent(CF_ACCOUNT)+"/pages/projects?per_page=100",{headers:{Authorization:"Bearer "+CF_TOKEN}});
+            if(!r.ok){console.log("Pages inventory HTTP",r.status,". Correct account and Pages Read permission required.");output("ready","false");return;}
+            const x=await r.json();const projects=x.result||[];
+            console.log("Accessible Pages projects:",projects.length);
+            const matches=projects.filter(p=>(p.domains||[]).some(d=>String(d).toLowerCase()==="cms.openphuquoc.com"));
+            if(matches.length!==1){
+              console.log("Exact CMS domain matches:",matches.length);
+              console.log("CMS-like project names:",projects.filter(p=>/cms|openpq|openphuquoc/i.test(p.name)).map(p=>p.name).join(", ")||"none");
+              output("ready","false");return;
+            }
+            const p=matches[0],cfg=p.source?.config||{},owner=String(cfg.owner||"").toLowerCase(),repo=String(cfg.repo_name||"").toLowerCase();
+            if(repo&&(repo!=="jotrip-home"||(owner&&owner!=="kenzuko"))){console.log("CMS source repo differs; no deployment.");output("ready","false");return;}
+            if(!/^[a-z0-9][a-z0-9_-]{0,63}$/.test(p.name)){output("ready","false");return;}
+            console.log("Matched CMS project:",p.name,"production branch:",p.production_branch);
+            output("ready","true");output("project",p.name);
+          })().catch(e=>{console.log("CMS discovery failed:",e.message);output("ready","false");});
+          NODE
+
+      - name: Deploy verified CMS Pages
+        if: steps.discover.outputs.ready == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PROJECT_NAME: ${{ steps.discover.outputs.project }}
+        run: npx --yes wrangler@4.136.3 pages deploy dist --project-name="$PROJECT_NAME" --branch=main
+
+      - name: Verify CMS library and admin navigation
+        if: steps.discover.outputs.ready == 'true'
+        run: |
+          curl --retry 4 --retry-delay 3 --connect-timeout 5 --max-time 20 -fsSL "https://cms.openphuquoc.com/data/views/knowledge-public.json?t=$GITHUB_SHA" | node -e 'let s="";process.stdin.on("data",b=>s+=b).on("end",()=>{const j=JSON.parse(s);if(j.count!==128||j.objects.length!==128)process.exit(1);console.log("CMS domain: 128 articles live")})'
+          curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/guide/knowledge.html?t=$GITHUB_SHA" -o /tmp/cms-knowledge.html
+          grep -q 'data-knowledge-page="library"' /tmp/cms-knowledge.html
+          curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/admin/?t=$GITHUB_SHA" -o /tmp/cms-admin.html
+          grep -q 'admin.js?v=21' /tmp/cms-admin.html
+
+      - name: Explain missing Pages connection
+        if: steps.discover.outputs.ready != 'true'
+        run: echo "::warning::CMS build passed, but deployment requires the Cloudflare account containing cms.openphuquoc.com Pages project and a token with Pages Read/Edit. No DNS or other Worker was changed."
