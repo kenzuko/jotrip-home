@@ -19,7 +19,8 @@
       "source_ref": "knowledge_013_bai-khem",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_bai_sao",
@@ -38,7 +39,8 @@
       "source_ref": "knowledge_014_bai-sao",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_bai_truong",
@@ -57,7 +59,8 @@
       "source_ref": "knowledge_012_bai-truong",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_duong_dong_market",
@@ -93,7 +96,8 @@
       "source_ref": "knowledge_003_cho-duong-dong",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_ho_quoc",
@@ -112,7 +116,8 @@
       "source_ref": "knowledge_029_chua-ho-quoc",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_dinh_cau",
@@ -148,7 +153,8 @@
       "source_ref": "knowledge_001_dinh-cau",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_phu_quoc_prison",
@@ -167,7 +173,8 @@
       "source_ref": "knowledge_030_nha-tu-phu-quoc",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_rach_vem",
@@ -186,7 +193,8 @@
       "source_ref": "knowledge_008_rach-vem",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_sunset_town",
@@ -222,7 +230,8 @@
       "source_ref": "knowledge_005_sunset-town",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     },
     {
       "id": "venue_suoi_tranh",
@@ -241,7 +250,8 @@
       "source_ref": "knowledge_026_suoi-tranh",
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
-      "status": "ACTIVE"
+      "status": "ACTIVE",
+      "entity_type": "venue"
     }
   ]
 }
