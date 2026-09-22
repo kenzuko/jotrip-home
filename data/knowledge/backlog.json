@@ -27,8 +27,8 @@
     },
     "linked_to_canonical_entity": 40,
     "unlinked": 110,
-    "ready_internal": 106,
-    "queued": 27,
+    "ready_internal": 109,
+    "queued": 24,
     "hold": 17
   },
   "topics": [
@@ -2597,8 +2597,12 @@
       "topic_type": "HISTORY_LORE",
       "crawl_brief": "Tài liệu/folk explanation, alternate versions.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "activity_hon_thom",
+        "place_aquatopia",
+        "place_exotica"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2622,7 +2626,7 @@
       "crawl_brief": "Tài liệu/folk explanation, alternate versions.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2669,8 +2673,10 @@
       "topic_type": "HISTORY_LORE",
       "crawl_brief": "Sự kiện có tài liệu, địa điểm liên quan, tách legend khỏi fact.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_gieng_tien"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
