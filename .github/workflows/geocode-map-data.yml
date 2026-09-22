@@ -17,6 +17,7 @@ concurrency:
 jobs:
   geocode:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout current main
         uses: actions/checkout@v4
@@ -28,26 +29,12 @@ jobs:
         with:
           node-version: "22"
 
-      - name: Check Google Maps key
-        id: key
-        env:
-          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
-        run: |
-          if [ -n "$GOOGLE_MAPS_API_KEY" ]; then
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::GOOGLE_MAPS_API_KEY is not configured. Geocoding was not run."
-          fi
-
       - name: Geocode old entity data
-        if: steps.key.outputs.ready == 'true'
         env:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
         run: node scripts/geocode-google-maps.mjs
 
       - name: Rebuild derived map/search data
-        if: steps.key.outputs.ready == 'true'
         run: |
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
@@ -56,7 +43,6 @@ jobs:
           node scripts/validate-home-support.mjs
 
       - name: Commit enriched coordinates
-        if: steps.key.outputs.ready == 'true'
         run: |
           if git diff --quiet; then
             echo "No coordinate changes."
