@@ -5424,17 +5424,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Airport transfer không chỉ là gọi một chiếc xe. Với khách đến khuya, gia đình, nhóm đông hoặc khu nghỉ dưỡng xa, giá trị chính là biết chắc ai đón, xe nào và đi đâu ngay khi ra sảnh.",
-        "practical": "xe đưa đón khu nghỉ dưỡng đáng kiểm tra trước tiên. Sau đó mới so taxi, Grab hoặc xe riêng. Nếu cần ghế trẻ em, xe lớn hoặc biển tên đón, phải nói trước khi đặt.",
-        "expectation_vs_reality": "Giá ứng dụng gọi xe hoặc taxi và thời gian chờ thay đổi theo giờ, khu đến và cung xe, nên nội dung không giữ một bảng giá cố định.",
+        "short_summary": "Từ sân bay Phú Quốc về khách sạn, bạn có thể đi taxi, gọi Grab hoặc đặt xe đón trước. Nếu đến khuya, đi cùng gia đình hay ở khu nghỉ dưỡng xa, có xe chờ sẵn sẽ đỡ phải tìm xe sau chuyến bay.",
+        "practical": "Hỏi khách sạn có xe đưa đón không, rồi so với taxi, Grab hoặc xe riêng. Nếu đặt trước, hãy thống nhất chỗ gặp tài xế. Đi nhóm đông, mang nhiều hành lý hoặc cần ghế trẻ em thì báo ngay khi đặt để chọn xe phù hợp.",
+        "expectation_vs_reality": "Xe đặt trước không phải lúc nào cũng rẻ hơn gọi tại sân bay. Giá và thời gian chờ của taxi, xe công nghệ có thể thay đổi theo giờ đến và nơi bạn muốn về.",
         "before_you_go": [
-          "Gửi số chuyến bay.",
-          "Gửi tên khách sạn đầy đủ.",
-          "Báo số hành lý/trẻ em.",
-          "Có chuyến đến muộn thì xác nhận tài xế trước khi cất cánh."
+          "Gửi đúng mã chuyến bay và tên khách sạn.",
+          "Báo số khách, số vali và nhu cầu ghế trẻ em nếu có.",
+          "Hỏi rõ giá, chỗ đón và cách liên lạc với tài xế.",
+          "Nếu bay đến muộn, xác nhận lại chuyến đón trước khi khởi hành."
         ],
         "curiosity_questions": [
-          "Một transfer đặt trước khác taxi sân bay ở giá trị nào ngoài chuyện giá?"
+          "Đến Phú Quốc vào tối muộn, nên đặt xe trước hay gọi taxi tại sân bay?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -5486,17 +5486,17 @@
         ]
       },
       "editorial": {
-        "short_summary": "Từ đất liền ra Phú Quốc bằng đường biển có hai nhóm khách hay nhầm: tàu cao tốc thiên về chở hành khách, còn phà phù hợp khi cần mang xe theo.",
-        "practical": "Lịch chạy phải tìm theo đúng ngày, đúng cảng và đúng hãng. Nếu mang xe, kiểm tra loại xe, giờ có mặt và quy định riêng trước khi mua vé.",
-        "expectation_vs_reality": "Lịch tháng hoặc ảnh chụp cũ không nên dùng như lịch cố định cho ngày đi thật.",
+        "short_summary": "Từ Hà Tiên và Rạch Giá, bạn có thể ra Phú Quốc bằng đường biển. Tàu cao tốc chủ yếu chở hành khách; nếu muốn mang ô tô theo, bạn cần tìm chuyến phà phù hợp. Việc gửi xe máy hoặc hàng hóa phải hỏi theo từng hãng và chuyến tàu.",
+        "practical": "Chọn đúng cảng đi, ngày khởi hành và bến đến trên đảo trước khi mua vé. Nếu mang xe máy, ô tô hoặc gửi hàng, hãy hỏi hãng có nhận chuyến đó không, cần giấy tờ gì và phải có mặt trước bao lâu.",
+        "expectation_vs_reality": "Lịch tàu bạn thấy trên một tấm ảnh cũ có thể không còn đúng vào ngày đi. Khi thời tiết xấu hoặc lịch khai thác thay đổi, hãy xem thông báo của hãng và tình trạng chuyến thực tế.",
         "before_you_go": [
-          "Xác nhận Hà Tiên hay Rạch Giá.",
-          "Xác nhận tàu cao tốc hay phà.",
-          "Đi sớm hơn giờ xuất bến để xử lý hành lý/xe.",
-          "Ngày biển xấu phải xem trạng thái khai thác thực tế."
+          "Xác nhận đi từ Hà Tiên hay Rạch Giá và cập đúng cảng.",
+          "Kiểm tra đúng ngày, giờ, hãng và loại tàu trên vé.",
+          "Nếu gửi xe hoặc hàng hóa, hỏi điều kiện nhận và giờ làm thủ tục.",
+          "Gần ngày đi, kiểm tra lại lịch chạy và thông báo thời tiết."
         ],
         "curiosity_questions": [
-          "Vì sao cùng tuyến về Phú Quốc nhưng phà và tàu cao tốc có thể chịu ảnh hưởng thời tiết khác nhau?"
+          "Mang xe máy ra Phú Quốc thì nên hỏi hãng tàu những gì trước khi đặt vé?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -5577,16 +5577,17 @@
         ]
       },
       "editorial": {
-        "short_summary": "ATM trên đảo tập trung dễ tìm hơn ở Dương Đông và các trục dân cư lớn. Với khách quốc tế hoặc đi khu xa, đừng chờ tới lúc hết tiền mặt mới tìm máy.",
-        "practical": "Gần tôi nên dùng để tìm máy gần nhất theo vị trí. Trạng thái 24/7 không được mặc định nếu ngân hàng chưa xác nhận quyền truy cập ngoài giờ.",
-        "expectation_vs_reality": "Một địa điểm ngân hàng có ATM không có nghĩa cửa phòng giao dịch cũng mở cùng giờ.",
+        "short_summary": "Ở Dương Đông, bạn có nhiều lựa chọn tìm máy ATM hơn; khu An Thới cũng có điểm giao dịch ngân hàng. Nếu chuẩn bị đi chơi xa hoặc ra đảo cả ngày, rút sẵn một ít tiền mặt sẽ tiện hơn việc tìm máy giữa đường.",
+        "practical": "Mở Gần tôi để tìm ATM theo vị trí và xem đường đi. Với máy đặt tại ngân hàng, nhớ kiểm tra lối vào ngoài giờ giao dịch; có ATM tại địa chỉ đó không có nghĩa lúc nào cũng vào rút được.",
+        "expectation_vs_reality": "ATM có thể tạm hết tiền hoặc ngừng phục vụ. Phí rút tiền và hạn mức cũng tùy ngân hàng và loại thẻ, nhất là thẻ phát hành ở nước ngoài.",
         "before_you_go": [
-          "Rút tiền trước khi đi vùng xa hoặc tour biển.",
-          "Giữ một ít tiền mặt cho quầy nhỏ/chợ.",
-          "Nếu thẻ bị giữ hoặc giao dịch lỗi, liên hệ ngân hàng phát hành trước khi thử quá nhiều lần."
+          "Rút một ít tiền mặt trước khi đi khu xa hoặc tour biển.",
+          "Giữ tiền lẻ nếu dự định ghé chợ hay quầy bán nhỏ.",
+          "Kiểm tra phí rút tiền của thẻ đang dùng.",
+          "Nếu máy giữ thẻ hoặc báo lỗi, liên hệ ngân hàng thay vì thử đi thử lại."
         ],
         "curiosity_questions": [
-          "Ở Phú Quốc khu nào dễ thiếu ATM hơn khi đi chơi cả ngày?"
+          "Đi Bắc đảo cả ngày, nên chuẩn bị tiền mặt từ lúc nào?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -5650,16 +5651,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Thẻ quốc tế dùng được ở nhiều khách sạn, khu nghỉ dưỡng, chuỗi và điểm có máy POS, nhưng khách vẫn nên có tiền mặt dự phòng. QR ở Việt Nam đang mở rộng rất nhanh, song không phải ví/ngân hàng nước ngoài nào cũng quét được mọi mã VietQR.",
-        "practical": "Visa/Mastercard và các thẻ quốc tế khác phụ thuộc điểm chấp nhận. Với QR, kiểm tra app của mình có hỗ trợ VietQRGlobal/kết nối xuyên biên giới hay không; đừng thấy QR là mặc định thanh toán được.",
-        "expectation_vs_reality": "Một mã QR chuyển khoản nội địa Việt Nam khác với khả năng thanh toán QR xuyên biên giới dành cho khách quốc tế.",
+        "short_summary": "Nhiều khách sạn, khu nghỉ dưỡng và cửa hàng lớn ở Phú Quốc nhận thẻ quốc tế. Các quán nhỏ có thể thuận tiện hơn với tiền mặt hoặc chuyển khoản QR. Với khách nước ngoài, có mã QR trước mặt chưa chắc ứng dụng ngân hàng của mình đã quét để trả tiền được.",
+        "practical": "Nếu muốn trả bằng thẻ, hỏi cửa hàng có nhận loại thẻ bạn mang theo không. Nếu trả bằng QR, kiểm tra ứng dụng ngân hàng hoặc ví của bạn có hỗ trợ thanh toán tại Việt Nam, rồi chỉ coi là đã trả khi giao dịch được xác nhận.",
+        "expectation_vs_reality": "Mã QR dùng để chuyển khoản trong nước và mã hỗ trợ thanh toán xuyên biên giới không phải lúc nào cũng dùng thay cho nhau. Vì vậy, có thêm thẻ hoặc tiền mặt dự phòng vẫn tiện hơn.",
         "before_you_go": [
-          "Mang một thẻ thứ hai hoặc tiền mặt dự phòng.",
-          "Xem phí chuyển đổi ngoại tệ của ngân hàng phát hành.",
-          "Khi QR lỗi, chuyển sang thẻ/tiền mặt thay vì quét lặp nhiều lần."
+          "Mang thêm tiền mặt hoặc một thẻ dự phòng.",
+          "Kiểm tra phí thanh toán ngoại tệ với ngân hàng phát hành thẻ.",
+          "Hỏi cách thanh toán trước khi gọi món hoặc mua dịch vụ nếu chỉ mang ví điện tử.",
+          "Khi thanh toán lỗi, kiểm tra lịch sử giao dịch trước khi thử lại."
         ],
         "curiosity_questions": [
-          "Tại sao khách Singapore/Trung Quốc có thể quét một số QR ở Việt Nam nhưng không phải mọi mã QR?"
+          "Vì sao hai mã QR nhìn giống nhau nhưng ví nước ngoài chỉ thanh toán được một mã?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -5714,17 +5716,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Đổi tiền nên làm qua ngân hàng hoặc điểm/đại lý đổi ngoại tệ được phép. Open Phu Quoc có thể cho xem tỷ giá Vietcombank để biết mặt bằng trước, nhưng tỷ giá thực nhận còn phụ thuộc loại tiền và hình thức giao dịch.",
-        "practical": "Trước khi đổi tiền mặt, xem tỷ giá mua tiền mặt của ngân hàng và hỏi điểm đổi có nhận đúng loại ngoại tệ đó không. Một số đồng tiền chỉ có tỷ giá chuyển khoản chứ không có mức mua tiền mặt niêm yết.",
-        "expectation_vs_reality": "Tỷ giá trên màn hình không phải cam kết mọi quầy đổi tiền đều mua đúng mức đó, và tỷ giá chuyển khoản không phải tỷ giá mua tiền mặt.",
+        "short_summary": "Nếu cần đổi ngoại tệ ở Phú Quốc, bạn nên đến ngân hàng hoặc đại lý đổi tiền được phép hoạt động. Xem trước tỷ giá Vietcombank sẽ giúp bạn có mức tham khảo, nhưng số tiền thực nhận còn tùy đồng tiền và cách đổi.",
+        "practical": "Mang tiền mặt đi đổi thì xem cột ngân hàng mua tiền mặt, không lấy tỷ giá mua chuyển khoản để tính. Trước khi đến quầy, hỏi nơi đó có nhận loại ngoại tệ và mệnh giá bạn đang có không.",
+        "expectation_vs_reality": "Tỷ giá niêm yết không có nghĩa mọi quầy đều đổi đúng mức ấy. Giá mua tiền mặt, giá mua chuyển khoản và giá bán là các mức khác nhau.",
         "before_you_go": [
-          "Ưu tiên ngân hàng/đại lý được phép.",
-          "Đếm tiền tại quầy.",
-          "Giữ biên nhận nếu có.",
-          "Không đổi số tiền lớn ở người lạ chỉ vì tỷ giá cao hơn."
+          "Chọn ngân hàng hoặc đại lý đổi ngoại tệ được phép hoạt động.",
+          "Hỏi tỷ giá áp dụng và số tiền nhận được trước khi đổi.",
+          "Kiểm đếm tiền tại quầy và giữ biên nhận nếu có.",
+          "Tránh đổi tiền qua người lạ chỉ vì được chào tỷ giá cao hơn."
         ],
         "curiosity_questions": [
-          "Vì sao cùng một ngoại tệ lại có giá mua tiền mặt và mua chuyển khoản khác nhau?"
+          "Cùng một đô la Mỹ, vì sao tỷ giá đổi tiền mặt khác tỷ giá chuyển khoản?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -5810,16 +5812,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Nhà thuốc có ở cả trung tâm, Nam đảo và phía Bắc. Gần tôi nên ưu tiên địa chỉ đã xác minh thay vì một danh sách tên chung chung.",
-        "practical": "Nếu cần thuốc thông thường, tìm cơ sở gần nhất rồi gọi trước khi đi nếu sát giờ. Trường hợp nặng, khó thở, đau ngực hoặc tai nạn thì đi y tế/cấp cứu, không xử lý như nhu cầu mua thuốc.",
-        "expectation_vs_reality": "Khung giờ của một chuỗi không nên áp cứng cho từng cửa hàng nếu chưa có giờ riêng của cơ sở.",
+        "short_summary": "Ở Phú Quốc có nhà thuốc tại Dương Đông, An Thới và một số khu vực khác. Nếu chỉ cần mua thuốc thông thường, bạn có thể tìm cửa hàng gần mình; còn khi có dấu hiệu bệnh nặng hay gặp tai nạn, hãy tìm hỗ trợ y tế thay vì ghé nhà thuốc.",
+        "practical": "Tìm nhà thuốc gần nhất trên Gần tôi và gọi hỏi trước nếu đi vào cuối ngày. Khi mua thuốc, cho dược sĩ biết tên thuốc đang dùng và tình trạng dị ứng. Với tình huống khẩn cấp, hãy liên hệ cấp cứu hoặc đến cơ sở y tế.",
+        "expectation_vs_reality": "Các cửa hàng cùng một chuỗi có thể có giờ mở cửa khác nhau. Nhà thuốc gần nhất trên bản đồ cũng chưa chắc đang mở hoặc có đúng loại thuốc bạn cần.",
         "before_you_go": [
-          "Mang theo tên hoạt chất hoặc ảnh vỏ thuốc đang dùng.",
-          "Nếu có dị ứng thuốc, nói rõ với dược sĩ.",
-          "Tình huống khẩn cấp dùng kênh y tế thay vì chỉ tìm nhà thuốc."
+          "Lưu tên thuốc đang dùng hoặc chụp ảnh vỏ thuốc.",
+          "Báo rõ tiền sử dị ứng thuốc cho dược sĩ.",
+          "Nếu cần một loại thuốc cụ thể, gọi cửa hàng hỏi trước.",
+          "Khi khó thở, đau ngực hoặc bị chấn thương nặng, ưu tiên cấp cứu."
         ],
         "curiosity_questions": [
-          "Khi đang ở Nam đảo hoặc Bắc đảo, nhà thuốc gần nhất có thể cách mình bao xa?"
+          "Đang ở Bắc đảo hoặc Nam đảo, làm sao tìm được nhà thuốc còn mở gần mình?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -5903,16 +5906,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Phú Quốc có cơ sở khám và cấp cứu, nhưng cần phân biệt phòng khám với khoa cấp cứu 24/24. Khi tình huống nặng, đừng chọn theo khoảng cách một cách máy móc.",
-        "practical": "Gần tôi có thể chỉ đường tới cơ sở phù hợp; trường hợp khẩn cấp nên gọi cấp cứu hoặc cơ sở y tế trước nếu có thể.",
-        "expectation_vs_reality": "Một bệnh viện có cấp cứu 24/24 không đồng nghĩa mọi chuyên khoa và dịch vụ đều mở 24 giờ.",
+        "short_summary": "Nếu cần khám bệnh ở Phú Quốc, bạn có thể tìm phòng khám hoặc bệnh viện theo nhu cầu. Trên đảo có phòng khám Vinmec tại Dương Đông và Bệnh viện Vinmec Phú Quốc. Với trường hợp khẩn cấp, điều cần làm trước là liên hệ cấp cứu, không chỉ chọn nơi gần nhất trên bản đồ.",
+        "practical": "Bệnh nhẹ hoặc cần khám thông thường, hãy liên hệ cơ sở trước để hỏi giờ tiếp nhận và dịch vụ phù hợp. Nếu có người khó thở, đau ngực, nghi đột quỵ hoặc bị chấn thương nặng, hãy gọi cấp cứu hay cơ sở y tế ngay.",
+        "expectation_vs_reality": "Bệnh viện có khoa cấp cứu hoạt động cả ngày không có nghĩa mọi chuyên khoa đều khám suốt đêm. Phòng khám cũng có giờ tiếp nhận riêng.",
         "before_you_go": [
           "Mang giấy tờ tùy thân và thông tin bảo hiểm nếu có.",
-          "Ghi sẵn thuốc đang dùng và tiền sử dị ứng.",
-          "Nếu nghi đột quỵ, đau ngực, khó thở hoặc chấn thương nặng, ưu tiên cấp cứu."
+          "Chuẩn bị danh sách thuốc đang dùng và các dị ứng đã biết.",
+          "Hỏi cơ sở về giờ khám và dịch vụ trước khi đi nếu không phải cấp cứu.",
+          "Trường hợp khẩn cấp, gọi cấp cứu trước khi tự tìm đường đến nơi."
         ],
         "curiosity_questions": [
-          "Phòng khám và cấp cứu trên đảo khác nhau thế nào khi cần đi ban đêm?"
+          "Cần đi khám vào ban đêm, khi nào nên đến thẳng khoa cấp cứu thay vì phòng khám?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -5964,16 +5968,16 @@
         ]
       },
       "editorial": {
-        "short_summary": "Nhà vệ sinh công cộng là loại dữ liệu nhỏ nhưng cực hữu ích khi đang đi. Open Phu Quoc chỉ nên ghim những điểm có địa chỉ hoặc pin đủ chắc.",
-        "practical": "Dùng Gần tôi theo khu vực hiện tại. Ở điểm tham quan hoặc khu nghỉ dưỡng, nhà vệ sinh có thể thuộc cơ sở và không phải lúc nào cũng là tiện ích công cộng.",
-        "expectation_vs_reality": "Bản đồ có biểu tượng WC không đủ để khẳng định đang mở, miễn phí hoặc phù hợp xe lăn.",
+        "short_summary": "Đang đi chơi mà cần tìm nhà vệ sinh, bạn có thể xem các điểm đã có địa chỉ trên Gần tôi. Khu Sunset Town có một số nhà vệ sinh công cộng được ghi nhận; ở điểm tham quan hoặc quán ăn, hãy hỏi nhân viên xem khách có thể dùng nhà vệ sinh ở đâu.",
+        "practical": "Chọn điểm gần vị trí hiện tại rồi xem đường đi. Nhà vệ sinh trong khách sạn, nhà hàng hay khu vui chơi có thể chỉ dành cho khách sử dụng dịch vụ, nên nếu chưa rõ thì cứ hỏi trước.",
+        "expectation_vs_reality": "Thấy biểu tượng nhà vệ sinh trên bản đồ chưa đủ để biết nơi đó còn mở, có thu phí hay có lối đi phù hợp cho người dùng xe lăn.",
         "before_you_go": [
-          "Nếu đi cùng trẻ nhỏ hoặc người lớn tuổi, xem trước WC ở điểm đến.",
-          "Đừng mặc định WC của khu nghỉ dưỡng/nhà hàng là công cộng.",
-          "Giờ và quyền truy cập cần cập nhật theo thực địa."
+          "Đi cùng trẻ nhỏ hoặc người lớn tuổi, xem trước chỗ vệ sinh ở điểm đến.",
+          "Nếu cần lối đi phù hợp với xe lăn, hỏi trực tiếp nơi đó trước khi đến.",
+          "Ở khu vui chơi hoặc nhà hàng, hỏi nhân viên vị trí nhà vệ sinh gần nhất."
         ],
         "curiosity_questions": [
-          "Vì sao dữ liệu WC lại quan trọng với một bản đồ du lịch hơn nhiều người nghĩ?"
+          "Khi đang đi bộ ở Sunset Town, tìm nhà vệ sinh công cộng ở đâu?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6016,16 +6020,17 @@
         ]
       },
       "editorial": {
-        "short_summary": "Chỗ gửi xe ở Phú Quốc nên gắn với từng điểm đến, không làm một danh sách bãi đỗ rời rạc. Cái khách cần biết là tới đâu thì bỏ xe ở đâu.",
-        "practical": "Gần tôi và trang địa điểm nên hiện chỗ gửi xe khi đã biết đúng lối vào. Với khu lớn như Sunset Town, pin khu vực không nên giả thành cổng bãi xe chính xác.",
-        "expectation_vs_reality": "Có bãi gửi xe trong khu không có nghĩa ô tô, xe máy đều vào cùng cổng hoặc cùng mức phí.",
+        "short_summary": "Nếu tự lái xe đi chơi ở Phú Quốc, biết chỗ gửi xe trước sẽ đỡ mất công chạy vòng tìm lối vào. Khu chợ đêm Sunset Town có điểm gửi xe được ghi nhận, nhưng lối vào phù hợp còn tùy bạn đi xe máy hay ô tô.",
+        "practical": "Khi chọn một điểm đến, hãy xem chỗ gửi xe của chính địa điểm đó thay vì chỉ tìm một bãi đỗ bất kỳ ở gần. Nếu chưa rõ cổng vào, hỏi bảo vệ hoặc nhân viên tại chỗ trước khi chạy sâu vào khu vực.",
+        "expectation_vs_reality": "Một khu có bãi gửi xe không có nghĩa ô tô và xe máy vào cùng cổng hay trả cùng mức phí. Vị trí ghim giữa khu cũng chưa chắc là lối vào bãi xe.",
         "before_you_go": [
-          "Xem loại xe được nhận.",
-          "Hỏi phí nếu bảng giá không rõ.",
-          "Không đỗ chắn lối dân cư hoặc lối dịch vụ."
+          "Kiểm tra bãi xe có nhận loại xe bạn đang đi không.",
+          "Hỏi giá gửi và giờ lấy xe nếu chưa có thông tin rõ.",
+          "Khi đến nơi, đi theo biển chỉ dẫn hoặc hướng dẫn của nhân viên.",
+          "Không đỗ chắn lối đi của người dân hay lối ra vào phục vụ."
         ],
         "curiosity_questions": [
-          "Một pin chỗ gửi xe nên đại diện cho cả khu hay từng cổng vào?"
+          "Đi xe máy và ô tô đến Sunset Town có nên tìm cùng một lối vào bãi xe không?"
         ]
       },
       "updated_at": "2026-09-22"
@@ -6103,16 +6108,17 @@
         "known_unknowns": []
       },
       "editorial": {
-        "short_summary": "Đi xe máy hoặc ô tô quanh đảo không khó, nhưng nếu chạy Bắc đảo hoặc đường vòng dài thì nên đổ xăng trước khi rời khu đông.",
-        "practical": "Gần tôi dùng các cây xăng đã có địa chỉ để tìm theo khu vực. Giờ mở cửa cộng đồng chỉ nên xem tham khảo nếu chưa có nguồn vận hành mạnh hơn.",
-        "expectation_vs_reality": "Khoảng cách trên bản đồ nhìn ngắn nhưng đi đường vòng hoặc quay về muộn có thể làm việc tìm cây xăng khó chịu hơn dự tính.",
+        "short_summary": "Đi xe máy quanh Phú Quốc khá thuận tiện, nhưng nếu dự định chạy xa lên Bắc đảo hoặc về muộn thì nên đổ xăng từ trước. Bạn sẽ chủ động hơn, nhất là khi hành trình có nhiều đoạn đường ít hàng quán.",
+        "practical": "Dùng Gần tôi để tìm cây xăng theo tuyến đường đang đi. Nếu chuẩn bị đến Rạch Vẹm hoặc chạy một vòng Bắc đảo, hãy xem cả quãng đường trở về rồi chọn chỗ đổ xăng phù hợp. Giờ mở cửa cần kiểm tra theo từng cửa hàng.",
+        "expectation_vs_reality": "Cây xăng nhìn gần trên bản đồ có thể không nằm trên đường bạn đang đi. Nếu chạy đường vòng hoặc quay về muộn, quãng đường thực tế sẽ dài hơn dự tính ban đầu.",
         "before_you_go": [
-          "Đổ đủ xăng trước chuyến đi xa.",
-          "Không để bình gần cạn rồi mới tìm ở vùng thưa dân.",
-          "Nếu đi sát giờ tối, kiểm tra giờ trước."
+          "Kiểm tra mức xăng trước khi rời khu đông dân cư.",
+          "Xem trước đường đi và đường về nếu định chạy xa.",
+          "Tìm cây xăng trên tuyến, thay vì đợi gần cạn bình mới tìm.",
+          "Nếu đi buổi tối, kiểm tra giờ phục vụ của điểm định ghé."
         ],
         "curiosity_questions": [
-          "Khi đi Rạch Vẹm hoặc Bắc đảo, nên đổ xăng ở đâu trước khi rẽ vào đường xa?"
+          "Đi Rạch Vẹm trong ngày, nên tính chuyện đổ xăng thế nào cho cả lượt về?"
         ]
       },
       "updated_at": "2026-09-22"
