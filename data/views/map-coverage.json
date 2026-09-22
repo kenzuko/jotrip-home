@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-20T01:47:17.647Z",
+  "generated_at": "2026-09-22T00:23:22.972Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -19,9 +19,9 @@
     "rule": "Không hiển thị pin công khai nếu thiếu nguồn hoặc mức độ chính xác. area_anchor chỉ dùng định hướng vùng."
   },
   "summary": {
-    "candidate_count": 218,
-    "ready_count": 3,
-    "missing_count": 215
+    "candidate_count": 249,
+    "ready_count": 6,
+    "missing_count": 243
   },
   "layers": {
     "zones": [
@@ -61,7 +61,46 @@
     ],
     "places": [],
     "stay": [],
-    "utilities": []
+    "utilities": [
+      {
+        "id": "utility_longchau_nguyen_trung_truc",
+        "name": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực",
+        "type": "utility",
+        "lat": 10.2236257,
+        "lon": 103.9719213,
+        "accuracy": "ADDRESS_PIN",
+        "source_id": "longchau_327_official_map_2026",
+        "precision": "site_centroid",
+        "source": "Long Châu official location page",
+        "verified_at": "2026-09-21"
+      },
+      {
+        "id": "utility_vcb_atm_hung_vuong",
+        "name": "ATM Vietcombank - 1A Hùng Vương",
+        "type": "utility",
+        "lat": 10.2171875,
+        "lon": 103.9708125,
+        "accuracy": "PIN",
+        "plus_code": "6X8C+V8P",
+        "source_id": "map_directory_phuquoc_20260921",
+        "precision": "site_centroid",
+        "source": "Phu Quoc map directory + Vietcombank location confirmation",
+        "verified_at": "2026-09-21"
+      },
+      {
+        "id": "utility_fuel_my_anh_an_thoi",
+        "name": "Cây xăng Mỹ Anh",
+        "type": "utility",
+        "lat": 10.0534375,
+        "lon": 104.0170625,
+        "accuracy": "PIN",
+        "plus_code": "3238+9R8",
+        "source_id": "map_directory_phuquoc_20260921",
+        "precision": "site_centroid",
+        "source": "Phu Quoc map directory + Visit Phu Quoc fuel directory",
+        "verified_at": "2026-09-21"
+      }
+    ]
   },
   "missing_ids": [
     "access_air",
@@ -77,6 +116,9 @@
     "activity_squid_fishing",
     "activity_symphony_of_the_sea",
     "activity_kiss_of_the_sea",
+    "activity_tinh_hoa_viet_nam",
+    "activity_once_show",
+    "activity_sac_mau_venice",
     "hotel_best_western_premier_sonasea_phu_quoc",
     "hotel_crowne_plaza_phu_quoc_starbay",
     "hotel_dusit_princess_moonrise_beach_resort_phu_quoc",
@@ -263,6 +305,10 @@
     "place_fish_sauce_house",
     "place_pepper_garden",
     "place_kiss_bridge",
+    "place_gieng_tien",
+    "place_duong_dong_market",
+    "place_ham_ninh",
+    "place_teddy_bear_museum",
     "utility_112",
     "utility_113",
     "utility_114",
@@ -278,6 +324,27 @@
     "utility_vinwonders",
     "utility_sunworld",
     "utility_vinmec",
-    "utility_vinmec_er"
+    "utility_vinmec_er",
+    "utility_longchau_tran_phu",
+    "utility_longchau_an_thoi",
+    "utility_longchau_ganh_dau",
+    "utility_vinmec_duong_dong_clinic",
+    "utility_vinmec_phuquoc_emergency",
+    "utility_vcb_atm_nguyen_trung_truc",
+    "utility_vcb_atm_an_thoi",
+    "utility_fuel_dong_loi_1",
+    "utility_fuel_nhi_phung_ganh_dau",
+    "utility_parking_sunset_nightmarket",
+    "utility_toilet_sunset_venice_67",
+    "utility_toilet_sunset_venice_02",
+    "utility_minimart_one_mart_duong_dong",
+    "utility_minimart_homemart_an_thoi",
+    "utility_minimart_cs68_sunset",
+    "utility_jotrip_local_service",
+    "utility_taxi_xanhsm",
+    "utility_grab_phuquoc",
+    "utility_taxi_mailinh",
+    "utility_taxi_namthang",
+    "utility_longchau_suoi_da"
   ]
 }
