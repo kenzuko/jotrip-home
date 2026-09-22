@@ -13,15 +13,5 @@
       "/guide/article.html"
     ]
   },
-  "main": "./worker.js",
-  "routes": [
-    {
-      "pattern": "openphuquoc.com/guide/*",
-      "zone_name": "openphuquoc.com"
-    },
-    {
-      "pattern": "openphuquoc.com/data/views/knowledge-public.json",
-      "zone_name": "openphuquoc.com"
-    }
-  ]
+  "main": "./worker.js"
 }
