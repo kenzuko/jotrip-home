@@ -70,6 +70,24 @@
       ]
     },
     {
+      "id": "venues",
+      "label": "Ăn uống & cà phê",
+      "description": "Quán ăn, nhà hàng, cà phê và điểm trải nghiệm dùng cho Near Me / JoTrip",
+      "path": "data/entities/destination-venues.json",
+      "preview": "../nearme/",
+      "read": [
+        "admin",
+        "editor",
+        "operator",
+        "viewer"
+      ],
+      "write": [
+        "admin",
+        "editor",
+        "operator"
+      ]
+    },
+    {
       "id": "users",
       "label": "Người dùng",
       "description": "Phân quyền CMS",
