@@ -25,11 +25,11 @@
       "ACTIVITY": 15,
       "MEMORY_CHANGE": 12
     },
-    "linked_to_canonical_entity": 38,
-    "unlinked": 112,
-    "ready_internal": 105,
-    "queued": 30,
-    "hold": 15
+    "linked_to_canonical_entity": 40,
+    "unlinked": 110,
+    "ready_internal": 106,
+    "queued": 27,
+    "hold": 17
   },
   "topics": [
     {
@@ -2524,9 +2524,9 @@
       "section": "HISTORY / CULTURE / LORE",
       "topic_type": "HISTORY_LORE",
       "crawl_brief": "Tài liệu, oral history, alternate explanations.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "place_ham_ninh",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2550,7 +2550,7 @@
       "crawl_brief": "Tài liệu, địa hình, oral history, alternate explanations.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2572,9 +2572,9 @@
       "section": "HISTORY / CULTURE / LORE",
       "topic_type": "HISTORY_LORE",
       "crawl_brief": "Tài liệu, địa lý, alternate explanations.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "place_cua_can",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
