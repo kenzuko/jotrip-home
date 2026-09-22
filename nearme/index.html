@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Quanh đây - Open Phu Quoc</title>
-  <meta name="description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi và các tiện ích cần thiết ở Phú Quốc.">
-  <link rel="stylesheet" href="nearme.css?v=5">
+  <meta name="description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi, quán ăn, nhà hàng và cà phê quanh Phú Quốc.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="nearme.css?v=6">
 <link rel="stylesheet" href="../ecosystem-shell.css?v=20260921b">
   <link rel="canonical" href="https://openphuquoc.com/nearme/">
   <meta property="og:site_name" content="Open Phu Quoc">
   <meta property="og:locale" content="vi_VN">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Quanh đây - Open Phu Quoc">
-  <meta property="og:description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi và các tiện ích cần thiết ở Phú Quốc.">
+  <meta property="og:description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi, quán ăn, nhà hàng và cà phê quanh Phú Quốc.">
   <meta property="og:url" content="https://openphuquoc.com/nearme/">
   <meta property="og:image" content="https://openphuquoc.com/assets/logo-master.png">
   <meta property="og:image:alt" content="Open Phu Quoc">
@@ -20,7 +20,7 @@
   <meta property="og:image:height" content="361">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Quanh đây - Open Phu Quoc">
-  <meta name="twitter:description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi và các tiện ích cần thiết ở Phú Quốc.">
+  <meta name="twitter:description" content="Tìm ATM, nhà thuốc, cây xăng, y tế, cửa hàng tiện lợi, quán ăn, nhà hàng và cà phê quanh Phú Quốc.">
   <meta name="twitter:image" content="https://openphuquoc.com/assets/logo-master.png">
   <meta name="application-name" content="Open Phu Quoc">
 </head>
@@ -47,9 +47,9 @@
       </div>
 
       <div class="map-shell">
-        <div id="nearMap" aria-label="Bản đồ Phú Quốc"></div>
+        <div id="nearMap" aria-label="Bản đồ Phú Quốc"><div id="nearLeaflet" class="near-map-live"></div><iframe id="nearDirectoryMap" class="near-map-directory" title="Tìm quanh đây trên bản đồ" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe><div class="map-data-badge" id="mapDataBadge">Đang mở lớp dữ liệu...</div></div>
         <div class="map-shell-note">
-          <small id="mapNote">Bật vị trí nếu muốn tìm gần mình hơn. Mình chỉ hiện khoảng cách ở những chỗ biết chắc vị trí.</small>
+          <small id="mapNote">Lớp Open Phu Quoc chỉ đặt pin ở những chỗ đã có tọa độ đủ chắc.</small>
           <a id="mapOpenLink" href="https://www.google.com/maps/search/?api=1&query=Phu+Quoc+Vietnam" target="_blank" rel="noopener">Mở Google Maps ↗</a>
         </div>
       </div>
@@ -67,6 +67,6 @@
     <span>Vị trí của bạn chỉ được dùng trong phiên này khi bạn chủ động bật.</span>
   </footer>
 
-  <script src="nearme.js?v=11"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="../map-basemap.js?v=1"></script><script src="nearme.js?v=12"></script>
 </body>
 </html>
