@@ -1146,6 +1146,68 @@ function renderSync(rows,storage){
   return `<div class="analytics-health-head"><span class="analytics-health-dot ${dbOk?"ok":"bad"}"></span><div><strong>D1 ${dbOk?"đã kết nối":"chưa thấy binding"}</strong><small>${dbOk?"Snapshot analytics đang được lưu vào D1.":"Dashboard vẫn đọc live, nhưng chưa lưu được lịch sử."}</small></div></div>
   <div class="analytics-source-grid">${(rows||[]).map(x=>`<article><span>${esc(x.source||"Nguồn")}</span><strong class="${x.status==="ok"?"ok":"bad"}">${esc(String(x.status||"unknown").toUpperCase())}</strong><small>${fmtInt(x.records)} bản ghi · ${esc(fmtDateTime(x.last_success_at))}</small>${x.message?'<em>'+esc(x.message)+'</em>':""}</article>`).join("")}</div>`;
 }
+
+function a2Int(v){const n=Number(v);return Number.isFinite(n)?new Intl.NumberFormat("vi-VN").format(n):"—"}
+function a2Pct(v,d=0){const n=Number(v);return Number.isFinite(n)?n.toFixed(d)+"%":"—"}
+function a2Day(v){if(!v)return"—";const p=String(v).split("-");return p.length===3?p[2]+"/"+p[1]:String(v)}
+function a2Change(cur,prev){
+  const a=Number(cur)||0,b=Number(prev)||0;
+  if(!b)return a?"Mới có dữ liệu kỳ này":"Chưa đủ dữ liệu so sánh";
+  const p=(a-b)/b*100;
+  return Math.abs(p)<.5?"Gần như không đổi":(p>0?"Tăng ":"Giảm ")+Math.abs(p).toFixed(0)+"% so kỳ trước";
+}
+function a2Summary(d){
+  const c=d.comparison||{};
+  const routes=(d.sea?.route_loads||[]).filter(x=>Number.isFinite(Number(x.load_factor))).sort((a,b)=>Number(b.load_factor)-Number(a.load_factor));
+  const best=routes[0],covered=routes.reduce((s,x)=>s+(Number(x.load_trips)||0),0);
+  const items=[
+    ["Đường biển",a2Int(c.cur_sea_in)+" chuyến vào",a2Change(c.cur_sea_in,c.prev_sea_in)],
+    ["Hàng không",a2Int(c.cur_air_in)+" chuyến đến",a2Change(c.cur_air_in,c.prev_air_in)],
+    ["Tuyến phủ cao",best?best.origin+" → "+best.destination:"Chưa đủ dữ liệu",best?best.operator+" · "+a2Pct(best.load_factor):"Đang tích load"],
+    ["Load coverage",a2Int(covered)+" chuyến có %","Aggregate only · không có PII"]
+  ];
+  return '<div class="a2-summary">'+items.map(x=>'<article><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong><small>'+esc(x[2])+'</small></article>').join("")+'</div>';
+}
+function a2Path(vals,w,h,p,max){
+  const step=vals.length>1?(w-p*2)/(vals.length-1):0;
+  return vals.map((v,i)=>{const x=p+i*step,y=h-p-(Math.max(0,Number(v)||0)/Math.max(1,max))*(h-p*2);return(i?"L":"M")+x.toFixed(1)+" "+y.toFixed(1)}).join(" ");
+}
+function a2Chart(rows,series){
+  if(!rows?.length)return '<div class="analytics-empty">Chưa đủ dữ liệu cho khoảng ngày này.</div>';
+  const w=760,h=210,p=28,max=Math.max(1,...series.flatMap(s=>rows.map(r=>Number(r[s.key])||0)));
+  const step=rows.length>1?(w-p*2)/(rows.length-1):0;
+  const paths=series.map(s=>'<path class="'+s.cls+'" d="'+a2Path(rows.map(r=>r[s.key]),w,h,p,max)+'"></path>').join("");
+  const labels=rows.map((r,i)=>{if(rows.length>12&&i%Math.ceil(rows.length/8)!==0&&i!==rows.length-1)return"";return '<text x="'+(p+i*step).toFixed(1)+'" y="'+(h-5)+'" text-anchor="middle">'+esc(a2Day(r.day))+'</text>'}).join("");
+  return '<div class="a2-chart"><div class="a2-legend">'+series.map(s=>'<span><i class="'+s.cls+'"></i>'+esc(s.label)+'</span>').join("")+'</div><svg viewBox="0 0 '+w+' '+h+'"><line class="grid" x1="'+p+'" x2="'+(w-p)+'" y1="'+(h-p)+'" y2="'+(h-p)+'"></line>'+paths+labels+'</svg></div>';
+}
+function a2LoadBars(rows,operatorOnly=false){
+  const list=(rows||[]).filter(x=>Number.isFinite(Number(x.load_factor))).slice(0,14);
+  if(!list.length)return '<div class="analytics-empty">Chưa có đủ capacity + remaining để tính % phủ.</div>';
+  return '<div class="a2-loadbars">'+list.map(r=>{const v=Math.max(0,Math.min(100,Number(r.load_factor)||0));const name=operatorOnly?r.operator:r.origin+" → "+r.destination;const sub=operatorOnly?a2Int(r.load_trips)+" / "+a2Int(r.trips)+" chuyến có %":r.operator+" · "+a2Int(r.load_trips)+" chuyến";return '<div class="a2-loadrow"><div><strong>'+esc(name)+'</strong><small>'+esc(sub)+'</small></div><div class="a2-track"><i style="width:'+v+'%"></i></div><b>'+a2Pct(v)+'</b></div>'}).join("")+'</div>';
+}
+function a2TripTable(rows){
+  const list=(rows||[]).slice(0,160);
+  if(!list.length)return '<div class="analytics-empty">Chưa có lịch sử % phủ theo chuyến.</div>';
+  return '<div class="analytics-table-wrap"><table class="analytics-table"><thead><tr><th>Ngày</th><th>Hãng</th><th>Tuyến</th><th>Giờ</th><th>Tàu</th><th>% phủ</th><th>Loại số</th></tr></thead><tbody>'+list.map(r=>'<tr><td>'+esc(a2Day(r.service_date))+'</td><td><strong>'+esc(r.operator||"—")+'</strong></td><td>'+esc((r.origin||"—")+" → "+(r.destination||"—"))+'</td><td>'+esc(fmtClock(r.departure_time))+'</td><td>'+esc(r.vessel||"—")+'</td><td>'+loadLabel(r.load_factor)+'</td><td><small>'+esc(r.evidence_class==="observed"?"Observed":r.evidence_class==="estimated"?"Estimated":"Proxy")+'</small></td></tr>').join("")+'</tbody></table></div>';
+}
+function a2Url(refresh){
+  const q=new URLSearchParams();
+  const f=$("#analyticsFrom")?.value||currentData?.period?.from,t=$("#analyticsTo")?.value||currentData?.period?.to;
+  if(f)q.set("from",f);if(t)q.set("to",t);if(refresh)q.set("refresh","1");
+  return API.analytics+"?"+q.toString();
+}
+async function a2Load(refresh=false){
+  status(refresh?"Đang đồng bộ nguồn live và D1...":"Đang tải Analytics...");
+  currentData=await api(a2Url(refresh));
+  renderAnalytics();
+  status(refresh?"Analytics đã cập nhật.":"Đã áp dụng khoảng ngày.","success");
+}
+function a2Quick(days){
+  const to=$("#analyticsTo")?.value||currentData?.period?.to;if(!to)return;
+  const d=new Date(to+"T12:00:00Z");d.setUTCDate(d.getUTCDate()-(days-1));
+  $("#analyticsFrom").value=d.toISOString().slice(0,10);a2Load(false);
+}
+
 function renderAnalytics(){
   const d=currentData||{};
   const sea=d.sea?.summary||{};
