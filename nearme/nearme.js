@@ -262,7 +262,7 @@
   }
 
   function filteredRows(){
-    let visible=rows.filter(defaultVisible).filter(matchesArea).filter(matchesCategory).filter(matchesSearch);
+    let visible=rows.filter(defaultVisible).filter(row=>matchesArea(row)).filter(row=>matchesCategory(row)).filter(row=>matchesSearch(row));
     let gpsFallback=false;
 
     if(position&&!isDiscoveryCategory()){
