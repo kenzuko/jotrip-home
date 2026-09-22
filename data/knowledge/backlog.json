@@ -27,9 +27,9 @@
     },
     "linked_to_canonical_entity": 34,
     "unlinked": 116,
-    "ready_internal": 83,
-    "queued": 57,
-    "hold": 10
+    "ready_internal": 91,
+    "queued": 47,
+    "hold": 12
   },
   "topics": [
     {
@@ -1483,7 +1483,7 @@
       "crawl_brief": "Món địa phương, mùa, cách chế biến, nguồn cung.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1507,7 +1507,7 @@
       "crawl_brief": "Loài, vai trò ẩm thực/văn hóa, ngọc Melo, nguồn khoa học.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1531,7 +1531,7 @@
       "crawl_brief": "Nguồn gốc, nguyên liệu, dịp ăn, nơi còn làm.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1555,7 +1555,7 @@
       "crawl_brief": "Nguyên liệu, quy trình, nguồn gốc thương mại, producer data.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1579,7 +1579,7 @@
       "crawl_brief": "Nguyên liệu, mùa, cách dùng, producer data.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1675,7 +1675,7 @@
       "crawl_brief": "Nhóm hải sản, mùa, nguồn cung, biến động, không overclaim.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1699,7 +1699,7 @@
       "crawl_brief": "Món địa phương, giờ phù hợp, practical, thanh toán.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1723,7 +1723,7 @@
       "crawl_brief": "Các món local, giờ, khu vực, không biến thành top list cố định.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1747,7 +1747,7 @@
       "crawl_brief": "Nhóm món, khu vực, giờ, dữ liệu open-late xác minh.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1771,7 +1771,7 @@
       "crawl_brief": "Đặc trưng khu vực, chợ, hải sản, local eateries, lịch sử.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
