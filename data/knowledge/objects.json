@@ -9915,6 +9915,282 @@
         ]
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_148_cho-cu-va-cho-hien-tai",
+      "number": 148,
+      "title": "Chợ cũ và chợ hiện tại",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn du lịch hiện hành ghi Chợ đêm Phú Quốc ngày nay được hình thành từ việc kết hợp chợ đêm Dinh Cậu và chợ đêm Bạch Đằng cũ.",
+            "source_ids": [
+              "visitpq_night_market_current"
+            ],
+            "verification_status": "CURRENT_DESTINATION_HISTORY",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Chợ Dương Đông hiện vẫn là chợ ban ngày phục vụ mua bán thực phẩm, hải sản và hàng tiêu dùng; buổi sáng là thời điểm hàng hải sản mới về nhiều hơn.",
+            "source_ids": [
+              "visitpq_duong_dong_market_current"
+            ],
+            "verification_status": "CURRENT_MARKET_GUIDANCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_night_market_current",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Chợ đêm Phú Quốc",
+            "url": "https://visitphuquoc.com.vn/vi/cho-dem-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_duong_dong_market_current",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Chợ Dương Đông",
+            "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-phu-quoc-dia-diem-mua-sam-noi-tieng-dao-ngoc-6057",
+            "published_at": "2025",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có nguồn lưu trữ hoặc khảo cứu đủ mạnh để dựng lịch sử chợ Dương Đông theo từng vị trí và giai đoạn.",
+          "Chưa khóa được chronology của chợ đêm Dinh Cậu, chợ đêm Bạch Đằng cũ và thời điểm sáp nhập bằng hồ sơ hành chính.",
+          "Không dùng ký ức 'chợ cũ' nếu không xác định được đúng tên chợ, vị trí và khoảng năm."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Dương Đông hôm nay có chợ ban ngày và chợ đêm với hai nhịp rất khác nhau. Chợ Dương Đông vẫn là nơi người địa phương đi mua cá, rau, đồ khô và những thứ dùng hằng ngày; còn chợ đêm thiên nhiều hơn về ăn uống, đặc sản và khách du lịch. Nhưng để kể 'chợ cũ đã đổi thành chợ hiện tại như thế nào' thì hiện chưa đủ tư liệu chắc.",
+        "practical": null,
+        "expectation_vs_reality": "Hai chữ 'chợ cũ' nghe đơn giản nhưng dễ làm lẫn chợ Dương Đông, chợ đêm Dinh Cậu và chợ đêm Bạch Đằng. Mục này chỉ nên public khi có bản đồ và mốc thời gian rõ.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "Chợ Dương Đông từng thay đổi vị trí hay quy mô qua những giai đoạn nào?",
+          "Chợ đêm Dinh Cậu và chợ đêm Bạch Đằng cũ được nhập lại khi nào?",
+          "Những mặt hàng nào vẫn giữ được nhịp chợ địa phương qua nhiều năm?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_149_tau-ca-va-nghe-bien-thay-doi-the-nao",
+      "number": 149,
+      "title": "Tàu cá và nghề biển thay đổi thế nào",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LIVELIHOOD_CHANGE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nghiên cứu nghề lưới ghẹ ven Phú Quốc năm 2013-2014 cho thấy tàu công suất lớn hơn thường đi ngư trường sâu và xa bờ hơn; nhóm 45 đến dưới 90 CV có công suất, tải trọng và chiều dài lưới lớn nhất trong mẫu nghiên cứu.",
+            "source_ids": [
+              "ctu_phu_quoc_crab_net_2014"
+            ],
+            "verification_status": "ACADEMIC_FISHERIES_RESEARCH",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu Kiên Giang năm 2017 ghi nhận nguồn lợi ven bờ suy giảm, một phần do cường lực khai thác tăng và cả tàu công suất lớn vào khai thác gần bờ; đồng thời nhiều tàu nhỏ khó vươn xa vì thiếu công suất và thiết bị.",
+            "source_ids": [
+              "ctu_kien_giang_gillnet_trawl_2018"
+            ],
+            "verification_status": "ACADEMIC_FISHERIES_RESEARCH",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Đến giai đoạn 2021-2022, thiết bị giám sát hành trình VMS đã trở thành một phần của quản lý tàu khai thác thủy sản ở Kiên Giang, cho thấy nghề biển không chỉ thay đổi về tàu và ngư cụ mà còn thay đổi về cách quản lý hành trình.",
+            "source_ids": [
+              "ctu_kien_giang_vms_2022"
+            ],
+            "verification_status": "ACADEMIC_FISHERIES_MANAGEMENT_RESEARCH",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Các nghề khai thác nhỏ quanh đảo vẫn tồn tại song song với tàu đi xa; nghiên cứu hải sâm 2018-2019 cho thấy nhiều ngư dân vẫn dùng lặn, nhặt bắt và ngư cụ đơn giản như một nguồn thu bổ sung.",
+            "source_ids": [
+              "ctu_sea_cucumber_2020"
+            ],
+            "verification_status": "ACADEMIC_ARTISANAL_FISHERIES_RESEARCH",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "ctu_phu_quoc_crab_net_2014",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Đại học Cần Thơ - Hiện trạng kỹ thuật và tài chính nghề lưới ghẹ ven đảo Phú Quốc",
+            "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/217",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ctu_kien_giang_gillnet_trawl_2018",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Đại học Cần Thơ - Hiện trạng nghề khai thác lưới kéo và lưới rê tàu dưới 90 CV ở Kiên Giang",
+            "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/3092",
+            "published_at": "2018",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ctu_kien_giang_vms_2022",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Đại học Cần Thơ - Đánh giá hiệu quả sử dụng thiết bị giám sát hành trình trên tàu khai thác thủy sản tỉnh Kiên Giang",
+            "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/4408",
+            "published_at": "2022",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ctu_sea_cucumber_2020",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Survey on the Current Status of Small-Scale Artisanal Sea Cucumber Fishing in Kien Giang Province, Vietnam",
+            "url": "https://qldiem.ctu.edu.vn/ql/docgia/tacgia-78357/baibao-78007.html",
+            "published_at": "2020",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có chuỗi thống kê riêng Phú Quốc đủ dài để nói chính xác số tàu, công suất trung bình và tỷ lệ từng nghề đã đổi bao nhiêu qua từng thập kỷ.",
+          "Không lấy số liệu toàn tỉnh Kiên Giang gắn riêng cho Phú Quốc nếu nghiên cứu không tách mẫu đảo.",
+          "Cần oral history từ chủ tàu/ngư dân nhiều thế hệ để kể thay đổi trong vật liệu tàu, máy, bảo quản cá và cách chia bạn tàu."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nghề biển ở Phú Quốc không đổi theo kiểu tàu nhỏ biến mất rồi tàu lớn thay hết. Hai kiểu vẫn sống song song. Gần bờ còn những ghe nhỏ, lưới ghẹ, lặn và những nghề dựa nhiều vào kinh nghiệm. Đi xa hơn thì tàu lớn hơn, máy mạnh hơn, chuyến biển dài hơn và thiết bị trên tàu cũng nhiều hơn. Điều thay đổi rõ nhất là ngư trường phải đi xa hơn ở một số nghề, chi phí tăng, nguồn lợi gần bờ chịu áp lực và việc ra khơi ngày càng gắn với quy định quản lý chặt hơn.",
+        "practical": "Muốn hiểu một chiếc tàu ở cảng đang làm nghề gì, đừng chỉ nhìn lớn hay nhỏ. Nhìn ngư cụ trên tàu, hầm bảo quản, số người đi cùng và hỏi chuyến biển kéo dài bao lâu sẽ cho biết nhiều hơn.",
+        "expectation_vs_reality": "Tàu cá hiện đại hơn không có nghĩa nghề biển nhẹ hơn. Đi xa hơn cần vốn lớn hơn, nhiên liệu nhiều hơn và phụ thuộc giá cá, thời tiết, ngư trường lẫn quy định. Trong khi đó nhiều nghề nhỏ ven đảo vẫn tồn tại vì phù hợp với gia đình và ngư trường gần.",
+        "before_you_go": [
+          "Không bước lên tàu hoặc đụng ngư cụ khi chưa hỏi chủ tàu.",
+          "Nếu chụp ở cảng cá, tránh chắn lối bốc dỡ hàng.",
+          "Không suy nghề của tàu chỉ từ kích thước; cùng cỡ tàu có thể dùng ngư cụ rất khác."
+        ],
+        "curiosity_questions": [
+          "Một chiếc tàu cá Phú Quốc hôm nay khác tàu của 20 năm trước ở những thiết bị nào?",
+          "Vì sao tàu lớn hơn thường phải đi xa bờ hơn?",
+          "Nguồn lợi ven bờ giảm đã làm ngư dân đổi nghề hoặc đổi ngư trường thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_150_mot-ngay-o-phu-quoc-van-hanh-the-nao",
+      "number": 150,
+      "title": "Một ngày ở Phú Quốc vận hành thế nào",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_ham_ninh",
+        "place_dinh_cau"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "ISLAND_DAILY_RHYTHM",
+      "research": {
+        "claims": [
+          {
+            "claim": "Chợ Dương Đông hoạt động từ sáng sớm và nguồn điểm đến hiện nay ghi buổi sáng là lúc dễ gặp hải sản vừa được đưa về chợ.",
+            "source_ids": [
+              "visitpq_duong_dong_market_current"
+            ],
+            "verification_status": "CURRENT_LOCAL_MARKET_GUIDANCE",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Các nghiên cứu nghề cá ven Phú Quốc cho thấy hoạt động khai thác phụ thuộc mùa gió, thời tiết, loại tàu và nghề; vì vậy nhịp tàu rời bến - về bến không thể gói thành một giờ cố định cho toàn đảo.",
+            "source_ids": [
+              "ctu_phu_quoc_crab_net_2014",
+              "ctu_kien_giang_gillnet_trawl_2018"
+            ],
+            "verification_status": "ACADEMIC_FISHERIES_CONTEXT",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Bờ Tây Phú Quốc, đặc biệt khu Dương Đông - Bãi Trường, là không gian phổ biến để ngắm hoàng hôn; sau đó hoạt động ăn uống và chợ đêm tập trung mạnh hơn ở trung tâm Dương Đông.",
+            "source_ids": [
+              "vietnamtourism_phuquoc_day",
+              "visitpq_night_market_current"
+            ],
+            "verification_status": "CURRENT_VISITOR_RHYTHM",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_duong_dong_market_current",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Chợ Dương Đông",
+            "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-phu-quoc-dia-diem-mua-sam-noi-tieng-dao-ngoc-6057",
+            "published_at": "2025",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ctu_phu_quoc_crab_net_2014",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Đại học Cần Thơ - Hiện trạng kỹ thuật và tài chính nghề lưới ghẹ ven đảo Phú Quốc",
+            "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/217",
+            "published_at": "2014",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "ctu_kien_giang_gillnet_trawl_2018",
+            "source_type": "ACADEMIC_JOURNAL",
+            "label": "Đại học Cần Thơ - Hiện trạng nghề khai thác lưới kéo và lưới rê tàu dưới 90 CV ở Kiên Giang",
+            "url": "https://ctujsvn.ctu.edu.vn/index.php/ctujsvn/article/view/3092",
+            "published_at": "2018",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnamtourism_phuquoc_day",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Vietnam Tourism - Một ngày ở Phú Quốc",
+            "url": "https://www.vietnam.travel/vi/things-to-do/day-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_night_market_current",
+            "source_type": "OFFICIAL_TOURISM_CURRENT",
+            "label": "Visit Phu Quoc - Chợ đêm Phú Quốc",
+            "url": "https://visitphuquoc.com.vn/vi/cho-dem-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không có một 'lịch sinh hoạt của cả đảo' áp dụng mọi ngày, mọi khu vực và mọi nghề.",
+          "Giờ tàu/cano, chợ, show, điểm tham quan và trạng thái biển phải lấy từ Today/Live, không ghi cố định trong knowledge.",
+          "Nhịp Dương Đông, An Thới, Hàm Ninh và Bắc đảo khác nhau; object này chỉ mô tả nhịp chung để khách hiểu cách đảo chuyển trạng thái trong ngày."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Phú Quốc thức dậy khá sớm ở những nơi sống bằng chợ và biển. Buổi sáng là lúc chợ Dương Đông nhiều hàng tươi, các bến và làng chài có nhịp làm việc riêng. Đến trưa, nắng lên mạnh thì nhịp ngoài trời chậm lại một chút. Cuối chiều, người ta bắt đầu hướng về bờ Tây để đón hoàng hôn; tối xuống, Dương Đông và các khu vui chơi lại đông lên theo một kiểu khác. Một ngày trên đảo vì vậy không chạy đều từ sáng tới khuya - mỗi khoảng giờ có một nhịp riêng.",
+        "practical": "Nếu muốn đi Phú Quốc thoải mái, đừng nhét hoạt động kín cả ngày. Buổi sáng hợp chợ, biển và những chỗ cần đi ngoài trời; giữa trưa nên chừa khoảng nghỉ; cuối chiều giữ thời gian cho hoàng hôn hoặc di chuyển; buổi tối mới chọn chợ, show hay khu vui chơi. Còn giờ chính xác hôm nay thì để Today/Live trả lời.",
+        "expectation_vs_reality": "Phú Quốc không phải nơi mọi thứ đều mở và đông như nhau cả ngày. Có chỗ sáng rất có không khí nhưng chiều yên, có chỗ ban ngày bình thường nhưng tối mới bắt đầu đông. Biết nhịp này giúp mình đi ít hơn mà lại thấy đảo nhiều hơn.",
+        "before_you_go": [
+          "Xem Today/Live trước khi chốt giờ tàu, show hoặc hoạt động biển.",
+          "Chừa thời gian nghỉ giữa ngày nếu lịch có nhiều hoạt động ngoài trời.",
+          "Cuối chiều đừng xếp lịch di chuyển quá sát nếu muốn ngắm hoàng hôn.",
+          "Không dùng giờ mở cửa cũ cho ngày đang đi."
+        ],
+        "curiosity_questions": [
+          "Buổi sáng ở chợ Dương Đông khác buổi chiều như thế nào?",
+          "Làng chài bắt đầu ngày mới sớm đến mức nào?",
+          "Vì sao nhiều khu ở Phú Quốc chỉ thật sự đông sau khi mặt trời xuống?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
