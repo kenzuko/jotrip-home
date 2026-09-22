@@ -1327,6 +1327,37 @@ async function api(url,opts={}){
   return b;
 }
 
+
+function navShort(label){
+  const words=String(label||"").trim().split(/\s+/).filter(Boolean);
+  if(!words.length)return "•";
+  if(words.length===1)return words[0].slice(0,2).toUpperCase();
+  return (words[0][0]+words[1][0]).toUpperCase();
+}
+function applySidebarState(collapsed){
+  const layout=$("#cmsLayout");
+  if(!layout)return;
+  layout.classList.toggle("side-collapsed",Boolean(collapsed));
+  const btn=$("#sideToggle");
+  if(btn){
+    btn.textContent=collapsed?"›":"‹";
+    btn.setAttribute("aria-label",collapsed?"Mở rộng menu":"Thu gọn menu");
+    btn.title=collapsed?"Mở rộng menu":"Thu gọn menu";
+  }
+}
+function bindSidebarToggle(){
+  const key="openpq_cms_sidebar_collapsed";
+  const initial=localStorage.getItem(key)==="1";
+  applySidebarState(initial);
+  const btn=$("#sideToggle");
+  if(!btn)return;
+  btn.onclick=()=>{
+    const next=!$("#cmsLayout")?.classList.contains("side-collapsed");
+    applySidebarState(next);
+    localStorage.setItem(key,next?"1":"0");
+  };
+}
+
 async function boot(){
   show("boot");
   let r;
@@ -1353,6 +1384,7 @@ async function boot(){
 
   renderNav();
   show("cms");
+  bindSidebarToggle();
 
   const first=schema.modules.find(m=>m.read.includes(session.role));
   if(first)selectModule(first.id);
@@ -1361,7 +1393,7 @@ async function boot(){
 function renderNav(){
   $("#moduleNav").innerHTML=schema.modules
     .filter(m=>m.read.includes(session.role))
-    .map(m=>'<button class="module-btn" data-id="'+esc(m.id)+'"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></button>')
+    .map(m=>'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>')
     .join("");
 
   document.querySelectorAll(".module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
