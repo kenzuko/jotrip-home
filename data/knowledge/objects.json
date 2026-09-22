@@ -808,7 +808,17 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Các tài liệu quy hoạch chính thức nhận diện Cửa Dương trong trục kết nối từ Dương Đông lên phía Bắc đảo và trong các khu vực dân cư/du lịch phía Bắc-trung đảo.",
+            "source_ids": [
+              "phuquoc_tourism_planning",
+              "phuquoc_landuse_2026_2030"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
         "sources": [
           {
             "source_id": "phuquoc_landuse_2026_2030",
@@ -855,7 +865,17 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Tài liệu quy hoạch và kế hoạch sử dụng đất hiện hành tiếp tục nhận diện Dương Tơ như khu vực quan trọng quanh sân bay, Suối Mây/Cửa Lấp và các dự án hạ tầng - đô thị.",
+            "source_ids": [
+              "phuquoc_landuse_2026_2030",
+              "phuquoc_tourism_planning"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
         "sources": [
           {
             "source_id": "phuquoc_landuse_2026_2030",
@@ -1253,7 +1273,17 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Nguồn chính quyền/điểm đến xác định Bãi Dài nằm ở phía Tây Bắc Phú Quốc và đã được quy hoạch, phát triển mạnh cho du lịch - nghỉ dưỡng.",
+            "source_ids": [
+              "visitpq_6_beaches_20260921",
+              "phuquoc_landuse_2026_2030"
+            ],
+            "verification_status": "OFFICIAL_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
         "sources": [
           {
             "source_id": "visitpq_6_beaches_20260921",
@@ -1300,7 +1330,17 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Nguồn quy hoạch chính thức xác định Bãi Thơm ở bờ Đông Bắc và định hướng du lịch sinh thái/quy mô vừa, khác với các dải resort dày ở bờ Tây.",
+            "source_ids": [
+              "phuquoc_tourism_planning",
+              "phuquoc_landuse_2026_2030"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
         "sources": [
           {
             "source_id": "vietnam_tourism_phuquoc_island_hopping",
@@ -1356,7 +1396,17 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Nguồn du lịch/quy hoạch chính thức nhận diện Gành Dầu ở vùng cực Bắc - Tây Bắc của đảo, thuộc tuyến Bắc đảo và vùng bờ biển giáp khu dân cư Gành Dầu.",
+            "source_ids": [
+              "vietnam_tourism_phuquoc",
+              "phuquoc_tourism_planning"
+            ],
+            "verification_status": "OFFICIAL_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
         "sources": [
           {
             "source_id": "vietnam_tourism_phuquoc",
@@ -1553,7 +1603,16 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Cổng du lịch Phú Quốc xác định Hòn Móng Tay là một đảo nhỏ trong hành trình biển phía Nam, tiếp cận bằng phương tiện đường biển chứ không phải điểm có hạ tầng đô thị.",
+            "source_ids": [
+              "legacy_tourism_hon_mong_tay"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_RECORD",
+            "confidence": "MEDIUM"
+          }
+        ],
         "sources": [
           {
             "source_id": "legacy_tourism_hon_mong_tay",
@@ -1602,7 +1661,16 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Cổng du lịch Phú Quốc xác định Hòn Gầm Ghì thuộc cụm đảo An Thới và nổi bật với vùng rạn san hô sát bờ.",
+            "source_ids": [
+              "legacy_tourism_hon_gam_ghi"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_RECORD",
+            "confidence": "MEDIUM"
+          }
+        ],
         "sources": [
           {
             "source_id": "legacy_tourism_hon_gam_ghi",
@@ -1649,7 +1717,16 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Website vận hành Mây Rút Trong hiện công bố nhà hàng, quầy bar, cắm trại, BBQ, team building và các phương án di chuyển bằng cano/tour; vì vậy không còn phù hợp để mô tả điểm này như một đảo hoàn toàn không dịch vụ.",
+            "source_ids": [
+              "mayruttrong_operator"
+            ],
+            "verification_status": "CURRENT_OPERATOR_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
         "sources": [
           {
             "source_id": "mayruttrong_operator",
@@ -1696,7 +1773,16 @@
       "public_ready": false,
       "story_type": "PLACE_GUIDE",
       "research": {
-        "claims": [],
+        "claims": [
+          {
+            "claim": "Nguồn VinWonders phân biệt rõ Mây Rút Trong và Mây Rút Ngoài là hai đảo riêng trong quần đảo An Thới, trong đó Mây Rút Ngoài được mô tả ít dịch vụ và hoang sơ hơn.",
+            "source_ids": [
+              "vinwonders_mayrut_20251212"
+            ],
+            "verification_status": "CURRENT_OPERATOR_EDITORIAL",
+            "confidence": "MEDIUM"
+          }
+        ],
         "sources": [
           {
             "source_id": "vinwonders_mayrut_20251212",
