@@ -3794,6 +3794,288 @@
       "updated_at": "2026-09-22"
     },
     {
+      "topic_id": "knowledge_061_ca-song",
+      "number": 61,
+      "title": "Cá sòng",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn du lịch địa phương 2026 tiếp tục ghi nhận cá sòng nướng như một món được giới thiệu tại Phú Quốc.",
+            "source_ids": [
+              "phuquoctv_ca_song_20260724"
+            ],
+            "verification_status": "LOCAL_EDITORIAL_RECORD",
+            "confidence": "LOW"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "phuquoctv_ca_song_20260724",
+            "source_type": "LOCAL_TOURISM_EDITORIAL",
+            "label": "Phu Quoc TV - Cá sòng nướng Phú Quốc",
+            "url": "https://phuquoctv.vn/dia-diem/762-ngon-tuyet-vi-mon-ca-song-nuong-phu-quoc.html",
+            "published_at": "2026-07-24",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Cần nguồn thủy sản/market data tốt hơn trước khi viết mùa và nguồn cung."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Cá sòng là kiểu cá biển địa phương hợp cách nướng đơn giản vì thịt chắc và vị cá rõ. Nhưng 'cá sòng Phú Quốc' nên được hiểu là món thường gặp ở đảo, không phải một loài chỉ có ở Phú Quốc.",
+        "practical": "Nếu gặp cá tươi, nướng than hoặc nướng muối ớt là cách dễ nếm vị nhất. Hỏi cá theo con hay theo kg và cá đang dùng là cá tươi hay cấp đông.",
+        "expectation_vs_reality": "Tên món địa phương không bảo đảm nguồn cá đánh bắt ngay vùng Phú Quốc trong ngày.",
+        "before_you_go": [
+          "Cá là dị ứng chính.",
+          "Hỏi giá/trọng lượng trước khi chế biến.",
+          "Nếu muốn vị cá rõ, chọn cách nướng ít sốt."
+        ],
+        "curiosity_questions": [
+          "Vì sao cá sòng thường được nướng thay vì làm món nhiều sốt?",
+          "Cá sòng bán trên đảo hiện đến từ nguồn nào theo mùa?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_062_oc-giac-melo",
+      "number": 62,
+      "title": "Ốc giác / Melo",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Báo cáo thực địa GIA ghi nhận Melo melo hiện diện quanh vùng Phú Quốc và nhấn mạnh ngọc Melo cực hiếm dù quan sát nhiều ốc.",
+            "source_ids": [
+              "gia_melo_vietnam_2009"
+            ],
+            "verification_status": "GEMOLOGICAL_FIELD_REPORT",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nội dung điểm đến 2026 dùng tên ốc hoàng đế/ốc giác cho món hải sản Phú Quốc.",
+            "source_ids": [
+              "sunparadise_melo_phuquoc_20260803"
+            ],
+            "verification_status": "CURRENT_DESTINATION_EDITORIAL",
+            "confidence": "LOW"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "gia_melo_vietnam_2009",
+            "source_type": "GEMOLOGICAL_FIELD_RESEARCH",
+            "label": "GIA - Melos and their Pearls in Vietnam",
+            "url": "https://www.gia.edu/doc/melo_Vietnam.pdf",
+            "published_at": "2009",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "sunparadise_melo_phuquoc_20260803",
+            "source_type": "DESTINATION_OPERATOR_EDITORIAL",
+            "label": "Sun Paradise Land - Ốc hoàng đế Phú Quốc",
+            "url": "https://sunparadiseland.com/SunParadiseLandPhuQuoc/tin-tuc/oc-hoang-de-phu-quoc-dac-san-quy-hiem-va-cach-thuong-thuc-chuan-vi-23079",
+            "published_at": "2026-08-03",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Ốc giác, còn gọi là Melo melo/ốc hoàng đế ở một số nơi, vừa là hải sản vừa gắn với câu chuyện ngọc Melo cực hiếm. Hai chuyện này nên tách rõ để không biến món ăn thành huyền thoại về viên ngọc.",
+        "practical": "Khi ăn, hỏi trọng lượng và cách chế biến vì con lớn. Khi nói về ngọc Melo, chỉ coi là hiện tượng tự nhiên rất hiếm, không hứa rằng ốc mua ở chợ có thể có ngọc.",
+        "expectation_vs_reality": "Ngọc Melo không phải ngọc trai nuôi cấy thông thường và việc tìm thấy là cực hiếm.",
+        "before_you_go": [
+          "Ốc giác là nhuyễn thể, lưu ý dị ứng.",
+          "Hỏi giá theo kg/con.",
+          "Không mua 'ngọc Melo' giá trị cao nếu không có giám định chuyên môn."
+        ],
+        "curiosity_questions": [
+          "Ngọc Melo hình thành trong ốc giác như thế nào?",
+          "Vì sao ngọc Melo hiếm hơn nhiều so với ốc được khai thác để ăn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_063_banh-tet-mat-cat",
+      "number": 63,
+      "title": "Bánh tét mật cật",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Visit Phu Quoc 2026 mô tả bánh tét mật cật sử dụng lá mật cật thay lá chuối; nhân truyền thống gồm nếp, đậu xanh và thịt mỡ.",
+            "source_ids": [
+              "visitpq_banh_tet_mat_cat_20260417"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_banh_tet_mat_cat_20260417",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Bánh tét mật cật",
+            "url": "https://visitphuquoc.com.vn/vi/banh-tet-mat-cat-phu-quoc-mon-ngon-co-truyen-cua-dao-ngoc-8443",
+            "published_at": "2026-04-17",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Bánh tét mật cật khác chiếc bánh tét quen thuộc trước hết ở lớp lá gói. Lá mật cật dai, thơm nhẹ và tạo cho món bánh một dấu nhận diện rất Phú Quốc.",
+        "practical": "Ăn như bánh tét mặn bình thường, cắt khoanh. Nếu mua làm quà, hỏi ngày gói và cách bảo quản thay vì chỉ nhìn màu lá.",
+        "expectation_vs_reality": "Không phải cứ gói lá xanh là bánh tét mật cật; phần đặc trưng nằm ở đúng loại lá và cách làm.",
+        "before_you_go": [
+          "Nhân truyền thống có nếp, đậu xanh và thịt mỡ - không phù hợp ăn chay.",
+          "Người dị ứng/thực hiện chế độ ăn đặc biệt nên hỏi thành phần thực tế.",
+          "Hỏi hạn dùng khi mang đi xa."
+        ],
+        "curiosity_questions": [
+          "Vì sao người Phú Quốc dùng lá mật cật thay lá chuối?",
+          "Món này gắn với dịp lễ/Tết hay được ăn quanh năm?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_064_ruou-sim",
+      "number": 64,
+      "title": "Rượu sim",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn du lịch 2026 mô tả rượu sim Phú Quốc được làm từ trái sim chín qua quá trình lên men.",
+            "source_ids": [
+              "visitpq_ruou_sim_20260415"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_SOURCE",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Cơ sở dữ liệu du lịch ghi Bảy Gáo là một trong những cơ sở tiên phong nghiên cứu/chế biến rượu sim từ cuối thập niên 1990.",
+            "source_ids": [
+              "vietnamtourism_baygao_sim"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_DATABASE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_ruou_sim_20260415",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Rượu sim",
+            "url": "https://visitphuquoc.com.vn/vi/ruou-sim-phu-quoc-quy-trinh-lam-nen-huong-vi-doc-dao-8330",
+            "published_at": "2026-04-15",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnamtourism_baygao_sim",
+            "source_type": "OFFICIAL_TOURISM_DATABASE",
+            "label": "Vietnam Tourism database - Vườn sim Bảy Gáo",
+            "url": "https://csdl.vietnamtourism.gov.vn/shop/?item=667",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không đưa claim y tế vào public knowledge nếu chưa có nguồn y khoa."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Rượu sim là một sản phẩm quà tặng gắn với Phú Quốc, làm từ trái sim chín qua quá trình ủ/lên men. Điều cần nói rõ với khách là đây là đồ uống có cồn, không phải 'thuốc bổ' dù nhiều bài cũ quảng bá công dụng sức khỏe.",
+        "practical": "Nếm lượng nhỏ trước khi mua vì mỗi nhà làm có độ ngọt/chát/nồng khác nhau. Xem nồng độ cồn và quy định hành lý nếu mang lên máy bay.",
+        "expectation_vs_reality": "Không nên lặp lại các claim chữa bệnh từ nội dung du lịch/producer cũ nếu không có bằng chứng y khoa.",
+        "before_you_go": [
+          "Không dùng khi lái xe.",
+          "Kiểm tra ABV trên chai.",
+          "Đóng gói kỹ khi bay.",
+          "Phụ nữ mang thai/người cần tránh cồn không nên dùng."
+        ],
+        "curiosity_questions": [
+          "Rượu sim Phú Quốc bắt đầu thành sản phẩm thương mại từ khi nào?",
+          "Vì sao sim trên đảo lại được chọn để làm đồ uống lên men?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_065_mat-sim-siro-sim-mut-sim",
+      "number": 65,
+      "title": "Mật sim / siro sim / mứt sim",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn cơ sở du lịch Thành Long mô tả sim được ngâm/ủ với đường tạo mật sim và đồng thời sản xuất mứt, sim sấy cùng các sản phẩm khác.",
+            "source_ids": [
+              "legacy_tourism_sim_thanh_long"
+            ],
+            "verification_status": "PRODUCER_TOURISM_RECORD",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "legacy_tourism_sim_thanh_long",
+            "source_type": "OFFICIAL_TOURISM_LEGACY",
+            "label": "Cổng du lịch Phú Quốc - Vườn sim Thành Long",
+            "url": "https://dulich.phuquoc.gov.vn/vi/vuonsimthanhlong",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Từ sim, các cơ sở trên đảo làm thêm mật/siro, mứt và sản phẩm không cần uống như rượu. Đây là lựa chọn dễ mang về hơn cho người không uống cồn, nhưng thành phần đường và cách sản xuất khác nhau theo nhà làm.",
+        "practical": "Đọc nhãn thành phần, lượng đường và hướng dẫn bảo quản. 'Mật sim' ở một số cơ sở có thể là dịch sim lên men nhẹ, nên nếu cần tuyệt đối không cồn phải hỏi rõ.",
+        "expectation_vs_reality": "Tên 'mật sim' không tự động đồng nghĩa siro 0% cồn.",
+        "before_you_go": [
+          "Hỏi nồng độ nếu cần tránh cồn.",
+          "Xem hạn dùng sau mở nắp.",
+          "Không coi claim sức khỏe trên bao bì/quảng cáo là bằng chứng y khoa."
+        ],
+        "curiosity_questions": [
+          "Mật sim khác rượu sim ở bước nào của quá trình ủ?",
+          "Sản phẩm sim nào giữ được vị chát tự nhiên rõ nhất?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
       "topic_id": "knowledge_066_nuoc-mam-phu-quoc",
       "number": 66,
       "title": "Nước mắm Phú Quốc",
@@ -4023,6 +4305,221 @@
         "opening_hours": null,
         "map": null,
         "address": null
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_069_hai-san-theo-mua",
+      "number": 69,
+      "title": "Hải sản theo mùa",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần dữ liệu chợ/cảng cá hoặc nguồn ngành thủy sản theo mùa.",
+          "Không suy toàn bộ hải sản bán trên đảo là đánh bắt tại Phú Quốc.",
+          "Giá và nguồn cung phải tách khỏi knowledge evergreen."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Hải sản Phú Quốc thay đổi theo mùa, sản lượng, thời tiết và nguồn cung từ nhiều vùng. Hiện chưa có dataset thủy sản đủ cập nhật để public một lịch 'tháng này ăn con gì' mà không overclaim.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_070_cho-duong-dong-an-gi",
+      "number": 70,
+      "title": "Chợ Dương Đông ăn gì",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Visit Phu Quoc mô tả khu chợ có quầy ăn sáng với bún quậy, bún kèn, bánh canh và các nhóm hải sản tươi.",
+            "source_ids": [
+              "visitpq_duongdong_market_food"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_duongdong_market_food",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Chợ Dương Đông",
+            "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-phu-quoc-dia-diem-mua-sam-noi-tieng-dao-ngoc-6057",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Chợ Dương Đông đáng đi buổi sáng không chỉ để mua hải sản mà để ăn theo nhịp chợ. Bún, hủ tiếu, bánh canh và các món nóng buổi sáng cho cảm giác địa phương hơn việc chỉ ghé mua quà.",
+        "practical": "Đi sớm, chọn quầy đông người địa phương và hỏi giá trước. Hải sản mua về cần hỏi rõ nơi chế biến nếu không tự nấu.",
+        "expectation_vs_reality": "Chợ Dương Đông và chợ đêm là hai trải nghiệm khác nhau - một bên là chợ dân sinh ban ngày, một bên thiên về khách buổi tối.",
+        "before_you_go": [
+          "Mang tiền mặt nhỏ.",
+          "Cẩn thận nền ướt ở khu hải sản.",
+          "Hỏi thành phần nếu dị ứng hải sản/đậu phộng."
+        ],
+        "curiosity_questions": [
+          "Một buổi sáng ở Chợ Dương Đông ăn gì để thấy nhịp địa phương rõ nhất?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_071_an-sang-o-phu-quoc",
+      "number": 71,
+      "title": "Ăn sáng ở Phú Quốc",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Visit Phu Quoc 2026 liệt kê nhiều nhóm món sáng địa phương và khu Chợ Dương Đông như một nơi tập trung lựa chọn buổi sớm.",
+            "source_ids": [
+              "visitpq_breakfast_202608"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_breakfast_202608",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Ăn sáng ở Phú Quốc",
+            "url": "https://visitphuquoc.com.vn/vi/an-sang-o-phu-quoc-co-gi-ngon-va-dang-thu-buoi-som-14102",
+            "published_at": "2026-08",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Ăn sáng ở Phú Quốc không cần săn một 'top 10'. Cách hợp lý hơn là chọn nhóm món theo khu đang ở: bún/hủ tiếu/bánh canh ở trung tâm, chợ sáng nếu muốn nhìn local life, hoặc ăn tại khách sạn nếu ngày tour bắt đầu sớm.",
+        "practical": "Nếu có tour/cáp/sân bay sớm, ưu tiên món phục vụ nhanh và gần đường đi. Muốn ăn kiểu địa phương, Dương Đông có nhiều lựa chọn tập trung nhất.",
+        "expectation_vs_reality": "Tên quán và giờ mở có thể đổi nhanh; knowledge nên giữ món/khu, còn venue cụ thể để Near Me/live directory xử lý.",
+        "before_you_go": [
+          "Kiểm tra giờ quán trong ngày.",
+          "Dị ứng hải sản hỏi topping/nước dùng.",
+          "Đừng chạy xa chỉ vì một quán viral nếu sáng có lịch cố định."
+        ],
+        "curiosity_questions": [
+          "Bữa sáng nào ở Phú Quốc cho cảm giác địa phương nhất mà không phải xếp hàng dài?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_072_an-khuya-o-phu-quoc",
+      "number": 72,
+      "title": "Ăn khuya ở Phú Quốc",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần venue directory có `checked_at` và opening hours hiện hành.",
+          "Public nên trả lời bằng Near Me theo giờ hiện tại, không bằng article evergreen."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Ăn khuya là nội dung phụ thuộc giờ mở cửa thật của từng quán. Hiện chưa nên biến vài listing Google/OTA thành danh sách cố định vì quán có thể đổi giờ, nghỉ ngày hoặc đóng hẳn.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_073_am-thuc-an-thoi",
+      "number": 73,
+      "title": "Ẩm thực An Thới",
+      "topic_type": "FOOD",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy hoạch An Thới xác định đây là trung tâm dịch vụ, thương mại và đánh bắt hải sản, gắn với cảng biển.",
+            "source_ids": [
+              "pqgov_anthoi_plan"
+            ],
+            "verification_status": "OFFICIAL_GOVERNMENT_SOURCE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nguồn điểm đến 2026 gợi ý chợ An Thới như nơi xem nguyên liệu địa phương và đời sống cư dân ven biển.",
+            "source_ids": [
+              "visitpq_south_food_202609"
+            ],
+            "verification_status": "OFFICIAL_TOURISM_SOURCE",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_south_food_202609",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Nam đảo và ẩm thực",
+            "url": "https://visitphuquoc.com.vn/vi/nam-dao-phu-quoc-co-nhung-diem-nao-noi-bat-dang-di-nhat-2026-16634",
+            "published_at": "2026-09",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pqgov_anthoi_plan",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Quy hoạch chung An Thới",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-chung-thi-tran-an-thoi",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Ẩm thực An Thới phản ánh vai trò cảng và cộng đồng biển ở Nam đảo. Nếu chỉ ăn trong các khu du lịch mới, khách dễ bỏ qua chợ và quán phục vụ cư dân quanh cảng.",
+        "practical": "Muốn local hơn, xem khu chợ/đường dân cư An Thới; muốn tiện với lịch show/cáp, ăn ở Sunset Town/Hòn Thơm. Hai kiểu trải nghiệm nên được tách rõ.",
+        "expectation_vs_reality": "'Ẩm thực Nam đảo' không đồng nghĩa mọi món là đặc sản riêng An Thới; nhiều món hải sản và món Việt xuất hiện toàn đảo.",
+        "before_you_go": [
+          "Hải sản hỏi giá theo kg/con.",
+          "Nếu có show tối, tính thời gian ăn trước.",
+          "Venue cụ thể phải kiểm tra giờ hiện hành."
+        ],
+        "curiosity_questions": [
+          "An Thới ăn khác Dương Đông ở chỗ nào nếu nhìn từ lịch sử cảng và nghề biển?"
+        ]
       },
       "updated_at": "2026-09-22"
     },
