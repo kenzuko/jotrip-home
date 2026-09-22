@@ -27,9 +27,9 @@
     },
     "linked_to_canonical_entity": 38,
     "unlinked": 112,
-    "ready_internal": 104,
-    "queued": 33,
-    "hold": 13
+    "ready_internal": 105,
+    "queued": 30,
+    "hold": 15
   },
   "topics": [
     {
@@ -2454,7 +2454,7 @@
       "crawl_brief": "Tên gọi, tài liệu lịch sử, các giả thuyết, confidence.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2478,7 +2478,7 @@
       "crawl_brief": "Tài liệu, oral history, alternate explanations.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2502,7 +2502,7 @@
       "crawl_brief": "Tài liệu, old maps, alternate explanations.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
