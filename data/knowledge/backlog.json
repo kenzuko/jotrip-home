@@ -27,8 +27,8 @@
     },
     "linked_to_canonical_entity": 33,
     "unlinked": 117,
-    "ready_internal": 17,
-    "queued": 133
+    "ready_internal": 38,
+    "queued": 112
   },
   "topics": [
     {
@@ -1791,8 +1791,12 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Định nghĩa, công năng, chở xe/khách, tác động thời tiết, terminology đa ngôn ngữ.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "access_fast_boat",
+        "access_ferry",
+        "activity_tour_3_islands"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2007,8 +2011,14 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Các hãng/booking channels, payment, airport pickup, practical.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_taxi_xanhsm",
+        "utility_grab_phuquoc",
+        "utility_taxi_mailinh",
+        "utility_taxi_namthang",
+        "utility_jotrip_local_service"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2127,8 +2137,12 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Dataset location, opening/access, bank, status, verified_at.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_vcb_atm_hung_vuong",
+        "utility_vcb_atm_nguyen_trung_truc",
+        "utility_vcb_atm_an_thoi"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2199,8 +2213,14 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Dataset: location, opening hours, phone, status, source.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_longchau_tran_phu",
+        "utility_longchau_nguyen_trung_truc",
+        "utility_longchau_an_thoi",
+        "utility_longchau_ganh_dau",
+        "utility_longchau_suoi_da"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2223,8 +2243,13 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Dataset: location, services/emergency, hours, phone, language support nếu xác minh.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_vinmec_duong_dong_clinic",
+        "utility_vinmec_phuquoc_emergency",
+        "utility_vinmec",
+        "utility_vinmec_er"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2247,8 +2272,11 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Dataset: public/private, fee, access, hours, accessibility, verification.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_toilet_sunset_venice_67",
+        "utility_toilet_sunset_venice_02"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2271,8 +2299,10 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Dataset: car/motorbike, fee, hours, access, place relations.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_parking_sunset_nightmarket"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2295,8 +2325,12 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Dataset: location, hours, fuel types, verified status.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_fuel_dong_loi_1",
+        "utility_fuel_my_anh_an_thoi",
+        "utility_fuel_nhi_phung_ganh_dau"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2319,8 +2353,12 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Dataset: location, hours, 24h status nếu đúng.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_minimart_one_mart_duong_dong",
+        "utility_minimart_homemart_an_thoi",
+        "utility_minimart_cs68_sunset"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2367,8 +2405,16 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Official police/fire/medical/tourist support contacts, source, language notes.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "utility_112",
+        "utility_113",
+        "utility_114",
+        "utility_115",
+        "utility_pq_police",
+        "utility_pqc_hotline",
+        "utility_pqc_lost"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2992,7 +3038,7 @@
       "crawl_brief": "Giờ, cảng, duration, dependencies, sea-ban logic, practical.",
       "canonical_entity_id": "activity_tour_3_islands",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3016,7 +3062,7 @@
       "crawl_brief": "Giờ, khu vực, kỹ thuật, sea/weather dependency, practical.",
       "canonical_entity_id": "activity_big_game_fishing",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3040,7 +3086,7 @@
       "crawl_brief": "Mùa, giờ, sea dependency, safety, expectation vs reality.",
       "canonical_entity_id": "activity_squid_fishing",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3064,7 +3110,7 @@
       "crawl_brief": "Khu vực, mùa, visibility, coral etiquette, safety.",
       "canonical_entity_id": "activity_snorkeling_an_thoi",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3088,7 +3134,7 @@
       "crawl_brief": "Operators/areas nếu verified, certification, season, safety.",
       "canonical_entity_id": "activity_scuba",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3208,7 +3254,7 @@
       "crawl_brief": "Giờ, location, food, crowd, payment, practical.",
       "canonical_entity_id": "place_night_market",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3232,7 +3278,7 @@
       "crawl_brief": "Operating windows, last ride, weather/maintenance dependency.",
       "canonical_entity_id": "activity_hon_thom",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3256,7 +3302,7 @@
       "crawl_brief": "Duration, heat/rain, family suitability, practical.",
       "canonical_entity_id": "place_vinpearl_safari",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3280,7 +3326,7 @@
       "crawl_brief": "Duration, weather, family suitability, queue notes nếu verified.",
       "canonical_entity_id": "place_vinwonders",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3303,8 +3349,11 @@
       "topic_type": "ACTIVITY",
       "crawl_brief": "Hours, duration, etiquette, heat/rain, shopping, practical.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_fish_sauce_house",
+        "place_pepper_garden"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3327,8 +3376,12 @@
       "topic_type": "ACTIVITY",
       "crawl_brief": "Indoor/covered options theo khu vực, transport friction, Plan B data.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_fish_sauce_house",
+        "place_teddy_bear_museum",
+        "place_vinwonders"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
