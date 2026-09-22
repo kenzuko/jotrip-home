@@ -117,6 +117,71 @@
       "updated_at": "2026-09-22"
     },
     {
+      "topic_id": "knowledge_002_duong-dong",
+      "number": 2,
+      "title": "Dương Đông",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "zone_central_west",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Trung tâm & bờ Tây: Dương Đông, bờ Tây và các khu vực thuận tiện cho ăn uống, chợ đêm, hoàng hôn và di chuyển.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "phuquoc_master_planning",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - định hướng quy hoạch tổng thể xây dựng",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-tong-xay-dung-dao-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_2026_2030",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - đề cương/quy hoạch sử dụng đất 2026-2030",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "handbook_r3",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "handbook_r3",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Dương Đông là nhịp đô thị lâu đời nhất và thực dụng nhất của đảo: chợ, sông, cảng cá, dịch vụ và đường đi các hướng đều gặp nhau ở đây.",
+        "practical": "Nếu ở Dương Đông, nhiều nhu cầu hằng ngày dễ xử lý hơn: ăn uống, chợ, ATM, nhà thuốc, đổi tiền và đi bờ Tây. Đừng dùng tên 'Dương Đông' như một điểm pin duy nhất vì khu này khá rộng.",
+        "expectation_vs_reality": "Dương Đông hôm nay là khu đô thị đang thay đổi nhanh, không còn chỉ là hình ảnh một thị trấn chài nhỏ.",
+        "before_you_go": [
+          "Phân biệt chợ Dương Đông ban ngày với chợ đêm.",
+          "Giờ cao điểm quanh trung tâm có thể chậm hơn quãng đường trên bản đồ.",
+          "Các khu phố cũ và bờ sông nên được kể cùng thay đổi đô thị hiện nay."
+        ],
+        "curiosity_questions": [
+          "Vì sao Dương Đông trở thành trung tâm của đảo thay vì An Thới?",
+          "Sông Dương Đông đã định hình chợ và cảng cá thế nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
       "topic_id": "knowledge_003_cho-duong-dong",
       "number": 3,
       "title": "Chợ Dương Đông",
@@ -217,6 +282,71 @@
           "plus_code": "6XC5+7MW"
         },
         "address": "Chợ Dương Đông, đường Ngô Quyền, Dương Đông, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_004_an-thoi",
+      "number": 4,
+      "title": "An Thới",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "zone_south",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nam đảo: Cụm Nam đảo và quần đảo An Thới, gồm bãi biển, Hòn Thơm, Sunset Town và nhiều hoạt động biển.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "phuquoc_master_planning",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - định hướng quy hoạch tổng thể xây dựng",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-tong-xay-dung-dao-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_2026_2030",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - đề cương/quy hoạch sử dụng đất 2026-2030",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "handbook_r3",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "handbook_r3",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "An Thới là cửa ngõ biển của Nam đảo, gắn với cảng, nghề biển, quần đảo An Thới và giờ đây còn nằm cạnh một vùng du lịch phát triển rất nhanh.",
+        "practical": "Khi nói 'đi An Thới', cần tách khu dân cư/cảng với Sunset Town và các ga/tour biển. Chúng gần nhau nhưng không phải một điểm.",
+        "expectation_vs_reality": "An Thới không chỉ là nơi lên cano. Đây vẫn là khu dân cư có chợ, cảng và đời sống biển riêng.",
+        "before_you_go": [
+          "Xác nhận đúng cảng/bến khi đi biển.",
+          "Đừng dùng Sunset Town để đại diện cho toàn bộ An Thới.",
+          "Tính giao thông khu Nam đảo vào giờ show/tour."
+        ],
+        "curiosity_questions": [
+          "An Thới đã thay đổi thế nào khi du lịch Nam đảo phát triển?",
+          "Cảng An Thới có vai trò gì với đời sống đảo trước thời du lịch đại chúng?"
+        ]
       },
       "updated_at": "2026-09-22"
     },
@@ -343,6 +473,153 @@
       "updated_at": "2026-09-22"
     },
     {
+      "topic_id": "knowledge_006_ham-ninh",
+      "number": 6,
+      "title": "Hàm Ninh",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_ham_ninh",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Hàm Ninh: Khu dân cư ven biển phía Đông Phú Quốc gắn lâu dài với nghề khai thác hải sản và hoạt động làng chài.",
+            "source_ids": [
+              "visitpq_ham_ninh_2026",
+              "pqgov_ham_ninh_2026",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: 52JV+6XX, TL47, Rạch Hàm, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_hamninh_20260824",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Hàm Ninh",
+            "url": "https://visitphuquoc.com.vn/vi/ham-ninh-phu-quoc-review-chi-tiet-lang-chai-yen-binh-giua-dao-ngoc-15023",
+            "published_at": "2026-08-24",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_ham_ninh_2026",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "visitpq_ham_ninh_2026",
+            "url": "https://visitphuquoc.com.vn/vi/ham-ninh-phu-quoc-review-chi-tiet-lang-chai-yen-binh-giua-dao-ngoc-15023",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pqgov_ham_ninh_2026",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "pqgov_ham_ninh_2026",
+            "url": "https://phuquoc.angiang.gov.vn/ham-ninh-diem-den-ly-tuong-cua-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "google_maps_location_lookup",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Hàm Ninh nằm ở bờ Đông, dưới chân dãy núi Hàm Ninh và gắn lâu với nghề biển, hải sản và vùng nước nông trước làng.",
+        "practical": "Đi Hàm Ninh đáng nhất khi muốn nhìn nhịp làng chài và ăn hải sản, nhưng cảnh quan/cầu cảng đã thay đổi theo thời gian nên đừng đi chỉ để tìm lại đúng một tấm ảnh cũ.",
+        "expectation_vs_reality": "Cụm từ 'làng chài cổ nguyên sơ' dễ làm khách kỳ vọng sai. Hàm Ninh là một cộng đồng đang sống và thay đổi.",
+        "before_you_go": [
+          "Hỏi nguồn và giá hải sản trước khi gọi.",
+          "Không dùng cầu gỗ cũ trong ảnh làm mốc chắc chắn cho cảnh hiện tại.",
+          "Buổi sáng/chiều sớm thường dễ nhìn đời sống hơn giờ quá trưa."
+        ],
+        "curiosity_questions": [
+          "Hàm Ninh thay đổi thế nào khi cầu cảng và du lịch thay đổi?",
+          "Ghẹ bán ở Hàm Ninh hôm nay đến từ đâu?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_007_ganh-dau",
+      "number": 7,
+      "title": "Gành Dầu",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "zone_north",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Bắc đảo: Khu Bắc và Tây Bắc Phú Quốc, gồm rừng, Gành Dầu, Rạch Vẹm và cụm vui chơi United Center.",
+            "source_ids": [
+              "handbook_r3"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "phuquoc_tourism_planning",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - định hướng quy hoạch các khu du lịch",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cac-khu-du-lich",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vietnam_tourism_phuquoc",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Phú Quốc",
+            "url": "https://www.vietnam.travel/vi/places-to-go/southern-vietnam/phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "handbook_r3",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "handbook_r3",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Gành Dầu là vùng dân cư và bờ biển ở cực Bắc/Tây Bắc đảo, nơi cảm giác biên viễn rõ hơn khu trung tâm và có hướng nhìn sang vùng biển giáp Campuchia.",
+        "practical": "Đi Gành Dầu nên ghép theo tuyến Bắc đảo, không chạy riêng từ Nam đảo chỉ để chụp một góc biển. Khu vực này cũng gần Safari/Grand World nhưng đời sống dân cư là một lớp khác.",
+        "expectation_vs_reality": "Gành Dầu không phải chỉ là resort và điểm ngắm biển; đây là khu dân cư có lịch sử, rừng và bờ biển riêng.",
+        "before_you_go": [
+          "Tính quãng đường về nếu ở Nam đảo.",
+          "Không đi vào đường rừng/biên giới chưa rõ access.",
+          "Phân biệt Mũi Gành Dầu với toàn khu Gành Dầu."
+        ],
+        "curiosity_questions": [
+          "Vì sao Gành Dầu được xem như một 'cổng' phía Bắc của đảo?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
       "topic_id": "knowledge_008_rach-vem",
       "number": 8,
       "title": "Rạch Vẹm",
@@ -427,6 +704,190 @@
           "verified_at": "2026-09-22"
         },
         "address": "Rạch Vẹm, Gành Dầu, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_009_cua-can",
+      "number": 9,
+      "title": "Cửa Cạn",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_cua_can",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Cửa Cạn: Nhịp sông, nhà ven bờ, kayak/thuyền thúng",
+            "source_ids": [
+              "handbook_r3",
+              "google_maps_location_lookup",
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Cửa Cạn, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_cuacan_river_20260918",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Cửa Cạn, dòng sông thơ mộng",
+            "url": "https://phuquoc.angiang.gov.vn/cua-can-dong-song-tho-mong",
+            "published_at": "2026-09-18",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_2026_2030",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - đề cương/quy hoạch sử dụng đất 2026-2030",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "handbook_r3",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "handbook_r3",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "google_maps_location_lookup",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "map_crosscheck_20260922",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "map_crosscheck_20260922",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Cửa Cạn được định hình bởi con sông từ vùng núi/rừng chảy ra bờ Tây. Cái hay của khu này nằm ở chỗ sông, cửa biển, làng dân cư và bãi cát thay đổi theo mùa.",
+        "practical": "Nếu tới để nhìn sông/cửa biển, nên xem mưa và mùa vì hình thái doi cát và cửa sông không đứng yên.",
+        "expectation_vs_reality": "Cửa Cạn không phải một bãi biển đơn lẻ có một điểm check-in.",
+        "before_you_go": [
+          "Không tự chạy xe vào đường cát/đất khi chưa biết tình trạng.",
+          "Tôn trọng lối dân cư ven sông.",
+          "Đừng lấy ảnh cửa sông của mùa khác làm chuẩn cho ngày đi."
+        ],
+        "curiosity_questions": [
+          "Tên Cửa Cạn có liên quan thế nào tới việc cửa sông bị bồi/lấp theo mùa?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_010_cua-duong",
+      "number": 10,
+      "title": "Cửa Dương",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "phuquoc_landuse_2026_2030",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - đề cương/quy hoạch sử dụng đất 2026-2030",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_tourism_planning",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - định hướng quy hoạch các khu du lịch",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cac-khu-du-lich",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Cửa Dương là một vùng dân cư lớn ở phía Bắc-trung đảo, nối Dương Đông với Khu Tượng, Ông Lang và các hướng lên Bắc đảo. Đây là nơi local life và rìa rừng gặp nhau rõ hơn nhiều khu du lịch.",
+        "practical": "Với khách, Cửa Dương thường là khu đi xuyên qua hoặc lưu trú yên hơn trung tâm. Địa chỉ nên đi theo khu phố/đường cụ thể, không dùng pin trung tâm xã cũ.",
+        "expectation_vs_reality": "Cửa Dương rộng và không có một 'trung tâm du lịch' duy nhất để đại diện cho cả vùng.",
+        "before_you_go": [
+          "Dùng địa chỉ đầy đủ khi tìm đường.",
+          "Tuyến vào vườn tiêu/rừng có thể khác đường đô thị.",
+          "Không coi toàn Cửa Dương là Vườn quốc gia."
+        ],
+        "curiosity_questions": [
+          "Vì sao nhiều vườn tiêu và khu dân cư cũ tập trung quanh Cửa Dương?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_011_duong-to",
+      "number": 11,
+      "title": "Dương Tơ",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "phuquoc_landuse_2026_2030",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - đề cương/quy hoạch sử dụng đất 2026-2030",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_tourism_planning",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - định hướng quy hoạch các khu du lịch",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cac-khu-du-lich",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Dương Tơ nằm giữa trung tâm và Nam đảo, bao gồm nhiều khu dân cư, Suối Mây, Cửa Lấp và vùng gần sân bay. Đây là một trong những nơi thấy rõ nhất việc Phú Quốc đô thị hóa nhanh.",
+        "practical": "Khi tìm khách sạn/địa chỉ ở Dương Tơ, tên khu phố cụ thể quan trọng hơn chữ Dương Tơ chung. Khu vực này thuận nối sân bay, Bãi Trường và các hướng Nam đảo.",
+        "expectation_vs_reality": "Dương Tơ không phải một điểm tham quan; đây là một vùng chức năng/dân cư rộng.",
+        "before_you_go": [
+          "Xác nhận khu phố khi gọi xe.",
+          "Theo dõi thay đổi đường quanh dự án sân bay.",
+          "Không dùng dữ liệu hành chính cũ để suy access hiện tại."
+        ],
+        "curiosity_questions": [
+          "Vì sao Dương Tơ trở thành vùng phát triển đô thị và hạ tầng mạnh của đảo?"
+        ]
       },
       "updated_at": "2026-09-22"
     },
@@ -705,6 +1166,575 @@
       "updated_at": "2026-09-22"
     },
     {
+      "topic_id": "knowledge_015_bai-ong-lang",
+      "number": 15,
+      "title": "Bãi Ông Lang",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Visit Phu Quoc ghi rõ chưa có tài liệu ghi chép cụ thể về nguồn gốc tên Ông Lang; câu chuyện ông lão chữa bệnh được kể như truyền miệng.",
+            "source_ids": [
+              "visitpq_onglang_20260917"
+            ],
+            "verification_status": "FOLKLORE_NOT_DOCUMENTED_HISTORY",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_onglang_20260917",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Bãi Ông Lang",
+            "url": "https://visitphuquoc.com.vn/vi/bai-ong-lang-phu-quoc-dep-yen-binh-kinh-nghiem-day-du-16746",
+            "published_at": "2026-09-17",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Không public truyền thuyết Ông Lang như lịch sử đã chứng minh."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Ông Lang là dải bờ Tây yên hơn Dương Đông, xen giữa cát và ghềnh đá. Điểm mạnh là nghỉ biển và hoàng hôn, không phải một chuỗi hoạt động dày.",
+        "practical": "Hợp cho nửa ngày hoặc buổi chiều. Access xuống biển khác nhau theo từng đoạn/resort, nên tìm đúng lối thay vì chỉ gõ 'Bãi Ông Lang'.",
+        "expectation_vs_reality": "Ông Lang không phải một dải cát liên tục hoàn hảo; có nhiều đoạn bãi và ghềnh đá.",
+        "before_you_go": [
+          "Tìm đúng lối xuống bãi.",
+          "Xem sóng bờ Tây theo ngày.",
+          "Ở lại chiều nếu mục tiêu là hoàng hôn."
+        ],
+        "curiosity_questions": [
+          "Tên Ông Lang từ đâu ra, và phần nào là truyền miệng?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_016_vung-bau",
+      "number": 16,
+      "title": "Vũng Bầu",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [],
+        "known_unknowns": [
+          "Cần nguồn điểm đến/field verification 2026 về lối vào và tình trạng bãi.",
+          "Không lấy ảnh resort làm đại diện cho toàn Vũng Bầu."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Vũng Bầu là tên bãi/khu biển có thật ở phía Tây Bắc, nhưng nguồn hiện thu được chưa đủ mạnh để chuẩn hóa access, mùa biển và mức độ phát triển hiện tại mà không dựa nhiều vào bài bán tour/resort.",
+        "practical": null,
+        "expectation_vs_reality": null,
+        "before_you_go": [],
+        "curiosity_questions": []
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_017_bai-dai",
+      "number": 17,
+      "title": "Bãi Dài",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "visitpq_6_beaches_20260921",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - 6 bãi biển đẹp",
+            "url": "https://visitphuquoc.com.vn/vi/6-bai-bien-dep-nhat-phu-quoc-237",
+            "published_at": "2026-09-21",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_2026_2030",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - đề cương/quy hoạch sử dụng đất 2026-2030",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Bãi Dài nằm ở phía Tây Bắc và đã thay đổi rất mạnh vì các tổ hợp nghỉ dưỡng - vui chơi phía Bắc. Khi nói về Bãi Dài hôm nay phải tách bãi biển tự nhiên với access qua từng dự án/khu nghỉ.",
+        "practical": "Đừng chạy tới một pin 'Bãi Dài' chung rồi kỳ vọng có lối công cộng rõ. Xác định điểm mình muốn tới - resort, Grand World/VinWonders hay đoạn bờ cụ thể.",
+        "expectation_vs_reality": "Hình ảnh Bãi Dài hoang vắng trong tư liệu cũ không còn đại diện cho toàn bộ bờ biển hiện tại.",
+        "before_you_go": [
+          "Xác nhận lối vào trước.",
+          "Không mặc định tiện ích resort là công cộng.",
+          "Nếu chỉ muốn tắm biển, cân nhắc đoạn bờ và access thực tế hơn danh tiếng cái tên."
+        ],
+        "curiosity_questions": [
+          "Bãi Dài đã thay đổi thế nào trước và sau các dự án Bắc đảo?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_018_bai-thom",
+      "number": 18,
+      "title": "Bãi Thơm",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "vietnam_tourism_phuquoc_island_hopping",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Island hopping in Phu Quoc",
+            "url": "https://vietnam.travel/node/1324",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_2026_2030",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - đề cương/quy hoạch sử dụng đất 2026-2030",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_tourism_planning",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - định hướng quy hoạch các khu du lịch",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cac-khu-du-lich",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Bãi Thơm nằm phía Đông Bắc, sát vùng rừng và xa nhịp du lịch dày của bờ Tây. Giá trị của nó nằm ở cảm giác tuyến đường xa, thiên nhiên và đời sống ven rừng hơn là tiện ích.",
+        "practical": "Đi Bãi Thơm nên tính cả thời gian đường đi và nhiên liệu. Không nên lên đó quá muộn nếu chưa biết rõ đường về và điểm dịch vụ.",
+        "expectation_vs_reality": "‘Hoang sơ’ cũng có nghĩa ít dịch vụ, ít lựa chọn khi xe hỏng hoặc thời tiết đổi.",
+        "before_you_go": [
+          "Đổ xăng trước.",
+          "Mang nước.",
+          "Xem mưa vì đường xa/rìa rừng.",
+          "Không đi vào khu rừng hạn chế access."
+        ],
+        "curiosity_questions": [
+          "Vì sao Bãi Thơm phát triển chậm hơn nhiều dải bờ phía Tây?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_019_mui-ganh-dau",
+      "number": 19,
+      "title": "Mũi Gành Dầu",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "vietnam_tourism_phuquoc",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Vietnam Tourism - Phú Quốc",
+            "url": "https://www.vietnam.travel/vi/places-to-go/southern-vietnam/phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_tourism_planning",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - định hướng quy hoạch các khu du lịch",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cac-khu-du-lich",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Mũi Gành Dầu là phần mũi đất/bờ biển ở cực Bắc Tây của đảo, khác với cả khu Gành Dầu. Điểm hấp dẫn là cảm giác địa lý - nhìn ra vùng biển gần Campuchia và đứng ở rìa Bắc đảo.",
+        "practical": "Ghép cùng tuyến Bắc đảo. Đừng xây cả ngày chỉ quanh một mũi đất nếu đi từ xa; kết hợp Safari/Grand World hoặc một bãi phía Bắc sẽ hợp lý hơn.",
+        "expectation_vs_reality": "Mũi Gành Dầu và Bãi Gành Dầu thường bị gọi lẫn trong nội dung du lịch.",
+        "before_you_go": [
+          "Dùng pin/lối vào hiện tại thay vì tên vùng chung.",
+          "Cẩn thận bờ đá.",
+          "Không đi qua khu vực hạn chế để tìm góc nhìn biên giới."
+        ],
+        "curiosity_questions": [
+          "Từ Gành Dầu nhìn sang Campuchia gần đến mức nào trong ngày trời quang?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_020_mui-ong-doi",
+      "number": 20,
+      "title": "Mũi Ông Đội",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_gieng_tien"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Giếng Tiên: Mạch nước ngọt trong khu vực An Thới gắn với truyền thuyết dân gian về Nguyễn Ánh.",
+            "source_ids": [
+              "crawl_topic_107_gieng_tien",
+              "google_maps_location_lookup",
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Giếng Tiên, Mũi Ông Đội, An Thới, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_mui_ong_doi_bai_khem",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Bãi Khem, Mũi Ông Đội",
+            "url": "https://phuquoc.angiang.gov.vn/bai-khem-mui-ong-doi-hai-diem-den-tuyet-dep-cua-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "crawl_topic_107_gieng_tien",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "crawl_topic_107_gieng_tien",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "google_maps_location_lookup",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "map_crosscheck_20260922",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "map_crosscheck_20260922",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Mũi Ông Đội là rẻo đất Nam đảo có hai phía biển và gắn với lớp truyền thuyết Nguyễn Ánh/Giếng Tiên. Điểm này cần kể cả địa lý lẫn access hiện tại, không chỉ câu 'ngắm bình minh và hoàng hôn cùng chỗ'.",
+        "practical": "Access thực tế cần kiểm tra trước vì khu vực phát triển nghỉ dưỡng. Nếu không có lối công cộng rõ, không hướng khách tự chạy vào chỉ dựa trên bản đồ.",
+        "expectation_vs_reality": "Các mô tả cũ về 'đi tự do' có thể không còn đúng khi khu đất thay đổi quản lý.",
+        "before_you_go": [
+          "Kiểm tra lối vào hiện tại.",
+          "Tách truyền thuyết Giếng Tiên khỏi fact địa lý.",
+          "Không hứa có thể đứng một chỗ nhìn trọn cả bình minh lẫn hoàng hôn nếu chưa xác minh góc nhìn/access."
+        ],
+        "curiosity_questions": [
+          "Vì sao Mũi Ông Đội có hai mặt biển?",
+          "Tên Ông Đội có liên quan gì tới các giai thoại Nguyễn Ánh?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_021_hon-thom",
+      "number": 21,
+      "title": "Hòn Thơm",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "activity_hon_thom",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Cáp treo Hòn Thơm: Tuyến cáp 3 dây vượt biển qua quần đảo An Thới",
+            "source_ids": [
+              "handbook_r3",
+              "sunworld_hon_thom_schedule_20260723"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "handbook_r3",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "sunworld_hon_thom_schedule_20260723",
+            "source_type": "INTERNAL_SOURCE_REF",
+            "label": "sunworld_hon_thom_schedule_20260723",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_map_2023",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Bản đồ kế hoạch sử dụng đất Phú Quốc 2023",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BD_KHSDD_THANHPHO_PHUQUOC_2023%20%28Duyet%2013_02_2023%29.pdf",
+            "published_at": "2023",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Hòn Thơm là đảo có cư dân và bờ biển riêng trong quần đảo An Thới, nhưng với khách hiện nay trải nghiệm thường đi qua cáp treo và tổ hợp vui chơi. Hai lớp này không nên bị kể như một.",
+        "practical": "Nếu đi theo cáp treo, dựng ngày quanh khung giờ cáp. Nếu quan tâm đời sống đảo/cư dân, cần nghiên cứu/đi tuyến khác chứ không suy từ khu công viên.",
+        "expectation_vs_reality": "‘Đi Hòn Thơm’ trong quảng cáo thường có nghĩa đi Sun World/Aquatopia, không phải khám phá toàn hòn đảo.",
+        "before_you_go": [
+          "Chốt giờ cáp về.",
+          "Phân biệt khu vui chơi với khu dân cư.",
+          "Không dùng lịch cáp để suy mọi hoạt động trên đảo."
+        ],
+        "curiosity_questions": [
+          "Hòn Thơm trước cáp treo sống bằng gì, và khu vui chơi đã thay đổi cách khách nhìn hòn đảo ra sao?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_022_hon-mong-tay",
+      "number": 22,
+      "title": "Hòn Móng Tay",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "legacy_tourism_hon_mong_tay",
+            "source_type": "OFFICIAL_TOURISM_LEGACY",
+            "label": "Cổng du lịch Phú Quốc - Hòn Móng Tay",
+            "url": "https://dulich.phuquoc.gov.vn/vi/honmongtay",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_map_2023",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Bản đồ kế hoạch sử dụng đất Phú Quốc 2023",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BD_KHSDD_THANHPHO_PHUQUOC_2023%20%28Duyet%2013_02_2023%29.pdf",
+            "published_at": "2023",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Nguồn gốc tên chưa đủ bằng chứng mạnh để public như fact."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Hòn Móng Tay là một đảo nhỏ trong cụm An Thới, thường xuất hiện trong hành trình cano/tàu chứ không phải điểm có hạ tầng như đảo chính.",
+        "practical": "Có đi hay không phụ thuộc tuyến tour và biển trong ngày. Đừng mua tour chỉ vì danh sách bắt buộc phải có tên Móng Tay.",
+        "expectation_vs_reality": "Tên điểm trên itinerary có thể thay bằng hòn khác nếu gió/sóng không phù hợp.",
+        "before_you_go": [
+          "Theo quyết định an toàn của tài công.",
+          "Không xả rác trên đảo nhỏ.",
+          "Không mặc định có nhà vệ sinh, nước ngọt hay dịch vụ đầy đủ."
+        ],
+        "curiosity_questions": [
+          "Tên Hòn Móng Tay đến từ hình dáng đảo hay một câu chuyện khác?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_023_hon-gam-ghi",
+      "number": 23,
+      "title": "Hòn Gầm Ghì",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "legacy_tourism_hon_gam_ghi",
+            "source_type": "OFFICIAL_TOURISM_LEGACY",
+            "label": "Cổng du lịch Phú Quốc - Hòn Gầm Ghì",
+            "url": "https://dulich.phuquoc.gov.vn/vi/honghamghi",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_map_2023",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Bản đồ kế hoạch sử dụng đất Phú Quốc 2023",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BD_KHSDD_THANHPHO_PHUQUOC_2023%20%28Duyet%2013_02_2023%29.pdf",
+            "published_at": "2023",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Hòn Gầm Ghì nổi bật trong các tuyến Nam đảo nhờ vùng rạn san hô và nước trong khi điều kiện phù hợp. Giá trị chính là sinh thái biển, không phải check-in trên bờ.",
+        "practical": "Nếu tour dừng snorkeling, chất lượng phụ thuộc visibility, dòng nước và mật độ tàu ngày đó. Ít thời gian nhưng đúng điều kiện tốt hơn dừng cho đủ tên.",
+        "expectation_vs_reality": "Nước không phải lúc nào cũng trong như ảnh và san hô sát bờ càng cần tránh giẫm/chạm.",
+        "before_you_go": [
+          "Không đứng lên san hô.",
+          "Mặc áo phao nếu bơi yếu.",
+          "Theo vùng snorkeling do hướng dẫn chọn trong ngày."
+        ],
+        "curiosity_questions": [
+          "Vì sao Gầm Ghì thường được chọn làm điểm snorkeling trong quần đảo An Thới?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_024_may-rut-trong",
+      "number": 24,
+      "title": "Mây Rút Trong",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "mayruttrong_operator",
+            "source_type": "OPERATOR",
+            "label": "Mây Rút Trong - website vận hành điểm",
+            "url": "https://mayruttrongphuquoc.com/vi/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_map_2023",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Bản đồ kế hoạch sử dụng đất Phú Quốc 2023",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BD_KHSDD_THANHPHO_PHUQUOC_2023%20%28Duyet%2013_02_2023%29.pdf",
+            "published_at": "2023",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Mây Rút Trong là điểm dừng phát triển dịch vụ rõ hơn nhiều đảo nhỏ Nam đảo: có bãi, ăn uống và các hoạt động tổ chức tại chỗ. Vì vậy tiện nhưng cũng dễ đông.",
+        "practical": "Đi cano/tour hoặc phương tiện do đơn vị trên đảo tổ chức. Nếu thích yên, tránh khung nhiều tour cập cùng lúc; nếu đi gia đình, dịch vụ tại chỗ lại là lợi thế.",
+        "expectation_vs_reality": "‘Đảo hoang’ không còn là mô tả chính xác cho Mây Rút Trong hiện nay.",
+        "before_you_go": [
+          "Kiểm tra phí/dịch vụ đang áp dụng.",
+          "Không mặc định giá cũ còn hiệu lực.",
+          "Xem sóng và vận hành cano trước."
+        ],
+        "curiosity_questions": [
+          "Vì sao Mây Rút Trong phát triển dịch vụ mạnh hơn Mây Rút Ngoài?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_025_may-rut-ngoai",
+      "number": 25,
+      "title": "Mây Rút Ngoài",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [],
+        "sources": [
+          {
+            "source_id": "vinwonders_mayrut_20251212",
+            "source_type": "OPERATOR_EDITORIAL",
+            "label": "VinWonders - Hòn Mây Rút Phú Quốc",
+            "url": "https://vinwonders.com/vi/wonderpedia/news/hon-may-rut-phu-quoc/",
+            "published_at": "2025-12-12",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_map_2023",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Bản đồ kế hoạch sử dụng đất Phú Quốc 2023",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BD_KHSDD_THANHPHO_PHUQUOC_2023%20%28Duyet%2013_02_2023%29.pdf",
+            "published_at": "2023",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Các giải thích dân gian về nguồn gốc tên 'Mây Rút' chưa có tài liệu chính thức đủ mạnh."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Mây Rút Ngoài là hòn riêng với Mây Rút Trong và nhìn chung ít dịch vụ hơn. Trong tour, hai cái tên này rất dễ bị khách tưởng là cùng một đảo.",
+        "practical": "Đi bằng tàu/cano theo tuyến Nam đảo. Nếu mục tiêu là bãi có nhiều tiện ích, Mây Rút Trong thường phù hợp hơn; nếu mục tiêu là không gian ít dịch vụ, hỏi operator tuyến Mây Rút Ngoài.",
+        "expectation_vs_reality": "Tên 'Trong/Ngoài' phải giữ rõ trong itinerary; không nên gộp thành 'Mây Rút' rồi để khách tự hiểu.",
+        "before_you_go": [
+          "Xác nhận tour dừng Trong hay Ngoài.",
+          "Không kỳ vọng cùng mức nhà hàng/WC/dịch vụ.",
+          "Tuyến thực tế có thể đổi theo biển."
+        ],
+        "curiosity_questions": [
+          "Tại sao hai hòn gần nhau lại được gọi là Mây Rút Trong và Mây Rút Ngoài?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
       "topic_id": "knowledge_026_suoi-tranh",
       "number": 26,
       "title": "Suối Tranh",
@@ -780,6 +1810,120 @@
           "plus_code": "52G6+GQQ"
         },
         "address": "52G6+GQQ, Suối Mây, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_027_suoi-da-ban",
+      "number": 27,
+      "title": "Suối Đá Bàn",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Tên Suối Đá Bàn được các nguồn địa phương giải thích từ những tảng đá lớn, phẳng như mặt bàn; chuyện tiên nữ được kể dưới dạng tương truyền.",
+            "source_ids": [
+              "pqgov_suoi_da_ban"
+            ],
+            "verification_status": "FACT_PLUS_FOLKLORE_SEPARATED",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_suoi_da_ban",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Suối Đá Bàn",
+            "url": "https://visitphuquoc.com.vn/vi/suoi-da-ban-1479",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pqgov_suoi_da_ban",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Suối Đá Bàn",
+            "url": "https://phuquoc.angiang.gov.vn/suoi-da-ban-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Suối Đá Bàn nổi bật nhờ những phiến đá rộng và phẳng như mặt bàn. Trải nghiệm phụ thuộc mùa nước: mùa mưa có dòng chảy mạnh hơn, mùa khô có thể thấy đá rõ nhưng ít nước.",
+        "practical": "Đi giày bám tốt và tính đoạn đi bộ. Nếu vừa có mưa lớn, đẹp hơn không đồng nghĩa an toàn hơn - đá trơn và dòng nước có thể mạnh.",
+        "expectation_vs_reality": "Giờ mở cửa trên các cổng cũ/mới không hoàn toàn nhất quán, nên không đóng cứng từ một listing cũ.",
+        "before_you_go": [
+          "Xem mưa gần giờ đi.",
+          "Không leo đá ướt khi dòng mạnh.",
+          "Mang nước và đồ chống côn trùng."
+        ],
+        "curiosity_questions": [
+          "Vì sao các phiến đá ở đây lại phẳng rộng như mặt bàn?",
+          "Câu chuyện tiên nữ tắm ở suối là truyền thuyết hay lịch sử?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_028_vuon-quoc-gia-phu-quoc",
+      "number": 28,
+      "title": "Vườn quốc gia Phú Quốc",
+      "topic_type": "PLACE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn bảo tồn quốc gia ghi Vườn quốc gia Phú Quốc được thành lập năm 2001 và thuộc vùng lõi Khu dự trữ sinh quyển Kiên Giang.",
+            "source_ids": [
+              "nbca_phuquoc_national_park_2026"
+            ],
+            "verification_status": "OFFICIAL_BIODIVERSITY_SOURCE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "nbca_phuquoc_national_park_2026",
+            "source_type": "OFFICIAL_BIODIVERSITY",
+            "label": "Cổng bảo tồn thiên nhiên - Vườn quốc gia Phú Quốc",
+            "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-kien-giang/",
+            "published_at": "2026",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "phuquoc_landuse_2026_2030",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Phú Quốc - đề cương/quy hoạch sử dụng đất 2026-2030",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Vườn quốc gia Phú Quốc là phần lõi thiên nhiên lớn của đảo, bảo vệ rừng, lưu vực nước ngọt và đa dạng sinh học. Nó không phải một công viên đô thị có thể tự do đi mọi tuyến.",
+        "practical": "Khách chỉ nên đi các tuyến/điểm được phép và có access rõ. Nếu muốn trekking sâu, cần thông tin từ đơn vị quản lý hoặc hướng dẫn phù hợp thay vì tự mở đường.",
+        "expectation_vs_reality": "Thấy đường trên bản đồ không có nghĩa đó là đường du lịch công cộng.",
+        "before_you_go": [
+          "Không vào phân khu bảo vệ nghiêm ngặt khi không được phép.",
+          "Không hái lan/cây hoặc bắt động vật.",
+          "Xem cháy rừng mùa khô và mưa đường rừng mùa mưa."
+        ],
+        "curiosity_questions": [
+          "Vì sao gần nửa diện tích đảo vẫn gắn với rừng đặc dụng?",
+          "Rừng Phú Quốc liên quan thế nào tới nguồn nước ngọt của đảo?"
+        ]
       },
       "updated_at": "2026-09-22"
     },
