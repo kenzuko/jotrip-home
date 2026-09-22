@@ -23,6 +23,7 @@ const rootFiles=[
   "live-module-v2.css",
   "visual-context.css",
   "visual-context.js",
+  "map-basemap.js",
   "jotrip-service-card.css",
   ".nojekyll"
 ];
