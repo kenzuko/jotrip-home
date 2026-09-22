@@ -46,17 +46,16 @@ function dbFromEnv(env){
 
 async function ensureSchema(db){
   if(!db)return;
-  await db.exec(`
-    CREATE TABLE IF NOT EXISTS analytics_sync (
+  const statements=[
+    `CREATE TABLE IF NOT EXISTS analytics_sync (
       source TEXT PRIMARY KEY,
       last_attempt_at TEXT,
       last_success_at TEXT,
       status TEXT NOT NULL DEFAULT 'unknown',
       records INTEGER NOT NULL DEFAULT 0,
       message TEXT
-    );
-
-    CREATE TABLE IF NOT EXISTS transit_observations (
+    )`,
+    `CREATE TABLE IF NOT EXISTS transit_observations (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       observed_at TEXT NOT NULL,
       service_date TEXT,
@@ -73,13 +72,11 @@ async function ensureSchema(db){
       load_factor_proxy REAL,
       evidence_class TEXT NOT NULL DEFAULT 'observed',
       UNIQUE(observed_at,operator,origin,destination,departure_time)
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_transit_service_date ON transit_observations(service_date);
-    CREATE INDEX IF NOT EXISTS idx_transit_route ON transit_observations(operator,origin,destination);
-    CREATE INDEX IF NOT EXISTS idx_transit_observed ON transit_observations(observed_at);
-
-    CREATE TABLE IF NOT EXISTS aviation_observations (
+    )`,
+    "CREATE INDEX IF NOT EXISTS idx_transit_service_date ON transit_observations(service_date)",
+    "CREATE INDEX IF NOT EXISTS idx_transit_route ON transit_observations(operator,origin,destination)",
+    "CREATE INDEX IF NOT EXISTS idx_transit_observed ON transit_observations(observed_at)",
+    `CREATE TABLE IF NOT EXISTS aviation_observations (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       observed_at TEXT NOT NULL,
       service_date TEXT,
@@ -94,12 +91,10 @@ async function ensureSchema(db){
       load_factor_proxy REAL,
       evidence_class TEXT NOT NULL DEFAULT 'observed',
       UNIQUE(observed_at,direction,flight_number,scheduled_time)
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_aviation_service_date ON aviation_observations(service_date);
-    CREATE INDEX IF NOT EXISTS idx_aviation_observed ON aviation_observations(observed_at);
-
-    CREATE TABLE IF NOT EXISTS ops_observations (
+    )`,
+    "CREATE INDEX IF NOT EXISTS idx_aviation_service_date ON aviation_observations(service_date)",
+    "CREATE INDEX IF NOT EXISTS idx_aviation_observed ON aviation_observations(observed_at)",
+    `CREATE TABLE IF NOT EXISTS ops_observations (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       observed_at TEXT NOT NULL,
       domain TEXT NOT NULL,
@@ -108,10 +103,10 @@ async function ensureSchema(db){
       value_text TEXT,
       evidence_class TEXT NOT NULL DEFAULT 'observed',
       UNIQUE(observed_at,domain,metric)
-    );
-
-    CREATE INDEX IF NOT EXISTS idx_ops_observed ON ops_observations(observed_at);
-  `);
+    )`,
+    "CREATE INDEX IF NOT EXISTS idx_ops_observed ON ops_observations(observed_at)"
+  ];
+  await db.batch(statements.map(sql=>db.prepare(sql)));
 }
 
 function isoNow(){return new Date().toISOString()}
