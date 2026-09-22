@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "vietcombank",
-  "generated_at": "2026-09-21T23:38:38.792Z",
+  "generated_at": "2026-09-22T01:53:07.961Z",
   "points": [
     {
       "at": "2026-08-22T00:00:00+07:00",
@@ -6242,6 +6242,146 @@
       "cash_buy": 25790,
       "transfer_buy": 25820,
       "sell": 26200
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "AUD",
+      "cash_buy": 18057.05,
+      "transfer_buy": 18239.44,
+      "sell": 18823.87
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "CAD",
+      "cash_buy": 18075.27,
+      "transfer_buy": 18257.85,
+      "sell": 18842.87
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "CHF",
+      "cash_buy": 30907.5,
+      "transfer_buy": 31219.7,
+      "sell": 32220.05
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "CNY",
+      "cash_buy": 3787.67,
+      "transfer_buy": 3825.93,
+      "sell": 3948.52
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3919.2,
+      "sell": 4069.13
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "EUR",
+      "cash_buy": 29078.39,
+      "transfer_buy": 29372.11,
+      "sell": 30611.91
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "GBP",
+      "cash_buy": 33900.7,
+      "transfer_buy": 34243.13,
+      "sell": 35340.36
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "HKD",
+      "cash_buy": 3222.73,
+      "transfer_buy": 3255.28,
+      "sell": 3379.81
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 270.01,
+      "sell": 281.63
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "JPY",
+      "cash_buy": 159.64,
+      "transfer_buy": 161.25,
+      "sell": 170.65
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "KRW",
+      "cash_buy": 16.54,
+      "transfer_buy": 18.38,
+      "sell": 19.94
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84186.94,
+      "sell": 88268.79
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6318.75,
+      "sell": 6456.32
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2703.98,
+      "sell": 2818.68
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 295.68,
+      "sell": 327.31
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6887.82,
+      "sell": 7184.36
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2592.42,
+      "sell": 2702.38
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "SGD",
+      "cash_buy": 19860.96,
+      "transfer_buy": 20061.58,
+      "sell": 20745.86
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "THB",
+      "cash_buy": 690.79,
+      "transfer_buy": 767.55,
+      "sell": 800.1
+    },
+    {
+      "at": "2026-09-22T08:48:37+07:00",
+      "currency": "USD",
+      "cash_buy": 25800,
+      "transfer_buy": 25830,
+      "sell": 26210
     }
   ],
   "source_endpoint": "https://www.vietcombank.com.vn/api/exchangerates/exportexcel",

@@ -7,148 +7,148 @@
     "xml_url": "https://portal.vietcombank.com.vn/Usercontrols/TVPortal.TyGia/pXML.aspx"
   },
   "data_status": "live",
-  "source_updated_at": "2026-09-22T06:28:21+07:00",
-  "fetched_at": "2026-09-21T23:38:38.791Z",
+  "source_updated_at": "2026-09-22T08:48:37+07:00",
+  "fetched_at": "2026-09-22T01:53:07.959Z",
   "rates": [
     {
       "currency": "AUD",
       "name": "AUSTRALIAN DOLLAR   ",
-      "cash_buy": 18067.84,
-      "transfer_buy": 18250.35,
-      "sell": 18835.14
+      "cash_buy": 18057.05,
+      "transfer_buy": 18239.44,
+      "sell": 18823.87
     },
     {
       "currency": "CAD",
       "name": "CANADIAN DOLLAR     ",
-      "cash_buy": 18095.4,
-      "transfer_buy": 18278.19,
-      "sell": 18863.87
+      "cash_buy": 18075.27,
+      "transfer_buy": 18257.85,
+      "sell": 18842.87
     },
     {
       "currency": "CHF",
       "name": "SWISS FRANC         ",
-      "cash_buy": 30805.51,
-      "transfer_buy": 31116.67,
-      "sell": 32113.74
+      "cash_buy": 30907.5,
+      "transfer_buy": 31219.7,
+      "sell": 32220.05
     },
     {
       "currency": "CNY",
       "name": "YUAN RENMINBI       ",
-      "cash_buy": 3786.22,
-      "transfer_buy": 3824.46,
-      "sell": 3947.01
+      "cash_buy": 3787.67,
+      "transfer_buy": 3825.93,
+      "sell": 3948.52
     },
     {
       "currency": "DKK",
       "name": "DANISH KRONE        ",
       "cash_buy": null,
-      "transfer_buy": 3922.09,
-      "sell": 4072.13
+      "transfer_buy": 3919.2,
+      "sell": 4069.13
     },
     {
       "currency": "EUR",
       "name": "EURO                ",
-      "cash_buy": 29100.15,
-      "transfer_buy": 29394.09,
-      "sell": 30634.84
+      "cash_buy": 29078.39,
+      "transfer_buy": 29372.11,
+      "sell": 30611.91
     },
     {
       "currency": "GBP",
       "name": "POUND STERLING      ",
-      "cash_buy": 33923.14,
-      "transfer_buy": 34265.8,
-      "sell": 35363.77
+      "cash_buy": 33900.7,
+      "transfer_buy": 34243.13,
+      "sell": 35340.36
     },
     {
       "currency": "HKD",
       "name": "HONGKONG DOLLAR     ",
-      "cash_buy": 3221.9,
-      "transfer_buy": 3254.44,
-      "sell": 3378.94
+      "cash_buy": 3222.73,
+      "transfer_buy": 3255.28,
+      "sell": 3379.81
     },
     {
       "currency": "INR",
       "name": "INDIAN RUPEE        ",
       "cash_buy": null,
-      "transfer_buy": 269.94,
-      "sell": 281.57
+      "transfer_buy": 270.01,
+      "sell": 281.63
     },
     {
       "currency": "JPY",
       "name": "YEN                 ",
-      "cash_buy": 159.7,
-      "transfer_buy": 161.31,
-      "sell": 170.72
+      "cash_buy": 159.64,
+      "transfer_buy": 161.25,
+      "sell": 170.65
     },
     {
       "currency": "KRW",
       "name": "KOREAN WON          ",
-      "cash_buy": 16.4,
-      "transfer_buy": 18.22,
-      "sell": 19.77
+      "cash_buy": 16.54,
+      "transfer_buy": 18.38,
+      "sell": 19.94
     },
     {
       "currency": "KWD",
       "name": "KUWAITI DINAR       ",
       "cash_buy": null,
-      "transfer_buy": 84154.56,
-      "sell": 88234.9
+      "transfer_buy": 84186.94,
+      "sell": 88268.79
     },
     {
       "currency": "MYR",
       "name": "MALAYSIAN RINGGIT   ",
       "cash_buy": null,
-      "transfer_buy": 6316.32,
-      "sell": 6453.84
+      "transfer_buy": 6318.75,
+      "sell": 6456.32
     },
     {
       "currency": "NOK",
       "name": "NORWEGIAN KRONER    ",
       "cash_buy": null,
-      "transfer_buy": 2709.18,
-      "sell": 2824.1
+      "transfer_buy": 2703.98,
+      "sell": 2818.68
     },
     {
       "currency": "RUB",
       "name": "RUSSIAN RUBLE       ",
       "cash_buy": null,
-      "transfer_buy": 294.03,
-      "sell": 325.48
+      "transfer_buy": 295.68,
+      "sell": 327.31
     },
     {
       "currency": "SAR",
       "name": "SAUDI RIAL          ",
       "cash_buy": null,
-      "transfer_buy": 6884.8,
-      "sell": 7181.22
+      "transfer_buy": 6887.82,
+      "sell": 7184.36
     },
     {
       "currency": "SEK",
       "name": "SWEDISH KRONA       ",
       "cash_buy": null,
-      "transfer_buy": 2594.3,
-      "sell": 2704.34
+      "transfer_buy": 2592.42,
+      "sell": 2702.38
     },
     {
       "currency": "SGD",
       "name": "SINGAPORE DOLLAR    ",
-      "cash_buy": 19858,
-      "transfer_buy": 20058.58,
-      "sell": 20742.77
+      "cash_buy": 19860.96,
+      "transfer_buy": 20061.58,
+      "sell": 20745.86
     },
     {
       "currency": "THB",
       "name": "THAILAND BAHT       ",
-      "cash_buy": 689.49,
-      "transfer_buy": 766.1,
-      "sell": 798.59
+      "cash_buy": 690.79,
+      "transfer_buy": 767.55,
+      "sell": 800.1
     },
     {
       "currency": "USD",
       "name": "US DOLLAR           ",
-      "cash_buy": 25790,
-      "transfer_buy": 25820,
-      "sell": 26200
+      "cash_buy": 25800,
+      "transfer_buy": 25830,
+      "sell": 26210
     }
   ],
   "message": "Tỷ giá Vietcombank được Open Phu Quoc đồng bộ tự động từ feed chính thức."
