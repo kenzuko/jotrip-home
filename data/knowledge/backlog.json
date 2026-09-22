@@ -37,11 +37,11 @@
       "ACTIVITY": 15,
       "MEMORY_CHANGE": 12
     },
-    "linked_to_canonical_entity": 42,
-    "unlinked": 108,
-    "ready_internal": 124,
-    "queued": 6,
-    "hold": 20
+    "linked_to_canonical_entity": 43,
+    "unlinked": 107,
+    "ready_internal": 126,
+    "queued": 3,
+    "hold": 21
   },
   "topics": [
     {
@@ -3606,9 +3606,9 @@
       "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
       "topic_type": "MEMORY_CHANGE",
       "crawl_brief": "Maps, shoreline imagery, roads, access.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "place_bai_truong",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3632,7 +3632,7 @@
       "crawl_brief": "Location, period, photos, what replaced them.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3656,7 +3656,7 @@
       "crawl_brief": "Maps, key roads, expansion milestones.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
