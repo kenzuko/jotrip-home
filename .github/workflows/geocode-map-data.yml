@@ -50,6 +50,7 @@ jobs:
         if: steps.key.outputs.ready == 'true'
         run: |
           node scripts/build-map-coverage.mjs
+          node scripts/build-location-index.mjs
           node scripts/build-search-index.mjs
           node scripts/validate-data.mjs
           node scripts/validate-home-support.mjs
