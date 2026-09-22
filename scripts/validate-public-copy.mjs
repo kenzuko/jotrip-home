@@ -28,7 +28,8 @@ const files=[
   "ferry/app.js",
   "transit/index.html",
   "transit/app.js",
-  "about/index.html"
+  "about/index.html",
+  "stories/story.js"
 ];
 
 const banned=[
@@ -57,7 +58,8 @@ const banned=[
   "Chưa có giá chuẩn hóa",
   "LẦN KIỂM TRA",
   "ĐO THỰC",
-  "CẦN CẬP NHẬT"
+  "CẦN CẬP NHẬT",
+  "Nguồn tham khảo"
 ];
 
 const violations=[];
