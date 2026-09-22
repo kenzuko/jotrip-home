@@ -8074,6 +8074,263 @@
         ]
       },
       "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_109_nguyen-trung-truc-va-phu-quoc",
+      "number": 109,
+      "title": "Nguyễn Trung Trực và Phú Quốc",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "DOCUMENTED_HISTORY",
+      "research": {
+        "claims": [
+          {
+            "claim": "Sau khi đánh đồn Kiên Giang năm 1868, Nguyễn Trung Trực rút về Hòn Chông rồi ra Phú Quốc lập căn cứ tiếp tục chống Pháp.",
+            "source_ids": [
+              "archives_nguyen_trung_truc_chau_ban",
+              "vnmh_nguyen_trung_truc_1868"
+            ],
+            "verification_status": "VERIFIED_HISTORICAL_RECORD",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nguồn lưu trữ cho biết khi lực lượng Pháp bao vây Phú Quốc, nghĩa quân lâm vào tình trạng thiếu lương thực, nước uống và đạn dược; Nguyễn Trung Trực ra đầu hàng ngày 19/9/1868.",
+            "source_ids": [
+              "archives_nguyen_trung_truc_chau_ban"
+            ],
+            "verification_status": "VERIFIED_ARCHIVAL_NARRATIVE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Một số chi tiết về lý do trực tiếp ông nộp mình có dị bản: có nguồn kể để cứu dân và nghĩa quân khỏi bị liên lụy, nguồn khác nói vì mẹ bị bắt. Không nên chọn một dị bản làm sự thật duy nhất.",
+            "source_ids": [
+              "vnmh_nguyen_trung_truc_1868",
+              "archives_nguyen_trung_truc_chau_ban"
+            ],
+            "verification_status": "DISPUTED_DETAIL",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "archives_nguyen_trung_truc_chau_ban",
+            "source_type": "NATIONAL_ARCHIVES",
+            "label": "Cục Văn thư và Lưu trữ Nhà nước - Châu bản triều Nguyễn về anh hùng Nguyễn Trung Trực",
+            "url": "https://www.archives.org.vn/gioi-thieu-tai-lieu-nghiep-vu/chau-ban-trieu-nguyen-ve-anh-hung-nguyen-trung-truc.htm",
+            "published_at": "2020-07-14",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vnmh_nguyen_trung_truc_1868",
+            "source_type": "NATIONAL_MUSEUM",
+            "label": "Bảo tàng Lịch sử Quốc gia - Khởi nghĩa Nguyễn Trung Trực (1861-1868)",
+            "url": "https://baotanglichsu.vn/VI/Articles/3097/15075/khoi-nghia-nguyen-trung-truc-1861-1868-bao-gio-nuoc-nam-het-co-thi-moi-het-nguoi-nam-djanh-tay.html",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa tạo canonical entity riêng cho căn cứ/đền thờ Nguyễn Trung Trực trên Phú Quốc trong entity layer.",
+          "Chi tiết chính xác địa điểm bị bắt/nộp mình trên đảo và động cơ trực tiếp cần đối chiếu thêm tài liệu Pháp - Việt nếu public thành timeline chi tiết.",
+          "Không trộn lễ hội tưởng niệm hiện nay với timeline hoạt động quân sự năm 1868."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Phú Quốc là chặng cuối trong cuộc kháng chiến của Nguyễn Trung Trực. Sau trận đánh đồn Kiên Giang năm 1868, ông rút về Hòn Chông rồi ra đảo lập căn cứ. Khi bị bao vây và nguồn tiếp tế cạn dần, ông bị bắt hoặc nộp mình - chi tiết này còn có dị bản giữa các nguồn.",
+        "practical": "Nếu kể cho khách, nên giữ timeline chính: Kiên Giang - Hòn Chông - Phú Quốc - bị bắt/nộp mình - đưa về xử tử ở Rạch Giá. Phần lý do ông nộp mình cần nói là có nhiều cách ghi khác nhau.",
+        "expectation_vs_reality": "Điều chắc là Phú Quốc là căn cứ cuối của Nguyễn Trung Trực. Điều chưa nên kể tuyệt đối là một phiên bản duy nhất về việc ông ra hàng vì mẹ, vì dân hay vì nghĩa quân đã cạn lương.",
+        "before_you_go": [
+          "Tách sự kiện lịch sử năm 1868 khỏi lễ hội tưởng niệm hiện nay.",
+          "Không biến dị bản dân gian thành chi tiết lịch sử chắc chắn.",
+          "Nếu làm timeline công khai, ghi rõ ngày theo nguồn và tránh trộn lịch âm - dương."
+        ],
+        "curiosity_questions": [
+          "Vì sao Nguyễn Trung Trực chọn Phú Quốc làm căn cứ cuối?",
+          "Các nguồn khác nhau kể thế nào về việc ông bị bắt hay nộp mình?",
+          "Căn cứ của nghĩa quân trên Phú Quốc nằm ở khu vực nào?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_117_ba-kim-giao",
+      "number": 117,
+      "title": "Bà Kim Giao",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LEGEND",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn chính quyền Phú Quốc ghi Bà Kim Giao là nhân vật lịch sử đã đi vào truyền thuyết dân gian và được xem là người có công khai phá đảo; truyền thuyết kể bà thuộc dòng dõi hoàng tộc Chân Lạp, sang Phú Quốc sau biến động chính trị.",
+            "source_ids": [
+              "pqgov_giai_thoai_truyen_thuyet"
+            ],
+            "verification_status": "VERIFIED_AS_RECORDED_FOLKLORE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Cùng nguồn này ghi các địa danh Đồng Bà, Búng Dinh Bà và hai Dinh Bà ở Cửa Cạn và khu Dương Đông như những dấu vết gắn với truyền thuyết và tín ngưỡng về bà.",
+            "source_ids": [
+              "pqgov_giai_thoai_truyen_thuyet",
+              "visitpq_thuy_long_thanh_mau_2026"
+            ],
+            "verification_status": "VERIFIED_CURRENT_LOCAL_TRADITION",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Truyền thuyết còn kể Bà Kim Giao từng giúp lương thực cho Nguyễn Ánh khi ông lánh nạn Tây Sơn trên đảo; chi tiết này chưa được khóa bằng sử liệu sơ cấp.",
+            "source_ids": [
+              "pqgov_giai_thoai_truyen_thuyet"
+            ],
+            "verification_status": "FOLKLORE_NOT_HISTORICAL_PROOF",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_giai_thoai_truyen_thuyet",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Những giai thoại, truyền thuyết trên đảo ngọc Phú Quốc",
+            "url": "https://phuquoc.angiang.gov.vn/nhung-giai-thoai-truyen-thuyet-tren-dao-ngoc-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_thuy_long_thanh_mau_2026",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Lễ hội Thủy Long Thánh Mẫu",
+            "url": "https://visitphuquoc.com.vn/vi/le-hoi-thuy-long-thanh-mau-tri-an-than-nu-khai-hoang-dao-ngoc-8394",
+            "published_at": "2026-04-15",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có sử liệu sơ cấp đủ mạnh để xác nhận tiểu sử Bà Kim Giao, xuất thân hoàng tộc Chân Lạp hay niên đại khai phá như một nhân vật lịch sử theo nghĩa chặt.",
+          "Một số bài du lịch hiện hành kể không thống nhất về quan hệ thân thế của Bà Kim Giao; không dùng các quan hệ gia đình này nếu chưa có nguồn lịch sử độc lập.",
+          "Cần tách Bà Kim Giao trong truyền thuyết khai hoang với lớp tín ngưỡng Thủy Long Thánh Mẫu hiện nay, dù hai hình tượng được đồng nhất trong thực hành địa phương."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Bà Kim Giao là một trong những nhân vật đặc biệt nhất trong ký ức dân gian Phú Quốc. Người địa phương thờ bà dưới hình tượng Thủy Long Thánh Mẫu và kể rằng bà từng khai khẩn đất, lập dinh trại, chăn nuôi và giúp mở mang vùng đảo. Phần tiểu sử cụ thể của bà vẫn thuộc lớp truyền thuyết nhiều hơn là lịch sử đã được chứng minh.",
+        "practical": "Khi ghé Dinh Bà, nên nhìn đây là một tín ngưỡng địa phương đang sống. Nội dung cho khách cần dùng các từ 'tương truyền', 'dân gian kể' ở những đoạn nói về xuất thân và công cuộc khai phá.",
+        "expectation_vs_reality": "Bà Kim Giao vừa được nhắc như người khai phá, vừa được thờ như Thủy Long Thánh Mẫu. Hai lớp này hòa vào nhau trong ký ức cộng đồng, nhưng không có nghĩa mọi chi tiết tiểu sử đều là sử kiện.",
+        "before_you_go": [
+          "Không kể xuất thân hoàng tộc Chân Lạp như fact tuyệt đối.",
+          "Không gán quan hệ gia đình với nhân vật lịch sử khác nếu nguồn đang mâu thuẫn.",
+          "Khi tham quan Dinh Bà, giữ thái độ như tại một nơi thờ tự đang hoạt động."
+        ],
+        "curiosity_questions": [
+          "Đồng Bà và Búng Dinh Bà còn lưu dấu gì của câu chuyện Kim Giao?",
+          "Vì sao Bà Kim Giao lại được đồng nhất với Thủy Long Thánh Mẫu?",
+          "Nguồn nào sớm nhất ghi lại truyền thuyết về bà?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_118_cac-giai-thoai-ve-nguyen-anh-tren-dao",
+      "number": 118,
+      "title": "Các giai thoại về Nguyễn Ánh trên đảo",
+      "topic_type": "HISTORY_LORE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [
+        "place_gieng_tien"
+      ],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "LEGEND_COLLECTION",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nguồn chính quyền Phú Quốc ghi lại một cụm truyền thuyết quanh Giếng Tiên: Nguyễn Ánh cắm kiếm xuống đá cầu nước ngọt, nước trào lên và cá cơm xuất hiện giúp quân sĩ vượt qua thiếu thốn.",
+            "source_ids": [
+              "pqgov_giai_thoai_truyen_thuyet"
+            ],
+            "verification_status": "VERIFIED_AS_RECORDED_FOLKLORE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Cùng nguồn ghi các dấu vết dân gian được gắn với vua Gia Long như ghế ngự, vết kiếm, dấu chân và câu chuyện Mũi Ông Đội về viên tướng hộ giá hy sinh khi nhổ neo cứu vua.",
+            "source_ids": [
+              "pqgov_giai_thoai_truyen_thuyet",
+              "visitpq_mui_ong_doi_20260820"
+            ],
+            "verification_status": "VERIFIED_AS_RECORDED_FOLKLORE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Sử liệu độc lập xác nhận Nguyễn Ánh thực sự nhiều lần bôn tẩu đến Phú Quốc trong giai đoạn 1782-1783, nhưng không xác nhận các chi tiết kỳ lạ của Giếng Tiên hay từng dấu tích dân gian.",
+            "source_ids": [
+              "vnmh_nguyen_anh_phu_quoc",
+              "archives_hoangtu_phuquoc"
+            ],
+            "verification_status": "HISTORY_SEPARATED_FROM_FOLKLORE",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_giai_thoai_truyen_thuyet",
+            "source_type": "OFFICIAL_GOVERNMENT",
+            "label": "Đặc khu Phú Quốc - Những giai thoại, truyền thuyết trên đảo ngọc Phú Quốc",
+            "url": "https://phuquoc.angiang.gov.vn/nhung-giai-thoai-truyen-thuyet-tren-dao-ngoc-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "visitpq_mui_ong_doi_20260820",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Khám phá lịch sử Mũi Ông Đội qua những dấu ấn đặc biệt",
+            "url": "https://visitphuquoc.com.vn/vi/kham-pha-lich-su-mui-ong-doi-qua-nhung-dau-an-dac-biet-14483",
+            "published_at": "2026-08-20",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "vnmh_nguyen_anh_phu_quoc",
+            "source_type": "NATIONAL_MUSEUM",
+            "label": "Bảo tàng Lịch sử Quốc gia - Theo dấu người xưa: Chúa Nguyễn ở Phú Quốc",
+            "url": "https://baotanglichsu.vn/vi/Articles/3096/13541/theo-dau-nguoi-xua-ky-29-ngoi-chua-cua-an-nhan-chua-nguyen.html",
+            "published_at": "2013-01-22",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "archives_hoangtu_phuquoc",
+            "source_type": "NATIONAL_ARCHIVES",
+            "label": "Cục Văn thư và Lưu trữ Nhà nước - Ngôi mộ và miếu Hoàng tử ở đảo Phú Quốc từ truyền thuyết đến hiện thực qua tài liệu Châu bản",
+            "url": "https://www.archives.org.vn/gioi-thieu-tai-lieu-nghiep-vu/ngoi-mo-va-mieu-hoang-tu-o-dao-phu-quoc-tu-truyen-thuyet-den-hien-thuc-qua-tai-lieu-chau-ban.htm",
+            "published_at": "2018-12-12",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có một corpus đầy đủ các dị bản theo từng làng/khu vực và người kể; object này mới khóa các giai thoại đã được nguồn chính thức ghi lại.",
+          "Không suy mọi địa danh có chữ 'Ngự', 'Gia Long' hay 'Ông Đội' là bằng chứng Nguyễn Ánh từng đứng đúng tại điểm đó.",
+          "Một số bài du lịch kể chi tiết rất cụ thể về lời khấn, thời điểm, hành động của nhân vật; các chi tiết này phải giữ nhãn truyền thuyết nếu không có sử liệu độc lập."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Phú Quốc có một lớp truyện dân gian rất dày quanh thời Nguyễn Ánh bôn tẩu: Giếng Tiên, dấu kiếm, ghế ngự, dấu chân và Mũi Ông Đội. Cái nền lịch sử là có thật - Nguyễn Ánh từng nhiều lần tới đảo - nhưng những chi tiết kỳ lạ quanh từng địa điểm thuộc về ký ức và truyền thuyết địa phương.",
+        "practical": "Cách kể hay nhất cho khách là chia hai lớp: trước tiên nói phần sử liệu xác nhận Nguyễn Ánh từng ở Phú Quốc, sau đó mới kể từng giai thoại với câu mở như 'người địa phương kể rằng...'.",
+        "expectation_vs_reality": "Giai thoại làm cho địa điểm có chiều sâu, nhưng không phải bằng chứng khảo cổ hay sử liệu. Một vết đá được gọi là 'vết kiếm' có giá trị như ký ức cộng đồng, không nên mô tả như hiện vật đã được chứng minh.",
+        "before_you_go": [
+          "Luôn gắn nhãn truyền thuyết cho Giếng Tiên, dấu kiếm, ghế ngự và câu chuyện Ông Đội.",
+          "Không lấy chi tiết từ một bài du lịch rồi biến thành timeline lịch sử.",
+          "Nếu kể nhiều dị bản, nói rõ chúng có thể khác nhau theo nguồn và người kể."
+        ],
+        "curiosity_questions": [
+          "Vì sao ký ức về Nguyễn Ánh tập trung dày ở Nam đảo?",
+          "Giếng Tiên có gì là địa điểm thật và gì là lớp truyền thuyết?",
+          "Mũi Ông Đội được kể lại như thế nào trong các nguồn khác nhau?"
+        ]
+      },
+      "updated_at": "2026-09-22"
     }
   ]
 }
