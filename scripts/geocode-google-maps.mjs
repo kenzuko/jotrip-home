@@ -25,6 +25,22 @@ function queryFor(entity){
   return [...new Set(parts.map(x=>String(x).trim()).filter(Boolean))].join(", ");
 }
 
+function cleanLegacyAddress(address=""){
+  return String(address)
+    .replace(/Đặc khu Phú Quốc/gi,"Phú Quốc")
+    .replace(/thành phố Phú Quốc/gi,"Phú Quốc")
+    .replace(/tỉnh An Giang/gi,"")
+    .replace(/An Giang/gi,"")
+    .replace(/tỉnh Kiên Giang/gi,"")
+    .replace(/Kiên Giang/gi,"")
+    .replace(/\s+,/g,",")
+    .replace(/,+/g,",")
+    .replace(/\s{2,}/g," ")
+    .trim()
+    .replace(/^,|,$/g,"")
+    .trim();
+}
+
 function precisionForGoogleTypes(types=[]){
   const broad=new Set(["locality","administrative_area_level_1","administrative_area_level_2","administrative_area_level_3","route","neighborhood","sublocality"]);
   return types.some(x=>broad.has(x))?"area_anchor":"site_centroid";
@@ -32,7 +48,8 @@ function precisionForGoogleTypes(types=[]){
 
 function precisionForNominatim(result){
   const broadTypes=new Set(["administrative","village","town","city","suburb","neighbourhood","quarter","residential","road","hamlet","island","beach"]);
-  if(broadTypes.has(result.type)||result.class==="boundary"||result.class==="place")return"area_anchor";
+  const broadClasses=new Set(["boundary","place","highway"]);
+  if(broadTypes.has(result.type)||broadClasses.has(result.class))return"area_anchor";
   return"site_centroid";
 }
 
@@ -102,10 +119,9 @@ async function googleGeocode(address){
   };
 }
 
-async function nominatimSearch(entity){
-  if(!entity.address)return null;
+async function nominatimQuery(q){
   const url=new URL("https://nominatim.openstreetmap.org/search");
-  url.searchParams.set("q",queryFor(entity));
+  url.searchParams.set("q",q);
   url.searchParams.set("format","jsonv2");
   url.searchParams.set("limit","5");
   url.searchParams.set("addressdetails","1");
@@ -117,7 +133,8 @@ async function nominatimSearch(entity){
     headers:{
       "User-Agent":"OpenPhuQuoc/1.0 (https://openphuquoc.com)",
       "Accept-Language":"vi,en;q=0.8"
-    }
+    },
+    signal:AbortSignal.timeout(12000)
   });
   if(!response.ok)throw new Error("Nominatim HTTP "+response.status);
   const payload=await response.json();
@@ -139,6 +156,71 @@ async function nominatimSearch(entity){
   return result||null;
 }
 
+async function nominatimSearch(entity){
+  if(!entity.address)return null;
+  const cleaned=cleanLegacyAddress(entity.address);
+  const queries=[
+    [entity.name,"Phú Quốc","Việt Nam"].filter(Boolean).join(", "),
+    [cleaned,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")
+  ];
+  for(const q of [...new Set(queries)]){
+    try{
+      const result=await nominatimQuery(q);
+      if(result)return result;
+    }catch(error){
+      console.warn("WARN Nominatim query",entity.id,q,error.message);
+    }
+  }
+  return null;
+}
+
+async function photonSearch(entity){
+  const cleaned=cleanLegacyAddress(entity.address);
+  const queries=[
+    [entity.name,"Phu Quoc","Vietnam"].filter(Boolean).join(", "),
+    [cleaned,"Phu Quoc","Vietnam"].filter(Boolean).join(", ")
+  ];
+  for(const q of [...new Set(queries)]){
+    try{
+      const url=new URL("https://photon.komoot.io/api/");
+      url.searchParams.set("q",q);
+      url.searchParams.set("limit","5");
+      url.searchParams.set("lat","10.227");
+      url.searchParams.set("lon","103.967");
+      const response=await fetch(url,{
+        headers:{"User-Agent":"OpenPhuQuoc/1.0 (https://openphuquoc.com)"},
+        signal:AbortSignal.timeout(12000)
+      });
+      if(!response.ok)continue;
+      const payload=await response.json();
+      const feature=(payload.features||[]).find(f=>{
+        const lon=Number(f.geometry?.coordinates?.[0]),lat=Number(f.geometry?.coordinates?.[1]);
+        return inPhuQuoc(lat,lon);
+      });
+      if(feature){
+        const p=feature.properties||{};
+        return{
+          resolver:"OSM_PHOTON",
+          source_id:"osm_photon_geocode",
+          source:"OpenStreetMap Photon location geocoding",
+          place_id:null,
+          osm_type:p.osm_type||null,
+          osm_id:p.osm_id||null,
+          name:p.name||null,
+          formatted_address:[p.housenumber,p.street,p.district,p.city,p.county,p.state,p.country].filter(Boolean).join(", "),
+          lat:Number(feature.geometry.coordinates[1]),
+          lon:Number(feature.geometry.coordinates[0]),
+          class:p.osm_key||null,
+          type:p.osm_value||null
+        };
+      }
+    }catch(error){
+      console.warn("WARN Photon",entity.id,q,error.message);
+    }
+  }
+  return null;
+}
+
 async function resolveEntity(entity){
   const query=queryFor(entity);
   let match=null;
@@ -155,6 +237,11 @@ async function resolveEntity(entity){
   if(!match&&entity.address){
     try{match=await nominatimSearch(entity)}catch(error){
       console.warn("WARN Nominatim",entity.id,error.message);
+    }
+  }
+  if(!match&&entity.address){
+    try{match=await photonSearch(entity)}catch(error){
+      console.warn("WARN Photon",entity.id,error.message);
     }
   }
   return {query,match};
