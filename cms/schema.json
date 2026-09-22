@@ -81,6 +81,17 @@
       "write": [
         "admin"
       ]
+    },
+    {
+      "id": "analytics",
+      "label": "Analytics",
+      "description": "Intelligence nội bộ: khách vào đảo, tàu/phà, hàng không và sức khỏe dữ liệu",
+      "path": null,
+      "preview": null,
+      "read": [
+        "admin"
+      ],
+      "write": []
     }
   ]
 }
