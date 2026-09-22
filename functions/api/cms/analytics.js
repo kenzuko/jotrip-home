@@ -482,7 +482,7 @@ function currentAviationSummary(rows=[]){
 async function dashboardFromDb(db,transitSync,aviationSync,seaLoadSync,fromDay,toDay){
   let seaRows=transitSync.rows||[];
   let airRows=aviationSync.rows||[];
-  let trends=[],sync=[],routeLoads=[],operatorLoads=[],tripLoads=[],comparison={};
+  let trends=[],sync=[],routeLoads=[],operatorLoads=[],tripLoads=[],comparison={},seaRoutes=[],airlines=[],stations=[],airStatus={},loadTrends=[];
 
   if(db){
     if(!seaRows.length){
@@ -584,6 +584,95 @@ async function dashboardFromDb(db,transitSync,aviationSync,seaLoadSync,fromDay,t
       LIMIT 300
     `).bind(fromDay,toDay).all()).results||[];
 
+    seaRoutes=(await db.prepare(`
+      SELECT operator,origin,destination,
+        COUNT(DISTINCT service_date||'|'||departure_time) trips
+      FROM transit_observations
+      WHERE service_date BETWEEN ? AND ?
+      GROUP BY operator,origin,destination
+      ORDER BY trips DESC,operator,origin,destination
+      LIMIT 40
+    `).bind(fromDay,toDay).all()).results||[];
+
+    airlines=(await db.prepare(`
+      WITH ranked AS (
+        SELECT *,
+          ROW_NUMBER() OVER (
+            PARTITION BY service_date,direction,flight_number,scheduled_time
+            ORDER BY observed_at DESC
+          ) rn
+        FROM aviation_observations
+        WHERE service_date BETWEEN ? AND ?
+      )
+      SELECT airline,COUNT(*) flights,
+        SUM(CASE WHEN lower(direction)='arrival' THEN 1 ELSE 0 END) arrivals,
+        SUM(CASE WHEN lower(direction)='departure' THEN 1 ELSE 0 END) departures
+      FROM ranked WHERE rn=1
+      GROUP BY airline
+      ORDER BY flights DESC,airline
+      LIMIT 30
+    `).bind(fromDay,toDay).all()).results||[];
+
+    stations=(await db.prepare(`
+      WITH ranked AS (
+        SELECT *,
+          ROW_NUMBER() OVER (
+            PARTITION BY service_date,direction,flight_number,scheduled_time
+            ORDER BY observed_at DESC
+          ) rn
+        FROM aviation_observations
+        WHERE service_date BETWEEN ? AND ?
+      )
+      SELECT station,COUNT(*) flights,
+        SUM(CASE WHEN lower(direction)='arrival' THEN 1 ELSE 0 END) arrivals,
+        SUM(CASE WHEN lower(direction)='departure' THEN 1 ELSE 0 END) departures
+      FROM ranked WHERE rn=1
+      GROUP BY station
+      ORDER BY flights DESC,station
+      LIMIT 30
+    `).bind(fromDay,toDay).all()).results||[];
+
+    airStatus=(await db.prepare(`
+      WITH ranked AS (
+        SELECT *,
+          ROW_NUMBER() OVER (
+            PARTITION BY service_date,direction,flight_number,scheduled_time
+            ORDER BY observed_at DESC
+          ) rn
+        FROM aviation_observations
+        WHERE service_date BETWEEN ? AND ?
+      )
+      SELECT
+        COUNT(*) flights,
+        SUM(CASE WHEN status LIKE '%DELAY%' OR status LIKE '%TRỄ%' OR status LIKE '%CHẬM%' OR status LIKE '%HOÃN%' THEN 1 ELSE 0 END) delayed,
+        SUM(CASE WHEN status LIKE '%CANCEL%' OR status LIKE '%HỦY%' THEN 1 ELSE 0 END) cancelled,
+        ROUND(AVG(CASE WHEN delay_minutes>0 THEN delay_minutes END),1) avg_delay_minutes
+      FROM ranked WHERE rn=1
+    `).bind(fromDay,toDay).first())||{};
+
+    loadTrends=(await db.prepare(`
+      WITH ranked AS (
+        SELECT *,
+          ROW_NUMBER() OVER (
+            PARTITION BY service_date,operator,origin,destination,departure_time
+            ORDER BY observed_at DESC
+          ) rn
+        FROM sea_load_observations
+        WHERE service_date BETWEEN ? AND ?
+      )
+      SELECT service_date day,
+        ROUND(
+          100.0*SUM(CASE WHEN capacity>0 AND remaining IS NOT NULL THEN capacity-remaining ELSE 0 END)/
+          NULLIF(SUM(CASE WHEN capacity>0 AND remaining IS NOT NULL THEN capacity ELSE 0 END),0),1
+        ) load_factor,
+        COUNT(*) trips,
+        SUM(CASE WHEN load_factor IS NOT NULL THEN 1 ELSE 0 END) load_trips
+      FROM ranked WHERE rn=1
+      GROUP BY service_date
+      ORDER BY service_date
+    `).bind(fromDay,toDay).all()).results||[];
+
+
     const span=diffDays(fromDay,toDay)+1;
     const prevTo=addDays(fromDay,-1);
     const prevFrom=addDays(prevTo,-span+1);
@@ -632,9 +721,17 @@ async function dashboardFromDb(db,transitSync,aviationSync,seaLoadSync,fromDay,t
       rows:seaRows.slice(0,160),
       route_loads:routeLoads,
       operator_loads:operatorLoads,
-      trip_loads:tripLoads
+      trip_loads:tripLoads,
+      route_volume:seaRoutes,
+      load_trends:loadTrends
     },
-    aviation:{summary:currentAviationSummary(airRows),rows:airRows.slice(0,180)},
+    aviation:{
+      summary:currentAviationSummary(airRows),
+      rows:airRows.slice(0,180),
+      airlines,
+      stations,
+      status_summary:airStatus
+    },
     trends,
     comparison,
     sync
