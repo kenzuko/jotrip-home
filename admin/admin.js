@@ -1148,132 +1148,28 @@ function renderSync(rows,storage){
   <div class="analytics-source-grid">${(rows||[]).map(x=>`<article><span>${esc(x.source||"Nguồn")}</span><strong class="${x.status==="ok"?"ok":"bad"}">${esc(String(x.status||"unknown").toUpperCase())}</strong><small>${fmtInt(x.records)} bản ghi · ${esc(fmtDateTime(x.last_success_at))}</small>${x.message?'<em>'+esc(x.message)+'</em>':""}</article>`).join("")}</div>`;
 }
 
-function a2Int(v){const n=Number(v);return Number.isFinite(n)?new Intl.NumberFormat("vi-VN").format(n):"—"}
-function a2Pct(v,d=0){const n=Number(v);return Number.isFinite(n)?n.toFixed(d)+"%":"—"}
-function a2Day(v){if(!v)return"—";const p=String(v).split("-");return p.length===3?p[2]+"/"+p[1]:String(v)}
-function a2Change(cur,prev){
-  const a=Number(cur)||0,b=Number(prev)||0;
-  if(!b)return a?"Mới có dữ liệu kỳ này":"Chưa đủ dữ liệu so sánh";
-  const p=(a-b)/b*100;
-  return Math.abs(p)<.5?"Gần như không đổi":(p>0?"Tăng ":"Giảm ")+Math.abs(p).toFixed(0)+"% so kỳ trước";
-}
-function a2Summary(d){
-  const c=d.comparison||{};
-  const routes=(d.sea?.route_loads||[]).filter(x=>Number.isFinite(Number(x.load_factor))).sort((a,b)=>Number(b.load_factor)-Number(a.load_factor));
-  const best=routes[0],covered=routes.reduce((s,x)=>s+(Number(x.load_trips)||0),0);
-  const items=[
-    ["Đường biển",a2Int(c.cur_sea_in)+" chuyến vào",a2Change(c.cur_sea_in,c.prev_sea_in)],
-    ["Hàng không",a2Int(c.cur_air_in)+" chuyến đến",a2Change(c.cur_air_in,c.prev_air_in)],
-    ["Tuyến phủ cao",best?best.origin+" → "+best.destination:"Chưa đủ dữ liệu",best?best.operator+" · "+a2Pct(best.load_factor):"Đang tích load"],
-    ["Load coverage",a2Int(covered)+" chuyến có %","Aggregate only · không có PII"]
-  ];
-  return '<div class="a2-summary">'+items.map(x=>'<article><span>'+esc(x[0])+'</span><strong>'+esc(x[1])+'</strong><small>'+esc(x[2])+'</small></article>').join("")+'</div>';
-}
-function a2Path(vals,w,h,p,max){
-  const step=vals.length>1?(w-p*2)/(vals.length-1):0;
-  return vals.map((v,i)=>{const x=p+i*step,y=h-p-(Math.max(0,Number(v)||0)/Math.max(1,max))*(h-p*2);return(i?"L":"M")+x.toFixed(1)+" "+y.toFixed(1)}).join(" ");
-}
-function a2Chart(rows,series){
-  if(!rows?.length)return '<div class="analytics-empty">Chưa đủ dữ liệu cho khoảng ngày này.</div>';
-  const w=760,h=210,p=28,max=Math.max(1,...series.flatMap(s=>rows.map(r=>Number(r[s.key])||0)));
-  const step=rows.length>1?(w-p*2)/(rows.length-1):0;
-  const paths=series.map(s=>'<path class="'+s.cls+'" d="'+a2Path(rows.map(r=>r[s.key]),w,h,p,max)+'"></path>').join("");
-  const labels=rows.map((r,i)=>{if(rows.length>12&&i%Math.ceil(rows.length/8)!==0&&i!==rows.length-1)return"";return '<text x="'+(p+i*step).toFixed(1)+'" y="'+(h-5)+'" text-anchor="middle">'+esc(a2Day(r.day))+'</text>'}).join("");
-  return '<div class="a2-chart"><div class="a2-legend">'+series.map(s=>'<span><i class="'+s.cls+'"></i>'+esc(s.label)+'</span>').join("")+'</div><svg viewBox="0 0 '+w+' '+h+'"><line class="grid" x1="'+p+'" x2="'+(w-p)+'" y1="'+(h-p)+'" y2="'+(h-p)+'"></line>'+paths+labels+'</svg></div>';
-}
-function a2LoadBars(rows,operatorOnly=false){
-  const list=(rows||[]).filter(x=>Number.isFinite(Number(x.load_factor))).slice(0,14);
-  if(!list.length)return '<div class="analytics-empty">Chưa có đủ capacity + remaining để tính % phủ.</div>';
-  return '<div class="a2-loadbars">'+list.map(r=>{const v=Math.max(0,Math.min(100,Number(r.load_factor)||0));const name=operatorOnly?r.operator:r.origin+" → "+r.destination;const sub=operatorOnly?a2Int(r.load_trips)+" / "+a2Int(r.trips)+" chuyến có %":r.operator+" · "+a2Int(r.load_trips)+" chuyến";return '<div class="a2-loadrow"><div><strong>'+esc(name)+'</strong><small>'+esc(sub)+'</small></div><div class="a2-track"><i style="width:'+v+'%"></i></div><b>'+a2Pct(v)+'</b></div>'}).join("")+'</div>';
-}
-function a2TripTable(rows){
-  const list=(rows||[]).slice(0,160);
-  if(!list.length)return '<div class="analytics-empty">Chưa có lịch sử % phủ theo chuyến.</div>';
-  return '<div class="analytics-table-wrap"><table class="analytics-table"><thead><tr><th>Ngày</th><th>Hãng</th><th>Tuyến</th><th>Giờ</th><th>Tàu</th><th>% phủ</th><th>Loại số</th></tr></thead><tbody>'+list.map(r=>'<tr><td>'+esc(a2Day(r.service_date))+'</td><td><strong>'+esc(r.operator||"—")+'</strong></td><td>'+esc((r.origin||"—")+" → "+(r.destination||"—"))+'</td><td>'+esc(fmtClock(r.departure_time))+'</td><td>'+esc(r.vessel||"—")+'</td><td>'+loadLabel(r.load_factor)+'</td><td><small>'+esc(r.evidence_class==="observed"?"Observed":r.evidence_class==="estimated"?"Estimated":"Proxy")+'</small></td></tr>').join("")+'</tbody></table></div>';
-}
-function a2Url(refresh){
-  const q=new URLSearchParams();
-  const f=$("#analyticsFrom")?.value||currentData?.period?.from,t=$("#analyticsTo")?.value||currentData?.period?.to;
-  if(f)q.set("from",f);if(t)q.set("to",t);if(refresh)q.set("refresh","1");
-  return API.analytics+"?"+q.toString();
-}
-async function a2Load(refresh=false){
-  status(refresh?"Đang đồng bộ nguồn live và D1...":"Đang tải Analytics...");
-  currentData=await api(a2Url(refresh));
-  renderAnalytics();
-  status(refresh?"Analytics đã cập nhật.":"Đã áp dụng khoảng ngày.","success");
-}
-function a2Quick(days){
-  const to=$("#analyticsTo")?.value||currentData?.period?.to;if(!to)return;
-  const d=new Date(to+"T12:00:00Z");d.setUTCDate(d.getUTCDate()-(days-1));
-  $("#analyticsFrom").value=d.toISOString().slice(0,10);a2Load(false);
-}
-
 function renderAnalytics(){
-  const d=currentData||{},sea=d.sea?.summary||{},air=d.aviation?.summary||{},p=d.period||{};
-  $("#editor").classList.add("analytics-editor");
-  $("#editor").innerHTML=`
-    <section class="analytics-head a2-head">
-      <div><span>OPEN PHU QUOC INTELLIGENCE</span><h2>Demand & Operations</h2><p>Phân tích khách vào - ra đảo theo thời gian. % phủ là aggregate load proxy, không phải dữ liệu cá nhân.</p></div>
-      <button id="analyticsRefresh" type="button" class="analytics-refresh">↻ Làm mới</button>
-    </section>
-
-    <section class="a2-filter">
-      <label><span>Từ ngày</span><input id="analyticsFrom" type="date" value="${esc(p.from||"")}"></label>
-      <label><span>Đến ngày</span><input id="analyticsTo" type="date" value="${esc(p.to||"")}"></label>
-      <button type="button" data-a2range="1">Hôm nay</button><button type="button" data-a2range="7">7 ngày</button><button type="button" data-a2range="30">30 ngày</button>
-      <button type="button" id="analyticsApply">Áp dụng</button><small>${a2Int(p.days)} ngày · tối đa 90 ngày</small>
-    </section>
-
-    <section class="analytics-panel">
-      <div class="analytics-panel-head"><div><span>TÓM TẮT ĐIỀU HÀNH</span><h3>Điều đáng chú ý</h3></div><small>So kỳ trước cùng số ngày</small></div>
-      ${a2Summary(d)}
-    </section>
-
-    <section class="analytics-kpis">
-      ${analyticsKpi("Chuyến biển hôm nay",a2Int(sea.departures),a2Int(sea.inbound_departures)+" vào · "+a2Int(sea.outbound_departures)+" ra")}
-      ${analyticsKpi("Hãng biển",a2Int(sea.operators),(sea.operator_names||[]).join(" · ")||"Chưa có")}
-      ${analyticsKpi("Chuyến bay hôm nay",a2Int(air.flights),a2Int(air.arrivals)+" đến · "+a2Int(air.departures)+" đi")}
-      ${analyticsKpi("Bất thường bay",a2Int((Number(air.delayed)||0)+(Number(air.cancelled)||0)),a2Int(air.delayed)+" trễ · "+a2Int(air.cancelled)+" hủy",(Number(air.delayed)||0)+(Number(air.cancelled)||0)>0?"watch":"")}
-      ${analyticsKpi("% phủ biển hiện có",a2Pct(sea.avg_load_factor_proxy),"Coverage "+a2Pct(sea.load_factor_coverage),Number(sea.load_factor_coverage)>0?"accent":"")}
-      ${analyticsKpi("Khoảng phân tích",a2Int(p.days)+" ngày",a2Day(p.from)+" → "+a2Day(p.to))}
-    </section>
-
-    <section class="analytics-grid-2 a2-charts">
-      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>SEA</span><h3>Chuyến biển vào - ra theo ngày</h3></div></div>
-        ${a2Chart(d.trends||[],[{key:"sea_in",label:"Vào đảo",cls:"sea-in"},{key:"sea_out",label:"Rời đảo",cls:"sea-out"}])}
-      </article>
-      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>AVIATION</span><h3>Chuyến bay đến - đi theo ngày</h3></div></div>
-        ${a2Chart(d.trends||[],[{key:"air_in",label:"Bay đến",cls:"air-in"},{key:"air_out",label:"Bay đi",cls:"air-out"}])}
-      </article>
-    </section>
-
-    <section class="analytics-grid-2">
-      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>LOAD FACTOR</span><h3>% phủ theo tuyến</h3></div><small>Capacity-weighted</small></div>${a2LoadBars(d.sea?.route_loads||[])}</article>
-      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>OPERATORS</span><h3>% phủ theo hãng</h3></div><small>Chỉ hãng đủ dữ liệu</small></div>${a2LoadBars(d.sea?.operator_loads||[],true)}</article>
-    </section>
-
-    <section class="analytics-panel">
-      <div class="analytics-panel-head"><div><span>TRIP LOAD</span><h3>% phủ từng chuyến</h3></div><small>Observed / Estimated / Proxy</small></div>
-      ${a2TripTable(d.sea?.trip_loads||[])}
-    </section>
-
-    <section class="analytics-grid-2">
-      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>SEA / TRANSIT</span><h3>Tàu & phà hôm nay</h3></div><small>${a2Int(sea.departures)} chuyến</small></div>${renderSeaTable(d.sea?.rows||[])}</article>
-      <article class="analytics-panel"><div class="analytics-panel-head"><div><span>AVIATION</span><h3>Hàng không hôm nay</h3></div><small>${a2Int(air.flights)} chuyến</small></div>${renderAviationTable(d.aviation?.rows||[])}</article>
-    </section>
-
-    <section class="analytics-panel">
-      <div class="analytics-panel-head"><div><span>DATA HEALTH</span><h3>Nguồn & lưu trữ</h3></div><small>Cập nhật ${esc(fmtDateTime(d.generated_at))}</small></div>
-      ${renderSync(d.sync||[],d.storage||{})}
-      <p class="analytics-note">${esc(d.evidence_note||"")}</p>
-    </section>`;
-
-  $("#analyticsRefresh")?.addEventListener("click",e=>{e.preventDefault();a2Load(true)});
-  $("#analyticsApply")?.addEventListener("click",e=>{e.preventDefault();a2Load(false)});
-  qsa("#editor [data-a2range]").forEach(b=>b.addEventListener("click",e=>{e.preventDefault();a2Quick(Number(b.dataset.a2range)||7)}));
+  if(!window.OPQAnalyticsV3){
+    $("#editor").innerHTML='<div class="status-bar error">Analytics V3 chưa tải được.</div>';
+    return;
+  }
+  window.OPQAnalyticsV3.mount({
+    getData:()=>currentData||{},
+    setData:(next)=>{currentData=next},
+    api,
+    endpoint:API.analytics,
+    status,
+    helpers:{
+      renderAviationTable,
+      renderSync,
+      fmtDateTime
+    }
+  });
 }
-async function refreshAnalytics(){return a2Load(true)}
+async function refreshAnalytics(){
+  if(!window.OPQAnalyticsV3)return;
+  return window.OPQAnalyticsV3.refresh();
+}
 
 function applyPermissions(){
   const writable=currentModule?.write?.includes(session.role);
@@ -1327,6 +1223,37 @@ async function api(url,opts={}){
   return b;
 }
 
+
+function navShort(label){
+  const words=String(label||"").trim().split(/\s+/).filter(Boolean);
+  if(!words.length)return "•";
+  if(words.length===1)return words[0].slice(0,2).toUpperCase();
+  return (words[0][0]+words[1][0]).toUpperCase();
+}
+function applySidebarState(collapsed){
+  const layout=$("#cmsLayout");
+  if(!layout)return;
+  layout.classList.toggle("side-collapsed",Boolean(collapsed));
+  const btn=$("#sideToggle");
+  if(btn){
+    btn.textContent=collapsed?"›":"‹";
+    btn.setAttribute("aria-label",collapsed?"Mở rộng menu":"Thu gọn menu");
+    btn.title=collapsed?"Mở rộng menu":"Thu gọn menu";
+  }
+}
+function bindSidebarToggle(){
+  const key="openpq_cms_sidebar_collapsed";
+  const initial=localStorage.getItem(key)==="1";
+  applySidebarState(initial);
+  const btn=$("#sideToggle");
+  if(!btn)return;
+  btn.onclick=()=>{
+    const next=!$("#cmsLayout")?.classList.contains("side-collapsed");
+    applySidebarState(next);
+    localStorage.setItem(key,next?"1":"0");
+  };
+}
+
 async function boot(){
   show("boot");
   let r;
@@ -1353,6 +1280,7 @@ async function boot(){
 
   renderNav();
   show("cms");
+  bindSidebarToggle();
 
   const first=schema.modules.find(m=>m.read.includes(session.role));
   if(first)selectModule(first.id);
@@ -1361,7 +1289,7 @@ async function boot(){
 function renderNav(){
   $("#moduleNav").innerHTML=schema.modules
     .filter(m=>m.read.includes(session.role))
-    .map(m=>'<button class="module-btn" data-id="'+esc(m.id)+'"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></button>')
+    .map(m=>'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>')
     .join("");
 
   document.querySelectorAll(".module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
