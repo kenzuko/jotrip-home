@@ -1,5 +1,5 @@
 const $=s=>document.querySelector(s);
-const $=s=>Array.from(document.querySelectorAll(s));
+const qsa=s=>Array.from(document.querySelectorAll(s));
 const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics"};
 
 let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null;
@@ -1271,7 +1271,7 @@ function renderAnalytics(){
 
   $("#analyticsRefresh")?.addEventListener("click",()=>a2Load(true));
   $("#analyticsApply")?.addEventListener("click",()=>a2Load(false));
-  $$("#editor [data-a2range]").forEach(b=>b.addEventListener("click",()=>a2Quick(Number(b.dataset.a2range)||7)));
+  $qsa("#editor [data-a2range]").forEach(b=>b.addEventListener("click",()=>a2Quick(Number(b.dataset.a2range)||7)));
 }
 async function refreshAnalytics(){return a2Load(true)}
 
