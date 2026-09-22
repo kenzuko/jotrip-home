@@ -1221,8 +1221,8 @@ function renderAnalytics(){
     <section class="a2-filter">
       <label><span>Từ ngày</span><input id="analyticsFrom" type="date" value="${esc(p.from||"")}"></label>
       <label><span>Đến ngày</span><input id="analyticsTo" type="date" value="${esc(p.to||"")}"></label>
-      <button data-a2range="1">Hôm nay</button><button data-a2range="7">7 ngày</button><button data-a2range="30">30 ngày</button>
-      <button id="analyticsApply">Áp dụng</button><small>${a2Int(p.days)} ngày · tối đa 90 ngày</small>
+      <button type="button" data-a2range="1">Hôm nay</button><button type="button" data-a2range="7">7 ngày</button><button type="button" data-a2range="30">30 ngày</button>
+      <button type="button" id="analyticsApply">Áp dụng</button><small>${a2Int(p.days)} ngày · tối đa 90 ngày</small>
     </section>
 
     <section class="analytics-panel">
@@ -1269,9 +1269,9 @@ function renderAnalytics(){
       <p class="analytics-note">${esc(d.evidence_note||"")}</p>
     </section>`;
 
-  $("#analyticsRefresh")?.addEventListener("click",()=>a2Load(true));
-  $("#analyticsApply")?.addEventListener("click",()=>a2Load(false));
-  qsa("#editor [data-a2range]").forEach(b=>b.addEventListener("click",()=>a2Quick(Number(b.dataset.a2range)||7)));
+  $("#analyticsRefresh")?.addEventListener("click",e=>{e.preventDefault();a2Load(true)});
+  $("#analyticsApply")?.addEventListener("click",e=>{e.preventDefault();a2Load(false)});
+  qsa("#editor [data-a2range]").forEach(b=>b.addEventListener("click",e=>{e.preventDefault();a2Quick(Number(b.dataset.a2range)||7)}));
 }
 async function refreshAnalytics(){return a2Load(true)}
 
