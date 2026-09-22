@@ -9418,7 +9418,7 @@
         ]
       },
       "editorial": {
-        "short_summary": "Hàm Ninh thay đổi dễ thấy nhất ở chỗ từng là biểu tượng của làng chài: cây cầu vươn ra biển. Trước cầu bê tông năm 2003, người dân đã góp sức làm cầu gỗ để ghe thuyền dễ cập. Cây cầu sau đó vừa phục vụ việc làm ăn, vừa trở thành chỗ khách nào ghé Hàm Ninh cũng muốn đi ra ngắm biển. Khi cầu xuống cấp và bị tháo dỡ vào 2020, làng mất đi không chỉ một điểm chụp hình mà còn một phần nhịp sinh hoạt ven nước.",
+        "short_summary": "Hàm Ninh thay đổi dễ thấy nhất ở chỗ từng là biểu tượng của làng chài: cây cầu vươn ra biển. Trước cầu bê tông năm 2003, người dân đã góp sức làm cầu gỗ để ghe thuyền dễ cập. Cây cầu sau đó vừa phục vụ việc làm ăn, vừa trở thành chỗ khách nào ghé Hàm Ninh cũng muốn đi ra ngắm biển. Khi cầu xuống cấp và bị tháo dỡ vào 2020, làng mất đi không chỉ một điểm chụp hình mà còn một địa điểm sinh hoạt địa phương.",
         "practical": "Mục này nên kể bằng ảnh cũ, sơ đồ mép nước và lời người dân hơn là dùng vài chữ 'trước - sau chỉnh trang'. Nếu chưa có ảnh đúng năm, cứ ghi rõ khoảng thời gian thay vì đoán.",
         "expectation_vs_reality": "Hàm Ninh không đơn giản là một làng chài được 'làm mới cho đẹp hơn'. Có những thay đổi giúp giao thông và dịch vụ tốt hơn, nhưng cũng có giai đoạn người dân mất một hạ tầng quen thuộc trong nhiều năm.",
         "before_you_go": [
@@ -9656,6 +9656,262 @@
           "Bãi Dài trước 2014 nhìn khác hôm nay ở những điểm nào?",
           "Việc các tổ hợp lớn xuất hiện đã thay đổi tuyến đường và thời gian khách ở Bắc đảo ra sao?",
           "Phần nào của Gành Dầu vẫn giữ nhịp làng biển bên cạnh khu du lịch lớn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_145_bai-truong-truoc-va-sau-resort-development",
+      "number": 145,
+      "title": "Bãi Trường trước và sau resort development",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": "place_bai_truong",
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy hoạch Bãi Trường từ trước làn sóng xây dựng lớn đã xác định khu vực này dài khoảng 11-12 km và là một trong hai trung tâm du lịch chính của đảo, với định hướng 5.000-5.200 phòng và khoảng 650-700 ha đất xây dựng đến năm 2020.",
+            "source_ids": [
+              "pqgov_bai_truong_plan"
+            ],
+            "verification_status": "OFFICIAL_PRE_DEVELOPMENT_BASELINE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Quy hoạch 2007 của Chính phủ đã đưa Bãi Trường vào nhóm khu vực phát triển du lịch biển và nghỉ dưỡng cao cấp, cho thấy quá trình chuyển đổi không bắt đầu từ một resort đơn lẻ mà từ định hướng phát triển cả dải bờ.",
+            "source_ids": [
+              "pm_decision_01_2007_phuquoc_tourism"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_HISTORY",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nghiên cứu Landsat 2003-2023 xác định vùng Bãi Trường là một trong các phân khu du lịch - đô thị chính và cho thấy đất xây dựng trên toàn đảo tăng mạnh trong giai đoạn 2013-2023, đặc biệt ở các vùng trung tâm và phía Nam.",
+            "source_ids": [
+              "nguyen_downes_2025_phuquoc_lulc"
+            ],
+            "verification_status": "PEER_REVIEWED_REMOTE_SENSING",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_bai_truong_plan",
+            "source_type": "OFFICIAL_URBAN_PLANNING",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch khu du lịch Bãi Trường",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-khu-du-lich-bai-truong",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pm_decision_01_2007_phuquoc_tourism",
+            "source_type": "OFFICIAL_GOVERNMENT_PLANNING",
+            "label": "Quyết định 01/2007/QĐ-TTg - Quy hoạch tổng thể phát triển du lịch đảo Phú Quốc 2006-2020",
+            "url": "https://vanban.chinhphu.vn/default.aspx?docid=19535&pageid=27160",
+            "published_at": "2007-01-08",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "nguyen_downes_2025_phuquoc_lulc",
+            "source_type": "PEER_REVIEWED_RESEARCH",
+            "label": "Nguyen Can Trong et al. - Tourism-Induced Land Use Transformations, Urbanisation, and Habitat Degradation in the Phu Quoc Special Economic Zone - Urban Science 9(1), 2025",
+            "url": "https://www.mdpi.com/2413-8851/9/1/11",
+            "published_at": "2025-01-06",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Chưa có bộ ảnh bờ biển cùng góc qua các mốc trước 2010, 2015 và hiện nay để thể hiện trực quan mức độ thay đổi của từng đoạn Bãi Trường.",
+          "Không quy mọi thay đổi của Bãi Trường cho resort. Sân bay mới, đường trục, đô thị Đường Bào - Suối Lớn và hạ tầng du lịch cùng tác động.",
+          "Không dùng tỷ lệ biến động đất toàn đảo để mô tả riêng Bãi Trường nếu nghiên cứu không tách số liệu cho phân khu."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Bãi Trường không đổi vì một khu nghỉ dưỡng nào đó xuất hiện trước. Cả dải bờ dài hơn 10 km đã được quy hoạch từ sớm thành một trung tâm du lịch lớn của đảo, rồi đường sá, sân bay, khu ở và các dự án nghỉ dưỡng cùng phát triển dần quanh nó. Vì vậy nhìn Bãi Trường hôm nay, điều thay đổi không chỉ là số khách sạn nhiều hơn mà là cả cách dải bờ này được kết nối và sử dụng.",
+        "practical": "Mục này nên làm bằng bản đồ và ảnh vệ tinh theo từng đoạn bờ. Bãi Trường quá dài để lấy một resort hoặc một bức ảnh rồi gọi là 'Bãi Trường trước và sau'.",
+        "expectation_vs_reality": "Bãi Trường không phải một bãi biển liền mạch có cùng cảnh quan và mức độ phát triển. Có đoạn tập trung resort, có đoạn gắn với khu dân cư và đường ra biển, có đoạn thay đổi ít hơn.",
+        "before_you_go": [
+          "Khi dùng ảnh cũ, ghi rõ đoạn nào của Bãi Trường và năm chụp.",
+          "Không dùng một dự án làm đại diện cho cả dải 11-12 km.",
+          "Nếu so đường bờ, giữ cùng phạm vi và tỷ lệ bản đồ."
+        ],
+        "curiosity_questions": [
+          "Bãi Trường năm 2005 nhìn khác hôm nay ở những đoạn nào?",
+          "Sân bay mới và các tuyến đường lớn đã làm luồng phát triển quanh Bãi Trường thay đổi ra sao?",
+          "Đoạn nào của Bãi Trường vẫn còn cảm giác ít xây dựng hơn?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_146_cac-ben-tau-cu",
+      "number": 146,
+      "title": "Các bến tàu cũ",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "HOLD",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Tư liệu quy hoạch xác nhận Dương Đông và An Thới từng/đang giữ vai trò cảng tổng hợp phục vụ đời sống, sản xuất và vận chuyển; Hàm Ninh và Bãi Vòng cũng là các điểm cảng quan trọng ở phía Đông đảo.",
+            "source_ids": [
+              "pqgov_transport_plan",
+              "pqgov_landuse_2026_2030"
+            ],
+            "verification_status": "OFFICIAL_PORT_NETWORK_RECORD",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Nguồn hiện có chưa đủ để dựng danh mục 'các bến tàu cũ' theo đúng yêu cầu lịch sử: vị trí chính xác, thời gian hoạt động, tuyến tàu, loại tàu và công trình nào thay thế từng bến.",
+            "source_ids": [
+              "pqgov_transport_plan",
+              "pqgov_landuse_2026_2030"
+            ],
+            "verification_status": "EVIDENCE_LIMITATION",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pqgov_transport_plan",
+            "source_type": "OFFICIAL_TRANSPORT_PLANNING",
+            "label": "Đặc khu Phú Quốc - Định hướng quy hoạch giao thông",
+            "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-giao-thong",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pqgov_landuse_2026_2030",
+            "source_type": "OFFICIAL_LAND_USE_REPORT",
+            "label": "Báo cáo điều chỉnh quy hoạch sử dụng đất Phú Quốc 2026-2030 - hệ thống cảng",
+            "url": "https://phuquoc.angiang.gov.vn/sites/default/files/OldFiles/BAOCAO_DCQHSDD_PHUQUOC_2026_2030%20%28LYK%29.pdf",
+            "published_at": "2025",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Cần bản đồ/hải đồ và hồ sơ giao thông theo từng thời kỳ để xác định chính xác các bến cũ tại Dương Đông, An Thới, Hàm Ninh, Bãi Vòng và các điểm nhỏ hơn.",
+          "Cần ảnh cũ có niên đại hoặc tư liệu báo chí/lưu trữ cho biết khi nào từng bến ngừng phục vụ hành khách hay chuyển công năng.",
+          "Không gọi một cầu cá, cầu dân sinh, cảng hàng hóa và bến tàu khách là cùng một loại công trình."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Phú Quốc từng có nhiều điểm xuống tàu gắn với từng hướng đi và từng loại hoạt động, nhưng hiện chưa đủ tư liệu để kể thành một bản đồ 'bến cũ' cho đúng. Dương Đông, An Thới, Hàm Ninh và Bãi Vòng đều có lịch sử giao thông đường thủy riêng, nhưng mỗi nơi cần được xác định lại bằng bản đồ, ảnh và hồ sơ cùng thời.",
+        "practical": null,
+        "expectation_vs_reality": "Một bến tàu cũ không nhất thiết biến mất hoàn toàn. Có nơi đổi công năng, có nơi được xây lại, có nơi tuyến khách chuyển sang cảng khác. Vì vậy cần theo từng bến thay vì kể chung.",
+        "before_you_go": [],
+        "curiosity_questions": [
+          "Trước Bãi Vòng, khách từ đất liền thường xuống đảo ở đâu?",
+          "Bến Dương Đông từng phục vụ những tuyến nào?",
+          "An Thới từng tách bến khách, cảng cá và cảng hàng hóa ra sao?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan",
+      "number": 147,
+      "title": "Đường sá Phú Quốc qua các giai đoạn",
+      "topic_type": "MEMORY_CHANGE",
+      "canonical_entity_id": null,
+      "related_entity_ids": [],
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "CHANGE_OVER_TIME",
+      "research": {
+        "claims": [
+          {
+            "claim": "Đề án phát triển Phú Quốc năm 2004 đặt trọng tâm vào nâng cấp các tuyến đường hiện có và xây dựng mới đường vòng quanh đảo, trục Nam - Bắc cùng các đường nhánh tới khu dân cư và điểm du lịch.",
+            "source_ids": [
+              "pm_decision_178_2004_phuquoc"
+            ],
+            "verification_status": "OFFICIAL_INFRASTRUCTURE_BASELINE",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Quy hoạch giao thông bền vững năm 2006 xác định trục Nam - Bắc An Thới - Dương Đông - Suối Cái - Bãi Thơm dài khoảng 49 km, đường vòng đảo khoảng 132 km và 17 tuyến nhánh dài tổng cộng 87,1 km, trong đó 11 tuyến là nâng cấp đường có sẵn.",
+            "source_ids": [
+              "pm_decision_14_2006_transport"
+            ],
+            "verification_status": "OFFICIAL_TRANSPORT_PLAN",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Đề án môi trường năm 2008 yêu cầu giảm quy mô mở đường trong vùng Vườn Quốc gia và khu nhạy cảm, ưu tiên giữ hiện trạng rồi nâng cấp/bê tông hóa thay vì mở rộng bằng mọi giá.",
+            "source_ids": [
+              "pm_decision_137_2008_environment"
+            ],
+            "verification_status": "OFFICIAL_ENVIRONMENTAL_CONSTRAINT",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Quy hoạch chung năm 2010 tiếp tục đặt trục Bắc - Nam, đường vòng đảo, tuyến Dương Đông - Hàm Ninh và các nhánh đi Gành Dầu, Bãi Thơm, Bãi Vòng vào khung hạ tầng chính của đảo.",
+            "source_ids": [
+              "pm_decision_633_2010_generalplan"
+            ],
+            "verification_status": "OFFICIAL_PLANNING_CONTINUITY",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "pm_decision_178_2004_phuquoc",
+            "source_type": "OFFICIAL_GOVERNMENT_PLANNING",
+            "label": "Quyết định 178/2004/QĐ-TTg - Đề án phát triển tổng thể đảo Phú Quốc đến 2010, tầm nhìn 2020",
+            "url": "https://thuvienphapluat.vn/van-ban/Xay-dung-Do-thi/178-2004-QD-TTg-76455.aspx",
+            "published_at": "2004-10-05",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pm_decision_14_2006_transport",
+            "source_type": "OFFICIAL_TRANSPORT_PLANNING",
+            "label": "Quyết định 14/2006/QĐ-TTg - Quy hoạch phát triển giao thông bền vững đảo Phú Quốc",
+            "url": "https://thuvienphapluat.vn/van-ban/Xay-dung-Do-thi/14-2006-QD-TTg-78101.aspx",
+            "published_at": "2006-01-04",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pm_decision_137_2008_environment",
+            "source_type": "OFFICIAL_ENVIRONMENTAL_PLANNING",
+            "label": "Quyết định 137/2008/QĐ-TTg - Đề án tổng thể bảo vệ môi trường đảo Phú Quốc",
+            "url": "https://chinhphu.vn/default.aspx?docid=79258&pageid=27160",
+            "published_at": "2008-10-10",
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "pm_decision_633_2010_generalplan",
+            "source_type": "OFFICIAL_GOVERNMENT_PLANNING",
+            "label": "Quyết định 633/QĐ-TTg - Điều chỉnh Quy hoạch chung xây dựng đảo Phú Quốc đến 2030",
+            "url": "https://vanban.chinhphu.vn/default.aspx?docid=94607&pageid=27160",
+            "published_at": "2010-05-11",
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Đây mới là chronology của quy hoạch và định hướng hạ tầng, chưa phải chronology hoàn công của từng đoạn đường.",
+          "Cần ảnh/bản đồ giao thông các mốc 2004-2006, khoảng 2012-2015 và hiện nay để thể hiện thay đổi trực quan.",
+          "Không nói 'ngày xưa Phú Quốc toàn đường đất' nếu chưa có thống kê mặt đường theo cùng một năm và phạm vi."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Đường sá Phú Quốc không mở ra trong một đợt duy nhất. Đầu những năm 2000, định hướng lớn là nối lại các khu dân cư và điểm kinh tế bằng một trục Bắc - Nam, một tuyến vòng quanh đảo và các đường nhánh ra biển. Sau đó các tuyến được nâng cấp, mở rộng hoặc xây mới theo từng giai đoạn, cùng lúc phải cân nhắc việc đi qua rừng và những vùng nhạy cảm.",
+        "practical": "Muốn kể câu chuyện đường sá dễ hiểu, nên đặt ba bản đồ cạnh nhau: đầu những năm 2000, giai đoạn sân bay quốc tế vừa mở và hiện nay. Người xem sẽ thấy ngay những chuyến đi từng vòng vèo hoặc phụ thuộc đường nhỏ đã thay đổi ra sao.",
+        "expectation_vs_reality": "Không phải con đường lớn nào hôm nay cũng là tuyến hoàn toàn mới. Nhiều đoạn được nâng cấp từ đường đã có, trong khi một số tuyến khác được mở để nối khu du lịch và đô thị mới.",
+        "before_you_go": [
+          "Phân biệt năm quy hoạch với năm đường thực sự hoàn thành.",
+          "Không dùng chiều dài trong quy hoạch như chiều dài đã thi công nếu chưa có hồ sơ hoàn công.",
+          "Khi so bản đồ, giữ cùng phạm vi để tránh tạo cảm giác mạng đường tăng hoặc giảm giả."
+        ],
+        "curiosity_questions": [
+          "Trục Bắc - Nam đã làm thời gian đi từ An Thới lên Bắc đảo thay đổi thế nào?",
+          "Những đoạn nào của đường vòng đảo đi trên nền tuyến cũ, đoạn nào được mở mới?",
+          "Vì sao quy hoạch 2008 lại yêu cầu hạn chế mở rộng đường qua Vườn Quốc gia?"
         ]
       },
       "updated_at": "2026-09-22"
