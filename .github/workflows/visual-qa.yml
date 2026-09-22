@@ -62,8 +62,13 @@ jobs:
 
       - name: Build production-like Cloudflare bundle
         run: |
+          node scripts/build-knowledge-public.mjs
           node scripts/build-search-index.mjs
           node scripts/build-cloudflare.mjs
+          test -f dist/data/views/knowledge-public.json
+          test ! -e dist/data/knowledge/objects.json
+          test -f dist/guide/knowledge.html
+          test -f dist/guide/article.html
           test -f dist/home-foundation-v2.js
           test -f dist/currency/index.html
           test -f dist/transit/index.html
