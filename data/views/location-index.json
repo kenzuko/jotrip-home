@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-22T00:52:11.756Z",
+  "generated_at": "2026-09-22T00:55:28.812Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 204,
     "with_address": 204,
-    "with_map": 16,
+    "with_map": 30,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -35,7 +35,14 @@
       "star_rating": null,
       "what_it_is": "Tuyến cáp 3 dây vượt biển qua quần đảo An Thới",
       "route": "/places/detail.html?id=hon-thom",
-      "map": null,
+      "map": {
+        "lat": 9.95644,
+        "lon": 104.01589,
+        "precision": "area_anchor",
+        "source": "Mapcarta / OpenStreetMap water_park centroid cross-check",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": "place_aquatopia",
       "google_query": "Cáp treo Hòn Thơm, Aquatopia Water Park, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -65,7 +72,14 @@
       "star_rating": null,
       "what_it_is": "Show đa phương tiện lớn kèm pháo hoa tại Sunset Town, tách riêng với Symphony of the Sea.",
       "route": "/places/detail.html?id=kiss-of-the-sea",
-      "map": null,
+      "map": {
+        "lat": 10.026903,
+        "lon": 104.007917,
+        "precision": "area_anchor",
+        "source": "Wikimedia Commons WGS84 camera geotag inside Sunset Town",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": "place_sunset_town",
       "google_query": "Kiss of the Sea, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -171,7 +185,14 @@
       "star_rating": null,
       "what_it_is": "Show jetski, flyboard, ánh sáng và hiệu ứng trên mặt nước tại Sunset Town.",
       "route": "/places/detail.html?id=symphony-of-the-sea",
-      "map": null,
+      "map": {
+        "lat": 10.026903,
+        "lon": 104.007917,
+        "precision": "area_anchor",
+        "source": "Wikimedia Commons WGS84 camera geotag inside Sunset Town",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": "place_sunset_town",
       "google_query": "Symphony of the Sea, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -3765,7 +3786,14 @@
       "star_rating": null,
       "what_it_is": "Công viên nước trên Hòn Thơm với hơn 20 trò và khu gia đình.",
       "route": "/places/detail.html?id=aquatopia",
-      "map": null,
+      "map": {
+        "lat": 9.95644,
+        "lon": 104.01589,
+        "precision": "site_centroid",
+        "source": "Mapcarta / OpenStreetMap water_park centroid cross-check",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Aquatopia Water Park, Aquatopia Water Park, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -3791,7 +3819,14 @@
       "star_rating": null,
       "what_it_is": "Vịnh cát sáng gắn với các resort cao cấp",
       "route": "/places/detail.html?id=bai-khem",
-      "map": null,
+      "map": {
+        "lat": 10.03333,
+        "lon": 104.03333,
+        "precision": "area_anchor",
+        "source": "Mapcarta / GeoNames Bãi Khem area anchor",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Bãi Khem, Bãi Khem, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -3850,7 +3885,14 @@
       "star_rating": null,
       "what_it_is": "Dải bờ Tây dài, thuận nghỉ dưỡng và ngắm hoàng hôn",
       "route": "/places/detail.html?id=bai-truong",
-      "map": null,
+      "map": {
+        "lat": 10.1143458,
+        "lon": 103.9809272,
+        "precision": "area_anchor",
+        "source": "Mapy/OpenStreetMap Bãi Trường Beach reference",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Bãi Trường, Đường Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -3879,7 +3921,14 @@
       "star_rating": null,
       "what_it_is": "Điểm tham quan tại Sunset Town, bán vé riêng và phù hợp nhất khi ghép với cuối chiều - buổi tối.",
       "route": "/places/detail.html?id=kiss-bridge",
-      "map": null,
+      "map": {
+        "lat": 10.029458,
+        "lon": 104.006208,
+        "precision": "area_anchor",
+        "source": "Wikimedia Commons WGS84 camera geotag at Kiss Bridge",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Cầu Hôn, Cầu Hôn, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -4006,7 +4055,14 @@
       "star_rating": null,
       "what_it_is": "Nhịp sông, nhà ven bờ, kayak/thuyền thúng",
       "route": "/places/detail.html?id=cua-can",
-      "map": null,
+      "map": {
+        "lat": 10.29216,
+        "lon": 103.9147,
+        "precision": "area_anchor",
+        "source": "Apple Maps locality coordinate cross-check",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Cửa Cạn, Cửa Cạn, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -4065,7 +4121,14 @@
       "star_rating": null,
       "what_it_is": "Cụm trò khô/cảm giác mạnh trên Hòn Thơm.",
       "route": "/places/detail.html?id=exotica",
-      "map": null,
+      "map": {
+        "lat": 9.95432,
+        "lon": 104.01784,
+        "precision": "area_anchor",
+        "source": "Mapcarta / GeoNames Hòn Thơm area anchor",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Exotica Village, Exotica Village, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -4095,7 +4158,14 @@
       "star_rating": null,
       "what_it_is": "Mạch nước ngọt trong khu vực An Thới gắn với truyền thuyết dân gian về Nguyễn Ánh.",
       "route": "/places/detail.html?id=gieng-tien",
-      "map": null,
+      "map": {
+        "lat": 10.00934,
+        "lon": 104.04825,
+        "precision": "area_anchor",
+        "source": "Mapcarta / GeoNames Mũi Ông Đội area anchor",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Giếng Tiên, Giếng Tiên, Mũi Ông Đội, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -4189,7 +4259,14 @@
       "star_rating": null,
       "what_it_is": "Di tích lịch sử gắn với ký ức chiến tranh",
       "route": "/places/detail.html?id=phu-quoc-prison",
-      "map": null,
+      "map": {
+        "lat": 10.043948,
+        "lon": 104.018179,
+        "precision": "site_centroid",
+        "source": "Published WGS84 coordinate cross-check for Phú Quốc Prison",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Nhà tù Phú Quốc, 350 Nguyễn Văn Cừ, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -4214,7 +4291,14 @@
       "star_rating": null,
       "what_it_is": "Làng chài, nhà bè, vùng nước nông phía Bắc",
       "route": "/places/detail.html?id=rach-vem",
-      "map": null,
+      "map": {
+        "lat": 10.38602,
+        "lon": 103.94166,
+        "precision": "area_anchor",
+        "source": "Mapcarta / OpenStreetMap Rạch Vẹm Beach area anchor",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Rạch Vẹm, Rạch Vẹm, Gành Dầu, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -4241,7 +4325,14 @@
       "star_rating": null,
       "what_it_is": "Khu phố mở, hoàng hôn, Cầu Hôn và chuỗi show",
       "route": "/places/detail.html?id=sunset-town",
-      "map": null,
+      "map": {
+        "lat": 10.026903,
+        "lon": 104.007917,
+        "precision": "area_anchor",
+        "source": "Wikimedia Commons WGS84 camera geotag inside Sunset Town",
+        "source_id": "map_crosscheck_20260922",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Sunset Town, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
@@ -4304,7 +4395,14 @@
       "star_rating": null,
       "what_it_is": "Bảo tàng chủ đề gấu Teddy tại Grand World Phú Quốc.",
       "route": "/places/detail.html?id=teddy-bear-museum",
-      "map": null,
+      "map": {
+        "lat": 10.3275625,
+        "lon": 103.8625625,
+        "precision": "area_anchor",
+        "source": "Inherited Grand World central area anchor from Google location lookup",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
       "inherited_from": null,
       "google_query": "Teddy Bear Museum Phú Quốc, Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
     },
