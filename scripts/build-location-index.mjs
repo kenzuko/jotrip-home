@@ -83,6 +83,8 @@ for(const entity of entities){
     address,
     address_precision:entity.address_precision||null,
     phone:entity.phone||null,
+    group:entity.group||null,
+    utility_type:entity.utility_type||null,
     star_rating:entity.star_rating??null,
     what_it_is:entity.what_it_is||"",
     route:routeFor(entity),
