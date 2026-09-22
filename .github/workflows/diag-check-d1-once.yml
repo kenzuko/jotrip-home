@@ -80,7 +80,7 @@ jobs:
           for ai,(account_id,account_name) in enumerate(accounts,1):
               if not account_id:
                   continue
-              url="https://api.cloudflare.com/client/v4/accounts/"+urllib.parse.quote(account_id,safe="")+"/pages/projects?per_page=100"
+              url="https://api.cloudflare.com/client/v4/accounts/"+urllib.parse.quote(account_id,safe="")+"/pages/projects"
               status,doc=get(url)
               print(f"pages_account_{ai}: http_status={status} success={doc.get('success')}")
               if not doc.get("success"):
