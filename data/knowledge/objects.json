@@ -1,0 +1,1582 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-22",
+  "public_source_urls": false,
+  "objects": [
+    {
+      "topic_id": "knowledge_001_dinh-cau",
+      "number": 1,
+      "title": "Dinh Cậu",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_dinh_cau",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Không gian tín ngưỡng của cư dân biển ở cửa sông Dương Đông",
+            "source_ids": [
+              "handbook_r3",
+              "visitpq_dinh_cau_2026",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Giờ niêm yết: 07:00-21:00",
+            "source_ids": [
+              "visitpq_dinh_cau_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Khu phố 2, Dương Đông, Phú Quốc, An Giang 92500, Việt Nam",
+            "source_ids": [
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "visitpq_dinh_cau_2026",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Dinh Cậu Phú Quốc",
+            "url": "https://visitphuquoc.com.vn/vi/dinh-cau-phu-quoc",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Dinh Cậu không chỉ là chỗ ngắm chiều. Đây là một không gian tín ngưỡng ở ngay cửa sông Dương Đông, gắn với đời sống của cư dân biển trên đảo.",
+        "practical": "Nếu đang ở Dương Đông, dành khoảng 30-60 phút là vừa. Cuối chiều dễ ghép với một vòng bờ biển rồi đi chợ đêm.",
+        "expectation_vs_reality": "Đến đây để hiểu thêm một lớp đời sống của đảo sẽ thú vị hơn chỉ lên mỏm đá chụp vài tấm hình.",
+        "before_you_go": [
+          "Ăn mặc và cư xử phù hợp với nơi thờ tự.",
+          "Giờ niêm yết có thể thay đổi, nhất là ngày lễ hoặc lúc có hoạt động tín ngưỡng.",
+          "Không cản lối người địa phương đang cúng hoặc làm lễ."
+        ],
+        "curiosity_questions": [
+          "Vì sao ngư dân Phú Quốc lại gắn Dinh Cậu với chuyện ra khơi?",
+          "Dinh Cậu là một điểm ngắm hoàng hôn hay trước hết là nơi tín ngưỡng?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": {
+          "state": "PUBLISHED_SCHEDULE",
+          "schedule_type": "DAILY",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "windows": [
+            {
+              "start": "07:00",
+              "end": "21:00",
+              "label": "Giờ mở cửa niêm yết"
+            }
+          ],
+          "source_id": "visitpq_dinh_cau_2026",
+          "source_type": "OFFICIAL_TOURISM",
+          "verified_at": "2026-09-21",
+          "valid_until": null,
+          "confidence": "MEDIUM",
+          "note": "Mốc giờ theo official listing đã kiểm tra trong batch dữ liệu 21/09/2026; đây là lịch niêm yết, không phải xác nhận mở cửa thời gian thực."
+        },
+        "map": {
+          "lat": 10.2171875,
+          "lon": 103.9564375,
+          "precision": "site_centroid",
+          "source_id": "google_maps_location_lookup",
+          "source": "Google Maps place result + Plus Code 6X84+VH",
+          "verified_at": "2026-09-22",
+          "accuracy": "GOOGLE_PLUS_CODE",
+          "plus_code": "6X84+VH"
+        },
+        "address": "Khu phố 2, Dương Đông, Phú Quốc, An Giang 92500, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_003_cho-duong-dong",
+      "number": 3,
+      "title": "Chợ Dương Đông",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_duong_dong_market",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Chợ truyền thống bên sông Dương Đông, phục vụ cả nhu cầu địa phương và du khách.",
+            "source_ids": [
+              "visitpq_cho_duong_dong_2026",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Giờ niêm yết: 05:00-19:00",
+            "source_ids": [
+              "visitpq_cho_duong_dong_2026"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Chợ Dương Đông, đường Ngô Quyền, Dương Đông, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "visitpq_cho_duong_dong_2026",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Visit Phu Quoc - Chợ Dương Đông",
+            "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-1069",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Chợ Dương Đông là chợ ban ngày bên sông, khác hẳn chợ đêm. Muốn nhìn nhịp mua bán hải sản và đồ dùng của người địa phương, nên đi sớm.",
+        "practical": "Khoảng 45-90 phút là đủ để đi một vòng. Buổi sáng rõ chất chợ nhất; càng về chiều càng bớt nhịp hải sản.",
+        "expectation_vs_reality": "Đây là chợ đang phục vụ đời sống thật, nên sẽ đông, ẩm, có mùi hải sản và không phải góc nào cũng đẹp để chụp hình.",
+        "before_you_go": [
+          "Đừng nhầm Chợ Dương Đông với Chợ đêm Phú Quốc.",
+          "Đi giày dễ rửa nếu ghé khu hải sản.",
+          "Hỏi giá trước khi mua đồ khô hoặc hải sản mang về."
+        ],
+        "curiosity_questions": [
+          "Vì sao chợ nằm sát sông lại quan trọng với Dương Đông?",
+          "Chợ buổi sáng và chợ đêm kể hai câu chuyện khác nhau về thị trấn như thế nào?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": {
+          "state": "PUBLISHED_SCHEDULE",
+          "schedule_type": "DAILY",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "windows": [
+            {
+              "start": "05:00",
+              "end": "19:00",
+              "label": "Giờ mở cửa"
+            }
+          ],
+          "source_id": "visitpq_cho_duong_dong_2026",
+          "source_type": "OFFICIAL_TOURISM",
+          "verified_at": "2026-09-21",
+          "valid_until": null,
+          "confidence": "HIGH",
+          "note": "Giờ niêm yết trên cổng du lịch điểm đến; không đồng nghĩa xác nhận từng sạp đang hoạt động."
+        },
+        "map": {
+          "lat": 10.2206875,
+          "lon": 103.9591875,
+          "precision": "site_centroid",
+          "source_id": "google_maps_location_lookup",
+          "source": "Google Maps market result + Plus Code 6XC5+7MW",
+          "verified_at": "2026-09-22",
+          "accuracy": "GOOGLE_PLUS_CODE",
+          "plus_code": "6XC5+7MW"
+        },
+        "address": "Chợ Dương Đông, đường Ngô Quyền, Dương Đông, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_005_sunset-town",
+      "number": 5,
+      "title": "Sunset Town",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_sunset_town",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Khu phố mở, hoàng hôn, Cầu Hôn và chuỗi show",
+            "source_ids": [
+              "handbook_r3",
+              "sunworld_sunset_town_always_open",
+              "google_maps_location_lookup",
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Giờ niêm yết: 00:00-23:59",
+            "source_ids": [
+              "sunworld_sunset_town_always_open"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "sunworld_sunset_town_always_open",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Sun World - Sunset Town overview",
+            "url": "https://sunworld.vn/hon-thom/tin-tuc-du-lich/phu-quoc-co-gi-choi-tong-hop-tu-diem-vui-choi-hang-dau-dao-ngoc-5886",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          },
+          {
+            "source_id": "map_crosscheck_20260922",
+            "source_type": "MAP_CROSSCHECK",
+            "label": "Secondary map/GPS cross-check for legacy Phú Quốc locations",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Sunset Town là một khu phố mở ở Nam đảo, nơi hoàng hôn, Cầu Hôn, nhà hàng và các show nằm khá gần nhau. Điểm khó không phải tìm chỗ chơi mà là xếp giờ cho khỏi lỡ.",
+        "practical": "Hợp nhất từ cuối chiều sang tối. Nếu định xem show, nên dựng lịch ngược từ giờ bắt đầu rồi mới quyết định lúc tới.",
+        "expectation_vs_reality": "Không phải cứ tới Sunset Town là mọi cửa hàng và show đều đang hoạt động. Mỗi điểm bên trong có giờ riêng.",
+        "before_you_go": [
+          "Tới trước hoàng hôn nếu muốn đi bộ và chụp ảnh thong thả.",
+          "Kiểm tra giờ show của đúng ngày đi.",
+          "Nếu ở xa Nam đảo, chốt xe về trước khi show kết thúc."
+        ],
+        "curiosity_questions": [
+          "Vì sao Nam đảo thay đổi nhanh đến vậy trong vài năm gần đây?",
+          "Một buổi tối ở Sunset Town nên bắt đầu từ đâu để không chạy ngược chạy xuôi?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": {
+          "state": "PUBLISHED_SCHEDULE",
+          "schedule_type": "ALWAYS_OPEN",
+          "timezone": "Asia/Ho_Chi_Minh",
+          "windows": [
+            {
+              "start": "00:00",
+              "end": "23:59",
+              "label": "Khu phố mở"
+            }
+          ],
+          "source_id": "sunworld_sunset_town_always_open",
+          "source_type": "OPERATOR",
+          "verified_at": "2026-09-21",
+          "valid_until": null,
+          "confidence": "HIGH",
+          "note": "Sun World mô tả Sunset Town luôn mở cửa và miễn phí; các điểm vé, nhà hàng, show và dịch vụ bên trong có lịch riêng."
+        },
+        "map": {
+          "lat": 10.026903,
+          "lon": 104.007917,
+          "precision": "area_anchor",
+          "source": "Wikimedia Commons WGS84 camera geotag inside Sunset Town",
+          "source_id": "map_crosscheck_20260922",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg",
+          "note": "Điểm neo trung tâm Sunset Town, không đại diện cho mọi cổng/điểm trong khu.",
+          "verified_at": "2026-09-22"
+        },
+        "address": "Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_008_rach-vem",
+      "number": 8,
+      "title": "Rạch Vẹm",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_rach_vem",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Làng chài, nhà bè, vùng nước nông phía Bắc",
+            "source_ids": [
+              "handbook_r3",
+              "google_maps_location_lookup",
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Rạch Vẹm, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          },
+          {
+            "source_id": "map_crosscheck_20260922",
+            "source_type": "MAP_CROSSCHECK",
+            "label": "Secondary map/GPS cross-check for legacy Phú Quốc locations",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Rạch Vẹm là vùng làng chài và nước nông ở phía Bắc. Sao biển là thứ khiến nơi này nổi tiếng, nhưng không phải ngày nào tới cũng có một bãi đầy sao biển.",
+        "practical": "Thường cần 2-4 giờ tính cả đường đi và thời gian ở khu làng/bãi. Trước khi đi nên nhìn thời tiết, triều và tình trạng đường.",
+        "expectation_vs_reality": "Đừng chọn Rạch Vẹm chỉ vì một tấm ảnh sao biển. Mùa, nước, gió và từng đoạn bãi thay đổi khá nhiều.",
+        "before_you_go": [
+          "Không nhấc sao biển khỏi nước để chụp hình.",
+          "Đừng hứa với trẻ nhỏ rằng chắc chắn sẽ thấy sao biển.",
+          "Nếu vừa mưa lớn, nên kiểm tra tình trạng đường trước khi chạy vào."
+        ],
+        "curiosity_questions": [
+          "Sao biển ở Rạch Vẹm xuất hiện theo mùa hay theo thủy triều?",
+          "Vì sao có hôm cùng một khu nhưng nước và bãi nhìn khác hẳn?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": {
+          "lat": 10.38602,
+          "lon": 103.94166,
+          "precision": "area_anchor",
+          "source": "Mapcarta / OpenStreetMap Rạch Vẹm Beach area anchor",
+          "source_id": "map_crosscheck_20260922",
+          "source_url": "https://mapcarta.com/W451772442",
+          "note": "Rạch Vẹm là vùng làng/bãi biển trải dài; pin dùng để định hướng khu vực.",
+          "verified_at": "2026-09-22"
+        },
+        "address": "Rạch Vẹm, Gành Dầu, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_012_bai-truong",
+      "number": 12,
+      "title": "Bãi Trường",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_bai_truong",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Dải bờ Tây dài, thuận nghỉ dưỡng và ngắm hoàng hôn",
+            "source_ids": [
+              "handbook_r3",
+              "google_maps_location_lookup",
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Đường Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          },
+          {
+            "source_id": "map_crosscheck_20260922",
+            "source_type": "MAP_CROSSCHECK",
+            "label": "Secondary map/GPS cross-check for legacy Phú Quốc locations",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Bãi Trường là một dải bờ Tây rất dài chứ không phải một bãi nhỏ có một cổng vào. Điểm mạnh nhất là dễ ghép nghỉ biển với hoàng hôn.",
+        "practical": "Dành 2-4 giờ nếu muốn tắm biển và ở lại tới chiều. Chọn đoạn bãi theo nơi đang ở thay vì chạy tìm một 'điểm chuẩn' duy nhất.",
+        "expectation_vs_reality": "Chất lượng cát, sóng và nước có thể khác giữa các đoạn và giữa các ngày. Một bức ảnh đẹp không đại diện cho toàn bộ Bãi Trường.",
+        "before_you_go": [
+          "Giữ 30-45 phút cuối ngày cho hoàng hôn.",
+          "Xem tình hình biển trước khi quyết định tắm.",
+          "Tiện ích phụ thuộc từng resort, beach club hoặc lối công cộng."
+        ],
+        "curiosity_questions": [
+          "Vì sao cùng gọi là Bãi Trường nhưng mỗi đoạn lại có cảm giác rất khác?",
+          "Bờ Tây ảnh hưởng thế nào đến trải nghiệm hoàng hôn ở đây?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": {
+          "lat": 10.1143458,
+          "lon": 103.9809272,
+          "precision": "area_anchor",
+          "source": "Mapy/OpenStreetMap Bãi Trường Beach reference",
+          "source_id": "map_crosscheck_20260922",
+          "source_url": "https://mapy.com/en/?id=1053691053&source=osm",
+          "note": "Bãi Trường trải dài nhiều km; pin là điểm neo tham khảo trên trục bãi biển.",
+          "verified_at": "2026-09-22"
+        },
+        "address": "Đường Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_013_bai-khem",
+      "number": 13,
+      "title": "Bãi Khem",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_bai_khem",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Vịnh cát sáng gắn với các resort cao cấp",
+            "source_ids": [
+              "handbook_r3",
+              "angiang_bai_khem_plan_1635",
+              "google_maps_location_lookup",
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Bãi Khem, An Thới, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          },
+          {
+            "source_id": "map_crosscheck_20260922",
+            "source_type": "MAP_CROSSCHECK",
+            "label": "Secondary map/GPS cross-check for legacy Phú Quốc locations",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "angiang_bai_khem_plan_1635",
+            "source_type": null,
+            "label": "angiang_bai_khem_plan_1635",
+            "url": "https://angiang.gov.vn/vi/do-an-quy-hoach-phan-khu-xay-dung-khu-vuc-bai-khem-va-mui-ong-doi-phuong-an-thoi-thanh-pho-phu-quoc-tinh-kien-giang-nay-la-dac-khu-phu-quoc-tinh-an-giang-ty-le-12000-quy-mo-12868ha",
+            "published_at": null,
+            "verified_at": "2026-09-20"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Bãi Khem là một vịnh cát sáng ở Nam đảo, hiện gắn mạnh với các khu nghỉ dưỡng cao cấp nhưng vẫn cần phân biệt bãi biển với tiện ích riêng của resort.",
+        "practical": "Hợp cho nửa ngày nếu ở Nam đảo. Lối vào, chỗ gửi xe và quyền dùng ghế, hồ bơi hay nhà vệ sinh phải xem theo từng điểm.",
+        "expectation_vs_reality": "Không nên gọi toàn bộ Bãi Khem là 'bãi private'. Bờ biển là một chuyện, quyền dùng tiện ích của resort là chuyện khác.",
+        "before_you_go": [
+          "Xác định đúng lối vào trước khi chạy tới.",
+          "Không mặc định tiện ích resort là tiện ích công cộng.",
+          "Xem biển và gió trong ngày nếu mục tiêu chính là tắm."
+        ],
+        "curiosity_questions": [
+          "Bãi Khem thay đổi thế nào từ một bãi ít người biết tới khu nghỉ dưỡng cao cấp?",
+          "Phần nào của trải nghiệm ở đây là bãi biển, phần nào là dịch vụ của resort?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": {
+          "lat": 10.03333,
+          "lon": 104.03333,
+          "precision": "area_anchor",
+          "source": "Mapcarta / GeoNames Bãi Khem area anchor",
+          "source_id": "map_crosscheck_20260922",
+          "source_url": "https://mapcarta.com/15504504",
+          "note": "Bãi Khem là khu bãi biển dài; pin dùng để định hướng khu vực, không phải một cổng vào duy nhất.",
+          "verified_at": "2026-09-22"
+        },
+        "address": "Bãi Khem, An Thới, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_014_bai-sao",
+      "number": 14,
+      "title": "Bãi Sao",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_bai_sao",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Bãi tắm dễ tiếp cận ở Nam đảo",
+            "source_ids": [
+              "handbook_r3",
+              "visitpq_bai_sao_2026",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: Bãi Sao, An Thới, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          },
+          {
+            "source_id": "visitpq_bai_sao_2026",
+            "source_type": null,
+            "label": "visitpq_bai_sao_2026",
+            "url": "https://visitphuquoc.com.vn/vi/bai-sao-phu-quoc-vi-ngoi-sao-sinh-ra-de-toa-sang-229",
+            "published_at": null,
+            "verified_at": "2026-09-20"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Bãi Sao là một bãi tắm quen thuộc ở Nam đảo, dễ đi hơn nhiều điểm đảo nhỏ. Đẹp hay không lại phụ thuộc khá rõ vào gió, sóng và tình trạng từng đoạn bãi trong ngày.",
+        "practical": "Sáng hoặc đầu chiều ngày biển êm thường dễ chịu. Có thể dành 2-4 giờ rồi ghép với Hộ Quốc, Bãi Khem hoặc Nhà tù nếu cùng tuyến.",
+        "expectation_vs_reality": "Bãi Sao không phải lúc nào cũng trắng phẳng và êm như ảnh quảng bá. Rong, rác, sóng và mật độ khách thay đổi theo mùa và thời tiết.",
+        "before_you_go": [
+          "Chọn đoạn bãi thực tế đẹp nhất trong ngày thay vì bám một điểm cố định.",
+          "Đừng nhầm Bãi Sao với khu xem sao biển ở Rạch Vẹm.",
+          "Kiểm tra giá ghế, đồ ăn hoặc dịch vụ trước khi dùng."
+        ],
+        "curiosity_questions": [
+          "Vì sao Bãi Sao mỗi mùa nhìn khác nhau?",
+          "Tên Bãi Sao có liên quan gì tới sao biển không?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": {
+          "lat": 10.0541875,
+          "lon": 104.0354375,
+          "precision": "area_anchor",
+          "source_id": "google_maps_location_lookup",
+          "source": "Google Maps Sao Beach result + Plus Code 323P+M58",
+          "verified_at": "2026-09-22",
+          "accuracy": "GOOGLE_PLUS_CODE",
+          "plus_code": "323P+M58",
+          "note": "Điểm neo Bãi Sao, dùng định hướng khu bãi biển."
+        },
+        "address": "Bãi Sao, An Thới, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_026_suoi-tranh",
+      "number": 26,
+      "title": "Suối Tranh",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_suoi_tranh",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Một trong các điểm suối quen thuộc nhất Phú Quốc, đẹp hơn khi có nước.",
+            "source_ids": [
+              "handbook_r3",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: 52G6+GQQ, Suối Mây, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Suối Tranh là chỗ đi bộ nhẹ trong cây xanh, nhưng cái tên 'suối' chỉ thật sự đáng đi khi đang có nước. Mùa khô có thể khác rất xa ảnh chụp mùa mưa.",
+        "practical": "Dành 1-3 giờ. Sau mưa, cảnh có thể đẹp hơn nhưng đá cũng trơn và nước có thể lên nhanh.",
+        "expectation_vs_reality": "Đừng đi chỉ vì thấy ảnh thác nước mạnh trên mạng. Trước hết phải xem mùa và lượng mưa gần đây.",
+        "before_you_go": [
+          "Mang giày bám tốt.",
+          "Không xuống khu nước chảy mạnh sau mưa lớn.",
+          "Giữ rác lại và tránh tách nhóm ở đoạn ít người."
+        ],
+        "curiosity_questions": [
+          "Suối Tranh đẹp nhất nhờ mùa mưa hay lại nguy hiểm nhất cũng vào lúc đó?",
+          "Nguồn nước của các suối trên đảo thay đổi ra sao giữa mùa khô và mùa mưa?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": {
+          "lat": 10.1763125,
+          "lon": 104.0119375,
+          "precision": "site_centroid",
+          "source_id": "google_maps_location_lookup",
+          "source": "Google Maps place result + Plus Code 52G6+GQQ",
+          "verified_at": "2026-09-22",
+          "accuracy": "GOOGLE_PLUS_CODE",
+          "plus_code": "52G6+GQQ"
+        },
+        "address": "52G6+GQQ, Suối Mây, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_029_chua-ho-quoc",
+      "number": 29,
+      "title": "Chùa Hộ Quốc",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_ho_quoc",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Điểm văn hóa - tâm linh và góc nhìn biển phía Đông Nam",
+            "source_ids": [
+              "handbook_r3",
+              "visitpq_ho_quoc_current",
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: 426H+2HJ, Thiền viện Trúc Lâm Hộ Quốc, Dương Tơ, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "google_maps_location_lookup"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "visitpq_ho_quoc_current",
+            "source_type": "OFFICIAL_TOURISM",
+            "label": "Phú Quốc Tourism - Chùa Hộ Quốc Trúc Lâm",
+            "url": "https://dulich.phuquoc.gov.vn/vi/chuahoquoctrucla",
+            "published_at": null,
+            "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Chùa Hộ Quốc vừa là nơi tâm linh vừa có góc nhìn rộng ra biển phía Đông Nam. Không gian đẹp, nhưng nên đi với thái độ của người tới chùa trước khi coi đây là điểm check-in.",
+        "practical": "Khoảng 1-2 giờ là đủ. Sáng hoặc chiều dịu dễ đi hơn giữa trưa, và có thể ghép cùng Bãi Sao, Bãi Khem hoặc Nhà tù.",
+        "expectation_vs_reality": "View biển là phần hấp dẫn, nhưng đây vẫn là không gian tu tập và thờ tự.",
+        "before_you_go": [
+          "Ăn mặc lịch sự.",
+          "Giữ giọng nói nhỏ ở khu thờ tự.",
+          "Không đứng chắn lối hành lễ để chụp hình."
+        ],
+        "curiosity_questions": [
+          "Vì sao chùa lại được đặt ở vị trí nhìn thẳng ra biển?",
+          "Khách du lịch nên ứng xử thế nào để không biến nơi tâm linh thành phông chụp ảnh?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": {
+          "lat": 10.1100625,
+          "lon": 104.0289375,
+          "precision": "site_centroid",
+          "source_id": "google_maps_location_lookup",
+          "source": "Google Maps/official destination address + Plus Code 426H+2HJ",
+          "verified_at": "2026-09-22",
+          "accuracy": "GOOGLE_PLUS_CODE",
+          "plus_code": "426H+2HJ"
+        },
+        "address": "426H+2HJ, Thiền viện Trúc Lâm Hộ Quốc, Dương Tơ, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_030_nha-tu-phu-quoc",
+      "number": 30,
+      "title": "Nhà tù Phú Quốc",
+      "topic_type": "PLACE",
+      "canonical_entity_id": "place_phu_quoc_prison",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Di tích lịch sử gắn với ký ức chiến tranh",
+            "source_ids": [
+              "handbook_r3",
+              "google_maps_location_lookup",
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Địa chỉ/khu vực: 350 Nguyễn Văn Cừ, An Thới, Phú Quốc, An Giang, Việt Nam",
+            "source_ids": [
+              "map_crosscheck_20260922"
+            ],
+            "verification_status": "VERIFIED_EXISTING_DATA",
+            "confidence": "HIGH"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "handbook_r3",
+            "source_type": "EDITORIAL_MASTER",
+            "label": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-12"
+          },
+          {
+            "source_id": "google_maps_location_lookup",
+            "source_type": "MAP_DIRECTORY",
+            "label": "Google Maps - tra vị trí theo tên và địa chỉ",
+            "url": "https://maps.google.com/",
+            "published_at": null,
+            "verified_at": null
+          },
+          {
+            "source_id": "map_crosscheck_20260922",
+            "source_type": "MAP_CROSSCHECK",
+            "label": "Secondary map/GPS cross-check for legacy Phú Quốc locations",
+            "url": null,
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Nhà tù Phú Quốc là một di tích lịch sử nặng ký, không phải điểm tham quan để đi cho đủ danh sách. Muốn hiểu nơi này, nên dành thời gian đọc bối cảnh và hiện vật.",
+        "practical": "Khoảng 1-2 giờ phù hợp với đa số khách. Có thể ghép tuyến Nam đảo nhưng đừng ép lịch quá sát nếu trong đoàn có người muốn đọc kỹ.",
+        "expectation_vs_reality": "Một số tái hiện có thể gây nặng nề cho trẻ nhỏ hoặc người nhạy cảm với nội dung chiến tranh.",
+        "before_you_go": [
+          "Giữ thái độ tôn trọng tại khu di tích.",
+          "Nếu đi cùng trẻ nhỏ, cân nhắc trước các khu tái hiện bạo lực.",
+          "Đừng chỉ chụp ảnh mô hình rồi bỏ qua phần tư liệu."
+        ],
+        "curiosity_questions": [
+          "Di tích hiện nay phản ánh những giai đoạn nào của hệ thống nhà tù trên đảo?",
+          "Nên đọc Nhà tù Phú Quốc như một điểm du lịch hay một nơi ký ức chiến tranh?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": {
+          "lat": 10.043948,
+          "lon": 104.018179,
+          "precision": "site_centroid",
+          "source": "Published WGS84 coordinate cross-check for Phú Quốc Prison",
+          "source_id": "map_crosscheck_20260922",
+          "source_url": "https://olps.co.za/kiwix/content/wikipedia_en_all_maxi_2024-01/A/Ph%C3%BA_Qu%E1%BB%91c_Prison",
+          "note": "Tọa độ khu di tích Nhà tù Phú Quốc.",
+          "verified_at": "2026-09-22"
+        },
+        "address": "350 Nguyễn Văn Cừ, An Thới, Phú Quốc, An Giang, Việt Nam"
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_056_bun-quay-phu-quoc",
+      "number": 56,
+      "title": "Bún quậy Phú Quốc",
+      "topic_type": "FOOD",
+      "canonical_entity_id": "food_bun-quay",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Vietnam Tourism ghi nhận bún quậy được đưa tới Phú Quốc từ miền Trung vào khoảng năm 1955, ban đầu là bún tôm với tôm xay. Từ thập niên 1990, món được biến tấu thêm hải sản và gia vị địa phương rồi trở thành một món gắn rất mạnh với Phú Quốc.",
+            "source_ids": [
+              "knowledge_056_source_1",
+              "knowledge_056_source_2"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nguyên liệu thường gặp: Bún tươi làm từ bột gạo, Chả tôm, Chả cá, Mực - tùy tô/quán, Hành lá và rau thơm, Nước chấm thường có nước mắm, tắc/quất, đường và ớt",
+            "source_ids": [
+              "knowledge_056_source_1",
+              "knowledge_056_source_2"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "knowledge_056_source_1",
+            "source_type": "TOURISM_OR_EDITORIAL",
+            "label": "Vietnam Tourism - Bún quậy Phú Quốc",
+            "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-signature-noodle-bun-quay",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "knowledge_056_source_2",
+            "source_type": "EDITORIAL",
+            "label": "VnExpress - Bún 'quậy' Phú Quốc",
+            "url": "https://vnexpress.net/bun-quay-phu-quoc-4066543.html",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Công thức và cách phục vụ thay đổi theo từng quán."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Bún quậy vui ở chỗ người ăn tham gia vào tô bún: tự pha chén chấm, nếm rồi quậy tới khi vừa miệng. Tô thường có chả tôm, chả cá và có thể thêm mực tùy quán.",
+        "practical": "Ăn lúc còn nóng. Nếu lần đầu thử, đừng pha chén chấm quá mặn hoặc quá cay ngay từ đầu - nêm dần dễ ngon hơn.",
+        "expectation_vs_reality": "Không có một tô 'chuẩn tuyệt đối' cho mọi quán. Tỷ lệ chả, hải sản và cách pha nước chấm thay đổi.",
+        "before_you_go": [
+          "Dị ứng cá, tôm hoặc nhuyễn thể phải hỏi kỹ trước khi gọi.",
+          "Khu chế biến có thể dùng chung dụng cụ cho nhiều loại hải sản.",
+          "Đừng mặc định món không gluten chỉ vì bún làm từ gạo."
+        ],
+        "curiosity_questions": [
+          "Vì sao món này lại gọi là bún quậy?",
+          "Bún quậy từ đâu tới và khi nào trở thành món gắn với Phú Quốc?"
+        ]
+      },
+      "food_profile": {
+        "ingredients": [
+          "Bún tươi làm từ bột gạo",
+          "Chả tôm",
+          "Chả cá",
+          "Mực - tùy tô/quán",
+          "Hành lá và rau thơm",
+          "Nước chấm thường có nước mắm, tắc/quất, đường và ớt"
+        ],
+        "how_to_eat": "Pha chén nước chấm trước theo khẩu vị, quậy cho hòa đều rồi ăn bún khi còn nóng. Có thể chấm chả và hải sản riêng để cảm nhận rõ hơn vị nguyên liệu.",
+        "taste_texture": "Nước dùng thanh, hải sản ngọt, chả tươi có độ dai mềm. Điểm đặc biệt nằm ở chén nước chấm do người ăn tự pha, thường cân bằng chua - cay - mặn - ngọt.",
+        "allergen_flags": [
+          {
+            "key": "fish",
+            "label": "Cá",
+            "level": "high"
+          },
+          {
+            "key": "crustacean",
+            "label": "Tôm / giáp xác",
+            "level": "high"
+          },
+          {
+            "key": "mollusc",
+            "label": "Mực / nhuyễn thể",
+            "level": "possible"
+          }
+        ],
+        "allergy_note": "Nếu dị ứng cá, tôm hoặc hải sản, cần hỏi quán trước khi gọi vì nước dùng, chả, topping và khu chế biến thường dùng chung nguyên liệu biển. Không nên tự mặc định món hoàn toàn không gluten chỉ vì bún làm từ gạo - gia vị và quy trình từng quán có thể khác.",
+        "ask_staff": [
+          "Tô này có chả tôm, chả cá và mực không?",
+          "Nước dùng hoặc nước chấm có thành phần hải sản nào khác không?",
+          "Nếu dị ứng nặng, có dùng chung dụng cụ chế biến với hải sản khác không?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_057_goi-ca-trich",
+      "number": 57,
+      "title": "Gỏi cá trích",
+      "topic_type": "FOOD",
+      "canonical_entity_id": "food_goi-ca-trich",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Gỏi cá trích là món hải sản địa phương lâu đời gắn với nguồn cá trích quanh Phú Quốc. Đây không phải món salad theo kiểu phương Tây mà là một cách ăn cá tươi cùng rau, dừa, bánh tráng và nước chấm.",
+            "source_ids": [
+              "knowledge_057_source_1"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nguyên liệu thường gặp: Cá trích tươi, Hành tây, Rau thơm / húng, Dừa nạo, Rau sống, Bánh tráng, Nước chấm từ nước mắm, tỏi, ớt, Đậu phộng rang - thường có",
+            "source_ids": [
+              "knowledge_057_source_1"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "knowledge_057_source_1",
+            "source_type": "TOURISM_OR_EDITORIAL",
+            "label": "Vietnam Tourism - Đặc sản hải sản Phú Quốc",
+            "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Công thức và cách phục vụ thay đổi theo từng quán."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Gỏi cá trích là cách ăn cá tươi cùng dừa, rau, bánh tráng và nước chấm. Cái ngon không chỉ nằm ở cá mà ở cả độ tươi, rau và chén chấm.",
+        "practical": "Cuốn vừa tay và ăn ngay. Nếu không quen cá sống hoặc tái, hỏi rõ cách sơ chế của quán trước khi gọi.",
+        "expectation_vs_reality": "Đây không phải một đĩa salad cá đơn giản. Trải nghiệm đúng nhịp thường là tự cuốn và chấm.",
+        "before_you_go": [
+          "Cá là dị ứng chính; đậu phộng cũng thường xuất hiện trong nước chấm hoặc topping.",
+          "Người mang thai, trẻ nhỏ hoặc người cần hạn chế đồ sống nên hỏi kỹ mức xử lý nhiệt.",
+          "Nước chấm mỗi quán có thể khác."
+        ],
+        "curiosity_questions": [
+          "Vì sao dừa lại đi cùng cá trích trong món này?",
+          "Phần nào quyết định một phần gỏi cá trích ngon: cá, rau hay nước chấm?"
+        ]
+      },
+      "food_profile": {
+        "ingredients": [
+          "Cá trích tươi",
+          "Hành tây",
+          "Rau thơm / húng",
+          "Dừa nạo",
+          "Rau sống",
+          "Bánh tráng",
+          "Nước chấm từ nước mắm, tỏi, ớt",
+          "Đậu phộng rang - thường có"
+        ],
+        "how_to_eat": "Đặt cá, rau và dừa vào bánh tráng, cuốn vừa tay rồi chấm nước mắm. Không nên cuốn quá nhiều một lần vì sẽ mất vị cá.",
+        "taste_texture": "Tươi, béo nhẹ từ dừa, thơm rau, giòn từ rau sống và đậu phộng, đậm vị ở nước chấm. Cá thường được dùng ở trạng thái sống/tái tùy cách làm của quán.",
+        "allergen_flags": [
+          {
+            "key": "fish",
+            "label": "Cá",
+            "level": "high"
+          },
+          {
+            "key": "peanut",
+            "label": "Đậu phộng",
+            "level": "high"
+          }
+        ],
+        "allergy_note": "Món thường có cá và đậu phộng trong phần nước chấm hoặc topping. Nếu không ăn cá sống/tái hoặc có dị ứng, hãy hỏi rõ cách sơ chế và thành phần nước chấm trước khi gọi.",
+        "ask_staff": [
+          "Nước chấm có đậu phộng không?",
+          "Cá được phục vụ sống, tái hay đã xử lý nhiệt?",
+          "Có thể làm phần không đậu phộng riêng không?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_059_nhum-bien",
+      "number": 59,
+      "title": "Nhum biển",
+      "topic_type": "FOOD",
+      "canonical_entity_id": "food_nhum",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Nhum biển là hải sản quen thuộc ở Phú Quốc, thường được nướng trực tiếp trên than sau khi bổ đôi. Mỡ hành và đậu phộng là kiểu phục vụ phổ biến.",
+            "source_ids": [
+              "knowledge_059_source_1",
+              "knowledge_059_source_2"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nguyên liệu thường gặp: Nhum biển, Dầu hoặc mỡ hành, Hành lá, Đậu phộng rang - thường có, Muối tiêu chanh hoặc sốt chua cay - tùy quán",
+            "source_ids": [
+              "knowledge_059_source_1",
+              "knowledge_059_source_2"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "knowledge_059_source_1",
+            "source_type": "TOURISM_OR_EDITORIAL",
+            "label": "Vietnam Tourism - Đặc sản hải sản Phú Quốc",
+            "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "knowledge_059_source_2",
+            "source_type": "EDITORIAL",
+            "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
+            "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Công thức và cách phục vụ thay đổi theo từng quán."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Nhum có vị béo, mềm và mặn ngọt của biển. Cách dễ ăn nhất là nướng vừa tới, thêm mỡ hành nhưng đừng nêm quá tay.",
+        "practical": "Hỏi kích cỡ và giá trước khi gọi. Nhum nướng quá lâu sẽ khô, mất phần béo mềm đáng ăn nhất.",
+        "expectation_vs_reality": "Không phải con nào cũng đầy thịt/trứng như nhau, nên kích cỡ và mùa ảnh hưởng trải nghiệm khá nhiều.",
+        "before_you_go": [
+          "Nhum là hải sản, cần tránh nếu có dị ứng phù hợp.",
+          "Mỡ hành thường có thể kèm đậu phộng.",
+          "Hỏi quán nếu cần phần không đậu phộng hoặc tách dụng cụ."
+        ],
+        "curiosity_questions": [
+          "Phần mình ăn trong con nhum thực ra là gì?",
+          "Vì sao nhum ngon lại phụ thuộc nhiều vào độ chín?"
+        ]
+      },
+      "food_profile": {
+        "ingredients": [
+          "Nhum biển",
+          "Dầu hoặc mỡ hành",
+          "Hành lá",
+          "Đậu phộng rang - thường có",
+          "Muối tiêu chanh hoặc sốt chua cay - tùy quán"
+        ],
+        "how_to_eat": "Dùng muỗng nhỏ xúc phần thịt/trứng trong vỏ, ăn trực tiếp hoặc chấm nhẹ muối tiêu chanh. Không cần nêm quá mạnh nếu muốn cảm nhận vị nhum.",
+        "taste_texture": "Béo, mềm, hơi ngọt và có vị biển rõ. Khi nướng đúng độ, phần thịt/trứng nhum vẫn mềm chứ không khô.",
+        "allergen_flags": [
+          {
+            "key": "seafood",
+            "label": "Hải sản / nhum biển",
+            "level": "high"
+          },
+          {
+            "key": "peanut",
+            "label": "Đậu phộng",
+            "level": "possible"
+          }
+        ],
+        "allergy_note": "Nhum là hải sản và nhiều cách phục vụ có đậu phộng. Nếu dị ứng hải sản hoặc đậu phộng, cần hỏi quán trước vì topping và khu nướng có thể dùng chung.",
+        "ask_staff": [
+          "Món có đậu phộng hoặc dầu đậu phộng không?",
+          "Nhum được nướng riêng hay trên cùng vỉ với hải sản khác?",
+          "Có thể bỏ mỡ hành/đậu phộng không?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_060_coi-bien-mai",
+      "number": 60,
+      "title": "Còi biên mai",
+      "topic_type": "FOOD",
+      "canonical_entity_id": "food_coi-bien-mai",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Còi biên mai là phần cơ thịt nối hai mảnh vỏ của sò biên mai. Phần thân còn lại mềm hơn, còn hai phần “còi” dày và chắc nên thường được tách riêng để nướng, xào hoặc nhúng lẩu.",
+            "source_ids": [
+              "knowledge_060_source_1",
+              "knowledge_060_source_2"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Nguyên liệu thường gặp: Còi biên mai, Muối ớt hoặc sa tế - tùy cách nướng, Chao - ở một số kiểu nướng, Rau ăn kèm - tùy quán",
+            "source_ids": [
+              "knowledge_060_source_1",
+              "knowledge_060_source_2"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "knowledge_060_source_1",
+            "source_type": "TOURISM_OR_EDITORIAL",
+            "label": "VietnamNet - Còi biên mai nướng Phú Quốc",
+            "url": "https://vietnamnet.vn/xep-hang-doi-lan-bien-san-dac-san-tru-danh-cua-phu-quoc-dem-nuong-muoi-ot-778244.html",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "knowledge_060_source_2",
+            "source_type": "EDITORIAL",
+            "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
+            "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": [
+          "Công thức và cách phục vụ thay đổi theo từng quán."
+        ]
+      },
+      "editorial": {
+        "short_summary": "Còi biên mai là phần cơ chắc, giòn của sò biên mai. Nướng hoặc xào nhanh thường giữ được độ ngọt và giòn tốt hơn món quá nhiều sốt.",
+        "practical": "Nếu muốn nếm rõ vị, chọn nướng muối ớt hoặc kiểu ít sốt. Hỏi quán tính giá theo phần hay theo trọng lượng.",
+        "expectation_vs_reality": "Nướng quá lâu là phần còi dễ chuyển từ giòn sang cứng.",
+        "before_you_go": [
+          "Biên mai là nhuyễn thể.",
+          "Kiểu nướng chao có thể chứa đậu nành; sa tế hoặc sốt pha sẵn thay đổi theo quán.",
+          "Nếu dị ứng nặng, hỏi cả việc dùng chung vỉ nướng."
+        ],
+        "curiosity_questions": [
+          "Vì sao người ta chỉ chuộng phần 'còi' của biên mai?",
+          "Còi biên mai khác các loại sò nướng thông thường ở kết cấu ra sao?"
+        ]
+      },
+      "food_profile": {
+        "ingredients": [
+          "Còi biên mai",
+          "Muối ớt hoặc sa tế - tùy cách nướng",
+          "Chao - ở một số kiểu nướng",
+          "Rau ăn kèm - tùy quán"
+        ],
+        "how_to_eat": "Ăn khi vừa nướng xong. Kiểu muối ớt nhấn vị ngọt và độ giòn; kiểu chao hoặc sa tế đậm và béo hơn.",
+        "taste_texture": "Giòn, dai vừa và ngọt. Nếu nướng quá lâu phần còi dễ khô và cứng, nên món ngon phụ thuộc khá nhiều vào độ chín.",
+        "allergen_flags": [
+          {
+            "key": "mollusc",
+            "label": "Nhuyễn thể / sò",
+            "level": "high"
+          },
+          {
+            "key": "soy",
+            "label": "Đậu nành - có thể có trong chao",
+            "level": "possible"
+          }
+        ],
+        "allergy_note": "Biên mai là nhuyễn thể. Kiểu nướng chao có thể chứa đậu nành; sa tế và sốt pha sẵn thay đổi theo quán. Nếu dị ứng hải sản, đậu nành hoặc đậu phộng, nên hỏi chính xác loại sốt trước khi gọi.",
+        "ask_staff": [
+          "Món nướng dùng muối ớt, sa tế hay chao?",
+          "Sốt có đậu nành hoặc đậu phộng không?",
+          "Có dùng chung vỉ nướng với các loại hải sản khác không?"
+        ]
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_066_nuoc-mam-phu-quoc",
+      "number": 66,
+      "title": "Nước mắm Phú Quốc",
+      "topic_type": "FOOD",
+      "canonical_entity_id": "place_fish_sauce_house",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy trình truyền thống bắt đầu từ cá cơm và muối. Cá được ủ trong những thùng gỗ lớn và lên men trong thời gian dài. Tài liệu của Liên minh châu Âu mô tả nước mắm Phú Quốc là sản phẩm lên men tự nhiên, với quá trình ủ kéo dài và đặc tính màu nâu đỏ sẫm, vị mặn, ngọt hậu và giàu đạm.",
+            "source_ids": [
+              "knowledge_066_source_1",
+              "knowledge_066_source_2",
+              "knowledge_066_source_3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Năm 2012, tên gọi Phú Quốc được Liên minh châu Âu đăng ký bảo hộ PDO cho sản phẩm nước mắm. Điều này đáng chú ý vì một sản phẩm làm từ nghề biển trên đảo đã trở thành một tên gọi xuất xứ được nhận diện ở thị trường quốc tế.",
+            "source_ids": [
+              "knowledge_066_source_1",
+              "knowledge_066_source_2",
+              "knowledge_066_source_3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "knowledge_066_source_1",
+            "source_type": "CURATED_RESEARCH",
+            "label": "European Commission - Phú Quốc PDO",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0928",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "knowledge_066_source_2",
+            "source_type": "CURATED_RESEARCH",
+            "label": "Vietnam Tourism - Fish sauce: Vietnam's first love",
+            "url": "https://vietnam.travel/node/1232",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "knowledge_066_source_3",
+            "source_type": "CURATED_RESEARCH",
+            "label": "Hội Nước mắm Phú Quốc - Lịch sử nước mắm Phú Quốc",
+            "url": "https://hoinuocmamphuquoc.org/lich-su-nuoc-mam-phu-quoc/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Nước mắm Phú Quốc là câu chuyện của cá cơm, muối và thời gian ủ trong thùng gỗ. Muốn hiểu món gia vị này, nên nhìn cả nghề làm ra nó chứ không chỉ đọc con số độ đạm trên chai.",
+        "practical": "Khi mua, đọc rõ tên sản phẩm, độ đạm, nơi sản xuất và cách ghi chỉ dẫn nguồn gốc. Đừng chọn chỉ vì chai có chữ 'Phú Quốc' thật lớn.",
+        "expectation_vs_reality": "Độ đạm cao không tự động có nghĩa hợp khẩu vị hơn. Mùi, độ mặn và mục đích dùng trong bếp cũng quan trọng.",
+        "before_you_go": [
+          "Phân biệt sản phẩm thực sự gắn với chỉ dẫn địa lý với cách dùng tên Phú Quốc trong marketing.",
+          "Nếu mua mang máy bay, kiểm tra quy định đóng gói hành lý của hãng.",
+          "Nếm lượng nhỏ nếu chưa quen mùi nước mắm cốt."
+        ],
+        "curiosity_questions": [
+          "Vì sao nhà thùng Phú Quốc dùng những thùng gỗ lớn như vậy?",
+          "Chỉ dẫn địa lý Phú Quốc bảo vệ điều gì trên một chai nước mắm?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": null,
+        "address": null
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_067_nha-thung-nuoc-mam",
+      "number": 67,
+      "title": "Nhà thùng nước mắm",
+      "topic_type": "FOOD",
+      "canonical_entity_id": "place_fish_sauce_house",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "PLACE_GUIDE",
+      "research": {
+        "claims": [
+          {
+            "claim": "Quy trình truyền thống bắt đầu từ cá cơm và muối. Cá được ủ trong những thùng gỗ lớn và lên men trong thời gian dài. Tài liệu của Liên minh châu Âu mô tả nước mắm Phú Quốc là sản phẩm lên men tự nhiên, với quá trình ủ kéo dài và đặc tính màu nâu đỏ sẫm, vị mặn, ngọt hậu và giàu đạm.",
+            "source_ids": [
+              "knowledge_067_source_1",
+              "knowledge_067_source_2",
+              "knowledge_067_source_3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Năm 2012, tên gọi Phú Quốc được Liên minh châu Âu đăng ký bảo hộ PDO cho sản phẩm nước mắm. Điều này đáng chú ý vì một sản phẩm làm từ nghề biển trên đảo đã trở thành một tên gọi xuất xứ được nhận diện ở thị trường quốc tế.",
+            "source_ids": [
+              "knowledge_067_source_1",
+              "knowledge_067_source_2",
+              "knowledge_067_source_3"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "knowledge_067_source_1",
+            "source_type": "CURATED_RESEARCH",
+            "label": "European Commission - Phú Quốc PDO",
+            "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0928",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "knowledge_067_source_2",
+            "source_type": "CURATED_RESEARCH",
+            "label": "Vietnam Tourism - Fish sauce: Vietnam's first love",
+            "url": "https://vietnam.travel/node/1232",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "knowledge_067_source_3",
+            "source_type": "CURATED_RESEARCH",
+            "label": "Hội Nước mắm Phú Quốc - Lịch sử nước mắm Phú Quốc",
+            "url": "https://hoinuocmamphuquoc.org/lich-su-nuoc-mam-phu-quoc/",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Nhà thùng là nơi nhìn thấy nghề nước mắm có hình dáng thật: những thùng gỗ lớn, cá cơm, muối và thời gian ủ kéo dài. Đây đáng là một điểm nghề, không nên biến thành chỗ mua quà rồi đi.",
+        "practical": "Khoảng 45-60 phút là vừa nếu có người giải thích tốt. Hỏi về loại cá, muối, thời gian ủ và cách rút nước mắm sẽ hiểu nghề nhanh hơn.",
+        "expectation_vs_reality": "Không phải nơi nào treo biển nhà thùng cũng cho thấy đầy đủ hoạt động sản xuất trong ngày.",
+        "before_you_go": [
+          "Ưu tiên cơ sở còn làm nghề thật.",
+          "Sàn có thể ẩm hoặc có mùi mạnh, nên đi giày dễ di chuyển.",
+          "Không chạm thiết bị hoặc mở thùng nếu chưa được phép."
+        ],
+        "curiosity_questions": [
+          "Một mẻ nước mắm nằm trong thùng bao lâu?",
+          "Vì sao mùi trong nhà thùng lại khác hẳn mùi của chai nước mắm ở nhà?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": null,
+        "address": null
+      },
+      "updated_at": "2026-09-22"
+    },
+    {
+      "topic_id": "knowledge_068_tieu-phu-quoc",
+      "number": 68,
+      "title": "Tiêu Phú Quốc",
+      "topic_type": "FOOD",
+      "canonical_entity_id": "place_pepper_garden",
+      "status": "READY_INTERNAL",
+      "public_ready": false,
+      "story_type": "FOOD",
+      "research": {
+        "claims": [
+          {
+            "claim": "Những hàng tiêu thẳng đứng, xanh kín, có lúc lấm tấm chùm quả đỏ rất dễ chụp đẹp. Nhưng đứng thêm một lúc sẽ thấy nhiều thứ thú vị hơn: cách người trồng giữ ẩm, thu hái, phơi và sàng hạt trong khí hậu của đảo.",
+            "source_ids": [
+              "knowledge_068_source_1",
+              "knowledge_068_source_2"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          },
+          {
+            "claim": "Tiêu Phú Quốc thường được mô tả bởi độ cay và mùi thơm. Với khách du lịch, trải nghiệm thú vị nhất không phải đọc một bảng giới thiệu dài, mà là bóp nhẹ một hạt tiêu, ngửi mùi vừa bật ra rồi nhìn lại mảnh vườn trước mặt. Từ đó, món quà nhỏ trong túi có thêm một nơi chốn để nhớ.",
+            "source_ids": [
+              "knowledge_068_source_1",
+              "knowledge_068_source_2"
+            ],
+            "verification_status": "CURATED_EXISTING_DATA",
+            "confidence": "MEDIUM"
+          }
+        ],
+        "sources": [
+          {
+            "source_id": "knowledge_068_source_1",
+            "source_type": "CURATED_RESEARCH",
+            "label": "Cổng thông tin du lịch Phú Quốc - Vườn tiêu Khu Tượng",
+            "url": "https://dulich.phuquoc.gov.vn/vi/vuontieukhutuong",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          },
+          {
+            "source_id": "knowledge_068_source_2",
+            "source_type": "CURATED_RESEARCH",
+            "label": "Vietnam Tourism - Explore Phu Quoc in 3 days, 2 nights",
+            "url": "https://vietnam.travel/vi/node/1438",
+            "published_at": null,
+            "verified_at": "2026-09-22"
+          }
+        ],
+        "known_unknowns": []
+      },
+      "editorial": {
+        "short_summary": "Vườn tiêu cho thấy một lớp Phú Quốc khác biển: đất đỏ, hàng trụ tiêu, mùa thu hoạch, phơi và phân loại hạt. Đi chậm và hỏi người trồng sẽ đáng hơn chỉ dừng để chụp hình.",
+        "practical": "Khoảng 30-60 phút là đủ. Nếu đúng mùa, hỏi cách nhận biết tiêu đen, tiêu đỏ và tiêu sọ ngay tại vườn.",
+        "expectation_vs_reality": "Không phải vườn nào mở cho khách cũng còn cùng mức hoạt động canh tác; có nơi thiên về bán sản phẩm hơn.",
+        "before_you_go": [
+          "Ưu tiên vườn còn canh tác thật.",
+          "Hỏi mùa thu hoạch trước nếu mục tiêu là xem trái tiêu.",
+          "Không mặc định mọi sản phẩm đóng gói đều trồng ngay tại vườn đang ghé."
+        ],
+        "curiosity_questions": [
+          "Vì sao tiêu Phú Quốc nổi tiếng với mùi thơm hơn là chỉ độ cay?",
+          "Tiêu đỏ, tiêu đen và tiêu sọ khác nhau ở khâu nào?"
+        ]
+      },
+      "operational_refs": {
+        "opening_hours": null,
+        "map": null,
+        "address": null
+      },
+      "updated_at": "2026-09-22"
+    }
+  ]
+}
