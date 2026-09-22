@@ -5,7 +5,8 @@
     critical: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/gh-pages/weather/data/critical.json",
     marineOps: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-marine-ops/data/marine_ops/latest.json",
     airport: "https://jotrip-airport-live.kenzuko.workers.dev",
-    airportFallback: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport/latest.json"
+    airportFallback: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport/latest.json",
+    airportHistoryBase: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport/history"
   };
 
   const $ = s => document.querySelector(s);
@@ -49,6 +50,30 @@ function stateText(s) {
     } finally {
       clearTimeout(timeout);
     }
+  }
+
+  async function getText(url, timeoutMs = 10000) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), timeoutMs);
+    try {
+      const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), {
+        cache: "no-store",
+        signal: controller.signal
+      });
+      if (r.status === 404) return "";
+      if (!r.ok) throw new Error(String(r.status));
+      return r.text();
+    } finally {
+      clearTimeout(timeout);
+    }
+  }
+
+  function vnDateKey(date = new Date()) {
+    const parts = new Intl.DateTimeFormat("en-GB", {
+      timeZone:"Asia/Ho_Chi_Minh", year:"numeric", month:"2-digit", day:"2-digit"
+    }).formatToParts(date);
+    const get = type => parts.find(p => p.type === type)?.value || "";
+    return get("year") + "-" + get("month") + "-" + get("day");
   }
 
   async function getAirport() {
@@ -205,11 +230,139 @@ function freshnessText(iso, prefix = "Cập nhật") {
   }
 
 
+  function buildAirportWatchSummary(airport, eventsText = "") {
+    const records = Array.isArray(airport?.records) ? airport.records : [];
+    const now = vnClockParts().minutes;
+    const fold = value => String(value ?? "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[đĐ]/g, "d").toUpperCase().replace(/\s+/g, " ").trim();
+    const mins = value => {
+      const m = String(value || "").match(/(\d{1,2}):(\d{2})/);
+      return m ? Number(m[1]) * 60 + Number(m[2]) : null;
+    };
+    const scheduledTime = r => r?.scheduled_time || r?.times?.[0] || null;
+    const isDelayed = r => /DELAYED|RESCHEDULED|POSTPONED/.test(String(r?.status_code || "").toUpperCase()) || /TRE|DELAYED|RESCHEDULED|HOAN/.test(fold(r?.status || ""));
+    const expectedTime = r => {
+      if (r?.estimated_time) return r.estimated_time;
+      if (!isDelayed(r)) return null;
+      const times = Array.isArray(r?.times) ? r.times : [];
+      return times.length > 1 ? times[times.length - 1] : null;
+    };
+    const signedDiff = (from, to) => {
+      const a = mins(from), b = mins(to);
+      if (a == null || b == null) return null;
+      let d = b - a;
+      if (d > 720) d -= 1440;
+      if (d < -720) d += 1440;
+      return d;
+    };
+    const deviation = r => {
+      const expected = expectedTime(r);
+      return expected ? signedDiff(scheduledTime(r), expected) : null;
+    };
+    const completed = r => {
+      const code = String(r?.status_code || "").toUpperCase();
+      const raw = fold(r?.status || r?.raw_status || "");
+      if (r?.direction === "arrival") return !!r?.actual_time || /ARRIVED|ON_BLOCK/.test(code) || /DA HA CANH|BAI DO/.test(raw);
+      return !!r?.actual_time || code === "DEPARTED" || /DA CAT CANH/.test(raw);
+    };
+    const minutesAfter = value => {
+      const t = mins(value);
+      if (t == null) return null;
+      let d = now - t;
+      if (d < 0) d += 1440;
+      return d;
+    };
+    const flightKey = r => String(r?.direction || "") + "|" + String(r?.operating_flight_number || r?.flight_number || "");
+    const clean = value => {
+      const s = String(value ?? "").trim();
+      return s && s !== "-" && s.toLowerCase() !== "null" ? s : "";
+    };
+
+    const items = [];
+    const byKey = new Map(records.map(r => [flightKey(r), r]));
+    const latestByField = new Map();
+    const fields = {
+      gate:{current:"gate",history:"gate"},
+      checkin_row:{current:"checkin_row",history:"ckRow"},
+      belt:{current:"belt",history:"belt"}
+    };
+
+    for (const line of String(eventsText || "").split("\n")) {
+      if (!line.trim()) continue;
+      let ev;
+      try { ev = JSON.parse(line); } catch (_) { continue; }
+      if (ev?.type !== "CHANGED" || !ev?.changes) continue;
+      const eventDay = (() => {
+        try { return vnDateKey(new Date(ev.at)); } catch (_) { return ""; }
+      })();
+      if (eventDay !== vnDateKey()) continue;
+      const key = String(ev.direction || "") + "|" + String(ev.flight_number || "");
+      const record = byKey.get(key);
+      if (!record) continue;
+
+      for (const [field, cfg] of Object.entries(fields)) {
+        const ch = ev.changes[cfg.history];
+        if (!ch) continue;
+        const from = clean(ch.from), to = clean(ch.to);
+        if (!from || !to || from === to || clean(record[cfg.current]) !== to) continue;
+        const k = key + "|" + field;
+        const candidate = {at:ev.at, field, record};
+        const previous = latestByField.get(k);
+        if (!previous || new Date(candidate.at).getTime() > new Date(previous.at).getTime()) latestByField.set(k, candidate);
+      }
+    }
+
+    for (const e of latestByField.values()) {
+      const r = e.record;
+      if (r.direction === "departure" && e.field === "belt") continue;
+      if (r.direction === "arrival" && (e.field === "checkin_row" || e.field === "gate")) continue;
+      if (r.direction === "departure" && completed(r)) continue;
+      if (r.direction === "arrival" && completed(r)) {
+        if (e.field !== "belt") continue;
+        const after = minutesAfter(r.actual_time);
+        if (after == null || after > 60) continue;
+      }
+      items.push({kind:"fids", flight:flightKey(r)});
+    }
+
+    let delayed15Count = 0;
+    let delayed30Count = 0;
+    let cancelledCount = 0;
+    for (const r of records) {
+      const sched = mins(scheduledTime(r));
+      if (sched == null) continue;
+      const cancelled = /CANCELLED/.test(String(r?.status_code || "").toUpperCase()) || /HUY|CANCELLED/.test(fold(r?.status || ""));
+      if (completed(r) && !cancelled) continue;
+      if (cancelled) {
+        const after = minutesAfter(scheduledTime(r));
+        if (after != null && after > 60 && after < 720) continue;
+        cancelledCount += 1;
+      }
+      const dev = deviation(r);
+      if (!cancelled && !isDelayed(r) && !(dev != null && Math.abs(dev) >= 10)) continue;
+      items.push({kind:"flight", flight:flightKey(r)});
+
+      let delay = Number.isFinite(Number(r?.delay_minutes)) ? Number(r.delay_minutes) : null;
+      if (delay == null && Number.isFinite(Number(r?.estimated_delay_minutes))) delay = Number(r.estimated_delay_minutes);
+      if ((delay == null || delay === 0) && dev != null && dev > 0) delay = dev;
+      if (delay != null && delay >= 15) delayed15Count += 1;
+      if (delay != null && delay >= 30) delayed30Count += 1;
+    }
+
+    return {
+      count:items.length,
+      flightCount:new Set(items.map(x => x.flight).filter(Boolean)).size,
+      delayed15Count,
+      delayed30Count,
+      cancelledCount
+    };
+  }
+
   Promise.allSettled([
     getJson(SRC.critical),
     getJson(SRC.marineOps),
-    getAirport()
-  ]).then(([c, m, a]) => {
+    getAirport(),
+    getText(SRC.airportHistoryBase + "/" + vnDateKey() + "/events.jsonl")
+  ]).then(([c, m, a, e]) => {
     const critical = c.status === "fulfilled" ? c.value : null;
     const marine = m.status === "fulfilled" ? m.value : null;
     const airport = a.status === "fulfilled" ? a.value : null;
@@ -524,29 +677,35 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const airportAvailable = !!airport && airportQaUsable && airportAge <= 15;
     const airportLoaded = !!airport;
     const records = airportAvailable ? (airport.records || []) : [];
-    const delayed = records.filter(x => x.status_code === "DELAYED" || x.status === "TRỄ" || Number(x.estimated_delay_minutes) > 0);
     const total = airportAvailable ? (airport?.counts?.total ?? records.length) : null;
+    const airportEventsText = e.status === "fulfilled" ? e.value : "";
+    const airportWatch = airportAvailable ? buildAirportWatchSummary(airport, airportEventsText) : {
+      count:0, flightCount:0, delayed15Count:0, delayed30Count:0, cancelledCount:0
+    };
+    const attentionLine = airportWatch.count
+      ? airportWatch.count + " cảnh báo đang cần chú ý"
+      : "Chưa có cảnh báo đáng chú ý";
 
     setHappening(
       "airport",
-      !airportAvailable ? "Sân bay chưa có cập nhật mới" : delayed.length ? delayed.length + " chuyến đang trễ" : "Chưa thấy chuyến trễ đáng kể",
-      airportAvailable ? total + " chuyến trong bảng hôm nay" : "Mở Sân bay để xem các chuyến hôm nay.",
-      !airportAvailable ? "CHƯA BIẾT" : delayed.length ? "CÓ TRỄ" : "BÌNH THƯỜNG",
-      airportAvailable && delayed.length === 0
+      !airportAvailable ? "Sân bay chưa có cập nhật mới" : "Sân bay đang hoạt động ổn định",
+      airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem các chuyến hôm nay.",
+      !airportAvailable ? "CHƯA BIẾT" : airportWatch.count ? "CẦN CHÚ Ý" : "BÌNH THƯỜNG",
+      airportAvailable
     );
 
     setContext(
       "airport",
-      !airportAvailable ? "Chưa có thông tin mới" : delayed.length ? delayed.length + " chuyến đang trễ" : "Chưa thấy bất thường",
-      airportAvailable ? total + " chuyến hôm nay · " + ageText(airportStamp) : "Mở Sân bay để xem thêm",
-      !airportAvailable ? "unknown" : delayed.length ? "watch" : "good"
+      !airportAvailable ? "Chưa có thông tin mới" : "Hoạt động ổn định",
+      airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem thêm",
+      !airportAvailable ? "unknown" : airportWatch.count ? "watch" : "good"
     );
 
     setLive(
       "airport",
-      !airportAvailable ? "Chưa có thông tin mới" : delayed.length ? delayed.length + " chuyến đang trễ" : "Chưa thấy bất thường",
-      airportAvailable ? total + " chuyến trong bảng hôm nay" : "Mở Sân bay để xem các chuyến hôm nay",
-      !airportAvailable ? "unknown" : delayed.length ? "watch" : "good",
+      !airportAvailable ? "Chưa có thông tin mới" : "Hoạt động ổn định",
+      airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem các chuyến hôm nay",
+      !airportAvailable ? "unknown" : airportWatch.count ? "watch" : "good",
       airportLoaded ? freshnessText(airportStamp) : "Chưa có tin mới"
     );
 
@@ -623,10 +782,13 @@ function freshnessText(iso, prefix = "Cập nhật") {
         level:"alert"
       });
     }
-    if (airportAvailable && delayed.length >= 3) {
+    if (airportAvailable && (airportWatch.cancelledCount > 0 || airportWatch.delayed30Count >= 3)) {
+      const airportIssueText = airportWatch.cancelledCount > 0
+        ? "Có chuyến bị hủy hoặc thay đổi đáng kể. Nếu sắp ra sân bay, nên xem lại chuyến của mình."
+        : airportWatch.delayed30Count + " chuyến đang chậm từ 30 phút. Nếu sắp ra sân bay, nên xem lại chuyến của mình.";
       quickAlerts.push({
         label:"SÂN BAY",
-        text:delayed.length + " chuyến đang trễ. Nếu sắp ra sân bay, nên xem lại chuyến của mình.",
+        text:airportIssueText,
         href:"airport/",
         action:"Xem chuyến bay",
         priority:50,
@@ -640,7 +802,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
       ["THỜI TIẾT", critical ? weatherPrimary + " · " + (criticalAge > 90 ? "cần cập nhật" : weatherSource) : "chưa có thông tin mới"],
       ["BIỂN NAM ĐẢO", seaHs != null ? fmt(seaHs) + " m" : "chưa có thông tin mới"],
       ["CANO", marine ? stateText(canoState) : "chưa có cập nhật mới"],
-      ["SÂN BAY", !airportAvailable ? "chưa có tin mới lúc này" : delayed.length ? delayed.length + " chuyến cần xem" : "chưa thấy chuyến trễ đáng kể"],
+      ["SÂN BAY", !airportAvailable ? "chưa có tin mới lúc này" : airportWatch.count ? "hoạt động ổn định · " + airportWatch.count + " cảnh báo cần chú ý" : "hoạt động ổn định"],
       ["HOÀNG HÔN", sunset]
     );
     renderTicker(tickerItems, topAlert?.level || "normal");
@@ -744,9 +906,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
         },
         airport: {
           label: "Sân bay",
-          primary: !airportAvailable ? "Chưa có tin mới lúc này" : delayed.length ? delayed.length + " chuyến cần xem" : "Chưa thấy chuyến trễ đáng kể",
-          context: airportAvailable ? total + " chuyến hôm nay" : airportLoaded ? "Chưa có tin mới" : "Chưa xem được sân bay lúc này",
-          status: !airportAvailable ? "unknown" : delayed.length ? "watch" : "normal",
+          primary: !airportAvailable ? "Chưa có tin mới lúc này" : "Hoạt động ổn định",
+          context: airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : airportLoaded ? "Chưa có tin mới" : "Chưa xem được sân bay lúc này",
+          status: !airportAvailable ? "unknown" : airportWatch.count ? "watch" : "normal",
           source_class: "LIVE_OPERATIONAL",
           source_updated_at: airportStamp,
           freshness: !airportLoaded || !Number.isFinite(airportAge) ? "unknown" : airportAge <= 8 ? "fresh" : airportAge <= 15 ? "aging" : "stale",
@@ -762,7 +924,11 @@ function freshnessText(iso, prefix = "Cập nhật") {
         weather_snapshot_age_min: Number.isFinite(criticalAge) ? Math.round(criticalAge) : null,
         convective_levels: [...new Set(convectiveLevels)],
         observed_rain: observedRain,
-        airport_delayed_count: airportAvailable ? delayed.length : null,
+        airport_attention_count: airportAvailable ? airportWatch.count : null,
+        airport_attention_flights: airportAvailable ? airportWatch.flightCount : null,
+        airport_delayed_15m_count: airportAvailable ? airportWatch.delayed15Count : null,
+        airport_delayed_30m_count: airportAvailable ? airportWatch.delayed30Count : null,
+        airport_cancelled_count: airportAvailable ? airportWatch.cancelledCount : null,
         airport_total: total,
         cano_state: canoState || null,
         fast_boat_state: fastState || null,
@@ -771,7 +937,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
       source_health: {
         weather_critical: c.status,
         marine_ops: m.status,
-        airport: a.status
+        airport: a.status,
+        airport_events: e.status
       }
     };
 
