@@ -25,11 +25,11 @@
       "ACTIVITY": 15,
       "MEMORY_CHANGE": 12
     },
-    "linked_to_canonical_entity": 34,
-    "unlinked": 116,
-    "ready_internal": 91,
-    "queued": 47,
-    "hold": 12
+    "linked_to_canonical_entity": 38,
+    "unlinked": 112,
+    "ready_internal": 104,
+    "queued": 33,
+    "hold": 13
   },
   "topics": [
     {
@@ -1821,9 +1821,9 @@
       "section": "PRACTICAL / TRANSPORT / UTILITIES",
       "topic_type": "PRACTICAL",
       "crawl_brief": "Khoảng cách, thời gian, phương tiện, giá tham khảo, late-night.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "access_airport_transfer",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1845,9 +1845,11 @@
       "section": "PRACTICAL / TRANSPORT / UTILITIES",
       "topic_type": "PRACTICAL",
       "crawl_brief": "Khoảng cách, thời gian, phương tiện, giá tham khảo.",
-      "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "canonical_entity_id": "access_airport_transfer",
+      "related_entity_ids": [
+        "place_sunset_town"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1869,9 +1871,13 @@
       "section": "PRACTICAL / TRANSPORT / UTILITIES",
       "topic_type": "PRACTICAL",
       "crawl_brief": "Khoảng cách, thời gian, phương tiện, practical.",
-      "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "canonical_entity_id": "access_airport_transfer",
+      "related_entity_ids": [
+        "place_grand_world",
+        "place_vinwonders",
+        "place_vinpearl_safari"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1895,7 +1901,7 @@
       "crawl_brief": "Thời gian, taxi/bus/car, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1919,7 +1925,7 @@
       "crawl_brief": "Thời gian, phương tiện, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1942,8 +1948,10 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Road condition, thời gian, phương tiện phù hợp.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_rach_vem"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1966,8 +1974,10 @@
       "topic_type": "PRACTICAL",
       "crawl_brief": "Thời gian, phương tiện, practical.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_ham_ninh"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -1991,7 +2001,7 @@
       "crawl_brief": "Tuyến đang hoạt động, giờ, điểm dừng, fare, source.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2045,7 +2055,7 @@
       "crawl_brief": "Yêu cầu giấy tờ, giá tham khảo, safety, fuel, parking.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2069,7 +2079,7 @@
       "crawl_brief": "Điều kiện, giấy tờ, parking, fuel, practical.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2091,9 +2101,9 @@
       "section": "PRACTICAL / TRANSPORT / UTILITIES",
       "topic_type": "PRACTICAL",
       "crawl_brief": "Loại xe, pickup, buffer, late-night, source.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "access_airport_transfer",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2172,7 +2182,7 @@
       "crawl_brief": "Mức độ chấp nhận theo loại nơi, cash fallback, source.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2196,7 +2206,7 @@
       "crawl_brief": "Kênh hợp pháp/chính thống, khu vực, practical cho khách quốc tế.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -2388,7 +2398,7 @@
       "crawl_brief": "Dataset: beach/attraction/transport node, fee, access, hours.",
       "canonical_entity_id": null,
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
