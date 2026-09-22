@@ -13,9 +13,10 @@
   };
 
   let support=null;
-  let entities=new Map();
+  let rows=[];
   let selectedArea="all";
   let selectedCategory=null;
+  let searchText="";
   let position=null;
   let nearMap=null;
   let markerLayer=null;
@@ -25,6 +26,7 @@
   const initialParams=new URLSearchParams(location.search);
   const requestedArea=initialParams.get("area");
   const requestedCategory=initialParams.get("category");
+  const requestedQuery=initialParams.get("q")||"";
 
   function category(id=selectedCategory){
     return support?.near_me?.categories?.find(x=>x.id===id)||null;
@@ -48,7 +50,7 @@
 
   function mapSearchQuery(){
     const cat=category();
-    const term=cat?.search_query||cat?.label||"";
+    const term=searchText.trim()||cat?.search_query||cat?.label||"địa điểm";
     return [term,areaQuery()].filter(Boolean).join(" ");
   }
 
@@ -70,18 +72,18 @@
     if(el)el.textContent=text;
   }
 
-  function showDirectoryMap(){
+  function showDirectoryMap(query=mapSearchQuery(),label="Google Maps"){
     const live=$("#nearLeaflet");
     const frame=$("#nearDirectoryMap");
     if(live)live.hidden=true;
     if(!frame)return;
     frame.hidden=false;
     const zoom=selectedArea==="all"?10:13;
-    frame.src=googleEmbedUrl(mapSearchQuery(),zoom);
-    setMapBadge("Kết quả tìm kiếm trên Google Maps");
+    frame.src=googleEmbedUrl(query,zoom);
+    setMapBadge(label);
     const note=$("#mapNote");
-    if(note)note.textContent="Lớp này dùng kết quả bản đồ để khám phá nhanh. Pin Open Phu Quoc chỉ xuất hiện khi địa điểm đã được mình kiểm tra và có tọa độ đủ chắc.";
-    updateExternalMapLink();
+    if(note)note.textContent="Đang dùng bản đồ tìm kiếm cho những nơi chưa có pin lưu trong Open Phu Quoc.";
+    updateExternalMapLink(query);
   }
 
   function showLiveMap(){
@@ -97,8 +99,6 @@
     if(!host)return;
     if(!window.L){
       showDirectoryMap();
-      const note=$("#mapNote");
-      if(note)note.textContent="Bản đồ dữ liệu chưa mở được, đang dùng bản đồ tìm kiếm thay thế.";
       return;
     }
 
@@ -147,8 +147,6 @@
       .bindPopup("<div class=\"near-popup\"><strong>Vị trí của bạn</strong><small>Chỉ dùng trong phiên này.</small></div>")
       .addTo(userLayer);
     nearMap.setView([coords.lat,coords.lon],15,{animate:true});
-    const note=$("#mapNote");
-    if(note)note.textContent="Đang theo vị trí của bạn. Khoảng cách chỉ tính với những điểm đã có tọa độ đủ chắc.";
   }
 
   function haversine(a,b){
@@ -164,23 +162,65 @@
       .sort((a,b)=>a.d-b.d)[0]?.id||"all";
   }
 
-  function mergedItems(){
-    return (support?.near_me?.items||[]).map(x=>{
-      const e=entities.get(x.utility_id)||{};
-      const mapData=e.map||{};
-      return {
-        ...x,
-        id:e.id||x.utility_id,
-        name:e.name||x.utility_id,
-        address:e.address||"",
-        phone:e.phone||null,
-        zone_id:e.zone_id||null,
-        utility_type:e.utility_type||null,
-        what_it_is:e.what_it_is||"",
-        lat:Number.isFinite(mapData.lat)?mapData.lat:null,
-        lon:Number.isFinite(mapData.lon)?mapData.lon:null
-      };
-    });
+  function derivedTags(entity){
+    const tags=new Set();
+    if(entity.entity_type==="hotel")tags.add("HOTEL");
+    if(entity.entity_type==="place"){
+      tags.add("DESTINATION");
+      const cats=new Set(entity.categories||[]);
+      if(cats.has("beach"))tags.add("BEACH");
+      if(["theme-park","waterpark","wildlife","museum","entertainment","show","thrill"].some(x=>cats.has(x)))tags.add("ENTERTAINMENT");
+      if(["culture","history","lore","craft","agriculture"].some(x=>cats.has(x)))tags.add("CULTURE");
+      if(["market","food"].some(x=>cats.has(x))||/chợ/i.test(entity.name||""))tags.add("MARKET");
+    }
+    if(entity.entity_type==="utility"&&entity.utility_type)tags.add(entity.utility_type);
+    return [...tags];
+  }
+
+  function makeEntityRow(entity,extra={}){
+    const mapData=entity.map||{};
+    return {
+      ...extra,
+      id:entity.id,
+      entity_type:entity.entity_type,
+      name:entity.name||entity.id,
+      aliases:entity.aliases||[],
+      address:entity.address||"",
+      address_precision:entity.address_precision||null,
+      phone:entity.phone||null,
+      zone_id:entity.zone_id||null,
+      place_id:extra.place_id||null,
+      group:entity.group||null,
+      utility_type:entity.utility_type||null,
+      tags:derivedTags(entity),
+      what_it_is:entity.what_it_is||"",
+      star_rating:entity.star_rating??null,
+      related_entities:entity.related_entities||[],
+      lat:Number.isFinite(mapData.lat)?mapData.lat:null,
+      lon:Number.isFinite(mapData.lon)?mapData.lon:null,
+      map_precision:mapData.precision||null,
+      route:extra.route||entity.route||null
+    };
+  }
+
+  function buildRows(payloads){
+    const utilityById=new Map((payloads.utilities.entities||[]).map(x=>[x.id,x]));
+    const utilityRows=(support?.near_me?.items||[])
+      .map(meta=>{
+        const e=utilityById.get(meta.utility_id);
+        return e?makeEntityRow(e,{...meta,featured:!!meta.featured}):null;
+      })
+      .filter(Boolean);
+
+    const placeRows=(payloads.places.entities||[])
+      .filter(e=>e.name)
+      .map(e=>makeEntityRow(e,{route:"../places/detail.html?id="+encodeURIComponent(e.slug||e.legacy_id||e.id.replace(/^place_/,""))}));
+
+    const hotelRows=(payloads.hotels.entities||[])
+      .filter(e=>e.name)
+      .map(e=>makeEntityRow(e,{route:"../hotels/?q="+encodeURIComponent(e.name)}));
+
+    return [...placeRows,...utilityRows,...hotelRows];
   }
 
   function areaLabel(){
@@ -188,10 +228,37 @@
     return support?.near_me?.manual_areas?.find(x=>x.id===selectedArea)?.label||"Toàn đảo";
   }
 
+  function matchesArea(row){
+    if(selectedArea==="all")return true;
+    if(selectedArea==="place_sunset_town"){
+      const hay=[row.name,row.address,...(row.related_entities||[])].join(" ").toLowerCase();
+      return row.place_id==="place_sunset_town"||row.id==="place_sunset_town"||hay.includes("sunset town");
+    }
+    return row.zone_id===selectedArea||row.place_id===selectedArea;
+  }
+
+  function matchesCategory(row,id=selectedCategory){
+    if(!id)return true;
+    if(isDiscoveryCategory(id))return false;
+    return (row.tags||[]).includes(id);
+  }
+
+  function matchesSearch(row){
+    const q=searchText.trim().toLowerCase();
+    if(!q)return true;
+    const hay=[row.name,row.address,row.what_it_is,row.group,...(row.aliases||[])].join(" ").toLowerCase();
+    return hay.includes(q);
+  }
+
+  function defaultVisible(row){
+    if(selectedCategory||searchText.trim())return true;
+    return row.entity_type!=="hotel";
+  }
+
   function renderControls(){
     const areas=support?.near_me?.manual_areas||[];
-    const availableTypes=new Set(mergedItems().map(x=>x.utility_type).filter(Boolean));
-    const cats=(support?.near_me?.categories||[]).filter(x=>availableTypes.has(x.id)||x.mode==="directory_search");
+    const available=new Set(rows.flatMap(x=>x.tags||[]));
+    const cats=(support?.near_me?.categories||[]).filter(x=>available.has(x.id)||x.mode==="directory_search");
     if(selectedCategory&&!cats.some(x=>x.id===selectedCategory))selectedCategory=null;
 
     $("#areaRow").innerHTML=areas.map(x=>
@@ -205,12 +272,16 @@
       ).join("");
   }
 
+  function glyphFor(row){
+    if(row.entity_type==="hotel")return"H";
+    const first=(row.tags||[])[0];
+    return category(first)?.icon||category(row.utility_type)?.icon||(row.entity_type==="place"?"●":"•");
+  }
+
   function markerIcon(item){
-    const cat=category(item.utility_type);
-    const glyph=cat?.icon||"•";
     return L.divIcon({
       className:"",
-      html:'<div class="near-pin"><span>'+esc(glyph)+'</span></div>',
+      html:'<div class="near-pin"><span>'+esc(glyphFor(item))+'</span></div>',
       iconSize:[30,30],
       iconAnchor:[15,15],
       popupAnchor:[0,-14]
@@ -218,14 +289,49 @@
   }
 
   function typeLabel(item){
+    if(item.entity_type==="hotel")return item.star_rating?"Khách sạn "+item.star_rating+" sao":"Khách sạn";
+    if(item.entity_type==="place"){
+      if(item.tags.includes("BEACH"))return"Bãi biển";
+      if(item.tags.includes("ENTERTAINMENT"))return"Vui chơi";
+      if(item.tags.includes("MARKET"))return"Chợ";
+      if(item.tags.includes("CULTURE"))return"Văn hóa";
+      return"Điểm đến";
+    }
     return category(item.utility_type)?.label||item.group||"Tiện ích";
   }
 
-  function renderMapPoints(rows){
+  function filteredRows(){
+    let visible=rows.filter(defaultVisible).filter(matchesArea).filter(matchesCategory).filter(matchesSearch);
+    let gpsFallback=false;
+
+    if(position&&!isDiscoveryCategory()){
+      const withCoords=visible
+        .filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon))
+        .map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
+        .sort((a,b)=>a.distance_km-b.distance_km);
+
+      const withoutCoords=visible
+        .filter(x=>!Number.isFinite(x.lat)||!Number.isFinite(x.lon))
+        .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+
+      gpsFallback=withoutCoords.length>0;
+      visible=[...withCoords,...withoutCoords];
+    }else{
+      visible.sort((a,b)=>{
+        const wa=a.entity_type==="place"?0:a.entity_type==="utility"?1:2;
+        const wb=b.entity_type==="place"?0:b.entity_type==="utility"?1:2;
+        return wa-wb||(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi");
+      });
+    }
+
+    return {rows:visible,gpsFallback};
+  }
+
+  function renderMapPoints(visible){
     updateExternalMapLink();
 
     if(isDiscoveryCategory()){
-      showDirectoryMap();
+      showDirectoryMap(mapSearchQuery(),"Tìm trên Google Maps");
       return;
     }
 
@@ -234,11 +340,16 @@
       return;
     }
 
+    const mapped=visible.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon));
+    if(!mapped.length&&visible.length){
+      showDirectoryMap([selectedCategory?category()?.label:"",searchText.trim(),areaQuery()].filter(Boolean).join(" "),"Tìm theo khu vực");
+      return;
+    }
+
     showLiveMap();
     markerLayer?.clearLayers();
     markerById.clear();
 
-    const mapped=rows.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon));
     for(const x of mapped){
       const marker=L.marker([x.lat,x.lon],{icon:markerIcon(x)});
       marker.bindPopup(
@@ -251,60 +362,15 @@
       markerById.set(x.id,marker);
     }
 
-    if(position){
-      showUserLocation(position);
-    }else{
-      setAreaView(selectedArea);
-    }
+    if(position)showUserLocation(position);
+    else setAreaView(selectedArea);
 
-    const total=rows.length;
-    if(mapped.length){
-      setMapBadge(mapped.length+"/"+total+" điểm có pin đã kiểm tra");
-      const note=$("#mapNote");
-      if(note)note.textContent=total===mapped.length
-        ?"Các điểm đang thấy trên bản đồ đều lấy từ dữ liệu Open Phu Quoc."
-        :mapped.length+" điểm đã có tọa độ đủ chắc để đặt pin. "+(total-mapped.length)+" điểm còn lại vẫn hiện trong danh sách theo khu vực.";
-    }else{
-      setMapBadge("Chưa có pin đã kiểm tra ở bộ lọc này");
-      const note=$("#mapNote");
-      if(note)note.textContent="Danh sách vẫn dùng được, nhưng Open Phu Quoc chưa đặt pin khi tọa độ chưa đủ chắc.";
-    }
-  }
-
-  function filteredRows(){
-    let rows=mergedItems();
-    if(selectedCategory&&!isDiscoveryCategory())rows=rows.filter(x=>x.utility_type===selectedCategory);
-
-    let gpsFallback=false;
-    if(position){
-      const withCoords=rows
-        .filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon))
-        .map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
-        .sort((a,b)=>a.distance_km-b.distance_km);
-
-      const fallbackArea=selectedArea!=="all"?selectedArea:nearestArea(position);
-      const areaOnly=rows
-        .filter(x=>!Number.isFinite(x.lat)||!Number.isFinite(x.lon))
-        .filter(x=>x.zone_id===fallbackArea||x.place_id===fallbackArea)
-        .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-
-      gpsFallback=areaOnly.length>0;
-      rows=[...withCoords,...areaOnly];
-
-      if(!rows.length){
-        rows=mergedItems()
-          .filter(x=>!selectedCategory||x.utility_type===selectedCategory)
-          .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-      }
-    }else if(selectedArea!=="all"){
-      rows=rows
-        .filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea)
-        .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-    }else{
-      rows.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-    }
-
-    return {rows,gpsFallback};
+    const total=visible.length;
+    setMapBadge(mapped.length+"/"+total+" điểm có pin Open Phu Quoc");
+    const note=$("#mapNote");
+    if(note)note.textContent=total===mapped.length
+      ?"Các điểm đang thấy đều đã có tọa độ lưu trong Open Phu Quoc."
+      :mapped.length+" điểm có pin lưu sẵn. Những điểm chưa có pin vẫn mở được theo tên và địa chỉ trên bản đồ.";
   }
 
   function renderDiscovery(){
@@ -312,7 +378,7 @@
     const label=cat?.label||"Địa điểm";
     $("#resultsTitle").textContent=areaLabel()+" · "+label;
     $("#resultsCount").textContent="Tìm trên bản đồ";
-    $("#nearStatus").textContent="Đang mở lớp "+label.toLowerCase()+" theo khu vực bạn chọn.";
+    $("#nearStatus").textContent="Đang tìm "+label.toLowerCase()+" theo khu vực bạn chọn.";
     renderMapPoints([]);
 
     const query=mapSearchQuery();
@@ -320,56 +386,64 @@
       '<article class="discovery-card">'+
         '<span>KHÁM PHÁ QUANH ĐÂY</span>'+
         '<strong>'+esc(label)+' quanh '+esc(areaLabel())+'</strong>'+
-        '<p>Phần bản đồ đang dùng kết quả tìm kiếm bên ngoài để bạn tìm nhanh. Open Phu Quoc chỉ đưa một địa điểm thành pin riêng sau khi đã kiểm tra tên, vị trí và thông tin cơ bản.</p>'+
-        '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Mở danh sách trên Google Maps ↗</a>'+
+        '<p>Mở lớp bản đồ để tìm nhanh. Khi địa điểm đã có trong data Open Phu Quoc, nó sẽ dùng chung địa chỉ và pin với các trang khác.</p>'+
+        '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Mở trên Google Maps ↗</a>'+
       '</article>';
+  }
+
+  function exactMapQuery(row){
+    return [row.name,row.address,"Phú Quốc"].filter(Boolean).join(", ");
   }
 
   function render(){
     if(!support)return;
-
     if(isDiscoveryCategory()){
       renderDiscovery();
       return;
     }
 
-    const {rows,gpsFallback}=filteredRows();
-    $("#resultsTitle").textContent=areaLabel()+(selectedCategory?" · "+(category()?.label||""):"");
-    $("#resultsCount").textContent=rows.length+" điểm";
+    const result=filteredRows();
+    const visible=result.rows;
+    const label=selectedCategory?category()?.label:"";
+    $("#resultsTitle").textContent=searchText.trim()
+      ?'Kết quả cho “'+searchText.trim()+'”'
+      :areaLabel()+(label?" · "+label:"");
+    $("#resultsCount").textContent=visible.length+" địa điểm";
     $("#nearStatus").textContent=position
-      ?(gpsFallback
-        ?"Chỗ nào biết đúng vị trí sẽ được xếp theo khoảng cách. Các chỗ còn lại vẫn giữ theo khu vực gần bạn."
-        :"Đã thấy vị trí của bạn. Mình xếp chỗ gần lên trước nhé.")
-      :"Bạn đang xem theo khu vực.";
+      ?(result.gpsFallback
+        ?"Điểm có tọa độ được xếp theo khoảng cách; các điểm còn lại vẫn giữ theo khu vực."
+        :"Đã xếp những nơi gần bạn lên trước.")
+      :"Chọn một lớp hoặc gõ tên nơi bạn cần tìm.";
 
-    renderMapPoints(rows);
+    renderMapPoints(visible);
 
     const host=$("#nearResults");
-    if(!rows.length){
-      host.innerHTML='<div class="empty">Chưa có điểm phù hợp với lựa chọn này. Hãy thử khu vực hoặc loại tiện ích khác.</div>';
+    if(!visible.length){
+      host.innerHTML='<div class="empty">Chưa thấy kết quả phù hợp. Thử tên khác hoặc bỏ bớt bộ lọc nhé.</div>';
       return;
     }
 
-    host.innerHTML=rows.map(x=>{
+    const limited=visible.slice(0,120);
+    host.innerHTML=limited.map(x=>{
       const distance=Number.isFinite(x.distance_km)?x.distance_km.toFixed(1)+" km":"";
       const type=typeLabel(x);
-      const maps=x.address
-        ?googleSearchUrl(x.address)
-        :(Number.isFinite(x.lat)&&Number.isFinite(x.lon)?googleSearchUrl(x.lat+","+x.lon):"");
+      const query=exactMapQuery(x);
       const hasPin=Number.isFinite(x.lat)&&Number.isFinite(x.lon);
+      const address=x.address||"Tìm theo tên địa điểm trên bản đồ";
 
       return '<article class="near-card">'+
         '<span>'+esc([type,distance].filter(Boolean).join(" · "))+'</span>'+
         '<strong>'+esc(x.name)+'</strong>'+
-        (x.address?'<p>'+esc(x.address)+'</p>':"")+
+        '<p>'+esc(address)+'</p>'+
         (x.opening_hours_note?'<small>'+esc(x.opening_hours_note)+'</small>':"")+
         '<div>'+
           (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+
-          (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">Xem pin</button>':"")+
-          (maps?'<a href="'+esc(maps)+'" target="_blank" rel="noopener">Mở đường đi ↗</a>':"")+
+          (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">Xem pin</button>':'<button type="button" data-map-query="'+esc(query)+'">Xem bản đồ</button>')+
+          '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Đường đi ↗</a>'+
+          (x.route?'<a href="'+esc(x.route)+'">Thông tin →</a>':"")+
         '</div>'+
       '</article>';
-    }).join("");
+    }).join("")+(visible.length>limited.length?'<div class="results-more">Còn '+(visible.length-limited.length)+' kết quả. Gõ tên cụ thể để tìm nhanh hơn.</div>':"");
   }
 
   function bind(){
@@ -391,16 +465,30 @@
       render();
     });
 
+    $("#nearSearch").addEventListener("input",e=>{
+      searchText=e.target.value||"";
+      render();
+    });
+
     $("#nearResults").addEventListener("click",e=>{
-      const b=e.target.closest("[data-map-id]");
-      if(!b||!nearMap)return;
-      const marker=markerById.get(b.dataset.mapId);
-      if(!marker)return;
-      showLiveMap();
-      const p=marker.getLatLng();
-      nearMap.setView(p,16,{animate:true});
-      marker.openPopup();
-      $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
+      const pin=e.target.closest("[data-map-id]");
+      if(pin&&nearMap){
+        const marker=markerById.get(pin.dataset.mapId);
+        if(marker){
+          showLiveMap();
+          const p=marker.getLatLng();
+          nearMap.setView(p,16,{animate:true});
+          marker.openPopup();
+          $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
+        }
+        return;
+      }
+
+      const queryButton=e.target.closest("[data-map-query]");
+      if(queryButton){
+        showDirectoryMap(queryButton.dataset.mapQuery||mapSearchQuery(),"Địa điểm trên Google Maps");
+        $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
+      }
     });
 
     $("#useLocation").addEventListener("click",()=>{
@@ -422,7 +510,7 @@
       },()=>{
         button.disabled=false;
         button.textContent="⌖ Dùng vị trí của tôi";
-        $("#nearStatus").textContent="Chưa lấy được vị trí. Bạn vẫn có thể chọn khu vực.";
+        $("#nearStatus").textContent="Chưa lấy được vị trí. Bạn vẫn có thể tìm bằng tên hoặc chọn khu vực.";
       },{enableHighAccuracy:false,timeout:8000,maximumAge:300000});
     });
   }
@@ -430,26 +518,32 @@
   async function load(){
     initMap();
     try{
-      const [a,b]=await Promise.all([
+      const [a,u,p,h]=await Promise.all([
         fetch("../data/home-support.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-        fetch("../data/entities/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
+        fetch("../data/entities/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+        fetch("../data/entities/places.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
+        fetch("../data/entities/hotels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
       ]);
 
       support=a;
-      (b.entities||[]).forEach(x=>entities.set(x.id,x));
+      rows=buildRows({utilities:u,places:p,hotels:h});
 
       const validAreas=new Set((support.near_me?.manual_areas||[]).map(x=>x.id));
       const validCategories=new Set((support.near_me?.categories||[]).map(x=>x.id));
       if(requestedArea&&validAreas.has(requestedArea))selectedArea=requestedArea;
       if(requestedCategory&&validCategories.has(requestedCategory))selectedCategory=requestedCategory;
+      if(requestedQuery){
+        searchText=requestedQuery;
+        $("#nearSearch").value=requestedQuery;
+      }
 
       renderControls();
       bind();
       render();
     }catch(e){
       console.warn(e);
-      $("#nearStatus").textContent="Chưa mở được danh sách tiện ích lúc này.";
-      $("#nearResults").innerHTML='<div class="empty">Bạn vẫn có thể mở Danh bạ từ thanh trên.</div>';
+      $("#nearStatus").textContent="Chưa mở được dữ liệu quanh đây lúc này.";
+      $("#nearResults").innerHTML='<div class="empty">Bạn vẫn có thể gõ địa điểm trực tiếp trên Google Maps.</div>';
       showDirectoryMap();
     }
   }
