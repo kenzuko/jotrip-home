@@ -109,6 +109,29 @@ try{
   errors.push("search-index.json invalid or missing: "+error.message);
 }
 
+const locationPath=path.join(root,"data","views","location-index.json");
+try{
+  const location=JSON.parse(fs.readFileSync(locationPath,"utf8"));
+  const seen=new Set();
+  for(const doc of location.documents||[]){
+    if(!doc.id) errors.push("location document missing id");
+    if(seen.has(doc.id)) errors.push("duplicate location document id: "+doc.id);
+    seen.add(doc.id);
+    if(!knownIds.has(doc.id)) errors.push("location index references missing entity: "+doc.id);
+    if(!doc.name) errors.push((doc.id||"location doc")+": missing name");
+    if(!doc.address) errors.push((doc.id||"location doc")+": missing address");
+    if(doc.map){
+      if(!Number.isFinite(doc.map.lat)||doc.map.lat < -90||doc.map.lat > 90) errors.push(doc.id+": invalid location map.lat");
+      if(!Number.isFinite(doc.map.lon)||doc.map.lon < -180||doc.map.lon > 180) errors.push(doc.id+": invalid location map.lon");
+    }
+  }
+  const mapped=(location.documents||[]).filter(x=>Number.isFinite(x.map?.lat)&&Number.isFinite(x.map?.lon)).length;
+  if(location.summary?.total!==(location.documents||[]).length) errors.push("location index total is stale; rebuild location index");
+  if(location.summary?.with_map!==mapped) errors.push("location index with_map is stale; rebuild location index");
+}catch(error){
+  errors.push("location-index.json invalid or missing: "+error.message);
+}
+
 const planningPath=path.join(root,"data","views","place-planning-levels.json");
 try{
   const planning=JSON.parse(fs.readFileSync(planningPath,"utf8"));
