@@ -17,6 +17,7 @@ jobs:
           set -euo pipefail
           npm install jsdom@25 --no-save >/dev/null 2>&1
           node <<'NODE'
+          (async()=>{
           const fs=require('fs');
           const {JSDOM}=require('jsdom');
           const dom=new JSDOM('<!doctype html><html><body><form id="editor"></form></body></html>',{url:'https://cms.openphuquoc.com/admin/'});
@@ -102,4 +103,5 @@ jobs:
           console.log('path_count='+editor.querySelectorAll('path').length);
           console.log('period_click=PASS');
           console.log('view_change=PASS');
+          })().catch(e=>{console.error(e);process.exit(1)});
           NODE
