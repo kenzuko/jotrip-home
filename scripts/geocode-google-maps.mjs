@@ -4,8 +4,6 @@ import path from "node:path";
 const root=process.cwd();
 const entityDir=path.join(root,"data","entities");
 const apiKey=process.env.GOOGLE_MAPS_API_KEY||"";
-const cartoToken=process.env.CARTO_API_TOKEN||"";
-const cartoBaseUrl=(process.env.CARTO_API_BASE_URL||"https://gcp-us-east1.api.carto.com").replace(/\/$/,"");
 const args=new Set(process.argv.slice(2));
 const dryRun=args.has("--dry-run");
 const force=args.has("--force");
@@ -179,89 +177,124 @@ async function googleGeocode(address){
   };
 }
 
-function parseCartoPoint(payload){
-  const candidates=[
-    payload?.geometry,payload?.geom,payload?.location,
-    payload?.result?.geometry,payload?.result?.geom,payload?.result?.location,
-    payload?.data?.geometry,payload?.data?.geom,payload?.data?.location
-  ].filter(Boolean);
+let overpassCatalogPromise=null;
 
-  for(const value of candidates){
-    if(typeof value==="string"){
-      const match=value.match(/POINT\s*\(\s*(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s*\)/i);
-      if(match)return{lon:Number(match[1]),lat:Number(match[2])};
-      try{
-        const parsed=JSON.parse(value);
-        if(Array.isArray(parsed?.coordinates)&&parsed.coordinates.length>=2){
-          return{lon:Number(parsed.coordinates[0]),lat:Number(parsed.coordinates[1])};
-        }
-      }catch{}
-    }
-    if(Array.isArray(value?.coordinates)&&value.coordinates.length>=2){
-      return{lon:Number(value.coordinates[0]),lat:Number(value.coordinates[1])};
-    }
-    const lat=Number(value?.lat??value?.latitude);
-    const lon=Number(value?.lon??value?.lng??value?.longitude);
-    if(Number.isFinite(lat)&&Number.isFinite(lon))return{lat,lon};
-  }
-
-  const lat=Number(payload?.lat??payload?.latitude??payload?.result?.lat??payload?.result?.latitude);
-  const lon=Number(payload?.lon??payload?.lng??payload?.longitude??payload?.result?.lon??payload?.result?.lng??payload?.result?.longitude);
-  if(Number.isFinite(lat)&&Number.isFinite(lon))return{lat,lon};
-  return null;
+function overpassClassType(tags={}){
+  if(tags.tourism)return{class:"tourism",type:tags.tourism};
+  if(tags.leisure==="resort")return{class:"tourism",type:"resort"};
+  if(tags.amenity)return{class:"amenity",type:tags.amenity};
+  if(tags.shop)return{class:"shop",type:tags.shop};
+  if(tags.healthcare)return{class:"healthcare",type:tags.healthcare};
+  return{class:null,type:null};
 }
 
-async function cartoSearch(entity){
-  if(!cartoToken||!entity.address)return null;
-  const cleaned=cleanLegacyAddress(entity.address);
-  const queries=[
-    {kind:"name",q:[entity.name,cleaned,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")},
-    {kind:"address",q:[cleaned,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")}
+async function loadOverpassCatalog(){
+  if(overpassCatalogPromise)return overpassCatalogPromise;
+  overpassCatalogPromise=(async()=>{
+    const query=[
+      "[out:json][timeout:35];",
+      "(",
+      '  nwr["tourism"~"hotel|guest_house|hostel|motel|apartment"](9.80,103.75,10.55,104.25);',
+      '  nwr["leisure"="resort"](9.80,103.75,10.55,104.25);',
+      '  nwr["amenity"~"pharmacy|atm|bank|fuel|parking|toilets|clinic|hospital"](9.80,103.75,10.55,104.25);',
+      '  nwr["shop"~"chemist|convenience|supermarket"](9.80,103.75,10.55,104.25);',
+      '  nwr["healthcare"~"clinic|hospital"](9.80,103.75,10.55,104.25);',
+      ");",
+      "out center tags;"
+    ].join("\n");
+    const endpoints=[
+      "https://overpass-api.de/api/interpreter",
+      "https://overpass.kumi.systems/api/interpreter"
+    ];
+    let lastError=null;
+    for(const endpoint of endpoints){
+      try{
+        const response=await fetch(endpoint,{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/x-www-form-urlencoded;charset=UTF-8",
+            "User-Agent":"OpenPhuQuoc/1.0 (https://openphuquoc.com)"
+          },
+          body:new URLSearchParams({data:query}),
+          signal:AbortSignal.timeout(45000)
+        });
+        if(!response.ok)throw new Error("HTTP "+response.status);
+        const payload=await response.json();
+        const rows=(payload.elements||[]).map(el=>{
+          const tags=el.tags||{};
+          const lat=Number(el.lat??el.center?.lat);
+          const lon=Number(el.lon??el.center?.lon);
+          const typed=overpassClassType(tags);
+          return{
+            resolver:"OSM_OVERPASS",
+            source_id:"osm_overpass_catalog",
+            source:"OpenStreetMap Overpass catalog",
+            place_id:null,
+            osm_type:el.type||null,
+            osm_id:el.id||null,
+            name:tags.name||tags["name:en"]||tags["name:vi"]||null,
+            formatted_address:[tags["addr:housenumber"],tags["addr:street"],tags["addr:suburb"],tags["addr:city"]].filter(Boolean).join(", ")||null,
+            lat,lon,
+            class:typed.class,
+            type:typed.type,
+            query_kind:"name"
+          };
+        }).filter(x=>inPhuQuoc(x.lat,x.lon));
+        console.log("OSM Overpass catalog:",rows.length,"candidates");
+        return rows;
+      }catch(error){
+        lastError=error;
+        console.warn("WARN Overpass catalog",endpoint,error.message);
+      }
+    }
+    if(lastError)console.warn("WARN Overpass unavailable; continuing with Nominatim/Photon");
+    return[];
+  })();
+  return overpassCatalogPromise;
+}
+
+function catalogScore(entity,candidate){
+  if(!zoneMatches(entity,candidate.lat,candidate.lon))return-1;
+  if(!categoryLooksRight(entity,candidate))return-1;
+  const target=normalizeText(entity.name);
+  const got=normalizeText(candidate.name||"");
+  if(!target||!got)return-1;
+  if(target===got)return 100;
+  let score=0;
+  if(got.includes(target)||target.includes(got))score+=45;
+  const wanted=nameTokens(entity.name);
+  const hay=normalizeText([candidate.name,candidate.formatted_address].filter(Boolean).join(" "));
+  const hits=wanted.filter(t=>hay.includes(t)).length;
+  score+=hits*18;
+  if(wanted.length&&hits===wanted.length)score+=20;
+  if(wanted.length>=2&&hits<2)return-1;
+  if(wanted.length===1&&hits<1)return-1;
+  return score;
+}
+
+async function overpassCatalogSearch(entity){
+  const catalog=await loadOverpassCatalog();
+  let best=null,bestScore=-1;
+  for(const candidate of catalog){
+    const score=catalogScore(entity,candidate);
+    if(score>bestScore){best=candidate;bestScore=score;}
+  }
+  return bestScore>=18?best:null;
+}
+
+function queryVariants(entity){
+  const cleaned=cleanLegacyAddress(entity.address||"");
+  const simpleName=String(entity.name||"").replace(/\s+/g," ").trim();
+  const variants=[
+    {kind:"name",q:simpleName},
+    {kind:"name",q:[simpleName,"Phú Quốc"].filter(Boolean).join(", ")},
+    {kind:"name",q:[simpleName,"Phu Quoc"].filter(Boolean).join(", ")},
+    {kind:"address",q:cleaned},
+    {kind:"address",q:[cleaned,"Phú Quốc"].filter(Boolean).join(", ")}
   ];
   const seen=new Set();
-  for(const item of queries){
-    if(seen.has(item.q))continue;
-    seen.add(item.q);
-    try{
-      const url=new URL(cartoBaseUrl+"/v3/lds/geocoding/geocode");
-      url.searchParams.set("address",item.q);
-      url.searchParams.set("country","VN");
-      url.searchParams.set("options",JSON.stringify({language:"vi"}));
-      const response=await fetch(url,{
-        headers:{
-          "Authorization":cartoToken,
-          "Accept":"application/json"
-        },
-        signal:AbortSignal.timeout(15000)
-      });
-      if(!response.ok){
-        console.warn("WARN CARTO",entity.id,"HTTP",response.status);
-        continue;
-      }
-      const payload=await response.json();
-      const point=parseCartoPoint(payload);
-      if(point&&inPhuQuoc(point.lat,point.lon)&&zoneMatches(entity,point.lat,point.lon)){
-        return{
-          resolver:"CARTO_LDS",
-          source_id:"carto_lds_geocode",
-          source:"CARTO Location Data Services geocoding",
-          place_id:null,
-          name:entity.name||null,
-          formatted_address:item.q,
-          lat:point.lat,
-          lon:point.lon,
-          class:item.kind==="address"?"address":"place",
-          type:"geocoded",
-          query_kind:item.kind
-        };
-      }
-    }catch(error){
-      console.warn("WARN CARTO",entity.id,item.q,error.message);
-    }
-  }
-  return null;
+  return variants.filter(x=>x.q&&!seen.has(x.q)&&(seen.add(x.q),true));
 }
-
 async function nominatimQuery(entity,q,queryKind){
   const url=new URL("https://nominatim.openstreetmap.org/search");
   url.searchParams.set("q",q);
@@ -302,16 +335,8 @@ async function nominatimQuery(entity,q,queryKind){
 }
 
 async function nominatimSearch(entity){
-  if(!entity.address)return null;
-  const cleaned=cleanLegacyAddress(entity.address);
-  const queries=[
-    {kind:"name",q:[entity.name,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")},
-    {kind:"address",q:[cleaned,"Phú Quốc","Việt Nam"].filter(Boolean).join(", ")}
-  ];
-  const seen=new Set();
-  for(const item of queries){
-    if(seen.has(item.q))continue;
-    seen.add(item.q);
+  if(!entity.address&&!entity.name)return null;
+  for(const item of queryVariants(entity)){
     try{
       const result=await nominatimQuery(entity,item.q,item.kind);
       if(result)return result;
@@ -321,15 +346,9 @@ async function nominatimSearch(entity){
   }
   return null;
 }
-
 async function photonSearch(entity){
-  const cleaned=cleanLegacyAddress(entity.address);
-  const queries=[
-    {kind:"name",q:[entity.name,"Phu Quoc","Vietnam"].filter(Boolean).join(", ")},
-    {kind:"address",q:[cleaned,"Phu Quoc","Vietnam"].filter(Boolean).join(", ")}
-  ];
   const seen=new Set();
-  for(const item of queries){
+  for(const item of queryVariants(entity)){
     if(seen.has(item.q))continue;
     seen.add(item.q);
     try{
@@ -384,12 +403,12 @@ async function resolveEntity(entity){
       }
     }
   }
-  if(!match&&entity.address){
-    try{match=await cartoSearch(entity)}catch(error){
-      console.warn("WARN CARTO",entity.id,error.message);
+  if(!match&&(entity.entity_type==="hotel"||entity.entity_type==="utility")){
+    try{match=await overpassCatalogSearch(entity)}catch(error){
+      console.warn("WARN Overpass",entity.id,error.message);
     }
   }
-  if(!match&&entity.address){
+  if(!match&&(entity.address||entity.name)){
     try{match=await nominatimSearch(entity)}catch(error){
       console.warn("WARN Nominatim",entity.id,error.message);
     }
@@ -430,9 +449,7 @@ for(const file of files){
 
     const precision=match.resolver.startsWith("GOOGLE")
       ? precisionForGoogleTypes(match.types||[])
-      : match.resolver==="CARTO_LDS"
-        ? (match.query_kind==="address"?"site_centroid":"area_anchor")
-        : precisionForNominatim(match,entity);
+      : precisionForNominatim(match,entity);
 
     entity.map={
       lat:match.lat,
@@ -471,8 +488,6 @@ for(const file of files){
 
 console.log(JSON.stringify({
   google_key_available:!!apiKey,
-  carto_token_available:!!cartoToken,
-  carto_api_base_url:cartoBaseUrl,
   attempted,
   resolved,
   missed,
