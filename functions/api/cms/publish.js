@@ -6,6 +6,7 @@ const writable={
   "data/content.json":["admin","editor"],
   "guide/data.json":["admin","editor"],
   "data/utilities.json":["admin","operator"],
+  "data/entities/destination-venues.json":["admin","editor","operator"],
   "cms/users.json":["admin"]
 };
 
@@ -107,6 +108,28 @@ function validatePayload(path,content){
     emergency.forEach((x,i)=>{
       if(!String(x?.label||"").trim()||!String(x?.phone||"").trim()){
         errors.push("Số khẩn cấp #"+(i+1)+" thiếu tên hoặc số điện thoại");
+      }
+    });
+  }
+
+  if(path==="data/entities/destination-venues.json"){
+    const entities=Array.isArray(content.entities)?content.entities:[];
+    const ids=new Set();
+    const allowed=new Set(["LOCAL_FOOD","RESTAURANT","CAFE","ATTRACTION"]);
+    entities.forEach((x,i)=>{
+      const id=String(x?.id||"").trim();
+      const name=String(x?.name||"").trim();
+      const category=String(x?.category||"").trim();
+      if(!id)errors.push("Địa điểm #"+(i+1)+" chưa có id");
+      else if(ids.has(id))errors.push("Venue id bị trùng: "+id);
+      else ids.add(id);
+      if(!name)errors.push("Địa điểm #"+(i+1)+" chưa có tên");
+      if(!allowed.has(category))errors.push("Địa điểm "+(name||("#"+(i+1)))+" có category không hợp lệ");
+      if(x?.latitude!==null&&x?.latitude!==""&&x?.latitude!==undefined){
+        const lat=Number(x.latitude); if(!Number.isFinite(lat)||lat<-90||lat>90)errors.push("Latitude không hợp lệ: "+(name||id));
+      }
+      if(x?.longitude!==null&&x?.longitude!==""&&x?.longitude!==undefined){
+        const lon=Number(x.longitude); if(!Number.isFinite(lon)||lon<-180||lon>180)errors.push("Longitude không hợp lệ: "+(name||id));
       }
     });
   }
