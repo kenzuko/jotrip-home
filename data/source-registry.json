@@ -723,6 +723,22 @@
         "utilities"
       ],
       "note": "Chỉ dùng làm fallback cho địa chỉ đã đủ cụ thể khi Google Maps API chưa khả dụng. Địa chỉ mơ hồ/khu rộng vẫn cần tra Google hoặc giữ area_anchor."
+    },
+    {
+      "id": "osm_photon_geocode",
+      "type": "MAP_GEOCODER",
+      "label": "OpenStreetMap Photon - geocode tên + địa chỉ",
+      "url": "https://photon.komoot.io/",
+      "checked_at": "2026-09-22",
+      "dynamic": true,
+      "trust": "SECONDARY_LOCATION_GEOCODER",
+      "used_by": [
+        "location_enrichment",
+        "home_near_me",
+        "hotels",
+        "utilities"
+      ],
+      "note": "Fallback sau Nominatim cho địa chỉ cụ thể chưa resolve; kết quả khu vực phải giữ area_anchor."
     }
   ],
   "rules": [
