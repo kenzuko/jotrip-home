@@ -12,7 +12,19 @@
     "source_urls_internal_only": true,
     "public_requires_ready_status": true,
     "no_public_placeholder": true,
-    "public_voice": "natural_local_human_vietnamese"
+    "public_voice": "natural_local_human_vietnamese",
+    "source_priority": [
+      "PEER_REVIEWED_RESEARCH_AND_ACADEMIC_FIELDWORK",
+      "MONOGRAPHS_LOCAL_HISTORY_AND_SCHOLARLY_SURVEYS",
+      "NATIONAL_ARCHIVES_PRIMARY_DOCUMENTS",
+      "MUSEUM_AND_HERITAGE_RESEARCH",
+      "OFFICIAL_GOVERNMENT_RECORDS",
+      "OFFICIAL_TOURISM_FOR_CURRENT_VISITOR_FACTS_ONLY",
+      "LOCAL_ORAL_HISTORY_WITH_ATTRIBUTION",
+      "COMMERCIAL_TRAVEL_SOURCES_AS_DISCOVERY_ONLY"
+    ],
+    "history_culture_source_policy": "For history, culture, belief, folklore and place-name origins, prefer research, khảo cứu, fieldwork, archives, monographs and museum scholarship. Tourism sources may support current visitor logistics or point to leads, but must not override stronger research. When sources conflict, preserve the conflict and prefer the stronger research tier.",
+    "distinguish_syncretism_from_identity": true
   },
   "summary": {
     "total": 150,
