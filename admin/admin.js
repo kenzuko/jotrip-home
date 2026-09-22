@@ -92,7 +92,18 @@ const LABELS={
   users:"Người dùng",
   login:"GitHub username",
   role:"Vai trò",
-  enabled:"Đang hoạt động"
+  enabled:"Đang hoạt động",
+  entities:"Địa điểm",
+  zone_code:"Khu vực",
+  latitude:"Vĩ độ",
+  longitude:"Kinh độ",
+  address:"Địa chỉ",
+  tags:"Nhãn sử dụng",
+  opening_hours:"Giờ mở cửa",
+  price_level:"Mức giá",
+  source_ref:"Nguồn",
+  source_type:"Loại nguồn",
+  verified_at:"Kiểm tra gần nhất"
 };
 
 function show(id){["boot","remoteGate","login","cms"].forEach(x=>$("#"+x)?.classList.toggle("hidden",x!==id))}
@@ -246,6 +257,22 @@ function moduleOverview(){
     </section>`;
   }
 
+  if(currentModule.id==="venues"){
+    const entities=currentData.entities||[];
+    const counts=entities.reduce((acc,x)=>{
+      const key=x.category||"OTHER";
+      acc[key]=(acc[key]||0)+1;
+      return acc;
+    },{});
+    return `<section class="module-overview stats-overview">
+      <div><strong>${entities.length}</strong><span>Điểm đang quản lý</span></div>
+      <div><strong>${counts.LOCAL_FOOD||0}</strong><span>Quán ăn</span></div>
+      <div><strong>${counts.RESTAURANT||0}</strong><span>Nhà hàng</span></div>
+      <div><strong>${counts.CAFE||0}</strong><span>Cà phê</span></div>
+      <div><strong>${counts.ATTRACTION||0}</strong><span>Điểm chơi</span></div>
+    </section>`;
+  }
+
   if(currentModule.id==="users"){
     const users=currentData.users||[];
     return `<section class="module-overview stats-overview">
@@ -296,6 +323,29 @@ function validateCurrent(){
   if(currentModule.id==="utilities"){
     (currentData?.national_emergency||[]).forEach((x,i)=>{
       if(!String(x.label||"").trim()||!String(x.phone||"").trim())errors.push("Số khẩn cấp #"+(i+1)+" thiếu tên hoặc số điện thoại.");
+    });
+  }
+
+  if(currentModule.id==="venues"){
+    const entities=currentData?.entities||[];
+    const ids=new Set();
+    const allowed=new Set(["LOCAL_FOOD","RESTAURANT","CAFE","ATTRACTION"]);
+    entities.forEach((x,i)=>{
+      const id=String(x.id||"").trim();
+      const name=String(x.name||"").trim();
+      if(!id)errors.push("Địa điểm #"+(i+1)+" chưa có mã.");
+      else if(ids.has(id))errors.push("Mã địa điểm bị trùng: "+id);
+      else ids.add(id);
+      if(!name)errors.push("Địa điểm #"+(i+1)+" chưa có tên.");
+      if(!allowed.has(String(x.category||"")))errors.push("Địa điểm “"+(name||id||("#"+(i+1)))+"” chưa chọn đúng loại.");
+      if(x.latitude!==null&&x.latitude!==""&&x.latitude!==undefined){
+        const lat=Number(x.latitude);
+        if(!Number.isFinite(lat)||lat<-90||lat>90)errors.push("Vĩ độ không hợp lệ: "+(name||id));
+      }
+      if(x.longitude!==null&&x.longitude!==""&&x.longitude!==undefined){
+        const lon=Number(x.longitude);
+        if(!Number.isFinite(lon)||lon<-180||lon>180)errors.push("Kinh độ không hợp lệ: "+(name||id));
+      }
     });
   }
 
@@ -569,10 +619,41 @@ function renderUtilitiesWorkbench(){
     support;
 }
 
+function renderVenueWorkbench(){
+  const entities=Array.isArray(currentData?.entities)?currentData.entities:[];
+  const cards=entities.map((item,i)=>{
+    const p="entities."+i;
+    const categoryLabel={
+      LOCAL_FOOD:"Quán ăn",
+      RESTAURANT:"Nhà hàng",
+      CAFE:"Cà phê",
+      ATTRACTION:"Điểm chơi"
+    }[item.category]||item.category||"Chưa phân loại";
+    return `<article class="utility-edit-card cms-anchor" data-anchor-label="${esc(item.name||("Địa điểm "+(i+1)))}">
+      <div class="utility-card-head">
+        <div><strong>${esc(item.name||("Địa điểm "+(i+1)))}</strong><span>${esc(categoryLabel)} · ${esc(item.zone_code||"chưa gán khu")}</span></div>
+        ${item.status==="ACTIVE"?'<span class="utility-badge verified">Đang dùng</span>':item.status==="CLOSED"?'<span class="utility-badge review">Đã đóng</span>':'<span class="utility-badge dynamic">Cần kiểm tra</span>'}
+      </div>
+      ${itemTools("entities",i,entities.length)}
+      ${renderChildren(item,p,1)}
+    </article>`;
+  }).join("");
+
+  return moduleOverview()+
+    `<section class="field-group cms-anchor" data-anchor-label="Danh sách địa điểm">
+      <div class="detail-body">
+        <p class="group-lead">Đây là nguồn dùng chung cho Near Me và JoTrip. Chỉ nhập tọa độ/giờ mở khi đã kiểm tra; chưa chắc thì để trống hoặc trạng thái REVIEW.</p>
+        <div class="utility-edit-list">${cards||'<p class="empty-builder">Chưa có quán/điểm nào. Bấm “Thêm địa điểm”.</p>'}</div>
+        <button type="button" id="addVenueBtn" class="add-array-item">+ Thêm địa điểm</button>
+      </div>
+    </section>`;
+}
+
 function renderRoot(){
   if(currentModule?.id==="home")return renderHomeWorkbench();
   if(currentModule?.id==="utilities")return renderUtilitiesWorkbench();
   if(currentModule?.id==="guide")return renderGuideWorkbench();
+  if(currentModule?.id==="venues")return renderVenueWorkbench();
 
   if(currentModule?.id==="stories"&&Array.isArray(currentData?.stories)){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
@@ -818,6 +899,31 @@ function bindArrayControls(){
     const template=arr.length?blankLike(arr[0]):"";
     arr.push(template);
     markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Xuất bản.");
+    rerender();
+  });
+}
+
+function bindVenueControls(){
+  $("#addVenueBtn")?.addEventListener("click",()=>{
+    currentData.entities=currentData.entities||[];
+    currentData.entities.push({
+      id:"",
+      name:"",
+      category:"CAFE",
+      zone_code:"",
+      latitude:null,
+      longitude:null,
+      address:"",
+      phone:"",
+      tags:[],
+      opening_hours:null,
+      price_level:"",
+      source_ref:"",
+      source_type:"",
+      verified_at:"",
+      status:"REVIEW"
+    });
+    markDirty("Đã thêm địa điểm mới. Điền dữ liệu đã kiểm tra rồi bấm Xuất bản.");
     rerender();
   });
 }
@@ -1087,6 +1193,7 @@ function rerender(){
   bindFields();
   bindMediaControls();
   bindArrayControls();
+  bindVenueControls();
   bindStoryControls();
   buildEditorNav();
   bindSearch();
