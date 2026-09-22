@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-22T00:23:22.972Z",
+  "generated_at": "2026-09-22T00:45:58.066Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -16,12 +16,12 @@
       "area_anchor",
       "route_anchor"
     ],
-    "rule": "Không hiển thị pin công khai nếu thiếu nguồn hoặc mức độ chính xác. area_anchor chỉ dùng định hướng vùng."
+    "rule": "Ưu tiên tọa độ đã xác minh. Nếu chưa có, có thể dùng tọa độ suy từ Google Maps theo tên/địa chỉ khi lưu đủ nguồn, ngày kiểm tra và precision. area_anchor chỉ dùng định hướng vùng."
   },
   "summary": {
     "candidate_count": 249,
-    "ready_count": 6,
-    "missing_count": 243
+    "ready_count": 16,
+    "missing_count": 233
   },
   "layers": {
     "zones": [
@@ -59,7 +59,141 @@
         "note": "Điểm neo định hướng vùng, không được dùng làm tọa độ cho Hòn Thơm hoặc các đảo nhỏ."
       }
     ],
-    "places": [],
+    "places": [
+      {
+        "id": "place_vinpearl_safari",
+        "name": "Vinpearl Safari Phú Quốc",
+        "type": "place",
+        "lat": 10.3370625,
+        "lon": 103.8914375,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 8VPR+RH",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "8VPR+RH"
+      },
+      {
+        "id": "place_vinwonders",
+        "name": "VinWonders Phú Quốc",
+        "type": "place",
+        "lat": 10.3406875,
+        "lon": 103.8540625,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 8VR3+7J",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "8VR3+7J"
+      },
+      {
+        "id": "place_grand_world",
+        "name": "Grand World Phú Quốc",
+        "type": "place",
+        "lat": 10.3275625,
+        "lon": 103.8625625,
+        "precision": "area_anchor",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps Grand World central Venice area + Plus Code 8VH7+22",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_AREA_ANCHOR",
+        "plus_code": "8VH7+22",
+        "note": "Điểm neo khu trung tâm Grand World, không đại diện cho mọi cổng của tổ hợp."
+      },
+      {
+        "id": "place_dinh_cau",
+        "name": "Dinh Cậu",
+        "type": "place",
+        "lat": 10.2171875,
+        "lon": 103.9564375,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 6X84+VH",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "6X84+VH"
+      },
+      {
+        "id": "place_night_market",
+        "name": "Chợ đêm Dương Đông",
+        "type": "place",
+        "lat": 10.2183125,
+        "lon": 103.9601875,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 6X96+83R",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "6X96+83R"
+      },
+      {
+        "id": "place_bai_sao",
+        "name": "Bãi Sao",
+        "type": "place",
+        "lat": 10.0541875,
+        "lon": 104.0354375,
+        "precision": "area_anchor",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps Sao Beach result + Plus Code 323P+M58",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "323P+M58",
+        "note": "Điểm neo Bãi Sao, dùng định hướng khu bãi biển."
+      },
+      {
+        "id": "place_ho_quoc",
+        "name": "Chùa Hộ Quốc",
+        "type": "place",
+        "lat": 10.1100625,
+        "lon": 104.0289375,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps/official destination address + Plus Code 426H+2HJ",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "426H+2HJ"
+      },
+      {
+        "id": "place_suoi_tranh",
+        "name": "Suối Tranh",
+        "type": "place",
+        "lat": 10.1763125,
+        "lon": 104.0119375,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps place result + Plus Code 52G6+GQQ",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "52G6+GQQ"
+      },
+      {
+        "id": "place_duong_dong_market",
+        "name": "Chợ Dương Đông",
+        "type": "place",
+        "lat": 10.2206875,
+        "lon": 103.9591875,
+        "precision": "site_centroid",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps market result + Plus Code 6XC5+7MW",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "6XC5+7MW"
+      },
+      {
+        "id": "place_ham_ninh",
+        "name": "Hàm Ninh",
+        "type": "place",
+        "lat": 10.1805625,
+        "lon": 104.0449375,
+        "precision": "area_anchor",
+        "source_id": "google_maps_location_lookup",
+        "source": "Google Maps Ham Ninh fishing town result + Plus Code 52JV+6XX",
+        "verified_at": "2026-09-22",
+        "accuracy": "GOOGLE_PLUS_CODE",
+        "plus_code": "52JV+6XX",
+        "note": "Điểm neo làng chài Hàm Ninh."
+      }
+    ],
     "stay": [],
     "utilities": [
       {
@@ -285,29 +419,19 @@
     "hotel_moxy_phu_quoc_hon_thom",
     "hotel_rivora_retreat_phu_quoc",
     "hotel_w_phu_quoc",
-    "place_vinpearl_safari",
-    "place_vinwonders",
-    "place_grand_world",
     "place_rach_vem",
     "place_cua_can",
-    "place_dinh_cau",
-    "place_night_market",
     "place_bai_truong",
-    "place_bai_sao",
     "place_bai_khem",
     "place_sunset_town",
     "place_phu_quoc_prison",
-    "place_ho_quoc",
     "place_aquatopia",
     "place_exotica",
-    "place_suoi_tranh",
     "place_other_streams",
     "place_fish_sauce_house",
     "place_pepper_garden",
     "place_kiss_bridge",
     "place_gieng_tien",
-    "place_duong_dong_market",
-    "place_ham_ninh",
     "place_teddy_bear_museum",
     "utility_112",
     "utility_113",
