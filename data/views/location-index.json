@@ -1,0 +1,4418 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-09-22T00:50:05.752Z",
+  "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
+  "summary": {
+    "total": 204,
+    "with_address": 204,
+    "with_map": 16,
+    "by_type": {
+      "activity": 6,
+      "hotel": 158,
+      "place": 21,
+      "utility": 19
+    }
+  },
+  "documents": [
+    {
+      "id": "activity_hon_thom",
+      "entity_type": "activity",
+      "name": "Cáp treo Hòn Thơm",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [
+        "cable-car",
+        "family"
+      ],
+      "tags": [
+        "ACTIVITY"
+      ],
+      "address": "Aquatopia Water Park, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Tuyến cáp 3 dây vượt biển qua quần đảo An Thới",
+      "route": "/places/detail.html?id=hon-thom",
+      "map": null,
+      "inherited_from": "place_aquatopia",
+      "google_query": "Cáp treo Hòn Thơm, Aquatopia Water Park, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "activity_kiss_of_the_sea",
+      "entity_type": "activity",
+      "name": "Kiss of the Sea",
+      "aliases": [
+        "Kiss of the Sea show",
+        "show pháo hoa Sunset Town"
+      ],
+      "zone_id": "zone_south",
+      "categories": [
+        "show",
+        "evening",
+        "multimedia"
+      ],
+      "tags": [
+        "ACTIVITY",
+        "ENTERTAINMENT"
+      ],
+      "address": "Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Show đa phương tiện lớn kèm pháo hoa tại Sunset Town, tách riêng với Symphony of the Sea.",
+      "route": "/places/detail.html?id=kiss-of-the-sea",
+      "map": null,
+      "inherited_from": "place_sunset_town",
+      "google_query": "Kiss of the Sea, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "activity_once_show",
+      "entity_type": "activity",
+      "name": "ONCE Show",
+      "aliases": [
+        "ONCE",
+        "Once Show VinWonders",
+        "Show ONCE Phú Quốc"
+      ],
+      "zone_id": "zone_north",
+      "categories": [
+        "show",
+        "evening",
+        "multimedia"
+      ],
+      "tags": [
+        "ACTIVITY",
+        "ENTERTAINMENT"
+      ],
+      "address": "Khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang 92512, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Show đa phương tiện buổi tối tại VinWonders Phú Quốc.",
+      "route": "/places/detail.html?id=once-show",
+      "map": {
+        "lat": 10.3406875,
+        "lon": 103.8540625,
+        "precision": "area_anchor",
+        "source": "Google Maps place result + Plus Code 8VR3+7J",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": "place_vinwonders",
+      "google_query": "ONCE Show, Khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang 92512, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "activity_sac_mau_venice",
+      "entity_type": "activity",
+      "name": "Sắc Màu Venice",
+      "aliases": [
+        "Show Sắc Màu Venice",
+        "Sắc Màu Venice Grand World",
+        "Big Show Sắc Màu Venice"
+      ],
+      "zone_id": "zone_north",
+      "categories": [
+        "show",
+        "evening",
+        "outdoor"
+      ],
+      "tags": [
+        "ACTIVITY",
+        "ENTERTAINMENT"
+      ],
+      "address": "Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Show ánh sáng và trình diễn trên mặt nước tại Hồ Tình Yêu, Grand World Phú Quốc.",
+      "route": "/places/detail.html?id=sac-mau-venice",
+      "map": {
+        "lat": 10.3275625,
+        "lon": 103.8625625,
+        "precision": "area_anchor",
+        "source": "Google Maps Grand World central Venice area + Plus Code 8VH7+22",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": "place_grand_world",
+      "google_query": "Sắc Màu Venice, Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "activity_symphony_of_the_sea",
+      "entity_type": "activity",
+      "name": "Symphony of the Sea",
+      "aliases": [
+        "Symphony",
+        "show 19:30 Sunset Town"
+      ],
+      "zone_id": "zone_south",
+      "categories": [
+        "show",
+        "evening",
+        "outdoor"
+      ],
+      "tags": [
+        "ACTIVITY",
+        "ENTERTAINMENT"
+      ],
+      "address": "Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Show jetski, flyboard, ánh sáng và hiệu ứng trên mặt nước tại Sunset Town.",
+      "route": "/places/detail.html?id=symphony-of-the-sea",
+      "map": null,
+      "inherited_from": "place_sunset_town",
+      "google_query": "Symphony of the Sea, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "activity_tinh_hoa_viet_nam",
+      "entity_type": "activity",
+      "name": "Tinh Hoa Việt Nam",
+      "aliases": [
+        "Show Tinh Hoa Việt Nam",
+        "Tinh Hoa Việt Nam Grand World"
+      ],
+      "zone_id": "zone_north",
+      "categories": [
+        "show",
+        "culture",
+        "evening"
+      ],
+      "tags": [
+        "ACTIVITY",
+        "ENTERTAINMENT"
+      ],
+      "address": "Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Vở diễn thực cảnh buổi tối tại Grand World Phú Quốc.",
+      "route": "/places/detail.html?id=tinh-hoa-viet-nam",
+      "map": {
+        "lat": 10.3275625,
+        "lon": 103.8625625,
+        "precision": "area_anchor",
+        "source": "Google Maps Grand World central Venice area + Plus Code 8VH7+22",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": "place_grand_world",
+      "google_query": "Tinh Hoa Việt Nam, Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "hotel_alana_seaview_phu_quoc_hotel",
+      "entity_type": "hotel",
+      "name": "Alana Seaview Phu Quoc Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "69C Trần Hưng Đạo, Tổ 5, Khu phố 7, Đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0905391918",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Alana%20Seaview%20Phu%20Quoc%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Alana Seaview Phu Quoc Hotel, 69C Trần Hưng Đạo, Tổ 5, Khu phố 7, Đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_amarin_resort_and_spa",
+      "entity_type": "hotel",
+      "name": "Amarin Resort and Spa",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976259666; 0974000111",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Amarin%20Resort%20and%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Amarin Resort and Spa, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_amorii",
+      "entity_type": "hotel",
+      "name": "Amorii",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "B9-206 Waterfront, khu phức hợp Bãi Trường, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0376953246; 0345992367",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Amorii",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Amorii, B9-206 Waterfront, khu phức hợp Bãi Trường, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_an_phu",
+      "entity_type": "hotel",
+      "name": "An Phú",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "182A đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973898777",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=An%20Ph%C3%BA",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "An Phú, 182A đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_aquasun",
+      "entity_type": "hotel",
+      "name": "Aquasun",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Hẻm 124, Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02972629999",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn 4 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=Aquasun",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Aquasun, Hẻm 124, Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_avs_hotel_phu_quoc",
+      "entity_type": "hotel",
+      "name": "AVS Hotel Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "100C Trần Hưng Đạo, Tổ 7, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "1900998875",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn 4 sao tại Dương Đông.",
+      "route": "/hotels/?q=AVS%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "AVS Hotel Phú Quốc, 100C Trần Hưng Đạo, Tổ 7, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_bach_duong_resort",
+      "entity_type": "hotel",
+      "name": "Bạch Dương Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "13 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973999565",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
+      "route": "/hotels/?q=B%E1%BA%A1ch%20D%C6%B0%C6%A1ng%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Bạch Dương Resort, 13 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_best_western_premier_sonasea_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Best Western Premier Sonasea Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu tổ hợp du lịch Sonasea Villas and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973980026; 02976279999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Best%20Western%20Premier%20Sonasea%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Best Western Premier Sonasea Phú Quốc, Khu tổ hợp du lịch Sonasea Villas and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_bien_xanh",
+      "entity_type": "hotel",
+      "name": "Biển Xanh",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "85 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0916846383; 0918123789",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Bi%E1%BB%83n%20Xanh",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Biển Xanh, 85 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_boulevard",
+      "entity_type": "hotel",
+      "name": "Boulevard",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "89 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973978989; 0941388181",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Boulevard",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Boulevard, 89 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_brenta_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Brenta Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Hẻm 118, KP8, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973848588",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn 3 sao tại Dương Đông.",
+      "route": "/hotels/?q=Brenta%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Brenta Phú Quốc, Hẻm 118, KP8, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_caesar_viet_nam",
+      "entity_type": "hotel",
+      "name": "Caesar Việt Nam",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Thửa đất số 200, Tờ bản đồ 11, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0915627628",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Caesar%20Vi%E1%BB%87t%20Nam",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Caesar Việt Nam, Thửa đất số 200, Tờ bản đồ 11, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_camellia_resort_spa",
+      "entity_type": "hotel",
+      "name": "Camellia Resort & Spa",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973849948; 0903960455",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Camellia%20Resort%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Camellia Resort & Spa, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_chensea",
+      "entity_type": "hotel",
+      "name": "Chensea",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Bãi Xếp, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973995896",
+      "star_rating": 2,
+      "what_it_is": "Khách sạn nghỉ dưỡng 2 sao tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Chensea",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Chensea, Bãi Xếp, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_coco_palm_beach_resort_spa",
+      "entity_type": "hotel",
+      "name": "Coco Palm Beach Resort & Spa",
+      "aliases": [
+        "CoCoPalm Resort"
+      ],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973987979; 0971111348",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Coco%20Palm%20Beach%20Resort%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Coco Palm Beach Resort & Spa, Ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_coral_bay_resort_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Coral Bay Resort Phu Quoc",
+      "aliases": [
+        "Vịnh San Hô (Coral Bay)"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Hẻm 118/2, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973844142; 0916522788",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn 3 sao tại Dương Đông.",
+      "route": "/hotels/?q=Coral%20Bay%20Resort%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Coral Bay Resort Phu Quoc, Hẻm 118/2, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_cottage_village",
+      "entity_type": "hotel",
+      "name": "Cottage Village",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973973789; 0913820902",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Cottage%20Village",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Cottage Village, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_cong_ty_co_phan_thac_bac",
+      "entity_type": "hotel",
+      "name": "Công ty Cổ phần Thác Bạc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973846767",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=C%C3%B4ng%20ty%20C%E1%BB%95%20ph%E1%BA%A7n%20Th%C3%A1c%20B%E1%BA%A1c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Công ty Cổ phần Thác Bạc, Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_crowne_plaza_phu_quoc_starbay",
+      "entity_type": "hotel",
+      "name": "Crowne Plaza Phú Quốc Starbay",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "KDL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973683999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=Crowne%20Plaza%20Ph%C3%BA%20Qu%E1%BB%91c%20Starbay",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Crowne Plaza Phú Quốc Starbay, KDL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_cty_cp_du_lich_va_phat_trien_ba_keo",
+      "entity_type": "hotel",
+      "name": "Cty CP du lịch và phát triển Bà Kèo",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "(Hẻm 118) tổ 8 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973982988; 0372909819",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Cty%20CP%20du%20l%E1%BB%8Bch%20v%C3%A0%20ph%C3%A1t%20tri%E1%BB%83n%20B%C3%A0%20K%C3%A8o",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Cty CP du lịch và phát triển Bà Kèo, (Hẻm 118) tổ 8 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_daisy_resort",
+      "entity_type": "hotel",
+      "name": "Daisy Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973844412; 0946666806",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
+      "route": "/hotels/?q=Daisy%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Daisy Resort, Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_dusit_princess_moonrise_beach_resort_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Dusit Princess Moonrise Beach Resort Phu Quoc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976266688",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Dusit%20Princess%20Moonrise%20Beach%20Resort%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Dusit Princess Moonrise Beach Resort Phu Quoc, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_duong_dong",
+      "entity_type": "hotel",
+      "name": "Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Thửa đất số 355, Tờ bản đồ số 10, Tổ 3, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0918828188",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=D%C6%B0%C6%A1ng%20%C4%90%C3%B4ng",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Dương Đông, Thửa đất số 355, Tờ bản đồ số 10, Tổ 3, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_dao_ngoc_the_ky_21",
+      "entity_type": "hotel",
+      "name": "Đảo Ngọc Thế Kỷ 21",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "76A Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973848040",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=%C4%90%E1%BA%A3o%20Ng%E1%BB%8Dc%20Th%E1%BA%BF%20K%E1%BB%B7%2021",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Đảo Ngọc Thế Kỷ 21, 76A Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_duc_lam_ha",
+      "entity_type": "hotel",
+      "name": "Đức Lam Hà",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0912430357",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=%C4%90%E1%BB%A9c%20Lam%20H%C3%A0",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Đức Lam Hà, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_eco_resort_phu_quoc",
+      "entity_type": "hotel",
+      "name": "ECO Resort Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "143 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973991333",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
+      "route": "/hotels/?q=ECO%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "ECO Resort Phú Quốc, 143 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_elwood_resort_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Elwood Resort Phu Quoc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 5, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973846759",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Elwood%20Resort%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Elwood Resort Phu Quoc, Tổ 5, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_eo_xoai",
+      "entity_type": "hotel",
+      "name": "Eo Xoài",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973981693; 0913820953",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Eo%20Xo%C3%A0i",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Eo Xoài, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_e_den",
+      "entity_type": "hotel",
+      "name": "Ê Đen",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973985598",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=%C3%8A%20%C4%90en",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Ê Đen, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_famiana_resort_spa",
+      "entity_type": "hotel",
+      "name": "Famiana Resort & Spa",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973983366",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Famiana%20Resort%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Famiana Resort & Spa, Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_family_resort",
+      "entity_type": "hotel",
+      "name": "Family Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Thửa đất số 29, tờ bản đồ số 6, ấp 3, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0989017757",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Khác / cần rà.",
+      "route": "/hotels/?q=Family%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Family Resort, Thửa đất số 29, tờ bản đồ số 6, ấp 3, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_gaia_hotel",
+      "entity_type": "hotel",
+      "name": "Gaia Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "71 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973982888; 0362804844",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Gaia%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Gaia Hotel, 71 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_galaxy",
+      "entity_type": "hotel",
+      "name": "Galaxy",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "77 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973844377",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Galaxy",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Galaxy, 77 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_golden_daisy_hotel_spa",
+      "entity_type": "hotel",
+      "name": "Golden Daisy Hotel & Spa",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 7, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0986102080",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Golden%20Daisy%20Hotel%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Golden Daisy Hotel & Spa, Tổ 7, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_green_bay",
+      "entity_type": "hotel",
+      "name": "Green Bay Phu Quoc Resort & Spa",
+      "aliases": [
+        "Green Bay",
+        "GreenBay Resort"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 1, ấp 4, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973900004; 0963591459",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=Green%20Bay%20Phu%20Quoc%20Resort%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Green Bay Phu Quoc Resort & Spa, Tổ 1, ấp 4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_green_tree",
+      "entity_type": "hotel",
+      "name": "Green Tree",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Lô SS22 Khu tổ hợp DL Sonasea Villas & Resort, Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0934277999",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Green%20Tree",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Green Tree, Lô SS22 Khu tổ hợp DL Sonasea Villas & Resort, Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_halona",
+      "entity_type": "hotel",
+      "name": "Halona",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "66 Trần Phú, KP3, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973980678; 0939601579",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Halona",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Halona, 66 Trần Phú, KP3, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_home_park",
+      "entity_type": "hotel",
+      "name": "Home Park",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "124 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0353961512; 0977509171",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn 3 sao tại Dương Đông.",
+      "route": "/hotels/?q=Home%20Park",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Home Park, 124 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_homestead_phu_quoc_resort",
+      "entity_type": "hotel",
+      "name": "Homestead Phú Quốc Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "143A Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973991333",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
+      "route": "/hotels/?q=Homestead%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Homestead Phú Quốc Resort, 143A Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_homestead_seaview_phu_quoc_hotel",
+      "entity_type": "hotel",
+      "name": "Homestead Seaview Phu Quoc Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973991333; 0937552233",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Homestead%20Seaview%20Phu%20Quoc%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Homestead Seaview Phu Quoc Hotel, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_hopapa",
+      "entity_type": "hotel",
+      "name": "HOPAPA",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "127/5 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0913612334; 0989690350",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=HOPAPA",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "HOPAPA, 127/5 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_hong_tuyet",
+      "entity_type": "hotel",
+      "name": "Hồng Tuyết",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "10 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0888218821; 0918622636",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=H%E1%BB%93ng%20Tuy%E1%BA%BFt",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Hồng Tuyết, 10 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_huynh_tram",
+      "entity_type": "hotel",
+      "name": "Huỳnh Trâm",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "84 Nguyễn Trường Tộ, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973990505; 0989789621",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Hu%E1%BB%B3nh%20Tr%C3%A2m",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Huỳnh Trâm, 84 Nguyễn Trường Tộ, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_huong_toan_ii",
+      "entity_type": "hotel",
+      "name": "Hương Toàn II",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "205 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973999988",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=H%C6%B0%C6%A1ng%20To%C3%A0n%20II",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Hương Toàn II, 205 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_intercontinental",
+      "entity_type": "hotel",
+      "name": "InterContinental Phu Quoc Long Beach Resort",
+      "aliases": [
+        "InterContinental",
+        "Intercontinental Phú Quốc"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973990514; 02973978888",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=InterContinental%20Phu%20Quoc%20Long%20Beach%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "InterContinental Phu Quoc Long Beach Resort, Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_jmo_boutique_hotel_spa_phu_quoc",
+      "entity_type": "hotel",
+      "name": "JMO Boutique Hotel & Spa Phu Quoc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "B2-204 Waterfront, BIM Group, Đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=JMO%20Boutique%20Hotel%20%26%20Spa%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "JMO Boutique Hotel & Spa Phu Quoc, B2-204 Waterfront, BIM Group, Đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_jw_marriott",
+      "entity_type": "hotel",
+      "name": "JW Marriott Phú Quốc Emerald Bay",
+      "aliases": [
+        "JW Marriott"
+      ],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "KDL du lịch sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973779999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Nam đảo - Bãi Khem / Mũi Ông Đội.",
+      "route": "/hotels/?q=JW%20Marriott%20Ph%C3%BA%20Qu%E1%BB%91c%20Emerald%20Bay",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "JW Marriott Phú Quốc Emerald Bay, KDL du lịch sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_kim_hoa_resort",
+      "entity_type": "hotel",
+      "name": "Kim Hoa Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "82/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "02973848969",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Dương Đông.",
+      "route": "/hotels/?q=Kim%20Hoa%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Kim Hoa Resort, 82/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_kosmos_apart_hotel",
+      "entity_type": "hotel",
+      "name": "Kosmos Apart Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "SS02, Sonasea Vill & Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0907100846",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn 3 sao tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Kosmos%20Apart%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Kosmos Apart Hotel, SS02, Sonasea Vill & Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_ky_hoa",
+      "entity_type": "hotel",
+      "name": "Kỳ Hoa",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "86 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973981322; 0918006500",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=K%E1%BB%B3%20Hoa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Kỳ Hoa, 86 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_l_azure_resort_spa_phu_quoc",
+      "entity_type": "hotel",
+      "name": "L'Azure Resort & Spa Phu Quoc",
+      "aliases": [
+        "L'AZURE"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "64 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973994499",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Dương Đông.",
+      "route": "/hotels/?q=L'Azure%20Resort%20%26%20Spa%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "L'Azure Resort & Spa Phu Quoc, 64 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_la_casa_resort_phu_quoc",
+      "entity_type": "hotel",
+      "name": "La Casa Resort Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 4, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0919042827",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=La%20Casa%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "La Casa Resort Phú Quốc, Tổ 4, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_la_festa",
+      "entity_type": "hotel",
+      "name": "La Festa Phu Quoc, Curio Collection by Hilton",
+      "aliases": [
+        "La Festa",
+        "La Festa Phú Quốc"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu khách sạn + Tháp đồng hồ (số ký hiệu số 9) và khách sạn 2 (số ký hiệu ô đất Khách sạn-02) thuộc khu đô thị Gate Way, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973525555",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn 5 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=La%20Festa%20Phu%20Quoc%2C%20Curio%20Collection%20by%20Hilton",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "La Festa Phu Quoc, Curio Collection by Hilton, Khu khách sạn + Tháp đồng hồ (số ký hiệu số 9) và khách sạn 2 (số ký hiệu ô đất Khách sạn-02) thuộc khu đô thị Gate Way, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_la_mer_resort",
+      "entity_type": "hotel",
+      "name": "La Mer Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "118/2/6 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973992218; 0979758417",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Dương Đông.",
+      "route": "/hotels/?q=La%20Mer%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "La Mer Resort, 118/2/6 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_labe",
+      "entity_type": "hotel",
+      "name": "Labe",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "199 Milan, khu thị trấn Hoàng Hôn, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0944411325",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Labe",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Labe, 199 Milan, khu thị trấn Hoàng Hôn, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_le_bonheur",
+      "entity_type": "hotel",
+      "name": "Le Bonheur",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "A32-A34 đường Amalfi, thị trấn Địa Trung Hải, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973992668; 0792196469",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Le%20Bonheur",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Le Bonheur, A32-A34 đường Amalfi, thị trấn Địa Trung Hải, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_levan_hotel",
+      "entity_type": "hotel",
+      "name": "LeVan Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "79 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973900606; 0908288035",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=LeVan%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "LeVan Hotel, 79 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_lien_my_tam",
+      "entity_type": "hotel",
+      "name": "Liên Mỹ Tâm",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "09 Hùng Vương, Tổ 7, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0939050425",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Li%C3%AAn%20M%E1%BB%B9%20T%C3%A2m",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Liên Mỹ Tâm, 09 Hùng Vương, Tổ 7, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_lotus",
+      "entity_type": "hotel",
+      "name": "Lotus",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 4, ấp Suối Đá, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976613999; 0932831668",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Lotus",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Lotus, Tổ 4, ấp Suối Đá, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_lucky_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Lucky Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "127D Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0297385979; 0939009076",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Lucky%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Lucky Phú Quốc, 127D Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_m_hotel_phu_quoc",
+      "entity_type": "hotel",
+      "name": "M Hotel Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02972200555",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn 4 sao tại Dương Đông.",
+      "route": "/hotels/?q=M%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "M Hotel Phú Quốc, Tổ 3, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_m_resort",
+      "entity_type": "hotel",
+      "name": "M Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02972210555",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=M%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "M Resort, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_maison_du_vietnam_resort_spa",
+      "entity_type": "hotel",
+      "name": "Maison Du Vietnam Resort & Spa",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 12, ấp Bến Tràm, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0909827068; 0918536898",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Nội đảo - Suối Mây / Suối Đá / Bến Tràm.",
+      "route": "/hotels/?q=Maison%20Du%20Vietnam%20Resort%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Maison Du Vietnam Resort & Spa, Tổ 12, ấp Bến Tràm, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_maison_hotel",
+      "entity_type": "hotel",
+      "name": "Maison Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Thửa đất số 5, Tờ bản đồ số 103, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0888668803; 0949266171",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Maison%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Maison Hotel, Thửa đất số 5, Tờ bản đồ số 103, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_melia_vinpearl",
+      "entity_type": "hotel",
+      "name": "Melia Vinpearl Phú Quốc",
+      "aliases": [
+        "Meliá Vinpearl"
+      ],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973625888",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=Melia%20Vinpearl%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Melia Vinpearl Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_mercury_phu_quoc_resort_villas",
+      "entity_type": "hotel",
+      "name": "Mercury Phú Quốc Resort & Villas",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 1, ấp Dương Tơ, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976263999",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=Mercury%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort%20%26%20Villas",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Mercury Phú Quốc Resort & Villas, Tổ 1, ấp Dương Tơ, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_mey_mansion_hotel",
+      "entity_type": "hotel",
+      "name": "Mey Mansion Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "45,47,49,51,53,55,57,59,61,63 Đại lộ Ánh Sao, Khu dân cư và Đô thị cao cấp Hưng Phát, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0912029922; 0986469079",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Mey%20Mansion%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Mey Mansion Hotel, 45,47,49,51,53,55,57,59,61,63 Đại lộ Ánh Sao, Khu dân cư và Đô thị cao cấp Hưng Phát, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_mojo_boutique",
+      "entity_type": "hotel",
+      "name": "MoJo Boutique",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Lô SS04, Khu tổ hợp du lịch Sonasea Villas & Resort, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976553377; 0944477743",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=MoJo%20Boutique",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "MoJo Boutique, Lô SS04, Khu tổ hợp du lịch Sonasea Villas & Resort, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_mon_ami",
+      "entity_type": "hotel",
+      "name": "Mon Ami",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "150 Nguyễn Trung Trực, KP8, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973989200",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Mon%20Ami",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Mon Ami, 150 Nguyễn Trung Trực, KP8, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_movenpick",
+      "entity_type": "hotel",
+      "name": "Mövenpick Resort Waverly Phu Quoc",
+      "aliases": [
+        "Mövenpick"
+      ],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 1, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976592828",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=M%C3%B6venpick%20Resort%20Waverly%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Mövenpick Resort Waverly Phu Quoc, Tổ 1, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
+      "entity_type": "hotel",
+      "name": "Muong Thanh Luxury Phu Quoc Hotel",
+      "aliases": [
+        "Mường Thanh Phú Quốc"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973645555",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn 4 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=Muong%20Thanh%20Luxury%20Phu%20Quoc%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Muong Thanh Luxury Phu Quoc Hotel, Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_my_nhut",
+      "entity_type": "hotel",
+      "name": "Mỹ Nhựt",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "129 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0764347579",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=M%E1%BB%B9%20Nh%E1%BB%B1t",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Mỹ Nhựt, 129 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_my_place_phu_quoc",
+      "entity_type": "hotel",
+      "name": "My Place Phu Quoc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973702882; 0899675858",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=My%20Place%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "My Place Phu Quoc, Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_nesta",
+      "entity_type": "hotel",
+      "name": "Nesta",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tầng trệt số 100C/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973998866; 02973998868",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Nesta",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nesta, Tầng trệt số 100C/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_new_world",
+      "entity_type": "hotel",
+      "name": "New World Phu Quoc Resort",
+      "aliases": [
+        "New World"
+      ],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu du lịch sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973716666",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Nam đảo - Bãi Khem / Mũi Ông Đội.",
+      "route": "/hotels/?q=New%20World%20Phu%20Quoc%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "New World Phu Quoc Resort, Khu du lịch sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_ngoc_chau",
+      "entity_type": "hotel",
+      "name": "Ngọc Châu",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "66D Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976253838",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Ng%E1%BB%8Dc%20Ch%C3%A2u",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Ngọc Châu, 66D Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_nguyen_phan_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Nguyên Phan Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "76 Nguyễn Trung Trực, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973848849; 0906883844",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Nguy%C3%AAn%20Phan%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nguyên Phan Phú Quốc, 76 Nguyễn Trung Trực, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_nha_khach_tram_giao_dich_ve_so_kien_thiet_can_tho",
+      "entity_type": "hotel",
+      "name": "Nhà khách - Trạm giao dịch vé số kiến thiết Cần Thơ",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973994823; 0906946496",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Nh%C3%A0%20kh%C3%A1ch%20-%20Tr%E1%BA%A1m%20giao%20d%E1%BB%8Bch%20v%C3%A9%20s%E1%BB%91%20ki%E1%BA%BFn%20thi%E1%BA%BFt%20C%E1%BA%A7n%20Th%C6%A1",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà khách - Trạm giao dịch vé số kiến thiết Cần Thơ, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_nha_khach_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Nhà khách Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "01 Nguyễn Huệ, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0826262999; 0909996262",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Nh%C3%A0%20kh%C3%A1ch%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà khách Phú Quốc, 01 Nguyễn Huệ, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_nha_tranh_gia_vi",
+      "entity_type": "hotel",
+      "name": "Nhà Tranh - Gia Vị",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973848395; 0917785557",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
+      "route": "/hotels/?q=Nh%C3%A0%20Tranh%20-%20Gia%20V%E1%BB%8B",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà Tranh - Gia Vị, Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_nice_life_hotel",
+      "entity_type": "hotel",
+      "name": "Nice Life Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "88 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973996066; 0919447595",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Nice%20Life%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nice Life Hotel, 88 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_nipola",
+      "entity_type": "hotel",
+      "name": "Nipola",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "40 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973696869; 0913974770",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Nipola",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nipola, 40 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_novotel",
+      "entity_type": "hotel",
+      "name": "Novotel Phú Quốc",
+      "aliases": [
+        "Novotel"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu tổ hợp du lịch Sonasea Villas and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976260999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Novotel%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Novotel Phú Quốc, Khu tổ hợp du lịch Sonasea Villas and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_ola_phu_quoc_hotel",
+      "entity_type": "hotel",
+      "name": "Ola Phu Quoc Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973900689; 0788089399",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Ola%20Phu%20Quoc%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Ola Phu Quoc Hotel, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_orange_resort",
+      "entity_type": "hotel",
+      "name": "Orange Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "88/5 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973846319",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Dương Đông.",
+      "route": "/hotels/?q=Orange%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Orange Resort, 88/5 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_ori",
+      "entity_type": "hotel",
+      "name": "ORI",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0966638566; 0888129688",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=ORI",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "ORI, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_orient_resort_cu_vich_resort",
+      "entity_type": "hotel",
+      "name": "Orient Resort (Cũ Vich Resort)",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Số 53, Tổ 8, ấp Chuồng Vích, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0989112268",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Đông đảo - Hàm Ninh / Cây Sao.",
+      "route": "/hotels/?q=Orient%20Resort%20(C%C5%A9%20Vich%20Resort)",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Orient Resort (Cũ Vich Resort), Số 53, Tổ 8, ấp Chuồng Vích, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_palm_hill_resort",
+      "entity_type": "hotel",
+      "name": "Palm Hill Resort",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973846725; 0976896868",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Palm%20Hill%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Palm Hill Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_paralia",
+      "entity_type": "hotel",
+      "name": "Paralia",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "D107, D109, D111, D115, D129-D131, D133-D135 Khu biệt thự Sun Premier Village Kem Beach Resort, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0834440496; 0933144039",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn 4 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=Paralia",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Paralia, D107, D109, D111, D115, D129-D131, D133-D135 Khu biệt thự Sun Premier Village Kem Beach Resort, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_philip_cozy_bungalow",
+      "entity_type": "hotel",
+      "name": "Philip Cozy Bungalow",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "131 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973610666",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Philip%20Cozy%20Bungalow",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Philip Cozy Bungalow, 131 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_phu_hong",
+      "entity_type": "hotel",
+      "name": "Phú Hồng",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "16 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0944131142; 0909094520",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Ph%C3%BA%20H%E1%BB%93ng",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Phú Hồng, 16 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_phu_quoc_eco_beach_resort",
+      "entity_type": "hotel",
+      "name": "Phu Quoc Eco Beach Resort",
+      "aliases": [
+        "ECO Beach Resort"
+      ],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973986986",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Phu%20Quoc%20Eco%20Beach%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Phu Quoc Eco Beach Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_phu_quoc_phung_hung",
+      "entity_type": "hotel",
+      "name": "Phú Quốc Phụng Hưng",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "60-62 Nguyễn Văn Cừ, KP3, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973991929; 0899797909",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Ph%C3%BA%20Qu%E1%BB%91c%20Ph%E1%BB%A5ng%20H%C6%B0ng",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Phú Quốc Phụng Hưng, 60-62 Nguyễn Văn Cừ, KP3, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_phu_van",
+      "entity_type": "hotel",
+      "name": "Phú Vân",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "126 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973997779; 0912405366",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Ph%C3%BA%20V%C3%A2n",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Phú Vân, 126 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_phuc_loc",
+      "entity_type": "hotel",
+      "name": "Phúc Lộc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "193 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973976868; 0919707576",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Ph%C3%BAc%20L%E1%BB%99c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Phúc Lộc, 193 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_phuong_dong",
+      "entity_type": "hotel",
+      "name": "Phương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "19 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973994111; 0913820968",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Ph%C6%B0%C6%A1ng%20%C4%90%C3%B4ng",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Phương Đông, 19 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_positano_horse",
+      "entity_type": "hotel",
+      "name": "Positano Horse",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, KP6 (Căn số 10, Đường Positano), đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0908186186; 0828606886",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Positano%20Horse",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Positano Horse, Tổ 2, KP6 (Căn số 10, Đường Positano), đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_pq_quang_trung",
+      "entity_type": "hotel",
+      "name": "PQ Quang Trung",
+      "aliases": [
+        "P Q Quang Trung"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "5/24 Nguyễn An Ninh, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0704799233; 0938124437",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=PQ%20Quang%20Trung",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "PQ Quang Trung, 5/24 Nguyễn An Ninh, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_praha",
+      "entity_type": "hotel",
+      "name": "Praha",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0909666685",
+      "star_rating": 3,
+      "what_it_is": "Khách sạn 3 sao tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Praha",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Praha, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_premier_residences",
+      "entity_type": "hotel",
+      "name": "Premier Residences Phú Quốc Emerald Bay",
+      "aliases": [
+        "Premier Residences"
+      ],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "KDL sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973927777",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Nam đảo - Bãi Khem / Mũi Ông Đội.",
+      "route": "/hotels/?q=Premier%20Residences%20Ph%C3%BA%20Qu%E1%BB%91c%20Emerald%20Bay",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Premier Residences Phú Quốc Emerald Bay, KDL sinh thái Bãi Khem, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_premier_village",
+      "entity_type": "hotel",
+      "name": "Premier Village Phú Quốc",
+      "aliases": [
+        "Premier Village"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Mũi Ông Đội, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973546666",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=Premier%20Village%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Premier Village Phú Quốc, Mũi Ông Đội, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_pullman",
+      "entity_type": "hotel",
+      "name": "Pullman Phú Quốc",
+      "aliases": [
+        "Pullman"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 6, xóm Bàn Quy, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973679999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=Pullman%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Pullman Phú Quốc, Tổ 6, xóm Bàn Quy, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_quoc_thang",
+      "entity_type": "hotel",
+      "name": "Quốc Thắng",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973997779; 0939322227",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Qu%E1%BB%91c%20Th%E1%BA%AFng",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Quốc Thắng, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_quynh_mai_phu_quoc_resort",
+      "entity_type": "hotel",
+      "name": "Quỳnh Mai Phú Quốc Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973702998; 0913949081",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Nội đảo - Suối Mây / Suối Đá / Bến Tràm.",
+      "route": "/hotels/?q=Qu%E1%BB%B3nh%20Mai%20Ph%C3%BA%20Qu%E1%BB%91c%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Quỳnh Mai Phú Quốc Resort, Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_radisson_blu",
+      "entity_type": "hotel",
+      "name": "Radisson Blu Resort Phú Quốc",
+      "aliases": [
+        "Radisson Blu"
+      ],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973660000",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=Radisson%20Blu%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Radisson Blu Resort Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_regent",
+      "entity_type": "hotel",
+      "name": "Regent Phú Quốc",
+      "aliases": [
+        "Regent"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Lô M1, M2, Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973880000",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Regent%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Regent Phú Quốc, Lô M1, M2, Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_roma_hotel_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Roma Hotel Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "312-316 Sorrento, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0899727729",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Roma%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Roma Hotel Phú Quốc, 312-316 Sorrento, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_roma_hotel_phu_quoc_3",
+      "entity_type": "hotel",
+      "name": "Roma Hotel Phú Quốc 3",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "312-316 Sorrento, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0899727729",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Roma%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c%203",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Roma Hotel Phú Quốc 3, 312-316 Sorrento, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_rova_hotel",
+      "entity_type": "hotel",
+      "name": "Rova Hotel",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "41-43 Positano, Khu Sun Premier Village Primavera, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0971186868",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Rova%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Rova Hotel, 41-43 Positano, Khu Sun Premier Village Primavera, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_ru_by",
+      "entity_type": "hotel",
+      "name": "Ru By",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 1, ấp Suối Lớn, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0902792793",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Ru%20By",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Ru By, Tổ 1, ấp Suối Lớn, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_saigon_phu_quoc_resort_spa",
+      "entity_type": "hotel",
+      "name": "Saigon Phu Quoc Resort & Spa",
+      "aliases": [
+        "Sài Gòn Phú Quốc"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "62 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973846999",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Dương Đông.",
+      "route": "/hotels/?q=Saigon%20Phu%20Quoc%20Resort%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Saigon Phu Quoc Resort & Spa, 62 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sailing_club_signature_resort_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Sailing Club Signature Resort Phu Quoc",
+      "aliases": [
+        "Sailing Club Phú Quốc"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Lô N8, N9, N10, N11, N12, N13, N14, N14A, X11, X12 Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973559888",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Sailing%20Club%20Signature%20Resort%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sailing Club Signature Resort Phu Quoc, Lô N8, N9, N10, N11, N12, N13, N14, N14A, X11, X12 Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sakurakyo_hotel_spa",
+      "entity_type": "hotel",
+      "name": "Sakurakyo Hotel & Spa",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "A44-A406, Amalfi, KĐT The Center, tổ 10, khu phố 6 - An Thới, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0978965483",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Sakurakyo%20Hotel%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sakurakyo Hotel & Spa, A44-A406, Amalfi, KĐT The Center, tổ 10, khu phố 6 - An Thới, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_salinda_resort",
+      "entity_type": "hotel",
+      "name": "Salinda Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973990011",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Salinda%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Salinda Resort, Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sea_sense_resort",
+      "entity_type": "hotel",
+      "name": "Sea Sense Resort",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02977309899",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Ông Lang - Cửa Cạn.",
+      "route": "/hotels/?q=Sea%20Sense%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sea Sense Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_seahorse_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Seahorse Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Căn V50 và V51 lô SV12 đường Donasea 01 thuộc khu tổ hợp DL Sonasea and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0918930464; 0813924669",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Seahorse%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Seahorse Phú Quốc, Căn V50 và V51 lô SV12 đường Donasea 01 thuộc khu tổ hợp DL Sonasea and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_seahorse_phu_quoc_ii",
+      "entity_type": "hotel",
+      "name": "Seahorse Phú Quốc II",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Căn V07-V08, lô 09 đường Donasea 01 thuộc khu tổ hợp DL Sonasea and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0813924669; 0916661115",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Seahorse%20Ph%C3%BA%20Qu%E1%BB%91c%20II",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Seahorse Phú Quốc II, Căn V07-V08, lô 09 đường Donasea 01 thuộc khu tổ hợp DL Sonasea and Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_seashells_phu_quoc_hotel_spa",
+      "entity_type": "hotel",
+      "name": "Seashells Phu Quoc Hotel & Spa",
+      "aliases": [
+        "SeaShells Hotel and Spa"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Số 01 Võ Thị Sáu, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973923999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn 5 sao tại Dương Đông.",
+      "route": "/hotels/?q=Seashells%20Phu%20Quoc%20Hotel%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Seashells Phu Quoc Hotel & Spa, Số 01 Võ Thị Sáu, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sen",
+      "entity_type": "hotel",
+      "name": "SEN",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Hẻm 63, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0979323589",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=SEN",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "SEN, Hẻm 63, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sentina",
+      "entity_type": "hotel",
+      "name": "Sentina",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "16 Venice, Sunset Town, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0834292868",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Sentina",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sentina, 16 Venice, Sunset Town, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_sheraton",
+      "entity_type": "hotel",
+      "name": "Sheraton Phú Quốc Long Beach Resort",
+      "aliases": [
+        "Sheraton"
+      ],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973619999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=Sheraton%20Ph%C3%BA%20Qu%E1%BB%91c%20Long%20Beach%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sheraton Phú Quốc Long Beach Resort, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sol_by_melia",
+      "entity_type": "hotel",
+      "name": "SOL by Meliá Phu Quoc",
+      "aliases": [
+        "Sol by Meliá"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 2, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973869999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn 5 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=SOL%20by%20Meli%C3%A1%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "SOL by Meliá Phu Quoc, Tổ 2, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sonaga_beach_resort",
+      "entity_type": "hotel",
+      "name": "Sonaga Beach Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu tổ hợp DL Sonasea Villas & Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02972678888; 0988856606",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
+      "route": "/hotels/?q=Sonaga%20Beach%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sonaga Beach Resort, Khu tổ hợp DL Sonasea Villas & Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_star_hill_resort",
+      "entity_type": "hotel",
+      "name": "Star Hill Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 7, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0933936247",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
+      "route": "/hotels/?q=Star%20Hill%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Star Hill Resort, Tổ 7, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_stellar",
+      "entity_type": "hotel",
+      "name": "Stellar",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "63 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973979779; 0855452299",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Stellar",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Stellar, 63 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_suncosy_central_resort_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Suncosy Central Resort Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "47/8 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973977888; 0989896265",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
+      "route": "/hotels/?q=Suncosy%20Central%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Suncosy Central Resort Phú Quốc, 47/8 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sunrise_boutique",
+      "entity_type": "hotel",
+      "name": "Sunrise Boutique",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "51-53 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976268111",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Sunrise%20Boutique",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sunrise Boutique, 51-53 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sunset_beach_resort_spa",
+      "entity_type": "hotel",
+      "name": "Sunset Beach Resort & Spa",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "100C/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0977287777",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Dương Đông.",
+      "route": "/hotels/?q=Sunset%20Beach%20Resort%20%26%20Spa",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sunset Beach Resort & Spa, 100C/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_sunset_sanato",
+      "entity_type": "hotel",
+      "name": "Sunset Sanato",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976266662",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
+      "route": "/hotels/?q=Sunset%20Sanato",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sunset Sanato, Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_suny_hotel",
+      "entity_type": "hotel",
+      "name": "Suny Hotel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Nguyễn Đình Chiểu, Tổ 8, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973999099",
+      "star_rating": 2,
+      "what_it_is": "Khách sạn 2 sao tại Dương Đông.",
+      "route": "/hotels/?q=Suny%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Suny Hotel, Nguyễn Đình Chiểu, Tổ 8, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_suoi_may_garden",
+      "entity_type": "hotel",
+      "name": "Suối Mây Garden",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0902429663; 0364790289",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Nội đảo - Suối Mây / Suối Đá / Bến Tràm.",
+      "route": "/hotels/?q=Su%E1%BB%91i%20M%C3%A2y%20Garden",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Suối Mây Garden, Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_tai_phong_tien",
+      "entity_type": "hotel",
+      "name": "Tài Phong Tiến",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "137 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0946758877",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=T%C3%A0i%20Phong%20Ti%E1%BA%BFn",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Tài Phong Tiến, 137 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_tan_anh_tuan",
+      "entity_type": "hotel",
+      "name": "Tân Anh Tuấn",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "102 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973848857; 02973981076",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=T%C3%A2n%20Anh%20Tu%E1%BA%A5n",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Tân Anh Tuấn, 102 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_tan_anh_tuan_2",
+      "entity_type": "hotel",
+      "name": "Tân Anh Tuấn 2",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "179 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973981072; 02973981075",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=T%C3%A2n%20Anh%20Tu%E1%BA%A5n%202",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Tân Anh Tuấn 2, 179 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_thai_hoang_gia",
+      "entity_type": "hotel",
+      "name": "Thái Hoàng Gia",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "89 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973993050",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Th%C3%A1i%20Ho%C3%A0ng%20Gia",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Thái Hoàng Gia, 89 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_thala_hotel",
+      "entity_type": "hotel",
+      "name": "Thala Hotel",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "239-241 Sorrento, TT. Hoàng Hôn, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0934625266",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Thala%20Hotel",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Thala Hotel, 239-241 Sorrento, TT. Hoàng Hôn, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_thanh_trung",
+      "entity_type": "hotel",
+      "name": "Thành Trung",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "14/1 đường 30/4, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973775775; 0918312042",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Th%C3%A0nh%20Trung",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Thành Trung, 14/1 đường 30/4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_the_shells_resort_spa_phu_quoc",
+      "entity_type": "hotel",
+      "name": "The Shells Resort & Spa Phu Quoc",
+      "aliases": [
+        "The Shell Resort & Spa Phú Quốc"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 18, KP9, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973718888",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Dương Đông.",
+      "route": "/hotels/?q=The%20Shells%20Resort%20%26%20Spa%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "The Shells Resort & Spa Phu Quoc, Tổ 18, KP9, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_the_up_phu_quoc",
+      "entity_type": "hotel",
+      "name": "The Up Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Thửa đất số 253, tờ bản đồ số 10, tổ 3, khu phố Cửa Lấp, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0922186588",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn 4 sao tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=The%20Up%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "The Up Phú Quốc, Thửa đất số 253, tờ bản đồ số 10, tổ 3, khu phố Cửa Lấp, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_thi_long_phung",
+      "entity_type": "hotel",
+      "name": "Thi Long Phụng",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "155 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973990777; 0912429420",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Thi%20Long%20Ph%E1%BB%A5ng",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Thi Long Phụng, 155 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_thien_thanh_resort",
+      "entity_type": "hotel",
+      "name": "Thiên Thanh Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "78 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973983111; 02973983113",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Dương Đông.",
+      "route": "/hotels/?q=Thi%C3%AAn%20Thanh%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Thiên Thanh Resort, 78 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_thuan_hai",
+      "entity_type": "hotel",
+      "name": "Thuận Hải",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "26 Nguyễn Du, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973848779; 0913820757",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Thu%E1%BA%ADn%20H%E1%BA%A3i",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Thuận Hải, 26 Nguyễn Du, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_times_corner_amalfi",
+      "entity_type": "hotel",
+      "name": "Times Corner Amalfi",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "A48-A50-A52-A54 đường Amalfi Địa Trung Hải, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0949075099",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Times%20Corner%20Amalfi",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Times Corner Amalfi, A48-A50-A52-A54 đường Amalfi Địa Trung Hải, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_times_corner_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Times Corner Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tầng 1, Tòa SOR 201 Địa Trung Hải, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02793669988",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Times%20Corner%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Times Corner Phú Quốc, Tầng 1, Tòa SOR 201 Địa Trung Hải, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_tropicana_resort",
+      "entity_type": "hotel",
+      "name": "Tropicana Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "100C/4 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973847127",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Dương Đông.",
+      "route": "/hotels/?q=Tropicana%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Tropicana Resort, 100C/4 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_tung_huong",
+      "entity_type": "hotel",
+      "name": "Tùng Hương",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 11 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0765454136",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=T%C3%B9ng%20H%C6%B0%C6%A1ng",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Tùng Hương, Tổ 11 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_tuyet_hien",
+      "entity_type": "hotel",
+      "name": "Tuyết Hiển",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "77 Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02976586464; 0909366933",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Tuy%E1%BA%BFt%20Hi%E1%BB%83n",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Tuyết Hiển, 77 Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_uyen_gia",
+      "entity_type": "hotel",
+      "name": "Uyên Gia",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "42 Chu Văn An, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0985565000",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Dương Đông.",
+      "route": "/hotels/?q=Uy%C3%AAn%20Gia",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Uyên Gia, 42 Chu Văn An, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_valentina_resort",
+      "entity_type": "hotel",
+      "name": "Valentina Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 6, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0972347456",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=Valentina%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Valentina Resort, Tổ 6, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_venice_hotel_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Venice Hotel Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "15-17 Venice, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "0898522528",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn 4 sao tại Sunset Town - An Thới.",
+      "route": "/hotels/?q=Venice%20Hotel%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Venice Hotel Phú Quốc, 15-17 Venice, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_venus_hotel_sky_bar_massage",
+      "entity_type": "hotel",
+      "name": "Venus Hotel - Sky Bar - Massage",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "60 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0966683683",
+      "star_rating": null,
+      "what_it_is": "Khách sạn tại Khác / cần rà.",
+      "route": "/hotels/?q=Venus%20Hotel%20-%20Sky%20Bar%20-%20Massage",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Venus Hotel - Sky Bar - Massage, 60 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_vinholidays_fiesta_phu_quoc",
+      "entity_type": "hotel",
+      "name": "VinHolidays Fiesta Phu Quoc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "KDL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973681888",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn 4 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=VinHolidays%20Fiesta%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "VinHolidays Fiesta Phu Quoc, KDL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_vinpearl_resort_spa_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Vinpearl Resort & Spa Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973998999",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=Vinpearl%20Resort%20%26%20Spa%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Vinpearl Resort & Spa Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_vinpearl_wonderworld_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Vinpearl Wonderworld Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973779888",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=Vinpearl%20Wonderworld%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Vinpearl Wonderworld Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_wildland_resort",
+      "entity_type": "hotel",
+      "name": "Wildland Resort",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Tổ 5, ấp Cây Sao, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "0902806881; 0971515158",
+      "star_rating": null,
+      "what_it_is": "Khách sạn nghỉ dưỡng tại Đông đảo - Hàm Ninh / Cây Sao.",
+      "route": "/hotels/?q=Wildland%20Resort",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Wildland Resort, Tổ 5, ấp Cây Sao, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_worldhotels_long_beach_resort_phu_quoc",
+      "entity_type": "hotel",
+      "name": "WorldHotels Long Beach Resort Phu Quoc",
+      "aliases": [
+        "WorldHotel Long Beach Resort Phú Quốc"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Số 152 Trần Hưng Đạo, khu phố Cửa Lấp Dương Tơ, đặc khu Phú Quốc",
+      "address_precision": null,
+      "phone": "02973981818",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Cửa Lấp - Bà Kèo.",
+      "route": "/hotels/?q=WorldHotels%20Long%20Beach%20Resort%20Phu%20Quoc",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "WorldHotels Long Beach Resort Phu Quoc, Số 152 Trần Hưng Đạo, khu phố Cửa Lấp Dương Tơ, đặc khu Phú Quốc, Phú Quốc"
+    },
+    {
+      "id": "hotel_wyndham_garden_grandworld",
+      "entity_type": "hotel",
+      "name": "Wyndham Garden Grandworld",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu DL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973612999",
+      "star_rating": 4,
+      "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=Wyndham%20Garden%20Grandworld",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Wyndham Garden Grandworld, Khu DL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "hotel_wyndham_grand_phu_quoc",
+      "entity_type": "hotel",
+      "name": "Wyndham Grand Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "HOTEL"
+      ],
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address_precision": null,
+      "phone": "02973691555",
+      "star_rating": 5,
+      "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
+      "route": "/hotels/?q=Wyndham%20Grand%20Ph%C3%BA%20Qu%E1%BB%91c",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Wyndham Grand Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+    },
+    {
+      "id": "place_aquatopia",
+      "entity_type": "place",
+      "name": "Aquatopia Water Park",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [
+        "waterpark",
+        "family"
+      ],
+      "tags": [
+        "DESTINATION",
+        "ENTERTAINMENT"
+      ],
+      "address": "Aquatopia Water Park, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Công viên nước trên Hòn Thơm với hơn 20 trò và khu gia đình.",
+      "route": "/places/detail.html?id=aquatopia",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Aquatopia Water Park, Aquatopia Water Park, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_bai_khem",
+      "entity_type": "place",
+      "name": "Bãi Khem",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [
+        "beach",
+        "resort"
+      ],
+      "tags": [
+        "DESTINATION",
+        "BEACH"
+      ],
+      "address": "Bãi Khem, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Vịnh cát sáng gắn với các resort cao cấp",
+      "route": "/places/detail.html?id=bai-khem",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Bãi Khem, Bãi Khem, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_bai_sao",
+      "entity_type": "place",
+      "name": "Bãi Sao",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [
+        "beach",
+        "family"
+      ],
+      "tags": [
+        "DESTINATION",
+        "BEACH"
+      ],
+      "address": "Bãi Sao, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Bãi tắm dễ tiếp cận ở Nam đảo",
+      "route": "/places/detail.html?id=bai-sao",
+      "map": {
+        "lat": 10.0541875,
+        "lon": 104.0354375,
+        "precision": "area_anchor",
+        "source": "Google Maps Sao Beach result + Plus Code 323P+M58",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Bãi Sao, Bãi Sao, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_bai_truong",
+      "entity_type": "place",
+      "name": "Bãi Trường",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [
+        "beach",
+        "sunset"
+      ],
+      "tags": [
+        "DESTINATION",
+        "BEACH"
+      ],
+      "address": "Đường Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Dải bờ Tây dài, thuận nghỉ dưỡng và ngắm hoàng hôn",
+      "route": "/places/detail.html?id=bai-truong",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Bãi Trường, Đường Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_kiss_bridge",
+      "entity_type": "place",
+      "name": "Cầu Hôn",
+      "aliases": [
+        "Kiss Bridge",
+        "Cau Hon"
+      ],
+      "zone_id": "zone_south",
+      "categories": [
+        "architecture",
+        "sunset",
+        "evening"
+      ],
+      "tags": [
+        "DESTINATION"
+      ],
+      "address": "Cầu Hôn, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Điểm tham quan tại Sunset Town, bán vé riêng và phù hợp nhất khi ghép với cuối chiều - buổi tối.",
+      "route": "/places/detail.html?id=kiss-bridge",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Cầu Hôn, Cầu Hôn, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_duong_dong_market",
+      "entity_type": "place",
+      "name": "Chợ Dương Đông",
+      "aliases": [
+        "Dương Đông Market"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [
+        "market",
+        "local-life",
+        "food"
+      ],
+      "tags": [
+        "DESTINATION",
+        "MARKET"
+      ],
+      "address": "Chợ Dương Đông, đường Ngô Quyền, Dương Đông, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Chợ truyền thống bên sông Dương Đông, phục vụ cả nhu cầu địa phương và du khách.",
+      "route": "/places/detail.html?id=cho-duong-dong",
+      "map": {
+        "lat": 10.2206875,
+        "lon": 103.9591875,
+        "precision": "site_centroid",
+        "source": "Google Maps market result + Plus Code 6XC5+7MW",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Chợ Dương Đông, Chợ Dương Đông, đường Ngô Quyền, Dương Đông, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_night_market",
+      "entity_type": "place",
+      "name": "Chợ đêm Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [
+        "food",
+        "evening"
+      ],
+      "tags": [
+        "DESTINATION",
+        "MARKET"
+      ],
+      "address": "54 Nguyễn Trãi, Dương Đông, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Khu ăn uống và mua sắm buổi tối",
+      "route": "/places/detail.html?id=night-market",
+      "map": {
+        "lat": 10.2183125,
+        "lon": 103.9601875,
+        "precision": "site_centroid",
+        "source": "Google Maps place result + Plus Code 6X96+83R",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Chợ đêm Dương Đông, 54 Nguyễn Trãi, Dương Đông, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_ho_quoc",
+      "entity_type": "place",
+      "name": "Chùa Hộ Quốc",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [
+        "culture",
+        "viewpoint"
+      ],
+      "tags": [
+        "DESTINATION",
+        "CULTURE"
+      ],
+      "address": "426H+2HJ, Thiền viện Trúc Lâm Hộ Quốc, Dương Tơ, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Điểm văn hóa - tâm linh và góc nhìn biển phía Đông Nam",
+      "route": "/places/detail.html?id=ho-quoc",
+      "map": {
+        "lat": 10.1100625,
+        "lon": 104.0289375,
+        "precision": "site_centroid",
+        "source": "Google Maps/official destination address + Plus Code 426H+2HJ",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Chùa Hộ Quốc, 426H+2HJ, Thiền viện Trúc Lâm Hộ Quốc, Dương Tơ, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_cua_can",
+      "entity_type": "place",
+      "name": "Cửa Cạn",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [
+        "river",
+        "local-life"
+      ],
+      "tags": [
+        "DESTINATION"
+      ],
+      "address": "Cửa Cạn, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Nhịp sông, nhà ven bờ, kayak/thuyền thúng",
+      "route": "/places/detail.html?id=cua-can",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Cửa Cạn, Cửa Cạn, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_dinh_cau",
+      "entity_type": "place",
+      "name": "Dinh Cậu",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [
+        "culture",
+        "sunset"
+      ],
+      "tags": [
+        "DESTINATION",
+        "CULTURE"
+      ],
+      "address": "Khu phố 2, Dương Đông, Phú Quốc, An Giang 92500, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Không gian tín ngưỡng của cư dân biển ở cửa sông Dương Đông",
+      "route": "/places/detail.html?id=dinh-cau",
+      "map": {
+        "lat": 10.2171875,
+        "lon": 103.9564375,
+        "precision": "site_centroid",
+        "source": "Google Maps place result + Plus Code 6X84+VH",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Dinh Cậu, Khu phố 2, Dương Đông, Phú Quốc, An Giang 92500, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_exotica",
+      "entity_type": "place",
+      "name": "Exotica Village",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [
+        "thrill",
+        "theme-park"
+      ],
+      "tags": [
+        "DESTINATION",
+        "ENTERTAINMENT"
+      ],
+      "address": "Exotica Village, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Cụm trò khô/cảm giác mạnh trên Hòn Thơm.",
+      "route": "/places/detail.html?id=exotica",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Exotica Village, Exotica Village, Hòn Thơm, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_gieng_tien",
+      "entity_type": "place",
+      "name": "Giếng Tiên",
+      "aliases": [
+        "Giếng Ngự",
+        "Giếng Gia Long"
+      ],
+      "zone_id": "zone_south",
+      "categories": [
+        "history",
+        "lore",
+        "nature"
+      ],
+      "tags": [
+        "DESTINATION",
+        "CULTURE"
+      ],
+      "address": "Giếng Tiên, Mũi Ông Đội, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Mạch nước ngọt trong khu vực An Thới gắn với truyền thuyết dân gian về Nguyễn Ánh.",
+      "route": "/places/detail.html?id=gieng-tien",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Giếng Tiên, Giếng Tiên, Mũi Ông Đội, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_grand_world",
+      "entity_type": "place",
+      "name": "Grand World Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [
+        "evening",
+        "entertainment"
+      ],
+      "tags": [
+        "DESTINATION",
+        "ENTERTAINMENT"
+      ],
+      "address": "Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Khu phố mở, kênh Venice, bảo tàng, show",
+      "route": "/places/detail.html?id=grand-world",
+      "map": {
+        "lat": 10.3275625,
+        "lon": 103.8625625,
+        "precision": "area_anchor",
+        "source": "Google Maps Grand World central Venice area + Plus Code 8VH7+22",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Grand World Phú Quốc, Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_ham_ninh",
+      "entity_type": "place",
+      "name": "Hàm Ninh",
+      "aliases": [
+        "Làng chài Hàm Ninh"
+      ],
+      "zone_id": null,
+      "categories": [
+        "village",
+        "local-life",
+        "seafood"
+      ],
+      "tags": [
+        "DESTINATION"
+      ],
+      "address": "52JV+6XX, TL47, Rạch Hàm, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Khu dân cư ven biển phía Đông Phú Quốc gắn lâu dài với nghề khai thác hải sản và hoạt động làng chài.",
+      "route": "/places/detail.html?id=ham-ninh",
+      "map": {
+        "lat": 10.1805625,
+        "lon": 104.0449375,
+        "precision": "area_anchor",
+        "source": "Google Maps Ham Ninh fishing town result + Plus Code 52JV+6XX",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Hàm Ninh, 52JV+6XX, TL47, Rạch Hàm, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_phu_quoc_prison",
+      "entity_type": "place",
+      "name": "Nhà tù Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [
+        "history",
+        "culture"
+      ],
+      "tags": [
+        "DESTINATION",
+        "CULTURE"
+      ],
+      "address": "350 Nguyễn Văn Cừ, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "STREET",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Di tích lịch sử gắn với ký ức chiến tranh",
+      "route": "/places/detail.html?id=phu-quoc-prison",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà tù Phú Quốc, 350 Nguyễn Văn Cừ, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_rach_vem",
+      "entity_type": "place",
+      "name": "Rạch Vẹm",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [
+        "village",
+        "nature"
+      ],
+      "tags": [
+        "DESTINATION"
+      ],
+      "address": "Rạch Vẹm, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Làng chài, nhà bè, vùng nước nông phía Bắc",
+      "route": "/places/detail.html?id=rach-vem",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Rạch Vẹm, Rạch Vẹm, Gành Dầu, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_sunset_town",
+      "entity_type": "place",
+      "name": "Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [
+        "evening",
+        "architecture",
+        "show"
+      ],
+      "tags": [
+        "DESTINATION",
+        "ENTERTAINMENT"
+      ],
+      "address": "Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "AREA",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Khu phố mở, hoàng hôn, Cầu Hôn và chuỗi show",
+      "route": "/places/detail.html?id=sunset-town",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Sunset Town, Sunset Town, An Thới, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_suoi_tranh",
+      "entity_type": "place",
+      "name": "Suối Tranh",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [
+        "nature",
+        "stream"
+      ],
+      "tags": [
+        "DESTINATION"
+      ],
+      "address": "52G6+GQQ, Suối Mây, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Một trong các điểm suối quen thuộc nhất Phú Quốc, đẹp hơn khi có nước.",
+      "route": "/places/detail.html?id=suoi-tranh",
+      "map": {
+        "lat": 10.1763125,
+        "lon": 104.0119375,
+        "precision": "site_centroid",
+        "source": "Google Maps place result + Plus Code 52G6+GQQ",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Suối Tranh, 52G6+GQQ, Suối Mây, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_teddy_bear_museum",
+      "entity_type": "place",
+      "name": "Teddy Bear Museum Phú Quốc",
+      "aliases": [
+        "Bảo tàng Gấu Teddy",
+        "Teddy Bear Museum",
+        "Bảo tàng Gấu Grand World"
+      ],
+      "zone_id": "zone_north",
+      "categories": [
+        "museum",
+        "family",
+        "indoor"
+      ],
+      "tags": [
+        "DESTINATION",
+        "ENTERTAINMENT"
+      ],
+      "address": "Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam",
+      "address_precision": "SITE",
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Bảo tàng chủ đề gấu Teddy tại Grand World Phú Quốc.",
+      "route": "/places/detail.html?id=teddy-bear-museum",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Teddy Bear Museum Phú Quốc, Grand World, khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_vinpearl_safari",
+      "entity_type": "place",
+      "name": "Vinpearl Safari Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [
+        "wildlife",
+        "family"
+      ],
+      "tags": [
+        "DESTINATION",
+        "ENTERTAINMENT"
+      ],
+      "address": "Bãi Dài, Gành Dầu, Phú Quốc, An Giang 922200, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Open Zoo + khu bán hoang dã bằng bus",
+      "route": "/places/detail.html?id=vinpearl-safari",
+      "map": {
+        "lat": 10.3370625,
+        "lon": 103.8914375,
+        "precision": "site_centroid",
+        "source": "Google Maps place result + Plus Code 8VPR+RH",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "Vinpearl Safari Phú Quốc, Bãi Dài, Gành Dầu, Phú Quốc, An Giang 922200, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "place_vinwonders",
+      "entity_type": "place",
+      "name": "VinWonders Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [
+        "theme-park",
+        "family"
+      ],
+      "tags": [
+        "DESTINATION",
+        "ENTERTAINMENT"
+      ],
+      "address": "Khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang 92512, Việt Nam",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "6 phân khu, thủy cung, công viên nước, trò chơi, show",
+      "route": "/places/detail.html?id=vinwonders",
+      "map": {
+        "lat": 10.3406875,
+        "lon": 103.8540625,
+        "precision": "site_centroid",
+        "source": "Google Maps place result + Plus Code 8VR3+7J",
+        "source_id": "google_maps_location_lookup",
+        "verified_at": "2026-09-22"
+      },
+      "inherited_from": null,
+      "google_query": "VinWonders Phú Quốc, Khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang 92512, Việt Nam, Phú Quốc"
+    },
+    {
+      "id": "utility_vcb_atm_hung_vuong",
+      "entity_type": "utility",
+      "name": "ATM Vietcombank - 1A Hùng Vương",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "ATM"
+      ],
+      "address": "1A Hùng Vương, Khu phố 1 Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Điểm ATM/rút tiền",
+      "route": "/utilities/",
+      "map": {
+        "lat": 10.2171875,
+        "lon": 103.9708125,
+        "precision": "site_centroid",
+        "source": "Phu Quoc map directory + Vietcombank location confirmation",
+        "source_id": "map_directory_phuquoc_20260921",
+        "verified_at": "2026-09-21"
+      },
+      "inherited_from": null,
+      "google_query": "ATM Vietcombank - 1A Hùng Vương, 1A Hùng Vương, Khu phố 1 Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_parking_sunset_nightmarket",
+      "entity_type": "utility",
+      "name": "Bãi gửi xe khu chợ đêm Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "PARKING"
+      ],
+      "address": "Khu chợ đêm Sunset Town, An Thới, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Điểm/bãi gửi xe",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Bãi gửi xe khu chợ đêm Sunset Town, Khu chợ đêm Sunset Town, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_vinmec_phuquoc_emergency",
+      "entity_type": "utility",
+      "name": "Cấp cứu Vinmec Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "CLINIC_HOSPITAL"
+      ],
+      "address": "Khu Bãi Dài, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "02973 98 55 11",
+      "star_rating": null,
+      "what_it_is": "Cơ sở y tế",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Cấp cứu Vinmec Phú Quốc, Khu Bãi Dài, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_fuel_my_anh_an_thoi",
+      "entity_type": "utility",
+      "name": "Cây xăng Mỹ Anh",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "FUEL"
+      ],
+      "address": "Đường Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "0913 944 422",
+      "star_rating": null,
+      "what_it_is": "Điểm bán lẻ xăng dầu",
+      "route": "/utilities/",
+      "map": {
+        "lat": 10.0534375,
+        "lon": 104.0170625,
+        "precision": "site_centroid",
+        "source": "Phu Quoc map directory + Visit Phu Quoc fuel directory",
+        "source_id": "map_directory_phuquoc_20260921",
+        "verified_at": "2026-09-21"
+      },
+      "inherited_from": null,
+      "google_query": "Cây xăng Mỹ Anh, Đường Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_minimart_cs68_sunset",
+      "entity_type": "utility",
+      "name": "CS68 - Cửa hàng tiện lợi Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "MINIMART"
+      ],
+      "address": "Sorento 2, Sunset Town, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "0915 757 782",
+      "star_rating": null,
+      "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "CS68 - Cửa hàng tiện lợi Sunset Town, Sorento 2, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_fuel_nhi_phung_ganh_dau",
+      "entity_type": "utility",
+      "name": "Cửa hàng bán lẻ xăng dầu Nhi Phụng",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "FUEL"
+      ],
+      "address": "Thửa đất 43, tờ bản đồ 12, ấp Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Điểm bán lẻ xăng dầu",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Cửa hàng bán lẻ xăng dầu Nhi Phụng, Thửa đất 43, tờ bản đồ 12, ấp Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_minimart_homemart_an_thoi",
+      "entity_type": "utility",
+      "name": "HomeMart - Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "MINIMART"
+      ],
+      "address": "334 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "0932 811 123",
+      "star_rating": null,
+      "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "HomeMart - Nguyễn Văn Cừ, 334 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_longchau_nguyen_trung_truc",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "PHARMACY"
+      ],
+      "address": "327 Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "1800 6928",
+      "star_rating": null,
+      "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+      "route": "/utilities/",
+      "map": {
+        "lat": 10.2236257,
+        "lon": 103.9719213,
+        "precision": "site_centroid",
+        "source": "Long Châu official location page",
+        "source_id": "longchau_327_official_map_2026",
+        "verified_at": "2026-09-21"
+      },
+      "inherited_from": null,
+      "google_query": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực, 327 Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_longchau_tran_phu",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - 42 Trần Phú",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "PHARMACY"
+      ],
+      "address": "42 Trần Phú, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "1800 6928",
+      "star_rating": null,
+      "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà thuốc Long Châu - 42 Trần Phú, 42 Trần Phú, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_longchau_an_thoi",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "PHARMACY"
+      ],
+      "address": "46 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "1800 6928",
+      "star_rating": null,
+      "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ, 46 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_longchau_ganh_dau",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - Gành Dầu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "PHARMACY"
+      ],
+      "address": "Thửa đất 19, Bản đồ 12, gần Chợ Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "1800 6928",
+      "star_rating": null,
+      "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà thuốc Long Châu - Gành Dầu, Thửa đất 19, Bản đồ 12, gần Chợ Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_longchau_suoi_da",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - Suối Đá",
+      "aliases": [
+        "Long Châu Suối Đá",
+        "Nhà thuốc Long Châu Dương Tơ"
+      ],
+      "zone_id": null,
+      "categories": [],
+      "tags": [
+        "PHARMACY"
+      ],
+      "address": "Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang), Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "1800 6928",
+      "star_rating": null,
+      "what_it_is": "Nhà thuốc Long Châu tại khu Suối Đá - Dương Tơ",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà thuốc Long Châu - Suối Đá, Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang), Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_02",
+      "entity_type": "utility",
+      "name": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "TOILET"
+      ],
+      "address": "02 Đường Venice, Sunset Town, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Nhà vệ sinh công cộng",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town, 02 Đường Venice, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_67",
+      "entity_type": "utility",
+      "name": "Nhà vệ sinh công cộng - 67 Venice, Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "TOILET"
+      ],
+      "address": "67 Đường Venice, Sunset Town, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Nhà vệ sinh công cộng",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà vệ sinh công cộng - 67 Venice, Sunset Town, 67 Đường Venice, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "entity_type": "utility",
+      "name": "One Mart - 16 đường 30 Tháng 4",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "MINIMART"
+      ],
+      "address": "16 đường 30 Tháng 4, Khu 1, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "0834 590 676",
+      "star_rating": null,
+      "what_it_is": "Cửa hàng tiện lợi và nhu yếu phẩm",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "One Mart - 16 đường 30 Tháng 4, 16 đường 30 Tháng 4, Khu 1, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_vinmec_duong_dong_clinic",
+      "entity_type": "utility",
+      "name": "Phòng khám Đa khoa Vinmec Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "CLINIC_HOSPITAL"
+      ],
+      "address": "114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "0297 3985 588",
+      "star_rating": null,
+      "what_it_is": "Cơ sở y tế",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Phòng khám Đa khoa Vinmec Dương Đông, 114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_fuel_dong_loi_1",
+      "entity_type": "utility",
+      "name": "Trạm xăng dầu Đông Lợi 1",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "FUEL"
+      ],
+      "address": "Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "0297 3848 639",
+      "star_rating": null,
+      "what_it_is": "Điểm bán lẻ xăng dầu",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Trạm xăng dầu Đông Lợi 1, Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "entity_type": "utility",
+      "name": "Vietcombank PGD An Thới - ATM",
+      "aliases": [
+        "Vietcombank 199 Nguyễn Văn Cừ",
+        "ATM Vietcombank An Thới"
+      ],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "ATM"
+      ],
+      "address": "199 Nguyễn Văn Cừ, Khu phố 8 An Thới, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": null,
+      "star_rating": null,
+      "what_it_is": "Phòng giao dịch Vietcombank; danh bạ hiện hành ghi nhận ATM tại cùng địa chỉ",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Vietcombank PGD An Thới - ATM, 199 Nguyễn Văn Cừ, Khu phố 8 An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_vcb_atm_nguyen_trung_truc",
+      "entity_type": "utility",
+      "name": "Vietcombank PGD Dương Đông - ATM",
+      "aliases": [
+        "Vietcombank 193 Nguyễn Trung Trực",
+        "ATM Vietcombank Dương Đông"
+      ],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "ATM"
+      ],
+      "address": "193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "0297 3996 888",
+      "star_rating": null,
+      "what_it_is": "Phòng giao dịch Vietcombank; danh bạ hiện hành ghi nhận ATM tại cùng địa chỉ",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Vietcombank PGD Dương Đông - ATM, 193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    }
+  ]
+}
