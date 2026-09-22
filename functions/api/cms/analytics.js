@@ -41,7 +41,7 @@ async function session(req,secret){
 }
 
 function dbFromEnv(env){
-  return env.ANALYTICS_DB||env.DB||env.METRICS_DB||null;
+  return env.ANALYTICS_DB||env.CMS_DB||env.OPENPQ_DB||env.DATA_DB||env.DB||env.METRICS_DB||null;
 }
 
 async function ensureSchema(db){
@@ -321,8 +321,8 @@ async function dashboardFromDb(db,transitSync,aviationSync){
     trends=(await db.prepare(`
       WITH sea AS (
         SELECT service_date day,
-          COUNT(DISTINCT CASE WHEN lower(destination) LIKE '%phú quốc%' THEN operator||'|'||departure_time END) sea_in,
-          COUNT(DISTINCT CASE WHEN lower(origin) LIKE '%phú quốc%' THEN operator||'|'||departure_time END) sea_out
+          COUNT(DISTINCT CASE WHEN destination LIKE '%Phú Quốc%' THEN operator||'|'||departure_time END) sea_in,
+          COUNT(DISTINCT CASE WHEN origin LIKE '%Phú Quốc%' THEN operator||'|'||departure_time END) sea_out
         FROM transit_observations
         WHERE service_date IS NOT NULL
         GROUP BY service_date
