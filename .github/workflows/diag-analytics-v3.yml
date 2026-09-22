@@ -1,0 +1,38 @@
+name: Diagnostic - Analytics V3 QA
+
+on:
+  push:
+    branches:
+      - "feat/analytics-v3-airport-dna-sidebar"
+
+permissions:
+  contents: read
+
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: JavaScript syntax
+        run: |
+          set -euo pipefail
+          node --check admin/admin.js
+          node --check admin/analytics-v3.js
+          node --check functions/api/cms/analytics.js
+      - name: Contract checks
+        run: |
+          set -euo pipefail
+          grep -q "OPQAnalyticsV3" admin/admin.js
+          grep -q "data-a3period" admin/analytics-v3.js
+          grep -q "Tóm tắt" admin/analytics-v3.js || true
+          grep -q "sideToggle" admin/index.html
+          grep -q "side-collapsed" admin/admin.css
+          grep -q "route_volume" functions/api/cms/analytics.js
+          grep -q "status_summary" functions/api/cms/analytics.js
+      - name: Cloudflare build
+        run: |
+          set -euo pipefail
+          node scripts/build-cloudflare.mjs
+          test -f dist/admin/admin.js
+          test -f dist/admin/analytics-v3.js
+          grep -q "analytics-v3.js?v=1" dist/admin/index.html
