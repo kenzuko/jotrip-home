@@ -37,11 +37,11 @@
       "ACTIVITY": 15,
       "MEMORY_CHANGE": 12
     },
-    "linked_to_canonical_entity": 41,
-    "unlinked": 109,
-    "ready_internal": 122,
-    "queued": 9,
-    "hold": 19
+    "linked_to_canonical_entity": 42,
+    "unlinked": 108,
+    "ready_internal": 124,
+    "queued": 6,
+    "hold": 20
   },
   "topics": [
     {
@@ -3526,9 +3526,9 @@
       "section": "MEMORY / CHANGE / HOW PHU QUOC WORKS",
       "topic_type": "MEMORY_CHANGE",
       "crawl_brief": "Then/Now assets, pier, village, tourism.",
-      "canonical_entity_id": null,
+      "canonical_entity_id": "place_ham_ninh",
       "related_entity_ids": [],
-      "status": "QUEUED",
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3551,8 +3551,11 @@
       "topic_type": "MEMORY_CHANGE",
       "crawl_brief": "Maps, imagery, roads, public realm, source.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_sunset_town",
+        "activity_hon_thom"
+      ],
+      "status": "HOLD",
       "public_ready": false,
       "research": {
         "claims": [],
@@ -3575,8 +3578,13 @@
       "topic_type": "MEMORY_CHANGE",
       "crawl_brief": "Maps, imagery, access, landscape change.",
       "canonical_entity_id": null,
-      "related_entity_ids": [],
-      "status": "QUEUED",
+      "related_entity_ids": [
+        "place_grand_world",
+        "place_vinpearl_safari",
+        "place_vinwonders",
+        "place_cua_can"
+      ],
+      "status": "READY_INTERNAL",
       "public_ready": false,
       "research": {
         "claims": [],
