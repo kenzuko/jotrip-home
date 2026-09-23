@@ -4,7 +4,7 @@ import path from "node:path";
 import {createRequire} from "node:module";
 
 const require=createRequire(import.meta.url);
-const {normalizeVenue,normalizeZone,phuQuocCoordinates}=require("../nearme/venue-normalizer.js");
+const {normalizeVenue,normalizeZone,phuQuocCoordinates,mergeWithCanonical}=require("../nearme/venue-normalizer.js");
 const baseline={id:"venue_test",name:"Quán mẫu",category:"LOCAL_FOOD",status:"ACTIVE",source_ref:"first_party"};
 const normalize=(changes={})=>normalizeVenue({...baseline,...changes});
 
@@ -34,4 +34,10 @@ for(const venue of normalized){
   assert.ok(venue.map===null||Number.isFinite(venue.map.lat)&&Number.isFinite(venue.map.lon));
   assert.notDeepEqual([venue.lat,venue.lon],[0,0]);
 }
-console.log("Near Me venue normalization tests passed:",normalized.length,"active entries and 16 edge cases");
+const index=JSON.parse(fs.readFileSync(path.join(process.cwd(),"data/views/location-index.json"),"utf8"));
+const indexed=(index.documents||[]).map(x=>({...x,lat:x.map?.lat??null,lon:x.map?.lon??null}));
+const merged=mergeWithCanonical(indexed,normalized);
+assert.equal(merged.length,indexed.length,"Existing duplicate attractions must reuse canonical place pins");
+assert.equal(mergeWithCanonical(indexed,[normalize({id:"venue_unique",name:"Quán mẫu",latitude:10.2172,longitude:103.9593})]).length,indexed.length+1,"New restaurant must remain discoverable");
+assert.equal(mergeWithCanonical(indexed,[normalize({id:"venue_far",name:"Bãi Khem",category:"ATTRACTION",latitude:10.3,longitude:103.95})]).length,indexed.length+1,"Distinct place with coincident name must not be removed");
+console.log("Near Me venue tests passed:",normalized.length,"CMS venues merged into",merged.length,"canonical map points");
