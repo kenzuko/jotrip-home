@@ -747,7 +747,7 @@ function focusRequestedVenue(){
   const proof=card.querySelector(".venue-location-proof");
   if(["coordinate_precision","coordinate_source_ref","coordinate_source_type","coordinate_observed_at","coordinate_confidence","coordinate_note"].includes(field)&&proof)proof.open=true;
   if(field==="latitude/longitude"){
-    const coordinates=Array.from(card.querySelectorAll("[data-path]")).filter(item=>/\\.(latitude|longitude)$/.test(item.dataset.path));
+    const coordinates=Array.from(card.querySelectorAll("[data-path]")).filter(item=>/\.(latitude|longitude)$/.test(item.dataset.path));
     const target=coordinates.find(item=>!String(item.value||"").trim())||coordinates[0];
     target?.focus({preventScroll:true});
   }else if(field){
