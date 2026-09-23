@@ -16,12 +16,12 @@ h1{margin:0;color:#123d3b;font-size:clamp(32px,6vw,48px);line-height:1.05;letter
 h2{margin:0;color:#123d3b;font-size:18px}
 #refresh{min-height:42px;padding:0 16px;border:1px solid #d4e1de;border-radius:999px;background:#fff;color:#123d3b;font-size:14px;font-weight:750;cursor:pointer}
 #refresh:disabled{opacity:.55;cursor:wait}
-#queue{display:grid;gap:12px}
+#queue,#history{display:grid;gap:12px}
 .card,.empty,.loading{padding:20px;border:1px solid #e2ecea;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(18,61,59,.04)}
 .card-head{display:flex;align-items:center;justify-content:space-between}
 .state{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
 .state.draft{background:#fff2ce;color:#765710}
-.state.ready{background:#e6f5ef;color:#16765d}
+.state.ready,.state.published{background:#e6f5ef;color:#16765d}
 .number,.meta,.detail,.checked{color:#6c7e7a;font-size:13px}
 .card h3{margin:14px 0 6px;color:#123d3b;font-size:19px;line-height:1.35}
 .meta,.detail{margin:6px 0}
