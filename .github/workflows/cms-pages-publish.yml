@@ -55,7 +55,6 @@ jobs:
           node scripts/validate-data.mjs
           node scripts/validate-home-knowledge.mjs
           node scripts/test-search.mjs
-          node scripts/validate-cms-publication.mjs
           echo "public_count=$(node scripts/validate-cms-publication.mjs --count)" >> "$GITHUB_OUTPUT"
           test -f dist/guide/knowledge.html
           test -f dist/guide/article.html
@@ -109,7 +108,7 @@ jobs:
         env:
           EXPECTED_PUBLIC_COUNT: ${{ steps.build.outputs.public_count }}
         run: |
-          node <<'NODE'
+          node --input-type=module <<'NODE'
           const expected=process.env.GITHUB_SHA;
           const expectedCount=Number(process.env.EXPECTED_PUBLIC_COUNT);
           const url="https://cms.openphuquoc.com/data/meta/cms-build.json?sha="+expected;
