@@ -42,7 +42,7 @@ function renderMergedHistory(items){
     return '<article class="history-task"><div><strong>'+esc(item.title||"Thay đổi CMS #"+number)+'</strong><span>#'+number+' · '+esc(item.author?"@"+item.author:"Không rõ")+' · '+esc(when(item.merged_at))+'</span></div><a href="https://github.com/kenzuko/jotrip-home/pull/'+number+'" target="_blank" rel="noopener">Mở PR ↗</a></article>';
   }).join("");
 }
-async function requestJson(url){
+function countOpenWork(tasks,proposals){return tasks.length+proposals.length}\nasync function requestJson(url){
   const response=await fetch(url,{credentials:"include",cache:"no-store"});
   const result=await response.json().catch(()=>({}));
   return{response,result};
@@ -75,7 +75,7 @@ async function load(){
     $("#qualityQueue").innerHTML=quality.response.ok?renderQualityTasks(tasks):'<div class="empty"><strong>Chưa tải được tín hiệu chất lượng</strong>Thử tải lại sau.</div>';
     $("#reviewQueue").innerHTML=reviews.response.ok?renderReviewTasks(proposals):'<div class="empty"><strong>Chưa tải được đề xuất duyệt</strong>Thử tải lại sau.</div>';
     $("#mergedQueue").innerHTML=reviews.response.ok?renderMergedHistory(history):"";
-    $("#total").textContent=String(tasks.length+proposals.length);
+    $("#total").textContent=String(countOpenWork(tasks,proposals));
     const times=[quality.result.computed_at,reviews.result.checked_at].filter(Boolean).map(Date.parse).filter(Number.isFinite);
     $("#checked").textContent=times.length?"Cập nhật lúc "+when(new Date(Math.max(...times)).toISOString()):"";
     if(problems.length){$("#notice").textContent=problems.join(" ");$("#notice").className="notice error"}
