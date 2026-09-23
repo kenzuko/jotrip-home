@@ -92,7 +92,7 @@
       "label": "Món ăn",
       "description": "Thực thể món và mapping bài cũ qua legacy_id",
       "path": "data/entities/food.json",
-      "preview": "../food/",
+      "preview": null,
       "read": [
         "admin",
         "editor",
