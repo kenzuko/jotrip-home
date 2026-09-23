@@ -17,12 +17,19 @@ jobs:
         uses: actions/checkout@v4
       - name: Build public knowledge view
         run: node scripts/build-knowledge-public.mjs
-      - name: Build search index
-        run: node scripts/build-search-index.mjs
+      - name: Build derived Near Me data
+        run: |
+          node scripts/build-map-coverage.mjs
+          node scripts/build-location-index.mjs
+          node scripts/build-search-index.mjs
       - name: Validate data contracts
         run: node scripts/validate-data.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test current CMS permissions
+        run: node scripts/test-cms-access.mjs
+      - name: Test Near Me venue pins and canonical places
+        run: node scripts/test-nearme-venues.mjs
       - name: Test Vietcombank currency parser
         run: node scripts/test-currency.mjs
       - name: Check JavaScript syntax
@@ -37,6 +44,11 @@ jobs:
           node --check guide/knowledge.js
           node --check worker.js
           node --check utilities/utilities.js
+          node --check functions/api/cms/session.js
+          node --check functions/api/cms/content.js
+          node --check functions/api/cms/analytics.js
+          node --check nearme/nearme.js
+          node --check nearme/venue-normalizer.js
           node --check explore/app.js
           node --check places/detail.js
           node --check hotels/app.js

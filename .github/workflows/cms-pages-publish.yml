@@ -40,17 +40,23 @@ jobs:
         run: python -m pip install --quiet boto3 s3fs xarray h5netcdf h5py numpy pyproj
 
       - name: Build and validate CMS
+        id: build
         run: |
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
           node scripts/weather-cms-sync.mjs --strict
           node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
+          node scripts/validate-cms-publication.mjs
+          node scripts/test-cms-access.mjs
+          node scripts/test-nearme-venues.mjs
+          mkdir -p dist/data/meta
+          printf '{"source_commit":"%s"}\n' "$GITHUB_SHA" > dist/data/meta/cms-build.json
           node scripts/validate-knowledge.mjs
           node scripts/validate-data.mjs
           node scripts/validate-home-knowledge.mjs
           node scripts/test-search.mjs
-          node -e "const d=require('./dist/data/views/knowledge-public.json');if(d.count!==128||d.objects.length!==128||JSON.stringify(d).includes('research'))process.exit(1);console.log('CMS has',d.count,'public articles')"
+          echo "public_count=$(node scripts/validate-cms-publication.mjs --count)" >> "$GITHUB_OUTPUT"
           test -f dist/guide/knowledge.html
           test -f dist/guide/article.html
           test -f dist/admin/index.html
@@ -87,6 +93,7 @@ jobs:
           NODE
 
       - name: Deploy verified CMS Pages
+        id: deploy
         if: steps.discover.outputs.ready == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -97,14 +104,29 @@ jobs:
           export CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
           npx --yes wrangler@4.136.3 pages deploy dist --project-name="$PROJECT_NAME" --branch=main
 
-      - name: Verify CMS library and admin navigation
-        if: steps.discover.outputs.ready == 'true'
+      - name: Verify CMS commit, library and admin navigation
+        if: steps.deploy.outcome == 'success'
+        env:
+          EXPECTED_PUBLIC_COUNT: ${{ steps.build.outputs.public_count }}
         run: |
-          curl --retry 4 --retry-delay 3 --connect-timeout 5 --max-time 20 -fsSL "https://cms.openphuquoc.com/data/views/knowledge-public.json?t=$GITHUB_SHA" | node -e 'let s="";process.stdin.on("data",b=>s+=b).on("end",()=>{const j=JSON.parse(s);if(j.count!==128||j.objects.length!==128)process.exit(1);console.log("CMS domain: 128 articles live")})'
-          curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/guide/knowledge.html?t=$GITHUB_SHA" -o /tmp/cms-knowledge.html
-          grep -q 'data-knowledge-page="library"' /tmp/cms-knowledge.html
-          curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/admin/?t=$GITHUB_SHA" -o /tmp/cms-admin.html
-          grep -q 'admin.js?v=21' /tmp/cms-admin.html
+          node --input-type=module <<'NODE'
+          const expected=process.env.GITHUB_SHA;
+          const expectedCount=Number(process.env.EXPECTED_PUBLIC_COUNT);
+          const url="https://cms.openphuquoc.com/data/meta/cms-build.json?sha="+expected;
+          const response=await fetch(url,{headers:{"Cache-Control":"no-cache"},signal:AbortSignal.timeout(12000)});
+          const build=await response.json();
+          if(!response.ok||build.source_commit!==expected)throw new Error("CMS live SHA mismatch: "+String(build.source_commit||"missing")+"; expected "+expected);
+          const library=await fetch("https://cms.openphuquoc.com/data/views/knowledge-public.json?sha="+expected,{headers:{"Cache-Control":"no-cache"},signal:AbortSignal.timeout(12000)});
+          const data=await library.json();
+          if(!library.ok||data.count!==expectedCount||data.objects?.length!==expectedCount)throw new Error("CMS live article inventory mismatch");
+          const page=await fetch("https://cms.openphuquoc.com/guide/knowledge.html?sha="+expected,{headers:{"Cache-Control":"no-cache"}});
+          if(!page.ok||!((await page.text()).includes('data-knowledge-page="library"')))throw new Error("CMS knowledge page probe failed");
+          const admin=await fetch("https://cms.openphuquoc.com/admin/?sha="+expected,{headers:{"Cache-Control":"no-cache"}});
+          const adminHtml=await admin.text();
+          const expectedAsset=(await (await import("node:fs/promises")).readFile("dist/admin/index.html","utf8")).match(/admin\.js\?v=[0-9]+/)?.[0];
+          if(!admin.ok||!expectedAsset||!adminHtml.includes(expectedAsset))throw new Error("CMS admin asset probe failed");
+          console.log("Verified CMS live source commit and representative routes:",expected);
+          NODE
 
       - name: Independently check the live CMS hostname
         if: always()
@@ -139,6 +161,8 @@ jobs:
           })();
           NODE
 
-      - name: Explain missing Pages connection
+      - name: Fail when CMS Pages deployment is unavailable
         if: steps.discover.outputs.ready != 'true'
-        run: echo "::warning::CMS build passed, but deployment requires the Cloudflare account containing cms.openphuquoc.com Pages project and a token with Pages Read/Edit. No DNS or other Worker was changed."
+        run: |
+          echo "::error::CMS build passed but deployment was skipped. Check the Cloudflare account, Pages Read/Edit token scope, project discovery and cms.openphuquoc.com domain mapping."
+          exit 1
