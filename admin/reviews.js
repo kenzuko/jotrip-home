@@ -24,14 +24,15 @@ async function load(){
     $("#checked").textContent="Kiểm tra lúc "+when(result.checked_at);
     if(!items.length){
       $("#queue").innerHTML='<div class="empty"><h3>Chưa có đề xuất nào</h3><p>Khi biên tập viên gửi nội dung duyệt từ CMS, đề xuất sẽ xuất hiện ở đây.</p><a class="action secondary" href="index.html">Về nội dung</a></div>';
-      return;
+    }else{
+      $("#queue").innerHTML=items.map(item=>{
+        const state=item.draft?"Bản nháp":"Sẵn sàng xem xét";
+        const author=item.author?"@"+item.author:"Không rõ người gửi";
+        return '<article class="card"><div class="card-head"><span class="state '+(item.draft?"draft":"ready")+'">'+state+'</span><span class="number">#'+Number(item.number)+'</span></div><h3>'+esc(item.title)+'</h3><p class="meta">Người gửi: '+esc(author)+' · Cập nhật '+esc(when(item.updated_at))+'</p><p class="detail">'+Number(item.changed_files)+' tệp thay đổi · +'+Number(item.additions)+' / −'+Number(item.deletions)+' dòng</p><div class="actions"><button class="action secondary field-toggle" type="button" data-pr="'+Number(item.number)+'">Xem diff theo trường</button><a class="action" href="'+esc(item.url)+'" target="_blank" rel="noopener">Mở PR trên GitHub ↗</a></div><div class="field-diff hidden" id="diff-'+Number(item.number)+'"></div></article>';
+      }).join("");
+      document.querySelectorAll(".field-toggle").forEach(button=>button.addEventListener("click",()=>showDiff(button)));
     }
-    $("#queue").innerHTML=items.map(item=>{
-      const state=item.draft?"Bản nháp":"Sẵn sàng xem xét";
-      const author=item.author?"@"+item.author:"Không rõ người gửi";
-      return '<article class="card"><div class="card-head"><span class="state '+(item.draft?"draft":"ready")+'">'+state+'</span><span class="number">#'+Number(item.number)+'</span></div><h3>'+esc(item.title)+'</h3><p class="meta">Người gửi: '+esc(author)+' · Cập nhật '+esc(when(item.updated_at))+'</p><p class="detail">'+Number(item.changed_files)+' tệp thay đổi · +'+Number(item.additions)+' / −'+Number(item.deletions)+' dòng</p><div class="actions"><button class="action secondary field-toggle" type="button" data-pr="'+Number(item.number)+'">Xem diff theo trường</button><a class="action" href="'+esc(item.url)+'" target="_blank" rel="noopener">Mở PR trên GitHub ↗</a></div><div class="field-diff hidden" id="diff-'+Number(item.number)+'"></div></article>';
-    }).join("");
-    document.querySelectorAll(".field-toggle").forEach(button=>button.addEventListener("click",()=>showDiff(button)));
+    renderHistory(result.history||[]);
   }catch(error){
     $("#count").textContent="Chưa tải được hàng đợi";
     $("#queue").innerHTML="";
@@ -41,6 +42,30 @@ async function load(){
   }
 }
 
+
+
+function renderHistory(items){
+  const host=$("#history");
+  if(!items.length){host.innerHTML='<div class="empty"><p>Chưa có thay đổi CMS nào được merge.</p></div>';return}
+  host.innerHTML=items.map(item=>{
+    const rollback=item.can_rollback?'<button class="action secondary rollback" type="button" data-pr="'+Number(item.number)+'">Tạo PR rollback</button>':"";
+    return '<article class="card history-card"><div class="card-head"><span class="state published">Đã merge</span><span class="number">#'+Number(item.number)+'</span></div><h3>'+esc(item.title)+'</h3><p class="meta">Người merge: '+esc(item.author||"Không rõ")+' · '+esc(when(item.merged_at))+' · '+Number(item.changed_files)+' tệp</p><p class="detail">Rollback sẽ tạo PR mới và chỉ dùng được nếu tệp chưa có sửa đổi mới hơn.</p><div class="actions"><a class="action secondary" href="'+esc(item.url)+'" target="_blank" rel="noopener">Mở PR đã merge ↗</a>'+rollback+'</div><p class="rollback-status" id="rollback-'+Number(item.number)+'"></p></article>';
+  }).join("");
+  document.querySelectorAll(".rollback").forEach(button=>button.addEventListener("click",()=>proposeRollback(button)));
+}
+async function proposeRollback(button){
+  const number=Number(button.dataset.pr);
+  if(!confirm("Tạo một PR mới để khôi phục nội dung ngay trước PR #"+number+"? Việc này chưa public cho tới khi cậu kiểm tra và merge PR rollback."))return;
+  const status=$("#rollback-"+number);
+  button.disabled=true;status.textContent="Đang kiểm tra xung đột và tạo PR…";
+  try{
+    const response=await fetch("/api/cms/rollback",{method:"POST",credentials:"include",headers:{"content-type":"application/json"},body:JSON.stringify({pr_number:number})});
+    const result=await response.json();
+    if(!response.ok)throw new Error(result.detail||result.error||"Không tạo được PR rollback");
+    status.innerHTML='Đã tạo PR <a href="'+esc(result.pull_request.url)+'" target="_blank" rel="noopener">#'+Number(result.pull_request.number)+' ↗</a>';
+    button.textContent="Đã tạo PR #"+Number(result.pull_request.number);
+  }catch(error){status.textContent=error?.message||"Không tạo được PR rollback.";button.disabled=false}
+}
 
 async function showDiff(button){
   const pr=Number(button.dataset.pr),panel=$("#diff-"+pr);
