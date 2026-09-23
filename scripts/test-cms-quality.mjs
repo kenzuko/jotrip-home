@@ -30,7 +30,7 @@ globalThis.fetch=async url=>{
   if(target.startsWith("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/data/food.json"))return Response.json({dishes:[]});
   throw new Error("Unexpected request "+target);
 };
-const request=(withCookie,method="GET",body)=>new Request("https://cms.openphuquoc.com/api/cms/quality",{method,headers:{...(withCookie?{cookie:"openpq_cms="+token}:{}),...(body?{"content-type":"application/json"}:{})},...(body?{body:JSON.stringify(body)}:{})});
+const request=(withCookie,method="GET",body)=>new Request("https://cms.openphuquoc.com/api/cms/quality",{method,headers:{origin:"https://cms.openphuquoc.com",...(withCookie?{cookie:"openpq_cms="+token}:{}),...(body?{"content-type":"application/json"}:{})},...(body?{body:JSON.stringify(body)}:{})});
 try{
   calls.length=0;
   const anon=await onRequest({request:request(false),env});
