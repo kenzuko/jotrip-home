@@ -33,6 +33,7 @@ async function load(){
       document.querySelectorAll(".field-toggle").forEach(button=>button.addEventListener("click",()=>showDiff(button)));
     }
     renderHistory(result.history||[]);
+    loadQuality();
   }catch(error){
     $("#count").textContent="Chưa tải được hàng đợi";
     $("#queue").innerHTML="";
@@ -43,6 +44,25 @@ async function load(){
 }
 
 
+
+
+async function loadQuality(){
+  const host=$("#quality");
+  try{
+    const response=await fetch("/api/cms/quality",{credentials:"include",cache:"no-store"});
+    const result=await response.json();
+    if(!response.ok)throw new Error(result.detail||result.error||"Không tải được tín hiệu chất lượng");
+    const items=Array.isArray(result.tasks)?result.tasks:[];
+    if(!items.length){host.innerHTML='<div class="empty"><p>Chưa phát hiện việc cần kiểm tra theo các quy tắc hiện có.</p></div>';return}
+    host.innerHTML=items.map(item=>{
+      const module=item.surface==="Cẩm nang món ăn"?"foods":"venues";
+      const action=item.severity==="high"?"Cần xử lý":item.severity==="medium"?"Nên kiểm tra":"Khoảng trống nội dung";
+      return '<article class="card quality-card"><div class="card-head"><span class="severity '+esc(item.severity)+'">'+action+'</span><span class="number">'+esc(item.rule_id)+'</span></div><h3>'+esc(item.entity_id||item.surface)+'</h3><p class="meta">Trường: '+esc(item.field)+' · Mục: '+esc(item.surface)+' · Người phụ trách: '+esc(item.owner||"Chưa gán")+'</p><p class="detail">'+esc(item.evidence)+'</p><p class="detail"><strong>Bước tiếp theo:</strong> '+esc(item.next_action)+'</p><a class="action secondary" href="index.html?module='+encodeURIComponent(module)+'">Mở mục '+(module==="foods"?"Món ăn":"Địa điểm")+' trong CMS</a></article>';
+    }).join("");
+  }catch(error){
+    host.innerHTML='<div class="empty"><p class="error">'+esc(error?.message||"Không tải được hàng đợi chất lượng.")+'</p></div>';
+  }
+}
 
 function renderHistory(items){
   const host=$("#history");
