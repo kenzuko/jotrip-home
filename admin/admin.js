@@ -71,6 +71,18 @@ const LABELS={
   phone:"Điện thoại",
   phone_alt:"Điện thoại khác",
   verified:"Đã xác minh",
+  legacy_id:"Mã bài cũ",
+  entity_type:"Loại bản ghi",
+  slug:"Đường dẫn món",
+  aliases:"Tên gọi khác",
+  zone_id:"Mã khu vực",
+  what_it_is:"Món này là gì",
+  why_go:"Vì sao nên thử",
+  tips:"Lưu ý khi gọi món",
+  intents:"Nhu cầu phù hợp",
+  source_refs:"Nguồn kiểm chứng",
+  source_id:"Mã nguồn",
+  updated_at:"Ngày cập nhật",
   checked_at:"Ngày kiểm tra",
   ticket_reference:"Giá vé & show tham khảo",
   place:"Địa điểm",
@@ -750,6 +762,7 @@ function renderRoot(){
   if(currentModule?.id==="utilities")return renderUtilitiesWorkbench();
   if(currentModule?.id==="guide")return renderGuideWorkbench();
   if(currentModule?.id==="venues")return renderVenueWorkbench();
+  if(currentModule?.id==="foods")return renderFoodWorkbench();
 
   if(currentModule?.id==="stories"&&Array.isArray(currentData?.stories)){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
@@ -761,6 +774,15 @@ function renderRoot(){
     if(v&&typeof v==="object")return renderNode(v,k,k,0);
     return primitiveField(k,v,k);
   }).join("");
+}
+
+function renderFoodWorkbench(){
+  const entities=currentData?.entities||[];
+  const cards=entities.map((item,i)=>`<article class="food-record" data-food-card>
+    <header class="food-record-head"><div><h2>${esc(item.name||"Món mới")}</h2><p>${esc(item.legacy_id||"Chưa ghép mã bài cũ")} · ${esc(item.id||"Chưa có mã món")}</p></div>${itemTools("entities",i,entities.length)}</header>
+    <div class="food-record-fields">${renderChildren(item,"entities."+i,1)}</div>
+  </article>`).join("");
+  return moduleOverview()+`<section class="food-workbench"><div class="food-workbench-head"><div><h2>Danh sách món ăn</h2><p>Ghép bài cũ bằng mã legacy ID. Chỉ thêm nội dung và nguồn đã kiểm chứng.</p></div><button type="button" id="addFoodBtn">+ Thêm món</button></div><div class="food-record-list">${cards||'<p class="food-empty">Chưa có món nào trong danh sách.</p>'}</div></section>`;
 }
 
 function renderUsers(){
@@ -999,6 +1021,16 @@ function bindArrayControls(){
   });
 }
 
+function bindFoodControls(){
+  $("#addFoodBtn")?.addEventListener("click",()=>{
+    currentData.entities=currentData.entities||[];
+    currentData.entities.push({id:"",legacy_id:"",entity_type:"food",slug:"",name:"",aliases:[],zone_id:null,category:"local",what_it_is:"",why_go:"",best_for:[],tips:[],intents:[],source_refs:[],updated_at:""});
+    markDirty("Đã thêm món mới. Điền mã, nội dung và nguồn kiểm chứng trước khi gửi duyệt.");
+    rerender();
+    setTimeout(()=>document.querySelector(".food-record:last-child")?.scrollIntoView({behavior:"smooth",block:"start"}),50);
+  });
+}
+
 function bindVenueControls(){
   $("#addVenueBtn")?.addEventListener("click",()=>{
     currentData.entities=currentData.entities||[];
@@ -1085,6 +1117,13 @@ function filterEditor(){
   const counter=$("#searchCount");
   if(!input||!counter)return;
   const q=input.value.trim().toLocaleLowerCase("vi");
+  if(currentModule?.id==="foods"){
+    const cards=[...document.querySelectorAll("#editor [data-food-card]")];
+    let shown=0;
+    cards.forEach(el=>{const hit=!q||searchableText(el).includes(q);el.classList.toggle("search-hidden",!hit);if(hit)shown++});
+    counter.textContent=q?shown+" món":"";
+    return;
+  }
   const blocks=[...document.querySelectorAll("#editor > .cms-anchor, #editor > .user-cards > .user-card")];
   if(!q){
     blocks.forEach(el=>el.classList.remove("search-hidden"));
@@ -1263,6 +1302,7 @@ function rerender(){
   bindMediaControls();
   bindArrayControls();
   bindVenueControls();
+  bindFoodControls();
   bindStoryControls();
   buildEditorNav();
   bindSearch();
