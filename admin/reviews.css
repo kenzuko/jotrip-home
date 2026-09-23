@@ -45,3 +45,5 @@ h2{margin:0;color:#123d3b;font-size:18px}
 .field-values .old{background:#fff0ee;color:#873d34}.field-values .new{background:#eaf7ef;color:#246344}
 .empty-diff{color:#657975;font-size:14px}
 @media(max-width:600px){.actions .action{width:100%}.field-values{grid-template-columns:1fr}.field-values pre{max-height:180px}}
+
+.hidden{display:none!important}
