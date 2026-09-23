@@ -27,7 +27,7 @@ function renderQualityTasks(tasks,canManage=false){
     const action=id?'<a class="task-action" href="'+esc(href)+'">Mở đúng trường →</a>':"";
     const key=[task.rule_id,task.entity_id||"",task.field].join("|");
     const stateLabel={open:"Chưa nhận",in_progress:"Đang xử lý",resolved:"Đã xử lý",muted:"Đang tạm ẩn"}[task.status]||"Chưa nhận";
-    const controls=canManage?'<div class="task-controls" data-task-key="'+esc(key)+'">'+(task.status==="resolved"||task.status==="muted"?'<button type="button" data-quality-action="reopen">Mở lại</button>':'<button type="button" data-quality-action="claim">Nhận việc</button><button type="button" data-quality-action="resolve">Đã xử lý</button><button type="button" data-quality-action="mute">Ẩn 7 ngày</button>')+'</div>':"";
+    const controls=canManage?'<div class="task-controls" data-task-key="'+esc(key)+'">'+(task.status==="resolved"||task.status==="muted"?'<button type="button" data-quality-action="reopen">Mở lại</button>':'<button type="button" data-quality-action="claim">Nhận việc</button><button type="button" data-quality-action="resolve">Đã xử lý</button><button type="button" data-quality-action="mute">Ẩn 7 ngày</button>')+'<label class="task-due-label">Hạn xử lý<input type="date" data-quality-due value="'+esc(String(task.due_at||"").slice(0,10))+'"></label><button type="button" data-quality-action="due">Lưu hạn</button></div>':"";
     const owner=task.owner?'<p class="task-owner">Phụ trách: '+esc(task.owner)+(task.due_at?' · Hạn '+esc(when(task.due_at)):"")+'</p>':"";
     return '<article class="task-card"><div class="task-head"><h3 class="task-title">'+esc(names[task.rule_id]||task.rule_id||"Việc cần xử lý")+'</h3><div class="task-pills"><span class="pill '+esc(task.severity)+'">'+esc(severity[task.severity]||"Cần xem")+'</span><span class="pill">'+esc(task.surface||"")+'</span><span class="pill">'+esc(stateLabel)+'</span></div></div><p class="task-evidence">'+esc(task.evidence||"")+'</p><p class="task-next"><strong>Bước kế tiếp:</strong> '+esc(task.next_action||"Mở dữ liệu và kiểm tra nguồn.")+'</p>'+owner+action+controls+'</article>';
   }).join("");
@@ -87,7 +87,7 @@ async function load(){
       if(!key||!action)return;
       button.disabled=true;
       try{
-        const {response,result}=await requestJson("/api/cms/quality",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({task_key:key,action})});
+        const {response,result}=await requestJson("/api/cms/quality",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({task_key:key,action,due_at:button.closest("[data-task-key]")?.querySelector("[data-quality-due]")?.value||""})});
         if(!response.ok)throw new Error(result.detail||result.error||"Không lưu được trạng thái.");
         await load();
       }catch(error){$("#notice").textContent=error.message;$("#notice").className="notice error";button.disabled=false}
