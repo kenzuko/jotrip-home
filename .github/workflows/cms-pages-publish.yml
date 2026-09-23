@@ -96,7 +96,9 @@ jobs:
           curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/guide/knowledge.html?t=$GITHUB_SHA" -o /tmp/cms-knowledge.html
           grep -q 'data-knowledge-page="library"' /tmp/cms-knowledge.html
           curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/admin/?t=$GITHUB_SHA" -o /tmp/cms-admin.html
-          grep -q 'admin.js?v=21' /tmp/cms-admin.html
+          expected_admin_js=$(grep -oE 'admin\.js\?v=[0-9]+' dist/admin/index.html | head -1)
+          test -n "$expected_admin_js"
+          grep -Fq "$expected_admin_js" /tmp/cms-admin.html
 
       - name: Independently check the live CMS hostname
         if: always()
@@ -114,9 +116,9 @@ jobs:
                 const count=contentType.includes("json")?JSON.parse(body).count:null;
                 const markers={
                   library:body.includes('data-knowledge-page="library"'),
-                  adminVersion21:body.includes("admin.js?v=21")
+                  adminAsset:(body.match(/admin\.js\?v=[0-9]+/)||[])[0]||null
                 };
-                console.log("CMS live",label,"HTTP",r.status,"content-type",contentType,"count",count,"library",markers.library,"admin-v21",markers.adminVersion21);
+                console.log("CMS live",label,"HTTP",r.status,"content-type",contentType,"count",count,"library",markers.library,"admin-script",markers.adminAsset);
               }catch(e){console.log("CMS live",label,"unreachable:",e.message);}
             }
           })();
@@ -124,4 +126,7 @@ jobs:
 
       - name: Explain missing Pages connection
         if: steps.discover.outputs.ready != 'true'
-        run: echo "::warning::CMS build passed, but deployment requires the Cloudflare account containing cms.openphuquoc.com Pages project and a token with Pages Read/Edit. No DNS or other Worker was changed."
+        run: |
+          echo "::warning::CMS build passed, but CMS Pages deploy was SKIPPED. Verify account, domain mapping and token with Pages Read/Edit. Independent live-domain checks do not prove this workflow deployed."
+          echo "### CMS deploy: SKIPPED" >> "$GITHUB_STEP_SUMMARY"
+          echo "CMS build passed, but this workflow did not deploy. The independent live-domain check is observational only." >> "$GITHUB_STEP_SUMMARY"
