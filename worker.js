@@ -1,3 +1,5 @@
+import {onRequestPost as cmsWeatherFeedbackPost} from "./functions/api/weather/live/feedback.js";
+import {onRequestGet as cmsWeatherFeedbackRecent} from "./functions/api/weather/live/feedback/recent.js";
 const SITE_ORIGIN = "https://openphuquoc.com";
 const DEFAULT_IMAGE = SITE_ORIGIN + "/assets/logo-master.png";
 
@@ -125,6 +127,9 @@ function transformMeta(response, meta) {
 
 export default {
   async fetch(request, env) {
+    const path = new URL(request.url).pathname;
+    if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request,env});
+    if (path === "/api/weather/live/feedback/recent" && request.method === "GET") return cmsWeatherFeedbackRecent({request,env});
     if (request.method !== "GET" && request.method !== "HEAD") {
       return env.ASSETS.fetch(request);
     }

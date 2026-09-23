@@ -12,6 +12,9 @@ on:
       - "scripts/build-knowledge-public.mjs"
       - "scripts/build-search-index.mjs"
       - "scripts/build-cloudflare.mjs"
+      - "weather/**"
+      - "scripts/weather-cms-*.mjs"
+      - "scripts/weather-engine/**"
       - "worker.js"
       - "wrangler.jsonc"
       - ".github/workflows/cloudflare-worker.yml"
@@ -60,6 +63,8 @@ jobs:
 
       - name: Build Worker assets
         run: |
+          node scripts/weather-cms-sync.mjs --strict
+          node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
           printf '{"sha":"%s","built_at":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
           test -f dist/index.html

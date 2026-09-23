@@ -10,7 +10,9 @@
     "run_worker_first": [
       "/stories/article.html",
       "/places/detail.html",
-      "/guide/article.html"
+      "/guide/article.html",
+      "/api/weather/live/feedback",
+      "/api/weather/live/feedback/recent"
     ]
   },
   "main": "./worker.js"

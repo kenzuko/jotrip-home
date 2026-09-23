@@ -1,7 +1,8 @@
 {
   "version": 1,
   "include": [
-    "/api/cms/*"
+    "/api/cms/*",
+    "/api/weather/live/*"
   ],
   "exclude": []
 }

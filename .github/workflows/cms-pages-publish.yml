@@ -13,6 +13,9 @@ on:
       - "styles.css"
       - "scripts/validate-home-knowledge.mjs"
       - "admin/**"
+      - "weather/**"
+      - "scripts/weather-cms-*.mjs"
+      - "scripts/weather-engine/**"
   workflow_dispatch:
 
 permissions:
@@ -35,6 +38,8 @@ jobs:
         run: |
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
+          node scripts/weather-cms-sync.mjs --strict
+          node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
           node scripts/validate-knowledge.mjs
           node scripts/validate-data.mjs
