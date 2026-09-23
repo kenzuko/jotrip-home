@@ -104,6 +104,6 @@ export async function onRequest({request,env}){
       const state=states[taskKey(item)];
       return state?{...item,status:state.status,owner:state.owner||"",due_at:state.due_at||null,muted_until:state.muted_until||null,note:state.note||null,persistence:"d1"}:item;
     });
-    return json({tasks:storedTasks,count:storedTasks.length,computed_at:new Date().toISOString(),storage:db?"d1":"computed-from-main",note:db?"Tín hiệu được tính từ main; trạng thái công việc và lịch sử thao tác được lưu trong D1.":"Tín hiệu được tính lại từ main; chưa có kết nối D1 trong môi trường này."});
+    return json({tasks:storedTasks,count:storedTasks.length,can_manage:role==="admin",computed_at:new Date().toISOString(),storage:db?"d1":"computed-from-main",note:db?"Tín hiệu được tính từ main; trạng thái công việc và lịch sử thao tác được lưu trong D1.":"Tín hiệu được tính lại từ main; chưa có kết nối D1 trong môi trường này."});
   }catch(e){return json({error:"Không tạo được hàng đợi chất lượng",detail:e?.message||String(e)},503)}
 }
