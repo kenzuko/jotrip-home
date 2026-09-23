@@ -47,3 +47,8 @@ h2{margin:0;color:#123d3b;font-size:18px}
 @media(max-width:600px){.actions .action{width:100%}.field-values{grid-template-columns:1fr}.field-values pre{max-height:180px}}
 
 .hidden{display:none!important}
+
+.queue-note{margin:-6px 0 14px;color:#657975;font-size:13px;line-height:1.5}
+.severity{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
+.severity.high{background:#fff0ee;color:#873d34}.severity.medium{background:#fff4d9;color:#765710}.severity.low{background:#edf2f1;color:#526762}
+.quality-card h3{overflow-wrap:anywhere}
