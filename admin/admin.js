@@ -721,6 +721,16 @@ function renderVenueLocationEvidence(item,path){
   </details>`;
 }
 
+function focusRequestedFood(){
+  const params=new URLSearchParams(location.search);
+  const id=params.get("record");
+  if(!id||currentModule?.id!=="foods")return;
+  const card=Array.from(document.querySelectorAll("[data-food-id]")).find(item=>item.dataset.foodId===id);
+  if(!card)return;
+  card.classList.add("quality-focus");
+  card.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
 function focusRequestedVenue(){
   const params=new URLSearchParams(location.search);
   const id=params.get("record");
@@ -792,7 +802,7 @@ function renderFoodWorkbench(){
   const entities=currentData?.entities||[];
   const cards=entities.map((item,i)=>{
     const editable={...item};delete editable.entity_type;
-    return `<article class="food-record" data-food-card>
+    return `<article class="food-record" data-food-card data-food-id="${esc(item.id||"")}">
       <header class="food-record-head"><div><span class="food-type-tag">Món ăn</span><h2 data-food-title="${i}">${esc(item.name||"Món mới")}</h2><p>${esc(item.legacy_id||"Chưa ghép mã bài cũ")} · ${esc(item.id||"Chưa có mã món")}</p></div>${itemTools("entities",i,entities.length)}</header>
       <div class="food-record-fields">${renderChildren(editable,"entities."+i,1)}</div>
     </article>`;
@@ -1435,7 +1445,7 @@ function renderNav(){
   $("#moduleNav").innerHTML=schema.modules
     .filter(m=>m.read.includes(session.role))
     .map(m=>'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>')
-    .join("")+'<a class="module-btn" href="reviews.html" title="Mở hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất CMS chưa public</small></span></a><a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện 128 bài"><span class="module-short">128</span><span class="module-copy"><strong>Thư viện 128 bài</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
+    .join("")+'<a class="module-btn" href="quality.html" title="Mở việc cần xử lý"><span class="module-short">!</span><span class="module-copy"><strong>Cần xử lý</strong><small>Chất lượng dữ liệu và nguồn</small></span></a><a class="module-btn" href="reviews.html" title="Mở hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất CMS chưa public</small></span></a><a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện 128 bài"><span class="module-short">128</span><span class="module-copy"><strong>Thư viện 128 bài</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
 
   document.querySelectorAll("button.module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
 }
