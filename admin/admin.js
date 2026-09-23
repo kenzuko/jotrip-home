@@ -952,6 +952,10 @@ function bindFields(){
         if(el.dataset.path==="intro")document.querySelector(".guide-overview .overview-copy p")?.replaceChildren(document.createTextNode(String(v||"")));
       }
 
+      if(currentModule?.id==="foods"){
+        const match=el.dataset.path.match(/^entities\\.(\\d+)\\.name$/);
+        if(match)document.querySelector(`[data-food-title="${match[1]}"]`)?.replaceChildren(document.createTextNode(String(v||"Món mới")));
+      }
       if(currentModule?.id==="stories"){
         const m=el.dataset.path.match(/^stories\.(\d+)\.(title|category|dek|image|cover_position|read_minutes|intro|sections\..+)$/);
         if(m){
@@ -1024,7 +1028,7 @@ function bindArrayControls(){
 function bindFoodControls(){
   $("#addFoodBtn")?.addEventListener("click",()=>{
     currentData.entities=currentData.entities||[];
-    currentData.entities.push({id:"",legacy_id:"",entity_type:"food",slug:"",name:"",aliases:[],zone_id:null,category:"local",what_it_is:"",why_go:"",best_for:[],tips:[],intents:[],source_refs:[],updated_at:""});
+    currentData.entities.push({id:"",legacy_id:"",entity_type:"food",slug:"",name:"",aliases:[],zone_id:null,category:"local",what_it_is:"",why_go:"",best_for:[],tips:[],intents:[],source_refs:[{source_id:""}],updated_at:""});
     markDirty("Đã thêm món mới. Điền mã, nội dung và nguồn kiểm chứng trước khi gửi duyệt.");
     rerender();
     setTimeout(()=>document.querySelector(".food-record:last-child")?.scrollIntoView({behavior:"smooth",block:"start"}),50);
