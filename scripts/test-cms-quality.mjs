@@ -44,7 +44,8 @@ try{
   assert.ok(result.tasks.some(x=>x.rule_id==="VENUE_COORDINATE_PRECISION_MISSING"&&x.entity_id==="venue_a"));
   assert.ok(result.tasks.some(x=>x.rule_id==="VENUE_COORDINATE_MISSING"&&x.entity_id==="venue_b"));
   assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_ARTICLE_GAP"&&x.entity_id==="food_ghe"));
-  assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_PILOT_NO_VERIFIED_VENUES"));
+  assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_PILOT_NO_READY_VENUES"&&x.entity_id===null));
+  assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_VENUE_RELATIONSHIPS_NOT_MODELED"&&x.entity_id===null));
   assert.ok(result.tasks.every(x=>x.owner==="kenzuko"&&x.status==="open"&&x.persistence==="computed"));
   assert.match(result.note,/chưa có trạng thái nhận việc/);
   console.log("CMS quality queue tests passed: authenticated, deduplicated and evidence-backed tasks.");
