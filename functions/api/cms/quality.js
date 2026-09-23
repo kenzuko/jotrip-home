@@ -74,15 +74,17 @@ export async function onRequest({request,env}){
       const body=await request.json().catch(()=>null);
       const target=body&&tasks.find(x=>taskKey(x)===body.task_key);
       if(!target)return json({error:"Không tìm thấy công việc hiện còn phát sinh"},404);
-      const actions={claim:{status:"in_progress"},resolve:{status:"resolved"},mute:{status:"muted"},reopen:{status:"open"}};
+      const actions={claim:{status:"in_progress"},resolve:{status:"resolved"},mute:{status:"muted"},reopen:{status:"open"},due:{status:"open"}};
       const action=String(body.action||"");
       if(!actions[action])return json({error:"Thao tác không hợp lệ"},400);
+      const dueAt=String(body.due_at||"");
+      if(action==="due"&&dueAt&&!/^\\d{4}-\\d{2}-\\d{2}$/.test(dueAt))return json({error:"Ngày hạn cần có định dạng YYYY-MM-DD"},400);
       const before=await db.prepare("SELECT task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at FROM cms_quality_work_items WHERE task_key=?").bind(taskKey(target)).first();
       const now=new Date().toISOString();
       const after={
         task_key:taskKey(target),rule_id:target.rule_id,entity_id:target.entity_id,field:target.field,
-        status:actions[action].status,owner:action==="reopen"?(before?.owner||user.login):user.login,
-        due_at:before?.due_at||null,muted_until:action==="mute"?new Date(Date.now()+7*86400000).toISOString():null,
+        status:action==="due"?(before?.status||"open"):actions[action].status,owner:action==="reopen"?(before?.owner||user.login):user.login,
+        due_at:action==="due"?(dueAt||null):(before?.due_at||null),muted_until:action==="mute"?new Date(Date.now()+7*86400000).toISOString():null,
         note:before?.note||null,created_at:before?.created_at||now,updated_at:now
       };
       await db.batch([
