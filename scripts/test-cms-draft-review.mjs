@@ -71,6 +71,17 @@ try{
   assert.equal(calls.some(x=>x.method==="POST"||x.method==="PUT"),false,"Stale edits must not create a branch or PR");
 
   liveSha="expected-file-sha";
+  calls=[];
+  const incompleteEvidence=await onRequest({request:request({
+    path:"data/entities/destination-venues.json",sha:"expected-file-sha",
+    content:{entities:[{id:"venue_test",name:"Điểm thử",category:"ATTRACTION",status:"REVIEW",latitude:10,longitude:104,coordinate_precision:"cổng vào"}]},
+    message:"test venue"
+  }),env});
+  const incompleteBody=await incompleteEvidence.json();
+  assert.equal(incompleteEvidence.status,422,"Partial coordinate evidence must be rejected server-side");
+  assert.match(incompleteBody.detail,/nguồn kiểm tra tọa độ/);
+  assert.equal(calls.some(x=>x.url.includes("/contents/data/entities/destination-venues.json")),false,"Invalid evidence must be rejected before GitHub writes");
+
   overlapping=true;
   calls=[];
   const overlap=await onRequest({request:request(base),env});
