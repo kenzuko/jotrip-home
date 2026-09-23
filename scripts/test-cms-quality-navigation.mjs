@@ -4,7 +4,7 @@ import vm from "node:vm";
 
 const source=fs.readFileSync("admin/admin.js","utf8");
 function extract(name){
-  const match=source.match(new RegExp("^function "+name+"\\(\\) \\{[\\s\\S]*?^\\}","m"));
+  const match=source.match(new RegExp("^function "+name+"\\(\\)\\{[\\s\\S]*?^\\}","m"));
   assert.ok(match,"Missing "+name+"()");
   return match[0];
 }
