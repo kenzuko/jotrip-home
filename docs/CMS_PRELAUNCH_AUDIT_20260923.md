@@ -43,6 +43,19 @@ Maintain canonical stable IDs and separate durable editorial data from volatile 
 
 **Traveler response**: query intent, location permission, time of day, party needs, budget, confirmed venue candidates and plain-language reason. If no candidate meets the evidence threshold, say so and offer an external-map search or broadened filter. Do not pretend that a directory result is independently verified.
 
+## Bug fixes delivered on the draft PR (still unreleased)
+
+- Public knowledge CI no longer hardcodes 128. The published view must match exactly the approved READY_PUBLIC source IDs and must not expose internal research fields. The CMS nav also stops claiming a permanently fixed article count.
+- The Near Me venue normalizer rejects missing, invalid and out-of-island coordinates, normalizes CMS zone codes and preserves unverified coordinate provenance rather than claiming every venue pin is exact.
+- All ten current attraction rows are linked to their existing canonical place IDs. Near Me merges duplicate pins and retains independent food/cafe/restaurant venues.
+- CMS session, content and private Analytics routes now resolve the user's *current* main-branch role, not just the role in an old encrypted session cookie; disabled users are denied.
+- GitHub-built CMS bundles include the exact source commit. The CMS Pages job verifies that commit on the public hostname after its own deploy and fails rather than showing green when Pages discovery/deploy was skipped. A successful independent read of old live content is not equivalent to a deploy by this workflow.
+- Automated tests cover venue coordinate/area/duplicate regressions and role demotion, account disablement, permissions-source outage and anonymous requests.
+
+**External blocker left intentionally untouched:** The last main-branch CMS deployment workflow could not list the Cloudflare Pages projects (HTTP 404). Repository code cannot supply a correct Cloudflare account ID, missing Pages scope or the correct project/domain mapping. Until the user-authorized GitHub Actions secrets or Cloudflare configuration are corrected, a CMS Pages deployment by that explicit workflow cannot be marked verified. Do not print or commit any secret values.
+
+**Architectural decisions for the next discussion:** Shared CMS drafts/review and direct-to-main publishing; how to reconcile the five detailed dish articles with six canonical food entities; how to obtain, legally retain and refresh independently verified restaurant data. These are not claimed to be implemented by this bugfix PR.
+
 ## Implementation order, gated by approval
 
 **P0 - Publication and provenance**: repair hardcoded count checks (this PR), record separate build/deploy/live health, audit direct-to-main publish, display missing and stale evidence in CMS, preserve existing domain and specialized tools.
