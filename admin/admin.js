@@ -643,6 +643,7 @@ function renderUtilityArray(key,title,lead){
       </div>
       ${itemTools(key,i,arr.length)}
       ${renderChildren(item,p,1)}
+      ${renderVenueLocationEvidence(item,p)}
     </article>`;
   }).join("");
 
