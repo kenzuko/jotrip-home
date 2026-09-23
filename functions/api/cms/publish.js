@@ -179,33 +179,59 @@ export async function onRequest({request,env}){
     if(path.endsWith(".json"))JSON.parse(text);
     if(text.length>1200000)return json({error:"Nội dung vượt giới hạn CMS"},413);
 
-    const r=await fetch("https://api.github.com/repos/kenzuko/jotrip-home/contents/"+path,{
-      method:"PUT",
-      headers:{
-        Accept:"application/vnd.github+json",
-        "Content-Type":"application/json",
-        "X-GitHub-Api-Version":"2022-11-28",
-        Authorization:"Bearer "+s.accessToken,
-        "User-Agent":"Open-Phu-Quoc-CMS"
-      },
+    const headers={
+      Accept:"application/vnd.github+json",
+      "Content-Type":"application/json",
+      "X-GitHub-Api-Version":"2022-11-28",
+      Authorization:"Bearer "+s.accessToken,
+      "User-Agent":"Open-Phu-Quoc-CMS"
+    };
+    const api="https://api.github.com/repos/kenzuko/jotrip-home";
+    const fileResponse=await fetch(api+"/contents/"+path+"?ref=main",{headers,cache:"no-store"});
+    const file=await fileResponse.json();
+    if(!fileResponse.ok)return json({error:"Không đọc được bản live hiện tại",github_status:fileResponse.status,detail:file?.message||"Không rõ nguyên nhân"},fileResponse.status);
+    if(file.sha!==body.sha)return json({error:"Nội dung trên GitHub đã đổi trong lúc cậu đang sửa. Tải lại module rồi áp dụng lại thay đổi để tránh ghi đè.",latest_sha:file.sha},409);
+
+    const refResponse=await fetch(api+"/git/ref/heads/main",{headers,cache:"no-store"});
+    const ref=await refResponse.json();
+    if(!refResponse.ok)return json({error:"Không đọc được nhánh main",github_status:refResponse.status,detail:ref?.message||"Không rõ nguyên nhân"},refResponse.status);
+
+    const safeLogin=String(s.login||"editor").toLowerCase().replace(/[^a-z0-9-]/g,"-").slice(0,30)||"editor";
+    const branch="cms/draft/"+safeLogin+"-"+Date.now();
+    const branchResponse=await fetch(api+"/git/refs",{
+      method:"POST",headers,
+      body:JSON.stringify({ref:"refs/heads/"+branch,sha:ref.object?.sha})
+    });
+    const branchResult=await branchResponse.json();
+    if(!branchResponse.ok)return json({error:"Không tạo được nhánh bản nháp",github_status:branchResponse.status,detail:branchResult?.message||"Không rõ nguyên nhân"},branchResponse.status);
+
+    const fileWrite=await fetch(api+"/contents/"+path,{
+      method:"PUT",headers,
       body:JSON.stringify({
-        message:String(body.message||"cms: update content").slice(0,120),
+        message:String(body.message||"cms: propose "+currentLabel(path)).slice(0,120),
         content:toStdB64(te.encode(text)),
-        sha:body.sha,
-        branch:"main"
+        sha:file.sha,
+        branch
       })
     });
+    const fileResult=await fileWrite.json();
+    if(!fileWrite.ok)return json({error:"Không lưu được bản đề xuất",github_status:fileWrite.status,detail:fileResult?.message||"Không rõ nguyên nhân"},fileWrite.status);
 
-    const result=await r.json();
-    if(!r.ok){
-      return json({
-        error:"GitHub publish failed",
-        github_status:r.status,
-        detail:result?.message||"Không rõ nguyên nhân"
-      },r.status);
-    }
+    const pullResponse=await fetch(api+"/pulls",{
+      method:"POST",headers,
+      body:JSON.stringify({
+        title:"CMS: "+String(body.message||"Cập nhật nội dung").slice(0,100),
+        head:branch,
+        base:"main",
+        draft:true,
+        body:"## Đề xuất từ CMS\\n\\n- Module: `"+path+"`\\n- Người đề xuất: @"+safeLogin+"\\n- Base file SHA: `"+file.sha+"`\\n- File commit: `"+String(fileResult.commit?.sha||"")+"`\\n\\nVui lòng kiểm tra diff, nguồn và preview trước khi duyệt. Bản nháp chưa được xuất bản cho khách."
+      })
+    });
+    const pull=await pullResponse.json();
+    if(!pullResponse.ok)return json({error:"Đã lưu nhánh nhưng không tạo được PR nháp",github_status:pullResponse.status,detail:pull?.message||"Không rõ nguyên nhân",branch},pullResponse.status);
 
-    return json({ok:true,sha:result.content?.sha||null,commit:result.commit?.sha||null});
+    return json({ok:true,branch,commit:fileResult.commit?.sha||null,pull_request:{number:pull.number,url:pull.html_url,draft:pull.draft}});
+
   }catch(e){
     return json({error:e?.message||String(e)},500);
   }
