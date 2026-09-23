@@ -1,0 +1,110 @@
+name: CMS Weather Standalone
+on:
+  push:
+    branches: [main, feat/weather-standalone-cms-20260923]
+    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-engine/**", ".github/workflows/cms-weather-standalone.yml"]
+  pull_request:
+    branches: [main]
+    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-engine/**"]
+  workflow_dispatch:
+  schedule:
+    - cron: "7,27,47 * * * *"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cms-weather-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 19
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install independent observations and satellite collector
+        run: python -m pip install --quiet boto3 s3fs xarray h5netcdf h5py numpy pyproj
+
+      - name: Check CMS Weather source
+        run: |
+          node --check scripts/weather-cms-sync.mjs
+          node --check scripts/weather-cms-smoke.mjs
+          node --check weather/weather-v2.js
+          node --check weather/weather-scene-v3.js
+          node --check weather/spatial-lab.js
+          PYTHONPATH=scripts/weather-engine python -m compileall -q scripts/weather-engine/weather
+
+      - name: Refresh CMS-owned Weather runtime, not Lab website
+        run: node scripts/weather-cms-sync.mjs --strict
+
+      - name: Verify all UI, sources and 8-point 4-field model
+        run: |
+          node scripts/weather-cms-smoke.mjs
+          node scripts/build-cloudflare.mjs
+          node scripts/validate-cloudflare-build.mjs
+          test -f dist/weather/weather-scene-v3.html
+          test -f dist/weather/data/weather-runtime/cloud.json
+          test -f dist/weather/data/weather-runtime/forecast.json
+          test -f dist/weather/weather-history.html
+          test ! -e dist/data/knowledge/objects.json
+          printf '{"sha":"%s","built_at":"%s","weather_runtime":"OPENPQ_CMS_WEATHER_V1"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
+
+      - name: Deploy standalone Weather on OpenPQ Worker
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::warning::Weather build passed; Worker Cloudflare credentials are unavailable."
+            exit 0
+          fi
+          npx --yes wrangler@4.136.3 deploy --config wrangler.jsonc
+          curl -fsS --retry 4 --retry-delay 3 https://openphuquoc-v3.kenzuko.workers.dev/weather/data/weather-runtime/manifest.json -o /tmp/cms-weather-manifest.json
+          node -e 'const x=require("/tmp/cms-weather-manifest.json");if(x.pipeline_version!=="OPENPQ_CMS_WEATHER_V1")process.exit(1);console.log("OpenPQ Worker Weather READY")'
+
+      - name: Find CMS Pages project by exact domain
+        id: cms-pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          node <<'NODE'
+          const fs=require("node:fs");
+          const {CLOUDFLARE_API_TOKEN:token,CLOUDFLARE_ACCOUNT_ID:account}=process.env;
+          if(!token||!account){console.log("Pages credentials unavailable");process.exit(0)}
+          (async()=>{
+            const r=await fetch("https://api.cloudflare.com/client/v4/accounts/"+encodeURIComponent(account)+"/pages/projects?per_page=100",{headers:{Authorization:"Bearer "+token,Accept:"application/json"}});
+            if(!r.ok){console.log("CMS Pages inventory HTTP",r.status);return}
+            const matches=((await r.json()).result||[]).filter(p=>(p.domains||[]).some(d=>String(d).toLowerCase()==="cms.openphuquoc.com"));
+            if(matches.length!==1){console.log("CMS Pages domain matches:",matches.length);return}
+            const p=matches[0],c=p.source?.config||{};
+            if(c.repo_name&&String(c.repo_name).toLowerCase()!=="jotrip-home")return;
+            fs.appendFileSync(process.env.GITHUB_OUTPUT,"project="+p.name+"\nready=true\n");
+            console.log("CMS Pages matched",p.name);
+          })().catch(e=>console.log("CMS Pages discovery",e.message));
+          NODE
+
+      - name: Deploy CMS Pages without changing DNS
+        if: steps.cms-pages.outputs.ready == 'true'
+        run: |
+          npx --yes wrangler@4.136.3 pages deploy dist --project-name="${{ steps.cms-pages.outputs.project }}" --branch=main
+          curl -fsS --retry 4 --retry-delay 3 https://cms.openphuquoc.com/weather/data/weather-runtime/manifest.json -o /tmp/cms-pages-weather.json
+          node -e 'const x=require("/tmp/cms-pages-weather.json");if(x.pipeline_version!=="OPENPQ_CMS_WEATHER_V1")process.exit(1);console.log("CMS Pages Weather READY")'
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: cms-weather-standalone-${{ github.run_number }}
+          path: |
+            weather/data/weather-health.json
+            weather/data/weather-runtime/manifest.json
+            dist/build.json
+          retention-days: 7
+          if-no-files-found: ignore

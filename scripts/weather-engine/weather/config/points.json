@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.4",
+  "coordinate_reference": "WGS84",
+  "points": {
+    "duong_dong": {
+      "name": "Dương Đông",
+      "lat": 10.2172,
+      "lon": 103.9593,
+      "reference_type": "production_point",
+      "note": "Điểm production bắt buộc theo MASTER V5.6 cho Dương Đông. Dữ liệu biển phải dùng ô lưới biển hợp lệ gần nhất và lưu requested_coordinate, sampled_coordinate, displacement và QC.",
+      "marine_forecast_reference": {
+        "lat": 10.16667,
+        "lon": 103.91667,
+        "coast_side": "WEST",
+        "distance_km": 7.303,
+        "basis": "COPERNICUS_NEAREST_VALID_SEA_GRID_REVIEWED"
+      }
+    },
+    "an_thoi": {
+      "name": "An Thới",
+      "lat": 10.0191,
+      "lon": 104.015,
+      "reference_type": "production_point",
+      "note": "Điểm production bắt buộc theo MASTER V5.6. Dữ liệu khí quyển lấy theo native grid gần nhất; dữ liệu biển phải lưu riêng requested_coordinate và sampled_coordinate, chỉ dùng ô lưới biển hợp lệ trong displacement limit cấu hình. Không được âm thầm thay điểm này bằng Mây Rút hoặc điểm tour đảo khác."
+    },
+    "ganh_dau": {
+      "name": "Gành Dầu",
+      "lat": 10.3759,
+      "lon": 103.9,
+      "reference_type": "production_point",
+      "note": "Điểm production bắt buộc theo MASTER V5.6. Dữ liệu biển phải dùng ô lưới biển hợp lệ gần nhất và lưu displacement/QC; không dùng một điểm bờ hoặc điểm ngoài khơi khác để thay semantic location."
+    },
+    "rach_gia": {
+      "name": "Rạch Giá",
+      "lat": 10.00677,
+      "lon": 105.07845,
+      "reference_type": "coastal_operations_reference",
+      "note": "Điểm tham chiếu vận hành ven biển Rạch Giá; không phải tâm hành chính thành phố."
+    },
+    "cua_can": {
+      "name": "Cửa Cạn",
+      "lat": 10.292693,
+      "lon": 103.914799,
+      "reference_type": "island_watch_groundtruth_anchor",
+      "note": "Điểm Island Watch đồng vị trí gần trạm mưa VRain Cửa Cạn để tăng khả năng kiểm chứng mưa thực tế. Khí quyển dùng mô hình tại điểm; mưa actual chỉ là số đo của gauge.",
+      "marine_forecast_reference": {
+        "lat": 10.33333,
+        "lon": 103.83333,
+        "coast_side": "WEST",
+        "distance_km": 9.994,
+        "basis": "COPERNICUS_NEAREST_VALID_SEA_GRID_REVIEWED"
+      }
+    },
+    "bai_thom": {
+      "name": "Bãi Thơm",
+      "lat": 10.411765,
+      "lon": 104.031055,
+      "reference_type": "island_watch_groundtruth_anchor",
+      "note": "Điểm Island Watch phía đông bắc, đồng vị trí gần trạm mưa VRain Bãi Thơm. Dùng để theo dõi khác biệt bắc-đông đảo."
+    },
+    "ham_ninh": {
+      "name": "Hàm Ninh",
+      "lat": 10.18062,
+      "lon": 104.04463,
+      "reference_type": "island_watch_locality",
+      "note": "Điểm Island Watch bờ đông đảo. Tọa độ locality tham chiếu, không phải vị trí hàng hải.",
+      "marine_forecast_reference": {
+        "lat": 10.16667,
+        "lon": 104.08333,
+        "coast_side": "EAST",
+        "distance_km": 4.511,
+        "basis": "COPERNICUS_NEAREST_VALID_SEA_GRID_REVIEWED"
+      }
+    },
+    "bai_sao": {
+      "name": "Bãi Sao",
+      "lat": 10.0572576,
+      "lon": 104.0363948,
+      "reference_type": "island_watch_beach",
+      "note": "Điểm Island Watch đông nam đảo, đại diện khu Bãi Sao. Không phải tọa độ dẫn đường."
+    }
+  },
+  "unverified_points": [
+    "hon_dam_trong",
+    "vinh_dam",
+    "hon_thom",
+    "may_rut",
+    "gam_ghi"
+  ]
+}

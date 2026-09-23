@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#142d3b">
+  <meta name="robots" content="noindex,nofollow">
+  <title>JoTrip Weather - Bản đồ thời tiết Phú Quốc</title>
+  <meta name="description" content="Bản đồ thời tiết không gian Phú Quốc - gió, mưa, mây, sóng, dòng chảy, quan trắc và dự báo JoTrip.">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://a.basemaps.cartocdn.com">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="spatial-lab.css?v=20260921-05">
+</head>
+<body>
+<div class="app">
+  <div id="map" class="map"></div>
+  <canvas id="fieldCanvas" class="map-canvas field-canvas" aria-hidden="true"></canvas>
+  <canvas id="uncertaintyCanvas" class="map-canvas uncertainty-canvas" aria-hidden="true"></canvas>
+  <canvas id="flowCanvas" class="map-canvas flow-canvas" aria-hidden="true"></canvas>
+  <div id="mapCrosshair" class="map-crosshair" aria-hidden="true"><span></span><i></i></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand-logo" alt="JoTrip" src="jotrip-logo-wordmark.svg">
+      <div class="brand-copy"><b>Weather</b><small>PHÚ QUỐC · LIVE</small></div>
+    </div>
+    <div class="status-pill"><i></i><span id="dataStatus">ĐANG TẢI</span></div>
+  </header>
+
+  <section class="readout">
+    <small id="readoutSource">ECMWF · MOST LIKELY</small>
+    <div class="readout-main">
+      <strong id="readoutValue">--</strong>
+      <span id="readoutUnit">km/h</span>
+    </div>
+    <b id="readoutPlace">Phú Quốc</b>
+    <p id="readoutMeta">Đang tải bản đồ thời tiết...</p>
+  </section>
+
+  <nav class="right-controls" aria-label="Công cụ bản đồ">
+    <button id="recenterBtn" class="tool" title="Về Phú Quốc" aria-label="Về Phú Quốc">⌂</button>
+    <button id="crosshairBtn" class="toggle active" title="Chọn điểm trên bản đồ"><span>⌖</span><small>Điểm</small></button>
+    <button id="ensembleBtn" class="toggle"><span>ENS</span><small>Bất định</small></button>
+    <button id="modelDiffBtn" class="toggle model-diff hidden" title="So sánh ECMWF và ICON"><span>Δ</span><small>Mô hình</small></button>
+    <button id="riskBtn" class="toggle"><span>!</span><small>Rủi ro</small></button>
+    <button id="actualBtn" class="toggle"><span>●</span><small>Đo thực</small></button>
+  </nav>
+
+  <div id="rainModes" class="context-modes hidden" aria-label="Chế độ mưa">
+    <button id="rainForecastBtn" class="active" type="button">Dự báo</button>
+    <button id="radarBtn" type="button">Radar</button>
+  </div>
+
+  <section id="alertBar" class="alert-bar neutral">
+    <span class="alert-icon">!</span>
+    <div><small>TIN NHANH</small><b id="alertTitle">Đang tổng hợp...</b></div>
+    <strong id="alertTime">HIỆN TẠI</strong>
+  </section>
+
+  <section id="probe" class="probe hidden">
+    <button id="probeClose" aria-label="Đóng">×</button>
+    <small id="probeSource">JO TRIP</small>
+    <h2 id="probeTitle">Phú Quốc</h2>
+    <div id="probeGrid" class="probe-grid"></div>
+    <div id="probeExtra" class="probe-extra"></div>
+  </section>
+
+  <section class="timeline">
+    <div class="timeline-head">
+      <button id="playBtn" class="play">▶</button>
+      <b id="timeLabel">HIỆN TẠI</b>
+      <span id="confidenceLabel">Tin cậy --</span>
+      <span id="trendLabel">D0</span>
+    </div>
+    <input id="timeSlider" type="range" min="0" max="1" step="1" value="0">
+    <div id="timelineTicks" class="timeline-ticks"></div>
+  </section>
+
+  <nav class="layerbar" aria-label="Lớp dữ liệu">
+    <button class="layer active" data-layer="wind"><i>↗</i><span>Gió</span></button>
+    <button class="layer" data-layer="rain"><i>···</i><span>Mưa</span></button>
+    <button class="layer" data-layer="rain24"><i>24</i><span>Mưa 24h</span></button>
+    <button class="layer" data-layer="waves"><i>≈</i><span>Sóng</span></button>
+    <button class="layer" data-layer="current"><i>⇢</i><span>Dòng</span></button>
+    <button class="layer" data-layer="storm"><i>☁</i><span>Mây</span></button>
+  </nav>
+
+  <div class="scale">
+    <b id="scaleTitle" class="scale-title"></b>
+    <div id="scaleGradient" class="scale-gradient"></div>
+    <div id="scaleLabels" class="scale-labels"></div>
+  </div>
+
+  <div id="modelBadge" class="model-badge">
+    <b id="modelName">ECMWF</b>
+    <span id="modelRun">-</span>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="weather-live-config.js"></script>
+<script src="weather-standalone-data.js"></script>
+<script src="spatial-lab.js?v=20260921-05"></script>
+</body>
+</html>

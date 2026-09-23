@@ -13,6 +13,9 @@ on:
       - "styles.css"
       - "scripts/validate-home-knowledge.mjs"
       - "admin/**"
+      - "weather/**"
+      - "scripts/weather-cms-*.mjs"
+      - "scripts/weather-engine/**"
   workflow_dispatch:
 
 permissions:
@@ -30,11 +33,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CMS weather collectors
+        run: python -m pip install --quiet boto3 s3fs xarray h5netcdf h5py numpy pyproj
 
       - name: Build and validate CMS
         run: |
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
+          node scripts/weather-cms-sync.mjs --strict
+          node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
           node scripts/validate-knowledge.mjs
           node scripts/validate-data.mjs
