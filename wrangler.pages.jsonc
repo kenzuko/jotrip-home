@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "openphuquoc-cms",
+  "name": "jotrip-home",
   "pages_build_output_dir": "./dist",
   "compatibility_date": "2026-09-19",
   "d1_databases": [
