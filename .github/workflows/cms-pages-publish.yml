@@ -9,6 +9,7 @@ on:
       - "scripts/build-knowledge-public.mjs"
       - "scripts/validate-cms-publication.mjs"
       - "scripts/test-nearme-venues.mjs"
+      - "scripts/test-cms-access.mjs"
       - "nearme/**"
       - "data/home-copy.json"
       - "data/content.json"
@@ -47,6 +48,7 @@ jobs:
           node scripts/validate-data.mjs
           node scripts/test-search.mjs
           node scripts/test-nearme-venues.mjs
+          node scripts/test-cms-access.mjs
           node scripts/validate-cms-publication.mjs
           echo "EXPECTED_PUBLIC_COUNT=$(node scripts/validate-cms-publication.mjs --count)" >> "$GITHUB_ENV"
           test -f dist/guide/knowledge.html
