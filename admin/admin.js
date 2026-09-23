@@ -317,6 +317,18 @@ function moduleOverview(){
     </section>`;
   }
 
+  if(currentModule.id==="foods"){
+    const entities=currentData?.entities||[];
+    const ids=new Set(),legacyIds=new Set();
+    entities.forEach((x,i)=>{
+      const id=String(x.id||"").trim(),legacy=String(x.legacy_id||"").trim(),name=String(x.name||"").trim();
+      if(!id)errors.push("Món #"+(i+1)+" chưa có mã món."); else if(ids.has(id))errors.push("Mã món bị trùng: "+id); else ids.add(id);
+      if(!legacy)errors.push("Món "+(name||("#"+(i+1)))+" chưa có mã bài cũ."); else if(legacyIds.has(legacy))errors.push("Mã bài cũ bị trùng: "+legacy); else legacyIds.add(legacy);
+      if(!name)errors.push("Món #"+(i+1)+" chưa có tên.");
+      if(!Array.isArray(x.source_refs)||!x.source_refs.length||x.source_refs.some(ref=>!String(ref?.source_id||"").trim()))errors.push("Món "+(name||id||("#"+(i+1)))+" cần nguồn kiểm chứng có mã nguồn.");
+    });
+  }
+
   if(currentModule.id==="venues"){
     const entities=currentData.entities||[];
     const counts=entities.reduce((acc,x)=>{
@@ -778,10 +790,13 @@ function renderRoot(){
 
 function renderFoodWorkbench(){
   const entities=currentData?.entities||[];
-  const cards=entities.map((item,i)=>`<article class="food-record" data-food-card>
-    <header class="food-record-head"><div><h2>${esc(item.name||"Món mới")}</h2><p>${esc(item.legacy_id||"Chưa ghép mã bài cũ")} · ${esc(item.id||"Chưa có mã món")}</p></div>${itemTools("entities",i,entities.length)}</header>
-    <div class="food-record-fields">${renderChildren(item,"entities."+i,1)}</div>
-  </article>`).join("");
+  const cards=entities.map((item,i)=>{
+    const editable={...item};delete editable.entity_type;
+    return `<article class="food-record" data-food-card>
+      <header class="food-record-head"><div><span class="food-type-tag">Món ăn</span><h2 data-food-title="${i}">${esc(item.name||"Món mới")}</h2><p>${esc(item.legacy_id||"Chưa ghép mã bài cũ")} · ${esc(item.id||"Chưa có mã món")}</p></div>${itemTools("entities",i,entities.length)}</header>
+      <div class="food-record-fields">${renderChildren(editable,"entities."+i,1)}</div>
+    </article>`;
+  }).join("");
   return moduleOverview()+`<section class="food-workbench"><div class="food-workbench-head"><div><h2>Danh sách món ăn</h2><p>Ghép bài cũ bằng mã legacy ID. Chỉ thêm nội dung và nguồn đã kiểm chứng.</p></div><button type="button" id="addFoodBtn">+ Thêm món</button></div><div class="food-record-list">${cards||'<p class="food-empty">Chưa có món nào trong danh sách.</p>'}</div></section>`;
 }
 
