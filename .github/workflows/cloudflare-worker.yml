@@ -6,6 +6,9 @@ on:
     paths:
       - "data/knowledge/**"
       - "guide/**"
+      - "index.html"
+      - "styles.css"
+      - "scripts/validate-home-knowledge.mjs"
       - "scripts/build-knowledge-public.mjs"
       - "scripts/build-search-index.mjs"
       - "scripts/build-cloudflare.mjs"
@@ -46,6 +49,7 @@ jobs:
           node scripts/validate-data.mjs
           node scripts/validate-home-support.mjs
           node scripts/validate-knowledge.mjs
+          node scripts/validate-home-knowledge.mjs
           node scripts/test-search.mjs
           node scripts/test-currency.mjs
 
