@@ -1323,6 +1323,22 @@ function bindSidebarToggle(){
 }
 
 async function boot(){
+  if(location.hostname.endsWith(".pages.dev")){
+    show("login");
+    const loginLink=$("#login .primary");
+    if(loginLink){
+      loginLink.removeAttribute("href");
+      loginLink.setAttribute("aria-disabled","true");
+      loginLink.classList.add("preview-disabled");
+      loginLink.textContent="Đăng nhập chưa bật trên bản xem trước";
+    }
+    const hint=$("#setupHint");
+    if(hint){
+      hint.textContent="Bản xem trước chưa có OAuth riêng. Cậu có thể xem giao diện; thao tác đăng nhập chỉ dùng tại CMS chính.";
+      hint.classList.remove("hidden");
+    }
+    return;
+  }
   show("boot");
   let r;
 
