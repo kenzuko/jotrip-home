@@ -62,3 +62,15 @@ h1{margin:5px 0;font-size:32px;letter-spacing:-.035em}
   .quality-note{padding:13px}
 }
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+
+/* Readability baseline */
+.intro-copy{font-size:16px}
+.quality-summary span{font-size:14px}
+.quality-summary p{font-size:13px}
+.task-title{font-size:16px}
+.task-evidence{font-size:15px}
+.task-next{font-size:14px}
+.pill{font-size:11px}
+.quality-note p{font-size:13px}
+.task-action{font-size:13px}
+@media(max-width:640px){.intro-copy{font-size:16px}.quality-summary span{font-size:15px}.quality-summary p{font-size:14px}.task-title{font-size:16px}.task-evidence{font-size:16px}.task-next{font-size:15px}.pill{font-size:12px}.quality-note p{font-size:14px}.task-action{font-size:14px}}
