@@ -37,7 +37,7 @@ export async function onRequest({request,env}){
           ["coordinate_source_type","loại nguồn tọa độ"],
           ["coordinate_observed_at","ngày kiểm tra"],
           ["coordinate_confidence","độ tin cậy"]
-        ].filter(([field])=>!String(v?.[field]||"").trim()).map(([,label])=>label);
+        ].filter(([field])=>field==="coordinate_precision"?!String(v?.coordinate_precision||v?.precision||"").trim():!String(v?.[field]||"").trim()).map(([,label])=>label);
         if(missingCoordinateEvidence.length){
           add(task("VENUE_COORDINATE_EVIDENCE_INCOMPLETE",id,"coordinate_evidence","Bản đồ và Near Me","medium",
             name+" có tọa độ nhưng thiếu: "+missingCoordinateEvidence.join(", ")+".",
