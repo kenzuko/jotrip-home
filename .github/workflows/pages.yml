@@ -39,6 +39,7 @@ jobs:
           node scripts/validate-data.mjs
           node scripts/validate-home-support.mjs
           node scripts/validate-knowledge.mjs
+          node scripts/validate-home-knowledge.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
       - name: Test Vietcombank currency parser
