@@ -23,7 +23,7 @@ export async function onRequest({request,env}){
       rawJson("data/food.json")
     ]);
     const tasks=[],seen=new Set();
-    const add=item=>{item.owner=user.login;const key=[item.rule_id,item.entity_id,item.field].join("|");if(seen.has(key))return;seen.add(key);tasks.push(item)};
+    const add=item=>{const key=[item.rule_id,item.entity_id,item.field].join("|");if(seen.has(key))return;seen.add(key);tasks.push(item)};
     const venues=Array.isArray(venueDoc.entities)?venueDoc.entities:[];
     const foods=Array.isArray(foodDoc.entities)?foodDoc.entities:[];
     const legacy=Array.isArray(legacyDoc.dishes)?legacyDoc.dishes:[];
@@ -91,12 +91,13 @@ export async function onRequest({request,env}){
           .bind(crypto.randomUUID(),after.task_key,user.login,action,JSON.stringify(before||null),JSON.stringify(after),now)
       ]);
     }
-    let states={};
+    let states={},persistenceAvailable=Boolean(db);
     if(db){
       try{
         const result=await db.prepare("SELECT task_key,status,owner,due_at,muted_until,note,updated_at FROM cms_quality_work_items").all();
         for(const item of result.results||[])states[item.task_key]=item;
       }catch(e){
+        persistenceAvailable=false;
         if(request.method==="POST")throw e;
       }
     }
@@ -104,6 +105,6 @@ export async function onRequest({request,env}){
       const state=states[taskKey(item)];
       return state?{...item,status:state.status,owner:state.owner||"",due_at:state.due_at||null,muted_until:state.muted_until||null,note:state.note||null,persistence:"d1"}:item;
     });
-    return json({tasks:storedTasks,count:storedTasks.length,can_manage:role==="admin",computed_at:new Date().toISOString(),storage:db?"d1":"computed-from-main",note:db?"Tín hiệu được tính từ main; trạng thái công việc và lịch sử thao tác được lưu trong D1.":"Tín hiệu được tính lại từ main; chưa có kết nối D1 trong môi trường này."});
+    return json({tasks:storedTasks,count:storedTasks.length,can_manage:role==="admin",computed_at:new Date().toISOString(),storage:persistenceAvailable?"d1":"computed-from-main",note:persistenceAvailable?"Tín hiệu được tính từ main; trạng thái công việc và lịch sử thao tác được lưu trong D1.":"Tín hiệu được tính lại từ main; D1 chưa sẵn sàng trong môi trường này."});
   }catch(e){return json({error:"Không tạo được hàng đợi chất lượng",detail:e?.message||String(e)},503)}
 }
