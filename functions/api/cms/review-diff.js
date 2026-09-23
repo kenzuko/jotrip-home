@@ -2,7 +2,7 @@ const SESSION_COOKIE="openpq_cms";
 const te=new TextEncoder(),td=new TextDecoder();
 const readablePaths=new Set([
   "data/home-copy.json","data/content.json","guide/data.json","data/utilities.json",
-  "data/entities/destination-venues.json","data/entities/food.json","cms/users.json"
+  "data/entities/destination-venues.json","data/entities/food.json"
 ]);
 const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store"}});
 const cookies=req=>Object.fromEntries((req.headers.get("cookie")||"").split(";").map(part=>{const i=part.indexOf("=");return i>0?[part.slice(0,i).trim(),decodeURIComponent(part.slice(i+1).trim())]:["",""]}).filter(x=>x[0]));
