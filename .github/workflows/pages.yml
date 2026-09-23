@@ -30,7 +30,7 @@ jobs:
       - name: Build derived data views
         run: |
           node scripts/build-knowledge-public.mjs
-          node -e "const x=require('./data/views/knowledge-public.json'); if(x.count!==128) process.exit(1)"
+          node scripts/validate-cms-publication.mjs
           node scripts/build-search-index.mjs
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
