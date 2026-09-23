@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
 import path from "node:path";
+import {spawnSync} from "node:child_process";
 import {webcrypto} from "node:crypto";
 
 if(!globalThis.crypto)globalThis.crypto=webcrypto;
@@ -29,7 +30,7 @@ globalThis.fetch=async url=>{
   if(target.startsWith("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/data/food.json"))return Response.json({dishes:[]});
   throw new Error("Unexpected request "+target);
 };
-const request=withCookie=>new Request("https://cms.openphuquoc.com/api/cms/quality",withCookie?{headers:{cookie:"openpq_cms="+token}}:{});
+const request=(withCookie,method="GET",body)=>new Request("https://cms.openphuquoc.com/api/cms/quality",{method,headers:{...(withCookie?{cookie:"openpq_cms="+token}:{}),...(body?{"content-type":"application/json"}:{})},...(body?{body:JSON.stringify(body)}:{})});
 try{
   calls.length=0;
   const anon=await onRequest({request:request(false),env});
@@ -46,7 +47,42 @@ try{
   assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_ARTICLE_GAP"&&x.entity_id==="food_ghe"));
   assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_PILOT_NO_READY_VENUES"&&x.entity_id===null));
   assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_VENUE_RELATIONSHIPS_NOT_MODELED"&&x.entity_id===null));
-  assert.ok(result.tasks.every(x=>x.owner==="kenzuko"&&x.status==="open"&&x.persistence==="computed"));
-  assert.match(result.note,/chưa có trạng thái nhận việc/);
-  console.log("CMS quality queue tests passed: authenticated, deduplicated and evidence-backed tasks.");
+  assert.ok(result.tasks.every(x=>x.owner===""&&x.status==="open"&&x.persistence==="computed"));
+  assert.match(result.note,/D1 chưa sẵn sàng/);
+  const rows={},events=[];
+  const db={
+    prepare(sql){
+      return {sql,values:[],bind(...values){this.values=values;return this},
+        async first(){return rows[this.values[0]]||null},
+        async all(){return{results:Object.values(rows)}}
+      };
+    },
+    async batch(statements){
+      for(const st of statements){
+        if(st.sql.startsWith("INSERT INTO cms_quality_work_items")){
+          const [task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at,updated_at]=st.values;
+          rows[task_key]={task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at,updated_at};
+        }else if(st.sql.startsWith("INSERT INTO cms_quality_audit_events"))events.push(st.values);
+      }
+      return [];
+    }
+  };
+  env.CMS_DB=db;
+  const task=result.tasks.find(x=>x.rule_id==="VENUE_COORDINATE_MISSING");
+  const task_key=[task.rule_id,task.entity_id||"",task.field].join("|");
+  const claimed=await onRequest({request:request(true,"POST",{task_key,action:"claim"}),env});
+  assert.equal(claimed.status,200);
+  const persisted=await onRequest({request:request(true),env});
+  const persistedResult=await persisted.json();
+  assert.equal(persistedResult.storage,"d1");
+  assert.equal(persistedResult.tasks.find(x=>x.entity_id===task.entity_id&&x.rule_id===task.rule_id).status,"in_progress");
+  assert.equal(persistedResult.tasks.find(x=>x.entity_id===task.entity_id&&x.rule_id===task.rule_id).owner,"kenzuko");
+  assert.equal(events.length,1);
+  assert.equal(events[0][2],"kenzuko");
+  assert.equal(events[0][3],"claim");
+  assert.equal(events[0][4],"null");
+  const migration=fs.readFileSync(path.join(process.cwd(),"migrations/d1/0001_cms_quality_work_items.sql"),"utf8");
+  const sqlCheck=spawnSync("python3",["-c","import sqlite3,sys; db=sqlite3.connect(':memory:'); db.executescript('CREATE TABLE analytics_sync (source TEXT PRIMARY KEY); CREATE TABLE cms_weather_field_feedback (id TEXT PRIMARY KEY);'); db.executescript(sys.stdin.read()); names={r[0] for r in db.execute(\"SELECT name FROM sqlite_master WHERE type='table'\")}; assert {'analytics_sync','cms_weather_field_feedback','cms_quality_work_items','cms_quality_audit_events'} <= names"],{input:migration,encoding:"utf8"});
+  assert.equal(sqlCheck.status,0,sqlCheck.stderr||sqlCheck.stdout);
+  console.log("CMS quality queue tests passed: auth, task dedupe, D1 state/audit and additive SQLite migration.");
 }finally{globalThis.fetch=originalFetch}
