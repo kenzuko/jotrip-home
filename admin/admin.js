@@ -601,7 +601,7 @@ function renderGuideArray(path,title,lead){
     return `<article class="guide-edit-card">
       <div class="guide-card-head">${image}<div><strong>${esc(titleText)}</strong>${sub?'<span>'+esc(sub)+'</span>':""}</div></div>
       ${itemTools(path,i,list.length)}
-      ${renderChildren(item,p,1)}
+      ${renderChildren(core,p,1)}
       ${renderVenueLocationEvidence(item,p)}
     </article>`;
   }).join("");
@@ -693,6 +693,8 @@ function renderVenueWorkbench(){
   const entities=Array.isArray(currentData?.entities)?currentData.entities:[];
   const cards=entities.map((item,i)=>{
     const p="entities."+i;
+    const core={...item};
+    ["coordinate_precision","coordinate_source_ref","coordinate_source_type","coordinate_observed_at","coordinate_confidence","coordinate_note"].forEach(key=>delete core[key]);
     const categoryLabel={
       LOCAL_FOOD:"Quán ăn",
       RESTAURANT:"Nhà hàng",
