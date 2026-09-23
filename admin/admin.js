@@ -129,7 +129,7 @@ function draftKey(id=currentModule?.id){return id&&session?"openpq-cms-draft:"+s
 function clearDraft(id=currentModule?.id){const k=draftKey(id);if(k)localStorage.removeItem(k)}
 function saveDraftNow(){if(!dirty||!currentModule||!session)return;const k=draftKey();if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}))}
 function scheduleDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(()=>{saveDraftNow();status("Có thay đổi chưa xuất bản. Bản nháp đã tự lưu trên trình duyệt.")},650)}
-function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi thay đổi duyệt";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
+function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
 
 function itemTitle(v,i){
   if(v&&typeof v==="object"){
@@ -1376,7 +1376,7 @@ async function selectModule(id){
 
     if(dirty){
       $("#saveBtn").disabled=!writable;
-      $("#saveBtn").textContent="Gửi thay đổi duyệt";
+      $("#saveBtn").textContent="Gửi duyệt thay đổi";
       status("Đã khôi phục bản nháp trên trình duyệt.","success");
     }else{
       status(writable
@@ -1397,7 +1397,7 @@ async function save(){
 
   $("#saveBtn").disabled=true;
   $("#saveBtn").textContent="Đang tạo bản gửi duyệt...";
-  status("Đang tạo bản nháp review. Nội dung chưa lên website.");
+  status("Đang tạo bản nháp gửi duyệt. Nội dung chưa lên website.");
 
   try{
     const b=await api(API.publish,{
