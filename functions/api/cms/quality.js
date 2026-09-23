@@ -30,8 +30,19 @@ export async function onRequest({request,env}){
       const name=String(v?.name||id||"Địa điểm chưa có mã");
       if(!coordValid(v?.latitude,-90,90)||!coordValid(v?.longitude,-180,180)){
         add(task("VENUE_COORDINATE_MISSING",id,"latitude/longitude","Bản đồ và chỉ đường","high",name+" đang ACTIVE nhưng tọa độ thiếu hoặc nằm ngoài khoảng hợp lệ.","Kiểm tra cổng vào/vị trí thực tế và ghi nguồn cùng độ chính xác trước khi dùng chỉ đường."));
-      }else if(!String(v?.coordinate_precision||v?.precision||"").trim()){
-        add(task("VENUE_COORDINATE_PRECISION_MISSING",id,"coordinate_precision","Bản đồ và Near Me","medium",name+" có tọa độ nhưng chưa khai báo tọa độ đại diện cho cổng vào, khu vực hay điểm tham chiếu.","Xác định và ghi độ chính xác tọa độ; không xem tọa độ khu vực là cổng vào."));
+      }else{
+        const missingCoordinateEvidence=[
+          ["coordinate_precision","độ chính xác"],
+          ["coordinate_source_ref","nguồn kiểm tra tọa độ"],
+          ["coordinate_source_type","loại nguồn tọa độ"],
+          ["coordinate_observed_at","ngày kiểm tra"],
+          ["coordinate_confidence","độ tin cậy"]
+        ].filter(([field])=>!String(v?.[field]||"").trim()).map(([,label])=>label);
+        if(missingCoordinateEvidence.length){
+          add(task("VENUE_COORDINATE_EVIDENCE_INCOMPLETE",id,"coordinate_evidence","Bản đồ và Near Me","medium",
+            name+" có tọa độ nhưng thiếu: "+missingCoordinateEvidence.join(", ")+".",
+            "Kiểm tra chính pin này, ghi nguồn và ngày kiểm tra; mô tả pin là cổng vào, khu vực hay điểm tham chiếu."));
+        }
       }
       if(String(v?.status||"").toUpperCase()==="ACTIVE"){
         if(!String(v?.source_ref||"").trim())add(task("VENUE_SOURCE_MISSING",id,"source_ref","Địa điểm","high",name+" đang ACTIVE nhưng chưa có nguồn ghi nhận.","Bổ sung nguồn kiểm tra được và thời điểm quan sát."));
