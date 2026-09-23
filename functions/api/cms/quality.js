@@ -21,7 +21,7 @@ export async function onRequest({request,env}){
       rawJson("data/food.json")
     ]);
     const tasks=[],seen=new Set();
-    const add=item=>{const key=[item.rule_id,item.entity_id,item.field].join("|");if(seen.has(key))return;seen.add(key);tasks.push(item)};
+    const add=item=>{item.owner=user.login;const key=[item.rule_id,item.entity_id,item.field].join("|");if(seen.has(key))return;seen.add(key);tasks.push(item)};
     const venues=Array.isArray(venueDoc.entities)?venueDoc.entities:[];
     const foods=Array.isArray(foodDoc.entities)?foodDoc.entities:[];
     const legacy=Array.isArray(legacyDoc.dishes)?legacyDoc.dishes:[];
