@@ -208,7 +208,7 @@ export async function onRequest({request,env}){
     const fileWrite=await fetch(api+"/contents/"+path,{
       method:"PUT",headers,
       body:JSON.stringify({
-        message:String(body.message||"cms: propose "+currentLabel(path)).slice(0,120),
+        message:String(body.message||"cms: propose "+path).slice(0,120),
         content:toStdB64(te.encode(text)),
         sha:file.sha,
         branch
