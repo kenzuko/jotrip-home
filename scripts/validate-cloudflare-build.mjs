@@ -1,4 +1,4 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 
 const required=[
   "worker.js",
@@ -26,4 +26,16 @@ if(missing.length){
   process.exit(1);
 }
 
+if(process.env.GITHUB_SHA){
+  const stamp="dist/data/meta/cms-build.json";
+  if(!existsSync(stamp)){
+    console.error("Cloudflare build validation failed: deployment fingerprint missing");
+    process.exit(1);
+  }
+  const payload=JSON.parse(readFileSync(stamp,"utf8"));
+  if(payload.source_commit!==process.env.GITHUB_SHA){
+    console.error("Cloudflare build validation failed: wrong source commit in deployment fingerprint");
+    process.exit(1);
+  }
+}
 console.log("Cloudflare build validation passed:",required.length,"critical artifacts");
