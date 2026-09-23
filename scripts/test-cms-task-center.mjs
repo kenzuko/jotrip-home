@@ -47,6 +47,7 @@ const mergedHtml=sandbox.renderMergedHistory([{
 assert.match(mergedHtml,/github\.com\/kenzuko\/jotrip-home\/pull\/41/);
 assert.match(mergedHtml,/@admin/);
 assert.equal(sandbox.countOpenWork([{},{},{}],[{}]),4);
+let reviewClicked=false;
 const reviewSandbox={
   URLSearchParams,
   location:{search:"?pr=42"},
@@ -55,11 +56,10 @@ const reviewSandbox={
     return [{dataset:{pr:"42"},closest(value){
       assert.equal(value,".card");
       return{scrollIntoView(options){assert.equal(options.block,"center")}};
-    },click(){this.didClick=true}}];
+    },click(){reviewClicked=true}}];
   }}
 };
 vm.runInNewContext(extract(reviews,"focusRequestedReview"),reviewSandbox);
-const reviewButton=reviewSandbox.document.querySelectorAll(".field-toggle")[0];
 reviewSandbox.focusRequestedReview();
-assert.equal(reviewButton.didClick,true,"Review deep link should open its field diff");
+assert.equal(reviewClicked,true,"Review deep link should open its field diff");
 console.log("CMS task center tests passed: quality links, review deep links, safe PR titles and merge history.");
