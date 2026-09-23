@@ -46,9 +46,14 @@ export async function onRequest({request,env}){
       }
     }
     const foodVenues=venues.filter(v=>["LOCAL_FOOD","RESTAURANT","CAFE"].includes(String(v?.category||"").toUpperCase()));
-    if(!foodVenues.length){
-      add(task("FOOD_PILOT_NO_VERIFIED_VENUES","food-nearme","venues","Ăn quanh tôi","high","Kho hiện có "+venues.length+" địa điểm và không có bản ghi category quán ăn/nhà hàng/cà phê; chưa thể gợi ý món tại quán.","Xác minh địa điểm thực tế, địa chỉ, tọa độ/độ chính xác, nguồn, ca bán và quan hệ món-quán trước khi bật pilot."));
+    const readyFoodVenues=foodVenues.filter(v=>
+      String(v?.status||"").toUpperCase()==="ACTIVE"&&String(v?.source_ref||"").trim()&&String(v?.verified_at||"").trim()&&
+      coordValid(v?.latitude,-90,90)&&coordValid(v?.longitude,-180,180)&&String(v?.coordinate_precision||v?.precision||"").trim()
+    );
+    if(!readyFoodVenues.length){
+      add(task("FOOD_PILOT_NO_READY_VENUES",null,"venues","Ăn quanh tôi","high","Có "+foodVenues.length+" địa điểm mang category quán ăn/nhà hàng/cà phê và 0 địa điểm đạt điều kiện vận hành, nguồn, ngày kiểm tra, tọa độ cùng độ chính xác.","Xác minh địa điểm thực tế, ca bán và quan hệ món-quán; chỉ bật gợi ý sau khi đủ chứng cứ."));
     }
+    add(task("FOOD_VENUE_RELATIONSHIPS_NOT_MODELED",null,"venue_food","Món tại quán","high","Kho hiện tại chưa có tập quan hệ tách biệt ghi món nào được bán tại venue nào cùng chứng cứ và thời điểm xác nhận.","Thiết kế và nhập quan hệ món-quán từ xác minh thực tế; không suy từ tag, bài món hoặc ảnh menu."));
     return json({tasks,count:tasks.length,computed_at:new Date().toISOString(),storage:"computed-from-main",note:"Các tín hiệu này được tính lại mỗi lần tải, chưa có trạng thái nhận việc, hạn, mute hay audit bền vững."});
   }catch(e){return json({error:"Không tạo được hàng đợi chất lượng",detail:e?.message||String(e)},503)}
 }
