@@ -29,8 +29,9 @@ async function load(){
     $("#queue").innerHTML=items.map(item=>{
       const state=item.draft?"Bản nháp":"Sẵn sàng xem xét";
       const author=item.author?"@"+item.author:"Không rõ người gửi";
-      return '<article class="card"><div class="card-head"><span class="state '+(item.draft?"draft":"ready")+'">'+state+'</span><span class="number">#'+Number(item.number)+'</span></div><h3>'+esc(item.title)+'</h3><p class="meta">Người gửi: '+esc(author)+' · Cập nhật '+esc(when(item.updated_at))+'</p><p class="detail">'+Number(item.changed_files)+' tệp thay đổi · +'+Number(item.additions)+' / −'+Number(item.deletions)+' dòng</p><a class="action" href="'+esc(item.url)+'" target="_blank" rel="noopener">Mở diff trên GitHub ↗</a></article>';
+      return '<article class="card"><div class="card-head"><span class="state '+(item.draft?"draft":"ready")+'">'+state+'</span><span class="number">#'+Number(item.number)+'</span></div><h3>'+esc(item.title)+'</h3><p class="meta">Người gửi: '+esc(author)+' · Cập nhật '+esc(when(item.updated_at))+'</p><p class="detail">'+Number(item.changed_files)+' tệp thay đổi · +'+Number(item.additions)+' / −'+Number(item.deletions)+' dòng</p><div class="actions"><button class="action secondary field-toggle" type="button" data-pr="'+Number(item.number)+'">Xem diff theo trường</button><a class="action" href="'+esc(item.url)+'" target="_blank" rel="noopener">Mở PR trên GitHub ↗</a></div><div class="field-diff hidden" id="diff-'+Number(item.number)+'"></div></article>';
     }).join("");
+    document.querySelectorAll(".field-toggle").forEach(button=>button.addEventListener("click",()=>showDiff(button)));
   }catch(error){
     $("#count").textContent="Chưa tải được hàng đợi";
     $("#queue").innerHTML="";
@@ -38,6 +39,26 @@ async function load(){
   }finally{
     button.disabled=false;
   }
+}
+
+
+async function showDiff(button){
+  const pr=Number(button.dataset.pr),panel=$("#diff-"+pr);
+  if(!panel)return;
+  if(!panel.classList.contains("hidden")){panel.classList.add("hidden");return}
+  panel.classList.remove("hidden");
+  panel.innerHTML='<p class="loading">Đang so sánh từng trường với bản live…</p>';
+  button.disabled=true;
+  try{
+    const response=await fetch("/api/cms/review-diff?pr="+pr,{credentials:"include",cache:"no-store"});
+    const result=await response.json();
+    if(!response.ok)throw new Error(result.detail||result.error||"Không tải được diff");
+    const files=Array.isArray(result.fields)?result.fields:[];
+    const rows=files.flatMap(file=>file.fields.map(change=>({path:file.path,...change})));
+    if(!rows.length){panel.innerHTML='<p class="empty-diff">Không có trường thay đổi trong các tệp CMS được hỗ trợ.</p>';return}
+    panel.innerHTML='<h4>Thay đổi theo trường · kiểm tra lúc '+esc(when(result.checked_at))+'</h4>'+rows.map(row=>'<div class="field-row"><strong>'+esc(row.path)+' · '+esc(row.field)+'</strong><div class="field-values"><pre class="old">'+esc(JSON.stringify(row.before,null,2)??"null")+'</pre><pre class="new">'+esc(JSON.stringify(row.after,null,2)??"null")+'</pre></div></div>').join("");
+  }catch(error){panel.innerHTML='<p class="error">'+esc(error?.message||"Không tải được diff theo trường.")+'</p>'}
+  finally{button.disabled=false}
 }
 
 $("#refresh").addEventListener("click",load);
