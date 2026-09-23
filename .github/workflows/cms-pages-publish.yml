@@ -9,6 +9,9 @@ on:
       - "scripts/build-knowledge-public.mjs"
       - "data/knowledge/**"
       - "guide/**"
+      - "index.html"
+      - "styles.css"
+      - "scripts/validate-home-knowledge.mjs"
       - "admin/**"
   workflow_dispatch:
 
@@ -35,6 +38,7 @@ jobs:
           node scripts/build-cloudflare.mjs
           node scripts/validate-knowledge.mjs
           node scripts/validate-data.mjs
+          node scripts/validate-home-knowledge.mjs
           node scripts/test-search.mjs
           node -e "const d=require('./dist/data/views/knowledge-public.json');if(d.count!==128||d.objects.length!==128||JSON.stringify(d).includes('research'))process.exit(1);console.log('CMS has',d.count,'public articles')"
           test -f dist/guide/knowledge.html
@@ -94,7 +98,7 @@ jobs:
         run: |
           node <<'NODE'
           const root="https://cms.openphuquoc.com";
-          const paths=["/data/views/knowledge-public.json","/guide/knowledge.html","/admin/"];
+          const paths=["/","/data/views/knowledge-public.json","/guide/knowledge.html","/admin/"];
           (async()=>{
             for(const path of paths){
               const label=path;
@@ -107,7 +111,7 @@ jobs:
                   library:body.includes('data-knowledge-page="library"'),
                   adminVersion21:body.includes("admin.js?v=21")
                 };
-                console.log("CMS live",label,"HTTP",r.status,"content-type",contentType,"count",count,"library",markers.library,"admin-v21",markers.adminVersion21);
+                console.log("CMS live",label,"HTTP",r.status,"content-type",contentType,"count",count,"library",markers.library,"admin-v21",markers.adminVersion21,"home-library",body.includes("home-library"));
               }catch(e){console.log("CMS live",label,"unreachable:",e.message);}
             }
           })();
