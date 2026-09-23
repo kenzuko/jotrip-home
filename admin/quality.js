@@ -95,7 +95,7 @@ async function load(){
     const times=[quality.result.computed_at,reviews.result.checked_at].filter(Boolean).map(Date.parse).filter(Number.isFinite);
     $("#checked").textContent=times.length?"Cập nhật lúc "+when(new Date(Math.max(...times)).toISOString()):"";
     if(problems.length){$("#notice").textContent=problems.join(" ");$("#notice").className="notice error"}
-    else{$("#notice").textContent="Việc chất lượng được tính lại từ main; trạng thái đề xuất lấy từ hàng đợi review. Merge chưa xác nhận deploy.";$("#notice").className="notice"}
+    else{$("#notice").textContent=(quality.result.note||"Việc chất lượng được tính lại từ main.")+" Trạng thái đề xuất lấy từ hàng đợi review. Merge chưa xác nhận deploy.";$("#notice").className="notice"}
   }catch(error){
     $("#qualityQueue").innerHTML='<div class="empty"><strong>Chưa tải được danh sách</strong>Kiểm tra kết nối rồi thử lại.</div>';
     $("#reviewQueue").innerHTML="";$("#mergedQueue").innerHTML="";
