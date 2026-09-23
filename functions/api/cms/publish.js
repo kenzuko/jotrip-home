@@ -224,7 +224,7 @@ export async function onRequest({request,env}){
         head:branch,
         base:"main",
         draft:true,
-        body:"## Đề xuất từ CMS\\n\\n- Module: `"+path+"`\\n- Người đề xuất: @"+safeLogin+"\\n- Base file SHA: `"+file.sha+"`\\n- File commit: `"+String(fileResult.commit?.sha||"")+"`\\n\\nVui lòng kiểm tra diff, nguồn và preview trước khi duyệt. Bản nháp chưa được xuất bản cho khách."
+        body:"## Đề xuất từ CMS\n\n- Module: `"+path+"`\n- Người đề xuất: @"+safeLogin+"\n- Base file SHA: `"+file.sha+"`\n- File commit: `"+String(fileResult.commit?.sha||"")+"`\n\nVui lòng kiểm tra diff và nguồn trước khi duyệt. Bản nháp chưa được xuất bản cho khách."
       })
     });
     const pull=await pullResponse.json();
