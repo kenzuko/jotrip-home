@@ -10,7 +10,7 @@ const URLS={
   icon:["/weather/spatial-icon.json"],
   marine:["/weather/spatial-marine.json"],
   gefs:["/weather/data/weather-ensemble/spatial.json"],
-  nowcast:["/weather/data/weather-nowcast/latest.json"],
+  nowcast:["/weather/data/weather-runtime/cloud.json"],
   critical:["/weather/data/critical.json"],
   forecast:["/weather/data/jotrip-forecast.json"],
   current:["/weather/data/current-bundle.json"],
