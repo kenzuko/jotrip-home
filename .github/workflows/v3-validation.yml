@@ -59,6 +59,7 @@ jobs:
       - name: Validate Cloudflare route bundle
         run: |
           node scripts/build-cloudflare.mjs
+          node scripts/validate-cloudflare-build.mjs
           test ! -e dist/data/knowledge/objects.json
           test -f dist/guide/knowledge.html
           test -f dist/guide/article.html
