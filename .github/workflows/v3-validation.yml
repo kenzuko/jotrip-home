@@ -32,6 +32,8 @@ jobs:
         run: node scripts/test-cms-draft-review.mjs
       - name: Test CMS review queue
         run: node scripts/test-cms-review-queue.mjs
+      - name: Test food entity ID mapping
+        run: node scripts/test-food-id-mapping.mjs
       - name: Test Near Me venue pins and canonical places
         run: node scripts/test-nearme-venues.mjs
       - name: Test Vietcombank currency parser
