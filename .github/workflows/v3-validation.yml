@@ -17,18 +17,31 @@ jobs:
         uses: actions/checkout@v4
       - name: Build public knowledge view
         run: node scripts/build-knowledge-public.mjs
+      - name: Verify approved CMS article publication
+        run: node scripts/validate-cms-publication.mjs
       - name: Build search index
         run: node scripts/build-search-index.mjs
       - name: Validate data contracts
         run: node scripts/validate-data.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test Near Me coordinates and zones
+        run: node scripts/test-nearme-venues.mjs
+      - name: Test CMS revocation and current permissions
+        run: node scripts/test-cms-access.mjs
       - name: Test Vietcombank currency parser
         run: node scripts/test-currency.mjs
       - name: Check JavaScript syntax
         run: |
           node --check app.js
           node --check core/search-engine.js
+          node --check nearme/nearme.js
+          node --check nearme/venue-normalizer.js
+          node --check admin/admin.js
+          node --check functions/api/cms/content.js
+          node --check functions/api/cms/session.js
+          node --check functions/api/cms/analytics.js
+          node --check functions/api/cms/publish.js
           node --check core/today-engine-v2.js
           node --check home-live-v3.js
           node --check home-today-v3.js
@@ -46,6 +59,7 @@ jobs:
       - name: Validate Cloudflare route bundle
         run: |
           node scripts/build-cloudflare.mjs
+          node scripts/validate-cloudflare-build.mjs
           test ! -e dist/data/knowledge/objects.json
           test -f dist/guide/knowledge.html
           test -f dist/guide/article.html

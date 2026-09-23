@@ -172,33 +172,12 @@
   }
 
   function buildVenueRows(doc){
-    return (doc?.entities||[])
-      .filter(x=>x?.status==="ACTIVE"&&x?.id&&x?.name)
-      .map(x=>({
-        id:x.id,
-        entity_type:"venue",
-        name:x.name,
-        aliases:[],
-        address:x.address||"",
-        phone:x.phone||null,
-        zone_id:x.zone_code||null,
-        place_id:null,
-        tags:[x.category,...(x.tags||[])].filter(Boolean),
-        utility_type:x.category,
-        group:x.category,
-        route:null,
-        map:{
-          lat:Number.isFinite(Number(x.latitude))?Number(x.latitude):null,
-          lon:Number.isFinite(Number(x.longitude))?Number(x.longitude):null,
-          precision:"verified_venue"
-        },
-        lat:Number.isFinite(Number(x.latitude))?Number(x.latitude):null,
-        lon:Number.isFinite(Number(x.longitude))?Number(x.longitude):null,
-        opening_hours_note:x.opening_hours?.note||"",
-        verified_at:x.verified_at||null,
-        source_ref:x.source_ref||null,
-        status:x.status
-      }));
+    const normalize=window.OpenPQVenue?.normalizeVenue;
+    if(typeof normalize!=="function"){
+      console.warn("Near Me venue normalizer is unavailable");
+      return [];
+    }
+    return (doc?.entities||[]).map(normalize).filter(Boolean);
   }
 
   function buildRows(index){
@@ -539,10 +518,13 @@
       ]);
 
       support=a;
-      rows=[...buildRows(locationIndex),...buildVenueRows(venueDirectory)];
+      const indexed=buildRows(locationIndex);
+      const venues=buildVenueRows(venueDirectory);
+      rows=window.OpenPQVenue.mergeWithCanonical(indexed,venues);
       window.__openpqNearState={
         indexCount:Array.isArray(locationIndex?.documents)?locationIndex.documents.length:0,
-        venueCount:Array.isArray(venueDirectory?.entities)?venueDirectory.entities.filter(x=>x.status==="ACTIVE").length:0,
+        venueCount:rows.filter(x=>x.entity_type==="venue").length,
+        deduplicatedVenues:venues.length-rows.filter(x=>x.entity_type==="venue").length,
         rowsCount:rows.length,
         requestedArea,
         requestedCategory,

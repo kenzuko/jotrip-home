@@ -48,6 +48,16 @@ async function session(req,secret){
   }catch{return null}
 }
 
+async function currentRole(login){
+  const r=await fetch("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/cms/users.json?v="+Date.now(),{
+    headers:{"User-Agent":"Open-Phu-Quoc-CMS"},cache:"no-store"
+  });
+  if(!r.ok)throw new Error("Không kiểm tra được quyền CMS: HTTP "+r.status);
+  const doc=await r.json();
+  const u=(doc.users||[]).find(x=>String(x.login).toLowerCase()===String(login).toLowerCase()&&x.enabled!==false);
+  return u?.role||null;
+}
+
 async function rawFile(path){
   const safe=path.split("/").map(encodeURIComponent).join("/");
   const r=await fetch("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/"+safe+"?v="+Date.now(),{
@@ -74,7 +84,8 @@ export async function onRequest({request,env}){
 
     const url=new URL(request.url);
     const path=url.searchParams.get("path")||"";
-    if(!(readable[path]||[]).includes(s.role))return json({error:"Không có quyền đọc module này"},403);
+    const role=await currentRole(s.login);
+    if(!role||!(readable[path]||[]).includes(role))return json({error:"Không có quyền đọc module này"},403);
 
     const text=await rawFile(path);
     const sha=await gitBlobSha(text);

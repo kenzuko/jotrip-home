@@ -30,7 +30,7 @@ jobs:
       - name: Build derived data views
         run: |
           node scripts/build-knowledge-public.mjs
-          node -e "const x=require('./data/views/knowledge-public.json'); if(x.count!==128) process.exit(1)"
+          node scripts/validate-cms-publication.mjs
           node scripts/build-search-index.mjs
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
@@ -41,6 +41,10 @@ jobs:
           node scripts/validate-knowledge.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test Near Me coordinates and zones
+        run: node scripts/test-nearme-venues.mjs
+      - name: Test CMS permission revocation
+        run: node scripts/test-cms-access.mjs
       - name: Test Vietcombank currency parser
         run: node scripts/test-currency.mjs
       - name: Validate Cloudflare CMS bundle

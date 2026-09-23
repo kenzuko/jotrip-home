@@ -40,6 +40,16 @@ async function session(req,secret){
   }catch{return null}
 }
 
+async function currentRole(login){
+  const r=await fetch("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/cms/users.json?v="+Date.now(),{
+    headers:{"User-Agent":"Open-Phu-Quoc-CMS"},cache:"no-store"
+  });
+  if(!r.ok)throw new Error("Không kiểm tra được quyền CMS: HTTP "+r.status);
+  const doc=await r.json();
+  const u=(doc.users||[]).find(x=>String(x.login).toLowerCase()===String(login).toLowerCase()&&x.enabled!==false);
+  return u?.role||null;
+}
+
 function dbFromEnv(env){
   return env.ANALYTICS_DB||env.CMS_DB||env.OPENPQ_DB||env.DATA_DB||env.DB||env.METRICS_DB||null;
 }
@@ -742,7 +752,7 @@ export async function onRequest({request,env}){
   try{
     const s=await session(request,String(env.CMS_SESSION_SECRET||""));
     if(!s)return json({error:"Chưa đăng nhập"},401);
-    if(s.role!=="admin")return json({error:"Analytics chỉ dành cho quản trị viên"},403);
+    if(await currentRole(s.login)!=="admin")return json({error:"Analytics chỉ dành cho quản trị viên"},403);
     if(request.method!=="GET")return json({error:"Method không hỗ trợ"},405);
 
     const db=dbFromEnv(env);

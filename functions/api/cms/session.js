@@ -36,14 +36,28 @@ async function session(req,secret){
   }catch{return null}
 }
 
+async function currentRole(login){
+  const r=await fetch("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/cms/users.json?v="+Date.now(),{
+    headers:{"User-Agent":"Open-Phu-Quoc-CMS"},cache:"no-store"
+  });
+  if(!r.ok)throw new Error("Không kiểm tra được quyền CMS: HTTP "+r.status);
+  const doc=await r.json();
+  const u=(doc.users||[]).find(x=>String(x.login).toLowerCase()===String(login).toLowerCase()&&x.enabled!==false);
+  return u?.role||null;
+}
+
 export async function onRequest({request,env}){
   const s=await session(request,String(env.CMS_SESSION_SECRET||""));
   if(!s)return json({error:"Chưa đăng nhập"},401);
-  return json({
+  try{
+    const role=await currentRole(s.login);
+    if(!role)return json({error:"Tài khoản CMS đã bị vô hiệu hóa"},401);
+    return json({
     login:s.login,
     name:s.name,
     avatar:s.avatar||null,
-    role:s.role,
+    role,
     exp:s.exp
-  });
+    });
+  }catch(e){return json({error:"Không kiểm tra được quyền truy cập",detail:e.message},503)}
 }
