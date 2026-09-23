@@ -41,7 +41,7 @@ try{
   assert.equal(result.storage,"computed-from-main");
   const keys=result.tasks.map(x=>x.rule_id+"|"+x.entity_id+"|"+x.field);
   assert.equal(new Set(keys).size,keys.length,"Tasks should be deduplicated by record and field");
-  assert.ok(result.tasks.some(x=>x.rule_id==="VENUE_COORDINATE_PRECISION_MISSING"&&x.entity_id==="venue_a"));
+  assert.ok(result.tasks.some(x=>x.rule_id==="VENUE_COORDINATE_EVIDENCE_INCOMPLETE"&&x.entity_id==="venue_a"&&x.evidence.includes("nguồn kiểm tra tọa độ")));
   assert.ok(result.tasks.some(x=>x.rule_id==="VENUE_COORDINATE_MISSING"&&x.entity_id==="venue_b"));
   assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_ARTICLE_GAP"&&x.entity_id==="food_ghe"));
   assert.ok(result.tasks.some(x=>x.rule_id==="FOOD_PILOT_NO_READY_VENUES"&&x.entity_id===null));
