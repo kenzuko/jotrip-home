@@ -41,6 +41,8 @@ jobs:
           node scripts/validate-knowledge.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test Near Me coordinates and zones
+        run: node scripts/test-nearme-venues.mjs
       - name: Test Vietcombank currency parser
         run: node scripts/test-currency.mjs
       - name: Validate Cloudflare CMS bundle
