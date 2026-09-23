@@ -58,7 +58,7 @@
     };
   }
   function foldName(text){
-    return String(text||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/[đĐ]/g,"d").toLowerCase().trim();
+    return String(text||"").normalize("NFD").replace(/\p{M}/gu,"").replace(/[đĐ]/g,"d").toLowerCase().trim();
   }
   function mergeWithCanonical(indexRows,venueRows){
     const places=(indexRows||[]).filter(x=>x.entity_type==="place");
