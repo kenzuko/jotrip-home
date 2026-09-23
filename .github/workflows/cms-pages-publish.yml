@@ -49,6 +49,7 @@ jobs:
           node scripts/build-cloudflare.mjs
           node scripts/validate-cms-publication.mjs
           node scripts/test-cms-access.mjs
+          node scripts/test-nearme-venues.mjs
           mkdir -p dist/data/meta
           printf '{"source_commit":"%s"}\n' "$GITHUB_SHA" > dist/data/meta/cms-build.json
           node scripts/validate-knowledge.mjs
