@@ -73,7 +73,13 @@
       const response=await fetch(endpoint,{cache:"no-store"});
       if(!response.ok)throw Error("HTTP "+response.status);
       const payload=await response.json();items=payload.objects||[];
-      if(page==="library"){showFilters();showList();input.addEventListener("input",showList);}
+      if(page==="library"){
+        const params=new URLSearchParams(location.search);
+        const categoryFromUrl=params.get("category");
+        if(Object.prototype.hasOwnProperty.call(labels,categoryFromUrl))active=categoryFromUrl;
+        if(params.has("q"))input.value=params.get("q")||"";
+        showFilters();showList();input.addEventListener("input",showList);
+      }
       else if(page==="article"){
         const id=new URLSearchParams(location.search).get("id")||"";
         const found=items.find(o=>o.topic_id===id);
