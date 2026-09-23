@@ -518,10 +518,13 @@
       ]);
 
       support=a;
-      rows=[...buildRows(locationIndex),...buildVenueRows(venueDirectory)];
+      const indexed=buildRows(locationIndex);
+      const venues=buildVenueRows(venueDirectory);
+      rows=window.OpenPQVenue.mergeWithCanonical(indexed,venues);
       window.__openpqNearState={
         indexCount:Array.isArray(locationIndex?.documents)?locationIndex.documents.length:0,
-        venueCount:Array.isArray(venueDirectory?.entities)?venueDirectory.entities.filter(x=>x.status==="ACTIVE").length:0,
+        venueCount:rows.filter(x=>x.entity_type==="venue").length,
+        deduplicatedVenues:venues.length-rows.filter(x=>x.entity_type==="venue").length,
         rowsCount:rows.length,
         requestedArea,
         requestedCategory,
