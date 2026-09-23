@@ -20,7 +20,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_bai_khem"
     },
     {
       "id": "venue_bai_sao",
@@ -40,7 +41,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_bai_sao"
     },
     {
       "id": "venue_bai_truong",
@@ -60,7 +62,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_bai_truong"
     },
     {
       "id": "venue_duong_dong_market",
@@ -97,7 +100,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_duong_dong_market"
     },
     {
       "id": "venue_ho_quoc",
@@ -117,7 +121,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_ho_quoc"
     },
     {
       "id": "venue_dinh_cau",
@@ -154,7 +159,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_dinh_cau"
     },
     {
       "id": "venue_phu_quoc_prison",
@@ -174,7 +180,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_phu_quoc_prison"
     },
     {
       "id": "venue_rach_vem",
@@ -194,7 +201,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_rach_vem"
     },
     {
       "id": "venue_sunset_town",
@@ -231,7 +239,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_sunset_town"
     },
     {
       "id": "venue_suoi_tranh",
@@ -251,7 +260,8 @@
       "source_type": "OPENPQ_KNOWLEDGE",
       "verified_at": "2026-09-22",
       "status": "ACTIVE",
-      "entity_type": "venue"
+      "entity_type": "venue",
+      "canonical_entity_id": "place_suoi_tranh"
     }
   ]
 }
