@@ -17,6 +17,7 @@ export async function onRequest({request,env}){
     const role=await currentRole(user.login);
     if(!role)return json({error:"Tài khoản CMS đã bị vô hiệu hóa"},401);
     if(request.method==="POST"&&role!=="admin")return json({error:"Chỉ quản trị viên được cập nhật công việc"},403);
+    if(request.method==="POST"&&request.headers.get("origin")!==new URL(request.url).origin)return json({error:"Origin không hợp lệ"},403);
     const [venueDoc,foodDoc,legacyDoc]=await Promise.all([
       rawJson("data/entities/destination-venues.json"),
       rawJson("data/entities/food.json"),
@@ -103,7 +104,8 @@ export async function onRequest({request,env}){
     }
     const storedTasks=tasks.map(item=>{
       const state=states[taskKey(item)];
-      return state?{...item,status:state.status,owner:state.owner||"",due_at:state.due_at||null,muted_until:state.muted_until||null,note:state.note||null,persistence:"d1"}:item;
+      const expired=state?.status==="muted"&&Date.parse(state.muted_until||"")<=Date.now();
+      return state?{...item,status:expired?"open":state.status,owner:state.owner||"",due_at:state.due_at||null,muted_until:state.muted_until||null,note:state.note||null,persistence:"d1"}:item;
     });
     return json({tasks:storedTasks,count:storedTasks.length,can_manage:role==="admin",computed_at:new Date().toISOString(),storage:persistenceAvailable?"d1":"computed-from-main",note:persistenceAvailable?"Tín hiệu được tính từ main; trạng thái công việc và lịch sử thao tác được lưu trong D1.":"Tín hiệu được tính lại từ main; D1 chưa sẵn sàng trong môi trường này."});
   }catch(e){return json({error:"Không tạo được hàng đợi chất lượng",detail:e?.message||String(e)},503)}
