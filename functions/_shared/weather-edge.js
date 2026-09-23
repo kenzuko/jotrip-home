@@ -132,9 +132,8 @@ async function liveAsset(request,waitUntil=undefined){
    "x-openpq-weather-version":"cms-weather-edge-1"
   });
   if(cache){
-   const forCache=new Response(response.body,{status:200,headers:{
-    ...Object.fromEntries(response.headers),"cache-control":"public, max-age="+CACHE_SECONDS
-   }});
+   const forCache=response.clone();
+   forCache.headers.set("cache-control","public, max-age="+CACHE_SECONDS);
    const p=cache.put(key,forCache.clone());
    if(waitUntil)waitUntil(p.catch(e=>console.warn("Weather cache put",e)));
    else await p.catch(()=>{});
