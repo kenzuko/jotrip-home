@@ -162,7 +162,7 @@ function validatePayload(path,content){
       else if(legacyIds.has(legacy))errors.push("legacy_id bị trùng: "+legacy);
       else legacyIds.add(legacy);
       if(!String(x?.name||"").trim())errors.push("Món "+(id||("#"+(i+1)))+" chưa có tên");
-      if(!Array.isArray(x?.source_refs)||!x.source_refs.length)errors.push("Món "+(id||("#"+(i+1)))+" chưa có nguồn");
+      if(!Array.isArray(x?.source_refs)||!x.source_refs.length||x.source_refs.some(ref=>!String(ref?.source_id||"").trim()))errors.push("Món "+(id||("#"+(i+1)))+" cần ít nhất một nguồn có mã source_id");
     });
   }
 
