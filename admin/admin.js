@@ -697,6 +697,22 @@ function renderVenueLocationEvidence(item,path){
   </details>`;
 }
 
+function focusRequestedVenue(){
+  const params=new URLSearchParams(location.search);
+  const id=params.get("record");
+  if(!id||currentModule?.id!=="venues")return;
+  const card=Array.from(document.querySelectorAll("[data-venue-id]")).find(item=>item.dataset.venueId===id);
+  if(!card)return;
+  card.classList.add("quality-focus");
+  card.scrollIntoView({behavior:"smooth",block:"center"});
+  const proof=card.querySelector(".venue-location-proof");
+  if(proof){
+    proof.open=true;
+    const focusField=Array.from(proof.querySelectorAll("[data-path]")).find(field=>field.dataset.path.endsWith(".coordinate_precision"));
+    focusField?.focus({preventScroll:true});
+  }
+}
+
 function renderVenueWorkbench(){
   const entities=Array.isArray(currentData?.entities)?currentData.entities:[];
   const cards=entities.map((item,i)=>{
@@ -709,7 +725,7 @@ function renderVenueWorkbench(){
       CAFE:"Cà phê",
       ATTRACTION:"Điểm chơi"
     }[item.category]||item.category||"Chưa phân loại";
-    return `<article class="utility-edit-card cms-anchor" data-anchor-label="${esc(item.name||("Địa điểm "+(i+1)))}">
+    return `<article class="utility-edit-card cms-anchor" data-venue-id="${esc(item.id||"")}" data-anchor-label="${esc(item.name||("Địa điểm "+(i+1)))}">
       <div class="utility-card-head">
         <div><strong>${esc(item.name||("Địa điểm "+(i+1)))}</strong><span>${esc(categoryLabel)} · ${esc(item.zone_code||"chưa gán khu")}</span></div>
         ${item.status==="ACTIVE"?'<span class="utility-badge verified">Đang dùng</span>':item.status==="CLOSED"?'<span class="utility-badge review">Đã đóng</span>':'<span class="utility-badge dynamic">Cần kiểm tra</span>'}
@@ -1426,6 +1442,7 @@ async function selectModule(id){
     }
 
     rerender();
+    focusRequestedVenue();
     const writable=applyPermissions();
 
     if(dirty){
