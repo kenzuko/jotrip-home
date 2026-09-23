@@ -1,11 +1,11 @@
 name: CMS Weather Standalone
 on:
   push:
-    branches: [main, feat/weather-standalone-cms-20260923]
-    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-engine/**", ".github/workflows/cms-weather-standalone.yml"]
+    branches: [main, feat/weather-standalone-cms-20260923, fix/cms-weather-edge-ecosystem-20260923]
+    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json", ".github/workflows/cms-weather-standalone.yml"]
   pull_request:
     branches: [main]
-    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-engine/**"]
+    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json"]
   workflow_dispatch:
   schedule:
     - cron: "7,27,47 * * * *"
@@ -40,6 +40,9 @@ jobs:
         run: |
           node --check scripts/weather-cms-sync.mjs
           node --check scripts/weather-cms-smoke.mjs
+          node --check functions/_shared/weather-edge.js
+          node --check weather/weather-connection.js
+          node scripts/weather-edge-smoke.mjs
           node --check weather/weather-v2.js
           node --check weather/weather-scene-v3.js
           node --check weather/spatial-lab.js
@@ -73,6 +76,19 @@ jobs:
           curl -fsS --retry 4 --retry-delay 3 https://openphuquoc-v3.kenzuko.workers.dev/weather/data/weather-runtime/manifest.json -o /tmp/cms-weather-manifest.json
           node -e 'const x=require("/tmp/cms-weather-manifest.json");if(x.pipeline_version!=="OPENPQ_CMS_WEATHER_V1")process.exit(1);console.log("OpenPQ Worker Weather READY")'
 
+      - name: Verify actual Cloudflare Weather edge freshness and OpenPQ identity
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          base="https://openphuquoc-v3.kenzuko.workers.dev"
+          curl --retry 3 --retry-delay 2 --max-time 25 -fsSL "$base/weather/data/edge-health.json?t=$GITHUB_SHA" -o /tmp/openpq-edge-health.json
+          node -e 'const h=require("/tmp/openpq-edge-health.json");if(h.schema_version!=="openpq-weather-edge-health-v1"||!h.cloudflare_edge||h.lab_website_dependency)process.exit(1);console.log("Cloudflare edge health",JSON.stringify(h.results))'
+          curl -fsSL --max-time 25 -D /tmp/openpq-worker-live.h "$base/weather/data/local-now.json?t=$GITHUB_SHA" -o /tmp/openpq-worker-live.json
+          grep -Eiq '^x-openpq-weather-edge:[[:space:]]*(ENGINE_DIRECT|EDGE_CACHE)' /tmp/openpq-worker-live.h
+          node -e 'const d=require("/tmp/openpq-worker-live.json");if(!d.points?.duong_dong||!d.generated_at)process.exit(1);const age=(Date.now()-Date.parse(d.generated_at))/60000;console.log("OpenPQ Worker real local data age",age.toFixed(1),"min");if(age>60)process.exit(1)'
+          curl -fsSL --max-time 20 "$base/weather/?t=$GITHUB_SHA" -o /tmp/openpq-weather-ui.html
+          grep -q 'ecosystem-shell.css' /tmp/openpq-weather-ui.html
+          grep -q '/assets/logo-master.png' /tmp/openpq-weather-ui.html
+
       - name: Find CMS Pages project by exact domain
         id: cms-pages
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
@@ -101,6 +117,19 @@ jobs:
           npx --yes wrangler@4.136.3 pages deploy dist --project-name="${{ steps.cms-pages.outputs.project }}" --branch=main
           curl -fsS --retry 4 --retry-delay 3 https://cms.openphuquoc.com/weather/data/weather-runtime/manifest.json -o /tmp/cms-pages-weather.json
           node -e 'const x=require("/tmp/cms-pages-weather.json");if(x.pipeline_version!=="OPENPQ_CMS_WEATHER_V1")process.exit(1);console.log("CMS Pages Weather READY")'
+
+      - name: Verify CMS hostname serves live Cloudflare Weather and the shared shell
+        if: steps.cms-pages.outputs.ready == 'true'
+        run: |
+          base="https://cms.openphuquoc.com"
+          curl -fsSL --retry 3 --retry-delay 2 --max-time 25 "$base/weather/data/edge-health.json?t=$GITHUB_SHA" -o /tmp/cms-edge-health.json
+          node -e 'const h=require("/tmp/cms-edge-health.json");if(h.schema_version!=="openpq-weather-edge-health-v1"||!h.cloudflare_edge||h.lab_website_dependency)process.exit(1);console.log("CMS Pages edge health",JSON.stringify(h.results))'
+          curl -fsSL --max-time 25 -D /tmp/cms-weather-live.h "$base/weather/data/local-now.json?t=$GITHUB_SHA" -o /tmp/cms-weather-live.json
+          grep -Eiq '^x-openpq-weather-edge:[[:space:]]*(ENGINE_DIRECT|EDGE_CACHE)' /tmp/cms-weather-live.h
+          node -e 'const d=require("/tmp/cms-weather-live.json");if(!d.points?.duong_dong||!d.generated_at)process.exit(1);const age=(Date.now()-Date.parse(d.generated_at))/60000;console.log("CMS Weather actual data age",age.toFixed(1),"min");if(age>60)process.exit(1)'
+          curl -fsSL --max-time 20 "$base/weather/?t=$GITHUB_SHA" -o /tmp/cms-weather-ui.html
+          grep -q 'ecosystem-shell.css' /tmp/cms-weather-ui.html
+          grep -q 'weather-module-nav' /tmp/cms-weather-ui.html
 
       - uses: actions/upload-artifact@v4
         if: always()
