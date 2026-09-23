@@ -78,7 +78,7 @@ export async function onRequest({request,env}){
       const action=String(body.action||"");
       if(!actions[action])return json({error:"Thao tác không hợp lệ"},400);
       const dueAt=String(body.due_at||"");
-      if(action==="due"&&dueAt&&!/^\\d{4}-\\d{2}-\\d{2}$/.test(dueAt))return json({error:"Ngày hạn cần có định dạng YYYY-MM-DD"},400);
+      if(action==="due"&&dueAt&&!/^\d{4}-\d{2}-\d{2}$/.test(dueAt))return json({error:"Ngày hạn cần có định dạng YYYY-MM-DD"},400);
       const before=await db.prepare("SELECT task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at FROM cms_quality_work_items WHERE task_key=?").bind(taskKey(target)).first();
       const now=new Date().toISOString();
       const after={
