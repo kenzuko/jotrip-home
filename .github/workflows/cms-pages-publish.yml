@@ -68,8 +68,8 @@ jobs:
           const output=(k,v)=>fs.appendFileSync(process.env.GITHUB_OUTPUT,k+"="+v+"\n");
           if(!CF_TOKEN||!CF_ACCOUNT){console.log("Cloudflare credentials unavailable.");output("ready","false");process.exit(0);}
           (async()=>{
-            const r=await fetch("https://api.cloudflare.com/client/v4/accounts/"+encodeURIComponent(CF_ACCOUNT)+"/pages/projects?per_page=100",{headers:{Authorization:"Bearer "+CF_TOKEN}});
-            if(!r.ok){console.log("Pages inventory HTTP",r.status,". Correct account and Pages Read permission required.");output("ready","false");return;}
+            const r=await fetch("https://api.cloudflare.com/client/v4/accounts/"+encodeURIComponent(CF_ACCOUNT)+"/pages/projects?per_page=20",{headers:{Authorization:"Bearer "+CF_TOKEN}});
+            if(!r.ok){const j=await r.json().catch(()=>({}));console.log("Pages inventory HTTP",r.status,(j.errors||[]).map(e=>e.code+":"+e.message).join(";").slice(0,350));output("ready","false");return;}
             const x=await r.json();const projects=x.result||[];
             console.log("Accessible Pages projects:",projects.length);
             const matches=projects.filter(p=>(p.domains||[]).some(d=>String(d).toLowerCase()==="cms.openphuquoc.com"));
