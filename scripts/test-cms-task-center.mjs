@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
 
-const quality=fs.readFileSync("admin/quality.js","utf8");\nconst reviews=fs.readFileSync("admin/reviews.js","utf8");
+const quality=fs.readFileSync("admin/quality.js","utf8");
+const reviews=fs.readFileSync("admin/reviews.js","utf8");
 function extract(source,name){
   const match=source.match(new RegExp("^function "+name+"\\([^)]*\\)\\s*\\{[\\s\\S]*?^\\}","m"));
   assert.ok(match,"Missing "+name+"()");
