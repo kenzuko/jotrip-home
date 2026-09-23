@@ -21,7 +21,7 @@ h2{margin:0;color:#123d3b;font-size:18px}
 .card-head{display:flex;align-items:center;justify-content:space-between}
 .state{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800}
 .state.draft{background:#fff2ce;color:#765710}
-.state.ready,.state.published{background:#e6f5ef;color:#16765d}
+.state.ready,.state.merged{background:#e6f5ef;color:#16765d}
 .number,.meta,.detail,.checked{color:#6c7e7a;font-size:13px}
 .card h3{margin:14px 0 6px;color:#123d3b;font-size:19px;line-height:1.35}
 .meta,.detail{margin:6px 0}
