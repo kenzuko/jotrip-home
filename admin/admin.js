@@ -1282,7 +1282,9 @@ async function boot(){
   show("cms");
   bindSidebarToggle();
 
-  const first=schema.modules.find(m=>m.read.includes(session.role));
+  const requested=new URLSearchParams(location.search).get("module");
+  const first=schema.modules.find(m=>m.id===requested&&m.read.includes(session.role))
+    ||schema.modules.find(m=>m.read.includes(session.role));
   if(first)selectModule(first.id);
 }
 
