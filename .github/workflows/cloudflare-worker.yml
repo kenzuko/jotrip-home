@@ -38,6 +38,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install CMS weather collectors
+        run: python -m pip install --quiet boto3 s3fs xarray h5netcdf h5py numpy pyproj
 
       - name: Build derived data
         run: |
