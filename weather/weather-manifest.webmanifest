@@ -1,0 +1,18 @@
+{
+  "name": "JoTrip Weather Intelligence",
+  "short_name": "JoTrip Weather",
+  "description": "Hệ thống thời tiết riêng cho Phú Quốc: quan trắc, radar - vệ tinh, biển, AQI và dự báo JoTrip 10 ngày.",
+  "start_url": "/weather/",
+  "scope": "/weather/",
+  "display": "standalone",
+  "background_color": "#eef5f8",
+  "theme_color": "#0b2638",
+  "icons": [
+    {
+      "src": "/weather/weather-app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
