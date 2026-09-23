@@ -28,6 +28,22 @@ jobs:
         run: node scripts/test-search.mjs
       - name: Test current CMS permissions
         run: node scripts/test-cms-access.mjs
+      - name: Test CMS draft review workflow
+        run: node scripts/test-cms-draft-review.mjs
+      - name: Test CMS review queue
+        run: node scripts/test-cms-review-queue.mjs
+      - name: Test CMS field-level review diff
+        run: node scripts/test-cms-review-diff.mjs
+      - name: Test CMS rollback proposals
+        run: node scripts/test-cms-rollback.mjs
+      - name: Test CMS quality queue
+        run: node scripts/test-cms-quality.mjs
+      - name: Test CMS quality task navigation
+        run: node scripts/test-cms-quality-navigation.mjs
+      - name: Test CMS unified task center
+        run: node scripts/test-cms-task-center.mjs
+      - name: Test food entity ID mapping
+        run: node scripts/test-food-id-mapping.mjs
       - name: Test Near Me venue pins and canonical places
         run: node scripts/test-nearme-venues.mjs
       - name: Test Vietcombank currency parser
@@ -47,6 +63,14 @@ jobs:
           node --check functions/api/cms/session.js
           node --check functions/api/cms/content.js
           node --check functions/api/cms/analytics.js
+          node --check functions/api/cms/publish.js
+          node --check functions/api/cms/reviews.js
+          node --check functions/api/cms/review-diff.js
+          node --check functions/api/cms/rollback.js
+          node --check functions/api/cms/quality.js
+          node --check admin/reviews.js
+          node --check admin/quality.js
+          node --check admin/admin.js
           node --check nearme/nearme.js
           node --check nearme/venue-normalizer.js
           node --check explore/app.js

@@ -71,6 +71,18 @@ const LABELS={
   phone:"Điện thoại",
   phone_alt:"Điện thoại khác",
   verified:"Đã xác minh",
+  legacy_id:"Mã bài cũ",
+  entity_type:"Loại bản ghi",
+  slug:"Đường dẫn món",
+  aliases:"Tên gọi khác",
+  zone_id:"Mã khu vực",
+  what_it_is:"Món này là gì",
+  why_go:"Vì sao nên thử",
+  tips:"Lưu ý khi gọi món",
+  intents:"Nhu cầu phù hợp",
+  source_refs:"Nguồn kiểm chứng",
+  source_id:"Mã nguồn",
+  updated_at:"Ngày cập nhật",
   checked_at:"Ngày kiểm tra",
   ticket_reference:"Giá vé & show tham khảo",
   place:"Địa điểm",
@@ -104,7 +116,13 @@ const LABELS={
   price_level:"Mức giá",
   source_ref:"Nguồn",
   source_type:"Loại nguồn",
-  verified_at:"Kiểm tra gần nhất"
+  verified_at:"Kiểm tra gần nhất",
+  coordinate_precision:"Độ chính xác tọa độ",
+  coordinate_source_ref:"Nguồn kiểm tra tọa độ",
+  coordinate_source_type:"Loại nguồn tọa độ",
+  coordinate_observed_at:"Ngày kiểm tra tọa độ",
+  coordinate_confidence:"Độ tin cậy tọa độ",
+  coordinate_note:"Ghi chú tọa độ"
 };
 
 function show(id){["boot","remoteGate","login","cms"].forEach(x=>$("#"+x)?.classList.toggle("hidden",x!==id))}
@@ -129,7 +147,7 @@ function draftKey(id=currentModule?.id){return id&&session?"openpq-cms-draft:"+s
 function clearDraft(id=currentModule?.id){const k=draftKey(id);if(k)localStorage.removeItem(k)}
 function saveDraftNow(){if(!dirty||!currentModule||!session)return;const k=draftKey();if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}))}
 function scheduleDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(()=>{saveDraftNow();status("Có thay đổi chưa xuất bản. Bản nháp đã tự lưu trên trình duyệt.")},650)}
-function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Xuất bản thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
+function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
 
 function itemTitle(v,i){
   if(v&&typeof v==="object"){
@@ -164,6 +182,18 @@ function stringField(key,val,path){
 }
 
 function primitiveField(key,val,path){
+  if(currentModule?.id==="venues"&&key==="coordinate_confidence"){
+    const value=String(val||"");
+    return `<div class="field"><label>Độ tin cậy tọa độ</label><select data-path="${esc(path)}">
+      <option value="" ${!value?"selected":""}>Chưa đánh giá</option>
+      <option value="HIGH" ${value==="HIGH"?"selected":""}>Cao</option>
+      <option value="MEDIUM" ${value==="MEDIUM"?"selected":""}>Vừa</option>
+      <option value="LOW" ${value==="LOW"?"selected":""}>Thấp</option>
+    </select></div>`;
+  }
+  if(currentModule?.id==="venues"&&key==="coordinate_observed_at"){
+    return `<div class="field"><label>Ngày kiểm tra tọa độ</label><input type="date" data-path="${esc(path)}" value="${esc(val||"")}"></div>`;
+  }
   if(currentModule?.id==="venues"&&key==="category"){
     const value=String(val||"");
     return `<div class="field"><label>Loại địa điểm</label><select data-path="${esc(path)}">
@@ -287,6 +317,18 @@ function moduleOverview(){
     </section>`;
   }
 
+  if(currentModule.id==="foods"){
+    const entities=currentData?.entities||[];
+    const ids=new Set(),legacyIds=new Set();
+    entities.forEach((x,i)=>{
+      const id=String(x.id||"").trim(),legacy=String(x.legacy_id||"").trim(),name=String(x.name||"").trim();
+      if(!id)errors.push("Món #"+(i+1)+" chưa có mã món."); else if(ids.has(id))errors.push("Mã món bị trùng: "+id); else ids.add(id);
+      if(!legacy)errors.push("Món "+(name||("#"+(i+1)))+" chưa có mã bài cũ."); else if(legacyIds.has(legacy))errors.push("Mã bài cũ bị trùng: "+legacy); else legacyIds.add(legacy);
+      if(!name)errors.push("Món #"+(i+1)+" chưa có tên.");
+      if(!Array.isArray(x.source_refs)||!x.source_refs.length||x.source_refs.some(ref=>!String(ref?.source_id||"").trim()))errors.push("Món "+(name||id||("#"+(i+1)))+" cần nguồn kiểm chứng có mã nguồn.");
+    });
+  }
+
   if(currentModule.id==="venues"){
     const entities=currentData.entities||[];
     const counts=entities.reduce((acc,x)=>{
@@ -371,6 +413,14 @@ function validateCurrent(){
       if(String(x.status||"REVIEW")==="ACTIVE"){
         if(!String(x.verified_at||"").trim())errors.push("Địa điểm đang dùng cần ngày kiểm tra: "+(name||id));
         if(!String(x.source_ref||"").trim())errors.push("Địa điểm đang dùng cần nguồn: "+(name||id));
+      }
+      const coordinateEvidence=["coordinate_precision","coordinate_source_ref","coordinate_source_type","coordinate_observed_at","coordinate_confidence"].some(key=>String(x[key]||"").trim());
+      if(coordinateEvidence){
+        if(!String(x.coordinate_precision||"").trim())errors.push("Địa điểm "+(name||id)+" thiếu độ chính xác tọa độ.");
+        if(!String(x.coordinate_source_ref||"").trim())errors.push("Địa điểm "+(name||id)+" thiếu nguồn kiểm tra tọa độ.");
+        if(!String(x.coordinate_source_type||"").trim())errors.push("Địa điểm "+(name||id)+" thiếu loại nguồn tọa độ.");
+        if(!/^\d{4}-\d{2}-\d{2}$/.test(String(x.coordinate_observed_at||"")))errors.push("Địa điểm "+(name||id)+" thiếu ngày kiểm tra tọa độ.");
+        if(!["HIGH","MEDIUM","LOW"].includes(String(x.coordinate_confidence||"").toUpperCase()))errors.push("Địa điểm "+(name||id)+" cần chọn độ tin cậy tọa độ.");
       }
       if(x.latitude!==null&&x.latitude!==""&&x.latitude!==undefined){
         const lat=Number(x.latitude);
@@ -583,7 +633,8 @@ function renderGuideArray(path,title,lead){
     return `<article class="guide-edit-card">
       <div class="guide-card-head">${image}<div><strong>${esc(titleText)}</strong>${sub?'<span>'+esc(sub)+'</span>':""}</div></div>
       ${itemTools(path,i,list.length)}
-      ${renderChildren(item,p,1)}
+      ${renderChildren(core,p,1)}
+      ${renderVenueLocationEvidence(item,p)}
     </article>`;
   }).join("");
 
@@ -624,6 +675,7 @@ function renderUtilityArray(key,title,lead){
       </div>
       ${itemTools(key,i,arr.length)}
       ${renderChildren(item,p,1)}
+      ${renderVenueLocationEvidence(item,p)}
     </article>`;
   }).join("");
 
@@ -653,17 +705,70 @@ function renderUtilitiesWorkbench(){
     support;
 }
 
+function renderVenueLocationEvidence(item,path){
+  const value=key=>item?.[key]??"";
+  return `<details class="venue-location-proof">
+    <summary>Vị trí và nguồn tọa độ <small>${value("coordinate_precision")&&value("coordinate_source_ref")?"Có thông tin":"Cần bổ sung khi đã kiểm tra"}</small></summary>
+    <div class="venue-location-grid">
+      ${primitiveField("coordinate_precision",value("coordinate_precision"),path+".coordinate_precision")}
+      ${primitiveField("coordinate_source_ref",value("coordinate_source_ref"),path+".coordinate_source_ref")}
+      ${primitiveField("coordinate_source_type",value("coordinate_source_type"),path+".coordinate_source_type")}
+      ${primitiveField("coordinate_observed_at",value("coordinate_observed_at"),path+".coordinate_observed_at")}
+      ${primitiveField("coordinate_confidence",value("coordinate_confidence"),path+".coordinate_confidence")}
+      ${primitiveField("coordinate_note",value("coordinate_note"),path+".coordinate_note")}
+    </div>
+    <p>Ghi nguồn đã dùng để kiểm tra chính tọa độ, ngày kiểm tra và tọa độ đại diện cho cổng vào, khu vực hay điểm tham chiếu. Nguồn bài giới thiệu địa điểm không tự chứng minh vị trí chính xác.</p>
+  </details>`;
+}
+
+function focusRequestedFood(){
+  const params=new URLSearchParams(location.search);
+  const id=params.get("record"),field=params.get("field");
+  if(!id||currentModule?.id!=="foods")return;
+  const card=Array.from(document.querySelectorAll("[data-food-id]")).find(item=>item.dataset.foodId===id);
+  if(!card)return;
+  card.classList.add("quality-focus");
+  card.scrollIntoView({behavior:"smooth",block:"center"});
+  if(field){
+    const target=Array.from(card.querySelectorAll("[data-path]")).find(item=>item.dataset.path.endsWith("."+field));
+    target?.focus({preventScroll:true});
+  }
+}
+
+function focusRequestedVenue(){
+  const params=new URLSearchParams(location.search);
+  const id=params.get("record"),requestedField=params.get("field");
+  if(!id||currentModule?.id!=="venues")return;
+  const card=Array.from(document.querySelectorAll("[data-venue-id]")).find(item=>item.dataset.venueId===id);
+  if(!card)return;
+  card.classList.add("quality-focus");
+  card.scrollIntoView({behavior:"smooth",block:"center"});
+  const field=requestedField==="coordinate_evidence"?"coordinate_precision":requestedField;
+  const proof=card.querySelector(".venue-location-proof");
+  if(["coordinate_precision","coordinate_source_ref","coordinate_source_type","coordinate_observed_at","coordinate_confidence","coordinate_note"].includes(field)&&proof)proof.open=true;
+  if(field==="latitude/longitude"){
+    const coordinates=Array.from(card.querySelectorAll("[data-path]")).filter(item=>/\.(latitude|longitude)$/.test(item.dataset.path));
+    const target=coordinates.find(item=>!String(item.value||"").trim())||coordinates[0];
+    target?.focus({preventScroll:true});
+  }else if(field){
+    const target=Array.from(card.querySelectorAll("[data-path]")).find(item=>item.dataset.path.endsWith("."+field));
+    target?.focus({preventScroll:true});
+  }
+}
+
 function renderVenueWorkbench(){
   const entities=Array.isArray(currentData?.entities)?currentData.entities:[];
   const cards=entities.map((item,i)=>{
     const p="entities."+i;
+    const core={...item};
+    ["coordinate_precision","coordinate_source_ref","coordinate_source_type","coordinate_observed_at","coordinate_confidence","coordinate_note"].forEach(key=>delete core[key]);
     const categoryLabel={
       LOCAL_FOOD:"Quán ăn",
       RESTAURANT:"Nhà hàng",
       CAFE:"Cà phê",
       ATTRACTION:"Điểm chơi"
     }[item.category]||item.category||"Chưa phân loại";
-    return `<article class="utility-edit-card cms-anchor" data-anchor-label="${esc(item.name||("Địa điểm "+(i+1)))}">
+    return `<article class="utility-edit-card cms-anchor" data-venue-id="${esc(item.id||"")}" data-anchor-label="${esc(item.name||("Địa điểm "+(i+1)))}">
       <div class="utility-card-head">
         <div><strong>${esc(item.name||("Địa điểm "+(i+1)))}</strong><span>${esc(categoryLabel)} · ${esc(item.zone_code||"chưa gán khu")}</span></div>
         ${item.status==="ACTIVE"?'<span class="utility-badge verified">Đang dùng</span>':item.status==="CLOSED"?'<span class="utility-badge review">Đã đóng</span>':'<span class="utility-badge dynamic">Cần kiểm tra</span>'}
@@ -688,6 +793,7 @@ function renderRoot(){
   if(currentModule?.id==="utilities")return renderUtilitiesWorkbench();
   if(currentModule?.id==="guide")return renderGuideWorkbench();
   if(currentModule?.id==="venues")return renderVenueWorkbench();
+  if(currentModule?.id==="foods")return renderFoodWorkbench();
 
   if(currentModule?.id==="stories"&&Array.isArray(currentData?.stories)){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
@@ -699,6 +805,18 @@ function renderRoot(){
     if(v&&typeof v==="object")return renderNode(v,k,k,0);
     return primitiveField(k,v,k);
   }).join("");
+}
+
+function renderFoodWorkbench(){
+  const entities=currentData?.entities||[];
+  const cards=entities.map((item,i)=>{
+    const editable={...item};delete editable.entity_type;
+    return `<article class="food-record" data-food-card data-food-id="${esc(item.id||"")}">
+      <header class="food-record-head"><div><span class="food-type-tag">Món ăn</span><h2 data-food-title="${i}">${esc(item.name||"Món mới")}</h2><p>${esc(item.legacy_id||"Chưa ghép mã bài cũ")} · ${esc(item.id||"Chưa có mã món")}</p></div>${itemTools("entities",i,entities.length)}</header>
+      <div class="food-record-fields">${renderChildren(editable,"entities."+i,1)}</div>
+    </article>`;
+  }).join("");
+  return moduleOverview()+`<section class="food-workbench"><div class="food-workbench-head"><div><h2>Danh sách món ăn</h2><p>Ghép bài cũ bằng mã legacy ID. Chỉ thêm nội dung và nguồn đã kiểm chứng.</p></div><button type="button" id="addFoodBtn">+ Thêm món</button></div><div class="food-record-list">${cards||'<p class="food-empty">Chưa có món nào trong danh sách.</p>'}</div></section>`;
 }
 
 function renderUsers(){
@@ -719,7 +837,7 @@ function renderUsers(){
   $("#addUserBtn").onclick=()=>{
     currentData.users=currentData.users||[];
     currentData.users.push({login:"",name:"",role:"viewer",enabled:true});
-    markDirty("Đã thêm người dùng mới. Nhập GitHub username rồi bấm Xuất bản.");
+    markDirty("Đã thêm người dùng mới. Nhập GitHub username rồi bấm Gửi duyệt.");
     rerender();
   };
 
@@ -868,6 +986,10 @@ function bindFields(){
         if(el.dataset.path==="intro")document.querySelector(".guide-overview .overview-copy p")?.replaceChildren(document.createTextNode(String(v||"")));
       }
 
+      if(currentModule?.id==="foods"){
+        const match=el.dataset.path.match(/^entities\\.(\\d+)\\.name$/);
+        if(match)document.querySelector(`[data-food-title="${match[1]}"]`)?.replaceChildren(document.createTextNode(String(v||"Món mới")));
+      }
       if(currentModule?.id==="stories"){
         const m=el.dataset.path.match(/^stories\.(\d+)\.(title|category|dek|image|cover_position|read_minutes|intro|sections\..+)$/);
         if(m){
@@ -913,7 +1035,7 @@ function bindArrayControls(){
     const action=btn.dataset.arrayAction;
 
     if(action==="delete"){
-      if(!confirm("Xóa mục này? Thay đổi chỉ có hiệu lực sau khi bấm Xuất bản."))return;
+      if(!confirm("Xóa mục này? Thay đổi chỉ có hiệu lực sau khi bấm Gửi duyệt."))return;
       arr.splice(i,1);
     }else if(action==="duplicate"){
       arr.splice(i+1,0,deepClone(arr[i]));
@@ -932,8 +1054,18 @@ function bindArrayControls(){
     if(!Array.isArray(arr))return;
     const template=arr.length?blankLike(arr[0]):"";
     arr.push(template);
-    markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Xuất bản.");
+    markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Gửi duyệt.");
     rerender();
+  });
+}
+
+function bindFoodControls(){
+  $("#addFoodBtn")?.addEventListener("click",()=>{
+    currentData.entities=currentData.entities||[];
+    currentData.entities.push({id:"",legacy_id:"",entity_type:"food",slug:"",name:"",aliases:[],zone_id:null,category:"local",what_it_is:"",why_go:"",best_for:[],tips:[],intents:[],source_refs:[{source_id:""}],updated_at:""});
+    markDirty("Đã thêm món mới. Điền mã, nội dung và nguồn kiểm chứng trước khi gửi duyệt.");
+    rerender();
+    setTimeout(()=>document.querySelector(".food-record:last-child")?.scrollIntoView({behavior:"smooth",block:"start"}),50);
   });
 }
 
@@ -955,9 +1087,15 @@ function bindVenueControls(){
       source_ref:"",
       source_type:"",
       verified_at:"",
+      coordinate_precision:"",
+      coordinate_source_ref:"",
+      coordinate_source_type:"",
+      coordinate_observed_at:"",
+      coordinate_confidence:"",
+      coordinate_note:"",
       status:"REVIEW"
     });
-    markDirty("Đã thêm địa điểm mới. Điền dữ liệu đã kiểm tra rồi bấm Xuất bản.");
+    markDirty("Đã thêm địa điểm mới. Điền dữ liệu đã kiểm tra rồi bấm Gửi duyệt.");
     rerender();
   });
 }
@@ -989,7 +1127,7 @@ function bindStoryControls(){
     const action=btn.dataset.storyAction;
 
     if(action==="delete"){
-      if(!confirm("Xóa bài viết này? Thay đổi chỉ có hiệu lực sau khi bấm Xuất bản."))return;
+      if(!confirm("Xóa bài viết này? Thay đổi chỉ có hiệu lực sau khi bấm Gửi duyệt."))return;
       arr.splice(i,1);
     }else if(action==="duplicate"){
       const copy=deepClone(arr[i]);
@@ -1017,6 +1155,13 @@ function filterEditor(){
   const counter=$("#searchCount");
   if(!input||!counter)return;
   const q=input.value.trim().toLocaleLowerCase("vi");
+  if(currentModule?.id==="foods"){
+    const cards=[...document.querySelectorAll("#editor [data-food-card]")];
+    let shown=0;
+    cards.forEach(el=>{const hit=!q||searchableText(el).includes(q);el.classList.toggle("search-hidden",!hit);if(hit)shown++});
+    counter.textContent=q?shown+" món":"";
+    return;
+  }
   const blocks=[...document.querySelectorAll("#editor > .cms-anchor, #editor > .user-cards > .user-card")];
   if(!q){
     blocks.forEach(el=>el.classList.remove("search-hidden"));
@@ -1195,6 +1340,7 @@ function rerender(){
   bindMediaControls();
   bindArrayControls();
   bindVenueControls();
+  bindFoodControls();
   bindStoryControls();
   buildEditorNav();
   bindSearch();
@@ -1255,6 +1401,22 @@ function bindSidebarToggle(){
 }
 
 async function boot(){
+  if(location.hostname.endsWith(".pages.dev")){
+    show("login");
+    const loginLink=$("#login .primary");
+    if(loginLink){
+      loginLink.removeAttribute("href");
+      loginLink.setAttribute("aria-disabled","true");
+      loginLink.classList.add("preview-disabled");
+      loginLink.textContent="Đăng nhập chưa bật trên bản xem trước";
+    }
+    const hint=$("#setupHint");
+    if(hint){
+      hint.textContent="Bản xem trước chưa có OAuth riêng. Cậu có thể xem giao diện; thao tác đăng nhập chỉ dùng tại CMS chính.";
+      hint.classList.remove("hidden");
+    }
+    return;
+  }
   show("boot");
   let r;
 
@@ -1282,16 +1444,20 @@ async function boot(){
   show("cms");
   bindSidebarToggle();
 
-  const first=schema.modules.find(m=>m.read.includes(session.role));
+  const requested=new URLSearchParams(location.search).get("module");
+  const first=schema.modules.find(m=>m.id===requested&&m.read.includes(session.role))
+    ||schema.modules.find(m=>m.read.includes(session.role));
   if(first)selectModule(first.id);
 }
 
 function renderNav(){
-  $("#moduleNav").innerHTML=schema.modules
+  const work='<a class="module-btn" href="quality.html" title="Mở việc cần xử lý"><span class="module-short">!</span><span class="module-copy"><strong>Việc cần xử lý</strong><small>Chất lượng dữ liệu và nguồn</small></span></a>';
+  const modules=schema.modules
     .filter(m=>m.read.includes(session.role))
     .map(m=>'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>')
-    .join("")+'<a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện 128 bài"><span class="module-short">128</span><span class="module-copy"><strong>Thư viện 128 bài</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
-
+    .join("");
+  const extras='<a class="module-btn" href="reviews.html" title="Mở hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất CMS chưa public</small></span></a><a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện 128 bài"><span class="module-short">128</span><span class="module-copy"><strong>Thư viện 128 bài</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
+  $("#moduleNav").innerHTML=work+modules+extras;
   document.querySelectorAll("button.module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
 }
 
@@ -1311,7 +1477,7 @@ async function selectModule(id){
   $("#moduleKicker").textContent=currentModule.id==="analytics"?"OPEN PHU QUOC INTELLIGENCE":"OPEN PHU QUOC CMS";
   $("#moduleTitle").textContent=currentModule.label;
   $("#moduleDesc").textContent=currentModule.description;
-  $("#saveBtn").textContent="Xuất bản";
+  $("#saveBtn").textContent="Gửi duyệt";
 
   const isAnalytics=currentModule.id==="analytics";
   $("#saveBtn").classList.toggle("hidden",isAnalytics);
@@ -1372,15 +1538,17 @@ async function selectModule(id){
     }
 
     rerender();
+    focusRequestedVenue();
+    focusRequestedFood();
     const writable=applyPermissions();
 
     if(dirty){
       $("#saveBtn").disabled=!writable;
-      $("#saveBtn").textContent="Xuất bản thay đổi";
+      $("#saveBtn").textContent="Gửi duyệt thay đổi";
       status("Đã khôi phục bản nháp trên trình duyệt.","success");
     }else{
       status(writable
-        ?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; chỉ lên website khi bấm Xuất bản."
+        ?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; gửi duyệt sẽ tạo PR, chưa lên website."
         :"Vai trò của bạn chỉ được xem module này.");
     }
   }catch(e){
@@ -1393,11 +1561,11 @@ async function selectModule(id){
 async function save(){
   if(!currentModule||!dirty)return;
   const validationErrors=validateCurrent();
-  if(validationErrors.length){status("Chưa thể xuất bản: "+validationErrors.slice(0,3).join(" · ")+(validationErrors.length>3?" · …":""),"error");return}
+  if(validationErrors.length){status("Chưa thể gửi duyệt: "+validationErrors.slice(0,3).join(" · ")+(validationErrors.length>3?" · …":""),"error");return}
 
   $("#saveBtn").disabled=true;
-  $("#saveBtn").textContent="Đang xuất bản...";
-  status("Đang xuất bản lên Open Phu Quoc...");
+  $("#saveBtn").textContent="Đang tạo bản gửi duyệt...";
+  status("Đang tạo bản nháp gửi duyệt. Nội dung chưa lên website.");
 
   try{
     const b=await api(API.publish,{
@@ -1406,22 +1574,21 @@ async function save(){
         path:currentModule.path,
         sha:currentSha,
         content:currentData,
-        message:"cms: update "+currentModule.label.toLowerCase()
+        message:"update "+currentModule.label.toLowerCase()
       })
     });
 
-    currentSha=b.sha||currentSha;
+    if(!b.pull_request?.url)throw new Error("Đã lưu nhưng chưa nhận được liên kết PR nháp. Giữ lại bản nháp trên trình duyệt và thử lại.");
     dirty=false;
     clearDraft();
     $("#resetBtn")?.classList.add("hidden");
 
-    $("#saveBtn").textContent="Đã xuất bản";
-    const commit=b.commit?(" · commit "+String(b.commit).slice(0,7)):"";
-    status("Đã xuất bản thành công"+commit+". Website sẽ cập nhật sau deployment.","success");
+    $("#saveBtn").textContent="Đã gửi duyệt";
+    status("Đã tạo PR nháp #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url,"success");
 
     setTimeout(()=>{
-      if(!dirty)$("#saveBtn").textContent="Xuất bản";
-    },1800);
+      if(!dirty)$("#saveBtn").textContent="Gửi duyệt";
+    },2400);
   }catch(e){
     status(
       e.status===409
@@ -1430,7 +1597,7 @@ async function save(){
       "error"
     );
     $("#saveBtn").disabled=false;
-    $("#saveBtn").textContent="Thử xuất bản lại";
+    $("#saveBtn").textContent="Thử gửi duyệt lại";
   }
 }
 

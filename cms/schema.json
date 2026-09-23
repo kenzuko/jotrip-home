@@ -71,8 +71,8 @@
     },
     {
       "id": "venues",
-      "label": "Ăn uống & cà phê",
-      "description": "Quán ăn, nhà hàng, cà phê và điểm trải nghiệm dùng cho Near Me / JoTrip",
+      "label": "Địa điểm",
+      "description": "Điểm tham quan và địa điểm Near Me; xác minh category trước khi dùng",
       "path": "data/entities/destination-venues.json",
       "preview": "../nearme/",
       "read": [
@@ -85,6 +85,23 @@
         "admin",
         "editor",
         "operator"
+      ]
+    },
+    {
+      "id": "foods",
+      "label": "Món ăn",
+      "description": "Thực thể món và mapping bài cũ qua legacy_id",
+      "path": "data/entities/food.json",
+      "preview": null,
+      "read": [
+        "admin",
+        "editor",
+        "operator",
+        "viewer"
+      ],
+      "write": [
+        "admin",
+        "editor"
       ]
     },
     {

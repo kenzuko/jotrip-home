@@ -34,7 +34,8 @@ const originalFetch=globalThis.fetch;
 globalThis.fetch=async url=>{
   reads++;
   if(!String(url).startsWith("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/cms/users.json")){
-    throw new Error("Unexpected external request: "+String(url));
+    if(!sourceAvailable)return new Response("Unavailable",{status:503});
+    return new Response(JSON.stringify({schema_version:"1.0",entities:[]}),{status:200,headers:{"Content-Type":"application/json"}});
   }
   if(!sourceAvailable)return new Response("Unavailable",{status:503});
   return new Response(JSON.stringify({
@@ -46,6 +47,10 @@ try{
   const live=await session.onRequest({request:request("/api/cms/session"),env});
   assert.equal(live.status,200,"Valid token with active account must work");
   assert.equal((await live.json()).role,"viewer","Current role must override stale admin cookie");
+  const food=await content.onRequest({
+    request:request("/api/cms/content?path=data%2Fentities%2Ffood.json"),env
+  });
+  assert.equal(food.status,200,"Viewer role should read the normalized food entity module");
 
   const deniedContent=await content.onRequest({
     request:request("/api/cms/content?path=cms%2Fusers.json"),env

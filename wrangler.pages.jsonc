@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jotrip-home",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-09-19",
+  "d1_databases": [
+    {
+      "binding": "CMS_DB",
+      "database_name": "openpq-cms",
+      "database_id": "7bf38208-9fd4-4f11-ac21-320707c52517",
+      "migrations_dir": "migrations/d1"
+    }
+  ]
+}

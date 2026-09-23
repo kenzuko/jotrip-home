@@ -7,6 +7,7 @@ const readable={
   "guide/data.json":["admin","editor","operator","viewer"],
   "data/utilities.json":["admin","editor","operator","viewer"],
   "data/entities/destination-venues.json":["admin","editor","operator","viewer"],
+  "data/entities/food.json":["admin","editor","operator","viewer"],
   "cms/users.json":["admin"]
 };
 
