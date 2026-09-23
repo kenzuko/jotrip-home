@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import fs from "node:fs";
 import vm from "node:vm";
 
-const quality=fs.readFileSync("admin/quality.js","utf8");
+const quality=fs.readFileSync("admin/quality.js","utf8");\nconst reviews=fs.readFileSync("admin/reviews.js","utf8");
 function extract(source,name){
   const match=source.match(new RegExp("^function "+name+"\\([^)]*\\)\\s*\\{[\\s\\S]*?^\\}","m"));
   assert.ok(match,"Missing "+name+"()");
@@ -47,4 +47,19 @@ const mergedHtml=sandbox.renderMergedHistory([{
 assert.match(mergedHtml,/github\.com\/kenzuko\/jotrip-home\/pull\/41/);
 assert.match(mergedHtml,/@admin/);
 assert.equal(sandbox.countOpenWork([{},{},{}],[{}]),4);
-console.log("CMS task center tests passed: quality deep links, review deep links, escaped PR titles and merge history.");
+const reviewSandbox={
+  URLSearchParams,
+  location:{search:"?pr=42"},
+  document:{querySelectorAll(selector){
+    assert.equal(selector,".field-toggle");
+    return [{dataset:{pr:"42"},closest(value){
+      assert.equal(value,".card");
+      return{scrollIntoView(options){assert.equal(options.block,"center")}};
+    },click(){this.didClick=true}}];
+  }}
+};
+vm.runInNewContext(extract(reviews,"focusRequestedReview"),reviewSandbox);
+const reviewButton=reviewSandbox.document.querySelectorAll(".field-toggle")[0];
+reviewSandbox.focusRequestedReview();
+assert.equal(reviewButton.didClick,true,"Review deep link should open its field diff");
+console.log("CMS task center tests passed: quality links, review deep links, safe PR titles and merge history.");
