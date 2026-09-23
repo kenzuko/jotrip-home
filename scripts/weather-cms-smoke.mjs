@@ -59,6 +59,12 @@ assert(!/raw\.githubusercontent\.com/.test(js+scene+spatial+history),
  "weather browser code still calls GitHub directly");
 assert(html.includes("/weather/weather-v2.js")&&html.includes("/weather/weather-v2.css"),
  "homepage assets not scoped under CMS /weather/");
+assert(!html.includes('id="heroGust"')&&!html.includes('id="gustNow"'),
+ "unverified near-current gust must not appear on the traveller UI");
+assert(js.includes('key:"an-thoi-forecast-wind:"')&&js.includes('freshEnough(critical?.generated_at,120)'),
+ "An Thoi afternoon wind watch must be derived from fresh same-origin forecast");
+assert(!js.includes('setMetric("gustNow"')&&!js.includes('windNow.gust'),
+ "unverified current gust is still rendered outside the forecast section");
 assert(html.includes("/weather/data/critical.json"),
  "homepage still preloads the Lab site");
 assert(js.includes("/weather/data/current-bundle.json"),
