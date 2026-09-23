@@ -103,3 +103,7 @@ h1{margin:5px 0;font-size:32px;letter-spacing:-.035em}
 .task-controls button:hover{background:#eef5f1}
 .task-controls button:disabled{opacity:.55;cursor:wait}
 @media(max-width:640px){.task-controls{display:grid;grid-template-columns:1fr 1fr}.task-controls button{min-height:44px}.task-controls button:last-child:nth-child(3){grid-column:1/-1}}
+
+.task-due-label{display:flex;align-items:center;gap:9px;color:#53615b;font-size:12px;font-weight:800}
+.task-due-label input{min-height:40px;padding:0 9px;border:1px solid #d5e0db;border-radius:10px;background:#fff;color:#234b40;font:inherit;font-weight:650}
+@media(max-width:640px){.task-due-label{grid-column:1/-1;justify-content:space-between}.task-due-label input{flex:1;max-width:190px}.task-controls button:last-child{grid-column:1/-1}}
