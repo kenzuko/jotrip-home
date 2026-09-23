@@ -1528,6 +1528,7 @@ async function selectModule(id){
 
     rerender();
     focusRequestedVenue();
+    focusRequestedFood();
     const writable=applyPermissions();
 
     if(dirty){
