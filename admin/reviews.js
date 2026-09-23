@@ -110,4 +110,11 @@ async function showDiff(button){
 
 $("#refresh").addEventListener("click",load);
 load();
-\nfunction focusRequestedReview(){\n  const number=new URLSearchParams(location.search).get("pr");\n  if(!number)return;\n  const button=Array.from(document.querySelectorAll(".field-toggle")).find(item=>item.dataset.pr===number);\n  if(!button)return;\n  button.closest(".card")?.scrollIntoView({behavior:"smooth",block:"center"});\n  button.click();\n}\n
+function focusRequestedReview(){
+  const number=new URLSearchParams(location.search).get("pr");
+  if(!number)return;
+  const button=Array.from(document.querySelectorAll(".field-toggle")).find(item=>item.dataset.pr===number);
+  if(!button)return;
+  button.closest(".card")?.scrollIntoView({behavior:"smooth",block:"center"});
+  button.click();
+}
