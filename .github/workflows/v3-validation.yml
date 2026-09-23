@@ -28,6 +28,8 @@ jobs:
         run: node scripts/test-search.mjs
       - name: Test current CMS permissions
         run: node scripts/test-cms-access.mjs
+      - name: Test CMS draft review workflow
+        run: node scripts/test-cms-draft-review.mjs
       - name: Test Near Me venue pins and canonical places
         run: node scripts/test-nearme-venues.mjs
       - name: Test Vietcombank currency parser
@@ -47,6 +49,8 @@ jobs:
           node --check functions/api/cms/session.js
           node --check functions/api/cms/content.js
           node --check functions/api/cms/analytics.js
+          node --check functions/api/cms/publish.js
+          node --check admin/admin.js
           node --check nearme/nearme.js
           node --check nearme/venue-normalizer.js
           node --check explore/app.js
