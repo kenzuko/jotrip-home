@@ -318,7 +318,7 @@ async function main(){
  const catalog=await remote(LIVE+"weather-nowcast/catalog.json",true);
  if(catalog?.dates?.length){
   schedule("data/history/catalog.json",catalog);
-  for(const item of catalog.dates.slice(-14)){
+  for(const item of catalog.dates.slice(0,14)){
    const day=item.date;if(!/^\d{4}-\d\d-\d\d$/.test(day))continue;
    const summary=await remote(LIVE+"weather-nowcast/summary/"+day+".json",true);
    if(summary)schedule("data/history/summary/"+day+".json",summary);
