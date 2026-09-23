@@ -1,4 +1,4 @@
-import { rm, mkdir, cp, copyFile } from "node:fs/promises";
+import { rm, mkdir, cp, copyFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
@@ -68,6 +68,16 @@ await rm(`${out}/data/knowledge`,{recursive:true,force:true});
 await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
 if(existsSync("cms/schema.json")) await copyFile("cms/schema.json",`${out}/cms/schema.json`);
+
+const sourceCommit=process.env.GITHUB_SHA||process.env.CF_PAGES_COMMIT_SHA||null;
+if(sourceCommit){
+  await mkdir(`${out}/data/meta`,{recursive:true});
+  await writeFile(`${out}/data/meta/cms-build.json`,JSON.stringify({
+    source_commit:sourceCommit,
+    built_at:new Date().toISOString(),
+    build:"openpq-cms-pages"
+  },null,2)+"\n");
+}
 
 await copyFile(new URL("routes.json", import.meta.url),`${out}/_routes.json`);
 console.log("Cloudflare Pages output ready in dist/");
