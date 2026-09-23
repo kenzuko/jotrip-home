@@ -31,6 +31,7 @@ async function load(){
         return '<article class="card"><div class="card-head"><span class="state '+(item.draft?"draft":"ready")+'">'+state+'</span><span class="number">#'+Number(item.number)+'</span></div><h3>'+esc(item.title)+'</h3><p class="meta">Người gửi: '+esc(author)+' · Cập nhật '+esc(when(item.updated_at))+'</p><p class="detail">'+Number(item.changed_files)+' tệp thay đổi · +'+Number(item.additions)+' / −'+Number(item.deletions)+' dòng</p><div class="actions"><button class="action secondary field-toggle" type="button" data-pr="'+Number(item.number)+'">Xem diff theo trường</button><a class="action" href="'+esc(item.url)+'" target="_blank" rel="noopener">Mở PR trên GitHub ↗</a></div><div class="field-diff hidden" id="diff-'+Number(item.number)+'"></div></article>';
       }).join("");
       document.querySelectorAll(".field-toggle").forEach(button=>button.addEventListener("click",()=>showDiff(button)));
+      focusRequestedReview();
     }
     renderHistory(result.history||[]);
     loadQuality();
@@ -109,3 +110,4 @@ async function showDiff(button){
 
 $("#refresh").addEventListener("click",load);
 load();
+\nfunction focusRequestedReview(){\n  const number=new URLSearchParams(location.search).get("pr");\n  if(!number)return;\n  const button=Array.from(document.querySelectorAll(".field-toggle")).find(item=>item.dataset.pr===number);\n  if(!button)return;\n  button.closest(".card")?.scrollIntoView({behavior:"smooth",block:"center"});\n  button.click();\n}\n
