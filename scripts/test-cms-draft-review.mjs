@@ -49,7 +49,7 @@ globalThis.fetch=async(url,options={})=>{
   if(target==="https://api.github.com/repos/kenzuko/jotrip-home/pulls"&&options.method==="POST"){
     const pr=JSON.parse(options.body);
     assert.equal(pr.base,"main");
-    assert.equal(pr.draft,true);
+    assert.equal(pr.draft,false,"The owner should receive a PR ready to review");
     assert.match(pr.head,/^cms\/draft\/kenzuko-/);
     return Response.json({number:91,html_url:"https://github.com/kenzuko/jotrip-home/pull/91",draft:true},{status:201});
   }
@@ -70,7 +70,7 @@ try{
   assert.equal(proposed.status,200);
   assert.equal(result.pull_request?.number,91);
   assert.equal(result.pull_request?.draft,true);
-  assert.ok(calls.some(x=>x.method==="POST"&&x.url.endsWith("/pulls")),"A valid edit must open a draft PR");
+  assert.ok(calls.some(x=>x.method==="POST"&&x.url.endsWith("/pulls")),"A valid edit must open a owner-review PR");
   assert.equal(calls.some(x=>x.method==="PUT"&&x.url.endsWith("/contents/data/home-copy.json")&&!JSON.parse(x.body).branch),false,
     "CMS proposals must never write directly to main");
   console.log("CMS draft review tests passed: stale SHA blocked; valid content saved to a draft PR");
