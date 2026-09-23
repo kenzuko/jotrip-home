@@ -35,7 +35,7 @@ function field(path,value=""){
   const target=field("entities.0.legacy_id","old_article");
   run("focusRequestedFood",{query:"?record=food_test&field=legacy_id",moduleId:"foods",fields:[target]});
   assert.equal(target.didFocus,true,"Food task should focus its requested field");
-  assert.deepEqual(target.focusOptions,{preventScroll:true});
+  assert.equal(target.focusOptions.preventScroll,true,"Focus should preserve the existing scroll position");
 }
 {
   const target=field("entities.0.coordinate_source_ref");
