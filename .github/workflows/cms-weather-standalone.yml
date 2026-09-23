@@ -82,8 +82,8 @@ jobs:
           const token=(process.env.CLOUDFLARE_API_TOKEN||'').trim(),account=(process.env.CLOUDFLARE_ACCOUNT_ID||'').trim();
           if(!token||!account){console.log("Pages credentials unavailable");process.exit(0)}
           (async()=>{
-            const r=await fetch("https://api.cloudflare.com/client/v4/accounts/"+encodeURIComponent(account)+"/pages/projects?per_page=100",{headers:{Authorization:"Bearer "+token,Accept:"application/json"}});
-            if(!r.ok){console.log("CMS Pages inventory HTTP",r.status);return}
+            const r=await fetch("https://api.cloudflare.com/client/v4/accounts/"+encodeURIComponent(account)+"/pages/projects?per_page=20",{headers:{Authorization:"Bearer "+token,Accept:"application/json"}});
+            if(!r.ok){const j=await r.json().catch(()=>({}));console.log("CMS Pages inventory HTTP",r.status,(j.errors||[]).map(e=>e.code+":"+e.message).join(";").slice(0,350));return}
             const matches=((await r.json()).result||[]).filter(p=>(p.domains||[]).some(d=>String(d).toLowerCase()==="cms.openphuquoc.com"));
             if(matches.length!==1){console.log("CMS Pages domain matches:",matches.length);return}
             const p=matches[0],c=p.source?.config||{};
