@@ -53,7 +53,7 @@ export async function onRequest({request,env}){
     if(!readyFoodVenues.length){
       add(task("FOOD_PILOT_NO_READY_VENUES",null,"venues","Ăn quanh tôi","high","Có "+foodVenues.length+" địa điểm mang category quán ăn/nhà hàng/cà phê và 0 địa điểm đạt điều kiện vận hành, nguồn, ngày kiểm tra, tọa độ cùng độ chính xác.","Xác minh địa điểm thực tế, ca bán và quan hệ món-quán; chỉ bật gợi ý sau khi đủ chứng cứ."));
     }
-    add(task("FOOD_VENUE_RELATIONSHIPS_NOT_MODELED",null,"venue_food","Món tại quán","high","Kho hiện tại chưa có tập quan hệ tách biệt ghi món nào được bán tại venue nào cùng chứng cứ và thời điểm xác nhận.","Thiết kế và nhập quan hệ món-quán từ xác minh thực tế; không suy từ tag, bài món hoặc ảnh menu."));
+    add(task("FOOD_VENUE_RELATIONSHIPS_NOT_MODELED",null,"venue_food","Món tại quán","high","Trong data/entities CMS chuẩn hiện dùng chưa có tập quan hệ ghi món nào được bán tại venue nào cùng chứng cứ và thời điểm xác nhận.","Thiết kế và nhập quan hệ món-quán từ xác minh thực tế; không suy từ tag, bài món hoặc ảnh menu."));
     return json({tasks,count:tasks.length,computed_at:new Date().toISOString(),storage:"computed-from-main",note:"Các tín hiệu này được tính lại mỗi lần tải, chưa có trạng thái nhận việc, hạn, mute hay audit bền vững."});
   }catch(e){return json({error:"Không tạo được hàng đợi chất lượng",detail:e?.message||String(e)},503)}
 }
