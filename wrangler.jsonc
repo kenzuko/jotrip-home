@@ -12,8 +12,17 @@
       "/places/detail.html",
       "/guide/article.html",
       "/api/weather/live/feedback",
-      "/api/weather/live/feedback/recent"
+      "/api/weather/live/feedback/recent",
+      "/weather/data/*",
+      "/weather/spatial-ecmwf.json",
+      "/weather/spatial-icon.json",
+      "/weather/spatial-marine.json"
     ]
   },
-  "main": "./worker.js"
+  "main": "./worker.js",
+  "triggers": {
+    "crons": [
+      "*/10 * * * *"
+    ]
+  }
 }

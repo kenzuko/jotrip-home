@@ -1,5 +1,6 @@
 import {onRequestPost as cmsWeatherFeedbackPost} from "./functions/api/weather/live/feedback.js";
 import {onRequestGet as cmsWeatherFeedbackRecent} from "./functions/api/weather/live/feedback/recent.js";
+import {handleWeatherData,prewarmWeatherEdge} from "./functions/_shared/weather-edge.js";
 const SITE_ORIGIN = "https://openphuquoc.com";
 const DEFAULT_IMAGE = SITE_ORIGIN + "/assets/logo-master.png";
 
@@ -126,7 +127,16 @@ function transformMeta(response, meta) {
 }
 
 export default {
-  async fetch(request, env) {
+  async scheduled(event,env,ctx){
+    ctx.waitUntil(prewarmWeatherEdge("https://openphuquoc-v3.kenzuko.workers.dev",p=>ctx.waitUntil(p)));
+  },
+  async fetch(request, env, ctx) {
+    const weatherPath=new URL(request.url).pathname;
+    if(weatherPath.startsWith("/weather/data/")||[
+      "/weather/spatial-ecmwf.json","/weather/spatial-icon.json","/weather/spatial-marine.json"
+    ].includes(weatherPath)){
+      return handleWeatherData(request,()=>env.ASSETS.fetch(request),ctx? p=>ctx.waitUntil(p):undefined);
+    }
     const path = new URL(request.url).pathname;
     if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request,env});
     if (path === "/api/weather/live/feedback/recent" && request.method === "GET") return cmsWeatherFeedbackRecent({request,env});
