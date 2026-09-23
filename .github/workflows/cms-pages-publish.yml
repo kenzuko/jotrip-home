@@ -7,6 +7,14 @@ on:
       - ".github/workflows/cms-pages-publish.yml"
       - "scripts/build-cloudflare.mjs"
       - "scripts/build-knowledge-public.mjs"
+      - "scripts/validate-cms-publication.mjs"
+      - "data/home-copy.json"
+      - "data/content.json"
+      - "data/utilities.json"
+      - "data/food.json"
+      - "data/entities/destination-venues.json"
+      - "cms/schema.json"
+      - "functions/api/cms/**"
       - "data/knowledge/**"
       - "guide/**"
       - "admin/**"
@@ -36,7 +44,8 @@ jobs:
           node scripts/validate-knowledge.mjs
           node scripts/validate-data.mjs
           node scripts/test-search.mjs
-          node -e "const d=require('./dist/data/views/knowledge-public.json');if(d.count!==128||d.objects.length!==128||JSON.stringify(d).includes('research'))process.exit(1);console.log('CMS has',d.count,'public articles')"
+          node scripts/validate-cms-publication.mjs
+          echo "EXPECTED_PUBLIC_COUNT=$(node scripts/validate-cms-publication.mjs --count)" >> "$GITHUB_ENV"
           test -f dist/guide/knowledge.html
           test -f dist/guide/article.html
           test -f dist/admin/index.html
@@ -83,7 +92,7 @@ jobs:
       - name: Verify CMS library and admin navigation
         if: steps.discover.outputs.ready == 'true'
         run: |
-          curl --retry 4 --retry-delay 3 --connect-timeout 5 --max-time 20 -fsSL "https://cms.openphuquoc.com/data/views/knowledge-public.json?t=$GITHUB_SHA" | node -e 'let s="";process.stdin.on("data",b=>s+=b).on("end",()=>{const j=JSON.parse(s);if(j.count!==128||j.objects.length!==128)process.exit(1);console.log("CMS domain: 128 articles live")})'
+          curl --retry 4 --retry-delay 3 --connect-timeout 5 --max-time 20 -fsSL "https://cms.openphuquoc.com/data/views/knowledge-public.json?t=$GITHUB_SHA" | node -e 'let s="";process.stdin.on("data",b=>s+=b).on("end",()=>{const j=JSON.parse(s);const expected=Number(process.env.EXPECTED_PUBLIC_COUNT);if(!Number.isInteger(expected)||j.count!==expected||j.objects.length!==expected)process.exit(1);console.log("CMS domain:",expected,"articles live")})'
           curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/guide/knowledge.html?t=$GITHUB_SHA" -o /tmp/cms-knowledge.html
           grep -q 'data-knowledge-page="library"' /tmp/cms-knowledge.html
           curl --connect-timeout 5 --max-time 15 -fsSL "https://cms.openphuquoc.com/admin/?t=$GITHUB_SHA" -o /tmp/cms-admin.html
