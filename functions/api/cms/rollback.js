@@ -23,6 +23,9 @@ export async function onRequest({request,env}){
     const base="https://api.github.com/repos/kenzuko/jotrip-home";
     const original=await gh(base+"/pulls/"+number,user.accessToken);
     if(!original.merged||!String(original.head?.ref||"").startsWith("cms/draft/"))return fail("Chỉ rollback được PR CMS đã merge",409);
+    const open=await gh(base+"/pulls?state=open&per_page=100",user.accessToken);
+    const existing=(Array.isArray(open)?open:[]).find(pr=>pr.title==="CMS: rollback #"+number);
+    if(existing)return json({ok:true,existing:true,pull_request:{number:existing.number,url:existing.html_url}});
     const files=await gh(base+"/pulls/"+number+"/files?per_page=10",user.accessToken);
     if(files.length!==1||files[0].status!=="modified"||!paths.has(files[0].filename))return fail("PR này không phải thay đổi một tệp CMS có thể rollback an toàn tự động",422);
     const file=files[0],encoded=file.filename.split("/").map(encodeURIComponent).join("/");
