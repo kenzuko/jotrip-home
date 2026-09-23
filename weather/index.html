@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="/weather/weather-openpq.css?v=20260923-edge1">
   <link rel="preload" as="fetch" href="/weather/data/critical.json" crossorigin="anonymous">
   <link rel="manifest" href="/weather/weather-manifest.webmanifest">
-  <script defer src="/weather/weather-v2.js?v=20260923-fourfields1"></script>
+  <script defer src="/weather/weather-v2.js?v=20260924-anthoi-wind-alert1"></script>
   <script defer src="/weather/weather-connection.js?v=20260923-edge1"></script>
   <link rel="canonical" href="https://openphuquoc.com/weather/">
   <script type="application/ld+json">
@@ -100,7 +100,7 @@
       <div class="weather-now-facts" aria-label="Thông tin nhanh">
         <div><span>Mưa tại điểm</span><b id="heroRain">--</b><small id="heroRainMeta">mm/h · ước tính tại điểm</small></div>
         <div><span>Gió</span><b id="heroWind">--</b><small id="heroWindMeta">km/h · JoTrip</small></div>
-        <div><span>Gió giật</span><b id="heroGust">--</b><small>km/h · mô hình</small></div>
+        
         <div><span>Sóng nền</span><b id="heroWave">--</b><small id="heroWaveMeta">m Hs · mô hình biển</small></div>
       </div>
     </div>
@@ -309,10 +309,6 @@
       <details class="now-advanced">
     <summary>Gió và biển hiện tại - thông số mô hình</summary>
     <section class="now-grid now-grid-advanced" aria-label="Thông số thời tiết chuyên sâu">
-      <article class="metric-card">
-        <div><span>Gió giật</span><em class="badge model">MÔ HÌNH</em></div>
-        <b id="gustNow">--</b><small>km/h</small>
-      </article>
       <article class="metric-card">
         <div><span>Sóng cao Hmax</span><em class="badge model">MÔ HÌNH</em></div>
         <b id="hmaxNow">--</b><small>m · giá trị ước tính khi cần</small>
