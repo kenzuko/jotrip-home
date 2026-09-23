@@ -22,6 +22,7 @@ globalThis.fetch=async(url,options={})=>{
   const target=String(url),method=options.method||"GET";calls.push({target,method,body:options.body});
   if(target.startsWith("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/cms/users.json"))return Response.json({users:[{login:"kenzuko",role:"admin",enabled:true}]});
   if(target.endsWith("/pulls/17"))return Response.json({merged:true,head:{ref:"cms/draft/kenzuko-17"},merge_commit_sha:"merge-sha"});
+  if(target.endsWith("/pulls?state=open&per_page=100"))return Response.json([]);
   if(target.endsWith("/pulls/17/files?per_page=10"))return Response.json([{filename:"data/home-copy.json",status:"modified",sha:"target-final-blob"}]);
   if(target.endsWith("/commits/merge-sha"))return Response.json({parents:[{sha:"parent-sha"}]});
   if(target.endsWith("/git/ref/heads/main"))return Response.json({object:{sha:"main-head"}});
