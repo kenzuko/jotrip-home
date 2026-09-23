@@ -723,27 +723,32 @@ function renderVenueLocationEvidence(item,path){
 
 function focusRequestedFood(){
   const params=new URLSearchParams(location.search);
-  const id=params.get("record");
+  const id=params.get("record"),field=params.get("field");
   if(!id||currentModule?.id!=="foods")return;
   const card=Array.from(document.querySelectorAll("[data-food-id]")).find(item=>item.dataset.foodId===id);
   if(!card)return;
   card.classList.add("quality-focus");
   card.scrollIntoView({behavior:"smooth",block:"center"});
+  if(field){
+    const target=Array.from(card.querySelectorAll("[data-path]")).find(item=>item.dataset.path.endsWith("."+field));
+    target?.focus({preventScroll:true});
+  }
 }
 
 function focusRequestedVenue(){
   const params=new URLSearchParams(location.search);
-  const id=params.get("record");
+  const id=params.get("record"),requestedField=params.get("field");
   if(!id||currentModule?.id!=="venues")return;
   const card=Array.from(document.querySelectorAll("[data-venue-id]")).find(item=>item.dataset.venueId===id);
   if(!card)return;
   card.classList.add("quality-focus");
   card.scrollIntoView({behavior:"smooth",block:"center"});
+  const field=requestedField==="coordinate_evidence"?"coordinate_precision":requestedField;
   const proof=card.querySelector(".venue-location-proof");
-  if(proof){
-    proof.open=true;
-    const focusField=Array.from(proof.querySelectorAll("[data-path]")).find(field=>field.dataset.path.endsWith(".coordinate_precision"));
-    focusField?.focus({preventScroll:true});
+  if(["coordinate_precision","coordinate_source_ref","coordinate_source_type","coordinate_observed_at","coordinate_confidence","coordinate_note"].includes(field)&&proof)proof.open=true;
+  if(field){
+    const target=Array.from(card.querySelectorAll("[data-path]")).find(item=>item.dataset.path.endsWith("."+field));
+    target?.focus({preventScroll:true});
   }
 }
 
