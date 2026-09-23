@@ -1,0 +1,1297 @@
+:root{
+  --ink:#102b37;
+  --muted:#6b8490;
+  --glass:rgba(255,255,255,.90);
+  --line:rgba(17,61,78,.12);
+  --green:#35c77a;
+  --amber:#f0b741;
+  --red:#e85262;
+  --blue:#1e77b6;
+  --shadow:0 12px 32px rgba(17,53,69,.17);
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#c7e2ea;color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+button,input{font:inherit}
+button{cursor:pointer}
+.app{position:relative;width:100%;height:100svh;overflow:hidden;background:#b9d9e4}
+.map{position:absolute;inset:0;z-index:1}
+.leaflet-container{background:#b9d9e4;font-family:inherit}
+.map .leaflet-tile-pane{filter:saturate(.88) brightness(.74) contrast(1.14)}
+.leaflet-control-attribution{font-size:7px!important;background:rgba(255,255,255,.72)!important;color:#667f8a!important}
+.leaflet-control-attribution a{color:#2d728a!important}
+.leaflet-control-zoom{display:none!important}
+.map-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.field-canvas{z-index:4;opacity:.96}
+.uncertainty-canvas{z-index:5;opacity:.9}
+.flow-canvas{z-index:6}
+
+.topbar{position:absolute;z-index:40;left:8px;right:8px;top:max(8px,env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;gap:8px}
+.brand,.status-pill{background:rgba(255,255,255,.92);border:1px solid rgba(255,255,255,.84);backdrop-filter:blur(16px);box-shadow:var(--shadow)}
+.brand{height:44px;border-radius:15px;padding:5px 9px 5px 8px;display:flex;align-items:center;gap:8px}
+.brand-logo{display:block;width:78px;height:auto;object-fit:contain;filter:none}
+.brand-copy{display:flex;flex-direction:column;justify-content:center;min-width:0}
+.brand-copy b{display:block;font-size:11px;line-height:1;color:#16313c}
+.brand-copy small{display:block;font-size:6px;letter-spacing:.13em;color:#708a95;font-weight:850;margin-top:3px;white-space:nowrap}
+.status-pill{height:36px;padding:0 9px;border-radius:999px;display:flex;align-items:center;gap:7px;font-size:8px;font-weight:900;color:#567481;white-space:nowrap}
+.status-pill i{width:8px;height:8px;border-radius:50%;background:#9fb2ba;box-shadow:0 0 0 4px rgba(159,178,186,.14)}
+.status-pill.live i{background:var(--green);box-shadow:0 0 0 4px rgba(53,199,122,.14)}
+.status-pill.warn i{background:var(--amber)}
+
+.readout{position:absolute;z-index:31;left:8px;top:60px;min-width:185px;max-width:min(360px,calc(100% - 74px));padding:9px 11px;border-radius:14px;background:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.8);box-shadow:0 9px 25px rgba(18,58,75,.13);backdrop-filter:blur(14px)}
+.readout>small{font-size:7px;letter-spacing:.13em;color:#4f7b8d;font-weight:950}
+.readout-main{display:flex;align-items:flex-end;gap:4px;margin-top:1px}
+.readout-main strong{font-size:29px;line-height:.95;letter-spacing:-.045em}.readout-main span{font-size:10px;color:#587987;font-weight:850;padding-bottom:3px}
+.readout>b{display:block;font-size:11px;margin-top:4px}.readout>p{margin:2px 0 0;font-size:8px;color:#718994;line-height:1.3}
+
+.right-controls{position:absolute;z-index:35;right:8px;top:60px;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.right-controls button{border:1px solid rgba(255,255,255,.8);background:rgba(255,255,255,.91);color:#17485b;box-shadow:0 8px 22px rgba(18,58,75,.13);backdrop-filter:blur(14px)}
+.tool{width:40px;height:40px;border-radius:12px;font-size:17px;font-weight:900}
+.toggle{min-width:65px;height:37px;border-radius:12px;padding:0 8px;display:flex;align-items:center;justify-content:center;gap:5px}
+.toggle span{font-size:9px;font-weight:950}.toggle small{font-size:7px;font-weight:850}.toggle.active{background:#154f66;color:#fff;border-color:#154f66}
+#actualBtn.active{background:#2f84c8;border-color:#2f84c8}
+#ensembleBtn.active{background:#704fa8;border-color:#704fa8}
+
+.alert-bar{position:absolute;z-index:34;left:8px;bottom:144px;max-width:min(410px,calc(100% - 16px));display:grid;grid-template-columns:30px 1fr auto;gap:8px;align-items:center;padding:8px 9px;border-radius:13px;background:rgba(255,255,255,.91);border:1px solid rgba(255,255,255,.84);box-shadow:var(--shadow);backdrop-filter:blur(14px)}
+.alert-bar.watch{background:rgba(255,248,226,.95);border-color:rgba(240,183,65,.44)}
+.alert-bar.alert{background:rgba(255,238,242,.95);border-color:rgba(232,82,98,.44)}
+.alert-icon{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:#edf5f7;color:#467586;font-weight:950}
+.alert-bar.watch .alert-icon{background:#fff0bf;color:#976500}.alert-bar.alert .alert-icon{background:#ffe0e5;color:#b63748}
+.alert-bar small{display:block;font-size:7px;letter-spacing:.13em;color:#728b95;font-weight:900}.alert-bar b{display:block;font-size:9px;margin-top:1px}.alert-bar strong{font-size:7px;color:#5d7b87}
+
+.probe{position:absolute;z-index:45;right:8px;top:215px;width:286px;padding:11px;border-radius:15px;background:rgba(255,255,255,.94);border:1px solid rgba(255,255,255,.86);box-shadow:var(--shadow);backdrop-filter:blur(16px)}
+.probe.hidden{display:none}.probe>button{position:absolute;right:5px;top:4px;border:0;background:transparent;color:#8398a0;font-size:19px}
+.probe>small{font-size:7px;letter-spacing:.13em;color:#738e99;font-weight:900}.probe h2{margin:2px 0 8px;font-size:16px}
+.probe-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.probe-item{padding:7px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}.probe-item span{display:block;font-size:7px;color:#718a95}.probe-item b{display:block;margin-top:3px;font-size:11px}
+.probe-extra{margin-top:7px;font-size:7px;line-height:1.45;color:#6b8490}
+
+.timeline{position:absolute;z-index:38;left:50%;bottom:72px;transform:translateX(-50%);width:min(690px,calc(100% - 16px));padding:8px 10px 7px;border-radius:14px;background:rgba(27,44,53,.92);color:#fff;box-shadow:0 10px 28px rgba(8,23,30,.22);backdrop-filter:blur(14px)}
+.timeline-head{display:grid;grid-template-columns:auto auto 1fr auto;align-items:center;gap:8px}
+.play{width:30px;height:30px;border:0;border-radius:9px;background:#fff;color:#17333f;font-size:9px}.timeline-head b{font-size:9px}.timeline-head span{font-size:7px;color:#b7c8ce}.timeline-head span:nth-of-type(1){text-align:right}
+.timeline input{width:100%;accent-color:#efb52e;margin:4px 0 1px}
+.timeline-ticks{display:flex;justify-content:space-between;padding:0 2px}.timeline-ticks span{font-size:6px;color:#9fb2ba}
+
+.layerbar{position:absolute;z-index:40;left:0;right:0;bottom:0;padding:7px 7px max(7px,env(safe-area-inset-bottom));background:rgba(26,43,52,.96);border-top:1px solid rgba(255,255,255,.08);backdrop-filter:blur(14px);display:flex;justify-content:center;gap:6px;overflow-x:auto;scrollbar-width:none}
+.layerbar::-webkit-scrollbar{display:none}
+.layer{min-width:68px;height:42px;border:1px solid rgba(255,255,255,.08);border-radius:11px;background:rgba(255,255,255,.07);color:#dce8ec;display:flex;align-items:center;justify-content:center;gap:5px;font-size:8px;font-weight:900}
+.layer i{font-style:normal;font-size:14px}.layer.active{background:#efb52e;color:#24333a;border-color:#efb52e}.layer[data-layer="radar"].active{background:#4b8ed6;color:white;border-color:#4b8ed6}.layer[data-layer="storm"].active{background:#7452a9;color:white;border-color:#7452a9}
+
+.scale{position:absolute;z-index:36;left:50%;bottom:56px;transform:translateX(-50%);width:min(540px,calc(100% - 38px))}
+.scale-gradient{height:7px;border-radius:999px;border:1px solid rgba(255,255,255,.55);box-shadow:0 3px 10px rgba(10,38,49,.17)}
+.scale-labels{display:flex;justify-content:space-between;margin-top:2px;color:#fff;text-shadow:0 1px 4px rgba(0,0,0,.5);font-size:6px;font-weight:900}
+
+.model-badge{position:absolute;z-index:32;right:8px;bottom:55px;padding:5px 7px;border-radius:8px;background:rgba(255,255,255,.78);color:#526f7b;font-size:7px;box-shadow:0 4px 12px rgba(18,57,73,.1)}
+.model-badge b{color:#244f60}.model-badge span{margin-left:4px}
+
+.risk-dot{width:12px;height:12px;border-radius:50%;border:2px solid white;box-shadow:0 2px 8px rgba(17,59,74,.28)}.risk-dot.ok{background:var(--green)}.risk-dot.watch{background:var(--amber)}.risk-dot.alert{background:var(--red)}
+.risk-label,.actual-label{padding:3px 5px;border-radius:7px;background:rgba(255,255,255,.93);border:1px solid rgba(18,66,84,.1);color:#1d4d60;font-size:7px;font-weight:900;white-space:nowrap;box-shadow:0 4px 10px rgba(17,61,77,.11)}
+.actual-pin{width:15px;height:15px;border-radius:50%;border:3px solid white;box-shadow:0 0 0 3px rgba(50,140,210,.18),0 4px 10px rgba(17,62,79,.24)}.actual-pin.metar{background:#2bc67b}.actual-pin.rain{background:#3f8bd8}
+
+@media(max-width:760px){
+  .topbar{left:6px;right:6px;top:max(6px,env(safe-area-inset-top))}.brand{height:41px}.brand-mark{width:30px;height:30px}.brand b{font-size:12px}.brand small{font-size:6px}.status-pill{height:33px;font-size:7px}
+  .readout{left:6px;top:54px;min-width:154px;max-width:calc(100% - 70px);padding:8px 9px}.readout-main strong{font-size:25px}.readout>p{max-width:210px}
+  .right-controls{right:6px;top:54px}.tool{width:37px;height:37px}.toggle{min-width:55px;height:33px;padding:0 6px}.toggle small{display:none}
+  .alert-bar{left:6px;right:6px;bottom:137px;max-width:none;padding:7px 8px}.alert-bar b{font-size:9px}
+  .probe{left:6px;right:6px;top:auto;bottom:137px;width:auto}.probe-grid{grid-template-columns:repeat(4,1fr)}.probe-item{padding:6px}.probe-item b{font-size:10px}
+  .timeline{bottom:67px;width:calc(100% - 12px);padding:7px 8px}.timeline-head{grid-template-columns:auto auto 1fr auto}
+  .layerbar{justify-content:flex-start;padding-left:6px;padding-right:6px}.layer{min-width:63px;height:40px}
+  .scale{bottom:52px;width:calc(100% - 24px)}.model-badge{display:none}
+}
+@media(max-width:480px){
+  .probe-grid{grid-template-columns:repeat(2,1fr)}
+  .readout>p{font-size:7px}
+  .layer{min-width:60px}
+}
+@media(prefers-reduced-motion:reduce){.flow-canvas{display:none}}
+
+
+/* V5.1 mobile readability + motion hierarchy */
+.field-canvas{opacity:.92;mix-blend-mode:screen}
+.map .leaflet-tile-pane{filter:saturate(.96) brightness(1.01) contrast(1.07)}
+.risk-dot{width:10px;height:10px;border-width:2px}
+.risk-label{font-size:7px;padding:3px 5px;background:rgba(255,255,255,.90)}
+
+@media(max-width:760px){
+  .readout{
+    min-width:138px;
+    max-width:170px;
+    padding:7px 8px;
+    border-radius:12px;
+  }
+  .readout>small{font-size:6px}
+  .readout-main strong{font-size:22px}
+  .readout-main span{font-size:8px}
+  .readout>b{font-size:10px}
+  .readout>p{
+    font-size:6.5px;
+    line-height:1.15;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .right-controls{gap:5px}
+  .tool{width:34px;height:34px;border-radius:11px;font-size:15px}
+  .toggle{
+    min-width:45px;
+    width:45px;
+    height:32px;
+    border-radius:11px;
+    padding:0;
+  }
+  .toggle span{font-size:8px}
+  .toggle small{display:none}
+
+  .alert-bar{
+    min-height:42px;
+    grid-template-columns:26px 1fr auto;
+    gap:6px;
+    padding:6px 8px;
+    border-radius:12px;
+  }
+  .alert-icon{width:25px;height:25px;border-radius:8px}
+  .alert-bar small{display:none}
+  .alert-bar b{
+    font-size:9px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  .timeline{
+    bottom:61px;
+    padding:5px 7px 4px;
+    border-radius:12px;
+  }
+  .timeline-head{gap:6px}
+  .play{width:27px;height:27px;border-radius:8px}
+  .timeline-head b{font-size:8px}
+  .timeline-head span{font-size:6px}
+  .timeline input{margin:2px 0 0}
+  .timeline-ticks{padding:0 1px}
+  .timeline-ticks span{font-size:5.5px}
+
+  .layerbar{
+    padding:5px 6px max(5px,env(safe-area-inset-bottom));
+    gap:5px;
+  }
+  .layer{
+    min-width:58px;
+    height:36px;
+    border-radius:10px;
+    gap:4px;
+    font-size:7.5px;
+  }
+  .layer i{font-size:12px}
+
+  .scale{bottom:47px}
+  .scale-gradient{height:6px}
+  .scale-labels{font-size:5.5px}
+
+  .probe{bottom:128px}
+}
+
+@media(max-width:480px){
+  .brand{height:38px;padding-right:7px}
+  .brand-mark{width:28px;height:28px;border-radius:9px}
+  .brand b{font-size:11px}
+  .brand small{display:none}
+  .status-pill{height:30px;font-size:6.5px}
+  .readout{top:50px}
+  .right-controls{top:50px}
+  .alert-bar{bottom:128px}
+  .timeline{bottom:57px}
+  .scale{bottom:44px}
+  .layer{min-width:56px}
+}
+
+
+/* V5.3 high-contrast weather-map visual system */
+.app{background:#233846}
+.map{background:#233846}
+.readout,.brand,.status-pill,.right-controls button,.alert-bar,.probe{
+  background:rgba(247,250,251,.92);
+}
+.readout{box-shadow:0 10px 30px rgba(4,18,27,.26)}
+.uncertainty-canvas{mix-blend-mode:screen;opacity:.78}
+.flow-canvas{filter:drop-shadow(0 0 1.3px rgba(0,0,0,.45))}
+.scale-gradient{border-color:rgba(255,255,255,.72)}
+.layerbar,.timeline{background:rgba(17,30,39,.96)}
+.layer{background:rgba(255,255,255,.08)}
+.layer.active{box-shadow:0 5px 18px rgba(239,181,46,.24)}
+.risk-dot{box-shadow:0 0 0 2px rgba(255,255,255,.8),0 2px 8px rgba(0,0,0,.3)}
+@media(max-width:760px){
+  .brand{min-width:150px}
+  .brand-logo{width:72px}
+  .brand-copy b{font-size:10px}
+  .brand-copy small{font-size:5.7px}
+}
+@media(max-width:480px){
+  .brand{height:38px;min-width:142px;padding-left:7px}
+  .brand-logo{width:67px}
+  .brand-copy b{font-size:9px}
+}
+
+.toggle.hidden{display:none!important}
+#modelDiffBtn.active{background:#c65d38;border-color:#c65d38;color:#fff}
+#modelDiffBtn:not(.active){background:rgba(255,255,255,.91)}
+
+
+/* V5.4 Clear Map + Windy-style picker */
+#fieldCanvas{
+  opacity:1!important;
+  mix-blend-mode:normal!important;
+  filter:none!important;
+}
+#uncertaintyCanvas{
+  mix-blend-mode:normal!important;
+  opacity:1!important;
+}
+#flowCanvas{
+  display:block!important;
+  opacity:1!important;
+  filter:drop-shadow(0 0 1.4px rgba(0,0,0,.55))!important;
+}
+.map .leaflet-tile-pane{
+  filter:none!important;
+}
+.leaflet-weatherLabels-pane{
+  filter:none!important;
+  opacity:.98;
+}
+.leaflet-weatherLabels-pane .leaflet-tile{
+  filter:none!important;
+}
+.windy-flag{
+  position:relative;
+  width:138px;
+  min-height:62px;
+  padding:8px 10px 7px;
+  border-radius:10px;
+  background:rgba(18,29,36,.95);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 7px 22px rgba(0,0,0,.34);
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+  pointer-events:auto;
+}
+.windy-flag:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  border-radius:10px 0 0 10px;
+  background:#efb52e;
+}
+.windy-flag-place{
+  padding-left:3px;
+  font-size:8px;
+  font-weight:850;
+  color:#c9d8de;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.windy-flag-value{
+  padding-left:3px;
+  margin-top:1px;
+  font-size:20px;
+  font-weight:950;
+  line-height:1;
+  letter-spacing:-.03em;
+}
+.windy-flag-value small{
+  font-size:8px;
+  font-weight:850;
+  letter-spacing:0;
+  color:#d7e3e7;
+}
+.windy-flag-sub{
+  padding-left:3px;
+  margin-top:4px;
+  font-size:6.5px;
+  color:#9fb4bd;
+  white-space:nowrap;
+}
+.windy-flag>i{
+  position:absolute;
+  left:15px;
+  bottom:-8px;
+  width:15px;
+  height:15px;
+  background:rgba(18,29,36,.95);
+  transform:rotate(45deg);
+  border-right:1px solid rgba(255,255,255,.18);
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
+.probe{
+  max-height:min(46vh,430px);
+  overflow:auto;
+}
+@media(max-width:760px){
+  .windy-flag{
+    width:126px;
+    min-height:58px;
+    padding:7px 9px 6px;
+  }
+  .windy-flag-value{font-size:18px}
+  .windy-flag-sub{font-size:6px}
+  .probe{
+    bottom:118px;
+    max-height:42vh;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  #flowCanvas{display:block!important}
+}
+
+.actual-flag:before{background:#35c77a}
+
+
+/* V5.5 focused Phu Quoc weather-map tuning */
+.app{background:#b8d5df}
+.map{background:#b8d5df}
+#fieldCanvas{mix-blend-mode:normal!important}
+#uncertaintyCanvas{mix-blend-mode:normal!important}
+.map .leaflet-tile-pane{filter:saturate(.88) brightness(.92) contrast(1.05)!important}
+.leaflet-weatherLabels-pane{opacity:.96!important}
+.leaflet-weatherLabels-pane .leaflet-tile{filter:contrast(1.08) brightness(.92)!important}
+.flow-canvas{filter:drop-shadow(0 0 1px rgba(20,42,52,.5))!important}
+
+
+/* V5.7 center picker */
+.map-crosshair{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:30px;
+  height:30px;
+  transform:translate(-50%,-50%);
+  z-index:720;
+  pointer-events:none;
+  filter:drop-shadow(0 1px 2px rgba(0,0,0,.45));
+}
+.map-crosshair.hidden{display:none}
+.map-crosshair:before,.map-crosshair:after{
+  content:"";
+  position:absolute;
+  background:rgba(255,255,255,.96);
+  border-radius:2px;
+}
+.map-crosshair:before{
+  left:14px;top:0;width:2px;height:30px;
+}
+.map-crosshair:after{
+  left:0;top:14px;width:30px;height:2px;
+}
+.map-crosshair span{
+  position:absolute;
+  left:9px;top:9px;
+  width:12px;height:12px;
+  border:2px solid rgba(16,46,58,.92);
+  border-radius:50%;
+  background:rgba(255,255,255,.08);
+  box-shadow:0 0 0 2px rgba(255,255,255,.85);
+}
+.map-crosshair i{
+  position:absolute;
+  left:13px;top:13px;
+  width:4px;height:4px;
+  border-radius:50%;
+  background:#efb52e;
+}
+#crosshairBtn.active{
+  background:#173f52;
+  color:#fff;
+  border-color:#173f52;
+}
+#crosshairBtn.active span{color:#fff}
+@media(max-width:760px){
+  .map-crosshair{width:26px;height:26px}
+  .map-crosshair:before{left:12px;height:26px}
+  .map-crosshair:after{top:12px;width:26px}
+  .map-crosshair span{left:8px;top:8px;width:10px;height:10px}
+  .map-crosshair i{left:11px;top:11px}
+}
+
+
+/* V6 presentation-first scenes - isolated to spatial-lab only */
+.layer[data-layer="rain24"].active{background:#5aaed6;color:#fff;border-color:#5aaed6}
+.map[data-weather-layer="wind"] .leaflet-tile-pane{
+  filter:grayscale(.35) saturate(.55) brightness(.68) contrast(1.08)!important;
+}
+.map[data-weather-layer="rain"] .leaflet-tile-pane{
+  filter:grayscale(.55) saturate(.42) brightness(.73) contrast(1.04)!important;
+}
+.map[data-weather-layer="rain24"] .leaflet-tile-pane{
+  filter:grayscale(.28) saturate(.58) brightness(.88) contrast(1.02)!important;
+}
+.map[data-weather-layer="storm"] .leaflet-tile-pane{
+  filter:grayscale(1) saturate(.15) brightness(.42) contrast(1.14)!important;
+}
+.map[data-weather-layer="radar"] .leaflet-tile-pane{
+  filter:grayscale(.82) saturate(.25) brightness(.56) contrast(1.10)!important;
+}
+.map[data-weather-layer="waves"] .leaflet-tile-pane,
+.map[data-weather-layer="current"] .leaflet-tile-pane{
+  filter:grayscale(.48) saturate(.45) brightness(.64) contrast(1.08)!important;
+}
+.map[data-weather-layer="storm"] .leaflet-weatherLabels-pane{opacity:.72!important}
+.map[data-weather-layer="rain"] .leaflet-weatherLabels-pane,
+.map[data-weather-layer="radar"] .leaflet-weatherLabels-pane{opacity:.78!important}
+.map[data-weather-layer="rain24"] .leaflet-weatherLabels-pane{opacity:.90!important}
+.map[data-weather-layer="wind"] .leaflet-weatherLabels-pane,
+.map[data-weather-layer="waves"] .leaflet-weatherLabels-pane,
+.map[data-weather-layer="current"] .leaflet-weatherLabels-pane{opacity:.84!important}
+
+/* Weather data must dominate the scene, map remains only geographic context. */
+.map[data-weather-layer="rain"] #fieldCanvas,
+.map[data-weather-layer="rain24"] #fieldCanvas{opacity:1!important}
+.map[data-weather-layer="storm"] #fieldCanvas{opacity:.96!important}
+.map[data-weather-layer="radar"] .leaflet-radar-pane{mix-blend-mode:normal}
+
+@media(max-width:760px){
+  .layerbar{justify-content:flex-start;padding-left:8px;padding-right:8px}
+  .layer{min-width:62px}
+  .layer[data-layer="rain24"]{min-width:72px}
+}
+
+
+/* V6.1 depth-first presentation */
+.map{background:#566b75!important}
+.map[data-weather-layer="wind"] .leaflet-tile-pane{opacity:.42!important}
+.map[data-weather-layer="rain"] .leaflet-tile-pane{opacity:.30!important}
+.map[data-weather-layer="rain24"] .leaflet-tile-pane{opacity:.38!important}
+.map[data-weather-layer="storm"] .leaflet-tile-pane{opacity:.20!important}
+.map[data-weather-layer="radar"] .leaflet-tile-pane{opacity:.28!important}
+.map[data-weather-layer="waves"] .leaflet-tile-pane,
+.map[data-weather-layer="current"] .leaflet-tile-pane{opacity:.36!important}
+
+.map[data-weather-layer="wind"] .leaflet-weatherLabels-pane{opacity:.68!important}
+.map[data-weather-layer="rain"] .leaflet-weatherLabels-pane{opacity:.56!important}
+.map[data-weather-layer="rain24"] .leaflet-weatherLabels-pane{opacity:.68!important}
+.map[data-weather-layer="storm"] .leaflet-weatherLabels-pane{opacity:.44!important}
+.map[data-weather-layer="radar"] .leaflet-weatherLabels-pane{opacity:.50!important}
+.map[data-weather-layer="waves"] .leaflet-weatherLabels-pane,
+.map[data-weather-layer="current"] .leaflet-weatherLabels-pane{opacity:.62!important}
+
+#fieldCanvas{
+  image-rendering:auto;
+  transform:translateZ(0);
+}
+.map[data-weather-layer="wind"] #fieldCanvas,
+.map[data-weather-layer="waves"] #fieldCanvas,
+.map[data-weather-layer="current"] #fieldCanvas{
+  filter:saturate(1.08) contrast(1.06)!important;
+}
+.map[data-weather-layer="rain"] #fieldCanvas,
+.map[data-weather-layer="rain24"] #fieldCanvas{
+  filter:saturate(1.14) contrast(1.08)!important;
+}
+
+
+/* V6.1 cloud relief override */
+.map[data-weather-layer="storm"] #fieldCanvas{
+  filter:blur(.9px) saturate(1.12) contrast(1.12)!important;
+}
+
+/* V6.3 - Windy-inspired operational presentation, tuned for embedded Intelligence */
+.leaflet-weatherContext-pane .leaflet-tile{
+  filter:grayscale(.78) saturate(.35) brightness(1.06) contrast(1.28);
+}
+.risk-label,.actual-label{
+  background:rgba(255,255,255,.96);
+  color:#173e50;
+  border:1px solid rgba(18,62,80,.12);
+  box-shadow:0 4px 14px rgba(10,35,47,.18);
+}
+.readout{
+  border:1px solid rgba(255,255,255,.14);
+}
+.readout-main strong{font-variant-numeric:tabular-nums}
+.layer span,.toggle small,.readout>small,.alert-bar small{letter-spacing:.04em}
+
+/* Embedded inside Weather Intelligence: data first, branding and controls secondary. */
+body.embed-mode .topbar{
+  left:8px;right:8px;top:8px;
+  pointer-events:none;
+}
+body.embed-mode .brand{
+  height:30px;
+  min-width:0;
+  padding:0;
+  gap:0;
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  backdrop-filter:none;
+  -webkit-backdrop-filter:none;
+}
+body.embed-mode .brand-logo{
+  width:54px;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.22));
+}
+body.embed-mode .brand-copy{display:none}
+body.embed-mode .status-pill{
+  margin-left:auto;
+  height:26px;
+  padding:0 8px;
+  font-size:6.5px;
+  background:rgba(244,250,251,.92);
+  border-color:rgba(255,255,255,.72);
+  box-shadow:0 5px 15px rgba(8,32,43,.14);
+  pointer-events:auto;
+}
+body.embed-mode .status-pill i{width:6px;height:6px;box-shadow:0 0 0 3px rgba(53,199,122,.14)}
+
+body.embed-mode .readout{
+  left:8px;
+  top:43px;
+  width:auto;
+  min-width:178px;
+  max-width:220px;
+  padding:9px 10px;
+  border-radius:11px;
+  background:rgba(18,31,39,.91);
+  color:#fff;
+  box-shadow:0 7px 24px rgba(0,0,0,.26);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+}
+body.embed-mode .readout>small{font-size:6.5px;color:#acd0df}
+body.embed-mode .readout-main{margin-top:1px}
+body.embed-mode .readout-main strong{font-size:27px;color:#fff}
+body.embed-mode .readout-main span{font-size:8px;color:#d7e5eb}
+body.embed-mode .readout>b{font-size:10px;color:#fff}
+body.embed-mode .readout>p{
+  font-size:7px;
+  line-height:1.25;
+  color:#b9cbd2;
+  white-space:normal;
+  overflow:visible;
+}
+
+body.embed-mode .right-controls{
+  right:8px;
+  top:43px;
+  gap:5px;
+}
+body.embed-mode .tool,
+body.embed-mode .toggle{
+  width:34px;
+  min-width:34px;
+  height:30px;
+  padding:0;
+  border-radius:10px;
+}
+body.embed-mode .tool{font-size:14px}
+body.embed-mode .toggle span{font-size:8px}
+body.embed-mode .toggle small{display:none}
+
+body.embed-mode .alert-bar{
+  left:8px;right:8px;
+  max-width:none;
+  bottom:122px;
+  min-height:38px;
+  grid-template-columns:24px minmax(0,1fr) auto;
+  padding:6px 8px;
+  border-radius:10px;
+}
+body.embed-mode .alert-icon{width:22px;height:22px;border-radius:7px}
+body.embed-mode .alert-bar small{display:none}
+body.embed-mode .alert-bar b{
+  font-size:8.5px;
+  line-height:1.25;
+  white-space:normal;
+  overflow:visible;
+}
+body.embed-mode .alert-bar strong{font-size:6.5px}
+
+body.embed-mode .timeline{
+  bottom:57px;
+  width:calc(100% - 16px);
+  padding:5px 7px 4px;
+  border-radius:10px;
+}
+body.embed-mode .play{width:26px;height:26px;border-radius:7px}
+body.embed-mode .timeline-head b{font-size:7.5px}
+body.embed-mode .timeline-head span{font-size:5.8px}
+body.embed-mode .timeline-ticks span{font-size:5px}
+body.embed-mode .layerbar{
+  justify-content:flex-start;
+  padding:5px 7px max(5px,env(safe-area-inset-bottom));
+  gap:5px;
+}
+body.embed-mode .layer{
+  min-width:52px;
+  height:34px;
+  border-radius:9px;
+  font-size:7px;
+  gap:3px;
+}
+body.embed-mode .layer i{font-size:11px}
+body.embed-mode .scale{
+  bottom:43px;
+  width:calc(100% - 24px);
+}
+body.embed-mode .scale-gradient{height:5px}
+body.embed-mode .scale-labels{font-size:5px}
+body.embed-mode .model-badge{
+  right:8px;bottom:43px;
+  font-size:6px;
+  background:rgba(255,255,255,.88);
+}
+body.embed-mode .map-crosshair{transform:translate(-50%,-42%) scale(.82)}
+
+@media(max-width:760px){
+  body.embed-mode .readout{min-width:164px;max-width:205px}
+  body.embed-mode .readout-main strong{font-size:24px}
+  body.embed-mode .layer{min-width:50px}
+}
+
+/* V6.4 - clean Windy-like overview */
+.map .leaflet-tile-pane{filter:saturate(.78) brightness(.92) contrast(1.08)}
+.field-canvas{opacity:.80}
+.uncertainty-canvas{opacity:.72}
+body.embed-mode .readout>b{display:none}
+body.embed-mode .readout{
+  min-width:138px;
+  max-width:176px;
+  padding:7px 9px;
+  background:rgba(13,30,40,.76);
+  border-color:rgba(255,255,255,.08);
+  box-shadow:0 6px 18px rgba(0,0,0,.20)
+}
+body.embed-mode .readout>small{font-size:5.8px;color:#b8d1dc}
+body.embed-mode .readout-main strong{font-size:23px}
+body.embed-mode .readout-main span{font-size:7px}
+body.embed-mode .readout>p{font-size:6.7px;color:#d4e0e5}
+body.embed-mode .right-controls{top:39px}
+body.embed-mode .tool,
+body.embed-mode .toggle{
+  width:31px;min-width:31px;height:28px;border-radius:9px;
+  background:rgba(255,255,255,.76);
+  border-color:rgba(255,255,255,.58);
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)
+}
+body.embed-mode .toggle.active{background:rgba(18,68,94,.82);color:#fff}
+body.embed-mode .status-pill{
+  background:rgba(255,255,255,.68);
+  border-color:rgba(255,255,255,.42);
+}
+body.embed-mode .alert-bar{display:none!important}
+body.embed-mode .timeline{bottom:48px}
+body.embed-mode .layerbar{background:rgba(11,27,36,.68);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+body.embed-mode .layer{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.10);color:#e9f2f6}
+body.embed-mode .layer.active{background:rgba(255,255,255,.92);color:#123e55}
+body.embed-mode .model-badge{display:none}
+body.embed-mode .actual-label,
+body.embed-mode .risk-label{display:none!important}
+body.embed-mode .actual-pin,
+body.embed-mode .risk-dot{display:none!important}
+body.embed-mode .leaflet-control-attribution{opacity:.55}
+body.embed-mode .windy-flag{
+  min-width:112px;
+  padding:6px 8px;
+  border-radius:8px;
+  background:rgba(12,28,38,.82);
+  color:#fff;
+  box-shadow:0 5px 16px rgba(0,0,0,.24);
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px)
+}
+body.embed-mode .windy-flag-place{display:none}
+body.embed-mode .windy-flag-value{font-size:18px}
+body.embed-mode .windy-flag-value small{font-size:7px}
+body.embed-mode .windy-flag-sub{font-size:6.5px;color:#d7e4ea;margin-top:2px}
+body.embed-mode .map-crosshair{opacity:.92}
+
+/* V6.6 - map-first / Windy-like readability
+   Geographic context must always remain visible. Weather becomes denser only
+   where the underlying value is stronger. */
+body.embed-mode .map .leaflet-tile-pane{
+  opacity:1!important;
+  filter:grayscale(.12) saturate(.82) brightness(1.03) contrast(1.08)!important;
+}
+body.embed-mode .leaflet-weatherLabels-pane{
+  opacity:.92!important;
+  filter:none!important;
+}
+body.embed-mode .leaflet-weatherLabels-pane .leaflet-tile{
+  filter:contrast(1.05) brightness(.98)!important;
+}
+body.embed-mode .leaflet-weatherContext-pane{opacity:0!important}
+
+/* Never let a second analytical surface wash out the primary layer. */
+body.embed-mode #uncertaintyCanvas{display:none!important}
+body.embed-mode #ensembleBtn,
+body.embed-mode #modelDiffBtn,
+body.embed-mode #riskBtn,
+body.embed-mode #actualBtn{display:none!important}
+
+/* The JS still computes per-pixel alpha by intensity. These global opacities
+   only set the overall visual weight of the active layer. */
+body.embed-mode .map[data-weather-layer="wind"] #fieldCanvas{opacity:.66!important}
+body.embed-mode .map[data-weather-layer="rain"] #fieldCanvas{opacity:.76!important}
+body.embed-mode .map[data-weather-layer="rain24"] #fieldCanvas{opacity:.72!important}
+body.embed-mode .map[data-weather-layer="storm"] #fieldCanvas{opacity:.76!important}
+body.embed-mode .map[data-weather-layer="waves"] #fieldCanvas{opacity:.68!important}
+body.embed-mode .map[data-weather-layer="current"] #fieldCanvas{opacity:.66!important}
+body.embed-mode #flowCanvas{
+  opacity:.78!important;
+  filter:drop-shadow(0 0 .8px rgba(0,0,0,.34))!important;
+}
+
+/* Only the picker belongs on the map. No station/point badges in the embedded view. */
+body.embed-mode .risk-label,
+body.embed-mode .risk-dot,
+body.embed-mode .actual-label,
+body.embed-mode .actual-pin{display:none!important}
+
+/* Windy-style translucent timeline: map remains visible underneath. */
+body.embed-mode .timeline{
+  left:10px;
+  right:10px;
+  width:auto;
+  bottom:47px;
+  padding:4px 7px 3px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:8px;
+  background:rgba(18,24,29,.46)!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.12);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+body.embed-mode .timeline-head{
+  min-height:24px;
+  gap:6px;
+}
+body.embed-mode .play{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:rgba(255,255,255,.92);
+  color:#17394a;
+  box-shadow:0 2px 8px rgba(0,0,0,.16);
+}
+body.embed-mode .timeline-head b{
+  font-size:7.5px;
+  color:#fff;
+  text-shadow:0 1px 2px rgba(0,0,0,.35);
+}
+body.embed-mode .timeline-head span{
+  font-size:5.5px;
+  color:rgba(255,255,255,.72);
+}
+body.embed-mode #timeSlider{
+  height:12px;
+  background:transparent;
+}
+body.embed-mode #timeSlider::-webkit-slider-runnable-track{
+  height:3px;
+  border-radius:99px;
+  background:rgba(255,255,255,.52);
+}
+body.embed-mode #timeSlider::-webkit-slider-thumb{
+  -webkit-appearance:none;
+  width:14px;
+  height:14px;
+  margin-top:-5.5px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.94);
+  background:#efb52e;
+  box-shadow:0 2px 7px rgba(0,0,0,.28);
+}
+body.embed-mode #timeSlider::-moz-range-track{
+  height:3px;
+  border-radius:99px;
+  background:rgba(255,255,255,.52);
+}
+body.embed-mode #timeSlider::-moz-range-thumb{
+  width:12px;height:12px;border-radius:50%;border:2px solid #fff;background:#efb52e;
+}
+body.embed-mode .timeline-ticks{
+  opacity:.58;
+  margin-top:0;
+}
+body.embed-mode .timeline-ticks span{font-size:4.8px;color:#fff}
+
+/* Layer bar floats over the map without becoming an opaque footer. */
+body.embed-mode .layerbar{
+  background:rgba(14,25,32,.42)!important;
+  border-top:1px solid rgba(255,255,255,.10);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+body.embed-mode .layer{
+  background:rgba(255,255,255,.08)!important;
+  border-color:rgba(255,255,255,.11)!important;
+  color:rgba(255,255,255,.90);
+}
+body.embed-mode .layer.active{
+  background:rgba(255,255,255,.92)!important;
+  color:#153d52!important;
+  box-shadow:0 3px 12px rgba(0,0,0,.12)!important;
+}
+
+/* Keep picker compact and readable, but never cover the geography. */
+body.embed-mode .readout{
+  top:41px;
+  min-width:118px;
+  max-width:154px;
+  padding:6px 8px;
+  background:rgba(14,27,35,.68)!important;
+  border-color:rgba(255,255,255,.08)!important;
+  box-shadow:0 4px 14px rgba(0,0,0,.18)!important;
+}
+body.embed-mode .readout>small{font-size:5.2px}
+body.embed-mode .readout-main strong{font-size:21px}
+body.embed-mode .readout-main span{font-size:6.5px}
+body.embed-mode .readout>p{font-size:6px;line-height:1.22}
+body.embed-mode .right-controls{top:40px}
+
+/* Map itself should dominate the card. */
+body.embed-mode .brand-logo{width:43px}
+body.embed-mode .status-pill{height:22px;font-size:5.7px;padding:0 7px}
+body.embed-mode .leaflet-control-attribution{opacity:.42;font-size:6px}
+
+@media(max-width:760px){
+  body.embed-mode .timeline{left:7px;right:7px;bottom:46px}
+  body.embed-mode .readout{min-width:112px;max-width:146px}
+  body.embed-mode .readout-main strong{font-size:20px}
+}
+
+
+
+/* V6.8 - JoTrip Map visual lock: flow-first, layer-specific grammar, map-first UI */
+.scale.hidden,.context-modes.hidden{display:none!important}
+
+.context-modes{
+  position:absolute;
+  z-index:41;
+  right:8px;
+  top:78px;
+  display:flex;
+  gap:3px;
+  padding:3px;
+  border:1px solid rgba(255,255,255,.38);
+  border-radius:999px;
+  background:rgba(248,252,253,.58);
+  box-shadow:0 4px 14px rgba(8,31,42,.10);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+}
+.context-modes button{
+  min-height:26px;
+  padding:0 9px;
+  border:0;
+  border-radius:999px;
+  background:transparent;
+  color:#426371;
+  font-size:7px;
+  font-weight:850;
+}
+.context-modes button.active{
+  background:rgba(18,67,91,.86);
+  color:#fff;
+}
+
+/* Keep geography visible for every layer. */
+body.embed-mode .map .leaflet-tile-pane{
+  opacity:1!important;
+  filter:saturate(.90) brightness(1.01) contrast(1.06)!important;
+}
+body.embed-mode .leaflet-weatherLabels-pane{
+  opacity:.92!important;
+  filter:none!important;
+}
+body.embed-mode .leaflet-weatherLabels-pane .leaflet-tile{filter:none!important}
+
+/* Layer-specific presentation weight. */
+body.embed-mode .map[data-weather-layer="wind"] #fieldCanvas{
+  opacity:0!important;
+  display:block!important;
+}
+body.embed-mode .map[data-weather-layer="rain"] #fieldCanvas{
+  opacity:.94!important;
+  filter:blur(.35px) saturate(1.12) contrast(1.04)!important;
+}
+body.embed-mode .map[data-weather-layer="rain24"] #fieldCanvas{
+  opacity:.58!important;
+  filter:saturate(1.04) contrast(1.02)!important;
+}
+body.embed-mode .map[data-weather-layer="waves"] #fieldCanvas{
+  opacity:.34!important;
+  filter:saturate(.92) contrast(1.03)!important;
+}
+body.embed-mode .map[data-weather-layer="current"] #fieldCanvas{
+  opacity:.18!important;
+  filter:saturate(.86) contrast(1.02)!important;
+}
+body.embed-mode .map[data-weather-layer="storm"] #fieldCanvas{
+  opacity:.68!important;
+  filter:blur(.55px) saturate(.82) contrast(1.06)!important;
+}
+body.embed-mode #flowCanvas{
+  opacity:.80!important;
+  filter:none!important;
+}
+
+/* Embedded map only exposes the controls a traveller needs. */
+body.embed-mode #crosshairBtn,
+body.embed-mode #ensembleBtn,
+body.embed-mode #modelDiffBtn,
+body.embed-mode #riskBtn,
+body.embed-mode #actualBtn{
+  display:none!important;
+}
+body.embed-mode .right-controls{
+  top:39px;
+  right:7px;
+}
+body.embed-mode #recenterBtn{
+  width:30px;
+  height:30px;
+  border-radius:10px;
+  background:rgba(248,252,253,.58);
+  border:1px solid rgba(255,255,255,.42);
+  box-shadow:0 4px 13px rgba(8,31,42,.10);
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+}
+
+/* Brand + live state should identify the map, not occupy it. */
+body.embed-mode .topbar{
+  left:7px;
+  right:7px;
+  top:7px;
+}
+body.embed-mode .brand{
+  height:26px;
+  min-width:0;
+  padding:0;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+body.embed-mode .brand-logo{
+  width:44px;
+  filter:drop-shadow(0 1px 2px rgba(255,255,255,.55));
+}
+body.embed-mode .status-pill{
+  height:23px;
+  padding:0 7px;
+  border-radius:999px;
+  background:rgba(250,253,253,.56)!important;
+  border-color:rgba(255,255,255,.38)!important;
+  color:#426371;
+  box-shadow:0 3px 12px rgba(9,33,44,.08)!important;
+  backdrop-filter:blur(7px);
+  -webkit-backdrop-filter:blur(7px);
+}
+body.embed-mode .status-pill i{width:6px;height:6px}
+
+/* Compact picker: numerical truth remains easy to read. */
+body.embed-mode .readout{
+  left:7px;
+  top:39px;
+  min-width:118px;
+  max-width:156px;
+  padding:6px 8px;
+  border-radius:10px;
+  background:rgba(12,28,37,.62)!important;
+  border-color:rgba(255,255,255,.08)!important;
+  box-shadow:0 4px 13px rgba(0,0,0,.13)!important;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+}
+body.embed-mode .readout>small{font-size:5.3px;color:#bdd3dc}
+body.embed-mode .readout-main strong{font-size:21px}
+body.embed-mode .readout-main span{font-size:6.5px}
+body.embed-mode .readout>p{font-size:6px;line-height:1.22;color:#e2ebef}
+
+/* Small contextual Rain Forecast / Radar switch, only visible in rain mode. */
+body.embed-mode .context-modes{
+  top:75px;
+  right:7px;
+}
+
+/* Six equal layer choices, no scrolling menu. */
+body.embed-mode .layerbar{
+  left:7px;
+  right:7px;
+  bottom:max(5px,env(safe-area-inset-bottom));
+  padding:4px;
+  display:grid!important;
+  grid-template-columns:repeat(6,minmax(0,1fr));
+  gap:4px;
+  overflow:visible;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:12px;
+  background:rgba(12,27,35,.32)!important;
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+}
+body.embed-mode .layer{
+  min-width:0!important;
+  width:100%;
+  height:34px;
+  padding:0 3px;
+  border-radius:9px;
+  background:rgba(255,255,255,.06)!important;
+  border-color:rgba(255,255,255,.08)!important;
+  color:rgba(255,255,255,.90);
+  gap:3px;
+  font-size:7px;
+}
+body.embed-mode .layer i{font-size:10px}
+body.embed-mode .layer.active{
+  background:rgba(255,255,255,.90)!important;
+  color:#143d50!important;
+  box-shadow:0 2px 9px rgba(0,0,0,.10)!important;
+}
+
+/* Timeline is a transparent tool, not a second panel. */
+body.embed-mode .timeline{
+  left:7px;
+  right:7px;
+  width:auto;
+  bottom:48px;
+  padding:4px 7px 3px;
+  border:1px solid rgba(255,255,255,.10);
+  border-radius:10px;
+  background:rgba(11,25,33,.31)!important;
+  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+body.embed-mode .play{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  background:rgba(255,255,255,.88);
+  color:#17394a;
+}
+body.embed-mode .timeline-head b{font-size:7px}
+body.embed-mode .timeline-head span{font-size:5.3px;color:rgba(255,255,255,.72)}
+body.embed-mode .timeline-ticks{opacity:.48}
+body.embed-mode .timeline-ticks span{font-size:4.6px}
+
+/* Legend only appears when a scalar legend materially helps. */
+body.embed-mode .scale{
+  left:10px;
+  bottom:92px;
+  transform:none;
+  width:min(220px,56%);
+  padding:5px 7px 4px;
+  border-radius:9px;
+  background:rgba(12,27,35,.34);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+body.embed-mode .scale-gradient{height:4px;border:0;box-shadow:none}
+body.embed-mode .scale-labels{font-size:4.8px;margin-top:1px}
+
+/* Keep technical/debug surfaces out of the embedded traveller view. */
+body.embed-mode #uncertaintyCanvas{display:none!important}
+body.embed-mode .model-badge,
+body.embed-mode .alert-bar,
+body.embed-mode .risk-label,
+body.embed-mode .risk-dot,
+body.embed-mode .actual-label,
+body.embed-mode .actual-pin{display:none!important}
+body.embed-mode .leaflet-control-attribution{
+  opacity:.32;
+  font-size:5.5px!important;
+}
+
+@media(max-width:420px){
+  body.embed-mode .layer{height:33px;font-size:6.6px}
+  body.embed-mode .layer i{font-size:9px}
+  body.embed-mode .timeline{bottom:47px}
+  body.embed-mode .readout{max-width:148px}
+  body.embed-mode .scale{bottom:90px;width:min(205px,58%)}
+}
+
+
+/* V6.9 - traveller-first embedded map
+   One primary layer, minimal chrome, layer-specific visual grammar. */
+.scale-title{
+  display:block;
+  margin:0 0 3px;
+  color:#fff;
+  font-size:6px;
+  line-height:1.1;
+  font-weight:900;
+  letter-spacing:.04em;
+  text-shadow:0 1px 3px rgba(0,0,0,.35);
+}
+
+/* In the embedded card the six layer buttons are text-first and perfectly equal. */
+body.embed-mode .layerbar{
+  grid-template-columns:repeat(6,minmax(0,1fr))!important;
+}
+body.embed-mode .layer i{display:none!important}
+body.embed-mode .layer{
+  height:32px;
+  font-size:7.2px;
+  font-weight:850;
+  letter-spacing:0;
+}
+body.embed-mode .layer[data-layer="rain24"]{min-width:0!important}
+
+/* Keep the timeline readable but visually subordinate to the map. */
+body.embed-mode #confidenceLabel,
+body.embed-mode #trendLabel{display:none!important}
+body.embed-mode .timeline-head{
+  grid-template-columns:auto minmax(0,1fr)!important;
+}
+body.embed-mode .timeline{
+  background:rgba(10,24,31,.24)!important;
+  border-color:rgba(255,255,255,.08)!important;
+  box-shadow:0 2px 10px rgba(0,0,0,.06)!important;
+}
+body.embed-mode .timeline-ticks{opacity:.40}
+
+/* Branding identifies JoTrip without becoming another card over the weather. */
+body.embed-mode .brand-logo{
+  width:41px!important;
+  opacity:.90;
+}
+body.embed-mode .status-pill{
+  background:rgba(250,253,253,.44)!important;
+  border-color:rgba(255,255,255,.30)!important;
+}
+
+/* Wind and current are vector fields: motion is the message, not a decorative wash. */
+body.embed-mode .map[data-weather-layer="wind"] #fieldCanvas,
+body.embed-mode .map[data-weather-layer="current"] #fieldCanvas{
+  opacity:0!important;
+}
+
+/* Waves retain only a faint Hs context under clearly visible direction marks. */
+body.embed-mode .map[data-weather-layer="waves"] #fieldCanvas{
+  opacity:.25!important;
+}
+
+/* Rain is allowed to use colour because position/intensity is the quantity itself. */
+body.embed-mode .map[data-weather-layer="rain"] #fieldCanvas{opacity:.88!important}
+body.embed-mode .map[data-weather-layer="rain24"] #fieldCanvas{opacity:.62!important}
+
+/* Himawari is rendered as cloud mass, with the basemap still readable. */
+body.embed-mode .map[data-weather-layer="storm"] #fieldCanvas{opacity:.64!important}
+
+/* Scalar legend must explain the colour - never leave a naked decorative gradient. */
+body.embed-mode .scale{
+  width:min(235px,61%);
+  padding:6px 8px 5px;
+  background:rgba(10,27,35,.42);
+  border:1px solid rgba(255,255,255,.08);
+}
+body.embed-mode .scale-title{font-size:5.8px}
+body.embed-mode .scale-labels{font-size:5.2px}
+
+/* Contextual rain switch is the only secondary mode control. */
+body.embed-mode .context-modes{
+  background:rgba(248,252,253,.45);
+  border-color:rgba(255,255,255,.28);
+}
+body.embed-mode .context-modes button{font-size:6.8px}
+
+/* One recenter control is enough in traveller view. */
+body.embed-mode #recenterBtn{
+  background:rgba(248,252,253,.48);
+  border-color:rgba(255,255,255,.30);
+  box-shadow:0 3px 10px rgba(8,31,42,.07);
+}
+
+@media(max-width:420px){
+  body.embed-mode .layer{font-size:6.8px;height:31px}
+  body.embed-mode .scale{width:min(220px,64%)}
+}
+
+
+/* V6.10 - mobile visibility + timeline geometry fix */
+body.embed-mode .timeline{
+  left:7px!important;
+  right:7px!important;
+  width:auto!important;
+  transform:none!important;
+  bottom:47px!important;
+}
+body.embed-mode .timeline-head{
+  grid-template-columns:auto minmax(0,1fr)!important;
+}
+body.embed-mode #timeSlider{
+  width:100%!important;
+  min-width:0;
+}
+
+/* The canvas pixels already carry value-dependent alpha.
+   Do not fade the whole canvas a second time until the data becomes invisible. */
+body.embed-mode .map[data-weather-layer="rain"] #fieldCanvas{opacity:1!important}
+body.embed-mode .map[data-weather-layer="rain24"] #fieldCanvas{opacity:.88!important}
+body.embed-mode .map[data-weather-layer="waves"] #fieldCanvas{opacity:.78!important}
+body.embed-mode .map[data-weather-layer="storm"] #fieldCanvas{opacity:.82!important}
+
+/* Motion layers remain clean and map-first. */
+body.embed-mode .map[data-weather-layer="wind"] #fieldCanvas,
+body.embed-mode .map[data-weather-layer="current"] #fieldCanvas{opacity:0!important}
+body.embed-mode #flowCanvas{opacity:.88!important}
+
+/* On phones, preserve map area and keep overlays legible without becoming panels. */
+@media(max-width:560px){
+  body.embed-mode .readout{
+    top:38px;
+    min-width:112px;
+    max-width:150px;
+    padding:6px 8px;
+  }
+  body.embed-mode .context-modes{top:72px}
+  body.embed-mode .timeline{
+    left:6px!important;
+    right:6px!important;
+    bottom:45px!important;
+    padding:4px 6px 3px!important;
+  }
+  body.embed-mode .layerbar{
+    left:6px;
+    right:6px;
+    padding:4px!important;
+  }
+  body.embed-mode .scale{
+    left:8px;
+    bottom:88px;
+    width:min(220px,66%);
+  }
+}
+
+
+/* V6.12 - make non-wind layers readable on pale CARTO without decorative wash */
+body.embed-mode .map[data-weather-layer="rain"] #fieldCanvas{opacity:1!important}
+body.embed-mode .map[data-weather-layer="rain24"] #fieldCanvas{opacity:.96!important}
+body.embed-mode .map[data-weather-layer="waves"] #fieldCanvas{opacity:.90!important}
+body.embed-mode .map[data-weather-layer="storm"] #fieldCanvas{
+  opacity:1!important;
+  filter:contrast(1.12) saturate(1.04)!important;
+}
+body.embed-mode .map[data-weather-layer="current"] #flowCanvas{opacity:1!important}
+
+
+/* V6.13 - visible vector fallback on mobile/Safari.
+   These canvases contain only direction strokes, never scalar gradient washes. */
+body.embed-mode .map[data-weather-layer="wind"] #fieldCanvas{
+  opacity:.44!important;
+  filter:none!important;
+}
+body.embed-mode .map[data-weather-layer="current"] #fieldCanvas{
+  opacity:.38!important;
+  filter:none!important;
+}
+body.embed-mode #flowCanvas{
+  opacity:.96!important;
+  filter:none!important;
+}
