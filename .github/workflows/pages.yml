@@ -42,6 +42,8 @@ jobs:
           node scripts/validate-home-knowledge.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test Near Me venue pins and canonical places
+        run: node scripts/test-nearme-venues.mjs
       - name: Test current CMS permissions
         run: node scripts/test-cms-access.mjs
       - name: Test Vietcombank currency parser
