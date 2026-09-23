@@ -54,7 +54,9 @@ export async function onRequest({request,env}){
     const role=await currentRole(s.login);
     if(!role)return json({error:"Tài khoản CMS đã bị vô hiệu hóa"},401);
 
-    const response=await fetch("https://api.github.com/repos/kenzuko/jotrip-home/pulls?state=open&per_page=100&sort=updated&direction=desc",{
+    const endpoint="https://api.github.com/repos/kenzuko/jotrip-home/pulls?per_page=100&sort=updated&direction=desc&state=";
+    const [response,historyResponse]=await Promise.all([
+      fetch(endpoint+"open",{
       headers:{
         Accept:"application/vnd.github+json",
         "X-GitHub-Api-Version":"2022-11-28",
@@ -62,9 +64,20 @@ export async function onRequest({request,env}){
         "User-Agent":"Open-Phu-Quoc-CMS"
       },
       cache:"no-store"
-    });
+    }),
+      fetch(endpoint+"closed",{
+        headers:{
+          Accept:"application/vnd.github+json",
+          "X-GitHub-Api-Version":"2022-11-28",
+          Authorization:"Bearer "+s.accessToken,
+          "User-Agent":"Open-Phu-Quoc-CMS"
+        },
+        cache:"no-store"
+      })
+    ]);
     const pulls=await response.json();
-    if(!response.ok)return json({error:"Không tải được hàng đợi duyệt",detail:pulls?.message||"GitHub API error"},502);
+    const closed=await historyResponse.json();
+    if(!response.ok||!historyResponse.ok)return json({error:"Không tải được hàng đợi duyệt",detail:pulls?.message||closed?.message||"GitHub API error"},502);
 
     const items=(Array.isArray(pulls)?pulls:[])
       .filter(pr=>String(pr.head?.ref||"").startsWith("cms/draft/"))
@@ -81,7 +94,15 @@ export async function onRequest({request,env}){
         additions:pr.additions||0,
         deletions:pr.deletions||0
       }));
-    return json({items,count:items.length,checked_at:new Date().toISOString()});
+    const history=(Array.isArray(closed)?closed:[])
+      .filter(pr=>pr.merged_at&&String(pr.head?.ref||"").startsWith("cms/draft/"))
+      .slice(0,20)
+      .map(pr=>({
+        number:pr.number,title:pr.title,url:pr.html_url,author:pr.user?.login||"",
+        merged_at:pr.merged_at,changed_files:pr.changed_files||0,
+        can_rollback:role==="admin"
+      }));
+    return json({items,count:items.length,history,checked_at:new Date().toISOString()});
   }catch(e){
     return json({error:"Không kiểm tra được hàng đợi duyệt",detail:e?.message||String(e)},503);
   }
