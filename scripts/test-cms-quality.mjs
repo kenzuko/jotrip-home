@@ -72,17 +72,22 @@ try{
   const task_key=[task.rule_id,task.entity_id||"",task.field].join("|");
   const claimed=await onRequest({request:request(true,"POST",{task_key,action:"claim"}),env});
   assert.equal(claimed.status,200);
+  const due=await onRequest({request:request(true,"POST",{task_key,action:"due",due_at:"2026-10-01"}),env});
+  assert.equal(due.status,200);
   const persisted=await onRequest({request:request(true),env});
   const persistedResult=await persisted.json();
   assert.equal(persistedResult.storage,"d1");
-  assert.equal(persistedResult.tasks.find(x=>x.entity_id===task.entity_id&&x.rule_id===task.rule_id).status,"in_progress");
-  assert.equal(persistedResult.tasks.find(x=>x.entity_id===task.entity_id&&x.rule_id===task.rule_id).owner,"kenzuko");
-  assert.equal(events.length,1);
+  const persistedTask=persistedResult.tasks.find(x=>x.entity_id===task.entity_id&&x.rule_id===task.rule_id);
+  assert.equal(persistedTask.status,"in_progress","Setting a due date must preserve task status");
+  assert.equal(persistedTask.owner,"kenzuko");
+  assert.equal(persistedTask.due_at,"2026-10-01");
+  assert.equal(events.length,2);
   assert.equal(events[0][2],"kenzuko");
   assert.equal(events[0][3],"claim");
   assert.equal(events[0][4],"null");
+  assert.equal(events[1][3],"due");
   const migration=fs.readFileSync(path.join(process.cwd(),"migrations/d1/0001_cms_quality_work_items.sql"),"utf8");
   const sqlCheck=spawnSync("python3",["-c","import sqlite3,sys; db=sqlite3.connect(':memory:'); db.executescript('CREATE TABLE analytics_sync (source TEXT PRIMARY KEY); CREATE TABLE cms_weather_field_feedback (id TEXT PRIMARY KEY);'); db.executescript(sys.stdin.read()); names={r[0] for r in db.execute(\"SELECT name FROM sqlite_master WHERE type='table'\")}; assert {'analytics_sync','cms_weather_field_feedback','cms_quality_work_items','cms_quality_audit_events'} <= names"],{input:migration,encoding:"utf8"});
   assert.equal(sqlCheck.status,0,sqlCheck.stderr||sqlCheck.stdout);
-  console.log("CMS quality queue tests passed: auth, task dedupe, D1 state/audit and additive SQLite migration.");
+  console.log("CMS quality queue tests passed: auth, task dedupe, D1 state, due dates, audit and additive SQLite migration.");
 }finally{globalThis.fetch=originalFetch}
