@@ -212,6 +212,18 @@ export async function onRequest({request,env}){
     if(!fileResponse.ok)return json({error:"Không đọc được bản live hiện tại",github_status:fileResponse.status,detail:file?.message||"Không rõ nguyên nhân"},fileResponse.status);
     if(file.sha!==body.sha)return json({error:"Nội dung trên GitHub đã đổi trong lúc cậu đang sửa. Tải lại module rồi áp dụng lại thay đổi để tránh ghi đè.",latest_sha:file.sha},409);
 
+    const openResponse=await fetch(api+"/pulls?state=open&per_page=100",{headers,cache:"no-store"});
+    const openPulls=await openResponse.json();
+    if(!openResponse.ok)return json({error:"Không kiểm tra được đề xuất đang mở",github_status:openResponse.status,detail:openPulls?.message||"Không rõ nguyên nhân"},openResponse.status);
+    for(const openPr of (Array.isArray(openPulls)?openPulls:[]).filter(pr=>String(pr.head?.ref||"").startsWith("cms/draft/"))){
+      const filesResponse=await fetch(api+"/pulls/"+openPr.number+"/files?per_page=100",{headers,cache:"no-store"});
+      const changedFiles=await filesResponse.json();
+      if(!filesResponse.ok)return json({error:"Không kiểm tra được tệp trong đề xuất đang mở",github_status:filesResponse.status,detail:changedFiles?.message||"Không rõ nguyên nhân"},filesResponse.status);
+      if((Array.isArray(changedFiles)?changedFiles:[]).some(file=>file.filename===path)){
+        return json({error:"Đang có đề xuất CMS khác sửa cùng tệp.",detail:"Kiểm tra hoặc đóng PR #"+openPr.number+" trước khi gửi thay đổi mới để tránh ghi đè.",conflicting_pr:{number:openPr.number,url:openPr.html_url}},409);
+      }
+    }
+
     const refResponse=await fetch(api+"/git/ref/heads/main",{headers,cache:"no-store"});
     const ref=await refResponse.json();
     if(!refResponse.ok)return json({error:"Không đọc được nhánh main",github_status:refResponse.status,detail:ref?.message||"Không rõ nguyên nhân"},refResponse.status);
