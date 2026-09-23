@@ -24,6 +24,7 @@ const source=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/publish.
 const {onRequest}=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
 const originalFetch=globalThis.fetch;
 let liveSha="expected-file-sha";
+let overlapping=false;
 let calls=[];
 globalThis.fetch=async(url,options={})=>{
   const target=String(url);
@@ -33,6 +34,12 @@ globalThis.fetch=async(url,options={})=>{
   }
   if(target==="https://api.github.com/repos/kenzuko/jotrip-home/contents/data/home-copy.json?ref=main"){
     return Response.json({sha:liveSha});
+  }
+  if(target==="https://api.github.com/repos/kenzuko/jotrip-home/pulls?state=open&per_page=100"){
+    return Response.json(overlapping?[{number:42,html_url:"https://github.com/kenzuko/jotrip-home/pull/42",head:{ref:"cms/draft/kenzuko-existing"}}]:[]);
+  }
+  if(target==="https://api.github.com/repos/kenzuko/jotrip-home/pulls/42/files?per_page=100"){
+    return Response.json([{filename:"data/home-copy.json"}]);
   }
   if(target==="https://api.github.com/repos/kenzuko/jotrip-home/git/ref/heads/main"){
     return Response.json({object:{sha:"main-head-sha"}});
@@ -64,6 +71,15 @@ try{
   assert.equal(calls.some(x=>x.method==="POST"||x.method==="PUT"),false,"Stale edits must not create a branch or PR");
 
   liveSha="expected-file-sha";
+  overlapping=true;
+  calls=[];
+  const overlap=await onRequest({request:request(base),env});
+  const overlapBody=await overlap.json();
+  assert.equal(overlap.status,409,"An open CMS proposal touching the same file must block a parallel proposal");
+  assert.equal(overlapBody.conflicting_pr.number,42);
+  assert.equal(calls.some(x=>x.method==="POST"||x.method==="PUT"),false,"Overlapping proposals must not create a branch or write");
+
+  overlapping=false;
   calls=[];
   const proposed=await onRequest({request:request(base),env});
   const result=await proposed.json();
