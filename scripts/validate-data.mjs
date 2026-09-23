@@ -36,6 +36,9 @@ const knownIds=new Set(ids.keys());
 const externalPrefixes=["live_"];
 
 for(const entity of entities){
+  if(entity.canonical_entity_id && !knownIds.has(entity.canonical_entity_id)){
+    errors.push(entity.id+": missing canonical entity "+entity.canonical_entity_id);
+  }
   if(entity.map){
     const {lat,lon,precision,source,verified_at}=entity.map;
     if(!Number.isFinite(lat)||lat < -90||lat > 90) errors.push(entity.id+": invalid map.lat");
