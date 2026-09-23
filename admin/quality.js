@@ -33,7 +33,8 @@ async function load(){
       const id=String(task.entity_id||"");
       const isFood=id.startsWith("food_");
       const path=isFood?"index.html?module=foods&record=":"index.html?module=venues&record=";
-      const action=id?'<a class="task-action" href="'+path+encodeURIComponent(id)+'">Mở đúng bản ghi →</a>':"";
+      const field=String(task.field||"");
+      const action=id?'<a class="task-action" href="'+path+encodeURIComponent(id)+"&field="+encodeURIComponent(field)+'">Mở đúng trường →</a>':"";
       return '<article class="task-card"><div class="task-head"><h2 class="task-title">'+esc(names[task.rule_id]||task.rule_id||"Việc cần xử lý")+'</h2><div class="task-pills"><span class="pill '+esc(task.severity)+'">'+esc(severity[task.severity]||"Cần xem")+'</span><span class="pill">'+esc(task.surface||"")+'</span></div></div><p class="task-evidence">'+esc(task.evidence||"")+'</p><p class="task-next"><strong>Bước kế tiếp:</strong> '+esc(task.next_action||"Mở dữ liệu và kiểm tra nguồn.")+'</p>'+action+'</article>';
     }).join("");
     if(result.note){$("#notice").textContent=result.note;$("#notice").className="notice"}
