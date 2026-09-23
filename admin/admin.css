@@ -701,3 +701,5 @@
 .food-record-fields>.field-group{grid-column:1/-1}
 .food-empty{padding:22px;border:1px dashed var(--line);border-radius:14px;text-align:center;color:var(--muted)}
 @media(max-width:780px){.food-workbench-head{align-items:stretch;flex-direction:column;padding:13px}.food-workbench-head button{width:100%}.food-record{padding:12px}.food-record-head{display:block}.food-record-head .item-tools{margin-top:10px}.food-record-fields{grid-template-columns:1fr}}
+
+.food-type-tag{display:inline-block;margin-bottom:5px;padding:4px 7px;border-radius:999px;background:#EEF5F1;color:#49675D;font-size:9px;font-weight:850}
