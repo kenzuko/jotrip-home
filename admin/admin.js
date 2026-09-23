@@ -104,7 +104,13 @@ const LABELS={
   price_level:"Mức giá",
   source_ref:"Nguồn",
   source_type:"Loại nguồn",
-  verified_at:"Kiểm tra gần nhất"
+  verified_at:"Kiểm tra gần nhất",
+  coordinate_precision:"Độ chính xác tọa độ",
+  coordinate_source_ref:"Nguồn kiểm tra tọa độ",
+  coordinate_source_type:"Loại nguồn tọa độ",
+  coordinate_observed_at:"Ngày kiểm tra tọa độ",
+  coordinate_confidence:"Độ tin cậy tọa độ",
+  coordinate_note:"Ghi chú tọa độ"
 };
 
 function show(id){["boot","remoteGate","login","cms"].forEach(x=>$("#"+x)?.classList.toggle("hidden",x!==id))}
@@ -164,6 +170,18 @@ function stringField(key,val,path){
 }
 
 function primitiveField(key,val,path){
+  if(currentModule?.id==="venues"&&key==="coordinate_confidence"){
+    const value=String(val||"");
+    return `<div class="field"><label>Độ tin cậy tọa độ</label><select data-path="${esc(path)}">
+      <option value="" ${!value?"selected":""}>Chưa đánh giá</option>
+      <option value="HIGH" ${value==="HIGH"?"selected":""}>Cao</option>
+      <option value="MEDIUM" ${value==="MEDIUM"?"selected":""}>Vừa</option>
+      <option value="LOW" ${value==="LOW"?"selected":""}>Thấp</option>
+    </select></div>`;
+  }
+  if(currentModule?.id==="venues"&&key==="coordinate_observed_at"){
+    return `<div class="field"><label>Ngày kiểm tra tọa độ</label><input type="date" data-path="${esc(path)}" value="${esc(val||"")}"></div>`;
+  }
   if(currentModule?.id==="venues"&&key==="category"){
     const value=String(val||"");
     return `<div class="field"><label>Loại địa điểm</label><select data-path="${esc(path)}">
@@ -584,6 +602,7 @@ function renderGuideArray(path,title,lead){
       <div class="guide-card-head">${image}<div><strong>${esc(titleText)}</strong>${sub?'<span>'+esc(sub)+'</span>':""}</div></div>
       ${itemTools(path,i,list.length)}
       ${renderChildren(item,p,1)}
+      ${renderVenueLocationEvidence(item,p)}
     </article>`;
   }).join("");
 
@@ -651,6 +670,22 @@ function renderUtilitiesWorkbench(){
     renderUtilityArray("transport_choices","Chọn phương tiện","Gợi ý theo nhu cầu chuyến đi.")+
     renderUtilityArray("checklist","Checklist trước chuyến đi","Những thứ nên kiểm tra trước khi ra đảo.")+
     support;
+}
+
+function renderVenueLocationEvidence(item,path){
+  const value=key=>item?.[key]??"";
+  return `<details class="venue-location-proof">
+    <summary>Vị trí và nguồn tọa độ <small>${value("coordinate_precision")&&value("coordinate_source_ref")?"Có thông tin":"Cần bổ sung khi đã kiểm tra"}</small></summary>
+    <div class="venue-location-grid">
+      ${primitiveField("coordinate_precision",value("coordinate_precision"),path+".coordinate_precision")}
+      ${primitiveField("coordinate_source_ref",value("coordinate_source_ref"),path+".coordinate_source_ref")}
+      ${primitiveField("coordinate_source_type",value("coordinate_source_type"),path+".coordinate_source_type")}
+      ${primitiveField("coordinate_observed_at",value("coordinate_observed_at"),path+".coordinate_observed_at")}
+      ${primitiveField("coordinate_confidence",value("coordinate_confidence"),path+".coordinate_confidence")}
+      ${primitiveField("coordinate_note",value("coordinate_note"),path+".coordinate_note")}
+    </div>
+    <p>Ghi nguồn đã dùng để kiểm tra chính tọa độ, ngày kiểm tra và tọa độ đại diện cho cổng vào, khu vực hay điểm tham chiếu. Nguồn bài giới thiệu địa điểm không tự chứng minh vị trí chính xác.</p>
+  </details>`;
 }
 
 function renderVenueWorkbench(){
@@ -955,6 +990,12 @@ function bindVenueControls(){
       source_ref:"",
       source_type:"",
       verified_at:"",
+      coordinate_precision:"",
+      coordinate_source_ref:"",
+      coordinate_source_type:"",
+      coordinate_observed_at:"",
+      coordinate_confidence:"",
+      coordinate_note:"",
       status:"REVIEW"
     });
     markDirty("Đã thêm địa điểm mới. Điền dữ liệu đã kiểm tra rồi bấm Gửi duyệt.");
