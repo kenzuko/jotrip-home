@@ -1,6 +1,6 @@
 {
-  "name": "JoTrip Weather Intelligence",
-  "short_name": "JoTrip Weather",
+  "name": "Open Phu Quoc - Thời tiết & Biển",
+  "short_name": "OpenPQ Weather",
   "description": "Hệ thống thời tiết riêng cho Phú Quốc: quan trắc, radar - vệ tinh, biển, AQI và dự báo JoTrip 10 ngày.",
   "start_url": "/weather/",
   "scope": "/weather/",
@@ -9,10 +9,10 @@
   "theme_color": "#0b2638",
   "icons": [
     {
-      "src": "/weather/weather-app-icon.svg",
+      "src": "/assets/favicon.png",
       "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
