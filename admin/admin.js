@@ -1290,7 +1290,7 @@ function renderNav(){
   $("#moduleNav").innerHTML=schema.modules
     .filter(m=>m.read.includes(session.role))
     .map(m=>'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>')
-    .join("")+'<a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện 128 bài"><span class="module-short">128</span><span class="module-copy"><strong>Thư viện 128 bài</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
+    .join("")+'<a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện bài viết"><span class="module-short">TV</span><span class="module-copy"><strong>Thư viện bài viết</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
 
   document.querySelectorAll("button.module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
 }
