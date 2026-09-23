@@ -129,7 +129,7 @@ function draftKey(id=currentModule?.id){return id&&session?"openpq-cms-draft:"+s
 function clearDraft(id=currentModule?.id){const k=draftKey(id);if(k)localStorage.removeItem(k)}
 function saveDraftNow(){if(!dirty||!currentModule||!session)return;const k=draftKey();if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}))}
 function scheduleDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(()=>{saveDraftNow();status("Có thay đổi chưa xuất bản. Bản nháp đã tự lưu trên trình duyệt.")},650)}
-function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Xuất bản thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
+function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi thay đổi duyệt";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
 
 function itemTitle(v,i){
   if(v&&typeof v==="object"){
@@ -719,7 +719,7 @@ function renderUsers(){
   $("#addUserBtn").onclick=()=>{
     currentData.users=currentData.users||[];
     currentData.users.push({login:"",name:"",role:"viewer",enabled:true});
-    markDirty("Đã thêm người dùng mới. Nhập GitHub username rồi bấm Xuất bản.");
+    markDirty("Đã thêm người dùng mới. Nhập GitHub username rồi bấm Gửi duyệt.");
     rerender();
   };
 
@@ -913,7 +913,7 @@ function bindArrayControls(){
     const action=btn.dataset.arrayAction;
 
     if(action==="delete"){
-      if(!confirm("Xóa mục này? Thay đổi chỉ có hiệu lực sau khi bấm Xuất bản."))return;
+      if(!confirm("Xóa mục này? Thay đổi chỉ có hiệu lực sau khi bấm Gửi duyệt."))return;
       arr.splice(i,1);
     }else if(action==="duplicate"){
       arr.splice(i+1,0,deepClone(arr[i]));
@@ -932,7 +932,7 @@ function bindArrayControls(){
     if(!Array.isArray(arr))return;
     const template=arr.length?blankLike(arr[0]):"";
     arr.push(template);
-    markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Xuất bản.");
+    markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Gửi duyệt.");
     rerender();
   });
 }
@@ -957,7 +957,7 @@ function bindVenueControls(){
       verified_at:"",
       status:"REVIEW"
     });
-    markDirty("Đã thêm địa điểm mới. Điền dữ liệu đã kiểm tra rồi bấm Xuất bản.");
+    markDirty("Đã thêm địa điểm mới. Điền dữ liệu đã kiểm tra rồi bấm Gửi duyệt.");
     rerender();
   });
 }
@@ -989,7 +989,7 @@ function bindStoryControls(){
     const action=btn.dataset.storyAction;
 
     if(action==="delete"){
-      if(!confirm("Xóa bài viết này? Thay đổi chỉ có hiệu lực sau khi bấm Xuất bản."))return;
+      if(!confirm("Xóa bài viết này? Thay đổi chỉ có hiệu lực sau khi bấm Gửi duyệt."))return;
       arr.splice(i,1);
     }else if(action==="duplicate"){
       const copy=deepClone(arr[i]);
@@ -1311,7 +1311,7 @@ async function selectModule(id){
   $("#moduleKicker").textContent=currentModule.id==="analytics"?"OPEN PHU QUOC INTELLIGENCE":"OPEN PHU QUOC CMS";
   $("#moduleTitle").textContent=currentModule.label;
   $("#moduleDesc").textContent=currentModule.description;
-  $("#saveBtn").textContent="Xuất bản";
+  $("#saveBtn").textContent="Gửi duyệt";
 
   const isAnalytics=currentModule.id==="analytics";
   $("#saveBtn").classList.toggle("hidden",isAnalytics);
@@ -1376,11 +1376,11 @@ async function selectModule(id){
 
     if(dirty){
       $("#saveBtn").disabled=!writable;
-      $("#saveBtn").textContent="Xuất bản thay đổi";
+      $("#saveBtn").textContent="Gửi thay đổi duyệt";
       status("Đã khôi phục bản nháp trên trình duyệt.","success");
     }else{
       status(writable
-        ?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; chỉ lên website khi bấm Xuất bản."
+        ?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; gửi duyệt sẽ tạo PR, chưa lên website."
         :"Vai trò của bạn chỉ được xem module này.");
     }
   }catch(e){
@@ -1393,11 +1393,11 @@ async function selectModule(id){
 async function save(){
   if(!currentModule||!dirty)return;
   const validationErrors=validateCurrent();
-  if(validationErrors.length){status("Chưa thể xuất bản: "+validationErrors.slice(0,3).join(" · ")+(validationErrors.length>3?" · …":""),"error");return}
+  if(validationErrors.length){status("Chưa thể gửi duyệt: "+validationErrors.slice(0,3).join(" · ")+(validationErrors.length>3?" · …":""),"error");return}
 
   $("#saveBtn").disabled=true;
-  $("#saveBtn").textContent="Đang xuất bản...";
-  status("Đang xuất bản lên Open Phu Quoc...");
+  $("#saveBtn").textContent="Đang tạo bản gửi duyệt...";
+  status("Đang tạo bản nháp review. Nội dung chưa lên website.");
 
   try{
     const b=await api(API.publish,{
@@ -1406,22 +1406,21 @@ async function save(){
         path:currentModule.path,
         sha:currentSha,
         content:currentData,
-        message:"cms: update "+currentModule.label.toLowerCase()
+        message:"update "+currentModule.label.toLowerCase()
       })
     });
 
-    currentSha=b.sha||currentSha;
+    if(!b.pull_request?.url)throw new Error("Đã lưu nhưng chưa nhận được liên kết PR nháp. Giữ lại bản nháp trên trình duyệt và thử lại.");
     dirty=false;
     clearDraft();
     $("#resetBtn")?.classList.add("hidden");
 
-    $("#saveBtn").textContent="Đã xuất bản";
-    const commit=b.commit?(" · commit "+String(b.commit).slice(0,7)):"";
-    status("Đã xuất bản thành công"+commit+". Website sẽ cập nhật sau deployment.","success");
+    $("#saveBtn").textContent="Đã gửi duyệt";
+    status("Đã tạo PR nháp #"+b.pull_request.number+". Chưa lên website; cần reviewer kiểm tra và merge. "+b.pull_request.url,"success");
 
     setTimeout(()=>{
-      if(!dirty)$("#saveBtn").textContent="Xuất bản";
-    },1800);
+      if(!dirty)$("#saveBtn").textContent="Gửi duyệt";
+    },2400);
   }catch(e){
     status(
       e.status===409
@@ -1430,7 +1429,7 @@ async function save(){
       "error"
     );
     $("#saveBtn").disabled=false;
-    $("#saveBtn").textContent="Thử xuất bản lại";
+    $("#saveBtn").textContent="Thử gửi duyệt lại";
   }
 }
 
