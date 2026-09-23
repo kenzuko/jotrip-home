@@ -1442,11 +1442,13 @@ async function boot(){
 }
 
 function renderNav(){
-  $("#moduleNav").innerHTML=schema.modules
+  const work='<a class="module-btn" href="quality.html" title="Mở việc cần xử lý"><span class="module-short">!</span><span class="module-copy"><strong>Việc cần xử lý</strong><small>Chất lượng dữ liệu và nguồn</small></span></a>';
+  const modules=schema.modules
     .filter(m=>m.read.includes(session.role))
     .map(m=>'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>')
-    .join("")+'<a class="module-btn" href="quality.html" title="Mở việc cần xử lý"><span class="module-short">!</span><span class="module-copy"><strong>Cần xử lý</strong><small>Chất lượng dữ liệu và nguồn</small></span></a><a class="module-btn" href="reviews.html" title="Mở hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất CMS chưa public</small></span></a><a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện 128 bài"><span class="module-short">128</span><span class="module-copy"><strong>Thư viện 128 bài</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
-
+    .join("");
+  const extras='<a class="module-btn" href="reviews.html" title="Mở hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất CMS chưa public</small></span></a><a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện 128 bài"><span class="module-short">128</span><span class="module-copy"><strong>Thư viện 128 bài</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
+  $("#moduleNav").innerHTML=work+modules+extras;
   document.querySelectorAll("button.module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
 }
 
