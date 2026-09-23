@@ -680,3 +680,5 @@
   .venue-location-grid{grid-template-columns:1fr}
   .venue-location-proof>summary{align-items:flex-start;padding:10px 0}
 }
+
+.quality-focus{border-color:#2b8a6e!important;box-shadow:0 0 0 3px rgba(43,138,110,.14)!important;scroll-margin-top:24px}
