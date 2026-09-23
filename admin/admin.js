@@ -1416,7 +1416,7 @@ async function save(){
     $("#resetBtn")?.classList.add("hidden");
 
     $("#saveBtn").textContent="Đã gửi duyệt";
-    status("Đã tạo PR nháp #"+b.pull_request.number+". Chưa lên website; cần reviewer kiểm tra và merge. "+b.pull_request.url,"success");
+    status("Đã tạo PR nháp #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url,"success");
 
     setTimeout(()=>{
       if(!dirty)$("#saveBtn").textContent="Gửi duyệt";
