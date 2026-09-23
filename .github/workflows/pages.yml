@@ -43,6 +43,8 @@ jobs:
         run: node scripts/test-search.mjs
       - name: Test Near Me coordinates and zones
         run: node scripts/test-nearme-venues.mjs
+      - name: Test CMS permission revocation
+        run: node scripts/test-cms-access.mjs
       - name: Test Vietcombank currency parser
         run: node scripts/test-currency.mjs
       - name: Validate Cloudflare CMS bundle
