@@ -7,6 +7,7 @@ const writable={
   "guide/data.json":["admin","editor"],
   "data/utilities.json":["admin","operator"],
   "data/entities/destination-venues.json":["admin","editor","operator"],
+  "data/entities/food.json":["admin","editor"],
   "cms/users.json":["admin"]
 };
 
@@ -135,6 +136,25 @@ function validatePayload(path,content){
       if(x?.longitude!==null&&x?.longitude!==""&&x?.longitude!==undefined){
         const lon=Number(x.longitude); if(!Number.isFinite(lon)||lon<-180||lon>180)errors.push("Longitude không hợp lệ: "+(name||id));
       }
+    });
+  }
+
+  if(path==="data/entities/food.json"){
+    const entities=Array.isArray(content.entities)?content.entities:[];
+    if(!entities.length)errors.push("Danh sách món ăn không được để trống");
+    const ids=new Set(),legacyIds=new Set();
+    entities.forEach((x,i)=>{
+      const id=String(x?.id||"").trim();
+      const legacy=String(x?.legacy_id||"").trim();
+      if(x?.entity_type!=="food")errors.push("Bản ghi #"+(i+1)+" phải có entity_type food");
+      if(!id)errors.push("Món #"+(i+1)+" chưa có food_id");
+      else if(ids.has(id))errors.push("food_id bị trùng: "+id);
+      else ids.add(id);
+      if(!legacy)errors.push("Món "+(id||("#"+(i+1)))+" chưa có legacy_id");
+      else if(legacyIds.has(legacy))errors.push("legacy_id bị trùng: "+legacy);
+      else legacyIds.add(legacy);
+      if(!String(x?.name||"").trim())errors.push("Món "+(id||("#"+(i+1)))+" chưa có tên");
+      if(!Array.isArray(x?.source_refs)||!x.source_refs.length)errors.push("Món "+(id||("#"+(i+1)))+" chưa có nguồn");
     });
   }
 
