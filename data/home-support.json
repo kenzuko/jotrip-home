@@ -341,13 +341,6 @@
         "search_query": "tiệm giặt ủi"
       },
       {
-        "id": "GOLF",
-        "label": "Sân golf",
-        "icon": "⛳",
-        "mode": "directory_search",
-        "search_query": "sân golf"
-      },
-      {
         "id": "BANK",
         "label": "Ngân hàng",
         "icon": "₫",

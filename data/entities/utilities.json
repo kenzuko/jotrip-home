@@ -316,7 +316,7 @@
       "slug": "vinmec",
       "name": "Vinmec Phú Quốc",
       "aliases": [],
-      "zone_id": "zone_north",
+      "zone_id": null,
       "group": "Y tế",
       "phone": "0297 3985 588",
       "what_it_is": "Hotline bệnh viện",
@@ -327,29 +327,9 @@
           "source_id": "external",
           "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
           "checked_at": "2026-09-19T04:51:03.054Z"
-        },
-        {
-          "source_id": "vinmec_phuquoc_official_20260924",
-          "url": "https://www.vinmec.com/vie/co-so-y-te/benh-vien-da-khoa-vinmec-phu-quoc"
-        },
-        {
-          "source_id": "jotrip_user_pin_20260924"
         }
       ],
-      "updated_at": "2026-09-24",
-      "address": "Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA",
-      "map": {
-        "lat": 10.336498688188055,
-        "lon": 103.85723855555321,
-        "precision": "site_centroid",
-        "source": "Tọa độ do người dùng cung cấp ngày 24/09/2026",
-        "source_id": "jotrip_user_pin_20260924",
-        "verified_at": "2026-09-24",
-        "accuracy": "USER_PROVIDED_COORDINATES",
-        "note": "Pin khuôn viên bệnh viện; chưa xác nhận cổng cấp cứu riêng."
-      },
-      "map_review_note": "Tọa độ người dùng cung cấp 24/09/2026; cần kiểm tra cổng xe vào và cửa tiếp nhận cấp cứu khi dẫn đường."
+      "updated_at": "2026-09-19T04:51:03.054Z"
     },
     {
       "id": "utility_vinmec_er",
@@ -358,7 +338,7 @@
       "slug": "vinmec-er",
       "name": "Cấp cứu Vinmec",
       "aliases": [],
-      "zone_id": "zone_north",
+      "zone_id": null,
       "group": "Y tế",
       "phone": "02973 98 55 11",
       "what_it_is": "Đường dây cấp cứu 24/24 - nên kiểm tra lại nếu không kết nối được",
@@ -369,29 +349,9 @@
           "source_id": "external",
           "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
           "checked_at": "2026-09-19T04:51:03.080Z"
-        },
-        {
-          "source_id": "vinmec_phuquoc_official_20260924",
-          "url": "https://www.vinmec.com/vie/co-so-y-te/benh-vien-da-khoa-vinmec-phu-quoc"
-        },
-        {
-          "source_id": "jotrip_user_pin_20260924"
         }
       ],
-      "updated_at": "2026-09-24",
-      "address": "Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA",
-      "map": {
-        "lat": 10.336498688188055,
-        "lon": 103.85723855555321,
-        "precision": "site_centroid",
-        "source": "Tọa độ do người dùng cung cấp ngày 24/09/2026",
-        "source_id": "jotrip_user_pin_20260924",
-        "verified_at": "2026-09-24",
-        "accuracy": "USER_PROVIDED_COORDINATES",
-        "note": "Pin khuôn viên bệnh viện; chưa xác nhận cổng cấp cứu riêng."
-      },
-      "map_review_note": "Tọa độ người dùng cung cấp 24/09/2026; cần kiểm tra cổng xe vào và cửa tiếp nhận cấp cứu khi dẫn đường."
+      "updated_at": "2026-09-19T04:51:03.080Z"
     },
     {
       "id": "utility_longchau_tran_phu",
@@ -551,7 +511,7 @@
       "zone_id": "zone_north",
       "group": "Y tế",
       "utility_type": "CLINIC_HOSPITAL",
-      "address": "Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "address": "Khu Bãi Dài, Đặc khu Phú Quốc, An Giang",
       "phone": "02973 98 55 11",
       "what_it_is": "Cơ sở y tế",
       "live_check_required": true,
@@ -560,28 +520,10 @@
       "source_refs": [
         {
           "source_id": "vinmec_phuquoc_current"
-        },
-        {
-          "source_id": "vinmec_phuquoc_official_20260924",
-          "url": "https://www.vinmec.com/vie/co-so-y-te/benh-vien-da-khoa-vinmec-phu-quoc"
-        },
-        {
-          "source_id": "jotrip_user_pin_20260924"
         }
       ],
       "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ người dùng cung cấp 24/09/2026; cần kiểm tra cổng xe vào và cửa tiếp nhận cấp cứu khi dẫn đường.",
-      "address_precision": "AREA",
-      "map": {
-        "lat": 10.336498688188055,
-        "lon": 103.85723855555321,
-        "precision": "site_centroid",
-        "source": "Tọa độ do người dùng cung cấp ngày 24/09/2026",
-        "source_id": "jotrip_user_pin_20260924",
-        "verified_at": "2026-09-24",
-        "accuracy": "USER_PROVIDED_COORDINATES",
-        "note": "Pin khuôn viên bệnh viện; chưa xác nhận cổng cấp cứu riêng."
-      }
+      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
     },
     {
       "id": "utility_vcb_atm_hung_vuong",
@@ -1152,174 +1094,6 @@
       ],
       "updated_at": "2026-09-24",
       "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
-    },
-    {
-      "entity_type": "utility",
-      "aliases": [],
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "updated_at": "2026-09-24",
-      "id": "utility_laundry_phuquoc_cuaduong",
-      "slug": "laundry-phuquoc-cuaduong",
-      "name": "Phu Quoc Laundry - Bến Tràm",
-      "zone_id": null,
-      "group": "Giặt ủi",
-      "utility_type": "LAUNDRY",
-      "address": "Tổ 4, ấp Bến Tràm, Cửa Dương, Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA",
-      "phone": "0877 215 765",
-      "what_it_is": "Giặt sấy, nhận và trả đồ tại địa chỉ khách.",
-      "opening_hours_note": "Website cơ sở công bố 09:00-21:00 hằng ngày; nên liên hệ trước khi giao đồ.",
-      "current_status": "UNKNOWN",
-      "source_refs": [
-        {
-          "source_id": "phuquoc_laundry_official_20260924",
-          "url": "https://phuquoclaundry.online/contacts/",
-          "checked_at": "2026-09-24"
-        }
-      ],
-      "map_review_note": "Chưa có pin cửa tiệm đủ tin cậy; giữ địa chỉ để mở truy vấn bản đồ."
-    },
-    {
-      "entity_type": "utility",
-      "aliases": [],
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "updated_at": "2026-09-24",
-      "id": "utility_golf_vinpearl",
-      "slug": "golf-vinpearl",
-      "name": "Vinpearl Golf Phú Quốc",
-      "zone_id": "zone_north",
-      "group": "Sân golf",
-      "utility_type": "GOLF",
-      "address": "Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA",
-      "phone": "0297 3844 292",
-      "what_it_is": "Sân golf 18 hố, par 72 tại Bắc đảo.",
-      "opening_hours_note": "Tee time công bố 06:00-15:00; không đồng nghĩa giờ mở cổng.",
-      "current_status": "UNKNOWN",
-      "source_refs": [
-        {
-          "source_id": "vinpearl_golf_official_20260924",
-          "url": "https://vinpearl.com/vi/vinpearl-golf-phu-quoc",
-          "checked_at": "2026-09-24"
-        }
-      ],
-      "map_review_note": "Chờ xác minh pin clubhouse và cổng golf trước khi sử dụng khoảng cách chính xác."
-    },
-    {
-      "entity_type": "utility",
-      "aliases": [],
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "updated_at": "2026-09-24",
-      "id": "utility_golf_eschuri",
-      "slug": "golf-eschuri",
-      "name": "Eschuri Vũng Bầu Golf",
-      "zone_id": "zone_north",
-      "group": "Sân golf",
-      "utility_type": "GOLF",
-      "address": "Ấp 4, Khu phố 4, khu vực Vũng Bầu, Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA",
-      "phone": "0853 686 066",
-      "what_it_is": "Sân golf 18 hố ven bãi Vũng Bầu.",
-      "opening_hours_note": "Giờ đặt sân và giờ hoạt động có thể khác; liên hệ cơ sở.",
-      "current_status": "UNKNOWN",
-      "source_refs": [
-        {
-          "source_id": "eschuri_official_20260924",
-          "url": "https://eschurivungbau.com.vn/vi",
-          "checked_at": "2026-09-24"
-        }
-      ],
-      "map_review_note": "Chờ xác minh pin clubhouse và cổng golf trước khi sử dụng khoảng cách chính xác."
-    },
-    {
-      "entity_type": "utility",
-      "aliases": [],
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "updated_at": "2026-09-24",
-      "id": "utility_longchau_ham_ninh",
-      "slug": "longchau-ham-ninh",
-      "name": "Nhà thuốc Long Châu - Hàm Ninh",
-      "zone_id": null,
-      "group": "Nhà thuốc",
-      "utility_type": "PHARMACY",
-      "address": "Thửa đất 32, Bản đồ 24, đường ĐT47 (ngã tư chợ Hàm Ninh), Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA",
-      "phone": "1800 6928",
-      "what_it_is": "Nhà thuốc phục vụ thuốc và nhu yếu phẩm y tế.",
-      "opening_hours_note": "Hệ thống niêm yết 06:00-23:00; giờ từng chi nhánh có thể khác.",
-      "current_status": "UNKNOWN",
-      "source_refs": [
-        {
-          "source_id": "longchau_phuquoc_storelist_20260924",
-          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
-          "checked_at": "2026-09-24"
-        }
-      ],
-      "map_review_note": "Chờ pin đúng cửa chi nhánh Hàm Ninh."
-    },
-    {
-      "entity_type": "utility",
-      "aliases": [],
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "updated_at": "2026-09-24",
-      "id": "utility_longchau_ben_tram",
-      "slug": "longchau-ben-tram",
-      "name": "Nhà thuốc Long Châu - Chợ Bến Tràm",
-      "zone_id": "zone_central_west",
-      "group": "Nhà thuốc",
-      "utility_type": "PHARMACY",
-      "address": "487 Nguyễn Trung Trực (Chợ Bến Tràm), Đặc khu Phú Quốc, An Giang",
-      "address_precision": "EXACT",
-      "phone": "1800 6928",
-      "what_it_is": "Nhà thuốc phục vụ thuốc và nhu yếu phẩm y tế.",
-      "opening_hours_note": "Hệ thống niêm yết 06:00-23:00; giờ từng chi nhánh có thể khác.",
-      "current_status": "UNKNOWN",
-      "source_refs": [
-        {
-          "source_id": "longchau_phuquoc_storelist_20260924",
-          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
-          "checked_at": "2026-09-24"
-        }
-      ],
-      "map_review_note": "Chờ pin đúng cửa chi nhánh Chợ Bến Tràm."
-    },
-    {
-      "entity_type": "utility",
-      "aliases": [],
-      "live_check_required": true,
-      "verified": true,
-      "related_entities": [],
-      "updated_at": "2026-09-24",
-      "id": "utility_longchau_dt45",
-      "slug": "longchau-dt45",
-      "name": "Nhà thuốc Long Châu - ĐT45",
-      "zone_id": "zone_central_west",
-      "group": "Nhà thuốc",
-      "utility_type": "PHARMACY",
-      "address": "Thửa đất 59, Bản đồ 12, ĐT45 (ngã tư Nghĩa trang Liệt sĩ), Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA",
-      "phone": "1800 6928",
-      "what_it_is": "Nhà thuốc phục vụ thuốc và nhu yếu phẩm y tế.",
-      "opening_hours_note": "Hệ thống niêm yết 06:00-23:00; giờ từng chi nhánh có thể khác.",
-      "current_status": "UNKNOWN",
-      "source_refs": [
-        {
-          "source_id": "longchau_phuquoc_storelist_20260924",
-          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
-          "checked_at": "2026-09-24"
-        }
-      ],
-      "map_review_note": "Chờ pin đúng cửa chi nhánh ĐT45."
     }
   ]
 }

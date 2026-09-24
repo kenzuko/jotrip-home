@@ -6,12 +6,6 @@ on:
     paths:
       - "data/knowledge/**"
       - "guide/**"
-      - "nearme/**"
-      - "data/entities/hotels.json"
-      - "data/entities/utilities.json"
-      - "data/home-support.json"
-      - "data/views/location-index.json"
-      - "scripts/build-location-index.mjs"
       - "index.html"
       - "styles.css"
       - "scripts/validate-home-knowledge.mjs"

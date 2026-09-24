@@ -35,7 +35,7 @@
   function hasStoredVenueData(id=selectedCategory){
     if(!id)return false;
     return rows.some(row=>
-      (row.entity_type==="venue" || (row.entity_type==="utility" && row.verified===true)) &&
+      row.entity_type==="venue" &&
       (row.tags||[]).includes(id) &&
       matchesArea(row)
     );
