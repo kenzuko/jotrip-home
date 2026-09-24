@@ -192,7 +192,12 @@
       "verified": true,
       "source_refs": [
         {
-          "source_id": "official_current_contact",
+          "source_id": "official_airport_contact",
+          "url": "https://sunairport.com/en/phuquoc/contact-us",
+          "checked_at": "2026-09-24T00:00:00Z"
+        },
+        {
+          "source_id": "official_baggage_guidance",
           "url": "https://sunairport.com/en/phuquoc/guides/baggage-services",
           "checked_at": "2026-09-24T00:00:00Z"
         }
