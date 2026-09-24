@@ -19,11 +19,11 @@ const URLS={
 const POINTS={
   duong_dong:{lat:10.2172,lon:103.9593,name:"Dương Đông",region:"central_west"},
   cua_can:{lat:10.292693,lon:103.914799,name:"Cửa Cạn",region:"north_northwest"},
-  ganh_dau:{lat:10.37077,lon:103.84472,name:"Gành Dầu",region:"north_northwest"},
+  ganh_dau:{lat:10.3759,lon:103.9,name:"Gành Dầu",region:"north_northwest"},
   bai_thom:{lat:10.411765,lon:104.031055,name:"Bãi Thơm",region:"east_northeast"},
   ham_ninh:{lat:10.18062,lon:104.04463,name:"Hàm Ninh",region:"east_northeast"},
   bai_sao:{lat:10.0572576,lon:104.0363948,name:"Bãi Sao",region:"south_southeast"},
-  an_thoi:{lat:9.905,lon:104.005,name:"Biển An Thới",region:"south_southeast"}
+  an_thoi:{lat:10.0191,lon:104.015,name:"An Thới",region:"south_southeast"}
 };
 
 const state={
