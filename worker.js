@@ -2,7 +2,7 @@ import {onRequestPost as cmsWeatherFeedbackPost} from "./functions/api/weather/l
 import {onRequestGet as cmsWeatherFeedbackRecent} from "./functions/api/weather/live/feedback/recent.js";
 import {handleWeatherData,prewarmWeatherEdge} from "./functions/_shared/weather-edge.js";
 import {captureWeatherAlerts,readWeatherAlertHistory} from "./functions/_shared/weather-alert-runtime.js";
-const SITE_ORIGIN = "https://openphuquoc.com";
+const SITE_ORIGIN = "https://cms.openphuquoc.com";
 const DEFAULT_IMAGE = SITE_ORIGIN + "/assets/share-card.svg";
 
 function cleanText(value, fallback = "") {

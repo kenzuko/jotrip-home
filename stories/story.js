@@ -34,8 +34,8 @@ function setCanonical(url){
 function applyStoryMeta(story){
   const title=story.title+" - Open Phu Quoc";
   const description=story.dek||story.intro||"Câu chuyện về Phú Quốc.";
-  const url="https://openphuquoc.com/stories/article.html?id="+encodeURIComponent(story.id);
-  const image=story.image||"https://openphuquoc.com/assets/logo-master.png";
+  const url="https://cms.openphuquoc.com/stories/article.html?id="+encodeURIComponent(story.id);
+  const image=story.image||"https://cms.openphuquoc.com/assets/logo-master.png";
   document.title=title;
   setCanonical(url);
   setMeta('meta[name="description"]',"content",description);
