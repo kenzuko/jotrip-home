@@ -45,6 +45,7 @@ jobs:
           node scripts/weather-edge-smoke.mjs
           node scripts/weather-autorecover.test.mjs
           node --check weather/weather-v2.js
+          node scripts/weather-cms-today-decision.test.mjs weather/weather-v2.js
           node --check weather/weather-wind-guard.js
           node scripts/weather-wind-guard.test.mjs weather/weather-wind-guard.js
           node --check weather/weather-gust-outlook.js
