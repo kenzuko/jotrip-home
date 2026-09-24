@@ -1275,18 +1275,7 @@
       ]
     },
     "xoi-man": {
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/X%C3%B4i%20gi%C3%B2%20l%E1%BA%A1p%20x%C6%B0%E1%BB%9Dng.jpg?width=1200",
-          "alt": "Xôi mặn",
-          "caption": "Xôi mặn",
-          "scope": "exact_subject",
-          "source_label": "Wikimedia Commons · Viethavvh",
-          "source_url": "https://commons.wikimedia.org/wiki/File:X%C3%B4i_gi%C3%B2_l%E1%BA%A1p_x%C6%B0%E1%BB%9Dng.jpg",
-          "license": "CC BY-SA 4.0",
-          "hero_priority": "preferred"
-        }
-      ]
+      "images": []
     },
     "com-chien-hai-san": {
       "images": [
@@ -1303,18 +1292,7 @@
       ]
     },
     "chao-ca": {
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ch%C3%A1o%20C%C3%A1%20L%C3%B3c%2C%20Ti%E1%BB%81n%20Giang.jpg?width=1200",
-          "alt": "Cháo cá",
-          "caption": "Cháo cá - ảnh minh họa",
-          "scope": "illustrative",
-          "source_label": "Wikimedia Commons · Dongson.vmvn",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%A1o_C%C3%A1_L%C3%B3c%2C_Ti%E1%BB%81n_Giang.jpg",
-          "license": "CC BY-SA 3.0",
-          "hero_priority": "preferred"
-        }
-      ]
+      "images": []
     }
   },
   "food_context": {
