@@ -327,16 +327,6 @@
       ]
     },
     {
-      "entity_id": "place_other_streams",
-      "level": 3,
-      "strengths": [
-        "Hợp người thích khám phá thiên nhiên ít phổ thông"
-      ],
-      "watch_outs": [
-        "Đường vào và điều kiện an toàn không đồng đều"
-      ]
-    },
-    {
       "entity_id": "place_pepper_garden",
       "level": 3,
       "strengths": [
@@ -394,6 +384,46 @@
       ],
       "watch_outs": [
         "Nên chừa khoảng 60-90 phút; không cần chạy riêng lên Bắc đảo chỉ vì điểm này"
+      ]
+    },
+    {
+      "entity_id": "place_suoi_da_ban",
+      "level": 3,
+      "strengths": [
+        "Thiên nhiên khác nhịp với các điểm vui chơi lớn"
+      ],
+      "watch_outs": [
+        "Đường vào và mực nước thay đổi theo mùa; kiểm tra điểm vào trước khi đi"
+      ]
+    },
+    {
+      "entity_id": "place_suoi_da_ngon",
+      "level": 3,
+      "strengths": [
+        "Lựa chọn cho người thích đi rừng và khám phá suối"
+      ],
+      "watch_outs": [
+        "Đường tiếp cận cần xác minh; tránh đi một mình khi điều kiện không rõ"
+      ]
+    },
+    {
+      "entity_id": "place_suoi_tien",
+      "level": 3,
+      "strengths": [
+        "Trải nghiệm suối rừng ít đông hơn các điểm phổ biến"
+      ],
+      "watch_outs": [
+        "Xác minh nơi gửi xe và lối vào với người địa phương"
+      ]
+    },
+    {
+      "entity_id": "place_phu_quoc_ridgeback_center",
+      "level": 3,
+      "strengths": [
+        "Tìm hiểu giống chó xoáy bản địa"
+      ],
+      "watch_outs": [
+        "Ưu tiên thấp; cần xác nhận cơ sở còn đón khách và giờ tham quan"
       ]
     }
   ]
