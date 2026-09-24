@@ -79,8 +79,13 @@ function tripClockSnapshot(){
  const now=hhmmToMinutes(vnParts().time),sunset=hhmmToMinutes(localSunsetPhuQuoc());
  const weekdayName=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Ho_Chi_Minh",weekday:"short"}).format(new Date());
  const weekday=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(weekdayName);
+ // Cancel a show for its actual local performance date only.
+ // No global activeNotice() helper exists; derive the excluded IDs from the
+ // same dated notices used by the homepage ticker.
+ const cancelledToday=new Set(activeNotices().map(notice=>notice.entity_id));
  return engine.plan({items:support.trip_clock?.items||[],entities,nowMinute:now,sunsetMinute:sunset,weekday,
-  sunsetWeather:window.OPENPQ_HOME?.signals?.sunset_weather?.level||"unknown"}).filter(x=>!activeNotice(x.item.entity_id));
+  sunsetWeather:window.OPENPQ_HOME?.signals?.sunset_weather?.level||"unknown"})
+  .filter(x=>!cancelledToday.has(x.item.entity_id));
 }
 function renderTripClock(){
  if(!support)return;
@@ -101,7 +106,7 @@ function renderTripClock(){
   const {item,e,opening,decision,summary,note}=row;
   const detail=opening?.schedule_type==="FIXED_START"?summary:[summary,e.duration].filter(Boolean).join(" · ");
   const distinctNote=note&&note.trim()!==detail.trim()?note:"";
-  return '<a class="trip-item" data-decision="'+esc(decision.state)+'" href="'+esc(item.route)+'">'+
+  return '<a class="trip-item" data-entity-id="'+esc(item.entity_id)+'" data-decision="'+esc(decision.state)+'" href="'+esc(item.route)+'">'+
    '<span>'+esc(decision.label)+'</span>'+
    '<strong>'+esc(e.name||item.entity_id)+'</strong>'+
    '<p>'+esc(detail)+'</p>'+
