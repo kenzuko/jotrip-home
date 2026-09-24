@@ -9,6 +9,11 @@
   const out=[];
   for(const item of items){
    const e=entities.get(item.entity_id)||{},opening=e.opening_hours||null,id=item.entity_id;
+   // Do not recommend Dinh Cậu as a sunset visit once it is dark.
+   if(id==="place_dinh_cau"&&nowMinute>=19*60){
+    out.push({item,e,opening,eligible:false,reason:"evening_sunset_window_ended"});
+    continue;
+   }
    const valid=opening&&["PUBLISHED_SCHEDULE","APPROXIMATE_SCHEDULE"].includes(opening.state)&&!(opening.closed_weekdays||[]).includes(weekday);
    const minVisit=Number.isFinite(item.minimum_visit_min)?item.minimum_visit_min:durationMin(e.duration);
    const activeWindow=valid&&(opening.windows||[]).map(w=>({...w,startMin:minute(w.start),endMin:minute(w.end)})).find(w=>Number.isFinite(w.startMin)&&Number.isFinite(w.endMin)&&nowMinute>=w.startMin&&nowMinute<w.endMin);
@@ -78,7 +83,9 @@
       score=70+Math.max(0,remain-Math.max(0,minVisit||0))/45;
      }
      summary=w.start+"-"+w.end;
-     if(id==="place_dinh_cau" && sunsetWeather==="bad"){
+     if(id==="place_dinh_cau"&&Number.isFinite(sunsetMinute)&&nowMinute>=sunsetMinute){
+      note="Hoàng hôn đã qua. Nếu đang ở gần, xem giờ tham quan còn lại; không cần chạy xa chỉ để ghé lúc này.";
+     }else if(id==="place_dinh_cau" && sunsetWeather==="bad"){
       note="Bờ Tây có tín hiệu mưa hoặc dông gần hoàng hôn. Quan sát thêm dự báo trước khi di chuyển.";
      }else if(id==="place_dinh_cau" && sunsetWeather==="watch"){
       note="Cuối chiều có thể có mưa cục bộ ở bờ Tây. Quan sát thêm dự báo trước khi di chuyển.";

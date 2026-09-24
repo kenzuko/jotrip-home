@@ -1,11 +1,12 @@
 (() => {
 "use strict";
+const NOTICES="data/operational-notices.json";
 const SUPPORT="data/home-support.json",PLACES="data/entities/places.json",ACTIVITIES="data/entities/activities.json",UTILITIES="data/entities/utilities.json",STORIES="data/content.json",CURRENCY="data/currency-snapshot.json";
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const stateText={OPEN:"Đang mở",CLOSED:"Đã đóng",TEMPORARILY_CLOSED:"Tạm đóng",UNKNOWN:"Chưa biết chắc"};
 const liveStateText={normal:"Hôm nay hoạt động bình thường",good:"Hôm nay hoạt động bình thường",watch:"Có điều nên xem lại",advisory:"Có lưu ý",bad:"Tạm dừng",unknown:"Chưa biết chắc",info:"Theo giờ hôm nay"};
-let support=null,currencyPayload=null,entities=new Map(),stories=new Map(),selectedCategory=null,selectedArea=null,position=null,nearBound=false,utilitiesLoaded=false;
+let operationalNotices=null,support=null,currencyPayload=null,entities=new Map(),stories=new Map(),selectedCategory=null,selectedArea=null,position=null,nearBound=false,utilitiesLoaded=false;
 function vnParts(date=new Date()){const d=new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",weekday:"long",day:"2-digit",month:"2-digit"}).format(date).replace(",","");const t=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Ho_Chi_Minh",hour:"2-digit",minute:"2-digit",hour12:false}).format(date);return{time:t,date:d}}
 function ageText(iso){
   const t=Date.parse(iso||"");
@@ -66,6 +67,23 @@ function applyPracticalStartCutoff(item,decision,now){
   };
   return{decision:lateDecision,hidden:item.hide_after_sensible_start===true};
 }
+function localDateKey(date=new Date()){
+ const parts=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Ho_Chi_Minh",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(date);
+ const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));
+ return p.year+"-"+p.month+"-"+p.day;
+}
+function activeNotices(){const day=localDateKey();return (operationalNotices?.notices||[]).filter(x=>x.date===day&&x.status==="CANCELLED")}
+function activeNotice(id){return activeNotices().find(x=>x.entity_id===id)||null}
+function cancellationCards(){
+ return activeNotices().map(x=>
+  '<a class="trip-cancel-notice" role="status" href="places/detail.html?id=tinh-hoa-viet-nam">'+
+  '<span>THÔNG BÁO SUẤT DIỄN HÔM NAY</span><strong>'+esc(x.title)+'</strong>'+
+  '<p>'+esc(x.summary)+'</p><small>'+esc(x.booking_message)+'</small><b>Xem thông tin →</b></a>'
+ ).join("");
+}
+const noticeStyle=document.createElement("style");
+noticeStyle.textContent=".trip-cancel-notice{display:block;padding:17px 19px;margin-bottom:12px;border:2px solid #c96e34;border-radius:17px;background:#fff6ea;color:#623518;text-decoration:none}.trip-cancel-notice span{display:block;color:#9a4e18;font-weight:900;font-size:12px;letter-spacing:.04em}.trip-cancel-notice strong{display:block;margin:6px 0;font-size:19px;line-height:1.35}.trip-cancel-notice p{margin:4px 0 8px;line-height:1.55}.trip-cancel-notice small{display:block;font-size:13px;line-height:1.5}.trip-cancel-notice b{display:block;margin-top:9px;color:#87421c}";
+document.head.appendChild(noticeStyle);
 function tripClockSnapshot(){
  const engine=window.OpenPQTripClockPlanner;
  if(!engine||!support)return [];
@@ -73,7 +91,7 @@ function tripClockSnapshot(){
  const weekdayName=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Ho_Chi_Minh",weekday:"short"}).format(new Date());
  const weekday=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(weekdayName);
  return engine.plan({items:support.trip_clock?.items||[],entities,nowMinute:now,sunsetMinute:sunset,weekday,
-  sunsetWeather:window.OPENPQ_HOME?.signals?.sunset_weather?.level||"unknown"});
+  sunsetWeather:window.OPENPQ_HOME?.signals?.sunset_weather?.level||"unknown"}).filter(x=>!activeNotice(x.item.entity_id));
 }
 function renderTripClock(){
  if(!support)return;
@@ -84,13 +102,13 @@ function renderTripClock(){
  }
  const rows=tripClockSnapshot().filter(x=>x.eligible&&["active","future","watch"].includes(x.decision?.state));
  if(!rows.length){
-  host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Xem các hoạt động buổi tối hoặc lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
+  host.innerHTML=cancellationCards()+'<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Xem các hoạt động buổi tối hoặc lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
   publishLocalNowHint();return;
  }
  let shown=rows.slice(0,9);
  const nextShow=rows.find(x=>x.opening?.schedule_type==="FIXED_START"&&x.decision.state==="future");
  if(nextShow&&!shown.includes(nextShow))shown=[...rows.slice(0,8),nextShow];
- host.innerHTML=shown.map(row=>{
+ host.innerHTML=cancellationCards()+shown.map(row=>{
   const {item,e,opening,decision,summary,note}=row;
   const detail=opening?.schedule_type==="FIXED_START"?summary:[summary,e.duration].filter(Boolean).join(" · ");
   const distinctNote=note&&note.trim()!==detail.trim()?note:"";
@@ -104,6 +122,8 @@ function renderTripClock(){
 }
 function buildLocalNowHint(){
  if(!support||!window.OpenPQTripClockPlanner)return null;
+ const canceled=activeNotices()[0];
+ if(canceled)return{priority:"operational",tone:"watch",title:canceled.title,note:canceled.booking_message,primaryText:"Xem thông báo →",primaryHref:"places/detail.html?id=tinh-hoa-viet-nam",secondaryText:"Chọn hoạt động khác",secondaryHref:"#happening"};
  const now=hhmmToMinutes(vnParts().time),candidates=[];
  for(const x of tripClockSnapshot()){
   if(!x.eligible||!x.decision)continue;
@@ -312,12 +332,13 @@ function bindNear(){
 function renderAll(){renderTripClock();renderActivities();renderNearControls();renderNearResults();renderHomeCurrency();renderHotNow();renderCuriosity()}
 async function loadJson(url,label){try{const r=await fetch(url+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error(label+" HTTP "+r.status);return await r.json()}catch(error){console.warn("Homepage source unavailable:",label,error);return null}}
 renderClock();setInterval(()=>{renderClock();renderTripClock()},60000);renderHotNow();renderHomeCurrency();
+const noticesTask=loadJson(NOTICES,"operational-notices").then(data=>{operationalNotices=data;renderTripClock();renderActivities()});
 const supportTask=loadJson(SUPPORT,"home-support").then(data=>{if(!data)return;support=data;renderNearControls();bindNear();renderNearResults();renderHotNow();renderCuriosity();renderTripClock();renderActivities()});
 const placesTask=loadJson(PLACES,"places").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities()});
 const activitiesTask=loadJson(ACTIVITIES,"activities").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities()});
 const utilitiesTask=loadJson(UTILITIES,"utilities").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));utilitiesLoaded=true;renderNearResults()});
 const storiesTask=loadJson(STORIES,"stories").then(data=>{if(!data)return;(data.stories||[]).forEach(x=>stories.set(x.id,x));renderCuriosity()});
 const currencyTask=loadJson(CURRENCY,"currency").then(data=>{currencyPayload=data;renderHomeCurrency()});
-Promise.allSettled([supportTask,placesTask,activitiesTask,utilitiesTask,storiesTask,currencyTask]).then(()=>{renderClock();renderTripClock();renderActivities();renderNearResults();renderHotNow();renderCuriosity();renderHomeCurrency()});
+Promise.allSettled([noticesTask,supportTask,placesTask,activitiesTask,utilitiesTask,storiesTask,currencyTask]).then(()=>{renderClock();renderTripClock();renderActivities();renderNearResults();renderHotNow();renderCuriosity();renderHomeCurrency()});
 window.addEventListener("openpq:live-ready",()=>{renderClock();renderTripClock();renderActivities()});
 })();

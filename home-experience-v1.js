@@ -58,7 +58,7 @@
       }
     } else if (now.total < 21 * 60) {
       value.textContent = "Đã sang nhịp buổi tối";
-      note.textContent = "Chợ đêm, show theo giờ và một bữa tối thong thả sẽ hợp hơn chạy thêm điểm xa.";
+      note.textContent = "Giờ này có thể ăn tối hoặc ghé chợ đêm gần nơi mình ở. Muốn xem show, hãy kiểm tra thông báo suất diễn tối nay.";
     } else if (now.total < 23 * 60) {
       value.textContent = "Giờ này hợp lịch nhẹ hơn";
       note.textContent = "Ăn tối, chợ đêm hoặc đi bộ gần sẽ hợp hơn cố thêm một điểm xa.";

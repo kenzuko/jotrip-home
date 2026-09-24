@@ -24,6 +24,8 @@ on:
       - "data/views/today-rules.json"
       - "core/trip-clock-planner.js"
       - "data/home-support.json"
+      - "data/operational-notices.json"
+      - "places/detail.js"
       - "data/entities/**"
       - "transit/**"
       - "scripts/test-transit-mobile-ui.mjs"

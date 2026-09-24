@@ -88,7 +88,13 @@
     ).join("")+'</div>';
   }
 
-  function render(entity,zones,all,prices,planningData,visualData,explainerData,uiData){
+  function localDateKey(){
+    const parts=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Ho_Chi_Minh",year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+    const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));
+    return p.year+"-"+p.month+"-"+p.day;
+  }
+  planningStyle.textContent += '.show-cancel-banner{margin:14px auto;max-width:1160px;padding:18px 22px;border:2px solid #c96e34;border-radius:16px;background:#fff6ea;color:#623518}.show-cancel-banner span{font-size:12px;font-weight:900;color:#974b16}.show-cancel-banner h2{font-size:22px;line-height:1.35;margin:8px 0}.show-cancel-banner p{margin:8px 0;line-height:1.55}.show-cancel-banner small{display:block;line-height:1.5}';
+  function render(entity,zones,all,prices,planningData,visualData,explainerData,uiData,notices){
     const root=$("#detailRoot");
     const zone=zones.find(z=>z.id===entity.zone_id);
     const lookup=new Map(all.map(x=>[x.id,x]));
@@ -122,8 +128,12 @@
     if(level) facts.unshift([pc.fact_role||"Kiểu ghé phù hợp",level.label]);
 
     applyEntityMeta(entity,heroImage);
-
-    root.innerHTML=
+    const datedNotice=(notices?.notices||[]).find(x=>x.entity_id===entity.id&&x.date===localDateKey()&&x.status==="CANCELLED");
+    const noticeBanner=datedNotice?
+      '<aside class="show-cancel-banner" role="status"><span>THÔNG BÁO RIÊNG CHO SUẤT HÔM NAY</span>'+
+      '<h2>'+esc(datedNotice.title)+'</h2><p>'+esc(datedNotice.summary)+'</p>'+
+      '<p>'+esc(datedNotice.booking_message)+'</p><small>'+esc(datedNotice.source)+'</small></aside>':"";
+    root.innerHTML=noticeBanner+
       '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
         (heroImage
           ? '<img class="detail-hero-photo" src="'+esc(heroImage)+'" alt="'+esc(heroAlt)+'" decoding="async">'
@@ -183,15 +193,16 @@
     fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
     fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}),
     fetch(EXPLAINERS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{items:{}}).catch(()=>fetch("../data/i18n/vi/place-explainers.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).catch(()=>({items:{}}))),
-    fetch(UI+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch(UI_FALLBACK+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({})))
-  ]).then(([places,activities,zones,prices,planning,visualData,explainerData,uiData])=>{
+    fetch(UI+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch(UI_FALLBACK+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({}))),
+    fetch("../data/operational-notices.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{notices:[]}).catch(()=>({notices:[]}))
+  ]).then(([places,activities,zones,prices,planning,visualData,explainerData,uiData,notices])=>{
     const all=[...(places.entities||[]),...(activities.entities||[])];
     const entity=all.find(x=>x.id===id||x.slug===id||x.legacy_id===id);
     if(!entity){
       $("#detailRoot").innerHTML='<section class="detail-loading"><strong>Không tìm thấy địa điểm.</strong><br><br><a href="../explore/">← Quay lại Explore</a></section>';
       return;
     }
-    render(entity,zones.entities||[],all,prices.entities||[],planning,visualData,explainerData,uiData);
+    render(entity,zones.entities||[],all,prices.entities||[],planning,visualData,explainerData,uiData,notices);
   }).catch(error=>{
     console.warn(error);
     $("#detailRoot").innerHTML='<section class="detail-loading">Trang này chưa mở được lúc này. Thử lại sau một chút nhé.</section>';

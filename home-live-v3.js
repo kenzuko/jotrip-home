@@ -517,6 +517,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
         slides.push({...cfg, _key:key});
       };
 
+      // Date-specific operator cancellations outrank general evening tips.
+      if(localHint?.priority==="operational")push({...localHint});
       const currentCriticalAge = ageMinutes(criticalStamp);
       if (critical && currentCriticalAge <= 90 && (hasHighConvective || hasElevatedConvective || observedRain)) {
         push({
@@ -556,7 +558,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         push({
           tone:"default",
           title:"Tối nay cứ chọn một khu rồi đi chậm lại.",
-          note:"Ăn một món, đi bộ hoặc xem show. Không cần chạy hết đảo trong một buổi tối.",
+          note:"Ăn tối hoặc đi bộ gần nơi bạn ở. Nếu muốn xem show, hãy kiểm tra thông báo từng suất." ,
           primaryText:"Xem tối nay có gì →", primaryHref:"#happening",
           secondaryText:"Tìm món ăn", secondaryHref:"food/"
         });
@@ -609,7 +611,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         push({
           tone:"default",
           title:"Tối nay vẫn còn chỗ để đi.",
-          note:"Chợ đêm, đi bộ và một số show vẫn còn theo giờ. Xem danh sách trước khi chạy tới.",
+          note:"Chợ đêm, ăn uống hoặc đi bộ gần vẫn là lựa chọn. Muốn xem show, kiểm tra thông báo từng suất." ,
           primaryText:"Xem tối nay →", primaryHref:"#happening",
           secondaryText:"Bây giờ ăn gì?", secondaryHref:"#food-now"
         });
