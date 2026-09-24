@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Thời tiết, đi lại, điểm đến và chuyện đang diễn ra ở Phú Quốc - để bạn chọn điều cần cho hôm nay.">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260924-foodimages">
+  <link rel="stylesheet" href="styles.css?v=20260924-foodrandom1">
   <link rel="canonical" href="https://cms.openphuquoc.com/">
   <meta property="og:site_name" content="Open Phu Quoc">
   <meta property="og:locale" content="vi_VN">
@@ -174,10 +174,6 @@
       <div class="now-card-pager" data-now-pager aria-label="Các gợi ý ngay lúc này"></div>
     </aside>
 
-    <a class="food-home-shortcut" href="#food-now" aria-label="Xem ẩm thực Phú Quốc ngay trên trang chủ">
-      <img src="/assets/media/jotrip-grilled-squid-2025.jpg" alt="Mực và tôm nướng trên vỉ - ảnh thực tế JoTrip" width="168" height="112" loading="lazy" decoding="async">
-      <span><small>ĂN GÌ Ở PHÚ QUỐC?</small><strong>30 món địa phương và hải sản</strong><em>Xem gợi ý theo giờ →</em></span>
-    </a>
 
     <section class="section trip-clock-section" id="happening" aria-labelledby="tripClockTitle">
       <div class="section-heading compact-heading">
@@ -203,13 +199,16 @@
     <section class="section food-now-section" id="food-now" aria-labelledby="foodNowTitle">
       <div class="section-heading compact-heading">
         <div><p class="eyebrow">BÂY GIỜ ĂN GÌ?</p><h2 id="foodNowTitle">Chọn một món hợp với giờ này.</h2></div>
-        <a href="food/">Xem tất cả món →</a>
+        <div class="food-now-actions">
+          <button id="foodRandomBtn" type="button" disabled aria-controls="foodNowGrid">↻ Đổi món khác</button>
+          <a href="food/">Xem tất cả 30 món →</a>
+        </div>
       </div>
       <div class="food-now-head">
         <strong id="foodNowContext">Gợi ý theo giờ Phú Quốc</strong>
-        <span id="foodNowMeta">Mình chỉ gợi ý quán gần bạn khi đã biết rõ vị trí và giờ quán bán.</span>
+        <span id="foodNowMeta">Gợi ý món ăn, không phải xác nhận quán đang mở cửa.</span>
       </div>
-      <div class="food-now-grid" id="foodNowGrid"><div class="surface-loading">Đang tìm món...</div></div>
+      <div class="food-now-grid" id="foodNowGrid" aria-live="polite"><div class="surface-loading">Đang chọn một món cho bạn. <a href="food/">Xem danh sách món →</a></div></div>
     </section>
 
     <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle">
@@ -388,6 +387,6 @@
   <script src="home-foundation-v2.js?v=20260924-text2"></script>
   <script src="home-live-v3.js?v=20260924-text2"></script>
   <script src="home-copy.js?v=5"></script>
-  <script src="home-experience-v1.js?v=20260924-foodimages"></script>
+  <script src="home-experience-v1.js?v=20260924-foodrandom1"></script>
 </body>
 </html>
