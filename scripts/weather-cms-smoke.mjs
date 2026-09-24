@@ -68,8 +68,8 @@ assert(html.includes("/weather/weather-gust-outlook.js")&&
 assert(js.includes("JoTripGustOutlook?.pointOutlook")&&
  js.includes("JoTripGustOutlook?.islandAlerts"),
  "Weather app must use the point guard and automatic whole-island alert engine");
-assert(js.includes("JoTripWindGuard?.deriveAfternoonWatch(")&&js.includes('engineDashboard,now,"an_thoi"'),
- "An Thoi watch must use only source-and-time guarded dashboard forecast");
+assert(js.includes('key:alert.alert_id')&&js.includes('alert.type==="GUST_0_30"'),
+ "All-island 0-30 minute and model warnings must be source guarded");
 assert(html.includes("/weather/weather-wind-guard.js")&&html.indexOf("weather-wind-guard.js")<html.indexOf("weather-v2.js"),
  "source QC must load before the CMS Weather app");
 assert(js.includes("const wind=localFresh&&l.available?num(l.wind_kmh):null;"),
