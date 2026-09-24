@@ -157,16 +157,15 @@
       ],
       "zone_id": "zone_east",
       "category": "local-seafood",
-      "what_it_is": "Đặc sản hải sản gắn với Hàm Ninh và có nhãn hiệu tập thể; không nên mặc định mọi ghẹ bán tại Hàm Ninh đều thuộc cùng nguồn/nhãn hiệu.",
-      "why_go": "Thưởng thức kiểu chế biến đơn giản để cảm nhận vị ghẹ, đồng thời hiểu câu chuyện nghề khai thác ven biển Hàm Ninh.",
+      "what_it_is": "Ghẹ là món hải sản thường được thực khách tìm khi ghé Hàm Ninh. Có thể chế biến hấp hoặc theo cách của quán; độ chắc thịt thay đổi theo cỡ và mùa.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
       "best_for": [
-        "food",
-        "local-life"
+        "lunch",
+        "dinner"
       ],
       "tips": [
-        "Hỏi rõ giá theo kg trước khi gọi.",
-        "Ưu tiên ghẹ còn sống nếu muốn kiểm tra độ tươi.",
-        "Nếu cần xác thực nguồn gốc, hỏi cơ sở về nguồn ghẹ thay vì suy từ địa điểm bán."
+        "Hỏi giá theo kg hay theo con, cân tại chỗ và xác nhận tổng tiền trước khi chế biến.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
       ],
       "intents": [
         "food",
@@ -177,7 +176,7 @@
           "source_id": "crawl_topic_058_ghe_ham_ninh"
         }
       ],
-      "updated_at": "2026-09-20"
+      "updated_at": "2026-09-24"
     },
     {
       "id": "food_banh_canh_ca_thu",
@@ -504,37 +503,6 @@
       ],
       "tips": [
         "Xác nhận giá theo phần và hỏi có trứng, bơ hoặc sốt đi kèm không.",
-        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
-      ],
-      "intents": [
-        "food",
-        "lunch",
-        "dinner"
-      ],
-      "source_refs": [
-        {
-          "source_id": "handbook_r3"
-        }
-      ],
-      "updated_at": "2026-09-24"
-    },
-    {
-      "id": "food_ghe_ham_ninh",
-      "legacy_id": "ghe-ham-ninh",
-      "entity_type": "food",
-      "slug": "ghe-ham-ninh",
-      "name": "Ghẹ Hàm Ninh",
-      "aliases": [],
-      "zone_id": null,
-      "category": "seafood",
-      "what_it_is": "Ghẹ là món hải sản thường được thực khách tìm khi ghé Hàm Ninh. Có thể chế biến hấp hoặc theo cách của quán; độ chắc thịt thay đổi theo cỡ và mùa.",
-      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
-      "best_for": [
-        "lunch",
-        "dinner"
-      ],
-      "tips": [
-        "Hỏi giá theo kg hay theo con, cân tại chỗ và xác nhận tổng tiền trước khi chế biến.",
         "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
       ],
       "intents": [
