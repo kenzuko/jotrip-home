@@ -568,7 +568,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           push({
             tone:"watch",
             title:"Hoàng hôn chiều nay có thể bị mưa ảnh hưởng.",
-            note:"Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn. Đừng chạy xa chỉ để ngắm chiều - xem thời tiết trước khi đi.",
+            note:"Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn. Quan sát thêm dự báo trước khi di chuyển.",
             primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
@@ -578,7 +578,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
             title:minutesToSunset <= 120
               ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn, nhưng có thể có mưa."
               : "Cuối chiều có thể có mưa cục bộ ở bờ Tây.",
-            note:"Nếu muốn ngắm chiều, nên chọn điểm gần và xem lại thời tiết trước khi chạy qua bờ Tây.",
+            note:"Cuối chiều có thể có mưa cục bộ. Quan sát thêm dự báo trước khi di chuyển.",
             primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
             secondaryText:"Xem điểm gần hơn", secondaryHref:"nearme/"
           });
@@ -589,8 +589,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
               ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
               : "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
             note:minutesToSunset <= 120
-              ? "Nếu muốn ra bờ Tây, nên tính đường đi từ bây giờ."
-              : "Đừng để tới sát giờ mới chạy qua bờ Tây.",
+              ? "Quan sát thêm dự báo trước khi di chuyển."
+              : "Quan sát thêm dự báo trước khi di chuyển.",
             primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });

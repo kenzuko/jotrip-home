@@ -82,9 +82,9 @@ function renderTripClock(){
   host.innerHTML='<div class="trip-clock-empty"><strong>Gợi ý hôm nay đang được cập nhật.</strong><p>Mở Khám phá để xem giờ từng điểm trước khi đi.</p></div>';
   return;
  }
- const rows=tripClockSnapshot().filter(x=>x.eligible&&["active","future"].includes(x.decision?.state));
+ const rows=tripClockSnapshot().filter(x=>x.eligible&&["active","future","watch"].includes(x.decision?.state));
  if(!rows.length){
-  host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Thử chọn điểm gần, ăn uống hoặc xem lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
+  host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Xem các hoạt động buổi tối hoặc lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
   publishLocalNowHint();return;
  }
  let shown=rows.slice(0,9);
@@ -107,24 +107,33 @@ function buildLocalNowHint(){
  const now=hhmmToMinutes(vnParts().time),candidates=[];
  for(const x of tripClockSnapshot()){
   if(!x.eligible||!x.decision)continue;
-  const name=x.e.name||x.item.entity_id,isShow=x.opening?.schedule_type==="FIXED_START";
-  if(isShow&&x.decision.state==="future"){
+  const name=x.e.name||x.item.entity_id;
+  if(x.opening?.schedule_type==="FIXED_START"&&x.decision.state==="future"){
    const delta=x.decision.nextMin-now;
    if(delta>0&&delta<=150)candidates.push({
     score:delta,priority:"deadline",tone:"default",
     title:name+" bắt đầu lúc "+String(Math.floor(x.decision.nextMin/60)).padStart(2,"0")+":"+String(x.decision.nextMin%60).padStart(2,"0"),
-    note:"Đã tính đệm đi đường; cần kiểm tra lịch và vé show trước khi xuất phát.",
+    note:name==="ONCE Show"?"ONCE 18:45-19:05 theo lịch; cần vé vào VinWonders.":"Lịch biểu diễn có thể thay đổi; kiểm tra lịch hôm nay.",
     primaryText:"Xem "+name+" →",primaryHref:x.item.route,
     secondaryText:"Xem tối nay",secondaryHref:"#happening"
    });
-  }else if(!isShow&&x.decision.state==="active"&&Number.isFinite(x.latestLeave)){
-   const left=x.latestLeave-now;
-   if(left>=0&&left<=90)candidates.push({
-    score:160+left,priority:"deadline",tone:"default",
-    title:name+": còn khung giờ để cân nhắc ghé",
-    note:"Đã dự trù "+x.travelBuffer+" phút đi đường; thời gian thực tế tùy điểm xuất phát.",
-    primaryText:"Xem "+name+" →",primaryHref:x.item.route,
-    secondaryText:"Chọn nơi khác",secondaryHref:"#happening"
+  }else if(x.item.entity_id==="place_vinpearl_safari"&&now<16*60){
+   const left=16*60-now;
+   if(left<=150)candidates.push({
+    score:100+left,priority:"deadline",tone:"default",
+    title:"Safari đóng cửa lúc 16:00",
+    note:"Xem thời gian còn lại và giờ nhận khách tại cổng.",
+    primaryText:"Xem Safari →",primaryHref:x.item.route,
+    secondaryText:"Xem hoạt động khác",secondaryHref:"#happening"
+   });
+  }else if(x.item.entity_id==="place_vinwonders"&&now<17*60){
+   const left=17*60-now;
+   if(left<=120)candidates.push({
+    score:130+left,priority:"deadline",tone:"default",
+    title:"VinWonders: trò chơi dừng khoảng 17:00",
+    note:"Sau đó còn show ONCE lúc 18:45 theo lịch.",
+    primaryText:"Xem VinWonders →",primaryHref:x.item.route,
+    secondaryText:"Xem ONCE",secondaryHref:"places/detail.html?id=once-show"
    });
   }
  }
