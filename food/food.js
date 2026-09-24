@@ -6,7 +6,7 @@ const UI="../data/i18n/"+CONTENT_LOCALE+"/ui.json";
 const UI_FALLBACK="../data/i18n/vi/ui.json";
 const $=s=>document.querySelector(s);
 const all=s=>[...document.querySelectorAll(s)];
-const state={data:null,visuals:{},ui:{},cat:"all",q:""};
+const state={data:null,visuals:{},ui:{},cat:"all",meal:"all",q:"",randomDish:null};
 const copy=(path,fallback)=>path.split(".").reduce((o,k)=>o?.[k],state.ui)||fallback;
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({
@@ -17,6 +17,7 @@ const fold=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").repl
 function filtered(){
   return (state.data?.dishes||[]).filter(x=>
     (state.cat==="all"||x.category===state.cat)&&
+    (state.meal==="all"||(x.meal_times||[]).includes(state.meal))&&
     (!state.q||fold([
       x.name,x.intro,x.origin,x.why_name,
       (x.ingredients||[]).join(" "),
@@ -43,6 +44,7 @@ function renderGrid(){
   const host=$("#foodGrid");
   if(!host)return;
   const rows=filtered();
+  renderRandomDish();
   host.innerHTML=rows.length?rows.map(x=>
     '<a class="dish-card" href="article.html?id='+encodeURIComponent(x.id)+'">'+
       dishMedia(x)+
@@ -54,6 +56,26 @@ function renderGrid(){
       '</div>'+
     '</a>'
   ).join(""):'<div class="empty">Không có món phù hợp.</div>';
+}
+
+function renderRandomDish(){
+  const result=$("#randomDishResult"),dish=state.randomDish;
+  if(!result)return;
+  if(!dish||!filtered().some(x=>x.id===dish.id)){
+    result.innerHTML='<p class="random-dish-empty">Chưa biết ăn gì? Bấm để tớ chọn thử một món trong danh sách.</p>';
+    return;
+  }
+  const meals={breakfast:"Ăn sáng",lunch:"Ăn trưa",dinner:"Ăn tối",snack:"Ăn chơi",dessert:"Món ngọt"};
+  const time=(dish.meal_times||[]).map(x=>meals[x]).filter(Boolean).slice(0,2).join(" · ");
+  result.innerHTML='<div class="random-dish-pick"><span>'+esc(time||"Gợi ý hôm nay")+'</span><strong>'+esc(dish.name)+'</strong><p>'+esc(dish.intro)+'</p><a href="article.html?id='+encodeURIComponent(dish.id)+'">Tìm hiểu món này →</a></div>';
+}
+
+function pickRandomDish(){
+  const rows=filtered();
+  if(!rows.length)return;
+  const pool=rows.length>1?rows.filter(x=>x.id!==state.randomDish?.id):rows;
+  state.randomDish=pool[Math.floor(Math.random()*pool.length)];
+  renderRandomDish();
 }
 
 function allergenBlock(dish){
@@ -170,6 +192,13 @@ all("[data-cat]").forEach(b=>b.onclick=()=>{
   all("[data-cat]").forEach(x=>x.classList.toggle("active",x===b));
   renderGrid();
 });
+all("[data-meal]").forEach(b=>b.onclick=()=>{
+  state.meal=b.dataset.meal;
+  all("[data-meal]").forEach(x=>x.classList.toggle("active",x===b));
+  state.randomDish=null;
+  renderGrid();
+});
+$("#randomDishButton")?.addEventListener("click",pickRandomDish);
 
 load().catch(()=>{
   const h=$("#foodGrid")||$("#foodArticle");
