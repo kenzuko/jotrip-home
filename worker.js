@@ -1,6 +1,7 @@
 import {onRequestPost as cmsWeatherFeedbackPost} from "./functions/api/weather/live/feedback.js";
 import {onRequestGet as cmsWeatherFeedbackRecent} from "./functions/api/weather/live/feedback/recent.js";
 import {handleWeatherData,prewarmWeatherEdge} from "./functions/_shared/weather-edge.js";
+import {captureWeatherAlerts,readWeatherAlertHistory} from "./functions/_shared/weather-alert-runtime.js";
 const SITE_ORIGIN = "https://openphuquoc.com";
 const DEFAULT_IMAGE = SITE_ORIGIN + "/assets/logo-master.png";
 
@@ -129,9 +130,14 @@ function transformMeta(response, meta) {
 export default {
   async scheduled(event,env,ctx){
     ctx.waitUntil(prewarmWeatherEdge("https://openphuquoc-v3.kenzuko.workers.dev",p=>ctx.waitUntil(p)));
+    if(env.CMS_DB)ctx.waitUntil(captureWeatherAlerts(env).catch(e=>console.warn("Weather alert audit retry next cron",e.message)));
   },
   async fetch(request, env, ctx) {
     const weatherPath=new URL(request.url).pathname;
+    if(weatherPath==="/weather/data/alert-history.json"&&["GET","HEAD"].includes(request.method)){
+      const result=await readWeatherAlertHistory(env);
+      return request.method==="HEAD"?new Response(null,{status:result.status,headers:result.headers}):result;
+    }
     if(weatherPath.startsWith("/weather/data/")||[
       "/weather/spatial-ecmwf.json","/weather/spatial-icon.json","/weather/spatial-marine.json"
     ].includes(weatherPath)){
