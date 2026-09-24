@@ -983,12 +983,24 @@ function renderTodayDecision(){
     summaryEl.textContent="Đang đọc các mốc thời tiết còn lại hôm nay.";
     return;
   }
-  if(!globalThis.JoTripWindGuard?.dashboardUsable(engineDashboard)){
-    root.innerHTML='<div class="today-decision-empty"><b>Dự báo theo giờ đang trễ hoặc chu kỳ mô hình đã cũ</b><span>Không dùng số cũ để kết luận biển an toàn. Theo dõi quan trắc và thông báo chính thức.</span></div>';
-    summaryEl.textContent="Chưa có dự báo mới đủ điều kiện công bố các mốc còn lại hôm nay.";
+  const verified=Boolean(globalThis.JoTripWindGuard?.dashboardUsable(engineDashboard));
+  const snapshotAge=ageMinutes(engineDashboard.generated_at);
+  const cycles=engineDashboard.source_cycles||{};
+  const cycleAges=[cycles.ECMWF,cycles.ICON].map(ageMinutes);
+  // A snapshot that missed the strict 2.5-hour publication gate can still
+  // contain valid future model slots. Show numeric reference only for up to
+  // six hours, NEVER a "safe to go" recommendation or short-term alert.
+  // The regular two-minute live refresh replaces it as soon as the engine
+  // publishes a fresh snapshot.
+  const referenceOnly=!verified&&snapshotAge>=0&&snapshotAge<=360&&
+    cycleAges.some(a=>a>=0&&a<=30*60);
+  if(!verified&&!referenceOnly){
+    root.innerHTML='<div class="today-decision-empty"><b>Đang chờ chu kỳ dự báo mới</b><span>Hệ thống tự kiểm tra lại mỗi 2 phút. Không dùng bản quá hạn để đánh giá an toàn trên biển.</span></div>';
+    summaryEl.textContent="Dự báo theo giờ chưa đủ mới; quan trắc tại điểm vẫn cập nhật độc lập.";
     return;
   }
-  const rows=engineTodayRows();
+  const rows=engineTodayRows().filter(r=>Number.isFinite(Date.parse(r.time_iso||""))&&
+    (num(r.wind)!==null||num(r.rain)!==null||num(r.wave)!==null));
   const enginePoint=engineDashboard.points?.[current]||{};
   if(badge)badge.textContent=(enginePoint.name||point().name||"Phú Quốc")+" · JoTrip Engine";
   const cycle=engineDashboard.source_cycles?.ECMWF;
@@ -1007,6 +1019,28 @@ function renderTodayDecision(){
       :rows.some(r=>num(r.wave)!==null)
         ?("Sóng từng mốc giờ: dự báo ECMWF Wave tại ô biển theo cấu hình của điểm."+marineBase)
         :"Chưa có dự báo sóng cho đúng các mốc giờ. Không lấy sóng nền hiện tại lấp vào giờ thiếu."+marineBase;
+  }
+  if(referenceOnly){
+    if(badge)badge.textContent="BẢN THAM KHẢO · ĐANG TỰ CẬP NHẬT";
+    if(meta)meta.textContent="Mô hình "+localTime(engineDashboard.generated_at)+
+      " · hệ thống tự nạp bản mới mỗi 2 phút · không dùng để quyết định ra biển";
+    root.innerHTML='<div class="today-reference-notice"><b>Dự báo đang chờ cập nhật</b>'+
+      '<span>Các mốc dưới đây là dự báo mô hình còn hiệu lực về thời gian, nhưng bản tổng hợp đã trễ '+
+      Math.round(snapshotAge)+' phút. Chỉ để tham khảo, không phải cảnh báo hiện tại.</span></div>'+
+      rows.map(r=>{
+        const wind=num(r.wind),gust=safeModelGust(r),rain=num(r.rain),wave=num(r.wave);
+        return '<article class="today-decision-card reference-only">'+
+          '<time>'+esc(phuQuocClock(r.time_iso))+'</time>'+
+          '<b>Mốc mô hình cũ · tham khảo</b>'+
+          '<div class="today-mini">'+
+            '<span>Mưa '+(rain===null?'-':fmt(rain,1)+' mm/3h')+'</span>'+
+            '<span>Gió '+(wind===null?'-':fmt(wind,0)+' km/h')+'</span>'+
+            '<span>Giật '+(gust===null?'-':fmt(gust,0)+' km/h')+'</span>'+
+            '<span>Sóng '+(wave===null?'-':fmt(wave,2)+' m Hs')+'</span>'+
+          '</div></article>';
+      }).join("");
+    summaryEl.textContent="Hệ thống đang tự nạp dự báo mới. Số bên dưới là bản mô hình tham khảo, không đánh giá biển an toàn.";
+    return;
   }
   if(!rows.length){
     root.innerHTML='<div class="today-decision-empty"><b>Không còn mốc 3 giờ nào trong hôm nay</b><span>Xem 10 ngày bên dưới cho ngày mai và các ngày tiếp theo.</span></div>';
@@ -1056,8 +1090,11 @@ async function loadEngineDashboard(){
   }catch(e){
     console.warn("[Weather V2] JoTrip Engine today",e);
     const root=$("todayDecisionStrip"),summaryEl=$("todayDecisionSummary");
-    if(root)root.innerHTML='<div class="today-decision-empty"><b>Chưa tải được các mốc hôm nay</b><span>Phần Lúc này, 10 ngày và Radar vẫn hoạt động bình thường.</span></div>';
-    if(summaryEl)summaryEl.textContent="JoTrip Engine đang cập nhật lại dữ liệu theo giờ.";
+    // Preserve a previously verified snapshot during a temporary edge outage.
+    // Do not clear its timestamp or silently upgrade it to current data.
+    if(engineDashboard){renderTodayDecision();return}
+    if(root)root.innerHTML='<div class="today-decision-empty"><b>Đang kết nối lại dữ liệu dự báo</b><span>Tự thử lại mỗi 2 phút. Quan trắc tại điểm vẫn hoạt động độc lập.</span></div>';
+    if(summaryEl)summaryEl.textContent="Hệ thống đang tự kết nối lại JoTrip Engine.";
   }
 }
 
@@ -2963,6 +3000,9 @@ async function boot(){
     defer(loadRecentFeedback,850);
     setInterval(()=>{renderStatus();renderHero();renderTodayDecision();renderQuickAlert()},60000);
     setInterval(refreshLive,LIVE_REFRESH_MS);
+    // Re-evaluate the forecast publication gate even if the network is down;
+    // never leave an old "favorable" card visible after it expires.
+    setInterval(()=>{if(document.visibilityState==="visible")renderTodayDecision()},60000);
     setInterval(()=>{if(mapLayer==="himawari"&&document.visibilityState==="visible")refreshActiveMap()},10*60*1000);
     document.addEventListener("visibilitychange",()=>{
       if(document.visibilityState==="visible"&&Date.now()-lastLiveRefreshAt>5*60*1000)refreshLive();
