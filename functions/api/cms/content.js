@@ -8,6 +8,7 @@ const readable={
   "data/utilities.json":["admin","editor","operator","viewer"],
   "data/entities/destination-venues.json":["admin","editor","operator","viewer"],
   "data/entities/food.json":["admin","editor","operator","viewer"],
+  "data/visual-context.json":["admin","editor","viewer"],
   "cms/users.json":["admin"]
 };
 

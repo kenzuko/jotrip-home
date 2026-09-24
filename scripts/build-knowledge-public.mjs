@@ -15,8 +15,9 @@ const overrides={
 };
 const imagesFor=o=>{
  const over=overrides[o.topic_id];
- let all=[];
- if(over?.both)all=over.both.flatMap(key=>visual.places?.[key]?.images||[]);
+ let all=visual.knowledge?.[o.topic_id]?.images?.filter(x=>x?.url)||[];
+ if(all.length) { /* A reviewed article-specific photo takes priority. */ }
+ else if(over?.both)all=over.both.flatMap(key=>visual.places?.[key]?.images||[]);
  else if(over)all=visual[over.source]?.[over.key]?.images||[];
  else if(o.canonical_entity_id?.startsWith("food_"))all=visual.food?.[o.canonical_entity_id.slice(5)]?.images||[];
  else if(o.canonical_entity_id)all=visual.places?.[o.canonical_entity_id]?.images||[];

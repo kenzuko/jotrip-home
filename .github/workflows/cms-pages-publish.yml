@@ -8,6 +8,7 @@ on:
       - "scripts/build-cloudflare.mjs"
       - "scripts/build-knowledge-public.mjs"
       - "data/knowledge/**"
+      - "data/visual-context.json"
       - "guide/**"
       - "index.html"
       - "styles.css"

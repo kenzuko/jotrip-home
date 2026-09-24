@@ -8,6 +8,7 @@ const writable={
   "data/utilities.json":["admin","operator"],
   "data/entities/destination-venues.json":["admin","editor","operator"],
   "data/entities/food.json":["admin","editor"],
+  "data/visual-context.json":["admin","editor"],
   "cms/users.json":["admin"]
 };
 
@@ -164,6 +165,24 @@ function validatePayload(path,content){
       if(!String(x?.name||"").trim())errors.push("Món "+(id||("#"+(i+1)))+" chưa có tên");
       if(!Array.isArray(x?.source_refs)||!x.source_refs.length||x.source_refs.some(ref=>!String(ref?.source_id||"").trim()))errors.push("Món "+(id||("#"+(i+1)))+" cần ít nhất một nguồn có mã source_id");
     });
+  }
+
+  if(path==="data/visual-context.json"){
+    for(const section of ["places","food","stories","nature","knowledge"]){
+      const groups=content[section]||{};
+      for(const [id,item] of Object.entries(groups)){
+        if(!Array.isArray(item?.images)){errors.push(section+" / "+id+" cần mảng ảnh");continue;}
+        for(const [index,p] of item.images.entries()){
+          const label=section+" / "+id+" / ảnh #"+(index+1);
+          const url=String(p?.url||"");
+          if(!(/^\/assets\/(?:media|uploads)\/[a-zA-Z0-9_./-]+\.(?:jpg|jpeg|png|webp)$/.test(url)||/^https:\/\/(?:commons\.wikimedia\.org|visitphuquoc\.com\.vn)\//.test(url)))errors.push(label+": đường ảnh không được phép");
+          if(!String(p?.alt||"").trim())errors.push(label+": thiếu mô tả ảnh");
+          if(!String(p?.caption||"").trim())errors.push(label+": thiếu chú thích");
+          if(!String(p?.source_label||"").trim())errors.push(label+": thiếu tác giả hoặc nguồn ảnh");
+          if(url.startsWith("http")&&!String(p?.source_url||"").startsWith("https://"))errors.push(label+": ảnh bên ngoài cần URL nguồn");
+        }
+      }
+    }
   }
 
   if(path==="cms/users.json"){
