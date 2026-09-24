@@ -73,3 +73,5 @@
   margin-top:5px!important;
   font-size:14px!important;
 }
+
+.u-route-guide{display:grid;grid-template-columns:1fr 16px 1fr 16px 1fr;align-items:center;gap:12px;padding:20px;margin:18px 0;border:1px solid #d7e8e2;border-radius:20px;background:linear-gradient(120deg,#e4f5ee,#eaf5fb)}.u-route-guide>div{display:grid;gap:8px;min-height:90px;align-content:center;padding:15px;border-radius:15px;background:#fff;box-shadow:0 5px 18px #163f3b12}.u-route-guide span{font-size:10px;font-weight:900;letter-spacing:.08em;color:#478274}.u-route-guide strong{font-size:14px;line-height:1.4;color:#173d3a}.u-route-guide i{height:3px;border-radius:3px;background:linear-gradient(90deg,#45b69d,#60aede)}.u-route-guide small{grid-column:1/-1;color:#5a746f;font-size:11px;line-height:1.5}@media(max-width:620px){.u-route-guide{grid-template-columns:1fr;gap:8px}.u-route-guide i{width:3px;height:16px;margin:0 auto}.u-route-guide>div{min-height:65px}.u-route-guide small{grid-column:1}}
