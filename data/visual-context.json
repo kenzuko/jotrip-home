@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-20",
+  "updated_at": "2026-09-24",
   "map_policy": {
     "provider": "OpenStreetMap",
     "load_mode": "click_to_load",
@@ -208,7 +208,18 @@
   },
   "places": {
     "place_dinh_cau": {
-      "images": [],
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1280",
+          "alt": "Dinh Cậu ở Phú Quốc năm 2012",
+          "caption": "Dinh Cậu năm 2012 - diện mạo hiện nay có thể thay đổi.",
+          "scope": "archive",
+          "source_label": "Bùi Thụy Đào Nguyên",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+        }
+      ],
       "visual_note": "Không dùng ảnh Dinh Cậu cũ làm hero. Chờ ảnh 2025-2026 đúng chủ thể và có quyền sử dụng phù hợp; trong thời gian này chỉ dùng bối cảnh khu vực + locator."
     },
     "place_night_market": {
@@ -1114,6 +1125,34 @@
         }
       ],
       "visual_note": "Chỉ dùng ảnh An Thới như bối cảnh vùng. Hero chính vẫn dùng locator/infographic cho tới khi có ảnh tour exact đủ mới và đúng quyền."
+    },
+    "place_ham_ninh": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishignet.jpg?width=1280",
+          "alt": "Ngư dân gỡ lưới ở cầu tàu Hàm Ninh năm 2002",
+          "caption": "Cầu tàu Hàm Ninh năm 2002, không đại diện cho hiện trạng hôm nay.",
+          "scope": "archive",
+          "source_label": "Plicata",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Fishignet.jpg",
+          "license": "Public domain",
+          "license_url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        }
+      ]
+    },
+    "place_rach_vem": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Starfishes%20on%20the%20Starfish%20Beach%2C%20Phu%20Quoc%2C%20Vietnam.jpg?width=1280",
+          "alt": "Sao biển tại bãi Sao Biển phía bắc Phú Quốc năm 2019",
+          "caption": "Sao biển tại bãi phía bắc Phú Quốc, ảnh năm 2019; số lượng thay đổi theo mùa.",
+          "scope": "exact_subject",
+          "source_label": "Alexey Komarov",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Starfishes%20on%20the%20Starfish%20Beach%2C%20Phu%20Quoc%2C%20Vietnam.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        }
+      ]
     }
   },
   "food": {
@@ -1180,6 +1219,15 @@
           "note": "Thêm từng ít để giữ vị nước lèo."
         }
       ]
+    },
+    "bun-ken": {
+      "images": []
+    },
+    "nhum": {
+      "images": []
+    },
+    "coi-bien-mai": {
+      "images": []
     }
   },
   "food_context": {
@@ -1222,5 +1270,21 @@
       "archive"
     ],
     "note": "Hero nên ưu tiên ảnh đúng chủ thể, mới, độ phân giải tốt và bố cục mạnh. Ảnh cũ chỉ dùng khi không có lựa chọn tốt hơn và phải ghi rõ nếu là tư liệu."
+  },
+  "nature": {
+    "phu-quoc-sunset": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20Phu%20Quoc%20sunset.jpg?width=1280",
+          "alt": "Hoàng hôn Phú Quốc tháng 11/2025",
+          "caption": "Hoàng hôn bờ Tây Phú Quốc, ảnh chụp tháng 11/2025.",
+          "scope": "exact_subject",
+          "source_label": "Elmschrat",
+          "source_url": "https://commons.wikimedia.org/wiki/File:1%20Phu%20Quoc%20sunset.jpg",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    }
   }
 }

@@ -8,6 +8,9 @@ const out=path.join(root,"data/views/knowledge-public.json");
 const overrides={
  "knowledge_002_duong-dong":{source:"stories",key:"duong-dong-sau-5-gio",context:true},
  "knowledge_004_an-thoi":{source:"places",key:"activity_tour_3_islands",context:true},
+ "knowledge_035_sao-bien-rach-vem":{source:"places",key:"place_rach_vem"},
+ "knowledge_050_hoang-hon-phu-quoc":{source:"nature",key:"phu-quoc-sunset"},
+ "knowledge_131_sunset-watching":{source:"nature",key:"phu-quoc-sunset"},
  "knowledge_137_visit-fish-sauce-house-pepper-farm":{both:["place_fish_sauce_house","place_pepper_garden"]}
 };
 const imagesFor=o=>{
@@ -18,7 +21,7 @@ const imagesFor=o=>{
  else if(o.canonical_entity_id?.startsWith("food_"))all=visual.food?.[o.canonical_entity_id.slice(5)]?.images||[];
  else if(o.canonical_entity_id)all=visual.places?.[o.canonical_entity_id]?.images||[];
  return all.filter(x=>x?.url && (/^\/assets\/(?:media|uploads)\//.test(x.url)||/^https:\/\/(?:commons\.wikimedia\.org|visitphuquoc\.com\.vn)\//.test(x.url))).slice(0,3)
- .map(x=>({url:x.url,alt:String(x.alt||o.title),caption:String(x.caption||""),credit:String(x.source_label||"").replace(/^Ảnh:\s*/i,""),scope:over?.context?"context":String(x.scope||"context"),source_url:x.source_url||null}));
+ .map(x=>({url:x.url,alt:String(x.alt||o.title),caption:String(x.caption||""),credit:String(x.source_label||"").replace(/^Ảnh:\s*/i,""),scope:over?.context?"context":String(x.scope||"context"),source_url:x.source_url||null,license:x.license||null,license_url:x.license_url||null}));
 };
 const objects=(payload.objects||[]).filter(o=>o.status==="READY_PUBLIC"&&o.public_ready===true).map(o=>({
  topic_id:o.topic_id,number:o.number,title:o.title,topic_type:o.topic_type,story_type:o.story_type,
