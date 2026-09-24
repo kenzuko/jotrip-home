@@ -13,6 +13,9 @@ on:
       - "index.html"
       - "styles.css"
       - "home-foundation-v2.js"
+      - "home-experience-v1.js"
+      - "home-live-v3.js"
+      - "data/views/today-rules.json"
       - "core/trip-clock-planner.js"
       - "data/home-support.json"
       - "data/entities/**"
@@ -161,7 +164,7 @@ jobs:
             if(build.source_commit!==expected)throw Error("CMS live SHA "+
               String(build.source_commit||"missing")+" != expected "+expected);
             const homepage=await get("/");
-            if(!homepage.body.includes("core/trip-clock-planner.js?v=20260924-fix1")||!homepage.body.includes("home-foundation-v2.js?v=20260924-fix1"))
+            if(!homepage.body.includes("core/trip-clock-planner.js?v=20260924-text2")||!homepage.body.includes("home-foundation-v2.js?v=20260924-text2"))
               throw Error("CMS homepage is still serving an older trip-clock version");
             const planner=await get("/core/trip-clock-planner.js");
             if(!planner.body.includes("OpenPQTripClockPlanner")||!planner.body.includes("planning_travel_min"))
