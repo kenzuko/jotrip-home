@@ -1228,6 +1228,20 @@
     },
     "coi-bien-mai": {
       "images": []
+    },
+    "muc-trung-nuong": {
+      "images": [
+        {
+          "url": "/assets/media/jotrip-grilled-squid-2025.jpg",
+          "alt": "Mực và tôm nướng trên vỉ - ảnh tư liệu JoTrip",
+          "caption": "Ảnh JoTrip: mực và tôm nướng - minh họa chung, không xác nhận đây là mực trứng.",
+          "scope": "illustrative",
+          "hero_priority": "preferred",
+          "source_label": "JoTrip",
+          "rights": "JoTrip licensed photo library",
+          "source_file_id": "1UO_EbKDcqenkGpcDxuT-WLDqQpg4GV0-"
+        }
+      ]
     }
   },
   "food_context": {
