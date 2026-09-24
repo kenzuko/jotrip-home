@@ -806,17 +806,11 @@ function freshnessText(iso, prefix = "Cập nhật") {
     );
 
     const tonightMinute = vnClockParts().minutes;
-    let tonightPrimary = "Còn nhiều lựa chọn";
-    let tonightContext = "Show theo giờ · chợ đêm · đi dạo";
-    if (tonightMinute >= 21 * 60) {
-      tonightPrimary = "Giờ này hợp đi nhẹ hơn";
-      tonightContext = "Chợ đêm · ăn uống · đi dạo";
-    }
-    if (tonightMinute >= 23 * 60) {
-      tonightPrimary = "Muộn rồi, nên chọn chỗ gần";
-      tonightContext = "Xem giờ mở cửa trước khi đi";
-    }
-    setLive("tonight", tonightPrimary, tonightContext, "info", "Theo giờ Phú Quốc");
+    const tonightPrimary = tonightMinute >= 21 * 60
+      ? "Xem chuyến về trước khi muộn"
+      : "Xem giờ đi lại tối nay";
+    const tonightContext = "Xe buýt · tàu · phà theo lịch";
+    setLive("tonight", tonightPrimary, tonightContext, "info", "Mở lịch theo ngày");
 
     const quickAlerts = [];
     const weatherFreshForAlert = !!critical && criticalAge <= 90;
