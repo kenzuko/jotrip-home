@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-19",
+  "updated_at": "2026-09-24",
   "timezone": "Asia/Ho_Chi_Minh",
   "rules": [
     {
@@ -28,11 +28,10 @@
       "start_hour": 15,
       "end_hour": 18,
       "title": "Sắp tới khung hoàng hôn",
-      "summary": "Nếu weather ổn, bờ Tây là lựa chọn dễ ghép cho cuối chiều. Kiểm tra Live trước khi đi.",
+      "summary": "Nếu thời tiết thuận, ngắm hoàng hôn cũng đẹp. Theo dõi sát dự báo mưa và chọn điểm gần; không cần đi xa chỉ vì hoàng hôn.",
       "route": "/#today",
       "source_type": "EDITORIAL",
-      "source_id": "handbook_r3",
-      "weather_sensitive": true
+      "source_id": "handbook_r3"
     },
     {
       "id": "evening-options",

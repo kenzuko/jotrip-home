@@ -26,7 +26,8 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Ưu tiên bus bán hoang dã sớm",
+        "Safari đóng cửa lúc 16:00; đi sớm sẽ có thời gian tham quan thong thả hơn.",
+        "Nếu đến muộn, xem thời gian còn lại và giờ nhận khách tại cổng trước khi quyết định.",
         "Zoo Tram là dịch vụ riêng",
         "Không cố ghép Safari + VinWonders nếu có trẻ nhỏ"
       ],
@@ -54,7 +55,7 @@
           "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-22",
+      "updated_at": "2026-09-24",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "DAILY",
@@ -115,8 +116,10 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
+        "Phần lớn khu trò chơi khép lại trong khoảng 17:30–18:00.",
+        "Show ONCE diễn ra 18:45–19:05; nếu đến muộn, có thể ưu tiên xem show.",
+        "Muốn chơi nhiều trò, nên vào công viên sớm hơn.",
         "Xem giới hạn chiều cao đầu ngày",
-        "Giữ sức cho ONCE",
         "Thủy cung là khoảng nghỉ tốt giữa trưa"
       ],
       "intents": [
@@ -145,7 +148,7 @@
           "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-22",
+      "updated_at": "2026-09-24",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "DAILY",
@@ -948,20 +951,21 @@
         "culture",
         "viewpoint"
       ],
-      "what_it_is": "Điểm văn hóa - tâm linh và góc nhìn biển phía Đông Nam",
-      "why_go": "Tham quan · Ngắm cảnh",
+      "what_it_is": "Không gian tâm linh yên tĩnh để tĩnh tâm, dâng hương, cầu nguyện và ngắm biển phía Đông Nam.",
+      "why_go": "Tĩnh tâm · Dâng hương · Cầu nguyện",
       "best_for": [
         "culture",
         "viewpoint"
       ],
       "best_time": "Sáng hoặc chiều dịu",
-      "duration": "1-2 giờ",
+      "duration": "1,5–2 giờ",
       "price_reference": "Không có vé chung",
       "live_check_required": false,
       "weather_dependency": "medium",
       "tips": [
-        "Trang phục phù hợp",
-        "Ghép Bãi Sao/Bãi Khem hoặc Nhà tù"
+        "Dành thời gian tĩnh tâm, dâng hương và cầu nguyện; không cần ghé vội chỉ để chụp ảnh.",
+        "Mặc trang phục phù hợp, giữ yên tĩnh và làm theo hướng dẫn tại khu thờ tự.",
+        "Có thể ghép với Bãi Sao, Bãi Khem hoặc Nhà tù Phú Quốc nếu lịch trình thong thả."
       ],
       "intents": [
         "culture",
@@ -984,7 +988,7 @@
           "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-22",
+      "updated_at": "2026-09-24",
       "address": "426H+2HJ, Thiền viện Trúc Lâm Hộ Quốc, Dương Tơ, Phú Quốc, An Giang, Việt Nam",
       "map": {
         "lat": 10.1100625,
