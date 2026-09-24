@@ -2552,3 +2552,6 @@ footer{font-size:9.5px}
 
 /* Weather field guide */
 .weather-field-guide{margin:18px 0;background:linear-gradient(135deg,#f3fbf8,#f5f9ff)!important;border-color:#d7e9e4!important}.weather-field-guide .panel-head h2{margin:3px 0;color:#164c49}.weather-guide-intro,.weather-guide-note{max-width:850px;color:#536f70;font-size:13px;line-height:1.65}.weather-field-guide img{display:block;width:min(100%,900px);height:auto;margin:16px auto;border-radius:18px}.weather-guide-note{margin:0 auto 4px}
+
+/* Weather field guide */
+.weather-field-guide{margin:18px 0;background:linear-gradient(135deg,#f3fbf8,#f5f9ff)!important;border-color:#d7e9e4!important}.weather-field-guide .panel-head h2{margin:3px 0;color:#164c49}.weather-guide-intro,.weather-guide-note{max-width:850px;color:#536f70;font-size:13px;line-height:1.65}.weather-field-guide img{display:block;width:min(100%,900px);height:auto;margin:16px auto;border-radius:18px}.weather-guide-note{margin:0 auto 4px}
