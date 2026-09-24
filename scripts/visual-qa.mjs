@@ -156,12 +156,37 @@ async function testHomeFoundation(page) {
     await page.waitForTimeout(450);
   }
 
-  return page.evaluate((initialNearClean) => {
+  const cancelledToday = await page.evaluate(async () => {
+    try {
+      const response=await fetch('/data/operational-notices.json',{cache:'no-store'});
+      if(!response.ok)return null;
+      const notices=await response.json();
+      const parts=new Intl.DateTimeFormat('en-GB',{
+        timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit'
+      }).formatToParts(new Date());
+      const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));
+      const today=p.year+'-'+p.month+'-'+p.day;
+      return (notices.notices||[]).filter(x=>x.date===today&&x.status==='CANCELLED')
+        .map(x=>x.entity_id);
+    }catch{return null}
+  });
+  return page.evaluate(({initialNearClean,cancelledToday}) => {
     const text = selector => document.querySelector(selector)?.textContent?.trim() || '';
     const count = selector => document.querySelectorAll(selector).length;
+    const hanoiHour=Number(new Intl.DateTimeFormat('en-GB',{
+      timeZone:'Asia/Ho_Chi_Minh',hour:'2-digit',hourCycle:'h23'
+    }).format(new Date()));
+    const tripCount=count('#tripClockList .trip-item');
+    const legitimateLateFallback=!!document.querySelector('#tripClockList .trip-clock-empty')&&
+      text('#tripClockList').includes('Giờ này các điểm chính đã qua khung');
     const checks = {
       localTime: !!text('#tripClockNow') && text('#tripClockNow') !== '--:--',
-      tripCards: count('#tripClockList .trip-item') >= 3,
+      // Never manufacture three open attractions at night solely to pass CI.
+      // At 23:00-07:00 a clear "nothing left today" state is valid.
+      tripCards: tripCount>=1 || ((hanoiHour>=23||hanoiHour<7)&&legitimateLateFallback),
+      noticesLoaded: Array.isArray(cancelledToday),
+      cancelledShowHidden: Array.isArray(cancelledToday) &&
+        cancelledToday.every(id=>!document.querySelector('#tripClockList .trip-item[data-entity-id="'+id+'"]')),
       manualAreas: count('#nearManualAreas [data-area]') >= 4,
       nearCategories: count('#nearCategories [data-category]') >= 5,
       initialNearClean,
@@ -172,7 +197,7 @@ async function testHomeFoundation(page) {
       noSyntheticZero: ![...document.querySelectorAll('#homeCurrencyGrid .home-currency-card strong')].some(el => /^0([,.]0+)?\s*₫$/.test(el.textContent.trim()))
     };
     return { ok: Object.values(checks).every(Boolean), checks };
-  }, initialNearClean);
+  }, {initialNearClean,cancelledToday});
 }
 
 async function testNearMePage(page) {
