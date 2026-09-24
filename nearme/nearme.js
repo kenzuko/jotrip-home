@@ -283,6 +283,13 @@
     return item.opening_hours_note|| (item.entity_type==='utility'?'Giờ mở cửa chưa được xác nhận.':'');
   }
 
+  function mapInfoLabel(item){
+    const map=item.map||{};
+    const precision=map.precision==="area_anchor"?"Pin định hướng khu vực":map.precision==="site_centroid"?"Tâm khuôn viên, có thể khác cổng vào":map.precision?"Độ chính xác: "+map.precision:"";
+    const source=map.source&&!/^https?:\\/\\//i.test(map.source)?"Đối chiếu: "+map.source:"";
+    const date=map.verified_at?"Rà soát dữ liệu: "+map.verified_at:"";
+    return [precision,source,date,map.note].filter(Boolean).join(" · ");
+  }
   function typeLabel(item){
     if(item.entity_type==="venue")return category(item.utility_type)?.label||item.group||"Địa điểm";
     if(item.entity_type==="hotel")return item.star_rating?"Khách sạn "+item.star_rating+" sao":"Khách sạn";
@@ -354,7 +361,7 @@
         '<span>'+esc(typeLabel(x))+'</span>'+
         (x.address?'<small>'+esc(x.address)+'</small>':"")+
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
-        (x.map?.note?'<small>'+esc(x.map.note)+'</small>':"")+
+        (mapInfoLabel(x)?'<small>'+esc(mapInfoLabel(x))+'</small>':"")+
         (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi '+esc(x.phone)+'</a>':"")+
         '</div>'
       );
