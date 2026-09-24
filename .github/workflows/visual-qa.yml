@@ -12,11 +12,20 @@ on:
           - full
           - smoke
           - home
+  pull_request:
+    paths:
+      - ".github/workflows/visual-qa.yml"
+      - "home-foundation-v2.js"
+      - "scripts/visual-qa.mjs"
+      - "scripts/test-cancelled-show-trip-clock.mjs"
+      - "data/operational-notices.json"
   push:
     branches: ["main"]
     paths:
       - ".github/workflows/visual-qa.yml"
       - "scripts/visual-qa.mjs"
+      - "scripts/test-cancelled-show-trip-clock.mjs"
+      - "data/operational-notices.json"
       - "scripts/build-cloudflare.mjs"
       - "index.html"
       - "styles.css"
@@ -44,15 +53,18 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Checkout latest main
+      - name: Checkout the branch being tested
         uses: actions/checkout@v4
         with:
-          ref: main
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || 'main' }}
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
+
+      - name: Check dated cancellation before browser QA
+        run: node scripts/test-cancelled-show-trip-clock.mjs
 
       - name: Install Playwright
         run: npm install --no-save --package-lock=false playwright@1.63.0
