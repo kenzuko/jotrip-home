@@ -173,25 +173,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Dusit Princess Moonrise Beach Resort Phu Quoc, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_green_bay",
@@ -524,25 +507,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.413995,
-        "lon": 103.9759353,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1490752985,
-        "matched_name": "UBND ĐẶC KHU PHÚ QUỐC TRỤ SỞ KHU PHỐ RẠCH TRÀM BÃI THƠM",
-        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Melia Vinpearl Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_movenpick",
@@ -594,25 +560,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2676616,
-        "lon": 103.9370953,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 10169154217,
-        "matched_name": null,
-        "formatted_address": "Tồ 2, ấp Ông Lang, Xã Cửa Dương, Phú Quốc, Kiên Giang, Ong Lang, Phu Quoc, Vietnam, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Mövenpick Resort Waverly Phu Quoc, Tổ 1, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_new_world",
@@ -877,25 +826,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2676616,
-        "lon": 103.9370953,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 10169154217,
-        "matched_name": null,
-        "formatted_address": "Tồ 2, ấp Ông Lang, Xã Cửa Dương, Phú Quốc, Kiên Giang, Ong Lang, Phu Quoc, Vietnam, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Premier Village Phú Quốc, Mũi Ông Đội, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_pullman",
@@ -1001,25 +933,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.413995,
-        "lon": 103.9759353,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1490752985,
-        "matched_name": "UBND ĐẶC KHU PHÚ QUỐC TRỤ SỞ KHU PHỐ RẠCH TRÀM BÃI THƠM",
-        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Radisson Blu Resort Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_regent",
@@ -1302,25 +1217,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": "SDL 27/07/2026 lặp 2 dòng cùng khách sạn; web giữ 1 bản ghi.",
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.413995,
-        "lon": 103.9759353,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1490752985,
-        "matched_name": "UBND ĐẶC KHU PHÚ QUỐC TRỤ SỞ KHU PHỐ RẠCH TRÀM BÃI THƠM",
-        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Sheraton Phú Quốc Long Beach Resort, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_sol_by_melia",
@@ -1377,25 +1275,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1888255,
-        "lon": 103.99297,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1488492950,
-        "matched_name": "Phu Quoc Ngoc Bao Pearl",
-        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "SOL by Meliá Phu Quoc, Tổ 2, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_sonaga_beach_resort",
@@ -1488,25 +1369,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1888255,
-        "lon": 103.99297,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1488492950,
-        "matched_name": "Phu Quoc Ngoc Bao Pearl",
-        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Sunset Sanato, Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_the_shells_resort_spa_phu_quoc",
@@ -1682,25 +1546,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.413995,
-        "lon": 103.9759353,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1490752985,
-        "matched_name": "UBND ĐẶC KHU PHÚ QUỐC TRỤ SỞ KHU PHỐ RẠCH TRÀM BÃI THƠM",
-        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Vinpearl Resort & Spa Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_vinpearl_wonderworld_phu_quoc",
@@ -1744,25 +1591,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.413995,
-        "lon": 103.9759353,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1490752985,
-        "matched_name": "UBND ĐẶC KHU PHÚ QUỐC TRỤ SỞ KHU PHỐ RẠCH TRÀM BÃI THƠM",
-        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Vinpearl Wonderworld Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_worldhotels_long_beach_resort_phu_quoc",
@@ -1858,25 +1688,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.3232415,
-        "lon": 103.8562954,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1270360759,
-        "matched_name": "Wyndham Garden Grandworld Phu Quoc",
-        "formatted_address": "Địa Trung Hải 3, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Wyndham Grand Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_aquasun",
@@ -2055,25 +1868,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1871146,
-        "lon": 103.9709938,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 257035327,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 13305912492,
-        "matched_name": "Cửa Lấp Dương Tơ",
-        "formatted_address": "Cửa Lấp Dương Tơ, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Famiana Resort & Spa, Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_l_azure_resort_spa_phu_quoc",
@@ -2126,25 +1922,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "L'Azure Resort & Spa Phu Quoc, 64 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_m_hotel_phu_quoc",
@@ -2251,25 +2030,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1799257,
-        "lon": 103.9830979,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 7418441269,
-        "matched_name": "Ben's Place",
-        "formatted_address": "5, Tố, Phu Quoc, Kiến Giang, Vietnam, Việt Nam",
-        "lookup_query": "Maison Du Vietnam Resort & Spa, Tổ 12, ấp Bến Tràm, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_mercury_phu_quoc_resort_villas",
@@ -2373,25 +2135,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1888255,
-        "lon": 103.99297,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1488492950,
-        "matched_name": "Phu Quoc Ngoc Bao Pearl",
-        "formatted_address": "Đường tỉnh 973, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Muong Thanh Luxury Phu Quoc Hotel, Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_paralia",
@@ -2551,25 +2296,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.262797,
-        "lon": 103.9392304,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256400662,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 12953519805,
-        "matched_name": "Nos Vetra Resort",
-        "formatted_address": "Nos Vetra Resort, Tổ 3, Đường tỉnh 975B, Gành Gió Cửa Dương, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Sea Sense Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_sunset_beach_resort_spa",
@@ -2851,25 +2579,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.3232415,
-        "lon": 103.8562954,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1270360759,
-        "matched_name": "Wyndham Garden Grandworld Phu Quoc",
-        "formatted_address": "Địa Trung Hải 3, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Wyndham Garden Grandworld, Khu DL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_brenta_phu_quoc",
@@ -3424,25 +3135,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.262797,
-        "lon": 103.9392304,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256400662,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 12953519805,
-        "matched_name": "Nos Vetra Resort",
-        "formatted_address": "Nos Vetra Resort, Tổ 3, Đường tỉnh 975B, Gành Gió Cửa Dương, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Phu Quoc Eco Beach Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_praha",
@@ -3757,25 +3451,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2112438,
-        "lon": 103.965123,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 7104145185,
-        "matched_name": "Ruby Phu Quoc Hostel",
-        "formatted_address": "Duong 30 thang 4, hem tòa án, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "An Phú, 182A đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_bach_duong_resort",
@@ -3817,25 +3494,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2244816,
-        "lon": 103.9679771,
-        "precision": "route_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 155315678,
-        "matched_name": "Lý Thường Kiệt",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Bạch Dương Resort, 13 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_bien_xanh",
@@ -3996,25 +3656,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2676616,
-        "lon": 103.9370953,
-        "precision": "site_centroid",
-        "source_id": "osm_overpass_catalog",
-        "source": "OpenStreetMap Overpass catalog",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_OVERPASS",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 10169154217,
-        "matched_name": "Phu Quoc Pomelo Garden",
-        "formatted_address": "Tồ 2, ấp Ông Lang, Xã Cửa Dương, Phú Quốc, Kiên Giang, Ong Lang, Phu Quoc, Vietnam",
-        "lookup_query": "Caesar Việt Nam, Thửa đất số 200, Tờ bản đồ 11, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_camellia_resort_spa",
@@ -4056,25 +3699,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.262797,
-        "lon": 103.9392304,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256400662,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 12953519805,
-        "matched_name": "Nos Vetra Resort",
-        "formatted_address": "Nos Vetra Resort, Tổ 3, Đường tỉnh 975B, Gành Gió Cửa Dương, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Camellia Resort & Spa, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_cottage_village",
@@ -4116,25 +3742,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.262797,
-        "lon": 103.9392304,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256400662,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 12953519805,
-        "matched_name": "Nos Vetra Resort",
-        "formatted_address": "Nos Vetra Resort, Tổ 3, Đường tỉnh 975B, Gành Gió Cửa Dương, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Cottage Village, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_cong_ty_co_phan_thac_bac",
@@ -4175,25 +3784,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1871146,
-        "lon": 103.9709938,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 257035327,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 13305912492,
-        "matched_name": "Cửa Lấp Dương Tơ",
-        "formatted_address": "Cửa Lấp Dương Tơ, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Công ty Cổ phần Thác Bạc, Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_cty_cp_du_lich_va_phat_trien_ba_keo",
@@ -4395,25 +3987,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2112438,
-        "lon": 103.965123,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 7104145185,
-        "matched_name": "Ruby Phu Quoc Hostel",
-        "formatted_address": "Duong 30 thang 4, hem tòa án, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Đảo Ngọc Thế Kỷ 21, 76A Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_duc_lam_ha",
@@ -4454,25 +4029,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Đức Lam Hà, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_eco_resort_phu_quoc",
@@ -4574,25 +4132,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2676616,
-        "lon": 103.9370953,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 10169154217,
-        "matched_name": null,
-        "formatted_address": "Tồ 2, ấp Ông Lang, Xã Cửa Dương, Phú Quốc, Kiên Giang, Ong Lang, Phu Quoc, Vietnam, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Elwood Resort Phu Quoc, Tổ 5, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_eo_xoai",
@@ -4634,25 +4175,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.262797,
-        "lon": 103.9392304,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256400662,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 12953519805,
-        "matched_name": "Nos Vetra Resort",
-        "formatted_address": "Nos Vetra Resort, Tổ 3, Đường tỉnh 975B, Gành Gió Cửa Dương, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Eo Xoài, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_e_den",
@@ -4693,25 +4217,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Ê Đen, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_family_resort",
@@ -4794,25 +4301,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Gaia Hotel, 71 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_galaxy",
@@ -4854,25 +4344,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Galaxy, 77 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_golden_daisy_hotel_spa",
@@ -4914,25 +4387,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Golden Daisy Hotel & Spa, Tổ 7, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_green_tree",
@@ -5015,25 +4471,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Halona, 66 Trần Phú, KP3, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_homestead_phu_quoc_resort",
@@ -5075,25 +4514,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": "SDL có 2 hồ sơ cùng tên/điện thoại tại 143A và 143 Trần Hưng Đạo; không tự cộng số phòng.",
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1840441,
-        "lon": 103.9678198,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1488375319,
-        "matched_name": "Homestead Seaview Phu Quoc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Homestead Phú Quốc Resort, 143A Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_homestead_seaview_phu_quoc_hotel",
@@ -5134,25 +4556,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1840441,
-        "lon": 103.9678198,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1488375319,
-        "matched_name": "Homestead Seaview Phu Quoc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Homestead Seaview Phu Quoc Hotel, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_hopapa",
@@ -5254,25 +4659,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2181693,
-        "lon": 103.9602424,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 6134720094,
-        "matched_name": "Phu Quoc Oi",
-        "formatted_address": "Bạch Đằng, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Hồng Tuyết, 10 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_huynh_tram",
@@ -5356,25 +4744,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2233877,
-        "lon": 103.9675406,
-        "precision": "route_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 155775198,
-        "matched_name": "Nguyễn Trung Trực",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Hương Toàn II, 205 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_ky_hoa",
@@ -5416,25 +4787,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2233877,
-        "lon": 103.9675406,
-        "precision": "route_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 155775198,
-        "matched_name": "Nguyễn Trung Trực",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Kỳ Hoa, 86 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_la_casa_resort_phu_quoc",
@@ -6025,25 +5379,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2233877,
-        "lon": 103.9675406,
-        "precision": "route_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 155775198,
-        "matched_name": "Nguyễn Trung Trực",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Mon Ami, 150 Nguyễn Trung Trực, KP8, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_my_nhut",
@@ -6085,25 +5422,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2244816,
-        "lon": 103.9679771,
-        "precision": "route_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 155315678,
-        "matched_name": "Lý Thường Kiệt",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Mỹ Nhựt, 129 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_my_place_phu_quoc",
@@ -6144,25 +5464,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "My Place Phu Quoc, Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_nesta",
@@ -6264,25 +5567,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Ngọc Châu, 66D Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_nguyen_phan_phu_quoc",
@@ -6383,25 +5669,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Nhà khách - Trạm giao dịch vé số kiến thiết Cần Thơ, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_nha_khach_phu_quoc",
@@ -6503,25 +5772,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Nhà Tranh - Gia Vị, Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_nice_life_hotel",
@@ -6623,25 +5875,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2181693,
-        "lon": 103.9602424,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 6134720094,
-        "matched_name": "Phu Quoc Oi",
-        "formatted_address": "Bạch Đằng, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Nipola, 40 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_ola_phu_quoc_hotel",
@@ -6682,25 +5917,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Ola Phu Quoc Hotel, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_ori",
@@ -6741,25 +5959,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "ORI, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_orient_resort_cu_vich_resort",
@@ -6842,25 +6043,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.262797,
-        "lon": 103.9392304,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256400662,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 12953519805,
-        "matched_name": "Nos Vetra Resort",
-        "formatted_address": "Nos Vetra Resort, Tổ 3, Đường tỉnh 975B, Gành Gió Cửa Dương, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Palm Hill Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_philip_cozy_bungalow",
@@ -6901,25 +6085,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2023747,
-        "lon": 103.964539,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 257500098,
-        "google_place_id": null,
-        "osm_type": "way",
-        "osm_id": 857967743,
-        "matched_name": "Trần Hưng Đạo",
-        "formatted_address": "Trần Hưng Đạo, 7 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Philip Cozy Bungalow, 131 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_phu_hong",
@@ -7122,25 +6289,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2233877,
-        "lon": 103.9675406,
-        "precision": "route_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 155775198,
-        "matched_name": "Nguyễn Trung Trực",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Phúc Lộc, 193 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_phuong_dong",
@@ -7386,25 +6536,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1799257,
-        "lon": 103.9830979,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256488995,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 7418441269,
-        "matched_name": "Ben's Place",
-        "formatted_address": "Ben's Place, 5, Suối Mây, Suối Mây Dương Tơ, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Quỳnh Mai Phú Quốc Resort, Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_roma_hotel_phu_quoc",
@@ -8056,25 +7189,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2110187,
-        "lon": 103.9600787,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256643127,
-        "google_place_id": null,
-        "osm_type": "way",
-        "osm_id": 350424622,
-        "matched_name": "Trần Hưng Đạo",
-        "formatted_address": "Trần Hưng Đạo, 2 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Sunrise Boutique, 51-53 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_suoi_may_garden",
@@ -8115,25 +7231,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1799257,
-        "lon": 103.9830979,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256488995,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 7418441269,
-        "matched_name": "Ben's Place",
-        "formatted_address": "Ben's Place, 5, Suối Mây, Suối Mây Dương Tơ, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Suối Mây Garden, Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_tai_phong_tien",
@@ -8174,25 +7273,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2023747,
-        "lon": 103.964539,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 254995765,
-        "google_place_id": null,
-        "osm_type": "way",
-        "osm_id": 857967743,
-        "matched_name": "Trần Hưng Đạo",
-        "formatted_address": "Trần Hưng Đạo, 7 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Tài Phong Tiến, 137 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_tan_anh_tuan",
@@ -8234,25 +7316,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2112438,
-        "lon": 103.965123,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 7104145185,
-        "matched_name": "Ruby Phu Quoc Hostel",
-        "formatted_address": "Duong 30 thang 4, hem tòa án, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Tân Anh Tuấn, 102 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_tan_anh_tuan_2",
@@ -8294,25 +7359,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2112438,
-        "lon": 103.965123,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 7104145185,
-        "matched_name": "Ruby Phu Quoc Hostel",
-        "formatted_address": "Duong 30 thang 4, hem tòa án, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Tân Anh Tuấn 2, 179 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_thai_hoang_gia",
@@ -8857,25 +7905,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2112438,
-        "lon": 103.965123,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 7104145185,
-        "matched_name": "Ruby Phu Quoc Hostel",
-        "formatted_address": "Duong 30 thang 4, hem tòa án, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Tuyết Hiển, 77 Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_uyen_gia",
@@ -8976,25 +8007,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1727084,
-        "lon": 103.9921557,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 486311356,
-        "matched_name": "Sân bay quốc tế Phú Quốc",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Valentina Resort, Tổ 6, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_venus_hotel_sky_bar_massage",
@@ -9035,25 +8049,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2110187,
-        "lon": 103.9600787,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 257875507,
-        "google_place_id": null,
-        "osm_type": "way",
-        "osm_id": 350424622,
-        "matched_name": "Trần Hưng Đạo",
-        "formatted_address": "Trần Hưng Đạo, 2 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Venus Hotel - Sky Bar - Massage, 60 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_wildland_resort",
@@ -9094,25 +8091,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1799257,
-        "lon": 103.9830979,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 7418441269,
-        "matched_name": "Ben's Place",
-        "formatted_address": "5, Tố, Phu Quoc, Kiến Giang, Vietnam, Việt Nam",
-        "lookup_query": "Wildland Resort, Tổ 5, ấp Cây Sao, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-24",
+      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
     },
     {
       "id": "hotel_alana_seaview_phu_quoc_hotel",
