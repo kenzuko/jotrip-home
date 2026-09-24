@@ -132,8 +132,29 @@ function renderRows(){
     </article>`
   }).join("");
   $("#mobileRows").innerHTML=rows.map((r,i)=>{
-    const bus=r.type==="bus",time=bus?`Bus ${esc(r.route_id||"")}`:hhmm(r.departure_time);
-    return `<article class="mobile-trip"><div class="mobile-trip-head"><div><div class="mobile-time">${time}</div><div class="mobile-route">${esc(r.origin||"?")} → ${esc(r.destination||"?")}</div><div class="mobile-service">${esc(r.operator||"-")} · ${esc(r.vessel_or_service||r.frequency||"-")}</div></div>${statusChip(r)}</div><div class="mobile-trip-grid"><div class="mobile-kv"><span>GIÁ NGƯỜI</span><strong>${esc(fareCell(r,true))}</strong></div><div class="mobile-kv"><span>${r.mode==="FERRY"?"GIÁ XE":"XE / HÀNG"}</span><strong>${esc(vehicleCell(r,true))}</strong></div></div><div class="mobile-actions"><span class="mode-label">${esc(sourceKind(r))}</span>${bus?'<span class="status-chip neutral">Theo lịch</span>':`<button class="ticket-btn" data-mobile-ticket="${i}">Kiểm tra vé</button>`}</div></article>`
+    const bus=r.type==="bus",ferry=r.mode==="FERRY";
+    const time=bus?`Bus ${esc(r.route_id||"")}`:hhmm(r.departure_time);
+    const fare=esc(fareCell(r,true)),vehicle=esc(vehicleCell(r,true));
+    const rawStatus=String(r.status||"");
+    const scheduled=fold(rawStatus)==="cap nhat theo ngay"||!rawStatus;
+    const status=scheduled?"Lịch theo ngày":rawStatus;
+    const tone=scheduled?"neutral":statusTone(rawStatus);
+    const vessel=r.vessel_or_service||r.frequency||r.route_id||"";
+    return `<article class="mobile-trip" data-trip-mode="${bus?"bus":ferry?"ferry":"fast"}">
+      <div class="mobile-trip-main">
+        <div class="mobile-trip-time"><strong>${time}</strong><small>${esc(modeName(r))}</small></div>
+        <div class="mobile-trip-content">
+          <strong class="mobile-route">${esc(r.origin||"?")} <span aria-hidden="true">→</span> ${esc(r.destination||"?")}</strong>
+          <p class="mobile-service">${esc(r.operator||"-")}${vessel?" · "+esc(vessel):""}</p>
+          <span class="mobile-status status-chip ${tone}">${esc(status)}</span>
+        </div>
+      </div>
+      <div class="mobile-trip-footer">
+        <div class="mobile-fare"><span>${bus?"Giá vé":"Vé người lớn"}</span><strong>${fare}</strong></div>
+        ${bus?'<span class="mobile-bus-note">Theo lịch tuyến</span>':`<button class="ticket-btn mobile-ticket-btn" data-mobile-ticket="${i}">Kiểm tra vé</button>`}
+      </div>
+      ${ferry?`<div class="mobile-vehicle"><span>Xe / hàng</span><strong>${vehicle}</strong></div>`:""}
+    </article>`;
   }).join("");
   $$("[data-ticket]").forEach(b=>b.onclick=()=>openTicket(rows[Number(b.dataset.ticket)]));
   $$("[data-mobile-ticket]").forEach(b=>b.onclick=()=>openTicket(rows[Number(b.dataset.mobileTicket)]));

@@ -8,3 +8,78 @@
 .ticket-backdrop{position:fixed;inset:0;z-index:70;background:rgba(10,32,31,.35);backdrop-filter:blur(2px)}.ticket-drawer{position:fixed;z-index:80;right:0;top:0;width:min(460px,100%);height:100%;padding:34px 24px;background:#fff;box-shadow:-18px 0 50px rgba(18,61,59,.15);overflow:auto}.ticket-close{position:absolute;right:16px;top:14px;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;font-size:24px;color:var(--deep)}.drawer-grab{display:none}.ticket-kicker{font-size:10px;font-weight:900;letter-spacing:.12em;color:var(--green)}.ticket-drawer h2{margin:9px 0 3px;font-size:36px;color:var(--deep)}.ticket-route{font-size:14px;color:var(--muted)}.ticket-result{margin-top:22px;padding:16px;border:1px solid var(--line);border-radius:17px;background:#F8FBFA}.ticket-result strong{display:block;margin-top:12px;font-size:16px;color:var(--deep)}.ticket-result p{font-size:12px;line-height:1.5;color:var(--muted)}.ticket-actions{display:flex;gap:8px;margin-top:16px}.ticket-actions a,.ticket-actions button{flex:1;border:1px solid var(--line);border-radius:12px;padding:11px 12px;background:#fff;color:var(--deep);font-size:12px;font-weight:900;text-align:center}.ticket-actions a{background:var(--deep);color:#fff}.ticket-meta{margin-top:12px;font-size:10px;color:var(--muted)}
 @media(max-width:980px){.transit-overview{grid-template-columns:1fr}.transit-controls{grid-template-columns:repeat(2,1fr)}.search{grid-column:1/-1}.transit-info-grid{grid-template-columns:1fr}.transit-columns,.transit-row{grid-template-columns:78px 1.3fr 1fr .8fr 1fr .85fr 90px}.transit-columns span,.transit-row .cell{padding-left:8px;padding-right:8px}}
 @media(max-width:720px){.module-actions .home-btn{display:none}.transit-overview{margin-top:10px}.overview-copy{padding:17px 15px;border-radius:17px}.overview-copy h2{font-size:29px}.overview-copy p{font-size:13px}.overview-metrics{border-radius:17px;overflow:auto;grid-template-columns:repeat(3,minmax(112px,1fr))}.overview-metrics article{padding:13px 11px}.overview-metrics strong{font-size:22px}.transit-controls{grid-template-columns:1fr 1fr}.transit-controls .search{grid-column:1/-1}.transit-controls input,.transit-controls select{height:42px;font-size:12px}.mode-tabs{grid-column:1/-1}.board-panel{border-radius:17px}.board-panel>.panel-head{padding:15px 13px}.board-meta{text-align:left}.desktop-board{display:none}.mobile-board{display:block;border-top:1px solid var(--line)}.mobile-trip{padding:14px;border-top:1px solid #E8F0EE;background:#fff}.mobile-trip:first-child{border-top:0}.mobile-trip-head{display:flex;justify-content:space-between;gap:10px}.mobile-time{font-size:24px;font-weight:900;color:var(--deep);letter-spacing:-.04em}.mobile-route{margin-top:2px;font-size:14px;font-weight:850;color:var(--deep)}.mobile-service{margin-top:4px;font-size:11px;color:var(--muted)}.mobile-trip-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}.mobile-kv{padding:10px;border-radius:12px;background:#F5F9F8}.mobile-kv span,.mobile-kv strong{display:block}.mobile-kv span{font-size:9px;font-weight:900;color:var(--muted);letter-spacing:.08em}.mobile-kv strong{margin-top:4px;font-size:12px;color:var(--deep)}.mobile-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}.ticket-drawer{top:auto;bottom:0;height:auto;max-height:84vh;width:100%;border-radius:22px 22px 0 0;padding:30px 18px 22px}.drawer-grab{display:block;position:absolute;top:8px;left:50%;width:44px;height:4px;border-radius:99px;background:#CCD9D6;transform:translateX(-50%)}.ticket-close{top:12px}.transit-info-grid{gap:10px}}
+
+
+/* 24/09/2026: Transit-only readable schedules. No route, price or source changes. */
+.transit-shell{--transit-text:#183e3a;--transit-muted:#526b66}
+.transit-shell .board-panel>.panel-head{align-items:center}
+.transit-shell .board-meta strong{font-size:15px}
+.transit-shell .board-meta small{font-size:12px}
+.transit-shell .transit-row strong,.transit-shell .fare-main{font-size:14px}
+.transit-shell .transit-row small,.transit-shell .fare-note{font-size:12px}
+.transit-shell .transit-columns span{font-size:11px}
+.transit-shell .ticket-btn{font-size:13px;min-height:40px}
+.transit-shell .status-chip{font-size:11px;line-height:1.25;white-space:normal}
+.transit-shell .desktop-board{overflow-x:auto}
+.transit-shell .transit-columns,.transit-shell .transit-row{min-width:1040px}
+.transit-shell .source-strip small{font-size:12px}
+
+@media(max-width:720px){
+  .transit-shell{width:calc(100% - 24px)}
+  .module-main:has(.transit-shell){padding-top:12px}
+  .transit-shell .source-strip{padding:8px 10px;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .transit-shell .source-strip small{margin-left:0;flex-basis:100%;font-size:12px}
+  .transit-shell .transit-overview{gap:8px;margin:10px 0}
+  .transit-shell .overview-copy{padding:14px 16px}
+  .transit-shell .overview-copy h2{font-size:24px;line-height:1.12}
+  .transit-shell .overview-copy p{font-size:13px;line-height:1.4}
+  .transit-shell .overview-metrics{grid-template-columns:repeat(3,minmax(0,1fr));padding:0}
+  .transit-shell .overview-metrics article{min-width:0;padding:10px 8px}
+  .transit-shell .overview-metrics span{font-size:9px;letter-spacing:.025em}
+  .transit-shell .overview-metrics strong{font-size:21px}
+  .transit-shell .overview-metrics small{font-size:10px;overflow-wrap:anywhere}
+  .transit-shell .transit-controls{margin:10px 0 12px;gap:8px}
+  .transit-shell .transit-controls label>span{font-size:12px}
+  .transit-shell .transit-controls input,.transit-shell .transit-controls select{height:46px;font-size:14px}
+  .transit-shell .mode-tabs{gap:8px;padding:2px 0 5px;scroll-snap-type:x proximity}
+  .transit-shell .mode-tabs button{min-height:43px;padding:10px 15px;font-size:13px;scroll-snap-align:start}
+  .transit-shell .board-panel{border-radius:17px}
+  .transit-shell .board-panel>.panel-head{display:flex;align-items:flex-start;gap:8px;padding:14px}
+  .transit-shell .board-heading{min-width:0;flex:1}
+  .transit-shell .section-kicker{font-size:10px;letter-spacing:.07em}
+  .transit-shell .board-panel h3{font-size:21px;line-height:1.15;margin-top:5px}
+  .transit-shell #boardSubtitle{display:none}
+  .transit-shell .board-meta{min-width:102px;max-width:126px;text-align:right}
+  .transit-shell .board-meta strong{font-size:13px;line-height:1.35}
+  .transit-shell .board-meta small{font-size:11px}
+  .transit-shell .mobile-board{background:#fff}
+  .transit-shell .mobile-trip{padding:15px 14px;border-top:1px solid #dce7e4;background:#fff}
+  .transit-shell .mobile-trip:first-child{border-top:0}
+  .transit-shell .mobile-trip-main{display:grid;grid-template-columns:75px minmax(0,1fr);gap:13px}
+  .transit-shell .mobile-trip-time{border-right:1px solid #e0e9e6;padding-top:1px;padding-right:10px}
+  .transit-shell .mobile-trip-time strong{display:block;font-size:23px;line-height:1.05;letter-spacing:-.05em;color:var(--deep);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .transit-shell .mobile-trip-time small{display:block;margin-top:6px;font-size:11px;line-height:1.25;color:#506d67;font-weight:750}
+  .transit-shell .mobile-trip-content{min-width:0}
+  .transit-shell .mobile-route{display:block;font-size:16px;font-weight:850;line-height:1.35;color:var(--deep);overflow-wrap:anywhere}
+  .transit-shell .mobile-service{margin:4px 0 7px;font-size:12px;line-height:1.4;color:#516b65;overflow-wrap:anywhere}
+  .transit-shell .mobile-status{display:inline-flex;padding:4px 9px;border-radius:6px;font-size:11px;line-height:1.25;font-weight:750;max-width:100%;overflow-wrap:anywhere}
+  .transit-shell .mobile-status.neutral{background:#edf3f1;color:#4c6660}
+  .transit-shell .mobile-trip-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;padding-top:10px;border-top:1px dashed #e2ebe8}
+  .transit-shell .mobile-fare{min-width:0;flex:1}
+  .transit-shell .mobile-fare span{display:block;font-size:11px;line-height:1.3;color:#57716b}
+  .transit-shell .mobile-fare strong{display:block;margin-top:2px;font-size:19px;line-height:1.3;font-variant-numeric:tabular-nums;color:var(--deep);overflow-wrap:anywhere}
+  .transit-shell .mobile-ticket-btn{flex:0 0 auto;min-height:42px;border-color:#bdd8d1;border-radius:12px;background:#f2faf7;color:var(--deep);font-size:13px;padding:8px 12px}
+  .transit-shell .mobile-vehicle{display:flex;gap:10px;align-items:baseline;margin-top:9px;font-size:12px;line-height:1.4}
+  .transit-shell .mobile-vehicle span{flex:0 0 58px;color:#58716b}
+  .transit-shell .mobile-vehicle strong{font-size:12px;line-height:1.5;font-weight:700;color:var(--deep);overflow-wrap:anywhere}
+  .transit-shell .mobile-bus-note{font-size:12px;color:#526f67}
+  .transit-shell .transit-info-grid{margin-top:10px}
+  .transit-shell .side-card p{font-size:13px}
+}
+@media(max-width:360px){
+  .transit-shell .mobile-trip{padding:13px 11px}
+  .transit-shell .mobile-trip-main{grid-template-columns:69px minmax(0,1fr);gap:10px}
+  .transit-shell .mobile-trip-time strong{font-size:21px}
+  .transit-shell .mobile-route{font-size:15px}
+  .transit-shell .mobile-ticket-btn{padding:8px 10px;font-size:12px}
+}
