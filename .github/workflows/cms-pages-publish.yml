@@ -36,7 +36,7 @@ permissions:
 
 concurrency:
   group: openpq-cms-pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   cms-pages:
@@ -127,6 +127,10 @@ jobs:
           # from an isolated directory with the Pages config under Wrangler's default filename.
           mkdir -p "$RUNNER_TEMP/cms-pages"
           cp wrangler.pages.jsonc "$RUNNER_TEMP/cms-pages/wrangler.jsonc"
+          # Wrangler finds Pages Functions relative to its working directory.
+          # Copy the real CMS API/Weather edge functions into this isolated directory.
+          cp -a "$GITHUB_WORKSPACE/functions" "$RUNNER_TEMP/cms-pages/functions"
+          test -f "$RUNNER_TEMP/cms-pages/functions/weather/data/[[path]].js"
           cd "$RUNNER_TEMP/cms-pages"
           npx --yes wrangler@4.136.3 pages deploy "$GITHUB_WORKSPACE/dist" --project-name="$PROJECT_NAME" --branch=main
 
@@ -162,6 +166,16 @@ jobs:
             const build=JSON.parse(marker.body);
             if(build.source_commit!==expected)throw Error("CMS live SHA "+
               String(build.source_commit||"missing")+" != expected "+expected);
+            // Prove the deployed CMS hostname runs the live Pages Function,
+            // not just a static Weather snapshot from the latest build.
+            const edge=await get("/weather/data/edge-health.json");
+            const edgeHealth=JSON.parse(edge.body);
+            if(edgeHealth.schema_version!=="openpq-weather-edge-health-v1"||
+               edgeHealth.cloudflare_edge!==true||
+               !Array.isArray(edgeHealth.results)||
+               !Number.isFinite(Date.parse(edgeHealth.checked_at))||
+               Date.now()-Date.parse(edgeHealth.checked_at)>120000)
+              throw Error("CMS live Weather Pages Function missing or unhealthy");
             const homepage=await get("/");
             if(!homepage.body.includes("core/trip-clock-planner.js?v=20260924-text2")||!homepage.body.includes("home-foundation-v2.js?v=20260924-text2"))
               throw Error("CMS homepage is still serving an older trip-clock version");
