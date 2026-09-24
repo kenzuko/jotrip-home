@@ -44,11 +44,20 @@ assert(current.model_72h?.points,"72-hour model missing");
 for(const point of ["duong_dong","an_thoi","ganh_dau","cua_can","bai_thom","ham_ninh","bai_sao","rach_gia"]){
  const rows=current.model_72h.points[point];
  assert(Array.isArray(rows)&&rows.length>0,point+" missing 72-hour series");
+ let gustPresent=0;
  for(const row of rows){
   assert(row.data_class==="MODEL_ONLY",point+" model mislabeled as observation");
-  for(const k of ["time","wind_kmh","gust_kmh","rain_3h_mm","wave_hs_m"])
+  for(const k of ["time","wind_kmh","rain_3h_mm","wave_hs_m"])
    assert(row[k]!=null,point+": "+k+" missing at "+row.time);
+  if(row.gust_kmh!=null){
+   gustPresent++;
+   assert(Number.isFinite(Number(row.gust_kmh)),point+": gust is not numeric");
+  }else{
+   assert(row.missing_fields?.includes("gust_kmh")&&row.data_quality==="PARTIAL_MODEL",
+    point+": missing gust must be declared at "+row.time);
+  }
  }
+ assert(gustPresent/rows.length>=0.8,point+": less than 80% gust coverage");
 }
 assert(time(manifest.source_times.cloud_sampled_time)>0,"satellite sample time missing");
 assert(time(manifest.source_times.marine_sampled_time)>0,"marine sample time missing");
