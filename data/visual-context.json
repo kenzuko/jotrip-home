@@ -1221,13 +1221,43 @@
       ]
     },
     "bun-ken": {
-      "images": []
+      "images": [
+        {
+          "url": "https://rootytrip.com/wp-content/uploads/2023/10/bun-ken-co-thu.jpg",
+          "alt": "Bún kèn",
+          "caption": "Bún kèn",
+          "scope": "exact_subject",
+          "source_label": "Rooty Trip",
+          "source_url": "https://rootytrip.com/bun-ken-phu-quoc/",
+          "hero_priority": "preferred"
+        }
+      ]
     },
     "nhum": {
-      "images": []
+      "images": [
+        {
+          "url": "https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/blog-2025/du-lich-kham-pha/nhum-bien-phu-quoc.jpg",
+          "alt": "Nhum nướng",
+          "caption": "Nhum nướng",
+          "scope": "exact_subject",
+          "source_label": "Điện Máy Chợ Lớn",
+          "source_url": "https://dienmaycholon.com/kien-thuc/dac-san-phu-quoc",
+          "hero_priority": "preferred"
+        }
+      ]
     },
     "coi-bien-mai": {
-      "images": []
+      "images": [
+        {
+          "url": "https://vnn-imgs-f.vgcloud.vn/2021/09/27/09/tru-danh-coi-bien-mai-nuong-dac-san-du-lich-doc-dao-vung-bien-phu-quoc-4.jpg",
+          "alt": "Còi biên mai nướng",
+          "caption": "Còi biên mai nướng",
+          "scope": "exact_subject",
+          "source_label": "VietNamNet",
+          "source_url": "https://vietnamnet.vn/xep-hang-doi-lan-bien-san-dac-san-tru-danh-cua-phu-quoc-dem-nuong-muoi-ot-778244.html",
+          "hero_priority": "preferred"
+        }
+      ]
     },
     "muc-trung-nuong": {
       "images": []
@@ -1292,7 +1322,69 @@
       ]
     },
     "chao-cha": {
-      "images": []
+      "images": [
+        {
+          "url": "https://cdn2.tuoitre.vn/ttnew/r/2022/10/15/083ba428-056a-4e32-97ad-3f6adcf4cc25-jpg-1665846030.jpg",
+          "alt": "Cháo chả",
+          "caption": "Cháo chả",
+          "scope": "exact_subject",
+          "source_label": "Tuổi Trẻ News",
+          "source_url": "https://news.tuoitre.vn/a-foodies-journey-through-vietnams-phu-quoc-island-10369586.htm",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "banh-canh-ca-thu": {
+      "images": [
+        {
+          "url": "https://media.mia.vn/uploads/blog-du-lich/banh-canh-cha-thu-hanh-quan-an-dac-san-phu-quoc-sieu-hap-dan-gia-binh-dan-1611715971.jpg",
+          "alt": "Bánh canh cá thu",
+          "caption": "Bánh canh cá thu",
+          "scope": "exact_subject",
+          "source_label": "MIA.vn",
+          "source_url": "https://mia.vn/cam-nang-du-lich/banh-canh-cha-ca-thu-hanh-quan-an-dac-san-phu-quoc-sieu-hap-dan-gia-binh-dan-44",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "banh-canh-ghe": {
+      "images": [
+        {
+          "url": "https://khaihoanphuquoc.com.vn/wp-content/uploads/2023/09/banh-canh-ghe-phu-quoc-10-1.jpg",
+          "alt": "Bánh canh ghẹ",
+          "caption": "Bánh canh ghẹ",
+          "scope": "exact_subject",
+          "source_label": "Khải Hoàn Phú Quốc",
+          "source_url": "https://khaihoanphuquoc.com.vn/an-gi-o-phu-quoc/",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "chao-nhum": {
+      "images": [
+        {
+          "url": "https://media.vov.vn/sites/default/files/styles/large/public/2022-11/Chao-nhum-Phu-Quoc.jpg",
+          "alt": "Cháo nhum",
+          "caption": "Cháo nhum",
+          "scope": "exact_subject",
+          "source_label": "VOV",
+          "source_url": "https://english.vov.vn/en/travel/entertainment/sea-urchin-porridge-a-gift-from-the-sea-post986101.vov",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "chao-hau": {
+      "images": [
+        {
+          "url": "https://file.hstatic.net/200000551189/article/chao-hau_280674b484384c98948a8d696e46cf8f.jpg",
+          "alt": "Cháo hàu",
+          "caption": "Cháo hàu",
+          "scope": "exact_subject",
+          "source_label": "Ocean Market Basket",
+          "source_url": "https://oceanmarketbasket.com/blogs/news/cach-lam-chao-hau-huong-vi-ngon-ngat-ngay-cuc-ki-don-gian-tai-nha",
+          "hero_priority": "preferred"
+        }
+      ]
     }
   },
   "food_context": {
