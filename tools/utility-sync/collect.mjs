@@ -21,7 +21,7 @@ async function get(url) {
   if (!r.ok) throw new Error(`${url} -> HTTP ${r.status}`);
   return r.text();
 }
-const digits = value => String(value || '').replace(/\\D/g, '');
+const digits = value => String(value || '').replace(/\D/g, '');
 const current = JSON.parse(await fs.readFile(OUT, 'utf8'));
 const errors = [];
 for (const item of current.phu_quoc || []) {
@@ -61,5 +61,5 @@ current.sync = {
   source_count: Object.keys(sources).length + Object.keys(directorySources).length,
   note: 'Phone numbers are curated from current official sources; auto-sync only verifies exact numbers and never replaces them with a guessed number.'
 };
-await fs.writeFile(OUT, JSON.stringify(current, null, 2) + '\\n');
+await fs.writeFile(OUT, JSON.stringify(current, null, 2) + '\n');
 console.log(JSON.stringify({ status: current.sync.status, errors }, null, 2));
