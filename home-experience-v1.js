@@ -46,8 +46,8 @@
         note.textContent = "Cuối chiều có thể có mưa cục bộ ở bờ Tây. Nếu đi, nên chọn điểm gần và xem thời tiết trước.";
       } else {
         note.textContent = now.total < 14 * 60
-          ? "Vẫn còn đủ thời gian cho một điểm chính trước cuối chiều."
-          : "Chọn một điểm vừa sức cho phần chiều còn lại.";
+          ? "Nếu may mắn trời quang, ngắm hoàng hôn cũng đẹp; nhưng không cần đi xa chỉ vì vậy."
+          : "Nếu may mắn trời quang, ngắm hoàng hôn cũng đẹp; gần đâu thì chọn điểm gần đó, không cần chạy xa.";
       }
     } else if (remain > 0) {
       value.textContent = "Còn khoảng " + remain + " phút tới hoàng hôn";
@@ -56,7 +56,7 @@
       } else if (sunsetWeatherLevel === "watch") {
         note.textContent = "Có thể có mưa cục bộ ở bờ Tây. Nếu muốn ngắm chiều, nên chọn điểm gần và xem thời tiết trước.";
       } else {
-        note.textContent = "Muốn ngắm chiều ở bờ Tây thì nên chọn điểm từ bây giờ.";
+        note.textContent = "Nếu may mắn trời quang thì ngắm chiều ở bờ Tây cũng đẹp; chọn điểm gần bạn, không cần đi xa chỉ vì hoàng hôn.";
       }
     } else if (now.total < 21 * 60) {
       value.textContent = "Đã sang nhịp buổi tối";
