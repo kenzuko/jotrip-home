@@ -41,6 +41,10 @@ globalThis.caches={default:{match:async key=>memo.get(key.url)?.clone()||null,pu
 const call=(path,waitUntil=undefined)=>handleWeatherData(new Request("https://cms.openphuquoc.com"+path+"?v="+Date.now()),
  ()=>new Response('{"source":"snapshot"}',{headers:{"content-type":"application/json"}}),waitUntil);
 check(WEATHER_EDGE_SOURCES.length>=17,"all relevant data routes must be explicit");
+const dashboard=await call("/weather/data/dashboard-data.json");
+check(dashboard.headers.get("x-openpq-weather-edge")==="CMS_VERIFIED_SNAPSHOT",
+ "CMS dashboard must not be shadowed by older upstream at edge");
+check((await dashboard.json()).source==="snapshot","CMS revalidated snapshot must reach browser");
 const local=await call("/weather/data/local-now.json");
 check(local.status===200&&local.headers.get("x-openpq-weather-edge")==="ENGINE_DIRECT","local source must use independent engine");
 check((await local.json()).points.duong_dong.temperature_c===30,"cached response cloning must preserve live response body");

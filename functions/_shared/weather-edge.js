@@ -172,6 +172,16 @@ async function health(request,waitUntil){
 export async function handleWeatherData(request,fallback,waitUntil){
  const path=new URL(request.url).pathname;
  if(!["GET","HEAD"].includes(request.method))return fallback();
+ // The CMS snapshot builder revalidates the unchanged ECMWF cycle and writes
+ // dashboard-data.json into deployed assets. Do not shadow that file with the
+ // older upstream dashboard at Cloudflare's edge (the source of stale UI).
+ if(path==="/weather/data/dashboard-data.json"){
+  const asset=await fallback();
+  const headers=new Headers(asset.headers);
+  headers.set("cache-control","no-store");
+  headers.set("x-openpq-weather-edge","CMS_VERIFIED_SNAPSHOT");
+  return new Response(request.method==="HEAD"?null:asset.body,{status:asset.status,headers});
+ }
  if(path==="/weather/data/edge-health.json")return health(request,waitUntil);
  if(!Object.prototype.hasOwnProperty.call(SOURCES,path))return fallback();
  const result=await liveAsset(request,waitUntil);
