@@ -178,6 +178,754 @@
         }
       ],
       "updated_at": "2026-09-20"
+    },
+    {
+      "id": "food_banh_canh_ca_thu",
+      "legacy_id": "banh-canh-ca-thu",
+      "entity_type": "food",
+      "slug": "banh-canh-ca-thu",
+      "name": "Bánh canh cá thu",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Tô bánh canh nóng với cá thu hoặc chả cá thu, thường có nước dùng thanh và chút tiêu thơm. Đây là lựa chọn dễ ăn cho buổi sáng trên đảo.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "lunch"
+      ],
+      "tips": [
+        "Hỏi tô có cá thu tươi, chả cá hay cả hai; xem phần ăn trước khi gọi.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "lunch"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_banh_canh_ghe",
+      "legacy_id": "banh-canh-ghe",
+      "entity_type": "food",
+      "slug": "banh-canh-ghe",
+      "name": "Bánh canh ghẹ",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Sợi bánh canh ăn cùng ghẹ và nước dùng nấu theo kiểu riêng của từng quán. Món hợp lúc muốn ăn sáng no bụng hoặc dùng bữa trưa gọn.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "lunch"
+      ],
+      "tips": [
+        "Hỏi giá theo tô hay theo cỡ ghẹ; kiểm tra phần ghẹ trước khi gọi.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "lunch"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_hu_tieu_muc",
+      "legacy_id": "hu-tieu-muc",
+      "entity_type": "food",
+      "slug": "hu-tieu-muc",
+      "name": "Hủ tiếu mực",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Hủ tiếu ăn với mực và nước dùng nóng; món này có ở nhiều quán trên đảo nhưng cách nấu không riêng Phú Quốc.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "lunch"
+      ],
+      "tips": [
+        "Hỏi loại mực, topping đi kèm và giá tô.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "lunch"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_bun_rieu",
+      "legacy_id": "bun-rieu",
+      "entity_type": "food",
+      "slug": "bun-rieu",
+      "name": "Bún riêu",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Một tô bún nước với riêu cua, cà chua và rau ăn kèm. Đây là món quen thuộc ở Việt Nam, cũng là lựa chọn bữa sáng dễ tìm tại Phú Quốc.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "lunch"
+      ],
+      "tips": [
+        "Hỏi tô có mắm tôm không nếu bạn không dùng được; xác nhận topping thực tế.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "lunch"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_banh_mi_cha_ca",
+      "legacy_id": "banh-mi-cha-ca",
+      "entity_type": "food",
+      "slug": "banh-mi-cha-ca",
+      "name": "Bánh mì chả cá",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Bánh mì kẹp chả cá cùng rau và nước sốt. Gọn để mang theo, nhưng phần nhân và cách nêm thay đổi giữa các xe bánh mì.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "snack"
+      ],
+      "tips": [
+        "Chả cá có thể làm từ nhiều loại cá; hỏi thành phần và nguy cơ lẫn nguyên liệu.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "snack"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_banh_mi_op_la",
+      "legacy_id": "banh-mi-op-la",
+      "entity_type": "food",
+      "slug": "banh-mi-op-la",
+      "name": "Bánh mì ốp la",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Bánh mì ăn cùng trứng ốp la, thường có thể gọi thêm pate, thịt hoặc rau tùy quán. Món quen, dễ gọi khi cần bữa sáng nhanh.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast"
+      ],
+      "tips": [
+        "Hỏi thành phần pate hoặc sốt nếu có dị ứng; bánh mì thường có lúa mì.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_xoi_man",
+      "legacy_id": "xoi-man",
+      "entity_type": "food",
+      "slug": "xoi-man",
+      "name": "Xôi mặn",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Xôi nếp ăn kèm các loại topping mặn như trứng, chà bông hoặc lạp xưởng tùy chỗ bán. Đây là món ăn sáng tiện, không phải đặc sản riêng của đảo.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "snack"
+      ],
+      "tips": [
+        "Topping có thể có trứng, thịt hoặc nước sốt; hỏi thành phần nếu cần.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "snack"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_chao_ca",
+      "legacy_id": "chao-ca",
+      "entity_type": "food",
+      "slug": "chao-ca",
+      "name": "Cháo cá",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Cháo nấu với cá, thường dùng cùng hành, tiêu và rau thơm. Loại cá và cách nấu tùy quán, nên hỏi trước khi gọi.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "lunch"
+      ],
+      "tips": [
+        "Hỏi loại cá, có xương không và phần cháo có thêm hải sản khác không.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "lunch"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_chao_nhum",
+      "legacy_id": "chao-nhum",
+      "entity_type": "food",
+      "slug": "chao-nhum",
+      "name": "Cháo nhum",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Cháo nóng nấu cùng nhum biển, thường được giới thiệu như một món hải sản nên thử ở Phú Quốc. Mùa và nơi bán có thể thay đổi.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "lunch"
+      ],
+      "tips": [
+        "Hỏi giá theo tô và lượng nhum; tránh gọi nếu dị ứng nhím biển hoặc hải sản.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "lunch"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_chao_hau",
+      "legacy_id": "chao-hau",
+      "entity_type": "food",
+      "slug": "chao-hau",
+      "name": "Cháo hàu",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Cháo nóng nấu cùng hàu, hành và tiêu. Món có thể gặp ở quán hải sản hoặc quán cháo, tùy thời điểm.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "lunch"
+      ],
+      "tips": [
+        "Báo trước nếu dị ứng nhuyễn thể; hỏi phần ăn và giá trước khi gọi.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "lunch"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_com_ghe_ham_ninh",
+      "legacy_id": "com-ghe-ham-ninh",
+      "entity_type": "food",
+      "slug": "com-ghe-ham-ninh",
+      "name": "Cơm ghẹ Hàm Ninh",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Cơm rang hoặc trộn với thịt ghẹ, thường được nhắc cùng trải nghiệm ăn hải sản ở khu Hàm Ninh. Cách nêm và lượng ghẹ tùy quán.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Xác nhận giá theo phần và hỏi có trứng, bơ hoặc sốt đi kèm không.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_tom_mu_ni_nuong",
+      "legacy_id": "tom-mu-ni-nuong",
+      "entity_type": "food",
+      "slug": "tom-mu-ni-nuong",
+      "name": "Tôm mũ ni nướng",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Tôm mũ ni nướng là lựa chọn hải sản cho bữa chính hoặc bữa tối. Cỡ tôm, cách nướng và mức giá tùy ngày.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Giá hải sản thay đổi theo ngày; cân và chốt giá trước khi gọi.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_ca_song_nuong",
+      "legacy_id": "ca-song-nuong",
+      "entity_type": "food",
+      "slug": "ca-song-nuong",
+      "name": "Cá sòng nướng",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Cá sòng nướng là món cá biển có thể gặp trong thực đơn quán hải sản. Cách tẩm ướp và loại cá có thể khác nhau theo quán.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Hỏi cân nặng, giá và phần ăn kèm trước khi gọi.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_ca_mu_hap",
+      "legacy_id": "ca-mu-hap",
+      "entity_type": "food",
+      "slug": "ca-mu-hap",
+      "name": "Cá mú hấp hành gừng",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Cá mú hấp với hành, gừng hoặc gia vị theo cách nấu của quán. Đây là món chia sẻ, nên chọn cỡ cá phù hợp số người.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Chốt giá theo kg, cân cá trước khi hấp và hỏi rõ phần sốt.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_lau_ca_bop",
+      "legacy_id": "lau-ca-bop",
+      "entity_type": "food",
+      "slug": "lau-ca-bop",
+      "name": "Lẩu cá bớp",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Lẩu cá bớp nấu cùng rau và nước dùng chua cay tùy quán. Thường phù hợp nhóm muốn gọi một món chung.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Hỏi giá tính theo nồi hay theo kg; xác nhận lượng cá và rau đi kèm.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_muc_trung_nuong",
+      "legacy_id": "muc-trung-nuong",
+      "entity_type": "food",
+      "slug": "muc-trung-nuong",
+      "name": "Mực trứng nướng",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Mực trứng nướng là món ăn nóng thường gọi tại quán hải sản. Kích thước và lượng trứng trong mực thay đổi theo mẻ.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "tips": [
+        "Hỏi giá theo đĩa hay theo kg và xác nhận mực đã làm sạch chưa.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_oc_huong_nuong",
+      "legacy_id": "oc-huong-nuong",
+      "entity_type": "food",
+      "slug": "oc-huong-nuong",
+      "name": "Ốc hương nướng",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Ốc hương có thể được nướng hoặc chế biến với nhiều loại sốt. Đây là món ăn chơi dễ gọi chung trong bữa hải sản.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "tips": [
+        "Hỏi giá theo đĩa hay theo kg; lưu ý sốt có thể chứa bơ, trứng hoặc đậu phộng.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_tom_tich_rang_muoi",
+      "legacy_id": "tom-tich-rang-muoi",
+      "entity_type": "food",
+      "slug": "tom-tich-rang-muoi",
+      "name": "Tôm tích rang muối",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Tôm tích rang muối là món hải sản thường gọi theo phần hoặc theo cân. Cách rang và độ mặn tùy bếp.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Chốt giá theo kg trước khi chế biến; hỏi quán hỗ trợ tách vỏ.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_hau_nuong_mo_hanh",
+      "legacy_id": "hau-nuong-mo-hanh",
+      "entity_type": "food",
+      "slug": "hau-nuong-mo-hanh",
+      "name": "Hàu nướng mỡ hành",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Hàu nướng với mỡ hành; một số quán thêm đậu phộng hoặc phô mai. Hỏi cách làm để chọn đúng khẩu vị.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "tips": [
+        "Báo dị ứng nhuyễn thể; hỏi rõ có đậu phộng, sữa hoặc phô mai không.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_canh_chua_ca_bop",
+      "legacy_id": "canh-chua-ca-bop",
+      "entity_type": "food",
+      "slug": "canh-chua-ca-bop",
+      "name": "Canh chua cá bớp",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Canh cá bớp nấu vị chua cùng rau củ theo cách của quán, thường dùng kèm cơm. Thành phần rau có thể thay đổi.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Hỏi nồi canh có đủ cho nhóm không và giá tính theo phần hay theo nồi.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_com_chien_hai_san",
+      "legacy_id": "com-chien-hai-san",
+      "entity_type": "food",
+      "slug": "com-chien-hai-san",
+      "name": "Cơm chiên hải sản",
+      "aliases": [],
+      "zone_id": null,
+      "category": "seafood",
+      "what_it_is": "Cơm chiên với một hoặc nhiều loại hải sản, hợp khi muốn một món dễ chia phần. Topping thực tế tùy quán.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Món có thể có trứng, tôm, mực và nước tương; hỏi thành phần trước khi gọi.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_ga_ray_nuong",
+      "legacy_id": "ga-ray-nuong",
+      "entity_type": "food",
+      "slug": "ga-ray-nuong",
+      "name": "Gà rẫy nướng",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Gà rẫy Phú Quốc thường xuất hiện trong các gợi ý món địa phương; quán có thể nướng hoặc chế biến theo kiểu riêng. Nên đặt trước nếu đi nhóm.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Xác nhận gà nguyên con hay theo phần, trọng lượng và giá trước khi làm.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_banh_kheo",
+      "legacy_id": "banh-kheo",
+      "entity_type": "food",
+      "slug": "banh-kheo",
+      "name": "Bánh khéo",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Bánh nhỏ tạo hình thủ công, có nhiều loại nhân như đậu xanh, dừa hoặc khoai môn tùy lò. Đây là món ngọt thường được mua ăn chơi hoặc làm quà.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "snack",
+        "dessert"
+      ],
+      "tips": [
+        "Hỏi nhân cụ thể vì có thể chứa đậu, dừa, trứng hoặc sữa.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "snack",
+        "dessert"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_banh_tet_mat_cat",
+      "legacy_id": "banh-tet-mat-cat",
+      "entity_type": "food",
+      "slug": "banh-tet-mat-cat",
+      "name": "Bánh tét mật cật",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Bánh tét gói bằng lá mật cật, một món bánh truyền thống được nhắc đến như đặc sản Phú Quốc. Có thể mua ăn hoặc mang về nếu bảo quản phù hợp.",
+      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "best_for": [
+        "breakfast",
+        "snack"
+      ],
+      "tips": [
+        "Nhân và cách làm tùy cơ sở; hỏi thành phần nếu kiêng thịt hoặc dị ứng.",
+        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "snack"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "updated_at": "2026-09-24"
     }
   ]
 }
