@@ -85,6 +85,11 @@ for(const entity of entities){
     phone:entity.phone||null,
     group:entity.group||null,
     utility_type:entity.utility_type||null,
+    opening_hours:entity.opening_hours||null,
+    opening_hours_note:entity.opening_hours_note||entity.opening_hours?.note||null,
+    phone_alt:entity.phone_alt||null,
+    verified:entity.verified??null,
+    updated_at:entity.updated_at||null,
     star_rating:entity.star_rating??null,
     what_it_is:entity.what_it_is||"",
     route:routeFor(entity),
@@ -94,7 +99,10 @@ for(const entity of entities){
       precision:map.precision||null,
       source:map.source||null,
       source_id:map.source_id||null,
-      verified_at:map.verified_at||null
+      verified_at:map.verified_at||null,
+      note:map.note||null,
+      accuracy:map.accuracy||null,
+      plus_code:map.plus_code||null
     }:null,
     inherited_from,
     google_query:[entity.name,address,"Phú Quốc"].filter(Boolean).join(", ")

@@ -317,6 +317,62 @@
         "icon": "☕",
         "mode": "directory_search",
         "search_query": "cafe"
+      },
+      {
+        "id": "EMERGENCY",
+        "label": "Khẩn cấp",
+        "icon": "!",
+        "mode": "directory_search",
+        "search_query": "bệnh viện cấp cứu công an Phú Quốc"
+      },
+      {
+        "id": "GROCERY",
+        "label": "Tạp hóa & siêu thị",
+        "icon": "▤",
+        "mode": "directory_search",
+        "search_query": "siêu thị cửa hàng tạp hóa"
+      },
+      {
+        "id": "LAUNDRY",
+        "label": "Giặt ủi",
+        "icon": "◌",
+        "mode": "directory_search",
+        "search_query": "tiệm giặt ủi"
+      },
+      {
+        "id": "BANK",
+        "label": "Ngân hàng",
+        "icon": "₫",
+        "mode": "directory_search",
+        "search_query": "ngân hàng ATM"
+      },
+      {
+        "id": "VIEWPOINT",
+        "label": "Điểm ngắm cảnh",
+        "icon": "⌖",
+        "mode": "directory_search",
+        "search_query": "điểm ngắm cảnh"
+      },
+      {
+        "id": "TOURIST_INFO",
+        "label": "Thông tin du lịch",
+        "icon": "i",
+        "mode": "directory_search",
+        "search_query": "trung tâm thông tin du lịch"
+      },
+      {
+        "id": "PUBLIC_TRANSPORT",
+        "label": "Bến & điểm đón",
+        "icon": "↗",
+        "mode": "directory_search",
+        "search_query": "bến xe bến tàu Phú Quốc"
+      },
+      {
+        "id": "POST_OFFICE",
+        "label": "Bưu điện",
+        "icon": "✉",
+        "mode": "directory_search",
+        "search_query": "bưu điện Phú Quốc"
       }
     ],
     "items": [

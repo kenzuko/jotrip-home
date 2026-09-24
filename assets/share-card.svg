@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">Open Phu Quoc — Phú Quốc ngay lúc này</title><desc id="desc">Thời tiết, đi lại, điểm đến và câu chuyện địa phương trên một đảo xanh giữa biển.</desc>
+<defs><linearGradient id="sea" x2="0" y2="1"><stop stop-color="#083d51"/><stop offset="1" stop-color="#071f38"/></linearGradient><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#f6b879"/><stop offset="1" stop-color="#f3d5a3"/></linearGradient></defs>
+<rect width="1200" height="630" fill="url(#sea)"/><path d="M0 0h1200v268c-185-58-345 51-536 10S271 201 0 284z" fill="url(#sky)"/><circle cx="922" cy="146" r="56" fill="#fff0c7"/>
+<path d="M0 324c210-51 370-4 560 21s375-53 640-9v294H0z" fill="#117a88"/><path d="M0 402c217-39 348 24 533 20s447-57 667-5v213H0z" fill="#075b70"/>
+<path d="M688 337 802 227l118 113c-81 47-150 40-232-3" fill="#173f39"/><path d="M802 227 901 338l-99-24z" fill="#285b45"/>
+<path d="M165 412c40-31 100-31 140 0l-16 12H180z" fill="#fff4da"/><path d="M249 410v-74l48 73z" fill="#ffd38a"/><path d="M154 429h170" stroke="#d8f2ec" stroke-width="4" opacity=".8"/>
+<text x="78" y="105" fill="#114b50" font-family="Arial,sans-serif" font-size="22" font-weight="700" letter-spacing="5">OPEN PHU QUOC</text>
+<text x="78" y="181" fill="#133d43" font-family="Arial,sans-serif" font-size="52" font-weight="700">Phú Quốc ngay lúc này</text>
+<text x="80" y="232" fill="#345c5c" font-family="Arial,sans-serif" font-size="23">Thời tiết · Đi lại · Điểm đến · Chuyện địa phương</text>
+<rect x="78" y="505" width="292" height="50" rx="25" fill="#f8f5e9"/><text x="104" y="538" fill="#12545a" font-family="Arial,sans-serif" font-size="18" font-weight="700">OPENPHUQUOC.COM</text>
+</svg>

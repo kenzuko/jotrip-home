@@ -8,7 +8,7 @@
   <meta name="description" content="Thời tiết Phú Quốc theo thời gian thực: quan trắc, radar - vệ tinh, biển, AQI và dự báo JoTrip 10 ngày. Miễn phí, phi thương mại.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <meta name="author" content="JoTrip">
-  <link rel="icon" type="image/png" href="/assets/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="apple-touch-icon" href="/assets/logo-master.png">
   <link rel="preload" as="image" href="/assets/logo-master.png">
   <meta property="og:type" content="website">
@@ -17,15 +17,15 @@
   <meta property="og:title" content="Thời tiết & Biển - Open Phu Quoc">
   <meta property="og:description" content="Theo dõi thời tiết Phú Quốc với quan trắc thực tế, radar - vệ tinh, biển, AQI và dự báo JoTrip 10 ngày.">
   <meta property="og:url" content="https://openphuquoc.com/weather/">
-  <meta property="og:image" content="https://openphuquoc.com/assets/logo-master.png">
-  <meta property="og:image:type" content="image/jpeg">
-  <meta property="og:image:width" content="380">
-  <meta property="og:image:height" content="361">
+  <meta property="og:image" content="https://openphuquoc.com/assets/share-card.svg">
+  <meta property="og:image:type" content="image/svg+xml">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Open Phu Quoc">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Thời tiết & Biển - Open Phu Quoc">
   <meta name="twitter:description" content="Quan trắc, radar - vệ tinh, biển, AQI và dự báo JoTrip 10 ngày dành riêng cho Phú Quốc.">
-  <meta name="twitter:image" content="https://openphuquoc.com/assets/logo-master.png">
+  <meta name="twitter:image" content="https://openphuquoc.com/assets/share-card.svg">
   <link rel="stylesheet" href="/weather/weather-v2.css?v=20260924-gustcards1">
   <link rel="stylesheet" href="/ecosystem-shell.css?v=20260923-weather">
   <link rel="stylesheet" href="/weather/weather-openpq.css?v=20260923-edge1">
@@ -238,13 +238,19 @@
     <details class="map-sources">
       <summary>Nguồn đối chiếu</summary>
       <div class="map-source-links">
-        <a href="https://himawari8.nict.go.jp/" target="_blank" rel="noopener noreferrer">NICT Himawari ↗</a>
-        <a href="https://www.data.jma.go.jp/mscweb/data/himawari/" target="_blank" rel="noopener noreferrer">JMA Himawari ↗</a>
-        <a href="https://nchmf.gov.vn/KttvSiteE/vi-VN/1/image-ra-dar-r2.html" target="_blank" rel="noopener noreferrer">NCHMF Radar ↗</a>
-        <a href="https://www.windy.com/?10.20,104.00,8" target="_blank" rel="noopener noreferrer">Windy ↗</a>
+        <span>Ảnh vệ tinh Himawari · NICT</span>
+        <span>Ảnh vệ tinh Himawari · JMA</span>
+        <span>Radar · Trung tâm Dự báo KTTV Quốc gia</span>
+        <span>Tham khảo Windy (lớp bản đồ bên ngoài)</span>
       </div>
     </details>
-  </section>  <details class="deep-weather-disclosure" id="deepWeatherDetails">
+  </section><section class="panel weather-field-guide" aria-labelledby="weatherFieldGuideTitle">
+  <div class="panel-head"><div><span class="eyebrow">CÁCH ĐỌC</span><h2 id="weatherFieldGuideTitle">Các con số thời tiết nói gì?</h2></div></div>
+  <p class="weather-guide-intro">Mưa, gió, sóng, bụi và thủy triều là những tín hiệu riêng. Xem từng chỉ số cùng giờ cập nhật và khu vực áp dụng.</p>
+  <img src="/weather/weather-field-guide.svg" width="1120" height="820" loading="lazy" alt="Infographic giải thích cách đọc lượng mưa, xác suất mưa, gió giật, chiều cao sóng, mây đối lưu, AQI PM2.5 và thủy triều.">
+  <p class="weather-guide-note">Đây là hướng dẫn đọc dữ liệu, không phải cảnh báo tại thời điểm thực. Với kế hoạch ra biển, kiểm tra đồng thời gió, sóng và khuyến cáo vận hành.</p>
+</section>
+  <details class="deep-weather-disclosure" id="deepWeatherDetails">
     <summary>
       <div><span class="eyebrow">XEM SÂU HƠN</span><b>Phân tích kỹ thuật theo điểm</b></div>
       <small>72 giờ, dự báo theo điểm, gió/biển nâng cao, ensemble, AQI, triều và chất lượng nguồn</small>
@@ -466,8 +472,8 @@
 
     <div class="about-actions">
       <button id="shareWeather" class="secondary-button">Chia sẻ JoTrip Weather</button>
-      <a class="secondary-button link" href="https://github.com/kenzuko/Jotrip-Lab" target="_blank" rel="noopener noreferrer">Xem mã nguồn ↗</a>
-      <a class="secondary-button link" href="https://www.weather.gov/about/forecast-process" target="_blank" rel="noopener noreferrer">Quy trình dự báo của NWS ↗</a>
+      <span class="secondary-button">JoTrip Weather · mã nguồn mở</span>
+      <span class="secondary-button">Tham khảo quy trình dự báo của NWS</span>
     </div>
   </section>  <footer class="weather-openpq-footer">
   <div class="weather-footer-brand"><strong>Open Phu Quoc · Thời tiết &amp; Biển</strong><span>Thông tin dành riêng cho Phú Quốc, được xây dựng bởi JoTrip.</span></div>
