@@ -106,7 +106,12 @@ jobs:
           export CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]')"
           export CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
           npx --yes wrangler@4.136.3 d1 migrations apply openpq-cms --remote --config=wrangler.pages.jsonc
-          npx --yes wrangler@4.136.3 pages deploy dist --project-name="$PROJECT_NAME" --branch=main --config=wrangler.pages.jsonc
+          # Pages rejects --config when it points to a non-default path. Run
+          # from an isolated directory with the Pages config under Wrangler's default filename.
+          mkdir -p "$RUNNER_TEMP/cms-pages"
+          cp wrangler.pages.jsonc "$RUNNER_TEMP/cms-pages/wrangler.jsonc"
+          cd "$RUNNER_TEMP/cms-pages"
+          npx --yes wrangler@4.136.3 pages deploy "$GITHUB_WORKSPACE/dist" --project-name="$PROJECT_NAME" --branch=main
 
       - name: Verify CMS commit, library and admin navigation
         if: steps.deploy.outcome == 'success'
