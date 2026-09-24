@@ -131,8 +131,14 @@ jobs:
         if: steps.cms-pages.outputs.ready == 'true'
         run: |
           base="https://cms.openphuquoc.com"
-          curl -fsSL --retry 3 --retry-delay 2 --max-time 25 "$base/weather/data/edge-health.json?t=$GITHUB_SHA" -o /tmp/cms-edge-health.json
-          node -e 'const h=require("/tmp/cms-edge-health.json");if(h.schema_version!=="openpq-weather-edge-health-v1"||!h.cloudflare_edge||h.lab_website_dependency)process.exit(1);console.log("CMS Pages edge health",JSON.stringify(h.results))'
+          # Cloudflare custom-domain propagation may briefly return the old SPA HTML.
+          # Do not treat HTTP 200 HTML as valid JSON, and do not fail on the first edge.
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            curl -fsSL --max-time 25 "$base/weather/data/edge-health.json?t=$GITHUB_SHA-$attempt" -o /tmp/cms-edge-health.json || true
+            if node -e 'const fs=require("fs");try{const h=JSON.parse(fs.readFileSync("/tmp/cms-edge-health.json","utf8"));if(h.schema_version!=="openpq-weather-edge-health-v1"||!h.cloudflare_edge||h.lab_website_dependency)process.exit(1);console.log("CMS Pages edge health",JSON.stringify(h.results))}catch(e){process.exit(1)}'; then break; fi
+            if [ "$attempt" -eq 10 ]; then echo 'CMS Pages edge health did not propagate'; exit 1; fi
+            sleep 5
+          done
           curl -fsSL --max-time 25 -D /tmp/cms-weather-live.h "$base/weather/data/local-now.json?t=$GITHUB_SHA" -o /tmp/cms-weather-live.json
           grep -Eiq '^x-openpq-weather-edge:[[:space:]]*(ENGINE_DIRECT|EDGE_CACHE)' /tmp/cms-weather-live.h
           node -e 'const d=require("/tmp/cms-weather-live.json");if(!d.points?.duong_dong||!d.generated_at)process.exit(1);const age=(Date.now()-Date.parse(d.generated_at))/60000;console.log("CMS Weather actual data age",age.toFixed(1),"min");if(age>60)process.exit(1)'

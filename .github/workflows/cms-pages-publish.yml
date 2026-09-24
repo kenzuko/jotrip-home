@@ -22,9 +22,6 @@ on:
       - "functions/**"
       - "migrations/d1/**"
       - "wrangler.pages.jsonc"
-      - "weather/**"
-      - "scripts/weather-cms-*.mjs"
-      - "scripts/weather-engine/**"
   # The dedicated CMS Weather Standalone workflow owns the 20-minute refresh.
   # Avoid racing two independent deployments of the same CMS Pages project.
   workflow_dispatch:
