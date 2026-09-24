@@ -86,7 +86,7 @@ for(const entity of entities){
     group:entity.group||null,
     utility_type:entity.utility_type||null,
     opening_hours:entity.opening_hours||null,
-    opening_hours_note:entity.opening_hours_note||null,
+    opening_hours_note:entity.opening_hours_note||entity.opening_hours?.note||null,
     phone_alt:entity.phone_alt||null,
     verified:entity.verified??null,
     updated_at:entity.updated_at||null,
