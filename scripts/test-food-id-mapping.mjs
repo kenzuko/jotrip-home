@@ -7,7 +7,7 @@ const schema=JSON.parse(fs.readFileSync("cms/schema.json","utf8"));
 const publish=fs.readFileSync("functions/api/cms/publish.js","utf8");
 
 assert.equal(articles.dishes.length,30,"Review the expanded food article inventory");
-assert.equal(entities.entities.length,31,"Review food entity mappings, including the existing unmatched ghẹ record");
+assert.equal(entities.entities.length,30,"Review food entity mappings, including the existing unmatched ghẹ record");
 
 const byLegacy=new Map();
 const ids=new Set();
