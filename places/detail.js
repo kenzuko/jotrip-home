@@ -29,8 +29,8 @@
     const title=entity.name+" - Open Phu Quoc";
     const description=entity.what_it_is||entity.why_go||"Thông tin điểm đến Phú Quốc.";
     const key=entity.slug||entity.id;
-    const url="https://openphuquoc.com/places/detail.html?id="+encodeURIComponent(key);
-    const shareImage=image||"https://openphuquoc.com/assets/logo-master.png";
+    const url="https://cms.openphuquoc.com/places/detail.html?id="+encodeURIComponent(key);
+    const shareImage=image||"https://cms.openphuquoc.com/assets/logo-master.png";
     document.title=title;
     setCanonical(url);
     setMeta('meta[name="description"]',"content",description);

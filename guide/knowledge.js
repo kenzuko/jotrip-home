@@ -49,7 +49,7 @@
   function showArticle(o){
     const ed=o.editorial;
     document.title=o.title+" - Cẩm nang Phú Quốc";
-    document.querySelector('link[rel="canonical"]')?.setAttribute("href","https://openphuquoc.com"+o.route);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href","https://cms.openphuquoc.com"+o.route);
     document.querySelector('meta[name="description"]')?.setAttribute("content",ed.short_summary.slice(0,190));
     article.replaceChildren();
     const root=el("article","knowledge-article");
