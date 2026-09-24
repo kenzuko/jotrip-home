@@ -631,49 +631,43 @@
       ]
     },
     {
-      "id": "chao-ca",
-      "name": "Cháo cá",
-      "category": "seafood",
+      "id": "chao-cha",
+      "name": "Cháo chả",
+      "category": "local",
       "meal_times": [
         "breakfast",
-        "lunch"
+        "lunch",
+        "dinner"
       ],
-      "intro": "Cháo nấu với cá, thường dùng cùng hành, tiêu và rau thơm. Loại cá và cách nấu tùy quán, nên hỏi trước khi gọi.",
-      "how_to_eat": "Ăn nóng, kiểm tra kỹ xương cá trước khi cho trẻ nhỏ ăn.",
+      "intro": "Một tô cháo nóng ăn kèm chả, thêm chút hành, tiêu và gia vị tùy quán. Món ăn bình dị, dễ gặp trong những hàng quán ở Dương Đông.",
+      "how_to_eat": "Ăn lúc cháo còn nóng. Nếu muốn biết chả làm từ gì, cứ hỏi quán trước khi gọi.",
       "tips": [
-        "Hỏi loại cá, có xương không và phần cháo có thêm hải sản khác không.",
-        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+        "Chả và cách nêm thay đổi theo quán; hỏi thành phần nếu bạn dị ứng hoặc ăn kiêng.",
+        "Giá và giờ bán nên hỏi trực tiếp, không lấy lịch quán cũ làm giờ hoạt động hôm nay."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
-        "#chao-ca"
+        "#chao-cha"
       ],
-      "origin": "Cháo cá có nhiều phiên bản ở các vùng biển; loại cá và gia vị trong tô tại Phú Quốc tùy quán.",
-      "why_name": "Tên gọi mô tả cháo nấu cùng cá.",
+      "origin": "Cháo chả là món ăn dân dã có ghi nhận tại Dương Đông. Tư liệu quán có từ năm 2016, không xác nhận quán còn hoạt động hiện nay.",
+      "why_name": "Cháo ăn cùng chả, nên người địa phương gọi ngắn gọn là cháo chả.",
       "ingredients": [
-        "Cá",
-        "gạo",
-        "hành",
-        "tiêu",
-        "rau thơm"
+        "Gạo",
+        "Chả (thành phần tùy quán)",
+        "Hành, tiêu",
+        "Gia vị"
       ],
-      "taste_texture": "Mềm, thơm tiêu; vị cá tùy loại cá và nước dùng.",
-      "allergen_flags": [
-        {
-          "key": "fish",
-          "label": "Cá",
-          "level": "possible"
-        }
-      ],
-      "allergy_note": "Công thức và nguy cơ lẫn nguyên liệu khác nhau theo quán. Nếu bạn bị dị ứng, hãy nói rõ với nhân viên và hỏi về thành phần cũng như dụng cụ chế biến.",
+      "taste_texture": "Cháo nóng, mềm, ăn cùng miếng chả đậm vị; mỗi quán nấu một kiểu.",
+      "allergen_flags": [],
+      "allergy_note": "Thành phần chả khác nhau theo nơi bán; có thể chứa cá hoặc nguyên liệu khác. Nếu dị ứng, hỏi rõ người bán trước khi gọi.",
       "ask_staff": [
-        "Món này có những nguyên liệu nào?",
-        "Giá tính theo phần, tô hay trọng lượng?"
+        "Chả ở đây làm từ gì?",
+        "Một tô gồm những gì và giá bao nhiêu?"
       ],
       "sources": [
         {
-          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
-          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+          "label": "Foody - Cháo Chả, đường 30 Tháng 4 (bình luận năm 2016, chỉ dùng xác nhận tên món)",
+          "url": "https://www.foody.vn/phu-quoc/chao-cha-duong-30-thang-4"
         }
       ]
     },

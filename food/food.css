@@ -98,3 +98,10 @@
 .dish-media.is-error img,.dish-media.is-error small{display:none}
 .dish-media.is-error::after{content:"Ảnh món hiện chưa tải được";font-size:13px;color:#715f55;font-weight:650}
 .food-context-visual .visual-photo img{width:100%;object-fit:cover}
+
+/* Show three suggestions at once without squeezing text on phones. */
+.random-dish-picks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.random-dish-pick{display:flex;flex-direction:column;min-width:0;padding:14px 16px}
+.random-dish-pick strong{font-size:clamp(19px,2.3vw,24px);line-height:1.18}
+.random-dish-pick p{flex:1;font-size:13px}
+@media(max-width:720px){.random-dish-picks{grid-template-columns:1fr}}

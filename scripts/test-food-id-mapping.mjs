@@ -30,4 +30,7 @@ const unmatched=entities.entities.filter(entity=>!articles.dishes.some(article=>
 assert.deepEqual(unmatched,[],"Every food entity should have a public article");
 assert.ok(schema.modules.some(module=>module.id==="foods"&&module.path==="data/entities/food.json"));
 assert.match(publish,/"data\/entities\/food\.json":\["admin","editor"\]/);
-console.log("Food mapping passed: 30 food articles have unique entity mappings and meal-time tags.");
+assert.ok(articles.dishes.some(x=>x.id==="chao-cha"&&x.name==="Cháo chả"));
+assert.ok(!articles.dishes.some(x=>x.id==="chao-ca"));
+assert.ok(entities.entities.some(x=>x.legacy_id==="chao-cha"&&x.name==="Cháo chả"));
+console.log("Food mapping passed: 30 dishes, cháo chả migration and unique entity mappings.");

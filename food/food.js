@@ -6,7 +6,7 @@ const UI="../data/i18n/"+CONTENT_LOCALE+"/ui.json";
 const UI_FALLBACK="../data/i18n/vi/ui.json";
 const $=s=>document.querySelector(s);
 const all=s=>[...document.querySelectorAll(s)];
-const state={data:null,visuals:{},ui:{},cat:"all",meal:"all",q:"",randomDish:null};
+const state={data:null,visuals:{},ui:{},cat:"all",meal:"all",q:"",randomDishes:[]};
 const copy=(path,fallback)=>path.split(".").reduce((o,k)=>o?.[k],state.ui)||fallback;
 
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({
@@ -57,23 +57,34 @@ function renderGrid(){
   ).join(""):'<div class="empty">Không có món phù hợp.</div>';
 }
 
+
 function renderRandomDish(){
-  const result=$("#randomDishResult"),dish=state.randomDish;
-  if(!result)return;
-  if(!dish||!filtered().some(x=>x.id===dish.id)){
-    result.innerHTML='<p class="random-dish-empty">Chưa biết ăn gì? Bấm để tớ chọn thử một món trong danh sách.</p>';
+  const host=$("#randomDishResult"),rows=state.randomDishes;
+  if(!host)return;
+  if(!rows.length){
+    host.innerHTML='<p class="random-dish-empty">Chọn bữa bạn muốn ăn, tớ gợi ý ba món để lựa.</p>';
     return;
   }
   const meals={breakfast:"Ăn sáng",lunch:"Ăn trưa",dinner:"Ăn tối",snack:"Ăn chơi",dessert:"Món ngọt"};
-  const time=(dish.meal_times||[]).map(x=>meals[x]).filter(Boolean).slice(0,2).join(" · ");
-  result.innerHTML='<div class="random-dish-pick"><span>'+esc(time||"Gợi ý hôm nay")+'</span><strong>'+esc(dish.name)+'</strong><p>'+esc(dish.intro)+'</p><a href="article.html?id='+encodeURIComponent(dish.id)+'">Tìm hiểu món này →</a></div>';
+  host.innerHTML='<div class="random-dish-picks">'+rows.map(dish=>{
+    const time=(dish.meal_times||[]).map(x=>meals[x]).filter(Boolean).slice(0,2).join(" · ");
+    return '<div class="random-dish-pick"><span>'+esc(time||"Gợi ý hôm nay")+'</span><strong>'+esc(dish.name)+'</strong><p>'+esc(dish.intro)+'</p><a href="article.html?id='+encodeURIComponent(dish.id)+'">Xem món này →</a></div>';
+  }).join("")+'</div>';
 }
 
 function pickRandomDish(){
   const rows=filtered();
-  if(!rows.length)return;
-  const pool=rows.length>1?rows.filter(x=>x.id!==state.randomDish?.id):rows;
-  state.randomDish=pool[Math.floor(Math.random()*pool.length)];
+  if(!rows.length){state.randomDishes=[];renderRandomDish();return;}
+  const prior=new Set(state.randomDishes.map(x=>x.id));
+  let pool=rows.filter(x=>!prior.has(x.id));
+  const count=Math.min(3,rows.length);
+  if(pool.length<count)pool=[...rows];
+  pool=[...pool];
+  for(let i=pool.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [pool[i],pool[j]]=[pool[j],pool[i]];
+  }
+  state.randomDishes=pool.slice(0,count);
   renderRandomDish();
 }
 
@@ -114,7 +125,7 @@ function renderArticle(){
   const host=$("#foodArticle");
   if(!host)return;
   const id=new URLSearchParams(location.search).get("id");
-  const dish=state.data.dishes.find(x=>x.id===id)||state.data.dishes[0];
+  const dish=state.data.dishes.find(x=>x.id===(id==="chao-ca"?"chao-cha":id))||state.data.dishes[0];
   if(!dish)return;
 
   document.title=dish.name+" - Open Phu Quoc";
@@ -182,6 +193,7 @@ async function load(){
     });
   }
   renderGrid();
+  pickRandomDish();
   renderArticle();
 }
 
@@ -194,8 +206,9 @@ all("[data-cat]").forEach(b=>b.onclick=()=>{
 all("[data-meal]").forEach(b=>b.onclick=()=>{
   state.meal=b.dataset.meal;
   all("[data-meal]").forEach(x=>x.classList.toggle("active",x===b));
-  state.randomDish=null;
+  state.randomDishes=[];
   renderGrid();
+  pickRandomDish();
 });
 $("#randomDishButton")?.addEventListener("click",pickRandomDish);
 

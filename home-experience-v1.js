@@ -68,8 +68,9 @@
     }
   }
 
-  // Homepage owns one food suggestion. No additional section or redirect is required.
-  const foodNowState = {pool:[], visuals:{}, selected:null};
+
+  // Three distinct dishes per draw, still inside the existing homepage card.
+  const foodNowState = {pool:[], visuals:{}, selected:[]};
 
   function mealPlan(dishes) {
     const hour = vnClock().total;
@@ -78,63 +79,63 @@
       : hour < 17 * 60 ? "snack"
       : hour < 23 * 60 ? "dinner" : "breakfast";
     const names = {
-      breakfast:"Buổi sáng - chọn một món để bắt đầu ngày",
-      lunch:"Buổi trưa - gợi ý một món vừa bữa",
-      snack:"Buổi chiều - gợi ý một món ăn nhẹ",
-      dinner:"Buổi tối - thử một món địa phương hoặc hải sản"
+      breakfast:"Ba món cho buổi sáng",
+      lunch:"Ba món cho bữa trưa",
+      snack:"Chiều nay ăn gì?",
+      dinner:"Tối nay chọn món gì?"
     };
     let pool = dishes.filter(x => (x.meal_times || []).includes(meal));
-    // Some meals have few entries; never show an empty suggestion.
-    if (pool.length < 2 && meal === "snack")
-      pool = dishes.filter(x => (x.meal_times || []).includes("lunch") || (x.meal_times || []).includes("snack"));
-    if (!pool.length) pool = dishes;
+    if (pool.length < 3) pool = dishes.filter(x => (x.meal_times || []).includes(meal) || (x.meal_times || []).includes("snack"));
+    if (pool.length < 3) pool = dishes;
     return {pool,label:names[meal]};
   }
 
   function foodNowPhoto(dish) {
     const pictures = foodNowState.visuals?.food?.[dish.id]?.images || [];
     const picture = pictures.find(img => img?.url && img.hero_eligible !== false);
-    if (picture) {
-      const caption = picture.scope === "exact_subject"
-        ? "Ảnh món" : "Ảnh minh họa";
-      return '<figure class="food-now-media">'+
-        '<img src="'+esc(picture.url)+'" alt="'+esc(picture.alt || dish.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')">'+
-        '<figcaption>'+esc(caption)+'</figcaption></figure>';
-    }
-    return '<figure class="food-now-media food-now-media-empty"><span>Ảnh riêng của món đang được bổ sung</span></figure>';
+    if (picture) return '<figure class="food-now-media">'+
+      '<img src="'+esc(picture.url)+'" alt="'+esc(picture.alt || dish.name)+'" loading="lazy" decoding="async" onerror="this.closest(\\'figure\\').classList.add(\\'is-error\\')"></figure>';
+    return '<figure class="food-now-media food-now-media-empty"><span>Ảnh món đang được bổ sung</span></figure>';
   }
 
   function renderSelectedFood() {
-    const host = $("#foodNowGrid"), dish = foodNowState.selected;
-    if (!host || !dish) return;
-    const safety = (dish.allergen_flags || []).slice(0,2).map(x => x.label).join(" · ");
-    host.innerHTML = '<article class="food-now-card featured-food-card">'+
-      foodNowPhoto(dish)+
-      '<div class="food-now-copy">'+
-        '<span>'+(dish.category === "seafood" ? "HẢI SẢN" : "MÓN ĐỊA PHƯƠNG")+'</span>'+
-        '<h3>'+esc(dish.name)+'</h3>'+
-        '<p>'+esc(dish.intro || "")+'</p>'+
-        (safety ? '<small>Thành phần cần lưu ý: '+esc(safety)+'</small>' : "")+
-        '<a href="food/article.html?id='+encodeURIComponent(dish.id)+'">Khám phá món này →</a>'+
-      '</div></article>';
+    const host = $("#foodNowGrid");
+    if (!host || !foodNowState.selected.length) return;
+    host.innerHTML = foodNowState.selected.map(dish => {
+      const safety = (dish.allergen_flags || []).slice(0,2).map(x => x.label).join(" · ");
+      return '<article class="food-now-card featured-food-card">'+
+        foodNowPhoto(dish)+
+        '<div class="food-now-copy">'+
+          '<span>'+(dish.category === "seafood" ? "HẢI SẢN" : "MÓN ĐỊA PHƯƠNG")+'</span>'+
+          '<h3>'+esc(dish.name)+'</h3>'+
+          '<p>'+esc(dish.intro || "")+'</p>'+
+          (safety ? '<small>Thành phần cần lưu ý: '+esc(safety)+'</small>' : "")+
+          '<a href="food/article.html?id='+encodeURIComponent(dish.id)+'">Xem món này →</a>'+
+        '</div></article>';
+    }).join("");
     const button = $("#foodRandomBtn");
-    if (button) button.disabled = foodNowState.pool.length < 2;
+    if (button) button.disabled = foodNowState.pool.length <= 3;
   }
 
   function chooseRandomFood() {
     const pool = foodNowState.pool;
     if (!pool.length) return;
-    const choices = pool.length > 1
-      ? pool.filter(x => x.id !== foodNowState.selected?.id)
-      : pool;
-    foodNowState.selected = choices[Math.floor(Math.random() * choices.length)];
+    const previous = new Set(foodNowState.selected.map(x => x.id));
+    let choices = pool.filter(x => !previous.has(x.id));
+    const count = Math.min(3,pool.length);
+    if (choices.length < count) choices = [...pool];
+    choices = [...choices];
+    for (let i=choices.length-1;i>0;i--){
+      const j=Math.floor(Math.random()*(i+1));
+      [choices[i],choices[j]]=[choices[j],choices[i]];
+    }
+    foodNowState.selected=choices.slice(0,count);
     renderSelectedFood();
   }
 
   async function renderFoodNow() {
     const host = $("#foodNowGrid"), context = $("#foodNowContext");
     if (!host) return;
-    // Load the meal dataset first: a slow visual manifest must never block the card.
     const visualsPromise = fetch("data/visual-context.json?t=" + Date.now(), {cache:"no-store"})
       .then(r => r.ok ? r.json() : {}).catch(() => ({}));
     try {

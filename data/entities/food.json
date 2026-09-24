@@ -395,23 +395,24 @@
       "updated_at": "2026-09-24"
     },
     {
-      "id": "food_chao_ca",
-      "legacy_id": "chao-ca",
+      "id": "food_chao_cha",
+      "legacy_id": "chao-cha",
       "entity_type": "food",
-      "slug": "chao-ca",
-      "name": "Cháo cá",
+      "slug": "chao-cha",
+      "name": "Cháo chả",
       "aliases": [],
       "zone_id": null,
-      "category": "seafood",
-      "what_it_is": "Cháo nấu với cá, thường dùng cùng hành, tiêu và rau thơm. Loại cá và cách nấu tùy quán, nên hỏi trước khi gọi.",
-      "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "category": "local",
+      "what_it_is": "Cháo nóng ăn kèm chả, hành, tiêu; cách nấu và thành phần chả tùy quán.",
+      "why_go": "Một tô cháo bình dị để ăn sáng hoặc dùng một bữa nhẹ.",
       "best_for": [
         "breakfast",
-        "lunch"
+        "lunch",
+        "dinner"
       ],
       "tips": [
-        "Hỏi loại cá, có xương không và phần cháo có thêm hải sản khác không.",
-        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+        "Hỏi loại chả nếu cần tránh dị ứng.",
+        "Giờ bán và giá tùy từng quán."
       ],
       "intents": [
         "food",
