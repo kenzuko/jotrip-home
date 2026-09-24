@@ -13,7 +13,6 @@
         "id": "clock_symphony",
         "entity_id": "activity_symphony_of_the_sea",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=symphony-of-the-sea",
         "schedule_source": "canonical_entity.opening_hours"
       },
@@ -21,7 +20,6 @@
         "id": "clock_kiss_of_the_sea",
         "entity_id": "activity_kiss_of_the_sea",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=kiss-of-the-sea",
         "schedule_source": "canonical_entity.opening_hours",
         "timing_note": "Show lúc 21:00-21:30, trừ thứ Ba. Nếu ở xa Nam đảo, tính giờ đi và xe về trước."
@@ -30,28 +28,23 @@
         "id": "clock_dinh_cau",
         "entity_id": "place_dinh_cau",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=dinh-cau",
         "schedule_source": "canonical_entity.opening_hours",
         "timing_note": "Đẹp nhất vào cuối chiều, có thể ghép chợ đêm.",
-        "planning_travel_min": 45,
         "preferred_start": "16:00"
       },
       {
         "id": "clock_ho_quoc",
         "entity_id": "place_ho_quoc",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=ho-quoc",
         "schedule_source": "SOFT_DAYLIGHT",
-        "timing_note": "Tĩnh tâm, dâng hương và cầu nguyện. Chừa thời gian thong thả thay vì ghé vội.",
-        "planning_travel_min": 45
+        "timing_note": "Dành thời gian tĩnh tâm, dâng hương và cầu nguyện. Giữ yên tĩnh và trang phục phù hợp."
       },
       {
         "id": "clock_night_market",
         "entity_id": "place_night_market",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=night-market",
         "schedule_source": "canonical_entity.opening_hours"
       },
@@ -59,7 +52,6 @@
         "id": "clock_grand_world",
         "entity_id": "place_grand_world",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=grand-world",
         "schedule_source": "SOFT_EVENING",
         "timing_note": "Từ cuối chiều trở đi dễ chịu hơn, lên đèn cũng đẹp hơn."
@@ -68,7 +60,6 @@
         "id": "clock_hon_thom",
         "entity_id": "activity_hon_thom",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=hon-thom",
         "schedule_source": "canonical_entity.opening_hours"
       },
@@ -76,44 +67,28 @@
         "id": "clock_safari",
         "entity_id": "place_vinpearl_safari",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=vinpearl-safari",
         "schedule_source": "canonical_entity.opening_hours",
-        "latest_sensible_start": "13:30",
-        "hide_after_sensible_start": true,
-        "late_label": "Giờ này không nên bắt đầu Safari nữa",
-        "late_detail": "Safari hợp đi từ sáng; chiều muộn sẽ lỡ nhiều phần.",
-        "timing_note": "Đi buổi sáng sẽ thoải mái hơn; sau 13:30 thì nên để hôm khác.",
-        "practical_source_id": "vinwonders_safari_hours_detail_2026",
-        "planning_travel_min": 45
+        "timing_note": "Safari đóng cửa lúc 16:00. Kiểm tra giờ nhận khách tại cổng.",
+        "practical_source_id": "vinwonders_safari_hours_detail_2026"
       },
       {
         "id": "clock_vinwonders",
         "entity_id": "place_vinwonders",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=vinwonders",
         "schedule_source": "canonical_entity.opening_hours",
-        "latest_sensible_start": "15:00",
-        "hide_after_sensible_start": true,
-        "late_label": "Giờ này không nên bắt đầu VinWonders nữa",
-        "late_detail": "Nhiều phân khu sắp đóng, vào lúc này sẽ khá phí.",
-        "timing_note": "Nếu muốn chơi tử tế, nên vào trước khoảng 15:00.",
+        "timing_note": "Phần lớn trò chơi ngừng khoảng 17:00; ONCE diễn ra 18:45-19:05 theo lịch.",
         "practical_source_id": "vinwonders_phuquoc_hours_2026",
-        "planning_travel_min": 45,
-        "full_visit_end_at": "17:30"
+        "full_visit_end_at": "17:00"
       },
       {
         "id": "clock_teddy_bear",
         "entity_id": "place_teddy_bear_museum",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=teddy-bear-museum",
         "schedule_source": "canonical_entity.opening_hours",
         "latest_sensible_start": "19:30",
-        "hide_after_sensible_start": true,
-        "late_label": "Giờ này vào Bảo tàng Gấu hơi muộn",
-        "late_detail": "Nên chừa ít nhất khoảng 60-90 phút để xem thong thả.",
         "timing_note": "Hợp để ghép Grand World rồi xem Tinh Hoa Việt Nam buổi tối.",
         "practical_source_id": "vinwonders_grandworld_hours_2026"
       },
@@ -121,7 +96,6 @@
         "id": "clock_tinh_hoa_viet_nam",
         "entity_id": "activity_tinh_hoa_viet_nam",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=tinh-hoa-viet-nam",
         "schedule_source": "canonical_entity.opening_hours",
         "timing_note": "Show chính 20:15-21:00 tại Grand World.",
@@ -131,7 +105,6 @@
         "id": "clock_sac_mau_venice",
         "entity_id": "activity_sac_mau_venice",
         "status_code": "UNKNOWN",
-        "travel_buffer_min": null,
         "route": "places/detail.html?id=sac-mau-venice",
         "schedule_source": "canonical_entity.opening_hours",
         "timing_note": "Show 21:30-22:00 tại Grand World. Nếu đang ở xa Bắc đảo, đừng chờ sát giờ mới đi.",
@@ -143,9 +116,6 @@
         "status_code": "UNKNOWN",
         "route": "places/detail.html?id=once-show",
         "schedule_source": "canonical_entity.opening_hours",
-        "planning_travel_min": 45,
-        "entry_buffer_min": 20,
-        "show_after": "14:00",
         "show_label": "ONCE Show",
         "timing_note": "ONCE 18:45-19:05; cần vé vào công viên và kiểm tra lịch show trong ngày.",
         "practical_source_id": "vinwonders_phuquoc_hours_2026"

@@ -116,7 +116,7 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Phần lớn khu trò chơi khép lại trong khoảng 17:30–18:00.",
+        "Phần lớn trò chơi ngừng hoạt động vào khoảng 17:00 (giờ ước tính, tùy phân khu).",
         "Show ONCE diễn ra 18:45–19:05; nếu đến muộn, có thể ưu tiên xem show.",
         "Muốn chơi nhiều trò, nên vào công viên sớm hơn.",
         "Xem giới hạn chiều cao đầu ngày",
@@ -166,7 +166,7 @@
         "verified_at": "2026-09-21",
         "valid_until": null,
         "confidence": "HIGH",
-        "note": "Các phân khu có thể đóng sớm hơn; Homepage chỉ dùng giờ chung của công viên."
+        "note": "Công viên công bố đóng cửa lúc 19:30; phần lớn trò chơi ngừng khoảng 17:00 theo thông tin vận hành tham khảo, có thể thay đổi theo phân khu. ONCE theo lịch 18:45-19:05."
       },
       "address": "Khu Bãi Dài, Gành Dầu, Phú Quốc, An Giang 92512, Việt Nam",
       "map": {
