@@ -32,7 +32,6 @@ function dishMedia(x){
   if(visual){
     return '<div class="dish-media">'+
       '<img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'div\').classList.add(\'is-error\')">'+
-      '<small>'+esc(visual.scope === "exact_subject" ? (visual.caption||"Ảnh món") : ("Ảnh minh họa: "+(visual.caption||"hải sản Phú Quốc")))+'</small>'+
     '</div>';
   }
   return window.OpenPQVisual
