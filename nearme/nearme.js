@@ -8,7 +8,7 @@
     all:{center:[10.20,103.97],zoom:10},
     zone_central_west:{center:[10.2172,103.9593],zoom:13},
     zone_south:{center:[10.0191,104.0150],zoom:13},
-    place_sunset_town:{center:[10.0280,104.0052],zoom:14},
+    place_sunset_town:{center:[10.026903,104.007917],zoom:14},
     zone_north:{center:[10.3759,103.90],zoom:13}
   };
 

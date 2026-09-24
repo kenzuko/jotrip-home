@@ -46,6 +46,8 @@ jobs:
         run: node scripts/test-food-id-mapping.mjs
       - name: Test Near Me venue pins and canonical places
         run: node scripts/test-nearme-venues.mjs
+      - name: Test weather map points match production coordinates
+        run: node scripts/test-weather-map-coordinates.mjs
       - name: Test Vietcombank currency parser
         run: node scripts/test-currency.mjs
       - name: Check JavaScript syntax
