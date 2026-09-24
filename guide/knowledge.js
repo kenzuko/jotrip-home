@@ -83,7 +83,7 @@
       }
       root.append(gallery);
     }
-    for(const [title,value] of [["Đi thế nào cho hợp?",ed.practical],["Thực tế có thể khác bạn nghĩ",ed.expectation_vs_reality]]){
+    for(const [title,value] of [[o.topic_type==="PLACE"?"Đến đây nên làm gì?":o.topic_type==="FOOD"?"Điều nên biết về món này":o.topic_type==="ACTIVITY"?"Trải nghiệm thế nào?":"Điều nên biết",ed.practical],["Thực tế có thể khác bạn nghĩ",ed.expectation_vs_reality]]){
       if(!value)continue;
       const section=el("section");section.append(el("h2",null,title),el("p",null,value));root.append(section);
     }
@@ -92,11 +92,7 @@
       const list=el("ul");for(const item of ed.before_you_go)list.append(el("li",null,item));
       section.append(list);root.append(section);
     }
-    if(ed.curiosity_questions?.length){
-      const section=el("section");section.append(el("h2",null,"Câu hỏi để tìm hiểu thêm"));
-      const list=el("ul");for(const item of ed.curiosity_questions)list.append(el("li",null,item));
-      section.append(list);root.append(section);
-    }
+    // Research questions remain in internal data until answers are editorially verified.
     const more=el("aside","knowledge-further");
     more.append(el("h2",null,"Xem thông tin hôm nay"));
     const weather=el("a",null,"Thời tiết & biển");weather.href="/weather/";
