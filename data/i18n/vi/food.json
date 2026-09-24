@@ -59,6 +59,10 @@
           "label": "Vietnam Tourism - Đặc sản hải sản Phú Quốc",
           "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood"
         }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
       ]
     },
     {
@@ -118,6 +122,11 @@
           "label": "VnExpress - Bún 'quậy' Phú Quốc",
           "url": "https://vnexpress.net/bun-quay-phu-quoc-4066543.html"
         }
+      ],
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
       ]
     },
     {
@@ -168,6 +177,10 @@
           "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
           "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
         }
+      ],
+      "meal_times": [
+        "breakfast",
+        "lunch"
       ]
     },
     {
@@ -221,6 +234,10 @@
           "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
           "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
         }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
       ]
     },
     {
@@ -273,6 +290,10 @@
           "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
           "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
         }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
       ]
     },
     {
@@ -293,8 +314,8 @@
         "#am-thuc-phu-quoc",
         "#banh-canh-ca-thu"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Món này thường nằm trong gợi ý ăn sáng ở Phú Quốc; hương vị còn tùy mẻ cá và cách nấu của quán.",
+      "why_name": "Bánh canh cá thu gọi tên sợi bánh canh và phần cá thu hoặc chả cá thu trong tô.",
       "ingredients": [
         "Cá thu",
         "bánh canh",
@@ -340,8 +361,8 @@
         "#am-thuc-phu-quoc",
         "#banh-canh-ghe"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Đây là kiểu bánh canh hải sản có mặt trong các gợi ý ẩm thực Phú Quốc; cỡ ghẹ và phần ăn thay đổi theo quán.",
+      "why_name": "Tên món cho biết hai phần chính: sợi bánh canh và ghẹ.",
       "ingredients": [
         "Ghẹ",
         "bánh canh",
@@ -387,8 +408,8 @@
         "#am-thuc-phu-quoc",
         "#hu-tieu-muc"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Hủ tiếu mực không riêng Phú Quốc; đưa vào đây như lựa chọn bữa sáng hoặc bữa trưa dễ gặp trên đảo.",
+      "why_name": "Tên gọi nêu hai thành phần dễ nhận ra: hủ tiếu và mực.",
       "ingredients": [
         "Mực",
         "hủ tiếu",
@@ -434,8 +455,8 @@
         "#am-thuc-phu-quoc",
         "#bun-rieu"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Bún riêu phổ biến ở nhiều vùng; công thức và topping tại Phú Quốc tùy quán.",
+      "why_name": "Tên gọi nhắc đến phần riêu cua ăn cùng bún.",
       "ingredients": [
         "Bún",
         "riêu cua",
