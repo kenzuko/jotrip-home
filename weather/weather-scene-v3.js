@@ -1305,6 +1305,30 @@ async function refreshCanonicalRuntime(){
     const before=JSON.stringify(state.runtimeManifest?.source_times||{});
     const after=JSON.stringify(manifest?.source_times||{});
     if(before===after){
+      // The CMS data edge updates independently of the deployed build manifest.
+      // Always recheck same-origin live observations on every 2-minute tick.
+      const [cloud,compact,current]=await Promise.allSettled([
+        fetchCanonical(URLS.nowcast),fetchCanonical(URLS.compact),fetchCanonical(URLS.current)
+      ]);
+      const newer=(candidate,existing,field)=>candidate?.status==="POINT_NUMERIC_READY"&&
+        Number.isFinite(Date.parse(candidate?.[field]||""))&&
+        Date.parse(candidate[field])>Date.parse(existing?.[field]||0);
+      let changed=false;
+      if(cloud.status==="fulfilled"&&newer(cloud.value,state.nowcast,"sampled_time")){
+        state.nowcast=cloud.value;state.sources.nowcast=true;changed=true;
+      }
+      if(compact.status==="fulfilled"&&newer(compact.value,state.compact,"sampled_time")){
+        state.compact=compact.value;state.sources.compact=true;changed=true;
+      }
+      if(current.status==="fulfilled"&&
+         Date.parse(current.value?.local_now?.generated_at||0)>Date.parse(state.current?.local_now?.generated_at||0)){
+        state.current=current.value;state.sources.current=true;changed=true;
+      }
+      if(changed){
+        setTabAvailability();
+        if(sceneAvailable(state.scene))setScene(state.scene);
+        else if(sceneAvailable("cloud"))setScene("cloud");
+      }
       enforceSceneFreshness();
       return;
     }
