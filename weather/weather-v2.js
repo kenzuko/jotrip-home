@@ -1004,7 +1004,7 @@ function renderTodayDecision(){
   const enginePoint=engineDashboard.points?.[current]||{};
   if(badge)badge.textContent=(enginePoint.name||point().name||"Phú Quốc")+" · JoTrip Engine";
   const cycle=engineDashboard.source_cycles?.ECMWF;
-  if(meta)meta.textContent="JoTrip Engine · ECMWF · mốc thật 3 giờ"+(cycle?" · chu kỳ "+localTime(cycle):"");
+  if(meta)meta.textContent="JoTrip Engine · ECMWF · mốc thật 3 giờ"+(cycle?" · chu kỳ "+localTime(cycle):"")+(engineDashboard.revalidation_status==="REVALIDATED_UNCHANGED_MODEL"?" · kiểm tra lại dữ liệu cũ, chưa có chu kỳ mô hình mới":"");
   const marineLabel=$("todayMarineReference");
   if(marineLabel){
     const mt=enginePoint.marine_sampled_time;

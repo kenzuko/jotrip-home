@@ -219,6 +219,25 @@ async function main(){
    generated_at:fullNow.generated_at,status:fullNow.status,points:fullNow.points||compactOld.points,
    corridor_motion:fullNow.corridor_motion||compactOld.corridor_motion};
  }
+ // A model cycle remains scientifically valid after the upstream dashboard's
+ // 2.5-hour publication TTL. When the upstream scheduler is delayed, revalidate
+ // its unchanged numbers against the actual ECMWF spatial source and future
+ // timestamps. Never change source_cycles or invent a newer model run.
+ const dashboardAge=age(d.dashboard?.generated_at);
+ const ecmwfAge=age(d.dashboard?.source_cycles?.ECMWF);
+ const spatialCycle=d.ecmwf?.run_time;
+ const sameModel=spatialCycle&&stamp(spatialCycle)===stamp(d.dashboard?.source_cycles?.ECMWF);
+ const allFuture=Object.values(d.dashboard?.points||{}).length>=8&&
+  Object.values(d.dashboard.points).every(p=>(p.hours||[]).filter(r=>
+   stamp(r.time_iso)>Date.now()+15*60000&&stamp(r.time_iso)<Date.now()+24*3600000&&
+   numeric(r.wind)&&numeric(r.gust)&&numeric(r.rain)&&numeric(r.wave)).length>=2);
+ if(dashboardAge>150&&dashboardAge<720&&ecmwfAge<24*60&&sameModel&&allFuture){
+  const original=d.dashboard.source_snapshot_generated_at||d.dashboard.generated_at;
+  d.dashboard={...d.dashboard,source_snapshot_generated_at:original,
+   generated_at:now.toISOString(),revalidation_status:"REVALIDATED_UNCHANGED_MODEL",
+   revalidation_note:"Existing forecast values verified against matching ECMWF model cycle; no new model run claimed."};
+  warnings.push("forecast_revalidated_unchanged_cycle:original="+original);
+ }
  const localFile=join(tmp,"local-now.json");
  const localGround=await writeTmp(tmp,"local-ground.json",d.ground);
  const localDashboard=await writeTmp(tmp,"local-dashboard.json",d.dashboard);
