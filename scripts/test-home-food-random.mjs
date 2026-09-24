@@ -34,7 +34,7 @@ await new Promise(resolve=>setTimeout(resolve,10));
 assert.match(nodes.foodNowGrid.innerHTML,/featured-food-card/);
 assert.match(nodes.foodNowGrid.innerHTML,/Xem món này/);
 assert.doesNotMatch(nodes.foodNowGrid.innerHTML,/Đang chọn món/);
-const urls = () => [...nodes.foodNowGrid.innerHTML.matchAll(/food\\/article\\.html\\?id=([^"]+)/g)].map(x=>x[1]);
+const urls = () => nodes.foodNowGrid.innerHTML.split('href="food/article.html?id=').slice(1).map(x => x.split('"')[0]);
 const first=urls();
 assert.equal(first.length,3,"One suggestion must show exactly 3 cards");
 assert.equal(new Set(first).size,3,"Three different dishes per draw");
