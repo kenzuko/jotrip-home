@@ -1,46 +1,39 @@
 import fs from "node:fs";
 import path from "node:path";
-
 const root=process.cwd();
-const sourcePath=path.join(root,"data","knowledge","objects.json");
-const outPath=path.join(root,"data","views","knowledge-public.json");
-const payload=JSON.parse(fs.readFileSync(sourcePath,"utf8"));
-
-function routeFor(o){
-  return "/guide/article.html?id="+encodeURIComponent(o.topic_id);
-}
-
-const objects=(payload.objects||[])
-  .filter(o=>o.status==="READY_PUBLIC"&&o.public_ready===true)
-  .map(o=>({
-    topic_id:o.topic_id,
-    number:o.number,
-    title:o.title,
-    topic_type:o.topic_type,
-    story_type:o.story_type,
-    canonical_entity_id:o.canonical_entity_id||null,
-    related_entity_ids:o.related_entity_ids||[],
-    route:routeFor(o),
-    editorial:{
-      short_summary:o.editorial?.short_summary||"",
-      practical:o.editorial?.practical||"",
-      expectation_vs_reality:o.editorial?.expectation_vs_reality||"",
-      before_you_go:o.editorial?.before_you_go||[],
-      curiosity_questions:o.editorial?.curiosity_questions||[]
-    },
-    updated_at:o.updated_at||payload.updated_at||null
-  }));
-
+const payload=JSON.parse(fs.readFileSync(path.join(root,"data/knowledge/objects.json"),"utf8"));
+const visual=JSON.parse(fs.readFileSync(path.join(root,"data/visual-context.json"),"utf8"));
+const out=path.join(root,"data/views/knowledge-public.json");
+// Reuse only previously approved image records already in the site's visual catalog.
+const overrides={
+ "knowledge_002_duong-dong":{source:"stories",key:"duong-dong-sau-5-gio",context:true},
+ "knowledge_004_an-thoi":{source:"places",key:"activity_tour_3_islands",context:true},
+ "knowledge_035_sao-bien-rach-vem":{source:"places",key:"place_rach_vem"},
+ "knowledge_050_hoang-hon-phu-quoc":{source:"nature",key:"phu-quoc-sunset"},
+ "knowledge_131_sunset-watching":{source:"nature",key:"phu-quoc-sunset"},
+ "knowledge_137_visit-fish-sauce-house-pepper-farm":{both:["place_fish_sauce_house","place_pepper_garden"]}
+};
+const imagesFor=o=>{
+ const over=overrides[o.topic_id];
+ let all=visual.knowledge?.[o.topic_id]?.images?.filter(x=>x?.url)||[];
+ if(all.length) { /* A reviewed article-specific photo takes priority. */ }
+ else if(over?.both)all=over.both.flatMap(key=>visual.places?.[key]?.images||[]);
+ else if(over)all=visual[over.source]?.[over.key]?.images||[];
+ else if(o.canonical_entity_id?.startsWith("food_"))all=visual.food?.[o.canonical_entity_id.slice(5)]?.images||[];
+ else if(o.canonical_entity_id)all=visual.places?.[o.canonical_entity_id]?.images||[];
+ return all.filter(x=>x?.url && (/^\/assets\/(?:media|uploads)\//.test(x.url)||/^https:\/\/(?:commons\.wikimedia\.org|visitphuquoc\.com\.vn)\//.test(x.url))).slice(0,3)
+ .map(x=>({url:x.url,alt:String(x.alt||o.title),caption:String(x.caption||""),credit:String(x.source_label||"").replace(/^Ảnh:\s*/i,""),scope:over?.context?"context":String(x.scope||"context"),source_url:x.source_url||null,license:x.license||null,license_url:x.license_url||null}));
+};
+const objects=(payload.objects||[]).filter(o=>o.status==="READY_PUBLIC"&&o.public_ready===true).map(o=>({
+ topic_id:o.topic_id,number:o.number,title:o.title,topic_type:o.topic_type,story_type:o.story_type,
+ canonical_entity_id:o.canonical_entity_id||null,related_entity_ids:o.related_entity_ids||[],
+ route:"/guide/article.html?id="+encodeURIComponent(o.topic_id),media:{images:imagesFor(o)},
+ editorial:{short_summary:o.editorial?.short_summary||"",practical:o.editorial?.practical||"",
+ expectation_vs_reality:o.editorial?.expectation_vs_reality||"",before_you_go:o.editorial?.before_you_go||[],
+ curiosity_questions:o.editorial?.curiosity_questions||[]},updated_at:o.updated_at||payload.updated_at||null
+}));
 if(objects.some(o=>!o.topic_id||!o.editorial.short_summary||!o.editorial.practical||!o.editorial.before_you_go.length))throw new Error("Incomplete public knowledge article");
-const raw=JSON.stringify(objects);
-if(/https?:\/\//i.test(raw)) throw new Error("Public knowledge view contains an external URL");
-if(/"research"\s*:|"sources"\s*:/i.test(raw)) throw new Error("Public knowledge view leaked research/source fields");
-
-fs.writeFileSync(outPath,JSON.stringify({
-  schema_version:"1.0",
-  generated_at:new Date().toISOString(),
-  count:objects.length,
-  objects
-},null,2)+"\n");
-
-console.log("Public knowledge view:",objects.length,"objects");
+if(objects.some(o=>/https?:\/\//i.test(JSON.stringify(o.editorial))))throw new Error("External URL in editorial");
+if(/"research"\s*:|"sources"\s*:/i.test(JSON.stringify(objects)))throw new Error("Source fields leaked");
+fs.writeFileSync(out,JSON.stringify({schema_version:"1.1",generated_at:new Date().toISOString(),count:objects.length,photographed:objects.filter(o=>o.media.images.length).length,objects},null,2)+"\n");
+console.log("Public knowledge view:",objects.length,"articles,",objects.filter(o=>o.media.images.length).length,"with photos");

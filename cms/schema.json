@@ -105,6 +105,22 @@
       ]
     },
     {
+      "id": "visuals",
+      "label": "Thư viện ảnh",
+      "description": "Gắn ảnh thật, có tác giả và chú thích vào 128 bài Cẩm nang, món ăn và điểm đến.",
+      "path": "data/visual-context.json",
+      "preview": "../guide/knowledge.html",
+      "read": [
+        "admin",
+        "editor",
+        "viewer"
+      ],
+      "write": [
+        "admin",
+        "editor"
+      ]
+    },
+    {
       "id": "users",
       "label": "Người dùng",
       "description": "Phân quyền CMS",

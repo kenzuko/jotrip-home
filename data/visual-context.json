@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-20",
+  "updated_at": "2026-09-24",
   "map_policy": {
     "provider": "OpenStreetMap",
     "load_mode": "click_to_load",
@@ -208,7 +208,18 @@
   },
   "places": {
     "place_dinh_cau": {
-      "images": [],
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1280",
+          "alt": "Dinh Cậu ở Phú Quốc năm 2012",
+          "caption": "Dinh Cậu năm 2012 - diện mạo hiện nay có thể thay đổi.",
+          "scope": "archive",
+          "source_label": "Bùi Thụy Đào Nguyên",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+        }
+      ],
       "visual_note": "Không dùng ảnh Dinh Cậu cũ làm hero. Chờ ảnh 2025-2026 đúng chủ thể và có quyền sử dụng phù hợp; trong thời gian này chỉ dùng bối cảnh khu vực + locator."
     },
     "place_night_market": {
@@ -1114,6 +1125,34 @@
         }
       ],
       "visual_note": "Chỉ dùng ảnh An Thới như bối cảnh vùng. Hero chính vẫn dùng locator/infographic cho tới khi có ảnh tour exact đủ mới và đúng quyền."
+    },
+    "place_ham_ninh": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishignet.jpg?width=1280",
+          "alt": "Ngư dân gỡ lưới ở cầu tàu Hàm Ninh năm 2002",
+          "caption": "Cầu tàu Hàm Ninh năm 2002, không đại diện cho hiện trạng hôm nay.",
+          "scope": "archive",
+          "source_label": "Plicata",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Fishignet.jpg",
+          "license": "Public domain",
+          "license_url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        }
+      ]
+    },
+    "place_rach_vem": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Starfishes%20on%20the%20Starfish%20Beach%2C%20Phu%20Quoc%2C%20Vietnam.jpg?width=1280",
+          "alt": "Sao biển tại bãi Sao Biển phía bắc Phú Quốc năm 2019",
+          "caption": "Sao biển tại bãi phía bắc Phú Quốc, ảnh năm 2019; số lượng thay đổi theo mùa.",
+          "scope": "exact_subject",
+          "source_label": "Alexey Komarov",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Starfishes%20on%20the%20Starfish%20Beach%2C%20Phu%20Quoc%2C%20Vietnam.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        }
+      ]
     }
   },
   "food": {
@@ -1180,6 +1219,15 @@
           "note": "Thêm từng ít để giữ vị nước lèo."
         }
       ]
+    },
+    "bun-ken": {
+      "images": []
+    },
+    "nhum": {
+      "images": []
+    },
+    "coi-bien-mai": {
+      "images": []
     }
   },
   "food_context": {
@@ -1188,7 +1236,7 @@
         "url": "/assets/media/jotrip-grilled-squid-2025.jpg",
         "alt": "Mực và tôm nướng trên vỉ",
         "caption": "Hải sản nướng - ảnh từ thư viện JoTrip, dùng như bối cảnh ẩm thực chứ không đại diện cho một món cụ thể.",
-        "source_label": "Ảnh: JoTrip",
+        "source_label": "JoTrip",
         "source_file_id": "1UO_EbKDcqenkGpcDxuT-WLDqQpg4GV0-",
         "source_library": "JOTRIP_LICENSED_IMAGES",
         "source_modified_at": "2025-12-15",
@@ -1199,9 +1247,9 @@
       },
       {
         "url": "/assets/media/jotrip-fresh-squid-2025.jpg",
-        "alt": "Mực tươi ăn cùng rau",
-        "caption": "Mực tươi và rau ăn kèm - ảnh bối cảnh nguyên liệu từ thư viện JoTrip.",
-        "source_label": "Ảnh: JoTrip",
+        "alt": "Món mực ăn kèm rau trong ảnh tư liệu JoTrip",
+        "caption": "Món mực ăn cùng rau - ảnh tư liệu JoTrip, không đại diện cho một món cụ thể.",
+        "source_label": "JoTrip",
         "source_file_id": "1LMrx5shPKCMTREEClbA1v6AeEsBn9SnN",
         "source_library": "JOTRIP_LICENSED_IMAGES",
         "source_modified_at": "2025-12-15",
@@ -1222,5 +1270,535 @@
       "archive"
     ],
     "note": "Hero nên ưu tiên ảnh đúng chủ thể, mới, độ phân giải tốt và bố cục mạnh. Ảnh cũ chỉ dùng khi không có lựa chọn tốt hơn và phải ghi rõ nếu là tư liệu."
+  },
+  "nature": {
+    "phu-quoc-sunset": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20Phu%20Quoc%20sunset.jpg?width=1280",
+          "alt": "Hoàng hôn Phú Quốc tháng 11/2025",
+          "caption": "Hoàng hôn bờ Tây Phú Quốc, ảnh chụp tháng 11/2025.",
+          "scope": "exact_subject",
+          "source_label": "Elmschrat",
+          "source_url": "https://commons.wikimedia.org/wiki/File:1%20Phu%20Quoc%20sunset.jpg",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        }
+      ]
+    }
+  },
+  "knowledge": {
+    "knowledge_001_dinh-cau": {
+      "title": "Dinh Cậu",
+      "images": []
+    },
+    "knowledge_002_duong-dong": {
+      "title": "Dương Đông",
+      "images": []
+    },
+    "knowledge_003_cho-duong-dong": {
+      "title": "Chợ Dương Đông",
+      "images": []
+    },
+    "knowledge_004_an-thoi": {
+      "title": "An Thới",
+      "images": []
+    },
+    "knowledge_005_sunset-town": {
+      "title": "Sunset Town",
+      "images": []
+    },
+    "knowledge_006_ham-ninh": {
+      "title": "Hàm Ninh",
+      "images": []
+    },
+    "knowledge_007_ganh-dau": {
+      "title": "Gành Dầu",
+      "images": []
+    },
+    "knowledge_008_rach-vem": {
+      "title": "Rạch Vẹm",
+      "images": []
+    },
+    "knowledge_009_cua-can": {
+      "title": "Cửa Cạn",
+      "images": []
+    },
+    "knowledge_010_cua-duong": {
+      "title": "Cửa Dương",
+      "images": []
+    },
+    "knowledge_011_duong-to": {
+      "title": "Dương Tơ",
+      "images": []
+    },
+    "knowledge_012_bai-truong": {
+      "title": "Bãi Trường",
+      "images": []
+    },
+    "knowledge_013_bai-khem": {
+      "title": "Bãi Khem",
+      "images": []
+    },
+    "knowledge_014_bai-sao": {
+      "title": "Bãi Sao",
+      "images": []
+    },
+    "knowledge_015_bai-ong-lang": {
+      "title": "Bãi Ông Lang",
+      "images": []
+    },
+    "knowledge_017_bai-dai": {
+      "title": "Bãi Dài",
+      "images": []
+    },
+    "knowledge_018_bai-thom": {
+      "title": "Bãi Thơm",
+      "images": []
+    },
+    "knowledge_019_mui-ganh-dau": {
+      "title": "Mũi Gành Dầu",
+      "images": []
+    },
+    "knowledge_020_mui-ong-doi": {
+      "title": "Mũi Ông Đội",
+      "images": []
+    },
+    "knowledge_021_hon-thom": {
+      "title": "Hòn Thơm",
+      "images": []
+    },
+    "knowledge_022_hon-mong-tay": {
+      "title": "Hòn Móng Tay",
+      "images": []
+    },
+    "knowledge_023_hon-gam-ghi": {
+      "title": "Hòn Gầm Ghì",
+      "images": []
+    },
+    "knowledge_024_may-rut-trong": {
+      "title": "Mây Rút Trong",
+      "images": []
+    },
+    "knowledge_025_may-rut-ngoai": {
+      "title": "Mây Rút Ngoài",
+      "images": []
+    },
+    "knowledge_026_suoi-tranh": {
+      "title": "Suối Tranh",
+      "images": []
+    },
+    "knowledge_027_suoi-da-ban": {
+      "title": "Suối Đá Bàn",
+      "images": []
+    },
+    "knowledge_028_vuon-quoc-gia-phu-quoc": {
+      "title": "Vườn quốc gia Phú Quốc",
+      "images": []
+    },
+    "knowledge_029_chua-ho-quoc": {
+      "title": "Chùa Hộ Quốc",
+      "images": []
+    },
+    "knowledge_030_nha-tu-phu-quoc": {
+      "title": "Nhà tù Phú Quốc",
+      "images": []
+    },
+    "knowledge_031_bo-tay-va-bo-dong-phu-quoc-khac-nhau-the-nao": {
+      "title": "Bờ Tây và bờ Đông Phú Quốc khác nhau thế nào",
+      "images": []
+    },
+    "knowledge_032_mua-gio-tay-nam": {
+      "title": "Mùa gió Tây Nam",
+      "images": []
+    },
+    "knowledge_033_mua-gio-dong-bac": {
+      "title": "Mùa gió Đông Bắc",
+      "images": []
+    },
+    "knowledge_034_thuy-trieu-phu-quoc": {
+      "title": "Thủy triều Phú Quốc",
+      "images": []
+    },
+    "knowledge_035_sao-bien-rach-vem": {
+      "title": "Sao biển Rạch Vẹm",
+      "images": []
+    },
+    "knowledge_036_co-bien-phu-quoc": {
+      "title": "Cỏ biển Phú Quốc",
+      "images": []
+    },
+    "knowledge_037_dugong-o-vung-bien-phu-quoc": {
+      "title": "Dugong ở vùng biển Phú Quốc",
+      "images": []
+    },
+    "knowledge_038_san-ho-nam-dao": {
+      "title": "San hô Nam đảo",
+      "images": []
+    },
+    "knowledge_039_rung-ngap-man-phu-quoc": {
+      "title": "Rừng ngập mặn Phú Quốc",
+      "images": []
+    },
+    "knowledge_040_he-sinh-thai-rung-thuong-xanh": {
+      "title": "Hệ sinh thái rừng thường xanh",
+      "images": []
+    },
+    "knowledge_041_chim-o-phu-quoc": {
+      "title": "Chim ở Phú Quốc",
+      "images": []
+    },
+    "knowledge_042_rua-bien-quanh-phu-quoc": {
+      "title": "Rùa biển quanh Phú Quốc",
+      "images": []
+    },
+    "knowledge_048_song-va-huong-song-quanh-dao": {
+      "title": "Sóng và hướng sóng quanh đảo",
+      "images": []
+    },
+    "knowledge_050_hoang-hon-phu-quoc": {
+      "title": "Hoàng hôn Phú Quốc",
+      "images": []
+    },
+    "knowledge_051_binh-minh-phu-quoc": {
+      "title": "Bình minh Phú Quốc",
+      "images": []
+    },
+    "knowledge_053_nguon-nuoc-ngot-tren-dao": {
+      "title": "Nguồn nước ngọt trên đảo",
+      "images": []
+    },
+    "knowledge_054_dia-chat-phu-quoc": {
+      "title": "Địa chất Phú Quốc",
+      "images": []
+    },
+    "knowledge_055_cua-song-duong-dong": {
+      "title": "Cửa sông Dương Đông",
+      "images": []
+    },
+    "knowledge_056_bun-quay-phu-quoc": {
+      "title": "Bún quậy Phú Quốc",
+      "images": []
+    },
+    "knowledge_057_goi-ca-trich": {
+      "title": "Gỏi cá trích",
+      "images": []
+    },
+    "knowledge_058_ghe-ham-ninh": {
+      "title": "Ghẹ Hàm Ninh",
+      "images": []
+    },
+    "knowledge_059_nhum-bien": {
+      "title": "Nhum biển",
+      "images": []
+    },
+    "knowledge_060_coi-bien-mai": {
+      "title": "Còi biên mai",
+      "images": []
+    },
+    "knowledge_061_ca-song": {
+      "title": "Cá sòng",
+      "images": []
+    },
+    "knowledge_062_oc-giac-melo": {
+      "title": "Ốc giác / Melo",
+      "images": []
+    },
+    "knowledge_063_banh-tet-mat-cat": {
+      "title": "Bánh tét mật cật",
+      "images": []
+    },
+    "knowledge_064_ruou-sim": {
+      "title": "Rượu sim",
+      "images": []
+    },
+    "knowledge_065_mat-sim-siro-sim-mut-sim": {
+      "title": "Mật sim / siro sim / mứt sim",
+      "images": []
+    },
+    "knowledge_066_nuoc-mam-phu-quoc": {
+      "title": "Nước mắm Phú Quốc",
+      "images": []
+    },
+    "knowledge_067_nha-thung-nuoc-mam": {
+      "title": "Nhà thùng nước mắm",
+      "images": []
+    },
+    "knowledge_068_tieu-phu-quoc": {
+      "title": "Tiêu Phú Quốc",
+      "images": []
+    },
+    "knowledge_070_cho-duong-dong-an-gi": {
+      "title": "Chợ Dương Đông ăn gì",
+      "images": []
+    },
+    "knowledge_071_an-sang-o-phu-quoc": {
+      "title": "Ăn sáng ở Phú Quốc",
+      "images": []
+    },
+    "knowledge_073_am-thuc-an-thoi": {
+      "title": "Ẩm thực An Thới",
+      "images": []
+    },
+    "knowledge_074_cano-tau-cao-toc-pha-khac-nhau-the-nao": {
+      "title": "Cano - tàu cao tốc - phà khác nhau thế nào",
+      "images": []
+    },
+    "knowledge_075_tu-san-bay-ve-duong-dong": {
+      "title": "Từ sân bay về Dương Đông",
+      "images": []
+    },
+    "knowledge_076_tu-san-bay-ve-an-thoi-sunset-town": {
+      "title": "Từ sân bay về An Thới/Sunset Town",
+      "images": []
+    },
+    "knowledge_077_tu-san-bay-ve-bac-dao": {
+      "title": "Từ sân bay về Bắc đảo",
+      "images": []
+    },
+    "knowledge_078_di-chuyen-duong-dong-an-thoi": {
+      "title": "Di chuyển Dương Đông - An Thới",
+      "images": []
+    },
+    "knowledge_079_di-chuyen-duong-dong-ganh-dau": {
+      "title": "Di chuyển Dương Đông - Gành Dầu",
+      "images": []
+    },
+    "knowledge_080_di-chuyen-duong-dong-rach-vem": {
+      "title": "Di chuyển Dương Đông - Rạch Vẹm",
+      "images": []
+    },
+    "knowledge_081_di-chuyen-duong-dong-ham-ninh": {
+      "title": "Di chuyển Dương Đông - Hàm Ninh",
+      "images": []
+    },
+    "knowledge_082_bus-phu-quoc": {
+      "title": "Bus Phú Quốc",
+      "images": []
+    },
+    "knowledge_083_taxi-phu-quoc": {
+      "title": "Taxi Phú Quốc",
+      "images": []
+    },
+    "knowledge_084_thue-xe-may": {
+      "title": "Thuê xe máy",
+      "images": []
+    },
+    "knowledge_085_thue-o-to-tu-lai": {
+      "title": "Thuê ô tô tự lái",
+      "images": []
+    },
+    "knowledge_086_airport-transfer": {
+      "title": "Xe đưa đón sân bay",
+      "images": []
+    },
+    "knowledge_087_ferry-high-speed-boat-den-phu-quoc": {
+      "title": "Ferry / high-speed boat đến Phú Quốc",
+      "images": []
+    },
+    "knowledge_088_atm-o-phu-quoc": {
+      "title": "ATM ở Phú Quốc",
+      "images": []
+    },
+    "knowledge_089_thanh-toan-the-va-qr": {
+      "title": "Thanh toán thẻ và QR",
+      "images": []
+    },
+    "knowledge_090_doi-tien": {
+      "title": "Đổi tiền",
+      "images": []
+    },
+    "knowledge_091_pharmacy": {
+      "title": "Nhà thuốc",
+      "images": []
+    },
+    "knowledge_092_clinic-hospital": {
+      "title": "Phòng khám & bệnh viện",
+      "images": []
+    },
+    "knowledge_093_toilet": {
+      "title": "Nhà vệ sinh",
+      "images": []
+    },
+    "knowledge_094_parking": {
+      "title": "Bãi đỗ xe",
+      "images": []
+    },
+    "knowledge_095_fuel-stations": {
+      "title": "Cây xăng",
+      "images": []
+    },
+    "knowledge_096_minimart-convenience-store": {
+      "title": "Cửa hàng tiện lợi",
+      "images": []
+    },
+    "knowledge_098_emergency-numbers-practical-help": {
+      "title": "Số khẩn cấp & trợ giúp",
+      "images": []
+    },
+    "knowledge_107_gieng-tien": {
+      "title": "Giếng Tiên",
+      "images": []
+    },
+    "knowledge_110_tin-nguong-dinh-cau": {
+      "title": "Tín ngưỡng Dinh Cậu",
+      "images": []
+    },
+    "knowledge_111_tho-ca-ong": {
+      "title": "Thờ cá Ông",
+      "images": []
+    },
+    "knowledge_112_nghinh-ong": {
+      "title": "Nghinh Ông",
+      "images": []
+    },
+    "knowledge_115_cho-phu-quoc": {
+      "title": "Chó Phú Quốc",
+      "images": []
+    },
+    "knowledge_116_cho-phu-quoc-co-that-su-leo-cay": {
+      "title": "Chó Phú Quốc có thật sự leo cây?",
+      "images": []
+    },
+    "knowledge_124_cano-3-dao": {
+      "title": "Cano 3 đảo",
+      "images": []
+    },
+    "knowledge_125_cau-ca-lon": {
+      "title": "Câu cá lớn",
+      "images": []
+    },
+    "knowledge_126_cau-muc-dem": {
+      "title": "Câu mực đêm",
+      "images": []
+    },
+    "knowledge_127_snorkeling": {
+      "title": "Lặn ống thở",
+      "images": []
+    },
+    "knowledge_128_diving": {
+      "title": "Lặn biển",
+      "images": []
+    },
+    "knowledge_133_night-market": {
+      "title": "Chợ đêm Phú Quốc",
+      "images": []
+    },
+    "knowledge_134_cable-car-hon-thom": {
+      "title": "Cáp treo Hòn Thơm",
+      "images": []
+    },
+    "knowledge_135_safari-visit": {
+      "title": "Đi Vinpearl Safari",
+      "images": []
+    },
+    "knowledge_136_vinwonders-visit": {
+      "title": "Đi VinWonders",
+      "images": []
+    },
+    "knowledge_137_visit-fish-sauce-house-pepper-farm": {
+      "title": "Ghé nhà thùng nước mắm và vườn tiêu",
+      "images": []
+    },
+    "knowledge_138_phu-quoc-khi-troi-mua": {
+      "title": "Phú Quốc khi trời mưa",
+      "images": []
+    },
+    "knowledge_099_vi-sao-goi-la-phu-quoc": {
+      "title": "Vì sao gọi là Phú Quốc",
+      "images": []
+    },
+    "knowledge_104_nguon-goc-ten-cua-can": {
+      "title": "Nguồn gốc tên Cửa Cạn",
+      "images": []
+    },
+    "knowledge_105_nguon-goc-ten-hon-thom": {
+      "title": "Nguồn gốc tên Hòn Thơm",
+      "images": []
+    },
+    "knowledge_106_nguon-goc-ten-hon-mong-tay": {
+      "title": "Nguồn gốc tên Hòn Móng Tay",
+      "images": []
+    },
+    "knowledge_108_nguyen-anh-tai-phu-quoc": {
+      "title": "Nguyễn Ánh tại Phú Quốc",
+      "images": []
+    },
+    "knowledge_109_nguyen-trung-truc-va-phu-quoc": {
+      "title": "Nguyễn Trung Trực và Phú Quốc",
+      "images": []
+    },
+    "knowledge_117_ba-kim-giao": {
+      "title": "Bà Kim Giao",
+      "images": []
+    },
+    "knowledge_118_cac-giai-thoai-ve-nguyen-anh-tren-dao": {
+      "title": "Các giai thoại về Nguyễn Ánh trên đảo",
+      "images": []
+    },
+    "knowledge_119_nha-tu-phu-quoc-qua-cac-thoi-ky": {
+      "title": "Nhà tù Phú Quốc qua các thời kỳ",
+      "images": []
+    },
+    "knowledge_121_phu-quoc-trong-khong-gian-ha-tien": {
+      "title": "Phú Quốc trong không gian Hà Tiên",
+      "images": []
+    },
+    "knowledge_122_lich-su-nghe-nuoc-mam": {
+      "title": "Lịch sử nghề nước mắm",
+      "images": []
+    },
+    "knowledge_123_lich-su-nghe-ho-tieu-va-nghe-bien": {
+      "title": "Lịch sử nghề hồ tiêu và nghề biển",
+      "images": []
+    },
+    "knowledge_129_kayak": {
+      "title": "Chèo kayak",
+      "images": []
+    },
+    "knowledge_130_beach-day": {
+      "title": "Một ngày đi biển",
+      "images": []
+    },
+    "knowledge_131_sunset-watching": {
+      "title": "Ngắm hoàng hôn",
+      "images": []
+    },
+    "knowledge_132_sunrise-watching": {
+      "title": "Đón bình minh",
+      "images": []
+    },
+    "knowledge_139_phu-quoc-truoc-san-bay-quoc-te": {
+      "title": "Phú Quốc trước sân bay quốc tế",
+      "images": []
+    },
+    "knowledge_140_duong-dong-truoc-va-sau-do-thi-hoa": {
+      "title": "Dương Đông trước và sau đô thị hóa",
+      "images": []
+    },
+    "knowledge_142_ham-ninh-truoc-va-sau-chinh-trang": {
+      "title": "Hàm Ninh trước và sau chỉnh trang",
+      "images": []
+    },
+    "knowledge_144_bac-dao-truoc-va-sau-cac-resort-lon": {
+      "title": "Bắc đảo trước và sau các resort lớn",
+      "images": []
+    },
+    "knowledge_145_bai-truong-truoc-va-sau-resort-development": {
+      "title": "Bãi Trường thay đổi cùng các khu nghỉ dưỡng",
+      "images": []
+    },
+    "knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan": {
+      "title": "Đường sá Phú Quốc qua các giai đoạn",
+      "images": []
+    },
+    "knowledge_149_tau-ca-va-nghe-bien-thay-doi-the-nao": {
+      "title": "Tàu cá và nghề biển thay đổi thế nào",
+      "images": []
+    },
+    "knowledge_150_mot-ngay-o-phu-quoc-van-hanh-the-nao": {
+      "title": "Một ngày ở Phú Quốc vận hành thế nào",
+      "images": []
+    }
   }
 }

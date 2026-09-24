@@ -43,6 +43,13 @@ const LABELS={
   dek:"Mô tả ngắn",
   read_minutes:"Thời gian đọc (phút)",
   image:"Ảnh",
+  images:"Ảnh minh họa",
+  source_label:"Tác giả / đơn vị cung cấp ảnh",
+  source_url:"Link nguồn ảnh",
+  license:"Quyền sử dụng ảnh",
+  license_url:"Link giấy phép",
+  scope:"Ảnh đúng chủ thể hay ảnh bối cảnh",
+  alt:"Mô tả ảnh",
   slides:"Ảnh hero",
   alt:"Mô tả ảnh",
   caption:"Chú thích ảnh",
@@ -164,21 +171,23 @@ function inputAttrs(key){
 
 function stringField(key,val,path){
   const text=String(val??"");
+  const isVisualImage=currentModule?.id==="visuals"&&key==="url"&&/(?:^|\.)images\.\d+\.url$/.test(path);
+  const hasUploader=key==="image"||isVisualImage;
   const long=text.length>90||/(body|summary|description|intro|dek|lead|note|items|content)/i.test(key);
   const control=long
     ?`<textarea data-path="${esc(path)}">${esc(text)}</textarea>`
     :`<input${inputAttrs(key)} data-path="${esc(path)}" value="${esc(text)}">`;
-  const preview=key==="image"
+  const preview=hasUploader
     ?`<div class="image-preview ${text.trim()?"":"empty"}" data-image-preview="${esc(path)}">${text.trim()?'<img src="'+esc(text.trim())+'" alt="Xem trước ảnh">':'<span>Chưa có ảnh</span>'}</div>`
     :"";
-  const media=key==="image"
+  const media=hasUploader
     ?`<div class="media-actions"><button type="button" class="media-upload" data-media-path="${esc(path)}">Chọn ảnh từ máy</button><span>CMS sẽ thu nhỏ và tối ưu ảnh trước khi tải lên.</span></div>`
     :"";
   let quick="";
   if((key==="source"||key==="url")&&/^https?:\/\//i.test(text.trim()))quick=`<a class="field-quick" href="${esc(text.trim())}" target="_blank" rel="noopener">Mở nguồn ↗</a>`;
   if(/phone/i.test(key)&&text.trim())quick=`<a class="field-quick" href="tel:${esc(text.replace(/[^+\d]/g,""))}">Gọi thử ↗</a>`;
-  const fieldLabel=key==="image"&&/^stories\.\d+\.image$/.test(path)?"Ảnh cover":key==="image"&&/\.sections\.\d+\.image$/.test(path)?"Ảnh trong bài":labelize(key);
-  return `<div class="field ${key==="image"?"image-field":""}"><label>${esc(fieldLabel)}</label>${control}${media}${preview}${quick}</div>`;
+  const fieldLabel=isVisualImage?"Ảnh - tải lên hoặc dán URL":key==="image"&&/^stories\.\d+\.image$/.test(path)?"Ảnh cover":key==="image"&&/\.sections\.\d+\.image$/.test(path)?"Ảnh trong bài":labelize(key);
+  return `<div class="field ${hasUploader?"image-field":""}"><label>${esc(fieldLabel)}</label>${control}${media}${preview}${quick}</div>`;
 }
 
 function primitiveField(key,val,path){
@@ -788,7 +797,17 @@ function renderVenueWorkbench(){
     </section>`;
 }
 
+function renderVisualWorkbench(){
+  const rows=Object.entries(currentData?.knowledge||{}).map(([id,o])=>renderNode(o,"knowledge."+id,o.title||id,2)).join("");
+  const food=renderNode(currentData?.food||{},"food","Ảnh món ăn",1);
+  const places=renderNode(currentData?.places||{},"places","Ảnh điểm đến và trải nghiệm",1);
+  const nature=renderNode(currentData?.nature||{},"nature","Ảnh thiên nhiên",1);
+  const stories=renderNode(currentData?.stories||{},"stories","Ảnh câu chuyện",1);
+  return '<section class="module-overview stats-overview"><div><strong>'+Object.keys(currentData?.knowledge||{}).length+'</strong><span>Bài Cẩm nang có thể gắn ảnh</span></div><div><strong>'+Object.values(currentData?.knowledge||{}).filter(x=>x.images?.some(p=>p.url)).length+'</strong><span>Bài có ảnh gắn riêng</span></div><p>Tìm tên bài ở ô tìm kiếm, mở bài rồi bấm "Thêm mục" trong Ảnh. Chọn ảnh từ máy, ghi chú thích và nguồn, sau đó bấm Gửi duyệt. Ảnh chỉ lên website sau khi PR được duyệt.</p></section>'+rows+food+places+nature+stories;
+}
+
 function renderRoot(){
+  if(currentModule?.id==="visuals")return renderVisualWorkbench();
   if(currentModule?.id==="home")return renderHomeWorkbench();
   if(currentModule?.id==="utilities")return renderUtilitiesWorkbench();
   if(currentModule?.id==="guide")return renderGuideWorkbench();
@@ -1052,7 +1071,7 @@ function bindArrayControls(){
   document.querySelectorAll(".add-array-item").forEach(btn=>btn.onclick=()=>{
     const arr=getAtPath(currentData,btn.dataset.arrayPath);
     if(!Array.isArray(arr))return;
-    const template=arr.length?blankLike(arr[0]):"";
+    const template=arr.length?blankLike(arr[0]):(currentModule?.id==="visuals"&&btn.dataset.arrayPath.endsWith(".images")?{url:"",alt:"",caption:"",source_label:"JoTrip",source_url:"",license:"JoTrip owned",license_url:"",scope:"exact_subject"}:"");
     arr.push(template);
     markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Gửi duyệt.");
     rerender();
@@ -1186,6 +1205,7 @@ function bindSearch(){
 
 function buildEditorNav(){
   const host=$("#editorNav");
+  if(currentModule?.id==="visuals"){host?.classList.add("hidden");if(host)host.innerHTML="";return;}
   if(!host)return;
   const anchors=[...document.querySelectorAll("#editor > .cms-anchor")];
 

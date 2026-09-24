@@ -35,7 +35,7 @@ function dishMedia(x){
     '</div>';
   }
   return window.OpenPQVisual
-    ? OpenPQVisual.placeholder(x.name,x.category==="seafood"?copy("food.seafood","HẢI SẢN"):copy("food.local","MÓN ĐỊA PHƯƠNG"))
+    ? OpenPQVisual.placeholder(x.name,"Ảnh món đang được bổ sung")
     : "";
 }
 
@@ -157,7 +157,7 @@ async function load(){
   if(context && window.OpenPQVisual){
     context.innerHTML=OpenPQVisual.gallery(state.visuals?.food_context?.seafood||[],{
       eyebrow:"TỪ BẾP & BÀN ĂN",
-      title:"Nhìn nguyên liệu thật trước khi chọn món"
+      title:"Ảnh món ăn và hải sản từ JoTrip"
     });
   }
   renderGrid();
