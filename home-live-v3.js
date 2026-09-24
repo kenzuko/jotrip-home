@@ -100,7 +100,7 @@ function setLive(name, primary, secondary, state, freshness) {
       airport:"Xem chuyến bay →",
       cano:"Xem cano →",
       ferry:"Xem lịch tàu →",
-      tonight:"Xem tối nay →"
+      bus:"Xem tuyến xe →"
     };
     if (action && actions[name]) action.textContent = actions[name];
     box.dataset.state = state || "info";
@@ -805,9 +805,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
       airportLoaded ? freshnessText(airportStamp) : "Chưa có tin mới"
     );
 
-    const trafficPrimary = "Xem tình hình đi lại";
-    const trafficContext = "Xe buýt · tàu · phà theo ngày";
-    setLive("tonight", trafficPrimary, trafficContext, "info", "Mở lịch theo ngày");
+    setLive("bus", "Tìm tuyến xe phù hợp", "Tuyến, điểm đón và giờ chạy", "info", "Lịch chạy theo tuyến");
 
     const quickAlerts = [];
     const weatherFreshForAlert = !!critical && criticalAge <= 90;
