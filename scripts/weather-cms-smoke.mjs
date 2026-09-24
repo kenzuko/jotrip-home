@@ -6,7 +6,7 @@ const exists=async p=>{try{await access(join("weather",p));return true}catch{ret
 const assert=(v,m)=>{if(!v)throw Error("CMS Weather contract: "+m)};
 const required=["index.html","weather-v2.css","weather-v2.js","weather-scene-v3.html",
  "weather-scene-v3.css","weather-scene-v3.js","weather-scene-render-v2.js",
- "weather-runtime-config.js","weather-history.html","weather-history.js",
+ "weather-runtime-config.js","weather-wind-guard.js","weather-history.html","weather-history.js",
  "spatial-lab.html","spatial-lab.css","spatial-lab.js","weather-app-icon.svg",
  "data/critical.json","data/dashboard-data.json","data/current-bundle.json",
  "data/groundtruth.json","data/local-now.json","data/nowcast-compact.json",
@@ -61,8 +61,12 @@ assert(html.includes("/weather/weather-v2.js")&&html.includes("/weather/weather-
  "homepage assets not scoped under CMS /weather/");
 assert(!html.includes('id="heroGust"')&&!html.includes('id="gustNow"'),
  "unverified near-current gust must not appear on the traveller UI");
-assert(js.includes('key:"an-thoi-forecast-wind:"')&&js.includes('freshEnough(critical?.generated_at,120)'),
- "An Thoi afternoon wind watch must be derived from fresh same-origin forecast");
+assert(js.includes("JoTripWindGuard?.deriveAfternoonWatch(")&&js.includes('engineDashboard,now,"an_thoi"'),
+ "An Thoi watch must use only source-and-time guarded dashboard forecast");
+assert(html.includes("/weather/weather-wind-guard.js")&&html.indexOf("weather-wind-guard.js")<html.indexOf("weather-v2.js"),
+ "source QC must load before the CMS Weather app");
+assert(js.includes("const wind=localFresh&&l.available?num(l.wind_kmh):null;"),
+ "stale model wind still appears as live wind");
 assert(!js.includes('setMetric("gustNow"')&&!js.includes('windNow.gust'),
  "unverified current gust is still rendered outside the forecast section");
 assert(html.includes("/weather/data/critical.json"),
