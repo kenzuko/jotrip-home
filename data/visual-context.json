@@ -1161,7 +1161,7 @@
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/G%E1%BB%8Fi%20C%C3%A1%20Tr%C3%ADch.jpg?width=1400",
           "alt": "Gỏi cá trích",
-          "caption": "Gỏi cá trích - ảnh món ăn chụp tại Phú Quốc.",
+          "caption": "Gỏi cá trích",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - OlBoes",
           "source_url": "https://commons.wikimedia.org/wiki/File:G%E1%BB%8Fi_C%C3%A1_Tr%C3%ADch.jpg"
@@ -1192,8 +1192,8 @@
       "images": [
         {
           "url": "https://visitphuquoc.com.vn/VisitPhuQuoc/POINT/%C4%82N%20U%E1%BB%90NG/M%C3%B3n%20%C4%83n/1832/image-thumb__1832__720_jpg/B%C3%BAn%20qu%E1%BA%ADy%20Ki%E1%BA%BFn%20X%C3%A2y.ec5c87e9.jpg",
-          "alt": "Tô bún quậy Kiến Xây ở Phú Quốc",
-          "caption": "Tô bún quậy với chả, mực và hành - nhìn món trước, rồi mới nói chuyện cách ăn.",
+          "alt": "Bún quậy",
+          "caption": "Bún quậy",
           "scope": "exact_subject",
           "source_label": "Cổng du lịch Phú Quốc - Bún quậy Kiến Xây",
           "source_url": "https://visitphuquoc.com.vn/vi/bun-quay-kien-xay"
@@ -1237,7 +1237,7 @@
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E1%BB%90c%20h%C6%B0%C6%A1ng%20rang%20me.jpg?width=1400",
           "alt": "Ốc hương rang me",
-          "caption": "Đĩa ốc hương rang me - ảnh đúng món và cách chế biến.",
+          "caption": "Ốc hương rang me",
           "scope": "exact_subject",
           "hero_priority": "preferred",
           "source_label": "Wikimedia Commons - Baoothersks",
@@ -1250,8 +1250,8 @@
       "images": [
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bun%20rieu.jpg?width=1200",
-          "alt": "Một tô bún riêu Việt Nam",
-          "caption": "Bún riêu - ảnh món ăn tại Việt Nam, không phải ảnh chụp ở Phú Quốc.",
+          "alt": "Bún riêu",
+          "caption": "Bún riêu",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons · Schellack",
           "source_url": "https://commons.wikimedia.org/wiki/File:Bun_rieu.jpg",
@@ -1264,8 +1264,8 @@
       "images": [
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%A1nh%20m%C3%AC%20ch%E1%BA%A3%20c%C3%A1%20SG%20ng11th10n2022%20(2).jpg?width=1200",
-          "alt": "Ổ bánh mì chả cá chụp tại Sài Gòn",
-          "caption": "Bánh mì chả cá - ảnh chụp tại Sài Gòn, minh họa đúng loại món.",
+          "alt": "Bánh mì chả cá",
+          "caption": "Bánh mì chả cá",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons · Phương Huy",
           "source_url": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_m%C3%AC_ch%E1%BA%A3_c%C3%A1_SG_ng11th10n2022_(2).jpg",
@@ -1278,8 +1278,8 @@
       "images": [
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/X%C3%B4i%20gi%C3%B2%20l%E1%BA%A1p%20x%C6%B0%E1%BB%9Dng.jpg?width=1200",
-          "alt": "Xôi mặn ăn kèm giò và lạp xưởng",
-          "caption": "Xôi giò lạp xưởng - một kiểu xôi mặn, ảnh chụp ngoài Phú Quốc.",
+          "alt": "Xôi mặn",
+          "caption": "Xôi mặn",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons · Viethavvh",
           "source_url": "https://commons.wikimedia.org/wiki/File:X%C3%B4i_gi%C3%B2_l%E1%BA%A1p_x%C6%B0%E1%BB%9Dng.jpg",
@@ -1292,8 +1292,8 @@
       "images": [
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Seafood%20Fried%20Rice.jpg?width=1200",
-          "alt": "Một đĩa cơm chiên hải sản",
-          "caption": "Cơm chiên hải sản - ảnh minh họa món, không chụp tại Phú Quốc.",
+          "alt": "Cơm chiên hải sản",
+          "caption": "Cơm chiên hải sản",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons · ProjectManhattan",
           "source_url": "https://commons.wikimedia.org/wiki/File:Seafood_Fried_Rice.jpg",
@@ -1306,8 +1306,8 @@
       "images": [
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ch%C3%A1o%20C%C3%A1%20L%C3%B3c%2C%20Ti%E1%BB%81n%20Giang.jpg?width=1200",
-          "alt": "Cháo cá lóc ở Tiền Giang",
-          "caption": "Cháo cá lóc ở Tiền Giang - chỉ minh họa nhóm cháo cá, không phải cháo cá Phú Quốc.",
+          "alt": "Cháo cá",
+          "caption": "Cháo cá - ảnh minh họa",
           "scope": "illustrative",
           "source_label": "Wikimedia Commons · Dongson.vmvn",
           "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%A1o_C%C3%A1_L%C3%B3c%2C_Ti%E1%BB%81n_Giang.jpg",
