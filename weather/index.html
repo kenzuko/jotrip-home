@@ -68,14 +68,14 @@
   </section>
 
   <div class="point-select-heading">
-    <span>CHỌN ĐIỂM</span><small>Chọn một lần - các phần bên dưới đi theo điểm này</small>
+    <span>CHỌN ĐIỂM</span><small>Chọn một điểm, các mục bên dưới sẽ cùng hiển thị theo điểm đó.</small>
   </div>
   <nav id="pointTabs" class="point-tabs" aria-label="Điểm theo dõi thời tiết">
     <span class="inline-loader">Đang tải danh sách điểm...</span>
   </nav>
 
   <section class="customer-weather-block" aria-label="Thời tiết lúc này và hôm nay">
-    <div class="customer-weather-kicker"><span>LÚC NÀY & HÔM NAY</span><small>Một điểm đã chọn - xem trạng thái hiện tại và các mốc còn lại trong ngày</small></div>
+    <div class="customer-weather-kicker"><span>LÚC NÀY & HÔM NAY</span><small>Xem thời tiết hiện tại và các mốc còn lại trong ngày tại điểm bạn chọn.</small></div>
   <section class="weather-overview" aria-label="Thời tiết Phú Quốc tại điểm đang chọn">
     <div class="weather-overview-head">
       <div>
@@ -112,7 +112,7 @@
       <div><span class="eyebrow">PHẢN HỒI TẠI CHỖ</span><h2>Bạn đang thấy thực tế thế nào?</h2></div>
       <span id="feedbackPointLabel" class="feedback-point-label">Theo Dương Đông</span>
     </div>
-    <p class="panel-note">Phản hồi tự bám theo điểm đã chọn phía trên. Không cần chọn lại khu vực.</p>
+    <p class="panel-note">Phản hồi sẽ gắn với điểm bạn đang xem.</p>
     <div class="feedback-actions compact">
       <button type="button" data-feedback="MATCH">Khớp</button>
       <button type="button" data-feedback="RAIN_MORE">Mưa nhiều hơn</button>
@@ -121,7 +121,7 @@
       <button type="button" data-feedback="WIND_LESS">Gió yếu hơn</button>
       <button type="button" data-feedback="THUNDER">Có dông</button>
     </div>
-    <small id="feedbackState" class="panel-foot">Không thu GPS · phản hồi được gắn với điểm bạn đang xem và gửi về JoTrip.</small>
+    <small id="feedbackState" class="panel-foot">JoTrip không nhận vị trí GPS của bạn. Phản hồi chỉ gắn với điểm đang xem.</small>
     <div id="feedbackToast" class="feedback-toast" role="status" aria-live="polite"></div>
   </section>
 
@@ -148,7 +148,7 @@
 
   <div class="section-intro section-intro-spaced">
     <div><span class="eyebrow">THỰC ĐỊA</span><h2>Đang đo được gì ngoài kia?</h2></div>
-    <small>Quan trắc thật từ các nguồn đang hoạt động để đối chiếu với dự báo JoTrip.</small>
+    <small>Số đo từ các trạm đang hoạt động giúp bạn so sánh với dự báo JoTrip.</small>
   </div>
 
   <section class="panel actual-panel">
@@ -162,7 +162,7 @@
   </section>
   <div class="journey-heading">
     <div><span class="eyebrow">MẤY NGÀY TỚI</span><h2>Lên kế hoạch 10 ngày</h2></div>
-    <small>Nhìn xu hướng trước. Càng gần ngày đi, dữ liệu càng có giá trị để quyết định.</small>
+    <small>Xem xu hướng để lên kế hoạch; hãy kiểm tra lại khi gần ngày đi.</small>
   </div>
 
   <section class="panel jotrip-forecast-panel">
@@ -170,7 +170,7 @@
       <div><span class="eyebrow">DỰ BÁO JOTRIP</span><h2 id="jotripForecastTitle">10 ngày tới theo khu vực</h2></div>
       
     </div>
-    <p id="jotripForecastSummary" class="panel-note">Xem nhanh ngày nào thuận lợi hơn. Ba ngày đầu có nhiều mốc hơn; từ ngày 4 trở đi nên xem như xu hướng và kiểm tra lại gần ngày đi.</p>
+    <p id="jotripForecastSummary" class="panel-note">Ba ngày đầu có nhiều mốc dự báo hơn. Từ ngày thứ tư, hãy xem đây là xu hướng và kiểm tra lại khi gần ngày đi.</p>
     <nav id="forecastRegionTabs" class="forecast-region-tabs forecast-region-tabs-auto" aria-label="Vùng dự báo Phú Quốc">
       <span class="inline-loader">Đang tải dự báo theo vùng...</span>
     </nav>
@@ -227,7 +227,7 @@
       <span><b>Tình trạng mây</b><strong id="mapConvectiveScore">-</strong></span>
       <span><b>Đỉnh mây</b><strong id="mapCloudTop">-</strong><em id="mapCloudHeight"></em></span>
       <span><b>20 phút qua</b><strong id="mapCooling">-</strong><em id="mapCoolingMeaning"></em></span>
-      <small id="mapCloudFreshness">Ảnh Himawari cho biết độ cao/lạnh của đỉnh mây và xu hướng phát triển. Không phải xác suất mưa hay sét.</small>
+      <small id="mapCloudFreshness">Ảnh Himawari cho biết độ cao và nhiệt độ đỉnh mây, qua đó giúp theo dõi mây đang phát triển ra sao. Ảnh này không cho biết xác suất mưa hay sét.</small>
     </div>
     <details class="map-sources">
       <summary>Nguồn đối chiếu</summary>
@@ -261,7 +261,7 @@
   
 <div class="section-intro section-intro-simple technical-72-intro">
         <div><span class="eyebrow">72 GIỜ</span><h2>Biểu đồ theo điểm</h2></div>
-        <small>Dành cho người muốn xem diễn biến và độ phân tán, không phải lớp quyết định nhanh cho khách.</small>
+        <small>Phần này dành cho ai muốn xem diễn biến chi tiết và mức chênh lệch giữa các dự báo.</small>
       </div>
   <section class="panel intraday-panel" aria-label="Diễn biến thời tiết 72 giờ tại điểm đang chọn">
     <div class="panel-head intraday-head">
@@ -285,7 +285,7 @@
       <div id="intradayLegend" class="intraday-legend"></div>
       <div id="intradayFocus" class="intraday-focus"><b>Chạm một điểm</b><span>Xem giờ và số liệu chi tiết</span></div>
     </div>
-    <small id="intradayNote" class="panel-foot">Ước tính hiện tại và dự báo 72 giờ được tách rõ để không nhầm số đang xảy ra với số dự báo.</small>
+    <small id="intradayNote" class="panel-foot">Số liệu hiện tại và dự báo 72 giờ được trình bày riêng.</small>
   </section>
 
 

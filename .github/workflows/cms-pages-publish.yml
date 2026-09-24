@@ -59,6 +59,7 @@ jobs:
           node scripts/validate-data.mjs
           node scripts/validate-home-knowledge.mjs
           node scripts/test-search.mjs
+          node scripts/validate-public-copy.mjs
           echo "public_count=$(node scripts/validate-cms-publication.mjs --count)" >> "$GITHUB_OUTPUT"
           test -f dist/guide/knowledge.html
           test -f dist/guide/article.html
