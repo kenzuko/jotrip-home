@@ -286,7 +286,7 @@
   function mapInfoLabel(item){
     const map=item.map||{};
     const precision=map.precision==="area_anchor"?"Pin định hướng khu vực":map.precision==="site_centroid"?"Tâm khuôn viên, có thể khác cổng vào":map.precision?"Độ chính xác: "+map.precision:"";
-    const source=map.source&&!/^https?:\\/\\//i.test(map.source)?"Đối chiếu: "+map.source:"";
+    const source=map.source&&!/^https?:\/\//i.test(map.source)?"Đối chiếu: "+map.source:"";
     const date=map.verified_at?"Rà soát dữ liệu: "+map.verified_at:"";
     return [precision,source,date,map.note].filter(Boolean).join(" · ");
   }
