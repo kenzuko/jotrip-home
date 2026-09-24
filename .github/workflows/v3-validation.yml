@@ -24,6 +24,12 @@ jobs:
           node scripts/build-search-index.mjs
       - name: Validate data contracts
         run: node scripts/validate-data.mjs
+      - name: Test CMS attraction timing decision
+        run: |
+          node scripts/validate-home-support.mjs
+          node scripts/test-trip-clock-planner.mjs
+          node --check core/trip-clock-planner.js
+          node --check home-foundation-v2.js
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
       - name: Test current CMS permissions

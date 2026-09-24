@@ -12,6 +12,11 @@ on:
       - "guide/**"
       - "index.html"
       - "styles.css"
+      - "home-foundation-v2.js"
+      - "core/trip-clock-planner.js"
+      - "data/home-support.json"
+      - "data/entities/**"
+      - "scripts/test-trip-clock-planner.mjs"
       - "scripts/validate-home-knowledge.mjs"
       - "admin/**"
       - "functions/**"
@@ -58,6 +63,10 @@ jobs:
           node scripts/validate-cms-publication.mjs
           node scripts/test-cms-access.mjs
           node scripts/test-nearme-venues.mjs
+          node scripts/validate-home-support.mjs
+          node scripts/test-trip-clock-planner.mjs
+          node --check core/trip-clock-planner.js
+          node --check home-foundation-v2.js
           mkdir -p dist/data/meta
           printf '{"source_commit":"%s"}\n' "$GITHUB_SHA" > dist/data/meta/cms-build.json
           node scripts/validate-knowledge.mjs
@@ -151,6 +160,12 @@ jobs:
             const build=JSON.parse(marker.body);
             if(build.source_commit!==expected)throw Error("CMS live SHA "+
               String(build.source_commit||"missing")+" != expected "+expected);
+            const homepage=await get("/");
+            if(!homepage.body.includes("core/trip-clock-planner.js?v=20260924-fix1")||!homepage.body.includes("home-foundation-v2.js?v=20260924-fix1"))
+              throw Error("CMS homepage is still serving an older trip-clock version");
+            const planner=await get("/core/trip-clock-planner.js");
+            if(!planner.body.includes("OpenPQTripClockPlanner")||!planner.body.includes("planning_travel_min"))
+              throw Error("CMS trip-clock planner asset not deployed");
             const library=await get("/data/views/knowledge-public.json");
             const data=JSON.parse(library.body);
             if(data.count!==expectedCount||data.objects?.length!==expectedCount)

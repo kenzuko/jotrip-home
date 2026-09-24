@@ -66,105 +66,69 @@ function applyPracticalStartCutoff(item,decision,now){
   };
   return{decision:lateDecision,hidden:item.hide_after_sensible_start===true};
 }
+function tripClockSnapshot(){
+ const engine=window.OpenPQTripClockPlanner;
+ if(!engine||!support)return [];
+ const now=hhmmToMinutes(vnParts().time),sunset=hhmmToMinutes(localSunsetPhuQuoc());
+ const weekdayName=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Ho_Chi_Minh",weekday:"short"}).format(new Date());
+ const weekday=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(weekdayName);
+ return engine.plan({items:support.trip_clock?.items||[],entities,nowMinute:now,sunsetMinute:sunset,weekday,
+  sunsetWeather:window.OPENPQ_HOME?.signals?.sunset_weather?.level||"unknown"});
+}
 function renderTripClock(){
-  if(!support)return;
-  renderClock();
-  const host=$("#tripClockList");if(!host)return;
-  const now=hhmmToMinutes(vnParts().time),sunset=hhmmToMinutes(localSunsetPhuQuoc());
-  let rows=(support.trip_clock?.items||[]).map(item=>{
-    const e=entities.get(item.entity_id)||{},opening=e.opening_hours||null;
-    let decision=scheduleDecision(opening),summary=scheduleSummary(opening);
-    if(item.schedule_source==="SOFT_DAYLIGHT"){
-      decision=Number.isFinite(sunset)&&now<sunset
-        ?{state:"active",label:"Đi lúc này vẫn hợp",detail:"Nên đi khi còn sáng",endMin:sunset,remainingMin:sunset-now}
-        :{state:"past",label:"Hôm nay đã qua lúc hợp để đi",detail:"Chỗ này hợp hơn khi còn sáng"};
-      summary=item.timing_note||"Nên đi ban ngày hoặc chiều dịu";
-    }else if(item.schedule_source==="SOFT_EVENING"){
-      const start=16*60+30,late=23*60;
-      decision=now<start
-        ?{state:"future",label:"Hợp hơn từ cuối chiều",detail:"Từ lúc bớt nắng sẽ dễ đi hơn",nextMin:start}
-        :now<late
-          ?{state:"active",label:"Giờ này đi khá hợp",detail:"Khu này hợp để đi chậm và ở lại buổi tối"}
-          :{state:"past",label:"Giờ này đã khá muộn",detail:"Nếu còn đi, chọn chỗ gần và xem giờ mở cửa"};
-      summary=item.timing_note||e.best_time||"Hợp từ cuối chiều";
-    }
-    const practical=applyPracticalStartCutoff(item,decision,now);
-    decision=practical.decision;
-    const minDuration=durationMin(e.duration);
-    const tooShort=decision.state==="active"&&Number.isFinite(decision.remainingMin)&&minDuration&&decision.remainingMin<minDuration;
-    if(tooShort){
-      decision={...decision,label:"Giờ này vào sẽ hơi phí",detail:"Chọn một chỗ ngắn hơn sẽ hợp hơn"};
-    }
-    let score=decision.state==="active"?10:decision.state==="future"?60:decision.state==="unknown"?180:9999;
-    if(Number.isFinite(decision.nextMin))score+=Math.max(0,decision.nextMin-now)/12;
-    if(tooShort)score+=120;
-    const best=String(e.best_time||item.timing_note||"").toLowerCase();
-    if(/cuối chiều/.test(best)&&now>=15*60&&Number.isFinite(sunset)&&now<sunset)score-=28;
-    if(/buổi tối|16:30|tối/.test(best)&&now>=16*60)score-=20;
-    return{item,e,opening,decision,summary,score,minDuration,tooShort,hiddenByPracticalCutoff:practical.hidden};
-  });
-  rows=rows
-    .filter(x=>!x.hiddenByPracticalCutoff)
-    .filter(x=>["active","future"].includes(x.decision.state)&&!x.tooShort);
-  rows.sort((a,b)=>a.score-b.score);
-  if(!rows.length){
-    host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua giờ hợp lý.</strong><p>Ăn uống, đi bộ gần hoặc xem trước lịch ngày mai sẽ thoải mái hơn.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
-    publishLocalNowHint();
-    return;
-  }
-  let visibleRows=rows.slice(0,9);
-  const nextTimedActivity=rows.find(x=>x.opening?.schedule_type==="FIXED_START"&&x.decision.state==="future");
-  if(nextTimedActivity&&!visibleRows.includes(nextTimedActivity))visibleRows=[...rows.slice(0,8),nextTimedActivity];
-  host.innerHTML=visibleRows.map(({item,e,decision,summary,minDuration})=>{
-    const duration=e.duration||"";
-    let note=item.timing_note||e.best_time||decision.detail;
-    if(Number.isFinite(decision.remainingMin)&&minDuration&&decision.remainingMin<minDuration){
-      note="Thời gian còn lại hơi ngắn, để mai đi sẽ trọn hơn";
-    }
-    const detail=[summary,duration].filter(Boolean).join(" · ");
-    return '<a class="trip-item" data-decision="'+esc(decision.state)+'" href="'+esc(item.route)+'">'+
-      '<span>'+esc(decision.label)+'</span>'+
-      '<strong>'+esc(e.name||item.entity_id)+'</strong>'+
-      '<p>'+esc(detail)+'</p>'+
-      '<b>'+esc(note)+'</b>'+
-    '</a>';
-  }).join("");
-  publishLocalNowHint();
+ if(!support)return;
+ renderClock();const host=$("#tripClockList");if(!host)return;
+ if(!window.OpenPQTripClockPlanner){
+  host.innerHTML='<div class="trip-clock-empty"><strong>Gợi ý hôm nay đang được cập nhật.</strong><p>Mở Khám phá để xem giờ từng điểm trước khi đi.</p></div>';
+  return;
+ }
+ const rows=tripClockSnapshot().filter(x=>x.eligible&&["active","future"].includes(x.decision?.state));
+ if(!rows.length){
+  host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Thử chọn điểm gần, ăn uống hoặc xem lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
+  publishLocalNowHint();return;
+ }
+ let shown=rows.slice(0,9);
+ const nextShow=rows.find(x=>x.opening?.schedule_type==="FIXED_START"&&x.decision.state==="future");
+ if(nextShow&&!shown.includes(nextShow))shown=[...rows.slice(0,8),nextShow];
+ host.innerHTML=shown.map(row=>{
+  const {item,e,opening,decision,summary,note}=row;
+  const detail=opening?.schedule_type==="FIXED_START"?summary:[summary,e.duration].filter(Boolean).join(" · ");
+  const distinctNote=note&&note.trim()!==detail.trim()?note:"";
+  return '<a class="trip-item" data-decision="'+esc(decision.state)+'" href="'+esc(item.route)+'">'+
+   '<span>'+esc(decision.label)+'</span>'+
+   '<strong>'+esc(e.name||item.entity_id)+'</strong>'+
+   '<p>'+esc(detail)+'</p>'+
+   (distinctNote?'<b>'+esc(distinctNote)+'</b>':"")+'</a>';
+ }).join("");
+ publishLocalNowHint();
 }
 function buildLocalNowHint(){
-  if(!support)return null;
-  const now=hhmmToMinutes(vnParts().time),candidates=[];
-  for(const item of support.trip_clock?.items||[]){
-    const e=entities.get(item.entity_id)||{},opening=e.opening_hours||null;
-    if(!opening)continue;
-    const practicalCutoff=hhmmToMinutes(item.latest_sensible_start);
-    if(item.hide_after_sensible_start===true&&Number.isFinite(practicalCutoff)&&now>=practicalCutoff)continue;
-    if(opening.schedule_type==="FIXED_START"){
-      for(const t of opening.times||[]){
-        const start=hhmmToMinutes(t.start),delta=start-now;
-        if(Number.isFinite(delta)&&delta>0&&delta<=150)candidates.push({
-          score:delta,priority:"deadline",tone:"default",
-          title:(e.name||item.entity_id)+" bắt đầu lúc "+t.start,
-          note:delta<=60?"Nếu muốn xem, nên tính đường đi từ bây giờ.":"Vẫn còn thời gian, nhưng đừng để sát giờ mới đi.",
-          primaryText:"Xem "+(e.name||"hoạt động")+" →",primaryHref:item.route,
-          secondaryText:"Xem tối nay",secondaryHref:"#happening"
-        });
-      }
-    }
-    for(const w of opening.windows||[]){
-      const end=hhmmToMinutes(w.end),start=hhmmToMinutes(w.start);
-      if(!Number.isFinite(start)||!Number.isFinite(end)||now<start||now>end)continue;
-      const remain=end-now,minDuration=durationMin(e.duration);
-      if(remain>0&&remain<=90&&(!minDuration||remain>=minDuration))candidates.push({
-        score:180+remain,priority:"deadline",tone:"default",
-        title:(e.name||item.entity_id)+" vẫn còn kịp",
-        note:"Nếu không phải đi quá xa, bạn vẫn còn đủ thời gian để ghé.",
-        primaryText:"Xem "+(e.name||"điểm này")+" →",primaryHref:item.route,
-        secondaryText:"Lựa chọn khác",secondaryHref:"#happening"
-      });
-    }
+ if(!support||!window.OpenPQTripClockPlanner)return null;
+ const now=hhmmToMinutes(vnParts().time),candidates=[];
+ for(const x of tripClockSnapshot()){
+  if(!x.eligible||!x.decision)continue;
+  const name=x.e.name||x.item.entity_id,isShow=x.opening?.schedule_type==="FIXED_START";
+  if(isShow&&x.decision.state==="future"){
+   const delta=x.decision.nextMin-now;
+   if(delta>0&&delta<=150)candidates.push({
+    score:delta,priority:"deadline",tone:"default",
+    title:name+" bắt đầu lúc "+String(Math.floor(x.decision.nextMin/60)).padStart(2,"0")+":"+String(x.decision.nextMin%60).padStart(2,"0"),
+    note:"Đã tính đệm đi đường; cần kiểm tra lịch và vé show trước khi xuất phát.",
+    primaryText:"Xem "+name+" →",primaryHref:x.item.route,
+    secondaryText:"Xem tối nay",secondaryHref:"#happening"
+   });
+  }else if(!isShow&&x.decision.state==="active"&&Number.isFinite(x.latestLeave)){
+   const left=x.latestLeave-now;
+   if(left>=0&&left<=90)candidates.push({
+    score:160+left,priority:"deadline",tone:"default",
+    title:name+": còn khung giờ để cân nhắc ghé",
+    note:"Đã dự trù "+x.travelBuffer+" phút đi đường; thời gian thực tế tùy điểm xuất phát.",
+    primaryText:"Xem "+name+" →",primaryHref:x.item.route,
+    secondaryText:"Chọn nơi khác",secondaryHref:"#happening"
+   });
   }
-  return candidates.sort((a,b)=>a.score-b.score)[0]||null;
+ }
+ return candidates.sort((a,b)=>a.score-b.score)[0]||null;
 }
 let lastLocalHintKey="";
 function publishLocalNowHint(){const hint=buildLocalNowHint(),payload={now_hint:hint,updated_at:new Date().toISOString()};window.OPENPQ_HOME_LOCAL=payload;const key=JSON.stringify(hint||null);if(key!==lastLocalHintKey){lastLocalHintKey=key;window.dispatchEvent(new CustomEvent("openpq:local-ready",{detail:payload}))}}
@@ -333,7 +297,7 @@ function bindNear(){
 }
 function renderAll(){renderTripClock();renderActivities();renderNearControls();renderNearResults();renderHomeCurrency();renderHotNow();renderCuriosity()}
 async function loadJson(url,label){try{const r=await fetch(url+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error(label+" HTTP "+r.status);return await r.json()}catch(error){console.warn("Homepage source unavailable:",label,error);return null}}
-renderClock();setInterval(renderClock,60000);renderHotNow();renderHomeCurrency();
+renderClock();setInterval(()=>{renderClock();renderTripClock()},60000);renderHotNow();renderHomeCurrency();
 const supportTask=loadJson(SUPPORT,"home-support").then(data=>{if(!data)return;support=data;renderNearControls();bindNear();renderNearResults();renderHotNow();renderCuriosity();renderTripClock();renderActivities()});
 const placesTask=loadJson(PLACES,"places").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities()});
 const activitiesTask=loadJson(ACTIVITIES,"activities").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities()});
