@@ -1565,7 +1565,7 @@
       "classification_source": "Sở Du lịch An Giang",
       "classification_url": "https://sdl.angiang.gov.vn/dac-khu-phu-quoc-co-so-luu-tru-0",
       "official_classification": "5 sao",
-      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address": "Khu du lịch Bãi Dài, khu phố Gành Dầu, Đặc khu Phú Quốc, tỉnh An Giang",
       "phone": "02973779888",
       "phone_sdl": "02973779888",
       "website": null,
@@ -1587,12 +1587,29 @@
         {
           "source_id": "sdl_angiang_accommodation_2026_07_27",
           "url": "https://sdl.angiang.gov.vn/dac-khu-phu-quoc-co-so-luu-tru-0"
+        },
+        {
+          "source_id": "vinpearl_wonderworld_official_20260924",
+          "url": "https://vinpearl.com/vi/hotels/vinpearl-wonderworld-phu-quoc"
+        },
+        {
+          "source_id": "jotrip_user_pin_20260924"
         }
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
       "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
+      "map_review_note": "Đã thay pin geocode không chính xác bằng tọa độ người dùng cung cấp 24/09/2026; cần kiểm tra lối vào khi dẫn đường.",
+      "map": {
+        "lat": 10.342593756005307,
+        "lon": 103.8513524994586,
+        "precision": "site_centroid",
+        "source": "Tọa độ do người dùng cung cấp ngày 24/09/2026",
+        "source_id": "jotrip_user_pin_20260924",
+        "verified_at": "2026-09-24",
+        "accuracy": "USER_PROVIDED_COORDINATES",
+        "note": "Pin khuôn viên Vinpearl Wonderworld; chưa xác nhận cổng nhận khách."
+      }
     },
     {
       "id": "hotel_worldhotels_long_beach_resort_phu_quoc",

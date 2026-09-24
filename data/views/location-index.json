@@ -1,16 +1,16 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-22T06:49:55.441Z",
+  "generated_at": "2026-09-24T03:31:48.795Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
-    "total": 204,
-    "with_address": 204,
-    "with_map": 167,
+    "total": 212,
+    "with_address": 212,
+    "with_map": 169,
     "by_type": {
       "activity": 6,
       "hotel": 158,
       "place": 21,
-      "utility": 19
+      "utility": 27
     }
   },
   "documents": [
@@ -4495,24 +4495,32 @@
       "tags": [
         "HOTEL"
       ],
-      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "address": "Khu du lịch Bãi Dài, khu phố Gành Dầu, Đặc khu Phú Quốc, tỉnh An Giang",
       "address_precision": null,
       "phone": "02973779888",
       "group": null,
       "utility_type": null,
+      "opening_hours": null,
+      "opening_hours_note": null,
+      "phone_alt": null,
+      "verified": null,
+      "updated_at": "2026-09-24",
       "star_rating": 5,
       "what_it_is": "Khách sạn 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Vinpearl%20Wonderworld%20Ph%C3%BA%20Qu%E1%BB%91c",
       "map": {
-        "lat": 10.413995,
-        "lon": 103.9759353,
-        "precision": "area_anchor",
-        "source": "OpenStreetMap Photon location geocoding",
-        "source_id": "osm_photon_geocode",
-        "verified_at": "2026-09-22"
+        "lat": 10.342593756005307,
+        "lon": 103.8513524994586,
+        "precision": "site_centroid",
+        "source": "Tọa độ do người dùng cung cấp ngày 24/09/2026",
+        "source_id": "jotrip_user_pin_20260924",
+        "verified_at": "2026-09-24",
+        "note": "Pin khuôn viên Vinpearl Wonderworld; chưa xác nhận cổng nhận khách.",
+        "accuracy": "USER_PROVIDED_COORDINATES",
+        "plus_code": null
       },
       "inherited_from": null,
-      "google_query": "Vinpearl Wonderworld Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
+      "google_query": "Vinpearl Wonderworld Phú Quốc, Khu du lịch Bãi Dài, khu phố Gành Dầu, Đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
     {
       "id": "hotel_wildland_resort",
@@ -5385,6 +5393,41 @@
       "google_query": "Bãi gửi xe khu chợ đêm Sunset Town, Khu chợ đêm Sunset Town, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
     {
+      "id": "utility_vinmec_er",
+      "entity_type": "utility",
+      "name": "Cấp cứu Vinmec",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [],
+      "address": "Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "02973 98 55 11",
+      "group": "Y tế",
+      "utility_type": null,
+      "opening_hours": null,
+      "opening_hours_note": null,
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
+      "star_rating": null,
+      "what_it_is": "Đường dây cấp cứu 24/24 - nên kiểm tra lại nếu không kết nối được",
+      "route": "/utilities/",
+      "map": {
+        "lat": 10.336498688188055,
+        "lon": 103.85723855555321,
+        "precision": "site_centroid",
+        "source": "Tọa độ do người dùng cung cấp ngày 24/09/2026",
+        "source_id": "jotrip_user_pin_20260924",
+        "verified_at": "2026-09-24",
+        "note": "Pin khuôn viên bệnh viện; chưa xác nhận cổng cấp cứu riêng.",
+        "accuracy": "USER_PROVIDED_COORDINATES",
+        "plus_code": null
+      },
+      "inherited_from": null,
+      "google_query": "Cấp cứu Vinmec, Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
       "id": "utility_vinmec_phuquoc_emergency",
       "entity_type": "utility",
       "name": "Cấp cứu Vinmec Phú Quốc",
@@ -5394,24 +5437,32 @@
       "tags": [
         "CLINIC_HOSPITAL"
       ],
-      "address": "Khu Bãi Dài, Đặc khu Phú Quốc, An Giang",
-      "address_precision": null,
+      "address": "Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
       "phone": "02973 98 55 11",
       "group": "Y tế",
       "utility_type": "CLINIC_HOSPITAL",
+      "opening_hours": null,
+      "opening_hours_note": null,
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế",
       "route": "/utilities/",
       "map": {
-        "lat": 10.413995,
-        "lon": 103.9759353,
-        "precision": "area_anchor",
-        "source": "OpenStreetMap Photon location geocoding",
-        "source_id": "osm_photon_geocode",
-        "verified_at": "2026-09-22"
+        "lat": 10.336498688188055,
+        "lon": 103.85723855555321,
+        "precision": "site_centroid",
+        "source": "Tọa độ do người dùng cung cấp ngày 24/09/2026",
+        "source_id": "jotrip_user_pin_20260924",
+        "verified_at": "2026-09-24",
+        "note": "Pin khuôn viên bệnh viện; chưa xác nhận cổng cấp cứu riêng.",
+        "accuracy": "USER_PROVIDED_COORDINATES",
+        "plus_code": null
       },
       "inherited_from": null,
-      "google_query": "Cấp cứu Vinmec Phú Quốc, Khu Bãi Dài, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+      "google_query": "Cấp cứu Vinmec Phú Quốc, Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
     {
       "id": "utility_fuel_my_anh_an_thoi",
@@ -5499,6 +5550,33 @@
       },
       "inherited_from": null,
       "google_query": "Cửa hàng bán lẻ xăng dầu Nhi Phụng, Thửa đất 43, tờ bản đồ 12, ấp Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_golf_eschuri",
+      "entity_type": "utility",
+      "name": "Eschuri Vũng Bầu Golf",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "GOLF"
+      ],
+      "address": "Ấp 4, Khu phố 4, khu vực Vũng Bầu, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "0853 686 066",
+      "group": "Sân golf",
+      "utility_type": "GOLF",
+      "opening_hours": null,
+      "opening_hours_note": "Giờ đặt sân và giờ hoạt động có thể khác; liên hệ cơ sở.",
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
+      "star_rating": null,
+      "what_it_is": "Sân golf 18 hố ven bãi Vũng Bầu.",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Eschuri Vũng Bầu Golf, Ấp 4, Khu phố 4, khu vực Vũng Bầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
     {
       "id": "utility_minimart_homemart_an_thoi",
@@ -5617,6 +5695,60 @@
       "google_query": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ, 46 Nguyễn Văn Cừ, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
     {
+      "id": "utility_longchau_ben_tram",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - Chợ Bến Tràm",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "PHARMACY"
+      ],
+      "address": "487 Nguyễn Trung Trực (Chợ Bến Tràm), Đặc khu Phú Quốc, An Giang",
+      "address_precision": "EXACT",
+      "phone": "1800 6928",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "opening_hours": null,
+      "opening_hours_note": "Hệ thống niêm yết 06:00-23:00; giờ từng chi nhánh có thể khác.",
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
+      "star_rating": null,
+      "what_it_is": "Nhà thuốc phục vụ thuốc và nhu yếu phẩm y tế.",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà thuốc Long Châu - Chợ Bến Tràm, 487 Nguyễn Trung Trực (Chợ Bến Tràm), Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_longchau_dt45",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - ĐT45",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "PHARMACY"
+      ],
+      "address": "Thửa đất 59, Bản đồ 12, ĐT45 (ngã tư Nghĩa trang Liệt sĩ), Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "1800 6928",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "opening_hours": null,
+      "opening_hours_note": "Hệ thống niêm yết 06:00-23:00; giờ từng chi nhánh có thể khác.",
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
+      "star_rating": null,
+      "what_it_is": "Nhà thuốc phục vụ thuốc và nhu yếu phẩm y tế.",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà thuốc Long Châu - ĐT45, Thửa đất 59, Bản đồ 12, ĐT45 (ngã tư Nghĩa trang Liệt sĩ), Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
       "id": "utility_longchau_ganh_dau",
       "entity_type": "utility",
       "name": "Nhà thuốc Long Châu - Gành Dầu",
@@ -5644,6 +5776,33 @@
       },
       "inherited_from": null,
       "google_query": "Nhà thuốc Long Châu - Gành Dầu, Thửa đất 19, Bản đồ 12, gần Chợ Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_longchau_ham_ninh",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - Hàm Ninh",
+      "aliases": [],
+      "zone_id": null,
+      "categories": [],
+      "tags": [
+        "PHARMACY"
+      ],
+      "address": "Thửa đất 32, Bản đồ 24, đường ĐT47 (ngã tư chợ Hàm Ninh), Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "1800 6928",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "opening_hours": null,
+      "opening_hours_note": "Hệ thống niêm yết 06:00-23:00; giờ từng chi nhánh có thể khác.",
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
+      "star_rating": null,
+      "what_it_is": "Nhà thuốc phục vụ thuốc và nhu yếu phẩm y tế.",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Nhà thuốc Long Châu - Hàm Ninh, Thửa đất 32, Bản đồ 24, đường ĐT47 (ngã tư chợ Hàm Ninh), Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
     {
       "id": "utility_longchau_suoi_da",
@@ -5787,6 +5946,33 @@
       "google_query": "Phòng khám Đa khoa Vinmec Dương Đông, 114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
     {
+      "id": "utility_laundry_phuquoc_cuaduong",
+      "entity_type": "utility",
+      "name": "Phu Quoc Laundry - Bến Tràm",
+      "aliases": [],
+      "zone_id": null,
+      "categories": [],
+      "tags": [
+        "LAUNDRY"
+      ],
+      "address": "Tổ 4, ấp Bến Tràm, Cửa Dương, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "0877 215 765",
+      "group": "Giặt ủi",
+      "utility_type": "LAUNDRY",
+      "opening_hours": null,
+      "opening_hours_note": "Website cơ sở công bố 09:00-21:00 hằng ngày; nên liên hệ trước khi giao đồ.",
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
+      "star_rating": null,
+      "what_it_is": "Giặt sấy, nhận và trả đồ tại địa chỉ khách.",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Phu Quoc Laundry - Bến Tràm, Tổ 4, ấp Bến Tràm, Cửa Dương, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
       "id": "utility_fuel_dong_loi_1",
       "entity_type": "utility",
       "name": "Trạm xăng dầu Đông Lợi 1",
@@ -5878,6 +6064,68 @@
       },
       "inherited_from": null,
       "google_query": "Vietcombank PGD Dương Đông - ATM, 193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_vinmec",
+      "entity_type": "utility",
+      "name": "Vinmec Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [],
+      "address": "Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "0297 3985 588",
+      "group": "Y tế",
+      "utility_type": null,
+      "opening_hours": null,
+      "opening_hours_note": null,
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
+      "star_rating": null,
+      "what_it_is": "Hotline bệnh viện",
+      "route": "/utilities/",
+      "map": {
+        "lat": 10.336498688188055,
+        "lon": 103.85723855555321,
+        "precision": "site_centroid",
+        "source": "Tọa độ do người dùng cung cấp ngày 24/09/2026",
+        "source_id": "jotrip_user_pin_20260924",
+        "verified_at": "2026-09-24",
+        "note": "Pin khuôn viên bệnh viện; chưa xác nhận cổng cấp cứu riêng.",
+        "accuracy": "USER_PROVIDED_COORDINATES",
+        "plus_code": null
+      },
+      "inherited_from": null,
+      "google_query": "Vinmec Phú Quốc, Khu Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_golf_vinpearl",
+      "entity_type": "utility",
+      "name": "Vinpearl Golf Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "categories": [],
+      "tags": [
+        "GOLF"
+      ],
+      "address": "Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "0297 3844 292",
+      "group": "Sân golf",
+      "utility_type": "GOLF",
+      "opening_hours": null,
+      "opening_hours_note": "Tee time công bố 06:00-15:00; không đồng nghĩa giờ mở cổng.",
+      "phone_alt": null,
+      "verified": true,
+      "updated_at": "2026-09-24",
+      "star_rating": null,
+      "what_it_is": "Sân golf 18 hố, par 72 tại Bắc đảo.",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Vinpearl Golf Phú Quốc, Bãi Dài, Gành Dầu, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     }
   ]
 }
