@@ -124,7 +124,7 @@ jobs:
           const expectedCount=Number(process.env.EXPECTED_PUBLIC_COUNT);
           const root="https://cms.openphuquoc.com";
           const expectedAdmin=(await readFile("dist/admin/index.html","utf8"))
-            .match(/admin\\.js\\?v=[0-9]+/)?.[0];
+            .match(/admin\.js\?v=[0-9]+/)?.[0];
           if(!expectedAdmin||!Number.isInteger(expectedCount))throw Error("Build verification lacks expected CMS metadata");
           const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
           // A successful Pages upload may reach its *.pages.dev preview before
