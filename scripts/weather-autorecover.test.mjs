@@ -6,14 +6,14 @@ const css=readFileSync("weather/weather-v2.css","utf8");
 for(const needle of [
  "const referenceOnly=!verified&&snapshotAge>=0&&snapshotAge<=360",
  "cycleAges.some(a=>a>=0&&a<=30*60)",
- "Mốc mô hình cũ · tham khảo",
- "không phải cảnh báo hiện tại",
+ "Không hiển thị các mốc cũ như dự báo hiện tại",
+ "Bản tổng hợp trễ",
  "setInterval(refreshLive,LIVE_REFRESH_MS)",
  "if(engineDashboard){renderTodayDecision();return}"
 ])assert.ok(js.includes(needle),"CMS auto-recovery contract missing: "+needle);
 assert.ok(!js.includes("snapshotAge<=360||"),"stale reference gate must require valid cycle");
-assert.ok(html.includes("20260924-auto-recover1"),"JS/CSS cache bust missing");
-assert.ok(css.includes(".today-decision-card.reference-only"),"reference-only visual differentiation missing");
+assert.ok(html.includes("20260924-compact-icons2"),"JS/CSS cache bust missing");
+assert.ok(css.includes(".today-decision-panel .today-reference-notice"),"compact stale-data status styling missing");
 const dashboard=(generatedAt,cycleAt,now)=>({
  generated_at:new Date(now-generatedAt*60000).toISOString(),
  source_cycles:{ECMWF:new Date(now-cycleAt*60000).toISOString()}
@@ -29,4 +29,4 @@ assert.equal(reference(dashboard(220,687,now),now),true,"screenshot scenario: 3h
 assert.equal(reference(dashboard(370,687,now),now),false,"snapshot older than six hours blocked");
 assert.equal(reference(dashboard(220,1900,now),now),false,"model cycle older than thirty hours blocked");
 assert.equal(reference(dashboard(220,687,now),now,true),false,"fresh verified forecast never downgraded");
-console.log("PASS CMS Weather auto-recovery gates, screenshot scenario, cache bust and reference-only labels");
+console.log("PASS CMS Weather auto-recovery gates, screenshot scenario, cache bust and compact stale-data notice");
