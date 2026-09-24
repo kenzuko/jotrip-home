@@ -1260,7 +1260,17 @@
       ]
     },
     "muc-trung-nuong": {
-      "images": []
+      "images": [
+        {
+          "url": "https://www.dongtravel.com/files/blog/9/phu-quoc-an-gi.jpg",
+          "alt": "Mực trứng nướng",
+          "caption": "Mực trứng nướng",
+          "scope": "exact_subject",
+          "source_label": "Dong Travel",
+          "source_url": "https://www.dongtravel.com/en/blog/phu-quoc/what-to-eat-in-phu-quoc-vn",
+          "hero_priority": "preferred"
+        }
+      ]
     },
     "oc-huong-nuong": {
       "images": [
@@ -1305,7 +1315,17 @@
       ]
     },
     "xoi-man": {
-      "images": []
+      "images": [
+        {
+          "url": "https://cdn.tgdd.vn/2021/06/CookProduct/thum1200-1200x676-7.jpg",
+          "alt": "Xôi mặn",
+          "caption": "Xôi mặn",
+          "scope": "exact_subject",
+          "source_label": "Điện Máy Xanh",
+          "source_url": "https://www.dienmayxanh.com/vao-bep/cach-nau-xoi-nep-ngon-deo-khong-bi-suong-cuc-de-tai-nha-11073",
+          "hero_priority": "preferred"
+        }
+      ]
     },
     "com-chien-hai-san": {
       "images": [
@@ -1382,6 +1402,188 @@
           "scope": "exact_subject",
           "source_label": "Ocean Market Basket",
           "source_url": "https://oceanmarketbasket.com/blogs/news/cach-lam-chao-hau-huong-vi-ngon-ngat-ngay-cuc-ki-don-gian-tai-nha",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "hu-tieu-muc": {
+      "images": [
+        {
+          "url": "https://static.vinwonders.com/2022/10/hu-tieu-muc-phu-quoc-3.jpg",
+          "alt": "Hủ tiếu mực",
+          "caption": "Hủ tiếu mực",
+          "scope": "exact_subject",
+          "source_label": "VinWonders",
+          "source_url": "https://vinwonders.com/vi/wonderpedia/news/hu-tieu-muc-phu-quoc-dam-da-huong-vi-bien/",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "banh-mi-op-la": {
+      "images": [
+        {
+          "url": "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MN/vietnamese-breakfast/vietnamese-breakfast/crispy-fried-eggs-served-in-small-cast-iron-pan-alongside-fresh-vietnamese-baguette.jpg?la=en",
+          "alt": "Bánh mì ốp la",
+          "caption": "Bánh mì ốp la",
+          "scope": "exact_subject",
+          "source_label": "Vietnam Airlines",
+          "source_url": "https://www.vietnamairlines.com/vn/en/useful-information/travel-guide/vietnamese-breakfast",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "com-ghe-ham-ninh": {
+      "images": [
+        {
+          "url": "https://static.vinwonders.com/2022/12/com-ghe-Phu-Quoc-1.jpg",
+          "alt": "Cơm ghẹ",
+          "caption": "Cơm ghẹ",
+          "scope": "exact_subject",
+          "source_label": "VinWonders",
+          "source_url": "https://vinwonders.com/vi/wonderpedia/news/15-quan-com-ghe-phu-quoc/",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "ghe-ham-ninh": {
+      "images": [
+        {
+          "url": "https://rootytrip.com/wp-content/uploads/2023/06/ham-ninh-crab-min.jpg",
+          "alt": "Ghẹ Hàm Ninh",
+          "caption": "Ghẹ Hàm Ninh",
+          "scope": "exact_subject",
+          "source_label": "Rooty Trip",
+          "source_url": "https://rootytrip.com/en/ham-ninh-fishing-village/",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "tom-mu-ni-nuong": {
+      "images": [
+        {
+          "url": "https://media.mia.vn/uploads/blog-du-lich/tom-mu-ni-con-dao-voi-huong-vi-thom-ngon-ai-tung-an-la-nho-hoai-4-1655807671.jpg",
+          "alt": "Tôm mũ ni nướng",
+          "caption": "Tôm mũ ni nướng",
+          "scope": "exact_subject",
+          "source_label": "MIA.vn",
+          "source_url": "https://mia.vn/cam-nang-du-lich/tom-mu-ni-con-dao-voi-huong-vi-thom-ngon-ai-tung-an-la-nho-hoai-6774",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "ca-song-nuong": {
+      "images": [
+        {
+          "url": "https://katana.bdatrip.com/v2/image?src=https%3A%2F%2Fimages.bdatrip.com%2F2025%2F3%2Fca-song-nuong-phu-quoc2.jpeg&w=640",
+          "alt": "Cá sòng nướng",
+          "caption": "Cá sòng nướng",
+          "scope": "exact_subject",
+          "source_label": "BDATrip",
+          "source_url": "https://www.bdatrip.com/vi/phu-quoc-district/travel-tips/ca-song-nuong-phu-quoc-dac-san-bien",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "ca-mu-hap": {
+      "images": [
+        {
+          "url": "https://dichvunaucotainha.com/files/media/202304/ca-song-hap-xi-dau-mon-ngon-doi-vi-cho-ngay-ngan-thit.jpg",
+          "alt": "Cá mú hấp hành gừng",
+          "caption": "Cá mú hấp hành gừng",
+          "scope": "exact_subject",
+          "source_label": "Dịch vụ nấu cỗ tại nhà",
+          "source_url": "https://dichvunaucotainha.com/meo-hay-am-thuc/ca-song-hap-xi-dau-mon-ngon-doi-vi-cho-ngay-ngan-thit-post1336.html",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "lau-ca-bop": {
+      "images": [
+        {
+          "url": "https://cdn.pastaxi-manager.onepas.vn/content/uploads/articles/lenttt/4canhnaulaucabon/4-cach-nau-lau-ca-bop-tai-nha-don-gian-ngon-4.jpg",
+          "alt": "Lẩu cá bớp",
+          "caption": "Lẩu cá bớp",
+          "scope": "exact_subject",
+          "source_label": "PasGo",
+          "source_url": "https://pasgo.vn/blog/4-cach-nau-lau-ca-bop-don-gian-sieu-ngon-tai-nha-4237",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "tom-tich-rang-muoi": {
+      "images": [
+        {
+          "url": "https://product.hstatic.net/200000325181/product/be-be-chua_026b65ffbc174021bae32f056cf93990_grande.jpg",
+          "alt": "Tôm tích rang muối",
+          "caption": "Tôm tích rang muối",
+          "scope": "exact_subject",
+          "source_label": "Cá Mú Đỏ",
+          "source_url": "https://camudo.com/products/be-be-chua-rang-muoi",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "hau-nuong-mo-hanh": {
+      "images": [
+        {
+          "url": "https://static.vinwonders.com/production/hai-san-bai-khem.jpg",
+          "alt": "Hàu nướng mỡ hành",
+          "caption": "Hàu nướng mỡ hành",
+          "scope": "exact_subject",
+          "source_label": "VinWonders",
+          "source_url": "https://vinwonders.com/vi/wonderpedia/news/bai-khem-phu-quoc-tron-bo-kinh-nghiem-du-lich-moi-nhat/",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "canh-chua-ca-bop": {
+      "images": [
+        {
+          "url": "https://chefstudio.vn/uploads/r/cach-nau-canh-chua-ca-bop-khong-tanh.jpg",
+          "alt": "Canh chua cá bớp",
+          "caption": "Canh chua cá bớp",
+          "scope": "exact_subject",
+          "source_label": "Chef Studio",
+          "source_url": "https://chefstudio.vn/cach-nau-canh-chua-ca-bop-khong-tanh.html",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "ga-ray-nuong": {
+      "images": [
+        {
+          "url": "https://statics.vinpearl.com/ga-ray-phu-quoc-2_1669721116.jpg",
+          "alt": "Gà rẫy nướng",
+          "caption": "Gà rẫy nướng",
+          "scope": "exact_subject",
+          "source_label": "Vinpearl",
+          "source_url": "https://vinpearl.com/vi/pha-dao-7-quan-ga-ray-phu-quoc-dac-san-nuc-tieng-thom-ngon",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "banh-kheo": {
+      "images": [
+        {
+          "url": "https://static.vinwonders.com/2022/05/banh-kheo-phu-quoc-2.jpg",
+          "alt": "Bánh khéo",
+          "caption": "Bánh khéo",
+          "scope": "exact_subject",
+          "source_label": "VinWonders",
+          "source_url": "https://vinwonders.com/vi/wonderpedia/news/thuong-thuc-banh-kheo-phu-quoc-mon-dac-san-thom-ngon-kho-cuong/",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "banh-tet-mat-cat": {
+      "images": [
+        {
+          "url": "https://rootytrip.com/wp-content/uploads/2021/07/banh-tet-la-mat-cat-cho-duong-dong-phu-quoc.jpg",
+          "alt": "Bánh tét mật cật",
+          "caption": "Bánh tét mật cật",
+          "scope": "exact_subject",
+          "source_label": "Rooty Trip",
+          "source_url": "https://rootytrip.com/cho-duong-dong-phu-quoc/",
           "hero_priority": "preferred"
         }
       ]
