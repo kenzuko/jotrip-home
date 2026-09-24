@@ -112,7 +112,7 @@ function renderTripClock(){
     publishLocalNowHint();
     return;
   }
-  host.innerHTML=rows.slice(0,9).map(({item,e,decision,summary,minDuration})=>{
+  let visibleRows=rows.slice(0,9);\n  const nextTimedActivity=rows.find(x=>x.opening?.schedule_type==="FIXED_START"&&x.decision.state==="future");\n  if(nextTimedActivity&&!visibleRows.includes(nextTimedActivity))visibleRows=[...rows.slice(0,8),nextTimedActivity];\n  host.innerHTML=visibleRows.map(({item,e,decision,summary,minDuration})=>{
     const duration=e.duration||"";
     let note=item.timing_note||e.best_time||decision.detail;
     if(Number.isFinite(decision.remainingMin)&&minDuration&&decision.remainingMin<minDuration){
