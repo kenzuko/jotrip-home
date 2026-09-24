@@ -31,12 +31,12 @@ function dishMedia(x){
   const visual=window.OpenPQVisual?.pickHero?.(images)||images[0]||null;
   if(visual){
     return '<div class="dish-media">'+
-      '<img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async">'+
-      '<small>'+esc(visual.caption||"")+'</small>'+
+      '<img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'div\').classList.add(\'is-error\')">'+
+      '<small>'+esc(visual.scope === "exact_subject" ? (visual.caption||"Ảnh món") : ("Ảnh minh họa: "+(visual.caption||"hải sản Phú Quốc")))+'</small>'+
     '</div>';
   }
   return window.OpenPQVisual
-    ? OpenPQVisual.placeholder(x.name,"Ảnh món đang được bổ sung")
+    ? OpenPQVisual.placeholder(x.name,"Ảnh riêng của món đang được bổ sung")
     : "";
 }
 
