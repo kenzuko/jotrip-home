@@ -6,7 +6,7 @@ const exists=async p=>{try{await access(join("weather",p));return true}catch{ret
 const assert=(v,m)=>{if(!v)throw Error("CMS Weather contract: "+m)};
 const required=["index.html","weather-v2.css","weather-v2.js","weather-scene-v3.html",
  "weather-scene-v3.css","weather-scene-v3.js","weather-scene-render-v2.js",
- "weather-runtime-config.js","weather-wind-guard.js","weather-history.html","weather-history.js",
+ "weather-runtime-config.js","weather-wind-guard.js","weather-gust-outlook.js","weather-history.html","weather-history.js",
  "spatial-lab.html","spatial-lab.css","spatial-lab.js","weather-app-icon.svg",
  "data/critical.json","data/dashboard-data.json","data/current-bundle.json",
  "data/groundtruth.json","data/local-now.json","data/nowcast-compact.json",
@@ -59,8 +59,15 @@ assert(!/raw\.githubusercontent\.com/.test(js+scene+spatial+history),
  "weather browser code still calls GitHub directly");
 assert(html.includes("/weather/weather-v2.js")&&html.includes("/weather/weather-v2.css"),
  "homepage assets not scoped under CMS /weather/");
-assert(!html.includes('id="heroGust"')&&!html.includes('id="gustNow"'),
- "unverified near-current gust must not appear on the traveller UI");
+assert(html.includes('id="heroGust"')&&html.includes('id="gustShortOutlook"'),
+ "at-point gust with explicit source label and 0-30 minute risk is missing");
+assert(!html.includes('id="gustNow"'),"old unlabeled gust card returned");
+assert(html.includes("/weather/weather-gust-outlook.js")&&
+ html.indexOf("weather-gust-outlook.js")<html.indexOf("weather-v2.js"),
+ "gust outlook guard must load before rendering");
+assert(js.includes("JoTripGustOutlook?.pointOutlook")&&
+ js.includes("JoTripGustOutlook?.islandAlerts"),
+ "Weather app must use the point guard and automatic whole-island alert engine");
 assert(js.includes("JoTripWindGuard?.deriveAfternoonWatch(")&&js.includes('engineDashboard,now,"an_thoi"'),
  "An Thoi watch must use only source-and-time guarded dashboard forecast");
 assert(html.includes("/weather/weather-wind-guard.js")&&html.indexOf("weather-wind-guard.js")<html.indexOf("weather-v2.js"),
