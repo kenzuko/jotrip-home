@@ -14,8 +14,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: cms-weather-${{ github.ref }}
-  cancel-in-progress: true
+  # Both CMS publishers deploy the same Pages project; serialize their releases.
+  group: openpq-cms-pages
+  cancel-in-progress: false
 
 jobs:
   build-verify:
