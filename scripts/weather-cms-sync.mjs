@@ -57,13 +57,21 @@ function modelHours(dashboard){
   const rows=(p.hours||[]).filter(r=>{
    const t=stamp(r.time_iso);
    return t>=Date.now()-15*60000&&t<=Date.now()+72*3600000;
-  }).map(r=>({
-   time:r.time_iso,temperature_c:r.temperature??null,wind_kmh:r.wind??null,
-   gust_kmh:r.gust??null,rain_3h_mm:r.rain??null,
-   wave_hs_m:r.wave??null,wave_hmax_m:r.wave_max??null,period_s:r.period??null,
-   data_class:"MODEL_ONLY",reference_mode:"DIRECT_MARINE_SERIES",reference_point:point,
-   reference_distance_km:0
-  })).filter(r=>r.time&&numeric(r.wind_kmh)&&numeric(r.gust_kmh)&&numeric(r.wave_hs_m));
+  }).map(r=>{
+   const row={
+    time:r.time_iso,temperature_c:r.temperature??null,wind_kmh:r.wind??null,
+    gust_kmh:r.gust??null,rain_3h_mm:r.rain??null,
+    wave_hs_m:r.wave??null,wave_hmax_m:r.wave_max??null,period_s:r.period??null,
+    data_class:"MODEL_ONLY",reference_mode:"DIRECT_MARINE_SERIES",reference_point:point,
+    reference_distance_km:0
+   };
+   // A model cycle can lack gust at its horizon. Keep the verified wind,
+   // rain and wave values, but never substitute zero or a made-up gust.
+   row.missing_fields=["wind_kmh","gust_kmh","rain_3h_mm","wave_hs_m"]
+    .filter(field=>!numeric(row[field]));
+   row.data_quality=row.missing_fields.length?"PARTIAL_MODEL":"COMPLETE_MODEL";
+   return row;
+  }).filter(r=>r.time&&numeric(r.wind_kmh)&&numeric(r.rain_3h_mm)&&numeric(r.wave_hs_m));
   if(rows.length)result[point]=rows;
  }
  return result;
@@ -98,7 +106,13 @@ function currentBundle(local,ground,compact,dashboard,previous){
  // Keep the last validated hourly marine series when a new model run is incomplete.
  const oldModel=previous?.model_72h?.points||{};
  for(const [point,rows] of Object.entries(oldModel)){
-  if(!model[point]&&Array.isArray(rows))model[point]=rows.filter(r=>stamp(r.time)>=Date.now()-15*60000);
+  if(!model[point]&&Array.isArray(rows))model[point]=rows
+   .filter(r=>stamp(r.time)>=Date.now()-15*60000)
+   .map(r=>{
+    const missing=["wind_kmh","gust_kmh","rain_3h_mm","wave_hs_m"].filter(f=>!numeric(r[f]));
+    return {...r,missing_fields:missing,
+      data_quality:missing.length?"PARTIAL_MODEL":"COMPLETE_MODEL"};
+   });
  }
  return {
   schema_version:"weather-current-v3",generated_at:local.generated_at,groundtruth:ground,
@@ -149,12 +163,18 @@ function assertCore(d){
  if(!d.dashboard?.points||!Object.keys(d.dashboard.points).length)throw Error("No valid forecast dashboard");
  if(!d.ground?.atmosphere||!d.local?.points||!d.compact?.sampled_time)throw Error("Ground, local or satellite compact contract missing");
  for(const [p,rows] of Object.entries(d.bundle.model_72h.points||{})){
+  if(!rows.length)throw Error(p+" has no marine model rows");
+  let gustCoverage=0;
   for(const r of rows){
    if(!r.time||r.data_class!=="MODEL_ONLY")throw Error(p+" hourly model has invalid provenance");
-   for(const field of ["wind_kmh","gust_kmh","rain_3h_mm","wave_hs_m"]){
-    if(r[field]==null)throw Error(p+" missing "+field+" at "+r.time);
+   for(const field of ["wind_kmh","rain_3h_mm","wave_hs_m"]){
+    if(!numeric(r[field]))throw Error(p+" missing "+field+" at "+r.time);
    }
+   if(numeric(r.gust_kmh))gustCoverage++;
+   else if(!r.missing_fields?.includes("gust_kmh")||r.data_quality!=="PARTIAL_MODEL")
+    throw Error(p+" missing gust not explicitly flagged at "+r.time);
   }
+  if(gustCoverage/rows.length<0.8)throw Error(p+" gust coverage below 80% - refusing deploy");
  }
 }
 async function main(){
@@ -255,6 +275,9 @@ async function main(){
  if(!d.local?.points)throw Error("Cannot create the local weather analysis");
  d.bundle=currentBundle(d.local,d.ground,d.compact,d.dashboard,
    d.previousBundle||await old("data/current-bundle.json"));
+ const gustGaps=Object.entries(d.bundle.model_72h.points||{}).flatMap(([point,rows])=>
+  rows.filter(r=>r.gust_kmh==null).map(r=>point+"@"+r.time));
+ if(gustGaps.length)warnings.push("forecast_gust_unavailable:"+gustGaps.slice(0,15).join(","));
  const criticalFile=join(tmp,"critical.json");
  try{
   runPython("weather.pipeline.build_critical_payload",["--dashboard",localDashboard,
