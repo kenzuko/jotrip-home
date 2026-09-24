@@ -1245,6 +1245,76 @@
           "license": "CC BY-SA 4.0"
         }
       ]
+    },
+    "bun-rieu": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bun%20rieu.jpg?width=1200",
+          "alt": "Một tô bún riêu Việt Nam",
+          "caption": "Bún riêu - ảnh món ăn tại Việt Nam, không phải ảnh chụp ở Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons · Schellack",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bun_rieu.jpg",
+          "license": "CC BY 3.0",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "banh-mi-cha-ca": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%A1nh%20m%C3%AC%20ch%E1%BA%A3%20c%C3%A1%20SG%20ng11th10n2022%20(2).jpg?width=1200",
+          "alt": "Ổ bánh mì chả cá chụp tại Sài Gòn",
+          "caption": "Bánh mì chả cá - ảnh chụp tại Sài Gòn, minh họa đúng loại món.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons · Phương Huy",
+          "source_url": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_m%C3%AC_ch%E1%BA%A3_c%C3%A1_SG_ng11th10n2022_(2).jpg",
+          "license": "CC0",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "xoi-man": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/X%C3%B4i%20gi%C3%B2%20l%E1%BA%A1p%20x%C6%B0%E1%BB%9Dng.jpg?width=1200",
+          "alt": "Xôi mặn ăn kèm giò và lạp xưởng",
+          "caption": "Xôi giò lạp xưởng - một kiểu xôi mặn, ảnh chụp ngoài Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons · Viethavvh",
+          "source_url": "https://commons.wikimedia.org/wiki/File:X%C3%B4i_gi%C3%B2_l%E1%BA%A1p_x%C6%B0%E1%BB%9Dng.jpg",
+          "license": "CC BY-SA 4.0",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "com-chien-hai-san": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Seafood%20Fried%20Rice.jpg?width=1200",
+          "alt": "Một đĩa cơm chiên hải sản",
+          "caption": "Cơm chiên hải sản - ảnh minh họa món, không chụp tại Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons · ProjectManhattan",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Seafood_Fried_Rice.jpg",
+          "license": "CC BY-SA 4.0",
+          "hero_priority": "preferred"
+        }
+      ]
+    },
+    "chao-ca": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ch%C3%A1o%20C%C3%A1%20L%C3%B3c%2C%20Ti%E1%BB%81n%20Giang.jpg?width=1200",
+          "alt": "Cháo cá lóc ở Tiền Giang",
+          "caption": "Cháo cá lóc ở Tiền Giang - chỉ minh họa nhóm cháo cá, không phải cháo cá Phú Quốc.",
+          "scope": "illustrative",
+          "source_label": "Wikimedia Commons · Dongson.vmvn",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Ch%C3%A1o_C%C3%A1_L%C3%B3c%2C_Ti%E1%BB%81n_Giang.jpg",
+          "license": "CC BY-SA 3.0",
+          "hero_priority": "preferred"
+        }
+      ]
     }
   },
   "food_context": {
