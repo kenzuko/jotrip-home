@@ -5623,19 +5623,35 @@ body.sheet-open{
 @media(max-width:1050px){.home-library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-library-card{min-height:198px}}
 @media(max-width:600px){.hero-knowledge-pill{font-size:12px;padding:9px 12px}.home-library-section{padding-block:23px!important}.home-library-intro{font-size:14px}.home-library-grid{grid-template-columns:1fr;gap:9px}.home-library-card{min-height:0;padding:17px;gap:7px}.home-library-card strong{font-size:20px}.home-library-card small{font-size:13px}.home-library-footer{gap:7px}.home-library-footer a{font-size:12px}}
 
-/* Food editorial visibility: a prominent on-homepage entry and actual dish photos. */
-#top>.food-home-shortcut{grid-column:1/-1;display:flex;align-items:center;gap:16px;min-width:0;min-height:112px;margin:6px 0 2px;overflow:hidden;border:1px solid #e7dacf;border-radius:19px;background:linear-gradient(105deg,#fff5e8,#fffdf9 65%,#f2faf3);box-shadow:0 8px 24px rgba(90,62,38,.05)}
-.food-home-shortcut img{width:168px;height:112px;flex:none;object-fit:cover}
-.food-home-shortcut span{display:flex;flex-direction:column;gap:5px;padding:11px 14px 11px 0;min-width:0}
-.food-home-shortcut small{color:#946046;font-weight:900;letter-spacing:.1em;font-size:11px}
-.food-home-shortcut strong{color:#123d3b;font-size:clamp(17px,2.2vw,23px);line-height:1.16}
-.food-home-shortcut em{font-size:12px;font-style:normal;font-weight:800;color:#23675b}
+/* One random dish inside the existing homepage "Bây giờ ăn gì?" module. */
 #top>.food-now-section{scroll-margin-top:85px}
-.food-now-card{overflow:hidden;padding-top:0}
-.food-now-media{position:relative;margin:0 -18px 7px;min-height:165px;background:#faf4ec;overflow:hidden}
-.food-now-media img{width:100%;height:165px;object-fit:cover}
-.food-now-media figcaption{position:absolute;bottom:9px;left:10px;padding:4px 8px;border-radius:999px;color:#fff;background:rgba(16,47,41,.79);font-size:10px;font-weight:750}
-.food-now-media.is-error img{display:none}
-.food-now-media.is-error:after{content:"Ảnh món đang được cập nhật";display:grid;place-items:center;min-height:165px;color:#8e7360;font-size:12px}
-.food-now-media-empty{display:grid;place-items:center;min-height:165px;background:linear-gradient(135deg,#f9efe0,#f0f6f0);color:#836c5a;font-size:12px}
-@media(max-width:650px){#top>.food-home-shortcut{min-height:88px;gap:12px;margin-top:3px}.food-home-shortcut img{width:112px;height:92px}.food-home-shortcut span{padding:8px 8px 8px 0;gap:4px}.food-home-shortcut small{font-size:10px}.food-home-shortcut strong{font-size:17px}.food-home-shortcut em{font-size:11px}.food-now-media,.food-now-media img{height:175px}}
+.food-now-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:10px}
+.food-now-actions>a{font-size:13px;font-weight:800;color:#226f5e;text-decoration:none}
+.food-now-actions button{border:0;border-radius:999px;padding:11px 17px;background:#174d46;color:#fff;font-size:13px;font-weight:800;cursor:pointer;transition:transform .16s ease}
+.food-now-actions button:hover:not(:disabled){transform:translateY(-2px)}
+.food-now-actions button:disabled{opacity:.55;cursor:wait}
+.food-now-section .food-now-grid{display:block;overflow:visible;scroll-snap-type:none}
+.food-now-section .food-now-card.featured-food-card{display:grid;grid-template-columns:minmax(230px,.8fr) minmax(0,1.2fr);gap:0;padding:0;min-width:0;overflow:hidden;scroll-snap-align:none;background:linear-gradient(130deg,#fff9f1,#fff,#f4faf5)}
+.food-now-section .featured-food-card .food-now-media{height:100%;min-height:240px;position:relative;margin:0;overflow:hidden;background:#f7eee3}
+.food-now-section .featured-food-card .food-now-media img{width:100%;height:100%;min-height:240px;object-fit:cover}
+.food-now-section .featured-food-card .food-now-media figcaption{position:absolute;bottom:12px;left:12px;padding:5px 9px;border-radius:999px;background:rgba(20,57,47,.85);color:#fff;font-size:11px;font-weight:750}
+.food-now-section .featured-food-card .food-now-media.is-error{display:grid;place-items:center}
+.food-now-section .featured-food-card .food-now-media.is-error img,.food-now-section .featured-food-card .food-now-media.is-error figcaption{display:none}
+.food-now-section .featured-food-card .food-now-media.is-error:after{content:"Ảnh món hiện chưa tải được";color:#765e4c;font-size:13px;font-weight:700}
+.food-now-section .featured-food-card .food-now-media-empty{display:grid;place-items:center;padding:26px;text-align:center;background:linear-gradient(140deg,#f9efe3,#e8f4ed);color:#806956;font-size:13px;font-weight:750}
+.food-now-section .food-now-copy{display:flex;flex-direction:column;gap:10px;min-width:0;padding:25px 28px}
+.food-now-section .food-now-copy>span{font-size:11px;letter-spacing:.12em;font-weight:900;color:#a25d40}
+.food-now-section .food-now-copy h3{margin:0;font-size:clamp(26px,3.7vw,40px);line-height:1.1;letter-spacing:-.035em;color:#143d37}
+.food-now-section .food-now-copy p{margin:0;color:#516763;font-size:15px;line-height:1.55;max-width:660px}
+.food-now-section .food-now-copy small{font-size:12px;line-height:1.45;color:#836047}
+.food-now-section .food-now-copy>a{display:inline-flex;align-self:flex-start;margin-top:auto;padding-top:7px;color:#165c4e;font-size:15px;font-weight:850;text-decoration:none}
+@media(max-width:760px){
+  .food-now-actions{justify-content:flex-start;width:100%;margin-top:12px}
+  .food-now-section .food-now-head{margin-top:8px}
+  .food-now-section .food-now-card.featured-food-card{grid-template-columns:minmax(0,1fr);min-width:0!important}
+  .food-now-section .featured-food-card .food-now-media,.food-now-section .featured-food-card .food-now-media img{min-height:190px;height:190px}
+  .food-now-section .food-now-copy{padding:18px;gap:9px}
+  .food-now-section .food-now-copy h3{font-size:30px}
+  .food-now-section .food-now-copy p{font-size:14px}
+  .food-now-section .food-now-copy>a{font-size:14px}
+}
