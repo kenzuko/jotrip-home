@@ -68,7 +68,15 @@
         if(photo.caption||photo.credit){
           const cap=el("figcaption");
           if(photo.caption)cap.append(el("span",null,photo.caption));
-          if(photo.credit)cap.append(el("small",null,"Ảnh: "+String(photo.credit).replace(/^Ảnh:\s*/i,"")));
+          if(photo.credit){
+            const creditText="Ảnh: "+String(photo.credit).replace(/^Ảnh:\s*/i,"")+(photo.license?" · "+photo.license:"");
+            const label=el("small",null,creditText);
+            if(photo.source_url){
+              const sourceLink=el("a");sourceLink.href=photo.source_url;sourceLink.target="_blank";
+              sourceLink.rel="noopener noreferrer";sourceLink.title="Nguồn gốc và giấy phép ảnh";
+              sourceLink.append(label);cap.append(sourceLink);
+            }else cap.append(label);
+          }
           figure.append(cap);
         }
         gallery.append(figure);
