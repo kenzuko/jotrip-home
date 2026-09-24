@@ -20,6 +20,10 @@ on:
       - "weather/**"
       - "scripts/weather-cms-*.mjs"
       - "scripts/weather-engine/**"
+  # Refresh the CMS-owned Weather snapshot even when nobody pushes code.
+  # GitHub Actions cron runs on UTC and can be delayed under load.
+  schedule:
+    - cron: '7,37 * * * *'
   workflow_dispatch:
 
 permissions:
