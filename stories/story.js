@@ -53,7 +53,7 @@ function applyStoryMeta(story){
 
 function card(s){
   return '<a class="story-card" href="article.html?id='+encodeURIComponent(s.id)+'">'+
-    '<img src="'+esc(s.image)+'" alt="'+esc(s.title)+'" onerror="this.style.opacity=.18">'+
+    '<img src="'+esc(s.image)+'" alt="'+esc(s.image_alt||s.title)+'" onerror="this.style.opacity=.18">'+
     '<div class="story-copy">'+
       '<span>'+esc(s.category)+'</span>'+
       '<h2>'+esc(s.title)+'</h2>'+
@@ -70,6 +70,22 @@ function paragraphs(text){
 
 function coverPosition(value){
   return {top:"50% 18%",bottom:"50% 82%",left:"18% 50%",right:"82% 50%",center:"50% 50%"}[value]||"50% 50%";
+}
+
+function imageCredit(story){
+  if(!story?.image_credit)return "";
+  const label=[story.image_caption,story.image_credit].filter(Boolean).join(" · ");
+  return '<figcaption class="cover-credit">'+(story.image_source_url
+    ?'<a href="'+esc(story.image_source_url)+'" target="_blank" rel="noopener">'+esc(label)+'</a>'
+    :esc(label))+'</figcaption>';
+}
+
+function sourceList(story){
+  const rows=(story?.sources||[]).filter(x=>x?.label&&x?.url);
+  if(!rows.length)return "";
+  return '<details class="article-source-list"><summary>Nguồn bài viết</summary><ul>'+
+    rows.map(x=>'<li><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+'</a></li>').join("")+
+    '</ul></details>';
 }
 
 function figure(section){
@@ -125,7 +141,8 @@ function renderArticle(data,visualData,zones){
             '<div class="article-meta">'+esc(s.read_minutes)+' PHÚT ĐỌC · OPEN PHU QUOC</div>'+
           '</div>'+
           '<figure class="article-cover">'+
-            '<img src="'+esc(s.image)+'" alt="'+esc(s.title)+'" style="object-position:'+coverPosition(s.cover_position)+'" onerror="this.style.opacity=.18">'+
+            '<img src="'+esc(s.image)+'" alt="'+esc(s.image_alt||s.title)+'" style="object-position:'+coverPosition(s.cover_position)+'" onerror="this.style.opacity=.18">'+
+            imageCredit(s)+
           '</figure>'+
         '</div>'+
       '</header>'+
@@ -143,6 +160,7 @@ function renderArticle(data,visualData,zones){
           ].join("");
         })()+
         (s.sections||[]).map(sectionBlock).join("")+
+        sourceList(s)+
         '<aside class="jotrip-service-card" aria-label="Gợi ý từ JoTrip"><span>GỢI Ý TỪ JOTRIP</span><strong>Cần xe riêng, tour, vé hoặc một lịch trình gọn hơn?</strong><p>JoTrip hỗ trợ trực tiếp tại Phú Quốc nếu bạn muốn gom mọi thứ vào một đầu mối.</p><div class="jotrip-service-actions"><a href="tel:+84817060067">Gọi +84 817 060 067</a><a href="https://wa.me/84817060067" target="_blank" rel="noopener">WhatsApp</a><a href="https://zalo.me/0817060067" target="_blank" rel="noopener">Zalo</a></div></aside>'+
         '<div class="editorial-note">Giờ mở cửa, giá vé, lịch biểu diễn và điều kiện thời tiết có thể thay đổi. Trước khi đi, bạn nên mở mục Trực tiếp hoặc Tiện ích để kiểm tra thông tin mới nhất.</div>'+
       '</div>'+

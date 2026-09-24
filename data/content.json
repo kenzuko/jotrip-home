@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-09-20",
+  "updated": "2026-09-24",
   "stories": [
     {
       "id": "mui-cay-cua-dat-do",
@@ -8,7 +8,7 @@
       "title": "Mùi cay của đất đỏ",
       "dek": "Nhìn từ ngoài, vườn tiêu chỉ là những hàng trụ xanh nối nhau. Bước vào trong mới thấy cái hay nằm ở đất đỏ, nắng, mưa và mùi cay bám lại trên đầu ngón tay.",
       "read_minutes": 4,
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pfefferanbau%20auf%20Phu%20Quoc.jpg?width=1600",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pepper%20farm%20in%20vietnam.JPG?width=1600",
       "intro": "Nhiều người mua tiêu ở phút cuối trước khi ra sân bay. Nhưng muốn nhớ món quà này lâu hơn, hãy ghé nơi nó được trồng.",
       "sections": [
         {
@@ -37,7 +37,11 @@
           "label": "Vietnam Tourism - Explore Phu Quoc in 3 days, 2 nights",
           "url": "https://vietnam.travel/vi/node/1438"
         }
-      ]
+      ],
+      "image_alt": "Vườn tiêu trên đảo Phú Quốc",
+      "image_caption": "Vườn tiêu tại Phú Quốc.",
+      "image_credit": "Wikimedia Commons · Tonbi ko · CC BY-SA",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Pepper%20farm%20in%20vietnam.JPG"
     },
     {
       "id": "mot-nam-trong-nha-thung",
@@ -45,7 +49,7 @@
       "title": "Một năm trong nhà thùng",
       "dek": "Nhà thùng có một mùi rất riêng. Cá cơm, muối, gỗ và thời gian nằm cạnh nhau đủ lâu để thành thứ nước mắm mà người Phú Quốc đã làm qua nhiều thế hệ.",
       "read_minutes": 5,
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vats%20at%20a%20Fish%20Sauce%20Factory%20on%20Phu%20Quoc%20Island%20in%20Vietnam%2001.jpg?width=1600",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fish%20sauce%20factory%2C%20Phu%20Quoc.jpg?width=1600",
       "intro": "Có những đặc sản chỉ cần nếm. Nước mắm Phú Quốc thì nên được nhìn thấy nơi nó được làm ra.",
       "sections": [
         {
@@ -78,7 +82,11 @@
           "label": "Hội Nước mắm Phú Quốc - Lịch sử nước mắm Phú Quốc",
           "url": "https://hoinuocmamphuquoc.org/lich-su-nuoc-mam-phu-quoc/"
         }
-      ]
+      ],
+      "image_alt": "Những thùng ủ cá làm nước mắm ở Phú Quốc",
+      "image_caption": "Những thùng ủ cá trong một cơ sở nước mắm tại Phú Quốc.",
+      "image_credit": "Wikimedia Commons · Stefan · CC BY 2.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fish%20sauce%20factory%2C%20Phu%20Quoc.jpg"
     },
     {
       "id": "duong-dong-sau-5-gio",
@@ -111,7 +119,11 @@
           "label": "Vietnam Tourism - Explore Phu Quoc by night",
           "url": "https://www.vietnam.travel/node/1334"
         }
-      ]
+      ],
+      "image_alt": "Chợ đêm Dương Đông, Phú Quốc",
+      "image_caption": "Chợ đêm Dương Đông, Phú Quốc.",
+      "image_credit": "Wikimedia Commons · Tonbi ko · CC BY-SA",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Night%20market%20in%20Phu%20Quoc.jpg"
     },
     {
       "id": "nhung-doi-mat-tren-mui-ghe",
@@ -119,7 +131,7 @@
       "title": "Những đôi mắt trên mũi ghe",
       "dek": "Có những chi tiết nhỏ nhìn một lần rồi quên. Có những chi tiết khiến mình biết ngay đây là một chiếc ghe của miền biển phương Nam. Mắt ghe thuộc về nhóm thứ hai.",
       "read_minutes": 3,
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1800",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1600",
       "intro": "Không cần bắt đầu bằng một truyền thuyết. Chỉ cần đứng gần bến cá, nhìn vào mũi ghe và để ý hai con mắt được vẽ ở đó.",
       "sections": [
         {
@@ -144,7 +156,579 @@
           "label": "Vietnam Tourism - Phu Quoc Island",
           "url": "https://vietnam.travel/node/1465"
         }
-      ]
+      ],
+      "image_alt": "Ghe đánh cá gần cảng Phú Quốc",
+      "image_caption": "Ghe đánh cá gần cảng Phú Quốc.",
+      "image_credit": "Wikimedia Commons · Elmschrat · xem giấy phép tại nguồn",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fishing%20boat%20Phu%20Quoc.jpg"
+    },
+    {
+      "id": "cho-phu-quoc-xoay-lung",
+      "category": "CHÓ PHÚ QUỐC · GIỐNG BẢN ĐỊA",
+      "title": "Xoáy lưng chưa kể hết chuyện chó Phú Quốc",
+      "dek": "Xoáy lưng là dấu hiệu dễ nhớ, nhưng tiêu chuẩn giống còn nói về dáng vóc, tính khí và khả năng vận động. Mấy chuyện truyền miệng nên được đặt cạnh điều đã có tài liệu.",
+      "read_minutes": "4",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20ridgeback.jpg?width=1600",
+      "image_alt": "Chó Phú Quốc, giống chó bản địa của đảo",
+      "image_caption": "Chó Phú Quốc trong ảnh tư liệu Wikimedia Commons.",
+      "image_credit": "Wikimedia Commons · Fox Frank · xem giấy phép tại nguồn",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phu%20Quoc%20ridgeback.jpg",
+      "intro": "Nghe nhắc chó Phú Quốc, nhiều người nhớ ngay dải lông mọc ngược trên sống lưng. Nhưng xoáy lưng không phải câu trả lời cho mọi chuyện người ta kể về giống chó này.",
+      "sections": [
+        {
+          "heading": "Xoáy lưng là dấu hiệu nhận dạng, không phải toàn bộ tiêu chuẩn",
+          "body": "Tiêu chuẩn giống do Hiệp hội Những người nuôi chó giống Việt Nam ban hành mô tả nhiều đặc điểm hình thể. Tài liệu cũng nêu khả năng leo trèo và nhảy cao tốt, nhưng không khẳng định con nào cũng leo cây như lời đồn."
+        },
+        {
+          "heading": "Nghe chuyện thì hỏi thêm",
+          "body": "Một số giai thoại được kể lại qua nhiều thế hệ. Cách hay là giữ lại nét thú vị của lời kể, đồng thời tách nó khỏi điều tiêu chuẩn giống thực sự ghi nhận."
+        },
+        {
+          "heading": "Gặp chó thì đừng tự ý chạm",
+          "body": "Chó đang làm việc, biểu diễn hay được chủ chăm sóc đều cần khoảng cách phù hợp. Hỏi người nuôi trước khi vuốt ve, cho ăn hoặc chụp sát."
+        }
+      ],
+      "sources": [
+        {
+          "label": "VKA - Bảng tiêu chuẩn chó Phú Quốc số 001/VN, bản 2023",
+          "url": "https://vka.vn/bang-tieu-chuan-cho-phu-quoc-so-001-vn-04-10-2023-do-vka-ban-hanh/"
+        },
+        {
+          "label": "VKA - Tư liệu về chó Phú Quốc",
+          "url": "https://vka.vn/truy-tim-can-cuoc-cho-phu-quoc-phan-5/"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "dinh-cau-loi-cau-an",
+      "category": "DINH CẬU · TÍN NGƯỠNG",
+      "title": "Dinh Cậu trước chuyến biển",
+      "dek": "Dinh Cậu không chỉ là mỏm đá nhìn ra biển. Với nhiều cư dân biển, đây còn là nơi gửi gắm lời cầu bình an trước những chuyến khơi xa.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1600",
+      "image_alt": "Dinh Cậu ở cửa sông Dương Đông, Phú Quốc",
+      "image_caption": "Dinh Cậu trên ghềnh đá bên bờ biển Dương Đông.",
+      "image_credit": "Wikimedia Commons (tác giả và giấy phép tại trang ảnh)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg",
+      "intro": "Đứng ở Dinh Cậu lúc cuối chiều, mình thấy biển trước mắt. Nhưng với người sống bằng nghề biển, nơi này còn gắn với niềm tin và những lời khấn trước khi ra khơi.",
+      "sections": [
+        {
+          "heading": "Nơi thờ tự bên cửa sông",
+          "body": "Dinh Cậu nằm trên ghềnh đá vươn ra biển, gần cửa sông Dương Đông. Không gian ấy vừa nhìn ra biển, vừa gần với nhịp sinh hoạt của cư dân ven bờ."
+        },
+        {
+          "heading": "Một lời cầu cho chuyến biển",
+          "body": "Tư liệu về lễ hội Dinh Cậu ghi nhận ngư dân đến dâng hương, cầu trời yên biển lặng và tôm cá đầy thuyền. Đây là lớp tín ngưỡng địa phương, không nên kể thành một sự kiện lịch sử đã được chứng minh."
+        },
+        {
+          "heading": "Ghé thăm cho đúng mực",
+          "body": "Nếu đang có người hành lễ, giữ yên lặng và tránh đứng chắn lối. Có thể ghép chuyến ghé với một vòng đi bộ ven biển, nhưng nên dành sự tôn trọng cho nơi thờ tự trước."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Dinh Cậu Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/dinh-cau-phu-quoc"
+        },
+        {
+          "label": "Visit Phu Quoc - Lễ hội Dinh Cậu",
+          "url": "https://visitphuquoc.com.vn/vi/giai-dap-dinh-cau-phu-quoc-tho-ai-su-tich-linh-thieng-tram-nam-16361"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "gieng-tien-truyen-thuyet-hay-lich-su",
+      "category": "GIẾNG TIÊN · TRUYỀN THUYẾT",
+      "title": "Giếng Tiên: chuyện kể và điều đã biết",
+      "dek": "Giếng Tiên ở khu Mũi Ông Đội gắn với chuyện Nguyễn Ánh cầu nước ngọt. Câu chuyện có giá trị trong ký ức dân gian, nhưng không nên kể như bằng chứng lịch sử về dấu kiếm.",
+      "read_minutes": "4",
+      "image": "https://static.vinwonders.com/2022/02/gieng-tien-phu-quoc-7.jpg",
+      "image_alt": "Giếng Tiên ở Mũi Ông Đội, Phú Quốc",
+      "image_caption": "Giếng Tiên tại Mũi Ông Đội, ảnh từ bài giới thiệu của VinWonders.",
+      "image_credit": "VinWonders - bài giới thiệu Giếng Tiên",
+      "image_source_url": "https://vinwonders.com/vi/wonderpedia/news/kham-pha-dieu-ky-thu-cua-gieng-tien-phu-quoc-gieng-nuoc-ngot-giua-bien/",
+      "intro": "Ở Mũi Ông Đội, người dân kể về một mạch nước ngọt gắn với hành trình bôn tẩu của Nguyễn Ánh. Điều đáng nhớ là cách câu chuyện được gìn giữ, đồng thời vẫn phân biệt truyền thuyết với sử liệu.",
+      "sections": [
+        {
+          "heading": "Mạch nước có thật, chuyện kể là một lớp khác",
+          "body": "Nguồn du lịch địa phương mô tả Giếng Tiên là mạch nước ngọt ở khu An Thới. Phần Nguyễn Ánh cắm kiếm xuống đá cầu nước rồi mạch nước trào lên được kể như sự tích."
+        },
+        {
+          "heading": "Tách lời kể khỏi điều sử liệu xác nhận",
+          "body": "Tư liệu lịch sử ghi Nguyễn Ánh từng nhiều lần bôn tẩu đến Phú Quốc. Những chi tiết kỳ lạ gắn với dấu kiếm, dấu chân hay giếng nước thuộc về truyền thuyết dân gian, chưa phải bằng chứng khảo cổ hay sử liệu độc lập."
+        },
+        {
+          "heading": "Giữ gìn nơi chốn",
+          "body": "Đừng tác động vào mạch nước hoặc những dấu tích người dân gìn giữ. Đường đến Mũi Ông Đội và lối vào từng khu vực có thể thay đổi, nên tìm hiểu cách tiếp cận trước khi đi."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Cổng thông tin Phú Quốc - Những giai thoại, truyền thuyết trên đảo Ngọc",
+          "url": "https://phuquoc.angiang.gov.vn/nhung-giai-thoai-truyen-thuyet-tren-dao-ngoc-phu-quoc"
+        },
+        {
+          "label": "Trung tâm Lưu trữ quốc gia - Nguyễn Ánh và chúa Nguyễn",
+          "url": "https://www.archives.org.vn/gioi-thieu-tai-lieu-nghiep-vu/ngoi-mo-va-mieu-hoang-tu-o-dao-phu-quoc-tu-truyen-thuyet-den-hien-thuc-qua-tai-lieu-chau-ban.htm"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "sao-bien-rach-vem-ngam-trong-nuoc",
+      "category": "RẠCH VẸM · THIÊN NHIÊN",
+      "title": "Sao biển đẹp nhất khi còn ở dưới nước",
+      "dek": "Ở Rạch Vẹm, số sao biển nhìn thấy thay đổi theo thủy triều, thời tiết và từng đoạn bãi. Đừng nhấc chúng lên để chụp ảnh, cũng đừng hứa với trẻ nhỏ rằng ngày nào tới đây cũng sẽ thấy.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Starfishes%20on%20the%20Starfish%20Beach%2C%20Phu%20Quoc%2C%20Vietnam.jpg?width=1600",
+      "image_alt": "Sao biển trong vùng nước nông ở bãi biển Rạch Vẹm, Phú Quốc",
+      "image_caption": "Sao biển được quan sát trong vùng nước nông.",
+      "image_credit": "Wikimedia Commons · Alexkom000 (xem giấy phép tại nguồn)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Starfishes%20on%20the%20Starfish%20Beach%2C%20Phu%20Quoc%2C%20Vietnam.jpg",
+      "intro": "Rạch Vẹm nổi tiếng với sao biển, nhưng thiên nhiên không vận hành theo lịch chụp ảnh. Có ngày nhìn thấy nhiều, có ngày chỉ gặp vài con ở những đoạn nước nông.",
+      "sections": [
+        {
+          "heading": "Mực nước và thời tiết làm cảnh vật đổi khác",
+          "body": "Khả năng quan sát sao biển phụ thuộc vào thủy triều, mưa và độ trong của nước. Vì vậy ảnh đẹp trên mạng chỉ là một khoảnh khắc, không phải lời hứa cho mọi chuyến đi."
+        },
+        {
+          "heading": "Ngắm mà không làm hại",
+          "body": "Sao biển là động vật sống dưới nước. Hãy để chúng ở nguyên vị trí, không nhấc lên, xếp lại hay gom quanh một chỗ để chụp hình."
+        },
+        {
+          "heading": "Rạch Vẹm còn là nơi người ta sống",
+          "body": "Khu này có làng chài, nhà bè và vùng nước nông. Khi ghé thăm, đi theo lối phù hợp, giữ sạch bãi và không cản trở sinh hoạt của người dân."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Mùa sao biển và trải nghiệm bãi biển",
+          "url": "https://visitphuquoc.com.vn/en/phu-quoc-starfish-season-and-beautiful-beach-experiences-throughout-the-year-9966"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "ham-ninh-nhip-lang-bien",
+      "category": "HÀM NINH · LÀNG BIỂN",
+      "title": "Một buổi sớm ở Hàm Ninh",
+      "dek": "Hàm Ninh nằm bên bờ Đông, gắn với nghề biển và những bữa hải sản. Cái hay của làng không nằm ở một góc chụp cố định, mà ở nhịp người đi biển, sửa lưới và chuẩn bị cho ngày mới.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishignet.jpg?width=1600",
+      "image_alt": "Người dân làm lưới ở cầu tàu trước làng Hàm Ninh, Phú Quốc",
+      "image_caption": "Người dân Hàm Ninh làm lưới trên cầu tàu, ảnh tư liệu năm 2002.",
+      "image_credit": "Wikimedia Commons · Fishignet (xem trang ảnh)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fishignet.jpg",
+      "intro": "Buổi sớm ở Hàm Ninh có thể bắt đầu bằng tiếng máy ghe, lưới được kéo lên và người trong làng lo việc trong ngày. Nhìn vài phút lâu hơn sẽ thấy nơi này không phải phông nền dựng sẵn cho khách.",
+      "sections": [
+        {
+          "heading": "Một làng ven biển, không phải một điểm check-in",
+          "body": "Hàm Ninh ở bờ Đông Phú Quốc, dưới chân dãy núi cùng tên. Nghề biển và hoạt động làng chài là phần quan trọng trong đời sống khu vực."
+        },
+        {
+          "heading": "Hỏi trước khi gọi món",
+          "body": "Hải sản và giá cả thay đổi theo ngày. Hỏi nguồn, cách chế biến và giá trước khi gọi sẽ giúp bữa ăn thoải mái hơn."
+        },
+        {
+          "heading": "Đi nhẹ, nhìn kỹ",
+          "body": "Sáng và chiều sớm thường dễ cảm nhận nhịp làng hơn cái nắng giữa trưa. Nếu dừng ở cầu tàu, đừng cản người đang làm việc hoặc tự ý bước lên thuyền."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Hàm Ninh, làng chài phía Đông đảo",
+          "url": "https://visitphuquoc.com.vn/vi/ham-ninh-phu-quoc-review-chi-tiet-lang-chai-yen-binh-giua-dao-ngoc-15023"
+        },
+        {
+          "label": "Cổng thông tin Phú Quốc - Hàm Ninh",
+          "url": "https://phuquoc.angiang.gov.vn/ham-ninh-diem-den-ly-tuong-cua-phu-quoc"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "cho-dem-duong-dong-hoi-gia-truoc-khi-goi",
+      "category": "DƯƠNG ĐÔNG · CHỢ ĐÊM",
+      "title": "Ở chợ đêm, hỏi giá trước rồi hãy gọi",
+      "dek": "Chợ đêm là một cách dễ bắt đầu buổi tối ở Dương Đông. Muốn bữa ăn vui, hãy hỏi giá rõ ràng trước khi gọi hải sản và chỉ chọn vài món thật muốn thử.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Live%20seafood%20for%20sale%20in%20Phu%20Quoc%20night%20market%20Vietnam%202.jpg?width=1600",
+      "image_alt": "Hải sản tươi được bày bán tại chợ đêm Phú Quốc",
+      "image_caption": "Quầy hải sản tại chợ đêm Phú Quốc.",
+      "image_credit": "Wikimedia Commons (xem tác giả và giấy phép tại nguồn)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Live%20seafood%20for%20sale%20in%20Phu%20Quoc%20night%20market%20Vietnam%202.jpg",
+      "intro": "Đèn sáng, quầy ăn nối nhau và mùi hải sản nướng khiến người mới tới dễ gọi nhiều hơn dự định. Một câu hỏi ngắn về giá và khẩu phần thường giúp buổi tối nhẹ nhàng hơn.",
+      "sections": [
+        {
+          "heading": "Chọn món thay vì gọi cho đủ danh sách",
+          "body": "Một món hải sản, thêm một món địa phương rồi đi bộ tiếp thường dễ chịu hơn cố thử hết mọi thứ trong một lần. Mỗi quầy có cách chế biến và khẩu phần riêng."
+        },
+        {
+          "heading": "Giá nên rõ trước khi chế biến",
+          "body": "Hỏi giá theo phần hay theo trọng lượng, món gồm những gì và phí chế biến nếu có. Nếu thấy chưa rõ, cứ hỏi lại trước khi đồng ý gọi."
+        },
+        {
+          "heading": "Chợ đêm không phải toàn bộ Dương Đông",
+          "body": "Sau bữa ăn, có thể đi bộ thêm quanh khu Dinh Cậu hoặc bờ biển. Giờ từng quầy có thể đổi theo ngày, nên đừng coi bài viết này như lịch mở cửa trực tiếp."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Explore Phu Quoc by night",
+          "url": "https://www.vietnam.travel/node/1334"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "an-thoi-ben-ca-va-cua-ngo-dao",
+      "category": "AN THỚI · NGHỀ BIỂN",
+      "title": "An Thới có nhịp của bến cá và bến tàu",
+      "dek": "An Thới vừa là khu dân cư ven biển, vừa là điểm xuất phát của nhiều hành trình ra đảo. Nhìn kỹ bến cảng sẽ thấy ghe nghề và tàu chở khách cùng chia sẻ một vùng nước.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20port.jpg?width=1600",
+      "image_alt": "Cảng An Thới ở phía Nam Phú Quốc",
+      "image_caption": "Cảng An Thới, Phú Quốc.",
+      "image_credit": "Wikimedia Commons · Dương Đăng Khôi · CC BY-SA 4.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:An%20Thoi%20port.jpg",
+      "intro": "Ở An Thới, biển vừa là nơi mưu sinh vừa là đường đi. Ghe đánh cá và tàu đưa khách có thể cùng xuất hiện quanh cảng, nhưng chúng phục vụ những việc khác nhau.",
+      "sections": [
+        {
+          "heading": "Bến cảng có nhiều nhịp hoạt động",
+          "body": "Cảng An Thới gắn với hoạt động nghề biển và giao thông ra các đảo phía Nam. Đây là nơi làm việc, không phải bến ngắm cảnh thuần túy."
+        },
+        {
+          "heading": "Quan sát có ý tứ",
+          "body": "Nếu muốn xem ghe hoặc chụp ảnh, đứng gọn ngoài lối bốc dỡ và không tự ý lên tàu. Hỏi trước khi chụp gần người hoặc ngư cụ."
+        },
+        {
+          "heading": "Chọn đúng phương tiện cho chuyến đi",
+          "body": "Cano tour đảo, tàu cao tốc chở hành khách và phà chở xe hàng là những dịch vụ khác nhau. Kiểm tra đúng bến và loại chuyến trước khi đi để khỏi nhầm."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Cổng thông tin Phú Quốc - Định hướng các khu du lịch",
+          "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cac-khu-du-lich"
+        },
+        {
+          "label": "Wikimedia Commons - Cảng An Thới",
+          "url": "https://commons.wikimedia.org/wiki/File:An%20Thoi%20port.jpg"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "bai-sao-thay-doi-theo-gio",
+      "category": "BÃI SAO · BIỂN NAM ĐẢO",
+      "title": "Bãi Sao không giống nhau mỗi ngày",
+      "dek": "Có ngày Bãi Sao trong và êm, có hôm gió, sóng hoặc rong biển làm bãi khác hẳn ảnh quảng bá. Chọn chỗ tắm theo điều kiện trong ngày, đừng bám cứng một tấm hình.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%A3i%20Sao%20Beach.jpg?width=1600",
+      "image_alt": "Bãi Sao ở phía Đông Nam đảo Phú Quốc",
+      "image_caption": "Bãi Sao nhìn từ bờ biển phía Đông Nam Phú Quốc.",
+      "image_credit": "Wikimedia Commons · Prince Roy · CC BY 2.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:B%C3%A3i%20Sao%20Beach.jpg",
+      "intro": "Bãi Sao là bãi tắm dễ tiếp cận ở Nam đảo. Cát sáng và màu nước đẹp có thể khiến mình nghĩ lúc nào nơi này cũng giống nhau, nhưng gió, sóng và lượng khách làm trải nghiệm đổi từng ngày.",
+      "sections": [
+        {
+          "heading": "Chọn đoạn bãi theo tình hình thực tế",
+          "body": "Khi tới nơi, nhìn mặt nước và hỏi tình hình trước khi xuống tắm. Không cần cố tìm đúng góc trong ảnh nếu điều kiện hôm đó khác."
+        },
+        {
+          "heading": "Tính cả chặng đường",
+          "body": "Bãi Sao xa trung tâm Dương Đông hơn nhiều điểm phía Tây. Nếu lịch trình có nhiều điểm, tính thời gian đi lại để khỏi phải vội ở bãi."
+        },
+        {
+          "heading": "Dịch vụ nên hỏi giá trước",
+          "body": "Ghế, đồ ăn, tắm tráng và các dịch vụ ven bãi có thể do nhiều đơn vị cung cấp. Hỏi giá trước khi dùng để chủ động ngân sách."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Bãi Sao",
+          "url": "https://visitphuquoc.com.vn/vi/bai-sao-phu-quoc-vi-ngoi-sao-sinh-ra-de-toa-sang-229"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "suoi-tranh-dep-theo-mua-nuoc",
+      "category": "SUỐI TRANH · THIÊN NHIÊN",
+      "title": "Suối Tranh đẹp theo mùa nước",
+      "dek": "Suối Tranh là quãng đi bộ giữa cây xanh, nhưng lượng nước thay đổi theo mùa. Hãy xem mưa gần ngày đi và chọn giày bám tốt, nhất là sau những cơn mưa lớn.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20quoc%20suoi%20tranh.jpg?width=1600",
+      "image_alt": "Thác Suối Tranh trên đảo Phú Quốc",
+      "image_caption": "Một đoạn thác ở Suối Tranh, ảnh tư liệu Wikimedia Commons.",
+      "image_credit": "Wikimedia Commons · ntt (xem giấy phép tại nguồn)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phu%20quoc%20suoi%20tranh.jpg",
+      "intro": "Suối Tranh thường hiện lên trong ảnh với dòng nước giữa rừng. Trải nghiệm ngoài đời phụ thuộc mùa mưa, lượng nước và tình trạng đường mòn hôm bạn ghé.",
+      "sections": [
+        {
+          "heading": "Nước nhiều hay ít làm cảnh khác hẳn",
+          "body": "Mùa có mưa, suối thường rõ và mát hơn; mùa khô có lúc dòng nước nhỏ. Ảnh trên mạng không cho biết chính xác điều kiện hôm nay."
+        },
+        {
+          "heading": "Đường rừng cần giày phù hợp",
+          "body": "Mang giày bám tốt và đi theo lối được phép. Sau mưa, đá trơn và nước chảy mạnh có thể khiến việc xuống gần dòng suối không an toàn."
+        },
+        {
+          "heading": "Giữ khu rừng sạch",
+          "body": "Mang rác theo mình, tránh tách nhóm ở đoạn vắng và không tác động vào cây cối. Chuyến đi bộ nhẹ sẽ dễ chịu hơn khi không phải chạy theo một góc chụp."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Wikimedia Commons - Thác Suối Tranh",
+          "url": "https://commons.wikimedia.org/wiki/File:Phu%20quoc%20suoi%20tranh.jpg"
+        },
+        {
+          "label": "Visit Phu Quoc - điểm đến Suối Tranh",
+          "url": "https://visitphuquoc.com.vn/"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "vuon-quoc-gia-rung-va-nguon-nuoc",
+      "category": "RỪNG PHÚ QUỐC · BẢO TỒN",
+      "title": "Khu rừng phía Bắc giữ nhiều hơn một màu xanh",
+      "dek": "Rừng Phú Quốc là nơi giữ hệ sinh thái và nguồn nước của đảo. Khách nên đi theo tuyến được phép, tránh tự mở lối vào rừng và không hái cây hay bắt động vật.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%2C%20t%C3%A1n%20r%E1%BB%ABng%20(th%C6%B0%E1%BB%9Dng%20xanh)%20(3).jpg?width=1600",
+      "image_alt": "Tán rừng thường xanh trên đảo Phú Quốc",
+      "image_caption": "Tán rừng thường xanh tại Phú Quốc.",
+      "image_credit": "Wikimedia Commons · Phương Huy · CC BY-SA 4.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%2C%20t%C3%A1n%20r%E1%BB%ABng%20(th%C6%B0%E1%BB%9Dng%20xanh)%20(3).jpg",
+      "intro": "Nhìn Phú Quốc qua bãi biển thôi chưa đủ. Phần rừng phía Bắc là một lớp quan trọng của cảnh quan đảo, gắn với đa dạng sinh học và nguồn nước.",
+      "sections": [
+        {
+          "heading": "Rừng là một phần của hệ thống sống",
+          "body": "Tài liệu về Vườn quốc gia Phú Quốc ghi nhận khu bảo tồn được thành lập năm 2001 và thuộc vùng lõi Khu dự trữ sinh quyển Kiên Giang. Giá trị của rừng vượt xa việc làm nền cho một chuyến trekking."
+        },
+        {
+          "heading": "Không phải đoạn rừng nào cũng mở cho khách",
+          "body": "Một số khu vực có quy chế bảo vệ riêng. Chỉ đi theo lối và hoạt động được phép; đừng tự ý vào phân khu nghiêm ngặt."
+        },
+        {
+          "heading": "Đến nhẹ nhàng, rời đi sạch sẽ",
+          "body": "Không hái cây, bắt động vật hay để lại rác. Mùa khô có nguy cơ cháy rừng, mùa mưa đường có thể trơn hoặc ngập."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Cục Bảo tồn thiên nhiên và Đa dạng sinh học - Vườn quốc gia Phú Quốc",
+          "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-kien-giang/"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "nha-tu-phu-quoc-di-cham-de-hieu",
+      "category": "NHÀ TÙ PHÚ QUỐC · LỊCH SỬ",
+      "title": "Nhà tù Phú Quốc: nơi cần đi chậm",
+      "dek": "Đây là di tích lịch sử gắn với ký ức chiến tranh và sự hy sinh của nhiều người. Đọc tư liệu, nghe thuyết minh và giữ thái độ tôn trọng sẽ giúp chuyến thăm có chiều sâu hơn.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20POW%20camp.jpg?width=1600",
+      "image_alt": "Tư liệu trại giam An Thới trên đảo Phú Quốc, năm 1968",
+      "image_caption": "Ảnh tư liệu lịch sử về trại giam An Thới, năm 1968.",
+      "image_credit": "Wikimedia Commons - xem thông tin tác giả và giấy phép tại trang ảnh",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:An%20Thoi%20POW%20camp.jpg",
+      "intro": "Ở Nhà tù Phú Quốc, những mô hình tái hiện có thể gây xúc động mạnh. Đi chậm và đọc phần tư liệu giúp mình hiểu bối cảnh, thay vì chỉ lướt qua để chụp ảnh.",
+      "sections": [
+        {
+          "heading": "Một di tích của ký ức chiến tranh",
+          "body": "Nhà tù Phú Quốc, còn được gọi là Trại giam Tù binh Chiến tranh Phú Quốc, là di tích lịch sử cấp quốc gia. Nơi đây gắn với ký ức về những người bị giam giữ và chịu tra tấn trong chiến tranh."
+        },
+        {
+          "heading": "Đọc tư liệu cùng với mô hình",
+          "body": "Các khu tái hiện không thay thế hoàn toàn tư liệu lịch sử. Hãy dành thời gian xem bảng giới thiệu và nghe thuyết minh để hiểu điều gì là bối cảnh được ghi nhận."
+        },
+        {
+          "heading": "Đi cùng trẻ nhỏ thì cân nhắc trước",
+          "body": "Một số nội dung và hình ảnh tái hiện có thể nặng nề. Người lớn nên xem trước mức độ phù hợp, đồng thời nhắc trẻ giữ trật tự tại khu di tích."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Di tích lịch sử Nhà tù Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/di-tich-lich-su-nha-tu-phu-quoc"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "cap-treo-hon-thom-vuot-bien",
+      "category": "HÒN THƠM · CÁP TREO",
+      "title": "Cáp treo Hòn Thơm: chuyến đi giữa biển",
+      "dek": "Từ ga An Thới, cabin đi qua các đảo nhỏ rồi tới Hòn Thơm. Cảnh nhìn từ trên cao là một phần trải nghiệm, nhưng lịch chạy và giờ chuyến cần xem lại theo thông tin trong ngày.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hon%20Thom%20Cable%20Car%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1600",
+      "image_alt": "Cáp treo Hòn Thơm băng qua biển phía Nam Phú Quốc",
+      "image_caption": "Cáp treo Hòn Thơm nhìn từ trên cao.",
+      "image_credit": "Wikimedia Commons (xem tác giả và giấy phép tại trang ảnh)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Hon%20Thom%20Cable%20Car%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg",
+      "intro": "Ngồi trong cabin, đường bờ biển và các hòn nhỏ hiện ra thành một dải. Đây là cách nhìn Nam đảo khác hẳn khi đi trên đường bộ.",
+      "sections": [
+        {
+          "heading": "Hành trình bắt đầu ở An Thới",
+          "body": "Theo giới thiệu của Sun World, tuyến cáp treo đi qua khu vực Hòn Dừa và Hòn Rỏi trước khi tới Hòn Thơm. Cảnh biển là phần dễ nhớ nhất của chặng đi."
+        },
+        {
+          "heading": "Để ý giờ vận hành",
+          "body": "Lịch chuyến và điều kiện hoạt động có thể thay đổi. Kiểm tra thông báo chính thức trong ngày, nhất là khi thời tiết biển không thuận."
+        },
+        {
+          "heading": "Đừng xếp lịch quá sát",
+          "body": "Tính cả thời gian tới ga, chờ chuyến, hoạt động trên đảo và chặng quay về. Lịch thong thả giúp mình ngắm cảnh thay vì chỉ chạy theo giờ."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Sun World - Cáp treo Hòn Thơm",
+          "url": "https://sunworld.vn/hon-thom/di-chuyen/cap-treo-hon-thom"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "bun-quay-tu-pha-chen-cham",
+      "category": "BÚN QUẬY · ẨM THỰC",
+      "title": "Bún quậy vui ở chén nước chấm",
+      "dek": "Một tô bún nóng thường có chả tôm, chả cá và có thể thêm mực tùy quán. Cái vui là tự pha chén chấm, nếm rồi chỉnh cho vừa miệng mình.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%BAn%20qu%E1%BA%ADy%20%E1%BB%9F%20qu%C3%A1n%20Qu%C3%AA%20T%C3%B4i%20ng%C3%A0y%2015%20th%C3%A1ng%2010%20n%C4%83m%202018%20(2).jpg?width=1600",
+      "image_alt": "Tô bún quậy tại quán Quê Tôi ở Phú Quốc",
+      "image_caption": "Bún quậy ở một quán tại Phú Quốc.",
+      "image_credit": "Wikimedia Commons · Phương Huy (xem giấy phép tại trang ảnh)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:B%C3%BAn%20qu%E1%BA%ADy%20%E1%BB%9F%20qu%C3%A1n%20Qu%C3%AA%20T%C3%B4i%20ng%C3%A0y%2015%20th%C3%A1ng%2010%20n%C4%83m%202018%20(2).jpg",
+      "intro": "Bún quậy có phần tương tác nhỏ khiến bữa ăn vui hơn: mình tự pha chén nước chấm theo vị chua, mặn, cay mà mình thích.",
+      "sections": [
+        {
+          "heading": "Pha chén chấm từng chút một",
+          "body": "Cho gia vị vào ít một, quậy đều rồi nếm. Mỗi quán có công thức khác nhau, nên không cần tìm một phiên bản duy nhất gọi là chuẩn tuyệt đối."
+        },
+        {
+          "heading": "Món ăn có lịch sử dịch chuyển",
+          "body": "Vietnam Tourism ghi bún quậy được đưa tới Phú Quốc từ miền Trung khoảng năm 1955. Từ những phiên bản ban đầu, món được biến tấu thêm hải sản và gia vị địa phương."
+        },
+        {
+          "heading": "Hỏi kỹ nếu có dị ứng",
+          "body": "Tô bún có thể gồm cá, tôm hoặc mực; nước dùng và dụng cụ có thể dùng chung nguyên liệu. Hãy báo rõ dị ứng trước khi gọi."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Bún quậy Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-signature-noodle-bun-quay"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "cua-song-duong-dong-ge-ra-bien",
+      "category": "CỬA SÔNG · DƯƠNG ĐÔNG",
+      "title": "Cửa sông Dương Đông, nơi ghe cá ra vào",
+      "dek": "Cửa sông là ranh giới mềm giữa thị trấn và biển. Nhìn ghe thuyền qua lại sẽ hiểu vì sao đời sống Dương Đông luôn gắn với dòng nước, không chỉ với bãi tắm.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20quoc%20embouchure%20de%20la%20riviere%20duong%20dong.jpg?width=1600",
+      "image_alt": "Cửa sông Dương Đông đổ ra biển Phú Quốc",
+      "image_caption": "Cửa sông Dương Đông, ảnh tư liệu Wikimedia Commons.",
+      "image_credit": "Wikimedia Commons · P4ntt (xem giấy phép tại trang ảnh)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phu%20quoc%20embouchure%20de%20la%20riviere%20duong%20dong.jpg",
+      "intro": "Dương Đông có biển, chợ và một cửa sông nối khu dân cư với vùng nước ven bờ. Đây là một phần cảnh quan thường bị bỏ qua khi lịch trình chỉ ưu tiên bãi tắm.",
+      "sections": [
+        {
+          "heading": "Dòng nước gắn với sinh kế",
+          "body": "Ở cửa sông, ghe thuyền và hoạt động ven bờ nhắc mình rằng biển không chỉ là nơi nghỉ dưỡng. Đây cũng là không gian làm việc và di chuyển của cư dân đảo."
+        },
+        {
+          "heading": "Quan sát từ vị trí an toàn",
+          "body": "Không đứng cản lối bốc dỡ hay bước lên ghe khi chưa được mời. Khu vực bến có thể trơn, đông người và có phương tiện đang di chuyển."
+        },
+        {
+          "heading": "Thử ghép với một vòng đi bộ",
+          "body": "Nếu ở Dương Đông, có thể ghép việc ngắm cửa sông với Dinh Cậu và khu phố ven biển. Thời điểm đẹp phụ thuộc nắng, gió và hoạt động thực tế trong ngày."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Chợ Dương Đông bên sông",
+          "url": "https://visitphuquoc.com.vn/vi/cho-duong-dong-1069"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "ca-ong-loi-tri-an-nguoi-di-bien",
+      "category": "CÁ ÔNG · TÍN NGƯỠNG BIỂN",
+      "title": "Cá Ông trong niềm tin của người đi biển",
+      "dek": "Ở nhiều cộng đồng ven biển Nam Bộ, cá voi được gọi kính trọng là Cá Ông. Tín ngưỡng này gắn với lòng biết ơn và lời cầu bình an, không phải một điều để biến thành màn trình diễn cho khách.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg?width=1600",
+      "image_alt": "Gian thờ xương cá voi, tư liệu về tín ngưỡng thờ Cá Ông",
+      "image_caption": "Ảnh tư liệu về một gian thờ xương cá voi tại Việt Nam; không ghi nhận tại Phú Quốc.",
+      "image_credit": "Wikimedia Commons (xem tác giả và giấy phép tại trang ảnh)",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg",
+      "intro": "Người đi biển sống cùng nhiều điều khó đoán. Trong tín ngưỡng ven biển, Cá Ông được xem bằng sự kính trọng và lòng biết ơn, gắn với mong ước chuyến biển bình an.",
+      "sections": [
+        {
+          "heading": "Một niềm tin ven biển Nam Bộ",
+          "body": "Cá voi thường được gọi là Cá Ông trong cách xưng kính của cộng đồng ngư dân. Tín ngưỡng thờ Cá Ông thể hiện sự biết ơn và lời cầu mong mưa thuận gió hòa."
+        },
+        {
+          "heading": "Nghinh Ông là dịp cộng đồng gặp nhau",
+          "body": "Tư liệu du lịch địa phương giới thiệu lễ Nghinh Ông ở Phú Quốc như một hoạt động bày tỏ lòng tôn kính và cầu bình an. Ngày tổ chức và quy mô có thể thay đổi theo địa phương, năm và ban tổ chức."
+        },
+        {
+          "heading": "Nếu gặp nơi thờ tự",
+          "body": "Giữ yên lặng, không chạm vào đồ thờ và hỏi trước khi chụp gần người đang hành lễ. Đây là không gian tín ngưỡng trước khi là điểm tham quan."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Lễ hội Nghinh Ông Phú Quốc",
+          "url": "https://visitphuquoc.com.vn/vi/le-hoi-nghinh-ong-phu-quoc-1343"
+        }
+      ],
+      "home_featured": true
+    },
+    {
+      "id": "vi-sao-goi-phu-quoc-la-dao-ngoc",
+      "category": "PHÚ QUỐC · TÊN GỌI",
+      "title": "“Đảo Ngọc” là cách gọi gợi điều gì?",
+      "dek": "Biệt danh “đảo Ngọc” gợi màu nước, bờ biển và sức hút tự nhiên của Phú Quốc. Nhưng để hiểu đảo, nên nhìn thêm đời sống làng biển, rừng và những nghề đã nuôi cư dân qua nhiều thế hệ.",
+      "read_minutes": "3",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1600",
+      "image_alt": "Bờ biển Phú Quốc nhìn từ phía Tây Nam đảo",
+      "image_caption": "Bờ biển Phú Quốc, ảnh chụp tại tọa độ ven bờ Tây Nam.",
+      "image_credit": "Wikimedia Commons · FrogsLegs71 · xem giấy phép tại trang ảnh",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phu%20Quoc%20Beach.jpg",
+      "intro": "Nghe tên “đảo Ngọc”, nhiều người nghĩ ngay tới làn nước trong và bãi cát sáng. Đó là một lớp hình dung dễ hiểu, nhưng Phú Quốc còn được tạo nên bởi rừng, làng biển, chợ và nghề truyền thống.",
+      "sections": [
+        {
+          "heading": "Biệt danh không thay cho bản sắc",
+          "body": "Cổng du lịch địa phương dùng tên gọi đảo Ngọc để gợi vẻ đẹp tự nhiên của đảo. Đây là một cách gọi giàu hình ảnh, không phải một lời giải thích đầy đủ về lịch sử hay đời sống Phú Quốc."
+        },
+        {
+          "heading": "Đảo có nhiều lớp cảnh quan",
+          "body": "Bên cạnh bãi biển còn có rừng, sông, làng nghề, bến cá và các khu dân cư. Mỗi nơi cho thấy một phần khác nhau của đời sống trên đảo."
+        },
+        {
+          "heading": "Đi để hiểu thêm, không chỉ để chụp",
+          "body": "Thử dành một buổi cho chợ, nhà thùng, vườn tiêu hoặc một khu làng ven biển. Khi biết thêm người ta sống và làm nghề ra sao, cái tên “đảo Ngọc” có thêm bối cảnh."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Cẩm nang khám phá đảo Ngọc",
+          "url": "https://visitphuquoc.com.vn/vi/cam-nang-du-lich-phu-quoc-kham-pha-tron-ven-dao-ngoc-5607"
+        }
+      ],
+      "home_featured": true
     }
   ]
 }

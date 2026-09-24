@@ -247,6 +247,11 @@ function renderCuriosity(){
     LEGEND:"TRUYỀN THUYẾT",
     DOCUMENTED_HISTORY:"TƯ LIỆU ĐẢO",
     LOCAL_CRAFT:"NGHỀ & ĐỜI SỐNG",
+    NATURE_NOTE:"THIÊN NHIÊN · TẬP TÍNH",
+    PLACE_NOTE:"CHUYỆN MỘT NƠI",
+    FOOD_NOTE:"MÓN NGON · CHUYỆN ĂN",
+    CULTURAL_NOTE:"TÍN NGƯỠNG · VĂN HÓA",
+    HISTORY_NOTE:"TƯ LIỆU ĐẢO",
     DISPUTED:"CÒN NHIỀU CÁCH KỂ"
   };
   const rows=sessionRandomSlice(support.curiosity||[],support.curiosity_policy?.display_count||3);

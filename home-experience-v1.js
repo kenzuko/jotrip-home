@@ -162,6 +162,23 @@
 
   $("#foodRandomBtn")?.addEventListener("click", chooseRandomFood);
 
+  function sessionStorySlice(stories, count) {
+    if (!stories.length) return [];
+    const key = "openpq.island-stories.session.v1";
+    const byId = new Map(stories.map(x => [x.id, x]));
+    let order = [];
+    try { order = JSON.parse(sessionStorage.getItem(key) || "[]"); } catch {}
+    if (!Array.isArray(order) || order.length !== stories.length || order.some(id => !byId.has(id))) {
+      order = stories.map(x => x.id);
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
+      }
+      try { sessionStorage.setItem(key, JSON.stringify(order)); } catch {}
+    }
+    return order.slice(0, Math.min(count, order.length)).map(id => byId.get(id)).filter(Boolean);
+  }
+
   async function renderIslandStories() {
     const host = $("#islandStoryGrid");
     if (!host) return;
@@ -170,13 +187,11 @@
       if (!r.ok) throw new Error(String(r.status));
       const data = await r.json();
       const stories = data.stories || [];
-      const wanted = ["mot-nam-trong-nha-thung","mui-cay-cua-dat-do","nhung-doi-mat-tren-mui-ghe"];
-      const byId = new Map(stories.map(x => [x.id, x]));
-      const rows = wanted.map(id => byId.get(id)).filter(Boolean);
+      const rows = sessionStorySlice(stories, 3);
       if (!rows.length) throw new Error("empty");
       host.innerHTML = rows.map((x,index) =>
         '<a class="island-story-card '+(index === 0 ? "lead" : "")+'" href="stories/article.html?id='+encodeURIComponent(x.id)+'">'+
-          '<figure><img src="'+esc(x.image || "assets/hero-local.svg")+'" alt="'+esc(x.title || "Câu chuyện Phú Quốc")+'" loading="lazy" decoding="async"></figure>'+
+          '<figure><img src="'+esc(x.image || "assets/hero-local.svg")+'" alt="'+esc(x.image_alt || x.title || "Câu chuyện Phú Quốc")+'" loading="lazy" decoding="async"></figure>'+
           '<div><span>'+esc(x.category || "CÂU CHUYỆN PHÚ QUỐC")+'</span>'+
           '<strong>'+esc(x.title)+'</strong>'+
           '<p>'+esc(x.dek || "")+'</p>'+

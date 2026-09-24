@@ -176,3 +176,20 @@ footer{font-size:13px;line-height:1.55}
 .sources[open]>summary:after{content:" −"}
 .sources>div{display:grid;gap:7px;margin-top:12px}
 .sources>div a{font-size:12px}
+
+
+.article-cover{
+  height:auto;aspect-ratio:auto;overflow:visible;
+  background:transparent;box-shadow:none
+}
+.article-cover img{
+  display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;
+  border-radius:28px;box-shadow:0 24px 65px rgba(18,61,59,.13)
+}
+.cover-credit{margin-top:9px;color:#71837d;font-size:10px;line-height:1.55}
+.cover-credit a{color:inherit;text-decoration:underline;text-decoration-color:#b8c9c3;text-underline-offset:2px}
+.article-source-list{margin:28px 0 44px;border-top:1px solid #e2ebe7;border-bottom:1px solid #e2ebe7;color:#3e5752}
+.article-source-list summary{padding:14px 0;font-size:13px;font-weight:750;cursor:pointer}
+.article-source-list ul{margin:0 0 16px;padding-left:20px}
+.article-source-list li{margin:8px 0;font-size:13px;line-height:1.6}
+.article-source-list a{color:#226d66}
