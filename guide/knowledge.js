@@ -20,6 +20,14 @@
     const fragment=document.createDocumentFragment();
     for(const o of matching){
       const a=el("a","knowledge-card");a.href=o.route;
+      const photo=o.media?.images?.[0];
+      if(photo){
+        const frame=el("figure","knowledge-card-photo");
+        const img=el("img");img.src=photo.url;img.alt=photo.alt||o.title;
+        img.loading="lazy";img.decoding="async";
+        img.onerror=()=>frame.remove();
+        frame.append(img);a.append(frame);
+      }
       a.append(el("span","type",labels[o.topic_type]||"Cẩm nang"));
       a.append(el("h2",null,o.title));
       a.append(el("p",null,o.editorial.short_summary));
@@ -48,7 +56,26 @@
     const back=el("a","knowledge-back","← Tất cả bài cẩm nang");
     back.href="/guide/knowledge.html";root.append(back);
     root.append(el("p","knowledge-type",labels[o.topic_type]||"Cẩm nang"),el("h1",null,o.title),el("p","knowledge-lead",ed.short_summary));
-    for(const [title,value] of [["Điều nên biết",ed.practical],["Thực tế có thể khác bạn nghĩ",ed.expectation_vs_reality]]){
+    const photographs=o.media?.images||[];
+    if(photographs.length){
+      const gallery=el("div","knowledge-article-photos"+(photographs.length===1?" single":""));
+      for(const photo of photographs){
+        const figure=el("figure","knowledge-article-photo");
+        const img=el("img");img.src=photo.url;img.alt=photo.alt||o.title;
+        img.loading=gallery.children.length?"lazy":"eager";img.decoding="async";
+        img.onerror=()=>{figure.classList.add("image-unavailable");img.remove();figure.prepend(el("p",null,"Ảnh hiện chưa tải được."));};
+        figure.append(img);
+        if(photo.caption||photo.credit){
+          const cap=el("figcaption");
+          if(photo.caption)cap.append(el("span",null,photo.caption));
+          if(photo.credit)cap.append(el("small",null,"Ảnh: "+String(photo.credit).replace(/^Ảnh:\s*/i,"")));
+          figure.append(cap);
+        }
+        gallery.append(figure);
+      }
+      root.append(gallery);
+    }
+    for(const [title,value] of [["Đi thế nào cho hợp?",ed.practical],["Thực tế có thể khác bạn nghĩ",ed.expectation_vs_reality]]){
       if(!value)continue;
       const section=el("section");section.append(el("h2",null,title),el("p",null,value));root.append(section);
     }
@@ -58,7 +85,7 @@
       section.append(list);root.append(section);
     }
     if(ed.curiosity_questions?.length){
-      const section=el("section");section.append(el("h2",null,"Có thể bạn đang thắc mắc"));
+      const section=el("section");section.append(el("h2",null,"Câu hỏi để tìm hiểu thêm"));
       const list=el("ul");for(const item of ed.curiosity_questions)list.append(el("li",null,item));
       section.append(list);root.append(section);
     }
