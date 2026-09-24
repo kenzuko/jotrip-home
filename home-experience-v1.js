@@ -68,81 +68,99 @@
     }
   }
 
-  function stableShuffle(rows, key) {
-    const ids = rows.map(x => x.id);
-    let order = [];
-    try { order = JSON.parse(sessionStorage.getItem(key) || "[]"); } catch {}
-    if (!Array.isArray(order) || order.length !== ids.length || order.some(id => !ids.includes(id))) {
-      order = [...ids];
-      for (let i = order.length - 1; i > 0; i--) {
-        const seed = (Date.now() + i * 7919) % (i + 1);
-        [order[i], order[seed]] = [order[seed], order[i]];
-      }
-      try { sessionStorage.setItem(key, JSON.stringify(order)); } catch {}
-    }
-    const byId = new Map(rows.map(x => [x.id, x]));
-    return order.map(id => byId.get(id)).filter(Boolean);
-  }
+  // Homepage owns one food suggestion. No additional section or redirect is required.
+  const foodNowState = {pool:[], visuals:{}, selected:null};
 
   function mealPlan(dishes) {
-    const { total } = vnClock();
-    let ids, label, key;
-    if (total < 10 * 60 + 30) {
-      ids = ["bun-quay","bun-ken","goi-ca-trich"];
-      label = "Buổi sáng - ưu tiên món nóng, dễ bắt đầu ngày";
-      key = "morning";
-    } else if (total < 14 * 60) {
-      ids = ["bun-quay","goi-ca-trich","bun-ken"];
-      label = "Buổi trưa - thử một món địa phương vừa đủ no";
-      key = "lunch";
-    } else if (total < 17 * 60) {
-      ids = ["goi-ca-trich","bun-quay","bun-ken"];
-      label = "Buổi chiều - chọn món nhẹ hơn trước khi đi tiếp";
-      key = "afternoon";
-    } else {
-      ids = ["goi-ca-trich","nhum","coi-bien-mai","bun-quay"];
-      label = "Buổi tối - món địa phương và hải sản hợp nhịp hơn";
-      key = "evening";
+    const hour = vnClock().total;
+    const meal = hour < 10 * 60 + 30 ? "breakfast"
+      : hour < 14 * 60 ? "lunch"
+      : hour < 17 * 60 ? "snack"
+      : hour < 23 * 60 ? "dinner" : "breakfast";
+    const names = {
+      breakfast:"Buổi sáng - chọn một món để bắt đầu ngày",
+      lunch:"Buổi trưa - gợi ý một món vừa bữa",
+      snack:"Buổi chiều - gợi ý một món ăn nhẹ",
+      dinner:"Buổi tối - thử một món địa phương hoặc hải sản"
+    };
+    let pool = dishes.filter(x => (x.meal_times || []).includes(meal));
+    // Some meals have few entries; never show an empty suggestion.
+    if (pool.length < 2 && meal === "snack")
+      pool = dishes.filter(x => (x.meal_times || []).includes("lunch") || (x.meal_times || []).includes("snack"));
+    if (!pool.length) pool = dishes;
+    return {pool,label:names[meal]};
+  }
+
+  function foodNowPhoto(dish) {
+    const pictures = foodNowState.visuals?.food?.[dish.id]?.images || [];
+    const picture = pictures.find(img => img?.url && img.hero_eligible !== false);
+    if (picture) {
+      const caption = picture.scope === "exact_subject"
+        ? "Ảnh món" : "Ảnh minh họa";
+      return '<figure class="food-now-media">'+
+        '<img src="'+esc(picture.url)+'" alt="'+esc(picture.alt || dish.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')">'+
+        '<figcaption>'+esc(caption)+'</figcaption></figure>';
     }
-    const byId = new Map(dishes.map(x => [x.id, x]));
-    const rows = ids.map(id => byId.get(id)).filter(Boolean);
-    return { rows:stableShuffle(rows,"openpq.food-now."+key), label };
+    if (dish.category === "seafood") {
+      return '<figure class="food-now-media food-now-media-context">'+
+        '<img src="/assets/media/jotrip-grilled-squid-2025.jpg" alt="Hải sản nướng từ ảnh JoTrip, chỉ minh họa chung" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')">'+
+        '<figcaption>Ảnh hải sản minh họa</figcaption></figure>';
+    }
+    return '<figure class="food-now-media food-now-media-empty"><span>Ảnh riêng của món đang được bổ sung</span></figure>';
+  }
+
+  function renderSelectedFood() {
+    const host = $("#foodNowGrid"), dish = foodNowState.selected;
+    if (!host || !dish) return;
+    const safety = (dish.allergen_flags || []).slice(0,2).map(x => x.label).join(" · ");
+    host.innerHTML = '<article class="food-now-card featured-food-card">'+
+      foodNowPhoto(dish)+
+      '<div class="food-now-copy">'+
+        '<span>'+(dish.category === "seafood" ? "HẢI SẢN" : "MÓN ĐỊA PHƯƠNG")+'</span>'+
+        '<h3>'+esc(dish.name)+'</h3>'+
+        '<p>'+esc(dish.intro || "")+'</p>'+
+        (safety ? '<small>Thành phần cần lưu ý: '+esc(safety)+'</small>' : "")+
+        '<a href="food/article.html?id='+encodeURIComponent(dish.id)+'">Khám phá món này →</a>'+
+      '</div></article>';
+    const button = $("#foodRandomBtn");
+    if (button) button.disabled = foodNowState.pool.length < 2;
+  }
+
+  function chooseRandomFood() {
+    const pool = foodNowState.pool;
+    if (!pool.length) return;
+    const choices = pool.length > 1
+      ? pool.filter(x => x.id !== foodNowState.selected?.id)
+      : pool;
+    foodNowState.selected = choices[Math.floor(Math.random() * choices.length)];
+    renderSelectedFood();
   }
 
   async function renderFoodNow() {
     const host = $("#foodNowGrid"), context = $("#foodNowContext");
     if (!host) return;
+    // Load the meal dataset first: a slow visual manifest must never block the card.
+    const visualsPromise = fetch("data/visual-context.json?t=" + Date.now(), {cache:"no-store"})
+      .then(r => r.ok ? r.json() : {}).catch(() => ({}));
     try {
-      const r = await fetch("data/food.json?t=" + Date.now(), { cache:"no-store" });
-      if (!r.ok) throw new Error(String(r.status));
-      const data = await r.json();
-      const visualResponse = await fetch("data/visual-context.json?t=" + Date.now(), {cache:"no-store"}).catch(() => null);
-      const visuals = visualResponse?.ok ? await visualResponse.json().catch(() => ({})) : {};
+      const response = await fetch("data/food.json?t=" + Date.now(), {cache:"no-store"});
+      if (!response.ok) throw new Error(String(response.status));
+      const data = await response.json();
       const plan = mealPlan(data.dishes || []);
+      if (!plan.pool.length) throw new Error("no dishes");
+      foodNowState.pool = plan.pool;
       if (context) context.textContent = plan.label;
-      if (!plan.rows.length) throw new Error("empty");
-      host.innerHTML = plan.rows.slice(0,3).map(x => {
-        const safety = (x.allergen_flags || []).slice(0,2).map(a => a.label).join(" · ");
-        const pictures = visuals?.food?.[x.id]?.images || [];
-        const picture = pictures.find(img => img?.url && img.hero_eligible !== false);
-        const photo = picture
-          ? '<figure class="food-now-media"><img src="'+esc(picture.url)+'" alt="'+esc(picture.alt || x.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')"><figcaption>'+esc(picture.scope === "exact_subject" ? "Ảnh món" : "Ảnh minh họa")+'</figcaption></figure>'
-          : x.category === "seafood"
-            ? '<figure class="food-now-media food-now-media-context"><img src="/assets/media/jotrip-grilled-squid-2025.jpg" alt="Hải sản nướng - ảnh minh họa chung, không phải món đang giới thiệu" loading="lazy" decoding="async"><figcaption>Ảnh hải sản minh họa</figcaption></figure>'
-            : '<figure class="food-now-media food-now-media-empty"><span>Ảnh món đang bổ sung</span></figure>';
-        return '<a class="food-now-card"' href="food/article.html?id='+encodeURIComponent(x.id)+'">'+
-          photo+
-          '<span>'+(x.category === "seafood" ? "HẢI SẢN" : "MÓN ĐỊA PHƯƠNG")+'</span>'+
-          '<strong>'+esc(x.name)+'</strong>'+
-          '<p>'+esc(x.intro || "")+'</p>'+
-          (safety ? '<small>Có thể cần lưu ý: '+esc(safety)+'</small>' : '')+
-          '<b>Xem món →</b>'+
-        '</a>';
-      }).join("");
+      chooseRandomFood();
+      visualsPromise.then(visuals => {
+        foodNowState.visuals = visuals || {};
+        renderSelectedFood();
+      });
     } catch {
-      host.innerHTML = '<div class="surface-loading">Chưa mở được gợi ý món lúc này. <a href="food/">Xem ẩm thực Phú Quốc →</a></div>';
+      host.innerHTML = '<div class="surface-loading">Chưa mở được gợi ý lúc này. <a href="food/">Xem các món Phú Quốc →</a></div>';
     }
   }
+
+  $("#foodRandomBtn")?.addEventListener("click", chooseRandomFood);
 
   async function renderIslandStories() {
     const host = $("#islandStoryGrid");
