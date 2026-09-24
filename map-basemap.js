@@ -12,7 +12,7 @@
     let active = null;
 
     const primary = L.tileLayer(
-      "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=" + encodeURIComponent(CARTO_KEY),
+      "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=" + encodeURIComponent(CARTO_KEY),
       {
         subdomains: "abcd",
         maxZoom,

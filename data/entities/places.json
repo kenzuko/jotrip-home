@@ -1189,7 +1189,7 @@
         }
       ],
       "updated_at": "2026-09-22",
-      "address": "52G6+GQQ, Suối Mây, Phú Quốc, An Giang, Việt Nam",
+      "address": "Suối Tranh, Dương Tơ, Đặc khu Phú Quốc, An Giang",
       "map": {
         "lat": 10.1763125,
         "lon": 104.0119375,
@@ -1198,55 +1198,11 @@
         "source": "Google Maps place result + Plus Code 52G6+GQQ",
         "verified_at": "2026-09-22",
         "accuracy": "GOOGLE_PLUS_CODE",
-        "plus_code": "52G6+GQQ"
+        "plus_code": "52G6+GQQ",
+        "note": "Pin địa điểm du lịch; cần đối chiếu lại đúng cổng/điểm đón trước khi dùng dẫn đường."
       },
       "address_source_id": "google_maps_location_lookup",
       "address_verified_at": "2026-09-22"
-    },
-    {
-      "id": "place_other_streams",
-      "legacy_id": "other-streams",
-      "entity_type": "place",
-      "slug": "other-streams",
-      "name": "Suối Đá Bàn · Đá Ngọn · Suối Tiên",
-      "aliases": [],
-      "zone_id": "zone_central_west",
-      "area_code": "forest-east",
-      "categories": [
-        "nature",
-        "stream"
-      ],
-      "what_it_is": "Nhóm suối/rừng thay đổi mạnh theo mùa và lượng mưa.",
-      "why_go": "Đi rừng nhẹ · Suối · Quan sát thiên nhiên",
-      "best_for": [
-        "nature",
-        "stream"
-      ],
-      "best_time": "Khi có nước nhưng không ngay sau mưa lớn nguy hiểm",
-      "duration": "2-4 giờ tùy điểm",
-      "price_reference": "Tùy điểm/đường vào",
-      "live_check_required": true,
-      "weather_dependency": "medium",
-      "tips": [
-        "Kiểm tra đường vào",
-        "Không dùng một lời khuyên cố định cho mọi ngày",
-        "Đi có trách nhiệm với rừng"
-      ],
-      "intents": [
-        "nature",
-        "stream"
-      ],
-      "related_entities": [],
-      "live_refs": [],
-      "source_refs": [
-        {
-          "source_id": "handbook_r3",
-          "slides": [
-            65
-          ]
-        }
-      ],
-      "updated_at": "2026-09-12"
     },
     {
       "id": "place_fish_sauce_house",
@@ -1736,6 +1692,194 @@
         "note": "Bảo tàng nằm trong Grand World; pin hiện dùng điểm neo trung tâm Grand World cho tới khi có pin cửa vào bảo tàng.",
         "verified_at": "2026-09-22"
       }
+    },
+    {
+      "id": "place_suoi_da_ban",
+      "legacy_id": "suoi-da-ban",
+      "entity_type": "place",
+      "slug": "suoi-da-ban",
+      "name": "Suối Đá Bàn",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "forest-east",
+      "categories": [
+        "nature",
+        "stream"
+      ],
+      "what_it_is": "Khu du lịch sinh thái bên suối ở khu vực Bến Tràm. Pin sẽ được bổ sung sau khi xác minh đúng cổng vào; không dùng tọa độ của lòng suối thay cho lối vào.",
+      "why_go": "Đi bộ qua rừng · Ngắm suối và ghềnh đá · Dã ngoại theo mùa",
+      "best_for": [
+        "nature",
+        "stream"
+      ],
+      "best_time": "Khi có nước nhưng không ngay sau mưa lớn nguy hiểm",
+      "duration": "2-4 giờ tùy điểm",
+      "price_reference": "Tùy điểm/đường vào",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Kiểm tra đường vào",
+        "Không dùng một lời khuyên cố định cho mọi ngày",
+        "Đi có trách nhiệm với rừng"
+      ],
+      "intents": [
+        "nature",
+        "stream"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "visit_phu_quoc_official_attractions"
+        },
+        {
+          "source_id": "google_maps_place_lookup_pending_pin"
+        }
+      ],
+      "updated_at": "2026-09-24",
+      "address": "Bến Tràm, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA"
+    },
+    {
+      "id": "place_suoi_da_ngon",
+      "legacy_id": "suoi-da-ngon",
+      "entity_type": "place",
+      "slug": "suoi-da-ngon",
+      "name": "Suối Đá Ngọn",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "forest-east",
+      "categories": [
+        "nature",
+        "stream"
+      ],
+      "what_it_is": "Suối rừng ở khu vực phía đông bắc đảo. Đường tiếp cận và dòng chảy thay đổi theo mùa; chưa gắn pin vì chưa xác minh được lối vào công khai.",
+      "why_go": "Khám phá thiên nhiên · Đi cùng người có kinh nghiệm · Kiểm tra mùa nước trước khi đi",
+      "best_for": [
+        "nature",
+        "stream"
+      ],
+      "best_time": "Khi có nước nhưng không ngay sau mưa lớn nguy hiểm",
+      "duration": "2-4 giờ tùy điểm",
+      "price_reference": "Tùy điểm/đường vào",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Kiểm tra đường vào",
+        "Không dùng một lời khuyên cố định cho mọi ngày",
+        "Đi có trách nhiệm với rừng"
+      ],
+      "intents": [
+        "nature",
+        "stream"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "visit_phu_quoc_official_attractions"
+        },
+        {
+          "source_id": "google_maps_place_lookup_pending_pin"
+        }
+      ],
+      "updated_at": "2026-09-24",
+      "address": "Phía đông bắc đảo Phú Quốc, An Giang",
+      "address_precision": "AREA"
+    },
+    {
+      "id": "place_suoi_tien",
+      "legacy_id": "suoi-tien",
+      "entity_type": "place",
+      "slug": "suoi-tien",
+      "name": "Suối Tiên",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "forest-east",
+      "categories": [
+        "nature",
+        "stream"
+      ],
+      "what_it_is": "Suối rừng phía đông bắc đảo. Hướng dẫn bản đồ có thể dẫn tới bãi giữ xe tư nhân thay vì lối vào, nên mục này chưa gắn tọa độ.",
+      "why_go": "Đi bộ trong rừng · Ngắm suối · Đi xe máy tới khu gửi xe đã xác minh trước",
+      "best_for": [
+        "nature",
+        "stream"
+      ],
+      "best_time": "Khi có nước nhưng không ngay sau mưa lớn nguy hiểm",
+      "duration": "2-4 giờ tùy điểm",
+      "price_reference": "Tùy điểm/đường vào",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Kiểm tra đường vào",
+        "Không dùng một lời khuyên cố định cho mọi ngày",
+        "Đi có trách nhiệm với rừng"
+      ],
+      "intents": [
+        "nature",
+        "stream"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "visit_phu_quoc_official_attractions"
+        },
+        {
+          "source_id": "google_maps_place_lookup_pending_pin"
+        }
+      ],
+      "updated_at": "2026-09-24",
+      "address": "Dương Tơ, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA"
+    },
+    {
+      "id": "place_phu_quoc_ridgeback_center",
+      "legacy_id": "trung-tam-bao-ton-cho-xoay",
+      "entity_type": "place",
+      "slug": "trung-tam-bao-ton-cho-xoay",
+      "name": "Trung tâm bảo tồn chó xoáy Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "area_code": "forest-east",
+      "categories": [
+        "nature",
+        "stream"
+      ],
+      "what_it_is": "Trung tâm bảo tồn và trường đua chó xoáy Thanh Nga. Ưu tiên thấp; nên xác nhận giờ mở cửa trước khi ghé.",
+      "why_go": "Tìm hiểu giống chó xoáy · Tham quan theo lịch của cơ sở",
+      "best_for": [
+        "nature",
+        "stream"
+      ],
+      "best_time": "Khi có nước nhưng không ngay sau mưa lớn nguy hiểm",
+      "duration": "2-4 giờ tùy điểm",
+      "price_reference": "Tùy điểm/đường vào",
+      "live_check_required": true,
+      "weather_dependency": "medium",
+      "tips": [
+        "Kiểm tra đường vào",
+        "Không dùng một lời khuyên cố định cho mọi ngày",
+        "Đi có trách nhiệm với rừng"
+      ],
+      "intents": [
+        "nature",
+        "stream"
+      ],
+      "related_entities": [],
+      "live_refs": [],
+      "source_refs": [
+        {
+          "source_id": "visit_phu_quoc_official_attractions"
+        },
+        {
+          "source_id": "google_maps_place_lookup_pending_pin"
+        }
+      ],
+      "updated_at": "2026-09-24",
+      "address": "Tiểu khu 77, Dương Tơ, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA"
     }
   ]
 }
