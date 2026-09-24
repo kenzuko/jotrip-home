@@ -21,7 +21,7 @@ function snapshot(utc){
   constructor(...args){super(...(args.length?args:[utc]))}
   static now(){return Date.parse(utc)}
  };
- const source=prelude+`
+ const source=readFileSync("core/trip-clock-planner.js","utf8")+"\n"+prelude+`
   support=window.__testSupport;
   operationalNotices=window.__testNotices;
   for(const entity of window.__testEntities)entities.set(entity.id,entity);
