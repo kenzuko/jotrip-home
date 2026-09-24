@@ -73,17 +73,6 @@ function localDateKey(date=new Date()){
  return p.year+"-"+p.month+"-"+p.day;
 }
 function activeNotices(){const day=localDateKey();return (operationalNotices?.notices||[]).filter(x=>x.date===day&&x.status==="CANCELLED")}
-function activeNotice(id){return activeNotices().find(x=>x.entity_id===id)||null}
-function cancellationCards(){
- return activeNotices().map(x=>
-  '<a class="trip-cancel-notice" role="status" href="places/detail.html?id=tinh-hoa-viet-nam">'+
-  '<span>THÔNG BÁO SUẤT DIỄN HÔM NAY</span><strong>'+esc(x.title)+'</strong>'+
-  '<p>'+esc(x.summary)+'</p><small>'+esc(x.booking_message)+'</small><b>Xem thông tin →</b></a>'
- ).join("");
-}
-const noticeStyle=document.createElement("style");
-noticeStyle.textContent=".trip-cancel-notice{display:block;padding:17px 19px;margin-bottom:12px;border:2px solid #c96e34;border-radius:17px;background:#fff6ea;color:#623518;text-decoration:none}.trip-cancel-notice span{display:block;color:#9a4e18;font-weight:900;font-size:12px;letter-spacing:.04em}.trip-cancel-notice strong{display:block;margin:6px 0;font-size:19px;line-height:1.35}.trip-cancel-notice p{margin:4px 0 8px;line-height:1.55}.trip-cancel-notice small{display:block;font-size:13px;line-height:1.5}.trip-cancel-notice b{display:block;margin-top:9px;color:#87421c}";
-document.head.appendChild(noticeStyle);
 function tripClockSnapshot(){
  const engine=window.OpenPQTripClockPlanner;
  if(!engine||!support)return [];
@@ -102,13 +91,13 @@ function renderTripClock(){
  }
  const rows=tripClockSnapshot().filter(x=>x.eligible&&["active","future","watch"].includes(x.decision?.state));
  if(!rows.length){
-  host.innerHTML=cancellationCards()+'<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Xem các hoạt động buổi tối hoặc lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
+  host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Xem các hoạt động buổi tối hoặc lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
   publishLocalNowHint();return;
  }
  let shown=rows.slice(0,9);
  const nextShow=rows.find(x=>x.opening?.schedule_type==="FIXED_START"&&x.decision.state==="future");
  if(nextShow&&!shown.includes(nextShow))shown=[...rows.slice(0,8),nextShow];
- host.innerHTML=cancellationCards()+shown.map(row=>{
+ host.innerHTML=shown.map(row=>{
   const {item,e,opening,decision,summary,note}=row;
   const detail=opening?.schedule_type==="FIXED_START"?summary:[summary,e.duration].filter(Boolean).join(" · ");
   const distinctNote=note&&note.trim()!==detail.trim()?note:"";
@@ -122,8 +111,6 @@ function renderTripClock(){
 }
 function buildLocalNowHint(){
  if(!support||!window.OpenPQTripClockPlanner)return null;
- const canceled=activeNotices()[0];
- if(canceled)return{priority:"operational",tone:"watch",title:canceled.title,note:canceled.booking_message,primaryText:"Xem thông báo →",primaryHref:"places/detail.html?id=tinh-hoa-viet-nam",secondaryText:"Chọn hoạt động khác",secondaryHref:"#happening"};
  const now=hhmmToMinutes(vnParts().time),candidates=[];
  for(const x of tripClockSnapshot()){
   if(!x.eligible||!x.decision)continue;

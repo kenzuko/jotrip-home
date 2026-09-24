@@ -128,9 +128,15 @@
     if(level) facts.unshift([pc.fact_role||"Kiểu ghé phù hợp",level.label]);
 
     applyEntityMeta(entity,heroImage);
-    const datedNotice=(notices?.notices||[]).find(x=>x.entity_id===entity.id&&x.date===localDateKey()&&x.status==="CANCELLED");
+    const now=Date.now();
+    const days=Number.isInteger(notices?.retention_days)&&notices.retention_days>0?notices.retention_days:3;
+    const datedNotice=(notices?.notices||[]).find(x=>{
+      if(x.entity_id!==entity.id||x.status!=="CANCELLED"||typeof x.date!=="string")return false;
+      const start=Date.parse(x.date+"T00:00:00+07:00");
+      return Number.isFinite(start)&&now>=start&&now<start+days*86400000;
+    });
     const noticeBanner=datedNotice?
-      '<aside class="show-cancel-banner" role="status"><span>THÔNG BÁO RIÊNG CHO SUẤT HÔM NAY</span>'+
+      '<aside class="show-cancel-banner" role="status" data-show-notice><span>THÔNG BÁO SUẤT DIỄN NGÀY '+esc(datedNotice.date.split("-").reverse().join("/"))+'</span>'+
       '<h2>'+esc(datedNotice.title)+'</h2><p>'+esc(datedNotice.summary)+'</p>'+
       '<p>'+esc(datedNotice.booking_message)+'</p><small>'+esc(datedNotice.source)+'</small></aside>':"";
     root.innerHTML=noticeBanner+
@@ -183,6 +189,12 @@
       '</section>';
 
     window.OpenPQVisual?.bindLazyMaps(root);
+    // If the detail page is kept open for days, still remove an expired announcement.
+    if(datedNotice){
+      const started=Date.parse(datedNotice.date+"T00:00:00+07:00");
+      const deadline=started+days*86400000;
+      const checkExpiry=setInterval(()=>{if(Date.now()>=deadline){root.querySelector("[data-show-notice]")?.remove();clearInterval(checkExpiry)}},60000);
+    }
   }
 
   Promise.all([

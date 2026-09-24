@@ -173,7 +173,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
     shell.classList.remove("is-static");
 
     const one = items.map(x =>
-      "<span>" + safe(x[0]) + "</span><b>" + safe(x[1]) + "</b><i>•</i>"
+      "<span>" + safe(x[0]) + "</span><b>" +
+      (x[2] ? '<a href="' + safe(x[2]) + '">' + safe(x[1]) + "</a>" : safe(x[1])) +
+      "</b><i>•</i>"
     ).join("");
     track.innerHTML = one + one;
 
@@ -436,11 +438,13 @@ function freshnessText(iso, prefix = "Cập nhật") {
     getJson(SRC.critical),
     getJson(SRC.marineOps),
     getAirport(),
-    getText(SRC.airportHistoryBase + "/" + vnDateKey() + "/events.jsonl")
-  ]).then(([c, m, a, e]) => {
+    getText(SRC.airportHistoryBase + "/" + vnDateKey() + "/events.jsonl"),
+    getJson("data/operational-notices.json")
+  ]).then(([c, m, a, e, n]) => {
     const critical = c.status === "fulfilled" ? c.value : null;
     const marine = m.status === "fulfilled" ? m.value : null;
     const airport = a.status === "fulfilled" ? a.value : null;
+    const notices = n.status === "fulfilled" ? n.value : null;
 
     const vvpq = critical?.actual?.vvpq || null;
     const dd = critical?.points?.duong_dong || null;
@@ -517,8 +521,6 @@ function freshnessText(iso, prefix = "Cập nhật") {
         slides.push({...cfg, _key:key});
       };
 
-      // Date-specific operator cancellations outrank general evening tips.
-      if(localHint?.priority==="operational")push({...localHint});
       const currentCriticalAge = ageMinutes(criticalStamp);
       if (critical && currentCriticalAge <= 90 && (hasHighConvective || hasElevatedConvective || observedRain)) {
         push({
@@ -883,16 +885,27 @@ function freshnessText(iso, prefix = "Cập nhật") {
       });
     }
     const topAlert = quickAlerts.sort((a,b) => b.priority - a.priority)[0] || null;
-    const tickerItems = [];
-    if (topAlert) tickerItems.push(["LƯU Ý", topAlert.text]);
-    tickerItems.push(
+    const tickerBaseItems = [];
+    if (topAlert) tickerBaseItems.push(["LƯU Ý", topAlert.text]);
+    tickerBaseItems.push(
       ["THỜI TIẾT", critical ? weatherPrimary + " · " + (criticalAge > 90 ? "cần cập nhật" : weatherSource) : "chưa có thông tin mới"],
       ["BIỂN NAM ĐẢO", seaHs != null ? fmt(seaHs) + " m" : "chưa có thông tin mới"],
       ["CANO", marine ? stateText(canoState) : "chưa có cập nhật mới"],
       ["SÂN BAY", !airportAvailable ? "chưa có tin mới lúc này" : airportWatch.count ? "hoạt động ổn định · " + airportWatch.count + " cảnh báo cần chú ý" : "hoạt động ổn định"],
       ["HOÀNG HÔN", sunset]
     );
-    renderTicker(tickerItems, topAlert?.level || "normal");
+    // One line in the existing header ticker, scoped to the affected show date.
+    let lastTickerDay = "";
+    const refreshDatedTicker = () => {
+      const today = vnDateKey();
+      if(today === lastTickerDay)return;
+      lastTickerDay = today;
+      const canceled = (notices?.notices || []).find(x => x.status === "CANCELLED" && x.date === today);
+      const datedLine = canceled ? [["SHOW TỐI NAY", canceled.title + " · Xem thông báo", "news/"]] : [];
+      renderTicker([...datedLine,...tickerBaseItems], canceled ? "watch" : (topAlert?.level || "normal"));
+    };
+    refreshDatedTicker();
+    setInterval(refreshDatedTicker,60000);
 
     const pulseDot = document.querySelector(".island-pulse .live-dot");
     if (pulseDot) {

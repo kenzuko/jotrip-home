@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "timezone": "Asia/Ho_Chi_Minh",
-  "policy": "Only dated operator/partner notices; never infer cancellation for other dates or shows. Expire at the end of the local date.",
+  "policy": "Cancellation applies only to its event date. The homepage's small ticker hides at the end of that local day. The news page and show detail display the notice for three local calendar days, then hide it automatically.",
   "notices": [
     {
       "id": "thvn-2026-09-24-2015",
@@ -16,5 +16,6 @@
       "source_type": "OPERATOR_PARTNER_NOTICE",
       "valid_until": "2026-09-25T00:00:00+07:00"
     }
-  ]
+  ],
+  "retention_days": 3
 }
