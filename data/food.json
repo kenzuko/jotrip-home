@@ -314,8 +314,8 @@
         "#am-thuc-phu-quoc",
         "#banh-canh-ca-thu"
       ],
-      "origin": "Món này thường nằm trong gợi ý ăn sáng ở Phú Quốc; hương vị còn tùy mẻ cá và cách nấu của quán.",
-      "why_name": "Bánh canh cá thu gọi tên sợi bánh canh và phần cá thu hoặc chả cá thu trong tô.",
+      "origin": "Bánh canh cá thu được các trang giới thiệu du lịch Phú Quốc gợi ý cho bữa sáng; cách nấu cá và nước dùng thay đổi theo quán.",
+      "why_name": "Tên món ghép tên sợi bánh với phần cá thu hoặc chả cá thu trong tô.",
       "ingredients": [
         "Cá thu",
         "bánh canh",
@@ -361,8 +361,8 @@
         "#am-thuc-phu-quoc",
         "#banh-canh-ghe"
       ],
-      "origin": "Đây là kiểu bánh canh hải sản có mặt trong các gợi ý ẩm thực Phú Quốc; cỡ ghẹ và phần ăn thay đổi theo quán.",
-      "why_name": "Tên món cho biết hai phần chính: sợi bánh canh và ghẹ.",
+      "origin": "Món bánh canh hải sản thường xuất hiện trong danh sách món nên thử ở Phú Quốc; nguồn ghẹ và cách nấu theo từng quán.",
+      "why_name": "Tên gọi nêu hai thành phần chính: bánh canh và ghẹ.",
       "ingredients": [
         "Ghẹ",
         "bánh canh",
@@ -408,8 +408,8 @@
         "#am-thuc-phu-quoc",
         "#hu-tieu-muc"
       ],
-      "origin": "Hủ tiếu mực không riêng Phú Quốc; đưa vào đây như lựa chọn bữa sáng hoặc bữa trưa dễ gặp trên đảo.",
-      "why_name": "Tên gọi nêu hai thành phần dễ nhận ra: hủ tiếu và mực.",
+      "origin": "Hủ tiếu mực không riêng Phú Quốc; đây là lựa chọn dễ gặp trong thực đơn ăn sáng trên đảo.",
+      "why_name": "Tên món cho biết loại sợi và nguyên liệu chính: hủ tiếu ăn cùng mực.",
       "ingredients": [
         "Mực",
         "hủ tiếu",
@@ -455,8 +455,8 @@
         "#am-thuc-phu-quoc",
         "#bun-rieu"
       ],
-      "origin": "Bún riêu phổ biến ở nhiều vùng; công thức và topping tại Phú Quốc tùy quán.",
-      "why_name": "Tên gọi nhắc đến phần riêu cua ăn cùng bún.",
+      "origin": "Bún riêu là món quen thuộc ở nhiều vùng, không phải đặc sản riêng của Phú Quốc; phiên bản trên đảo tùy quán.",
+      "why_name": "Tên gọi nhắc phần riêu cua ăn cùng bún.",
       "ingredients": [
         "Bún",
         "riêu cua",
@@ -502,8 +502,8 @@
         "#am-thuc-phu-quoc",
         "#banh-mi-cha-ca"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Bánh mì chả cá là món ăn sáng tiện ở nhiều tỉnh thành; nhân chả và rau ăn kèm tùy nơi bán.",
+      "why_name": "Tên gọi mô tả bánh mì kẹp chả cá.",
       "ingredients": [
         "Bánh mì",
         "chả cá",
@@ -552,8 +552,8 @@
         "#am-thuc-phu-quoc",
         "#banh-mi-op-la"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Bánh mì ốp la là món sáng quen thuộc, không riêng Phú Quốc; có thể gọi ở nhiều tiệm bánh mì trên đảo.",
+      "why_name": "“Ốp la” chỉ cách chiên trứng; món thường là bánh mì ăn cùng trứng ốp la.",
       "ingredients": [
         "Bánh mì",
         "trứng",
@@ -604,8 +604,8 @@
         "#am-thuc-phu-quoc",
         "#xoi-man"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Xôi mặn là món ăn sáng phổ biến ở Việt Nam, không mang nguồn gốc riêng của Phú Quốc; topping tùy người bán.",
+      "why_name": "Tên gọi phân biệt phần xôi ăn với topping mặn.",
       "ingredients": [
         "Nếp",
         "topping thay đổi theo quán"
@@ -648,8 +648,8 @@
         "#am-thuc-phu-quoc",
         "#chao-ca"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Cháo cá có nhiều phiên bản ở các vùng biển; loại cá và gia vị trong tô tại Phú Quốc tùy quán.",
+      "why_name": "Tên gọi mô tả cháo nấu cùng cá.",
       "ingredients": [
         "Cá",
         "gạo",
@@ -695,8 +695,8 @@
         "#am-thuc-phu-quoc",
         "#chao-nhum"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Cháo nhum là cách dùng nhum biển trong món cháo nóng; nguồn nguyên liệu và thời điểm có món phụ thuộc mùa, quán.",
+      "why_name": "Tên gọi nêu thành phần chính là nhum biển nấu cùng cháo.",
       "ingredients": [
         "Nhum biển",
         "gạo",
@@ -741,8 +741,8 @@
         "#am-thuc-phu-quoc",
         "#chao-hau"
       ],
-      "origin": "Món này thường được giới thiệu trong các gợi ý ăn sáng ở Phú Quốc; cách nấu mỗi quán có thể khác.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Cháo hàu kết hợp hàu với cháo gạo; đây là món hải sản có thể gặp ở quán cháo hoặc quán hải sản.",
+      "why_name": "Tên gọi mô tả cháo nấu cùng hàu.",
       "ingredients": [
         "Hàu",
         "gạo",
@@ -788,8 +788,8 @@
         "#am-thuc-phu-quoc",
         "#com-ghe-ham-ninh"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Cơm ghẹ thường được nhắc trong các gợi ý ăn hải sản ở Hàm Ninh; kiểu rang, trộn và lượng ghẹ tùy quán.",
+      "why_name": "Tên gọi ghép món cơm với nguyên liệu ghẹ; phần “Hàm Ninh” chỉ khu vực thực khách thường tìm món.",
       "ingredients": [
         "Cơm",
         "thịt ghẹ",
@@ -834,8 +834,8 @@
         "#am-thuc-phu-quoc",
         "#ghe-ham-ninh"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Ghẹ là món hải sản được nhiều thực khách tìm ở Hàm Ninh; cỡ, độ chắc thịt và giá thay đổi theo ngày.",
+      "why_name": "Tên gọi gắn nguyên liệu ghẹ với khu vực Hàm Ninh.",
       "ingredients": [
         "Ghẹ",
         "gia vị chấm"
@@ -878,8 +878,8 @@
         "#am-thuc-phu-quoc",
         "#tom-mu-ni-nuong"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Tôm mũ ni nướng là món hải sản theo nguyên liệu; độ sẵn và giá thay đổi theo ngày, không phải lúc nào cũng có.",
+      "why_name": "Tên gọi nêu loài tôm và cách chế biến nướng.",
       "ingredients": [
         "Tôm mũ ni",
         "gia vị hoặc mỡ hành tùy cách làm"
@@ -922,8 +922,8 @@
         "#am-thuc-phu-quoc",
         "#ca-song-nuong"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Cá sòng nướng là món cá biển thường được làm tại quán hải sản; loài cá và gia vị tùy mẻ, tùy quán.",
+      "why_name": "Tên gọi cho biết cá sòng được chế biến bằng cách nướng.",
       "ingredients": [
         "Cá sòng",
         "gia vị",
@@ -967,8 +967,8 @@
         "#am-thuc-phu-quoc",
         "#ca-mu-hap"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Cá mú hấp là món chế biến theo nguyên liệu và cách làm; gia vị đi kèm tùy thực đơn từng quán.",
+      "why_name": "Tên gọi nêu cá mú và cách hấp; hành gừng là cách nêm thường gặp nhưng có thể thay đổi.",
       "ingredients": [
         "Cá mú",
         "hành",
@@ -1013,8 +1013,8 @@
         "#am-thuc-phu-quoc",
         "#lau-ca-bop"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Lẩu cá bớp là lựa chọn món chung trong các bữa hải sản; rau và vị nước lẩu do từng quán phối.",
+      "why_name": "Tên gọi cho biết món lẩu dùng cá bớp làm nguyên liệu chính.",
       "ingredients": [
         "Cá bớp",
         "rau",
@@ -1060,8 +1060,8 @@
         "#am-thuc-phu-quoc",
         "#muc-trung-nuong"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Mực trứng nướng là món ăn hải sản theo mùa và nguồn hàng; kích cỡ mực thay đổi theo ngày.",
+      "why_name": "Tên gọi ghép loại mực có trứng với cách chế biến nướng.",
       "ingredients": [
         "Mực trứng",
         "gia vị chấm"
@@ -1105,8 +1105,8 @@
         "#am-thuc-phu-quoc",
         "#oc-huong-nuong"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Ốc hương có thể được chế biến nhiều kiểu ở quán hải sản; độ sẵn, cỡ và giá thay đổi theo ngày.",
+      "why_name": "Tên gọi là tên loại ốc; cách nướng hoặc sốt được ghi thêm để phân biệt món.",
       "ingredients": [
         "Ốc hương",
         "gia vị hoặc sốt tùy quán"
@@ -1149,8 +1149,8 @@
         "#am-thuc-phu-quoc",
         "#tom-tich-rang-muoi"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Tôm tích rang muối là món hải sản ở nhiều vùng biển; cách nêm và nguồn hàng tùy quán.",
+      "why_name": "Tên gọi nêu nguyên liệu tôm tích và cách chế biến rang muối.",
       "ingredients": [
         "Tôm tích",
         "muối",
@@ -1196,8 +1196,8 @@
         "#am-thuc-phu-quoc",
         "#hau-nuong-mo-hanh"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Hàu nướng mỡ hành có mặt ở nhiều quán hải sản; topping và nguồn hàu thay đổi theo nơi bán.",
+      "why_name": "Tên món mô tả hàu nướng cùng mỡ hành.",
       "ingredients": [
         "Hàu",
         "hành lá",
@@ -1242,8 +1242,8 @@
         "#am-thuc-phu-quoc",
         "#canh-chua-ca-bop"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Canh chua cá bớp là món cá ăn cùng cơm; rau và nguyên liệu tạo vị chua tùy khẩu vị từng quán.",
+      "why_name": "Tên gọi ghép kiểu canh chua với cá bớp.",
       "ingredients": [
         "Cá bớp",
         "rau",
@@ -1287,8 +1287,8 @@
         "#am-thuc-phu-quoc",
         "#com-chien-hai-san"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Cơm chiên hải sản là món phổ biến ở nhiều điểm du lịch, không riêng Phú Quốc; loại hải sản tùy phần ăn.",
+      "why_name": "Tên gọi mô tả cơm được chiên cùng hải sản.",
       "ingredients": [
         "Cơm",
         "tôm, mực hoặc hải sản khác",
@@ -1347,8 +1347,8 @@
         "#am-thuc-phu-quoc",
         "#ga-ray-nuong"
       ],
-      "origin": "Đây là lựa chọn thường gặp trong các gợi ý ẩm thực Phú Quốc; không phải cách chế biến duy nhất trên đảo.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Gà rẫy Phú Quốc được nhắc trong các gợi ý món địa phương; cách nướng, thời gian chờ và phần ăn tùy cơ sở.",
+      "why_name": "Tên gọi nêu loại gà và cách chế biến nướng.",
       "ingredients": [
         "Gà",
         "gia vị ướp",
@@ -1386,8 +1386,8 @@
         "#am-thuc-phu-quoc",
         "#banh-kheo"
       ],
-      "origin": "Đây là món bánh hoặc món ăn chơi được nhắc trong các gợi ý ẩm thực và đặc sản Phú Quốc.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Bánh khéo là món bánh thủ công được giới thiệu như đặc sản Phú Quốc; hình dáng và nhân khác nhau theo lò.",
+      "why_name": "Tên bánh gợi sự khéo tay trong việc tạo hình những chiếc bánh nhỏ.",
       "ingredients": [
         "Bột",
         "đường",
@@ -1431,8 +1431,8 @@
         "#am-thuc-phu-quoc",
         "#banh-tet-mat-cat"
       ],
-      "origin": "Đây là món bánh hoặc món ăn chơi được nhắc trong các gợi ý ẩm thực và đặc sản Phú Quốc.",
-      "why_name": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
+      "origin": "Bánh tét mật cật là món bánh truyền thống gắn với Phú Quốc; lá mật cật dùng để gói bánh và cách làm có thể khác nhau theo cơ sở.",
+      "why_name": "Tên gọi phân biệt bánh tét được gói bằng lá mật cật.",
       "ingredients": [
         "Nếp",
         "đậu",
