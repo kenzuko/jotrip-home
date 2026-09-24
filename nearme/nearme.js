@@ -275,6 +275,14 @@
     });
   }
 
+  function openingHoursLabel(item){
+    const hours=item.opening_hours;
+    const windows=hours?.windows||hours?.times||[];
+    const schedule=windows.map(x=>[x.start,x.end].filter(Boolean).join('–')+(x.label?' '+x.label:'')).filter(Boolean).join(' · ');
+    if(schedule)return schedule+(hours?.note?' · '+hours.note:'');
+    return item.opening_hours_note|| (item.entity_type==='utility'?'Giờ mở cửa chưa được xác nhận.':'');
+  }
+
   function typeLabel(item){
     if(item.entity_type==="venue")return category(item.utility_type)?.label||item.group||"Địa điểm";
     if(item.entity_type==="hotel")return item.star_rating?"Khách sạn "+item.star_rating+" sao":"Khách sạn";
@@ -345,7 +353,7 @@
         '<div class="near-popup"><strong>'+esc(x.name)+'</strong>'+
         '<span>'+esc(typeLabel(x))+'</span>'+
         (x.address?'<small>'+esc(x.address)+'</small>':"")+
-        (x.opening_hours_note?'<small>'+esc(x.opening_hours_note)+'</small>':"")+
+        (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
         (x.map?.note?'<small>'+esc(x.map.note)+'</small>':"")+
         (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi '+esc(x.phone)+'</a>':"")+
         '</div>'
@@ -438,7 +446,7 @@
         '<span>'+esc([type,distance].filter(Boolean).join(" · "))+'</span>'+
         '<strong>'+esc(x.name)+'</strong>'+
         '<p>'+esc(address)+'</p>'+
-        (x.opening_hours_note?'<small>'+esc(x.opening_hours_note)+'</small>':x.entity_type==="utility"?'<small>Giờ mở cửa chưa được xác nhận.</small>':"")+
+        (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
         (x.map?.note?'<small>'+esc(x.map.note)+'</small>':"")+
         '<div>'+
           (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+
