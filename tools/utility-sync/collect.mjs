@@ -6,7 +6,7 @@ const sources = {
   'pq-tourism': { url: 'https://phuquoc.angiang.gov.vn/phong-ban-chuyen-mon-0', phone: '0297 384 6331' },
   'pq-hcc': { url: 'https://phuquoc.angiang.gov.vn/thong-bao-vv-cong-khai-duong-day-nong-tai-trung-tam-phuc-vu-hanh-chinh-cong', phone: '0297 399 9179' },
   'pqc-hotline': { url: 'https://sunairport.com/en/phuquoc/contact-us', phone: '0984 984 341' },
-  'pqc-lost': { url: 'https://sunairport.com/en/phuquoc/guides/baggage-services', phone: '0984 984 341' }
+  'pqc-lost': { url: 'https://sunairport.com/en/phuquoc/contact-us', phone: '0984 984 341' }
 };
 const directorySources = {
   superdong: 'https://online.superdong.com.vn/Home/Contact',
