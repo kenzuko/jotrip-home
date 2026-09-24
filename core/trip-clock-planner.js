@@ -61,7 +61,7 @@ function plan({items=[],entities=new Map(),nowMinute,sunsetMinute,weekday=0,suns
     latestLeave=effectiveEnd-travel-(Number.isFinite(visitMin)?visitMin:0);
     if(Number.isFinite(cutoff))latestLeave=Math.min(latestLeave,cutoff-travel);
     if(!Number.isFinite(visitMin)||Math.max(w.start,arrive)+visitMin>effectiveEnd||arrive>w.end||nowMinute>latestLeave)continue;
-    eligible=true;summary=w.startLabel+"-"+w.endLabel;
+    eligible=true;summary=Number.isFinite(specialEnd)&&specialEnd<w.end?w.startLabel+"-"+item.full_visit_end_at+" · khung trò chơi":w.startLabel+"-"+w.endLabel;
     const preferred=minute(item.preferred_start);
     if(Number.isFinite(preferred)&&nowMinute<preferred&&preferred+travel+visitMin<=effectiveEnd){
      decision={state:"future",label:"Hợp hơn từ "+hhmm(preferred),nextMin:preferred,endMin:effectiveEnd,remainingMin:effectiveEnd-nowMinute};
