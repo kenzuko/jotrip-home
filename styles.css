@@ -5622,3 +5622,20 @@ body.sheet-open{
 .home-library-footer a:hover,.home-library-footer a:focus-visible{background:#e8f3eb;border-color:#6ea88d}
 @media(max-width:1050px){.home-library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-library-card{min-height:198px}}
 @media(max-width:600px){.hero-knowledge-pill{font-size:12px;padding:9px 12px}.home-library-section{padding-block:23px!important}.home-library-intro{font-size:14px}.home-library-grid{grid-template-columns:1fr;gap:9px}.home-library-card{min-height:0;padding:17px;gap:7px}.home-library-card strong{font-size:20px}.home-library-card small{font-size:13px}.home-library-footer{gap:7px}.home-library-footer a{font-size:12px}}
+
+/* Food editorial visibility: a prominent on-homepage entry and actual dish photos. */
+#top>.food-home-shortcut{grid-column:1/-1;display:flex;align-items:center;gap:16px;min-width:0;min-height:112px;margin:6px 0 2px;overflow:hidden;border:1px solid #e7dacf;border-radius:19px;background:linear-gradient(105deg,#fff5e8,#fffdf9 65%,#f2faf3);box-shadow:0 8px 24px rgba(90,62,38,.05)}
+.food-home-shortcut img{width:168px;height:112px;flex:none;object-fit:cover}
+.food-home-shortcut span{display:flex;flex-direction:column;gap:5px;padding:11px 14px 11px 0;min-width:0}
+.food-home-shortcut small{color:#946046;font-weight:900;letter-spacing:.1em;font-size:11px}
+.food-home-shortcut strong{color:#123d3b;font-size:clamp(17px,2.2vw,23px);line-height:1.16}
+.food-home-shortcut em{font-size:12px;font-style:normal;font-weight:800;color:#23675b}
+#top>.food-now-section{scroll-margin-top:85px}
+.food-now-card{overflow:hidden;padding-top:0}
+.food-now-media{position:relative;margin:0 -18px 7px;min-height:165px;background:#faf4ec;overflow:hidden}
+.food-now-media img{width:100%;height:165px;object-fit:cover}
+.food-now-media figcaption{position:absolute;bottom:9px;left:10px;padding:4px 8px;border-radius:999px;color:#fff;background:rgba(16,47,41,.79);font-size:10px;font-weight:750}
+.food-now-media.is-error img{display:none}
+.food-now-media.is-error:after{content:"Ảnh món đang được cập nhật";display:grid;place-items:center;min-height:165px;color:#8e7360;font-size:12px}
+.food-now-media-empty{display:grid;place-items:center;min-height:165px;background:linear-gradient(135deg,#f9efe0,#f0f6f0);color:#836c5a;font-size:12px}
+@media(max-width:650px){#top>.food-home-shortcut{min-height:88px;gap:12px;margin-top:3px}.food-home-shortcut img{width:112px;height:92px}.food-home-shortcut span{padding:8px 8px 8px 0;gap:4px}.food-home-shortcut small{font-size:10px}.food-home-shortcut strong{font-size:17px}.food-home-shortcut em{font-size:11px}.food-now-media,.food-now-media img{height:175px}}

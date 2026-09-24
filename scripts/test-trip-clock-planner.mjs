@@ -30,6 +30,6 @@ for(const file of ["home-experience-v1.js","home-live-v3.js"]){
  assert.match(s,/Quan sát thêm dự báo trước khi di chuyển/);
 }
 const homepage=readFileSync("index.html","utf8");
-assert.match(homepage,/home-experience-v1.js\?v=20260924-text2/);
+assert.match(homepage,/home-experience-v1.js\?v=20260924-(?:text2|foodimages)/);
 assert.match(homepage,/core\/trip-clock-planner.js\?v=20260924-text2/);
 console.log("CMS Today copy: regression checks PASS");

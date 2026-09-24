@@ -116,12 +116,22 @@
       const r = await fetch("data/food.json?t=" + Date.now(), { cache:"no-store" });
       if (!r.ok) throw new Error(String(r.status));
       const data = await r.json();
+      const visualResponse = await fetch("data/visual-context.json?t=" + Date.now(), {cache:"no-store"}).catch(() => null);
+      const visuals = visualResponse?.ok ? await visualResponse.json().catch(() => ({})) : {};
       const plan = mealPlan(data.dishes || []);
       if (context) context.textContent = plan.label;
       if (!plan.rows.length) throw new Error("empty");
       host.innerHTML = plan.rows.slice(0,3).map(x => {
         const safety = (x.allergen_flags || []).slice(0,2).map(a => a.label).join(" · ");
-        return '<a class="food-now-card" href="food/article.html?id='+encodeURIComponent(x.id)+'">'+
+        const pictures = visuals?.food?.[x.id]?.images || [];
+        const picture = pictures.find(img => img?.url && img.hero_eligible !== false);
+        const photo = picture
+          ? '<figure class="food-now-media"><img src="'+esc(picture.url)+'" alt="'+esc(picture.alt || x.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')"><figcaption>'+esc(picture.scope === "exact_subject" ? "Ảnh món" : "Ảnh minh họa")+'</figcaption></figure>'
+          : x.category === "seafood"
+            ? '<figure class="food-now-media food-now-media-context"><img src="/assets/media/jotrip-grilled-squid-2025.jpg" alt="Hải sản nướng - ảnh minh họa chung, không phải món đang giới thiệu" loading="lazy" decoding="async"><figcaption>Ảnh hải sản minh họa</figcaption></figure>'
+            : '<figure class="food-now-media food-now-media-empty"><span>Ảnh món đang bổ sung</span></figure>';
+        return '<a class="food-now-card"' href="food/article.html?id='+encodeURIComponent(x.id)+'">'+
+          photo+
           '<span>'+(x.category === "seafood" ? "HẢI SẢN" : "MÓN ĐỊA PHƯƠNG")+'</span>'+
           '<strong>'+esc(x.name)+'</strong>'+
           '<p>'+esc(x.intro || "")+'</p>'+
