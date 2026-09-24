@@ -805,18 +805,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
       airportLoaded ? freshnessText(airportStamp) : "Chưa có tin mới"
     );
 
-    const tonightMinute = vnClockParts().minutes;
-    let tonightPrimary = "Còn nhiều lựa chọn";
-    let tonightContext = "Show theo giờ · chợ đêm · đi dạo";
-    if (tonightMinute >= 21 * 60) {
-      tonightPrimary = "Giờ này hợp đi nhẹ hơn";
-      tonightContext = "Chợ đêm · ăn uống · đi dạo";
-    }
-    if (tonightMinute >= 23 * 60) {
-      tonightPrimary = "Muộn rồi, nên chọn chỗ gần";
-      tonightContext = "Xem giờ mở cửa trước khi đi";
-    }
-    setLive("tonight", tonightPrimary, tonightContext, "info", "Theo giờ Phú Quốc");
+    const trafficPrimary = "Xem tình hình đi lại";
+    const trafficContext = "Xe buýt · tàu · phà theo ngày";
+    setLive("tonight", trafficPrimary, trafficContext, "info", "Mở lịch theo ngày");
 
     const quickAlerts = [];
     const weatherFreshForAlert = !!critical && criticalAge <= 90;
