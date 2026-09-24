@@ -64,6 +64,12 @@ const banned=[
 ];
 
 const violations=[];
+const knowledge=JSON.parse(fs.readFileSync("data/knowledge/objects.json","utf8"));
+const ready=knowledge.objects.filter(x=>x.status==="READY_PUBLIC");
+const untranslatedTitles=new Set(["Airport transfer","Pharmacy","Clinic / Hospital","Toilet","Parking","Fuel stations","Minimart / convenience store","Emergency numbers & practical help","Snorkeling","Diving","Night Market","Safari visit","VinWonders visit","Visit fish sauce house / pepper farm","Kayak","Beach day","Sunset watching","Sunrise watching","Cable car Hòn Thơm","Bãi Trường trước và sau resort development"]);
+for(const item of ready)if(untranslatedTitles.has(item.title))violations.push({file:"data/knowledge/objects.json",phrase:"Untranslated public title: "+item.title});
+const stories=JSON.parse(fs.readFileSync("data/content.json","utf8"));
+for(const story of stories.stories||[])for(const section of story.sections||[])if(/^open phu quoc note$/i.test(section.heading||""))violations.push({file:"data/content.json",phrase:"Internal note heading: "+section.heading});
 for(const file of files){
   if(!fs.existsSync(file))continue;
   const text=fs.readFileSync(file,"utf8");

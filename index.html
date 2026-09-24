@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#ffffff">
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
-  <meta name="description" content="Open Phu Quoc - thông tin miễn phí, trực quan và thực dụng về Phú Quốc: tình hình đảo, sự kiện, di chuyển, điểm đến và câu chuyện địa phương.">
+  <meta name="description" content="Thời tiết, đi lại, điểm đến và chuyện đang diễn ra ở Phú Quốc - để bạn chọn điều cần cho hôm nay.">
   <link rel="icon" href="assets/favicon.png" type="image/png">
   <link rel="stylesheet" href="styles.css?v=20260923-knowledge">
   <link rel="canonical" href="https://openphuquoc.com/">
@@ -91,7 +91,7 @@
       <div class="hero-copy">
         <p class="hero-kicker">OPEN PHU QUOC</p>
         <h1>Phú Quốc,<br>ngay lúc này.</h1>
-        <p>Xem hôm nay đảo đang thế nào, có gì đang diễn ra, nên đi đâu và những điều cần biết trước khi lên đường.</p>
+        <p>Xem thời tiết, chuyện đi lại và những nơi đáng ghé hôm nay. Chọn điều bạn cần rồi lên đường.</p>
 
         <div class="search-shell">
           <form class="search" role="search" aria-controls="searchResults">
@@ -133,23 +133,23 @@
 
       <a href="weather/" class="live-item" data-live="weather">
         <span>Thời tiết</span><strong>--</strong><small>Thời tiết lúc này</small>
-        <time data-live-freshness>Chờ một chút</time><b>Xem thời tiết →</b>
+        <time data-live-freshness>Đang lấy thông tin...</time><b>Xem thời tiết →</b>
       </a>
       <a href="weather/#marine" class="live-item" data-live="sea">
         <span>Biển</span><strong>--</strong><small>Biển hôm nay</small>
-        <time data-live-freshness>Chờ cập nhật</time><b>Xem tình hình biển →</b>
+        <time data-live-freshness>Chưa có thông tin mới</time><b>Xem tình hình biển →</b>
       </a>
       <a href="airport/" class="live-item" data-live="airport">
         <span>Sân bay</span><strong>--</strong><small>Các chuyến hôm nay</small>
-        <time data-live-freshness>Chờ cập nhật</time><b>Xem chuyến bay →</b>
+        <time data-live-freshness>Chưa có thông tin mới</time><b>Xem chuyến bay →</b>
       </a>
       <a href="cano/" class="live-item" data-live="cano">
         <span>Cano</span><strong>--</strong><small>Cano Nam đảo hôm nay</small>
-        <time data-live-freshness>Chờ cập nhật</time><b>Xem cano →</b>
+        <time data-live-freshness>Chưa có thông tin mới</time><b>Xem cano →</b>
       </a>
       <a href="transit/" class="live-item" data-live="ferry">
         <span>Tàu & Phà</span><strong>--</strong><small>Tàu & phà hôm nay</small>
-        <time data-live-freshness>Chờ một chút</time><b>Xem lịch tàu →</b>
+        <time data-live-freshness>Đang lấy thông tin...</time><b>Xem lịch tàu →</b>
       </a>
       <a href="#happening" class="live-item" data-live="tonight">
         <span>Tối nay</span><strong>--</strong><small>Show, chợ đêm và những lựa chọn còn kịp</small>
@@ -164,7 +164,7 @@
       </div>
       <div class="now-card-copy">
         <h2 data-now-title>Phú Quốc lúc này</h2>
-        <p data-now-note>Mỗi thời điểm trong ngày sẽ hợp với một kiểu đi khác nhau.</p>
+        <p data-now-note>Xem những lựa chọn vẫn kịp làm từ giờ tới tối.</p>
       </div>
       <div class="now-card-actions">
         <a data-now-primary href="#happening">Xem hôm nay →</a>
@@ -186,7 +186,7 @@
           <div class="trip-day-left">
             <small>PHẦN NGÀY CÒN LẠI</small>
             <b id="tripClockDaylight">...</b>
-            <p id="tripClockDayNote">Mỗi khung giờ sẽ hợp với một kiểu đi khác nhau.</p>
+            <p id="tripClockDayNote">Chọn việc còn kịp làm từ giờ tới tối.</p>
           </div>
           <div class="trip-sunset"><small>Hoàng hôn bờ Tây</small><b id="tripClockSunset">--:--</b></div>
         </article>
@@ -196,7 +196,7 @@
 
     <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle">
       <div class="section-heading compact-heading"><div><p class="eyebrow">TIN & CẬP NHẬT PHÚ QUỐC</p><h2 id="hotNowTitle">Có gì mới ở Phú Quốc?</h2></div><a href="news/">Xem tất cả cập nhật →</a></div>
-      <div class="hot-now-list" id="hotNowList"><div class="surface-loading">Đang mở những cập nhật mới trên đảo...</div></div>
+      <div class="hot-now-list" id="hotNowList"><div class="surface-loading">Đang tìm cập nhật mới...</div></div>
     </section>
 
     <section class="section home-library-section" id="home-library" aria-labelledby="homeLibraryTitle">
@@ -204,7 +204,7 @@
         <div><p class="eyebrow">CẨM NANG PHÚ QUỐC / 128 BÀI ĐÃ XUẤT BẢN</p><h2 id="homeLibraryTitle">Đi chơi dễ hơn khi hiểu nơi mình đến.</h2></div>
         <a href="guide/knowledge.html">Mở tất cả 128 bài →</a>
       </div>
-      <p class="home-library-intro">Bãi biển, món ăn, làng nghề và những điều nên biết trước khi đi. Chọn chuyện bạn quan tâm, đọc ngay trên Open Phu Quoc.</p>
+      <p class="home-library-intro">Từ bãi biển, món ăn tới chuyện làng nghề - chọn điều bạn tò mò và đọc ngay ở đây.</p>
       <div class="home-library-grid">
         <a class="home-library-card" href="guide/article.html?id=knowledge_014_bai-sao">
           <span class="home-library-topic">BÃI BIỂN</span><strong>Bãi Sao hôm nào đẹp?</strong>
@@ -243,9 +243,9 @@
       </div>
       <div class="food-now-head">
         <strong id="foodNowContext">Gợi ý theo giờ Phú Quốc</strong>
-        <span id="foodNowMeta">Gợi ý món theo giờ Phú Quốc. Quán gần bạn chỉ hiện khi mình biết rõ vị trí và giờ mở cửa.</span>
+        <span id="foodNowMeta">Mình chỉ gợi ý quán gần bạn khi đã biết rõ vị trí và giờ quán bán.</span>
       </div>
-      <div class="food-now-grid" id="foodNowGrid"><div class="surface-loading">Đang chọn món phù hợp...</div></div>
+      <div class="food-now-grid" id="foodNowGrid"><div class="surface-loading">Đang tìm món...</div></div>
     </section>
 
     <section class="section near-me-section" id="near-me" aria-labelledby="nearMeTitle">
@@ -270,20 +270,20 @@
     </section>
 
     <section class="section discover-section" id="discover" aria-labelledby="discoverTitle">
-      <div class="section-heading compact-heading"><div><p class="eyebrow">KHÁM PHÁ / HUYỀN TÍCH / TÒ MÒ</p><h2 id="discoverTitle">Có những chuyện ở đảo nghe qua tưởng nhỏ, nhưng biết rồi lại nhớ.</h2></div><a href="stories/">Mở câu chuyện →</a></div>
+      <div class="section-heading compact-heading"><div><p class="eyebrow">KHÁM PHÁ / HUYỀN TÍCH / TÒ MÒ</p><h2 id="discoverTitle">Mấy chuyện nhỏ giúp bạn hiểu Phú Quốc hơn.</h2></div><a href="stories/">Mở câu chuyện →</a></div>
       <div class="curiosity-rail" id="curiosityRail"></div>
     </section>
 
     <section class="section island-stories-section" id="island-stories" aria-labelledby="islandStoriesTitle">
       <div class="section-heading compact-heading">
-        <div><p class="eyebrow">PHÚ QUỐC KHÔNG CHỈ CÓ BIỂN</p><h2 id="islandStoriesTitle">Ngoài biển đẹp, Phú Quốc còn nhiều chuyện đáng nghe.</h2></div>
+        <div><p class="eyebrow">PHÚ QUỐC KHÔNG CHỈ CÓ BIỂN</p><h2 id="islandStoriesTitle">Phú Quốc còn nhiều điều để tìm hiểu ngoài bãi biển.</h2></div>
         <a href="stories/">Đọc thêm câu chuyện →</a>
       </div>
-      <div class="island-story-grid" id="islandStoryGrid"><div class="surface-loading">Đang mở những câu chuyện của đảo...</div></div>
+      <div class="island-story-grid" id="islandStoryGrid"><div class="surface-loading">Đang chọn chuyện để kể...</div></div>
     </section>
 
     <section class="section explore-more-section" id="explore-more" aria-labelledby="exploreMoreTitle">
-      <div class="section-heading compact-heading"><div><p class="eyebrow">KHÁM PHÁ THÊM</p><h2 id="exploreMoreTitle">Đi sâu hơn khi bạn cần.</h2></div></div>
+      <div class="section-heading compact-heading"><div><p class="eyebrow">KHÁM PHÁ THÊM</p><h2 id="exploreMoreTitle">Tìm thêm khi bạn muốn biết rõ hơn.</h2></div></div>
       <div class="explore-more-grid">
         <a href="places/"><span>⌖</span><strong>Điểm đến</strong><small>Điểm đến và trải nghiệm</small></a>
         <a href="food/"><span>◎</span><strong>Ẩm thực</strong><small>Món địa phương và cách ăn</small></a>
@@ -307,7 +307,7 @@
   <footer class="site-footer">
     <div class="footer-brand">
       <img src="assets/logo-master.png" width="380" height="361" alt="Open Phu Quoc" decoding="sync">
-      <div><strong>Nhìn rõ hơn. Khám phá sâu hơn. Mở ra nhiều hơn.</strong><p>Mở trang khi cần biết đảo đang thế nào, đi đâu cho thuận đường hoặc có chuyện gì nên xem lại trước khi lên xe.</p><small>Được xây dựng tại Phú Quốc bởi JoTrip.</small></div>
+      <div><strong>Biết đảo hôm nay có gì, rồi chọn chuyến đi hợp với mình.</strong><p>Mở trang khi cần biết đảo đang thế nào, đi đâu cho thuận đường hoặc có chuyện gì nên xem lại trước khi lên xe.</p><small>Được xây dựng tại Phú Quốc bởi JoTrip.</small></div>
     </div>
     <div class="footer-groups">
       <nav><strong>Khám phá</strong><a href="explore/">Theo vùng và nhu cầu</a><a href="places/">Điểm đến</a><a href="hotels/">Nơi ở</a><a href="food/">Ăn uống</a></nav>
