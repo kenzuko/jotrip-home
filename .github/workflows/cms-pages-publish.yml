@@ -187,7 +187,7 @@ jobs:
             if(!homepage.body.includes("core/trip-clock-planner.js?v=20260924-text2")||!homepage.body.includes("home-foundation-v2.js?v=20260924-text2"))
               throw Error("CMS homepage is still serving an older trip-clock version");
             const planner=await get("/core/trip-clock-planner.js");
-            if(!planner.body.includes("OpenPQTripClockPlanner")||!planner.body.includes("planning_travel_min"))
+            if(!planner.body.includes("OpenPQTripClockPlanner")||!planner.body.includes("function plan("))
               throw Error("CMS trip-clock planner asset not deployed");
             const library=await get("/data/views/knowledge-public.json");
             const data=JSON.parse(library.body);
