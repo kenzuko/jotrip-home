@@ -5,7 +5,7 @@ const spatial=fs.readFileSync("weather/spatial-lab.js","utf8");
 const locationIndex=JSON.parse(fs.readFileSync("data/views/location-index.json","utf8"));
 
 const mapPoints=new Map(
-  [...spatial.matchAll(/^\\s{2}([a-z][a-z0-9_]*):\\{lat:([-0-9.]+),lon:([-0-9.]+)/gm)]
+  [...spatial.matchAll(/^\s{2}([a-z][a-z0-9_]*):\{lat:([-0-9.]+),lon:([-0-9.]+)/gm)]
     .map(([,id,lat,lon])=>[id,{lat:Number(lat),lon:Number(lon)}])
 );
 const rad=x=>x*Math.PI/180;
