@@ -2662,3 +2662,11 @@ footer{font-size:9.5px}
 .quick-watch-item p{font-size:11.5px;line-height:1.55}
 .quick-watch-foot{font-size:10.5px;line-height:1.5}
 @media(max-width:640px){.quick-watch-item b{font-size:12.5px}.quick-watch-item p{font-size:11px}.quick-watch-more summary{font-size:11.5px}}
+
+/* Delayed model reference is informative, never a green safe-to-go card. */
+.today-reference-notice{grid-column:1/-1;display:grid;gap:6px;padding:14px 16px;border:1px solid #e7d29b;border-radius:14px;background:#fff9eb;color:#76541c}
+.today-reference-notice b{font-size:14px;line-height:1.4}
+.today-reference-notice span{font-size:12px;line-height:1.55}
+.today-decision-card.reference-only{background:#fafafa;border:1px dashed #c6d2d8;box-shadow:none}
+.today-decision-card.reference-only b{color:#76541c;font-size:12px}
+.today-decision-card.reference-only .today-mini{color:#354a59}
