@@ -10,7 +10,7 @@ const rows=(h,m=0,wx="unknown",day=4)=>plan.plan({items:support.trip_clock.items
 const get=(h,m,id,wx="unknown",day=4)=>rows(h,m,wx,day).find(x=>x.item.entity_id===id);
 const safari="place_vinpearl_safari",vin="place_vinwonders",temple="place_ho_quoc",dinh="place_dinh_cau",once="activity_once_show";
 assert.equal(get(13,1,safari).decision.label,"Safari đóng cửa lúc 16:00");
-assert.match(get(13,1,safari).note,/16:00/);
+assert.match(get(13,1,safari).note,/2 giờ 59 phút/);
 assert.equal(get(16,0,safari).eligible,false);
 assert.match(get(13,1,vin).note,/17:00/);
 assert.match(get(13,1,vin).note,/18:45/);
