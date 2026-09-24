@@ -805,12 +805,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
       airportLoaded ? freshnessText(airportStamp) : "Chưa có tin mới"
     );
 
-    const tonightMinute = vnClockParts().minutes;
-    const tonightPrimary = tonightMinute >= 21 * 60
-      ? "Xem chuyến về trước khi muộn"
-      : "Xem giờ đi lại tối nay";
-    const tonightContext = "Xe buýt · tàu · phà theo lịch";
-    setLive("tonight", tonightPrimary, tonightContext, "info", "Mở lịch theo ngày");
+    const trafficPrimary = "Xem tình hình đi lại";
+    const trafficContext = "Xe buýt · tàu · phà theo ngày";
+    setLive("tonight", trafficPrimary, trafficContext, "info", "Mở lịch theo ngày");
 
     const quickAlerts = [];
     const weatherFreshForAlert = !!critical && criticalAge <= 90;
