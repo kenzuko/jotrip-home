@@ -1,11 +1,11 @@
 name: CMS Weather Standalone
 on:
   push:
-    branches: [main, feat/weather-standalone-cms-20260923, fix/cms-weather-edge-ecosystem-20260923]
-    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json", ".github/workflows/cms-weather-standalone.yml"]
+    branches: [main, feat/weather-standalone-cms-20260923, fix/cms-weather-edge-ecosystem-20260923, "fix/weather-*"]
+    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-wind-guard.test.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json", ".github/workflows/cms-weather-standalone.yml"]
   pull_request:
     branches: [main]
-    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json"]
+    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-wind-guard.test.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json"]
   workflow_dispatch:
   schedule:
     - cron: "7,27,47 * * * *"
@@ -44,6 +44,8 @@ jobs:
           node --check weather/weather-connection.js
           node scripts/weather-edge-smoke.mjs
           node --check weather/weather-v2.js
+          node --check weather/weather-wind-guard.js
+          node scripts/weather-wind-guard.test.mjs weather/weather-wind-guard.js
           node --check weather/weather-scene-v3.js
           node --check weather/spatial-lab.js
           PYTHONPATH=scripts/weather-engine python -m compileall -q scripts/weather-engine/weather
