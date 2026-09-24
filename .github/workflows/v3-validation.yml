@@ -24,6 +24,10 @@ jobs:
           node scripts/build-search-index.mjs
       - name: Validate data contracts
         run: node scripts/validate-data.mjs
+      - name: Test Transit compact mobile display
+        run: |
+          node scripts/test-transit-mobile-ui.mjs
+          node --check transit/app.js
       - name: Test CMS attraction timing decision
         run: |
           node scripts/validate-home-support.mjs

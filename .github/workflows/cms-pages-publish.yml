@@ -19,6 +19,8 @@ on:
       - "core/trip-clock-planner.js"
       - "data/home-support.json"
       - "data/entities/**"
+      - "transit/**"
+      - "scripts/test-transit-mobile-ui.mjs"
       - "scripts/test-trip-clock-planner.mjs"
       - "scripts/validate-home-knowledge.mjs"
       - "admin/**"
@@ -63,6 +65,8 @@ jobs:
           node scripts/test-nearme-venues.mjs
           node scripts/validate-home-support.mjs
           node scripts/test-trip-clock-planner.mjs
+          node scripts/test-transit-mobile-ui.mjs
+          node --check transit/app.js
           node --check core/trip-clock-planner.js
           node --check home-foundation-v2.js
           mkdir -p dist/data/meta
