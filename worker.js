@@ -3,7 +3,7 @@ import {onRequestGet as cmsWeatherFeedbackRecent} from "./functions/api/weather/
 import {handleWeatherData,prewarmWeatherEdge} from "./functions/_shared/weather-edge.js";
 import {captureWeatherAlerts,readWeatherAlertHistory} from "./functions/_shared/weather-alert-runtime.js";
 const SITE_ORIGIN = "https://openphuquoc.com";
-const DEFAULT_IMAGE = SITE_ORIGIN + "/assets/logo-master.png";
+const DEFAULT_IMAGE = SITE_ORIGIN + "/assets/share-card.svg";
 
 function cleanText(value, fallback = "") {
   return String(value ?? fallback).replace(/\s+/g, " ").trim();
