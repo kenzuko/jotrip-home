@@ -113,28 +113,74 @@ jobs:
           cd "$RUNNER_TEMP/cms-pages"
           npx --yes wrangler@4.136.3 pages deploy "$GITHUB_WORKSPACE/dist" --project-name="$PROJECT_NAME" --branch=main
 
-      - name: Verify CMS commit, library and admin navigation
+      - name: Verify CMS commit, library, Weather and admin after CDN propagation
         if: steps.deploy.outcome == 'success'
         env:
           EXPECTED_PUBLIC_COUNT: ${{ steps.build.outputs.public_count }}
         run: |
           node --input-type=module <<'NODE'
+          import {readFile} from "node:fs/promises";
           const expected=process.env.GITHUB_SHA;
           const expectedCount=Number(process.env.EXPECTED_PUBLIC_COUNT);
-          const url="https://cms.openphuquoc.com/data/meta/cms-build.json?sha="+expected;
-          const response=await fetch(url,{headers:{"Cache-Control":"no-cache"},signal:AbortSignal.timeout(12000)});
-          const build=await response.json();
-          if(!response.ok||build.source_commit!==expected)throw new Error("CMS live SHA mismatch: "+String(build.source_commit||"missing")+"; expected "+expected);
-          const library=await fetch("https://cms.openphuquoc.com/data/views/knowledge-public.json?sha="+expected,{headers:{"Cache-Control":"no-cache"},signal:AbortSignal.timeout(12000)});
-          const data=await library.json();
-          if(!library.ok||data.count!==expectedCount||data.objects?.length!==expectedCount)throw new Error("CMS live article inventory mismatch");
-          const page=await fetch("https://cms.openphuquoc.com/guide/knowledge.html?sha="+expected,{headers:{"Cache-Control":"no-cache"}});
-          if(!page.ok||!((await page.text()).includes('data-knowledge-page="library"')))throw new Error("CMS knowledge page probe failed");
-          const admin=await fetch("https://cms.openphuquoc.com/admin/?sha="+expected,{headers:{"Cache-Control":"no-cache"}});
-          const adminHtml=await admin.text();
-          const expectedAsset=(await (await import("node:fs/promises")).readFile("dist/admin/index.html","utf8")).match(/admin\.js\?v=[0-9]+/)?.[0];
-          if(!admin.ok||!expectedAsset||!adminHtml.includes(expectedAsset))throw new Error("CMS admin asset probe failed");
-          console.log("Verified CMS live source commit and representative routes:",expected);
+          const root="https://cms.openphuquoc.com";
+          const expectedAdmin=(await readFile("dist/admin/index.html","utf8"))
+            .match(/admin\.js\?v=[0-9]+/)?.[0];
+          if(!expectedAdmin||!Number.isInteger(expectedCount))throw Error("Build verification lacks expected CMS metadata");
+          const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+          // A successful Pages upload may reach its *.pages.dev preview before
+          // the custom-domain edge. An immediate custom-domain GET can return
+          // the old SPA fallback HTML instead of the new JSON build marker.
+          async function verify(attempt){
+            const nonce=encodeURIComponent(expected+"-"+attempt);
+            const get=async(path)=>{
+              const r=await fetch(root+path+(path.includes("?")?"&":"?")+"v="+nonce,{
+                headers:{"Cache-Control":"no-cache"},signal:AbortSignal.timeout(15000)
+              });
+              const body=await r.text();
+              if(!r.ok)throw Error(path+" HTTP "+r.status);
+              return {body,type:r.headers.get("content-type")||""};
+            };
+            const marker=await get("/data/meta/cms-build.json");
+            if(!marker.type.includes("json"))throw Error("CMS build marker still routed to "+marker.type);
+            const build=JSON.parse(marker.body);
+            if(build.source_commit!==expected)throw Error("CMS live SHA "+
+              String(build.source_commit||"missing")+" != expected "+expected);
+            const library=await get("/data/views/knowledge-public.json");
+            const data=JSON.parse(library.body);
+            if(data.count!==expectedCount||data.objects?.length!==expectedCount)
+              throw Error("CMS article inventory mismatch, count="+data.count);
+            const guide=await get("/guide/knowledge.html");
+            if(!guide.body.includes('data-knowledge-page="library"'))
+              throw Error("Knowledge library page missing");
+            const admin=await get("/admin/");
+            if(!admin.body.includes(expectedAdmin))throw Error("CMS admin JS build mismatch");
+            const weather=await get("/weather/");
+            if(!weather.body.includes("/weather/weather-v2.js")||
+               !weather.body.includes("/weather/weather-wind-guard.js?v=20260924-qc1"))
+              throw Error("CMS Weather page does not load shared wind-source guard");
+            const guard=await get("/weather/weather-wind-guard.js");
+            if(!guard.body.includes("JoTripWindGuard")||
+               !guard.body.includes("2026.09.24.wind-qc-v1"))
+              throw Error("CMS Weather guard asset not deployed");
+            const runtime=await get("/weather/data/weather-runtime/manifest.json");
+            const manifest=JSON.parse(runtime.body);
+            if(manifest.pipeline_version!=="OPENPQ_CMS_WEATHER_V1")
+              throw Error("CMS independent weather-runtime manifest missing");
+          }
+          let lastError;
+          for(let attempt=1;attempt<=16;attempt++){
+            try{
+              await verify(attempt);
+              console.log("Verified CMS custom domain, build "+expected+
+                ", library "+expectedCount+", Weather guard, runtime and admin on attempt "+attempt);
+              process.exit(0);
+            }catch(error){
+              lastError=error;
+              console.log("CMS propagation check "+attempt+"/16:",error.message);
+              if(attempt<16)await delay(10000);
+            }
+          }
+          throw Error("CMS custom domain did not serve verified build and Weather after CDN propagation: "+lastError?.message);
           NODE
 
       - name: Independently check the live CMS hostname
