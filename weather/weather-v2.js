@@ -1024,21 +1024,15 @@ function renderTodayDecision(){
     if(badge)badge.textContent="BẢN THAM KHẢO · ĐANG TỰ CẬP NHẬT";
     if(meta)meta.textContent="Mô hình "+localTime(engineDashboard.generated_at)+
       " · hệ thống tự nạp bản mới mỗi 2 phút · không dùng để quyết định ra biển";
-    root.innerHTML='<div class="today-reference-notice"><b>Dự báo đang chờ cập nhật</b>'+
-      '<span>Các mốc dưới đây là dự báo mô hình còn hiệu lực về thời gian, nhưng bản tổng hợp đã trễ '+
-      Math.round(snapshotAge)+' phút. Chỉ để tham khảo, không phải cảnh báo hiện tại.</span></div>'+
-      rows.map(r=>{
-        const wind=num(r.wind),gust=safeModelGust(r),rain=num(r.rain),wave=num(r.wave);
-        return '<article class="today-decision-card reference-only">'+
-          '<time>'+esc(phuQuocClock(r.time_iso))+'</time>'+
-          '<b>Mốc mô hình cũ · tham khảo</b>'+
-          '<div class="today-mini">'+
-            '<span>Mưa '+(rain===null?'-':fmt(rain,1)+' mm/3h')+'</span>'+
-            '<span>Gió '+(wind===null?'-':fmt(wind,0)+' km/h')+'</span>'+
-            '<span>Giật '+(gust===null?'-':fmt(gust,0)+' km/h')+'</span>'+
-            '<span>Sóng '+(wave===null?'-':fmt(wave,2)+' m Hs')+'</span>'+
-          '</div></article>';
-      }).join("");
+    // A stale snapshot is useful for transparency, not for a giant row of
+    // seemingly actionable hourly cards. Keep the existing weather icons and
+    // compact card layout for VERIFIED forecasts only.
+    root.innerHTML='<div class="today-reference-notice" role="status">'+
+      '<div class="today-reference-symbol" aria-hidden="true">⏳</div>'+
+      '<div><b>Đang chờ bản dự báo mới</b>'+
+      '<span>Bản tổng hợp trễ '+Math.round(snapshotAge)+
+      ' phút. Không hiển thị các mốc cũ như dự báo hiện tại. '+
+      'Quan trắc tại điểm vẫn được cập nhật riêng.</span></div></div>';
     summaryEl.textContent="Hệ thống đang tự nạp dự báo mới. Số bên dưới là bản mô hình tham khảo, không đánh giá biển an toàn.";
     return;
   }
