@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "source": "vietcombank",
-  "generated_at": "2026-09-24T20:30:24.937Z",
+  "generated_at": "2026-09-24T23:28:09.303Z",
   "points": [
     {
       "at": "2026-08-22T00:00:00+07:00",
@@ -8618,6 +8618,146 @@
     },
     {
       "at": "2026-09-25T03:20:00+07:00",
+      "currency": "USD",
+      "cash_buy": 25770,
+      "transfer_buy": 25800,
+      "sell": 26180
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "AUD",
+      "cash_buy": 17818.42,
+      "transfer_buy": 17998.4,
+      "sell": 18575.15
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "CAD",
+      "cash_buy": 17959.69,
+      "transfer_buy": 18141.1,
+      "sell": 18722.41
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "CHF",
+      "cash_buy": 30766.85,
+      "transfer_buy": 31077.62,
+      "sell": 32073.47
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "CNY",
+      "cash_buy": 3774.45,
+      "transfer_buy": 3812.58,
+      "sell": 3934.75
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "DKK",
+      "cash_buy": null,
+      "transfer_buy": 3886.29,
+      "sell": 4034.97
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "EUR",
+      "cash_buy": 28834.64,
+      "transfer_buy": 29125.9,
+      "sell": 30355.36
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "GBP",
+      "cash_buy": 33524.77,
+      "transfer_buy": 33863.4,
+      "sell": 34948.52
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "HKD",
+      "cash_buy": 3219.95,
+      "transfer_buy": 3252.48,
+      "sell": 3376.91
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "INR",
+      "cash_buy": null,
+      "transfer_buy": 269.54,
+      "sell": 281.14
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "JPY",
+      "cash_buy": 158.37,
+      "transfer_buy": 159.97,
+      "sell": 169.3
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "KRW",
+      "cash_buy": 16.43,
+      "transfer_buy": 18.26,
+      "sell": 19.81
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "KWD",
+      "cash_buy": null,
+      "transfer_buy": 84007.79,
+      "sell": 88081.11
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "MYR",
+      "cash_buy": null,
+      "transfer_buy": 6308.36,
+      "sell": 6445.71
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "NOK",
+      "cash_buy": null,
+      "transfer_buy": 2687.86,
+      "sell": 2801.88
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "RUB",
+      "cash_buy": null,
+      "transfer_buy": 291.8,
+      "sell": 323.02
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "SAR",
+      "cash_buy": null,
+      "transfer_buy": 6882.07,
+      "sell": 7178.38
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "SEK",
+      "cash_buy": null,
+      "transfer_buy": 2569.93,
+      "sell": 2678.94
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "SGD",
+      "cash_buy": 19777.58,
+      "transfer_buy": 19977.35,
+      "sell": 20658.79
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
+      "currency": "THB",
+      "cash_buy": 686.07,
+      "transfer_buy": 762.3,
+      "sell": 794.64
+    },
+    {
+      "at": "2026-09-25T06:15:00+07:00",
       "currency": "USD",
       "cash_buy": 25770,
       "transfer_buy": 25800,
