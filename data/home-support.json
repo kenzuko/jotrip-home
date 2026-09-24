@@ -778,7 +778,9 @@
       "short_teaser": "Số lượng nhìn thấy thay đổi theo thủy triều, thời tiết và từng đoạn bãi. Đừng nhấc chúng lên khỏi nước để chụp hình.",
       "story_type": "NATURE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_starfish_season_2026"
+      ],
       "route": "stories/article.html?id=sao-bien-rach-vem-ngam-trong-nuoc"
     },
     {
@@ -788,7 +790,9 @@
       "short_teaser": "Một phần nhịp làng biển là sửa lưới, chuẩn bị ghe và lo việc trước chuyến biển. Hãy quan sát gọn, đừng cản lối làm việc.",
       "story_type": "LOCAL_CRAFT",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_ham_ninh_2026"
+      ],
       "route": "stories/article.html?id=ham-ninh-nhip-lang-bien"
     },
     {
@@ -798,7 +802,9 @@
       "short_teaser": "Hỏi giá theo phần hay theo trọng lượng, khẩu phần gồm gì và phí chế biến nếu có. Rõ trước khi gọi thì bữa ăn vui hơn.",
       "story_type": "FOOD_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_night_market_20260809"
+      ],
       "route": "stories/article.html?id=cho-dem-duong-dong-hoi-gia-truoc-khi-goi"
     },
     {
@@ -808,7 +814,9 @@
       "short_teaser": "Không. Bến cảng gắn cả hoạt động nghề biển và những chuyến đi ra đảo. Quan sát từ nơi an toàn và tránh lối bốc dỡ.",
       "story_type": "PLACE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "pqgov_tourism_zone_2026"
+      ],
       "route": "stories/article.html?id=an-thoi-ben-ca-va-cua-ngo-dao"
     },
     {
@@ -818,7 +826,9 @@
       "short_teaser": "Không. Gió, sóng, rong và lượng khách làm bãi đổi theo ngày. Nhìn tình hình tại chỗ trước khi xuống tắm.",
       "story_type": "NATURE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_bai_sao_2026"
+      ],
       "route": "stories/article.html?id=bai-sao-thay-doi-theo-gio"
     },
     {
@@ -828,7 +838,9 @@
       "short_teaser": "Lượng nước thay đổi theo mùa. Sau mưa, đá có thể trơn và dòng chảy mạnh hơn, nên chọn giày bám tốt và theo lối được phép.",
       "story_type": "NATURE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "handbook_r3"
+      ],
       "route": "stories/article.html?id=suoi-tranh-dep-theo-mua-nuoc"
     },
     {
@@ -838,7 +850,9 @@
       "short_teaser": "Chỉ nên đi theo tuyến được phép. Một số khu vực có quy chế bảo vệ riêng; không hái cây, bắt động vật hay tự mở lối.",
       "story_type": "NATURE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "nbca_phuquoc_national_park_2026"
+      ],
       "route": "stories/article.html?id=vuon-quoc-gia-rung-va-nguon-nuoc"
     },
     {
@@ -848,7 +862,9 @@
       "short_teaser": "Đây là di tích lịch sử gắn với ký ức chiến tranh. Đọc tư liệu và nghe thuyết minh giúp chuyến thăm có chiều sâu hơn.",
       "story_type": "HISTORY_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_prison_2026"
+      ],
       "route": "stories/article.html?id=nha-tu-phu-quoc-di-cham-de-hieu"
     },
     {
@@ -858,7 +874,9 @@
       "short_teaser": "Theo Sun World, hành trình từ An Thới đi qua khu vực Hòn Dừa và Hòn Rỏi trước khi tới Hòn Thơm. Lịch chạy nên kiểm tra trong ngày.",
       "story_type": "PLACE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "sunworld_hon_thom_cable_2026"
+      ],
       "route": "stories/article.html?id=cap-treo-hon-thom-vuot-bien"
     },
     {
@@ -868,7 +886,9 @@
       "short_teaser": "Người ăn tự pha, nếm rồi chỉnh vị theo ý mình. Bún quậy cũng có thể gồm cá, tôm hoặc mực nên nhớ báo dị ứng trước khi gọi.",
       "story_type": "FOOD_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "vietnam_travel_bun_quay_2026"
+      ],
       "route": "stories/article.html?id=bun-quay-tu-pha-chen-cham"
     },
     {
@@ -878,7 +898,9 @@
       "short_teaser": "Đó là ranh giới giữa thị trấn và vùng biển, nơi ghe thuyền và sinh kế ven bờ cùng hiện diện. Quan sát từ vị trí không cản hoạt động.",
       "story_type": "PLACE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_cho_duong_dong_2026"
+      ],
       "route": "stories/article.html?id=cua-song-duong-dong-ge-ra-bien"
     },
     {
@@ -888,7 +910,9 @@
       "short_teaser": "Tín ngưỡng thờ Cá Ông gắn với lòng biết ơn và mong ước bình an khi ra khơi. Lễ Nghinh Ông là sinh hoạt cộng đồng, không phải màn trình diễn.",
       "story_type": "CULTURAL_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_nghinh_ong_2026"
+      ],
       "route": "stories/article.html?id=ca-ong-loi-tri-an-nguoi-di-bien"
     },
     {
@@ -898,7 +922,9 @@
       "short_teaser": "Tên gọi gợi vẻ đẹp tự nhiên của đảo. Muốn hiểu Phú Quốc đầy đủ hơn, hãy nhìn thêm rừng, làng biển và những nghề truyền thống.",
       "story_type": "PLACE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_island_guide_2026"
+      ],
       "route": "stories/article.html?id=vi-sao-goi-phu-quoc-la-dao-ngoc"
     },
     {
@@ -908,7 +934,9 @@
       "short_teaser": "Chợ, một món ăn, bờ biển và khu Dinh Cậu có thể ghép thành buổi tối thong thả. Giờ từng quầy thay đổi, nên xem thông tin mới trước khi đi.",
       "story_type": "PLACE_NOTE",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "visitpq_night_market_20260809"
+      ],
       "route": "stories/article.html?id=duong-dong-sau-5-gio"
     },
     {
@@ -918,7 +946,9 @@
       "short_teaser": "Mắt ghe là một chi tiết dễ nhận ra ở nhiều chiếc ghe miền biển. Bài viết kể cách nhìn chi tiết này cùng nhịp làm việc ở cảng, không biến bến cá thành phim trường.",
       "story_type": "LOCAL_CRAFT",
       "verification_status": "VERIFIED",
-      "source_ids": [],
+      "source_ids": [
+        "handbook_r3"
+      ],
       "route": "stories/article.html?id=nhung-doi-mat-tren-mui-ghe"
     }
   ],

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-21",
+  "generated_at": "2026-09-24",
   "sources": [
     {
       "id": "handbook_r3",
@@ -756,6 +756,136 @@
         "places"
       ],
       "note": "Server-side/address enrichment only. Token must remain in repository secrets; never render or commit it."
+    },
+    {
+      "id": "visitpq_starfish_season_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - mùa sao biển Rạch Vẹm",
+      "url": "https://visitphuquoc.com.vn/en/phu-quoc-starfish-season-and-beautiful-beach-experiences-throughout-the-year-9966",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_TOURISM",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "visitpq_ham_ninh_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - làng chài Hàm Ninh",
+      "url": "https://visitphuquoc.com.vn/vi/ham-ninh-phu-quoc-review-chi-tiet-lang-chai-yen-binh-giua-dao-ngoc-15023",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_TOURISM",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "pqgov_tourism_zone_2026",
+      "type": "OFFICIAL_GOVERNMENT",
+      "label": "Cổng thông tin Phú Quốc - định hướng khu du lịch",
+      "url": "https://phuquoc.angiang.gov.vn/dinh-huong-quy-hoach-cac-khu-du-lich",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_GOVERNMENT",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "visitpq_bai_sao_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - Bãi Sao",
+      "url": "https://visitphuquoc.com.vn/vi/bai-sao-phu-quoc-vi-ngoi-sao-sinh-ra-de-toa-sang-229",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_TOURISM",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "nbca_phuquoc_national_park_2026",
+      "type": "OFFICIAL_GOVERNMENT",
+      "label": "Cục Bảo tồn thiên nhiên và Đa dạng sinh học - Vườn quốc gia Phú Quốc",
+      "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-kien-giang/",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_GOVERNMENT",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "visitpq_prison_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - di tích lịch sử Nhà tù Phú Quốc",
+      "url": "https://visitphuquoc.com.vn/vi/di-tich-lich-su-nha-tu-phu-quoc",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_TOURISM",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "sunworld_hon_thom_cable_2026",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World - tuyến cáp treo Hòn Thơm",
+      "url": "https://sunworld.vn/hon-thom/di-chuyen/cap-treo-hon-thom",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_OPERATOR",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "vietnam_travel_bun_quay_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Vietnam Tourism - bún quậy Phú Quốc",
+      "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-signature-noodle-bun-quay",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_TOURISM",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "visitpq_nghinh_ong_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - lễ hội Nghinh Ông",
+      "url": "https://visitphuquoc.com.vn/vi/le-hoi-nghinh-ong-phu-quoc-1343",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_TOURISM",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
+    },
+    {
+      "id": "visitpq_island_guide_2026",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - giới thiệu đảo Ngọc",
+      "url": "https://visitphuquoc.com.vn/vi/cam-nang-du-lich-phu-quoc-kham-pha-tron-ven-dao-ngoc-5607",
+      "checked_at": "2026-09-24",
+      "dynamic": false,
+      "trust": "OFFICIAL_TOURISM",
+      "used_by": [
+        "stories",
+        "curiosity"
+      ]
     }
   ],
   "rules": [
