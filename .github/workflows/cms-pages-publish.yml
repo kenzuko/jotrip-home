@@ -130,7 +130,14 @@ jobs:
           # Wrangler finds Pages Functions relative to its working directory.
           # Copy the real CMS API/Weather edge functions into this isolated directory.
           cp -a "$GITHUB_WORKSPACE/functions" "$RUNNER_TEMP/cms-pages/functions"
+          # Shared Weather validation modules are imported from the repository root.
+          # Stage them beside functions so Wrangler can bundle CMS Pages correctly.
+          mkdir -p "$RUNNER_TEMP/cms-pages/weather"
+          cp "$GITHUB_WORKSPACE/weather/weather-wind-guard.js" "$RUNNER_TEMP/cms-pages/weather/"
+          cp "$GITHUB_WORKSPACE/weather/weather-gust-outlook.js" "$RUNNER_TEMP/cms-pages/weather/"
           test -f "$RUNNER_TEMP/cms-pages/functions/weather/data/[[path]].js"
+          test -s "$RUNNER_TEMP/cms-pages/weather/weather-wind-guard.js"
+          test -s "$RUNNER_TEMP/cms-pages/weather/weather-gust-outlook.js"
           cd "$RUNNER_TEMP/cms-pages"
           npx --yes wrangler@4.136.3 pages deploy "$GITHUB_WORKSPACE/dist" --project-name="$PROJECT_NAME" --branch=main
 
