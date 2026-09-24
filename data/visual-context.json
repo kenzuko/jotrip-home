@@ -1242,6 +1242,20 @@
           "source_file_id": "1UO_EbKDcqenkGpcDxuT-WLDqQpg4GV0-"
         }
       ]
+    },
+    "oc-huong-nuong": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%E1%BB%90c%20h%C6%B0%C6%A1ng%20rang%20me.jpg?width=1400",
+          "alt": "Ốc hương rang me",
+          "caption": "Đĩa ốc hương rang me - ảnh đúng món và cách chế biến.",
+          "scope": "exact_subject",
+          "hero_priority": "preferred",
+          "source_label": "Wikimedia Commons - Baoothersks",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%E1%BB%90c_h%C6%B0%C6%A1ng_rang_me.jpg",
+          "license": "CC BY-SA 4.0"
+        }
+      ]
     }
   },
   "food_context": {

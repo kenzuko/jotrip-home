@@ -1088,30 +1088,32 @@
     },
     {
       "id": "oc-huong-nuong",
-      "name": "Ốc hương nướng",
+      "name": "Ốc hương rang me",
       "category": "seafood",
       "meal_times": [
         "lunch",
         "dinner",
         "snack"
       ],
-      "intro": "Ốc hương có thể được nướng hoặc chế biến với nhiều loại sốt. Đây là món ăn chơi dễ gọi chung trong bữa hải sản.",
-      "how_to_eat": "Ăn ngay khi vừa làm xong; dùng que lấy thịt ốc.",
+      "intro": "Ốc hương rang me có phần sốt chua ngọt bám quanh vỏ ốc; cách nêm và độ cay tùy quán.",
+      "how_to_eat": "Dùng tăm hoặc que nhỏ lấy thịt ốc, chấm thêm phần sốt me còn trên đĩa.",
       "tips": [
-        "Hỏi giá theo đĩa hay theo kg; lưu ý sốt có thể chứa bơ, trứng hoặc đậu phộng.",
-        "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
+        "Hỏi giá theo đĩa hay theo kg trước khi gọi.",
+        "Hỏi thành phần sốt nếu cần tránh bơ, trứng, đậu phộng hoặc gia vị cay."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
-        "#oc-huong-nuong"
+        "#oc-huong",
+        "#oc-huong-rang-me"
       ],
-      "origin": "Ốc hương có thể được chế biến nhiều kiểu ở quán hải sản; độ sẵn, cỡ và giá thay đổi theo ngày.",
-      "why_name": "Tên gọi là tên loại ốc; cách nướng hoặc sốt được ghi thêm để phân biệt món.",
+      "origin": "Ốc hương là loài ốc biển được chế biến theo nhiều cách. Bài này nói riêng về kiểu rang me.",
+      "why_name": "Tên gọi nêu nguyên liệu chính là ốc hương và cách chế biến với sốt me.",
       "ingredients": [
         "Ốc hương",
-        "gia vị hoặc sốt tùy quán"
+        "Me",
+        "Gia vị nêm tùy quán"
       ],
-      "taste_texture": "Giòn, thơm; sốt có thể khá mặn hoặc cay.",
+      "taste_texture": "Thịt ốc giòn dai; sốt me chua ngọt, có thể cay tùy cách nêm của quán.",
       "allergen_flags": [
         {
           "key": "mollusc",
@@ -1126,7 +1128,11 @@
       ],
       "sources": [
         {
-          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "label": "Wikimedia Commons - ảnh Ốc hương rang me (CC BY-SA 4.0)",
+          "url": "https://commons.wikimedia.org/wiki/File:%E1%BB%90c_h%C6%B0%C6%A1ng_rang_me.jpg"
+        },
+        {
+          "label": "Cổng du lịch Phú Quốc - ẩm thực",
           "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
         }
       ]

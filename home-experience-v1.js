@@ -101,11 +101,6 @@
         '<img src="'+esc(picture.url)+'" alt="'+esc(picture.alt || dish.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')">'+
         '<figcaption>'+esc(caption)+'</figcaption></figure>';
     }
-    if (dish.category === "seafood") {
-      return '<figure class="food-now-media food-now-media-context">'+
-        '<img src="/assets/media/jotrip-grilled-squid-2025.jpg" alt="Hải sản nướng từ ảnh JoTrip, chỉ minh họa chung" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')">'+
-        '<figcaption>Ảnh hải sản minh họa</figcaption></figure>';
-    }
     return '<figure class="food-now-media food-now-media-empty"><span>Ảnh riêng của món đang được bổ sung</span></figure>';
   }
 

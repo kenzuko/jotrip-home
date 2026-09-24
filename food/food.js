@@ -178,8 +178,8 @@ async function load(){
   const context=$("#foodVisualContext");
   if(context && window.OpenPQVisual){
     context.innerHTML=OpenPQVisual.gallery(state.visuals?.food_context?.seafood||[],{
-      eyebrow:"TỪ BẾP & BÀN ĂN",
-      title:"Ảnh món ăn và hải sản từ JoTrip"
+      eyebrow:"ẢNH TƯ LIỆU JOTRIP · BỐI CẢNH CHUNG",
+      title:"Hải sản trong bếp - ảnh không gắn với món cụ thể"
     });
   }
   renderGrid();
