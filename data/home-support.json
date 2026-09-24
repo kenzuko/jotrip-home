@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-22",
+  "updated_at": "2026-09-24",
   "scope": "homepage_supporting_operational_data",
   "id_policy": {
     "rule": "ONE_ENTITY_ONE_CANONICAL_ID_MANY_SURFACES",
@@ -33,7 +33,9 @@
         "travel_buffer_min": null,
         "route": "places/detail.html?id=dinh-cau",
         "schedule_source": "canonical_entity.opening_hours",
-        "timing_note": "Đẹp nhất vào cuối chiều, có thể ghép chợ đêm."
+        "timing_note": "Đẹp nhất vào cuối chiều, có thể ghép chợ đêm.",
+        "planning_travel_min": 45,
+        "preferred_start": "16:00"
       },
       {
         "id": "clock_ho_quoc",
@@ -42,7 +44,8 @@
         "travel_buffer_min": null,
         "route": "places/detail.html?id=ho-quoc",
         "schedule_source": "SOFT_DAYLIGHT",
-        "timing_note": "Đi lúc còn sáng sẽ dễ ngắm biển và đỡ vội hơn."
+        "timing_note": "Tĩnh tâm, dâng hương và cầu nguyện. Chừa thời gian thong thả thay vì ghé vội.",
+        "planning_travel_min": 45
       },
       {
         "id": "clock_night_market",
@@ -81,7 +84,8 @@
         "late_label": "Giờ này không nên bắt đầu Safari nữa",
         "late_detail": "Safari hợp đi từ sáng; chiều muộn sẽ lỡ nhiều phần.",
         "timing_note": "Đi buổi sáng sẽ thoải mái hơn; sau 13:30 thì nên để hôm khác.",
-        "practical_source_id": "vinwonders_safari_hours_detail_2026"
+        "practical_source_id": "vinwonders_safari_hours_detail_2026",
+        "planning_travel_min": 45
       },
       {
         "id": "clock_vinwonders",
@@ -95,7 +99,9 @@
         "late_label": "Giờ này không nên bắt đầu VinWonders nữa",
         "late_detail": "Nhiều phân khu sắp đóng, vào lúc này sẽ khá phí.",
         "timing_note": "Nếu muốn chơi tử tế, nên vào trước khoảng 15:00.",
-        "practical_source_id": "vinwonders_phuquoc_hours_2026"
+        "practical_source_id": "vinwonders_phuquoc_hours_2026",
+        "planning_travel_min": 45,
+        "full_visit_end_at": "17:30"
       },
       {
         "id": "clock_teddy_bear",
@@ -130,6 +136,19 @@
         "schedule_source": "canonical_entity.opening_hours",
         "timing_note": "Show 21:30-22:00 tại Grand World. Nếu đang ở xa Bắc đảo, đừng chờ sát giờ mới đi.",
         "practical_source_id": "vinwonders_grandworld_show_schedule_2026"
+      },
+      {
+        "id": "clock_once_show",
+        "entity_id": "activity_once_show",
+        "status_code": "UNKNOWN",
+        "route": "places/detail.html?id=once-show",
+        "schedule_source": "canonical_entity.opening_hours",
+        "planning_travel_min": 45,
+        "entry_buffer_min": 20,
+        "show_after": "14:00",
+        "show_label": "ONCE Show",
+        "timing_note": "ONCE 18:45-19:05; cần vé vào công viên và kiểm tra lịch show trong ngày.",
+        "practical_source_id": "vinwonders_phuquoc_hours_2026"
       }
     ]
   },
