@@ -99,61 +99,61 @@
       "zone_id": null,
       "group": null,
       "phone": "0988 014 569",
-      "what_it_is": "An ninh trật tự",
-      "live_check_required": false,
+      "what_it_is": "An ninh, trật tự",
+      "live_check_required": true,
       "verified": true,
       "source_refs": [
         {
-          "source_id": "external",
+          "source_id": "official_current_contact",
           "url": "https://phuquoc.angiang.gov.vn/trang-chu",
-          "checked_at": "2026-09-19T04:50:36.622Z"
+          "checked_at": "2026-09-24T00:00:00Z"
         }
       ],
-      "updated_at": "2026-09-19T04:50:36.622Z"
+      "updated_at": "2026-09-24"
     },
     {
       "id": "utility_pq_tourism",
       "legacy_id": "pq-tourism",
       "entity_type": "utility",
       "slug": "pq-tourism",
-      "name": "Văn hóa - Xã hội",
+      "name": "Phòng Văn hóa - Xã hội Đặc khu Phú Quốc",
       "aliases": [],
       "zone_id": null,
       "group": null,
-      "phone": "0948 864 606",
-      "what_it_is": "Hoạt động du lịch",
-      "live_check_required": false,
+      "phone": "0297 384 6331",
+      "what_it_is": "Thông tin văn hóa, xã hội và hoạt động du lịch",
+      "live_check_required": true,
       "verified": true,
       "source_refs": [
         {
-          "source_id": "external",
-          "url": "https://phuquoc.angiang.gov.vn/trang-chu",
-          "checked_at": "2026-09-19T04:51:03.080Z"
+          "source_id": "official_current_contact",
+          "url": "https://phuquoc.angiang.gov.vn/phong-ban-chuyen-mon-0",
+          "checked_at": "2026-09-24T00:00:00Z"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.080Z"
+      "updated_at": "2026-09-24"
     },
     {
       "id": "utility_pq_hcc",
       "legacy_id": "pq-hcc",
       "entity_type": "utility",
       "slug": "pq-hcc",
-      "name": "Trung tâm Phục vụ HCC",
+      "name": "Trung tâm Phục vụ Hành chính công Phú Quốc",
       "aliases": [],
       "zone_id": null,
       "group": null,
-      "phone": "0988 014 569",
-      "what_it_is": "Thủ tục hành chính",
-      "live_check_required": false,
+      "phone": "0297 399 9179",
+      "what_it_is": "Hỗ trợ dịch vụ công và thủ tục hành chính",
+      "live_check_required": true,
       "verified": true,
       "source_refs": [
         {
-          "source_id": "external",
-          "url": "https://phuquoc.angiang.gov.vn/trang-chu",
-          "checked_at": "2026-09-19T04:50:36.622Z"
+          "source_id": "official_current_contact",
+          "url": "https://phuquoc.angiang.gov.vn/thong-bao-vv-cong-khai-duong-day-nong-tai-trung-tam-phuc-vu-hanh-chinh-cong",
+          "checked_at": "2026-09-24T00:00:00Z"
         }
       ],
-      "updated_at": "2026-09-19T04:50:36.622Z"
+      "updated_at": "2026-09-24"
     },
     {
       "id": "utility_pqc_hotline",
@@ -164,18 +164,18 @@
       "aliases": [],
       "zone_id": null,
       "group": null,
-      "phone": "02973 848 486",
-      "what_it_is": "Đường dây nóng sân bay",
-      "live_check_required": false,
+      "phone": "0984 984 341",
+      "what_it_is": "Liên hệ Cảng hàng không quốc tế Phú Quốc do Sun vận hành",
+      "live_check_required": true,
       "verified": true,
       "source_refs": [
         {
-          "source_id": "external",
-          "url": "https://acv.vn/phuquocairport/vi/tin-tuc/tin-tuc/thong-bao-so-31-tbpqia-ve-viec-ap-dung-thu-gia-dich-vu-dung-do-o-to-de-don-tra-hanh-khach",
-          "checked_at": "2026-09-19T04:51:03.080Z"
+          "source_id": "official_current_contact",
+          "url": "https://sunairport.com/en/phuquoc/contact-us",
+          "checked_at": "2026-09-24T00:00:00Z"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.080Z"
+      "updated_at": "2026-09-24"
     },
     {
       "id": "utility_pqc_lost",
@@ -186,18 +186,23 @@
       "aliases": [],
       "zone_id": null,
       "group": null,
-      "phone": "0963 975 644",
-      "what_it_is": "Lost & Found tại ga đến",
-      "live_check_required": false,
+      "phone": "0984 984 341",
+      "what_it_is": "Hành lý thất lạc: liên hệ sân bay để được hướng dẫn tới quầy hãng bay hoặc đơn vị phục vụ hành lý",
+      "live_check_required": true,
       "verified": true,
       "source_refs": [
         {
-          "source_id": "external",
-          "url": "https://acv.vn/phuquocairport/vi/tin-tuc/hanh-ly-that-lac/hanh-ly-that-lac",
-          "checked_at": "2026-09-19T04:51:03.080Z"
+          "source_id": "official_airport_contact",
+          "url": "https://sunairport.com/en/phuquoc/contact-us",
+          "checked_at": "2026-09-24T00:00:00Z"
+        },
+        {
+          "source_id": "official_baggage_guidance",
+          "url": "https://sunairport.com/en/phuquoc/guides/baggage-services",
+          "checked_at": "2026-09-24T00:00:00Z"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.080Z"
+      "updated_at": "2026-09-24"
     },
     {
       "id": "utility_superdong",

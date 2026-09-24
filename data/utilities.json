@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-23T17:21:24.492Z",
+  "generated_at": "2026-09-24T00:00:00.000Z",
   "source_policy": "official_public_sources_only",
   "national_emergency": [
     {
@@ -41,44 +41,46 @@
       "id": "pq-police",
       "label": "Công an Đặc khu Phú Quốc",
       "phone": "0988 014 569",
-      "note": "An ninh trật tự",
+      "note": "An ninh, trật tự",
       "source": "https://phuquoc.angiang.gov.vn/trang-chu",
       "verified": true,
-      "last_checked": "2026-09-23T17:20:52.737Z"
+      "last_checked": "2026-09-24"
     },
     {
       "id": "pq-tourism",
-      "label": "Văn hóa - Xã hội",
-      "phone": "0948 864 606",
-      "note": "Hoạt động du lịch",
-      "source": "https://phuquoc.angiang.gov.vn/trang-chu",
-      "verified": true
+      "label": "Phòng Văn hóa - Xã hội Đặc khu Phú Quốc",
+      "phone": "0297 384 6331",
+      "note": "Thông tin văn hóa, xã hội và hoạt động du lịch",
+      "source": "https://phuquoc.angiang.gov.vn/phong-ban-chuyen-mon-0",
+      "verified": true,
+      "last_checked": "2026-09-24"
     },
     {
       "id": "pq-hcc",
-      "label": "Trung tâm Phục vụ HCC",
-      "phone": "0988 014 569",
-      "note": "Thủ tục hành chính",
-      "source": "https://phuquoc.angiang.gov.vn/trang-chu",
+      "label": "Trung tâm Phục vụ Hành chính công Phú Quốc",
+      "phone": "0297 399 9179",
+      "note": "Hỗ trợ dịch vụ công và thủ tục hành chính",
+      "source": "https://phuquoc.angiang.gov.vn/thong-bao-vv-cong-khai-duong-day-nong-tai-trung-tam-phuc-vu-hanh-chinh-cong",
       "verified": true,
-      "last_checked": "2026-09-23T17:20:52.737Z"
+      "last_checked": "2026-09-24"
     },
     {
       "id": "pqc-hotline",
       "label": "Cảng hàng không quốc tế Phú Quốc",
-      "phone": "02973 848 486",
-      "phone_alt": "0984 984 341",
-      "note": "Đường dây nóng sân bay",
-      "source": "https://acv.vn/phuquocairport/vi/tin-tuc/tin-tuc/thong-bao-so-31-tbpqia-ve-viec-ap-dung-thu-gia-dich-vu-dung-do-o-to-de-don-tra-hanh-khach",
-      "verified": true
+      "phone": "0984 984 341",
+      "note": "Liên hệ Cảng hàng không quốc tế Phú Quốc do Sun vận hành",
+      "source": "https://sunairport.com/en/phuquoc/contact-us",
+      "verified": true,
+      "last_checked": "2026-09-24"
     },
     {
       "id": "pqc-lost",
       "label": "Hành lý thất lạc PQC",
-      "phone": "0963 975 644",
-      "note": "Lost & Found tại ga đến",
-      "source": "https://acv.vn/phuquocairport/vi/tin-tuc/hanh-ly-that-lac/hanh-ly-that-lac",
-      "verified": true
+      "phone": "0984 984 341",
+      "note": "Hành lý thất lạc: gọi sân bay để được hướng dẫn tới quầy hãng bay hoặc đơn vị phục vụ hành lý",
+      "source": "https://sunairport.com/en/phuquoc/contact-us",
+      "verified": true,
+      "last_checked": "2026-09-24"
     }
   ],
   "handbook_source": {
