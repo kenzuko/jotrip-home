@@ -5668,3 +5668,10 @@ body.sheet-open{
 .bulletin-more{display:inline-flex;align-items:center;padding:11px 15px;border:1px solid #b9d7ca;border-radius:999px;background:#eff8f2;color:#185646;font-weight:800;text-decoration:none}
 @media(max-width:900px){.food-now-section .food-now-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.food-now-section .food-now-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(235px,82%);grid-template-columns:none;gap:11px;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scroll-padding-inline:3px;padding-bottom:12px}.food-now-section .food-now-card.featured-food-card{scroll-snap-align:start}.food-now-section .featured-food-card .food-now-media,.food-now-section .featured-food-card .food-now-media img{min-height:170px;height:170px;max-height:170px}.food-now-section .food-now-copy{padding:15px}.food-now-section .food-now-copy h3{font-size:24px}}
+
+/* Trip clock: ten detailed cards initially, expand without losing the original copy. */
+.trip-clock-more{display:flex;align-items:center;justify-content:center;min-height:76px;padding:16px;border:1px solid #b9d7d0;border-radius:18px;background:#f3faf7;color:#155849;font-weight:850;font-size:15px;text-align:center;cursor:pointer;transition:background .15s ease,border-color .15s ease}
+.trip-clock-more:hover,.trip-clock-more:focus-visible{background:#e6f4ee;border-color:#6cae9b}
+.trip-clock-more:focus-visible{outline:3px solid #54d4cb;outline-offset:2px}
+.trip-clock-more-wide{grid-column:1/-1;min-height:58px}
+@media(max-width:760px){.trip-clock-more{min-height:60px}.trip-clock-more-wide{grid-column:1/-1}}

@@ -34,6 +34,34 @@ assert.equal(get(17,25,cable).decision.label,"Sắp hết khung cáp cuối");
 assert.equal(get(17,30,cable).eligible,false);
 assert.equal(get(18,45,once).decision.state,"watch");
 assert.equal(get(19,5,once).eligible,false);
+
+// Priority favors imminent deadlines; ten detailed cards keep the two
+// featured Sunset Town shows discoverable from morning.
+const symphony="activity_symphony_of_the_sea",kiss="activity_kiss_of_the_sea";
+const afternoon=plan.select(rows(14),10);
+assert.equal(afternoon.visible.length,10);
+assert.equal(afternoon.total,13);
+assert.equal(afternoon.hidden.length,3);
+assert.equal(afternoon.visible[0].item.entity_id,safari);
+assert.ok(afternoon.visible.some(x=>x.item.entity_id===symphony));
+assert.ok(afternoon.visible.some(x=>x.item.entity_id===kiss));
+assert.ok(afternoon.visible.every(x=>x.summary&&typeof x.note==="string"&&x.e.name));
+assert.ok(afternoon.visible.every((x,i,arr)=>i===0||x.urgency.bucket>=arr[i-1].urgency.bucket));
+const morning=plan.select(rows(8),10);
+assert.ok(morning.visible.some(x=>x.item.entity_id===kiss),"Evening shows should be discoverable from morning");
+const rush=Array.from({length:10},(_,i)=>({
+ ...get(14,0,safari),item:{entity_id:"urgent_"+i},urgency:{bucket:1,level:3,until:i+1}
+}));
+const rushBoard=plan.select([...rush,get(14,0,kiss)],10);
+assert.equal(rushBoard.visible.length,10);
+assert.ok(!rushBoard.visible.some(x=>x.item.entity_id===kiss),"Never displace ten near-term high-level activities");
+const tuesday=plan.select(rows(14,0,"unknown",2),10);
+assert.ok(!tuesday.visible.some(x=>x.item.entity_id===kiss),"Kiss is closed on Tuesday");
+assert.equal(get(19,35,symphony).decision.label,"Đã bắt đầu theo lịch");
+assert.equal(get(21,5,kiss).decision.state,"watch");
+assert.equal(get(21,29,kiss).eligible,true);
+assert.equal(get(21,30,kiss).eligible,false);
+assert.ok(plan.select(rows(21,5),10).visible.length<=10);
 assert.ok(!support.trip_clock.items.some(x=>["travel_buffer_min","planning_travel_min","entry_buffer_min"].some(k=>Object.hasOwn(x,k))));
 assert.ok(rows(13,1).every(x=>!/45 phút đi đường|vị trí xuất phát/.test(x.note||"")));
 for(const file of ["home-experience-v1.js","home-live-v3.js"]){
@@ -43,7 +71,10 @@ for(const file of ["home-experience-v1.js","home-live-v3.js"]){
 }
 const homepage=readFileSync("index.html","utf8");
 assert.match(homepage,/home-experience-v1.js\?v=20260924-(?:text2|foodimages|foodrandom1|food3-stories)|home-experience-v1.js\?v=20260925-food-twoimages/);
-assert.match(homepage,/core\/trip-clock-planner.js\?v=20260925-cable-windows/);
-assert.match(homepage,/home-foundation-v2.js\?v=20260925-cable-windows/);
+assert.match(homepage,/core\/trip-clock-planner.js\?v=20260925-urgency10/);
+assert.match(homepage,/home-foundation-v2.js\?v=20260925-urgency10/);
+const homeSource=readFileSync("home-foundation-v2.js","utf8");
+assert.ok(homeSource.includes("engine.select(rows,10)"));
+assert.match(homeSource,/trip-clock-more/);
 await import("./test-home-food-random.mjs");
 console.log("CMS Today copy: regression checks PASS");
