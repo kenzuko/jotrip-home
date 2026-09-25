@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="preload" as="image" href="/assets/logo-master.png">
   <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-logo-safe">
-  <link rel="stylesheet" href="go.css?v=20260925a">
+  <link rel="stylesheet" href="go.css?v=20260925traveler2">
   <link rel="canonical" href="https://cms.openphuquoc.com/go/">
   <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
   <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
@@ -18,26 +18,24 @@
 <body>
   <header class="go-head">
     <a class="go-brand" href="../" aria-label="Open Phu Quoc"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
-    <div class="go-head-copy"><strong>Đi gì bây giờ?</strong><span>Decision layer · Open Phu Quoc</span></div>
+    <div class="go-head-copy"><strong>Đi gì bây giờ?</strong><span>Chọn chuyến đi hợp với hôm nay</span></div>
     <a class="go-home" href="../">← Trang chủ</a>
   </header>
 
   <main>
     <section class="go-hero">
       <div class="go-hero-copy">
-        <p>OPEN PHU QUOC / GO</p>
-        <h1>Đừng chỉ xem.<br><em>Chọn việc còn kịp làm.</em></h1>
-        <span>Open Phu Quoc ghép giờ hiện tại, khu bạn đang ở, thời lượng trải nghiệm và các tín hiệu vận hành để lọc những lựa chọn khả thi trước.</span>
+        <p>HÔM NAY ĐI ĐÂU?</p>
+        <h1>Còn thời gian.<br><em>Còn nhiều nơi để đi.</em></h1>
+        <span>Bạn đang ở đâu, còn bao lâu và thích kiểu trải nghiệm nào? Chọn một chút thôi, tụi mình tìm những chỗ phù hợp cho hôm nay.</span>
       </div>
-      <div class="go-now">
-        <span>GIỜ PHÚ QUỐC</span><strong id="goClock">--:--</strong><small id="goDate">Đang lấy giờ địa phương</small>
-      </div>
+      <figure class="go-hero-photo"><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kiss%20Bridge%20at%20sunset%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1800" alt="Cầu Hôn Phú Quốc khi hoàng hôn" fetchpriority="high"><figcaption><span>PHÚ QUỐC LÚC NÀY</span><strong id="goClock">--:--</strong><small id="goDate">Giờ trên đảo</small></figcaption></figure>
     </section>
 
     <section class="go-builder" aria-labelledby="goBuilderTitle">
       <div class="go-builder-head">
         <div><p>3 CÂU HỎI</p><h2 id="goBuilderTitle">Bạn đang ở đâu và còn bao nhiêu thời gian?</h2></div>
-        <span>Vị trí không được xin tự động. V1 dùng khu vực bạn chọn.</span>
+        <span>Cứ chọn khu vực bạn đang ở, không cần bật định vị.</span>
       </div>
 
       <form id="goForm" class="go-form">
@@ -81,12 +79,29 @@
       <div class="go-excluded" id="goExcluded" hidden></div>
     </section>
 
-    <section class="go-principles">
-      <article><span>01</span><strong>Lọc cái không kịp trước</strong><p>Không xếp hạng một điểm đẹp nếu thời gian di chuyển và trải nghiệm khiến bạn không còn đủ giờ.</p></article>
-      <article><span>02</span><strong>Không giả vờ là live</strong><p>Giờ công bố, dự báo thời tiết và xác nhận vận hành được giữ riêng. Chưa chắc thì hiện “cần kiểm tra”.</p></article>
-      <article><span>03</span><strong>Không thay module chuyên biệt</strong><p>Weather, Cano, Transit và các trang chi tiết vẫn là nguồn chuyên sâu. /go chỉ kết hợp tín hiệu để giúp quyết định.</p></article>
+    <section class="go-next" aria-labelledby="goNextTitle">
+      <div class="go-next-head"><div><p>CHƯA CHỐT ĐƯỢC LỊCH?</p><h2 id="goNextTitle">Còn cả một hòn đảo để khám phá.</h2><span>Bạn có thể chọn theo vùng, tìm quán ngon hoặc xem tình hình biển trước khi lên đường.</span></div><a href="../explore/">Khám phá Phú Quốc →</a></div>
+      <div class="go-next-grid">
+        <a href="../explore/?zone=zone_south" class="go-next-card go-next-large">
+          <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai%20Sao%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam%20%283870300491%29.jpg?width=1800" alt="Biển Bãi Sao ở Nam đảo">
+          <div><small>CHỌN MỘT VÙNG</small><strong>Một ngày thong thả ở Nam đảo</strong><span>Bãi biển, những góc đẹp và nhiều điều đáng ghé. <b>Khám phá →</b></span></div>
+        </a>
+        <div class="go-next-stack">
+          <a href="../food/" class="go-next-card">
+            <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Making%20ice%20cream%20rolls%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1800" alt="Quầy kem cuộn ở chợ đêm Phú Quốc">
+            <div><small>ĐÓI BỤNG RỒI?</small><strong>Hôm nay ăn gì?</strong><span>32 món địa phương, chọn theo sở thích. <b>Xem món →</b></span></div>
+          </a>
+          <a href="../weather/" class="go-next-weather"><span>☀ THỜI TIẾT & BIỂN</span><strong>Trước khi đi xa, ngó trời một chút.</strong><b>Xem thời tiết hôm nay ↗</b></a>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="go-footer">
+    <div class="go-footer-brand"><img src="/assets/logo-master.png?v=2" width="380" height="361" alt="Open Phu Quoc"><div><strong>Hiểu đảo trước. Chọn chuyến đi hợp với mình.</strong><p>Thông tin về Phú Quốc, làm tại Phú Quốc. Có gì mới, tụi mình cập nhật để bạn dễ lên đường.</p><small>Được xây dựng tại Phú Quốc bởi JoTrip.</small></div></div>
+    <nav aria-label="Khám phá thêm"><a href="../explore/">Khám phá</a><a href="../food/">Ăn uống</a><a href="../nearme/">Quanh đây</a><a href="../weather/">Thời tiết & biển</a><a href="../about/">Về chúng tôi</a></nav>
+    <p class="go-footer-note">Giờ hoạt động và điều kiện đi lại có thể thay đổi. Hãy xem thông tin mới nhất trước khi đi.</p>
+  </footer>
 
   <nav class="go-mobile-nav" aria-label="Điều hướng nhanh">
     <a href="../#happening">Hôm nay</a><a class="active" href="./">Đi ngay</a><a href="../explore/">Khám phá</a><a href="../#today">Lúc này</a>
@@ -94,6 +109,6 @@
 
   <script src="../core/go-engine.js?v=20260925a"></script>
   <script src="live-adapter.js?v=20260925a"></script>
-  <script src="go.js?v=20260925a"></script>
+  <script src="go.js?v=20260925traveler2"></script>
 </body>
 </html>
