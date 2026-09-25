@@ -2,7 +2,7 @@ import {mkdir,readFile,readdir,writeFile,copyFile} from "node:fs/promises";
 import {join,dirname} from "node:path";
 
 const out=process.env.OPENPQ_DIST||"dist";
-const target=join(out,"assets/share-card-phu-quoc-v2.jpg");
+const target=join(out,"assets/share-card-phu-quoc-v3.jpg");
 const file="An Thoi fishing harbour Sunset Town Sun World Phu Quoc Vietnam.jpg";
 const redirect="https://commons.wikimedia.org/wiki/Special:Redirect/file/"+encodeURIComponent(file)+"?width=1280";
 const api="https://commons.wikimedia.org/w/api.php?action=query&format=json&prop=imageinfo&iiprop=url&iiurlwidth=1280&titles="+encodeURIComponent("File:"+file);
@@ -54,7 +54,7 @@ if(!photo){
 }
 await mkdir(dirname(target),{recursive:true});
 await writeFile(target,photo.bytes);
-const root="https://cms.openphuquoc.com/assets/share-card-phu-quoc-v2.jpg";
+const root="https://cms.openphuquoc.com/assets/share-card-phu-quoc-v3.jpg";
 const walk=async directory=>{
  for(const dirent of await readdir(directory,{withFileTypes:true})){
   const path=join(directory,dirent.name);
@@ -63,6 +63,7 @@ const walk=async directory=>{
   let html=await readFile(path,"utf8");
   if(!html.includes('property="og:image"')&&!html.includes('name="twitter:image"'))continue;
   html=html.replace(/https:\/\/cms\.openphuquoc\.com\/assets\/share-card\.svg/g,root)
+   .replace(/https:\/\/cms\.openphuquoc\.com\/assets\/share-card-phu-quoc-v2\.jpg/g,root)
    .replace(/(<meta\s+property="og:image:type"\s+content=")image\/svg\+xml(")/g,'$1image/jpeg$2')
    .replace(/(<meta\s+property="og:image:width"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.width+b)
    .replace(/(<meta\s+property="og:image:height"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.height+b);
@@ -72,5 +73,5 @@ const walk=async directory=>{
  }
 };
 await walk(out);
-await writeFile(join(out,"assets/share-card-provenance.json"),JSON.stringify({image:"share-card-phu-quoc-v2.jpg",source:chosen,width:photo.size.width,height:photo.size.height,original_source:chosen.startsWith("Wikimedia")?"https://commons.wikimedia.org/wiki/File:An_Thoi_fishing_harbour_Sunset_Town_Sun_World_Phu_Quoc_Vietnam.jpg":null},null,2));
+await writeFile(join(out,"assets/share-card-provenance.json"),JSON.stringify({image:"share-card-phu-quoc-v3.jpg",source:chosen,width:photo.size.width,height:photo.size.height,original_source:chosen.startsWith("Wikimedia")?"https://commons.wikimedia.org/wiki/File:An_Thoi_fishing_harbour_Sunset_Town_Sun_World_Phu_Quoc_Vietnam.jpg":null},null,2));
 console.log("Social preview JPEG ready:",target,photo.size.width+"x"+photo.size.height,chosen);
