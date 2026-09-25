@@ -204,3 +204,36 @@ header.topbar .brand span small{
   header.near-header .back{display:none!important}
   header.topbar .health{font-size:10px!important}
 }
+
+
+/* Shared Utilities / Currency navigation: one module, two levels of detail. */
+.openpq-utility-tabs{
+  position:sticky;top:72px;z-index:75;
+  display:flex;align-items:center;gap:8px;
+  padding:9px max(16px,calc((100vw - 1100px)/2));
+  border-bottom:1px solid var(--openpq-shell-line);
+  background:rgba(255,255,255,.97);
+  overflow-x:auto;scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+}
+.openpq-utility-tabs::-webkit-scrollbar{display:none}
+.openpq-utility-tabs a{
+  flex:none;display:inline-flex;align-items:center;justify-content:center;
+  min-height:38px;padding:8px 13px;
+  border:1px solid var(--openpq-shell-line);border-radius:999px;
+  background:#fff;color:var(--openpq-shell-ink);
+  font-size:12px;font-weight:800;line-height:1.2;
+  text-decoration:none;white-space:nowrap;
+}
+.openpq-utility-tabs a.active,
+.openpq-utility-tabs a[aria-current="page"]{
+  background:var(--openpq-shell-ink);color:#fff;
+  border-color:var(--openpq-shell-ink);
+}
+.openpq-utility-tabs a:focus-visible{
+  outline:2px solid #178476;outline-offset:3px;
+}
+@media(max-width:720px){
+  .openpq-utility-tabs{top:62px;gap:7px;padding:7px 11px}
+  .openpq-utility-tabs a{min-height:41px;padding:8px 12px;font-size:13px}
+}
