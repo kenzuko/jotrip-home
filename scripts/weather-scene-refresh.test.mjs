@@ -1,0 +1,37 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import {runInNewContext} from "node:vm";
+
+const scene=readFileSync("weather/weather-scene-v3.js","utf8");
+const start=scene.indexOf("function newerRuntimeForecast(");
+const end=scene.indexOf("function stamp(",start);
+assert(start>0&&end>start,"Scene refresh contract helpers are missing");
+const helpers=runInNewContext(scene.slice(start,end)+"\n({newerRuntimeForecast,newerMarineWave,newerDashboard})",{Date,Number,Array});
+const t="2026-09-25T00:00:00Z",older="2026-09-24T12:00:00Z";
+const frame={valid_time:"2026-09-25T01:00:00Z",cells:[{lat:10.2,lon:104,rain_mm:1}]};
+const oldForecast={run_time:older,generated_at:"2026-09-24T12:10:00Z",spatial:{frames:[frame]}};
+const freshForecast={run_time:t,generated_at:"2026-09-25T00:10:00Z",spatial:{frames:[frame]}};
+assert(helpers.newerRuntimeForecast(freshForecast,oldForecast),"New live cycle must replace unchanged manifest");
+assert(!helpers.newerRuntimeForecast(oldForecast,freshForecast),"Never regress to older forecast");
+assert(!helpers.newerRuntimeForecast({...freshForecast,spatial:{frames:[]}},oldForecast),"Never accept missing map frames");
+assert(!helpers.newerRuntimeForecast({...freshForecast,spatial:{frames:[{valid_time:t,cells:[]}]}},oldForecast),"Never accept empty map cells");
+assert(helpers.newerRuntimeForecast({...oldForecast,generated_at:"2026-09-24T12:20:00Z"},oldForecast),"Same-cycle engine rebuild can recover a delayed snapshot");
+assert(!helpers.newerRuntimeForecast(oldForecast,oldForecast),"Never churn unchanged snapshots");
+const oldMarine={wave:{status:"READY",sampled_time:older,cells:[{wave_hs_m:.9}]}};
+const freshMarine={wave:{status:"READY",sampled_time:t,cells:[{wave_hs_m:1.2}]}};
+assert(helpers.newerMarineWave(freshMarine,oldMarine),"Fresh marine sample must replace static mirror");
+assert(!helpers.newerMarineWave(oldMarine,freshMarine),"Never regress marine observation");
+assert(!helpers.newerMarineWave({wave:{status:"STALE",sampled_time:t,cells:[{wave_hs_m:1.2}]}},oldMarine),"Reject non-READY marine");
+assert(!helpers.newerMarineWave({wave:{status:"READY",sampled_time:t,cells:[]}},oldMarine),"Reject empty marine observations");
+const oldMeta={generated_at:"2026-09-24T12:20:00Z",source_cycles:{ECMWF:older}};
+const newMeta={generated_at:"2026-09-25T00:20:00Z",source_cycles:{ECMWF:t}};
+assert(helpers.newerDashboard(newMeta,oldMeta,freshForecast),"Accept matching source-cycle metadata");
+assert(!helpers.newerDashboard({...newMeta,source_cycles:{ECMWF:"2026-09-25T06:00:00Z"}},oldMeta,freshForecast),"Do not label a forecast with a different future cycle");
+assert(!helpers.newerDashboard(oldMeta,newMeta,freshForecast),"Do not regress source cycles");
+const branch=scene.slice(scene.indexOf("if(before===after){"),scene.indexOf("enforceSceneFreshness();",scene.indexOf("if(before===after){")));
+for(const expr of ["fetchCanonical(URLS.ecmwf)","fetchCanonical(URLS.dashboard)","fetchCanonical(URLS.marine)","newerRuntimeForecast(forecast.value,state.ecmwf)","newerMarineWave(marine.value,state.marine)"])
+  assert(branch.includes(expr),"Missing on-demand same-origin refresh: "+expr);
+assert(scene.includes("return state.ecmwf?.run_time||state.ecmwf?.spatial?.short_run_time||cycles.ECMWF"),"Displayed forecast must cite its actual model cycle");
+const html=readFileSync("weather/weather-scene-v3.html","utf8");
+assert(html.includes("/weather/weather-scene-v3.js?v=20260925-edge-model1"),"Scene JS cache not invalidated");
+console.log("CMS Scene: 14 live model/marine freshness and source-cycle regression assertions PASS");
