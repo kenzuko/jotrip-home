@@ -284,7 +284,9 @@
       {
         "id": "CHARGING",
         "label": "Sạc",
-        "icon": "⚡"
+        "icon": "⚡",
+        "mode": "directory_search",
+        "search_query": "trạm sạc xe điện Phú Quốc"
       },
       {
         "id": "SHOWER_LOCKER",
