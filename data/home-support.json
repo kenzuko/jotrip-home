@@ -359,6 +359,11 @@
         "search_query": "bến xe bến tàu Phú Quốc"
       },
       {
+        "id": "ELECTRONICS",
+        "label": "Điện thoại & điện máy",
+        "icon": "▣"
+      },
+      {
         "id": "POST_OFFICE",
         "label": "Bưu điện",
         "icon": "✉",
