@@ -60,18 +60,33 @@
     }else{
       $("#goResults").innerHTML=view.results.map((x,i)=>{
         const warnings=(x.warnings||[]).map(w=>"<li>"+esc(w)+"</li>").join("");
-        const image=(state.visuals?.places?.[x.id]?.images||[]).find(v=>v.scope==="exact_subject"&&v.url)||(state.visuals?.places?.[x.id]?.images||[]).find(v=>v.scope==="context"&&v.url);
-        const photo=image?'<div class="go-result-photo"><img loading="lazy" src="'+esc(image.url)+'" alt="'+esc(image.alt||x.name)+'"></div>':'<div class="go-result-photo"><div class="no-image">Phú Quốc · '+esc(x.category)+'</div></div>';
+        const images=state.visuals?.places?.[x.id]?.images||[];
+        const image=images.find(v=>v.scope==="exact_subject"&&v.url)||images.find(v=>v.scope==="field_evidence"&&v.url)||images.find(v=>v.scope==="context"&&v.url)||images.find(v=>v.scope==="archive"&&v.url)||images.find(v=>v.url);
+        const photo=image?'<div class="go-result-photo"><img loading="lazy" src="'+esc(image.url)+'" alt="'+esc(image.alt||x.name)+'"></div>':'<div class="go-result-photo"><div class="no-image">Đang bổ sung ảnh cho '+esc(x.name)+'</div></div>';
         const drive=x.travel?x.travel.low+"-"+x.travel.high+" phút":"Chưa rõ";
         return '<article class="go-result" data-state="'+esc(x.badge)+'">'+photo+
           '<div class="go-result-top"><span>0'+(i+1)+' · '+esc(x.category)+'</span><b class="go-badge">'+(x.badge==="POSSIBLE"?"CÒN KỊP":"CẦN KIỂM TRA")+'</b></div>'+
           '<h3>'+esc(x.name)+'</h3><p class="go-note">'+esc(x.note||"Một lựa chọn còn phù hợp với thời gian hiện tại.")+'</p>'+
           '<div class="go-timing"><strong>'+esc(x.timing)+'</strong><span>Dự kiến xong khoảng '+esc(x.finish_at)+'</span></div>'+
-          '<div class="go-meta"><div><span>Đi từ khu hiện tại</span><b>'+esc(drive)+'</b></div><div><span>Dự kiến tới</span><b>'+esc(x.arrival)+'</b></div><div><span>Dữ liệu</span><b>'+esc(x.source)+'</b></div></div>'+
+          '<div class="go-meta"><div><span>Đi từ khu hiện tại</span><b>'+esc(drive)+'</b></div><div><span>Dự kiến tới</span><b>'+esc(x.arrival)+'</b></div><div><span>Trước khi đi</span><b>Xem giờ & lưu ý mới nhất</b></div></div>'+
           (warnings?'<ul class="go-warnings">'+warnings+'</ul>':"")+
           '<a href="'+esc(x.route)+'">Xem chi tiết trước khi đi →</a></article>';
       }).join("");
     }
+
+    const more=(view.remaining||[]).slice(0,6);
+    const moreSection=$("#goMore"),moreGrid=$("#goMoreGrid");
+    if(more.length){
+      moreSection.hidden=false;
+      moreGrid.innerHTML=more.map(x=>{
+        const images=state.visuals?.places?.[x.id]?.images||[];
+        const image=images.find(v=>v.scope==="exact_subject"&&v.url)||images.find(v=>v.scope==="field_evidence"&&v.url)||images.find(v=>v.scope==="context"&&v.url)||images.find(v=>v.scope==="archive"&&v.url)||images.find(v=>v.url);
+        const drive=x.travel?x.travel.low+"-"+x.travel.high+" phút":"Chưa rõ";
+        return '<a class="go-more-card" href="'+esc(x.route)+'">'+
+          (image?'<img loading="lazy" src="'+esc(image.url)+'" alt="'+esc(image.alt||x.name)+'">':'<div class="go-more-placeholder">Đang bổ sung ảnh</div>')+
+          '<div><span>'+esc(x.category)+'</span><strong>'+esc(x.name)+'</strong><small>'+esc(x.timing)+' · đi khoảng '+esc(drive)+'</small></div></a>';
+      }).join("");
+    }else{moreSection.hidden=true;moreGrid.innerHTML="";}
     const blocked=view.excluded||[];
     const box=$("#goExcluded");
     if(blocked.length){

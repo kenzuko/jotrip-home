@@ -31,3 +31,19 @@
 .go-result{overflow:hidden}.go-result-photo{position:relative;height:155px;margin:-20px -20px 0;background:linear-gradient(135deg,#d0eee1,#fbe2b1)}.go-result-photo img{width:100%;height:100%;display:block;object-fit:cover}.go-result-photo .no-image{display:flex;align-items:center;justify-content:center;height:100%;color:#47695c;font-size:13px;font-weight:800}.go-result-top{margin-top:16px}.go-result h3{margin-top:14px}
 @media(max-width:900px){.go-hero{grid-template-columns:1fr 1fr;gap:18px}.go-hero-photo{min-height:310px}.go-hero-photo>img{min-height:310px}.go-next-grid{grid-template-columns:1fr}.go-next-large{min-height:360px}.go-next-stack{grid-template-columns:1fr 1fr;grid-template-rows:1fr}.go-next-weather,.go-next-stack>.go-next-card{min-height:220px}}
 @media(max-width:620px){.go-hero{padding:36px 15px 30px;grid-template-columns:1fr;gap:25px;min-height:0}.go-hero-copy{padding:0}.go-hero h1{font-size:clamp(43px,10vw,59px)}.go-hero-copy>span{font-size:15px;margin-top:14px}.go-hero-photo{min-height:220px;height:220px;max-height:240px;border-radius:21px 55px 21px 21px}.go-hero-photo>img{min-height:220px;height:220px;max-height:240px}.go-hero-photo figcaption{left:11px;bottom:11px;padding:9px 13px;min-width:140px}.go-hero-photo figcaption strong{font-size:28px}.go-builder{margin-top:0}.go-builder-head>span{font-size:12px}.go-submit{max-width:none}.go-next{padding:10px 10px 35px}.go-next-head{display:block}.go-next-head span{font-size:14px}.go-next-head>a{display:inline-block;margin-top:13px}.go-next-grid{display:block}.go-next-large{min-height:350px}.go-next-stack{display:grid;grid-template-columns:1fr;gap:11px;margin-top:11px}.go-next-stack>.go-next-card{min-height:220px}.go-next-weather{min-height:190px}.go-next-card>div{left:18px;right:18px;bottom:18px}.go-next-card strong{font-size:29px}.go-footer{padding:30px 16px 80px}.go-footer-brand strong{font-size:17px}.go-footer nav{gap:13px 17px}.go-result-photo{height:170px}}
+
+
+/* More viable options: keep primary 3 clear, but do not make the island look empty */
+.go-more{margin-top:22px;padding-top:20px;border-top:1px solid var(--line)}
+.go-more-head p{margin:0 0 5px;font-size:10px;font-weight:900;letter-spacing:.14em;color:#3e806f}
+.go-more-head h3{margin:0;color:var(--ink);font-size:23px;letter-spacing:-.03em}
+.go-more-grid{margin-top:12px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.go-more-card{min-height:106px;display:grid;grid-template-columns:112px minmax(0,1fr);overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#fff}
+.go-more-card>img,.go-more-placeholder{width:112px;height:100%;min-height:106px;object-fit:cover;background:linear-gradient(135deg,#dcefe7,#f6e9bc)}
+.go-more-placeholder{display:grid;place-items:center;padding:8px;text-align:center;color:#57736a;font-size:11px}
+.go-more-card>div:last-child{min-width:0;padding:12px 12px 10px}
+.go-more-card span{display:block;color:#3f806f;font-size:9px;font-weight:900;letter-spacing:.1em}
+.go-more-card strong{display:block;margin-top:5px;color:var(--ink);font-size:17px;line-height:1.12}
+.go-more-card small{display:block;margin-top:7px;color:var(--muted);font-size:10px;line-height:1.35}
+@media(max-width:900px){.go-more-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.go-more{margin-top:16px}.go-more-grid{grid-template-columns:1fr}.go-more-card{grid-template-columns:105px minmax(0,1fr)}.go-more-card>img,.go-more-placeholder{width:105px}}
