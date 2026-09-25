@@ -752,3 +752,25 @@ img{display:block;max-width:100%}
   .rate-card{flex-basis:86%}
   .chart-summary strong{font-size:29px}
 }
+
+
+/* Utilities family visual alignment: shared shell, compact practical hero. */
+.currency-head-label{min-width:0;display:grid;gap:3px;border-left:1px solid var(--line);padding-left:13px}
+.currency-head-label strong{color:var(--ink);font-size:14px;line-height:1.2}
+.currency-head-label span{color:var(--muted);font-size:11px;line-height:1.2}
+.currency-hero{
+  padding:50px 0 36px;
+  background:
+    radial-gradient(circle at 88% 12%,rgba(255,112,79,.16),transparent 18rem),
+    radial-gradient(circle at 15% 90%,rgba(84,212,203,.11),transparent 16rem),
+    linear-gradient(180deg,#fff8f4,#fff);
+}
+.currency-hero h1{font-size:clamp(44px,6.2vw,76px);line-height:.98}
+.currency-hero .hero-copy{font-size:15px;line-height:1.6}
+@media(max-width:720px){
+  .currency-head-label span{display:none}
+  .currency-head-label{padding-left:10px}
+  .currency-head-label strong{font-size:13px}
+  .currency-hero{padding:34px 0 24px}
+  .currency-hero h1{font-size:clamp(35px,9vw,44px);line-height:1}
+}
