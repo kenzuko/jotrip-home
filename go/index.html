@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#F7FBF9">
+  <title>Đi gì bây giờ? - Open Phu Quoc</title>
+  <meta name="description" content="Gợi ý việc còn kịp làm ở Phú Quốc dựa trên vị trí, thời gian, lịch hoạt động và điều kiện hiện tại.">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="preload" as="image" href="/assets/logo-master.png">
+  <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-logo-safe">
+  <link rel="stylesheet" href="go.css?v=20260925a">
+  <link rel="canonical" href="https://cms.openphuquoc.com/go/">
+  <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
+  <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
+  <meta property="og:image" content="https://cms.openphuquoc.com/assets/share-card.svg">
+</head>
+<body>
+  <header class="go-head">
+    <a class="go-brand" href="../" aria-label="Open Phu Quoc"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
+    <div class="go-head-copy"><strong>Đi gì bây giờ?</strong><span>Decision layer · Open Phu Quoc</span></div>
+    <a class="go-home" href="../">← Trang chủ</a>
+  </header>
+
+  <main>
+    <section class="go-hero">
+      <div class="go-hero-copy">
+        <p>OPEN PHU QUOC / GO</p>
+        <h1>Đừng chỉ xem.<br><em>Chọn việc còn kịp làm.</em></h1>
+        <span>Open Phu Quoc ghép giờ hiện tại, khu bạn đang ở, thời lượng trải nghiệm và các tín hiệu vận hành để lọc những lựa chọn khả thi trước.</span>
+      </div>
+      <div class="go-now">
+        <span>GIỜ PHÚ QUỐC</span><strong id="goClock">--:--</strong><small id="goDate">Đang lấy giờ địa phương</small>
+      </div>
+    </section>
+
+    <section class="go-builder" aria-labelledby="goBuilderTitle">
+      <div class="go-builder-head">
+        <div><p>3 CÂU HỎI</p><h2 id="goBuilderTitle">Bạn đang ở đâu và còn bao nhiêu thời gian?</h2></div>
+        <span>Vị trí không được xin tự động. V1 dùng khu vực bạn chọn.</span>
+      </div>
+
+      <form id="goForm" class="go-form">
+        <fieldset>
+          <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
+          <div class="choice-grid" id="areaChoices"></div>
+        </fieldset>
+        <fieldset>
+          <legend><b>02</b><span>Bạn còn bao nhiêu thời gian?</span></legend>
+          <div class="choice-grid four">
+            <label><input type="radio" name="available" value="two"><span>2 giờ<small>Đi gần, gọn</small></span></label>
+            <label><input type="radio" name="available" value="half" checked><span>Nửa ngày<small>Khoảng 5 giờ</small></span></label>
+            <label><input type="radio" name="available" value="full"><span>Cả ngày<small>Khoảng 10 giờ</small></span></label>
+            <label><input type="radio" name="available" value="evening"><span>Buổi tối<small>Từ giờ tới 23:00</small></span></label>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend><b>03</b><span>Hôm nay muốn kiểu gì?</span></legend>
+          <div class="choice-grid interest-grid">
+            <label><input type="radio" name="interest" value="all" checked><span>Tất cả</span></label>
+            <label><input type="radio" name="interest" value="sea"><span>Biển & đảo</span></label>
+            <label><input type="radio" name="interest" value="family"><span>Gia đình</span></label>
+            <label><input type="radio" name="interest" value="culture"><span>Văn hóa</span></label>
+            <label><input type="radio" name="interest" value="food"><span>Ăn uống</span></label>
+            <label><input type="radio" name="interest" value="evening"><span>Buổi tối</span></label>
+            <label><input type="radio" name="interest" value="nature"><span>Thiên nhiên</span></label>
+            <label><input type="radio" name="interest" value="relax"><span>Nhẹ nhàng</span></label>
+          </div>
+        </fieldset>
+        <button class="go-submit" type="submit"><span>Tìm việc hợp với tôi</span><b>→</b></button>
+      </form>
+    </section>
+
+    <section class="go-results-section" id="resultsSection" hidden aria-live="polite">
+      <div class="go-results-head">
+        <div><p id="resultEyebrow">GỢI Ý CHO BẠN</p><h2 id="resultTitle">Những việc còn khả thi từ giờ.</h2></div>
+        <button id="changeChoices" type="button">Đổi lựa chọn</button>
+      </div>
+      <div class="go-live-note" id="liveNote"></div>
+      <div class="go-results" id="goResults"></div>
+      <div class="go-excluded" id="goExcluded" hidden></div>
+    </section>
+
+    <section class="go-principles">
+      <article><span>01</span><strong>Lọc cái không kịp trước</strong><p>Không xếp hạng một điểm đẹp nếu thời gian di chuyển và trải nghiệm khiến bạn không còn đủ giờ.</p></article>
+      <article><span>02</span><strong>Không giả vờ là live</strong><p>Giờ công bố, dự báo thời tiết và xác nhận vận hành được giữ riêng. Chưa chắc thì hiện “cần kiểm tra”.</p></article>
+      <article><span>03</span><strong>Không thay module chuyên biệt</strong><p>Weather, Cano, Transit và các trang chi tiết vẫn là nguồn chuyên sâu. /go chỉ kết hợp tín hiệu để giúp quyết định.</p></article>
+    </section>
+  </main>
+
+  <nav class="go-mobile-nav" aria-label="Điều hướng nhanh">
+    <a href="../#happening">Hôm nay</a><a class="active" href="./">Đi ngay</a><a href="../explore/">Khám phá</a><a href="../#today">Lúc này</a>
+  </nav>
+
+  <script src="../core/go-engine.js?v=20260925a"></script>
+  <script src="live-adapter.js?v=20260925a"></script>
+  <script src="go.js?v=20260925a"></script>
+</body>
+</html>
