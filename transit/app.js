@@ -159,7 +159,7 @@ function renderRows(){
   $$("[data-ticket]").forEach(b=>b.onclick=()=>openTicket(rows[Number(b.dataset.ticket)]));
   $$("[data-mobile-ticket]").forEach(b=>b.onclick=()=>openTicket(rows[Number(b.dataset.mobileTicket)]));
 }
-function render(){fillFilters();renderSummary();renderHealth();renderSources();renderNotice();renderRows()}
+function render(){fillFilters();renderSummary();renderHealth();renderSources();renderNotice();renderRows();$("#busStopReference")?.classList.toggle("hidden",state.mode!=="bus")}
 function openTicket(r){
   const av=availability(r),source=BOOKING[r.operator]||r.source_url||"#",checked=new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ});
   const label=av?.label||"Chưa xác định",tone=av?.tone||"neutral";
