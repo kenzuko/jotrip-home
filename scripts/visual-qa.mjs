@@ -208,6 +208,7 @@ async function testHomeFoundation(page) {
       heights:boxes.map(box=>Math.round(box.height)),categoryWidth:Math.round(categories.width)};
   });
 
+  console.log("NEAR_MOBILE_LAYOUT",JSON.stringify(nearMobileLayout));
   const cancelledToday = await page.evaluate(async () => {
     try {
       const response=await fetch('/data/operational-notices.json',{cache:'no-store'});
