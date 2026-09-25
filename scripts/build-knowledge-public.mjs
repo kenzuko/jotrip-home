@@ -40,7 +40,8 @@ fs.writeFileSync(out,JSON.stringify({schema_version:"1.1",generated_at:new Date(
 // This feeds deterministic daily rotation without downloading all 128 full articles.
 const homepageObjects=objects.map(o=>({
   topic_id:o.topic_id,topic_type:o.topic_type,title:o.title,route:o.route,
-  short_summary:o.editorial.short_summary
+  short_summary:o.editorial.short_summary,
+  image:o.media?.images?.[0]?{url:o.media.images[0].url,alt:o.media.images[0].alt}:null
 }));
 if(homepageObjects.length!==objects.length
   ||new Set(homepageObjects.map(o=>o.topic_id)).size!==homepageObjects.length
