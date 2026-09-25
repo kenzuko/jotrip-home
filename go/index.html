@@ -57,8 +57,9 @@
                 <div class="go-area-row">
                   <div class="choice-grid" id="areaChoices"></div>
                   <button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button>
+                  <button type="button" class="go-pick-map-button" id="goPickMap" aria-pressed="false"><span aria-hidden="true">◎</span> Chọn điểm trên bản đồ</button>
                 </div>
-                <p id="goLocationStatus" class="go-location-status" role="status">Chọn khu vực hoặc dùng GPS nếu muốn xem chính xác hơn.</p>
+                <p id="goLocationStatus" class="go-location-status" role="status">Không cần GPS. Chọn một khu vực hoặc đánh dấu điểm xuất phát trên bản đồ.</p>
               </div>
               <div class="go-control-group">
                 <div class="go-control-heading"><h3>Quanh bạn bao xa?</h3><output id="goRadiusValue" for="goRadiusRange">5 km</output></div>
@@ -105,6 +106,7 @@
                 <span id="goMapStatus">Tâm khu vực tham khảo</span>
               </div>
               <div class="go-map" id="goMap" role="region" aria-label="Bản đồ các địa điểm và vòng bán kính"></div>
+              <section class="go-map-list-section" aria-label="Các điểm trong bán kính"><div class="go-map-list-head"><strong>Những nơi trong vùng</strong><span id="goMapListLabel">Gần trước</span></div><div class="go-map-list" id="goMapList" aria-live="polite"></div></section>
               <div class="go-map-footer">
                 <strong id="goMapCount">Đang tải bản đồ và địa điểm...</strong>
                 <span>Khoảng cách đường chim bay; tâm khu vực không phải GPS của bạn.</span>
