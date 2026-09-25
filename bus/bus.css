@@ -23,3 +23,7 @@
     padding:7px;
   }
 }
+
+/* OSM GPS are reference pins, not operator-confirmed stop locations. */
+.stop-links{display:flex;flex-wrap:wrap;gap:5px;max-width:172px;justify-content:flex-end}.stop-gps{display:inline-flex;min-height:34px;align-items:center;padding:5px 9px;border:1px solid #b7d6cd;border-radius:9px;background:#eaf7f1;color:#17634d;font-size:11px;font-weight:700;text-decoration:none}.stop-gps.official{background:#eef3fa;border-color:#c7d5e8;color:#245383}@media(max-width:520px){.stop-row{grid-template-columns:16px minmax(0,1fr);gap:8px}.stop-links{grid-column:2;justify-content:flex-start;max-width:100%}.stop-row strong{font-size:13px}.stop-row small{font-size:11px;line-height:1.4}}
+.gps-disclaimer{font-size:12px;line-height:1.55;color:#526b69;margin:6px 0 12px}
