@@ -5807,7 +5807,29 @@ body.sheet-open{
  .near-quick-areas button{flex:0 0 auto;white-space:nowrap;scroll-snap-align:start;padding:9px 13px;min-height:39px}
  .near-quick-primary .near-quick-location-note{margin:8px 0 0;font-size:12px}
  .near-quick-group-label{font-size:16px;margin-bottom:11px}
- #nearCategories.near-quick-categories{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ /* The legacy homepage mobile nav uses flex !important. Override only the
+    new quick finder, never the original /nearme directory controls. */
+ #nearCategories.near-quick-categories{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  overflow:visible!important;gap:9px!important;padding:0!important;
+  min-width:0;max-width:100%;scroll-snap-type:none!important
+ }
+ #nearCategories .near-quick-category{
+  display:flex!important;flex:none!important;min-width:0!important;width:100%!important;
+  min-height:76px!important;padding:11px!important;gap:10px!important;
+  border-radius:14px!important;box-sizing:border-box;align-items:center!important;
+ }
+ #nearCategories .near-quick-icon{
+  display:grid!important;place-items:center!important;flex:0 0 37px!important;
+  min-width:37px!important;width:37px!important;height:37px!important;
+  padding:0!important;border-radius:11px!important;font-size:18px!important;
+ }
+ #nearCategories .near-quick-category[data-category=ATM] .near-quick-icon{font-size:12px!important}
+ #nearCategories .near-quick-category[data-category=TOILET] .near-quick-icon{font-size:13px!important}
+ #nearCategories .near-quick-category strong{
+  display:block!important;margin:0!important;font-size:15px!important;line-height:1.25!important
+ }
+
  .near-quick-category{display:flex;align-items:center;flex-direction:row;justify-content:flex-start;min-height:76px;padding:11px;border-radius:14px;gap:10px}
  .near-quick-category strong{font-size:15px;line-height:1.28}
  .near-quick-category small{display:none}
@@ -5831,4 +5853,8 @@ body.sheet-open{
  .near-quick-category{min-height:74px;padding:9px;gap:7px}
  .near-quick-category strong{font-size:14px}
  .near-quick-icon{flex-basis:33px;min-width:33px;width:33px;height:33px}
+ #nearCategories .near-quick-category{min-height:74px!important;padding:9px!important;gap:7px!important}
+ #nearCategories .near-quick-icon{flex-basis:33px!important;min-width:33px!important;width:33px!important;height:33px!important}
+ #nearCategories .near-quick-category strong{font-size:14px!important}
+
 }
