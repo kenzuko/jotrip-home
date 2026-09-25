@@ -109,9 +109,20 @@ let tripClockLastDay="";
 function renderTripClock(){
  if(!support)return;
  renderClock();
- const host=$("#tripClockList");if(!host)return;
+ const host=$("#tripClockList");
+ const extraHost=$("#tripClockExtraPanel");
+ const extraList=$("#tripClockExtraList");
+ const moreButton=$("#tripClockMoreBtn");
+ if(!host||!extraHost||!extraList||!moreButton)return;
  const engine=window.OpenPQTripClockPlanner;
+ const clearExtras=()=>{
+  extraHost.hidden=true;
+  extraList.hidden=true;
+  extraList.innerHTML="";
+  moreButton.setAttribute("aria-expanded","false");
+ };
  if(!engine){
+  clearExtras();
   host.innerHTML='<div class="trip-clock-empty"><strong>Gợi ý hôm nay đang được cập nhật.</strong><p>Mở Khám phá để xem giờ từng điểm trước khi đi.</p></div>';
   return;
  }
@@ -119,15 +130,17 @@ function renderTripClock(){
  if(day!==tripClockLastDay){tripClockLastDay=day;tripClockExpanded=false}
  const rows=tripClockSnapshot().filter(x=>x.eligible&&["active","future","watch"].includes(x.decision?.state));
  if(!rows.length){
+  clearExtras();
   host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Xem các hoạt động buổi tối hoặc lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
   publishLocalNowHint();return;
  }
- const selection=engine.select(rows,10);
- const shown=tripClockExpanded?rows:selection.visible;
- const cards=shown.map(row=>{
+ // First row of the outer grid contains exactly the eight most useful cards
+ // (or fewer when the day has fewer options). Remaining cards live in row two,
+ // so expanding them never stretches the clock panel on the left.
+ const selection=engine.select(rows,8);
+ const renderCard=row=>{
   const {item,e,opening,decision,summary,note}=row;
-  // Preserve the complete existing card: label, name, schedule/duration,
-  // timing note and its canonical detail link.
+  // Preserve the existing complete card copy, duration, note and detail route.
   const detail=opening?.schedule_type==="FIXED_START"||item.entity_id==="activity_hon_thom"?summary:[summary,e.duration].filter(Boolean).join(" · ");
   const distinctNote=note&&note.trim()!==detail.trim()?note:"";
   return '<a class="trip-item" data-entity-id="'+esc(item.entity_id)+'" data-decision="'+esc(decision.state)+'" href="'+esc(item.route)+'">'+
@@ -135,15 +148,15 @@ function renderTripClock(){
    '<strong>'+esc(e.name||item.entity_id)+'</strong>'+
    '<p>'+esc(detail)+'</p>'+
    (distinctNote?'<b>'+esc(distinctNote)+'</b>':"")+'</a>';
- });
+ };
+ host.innerHTML=selection.visible.map(renderCard).join("");
  const hasMore=selection.hidden.length>0;
- if(hasMore){
-  const label=tripClockExpanded?"Thu gọn ↑":"Xem thêm "+selection.hidden.length+" hoạt động ↓";
-  const wide=tripClockExpanded||shown.length%2===0;
-  cards.push('<button type="button" class="trip-clock-more'+(wide?' trip-clock-more-wide':'')+'" aria-expanded="'+String(tripClockExpanded)+'" aria-controls="tripClockList">'+esc(label)+'</button>');
- }
- host.innerHTML=cards.join("");
- host.querySelector(".trip-clock-more")?.addEventListener("click",()=>{tripClockExpanded=!tripClockExpanded;renderTripClock()});
+ extraHost.hidden=!hasMore;
+ extraList.hidden=!hasMore||!tripClockExpanded;
+ extraList.innerHTML=hasMore&&tripClockExpanded?selection.hidden.map(renderCard).join(""):"";
+ moreButton.textContent=tripClockExpanded?"Thu gọn ↑":"Xem thêm "+selection.hidden.length+" hoạt động ↓";
+ moreButton.setAttribute("aria-expanded",String(tripClockExpanded));
+ moreButton.onclick=()=>{tripClockExpanded=!tripClockExpanded;renderTripClock()};
  publishLocalNowHint();
 }
 function buildLocalNowHint(){
