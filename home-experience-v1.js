@@ -94,7 +94,7 @@
     const pictures = foodNowState.visuals?.food?.[dish.id]?.images || [];
     const picture = pictures.find(img => img?.url && img.hero_eligible !== false);
     if (picture) return '<figure class="food-now-media">'+
-      '<img src="'+esc(picture.url)+'" alt="'+esc(picture.alt || dish.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')"></figure>';
+      '<img src="'+esc(picture.url)+'" alt="'+esc(picture.alt || dish.name)+'" loading="lazy" decoding="async" data-fallback="'+esc(picture.fallback_url||"")+'" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;delete this.dataset.fallback}else{this.closest(\'figure\').classList.add(\'is-error\')}"></figure>';
     return '<figure class="food-now-media food-now-media-empty"><span>Ảnh món đang được bổ sung</span></figure>';
   }
 
