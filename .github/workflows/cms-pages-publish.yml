@@ -10,6 +10,10 @@ on:
       - "data/knowledge/**"
       - "data/visual-context.json"
       - "data/content.json"
+      - "ecosystem-shell.css"
+      - "explore/**"
+      - "utilities/**"
+      - "currency/**"
       - "scripts/test-home-food-random.mjs"
       - "scripts/test-food-id-mapping.mjs"
       - "data/food.json"
@@ -76,6 +80,8 @@ jobs:
           node scripts/test-transit-mobile-ui.mjs
           node scripts/test-home-food-random.mjs
           node scripts/test-food-id-mapping.mjs
+          node --check utilities/utilities.js
+          node --check currency/currency.js
           node --check food/food.js
           node --check stories/story.js
           node --check transit/app.js
