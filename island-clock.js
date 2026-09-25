@@ -32,7 +32,7 @@
     moduleFooter.innerHTML=`
       <div class="shell module-footer-inner">
         <div class="module-footer-brand">
-          <img src="/assets/logo-master.png" alt="Open Phu Quoc">
+          <img src="/assets/logo-master.png?v=20260925-user-approved-logo" alt="Open Phu Quoc">
           <div><strong>Hiểu đảo để đi nhẹ hơn.</strong><p>Thông tin đang diễn ra và kiến thức điểm đến trong cùng một hệ sinh thái dành cho người đang ở Phú Quốc.</p></div>
         </div>
         <nav class="module-footer-nav" aria-label="Mở phần khác">
