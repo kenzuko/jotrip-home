@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const zoneNames={zone_central_west:"Dương Đông & bờ Tây",zone_south:"An Thới & Nam đảo",zone_north:"Bắc đảo"};
-  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:"zone_central_west",position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[]};
+  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:"zone_central_west",position:null,manualPoint:null,radiusKm:5,mapOverview:false,layer:"explore",sort:"distance",picking:false,locationIndex:[],venueDirectory:[]};
 
   function clock(){
     const d=new Date();
@@ -36,7 +36,7 @@
   }
   function selection(){
     const fd=new FormData($("#goForm"));
-    return{originZone:String(fd.get("origin")||""),available:String(fd.get("available")||"half"),interest:String(fd.get("interest")||"all"),position:state.position,radiusKm:state.position?state.radiusKm:null};
+    return{originZone:String(fd.get("origin")||""),available:String(fd.get("available")||"half"),interest:String(fd.get("interest")||"all"),position:state.position||state.manualPoint,radiusKm:(state.position||state.manualPoint)?state.radiusKm:null};
   }
   async function run(){
     const pick=selection();
@@ -56,7 +56,7 @@
     return weather+cano;
   }
   function render(view,pick){
-    $("#resultEyebrow").textContent=(state.position?"QUANH VỊ TRÍ CỦA BẠN · "+state.radiusKm+" KM":zoneNames[pick.originZone].toUpperCase())+" · "+view.now;
+    $("#resultEyebrow").textContent=(state.position?"GẦN VỊ TRÍ GPS · "+state.radiusKm+" KM":state.manualPoint?"QUANH ĐIỂM BẠN CHỌN · "+state.radiusKm+" KM":zoneNames[pick.originZone].toUpperCase())+" · "+view.now;
     $("#resultTitle").textContent=view.results.length?"Những nơi bạn có thể ghé hôm nay.":"Thử một lịch nhẹ nhàng hơn nhé.";
     $("#liveNote").textContent=liveNote();
     if(!view.results.length){
@@ -68,7 +68,7 @@
         const image=images.find(v=>v.scope==="exact_subject"&&v.url)||images.find(v=>v.scope==="field_evidence"&&v.url)||images.find(v=>v.scope==="context"&&v.url)||images.find(v=>v.scope==="archive"&&v.url)||images.find(v=>v.url);
         const photo=image?'<div class="go-result-photo"><img loading="lazy" src="'+esc(image.url)+'" alt="'+esc(image.alt||x.name)+'"></div>':'<div class="go-result-photo"><div class="no-image">Đang bổ sung ảnh cho '+esc(x.name)+'</div></div>';
         const drive=x.travel?x.travel.low+"-"+x.travel.high+" phút (ước lượng theo vùng)":"Chưa rõ";
-        const km=x.distance_km!==null&&x.distance_km!==undefined?x.distance_km.toFixed(1)+" km đường chim bay":null;
+        const km=x.distance_km!==null&&x.distance_km!==undefined?x.distance_km.toFixed(1)+" km đường chim bay"+(state.manualPoint?" từ điểm bạn chọn":""):null;
         return '<article class="go-result" data-state="'+esc(x.badge)+'">'+photo+
           '<div class="go-result-top"><span>0'+(i+1)+' · '+esc(x.category)+'</span><b class="go-badge">'+(x.badge==="POSSIBLE"?"CÒN KỊP":"CẦN KIỂM TRA")+'</b></div>'+
           '<h3>'+esc(x.name)+'</h3><p class="go-note">'+esc(x.note||"Một lựa chọn còn phù hợp với thời gian hiện tại.")+'</p>'+
@@ -101,40 +101,92 @@
     }else box.hidden=true;
   }
 
+
   function mapRows(){
-    const canonical=[...state.entities.values()].map(e=>({...e,route:"/places/detail.html?id="+encodeURIComponent(e.slug||e.legacy_id||e.id.replace(/^(place|activity)_/,""))}));
-    const nearRows=state.locationIndex.filter(e=>["place","activity"].includes(e.entity_type)&&e.map);
-    const venueRows=state.venueDirectory.filter(e=>e.status==="ACTIVE"&&["LOCAL_FOOD","RESTAURANT","CAFE"].includes(e.category))
-      .map(e=>({...e,map:{lat:e.latitude,lon:e.longitude,precision:e.geo_precision||e.map?.precision,verified_at:e.verified_at},
-        route:"/nearme/?category="+encodeURIComponent(e.category)}));
-    const seen=new Set();
-    return [...canonical,...nearRows,...venueRows].filter(e=>{if(seen.has(e.id))return false;seen.add(e.id);return true});
+    // The public Near Me location index is the source for map-ready coordinates.
+    // Prefer it over canonical entities, because a canonical place may lack a
+    // precise map point while the public index already has its verified anchor.
+    const primary=state.locationIndex.filter(x=>x.map&&x.id);
+    const seen=new Set(primary.map(x=>x.id));
+    const fallback=[...state.entities.values()].filter(x=>!seen.has(x.id))
+      .map(x=>({...x,entity_type:x.entity_type||(/^activity_/.test(x.id)?"activity":"place"),
+        route:"/places/detail.html?id="+encodeURIComponent(x.slug||x.legacy_id||x.id.replace(/^(place|activity)_/,""))}));
+    for(const x of fallback)seen.add(x.id);
+    const foodCategories=new Set(["LOCAL_FOOD","RESTAURANT","CAFE"]);
+    const storedFood=state.venueDirectory.filter(x=>x.status==="ACTIVE"&&foodCategories.has(x.category))
+      .filter(x=>!seen.has(x.canonical_entity_id||x.id))
+      .map(x=>({...x,entity_type:"venue",map:{
+        lat:x.latitude,lon:x.longitude,precision:x.map?.precision||x.geo_precision||"unverified",
+        verified_at:x.verified_at
+      },route:"/nearme/?category="+encodeURIComponent(x.category)}));
+    return[...primary,...fallback,...storedFood];
   }
-  function drawMap(){
-    if(state.mapOverview){window.OpenPQGoMap?.overview();return;}
-    $("#goMapReset").textContent="Xem cả đảo ↗";
-    const geo=window.OpenPQGoGeo;
-    const point=state.position||geo?.anchors?.[state.originZone];
-    if(!geo?.valid(point)){
-      window.OpenPQGoMap?.overview();
-      $("#goMapMode").textContent="Chọn một khu vực hoặc dùng định vị để vẽ vòng bán kính.";
+  function positionMode(){
+    return state.position?"gps":state.manualPoint?"manual":"area";
+  }
+  function locationOrigin(){
+    return state.position||state.manualPoint||window.OpenPQGoGeo?.anchors?.[state.originZone];
+  }
+  function localFoodUrl(){
+    return"../nearme/?category=LOCAL_FOOD&area="+encodeURIComponent(state.originZone);
+  }
+  function renderMapList(points){
+    const host=$("#goMapList");
+    const limited=(points||[]).slice(0,6);
+    $("#goMapListLabel").textContent=state.sort==="name"?"Theo tên A–Z":"Gần trước";
+    if(!limited.length){
+      host.innerHTML='<p class="go-map-list-empty">'+(state.layer==="food"
+        ?"Chưa có quán ăn với tọa độ đã xác minh trong kho. Mở Quanh đây để tìm quán theo khu vực."
+        :"Chưa có điểm thuộc nhóm này trong phạm vi đang xem. Thử tăng bán kính hoặc chọn nhóm khác.")+'</p>';
       return;
     }
-    const gps=!!state.position;
-    const result=window.OpenPQGoMap?.draw(point,state.radiusKm,mapRows(),{gps});
-    $("#goMapMode").textContent=gps?
-      "Tâm vòng tròn là vị trí bạn vừa cho phép. Xem các điểm gần mình theo km.":
-      "Tâm vòng tròn là "+(zoneNames[state.originZone]||"khu vực đã chọn")+". Đây là điểm tham khảo, không phải vị trí GPS của bạn.";
-    $("#goMapCount").textContent=result?.map===false?
-      "Bản đồ chưa tải được; bạn vẫn có thể tìm địa điểm theo khu vực.":
-      (result?.shown||0)+" địa điểm đã có tọa độ trong vòng "+state.radiusKm+" km"+(gps?" quanh bạn.":" từ tâm khu vực.");
+    const origin=state.position?"từ GPS":state.manualPoint?"từ điểm đã chọn":"từ tâm khu vực";
+    host.innerHTML=limited.map(item=>{
+      const link=item.route&&/^\/(?!\/)/.test(item.route)?'<a href="'+esc(item.route)+'" aria-label="Xem chi tiết '+esc(item.name)+'">↗</a>':"";
+      return'<div class="go-map-list-row"><button type="button" data-map-focus="'+esc(item.id)+'"><strong>'+esc(item.name)+
+        '</strong><small>'+item.km.toFixed(1)+' km '+origin+'</small></button>'+link+'</div>';
+    }).join("");
+  }
+  function drawMap(){
+    const geo=window.OpenPQGoGeo,layers=window.OpenPQGoLayers;
+    const point=locationOrigin();
+    if(!geo?.valid(point)){
+      $("#goMapCount").textContent="Chưa có khu vực xuất phát hợp lệ.";
+      return;
+    }
+    const mode=positionMode(),rows=layers?.filter(mapRows(),state.layer)||[];
+    const result=state.mapOverview?
+      window.OpenPQGoMap?.overview(rows,point,{mode,sort:state.sort}):
+      window.OpenPQGoMap?.draw(point,state.radiusKm,rows,{mode,sort:state.sort});
+    const modeLabel=mode==="gps"?"Vị trí GPS của bạn":mode==="manual"?"Điểm xuất phát tự chọn":"Tâm "+(zoneNames[state.originZone]||"khu vực")+" (tham khảo)";
+    $("#goMapScope").textContent=(state.layer==="explore"?"Khám phá":({
+      place:"Điểm đến",activity:"Trải nghiệm",utility:"Tiện ích",hotel:"Lưu trú",food:"Ăn uống",all:"Tất cả"
+    })[state.layer]||"Khám phá")+(state.mapOverview?" · Toàn đảo":" · "+state.radiusKm+" km");
+    $("#goMapStatus").textContent=modeLabel;
+    $("#goMapMode").textContent=mode==="gps"?
+      "Bản đồ đang dùng vị trí bạn đã cho phép, chỉ trong phiên này.":
+      mode==="manual"?"Bạn đã tự chọn điểm xuất phát. Khoảng cách tính từ điểm đã đánh dấu.":
+      "Đang xem "+(zoneNames[state.originZone]||"Phú Quốc")+" làm điểm tham khảo. Không cần bật GPS.";
+    $("#goMapCount").textContent=result?.map===false?"Bản đồ chưa tải được. Danh sách vẫn sử dụng tọa độ đã có.":
+      (result?.shown||0)+" địa điểm có tọa độ"+(state.mapOverview?" trên đảo.":" trong phạm vi.");
     $("#goRadiusValue").textContent=state.radiusKm+" km";
     $("#goRadiusRange").value=String(state.radiusKm);
-    document.querySelectorAll("#goRadiusButtons button").forEach(btn=>{
-      const on=Number(btn.dataset.km)===state.radiusKm;
-      btn.classList.toggle("active",on);
-      btn.setAttribute("aria-pressed",String(on));
+    $("#goMapReset").textContent=state.mapOverview?"Quay lại vòng bán kính ↗":"Xem cả đảo ↗";
+    $("#goLayerExplain").textContent=layers?.description(state.layer)||"";
+    const food=state.layer==="food";
+    $("#goFoodDirectoryLink").hidden=!food;
+    $("#goFoodDirectoryLink").href=localFoodUrl();
+    document.querySelectorAll("#goRadiusButtons button").forEach(button=>{
+      const on=Number(button.dataset.km)===state.radiusKm;
+      button.classList.toggle("active",on);
+      button.setAttribute("aria-pressed",String(on));
     });
+    document.querySelectorAll("#goLayerControls button").forEach(button=>{
+      const on=button.dataset.layer===state.layer;
+      button.classList.toggle("active",on);
+      button.setAttribute("aria-pressed",String(on));
+    });
+    renderMapList(result?.points||[]);
   }
   function geoError(error){
     if(error?.code===1)return "Bạn chưa cho phép dùng vị trí. Vẫn có thể chọn khu vực bên trên nhé.";
