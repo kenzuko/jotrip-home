@@ -15,6 +15,7 @@ function foldStop(x){
   if(/k mark/.test(s))return"k mark";
   if(/salinda/.test(s))return"salinda";
   if(/sol beach/.test(s))return"sol beach";
+  if(/intercontinental/.test(s))return"intercontinental";
   if(/viet han/.test(s))return"viet han";
   if(/vinholidays fiesta/.test(s))return"vinholidays fiesta";
   if(/wyndham garden/.test(s))return"wyndham garden";
