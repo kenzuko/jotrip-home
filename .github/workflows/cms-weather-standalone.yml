@@ -56,6 +56,7 @@ jobs:
           node --check worker.js
           node scripts/weather-alert-ledger.test.mjs functions/_shared/weather-alert-ledger.js
           node --check weather/weather-scene-v3.js
+          node scripts/weather-scene-refresh.test.mjs
           node --check weather/spatial-lab.js
           PYTHONPATH=scripts/weather-engine python -m compileall -q scripts/weather-engine/weather
 
