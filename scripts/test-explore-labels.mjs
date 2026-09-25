@@ -3,7 +3,7 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const app=fs.readFileSync(new URL("../explore/app.js",import.meta.url),"utf8");
-const match=app.match(/const labels=({[\\s\\S]*?});/);
+const match=app.match(/const labels=({[\s\S]*?});/);
 assert.ok(match,"Explore category labels must be defined");
 const labels=vm.runInNewContext("("+match[1]+")");
 const ids=["places","activities"];
