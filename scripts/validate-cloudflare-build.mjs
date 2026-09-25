@@ -35,7 +35,7 @@ const publicView=JSON.parse(readFileSync("dist/data/views/knowledge-public.json"
 const ids=new Set(feed.objects.map(o=>o.topic_id));
 if(feed.count!==publicView.count||feed.count!==feed.objects.length||ids.size!==feed.count
   ||feed.objects.some(o=>!publicView.objects.some(p=>p.topic_id===o.topic_id))
-  ||feed.objects.some(o=>!/^\\/guide\\/article\\.html\\?id=knowledge_/.test(o.route))
+  ||feed.objects.some(o=>!/^\/guide\/article\.html\?id=knowledge_/.test(o.route))
   ||feed.objects.some(o=>{
     const article=publicView.objects.find(p=>p.topic_id===o.topic_id);
     const image=article?.media?.images?.[0]||null;
