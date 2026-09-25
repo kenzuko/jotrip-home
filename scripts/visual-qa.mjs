@@ -182,6 +182,33 @@ async function testHomeFoundation(page) {
     await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0,{timeout:5000}).catch(()=>{});
   }
 
+  const nearMobileLayout = await page.evaluate(() => {
+    const shell=document.querySelector(".near-quick-shell");
+    const selectors=[".near-quick-primary",".near-quick-essentials",".near-quick-results",".near-quick-extras",".near-quick-emergency"];
+    const nodes=selectors.map(sel=>document.querySelector(sel));
+    if(!shell||nodes.some(x=>!x))return {ok:false,reason:"Near Me mobile regions missing"};
+    if(window.innerWidth>900){
+      const controls=document.querySelector(".near-quick-controls").getBoundingClientRect();
+      const results=nodes[2].getBoundingClientRect();
+      return {ok:window.innerWidth<1100||controls.right<=results.left+2,mode:"desktop"};
+    }
+    const boxes=nodes.map(node=>node.getBoundingClientRect());
+    const ordered=boxes.every((box,i)=>!i||box.top>=boxes[i-1].bottom-2);
+    const cards=[...document.querySelectorAll("#nearCategories .near-quick-category")];
+    const compact=cards.length===4&&cards.every(card=>card.getBoundingClientRect().height<=105);
+    const categories=document.querySelector("#nearCategories").getBoundingClientRect();
+    const twoColumns=cards.length===4&&Math.abs(cards[0].getBoundingClientRect().top-cards[1].getBoundingClientRect().top)<=2&&
+      cards[2].getBoundingClientRect().top>cards[0].getBoundingClientRect().top;
+    const areas=document.querySelector("#nearManualAreas");
+    const oneAreaRow=areas.getBoundingClientRect().height<=68;
+    const noOverflow=shell.scrollWidth<=shell.clientWidth+2;
+    const copy=!document.querySelector(".near-me-section").textContent.includes("bên trái");
+    return {ok:ordered&&compact&&twoColumns&&oneAreaRow&&noOverflow&&copy,
+      mode:"mobile",ordered,compact,twoColumns,oneAreaRow,noOverflow,copy,
+      heights:boxes.map(box=>Math.round(box.height)),categoryWidth:Math.round(categories.width)};
+  });
+
+  console.log("NEAR_MOBILE_LAYOUT",JSON.stringify(nearMobileLayout));
   const cancelledToday = await page.evaluate(async () => {
     try {
       const response=await fetch('/data/operational-notices.json',{cache:'no-store'});
@@ -232,7 +259,7 @@ async function testHomeFoundation(page) {
       initial,featuredHeight,initialCards,expandedHeight,collapsedHeight,expandedExtras,collapsedExtras,desktop};
   });
 
-  return page.evaluate(({initialNearClean,cancelledToday,sidebarLayout,quickFinder}) => {
+  return page.evaluate(({initialNearClean,cancelledToday,sidebarLayout,quickFinder,nearMobileLayout}) => {
     const text = selector => document.querySelector(selector)?.textContent?.trim() || '';
     const count = selector => document.querySelectorAll(selector).length;
     const hanoiHour=Number(new Intl.DateTimeFormat('en-GB',{
@@ -253,6 +280,7 @@ async function testHomeFoundation(page) {
       manualAreas: count('#nearManualAreas [data-area]') >= 4,
       nearCategories: count('#nearCategories [data-category]') === 4,
       nearExtraCategories: count('#nearQuickMore [data-category]') === 4,
+      nearMobileLayout:nearMobileLayout.ok,
       nearQuickFinder: quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound,
       initialNearClean,
       manualResults: count('#nearResults .near-result-card') >= 1,
@@ -262,7 +290,7 @@ async function testHomeFoundation(page) {
       noSyntheticZero: ![...document.querySelectorAll('#homeCurrencyGrid .home-currency-card strong')].some(el => /^0([,.]0+)?\s*₫$/.test(el.textContent.trim()))
     };
     return { ok: Object.values(checks).every(Boolean), checks };
-  }, {initialNearClean,cancelledToday,sidebarLayout,quickFinder});
+  }, {initialNearClean,cancelledToday,sidebarLayout,quickFinder,nearMobileLayout});
 }
 
 async function testNearMePage(page) {
