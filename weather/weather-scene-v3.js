@@ -61,6 +61,37 @@ async function fetchJSON(url){
 async function fetchCanonical(url){
   return fetchJSON(url);
 }
+// The CMS build manifest is a deploy snapshot. The same-origin Cloudflare
+// Pages Function can supply a newer model cycle while that manifest is unchanged.
+// Never replace a valid forecast with an older or incomplete edge payload.
+function newerRuntimeForecast(candidate,previous){
+  if(!Array.isArray(candidate?.spatial?.frames)||!candidate.spatial.frames.some(f=>
+    Number.isFinite(Date.parse(f.valid_time||""))&&Array.isArray(f.cells)&&f.cells.length>0
+  ))return false;
+  const run=Date.parse(candidate.run_time||candidate.spatial?.short_run_time||"");
+  const old=Date.parse(previous?.run_time||previous?.spatial?.short_run_time||"");
+  if(!Number.isFinite(run))return false;
+  if(!Number.isFinite(old))return true;
+  if(run>old)return true;
+  return run===old&&Date.parse(candidate.generated_at||0)>Date.parse(previous?.generated_at||0);
+}
+function newerMarineWave(candidate,previous){
+  const wave=candidate?.wave,old=previous?.wave;
+  if(wave?.status!=="READY"||!Array.isArray(wave.cells)||!wave.cells.length)return false;
+  const sampled=Date.parse(wave.sampled_time||"");
+  const older=Date.parse(old?.sampled_time||"");
+  return Number.isFinite(sampled)&&(!Number.isFinite(older)||sampled>older);
+}
+function newerDashboard(candidate,previous,forecast){
+  const cycle=Date.parse(candidate?.source_cycles?.ECMWF||"");
+  const old=Date.parse(previous?.source_cycles?.ECMWF||"");
+  const forecastRun=Date.parse(forecast?.run_time||"");
+  const generated=Date.parse(candidate?.generated_at||"");
+  const prior=Date.parse(previous?.generated_at||"");
+  return Number.isFinite(cycle)&&
+    (!Number.isFinite(forecastRun)||cycle<=forecastRun)&&
+    (!Number.isFinite(old)||cycle>old||(cycle===old&&generated>prior));
+}
 function stamp(iso){
   if(!iso) return "--";
   const d=new Date(iso);
@@ -82,7 +113,8 @@ function localRunLabel(iso){
 }
 function modelRunIso(scene){
   const cycles=state.dashboard?.source_cycles||{};
-  if(scene==="rain"||scene==="wind"||scene==="wave") return cycles.ECMWF||state.ecmwf?.run_time||state.ecmwf?.spatial?.short_run_time||null;
+  if(scene==="rain"||scene==="wind"||scene==="wave")
+    return state.ecmwf?.run_time||state.ecmwf?.spatial?.short_run_time||cycles.ECMWF||null;
   return null;
 }
 function modelName(scene){
@@ -1306,9 +1338,11 @@ async function refreshCanonicalRuntime(){
     const after=JSON.stringify(manifest?.source_times||{});
     if(before===after){
       // The CMS data edge updates independently of the deployed build manifest.
-      // Always recheck same-origin live observations on every 2-minute tick.
-      const [cloud,compact,current]=await Promise.allSettled([
-        fetchCanonical(URLS.nowcast),fetchCanonical(URLS.compact),fetchCanonical(URLS.current)
+      // Every 2-minute tick also checks newer forecast, marine and source cycles:
+      // a delayed GitHub Pages deployment must never freeze the displayed map.
+      const [cloud,compact,current,forecast,meta,marine]=await Promise.allSettled([
+        fetchCanonical(URLS.nowcast),fetchCanonical(URLS.compact),fetchCanonical(URLS.current),
+        fetchCanonical(URLS.ecmwf),fetchCanonical(URLS.dashboard),fetchCanonical(URLS.marine)
       ]);
       const newer=(candidate,existing,field)=>candidate?.status==="POINT_NUMERIC_READY"&&
         Number.isFinite(Date.parse(candidate?.[field]||""))&&
@@ -1323,6 +1357,15 @@ async function refreshCanonicalRuntime(){
       if(current.status==="fulfilled"&&
          Date.parse(current.value?.local_now?.generated_at||0)>Date.parse(state.current?.local_now?.generated_at||0)){
         state.current=current.value;state.sources.current=true;changed=true;
+      }
+      if(forecast.status==="fulfilled"&&newerRuntimeForecast(forecast.value,state.ecmwf)){
+        state.ecmwf=forecast.value;state.sources.ecmwf=true;changed=true;
+      }
+      if(marine.status==="fulfilled"&&newerMarineWave(marine.value,state.marine)){
+        state.marine=marine.value;state.sources.marine=true;changed=true;
+      }
+      if(meta.status==="fulfilled"&&newerDashboard(meta.value,state.dashboard,state.ecmwf)){
+        state.dashboard=meta.value;state.sources.dashboard=true;changed=true;
       }
       if(changed){
         setTabAvailability();
@@ -1340,9 +1383,9 @@ async function refreshCanonicalRuntime(){
     if(n.status==="fulfilled")state.nowcast=n.value;
     if(c.status==="fulfilled")state.compact=c.value;
     if(cur.status==="fulfilled")state.current=cur.value;
-    if(e.status==="fulfilled")state.ecmwf=e.value;
-    if(d.status==="fulfilled")state.dashboard=d.value;
-    if(m.status==="fulfilled")state.marine=m.value;
+    if(e.status==="fulfilled"&&newerRuntimeForecast(e.value,state.ecmwf))state.ecmwf=e.value;
+    if(d.status==="fulfilled"&&newerDashboard(d.value,state.dashboard,state.ecmwf))state.dashboard=d.value;
+    if(m.status==="fulfilled"&&newerMarineWave(m.value,state.marine))state.marine=m.value;
     setTabAvailability();
     let next=state.scene;
     if(!sceneAvailable(next))next=sceneAvailable("cloud")?"cloud":sceneAvailable("rain")?"rain":sceneAvailable("wind")?"wind":"wave";
