@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const zoneNames={zone_central_west:"Dương Đông & bờ Tây",zone_south:"An Thới & Nam đảo",zone_north:"Bắc đảo"};
-  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:"zone_central_west"};
+  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:null,position:null,radiusKm:5,locationIndex:[],venueDirectory:[]};
 
   function clock(){
     const d=new Date();
@@ -13,10 +13,10 @@
   }
   async function json(path){const r=await fetch(path+(path.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error(path+" HTTP "+r.status);return r.json()}
   async function load(){
-    const [config,places,activities,notices,visuals]=await Promise.all([
-      json("../data/go-config.json"),json("../data/entities/places.json"),json("../data/entities/activities.json"),json("../data/operational-notices.json"),json("../data/visual-context.json").catch(()=>null)
+    const [config,places,activities,notices,visuals,locationIndex,venueDirectory]=await Promise.all([
+      json("../data/go-config.json"),json("../data/entities/places.json"),json("../data/entities/activities.json"),json("../data/operational-notices.json"),json("../data/visual-context.json").catch(()=>null),json("../data/views/location-index.json").catch(()=>({documents:[]})),json("../data/entities/destination-venues.json").catch(()=>({entities:[]}))
     ]);
-    state.config=config;state.notices=notices.notices||[];state.visuals=visuals;
+    state.config=config;state.notices=notices.notices||[];state.visuals=visuals;state.locationIndex=locationIndex.documents||[];state.venueDirectory=venueDirectory.entities||[];
     [...(places.entities||[]),...(activities.entities||[])].forEach(e=>state.entities.set(e.id,e));
     renderAreas();
     const params=new URLSearchParams(location.search);
@@ -26,18 +26,21 @@
     for(const [name,value] of [['available',available],['interest',interest],['origin',origin]]){
       if(!value)continue;
       const input=[...document.querySelectorAll('#goForm input[name="'+name+'"]')].find(el=>el.value===value);
-      if(input)input.checked=true;
+      if(input){input.checked=true;if(name==="origin")state.originZone=value;}
     }
+    bindGeo();
   }
   function renderAreas(){
-    $("#areaChoices").innerHTML=(state.config.areas||[]).map((a,i)=>'<label><input type="radio" name="origin" value="'+esc(a.id)+'" '+(i===0?"checked":"")+'><span>'+esc(a.label)+'</span></label>').join("");
+    $("#areaChoices").innerHTML=(state.config.areas||[]).map((a,i)=>'<label><input type="radio" name="origin" value="'+esc(a.id)+'" '+""+'><span>'+esc(a.label)+'</span></label>').join("");
   }
   function selection(){
     const fd=new FormData($("#goForm"));
-    return{originZone:String(fd.get("origin")||"zone_central_west"),available:String(fd.get("available")||"half"),interest:String(fd.get("interest")||"all")};
+    return{originZone:String(fd.get("origin")||""),available:String(fd.get("available")||"half"),interest:String(fd.get("interest")||"all"),position:state.position,radiusKm:state.position?state.radiusKm:null};
   }
   async function run(){
-    const pick=selection();state.originZone=pick.originZone;
+    const pick=selection();
+    if(!pick.originZone){$("#goLocationStatus").textContent="Chọn khu vực bạn đang ở hoặc bấm dùng vị trí của tôi trước nhé.";$(".go-area-row").scrollIntoView({behavior:"smooth",block:"center"});return;}
+    state.originZone=pick.originZone;
     $("#resultsSection").hidden=false;$("#goResults").innerHTML='<div class="go-empty"><strong>Để tụi mình xem nhé...</strong><span>Đang chọn những nơi còn đủ thời gian để ghé hôm nay.</span></div>';
     state.live=window.OpenPQGoLive?await window.OpenPQGoLive.load(pick.originZone).catch(()=>null):null;
     const view=window.OpenPQGoEngine.plan({config:state.config,entities:state.entities,notices:state.notices,live:state.live||{},now:new Date(),...pick});
@@ -52,7 +55,7 @@
     return weather+cano;
   }
   function render(view,pick){
-    $("#resultEyebrow").textContent=zoneNames[pick.originZone].toUpperCase()+" · "+view.now;
+    $("#resultEyebrow").textContent=(state.position?"QUANH VỊ TRÍ CỦA BẠN · "+state.radiusKm+" KM":zoneNames[pick.originZone].toUpperCase())+" · "+view.now;
     $("#resultTitle").textContent=view.results.length?"Những nơi bạn có thể ghé hôm nay.":"Thử một lịch nhẹ nhàng hơn nhé.";
     $("#liveNote").textContent=liveNote();
     if(!view.results.length){
@@ -63,12 +66,13 @@
         const images=state.visuals?.places?.[x.id]?.images||[];
         const image=images.find(v=>v.scope==="exact_subject"&&v.url)||images.find(v=>v.scope==="field_evidence"&&v.url)||images.find(v=>v.scope==="context"&&v.url)||images.find(v=>v.scope==="archive"&&v.url)||images.find(v=>v.url);
         const photo=image?'<div class="go-result-photo"><img loading="lazy" src="'+esc(image.url)+'" alt="'+esc(image.alt||x.name)+'"></div>':'<div class="go-result-photo"><div class="no-image">Đang bổ sung ảnh cho '+esc(x.name)+'</div></div>';
-        const drive=x.travel?x.travel.low+"-"+x.travel.high+" phút":"Chưa rõ";
+        const drive=x.travel?x.travel.low+"-"+x.travel.high+" phút (ước lượng theo vùng)":"Chưa rõ";
+        const km=x.distance_km!==null&&x.distance_km!==undefined?x.distance_km.toFixed(1)+" km đường chim bay":null;
         return '<article class="go-result" data-state="'+esc(x.badge)+'">'+photo+
           '<div class="go-result-top"><span>0'+(i+1)+' · '+esc(x.category)+'</span><b class="go-badge">'+(x.badge==="POSSIBLE"?"CÒN KỊP":"CẦN KIỂM TRA")+'</b></div>'+
           '<h3>'+esc(x.name)+'</h3><p class="go-note">'+esc(x.note||"Một lựa chọn còn phù hợp với thời gian hiện tại.")+'</p>'+
           '<div class="go-timing"><strong>'+esc(x.timing)+'</strong><span>Dự kiến xong khoảng '+esc(x.finish_at)+'</span></div>'+
-          '<div class="go-meta"><div><span>Đi từ khu hiện tại</span><b>'+esc(drive)+'</b></div><div><span>Dự kiến tới</span><b>'+esc(x.arrival)+'</b></div><div><span>Trước khi đi</span><b>Xem giờ & lưu ý mới nhất</b></div></div>'+
+          '<div class="go-meta">'+(km?'<div><span>Cách bạn</span><b>'+esc(km)+'</b></div>':'')+'<div><span>Đi từ khu hiện tại</span><b>'+esc(drive)+'</b></div><div><span>Dự kiến tới</span><b>'+esc(x.arrival)+'</b></div><div><span>Trước khi đi</span><b>Xem giờ & lưu ý mới nhất</b></div></div>'+
           (warnings?'<ul class="go-warnings">'+warnings+'</ul>':"")+
           '<a href="'+esc(x.route)+'">Xem chi tiết trước khi đi →</a></article>';
       }).join("");
@@ -87,6 +91,7 @@
           '<div><span>'+esc(x.category)+'</span><strong>'+esc(x.name)+'</strong><small>'+esc(x.timing)+' · đi khoảng '+esc(drive)+'</small></div></a>';
       }).join("");
     }else{moreSection.hidden=true;moreGrid.innerHTML="";}
+    renderFood(pick);
     const blocked=view.excluded||[];
     const box=$("#goExcluded");
     if(blocked.length){
@@ -94,6 +99,95 @@
       box.innerHTML='<strong>Một vài nơi chưa hợp lịch hôm nay</strong><p>'+esc(blocked.slice(0,5).map(x=>x.reason).filter((v,i,a)=>a.indexOf(v)===i).join(" · "))+'</p>';
     }else box.hidden=true;
   }
+
+  function mapRows(){
+    const canonical=[...state.entities.values()].map(e=>({...e,route:"/places/detail.html?id="+encodeURIComponent(e.slug||e.legacy_id||e.id.replace(/^(place|activity)_/,""))}));
+    const nearRows=state.locationIndex.filter(e=>["place","activity"].includes(e.entity_type)&&e.map);
+    const venueRows=state.venueDirectory.filter(e=>e.status==="ACTIVE"&&["LOCAL_FOOD","RESTAURANT","CAFE"].includes(e.category))
+      .map(e=>({...e,map:{lat:e.latitude,lon:e.longitude,precision:e.geo_precision||e.map?.precision,verified_at:e.verified_at},
+        route:"/nearme/?category="+encodeURIComponent(e.category)}));
+    const seen=new Set();
+    return [...canonical,...nearRows,...venueRows].filter(e=>{if(seen.has(e.id))return false;seen.add(e.id);return true});
+  }
+  function drawMap(){
+    if(!state.position)return;
+    $("#goRadiusPanel").hidden=false;
+    const value=window.OpenPQGoMap?.draw(state.position,state.radiusKm,mapRows());
+    const found=value?.shown||0;
+    $("#goMapCount").textContent=found+" điểm có tọa độ trong vòng "+state.radiusKm+" km";
+    document.querySelectorAll("#goRadiusButtons button").forEach(btn=>{
+      const on=Number(btn.dataset.km)===state.radiusKm;
+      btn.classList.toggle("active",on);
+      btn.setAttribute("aria-pressed",String(on));
+    });
+  }
+  function geoError(error){
+    if(error?.code===1)return "Bạn chưa cho phép dùng vị trí. Vẫn có thể chọn khu vực bên trên nhé.";
+    if(error?.code===2)return "Điện thoại chưa xác định được vị trí. Bạn thử lại hoặc chọn khu vực.";
+    if(error?.code===3)return "Định vị mất hơi lâu. Thử lại khi GPS ổn định hoặc chọn khu vực.";
+    return "Chưa lấy được vị trí, bạn cứ chọn khu vực bên trên.";
+  }
+  function bindGeo(){
+    $("#goLocate").addEventListener("click",()=>{
+      if(!navigator.geolocation){
+        $("#goLocationStatus").textContent="Thiết bị này chưa hỗ trợ định vị. Bạn chọn khu vực bên trên nhé.";return;
+      }
+      const button=$("#goLocate");
+      button.disabled=true;button.textContent="Đang tìm vị trí...";
+      navigator.geolocation.getCurrentPosition(({coords})=>{
+        button.disabled=false;button.innerHTML='<span aria-hidden="true">⌖</span> Cập nhật vị trí';
+        const point={lat:coords.latitude,lon:coords.longitude};
+        if(!window.OpenPQGoGeo?.valid(point)){
+          $("#goLocationStatus").textContent="Bạn đang ở ngoài phạm vi Phú Quốc. Hãy chọn khu vực thủ công nhé.";return;
+        }
+        state.position=point;
+        state.originZone=window.OpenPQGoGeo.nearestArea(point);
+        document.querySelectorAll('#areaChoices input[name="origin"]').forEach(input=>{
+          input.checked=input.value===state.originZone;
+        });
+        $("#goLocationStatus").textContent="Đã tìm thấy vị trí. Đang dùng khoảng cách đường chim bay; thời gian đi đường chỉ là ước lượng.";
+        drawMap();
+        if(!$("#resultsSection").hidden)run();
+      },error=>{
+        button.disabled=false;button.innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
+        $("#goLocationStatus").textContent=geoError(error);
+      },{enableHighAccuracy:true,maximumAge:60000,timeout:12000});
+    });
+    $("#areaChoices").addEventListener("change",event=>{
+      if(event.target.name!=="origin")return;
+      state.originZone=event.target.value;
+      if(state.position){
+        state.position=null;
+        $("#goRadiusPanel").hidden=true;
+        $("#goLocate").innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
+      }
+      $("#goLocationStatus").textContent="Đã chọn "+(zoneNames[state.originZone]||"khu vực")+". Khoảng cách chỉ ước lượng theo khu vực.";
+    });
+    $("#goRadiusButtons").addEventListener("click",event=>{
+      const button=event.target.closest("button[data-km]");if(!button||!state.position)return;
+      state.radiusKm=Number(button.dataset.km);drawMap();
+      if(!$("#resultsSection").hidden)run();
+    });
+  }
+  function renderFood(pick){
+    const section=$("#goFoodNear");
+    section.hidden=!(pick.interest==="food"||pick.interest==="all");
+    if(section.hidden)return;
+    const area=pick.originZone;
+    $("#goLocalFoodLink").href="../nearme/?category=LOCAL_FOOD&area="+encodeURIComponent(area);
+    $("#goCafeLink").href="../nearme/?category=CAFE&area="+encodeURIComponent(area);
+    const geo=window.OpenPQGoGeo;
+    const actualFood=state.venueDirectory.filter(e=>e.status==="ACTIVE"&&["LOCAL_FOOD","RESTAURANT","CAFE"].includes(e.category))
+      .map(e=>({name:e.name,category:e.category,zone_id:geo?.nearestArea({lat:e.latitude,lon:e.longitude}),
+        km:state.position?geo?.distanceKm(state.position,{lat:e.latitude,lon:e.longitude}):null,
+        verified:!!e.verified_at&&!!geo?.destinationPoint({...e,map:{lat:e.latitude,lon:e.longitude,precision:e.geo_precision||e.map?.precision}})}))
+      .filter(e=>e.verified&&(state.position?e.km!==null&&e.km<=state.radiusKm:e.zone_id===area))
+      .sort((a,b)=>(a.km??0)-(b.km??0)).slice(0,4);
+    $("#goFoodNearNote").textContent=actualFood.length
+      ?"Một vài địa chỉ có tọa độ trong danh bạ: "+actualFood.map(x=>x.name+(x.km!==null?" ("+x.km.toFixed(1)+" km)":"")).join(" · ")+". Kiểm tra giờ mở cửa trước khi ghé."
+      :"Danh bạ Quanh đây có mục tìm quán ăn và cà phê theo khu vực. Chưa có danh sách quán xác minh tọa độ để tính khoảng cách chính xác.";
+  }
+
   $("#goForm").addEventListener("submit",e=>{e.preventDefault();run()});
   $("#changeChoices").addEventListener("click",()=>$(".go-builder").scrollIntoView({behavior:"smooth",block:"start"}));
   clock();setInterval(clock,30000);
