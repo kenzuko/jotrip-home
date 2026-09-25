@@ -4566,13 +4566,34 @@ body.sheet-open{
 
 .trip-clock-grid{
   grid-template-columns:minmax(280px,.78fr) minmax(0,1.22fr);
-  /* Do not stretch the clock card to the ever-changing activity list. */
   align-items:start;
 }
+/* Clock spans only the first row: height follows the eight featured cards,
+   never the extra activities revealed in row two. */
 .trip-clock-now{
+  grid-column:1;
+  grid-row:1;
   min-height:0;
   height:auto;
-  align-self:start;
+  align-self:stretch;
+}
+.trip-clock-list{
+  grid-column:2;
+  grid-row:1;
+}
+.trip-clock-extra-panel{
+  grid-column:2;
+  grid-row:2;
+  display:grid;
+  gap:8px;
+  min-width:0;
+}
+.trip-clock-extra-panel[hidden],.trip-clock-extra-list[hidden]{display:none!important}
+.trip-clock-extra-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  min-width:0;
 }
 .trip-day-left{
   margin-top:26px;
@@ -5679,3 +5700,15 @@ body.sheet-open{
 .trip-clock-more:focus-visible{outline:3px solid #54d4cb;outline-offset:2px}
 .trip-clock-more-wide{grid-column:1/-1;min-height:58px}
 @media(max-width:760px){.trip-clock-more{min-height:60px}.trip-clock-more-wide{grid-column:1/-1}}
+
+/* Eight highlighted cards beside the clock, more activities below them. */
+.trip-clock-extra-panel>.trip-clock-more{width:100%;grid-column:1;min-height:58px}
+@media(max-width:1099px){
+ .trip-clock-now{grid-column:1;grid-row:1;align-self:start}
+ .trip-clock-list{grid-column:1;grid-row:2}
+ .trip-clock-extra-panel{grid-column:1;grid-row:3}
+}
+@media(max-width:760px){
+ .trip-clock-extra-list{grid-template-columns:1fr}
+ .trip-clock-extra-panel>.trip-clock-more{min-height:60px}
+}
