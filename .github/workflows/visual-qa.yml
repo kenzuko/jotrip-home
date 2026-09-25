@@ -30,6 +30,7 @@ on:
       - "index.html"
       - "styles.css"
       - "home-foundation-v2.js"
+      - "home-library.css"
       - "home-live-v3.js"
       - "home-data-pulse.js"
       - "data/home-support.json"
