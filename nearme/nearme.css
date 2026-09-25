@@ -205,3 +205,5 @@ html,body{max-width:100%;overflow-x:hidden}
   .controls,.map-shell,.results-head,.results{width:100%;min-width:0}
   .area-row,.category-row{width:100%;contain:inline-size}
 }
+
+.near-transit-cta{font-size:13px;color:#416d64;margin:8px 0 0}.near-transit-cta a{color:#147a62;font-weight:700;text-decoration:underline;text-underline-offset:3px}
