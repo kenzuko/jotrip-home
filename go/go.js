@@ -19,6 +19,15 @@
     state.config=config;state.notices=notices.notices||[];state.visuals=visuals;
     [...(places.entities||[]),...(activities.entities||[])].forEach(e=>state.entities.set(e.id,e));
     renderAreas();
+    const params=new URLSearchParams(location.search);
+    const available=params.get('available');
+    const interest=params.get('interest');
+    const origin=params.get('origin');
+    for(const [name,value] of [['available',available],['interest',interest],['origin',origin]]){
+      if(!value)continue;
+      const input=[...document.querySelectorAll('#goForm input[name="'+name+'"]')].find(el=>el.value===value);
+      if(input)input.checked=true;
+    }
   }
   function renderAreas(){
     $("#areaChoices").innerHTML=(state.config.areas||[]).map((a,i)=>'<label><input type="radio" name="origin" value="'+esc(a.id)+'" '+(i===0?"checked":"")+'><span>'+esc(a.label)+'</span></label>').join("");
