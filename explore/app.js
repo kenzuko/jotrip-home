@@ -192,8 +192,11 @@
     const planning=state.planning.get(x.id)||{};
     const images=state.visuals?.places?.[x.id]?.images||[];
     const visual=window.OpenPQVisual?.pickHero?.(images)||images.find(v=>v?.url&&v.hero_eligible!==false)||null;
+    const photoCredit=visual?.source_url && /^https?:\/\//i.test(visual.source_url)
+      ? '<a class="explore-photo-credit" href="'+esc(visual.source_url)+'" target="_blank" rel="noopener noreferrer">Ảnh: '+esc(visual.source_label||"Nguồn ảnh")+(visual.license?' · '+esc(visual.license):'')+' ↗</a>'
+      : (visual?.source_label?'<small class="explore-photo-credit">'+esc(visual.source_label)+'</small>':'');
     const visualHtml=visual
-      ? '<figure class="explore-card-media"><img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async"><figcaption>'+esc(visual.caption||"")+'</figcaption></figure>'
+      ? '<figure class="explore-card-media"><img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async"><figcaption><span>'+esc(visual.caption||"")+'</span>'+photoCredit+'</figcaption></figure>'
       : '<div class="explore-card-illustration" data-zone="'+esc(x.zone_id||"all")+'"><span>⌖</span><strong>'+esc(zoneName(x.zone_id))+'</strong><small>Bối cảnh khu vực</small></div>';
     const level=state.levels.find(l=>l.id===planning.level);
     const strength=(planning.strengths||[])[0];
@@ -248,6 +251,17 @@
       : '<div class="loading">Chưa có lựa chọn phù hợp. Hãy thử bỏ bớt một điều kiện lọc.</div>';
     syncExploreMap();
   }
+
+  // Do not leave a broken-image icon when a third-party photo becomes unavailable.
+  $("#exploreGrid")?.addEventListener("error", event => {
+    const img=event.target;
+    if(!(img instanceof HTMLImageElement) || !img.matches(".explore-card-media img")) return;
+    const card=img.closest(".explore-card");
+    const figure=img.closest(".explore-card-media");
+    if(!figure) return;
+    const zone=card?.dataset.zone||"all";
+    figure.outerHTML='<div class="explore-card-illustration" data-zone="'+esc(zone)+'"><span>⌖</span><strong>'+esc(zoneName(zone))+'</strong><small>Ảnh đang được cập nhật</small></div>';
+  },true);
 
   $("#clearFilters")?.addEventListener("click",()=>{
     state.zone="all";
