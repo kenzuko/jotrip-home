@@ -166,7 +166,7 @@
     $("#goMapMode").textContent=mode==="gps"?
       "Bản đồ đang dùng vị trí bạn đã cho phép, chỉ trong phiên này.":
       mode==="manual"?"Bạn đã tự chọn điểm xuất phát. Khoảng cách tính từ điểm đã đánh dấu.":
-      "Đang xem "+(zoneNames[state.originZone]||"Phú Quốc")+" làm điểm tham khảo. Không cần bật GPS.";
+      "Đang xem "+(zoneNames[state.originZone]||"Phú Quốc")+" làm điểm tham khảo. Gợi ý bên dưới tính theo khu vực, còn vòng km chỉ để khám phá bản đồ.";
     $("#goMapCount").textContent=result?.map===false?"Bản đồ chưa tải được. Danh sách vẫn sử dụng tọa độ đã có.":
       (result?.shown||0)+" địa điểm có tọa độ"+(state.mapOverview?" trên đảo.":" trong phạm vi.");
     $("#goRadiusValue").textContent=state.radiusKm+" km";
@@ -189,70 +189,122 @@
     renderMapList(result?.points||[]);
   }
   function geoError(error){
-    if(error?.code===1)return "Bạn chưa cho phép dùng vị trí. Vẫn có thể chọn khu vực bên trên nhé.";
+    if(error?.code===1)return "Bạn chưa cho phép dùng GPS. Chọn khu vực vẫn sử dụng bình thường.";
     if(error?.code===2)return "Điện thoại chưa xác định được vị trí. Bạn thử lại hoặc chọn khu vực.";
     if(error?.code===3)return "Định vị mất hơi lâu. Thử lại khi GPS ổn định hoặc chọn khu vực.";
     return "Chưa lấy được vị trí, bạn cứ chọn khu vực bên trên.";
   }
   function bindGeo(){
+    const geo=window.OpenPQGoGeo;
+    const pickButton=$("#goPickMap");
+    function selectedRadio(){
+      document.querySelectorAll('#areaChoices input[name="origin"]').forEach(input=>{
+        input.checked=input.value===state.originZone;
+      });
+    }
+    function pickMode(active){
+      state.picking=!!active;
+      const ready=window.OpenPQGoMap?.setPickMode(state.picking,point=>{
+        if(!geo?.valid(point))return;
+        // A pin chosen by the user is a self-reported origin, never GPS.
+        state.position=null;state.manualPoint=point;state.mapOverview=false;
+        state.originZone=geo.nearestArea(point);
+        selectedRadio();
+        $("#goLocate").innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
+        $("#goLocationStatus").textContent="Đã chọn điểm xuất phát trên bản đồ. Bạn có thể đổi điểm bất cứ lúc nào mà không cần GPS.";
+        pickMode(false);
+        drawMap();
+        if(!$("#resultsSection").hidden)run();
+      });
+      if(active&&!ready){
+        state.picking=false;
+        $("#goLocationStatus").textContent="Bản đồ chưa sẵn sàng để chọn điểm. Bạn có thể chọn Dương Đông, An Thới hoặc Bắc đảo bên trên.";
+        window.OpenPQGoMap?.setPickMode(false);
+      }
+      pickButton.classList.toggle("active",state.picking);
+      pickButton.setAttribute("aria-pressed",String(state.picking));
+      pickButton.innerHTML=state.picking?
+        '<span aria-hidden="true">◎</span> Chạm vào bản đồ để chọn…':
+        '<span aria-hidden="true">◎</span> Chọn điểm trên bản đồ';
+    }
+    // Initial state works even without geolocation, permissions or GPS.
+    window.OpenPQGoMap?.setPickMode(false,()=>{});
+    pickButton.addEventListener("click",()=>{
+      if(state.mapOverview)state.mapOverview=false;
+      if(!state.picking)drawMap();
+      pickMode(!state.picking);
+      if(state.picking){
+        $("#goLocationStatus").textContent="Chạm vào vị trí xuất phát trên bản đồ bên phải (hoặc phía dưới trên điện thoại).";
+        if(window.innerWidth<=760)$("#goMap").scrollIntoView({behavior:"smooth",block:"center"});
+      }
+    });
     $("#goLocate").addEventListener("click",()=>{
       if(!navigator.geolocation){
-        $("#goLocationStatus").textContent="Thiết bị này chưa hỗ trợ định vị. Bạn chọn khu vực bên trên nhé.";return;
+        $("#goLocationStatus").textContent="Thiết bị không hỗ trợ GPS. Bạn vẫn chọn khu vực hoặc chạm lên bản đồ được nhé.";
+        return;
       }
+      pickMode(false);
       const button=$("#goLocate");
       button.disabled=true;button.textContent="Đang tìm vị trí...";
       navigator.geolocation.getCurrentPosition(({coords})=>{
         button.disabled=false;button.innerHTML='<span aria-hidden="true">⌖</span> Cập nhật vị trí';
         const point={lat:coords.latitude,lon:coords.longitude};
-        if(!window.OpenPQGoGeo?.valid(point)){
-          $("#goLocationStatus").textContent="Bạn đang ở ngoài phạm vi Phú Quốc. Hãy chọn khu vực thủ công nhé.";return;
+        if(!geo?.valid(point)){
+          $("#goLocationStatus").textContent="Thiết bị đang ở ngoài vùng hỗ trợ. Chọn khu vực hoặc tự đánh dấu trên bản đồ nhé.";
+          return;
         }
-        state.position=point;
-        state.mapOverview=false;
-        state.originZone=window.OpenPQGoGeo.nearestArea(point);
-        document.querySelectorAll('#areaChoices input[name="origin"]').forEach(input=>{
-          input.checked=input.value===state.originZone;
-        });
-        $("#goLocationStatus").textContent="Đã tìm thấy vị trí. Đang dùng khoảng cách đường chim bay; thời gian đi đường chỉ là ước lượng.";
+        state.position=point;state.manualPoint=null;state.mapOverview=false;
+        state.originZone=geo.nearestArea(point);
+        selectedRadio();
+        $("#goLocationStatus").textContent="Đã tìm thấy vị trí GPS. Khoảng cách hiển thị là đường chim bay, không phải thời gian đi đường.";
         drawMap();
         if(!$("#resultsSection").hidden)run();
       },error=>{
         button.disabled=false;button.innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
-        $("#goLocationStatus").textContent=geoError(error);
+        $("#goLocationStatus").textContent=geoError(error)+" Hoặc chọn điểm ngay trên bản đồ.";
       },{enableHighAccuracy:true,maximumAge:60000,timeout:12000});
     });
     $("#areaChoices").addEventListener("change",event=>{
       if(event.target.name!=="origin")return;
       state.originZone=event.target.value;
-      if(state.position){
-        state.position=null;
-        $("#goLocate").innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
-      }
-      state.mapOverview=false;
-      $("#goLocationStatus").textContent="Đã chọn "+(zoneNames[state.originZone]||"khu vực")+". Vòng trên bản đồ tính từ tâm khu vực, không phải GPS.";
+      state.position=null;state.manualPoint=null;state.mapOverview=false;
+      pickMode(false);
+      $("#goLocate").innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
+      $("#goLocationStatus").textContent="Đã chọn "+(zoneNames[state.originZone]||"khu vực")+". Vòng bản đồ tính từ tâm khu vực tham khảo, không cần GPS.";
       drawMap();
       if(!$("#resultsSection").hidden)run();
     });
     $("#goRadiusButtons").addEventListener("click",event=>{
       const button=event.target.closest("button[data-km]");if(!button)return;
-      state.radiusKm=Number(button.dataset.km);state.mapOverview=false;drawMap();
-      if(state.position&&!$("#resultsSection").hidden)run();
+      state.radiusKm=Number(button.dataset.km);state.mapOverview=false;
+      drawMap();
+      if((state.position||state.manualPoint)&&!$("#resultsSection").hidden)run();
     });
     $("#goRadiusRange").addEventListener("input",event=>{
       state.radiusKm=Math.min(50,Math.max(1,Math.round(Number(event.target.value)||5)));
       state.mapOverview=false;drawMap();
     });
     $("#goRadiusRange").addEventListener("change",()=>{
-      if(state.position&&!$("#resultsSection").hidden)run();
+      if((state.position||state.manualPoint)&&!$("#resultsSection").hidden)run();
+    });
+    $("#goLayerControls").addEventListener("click",event=>{
+      const button=event.target.closest("button[data-layer]");if(!button)return;
+      state.layer=button.dataset.layer;
+      drawMap();
+    });
+    $("#goMapSort").addEventListener("change",event=>{
+      state.sort=event.target.value==="name"?"name":"distance";
+      drawMap();
+    });
+    $("#goMapList").addEventListener("click",event=>{
+      const button=event.target.closest("button[data-map-focus]");
+      if(!button)return;
+      window.OpenPQGoMap?.focus(button.dataset.mapFocus);
     });
     $("#goMapReset").addEventListener("click",()=>{
       state.mapOverview=!state.mapOverview;
-      $("#goMapReset").textContent=state.mapOverview?"Quay lại vòng bán kính ↗":"Xem cả đảo ↗";
-      if(state.mapOverview){
-        window.OpenPQGoMap?.overview();
-        $("#goMapMode").textContent="Đang xem toàn bộ Phú Quốc. Chọn bán kính để quay lại các điểm gần mình.";
-        $("#goMapCount").textContent="Chế độ xem toàn đảo, chưa lọc theo bán kính.";
-      }else drawMap();
+      if(state.picking)pickMode(false);
+      drawMap();
     });
   }
   function renderFood(pick){
