@@ -73,7 +73,7 @@ for(const file of ["home-experience-v1.js","home-live-v3.js"]){
 const homepage=readFileSync("index.html","utf8");
 assert.match(homepage,/home-experience-v1.js\?v=20260924-(?:text2|foodimages|foodrandom1|food3-stories)|home-experience-v1.js\?v=20260925-food-twoimages/);
 assert.match(homepage,/core\/trip-clock-planner.js\?v=20260925-featured8/);
-assert.match(homepage,/home-foundation-v2.js\?v=20260925-featured8/);
+assert.match(homepage,/home-foundation-v2.js\?v=20260925-nearme-split/);
 const homeSource=readFileSync("home-foundation-v2.js","utf8");
 assert.ok(homeSource.includes("engine.select(rows,8)"));
 assert.ok(homeSource.includes("selection.visible.map(renderCard)"));
