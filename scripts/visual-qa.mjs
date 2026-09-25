@@ -24,11 +24,12 @@ const allRoutes = [
   { name: 'transit', path: '/transit/' },
   { name: 'bus', path: '/bus/' },
   { name: 'cano', path: '/cano/' },
+  { name: 'utilities', path: '/utilities/' },
   { name: 'currency', path: '/currency/' },
   { name: 'airport', path: '/airport/' }
 ];
 
-const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'food-bun-quay', 'bus', 'transit', 'currency', 'airport']);
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'food-bun-quay', 'bus', 'transit', 'explore', 'utilities', 'currency', 'airport']);
 const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
@@ -284,6 +285,24 @@ async function testNearMePage(page) {
   return { ok:Object.values(checks).every(Boolean), checks };
 }
 
+async function testUtilitiesPage(page) {
+  await page.waitForFunction(() => {
+    const stamp=document.querySelector('#currencyUpdated')?.textContent||'';
+    return stamp.includes('Cập nhật') || stamp.includes('Bản gần nhất') || stamp.includes('Chưa có');
+  }, {timeout:7000}).catch(()=>{});
+  return page.evaluate(()=>{
+    const preview=document.querySelector('#currencyPreview');
+    const codes=[...preview?.querySelectorAll('.u-fx-name span')||[]].map(x=>x.textContent.trim());
+    const checks={
+      summaryCards:['USD','EUR','KRW'].every(code=>codes.includes(code)),
+      rateLabels:!!preview?.textContent.includes('Mua tiền mặt')&&!!preview?.textContent.includes('Bán ra'),
+      parentNavigation:!!document.querySelector('.openpq-utility-tabs a[href="#currency"]'),
+      detailedConverterLink:!!document.querySelector('.u-fx-cta[href="../currency/"]')
+    };
+    return {ok:Object.values(checks).every(Boolean),checks};
+  });
+}
+
 async function testCurrencyPage(page) {
   await page.waitForFunction(() => {
     const badge=document.querySelector('#sourceBadge')?.textContent?.trim();
@@ -292,6 +311,7 @@ async function testCurrencyPage(page) {
   return page.evaluate(() => {
     const count = selector => document.querySelectorAll(selector).length;
     const checks = {
+      sameUtilityNavigation: !!document.querySelector('.openpq-utility-tabs a[aria-current="page"]'),
       sourceResolved: !!document.querySelector('#sourceBadge')?.textContent?.trim() && document.querySelector('#sourceBadge').textContent.trim() !== 'ĐANG TẢI',
       converter: !!document.querySelector('#converterTitle') && !!document.querySelector('[data-mode="foreign-to-vnd"]'),
       rateRows: count('[data-currency], .rate-row, .board-card, .rate-card') >= 3,
@@ -416,6 +436,7 @@ try {
       let mapCta = null;
       let homeFunctional = null;
       let currencyFunctional = null;
+      let utilitiesFunctional = null;
       let airportFunctional = null;
       let nearmeFunctional = null;
       if (!navigationError && route.name === 'home') {
@@ -423,6 +444,9 @@ try {
       }
       if (!navigationError && route.name === 'nearme') {
         nearmeFunctional = await testNearMePage(page);
+      }
+      if (!navigationError && route.name === 'utilities') {
+        utilitiesFunctional = await testUtilitiesPage(page);
       }
       if (!navigationError && route.name === 'currency') {
         currencyFunctional = await testCurrencyPage(page);
@@ -435,7 +459,7 @@ try {
       }
 
       const sameOriginBrokenImages = (inspection?.brokenImages || []).filter(img => sameOrigin(img.src));
-      const expectedStaticApiResponses = route.name === 'currency'
+      const expectedStaticApiResponses = ['currency','utilities'].includes(route.name)
         ? badResponses.filter(item => {
             try { return new URL(item.url).pathname.startsWith('/api/exchange-rates'); }
             catch { return false; }
@@ -451,6 +475,7 @@ try {
         failedRequests.length ? `${failedRequests.length} failed same-origin request(s)` : null,
         unexpectedBadResponses.length ? `${unexpectedBadResponses.length} bad same-origin response(s)` : null,
         homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
+        utilitiesFunctional && !utilitiesFunctional.ok ? `utilities functional checks failed: ${Object.entries(utilitiesFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         airportFunctional && !airportFunctional.ok ? `airport functional checks failed: ${Object.entries(airportFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         nearmeFunctional && !nearmeFunctional.ok ? `nearme functional checks failed: ${Object.entries(nearmeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
@@ -469,6 +494,7 @@ try {
         mapCta,
         homeFunctional,
         currencyFunctional,
+        utilitiesFunctional,
         airportFunctional,
         nearmeFunctional,
         consoleErrors,
@@ -535,6 +561,7 @@ const md = [
       result.mapCta?.found ? `map CTA: ${result.mapCta.iframeInserted ? 'ok' : 'iframe not inserted'}` : null,
       result.homeFunctional?.ok ? `home functional: ok` : null,
       result.currencyFunctional?.ok ? `currency functional: ok` : null,
+      result.utilitiesFunctional?.ok ? `utilities functional: ok` : null,
       result.expectedStaticApiResponses?.length ? `${result.expectedStaticApiResponses.length} expected static API fallback response(s)` : null,
       result.airportFunctional?.ok ? `airport functional: ok` : null,
       result.nearmeFunctional?.ok ? `nearme functional: ok` : null
