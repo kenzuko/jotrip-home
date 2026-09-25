@@ -78,8 +78,10 @@ async function renderCurrencyPreview(){
   }).join("");
   const raw=data.source_updated_at||data.fetched_at;
   const d=raw?new Date(raw):null;
-  const time=d&&!Number.isNaN(d.getTime())?d.toLocaleString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}):null;
-  const fresh=d&&Math.abs(Date.now()-d.getTime())<2*60*60*1000;
+  const dateParts=d&&!Number.isNaN(d.getTime())?
+    Object.fromEntries(new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(d).filter(x=>x.type!=="literal").map(x=>[x.type,x.value])):null;
+  const time=dateParts?dateParts.hour+":"+dateParts.minute+", "+dateParts.day+"/"+dateParts.month:null;
+  const fresh=!fromSnapshot&&data.data_status==="live"&&d&&Math.abs(Date.now()-d.getTime())<2*60*60*1000;
   stamp.textContent=(fromSnapshot||!fresh?"Bản gần nhất":"Cập nhật trực tiếp")+(time?" · "+time:"");
 }
 void renderCurrencyPreview();
