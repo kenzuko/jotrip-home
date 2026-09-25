@@ -1262,13 +1262,16 @@
     "muc-trung-nuong": {
       "images": [
         {
-          "url": "https://quanoclen.com/thumbs/1600x1067x2/upload/product/ducpham0981973533-09849-5933.jpg",
-          "alt": "Đĩa mực trứng nướng muối ớt",
-          "caption": "Đĩa mực trứng nướng muối ớt",
+          "url": "https://product.hstatic.net/200000325181/product/nuong-moi-2_e5e88251f5a84899988ce4eb7edc2a25_master.jpg",
+          "alt": "Mực trứng nướng mọi nguyên con",
+          "caption": "Mực trứng nướng mọi nguyên con",
           "scope": "exact_subject",
-          "source_label": "Quán Ốc Len",
-          "source_url": "https://quanoclen.com/muc-trung-nuong-muoi-ot",
-          "hero_priority": "preferred"
+          "source_label": "Cá Mú Đỏ - Mực trứng nướng mọi",
+          "source_url": "https://camudo.com/products/muc-trung-nuong-moi",
+          "hero_priority": "preferred",
+          "fallback_url": "https://quanoclen.com/thumbs/1600x1067x2/upload/product/ducpham0981973533-09849-5933.jpg",
+          "fallback_source_label": "Quán Ốc Len - Mực trứng nướng muối ớt",
+          "fallback_source_url": "https://quanoclen.com/muc-trung-nuong-muoi-ot"
         }
       ]
     },
@@ -1473,8 +1476,20 @@
       ]
     },
     "ca-song-nuong": {
-      "images": [],
-      "photo_review_note": "Old picture misidentified; awaiting an independently verified grilled cá sòng photo."
+      "images": [
+        {
+          "url": "https://file.hstatic.net/1000357278/file/ca-song-nuong_4_grande.jpg",
+          "alt": "Cá sòng nướng nguyên con",
+          "caption": "Cá sòng nướng nguyên con",
+          "scope": "exact_subject",
+          "source_label": "Minos - Cá sòng nướng Phú Quốc",
+          "source_url": "https://minos.com.vn/blogs/news/ca-song-nuong-mon-ngon-phu-quoc",
+          "hero_priority": "preferred",
+          "fallback_url": "https://vietnamtrustcarrentals.com/vnt_upload/news/05_2024/Grilled-Trachurus.jpg",
+          "fallback_source_label": "Vietnam Trust Car Rentals - Grilled Trachurus",
+          "fallback_source_url": "https://vietnamtrustcarrentals.com/top-9-best-foods-in-phu-quoc.html"
+        }
+      ]
     },
     "ca-mu-hap": {
       "images": [
