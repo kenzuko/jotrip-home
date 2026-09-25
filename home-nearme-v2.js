@@ -102,7 +102,7 @@
   refreshLinks();
   if(!category&&!area&&!gps&&!query.trim()){
    setStatus("Chọn một nhu cầu hoặc khu vực, chưa cần chia sẻ vị trí.");
-   message("Bạn cần tìm gì lúc này?","Chọn một tiện ích ở bên trái. Kết quả sẽ hiện ngay tại đây.",false);return;
+   message("Bạn cần tìm gì lúc này?","Chọn một tiện ích để xem kết quả ngay tại đây.",false);return;
   }
   setStatus(gps?"Đang tìm quanh vị trí bạn vừa chia sẻ.":area&&area!=="all"?"Đã chọn "+AREAS.find(a=>a.id===area)?.label+".":"Đang xem gợi ý trên toàn đảo. Bật vị trí để tìm gần hơn.");
   message("Đang tìm địa điểm phù hợp...","Chỉ hiện dữ liệu có địa chỉ rõ ràng.",false);
@@ -120,7 +120,16 @@
    '<a class="near-quick-see-all" data-near-handoff href="'+esc(moreUrl())+'">Xem tất cả '+rows.length+' địa điểm trên bản đồ →</a>';
   refreshLinks();
  }
- function onCategory(id){category=category===id?null:id;syncControls();render()}
+ async function onCategory(id){
+  category=category===id?null:id;
+  const selected=category;
+  syncControls();
+  await render();
+  if(selected&&category===selected&&window.matchMedia("(max-width:900px)").matches){
+   const reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+   $(".near-quick-results")?.scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"});
+  }
+ }
  function bind(){
   $("#nearCategories").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
   $("#nearQuickMore").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
