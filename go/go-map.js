@@ -5,6 +5,10 @@
 const geo=()=>root.OpenPQGoGeo;
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 let map=null,rings=null,pins=null,originMarker=null;
+const PIN_COLORS={places:"#bd6242",food:"#d29d30",utilities:"#3982b2"};
+function pointColor(layer){return PIN_COLORS[layer]||PIN_COLORS.places;}
+function preview(points){return points.slice(0,6).map(p=>({id:p.id,name:p.name,km:p.km,layer:p.layer,route:p.route}));}
+
 function ensure(){
   const host=document.getElementById("goMap");
   if(!host)return false;
@@ -38,19 +42,30 @@ function groupPoints(points){
 function popup(group,areaMode){
   const entries=group.slice(0,5).map(p=>{
     const link=p.route&&/^\/(?!\/)/.test(p.route)?'<a href="'+esc(p.route)+'">Chi tiết ↗</a>':"";
-    return '<div class="go-radar-place"><strong>'+esc(p.name)+'</strong><small>'+p.km.toFixed(1)+' km '+(areaMode?"từ tâm khu vực":"từ vị trí của bạn")+'</small>'+link+'</div>';
+    return '<div class="go-radar-place"><strong>'+esc(p.name)+'</strong><small>'+({places:"Điểm đến",food:"Ăn uống",utilities:"Tiện ích"})[p.layer]+' · '+p.km.toFixed(1)+' km '+(areaMode?"từ tâm khu vực":"từ vị trí của bạn")+'</small>'+link+'</div>';
   }).join("");
   const note=group[0].point.precision==="area_anchor"?
     '<small>Pin đại diện khu vực, không phải cổng vào chính xác.</small>':"";
   return '<div class="go-radar-popup">'+entries+
     (group.length>5?'<small>Và '+(group.length-5)+' điểm khác trong khu vực.</small>':"")+note+'</div>';
 }
+function paintPoints(points,gps){
+  for(const group of groupPoints(points)){
+    const p=group[0];
+    L.circleMarker([p.point.lat,p.point.lon],{
+      radius:group.length>1?8:6,weight:2,color:"#fff",
+      fillColor:pointColor(p.layer),fillOpacity:.96
+    }).bindPopup(popup(group,!gps),{maxWidth:270}).addTo(pins);
+  }
+}
 function draw(position,radius,rows,options={}){
   if(!geo()?.valid(position))return {shown:0,map:false};
   const selected=Math.min(50,Math.max(1,Math.round(Number(radius)||5)));
   const gps=!!options.gps;
-  const points=geo().mapPoints(rows||[],position,selected);
-  if(!ensure())return {shown:points.length,map:false};
+  const points=geo().sortPoints(
+    geo().mapPoints(geo().layerRows(rows||[],options.layer||"all"),position,selected),
+    options.sort||"nearest");
+  if(!ensure())return {shown:points.length,map:false,list:preview(points)};
   const center=[+position.lat,+position.lon];
   rings.clearLayers();pins.clearLayers();
   // Quarter-distance guides create a readable radar even at a custom 7/13/27km radius.
@@ -67,25 +82,25 @@ function draw(position,radius,rows,options={}){
   }else{originMarker.setLatLng(center);originMarker.setIcon(centerIcon(gps));}
   originMarker.bindPopup(gps?"Vị trí của bạn (GPS đã cho phép). Chỉ dùng trong phiên này.":
     "Tâm khu vực tham khảo, không phải vị trí GPS của bạn.");
-  for(const group of groupPoints(points)){
-    const p=group[0];
-    L.circleMarker([p.point.lat,p.point.lon],{radius:group.length>1?8:6,
-      weight:2,color:"#fff",fillColor:"#bd6242",fillOpacity:.96})
-      .bindPopup(popup(group,!gps),{maxWidth:270})
-      .addTo(pins);
-  }
+  paintPoints(points,gps);
   const bounds=L.circle(center,{radius:selected*1000}).getBounds();
   map.fitBounds(bounds,{padding:[22,22],maxZoom:15,animate:false});
   // Map can render after a previous hidden state or mobile viewport resize.
   setTimeout(()=>map?.invalidateSize(),60);
-  return {shown:points.length,markers:groupPoints(points).length,map:true};
+  return {shown:points.length,markers:groupPoints(points).length,map:true,list:preview(points)};
 }
-function overview(){
-  if(!ensure())return;
+function overview(rows=[],options={}){
+  if(!ensure())return {shown:0,map:false,list:[]};
   rings.clearLayers();pins.clearLayers();
   if(originMarker){map.removeLayer(originMarker);originMarker=null;}
+  const origin=geo()?.valid(options.origin)?options.origin:geo()?.anchors?.zone_central_west;
+  const points=geo().sortPoints(
+    geo().mapPoints(geo().layerRows(rows,options.layer||"all"),origin,500),
+    options.sort||"nearest");
+  paintPoints(points,!!options.gps);
   map.setView([10.19,103.96],10,{animate:false});
   setTimeout(()=>map?.invalidateSize(),60);
+  return {shown:points.length,markers:groupPoints(points).length,map:true,list:preview(points)};
 }
 root.OpenPQGoMap={draw,overview,refresh(){if(map)setTimeout(()=>map.invalidateSize(),40)}};
 })(window);
