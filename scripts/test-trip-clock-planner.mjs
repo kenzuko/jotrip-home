@@ -30,7 +30,7 @@ for(const file of ["home-experience-v1.js","home-live-v3.js"]){
  assert.match(s,/Quan sát thêm dự báo trước khi di chuyển/);
 }
 const homepage=readFileSync("index.html","utf8");
-assert.match(homepage,/home-experience-v1.js\?v=20260924-(?:text2|foodimages|foodrandom1|food3-stories)/);
+assert.match(homepage,/home-experience-v1.js\?v=20260924-(?:text2|foodimages|foodrandom1|food3-stories)|home-experience-v1.js\?v=20260925-food-twoimages/);
 assert.match(homepage,/core\/trip-clock-planner.js\?v=20260924-text2/);
 await import("./test-home-food-random.mjs");
 console.log("CMS Today copy: regression checks PASS");
