@@ -7,7 +7,7 @@
   <title>Open Phu Quoc - Phú Quốc ngay lúc này</title>
   <meta name="description" content="Thời tiết, đi lại, điểm đến và chuyện đang diễn ra ở Phú Quốc - để bạn chọn điều cần cho hôm nay.">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260925-footer-safe">
+  <link rel="stylesheet" href="styles.css?v=20260925-nearme-mobile-flow2">
   <link rel="canonical" href="https://cms.openphuquoc.com/">
   <meta property="og:site_name" content="Open Phu Quoc">
   <meta property="og:locale" content="vi_VN">
@@ -267,18 +267,24 @@
       <p class="near-quick-intro">Tìm một chỗ cần đến ngay tại đây. Chọn tiện ích hoặc khu vực, không phải tìm lại khi mở bản đồ.</p>
       <div class="near-quick-shell">
         <div class="near-quick-controls">
-          <label class="near-quick-search" for="nearQuickSearch"><span class="near-quick-search-label">Tìm trên đảo</span><span class="near-quick-search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="nearQuickSearch" autocomplete="off" placeholder="Nhà thuốc, ATM, tên địa điểm..."></span></label>
-          <div class="near-quick-location-row"><button class="near-location-btn" id="nearLocationBtn" type="button">⌖ Dùng vị trí của tôi</button><span>Hoặc chọn khu vực:</span></div>
-          <div class="near-manual near-quick-areas" id="nearManualAreas" aria-label="Chọn khu vực"></div>
-          <p class="near-quick-location-note">Vị trí chỉ được dùng khi bạn chủ động bấm.</p>
-          <div class="near-quick-group-label">Những thứ thường cần</div>
-          <div class="near-category-grid near-quick-categories" id="nearCategories" aria-label="Tiện ích thiết yếu"></div>
-          <div class="near-quick-group-label near-quick-other-label">Bạn cần thứ khác?</div>
-          <div class="near-quick-more" id="nearQuickMore" aria-label="Tiện ích bổ sung"></div>
+          <div class="near-quick-primary">
+            <label class="near-quick-search" for="nearQuickSearch"><span class="near-quick-search-label">Tìm trên đảo</span><span class="near-quick-search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="nearQuickSearch" autocomplete="off" placeholder="Nhà thuốc, ATM, tên địa điểm..."></span></label>
+            <div class="near-quick-location-row"><button class="near-location-btn" id="nearLocationBtn" type="button">⌖ Dùng vị trí của tôi</button><span>Hoặc chọn khu vực:</span></div>
+            <div class="near-manual near-quick-areas" id="nearManualAreas" aria-label="Chọn khu vực"></div>
+            <p class="near-quick-location-note">Vị trí chỉ được dùng khi bạn chủ động bấm.</p>
+          </div>
+          <div class="near-quick-essentials">
+            <div class="near-quick-group-label">Những thứ thường cần</div>
+            <div class="near-category-grid near-quick-categories" id="nearCategories" aria-label="Tiện ích thiết yếu"></div>
+          </div>
+          <div class="near-quick-extras">
+            <div class="near-quick-group-label near-quick-other-label">Bạn cần thứ khác?</div>
+            <div class="near-quick-more" id="nearQuickMore" aria-label="Tiện ích bổ sung"></div>
+          </div>
         </div>
         <div class="near-quick-results">
           <div class="near-quick-results-heading"><span class="near-quick-eyebrow">TÌM NHANH</span><h3>Những chỗ bạn có thể ghé</h3><p id="nearQuickStatus" role="status" aria-live="polite">Chọn nhu cầu hoặc khu vực để bắt đầu.</p></div>
-          <div class="near-results" id="nearResults" aria-live="polite"><div class="near-quick-empty"><strong>Bạn cần tìm gì lúc này?</strong><span>Chọn một tiện ích bên trái để xem kết quả.</span></div></div>
+          <div class="near-results" id="nearResults" aria-live="polite"><div class="near-quick-empty"><strong>Bạn cần tìm gì lúc này?</strong><span>Chọn một tiện ích để xem kết quả ngay tại đây.</span></div></div>
           <a class="near-quick-directory" data-near-handoff href="nearme/">Xem tất cả tiện ích trên bản đồ <span aria-hidden="true">↗</span></a>
         </div>
         <div class="near-quick-emergency">
@@ -404,7 +410,7 @@
   <script src="app.js?v=20260921-human9"></script>
   <script src="core/trip-clock-planner.js?v=20260925-featured8"></script>
   <script src="home-foundation-v2.js?v=20260925-nearme-split"></script>
-  <script src="home-nearme-v2.js?v=20260925-quickfinder1"></script>
+  <script src="home-nearme-v2.js?v=20260925-quickfinder-mobile2"></script>
   <script src="home-live-v3.js?v=20260924-text2"></script>
   <script src="home-copy.js?v=5"></script>
   <script src="home-experience-v1.js?v=20260925-food-twoimages"></script>
