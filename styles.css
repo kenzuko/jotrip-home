@@ -2785,7 +2785,7 @@ body{
 /* V2.15 - scalable app navigation + robust approved-logo rendering */
 .brand{
   background:
-    url("assets/logo-master.png?v=approved-20260918-2")
+    url("assets/logo-master.png?v=20260925-user-approved-logo")
     left center / contain no-repeat;
 }
 
