@@ -225,5 +225,10 @@
   $("#goForm").addEventListener("submit",e=>{e.preventDefault();run()});
   $("#changeChoices").addEventListener("click",()=>$(".go-builder").scrollIntoView({behavior:"smooth",block:"start"}));
   clock();setInterval(clock,30000);
+  // The radar appears immediately; verified markers arrive when feeds finish.
+  if(window.OpenPQGoGeo?.anchors?.zone_central_west&&window.OpenPQGoMap){
+    window.OpenPQGoMap.draw(window.OpenPQGoGeo.anchors.zone_central_west,5,[],{gps:false});
+    $("#goMapCount").textContent="Đang tải các địa điểm đã xác minh...";
+  }
   load().catch(e=>{$("#areaChoices").innerHTML='<div class="go-empty"><strong>Chưa tải được dữ liệu nền.</strong><span>'+esc(e.message)+'</span></div>'});
 })();
