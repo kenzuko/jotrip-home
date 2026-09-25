@@ -43,8 +43,17 @@
     if(!valid(position))return [];
     return (rows||[]).map(item=>{
       const point=destinationPoint(item),km=distanceKm(position,point);
-      return point&&km!==null&&km<=radiusKm?{id:item.id,name:item.name,point,km,route:item.route||null}:null;
+      return point&&km!==null&&km<=radiusKm?{id:item.id,name:item.name,point,km,route:item.route||null,layer:item.layer||"places"}:null;
     }).filter(Boolean).sort((a,b)=>a.km-b.km);
   }
-  return {anchors,valid,distanceKm,nearestArea,destinationPoint,inRadius,mapPoints};
+  function layerRows(rows,layer="all"){
+    const selected=["all","places","food","utilities"].includes(layer)?layer:"all";
+    return selected==="all"?(rows||[]):(rows||[]).filter(x=>x.layer===selected);
+  }
+  function sortPoints(points,sort="nearest"){
+    const list=[...(points||[])];
+    if(sort==="name")return list.sort((a,b)=>String(a.name||"").localeCompare(String(b.name||""),"vi")||(a.km??Infinity)-(b.km??Infinity));
+    return list.sort((a,b)=>(a.km??Infinity)-(b.km??Infinity)||String(a.name||"").localeCompare(String(b.name||""),"vi"));
+  }
+  return {anchors,valid,distanceKm,nearestArea,destinationPoint,inRadius,mapPoints,layerRows,sortPoints};
 });
