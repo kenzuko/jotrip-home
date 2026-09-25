@@ -173,33 +173,37 @@ async function testHomeFoundation(page) {
   // Reproduce the reported bug: expanding and collapsing the list must not
   // keep the left clock card stretched to the previous list height.
   const sidebarLayout = await page.evaluate(async () => {
-    const grid = document.querySelector('.trip-clock-grid');
-    const panel = document.querySelector('.trip-clock-now');
-    if (!grid || !panel) return {ok:false,reason:'clock panel missing'};
-    const nextFrame = () => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-    const height = () => Math.round(panel.getBoundingClientRect().height);
-    const before = height();
-    const firstCards = document.querySelectorAll('#tripClockList .trip-item').length;
-    const button = document.querySelector('#tripClockList .trip-clock-more');
-    let expanded = null,collapsed = null,expandedCards = null,collapsedCards = null;
-    if (button) {
+    const grid=document.querySelector(".trip-clock-grid");
+    const clock=document.querySelector(".trip-clock-now");
+    const featured=document.querySelector("#tripClockList");
+    const extra=document.querySelector("#tripClockExtraPanel");
+    const extraList=document.querySelector("#tripClockExtraList");
+    if(!grid||!clock||!featured||!extra||!extraList)return {ok:false,reason:"Trip clock layout missing"};
+    const frame=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+    const height=node=>Math.round(node.getBoundingClientRect().height);
+    const initial=height(clock),featuredHeight=height(featured);
+    const initialCards=featured.querySelectorAll(".trip-item").length;
+    const button=extra.querySelector("#tripClockMoreBtn");
+    let expandedHeight=null,collapsedHeight=null,expandedExtras=0,collapsedExtras=0;
+    if(button&&!extra.hidden){
       button.click();
-      await nextFrame();
-      expanded = height();
-      expandedCards = document.querySelectorAll('#tripClockList .trip-item').length;
-      const collapseButton = document.querySelector('#tripClockList .trip-clock-more');
-      if (!collapseButton) return {ok:false,reason:'collapse button missing'};
-      collapseButton.click();
-      await nextFrame();
-      collapsed = height();
-      collapsedCards = document.querySelectorAll('#tripClockList .trip-item').length;
+      await frame();
+      expandedHeight=height(clock);
+      expandedExtras=extraList.querySelectorAll(".trip-item").length;
+      button.click();
+      await frame();
+      collapsedHeight=height(clock);
+      collapsedExtras=extraList.querySelectorAll(".trip-item").length;
     }
-    const maxCompactHeight = window.innerWidth < 400 ? 620 : 580;
-    const compact = before <= maxCompactHeight && (collapsed === null || collapsed <= maxCompactHeight);
-    const independent = expanded === null || (expanded <= maxCompactHeight && Math.abs(expanded-collapsed) <= 4);
-    const listRestored = expandedCards === null || (expandedCards > firstCards && collapsedCards === firstCards);
-    return {ok:getComputedStyle(grid).alignItems === 'start' && compact && independent && listRestored,
-      before,expanded,collapsed,firstCards,expandedCards,collapsedCards};
+    const desktop=window.innerWidth>=1100;
+    // With eight eligible cards the clock height should follow the height of
+    // four rows, and remain unchanged as additional rows expand beneath them.
+    const matchedEight= !desktop||initialCards<8||Math.abs(initial-featuredHeight)<=4;
+    const stable=expandedHeight===null||Math.abs(expandedHeight-initial)<=4&&Math.abs(collapsedHeight-initial)<=4;
+    const toggleRestored=expandedHeight===null||(expandedExtras>0&&collapsedExtras===0&&featured.querySelectorAll(".trip-item").length===initialCards);
+    const layout= !desktop||getComputedStyle(clock).gridRowStart==="1"&&getComputedStyle(extra).gridRowStart==="2";
+    return {ok:initialCards<=8&&matchedEight&&stable&&toggleRestored&&layout,
+      initial,featuredHeight,initialCards,expandedHeight,collapsedHeight,expandedExtras,collapsedExtras,desktop};
   });
 
   return page.evaluate(({initialNearClean,cancelledToday,sidebarLayout}) => {
