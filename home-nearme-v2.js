@@ -26,6 +26,19 @@
   if(category)p.set("category",category);if(query.trim())p.set("q",query.trim());return "nearme/"+(p.size?"?"+p.toString():"")};
  function refreshLinks(){for(const a of document.querySelectorAll("[data-near-handoff]"))a.setAttribute("href",moreUrl())}
  function setStatus(message){const el=$("#nearQuickStatus");if(el)el.textContent=message}
+ function hasSelection(){return Boolean(category||area||gps||query.trim())}
+ function syncCompactState(){
+  const section=$(".near-me-section");if(!section)return;
+  section.classList.toggle("near-has-selection",hasSelection());
+  const areas=section.classList.contains("near-show-areas");
+  const others=section.classList.contains("near-show-other");
+  $("#nearAreaToggle")?.setAttribute("aria-expanded",String(areas));
+  $("#nearOtherToggle")?.setAttribute("aria-expanded",String(others));
+ }
+ function revealResultsOnMobile(){
+  if(hasSelection()&&window.matchMedia("(max-width:720px)").matches)
+   $(".near-quick-results")?.scrollIntoView({behavior:"smooth",block:"start"});
+ }
  function syncControls(){
   $("#nearManualAreas").innerHTML=AREAS.map(x=>'<button type="button" data-area="'+esc(x.id)+'" aria-pressed="'+String(area===x.id&&!gps)+'" class="'+(area===x.id&&!gps?"active":"")+'">'+esc(x.label)+'</button>').join("");
   $("#nearCategories").innerHTML=CORE.map(id=>'<button type="button" class="near-quick-category'+(category===id?" active":"")+'" data-category="'+id+'" aria-pressed="'+String(category===id)+'"><span class="near-quick-icon" aria-hidden="true">'+ICONS[id]+'</span><strong>'+LABELS[id]+'</strong><small>'+DESCRIPTIONS[id]+'</small></button>').join("");
@@ -33,6 +46,7 @@
   const loc=$("#nearLocationBtn");
   if(loc&&!loc.disabled)loc.textContent=gps?"✓ Đang dùng vị trí này":"⌖ Dùng vị trí của tôi";
   refreshLinks();
+  syncCompactState();
  }
  function qualifiesArea(row){
   if(!area||area==="all"||gps)return true;
@@ -99,6 +113,7 @@
  }
  async function render(){
   const run=++requestSeq;
+  syncCompactState();
   refreshLinks();
   if(!category&&!area&&!gps&&!query.trim()){
    setStatus("Chọn một nhu cầu hoặc khu vực, chưa cần chia sẻ vị trí.");
@@ -120,11 +135,13 @@
    '<a class="near-quick-see-all" data-near-handoff href="'+esc(moreUrl())+'">Xem tất cả '+rows.length+' địa điểm trên bản đồ →</a>';
   refreshLinks();
  }
- function onCategory(id){category=category===id?null:id;syncControls();render()}
+ function onCategory(id){category=category===id?null:id;$(".near-me-section")?.classList.remove("near-show-other");syncControls();render().then(revealResultsOnMobile)}
  function bind(){
+  $("#nearAreaToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-areas");syncCompactState()});
+  $("#nearOtherToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-other");syncCompactState()});
   $("#nearCategories").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
   $("#nearQuickMore").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
-  $("#nearManualAreas").addEventListener("click",event=>{const b=event.target.closest("[data-area]");if(!b)return;area=b.dataset.area;gps=null;syncControls();render()});
+  $("#nearManualAreas").addEventListener("click",event=>{const b=event.target.closest("[data-area]");if(!b)return;area=b.dataset.area;gps=null;$(".near-me-section")?.classList.remove("near-show-areas");syncControls();render().then(revealResultsOnMobile)});
   $("#nearQuickSearch").addEventListener("input",event=>{query=event.target.value||"";clearTimeout(debounce);debounce=setTimeout(render,250);refreshLinks()});
   $("#nearQuickSearch").addEventListener("keydown",event=>{if(event.key==="Enter"){clearTimeout(debounce);render()}});
   $("#nearLocationBtn").addEventListener("click",()=>{
@@ -136,7 +153,7 @@
     const nearby=Math.min(...Object.values(CENTERS).map(c=>haversine(p,c)));
     button.disabled=false;
     if(nearby>50){gps=null;setStatus("Vị trí hiện ở ngoài Phú Quốc. Hãy chọn khu vực trên đảo.");syncControls();return}
-    gps=p;area=null;syncControls();render();
+    gps=p;area=null;syncControls();render().then(revealResultsOnMobile);
    },()=>{
     button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi";
     setStatus("Không lấy được vị trí. Chọn khu vực để tiếp tục.");
