@@ -12,7 +12,11 @@ for(const needle of [
  "if(engineDashboard){renderTodayDecision();return}"
 ])assert.ok(js.includes(needle),"CMS auto-recovery contract missing: "+needle);
 assert.ok(!js.includes("snapshotAge<=360||"),"stale reference gate must require valid cycle");
-assert.ok(/\/weather\/weather-v2\.js\?v=20260924-[a-z0-9-]+/.test(html)&&/\/weather\/weather-v2\.css\?v=20260924-[a-z0-9-]+/.test(html),"JS/CSS cache bust missing");
+const assetVersion=name=>html.match(new RegExp("/weather/"+name+"\\\\?v=(\\\\d{8}-[a-z0-9-]+)"))?.[1]||"";
+const jsVersion=assetVersion("weather-v2\\\\.js");
+const cssVersion=assetVersion("weather-v2\\\\.css");
+assert.ok(jsVersion&&cssVersion&&Number(jsVersion.slice(0,8))>=20260924&&Number(cssVersion.slice(0,8))>=20260924,
+  "JS/CSS cache bust missing");
 assert.ok(css.includes(".today-decision-panel .today-reference-notice"),"compact stale-data status styling missing");
 const dashboard=(generatedAt,cycleAt,now)=>({
  generated_at:new Date(now-generatedAt*60000).toISOString(),
