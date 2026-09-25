@@ -4566,9 +4566,13 @@ body.sheet-open{
 
 .trip-clock-grid{
   grid-template-columns:minmax(280px,.78fr) minmax(0,1.22fr);
+  /* Do not stretch the clock card to the ever-changing activity list. */
+  align-items:start;
 }
 .trip-clock-now{
-  min-height:100%;
+  min-height:0;
+  height:auto;
+  align-self:start;
 }
 .trip-day-left{
   margin-top:26px;
