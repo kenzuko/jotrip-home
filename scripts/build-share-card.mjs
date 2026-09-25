@@ -58,6 +58,8 @@ const walk=async directory=>{
    .replace(/(<meta\s+property="og:image:type"\s+content=")image\/svg\+xml(")/g,'$1image/jpeg$2')
    .replace(/(<meta\s+property="og:image:width"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.width+b)
    .replace(/(<meta\s+property="og:image:height"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.height+b);
+  const credit=chosen.startsWith("Wikimedia")?'Ảnh chia sẻ: <a href="https://commons.wikimedia.org/wiki/File:An_Thoi_fishing_harbour_Sunset_Town_Sun_World_Phu_Quoc_Vietnam.jpg">Vivu Vietnam / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.':"Ảnh chia sẻ: JoTrip.";
+  html=html.replaceAll("<!-- SOCIAL_PHOTO_CREDIT -->",credit);
   await writeFile(path,html);
  }
 };
