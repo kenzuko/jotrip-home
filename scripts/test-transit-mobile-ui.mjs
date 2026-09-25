@@ -3,7 +3,7 @@ import {readFileSync} from "node:fs";
 import {runInNewContext} from "node:vm";
 const app=readFileSync("transit/app.js","utf8"),css=readFileSync("transit/transit.css","utf8"),html=readFileSync("transit/index.html","utf8");
 assert.match(html,/transit.css\?v=20260924-compact1/);
-assert.match(html,/app.js\?v=20260924-compact1/);
+assert.match(html,/app.js\?v=20260925-busgps/);
 assert.match(css,/\.mobile-trip-main\{display:grid;grid-template-columns:75px minmax\(0,1fr\)/);
 assert.match(css,/\.mobile-status\.neutral/);
 assert.match(css,/\.mobile-trip-footer\{display:flex/);
