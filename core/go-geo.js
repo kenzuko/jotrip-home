@@ -43,7 +43,7 @@
     if(!valid(position))return [];
     return (rows||[]).map(item=>{
       const point=destinationPoint(item),km=distanceKm(position,point);
-      return point&&km!==null&&km<=radiusKm?{id:item.id,name:item.name,point,km,route:item.route||null}:null;
+      return point&&km!==null&&km<=radiusKm?{id:item.id,name:item.name,entity_type:item.entity_type||null,category:item.category||null,point,km,route:item.route||null}:null;
     }).filter(Boolean).sort((a,b)=>a.km-b.km);
   }
   return {anchors,valid,distanceKm,nearestArea,destinationPoint,inRadius,mapPoints};
