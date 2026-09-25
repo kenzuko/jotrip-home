@@ -23,6 +23,8 @@ on:
       - "index.html"
       - "styles.css"
       - "home-foundation-v2.js"
+      - "home-nearme-v2.js"
+      - "scripts/test-home-nearme.mjs"
       - "home-experience-v1.js"
       - "home-live-v3.js"
       - "data/views/today-rules.json"
@@ -77,6 +79,8 @@ jobs:
           node scripts/test-nearme-venues.mjs
           node scripts/validate-home-support.mjs
           node scripts/test-trip-clock-planner.mjs
+          node scripts/test-home-nearme.mjs
+          node --check home-nearme-v2.js
           node scripts/test-transit-mobile-ui.mjs
           node scripts/test-home-food-random.mjs
           node scripts/test-food-id-mapping.mjs
