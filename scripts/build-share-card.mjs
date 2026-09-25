@@ -27,7 +27,15 @@ async function download(url){
  return {bytes,size};
 }
 let photo=null,chosen="Wikimedia Commons / Vivu Vietnam";
-try{photo=await download(redirect)}catch(e){
+// Use the exact artwork approved for social sharing when it is committed.
+const approved="assets/share-card-approved.jpg";
+try{
+ const bytes=await readFile(approved),size=jpegDimensions(bytes);
+ if(!size||size.width<1200||size.height<600||bytes.length<75000||bytes.length>6000000)
+  throw Error("Approved social card must be a 1200px+ JPEG, 75KB-6MB");
+ photo={bytes,size};chosen="Open Phu Quoc approved social card";
+}catch(e){if(e.code!=="ENOENT")throw e;}
+if(!photo)try{photo=await download(redirect)}catch(e){
  console.warn("Commons direct image unavailable:",e.message);
  try{
   const r=await fetch(api,{headers:{"User-Agent":"OpenPhuQuocSocialPreview/1.0 (https://cms.openphuquoc.com/about/)"},signal:AbortSignal.timeout(13000)});
@@ -58,7 +66,7 @@ const walk=async directory=>{
    .replace(/(<meta\s+property="og:image:type"\s+content=")image\/svg\+xml(")/g,'$1image/jpeg$2')
    .replace(/(<meta\s+property="og:image:width"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.width+b)
    .replace(/(<meta\s+property="og:image:height"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.height+b);
-  const credit=chosen.startsWith("Wikimedia")?'Ảnh chia sẻ: <a href="https://commons.wikimedia.org/wiki/File:An_Thoi_fishing_harbour_Sunset_Town_Sun_World_Phu_Quoc_Vietnam.jpg">Vivu Vietnam / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.':"Ảnh chia sẻ: JoTrip.";
+  const credit=chosen.startsWith("Open Phu Quoc approved")?"Ảnh chia sẻ: Open Phu Quoc.":chosen.startsWith("Wikimedia")?'Ảnh chia sẻ: <a href="https://commons.wikimedia.org/wiki/File:An_Thoi_fishing_harbour_Sunset_Town_Sun_World_Phu_Quoc_Vietnam.jpg">Vivu Vietnam / Wikimedia Commons</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.':"Ảnh chia sẻ: JoTrip.";
   html=html.replaceAll("<!-- SOCIAL_PHOTO_CREDIT -->",credit);
   await writeFile(path,html);
  }
