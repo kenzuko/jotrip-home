@@ -100,7 +100,7 @@
      score=4;
     }else if(next){
      decision={state:"future",label:id==="activity_once_show"?"ONCE lúc "+next.start:"Bắt đầu lúc "+next.start,nextMin:next.startMin};
-     const length=durationMin(e.duration),end=Number.isFinite(length)?next.startMin+length:NaN;
+     const length=Number(item.performance_duration_min)||durationMin(e.duration),end=Number.isFinite(length)?next.startMin+length:NaN;
      summary=Number.isFinite(end)?next.start+"-"+hhmm(end)+" · "+(e.duration||"Theo lịch show"):next.start+" · Theo lịch show";
      if(id==="activity_once_show")note="Sau khoảng 17:00, phần lớn trò chơi đã ngừng. ONCE 18:45-19:05 theo lịch; cần vé vào VinWonders.";
      score=id==="activity_once_show"?235+(next.startMin-nowMinute)/20:250+(next.startMin-nowMinute)/12;
