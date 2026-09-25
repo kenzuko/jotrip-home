@@ -157,3 +157,35 @@
     border-color:#83b29a;
   }
 }
+
+/* Guard against older homepage card rules when mobile style assets are cached. */
+@media(max-width:760px){
+  #top>.home-library-section .home-library-grid>.home-library-card{
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+  }
+  #top>.home-library-section .home-library-grid>.home-library-card:first-child{
+    display:flex!important;
+    min-height:0!important;
+    padding:13px 15px!important;
+    gap:5px!important;
+  }
+  #top>.home-library-section .home-library-grid>.home-library-card:nth-child(2),
+  #top>.home-library-section .home-library-grid>.home-library-card:nth-child(3){
+    display:grid!important;
+    padding:10px 2px!important;
+    grid-template-columns:minmax(0,1fr) 26px!important;
+    grid-template-areas:"topic arrow" "title arrow"!important;
+    gap:2px 9px!important;
+  }
+  #top>.home-library-section .home-library-grid>.home-library-card:nth-child(2)>small,
+  #top>.home-library-section .home-library-grid>.home-library-card:nth-child(3)>small,
+  #top>.home-library-section .home-library-grid>.home-library-card:nth-child(2)>.home-library-action,
+  #top>.home-library-section .home-library-grid>.home-library-card:nth-child(3)>.home-library-action{
+    display:none!important;
+  }
+  #top>.home-library-section .home-library-grid>.home-library-card:nth-child(n+4){
+    display:none!important;
+  }
+}
