@@ -31,7 +31,7 @@ function dishMedia(x){
   const visual=window.OpenPQVisual?.pickHero?.(images)||images[0]||null;
   if(visual){
     return '<div class="dish-media">'+
-      '<img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async" onerror="this.closest(\'div\').classList.add(\'is-error\')">'+
+      '<img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async" data-fallback="'+esc(visual.fallback_url||"")+'" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;delete this.dataset.fallback}else{this.closest(\'div\').classList.add(\'is-error\')}">'+
     '</div>';
   }
   return window.OpenPQVisual
