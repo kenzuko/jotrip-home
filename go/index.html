@@ -9,7 +9,8 @@
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="preload" as="image" href="/assets/logo-master.png">
   <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-logo-safe">
-  <link rel="stylesheet" href="go.css?v=20260925compactmore1">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="go.css?v=20260925-v11">
   <link rel="canonical" href="https://cms.openphuquoc.com/go/">
   <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
   <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
@@ -35,13 +36,15 @@
     <section class="go-builder" aria-labelledby="goBuilderTitle">
       <div class="go-builder-head">
         <div><p>3 CÂU HỎI</p><h2 id="goBuilderTitle">Bạn đang ở đâu và còn bao nhiêu thời gian?</h2></div>
-        <span>Cứ chọn khu vực bạn đang ở, không cần bật định vị.</span>
+        <span>Chọn khu vực hoặc bật vị trí khi bạn muốn xem những nơi gần mình.</span>
       </div>
 
       <form id="goForm" class="go-form">
         <fieldset>
           <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
+          <div class="go-area-actions"><button type="button" id="useLocation" class="go-location-button"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button><span id="goGeoStatus" role="status" aria-live="polite">Hoặc chọn một khu vực bên dưới.</span></div>
           <div class="choice-grid" id="areaChoices"></div>
+          <div class="go-radar" id="goRadar" hidden><div class="go-radar-top"><div><strong id="goRadarTitle">Quanh vị trí của bạn</strong><small id="goRadarAccuracy">Khoảng cách theo đường thẳng, không phải thời gian đi xe.</small></div><div class="go-radius-options" id="goRadius" role="group" aria-label="Chọn bán kính tìm kiếm"><button type="button" data-radius="2">2 km</button><button type="button" data-radius="5">5 km</button><button type="button" data-radius="10" class="active" aria-pressed="true">10 km</button><button type="button" data-radius="20">20 km</button></div></div><div id="goRadarMap" class="go-radar-map" role="region" aria-label="Bản đồ radar những nơi quanh bạn"></div><p class="go-radar-note" id="goRadarNote">Chọn vòng tròn để xem các địa điểm trong phạm vi đó.</p><div id="goRadarList" class="go-radar-list"></div></div>
         </fieldset>
         <fieldset>
           <legend><b>02</b><span>Bạn còn bao nhiêu thời gian?</span></legend>
@@ -77,7 +80,7 @@
       <div class="go-live-note" id="liveNote"></div>
       <div class="go-results" id="goResults"></div>
       <section class="go-more" id="goMore" hidden><div class="go-more-head"><div><p>CÒN CÓ THỂ GHÉ THÊM</p><h3>Nếu vẫn còn sức, đây là vài lựa chọn nữa.</h3></div></div><div class="go-more-grid" id="goMoreGrid"></div></section>
-      <div class="go-excluded" id="goExcluded" hidden></div>
+      <section class="go-food" id="goFood" hidden><div class="go-food-head"><div><p>ĂN UỐNG QUANH ĐÂY</p><h3>Đói bụng rồi, ghé đâu gần bạn?</h3><span id="goFoodNote">Các khu ăn uống có tọa độ, cùng đường tìm quán ăn trên Near Me.</span></div><a href="../food/">Xem món địa phương →</a></div><div class="go-food-grid" id="goFoodGrid"></div><div class="go-food-actions" id="goFoodActions"></div></section><div class="go-excluded" id="goExcluded" hidden></div>
     </section>
 
     <section class="go-next" aria-labelledby="goNextTitle">
@@ -108,8 +111,11 @@
     <a href="../#happening">Hôm nay</a><a class="active" href="./">Đi ngay</a><a href="../explore/">Khám phá</a><a href="../#today">Lúc này</a>
   </nav>
 
-  <script src="../core/go-engine.js?v=20260925a"></script>
-  <script src="live-adapter.js?v=20260925a"></script>
-  <script src="go.js?v=20260925compactmore1"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="../map-basemap.js?v=20260925" defer></script>
+  <script src="../core/go-engine.js?v=20260925-v11" defer></script>
+  <script src="live-adapter.js?v=20260925a" defer></script>
+  <script src="radar-map.js?v=20260925-v11" defer></script>
+  <script src="go.js?v=20260925-v11" defer></script>
 </body>
 </html>
