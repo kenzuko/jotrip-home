@@ -2785,7 +2785,7 @@ body{
 /* V2.15 - scalable app navigation + robust approved-logo rendering */
 .brand{
   background:
-    url("assets/logo-master.png?v=approved-20260925-original")
+    url("assets/logo-master.png?v=20260925-tight-master-r1")
     left center / contain no-repeat;
 }
 
@@ -5996,4 +5996,24 @@ body.sheet-open{
  .near-quick-emergency-actions .near-quick-emergency-call{padding:9px 11px;font-size:12px;white-space:nowrap}
  .near-quick-emergency-actions a:not(.near-quick-emergency-call){display:none}
  .near-quick-secondary button:focus-visible,.near-mobile-expand:focus-visible{outline:3px solid #71cab0;outline-offset:2px}
+}
+
+
+/* Approved close-cropped transparent master (25 Sep): clearer homepage brand. */
+@media (min-width:761px){
+  .site-header{min-height:78px;height:78px}
+  .site-header .brand{width:70px;min-width:70px;height:70px}
+}
+@media (min-width:1220px){
+  .app-rail-mark{min-height:102px;padding:4px 7px 14px}
+  .app-rail-mark img{width:86px;height:86px;max-width:100%;object-fit:contain}
+}
+@media (max-width:760px){
+  .site-header .brand{width:52px;min-width:52px;height:52px}
+}
+.site-footer .footer-brand{grid-template-columns:112px minmax(0,1fr)}
+.site-footer .footer-brand img{width:112px;padding:3px}
+@media(max-width:600px){
+  .site-footer .footer-brand{grid-template-columns:84px minmax(0,1fr)}
+  .site-footer .footer-brand img{width:84px;padding:3px}
 }
