@@ -21,6 +21,7 @@ const rootFiles=[
   "home-live.js",
   "home-live-v3.js",
   "home-foundation-v2.js",
+  "home-nearme-v2.js",
   "home-today-v3.js",
   "home-copy.js",
   "home-experience-v1.js",
