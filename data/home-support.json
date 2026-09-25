@@ -14,7 +14,8 @@
         "entity_id": "activity_symphony_of_the_sea",
         "status_code": "UNKNOWN",
         "route": "places/detail.html?id=symphony-of-the-sea",
-        "schedule_source": "canonical_entity.opening_hours"
+        "schedule_source": "canonical_entity.opening_hours",
+        "feature_in_today": true
       },
       {
         "id": "clock_kiss_of_the_sea",
@@ -22,7 +23,8 @@
         "status_code": "UNKNOWN",
         "route": "places/detail.html?id=kiss-of-the-sea",
         "schedule_source": "canonical_entity.opening_hours",
-        "timing_note": "Show lúc 21:00-21:30, trừ thứ Ba. Nếu ở xa Nam đảo, tính giờ đi và xe về trước."
+        "timing_note": "Show lúc 21:00-21:30, trừ thứ Ba. Nếu ở xa Nam đảo, tính giờ đi và xe về trước.",
+        "feature_in_today": true
       },
       {
         "id": "clock_dinh_cau",
