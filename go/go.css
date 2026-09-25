@@ -187,3 +187,55 @@
   .go-mobile-nav button.go-dock-more{color:#286f53;background:#eaf5ee}
   body{padding-bottom:calc(81px + env(safe-area-inset-bottom,0px))}
 }
+
+
+/* /go V1.1.1: desktop decision sidebar + right-hand radar; mobile keeps stacked flow */
+.go-location-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;align-items:start}
+.go-location-sidebar{min-width:0}
+.go-location-map-col{min-width:0}
+.go-map-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid #e7f0ea;background:#f6fbf8}
+.go-layer-buttons{display:flex;flex-wrap:wrap;gap:6px;min-width:0}
+.go-layer-buttons button{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:7px 11px;border:1px solid #d5e5db;border-radius:999px;background:#fff;color:#43695a;font-size:12px;font-weight:800;cursor:pointer}
+.go-layer-buttons button.active,.go-layer-buttons button[aria-pressed="true"]{background:#195e4c;border-color:#195e4c;color:#fff}
+.go-layer-buttons button:focus-visible,.go-map-sort-label select:focus-visible,.go-map-nearby a:focus-visible{outline:3px solid #63b697;outline-offset:2px}
+.go-map-sort-label{display:flex;align-items:center;gap:7px;flex:0 0 auto;font-size:11px;font-weight:800;color:#547768}
+.go-map-sort-label select{max-width:125px;min-height:35px;border:1px solid #c9dfd3;border-radius:11px;background:#fff;color:#235b49;padding:6px 9px;font-size:12px;font-weight:800;cursor:pointer}
+.go-map-nearby{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;padding:11px 14px 14px;border-top:1px solid #e7f0ea;background:#fff}
+.go-map-nearby:empty{display:none}
+.go-map-nearby a{display:flex;align-items:center;gap:8px;min-width:0;padding:9px 10px;border:1px solid #e4eee8;border-radius:11px;color:#194e3d;text-decoration:none;background:#fbfdfb}
+.go-map-nearby a:hover{background:#eaf5ee}
+.go-map-nearby a i,.go-map-nearby .go-near-dot{width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:#be6b4b}
+.go-map-nearby a[data-layer="food"] i{background:#d29d30}
+.go-map-nearby a[data-layer="utilities"] i{background:#3982b2}
+.go-map-nearby a span{display:block;min-width:0;flex:1}
+.go-map-nearby a strong{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;line-height:1.25}
+.go-map-nearby a small{display:block;margin-top:3px;font-size:10px;color:#739084}
+.go-map-nearby .go-map-empty{grid-column:1/-1;padding:12px;border-radius:10px;background:#f7fbf8;color:#547466;font-size:12px;line-height:1.45}
+.go-map-empty a{display:inline;font-weight:850;color:#14684d;text-decoration:underline;border:0;padding:0;background:none}
+@media(min-width:960px){
+  .go-builder{max-width:1320px}
+  .go-location-layout{grid-template-columns:minmax(250px,315px) minmax(0,1fr);gap:18px}
+  .go-location-sidebar{padding:16px;border:1px solid #e1ede5;border-radius:18px;background:#f5faf7}
+  .go-location-sidebar .go-area-row{display:flex;flex-direction:column;align-items:stretch;gap:11px}
+  .go-location-sidebar .choice-grid{width:100%;display:grid;grid-template-columns:1fr;gap:8px}
+  .go-location-sidebar .choice-grid label>span{min-height:53px;line-height:1.3;padding:13px 15px;font-size:14px}
+  .go-location-sidebar .go-location-button{width:100%;min-height:48px;padding:10px 14px}
+  .go-location-sidebar .go-location-status{margin-top:12px;font-size:12px}
+  .go-location-map-col .go-radius-panel{margin:0}
+  .go-location-map-col .go-map{height:340px}
+}
+@media(min-width:761px) and (max-width:959px){
+  .go-location-layout{gap:12px}
+  .go-location-sidebar .go-area-row{display:flex}
+  .go-location-map-col .go-radius-panel{margin-top:0}
+}
+@media(max-width:760px){
+  .go-location-layout{display:block}
+  .go-location-map-col .go-radius-panel{margin-top:14px}
+  .go-map-toolbar{padding:10px 12px;align-items:flex-start}
+  .go-layer-buttons{width:100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}
+  .go-layer-buttons button{white-space:nowrap;flex:0 0 auto}
+  .go-map-sort-label{margin-left:auto}
+  .go-map-nearby{grid-template-columns:1fr}
+  .go-map-nearby a{min-height:43px}
+}
