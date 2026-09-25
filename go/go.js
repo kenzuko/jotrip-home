@@ -1,0 +1,75 @@
+(() => {
+  "use strict";
+  const $=s=>document.querySelector(s);
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+  const zoneNames={zone_central_west:"Dương Đông & bờ Tây",zone_south:"An Thới & Nam đảo",zone_north:"Bắc đảo"};
+  const state={config:null,entities:new Map(),notices:[],live:null,originZone:"zone_central_west"};
+
+  function clock(){
+    const d=new Date();
+    const fmt=new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",hour:"2-digit",minute:"2-digit",hour12:false});
+    const date=new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",weekday:"long",day:"2-digit",month:"2-digit"}).format(d);
+    $("#goClock").textContent=fmt.format(d);$("#goDate").textContent=date;
+  }
+  async function json(path){const r=await fetch(path+(path.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error(path+" HTTP "+r.status);return r.json()}
+  async function load(){
+    const [config,places,activities,notices]=await Promise.all([
+      json("../data/go-config.json"),json("../data/entities/places.json"),json("../data/entities/activities.json"),json("../data/operational-notices.json")
+    ]);
+    state.config=config;state.notices=notices.notices||[];
+    [...(places.entities||[]),...(activities.entities||[])].forEach(e=>state.entities.set(e.id,e));
+    renderAreas();
+  }
+  function renderAreas(){
+    $("#areaChoices").innerHTML=(state.config.areas||[]).map((a,i)=>'<label><input type="radio" name="origin" value="'+esc(a.id)+'" '+(i===0?"checked":"")+'><span>'+esc(a.label)+'</span></label>').join("");
+  }
+  function selection(){
+    const fd=new FormData($("#goForm"));
+    return{originZone:String(fd.get("origin")||"zone_central_west"),available:String(fd.get("available")||"half"),interest:String(fd.get("interest")||"all")};
+  }
+  async function run(){
+    const pick=selection();state.originZone=pick.originZone;
+    $("#resultsSection").hidden=false;$("#goResults").innerHTML='<div class="go-empty"><strong>Đang ghép thông tin...</strong><span>Kiểm tra lịch, quãng đường ước tính và tín hiệu hiện tại.</span></div>';
+    state.live=window.OpenPQGoLive?await window.OpenPQGoLive.load(pick.originZone).catch(()=>null):null;
+    const view=window.OpenPQGoEngine.plan({config:state.config,entities:state.entities,notices:state.notices,live:state.live||{},now:new Date(),...pick});
+    render(view,pick);
+    $("#resultsSection").scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  function liveNote(){
+    if(!state.live)return"Không tải được tín hiệu live. Kết quả vẫn lọc theo lịch công bố và thời lượng, nhưng bạn nên mở Weather/Cano trước hoạt động ngoài trời.";
+    const w=state.live.weather||{},c=state.live.cano||{};
+    const weather=w.freshness==="fresh"||w.freshness==="aging"?(w.status==="normal"?"Thời tiết khu vực chưa có tín hiệu nổi bật.":"Thời tiết khu vực cần xem lại trước khi đi."):"Thời tiết chưa có cập nhật đủ mới.";
+    const cano=["DIRECT_CONFIRMED","RUNNING"].includes(c.state)?" Cano có xác nhận vận hành hôm nay.":c.state==="SUSPENDED"?" Cano đang tạm dừng theo xác nhận hôm nay.":" Trạng thái cano chưa đủ rõ.";
+    return weather+cano;
+  }
+  function render(view,pick){
+    $("#resultEyebrow").textContent=zoneNames[pick.originZone].toUpperCase()+" · "+view.now;
+    $("#resultTitle").textContent=view.results.length?"Ba lựa chọn phù hợp nhất lúc này.":"Chưa có lựa chọn đủ điều kiện.";
+    $("#liveNote").textContent=liveNote();
+    if(!view.results.length){
+      $("#goResults").innerHTML='<div class="go-empty"><strong>Đừng cố nhét thêm lịch.</strong><span>Với thời gian, khu vực và sở thích này, hệ thống chưa tìm được lựa chọn đủ thoải mái. Thử tăng thời gian hoặc chọn “Tất cả”.</span></div>';
+    }else{
+      $("#goResults").innerHTML=view.results.map((x,i)=>{
+        const warnings=(x.warnings||[]).map(w=>"<li>"+esc(w)+"</li>").join("");
+        const drive=x.travel?x.travel.low+"-"+x.travel.high+" phút":"Chưa rõ";
+        return '<article class="go-result" data-state="'+esc(x.badge)+'">'+
+          '<div class="go-result-top"><span>0'+(i+1)+' · '+esc(x.category)+'</span><b class="go-badge">'+(x.badge==="POSSIBLE"?"CÒN KỊP":"CẦN KIỂM TRA")+'</b></div>'+
+          '<h3>'+esc(x.name)+'</h3><p class="go-note">'+esc(x.note||"Một lựa chọn còn phù hợp với thời gian hiện tại.")+'</p>'+
+          '<div class="go-timing"><strong>'+esc(x.timing)+'</strong><span>Dự kiến xong khoảng '+esc(x.finish_at)+'</span></div>'+
+          '<div class="go-meta"><div><span>Đi từ khu hiện tại</span><b>'+esc(drive)+'</b></div><div><span>Dự kiến tới</span><b>'+esc(x.arrival)+'</b></div><div><span>Dữ liệu</span><b>'+esc(x.source)+'</b></div></div>'+
+          (warnings?'<ul class="go-warnings">'+warnings+'</ul>':"")+
+          '<a href="'+esc(x.route)+'">Xem chi tiết trước khi đi →</a></article>';
+      }).join("");
+    }
+    const blocked=view.excluded||[];
+    const box=$("#goExcluded");
+    if(blocked.length){
+      box.hidden=false;
+      box.innerHTML='<strong>Vì sao một số lựa chọn không xuất hiện?</strong><p>'+esc(blocked.slice(0,5).map(x=>x.reason).filter((v,i,a)=>a.indexOf(v)===i).join(" · "))+'</p>';
+    }else box.hidden=true;
+  }
+  $("#goForm").addEventListener("submit",e=>{e.preventDefault();run()});
+  $("#changeChoices").addEventListener("click",()=>$(".go-builder").scrollIntoView({behavior:"smooth",block:"start"}));
+  clock();setInterval(clock,30000);
+  load().catch(e=>{$("#areaChoices").innerHTML='<div class="go-empty"><strong>Chưa tải được dữ liệu nền.</strong><span>'+esc(e.message)+'</span></div>'});
+})();

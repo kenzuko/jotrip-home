@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-09-25",
+  "description": "/go V1 dùng entity ID chuẩn; giờ vận hành và trạng thái chỉ đọc từ nguồn gốc, không ghi đè trong cấu hình.",
+  "policy": {
+    "origin": "user_select",
+    "no_geo_without_permission": true,
+    "travel": "zone_ranges_for_screening_only",
+    "uncertain_data": "CHECK_never_automatic_safe",
+    "max_results": 3
+  },
+  "areas": [
+    {"id":"zone_central_west","label":"Dương Đông & bờ Tây"},
+    {"id":"zone_south","label":"An Thới & Nam đảo"},
+    {"id":"zone_north","label":"Bắc đảo"}
+  ],
+  "activities": [
+    {"entity_id":"place_dinh_cau","category":"VĂN HÓA","intents":["culture","relax"],"environment":"outdoor","minimum_visit_min":35,"entry_buffer_min":10,"route":"/places/detail.html?id=dinh-cau","order":2},
+    {"entity_id":"place_night_market","category":"ĂN UỐNG","intents":["food","evening"],"environment":"outdoor","minimum_visit_min":60,"entry_buffer_min":5,"route":"/places/detail.html?id=night-market","order":1},
+    {"entity_id":"place_duong_dong_market","category":"ĐỊA PHƯƠNG","intents":["food","culture"],"environment":"covered","minimum_visit_min":45,"entry_buffer_min":5,"route":"/places/detail.html?id=duong-dong-market","order":5},
+    {"entity_id":"place_vinpearl_safari","category":"GIA ĐÌNH","intents":["family","nature"],"environment":"outdoor","minimum_visit_min":180,"entry_buffer_min":30,"route":"/places/detail.html?id=vinpearl-safari","order":3},
+    {"entity_id":"place_vinwonders","category":"VUI CHƠI","intents":["family"],"environment":"outdoor","minimum_visit_min":360,"entry_buffer_min":30,"route":"/places/detail.html?id=vinwonders","order":6,"description":"Công viên có lịch trò chơi và lịch show riêng; nên kiểm tra giờ từng khu."},
+    {"entity_id":"place_teddy_bear_museum","category":"TRONG NHÀ","intents":["family","relax"],"environment":"indoor","minimum_visit_min":60,"entry_buffer_min":15,"route":"/places/detail.html?id=teddy-bear-museum","order":1},
+    {"entity_id":"place_grand_world","category":"BUỔI TỐI","intents":["family","evening","relax"],"environment":"outdoor","minimum_visit_min":90,"entry_buffer_min":10,"soft_window":{"start":"16:30","end":"23:00"},"route":"/places/detail.html?id=grand-world","order":2,"description":"Khung giờ gợi ý, không phải giờ mở cửa đồng loạt."},
+    {"entity_id":"place_ho_quoc","category":"VĂN HÓA","intents":["culture","relax"],"environment":"outdoor","minimum_visit_min":60,"entry_buffer_min":10,"soft_window":{"start":"07:00","end":"17:30"},"route":"/places/detail.html?id=ho-quoc","order":3,"description":"Khung ban ngày gợi ý, cần xác nhận giờ đón khách."},
+    {"entity_id":"place_bai_sao","category":"BIỂN","intents":["sea","nature","relax"],"environment":"outdoor","minimum_visit_min":90,"entry_buffer_min":10,"soft_window":{"start":"08:00","end":"17:30"},"route":"/places/detail.html?id=bai-sao","order":2,"description":"Chỉ gợi ý khung ban ngày; dịch vụ tại bãi có giờ hoạt động riêng."},
+    {"entity_id":"place_kiss_bridge","category":"HOÀNG HÔN","intents":["evening","relax"],"environment":"outdoor","minimum_visit_min":35,"entry_buffer_min":20,"soft_window":{"start":"15:30","end":"19:00"},"route":"/places/detail.html?id=kiss-bridge","order":3,"description":"Đây là giờ gợi ý ngắm cảnh, không thay cho giờ bán vé."},
+    {"entity_id":"activity_symphony_of_the_sea","category":"SHOW","intents":["evening","family"],"environment":"outdoor","minimum_visit_min":30,"entry_buffer_min":25,"route":"/places/detail.html?id=symphony-of-the-sea","order":2},
+    {"entity_id":"activity_kiss_of_the_sea","category":"SHOW","intents":["evening","family"],"environment":"outdoor","minimum_visit_min":30,"entry_buffer_min":25,"route":"/places/detail.html?id=kiss-of-the-sea","order":2},
+    {"entity_id":"activity_tinh_hoa_viet_nam","category":"SHOW","intents":["culture","evening","family"],"environment":"outdoor","minimum_visit_min":45,"entry_buffer_min":25,"route":"/places/detail.html?id=tinh-hoa-viet-nam","order":2},
+    {"entity_id":"activity_once_show","category":"SHOW","intents":["evening","family"],"environment":"outdoor","minimum_visit_min":20,"entry_buffer_min":25,"route":"/places/detail.html?id=once-show","order":3},
+    {"entity_id":"activity_sac_mau_venice","category":"SHOW","intents":["evening","family"],"environment":"outdoor","minimum_visit_min":30,"entry_buffer_min":15,"route":"/places/detail.html?id=sac-mau-venice","order":5},
+    {"entity_id":"activity_hon_thom","category":"BIỂN & ĐẢO","intents":["sea","family"],"environment":"outdoor","minimum_visit_min":240,"entry_buffer_min":25,"return_buffer_min":0,"return_check":true,"route":"/places/detail.html?id=hon-thom","order":6,"description":"Phải xác nhận lượt cáp về trước khi đi. Lịch cáp có các khoảng nghỉ."},
+    {"entity_id":"activity_big_game_fishing","category":"ĐI BIỂN","intents":["sea","nature"],"environment":"marine","marine":true,"minimum_visit_min":540,"entry_buffer_min":35,"return_check":true,"route":"/places/detail.html?id=big-game-fishing","order":9,"description":"Cần xác nhận thuyền, suất khởi hành và điều kiện biển với đơn vị tổ chức."}
+  ]
+}
