@@ -56,7 +56,8 @@ const dirs=[
   "explore",
   "hotels",
   "about",
-  "news"
+  "news",
+  "go"
 ];
 
 for(const file of rootFiles){
