@@ -75,9 +75,7 @@ function coverPosition(value){
 function imageCredit(story){
   if(!story?.image_credit)return "";
   const label=[story.image_caption,story.image_credit].filter(Boolean).join(" · ");
-  return '<figcaption class="cover-credit">'+(story.image_source_url
-    ?'<a href="'+esc(story.image_source_url)+'" target="_blank" rel="noopener">'+esc(label)+'</a>'
-    :esc(label))+'</figcaption>';
+  return '<figcaption class="cover-credit">'+esc(label)+'</figcaption>';
 }
 
 function sourceList(story){
