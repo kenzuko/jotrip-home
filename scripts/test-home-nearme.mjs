@@ -32,7 +32,7 @@ assert.ok(module.includes('new URLSearchParams()'),"Keep selected filters in the
 assert.ok(module.includes('tel:'),"Verified phone numbers should be directly dialable");
 assert.ok(module.includes('google.com/maps/dir/'),"Provide one-click directions");
 assert.ok(module.includes('site_centroid'),"Do not show distance for approximate area anchors");
-assert.equal((module.match(/getCurrentPosition\\(/g)||[]).length,1,"GPS may only be requested from its click handler");
+assert.equal(module.split("getCurrentPosition(").length-1,1,"GPS may only be requested from its click handler");
 assert.match(module,/addEventListener\("click",\(\)=>\{\s*const button=\$\("#nearLocationBtn"\)/);
 assert.match(foundation,/openpq:home-support-ready/);
 assert.doesNotMatch(foundation,/function renderNearResults\(/);
