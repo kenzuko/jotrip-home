@@ -5820,20 +5820,23 @@ body.sheet-open{
 @media(max-width:900px){.home-go-story{grid-template-columns:1fr}.home-go-visual{min-height:315px}.home-go-copy{padding:28px}.home-go-copy h2{font-size:clamp(34px,6vw,50px)}}
 @media(max-width:720px){.hero-go-pill{margin:12px 4px 10px 0;padding:11px 14px;font-size:14px}.hero-go-pill b{font-size:12px}.home-go-section{margin:12px auto;padding:0 10px}.home-go-story{border-radius:21px}.home-go-copy{padding:25px 18px 28px}.home-go-eyebrow{font-size:11px}.home-go-copy h2{font-size:38px}.home-go-copy>p{font-size:15px}.home-go-presets a{font-size:12px;padding:10px 11px}.home-go-main{width:100%;justify-content:space-between}.home-go-visual{min-height:235px}.home-go-photo-note{left:19px;right:19px;bottom:18px}.home-go-photo-note strong{font-size:27px}}
 
-/* CMS homepage: food-to-news spacing fix (25/09/2026).
-   Keep both modules in normal flow. Balance the transition without
-   fixed heights or negative margins; the base 76px+76px was excessive. */
+/* CMS homepage: food-to-news rhythm v2 (25/09/2026).
+   Remove the oversized blank interval without overlapping cards or content. */
 #top > .food-now-section {
-  padding-bottom: 24px !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 0 !important;
+  min-height: 0 !important;
 }
 #top > .hot-now-section {
-  padding-top: 38px !important;
+  padding-top: 18px !important;
+  margin-top: 0 !important;
+  min-height: 0 !important;
 }
 @media (max-width: 760px) {
   #top > .food-now-section {
-    padding-bottom: 18px !important;
+    padding-bottom: 8px !important;
   }
   #top > .hot-now-section {
-    padding-top: 24px !important;
+    padding-top: 14px !important;
   }
 }

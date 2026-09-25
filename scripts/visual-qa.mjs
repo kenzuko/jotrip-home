@@ -241,7 +241,20 @@ async function testHomeFoundation(page) {
     const tripCount=count('#tripClockList .trip-item');
     const legitimateLateFallback=!!document.querySelector('#tripClockList .trip-clock-empty')&&
       text('#tripClockList').includes('Giờ này các điểm chính đã qua khung');
+    const foodGrid=document.querySelector('#foodNowGrid');
+    const newsHeading=document.querySelector('#hot-now .section-heading .eyebrow');
+    const foodSection=document.querySelector('#food-now');
+    const newsSection=document.querySelector('#hot-now');
+    const spacing=foodGrid&&newsHeading&&foodSection&&newsSection ? {
+      gap:Math.round(newsHeading.getBoundingClientRect().top-foodGrid.getBoundingClientRect().bottom),
+      foodBottomPadding:getComputedStyle(foodSection).paddingBottom,
+      newsTopPadding:getComputedStyle(newsSection).paddingTop,
+      containerRowGap:getComputedStyle(foodSection.parentElement).rowGap,
+      viewport:window.innerWidth
+    } : null;
+    const acceptableGap=window.innerWidth<=760 ? 48 : 62;
     const checks = {
+      foodNewsSpacing:!!spacing&&spacing.gap>=18&&spacing.gap<=acceptableGap,
       localTime: !!text('#tripClockNow') && text('#tripClockNow') !== '--:--',
       clockPanelCompactAfterToggle: sidebarLayout.ok,
       // Never manufacture three open attractions at night solely to pass CI.
@@ -261,7 +274,7 @@ async function testHomeFoundation(page) {
       currency: count('#homeCurrencyGrid .home-currency-card') >= 3,
       noSyntheticZero: ![...document.querySelectorAll('#homeCurrencyGrid .home-currency-card strong')].some(el => /^0([,.]0+)?\s*₫$/.test(el.textContent.trim()))
     };
-    return { ok: Object.values(checks).every(Boolean), checks };
+    return { ok: Object.values(checks).every(Boolean), checks, spacing };
   }, {initialNearClean,cancelledToday,sidebarLayout,quickFinder});
 }
 
@@ -468,6 +481,7 @@ try {
       let nearmeFunctional = null;
       if (!navigationError && route.name === 'home') {
         homeFunctional = await testHomeFoundation(page);
+        console.log('HOME_SECTION_SPACING', JSON.stringify(homeFunctional.spacing));
       }
       if (!navigationError && route.name === 'nearme') {
         nearmeFunctional = await testNearMePage(page);
