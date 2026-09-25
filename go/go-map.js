@@ -31,9 +31,9 @@ function draw(position,radius,rows){
   const center=[position.lat,position.lon];
   circles.clearLayers();pins.clearLayers();
   for(const km of [2,5,10,20]){
-    if(km>selected&&km!==20)continue;
+    if(km>selected)continue;
     L.circle(center,{radius:km*1000,color:km===selected?"#176954":"#75ad9e",weight:km===selected?3:1.4,
-      opacity:km===selected?.9:.45,fillColor:"#57ad9a",fillOpacity:km===selected?.09:0,dashArray:km===selected?null:"5 7",
+      opacity:km===selected?0.9:0.45,fillColor:"#57ad9a",fillOpacity:km===selected?0.09:0,dashArray:km===selected?null:"5 7",
       interactive:false}).addTo(circles);
   }
   if(!selfMarker){
