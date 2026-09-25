@@ -37,7 +37,7 @@
  // Show at most ten detailed cards initially. A small guaranteed share for
  // today's featured evening shows prevents them being buried all afternoon,
  // but never displaces a genuinely imminent high-priority activity.
- function select(rows,limit=10){
+ function select(rows,limit=8){
   const available=rows.filter(x=>x.eligible&&["active","future","watch"].includes(x.decision?.state)).sort(comparePriority);
   const visible=available.slice(0,limit);
   const featured=available.filter(x=>x.item.feature_in_today===true);
