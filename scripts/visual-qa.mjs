@@ -29,7 +29,7 @@ const allRoutes = [
   { name: 'airport', path: '/airport/' }
 ];
 
-const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'food-bun-quay', 'bus', 'transit', 'explore', 'utilities', 'currency', 'airport']);
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'food-bun-quay', 'bus', 'transit', 'explore', 'about', 'utilities', 'currency', 'airport']);
 const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
@@ -114,6 +114,15 @@ async function inspectPage(page) {
       .filter(img => img.complete && img.naturalWidth === 0)
       .map(img => ({ src: img.currentSrc || img.src, alt: img.alt || '' }));
 
+    // Verify the user-approved master asset, not an old CDN-cached logo.
+    const logoAssets = [...document.querySelectorAll('img[src*="logo-master.png"]')].map(img => ({
+      src: img.currentSrc || img.src,
+      loaded: img.complete && img.naturalWidth === 985 && img.naturalHeight === 1009,
+      versioned: (img.currentSrc || img.src).includes('v=20260925-user-approved-logo')
+    }));
+    const aboutFooter = document.querySelector('.about-footer-brand');
+    const aboutFooterWhite = aboutFooter ? getComputedStyle(aboutFooter).backgroundColor === 'rgb(255, 255, 255)' : null;
+
     const tinyText = [...document.querySelectorAll('body *')]
       .filter(el => {
         if (['SCRIPT', 'STYLE', 'SVG', 'PATH'].includes(el.tagName)) return false;
@@ -139,6 +148,8 @@ async function inspectPage(page) {
       viewportWidth,
       overflowElements,
       brokenImages,
+      logoAssets,
+      aboutFooterWhite,
       tinyText
     };
   });
@@ -523,6 +534,9 @@ try {
         navigationError ? `navigation: ${navigationError}` : null,
         inspection?.documentOverflow ? `horizontal overflow: ${inspection.documentScrollWidth}px > ${inspection.viewportWidth}px` : null,
         sameOriginBrokenImages.length ? `${sameOriginBrokenImages.length} broken same-origin image(s)` : null,
+        inspection?.logoAssets?.some(img => !img.loaded || !img.versioned) ? 'master logo asset is stale, missing or wrong dimensions' : null,
+        ['home','explore','about'].includes(route.name) && !inspection?.logoAssets?.length ? 'expected OpenPQ master logo missing' : null,
+        route.name === 'about' && inspection?.aboutFooterWhite !== true ? 'About footer logo is not on a white surface' : null,
         pageErrors.length ? `${pageErrors.length} page error(s)` : null,
         failedRequests.length ? `${failedRequests.length} failed same-origin request(s)` : null,
         unexpectedBadResponses.length ? `${unexpectedBadResponses.length} bad same-origin response(s)` : null,
