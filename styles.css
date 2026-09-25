@@ -5837,3 +5837,80 @@ body.sheet-open{
     padding-top: 24px !important;
   }
 }
+
+/* Mobile-specific Near Me flow: desktop remains a two-column workspace. */
+.near-quick-primary,.near-quick-essentials{margin-bottom:24px}
+.near-quick-primary .near-quick-location-note{margin-bottom:0}
+.near-quick-extras .near-quick-other-label{margin:0 0 12px}
+@media(max-width:900px){
+ .near-quick-shell{grid-template-columns:minmax(0,1fr);gap:12px;align-items:start}
+ .near-quick-controls{display:contents}
+ .near-quick-primary,.near-quick-essentials,.near-quick-extras{
+  min-width:0;margin:0;padding:18px;border:1px solid #d9e8e1;border-radius:19px;background:#fff;box-shadow:none
+ }
+ .near-quick-primary{grid-row:1}
+ .near-quick-essentials{grid-row:2}
+ .near-quick-results{grid-column:1;grid-row:3;min-height:0;padding:19px;gap:12px;border-radius:19px;scroll-margin-top:80px}
+ .near-quick-extras{grid-row:4}
+ .near-quick-emergency{grid-column:1;grid-row:5}
+ .near-quick-search-wrap{min-height:48px;border-radius:13px}
+ .near-quick-search-wrap input{font-size:16px}
+ .near-quick-location-row{margin-top:13px;gap:8px 12px}
+ .near-quick-location-row>.near-location-btn{width:auto;min-height:44px;padding:0 15px;font-size:13px}
+ .near-quick-location-row>span{font-size:13px}
+ .near-quick-areas{display:flex;flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;gap:7px;margin-top:11px;padding:1px 2px 5px;min-width:0}
+ .near-quick-areas::-webkit-scrollbar{display:none}
+ .near-quick-areas button{flex:0 0 auto;white-space:nowrap;scroll-snap-align:start;padding:9px 13px;min-height:39px}
+ .near-quick-primary .near-quick-location-note{margin:8px 0 0;font-size:12px}
+ .near-quick-group-label{font-size:16px;margin-bottom:11px}
+ /* The legacy homepage mobile nav uses flex !important. Override only the
+    new quick finder, never the original /nearme directory controls. */
+ #nearCategories.near-quick-categories{
+  display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  overflow:visible!important;gap:9px!important;padding:0!important;
+  min-width:0;max-width:100%;scroll-snap-type:none!important
+ }
+ #nearCategories .near-quick-category{
+  display:flex!important;flex:none!important;min-width:0!important;width:100%!important;
+  min-height:76px!important;padding:11px!important;gap:10px!important;
+  border-radius:14px!important;box-sizing:border-box;align-items:center!important;
+ }
+ #nearCategories .near-quick-icon{
+  display:grid!important;place-items:center!important;flex:0 0 37px!important;
+  min-width:37px!important;width:37px!important;height:37px!important;
+  padding:0!important;border-radius:11px!important;font-size:18px!important;
+ }
+ #nearCategories .near-quick-category[data-category=ATM] .near-quick-icon{font-size:12px!important}
+ #nearCategories .near-quick-category[data-category=TOILET] .near-quick-icon{font-size:13px!important}
+ #nearCategories .near-quick-category strong{
+  display:block!important;margin:0!important;font-size:15px!important;line-height:1.25!important
+ }
+
+ .near-quick-category{display:flex;align-items:center;flex-direction:row;justify-content:flex-start;min-height:76px;padding:11px;border-radius:14px;gap:10px}
+ .near-quick-category strong{font-size:15px;line-height:1.28}
+ .near-quick-category small{display:none}
+ .near-quick-icon{flex:0 0 37px;min-width:37px;width:37px;height:37px;border-radius:11px;font-size:18px;padding:0}
+ .near-quick-category[data-category=ATM] .near-quick-icon{font-size:12px}
+ .near-quick-category[data-category=TOILET] .near-quick-icon{font-size:13px}
+ .near-quick-result-head{align-items:flex-start;flex-wrap:wrap;gap:6px}
+ .near-quick-results-heading h3{font-size:23px;margin:5px 0 7px}
+ .near-quick-empty{padding:16px;gap:7px}
+ .near-quick-empty strong{font-size:17px}
+ .near-quick-extras .near-quick-other-label{margin:0 0 10px}
+ .near-quick-more{display:flex;flex-wrap:wrap;gap:7px}
+ .near-quick-chip{padding:9px 11px;font-size:13px;min-height:41px}
+ .near-quick-directory{margin-top:3px;padding:12px 0 0}
+ .near-quick-intro{margin:0 0 15px;font-size:14px}
+ .near-me-section .section-heading>a{display:none}
+}
+@media(max-width:380px){
+ .near-quick-primary,.near-quick-essentials,.near-quick-extras{padding:14px}
+ .near-quick-results{padding:15px}
+ .near-quick-category{min-height:74px;padding:9px;gap:7px}
+ .near-quick-category strong{font-size:14px}
+ .near-quick-icon{flex-basis:33px;min-width:33px;width:33px;height:33px}
+ #nearCategories .near-quick-category{min-height:74px!important;padding:9px!important;gap:7px!important}
+ #nearCategories .near-quick-icon{flex-basis:33px!important;min-width:33px!important;width:33px!important;height:33px!important}
+ #nearCategories .near-quick-category strong{font-size:14px!important}
+
+}
