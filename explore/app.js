@@ -6,11 +6,19 @@
   const levelStyle=document.createElement("style");levelStyle.textContent='.card-level{display:inline-flex;width:max-content;margin:10px 0 0;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:850}.card-level.level-1{background:#fff0e8;color:#9a452f}.card-level.level-2{background:#e8f5fb;color:#17638f}.card-level.level-3{background:#eef6f4;color:#315f5b}';document.head.appendChild(levelStyle);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const params=new URLSearchParams(location.search);
+  // Display names for the category keys in /data/entities/*.json.
+  // Keep the English keys unchanged: filters, routes and source data depend on them.
   const labels={
     family:"Gia đình",couple:"Cặp đôi",sea:"Biển",evening:"Buổi tối",nature:"Thiên nhiên",
     "local-life":"Đời sống địa phương","rainy-day":"Ngày mưa",show:"Biểu diễn",beach:"Bãi biển",
     culture:"Văn hóa",history:"Lịch sử",outdoor:"Ngoài trời",indoor:"Trong nhà",waterpark:"Công viên nước",
-    "cable-car":"Cáp treo",resort:"Khu nghỉ dưỡng",architecture:"Kiến trúc",fireworks:"Pháo hoa",marine:"Biển đảo"
+    "cable-car":"Cáp treo",resort:"Khu nghỉ dưỡng",architecture:"Kiến trúc",fireworks:"Pháo hoa",marine:"Biển đảo",
+    viewpoint:"Điểm ngắm cảnh",agriculture:"Nông nghiệp",craft:"Làng nghề",entertainment:"Vui chơi",
+    food:"Ẩm thực",lore:"Truyền thuyết",market:"Chợ",museum:"Bảo tàng",practical:"Thông tin hữu ích",
+    river:"Sông",seafood:"Hải sản",stream:"Suối",sunset:"Hoàng hôn","theme-park":"Công viên chủ đề",
+    thrill:"Trò chơi cảm giác mạnh",village:"Làng quê",wildlife:"Động vật hoang dã",diving:"Lặn biển",
+    fishing:"Câu cá",multimedia:"Trình diễn đa phương tiện",snorkeling:"Lặn ngắm san hô",
+    "sunset-town":"Sunset Town",underwater:"Dưới nước"
   };
 
   const state={
