@@ -25,3 +25,23 @@ assert.ok(out.excluded.some(x=>x.id==="place_unknown"));
 const manual=engine.plan({now:"2026-09-25T09:00:00Z",originZone:"zone_south",available:"two",interest:"all",entities:[near],config,live:{},notices:[]});
 assert.equal(manual.results.length,1,"Manual-zone fallback remains functional");
 console.log("go-geo radius, verified-pin, GPS and manual-mode tests passed");
+
+
+// A regression in the original mobile page left /go outside the ecosystem.
+// Keep a five-action dock and show the radius map before requesting GPS.
+const goHtml=fs.readFileSync("go/index.html","utf8");
+const homeHtml=fs.readFileSync("index.html","utf8");
+const goJs=fs.readFileSync("go/go.js","utf8");
+const goMap=fs.readFileSync("go/go-map.js","utf8");
+assert.match(goHtml,/id="goRadiusPanel"(?![^>]*hidden)/,"radar map must appear without location permission");
+assert.match(goHtml,/id="goRadiusRange"[^>]*min="1"[^>]*max="50"/,"km radius is adjustable");
+assert.match(goHtml,/go-menu-open/);
+assert.match(goHtml,/go-dock-more/);
+assert.match(goHtml,/go-nav\.js/);
+assert.match(homeHtml,/href="go\/"[^>]*><span>⌖<\/span><strong>Đi gì bây giờ\?/,"Go is in the shared More menu");
+assert.match(goJs,/bindGeo\(\);\s*drawMap\(\);/,"draw reference map at first load");
+assert.match(goMap,/groupPoints/,"overlapping area pins are grouped");
+const dock=goHtml.match(/<nav class="go-mobile-nav"[^>]*>([\s\S]*?)<\/nav>/);
+assert.ok(dock);
+assert.equal((dock[1].match(/<(?:a|button)\b/g)||[]).length,5,"five mobile dock destinations");
+console.log("go menu, visible radar, 1-50km slider and default map checks passed");

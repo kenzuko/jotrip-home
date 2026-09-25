@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const zoneNames={zone_central_west:"Dương Đông & bờ Tây",zone_south:"An Thới & Nam đảo",zone_north:"Bắc đảo"};
-  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:null,position:null,radiusKm:5,locationIndex:[],venueDirectory:[]};
+  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:"zone_central_west",position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[]};
 
   function clock(){
     const d=new Date();
@@ -29,9 +29,10 @@
       if(input){input.checked=true;if(name==="origin")state.originZone=value;}
     }
     bindGeo();
+    drawMap();
   }
   function renderAreas(){
-    $("#areaChoices").innerHTML=(state.config.areas||[]).map((a,i)=>'<label><input type="radio" name="origin" value="'+esc(a.id)+'" '+""+'><span>'+esc(a.label)+'</span></label>').join("");
+    $("#areaChoices").innerHTML=(state.config.areas||[]).map((a,i)=>'<label><input type="radio" name="origin" value="'+esc(a.id)+'" '+(a.id===state.originZone?"checked":"")+'><span>'+esc(a.label)+'</span></label>').join("");
   }
   function selection(){
     const fd=new FormData($("#goForm"));
@@ -110,11 +111,25 @@
     return [...canonical,...nearRows,...venueRows].filter(e=>{if(seen.has(e.id))return false;seen.add(e.id);return true});
   }
   function drawMap(){
-    if(!state.position)return;
-    $("#goRadiusPanel").hidden=false;
-    const value=window.OpenPQGoMap?.draw(state.position,state.radiusKm,mapRows());
-    const found=value?.shown||0;
-    $("#goMapCount").textContent=found+" điểm có tọa độ trong vòng "+state.radiusKm+" km";
+    if(state.mapOverview){window.OpenPQGoMap?.overview();return;}
+    $("#goMapReset").textContent="Xem cả đảo ↗";
+    const geo=window.OpenPQGoGeo;
+    const point=state.position||geo?.anchors?.[state.originZone];
+    if(!geo?.valid(point)){
+      window.OpenPQGoMap?.overview();
+      $("#goMapMode").textContent="Chọn một khu vực hoặc dùng định vị để vẽ vòng bán kính.";
+      return;
+    }
+    const gps=!!state.position;
+    const result=window.OpenPQGoMap?.draw(point,state.radiusKm,mapRows(),{gps});
+    $("#goMapMode").textContent=gps?
+      "Tâm vòng tròn là vị trí bạn vừa cho phép. Xem các điểm gần mình theo km.":
+      "Tâm vòng tròn là "+(zoneNames[state.originZone]||"khu vực đã chọn")+". Đây là điểm tham khảo, không phải vị trí GPS của bạn.";
+    $("#goMapCount").textContent=result?.map===false?
+      "Bản đồ chưa tải được; bạn vẫn có thể tìm địa điểm theo khu vực.":
+      (result?.shown||0)+" địa điểm đã có tọa độ trong vòng "+state.radiusKm+" km"+(gps?" quanh bạn.":" từ tâm khu vực.");
+    $("#goRadiusValue").textContent=state.radiusKm+" km";
+    $("#goRadiusRange").value=String(state.radiusKm);
     document.querySelectorAll("#goRadiusButtons button").forEach(btn=>{
       const on=Number(btn.dataset.km)===state.radiusKm;
       btn.classList.toggle("active",on);
@@ -141,6 +156,7 @@
           $("#goLocationStatus").textContent="Bạn đang ở ngoài phạm vi Phú Quốc. Hãy chọn khu vực thủ công nhé.";return;
         }
         state.position=point;
+        state.mapOverview=false;
         state.originZone=window.OpenPQGoGeo.nearestArea(point);
         document.querySelectorAll('#areaChoices input[name="origin"]').forEach(input=>{
           input.checked=input.value===state.originZone;
@@ -158,15 +174,33 @@
       state.originZone=event.target.value;
       if(state.position){
         state.position=null;
-        $("#goRadiusPanel").hidden=true;
         $("#goLocate").innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
       }
-      $("#goLocationStatus").textContent="Đã chọn "+(zoneNames[state.originZone]||"khu vực")+". Khoảng cách chỉ ước lượng theo khu vực.";
+      state.mapOverview=false;
+      $("#goLocationStatus").textContent="Đã chọn "+(zoneNames[state.originZone]||"khu vực")+". Vòng trên bản đồ tính từ tâm khu vực, không phải GPS.";
+      drawMap();
+      if(!$("#resultsSection").hidden)run();
     });
     $("#goRadiusButtons").addEventListener("click",event=>{
-      const button=event.target.closest("button[data-km]");if(!button||!state.position)return;
-      state.radiusKm=Number(button.dataset.km);drawMap();
-      if(!$("#resultsSection").hidden)run();
+      const button=event.target.closest("button[data-km]");if(!button)return;
+      state.radiusKm=Number(button.dataset.km);state.mapOverview=false;drawMap();
+      if(state.position&&!$("#resultsSection").hidden)run();
+    });
+    $("#goRadiusRange").addEventListener("input",event=>{
+      state.radiusKm=Math.min(50,Math.max(1,Math.round(Number(event.target.value)||5)));
+      state.mapOverview=false;drawMap();
+    });
+    $("#goRadiusRange").addEventListener("change",()=>{
+      if(state.position&&!$("#resultsSection").hidden)run();
+    });
+    $("#goMapReset").addEventListener("click",()=>{
+      state.mapOverview=!state.mapOverview;
+      $("#goMapReset").textContent=state.mapOverview?"Quay lại vòng bán kính ↗":"Xem cả đảo ↗";
+      if(state.mapOverview){
+        window.OpenPQGoMap?.overview();
+        $("#goMapMode").textContent="Đang xem toàn bộ Phú Quốc. Chọn bán kính để quay lại các điểm gần mình.";
+        $("#goMapCount").textContent="Chế độ xem toàn đảo, chưa lọc theo bán kính.";
+      }else drawMap();
     });
   }
   function renderFood(pick){

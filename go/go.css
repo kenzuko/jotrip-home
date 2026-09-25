@@ -112,3 +112,78 @@
  .go-food-actions a{flex:1;text-align:center}
 }
 @media(prefers-reduced-motion:reduce){.go-you-pulse{animation:none}}
+
+/* /go V1.1 radar + shared mobile navigation, visually aligned to CMS Homepage */
+.go-head-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.go-head-actions .go-home{margin:0}
+.go-menu-open{min-height:36px;padding:8px 12px;border:1px solid #d4e6df;border-radius:999px;background:#fff;color:#175347;font-size:12px;font-weight:850;cursor:pointer}
+.go-menu-open:hover,.go-menu-open:focus-visible{border-color:#86bba7;background:#f0faf5}
+.go-map-reset{border:0;background:transparent;color:#236c56;font-size:12px;font-weight:800;cursor:pointer}
+.go-radius-panel{display:block;margin-top:17px;box-shadow:0 10px 30px rgba(25,75,55,.05)}
+.go-radius-controls{padding:4px 15px 15px;border-top:1px solid #e7f0ea}
+.go-radius-actions{padding:12px 0;justify-content:flex-start}
+.go-radius-slider-label{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:12px;font-weight:800;color:#285f4e}
+.go-radius-slider-label output{font-size:21px;font-variant-numeric:tabular-nums;color:#155b47;letter-spacing:-.04em}
+#goRadiusRange{display:block;width:100%;height:29px;margin:9px 0 0;padding:0;accent-color:#146e52;cursor:pointer}
+.go-radius-extents{display:flex;justify-content:space-between;margin-top:-4px;font-size:11px;font-weight:650;color:#617d6e}
+.go-radius-actions button{min-width:56px}
+.go-radius-header{align-items:center}
+.go-radar-center{position:relative;border:0;background:none}
+.go-radar-wave{position:absolute;inset:0;border-radius:50%;border:2px solid #186d57;background:rgba(36,149,103,.17);animation:goRadarPulse 2.7s ease-out infinite}
+.go-radar-dot{position:absolute;left:10px;top:10px;width:10px;height:10px;border-radius:50%;background:#157858;border:2px solid #fff;box-shadow:0 0 0 3px rgba(20,113,80,.35)}
+.go-radar-center.is-area .go-radar-wave{border-style:dashed;border-color:#bd7450;background:rgba(209,130,86,.14);animation:none}
+.go-radar-center.is-area .go-radar-dot{background:#b86748}
+.go-radar-popup{display:grid;gap:6px;max-height:235px;overflow-y:auto}
+.go-radar-popup .go-radar-place{display:grid;gap:3px;padding:4px 0;border-bottom:1px solid #e5efe8}
+.go-radar-popup strong{color:#1b5141;font-size:12px}
+.go-radar-popup small{color:#5a7b69;font-size:11px}
+.go-radar-popup a{color:#207c52;font-weight:800;font-size:11px}
+@keyframes goRadarPulse{0%{transform:scale(.4);opacity:1}95%{transform:scale(1.8);opacity:0}100%{transform:scale(1.8);opacity:0}}
+.go-more-backdrop[hidden],.go-more-sheet[hidden]{display:none!important}
+.go-more-backdrop{position:fixed;inset:0;background:rgba(11,38,34,.55);z-index:110;backdrop-filter:blur(5px)}
+.go-more-sheet{position:fixed;z-index:111;right:17px;top:80px;width:min(510px,calc(100vw - 34px));max-height:calc(100dvh - 98px);overflow-y:auto;overscroll-behavior:contain;border:1px solid #d8e9e1;border-radius:24px;background:#fff;padding:22px;box-shadow:0 25px 80px rgba(10,42,33,.23)}
+.go-sheet-open{overflow:hidden}
+.go-more-handle{display:none}
+.go-more-headbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:23px}
+.go-more-headbar small{font-size:10px;letter-spacing:.14em;font-weight:850;color:#47866c}
+.go-more-headbar h2{font-size:28px;line-height:1.1;color:#123d3b;letter-spacing:-.04em;margin:6px 0 0}
+.go-more-close{display:grid;place-items:center;width:37px;height:37px;border-radius:50%;border:1px solid #e0ece5;background:#fff;color:#1d5b45;font-size:24px;cursor:pointer}
+.go-menu-group{margin-top:21px}
+.go-menu-group>strong{display:block;margin-bottom:9px;letter-spacing:.14em;font-weight:900;color:#5d8275;font-size:10px}
+.go-menu-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.go-menu-grid a{display:flex;align-items:center;gap:9px;min-height:48px;border:1px solid #e0ebe5;border-radius:14px;background:#fcfefd;color:#19493f;padding:12px;font-size:18px;text-decoration:none}
+.go-menu-grid a b{font-size:12px;font-weight:850;line-height:1.3}
+.go-menu-grid a.is-current{background:#e9f5ed;border-color:#8fc5a7}
+.go-menu-grid a:focus-visible,.go-menu-open:focus-visible,.go-radius-panel button:focus-visible{outline:3px solid #6ab99f;outline-offset:2px}
+@media(max-width:760px){
+  .go-radius-header{display:flex;align-items:flex-start;flex-wrap:wrap}
+  .go-map-reset{padding:6px 0}
+  .go-radius-controls{padding:2px 12px 14px}
+  .go-radius-actions{flex-wrap:nowrap;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .go-radius-actions button{flex:0 0 auto;min-height:39px}
+  .go-map{height:min(58vw,310px);min-height:215px}
+  .go-more-sheet{top:auto;left:8px;right:8px;bottom:calc(5px + env(safe-area-inset-bottom,0px));width:auto;max-height:min(83dvh,770px);padding:15px 15px 70px;border-radius:26px}
+  .go-more-handle{display:block;width:37px;height:4px;margin:0 auto 14px;border-radius:99px;background:#bbd2c6}
+}
+@media(max-width:620px){
+  .go-mobile-nav{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:2px;height:64px;align-items:center;left:9px;right:9px;bottom:calc(6px + env(safe-area-inset-bottom,0px));padding:4px;z-index:90}
+  .go-mobile-nav a,.go-mobile-nav button{height:54px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:0;border-radius:13px;background:transparent;color:#637d74;font-size:10px;font-weight:800;text-align:center;text-decoration:none;cursor:pointer}
+  .go-mobile-nav a span,.go-mobile-nav button span{font-size:18px;line-height:1;font-weight:750}
+  .go-mobile-nav button.go-dock-more{color:#286f53;background:#eaf5ee}
+  body{padding-bottom:calc(81px + env(safe-area-inset-bottom,0px))}
+  .go-footer{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+  .go-head-actions{gap:5px}
+  .go-menu-open{padding:7px 10px}
+}
+@media(prefers-reduced-motion:reduce){.go-radar-wave{animation:none}}
+
+/* Match the homepage five-action dock on smaller tablets as well as phones. */
+@media(min-width:621px) and (max-width:760px){
+  .go-mobile-nav{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+    left:10px;right:10px;bottom:calc(6px + env(safe-area-inset-bottom,0px));height:64px;gap:2px;padding:4px}
+  .go-mobile-nav a,.go-mobile-nav button{height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    gap:5px;border:0;border-radius:13px;background:transparent;color:#637d74;font-size:10px;font-weight:800;text-align:center;cursor:pointer}
+  .go-mobile-nav a span,.go-mobile-nav button span{font-size:18px;line-height:1}
+  .go-mobile-nav button.go-dock-more{color:#286f53;background:#eaf5ee}
+  body{padding-bottom:calc(81px + env(safe-area-inset-bottom,0px))}
+}
