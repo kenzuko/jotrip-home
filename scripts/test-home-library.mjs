@@ -3,58 +3,85 @@ import fs from "node:fs";
 import vm from "node:vm";
 
 const js=fs.readFileSync(new URL("../home-library.js",import.meta.url),"utf8");
+const html=fs.readFileSync(new URL("../index.html",import.meta.url),"utf8");
 const published=JSON.parse(fs.readFileSync(new URL("../data/knowledge/objects.json",import.meta.url),"utf8"))
-  .objects.filter(o=>o.status==="READY_PUBLIC"&&o.public_ready===true)
-  .map(o=>({topic_id:o.topic_id,title:o.title,topic_type:o.topic_type,
-    route:"/guide/article.html?id="+encodeURIComponent(o.topic_id),
-    short_summary:o.editorial.short_summary}));
-assert.equal(published.length,128,"Current public article count should be 128");
+  .objects.filter(o=>o.status==="READY_PUBLIC"&&o.public_ready===true);
+assert.equal(published.length,128,"Published guide count");
+const curated=new Set([
+  "knowledge_014_bai-sao","knowledge_056_bun-quay-phu-quoc",
+  "knowledge_125_cau-ca-lon","knowledge_067_nha-thung-nuoc-mam",
+  "knowledge_126_cau-muc-dem","knowledge_133_night-market",
+  "knowledge_137_visit-fish-sauce-house-pepper-farm"
+]);
+assert.ok([...curated].every(id=>published.some(o=>o.topic_id===id)),
+  "Homepage must not feature an unpublished article");
+const fixture=published.map(o=>({
+  topic_id:o.topic_id,title:o.title,topic_type:o.topic_type,
+  route:"/guide/article.html?id="+encodeURIComponent(o.topic_id),
+  short_summary:o.editorial.short_summary,
+  image:curated.has(o.topic_id)?{url:"/assets/media/test-public-approved.jpg",alt:o.title}:null
+}));
 
-async function render(date,objects=published){
-  const grid={children:[],replaceChildren(...nodes){this.children=nodes;}};
+async function render(date,records=fixture){
+  const grid={children:[],replaceChildren(...nodes){this.children=nodes;},
+    addEventListener(){}};
   const count={textContent:""},allLink={textContent:""},mobileCta={textContent:""};
   const section={querySelector(selector){
-    if(selector===".home-library-grid")return grid;
-    if(selector===".home-library-count")return count;
-    if(selector===".home-library-all-link")return allLink;
-    if(selector===".home-library-mobile-cta")return mobileCta;
-    throw new Error("Unexpected DOM selector "+selector);
+    return ({
+      ".home-library-grid":grid,
+      ".home-library-count":count,
+      ".home-library-all-link":allLink,
+      ".home-library-mobile-cta":mobileCta
+    })[selector]||null;
   }};
   class FixedDate extends Date {
     constructor(...args){super(...(args.length?args:[date+"T09:00:00+07:00"]));}
   }
   const document={
     getElementById(id){assert.equal(id,"home-library");return section;},
-    createElement(tag){return {tag,children:[],textContent:"",className:"",href:"",
-      append(...nodes){this.children.push(...nodes);}};}
+    createElement(tag){return {
+      tagName:tag.toUpperCase(),children:[],dataset:{},textContent:"",
+      append(...nodes){this.children.push(...nodes);}
+    };}
   };
+  let calls=0;
   const fetch=async url=>{
+    calls++;
     assert.equal(url,"/data/views/knowledge-home.json");
-    return {ok:true,json:async()=>({count:objects.length,objects})};
+    return {ok:true,json:async()=>({count:records.length,objects:records})};
   };
   vm.runInNewContext(js,{document,window:{},Date:FixedDate,Intl,fetch});
-  // Homepage loader is async but has no timers or externally scheduled work.
   await new Promise(resolve=>setImmediate(resolve));
-  return {cards:grid.children,count:count.textContent,allLink:allLink.textContent};
+  return {cards:grid.children,count:count.textContent,allLink:allLink.textContent,calls};
 }
-const one=await render("2026-09-25");
+const first=await render("2026-09-25");
 const same=await render("2026-09-25");
-const next=await render("2026-09-26");
-for(const result of [one,same,next]){
-  assert.equal(result.cards.length,4,"One lead and three distinct discovery items");
-  assert.equal(new Set(result.cards.map(card=>card.href)).size,4,"No duplicate articles");
-  assert.equal(new Set(result.cards.slice(0,3).map(card=>card.children[0].textContent)).size,3,
-    "Three visible mobile articles must represent three different subjects");
-  assert.ok(result.cards.every(card=>!card.href.includes("nha-ve-sinh")),
-    "Utility directory articles must never appear in Cẩm nang homepage cards");
+const second=await render("2026-09-26");
+for(const result of [first,same,second]){
+  assert.equal(result.calls,1,"Fetch guide summaries once");
+  assert.equal(result.cards.length,4,"Four approved practical guides");
+  assert.equal(new Set(result.cards.map(card=>card.dataset.guideId)).size,4,
+    "No repeated guide");
+  assert.ok(result.cards.every(card=>curated.has(card.dataset.guideId)),
+    "Only practical editorial picks are allowed");
+  assert.equal(result.cards[0].children[0].tagName,"FIGURE",
+    "Use image-left editorial card layout");
+  assert.ok(result.cards.every(card=>card.children[0].children[0].src.startsWith("/assets/media/")),
+    "Only feed-approved images are rendered");
   assert.match(result.count,/128/);
 }
-assert.match(one.cards[0].href,/knowledge_116_cho-phu-quoc-co-that-su-leo-cay/,
-  "First editorial lead is the Phú Quốc dog curiosity story");
-assert.deepEqual(one.cards.map(x=>x.href),same.cards.map(x=>x.href),
-  "Refreshing on the same day must not reshuffle articles");
-assert.match(next.cards[0].href,/knowledge_008_rach-vem/,
-  "Next local day must rotate to Rạch Vẹm");
-const reduced=await render("2026-09-25",published.filter(o=>o.topic_type==="PRACTICAL"));
-assert.equal(reduced.cards.length,0,"No published editorials means keep static fallback");
-console.log("Homepage Cẩm nang editorial rotation tests passed: curated lead, daily stability, topic diversity, no utility articles.");
+assert.equal(first.cards[0].dataset.guideId,"knowledge_014_bai-sao",
+  "First lead restores the Bãi Sao practical guide");
+assert.equal(second.cards[0].dataset.guideId,"knowledge_056_bun-quay-phu-quoc",
+  "Next local day rotates to how to eat bún quậy");
+assert.deepEqual(first.cards.map(x=>x.dataset.guideId),same.cards.map(x=>x.dataset.guideId),
+  "Refreshing within one local day does not reshuffle the shelf");
+const noPhoto=await render("2026-09-25",fixture.map(o=>({...o,image:null})));
+assert.equal(noPhoto.cards.length,0,"Missing photos keep the pre-rendered HTML fallback");
+assert.ok(!html.slice(html.indexOf('id="home-library"'),html.indexOf('id="near-me"'))
+  .includes("Chó Phú Quốc có thật sự leo cây"),"Curiosity content is not in Cẩm nang");
+assert.match(html,/CHUYỆN ĐẢO \/ HUYỀN TÍCH \/ TÒ MÒ/);
+assert.ok(html.includes('id="curiosityRail"')&&html.includes('id="islandStoryGrid"'),
+  "Quick questions and long reads are grouped within Chuyện đảo");
+console.log("Homepage role split tests passed: practical/photo-led Cẩm nang, stable rotation, Chuyện đảo grouping.");
+
