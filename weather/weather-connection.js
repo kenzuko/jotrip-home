@@ -18,8 +18,8 @@
     const parts=[];
     if(current?.status!=="READY")parts.push("dữ liệu tại điểm "+ago(current?.age_minutes));
     if(cloud?.status!=="READY")parts.push("ảnh mây "+ago(cloud?.age_minutes));
-    if(marine?.status!=="READY")parts.push("dữ liệu biển "+ago(marine?.age_minutes));
-    box.textContent="Một số nguồn đang chậm: "+parts.join(" · ")+". Xem giờ cập nhật trong từng mục.";
+    if(marine?.status!=="READY")parts.push("mô hình sóng nền "+ago(marine?.age_minutes));
+    box.textContent="Đang chờ dữ liệu mới: "+parts.join(" · ")+". Sóng nền theo chu kỳ mô hình, không phải số đo biển trực tiếp. Xem thời điểm riêng trong từng mục.";
    }
   }catch(e){box.hidden=false;box.dataset.state="offline";box.textContent="Chưa kiểm tra được kết nối dữ liệu mới. Các số liệu bên dưới có ghi giờ cập nhật riêng."}
  }
