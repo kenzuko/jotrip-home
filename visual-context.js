@@ -15,7 +15,7 @@
       '<div class="visual-gallery '+(rows.length === 1 ? "single" : "")+'">'+
         rows.map(img =>
           '<figure class="visual-photo">'+
-            '<img src="'+esc(img.url)+'" alt="'+esc(img.alt || img.caption || "Ảnh Phú Quốc")+'" loading="lazy" decoding="async" onerror="this.closest(\'figure\').classList.add(\'is-error\')">'+
+            '<img src="'+esc(img.url)+'" alt="'+esc(img.alt || img.caption || "Ảnh Phú Quốc")+'" loading="lazy" decoding="async" data-fallback="'+esc(img.fallback_url||"")+'" data-fallback-label="'+esc(img.fallback_source_label||"")+'" data-fallback-source="'+esc(img.fallback_source_url||"")+'" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;delete this.dataset.fallback;var c=this.closest(\'figure\').querySelector(\'.visual-source-details\');if(c){c.querySelector(\'summary\').textContent=\'Ảnh: \'+this.dataset.fallbackLabel;c.querySelector(\'a\').href=this.dataset.fallbackSource}}else{this.closest(\'figure\').classList.add(\'is-error\')}">'+
             '<figcaption><span>'+esc(img.caption || "")+'</span>'+
               (img.source_url
                 ? '<details class="visual-source-details"><summary>Ảnh: '+esc(String(img.source_label || "Nguồn ảnh").replace(/^Ảnh:\s*/i,""))+'</summary><a href="'+esc(img.source_url)+'" target="_blank" rel="noopener">Xem nguồn gốc ảnh ↗</a>'+(img.license?'<small> · '+esc(img.license)+'</small>':'')+'</details>'
