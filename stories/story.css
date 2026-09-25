@@ -193,3 +193,15 @@ footer{font-size:13px;line-height:1.55}
 .article-source-list ul{margin:0 0 16px;padding-left:20px}
 .article-source-list li{margin:8px 0;font-size:13px;line-height:1.6}
 .article-source-list a{color:#226d66}
+
+
+/* 25/09/2026 - preserve the master logo's full artwork and wordmark. */
+header.top img[src*="logo-master"]{
+  width:54px!important;height:52px!important;max-width:54px!important;max-height:52px!important;
+  padding:3px 0!important;box-sizing:content-box!important;
+  object-fit:contain!important;object-position:center center!important;
+  clip-path:none!important;
+}
+@media(max-width:720px){header.top img[src*="logo-master"]{
+  width:44px!important;height:42px!important;max-width:44px!important;max-height:42px!important;
+}}
