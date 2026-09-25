@@ -53,7 +53,7 @@
           "source_id": "sunworld_hon_thom_schedule_20260723"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-25",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "MULTI_WINDOW",
@@ -79,10 +79,10 @@
         "source_id": "sunworld_hon_thom_schedule_20260723",
         "source_type": "OPERATOR",
         "published_at": "2026-07-23",
-        "verified_at": "2026-09-21",
+        "verified_at": "2026-09-25",
         "valid_until": null,
         "confidence": "HIGH",
-        "note": "Lịch operator áp dụng từ 03/2026; ngày bảo trì hoặc vận hành đặc biệt vẫn cần kiểm tra lại."
+        "note": "Lịch Sun World gồm 3 khung 09:30-11:30, 13:30-14:00 và 15:30-17:30; nghỉ giữa các khung. Có thể thay đổi do thời tiết, bảo trì hoặc điều chỉnh vận hành."
       }
     },
     {

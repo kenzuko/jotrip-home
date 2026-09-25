@@ -20,7 +20,7 @@ function ageText(iso){
 }
 function hhmmToMinutes(value){const m=String(value||"").match(/^(\d{1,2}):(\d{2})$/);return m?Number(m[1])*60+Number(m[2]):NaN}
 function scheduleSummary(opening){if(!opening)return"Chưa có giờ rõ ràng";if(opening.state==="NEEDS_VERIFICATION")return"Giờ hôm nay chưa chắc, nên xem lại trước khi đi";if(opening.schedule_type==="FIXED_START"&&(opening.times||[]).length)return(opening.times||[]).map(x=>x.start+(x.label?" · "+x.label:"")).join(" · ");const windows=(opening.windows||[]).filter(x=>x.start&&x.end);if(!windows.length)return"Chưa có giờ rõ ràng";const prefix=opening.state==="APPROXIMATE_SCHEDULE"?"Khoảng ":"";return prefix+windows.map(x=>x.start+"-"+x.end).join(" · ")}
-function scheduleDecision(opening){
+function scheduleDecision(opening,entityId){
   if(!opening||!["PUBLISHED_SCHEDULE","APPROXIMATE_SCHEDULE"].includes(opening.state)){
     return{state:"unknown",label:"Chưa biết chắc giờ hôm nay",detail:"Bấm vào để xem giờ và lưu ý gần nhất"};
   }
@@ -37,6 +37,23 @@ function scheduleDecision(opening){
   }
   const windows=(opening.windows||[]).map(x=>({...x,startMin:hhmmToMinutes(x.start),endMin:hhmmToMinutes(x.end)})).filter(x=>Number.isFinite(x.startMin)&&Number.isFinite(x.endMin)).sort((a,b)=>a.startMin-b.startMin);
   if(!windows.length)return{state:"unknown",label:"Chưa biết chắc giờ hôm nay",detail:"Bấm vào để xem giờ và lưu ý gần nhất"};
+  if(entityId==="activity_hon_thom"&&opening.schedule_type==="MULTI_WINDOW"){
+    const current=windows.find(x=>now>=x.startMin&&now<x.endMin);
+    const next=windows.find(x=>x.startMin>now);
+    if(current){
+      const later=windows.find(x=>x.startMin>=current.endMin);
+      const ending=current.endMin-now<=15;
+      return{state:ending?"watch":"active",
+        label:later?(ending?"Khung này sắp tạm nghỉ":"Trong khung cáp theo lịch"):(ending?"Sắp hết khung cáp cuối":"Trong khung cáp cuối theo lịch"),
+        detail:"Cáp chạy theo từng khung",startMin:current.startMin,endMin:current.endMin,remainingMin:current.endMin-now};
+    }
+    if(next){
+      const paused=windows.some(x=>x.endMin<=now);
+      return{state:"future",label:paused?"Tạm nghỉ, chạy lại lúc "+next.start:"Khung cáp đầu từ "+next.start,
+        detail:"Cáp chạy theo từng khung",nextMin:next.startMin,endMin:next.endMin};
+    }
+    return{state:"past",label:"Đã hết khung cáp hôm nay",detail:"Xem lịch ngày tiếp theo"};
+  }
   const active=windows.find(x=>now>=x.startMin&&now<=x.endMin);
   if(active)return{state:"active",label:"Đi lúc này vẫn kịp",detail,startMin:active.startMin,endMin:active.endMin,remainingMin:active.endMin-now};
   const next=windows.find(x=>now<x.startMin);
@@ -104,7 +121,7 @@ function renderTripClock(){
  if(nextShow&&!shown.includes(nextShow))shown=[...rows.slice(0,8),nextShow];
  host.innerHTML=shown.map(row=>{
   const {item,e,opening,decision,summary,note}=row;
-  const detail=opening?.schedule_type==="FIXED_START"?summary:[summary,e.duration].filter(Boolean).join(" · ");
+  const detail=opening?.schedule_type==="FIXED_START"||item.entity_id==="activity_hon_thom"?summary:[summary,e.duration].filter(Boolean).join(" · ");
   const distinctNote=note&&note.trim()!==detail.trim()?note:"";
   return '<a class="trip-item" data-entity-id="'+esc(item.entity_id)+'" data-decision="'+esc(decision.state)+'" href="'+esc(item.route)+'">'+
    '<span>'+esc(decision.label)+'</span>'+
@@ -154,7 +171,7 @@ function buildLocalNowHint(){
 let lastLocalHintKey="";
 function publishLocalNowHint(){const hint=buildLocalNowHint(),payload={now_hint:hint,updated_at:new Date().toISOString()};window.OPENPQ_HOME_LOCAL=payload;const key=JSON.stringify(hint||null);if(key!==lastLocalHintKey){lastLocalHintKey=key;window.dispatchEvent(new CustomEvent("openpq:local-ready",{detail:payload}))}}
 function liveFor(binding){return binding?window.OPENPQ_HOME?.live_status?.[binding]||null:null}
-function renderActivities(){if(!support)return;const host=$("#activityBoard");if(!host)return;host.innerHTML=(support.activity_board||[]).map(item=>{const e=entities.get(item.entity_id)||{},live=liveFor(item.operational_binding),opening=e.opening_hours||null,decision=scheduleDecision(opening);const state=live?.status||(opening?.state==="PUBLISHED_SCHEDULE"?"info":"unknown");const primary=live?(liveStateText[state]||live.primary||"Hôm nay chưa có tin mới"):(opening?.state==="PUBLISHED_SCHEDULE"?decision.label:(stateText[item.status_code]||"Hôm nay chưa có tin mới"));const context=live?.context||live?.secondary||(opening?scheduleSummary(opening):([e.best_time,e.duration].filter(Boolean).join(" · ")||"Mở ra để xem kỹ hơn"));const fresh=live?.source_updated_at?ageText(live.source_updated_at):(opening?scheduleFreshness(opening):"Hôm nay chưa có tin mới");return'<a class="activity-status-card" data-state="'+esc(state)+'" href="'+esc(item.route)+'"><span>'+esc(primary)+'</span><strong>'+esc(e.name||item.entity_id)+'</strong><p>'+esc(context)+'</p><small>'+esc(fresh)+'</small><b>Xem hôm nay →</b></a>'}).join("");const live=window.OPENPQ_HOME?.live_status||{};const bad=live.cano?.status==="bad"||live.weather?.status==="watch";const plan=$("#planBCard");if(plan)plan.hidden=!bad}
+function renderActivities(){if(!support)return;const host=$("#activityBoard");if(!host)return;host.innerHTML=(support.activity_board||[]).map(item=>{const e=entities.get(item.entity_id)||{},live=liveFor(item.operational_binding),opening=e.opening_hours||null,decision=scheduleDecision(opening,item.entity_id);const state=live?.status||(opening?.state==="PUBLISHED_SCHEDULE"?"info":"unknown");const primary=live?(liveStateText[state]||live.primary||"Hôm nay chưa có tin mới"):(opening?.state==="PUBLISHED_SCHEDULE"?decision.label:(stateText[item.status_code]||"Hôm nay chưa có tin mới"));const context=live?.context||live?.secondary||(opening?scheduleSummary(opening):([e.best_time,e.duration].filter(Boolean).join(" · ")||"Mở ra để xem kỹ hơn"));const fresh=live?.source_updated_at?ageText(live.source_updated_at):(opening?scheduleFreshness(opening):"Hôm nay chưa có tin mới");return'<a class="activity-status-card" data-state="'+esc(state)+'" href="'+esc(item.route)+'"><span>'+esc(primary)+'</span><strong>'+esc(e.name||item.entity_id)+'</strong><p>'+esc(context)+'</p><small>'+esc(fresh)+'</small><b>Xem hôm nay →</b></a>'}).join("");const live=window.OPENPQ_HOME?.live_status||{};const bad=live.cano?.status==="bad"||live.weather?.status==="watch";const plan=$("#planBCard");if(plan)plan.hidden=!bad}
 function renderNearControls(){
   if(!support)return;
   const a=$("#nearManualAreas"),c=$("#nearCategories");

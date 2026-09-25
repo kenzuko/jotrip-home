@@ -48,6 +48,39 @@
      if(id==="activity_once_show")note="Sau khoảng 17:00, phần lớn trò chơi đã ngừng. ONCE 18:45-19:05 theo lịch; cần vé vào VinWonders.";
      score=id==="activity_once_show"?235+(next.startMin-nowMinute)/20:250+(next.startMin-nowMinute)/12;
     }
+
+   }else if(id==="activity_hon_thom"&&valid&&opening.schedule_type==="MULTI_WINDOW"){
+    // The first cable pause does not end the day's Hòn Thơm service.
+    const windows=(opening.windows||[]).map(w=>({...w,startMin:minute(w.start),endMin:minute(w.end)}))
+      .filter(w=>Number.isFinite(w.startMin)&&Number.isFinite(w.endMin)&&w.endMin>w.startMin)
+      .sort((a,b)=>a.startMin-b.startMin);
+    const current=windows.find(w=>nowMinute>=w.startMin&&nowMinute<w.endMin);
+    const following=windows.find(w=>w.startMin>nowMinute);
+    summary=windows.map(w=>w.start+"-"+w.end).join(" · ");
+    if(current){
+     const later=windows.find(w=>w.startMin>=current.endMin);
+     const left=current.endMin-nowMinute,nearEnd=left<=15;
+     if(later){
+      decision={state:nearEnd?"watch":"active",
+       label:nearEnd?"Khung này sắp tạm nghỉ":"Trong khung giờ cáp theo lịch",
+       endMin:current.endMin,remainingMin:left,nextMin:later.startMin};
+      note="Tạm nghỉ lúc "+current.end+", chạy lại lúc "+later.start+". Chiều vẫn còn cáp theo lịch.";
+      score=nearEnd?34:54;
+     }else{
+      decision={state:nearEnd?"watch":"active",
+       label:nearEnd?"Sắp hết khung cáp cuối":"Trong khung cáp cuối theo lịch",
+       endMin:current.endMin,remainingMin:left};
+      note="Khung cáp cuối kết thúc "+current.end+" theo lịch. Kiểm tra giờ cáp lượt về trước khi lên đảo.";
+      score=nearEnd?17:65;
+     }
+    }else if(following){
+     const paused=windows.some(w=>w.endMin<=nowMinute);
+     decision={state:"future",
+      label:paused?"Tạm nghỉ, chạy lại lúc "+following.start:"Khung cáp đầu từ "+following.start,
+      nextMin:following.startMin,endMin:following.endMin};
+     note="Cáp chạy theo từng khung, không xuyên suốt. Kiểm tra lịch vận hành trong ngày trước khi đi.";
+     score=paused?145+(following.startMin-nowMinute)/20:185+(following.startMin-nowMinute)/20;
+    }
    }else if(activeWindow){
     const w=activeWindow,remain=w.endMin-nowMinute;
     if(id==="place_vinpearl_safari"){

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-24",
+  "updated_at": "2026-09-25",
   "scope": "homepage_supporting_operational_data",
   "id_policy": {
     "rule": "ONE_ENTITY_ONE_CANONICAL_ID_MANY_SURFACES",
@@ -61,7 +61,8 @@
         "entity_id": "activity_hon_thom",
         "status_code": "UNKNOWN",
         "route": "places/detail.html?id=hon-thom",
-        "schedule_source": "canonical_entity.opening_hours"
+        "schedule_source": "canonical_entity.opening_hours",
+        "timing_note": "Cáp treo chạy theo từng khung và tạm nghỉ giữa các nhịp; khung sáng kết thúc không có nghĩa hết cáp trong ngày."
       },
       {
         "id": "clock_safari",
