@@ -237,3 +237,61 @@ header.topbar .brand span small{
   .openpq-utility-tabs{top:62px;gap:7px;padding:7px 11px}
   .openpq-utility-tabs a{min-height:41px;padding:8px 12px;font-size:13px}
 }
+
+
+/* 25/09/2026 - keep the approved master logo fully inside the subpage header.
+   Transparent vertical breathing room prevents top/baseline clipping at
+   browser zoom and high device pixel ratios, without changing the asset. */
+header.topbar img[src*="logo-master"],
+header.module-head img[src*="logo-master"],
+header.guide-head img[src*="logo-master"],
+header.u-head img[src*="logo-master"],
+header.currency-head img[src*="logo-master"],
+header.near-header img[src*="logo-master"],
+header.explore-head img[src*="logo-master"],
+header.hotel-head img[src*="logo-master"],
+header.top img[src*="logo-master"]{
+  width:54px!important;
+  height:52px!important;
+  max-width:54px!important;
+  max-height:52px!important;
+  padding:3px 0!important;
+  box-sizing:content-box!important;
+  object-fit:contain!important;
+  object-position:center center!important;
+  clip-path:none!important;
+}
+header.explore-head .explore-brand,
+header.hotel-head .hotel-brand{
+  overflow:visible!important;
+  align-items:center!important;
+}
+@media(max-width:720px){
+header.topbar img[src*="logo-master"],
+header.module-head img[src*="logo-master"],
+header.guide-head img[src*="logo-master"],
+header.u-head img[src*="logo-master"],
+header.currency-head img[src*="logo-master"],
+header.near-header img[src*="logo-master"],
+header.explore-head img[src*="logo-master"],
+header.hotel-head img[src*="logo-master"],
+header.top img[src*="logo-master"]{
+    width:44px!important;
+    height:42px!important;
+    max-width:44px!important;
+    max-height:42px!important;
+    padding:3px 0!important;
+  }
+}
+
+/* Knowledge articles use a dedicated header but share the master logo. */
+header.knowledge-header img[src*="logo-master"]{
+  width:54px!important;height:52px!important;max-width:54px!important;max-height:52px!important;
+  padding:3px 0!important;box-sizing:content-box!important;
+  object-fit:contain!important;object-position:center center!important;
+}
+@media(max-width:720px){
+  header.knowledge-header img[src*="logo-master"]{
+    width:44px!important;height:42px!important;max-width:44px!important;max-height:42px!important;
+  }
+}

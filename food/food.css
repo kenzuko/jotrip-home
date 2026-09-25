@@ -105,3 +105,15 @@
 .random-dish-pick strong{font-size:clamp(19px,2.3vw,24px);line-height:1.18}
 .random-dish-pick p{flex:1;font-size:13px}
 @media(max-width:720px){.random-dish-picks{grid-template-columns:1fr}}
+
+
+/* 25/09/2026 - preserve the master logo's full artwork and wordmark. */
+header.module-head img[src*="logo-master"]{
+  width:54px!important;height:52px!important;max-width:54px!important;max-height:52px!important;
+  padding:3px 0!important;box-sizing:content-box!important;
+  object-fit:contain!important;object-position:center center!important;
+  clip-path:none!important;
+}
+@media(max-width:720px){header.module-head img[src*="logo-master"]{
+  width:44px!important;height:42px!important;max-width:44px!important;max-height:42px!important;
+}}
