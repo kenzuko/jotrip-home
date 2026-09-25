@@ -187,3 +187,94 @@
   .go-mobile-nav button.go-dock-more{color:#286f53;background:#eaf5ee}
   body{padding-bottom:calc(81px + env(safe-area-inset-bottom,0px))}
 }
+
+
+/* /go V1.2 - map workspace. Keep the existing mobile page; replace the long
+   desktop stacked controls with a left rail and a generous map on the right. */
+.go-location-workspace{display:grid;grid-template-columns:minmax(272px,322px) minmax(0,1fr);gap:14px;align-items:stretch}
+.go-location-controls{min-width:0;padding:5px 17px;border:1px solid #d9e9df;border-radius:20px;background:linear-gradient(180deg,#f7fcf9,#fff 45%)}
+.go-control-group{padding:15px 0;border-bottom:1px solid #e3eee7}
+.go-control-group:last-child{border-bottom:0}
+.go-control-group h3{margin:0 0 10px;color:#194d3e;font-size:14px;letter-spacing:-.015em}
+.go-location-controls .go-area-row{display:block}
+.go-location-controls #areaChoices{display:grid;grid-template-columns:1fr;gap:7px}
+.go-location-controls #areaChoices label>span{min-height:42px;padding:10px 12px;border-radius:12px;font-size:13px}
+.go-location-controls .go-location-button,.go-location-controls .go-pick-map-button{display:block;width:100%;min-height:41px;margin-top:8px;padding:9px 11px;border:1px solid #a5cdb9;border-radius:12px;background:#eaf6ee;color:#1c6548;font-weight:850;font-size:12px;text-align:center;cursor:pointer}
+.go-location-controls .go-pick-map-button{background:#fff;border-color:#c5dfd2}
+.go-location-controls .go-pick-map-button.active{background:#165e49;color:#fff;border-color:#165e49}
+.go-location-controls .go-location-status{margin:10px 0 0;color:#647e72;font-size:11px;line-height:1.45}
+.go-control-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 10px}
+.go-control-heading h3{margin:0}
+.go-control-heading output{color:#17654b;font-size:20px;font-weight:900;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+.go-location-controls .go-radius-actions{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin:0;padding:0}
+.go-location-controls .go-radius-actions button{min-width:0;min-height:38px;padding:7px 0;border-radius:10px;font-size:11px;white-space:nowrap}
+.go-location-controls .go-radius-slider-label{display:block;margin:11px 0 2px;color:#59796b;font-size:11px}
+.go-location-controls #goRadiusRange{margin:3px 0 0}
+.go-location-controls .go-radius-extents{margin:0}
+.go-layer-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.go-layer-choices button{min-width:0;min-height:38px;padding:7px 9px;border:1px solid #d8e8df;border-radius:11px;background:#fff;color:#33604f;font-size:11px;font-weight:800;text-align:left;cursor:pointer}
+.go-layer-choices button.active{border-color:#1e7453;background:#e7f4eb;color:#154a36;box-shadow:inset 3px 0 0 #24875b}
+.go-layer-choices button[data-layer="all"]{grid-column:1/-1}
+.go-layer-choices button:focus-visible,.go-pick-map-button:focus-visible,.go-location-workspace button:focus-visible{outline:3px solid #90cbb0;outline-offset:2px}
+.go-layer-explain{margin:9px 0 0;color:#647f70;font-size:11px;line-height:1.45}
+.go-food-directory-link{display:inline-flex;margin-top:7px;color:#175c45;font-size:12px;font-weight:850;text-decoration:underline;text-underline-offset:3px}
+.go-food-directory-link[hidden]{display:none!important}
+.go-sort-group{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.go-sort-group label{color:#285e4a;font-size:12px;font-weight:850;white-space:nowrap}
+.go-sort-group select{width:155px;max-width:58%;padding:9px;border:1px solid #d3e3d9;border-radius:11px;background:#fff;color:#255e48;font-size:12px}
+.go-location-workspace>.go-radius-panel{display:flex;flex-direction:column;min-width:0;min-height:620px;margin:0;overflow:hidden;border:1px solid #d4e8dc;border-radius:20px;background:#fff}
+.go-location-workspace .go-radius-header{flex:0 0 auto;padding:15px 18px;background:#fff}
+.go-location-workspace .go-radius-header strong{font-size:19px;letter-spacing:-.03em}
+.go-location-workspace .go-radius-header span{display:block;max-width:620px;margin-top:5px;font-size:12px;line-height:1.4}
+.go-map-summary{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:9px 17px;border-top:1px solid #e3f0e7;border-bottom:1px solid #d6e9da;background:#f2faf4}
+.go-map-summary strong{color:#1e694d;font-size:12px}
+.go-map-summary span{color:#638375;font-size:11px}
+.go-location-workspace .go-map{flex:1 1 auto;min-height:385px;height:auto}
+.go-location-workspace .leaflet-container{z-index:0}
+.go-map-list-section{flex:0 0 auto;padding:12px 16px 10px;border-top:1px solid #e2eee6;background:#fff}
+.go-map-list-head{display:flex;justify-content:space-between;gap:9px;align-items:center}
+.go-map-list-head strong{color:#235541;font-size:13px}
+.go-map-list-head span{color:#72877b;font-size:11px}
+.go-map-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:10px}
+.go-map-list-row{display:flex;align-items:center;justify-content:space-between;gap:9px;min-width:0;padding:9px 11px;border:1px solid #e0ebe4;border-radius:11px;background:#fafdfb}
+.go-map-list-row>button{display:grid;gap:3px;flex:1;min-width:0;padding:0;border:0;background:none;color:#1e5440;text-align:left;cursor:pointer}
+.go-map-list-row strong{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.go-map-list-row small{font-size:10px;color:#748579}
+.go-map-list-row>a{flex:0 0 auto;color:#276e50;font-size:13px;font-weight:900}
+.go-map-list-empty{grid-column:1/-1;margin:0;padding:8px 0;color:#6d8177;font-size:12px;line-height:1.5}
+.go-location-workspace .go-map-footer{display:flex;justify-content:space-between;gap:15px;align-items:center;flex-wrap:wrap;padding:10px 16px;background:#fff}
+.go-location-workspace .go-map-footer span{max-width:380px;font-size:10px;line-height:1.35}
+.go-map.is-picking{cursor:crosshair}
+@media(min-width:761px) and (max-width:1050px){
+ .go-location-workspace{grid-template-columns:minmax(250px,290px) minmax(0,1fr);gap:10px}
+ .go-location-controls{padding:4px 12px}
+ .go-control-group{padding:12px 0}
+ .go-location-workspace>.go-radius-panel{min-height:570px}
+ .go-location-workspace .go-map{min-height:325px}
+ .go-map-list{grid-template-columns:1fr}
+}
+@media(max-width:760px){
+ .go-location-workspace{display:block}
+ .go-location-controls{padding:2px 14px;border-radius:16px}
+ .go-control-group{padding:13px 0}
+ .go-location-controls #areaChoices{grid-template-columns:1fr}
+ .go-location-controls .go-location-button,.go-location-controls .go-pick-map-button{min-height:43px;width:100%}
+ .go-location-controls .go-radius-actions{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;overflow:visible}
+ .go-location-controls .go-radius-actions button{min-height:40px;font-size:11px}
+ .go-layer-choices{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;padding:3px 0 8px}
+ .go-layer-choices button,.go-layer-choices button[data-layer="all"]{flex:0 0 auto;min-width:91px;min-height:42px;text-align:center;scroll-snap-align:start}
+ .go-location-workspace>.go-radius-panel{margin-top:13px;min-height:0;border-radius:17px}
+ .go-location-workspace .go-radius-header{display:flex;align-items:flex-start;justify-content:space-between;padding:12px 13px}
+ .go-location-workspace .go-radius-header strong{font-size:17px}
+ .go-location-workspace .go-radius-header span{font-size:11px}
+ .go-location-workspace .go-map{flex:0 0 auto;min-height:0;height:clamp(235px,75vw,340px)}
+ .go-map-summary{padding:9px 12px}
+ .go-map-list-section{padding:11px 12px}
+ .go-map-list{grid-template-columns:1fr 1fr}
+ .go-location-workspace .go-map-footer{display:block;padding:9px 12px}
+ .go-location-workspace .go-map-footer span{display:block;margin-top:5px;max-width:none}
+}
+@media(max-width:385px){
+ .go-location-controls .go-radius-actions button{font-size:10px}
+ .go-map-list{grid-template-columns:1fr}
+}
