@@ -170,7 +170,39 @@ async function testHomeFoundation(page) {
         .map(x=>x.entity_id);
     }catch{return null}
   });
-  return page.evaluate(({initialNearClean,cancelledToday}) => {
+  // Reproduce the reported bug: expanding and collapsing the list must not
+  // keep the left clock card stretched to the previous list height.
+  const sidebarLayout = await page.evaluate(async () => {
+    const grid = document.querySelector('.trip-clock-grid');
+    const panel = document.querySelector('.trip-clock-now');
+    if (!grid || !panel) return {ok:false,reason:'clock panel missing'};
+    const nextFrame = () => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    const height = () => Math.round(panel.getBoundingClientRect().height);
+    const before = height();
+    const firstCards = document.querySelectorAll('#tripClockList .trip-item').length;
+    const button = document.querySelector('#tripClockList .trip-clock-more');
+    let expanded = null,collapsed = null,expandedCards = null,collapsedCards = null;
+    if (button) {
+      button.click();
+      await nextFrame();
+      expanded = height();
+      expandedCards = document.querySelectorAll('#tripClockList .trip-item').length;
+      const collapseButton = document.querySelector('#tripClockList .trip-clock-more');
+      if (!collapseButton) return {ok:false,reason:'collapse button missing'};
+      collapseButton.click();
+      await nextFrame();
+      collapsed = height();
+      collapsedCards = document.querySelectorAll('#tripClockList .trip-item').length;
+    }
+    const maxCompactHeight = window.innerWidth < 400 ? 620 : 580;
+    const compact = before <= maxCompactHeight && (collapsed === null || collapsed <= maxCompactHeight);
+    const independent = expanded === null || (expanded <= maxCompactHeight && Math.abs(expanded-collapsed) <= 4);
+    const listRestored = expandedCards === null || (expandedCards > firstCards && collapsedCards === firstCards);
+    return {ok:getComputedStyle(grid).alignItems === 'start' && compact && independent && listRestored,
+      before,expanded,collapsed,firstCards,expandedCards,collapsedCards};
+  });
+
+  return page.evaluate(({initialNearClean,cancelledToday,sidebarLayout}) => {
     const text = selector => document.querySelector(selector)?.textContent?.trim() || '';
     const count = selector => document.querySelectorAll(selector).length;
     const hanoiHour=Number(new Intl.DateTimeFormat('en-GB',{
@@ -181,6 +213,7 @@ async function testHomeFoundation(page) {
       text('#tripClockList').includes('Giờ này các điểm chính đã qua khung');
     const checks = {
       localTime: !!text('#tripClockNow') && text('#tripClockNow') !== '--:--',
+      clockPanelCompactAfterToggle: sidebarLayout.ok,
       // Never manufacture three open attractions at night solely to pass CI.
       // At 23:00-07:00 a clear "nothing left today" state is valid.
       tripCards: tripCount>=1 || ((hanoiHour>=23||hanoiHour<7)&&legitimateLateFallback),
@@ -197,7 +230,7 @@ async function testHomeFoundation(page) {
       noSyntheticZero: ![...document.querySelectorAll('#homeCurrencyGrid .home-currency-card strong')].some(el => /^0([,.]0+)?\s*₫$/.test(el.textContent.trim()))
     };
     return { ok: Object.values(checks).every(Boolean), checks };
-  }, {initialNearClean,cancelledToday});
+  }, {initialNearClean,cancelledToday,sidebarLayout});
 }
 
 async function testNearMePage(page) {
