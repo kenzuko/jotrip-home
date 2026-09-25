@@ -19,12 +19,15 @@ assert.ok(index.documents.some(x=>x.entity_type==="utility"&&x.tags.includes("AT
 assert.ok(index.documents.some(x=>x.entity_type==="utility"&&x.tags.includes("MINIMART")));
 assert.equal(utilities.entities.find(x=>x.id==="utility_115")?.phone,"115");
 assert.match(home,/id="nearCategories"/);
+assert.match(home,/class="near-quick-primary"/);
+assert.match(home,/class="near-quick-essentials"/);
+assert.match(home,/class="near-quick-extras"/);
 assert.match(home,/id="nearQuickMore"/);
 assert.match(home,/id="nearQuickSearch"/);
 assert.match(home,/id="nearQuickStatus"/);
 assert.match(home,/href="tel:115"/);
 assert.match(home,/nearme\/\?category=CLINIC_HOSPITAL/);
-assert.match(home,/home-nearme-v2.js\?v=20260925-quickfinder1/);
+assert.match(home,/home-nearme-v2.js\?v=20260925-quickfinder-mobile2/);
 assert.ok(module.includes('fetch("data/views/location-index.json"'),"Homepage must consume the same Near Me location index");
 assert.ok(module.includes('getIndex()'),"Canonical index should load only when requested");
 assert.ok(module.includes("rows.slice(0,3)"),"The results should show at most 3 cards");
@@ -35,6 +38,9 @@ assert.ok(module.includes('site_centroid'),"Do not show distance for approximate
 assert.equal(module.split("getCurrentPosition(").length-1,1,"GPS may only be requested from its click handler");
 assert.match(module,/addEventListener\("click",\(\)=>\{\s*const button=\$\("#nearLocationBtn"\)/);
 assert.match(foundation,/openpq:home-support-ready/);
+assert.doesNotMatch(home,/bên trái/i);
+assert.doesNotMatch(module,/bên trái/i);
+assert.ok(module.includes("scrollIntoView"),"Narrow-screen categories should reveal their results");
 assert.doesNotMatch(foundation,/function renderNearResults\(/);
 assert.doesNotMatch(home,/<iframe[^>]*near/i);
 console.log("Homepage Near Me quick finder contracts PASS");
