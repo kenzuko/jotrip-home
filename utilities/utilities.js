@@ -70,7 +70,7 @@ async function renderCurrencyPreview(){
     const buy=hasCash?rate.cash_buy:(valid(rate.transfer_buy)?rate.transfer_buy:null);
     const sell=valid(rate.sell)?rate.sell:null;
     const format=n=>valid(n)?numbers.format(Number(n))+" ₫":"Chưa có";
-    return '<article class="u-fx-card">'+
+    return '<article class="u-card u-fx-card">'+
       '<div class="u-fx-name"><span>'+esc(code)+'</span><strong>'+esc(label)+'</strong></div>'+
       '<div class="u-fx-values"><div><small>'+(hasCash?"Mua tiền mặt":"Mua chuyển khoản")+'</small><strong>'+format(buy)+'</strong></div>'+
       '<div><small>Bán ra</small><strong>'+format(sell)+'</strong></div></div>'+
