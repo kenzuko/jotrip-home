@@ -5,6 +5,57 @@
  const durationMin=v=>{const s=String(v||"").toLowerCase(),r=s.match(/(\d+(?:[.,]\d+)?)\s*[-–]\s*(\d+(?:[.,]\d+)?)\s*(giờ|phút)/);if(r)return Number(r[1].replace(",","."))*(r[3]==="giờ"?60:1);const m=s.match(/(\d+(?:[.,]\d+)?)\s*(giờ|phút)/);return m?Number(m[1].replace(",","."))*(m[2]==="giờ"?60:1):null;};
  const hhmm=n=>String(Math.floor(n/60)).padStart(2,"0")+":"+String(n%60).padStart(2,"0");
  const remaining=n=>{const h=Math.floor(n/60),m=n%60;return h?("Còn "+h+" giờ"+(m?" "+m+" phút":"")+" theo giờ niêm yết"):("Còn "+n+" phút theo giờ niêm yết");};
+
+ // Order by the next useful moment, then by explicit urgency level.
+ // Levels are presentation priorities, not claims that a show is operating.
+ function importance(row) {
+  const value=Number(row.item.priority_level);
+  if(Number.isFinite(value)&&value>=1&&value<=3)return value;
+  const id=row.item.entity_id;
+  if(row.opening?.schedule_type==="FIXED_START"||id==="place_vinpearl_safari"||id==="place_vinwonders")return 3;
+  if(id==="activity_hon_thom"||row.decision?.state==="watch")return 2;
+  return row.item.schedule_source?.startsWith("SOFT_")?1:2;
+ }
+ function urgency(row,nowMinute){
+  const d=row.decision||{},id=row.item.entity_id,scheduled=row.opening?.schedule_type==="FIXED_START";
+  let at;
+  if(scheduled)at=d.state==="future"?d.nextMin:d.endMin;
+  else if(id==="place_vinpearl_safari"||id==="place_vinwonders")at=d.endMin;
+  else if(d.state==="future")at=d.nextMin;
+  else if(Number.isFinite(row.latestStart))at=Math.max(nowMinute,row.latestStart);
+  else at=d.endMin;
+  const until=Number.isFinite(at)?Math.max(0,at-nowMinute):Infinity;
+  // Time buckets ensure an imminent activity beats a distant marquee show.
+  const bucket=until<=60?0:until<=180?1:until<=360?2:until<Infinity?3:4;
+  return {bucket,level:importance(row),until,eventMin:Number.isFinite(at)?at:null};
+ }
+ function comparePriority(a,b){
+  const x=a.urgency||{bucket:4,level:1,until:Infinity};
+  const y=b.urgency||{bucket:4,level:1,until:Infinity};
+  return x.bucket-y.bucket||y.level-x.level||x.until-y.until||(a.score??99999)-(b.score??99999);
+ }
+ // Show at most ten detailed cards initially. A small guaranteed share for
+ // today's featured evening shows prevents them being buried all afternoon,
+ // but never displaces a genuinely imminent high-priority activity.
+ function select(rows,limit=10){
+  const available=rows.filter(x=>x.eligible&&["active","future","watch"].includes(x.decision?.state)).sort(comparePriority);
+  const visible=available.slice(0,limit);
+  const featured=available.filter(x=>x.item.feature_in_today===true);
+  for(const pin of featured){
+   if(visible.includes(pin))continue;
+   let replacement=-1;
+   for(let i=visible.length-1;i>=0;i--){
+    const row=visible[i];
+    if(row.item.feature_in_today===true)continue;
+    if(row.urgency?.bucket===0&&row.urgency.level>=2)continue;
+    replacement=i;break;
+   }
+   if(replacement>=0)visible[replacement]=pin;
+  }
+  visible.sort(comparePriority);
+  const kept=new Set(visible);
+  return {visible,hidden:available.filter(x=>!kept.has(x)),total:available.length};
+ }
  function plan({items=[],entities=new Map(),nowMinute,sunsetMinute,weekday=0,sunsetWeather="unknown"}={}) {
   const out=[];
   for(const item of items){
@@ -35,11 +86,17 @@
    }else if(valid&&opening.schedule_type==="FIXED_START"){
     const times=(opening.times||[]).map(t=>({...t,startMin:minute(t.start)})).filter(t=>Number.isFinite(t.startMin)).sort((a,b)=>a.startMin-b.startMin);
     const next=times.find(t=>t.startMin>nowMinute);
-    const live= id==="activity_once_show" && times.find(t=>nowMinute>=t.startMin&&nowMinute<t.startMin+20);
+    const listedLength=Number(item.performance_duration_min)||durationMin(e.duration);
+    const displayLength=Number.isFinite(listedLength)&&listedLength>0?listedLength:15;
+    const live=times.find(t=>nowMinute>=t.startMin&&nowMinute<t.startMin+displayLength);
     if(live){
-     decision={state:"watch",label:"ONCE đã bắt đầu theo lịch",nextMin:live.startMin,endMin:live.startMin+20};
-     summary=hhmm(live.startMin)+"-"+hhmm(live.startMin+20)+" · show ONCE";
-     note="Show đang trong khung giờ niêm yết; cần vé vào công viên. Kiểm tra tình trạng thực tế tại điểm.";
+     decision={state:"watch",label:id==="activity_once_show"?"ONCE đã bắt đầu theo lịch":"Đã bắt đầu theo lịch",nextMin:live.startMin,endMin:live.startMin+displayLength};
+     summary=Number.isFinite(listedLength)&&listedLength>0?
+      hhmm(live.startMin)+"-"+hhmm(live.startMin+displayLength)+" · "+(e.duration||"Theo lịch show"):
+      hhmm(live.startMin)+" · Giờ bắt đầu niêm yết";
+     note=id==="activity_once_show"?
+      "Show đang trong khung giờ niêm yết; cần vé vào công viên. Kiểm tra tình trạng thực tế tại điểm.":
+      "Show đã đến giờ bắt đầu theo lịch. Kiểm tra tình trạng thực tế tại điểm; không phải xác nhận đang diễn.";
      score=4;
     }else if(next){
      decision={state:"future",label:id==="activity_once_show"?"ONCE lúc "+next.start:"Bắt đầu lúc "+next.start,nextMin:next.startMin};
@@ -133,9 +190,11 @@
     out.push({item,e,opening,eligible:false,reason:!valid&&item.schedule_source?.startsWith("canonical")?"no_verified_schedule":"outside_suggested_window"});
     continue;
    }
-   out.push({item,e,opening,eligible:true,decision,summary,note,score,latestStart});
+   const row={item,e,opening,eligible:true,decision,summary,note,score,latestStart};
+   row.urgency=urgency(row,nowMinute);
+   out.push(row);
   }
-  return out.sort((a,b)=>(a.eligible===b.eligible?(a.score??99999)-(b.score??99999):a.eligible?-1:1));
+  return out.sort((a,b)=>(a.eligible===b.eligible?comparePriority(a,b):a.eligible?-1:1));
  }
- global.OpenPQTripClockPlanner={plan,minute,durationMin};
+ global.OpenPQTripClockPlanner={plan,select,minute,durationMin};
 })(window);
