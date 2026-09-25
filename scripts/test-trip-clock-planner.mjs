@@ -68,7 +68,7 @@ assert.match(homepage,/home-experience-v1.js\?v=20260924-(?:text2|foodimages|foo
 assert.match(homepage,/core\/trip-clock-planner.js\?v=20260925-urgency10/);
 assert.match(homepage,/home-foundation-v2.js\?v=20260925-urgency10/);
 const homeSource=readFileSync("home-foundation-v2.js","utf8");
-assert.match(homeSource,/engine\\.select\\(rows,10\\)/);
+assert.ok(homeSource.includes("engine.select(rows,10)"));
 assert.match(homeSource,/trip-clock-more/);
 await import("./test-home-food-random.mjs");
 console.log("CMS Today copy: regression checks PASS");
