@@ -6,8 +6,8 @@ const entities=JSON.parse(fs.readFileSync("data/entities/food.json","utf8"));
 const schema=JSON.parse(fs.readFileSync("cms/schema.json","utf8"));
 const publish=fs.readFileSync("functions/api/cms/publish.js","utf8");
 
-assert.equal(articles.dishes.length,30,"Review the expanded food article inventory");
-assert.equal(entities.entities.length,30,"Review the food entity inventory");
+assert.equal(articles.dishes.length,32,"Review the expanded food article inventory");
+assert.equal(entities.entities.length,32,"Review the food entity inventory");
 
 const byLegacy=new Map();
 const ids=new Set();
@@ -33,4 +33,6 @@ assert.match(publish,/"data\/entities\/food\.json":\["admin","editor"\]/);
 assert.ok(articles.dishes.some(x=>x.id==="chao-cha"&&x.name==="Cháo chả"));
 assert.ok(!articles.dishes.some(x=>x.id==="chao-ca"));
 assert.ok(entities.entities.some(x=>x.legacy_id==="chao-cha"&&x.name==="Cháo chả"));
-console.log("Food mapping passed: 30 dishes, cháo chả migration and unique entity mappings.");
+assert.ok(articles.dishes.some(x=>x.id==="banh-xeo"));
+assert.ok(articles.dishes.some(x=>x.id==="pho"));
+console.log("Food mapping passed: 32 dishes, cháo chả migration and unique entity mappings.");

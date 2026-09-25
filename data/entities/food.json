@@ -927,6 +927,72 @@
         }
       ],
       "updated_at": "2026-09-24"
+    },
+    {
+      "id": "food_banh_xeo",
+      "legacy_id": "banh-xeo",
+      "entity_type": "food",
+      "slug": "banh-xeo",
+      "name": "Bánh xèo",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Bánh xèo vừa đổ xong còn nóng, vỏ vàng giòn, bên trong có tôm, thịt hoặc giá tùy quán. Xé một miếng, cuốn cùng rau rồi chấm nước mắm là vừa.",
+      "why_go": "Bẻ bánh thành miếng vừa ăn, cuốn cùng rau và chấm nước mắm. Ăn nóng sẽ giòn hơn.",
+      "best_for": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "tips": [
+        "Hỏi nhân bánh nếu không ăn thịt, hải sản hoặc bị dị ứng.",
+        "Nếu gọi nhiều món, hỏi kích thước bánh trước vì mỗi quán làm khác nhau."
+      ],
+      "intents": [
+        "food",
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "source_refs": [
+        {
+          "source_id": "phuquoc_banhxeo_2026"
+        }
+      ],
+      "updated_at": "2026-09-25"
+    },
+    {
+      "id": "food_pho",
+      "legacy_id": "pho",
+      "entity_type": "food",
+      "slug": "pho",
+      "name": "Phở",
+      "aliases": [],
+      "zone_id": null,
+      "category": "local",
+      "what_it_is": "Muốn ăn sáng nhẹ nhàng thì một tô phở nóng cũng dễ chọn. Ở Phú Quốc có cả phở bò lẫn phở gà tùy quán; đây là món quen của Việt Nam, không phải đặc sản riêng của đảo.",
+      "why_go": "Nếm nước dùng trước rồi thêm chanh, ớt và rau tùy khẩu vị.",
+      "best_for": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "tips": [
+        "Hỏi quán có phở bò hay phở gà và giờ bán trong ngày.",
+        "Nếu tránh một loại thịt hay gia vị, hãy báo trước khi gọi."
+      ],
+      "intents": [
+        "food",
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "source_refs": [
+        {
+          "source_id": "visitpq_pho_vui_fest_2026"
+        }
+      ],
+      "updated_at": "2026-09-25"
     }
   ]
 }

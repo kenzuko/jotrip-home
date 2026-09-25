@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-24",
+  "updated_at": "2026-09-25",
   "map_policy": {
     "provider": "OpenStreetMap",
     "load_mode": "click_to_load",
@@ -1262,12 +1262,12 @@
     "muc-trung-nuong": {
       "images": [
         {
-          "url": "https://www.dongtravel.com/files/blog/9/phu-quoc-an-gi.jpg",
-          "alt": "Mực trứng nướng",
-          "caption": "Mực trứng nướng",
+          "url": "https://quanoclen.com/thumbs/1600x1067x2/upload/product/ducpham0981973533-09849-5933.jpg",
+          "alt": "Đĩa mực trứng nướng muối ớt",
+          "caption": "Đĩa mực trứng nướng muối ớt",
           "scope": "exact_subject",
-          "source_label": "Dong Travel",
-          "source_url": "https://www.dongtravel.com/en/blog/phu-quoc/what-to-eat-in-phu-quoc-vn",
+          "source_label": "Quán Ốc Len",
+          "source_url": "https://quanoclen.com/muc-trung-nuong-muoi-ot",
           "hero_priority": "preferred"
         }
       ]
@@ -1330,14 +1330,15 @@
     "com-chien-hai-san": {
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Seafood%20Fried%20Rice.jpg?width=1200",
-          "alt": "Cơm chiên hải sản",
-          "caption": "Cơm chiên hải sản",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sergestid%20Shrimp%20Seafood%20Fried%20Rice.jpg?width=1200",
+          "alt": "Cơm chiên hải sản với tôm",
+          "caption": "Cơm chiên hải sản với tôm",
           "scope": "exact_subject",
-          "source_label": "Wikimedia Commons · ProjectManhattan",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Seafood_Fried_Rice.jpg",
+          "source_label": "Wikimedia Commons · Ceeseven",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sergestid_Shrimp_Seafood_Fried_Rice.jpg",
+          "hero_priority": "preferred",
           "license": "CC BY-SA 4.0",
-          "hero_priority": "preferred"
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
         }
       ]
     },
@@ -1448,12 +1449,12 @@
     "ghe-ham-ninh": {
       "images": [
         {
-          "url": "https://rootytrip.com/wp-content/uploads/2023/06/ham-ninh-crab-min.jpg",
-          "alt": "Ghẹ Hàm Ninh",
-          "caption": "Ghẹ Hàm Ninh",
+          "url": "https://photo.znews.vn/w660/Uploaded/neg_esfjaex/2020_07_28/quanhoo_39105059_233691190580654_6633543062725328896_n.jpg",
+          "alt": "Đĩa ghẹ hấp nguyên con",
+          "caption": "Đĩa ghẹ hấp nguyên con",
           "scope": "exact_subject",
-          "source_label": "Rooty Trip",
-          "source_url": "https://rootytrip.com/en/ham-ninh-fishing-village/",
+          "source_label": "Znews",
+          "source_url": "https://znews.vn/nhung-dia-chi-thuong-thuc-hai-san-hut-khach-o-phu-quoc-post1112382.html",
           "hero_priority": "preferred"
         }
       ]
@@ -1472,17 +1473,8 @@
       ]
     },
     "ca-song-nuong": {
-      "images": [
-        {
-          "url": "https://katana.bdatrip.com/v2/image?src=https%3A%2F%2Fimages.bdatrip.com%2F2025%2F3%2Fca-song-nuong-phu-quoc2.jpeg&w=640",
-          "alt": "Cá sòng nướng",
-          "caption": "Cá sòng nướng",
-          "scope": "exact_subject",
-          "source_label": "BDATrip",
-          "source_url": "https://www.bdatrip.com/vi/phu-quoc-district/travel-tips/ca-song-nuong-phu-quoc-dac-san-bien",
-          "hero_priority": "preferred"
-        }
-      ]
+      "images": [],
+      "photo_review_note": "Old picture misidentified; awaiting an independently verified grilled cá sòng photo."
     },
     "ca-mu-hap": {
       "images": [
@@ -1500,12 +1492,12 @@
     "lau-ca-bop": {
       "images": [
         {
-          "url": "https://cdn.pastaxi-manager.onepas.vn/content/uploads/articles/lenttt/4canhnaulaucabon/4-cach-nau-lau-ca-bop-tai-nha-don-gian-ngon-4.jpg",
-          "alt": "Lẩu cá bớp",
-          "caption": "Lẩu cá bớp",
+          "url": "https://cdn.tgdd.vn/Files/2021/08/10/1374344/cach-nau-lau-ca-bop-mang-chua-cay-ngon-hap-dan-202108101955336049.jpg",
+          "alt": "Nồi lẩu cá bớp măng chua",
+          "caption": "Nồi lẩu cá bớp măng chua",
           "scope": "exact_subject",
-          "source_label": "PasGo",
-          "source_url": "https://pasgo.vn/blog/4-cach-nau-lau-ca-bop-don-gian-sieu-ngon-tai-nha-4237",
+          "source_label": "Bách Hóa Xanh",
+          "source_url": "https://www.bachhoaxanh.com/kinh-nghiem-hay/cach-nau-lau-ca-bop-mang-chua-cay-ngon-hap-dan-1374344",
           "hero_priority": "preferred"
         }
       ]
@@ -1565,12 +1557,12 @@
     "banh-kheo": {
       "images": [
         {
-          "url": "https://static.vinwonders.com/2022/05/banh-kheo-phu-quoc-2.jpg",
-          "alt": "Bánh khéo",
-          "caption": "Bánh khéo",
+          "url": "https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/02_2023/dac-san-banh-kheo-phu-quoc.jpg",
+          "alt": "Khay bánh khéo nhiều hình dáng",
+          "caption": "Khay bánh khéo nhiều hình dáng",
           "scope": "exact_subject",
-          "source_label": "VinWonders",
-          "source_url": "https://vinwonders.com/vi/wonderpedia/news/thuong-thuc-banh-kheo-phu-quoc-mon-dac-san-thom-ngon-kho-cuong/",
+          "source_label": "Lữ Hành Việt Nam",
+          "source_url": "https://luhanhvietnam.com.vn/du-lich/thuong-thuc-dac-san-banh-kheo-phu-quoc.html",
           "hero_priority": "preferred"
         }
       ]
@@ -1585,6 +1577,37 @@
           "source_label": "Rooty Trip",
           "source_url": "https://rootytrip.com/cho-duong-dong-phu-quoc/",
           "hero_priority": "preferred"
+        }
+      ]
+    },
+    "banh-xeo": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Banh%20xeo%20with%20veggies%20on%20a%20plate.jpg?width=1200",
+          "alt": "Bánh xèo vàng giòn ăn kèm rau",
+          "caption": "Bánh xèo vàng giòn ăn kèm rau",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons · HungryHuy",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Banh_xeo_with_veggies_on_a_plate.jpg",
+          "hero_priority": "preferred",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "attribution_url": "https://www.hungryhuy.com/banh-xeo-savory-vietnamese-crepes/"
+        }
+      ]
+    },
+    "pho": {
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Beef%20pho.jpg?width=1200",
+          "alt": "Tô phở bò ăn kèm rau thơm",
+          "caption": "Tô phở bò ăn kèm rau thơm",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons · avlxyz",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Beef_pho.jpg",
+          "hero_priority": "preferred",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/"
         }
       ]
     }

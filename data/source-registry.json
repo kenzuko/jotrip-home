@@ -886,6 +886,30 @@
         "stories",
         "curiosity"
       ]
+    },
+    {
+      "id": "phuquoc_banhxeo_2026",
+      "type": "PUBLIC_VENUE_DIRECTORY",
+      "label": "Bánh xèo Cuội 3 - Phú Quốc",
+      "url": "https://www.corner.inc/place/p19ViHR8CBza",
+      "checked_at": "2026-09-25",
+      "dynamic": true,
+      "trust": "PUBLIC_LISTING",
+      "used_by": [
+        "food"
+      ]
+    },
+    {
+      "id": "visitpq_pho_vui_fest_2026",
+      "type": "OFFICIAL_TOURISM_PORTAL",
+      "label": "Visit Phu Quoc - Viet Cuisine VUI-Fest (phở bò)",
+      "url": "https://visitphuquoc.com.vn/en/viet-cuisine-vui-fest-bazaar",
+      "checked_at": "2026-09-25",
+      "dynamic": true,
+      "trust": "DESTINATION_TOURISM",
+      "used_by": [
+        "food"
+      ]
     }
   ],
   "rules": [

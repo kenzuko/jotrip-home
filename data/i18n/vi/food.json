@@ -1452,8 +1452,112 @@
           "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
         }
       ]
+    },
+    {
+      "id": "banh-xeo",
+      "name": "Bánh xèo",
+      "category": "local",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "Bánh xèo vừa đổ xong còn nóng, vỏ vàng giòn, bên trong có tôm, thịt hoặc giá tùy quán. Xé một miếng, cuốn cùng rau rồi chấm nước mắm là vừa.",
+      "how_to_eat": "Bẻ bánh thành miếng vừa ăn, cuốn cùng rau và chấm nước mắm. Ăn nóng sẽ giòn hơn.",
+      "tips": [
+        "Hỏi nhân bánh nếu không ăn thịt, hải sản hoặc bị dị ứng.",
+        "Nếu gọi nhiều món, hỏi kích thước bánh trước vì mỗi quán làm khác nhau."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-xeo"
+      ],
+      "origin": "Bánh xèo là món Việt phổ biến, có nhiều quán phục vụ tại Phú Quốc; không giới thiệu đây là đặc sản chỉ riêng đảo.",
+      "why_name": "Tên gọi gợi tiếng xèo khi đổ lớp bột lên chảo nóng.",
+      "ingredients": [
+        "Bột bánh xèo",
+        "Tôm hoặc thịt tùy quán",
+        "Giá và rau",
+        "Nước mắm chấm"
+      ],
+      "taste_texture": "Vỏ giòn, nhân mềm, ăn kèm rau mát và nước chấm chua ngọt.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Giáp xác",
+          "level": "possible"
+        },
+        {
+          "key": "egg",
+          "label": "Trứng",
+          "level": "possible"
+        },
+        {
+          "key": "gluten",
+          "label": "Lúa mì",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Bột và nhân thay đổi theo quán; có thể chứa tôm, thịt, trứng hoặc bột mì. Hỏi rõ nếu bạn bị dị ứng.",
+      "ask_staff": [
+        "Bánh có những loại nhân nào?",
+        "Phần này có mấy cái, ăn đủ mấy người?"
+      ],
+      "sources": [
+        {
+          "label": "Bánh xèo Cuội 3 - ghi nhận quán phục vụ bánh xèo tại Phú Quốc",
+          "url": "https://www.corner.inc/place/p19ViHR8CBza"
+        }
+      ]
+    },
+    {
+      "id": "pho",
+      "name": "Phở",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Muốn ăn sáng nhẹ nhàng thì một tô phở nóng cũng dễ chọn. Ở Phú Quốc có cả phở bò lẫn phở gà tùy quán; đây là món quen của Việt Nam, không phải đặc sản riêng của đảo.",
+      "how_to_eat": "Nếm nước dùng trước rồi thêm chanh, ớt và rau tùy khẩu vị.",
+      "tips": [
+        "Hỏi quán có phở bò hay phở gà và giờ bán trong ngày.",
+        "Nếu tránh một loại thịt hay gia vị, hãy báo trước khi gọi."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#pho"
+      ],
+      "origin": "Phở là món Việt Nam phổ biến, có mặt tại các hàng quán và khu ẩm thực du lịch Phú Quốc.",
+      "why_name": "Phở là tên gọi truyền thống của món bánh phở ăn với nước dùng.",
+      "ingredients": [
+        "Bánh phở",
+        "Nước dùng",
+        "Thịt bò hoặc thịt gà tùy quán",
+        "Hành và rau thơm"
+      ],
+      "taste_texture": "Nước dùng nóng, thơm, bánh phở mềm; hương vị thay đổi theo quán.",
+      "allergen_flags": [
+        {
+          "key": "soy",
+          "label": "Đậu nành",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nước dùng và gia vị thay đổi theo quán; hỏi thành phần nếu dị ứng hoặc ăn kiêng.",
+      "ask_staff": [
+        "Quán có phở bò hay phở gà?",
+        "Nước dùng có những nguyên liệu nào?"
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Viet Cuisine ở VUI-Fest có phục vụ phở bò",
+          "url": "https://visitphuquoc.com.vn/en/viet-cuisine-vui-fest-bazaar"
+        }
+      ]
     }
   ],
-  "updated_at": "2026-09-24",
+  "updated_at": "2026-09-25",
   "locale": "vi"
 }
