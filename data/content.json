@@ -92,14 +92,14 @@
       "id": "duong-dong-sau-5-gio",
       "category": "DƯƠNG ĐÔNG · BUỔI TỐI",
       "title": "Dương Đông sau 5 giờ chiều",
-      "dek": "Khi nắng bớt gắt, Dương Đông đổi nhịp. Chợ, đồ ăn, bờ biển và những con đường quanh Dinh Cậu bắt đầu đông lên - một Phú Quốc khác với buổi trưa.",
+      "dek": "Khi nắng bớt gắt, Dương Đông đổi nhịp. Hàng quán, bờ biển và những con đường quanh Dinh Cậu là một phần của buổi tối; ảnh chợ đêm trong bài ghi lại diện mạo cuối năm 2025.",
       "read_minutes": 4,
       "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cho%20Dem%20Phu%20Quoc%20-%20Welcome%20to%20Phu%20Quoc%20Night%20Market.jpg?width=1600",
       "intro": "Nếu ban ngày Phú Quốc kéo người ta ra biển, buổi tối Dương Đông lại kéo mọi thứ trở về gần nhau.",
       "sections": [
         {
-          "heading": "Bắt đầu buổi tối từ chợ đêm",
-          "body": "Chợ đêm gần Dinh Cậu thường là nơi khách bắt đầu buổi tối. Từ chiều muộn, các tuyến phố đông dần với đồ ăn và hải sản. Ăn xong, bạn có thể đi dọc bờ biển hoặc ghé khu Dinh Cậu."
+          "heading": "Chợ đêm trong câu chuyện Dương Đông",
+          "body": "Chợ đêm Bạch Đằng từng là điểm hẹn buổi tối của nhiều du khách gần Dinh Cậu. Bộ ảnh trong bài chụp tháng 12/2025, trước đợt thay đổi vận hành đầu năm 2026. Theo thông báo của cơ quan chức năng, các gian hàng tại chợ cũ được gia hạn kinh doanh đến hết ngày 28/02/2026; nguồn du lịch địa phương cập nhật tháng 9/2026 cho biết khu chợ cũ đã dừng. Vì vậy, đừng dựa vào ảnh để mặc định chợ vẫn mở. Nếu muốn đi bộ buổi tối ở Dương Đông, hãy tìm những hàng quán còn hoạt động quanh Dinh Cậu và khu cửa sông."
         },
         {
           "heading": "Đi chậm hơn một chút",
@@ -111,13 +111,21 @@
         },
         {
           "heading": "Lưu ý",
-          "body": "Giờ hoạt động của từng quầy, nhà hàng và khu phố có thể thay đổi. Bài này là hướng dẫn nhịp trải nghiệm, không phải lịch mở cửa trực tiếp. Các ảnh chợ đêm trong bài được chụp tháng 12/2025, không phải xác nhận chợ còn hoạt động vào thời điểm bạn đọc; nên kiểm tra tình trạng thực tế trước khi đến."
+          "body": "Giờ hoạt động của các hàng quán và khu phố có thể thay đổi. Ảnh chợ đêm là tư liệu chụp ngày 28/12/2025, không phải xác nhận hiện trạng tháng 9/2026. Nếu muốn đi chợ đêm, kiểm tra địa điểm đang hoạt động trước khi xuất phát."
         }
       ],
       "sources": [
         {
           "label": "Vietnam Tourism - Explore Phu Quoc by night",
           "url": "https://www.vietnam.travel/node/1334"
+        },
+        {
+          "label": "VTV, 11/01/2026 - Chợ đêm Bạch Đằng được gia hạn hoạt động đến hết 28/02",
+          "url": "https://vtv.vn/cho-dem-phu-quoc-dung-hoat-dong-sau-tet-nguyen-dan-2026-100260111074711843.htm"
+        },
+        {
+          "label": "Rooty Trip, cập nhật 05/09/2026 - tình trạng chợ đêm Bạch Đằng cũ",
+          "url": "https://rootytrip.com/cho-dem-vuifest-phu-quoc/"
         }
       ],
       "image_alt": "Lối vào chợ đêm Phú Quốc buổi tối, ảnh tháng 12/2025",
