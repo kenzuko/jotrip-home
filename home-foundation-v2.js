@@ -1,12 +1,12 @@
 (() => {
 "use strict";
 const NOTICES="data/operational-notices.json";
-const SUPPORT="data/home-support.json",PLACES="data/entities/places.json",ACTIVITIES="data/entities/activities.json",UTILITIES="data/entities/utilities.json",STORIES="data/content.json",CURRENCY="data/currency-snapshot.json";
+const SUPPORT="data/home-support.json",PLACES="data/entities/places.json",ACTIVITIES="data/entities/activities.json",STORIES="data/content.json",CURRENCY="data/currency-snapshot.json";
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const stateText={OPEN:"Đang mở",CLOSED:"Đã đóng",TEMPORARILY_CLOSED:"Tạm đóng",UNKNOWN:"Chưa biết chắc"};
 const liveStateText={normal:"Hôm nay hoạt động bình thường",good:"Hôm nay hoạt động bình thường",watch:"Có điều nên xem lại",advisory:"Có lưu ý",bad:"Tạm dừng",unknown:"Chưa biết chắc",info:"Theo giờ hôm nay"};
-let operationalNotices=null,support=null,currencyPayload=null,entities=new Map(),stories=new Map(),selectedCategory=null,selectedArea=null,position=null,nearBound=false,utilitiesLoaded=false;
+let operationalNotices=null,support=null,currencyPayload=null,entities=new Map(),stories=new Map();
 function vnParts(date=new Date()){const d=new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",weekday:"long",day:"2-digit",month:"2-digit"}).format(date).replace(",","");const t=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Ho_Chi_Minh",hour:"2-digit",minute:"2-digit",hour12:false}).format(date);return{time:t,date:d}}
 function ageText(iso){
   const t=Date.parse(iso||"");
@@ -200,85 +200,6 @@ let lastLocalHintKey="";
 function publishLocalNowHint(){const hint=buildLocalNowHint(),payload={now_hint:hint,updated_at:new Date().toISOString()};window.OPENPQ_HOME_LOCAL=payload;const key=JSON.stringify(hint||null);if(key!==lastLocalHintKey){lastLocalHintKey=key;window.dispatchEvent(new CustomEvent("openpq:local-ready",{detail:payload}))}}
 function liveFor(binding){return binding?window.OPENPQ_HOME?.live_status?.[binding]||null:null}
 function renderActivities(){if(!support)return;const host=$("#activityBoard");if(!host)return;host.innerHTML=(support.activity_board||[]).map(item=>{const e=entities.get(item.entity_id)||{},live=liveFor(item.operational_binding),opening=e.opening_hours||null,decision=scheduleDecision(opening,item.entity_id);const state=live?.status||(opening?.state==="PUBLISHED_SCHEDULE"?"info":"unknown");const primary=live?(liveStateText[state]||live.primary||"Hôm nay chưa có tin mới"):(opening?.state==="PUBLISHED_SCHEDULE"?decision.label:(stateText[item.status_code]||"Hôm nay chưa có tin mới"));const context=live?.context||live?.secondary||(opening?scheduleSummary(opening):([e.best_time,e.duration].filter(Boolean).join(" · ")||"Mở ra để xem kỹ hơn"));const fresh=live?.source_updated_at?ageText(live.source_updated_at):(opening?scheduleFreshness(opening):"Hôm nay chưa có tin mới");return'<a class="activity-status-card" data-state="'+esc(state)+'" href="'+esc(item.route)+'"><span>'+esc(primary)+'</span><strong>'+esc(e.name||item.entity_id)+'</strong><p>'+esc(context)+'</p><small>'+esc(fresh)+'</small><b>Xem hôm nay →</b></a>'}).join("");const live=window.OPENPQ_HOME?.live_status||{};const bad=live.cano?.status==="bad"||live.weather?.status==="watch";const plan=$("#planBCard");if(plan)plan.hidden=!bad}
-function renderNearControls(){
-  if(!support)return;
-  const a=$("#nearManualAreas"),c=$("#nearCategories");
-  if(a)a.innerHTML=(support.near_me?.manual_areas||[]).map(x=>'<button type="button" data-area="'+esc(x.id)+'">'+esc(x.label)+'</button>').join("");
-  const preferred=["ATM","PHARMACY","FUEL","TOILET","MINIMART","CLINIC_HOSPITAL"];
-  const categories=(support.near_me?.categories||[]).filter(x=>preferred.includes(x.id)).sort((x,y)=>preferred.indexOf(x.id)-preferred.indexOf(y.id));
-  if(c)c.innerHTML=categories.map(x=>'<button type="button" class="near-category" data-category="'+esc(x.id)+'"><span>'+esc(x.icon)+'</span><strong>'+esc(x.label)+'</strong></button>').join("");
-}
-function haversine(a,b){const R=6371,rad=x=>x*Math.PI/180,dLat=rad(b.lat-a.lat),dLon=rad(b.lon-a.lon),h=Math.sin(dLat/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
-const nearAreaCenters={
-  zone_central_west:{lat:10.2172,lon:103.9593},
-  zone_south:{lat:10.0191,lon:104.0150},
-  zone_north:{lat:10.3759,lon:103.90}
-};
-function nearestNearArea(pos){
-  return Object.entries(nearAreaCenters)
-    .map(([id,coords])=>({id,d:haversine(pos,coords)}))
-    .sort((a,b)=>a.d-b.d)[0]?.id||"all";
-}
-function resolveNearItem(x){const e=entities.get(x.utility_id)||{},map=e.map||{};return{...x,name:e.name||x.utility_id,address:e.address||"",phone:e.phone||null,zone_id:e.zone_id||null,utility_type:e.utility_type||null,lat:Number.isFinite(map.lat)?map.lat:null,lon:Number.isFinite(map.lon)?map.lon:null}}
-function renderNearResults(){
-  const host=$("#nearResults");if(!host||!support)return;
-  if(!position&&!selectedArea){
-    const picked=selectedCategory?(support.near_me.categories.find(x=>x.id===selectedCategory)?.label||selectedCategory):null;
-    host.innerHTML='<div><strong>'+esc(picked?"Đã chọn "+picked+". Chọn khu vực để xem.":"Chọn một khu vực hoặc dùng vị trí của bạn.")+'</strong>'+
-      '<span>Có thể xem Toàn đảo, Dương Đông, An Thới, Sunset Town hoặc Gành Dầu.</span></div>'+
-      '<a class="near-open-directory" href="nearme/">Mở bản đồ tiện ích →</a>';
-    return;
-  }
-  if(!utilitiesLoaded){host.innerHTML='<div><strong>Chờ chút nhé.</strong><span>Đang tìm những chỗ hữu ích quanh đây.</span></div>';return}
-  let items=[...(support.near_me?.items||[])].map(resolveNearItem);
-  if(selectedCategory)items=items.filter(x=>x.utility_type===selectedCategory);
-  let gpsFallback=false;
-  if(position){
-    const withCoords=items
-      .filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon))
-      .map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
-      .sort((a,b)=>(a.current_status==="OPEN"?0:1)-(b.current_status==="OPEN"?0:1)||a.distance_km-b.distance_km);
-    const fallbackArea=selectedArea&&selectedArea!=="all"?selectedArea:nearestNearArea(position);
-    const areaOnly=items
-      .filter(x=>!Number.isFinite(x.lat)||!Number.isFinite(x.lon))
-      .filter(x=>x.zone_id===fallbackArea||x.place_id===fallbackArea)
-      .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-    gpsFallback=areaOnly.length>0;
-    items=[...withCoords,...areaOnly];
-    if(!items.length){
-      items=[...(support.near_me?.items||[])].map(resolveNearItem)
-        .filter(x=>!selectedCategory||x.utility_type===selectedCategory)
-        .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-    }
-  }else if(selectedArea&&selectedArea!=="all"){
-    items=items.filter(x=>x.zone_id===selectedArea||x.place_id===selectedArea);
-  }else if(selectedArea==="all"){
-    items.sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
-  }
-  if(!items.length){
-    host.innerHTML='<div><strong>Chưa có điểm phù hợp để hiện ở đây.</strong><span>Thử khu vực hoặc loại tiện ích khác.</span></div>'+
-      '<a class="near-open-directory" href="nearme/">Mở Quanh đây →</a>';
-    return;
-  }
-  const stateLabel=x=>{
-    if(x.current_status==="TEMPORARILY_CLOSED")return"Tạm đóng";
-    if(x.current_status==="CLOSED")return"Hiện đóng";
-    if(x.current_status==="OPEN"&&/24\/?24/i.test(x.opening_hours_note||""))return"Mở 24/24";
-    return"";
-  };
-  host.innerHTML=(gpsFallback?'<div class="near-gps-note"><strong>Đã nhận vị trí.</strong><span>Các điểm tiện ích chưa có đủ tọa độ để xếp chính xác theo khoảng cách, nên tạm ưu tiên khu vực gần vị trí bạn vừa chia sẻ.</span></div>':"")+'<div class="near-result-list">'+items.slice(0,6).map(x=>{
-    const state=stateLabel(x),distance=Number.isFinite(x.distance_km)?x.distance_km.toFixed(1)+" km":"";
-    const top=[state,distance].filter(Boolean).join(" · ");
-    return '<article class="near-result-card">'+
-      (top?'<span>'+esc(top)+'</span>':"")+
-      '<strong>'+esc(x.name)+'</strong>'+
-      (x.address?'<small>'+esc(x.address)+'</small>':"")+
-      (x.opening_hours_note?'<small>'+esc(x.opening_hours_note)+'</small>':"")+
-      (x.phone?'<small>☎ '+esc(x.phone)+'</small>':"")+
-      '<div class="near-result-actions"><a href="nearme/">Xem quanh đây →</a></div>'+
-    '</article>';
-  }).join("")+'</div>';
-}
 function currencyRate(value){if(value===null||value===undefined||value==="")return"—";const n=Number(value);if(!Number.isFinite(n)||n<=0)return"—";const digits=n<100?2:n<1000?1:0;return new Intl.NumberFormat("vi-VN",{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(n)+" ₫"}
 function renderHomeCurrency(payload=currencyPayload){const host=$("#homeCurrencyGrid"),status=$("#homeCurrencyStatus");if(!host||!status)return;const rates=payload?.rates||[];if(!rates.length){host.innerHTML='<div class="home-currency-empty">Chưa lấy được tỷ giá lúc này. <a href="currency/">Mở trang tỷ giá →</a></div>';status.textContent="Thử lại sau một chút nhé.";return}const flags={USD:"🇺🇸",KRW:"🇰🇷",CNY:"🇨🇳",RUB:"🇷🇺",EUR:"🇪🇺"},wanted=["USD","KRW","CNY","RUB","EUR"],by=new Map(rates.map(x=>[x.currency,x]));host.innerHTML=wanted.map(code=>{const r=by.get(code);if(!r)return"";const cash=Number(r.cash_buy),transfer=Number(r.transfer_buy),hasCash=r.cash_buy!==null&&r.cash_buy!==undefined&&r.cash_buy!==""&&Number.isFinite(cash)&&cash>0,hasTransfer=r.transfer_buy!==null&&r.transfer_buy!==undefined&&r.transfer_buy!==""&&Number.isFinite(transfer)&&transfer>0;const buy=hasCash?r.cash_buy:hasTransfer?r.transfer_buy:null;const note=hasCash?"VCB mua tiền mặt · bán "+currencyRate(r.sell):hasTransfer?"VCB mua chuyển khoản · bán "+currencyRate(r.sell):"VCB chưa có giá mua · bán "+currencyRate(r.sell);return'<a class="home-currency-card" href="currency/?from='+code+'&amount=100"><span>'+esc((flags[code]||"¤")+" "+code)+'</span><strong>'+esc(currencyRate(buy))+'</strong><small>'+esc(note)+'</small></a>'}).join("");const source=payload.source_updated_at||payload.fetched_at,when=source?new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}).format(new Date(source)):"chưa biết";status.textContent=(payload.data_status==="live"?"Vietcombank · cập nhật ":"Bản gần nhất · ")+when+" · mở trang tỷ giá để quy đổi và xem 30 ngày."}
 function renderHotNow(){
@@ -333,49 +254,14 @@ function renderCuriosity(){
     if(willOpen&&answer){btn.setAttribute("aria-expanded","true");answer.hidden=false;card.dataset.open="true"}
   }));
 }
-function bindNear(){
-  if(nearBound)return;nearBound=true;
-  $("#nearCategories")?.addEventListener("click",e=>{
-    const b=e.target.closest("[data-category]");if(!b)return;
-    selectedCategory=selectedCategory===b.dataset.category?null:b.dataset.category;
-    document.querySelectorAll(".near-category").forEach(x=>x.classList.toggle("active",selectedCategory&&x.dataset.category===selectedCategory));
-    renderNearResults();
-  });
-  $("#nearManualAreas")?.addEventListener("click",e=>{
-    const b=e.target.closest("[data-area]");if(!b)return;
-    selectedArea=b.dataset.area;position=null;
-    document.querySelectorAll("[data-area]").forEach(x=>x.classList.toggle("active",x===b));
-    const loc=$("#nearLocationBtn");if(loc)loc.textContent="⌖ Dùng vị trí của tôi";
-    renderNearResults();
-  });
-  $("#nearLocationBtn")?.addEventListener("click",()=>{
-    const button=$("#nearLocationBtn");
-    if(!navigator.geolocation){
-      $("#nearResults").innerHTML="<strong>Thiết bị này không chia sẻ được vị trí.</strong><span>Bạn vẫn có thể chọn khu vực.</span>";
-      return;
-    }
-    if(button){button.disabled=true;button.textContent="Đang lấy vị trí..."}
-    navigator.geolocation.getCurrentPosition(p=>{
-      position={lat:p.coords.latitude,lon:p.coords.longitude};selectedArea=nearestNearArea(position);
-      document.querySelectorAll("[data-area]").forEach(x=>x.classList.toggle("active",x.dataset.area===selectedArea));
-      if(button){button.disabled=false;button.textContent="✓ Đang dùng vị trí này"}
-      renderNearResults();
-    },()=>{
-      if(button){button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi"}
-      $("#nearResults").innerHTML="<strong>Chưa lấy được vị trí.</strong><span>Chọn Toàn đảo hoặc một khu vực để xem tiếp.</span>";
-    },{enableHighAccuracy:false,timeout:8000,maximumAge:300000});
-  });
-}
-function renderAll(){renderTripClock();renderActivities();renderNearControls();renderNearResults();renderHomeCurrency();renderHotNow();renderCuriosity()}
 async function loadJson(url,label){try{const r=await fetch(url+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error(label+" HTTP "+r.status);return await r.json()}catch(error){console.warn("Homepage source unavailable:",label,error);return null}}
 renderClock();setInterval(()=>{renderClock();renderTripClock()},60000);renderHotNow();renderHomeCurrency();
 const noticesTask=loadJson(NOTICES,"operational-notices").then(data=>{operationalNotices=data;renderTripClock();renderActivities()});
-const supportTask=loadJson(SUPPORT,"home-support").then(data=>{if(!data)return;support=data;renderNearControls();bindNear();renderNearResults();renderHotNow();renderCuriosity();renderTripClock();renderActivities()});
+const supportTask=loadJson(SUPPORT,"home-support").then(data=>{if(!data)return;support=data;window.OPENPQ_HOME_SUPPORT=data;window.dispatchEvent(new CustomEvent("openpq:home-support-ready",{detail:data}));renderHotNow();renderCuriosity();renderTripClock();renderActivities()});
 const placesTask=loadJson(PLACES,"places").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities()});
 const activitiesTask=loadJson(ACTIVITIES,"activities").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities()});
-const utilitiesTask=loadJson(UTILITIES,"utilities").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));utilitiesLoaded=true;renderNearResults()});
 const storiesTask=loadJson(STORIES,"stories").then(data=>{if(!data)return;(data.stories||[]).forEach(x=>stories.set(x.id,x));renderCuriosity()});
 const currencyTask=loadJson(CURRENCY,"currency").then(data=>{currencyPayload=data;renderHomeCurrency()});
-Promise.allSettled([noticesTask,supportTask,placesTask,activitiesTask,utilitiesTask,storiesTask,currencyTask]).then(()=>{renderClock();renderTripClock();renderActivities();renderNearResults();renderHotNow();renderCuriosity();renderHomeCurrency()});
+Promise.allSettled([noticesTask,supportTask,placesTask,activitiesTask,storiesTask,currencyTask]).then(()=>{renderClock();renderTripClock();renderActivities();renderHotNow();renderCuriosity();renderHomeCurrency()});
 window.addEventListener("openpq:live-ready",()=>{renderClock();renderTripClock();renderActivities()});
 })();
