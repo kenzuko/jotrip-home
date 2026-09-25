@@ -91,7 +91,9 @@
     const live=times.find(t=>nowMinute>=t.startMin&&nowMinute<t.startMin+displayLength);
     if(live){
      decision={state:"watch",label:id==="activity_once_show"?"ONCE đã bắt đầu theo lịch":"Đã bắt đầu theo lịch",nextMin:live.startMin,endMin:live.startMin+displayLength};
-     summary=Number.isFinite(listedLength)&&listedLength>0?
+     summary=id==="activity_once_show"?
+      hhmm(live.startMin)+"-"+hhmm(live.startMin+20)+" · show ONCE":
+      Number.isFinite(listedLength)&&listedLength>0?
       hhmm(live.startMin)+"-"+hhmm(live.startMin+displayLength)+" · "+(e.duration||"Theo lịch show"):
       hhmm(live.startMin)+" · Giờ bắt đầu niêm yết";
      note=id==="activity_once_show"?
