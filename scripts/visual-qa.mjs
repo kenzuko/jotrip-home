@@ -154,7 +154,32 @@ async function testHomeFoundation(page) {
   const area = page.locator('#nearManualAreas [data-area]').first();
   if (await area.count()) {
     await area.click().catch(() => {});
-    await page.waitForTimeout(450);
+    await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0, {timeout:6500}).catch(() => {});
+  }
+  // The new homepage shows only four essential cards. Check real selection,
+  // preservation of category + area when opening /nearme, and direct actions.
+  const quickFinder = {
+    cardsAfterArea:await page.locator('#nearResults .near-result-card').count().catch(()=>0),
+    essentials:await page.locator('#nearCategories [data-category]').count().catch(()=>0),
+    others:await page.locator('#nearQuickMore [data-category]').count().catch(()=>0),
+    emergency:await page.locator('.near-quick-emergency-call[href="tel:115"]').count().then(n=>n===1).catch(()=>false)
+  };
+  const pharmacy=page.locator('#nearCategories [data-category="PHARMACY"]');
+  if(await pharmacy.count()){
+    await pharmacy.click();
+    await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0 && new URL(document.querySelector('[data-near-handoff]')?.href||location.href).searchParams.get('category')==='PHARMACY',{timeout:5000}).catch(()=>{});
+    quickFinder.pharmacyCards=await page.locator('#nearResults .near-result-card').count().catch(()=>0);
+    quickFinder.handoff=await page.locator('[data-near-handoff]').first().getAttribute('href').catch(()=>"");
+    quickFinder.directDirections=await page.locator('#nearResults .near-result-actions a[href*="google.com/maps/dir"]').count().then(n=>n>=1).catch(()=>false);
+    await pharmacy.click();
+  }
+  const search=page.locator('#nearQuickSearch');
+  if(await search.count()){
+    await search.fill('Vietcombank');
+    await page.waitForFunction(() => [...document.querySelectorAll('#nearResults .near-result-card strong')].some(el=>el.textContent.includes('Vietcombank')),{timeout:5000}).catch(()=>{});
+    quickFinder.searchFound=await page.locator('#nearResults .near-result-card strong').filter({hasText:'Vietcombank'}).count().then(n=>n>0).catch(()=>false);
+    await search.fill('');
+    await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0,{timeout:5000}).catch(()=>{});
   }
 
   const cancelledToday = await page.evaluate(async () => {
@@ -207,7 +232,7 @@ async function testHomeFoundation(page) {
       initial,featuredHeight,initialCards,expandedHeight,collapsedHeight,expandedExtras,collapsedExtras,desktop};
   });
 
-  return page.evaluate(({initialNearClean,cancelledToday,sidebarLayout}) => {
+  return page.evaluate(({initialNearClean,cancelledToday,sidebarLayout,quickFinder}) => {
     const text = selector => document.querySelector(selector)?.textContent?.trim() || '';
     const count = selector => document.querySelectorAll(selector).length;
     const hanoiHour=Number(new Intl.DateTimeFormat('en-GB',{
@@ -226,7 +251,9 @@ async function testHomeFoundation(page) {
       cancelledShowHidden: Array.isArray(cancelledToday) &&
         cancelledToday.every(id=>!document.querySelector('#tripClockList .trip-item[data-entity-id="'+id+'"]')),
       manualAreas: count('#nearManualAreas [data-area]') >= 4,
-      nearCategories: count('#nearCategories [data-category]') >= 5,
+      nearCategories: count('#nearCategories [data-category]') === 4,
+      nearExtraCategories: count('#nearQuickMore [data-category]') === 4,
+      nearQuickFinder: quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound,
       initialNearClean,
       manualResults: count('#nearResults .near-result-card') >= 1,
       noEmbeddedMap: !document.querySelector('#nearMapFrame, .near-map-shell iframe'),
@@ -235,7 +262,7 @@ async function testHomeFoundation(page) {
       noSyntheticZero: ![...document.querySelectorAll('#homeCurrencyGrid .home-currency-card strong')].some(el => /^0([,.]0+)?\s*₫$/.test(el.textContent.trim()))
     };
     return { ok: Object.values(checks).every(Boolean), checks };
-  }, {initialNearClean,cancelledToday,sidebarLayout});
+  }, {initialNearClean,cancelledToday,sidebarLayout,quickFinder});
 }
 
 async function testNearMePage(page) {
