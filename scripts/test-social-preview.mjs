@@ -1,14 +1,15 @@
 import {readFile,stat} from "node:fs/promises";
 import assert from "node:assert/strict";
 import {existsSync} from "node:fs";
-const out=process.env.OPENPQ_DIST||"dist",file=out+"/assets/share-card-phu-quoc-v2.jpg";
+const out=process.env.OPENPQ_DIST||"dist",file=out+"/assets/share-card-phu-quoc-v3.jpg";
 const data=await readFile(file);
 assert.ok(data.length>75000&&data.length<6000000,"Social preview image size must be 75KB-6MB");
 assert.ok(data[0]===0xff&&data[1]===0xd8,"Share preview must be JPEG, not SVG");
 for(const path of [out+"/index.html",out+"/go/index.html",out+"/explore/index.html"]){
  const html=await readFile(path,"utf8");
- assert.ok(html.includes('https://cms.openphuquoc.com/assets/share-card-phu-quoc-v2.jpg'),path+" preview URL");
+ assert.ok(html.includes('https://cms.openphuquoc.com/assets/share-card-phu-quoc-v3.jpg'),path+" preview URL");
  assert.ok(!html.includes('https://cms.openphuquoc.com/assets/share-card.svg'),path+" must not use SVG preview");
+ assert.ok(!html.includes("share-card-phu-quoc-v2.jpg"),path+" must not use old OG image");
 }
 const home=await readFile(out+"/index.html","utf8");
 assert.ok(home.includes('Phú Quốc, ngay lúc này | Open Phu Quoc'),"Correctly accented homepage title");
