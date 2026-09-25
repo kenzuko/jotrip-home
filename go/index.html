@@ -9,7 +9,7 @@
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="preload" as="image" href="/assets/logo-master.png">
   <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-logo-safe">
-  <link rel="stylesheet" href="go.css?v=20260925v11">
+  <link rel="stylesheet" href="go.css?v=20260925v11radar3">
   <link rel="canonical" href="https://cms.openphuquoc.com/go/">
   <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
   <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
@@ -19,7 +19,7 @@
   <header class="go-head">
     <a class="go-brand" href="../" aria-label="Open Phu Quoc"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
     <div class="go-head-copy"><strong>Đi gì bây giờ?</strong><span>Chọn chuyến đi hợp với hôm nay</span></div>
-    <a class="go-home" href="../">← Trang chủ</a>
+    <div class="go-head-actions"><a class="go-home" href="../">← Trang chủ</a><button class="go-menu-open" type="button" aria-label="Mở menu Open Phu Quoc" aria-controls="goMoreSheet" aria-expanded="false">☰ Menu</button></div>
   </header>
 
   <main>
@@ -42,10 +42,13 @@
         <fieldset>
           <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
           <div class="go-area-row"><div class="choice-grid" id="areaChoices"></div><button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button></div><p id="goLocationStatus" class="go-location-status" role="status">Chọn một khu vực, hoặc bấm định vị nếu bạn muốn xem các điểm gần mình hơn.</p>
-          <div class="go-radius-panel" id="goRadiusPanel" hidden>
-            <div class="go-radius-header"><div><strong>Quanh vị trí của bạn</strong><span>Chọn bán kính để xem các điểm có tọa độ đã xác minh.</span></div><div class="go-radius-actions" id="goRadiusButtons" role="group" aria-label="Bán kính xem quanh đây"><button type="button" data-km="2">2 km</button><button type="button" data-km="5" class="active" aria-pressed="true">5 km</button><button type="button" data-km="10">10 km</button><button type="button" data-km="20">20 km</button></div></div>
+          <div class="go-radius-panel" id="goRadiusPanel">
+            <div class="go-radius-header"><div><strong>Bản đồ khám phá quanh bạn</strong><span id="goMapMode">Đang hiển thị Dương Đông làm khu vực tham khảo. Chọn khu vực khác hoặc dùng GPS để định vị đúng.</span></div><button type="button" class="go-map-reset" id="goMapReset">Xem cả đảo ↗</button></div>
+            <div class="go-radius-controls"><div class="go-radius-actions" id="goRadiusButtons" role="group" aria-label="Chọn nhanh bán kính"><button type="button" data-km="2">2 km</button><button type="button" data-km="5" class="active" aria-pressed="true">5 km</button><button type="button" data-km="10">10 km</button><button type="button" data-km="20">20 km</button><button type="button" data-km="30">30 km</button></div>
+            <label class="go-radius-slider-label" for="goRadiusRange">Bán kính <output id="goRadiusValue" for="goRadiusRange">5 km</output></label>
+            <input type="range" id="goRadiusRange" min="1" max="50" step="1" value="5" aria-label="Tùy chỉnh bán kính từ 1 đến 50 km"><div class="go-radius-extents"><span>1 km</span><span>50 km</span></div></div>
             <div class="go-map" id="goMap" role="region" aria-label="Bản đồ vị trí với vòng bán kính"></div>
-            <div class="go-map-footer"><span id="goMapCount">Đang tìm địa điểm có tọa độ...</span><span>Vòng tròn là khoảng cách đường chim bay, không phải thời gian đi đường.</span></div>
+            <div class="go-map-footer"><span id="goMapCount">Đang tải bản đồ và địa điểm...</span><span>Khoảng cách theo đường chim bay; từ tâm khu vực chỉ để tham khảo, không phải GPS.</span></div>
           </div>
         </fieldset>
         <fieldset>
@@ -109,20 +112,45 @@
 
   <footer class="go-footer">
     <div class="go-footer-brand"><img src="/assets/logo-master.png?v=2" width="380" height="361" alt="Open Phu Quoc"><div><strong>Hiểu đảo trước. Chọn chuyến đi hợp với mình.</strong><p>Thông tin về Phú Quốc, làm tại Phú Quốc. Có gì mới, tụi mình cập nhật để bạn dễ lên đường.</p><small>Được xây dựng tại Phú Quốc bởi JoTrip.</small></div></div>
-    <nav aria-label="Khám phá thêm"><a href="../explore/">Khám phá</a><a href="../food/">Ăn uống</a><a href="../nearme/">Quanh đây</a><a href="../weather/">Thời tiết & biển</a><a href="../about/">Về chúng tôi</a></nav>
+    <nav aria-label="Hệ sinh thái Open Phu Quoc"><a href="../">Trang chủ</a><a href="../explore/">Khám phá</a><a href="../food/">Ăn uống</a><a href="../nearme/">Quanh đây</a><a href="../weather/">Thời tiết & biển</a><a href="../airport/">Sân bay</a><a href="../transit/">Tàu & phà</a><a href="../bus/">Xe buýt</a><a href="../cano/">Cano</a><a href="../guide/knowledge.html">Cẩm nang</a><a href="../utilities/">Tiện ích</a><a href="../about/">Về chúng tôi</a></nav>
     <p class="go-footer-note">Giờ hoạt động và điều kiện đi lại có thể thay đổi. Hãy xem thông tin mới nhất trước khi đi.</p>
   </footer>
 
-  <nav class="go-mobile-nav" aria-label="Điều hướng nhanh">
-    <a href="../#happening">Hôm nay</a><a class="active" href="./">Đi ngay</a><a href="../explore/">Khám phá</a><a href="../#today">Lúc này</a>
+  <nav class="go-mobile-nav" aria-label="Điều hướng Open Phu Quoc trên điện thoại">
+    <a href="../#happening"><span aria-hidden="true">◷</span>Hôm nay</a>
+    <a href="../explore/"><span aria-hidden="true">⌖</span>Khám phá</a>
+    <a href="../#q"><span aria-hidden="true">⌕</span>Tìm kiếm</a>
+    <a href="../#today"><span aria-hidden="true">●</span>Lúc này</a>
+    <button class="go-dock-more" type="button" aria-haspopup="dialog" aria-controls="goMoreSheet" aria-expanded="false"><span aria-hidden="true">•••</span>Thêm</button>
   </nav>
+  <div class="go-more-backdrop" hidden></div>
+  <section class="go-more-sheet" id="goMoreSheet" role="dialog" aria-modal="true" aria-labelledby="goMoreTitle" hidden>
+    <div class="go-more-handle" aria-hidden="true"></div>
+    <div class="go-more-headbar"><div><small>OPEN PHU QUOC</small><h2 id="goMoreTitle">Mở nhanh</h2></div><button type="button" class="go-more-close" aria-label="Đóng menu">×</button></div>
+    <div class="go-menu-group"><strong>ĐANG DIỄN RA</strong><div class="go-menu-grid">
+      <a href="../weather/">☀ <b>Thời tiết & biển</b></a><a href="../airport/">✈ <b>Sân bay</b></a>
+      <a href="../transit/">⛴ <b>Tàu & phà</b></a><a href="../bus/">▣ <b>Xe buýt</b></a>
+      <a href="../cano/">≈ <b>Cano & tour đảo</b></a>
+    </div></div>
+    <div class="go-menu-group"><strong>KHÁM PHÁ</strong><div class="go-menu-grid">
+      <a class="is-current" href="./" aria-current="page">⌖ <b>Đi gì bây giờ?</b></a>
+      <a href="../explore/">◇ <b>Khám phá</b></a><a href="../places/">◎ <b>Điểm đến</b></a>
+      <a href="../food/">♨ <b>Ăn uống</b></a><a href="../nearme/">⊙ <b>Quanh đây</b></a>
+      <a href="../hotels/">⌂ <b>Khách sạn</b></a>
+    </div></div>
+    <div class="go-menu-group"><strong>HỮU ÍCH</strong><div class="go-menu-grid">
+      <a href="../guide/knowledge.html">▤ <b>Cẩm nang</b></a><a href="../utilities/">✚ <b>Tiện ích</b></a>
+      <a href="../currency/">₫ <b>Tỷ giá</b></a><a href="../news/">✦ <b>Tin mới</b></a>
+      <a href="../about/">i <b>Về Open Phu Quoc</b></a>
+    </div></div>
+  </section>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script src="../core/go-geo.js?v=20260925v11" defer></script>
   <script src="../core/go-engine.js?v=20260925v11" defer></script>
   <script src="live-adapter.js?v=20260925a" defer></script>
-  <script src="go-map.js?v=20260925v11" defer></script>
-  <script src="go.js?v=20260925v11" defer></script>
+  <script src="go-map.js?v=20260925v11radar3" defer></script>
+  <script src="go.js?v=20260925v11radar3" defer></script>
 </body>
 </html>
