@@ -165,7 +165,11 @@ jobs:
           const root="https://cms.openphuquoc.com";
           const expectedAdmin=(await readFile("dist/admin/index.html","utf8"))
             .match(/admin\.js\?v=[0-9]+/)?.[0];
-          if(!expectedAdmin||!Number.isInteger(expectedCount))throw Error("Build verification lacks expected CMS metadata");
+          const builtHomepage=await readFile("dist/index.html","utf8");
+          const expectedPlanner=builtHomepage.match(/core\/trip-clock-planner\.js\?v=[a-zA-Z0-9-]+/)?.[0];
+          const expectedHome=builtHomepage.match(/home-foundation-v2\.js\?v=[a-zA-Z0-9-]+/)?.[0];
+          if(!expectedAdmin||!expectedPlanner||!expectedHome||!Number.isInteger(expectedCount))
+            throw Error("Build verification lacks expected CMS metadata");
           const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
           // A successful Pages upload may reach its *.pages.dev preview before
           // the custom-domain edge. An immediate custom-domain GET can return
@@ -196,8 +200,8 @@ jobs:
                Date.now()-Date.parse(edgeHealth.checked_at)>120000)
               throw Error("CMS live Weather Pages Function missing or unhealthy");
             const homepage=await get("/");
-            if(!homepage.body.includes("core/trip-clock-planner.js?v=20260924-text2")||!homepage.body.includes("home-foundation-v2.js?v=20260924-text2"))
-              throw Error("CMS homepage is still serving an older trip-clock version");
+            if(!homepage.body.includes(expectedPlanner)||!homepage.body.includes(expectedHome))
+              throw Error("CMS homepage scripts differ from the current built version");
             const planner=await get("/core/trip-clock-planner.js");
             if(!planner.body.includes("OpenPQTripClockPlanner")||!planner.body.includes("function plan("))
               throw Error("CMS trip-clock planner asset not deployed");
