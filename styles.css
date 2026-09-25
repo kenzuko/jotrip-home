@@ -5931,3 +5931,23 @@ body.sheet-open{
  .home-go-photo-note{left:14px;right:14px;bottom:12px}
  .home-go-photo-note strong{font-size:22px}
 }
+
+
+/* /go homepage rhythm - 25/09/2026
+   Desktop/tablet only. Keep the existing copy, three-photo strip and mobile
+   layout. The global #top>.section padding was stacking with the Go section
+   and producing a large blank interval between Trip Clock and Go. */
+@media(min-width:761px){
+  #top>.trip-clock-section{
+    padding-bottom:12px!important;
+  }
+  #top>.home-go-section{
+    padding-top:0!important;
+    padding-bottom:0!important;
+    margin-top:0!important;
+    margin-bottom:0!important;
+  }
+  #top>.food-now-section{
+    padding-top:18px!important;
+  }
+}
