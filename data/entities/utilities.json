@@ -1099,6 +1099,36 @@
       ],
       "updated_at": "2026-09-24",
       "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+    },
+    {
+      "id": "utility_dienmaycholon_nguyen_trung_truc",
+      "legacy_id": "dienmay-cholon-phuquoc",
+      "entity_type": "utility",
+      "slug": "dienmay-cholon-phuquoc",
+      "name": "Điện máy - Nội thất Chợ Lớn Phú Quốc",
+      "aliases": [
+        "Điện máy Chợ Lớn",
+        "Siêu thị điện máy Chợ Lớn",
+        "Điện máy Chợ Lớn 200A Nguyễn Trung Trực"
+      ],
+      "zone_id": "zone_central_west",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "200A Nguyễn Trung Trực, khu phố 5, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "street_number",
+      "phone": "0297 3885 998",
+      "what_it_is": "Siêu thị điện máy và thiết bị điện tử. Đây là địa chỉ cửa hàng, không phải GPS trạm xe buýt.",
+      "live_check_required": true,
+      "verified": true,
+      "map_review_note": "Đơn vị vận hành xác nhận địa chỉ và cửa hàng; chưa có tọa độ trạm VinBus. Không dùng pin cửa hàng thay pin trạm.",
+      "source_refs": [
+        {
+          "source_id": "dienmaycholon_store_200a_20260925",
+          "url": "https://dienmaycholon.com/he-thong-sieu-thi/200a-nguyen-trung-truc-khu-pho-5-phuong-duong-dong-thanh-pho-phu-quoc-kien-giang",
+          "checked_at": "2026-09-25"
+        }
+      ],
+      "updated_at": "2026-09-25"
     }
   ]
 }
