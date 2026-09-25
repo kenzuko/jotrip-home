@@ -47,7 +47,7 @@
    for(let i=visible.length-1;i>=0;i--){
     const row=visible[i];
     if(row.item.feature_in_today===true)continue;
-    if(row.urgency?.bucket===0&&row.urgency.level>=2)continue;
+    if((row.urgency?.bucket===0&&row.urgency.level>=2)||(row.urgency?.bucket<=1&&row.urgency.level>=3))continue;
     replacement=i;break;
    }
    if(replacement>=0)visible[replacement]=pin;
