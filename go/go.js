@@ -112,6 +112,7 @@
   }
   function drawMap(){
     if(state.mapOverview){window.OpenPQGoMap?.overview();return;}
+    $("#goMapReset").textContent="Xem cả đảo ↗";
     const geo=window.OpenPQGoGeo;
     const point=state.position||geo?.anchors?.[state.originZone];
     if(!geo?.valid(point)){
