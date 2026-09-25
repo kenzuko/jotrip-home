@@ -21,6 +21,7 @@ on:
       - "food/**"
       - "guide/**"
       - "index.html"
+      - "assets/logo-master.png"
       - "assets/share-card-approved.jpg"
       - "scripts/build-share-card.mjs"
       - "scripts/test-social-preview.mjs"
