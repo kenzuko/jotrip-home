@@ -5,75 +5,104 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#F7FBF9">
   <title>Đi gì bây giờ? - Open Phu Quoc</title>
-  <meta name="description" content="Gợi ý việc còn kịp làm ở Phú Quốc dựa trên vị trí, thời gian, lịch hoạt động và điều kiện hiện tại.">
+  <meta name="description" content="Đang ở Phú Quốc và chưa biết đi đâu? Chọn khu vực, thời gian còn lại và điều bạn thích, rồi tìm một nơi thuận đường.">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="preload" as="image" href="/assets/logo-master.png">
+  <link rel="preconnect" href="https://commons.wikimedia.org">
   <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-logo-safe">
-  <link rel="stylesheet" href="go.css?v=20260925a">
+  <link rel="stylesheet" href="go.css?v=20260925b">
   <link rel="canonical" href="https://cms.openphuquoc.com/go/">
+  <meta property="og:site_name" content="Open Phu Quoc">
   <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
-  <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
+  <meta property="og:description" content="Còn mấy tiếng? Đi đâu cho đáng. Gợi ý theo khu bạn ở và thời gian còn lại.">
   <meta property="og:image" content="https://cms.openphuquoc.com/assets/share-card.svg">
 </head>
 <body>
   <header class="go-head">
-    <a class="go-brand" href="../" aria-label="Open Phu Quoc"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
-    <div class="go-head-copy"><strong>Đi gì bây giờ?</strong><span>Decision layer · Open Phu Quoc</span></div>
+    <a class="go-brand" href="../" aria-label="Trang chủ Open Phu Quoc"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
+    <div class="go-head-copy"><strong>Đi gì bây giờ?</strong><span>Tìm chuyến đi hợp với hôm nay</span></div>
+    <nav class="go-head-nav" aria-label="Điều hướng"><a href="../#happening">Hôm nay</a><a href="../explore/">Khám phá</a><a href="../nearme/">Quanh đây</a></nav>
     <a class="go-home" href="../">← Trang chủ</a>
   </header>
-
   <main>
     <section class="go-hero">
       <div class="go-hero-copy">
-        <p>OPEN PHU QUOC / GO</p>
-        <h1>Đừng chỉ xem.<br><em>Chọn việc còn kịp làm.</em></h1>
-        <span>Open Phu Quoc ghép giờ hiện tại, khu bạn đang ở, thời lượng trải nghiệm và các tín hiệu vận hành để lọc những lựa chọn khả thi trước.</span>
+        <p class="go-kicker">PHÚ QUỐC / ĐI CHƠI HÔM NAY</p>
+        <h1>Còn mấy tiếng?<br><em>Đi đâu cho đáng.</em></h1>
+        <p class="go-hero-lead">Đang ở đâu, còn bao lâu, muốn đi kiểu gì? Chọn vài điều thôi, tụi mình tìm những chỗ thuận đường mà bạn vẫn còn kịp ghé.</p>
+        <div class="go-hero-actions">
+          <a class="go-hero-cta" href="#goBuilderTitle">Chọn chỗ đi ngay <span aria-hidden="true">↗</span></a>
+          <div class="go-now"><span>GIỜ PHÚ QUỐC</span><strong id="goClock">--:--</strong><small id="goDate">Giờ địa phương</small></div>
+        </div>
       </div>
-      <div class="go-now">
-        <span>GIỜ PHÚ QUỐC</span><strong id="goClock">--:--</strong><small id="goDate">Đang lấy giờ địa phương</small>
+      <div class="go-hero-gallery" aria-label="Những góc Phú Quốc đáng khám phá">
+        <figure class="go-gallery-main">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Kiss%20Bridge%20at%20sunset%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1800" alt="Cầu Hôn Phú Quốc lúc hoàng hôn" fetchpriority="high">
+          <figcaption>Cầu Hôn khi chiều xuống <small>Ảnh: Wikimedia Commons - Vivu Vietnam</small></figcaption>
+        </figure>
+        <figure class="go-gallery-small">
+          <img src="/assets/photos/tour-3-islands-jotrip-1600.jpg" alt="Một chuyến đi khám phá ba đảo phía Nam Phú Quốc" loading="lazy">
+          <figcaption>Ra đảo, đón nắng</figcaption>
+        </figure>
+        <figure class="go-gallery-small">
+          <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Making%20ice%20cream%20rolls%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1800" alt="Quầy kem cuộn tại chợ đêm Phú Quốc" loading="lazy">
+          <figcaption>Lang thang chợ đêm</figcaption>
+        </figure>
       </div>
     </section>
 
     <section class="go-builder" aria-labelledby="goBuilderTitle">
       <div class="go-builder-head">
-        <div><p>3 CÂU HỎI</p><h2 id="goBuilderTitle">Bạn đang ở đâu và còn bao nhiêu thời gian?</h2></div>
-        <span>Vị trí không được xin tự động. V1 dùng khu vực bạn chọn.</span>
+        <div><p>CHỌN NHANH, ĐI THONG THẢ</p><h2 id="goBuilderTitle">Hôm nay bạn muốn đi kiểu gì?</h2></div>
+        <span>Chọn khu bạn đang ở là đủ, không cần bật vị trí điện thoại.</span>
       </div>
-
-      <form id="goForm" class="go-form">
-        <fieldset>
-          <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
-          <div class="choice-grid" id="areaChoices"></div>
-        </fieldset>
-        <fieldset>
-          <legend><b>02</b><span>Bạn còn bao nhiêu thời gian?</span></legend>
-          <div class="choice-grid four">
-            <label><input type="radio" name="available" value="two"><span>2 giờ<small>Đi gần, gọn</small></span></label>
-            <label><input type="radio" name="available" value="half" checked><span>Nửa ngày<small>Khoảng 5 giờ</small></span></label>
-            <label><input type="radio" name="available" value="full"><span>Cả ngày<small>Khoảng 10 giờ</small></span></label>
-            <label><input type="radio" name="available" value="evening"><span>Buổi tối<small>Từ giờ tới 23:00</small></span></label>
+      <div class="go-builder-layout">
+        <form id="goForm" class="go-form">
+          <fieldset>
+            <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
+            <div class="choice-grid" id="areaChoices"></div>
+          </fieldset>
+          <fieldset>
+            <legend><b>02</b><span>Bạn còn bao nhiêu thời gian?</span></legend>
+            <div class="choice-grid four">
+              <label><input type="radio" name="available" value="two"><span>2 giờ<small>Đi gần, gọn</small></span></label>
+              <label><input type="radio" name="available" value="half" checked><span>Nửa ngày<small>Khoảng 5 giờ</small></span></label>
+              <label><input type="radio" name="available" value="full"><span>Cả ngày<small>Khoảng 10 giờ</small></span></label>
+              <label><input type="radio" name="available" value="evening"><span>Buổi tối<small>Đi chơi từ chiều</small></span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend><b>03</b><span>Thích trải nghiệm nào?</span></legend>
+            <div class="choice-grid interest-grid">
+              <label><input type="radio" name="interest" value="all" checked><span>Tất cả</span></label>
+              <label><input type="radio" name="interest" value="sea"><span>Biển &amp; đảo</span></label>
+              <label><input type="radio" name="interest" value="family"><span>Gia đình</span></label>
+              <label><input type="radio" name="interest" value="culture"><span>Văn hóa</span></label>
+              <label><input type="radio" name="interest" value="food"><span>Ăn uống</span></label>
+              <label><input type="radio" name="interest" value="evening"><span>Buổi tối</span></label>
+              <label><input type="radio" name="interest" value="nature"><span>Thiên nhiên</span></label>
+              <label><input type="radio" name="interest" value="relax"><span>Nhẹ nhàng</span></label>
+            </div>
+          </fieldset>
+          <button class="go-submit" type="submit"><span>Tìm chỗ chơi hợp với tôi</span><b aria-hidden="true">→</b></button>
+          <p class="go-form-hint">Gợi ý dựa trên giờ hoạt động và thời gian đi đường ước tính. Những chỗ cần kiểm tra thêm sẽ được ghi rõ.</p>
+        </form>
+        <aside class="go-inspiration">
+          <figure class="go-inspiration-photo">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai%20Sao%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam%20%283870300491%29.jpg?width=1800" alt="Bãi Sao Phú Quốc" loading="lazy">
+            <figcaption><small>THÊM CHÚT CẢM HỨNG</small><strong>Một chiều biển xanh cũng đủ vui.</strong><span>Không cần cố đi hết cả đảo trong một ngày.</span></figcaption>
+          </figure>
+          <div class="go-inspiration-links">
+            <a href="../explore/"><span>Muốn tự chọn địa điểm?</span><strong>Khám phá từng khu <b aria-hidden="true">↗</b></strong></a>
+            <a href="../weather/"><span>Trước khi ra biển</span><strong>Xem thời tiết &amp; biển <b aria-hidden="true">↗</b></strong></a>
           </div>
-        </fieldset>
-        <fieldset>
-          <legend><b>03</b><span>Hôm nay muốn kiểu gì?</span></legend>
-          <div class="choice-grid interest-grid">
-            <label><input type="radio" name="interest" value="all" checked><span>Tất cả</span></label>
-            <label><input type="radio" name="interest" value="sea"><span>Biển & đảo</span></label>
-            <label><input type="radio" name="interest" value="family"><span>Gia đình</span></label>
-            <label><input type="radio" name="interest" value="culture"><span>Văn hóa</span></label>
-            <label><input type="radio" name="interest" value="food"><span>Ăn uống</span></label>
-            <label><input type="radio" name="interest" value="evening"><span>Buổi tối</span></label>
-            <label><input type="radio" name="interest" value="nature"><span>Thiên nhiên</span></label>
-            <label><input type="radio" name="interest" value="relax"><span>Nhẹ nhàng</span></label>
-          </div>
-        </fieldset>
-        <button class="go-submit" type="submit"><span>Tìm việc hợp với tôi</span><b>→</b></button>
-      </form>
+        </aside>
+      </div>
     </section>
 
     <section class="go-results-section" id="resultsSection" hidden aria-live="polite">
       <div class="go-results-head">
-        <div><p id="resultEyebrow">GỢI Ý CHO BẠN</p><h2 id="resultTitle">Những việc còn khả thi từ giờ.</h2></div>
+        <div><p id="resultEyebrow">GỢI Ý CHO BẠN</p><h2 id="resultTitle">Những nơi còn kịp ghé hôm nay.</h2></div>
         <button id="changeChoices" type="button">Đổi lựa chọn</button>
       </div>
       <div class="go-live-note" id="liveNote"></div>
@@ -81,19 +110,39 @@
       <div class="go-excluded" id="goExcluded" hidden></div>
     </section>
 
-    <section class="go-principles">
-      <article><span>01</span><strong>Lọc cái không kịp trước</strong><p>Không xếp hạng một điểm đẹp nếu thời gian di chuyển và trải nghiệm khiến bạn không còn đủ giờ.</p></article>
-      <article><span>02</span><strong>Không giả vờ là live</strong><p>Giờ công bố, dự báo thời tiết và xác nhận vận hành được giữ riêng. Chưa chắc thì hiện “cần kiểm tra”.</p></article>
-      <article><span>03</span><strong>Không thay module chuyên biệt</strong><p>Weather, Cano, Transit và các trang chi tiết vẫn là nguồn chuyên sâu. /go chỉ kết hợp tín hiệu để giúp quyết định.</p></article>
+    <section class="go-more" aria-labelledby="goMoreTitle">
+      <div class="go-more-heading"><p>CHƯA VỘI VỀ?</p><h2 id="goMoreTitle">Phú Quốc còn nhiều điều để khám phá.</h2></div>
+      <div class="go-more-grid">
+        <a class="go-more-card" href="../explore/">
+          <figure><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Sun%20World%20Hon%20Thom%20aerial%20view%20panorama%20sunset%20Phu%20Quoc.jpg?width=1800" alt="Toàn cảnh Hòn Thơm và vùng biển phía Nam Phú Quốc" loading="lazy"></figure>
+          <span>KHÁM PHÁ</span><strong>Chọn một khu, đi chơi cho trọn.</strong><small>Bắc đảo, Dương Đông hay Nam đảo <b aria-hidden="true">↗</b></small>
+        </a>
+        <a class="go-more-card" href="../nearme/">
+          <figure><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Making%20ice%20cream%20rolls%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1800" alt="Quầy kem cuộn tại chợ đêm Phú Quốc" loading="lazy"></figure>
+          <span>QUANH ĐÂY</span><strong>Cần tìm một chỗ gần mình?</strong><small>Ăn uống, tiện ích và những nơi cần ghé <b aria-hidden="true">↗</b></small>
+        </a>
+        <a class="go-more-card" href="../guide/knowledge.html">
+          <figure><img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai%20Sao%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam%20%283870300491%29.jpg?width=1800" alt="Bãi Sao Phú Quốc" loading="lazy"></figure>
+          <span>HIỂU ĐẢO</span><strong>Đọc thêm vài chuyện trước khi đi.</strong><small>Cẩm nang và những kinh nghiệm địa phương <b aria-hidden="true">↗</b></small>
+        </a>
+      </div>
     </section>
   </main>
 
+  <footer class="go-footer">
+    <div class="go-footer-main">
+      <a href="../" aria-label="Open Phu Quoc - Trang chủ"><img src="/assets/logo-master.png?v=2" alt="Open Phu Quoc" width="380" height="361"></a>
+      <div><strong>Hiểu đảo trước. Đi chơi thoải mái hơn.</strong><p>Thời tiết, di chuyển và những chỗ đáng ghé, được cập nhật để bạn chọn chuyến đi hợp với mình.</p><small>Được xây dựng tại Phú Quốc bởi JoTrip.</small></div>
+    </div>
+    <nav aria-label="Liên kết cuối trang">
+      <a href="../">Trang chủ</a><a href="../explore/">Khám phá</a><a href="../weather/">Thời tiết &amp; biển</a><a href="../transit/">Tàu &amp; phà</a><a href="../nearme/">Quanh đây</a><a href="../about/">Về Open Phu Quoc</a>
+    </nav>
+  </footer>
   <nav class="go-mobile-nav" aria-label="Điều hướng nhanh">
     <a href="../#happening">Hôm nay</a><a class="active" href="./">Đi ngay</a><a href="../explore/">Khám phá</a><a href="../#today">Lúc này</a>
   </nav>
-
   <script src="../core/go-engine.js?v=20260925a"></script>
   <script src="live-adapter.js?v=20260925a"></script>
-  <script src="go.js?v=20260925a"></script>
+  <script src="go.js?v=20260925b"></script>
 </body>
 </html>
