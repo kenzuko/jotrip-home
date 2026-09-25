@@ -1,0 +1,159 @@
+/* Compact homepage Cẩm nang: preserve the desktop grid, shorten only the mobile read. */
+.home-library-mobile-title,.home-library-mobile-cta{display:none}
+@media(min-width:761px){
+  #top>.home-library-section{padding-top:24px!important;padding-bottom:24px!important}
+  .home-library-section .home-library-intro{margin-bottom:14px}
+  .home-library-section .home-library-card{min-height:196px;padding:17px;gap:8px}
+}
+@media(max-width:760px){
+  #top>.home-library-section{
+    padding:19px 0 17px!important;
+    scroll-margin-top:65px;
+  }
+  .home-library-section>.section-heading{
+    margin:0 0 12px!important;
+    display:block;
+  }
+  .home-library-section>.section-heading .eyebrow{
+    margin:0;
+    font-size:10px!important;
+    line-height:1.4;
+    letter-spacing:.14em;
+  }
+  .home-library-section>.section-heading h2{
+    margin:6px 0 0;
+    max-width:470px;
+    font-size:clamp(27px,6.7vw,33px)!important;
+    line-height:1.08!important;
+    letter-spacing:-.035em;
+  }
+  .home-library-mobile-title{display:inline}
+  .home-library-desktop-title,
+  .home-library-section>.section-heading>a,
+  .home-library-section .home-library-intro{display:none}
+  .home-library-section .home-library-grid{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    overflow:visible;
+  }
+  .home-library-section .home-library-card{
+    position:relative;
+    min-width:0;
+    min-height:0;
+    padding:12px 0;
+    gap:5px;
+    border:0;
+    border-radius:0;
+    box-shadow:none;
+    background:#fff;
+    transform:none;
+  }
+  .home-library-section .home-library-card:hover,
+  .home-library-section .home-library-card:focus-visible{
+    border:0;
+    box-shadow:none;
+    transform:none;
+  }
+  .home-library-section .home-library-card:first-child{
+    padding:14px 16px 13px;
+    min-height:144px;
+    margin-bottom:4px;
+    border:1px solid #deebe4;
+    border-radius:17px;
+    background:#f1f7f3;
+  }
+  .home-library-section .home-library-card:first-child:focus-visible{
+    outline:2px solid #27785c;
+    outline-offset:3px;
+  }
+  .home-library-section .home-library-card:first-child .home-library-topic{
+    font-size:10px;
+    line-height:1.3;
+  }
+  .home-library-section .home-library-card:first-child strong{
+    font-size:clamp(19px,4.8vw,23px);
+    line-height:1.16;
+    letter-spacing:-.025em;
+    margin-top:1px;
+  }
+  .home-library-section .home-library-card:first-child small{
+    font-size:13px;
+    line-height:1.44;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    overflow:hidden;
+  }
+  .home-library-section .home-library-card:first-child .home-library-action{
+    margin-top:4px;
+    padding-top:0;
+    font-size:13px;
+  }
+  .home-library-section .home-library-card:nth-child(2),
+  .home-library-section .home-library-card:nth-child(3){
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 26px;
+    grid-template-areas:"topic arrow" "title arrow";
+    column-gap:9px;
+    row-gap:2px;
+    align-items:center;
+    padding:11px 2px;
+    border-bottom:1px solid #e2ece7;
+  }
+  .home-library-section .home-library-card:nth-child(2):focus-visible,
+  .home-library-section .home-library-card:nth-child(3):focus-visible{
+    outline:2px solid #27785c;
+    outline-offset:2px;
+  }
+  .home-library-section .home-library-card:nth-child(2):after,
+  .home-library-section .home-library-card:nth-child(3):after{
+    content:"↗";
+    grid-area:arrow;
+    justify-self:end;
+    font-size:21px;
+    color:#31735b;
+    line-height:1;
+  }
+  .home-library-section .home-library-card:nth-child(2) .home-library-topic,
+  .home-library-section .home-library-card:nth-child(3) .home-library-topic{
+    grid-area:topic;
+    font-size:10px;
+    line-height:1.3;
+    color:#558273;
+  }
+  .home-library-section .home-library-card:nth-child(2) strong,
+  .home-library-section .home-library-card:nth-child(3) strong{
+    grid-area:title;
+    font-size:16px;
+    line-height:1.27;
+    letter-spacing:-.015em;
+  }
+  .home-library-section .home-library-card:nth-child(2) small,
+  .home-library-section .home-library-card:nth-child(3) small,
+  .home-library-section .home-library-card:nth-child(2) .home-library-action,
+  .home-library-section .home-library-card:nth-child(3) .home-library-action,
+  .home-library-section .home-library-card:nth-child(n+4),
+  .home-library-section .home-library-footer{display:none}
+  .home-library-mobile-cta{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:12px;
+    min-height:42px;
+    padding:10px 14px;
+    border:1px solid #c8dfd3;
+    border-radius:13px;
+    background:#fff;
+    color:#1e6651;
+    font-size:13px;
+    font-weight:800;
+    line-height:1.35;
+    text-align:center;
+    text-decoration:none;
+  }
+  .home-library-mobile-cta:hover,.home-library-mobile-cta:focus-visible{
+    background:#edf6f0;
+    border-color:#83b29a;
+  }
+}

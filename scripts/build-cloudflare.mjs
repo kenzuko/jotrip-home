@@ -25,6 +25,8 @@ const rootFiles=[
   "home-today-v3.js",
   "home-copy.js",
   "home-experience-v1.js",
+  "home-library.js",
+  "home-library.css",
   "subpage.css",
   "island-clock.js",
   "live-module.css",

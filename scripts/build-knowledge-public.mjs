@@ -36,4 +36,19 @@ if(objects.some(o=>!o.topic_id||!o.editorial.short_summary||!o.editorial.practic
 if(objects.some(o=>/https?:\/\//i.test(JSON.stringify(o.editorial))))throw new Error("External URL in editorial");
 if(/"research"\s*:|"sources"\s*:/i.test(JSON.stringify(objects)))throw new Error("Source fields leaked");
 fs.writeFileSync(out,JSON.stringify({schema_version:"1.1",generated_at:new Date().toISOString(),count:objects.length,photographed:objects.filter(o=>o.media.images.length).length,objects},null,2)+"\n");
+// Homepage consumes a small public-only feed, never the internal research store.
+// This feeds deterministic daily rotation without downloading all 128 full articles.
+const homepageObjects=objects.map(o=>({
+  topic_id:o.topic_id,topic_type:o.topic_type,title:o.title,route:o.route,
+  short_summary:o.editorial.short_summary
+}));
+if(homepageObjects.length!==objects.length
+  ||new Set(homepageObjects.map(o=>o.topic_id)).size!==homepageObjects.length
+  ||homepageObjects.some(o=>!o.route.startsWith("/guide/article.html?id="))){
+  throw new Error("Invalid homepage knowledge feed");
+}
+fs.writeFileSync(path.join(root,"data/views/knowledge-home.json"),
+  JSON.stringify({schema_version:"1.0",count:homepageObjects.length,objects:homepageObjects})+"\n");
+console.log("Homepage knowledge feed:",homepageObjects.length,"approved teasers");
+
 console.log("Public knowledge view:",objects.length,"articles,",objects.filter(o=>o.media.images.length).length,"with photos");
