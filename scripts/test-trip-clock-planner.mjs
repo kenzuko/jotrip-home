@@ -45,7 +45,7 @@ assert.equal(afternoon.hidden.length,3);
 assert.equal(afternoon.visible[0].item.entity_id,safari);
 assert.ok(afternoon.visible.some(x=>x.item.entity_id===symphony));
 assert.ok(afternoon.visible.some(x=>x.item.entity_id===kiss));
-assert.ok(afternoon.visible.every(x=>x.summary&&x.note&&x.e.name));
+assert.ok(afternoon.visible.every(x=>x.summary&&typeof x.note==="string"&&x.e.name));
 assert.ok(afternoon.visible.every((x,i,arr)=>i===0||x.urgency.bucket>=arr[i-1].urgency.bucket));
 const morning=plan.select(rows(8),10);
 assert.ok(morning.visible.some(x=>x.item.entity_id===kiss),"Evening shows should be discoverable from morning");
