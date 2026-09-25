@@ -151,6 +151,9 @@ async function testHomeFoundation(page) {
   }, { timeout: 6000 }).catch(() => {});
 
   const initialNearClean = await page.locator('#nearResults .near-result-card').count().then(n => n === 0).catch(() => false);
+  const mobileNear = await page.evaluate(() => matchMedia('(max-width:720px)').matches);
+  const collapsedInitially = !mobileNear || (!(await page.locator('.near-quick-results').isVisible()) && !(await page.locator('#nearManualAreas').isVisible()) && !(await page.locator('#nearQuickMore').isVisible()));
+  if (mobileNear) await page.locator('#nearAreaToggle').click();
   const area = page.locator('#nearManualAreas [data-area]').first();
   if (await area.count()) {
     await area.click().catch(() => {});
@@ -158,7 +161,10 @@ async function testHomeFoundation(page) {
   }
   // The new homepage shows only four essential cards. Check real selection,
   // preservation of category + area when opening /nearme, and direct actions.
+  const resultsAfterArea = await page.locator('.near-quick-results').isVisible().catch(()=>false);
+  const areaSelectorClosed = !mobileNear || !(await page.locator('#nearManualAreas').isVisible());
   const quickFinder = {
+    collapsedInitially,resultsAfterArea,areaSelectorClosed,
     cardsAfterArea:await page.locator('#nearResults .near-result-card').count().catch(()=>0),
     essentials:await page.locator('#nearCategories [data-category]').count().catch(()=>0),
     others:await page.locator('#nearQuickMore [data-category]').count().catch(()=>0),
@@ -266,7 +272,7 @@ async function testHomeFoundation(page) {
       manualAreas: count('#nearManualAreas [data-area]') >= 4,
       nearCategories: count('#nearCategories [data-category]') === 4,
       nearExtraCategories: count('#nearQuickMore [data-category]') === 4,
-      nearQuickFinder: quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound,
+      nearQuickFinder: quickFinder.collapsedInitially&&quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound,
       nearMobileFlow: window.innerWidth>720 || (
         document.querySelector('.near-quick-controls')?.compareDocumentPosition(document.querySelector('.near-quick-results')) & Node.DOCUMENT_POSITION_FOLLOWING &&
         document.querySelector('.near-quick-results')?.compareDocumentPosition(document.querySelector('.near-quick-secondary')) & Node.DOCUMENT_POSITION_FOLLOWING &&
