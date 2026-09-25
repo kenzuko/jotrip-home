@@ -102,6 +102,15 @@
       const e=entities.get(cfg.entity_id);
       if(!e){excluded.push({id:cfg.entity_id,reason:"Thiếu dữ liệu địa điểm"});continue}
       if(!matches(e,cfg,input.interest))continue;
+      const geo=typeof window!=="undefined"?window.OpenPQGoGeo:globalThis.OpenPQGoGeo;
+      const point=geo?.destinationPoint?.(e);
+      const straightKm=geo?.valid?.(input.position)&&point?geo.distanceKm(input.position,point):null;
+      // V1.1 radius is a straight-line discovery filter. Unknown coordinates
+      // are never represented as being inside the selected circle.
+      if(geo?.valid?.(input.position)&&input.radiusKm){
+        if(straightKm===null){excluded.push({id:e.id,reason:"Chưa có tọa độ đủ rõ để xét bán kính"});continue}
+        if(straightKm>Number(input.radiusKm)){excluded.push({id:e.id,reason:"Nằm ngoài bán kính bạn chọn"});continue}
+      }
       const drive=travel(input.originZone,e.zone_id);
       if(!drive){excluded.push({id:e.id,reason:"Chưa có vị trí đủ rõ để tính đường đi"});continue}
       const liveCheck=assessLive(e,cfg,input.live,input.notices,when.day);
@@ -116,13 +125,13 @@
       const badge=warnings.length?"CHECK":"POSSIBLE";
       results.push({
         id:e.id,name:e.name,zone:e.zone_id,route:cfg.route||"/explore/",
-        category:cfg.category||"TRẢI NGHIỆM",badge,travel:drive,
+        category:cfg.category||"TRẢI NGHIỆM",badge,travel:drive,distance_km:straightKm,
         arrival:hhmm(match.arrival),starts_at:hhmm(match.start),finish_at:hhmm(match.finish),
         time_left:Math.max(0,match.deadline-when.minute),
         timing:match.window.fixed?"Suất theo lịch "+hhmm(match.start):"Dự kiến bắt đầu "+hhmm(match.start),
         note:cfg.description||e.what_it_is||"",
         warnings,source:"Lịch công bố · di chuyển ước tính",
-        score:(badge==="POSSIBLE"?0:10000)+(matches(e,cfg,input.interest)&&input.interest!=="all"?-150:0)+Math.max(0,match.deadline-when.minute)*-0.2+drive.minutes*1.4+(cfg.order||0)
+        score:(badge==="POSSIBLE"?0:10000)+(matches(e,cfg,input.interest)&&input.interest!=="all"?-150:0)+Math.max(0,match.deadline-when.minute)*-0.2+drive.minutes*1.4+(straightKm===null?0:straightKm*2)+(cfg.order||0)
       });
     }
     results.sort((a,b)=>a.score-b.score||a.name.localeCompare(b.name,"vi"));

@@ -47,3 +47,68 @@
 .go-more-card small{display:block;margin-top:7px;color:var(--muted);font-size:10px;line-height:1.35}
 @media(max-width:900px){.go-more-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.go-more{margin-top:16px}.go-more-grid{grid-template-columns:1fr}.go-more-card{grid-template-columns:105px minmax(0,1fr)}.go-more-card>img,.go-more-placeholder{width:105px}}
+
+
+/* Go 1.1 - compact desktop choices; phone uses the existing comfortable controls */
+.go-area-row{display:flex;align-items:stretch;gap:11px}
+.go-area-row .choice-grid{flex:1;min-width:0}
+.go-location-button{flex:0 0 auto;min-height:58px;padding:11px 17px;border:1px solid #9cc9b5;border-radius:15px;background:#ecf7f1;color:#185a43;font-weight:850;font-size:13px;cursor:pointer}
+.go-location-button:hover,.go-location-button:focus-visible{background:#dcf1e5;border-color:#578e75}
+.go-location-button:disabled{opacity:.65;cursor:wait}
+.go-location-button span{font-size:20px;vertical-align:middle;margin-right:5px}
+.go-location-status{margin:10px 0 0;color:#607d74;font-size:12px;line-height:1.4}
+.go-radius-panel{margin:17px 0 0;overflow:hidden;border:1px solid #cce4d8;border-radius:19px;background:#f9fdfa}
+.go-radius-panel[hidden]{display:none!important}
+.go-radius-header{padding:15px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.go-radius-header>div:first-child{display:grid;gap:5px}
+.go-radius-header strong{color:#184b3f;font-size:17px}
+.go-radius-header span{color:#667e73;font-size:12px}
+.go-radius-actions{display:flex;gap:5px;flex-wrap:wrap}
+.go-radius-actions button{min-width:50px;min-height:38px;padding:7px 10px;border:1px solid #c3dcd0;border-radius:11px;background:#fff;color:#316c54;font-size:12px;font-weight:800;cursor:pointer}
+.go-radius-actions button.active{background:#1a694f;color:#fff;border-color:#1a694f}
+.go-map{height:330px;position:relative;background:#deeee4}
+.go-map-unavailable{height:100%;display:grid;place-items:center;padding:24px;text-align:center;color:#507166;font-size:14px}
+.go-map-footer{padding:11px 15px;display:flex;justify-content:space-between;gap:10px;color:#5f796e;font-size:11px}
+.go-map-footer span:first-child{font-weight:850;color:#20644d}
+.go-you-marker{background:none;border:0}
+.go-you-pulse{position:absolute;inset:0;border:2px solid #166a50;border-radius:50%;background:rgba(46,154,109,.12);animation:goRing 2.5s ease-out infinite}
+.go-you-core{position:absolute;left:10px;top:10px;width:9px;height:9px;border:2px solid #fff;border-radius:50%;background:#145b45;box-shadow:0 0 0 3px rgba(23,113,78,.4)}
+@keyframes goRing{0%{transform:scale(.4);opacity:1}90%{transform:scale(1.5);opacity:.18}100%{transform:scale(1.5);opacity:0}}
+.go-food-near{margin-top:22px;padding:20px;display:flex;align-items:center;justify-content:space-between;gap:18px;border:1px solid #d9e9db;border-radius:18px;background:#f1f8ee}
+.go-food-near[hidden]{display:none!important}
+.go-food-near p{margin:0 0 6px;color:#428063;font-size:10px;font-weight:900;letter-spacing:.12em}
+.go-food-near h3{margin:0 0 5px;color:#153f35;font-size:22px;letter-spacing:-.035em}
+.go-food-near span{font-size:13px;color:#60766d;line-height:1.45}
+.go-food-actions{display:flex;gap:7px;flex-wrap:wrap;flex-shrink:0}
+.go-food-actions a{padding:11px 13px;border-radius:12px;border:1px solid #9fcdb2;background:#fff;color:#1d6b4b;font-size:12px;font-weight:850}
+.go-food-actions a:first-child{background:#166b4c;color:#fff}
+@media(min-width:761px){
+ .go-builder-head{padding:18px 22px}
+ .go-builder-head h2{font-size:clamp(23px,2.3vw,30px)}
+ .go-form{padding:0 22px 18px}
+ .go-form fieldset{padding:16px 0}
+ .go-form legend{width:auto;padding:0 0 8px;margin:0;font-size:14px}
+ .go-form legend b{width:25px;height:25px}
+ .choice-grid{gap:8px}
+ .choice-grid label>span{min-height:48px;padding:10px 13px;border-radius:13px}
+ .choice-grid.four label>span{min-height:55px}
+ .choice-grid.interest-grid label>span{min-height:45px}
+ .go-submit{min-height:49px}
+}
+@media(min-width:761px) and (max-width:1050px){
+ .go-area-row{flex-wrap:wrap}
+ .go-location-button{min-height:44px}
+ .go-food-near{flex-wrap:wrap}
+}
+@media(max-width:760px){
+ .go-area-row{display:block}
+ .go-location-button{width:100%;margin-top:9px;min-height:45px}
+ .go-radius-header{display:block}
+ .go-radius-actions{margin-top:11px}
+ .go-map{height:275px}
+ .go-map-footer{display:grid}
+ .go-food-near{display:block;padding:17px}
+ .go-food-actions{margin-top:13px}
+ .go-food-actions a{flex:1;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){.go-you-pulse{animation:none}}
