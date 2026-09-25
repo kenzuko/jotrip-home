@@ -7,7 +7,9 @@
     "realtime": "https://maps.vinbus.vn/pq",
     "note": "Official web/app provides route, stop and estimated arrival / online vehicle location. Open Phu Quoc only republishes LIVE positions after a verified machine-readable feed is resolved; until then it links to the official live map.",
     "shuttle_reference": "https://vinwonders.com/vi/wonderpedia/news/vinbus-phu-quoc/",
-    "published_at": "2025-07-25"
+    "published_at": "2025-07-25",
+    "recent_stop_note": "Corona Theatre listed as 2026 stop in Thaiest route 17 directions; maps.vinbus.vn/pq remains official source. No confirmed stop GPS.",
+    "recent_stop_reference": "https://thaiest.com/vietnam/travel/phu-quoc-bus-17"
   },
   "routes": [
     {
@@ -49,6 +51,7 @@
         "Gần ngã 3 Cửa Cạn",
         "Ngã ba Fusion Resort Phú Quốc",
         "Gần cây xăng Phương Vy",
+        "Nhà hát Corona",
         "VinHolidays Fiesta (Ngoại khu)",
         "Wyndham Garden (Ngoại khu)",
         "Quảng Trường Biển (Ngoại khu)",
@@ -102,6 +105,7 @@
         "Gần ngã 3 Cửa Cạn",
         "Ngã ba Fusion Resort Phú Quốc",
         "Gần cây xăng Phương Vy",
+        "Nhà hát Corona",
         "VinHolidays Fiesta",
         "Wyndham Garden",
         "Quảng Trường Biển",
