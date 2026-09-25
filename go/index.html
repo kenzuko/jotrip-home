@@ -10,7 +10,7 @@
   <link rel="preload" as="image" href="/assets/logo-master.png?v=20260925-tight-master-r1">
   <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-tight-master-r1">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="go.css?v=20260925v11radar3">
+  <link rel="stylesheet" href="go.css?v=20260925manual3">
   <link rel="canonical" href="https://cms.openphuquoc.com/go/">
   <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
   <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
@@ -50,7 +50,21 @@
       <form id="goForm" class="go-form">
         <fieldset>
           <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
-          <div class="go-area-row"><div class="choice-grid" id="areaChoices"></div><button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button></div><p id="goLocationStatus" class="go-location-status" role="status">Chọn một khu vực, hoặc bấm định vị nếu bạn muốn xem các điểm gần mình hơn.</p>
+          <div class="go-manual-location">
+            <p class="go-manual-hint">Chọn khu vực bạn đang ở, không cần GPS</p>
+            <div class="go-area-row">
+              <div class="choice-grid" id="areaChoices" role="radiogroup" aria-label="Chọn khu vực thủ công">
+                <label><input type="radio" name="origin" value="zone_central_west"><span>Dương Đông &amp; bờ Tây</span></label>
+                <label><input type="radio" name="origin" value="zone_south"><span>An Thới &amp; Nam đảo</span></label>
+                <label><input type="radio" name="origin" value="zone_north"><span>Bắc đảo</span></label>
+              </div>
+            </div>
+            <div class="go-location-option">
+              <span>Hoặc</span>
+              <button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button>
+            </div>
+            <p id="goLocationStatus" class="go-location-status" role="status">Chọn một trong ba khu vực, hoặc dùng định vị nếu muốn xem khoảng cách từ nơi bạn đang đứng.</p>
+          </div>
           <div class="go-radius-panel" id="goRadiusPanel">
             <div class="go-radius-header"><div><strong>Bản đồ khám phá quanh bạn</strong><span id="goMapMode">Đang hiển thị Dương Đông làm khu vực tham khảo. Chọn khu vực khác hoặc dùng GPS để định vị đúng.</span></div><button type="button" class="go-map-reset" id="goMapReset">Xem cả đảo ↗</button></div>
             <div class="go-radius-controls"><div class="go-radius-actions" id="goRadiusButtons" role="group" aria-label="Chọn nhanh bán kính"><button type="button" data-km="2">2 km</button><button type="button" data-km="5" class="active" aria-pressed="true">5 km</button><button type="button" data-km="10">10 km</button><button type="button" data-km="20">20 km</button><button type="button" data-km="30">30 km</button></div>
@@ -160,6 +174,6 @@
   <script src="live-adapter.js?v=20260925a" defer></script>
   <script src="go-map.js?v=20260925v11radar3" defer></script>
   <script src="go-nav.js?v=20260925v11radar3" defer></script>
-  <script src="go.js?v=20260925v11radar3" defer></script>
+  <script src="go.js?v=20260925manual3" defer></script>
 </body>
 </html>

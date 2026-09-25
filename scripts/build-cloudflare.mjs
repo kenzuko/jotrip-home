@@ -4,7 +4,7 @@ import { execFileSync } from "node:child_process";
 
 // Cloudflare Pages Git builds run this file alone. Generate the public view
 // before copying data so CMS never serves a stale or empty knowledge library.
-for (const script of ["scripts/test-go-engine.mjs","scripts/test-go-geo.mjs","scripts/test-home-library.mjs","scripts/test-explore-labels.mjs","scripts/build-knowledge-public.mjs","scripts/build-search-index.mjs"]) {
+for (const script of ["scripts/test-go-engine.mjs","scripts/test-go-geo.mjs","scripts/test-go-manual-ui.mjs","scripts/test-home-library.mjs","scripts/test-explore-labels.mjs","scripts/build-knowledge-public.mjs","scripts/build-search-index.mjs"]) {
   execFileSync(process.execPath,[script],{stdio:"inherit"});
 }
 

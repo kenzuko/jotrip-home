@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const zoneNames={zone_central_west:"Dương Đông & bờ Tây",zone_south:"An Thới & Nam đảo",zone_north:"Bắc đảo"};
-  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:"zone_central_west",position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[]};
+  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:null,position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[]};
 
   function clock(){
     const d=new Date();
@@ -19,20 +19,29 @@
     state.config=config;state.notices=notices.notices||[];state.visuals=visuals;state.locationIndex=locationIndex.documents||[];state.venueDirectory=venueDirectory.entities||[];
     [...(places.entities||[]),...(activities.entities||[])].forEach(e=>state.entities.set(e.id,e));
     renderAreas();
-    const params=new URLSearchParams(location.search);
-    const available=params.get('available');
-    const interest=params.get('interest');
-    const origin=params.get('origin');
-    for(const [name,value] of [['available',available],['interest',interest],['origin',origin]]){
-      if(!value)continue;
-      const input=[...document.querySelectorAll('#goForm input[name="'+name+'"]')].find(el=>el.value===value);
-      if(input){input.checked=true;if(name==="origin")state.originZone=value;}
-    }
-    bindGeo();
     drawMap();
   }
   function renderAreas(){
-    $("#areaChoices").innerHTML=(state.config.areas||[]).map((a,i)=>'<label><input type="radio" name="origin" value="'+esc(a.id)+'" '+(a.id===state.originZone?"checked":"")+'><span>'+esc(a.label)+'</span></label>').join("");
+    // The three manual choices are present in the HTML before any network response.
+    // Update wording from the canonical config, but never replace or hide the controls.
+    for(const area of state.config?.areas||[]){
+      const input=[...document.querySelectorAll('#areaChoices input[name="origin"]')]
+        .find(item=>item.value===area.id);
+      if(input?.nextElementSibling)input.nextElementSibling.textContent=area.label;
+    }
+  }
+  function applyDeepLink(){
+    const params=new URLSearchParams(location.search);
+    for(const name of ["available","interest","origin"]){
+      const value=params.get(name);
+      if(!value)continue;
+      const input=[...document.querySelectorAll('#goForm input[name="'+name+'"]')]
+        .find(item=>item.value===value);
+      if(input){
+        input.checked=true;
+        if(name==="origin")state.originZone=value;
+      }
+    }
   }
   function selection(){
     const fd=new FormData($("#goForm"));
@@ -42,6 +51,10 @@
     const pick=selection();
     if(!pick.originZone){$("#goLocationStatus").textContent="Chọn khu vực bạn đang ở hoặc bấm dùng vị trí của tôi trước nhé.";$(".go-area-row").scrollIntoView({behavior:"smooth",block:"center"});return;}
     state.originZone=pick.originZone;
+    if(!state.config){
+      $("#goLocationStatus").textContent="Đang tải các điểm đến. Bạn có thể chọn khu vực và xem bản đồ trước nhé.";
+      return;
+    }
     $("#resultsSection").hidden=false;$("#goResults").innerHTML='<div class="go-empty"><strong>Để tụi mình xem nhé...</strong><span>Đang chọn những nơi còn đủ thời gian để ghé hôm nay.</span></div>';
     state.live=window.OpenPQGoLive?await window.OpenPQGoLive.load(pick.originZone).catch(()=>null):null;
     const view=window.OpenPQGoEngine.plan({config:state.config,entities:state.entities,notices:state.notices,live:state.live||{},now:new Date(),...pick});
@@ -225,10 +238,12 @@
   $("#goForm").addEventListener("submit",e=>{e.preventDefault();run()});
   $("#changeChoices").addEventListener("click",()=>$(".go-builder").scrollIntoView({behavior:"smooth",block:"start"}));
   clock();setInterval(clock,30000);
-  // The radar appears immediately; verified markers arrive when feeds finish.
-  if(window.OpenPQGoGeo?.anchors?.zone_central_west&&window.OpenPQGoMap){
-    window.OpenPQGoMap.draw(window.OpenPQGoGeo.anchors.zone_central_west,5,[],{gps:false});
-    $("#goMapCount").textContent="Đang tải các địa điểm đã xác minh...";
-  }
-  load().catch(e=>{$("#areaChoices").innerHTML='<div class="go-empty"><strong>Chưa tải được dữ liệu nền.</strong><span>'+esc(e.message)+'</span></div>'});
+  applyDeepLink();
+  // Bind manual controls and optional GPS immediately, even if feeds are delayed.
+  bindGeo();
+  drawMap();
+  load().catch(()=>{
+    // Never delete the manual controls when a feed fails.
+    $("#goLocationStatus").textContent="Chưa tải được danh sách địa điểm. Bạn vẫn có thể chọn khu vực và xem bản đồ; thử tải lại để nhận gợi ý.";
+  });
 })();
