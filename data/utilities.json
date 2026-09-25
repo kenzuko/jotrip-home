@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-24T17:26:08.231Z",
+  "generated_at": "2026-09-25T05:11:08.580Z",
   "source_policy": "official_public_sources_only",
   "national_emergency": [
     {
@@ -44,7 +44,7 @@
       "note": "An ninh, trật tự",
       "source": "https://phuquoc.angiang.gov.vn/trang-chu",
       "verified": true,
-      "last_checked": "2026-09-24T17:25:51.912Z"
+      "last_checked": "2026-09-25T05:10:54.257Z"
     },
     {
       "id": "pq-tourism",
@@ -53,7 +53,7 @@
       "note": "Thông tin văn hóa, xã hội và hoạt động du lịch",
       "source": "https://phuquoc.angiang.gov.vn/phong-ban-chuyen-mon-0",
       "verified": true,
-      "last_checked": "2026-09-24T17:25:52.214Z"
+      "last_checked": "2026-09-25T05:10:54.501Z"
     },
     {
       "id": "pq-hcc",
@@ -62,7 +62,7 @@
       "note": "Hỗ trợ dịch vụ công và thủ tục hành chính",
       "source": "https://phuquoc.angiang.gov.vn/thong-bao-vv-cong-khai-duong-day-nong-tai-trung-tam-phuc-vu-hanh-chinh-cong",
       "verified": true,
-      "last_checked": "2026-09-24T17:25:52.522Z"
+      "last_checked": "2026-09-25T05:10:54.750Z"
     },
     {
       "id": "pqc-hotline",
@@ -71,7 +71,7 @@
       "note": "Liên hệ Cảng hàng không quốc tế Phú Quốc do Sun vận hành",
       "source": "https://sunairport.com/en/phuquoc/contact-us",
       "verified": false,
-      "last_checked": "2026-09-24T17:25:55.625Z"
+      "last_checked": "2026-09-25T05:10:55.806Z"
     },
     {
       "id": "pqc-lost",
@@ -80,7 +80,7 @@
       "note": "Hành lý thất lạc: gọi sân bay để được hướng dẫn tới quầy hãng bay hoặc đơn vị phục vụ hành lý",
       "source": "https://sunairport.com/en/phuquoc/contact-us",
       "verified": false,
-      "last_checked": "2026-09-24T17:25:56.673Z"
+      "last_checked": "2026-09-25T05:10:56.492Z"
     }
   ],
   "handbook_source": {
@@ -96,7 +96,7 @@
       "phone": "0941 130 033",
       "note": "Đặt vé / hỗ trợ online",
       "source": "https://online.superdong.com.vn/Home/Contact",
-      "checked_at": "2026-09-24T17:26:00.529Z",
+      "checked_at": "2026-09-25T05:10:57.576Z",
       "verified": true
     },
     {
@@ -106,7 +106,7 @@
       "phone": "0901 868 878",
       "note": "Tàu cao tốc",
       "source": "https://phuquocexpress.com/",
-      "checked_at": "2026-09-24T17:26:02.357Z",
+      "checked_at": "2026-09-25T05:10:59.824Z",
       "verified": true
     },
     {
@@ -116,7 +116,7 @@
       "phone": "1900 966 908",
       "note": "Phà / chở xe",
       "source": "https://thanhthoi.vn/",
-      "checked_at": "2026-09-24T17:26:04.470Z",
+      "checked_at": "2026-09-25T05:11:01.858Z",
       "verified": true
     },
     {
@@ -126,7 +126,7 @@
       "phone": "1900 6677",
       "note": "Giá vé / giờ / show",
       "source": "https://vinwonders.com/en/contact/",
-      "checked_at": "2026-09-24T17:26:04.771Z",
+      "checked_at": "2026-09-25T05:11:04.315Z",
       "verified": true
     },
     {
@@ -136,7 +136,7 @@
       "phone": "0886 045 888",
       "note": "Cáp treo / Hòn Thơm / show",
       "source": "https://sunworld.vn/vi/hon-thom",
-      "checked_at": "2026-09-24T17:26:08.092Z",
+      "checked_at": "2026-09-25T05:11:08.021Z",
       "verified": true
     },
     {
@@ -146,7 +146,7 @@
       "phone": "0297 3985 588",
       "note": "Hotline bệnh viện",
       "source": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
-      "checked_at": "2026-09-24T17:26:08.193Z",
+      "checked_at": "2026-09-25T05:11:08.548Z",
       "verified": true
     },
     {
@@ -156,7 +156,7 @@
       "phone": "02973 98 55 11",
       "note": "Đường dây cấp cứu 24/24 - nên kiểm tra lại nếu không kết nối được",
       "source": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
-      "checked_at": "2026-09-24T17:26:08.231Z",
+      "checked_at": "2026-09-25T05:11:08.580Z",
       "verified": true
     },
     {
