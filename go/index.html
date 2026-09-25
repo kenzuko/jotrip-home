@@ -10,7 +10,7 @@
   <link rel="preload" as="image" href="/assets/logo-master.png">
   <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-logo-safe">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="go.css?v=20260925splitmap1">
+  <link rel="stylesheet" href="go.css?v=20260925splitmap2">
   <link rel="canonical" href="https://cms.openphuquoc.com/go/">
   <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
   <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
@@ -50,9 +50,9 @@
       <form id="goForm" class="go-form">
         <fieldset>
           <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
-          <div class="go-location-layout"><div class="go-location-sidebar"><div class="go-area-row"><div class="choice-grid" id="areaChoices"></div><button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button></div><p id="goLocationStatus" class="go-location-status" role="status">Chọn một khu vực, hoặc bấm định vị nếu bạn muốn xem các điểm gần mình hơn.</p></div><div class="go-location-map-col">
+          <div class="go-location-layout"><div class="go-location-sidebar"><div class="go-area-row"><div class="choice-grid" id="areaChoices"></div><button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button></div><button type="button" class="go-map-pick" id="goMapPick" aria-pressed="false"><span aria-hidden="true">⊕</span> Chọn điểm trên bản đồ</button><button type="button" class="go-area-reset" id="goAreaReset" hidden>Dùng tâm khu vực đã chọn</button><p class="go-manual-help">Không cần GPS. Bạn có thể chọn khu vực hoặc tự chạm vị trí trên bản đồ.</p><p id="goLocationStatus" class="go-location-status" role="status">Đang xem khoảng cách từ tâm khu vực. Nếu muốn gần đúng chỗ bạn đứng, hãy chọn một điểm trên bản đồ.</p></div><div class="go-location-map-col">
           <div class="go-radius-panel" id="goRadiusPanel">
-            <div class="go-radius-header"><div><strong>Bản đồ khám phá quanh bạn</strong><span id="goMapMode">Đang hiển thị Dương Đông làm khu vực tham khảo. Chọn khu vực khác hoặc dùng GPS để định vị đúng.</span></div><button type="button" class="go-map-reset" id="goMapReset">Xem cả đảo ↗</button></div>
+            <div class="go-radius-header"><div><strong>Bản đồ khám phá Phú Quốc</strong><span id="goMapMode">Đang xem vòng bán kính từ Dương Đông. Hãy chọn khu vực, đánh dấu trên bản đồ hoặc dùng GPS.</span></div><button type="button" class="go-map-reset" id="goMapReset">Xem cả đảo ↗</button></div>
             <div class="go-radius-controls"><div class="go-radius-actions" id="goRadiusButtons" role="group" aria-label="Chọn nhanh bán kính"><button type="button" data-km="2">2 km</button><button type="button" data-km="5" class="active" aria-pressed="true">5 km</button><button type="button" data-km="10">10 km</button><button type="button" data-km="20">20 km</button><button type="button" data-km="30">30 km</button></div>
             <label class="go-radius-slider-label" for="goRadiusRange">Bán kính <output id="goRadiusValue" for="goRadiusRange">5 km</output></label>
             <input type="range" id="goRadiusRange" min="1" max="50" step="1" value="5" aria-label="Tùy chỉnh bán kính từ 1 đến 50 km"><div class="go-radius-extents"><span>1 km</span><span>50 km</span></div></div>
@@ -168,8 +168,8 @@
   <script src="../core/go-geo.js?v=20260925splitmap1" defer></script>
   <script src="../core/go-engine.js?v=20260925v11" defer></script>
   <script src="live-adapter.js?v=20260925a" defer></script>
-  <script src="go-map.js?v=20260925splitmap1" defer></script>
+  <script src="go-map.js?v=20260925splitmap2" defer></script>
   <script src="go-nav.js?v=20260925v11radar3" defer></script>
-  <script src="go.js?v=20260925splitmap1" defer></script>
+  <script src="go.js?v=20260925splitmap2" defer></script>
 </body>
 </html>
