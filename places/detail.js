@@ -113,7 +113,7 @@
     const visualImages=Array.isArray(visual.images)?visual.images:[];
     const heroVisual=window.OpenPQVisual?.pickHero?.(visualImages)||visualImages.find(x=>x?.url&&x.hero_eligible!==false)||null;
     const heroImage=heroVisual?.url||null;
-    const heroSource=heroVisual?.source_url||null;
+    const heroSource=heroVisual?.source_label||null;
     const heroIsContext=!heroVisual;
     const heroAlt=heroVisual?.alt||entity.name;
     const extraVisuals=heroVisual?visualImages.filter(x=>x!==heroVisual):visualImages;
@@ -148,9 +148,7 @@
               '<div><span>'+esc(cc.island_location||"Vị trí trên đảo")+'</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>'+esc(cc.image_updating||"Ảnh điểm đến đang được cập nhật")+'</small></div>'+
             '</div>')+
         (heroIsContext?'<span class="detail-hero-context">'+esc(cc.zone_diagram||"Sơ đồ vùng")+'</span>':'')+
-        (heroSource
-          ? '<details class="detail-hero-credit"><summary>Nguồn ảnh</summary><a href="'+esc(heroSource)+'" target="_blank" rel="noopener">Xem nguồn gốc ảnh ↗</a></details>'
-          : '<details class="detail-hero-credit"><summary>Nguồn bản đồ</summary><a href="https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg" target="_blank" rel="noopener">Xem nguồn gốc bản đồ ↗</a></details>')+
+        (heroSource ? '<small class="detail-hero-credit">Ảnh: '+esc(String(heroSource).replace(/^Ảnh:\s*/i,""))+(heroVisual?.license?' · '+esc(heroVisual.license):'')+'</small>' : '<small class="detail-hero-credit">Bản đồ định hướng Phú Quốc</small>')+
         '<div class="detail-hero-inner">'+
           '<p class="detail-kicker">'+esc(placeTypeLabel)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
           '<h1>'+esc(entity.name)+'</h1>'+
