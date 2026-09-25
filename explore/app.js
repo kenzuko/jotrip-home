@@ -192,9 +192,7 @@
     const planning=state.planning.get(x.id)||{};
     const images=state.visuals?.places?.[x.id]?.images||[];
     const visual=window.OpenPQVisual?.pickHero?.(images)||images.find(v=>v?.url&&v.hero_eligible!==false)||null;
-    const photoCredit=visual?.source_url && /^https?:\/\//i.test(visual.source_url)
-      ? '<a class="explore-photo-credit" href="'+esc(visual.source_url)+'" target="_blank" rel="noopener noreferrer">Ảnh: '+esc(visual.source_label||"Nguồn ảnh")+(visual.license?' · '+esc(visual.license):'')+' ↗</a>'
-      : (visual?.source_label?'<small class="explore-photo-credit">'+esc(visual.source_label)+'</small>':'');
+    const photoCredit=visual?.source_label ? '<small class="explore-photo-credit">Ảnh: '+esc(visual.source_label)+'</small>' : '';
     const visualHtml=visual
       ? '<figure class="explore-card-media"><img src="'+esc(visual.url)+'" alt="'+esc(visual.alt||x.name)+'" loading="lazy" decoding="async"><figcaption><span>'+esc(visual.caption||"")+'</span>'+photoCredit+'</figcaption></figure>'
       : '<div class="explore-card-illustration" data-zone="'+esc(x.zone_id||"all")+'"><span>⌖</span><strong>'+esc(zoneName(x.zone_id))+'</strong><small>Bối cảnh khu vực</small></div>';
