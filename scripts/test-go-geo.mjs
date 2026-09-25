@@ -18,7 +18,7 @@ const far={id:"place_far",name:"Far",zone_id:"zone_north",map:{lat:10.3401,lon:1
 const unknown={id:"place_unknown",name:"Unknown",zone_id:"zone_south",opening_hours:pub};
 const config={activities:[near,far,unknown].map(e=>({entity_id:e.id,minimum_visit_min:35,entry_buffer_min:5,intents:["all"]}))};
 const out=engine.plan({now:"2026-09-25T09:00:00Z",originZone:"zone_south",position:origin,radiusKm:2,available:"two",interest:"all",entities:[near,far,unknown],config,live:{},notices:[]});
-assert.deepEqual([...out.results,...out.remaining].map(x=>x.id),["place_near"]);
+assert.deepEqual(Array.from([...out.results,...out.remaining],x=>x.id),["place_near"]);
 assert.ok(out.results[0].distance_km>0);
 assert.ok(out.excluded.some(x=>x.id==="place_far"));
 assert.ok(out.excluded.some(x=>x.id==="place_unknown"));
