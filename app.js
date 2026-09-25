@@ -24,6 +24,10 @@ function focusSearch() {
   setTimeout(() => searchInput.focus(), 350);
 }
 
+if (window.location.hash === '#q') {
+  window.addEventListener('load', () => setTimeout(focusSearch, 100), { once: true });
+}
+
 const searchResults = document.querySelector('#searchResults');
 let searchReady = false;
 let searchDebounce = null;
