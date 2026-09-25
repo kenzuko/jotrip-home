@@ -10,7 +10,7 @@
   <link rel="preload" as="image" href="/assets/logo-master.png">
   <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-logo-safe">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="go.css?v=20260925v11radar3">
+  <link rel="stylesheet" href="go.css?v=20260925splitmap1">
   <link rel="canonical" href="https://cms.openphuquoc.com/go/">
   <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
   <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
@@ -50,15 +50,25 @@
       <form id="goForm" class="go-form">
         <fieldset>
           <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
-          <div class="go-area-row"><div class="choice-grid" id="areaChoices"></div><button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button></div><p id="goLocationStatus" class="go-location-status" role="status">Chọn một khu vực, hoặc bấm định vị nếu bạn muốn xem các điểm gần mình hơn.</p>
+          <div class="go-location-layout"><div class="go-location-sidebar"><div class="go-area-row"><div class="choice-grid" id="areaChoices"></div><button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button></div><p id="goLocationStatus" class="go-location-status" role="status">Chọn một khu vực, hoặc bấm định vị nếu bạn muốn xem các điểm gần mình hơn.</p></div><div class="go-location-map-col">
           <div class="go-radius-panel" id="goRadiusPanel">
             <div class="go-radius-header"><div><strong>Bản đồ khám phá quanh bạn</strong><span id="goMapMode">Đang hiển thị Dương Đông làm khu vực tham khảo. Chọn khu vực khác hoặc dùng GPS để định vị đúng.</span></div><button type="button" class="go-map-reset" id="goMapReset">Xem cả đảo ↗</button></div>
             <div class="go-radius-controls"><div class="go-radius-actions" id="goRadiusButtons" role="group" aria-label="Chọn nhanh bán kính"><button type="button" data-km="2">2 km</button><button type="button" data-km="5" class="active" aria-pressed="true">5 km</button><button type="button" data-km="10">10 km</button><button type="button" data-km="20">20 km</button><button type="button" data-km="30">30 km</button></div>
             <label class="go-radius-slider-label" for="goRadiusRange">Bán kính <output id="goRadiusValue" for="goRadiusRange">5 km</output></label>
             <input type="range" id="goRadiusRange" min="1" max="50" step="1" value="5" aria-label="Tùy chỉnh bán kính từ 1 đến 50 km"><div class="go-radius-extents"><span>1 km</span><span>50 km</span></div></div>
+            <div class="go-map-toolbar">
+              <div class="go-layer-buttons" id="goLayerButtons" role="group" aria-label="Lọc nhóm địa điểm trên bản đồ">
+                <button type="button" data-layer="all" aria-pressed="true" class="active">Tất cả</button>
+                <button type="button" data-layer="places" aria-pressed="false">Điểm đến</button>
+                <button type="button" data-layer="food" aria-pressed="false">Ăn uống</button>
+                <button type="button" data-layer="utilities" aria-pressed="false">Tiện ích</button>
+              </div>
+              <label class="go-map-sort-label" for="goMapSort">Sắp xếp <select id="goMapSort" aria-label="Sắp xếp địa điểm trên bản đồ"><option value="nearest">Gần nhất</option><option value="name">Theo tên</option></select></label>
+            </div>
             <div class="go-map" id="goMap" role="region" aria-label="Bản đồ vị trí với vòng bán kính"></div>
             <div class="go-map-footer"><span id="goMapCount">Đang tải bản đồ và địa điểm...</span><span>Khoảng cách theo đường chim bay; từ tâm khu vực chỉ để tham khảo, không phải GPS.</span></div>
-          </div>
+            <div class="go-map-nearby" id="goMapNearby" aria-live="polite"></div>
+          </div></div></div>
         </fieldset>
         <fieldset>
           <legend><b>02</b><span>Bạn còn bao nhiêu thời gian?</span></legend>
@@ -155,11 +165,11 @@
   </section>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="../core/go-geo.js?v=20260925v11" defer></script>
+  <script src="../core/go-geo.js?v=20260925splitmap1" defer></script>
   <script src="../core/go-engine.js?v=20260925v11" defer></script>
   <script src="live-adapter.js?v=20260925a" defer></script>
-  <script src="go-map.js?v=20260925v11radar3" defer></script>
+  <script src="go-map.js?v=20260925splitmap1" defer></script>
   <script src="go-nav.js?v=20260925v11radar3" defer></script>
-  <script src="go.js?v=20260925v11radar3" defer></script>
+  <script src="go.js?v=20260925splitmap1" defer></script>
 </body>
 </html>
