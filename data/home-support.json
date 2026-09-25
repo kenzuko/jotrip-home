@@ -24,7 +24,8 @@
         "route": "places/detail.html?id=kiss-of-the-sea",
         "schedule_source": "canonical_entity.opening_hours",
         "timing_note": "Show lúc 21:00-21:30, trừ thứ Ba. Nếu ở xa Nam đảo, tính giờ đi và xe về trước.",
-        "feature_in_today": true
+        "feature_in_today": true,
+        "performance_duration_min": 30
       },
       {
         "id": "clock_dinh_cau",
