@@ -129,11 +129,34 @@
       "images": [
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Selling%20fruit%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1600",
-          "alt": "Quầy trái cây tại chợ đêm Phú Quốc",
-          "caption": "Một góc chợ đêm Phú Quốc cuối năm 2025.",
+          "alt": "Quầy trái cây tại chợ đêm Phú Quốc, ảnh tháng 12/2025",
+          "caption": "Một quầy trái cây tại chợ đêm Bạch Đằng, chụp ngày 28/12/2025.",
           "scope": "exact_subject",
-          "source_label": "Wikimedia Commons - FrogsLegs71",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Selling_fruit_in_Phu_Quoc_night_market_Vietnam.jpg"
+          "source_label": "Wikimedia Commons · FrogsLegs71",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Selling_fruit_in_Phu_Quoc_night_market_Vietnam.jpg",
+          "captured_at": "2025-12-28",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Making%20ice%20cream%20rolls%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1600",
+          "alt": "Quầy làm kem cuộn tại chợ đêm Phú Quốc cuối năm 2025",
+          "caption": "Quầy kem cuộn ở khu chợ đêm Dương Đông, chụp ngày 28/12/2025.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons · FrogsLegs71",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Making_ice_cream_rolls_in_Phu_Quoc_night_market_Vietnam.jpg",
+          "captured_at": "2025-12-28",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0740/8392/6321/files/DSC05923_1024x1024.jpg?v=1712859221",
+          "alt": "Lối đi và cổng Dinh Cậu nhìn từ phía bờ biển Dương Đông",
+          "caption": "Dinh Cậu và lối lên ghềnh đá. Ảnh đăng trong cẩm nang Outo năm 2024.",
+          "scope": "exact_subject",
+          "source_label": "Outo · ảnh thực tế trong cẩm nang du lịch (2024)",
+          "source_url": "https://www.outo.co/blogs/articles/phu-quoc-must-visit-top13",
+          "published_at": "2024-04"
         }
       ],
       "infographic": [

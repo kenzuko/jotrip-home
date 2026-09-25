@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-09-24",
+  "updated": "2026-09-25",
   "stories": [
     {
       "id": "mui-cay-cua-dat-do",
@@ -94,7 +94,7 @@
       "title": "Dương Đông sau 5 giờ chiều",
       "dek": "Khi nắng bớt gắt, Dương Đông đổi nhịp. Chợ, đồ ăn, bờ biển và những con đường quanh Dinh Cậu bắt đầu đông lên - một Phú Quốc khác với buổi trưa.",
       "read_minutes": 4,
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Night%20market%20in%20Phu%20Quoc.jpg?width=1600",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cho%20Dem%20Phu%20Quoc%20-%20Welcome%20to%20Phu%20Quoc%20Night%20Market.jpg?width=1600",
       "intro": "Nếu ban ngày Phú Quốc kéo người ta ra biển, buổi tối Dương Đông lại kéo mọi thứ trở về gần nhau.",
       "sections": [
         {
@@ -111,7 +111,7 @@
         },
         {
           "heading": "Lưu ý",
-          "body": "Giờ hoạt động của từng quầy, nhà hàng và khu phố có thể thay đổi. Bài này là hướng dẫn nhịp trải nghiệm, không phải lịch mở cửa trực tiếp."
+          "body": "Giờ hoạt động của từng quầy, nhà hàng và khu phố có thể thay đổi. Bài này là hướng dẫn nhịp trải nghiệm, không phải lịch mở cửa trực tiếp. Các ảnh chợ đêm trong bài được chụp tháng 12/2025, không phải xác nhận chợ còn hoạt động vào thời điểm bạn đọc; nên kiểm tra tình trạng thực tế trước khi đến."
         }
       ],
       "sources": [
@@ -120,10 +120,11 @@
           "url": "https://www.vietnam.travel/node/1334"
         }
       ],
-      "image_alt": "Chợ đêm Dương Đông, Phú Quốc",
-      "image_caption": "Chợ đêm Dương Đông, Phú Quốc.",
-      "image_credit": "Wikimedia Commons · Tonbi ko · CC BY-SA",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:Night%20market%20in%20Phu%20Quoc.jpg"
+      "image_alt": "Lối vào chợ đêm Phú Quốc buổi tối, ảnh tháng 12/2025",
+      "image_caption": "Lối vào chợ đêm Phú Quốc, chụp ngày 28/12/2025.",
+      "image_credit": "FrogsLegs71 · Wikimedia Commons · CC BY-SA 3.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Cho_Dem_Phu_Quoc_-_Welcome_to_Phu_Quoc_Night_Market.jpg",
+      "cover_position": "center"
     },
     {
       "id": "nhung-doi-mat-tren-mui-ghe",
@@ -206,11 +207,11 @@
       "title": "Dinh Cậu trước chuyến biển",
       "dek": "Dinh Cậu không chỉ là mỏm đá nhìn ra biển. Với nhiều cư dân biển, đây còn là nơi gửi gắm lời cầu bình an trước những chuyến khơi xa.",
       "read_minutes": "3",
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1600",
-      "image_alt": "Dinh Cậu ở cửa sông Dương Đông, Phú Quốc",
-      "image_caption": "Dinh Cậu trên ghềnh đá bên bờ biển Dương Đông.",
-      "image_credit": "Wikimedia Commons (tác giả và giấy phép tại trang ảnh)",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:Dinh%20C%E1%BA%ADu%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.jpg",
+      "image": "https://cdn.shopify.com/s/files/1/0740/8392/6321/files/DSC05923_1024x1024.jpg?v=1712859221",
+      "image_alt": "Lối đi và cổng Dinh Cậu nhìn từ phía bờ biển Dương Đông",
+      "image_caption": "Dinh Cậu và lối lên ghềnh đá. Ảnh đăng trong cẩm nang Outo năm 2024.",
+      "image_credit": "Outo · ảnh đăng 2024",
+      "image_source_url": "https://www.outo.co/blogs/articles/phu-quoc-must-visit-top13",
       "intro": "Đứng ở Dinh Cậu lúc cuối chiều, mình thấy biển trước mắt. Nhưng với người sống bằng nghề biển, nơi này còn gắn với niềm tin và những lời khấn trước khi ra khơi.",
       "sections": [
         {
@@ -236,7 +237,8 @@
           "url": "https://visitphuquoc.com.vn/vi/giai-dap-dinh-cau-phu-quoc-tho-ai-su-tich-linh-thieng-tram-nam-16361"
         }
       ],
-      "home_featured": true
+      "home_featured": true,
+      "cover_position": "center"
     },
     {
       "id": "gieng-tien-truyen-thuyet-hay-lich-su",
