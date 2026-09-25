@@ -254,6 +254,11 @@ async function testHomeFoundation(page) {
       nearCategories: count('#nearCategories [data-category]') === 4,
       nearExtraCategories: count('#nearQuickMore [data-category]') === 4,
       nearQuickFinder: quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound,
+      nearMobileFlow: window.innerWidth>720 || (
+        document.querySelector('.near-quick-controls')?.compareDocumentPosition(document.querySelector('.near-quick-results')) & Node.DOCUMENT_POSITION_FOLLOWING &&
+        document.querySelector('.near-quick-results')?.compareDocumentPosition(document.querySelector('.near-quick-secondary')) & Node.DOCUMENT_POSITION_FOLLOWING &&
+        !text('#nearResults').includes('bên trái')
+      ),
       initialNearClean,
       manualResults: count('#nearResults .near-result-card') >= 1,
       noEmbeddedMap: !document.querySelector('#nearMapFrame, .near-map-shell iframe'),
