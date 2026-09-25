@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const zoneNames={zone_central_west:"Dương Đông & bờ Tây",zone_south:"An Thới & Nam đảo",zone_north:"Bắc đảo"};
-  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:"zone_central_west",position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[]};
+  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:"zone_central_west",position:null,radiusKm:5,mapOverview:false,mapLayer:"all",mapSort:"nearest",locationIndex:[],venueDirectory:[]};
 
   function clock(){
     const d=new Date();
@@ -102,32 +102,82 @@
   }
 
   function mapRows(){
-    const canonical=[...state.entities.values()].map(e=>({...e,route:"/places/detail.html?id="+encodeURIComponent(e.slug||e.legacy_id||e.id.replace(/^(place|activity)_/,""))}));
-    const nearRows=state.locationIndex.filter(e=>["place","activity"].includes(e.entity_type)&&e.map);
-    const venueRows=state.venueDirectory.filter(e=>e.status==="ACTIVE"&&["LOCAL_FOOD","RESTAURANT","CAFE"].includes(e.category))
-      .map(e=>({...e,map:{lat:e.latitude,lon:e.longitude,precision:e.geo_precision||e.map?.precision,verified_at:e.verified_at},
-        route:"/nearme/?category="+encodeURIComponent(e.category)}));
+    const geo=window.OpenPQGoGeo;
+    const allowed=new Set(["ATM","PARKING","CLINIC_HOSPITAL","FUEL","MINIMART","PHARMACY","TOILET"]);
+    // Prioritize the canonical Near Me location index and its precision flags.
+    const indexed=state.locationIndex.filter(e=>
+      geo?.destinationPoint(e)&&(
+        ["place","activity"].includes(e.entity_type)||
+        e.entity_type==="utility"&&allowed.has(e.utility_type))
+    ).map(e=>{
+      const utility=e.entity_type==="utility";
+      return {...e,layer:utility?"utilities":"places",
+        route:utility?"/nearme/?category="+encodeURIComponent(e.utility_type)+
+          "&q="+encodeURIComponent(e.name):e.route||"/explore/"};
+    });
+    const canonical=[...state.entities.values()].filter(e=>geo?.destinationPoint(e))
+      .map(e=>({...e,layer:"places",route:"/places/detail.html?id="+
+        encodeURIComponent(e.slug||e.legacy_id||e.id.replace(/^(place|activity)_/,""))}));
+    const food=state.venueDirectory.filter(e=>
+      e.status==="ACTIVE"&&["LOCAL_FOOD","RESTAURANT","CAFE"].includes(e.category))
+      .map(e=>({...e,layer:"food",map:{lat:e.latitude,lon:e.longitude,
+        precision:e.geo_precision||e.map?.precision,verified_at:e.verified_at},
+        route:"/nearme/?category="+encodeURIComponent(e.category)+
+          "&q="+encodeURIComponent(e.name)}))
+      .filter(e=>e.verified_at&&geo?.destinationPoint(e));
     const seen=new Set();
-    return [...canonical,...nearRows,...venueRows].filter(e=>{if(seen.has(e.id))return false;seen.add(e.id);return true});
+    return [...indexed,...canonical,...food].filter(e=>{
+      const id=e.canonical_entity_id||e.id;
+      if(seen.has(id))return false;
+      seen.add(id);return true;
+    });
+  }
+  function renderNearby(result){
+    const host=$("#goMapNearby");
+    if(!host)return;
+    if(!result?.map){
+      host.innerHTML='<div class="go-map-empty">Bản đồ chưa tải được. Bạn có thể dùng danh bạ <a href="../nearme/">Quanh đây ↗</a>.</div>';
+      return;
+    }
+    const list=result.list||[];
+    if(!list.length){
+      host.innerHTML=state.mapLayer==="food"?
+        '<div class="go-map-empty">Chưa có quán ăn với tọa độ xác minh trong lớp bản đồ này. <a href="../nearme/?category=LOCAL_FOOD">Tìm quán ăn trên Near Me ↗</a> hoặc <a href="../nearme/?category=CAFE">tìm quán cà phê ↗</a>.</div>':
+        '<div class="go-map-empty">Chưa có địa điểm phù hợp trong phạm vi này. Thử mở rộng bán kính hoặc chọn lớp khác.</div>';
+      return;
+    }
+    host.innerHTML=list.map(item=>{
+      const href=/^\/(?!\/)/.test(item.route||"")?item.route:"/explore/";
+      return '<a href="'+esc(href)+'" data-layer="'+esc(item.layer||"places")+
+        '"><i aria-hidden="true"></i><span><strong>'+esc(item.name)+
+        '</strong><small>'+item.km.toFixed(1)+' km đường chim bay</small></span><b aria-hidden="true">↗</b></a>';
+    }).join("");
   }
   function drawMap(){
-    if(state.mapOverview){window.OpenPQGoMap?.overview();return;}
-    $("#goMapReset").textContent="Xem cả đảo ↗";
     const geo=window.OpenPQGoGeo;
     const point=state.position||geo?.anchors?.[state.originZone];
     if(!geo?.valid(point)){
-      window.OpenPQGoMap?.overview();
       $("#goMapMode").textContent="Chọn một khu vực hoặc dùng định vị để vẽ vòng bán kính.";
       return;
     }
     const gps=!!state.position;
-    const result=window.OpenPQGoMap?.draw(point,state.radiusKm,mapRows(),{gps});
-    $("#goMapMode").textContent=gps?
-      "Tâm vòng tròn là vị trí bạn vừa cho phép. Xem các điểm gần mình theo km.":
-      "Tâm vòng tròn là "+(zoneNames[state.originZone]||"khu vực đã chọn")+". Đây là điểm tham khảo, không phải vị trí GPS của bạn.";
+    const options={gps,origin:point,layer:state.mapLayer,sort:state.mapSort};
+    const rows=mapRows();
+    const result=state.mapOverview?
+      window.OpenPQGoMap?.overview(rows,options):
+      window.OpenPQGoMap?.draw(point,state.radiusKm,rows,options);
+    $("#goMapReset").textContent=state.mapOverview?"Quay lại vòng bán kính ↗":"Xem cả đảo ↗";
+    $("#goMapMode").textContent=state.mapOverview?
+      "Đang xem toàn đảo. Lọc theo nhóm hoặc sắp xếp danh sách địa điểm bên dưới.":
+      gps?
+        "Tâm vòng tròn là vị trí bạn vừa cho phép. Chọn lớp và bán kính bên dưới.":
+        "Tâm vòng tròn là "+(zoneNames[state.originZone]||"khu vực đã chọn")+
+          ". Đây là điểm tham khảo, không phải GPS của bạn.";
     $("#goMapCount").textContent=result?.map===false?
-      "Bản đồ chưa tải được; bạn vẫn có thể tìm địa điểm theo khu vực.":
-      (result?.shown||0)+" địa điểm đã có tọa độ trong vòng "+state.radiusKm+" km"+(gps?" quanh bạn.":" từ tâm khu vực.");
+      "Bản đồ chưa tải được; bạn vẫn có thể dùng danh bạ Quanh đây.":
+      (result?.shown||0)+" địa điểm có tọa độ trong "+
+      (state.mapOverview?"toàn đảo":state.radiusKm+" km")+
+      (gps?" (khoảng cách từ bạn).":" (khoảng cách từ tâm khu vực).");
     $("#goRadiusValue").textContent=state.radiusKm+" km";
     $("#goRadiusRange").value=String(state.radiusKm);
     document.querySelectorAll("#goRadiusButtons button").forEach(btn=>{
@@ -135,6 +185,13 @@
       btn.classList.toggle("active",on);
       btn.setAttribute("aria-pressed",String(on));
     });
+    document.querySelectorAll("#goLayerButtons button").forEach(btn=>{
+      const on=btn.dataset.layer===state.mapLayer;
+      btn.classList.toggle("active",on);
+      btn.setAttribute("aria-pressed",String(on));
+    });
+    $("#goMapSort").value=state.mapSort;
+    renderNearby(result);
   }
   function geoError(error){
     if(error?.code===1)return "Bạn chưa cho phép dùng vị trí. Vẫn có thể chọn khu vực bên trên nhé.";
@@ -181,6 +238,16 @@
       drawMap();
       if(!$("#resultsSection").hidden)run();
     });
+    $("#goLayerButtons").addEventListener("click",event=>{
+      const button=event.target.closest("button[data-layer]");
+      if(!button||!["all","places","food","utilities"].includes(button.dataset.layer))return;
+      state.mapLayer=button.dataset.layer;
+      drawMap();
+    });
+    $("#goMapSort").addEventListener("change",event=>{
+      state.mapSort=event.target.value==="name"?"name":"nearest";
+      drawMap();
+    });
     $("#goRadiusButtons").addEventListener("click",event=>{
       const button=event.target.closest("button[data-km]");if(!button)return;
       state.radiusKm=Number(button.dataset.km);state.mapOverview=false;drawMap();
@@ -195,13 +262,8 @@
     });
     $("#goMapReset").addEventListener("click",()=>{
       state.mapOverview=!state.mapOverview;
-      $("#goMapReset").textContent=state.mapOverview?"Quay lại vòng bán kính ↗":"Xem cả đảo ↗";
-      if(state.mapOverview){
-        window.OpenPQGoMap?.overview();
-        $("#goMapMode").textContent="Đang xem toàn bộ Phú Quốc. Chọn bán kính để quay lại các điểm gần mình.";
-        $("#goMapCount").textContent="Chế độ xem toàn đảo, chưa lọc theo bán kính.";
-      }else drawMap();
-    });
+      drawMap();
+    });;
   }
   function renderFood(pick){
     const section=$("#goFoodNear");
