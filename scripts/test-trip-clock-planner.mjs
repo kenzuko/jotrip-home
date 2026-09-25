@@ -79,6 +79,6 @@ assert.ok(homeSource.includes("engine.select(rows,8)"));
 assert.ok(homeSource.includes("selection.visible.map(renderCard)"));
 assert.ok(homeSource.includes("selection.hidden.map(renderCard)"));
 assert.match(homepage,/tripClockExtraPanel/);
-assert.match(homeSource,/trip-clock-more/);
+assert.match(homepage,/class="trip-clock-more/);
 await import("./test-home-food-random.mjs");
 console.log("CMS Today copy: regression checks PASS");
