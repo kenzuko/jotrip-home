@@ -104,23 +104,30 @@ function tripClockSnapshot(){
   sunsetWeather:window.OPENPQ_HOME?.signals?.sunset_weather?.level||"unknown"})
   .filter(x=>!cancelledToday.has(x.item.entity_id));
 }
+let tripClockExpanded=false;
+let tripClockLastDay="";
 function renderTripClock(){
  if(!support)return;
- renderClock();const host=$("#tripClockList");if(!host)return;
- if(!window.OpenPQTripClockPlanner){
+ renderClock();
+ const host=$("#tripClockList");if(!host)return;
+ const engine=window.OpenPQTripClockPlanner;
+ if(!engine){
   host.innerHTML='<div class="trip-clock-empty"><strong>Gợi ý hôm nay đang được cập nhật.</strong><p>Mở Khám phá để xem giờ từng điểm trước khi đi.</p></div>';
   return;
  }
+ const day=localDateKey();
+ if(day!==tripClockLastDay){tripClockLastDay=day;tripClockExpanded=false}
  const rows=tripClockSnapshot().filter(x=>x.eligible&&["active","future","watch"].includes(x.decision?.state));
  if(!rows.length){
   host.innerHTML='<div class="trip-clock-empty"><strong>Giờ này các điểm chính đã qua khung tham quan phù hợp.</strong><p>Xem các hoạt động buổi tối hoặc lịch ngày mai. Giờ tham khảo không phải xác nhận mở cửa trực tiếp.</p><div><a href="food/">Tìm món ăn →</a><a href="nearme/">Xem quanh đây →</a><a href="explore/">Xem cho ngày mai →</a></div></div>';
   publishLocalNowHint();return;
  }
- let shown=rows.slice(0,9);
- const nextShow=rows.find(x=>x.opening?.schedule_type==="FIXED_START"&&x.decision.state==="future");
- if(nextShow&&!shown.includes(nextShow))shown=[...rows.slice(0,8),nextShow];
- host.innerHTML=shown.map(row=>{
+ const selection=engine.select(rows,10);
+ const shown=tripClockExpanded?rows:selection.visible;
+ const cards=shown.map(row=>{
   const {item,e,opening,decision,summary,note}=row;
+  // Preserve the complete existing card: label, name, schedule/duration,
+  // timing note and its canonical detail link.
   const detail=opening?.schedule_type==="FIXED_START"||item.entity_id==="activity_hon_thom"?summary:[summary,e.duration].filter(Boolean).join(" · ");
   const distinctNote=note&&note.trim()!==detail.trim()?note:"";
   return '<a class="trip-item" data-entity-id="'+esc(item.entity_id)+'" data-decision="'+esc(decision.state)+'" href="'+esc(item.route)+'">'+
@@ -128,7 +135,15 @@ function renderTripClock(){
    '<strong>'+esc(e.name||item.entity_id)+'</strong>'+
    '<p>'+esc(detail)+'</p>'+
    (distinctNote?'<b>'+esc(distinctNote)+'</b>':"")+'</a>';
- }).join("");
+ });
+ const hasMore=selection.hidden.length>0;
+ if(hasMore){
+  const label=tripClockExpanded?"Thu gọn ↑":"Xem thêm "+selection.hidden.length+" hoạt động ↓";
+  const wide=tripClockExpanded||shown.length%2===0;
+  cards.push('<button type="button" class="trip-clock-more'+(wide?' trip-clock-more-wide':'')+'" aria-expanded="'+String(tripClockExpanded)+'" aria-controls="tripClockList">'+esc(label)+'</button>');
+ }
+ host.innerHTML=cards.join("");
+ host.querySelector(".trip-clock-more")?.addEventListener("click",()=>{tripClockExpanded=!tripClockExpanded;renderTripClock()});
  publishLocalNowHint();
 }
 function buildLocalNowHint(){
