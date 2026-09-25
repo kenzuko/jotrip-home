@@ -73,5 +73,6 @@ await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
 if(existsSync("cms/schema.json")) await copyFile("cms/schema.json",`${out}/cms/schema.json`);
 
+execFileSync(process.execPath,["scripts/build-share-card.mjs"],{stdio:"inherit"});
 await copyFile(new URL("routes.json", import.meta.url),`${out}/_routes.json`);
 console.log("Cloudflare Pages output ready in dist/");
