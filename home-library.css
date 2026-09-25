@@ -276,3 +276,32 @@
   #top .home-library-section .home-library-card-copy strong{font-size:20px!important}
 }
 
+
+/* Chuyện đảo now groups quick curiosities and longer narratives in one section. */
+#top>.discover-section{padding-bottom:34px!important}
+.island-story-subsection{
+  margin-top:30px;
+  padding-top:24px;
+  border-top:1px solid #dfebe5;
+}
+.island-story-subheading{margin-bottom:18px}
+.island-story-subheading>span{
+  display:block;
+  color:#4e8274;
+  font-size:11px;
+  font-weight:850;
+  line-height:1.4;
+  letter-spacing:.14em;
+}
+.island-story-subheading h3{
+  margin:8px 0 0;
+  font-size:clamp(25px,2.6vw,34px);
+  line-height:1.12;
+  letter-spacing:-.035em;
+  color:#173d38;
+}
+@media(max-width:760px){
+  .island-story-subsection{margin-top:22px;padding-top:20px}
+  .island-story-subheading{margin-bottom:13px}
+  .island-story-subheading h3{font-size:clamp(24px,6.3vw,29px)}
+}
