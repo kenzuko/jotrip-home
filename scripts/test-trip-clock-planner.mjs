@@ -49,6 +49,12 @@ assert.ok(afternoon.visible.every(x=>x.summary&&typeof x.note==="string"&&x.e.na
 assert.ok(afternoon.visible.every((x,i,arr)=>i===0||x.urgency.bucket>=arr[i-1].urgency.bucket));
 const morning=plan.select(rows(8),10);
 assert.ok(morning.visible.some(x=>x.item.entity_id===kiss),"Evening shows should be discoverable from morning");
+const rush=Array.from({length:10},(_,i)=>({
+ ...get(14,0,safari),item:{entity_id:"urgent_"+i},urgency:{bucket:1,level:3,until:i+1}
+}));
+const rushBoard=plan.select([...rush,get(14,0,kiss)],10);
+assert.equal(rushBoard.visible.length,10);
+assert.ok(!rushBoard.visible.some(x=>x.item.entity_id===kiss),"Never displace ten near-term high-level activities");
 const tuesday=plan.select(rows(14,0,"unknown",2),10);
 assert.ok(!tuesday.visible.some(x=>x.item.entity_id===kiss),"Kiss is closed on Tuesday");
 assert.equal(get(19,35,symphony).decision.label,"Đã bắt đầu theo lịch");
