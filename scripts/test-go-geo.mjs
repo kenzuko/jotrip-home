@@ -45,3 +45,42 @@ const dock=goHtml.match(/<nav class="go-mobile-nav"[^>]*>([\s\S]*?)<\/nav>/);
 assert.ok(dock);
 assert.equal((dock[1].match(/<(?:a|button)\b/g)||[]).length,5,"five mobile dock destinations");
 console.log("go menu, visible radar, 1-50km slider and default map checks passed");
+
+
+// V1.2: layer filtering, sorted lists and no-GPS manual map origin.
+vm.runInContext(fs.readFileSync("core/go-layers.js","utf8"),context);
+const layers=context.globalThis.OpenPQGoLayers;
+const layerRows=[
+  {id:"p",name:"Dinh Cau",entity_type:"place",map:{lat:10.0192,lon:104.015,precision:"site_centroid"}},
+  {id:"a",name:"Show",entity_type:"activity",map:{lat:10.0198,lon:104.015,precision:"area_anchor"}},
+  {id:"u",name:"Pharmacy",entity_type:"utility",map:{lat:10.0201,lon:104.015,precision:"site_centroid"}},
+  {id:"h",name:"Hotel",entity_type:"hotel",map:{lat:10.0193,lon:104.015,precision:"site_centroid"}},
+  {id:"f",name:"Local restaurant",entity_type:"venue",category:"LOCAL_FOOD",map:{lat:10.0194,lon:104.015,precision:"site_centroid"}},
+  {id:"bad",name:"Unverified restaurant",entity_type:"venue",category:"LOCAL_FOOD",map:{lat:10.0195,lon:104.015,precision:"unverified"}}
+];
+assert.deepEqual(Array.from(layers.filter(layerRows,"explore"),x=>x.id),["p","a"],"default map does not overwhelm with hotel pins");
+assert.deepEqual(Array.from(layers.filter(layerRows,"utility"),x=>x.id),["u"]);
+assert.deepEqual(Array.from(layers.filter(layerRows,"food"),x=>x.id),["f","bad"]);
+assert.deepEqual(Array.from(geo.mapPoints(layers.filter(layerRows,"food"),origin,2),x=>x.id),["f"],"unverified food must never acquire a pin");
+assert.deepEqual(Array.from(layers.sortPoints(geo.mapPoints(layerRows,origin,2),"name"),x=>x.id),["p","h","f","u","a"],"name sorting is stable");
+const manualPoint={lat:10.0201,lon:104.016};
+const selected=geo.mapPoints(layers.filter(layerRows,"explore"),manualPoint,2);
+assert.equal(selected.length,2,"manual map origin must work without GPS");
+const updatedHtml=fs.readFileSync("go/index.html","utf8");
+const updatedJs=fs.readFileSync("go/go.js","utf8");
+const updatedMap=fs.readFileSync("go/go-map.js","utf8");
+const updatedCss=fs.readFileSync("go/go.css","utf8");
+for(const id of ["goPickMap","goRadiusRange","goLayerControls","goMapSort","goMapList"]){
+  assert.ok(updatedHtml.includes('id="'+id+'"'),"missing workspace control: "+id);
+}
+assert.match(updatedHtml,/go-location-workspace/,"desktop map and filters share one workspace");
+assert.match(updatedHtml,/go-layers\.js/,"load the pure shared layers");
+assert.match(updatedJs,/state\.manualPoint=point/,"map taps set manual origin without GPS");
+assert.match(updatedJs,/state\.position\|\|state\.manualPoint/,"manual map origin reaches Go engine");
+assert.match(updatedJs,/OpenPQGoLayers/,"map layers are applied to real data");
+assert.match(updatedJs,/goMapSort/,"sorting is interactive");
+assert.match(updatedMap,/selectionHandler\(point\)/,"map-click callback is wired");
+assert.match(updatedMap,/map\.on\("click"/,"tapping map selects origin when enabled");
+assert.match(updatedCss,/go-location-workspace\{display:grid/,"desktop layout is a two-column workspace");
+assert.match(updatedCss,/@media\(max-width:760px\)\{[\s\S]*?go-location-workspace\{display:block/,"mobile retains stacked layout");
+console.log("go V1.2 no-GPS selection, layers, sorting and responsive workspace tests passed");
