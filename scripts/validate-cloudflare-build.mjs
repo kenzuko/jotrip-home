@@ -12,6 +12,7 @@ const required=[
   "dist/nearme/index.html",
   "dist/nearme/nearme.css",
   "dist/nearme/nearme.js",
+  "dist/home-nearme-v2.js",
   "dist/data/home-support.json",
   "dist/data/views/search-index.json",
   "dist/data/views/map-coverage.json",
