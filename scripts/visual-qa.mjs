@@ -20,6 +20,7 @@ const allRoutes = [
   { name: 'story-duong-dong', path: '/stories/article.html?id=duong-dong-sau-5-gio' },
   { name: 'about', path: '/about/' },
   { name: 'nearme', path: '/nearme/' },
+  { name: 'go', path: '/go/' },
   { name: 'ferry', path: '/ferry/' },
   { name: 'transit', path: '/transit/' },
   { name: 'bus', path: '/bus/' },
@@ -29,7 +30,7 @@ const allRoutes = [
   { name: 'airport', path: '/airport/' }
 ];
 
-const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'food-bun-quay', 'bus', 'transit', 'explore', 'utilities', 'currency', 'airport']);
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'go', 'food-bun-quay', 'bus', 'transit', 'explore', 'utilities', 'currency', 'airport']);
 const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
@@ -378,6 +379,33 @@ async function testNearMePage(page) {
   return { ok:Object.values(checks).every(Boolean), checks };
 }
 
+
+async function testGoPage(page) {
+  await page.waitForFunction(() => document.querySelectorAll('#areaChoices input[name="origin"]').length === 3, { timeout: 12000 }).catch(() => {});
+  const area = page.locator('#areaChoices input[name="origin"][value="zone_south"]');
+  if (await area.count()) await area.check({ force: true });
+  await page.locator('#goRadiusButtons button[data-km="2"]').click().catch(() => {});
+  await page.waitForTimeout(250);
+  const state = await page.evaluate(() => ({
+    choices: document.querySelectorAll('#areaChoices input[name="origin"]').length,
+    selected: !!document.querySelector('#areaChoices input[name="origin"][value="zone_south"]')?.checked,
+    locationStatus: document.querySelector('#goLocationStatus')?.textContent?.trim() || '',
+    mapMode: document.querySelector('#goMapMode')?.textContent?.trim() || '',
+    mapCount: document.querySelector('#goMapCount')?.textContent?.trim() || '',
+    radius: document.querySelector('#goRadiusValue')?.textContent?.trim() || '',
+    radiusValue: document.querySelector('#goRadiusRange')?.value || ''
+  }));
+  const checks = {
+    manualAreasPresent: state.choices === 3,
+    manualAreaSelected: state.selected && /An Thới/.test(state.locationStatus),
+    mapCopyTracksArea: /An Thới/.test(state.mapMode),
+    mapCountNotStale: !!state.mapCount && !/Chọn khu vực để hiện/.test(state.mapCount),
+    radiusControlUpdates: state.radius === '2 km' && state.radiusValue === '2',
+    noGpsRequired: /không phải GPS/.test(state.locationStatus)
+  };
+  return { ok: Object.values(checks).every(Boolean), checks, state };
+}
+
 async function testUtilitiesPage(page) {
   await page.waitForFunction(() => {
     const stamp=document.querySelector('#currencyUpdated')?.textContent||'';
@@ -532,12 +560,16 @@ try {
       let utilitiesFunctional = null;
       let airportFunctional = null;
       let nearmeFunctional = null;
+      let goFunctional = null;
       if (!navigationError && route.name === 'home') {
         homeFunctional = await testHomeFoundation(page);
         console.log('HOME_SECTION_SPACING', JSON.stringify(homeFunctional.spacing));
       }
       if (!navigationError && route.name === 'nearme') {
         nearmeFunctional = await testNearMePage(page);
+      }
+      if (!navigationError && route.name === 'go') {
+        goFunctional = await testGoPage(page);
       }
       if (!navigationError && route.name === 'utilities') {
         utilitiesFunctional = await testUtilitiesPage(page);
@@ -573,6 +605,7 @@ try {
         currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         airportFunctional && !airportFunctional.ok ? `airport functional checks failed: ${Object.entries(airportFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         nearmeFunctional && !nearmeFunctional.ok ? `nearme functional checks failed: ${Object.entries(nearmeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
+        goFunctional && !goFunctional.ok ? `GO functional checks failed: ${Object.entries(goFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         route.name === 'home' && externalMapRequests.length ? `homepage made ${externalMapRequests.length} external map request(s)` : null
       ].filter(Boolean);
 
@@ -591,6 +624,7 @@ try {
         utilitiesFunctional,
         airportFunctional,
         nearmeFunctional,
+        goFunctional,
         consoleErrors,
         pageErrors,
         failedRequests,

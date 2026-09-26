@@ -13,8 +13,12 @@ function fitVisible(bounds){
   const apply=()=>{
     if(version!==fitVersion||!map)return;
     // Recalculate Leaflet dimensions after mobile layout or rotation.
-    map.invalidateSize({pan:false});
-    map.fitBounds(bounds,{padding:[16,20],maxZoom:11,animate:false});
+    try{
+      map.invalidateSize({pan:false});
+      map.fitBounds(bounds,{padding:[16,20],maxZoom:11,animate:false});
+    }catch(error){
+      console.warn("GO map viewport update skipped",error?.message||error);
+    }
   };
   requestAnimationFrame(apply);
   setTimeout(apply,150);
@@ -59,7 +63,7 @@ function ensure(){
   },12000);
   rings=L.layerGroup().addTo(map);
   pins=L.layerGroup().addTo(map);
-  map.on("resize",()=>{if(lastBounds)map.fitBounds(lastBounds,{padding:[16,20],maxZoom:11,animate:false});});
+  map.on("resize",()=>{if(lastBounds)fitVisible(lastBounds);});
   // Mobile viewport changes after Safari address-bar movement or returning from a tab.
   if(root.ResizeObserver){
     const observer=new ResizeObserver(()=>{if(lastBounds)fitVisible(lastBounds);});

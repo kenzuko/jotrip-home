@@ -45,6 +45,7 @@ jobs:
           node --check go/go.js
           node --check core/decision-signals.js
           node --check go/live-adapter.js
+          node scripts/test-go-manual-ui.mjs
       - name: Test shared Weather Context and GO regressions
         run: |
           node scripts/weather-context-api.test.mjs

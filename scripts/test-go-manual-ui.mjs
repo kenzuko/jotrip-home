@@ -15,6 +15,11 @@ assert.ok(js.includes('input.nextElementSibling.textContent=area.label'),"Canoni
 assert.ok(!js.includes('$("#areaChoices").innerHTML'),"Never replace manual choices during loading/error");
 assert.ok(js.indexOf('  bindGeo();\n  drawMap();\n  load().catch')>0,"Bind manual controls before fetching data");
 assert.ok(js.includes('state.position=null'),"Manual selection must remain available after GPS");
+assert.ok(js.includes('function syncRadiusControls()'),"Radius controls must track the selected radius even when map drawing fails");
+const areaMode=js.indexOf('$("#goMapMode").textContent=modeText;');
+const mapDraw=js.indexOf('result=window.OpenPQGoMap?.draw(point,state.radiusKm,mapRows(),{gps});');
+assert.ok(areaMode>=0&&mapDraw>areaMode,"Selected area copy updates before the optional map draw");
+assert.ok(js.includes('GO radius map drawing failed')&&js.includes('Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực và nhận gợi ý.'),"Map errors must not interrupt GO or leave stale area copy");
 assert.ok(css.includes('.go-mobile-nav button.go-dock-more::before'),"Active dock must carry homepage-style coral bar");
 assert.ok(css.includes('.go-footer{padding:26px 16px 17px!important}'),"Do not duplicate fixed dock spacing inside footer");
 assert.ok(html.includes('src="../map-basemap.js?')&&html.indexOf('src="../map-basemap.js?')<html.indexOf('src="go-map.js?'),"GO must load shared basemap before its map script");
