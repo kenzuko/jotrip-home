@@ -24,7 +24,7 @@
   const markerById=new Map();
 
   const initialParams=new URLSearchParams(location.search);
-  const requestedArea=initialParams.get("area");
+  const requestedArea=initialParams.get("area")||(!initialParams.has("area")?window.OpenPQArea?.get():null);
   const requestedCategory=initialParams.get("category");
   const requestedQuery=initialParams.get("q")||"";
 
@@ -470,6 +470,7 @@
       const b=e.target.closest("[data-area]");
       if(!b)return;
       selectedArea=b.dataset.area;
+      window.OpenPQArea?.set(selectedArea,"near-manual");
       clearUserLocation();
       $("#useLocation").textContent="⌖ Dùng vị trí của tôi";
       renderControls();
@@ -521,7 +522,10 @@
 
       navigator.geolocation.getCurrentPosition(p=>{
         position={lat:p.coords.latitude,lon:p.coords.longitude,accuracy:p.coords.accuracy};
+        const coarse=window.OpenPQArea?.nearest?.(position.lat,position.lon);
+        if(!coarse){position=null;button.disabled=false;$("#nearStatus").textContent="Vị trí ngoài Phú Quốc. Chọn khu vực thủ công nhé.";return;}
         selectedArea=nearestArea(position);
+        window.OpenPQArea?.set(coarse,"near-gps-coarse");
         button.disabled=false;
         button.textContent="✓ Đang dùng vị trí này";
         renderControls();
@@ -561,7 +565,10 @@
 
       const validAreas=new Set((support.near_me?.manual_areas||[]).map(x=>x.id));
       const validCategories=new Set((support.near_me?.categories||[]).map(x=>x.id));
-      if(requestedArea&&validAreas.has(requestedArea))selectedArea=requestedArea;
+      if(requestedArea&&validAreas.has(requestedArea)){
+        selectedArea=requestedArea;
+        if(initialParams.has("area"))window.OpenPQArea?.set(selectedArea,"near-link");
+      }
       if(requestedCategory&&validCategories.has(requestedCategory))selectedCategory=requestedCategory;
       if(requestedQuery){
         searchText=requestedQuery;
