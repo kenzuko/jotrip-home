@@ -24,7 +24,7 @@
         "#goi-ca-trich",
         "#hai-san"
       ],
-      "origin": "Gỏi cá trích là món hải sản quen thuộc ở Phú Quốc. Cá trích được ăn cùng rau, dừa nạo, bánh tráng và nước chấm; phần rau cuốn làm món có cả vị biển, vị béo và mùi thơm. Công thức có thể đổi theo quán và nguyên liệu trong ngày.",
+      "origin": "Gỏi cá trích đã thành món quen ở Phú Quốc, thường xuất hiện trên bàn cùng rau, dừa nạo, bánh tráng và chén nước chấm. Cá được trộn theo cách của từng nhà bếp, phần rau và đồ cuốn cũng không nơi nào hoàn toàn giống nơi nào. Vì thế, cùng gọi gỏi cá trích nhưng mỗi quán có thể cho một trải nghiệm khác.",
       "why_name": "Tên gọi nói ngay nguyên liệu chính và cách chế biến: cá trích làm thành gỏi. Nhưng món không chỉ là cá trộn gia vị; cách cuốn với rau, dừa và bánh tráng tạo nên kiểu ăn riêng.",
       "ingredients": [
         "Cá trích tươi",
@@ -81,8 +81,8 @@
         "#mon-dia-phuong",
         "#bun-quay"
       ],
-      "origin": "Bún quậy được biết đến như món ăn ở Phú Quốc, với bún tươi và phần chả hải sản quết trong tô. Cái tên thường được liên hệ với thao tác khuấy chén nước chấm, nơi mỗi người tự pha độ chua cay theo ý.",
-      "why_name": "“Quậy” gợi động tác khuấy đều muối, tiêu, quất và ớt trong chén chấm. Mỗi người nêm một kiểu, nên chén nước chấm thay đổi theo tay người ăn.",
+      "origin": "Bún quậy là một trong những món nhiều người nhớ tới khi nhắc ẩm thực Phú Quốc. Sợi bún tươi đi cùng phần chả hải sản trong tô nước dùng nóng, nhưng cái thú còn nằm ở chén chấm người ăn tự pha. Loại cá, tôm và cách làm chả có thể khác nhau giữa các hàng.",
+      "why_name": "Người ta thường liên hệ chữ 'quậy' với động tác khuấy muối tiêu, quất và ớt trong chén chấm. Có người thích chua nhiều, có người cho thêm cay; chén chấm vì thế mang dấu tay của chính người ăn.",
       "ingredients": [
         "Bún tươi làm từ bột gạo",
         "Chả tôm",
@@ -146,8 +146,8 @@
         "#mon-dia-phuong",
         "#bun-ken"
       ],
-      "origin": "Bún kèn là món bún được nhắc đến trong ẩm thực Phú Quốc. Cách nấu thường dùng cá làm phần chính cùng nước dùng có cốt dừa; công thức và loại cá có thể khác giữa người nấu.",
-      "why_name": "Tên “kèn” được giải thích theo vài cách trong lời kể địa phương và tư liệu ẩm thực, nhưng chưa có một cách giải thích duy nhất đủ chắc để coi là kết luận. Khi giới thiệu món, điều chắc chắn hơn là đặc điểm tô bún cá với nước dùng béo thơm.",
+      "origin": "Bún kèn gắn với những quán ăn địa phương ở Phú Quốc, nơi cá được làm thành phần chính trong nước dùng có cốt dừa. Mỗi người nấu có cách chọn cá, nêm gia vị và điều chỉnh độ sánh riêng, nên tô bún kèn ở hai quán có thể khác nhau khá rõ.",
+      "why_name": "Tên gọi 'kèn' có vài cách giải thích trong lời kể địa phương và tư liệu ẩm thực, nhưng chưa có lời giải duy nhất được xác nhận chắc chắn. Thay vì gán một nguồn gốc chưa rõ, có thể nhận ra món qua tô bún cá với nước dùng cốt dừa.",
       "ingredients": [
         "Bún gạo sợi nhỏ",
         "Cá - cách làm thay đổi theo quán",
@@ -200,8 +200,8 @@
         "#hai-san",
         "#nhum"
       ],
-      "origin": "Nhum là động vật biển có gai, được khai thác ở vùng biển Phú Quốc và nhiều nơi khác. Phần được ăn là tuyến sinh dục bên trong; mùa vụ và kích cỡ ảnh hưởng tới lượng trứng trong mỗi con.",
-      "why_name": "Tên gọi “nhum” phổ biến ở miền Nam; nơi khác có thể gọi cầu gai hay nhím biển. Các tên chỉ cùng nhóm động vật có vỏ gai, nhưng loài cụ thể và cách gọi thay đổi theo địa phương.",
+      "origin": "Người dân nhiều vùng biển, trong đó có Phú Quốc, đã quen với món nhum nướng hoặc nấu cháo. Phần ăn được bên trong con nhum gai góc thực chất là tuyến sinh dục, thường được gọi là trứng nhum. Lượng trứng thay đổi theo mùa và kích cỡ của từng con.",
+      "why_name": "Ở miền Nam, nhiều người quen gọi là nhum; các vùng khác có thể dùng tên cầu gai hoặc nhím biển. Đó là những cách gọi chung cho nhóm động vật có vỏ gai, còn loài cụ thể có thể khác nhau.",
       "ingredients": [
         "Nhum biển",
         "Dầu hoặc mỡ hành",
@@ -258,8 +258,8 @@
         "#hai-san",
         "#bien-mai"
       ],
-      "origin": "Biên mai là loài nhuyễn thể hai mảnh vỏ sống ở vùng biển; “còi” là phần cơ dày giúp con vật khép vỏ. Ở Phú Quốc, còi biên mai thường được chế biến nướng hoặc xào.",
-      "why_name": "Tên món ghép tên phần ăn với tên con vật: còi là cơ khép vỏ, biên mai là loài sò. Vì chỉ lấy phần cơ chắc nên khẩu phần không nhiều như nhìn con sò nguyên vỏ.",
+      "origin": "Sò biên mai là loài nhuyễn thể hai mảnh vỏ; phần còi dày giúp nó khép vỏ mới là nguyên liệu nhiều quán chọn để nướng hay xào. Ở Phú Quốc, còi biên mai thường lên bàn thành món ăn chung, nhất là kiểu nướng có gia vị.",
+      "why_name": "Chữ 'còi' chính là phần cơ dùng để khép vỏ của sò biên mai. Nhìn con sò nguyên vỏ khá lớn, nhưng phần còi ăn được không nhiều như tưởng, vì vậy món thường được tính và dọn theo cách riêng của quán.",
       "ingredients": [
         "Còi biên mai",
         "Muối ớt hoặc sa tế - tùy cách nướng",
@@ -844,7 +844,7 @@
         "#am-thuc-phu-quoc",
         "#ghe-ham-ninh"
       ],
-      "origin": "Ghẹ được đánh bắt ở vùng biển quanh Phú Quốc, trong đó Hàm Ninh là địa danh gắn với món ghẹ trong nhiều thực đơn. Kích cỡ và nguồn ghẹ tùy mùa và nguồn hàng.",
+      "origin": "Hàm Ninh từ lâu gắn với những bữa ghẹ mà du khách tìm đến thưởng thức. Tuy vậy, ghẹ trên bàn có thể đến từ nhiều nguồn hàng quanh vùng biển và thay đổi theo mùa. Tên địa danh gắn với món ăn không phải chứng nhận rằng từng con ghẹ đều được đánh bắt ngay tại làng.",
       "why_name": "Tên gọi gắn loại hải sản với địa danh Hàm Ninh, nơi món ghẹ được nhiều người biết tới. Cách gọi không đảm bảo mọi con ghẹ đều được đánh bắt ngay tại làng; có thể hỏi quán về nguồn hàng.",
       "ingredients": [
         "Ghẹ",
@@ -1374,8 +1374,8 @@
         "#am-thuc-phu-quoc",
         "#ga-ray-nuong"
       ],
-      "origin": "Gà rẫy là cách gọi loại gà nuôi thả ở vùng nông thôn, thịt thường săn hơn gà công nghiệp. Món gà nướng được phục vụ ở Phú Quốc cùng các món địa phương khác.",
-      "why_name": "“Rẫy” chỉ cách nuôi hoặc nơi chăn thả, không phải giống gà duy nhất. Hỏi quán nguồn gà nếu muốn biết rõ cách nuôi.",
+      "origin": "Gà rẫy là cách gọi gà nuôi thả ở vùng nông thôn, thịt thường săn hơn gà nuôi công nghiệp. Ở Phú Quốc, món gà nướng có mặt trong thực đơn của nhiều quán địa phương, mỗi nơi chọn gia vị và cách phục vụ khác nhau.",
+      "why_name": "Chữ 'rẫy' nói tới môi trường hoặc cách chăn thả, không phải tên một giống gà duy nhất. Muốn biết con gà được nuôi thế nào, hỏi nguồn hàng của từng quán sẽ rõ hơn suy từ tên món.",
       "ingredients": [
         "Gà",
         "gia vị ướp",
@@ -1414,8 +1414,8 @@
         "#am-thuc-phu-quoc",
         "#banh-kheo"
       ],
-      "origin": "Bánh khéo là món bánh ngọt được bán ở Phú Quốc, thường làm thành viên nhỏ với nhiều hình dáng và loại nhân. Đây là món quà phổ biến tại các tiệm đặc sản.",
-      "why_name": "Tên “khéo” thường được hiểu là gợi sự khéo tay trong việc nặn bánh thành hình nhỏ. Cách giải thích mang tính dân gian, không nên coi là nguồn gốc đã được xác nhận bằng tư liệu.",
+      "origin": "Bánh khéo được bán nhiều ở các tiệm đặc sản Phú Quốc, thường là những chiếc bánh ngọt nhỏ được nặn thành nhiều hình. Nhân đậu xanh, dừa hay khoai môn tùy người làm, và mỗi tiệm cũng có cách phối bột, độ ngọt riêng.",
+      "why_name": "Người ta thường hiểu chữ 'khéo' là nhắc tới công nặn những chiếc bánh nhỏ thành nhiều hình dáng. Đó là cách giải thích dân gian thú vị, nhưng chưa có tư liệu đủ chắc để coi là nguồn gốc tên gọi đã được xác nhận.",
       "ingredients": [
         "Bột",
         "đường",
@@ -1460,8 +1460,8 @@
         "#am-thuc-phu-quoc",
         "#banh-tet-mat-cat"
       ],
-      "origin": "Bánh tét mật cật được nhắc đến như một món bánh truyền thống ở Phú Quốc. Lá mật cật dùng để gói thay cho lá chuối, tạo dáng và màu bánh riêng; nhân tùy cách làm.",
-      "why_name": "Tên bánh lấy từ loại lá dùng để gói: lá mật cật. Cách gói này tạo nên hình thức gắn với địa phương, còn phần nhân có thể khác giữa các gia đình.",
+      "origin": "Ở Phú Quốc, lá mật cật được dùng để gói loại bánh tét mang cùng tên. Lớp lá tạo dáng bánh và hương thơm riêng, trong khi phần nếp và nhân có thể thay đổi theo cách làm của từng gia đình hay cơ sở.",
+      "why_name": "Tên bánh đến từ lá mật cật dùng để gói, thay cho lớp lá chuối quen thuộc ở nhiều nơi. Chính cách gói tạo nên dáng bánh đặc trưng; phần nhân có thể khác giữa các gia đình.",
       "ingredients": [
         "Nếp",
         "đậu",
@@ -1502,8 +1502,8 @@
         "#am-thuc-phu-quoc",
         "#banh-xeo"
       ],
-      "origin": "Bánh xèo là món bánh mặn phổ biến ở nhiều vùng Việt Nam, với công thức khác nhau theo địa phương. Phú Quốc có các quán phục vụ bánh xèo như một món ăn quen, không phải món chỉ có ở đảo.",
-      "why_name": "Tên “xèo” gợi tiếng bột gặp chảo nóng khi đổ bánh. Cách gọi dân gian mô tả âm thanh quen thuộc trong lúc chế biến.",
+      "origin": "Bánh xèo vốn có mặt ở nhiều vùng Việt Nam, mỗi nơi có cách pha bột, làm nhân và dọn rau ăn kèm riêng. Ở Phú Quốc, đây cũng là món quen trong thực đơn các hàng ăn, chứ không phải món chỉ xuất hiện trên đảo.",
+      "why_name": "Âm thanh bột vừa chạm chảo nóng nghe 'xèo' là cách người ta thường giải thích tên món. Đây là lối gọi dân gian rất dễ hình dung nếu từng đứng cạnh một chảo bánh đang đổ.",
       "ingredients": [
         "Bột bánh xèo",
         "Tôm hoặc thịt tùy quán",
