@@ -560,7 +560,7 @@
     window.__openpqNearState={
       ...(window.__openpqNearState||{}),
       rowsCount:rows.length,visibleCount:visible.length,selectedArea,selectedCategory,
-      searchText,radiusKm,href:location.href,
+      searchText,radiusKm,radiusCount:result.radiusCount,radiusUnknown:result.radiusUnknown,href:location.href,
       activeArea:$("#areaRow .active")?.dataset?.area||null,
       activeCategory:$("#categoryRow .active")?.dataset?.category??null
     };
