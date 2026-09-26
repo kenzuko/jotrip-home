@@ -500,7 +500,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
     // it never imports a stale offshore signal or Rạch Giá as current island rain.
     const convectiveLevels = islandDecision.convective_levels;
     const hasHighConvective = convectiveLevels.some(x => ["HIGH","SEVERE","EXTREME"].includes(x));
-    const hasElevatedConvective = convectiveLevels.some(x => ["ELEVATED","WATCH"].includes(x));
+    const hasElevatedConvective = convectiveLevels.some(x => ["ELEVATED","WATCH","MODERATE"].includes(x));
     const hasWatchConvective = convectiveLevels.includes("WATCH");
 
     const gauges = islandDecision.valid_gauges;
@@ -758,26 +758,29 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const ferryState = decisionSignals?.marineCategory?.(marine,"ferry").state || "UNKNOWN";
     const fastState = decisionSignals?.marineCategory?.(marine,"fast_boat").state || "UNKNOWN";
     const operationalStates = [canoState, fastState, ferryState].filter(Boolean);
+    // Individual port clearance proves a reported departure, never an all-day
+    // guarantee that every ferry or fast-boat sailing will operate.
     const marineOverall = !marine || !operationalStates.length || marineAge > 1440
       ? "unknown"
       : operationalStates.some(x => x === "SUSPENDED" || x === "FIELD_REQUIRED")
         ? "watch"
-        : operationalStates.every(x => x === "RUNNING" || x === "DIRECT_CONFIRMED") ? "normal" : "unknown";
+        : operationalStates.every(x => x === "RUNNING") ? "normal" : "unknown";
 
     const transitStates = [fastState, ferryState];
     const transitGood = transitStates.every(x => ["RUNNING", "DIRECT_CONFIRMED"].includes(x));
+    const transitRunning = transitStates.every(x => x === "RUNNING");
     const transitBad = transitStates.some(x => x === "SUSPENDED");
     const transitWatch = transitStates.some(x => x === "FIELD_REQUIRED" || x === "UNKNOWN" || !x);
-    const transitPrimary = !marine ? "Chưa biết chắc hôm nay" : transitBad ? "Hôm nay có thay đổi" : transitWatch ? "Nên xem lại trước khi đi" : transitGood ? "Hôm nay chạy bình thường" : "Chưa biết chắc";
-    const transitContext = !marine ? "Chưa có tin mới" : transitGood ? "Tàu cao tốc và phà đều chạy hôm nay" : "Tàu cao tốc " + stateText(fastState).toLowerCase() + " · Phà " + stateText(ferryState).toLowerCase();
-    setLive("ferry", transitPrimary, transitContext, !marine ? "unknown" : transitBad || transitWatch ? "watch" : transitGood ? "good" : "unknown", marine ? freshnessText(marineStamp) : "Chưa có tin mới");
+    const transitPrimary = !marine ? "Chưa biết chắc hôm nay" : transitBad ? "Hôm nay có thay đổi" : transitWatch ? "Nên xem lại trước khi đi" : transitRunning ? "Hôm nay hoạt động bình thường" : transitGood ? "Đã ghi nhận chuyến hoạt động" : "Chưa biết chắc";
+    const transitContext = !marine ? "Chưa có tin mới" : transitRunning ? "Tàu cao tốc và phà đều được xác nhận hoạt động hôm nay" : transitGood ? "Đã có chuyến được xác nhận; xem trạng thái từng chuyến trước khi đặt" : "Tàu cao tốc " + stateText(fastState).toLowerCase() + " · Phà " + stateText(ferryState).toLowerCase();
+    setLive("ferry", transitPrimary, transitContext, !marine ? "unknown" : transitBad || transitWatch ? "watch" : transitRunning ? "good" : transitGood ? "info" : "unknown", marine ? freshnessText(marineStamp) : "Chưa có tin mới");
 
     if (!marine) {
       setHappening("marine", "Chưa có tin mới về tàu và phà", "Mở Tàu & Phà để xem thông tin gần nhất.", "CHƯA BIẾT", false);
     } else if (transitBad) {
       setHappening("marine", "Tàu hoặc phà có thay đổi hôm nay", transitContext, "LƯU Ý", false);
     } else {
-      setHappening("marine", transitGood ? "Tàu và phà chạy bình thường" : "Nên xem lại lịch trước khi đi", transitContext, transitGood ? "BÌNH THƯỜNG" : "XEM LẠI", transitGood);
+      setHappening("marine", transitRunning ? "Tàu và phà chạy bình thường" : transitGood ? "Đã ghi nhận chuyến tàu và phà hôm nay" : "Nên xem lại lịch trước khi đi", transitContext, transitRunning ? "BÌNH THƯỜNG" : transitGood ? "CÓ CHUYẾN" : "XEM LẠI", transitRunning);
     }
 
     const airportStamp = airport?.collected_at_vn || airport?.generated_at || null;
@@ -997,7 +1000,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           detail_url: "transit/"
         },
         transport: {
-          primary: marineOverall === "normal" ? "Hôm nay chưa thấy gián đoạn lớn" : marineOverall === "watch" ? "Có dịch vụ cần xem lại" : "Chưa có đủ thông tin",
+          primary: marineOverall === "normal" ? "Hôm nay chưa thấy gián đoạn lớn" : marineOverall === "watch" ? "Có dịch vụ cần xem lại" : transitGood ? "Đã ghi nhận chuyến hoạt động" : "Chưa có đủ thông tin",
           status: marineOverall,
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
