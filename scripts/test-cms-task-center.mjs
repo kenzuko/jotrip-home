@@ -30,7 +30,7 @@ const qualityHtml=sandbox.renderQualityTasks([{
   surface:"Bản đồ",
   evidence:"Thiếu nguồn",
   next_action:"Ghi nguồn"
-}]);
+}],true);
 assert.match(qualityHtml,/module=venues&amp;record=venue%2Fone&amp;field=coordinate_source_ref/);
 assert.match(qualityHtml,/Mở đúng trường/);
 assert.match(qualityHtml,/data-quality-action="refresh"/);
