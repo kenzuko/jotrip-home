@@ -150,6 +150,15 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  const body=await forecastResponse.json();
  assert.equal(body.source_status,"INVALID");
  assert.equal(body.items[0].reason_codes[0],"WEATHER_SCHEMA_INVALID");
+
+ const declaredOversize=await handleWeatherWindow(makeRequest([
+  item("2026-09-26T15:30:00+07:00","2026-09-26T16:00:00+07:00")
+ ]),async url=>String(url).endsWith("/data/weather-runtime/manifest.json")
+   ?new Response(JSON.stringify(manifest),{status:200})
+   :new Response("{}",{status:200,headers:{"content-length":"10000001"}}));
+ const declaredBody=await declaredOversize.json();
+ assert.equal(declaredBody.source_status,"INVALID");
+ assert.equal(declaredBody.items[0].reason_codes[0],"WEATHER_SCHEMA_INVALID");
 }
 
 // Manifest allowlisting blocks untrusted forecast paths.
