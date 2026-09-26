@@ -11,3 +11,15 @@
 @media(max-width:390px){.hotel-filter{grid-template-columns:1fr}.search-field,.filter-note{grid-column:auto}.hotel-actions a{flex:1;justify-content:center}}
 .hotel-path{max-width:1160px;margin:-24px auto 0;padding:0 18px;position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.hotel-path>div{min-height:92px;padding:16px 18px;display:flex;align-items:center;gap:13px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 10px 28px rgba(18,61,59,.07)}.hotel-path b{width:34px;height:34px;display:grid;place-items:center;flex:0 0 auto;border-radius:50%;background:#eaf7f4;color:var(--ink);font-size:11px}.hotel-path span,.hotel-path strong,.hotel-path small{display:block}.hotel-path strong{color:var(--ink);font-size:15px}.hotel-path small{margin-top:4px;color:var(--muted);font-size:12px;line-height:1.35}.hotel-card{min-height:315px}.hotel-star,.hotel-status{font-size:11px}.hotel-facts span{font-size:11px}.hotel-facts strong{font-size:14px}.hotel-tags{margin-top:11px;display:flex;gap:5px;flex-wrap:wrap}.hotel-tags span{padding:5px 8px;border-radius:999px;background:#fff6df;color:#795d1c;font-size:11px;font-weight:800}.hotel-classification{margin:10px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
 @media(max-width:760px){.hotel-path{margin:-22px 0 2px;padding:0 10px;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.hotel-path::-webkit-scrollbar{display:none}.hotel-path>div{min-width:78vw;scroll-snap-align:start}.hotel-hero{padding-bottom:42px}}
+
+/* Curated, subject-matched JoTrip photo upgrade (26 Sep 2026). */
+.hotel-hero{position:relative;isolation:isolate;background:linear-gradient(100deg,rgba(8,44,46,.96) 0%,rgba(8,44,46,.86) 42%,rgba(8,44,46,.30) 100%),url('/assets/media/editorial-salinda-resort.jpg') 67% 48%/cover no-repeat}
+.hotel-hero>div{position:relative;z-index:1}
+.hotel-hero .hotel-hero-credit{position:absolute;right:20px;bottom:14px;max-width:300px;margin:0;padding:6px 9px;border-radius:8px;background:rgba(5,34,35,.62);color:#fff;font-size:10px;line-height:1.35;letter-spacing:0;font-weight:600;text-align:right}
+.hotel-card-heading{display:flex;align-items:flex-start;gap:12px;margin-top:15px}
+.hotel-card-heading-copy{min-width:0;flex:1}
+.hotel-card-heading h3{margin:0 0 7px}
+.hotel-card-thumb{flex:0 0 104px;width:104px;height:88px;margin:0;position:relative;border-radius:10px;overflow:hidden;background:var(--soft)}
+.hotel-card-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+.hotel-card-thumb figcaption{position:absolute;left:0;right:0;bottom:0;padding:16px 5px 4px;background:linear-gradient(transparent,rgba(0,0,0,.70));font-size:9px;line-height:1.2;color:#fff;text-align:right}
+@media(max-width:760px){.hotel-hero{background:linear-gradient(90deg,rgba(8,44,46,.96) 0%,rgba(8,44,46,.64) 100%),url('/assets/media/editorial-salinda-resort.jpg') 64% center/cover no-repeat;padding-bottom:66px}.hotel-hero .hotel-hero-credit{bottom:26px;right:10px;max-width:270px;font-size:9px}.hotel-card-thumb{width:100px;flex-basis:100px;height:88px}}

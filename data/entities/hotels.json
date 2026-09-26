@@ -988,7 +988,14 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-19",
+      "editorial_photo": {
+        "url": "/assets/media/editorial-regent-phu-quoc.jpg",
+        "alt": "Khu hồ nước và kiến trúc hướng biển tại Regent Phú Quốc",
+        "credit": "Ảnh: Internet (kho JoTrip)",
+        "original_filename": "Regent Phu Quoc 25.cropoption.jpg",
+        "source_verified": false
+      }
     },
     {
       "id": "hotel_sailing_club_signature_resort_phu_quoc",
@@ -1101,6 +1108,13 @@
         "lookup_query": "Salinda Resort, Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      "editorial_photo": {
+        "url": "/assets/media/editorial-salinda-resort.jpg",
+        "alt": "Khuôn viên và hồ bơi Salinda Resort bên bờ biển",
+        "credit": "Ảnh: Internet (kho JoTrip)",
+        "original_filename": "Salinda-Resort-Phu-Quoc-island.jpg",
+        "source_verified": false
       }
     },
     {

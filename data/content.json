@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-09-25",
+  "updated": "2026-09-26",
   "stories": [
     {
       "id": "mui-cay-cua-dat-do",
@@ -712,11 +712,11 @@
       "title": "“Đảo Ngọc” là cách gọi gợi điều gì?",
       "dek": "Biệt danh “đảo Ngọc” gợi màu nước, bờ biển và sức hút tự nhiên của Phú Quốc. Nhưng để hiểu đảo, nên nhìn thêm đời sống làng biển, rừng và những nghề đã nuôi cư dân qua nhiều thế hệ.",
       "read_minutes": "3",
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1600",
-      "image_alt": "Bờ biển Phú Quốc nhìn từ phía Tây Nam đảo",
-      "image_caption": "Bờ biển Phú Quốc, ảnh chụp tại tọa độ ven bờ Tây Nam.",
-      "image_credit": "Wikimedia Commons · FrogsLegs71 · xem giấy phép tại trang ảnh",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phu%20Quoc%20Beach.jpg",
+      "image": "/assets/media/editorial-island-cove-aerial.jpg",
+      "image_alt": "Vịnh nước xanh và cano bên một đảo nhỏ nhìn từ trên cao",
+      "image_caption": "Ảnh minh họa cảnh sắc đảo, chưa xác minh địa danh cụ thể.",
+      "image_credit": "Internet (kho JoTrip), chưa rõ tác giả",
+      "image_source_url": null,
       "intro": "Nghe tên “đảo Ngọc”, nhiều người nghĩ ngay tới làn nước trong và bãi cát sáng. Đó là một lớp hình dung dễ hiểu, nhưng Phú Quốc còn được tạo nên bởi rừng, làng biển, chợ và nghề truyền thống.",
       "sections": [
         {
