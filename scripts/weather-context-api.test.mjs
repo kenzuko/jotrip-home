@@ -52,7 +52,7 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  assert.equal(res.status,200);
  assert.equal(body.source_status,"OK");
  assert.equal(sample.temporal_coverage.status,"IN_WINDOW_FRAMES");
- assert.equal(sample.temporal_coverage.frame_cadence_hours,3);
+ assert.equal(sample.temporal_coverage.frame_cadence_hours,null);
  assert.equal(sample.temporal_coverage.interpolation_applied,false);
  assert.equal(sample.frames.length,1);
  assert.equal(sample.frames[0].valid_at,"2026-09-26T09:00:00Z");
@@ -81,6 +81,7 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  assert.equal(sample.temporal_coverage.status,"BRACKET_ONLY");
  assert.deepEqual(sample.frames.map(x=>x.valid_at),["2026-09-26T09:00:00Z","2026-09-26T12:00:00Z"]);
  assert.equal(sample.reason_codes.includes("TIME_BETWEEN_FRAMES"),true);
+ assert.equal(sample.temporal_coverage.frame_cadence_hours,3);
 }
 
 // One-sided forecast horizon is not represented as bracket coverage.
@@ -125,6 +126,30 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  assert.equal(badType.status,415);
  const wrongMethod=await handleWeatherWindow(new Request("https://cms.openphuquoc.com/api/context/v1/weather/window"),fetchFixture().fetchImpl);
  assert.equal(wrongMethod.status,405);
+}
+
+// Enforce byte caps on streamed bodies even when Content-Length is absent.
+{
+ const oversizedBody=new ReadableStream({
+  start(controller){controller.enqueue(new Uint8Array(24_001));controller.close()}
+ });
+ const streamedRequest=new Request("https://cms.openphuquoc.com/api/context/v1/weather/window",{
+  method:"POST",headers:{"content-type":"application/json"},body:oversizedBody,duplex:"half"
+ });
+ const requestResponse=await handleWeatherWindow(streamedRequest,fetchFixture().fetchImpl);
+ assert.equal(requestResponse.status,413);
+
+ const oversizedForecast=new ReadableStream({
+  start(controller){controller.enqueue(new Uint8Array(10_000_001));controller.close()}
+ });
+ const forecastResponse=await handleWeatherWindow(makeRequest([
+  item("2026-09-26T15:30:00+07:00","2026-09-26T16:00:00+07:00")
+ ]),async url=>String(url).endsWith("/data/weather-runtime/manifest.json")
+   ?new Response(JSON.stringify(manifest),{status:200})
+   :new Response(oversizedForecast,{status:200}));
+ const body=await forecastResponse.json();
+ assert.equal(body.source_status,"INVALID");
+ assert.equal(body.items[0].reason_codes[0],"WEATHER_SCHEMA_INVALID");
 }
 
 // Manifest allowlisting blocks untrusted forecast paths.
