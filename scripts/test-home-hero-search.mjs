@@ -62,7 +62,7 @@ for(const path of [
   "assets/media/jotrip-night-fishing-2025.jpg",
   "assets/media/jotrip-grilled-squid-2025.jpg"
 ]) assert.ok(fs.existsSync(path),"Missing approved local image "+path);
-assert.match(app,/heroGallery\.choose\(mood,new Date\(\)\)/);
+assert.match(app,/heroGallery\?\.choose\(mood,new Date\(\)\)/);
 assert.match(html,/core\/hero-gallery\.js\?/);
 assert.match(read("home-live-v3.js"),/heavy_rain_confirmed: heroRain.confirmed/);
 assert.match(app,/openpq:live-ready/);
