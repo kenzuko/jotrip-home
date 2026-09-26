@@ -40,6 +40,7 @@ jobs:
         run: |
           node scripts/test-go-geo.mjs
           node scripts/test-decision-signals.mjs
+          node scripts/test-go-live-api.mjs
           node scripts/test-shared-area-and-schedules.mjs
           node --check go/go-map.js
           node --check go/go.js
@@ -68,7 +69,9 @@ jobs:
       - name: Test food entity ID mapping
         run: node scripts/test-food-id-mapping.mjs
       - name: Test Near Me venue pins and canonical places
-        run: node scripts/test-nearme-venues.mjs
+        run: |
+          node scripts/test-nearme-venues.mjs
+          node scripts/test-nearme-mobile-layout.mjs
       - name: Test weather map points match production coordinates
         run: node scripts/test-weather-map-coordinates.mjs
       - name: Test Vietcombank currency parser
