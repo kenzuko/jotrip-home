@@ -67,30 +67,73 @@
     if(!interest||interest==="all")return true;
     return [...(e.intents||[]),...(e.categories||[]),...(cfg.intents||[])].some(x=>fold(x)===fold(interest));
   }
-  function freshOperational(record,day){
-    if(!record)return false;
+  function freshOperational(record,day,now,kind){
+    if(!record||!["fresh","aging"].includes(record.freshness))return false;
+    if(record.category&&kind&&record.category!==kind)return false;
+    if(record.source_date&&record.source_date!==day)return false;
+    if(record.day&&record.day!==day)return false;
+    if(record.evidence_count===0)return false;
     const stamp=record.source_updated_at||record.verified_at||record.updated_at||record.observed_at;
-    return !!stamp&&String(stamp).slice(0,10)===day&&record.freshness!=="stale";
+    const time=Date.parse(stamp||""),current=+new Date(now);
+    if(!Number.isFinite(time)||!Number.isFinite(current))return false;
+    const minutes=(current-time)/60000;
+    return minutes>=-5&&minutes<=720&&clock(new Date(time)).day===day;
   }
-  function assessLive(e,cfg,live,notices,day){
+  const unknownWeather=()=>({status:"unknown",freshness:"unknown",source_updated_at:null,scope:"POINT"});
+  function destinationWeather(live,zone,originZone){
+    if(live?.weather_by_zone)return live.weather_by_zone[zone]||unknownWeather();
+    // Legacy callers may supply only their origin point, never assume it
+    // describes a different destination or an offshore travel route.
+    return zone===originZone?live?.weather||unknownWeather():unknownWeather();
+  }
+  function assessLive(e,cfg,live,notices,day,now,originZone){
     const warnings=[];
     const cancelled=(notices||[]).some(n=>
       n.entity_id===e.id&&n.date===day&&
       ["CANCELLED","SUSPENDED","CLOSED","TEMPORARILY_CLOSED"].includes(String(n.status).toUpperCase())
     );
     if(cancelled)return {blocked:true,reason:"Hoạt động có thông báo tạm hủy hoặc tạm ngưng hôm nay."};
-    if(cfg.marine){
-      const cano=live?.cano||{},state=cano.state||cano.raw_state||"UNKNOWN";
-      if(freshOperational(cano,day)&&state==="SUSPENDED")return {blocked:true,reason:"Cano được xác nhận tạm dừng hôm nay."};
-      if(!freshOperational(cano,day)||!["DIRECT_CONFIRMED","RUNNING"].includes(state))
-        warnings.push("Chưa có xác nhận cano hoạt động hôm nay.");
+
+    const binding=cfg.operational_binding||null;
+    if(cfg.marine&&!binding){
+      warnings.push("Chưa gắn nguồn xác nhận riêng cho phương tiện của hoạt động này.");
+    }else if(binding){
+      const record=live?.[binding]||{};
+      const fresh=freshOperational(record,day,now,binding);
+      const state=String(record.state||record.raw_state||"UNKNOWN").toUpperCase();
+      if(fresh&&["SUSPENDED","CANCELLED","CLOSED","STOPPED"].includes(state)){
+        const label=binding==="cano"?"Cano":binding==="charter_boat"?"Tàu câu cá":
+          binding==="cable_car"?"Cáp treo":binding==="fast_boat"?"Tàu cao tốc":
+          binding==="ferry"?"Phà":"Phương tiện";
+        return {blocked:true,reason:label+" được xác nhận tạm dừng cho ngày hôm nay."};
+      }
+      if(!fresh||!["DIRECT_CONFIRMED","RUNNING"].includes(state)){
+        warnings.push(binding==="charter_boat"
+          ?"Chưa có xác nhận riêng cho chuyến tàu câu cá hôm nay; liên hệ đơn vị tổ chức."
+          :binding==="cano"?"Chưa có xác nhận cano hoạt động đủ mới trong ngày."
+          :binding==="cable_car"?"Cần xác nhận lịch cáp treo và lượt về trong ngày."
+          :"Chưa có xác nhận vận hành đủ mới cho phương tiện này.");
+      }
     }
-    const weather=live?.weather||{},outdoor=cfg.environment==="outdoor"||cfg.environment==="marine";
+
+    const weather=destinationWeather(live,e.zone_id,originZone);
+    const outdoor=cfg.environment==="outdoor"||cfg.environment==="marine";
     if(outdoor){
-      if(!weather.source_updated_at||["stale","unknown"].includes(weather.freshness||"unknown")||!["fresh","aging"].includes(weather.freshness))
-        warnings.push("Chưa có cập nhật thời tiết đủ mới cho khu vực.");
-      else if(["watch","advisory","bad"].includes(weather.status))
-        warnings.push("Thời tiết cần theo dõi trước khi đi.");
+      if(!weather.source_updated_at||!["fresh","aging"].includes(weather.freshness)||
+         !["normal","watch","advisory"].includes(weather.status)){
+        warnings.push("Chưa có dữ liệu thời tiết đủ mới tại khu vực điểm đến.");
+      }else if(["watch","advisory","bad"].includes(weather.status)){
+        warnings.push("Thời tiết tại khu vực điểm đến cần theo dõi trước khi đi.");
+      }
+    }
+    if(cfg.marine){
+      const route=cfg.marine_route&&live?.marine_route?.[cfg.marine_route];
+      if(!route||!["fresh","aging"].includes(route.freshness)||
+         !["normal","watch","advisory"].includes(route.status)){
+        warnings.push("Chưa có đánh giá sóng/gió đủ mới theo tuyến ra khơi; cần xác nhận riêng.");
+      }else if(route.status!=="normal"){
+        warnings.push("Điều kiện biển trên tuyến cần kiểm tra trực tiếp trước khi xuất bến.");
+      }
     }
     if(cfg.return_check)warnings.push("Cần xác nhận lịch hoặc phương tiện lượt về.");
     return {blocked:false,warnings};
@@ -113,7 +156,7 @@
       }
       const drive=travel(input.originZone,e.zone_id);
       if(!drive){excluded.push({id:e.id,reason:"Chưa có vị trí đủ rõ để tính đường đi"});continue}
-      const liveCheck=assessLive(e,cfg,input.live,input.notices,when.day);
+      const liveCheck=assessLive(e,cfg,input.live,input.notices,when.day,input.now||new Date(),input.originZone);
       if(liveCheck.blocked){excluded.push({id:e.id,reason:liveCheck.reason});continue}
       const match=fit(e,cfg,input,drive,when,budget);
       if(!match){excluded.push({id:e.id,reason:"Không đủ thời gian theo lịch công bố và thời lượng trải nghiệm"});continue}
