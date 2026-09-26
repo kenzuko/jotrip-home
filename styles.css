@@ -6251,6 +6251,9 @@ body.sheet-open{
 }
 
 
+/* Remove the old pseudo-brand: it silently consumed space in the mobile header. */
+.site-header::before{content:none!important;display:none!important}
+
 /* Shared area selection: one 44px touch target beside the approved logo,
    not an additional hero widget or duplicate manual-location form. */
 .site-header{overflow:visible;gap:clamp(8px,1.3vw,20px)}
