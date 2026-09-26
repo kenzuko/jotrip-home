@@ -132,6 +132,9 @@ assert.equal(stalePlan.results[0]?.badge,"CHECK",
 const unbound=E.plan(input([charter],[cfg(charter.id,{marine:true,environment:"marine"})],live));
 assert.equal(unbound.results[0]?.badge,"CHECK",
   "Marine activity without a named vessel feed cannot be marked ready");
+const ferryPermit=E.plan(input([canoe],[cfg(canoe.id,{operational_binding:"ferry"})],live));
+assert.equal(ferryPermit.results[0]?.badge,"CHECK",
+  "A confirmed ferry departure cannot confirm a different scheduled journey");
 const ferryOnly=E.plan(input([canoe],[cfg(canoe.id,{operational_binding:"ferry"})],{
   ...live,ferry:{...live.ferry,state:"SUSPENDED"}
 }));
