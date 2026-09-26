@@ -25,14 +25,14 @@ for(const topic of ["knowledge_024_may-rut-trong","knowledge_025_may-rut-ngoai"]
 }
 assert(visual.stories["an-thoi-ben-ca-va-cua-ngo-dao"]?.images?.length,"An Thoi contextual gallery");
 assert(visual.stories["vi-sao-goi-phu-quoc-la-dao-ngoc"]?.images?.length,"Island story contextual gallery");
-assert.equal(library.items.length,19,"Curated photo library: 11 first-wave editorial, 4 further subject-matched photos and 4 previously staged");
+assert.equal(library.items.length,28,"Curated photo library includes the full non-slideshow refresh plus previously staged photos");
 for(const item of library.items){
   assert(!/^shutterstock_/i.test(item.original_filename),"Stock photo excluded: "+item.id);
   if(item.id.startsWith("editorial-")) assert(!item.used_on.some(x=>x.includes("homepage-hero")),"New editorial photos do not alter slideshow");
   assert(fs.existsSync(path.join(root,item.path.replace(/^\//,""))),"Missing media file: "+item.path);
 }
 const added=library.items.filter(x=>x.path.startsWith("/assets/media/editorial-"));
-assert.equal(added.length,15,"Expected fifteen approved non-Shutterstock editorial assets");
+assert.equal(added.length,24,"Expected twenty-four approved non-Shutterstock editorial assets");
 for(const [topic,record] of Object.entries(visual.knowledge)){
   for(const pic of record?.images||[]){
     assert(pic.url&&pic.alt&&pic.caption&&pic.source_label,topic+" incomplete photo metadata");
@@ -40,4 +40,7 @@ for(const [topic,record] of Object.entries(visual.knowledge)){
   }
 }
 assert(!JSON.stringify(visual.knowledge["knowledge_035_sao-bien-rach-vem"]||{}).includes("starfish-beach-jo-library"),"Do not promote photographed starfish out of water");
-console.log("Editorial photo curation PASS: 15 editorial assets, 19 library entries, 9 required articles, subject/location checks");
+assert.equal(visual.knowledge["knowledge_014_bai-sao"]?.images?.[0]?.url,"/assets/media/editorial-bai-sao-local.jpg","Bãi Sao should use the matching local image");
+assert.equal(visual.knowledge["knowledge_013_bai-khem"]?.images?.[0]?.url,"/assets/media/editorial-bai-khem-local.jpg","Bãi Khem should use the matching local image");
+assert.equal(visual.knowledge["knowledge_005_sunset-town"]?.images?.[0]?.url,"/assets/media/editorial-sunset-town-aerial.jpg","Sunset Town should use the matching local image");
+console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");

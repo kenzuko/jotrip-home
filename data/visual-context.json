@@ -336,6 +336,15 @@
     "place_sunset_town": {
       "images": [
         {
+          "url": "/assets/media/editorial-sunset-town-aerial.jpg",
+          "alt": "Sunset Town và Cầu Hôn nhìn từ trên cao lúc chiều",
+          "caption": "Toàn cảnh Sunset Town và Cầu Hôn trong ánh chiều; ảnh từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        },
+        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset-town-phu-quoc-2.jpg?width=1800",
           "alt": "Sunset Town Phú Quốc",
           "caption": "Sunset Town nhìn từ khu vực ven biển phía Nam đảo.",
@@ -402,6 +411,15 @@
           "captured_at": "2026",
           "hero_priority": "preferred",
           "visual_quality": "hero"
+        },
+        {
+          "url": "/assets/media/editorial-kiss-bridge-water-show.jpg",
+          "alt": "Cầu Hôn và khu vực trình diễn trên mặt nước nhìn từ trên cao",
+          "caption": "Cầu Hôn nhìn cùng không gian trình diễn trên biển; ảnh từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "preferred"
         }
       ],
       "infographic": [
@@ -437,6 +455,15 @@
     },
     "place_bai_sao": {
       "images": [
+        {
+          "url": "/assets/media/editorial-bai-sao-local.jpg",
+          "alt": "Bãi Sao Phú Quốc với hàng dừa và bãi cát sáng",
+          "caption": "Bãi Sao lúc trời quang; ảnh từ kho JoTrip, chưa rõ tác giả.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai%20Sao%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam%20%283870300491%29.jpg?width=1800",
           "alt": "Bãi Sao Phú Quốc",
@@ -492,6 +519,15 @@
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Phương Huy",
           "source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA_Qu%E1%BB%91c_2022_(C%C3%B4ng_vi%C3%AAn_ch%E1%BB%A7_%C4%91%E1%BB%81,_đu_quay_nh%C3%ACn_xa)_(2).jpg"
+        },
+        {
+          "url": "/assets/media/editorial-vinwonders-royal-day.webp",
+          "alt": "Khu lâu đài và quảng trường VinWonders Phú Quốc",
+          "caption": "Không gian VinWonders vào ban ngày; ảnh từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "preferred"
         }
       ],
       "infographic": [
@@ -572,6 +608,15 @@
     },
     "place_grand_world": {
       "images": [
+        {
+          "url": "/assets/media/editorial-grand-world-canal-day.jpg",
+          "alt": "Kênh đào Grand World và dãy nhà nhiều màu vào ban ngày",
+          "caption": "Grand World nhìn dọc kênh đào vào ban ngày; ảnh từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        },
         {
           "url": "/assets/media/editorial-grand-world-day.jpg",
           "alt": "Kênh đào và những dãy nhà nhiều màu tại Grand World Phú Quốc",
@@ -669,6 +714,15 @@
     },
     "place_aquatopia": {
       "images": [
+        {
+          "url": "/assets/media/editorial-aquatopia-aerial.jpg",
+          "alt": "Công viên nước Aquatopia nhìn từ trên cao",
+          "caption": "Toàn cảnh các cụm máng trượt Aquatopia tại Hòn Thơm; ảnh từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aquatopia%20in2026.jpg?width=1800",
           "alt": "Aquatopia trên Hòn Thơm năm 2026",
@@ -793,6 +847,15 @@
           "captured_at": "2026-03-05",
           "hero_priority": "primary",
           "visual_quality": "hero"
+        },
+        {
+          "url": "/assets/media/editorial-bai-khem-local.jpg",
+          "alt": "Du khách trên Bãi Khem Phú Quốc",
+          "caption": "Bãi Khem trong một ngày có khách tắm biển; dùng bổ sung bên cạnh ảnh toàn cảnh.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "preferred"
         }
       ],
       "infographic": [
@@ -1460,6 +1523,15 @@
     "activity_tinh_hoa_viet_nam": {
       "images": [
         {
+          "url": "/assets/media/editorial-tinh-hoa-viet-nam.jpg",
+          "alt": "Sân khấu Tinh hoa Việt Nam tại Grand World về đêm",
+          "caption": "Một cảnh trình diễn Tinh hoa Việt Nam tại Grand World; ảnh từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        },
+        {
           "url": "https://static.vinwonders.com/2022/05/check-in-grand-world-phu-quoc-03.jpg",
           "alt": "Sân khấu biểu diễn Tinh Hoa Việt Nam tại Grand World",
           "caption": "Một cảnh biểu diễn của Tinh Hoa Việt Nam. Lịch show cần kiểm tra đúng ngày.",
@@ -2056,7 +2128,17 @@
     },
     "knowledge_005_sunset-town": {
       "title": "Sunset Town",
-      "images": []
+      "images": [
+        {
+          "url": "/assets/media/editorial-sunset-town-aerial.jpg",
+          "alt": "Sunset Town và Cầu Hôn nhìn từ trên cao",
+          "caption": "Ảnh toàn cảnh Nam đảo, đúng chủ thể Sunset Town.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        }
+      ]
     },
     "knowledge_006_ham-ninh": {
       "title": "Hàm Ninh",
@@ -2088,11 +2170,31 @@
     },
     "knowledge_013_bai-khem": {
       "title": "Bãi Khem",
-      "images": []
+      "images": [
+        {
+          "url": "/assets/media/editorial-bai-khem-local.jpg",
+          "alt": "Du khách trên bãi cát Bãi Khem",
+          "caption": "Ảnh thực tế Bãi Khem từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        }
+      ]
     },
     "knowledge_014_bai-sao": {
       "title": "Bãi Sao",
-      "images": []
+      "images": [
+        {
+          "url": "/assets/media/editorial-bai-sao-local.jpg",
+          "alt": "Bãi Sao lúc trời quang với hàng dừa và bãi cát sáng",
+          "caption": "Ảnh thực tế Bãi Sao từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        }
+      ]
     },
     "knowledge_015_bai-ong-lang": {
       "title": "Bãi Ông Lang",
@@ -2250,6 +2352,15 @@
           "scope": "context",
           "source_label": "Onbird · Unsplash",
           "source_url": null
+        },
+        {
+          "url": "/assets/media/editorial-phu-quoc-sunset.jpg",
+          "alt": "Hoàng hôn trên bãi biển Phú Quốc",
+          "caption": "Ảnh bối cảnh hoàng hôn Phú Quốc, không gắn một bãi cụ thể.",
+          "scope": "context",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "preferred"
         }
       ]
     },
@@ -2343,7 +2454,17 @@
     },
     "knowledge_076_tu-san-bay-ve-an-thoi-sunset-town": {
       "title": "Từ sân bay về An Thới/Sunset Town",
-      "images": []
+      "images": [
+        {
+          "url": "/assets/media/editorial-sunset-town-aerial.jpg",
+          "alt": "Sunset Town và Cầu Hôn nhìn từ trên cao",
+          "caption": "Ảnh nhận diện khu Sunset Town ở Nam đảo; dùng làm bối cảnh điểm đến.",
+          "scope": "context",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "preferred"
+        }
+      ]
     },
     "knowledge_077_tu-san-bay-ve-bac-dao": {
       "title": "Từ sân bay về Bắc đảo",
@@ -2537,6 +2658,15 @@
           "scope": "exact_subject",
           "source_label": "Internet (kho JoTrip)",
           "source_url": null
+        },
+        {
+          "url": "/assets/media/editorial-vinwonders-royal-day.webp",
+          "alt": "Quảng trường và lâu đài VinWonders Phú Quốc",
+          "caption": "Không gian VinWonders ban ngày từ kho JoTrip.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "preferred"
         }
       ]
     },
@@ -2639,6 +2769,15 @@
           "scope": "context",
           "source_label": "Onbird · Unsplash",
           "source_url": null
+        },
+        {
+          "url": "/assets/media/editorial-phu-quoc-sunset.jpg",
+          "alt": "Hoàng hôn trên bãi biển Phú Quốc",
+          "caption": "Ảnh bối cảnh hoàng hôn Phú Quốc, không gắn một bãi cụ thể.",
+          "scope": "context",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "preferred"
         }
       ]
     },

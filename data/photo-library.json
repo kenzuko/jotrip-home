@@ -1,7 +1,7 @@
 {
-  "version": "2026-09-26.3",
+  "version": "2026-09-26.4",
   "collection": "JOTRIP_INTERNET_IMAGES",
-  "usage": "Open Phu Quoc CMS homepage supporting images, hotel directory, Explore, island stories and practical guides",
+  "usage": "Open Phu Quoc CMS imagery outside the homepage slideshow: homepage support, guide zones, Explore, hotels, stories and practical guides",
   "policy": {
     "exclude": "All images with an original filename beginning shutterstock_",
     "public_credit": "Internet (kho JoTrip); photographer name when known",
@@ -9,7 +9,8 @@
     "location": "Photo must fit article subject; uncertain exact beach/island labels must remain generic.",
     "wildlife": "Do not use starfish photographed out of water as the lead for articles about keeping starfish underwater.",
     "previous_release": "Slide photos remain unchanged; this release updates matching photos outside the slideshow.",
-    "resolution": "Do not replace stronger verified location-specific photos with prettier but unidentified island scenes."
+    "resolution": "Do not replace stronger verified location-specific photos with prettier but unidentified island scenes.",
+    "current_release": "Full non-slideshow photo refresh: prefer local staged assets when they match the subject; retain stronger verified external exact-subject photos when they remain better."
   },
   "items": [
     {
@@ -243,6 +244,119 @@
         "stories.vi-sao-goi-phu-quoc-la-dao-ngoc"
       ],
       "note": "Context only, specific cove and island not verified."
+    },
+    {
+      "id": "editorial-bai-khem-local",
+      "path": "/assets/media/editorial-bai-khem-local.jpg",
+      "original_filename": "khach-quoc-te-bai-kem-1787965797724959904332.jpg",
+      "subject": "bai-khem",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "places.place_bai_khem",
+        "knowledge.knowledge_013_bai-khem"
+      ],
+      "note": "Filename and recognizable beach context support Bãi Khem; photographer/license still unverified."
+    },
+    {
+      "id": "editorial-bai-sao-local",
+      "path": "/assets/media/editorial-bai-sao-local.jpg",
+      "original_filename": "sao_beach_phu_quoc.jpg",
+      "subject": "bai-sao",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "places.place_bai_sao",
+        "knowledge.knowledge_014_bai-sao",
+        "stories.bai-sao-thay-doi-theo-gio",
+        "homepage-library-fallback"
+      ],
+      "note": "Used as local Bãi Sao image outside slideshow."
+    },
+    {
+      "id": "editorial-phu-quoc-sunset",
+      "path": "/assets/media/editorial-phu-quoc-sunset.jpg",
+      "original_filename": "Sunset_on_Phu_Quoc_island.jpg",
+      "subject": "phu-quoc-sunset",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "guide.zone.center",
+        "knowledge.knowledge_050_hoang-hon-phu-quoc",
+        "knowledge.knowledge_131_sunset-watching"
+      ],
+      "note": "Context image only; no specific beach claimed."
+    },
+    {
+      "id": "editorial-vinwonders-royal-day",
+      "path": "/assets/media/editorial-vinwonders-royal-day.webp",
+      "original_filename": "VW-7_1749046286.jpg.webp",
+      "subject": "vinwonders",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "places.place_vinwonders",
+        "knowledge.knowledge_136_vinwonders-visit"
+      ]
+    },
+    {
+      "id": "editorial-sunset-town-aerial",
+      "path": "/assets/media/editorial-sunset-town-aerial.jpg",
+      "original_filename": "phu-quoc1-41-2.jpg",
+      "subject": "sunset-town-kiss-bridge",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "places.place_sunset_town",
+        "knowledge.knowledge_005_sunset-town",
+        "knowledge.knowledge_076_tu-san-bay-ve-an-thoi-sunset-town",
+        "guide.zone.south"
+      ]
+    },
+    {
+      "id": "editorial-aquatopia-aerial",
+      "path": "/assets/media/editorial-aquatopia-aerial.jpg",
+      "original_filename": "277759990_1436741493436183_5330739680601652670_n (1).jpg",
+      "subject": "aquatopia-waterpark",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "places.place_aquatopia"
+      ]
+    },
+    {
+      "id": "editorial-tinh-hoa-viet-nam",
+      "path": "/assets/media/editorial-tinh-hoa-viet-nam.jpg",
+      "original_filename": "images-5.jpeg.jpg",
+      "subject": "tinh-hoa-viet-nam-show",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "places.activity_tinh_hoa_viet_nam"
+      ]
+    },
+    {
+      "id": "editorial-kiss-bridge-water-show",
+      "path": "/assets/media/editorial-kiss-bridge-water-show.jpg",
+      "original_filename": "images-6.jpeg.jpg",
+      "subject": "kiss-bridge",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "places.place_kiss_bridge"
+      ]
+    },
+    {
+      "id": "editorial-grand-world-canal-day",
+      "path": "/assets/media/editorial-grand-world-canal-day.jpg",
+      "original_filename": "images-7.jpeg.jpg",
+      "subject": "grand-world-canal",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "places.place_grand_world",
+        "homepage-go-visual"
+      ]
     }
   ]
 }
