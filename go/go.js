@@ -125,12 +125,14 @@
   }
   function drawMap(){
     if(state.mapOverview){window.OpenPQGoMap?.overview();return;}
-    $("#goMapReset").textContent="Xem cả đảo ↗";
+    $("#goMapReset").textContent="Chỉ xem bản đồ ↗";
     const geo=window.OpenPQGoGeo;
     const point=state.position||geo?.anchors?.[state.originZone];
     if(!geo?.valid(point)){
-      window.OpenPQGoMap?.overview();
-      $("#goMapMode").textContent="Chọn một khu vực hoặc dùng định vị để vẽ vòng bán kính.";
+      const available=window.OpenPQGoMap?.overview();
+      $("#goMapReset").textContent="Xem cả đảo ↗";
+      $("#goMapMode").textContent="Đang xem toàn đảo Phú Quốc. Chọn khu vực hoặc dùng định vị để vẽ vòng bán kính.";
+      $("#goMapCount").textContent=available===false?"Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực.":"Đang xem toàn đảo. Chọn khu vực để hiện các địa điểm gần bạn.";
       return;
     }
     const gps=!!state.position;
@@ -208,10 +210,10 @@
     });
     $("#goMapReset").addEventListener("click",()=>{
       state.mapOverview=!state.mapOverview;
-      $("#goMapReset").textContent=state.mapOverview?"Quay lại vòng bán kính ↗":"Xem cả đảo ↗";
+      $("#goMapReset").textContent=state.mapOverview?"Hiện vòng bán kính ↗":"Chỉ xem bản đồ ↗";
       if(state.mapOverview){
         window.OpenPQGoMap?.overview();
-        $("#goMapMode").textContent="Đang xem toàn bộ Phú Quốc. Chọn bán kính để quay lại các điểm gần mình.";
+        $("#goMapMode").textContent="Đang xem toàn đảo Phú Quốc. Hiện vòng bán kính để xem các địa điểm gần mình.";
         $("#goMapCount").textContent="Chế độ xem toàn đảo, chưa lọc theo bán kính.";
       }else drawMap();
     });

@@ -66,7 +66,7 @@
 .go-radius-actions{display:flex;gap:5px;flex-wrap:wrap}
 .go-radius-actions button{min-width:50px;min-height:38px;padding:7px 10px;border:1px solid #c3dcd0;border-radius:11px;background:#fff;color:#316c54;font-size:12px;font-weight:800;cursor:pointer}
 .go-radius-actions button.active{background:#1a694f;color:#fff;border-color:#1a694f}
-.go-map{height:330px;position:relative;background:#deeee4}
+.go-map{height:370px;position:relative;background:#deeee4}
 .go-map-unavailable{height:100%;display:grid;place-items:center;padding:24px;text-align:center;color:#507166;font-size:14px}
 .go-map-footer{padding:11px 15px;display:flex;justify-content:space-between;gap:10px;color:#5f796e;font-size:11px}
 .go-map-footer span:first-child{font-weight:850;color:#20644d}
@@ -105,7 +105,7 @@
  .go-location-button{width:100%;margin-top:9px;min-height:45px}
  .go-radius-header{display:block}
  .go-radius-actions{margin-top:11px}
- .go-map{height:275px}
+ .go-map{height:315px}
  .go-map-footer{display:grid}
  .go-food-near{display:block;padding:17px}
  .go-food-actions{margin-top:13px}

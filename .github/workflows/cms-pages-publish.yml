@@ -12,6 +12,7 @@ on:
       - "data/content.json"
       - "ecosystem-shell.css"
       - "explore/**"
+      - "go/**"
       - "utilities/**"
       - "currency/**"
       - "scripts/test-home-food-random.mjs"
@@ -81,6 +82,9 @@ jobs:
           node scripts/validate-cms-publication.mjs
           node scripts/test-cms-access.mjs
           node scripts/test-nearme-venues.mjs
+          node scripts/test-go-geo.mjs
+          node --check go/go-map.js
+          node --check go/go.js
           node scripts/validate-home-support.mjs
           node scripts/test-trip-clock-planner.mjs
           node scripts/test-home-nearme.mjs

@@ -45,3 +45,45 @@ const dock=goHtml.match(/<nav class="go-mobile-nav"[^>]*>([\s\S]*?)<\/nav>/);
 assert.ok(dock);
 assert.equal((dock[1].match(/<(?:a|button)\b/g)||[]).length,5,"five mobile dock destinations");
 console.log("go menu, visible radar, 1-50km slider and default map checks passed");
+
+const frameEvents=[];
+const mockMap={
+  setView(){return this;},on(){return this;},invalidateSize(){return this;},
+  fitBounds(bounds){frameEvents.push({...bounds});return this;},removeLayer(){}
+};
+const box=([south,west],[north,east])=>({
+  south,west,north,east,
+  extend(other){
+    this.south=Math.min(this.south,other.south);this.west=Math.min(this.west,other.west);
+    this.north=Math.max(this.north,other.north);this.east=Math.max(this.east,other.east);
+    return this;
+  }
+});
+const fakeL={
+  map:()=>mockMap,
+  latLngBounds:bounds=>box(bounds[0],bounds[1]),
+  tileLayer:()=>({addTo(){return this;}}),
+  layerGroup:()=>({addTo(){return this;},clearLayers(){}}),
+  divIcon:x=>x,
+  marker:()=>({addTo(){return this;},bindPopup(){return this;},setLatLng(){return this;},setIcon(){return this;}}),
+  circle:(center,options)=>({
+    addTo(){return this;},
+    getBounds(){
+      const dy=options.radius/111000,dx=dy/Math.cos(center[0]*Math.PI/180);
+      return box([center[0]-dy,center[1]-dx],[center[0]+dy,center[1]+dx]);
+    }
+  }),
+  circleMarker:()=>({bindPopup(){return this;},addTo(){return this;}})
+};
+const mapWindow={L:fakeL,OpenPQGoGeo:geo};
+vm.runInNewContext(goMap,{window:mapWindow,L:fakeL,document:{getElementById:()=>({})},
+  requestAnimationFrame:fn=>fn(),setTimeout:fn=>fn()});
+const fullIsland=b=>b.south<=9.88&&b.north>=10.46&&b.west<=103.79&&b.east>=104.16;
+assert.equal(mapWindow.OpenPQGoMap.overview(),true,"Island overview available");
+assert.ok(fullIsland(frameEvents.at(-1)),"Overview frames the entire island on mobile");
+mapWindow.OpenPQGoMap.draw({lat:10.2172,lon:103.9593},5,[],{gps:false});
+assert.ok(fullIsland(frameEvents.at(-1)),"5km radar must not crop the northern/southern coast");
+mapWindow.OpenPQGoMap.draw({lat:10.3759,lon:103.90},50,[],{gps:false});
+assert.ok(fullIsland(frameEvents.at(-1))&&frameEvents.at(-1).north>10.6,
+  "Large north-island radius must include both island and the complete ring");
+console.log("go island viewport and radial overlay tests passed");

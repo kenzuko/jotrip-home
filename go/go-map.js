@@ -5,6 +5,20 @@
 const geo=()=>root.OpenPQGoGeo;
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 let map=null,rings=null,pins=null,originMarker=null;
+const ISLAND_FRAME=[[9.88,103.79],[10.46,104.16]]; // Full island and southern islets.
+let fitVersion=0,lastBounds=null;
+function fitVisible(bounds){
+  lastBounds=bounds;
+  const version=++fitVersion;
+  const apply=()=>{
+    if(version!==fitVersion||!map)return;
+    // Recalculate Leaflet dimensions after mobile layout or rotation.
+    map.invalidateSize({pan:false});
+    map.fitBounds(bounds,{padding:[20,20],maxZoom:11,animate:false});
+  };
+  requestAnimationFrame(apply);
+  setTimeout(apply,90);
+}
 function ensure(){
   const host=document.getElementById("goMap");
   if(!host)return false;
@@ -13,12 +27,13 @@ function ensure(){
     return false;
   }
   if(map)return true;
-  map=L.map(host,{scrollWheelZoom:false,preferCanvas:true,tap:true,zoomControl:true})
-    .setView([10.2172,103.9593],12);
+  map=L.map(host,{scrollWheelZoom:false,preferCanvas:true,tap:true,zoomControl:true,zoomSnap:.25})
+    .setView([10.19,103.96],9);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,
     attribution:"© OpenStreetMap contributors"}).addTo(map);
   rings=L.layerGroup().addTo(map);
   pins=L.layerGroup().addTo(map);
+  map.on("resize",()=>{if(lastBounds)map.fitBounds(lastBounds,{padding:[20,20],maxZoom:11,animate:false});});
   return true;
 }
 function centerIcon(gps){
@@ -74,18 +89,18 @@ function draw(position,radius,rows,options={}){
       .bindPopup(popup(group,!gps),{maxWidth:270})
       .addTo(pins);
   }
-  const bounds=L.circle(center,{radius:selected*1000}).getBounds();
-  map.fitBounds(bounds,{padding:[22,22],maxZoom:15,animate:false});
-  // Map can render after a previous hidden state or mobile viewport resize.
-  setTimeout(()=>map?.invalidateSize(),60);
+  // The radius remains visible, but the entire island stays in the frame.
+  const bounds=L.latLngBounds(ISLAND_FRAME);
+  bounds.extend(L.circle(center,{radius:selected*1000}).getBounds());
+  fitVisible(bounds);
   return {shown:points.length,markers:groupPoints(points).length,map:true};
 }
 function overview(){
-  if(!ensure())return;
+  if(!ensure())return false;
   rings.clearLayers();pins.clearLayers();
   if(originMarker){map.removeLayer(originMarker);originMarker=null;}
-  map.setView([10.19,103.96],10,{animate:false});
-  setTimeout(()=>map?.invalidateSize(),60);
+  fitVisible(L.latLngBounds(ISLAND_FRAME));
+  return true;
 }
-root.OpenPQGoMap={draw,overview,refresh(){if(map)setTimeout(()=>map.invalidateSize(),40)}};
+root.OpenPQGoMap={draw,overview,refresh(){if(map)fitVisible(lastBounds||L.latLngBounds(ISLAND_FRAME));}};
 })(window);
