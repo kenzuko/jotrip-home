@@ -32,6 +32,12 @@
   }
   function applyDeepLink(){
     const params=new URLSearchParams(location.search);
+    const context=window.OpenPQArea;
+    if(!params.has("origin")){
+      const remembered=context?.zone(context.get());
+      if(remembered){const chosen=[...document.querySelectorAll('#goForm input[name="origin"]')].find(x=>x.value===remembered);
+        if(chosen){chosen.checked=true;state.originZone=remembered;}}
+    }
     for(const name of ["available","interest","origin"]){
       const value=params.get(name);
       if(!value)continue;
@@ -39,7 +45,7 @@
         .find(item=>item.value===value);
       if(input){
         input.checked=true;
-        if(name==="origin")state.originZone=value;
+        if(name==="origin"){state.originZone=value;window.OpenPQArea?.set(value,"go-link");}
       }
     }
   }
@@ -173,6 +179,7 @@
         state.position=point;
         state.mapOverview=false;
         state.originZone=window.OpenPQGoGeo.nearestArea(point);
+        if(state.originZone)window.OpenPQArea?.set(state.originZone,"go-gps-coarse");
         document.querySelectorAll('#areaChoices input[name="origin"]').forEach(input=>{
           input.checked=input.value===state.originZone;
         });
@@ -187,6 +194,7 @@
     $("#areaChoices").addEventListener("change",event=>{
       if(event.target.name!=="origin")return;
       state.originZone=event.target.value;
+      window.OpenPQArea?.set(state.originZone,"go-manual");
       if(state.position){
         state.position=null;
         $("#goLocate").innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
