@@ -19,15 +19,15 @@
       "quick_facts": [
         [
           "Thời lượng đọc",
-          "4 phút"
+          "3 phút"
         ],
         [
-          "Hợp khi",
-          "Muốn hiểu nông nghiệp đảo"
+          "Ba cách gọi",
+          "Tiêu đen - tiêu nhồi - tiêu lặt"
         ],
         [
-          "Cách trải nghiệm",
-          "Hỏi mùa vụ - ngửi - nếm - quan sát"
+          "Khác biệt chính",
+          "Độ chín và cách hái"
         ]
       ],
       "images": [
@@ -42,22 +42,22 @@
       ],
       "infographic": [
         {
+          "icon": "◉",
+          "label": "Ba cách gọi",
+          "value": "Đen - nhồi - lặt",
+          "note": "Người trồng phân biệt theo độ chín và cách thu hoạch."
+        },
+        {
           "icon": "✋",
-          "label": "Thử bằng tay",
-          "value": "Bóp nhẹ một hạt tiêu",
-          "note": "Mùi bật ra nhanh hơn mọi bảng mô tả."
+          "label": "Tiêu lặt",
+          "value": "Chọn từng trái chín",
+          "note": "Thêm công hái, giữ riêng những trái chín để dùng theo cách người đảo ưa."
         },
         {
-          "icon": "?",
-          "label": "Nên hỏi",
-          "value": "Mùa hái & cách phơi",
-          "note": "Người làm vườn kể được nhiều thứ mà ảnh check-in không có."
-        },
-        {
-          "icon": "◷",
-          "label": "Ở lại",
-          "value": "20-30 phút là vừa",
-          "note": "Đủ để nhìn, hỏi và nếm mà không biến thành một điểm chạy cho xong."
+          "icon": "✦",
+          "label": "Trong bữa ăn",
+          "value": "Chén tiêu giã",
+          "note": "Ăn với cá hay hải sản, mùi thơm lên trước rồi vị cay ấm theo sau."
         }
       ]
     },
@@ -67,15 +67,15 @@
       "quick_facts": [
         [
           "Thời lượng đọc",
-          "5 phút"
+          "3 phút"
         ],
         [
-          "Hợp khi",
-          "Ngày mưa hoặc muốn hiểu nghề địa phương"
+          "Tỷ lệ thường dùng",
+          "2,5-3 phần cá : 1 phần muối"
         ],
         [
           "Điểm cần nhìn",
-          "Thùng gỗ - cá cơm - muối - thời gian"
+          "Mẻ chượp và cách chăm thùng"
         ]
       ],
       "images": [
@@ -91,21 +91,21 @@
       "infographic": [
         {
           "icon": "≈",
-          "label": "Bắt đầu từ",
-          "value": "Cá cơm + muối",
-          "note": "Cái hay nằm ở quá trình ủ và rút nước mắm chứ không chỉ ở chai thành phẩm."
+          "label": "Nguyên liệu",
+          "value": "Cá cơm và muối",
+          "note": "Người làm nghề cho biết tỷ lệ thường dùng là 2,5-3 phần cá cho 1 phần muối."
         },
         {
           "icon": "◫",
-          "label": "Nhìn cho kỹ",
-          "value": "Những dãy thùng gỗ",
-          "note": "Kích thước nhà thùng giúp hình dung nghề rõ hơn đọc con số."
+          "label": "Những ngày đầu",
+          "value": "Rút - san - phủ muối - nén",
+          "note": "Cách chăm chượp được truyền lại và theo dõi qua từng mẻ."
         },
         {
-          "icon": "☂",
-          "label": "Hợp lúc",
-          "value": "Mưa hoặc nắng gắt",
-          "note": "Một khoảng nghỉ khỏi biển mà vẫn rất Phú Quốc."
+          "icon": "◷",
+          "label": "Trong thời gian ủ",
+          "value": "Mùi, màu, độ trong",
+          "note": "Thời gian là một mốc; người làm nghề vẫn phải nhìn sự chuyển biến trong thùng."
         }
       ]
     },
