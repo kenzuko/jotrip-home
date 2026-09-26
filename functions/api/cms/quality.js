@@ -74,9 +74,11 @@ export async function onRequest({request,env}){
       const body=await request.json().catch(()=>null);
       const target=body&&tasks.find(x=>taskKey(x)===body.task_key);
       if(!target)return json({error:"Không tìm thấy công việc hiện còn phát sinh"},404);
-      const actions={claim:{status:"in_progress"},resolve:{status:"resolved"},mute:{status:"muted"},reopen:{status:"open"},due:{status:"open"}};
+      const actions={claim:{status:"in_progress"},mute:{status:"muted"},reopen:{status:"open"},due:{status:"open"}};
       const action=String(body.action||"");
-      if(!actions[action])return json({error:"Thao tác không hợp lệ"},400);
+      if(action==="resolve")return json({error:"Lỗi vẫn còn trong dữ liệu nguồn. Hãy sửa dữ liệu rồi kiểm tra lại; hệ thống tự bỏ việc khi điều kiện gây lỗi không còn."},409);
+    if(!actions[action])return json({error:"Thao tác không hợp lệ"},400);
+    if(action==="mute"&&target.severity==="high")return json({error:"Không được tạm ẩn lỗi mức nghiêm trọng khi dữ liệu vẫn chưa đạt."},409);
       const dueAt=String(body.due_at||"");
       if(action==="due"&&dueAt&&!/^\d{4}-\d{2}-\d{2}$/.test(dueAt))return json({error:"Ngày hạn cần có định dạng YYYY-MM-DD"},400);
       const before=await db.prepare("SELECT task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at FROM cms_quality_work_items WHERE task_key=?").bind(taskKey(target)).first();
@@ -107,7 +109,7 @@ export async function onRequest({request,env}){
     const storedTasks=tasks.map(item=>{
       const state=states[taskKey(item)];
       const expired=state?.status==="muted"&&Date.parse(state.muted_until||"")<=Date.now();
-      return state?{...item,status:expired?"open":state.status,owner:state.owner||"",due_at:state.due_at||null,muted_until:state.muted_until||null,note:state.note||null,persistence:"d1"}:item;
+      return state?{...item,status:(expired||state.status==="resolved"||(state.status==="muted"&&item.severity==="high"))?"open":state.status,owner:state.owner||"",due_at:state.due_at||null,muted_until:state.muted_until||null,note:state.note||null,persistence:"d1"}:item;
     });
     return json({tasks:storedTasks,count:storedTasks.length,can_manage:role==="admin",computed_at:new Date().toISOString(),storage:persistenceAvailable?"d1":"computed-from-main",note:persistenceAvailable?"Tín hiệu được tính từ main; trạng thái công việc và lịch sử thao tác được lưu trong D1.":"Tín hiệu được tính lại từ main; D1 chưa sẵn sàng trong môi trường này."});
   }catch(e){return json({error:"Không tạo được hàng đợi chất lượng",detail:e?.message||String(e)},503)}
