@@ -58,7 +58,7 @@
  }
  const fold=value=>String(value??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase();
  function matchesText(row){if(!query.trim())return true;const text=[row.name,row.address,row.what_it_is,...(row.aliases||[])].join(" ");return fold(text).includes(fold(query.trim()))}
- function coords(row){const map=row.map||{};return map.precision==="site_centroid"&&Number.isFinite(map.lat)&&Number.isFinite(map.lon)?{lat:map.lat,lon:map.lon}:null}
+ function coords(row){const map=row.map||{};return row.verified!==false&&map.precision==="site_centroid"&&Number.isFinite(map.lat)&&Number.isFinite(map.lon)?{lat:map.lat,lon:map.lon}:null}
  function ranked(docs){
   const meta=new Map((support?.near_me?.items||[]).map(item=>[item.utility_id,item]));
   const candidate=docs.filter(row=>row.entity_type==="utility"||(query.trim()&&!category&&["place","hotel","activity"].includes(row.entity_type)));
@@ -95,15 +95,16 @@
   const suspended=["CLOSED","TEMPORARILY_CLOSED"].includes(row.meta?.current_status);
   const note=row.meta?.opening_hours_note||"";
   const is24h=/24\s*\/?\s*24|24\s*giờ/i.test(note);
-  const extra=suspended?"Tạm ngưng theo thông tin đã cập nhật":is24h?"Có thông tin hoạt động 24/24, nên xác nhận trước khi đi":row.km!==null?"≈ "+roundKm(row.km)+" km đường chim bay":"";
-  const maps=mapUrl(row),phone=phoneUrl(row.phone);
+  const extra=row.verified===false?"Địa điểm tham khảo - chưa xác minh hoạt động":suspended?"Tạm ngưng theo thông tin đã cập nhật":is24h?"Có thông tin hoạt động 24/24, nên xác nhận trước khi đi":row.km!==null?"≈ "+roundKm(row.km)+" km đường chim bay":"";
+  const maps=row.verified===false&&Number.isFinite(row.map?.lat)&&Number.isFinite(row.map?.lon)?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(row.map.lat+","+row.map.lon):mapUrl(row),phone=phoneUrl(row.phone);
   return '<article class="near-result-card near-quick-result">'+
    (extra?'<span class="near-quick-meta">'+esc(extra)+'</span>':"")+
    '<strong>'+esc(row.name)+'</strong>'+
    (row.address?'<small>'+esc(row.address)+'</small>':"")+
    (note&&!is24h?'<small>Giờ tham khảo: '+esc(note)+'</small>':"")+
    '<div class="near-result-actions">'+
-    '<a href="'+esc(maps)+'" target="_blank" rel="noopener noreferrer" aria-label="Chỉ đường tới '+esc(row.name)+'">↗ Chỉ đường</a>'+
+    '<a href="'+esc(maps)+'" target="_blank" rel="noopener noreferrer" aria-label="'+(row.verified===false?"Xem vị trí tham khảo":"Chỉ đường")+' tới '+esc(row.name)+'">↗ '+(row.verified===false?"Vị trí tham khảo":"Chỉ đường")+'</a>'+
+    (row.external_verify_url?'<a href="'+esc(row.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
     (phone?'<a href="'+esc(phone)+'" aria-label="Gọi '+esc(row.name)+'">☎ Gọi điện</a>':"")+
    '</div></article>';
  }
