@@ -84,6 +84,7 @@ jobs:
           node scripts/test-nearme-venues.mjs
           node scripts/test-go-geo.mjs
           node --check go/go-map.js
+          node scripts/test-go-manual-ui.mjs
           node --check go/go.js
           node scripts/validate-home-support.mjs
           node scripts/test-trip-clock-planner.mjs

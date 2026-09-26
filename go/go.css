@@ -68,6 +68,8 @@
 .go-radius-actions button.active{background:#1a694f;color:#fff;border-color:#1a694f}
 .go-map{height:370px;position:relative;background:#deeee4}
 .go-map-unavailable{height:100%;display:grid;place-items:center;padding:24px;text-align:center;color:#507166;font-size:14px}
+.go-map-load-note{position:absolute;z-index:1100;top:12px;left:60px;right:12px;width:max-content;max-width:calc(100% - 72px);padding:8px 11px;border:1px solid #cbded5;border-radius:10px;background:rgba(255,255,255,.96);color:#285d4b;font-size:12px;line-height:1.4;box-shadow:0 3px 12px rgba(0,0,0,.08);pointer-events:none}
+.go-map-load-note[hidden]{display:none!important}
 .go-map-footer{padding:11px 15px;display:flex;justify-content:space-between;gap:10px;color:#5f796e;font-size:11px}
 .go-map-footer span:first-child{font-weight:850;color:#20644d}
 .go-you-marker{background:none;border:0}
@@ -161,7 +163,7 @@
   .go-radius-controls{padding:2px 12px 14px}
   .go-radius-actions{flex-wrap:nowrap;overflow-x:auto;padding:10px 0;scrollbar-width:none}
   .go-radius-actions button{flex:0 0 auto;min-height:39px}
-  .go-map{height:min(58vw,310px);min-height:215px}
+  .go-map{height:clamp(315px,88vw,410px)}
   .go-more-sheet{top:auto;left:8px;right:8px;bottom:calc(5px + env(safe-area-inset-bottom,0px));width:auto;max-height:min(83dvh,770px);padding:15px 15px 70px;border-radius:26px}
   .go-more-handle{display:block;width:37px;height:4px;margin:0 auto 14px;border-radius:99px;background:#bbd2c6}
 }

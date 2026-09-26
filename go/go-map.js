@@ -14,10 +14,10 @@ function fitVisible(bounds){
     if(version!==fitVersion||!map)return;
     // Recalculate Leaflet dimensions after mobile layout or rotation.
     map.invalidateSize({pan:false});
-    map.fitBounds(bounds,{padding:[20,20],maxZoom:11,animate:false});
+    map.fitBounds(bounds,{padding:[16,20],maxZoom:11,animate:false});
   };
   requestAnimationFrame(apply);
-  setTimeout(apply,90);
+  setTimeout(apply,150);
 }
 function ensure(){
   const host=document.getElementById("goMap");
@@ -29,11 +29,43 @@ function ensure(){
   if(map)return true;
   map=L.map(host,{scrollWheelZoom:false,preferCanvas:true,tap:true,zoomControl:true,zoomSnap:.25})
     .setView([10.19,103.96],9);
-  L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,
-    attribution:"© OpenStreetMap contributors"}).addTo(map);
+  // The OSM-only layer sometimes leaves a blank map on iOS. Reuse the
+  // CARTO/OSM basemap already used by Near Me and Guide, with a timed fallback.
+  const notice=document.createElement("div");
+  notice.className="go-map-load-note";
+  notice.setAttribute("role","status");
+  notice.hidden=true;
+  host.appendChild(notice);
+  let tileSeen=false;
+  const tileReady=()=>{tileSeen=true;notice.hidden=true;};
+  map.on("layeradd",({layer})=>{
+    if(layer instanceof L.TileLayer)layer.on("tileload",tileReady);
+  });
+  const basemap=root.OpenPQMapBase?.add?.(map,{maxZoom:19});
+  if(!basemap){
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{
+      maxZoom:19,attribution:"© OpenStreetMap contributors"}).addTo(map);
+  }
+  setTimeout(()=>{
+    if(tileSeen)return;
+    notice.textContent="Đang thử nguồn bản đồ dự phòng…";
+    notice.hidden=false;
+    basemap?.fallback?.();
+  },4500);
+  setTimeout(()=>{
+    if(tileSeen)return;
+    notice.textContent="Chưa tải được nền bản đồ. Bạn thử tải lại trang nhé.";
+    notice.hidden=false;
+  },12000);
   rings=L.layerGroup().addTo(map);
   pins=L.layerGroup().addTo(map);
-  map.on("resize",()=>{if(lastBounds)map.fitBounds(lastBounds,{padding:[20,20],maxZoom:11,animate:false});});
+  map.on("resize",()=>{if(lastBounds)map.fitBounds(lastBounds,{padding:[16,20],maxZoom:11,animate:false});});
+  // Mobile viewport changes after Safari address-bar movement or returning from a tab.
+  if(root.ResizeObserver){
+    const observer=new ResizeObserver(()=>{if(lastBounds)fitVisible(lastBounds);});
+    observer.observe(host);
+  }
+  root.addEventListener("pageshow",()=>{if(lastBounds)fitVisible(lastBounds);});
   return true;
 }
 function centerIcon(gps){
