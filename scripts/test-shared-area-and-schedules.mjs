@@ -35,6 +35,8 @@ const privateWin={sessionStorage:{getItem(){throw Error("Safari private storage"
 vm.runInNewContext(areaSource,{window:privateWin,URLSearchParams});
 assert.equal(privateWin.OpenPQArea.set("zone_north"),"zone_north");
 assert.equal(privateWin.OpenPQArea.get(),"zone_north","Still works in-memory with blocked storage");
+assert.equal(privateWin.OpenPQArea.set("all"),"all");
+assert.equal(privateWin.OpenPQArea.get(),"all","Clearing to whole island works even without sessionStorage");
 
 const index=fs.readFileSync("index.html","utf8"),go=fs.readFileSync("go/index.html","utf8"),
   near=fs.readFileSync("nearme/index.html","utf8"),explore=fs.readFileSync("explore/index.html","utf8");
