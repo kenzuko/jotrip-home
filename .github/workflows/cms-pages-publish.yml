@@ -14,6 +14,9 @@ on:
       - "explore/**"
       - "go/**"
       - "core/decision-signals.js"
+      - "core/location-context.js"
+      - "core/search-engine.js"
+      - "scripts/test-shared-area-and-schedules.mjs"
       - "core/go-engine.js"
       - "data/go-config.json"
       - "scripts/test-decision-signals.mjs"
@@ -96,6 +99,7 @@ jobs:
           node scripts/test-nearme-venues.mjs
           node scripts/test-go-geo.mjs
           node scripts/test-decision-signals.mjs
+          node scripts/test-shared-area-and-schedules.mjs
           node --check go/go-map.js
           node scripts/test-go-manual-ui.mjs
           node --check go/go.js
