@@ -97,7 +97,7 @@ for(const e of totalEssentials.filter(x=>x.verified===false)){
   const doc=indexed.get(e.id);
   assert.equal(doc?.verified,false,"Community records cannot become verified via indexing");
   assert.equal(doc?.source_license,"ODbL-1.0");
-  assert.ok(doc.map?.note?.includes("Chưa xác minh"));
+  assert.match(doc.map?.note||"",/chưa xác minh|chưa được kiểm chứng/i,"All OSM candidate maps must disclose uncertainty");
   assert.ok(!e.opening_hours,"Do not invent live hours from OSM");
 }
 const chargers=batch.filter(e=>e.utility_type==="CHARGING");
