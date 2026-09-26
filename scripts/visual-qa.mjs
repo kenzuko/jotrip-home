@@ -168,7 +168,8 @@ async function testHomeFoundation(page) {
     cardsAfterArea:await page.locator('#nearResults .near-result-card').count().catch(()=>0),
     essentials:await page.locator('#nearCategories [data-category]').count().catch(()=>0),
     others:await page.locator('#nearQuickMore [data-category]').count().catch(()=>0),
-    emergency:await page.locator('.near-quick-emergency-call[href="tel:115"]').count().then(n=>n===1).catch(()=>false)
+    emergency:await page.locator('.near-quick-emergency-call[href="tel:115"]').count().then(n=>n===1).catch(()=>false),
+    gpsKeepsPreciseMode:false
   };
   const pharmacy=page.locator('#nearCategories [data-category="PHARMACY"]');
   async function clickPharmacy(){
@@ -201,6 +202,20 @@ async function testHomeFoundation(page) {
     quickFinder.searchFound=await page.locator('#nearResults .near-result-card strong').filter({hasText:'Vietcombank'}).count().then(n=>n>0).catch(()=>false);
     await search.fill('');
     await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0,{timeout:5000}).catch(()=>{});
+  }
+
+  quickFinder.gpsKeepsPreciseMode=false;
+  const gpsButton=page.locator('#nearLocationBtn');
+  if(await gpsButton.count()){
+    await page.context().grantPermissions(['geolocation']);
+    await page.context().setGeolocation({latitude:10.0191,longitude:104.0150});
+    await gpsButton.scrollIntoViewIfNeeded();
+    await gpsButton.click({timeout:12000});
+    await page.waitForFunction(
+      () => document.querySelector('#nearQuickStatus')?.textContent.includes('Đang tìm quanh vị trí bạn vừa chia sẻ.'),
+      {timeout:6500}
+    ).catch(()=>{});
+    quickFinder.gpsKeepsPreciseMode=await page.locator('#nearQuickStatus').textContent().then(text=>text.includes('Đang tìm quanh vị trí bạn vừa chia sẻ.')).catch(()=>false);
   }
 
   const cancelledToday = await page.evaluate(async () => {
@@ -301,7 +316,7 @@ async function testHomeFoundation(page) {
       manualAreas: count('#nearManualAreas [data-area]') >= 4,
       nearCategories: count('#nearCategories [data-category]') === 4,
       nearExtraCategories: count('#nearQuickMore [data-category]') === 4,
-      nearQuickFinder: quickFinder.collapsedInitially&&quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound,
+      nearQuickFinder: quickFinder.collapsedInitially&&quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound&&quickFinder.gpsKeepsPreciseMode,
       nearMobileFlow: window.innerWidth>720 || (
         document.querySelector('.near-quick-controls')?.compareDocumentPosition(document.querySelector('.near-quick-results')) & Node.DOCUMENT_POSITION_FOLLOWING &&
         document.querySelector('.near-quick-results')?.compareDocumentPosition(document.querySelector('.near-quick-secondary')) & Node.DOCUMENT_POSITION_FOLLOWING &&
