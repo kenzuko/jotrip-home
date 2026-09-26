@@ -106,6 +106,7 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  }]);
  const res=await handleWeatherWindow(request,async()=>{called++;throw Error("must not fetch")});
  const body=await res.json();
+ assert.equal(body.source_status,"PARTIAL");
  assert.equal(body.items[0].status,"UNKNOWN");
  assert.deepEqual(body.items[0].reason_codes,["ROUTE_SOURCE_UNSUPPORTED"]);
  assert.equal(body.items[0].temporal_coverage.status,"NOT_EVALUATED");
