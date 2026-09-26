@@ -45,6 +45,17 @@ jobs:
           node --check go/go.js
           node --check core/decision-signals.js
           node --check go/live-adapter.js
+      - name: Test shared Weather Context and GO regressions
+        run: |
+          node scripts/weather-context-api.test.mjs
+          node scripts/test-weather-context-client.mjs
+          node scripts/test-go-engine.mjs
+          node scripts/test-go-live-api.mjs
+          node scripts/test-go-weather-context.mjs
+          node --check core/weather-context-client.js
+          node --check core/go-engine.js
+          node --check go/live-adapter.js
+          node --check go/go.js
       - name: Validate natural public-facing Vietnamese
         run: node scripts/validate-public-copy.mjs
       - name: Test search ranking and grouping
