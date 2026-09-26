@@ -18,7 +18,6 @@ try{
  assert.ok(row.button.height>=44,"Location control must have 44px touch target");
  assert.ok(row.button.y>=row.header.y&&row.button.y+row.button.height<=row.header.y+row.header.height+2,
    "Location control must sit on the same line as the logo");
- assert.ok(row.button.right<row.search?.x||true); // Bounding overlap is checked below.
  assert.equal((await page.locator("#siteAreaHint").textContent()).trim(),
    "Chọn khu vực để nhận gợi ý thông minh hơn.");
  await page.locator("#siteAreaButton").click();
