@@ -136,8 +136,8 @@ function renderArticle(){
     ? OpenPQVisual.gallery(images,{eyebrow:copy("food.images_eyebrow","NHÌN MÓN"),title:copy("food.images_title","Nhìn món trước khi gọi")})
     : "";
 
-  const cultural=new Set(['goi-ca-trich','bun-quay','bun-ken','nhum','coi-bien-mai','ghe-ham-ninh','ga-ray-nuong','banh-kheo','banh-tet-mat-cat','banh-xeo']);
-  const nameStories=new Set(['bun-quay','bun-ken','nhum','coi-bien-mai','ga-ray-nuong','banh-kheo','banh-tet-mat-cat','banh-xeo']);
+  const cultural=new Set(['goi-ca-trich','bun-quay','bun-ken','ga-ray-nuong','banh-kheo','banh-tet-mat-cat']);
+  const nameStories=new Set(['bun-quay','bun-ken','ga-ray-nuong','banh-kheo','banh-tet-mat-cat']);
   const origin=cultural.has(dish.id)&&dish.origin
     ? '<section><div class="food-section-label">'+esc(copy("food.origin","NGUỒN GỐC"))+'</div><h2>'+esc(copy("food.origin_value","Món đến từ đâu?"))+'</h2><p>'+esc(dish.origin)+'</p></section>'
     : "";

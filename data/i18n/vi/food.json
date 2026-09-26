@@ -13,7 +13,7 @@
       "name": "Gỏi cá trích",
       "category": "local",
       "intro": "Đĩa gỏi cá trích ngon phải có rổ rau, ít dừa nạo, bánh tráng và chén nước chấm đi cùng. Gắp một miếng cá, thêm rau rồi cuốn vừa tay; vị béo của dừa, mùi thơm của rau và chút chua cay gặp nhau trong mỗi miếng. Đi vài người, gọi một đĩa để cùng cuốn và thong thả ăn.",
-      "how_to_eat": "Trải bánh tráng, xếp rau, cá và ít dừa rồi cuốn vừa tay. Chấm một góc trước để nếm độ mặn ngọt, sau đó thêm ớt nếu thích. Hỏi rõ cá được sơ chế thế nào và nước chấm có đậu phộng không; tên món không nói hết cách quán xử lý cá.",
+      "how_to_eat": "Trải bánh tráng, thêm rau, cá và một ít dừa rồi cuốn vừa tay. Chấm nhẹ trước để nếm vị cá; thích đậm hơn thì mới thêm nước chấm hay ớt.",
       "tips": [
         "Hỏi cá được làm trong ngày không và đang phục vụ sống, tái hay đã xử lý nhiệt.",
         "Nước chấm có thể có đậu phộng; hỏi riêng nếu dị ứng.",
@@ -71,7 +71,7 @@
       "name": "Bún quậy",
       "category": "local",
       "intro": "Bún quậy vừa bưng ra đã có tô nước dùng nóng, sợi bún tươi và phần chả hải sản. Nhưng đừng vội nêm cả tô. Cứ pha chén muối tiêu với quất và ớt theo ý mình, thử một miếng chả rồi điều chỉnh độ chua cay. Mỗi người có một chén chấm riêng, cũng là cái thú khi ngồi ăn món này ở Phú Quốc.",
-      "how_to_eat": "Pha chén chấm trước: vắt quất từng chút, thêm muối tiêu và ớt, nếm rồi chỉnh. Ăn thử miếng chả cùng nước dùng trước khi nêm cả tô. Nếu dị ứng hải sản, hỏi thành phần chả và nước dùng.",
+      "how_to_eat": "Pha chén chấm theo khẩu vị rồi thử một miếng chả với nước dùng còn nóng. Đừng nêm cả tô ngay, bởi chả và chén chấm mỗi quán đã có độ đậm riêng.",
       "tips": [
         "Tô có thể có cá, tôm và mực; hỏi rõ nếu dị ứng hải sản.",
         "Khu chế biến có thể dùng chung dụng cụ giữa các loại hải sản.",
@@ -136,7 +136,7 @@
       "name": "Bún kèn",
       "category": "local",
       "intro": "Tô bún kèn có màu vàng ấm của nước dùng cốt dừa, cá được làm tơi và rau ăn kèm. Trộn nhẹ để nước kèn áo đều sợi bún, rồi gắp cùng đu đủ bào và ít rau. Vị béo của cốt dừa đi với cá và chút cay trong nước dùng tạo ra một bữa sáng rất khác những tô bún nước quen thuộc.",
-      "how_to_eat": "Nếm nước dùng trước rồi trộn nhẹ để cá, rau và bún quyện nhau. Thêm ớt nếu muốn vị cay rõ hơn. Nếu cần tránh thành phần cụ thể, hỏi quán về cá dùng trong ngày, nước cốt dừa và gia vị.",
+      "how_to_eat": "Nếm nước kèn trước, sau đó trộn nhẹ cho phần cá, rau và bún quyện vào nhau. Nếu thích ăn cay, thêm ớt từng chút để vẫn cảm nhận được vị cốt dừa.",
       "tips": [
         "Hỏi loại cá và thành phần gia vị nếu bạn kiêng món nào.",
         "Nếu dị ứng cá, cần hỏi cả nước chan và dụng cụ chế biến.",
@@ -191,7 +191,7 @@
       "name": "Nhum",
       "category": "seafood",
       "intro": "Nhum nhìn gai góc vậy mà phần ăn được bên trong lại mềm và béo. Ở Phú Quốc, người ta thường nướng nhum với mỡ hành hoặc nấu cháo; mỗi cách cho một vị khác nhau. Nhum nướng nên ăn khi vừa ra bếp, múc từng chút phần trứng còn nóng để cảm nhận vị ngọt mặn nhẹ của biển.",
-      "how_to_eat": "Nếu ăn nhum nướng, dùng nóng khi mỡ hành còn thơm. Múc phần trứng cùng chút hành, chấm nhẹ để vị ngọt tự nhiên không bị lấn. Hỏi rõ nhum được chế biến chín thế nào nếu muốn tránh ăn sống.",
+      "how_to_eat": "Nhum nướng ngon lúc vừa ra bếp, mỡ hành còn thơm. Múc phần ăn được bên trong, thêm chút chấm nếu thích; nhum nấu cháo thì nên ăn khi tô còn nóng.",
       "tips": [
         "Đừng gọi nhiều trước khi biết có hợp vị nhum không.",
         "Nếu dị ứng hải sản, tránh dùng chung muỗng hay vỉ nướng."
@@ -248,7 +248,7 @@
       "name": "Còi biên mai",
       "category": "seafood",
       "intro": "Còi biên mai là phần cơ khép vỏ của con sò lớn, dày và giòn dai hơn nhiều loại thịt sò thông thường. Nướng với muối ớt, mặt ngoài thơm và hơi cay, bên trong vẫn có vị ngọt. Món này hợp gọi để cả bàn gắp lai rai, nhưng phải nướng vừa tay; để quá lửa, phần còi dễ trở nên khô và dai.",
-      "how_to_eat": "Ăn lúc vừa nướng để phần còi còn mọng và giòn. Nếu có muối ớt hoặc nước chấm riêng, chấm ít trước vì vị biển đã khá đậm. Hỏi quán cách làm sạch và thành phần sốt nếu có dị ứng.",
+      "how_to_eat": "Ăn ngay lúc còi vừa nướng để giữ độ mọng và giòn. Chấm một chút trước, vì kiểu nướng muối ớt đã có gia vị; món này hợp gọi ăn chung hơn là phần ăn no.",
       "tips": [
         "Hỏi khẩu phần tính theo còi hay theo con sò.",
         "Nếu không ăn cay, dặn trước khi bếp làm sốt.",
@@ -309,7 +309,7 @@
         "lunch"
       ],
       "intro": "Một tô bánh canh cá thu nóng có sợi bánh mềm, miếng cá chắc thịt và nước dùng thơm hành tiêu. Gắp thử cá trước rồi mới nêm thêm nước mắm hoặc ớt, bởi mỗi quán có cách nấu đậm nhạt khác nhau. Buổi sáng muốn ăn món nước vừa ấm bụng vừa rõ vị cá biển, đây là một lựa chọn quen ở Phú Quốc.",
-      "how_to_eat": "Ăn khi còn nóng để sợi bánh không trương quá lâu trong nước. Nếm nước dùng rồi mới thêm nước mắm hoặc tiêu. Hỏi xem cá có xương và phần chả cá có thành phần gì nếu cần lưu ý dị ứng.",
+      "how_to_eat": "Thử nước dùng rồi mới thêm tiêu, nước mắm hay ớt. Cá thu có thể còn xương; gỡ từng miếng và ăn lúc tô còn nóng để sợi bánh không trương quá lâu.",
       "tips": [
         "Hỏi tô dùng cá thu tươi, chả cá hay cả hai.",
         "Nếu dị ứng cá, tránh cả nước dùng và chả cá.",
@@ -357,7 +357,7 @@
         "lunch"
       ],
       "intro": "Bánh canh ghẹ được dọn trong tô nước dùng nóng, bên trên là ghẹ nguyên con hoặc phần thịt đã gỡ tùy quán. Sợi bánh mềm, dày, ăn cùng thịt ghẹ ngọt và chút hành tiêu. Nếu gọi phần có ghẹ nguyên con, hỏi giá và cách tính trước; gỡ ghẹ hơi mất công nhưng cũng là một phần của bữa ăn.",
-      "how_to_eat": "Nếm nước dùng trước rồi gỡ ghẹ ăn cùng sợi bánh. Hỏi giá tính theo tô hay theo trọng lượng, và ghẹ được phục vụ nguyên con hay đã tách thịt. Cẩn thận vỏ và càng; người dị ứng giáp xác cần tránh.",
+      "how_to_eat": "Nếu tô có ghẹ nguyên con, gỡ thịt ăn xen với sợi bánh và nước dùng. Hỏi trước phần ghẹ phục vụ nguyên con hay gỡ sẵn để chọn món vừa ý.",
       "tips": [
         "Xác nhận giá và lượng ghẹ trước khi gọi.",
         "Hỏi ghẹ được tính theo con, theo lạng hay theo tô.",
@@ -405,7 +405,7 @@
         "lunch"
       ],
       "intro": "Hủ tiếu mực ngon ở miếng mực vừa chín, còn giòn và ngọt, ăn cùng sợi hủ tiếu trong tô nước dùng nóng. Có quán thêm tôm hoặc thịt, có quán để mực làm phần chính. Thêm rau rồi ăn lúc mới dọn để mực không bị dai; muốn biết tô có những gì, cứ hỏi người bán trước khi gọi.",
-      "how_to_eat": "Trộn rau vào tô lúc còn nóng rồi ăn ngay để mực giữ độ giòn. Nếu gọi phần có nhiều loại topping, hỏi trước thành phần nước dùng và món kèm; dị ứng mực hoặc tôm cần được lưu ý.",
+      "how_to_eat": "Cho rau vào tô khi nước còn nóng, gắp mực ăn sớm để giữ độ giòn. Một số quán có thêm tôm hoặc thịt; cứ hỏi phần topping nếu muốn chọn kiểu hủ tiếu đơn giản.",
       "tips": [
         "Hỏi có thêm tôm, thịt hoặc thành phần ngoài mực không.",
         "Dị ứng nhuyễn thể cần hỏi cả nước dùng và khu chế biến.",
@@ -453,7 +453,7 @@
         "lunch"
       ],
       "intro": "Bún riêu dọn ra nghi ngút khói, có cà chua, phần riêu mềm và rổ rau sống ăn kèm. Nước dùng thường chua dịu; muốn đậm hơn thì thêm chút mắm tôm, nhưng nên nếm trước vì mỗi quán nêm một kiểu. Ăn cùng rau muống bào hay bắp chuối, tô bún có thêm độ giòn mà vẫn dễ ăn.",
-      "how_to_eat": "Nếm nước dùng trước, sau đó mới cho mắm tôm từng chút vì mùi và độ mặn khá rõ. Vắt chanh hoặc thêm ớt tùy khẩu vị. Hỏi quán thành phần riêu và nước dùng nếu có dị ứng cua hoặc tôm.",
+      "how_to_eat": "Nếm một muỗng nước trước, rồi thêm mắm tôm, chanh hoặc ớt tùy khẩu vị. Ăn với rau muống bào hay bắp chuối để tô bún có thêm độ giòn.",
       "tips": [
         "Hỏi riêu làm từ cua hay có pha thêm nguyên liệu khác.",
         "Kiểm tra topping như huyết, ốc hoặc đậu nếu bạn không ăn.",
@@ -501,7 +501,7 @@
         "snack"
       ],
       "intro": "Ổ bánh mì nóng kẹp chả cá, dưa leo và rau thơm là bữa sáng gọn gàng trước một ngày đi chơi. Chả vừa chiên hoặc áp chảo còn thơm, cắn cùng vỏ bánh giòn nghe vui miệng. Mỗi hàng có loại chả và nước sốt riêng; nếu thích ít cay hoặc cần tránh thành phần nào, dặn ngay lúc gọi.",
-      "how_to_eat": "Ăn lúc chả còn nóng để bánh giòn và thơm. Hỏi chả làm từ loại cá nào và có pha thành phần khác không nếu dị ứng; lượng tương ớt có thể nhờ gia giảm.",
+      "how_to_eat": "Ăn lúc chả còn nóng và bánh còn giòn. Nếu mang đi xa, nhờ để sốt riêng khi quán có thể làm để bánh bớt mềm.",
       "tips": [
         "Hỏi chả làm từ cá gì nếu bạn dị ứng hoặc tránh một loại cá.",
         "Dặn ít cay, ít sốt nếu mang đi xa.",
@@ -552,7 +552,7 @@
         "breakfast"
       ],
       "intro": "Bánh mì ốp la hấp dẫn nhất lúc trứng còn nóng trên chảo, lòng đỏ sánh để xé bánh mì chấm vào. Thêm dưa leo, chút nước tương hoặc tương ớt tùy cách quán dọn. Có nơi ăn đơn giản với trứng, có nơi thêm pate, thịt hay xíu mại, nên chỉ cần chọn phần vừa đủ cho buổi sáng.",
-      "how_to_eat": "Ăn khi trứng vừa ra chảo để lòng đỏ còn sánh nếu gọi kiểu lòng đào. Nếu cần trứng chín kỹ, dặn trước. Hỏi phần ăn kèm và sốt có thành phần gì nếu có dị ứng.",
+      "how_to_eat": "Xé bánh mì chấm trứng ngay lúc chảo vừa dọn. Thích lòng đỏ chín kỹ hay lòng đào thì dặn trước; phần pate, thịt hoặc xíu mại tùy quán.",
       "tips": [
         "Nói rõ muốn lòng đào hay chín kỹ.",
         "Hỏi thành phần pate, bơ hoặc sốt nếu có dị ứng.",
@@ -605,7 +605,7 @@
         "snack"
       ],
       "intro": "Xôi mặn thường được gói gọn trong một phần nếp dẻo, phía trên có thể là lạp xưởng, chà bông, trứng và hành phi. Trộn đều một chút, mỗi muỗng sẽ có cả nếp mềm lẫn phần nhân mặn thơm. Món này hợp những buổi sáng cần ăn nhanh, nhưng nhìn topping của quán trước khi gọi để chọn đúng khẩu vị.",
-      "how_to_eat": "Trộn phần topping vào xôi để vị mặn béo phân bố đều. Nếu phần nhiều dầu hoặc sốt, ăn kèm dưa leo hay đồ chua nếu quán có. Hỏi thành phần topping trước nếu cần tránh thịt, trứng hoặc đậu phộng.",
+      "how_to_eat": "Trộn phần nhân mặn vào xôi trước khi ăn để nếp và topping đều vị. Gọi phần vừa ăn, thêm dưa leo hay đồ chua nếu quán có.",
       "tips": [
         "Hỏi phần topping cụ thể, nhất là chà bông, pate, trứng hoặc hành phi.",
         "Nếu ăn chay, đừng mặc định xôi trắng đi kèm topping chay.",
@@ -651,7 +651,7 @@
         "dinner"
       ],
       "intro": "Có những buổi sáng chỉ cần một tô cháo nóng, thêm vài miếng chả và chút hành tiêu là đủ. Cháo mềm, vị dịu; phần chả tạo thêm độ dai và vị mặn vừa phải. Ở Phú Quốc, mỗi hàng có thể dùng một loại chả khác nhau, nên hỏi trước nếu muốn biết đó là chả cá hay chả làm từ nguyên liệu khác.",
-      "how_to_eat": "Ăn nóng, rắc tiêu và hành theo ý thích. Hỏi chả làm từ nguyên liệu gì, nhất là khi cần tránh cá, thịt hoặc bột pha.",
+      "how_to_eat": "Ăn nóng, thêm hành và tiêu vừa đủ. Nếu muốn biết miếng chả làm từ cá hay thịt, cứ hỏi quán trước vì cách bán mỗi nơi khác nhau.",
       "tips": [
         "Hỏi loại chả được dùng trước khi gọi.",
         "Nếu dị ứng cá, hỏi cả nước dùng và dụng cụ chung.",
@@ -692,7 +692,7 @@
         "lunch"
       ],
       "intro": "Cháo nhum không cầu kỳ về hình thức: tô cháo nóng, phần nhum béo thơm và chút hành tiêu. Múc một muỗng khi còn nóng, vị ngọt mặn nhẹ của nhum hòa vào cháo, ăn chậm mới thấy rõ. Tùy quán, nhum có thể được nấu cùng hoặc thêm vào gần lúc dọn, vì vậy nên hỏi cách chế biến nếu cần ăn chín kỹ.",
-      "how_to_eat": "Ăn khi còn nóng, trộn nhum đều trong vài muỗng đầu để vị béo lan vào cháo. Hỏi nhum được nấu chín kỹ chưa nếu cần lưu ý an toàn thực phẩm; dị ứng hải sản cần tránh.",
+      "how_to_eat": "Múc cháo cùng một ít nhum để cảm nhận vị béo trong từng muỗng. Nếu cần nhum chín hoàn toàn, dặn bếp trước khi gọi.",
       "tips": [
         "Hỏi món có sẵn hôm đó không và nhum được bảo quản thế nào.",
         "Báo dị ứng hải sản trước khi gọi.",
@@ -739,7 +739,7 @@
         "lunch"
       ],
       "intro": "Cháo hàu vừa dọn còn bốc khói, gạo nấu mềm và thịt hàu mọng, ngọt. Thêm chút tiêu, hành lá hoặc hành phi là tô cháo đã đủ thơm. Món này hợp bữa sáng hay một tối muốn ăn nhẹ; nếu cần hàu chín kỹ, nhớ dặn quán từ lúc gọi để bếp làm đúng ý.",
-      "how_to_eat": "Ăn nóng khi hàu vừa chín, thêm tiêu hoặc hành theo khẩu vị. Hỏi hàu được nấu chín hoàn toàn chưa nếu thuộc nhóm cần thận trọng với hải sản sống; dị ứng nhuyễn thể cần tránh.",
+      "how_to_eat": "Ăn khi cháo còn nóng, rắc chút tiêu hoặc hành theo ý thích. Muốn hàu chín kỹ, nói rõ với quán trước khi bếp nấu.",
       "tips": [
         "Hỏi hàu được nấu chín kỹ và có thành phần nào khác không.",
         "Dị ứng nhuyễn thể cần tránh cả nước dùng, dụng cụ dùng chung.",
@@ -787,7 +787,7 @@
         "dinner"
       ],
       "intro": "Cơm ghẹ Hàm Ninh ngon lúc vừa rang xong, hạt cơm nóng, tơi và có những miếng thịt ghẹ ngọt xen trong từng muỗng. Có quán gỡ ghẹ sẵn, có quán phục vụ theo cách riêng; hành, tiêu và phần rau ăn kèm cũng thay đổi. Gọi món này ở Hàm Ninh, nên hỏi phần ghẹ và khẩu phần để khỏi nhầm với đĩa ghẹ hấp.",
-      "how_to_eat": "Ăn khi vừa dọn để cơm còn nóng và tơi. Hỏi phần ghẹ có tính theo tô hay theo trọng lượng, ghẹ được gỡ sẵn hay khách tự gỡ, và giá có gồm món ăn kèm không.",
+      "how_to_eat": "Cơm ghẹ ngon lúc vừa rang xong, nên ăn nóng. Hỏi ghẹ đã gỡ sẵn hay phục vụ kiểu khác và một phần có thể chia cho mấy người.",
       "tips": [
         "Hỏi giá theo phần và lượng ghẹ ước tính trước khi gọi.",
         "Xác nhận thịt ghẹ đã gỡ hay ghẹ nguyên con.",
@@ -834,7 +834,7 @@
         "dinner"
       ],
       "intro": "Nhắc Hàm Ninh, nhiều người nghĩ ngay đến đĩa ghẹ hấp vừa ra bếp. Bẻ càng, gỡ phần thịt còn nóng rồi chấm nhẹ muối tiêu chanh, cách ăn đơn giản để nhận ra độ ngọt của ghẹ. Kích cỡ, nguồn hàng và giá thay đổi theo ngày, nên trước khi chọn hãy hỏi loại ghẹ, giá cân và phí chế biến.",
-      "how_to_eat": "Hỏi giá theo ký hay theo con, cân ghẹ sống hay sau chế biến, và giá đã gồm công hấp chưa. Nếu gọi nhóm, thống nhất cỡ ghẹ và số lượng trước. Cẩn thận càng, vỏ và dị ứng giáp xác.",
+      "how_to_eat": "Ghẹ hấp vừa ra bếp chỉ cần chấm nhẹ muối tiêu chanh. Trước khi chọn, hỏi cỡ ghẹ, giá cân và phí hấp; phần càng và vỏ có cạnh sắc nên gỡ thong thả.",
       "tips": [
         "Hỏi cách tính giá và xác nhận tổng tiền trước khi chế biến.",
         "Chọn cách hấp nếu muốn vị ghẹ rõ, sốt nếu thích đậm.",
@@ -879,7 +879,7 @@
         "dinner"
       ],
       "intro": "Tôm mũ ni có phần mai dẹt, vỏ dày và thịt chắc. Khi nướng vừa chín, tách lớp vỏ sẽ thấy phần thịt trắng, ngọt, ăn cùng chút muối tiêu chanh là vừa. Có quán thêm mỡ hành hay phô mai; nếu muốn cảm nhận vị tôm rõ hơn, hỏi kiểu nướng đơn giản và chốt giá trước khi bếp làm.",
-      "how_to_eat": "Hỏi giá theo ký hay theo con và cân trước hay sau chế biến. Nướng vừa chín để thịt không khô; nếu gọi sốt, hỏi phụ thu và thành phần. Tôm là giáp xác, cần tránh khi dị ứng.",
+      "how_to_eat": "Tách vỏ lúc tôm còn nóng, gắp phần thịt chấm nhẹ muối tiêu chanh. Hỏi giá theo ký hay con và liệu mỡ hành, phô mai có tính thêm phí.",
       "tips": [
         "Hỏi giá, trọng lượng và cỡ trước khi gọi.",
         "Xác nhận tôm còn sống hay đã sơ chế, nướng theo kiểu nào.",
@@ -924,7 +924,7 @@
         "dinner"
       ],
       "intro": "Cá sòng nướng nên ăn lúc còn nóng, khi lớp da vừa se lại và phần thịt bên trong vẫn mọng. Gỡ một miếng cá, cuốn cùng rau hoặc chấm chút muối ớt tùy cách quán dọn. Cá có xương nên cứ ăn thong thả; khi gọi, hỏi cá nướng nguyên con hay cắt khúc và tính giá thế nào.",
-      "how_to_eat": "Hỏi cá được nướng nguyên con hay cắt khúc, giá tính theo con hay ký. Ăn chậm để gỡ xương; nếu dùng chung bếp nướng, hỏi về gia vị hoặc sốt khi có dị ứng.",
+      "how_to_eat": "Gỡ cá từng miếng, cuốn cùng rau hay chấm muối ớt tùy cách quán phục vụ. Cá có xương, nên ăn chậm, nhất là khi đi cùng trẻ nhỏ.",
       "tips": [
         "Hỏi cỡ cá và giá trước khi cân/chế biến.",
         "Nhờ quán khứa cá hoặc gỡ sẵn nếu đi với trẻ nhỏ.",
@@ -970,7 +970,7 @@
         "dinner"
       ],
       "intro": "Cá mú hấp hành gừng dọn ra còn nóng, mùi gừng bốc lên trước khi gắp được miếng cá đầu tiên. Thịt cá trắng, chắc và dễ tách thớ; ăn cùng cơm, rưới thêm chút nước hấp là đã ngon. Nếu thích hải sản được nấu nhẹ tay, ít sốt, món hấp này để vị cá hiện rõ hơn.",
-      "how_to_eat": "Hỏi giá theo ký và cân cá trước khi hấp; chốt rõ cách tính phí chế biến. Thịt cá có xương, nên ăn cẩn thận. Nếu cần, hỏi nước tương hoặc nước sốt có thành phần gì.",
+      "how_to_eat": "Gắp miếng cá vừa hấp xong, ăn cùng cơm và chút nước hấp còn nóng. Nếu gọi cá nguyên con, nhớ chốt giá theo trọng lượng và cách tính công chế biến từ đầu.",
       "tips": [
         "Hỏi giá theo trọng lượng và xác nhận cỡ cá.",
         "Báo dị ứng cá hoặc đậu nành nếu có dùng nước tương.",
@@ -1017,7 +1017,7 @@
         "dinner"
       ],
       "intro": "Nồi lẩu cá bớp hợp nhất với một bàn có thời gian ngồi lâu. Nước dùng chua thanh từ me, thơm hay cà chua tùy quán; cá cắt khoanh, rau và bún được dọn để mọi người tự nhúng. Chờ nước sôi rồi cho cá vào từng lượt, đừng để quá lâu kẻo miếng cá mất độ mọng.",
-      "how_to_eat": "Đợi nước sôi rồi nhúng cá từng lượt để cá chín tới. Hỏi nồi dành cho mấy người và có tính riêng rau, bún hay phí chế biến không. Cẩn thận xương cá và dị ứng hải sản.",
+      "how_to_eat": "Chờ nước lẩu sôi rồi nhúng cá từng lượt cho vừa chín. Ăn kèm rau và bún theo khẩu vị, đừng để cá nấu quá lâu trong nồi.",
       "tips": [
         "Hỏi lẩu dành cho bao nhiêu người và có những gì.",
         "Báo dị ứng cá, hải sản hoặc thành phần nước lẩu.",
@@ -1065,7 +1065,7 @@
         "snack"
       ],
       "intro": "Mực trứng nướng vừa ra bếp có phần thân săn nhẹ, bên trong là lớp trứng bùi và béo. Xé một miếng còn nóng, chấm muối ớt hoặc nước mắm cay tùy khẩu vị; không cần nhiều sốt mới thấy ngon. Mực trứng có mùa và kích cỡ khác nhau, nên hỏi phần đang bán trước khi gọi.",
-      "how_to_eat": "Ăn nóng khi mực vừa chín để thân còn mềm. Hỏi giá theo phần hay theo ký, và mực có được làm sạch phần túi mực chưa. Dị ứng nhuyễn thể cần tránh.",
+      "how_to_eat": "Mực vừa nướng xong nên ăn ngay để phần thân còn mềm, trứng bên trong vẫn bùi. Chấm một chút muối ớt trước khi thêm sốt khác.",
       "tips": [
         "Hỏi mực có sẵn hôm nay và giá theo phần hay theo trọng lượng.",
         "Báo dị ứng nhuyễn thể; hỏi về gia vị ướp.",
@@ -1111,7 +1111,7 @@
         "snack"
       ],
       "intro": "Ốc hương rang me là món dành cho ai thích vừa ăn vừa gỡ. Lớp sốt me chua ngọt bám quanh vỏ, còn thịt ốc bên trong giòn dai, thơm nhẹ. Gỡ từng con rồi quệt thêm chút sốt, cả bàn có thể ngồi lai rai khá lâu. Nếu không thích ngọt hay cay nhiều, hỏi quán có thể điều chỉnh sốt không.",
-      "how_to_eat": "Hỏi giá tính theo dĩa hay ký, phần có bao nhiêu con và sốt me có thành phần gây dị ứng không. Dùng tăm hoặc dụng cụ gỡ ốc, tránh làm văng sốt nóng.",
+      "how_to_eat": "Dùng tăm gỡ ốc, quệt thêm chút sốt me đang bám quanh vỏ. Sốt có thể chua, ngọt hoặc cay khác nhau tùy quán, nên hỏi trước nếu muốn giảm vị nào.",
       "tips": [
         "Hỏi giá theo đĩa hay trọng lượng và số lượng ốc ước tính.",
         "Báo dị ứng nhuyễn thể.",
@@ -1162,7 +1162,7 @@
         "dinner"
       ],
       "intro": "Tôm tích rang muối thơm mùi tỏi, tiêu và lớp gia vị khô bám bên ngoài. Phần thịt bên trong chắc, ngọt, nhưng muốn ăn phải bóc lớp vỏ có cạnh sắc. Món này ngon khi còn nóng; hỏi người bán cách bóc nếu lần đầu thử và nhớ chốt giá tính theo ký hay theo phần.",
-      "how_to_eat": "Hỏi giá theo ký hay theo phần và tôm đã tính phí chế biến chưa. Vỏ tôm tích có cạnh sắc, bóc cẩn thận; người dị ứng giáp xác cần tránh.",
+      "how_to_eat": "Bóc vỏ cẩn thận vì tôm tích có cạnh khá sắc, rồi ăn phần thịt còn nóng. Hỏi quán giá theo phần hay trọng lượng và phí chế biến trước khi chọn.",
       "tips": [
         "Xác nhận giá, cách cân và tổng trọng lượng.",
         "Dị ứng giáp xác cần báo trước; món thường dùng cùng dụng cụ hải sản.",
@@ -1210,7 +1210,7 @@
         "snack"
       ],
       "intro": "Hàu nướng mỡ hành vừa bưng ra còn nóng trong vỏ, mặt trên thơm hành lá và có thể thêm đậu phộng rang tùy quán. Thịt hàu mềm, mọng; ăn ngay lúc vừa chín, thêm chút chanh nếu thích vị thanh hơn. Khi gọi, nhớ hỏi phần topping nếu có dị ứng với đậu phộng hoặc nguyên liệu khác.",
-      "how_to_eat": "Ăn khi vừa nướng, cẩn thận vỏ còn nóng. Hỏi hàu được nướng chín kỹ chưa và mỡ hành có đậu phộng không; người dị ứng nhuyễn thể cần tránh.",
+      "how_to_eat": "Đợi vỏ bớt nóng rồi ăn hàu ngay khi vừa chín. Có quán rắc thêm đậu phộng hoặc phô mai, vì vậy nên chọn topping trước khi nướng.",
       "tips": [
         "Hỏi hàu đã nướng chín kỹ và có topping nào.",
         "Báo dị ứng nhuyễn thể; hỏi riêng phô mai và đậu phộng.",
@@ -1257,7 +1257,7 @@
         "dinner"
       ],
       "intro": "Giữa bàn hải sản nhiều món nướng hay chiên, một tô canh chua cá bớp nóng thường làm bữa cơm dễ ăn hơn. Nước canh có vị chua từ me, thơm hoặc cà chua tùy bếp, còn cá bớp chắc thịt và hơi béo. Múc canh ăn với cơm trắng, thêm ớt nếu thích, nhưng nhớ gỡ xương cá cẩn thận.",
-      "how_to_eat": "Nếm nước canh trước khi thêm nước mắm hoặc ớt. Hỏi cá có xương và nồi dành cho bao nhiêu người; cẩn thận khi ăn phần đầu hoặc khoanh cá.",
+      "how_to_eat": "Múc canh ăn cùng cơm trắng, thêm ớt nếu thích vị cay. Cá bớp thường cắt khoanh còn xương, nên gỡ cẩn thận khi chia phần cho trẻ nhỏ.",
       "tips": [
         "Hỏi khẩu phần và lượng cá trước khi gọi chung.",
         "Báo dị ứng cá hoặc thành phần tạo chua nếu cần.",
@@ -1303,7 +1303,7 @@
         "dinner"
       ],
       "intro": "Cơm chiên hải sản ngon nhất là lúc vừa ra chảo, hạt cơm còn nóng, tơi và thơm. Tôm, mực chiên cùng trứng và rau củ tùy cách làm của quán, mỗi thứ góp một chút hương vị mà không lấn át nhau. Ăn kèm vài lát dưa leo, thêm chút nước mắm ớt nếu thích đậm đà, vậy là đủ cho một bữa trưa chắc bụng.",
-      "how_to_eat": "Gọi phần vừa đủ vì cơm chiên thường no. Hỏi thành phần hải sản và trứng nếu có dị ứng; yêu cầu làm riêng khi quán có thể đáp ứng.",
+      "how_to_eat": "Ăn lúc vừa dọn để cơm còn nóng và tơi. Gọi phần vừa đủ vì cơm chiên khá no; nếu ăn cùng nhóm, hỏi kích cỡ đĩa và loại hải sản trong phần hôm đó.",
       "tips": [
         "Hỏi rõ loại hải sản và thành phần phụ.",
         "Báo dị ứng cá, giáp xác hoặc nhuyễn thể.",
@@ -1364,7 +1364,7 @@
         "dinner"
       ],
       "intro": "Gà rẫy nướng nên ăn lúc còn nóng, khi lớp da vừa vàng xém, thịt bên trong vẫn chắc mà không khô. Xé một miếng gà, chấm muối ớt chanh nếu quán có dọn, rồi ăn cùng rau sống. Đi đông người có thể gọi nguyên con để cả bàn cùng thưởng thức; nhớ hỏi trọng lượng và thời gian nướng trước.",
-      "how_to_eat": "Hỏi trọng lượng gà, giá tính theo con hay ký và thời gian nướng. Nếu đi ít người, hỏi có phần nhỏ không. Xác nhận nước chấm có thành phần nào cần tránh.",
+      "how_to_eat": "Gà nướng thường cần thời gian chờ, nên hỏi quán trước khi đặt. Đi đông có thể gọi nguyên con, ít người thì hỏi phần nửa con và chọn nước chấm theo khẩu vị.",
       "tips": [
         "Hỏi nguồn gà, trọng lượng và giá trước khi bếp làm.",
         "Xác nhận thời gian chờ nếu lịch trình còn điểm tiếp theo.",
@@ -1404,7 +1404,7 @@
         "dessert"
       ],
       "intro": "Bánh khéo nhỏ nhắn, có chiếc chỉ vừa vài miếng, được nặn thành nhiều hình và có các loại nhân như đậu xanh, dừa hay khoai môn. Mua một hộp nhiều vị, ăn thử từng chiếc sẽ thấy mỗi loại có độ bùi và độ ngọt riêng. Nếu mang về làm quà, nhớ xem ngày làm và hạn dùng vì bánh tươi không giữ lâu như bánh đóng gói.",
-      "how_to_eat": "Mua lượng vừa ăn hoặc hỏi hạn dùng vì bánh tươi có độ ngon khác bánh để lâu. Nếu mua làm quà, xem ngày sản xuất và thành phần nhân; có thể chứa dừa, đậu hoặc trứng tùy loại.",
+      "how_to_eat": "Mua vài loại nhân để ăn thử nếu muốn biết kiểu mình thích. Làm quà thì kiểm tra ngày sản xuất, hạn dùng và cách bảo quản trước khi mang đi xa.",
       "tips": [
         "Hỏi loại nhân và thành phần có sữa, trứng, đậu hay dừa không.",
         "Xem ngày làm và hướng dẫn bảo quản.",
@@ -1450,7 +1450,7 @@
         "snack"
       ],
       "intro": "Điểm dễ nhận ra của bánh tét mật cật nằm ở lớp lá gói. Khi cắt bánh, lớp nếp dẻo ôm lấy phần nhân; có nơi làm nhân đậu xanh, thịt mỡ, có nơi có cách phối riêng. Mua bánh về ăn hoặc mang làm quà đều nên hỏi ngày gói và cách bảo quản, nhất là trong những ngày trời nóng trên đảo.",
-      "how_to_eat": "Hỏi bánh nhân mặn hay ngọt, ngày gói và cách bảo quản. Nếu mua mang đi xa, hỏi thời gian để ngoài nhiệt độ thường và cách hâm lại.",
+      "how_to_eat": "Cắt bánh thành khoanh vừa ăn, có thể dùng cùng dưa món hoặc củ kiệu nếu hợp khẩu vị. Hỏi nhân bánh, ngày gói và cách bảo quản nếu mua mang về.",
       "tips": [
         "Hỏi nhân bánh và dị ứng đậu, thịt, trứng nếu có.",
         "Hỏi hạn dùng và cách giữ bánh khi đi xa.",
@@ -1492,7 +1492,7 @@
         "snack"
       ],
       "intro": "Bánh xèo ngon nhất lúc vừa đổ xong, viền bánh còn giòn, phần nhân tôm thịt và giá vẫn nóng. Bẻ một miếng vừa tay, cuốn trong rau sống rồi chấm nước mắm chua ngọt. Ăn tới đâu cuốn tới đó, đừng để bánh nằm lâu trên bàn; nếu đi đông người, gọi từng lượt để món nào lên cũng còn nóng.",
-      "how_to_eat": "Bẻ miếng nhỏ, cuốn cùng rau rồi chấm vừa tay. Ăn lúc bánh mới ra chảo để viền còn giòn. Hỏi nhân có tôm, thịt hay đậu xanh nếu cần tránh dị ứng.",
+      "how_to_eat": "Bẻ từng miếng khi bánh còn nóng, cuốn với rau rồi chấm nước mắm chua ngọt. Đi đông thì gọi thêm theo lượt để bánh sau vẫn còn giòn.",
       "tips": [
         "Hỏi nhân có tôm, thịt, trứng hay bột mì không.",
         "Xác nhận kích thước bánh và phần ăn trước khi gọi.",
@@ -1550,7 +1550,7 @@
         "dinner"
       ],
       "intro": "Một tô phở nóng có bánh phở mềm, thịt bò hoặc gà và nước dùng thơm mùi gia vị tùy cách nấu. Nếm một muỗng nước trước khi thêm chanh, ớt hay tương, bởi mỗi quán có khẩu vị riêng. Phở không phải đặc sản của đảo, nhưng vẫn là bữa sáng quen thuộc và dễ tìm ở nhiều khu dân cư Phú Quốc.",
-      "how_to_eat": "Nếm nước dùng trước khi thêm gia vị. Chọn bò hoặc gà, hỏi phần thịt và nước dùng nếu cần tránh thành phần cụ thể. Rau, chanh và tương thường được để riêng để tự nêm.",
+      "how_to_eat": "Nếm nước dùng trước khi thêm chanh, tương hay ớt. Bò và gà có kiểu nước dùng riêng ở nhiều quán, nên chọn theo phần thịt và hương vị bạn thích.",
       "tips": [
         "Hỏi phở bò hay phở gà và các topping có trong tô.",
         "Báo dị ứng đậu nành, hành hoặc gia vị nếu cần.",
