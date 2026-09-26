@@ -65,7 +65,7 @@ const fakeL={
   tileLayer:()=>({addTo(){return this;}}),
   layerGroup:()=>({addTo(){return this;},clearLayers(){}}),
   divIcon:x=>x,
-  marker:()=>({addTo(){return this;},bindPopup(){return this;}}),
+  marker:()=>({addTo(){return this;},bindPopup(){return this;},setLatLng(){return this;},setIcon(){return this;}}),
   circle:(center,options)=>({
     addTo(){return this;},
     getBounds(){
