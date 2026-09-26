@@ -140,7 +140,7 @@
       "title": "Những đôi mắt trên mũi ghe",
       "dek": "Có những chi tiết nhỏ nhìn một lần rồi quên. Có những chi tiết khiến mình biết ngay đây là một chiếc ghe của miền biển phương Nam. Mắt ghe thuộc về nhóm thứ hai.",
       "read_minutes": 3,
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1600",
+      "image": "/assets/media/editorial-fishing-fleet.jpg",
       "intro": "Không cần bắt đầu bằng một truyền thuyết. Chỉ cần đứng gần bến cá, nhìn vào mũi ghe và để ý hai con mắt được vẽ ở đó.",
       "sections": [
         {
@@ -166,10 +166,10 @@
           "url": "https://vietnam.travel/node/1465"
         }
       ],
-      "image_alt": "Ghe đánh cá gần cảng Phú Quốc",
-      "image_caption": "Ghe đánh cá gần cảng Phú Quốc.",
-      "image_credit": "Wikimedia Commons · Elmschrat · xem giấy phép tại nguồn",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fishing%20boat%20Phu%20Quoc.jpg"
+      "image_alt": "Những chiếc ghe cá neo trên biển Phú Quốc",
+      "image_caption": "Ảnh bối cảnh đội ghe cá trên vùng biển Phú Quốc.",
+      "image_credit": "Internet (kho JoTrip), chưa rõ tác giả",
+      "image_source_url": null
     },
     {
       "id": "cho-phu-quoc-xoay-lung",
@@ -398,11 +398,11 @@
       "title": "An Thới có nhịp của bến cá và bến tàu",
       "dek": "An Thới vừa là khu dân cư ven biển, vừa là điểm xuất phát của nhiều hành trình ra đảo. Nhìn kỹ bến cảng sẽ thấy ghe nghề và tàu chở khách cùng chia sẻ một vùng nước.",
       "read_minutes": "3",
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20port.jpg?width=1600",
-      "image_alt": "Cảng An Thới ở phía Nam Phú Quốc",
-      "image_caption": "Cảng An Thới, Phú Quốc.",
-      "image_credit": "Wikimedia Commons · Dương Đăng Khôi · CC BY-SA 4.0",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:An%20Thoi%20port.jpg",
+      "image": "/assets/media/editorial-fishing-fleet.jpg",
+      "image_alt": "Đội ghe cá neo gần bờ ở Phú Quốc",
+      "image_caption": "Ảnh bối cảnh nhịp ghe tàu, không xác nhận bến cụ thể.",
+      "image_credit": "Internet (kho JoTrip), chưa rõ tác giả",
+      "image_source_url": null,
       "intro": "Ở An Thới, biển vừa là nơi mưu sinh vừa là đường đi. Ghe đánh cá và tàu đưa khách có thể cùng xuất hiện quanh cảng, nhưng chúng phục vụ những việc khác nhau.",
       "sections": [
         {
@@ -436,11 +436,11 @@
       "title": "Bãi Sao không giống nhau mỗi ngày",
       "dek": "Có ngày Bãi Sao trong và êm, có hôm gió, sóng hoặc rong biển làm bãi khác hẳn ảnh quảng bá. Chọn chỗ tắm theo điều kiện trong ngày, đừng bám cứng một tấm hình.",
       "read_minutes": "3",
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%A3i%20Sao%20Beach.jpg?width=1600",
-      "image_alt": "Bãi Sao ở phía Đông Nam đảo Phú Quốc",
-      "image_caption": "Bãi Sao nhìn từ bờ biển phía Đông Nam Phú Quốc.",
-      "image_credit": "Wikimedia Commons · Prince Roy · CC BY 2.0",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:B%C3%A3i%20Sao%20Beach.jpg",
+      "image": "/assets/media/editorial-bai-sao-local.jpg",
+      "image_alt": "Bãi Sao Phú Quốc lúc trời quang",
+      "image_caption": "Bãi Sao với bãi cát sáng và hàng dừa.",
+      "image_credit": "Internet (kho JoTrip), chưa rõ tác giả",
+      "image_source_url": null,
       "intro": "Bãi Sao là bãi tắm dễ tiếp cận ở Nam đảo. Cát sáng và màu nước đẹp có thể khiến mình nghĩ lúc nào nơi này cũng giống nhau, nhưng gió, sóng và lượng khách làm trải nghiệm đổi từng ngày.",
       "sections": [
         {
