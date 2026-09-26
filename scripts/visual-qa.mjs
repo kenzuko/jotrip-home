@@ -321,6 +321,22 @@ async function testHomeFoundation(page) {
 async function testNearMePage(page) {
   await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-card').length > 0, { timeout: 9000 }).catch(() => {});
 
+  const mobileViewport = await page.evaluate(() => window.innerWidth <= 820);
+  const mapShell = page.locator('.map-shell');
+  const mapToggle = page.locator('#toggleNearMap');
+  const mapCollapsedInitially = mobileViewport ? await mapShell.isHidden().catch(() => false) : false;
+  if (mobileViewport && await mapToggle.count()) {
+    await mapToggle.click();
+    await page.waitForFunction(() => {
+      const badge=document.querySelector('#mapDataBadge')?.textContent?.trim()||'';
+      return !!badge && !/Đang mở/i.test(badge);
+    }, {timeout:6500}).catch(() => {});
+  }
+  const mapOpensOnRequest = !mobileViewport || (
+    await mapShell.isVisible().catch(() => false) &&
+    await mapToggle.getAttribute('aria-expanded').then(value => value === 'true').catch(() => false)
+  );
+
   const base = await page.evaluate(() => ({
     search: !!document.querySelector('#nearSearch'),
     map: !!document.querySelector('#nearLeaflet'),
@@ -358,6 +374,8 @@ async function testNearMePage(page) {
     categoryLayers: base.categoryCount >= 10,
     initialResults: base.resultCount >= 20,
     dataBadgeResolved: !!base.mapBadge && !/Đang mở/i.test(base.mapBadge),
+    mobileMapStartsCollapsed: !mobileViewport || mapCollapsedInitially,
+    mobileMapOpensOnRequest: mapOpensOnRequest,
     destinationSearch: dinhCauFound,
     destinationPin: pinVisible,
     hotelLayer: hotelResults >= 20
