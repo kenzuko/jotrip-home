@@ -84,12 +84,34 @@
     const m=/^(\d{2})\/(\d{2})\/(\d{4})$/.exec(date);
     return m?m[3]+"-"+m[2]+"-"+m[1]:/^\d{4}-\d{2}-\d{2}$/.test(date)?date:null;
   }
+  function evidenceTime(item){
+    const fields=["confirmed_at","confirmed_at_text","issued_at","issued_at_text",
+      "observed_at","updated_at","timestamp"];
+    for(const field of fields){
+      const raw=item?.[field];
+      if(typeof raw!=="string"||!raw.trim())continue;
+      const text=raw.trim();
+      const local=/^(\d{1,2})\/(\d{1,2})\/(\d{4})\s+(\d{1,2}):(\d{2})$/.exec(text);
+      const value=local
+        ?Date.UTC(+local[3],+local[2]-1,+local[1],+local[4]-7,+local[5])
+        :Date.parse(text);
+      if(Number.isFinite(value))return value;
+    }
+    return null;
+  }
+  function hasFreshEvidence(item,today,now){
+    const time=evidenceTime(item);
+    if(time===null)return false;
+    const stamp=new Date(time).toISOString();
+    return dayKey(new Date(time))===today&&ageMinutes(stamp,now)<=720;
+  }
   function marineCategory(snapshot,kind,now=new Date()){
     const cat=snapshot?.categories?.[kind],stamp=snapshot?.collected_at_vn||snapshot?.generated_at||null;
     const today=dayKey(now),age=ageMinutes(stamp,now);
-    const evidence=Array.isArray(cat?.evidence)?cat.evidence:[];
+    const rawEvidence=Array.isArray(cat?.evidence)?cat.evidence:[];
+    const evidence=rawEvidence.filter(item=>hasFreshEvidence(item,today,now));
     const daily=sourceDay(snapshot?.source_date);
-    // Re-fetching today's file is not proof of an independent charter departure.
+    // A fresh file cannot make old or undated underlying evidence current.
     const valid=!!cat&&daily===today&&age<=720&&evidence.length>0;
     return {
       state:valid?String(cat.state||"UNKNOWN").toUpperCase():"UNKNOWN",
@@ -98,7 +120,8 @@
       source_class:"DIRECT_OPERATIONAL",category:kind,
       evidence_count:valid?evidence.length:0,
       reason:!cat?"CATEGORY_NOT_REPORTED":daily!==today?"WRONG_DAY":
-        age>720?"STALE_SOURCE":!evidence.length?"NO_DIRECT_EVIDENCE":"DIRECT_DAILY_EVIDENCE",
+        age>720?"STALE_SOURCE":!rawEvidence.length?"NO_DIRECT_EVIDENCE":
+        !evidence.length?"NO_FRESH_EVIDENCE":"DIRECT_DAILY_EVIDENCE",
       scope:"ACTIVITY_CLASS",source:"JoTrip marine_ops"
     };
   }

@@ -47,9 +47,9 @@ assert.equal(S.islandWeather(gauges,now).status,"normal","Old gauge rain is not 
 
 const marine=()=>({source_date:"26/09/2026",collected_at_vn:"2026-09-26T10:55:00+07:00",
   categories:{
-    cano:{state:"SUSPENDED",evidence:[{source:"JOTRIP_FIELD_CONFIRMATION"}]},
-    fast_boat:{state:"DIRECT_CONFIRMED",evidence:[{source:"PORT_CLEARANCE_KGG"}]},
-    ferry:{state:"RUNNING",evidence:[{source:"OPERATOR"}]}
+    cano:{state:"SUSPENDED",evidence:[{source:"JOTRIP_FIELD_CONFIRMATION",confirmed_at_text:"26/09/2026 10:55"}]},
+    fast_boat:{state:"DIRECT_CONFIRMED",evidence:[{source:"PORT_CLEARANCE_KGG",issued_at_text:"26/09/2026 10:40"}]},
+    ferry:{state:"RUNNING",evidence:[{source:"OPERATOR",observed_at:"2026-09-26T10:50:00+07:00"}]}
   }});
 const m=marine();
 assert.equal(S.marineCategory(m,"cano",now).state,"SUSPENDED");
@@ -63,6 +63,12 @@ const staleFeed=marine();staleFeed.collected_at_vn="2026-09-25T22:00:00+07:00";
 assert.equal(S.marineCategory(staleFeed,"cano",now).state,"UNKNOWN");
 const unevidenced=marine();unevidenced.categories.cano.evidence=[];
 assert.equal(S.marineCategory(unevidenced,"cano",now).state,"UNKNOWN");
+const oldEvidence=marine();oldEvidence.categories.cano.evidence[0].confirmed_at_text="25/09/2026 10:55";
+assert.equal(S.marineCategory(oldEvidence,"cano",now).state,"UNKNOWN",
+  "Today's rebuilt snapshot cannot revive yesterday's operator evidence");
+const noTimeEvidence=marine();noTimeEvidence.categories.cano.evidence[0]={source:"JOTRIP_FIELD_CONFIRMATION"};
+assert.equal(S.marineCategory(noTimeEvidence,"cano",now).state,"UNKNOWN",
+  "Evidence without its own timestamp cannot confirm today's operation");
 const future=marine();future.collected_at_vn="2026-09-26T16:00:00+07:00";
 assert.equal(S.marineCategory(future,"cano",now).state,"UNKNOWN");
 
@@ -111,7 +117,7 @@ assert.equal(northPlan.results[0]?.badge,"POSSIBLE",
   "An Thới alert must not automatically taint a separately sampled Bắc đảo point");
 const charterCleared=marine();
 charterCleared.categories.charter_boat={
-  state:"DIRECT_CONFIRMED",evidence:[{source:"JOTRIP_FIELD_CHARTER_CONFIRMATION"}]};
+  state:"DIRECT_CONFIRMED",evidence:[{source:"JOTRIP_FIELD_CHARTER_CONFIRMATION",confirmed_at_text:"26/09/2026 10:55"}]};
 const allQuiet=weather();
 const approvedByZone=Object.fromEntries(Object.keys(weather_by_zone)
   .map(z=>[z,S.pointWeather(allQuiet,z,now)]));
