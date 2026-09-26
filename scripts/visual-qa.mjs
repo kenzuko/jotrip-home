@@ -20,6 +20,7 @@ const allRoutes = [
   { name: 'story-duong-dong', path: '/stories/article.html?id=duong-dong-sau-5-gio' },
   { name: 'about', path: '/about/' },
   { name: 'nearme', path: '/nearme/' },
+  { name: 'go', path: '/go/' },
   { name: 'ferry', path: '/ferry/' },
   { name: 'transit', path: '/transit/' },
   { name: 'bus', path: '/bus/' },
@@ -29,7 +30,7 @@ const allRoutes = [
   { name: 'airport', path: '/airport/' }
 ];
 
-const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'food-bun-quay', 'bus', 'transit', 'explore', 'utilities', 'currency', 'airport']);
+const smokeRouteNames = new Set(['home', 'places', 'dinh-cau', 'nearme', 'go', 'food-bun-quay', 'bus', 'transit', 'explore', 'utilities', 'currency', 'airport']);
 const routes = SCOPE === 'home' ? allRoutes.filter(route => route.name === 'home') : SCOPE === 'smoke' ? allRoutes.filter(route => smokeRouteNames.has(route.name)) : allRoutes;
 
 const viewports = [
@@ -320,6 +321,16 @@ async function testHomeFoundation(page) {
 
 async function testNearMePage(page) {
   await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-card').length > 0, { timeout: 9000 }).catch(() => {});
+  const mapToggle = page.locator('#nearMapToggle');
+  if (await mapToggle.count()) {
+    if (await mapToggle.getAttribute('aria-expanded') !== 'true') await mapToggle.click();
+    await page.waitForFunction(() => {
+      const shell=document.querySelector('#nearMapShell');
+      const badge=document.querySelector('#mapDataBadge')?.textContent?.trim()||'';
+      const pins=document.querySelectorAll('#nearLeaflet .leaflet-marker-icon').length;
+      return !!shell&&!shell.hidden&&(pins>0||!!badge&&!/Đang mở/i.test(badge));
+    }, { timeout: 15000 }).catch(() => {});
+  }
 
   const base = await page.evaluate(() => ({
     search: !!document.querySelector('#nearSearch'),
@@ -347,30 +358,38 @@ async function testNearMePage(page) {
   }
   const hotelButton = page.locator('#categoryRow [data-category="HOTEL"]');
   if (await hotelButton.count()) {
+    const categoryMore = page.locator('#categoryMore');
+    const categoryListOpen = await categoryMore.evaluate(el => el.open).catch(() => false);
+    if (!categoryListOpen) await page.locator('#categoryMore summary').click();
     await hotelButton.click();
     await page.waitForTimeout(250);
   }
   const hotelResults = await page.locator('#nearResults .near-card').count().catch(() => 0);
-  const allArea = page.locator('#areaRow [data-area="all"]');
-  if(await allArea.count()){await allArea.click();await page.waitForTimeout(120);}
-  const selectCategory=async(id)=>{
+
+  const selectCategory=async id=>{
+    const more=page.locator('#categoryMore');
+    if(await more.count()&&!(await more.evaluate(el=>el.open)))await page.locator('#categoryMore summary').click();
     const button=page.locator('#categoryRow [data-category="'+id+'"]');
     if(!(await button.count()))return false;
     await button.click();
-    await page.waitForTimeout(250);
-    return true;
+    await page.waitForTimeout(300);
+    return page.evaluate(expected=>window.__openpqNearState?.selectedCategory===expected,id).catch(()=>false);
   };
   const chargingSelected=await selectCategory("CHARGING");
-  const chargingCards=await page.locator('#nearResults .near-card').count().catch(()=>0);
-  const chargingNotes=(await page.locator('#nearResults').textContent().catch(()=>""))||"";
-  const chargingSourceLinks=await page.locator('#nearResults a[href="https://www.openstreetmap.org/copyright"]').count().catch(()=>0);
-  const chargingOfficialLinks=await page.locator('#nearResults a[href*="vinfastauto.com"]').count().catch(()=>0);
+  const chargingCount=await page.locator('#nearResults .near-card').count().catch(()=>0);
+  const chargingText=await page.locator('#nearResults').textContent().catch(()=>"");
+  const chargingSources=await page.locator('#nearResults a[href*="openstreetmap.org/copyright"]').count().catch(()=>0);
+  const chargingOfficial=await page.locator('#nearResults a[href*="vinfastauto.com"]').count().catch(()=>0);
   const fuelSelected=await selectCategory("FUEL");
-  const fuelCards=await page.locator('#nearResults .near-card').count().catch(()=>0);
+  const fuelCount=await page.locator('#nearResults .near-card').count().catch(()=>0);
   const pharmacySelected=await selectCategory("PHARMACY");
-  const pharmacyCards=await page.locator('#nearResults .near-card').count().catch(()=>0);
-
+  const pharmacyCount=await page.locator('#nearResults .near-card').count().catch(()=>0);
   const checks = {
+    chargingDirectory:chargingSelected&&chargingCount>=4,
+    chargingUncertainty:/chưa xác minh|tham khảo/i.test(chargingText||""),
+    chargingProvenance:chargingSources>=1&&chargingOfficial>=1,
+    fuelDirectory:fuelSelected&&fuelCount>=10,
+    pharmacyDirectory:pharmacySelected&&pharmacyCount>=8,
     searchPresent: base.search,
     mapPresent: base.map,
     categoryLayers: base.categoryCount >= 10,
@@ -378,14 +397,38 @@ async function testNearMePage(page) {
     dataBadgeResolved: !!base.mapBadge && !/Đang mở/i.test(base.mapBadge),
     destinationSearch: dinhCauFound,
     destinationPin: pinVisible,
-    hotelLayer: hotelResults >= 20,
-    chargingData: chargingSelected && chargingCards >= 4,
-    chargingWarnings: /chưa xác minh|tham khảo/i.test(chargingNotes),
-    chargingSources: chargingSourceLinks >= 1 && chargingOfficialLinks >= 1,
-    fuelData: fuelSelected && fuelCards >= 10,
-    pharmacyData: pharmacySelected && pharmacyCards >= 8
+    hotelLayer: hotelResults >= 20
   };
   return { ok:Object.values(checks).every(Boolean), checks };
+}
+
+
+async function testGoPage(page) {
+  await page.waitForFunction(() => document.querySelectorAll('#areaChoices input[name="origin"]').length === 3, { timeout: 12000 }).catch(() => {});
+  await page.evaluate(() => {
+    const area=document.querySelector('#areaChoices input[name="origin"][value="zone_south"]');
+    if(area){area.checked=true;area.dispatchEvent(new Event('change',{bubbles:true}));}
+    document.querySelector('#goRadiusButtons button[data-km="2"]')?.click();
+  });
+  await page.waitForTimeout(250);
+  const state = await page.evaluate(() => ({
+    choices: document.querySelectorAll('#areaChoices input[name="origin"]').length,
+    selected: !!document.querySelector('#areaChoices input[name="origin"][value="zone_south"]')?.checked,
+    locationStatus: document.querySelector('#goLocationStatus')?.textContent?.trim() || '',
+    mapMode: document.querySelector('#goMapMode')?.textContent?.trim() || '',
+    mapCount: document.querySelector('#goMapCount')?.textContent?.trim() || '',
+    radius: document.querySelector('#goRadiusValue')?.textContent?.trim() || '',
+    radiusValue: document.querySelector('#goRadiusRange')?.value || ''
+  }));
+  const checks = {
+    manualAreasPresent: state.choices === 3,
+    manualAreaSelected: state.selected && /An Thới/.test(state.locationStatus),
+    mapCopyTracksArea: /An Thới/.test(state.mapMode),
+    mapCountNotStale: !!state.mapCount && !/Chọn khu vực để hiện/.test(state.mapCount),
+    radiusControlUpdates: state.radius === '2 km' && state.radiusValue === '2',
+    noGpsRequired: /không phải GPS/.test(state.locationStatus)
+  };
+  return { ok: Object.values(checks).every(Boolean), checks, state };
 }
 
 async function testUtilitiesPage(page) {
@@ -542,12 +585,16 @@ try {
       let utilitiesFunctional = null;
       let airportFunctional = null;
       let nearmeFunctional = null;
+      let goFunctional = null;
       if (!navigationError && route.name === 'home') {
         homeFunctional = await testHomeFoundation(page);
         console.log('HOME_SECTION_SPACING', JSON.stringify(homeFunctional.spacing));
       }
       if (!navigationError && route.name === 'nearme') {
         nearmeFunctional = await testNearMePage(page);
+      }
+      if (!navigationError && route.name === 'go') {
+        goFunctional = await testGoPage(page);
       }
       if (!navigationError && route.name === 'utilities') {
         utilitiesFunctional = await testUtilitiesPage(page);
@@ -583,6 +630,7 @@ try {
         currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         airportFunctional && !airportFunctional.ok ? `airport functional checks failed: ${Object.entries(airportFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         nearmeFunctional && !nearmeFunctional.ok ? `nearme functional checks failed: ${Object.entries(nearmeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
+        goFunctional && !goFunctional.ok ? `GO functional checks failed: ${Object.entries(goFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         route.name === 'home' && externalMapRequests.length ? `homepage made ${externalMapRequests.length} external map request(s)` : null
       ].filter(Boolean);
 
@@ -601,6 +649,7 @@ try {
         utilitiesFunctional,
         airportFunctional,
         nearmeFunctional,
+        goFunctional,
         consoleErrors,
         pageErrors,
         failedRequests,

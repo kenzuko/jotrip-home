@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const zoneNames={zone_central_west:"Dương Đông & bờ Tây",zone_south:"An Thới & Nam đảo",zone_north:"Bắc đảo"};
-  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:null,position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[]};
+  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:null,position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[],runId:0};
 
   function clock(){
     const d=new Date();
@@ -61,11 +61,29 @@
       $("#goLocationStatus").textContent="Đang tải các điểm đến. Bạn có thể chọn khu vực và xem bản đồ trước nhé.";
       return;
     }
+    const runId=++state.runId;
     $("#resultsSection").hidden=false;$("#goResults").innerHTML='<div class="go-empty"><strong>Để tụi mình xem nhé...</strong><span>Đang chọn những nơi còn đủ thời gian để ghé hôm nay.</span></div>';
     state.live=window.OpenPQGoLive?await window.OpenPQGoLive.load(pick.originZone).catch(()=>null):null;
-    const view=window.OpenPQGoEngine.plan({config:state.config,entities:state.entities,notices:state.notices,live:state.live||{},now:new Date(),...pick});
-    render(view,pick);
+    if(runId!==state.runId)return;
+    const baseView=window.OpenPQGoEngine.plan({config:state.config,entities:state.entities,notices:state.notices,live:state.live||{},now:new Date(),...pick});
+    const requests=window.OpenPQGoEngine.weatherWindowItems(baseView,state.config,state.entities);
+    const initialView=window.OpenPQGoEngine.applyWeatherContext(baseView,null,{pending:requests.length>0});
+    render(initialView,pick);
     $("#resultsSection").scrollIntoView({behavior:"smooth",block:"start"});
+    if(requests.length){
+      const client=window.OpenPQWeatherContext;
+      if(!client?.requestWindows){
+        render(window.OpenPQGoEngine.applyWeatherContext(baseView,{source_status:"UNAVAILABLE",items:[]}),pick);
+      }else{
+        client.requestWindows(requests,{timeoutMs:11500}).then(payload=>{
+          if(runId!==state.runId)return;
+          render(window.OpenPQGoEngine.applyWeatherContext(baseView,payload),pick);
+        }).catch(()=>{
+          if(runId!==state.runId)return;
+          render(window.OpenPQGoEngine.applyWeatherContext(baseView,{source_status:"UNAVAILABLE",items:[]}),pick);
+        });
+      }
+    }
   }
   function liveNote(){
     if(!state.live)return"Chưa có đủ thông tin mới về thời tiết và biển. Nếu ra ngoài, bạn nhớ xem tình hình trước khi đi nhé.";
@@ -129,26 +147,7 @@
     const seen=new Set();
     return [...canonical,...nearRows,...venueRows].filter(e=>{if(seen.has(e.id))return false;seen.add(e.id);return true});
   }
-  function drawMap(){
-    if(state.mapOverview){window.OpenPQGoMap?.overview();return;}
-    $("#goMapReset").textContent="Chỉ xem bản đồ ↗";
-    const geo=window.OpenPQGoGeo;
-    const point=state.position||geo?.anchors?.[state.originZone];
-    if(!geo?.valid(point)){
-      const available=window.OpenPQGoMap?.overview();
-      $("#goMapReset").textContent="Xem cả đảo ↗";
-      $("#goMapMode").textContent="Đang xem toàn đảo Phú Quốc. Chọn khu vực hoặc dùng định vị để vẽ vòng bán kính.";
-      $("#goMapCount").textContent=available===false?"Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực.":"Đang xem toàn đảo. Chọn khu vực để hiện các địa điểm gần bạn.";
-      return;
-    }
-    const gps=!!state.position;
-    const result=window.OpenPQGoMap?.draw(point,state.radiusKm,mapRows(),{gps});
-    $("#goMapMode").textContent=gps?
-      "Tâm vòng tròn là vị trí bạn vừa cho phép. Xem các điểm gần mình theo km.":
-      "Tâm vòng tròn là "+(zoneNames[state.originZone]||"khu vực đã chọn")+". Đây là điểm tham khảo, không phải vị trí GPS của bạn.";
-    $("#goMapCount").textContent=result?.map===false?
-      "Bản đồ chưa tải được; bạn vẫn có thể tìm địa điểm theo khu vực.":
-      (result?.shown||0)+" địa điểm đã có tọa độ trong vòng "+state.radiusKm+" km"+(gps?" quanh bạn.":" từ tâm khu vực.");
+  function syncRadiusControls(){
     $("#goRadiusValue").textContent=state.radiusKm+" km";
     $("#goRadiusRange").value=String(state.radiusKm);
     document.querySelectorAll("#goRadiusButtons button").forEach(btn=>{
@@ -156,6 +155,61 @@
       btn.classList.toggle("active",on);
       btn.setAttribute("aria-pressed",String(on));
     });
+  }
+  function drawMap(){
+    if(state.mapOverview){
+      $("#goMapReset").textContent="Hiện vòng bán kính ↗";
+      $("#goMapMode").textContent="Đang xem toàn đảo Phú Quốc. Hiện vòng bán kính để xem các địa điểm gần mình.";
+      $("#goMapCount").textContent="Chế độ xem toàn đảo, chưa lọc theo bán kính.";
+      try{
+        if(window.OpenPQGoMap?.overview()===false)$("#goMapCount").textContent="Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực.";
+      }catch(error){
+        console.warn("GO island overview map unavailable",error?.message||error);
+        $("#goMapCount").textContent="Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực.";
+      }
+      return;
+    }
+    $("#goMapReset").textContent="Chỉ xem bản đồ ↗";
+    syncRadiusControls();
+    const geo=window.OpenPQGoGeo;
+    const point=state.position||geo?.anchors?.[state.originZone];
+    if(!geo?.valid(point)){
+      let available=false;
+      try{available=window.OpenPQGoMap?.overview();}
+      catch(error){console.warn("GO map fallback unavailable",error?.message||error);}
+      $("#goMapReset").textContent="Xem cả đảo ↗";
+      const areaName=zoneNames[state.originZone];
+      if(state.position){
+        $("#goMapMode").textContent="Đã nhận vị trí trong phiên này; bản đồ chưa sẵn sàng.";
+        $("#goMapCount").textContent="Bạn vẫn có thể tiếp tục gợi ý theo khu vực thủ công.";
+      }else if(areaName){
+        $("#goMapMode").textContent="Đã chọn "+areaName+". Bản đồ chưa sẵn sàng; tâm khu vực không phải GPS.";
+        $("#goMapCount").textContent="Bản đồ chưa tải được; bạn vẫn có thể tiếp tục với khu vực đã chọn.";
+      }else{
+        $("#goMapMode").textContent="Đang xem toàn đảo Phú Quốc. Chọn khu vực hoặc dùng định vị để vẽ vòng bán kính.";
+        $("#goMapCount").textContent=available===false?"Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực.":"Đang xem toàn đảo. Chọn khu vực để hiện các địa điểm gần bạn.";
+      }
+      return;
+    }
+    const gps=!!state.position;
+    const areaName=zoneNames[state.originZone]||"khu vực đã chọn";
+    const modeText=gps?
+      "Tâm vòng tròn là vị trí bạn vừa cho phép. Xem các điểm gần mình theo km.":
+      "Tâm vòng tròn là "+areaName+". Đây là điểm tham khảo, không phải vị trí GPS của bạn.";
+    // Update copy before drawing so a map failure never leaves stale island-wide instructions.
+    $("#goMapMode").textContent=modeText;
+    let result;
+    try{
+      result=window.OpenPQGoMap?.draw(point,state.radiusKm,mapRows(),{gps});
+    }catch(error){
+      console.warn("GO radius map drawing failed",error?.message||error);
+      result={map:false,shown:0};
+    }
+    if(!result||result.map===false){
+      $("#goMapCount").textContent="Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực và nhận gợi ý.";
+    }else{
+      $("#goMapCount").textContent=(result.shown||0)+" địa điểm đã có tọa độ trong vòng "+state.radiusKm+" km"+(gps?" quanh bạn.":" từ tâm khu vực.");
+    }
   }
   function geoError(error){
     if(error?.code===1)return "Bạn chưa cho phép dùng vị trí. Vẫn có thể chọn khu vực bên trên nhé.";
@@ -218,12 +272,7 @@
     });
     $("#goMapReset").addEventListener("click",()=>{
       state.mapOverview=!state.mapOverview;
-      $("#goMapReset").textContent=state.mapOverview?"Hiện vòng bán kính ↗":"Chỉ xem bản đồ ↗";
-      if(state.mapOverview){
-        window.OpenPQGoMap?.overview();
-        $("#goMapMode").textContent="Đang xem toàn đảo Phú Quốc. Hiện vòng bán kính để xem các địa điểm gần mình.";
-        $("#goMapCount").textContent="Chế độ xem toàn đảo, chưa lọc theo bán kính.";
-      }else drawMap();
+      drawMap();
     });
   }
   function renderFood(pick){

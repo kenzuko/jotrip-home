@@ -3,6 +3,8 @@
   "include": [
     "/api/cms/*",
     "/api/weather/live/*",
+    "/api/context/v1/weather/*",
+    "/api/go/live",
     "/weather/data/*",
     "/weather/spatial-ecmwf.json",
     "/weather/spatial-icon.json",

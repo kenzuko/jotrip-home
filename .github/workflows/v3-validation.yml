@@ -22,7 +22,7 @@ jobs:
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
           node scripts/build-search-index.mjs
-      - name: Test Near Me essential intake, source confidence and legacy maps
+      - name: Verify Near Me source confidence, new services and legacy map data
         run: node scripts/test-nearme-intake.mjs
       - name: Validate data contracts
         run: node scripts/validate-data.mjs
@@ -47,6 +47,18 @@ jobs:
           node --check go/go.js
           node --check core/decision-signals.js
           node --check go/live-adapter.js
+          node scripts/test-go-manual-ui.mjs
+      - name: Test shared Weather Context and GO regressions
+        run: |
+          node scripts/weather-context-api.test.mjs
+          node scripts/test-weather-context-client.mjs
+          node scripts/test-go-engine.mjs
+          node scripts/test-go-live-api.mjs
+          node scripts/test-go-weather-context.mjs
+          node --check core/weather-context-client.js
+          node --check core/go-engine.js
+          node --check go/live-adapter.js
+          node --check go/go.js
       - name: Validate natural public-facing Vietnamese
         run: node scripts/validate-public-copy.mjs
       - name: Test search ranking and grouping
@@ -70,7 +82,9 @@ jobs:
       - name: Test food entity ID mapping
         run: node scripts/test-food-id-mapping.mjs
       - name: Test Near Me venue pins and canonical places
-        run: node scripts/test-nearme-venues.mjs
+        run: |
+          node scripts/test-nearme-venues.mjs
+          node scripts/test-nearme-runtime.mjs
       - name: Test weather map points match production coordinates
         run: node scripts/test-weather-map-coordinates.mjs
       - name: Test Vietcombank currency parser

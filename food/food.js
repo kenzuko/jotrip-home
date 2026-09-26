@@ -136,10 +136,12 @@ function renderArticle(){
     ? OpenPQVisual.gallery(images,{eyebrow:copy("food.images_eyebrow","NHÌN MÓN"),title:copy("food.images_title","Nhìn món trước khi gọi")})
     : "";
 
-  const origin=dish.origin
+  const cultural=new Set(['goi-ca-trich','bun-quay','bun-ken','ga-ray-nuong','banh-kheo','banh-tet-mat-cat']);
+  const nameStories=new Set(['bun-quay','bun-ken','ga-ray-nuong','banh-kheo','banh-tet-mat-cat']);
+  const origin=cultural.has(dish.id)&&dish.origin
     ? '<section><div class="food-section-label">'+esc(copy("food.origin","NGUỒN GỐC"))+'</div><h2>'+esc(copy("food.origin_value","Món đến từ đâu?"))+'</h2><p>'+esc(dish.origin)+'</p></section>'
     : "";
-  const nameStory=dish.why_name
+  const nameStory=nameStories.has(dish.id)&&dish.why_name
     ? '<section><div class="food-section-label">'+esc(copy("food.name","TÊN GỌI"))+'</div><h2>'+esc(copy("food.name_value","Vì sao gọi như vậy?"))+'</h2><p>'+esc(dish.why_name)+'</p></section>'
     : "";
 
@@ -150,12 +152,11 @@ function renderArticle(){
     origin+
     nameStory+
     ingredientsBlock(dish)+
-    (dish.taste_texture?'<section><div class="food-section-label">'+esc(copy("food.taste","VỊ & KẾT CẤU"))+'</div><h2>'+esc(copy("food.taste_title","Ăn vào sẽ cảm thấy gì?"))+'</h2><p>'+esc(dish.taste_texture)+'</p></section>':"")+
-    allergenBlock(dish)+
     '<section><div class="food-section-label">'+esc(copy("food.how_to_eat","CÁCH ĂN"))+'</div><h2>'+esc(copy("food.how_to_eat_title","Ăn sao cho ngon?"))+'</h2><p>'+esc(dish.how_to_eat||"Ăn lúc món còn nóng; nêm theo khẩu vị riêng.")+'</p></section>'+
     '<section><div class="food-section-label">'+esc(copy("food.practical","LƯU Ý THỰC TẾ"))+'</div><h2>'+esc(copy("food.practical_title","Nhớ mấy chuyện này."))+'</h2><ul>'+
       (dish.tips||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+
     '</ul></section>'+
+    allergenBlock(dish)+
     gallery+
     sourcesBlock(dish)+
     '<div class="food-hashtags">'+(dish.hashtags||[]).map(x=>'<span>'+esc(x)+'</span>').join("")+'</div>';
