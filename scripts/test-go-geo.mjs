@@ -75,8 +75,8 @@ const fakeL={
   }),
   circleMarker:()=>({bindPopup(){return this;},addTo(){return this;}})
 };
-const mapWindow={L:fakeL,OpenPQGoGeo:geo};
-vm.runInNewContext(goMap,{window:mapWindow,L:fakeL,document:{getElementById:()=>({})},
+const mapWindow={L:fakeL,OpenPQGoGeo:geo,addEventListener(){}};
+vm.runInNewContext(goMap,{window:mapWindow,L:fakeL,document:{getElementById:()=>({appendChild(){}}),createElement:()=>({hidden:true,setAttribute(){},textContent:""})},
   requestAnimationFrame:fn=>fn(),setTimeout:fn=>fn()});
 const fullIsland=b=>b.south<=9.88&&b.north>=10.46&&b.west<=103.79&&b.east>=104.16;
 assert.equal(mapWindow.OpenPQGoMap.overview(),true,"Island overview available");

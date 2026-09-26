@@ -65,7 +65,7 @@ function ensure(){
     const observer=new ResizeObserver(()=>{if(lastBounds)fitVisible(lastBounds);});
     observer.observe(host);
   }
-  root.addEventListener("pageshow",()=>{if(lastBounds)fitVisible(lastBounds);});
+  root.addEventListener?.("pageshow",()=>{if(lastBounds)fitVisible(lastBounds);});
   return true;
 }
 function centerIcon(gps){
