@@ -51,7 +51,7 @@
         cc("night-market-fruit","Selling fruit in Phu Quoc night market Vietnam.jpg","FrogsLegs71","CC BY-SA 3.0","SẮC MÀU CHỢ ĐÊM","Một quầy trái cây trong chợ đêm Phú Quốc","market"),
     cc("night-market-ice","Making ice cream rolls in Phu Quoc night market Vietnam.jpg","FrogsLegs71","CC BY-SA 3.0","HƯƠNG VỊ VỀ ĐÊM","Quầy kem cuộn ở chợ đêm Phú Quốc","food"),
     cc("kem-aerial","Kem Beach aerial view Phu Quoc Island Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","BIỂN XANH BÃI KHEM","Toàn cảnh Bãi Khem và hàng dừa nhìn từ trên cao","beach"),
-    cc("long-beach-sunset-sunset","Sunset on the Long Beach in Phu Quoc Island, Vietnam, 5 March 2019.jpg","Alexey Komarov","CC BY-SA 4.0","HOÀNG HÔN BÃI TRƯỜNG","Mặt trời lặn trên Bãi Trường Phú Quốc","sunset"),
+    cc("long-beach-sunset","Sunset on the Long Beach in Phu Quoc Island, Vietnam, 5 March 2019.jpg","Alexey Komarov","CC BY-SA 4.0","HOÀNG HÔN BÃI TRƯỜNG","Mặt trời lặn trên Bãi Trường Phú Quốc","sunset"),
     cc("an-thoi-harbor","An Thoi fishing harbour Sunset Town Sun World Phu Quoc Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","CỬA NGÕ NAM ĐẢO","Tàu ghe An Thới và Sunset Town nhìn từ trên cao","harbor"),
     cc("fish-sauce-vats","Vats at a Fish Sauce Factory on Phu Quoc Island in Vietnam 01.jpg","Frank Fox","CC BY-SA 4.0","NHỮNG MÙA MẮM TRONG NHÀ THÙNG","Các thùng gỗ ủ nước mắm truyền thống ở Phú Quốc","culture",1400),
     cc("pepper-farm","Pepper farm in vietnam.JPG","Tonbi ko","CC BY-SA 4.0","MÙI CAY CỦA ĐẤT ĐỎ","Vườn tiêu trên đảo Phú Quốc","culture",1500),
@@ -82,13 +82,13 @@
       leads:["fishing-fleet","ho-quoc-wide","tropical-cove","fish-sauce-vats"],
       support:["pepper-farm","fishing-aerial","waterfall-tranh","ho-quoc-detail","tropical-beach","night-market-fruit","an-thoi-harbor"]},
     rainy:{
-      leads:["fish-sauce-vats","ho-quoc-detail","pepper-farm","night-market-fruit"],
+      leads:["fish-sauce-vats","ho-quoc-detail","pepper-farm","night-market-ice"],
       support:["night-market-fruit","night-market-ice","fresh-squid","grilled-squid","waterfall-tranh","ho-quoc-wide","fishing-fleet"]},
     "rainy-night":{
-      leads:["night-market-fruit","night-market-fruit","sunset-night","night-market-ice"],
+      leads:["night-market-fruit","night-market-ice","sunset-night","vinwonders-show"],
       support:["fish-sauce-vats","night-fishing","vinwonders-show","fresh-squid","grilled-squid","night-fireworks"]},
     "cloudy-night":{
-      leads:["sunset-night","night-market-fruit","night-market-fruit"],
+      leads:["sunset-night","night-market-fruit","vinwonders-show"],
       support:["night-market-ice","night-fishing","vinwonders-show","fresh-squid","fish-sauce-vats","night-fireworks"]}
   };
   const vnDay=date=>{
