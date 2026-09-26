@@ -253,6 +253,14 @@
     "vi-sao-goi-phu-quoc-la-dao-ngoc": {
       "images": [
         {
+          "url": "/assets/media/editorial-island-cove-aerial.jpg",
+          "alt": "Một vịnh biển nhiệt đới với mặt nước xanh và những chiếc cano",
+          "caption": "Ảnh minh họa cho cảnh sắc đảo Phú Quốc, không định danh vị trí cụ thể.",
+          "scope": "context",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null
+        },
+        {
           "url": "/assets/media/editorial-tropical-cove.jpg",
           "alt": "Vịnh biển và bến thuyền trên một đảo nhỏ Phú Quốc",
           "caption": "Một góc đảo với biển xanh, ảnh minh họa cho câu chuyện Đảo Ngọc, không định vị địa điểm cụ thể.",
@@ -564,6 +572,15 @@
     },
     "place_grand_world": {
       "images": [
+        {
+          "url": "/assets/media/editorial-grand-world-day.jpg",
+          "alt": "Kênh đào và những dãy nhà nhiều màu tại Grand World Phú Quốc",
+          "caption": "Grand World nhìn dọc kênh đào vào ban ngày. Ảnh từ kho JoTrip, chưa xác minh tác giả.",
+          "scope": "exact_subject",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary"
+        },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2023-07-30%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20193144.jpg?width=1800",
           "alt": "Grand World Phú Quốc buổi tối",
@@ -1220,6 +1237,14 @@
           "hero_eligible": true,
           "reviewed_at": "2026-09-25",
           "usage_note": "Nguồn album nội bộ JoTrip / Phu Quoc 2023; có khách trong ảnh; không khẳng định đây là ảnh của một điểm dừng tour cụ thể."
+        },
+        {
+          "url": "/assets/media/editorial-island-cove-aerial.jpg",
+          "alt": "Vịnh nhỏ nước xanh với cano và bến gỗ nhìn từ trên cao",
+          "caption": "Khung cảnh một vịnh nhỏ trên đảo, ảnh bối cảnh tour cano; không xác nhận tên đảo cụ thể.",
+          "scope": "context",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null
         }
       ],
       "visual_note": "Ảnh chính từ album JoTrip / Phu Quoc 2023, ghi nhận khách đi cano thực tế. Không dùng ảnh cảng hoặc Sunset Town để đại diện tour 3 đảo."
@@ -2440,9 +2465,9 @@
           "source_url": null
         },
         {
-          "url": "/assets/media/editorial-tropical-cove.jpg",
-          "alt": "Vịnh nước xanh, bờ cát và bến thuyền trên một đảo nhỏ",
-          "caption": "Ảnh bối cảnh một vịnh nhỏ trên đảo, không dùng để xác định vị trí cụ thể.",
+          "url": "/assets/media/editorial-island-cove-aerial.jpg",
+          "alt": "Một vịnh nhỏ nước xanh với cano nhìn từ trên cao",
+          "caption": "Ảnh bối cảnh tuyến đi cano, chưa xác minh đảo cụ thể.",
           "scope": "context",
           "source_label": "Internet (kho JoTrip)",
           "source_url": null

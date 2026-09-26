@@ -25,14 +25,14 @@ for(const topic of ["knowledge_024_may-rut-trong","knowledge_025_may-rut-ngoai"]
 }
 assert(visual.stories["an-thoi-ben-ca-va-cua-ngo-dao"]?.images?.length,"An Thoi contextual gallery");
 assert(visual.stories["vi-sao-goi-phu-quoc-la-dao-ngoc"]?.images?.length,"Island story contextual gallery");
-assert.equal(library.items.length,15,"Curated photo library should contain eleven new and four previously staged images");
+assert.equal(library.items.length,19,"Curated photo library: 11 first-wave editorial, 4 further subject-matched photos and 4 previously staged");
 for(const item of library.items){
   assert(!/^shutterstock_/i.test(item.original_filename),"Stock photo excluded: "+item.id);
   if(item.id.startsWith("editorial-")) assert(!item.used_on.some(x=>x.includes("homepage-hero")),"New editorial photos do not alter slideshow");
   assert(fs.existsSync(path.join(root,item.path.replace(/^\//,""))),"Missing media file: "+item.path);
 }
 const added=library.items.filter(x=>x.path.startsWith("/assets/media/editorial-"));
-assert.equal(added.length,11,"Expected eleven new editorial assets");
+assert.equal(added.length,15,"Expected fifteen approved non-Shutterstock editorial assets");
 for(const [topic,record] of Object.entries(visual.knowledge)){
   for(const pic of record?.images||[]){
     assert(pic.url&&pic.alt&&pic.caption&&pic.source_label,topic+" incomplete photo metadata");
@@ -40,4 +40,4 @@ for(const [topic,record] of Object.entries(visual.knowledge)){
   }
 }
 assert(!JSON.stringify(visual.knowledge["knowledge_035_sao-bien-rach-vem"]||{}).includes("starfish-beach-jo-library"),"Do not promote photographed starfish out of water");
-console.log("Editorial photo curation PASS: 11 new assets, 15 library entries, 9 required articles, subject/location checks");
+console.log("Editorial photo curation PASS: 15 editorial assets, 19 library entries, 9 required articles, subject/location checks");
