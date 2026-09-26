@@ -35,6 +35,7 @@ const objects=(payload.objects||[]).filter(o=>o.status==="READY_PUBLIC"&&o.publi
 }));
 if(objects.some(o=>!o.topic_id||!o.editorial.short_summary||!o.editorial.practical||!o.editorial.before_you_go.length))throw new Error("Incomplete public knowledge article");
 if(objects.some(o=>/https?:\/\//i.test(JSON.stringify(o.editorial))))throw new Error("External URL in editorial");
+if(objects.some(o=>o.links.some(x=>!x.label||!/^https:\/\//i.test(x.url))))throw new Error("Invalid public article link");
 if(/"research"\s*:|"sources"\s*:/i.test(JSON.stringify(objects)))throw new Error("Source fields leaked");
 fs.writeFileSync(out,JSON.stringify({schema_version:"1.1",generated_at:new Date().toISOString(),count:objects.length,photographed:objects.filter(o=>o.media.images.length).length,objects},null,2)+"\n");
 // Homepage consumes a small public-only feed, never the internal research store.
