@@ -1,0 +1,1055 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-26",
+  "comparison": {
+    "main_location_index_generated_at": "2026-09-22T06:49:55.441Z",
+    "branch_generated_at": "2026-09-26T16:20:51.412Z",
+    "old_hotels": 158,
+    "new_hotels": 158,
+    "old_hotels_with_maps": 123,
+    "new_hotels_with_maps": 63,
+    "historic_pins_removed": 60,
+    "distinct_coordinate_pairs": 15,
+    "precision_counts": {
+      "site_centroid": 13,
+      "route_anchor": 6,
+      "area_anchor": 41
+    },
+    "source_counts": {
+      "osm_photon_geocode": 45,
+      "osm_overpass_catalog": 1,
+      "osm_nominatim_geocode": 14
+    }
+  },
+  "decision": "Keep all 158 hotels in Near Me directory/search. Do not restore 60 dropped low-confidence pins automatically; many are street/area geocodes duplicated across unrelated hotels. Keep a full audit for GPS review; never treat prior verified_at as human-confirmed entrance.",
+  "largest_collisions": [
+    {
+      "coordinates": "10.1727084,103.9921557",
+      "count": 15,
+      "ids": [
+        "hotel_dusit_princess_moonrise_beach_resort_phu_quoc",
+        "hotel_duc_lam_ha",
+        "hotel_e_den",
+        "hotel_gaia_hotel",
+        "hotel_galaxy",
+        "hotel_golden_daisy_hotel_spa",
+        "hotel_halona",
+        "hotel_l_azure_resort_spa_phu_quoc",
+        "hotel_my_place_phu_quoc",
+        "hotel_ngoc_chau",
+        "hotel_nha_khach_tram_giao_dich_ve_so_kien_thiet_can_tho",
+        "hotel_nha_tranh_gia_vi",
+        "hotel_ola_phu_quoc_hotel",
+        "hotel_ori",
+        "hotel_valentina_resort"
+      ]
+    },
+    {
+      "coordinates": "10.262797,103.9392304",
+      "count": 6,
+      "ids": [
+        "hotel_camellia_resort_spa",
+        "hotel_cottage_village",
+        "hotel_eo_xoai",
+        "hotel_palm_hill_resort",
+        "hotel_phu_quoc_eco_beach_resort",
+        "hotel_sea_sense_resort"
+      ]
+    },
+    {
+      "coordinates": "10.2112438,103.965123",
+      "count": 5,
+      "ids": [
+        "hotel_an_phu",
+        "hotel_dao_ngoc_the_ky_21",
+        "hotel_tan_anh_tuan",
+        "hotel_tan_anh_tuan_2",
+        "hotel_tuyet_hien"
+      ]
+    },
+    {
+      "coordinates": "10.413995,103.9759353",
+      "count": 5,
+      "ids": [
+        "hotel_melia_vinpearl",
+        "hotel_radisson_blu",
+        "hotel_sheraton",
+        "hotel_vinpearl_resort_spa_phu_quoc",
+        "hotel_vinpearl_wonderworld_phu_quoc"
+      ]
+    },
+    {
+      "coordinates": "10.2676616,103.9370953",
+      "count": 4,
+      "ids": [
+        "hotel_caesar_viet_nam",
+        "hotel_elwood_resort_phu_quoc",
+        "hotel_movenpick",
+        "hotel_premier_village"
+      ]
+    },
+    {
+      "coordinates": "10.2233877,103.9675406",
+      "count": 4,
+      "ids": [
+        "hotel_huong_toan_ii",
+        "hotel_ky_hoa",
+        "hotel_mon_ami",
+        "hotel_phuc_loc"
+      ]
+    },
+    {
+      "coordinates": "10.1799257,103.9830979",
+      "count": 4,
+      "ids": [
+        "hotel_maison_du_vietnam_resort_spa",
+        "hotel_quynh_mai_phu_quoc_resort",
+        "hotel_suoi_may_garden",
+        "hotel_wildland_resort"
+      ]
+    },
+    {
+      "coordinates": "10.1888255,103.99297",
+      "count": 3,
+      "ids": [
+        "hotel_muong_thanh_luxury_phu_quoc_hotel",
+        "hotel_sol_by_melia",
+        "hotel_sunset_sanato"
+      ]
+    },
+    {
+      "coordinates": "10.2244816,103.9679771",
+      "count": 2,
+      "ids": [
+        "hotel_bach_duong_resort",
+        "hotel_my_nhut"
+      ]
+    },
+    {
+      "coordinates": "10.1871146,103.9709938",
+      "count": 2,
+      "ids": [
+        "hotel_cong_ty_co_phan_thac_bac",
+        "hotel_famiana_resort_spa"
+      ]
+    },
+    {
+      "coordinates": "10.1840441,103.9678198",
+      "count": 2,
+      "ids": [
+        "hotel_homestead_phu_quoc_resort",
+        "hotel_homestead_seaview_phu_quoc_hotel"
+      ]
+    },
+    {
+      "coordinates": "10.2181693,103.9602424",
+      "count": 2,
+      "ids": [
+        "hotel_hong_tuyet",
+        "hotel_nipola"
+      ]
+    }
+  ],
+  "records": [
+    {
+      "id": "hotel_an_phu",
+      "name": "An Phú",
+      "address": "182A đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_bach_duong_resort",
+      "name": "Bạch Dương Resort",
+      "address": "13 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2244816,
+        "lon": 103.9679771,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_caesar_viet_nam",
+      "name": "Caesar Việt Nam",
+      "address": "Thửa đất số 200, Tờ bản đồ 11, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Overpass catalog",
+        "source_id": "osm_overpass_catalog",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_camellia_resort_spa",
+      "name": "Camellia Resort & Spa",
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_cottage_village",
+      "name": "Cottage Village",
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_cong_ty_co_phan_thac_bac",
+      "name": "Công ty Cổ phần Thác Bạc",
+      "address": "Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1871146,
+        "lon": 103.9709938,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_dusit_princess_moonrise_beach_resort_phu_quoc",
+      "name": "Dusit Princess Moonrise Beach Resort Phu Quoc",
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_dao_ngoc_the_ky_21",
+      "name": "Đảo Ngọc Thế Kỷ 21",
+      "address": "76A Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_duc_lam_ha",
+      "name": "Đức Lam Hà",
+      "address": "Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_elwood_resort_phu_quoc",
+      "name": "Elwood Resort Phu Quoc",
+      "address": "Tổ 5, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_eo_xoai",
+      "name": "Eo Xoài",
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_e_den",
+      "name": "Ê Đen",
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_famiana_resort_spa",
+      "name": "Famiana Resort & Spa",
+      "address": "Ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1871146,
+        "lon": 103.9709938,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_gaia_hotel",
+      "name": "Gaia Hotel",
+      "address": "71 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_galaxy",
+      "name": "Galaxy",
+      "address": "77 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_golden_daisy_hotel_spa",
+      "name": "Golden Daisy Hotel & Spa",
+      "address": "Tổ 7, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_halona",
+      "name": "Halona",
+      "address": "66 Trần Phú, KP3, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_homestead_phu_quoc_resort",
+      "name": "Homestead Phú Quốc Resort",
+      "address": "143A Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1840441,
+        "lon": 103.9678198,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_homestead_seaview_phu_quoc_hotel",
+      "name": "Homestead Seaview Phu Quoc Hotel",
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1840441,
+        "lon": 103.9678198,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_hong_tuyet",
+      "name": "Hồng Tuyết",
+      "address": "10 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2181693,
+        "lon": 103.9602424,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_huong_toan_ii",
+      "name": "Hương Toàn II",
+      "address": "205 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2233877,
+        "lon": 103.9675406,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_ky_hoa",
+      "name": "Kỳ Hoa",
+      "address": "86 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2233877,
+        "lon": 103.9675406,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_l_azure_resort_spa_phu_quoc",
+      "name": "L'Azure Resort & Spa Phu Quoc",
+      "address": "64 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_maison_du_vietnam_resort_spa",
+      "name": "Maison Du Vietnam Resort & Spa",
+      "address": "Tổ 12, ấp Bến Tràm, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1799257,
+        "lon": 103.9830979,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_melia_vinpearl",
+      "name": "Melia Vinpearl Phú Quốc",
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_mon_ami",
+      "name": "Mon Ami",
+      "address": "150 Nguyễn Trung Trực, KP8, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2233877,
+        "lon": 103.9675406,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_movenpick",
+      "name": "Mövenpick Resort Waverly Phu Quoc",
+      "address": "Tổ 1, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
+      "name": "Muong Thanh Luxury Phu Quoc Hotel",
+      "address": "Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1888255,
+        "lon": 103.99297,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_my_nhut",
+      "name": "Mỹ Nhựt",
+      "address": "129 Lý Thường Kiệt, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2244816,
+        "lon": 103.9679771,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_my_place_phu_quoc",
+      "name": "My Place Phu Quoc",
+      "address": "Tổ 1, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_ngoc_chau",
+      "name": "Ngọc Châu",
+      "address": "66D Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_nha_khach_tram_giao_dich_ve_so_kien_thiet_can_tho",
+      "name": "Nhà khách - Trạm giao dịch vé số kiến thiết Cần Thơ",
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_nha_tranh_gia_vi",
+      "name": "Nhà Tranh - Gia Vị",
+      "address": "Tổ 7 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_nipola",
+      "name": "Nipola",
+      "address": "40 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2181693,
+        "lon": 103.9602424,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_ola_phu_quoc_hotel",
+      "name": "Ola Phu Quoc Hotel",
+      "address": "Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_ori",
+      "name": "ORI",
+      "address": "Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_palm_hill_resort",
+      "name": "Palm Hill Resort",
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_philip_cozy_bungalow",
+      "name": "Philip Cozy Bungalow",
+      "address": "131 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2023747,
+        "lon": 103.964539,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_phu_quoc_eco_beach_resort",
+      "name": "Phu Quoc Eco Beach Resort",
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_phuc_loc",
+      "name": "Phúc Lộc",
+      "address": "193 Nguyễn Trung Trực, KP5, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2233877,
+        "lon": 103.9675406,
+        "precision": "route_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_premier_village",
+      "name": "Premier Village Phú Quốc",
+      "address": "Mũi Ông Đội, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2676616,
+        "lon": 103.9370953,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_quynh_mai_phu_quoc_resort",
+      "name": "Quỳnh Mai Phú Quốc Resort",
+      "address": "Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1799257,
+        "lon": 103.9830979,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_radisson_blu",
+      "name": "Radisson Blu Resort Phú Quốc",
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_sea_sense_resort",
+      "name": "Sea Sense Resort",
+      "address": "Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.262797,
+        "lon": 103.9392304,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_sheraton",
+      "name": "Sheraton Phú Quốc Long Beach Resort",
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_sol_by_melia",
+      "name": "SOL by Meliá Phu Quoc",
+      "address": "Tổ 2, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1888255,
+        "lon": 103.99297,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_sunrise_boutique",
+      "name": "Sunrise Boutique",
+      "address": "51-53 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2110187,
+        "lon": 103.9600787,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_sunset_sanato",
+      "name": "Sunset Sanato",
+      "address": "Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1888255,
+        "lon": 103.99297,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_suoi_may_garden",
+      "name": "Suối Mây Garden",
+      "address": "Tổ 5, ấp Suối Mây, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1799257,
+        "lon": 103.9830979,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_tai_phong_tien",
+      "name": "Tài Phong Tiến",
+      "address": "137 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2023747,
+        "lon": 103.964539,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_tan_anh_tuan",
+      "name": "Tân Anh Tuấn",
+      "address": "102 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_tan_anh_tuan_2",
+      "name": "Tân Anh Tuấn 2",
+      "address": "179 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_tuyet_hien",
+      "name": "Tuyết Hiển",
+      "address": "77 Đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2112438,
+        "lon": 103.965123,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_valentina_resort",
+      "name": "Valentina Resort",
+      "address": "Tổ 6, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1727084,
+        "lon": 103.9921557,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_venus_hotel_sky_bar_massage",
+      "name": "Venus Hotel - Sky Bar - Massage",
+      "address": "60 Trần Hưng Đạo, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.2110187,
+        "lon": 103.9600787,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Nominatim address geocoding",
+        "source_id": "osm_nominatim_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_vinpearl_resort_spa_phu_quoc",
+      "name": "Vinpearl Resort & Spa Phú Quốc",
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_vinpearl_wonderworld_phu_quoc",
+      "name": "Vinpearl Wonderworld Phú Quốc",
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.413995,
+        "lon": 103.9759353,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_wildland_resort",
+      "name": "Wildland Resort",
+      "address": "Tổ 5, ấp Cây Sao, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.1799257,
+        "lon": 103.9830979,
+        "precision": "area_anchor",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_wyndham_garden_grandworld",
+      "name": "Wyndham Garden Grandworld",
+      "address": "Khu DL Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.3232415,
+        "lon": 103.8562954,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    },
+    {
+      "id": "hotel_wyndham_grand_phu_quoc",
+      "name": "Wyndham Grand Phú Quốc",
+      "address": "Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang",
+      "legacy_coordinates": {
+        "lat": 10.3232415,
+        "lon": 103.8562954,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap Photon location geocoding",
+        "source_id": "osm_photon_geocode",
+        "verified_at": "2026-09-22"
+      },
+      "review_status": "UNVERIFIED_GEOCODER_OUTPUT",
+      "candidate_access": "ADDRESS_ONLY_UNTIL_REVERIFIED"
+    }
+  ]
+}
