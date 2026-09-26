@@ -1,0 +1,91 @@
+name: JoTrip Trip V2 isolated preview D1
+
+on:
+  push:
+    branches:
+      - audit/jotrip-trip-d1-readonly-20260926
+    paths:
+      - ".github/workflows/jotrip-trip-v2-preview-db.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jotrip-trip-v2-preview-db
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: github.repository == 'kenzuko/jotrip-home' && github.ref == 'refs/heads/audit/jotrip-trip-d1-readonly-20260926'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      PREVIEW_NAME: jotrip-trip-v2-preview-20260926
+    steps:
+      - name: Require existing scoped Cloudflare access
+        shell: bash
+        run: |
+          if [[ -z "$CLOUDFLARE_API_TOKEN" || -z "$CLOUDFLARE_ACCOUNT_ID" ]]; then
+            echo "::error::Cloudflare credentials unavailable. Production unchanged."
+            exit 2
+          fi
+      - uses: actions/checkout@v4
+        with:
+          repository: kenzuko/jotrip-trip
+          ref: 4399895a049cf03c919727d5b2bfaacf5885117f
+          path: trip
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Create or reuse only the named empty preview database
+        shell: bash
+        run: |
+          set -euo pipefail
+          CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]' | sed -e 's/^"//' -e 's/"$//')"
+          export CLOUDFLARE_ACCOUNT_ID
+          if [[ ! "$CLOUDFLARE_ACCOUNT_ID" =~ ^[a-zA-Z0-9_-]{32}$ ]]; then
+            echo "::error::Malformed Cloudflare account ID"; exit 2
+          fi
+          mkdir -p /tmp/jotrip-v2-preview
+          cd /tmp/jotrip-v2-preview
+          npx --yes wrangler@4 d1 list --json > databases.json
+          DB_ID="$(node -e 'const a=JSON.parse(require("fs").readFileSync("databases.json","utf8"));const db=(Array.isArray(a)?a:a.result||[]).find(x=>x.name===process.env.PREVIEW_NAME);if(db)process.stdout.write(db.uuid||db.database_id||"")')"
+          if [[ -z "$DB_ID" ]]; then
+            echo "No preview D1 exists. Creating only $PREVIEW_NAME."
+            if ! npx --yes wrangler@4 d1 create "$PREVIEW_NAME" > create.log 2>&1; then
+              echo "::error::Could not create preview D1. No production change."; exit 3
+            fi
+            npx --yes wrangler@4 d1 list --json > databases.json
+            DB_ID="$(node -e 'const a=JSON.parse(require("fs").readFileSync("databases.json","utf8"));const db=(Array.isArray(a)?a:a.result||[]).find(x=>x.name===process.env.PREVIEW_NAME);if(db)process.stdout.write(db.uuid||db.database_id||"")')"
+          fi
+          if [[ ! "$DB_ID" =~ ^[0-9a-fA-F-]{36}$ || "$DB_ID" == "17372bb5-7626-4238-8a95-fc0cf31ad18e" ]]; then
+            echo "::error::Preview database identity invalid or matches production. STOP."; exit 4
+          fi
+          echo "Confirmed isolated preview D1 ID: $DB_ID"
+          printf 'name = "jotrip-trip-v2-preview-audit"\ncompatibility_date = "2026-09-26"\n[[d1_databases]]\nbinding = "DB"\ndatabase_name = "%s"\ndatabase_id = "%s"\n' "$PREVIEW_NAME" "$DB_ID" > wrangler.toml
+          for f in 0000_bootstrap_all.sql 0005_pricing_guardrails.sql 0006_hotel_rate_rules.sql 0007_watch_notifications.sql 0008_destination_context.sql 0009_trip_turn_state.sql 0010_booking_lead_privacy.sql; do
+            echo "Applying $f to isolated preview only."
+            if ! npx --yes wrangler@4 d1 execute "$PREVIEW_NAME" --remote --file="$GITHUB_WORKSPACE/trip/migrations/$f" > step.log 2>&1; then
+              echo "::error::Preview-only migration failed at $f. No production change."
+              tail -n 16 step.log
+              exit 5
+            fi
+          done
+          if ! npx --yes wrangler@4 d1 export "$PREVIEW_NAME" --remote --no-data --output=./schema.sql > export.log 2>&1; then
+            echo "::error::Preview schema-only export failed."; exit 6
+          fi
+          node "$GITHUB_WORKSPACE/trip/tools/d1-schema-preflight.mjs" schema.sql > verdict.json
+          cat verdict.json
+          node -e 'const r=require("./verdict.json");if(r.state!=="SCHEMA_COLUMNS_PRESENT")process.exit(7)'
+          for f in v2-d1-smoke.sql v2-booking-lead-smoke.sql v2-booking-version-smoke.sql; do
+            echo "Running synthetic $f against isolated preview only."
+            if ! npx --yes wrangler@4 d1 execute "$PREVIEW_NAME" --remote --file="$GITHUB_WORKSPACE/trip/tests/fixtures/$f" > step.log 2>&1; then
+              echo "::error::Preview-only SQL regression failed: $f"
+              tail -n 16 step.log
+              exit 8
+            fi
+          done
+          echo "Isolated preview D1 schema and synthetic SQL regression passed. Production D1 and Workers untouched."
