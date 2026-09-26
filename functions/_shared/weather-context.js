@@ -236,6 +236,7 @@ export async function handleWeatherWindow(request,fetchImpl=fetch){
   }
   return json({
     schema_version:"openpq-weather-window-context-v1",checked_at:new Date().toISOString(),
-    source_status:"OK",items:items.map(item=>sampleItem(forecast,item))
+    source_status:items.some(item=>item.activity_scope==="marine")?"PARTIAL":"OK",
+    items:items.map(item=>sampleItem(forecast,item))
   });
 }
