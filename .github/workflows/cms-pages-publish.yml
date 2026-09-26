@@ -96,6 +96,8 @@ jobs:
           node scripts/build-cloudflare.mjs
           node scripts/validate-cms-publication.mjs
           node scripts/test-cms-access.mjs
+          node scripts/test-cms-quality.mjs
+          node scripts/test-cms-task-center.mjs
           node scripts/test-nearme-venues.mjs
           node scripts/test-go-geo.mjs
           node scripts/test-decision-signals.mjs
