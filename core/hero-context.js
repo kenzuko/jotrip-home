@@ -19,6 +19,26 @@
     if(now>=sunset-95)return "sunset";
     return "day";
   }
+  // Two separate, recently checked island gauges must independently observe
+  // substantial rain. Convection forecasts, isolated drizzle and stale totals
+  // are insufficient to turn the whole-island hero into a rainy slideshow.
+  function assessHeavyRain(gauges,snapshotAgeMin,now=new Date()){
+    if(!Array.isArray(gauges)||!Number.isFinite(snapshotAgeMin)||snapshotAgeMin<0||snapshotAgeMin>60)
+      return {confirmed:false,count:0};
+    const stations=new Set();
+    const nowMs=+now;
+    for(const g of gauges){
+      if(String(g?.qc||'').toUpperCase()!=='PASS'||
+         String(g?.increment_qc||'').toUpperCase()!=='PASS'||
+         g?.rain_observed!==true||Number(g?.rain_intensity_mm_h)<10)continue;
+      const observedMs=Date.parse(g?.observed_at||'');
+      const elapsed=(nowMs-observedMs)/60000;
+      if(!Number.isFinite(elapsed)||elapsed<0||elapsed>45)continue;
+      const key=String(g?.name||'').trim().toLowerCase();
+      if(key)stations.add(key);
+    }
+    return {confirmed:stations.size>=2,count:stations.size};
+  }
   function select(date=new Date(),snapshot=null){
     const time=timeMood(date,snapshot);
     const signals=snapshot?.signals;
@@ -29,8 +49,12 @@
     const intense=levels.includes("HIGH")||levels.includes("ELEVATED");
     // An isolated shower somewhere on the island does not imply island-wide rain.
     const wet=signals?.observed_rain===true;
-    if(wet&&intense)return {mood:time==="night"?"rainy-night":"rainy",timeMood:time,weatherUsed:true};
-    if(intense||(wet&&signals?.sunset_weather?.level==="bad"&&time==="sunset"))
+    // Only a confirmed multi-station heavy rain observation changes the
+    // gallery into rainy pictures. Uncertainty gets a beautiful neutral set.
+    if(signals?.heavy_rain_confirmed===true)
+      return {mood:time==="night"?"rainy-night":"rainy",timeMood:time,weatherUsed:true};
+    if(intense||signals?.heavy_rain_gauge_count===1||
+       (wet&&signals?.sunset_weather?.level==="bad"&&time==="sunset"))
       return {mood:time==="night"?"rainy-night":"cloudy",timeMood:time,weatherUsed:true};
     // A marine sample is specific to An Thoi; use it only to avoid promoting
     // a sea-tour photograph as the leading scene, never as a whole-island warning.
@@ -40,5 +64,5 @@
       return {mood:"cloudy",timeMood:time,weatherUsed:true};
     return {mood:time,timeMood:time,weatherUsed:false};
   }
-  root.OpenPQHeroContext={select,timeMood,localMinutes};
+  root.OpenPQHeroContext={select,timeMood,localMinutes,assessHeavyRain};
 })(typeof window!=="undefined"?window:globalThis);

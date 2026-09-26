@@ -501,6 +501,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     const gauges = Array.isArray(critical?.actual?.rain_gauges) ? critical.actual.rain_gauges : [];
     const observedRain = gauges.some(g => g?.rain_observed === true || Number(g?.rain_intensity_mm_h) > 0);
+    const heroRain = window.OpenPQHeroContext?.assessHeavyRain?.(gauges,criticalAge)
+      || {confirmed:false,count:0};
 
     let nowSuggestionSlides = [];
     let nowSuggestionIndex = 0;
@@ -1024,6 +1026,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
         weather_snapshot_age_min: Number.isFinite(criticalAge) ? Math.round(criticalAge) : null,
         convective_levels: [...new Set(convectiveLevels)],
         observed_rain: observedRain,
+        heavy_rain_confirmed: heroRain.confirmed,
+        heavy_rain_gauge_count: heroRain.count,
         sunset_weather: sunsetWeatherAssessment(critical, sunset),
         airport_attention_count: airportAvailable ? airportWatch.count : null,
         airport_attention_flights: airportAvailable ? airportWatch.flightCount : null,
