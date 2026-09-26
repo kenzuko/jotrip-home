@@ -14,10 +14,11 @@
   function timeMood(date=new Date(),snapshot=null){
     const now=localMinutes(date);
     const sunset=mins(snapshot?.live_status?.sunset?.primary)??(18*60);
-    if(now<5*60+30||now>sunset+30)return "night";
+    if(now<5*60+30||now>=sunset+30)return "night";
     if(now<10*60+30)return "morning";
     if(now>=sunset-95)return "sunset";
-    return "day";
+    if(now<14*60)return "noon";
+    return "afternoon";
   }
   // Two separate, recently checked island gauges must independently observe
   // substantial rain. Convection forecasts, isolated drizzle and stale totals
@@ -55,12 +56,12 @@
       return {mood:time==="night"?"rainy-night":"rainy",timeMood:time,weatherUsed:true};
     if(intense||signals?.heavy_rain_gauge_count===1||
        (wet&&signals?.sunset_weather?.level==="bad"&&time==="sunset"))
-      return {mood:time==="night"?"rainy-night":"cloudy",timeMood:time,weatherUsed:true};
+      return {mood:time==="night"?"cloudy-night":"cloudy",timeMood:time,weatherUsed:true};
     // A marine sample is specific to An Thoi; use it only to avoid promoting
     // a sea-tour photograph as the leading scene, never as a whole-island warning.
     const sea=snapshot?.live_status?.sea;
     const wave=Number.parseFloat(String(sea?.primary||""));
-    if(time==="day"&&sea?.freshness==="fresh"&&Number.isFinite(wave)&&wave>=1.7)
+    if((time==="noon"||time==="afternoon")&&sea?.freshness==="fresh"&&Number.isFinite(wave)&&wave>=1.7)
       return {mood:"cloudy",timeMood:time,weatherUsed:true};
     return {mood:time,timeMood:time,weatherUsed:false};
   }

@@ -321,91 +321,89 @@ const heroLabel = document.querySelector('.hero-scene-label');
 const heroCredit = document.querySelector('.hero-credit');
 const heroProgress = document.querySelector('.hero-progress');
 
-const HERO_SCENES = {
-  fishSauce: {
-    src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Vats%20at%20a%20Fish%20Sauce%20Factory%20on%20Phu%20Quoc%20Island%20in%20Vietnam%2001.jpg?width=1800",
-    alt:"Những thùng gỗ ủ nước mắm truyền thống ở Phú Quốc",label:"MỘT NĂM TRONG NHÀ THÙNG"
-  },
-  sunsetTown: {
-    src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=2000",
-    alt:"An Thới và Sunset Town lúc hoàng hôn",label:"AN THỚI LÊN ĐÈN"
-  },
-  pepper: {
-    src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Pfefferanbau%20auf%20Phu%20Quoc.jpg?width=1600",
-    alt:"Vườn tiêu Phú Quốc",label:"MÙI CAY CỦA ĐẤT ĐỎ"
-  },
-  harbor: {
-    src:"/assets/photos/fishing-boats-jo-library.jpg",
-    alt:"Những chiếc ghe neo trên biển nhìn từ trên cao",label:"NHỊP SỐNG VEN BIỂN",credit:"Ảnh: Internet · kho JoTrip"
-  },
-  islands: {
-    src:"/assets/photos/island-jetty-jo-library.jpg",
-    alt:"Bến thuyền và bãi biển nhìn từ trên cao",label:"MỘT NGÀY NGOÀI ĐẢO",credit:"Ảnh: Internet · kho JoTrip"
-  },
-  saoBeach: {
-    src:"/assets/photos/beach-aerial-jo-library.webp",
-    alt:"Bãi cát trắng, hàng dừa và biển xanh nhìn từ trên cao",label:"GÓC BIỂN PHÚ QUỐC",credit:"Ảnh: Internet · kho JoTrip"
-  },
-  goldenHour: {
-    src:"/assets/media/jotrip-big-game-fishing-golden-hour-2025.jpg",
-    alt:"Chuyến câu cá lớn trong ánh chiều trên biển Phú Quốc",label:"ÁNH CHIỀU NGOÀI KHƠI"
-  },
-  nightMarket: {
-    src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Making%20ice%20cream%20rolls%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1800",
-    alt:"Quầy kem cuộn ở chợ đêm Phú Quốc",label:"CHỢ ĐÊM LÊN ĐÈN"
-  },
-  nightFishing: {
-    src:"/assets/media/jotrip-night-fishing-2025.jpg",
-    alt:"Trải nghiệm câu cá buổi tối ở Phú Quốc",label:"CHUYỆN KỂ ĐÊM TRÊN BIỂN"
-  },
-  seafood: {
-    src:"/assets/media/jotrip-grilled-squid-2025.jpg",
-    alt:"Món mực nướng Phú Quốc",label:"HƯƠNG VỊ CỦA ĐẢO"
-  }
-};
-const HERO_MOODS = {
-  morning:["harbor","pepper","islands","fishSauce"],
-  day:["islands","saoBeach","pepper","fishSauce"],
-  sunset:["sunsetTown","goldenHour","harbor","fishSauce"],
-  night:["nightMarket","nightFishing","seafood","sunsetTown"],
-  cloudy:["fishSauce","pepper","harbor","seafood"],
-  rainy:["fishSauce","seafood","pepper","nightMarket"],
-  "rainy-night":["nightMarket","seafood","fishSauce","pepper"]
-};
+const heroGallery=window.OpenPQHeroGallery;
+if(!heroGallery)console.error("OpenPQ hero gallery did not initialize.");
 const HERO_FALLBACK="/assets/photos/tour-3-islands-jotrip-1600.jpg";
 const HERO_BLANK="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 const HERO_DELAY = 4000;
 const heroStartedAt=Date.now();
 let heroIndex=0,heroTimer=null,touchStartX=0,touchStartY=0;
-let currentMood="day",pendingMood=null,weatherSelectionApplied=false;
+let currentMood="noon",pendingMood=null,weatherSelectionApplied=false;
+let currentAlbum=[];
+const heroMobile=window.matchMedia("(max-width:760px)");
 
+function assignHeroPhoto(slide,scene,i){
+  if(!scene)return;
+  const shown=heroGallery.variant(scene,heroMobile.matches);
+  slide.dataset.label=scene.label;
+  slide.dataset.credit=shown.credit||"Kho ảnh JoTrip";
+  slide.dataset.sourceUrl=shown.sourceUrl||"";
+  slide.dataset.license=shown.license||"";
+  slide.dataset.licenseUrl=shown.licenseUrl||"";
+  const photo=slide.querySelector("img");
+  if(!photo)return;
+  photo.alt=shown.alt||scene.alt;
+  photo.loading=i===0?"eager":"lazy";
+  photo.decoding="async";
+  photo.fetchPriority=i===0?"high":"low";
+  photo.dataset.sceneSrc=shown.src;
+  photo.onerror=()=>{
+    // Never show a broken-image icon even when Commons or an external host is
+    // unavailable. Recredit to the real local fallback, not the failed photo.
+    photo.onerror=null;
+    photo.src=HERO_FALLBACK;
+    slide.dataset.credit="Kho ảnh JoTrip";
+    slide.dataset.sourceUrl="";
+    slide.dataset.license="";
+    slide.dataset.licenseUrl="";
+    if(heroSlides[heroIndex]===slide)updateHeroCredit(slide);
+  };
+  if(i===0){
+    if(photo.getAttribute("src")!==shown.src)photo.src=shown.src;
+    photo.dataset.loadedSrc=shown.src;
+  }else if(i!==heroIndex){
+    // Four slides in the DOM, only current/next image in network memory.
+    photo.src=HERO_BLANK;
+    photo.dataset.loadedSrc="";
+  }
+}
+function updateHeroCredit(slide){
+  if(!heroCredit||!slide)return;
+  const label=heroCredit.querySelector("[data-hero-credit-label]");
+  const source=heroCredit.querySelector("[data-hero-source]");
+  const license=heroCredit.querySelector("[data-hero-license]");
+  if(label)label.textContent="Ảnh: "+(slide.dataset.credit||"Kho ảnh JoTrip");
+  if(source){
+    source.hidden=!slide.dataset.sourceUrl;
+    if(slide.dataset.sourceUrl)source.href=slide.dataset.sourceUrl;
+  }
+  if(license){
+    license.hidden=!slide.dataset.licenseUrl;
+    if(slide.dataset.licenseUrl){
+      license.href=slide.dataset.licenseUrl;
+      license.textContent=slide.dataset.license+" · cắt khung";
+    }
+  }
+}
 function useHeroMood(mood){
-  const keys=HERO_MOODS[mood]||HERO_MOODS.day;
+  currentAlbum=heroGallery?.choose(mood,new Date())||[];
+  if(currentAlbum.length!==4){
+    console.error("Hero gallery incomplete; retaining current image");
+    return;
+  }
   currentMood=mood;
   hero?.setAttribute("data-hero-mood",mood);
-  heroSlides.forEach((slide,i)=>{
-    const scene=HERO_SCENES[keys[i]];
-    if(!scene)return;
-    slide.dataset.label=scene.label;
-    slide.dataset.credit=scene.credit||(scene.src.startsWith('/assets/media/')?'Ảnh: JoTrip':'Ảnh: Wikimedia Commons');
-    const photo=slide.querySelector("img");
-    if(!photo)return;
-    photo.alt=scene.alt;
-    photo.loading=i===0?"eager":"lazy";
-    photo.decoding="async";
-    photo.fetchPriority=i===0?"high":"low";
-    photo.dataset.sceneSrc=scene.src;
-    photo.onerror=()=>{photo.onerror=null;photo.src=HERO_FALLBACK;};
-    if(i===0){
-      if(photo.getAttribute("src")!==scene.src)photo.src=scene.src;
-      photo.dataset.loadedSrc=scene.src;
-    }else if(i!==heroIndex){
-      // Hidden slides get a 1-pixel local placeholder, not three heavy images.
-      photo.src=HERO_BLANK;
-      photo.dataset.loadedSrc="";
-    }
-  });
+  hero.dataset.heroPhotoIds=currentAlbum.map(p=>p.id).join(",");
+  heroSlides.forEach((slide,i)=>assignHeroPhoto(slide,currentAlbum[i],i));
 }
+heroMobile.addEventListener?.("change",()=>{
+  // Switching orientation must not reshuffle the visitor's four chosen scenes.
+  if(!currentAlbum.length)return;
+  heroSlides.forEach((slide,i)=>assignHeroPhoto(slide,currentAlbum[i],i));
+  primeHeroPhoto(heroIndex);
+  warmHeroPhoto((heroIndex+1)%heroSlides.length);
+  updateHeroCredit(heroSlides[heroIndex]);
+});
 function primeHeroPhoto(index){
   const photo=heroSlides[index]?.querySelector("img");
   const src=photo?.dataset.sceneSrc;
@@ -424,7 +422,7 @@ function warmHeroPhoto(index){
   };
   warm.src=src;
 }
-useHeroMood(window.OpenPQHeroContext?.select(new Date(),window.OPENPQ_HOME)?.mood||"day");
+useHeroMood(window.OpenPQHeroContext?.select(new Date(),window.OPENPQ_HOME)?.mood||"noon");
 window.addEventListener("openpq:live-ready",event=>{
   // Apply one fresh-weather correction in the initial hydration period only.
   // Do not change the photos every time a live component refreshes.
@@ -461,7 +459,7 @@ function showHeroSlide(index,userInitiated=false){
   });
   if(heroCount)heroCount.textContent=String(heroIndex+1).padStart(2,"0")+" / "+String(heroSlides.length).padStart(2,"0");
   if(heroLabel)heroLabel.textContent=heroSlides[heroIndex]?.dataset.label||"";
-  if(heroCredit)heroCredit.textContent=heroSlides[heroIndex]?.dataset.credit||"Ảnh: kho JoTrip";
+  updateHeroCredit(heroSlides[heroIndex]);
   restartHeroProgress();
   if(userInitiated)restartHeroAutoplay();
 }

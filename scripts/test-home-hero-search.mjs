@@ -9,7 +9,8 @@ vm.runInNewContext(contextJs,sandbox);
 const select=sandbox.window.OpenPQHeroContext.select;
 const at=value=>new Date(value);
 assert.equal(select(at("2026-09-26T00:00:00Z")).mood,"morning");
-assert.equal(select(at("2026-09-26T06:00:00Z")).mood,"day");
+assert.equal(select(at("2026-09-26T06:00:00Z")).mood,"noon");
+assert.equal(select(at("2026-09-26T09:00:00Z")).mood,"afternoon");
 assert.equal(select(at("2026-09-26T10:30:00Z")).mood,"sunset");
 assert.equal(select(at("2026-09-26T14:00:00Z")).mood,"night");
 const weather={
@@ -37,10 +38,10 @@ assert.equal(assess([gauge("Bãi Thơm",12),gauge("Cửa Cạn",11,"2026-09-26T0
 assert.equal(assess([gauge("Bãi Thơm",12),gauge("Cửa Cạn",11,"2026-09-26T07:40:00Z","BAD")],25,now).confirmed,false,"Failed quality check cannot trigger");
 assert.equal(select(at("2026-09-26T06:00:00Z"),{
   ...weather,signals:{...weather.signals,weather_snapshot_age_min:130}
-}).mood,"day","Stale weather never overrides the photograph");
+}).mood,"noon","Stale weather never overrides the photograph");
 assert.equal(select(at("2026-09-26T06:00:00Z"),{
   ...weather,signals:{weather_snapshot_age_min:18,observed_rain:true,convective_levels:[]}
-}).mood,"day","Isolated rain does not imply a rainy island");
+}).mood,"noon","Isolated rain does not imply a rainy island");
 assert.equal(select(at("2026-09-26T06:00:00Z"),{
   ...weather,signals:{weather_snapshot_age_min:12,observed_rain:false,convective_levels:["ELEVATED"]}
 }).mood,"cloudy");
@@ -61,7 +62,8 @@ for(const path of [
   "assets/media/jotrip-night-fishing-2025.jpg",
   "assets/media/jotrip-grilled-squid-2025.jpg"
 ]) assert.ok(fs.existsSync(path),"Missing approved local image "+path);
-assert.match(app,/HERO_MOODS/);
+assert.match(app,/heroGallery\?\.choose\(mood,new Date\(\)\)/);
+assert.match(html,/core\/hero-gallery\.js\?/);
 assert.match(read("home-live-v3.js"),/heavy_rain_confirmed: heroRain.confirmed/);
 assert.match(app,/openpq:live-ready/);
 assert.match(app,/pendingMood/);
