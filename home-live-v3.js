@@ -991,9 +991,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
         },
         ferry: {
           label: "Tàu & Phà",
-          primary: marine ? stateText(ferryState) : "Chưa có thông tin mới",
+          primary: ferryState === "DIRECT_CONFIRMED" ? "Đã ghi nhận chuyến rời cảng" : marine ? stateText(ferryState) : "Chưa có thông tin mới",
           context: !marine ? "Hôm nay chưa có tin mới" : "Phà hôm nay xem riêng từng chuyến",
-          status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(ferryState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
+          status: !marine ? "unknown" : ferryState === "RUNNING" ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
           freshness: !marine || !Number.isFinite(marineAge) ? "unknown" : marineAge <= 720 ? "fresh" : marineAge <= 1440 ? "aging" : "stale",
