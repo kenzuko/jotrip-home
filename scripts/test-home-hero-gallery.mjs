@@ -62,7 +62,7 @@ assert.ok(html.indexOf('src="core/hero-gallery.js?')<html.indexOf('src="app.js?'
   "Gallery must load before app");
 assert.ok(html.includes("data-hero-license")&&html.includes("data-hero-source"),
   "Exact author and Creative Commons license links must be visible");
-assert.match(app,/heroGallery\.choose\(mood,new Date\(\)\)/);
+assert.match(app,/heroGallery\?\.choose\(mood,new Date\(\)\)/);
 assert.match(app,/heroMobile\.addEventListener/);
 assert.match(app,/pendingMood/);
 assert.match(app,/photo\.onerror=/);
