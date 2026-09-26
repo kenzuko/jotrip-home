@@ -111,6 +111,17 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  assert.deepEqual(body.items[0].reason_codes,["ROUTE_SOURCE_UNSUPPORTED"]);
  assert.equal(body.items[0].temporal_coverage.status,"NOT_EVALUATED");
  assert.equal(called,0);
+
+ const {fetchImpl}=fetchFixture();
+ const mixed=await handleWeatherWindow(makeRequest([
+  item("2026-09-26T15:30:00+07:00","2026-09-26T16:00:00+07:00",{entity_id:"place_land"}),
+  {entity_id:"activity_boat",activity_scope:"marine",
+   window:{from:"2026-09-26T15:00:00+07:00",to:"2026-09-26T17:00:00+07:00"}}
+ ]),fetchImpl);
+ const mixedBody=await mixed.json();
+ assert.equal(mixedBody.source_status,"PARTIAL");
+ assert.equal(mixedBody.items[0].status,"OK");
+ assert.equal(mixedBody.items[1].status,"UNKNOWN");
 }
 
 // Reject malformed/oversized input and cross-origin browser posts.
