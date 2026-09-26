@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Quanh đây - Open Phu Quoc</title>
   <meta name="description" content="Tìm địa chỉ, điểm tham quan, khách sạn, bãi biển, quán ăn và tiện ích quanh Phú Quốc.">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><link rel="stylesheet" href="nearme.css?v=9">
+  <link rel="stylesheet" href="nearme.css?v=20260926-radar1">
 <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-tight-master-r1">
   <link rel="canonical" href="https://cms.openphuquoc.com/nearme/">
   <meta property="og:site_name" content="Open Phu Quoc">
@@ -36,20 +36,25 @@
   <main>
     <section class="intro">
       <p>QUANH ĐÂY</p>
-      <h1>Tìm địa chỉ và chỗ cần đến quanh đây.</h1>
-      <span>Tìm tên địa điểm, khách sạn hay tiện ích. Chọn khu nếu bạn chỉ muốn xem một phần của đảo.</span>
+      <h1>Cần gì quanh đây?</h1>
+      <span>Tìm dịch vụ, quán ăn hoặc địa điểm. Dùng GPS hoặc chọn khu vực để bắt đầu.</span>
     </section>
 
     <section class="near-layout">
       <div class="controls">
-        <label class="near-search"><span>Tìm trên đảo</span><input id="nearSearch" type="search" placeholder="Ví dụ: Dinh Cậu, JW Marriott, ATM, Bãi Sao..." autocomplete="off"></label>
+        <label class="near-search"><span>Tìm địa điểm hoặc dịch vụ</span><input id="nearSearch" type="search" placeholder="Ví dụ: nhà thuốc, ATM, Bãi Sao..." autocomplete="off"></label>
+        <div class="quick-category-row" id="quickCategoryRow" role="group" aria-label="Nhu cầu thường tìm"></div>
         <button id="useLocation" type="button">⌖ Dùng vị trí của tôi</button>
-        <div class="area-row" id="areaRow" aria-label="Chọn khu vực"></div>
-        <div class="category-row" id="categoryRow" aria-label="Chọn loại tiện ích"></div>
+        <div class="area-row" id="areaRow" aria-label="Chọn khu vực">
+          <button type="button" data-area="all" class="active">Toàn đảo</button><button type="button" data-area="zone_central_west">Dương Đông</button><button type="button" data-area="zone_south">An Thới</button><button type="button" data-area="zone_north">Gành Dầu</button><button type="button" data-area="place_sunset_town">Sunset Town</button>
+        </div>
+        <div class="near-radius"><strong>Lọc theo bán kính</strong><div class="radius-row" id="radiusRow" role="group" aria-label="Bán kính tìm kiếm"></div><small id="radiusNote">Chọn khu vực hoặc bật GPS để lọc bán kính.</small></div>
+        <details class="category-more" id="categoryMore"><summary>Xem thêm danh mục</summary><div class="category-row" id="categoryRow" aria-label="Chọn loại tiện ích"></div></details>
+        <button id="nearMapToggle" class="near-map-toggle" type="button" aria-controls="nearMapShell" aria-expanded="false">Xem bản đồ</button>
         <p id="nearStatus">Chọn khu vực hoặc bật vị trí để tìm quanh đây.</p><p class="near-transit-cta">Tìm điểm đón xe buýt? <a href="../bus/">Xem GPS tham khảo theo tuyến 17, 19, 20 ↗</a></p>
       </div>
 
-      <div class="map-shell">
+      <div class="map-shell" id="nearMapShell" hidden>
         <div id="nearMap" aria-label="Bản đồ Phú Quốc"><div id="nearLeaflet" class="near-map-live"></div><iframe id="nearDirectoryMap" class="near-map-directory" title="Tìm quanh đây trên bản đồ" loading="lazy" referrerpolicy="no-referrer-when-downgrade" hidden></iframe><div class="map-data-badge" id="mapDataBadge">Đang mở lớp dữ liệu...</div></div>
         <div class="map-shell-note">
           <small id="mapNote">Lớp Open Phu Quoc chỉ đặt pin ở những chỗ đã có tọa độ đủ chắc.</small>
@@ -70,6 +75,6 @@
     <span>Vị trí của bạn chỉ được dùng trong phiên này khi bạn chủ động bật.</span>
   </footer>
 
-  <script src="../core/location-context.js?v=20260926-area1"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="../map-basemap.js?v=1"></script><script src="venue-normalizer.js?v=1"></script><script src="nearme.js?v=20260926-area1"></script>
+  <script src="../core/location-context.js?v=20260926-area1"></script><script src="../core/go-geo.js?v=20260926-shared"></script><script src="../core/weather-context-client.js?v=20260926-context1"></script><script src="../map-basemap.js?v=20260926-lazy"></script><script src="venue-normalizer.js?v=20260926-radar1"></script><script src="nearme.js?v=20260926-radar1"></script>
 </body>
 </html>
