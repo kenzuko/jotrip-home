@@ -709,6 +709,9 @@
         if(marker){
           const p=marker.getLatLng();
           nearMap.setView(p,16,{animate:true});marker.openPopup();
+        }else{
+          const row=rows.find(item=>item.id===id);
+          if(row)showDirectoryMap(exactMapQuery(row),"Địa điểm trên Google Maps");
         }
         $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
         return;
