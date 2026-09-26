@@ -20,6 +20,9 @@ on:
       - "styles.css"
       - "app.js"
       - "core/hero-context.js"
+      - "core/hero-gallery.js"
+      - "assets/hero/**"
+      - "scripts/test-home-hero-gallery.mjs"
       - "scripts/test-home-hero-search.mjs"
       - "scripts/visual-qa-home-search.mjs"
       - "scripts/visual-qa.mjs"
@@ -111,6 +114,7 @@ jobs:
       - name: Verify homepage contextual hero and keyboard-safe search
         run: |
           node scripts/test-home-hero-search.mjs
+          node scripts/test-home-hero-gallery.mjs
           node scripts/visual-qa-home-search.mjs
 
       - name: Run visual QA
