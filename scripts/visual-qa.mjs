@@ -168,7 +168,10 @@ async function testHomeFoundation(page) {
     cardsAfterArea:await page.locator('#nearResults .near-result-card').count().catch(()=>0),
     essentials:await page.locator('#nearCategories [data-category]').count().catch(()=>0),
     others:await page.locator('#nearQuickMore [data-category]').count().catch(()=>0),
-    emergency:await page.locator('.near-quick-emergency-call[href="tel:115"]').count().then(n=>n===1).catch(()=>false)
+    emergency:await page.locator('.near-quick-emergency-call[href="tel:115"]').count().then(n=>n===1).catch(()=>false),
+    gpsKeepsPreciseMode:false,
+    gpsOutsideClearsPreciseMode:false,
+    gpsDenialClearsPreciseMode:false
   };
   const pharmacy=page.locator('#nearCategories [data-category="PHARMACY"]');
   async function clickPharmacy(){
@@ -201,6 +204,54 @@ async function testHomeFoundation(page) {
     quickFinder.searchFound=await page.locator('#nearResults .near-result-card strong').filter({hasText:'Vietcombank'}).count().then(n=>n>0).catch(()=>false);
     await search.fill('');
     await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0,{timeout:5000}).catch(()=>{});
+  }
+
+  quickFinder.gpsKeepsPreciseMode=false;
+  const gpsButton=page.locator('#nearLocationBtn');
+  if(await gpsButton.count()){
+    await page.context().grantPermissions(['geolocation']);
+    await page.context().setGeolocation({latitude:10.0191,longitude:104.0150});
+    await gpsButton.scrollIntoViewIfNeeded();
+    await gpsButton.click({timeout:12000});
+    await page.waitForFunction(
+      () => document.querySelector('#nearQuickStatus')?.textContent.includes('Đang tìm quanh vị trí bạn vừa chia sẻ.'),
+      {timeout:6500}
+    ).catch(()=>{});
+    quickFinder.gpsKeepsPreciseMode=await page.locator('#nearQuickStatus').textContent().then(text=>text.includes('Đang tìm quanh vị trí bạn vừa chia sẻ.')).catch(()=>false);
+
+    quickFinder.gpsOutsideClearsPreciseMode=false;
+    await page.context().setGeolocation({latitude:9.20,longitude:102.10});
+    await gpsButton.scrollIntoViewIfNeeded();
+    await gpsButton.click({timeout:12000});
+    await page.waitForFunction(
+      () => document.querySelector('#nearQuickStatus')?.textContent.includes('Vị trí hiện ở ngoài Phú Quốc.'),
+      {timeout:6500}
+    ).catch(()=>{});
+    quickFinder.gpsOutsideClearsPreciseMode=await page.evaluate(()=>
+      document.querySelector('#nearQuickStatus')?.textContent.includes('Vị trí hiện ở ngoài Phú Quốc.') &&
+      ![...document.querySelectorAll('#nearResults .near-quick-meta')].some(el=>/≈\s*.*km đường chim bay/.test(el.textContent))
+    );
+
+    quickFinder.gpsDenialClearsPreciseMode=false;
+    await page.context().setGeolocation({latitude:10.0191,longitude:104.0150});
+    await page.context().grantPermissions(['geolocation']);
+    await gpsButton.scrollIntoViewIfNeeded();
+    await gpsButton.click({timeout:12000});
+    await page.waitForFunction(
+      () => document.querySelector('#nearQuickStatus')?.textContent.includes('Đang tìm quanh vị trí bạn vừa chia sẻ.'),
+      {timeout:6500}
+    ).catch(()=>{});
+    await page.context().clearPermissions();
+    await gpsButton.scrollIntoViewIfNeeded();
+    await gpsButton.click({timeout:12000});
+    await page.waitForFunction(
+      () => document.querySelector('#nearQuickStatus')?.textContent.includes('Không lấy được vị trí.'),
+      {timeout:6500}
+    ).catch(()=>{});
+    quickFinder.gpsDenialClearsPreciseMode=await page.evaluate(()=>
+      document.querySelector('#nearQuickStatus')?.textContent.includes('Không lấy được vị trí.') &&
+      ![...document.querySelectorAll('#nearResults .near-quick-meta')].some(el=>/≈\s*.*km đường chim bay/.test(el.textContent))
+    );
   }
 
   const cancelledToday = await page.evaluate(async () => {
@@ -301,7 +352,7 @@ async function testHomeFoundation(page) {
       manualAreas: count('#nearManualAreas [data-area]') >= 4,
       nearCategories: count('#nearCategories [data-category]') === 4,
       nearExtraCategories: count('#nearQuickMore [data-category]') === 4,
-      nearQuickFinder: quickFinder.collapsedInitially&&quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound,
+      nearQuickFinder: quickFinder.collapsedInitially&&quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound&&quickFinder.gpsKeepsPreciseMode&&quickFinder.gpsOutsideClearsPreciseMode&&quickFinder.gpsDenialClearsPreciseMode,
       nearMobileFlow: window.innerWidth>720 || (
         document.querySelector('.near-quick-controls')?.compareDocumentPosition(document.querySelector('.near-quick-results')) & Node.DOCUMENT_POSITION_FOLLOWING &&
         document.querySelector('.near-quick-results')?.compareDocumentPosition(document.querySelector('.near-quick-secondary')) & Node.DOCUMENT_POSITION_FOLLOWING &&
@@ -320,6 +371,22 @@ async function testHomeFoundation(page) {
 
 async function testNearMePage(page) {
   await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-card').length > 0, { timeout: 9000 }).catch(() => {});
+
+  const mobileViewport = await page.evaluate(() => window.innerWidth <= 820);
+  const mapShell = page.locator('.map-shell');
+  const mapToggle = page.locator('#toggleNearMap');
+  const mapCollapsedInitially = mobileViewport ? await mapShell.isHidden().catch(() => false) : false;
+  if (mobileViewport && await mapToggle.count()) {
+    await mapToggle.click();
+    await page.waitForFunction(() => {
+      const badge=document.querySelector('#mapDataBadge')?.textContent?.trim()||'';
+      return !!badge && !/Đang mở/i.test(badge);
+    }, {timeout:6500}).catch(() => {});
+  }
+  const mapOpensOnRequest = !mobileViewport || (
+    await mapShell.isVisible().catch(() => false) &&
+    await mapToggle.getAttribute('aria-expanded').then(value => value === 'true').catch(() => false)
+  );
 
   const base = await page.evaluate(() => ({
     search: !!document.querySelector('#nearSearch'),

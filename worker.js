@@ -2,6 +2,7 @@ import {onRequestPost as cmsWeatherFeedbackPost} from "./functions/api/weather/l
 import {onRequestGet as cmsWeatherFeedbackRecent} from "./functions/api/weather/live/feedback/recent.js";
 import {handleWeatherData,prewarmWeatherEdge} from "./functions/_shared/weather-edge.js";
 import {captureWeatherAlerts,readWeatherAlertHistory} from "./functions/_shared/weather-alert-runtime.js";
+import {handleGoLive} from "./functions/_shared/go-live.js";
 const SITE_ORIGIN = "https://cms.openphuquoc.com";
 const DEFAULT_IMAGE = SITE_ORIGIN + "/assets/share-card.svg";
 
@@ -144,6 +145,7 @@ export default {
       return handleWeatherData(request,()=>env.ASSETS.fetch(request),ctx? p=>ctx.waitUntil(p):undefined);
     }
     const path = new URL(request.url).pathname;
+    if (path === "/api/go/live") return handleGoLive(request);
     if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request,env});
     if (path === "/api/weather/live/feedback/recent" && request.method === "GET") return cmsWeatherFeedbackRecent({request,env});
     if (request.method !== "GET" && request.method !== "HEAD") {
