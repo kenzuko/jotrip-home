@@ -16,6 +16,12 @@ on:
     paths:
       - ".github/workflows/visual-qa.yml"
       - "home-foundation-v2.js"
+      - "index.html"
+      - "styles.css"
+      - "app.js"
+      - "core/hero-context.js"
+      - "scripts/test-home-hero-search.mjs"
+      - "scripts/visual-qa-home-search.mjs"
       - "scripts/visual-qa.mjs"
       - "scripts/test-cancelled-show-trip-clock.mjs"
       - "data/operational-notices.json"
@@ -32,6 +38,8 @@ on:
       - "home-foundation-v2.js"
       - "home-library.css"
       - "home-live-v3.js"
+      - "app.js"
+      - "core/hero-context.js"
       - "home-data-pulse.js"
       - "data/home-support.json"
       - "data/entities/utilities.json"
@@ -99,6 +107,11 @@ jobs:
           done
           cat /tmp/openpq-visual-server.log
           exit 1
+
+      - name: Verify homepage contextual hero and keyboard-safe search
+        run: |
+          node scripts/test-home-hero-search.mjs
+          node scripts/visual-qa-home-search.mjs
 
       - name: Run visual QA
         env:

@@ -27,6 +27,9 @@ on:
       - "scripts/build-share-card.mjs"
       - "scripts/test-social-preview.mjs"
       - "styles.css"
+      - "app.js"
+      - "core/hero-context.js"
+      - "scripts/test-home-hero-search.mjs"
       - "home-foundation-v2.js"
       - "home-nearme-v2.js"
       - "scripts/test-home-nearme.mjs"
@@ -89,6 +92,8 @@ jobs:
           node scripts/validate-home-support.mjs
           node scripts/test-trip-clock-planner.mjs
           node scripts/test-home-nearme.mjs
+          node scripts/test-home-hero-search.mjs
+          node --check app.js
           node --check home-nearme-v2.js
           node scripts/test-transit-mobile-ui.mjs
           node scripts/test-home-food-random.mjs
