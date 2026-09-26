@@ -22,6 +22,8 @@ jobs:
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
           node scripts/build-search-index.mjs
+      - name: Test Near Me essential intake, source confidence and legacy maps
+        run: node scripts/test-nearme-intake.mjs
       - name: Validate data contracts
         run: node scripts/validate-data.mjs
       - name: Test Transit compact mobile display

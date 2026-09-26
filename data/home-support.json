@@ -374,6 +374,16 @@
         "icon": "✉",
         "mode": "directory_search",
         "search_query": "bưu điện Phú Quốc"
+      },
+      {
+        "id": "VEHICLE_REPAIR",
+        "label": "Sửa xe",
+        "icon": "🔧"
+      },
+      {
+        "id": "LUGGAGE_STORAGE",
+        "label": "Giữ hành lý",
+        "icon": "🧳"
       }
     ],
     "items": [

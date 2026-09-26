@@ -1,0 +1,780 @@
+{
+  "schema_version": "1.0",
+  "origin": "OPENPQ_NEARME_TINH_GON_KHOI_QUAN_TRONG_CHO_DUYET_2026-09-25.xlsx/03 WC + 04 BÃI XE",
+  "records": [
+    {
+      "id": "utility_osm_node_13617585701",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13617585701)",
+      "category": "TOILET",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0320538,
+        "lon": 104.0041393,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13617585701",
+      "source_url": "https://www.openstreetmap.org/node/13617585701",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13617610201",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13617610201)",
+      "category": "TOILET",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0348066,
+        "lon": 104.003148,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13617610201",
+      "source_url": "https://www.openstreetmap.org/node/13617610201",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13622749701",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13622749701)",
+      "category": "TOILET",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0340927,
+        "lon": 104.0034876,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13622749701",
+      "source_url": "https://www.openstreetmap.org/node/13622749701",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13623168901",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13623168901)",
+      "category": "TOILET",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0353243,
+        "lon": 104.004164,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13623168901",
+      "source_url": "https://www.openstreetmap.org/node/13623168901",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13656779143",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13656779143)",
+      "category": "TOILET",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0519065,
+        "lon": 104.021454,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13656779143",
+      "source_url": "https://www.openstreetmap.org/node/13656779143",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13851947301",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13851947301)",
+      "category": "TOILET",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0274612,
+        "lon": 104.0075203,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13851947301",
+      "source_url": "https://www.openstreetmap.org/node/13851947301",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13852187901",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13852187901)",
+      "category": "TOILET",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0268851,
+        "lon": 104.0051812,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13852187901",
+      "source_url": "https://www.openstreetmap.org/node/13852187901",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1521115215",
+      "name": "Nhà vệ sinh - chưa rõ tên (way/1521115215)",
+      "category": "TOILET",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0414629,
+        "lon": 104.017077,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1521115215",
+      "source_url": "https://www.openstreetmap.org/way/1521115215",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13677263033",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13677263033)",
+      "category": "TOILET",
+      "zone_hint": "Bắc - Đông đảo",
+      "map_candidate": {
+        "lat": 10.3870026,
+        "lon": 103.9448155,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13677263033",
+      "source_url": "https://www.openstreetmap.org/node/13677263033",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13629092901",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13629092901)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3251476,
+        "lon": 103.855712,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13629092901",
+      "source_url": "https://www.openstreetmap.org/node/13629092901",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13649447509",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13649447509)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3242911,
+        "lon": 103.8517152,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13649447509",
+      "source_url": "https://www.openstreetmap.org/node/13649447509",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13694119673",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13694119673)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3331733,
+        "lon": 103.8911439,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13694119673",
+      "source_url": "https://www.openstreetmap.org/node/13694119673",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13698318242",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13698318242)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3287901,
+        "lon": 103.8619453,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13698318242",
+      "source_url": "https://www.openstreetmap.org/node/13698318242",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13706051721",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13706051721)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3694413,
+        "lon": 103.8368807,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13706051721",
+      "source_url": "https://www.openstreetmap.org/node/13706051721",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13859926001",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13859926001)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3255686,
+        "lon": 103.8625945,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13859926001",
+      "source_url": "https://www.openstreetmap.org/node/13859926001",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1494373866",
+      "name": "Nhà vệ sinh - chưa rõ tên (way/1494373866)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3374883,
+        "lon": 103.8911273,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1494373866",
+      "source_url": "https://www.openstreetmap.org/way/1494373866",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1494461697",
+      "name": "Nhà vệ sinh - chưa rõ tên (way/1494461697)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3350052,
+        "lon": 103.8920628,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1494461697",
+      "source_url": "https://www.openstreetmap.org/way/1494461697",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1494461708",
+      "name": "Nhà vệ sinh - chưa rõ tên (way/1494461708)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3360316,
+        "lon": 103.8913392,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1494461708",
+      "source_url": "https://www.openstreetmap.org/way/1494461708",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1494461717",
+      "name": "Nhà vệ sinh - chưa rõ tên (way/1494461717)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.337434,
+        "lon": 103.8924734,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1494461717",
+      "source_url": "https://www.openstreetmap.org/way/1494461717",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1494756141",
+      "name": "Nhà vệ sinh - chưa rõ tên (way/1494756141)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3352462,
+        "lon": 103.8883541,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1494756141",
+      "source_url": "https://www.openstreetmap.org/way/1494756141",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1494764153",
+      "name": "Nhà vệ sinh - chưa rõ tên (way/1494764153)",
+      "category": "TOILET",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3339165,
+        "lon": 103.8895897,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1494764153",
+      "source_url": "https://www.openstreetmap.org/way/1494764153",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_5046196421",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/5046196421)",
+      "category": "TOILET",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.2164544,
+        "lon": 103.9608986,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/5046196421",
+      "source_url": "https://www.openstreetmap.org/node/5046196421",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_12630310664",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/12630310664)",
+      "category": "TOILET",
+      "zone_hint": "Hàm Ninh / Đông đảo",
+      "map_candidate": {
+        "lat": 10.1770246,
+        "lon": 104.0121496,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/12630310664",
+      "source_url": "https://www.openstreetmap.org/node/12630310664",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13649970537",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13649970537)",
+      "category": "TOILET",
+      "zone_hint": "Hàm Ninh / Đông đảo",
+      "map_candidate": {
+        "lat": 10.1777671,
+        "lon": 104.0137141,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13649970537",
+      "source_url": "https://www.openstreetmap.org/node/13649970537",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13664745774",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13664745774)",
+      "category": "TOILET",
+      "zone_hint": "Hàm Ninh / Đông đảo",
+      "map_candidate": {
+        "lat": 10.1756103,
+        "lon": 104.0285524,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13664745774",
+      "source_url": "https://www.openstreetmap.org/node/13664745774",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13851302101",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13851302101)",
+      "category": "TOILET",
+      "zone_hint": "Hòn Thơm",
+      "map_candidate": {
+        "lat": 9.9541853,
+        "lon": 104.0164427,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13851302101",
+      "source_url": "https://www.openstreetmap.org/node/13851302101",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13851302201",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13851302201)",
+      "category": "TOILET",
+      "zone_hint": "Hòn Thơm",
+      "map_candidate": {
+        "lat": 9.9541822,
+        "lon": 104.0164466,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13851302201",
+      "source_url": "https://www.openstreetmap.org/node/13851302201",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_12541098788",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/12541098788)",
+      "category": "TOILET",
+      "zone_hint": "Nam đảo",
+      "map_candidate": {
+        "lat": 10.1157951,
+        "lon": 103.981197,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/12541098788",
+      "source_url": "https://www.openstreetmap.org/node/12541098788",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13439575189",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13439575189)",
+      "category": "TOILET",
+      "zone_hint": "Nam đảo",
+      "map_candidate": {
+        "lat": 10.0560011,
+        "lon": 104.0351269,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13439575189",
+      "source_url": "https://www.openstreetmap.org/node/13439575189",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13736731933",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13736731933)",
+      "category": "TOILET",
+      "zone_hint": "Nam đảo",
+      "map_candidate": {
+        "lat": 10.1499459,
+        "lon": 104.0376716,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13736731933",
+      "source_url": "https://www.openstreetmap.org/node/13736731933",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13754104701",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13754104701)",
+      "category": "TOILET",
+      "zone_hint": "Nam đảo",
+      "map_candidate": {
+        "lat": 10.1104395,
+        "lon": 104.0273213,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13754104701",
+      "source_url": "https://www.openstreetmap.org/node/13754104701",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_6361980931",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/6361980931)",
+      "category": "TOILET",
+      "zone_hint": "Nam đảo",
+      "map_candidate": {
+        "lat": 10.1535921,
+        "lon": 103.9734386,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6361980931",
+      "source_url": "https://www.openstreetmap.org/node/6361980931",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1498391943",
+      "name": "Nhà vệ sinh - chưa rõ tên (way/1498391943)",
+      "category": "TOILET",
+      "zone_hint": "Nam đảo",
+      "map_candidate": {
+        "lat": 10.1305782,
+        "lon": 103.9827277,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1498391943",
+      "source_url": "https://www.openstreetmap.org/way/1498391943",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13551107482",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13551107482)",
+      "category": "TOILET",
+      "zone_hint": "Ông Lang / Cửa Cạn",
+      "map_candidate": {
+        "lat": 10.2660782,
+        "lon": 103.9287275,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13551107482",
+      "source_url": "https://www.openstreetmap.org/node/13551107482",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_13690650091",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/13690650091)",
+      "category": "TOILET",
+      "zone_hint": "Ông Lang / Cửa Cạn",
+      "map_candidate": {
+        "lat": 10.2924592,
+        "lon": 103.9099903,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13690650091",
+      "source_url": "https://www.openstreetmap.org/node/13690650091",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_4717151682",
+      "name": "Nhà vệ sinh - chưa rõ tên (node/4717151682)",
+      "category": "TOILET",
+      "zone_hint": "Ông Lang / Cửa Cạn",
+      "map_candidate": {
+        "lat": 10.260661,
+        "lon": 103.9342776,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/4717151682",
+      "source_url": "https://www.openstreetmap.org/node/4717151682",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Chưa biết có được vào công cộng, giờ/phí, lối vào",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1498119917",
+      "name": "Bãi đỗ xe - chưa rõ đơn vị (way/1498119917)",
+      "category": "PARKING",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0291861,
+        "lon": 104.0099019,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1498119917",
+      "source_url": "https://www.openstreetmap.org/way/1498119917",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Có định danh hoặc thuộc tính vào/thu phí OSM; cần xác nhận thực địa",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_371443200",
+      "name": "Bãi đỗ xe - chưa rõ đơn vị (way/371443200)",
+      "category": "PARKING",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.0443073,
+        "lon": 104.0186114,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/371443200",
+      "source_url": "https://www.openstreetmap.org/way/371443200",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Có định danh hoặc thuộc tính vào/thu phí OSM; cần xác nhận thực địa",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_10607490005",
+      "name": "Bike Parking",
+      "category": "PARKING",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3287015,
+        "lon": 103.8607087,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/10607490005",
+      "source_url": "https://www.openstreetmap.org/node/10607490005",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Có định danh hoặc thuộc tính vào/thu phí OSM; cần xác nhận thực địa",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1364433403",
+      "name": "Bãi gửi xe máy - chưa rõ tên (way/1364433403)",
+      "category": "PARKING",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.343357,
+        "lon": 103.8548598,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1364433403",
+      "source_url": "https://www.openstreetmap.org/way/1364433403",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Có định danh hoặc thuộc tính vào/thu phí OSM; cần xác nhận thực địa",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1364433402",
+      "name": "Bãi đỗ xe - chưa rõ đơn vị (way/1364433402)",
+      "category": "PARKING",
+      "zone_hint": "Bắc đảo / Gành Dầu",
+      "map_candidate": {
+        "lat": 10.3431176,
+        "lon": 103.8541818,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1364433402",
+      "source_url": "https://www.openstreetmap.org/way/1364433402",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Có định danh hoặc thuộc tính vào/thu phí OSM; cần xác nhận thực địa",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_way_1327454549",
+      "name": "Bãi gửi xe máy - chưa rõ tên (way/1327454549)",
+      "category": "PARKING",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.1953619,
+        "lon": 103.9679326,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1327454549",
+      "source_url": "https://www.openstreetmap.org/way/1327454549",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Có định danh hoặc thuộc tính vào/thu phí OSM; cần xác nhận thực địa",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    },
+    {
+      "id": "utility_osm_node_12770463564",
+      "name": "Bãi gửi xe máy - chưa rõ tên (node/12770463564)",
+      "category": "PARKING",
+      "zone_hint": "Hàm Ninh / Đông đảo",
+      "map_candidate": {
+        "lat": 10.1754934,
+        "lon": 104.0282616,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/12770463564",
+      "source_url": "https://www.openstreetmap.org/node/12770463564",
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "Có định danh hoặc thuộc tính vào/thu phí OSM; cần xác nhận thực địa",
+      "operational_status": "UNKNOWN",
+      "public_access": "UNCONFIRMED"
+    }
+  ]
+}

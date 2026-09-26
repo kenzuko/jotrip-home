@@ -1,0 +1,1410 @@
+{
+  "schema_version": "1.0",
+  "origin": "OPENPQ_NEARME_TINH_GON_KHOI_QUAN_TRONG_CHO_DUYET_2026-09-25.xlsx/02 OSM TIỆN ÍCH",
+  "intake_date": "2026-09-26",
+  "osm_license": "ODbL: © OpenStreetMap contributors",
+  "source_records": 208,
+  "extra_unique": 70,
+  "records": [
+    {
+      "id": "utility_osm_node_6141046187",
+      "name": "ATM ATM",
+      "category": "ATM",
+      "source_group": "ATM",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2021,
+        "lon": 103.9643,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6141046187",
+      "source_url": "https://www.openstreetmap.org/node/6141046187",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_6352425345",
+      "name": "BIDV",
+      "category": "ATM",
+      "source_group": "ATM",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2150624,
+        "lon": 103.9593851,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6352425345",
+      "source_url": "https://www.openstreetmap.org/node/6352425345",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_6358477336",
+      "name": "MTB",
+      "category": "ATM",
+      "source_group": "ATM",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1497592,
+        "lon": 103.9799965,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6358477336",
+      "source_url": "https://www.openstreetmap.org/node/6358477336",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_12629670440",
+      "name": "Sacombank ATM",
+      "category": "ATM",
+      "source_group": "ATM",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1942757,
+        "lon": 103.9675254,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/12629670440",
+      "source_url": "https://www.openstreetmap.org/node/12629670440",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_4453477299",
+      "name": "Vietcombank",
+      "category": "ATM",
+      "source_group": "ATM",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2150703,
+        "lon": 103.9592617,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/4453477299",
+      "source_url": "https://www.openstreetmap.org/node/4453477299",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_5003536524",
+      "name": "bidv",
+      "category": "ATM",
+      "source_group": "ATM",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1628369,
+        "lon": 103.9981216,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/5003536524",
+      "source_url": "https://www.openstreetmap.org/node/5003536524",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_way_1467992598",
+      "name": "Sun Group International Hospital",
+      "category": "CLINIC_HOSPITAL",
+      "source_group": "Bệnh viện",
+      "zone_hint": "Nam đảo / An Thới",
+      "map_candidate": {
+        "lat": 10.0388036,
+        "lon": 104.0067047,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1467992598",
+      "source_url": "https://www.openstreetmap.org/way/1467992598",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_way_1530858355",
+      "name": "Trung tâm Y tế Phú Quốc",
+      "category": "CLINIC_HOSPITAL",
+      "source_group": "Bệnh viện",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2147385,
+        "lon": 103.968147,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1530858355",
+      "source_url": "https://www.openstreetmap.org/way/1530858355",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_way_746371094",
+      "name": "Vinmec",
+      "category": "CLINIC_HOSPITAL",
+      "source_group": "Bệnh viện",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.336521,
+        "lon": 103.8567149,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/746371094",
+      "source_url": "https://www.openstreetmap.org/way/746371094",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_5158463024",
+      "name": "Western Union",
+      "category": "FINANCE",
+      "source_group": "Chuyển tiền",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.2207803,
+        "lon": 103.9613745,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/5158463024",
+      "source_url": "https://www.openstreetmap.org/node/5158463024",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_7629278439",
+      "name": "Chợ An Thới",
+      "category": "MARKET",
+      "source_group": "Chợ",
+      "zone_hint": "Nam đảo / An Thới",
+      "map_candidate": {
+        "lat": 10.0176177,
+        "lon": 104.0137681,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/7629278439",
+      "source_url": "https://www.openstreetmap.org/node/7629278439",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_477604691",
+      "name": "Chợ Dương Đông",
+      "category": "MARKET",
+      "source_group": "Chợ",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2206293,
+        "lon": 103.9591854,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/477604691",
+      "source_url": "https://www.openstreetmap.org/node/477604691",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_way_1328291798",
+      "name": "Chợ Dương Đông",
+      "category": "MARKET",
+      "source_group": "Chợ",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2205444,
+        "lon": 103.9598007,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1328291798",
+      "source_url": "https://www.openstreetmap.org/way/1328291798",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_11849971190",
+      "name": "Chợ Gành Dầu",
+      "category": "MARKET",
+      "source_group": "Chợ",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.3731575,
+        "lon": 103.8474338,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/11849971190",
+      "source_url": "https://www.openstreetmap.org/node/11849971190",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_way_1276691661",
+      "name": "Chợ Hải Sản Gành Dầu Phú Quốc",
+      "category": "MARKET",
+      "source_group": "Chợ",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.3704072,
+        "lon": 103.8408699,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1276691661",
+      "source_url": "https://www.openstreetmap.org/way/1276691661",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_way_152800945",
+      "name": "Chợ Đêm Dinh Cậu",
+      "category": "MARKET",
+      "source_group": "Chợ",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2162958,
+        "lon": 103.9605782,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/152800945",
+      "source_url": "https://www.openstreetmap.org/way/152800945",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_way_464532957",
+      "name": "New Night Market",
+      "category": "MARKET",
+      "source_group": "Chợ",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2171061,
+        "lon": 103.9607841,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/464532957",
+      "source_url": "https://www.openstreetmap.org/way/464532957",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_12541150253",
+      "name": "Night Market",
+      "category": "MARKET",
+      "source_group": "Chợ",
+      "zone_hint": "Nam đảo / An Thới",
+      "map_candidate": {
+        "lat": 10.1151424,
+        "lon": 103.9835591,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/12541150253",
+      "source_url": "https://www.openstreetmap.org/node/12541150253",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_way_1490334129",
+      "name": "BẠN CHỈ HUY BIÊN PHÒNG CỬA KHẨU CẢNG DƯƠNG ĐÔNG TRẠM KIỂM SOÁT BIÊN PHÒNG HÀM NINH",
+      "category": "Công an",
+      "source_group": "Công an",
+      "zone_hint": "Đông đảo / Hàm Ninh",
+      "map_candidate": {
+        "lat": 10.1812706,
+        "lon": 104.0494333,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1490334129",
+      "source_url": "https://www.openstreetmap.org/way/1490334129",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_5513243523",
+      "name": "Công An Huyện",
+      "category": "Công an",
+      "source_group": "Công an",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2178612,
+        "lon": 103.9766823,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/5513243523",
+      "source_url": "https://www.openstreetmap.org/node/5513243523",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_6180787485",
+      "name": "Baza Mart",
+      "category": "MINIMART",
+      "source_group": "Cửa hàng tiện lợi",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.184802,
+        "lon": 103.9682123,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6180787485",
+      "source_url": "https://www.openstreetmap.org/node/6180787485",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_4644307389",
+      "name": "Grocey store",
+      "category": "MINIMART",
+      "source_group": "Cửa hàng tiện lợi",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1937874,
+        "lon": 103.96708,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/4644307389",
+      "source_url": "https://www.openstreetmap.org/node/4644307389",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_5424792485",
+      "name": "Home Market",
+      "category": "MINIMART",
+      "source_group": "Cửa hàng tiện lợi",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1948463,
+        "lon": 103.966313,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/5424792485",
+      "source_url": "https://www.openstreetmap.org/node/5424792485",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_5157022621",
+      "name": "Mart 24h",
+      "category": "MINIMART",
+      "source_group": "Cửa hàng tiện lợi",
+      "zone_hint": "Đông đảo / Hàm Ninh",
+      "map_candidate": {
+        "lat": 10.1753983,
+        "lon": 104.0187907,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/5157022621",
+      "source_url": "https://www.openstreetmap.org/node/5157022621",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_7123533686",
+      "name": "Mini Mart",
+      "category": "MINIMART",
+      "source_group": "Cửa hàng tiện lợi",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.188424,
+        "lon": 103.9694702,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/7123533686",
+      "source_url": "https://www.openstreetmap.org/node/7123533686",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13436944529",
+      "name": "Moon",
+      "category": "MINIMART",
+      "source_group": "Cửa hàng tiện lợi",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1949567,
+        "lon": 103.964638,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13436944529",
+      "source_url": "https://www.openstreetmap.org/node/13436944529",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_6148769285",
+      "name": "Bike for rent",
+      "category": "VEHICLE_REPAIR",
+      "source_group": "Dịch vụ xe máy",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.2004472,
+        "lon": 103.9661053,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6148769285",
+      "source_url": "https://www.openstreetmap.org/node/6148769285",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_5496042721",
+      "name": "Motorbike Accessories",
+      "category": "VEHICLE_REPAIR",
+      "source_group": "Dịch vụ xe máy",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.2233569,
+        "lon": 103.9653215,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/5496042721",
+      "source_url": "https://www.openstreetmap.org/node/5496042721",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_11932334345",
+      "name": "Cửa hàng phụ kiện ô tô TMT Detailing & Accessories",
+      "category": "VEHICLE_REPAIR",
+      "source_group": "Gara / sửa ô tô",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.2223728,
+        "lon": 103.9896485,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/11932334345",
+      "source_url": "https://www.openstreetmap.org/node/11932334345",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_12638644166",
+      "name": "Gara ô tô tận hue",
+      "category": "VEHICLE_REPAIR",
+      "source_group": "Gara / sửa ô tô",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.1785373,
+        "lon": 103.9708775,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/12638644166",
+      "source_url": "https://www.openstreetmap.org/node/12638644166",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13718754801",
+      "name": "Laundry",
+      "category": "LAUNDRY",
+      "source_group": "Giặt ủi",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1884366,
+        "lon": 103.9702119,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13718754801",
+      "source_url": "https://www.openstreetmap.org/node/13718754801",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_4659378489",
+      "name": "BIDV",
+      "category": "BANK",
+      "source_group": "Ngân hàng",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2148168,
+        "lon": 103.9617178,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/4659378489",
+      "source_url": "https://www.openstreetmap.org/node/4659378489",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_way_1288006699",
+      "name": "BIDV",
+      "category": "BANK",
+      "source_group": "Ngân hàng",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2230223,
+        "lon": 103.9678556,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1288006699",
+      "source_url": "https://www.openstreetmap.org/way/1288006699",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_4566782390",
+      "name": "MB",
+      "category": "BANK",
+      "source_group": "Ngân hàng",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2236161,
+        "lon": 103.9695026,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/4566782390",
+      "source_url": "https://www.openstreetmap.org/node/4566782390",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_1606070735",
+      "name": "Western Union",
+      "category": "BANK",
+      "source_group": "Ngân hàng",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2228148,
+        "lon": 103.9649751,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/1606070735",
+      "source_url": "https://www.openstreetmap.org/node/1606070735",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_11882800148",
+      "name": "Nha Khoa Trí Hảo",
+      "category": "DENTAL",
+      "source_group": "Nha khoa",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.2220811,
+        "lon": 103.9620792,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/11882800148",
+      "source_url": "https://www.openstreetmap.org/node/11882800148",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_way_1489091179",
+      "name": "Nha khoa thẩm mỹ Trần Thanh Lâm",
+      "category": "DENTAL",
+      "source_group": "Nha khoa",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.2177066,
+        "lon": 103.9595986,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1489091179",
+      "source_url": "https://www.openstreetmap.org/way/1489091179",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13432529802",
+      "name": "MORINGA",
+      "category": "PHARMACY",
+      "source_group": "Nhà thuốc",
+      "zone_hint": "Nam đảo / An Thới",
+      "map_candidate": {
+        "lat": 10.1136699,
+        "lon": 104.0104447,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13432529802",
+      "source_url": "https://www.openstreetmap.org/node/13432529802",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_6796437585",
+      "name": "Vito Farm",
+      "category": "PHARMACY",
+      "source_group": "Nhà thuốc",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2064309,
+        "lon": 103.9632771,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6796437585",
+      "source_url": "https://www.openstreetmap.org/node/6796437585",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_6796437685",
+      "name": "Vito Farm",
+      "category": "PHARMACY",
+      "source_group": "Nhà thuốc",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1949638,
+        "lon": 103.9673172,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6796437685",
+      "source_url": "https://www.openstreetmap.org/node/6796437685",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_5128226248",
+      "name": "jomka mrech phu vog",
+      "category": "PHARMACY",
+      "source_group": "Nhà thuốc",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.207926,
+        "lon": 103.9894428,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/5128226248",
+      "source_url": "https://www.openstreetmap.org/node/5128226248",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_11849971192",
+      "name": "Trạm Y Tế xã Gành Dầu",
+      "category": "CLINIC_HOSPITAL",
+      "source_group": "Phòng khám",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.3721589,
+        "lon": 103.846157,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/11849971192",
+      "source_url": "https://www.openstreetmap.org/node/11849971192",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu; cấm suy luận cổng/cấp cứu/chi nhánh"
+    },
+    {
+      "id": "utility_osm_node_6387620585",
+      "name": "Mobifone",
+      "category": "PHONE_SIM",
+      "source_group": "SIM / điện thoại",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2234084,
+        "lon": 103.9715683,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6387620585",
+      "source_url": "https://www.openstreetmap.org/node/6387620585",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_6483568745",
+      "name": "Thế Giới Di Động",
+      "category": "PHONE_SIM",
+      "source_group": "SIM / điện thoại",
+      "zone_hint": "Nam đảo / An Thới",
+      "map_candidate": {
+        "lat": 10.0187955,
+        "lon": 104.0153701,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6483568745",
+      "source_url": "https://www.openstreetmap.org/node/6483568745",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_7106149785",
+      "name": "Viettel",
+      "category": "PHONE_SIM",
+      "source_group": "SIM / điện thoại",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2234046,
+        "lon": 103.964546,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/7106149785",
+      "source_url": "https://www.openstreetmap.org/node/7106149785",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_10680866305",
+      "name": "Baza Mart",
+      "category": "SUPERMARKET",
+      "source_group": "Siêu thị",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1860371,
+        "lon": 103.9685875,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/10680866305",
+      "source_url": "https://www.openstreetmap.org/node/10680866305",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_6805686015",
+      "name": "CMart",
+      "category": "SUPERMARKET",
+      "source_group": "Siêu thị",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2035924,
+        "lon": 103.9641246,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/6805686015",
+      "source_url": "https://www.openstreetmap.org/node/6805686015",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_10651763005",
+      "name": "CMart",
+      "category": "SUPERMARKET",
+      "source_group": "Siêu thị",
+      "zone_hint": "Đông đảo / Hàm Ninh",
+      "map_candidate": {
+        "lat": 10.1809648,
+        "lon": 104.0438148,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/10651763005",
+      "source_url": "https://www.openstreetmap.org/node/10651763005",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_4659368891",
+      "name": "Mini Mart",
+      "category": "SUPERMARKET",
+      "source_group": "Siêu thị",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2242913,
+        "lon": 103.9740764,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/4659368891",
+      "source_url": "https://www.openstreetmap.org/node/4659368891",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_10736633849",
+      "name": "Minimart",
+      "category": "SUPERMARKET",
+      "source_group": "Siêu thị",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2927173,
+        "lon": 103.9121987,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/10736633849",
+      "source_url": "https://www.openstreetmap.org/node/10736633849",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_10736639035",
+      "name": "Minimart",
+      "category": "SUPERMARKET",
+      "source_group": "Siêu thị",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2984995,
+        "lon": 103.9097066,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/10736639035",
+      "source_url": "https://www.openstreetmap.org/node/10736639035",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_10736661035",
+      "name": "Minimart",
+      "category": "SUPERMARKET",
+      "source_group": "Siêu thị",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.3304654,
+        "lon": 103.9620593,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/10736661035",
+      "source_url": "https://www.openstreetmap.org/node/10736661035",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13696692370",
+      "name": "Vinfast",
+      "category": "CHARGING",
+      "source_group": "Sạc xe điện",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.3374265,
+        "lon": 103.8906622,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13696692370",
+      "source_url": "https://www.openstreetmap.org/node/13696692370",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13720328502",
+      "name": "Vinfast",
+      "category": "CHARGING",
+      "source_group": "Sạc xe điện",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.4122175,
+        "lon": 104.0325614,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13720328502",
+      "source_url": "https://www.openstreetmap.org/node/13720328502",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13722487301",
+      "name": "Vinfast",
+      "category": "CHARGING",
+      "source_group": "Sạc xe điện",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2775086,
+        "lon": 103.9377698,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13722487301",
+      "source_url": "https://www.openstreetmap.org/node/13722487301",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13722462501",
+      "name": "vinfast",
+      "category": "CHARGING",
+      "source_group": "Sạc xe điện",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2065789,
+        "lon": 103.9633146,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13722462501",
+      "source_url": "https://www.openstreetmap.org/node/13722462501",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_10736270908",
+      "name": "DDS",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.3785286,
+        "lon": 104.0704816,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/10736270908",
+      "source_url": "https://www.openstreetmap.org/node/10736270908",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_3750031760",
+      "name": "KTC",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.1975309,
+        "lon": 103.968225,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/3750031760",
+      "source_url": "https://www.openstreetmap.org/node/3750031760",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13722487401",
+      "name": "KTC",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Bắc đảo",
+      "map_candidate": {
+        "lat": 10.311303,
+        "lon": 103.8989469,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13722487401",
+      "source_url": "https://www.openstreetmap.org/node/13722487401",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_1650574689",
+      "name": "Petrolimex",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2652933,
+        "lon": 103.9435302,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/1650574689",
+      "source_url": "https://www.openstreetmap.org/node/1650574689",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_1650587741",
+      "name": "Petrolimex",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2227654,
+        "lon": 103.9633783,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/1650587741",
+      "source_url": "https://www.openstreetmap.org/node/1650587741",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_1650587749",
+      "name": "Petrolimex",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2271155,
+        "lon": 103.9778408,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/1650587749",
+      "source_url": "https://www.openstreetmap.org/node/1650587749",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_3482735059",
+      "name": "Petrolimex",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2623924,
+        "lon": 103.9747694,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/3482735059",
+      "source_url": "https://www.openstreetmap.org/node/3482735059",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_4464120534",
+      "name": "Petrolimex",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2321,
+        "lon": 103.9674,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/4464120534",
+      "source_url": "https://www.openstreetmap.org/node/4464120534",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_4464124612",
+      "name": "Petrolimex",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2365502,
+        "lon": 103.962918,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/4464124612",
+      "source_url": "https://www.openstreetmap.org/node/4464124612",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_1650587752",
+      "name": "Shell",
+      "category": "FUEL",
+      "source_group": "Xăng dầu",
+      "zone_hint": "Trung tâm / Tây đảo",
+      "map_candidate": {
+        "lat": 10.2295122,
+        "lon": 103.9822503,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/1650587752",
+      "source_url": "https://www.openstreetmap.org/node/1650587752",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_way_1288580133",
+      "name": "Exchange Money - Sol Cosy PQ",
+      "category": "FINANCE",
+      "source_group": "Điểm đổi ngoại tệ",
+      "zone_hint": "An Thới / Sunset Town",
+      "map_candidate": {
+        "lat": 10.036319,
+        "lon": 104.00693,
+        "precision": "site_centroid",
+        "verified": false
+      },
+      "osm_ref": "way/1288580133",
+      "source_url": "https://www.openstreetmap.org/way/1288580133",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13715588992",
+      "name": "GOOD & GOOD",
+      "category": "FINANCE",
+      "source_group": "Điểm đổi ngoại tệ",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.1973923,
+        "lon": 103.968567,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13715588992",
+      "source_url": "https://www.openstreetmap.org/node/13715588992",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13715593123",
+      "name": "Good & Good",
+      "category": "FINANCE",
+      "source_group": "Điểm đổi ngoại tệ",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.1951993,
+        "lon": 103.9678394,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13715593123",
+      "source_url": "https://www.openstreetmap.org/node/13715593123",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    },
+    {
+      "id": "utility_osm_node_13611514801",
+      "name": "Sol Cosy Tran Hung Dao",
+      "category": "FINANCE",
+      "source_group": "Điểm đổi ngoại tệ",
+      "zone_hint": "Dương Đông / lân cận",
+      "map_candidate": {
+        "lat": 10.1929897,
+        "lon": 103.9668152,
+        "precision": "poi_node",
+        "verified": false
+      },
+      "osm_ref": "node/13611514801",
+      "source_url": "https://www.openstreetmap.org/node/13611514801",
+      "source_checked_at": "2026-09-25",
+      "operational_status": "UNKNOWN",
+      "content_checked": false,
+      "intake_status": "STAGING_REVIEW",
+      "review_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
+    }
+  ]
+}
