@@ -70,7 +70,7 @@ Request rules:
         "requested_from": "2026-09-26T08:30:00Z",
         "requested_to": "2026-09-26T10:00:00Z",
         "status": "IN_WINDOW_FRAMES",
-        "frame_cadence_hours": 3,
+        "frame_cadence_hours": null,
         "interpolation_applied": false
       },
       "frames": [
@@ -104,8 +104,8 @@ Nulls in the example mean values are omitted from the example; a runtime respons
 ### Status vocabulary
 
 - Overall source status: OK, PARTIAL, UNAVAILABLE or INVALID.
-- Per-item status: OK, PARTIAL, UNKNOWN or UNAVAILABLE.
-- Temporal coverage: IN_WINDOW_FRAMES, BRACKET_ONLY or NO_COVERAGE.
+- Per-item status: OK, PARTIAL, UNKNOWN or UNAVAILABLE. BRACKET_ONLY is PARTIAL because no frame falls inside the requested window.
+- Temporal coverage: IN_WINDOW_FRAMES, BRACKET_ONLY, NO_COVERAGE or NOT_EVALUATED. Use NOT_EVALUATED when the source is unavailable/invalid or the requested scope is unsupported; use NO_COVERAGE only after a valid forecast was read and no useful frame covers the window.
 - Spatial scope for forecast values: NATIVE_GRID_CELL.
 - Reason codes should distinguish upstream unavailable, invalid manifest/schema, no native cell, no in-window frame, route source unsupported and input rejected. Do not collapse these into a generic “weather bad” status.
 
@@ -138,7 +138,7 @@ This proposal sets no nearest-cell distance cutoff or confidence bucket. Weather
 
 ## Current implementation and verification
 
-The draft automated test covers canonical-manifest allowlisting, sampled native cells and distances, null values, in-window and bracket-only coverage, missing horizon coverage, marine unknown, basic input rejection, origin/method/content-type checks and source outage. The current Pages build and Worker route validation run the test.
+The draft automated test covers canonical-manifest allowlisting, malformed frame rejection, sampled native cells and distances, null values, in-window and bracket-only coverage, missing horizon coverage, marine unknown, basic input rejection, streamed and declared body-size caps, origin/method/content-type checks and source outage. The current Pages build and Worker route validation run the test.
 
 The test does not yet cover every malformed upstream shape, cell movement between frames, or product-consumer behavior. GO candidate ranking and Near Me essential-service fallback belong in their respective product PRs. Do not treat a successful API sample as a safety assessment or freshness guarantee.
 
