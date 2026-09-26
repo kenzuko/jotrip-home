@@ -66,6 +66,13 @@ for(const e of mappedHotels){
   assert.deepEqual([doc?.lat,doc?.lon],[e.map.lat,e.map.lon],"Source-backed hotel pins remain untouched");
 }
 
+const priorHotelAudit=read(base+"hotel-stale-geocode-audit.json");
+const historicHotels=index.documents.filter(x=>x.entity_type==="hotel");
+assert.equal(historicHotels.length,158,"All hotel directory entries must survive the index rebuild");
+assert.equal(historicHotels.filter(x=>x.map).length,63,"Only canonical hotel pins may be placed on the map");
+assert.equal(priorHotelAudit.records.length,60,"Keep dropped low-confidence hotel geocodes available for later review");
+assert.ok(priorHotelAudit.records.every(x=>x.legacy_coordinates.precision!=="exact_entrance"));
+assert.ok(priorHotelAudit.records.every(x=>indexed.has(x.id)&&!indexed.get(x.id).map),"No old inaccurate hotel map pin may be silently restored");
 assert.equal(index.summary.total,index.documents.length);
 assert.equal(index.summary.with_map,index.documents.filter(x=>Number.isFinite(x.map?.lat)&&Number.isFinite(x.map?.lon)).length);
 for(const e of batch.filter(x=>x.verified===false)){
@@ -96,7 +103,11 @@ for(const id of ["PHARMACY","FUEL","CHARGING","VEHICLE_REPAIR","LUGGAGE_STORAGE"
 const near=fs.readFileSync("nearme/nearme.js","utf8");
 const home=fs.readFileSync("home-nearme-v2.js","utf8");
 assert.ok(near.includes('row.entity_type==="utility"'),"Full Near Me must use canonical charging candidates");
+assert.ok(near.includes('x.verified!==false&&["exact_entrance","site_centroid"].includes(x.map_precision)'),"Full Near Me must not sort unverified OSM or area anchors by GPS");
+assert.ok(near.includes("communityCount"),"Show count of unverified community pins");
+assert.ok(near.includes('x.source_license==="ODbL-1.0"'),"Full Near Me must attribute OSM POI data");
 assert.ok(near.includes("reliabilityLabel(x)"),"Community data must be labeled in full Near Me");
 assert.ok(home.includes("row.verified!==false"),"Homepage must not rank candidate OSM GPS as validated distance");
+assert.ok(home.includes('row.source_license==="ODbL-1.0"'),"Homepage must attribute community data");
 assert.ok(!fs.readFileSync("scripts/build-cloudflare.mjs","utf8").includes('"research",'),"Private research must not enter public Cloudflare bundle");
 console.log("Near Me / GO intake QA PASS: 36 essentials, 4 charge points, 7 fuel points, 8 Long Chau, two recovered Vinmec pins, canonical hotel coverage and 5 staging batches");
