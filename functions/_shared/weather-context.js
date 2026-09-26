@@ -74,11 +74,11 @@ function validateForecast(value){
     isRecord(value.spatial)&&value.spatial.status==="READY"&&Array.isArray(value.spatial.frames)&&
     value.spatial.frames.length>0&&value.spatial.frames.length<=200;
 }
-async function readJson(fetchImpl,url){
-  const response=await fetchImpl(url,{headers:{accept:"application/json"},signal:AbortSignal.timeout(10000)});
+async function readJson(fetchImpl,url,signal){
+  const response=await fetchImpl(url,{headers:{accept:"application/json"},signal});
   if(!response.ok)throw new Error("UPSTREAM_UNAVAILABLE");
   const length=Number(response.headers.get("content-length")||0);
-  if(length>MAX_FORECAST_BYTES)throw new Error("UPSTREAM_TOO_LARGE");
+  if(length>MAX_FORECAST_BYTES)throw new Error("UPSTREAM_INVALID_SIZE");
   let raw;
   try{raw=await readTextLimited(response.body,MAX_FORECAST_BYTES,"UPSTREAM_INVALID_SIZE")}
   catch(error){
@@ -88,9 +88,10 @@ async function readJson(fetchImpl,url){
   try{return JSON.parse(raw)}catch{throw new Error("UPSTREAM_INVALID_JSON")}
 }
 async function readCanonicalForecast(fetchImpl){
-  const manifest=await readJson(fetchImpl,WEATHER_ORIGIN+MANIFEST_PATH);
+  const signal=AbortSignal.timeout(10000);
+  const manifest=await readJson(fetchImpl,WEATHER_ORIGIN+MANIFEST_PATH,signal);
   if(!validateManifest(manifest))throw new Error("UPSTREAM_INVALID_MANIFEST");
-  const forecast=await readJson(fetchImpl,WEATHER_ORIGIN+manifest.files.forecast);
+  const forecast=await readJson(fetchImpl,WEATHER_ORIGIN+manifest.files.forecast,signal);
   if(!validateForecast(forecast))throw new Error("UPSTREAM_INVALID_FORECAST");
   return forecast;
 }
@@ -98,7 +99,8 @@ const rad=x=>x*Math.PI/180;
 function distanceKm(a,b){
   const earth=6371,lat1=rad(a.lat),lat2=rad(b.lat);
   const dLat=lat2-lat1,dLon=rad(b.lon-a.lon);
-  const h=Math.sin(dLat/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin(dLon/2)**2;
+  const h=Math.max(0,Math.min(1,
+    Math.sin(dLat/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin(dLon/2)**2));
   return earth*2*Math.atan2(Math.sqrt(h),Math.sqrt(1-h));
 }
 function nearestCell(cells,location){
