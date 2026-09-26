@@ -38,8 +38,8 @@
       Number.isFinite(point.local.rain_rate_mm_h)?point.local.rain_rate_mm_h:null;
     const validRain=snapshotAge<=90&&rain!==null;
     const severe=["HIGH","SEVERE","EXTREME"].includes(level);
-    const elevated=["ELEVATED","WATCH"].includes(level);
-    const quiet=["NONE","LOW","MODERATE","CLEAR","NORMAL"].includes(level);
+    const elevated=["ELEVATED","WATCH","MODERATE"].includes(level);
+    const quiet=["NONE","LOW","CLEAR","NORMAL"].includes(level);
     const status=severe?"watch":elevated||validRain&&rain>=2?"advisory":
       quiet&&validRain?"normal":"unknown";
     const trustedAt=status==="advisory"&&validRain&&rain>=2&&!severe&&!elevated?stamp:
