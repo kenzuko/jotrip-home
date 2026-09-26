@@ -90,6 +90,8 @@ function createRuntime({failData=false,failWeather=false}={}){
   await app.nodes.get("#areaRow").emit("click",{target:{closest:selector=>selector==="[data-area]"?{dataset:{area:"zone_south"}}:null}});
   await app.nodes.get("#quickCategoryRow").emit("click",{target:{closest:selector=>selector==="[data-category]"?{dataset:{category:"PHARMACY"}}:null}});
   assert.match(app.nodes.get("#quickCategoryRow").innerHTML,/data-category="PHARMACY"/,"priority category shortcut remains present");
+  await app.nodes.get("#quickCategoryRow").emit("click",{target:{closest:selector=>selector==="[data-more-categories]"?{}:null}});
+  assert.equal(app.nodes.get("#categoryMore").open,true,"the More shortcut keeps legacy categories reachable");
   app.nodes.get("#nearSearch").value="nha thuoc";
   await app.nodes.get("#nearSearch").emit("input",{target:app.nodes.get("#nearSearch")});
   await delay(170);
