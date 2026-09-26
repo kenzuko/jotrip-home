@@ -45,6 +45,7 @@ function createRuntime({failData=false}={}){
     {id:"pharmacy_near",name:"Nhà thuốc An Thới",entity_type:"utility",zone_id:"zone_south",tags:["PHARMACY"],address:"An Thới",map:{lat:10.0191,lon:104.015,precision:"site_centroid"}},
     {id:"pharmacy_far",name:"Nhà thuốc xa",entity_type:"utility",zone_id:"zone_south",tags:["PHARMACY"],address:"Nam đảo",map:{lat:10.15,lon:104.15,precision:"site_centroid"}},
     {id:"pharmacy_unknown",name:"Nhà thuốc chưa rõ pin",entity_type:"utility",zone_id:"zone_south",tags:["PHARMACY"],address:"An Thới",map:null},
+    {id:"pharmacy_zero",name:"Nhà thuốc lỗi tọa độ 0,0",entity_type:"utility",zone_id:"zone_south",tags:["PHARMACY"],address:"An Thới",map:{lat:0,lon:0,precision:"site_centroid"}},
     {id:"place_bai_sao",name:"Bãi Sao",entity_type:"place",zone_id:"zone_south",tags:["BEACH"],address:"Nam đảo",map:{lat:10.01,lon:104.01,precision:"site_centroid"}}
   ]};
   const data={
@@ -88,18 +89,18 @@ function createRuntime({failData=false}={}){
   await app.nodes.get("#areaRow").emit("click",{target:{closest:selector=>selector==="[data-area]"?{dataset:{area:"zone_south"}}:null}});
   await app.nodes.get("#quickCategoryRow").emit("click",{target:{closest:selector=>selector==="[data-category]"?{dataset:{category:"PHARMACY"}}:null}});
   assert.match(app.nodes.get("#quickCategoryRow").innerHTML,/data-category="PHARMACY"/,"priority category shortcut remains present");
-  app.nodes.get("#nearSearch").value="Nhà thuốc";
+  app.nodes.get("#nearSearch").value="nha thuoc";
   await app.nodes.get("#nearSearch").emit("input",{target:app.nodes.get("#nearSearch")});
   await delay(170);
-  assert.equal(app.window.__openpqNearState.visibleCount,3,"GPS denial must not remove pharmacy search results");
+  assert.equal(app.window.__openpqNearState.visibleCount,4,"GPS denial and unaccented Vietnamese search must retain matching services");
   assert.doesNotMatch(app.nodes.get("#nearResults").innerHTML,/tel:/,"missing phone must not create a call action");
 
   await app.nodes.get("#radiusRow").emit("click",{target:{closest:selector=>selector==="[data-radius]"?{dataset:{radius:"2"},disabled:false}:null}});
   assert.equal(app.window.__openpqNearState.radiusKm,2);
-  assert.equal(app.window.__openpqNearState.visibleCount,2,"radius keeps nearby geocoded results plus a clearly separate unknown-location row");
+  assert.equal(app.window.__openpqNearState.visibleCount,3,"radius keeps nearby geocoded results plus clearly separate unknown-location rows");
   assert.match(app.nodes.get("#nearResults").innerHTML,/không tính trong vòng 2 km/i);
   assert.equal(app.window.__openpqNearState.radiusCount,1);
-  assert.equal(app.window.__openpqNearState.radiusUnknown,1);
+  assert.equal(app.window.__openpqNearState.radiusUnknown,2,"missing and invalid 0,0 coordinates are never assigned a distance");
 
   await app.nodes.get("#categoryRow").emit("click",{target:{closest:selector=>selector==="[data-category]"?{dataset:{category:""}}:null}});
   app.nodes.get("#nearSearch").value="Bãi Sao";
@@ -129,4 +130,5 @@ function createRuntime({failData=false}={}){
   assert.match(app.nodes.get("#nearResults").innerHTML,/Mở trên Google Maps/,"data failure leaves a direct, explicitly unverified Maps fallback");
   assert.match(app.nodes.get("#nearResults").innerHTML,/nhà thuốc/);
 }
+assert.match(appSource,/const mapped=visible\.filter\(x=>validPoint\(\{lat:x\.lat,lon:x\.lon\}\)\)/,"invalid coordinates must never create map markers");
 console.log("Near Me search, denied GPS, radius, selected-place Weather and lazy-map regressions passed");
