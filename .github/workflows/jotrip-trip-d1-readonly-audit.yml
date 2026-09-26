@@ -51,7 +51,7 @@ jobs:
           fi
           mkdir -p /tmp/jotrip-trip-d1-audit
           cd /tmp/jotrip-trip-d1-audit
-          trap 'rm -f /tmp/jotrip-trip-d1-audit/schema.sql /tmp/jotrip-trip-d1-audit/info.json' EXIT
+          trap 'rm -f /tmp/jotrip-trip-d1-audit/schema.sql /tmp/jotrip-trip-d1-audit/info.json /tmp/jotrip-trip-d1-audit/tables.json /tmp/jotrip-d1-export.log' EXIT
           cat > wrangler.toml <<'CONFIG'
           name = "jotrip-trip-d1-audit"
           compatibility_date = "2026-09-26"
@@ -59,6 +59,7 @@ jobs:
           binding = "DB"
           database_name = "jotrip-trip-db"
           database_id = "17372bb5-7626-4238-8a95-fc0cf31ad18e"
+          migrations_dir = "migrations"
           CONFIG
           npx --yes wrangler@4 d1 info jotrip-trip-db --json > info.json
           if ! grep -Fq "$EXPECTED_TRIP_D1_ID" info.json; then
@@ -66,10 +67,19 @@ jobs:
             exit 3
           fi
           echo "Confirmed remote D1 UUID matches the JoTrip Trip configuration."
-          npx --yes wrangler@4 d1 export jotrip-trip-db --remote --no-data --output=./schema.sql
+          # Suppress Wrangler's temporary signed export URL in public CI logs.
+          if ! npx --yes wrangler@4 d1 export jotrip-trip-db --remote --no-data --output=./schema.sql > /tmp/jotrip-d1-export.log 2>&1; then
+            echo "::error::Schema-only export failed; sensitive export URL not logged."
+            exit 5
+          fi
+          echo "Schema-only export completed; CREATE TABLE count: $(grep -Eic 'CREATE[[:space:]]+TABLE' schema.sql || true)"
           node "$GITHUB_WORKSPACE/trip-audit/tools/d1-schema-preflight.mjs" ./schema.sql
+          echo "Live sqlite_master table names (read-only):"
+          npx --yes wrangler@4 d1 execute jotrip-trip-db --remote --command="SELECT name FROM sqlite_master WHERE type='table' ORDER BY name" --json > ./tables.json
+          node -e 'const a=JSON.parse(require("fs").readFileSync("tables.json","utf8")); console.log(JSON.stringify((Array.isArray(a)?a[0]?.results:a.results||[]).map(x=>x.name)))'
+          cp -r "$GITHUB_WORKSPACE/trip-audit/migrations" ./migrations
           echo "Remote migration history (read-only):"
-          if ! npx --yes wrangler@4 d1 migrations list jotrip-trip-db --remote --migrations-dir="$GITHUB_WORKSPACE/trip-audit/migrations"; then
+          if ! npx --yes wrangler@4 d1 migrations list jotrip-trip-db --remote; then
             echo "::warning::Migration history could not be reconciled automatically; review before any migration."
           fi
           echo "No remote database mutation, backup, deploy or DNS change performed."
