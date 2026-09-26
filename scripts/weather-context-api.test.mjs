@@ -78,6 +78,7 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
   item("2026-09-26T17:00:00+07:00","2026-09-26T18:30:00+07:00")
  ]),fetchImpl);
  const body=await res.json(),sample=body.items[0];
+ assert.equal(sample.status,"PARTIAL");
  assert.equal(sample.temporal_coverage.status,"BRACKET_ONLY");
  assert.deepEqual(sample.frames.map(x=>x.valid_at),["2026-09-26T09:00:00Z","2026-09-26T12:00:00Z"]);
  assert.equal(sample.reason_codes.includes("TIME_BETWEEN_FRAMES"),true);
@@ -107,6 +108,7 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  const body=await res.json();
  assert.equal(body.items[0].status,"UNKNOWN");
  assert.deepEqual(body.items[0].reason_codes,["ROUTE_SOURCE_UNSUPPORTED"]);
+ assert.equal(body.items[0].temporal_coverage.status,"NOT_EVALUATED");
  assert.equal(called,0);
 }
 
@@ -177,6 +179,17 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  assert.equal(calls,1);
 }
 
+// Malformed frame shape invalidates the source instead of being silently skipped.
+{
+ const malformedForecast={...forecast,spatial:{...forecast.spatial,frames:[null]}};
+ const response=await handleWeatherWindow(makeRequest([
+  item("2026-09-26T15:30:00+07:00","2026-09-26T16:00:00+07:00")
+ ]),fetchFixture(manifest,malformedForecast).fetchImpl);
+ const body=await response.json();
+ assert.equal(body.source_status,"INVALID");
+ assert.equal(body.items[0].reason_codes[0],"WEATHER_SCHEMA_INVALID");
+}
+
 // Source outage degrades only context; it does not throw into the Worker.
 {
  const response=await handleWeatherWindow(makeRequest([
@@ -186,6 +199,7 @@ const fetchFixture=(manifestValue=manifest,forecastValue=forecast)=>{
  assert.equal(response.status,200);
  assert.equal(body.source_status,"UNAVAILABLE");
  assert.equal(body.items[0].status,"UNAVAILABLE");
+ assert.equal(body.items[0].temporal_coverage.status,"NOT_EVALUATED");
  assert.equal(body.items[0].assessment,null);
 }
 
