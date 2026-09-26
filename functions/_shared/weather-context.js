@@ -15,6 +15,29 @@ const json=(data,status=200,extra={})=>new Response(JSON.stringify(data),{status
 const explicitTime=s=>typeof s==="string"&&/(?:Z|[+-]\d{2}:\d{2})$/.test(s)&&Number.isFinite(Date.parse(s));
 const finite=x=>typeof x==="number"&&Number.isFinite(x);
 const iso=t=>new Date(t).toISOString();
+async function readTextLimited(stream,maxBytes,tooLargeError){
+  if(!stream)return "";
+  const reader=stream.getReader(),chunks=[];
+  let total=0;
+  try{
+    while(true){
+      const {done,value}=await reader.read();
+      if(done)break;
+      total+=value.byteLength;
+      if(total>maxBytes){
+        await reader.cancel();
+        throw new Error(tooLargeError);
+      }
+      chunks.push(value);
+    }
+  }finally{
+    reader.releaseLock();
+  }
+  const bytes=new Uint8Array(total);
+  let offset=0;
+  for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.byteLength;}
+  return new TextDecoder().decode(bytes);
+}
 const clampNumber=x=>finite(x)?x:null;
 
 function parseRequestItem(item,index){
@@ -56,7 +79,13 @@ async function readJson(fetchImpl,url){
   if(!response.ok)throw new Error("UPSTREAM_UNAVAILABLE");
   const length=Number(response.headers.get("content-length")||0);
   if(length>MAX_FORECAST_BYTES)throw new Error("UPSTREAM_TOO_LARGE");
-  try{return await response.json()}catch{throw new Error("UPSTREAM_INVALID_JSON")}
+  let raw;
+  try{raw=await readTextLimited(response.body,MAX_FORECAST_BYTES,"UPSTREAM_INVALID_SIZE")}
+  catch(error){
+    if(error.message==="UPSTREAM_INVALID_SIZE")throw error;
+    throw new Error("UPSTREAM_INVALID_BODY");
+  }
+  try{return JSON.parse(raw)}catch{throw new Error("UPSTREAM_INVALID_JSON")}
 }
 async function readCanonicalForecast(fetchImpl){
   const manifest=await readJson(fetchImpl,WEATHER_ORIGIN+MANIFEST_PATH);
@@ -153,7 +182,7 @@ function sampleItem(forecast,item){
     },
     temporal_coverage:{
       requested_from:iso(item.from),requested_to:iso(item.to),
-      status:temporalStatus,frame_cadence_hours:cadenceHours(validFrames),
+      status:temporalStatus,frame_cadence_hours:cadenceHours(selected),
       interpolation_applied:false
     },
     frames,spatial_scope:frames.length?"NATIVE_GRID_CELL":null,assessment:null
@@ -173,8 +202,12 @@ export async function handleWeatherWindow(request,fetchImpl=fetch){
   const declared=Number(request.headers.get("content-length")||0);
   if(declared>MAX_BODY_BYTES)return json({error:"PAYLOAD_TOO_LARGE"},413);
   let body,raw;
-  try{raw=await request.text()}catch{return json({error:"INVALID_JSON"},400)}
-  if(new TextEncoder().encode(raw).byteLength>MAX_BODY_BYTES)return json({error:"PAYLOAD_TOO_LARGE"},413);
+  try{raw=await readTextLimited(request.body,MAX_BODY_BYTES,"PAYLOAD_TOO_LARGE")}
+  catch(error){
+    return error.message==="PAYLOAD_TOO_LARGE"
+      ?json({error:"PAYLOAD_TOO_LARGE"},413)
+      :json({error:"INVALID_JSON"},400);
+  }
   try{body=JSON.parse(raw)}catch{return json({error:"INVALID_JSON"},400)}
   if(!isRecord(body)||body.schema_version!=="openpq-weather-window-request-v1"||
     !Array.isArray(body.items)||body.items.length<1||body.items.length>MAX_ITEMS)
