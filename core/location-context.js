@@ -24,7 +24,7 @@
  const label=id=>AREAS[isValid(id)?id:"all"].label;
  function set(id,source="manual"){
    if(!isValid(id))return current();
-   const previous=current();
+   const previous=get();
    try{root.sessionStorage?.setItem(KEY,id);}catch{}
    // Notify active homepage modules even if Safari disallows storage.
    root.__openpqAreaFallback=id;
