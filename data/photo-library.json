@@ -1,12 +1,14 @@
 {
-  "version": "2026-09-26.1",
+  "version": "2026-09-26.2",
   "collection": "JOTRIP_INTERNET_IMAGES",
-  "usage": "Open Phu Quoc CMS homepage and editorial media library",
+  "usage": "Open Phu Quoc CMS article photography; homepage slideshow managed separately",
   "policy": {
-    "exclude": "All files whose original filename starts with shutterstock_",
-    "public_credit": "Ảnh: Internet · kho JoTrip",
-    "rights": "Uploader permitted use of the remaining collection; original creator and independent publication license not yet verified. Replace generic credit with photographer/source when known.",
-    "location": "Do not label a specific beach, resort, or island unless verified."
+    "exclude": "All images with an original filename beginning shutterstock_",
+    "public_credit": "Internet (kho JoTrip); photographer name when known",
+    "rights": "The user approved considering the non-Shutterstock folder for CMS. This is not independent verification of third-party copyright or a publication license; verify and upgrade source credits when possible.",
+    "location": "Photo must fit article subject; uncertain exact beach/island labels must remain generic.",
+    "wildlife": "Do not use starfish photographed out of water as the lead for articles about keeping starfish underwater.",
+    "previous_release": "Four images from the previous import remain on homepage surfaces; new editorial photos in this release do not modify slideshow or GO."
   },
   "items": [
     {
@@ -17,7 +19,8 @@
       "subject": "beach",
       "exact_location_verified": false,
       "used_on": [
-        "homepage-hero"
+        "homepage-hero",
+        "knowledge.knowledge_130_beach-day"
       ]
     },
     {
@@ -28,7 +31,8 @@
       "subject": "island-tour",
       "exact_location_verified": false,
       "used_on": [
-        "homepage-hero"
+        "homepage-hero",
+        "knowledge.knowledge_124_cano-3-dao"
       ]
     },
     {
@@ -39,7 +43,8 @@
       "subject": "boats",
       "exact_location_verified": false,
       "used_on": [
-        "homepage-hero"
+        "homepage-hero",
+        "knowledge.knowledge_149_tau-ca-va-nghe-bien-thay-doi-the-nao"
       ]
     },
     {
@@ -51,6 +56,140 @@
       "exact_location_verified": false,
       "used_on": [
         "homepage-go-visual"
+      ],
+      "editorial_hold": "Do not present starfish out of water in a conservation article; no article selected."
+    },
+    {
+      "id": "editorial-ho-quoc-overview",
+      "path": "/assets/media/editorial-ho-quoc-overview.webp",
+      "original_filename": "chua-o-phu-quoc-cover.jpg.webp",
+      "subject": "temple",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_029_chua-ho-quoc",
+        "places.place_ho_quoc"
+      ]
+    },
+    {
+      "id": "editorial-ho-quoc-detail",
+      "path": "/assets/media/editorial-ho-quoc-detail.jpg",
+      "original_filename": "ho-quoc-pagoda-phu-quoc.jpg",
+      "subject": "temple",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_029_chua-ho-quoc",
+        "places.place_ho_quoc"
+      ]
+    },
+    {
+      "id": "editorial-vinwonders-castle",
+      "path": "/assets/media/editorial-vinwonders-castle.jpg",
+      "original_filename": "lkXZu8W0-vinwonders-phu-quoc.jpg",
+      "subject": "theme-park",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_136_vinwonders-visit",
+        "places.place_vinwonders"
+      ]
+    },
+    {
+      "id": "editorial-vinwonders-show",
+      "path": "/assets/media/editorial-vinwonders-show.jpg",
+      "original_filename": "khu-vui-choi-phu-quoc-1.jpg",
+      "subject": "theme-park",
+      "exact_location_verified": true,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_136_vinwonders-visit",
+        "places.place_vinwonders"
+      ]
+    },
+    {
+      "id": "editorial-may-rut-island",
+      "path": "/assets/media/editorial-may-rut-island.jpg",
+      "original_filename": "May-Rut-island-Phu-Quoc-Vietnam.jpg",
+      "subject": "island-tour",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_124_cano-3-dao"
+      ]
+    },
+    {
+      "id": "editorial-snorkeling-coral",
+      "path": "/assets/media/editorial-snorkeling-coral.jpg",
+      "original_filename": "snorkeling-phu-quoc-island_1600x1178.jpg",
+      "subject": "snorkeling",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_038_san-ho-nam-dao",
+        "knowledge.knowledge_127_snorkeling",
+        "places.activity_snorkeling_an_thoi"
+      ]
+    },
+    {
+      "id": "editorial-fishing-boat-sunset",
+      "path": "/assets/media/editorial-fishing-boat-sunset.jpg",
+      "original_filename": "onbird-phu-quoc-Bg2bENwjQlU-unsplash.jpg",
+      "subject": "sunset-fishing",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_050_hoang-hon-phu-quoc",
+        "knowledge.knowledge_131_sunset-watching"
+      ]
+    },
+    {
+      "id": "editorial-fishing-fleet",
+      "path": "/assets/media/editorial-fishing-fleet.jpg",
+      "original_filename": "Phu Quoc Travel Guide Vietnam Tourism_0.jpg",
+      "subject": "fishing-fleet",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_149_tau-ca-va-nghe-bien-thay-doi-the-nao",
+        "knowledge.knowledge_150_mot-ngay-o-phu-quoc-van-hanh-the-nao",
+        "stories.nhung-doi-mat-tren-mui-ghe",
+        "stories.an-thoi-ben-ca-va-cua-ngo-dao"
+      ]
+    },
+    {
+      "id": "editorial-tropical-cove",
+      "path": "/assets/media/editorial-tropical-cove.jpg",
+      "original_filename": "Phu-Quoc-Island-1.jpg",
+      "subject": "island-cove",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_124_cano-3-dao",
+        "knowledge.knowledge_130_beach-day",
+        "stories.vi-sao-goi-phu-quoc-la-dao-ngoc"
+      ]
+    },
+    {
+      "id": "editorial-reef-coast",
+      "path": "/assets/media/editorial-reef-coast.jpg",
+      "original_filename": "khiem-antony-mQTTIAoNHkA-unsplash.jpg",
+      "subject": "reef-coast",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_038_san-ho-nam-dao"
+      ]
+    },
+    {
+      "id": "editorial-tropical-beach",
+      "path": "/assets/media/editorial-tropical-beach.jpg",
+      "original_filename": "Phu Quoc tour (3).jpg",
+      "subject": "tropical-beach",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "knowledge.knowledge_130_beach-day"
       ]
     }
   ]
