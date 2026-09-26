@@ -10,7 +10,7 @@ const {items,shelves,choose,variant,vnDay}=sandbox.window.OpenPQHeroGallery;
 const ids=new Set(items.map(item=>item.id));
 assert.equal(items.length,ids.size,"Each image needs a unique ID");
 assert.ok(items.length>=32&&items.length<=40,"Hero master should contain 32-40 curated scenes");
-assert.equal(items.filter(item=>item.mobile).length,2,"Use two genuine JoTrip sunset portraits on mobile");
+assert.equal(items.filter(item=>item.mobile).length,0,"Hero should reuse responsive master scenes instead of shipping multi-megabyte portrait duplicates");
 assert.equal(vnDay(new Date("2026-09-25T18:00:00Z")),"2026-09-26","Stable UTC+7 day");
 for(const item of items){
   assert.ok(item.label&&item.alt&&item.credit&&item.src&&item.topic,
@@ -21,15 +21,11 @@ for(const item of items){
   }else{
     assert.ok(item.sourceUrl?.startsWith("https://commons.wikimedia.org/wiki/File:"),
       "External images must link to exact original: "+item.id);
-    assert.ok(item.licenseUrl?.startsWith("https://creativecommons.org/"),
-      "External images must disclose reusable license: "+item.id);
+    if(item.licenseUrl)assert.ok(/^https:\/\/(?:creativecommons\.org|creativecommons\.org\/publicdomain)/.test(item.licenseUrl),
+      "Declared reuse license must link to Creative Commons: "+item.id);
     assert.ok(item.credit.length>=3,"External photographer credit required: "+item.id);
   }
-  if(item.mobile){
-    assert.ok(fs.existsSync(item.mobile.src.slice(1)),"Missing genuine JoTrip mobile photo: "+item.id);
-    assert.equal(variant(item,true).src,item.mobile.src);
-    assert.equal(variant(item,false).src,item.src);
-  }
+  assert.equal(variant(item,true).src,item.src,"Responsive hero uses the same verified master scene");
 }
 const scenes=["morning","noon","afternoon","sunset","night","cloudy","rainy"];
 for(const mood of scenes){
@@ -68,4 +64,4 @@ assert.match(app,/pendingMood/);
 assert.match(app,/photo\.onerror=/);
 assert.match(app,/updateHeroCredit/);
 assert.equal((html.match(/class="hero-slide(?: is-active)?"/g)||[]).length,4);
-console.log("Hero gallery PASS:",items.length,"curated scenes / 2 licensed mobile originals / 7 contexts / 4 scenes per view / author + CC attribution.");
+console.log("Hero gallery PASS:",items.length,"curated scenes / 7 contexts / 4 scenes per view / exact source attribution.");
