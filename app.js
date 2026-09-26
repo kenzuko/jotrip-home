@@ -372,6 +372,7 @@ const HERO_MOODS = {
   "rainy-night":["nightMarket","seafood","fishSauce","pepper"]
 };
 const HERO_FALLBACK="/assets/photos/tour-3-islands-jotrip-1600.jpg";
+const HERO_BLANK="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=";
 const HERO_DELAY = 4000;
 const heroStartedAt=Date.now();
 let heroIndex=0,heroTimer=null,touchStartX=0,touchStartY=0;
@@ -391,9 +392,35 @@ function useHeroMood(mood){
     photo.loading=i===0?"eager":"lazy";
     photo.decoding="async";
     photo.fetchPriority=i===0?"high":"low";
+    photo.dataset.sceneSrc=scene.src;
     photo.onerror=()=>{photo.onerror=null;photo.src=HERO_FALLBACK;};
-    if(photo.getAttribute("src")!==scene.src)photo.src=scene.src;
+    if(i===0){
+      if(photo.getAttribute("src")!==scene.src)photo.src=scene.src;
+      photo.dataset.loadedSrc=scene.src;
+    }else if(i!==heroIndex){
+      // Hidden slides get a 1-pixel local placeholder, not three heavy images.
+      photo.src=HERO_BLANK;
+      photo.dataset.loadedSrc="";
+    }
   });
+}
+function primeHeroPhoto(index){
+  const photo=heroSlides[index]?.querySelector("img");
+  const src=photo?.dataset.sceneSrc;
+  if(!src||photo.dataset.loadedSrc===src)return;
+  photo.src=src;
+  photo.dataset.loadedSrc=src;
+}
+function warmHeroPhoto(index){
+  const photo=heroSlides[index]?.querySelector("img");
+  const src=photo?.dataset.sceneSrc;
+  if(!src||photo.dataset.loadedSrc===src)return;
+  const warm=new Image();
+  warm.onload=()=>{
+    if(heroSlides[index]?.querySelector("img")?.dataset.sceneSrc===src)
+      primeHeroPhoto(index);
+  };
+  warm.src=src;
 }
 useHeroMood(window.OpenPQHeroContext?.select(new Date(),window.OPENPQ_HOME)?.mood||"day");
 window.addEventListener("openpq:live-ready",event=>{
@@ -419,6 +446,8 @@ function showHeroSlide(index,userInitiated=false){
   // wrap boundary, never while the visitor is looking at a photograph.
   if(next===0&&pendingMood){useHeroMood(pendingMood);pendingMood=null;}
   heroIndex=next;
+  primeHeroPhoto(heroIndex);
+  warmHeroPhoto((heroIndex+1)%heroSlides.length);
   heroSlides.forEach((slide,i)=>{
     slide.classList.toggle("is-active",i===heroIndex);
     slide.setAttribute("aria-hidden",String(i!==heroIndex));
