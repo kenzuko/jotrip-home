@@ -83,12 +83,23 @@
       }
       root.append(gallery);
     }
-    for(const [title,value] of [[o.topic_type==="PLACE"?"Đến đây nên làm gì?":o.topic_type==="FOOD"?"Điều nên biết về món này":o.topic_type==="ACTIVITY"?"Trải nghiệm thế nào?":"Điều nên biết",ed.practical],["Thực tế có thể khác bạn nghĩ",ed.expectation_vs_reality]]){
+    const guideHeadings={
+      PLACE:["Ghé thế nào cho tiện?","Điều nên biết trước khi tới","Trước khi ghé"],
+      NATURE:["Xem điều kiện thực tế","Những điều dễ bỏ sót","Khi ra ngoài"],
+      FOOD:["Ăn và chọn món","Điều cần biết khi gọi","Trước khi ăn hoặc mua"],
+      PRACTICAL:["Chuẩn bị thế nào?","Những trường hợp cần lưu ý","Trước khi đi"],
+      HISTORY_LORE:["Tìm hiểu thêm","Hiểu đúng câu chuyện","Nếu ghé thăm"],
+      ACTIVITY:["Sắp lịch thế nào?","Điều có thể khác dự tính","Trước chuyến đi"],
+      MEMORY_CHANGE:["Nhìn đảo hôm nay","Đọc tư liệu đúng thời điểm","Nếu muốn xem tận nơi"]
+    };
+    const heading=guideHeadings[o.topic_type]||["Điều nên biết","Đọc thêm","Trước khi đi"];
+    if(o.topic_type==="FOOD"&&[64,65,66,67,68].includes(o.number))heading[0]="Chọn mua và tìm hiểu";
+    for(const [title,value] of [[heading[0],ed.practical],[heading[1],ed.expectation_vs_reality]]){
       if(!value)continue;
       const section=el("section");section.append(el("h2",null,title),el("p",null,value));root.append(section);
     }
     if(ed.before_you_go?.length){
-      const section=el("section");section.append(el("h2",null,"Trước khi đi"));
+      const section=el("section");section.append(el("h2",null,heading[2]));
       const list=el("ul");for(const item of ed.before_you_go)list.append(el("li",null,item));
       section.append(list);root.append(section);
     }
