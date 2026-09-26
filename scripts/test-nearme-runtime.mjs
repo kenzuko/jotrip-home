@@ -124,6 +124,9 @@ function createRuntime({failData=false}={}){
   const app=createRuntime({failData:true});
   await delay(10);
   assert.equal(app.nodes.get("#nearSearch").disabled,false,"search stays enabled when support and index requests fail");
+  await app.nodes.get("#quickCategoryRow").emit("click",{target:{closest:selector=>selector==="[data-category]"?{dataset:{category:"PHARMACY"}}:null}});
+  assert.match(app.nodes.get("#nearResults").innerHTML,/Mở trên Google Maps/,"quick category remains usable without support data");
+  assert.match(app.nodes.get("#nearResults").innerHTML,/nh%C3%A0%20thu%E1%BB%91c/i,"fallback keeps the pharmacy category in its Maps query");
   app.nodes.get("#nearSearch").value="nhà thuốc";
   await app.nodes.get("#nearSearch").emit("input",{target:app.nodes.get("#nearSearch")});
   await delay(170);
