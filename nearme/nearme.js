@@ -596,7 +596,7 @@
         ?'<h3 class="near-unlocated-heading">Chưa xác định khoảng cách · không tính trong vòng '+radiusKm+' km</h3>':"";
       const loc=weatherLocation(x);
       const weatherCta=weatherSensitive(x)&&loc
-        ?'<button type="button" data-weather-id="'+esc(x.id)+'">Thời tiết 3 giờ tới</button><small class="near-weather-result" data-weather-status="'+esc(x.id)+'" aria-live="polite"></small>'
+        ?'<button type="button" data-weather-id="'+esc(x.id)+'">Thời tiết 3 giờ tới</button><small id="weatherStatus_'+encodeURIComponent(x.id)+'" class="near-weather-result" data-weather-status="'+esc(x.id)+'" aria-live="polite"></small>'
         :"";
       return unknownGroup+'<article class="near-card">'+
         '<span>'+esc([type,distance].filter(Boolean).join(" · "))+'</span>'+
@@ -728,8 +728,8 @@
         renderControls();render();
       },()=>{
         button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi";
+        clearUserLocation();
         $("#nearStatus").textContent="Chưa lấy được vị trí. Bạn vẫn có thể tìm bằng tên hoặc chọn khu vực.";
-        render();
       },{enableHighAccuracy:false,timeout:8000,maximumAge:300000});
     });
   }
