@@ -111,7 +111,7 @@ function createRuntime({failData=false}={}){
   assert.equal(weatherCall.length,1,"weather is requested only after selecting one card");
   assert.equal(weatherCall[0].entity_id,"place_bai_sao");
   assert.equal(weatherCall[0].location.precision,"site_centroid");
-  assert.equal(app.nodes.get("#weatherStatus_place_bai_sao").textContent.includes("2.1 km"),true);
+  assert.equal(app.nodes.get("weatherStatus_place_bai_sao").textContent.includes("2.1 km"),true);
   assert.equal(app.calls.filter(x=>x.weather).length,1,"not one Weather request per map marker");
 
   await app.nodes.get("#nearMapToggle").emit("click");
