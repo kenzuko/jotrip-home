@@ -609,7 +609,7 @@
       "zone_id": "zone_central_west",
       "group": "Xăng dầu",
       "utility_type": "FUEL",
-      "address": null,
+      "address": "Trung tâm và Tây đảo, Đặc khu Phú Quốc, An Giang",
       "phone": null,
       "what_it_is": "Điểm bán xăng dầu tham khảo từ bản đồ cộng đồng, chưa xác nhận đang bán hoặc giờ hoạt động.",
       "verified": false,
@@ -640,8 +640,10 @@
         "source": "OpenStreetMap contributors, community POI",
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
-        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào."
-      }
+        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào. Địa chỉ đường/số nhà chưa được xác minh."
+      },
+      "address_precision": "AREA",
+      "address_is_approximate": true
     },
     {
       "id": "utility_osm_node_10649396005",
@@ -651,7 +653,7 @@
       "zone_id": "zone_central_west",
       "group": "Cửa hàng tiện lợi",
       "utility_type": "MINIMART",
-      "address": null,
+      "address": "Trung tâm và Tây đảo, Đặc khu Phú Quốc, An Giang",
       "phone": null,
       "what_it_is": "Thông tin địa điểm đang đối chiếu.",
       "verified": false,
@@ -682,8 +684,10 @@
         "source": "OpenStreetMap contributors, community POI",
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
-        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào."
-      }
+        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào. Địa chỉ đường/số nhà chưa được xác minh."
+      },
+      "address_precision": "AREA",
+      "address_is_approximate": true
     },
     {
       "id": "utility_osm_node_13564293156",
@@ -693,7 +697,7 @@
       "zone_id": "zone_central_west",
       "group": "Cửa hàng tiện lợi",
       "utility_type": "MINIMART",
-      "address": null,
+      "address": "Trung tâm và Tây đảo, Đặc khu Phú Quốc, An Giang",
       "phone": null,
       "what_it_is": "Thông tin địa điểm đang đối chiếu.",
       "verified": false,
@@ -724,8 +728,10 @@
         "source": "OpenStreetMap contributors, community POI",
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
-        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào."
-      }
+        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào. Địa chỉ đường/số nhà chưa được xác minh."
+      },
+      "address_precision": "AREA",
+      "address_is_approximate": true
     },
     {
       "id": "utility_osm_way_1498391976",
@@ -778,7 +784,7 @@
       "zone_id": "zone_central_west",
       "group": "Sửa xe",
       "utility_type": "VEHICLE_REPAIR",
-      "address": null,
+      "address": "Trung tâm và Tây đảo, Đặc khu Phú Quốc, An Giang",
       "phone": null,
       "what_it_is": "Cơ sở sửa chữa phương tiện trong dữ liệu cộng đồng, chưa xác nhận còn hoạt động.",
       "verified": false,
@@ -810,8 +816,10 @@
         "source": "OpenStreetMap contributors, community POI",
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
-        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào."
-      }
+        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào. Địa chỉ đường/số nhà chưa được xác minh."
+      },
+      "address_precision": "AREA",
+      "address_is_approximate": true
     },
     {
       "id": "utility_osm_node_11932334086",
@@ -821,7 +829,7 @@
       "zone_id": "zone_central_west",
       "group": "Sửa xe",
       "utility_type": "VEHICLE_REPAIR",
-      "address": null,
+      "address": "Trung tâm và Tây đảo, Đặc khu Phú Quốc, An Giang",
       "phone": null,
       "what_it_is": "Cơ sở sửa chữa phương tiện trong dữ liệu cộng đồng, chưa xác nhận còn hoạt động.",
       "verified": false,
@@ -853,8 +861,10 @@
         "source": "OpenStreetMap contributors, community POI",
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
-        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào."
-      }
+        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào. Địa chỉ đường/số nhà chưa được xác minh."
+      },
+      "address_precision": "AREA",
+      "address_is_approximate": true
     },
     {
       "id": "utility_osm_node_11932334089",
@@ -864,7 +874,7 @@
       "zone_id": "zone_central_west",
       "group": "Sửa xe",
       "utility_type": "VEHICLE_REPAIR",
-      "address": null,
+      "address": "Trung tâm và Tây đảo, Đặc khu Phú Quốc, An Giang",
       "phone": null,
       "what_it_is": "Cơ sở sửa chữa phương tiện trong dữ liệu cộng đồng, chưa xác nhận còn hoạt động.",
       "verified": false,
@@ -896,8 +906,10 @@
         "source": "OpenStreetMap contributors, community POI",
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
-        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào."
-      }
+        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào. Địa chỉ đường/số nhà chưa được xác minh."
+      },
+      "address_precision": "AREA",
+      "address_is_approximate": true
     },
     {
       "id": "utility_osm_node_11932334202",
@@ -907,7 +919,7 @@
       "zone_id": "zone_central_west",
       "group": "Sửa xe",
       "utility_type": "VEHICLE_REPAIR",
-      "address": null,
+      "address": "Trung tâm và Tây đảo, Đặc khu Phú Quốc, An Giang",
       "phone": null,
       "what_it_is": "Cơ sở sửa chữa phương tiện trong dữ liệu cộng đồng, chưa xác nhận còn hoạt động.",
       "verified": false,
@@ -939,8 +951,10 @@
         "source": "OpenStreetMap contributors, community POI",
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
-        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào."
-      }
+        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào. Địa chỉ đường/số nhà chưa được xác minh."
+      },
+      "address_precision": "AREA",
+      "address_is_approximate": true
     },
     {
       "id": "utility_osm_node_11932334297",
@@ -950,7 +964,7 @@
       "zone_id": "zone_central_west",
       "group": "Sửa xe",
       "utility_type": "VEHICLE_REPAIR",
-      "address": null,
+      "address": "Trung tâm và Tây đảo, Đặc khu Phú Quốc, An Giang",
       "phone": null,
       "what_it_is": "Cơ sở sửa chữa phương tiện trong dữ liệu cộng đồng, chưa xác nhận còn hoạt động.",
       "verified": false,
@@ -982,8 +996,10 @@
         "source": "OpenStreetMap contributors, community POI",
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
-        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào."
-      }
+        "note": "Vị trí POI do cộng đồng ghi nhận. Chưa xác minh cơ sở đang hoạt động hoặc đúng cổng vào. Địa chỉ đường/số nhà chưa được xác minh."
+      },
+      "address_precision": "AREA",
+      "address_is_approximate": true
     },
     {
       "id": "utility_osm_node_13696692370",
