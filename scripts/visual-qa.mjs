@@ -171,13 +171,21 @@ async function testHomeFoundation(page) {
     emergency:await page.locator('.near-quick-emergency-call[href="tel:115"]').count().then(n=>n===1).catch(()=>false)
   };
   const pharmacy=page.locator('#nearCategories [data-category="PHARMACY"]');
+  async function clickPharmacy(){
+    // After the area selection, mobile smooth scrolling may still be moving.
+    // Centre the real button clear of the fixed header/dock before clicking;
+    // do not bypass pointer hit-testing with a synthetic DOM click.
+    await pharmacy.evaluate(el=>el.scrollIntoView({behavior:"instant",block:"center",inline:"nearest"}));
+    await page.waitForTimeout(180);
+    await pharmacy.click({timeout:12000});
+  }
   if(await pharmacy.count()){
-    await pharmacy.click();
+    await clickPharmacy();
     await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0 && new URL(document.querySelector('[data-near-handoff]')?.href||location.href).searchParams.get('category')==='PHARMACY',{timeout:5000}).catch(()=>{});
     quickFinder.pharmacyCards=await page.locator('#nearResults .near-result-card').count().catch(()=>0);
     quickFinder.handoff=await page.locator('[data-near-handoff]').first().getAttribute('href').catch(()=>"");
     quickFinder.directDirections=await page.locator('#nearResults .near-result-actions a[href*="google.com/maps/dir"]').count().then(n=>n>=1).catch(()=>false);
-    await pharmacy.click();
+    await clickPharmacy();
   }
   const search=page.locator('#nearQuickSearch');
   if(await search.count()){
