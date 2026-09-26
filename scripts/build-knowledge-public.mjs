@@ -26,7 +26,7 @@ const imagesFor=o=>{
 };
 const objects=(payload.objects||[]).filter(o=>o.status==="READY_PUBLIC"&&o.public_ready===true).map(o=>({
  topic_id:o.topic_id,number:o.number,title:o.title,topic_type:o.topic_type,story_type:o.story_type,
- canonical_entity_id:o.canonical_entity_id||null,related_entity_ids:o.related_entity_ids||[],
+ canonical_entity_id:o.canonical_entity_id||null,related_entity_ids:o.related_entity_ids||[],\n links:(o.public_links||[]).map(x=>({label:String(x.label||""),url:String(x.url||"")})),
  route:"/guide/article.html?id="+encodeURIComponent(o.topic_id),media:{images:imagesFor(o)},
  editorial:{short_summary:o.editorial?.short_summary||"",practical:o.editorial?.practical||"",
  expectation_vs_reality:o.editorial?.expectation_vs_reality||"",before_you_go:o.editorial?.before_you_go||[],
