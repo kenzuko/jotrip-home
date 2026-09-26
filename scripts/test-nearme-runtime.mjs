@@ -123,6 +123,8 @@ function createRuntime({failData=false,failWeather=false}={}){
   await delay(10);
   assert.equal(app.leafletScripts,1,"Leaflet is loaded only after the user opens the map");
   assert.match(appSource,/window\.L\?\.circle/,"the selected radius should render on the map when it is opened");
+  await app.nodes.get("#nearResults").emit("click",{target:{closest:selector=>selector==="[data-map-id]"?{dataset:{mapId:"place_bai_sao"}}:null}});
+  assert.match(app.nodes.get("#nearDirectoryMap").src,/B%C3%A3i%20Sao/,"Leaflet failure preserves exact-place directions on the directory map");
 }
 
 {
