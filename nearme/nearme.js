@@ -424,10 +424,10 @@
     let gpsFallback=false,radiusCount=null,radiusUnknown=0;
 
     if(rankByDistance&&validPoint(center)){
-      const withCoords=visible.filter(x=>x.verified!==false&&validPoint({lat:x.lat,lon:x.lon}))
+      const withCoords=visible.filter(x=>x.verified!==false&&["exact_entrance","site_centroid"].includes(x.map_precision)&&validPoint({lat:x.lat,lon:x.lon}))
         .map(x=>({...x,distance_km:haversine(center,{lat:x.lat,lon:x.lon})}))
         .sort((a,b)=>a.distance_km-b.distance_km);
-      const withoutCoords=visible.filter(x=>x.verified===false||!validPoint({lat:x.lat,lon:x.lon}))
+      const withoutCoords=visible.filter(x=>x.verified===false||!["exact_entrance","site_centroid"].includes(x.map_precision)||!validPoint({lat:x.lat,lon:x.lon}))
         .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
       gpsFallback=withoutCoords.length>0;
       if(radiusKm!==null){
@@ -461,6 +461,7 @@
     }
 
     const mapped=visible.filter(x=>validPoint({lat:x.lat,lon:x.lon}));
+    const communityCount=mapped.filter(x=>x.verified===false).length;
     if(!mapped.length&&visible.length){
       showDirectoryMap([selectedCategory?category()?.label:"",searchText.trim(),areaQuery()].filter(Boolean).join(" "),"Tìm theo khu vực");
       return;
@@ -495,10 +496,10 @@
     else setAreaView(selectedArea);
 
     const total=visible.length;
-    setMapBadge(mapped.length+"/"+total+" điểm có pin Open Phu Quoc");
+    setMapBadge(mapped.length+"/"+total+" điểm có pin"+(communityCount?" · "+communityCount+" pin cộng đồng chưa xác minh":""));
     const note=$("#mapNote");
     if(note)note.textContent=total===mapped.length
-      ?"Các điểm đang thấy đều đã có tọa độ lưu trong Open Phu Quoc."
+      ?"Các điểm đang thấy đều có tọa độ lưu sẵn; pin cộng đồng chưa xác minh vẫn chỉ để tham khảo."
       :mapped.length+" điểm có pin lưu sẵn. Những điểm chưa có pin vẫn mở được theo tên và địa chỉ trên bản đồ.";
   }
 
