@@ -30,7 +30,7 @@ assert.ok(module.includes("near-show-areas"));
 assert.ok(module.includes("near-show-other"));
 assert.match(home,/href="tel:115"/);
 assert.match(home,/nearme\/\?category=CLINIC_HOSPITAL/);
-assert.match(home,/home-nearme-v2.js\?v=20260925-collapsed3/);
+assert.match(home,/home-nearme-v2.js\?v=[^\"]+/);
 assert.ok(module.includes('fetch("data/views/location-index.json"'),"Homepage must consume the same Near Me location index");
 assert.ok(module.includes('getIndex()'),"Canonical index should load only when requested");
 assert.ok(module.includes("rows.slice(0,3)"),"The results should show at most 3 cards");

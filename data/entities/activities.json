@@ -79,7 +79,7 @@
         "source_id": "sunworld_hon_thom_schedule_20260723",
         "source_type": "OPERATOR",
         "published_at": "2026-07-23",
-        "verified_at": "2026-09-25",
+        "verified_at": "2026-09-26",
         "valid_until": null,
         "confidence": "HIGH",
         "note": "Lịch Sun World gồm 3 khung 09:30-11:30, 13:30-14:00 và 15:30-17:30; nghỉ giữa các khung. Có thể thay đổi do thời tiết, bảo trì hoặc điều chỉnh vận hành."
@@ -302,6 +302,7 @@
       "entity_type": "activity",
       "slug": "big-game-fishing",
       "name": "Câu cá lớn An Thới",
+      "official_url": "https://phuquocfishingtours.com/",
       "aliases": [],
       "zone_id": "zone_south",
       "area_code": "south-sea",
@@ -316,7 +317,7 @@
         "marine"
       ],
       "best_time": "05:00-14:00 hoặc 14:00-21:00 khi biển cho phép",
-      "duration": "Khoảng 9 giờ",
+      "duration": "7–9 giờ tùy chuyến",
       "price_reference": "Theo tàu, số khách, thiết bị và cấu hình",
       "live_check_required": true,
       "weather_dependency": "high",
@@ -347,7 +348,7 @@
           "source_id": "jotrip_big_game_fishing_current"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-26",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "MULTI_WINDOW",
@@ -366,7 +367,7 @@
         ],
         "source_id": "jotrip_big_game_fishing_current",
         "source_type": "OPERATOR",
-        "verified_at": "2026-09-21",
+        "verified_at": "2026-09-26",
         "valid_until": null,
         "confidence": "HIGH",
         "note": "Khung sản phẩm JoTrip tại An Thới. Lịch chạy thực tế vẫn phụ thuộc điều kiện biển và xác nhận chuyến; không suy trạng thái từ cano, tàu cao tốc hoặc phà."

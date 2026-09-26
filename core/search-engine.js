@@ -128,7 +128,15 @@
 
   function rankedDocs(query){
     return documents
-      .map(doc=>({doc,score:score(doc,query)}))
+      .map(doc=>{
+        const match=score(doc,query);
+        const area=global.OpenPQArea?.get?.()||"all";
+        const zone=global.OpenPQArea?.zone?.(area)||null;
+        // Preference, not a hard geographic filter. Exact named matches still win.
+        const nearby=match>0&&zone&&doc.zone_id===zone&&["place","activity","venue"].includes(doc.type);
+        const town=match>0&&area==="place_sunset_town"&&/sunset town|thị trấn hoàng hôn/i.test([doc.title,...(doc.aliases||[])].join(" "));
+        return {doc,score:match+(nearby?10:0)+(town?6:0)};
+      })
       .filter(item=>item.score>0)
       .sort((a,b)=>b.score-a.score || String(a.doc.title).localeCompare(String(b.doc.title),'vi'));
   }

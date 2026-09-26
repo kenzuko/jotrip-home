@@ -32,6 +32,12 @@
   }
   function applyDeepLink(){
     const params=new URLSearchParams(location.search);
+    const context=window.OpenPQArea;
+    if(!params.has("origin")){
+      const remembered=context?.zone(context.get());
+      if(remembered){const chosen=[...document.querySelectorAll('#goForm input[name="origin"]')].find(x=>x.value===remembered);
+        if(chosen){chosen.checked=true;state.originZone=remembered;}}
+    }
     for(const name of ["available","interest","origin"]){
       const value=params.get(name);
       if(!value)continue;
@@ -39,7 +45,7 @@
         .find(item=>item.value===value);
       if(input){
         input.checked=true;
-        if(name==="origin")state.originZone=value;
+        if(name==="origin"){state.originZone=value;window.OpenPQArea?.set(value,"go-link");}
       }
     }
   }
@@ -88,7 +94,7 @@
           '<div class="go-timing"><strong>'+esc(x.timing)+'</strong><span>Dự kiến xong khoảng '+esc(x.finish_at)+'</span></div>'+
           '<div class="go-meta">'+(km?'<div><span>Cách bạn</span><b>'+esc(km)+'</b></div>':'')+'<div><span>Đi từ khu hiện tại</span><b>'+esc(drive)+'</b></div><div><span>Dự kiến tới</span><b>'+esc(x.arrival)+'</b></div><div><span>Trước khi đi</span><b>Xem giờ & lưu ý mới nhất</b></div></div>'+
           (warnings?'<ul class="go-warnings">'+warnings+'</ul>':"")+
-          '<a href="'+esc(x.route)+'">Xem chi tiết trước khi đi →</a></article>';
+          '<a href="'+esc(x.route)+'"'+(x.id==="activity_big_game_fishing"?' target="_blank" rel="noopener noreferrer"':"")+'>'+(x.id==="activity_big_game_fishing"?"Xem tour câu cá JoTrip ↗":"Xem chi tiết trước khi đi →")+'</a></article>';
       }).join("");
     }
 
@@ -173,6 +179,7 @@
         state.position=point;
         state.mapOverview=false;
         state.originZone=window.OpenPQGoGeo.nearestArea(point);
+        if(state.originZone)window.OpenPQArea?.set(state.originZone,"go-gps-coarse");
         document.querySelectorAll('#areaChoices input[name="origin"]').forEach(input=>{
           input.checked=input.value===state.originZone;
         });
@@ -187,6 +194,7 @@
     $("#areaChoices").addEventListener("change",event=>{
       if(event.target.name!=="origin")return;
       state.originZone=event.target.value;
+      window.OpenPQArea?.set(state.originZone,"go-manual");
       if(state.position){
         state.position=null;
         $("#goLocate").innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';

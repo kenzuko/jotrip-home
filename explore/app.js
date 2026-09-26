@@ -28,7 +28,7 @@
     levels:[],
     planning:new Map(),
     visuals:{},
-    zone:params.get("zone")||"all",
+    zone:params.has("zone")?params.get("zone"):(window.OpenPQArea?.explore(window.OpenPQArea.get())||"all"),
     intent:params.get("intent")||"all"
   };
 
@@ -174,6 +174,7 @@
       ].map(z=>'<button type="button" data-zone="'+esc(z.id)+'" class="'+(state.zone===z.id?"active":"")+'">'+esc(z.name)+'</button>').join("");
       zoneHost.querySelectorAll("[data-zone]").forEach(btn=>btn.addEventListener("click",()=>{
         state.zone=btn.dataset.zone;
+        window.OpenPQArea?.set(state.zone,"explore-manual");
         syncUrl();
         render();
       }));
@@ -271,6 +272,7 @@
 
   $("#clearFilters")?.addEventListener("click",()=>{
     state.zone="all";
+    window.OpenPQArea?.set("all","explore-clear");
     state.intent="all";
     syncUrl();
     render();
@@ -292,7 +294,8 @@
     state.levels=planning.levels||[];
     state.planning=new Map((planning.items||[]).map(x=>[x.entity_id,x]));
     state.visuals=visuals||{};
-    if(!state.zones.some(z=>z.id===state.zone)) state.zone="all";
+    if(state.zone!=="all"&&!state.zones.some(z=>z.id===state.zone)) state.zone="all";
+    if(params.has("zone")&&window.OpenPQArea?.isValid(state.zone))window.OpenPQArea.set(state.zone,"explore-link");
     if(!state.facets.some(f=>f.id===state.intent)) state.intent="all";
     render();
   }).catch(error=>{
