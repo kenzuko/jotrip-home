@@ -41,6 +41,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          # Some existing repository secrets contain an accidental trailing newline.
+          # Normalize whitespace and wrapping quotes without printing the value.
+          CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]' | sed -e 's/^"//' -e 's/"$//')"
+          export CLOUDFLARE_ACCOUNT_ID
+          if [[ ! "$CLOUDFLARE_ACCOUNT_ID" =~ ^[a-zA-Z0-9_-]{32}$ ]]; then
+            echo "::error::Configured Cloudflare account ID is malformed after normalization; stopping."
+            exit 4
+          fi
           mkdir -p /tmp/jotrip-trip-d1-audit
           cd /tmp/jotrip-trip-d1-audit
           trap 'rm -f /tmp/jotrip-trip-d1-audit/schema.sql /tmp/jotrip-trip-d1-audit/info.json' EXIT
