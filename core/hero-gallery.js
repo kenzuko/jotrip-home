@@ -104,9 +104,13 @@
       leads:["sunset-night","night-market-wide","night-market-fruit"],
       support:["night-market-ice","night-fishing","vinwonders-show","fresh-squid","fish-sauce-vats","night-fireworks"]}
   };
-  const vnDay=date=>new Intl.DateTimeFormat("en-CA",{
-    timeZone:"Asia/Ho_Chi_Minh",year:"numeric",month:"2-digit",day:"2-digit"
-  }).format(date).replace(/(\d{4})\/(\d{2})\/(\d{2})/,"$1-$2-$3");
+  const vnDay=date=>{
+    const parts=new Intl.DateTimeFormat("en-GB",{
+      timeZone:"Asia/Ho_Chi_Minh",year:"numeric",month:"2-digit",day:"2-digit"
+    }).formatToParts(date);
+    const get=key=>parts.find(p=>p.type===key)?.value;
+    return get("year")+"-"+get("month")+"-"+get("day");
+  };
   const hash=text=>{let h=2166136261;for(const c of text){h^=c.charCodeAt(0);h=Math.imul(h,16777619)}return h>>>0};
   function choose(mood,date=new Date()){
     const m=shelves[mood]?mood:"noon";
