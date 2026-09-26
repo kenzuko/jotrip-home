@@ -6086,3 +6086,166 @@ body.sheet-open{
     gap:3px 6px;
   }
 }
+
+
+/* Homepage five-chapter rhythm (26/09): hero -> island pulse ->
+   decisions -> editorial -> optional utilities.
+   Existing module IDs, data adapters and standalone pages are unchanged. */
+#top>.home-chapter-intro{
+  grid-column:1/-1!important;
+  min-width:0;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px 28px;
+  padding:18px 22px;
+  margin:14px 0 3px;
+  border:1px solid #c9e2d4;
+  border-radius:20px;
+  background:linear-gradient(110deg,#eaf7f0 0%,#f5faf6 68%,#fff 100%);
+  color:#173d38;
+}
+.home-chapter-copy{min-width:0;flex:1}
+.home-chapter-kicker{
+  display:block;
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.14em;
+  line-height:1.45;
+  color:#38755c;
+}
+.home-chapter-intro h2{
+  margin:5px 0;
+  font-size:clamp(22px,2.2vw,31px);
+  font-weight:850;
+  line-height:1.12;
+  letter-spacing:-.035em;
+  color:#143c35;
+}
+.home-chapter-intro p{
+  margin:3px 0 0;
+  font-size:13px;
+  line-height:1.5;
+  color:#526c61;
+}
+.home-chapter-links{
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  gap:7px;
+}
+.home-chapter-links a,.home-chapter-more{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:40px;
+  border:1px solid #b8d8c7;
+  border-radius:999px;
+  background:#fff;
+  padding:10px 14px;
+  color:#205c48;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:800;
+  line-height:1.1;
+  white-space:nowrap;
+}
+.home-chapter-links a:hover,.home-chapter-links a:focus-visible,
+.home-chapter-more:hover,.home-chapter-more:focus-visible{
+  background:#ddefe4;
+  outline-offset:3px;
+}
+#top>.home-chapter-intro--editorial{
+  margin-top:23px;
+  border-color:#eadcc6;
+  background:linear-gradient(115deg,#fff6e9,#fffaf2 68%,#fff);
+}
+.home-chapter-intro--editorial .home-chapter-kicker{color:#956436}
+.home-chapter-intro--editorial .home-chapter-more{
+  border-color:#efdcc2;
+  color:#765127;
+}
+#top>.home-chapter-intro--utility{
+  margin-top:24px;
+  margin-bottom:0;
+  padding:12px 20px;
+  border-color:#e0e9e5;
+  background:#f7faf8;
+}
+.home-chapter-intro--utility h2{font-size:clamp(19px,1.9vw,25px)}
+.home-chapter-intro--utility p{font-size:12px}
+#top>.home-chapter-intro--utility+.home-currency-section{
+  padding-top:20px!important;
+}
+#top>.home-chapter-intro--utility~.explore-more-section{
+  padding-top:24px!important;
+}
+/* Decision modules lead into one another instead of being isolated banners. */
+#top>.home-chapter-intro--decision+.trip-clock-section{
+  padding-top:18px!important;
+}
+#top>.home-go-section{margin-top:11px;margin-bottom:6px}
+#top>.near-me-section{border-top:1px solid #e6efe9}
+#top>.home-chapter-intro--editorial+.hot-now-section{
+  padding-top:21px!important;
+}
+#top>.home-library-section{margin-top:4px}
+#top>.discover-section{border-top:1px solid #ebeee6}
+#top>.home-chapter-intro--utility~.explore-more-section{
+  padding-bottom:32px!important;
+}
+@media(max-width:760px){
+  #top>.home-chapter-intro{
+    display:block;
+    padding:14px 15px;
+    margin:13px 12px 0;
+    width:auto;
+    border-radius:16px;
+  }
+  .home-chapter-kicker{font-size:10px}
+  .home-chapter-intro h2{
+    margin:5px 0 3px;
+    font-size:clamp(22px,6vw,27px);
+  }
+  .home-chapter-intro p{
+    font-size:12px;
+    line-height:1.42;
+  }
+  .home-chapter-links{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:6px;
+    margin-top:11px;
+  }
+  .home-chapter-links a{
+    min-width:0;
+    min-height:40px;
+    padding:7px 4px;
+    font-size:11px;
+    white-space:normal;
+    text-align:center;
+  }
+  .home-chapter-intro--editorial .home-chapter-more{
+    margin-top:11px;
+    min-height:38px;
+    font-size:12px;
+  }
+  #top>.home-chapter-intro--utility{
+    padding:12px 14px;
+    margin-top:17px;
+  }
+  .home-chapter-intro--utility h2{font-size:20px}
+  #top>.home-chapter-intro--decision+.trip-clock-section{
+    padding-top:18px!important;
+  }
+  #top>.home-go-section{margin-top:6px}
+  #top>.near-me-section{margin-top:3px}
+  #top>.home-chapter-intro--editorial+.hot-now-section{
+    padding-top:18px!important;
+  }
+  #top>.home-chapter-intro--utility+.home-currency-section{
+    padding-top:15px!important;
+  }
+}
