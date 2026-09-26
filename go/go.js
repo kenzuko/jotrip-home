@@ -120,12 +120,17 @@
     }else box.hidden=true;
   }
 
+  function nearmeHandoffRoute(category){
+    const params=new URLSearchParams({category,area:state.originZone||"all"});
+    return "/nearme/?"+params.toString();
+  }
+
   function mapRows(){
     const canonical=[...state.entities.values()].map(e=>({...e,route:"/places/detail.html?id="+encodeURIComponent(e.slug||e.legacy_id||e.id.replace(/^(place|activity)_/,""))}));
     const nearRows=state.locationIndex.filter(e=>["place","activity"].includes(e.entity_type)&&e.map);
     const venueRows=state.venueDirectory.filter(e=>e.status==="ACTIVE"&&["LOCAL_FOOD","RESTAURANT","CAFE"].includes(e.category))
       .map(e=>({...e,map:{lat:e.latitude,lon:e.longitude,precision:e.geo_precision||e.map?.precision,verified_at:e.verified_at},
-        route:"/nearme/?category="+encodeURIComponent(e.category)}));
+        route:nearmeHandoffRoute(e.category)}));
     const seen=new Set();
     return [...canonical,...nearRows,...venueRows].filter(e=>{if(seen.has(e.id))return false;seen.add(e.id);return true});
   }
