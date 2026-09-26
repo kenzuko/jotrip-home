@@ -27,6 +27,7 @@ on:
       - "nearme/**"
       - "explore/**"
       - "scripts/test-shared-area-and-schedules.mjs"
+      - "scripts/visual-qa-shared-area.mjs"
       - "core/hero-gallery.js"
       - "core/decision-signals.js"
       - "core/go-engine.js"
@@ -134,6 +135,9 @@ jobs:
           node scripts/test-home-hero-search.mjs
           node scripts/test-home-hero-gallery.mjs
           node scripts/visual-qa-home-search.mjs
+
+      - name: Exercise session area handoff across homepage, GO, Near Me and Explore
+        run: node scripts/visual-qa-shared-area.mjs
 
       - name: Run visual QA
         env:
