@@ -14,6 +14,7 @@
       "/api/weather/live/feedback",
       "/api/weather/live/feedback/recent",
       "/api/context/v1/weather/*",
+      "/api/go/live",
       "/weather/data/*",
       "/weather/spatial-ecmwf.json",
       "/weather/spatial-icon.json",
