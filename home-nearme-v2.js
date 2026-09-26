@@ -166,7 +166,7 @@
    },()=>{
     button.disabled=false;
     clearGpsToCoarseArea("Không lấy được vị trí. Chọn khu vực để tiếp tục.");
-   },{enableHighAccuracy:false,timeout:8000,maximumAge:300000});
+   },{enableHighAccuracy:false,timeout:8000,maximumAge:0});
   });
  }
  function onSupport(event){support=event?.detail||window.OPENPQ_HOME_SUPPORT||support;syncControls()}
