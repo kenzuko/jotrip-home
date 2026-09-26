@@ -320,6 +320,16 @@ async function testHomeFoundation(page) {
 
 async function testNearMePage(page) {
   await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-card').length > 0, { timeout: 9000 }).catch(() => {});
+  const mapToggle = page.locator('#nearMapToggle');
+  if (await mapToggle.count()) {
+    if (await mapToggle.getAttribute('aria-expanded') !== 'true') await mapToggle.click();
+    await page.waitForFunction(() => {
+      const shell=document.querySelector('#nearMapShell');
+      const badge=document.querySelector('#mapDataBadge')?.textContent?.trim()||'';
+      const pins=document.querySelectorAll('#nearLeaflet .leaflet-marker-icon').length;
+      return !!shell&&!shell.hidden&&(pins>0||!!badge&&!/Đang mở/i.test(badge));
+    }, { timeout: 15000 }).catch(() => {});
+  }
 
   const base = await page.evaluate(() => ({
     search: !!document.querySelector('#nearSearch'),
@@ -347,6 +357,9 @@ async function testNearMePage(page) {
   }
   const hotelButton = page.locator('#categoryRow [data-category="HOTEL"]');
   if (await hotelButton.count()) {
+    const categoryMore = page.locator('#categoryMore');
+    const categoryListOpen = await categoryMore.evaluate(el => el.open).catch(() => false);
+    if (!categoryListOpen) await page.locator('#categoryMore summary').click();
     await hotelButton.click();
     await page.waitForTimeout(250);
   }
