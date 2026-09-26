@@ -26,6 +26,7 @@ assert.equal(A.weatherState(wx,"zone_central_west",now).status,"normal");
 assert.equal(A.weatherState(wx,"wrong-zone",now).status,"unknown",
   "Unknown place must never silently fall back to Dương Đông");
 const elevated=weather("ELEVATED");
+assert.equal(S.pointWeather(weather("MODERATE"),"zone_south",now).status,"advisory");
 assert.equal(S.pointWeather(elevated,"zone_south",now).status,"advisory",
   "Elevated convection is not normal");
 const stalePoint=weather("HIGH");
@@ -145,6 +146,8 @@ const home=fs.readFileSync("home-live-v3.js","utf8"),homepage=fs.readFileSync("i
   go=fs.readFileSync("go/index.html","utf8");
 assert.match(home,/islandDecision\.status/);
 assert.match(home,/decisionSignals\?\.marineCategory/);
+assert.match(home,/Đã ghi nhận chuyến rời cảng/);
+assert.match(home,/transitRunning/);
 assert.ok(homepage.indexOf('src="core/decision-signals.js?')<
   homepage.indexOf('src="home-live-v3.js?'));
 assert.ok(go.indexOf('src="../core/decision-signals.js?')<
