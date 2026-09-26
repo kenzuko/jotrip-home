@@ -1,6 +1,6 @@
 # Shared Weather Context API v1 - proposal
 
-Status: design proposal only. This document does not implement a runtime endpoint.
+Status: draft shared contract plus runtime implementation on `docs/shared-weather-context-contract-20260926`. The endpoint is not deployed or merged. Product consumers for GO and Near Me remain separate follow-up work.
 
 ## Purpose and boundaries
 
@@ -39,7 +39,7 @@ Request rules:
 
 - Limit a batch to 20 items. Reject non-finite/out-of-range coordinates, timestamps without an offset, reversed windows, and windows longer than 24 hours.
 - Coordinates must come from a current canonical destination or a location deliberately selected by the user. The API validates numeric bounds but does not treat arbitrary coordinates as a verified attraction.
-- Precision describes the destination input. Align its allowed values with the shared Geo contract before implementation.
+- Precision describes the destination input. The current draft accepts `verified_point`, `site_centroid`, `area_anchor`, `user_selected` and `unknown`; confirm these values with the shared Geo owner before consumers depend on them.
 - Never pass a marine route as an island point. Until a route-aware source exists, return an explicit unknown reason.
 - Do not include the user's origin GPS when only destination weather is needed.
 
@@ -136,23 +136,16 @@ This proposal sets no nearest-cell distance cutoff or confidence bucket. Weather
 - Closures and marine permissions remain sourced from current notices and operator evidence, not inferred from weather.
 - Missing or disconnected lightning data means unknown, not “no lightning.”
 
-## Required tests before runtime implementation
+## Current implementation and verification
 
-- Manifest allowlist, wrong schema, invalid JSON, invalid runtime and source outage.
-- Coordinate validation, timezone offsets, reversed/oversized windows, empty and over-limit batches.
-- Exact and nearby native cell selection; haversine distance; cell coordinate changes between frames.
-- Null values remain null.
-- In-window frames, bracket-only frames, no coverage and forecast-horizon edge.
-- No interpolation and no invented hourly timestamps.
-- Marine route returns unknown until a route-aware source exists.
-- GO evaluates all eligible candidates before limiting three visible results.
-- Near Me weather failure does not block essential-service search.
-- No full forecast grid reaches browser responses or persisted itinerary state.
+The draft automated test covers canonical-manifest allowlisting, sampled native cells and distances, null values, in-window and bracket-only coverage, missing horizon coverage, marine unknown, basic input rejection, origin/method/content-type checks and source outage. The current Pages build and Worker route validation run the test.
 
-## Open decisions before implementation
+The test does not yet cover every malformed upstream shape, cell movement between frames, stream bodies over the request/upstream byte caps, or product-consumer behavior. GO candidate ranking and Near Me essential-service fallback belong in their respective product PRs. Do not treat a successful API sample as a safety assessment or freshness guarantee.
 
-1. Confirm endpoint host/path and which existing Worker owns it.
-2. Confirm destination-coordinate precision vocabulary with the shared Geo owner.
-3. Weather owner defines spatial representativeness rules and any distance cutoff.
-4. Weather owner confirms whether cadence and units are stable contract fields or adapter-derived metadata.
-5. Define route-aware marine context separately from land-point forecast.
+## Decisions before consumers rely on the contract
+
+1. Weather owner defines whether a selected nearby cell is representative for each activity and whether any distance cutoff is needed. Until then expose distance and do not imply a verified venue-point forecast.
+2. Confirm destination precision vocabulary with the shared Geo owner.
+3. Weather owner confirms whether units are stable contract fields or adapter-derived metadata.
+4. Define route-aware marine context separately from land-point forecast.
+5. No freshness cutoff or stale-data decision is added here. Consumers must keep `generated_at`, `model_run`, `valid_at` and `checked_at` distinct; a readable source or `status: OK` means only that the sample was returned, never that conditions are current, safe or suitable.
