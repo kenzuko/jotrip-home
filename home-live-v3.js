@@ -451,6 +451,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const anThoi = critical?.points?.an_thoi || null;
     const criticalStamp = critical?.generated_at || critical?.local_generated_at || null;
     const criticalAge = ageMinutes(criticalStamp);
+    const decisionSignals = window.OpenPQDecisionSignals;
+    const islandDecision = decisionSignals?.islandWeather?.(critical) ||
+      {status:"unknown",convective_levels:[],observed_rain:false,valid_gauges:[]};
 
     const weatherTemp = vvpq?.temperature_c ?? dd?.local?.temperature_c ?? null;
     const weatherWind = vvpq?.wind_kmh ?? dd?.local?.wind_kmh ?? null;
@@ -461,7 +464,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const weatherSecondary = weatherTemp != null
       ? (weatherWind != null ? "Gió " + Math.round(weatherWind) + " km/h · " : "") + weatherSource.toLowerCase()
       : "Chưa có thông tin thời tiết mới";
-    const weatherState = !critical ? "unknown" : weatherAge <= 60 ? "good" : weatherAge <= 180 ? "watch" : "unknown";
+    const weatherState = weatherAge > 180 || islandDecision.status === "unknown" ? "unknown" :
+      islandDecision.status === "normal" && weatherAge <= 60 ? "good" : "watch";
 
     setLive("weather", weatherPrimary, weatherSecondary, weatherState, freshnessText(weatherObservedAt));
     setContext("weather", weatherPrimary, weatherSecondary, weatherState);
@@ -478,7 +482,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     const marineStamp = marine?.collected_at_vn || marine?.generated_at || null;
     const marineAge = ageMinutes(marineStamp);
-    const canoState = marine?.categories?.cano?.state;
+    const canoEvidence = decisionSignals?.marineCategory?.(marine,"cano");
+    const canoState = canoEvidence?.state || "UNKNOWN";
     setLive(
       "cano",
       marine ? stateText(canoState) : "Chưa có tin mới",
@@ -491,16 +496,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
     setLive("sunset", sunset, "Bờ Tây · tính theo vị trí đảo", "info");
     setContext("sunset", sunset, "Bờ Tây · tính theo vị trí đảo", "info");
 
-    const pointList = Object.values(critical?.points || {});
-    const convectiveLevels = pointList
-      .map(p => String(p?.nowcast?.convective_level || "").toUpperCase())
-      .filter(Boolean);
-    const hasHighConvective = convectiveLevels.includes("HIGH");
-    const hasElevatedConvective = convectiveLevels.includes("ELEVATED");
+    // Island summary considers fresh point evidence from Phú Quốc only;
+    // it never imports a stale offshore signal or Rạch Giá as current island rain.
+    const convectiveLevels = islandDecision.convective_levels;
+    const hasHighConvective = convectiveLevels.some(x => ["HIGH","SEVERE","EXTREME"].includes(x));
+    const hasElevatedConvective = convectiveLevels.some(x => ["ELEVATED","WATCH"].includes(x));
     const hasWatchConvective = convectiveLevels.includes("WATCH");
 
-    const gauges = Array.isArray(critical?.actual?.rain_gauges) ? critical.actual.rain_gauges : [];
-    const observedRain = gauges.some(g => g?.rain_observed === true || Number(g?.rain_intensity_mm_h) > 0);
+    const gauges = islandDecision.valid_gauges;
+    const observedRain = islandDecision.observed_rain;
     const heroRain = window.OpenPQHeroContext?.assessHeavyRain?.(gauges,criticalAge)
       || {confirmed:false,count:0};
 
@@ -739,17 +743,20 @@ function freshnessText(iso, prefix = "Cập nhật") {
       } else if (observedRain) {
         wxTitle = "Một số điểm trên đảo đang có mưa";
         wxBadge = "ĐANG MƯA";
-      } else {
-        wxTitle = "Chưa thấy dấu hiệu thời tiết đáng lo lúc này";
-        wxBadge = "ỔN LÚC NÀY";
+      } else if (islandDecision.status === "normal") {
+        wxTitle = "Chưa thấy tín hiệu thời tiết nổi bật tại các điểm đang theo dõi";
+        wxBadge = "CHƯA CÓ TÍN HIỆU";
         wxGood = weatherState === "good";
+      } else {
+        wxTitle = "Chưa đủ dữ liệu thời tiết mới tại các điểm đang theo dõi";
+        wxBadge = "CẦN KIỂM TRA";
       }
     }
 
     setHappening("weather", wxTitle, wxNote, wxBadge, wxGood);
 
-    const ferryState = marine?.categories?.ferry?.state;
-    const fastState = marine?.categories?.fast_boat?.state;
+    const ferryState = decisionSignals?.marineCategory?.(marine,"ferry").state || "UNKNOWN";
+    const fastState = decisionSignals?.marineCategory?.(marine,"fast_boat").state || "UNKNOWN";
     const operationalStates = [canoState, fastState, ferryState].filter(Boolean);
     const marineOverall = !marine || !operationalStates.length || marineAge > 1440
       ? "unknown"
@@ -952,7 +959,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           primary: weatherPrimary,
           context: weatherSecondary,
           secondary: weatherSecondary,
-          status: !critical || criticalAge > 90 ? "unknown" : hasHighConvective ? "watch" : (hasElevatedConvective || observedRain) ? "advisory" : "normal",
+          status: islandDecision.status,
           source_class: vvpq ? "ACTUAL" : "ESTIMATED_NOW",
           source_updated_at: weatherObservedAt,
           freshness: weatherAge <= 60 ? "fresh" : weatherAge <= 180 ? "aging" : "stale",
