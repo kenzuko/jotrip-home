@@ -20,7 +20,7 @@
  const roundKm=value=>new Intl.NumberFormat("vi-VN",{maximumFractionDigits:1,minimumFractionDigits:1}).format(value);
  const haversine=(a,b)=>{const rad=x=>x*Math.PI/180,dl=rad(b.lat-a.lat),dn=rad(b.lon-a.lon),h=Math.sin(dl/2)**2+Math.cos(rad(a.lat))*Math.cos(rad(b.lat))*Math.sin(dn/2)**2;return 12742*Math.asin(Math.sqrt(h))};
  const params=new URLSearchParams(location.search);
- let support=window.OPENPQ_HOME_SUPPORT||null,category=null,area=null,gps=null,query="",indexPromise=null,requestSeq=0,debounce=null;
+ let support=window.OPENPQ_HOME_SUPPORT||null,category=null,area=params.has("area")?params.get("area"):(window.OpenPQArea?.get()||"all")!=="all"?window.OpenPQArea.get():null,gps=null,query="",indexPromise=null,requestSeq=0,debounce=null;
  const categoryLabel=id=>LABELS[id]||support?.near_me?.categories?.find(x=>x.id===id)?.label||id;
  const moreUrl=()=>{const p=new URLSearchParams();if(area)p.set("area",area);else if(gps){const nearest=Object.entries(CENTERS).map(([id,c])=>({id,d:haversine(gps,c)})).sort((a,b)=>a.d-b.d)[0];if(nearest)p.set("area",nearest.id)}
   if(category)p.set("category",category);if(query.trim())p.set("q",query.trim());return "nearme/"+(p.size?"?"+p.toString():"")};
@@ -141,7 +141,7 @@
   $("#nearOtherToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-other");syncCompactState()});
   $("#nearCategories").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
   $("#nearQuickMore").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
-  $("#nearManualAreas").addEventListener("click",event=>{const b=event.target.closest("[data-area]");if(!b)return;area=b.dataset.area;gps=null;$(".near-me-section")?.classList.remove("near-show-areas");syncControls();render().then(revealResultsOnMobile)});
+  $("#nearManualAreas").addEventListener("click",event=>{const b=event.target.closest("[data-area]");if(!b)return;area=b.dataset.area;gps=null;window.OpenPQArea?.set(area,"near-home");$(".near-me-section")?.classList.remove("near-show-areas");syncControls();render().then(revealResultsOnMobile)});
   $("#nearQuickSearch").addEventListener("input",event=>{query=event.target.value||"";clearTimeout(debounce);debounce=setTimeout(render,250);refreshLinks()});
   $("#nearQuickSearch").addEventListener("keydown",event=>{if(event.key==="Enter"){clearTimeout(debounce);render()}});
   $("#nearLocationBtn").addEventListener("click",()=>{
@@ -153,7 +153,7 @@
     const nearby=Math.min(...Object.values(CENTERS).map(c=>haversine(p,c)));
     button.disabled=false;
     if(nearby>50){gps=null;setStatus("Vị trí hiện ở ngoài Phú Quốc. Hãy chọn khu vực trên đảo.");syncControls();return}
-    gps=p;area=null;syncControls();render().then(revealResultsOnMobile);
+    gps=p;area=null;const coarse=window.OpenPQArea?.nearest?.(p.lat,p.lon);if(coarse)window.OpenPQArea.set(coarse,"near-gps-coarse");syncControls();render().then(revealResultsOnMobile);
    },()=>{
     button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi";
     setStatus("Không lấy được vị trí. Chọn khu vực để tiếp tục.");
@@ -164,7 +164,18 @@
  function start(){
   if(!$("#nearCategories"))return;
   window.addEventListener("openpq:home-support-ready",onSupport);
-  bind();syncControls();render();
+  window.addEventListener("openpq:area-changed",event=>{
+    const next=event.detail?.area;if(!window.OpenPQArea?.isValid(next))return;
+    area=next==="all"?null:next;gps=null;syncControls();
+    if(category||query.trim()||indexPromise)render();
+    else{setStatus("Đã chọn "+window.OpenPQArea.label(next)+". Chọn tiện ích để xem kết quả.");
+      message("Bạn cần tìm gì lúc này?","Khu vực đã đồng bộ. Chọn một tiện ích để bắt đầu.",false);}
+  });
+  bind();syncControls();
+  if(area&&!params.has("area")&&!category&&!query.trim()){
+    setStatus("Đã chọn "+window.OpenPQArea.label(area)+". Chọn tiện ích để xem kết quả.");
+    message("Bạn cần tìm gì lúc này?","Chọn một tiện ích để xem gợi ý quanh khu vực đã chọn.",false);
+  }else render();
  }
  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start,{once:true});else start();
 })();
