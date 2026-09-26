@@ -37,6 +37,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Non-secret token identity comparison
+        shell: bash
+        run: |
+          set -euo pipefail
+          if curl --fail --silent --show-error --max-time 15 -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" https://api.cloudflare.com/client/v4/user/tokens/verify > /tmp/home-token-verify.json 2>/dev/null; then
+            node --input-type=module -e 'import fs from "node:fs";import crypto from "node:crypto";const x=JSON.parse(fs.readFileSync("/tmp/home-token-verify.json","utf8"));if(!x.success||!x.result?.id)process.exit(2);console.log("home audit token active: "+x.result.status+"; token ID comparison hash: "+crypto.createHash("sha256").update(x.result.id).digest("hex").slice(0,16));'
+          else
+            echo "home token verification endpoint unavailable; D1 export remains independent check."
+          fi
+          rm -f /tmp/home-token-verify.json
       - name: Read-only remote D1 identity, schema and migration preflight
         shell: bash
         run: |
