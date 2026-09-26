@@ -755,8 +755,10 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     setHappening("weather", wxTitle, wxNote, wxBadge, wxGood);
 
-    const ferryState = decisionSignals?.marineCategory?.(marine,"ferry").state || "UNKNOWN";
-    const fastState = decisionSignals?.marineCategory?.(marine,"fast_boat").state || "UNKNOWN";
+    const ferryEvidence = decisionSignals?.marineCategory?.(marine,"ferry");
+    const fastEvidence = decisionSignals?.marineCategory?.(marine,"fast_boat");
+    const ferryState = ferryEvidence?.state || "UNKNOWN";
+    const fastState = fastEvidence?.state || "UNKNOWN";
     const operationalStates = [canoState, fastState, ferryState].filter(Boolean);
     // Individual port clearance proves a reported departure, never an all-day
     // guarantee that every ferry or fast-boat sailing will operate.
@@ -766,6 +768,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
         ? "watch"
         : operationalStates.every(x => x === "RUNNING") ? "normal" : "unknown";
 
+    const operationalFreshness = [canoEvidence,fastEvidence,ferryEvidence].some(x => !x || x.freshness === "stale")
+      ? "stale" : [canoEvidence,fastEvidence,ferryEvidence].some(x => x.freshness === "aging") ? "aging" : "fresh";
     const transitStates = [fastState, ferryState];
     const transitGood = transitStates.every(x => ["RUNNING", "DIRECT_CONFIRMED"].includes(x));
     const transitRunning = transitStates.every(x => x === "RUNNING");
@@ -986,7 +990,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(canoState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
-          freshness: !marine || !Number.isFinite(marineAge) ? "unknown" : marineAge <= 720 ? "fresh" : marineAge <= 1440 ? "aging" : "stale",
+          freshness: canoEvidence?.freshness || "unknown",
           detail_url: "cano/"
         },
         ferry: {
@@ -996,7 +1000,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           status: !marine ? "unknown" : ferryState === "RUNNING" ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(ferryState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
-          freshness: !marine || !Number.isFinite(marineAge) ? "unknown" : marineAge <= 720 ? "fresh" : marineAge <= 1440 ? "aging" : "stale",
+          freshness: ferryEvidence?.freshness || "unknown",
           detail_url: "transit/"
         },
         transport: {
@@ -1004,7 +1008,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           status: marineOverall,
           source_class: "DIRECT_OPERATIONAL",
           source_updated_at: marineStamp,
-          freshness: !marine || !Number.isFinite(marineAge) ? "unknown" : marineAge <= 720 ? "fresh" : marineAge <= 1440 ? "aging" : "stale",
+          freshness: operationalFreshness,
           categories: {
             cano: canoState || "UNKNOWN",
             fast_boat: fastState || "UNKNOWN",
