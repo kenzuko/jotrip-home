@@ -268,7 +268,7 @@
     const color=markerColor(item);
     return L.divIcon({
       className:"",
-      html:'<div class="near-pin" style="background:'+color+'"><span>'+esc(glyphFor(item))+'</span></div>',
+      html:'<div class="near-pin" style="background:'+color+';'+(item.verified===false?'opacity:.65;border:2px dashed #fff;':'')+'"><span>'+esc(glyphFor(item))+'</span></div>',
       iconSize:[30,30],
       iconAnchor:[15,15],
       popupAnchor:[0,-14]
@@ -318,13 +318,13 @@
 
     if(position&&!isDiscoveryCategory()){
       const withCoords=visible
-        .filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon))
+        .filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon)&&x.verified!==false&&["exact_entrance","site_centroid"].includes(x.map_precision))
         .map(x=>({...x,distance_km:haversine(position,{lat:x.lat,lon:x.lon})}))
         .sort((a,b)=>a.distance_km-b.distance_km);
 
       const withoutCoords=visible
-        .filter(x=>!Number.isFinite(x.lat)||!Number.isFinite(x.lon))
-        .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
+        .filter(x=>!Number.isFinite(x.lat)||!Number.isFinite(x.lon)||x.verified===false||!["exact_entrance","site_centroid"].includes(x.map_precision))
+        .sort((a,b)=>Number(a.verified===false)-Number(b.verified===false)||(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
 
       gpsFallback=withoutCoords.length>0;
       visible=[...withCoords,...withoutCoords];
@@ -382,11 +382,14 @@
     else setAreaView(selectedArea);
 
     const total=visible.length;
-    setMapBadge(mapped.length+"/"+total+" điểm có pin Open Phu Quoc");
+    const communityCount=mapped.filter(x=>x.verified===false).length;
+    setMapBadge(mapped.length+"/"+total+" điểm có tọa độ"+(communityCount?" · "+communityCount+" vị trí cộng đồng":""));
     const note=$("#mapNote");
-    if(note)note.textContent=total===mapped.length
-      ?"Các điểm đang thấy đều đã có tọa độ lưu trong Open Phu Quoc."
-      :mapped.length+" điểm có pin lưu sẵn. Những điểm chưa có pin vẫn mở được theo tên và địa chỉ trên bản đồ.";
+    if(note)note.textContent=communityCount
+      ?"Có "+communityCount+" vị trí từ OpenStreetMap chưa được kiểm chứng thực địa. Pin chỉ để tham khảo, không dùng làm bằng chứng đang hoạt động."
+      :total===mapped.length
+        ?"Các điểm đang thấy đều đã có tọa độ lưu trong Open Phu Quoc."
+        :mapped.length+" điểm có pin lưu sẵn. Những điểm chưa có pin vẫn mở được theo tên và địa chỉ trên bản đồ.";
   }
 
   function renderDiscovery(){
@@ -438,8 +441,8 @@
     $("#resultsCount").textContent=visible.length+" địa điểm";
     $("#nearStatus").textContent=position
       ?(result.gpsFallback
-        ?"Điểm có tọa độ được xếp theo khoảng cách; các điểm còn lại vẫn giữ theo khu vực."
-        :"Đã xếp những nơi gần bạn lên trước.")
+        ?"Chỉ điểm có GPS đủ tin cậy được xếp theo khoảng cách; vị trí cộng đồng và điểm chưa có GPS xếp theo khu vực."
+        :"Đã xếp những nơi có GPS đủ tin cậy lên trước.")
       :"Chọn một lớp hoặc gõ tên nơi bạn cần tìm.";
 
     renderMapPoints(visible);
