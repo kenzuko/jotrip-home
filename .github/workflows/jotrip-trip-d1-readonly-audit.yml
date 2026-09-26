@@ -51,7 +51,7 @@ jobs:
           fi
           mkdir -p /tmp/jotrip-trip-d1-audit
           cd /tmp/jotrip-trip-d1-audit
-          trap 'rm -f /tmp/jotrip-trip-d1-audit/schema.sql /tmp/jotrip-trip-d1-audit/info.json /tmp/jotrip-trip-d1-audit/tables.json /tmp/jotrip-trip-d1-audit/presence.json /tmp/jotrip-trip-d1-audit/databases.json /tmp/jotrip-d1-export.log' EXIT
+          trap 'rm -f /tmp/jotrip-trip-d1-audit/schema.sql /tmp/jotrip-trip-d1-audit/info.json /tmp/jotrip-trip-d1-audit/tables.json /tmp/jotrip-trip-d1-audit/presence.json /tmp/jotrip-trip-d1-audit/databases.json /tmp/jotrip-trip-d1-audit/bookmark.json /tmp/jotrip-d1-export.log' EXIT
           cat > wrangler.toml <<'CONFIG'
           name = "jotrip-trip-d1-audit"
           compatibility_date = "2026-09-26"
@@ -67,6 +67,14 @@ jobs:
             exit 3
           fi
           echo "Confirmed remote D1 UUID matches the JoTrip Trip configuration."
+          echo "D1 storage version:"
+          node -e 'const d=JSON.parse(require("fs").readFileSync("info.json","utf8"));console.log(d.version||d.result?.version||"unknown")'
+          echo "Cloudflare-managed Time Travel recovery point (read-only):"
+          if npx --yes wrangler@4 d1 time-travel info jotrip-trip-db --json > bookmark.json; then
+            node -e 'const d=JSON.parse(require("fs").readFileSync("bookmark.json","utf8"));console.log(JSON.stringify({bookmark:d.bookmark||d.result?.bookmark||null}))'
+          else
+            echo "::warning::Time Travel bookmark unavailable; no restore attempt made."
+          fi
           # Suppress Wrangler's temporary signed export URL in public CI logs.
           if ! npx --yes wrangler@4 d1 export jotrip-trip-db --remote --no-data --output=./schema.sql > /tmp/jotrip-d1-export.log 2>&1; then
             echo "::error::Schema-only export failed; sensitive export URL not logged."
