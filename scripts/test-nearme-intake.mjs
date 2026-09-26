@@ -22,6 +22,20 @@ const entities=names.flatMap(name=>read(path.join("data/entities",name)).entitie
 const byId=new Map(entities.map(e=>[e.id,e]));
 assert.equal(byId.size,entities.length,"Canonical entity IDs must remain unique");
 const batch=read("data/entities/nearme-essential-20260926.json").entities;
+const extension=read("data/entities/nearme-essential-extension-20260926.json").entities;
+assert.equal(extension.length,23,"Only selected high-value secondary OSM POIs should be added");
+const selectedCount=entities.filter(e=>e.id.startsWith("utility_osm_")&&extension.some(s=>s.id===e.id)).length;
+assert.equal(selectedCount,23);
+for(const item of extension){
+  assert.equal(item.verified,false,"OSM candidate may not become first-party verified");
+  assert.equal(item.operational_status,"UNKNOWN");
+  assert.equal(item.publication_status,"COMMUNITY_CANDIDATE");
+  assert.ok(item.source_refs.some(s=>s.license==="ODbL-1.0"),"OSM license must be carried per entity");
+}
+const totalEssentials=[...batch,...extension];
+assert.equal(totalEssentials.length,59);
+assert.equal(totalEssentials.filter(e=>e.verified===false).length,42);
+
 assert.equal(batch.length,36,"This batch is a bounded essential subset, never the raw OSM dump");
 assert.equal(batch.filter(e=>e.verified===true).length,17);
 assert.equal(batch.filter(e=>e.verified===false).length,19);
@@ -39,7 +53,7 @@ assert.equal(entities.filter(e=>e.id.startsWith("utility_longchau_")).length,8);
 const index=read("data/views/location-index.json");
 const indexed=new Map(index.documents.map(x=>[x.id,x]));
 assert.equal(indexed.size,index.documents.length,"Duplicate location index IDs");
-for(const e of batch)assert.ok(indexed.has(e.id),"Curated entity absent from location index: "+e.id);
+for(const e of totalEssentials)assert.ok(indexed.has(e.id),"Curated entity absent from location index: "+e.id);
 for(const id of ["utility_longchau_tran_phu","utility_longchau_an_thoi","utility_longchau_ganh_dau","utility_longchau_suoi_da"]){
   assert.equal(indexed.get(id)?.map,null,"Stale or inferred pharmacy pin must not be published: "+id);
 }
@@ -75,7 +89,7 @@ assert.ok(priorHotelAudit.records.every(x=>x.legacy_coordinates.precision!=="exa
 assert.ok(priorHotelAudit.records.every(x=>indexed.has(x.id)&&!indexed.get(x.id).map),"No old inaccurate hotel map pin may be silently restored");
 assert.equal(index.summary.total,index.documents.length);
 assert.equal(index.summary.with_map,index.documents.filter(x=>Number.isFinite(x.map?.lat)&&Number.isFinite(x.map?.lon)).length);
-for(const e of batch.filter(x=>x.verified===false)){
+for(const e of totalEssentials.filter(x=>x.verified===false)){
   assert.equal(e.operational_status,"UNKNOWN");
   assert.equal(e.publication_status,"COMMUNITY_CANDIDATE");
   assert.ok(e.source_refs.some(x=>x.license==="ODbL-1.0"&&/^https:\/\/www.openstreetmap.org\//.test(x.url||"")));
@@ -110,4 +124,4 @@ assert.ok(near.includes("reliabilityLabel(x)"),"Community data must be labeled i
 assert.ok(home.includes("row.verified!==false"),"Homepage must not rank candidate OSM GPS as validated distance");
 assert.ok(home.includes('row.source_license==="ODbL-1.0"'),"Homepage must attribute community data");
 assert.ok(!fs.readFileSync("scripts/build-cloudflare.mjs","utf8").includes('"research",'),"Private research must not enter public Cloudflare bundle");
-console.log("Near Me / GO intake QA PASS: 36 essentials, 4 charge points, 7 fuel points, 8 Long Chau, two recovered Vinmec pins, canonical hotel coverage and 5 staging batches");
+console.log("Near Me / GO intake QA PASS: 59 essentials, 4 charge points, 10 additional fuel points, 8 Long Chau, 5 named local pharmacies, two recovered Vinmec pins, canonical hotel coverage and 5 staging batches");
