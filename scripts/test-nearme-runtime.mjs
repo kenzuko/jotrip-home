@@ -118,6 +118,7 @@ function createRuntime({failData=false}={}){
   await app.nodes.get("#nearMapToggle").emit("click");
   await delay(10);
   assert.equal(app.leafletScripts,1,"Leaflet is loaded only after the user opens the map");
+  assert.match(appSource,/window\.L\?\.circle/,"the selected radius should render on the map when it is opened");
 }
 
 {
