@@ -137,6 +137,15 @@
  }
  function onCategory(id){category=category===id?null:id;$(".near-me-section")?.classList.remove("near-show-other");syncControls();render().then(revealResultsOnMobile)}
  function bind(){
+ function clearGpsToCoarseArea(status){
+  gps=null;
+  const shared=window.OpenPQArea?.get();
+  if(shared&&shared!=="all")area=shared;
+  else if(area==="all")area=null;
+  syncControls();
+  render();
+  setStatus(status);
+ }
   $("#nearAreaToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-areas");syncCompactState()});
   $("#nearOtherToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-other");syncCompactState()});
   $("#nearCategories").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
@@ -146,17 +155,17 @@
   $("#nearQuickSearch").addEventListener("keydown",event=>{if(event.key==="Enter"){clearTimeout(debounce);render()}});
   $("#nearLocationBtn").addEventListener("click",()=>{
    const button=$("#nearLocationBtn");
-   if(!navigator.geolocation){setStatus("Thiết bị không hỗ trợ chia sẻ vị trí. Bạn vẫn có thể chọn khu vực.");return}
+   if(!navigator.geolocation){clearGpsToCoarseArea("Thiết bị không hỗ trợ chia sẻ vị trí. Bạn vẫn có thể chọn khu vực.");return}
    button.disabled=true;button.textContent="Đang xác định vị trí...";
    navigator.geolocation.getCurrentPosition(result=>{
     const p={lat:result.coords.latitude,lon:result.coords.longitude};
     const nearby=Math.min(...Object.values(CENTERS).map(c=>haversine(p,c)));
     button.disabled=false;
-    if(nearby>50){gps=null;setStatus("Vị trí hiện ở ngoài Phú Quốc. Hãy chọn khu vực trên đảo.");syncControls();return}
+    if(nearby>50){clearGpsToCoarseArea("Vị trí hiện ở ngoài Phú Quốc. Hãy chọn khu vực trên đảo.");return}
     const coarse=window.OpenPQArea?.nearest?.(p.lat,p.lon);if(coarse)window.OpenPQArea.set(coarse,"near-gps-coarse");gps=p;area=null;syncControls();render().then(revealResultsOnMobile);
    },()=>{
-    button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi";
-    setStatus("Không lấy được vị trí. Chọn khu vực để tiếp tục.");
+    button.disabled=false;
+    clearGpsToCoarseArea("Không lấy được vị trí. Chọn khu vực để tiếp tục.");
    },{enableHighAccuracy:false,timeout:8000,maximumAge:300000});
   });
  }
