@@ -107,6 +107,9 @@
           binding==="ferry"?"Phà":"Phương tiện";
         return {blocked:true,reason:label+" được xác nhận tạm dừng cho ngày hôm nay."};
       }
+      if(fresh&&["fast_boat","ferry"].includes(binding)&&state==="DIRECT_CONFIRMED"){
+        warnings.push("Đã xác nhận một số chuyến rời cảng, chưa xác nhận chuyến bạn định đi.");
+      }
       if(!fresh||!["DIRECT_CONFIRMED","RUNNING"].includes(state)){
         warnings.push(binding==="charter_boat"
           ?"Chưa có xác nhận riêng cho chuyến tàu câu cá hôm nay; liên hệ đơn vị tổ chức."
