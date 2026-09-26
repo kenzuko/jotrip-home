@@ -495,6 +495,16 @@
   }
 
   function bind(){
+    const mobileQuery=window.matchMedia?.("(max-width: 820px)");
+    mobileQuery?.addEventListener("change",e=>{
+      mapOpenMobile=!e.matches;
+      $(".map-shell")?.classList.toggle("mobile-map-collapsed",!mapOpenMobile);
+      const toggle=$("#toggleNearMap");
+      toggle?.setAttribute("aria-expanded",String(mapOpenMobile));
+      if(toggle)toggle.textContent=mapOpenMobile?"Ẩn bản đồ":"Xem bản đồ";
+      if(mapOpenMobile){initMap();render();}
+    });
+
     $("#areaRow").addEventListener("click",e=>{
       const b=e.target.closest("[data-area]");
       if(!b)return;
