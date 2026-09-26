@@ -52,7 +52,7 @@ Request rules:
   "items": [
     {
       "entity_id": "place_example",
-      "status": "PARTIAL",
+      "status": "OK",
       "reason_codes": [],
       "target": {
         "lat": 10.0191,
@@ -84,21 +84,30 @@ Request rules:
             "distance_from_target_km": 2.7
           },
           "values": {
-            "rain_mm": 0.6,
-            "wind_kmh": 18.4,
+            "rain_mm": null,
+            "wind_kmh": null,
             "gust_kmh": null,
-            "wave_hs_m": 0.52,
-            "wave_direction_deg": 205.1,
-            "wave_period_s": 3.61
+            "wave_hs_m": null,
+            "wave_direction_deg": null,
+            "wave_period_s": null
           }
         }
       ],
+      "spatial_scope": "NATIVE_GRID_CELL",
       "assessment": null
     }
   ]
 }
 
-Example values show field shape only. Runtime values, timestamps and distances must come from the selected forecast file.
+Nulls in the example mean values are omitted from the example; a runtime response must preserve the actual values or nulls from the selected forecast frame.
+
+### Status vocabulary
+
+- Overall source status: OK, PARTIAL, UNAVAILABLE or INVALID.
+- Per-item status: OK, PARTIAL, UNKNOWN or UNAVAILABLE.
+- Temporal coverage: IN_WINDOW_FRAMES, BRACKET_ONLY or NO_COVERAGE.
+- Spatial scope for forecast values: NATIVE_GRID_CELL.
+- Reason codes should distinguish upstream unavailable, invalid manifest/schema, no native cell, no in-window frame, route source unsupported and input rejected. Do not collapse these into a generic “weather bad” status.
 
 ## Sampling and time rules
 
