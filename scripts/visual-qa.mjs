@@ -175,9 +175,16 @@ async function testHomeFoundation(page) {
     // After the area selection, mobile smooth scrolling may still be moving.
     // Centre the real button clear of the fixed header/dock before clicking;
     // do not bypass pointer hit-testing with a synthetic DOM click.
-    await pharmacy.evaluate(el=>el.scrollIntoView({behavior:"instant",block:"center",inline:"nearest"}));
-    await page.waitForTimeout(180);
-    await pharmacy.click({timeout:12000});
+    // Results deliberately auto-scroll on mobile. Wait for that gesture to
+    // finish before returning to the filter; otherwise a later smooth-scroll
+    // frame can move the button under the fixed header while Playwright taps.
+    await page.waitForTimeout(720);
+    await pharmacy.evaluate(el=>{
+      document.documentElement.style.scrollBehavior="auto";
+      el.scrollIntoView({behavior:"instant",block:"center",inline:"nearest"});
+    });
+    await page.waitForTimeout(230);
+    await pharmacy.click({timeout:15000});
   }
   if(await pharmacy.count()){
     await clickPharmacy();
