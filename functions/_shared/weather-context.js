@@ -72,7 +72,8 @@ function validateForecast(value){
   return isRecord(value)&&value.schema_version==="weather-scene-forecast-v1"&&
     explicitTime(value.generated_at)&&explicitTime(value.run_time)&&
     isRecord(value.spatial)&&value.spatial.status==="READY"&&Array.isArray(value.spatial.frames)&&
-    value.spatial.frames.length>0&&value.spatial.frames.length<=200;
+    value.spatial.frames.length>0&&value.spatial.frames.length<=200&&
+    value.spatial.frames.every(frame=>isRecord(frame)&&explicitTime(frame.valid_time)&&Array.isArray(frame.cells));
 }
 async function readJson(fetchImpl,url,signal){
   const response=await fetchImpl(url,{headers:{accept:"application/json"},signal});
@@ -140,17 +141,17 @@ function normalizedFrame(frame,item){
     values
   };
 }
-const noCoverage=(item,reason,status="UNKNOWN")=>({
+const noCoverage=(item,reason,status="UNKNOWN",coverageStatus="NO_COVERAGE")=>({
   entity_id:item.entity_id,status,reason_codes:[reason],
   target:item.location?{...item.location,precision:item.precision}:null,
   source:null,temporal_coverage:{
     requested_from:iso(item.from),requested_to:iso(item.to),
-    status:"NO_COVERAGE",frame_cadence_hours:null,interpolation_applied:false
+    status:coverageStatus,frame_cadence_hours:null,interpolation_applied:false
   },frames:[],spatial_scope:null,assessment:null
 });
 function sampleItem(forecast,item){
   if(item.activity_scope==="marine")
-    return noCoverage(item,"ROUTE_SOURCE_UNSUPPORTED","UNKNOWN");
+    return noCoverage(item,"ROUTE_SOURCE_UNSUPPORTED","UNKNOWN","NOT_EVALUATED");
   const validFrames=forecast.spatial.frames.filter(frame=>
     isRecord(frame)&&explicitTime(frame.valid_time)&&Array.isArray(frame.cells));
   const inWindow=validFrames.filter(frame=>{
@@ -169,7 +170,10 @@ function sampleItem(forecast,item){
   const frames=selected.map(frame=>normalizedFrame(frame,item)).filter(Boolean);
   const reasons=[];
   let status="OK";
-  if(!inWindow.length)reasons.push(temporalStatus==="BRACKET_ONLY"?"TIME_BETWEEN_FRAMES":"NO_IN_WINDOW_FRAME");
+  if(!inWindow.length){
+    reasons.push(temporalStatus==="BRACKET_ONLY"?"TIME_BETWEEN_FRAMES":"NO_IN_WINDOW_FRAME");
+    if(temporalStatus==="BRACKET_ONLY")status="PARTIAL";
+  }
   if(selected.length&&!frames.length){reasons.push("NO_NATIVE_CELL");status="UNKNOWN";}
   else if(selected.length!==frames.length){reasons.push("FRAME_CELL_MISSING");status="PARTIAL";}
   if(!selected.length)status="UNKNOWN";
@@ -191,7 +195,7 @@ function sampleItem(forecast,item){
   };
 }
 function unavailableItem(item,reason,status){
-  const result=noCoverage(item,reason,status);
+  const result=noCoverage(item,reason,status,"NOT_EVALUATED");
   result.source_status=status;
   return result;
 }
