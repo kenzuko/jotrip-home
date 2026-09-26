@@ -51,27 +51,60 @@
     return h>>>0;
   };
 
+  // Keep editorially written leads; automatically widen the supporting shelf
+  // to other READY_PUBLIC, photographed practical guides in the public feed.
+  const curated=new Map(guides.map(guide=>[guide.id,guide]));
+  function autoGuide(item){
+    if(curated.has(item.topic_id))return curated.get(item.topic_id);
+    const type=item.topic_type,id=item.topic_id;
+    if(type==="FOOD")return {id,topic:"ẨM THỰC",group:"FOOD",title:item.title,intro:item.short_summary};
+    if(type==="ACTIVITY"){
+      const group=/night-market/.test(id)?"EVENING":/sunset/.test(id)?"SUNSET":
+        /safari|vinwonders|cable-car/.test(id)?"FAMILY":"SEA";
+      return {id,topic:"TRẢI NGHIỆM",group,title:item.title,intro:item.short_summary};
+    }
+    if(type==="NATURE"&&/hoang-hon|sunset/.test(id))
+      return {id,topic:"THIÊN NHIÊN",group:"SUNSET",title:item.title,intro:item.short_summary};
+    // Place directories belong to Explore, lore belongs to Island Stories.
+    return null;
+  }
   function choose(items){
     approvedById.clear();
     for(const item of items){
-      if(item?.topic_id&&item.route==="/guide/article.html?id="+encodeURIComponent(item.topic_id)){
+      if(item?.topic_id&&item.route==="/guide/article.html?id="+encodeURIComponent(item.topic_id))
         approvedById.set(item.topic_id,item);
-      }
     }
-    // Show only fully published, photographically supported practical guides.
-    const available=guides.filter(g=>{
-      const p=approvedById.get(g.id);
-      return p?.image?.url && /^\/assets\/(?:media|uploads)\/|^https:\/\/(?:commons\.wikimedia\.org|visitphuquoc\.com\.vn)\//.test(p.image.url);
-    });
-    if(available.length<3)return [];
+    const available=[...approvedById.values()].filter(item=>
+      item?.image?.url&&/^\/assets\/(?:media|uploads)\/|^https:\/\/(?:commons\.wikimedia\.org|visitphuquoc\.com\.vn)\//.test(item.image.url)
+    ).map(autoGuide).filter(Boolean);
     const leadCandidates=guides.slice(0,4).filter(g=>available.some(a=>a.id===g.id));
-    if(!leadCandidates.length)return [];
-    const dayOffset=((today-start)%leadCandidates.length+leadCandidates.length)%leadCandidates.length;
-    const lead=leadCandidates[dayOffset];
-    const remaining=available.filter(g=>g.id!==lead.id)
-      .sort((a,b)=>hash(today+":"+a.id)-hash(today+":"+b.id));
+    if(available.length<3||!leadCandidates.length)return [];
+    // Main story stays for one week. Companion stories rotate once per Phu
+    // Quoc calendar day, not on every visit or while the user is reading.
+    const week=Math.floor((today-start)/7);
+    const lead=leadCandidates[((week%leadCandidates.length)+leadCandidates.length)%leadCandidates.length];
+    const hour=Number(new Intl.DateTimeFormat("en-GB",{
+      timeZone:"Asia/Ho_Chi_Minh",hour:"2-digit",hourCycle:"h23"
+    }).format(new Date()));
+    const signals=window.OPENPQ_HOME?.signals;
+    const wet=Number.isFinite(signals?.weather_snapshot_age_min)&&
+      signals.weather_snapshot_age_min>=0&&signals.weather_snapshot_age_min<=90&&
+      signals.observed_rain===true&&
+      (signals.convective_levels||[]).some(level=>["HIGH","ELEVATED"].includes(String(level).toUpperCase()));
+    const relevance=guide=>{
+      let score=0;
+      if(wet){if(guide.group==="CRAFT")score+=20;if(guide.group==="FOOD")score+=12;if(guide.group==="SEA")score-=20;}
+      else if(hour>=16&&hour<21){if(guide.group==="SUNSET")score+=16;if(guide.group==="EVENING")score+=11;}
+      else if(hour>=21||hour<5){if(guide.group==="EVENING")score+=17;if(guide.group==="FOOD")score+=9;}
+      else if(hour>=5&&hour<11){if(guide.group==="BEACH")score+=10;if(guide.group==="CRAFT")score+=5;}
+      return score;
+    };
+    const remaining=available.filter(g=>g.id!==lead.id).sort((x,y)=>
+      relevance(y)-relevance(x)||
+      hash(today+":"+x.id)-hash(today+":"+y.id)
+    );
     const result=[lead];
-    // The three visible mobile cards should invite three different needs.
+    // First three mobile cards have different purposes whenever possible.
     for(const guide of remaining){
       if(result.some(p=>p.group===guide.group))continue;
       result.push(guide);
