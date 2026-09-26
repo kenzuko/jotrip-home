@@ -51,7 +51,7 @@ jobs:
           fi
           mkdir -p /tmp/jotrip-trip-d1-audit
           cd /tmp/jotrip-trip-d1-audit
-          trap 'rm -f /tmp/jotrip-trip-d1-audit/schema.sql /tmp/jotrip-trip-d1-audit/info.json /tmp/jotrip-trip-d1-audit/tables.json /tmp/jotrip-d1-export.log' EXIT
+          trap 'rm -f /tmp/jotrip-trip-d1-audit/schema.sql /tmp/jotrip-trip-d1-audit/info.json /tmp/jotrip-trip-d1-audit/tables.json /tmp/jotrip-trip-d1-audit/presence.json /tmp/jotrip-trip-d1-audit/databases.json /tmp/jotrip-d1-export.log' EXIT
           cat > wrangler.toml <<'CONFIG'
           name = "jotrip-trip-d1-audit"
           compatibility_date = "2026-09-26"
@@ -77,6 +77,12 @@ jobs:
           echo "Live sqlite_master table names (read-only):"
           npx --yes wrangler@4 d1 execute jotrip-trip-db --remote --command="SELECT name FROM sqlite_master WHERE type='table' ORDER BY name" --json > ./tables.json
           node -e 'const a=JSON.parse(require("fs").readFileSync("tables.json","utf8")); console.log(JSON.stringify((Array.isArray(a)?a[0]?.results:a.results||[]).map(x=>x.name)))'
+          echo "Legacy data presence (boolean only, no customer records or exact counts):"
+          npx --yes wrangler@4 d1 execute jotrip-trip-db --remote --command="SELECT (SELECT COUNT(*) FROM trips) AS trips, (SELECT COUNT(*) FROM chat_sessions) AS chat_sessions, (SELECT COUNT(*) FROM chat_messages) AS chat_messages, (SELECT COUNT(*) FROM hotels_public) AS hotels_public" --json > ./presence.json
+          node -e 'const a=JSON.parse(require("fs").readFileSync("presence.json","utf8")); const r=(Array.isArray(a)?a[0]?.results:a.results||[])[0]||{}; console.log(JSON.stringify(Object.fromEntries(Object.entries(r).map(([k,v])=>[k,Number(v)>0]))))'
+          echo "Existing JoTrip Trip databases (names only):"
+          npx --yes wrangler@4 d1 list --json > ./databases.json
+          node -e 'const a=JSON.parse(require("fs").readFileSync("databases.json","utf8")); console.log(JSON.stringify((Array.isArray(a)?a:a.result||[]).map(x=>x.name).filter(x=>/^jotrip-trip/i.test(x))))'
           cp -r "$GITHUB_WORKSPACE/trip-audit/migrations" ./migrations
           echo "Remote migration history (read-only):"
           if ! npx --yes wrangler@4 d1 migrations list jotrip-trip-db --remote; then
