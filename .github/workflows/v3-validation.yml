@@ -45,6 +45,7 @@ jobs:
           node --check go/go.js
           node --check core/decision-signals.js
           node --check go/live-adapter.js
+          node scripts/test-go-manual-ui.mjs
       - name: Test shared Weather Context and GO regressions
         run: |
           node scripts/weather-context-api.test.mjs
@@ -79,7 +80,9 @@ jobs:
       - name: Test food entity ID mapping
         run: node scripts/test-food-id-mapping.mjs
       - name: Test Near Me venue pins and canonical places
-        run: node scripts/test-nearme-venues.mjs
+        run: |
+          node scripts/test-nearme-venues.mjs
+          node scripts/test-nearme-runtime.mjs
       - name: Test weather map points match production coordinates
         run: node scripts/test-weather-map-coordinates.mjs
       - name: Test Vietcombank currency parser
