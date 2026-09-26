@@ -18,7 +18,7 @@ class FakeNode{
   scrollIntoView(){}
 }
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
-function createRuntime({failData=false}={}){
+function createRuntime({failData=false,failWeather=false}={}){
   const ids=["#areaRow","#categoryRow","#quickCategoryRow","#radiusRow","#radiusNote","#nearSearch","#useLocation","#nearStatus","#nearResults","#resultsTitle","#resultsCount","#nearMapShell","#nearMapToggle","#nearLeaflet","#nearDirectoryMap","#mapOpenLink","#mapDataBadge","#mapNote","#nearMap","#categoryMore","#categoryMore summary"];
   const nodes=new Map(ids.map(id=>[id,new FakeNode(id)]));
   let leafletScripts=0;
@@ -61,6 +61,7 @@ function createRuntime({failData=false}={}){
     OpenPQArea:{get:()=>null,nearest:()=> "zone_south",set:(id,source)=>calls.push({area:id,source})},
     OpenPQWeatherContext:{requestWindows:async items=>{
       calls.push({weather:items});
+      if(failWeather)throw new Error("weather 503");
       return {items:[{entity_id:items[0].entity_id,status:"OK",
         temporal_coverage:{status:"IN_WINDOW_FRAMES",frame_cadence_hours:3},
         frames:[{native_cell:{distance_from_target_km:2.1}}]}]};
@@ -93,6 +94,7 @@ function createRuntime({failData=false}={}){
   await app.nodes.get("#nearSearch").emit("input",{target:app.nodes.get("#nearSearch")});
   await delay(170);
   assert.equal(app.window.__openpqNearState.visibleCount,4,"GPS denial and unaccented Vietnamese search must retain matching services");
+  assert.equal(app.calls.filter(x=>x.weather).length,0,"essential-service search must not query Weather per result");
   assert.doesNotMatch(app.nodes.get("#nearResults").innerHTML,/tel:/,"missing phone must not create a call action");
 
   await app.nodes.get("#radiusRow").emit("click",{target:{closest:selector=>selector==="[data-radius]"?{dataset:{radius:"2"},disabled:false}:null}});
@@ -119,6 +121,17 @@ function createRuntime({failData=false}={}){
   await delay(10);
   assert.equal(app.leafletScripts,1,"Leaflet is loaded only after the user opens the map");
   assert.match(appSource,/window\.L\?\.circle/,"the selected radius should render on the map when it is opened");
+}
+
+{
+  const app=createRuntime({failWeather:true});
+  await delay(10);
+  app.nodes.get("#nearSearch").value="Bãi Sao";
+  await app.nodes.get("#nearSearch").emit("input",{target:app.nodes.get("#nearSearch")});
+  await delay(170);
+  await app.nodes.get("#nearResults").emit("click",{target:{closest:selector=>selector==="[data-weather-id]"?{dataset:{weatherId:"place_bai_sao"},disabled:false}:null}});
+  assert.match(app.nodes.get("#nearResults").innerHTML,/Bãi Sao/,"a Weather 503 must not remove selected-place results");
+  assert.match(app.nodes.get("weatherStatus_place_bai_sao").textContent,/danh sách, tìm kiếm và đường đi vẫn hoạt động/i);
 }
 
 {
