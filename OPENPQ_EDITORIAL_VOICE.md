@@ -1,86 +1,37 @@
-# OPEN PHU QUOC - EDITORIAL VOICE LOCK
+# Open Phu Quoc - khóa giọng biên tập
 
-Updated: 26/09/2026
+Cập nhật: 26/09/2026
 
-Open Phu Quoc should sound like a knowledgeable local host, not a database, brochure, or AI summary.
+Open Phu Quoc viết như một trang báo hiểu đời sống trên đảo: gần người, có thông tin, có chi tiết riêng và không biến thành lời quảng cáo. Không có một khuôn bài dùng cho mọi chủ đề.
 
-## Voice
+## Chọn điều đáng kể
 
-- Write in natural Vietnamese.
-- Prefer concrete observation over abstract claims.
-- Use short sentences when the visitor needs to decide quickly.
-- Vary sentence length. Do not make every paragraph follow the same formula.
-- Say what a visitor will actually see, do, feel, or need to know.
-- Keep a calm, confident tone. Avoid over-selling.
-- Operational facts stay precise and sourced.
+- Bắt đầu từ chất liệu thật của đề tài: cách người làm nghề làm việc, kinh nghiệm được truyền lại, lịch sử có tư liệu, đặc điểm của món ăn hoặc cảnh quan.
+- Phân biệt rõ lời kể và kinh nghiệm của người trên đảo, thông tin từ tài liệu, và điều nghiên cứu đã đo. Có thể kể kinh nghiệm trước rồi dùng khoa học để soi sáng phần khoa học giải thích được.
+- Nói nghiên cứu đã khảo sát gì, ở đâu và giới hạn đến đâu. Nghiên cứu về đất hay năng suất không tự chứng minh mùi vị; một kết quả ở nơi khác cũng không đại diện cho mẫu Phú Quốc.
+- Không thêm cảnh, nhân vật, lời thoại, trải nghiệm tận mắt hoặc chi tiết cảm giác nếu chưa có căn cứ. Khi chưa biết, nói vừa đủ thay vì lấp chỗ trống bằng suy đoán.
 
-## Avoid machine-like patterns
+## Viết thành bài
 
-Avoid repeated constructions such as:
-- "Phù hợp với..."
-- "Cần kiểm tra..."
-- "Trải nghiệm..."
-- "Không phải... mà là..."
-- "Giúp du khách..."
-- "Điểm này đáng cân nhắc khi..."
-- "Xem nhanh trước khi..."
-- "Vai trò 1 / Cấp 2..." in visitor-facing copy.
+- Để đề tài quyết định cách mở, nhịp kể, số đề mục và cách kết. Thông tin đi liền mạch; câu có thể dài ngắn khác nhau theo ý, tránh cắt câu liên tiếp hoặc kết mỗi đoạn bằng một lời phán.
+- Không dùng “mình” làm người kể và không dựng một nhân vật xưng “anh”. Bài không cần người kể thì cứ để sự việc và người làm nghề ở phía trước.
+- Khen bằng chi tiết cụ thể, đúng và gợi được giá trị. Không rao bán, tâng quá mức, ép một câu kết đạo lý hoặc làm nơi này có vẻ kém đi để nâng lựa chọn khác.
+- Những cách nói đối lập như “không chỉ” hay “không phải... mà là...” vẫn dùng được khi giúp phân biệt một hiểu lầm thật; tránh lặp thành công thức.
+- Viết tiếng Việt tự nhiên, đọc thành tiếng thấy trôi. Dùng dấu gạch nối thông thường `-`; không dùng en dash hoặc em dash.
 
-Use plain alternatives:
-- "Hợp nếu..."
-- "Trước khi đi, xem lại..."
-- "Ở đây có..."
-- "Nên dành..."
-- "Đi cùng trẻ nhỏ thì..."
-- "Nếu chỉ có nửa ngày..."
+## Tùy nội dung
 
-## Visitor-facing hierarchy
+- **Bài kể chuyện:** có thông tin đủ sâu và đường kể riêng; chọn vài chi tiết sáng giá thay vì gom mọi dữ kiện hay thêm lời khuyên chung.
+- **Cẩm nang:** trả lời gọn điều khách cần biết, việc nên làm, điều có thể đổi và cách kiểm tra khi thông tin thay đổi. Đừng kéo thành bài kể chuyện.
+- **Món ăn:** nói đúng nguyên liệu thường gặp, cách chế biến hoặc cách ăn, mùi vị và kết cấu có căn cứ. Gợi thèm bằng chi tiết của món, không bằng lời quảng cáo. Công thức mỗi quán có thể khác; ghi dị ứng và lưu ý an toàn cụ thể.
+- **Nguồn và liên kết:** gắn nguồn khi nguồn đó thật sự hỗ trợ thông tin trong bài. Lời người làm nghề có thể được ghi nhận bằng cách nói rõ ai cung cấp; không gắn thêm một trang du lịch chung như thể trang đó là người cung cấp lời kể.
 
-1. What is this place or thing?
-2. Why might I care?
-3. When should I go?
-4. What can go wrong or change?
-5. What should I pair it with?
+## Ảnh và bản địa hóa
 
-Do not expose internal taxonomy, provenance language, model labels, or workflow vocabulary unless it is essential for trust.
+- Chọn đúng địa điểm, món hoặc chủ thể. Không dùng một nơi tương tự để giả làm nơi thật.
+- Giữ nguồn và quyền sử dụng ảnh rõ ràng. Nếu chỉ có ảnh bối cảnh, ghi đúng là ảnh bối cảnh.
+- Chữ trên đồ họa phải lấy từ dữ liệu hoặc khóa dịch, không đóng cứng vào ảnh; hình có thể dùng lại khi đổi ngôn ngữ.
 
-## Multilingual-ready infographic rule
+## Trước khi xuất bản
 
-- Keep labels and values as HTML/SVG text, never baked into raster images.
-- Icons, shapes and illustration backgrounds may be language-neutral.
-- Text should come from data or i18n keys.
-- A visitor must be able to switch language without replacing the visual asset.
-
-## Images
-
-- Exact subject first.
-- Prefer recent, high-resolution, well-composed images.
-- If an exact image is unavailable, use an explicitly labelled area/context image.
-- Never use a visually similar place as if it were the real place.
-- Food cards show the food itself, not menus, signs, or restaurant collateral.
-- Keep source attribution available.
-
-## Copy test
-
-Before shipping a sentence, ask:
-- Would a local guide naturally say this?
-- Does it tell the visitor something concrete?
-- Can two neighboring cards be read without sounding like the same template?
-- Is any internal system language leaking into the page?
-
-If the answer is no, rewrite it.
-
-
-## Editorial story, guide, and food copy
-
-- For articles written in the site's editorial voice, do not use first-person “mình” or an invented narrator such as “anh”. Prefer a natural, unforced sentence, or address the reader directly when the copy gives an instruction.
-- Let each story follow the material: local knowledge and inherited practice first, then scientific explanation where reliable research can illuminate it. Do not force a scientific frame onto a human story or claim that a study proves more than it measured.
-- Give every long-form piece its own path and rhythm. Vary openings, section count, paragraph length, and endings. Avoid stock warnings and tidy moral conclusions.
-- Add depth through distinct facts, local practice, history, sensory detail, and clearly sourced context. Do not pad an article with generic advice or repeat an explanation already given.
-- Food writing should make the dish appealing through real ingredients, aroma, texture, and how it is eaten. Praise the food through those details rather than sales language. Keep allergen and food-safety notes specific and easy to find.
-- Practical guides stay concise and useful: say what to do, what varies, and what to verify. Do not turn each guide into a feature story or repeat the same caveat across entries.
-- Keep a clear boundary between what residents have long observed, what a source reports, and what research has tested. If there is no direct study for a local claim, say so plainly and do not present a plausible explanation as proof.
-
-## Read-aloud edit
-
-Read the full piece aloud once. Rewrite any sentence that sounds like a translated template, breaks its rhythm, repeats a point, or makes the place sound worse in order to make another option look better.
+Đọc cả bài thành tiếng. Kiểm tra tên, số liệu, nguồn, liên kết, lời hứa trong trang và xem bài có đang lặp nhịp của bài khác không. Nếu một câu nghe như câu mẫu hoặc làm quá điều nguồn biết, viết lại cho đúng ý hơn.
