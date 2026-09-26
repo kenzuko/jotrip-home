@@ -28,7 +28,7 @@ const fixed=(time)=>({state:"PUBLISHED_SCHEDULE",schedule_type:"FIXED_START",tim
 
 {
   const entities=[entity("activity_boat","zone_south",pub([{start:"05:00",end:"22:00"}]),"2 giờ")];
-  const config={activities:[{entity_id:"activity_boat",minimum_visit_min:120,entry_buffer_min:20,environment:"marine",marine:true,intents:["sea"]}]};
+  const config={activities:[{entity_id:"activity_boat",minimum_visit_min:120,entry_buffer_min:20,environment:"marine",marine:true,operational_binding:"cano",intents:["sea"]}]};
   const r=engine.plan({now:"2026-09-25T02:00:00Z",originZone:"zone_south",available:"half",interest:"sea",entities,config,live:{cano:{state:"SUSPENDED",freshness:"fresh",source_updated_at:"2026-09-25T01:30:00Z"},weather:{freshness:"fresh",status:"normal",source_updated_at:"2026-09-25T01:30:00Z"}},notices:[]});
   assert.equal(r.results.length,0,"Fresh same-day SUSPENDED canoe state must block marine activity");
 }
