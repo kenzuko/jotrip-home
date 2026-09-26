@@ -307,3 +307,28 @@
   .island-story-subheading{margin-bottom:13px}
   .island-story-subheading h3{font-size:clamp(24px,6.3vw,29px)}
 }
+
+
+/* Editorial chapter: one softly highlighted weekly cover, with the
+   existing photo-left / story-right mobile rail completely unchanged. */
+@media(min-width:941px){
+  #top>.home-library-section .home-library-grid{
+    grid-template-columns:minmax(0,1.18fr) minmax(0,1fr);
+    gap:15px;
+  }
+  #top .home-library-grid>.home-library-card:first-child{
+    border-color:#b7d8c6;
+    background:linear-gradient(125deg,#edf8f0,#fff 78%);
+    box-shadow:0 10px 34px rgba(23,75,58,.055);
+  }
+  #top .home-library-grid>.home-library-card:first-child .home-library-card-image{
+    flex:0 0 43%;
+    width:43%;
+  }
+  #top .home-library-grid>.home-library-card:first-child .home-library-card-copy{
+    padding:24px 26px;
+  }
+  #top .home-library-grid>.home-library-card:first-child .home-library-card-copy strong{
+    font-size:clamp(25px,2.5vw,32px);
+  }
+}
