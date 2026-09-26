@@ -47,7 +47,7 @@ for(const target of ["happening","go-now","near-me"]){
 }
 assert.match(css,/#top>.home-chapter-intro\{/);
 assert.match(css,/@media\(max-width:760px\)\{/);
-assert.match(libraryCss,/magazine-style desktop presence/);
+assert.match(libraryCss,/Editorial chapter: one softly highlighted weekly cover/);
 assert.match(html,/core\/hero-gallery\.js\?/);
 assert.match(html,/home-library\.css\?v=20260926-five-chapters-r1/);
 console.log("Homepage five-chapter QA PASS: unchanged live/hero modules, decision before editorial, Near Me beside GO, compact mobile shortcuts.");
