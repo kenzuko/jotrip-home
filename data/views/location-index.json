@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-26T16:07:08.493Z",
+  "generated_at": "2026-09-26T16:20:51.412Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 245,
     "with_address": 245,
-    "with_map": 118,
+    "with_map": 120,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -7623,11 +7623,21 @@
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-09-26",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.336498688188055,
+        "lon": 103.85723855555321,
+        "precision": "site_centroid",
+        "source": "Tọa độ khuôn viên Vinmec Phú Quốc được chủ dự án trực tiếp xác nhận ngày 24/09/2026",
+        "source_id": "jotrip_user_pin_20260924",
+        "verified_at": "2026-09-24",
+        "note": "Tọa độ khuôn viên bệnh viện Bãi Dài, KHÔNG phải cổng cấp cứu; không dùng để chỉ dẫn cấp cứu như cổng chính xác.",
+        "accuracy": null,
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Cấp cứu Vinmec Phú Quốc, Khu Bãi Dài, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -8866,11 +8876,21 @@
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-09-26",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.2223133,
+        "lon": 103.9623962,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named Vinmec Dương Đông clinic POI, cross-checked with previous Near Me Excel",
+        "source_id": "osm_user_export_node_12617805394",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ POI phòng khám Dương Đông, chưa xác nhận chính xác cổng vào; không phải bệnh viện Gành Dầu.",
+        "accuracy": null,
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Phòng khám Đa khoa Vinmec Dương Đông, 114 Nguyễn Trung Trực, Khu phố 4, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
