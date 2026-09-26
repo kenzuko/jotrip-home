@@ -153,7 +153,7 @@
     const nearby=Math.min(...Object.values(CENTERS).map(c=>haversine(p,c)));
     button.disabled=false;
     if(nearby>50){gps=null;setStatus("Vị trí hiện ở ngoài Phú Quốc. Hãy chọn khu vực trên đảo.");syncControls();return}
-    gps=p;area=null;const coarse=window.OpenPQArea?.nearest?.(p.lat,p.lon);if(coarse)window.OpenPQArea.set(coarse,"near-gps-coarse");syncControls();render().then(revealResultsOnMobile);
+    const coarse=window.OpenPQArea?.nearest?.(p.lat,p.lon);if(coarse)window.OpenPQArea.set(coarse,"near-gps-coarse");gps=p;area=null;syncControls();render().then(revealResultsOnMobile);
    },()=>{
     button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi";
     setStatus("Không lấy được vị trí. Chọn khu vực để tiếp tục.");
