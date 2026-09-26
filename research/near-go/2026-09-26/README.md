@@ -12,11 +12,17 @@ Chỉ giữ dữ liệu có giá trị trực tiếp cho cư dân và du khách.
 - Riêng 134 trạm xe buýt OSM chỉ để đối chiếu Transit; không nhập lại thành pin Near Me.
 
 ## Danh mục đã chọn vào canonical trong nhánh
-36 bản ghi thiết yếu, gồm 17 hồ sơ đã đối chiếu danh bạ/nguồn công bố và 19 POI cộng đồng chưa xác minh vận hành. Thành phần: 3 Long Châu, 7 cây xăng, 4 ứng viên sạc VinFast, 4 cơ sở y tế, 5 điểm điện thoại, 1 giặt ủi, 3 dịch vụ giữ hành lý đặt trước, 1 điểm ATM khu sân bay, 3 cửa hàng tiện lợi và 5 gara.
+59 bản ghi thiết yếu đã chọn: 36 hồ sơ đợt 1 (17 bản ghi đối chiếu nguồn và 19 POI cộng đồng) cùng 23 địa điểm thiết yếu OSM đợt 2, tất cả địa điểm OSM có trạng thái vận hành chưa xác minh. Thành phần: 3 Long Châu, 7 cây xăng, 4 ứng viên sạc VinFast, 4 cơ sở y tế, 5 điểm điện thoại, 1 giặt ủi, 3 dịch vụ giữ hành lý đặt trước, 1 điểm ATM khu sân bay, 3 cửa hàng tiện lợi và 5 gara.
 
 3 Long Châu mới có địa chỉ từ trang operator: Hàm Ninh, ĐT45 - ngã tư Nghĩa trang Liệt sĩ, 487 Nguyễn Trung Trực - Chợ Bến Tràm. Không tạo tọa độ hoặc tình trạng `OPEN` từ lịch giờ chung của chuỗi.
 
 Cây xăng Petrolimex và 4 ứng viên sạc có tọa độ node OSM, lưu `verified=false`, `operational_status=UNKNOWN`, `map.precision=site_centroid`, không có giờ mở cửa giả định. Giao diện phải ghi rõ chỉ là vị trí tham khảo; không tính khoảng cách từ GPS OSM chưa xác minh. Sạc phải dẫn người dùng đến hướng dẫn chính thức VinFast/V-Green để kiểm tra điều kiện sử dụng và trạng thái trạm. Trạm xăng Petrolimex tại Nam đảo gần cây xăng Mỹ Anh và một điểm KTC Gành Dầu trùng pin Nhi Phụng **chưa nhập canonical** để tránh gắn nhầm cùng cơ sở.
+
+## Bổ sung hữu ích đợt 2
+23 ứng viên OSM được lọc từ danh sách cũ: 5 nhà/quầy thuốc có tên, 6 ATM, 3 bưu cục, 2 tiệm giặt, 4 cửa hàng tiện lợi, 3 điểm DDS Petro Nam đảo. Giữ `verified=false`, `operational_status=UNKNOWN` và ghi ODbL cho từng POI; riêng nhà/quầy thuốc phải ghi rõ chưa kiểm tra giấy phép hiện hành.
+
+## Kiểm toán bản đồ khách sạn
+Bản chỉ mục cũ có 158 khách sạn, 123 pin; canonical hiện có đúng 158 khách sạn nhưng chỉ có 63 pin. **60 pin còn lại đều là kết quả Photon/OSM geocoding hoặc một điểm OSM chưa đủ độ tin cậy, chỉ có 15 cặp tọa độ cho 60 khách sạn** (có điểm gắn trùng 15 khách sạn). Trong đó 41 `area_anchor`, 13 `site_centroid`, 6 `route_anchor`, không điểm nào là `exact_entrance`. Tớ lưu lại cả 60 nguồn và tọa độ trong `hotel-stale-geocode-audit.json`; không phục hồi hàng loạt những pin có thể đưa khách đến nhầm nơi. Danh bạ 158 khách sạn và tra cứu tên/địa chỉ vẫn được giữ.
 
 ## Quy tắc nguồn và xuất bản
 - OPERATOR / REGULATOR mới: có thể đưa tên, địa chỉ vào danh bạ; không suy thành xác nhận đang mở, hết đóng hoặc còn chỗ.
