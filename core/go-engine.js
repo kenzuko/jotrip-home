@@ -30,7 +30,7 @@
   }
   function minutesBudget(value,now){
     if(value==="evening")return Math.max(0,23*60-Math.max(now,17*60));
-    return ({two:120,half:300,full:600})[value]||120;
+    return ({two:120,half:300,full:720})[value]||120;
   }
   function windows(e,cfg,input){
     const oh=e.opening_hours||{};
