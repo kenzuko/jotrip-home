@@ -97,7 +97,9 @@ jobs:
           gpg --batch --import "$GITHUB_WORKSPACE/.github/backup-keys/jotrip-trip-20260926-public.asc" > /dev/null 2>&1
           FILE="/tmp/jotrip-trip-encrypted-artifact/jotrip-trip-d1-full-$GITHUB_RUN_ID.sql.gpg"
           gpg --batch --yes --trust-model always --recipient "$GPG_RECIPIENT" --output "$FILE" --encrypt "$WORK/full.sql"
-          gpg --batch --list-packets "$FILE" 2>/dev/null | grep -q '^:pubkey enc packet:' || { echo "::error::Encrypted file validation failed"; exit 7; }
+          # GPG returns status 2 without a private key even when it can parse a valid encrypted packet.
+          gpg --batch --list-packets "$FILE" > "$WORK/packets.txt" 2>/dev/null || true
+          grep -q '^:pubkey enc packet:' "$WORK/packets.txt" || { echo "::error::Encrypted file validation failed"; exit 7; }
           FILE="$FILE" python3 - <<'PY'
           import datetime,hashlib,json,os,pathlib
           p=pathlib.Path(os.environ["FILE"])
