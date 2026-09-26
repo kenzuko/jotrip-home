@@ -103,7 +103,7 @@ Nulls in the example mean values are omitted from the example; a runtime respons
 
 ### Status vocabulary
 
-- Overall source status: OK, PARTIAL, UNAVAILABLE or INVALID.
+- Overall source status: OK, PARTIAL, UNAVAILABLE or INVALID. PARTIAL means at least one requested item has unsupported scope; source failure/invalidity is reported as UNAVAILABLE/INVALID.
 - Per-item status: OK, PARTIAL, UNKNOWN or UNAVAILABLE. BRACKET_ONLY is PARTIAL because no frame falls inside the requested window.
 - Temporal coverage: IN_WINDOW_FRAMES, BRACKET_ONLY, NO_COVERAGE or NOT_EVALUATED. Use NOT_EVALUATED when the source is unavailable/invalid or the requested scope is unsupported; use NO_COVERAGE only after a valid forecast was read and no useful frame covers the window.
 - Spatial scope for forecast values: NATIVE_GRID_CELL.
