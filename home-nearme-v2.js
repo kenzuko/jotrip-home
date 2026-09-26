@@ -105,6 +105,7 @@
    '<div class="near-result-actions">'+
     '<a href="'+esc(maps)+'" target="_blank" rel="noopener noreferrer" aria-label="'+(row.verified===false?"Xem vị trí tham khảo":"Chỉ đường")+' tới '+esc(row.name)+'">↗ '+(row.verified===false?"Vị trí tham khảo":"Chỉ đường")+'</a>'+
     (row.external_verify_url?'<a href="'+esc(row.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
+    (row.source_license==="ODbL-1.0"?'<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Nguồn OSM ↗</a>':"")+
     (phone?'<a href="'+esc(phone)+'" aria-label="Gọi '+esc(row.name)+'">☎ Gọi điện</a>':"")+
    '</div></article>';
  }
