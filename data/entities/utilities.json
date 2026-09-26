@@ -1129,6 +1129,114 @@
         }
       ],
       "updated_at": "2026-09-25"
+    },
+    {
+      "id": "utility_longchau_ham_ninh",
+      "legacy_id": "longchau-ham-ninh",
+      "entity_type": "utility",
+      "slug": "longchau-ham-ninh",
+      "name": "Nhà thuốc Long Châu - Hàm Ninh",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "Thửa đất 32, bản đồ 24, đường ĐT47 (ngã tư chợ Hàm Ninh), Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "1800 6928",
+      "phone_scope": "CHAIN",
+      "phone_note": "Tổng đài Long Châu; không phải số điện thoại trực tiếp của chi nhánh.",
+      "what_it_is": "Nhà thuốc Long Châu; địa chỉ theo thông tin hệ thống và hồ sơ đối chiếu.",
+      "opening_hours_note": "Khung hệ thống tham khảo 06:00-23:00; giờ từng chi nhánh chưa được xác minh.",
+      "current_status": "UNKNOWN",
+      "live_check_required": true,
+      "verified": false,
+      "identity_review_status": "OPERATOR_DIRECTORY_LISTED",
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "longchau_angiang_directory_20260926",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
+          "checked_at": "2026-09-26"
+        },
+        {
+          "source_id": "pharmacy_intake_20260926",
+          "path": "data/intake/pharmacy/phuquoc-2026-09-26.json"
+        }
+      ],
+      "updated_at": "2026-09-26",
+      "map_review_note": "Chưa có GPS cổng vào; không sinh pin từ tọa độ khu vực."
+    },
+    {
+      "id": "utility_longchau_dt45",
+      "legacy_id": "longchau-dt45",
+      "entity_type": "utility",
+      "slug": "longchau-dt45",
+      "name": "Nhà thuốc Long Châu - ĐT45 - Nghĩa trang Liệt sĩ",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "Thửa đất 59, bản đồ 12, đường ĐT45 (ngã tư Nghĩa trang Liệt sĩ), Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "1800 6928",
+      "phone_scope": "CHAIN",
+      "phone_note": "Tổng đài Long Châu; không phải số điện thoại trực tiếp của chi nhánh.",
+      "what_it_is": "Nhà thuốc Long Châu; địa chỉ theo thông tin hệ thống và hồ sơ đối chiếu.",
+      "opening_hours_note": "Khung hệ thống tham khảo 06:00-23:00; giờ từng chi nhánh chưa được xác minh.",
+      "current_status": "UNKNOWN",
+      "live_check_required": true,
+      "verified": false,
+      "identity_review_status": "NEEDS_CURRENT_OPERATOR_CONFIRMATION",
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "longchau_angiang_directory_20260926",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
+          "checked_at": "2026-09-26"
+        },
+        {
+          "source_id": "pharmacy_intake_20260926",
+          "path": "data/intake/pharmacy/phuquoc-2026-09-26.json"
+        }
+      ],
+      "updated_at": "2026-09-26",
+      "map_review_note": "Chưa có GPS cổng vào; không sinh pin từ tọa độ khu vực."
+    },
+    {
+      "id": "utility_longchau_ben_tram",
+      "legacy_id": "longchau-ben-tram",
+      "entity_type": "utility",
+      "slug": "longchau-ben-tram",
+      "name": "Nhà thuốc Long Châu - Chợ Bến Tràm",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "487 Nguyễn Trung Trực (Chợ Bến Tràm), Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "phone": "1800 6928",
+      "phone_scope": "CHAIN",
+      "phone_note": "Tổng đài Long Châu; không phải số điện thoại trực tiếp của chi nhánh.",
+      "what_it_is": "Nhà thuốc Long Châu; địa chỉ theo thông tin hệ thống và hồ sơ đối chiếu.",
+      "opening_hours_note": "Khung hệ thống tham khảo 06:00-23:00; giờ từng chi nhánh chưa được xác minh.",
+      "current_status": "UNKNOWN",
+      "live_check_required": true,
+      "verified": false,
+      "identity_review_status": "OPERATOR_DIRECTORY_LISTED",
+      "related_entities": [],
+      "source_refs": [
+        {
+          "source_id": "longchau_angiang_directory_20260926",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
+          "checked_at": "2026-09-26"
+        },
+        {
+          "source_id": "pharmacy_intake_20260926",
+          "path": "data/intake/pharmacy/phuquoc-2026-09-26.json"
+        }
+      ],
+      "updated_at": "2026-09-26",
+      "map_review_note": "Chưa có GPS cổng vào; không sinh pin từ tọa độ khu vực."
     }
   ]
 }
