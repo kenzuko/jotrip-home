@@ -749,7 +749,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         wxGood = weatherState === "good";
       } else {
         wxTitle = "Chưa đủ dữ liệu thời tiết mới tại các điểm đang theo dõi";
-        wxBadge = "CẦN KIỂM TRA";
+        wxBadge = "CHƯA RÕ";
       }
     }
 
