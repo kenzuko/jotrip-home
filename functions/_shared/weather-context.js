@@ -224,7 +224,7 @@ export async function handleWeatherWindow(request,fetchImpl=fetch){
   }
   if(items.every(item=>item.activity_scope==="marine")){
     return json({schema_version:"openpq-weather-window-context-v1",checked_at:new Date().toISOString(),
-      source_status:"OK",items:items.map(item=>sampleItem(null,item))});
+      source_status:"PARTIAL",items:items.map(item=>sampleItem(null,item))});
   }
   let forecast;
   try{forecast=await readCanonicalForecast(fetchImpl)}catch(error){
