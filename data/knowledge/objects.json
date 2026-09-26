@@ -6963,7 +6963,13 @@
           "Tài công dựa vào những gì để quyết định chuyển bãi câu trong ngày?"
         ]
       },
-      "updated_at": "2026-09-26"
+      "updated_at": "2026-09-26",
+      "public_links": [
+        {
+          "label": "Xem thêm về chuyến câu cá lớn ở An Thới",
+          "url": "https://phuquocfishingtours.com"
+        }
+      ]
     },
     {
       "topic_id": "knowledge_126_cau-muc-dem",
