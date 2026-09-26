@@ -94,7 +94,14 @@
     }
     // Research questions remain in internal data until answers are editorially verified.
     const more=el("aside","knowledge-further");
-    more.append(el("h2",null,"Xem thông tin hôm nay"));
+    more.append(el("h2",null,"Tìm hiểu thêm"));
+    for(const item of o.links||[]){
+      const link=el("a",null,item.label);
+      link.href=item.url;
+      link.target="_blank";
+      link.rel="noopener noreferrer";
+      more.append(link);
+    }
     const weather=el("a",null,"Thời tiết & biển");weather.href="/weather/";
     const map=el("a",null,"Bản đồ khám phá");map.href="/explore/";
     more.append(weather,map);root.append(more);article.append(root);
