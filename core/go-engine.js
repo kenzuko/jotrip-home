@@ -38,7 +38,7 @@
     if((oh.closed_weekdays||[]).includes(input.weekday))return [];
     if(status==="PUBLISHED_SCHEDULE"||status==="APPROXIMATE_SCHEDULE"){
       if(oh.schedule_type==="FIXED_START")return(oh.times||[]).map(t=>({start:minTime(t.start),end:minTime(t.start)+(cfg.minimum_visit_min||30),fixed:true,label:t.label||e.name})).filter(w=>Number.isFinite(w.start));
-      return(oh.windows||[]).map(w=>({start:minTime(w.start),end:minTime(w.end),fixed:false})).filter(w=>Number.isFinite(w.start)&&Number.isFinite(w.end)&&w.end>w.start);
+      return(oh.windows||[]).map(w=>({start:minTime(w.start),end:minTime(w.end),fixed:cfg.schedule_exact_window===true,label:w.label||e.name})).filter(w=>Number.isFinite(w.start)&&Number.isFinite(w.end)&&w.end>w.start);
     }
     if(cfg.soft_window){
       const start=minTime(cfg.soft_window.start),end=minTime(cfg.soft_window.end);
@@ -51,7 +51,32 @@
     const arrival=originStart+drive.minutes+(cfg.entry_buffer_min||10);
     const minVisit=cfg.minimum_visit_min||duration(e.duration)||45;
     const limit=Math.min(24*60,originStart+budget);
-    const opts=windows(e,cfg,clockValue).map(w=>{
+    const publishedWindows=windows(e,cfg,clockValue);
+    if(cfg.split_return_schedule){
+      const ride=Number.isFinite(cfg.ride_minutes)?cfg.ride_minutes:15;
+      const options=[];
+      // Published Hòn Thơm windows contain breaks: outbound and return
+      // may occur in different windows. Never assume the cable runs between.
+      for(const outbound of publishedWindows){
+        const depart=Math.max(arrival,outbound.start);
+        if(depart+ride>outbound.end)continue;
+        const readyToReturn=depart+ride+minVisit;
+        for(const inbound of publishedWindows){
+          const returnAt=Math.max(readyToReturn,inbound.start);
+          const finish=returnAt+ride+(cfg.return_buffer_min||0);
+          if(returnAt<inbound.start||finish>inbound.end||finish>limit)continue;
+          options.push({
+            start:depart,finish,arrival,
+            deadline:Math.max(0,Math.min(outbound.end-ride,returnAt-ride-minVisit)-drive.minutes-(cfg.entry_buffer_min||10)),
+            window:{fixed:true,return_start:returnAt,label:"Cáp đi "+hhmm(depart)+" · cáp về "+hhmm(returnAt)},
+            margin:Math.min(inbound.end-finish,limit-finish)
+          });
+          break;
+        }
+      }
+      return options.sort((a,b)=>a.finish-b.finish)[0]||null;
+    }
+    const opts=publishedWindows.map(w=>{
       if(w.fixed){
         if(arrival>w.start||w.end>limit)return null;
         return {start:w.start,finish:w.end,arrival,deadline:w.start-(cfg.entry_buffer_min||10)-drive.minutes,window:w,margin:w.start-arrival};
@@ -111,7 +136,10 @@
         warnings.push("Đã xác nhận một số chuyến rời cảng, chưa xác nhận chuyến bạn định đi.");
       }
       if(!fresh||!["DIRECT_CONFIRMED","RUNNING"].includes(state)){
-        warnings.push(binding==="charter_boat"
+        if(binding==="cable_car"&&cfg.schedule_owner_confirmed===true&&
+           e.opening_hours?.state==="PUBLISHED_SCHEDULE"){
+          warnings.push("Lịch cáp đã được xác nhận. Theo dõi thay đổi vận hành trong ngày đi.");
+        }else warnings.push(binding==="charter_boat"
           ?"Chưa có xác nhận riêng cho chuyến tàu câu cá hôm nay; liên hệ đơn vị tổ chức."
           :binding==="cano"?"Chưa có xác nhận cano hoạt động đủ mới trong ngày."
           :binding==="cable_car"?"Cần xác nhận lịch cáp treo và lượt về trong ngày."
@@ -166,7 +194,7 @@
       const opening=e.opening_hours||{};
       const warnings=[...liveCheck.warnings];
       if(opening.state!=="PUBLISHED_SCHEDULE")warnings.push("Khung giờ tham khảo, chưa phải xác nhận đang mở.");
-      if(ageDays(opening.verified_at,when.day)>(opening.schedule_type==="FIXED_START"?7:30))warnings.push("Nên xác nhận lại giờ hoạt động của ngày đi.");
+      if(!cfg.schedule_owner_confirmed&&ageDays(opening.verified_at,when.day)>(opening.schedule_type==="FIXED_START"?7:30))warnings.push("Nên xác nhận lại giờ hoạt động của ngày đi.");
       if(match.margin<20)warnings.push("Lịch trình khá sát giờ, nên kiểm tra đường đi và giờ nhận khách.");
       const badge=warnings.length?"CHECK":"POSSIBLE";
       results.push({
@@ -174,7 +202,7 @@
         category:cfg.category||"TRẢI NGHIỆM",badge,travel:drive,distance_km:straightKm,
         arrival:hhmm(match.arrival),starts_at:hhmm(match.start),finish_at:hhmm(match.finish),
         time_left:Math.max(0,match.deadline-when.minute),
-        timing:match.window.fixed?"Suất theo lịch "+hhmm(match.start):"Dự kiến bắt đầu "+hhmm(match.start),
+        timing:cfg.split_return_schedule?match.window.label:match.window.fixed?"Suất theo lịch "+hhmm(match.start)+" - "+hhmm(match.finish):"Dự kiến bắt đầu "+hhmm(match.start),
         note:cfg.description||e.what_it_is||"",
         warnings,source:"Lịch công bố · di chuyển ước tính",
         score:(badge==="POSSIBLE"?0:10000)+(matches(e,cfg,input.interest)&&input.interest!=="all"?-150:0)+Math.max(0,match.deadline-when.minute)*-0.2+drive.minutes*1.4+(straightKm===null?0:straightKm*2)+(cfg.order||0)
