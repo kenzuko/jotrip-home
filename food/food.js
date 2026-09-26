@@ -136,32 +136,27 @@ function renderArticle(){
     ? OpenPQVisual.gallery(images,{eyebrow:copy("food.images_eyebrow","NHÌN MÓN"),title:copy("food.images_title","Nhìn món trước khi gọi")})
     : "";
 
-  const visualFacts=window.OpenPQVisual?OpenPQVisual.quickFacts([
-    [copy("food.quick_group","Nhóm"),dish.category==="seafood"?copy("food.seafood","HẢI SẢN"):copy("food.local","MÓN ĐỊA PHƯƠNG")],
-    [copy("food.quick_taste","Vị & kết cấu"),dish.taste_texture||dish.intro],
-    [copy("food.quick_order","Khi gọi món"),dish.allergen_flags?.length?copy("food.allergy_check","Nên xem thành phần & dị ứng"):copy("food.ask_preparation","Hỏi cách chế biến")]
-  ],{label:"Hiểu nhanh món ăn"}):"";
-
-  const infographic=window.OpenPQVisual?OpenPQVisual.infographic([
-    {icon:"01",label:copy("food.origin","NGUỒN GỐC"),value:copy("food.origin_value","Món đến từ đâu?"),note:dish.origin||""},
-    {icon:"02",label:copy("food.name","TÊN GỌI"),value:copy("food.name_value","Vì sao gọi như vậy?"),note:dish.why_name||""},
-    {icon:"03",label:copy("food.eat","CÁCH ĂN"),value:copy("food.eat_value","Ăn sao cho đúng nhịp?"),note:dish.how_to_eat||""}
-  ],{eyebrow:copy("food.explainer_eyebrow","HIỂU MÓN"),title:copy("food.explainer_title","Ba chuyện đáng biết trước khi ăn")}):"";
+  const origin=dish.origin
+    ? '<section><div class="food-section-label">'+esc(copy("food.origin","NGUỒN GỐC"))+'</div><h2>'+esc(copy("food.origin_value","Món đến từ đâu?"))+'</h2><p>'+esc(dish.origin)+'</p></section>'
+    : "";
+  const nameStory=dish.why_name
+    ? '<section><div class="food-section-label">'+esc(copy("food.name","TÊN GỌI"))+'</div><h2>'+esc(copy("food.name_value","Vì sao gọi như vậy?"))+'</h2><p>'+esc(dish.why_name)+'</p></section>'
+    : "";
 
   host.innerHTML=
     '<div class="crumb">ĂN PHÚ QUỐC · '+esc(dish.category==="seafood"?copy("food.seafood","HẢI SẢN"):copy("food.local","MÓN ĐỊA PHƯƠNG"))+'</div>'+
     '<h1>'+esc(dish.name)+'</h1>'+
     '<p class="lead">'+esc(dish.intro)+'</p>'+
-    gallery+
-    visualFacts+
-    infographic+
+    origin+
+    nameStory+
     ingredientsBlock(dish)+
     (dish.taste_texture?'<section><div class="food-section-label">'+esc(copy("food.taste","VỊ & KẾT CẤU"))+'</div><h2>'+esc(copy("food.taste_title","Ăn vào sẽ cảm thấy gì?"))+'</h2><p>'+esc(dish.taste_texture)+'</p></section>':"")+
     allergenBlock(dish)+
-    '<section><div class="food-section-label">'+esc(copy("food.how_to_eat","CÁCH ĂN"))+'</div><h2>'+esc(copy("food.how_to_eat_title","Ăn sao cho ngon?"))+'</h2><p>'+esc(dish.how_to_eat||"Ăn lúc món còn ngon nhất và nêm theo khẩu vị của mình.")+'</p></section>'+
+    '<section><div class="food-section-label">'+esc(copy("food.how_to_eat","CÁCH ĂN"))+'</div><h2>'+esc(copy("food.how_to_eat_title","Ăn sao cho ngon?"))+'</h2><p>'+esc(dish.how_to_eat||"Ăn lúc món còn nóng; nêm theo khẩu vị riêng.")+'</p></section>'+
     '<section><div class="food-section-label">'+esc(copy("food.practical","LƯU Ý THỰC TẾ"))+'</div><h2>'+esc(copy("food.practical_title","Nhớ mấy chuyện này."))+'</h2><ul>'+
       (dish.tips||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+
     '</ul></section>'+
+    gallery+
     sourcesBlock(dish)+
     '<div class="food-hashtags">'+(dish.hashtags||[]).map(x=>'<span>'+esc(x)+'</span>').join("")+'</div>';
 

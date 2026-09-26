@@ -123,7 +123,7 @@
         ],
         [
           "Ảnh chợ đêm",
-          "Tư liệu chụp 28/12/2025, không xác nhận chợ đang mở"
+          "Ảnh tư liệu; không xác nhận lịch hoạt động hiện nay"
         ]
       ],
       "images": [
@@ -139,15 +139,12 @@
           "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
         },
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Making%20ice%20cream%20rolls%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1600",
-          "alt": "Quầy làm kem cuộn tại chợ đêm Phú Quốc cuối năm 2025",
-          "caption": "Quầy kem cuộn ở khu chợ đêm Dương Đông, chụp ngày 28/12/2025.",
+          "url": "https://mia.vn/media/uploads/blog-du-lich/Kem_cuon_Vo_Thi_Sau_Phu_Quoc_Mon_an_vat_duoc_du_khach_yeu_thich_01-1615797212.jpg",
+          "alt": "Người bán làm kem cuộn trên bàn lạnh ở Dương Đông",
+          "caption": "Người bán cuộn kem tại một quầy ở Dương Đông.",
           "scope": "exact_subject",
-          "source_label": "Wikimedia Commons · FrogsLegs71",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Making_ice_cream_rolls_in_Phu_Quoc_night_market_Vietnam.jpg",
-          "captured_at": "2025-12-28",
-          "license": "CC BY-SA 3.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
+          "source_label": "MIA.vn · Kem cuộn Võ Thị Sáu Phú Quốc",
+          "source_url": "https://mia.vn/cam-nang-du-lich/kem-cuon-vo-thi-sau-phu-quoc-mon-an-vat-duoc-du-khach-yeu-thich-66"
         },
         {
           "url": "https://cdn.shopify.com/s/files/1/0740/8392/6321/files/DSC05923_1024x1024.jpg?v=1712859221",
@@ -1835,12 +1832,12 @@
     "hu-tieu-muc": {
       "images": [
         {
-          "url": "https://static.vinwonders.com/2022/10/hu-tieu-muc-phu-quoc-3.jpg",
-          "alt": "Hủ tiếu mực",
-          "caption": "Hủ tiếu mực",
+          "url": "https://www.vietnamairlines.com/kr/vi/plan-book/travel/travel-guide/cac-dac-san-phu-quoc/_jcr_content/root/maincontent/container/container_911134791/container_1490556511/container_2051784589/image-10-4.coreimg.85.1600.jpeg/1767624588560/hu-tieu-muc.jpeg",
+          "alt": "Tô hủ tiếu mực ăn kèm rau và chén ớt",
+          "caption": "Hủ tiếu mực, ảnh trong cẩm nang đặc sản Phú Quốc của Vietnam Airlines.",
           "scope": "exact_subject",
-          "source_label": "VinWonders",
-          "source_url": "https://vinwonders.com/vi/wonderpedia/news/hu-tieu-muc-phu-quoc-dam-da-huong-vi-bien/",
+          "source_label": "Vietnam Airlines",
+          "source_url": "https://www.vietnamairlines.com/kr/vi/plan-book/travel/travel-guide/cac-dac-san-phu-quoc",
           "hero_priority": "preferred"
         }
       ]
@@ -1861,12 +1858,12 @@
     "com-ghe-ham-ninh": {
       "images": [
         {
-          "url": "https://static.vinwonders.com/2022/12/com-ghe-Phu-Quoc-1.jpg",
-          "alt": "Cơm ghẹ",
-          "caption": "Cơm ghẹ",
+          "url": "https://media.mia.vn/uploads/blog-du-lich/nha-hang-trung-duong-marina-phu-quoc-hai-san-ngon-va-chat-luong-phuc-vu-tuyet-voi-03-1616816526.jpg",
+          "alt": "Cơm chiên ghẹ tại nhà hàng Trùng Dương Marina, Phú Quốc",
+          "caption": "Cơm ghẹ tại Trùng Dương Marina, Phú Quốc.",
           "scope": "exact_subject",
-          "source_label": "VinWonders",
-          "source_url": "https://vinwonders.com/vi/wonderpedia/news/15-quan-com-ghe-phu-quoc/",
+          "source_label": "MIA.vn · Trùng Dương Marina",
+          "source_url": "https://mia.vn/cam-nang-du-lich/nha-hang-trung-duong-marina-phu-quoc-hai-san-ngon-va-chat-luong-phuc-vu-tuyet-voi-117",
           "hero_priority": "preferred"
         }
       ]
@@ -1955,12 +1952,12 @@
     "hau-nuong-mo-hanh": {
       "images": [
         {
-          "url": "https://static.vinwonders.com/production/hai-san-bai-khem.jpg",
-          "alt": "Hàu nướng mỡ hành",
-          "caption": "Hàu nướng mỡ hành",
+          "url": "https://product.hstatic.net/1000275435/product/478927135_611708731607302_8358439628026884469_n_c3709446753241bc838bee1e1c69e7a3_master.jpg",
+          "alt": "Hàu nướng với hành lá và đậu phộng tại Bãi Khem",
+          "caption": "Hàu nướng tại Ann Seafood, Bãi Khem.",
           "scope": "exact_subject",
-          "source_label": "VinWonders",
-          "source_url": "https://vinwonders.com/vi/wonderpedia/news/bai-khem-phu-quoc-tron-bo-kinh-nghiem-du-lich-moi-nhat/",
+          "source_label": "PATO · Ann Seafood Restaurant Bãi Khem",
+          "source_url": "https://pato.com.vn/products/ann-seafood-restaurant-bai-khem",
           "hero_priority": "preferred"
         }
       ]
@@ -1994,12 +1991,12 @@
     "banh-kheo": {
       "images": [
         {
-          "url": "https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/02_2023/dac-san-banh-kheo-phu-quoc.jpg",
-          "alt": "Khay bánh khéo nhiều hình dáng",
-          "caption": "Khay bánh khéo nhiều hình dáng",
+          "url": "https://phuquoctravel.vn/wp-content/uploads/2023/12/banh-kheo-2.jpg",
+          "alt": "Bánh khéo Phú Quốc nhiều hình dáng",
+          "caption": "Bánh khéo Phú Quốc.",
           "scope": "exact_subject",
-          "source_label": "Lữ Hành Việt Nam",
-          "source_url": "https://luhanhvietnam.com.vn/du-lich/thuong-thuc-dac-san-banh-kheo-phu-quoc.html",
+          "source_label": "Phú Quốc Travel",
+          "source_url": "https://phuquoctravel.vn/banh-kheo-phu-quoc/",
           "hero_priority": "preferred"
         }
       ]
