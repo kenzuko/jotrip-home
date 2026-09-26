@@ -1,6 +1,6 @@
 # OPEN PHU QUOC - EDITORIAL VOICE LOCK
 
-Updated: 20/09/2026
+Updated: 26/09/2026
 
 Open Phu Quoc should sound like a knowledgeable local host, not a database, brochure, or AI summary.
 
@@ -69,3 +69,18 @@ Before shipping a sentence, ask:
 - Is any internal system language leaking into the page?
 
 If the answer is no, rewrite it.
+
+
+## Editorial story, guide, and food copy
+
+- For articles written in the site's editorial voice, do not use first-person “mình” or an invented narrator such as “anh”. Prefer a natural, unforced sentence, or address the reader directly when the copy gives an instruction.
+- Let each story follow the material: local knowledge and inherited practice first, then scientific explanation where reliable research can illuminate it. Do not force a scientific frame onto a human story or claim that a study proves more than it measured.
+- Give every long-form piece its own path and rhythm. Vary openings, section count, paragraph length, and endings. Avoid stock warnings and tidy moral conclusions.
+- Add depth through distinct facts, local practice, history, sensory detail, and clearly sourced context. Do not pad an article with generic advice or repeat an explanation already given.
+- Food writing should make the dish appealing through real ingredients, aroma, texture, and how it is eaten. Praise the food through those details rather than sales language. Keep allergen and food-safety notes specific and easy to find.
+- Practical guides stay concise and useful: say what to do, what varies, and what to verify. Do not turn each guide into a feature story or repeat the same caveat across entries.
+- Keep a clear boundary between what residents have long observed, what a source reports, and what research has tested. If there is no direct study for a local claim, say so plainly and do not present a plausible explanation as proof.
+
+## Read-aloud edit
+
+Read the full piece aloud once. Rewrite any sentence that sounds like a translated template, breaks its rhythm, repeats a point, or makes the place sound worse in order to make another option look better.
