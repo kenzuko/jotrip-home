@@ -287,7 +287,8 @@
     if(item.verified===false){
       if(item.utility_type==="CHARGING")return "Vị trí do cộng đồng ghi nhận. Chưa xác minh trạm còn hoạt động, quyền vào hoặc loại trụ. Kiểm tra VinFast trước khi đi.";
       if(item.utility_type==="FUEL")return "Điểm cây xăng tham khảo từ bản đồ cộng đồng, chưa xác nhận hoạt động hoặc giờ mở cửa.";
-      return "Thông tin địa điểm tham khảo, chưa xác minh hoạt động.";
+      if(item.utility_type==="PHARMACY")return "Nhà thuốc/quầy thuốc do cộng đồng ghi nhận; chưa kiểm tra giấy phép và hiện trạng. Nguồn: © OpenStreetMap contributors (ODbL).";
+      return "Thông tin tham khảo chưa xác minh hoạt động. Dữ liệu: © OpenStreetMap contributors (ODbL).";
     }
     return "";
   }
