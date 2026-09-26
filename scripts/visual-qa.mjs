@@ -347,6 +347,9 @@ async function testNearMePage(page) {
   }
   const hotelButton = page.locator('#categoryRow [data-category="HOTEL"]');
   if (await hotelButton.count()) {
+    const categoryMore = page.locator('#categoryMore');
+    const categoryListOpen = await categoryMore.evaluate(el => el.open).catch(() => false);
+    if (!categoryListOpen) await page.locator('#categoryMore summary').click();
     await hotelButton.click();
     await page.waitForTimeout(250);
   }
