@@ -112,7 +112,13 @@ assert.equal(plan(honThom.id,hCfg,"2026-09-26T12:30:00+07:00").results.length,0,
 const goPage=fs.readFileSync("go/go.js","utf8");
 const detail=fs.readFileSync("places/detail.js","utf8");
 assert.match(goPage,/Xem tour câu cá JoTrip/);
-const nearmeHandoff=goPage.match(/function nearmeHandoffRoute\\(category\\)\\{([\\s\\S]*?)\\n  \\}/)?.[1]||"";
+const handoffStart=goPage.indexOf("function nearmeHandoffRoute(category){");
+const handoffEnd=goPage.indexOf("\n  function mapRows(){",handoffStart);
+const nearmeHandoff=handoffStart>=0&&handoffEnd>handoffStart?goPage.slice(handoffStart,handoffEnd):"";
+assert.ok(nearmeHandoff.includes('area:state.originZone||"all"'),
+  "GO map venue links must preserve the selected coarse area, defaulting explicitly to all-island");
+assert.doesNotMatch(nearmeHandoff,/state\.position|latitude|longitude/,
+  "Never put raw GPS coordinates into a Near Me URL");
 assert.match(nearmeHandoff,/area:state\\.originZone\\|\\|"all"/,
   "GO map venue links must preserve the selected coarse area, defaulting explicitly to all-island");
 assert.doesNotMatch(nearmeHandoff,/state\\.position|latitude|longitude/,
