@@ -1,0 +1,130 @@
+name: JoTrip Trip encrypted full D1 backup
+
+on:
+  push:
+    branches:
+      - audit/jotrip-trip-d1-readonly-20260926
+    paths:
+      - ".github/workflows/jotrip-trip-encrypted-backup.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: jotrip-trip-d1-encrypted-backup
+  cancel-in-progress: false
+
+jobs:
+  encrypted-backup:
+    if: github.repository == 'kenzuko/jotrip-home' && github.ref == 'refs/heads/audit/jotrip-trip-d1-readonly-20260926'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      EXPECTED_D1_ID: "17372bb5-7626-4238-8a95-fc0cf31ad18e"
+      DB_NAME: jotrip-trip-db
+      GPG_RECIPIENT: 58A0513E2CF2DA4CD40E80B1C3AA4FB08A1A9C6D
+    steps:
+      - name: Check existing Cloudflare credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$CLOUDFLARE_API_TOKEN" && test -n "$CLOUDFLARE_ACCOUNT_ID" || { echo "::error::Missing existing Cloudflare credentials"; exit 2; }
+          CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]' | sed -e 's/^"//' -e 's/"$//')"
+          test "${#CLOUDFLARE_ACCOUNT_ID}" -eq 32 || { echo "::error::Malformed Cloudflare account ID"; exit 3; }
+          echo "CLOUDFLARE_ACCOUNT_ID=$CLOUDFLARE_ACCOUNT_ID" >> "$GITHUB_ENV"
+          echo "Using pre-existing account credentials; no tokens will be printed."
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify exact production database ID, export full backup, test isolated restore and encrypt
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          WORK="$(mktemp -d /tmp/jotrip-trip-backup.XXXXXXXX)"
+          mkdir -p /tmp/jotrip-trip-encrypted-artifact
+          chmod 700 /tmp/jotrip-trip-encrypted-artifact
+          export GNUPGHOME="$(mktemp -d /tmp/jotrip-trip-gnupg.XXXXXXXX)"
+          chmod 700 "$GNUPGHOME"
+          trap 'shred -u "$WORK/full.sql" 2>/dev/null || true; rm -rf "$WORK" "$GNUPGHOME"' EXIT
+          cd "$WORK"
+          cat > wrangler.toml <<'CONFIG'
+          name = "jotrip-trip-d1-backup-audit"
+          compatibility_date = "2026-09-26"
+          [[d1_databases]]
+          binding = "DB"
+          database_name = "jotrip-trip-db"
+          database_id = "17372bb5-7626-4238-8a95-fc0cf31ad18e"
+          CONFIG
+          npx --yes wrangler@4 d1 info "$DB_NAME" --json > info.json
+          if ! grep -Fq "$EXPECTED_D1_ID" info.json; then
+            echo "::error::Unexpected remote D1 UUID; no backup was made."
+            exit 4
+          fi
+          echo "Production D1 UUID matches reviewed config. Read-only export only."
+          npx --yes wrangler@4 d1 execute "$DB_NAME" --remote --json --command "SELECT (SELECT COUNT(*) FROM chat_messages) AS chat_messages, (SELECT COUNT(*) FROM chat_sessions) AS chat_sessions, (SELECT COUNT(*) FROM d1_migrations) AS migration_records" > before.json
+          if ! npx --yes wrangler@4 d1 export "$DB_NAME" --remote --output="$WORK/full.sql" > "$WORK/export.log" 2>&1; then
+            echo "::error::Full export failed; only sanitized Cloudflare error codes follow."
+            grep -oE 'code: [0-9]+' "$WORK/export.log" | sort -u || true
+            exit 5
+          fi
+          test -s "$WORK/full.sql" || { echo "::error::Empty full backup"; exit 6; }
+          npx --yes wrangler@4 d1 execute "$DB_NAME" --remote --json --command "SELECT (SELECT COUNT(*) FROM chat_messages) AS chat_messages, (SELECT COUNT(*) FROM chat_sessions) AS chat_sessions, (SELECT COUNT(*) FROM d1_migrations) AS migration_records" > after.json
+          python3 - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          def counts(path):
+              obj=json.loads(Path(path).read_text())
+              rows=[row for entry in (obj if isinstance(obj,list) else [obj]) for row in entry.get("results",[])]
+              if len(rows)!=1: raise ValueError("Unexpected remote count response")
+              return {key:int(rows[0][key]) for key in ("chat_messages","chat_sessions","migration_records")}
+          before,after=counts("before.json"),counts("after.json")
+          if before!=after: raise ValueError("Live chat counts changed during backup; retry later")
+          conn=sqlite3.connect("restored.db")
+          conn.executescript(Path("full.sql").read_text())
+          if conn.execute("PRAGMA integrity_check").fetchone()[0]!="ok": raise ValueError("Isolated SQLite restore integrity failed")
+          actual={key:conn.execute("SELECT COUNT(*) FROM "+("d1_migrations" if key=="migration_records" else key)).fetchone()[0] for key in before}
+          if actual!=before: raise ValueError("Restored row counts do not match remote read-only snapshot")
+          tables={row[0] for row in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+          if not {"chat_messages","chat_sessions","d1_migrations"}.issubset(tables): raise ValueError("Missing required legacy tables after restore")
+          print("Isolated full SQL restore PASS; integrity_check ok; all checked legacy row counts match. No customer rows printed.")
+          PY
+          gpg --batch --import "$GITHUB_WORKSPACE/.github/backup-keys/jotrip-trip-20260926-public.asc" > /dev/null 2>&1
+          FILE="/tmp/jotrip-trip-encrypted-artifact/jotrip-trip-d1-full-$GITHUB_RUN_ID.sql.gpg"
+          gpg --batch --yes --trust-model always --recipient "$GPG_RECIPIENT" --output "$FILE" --encrypt "$WORK/full.sql"
+          gpg --batch --list-packets "$FILE" 2>/dev/null | grep -q '^:pubkey enc packet:' || { echo "::error::Encrypted file validation failed"; exit 7; }
+          FILE="$FILE" python3 - <<'PY'
+          import datetime,hashlib,json,os,pathlib
+          p=pathlib.Path(os.environ["FILE"])
+          data={"database":"jotrip-trip-db","database_uuid":"17372bb5-7626-4238-8a95-fc0cf31ad18e","created_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"file":p.name,"sha256":hashlib.file_digest(p.open("rb"),"sha256").hexdigest(),"encrypted_with":"OpenPGP RSA4096","recovery_key_fingerprint":"58A0513E2CF2DA4CD40E80B1C3AA4FB08A1A9C6D","restore_test":"isolated SQLite full SQL import, PRAGMA integrity_check and checked legacy row counts passed","production_mutations":False}
+          pathlib.Path("/tmp/jotrip-trip-encrypted-artifact/manifest.json").write_text(json.dumps(data,indent=2)+"\n")
+          print("Encrypted full backup created and verified; SHA-256:",data["sha256"])
+          PY
+          cat > /tmp/jotrip-trip-encrypted-artifact/RESTORE_README.txt <<'DOC'
+          JoTrip Trip D1 encrypted full backup.
+          The SQL backup is OpenPGP-encrypted to key 58A0513E2CF2DA4CD40E80B1C3AA4FB08A1A9C6D.
+          Keep the passphrase-protected recovery private key and its passphrase separately, offline.
+          Verify the .gpg file SHA-256 against manifest.json.
+          Offline decryption: gpg --import jotrip-trip-d1-recovery-private.asc
+          Then: gpg --output restored.sql --decrypt jotrip-trip-d1-full-<run-id>.sql.gpg
+          Test restored.sql in an isolated SQLite database before any Cloudflare import.
+          Never restore into production without separately approved rollback/reconciliation.
+          DOC
+          echo "Encrypted backup ready; plaintext removed by exit trap."
+      - name: Upload encrypted backup only (90-day temporary handoff)
+        uses: actions/upload-artifact@v4
+        with:
+          name: jotrip-trip-d1-encrypted-${{ github.run_id }}
+          path: /tmp/jotrip-trip-encrypted-artifact/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 0
+      - name: Remove encrypted runner files after upload
+        if: always()
+        shell: bash
+        run: rm -rf /tmp/jotrip-trip-encrypted-artifact
