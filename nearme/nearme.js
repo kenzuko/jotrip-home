@@ -13,6 +13,7 @@
   ];
   const QUICK_CATEGORY_IDS=["LOCAL_FOOD","PHARMACY","CLINIC_HOSPITAL","ATM","FUEL","TOILET","LAUNDRY"];
   const QUICK_LABELS={LOCAL_FOOD:"Ăn uống",PHARMACY:"Nhà thuốc",CLINIC_HOSPITAL:"Y tế",ATM:"ATM",FUEL:"Trạm xăng",TOILET:"Nhà vệ sinh",LAUNDRY:"Giặt ủi"};
+  const QUICK_SEARCHES={LOCAL_FOOD:"quán ăn",PHARMACY:"nhà thuốc",CLINIC_HOSPITAL:"bệnh viện phòng khám",ATM:"ATM",FUEL:"trạm xăng",TOILET:"nhà vệ sinh công cộng",LAUNDRY:"giặt ủi"};
 
   const AREA_VIEW={
     all:{center:[10.20,103.97],zoom:10},
@@ -44,7 +45,8 @@
   const requestedQuery=initialParams.get("q")||"";
 
   function category(id=selectedCategory){
-    return support?.near_me?.categories?.find(x=>x.id===id)||null;
+    return support?.near_me?.categories?.find(x=>x.id===id)||
+      (QUICK_LABELS[id]?{id,label:QUICK_LABELS[id],search_query:QUICK_SEARCHES[id]}:null);
   }
 
   function hasStoredVenueData(id=selectedCategory){
@@ -329,7 +331,7 @@
     const categories=support?.near_me?.categories||[];
     const available=new Set(rows.flatMap(x=>x.tags||[]));
     const cats=categories.filter(x=>available.has(x.id)||x.mode==="directory_search");
-    if(selectedCategory&&!cats.some(x=>x.id===selectedCategory)&&!available.has(selectedCategory))selectedCategory=null;
+    if(selectedCategory&&!cats.some(x=>x.id===selectedCategory)&&!available.has(selectedCategory)&&!QUICK_CATEGORY_IDS.includes(selectedCategory))selectedCategory=null;
 
     const catById=new Map(categories.map(x=>[x.id,x]));
     const configured=support?.near_me?.priority_categories||support?.near_me?.shortcut_categories;
@@ -584,7 +586,7 @@
 
     const host=$("#nearResults");
     if(!visible.length){
-      const query=searchText.trim()?googleSearchUrl(mapSearchQuery()):"";
+      const query=(searchText.trim()||selectedCategory)?googleSearchUrl(mapSearchQuery()):"";
       host.innerHTML='<div class="empty">Chưa thấy kết quả phù hợp. Thử tên khác hoặc bỏ bớt bộ lọc nhé.'+
         (query?' <a href="'+esc(query)+'" target="_blank" rel="noopener">Tìm trên Google Maps ↗</a>':"")+'</div>';
       return;
