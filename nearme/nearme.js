@@ -433,6 +433,7 @@
 
   function renderMapPoints(visible){
     updateExternalMapLink();
+    if(!mapOpen)return;
 
     if(isDiscoveryCategory()){
       showDirectoryMap(mapSearchQuery(),"Tìm trên Google Maps");
@@ -781,6 +782,4 @@
     renderControls();
     render();
   });
-
-  load();
 })();
