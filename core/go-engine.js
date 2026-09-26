@@ -226,7 +226,8 @@
       if(!["outdoor","marine"].includes(candidate.weather_scope)||out.length>=20)continue;
       const cfg=cfgById.get(candidate.id)||{};
       const from=candidate.arrival_at,to=candidate.finish_at_local;
-      if(!explicitTime(from)||!explicitTime(to)||Date.parse(to)<=Date.parse(from))continue;
+      const hasOffset=value=>typeof value==="string"&&/(?:Z|[+-]\\d{2}:\\d{2})$/.test(value)&&Number.isFinite(Date.parse(value));
+      if(!hasOffset(from)||!hasOffset(to)||Date.parse(to)<=Date.parse(from))continue;
       if(candidate.weather_scope==="marine"){
         out.push({entity_id:candidate.id,activity_scope:"marine",route_id:cfg.marine_route||cfg.marine_route_id||null,
           window:{from,to}});
