@@ -13,6 +13,10 @@ on:
       - "ecosystem-shell.css"
       - "explore/**"
       - "go/**"
+      - "core/decision-signals.js"
+      - "core/go-engine.js"
+      - "data/go-config.json"
+      - "scripts/test-decision-signals.mjs"
       - "utilities/**"
       - "currency/**"
       - "scripts/test-home-food-random.mjs"
@@ -91,9 +95,12 @@ jobs:
           node scripts/test-cms-access.mjs
           node scripts/test-nearme-venues.mjs
           node scripts/test-go-geo.mjs
+          node scripts/test-decision-signals.mjs
           node --check go/go-map.js
           node scripts/test-go-manual-ui.mjs
           node --check go/go.js
+          node --check core/decision-signals.js
+          node --check go/live-adapter.js
           node scripts/validate-home-support.mjs
           node scripts/test-trip-clock-planner.mjs
           node scripts/test-home-nearme.mjs

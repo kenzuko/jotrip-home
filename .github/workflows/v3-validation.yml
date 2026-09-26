@@ -39,8 +39,11 @@ jobs:
       - name: Test GO island map viewport and radius overlays
         run: |
           node scripts/test-go-geo.mjs
+          node scripts/test-decision-signals.mjs
           node --check go/go-map.js
           node --check go/go.js
+          node --check core/decision-signals.js
+          node --check go/live-adapter.js
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
       - name: Test current CMS permissions
