@@ -132,7 +132,7 @@ function sampleItem(forecast,item){
       .sort((a,b)=>Date.parse(b.valid_time)-Date.parse(a.valid_time))[0];
     const after=validFrames.filter(f=>Date.parse(f.valid_time)>item.to)
       .sort((a,b)=>Date.parse(a.valid_time)-Date.parse(b.valid_time))[0];
-    selected=[before,after].filter(Boolean);
+    selected=before&&after?[before,after]:[];
     temporalStatus=selected.length===2?"BRACKET_ONLY":"NO_COVERAGE";
   }
   const frames=selected.map(frame=>normalizedFrame(frame,item)).filter(Boolean);
