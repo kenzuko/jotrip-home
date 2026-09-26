@@ -24,7 +24,7 @@ jobs:
       CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       EXPECTED_D1_ID: "17372bb5-7626-4238-8a95-fc0cf31ad18e"
       DB_NAME: jotrip-trip-db
-      GPG_RECIPIENT: 58A0513E2CF2DA4CD40E80B1C3AA4FB08A1A9C6D
+      EXPECTED_CERT_SHA256: aa518a2b16814799171d9d584a0b3f745ceaaa5861fa5f323210d805f428ada3
     steps:
       - name: Check existing Cloudflare credentials
         shell: bash
@@ -94,28 +94,39 @@ jobs:
           if not {"chat_messages","chat_sessions","d1_migrations"}.issubset(tables): raise ValueError("Missing required legacy tables after restore")
           print("Isolated full SQL restore PASS; integrity_check ok; all checked legacy row counts match. No customer rows printed.")
           PY
-          gpg --batch --import "$GITHUB_WORKSPACE/.github/backup-keys/jotrip-trip-20260926-public.asc" > /dev/null 2>&1
-          FILE="/tmp/jotrip-trip-encrypted-artifact/jotrip-trip-d1-full-$GITHUB_RUN_ID.sql.gpg"
-          gpg --batch --yes --trust-model always --recipient "$GPG_RECIPIENT" --output "$FILE" --encrypt "$WORK/full.sql"
-          # GPG returns status 2 without a private key even when it can parse a valid encrypted packet.
-          gpg --batch --list-packets "$FILE" > "$WORK/packets.txt" 2>/dev/null || true
-          grep -q '^:pubkey enc packet:' "$WORK/packets.txt" || { echo "::error::Encrypted file validation failed"; exit 7; }
+          CERT="$GITHUB_WORKSPACE/.github/backup-keys/jotrip-trip-20260926-recovery-cert.pem"
+          CERT_SHA="$(openssl x509 -in "$CERT" -outform DER | sha256sum | awk '{print $1}')"
+          if [[ "$CERT_SHA" != "$EXPECTED_CERT_SHA256" ]]; then
+            echo "::error::Recovery certificate fingerprint mismatch; stopping."
+            exit 7
+          fi
+          FILE="/tmp/jotrip-trip-encrypted-artifact/jotrip-trip-d1-full-$GITHUB_RUN_ID.cms"
+          if ! openssl cms -encrypt -binary -outform DER -aes-256-gcm -in "$WORK/full.sql" -out "$FILE" "$CERT" > /dev/null 2>&1; then
+            echo "::error::CMS encryption failed; plaintext will be removed by the exit trap."
+            exit 8
+          fi
+          if ! openssl cms -cmsout -print -inform DER -in "$FILE" -noout > "$WORK/cms-inspect.txt" 2>/dev/null ||
+             ! grep -q 'algorithm: aes-256-gcm' "$WORK/cms-inspect.txt"; then
+            echo "::error::Encrypted CMS format validation failed."
+            exit 9
+          fi
+          cp "$CERT" /tmp/jotrip-trip-encrypted-artifact/recipient-cert.pem
           FILE="$FILE" python3 - <<'PY'
           import datetime,hashlib,json,os,pathlib
           p=pathlib.Path(os.environ["FILE"])
-          data={"database":"jotrip-trip-db","database_uuid":"17372bb5-7626-4238-8a95-fc0cf31ad18e","created_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"file":p.name,"sha256":hashlib.file_digest(p.open("rb"),"sha256").hexdigest(),"encrypted_with":"OpenPGP RSA4096","recovery_key_fingerprint":"58A0513E2CF2DA4CD40E80B1C3AA4FB08A1A9C6D","restore_test":"isolated SQLite full SQL import, PRAGMA integrity_check and checked legacy row counts passed","production_mutations":False}
+          data={"database":"jotrip-trip-db","database_uuid":"17372bb5-7626-4238-8a95-fc0cf31ad18e","created_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"file":p.name,"sha256":hashlib.file_digest(p.open("rb"),"sha256").hexdigest(),"encrypted_with":"CMS AES-256-GCM; RSA-4096 recipient certificate","recipient_certificate_sha256":os.environ["EXPECTED_CERT_SHA256"],"restore_test":"isolated SQLite full SQL import, PRAGMA integrity_check and checked legacy row counts passed","production_mutations":False}
           pathlib.Path("/tmp/jotrip-trip-encrypted-artifact/manifest.json").write_text(json.dumps(data,indent=2)+"\n")
           print("Encrypted full backup created and verified; SHA-256:",data["sha256"])
           PY
           cat > /tmp/jotrip-trip-encrypted-artifact/RESTORE_README.txt <<'DOC'
           JoTrip Trip D1 encrypted full backup.
-          The SQL backup is OpenPGP-encrypted to key 58A0513E2CF2DA4CD40E80B1C3AA4FB08A1A9C6D.
+          The SQL backup uses CMS AES-256-GCM with an RSA-4096 recovery certificate.
           Keep the passphrase-protected recovery private key and its passphrase separately, offline.
-          Verify the .gpg file SHA-256 against manifest.json.
-          Offline decryption: gpg --import jotrip-trip-d1-recovery-private.asc
-          Then: gpg --output restored.sql --decrypt jotrip-trip-d1-full-<run-id>.sql.gpg
-          Test restored.sql in an isolated SQLite database before any Cloudflare import.
-          Never restore into production without separately approved rollback/reconciliation.
+          Verify the .cms file SHA-256 against manifest.json before decrypting.
+          Offline decryption with OpenSSL 3:
+          openssl cms -decrypt -binary -inform DER -in jotrip-trip-d1-full-<run-id>.cms -recip recipient-cert.pem -inkey jotrip-trip-recovery-private.pem -passin file:/secure/path/passphrase.txt -out restored.sql
+          Test restored.sql in an isolated SQLite database and confirm PRAGMA integrity_check returns ok.
+          Never restore into production without separately approved rollback and schema reconciliation.
           DOC
           echo "Encrypted backup ready; plaintext removed by exit trap."
       - name: Upload encrypted backup only (90-day temporary handoff)
