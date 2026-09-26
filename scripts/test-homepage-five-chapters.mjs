@@ -28,6 +28,10 @@ for(const [label,marker] of order){
   assert.ok(at>previous,label+" missing or appears in the wrong chapter");
   previous=at;
 }
+// Chapters are internal layout groups, not numbered steps for visitors.
+const chapterLabels=[...html.matchAll(/class="home-chapter-kicker">([^<]+)<\/span>/g)].map(x=>x[1]);
+assert.deepEqual(chapterLabels,["CHỌN VIỆC ĐỂ LÀM","ĐỌC & KHÁM PHÁ","TIỆN ÍCH KHI CẦN"],
+  "Visitor-facing chapter labels should be natural words, without misleading 03/04/05 numbering");
 // Preserve critical components / working selectors, not merely their headings.
 for(const id of [
   "tripClockList","tripClockExtraList","nearQuickSearch","nearCategories",
