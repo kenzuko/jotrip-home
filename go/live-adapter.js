@@ -1,17 +1,14 @@
-/* GO consumes existing JoTrip Lab outputs through the same evidence rules as homepage.
-   No inference from canoe permits to fishing charters or from Dương Đông to An Thới. */
+/* GO reads live evidence through the same-origin Cloudflare Worker route.
+   The Worker allow-lists upstreams; this browser adapter only normalizes signals. */
 (function(root){
  "use strict";
  const SIGNALS=root.OpenPQDecisionSignals;
- const SOURCES={
-   weather:"https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/gh-pages/weather/data/critical.json",
-   marine:"https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-marine-ops/data/marine_ops/latest.json"
- };
+ const ENDPOINT="/api/go/live";
  const abortable=async(url,ms)=>{
    const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),ms);
    try{
-     const r=await fetch(url+(url.includes("?")?"&":"?")+"v="+Math.floor(Date.now()/60000),
-       {cache:"no-store",signal:controller.signal});
+     const r=await fetch(url+(url.includes("?")?"&":"?")+"t="+Math.floor(Date.now()/30000),
+       {cache:"no-store",signal:controller.signal,headers:{accept:"application/json"}});
      if(!r.ok)throw Error("HTTP "+r.status);
      return await r.json();
    }finally{clearTimeout(timer);}
@@ -28,22 +25,24 @@
    return SIGNALS?.marineCategory?.(snapshot,kind,now)||fallbackMarine(kind);
  }
  async function load(originZone,now=new Date()){
-   const [w,m]=await Promise.allSettled([abortable(SOURCES.weather,6500),abortable(SOURCES.marine,6500)]);
-   const weather=w.status==="fulfilled"?w.value:null,marine=m.status==="fulfilled"?m.value:null;
+   let payload=null;
+   try{payload=await abortable(ENDPOINT,6500);}catch{}
+   const weather=payload?.weather||null,marine=payload?.marine||null;
    const weatherByZone=Object.fromEntries(["zone_central_west","zone_south","zone_north"]
      .map(zone=>[zone,weatherState(weather,zone,now)]));
+   const weatherHealth=payload?.source_status?.weather||"UNAVAILABLE";
+   const marineHealth=payload?.source_status?.marine||"UNAVAILABLE";
    return {
      weather:weatherByZone[originZone]||fallbackWeather(),
      weather_by_zone:weatherByZone,
      cano:marineState(marine,"cano",now),
      fast_boat:marineState(marine,"fast_boat",now),
      ferry:marineState(marine,"ferry",now),
-     // marine_ops currently reports cano / commercial ferry / fast-boat categories,
-     // not individually confirmed fishing charter departures.
+     // Current marine_ops does not confirm individual charter departures.
      charter_boat:marineState(marine,"charter_boat",now),
      marine_route:{},
-     health:{weather:w.status,marine:m.status},
-     sources:{weather:"/weather/",marine:"/cano/",charter_boat:null}
+     health:{weather:weatherHealth,marine:marineHealth,endpoint:payload?"OK":"UNAVAILABLE"},
+     sources:{weather:"/weather/",marine:"/cano/",charter_boat:null,context:ENDPOINT}
    };
  }
  root.OpenPQGoLive={load,weatherState,marineState};

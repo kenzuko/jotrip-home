@@ -41,4 +41,17 @@ const fixed=(time)=>({state:"PUBLISHED_SCHEDULE",schedule_type:"FIXED_START",tim
   assert.equal(r.results[0].badge,"CHECK");
 }
 
+
+{
+  const entities=["a","b","c","d"].map(id=>entity("place_"+id,"zone_central_west",pub([{start:"07:00",end:"21:00"}]),"45 phút"));
+  const config={activities:entities.map(e=>({entity_id:e.id,minimum_visit_min:45,entry_buffer_min:5,environment:"outdoor",intents:["relax"]}))};
+  const r=engine.plan({now:"2026-09-25T08:00:00Z",originZone:"zone_central_west",available:"two",interest:"relax",entities,config,live:{},notices:[]});
+  assert.equal(r.results.length,3,"the visible recommendation list should remain capped at three");
+  assert.equal(r.remaining.length,1,"additional eligible candidates should remain available");
+  assert.equal(r.eligible.length,4,"forecast evaluation must be able to inspect every eligible candidate before display truncation");
+  assert.equal(r.eligible[0].arrival_at,"2026-09-25T15:30+07:00","arrival should retain the Vietnam local date and UTC+7 offset");
+  assert.equal(r.eligible[0].starts_at_local,"2026-09-25T15:30+07:00");
+  assert.equal(r.eligible[0].finish_at_local,"2026-09-25T16:15+07:00");
+}
+
 console.log("go-engine tests passed");
