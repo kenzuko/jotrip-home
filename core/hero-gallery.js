@@ -42,36 +42,23 @@
     local("vinwonders-show","media/editorial-vinwonders-show.jpg","SẮC MÀU VỀ ĐÊM","Sân khấu và ánh đèn tại VinWonders Phú Quốc","night","Ảnh: kho tư liệu JoTrip"),
     cc("kiss-aerial","Kiss Bridge Phu Quoc aerial sunset view.jpg","Vivu Vietnam","CC BY 4.0","CẦU HÔN TRONG ÁNH CHIỀU","Toàn cảnh Cầu Hôn và Sunset Town trong ánh chiều","sunset"),
     cc("kiss-panorama","Kiss Bridge at sunset Phu Quoc Island Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","MỘT CUỘC HẸN VỚI HOÀNG HÔN","Cầu Hôn trên biển vào lúc hoàng hôn","sunset"),
-    cc("kiss-silhouettes","Kiss Bridge sunset silhouette crowd Phu Quoc Island Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","ÁNH CHIỀU VÀ NHỮNG CUỘC HẸN","Bóng người ngắm hoàng hôn trên Cầu Hôn","people"),
-    cc("sunset-clock","Sunset-town.jpg","Vivu Vietnam","CC BY-SA 4.0","THÁP ĐỒNG HỒ RỰC SÁNG","Tháp đồng hồ Sunset Town trong ánh nắng chiều","city"),
+    cc("sunset-cc0","1 Phu Quoc sunset.jpg","Elmschrat","CC0","PHÚ QUỐC, GIỜ MẶT TRỜI LẶN","Mặt trời lặn trên biển Phú Quốc","sunset"),
+    cc("sunset-clock","Sunset-town-phu-quoc-2.jpg","Vivu Vietnam","CC BY-SA 4.0","THÁP ĐỒNG HỒ RỰC SÁNG","Tháp đồng hồ Sunset Town trong ánh nắng chiều","city"),
     cc("sunset-citywide","Sunset-town-phu-quoc-2.jpg","Vivu Vietnam","CC BY-SA 4.0","SẮC MÀU PHỐ BIỂN","Dãy nhà nhiều màu ở Sunset Town nhìn từ xa","city"),
     cc("sunset-night","Sunset Town Phu Quoc at night.jpg","Vivu Vietnam","CC BY-SA 4.0","PHỐ BIỂN LÊN ĐÈN","Sunset Town rực rỡ về đêm trong một đêm có show","night"),
     cc("night-fireworks","Kiss of the Sea fireworks show Sunset Town Sun World Phu Quoc night Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","MỘT ĐÊM RỰC RỠ","Pháo hoa trong chương trình Kiss of the Sea tại Sunset Town","night"),
-    cc("night-clock","Fireworks Campanile Scenic Observatory night Phu Quoc Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","KHI BẦU TRỜI BỪNG SÁNG","Ánh sáng chương trình biểu diễn bên tháp đồng hồ","night"),
-    cc("night-market-wide","Night market in Phu Quoc.jpg","Tonbi ko","CC BY-SA 4.0","CHỢ ĐÊM PHÚ QUỐC","Không khí chợ đêm ở Phú Quốc","market"),
-    cc("night-market-fruit","Selling fruit in Phu Quoc night market Vietnam.jpg","FrogsLegs71","CC BY-SA 3.0","SẮC MÀU CHỢ ĐÊM","Một quầy trái cây trong chợ đêm Phú Quốc","market"),
+    cc("night-clock","Symphony of the Sea fireworks Campanile scenic observatory Phu Quoc Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","KHI BẦU TRỜI BỪNG SÁNG","Ánh sáng chương trình biểu diễn bên tháp đồng hồ","night"),
+        cc("night-market-fruit","Selling fruit in Phu Quoc night market Vietnam.jpg","FrogsLegs71","CC BY-SA 3.0","SẮC MÀU CHỢ ĐÊM","Một quầy trái cây trong chợ đêm Phú Quốc","market"),
     cc("night-market-ice","Making ice cream rolls in Phu Quoc night market Vietnam.jpg","FrogsLegs71","CC BY-SA 3.0","HƯƠNG VỊ VỀ ĐÊM","Quầy kem cuộn ở chợ đêm Phú Quốc","food"),
     cc("kem-aerial","Kem Beach aerial view Phu Quoc Island Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","BIỂN XANH BÃI KHEM","Toàn cảnh Bãi Khem và hàng dừa nhìn từ trên cao","beach"),
-    cc("long-beach","Phu Quoc Beach.jpg","FrogsLegs71","CC BY-SA 3.0","BỜ BIỂN BUỔI TRƯA","Bãi biển Phú Quốc trong ánh nắng ban ngày","beach"),
+    cc("long-beach-sunset-sunset","Sunset on the Long Beach in Phu Quoc Island, Vietnam, 5 March 2019.jpg","Alexey Komarov","CC BY-SA 4.0","HOÀNG HÔN BÃI TRƯỜNG","Mặt trời lặn trên Bãi Trường Phú Quốc","sunset"),
     cc("an-thoi-harbor","An Thoi fishing harbour Sunset Town Sun World Phu Quoc Vietnam.jpg","Vivu Vietnam","CC BY-SA 4.0","CỬA NGÕ NAM ĐẢO","Tàu ghe An Thới và Sunset Town nhìn từ trên cao","harbor"),
     cc("fish-sauce-vats","Vats at a Fish Sauce Factory on Phu Quoc Island in Vietnam 01.jpg","Frank Fox","CC BY-SA 4.0","NHỮNG MÙA MẮM TRONG NHÀ THÙNG","Các thùng gỗ ủ nước mắm truyền thống ở Phú Quốc","culture",1400),
     cc("pepper-farm","Pepper farm in vietnam.JPG","Tonbi ko","CC BY-SA 4.0","MÙI CAY CỦA ĐẤT ĐỎ","Vườn tiêu trên đảo Phú Quốc","culture",1500),
     cc("fishing-boat-cc0","Fishing boat Phu Quoc.jpg","Elmschrat","CC0","BUỔI SÁNG Ở BẾN CẢNG","Ghe đánh cá tại cảng Phú Quốc","harbor"),
-    cc("waterfall-tranh","Phu quoc suoi tranh.jpg","ntt","CC BY-SA 3.0","MỘT GÓC RỪNG XANH","Dòng thác ở Suối Tranh Phú Quốc","forest",1500),
-    cc("shore-sao","Phu quoc plage sao.jpg","ntt","CC BY-SA 3.0","MỘT GÓC BÃI SAO","Bờ cát trắng ở Bãi Sao Phú Quốc","beach",1500)
+    cc("waterfall-tranh","Suối Tranh Phú Quốc (37732306046).jpg","Sketyl","CC BY-SA 4.0","MỘT GÓC RỪNG XANH","Dòng thác ở Suối Tranh Phú Quốc","forest",1500),
+    cc("shore-sao","Bai Sao, Phú Quốc, Vietnam (3870300491).jpg","Wikimedia Commons","CC BY-SA 2.0","MỘT GÓC BÃI SAO","Bờ cát trắng ở Bãi Sao Phú Quốc","beach",1500)
   ];
-  // A genuine photograph from JoTrip's licensed-image folder is reserved for
-  // mobile sunset compositions; the desktop scene still uses wide photography.
-  list.find(x=>x.id==="kiss-silhouettes").mobile={
-    src:"/assets/hero/romantic-sunset-licensed.jpg",
-    alt:"Hai người ngồi bên nhau ngắm mặt trời lặn bên biển",
-    credit:"Kho ảnh được cấp quyền cho JoTrip",sourceUrl:null,license:null,licenseUrl:null
-  };
-  list.find(x=>x.id==="fishing-golden").mobile={
-    src:"/assets/hero/fishing-sunset-licensed.jpg",
-    alt:"Ghe tàu và những người ngồi ngắm mặt trời lặn bên biển Phú Quốc",
-    credit:"Kho ảnh được cấp quyền cho JoTrip",sourceUrl:null,license:null,licenseUrl:null
-  };
   const byId=Object.fromEntries(list.map(item=>[item.id,item]));
   // Each contextual shelf contains considerably more than the four slides
   // actually displayed. Leads have been selected for visual impact.
@@ -81,27 +68,27 @@
       support:["island-jetty","ho-quoc-wide","tropical-cove","pepper-farm","may-rut","shore-sao","beach-aerial","fishing-trip"]},
     noon:{
       leads:["island-jetty","kem-aerial","beach-aerial","may-rut","tropical-cove"],
-      support:["tropical-beach","long-beach","reef-coast","shore-sao","snorkeling","fishing-trip","ho-quoc-wide","an-thoi-harbor"]},
+      support:["tropical-beach","long-beach-sunset","reef-coast","shore-sao","snorkeling","fishing-trip","ho-quoc-wide","an-thoi-harbor"]},
     afternoon:{
       leads:["tropical-beach","tropical-cove","an-thoi-harbor","sunset-citywide","fishing-trip-golden"],
-      support:["kem-aerial","ho-quoc-wide","may-rut","fishing-fleet","long-beach","vinwonders-castle","fishing-golden","sunset-clock"]},
+      support:["kem-aerial","ho-quoc-wide","may-rut","fishing-fleet","long-beach-sunset","vinwonders-castle","fishing-golden","sunset-clock"]},
     sunset:{
-      leads:["kiss-aerial","kiss-panorama","sunset-clock","fishing-golden","kiss-silhouettes"],
-      support:["sunset-citywide","fishing-trip-golden","an-thoi-harbor","ho-quoc-wide","kiss-silhouettes","fishing-golden","night-market-wide"]},
+      leads:["kiss-aerial","kiss-panorama","sunset-clock","fishing-golden","sunset-cc0"],
+      support:["sunset-citywide","fishing-trip-golden","an-thoi-harbor","ho-quoc-wide","sunset-cc0","fishing-golden","night-market-fruit"]},
     night:{
-      leads:["sunset-night","night-fireworks","night-clock","night-market-wide"],
+      leads:["sunset-night","night-fireworks","night-clock","night-market-fruit"],
       support:["night-market-fruit","night-market-ice","night-fishing","vinwonders-show","grilled-squid","fresh-squid","sunset-clock"]},
     cloudy:{
       leads:["fishing-fleet","ho-quoc-wide","tropical-cove","fish-sauce-vats"],
-      support:["pepper-farm","fishing-aerial","waterfall-tranh","ho-quoc-detail","tropical-beach","night-market-wide","an-thoi-harbor"]},
+      support:["pepper-farm","fishing-aerial","waterfall-tranh","ho-quoc-detail","tropical-beach","night-market-fruit","an-thoi-harbor"]},
     rainy:{
-      leads:["fish-sauce-vats","ho-quoc-detail","pepper-farm","night-market-wide"],
+      leads:["fish-sauce-vats","ho-quoc-detail","pepper-farm","night-market-fruit"],
       support:["night-market-fruit","night-market-ice","fresh-squid","grilled-squid","waterfall-tranh","ho-quoc-wide","fishing-fleet"]},
     "rainy-night":{
-      leads:["night-market-wide","night-market-fruit","sunset-night","night-market-ice"],
+      leads:["night-market-fruit","night-market-fruit","sunset-night","night-market-ice"],
       support:["fish-sauce-vats","night-fishing","vinwonders-show","fresh-squid","grilled-squid","night-fireworks"]},
     "cloudy-night":{
-      leads:["sunset-night","night-market-wide","night-market-fruit"],
+      leads:["sunset-night","night-market-fruit","night-market-fruit"],
       support:["night-market-ice","night-fishing","vinwonders-show","fresh-squid","fish-sauce-vats","night-fireworks"]}
   };
   const vnDay=date=>{
