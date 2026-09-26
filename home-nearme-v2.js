@@ -137,13 +137,13 @@
  }
  function onCategory(id){category=category===id?null:id;$(".near-me-section")?.classList.remove("near-show-other");syncControls();render().then(revealResultsOnMobile)}
  function bind(){
- function clearGpsToCoarseArea(status){
+ async function clearGpsToCoarseArea(status){
   gps=null;
   const shared=window.OpenPQArea?.get();
   if(shared&&shared!=="all")area=shared;
   else if(area==="all")area=null;
   syncControls();
-  render();
+  await render();
   setStatus(status);
  }
   $("#nearAreaToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-areas");syncCompactState()});
