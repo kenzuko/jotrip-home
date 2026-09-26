@@ -251,16 +251,30 @@ async function testHomeFoundation(page) {
     const newsHeading=document.querySelector('#hot-now .section-heading .eyebrow');
     const foodSection=document.querySelector('#food-now');
     const newsSection=document.querySelector('#hot-now');
+    const editorial=document.querySelector('[data-home-chapter="read"]');
+    const editorialRect=editorial?.getBoundingClientRect();
     const spacing=foodGrid&&newsHeading&&foodSection&&newsSection ? {
       gap:Math.round(newsHeading.getBoundingClientRect().top-foodGrid.getBoundingClientRect().bottom),
+      foodToEditorial:editorialRect?Math.round(editorialRect.top-foodGrid.getBoundingClientRect().bottom):null,
+      editorialToNews:editorialRect?Math.round(newsHeading.getBoundingClientRect().top-editorialRect.bottom):null,
+      editorialVisible:!!editorialRect&&editorialRect.height>=50&&
+        getComputedStyle(editorial).display!=="none",
       foodBottomPadding:getComputedStyle(foodSection).paddingBottom,
       newsTopPadding:getComputedStyle(newsSection).paddingTop,
       containerRowGap:getComputedStyle(foodSection.parentElement).rowGap,
       viewport:window.innerWidth
     } : null;
     const acceptableGap=window.innerWidth<=760 ? 48 : 62;
+    // A visible editorial introduction intentionally separates the decision
+    // chapter (food) from the reading chapter (news). Measure the spaces on
+    // EACH side of that content, not the aggregate food-to-news distance.
+    const editorialSpacing=!!spacing&&spacing.editorialVisible&&
+      spacing.foodToEditorial>=12&&spacing.foodToEditorial<=95&&
+      spacing.editorialToNews>=10&&spacing.editorialToNews<=95;
+    const legacySpacing=!!spacing&&!editorial&&
+      spacing.gap>=18&&spacing.gap<=acceptableGap;
     const checks = {
-      foodNewsSpacing:!!spacing&&spacing.gap>=18&&spacing.gap<=acceptableGap,
+      foodNewsSpacing:editorialSpacing||legacySpacing,
       localTime: !!text('#tripClockNow') && text('#tripClockNow') !== '--:--',
       clockPanelCompactAfterToggle: sidebarLayout.ok,
       // Never manufacture three open attractions at night solely to pass CI.
