@@ -37,6 +37,7 @@
   let nearMap=null;
   let markerLayer=null;
   let userLayer=null;
+  let radiusLayer=null;
   const markerById=new Map();
 
   const initialParams=new URLSearchParams(location.search);
@@ -165,6 +166,7 @@
     }
     markerLayer=window.L.layerGroup().addTo(nearMap);
     userLayer=window.L.layerGroup().addTo(nearMap);
+    radiusLayer=window.L.layerGroup().addTo(nearMap);
     setTimeout(()=>nearMap.invalidateSize(),120);
   }
 
@@ -476,6 +478,11 @@
       markerById.set(x.id,marker);
     }
 
+    radiusLayer?.clearLayers();
+    const center=radiusKm!==null?radiusCenter():null;
+    if(center&&validPoint(center)&&window.L?.circle){
+      window.L.circle([Number(center.lat),Number(center.lon)],{radius:Number(radiusKm)*1000,color:"#318d82",fillColor:"#6ac4ae",fillOpacity:.10,weight:2}).addTo(radiusLayer);
+    }
     if(position)showUserLocation(position);
     else setAreaView(selectedArea);
 
