@@ -382,9 +382,11 @@ async function testNearMePage(page) {
 
 async function testGoPage(page) {
   await page.waitForFunction(() => document.querySelectorAll('#areaChoices input[name="origin"]').length === 3, { timeout: 12000 }).catch(() => {});
-  const area = page.locator('#areaChoices input[name="origin"][value="zone_south"]');
-  if (await area.count()) await area.check({ force: true });
-  await page.locator('#goRadiusButtons button[data-km="2"]').click().catch(() => {});
+  await page.evaluate(() => {
+    const area=document.querySelector('#areaChoices input[name="origin"][value="zone_south"]');
+    if(area){area.checked=true;area.dispatchEvent(new Event('change',{bubbles:true}));}
+    document.querySelector('#goRadiusButtons button[data-km="2"]')?.click();
+  });
   await page.waitForTimeout(250);
   const state = await page.evaluate(() => ({
     choices: document.querySelectorAll('#areaChoices input[name="origin"]').length,
