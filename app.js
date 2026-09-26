@@ -318,6 +318,7 @@ const heroPrev = document.querySelector('.hero-prev');
 const heroNext = document.querySelector('.hero-next');
 const heroCount = document.querySelector('.hero-scene-count');
 const heroLabel = document.querySelector('.hero-scene-label');
+const heroCredit = document.querySelector('.hero-credit');
 const heroProgress = document.querySelector('.hero-progress');
 
 const HERO_SCENES = {
@@ -334,16 +335,16 @@ const HERO_SCENES = {
     alt:"Vườn tiêu Phú Quốc",label:"MÙI CAY CỦA ĐẤT ĐỎ"
   },
   harbor: {
-    src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1800",
-    alt:"Ghe tàu ven biển Phú Quốc",label:"NHỊP SỐNG VEN BIỂN"
+    src:"/assets/photos/fishing-boats-jo-library.jpg",
+    alt:"Những chiếc ghe neo trên biển nhìn từ trên cao",label:"NHỊP SỐNG VEN BIỂN",credit:"Ảnh: Internet · kho JoTrip"
   },
   islands: {
-    src:"/assets/photos/tour-3-islands-jotrip-1600.jpg",
-    alt:"Một chuyến khám phá các đảo nhỏ phía Nam Phú Quốc",label:"MỘT NGÀY NGOÀI ĐẢO"
+    src:"/assets/photos/island-jetty-jo-library.jpg",
+    alt:"Bến thuyền và bãi biển nhìn từ trên cao",label:"MỘT NGÀY NGOÀI ĐẢO",credit:"Ảnh: Internet · kho JoTrip"
   },
   saoBeach: {
-    src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai%20Sao%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam%20%283870300491%29.jpg?width=1800",
-    alt:"Biển Bãi Sao, Phú Quốc",label:"BIỂN XANH BÃI SAO"
+    src:"/assets/photos/beach-aerial-jo-library.webp",
+    alt:"Bãi cát trắng, hàng dừa và biển xanh nhìn từ trên cao",label:"GÓC BIỂN PHÚ QUỐC",credit:"Ảnh: Internet · kho JoTrip"
   },
   goldenHour: {
     src:"/assets/media/jotrip-big-game-fishing-golden-hour-2025.jpg",
@@ -386,6 +387,7 @@ function useHeroMood(mood){
     const scene=HERO_SCENES[keys[i]];
     if(!scene)return;
     slide.dataset.label=scene.label;
+    slide.dataset.credit=scene.credit||(scene.src.startsWith('/assets/media/')?'Ảnh: JoTrip':'Ảnh: Wikimedia Commons');
     const photo=slide.querySelector("img");
     if(!photo)return;
     photo.alt=scene.alt;
@@ -459,6 +461,7 @@ function showHeroSlide(index,userInitiated=false){
   });
   if(heroCount)heroCount.textContent=String(heroIndex+1).padStart(2,"0")+" / "+String(heroSlides.length).padStart(2,"0");
   if(heroLabel)heroLabel.textContent=heroSlides[heroIndex]?.dataset.label||"";
+  if(heroCredit)heroCredit.textContent=heroSlides[heroIndex]?.dataset.credit||"Ảnh: kho JoTrip";
   restartHeroProgress();
   if(userInitiated)restartHeroAutoplay();
 }

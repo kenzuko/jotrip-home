@@ -1,0 +1,57 @@
+{
+  "version": "2026-09-26.1",
+  "collection": "JOTRIP_INTERNET_IMAGES",
+  "usage": "Open Phu Quoc CMS homepage and editorial media library",
+  "policy": {
+    "exclude": "All files whose original filename starts with shutterstock_",
+    "public_credit": "Ảnh: Internet · kho JoTrip",
+    "rights": "Uploader permitted use of the remaining collection; original creator and independent publication license not yet verified. Replace generic credit with photographer/source when known.",
+    "location": "Do not label a specific beach, resort, or island unless verified."
+  },
+  "items": [
+    {
+      "id": "beach-aerial",
+      "path": "/assets/photos/beach-aerial-jo-library.webp",
+      "original_filename": "2-17809977207612097081655.png.webp",
+      "alt": "Bãi cát trắng, hàng dừa và biển xanh nhìn từ trên cao",
+      "subject": "beach",
+      "exact_location_verified": false,
+      "used_on": [
+        "homepage-hero"
+      ]
+    },
+    {
+      "id": "island-jetty",
+      "path": "/assets/photos/island-jetty-jo-library.jpg",
+      "original_filename": "5f56d88f-47dd-4f14-82dd-b21aee9c4c44.jpg",
+      "alt": "Bến thuyền và bãi biển nhìn từ trên cao",
+      "subject": "island-tour",
+      "exact_location_verified": false,
+      "used_on": [
+        "homepage-hero"
+      ]
+    },
+    {
+      "id": "fishing-boats",
+      "path": "/assets/photos/fishing-boats-jo-library.jpg",
+      "original_filename": "68Stunning-view-of-Phu-Quoc-island-from-above-1.jpg",
+      "alt": "Ghe thuyền neo trên mặt biển nhìn từ trên cao",
+      "subject": "boats",
+      "exact_location_verified": false,
+      "used_on": [
+        "homepage-hero"
+      ]
+    },
+    {
+      "id": "starfish-beach",
+      "path": "/assets/photos/starfish-beach-jo-library.jpg",
+      "original_filename": "242ed04610c05fdd42a0c533c97e10a3.jpg",
+      "alt": "Sao biển trên bãi cát",
+      "subject": "starfish",
+      "exact_location_verified": false,
+      "used_on": [
+        "homepage-go-visual"
+      ]
+    }
+  ]
+}
