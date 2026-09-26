@@ -351,6 +351,24 @@ async function testNearMePage(page) {
     await page.waitForTimeout(250);
   }
   const hotelResults = await page.locator('#nearResults .near-card').count().catch(() => 0);
+  const allArea = page.locator('#areaRow [data-area="all"]');
+  if(await allArea.count()){await allArea.click();await page.waitForTimeout(120);}
+  const selectCategory=async(id)=>{
+    const button=page.locator('#categoryRow [data-category="'+id+'"]');
+    if(!(await button.count()))return false;
+    await button.click();
+    await page.waitForTimeout(250);
+    return true;
+  };
+  const chargingSelected=await selectCategory("CHARGING");
+  const chargingCards=await page.locator('#nearResults .near-card').count().catch(()=>0);
+  const chargingNotes=(await page.locator('#nearResults').textContent().catch(()=>""))||"";
+  const chargingSourceLinks=await page.locator('#nearResults a[href="https://www.openstreetmap.org/copyright"]').count().catch(()=>0);
+  const chargingOfficialLinks=await page.locator('#nearResults a[href*="vinfastauto.com"]').count().catch(()=>0);
+  const fuelSelected=await selectCategory("FUEL");
+  const fuelCards=await page.locator('#nearResults .near-card').count().catch(()=>0);
+  const pharmacySelected=await selectCategory("PHARMACY");
+  const pharmacyCards=await page.locator('#nearResults .near-card').count().catch(()=>0);
 
   const checks = {
     searchPresent: base.search,
@@ -360,7 +378,12 @@ async function testNearMePage(page) {
     dataBadgeResolved: !!base.mapBadge && !/Đang mở/i.test(base.mapBadge),
     destinationSearch: dinhCauFound,
     destinationPin: pinVisible,
-    hotelLayer: hotelResults >= 20
+    hotelLayer: hotelResults >= 20,
+    chargingData: chargingSelected && chargingCards >= 4,
+    chargingWarnings: /chưa xác minh|tham khảo/i.test(chargingNotes),
+    chargingSources: chargingSourceLinks >= 1 && chargingOfficialLinks >= 1,
+    fuelData: fuelSelected && fuelCards >= 10,
+    pharmacyData: pharmacySelected && pharmacyCards >= 8
   };
   return { ok:Object.values(checks).every(Boolean), checks };
 }
