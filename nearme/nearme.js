@@ -35,7 +35,7 @@
   function hasStoredVenueData(id=selectedCategory){
     if(!id)return false;
     return rows.some(row=>
-      row.entity_type==="venue" &&
+      (row.entity_type==="venue"||row.entity_type==="utility") &&
       (row.tags||[]).includes(id) &&
       matchesArea(row)
     );
@@ -283,6 +283,14 @@
     return item.opening_hours_note|| (item.entity_type==='utility'?'Giờ mở cửa chưa được xác nhận.':'');
   }
 
+  function reliabilityLabel(item){
+    if(item.verified===false){
+      if(item.utility_type==="CHARGING")return "Vị trí do cộng đồng ghi nhận. Chưa xác minh trạm còn hoạt động, quyền vào hoặc loại trụ. Kiểm tra VinFast trước khi đi.";
+      if(item.utility_type==="FUEL")return "Điểm cây xăng tham khảo từ bản đồ cộng đồng, chưa xác nhận hoạt động hoặc giờ mở cửa.";
+      return "Thông tin địa điểm tham khảo, chưa xác minh hoạt động.";
+    }
+    return "";
+  }
   function mapInfoLabel(item){
     const map=item.map||{};
     const precision=map.precision==="area_anchor"?"Pin định hướng khu vực":map.precision==="site_centroid"?"Tâm khuôn viên, có thể khác cổng vào":map.precision?"Độ chính xác: "+map.precision:"";
@@ -361,6 +369,7 @@
         '<span>'+esc(typeLabel(x))+'</span>'+
         (x.address?'<small>'+esc(x.address)+'</small>':"")+
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
+        (reliabilityLabel(x)?'<small>'+esc(reliabilityLabel(x))+'</small>':"")+
         (mapInfoLabel(x)?'<small>'+esc(mapInfoLabel(x))+'</small>':"")+
         (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi '+esc(x.phone)+'</a>':"")+
         '</div>'
@@ -445,7 +454,7 @@
     host.innerHTML=limited.map(x=>{
       const distance=Number.isFinite(x.distance_km)?x.distance_km.toFixed(1)+" km":"";
       const type=typeLabel(x);
-      const query=exactMapQuery(x);
+      const query=x.verified===false&&Number.isFinite(x.map?.lat)&&Number.isFinite(x.map?.lon)?x.map.lat+","+x.map.lon:exactMapQuery(x);
       const hasPin=Number.isFinite(x.lat)&&Number.isFinite(x.lon);
       const address=x.address||"Tìm theo tên địa điểm trên bản đồ";
 
@@ -454,11 +463,13 @@
         '<strong>'+esc(x.name)+'</strong>'+
         '<p>'+esc(address)+'</p>'+
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
+        (reliabilityLabel(x)?'<small>'+esc(reliabilityLabel(x))+'</small>':"")+
         (x.map?.note?'<small>'+esc(x.map.note)+'</small>':"")+
         '<div>'+
           (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+
           (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">Xem pin</button>':'<button type="button" data-map-query="'+esc(query)+'">Xem bản đồ</button>')+
-          '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Đường đi ↗</a>'+
+          '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">'+(x.verified===false?"Vị trí tham khảo ↗":"Đường đi ↗")+'</a>'+
+          (x.external_verify_url?'<a href="'+esc(x.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
           (x.route?'<a href="'+esc(x.route)+'">Thông tin →</a>':"")+
         '</div>'+
       '</article>';
