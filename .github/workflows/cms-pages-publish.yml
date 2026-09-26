@@ -34,6 +34,8 @@ on:
       - "scripts/test-home-hero-gallery.mjs"
       - "scripts/test-home-hero-search.mjs"
       - "home-foundation-v2.js"
+      - "home-library.css"
+      - "scripts/test-homepage-five-chapters.mjs"
       - "home-nearme-v2.js"
       - "scripts/test-home-nearme.mjs"
       - "home-experience-v1.js"
@@ -97,6 +99,7 @@ jobs:
           node scripts/test-home-nearme.mjs
           node scripts/test-home-hero-search.mjs
           node scripts/test-home-hero-gallery.mjs
+          node scripts/test-homepage-five-chapters.mjs
           node --check app.js
           node --check home-nearme-v2.js
           node scripts/test-transit-mobile-ui.mjs
