@@ -276,11 +276,15 @@
     return (row.tags||[]).includes(id);
   }
 
+  function foldText(value){
+    return String(value??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[đĐ]/g,"d").toLowerCase();
+  }
+
   function matchesSearch(row){
-    const q=searchText.trim().toLowerCase();
+    const q=foldText(searchText.trim());
     if(!q)return true;
-    const hay=[row.name,row.address,row.what_it_is,row.group,...(row.aliases||[])].join(" ").toLowerCase();
-    return hay.includes(q);
+    const hay=[row.name,row.address,row.what_it_is,row.group,...(row.aliases||[])].join(" ");
+    return foldText(hay).includes(q);
   }
 
   function defaultVisible(row){
@@ -445,7 +449,7 @@
       return;
     }
 
-    const mapped=visible.filter(x=>Number.isFinite(x.lat)&&Number.isFinite(x.lon));
+    const mapped=visible.filter(x=>validPoint({lat:x.lat,lon:x.lon}));
     if(!mapped.length&&visible.length){
       showDirectoryMap([selectedCategory?category()?.label:"",searchText.trim(),areaQuery()].filter(Boolean).join(" "),"Tìm theo khu vực");
       return;
