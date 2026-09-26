@@ -47,9 +47,11 @@
     const upcoming=x.operational_status!=="active";
     const rooms=x.room_count?Number(x.room_count).toLocaleString("vi-VN"):"Chưa công bố";
     const tags=(x.best_for||[]).slice(0,3);
+    const photo=x.editorial_photo?.url?.startsWith('/assets/media/')?x.editorial_photo:null;
+    const thumb=photo?'<figure class="hotel-card-thumb"><img src="'+esc(photo.url)+'" alt="'+esc(photo.alt||x.name)+'" loading="lazy" decoding="async"><figcaption>'+esc(photo.credit||'Ảnh: Internet')+'</figcaption></figure>':'';
     return '<article class="hotel-card" data-hotel="'+esc(x.slug)+'">'+
       '<div class="hotel-card-top"><span class="hotel-star">'+esc(starText(x))+'</span><span class="hotel-status '+(upcoming?'upcoming':'')+'">'+esc(publicStatus(x))+'</span></div>'+
-      '<h3>'+esc(x.name)+'</h3><p class="hotel-area">'+esc(publicArea(x))+'</p>'+
+      '<div class="hotel-card-heading"><div class="hotel-card-heading-copy"><h3>'+esc(x.name)+'</h3><p class="hotel-area">'+esc(publicArea(x))+'</p></div>'+thumb+'</div>'+
       '<p class="hotel-desc">'+esc(publicDescription(x))+'</p>'+
       (tags.length?'<div class="hotel-tags" aria-label="Phù hợp với">'+tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>':'')+
       '<div class="hotel-facts"><div><span>Loại hình</span><strong>'+esc(x.accommodation_type||"Cơ sở lưu trú")+'</strong></div><div><span>Quy mô</span><strong>'+esc(rooms)+(x.room_count?' phòng':'')+'</strong></div></div>'+
@@ -75,6 +77,7 @@
   }
   function bindValues(){$("#hotelSearch").value=state.query;$("#areaFilter").value=state.area;$("#starFilter").value=state.star;$("#statusFilter").value=state.status}
 
+  $("#hotelGrid")?.addEventListener("error",event=>{if(event.target?.tagName==="IMG")event.target.closest(".hotel-card-thumb")?.remove();},true);
   fetch("../data/entities/hotels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(data=>{
     state.hotels=data.entities||[];
     const areas=[...new Set(state.hotels.map(x=>x.area_label).filter(x=>x&&!/cần rà/i.test(x)))].sort((a,b)=>a.localeCompare(b,"vi"));

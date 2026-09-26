@@ -1,14 +1,15 @@
 {
-  "version": "2026-09-26.2",
+  "version": "2026-09-26.3",
   "collection": "JOTRIP_INTERNET_IMAGES",
-  "usage": "Open Phu Quoc CMS article photography; homepage slideshow managed separately",
+  "usage": "Open Phu Quoc CMS homepage supporting images, hotel directory, Explore, island stories and practical guides",
   "policy": {
     "exclude": "All images with an original filename beginning shutterstock_",
     "public_credit": "Internet (kho JoTrip); photographer name when known",
     "rights": "The user approved considering the non-Shutterstock folder for CMS. This is not independent verification of third-party copyright or a publication license; verify and upgrade source credits when possible.",
     "location": "Photo must fit article subject; uncertain exact beach/island labels must remain generic.",
     "wildlife": "Do not use starfish photographed out of water as the lead for articles about keeping starfish underwater.",
-    "previous_release": "Four images from the previous import remain on homepage surfaces; new editorial photos in this release do not modify slideshow or GO."
+    "previous_release": "Slide photos remain unchanged; this release updates matching photos outside the slideshow.",
+    "resolution": "Do not replace stronger verified location-specific photos with prettier but unidentified island scenes."
   },
   "items": [
     {
@@ -54,10 +55,8 @@
       "alt": "Sao biển trên bãi cát",
       "subject": "starfish",
       "exact_location_verified": false,
-      "used_on": [
-        "homepage-go-visual"
-      ],
-      "editorial_hold": "Do not present starfish out of water in a conservation article; no article selected."
+      "used_on": [],
+      "editorial_hold": "Retired from homepage GO strip; starfish displayed out of water, not suitable for conservation messaging."
     },
     {
       "id": "editorial-ho-quoc-overview",
@@ -80,7 +79,8 @@
       "license_status": "unverified",
       "used_on": [
         "knowledge.knowledge_029_chua-ho-quoc",
-        "places.place_ho_quoc"
+        "places.place_ho_quoc",
+        "homepage-go-visual"
       ]
     },
     {
@@ -189,8 +189,60 @@
       "exact_location_verified": false,
       "license_status": "unverified",
       "used_on": [
-        "knowledge.knowledge_130_beach-day"
+        "knowledge.knowledge_130_beach-day",
+        "homepage-go-visual"
       ]
+    },
+    {
+      "id": "editorial-regent-resort",
+      "path": "/assets/media/editorial-regent-phu-quoc.jpg",
+      "original_filename": "Regent Phu Quoc 25.cropoption.jpg",
+      "subject": "regent-resort",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "hotels.regent"
+      ],
+      "note": "Hotel name matches filename; photographer and publication license unverified."
+    },
+    {
+      "id": "editorial-salinda-resort",
+      "path": "/assets/media/editorial-salinda-resort.jpg",
+      "original_filename": "Salinda-Resort-Phu-Quoc-island.jpg",
+      "subject": "salinda-resort",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "hotels.salinda-resort",
+        "hotels.hero"
+      ],
+      "note": "Hotel name matches filename; photographer and publication license unverified."
+    },
+    {
+      "id": "editorial-grand-world-day",
+      "path": "/assets/media/editorial-grand-world-day.jpg",
+      "original_filename": "Phu Quoc family guide.jpg",
+      "subject": "grand-world-canal",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "places.place_grand_world"
+      ],
+      "note": "Landmark recognizable as Grand World; original capture time and photographer unknown."
+    },
+    {
+      "id": "editorial-island-cove-aerial",
+      "path": "/assets/media/editorial-island-cove-aerial.jpg",
+      "original_filename": "xphoto3.jpg.pagespeed.ic.2bFE3d8uDv.jpg",
+      "subject": "tropical-island-cove",
+      "exact_location_verified": false,
+      "license_status": "unverified",
+      "used_on": [
+        "places.activity_tour_3_islands",
+        "knowledge.knowledge_124_cano-3-dao",
+        "stories.vi-sao-goi-phu-quoc-la-dao-ngoc"
+      ],
+      "note": "Context only, specific cove and island not verified."
     }
   ]
 }
