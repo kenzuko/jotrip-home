@@ -100,6 +100,7 @@
   return '<article class="near-result-card near-quick-result">'+
    (extra?'<span class="near-quick-meta">'+esc(extra)+'</span>':"")+
    '<strong>'+esc(row.name)+'</strong>'+
+   (row.verified===false&&row.utility_type==="PHARMACY"?'<small>Chưa đối chiếu giấy phép và tình trạng nhà thuốc.</small>':"")+
    (row.address?'<small>'+esc(row.address)+'</small>':"")+
    (note&&!is24h?'<small>Giờ tham khảo: '+esc(note)+'</small>':"")+
    '<div class="near-result-actions">'+
