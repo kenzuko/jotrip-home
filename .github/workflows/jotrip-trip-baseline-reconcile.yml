@@ -1,0 +1,90 @@
+name: JoTrip Trip D1 baseline schema reconciliation
+
+on:
+  push:
+    branches:
+      - audit/jotrip-trip-d1-readonly-20260926
+    paths:
+      - ".github/workflows/jotrip-trip-baseline-reconcile.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    if: github.repository == 'kenzuko/jotrip-home' && github.ref == 'refs/heads/audit/jotrip-trip-d1-readonly-20260926'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: kenzuko/jotrip-trip
+          ref: 8b20ef9fa897b607b2e90e34b110afc1c3756d48
+          path: trip
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Compare remote schema-only export with exact 0000 baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]' | sed -e 's/^"//' -e 's/"$//')"
+          export CLOUDFLARE_ACCOUNT_ID
+          test -n "$CLOUDFLARE_API_TOKEN" && test "${#CLOUDFLARE_ACCOUNT_ID}" -eq 32
+          WORK="$(mktemp -d /tmp/jotrip-trip-schema.XXXXXXXX)"
+          trap 'rm -rf "$WORK"' EXIT
+          cd "$WORK"
+          cat > wrangler.toml <<'CONFIG'
+          name = "jotrip-trip-schema-reconcile"
+          compatibility_date = "2026-09-26"
+          [[d1_databases]]
+          binding = "DB"
+          database_name = "jotrip-trip-db"
+          database_id = "17372bb5-7626-4238-8a95-fc0cf31ad18e"
+          CONFIG
+          npx --yes wrangler@4 d1 info jotrip-trip-db --json > info.json
+          grep -Fq '17372bb5-7626-4238-8a95-fc0cf31ad18e' info.json || { echo "::error::Unexpected D1 identity"; exit 3; }
+          if ! npx --yes wrangler@4 d1 export jotrip-trip-db --remote --no-data --output="$WORK/live.sql" > export.log 2>&1; then
+            echo "::error::Schema-only export failed; sanitized error codes:"
+            grep -oE 'code: [0-9]+' export.log | sort -u || true
+            exit 4
+          fi
+          BASELINE="$GITHUB_WORKSPACE/trip/migrations/0000_bootstrap_all.sql" python3 - <<'PY'
+          import os,sqlite3,pathlib
+          expected=sqlite3.connect(":memory:")
+          expected.executescript(pathlib.Path(os.environ["BASELINE"]).read_text())
+          live=sqlite3.connect(":memory:")
+          live.executescript(pathlib.Path("live.sql").read_text())
+          def tables(c):
+              return {r[0] for r in c.execute("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%'")}
+          base_tables=tables(expected)
+          live_tables=tables(live)-{"d1_migrations","_cf_KV"}
+          if base_tables!=live_tables:
+              print("BASELINE_TABLE_DRIFT missing:",sorted(base_tables-live_tables),"unexpected:",sorted(live_tables-base_tables))
+              raise SystemExit(5)
+          def signature(c,t):
+              q='"'+t.replace('"','""')+'"'
+              cols=[tuple(row[1:]) for row in c.execute("PRAGMA table_xinfo("+q+")")]
+              fks=[tuple(row) for row in c.execute("PRAGMA foreign_key_list("+q+")")]
+              idx=[]
+              for row in c.execute("PRAGMA index_list("+q+")"):
+                  _,name,unique,origin,partial=row
+                  xinfo=[tuple(r[1:]) for r in c.execute('PRAGMA index_xinfo("'+name.replace('"','""')+'")')]
+                  idx.append((unique,origin,partial,tuple(xinfo)))
+              return (cols,fks,sorted(idx,key=str))
+          drift=[]
+          for t in sorted(base_tables):
+              a,b=signature(expected,t),signature(live,t)
+              if a!=b:
+                  drift.append({"table":t,"columns_equal":a[0]==b[0],"foreign_keys_equal":a[1]==b[1],"indexes_equal":a[2]==b[2]})
+          if drift:
+              print("BASELINE_SCHEMA_DRIFT:",drift)
+              raise SystemExit(6)
+          print("BASELINE_EXACT_MATCH: 0000 schema matches all",len(base_tables),"live legacy tables, including columns/defaults, foreign keys and indexes.")
+          print("Read-only comparison complete. No migration ledger edits or production mutations.")
+          PY
