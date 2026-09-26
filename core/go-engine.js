@@ -9,6 +9,8 @@
   const fold=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").toLowerCase();
   const minTime=s=>{const m=/^(\d{1,2}):(\d{2})$/.exec(String(s||""));return m?+m[1]*60 + +m[2]:NaN};
   const hhmm=n=>String(Math.floor(n/60)%24).padStart(2,"0")+":"+String(Math.round(n)%60).padStart(2,"0");
+  // Vietnam has no DST; use the itinerary day as a calendar anchor and retain the UTC+7 offset.
+  const localDateTime=(day,minute)=>new Date(Date.parse(day+"T00:00:00Z")+minute*60000).toISOString().slice(0,16)+"+07:00";
   function clock(now){
     const date=now instanceof Date?now:new Date(now||Date.now());
     const parts=new Intl.DateTimeFormat("en-GB",{timeZone:TZ,year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hourCycle:"h23"}).formatToParts(date);
@@ -199,8 +201,9 @@
       const badge=warnings.length?"CHECK":"POSSIBLE";
       results.push({
         id:e.id,name:e.name,zone:e.zone_id,route:cfg.route||"/explore/",
-        category:cfg.category||"TRẢI NGHIỆM",badge,travel:drive,distance_km:straightKm,
+        category:cfg.category||"TRẢI NGHIỆM",badge,travel:drive,distance_km:straightKm,weather_scope:cfg.marine?"marine":(cfg.environment==="indoor"||cfg.environment==="covered"?"indoor":"outdoor"),
         arrival:hhmm(match.arrival),starts_at:hhmm(match.start),finish_at:hhmm(match.finish),
+        arrival_at:localDateTime(when.day,match.arrival),starts_at_local:localDateTime(when.day,match.start),finish_at_local:localDateTime(when.day,match.finish),
         time_left:Math.max(0,match.deadline-when.minute),
         timing:cfg.split_return_schedule?match.window.label:match.window.fixed?"Suất theo lịch "+hhmm(match.start)+" - "+hhmm(match.finish):"Dự kiến bắt đầu "+hhmm(match.start),
         note:cfg.description||e.what_it_is||"",
@@ -209,7 +212,86 @@
       });
     }
     results.sort((a,b)=>a.score-b.score||a.name.localeCompare(b.name,"vi"));
-    return {day:when.day,now:hhmm(when.minute),budget,results:results.slice(0,3),remaining:results.slice(3),excluded,eligible_count:results.length,has_live:!!input.live};
+    return {day:when.day,now:hhmm(when.minute),budget,results:results.slice(0,3),remaining:results.slice(3),eligible:results,excluded,eligible_count:results.length,has_live:!!input.live};
   }
-  return {plan,clock,travel,minutesBudget,minTime};
+
+  function weatherWindowItems(view,config,entities){
+    const geo=typeof window!=="undefined"?window.OpenPQGoGeo:globalThis.OpenPQGoGeo;
+    const candidates=Array.isArray(view?.eligible)?view.eligible:[];
+    const cfgById=new Map((config?.activities||[]).map(item=>[item.entity_id,item]));
+    const entityMap=entities instanceof Map?entities:new Map((entities||[]).map(item=>[item.id,item]));
+    const allowedPrecision=new Set(["verified_point","site_centroid","area_anchor"]);
+    const out=[];
+    for(const candidate of candidates){
+      if(!["outdoor","marine"].includes(candidate.weather_scope)||out.length>=20)continue;
+      const cfg=cfgById.get(candidate.id)||{};
+      const from=candidate.arrival_at,to=candidate.finish_at_local;
+      const hasOffset=value=>typeof value==="string"&&/(?:Z|[+-]\d{2}:\d{2})$/.test(value)&&Number.isFinite(Date.parse(value));
+      if(!hasOffset(from)||!hasOffset(to)||Date.parse(to)<=Date.parse(from))continue;
+      if(candidate.weather_scope==="marine"){
+        out.push({entity_id:candidate.id,activity_scope:"marine",route_id:cfg.marine_route||cfg.marine_route_id||null,
+          window:{from,to}});
+        continue;
+      }
+      const entity=entityMap.get(candidate.id);
+      let point=geo?.destinationPoint?.(entity),precision=point?.precision;
+      if(!point||!geo?.valid?.(point)||!allowedPrecision.has(precision)){
+        const anchor=geo?.anchors?.[candidate.zone||entity?.zone_id];
+        if(!anchor||!geo?.valid?.(anchor))continue;
+        point=anchor;precision="area_anchor";
+      }
+      out.push({entity_id:candidate.id,activity_scope:"outdoor",
+        location:{lat:Number(point.lat),lon:Number(point.lon),precision},
+        window:{from,to}});
+    }
+    return out;
+  }
+
+  function applyWeatherContext(view,payload,{pending=false}={}){
+    if(!view||!Array.isArray(view.eligible))return view;
+    const byId=new Map((Array.isArray(payload?.items)?payload.items:[]).map(item=>[item?.entity_id,item]));
+    for(const candidate of view.eligible){
+      if(!["outdoor","marine"].includes(candidate.weather_scope))continue;
+      const item=byId.get(candidate.id)||null;
+      const oldCheck=candidate.badge==="CHECK";
+      const baseScore=Number.isFinite(candidate.score)?candidate.score-(oldCheck?10000:0):candidate.score;
+      const keep=(candidate.warnings||[]).filter(text=>!String(text).startsWith("Dự báo khung giờ:"));
+      let note,status;
+      if(candidate.weather_scope==="marine"){
+        status=item?.status|| (pending?"PENDING":"UNKNOWN");
+        note="Dự báo khung giờ: Chưa có nguồn Weather theo tuyến biển; cần kiểm tra thời tiết và xác nhận vận hành trước khi đi.";
+      }else if(pending){
+        status="PENDING";
+        note="Dự báo khung giờ: Đang kiểm tra dữ liệu theo thời gian dự kiến.";
+      }else if(item?.status==="OK"&&item?.temporal_coverage?.status==="IN_WINDOW_FRAMES"&&Array.isArray(item.frames)&&item.frames.length){
+        status="OK";
+        const distances=item.frames.map(frame=>frame?.native_cell?.distance_from_target_km).filter(Number.isFinite);
+        const near=distances.length?"; ô lưới gần nhất cách "+Math.min(...distances).toFixed(1)+" km":"";
+        const cadence=item.temporal_coverage.frame_cadence_hours;
+        const cadenceLabel=Number.isFinite(cadence)?"; nhịp mốc "+cadence+" giờ":"";
+        const targetLabel=item.target?.precision==="area_anchor"?"tâm khu vực":item.target?.precision==="site_centroid"?"tâm khuôn viên":"điểm đã chọn";
+        note="Dự báo khung giờ: Có "+item.frames.length+" mốc tại "+targetLabel+cadenceLabel+near+"; chưa có đánh giá an toàn tự động.";
+      }else if(item?.temporal_coverage?.status==="BRACKET_ONLY"){
+        status=item.status||"PARTIAL";
+        note="Dự báo khung giờ: Chỉ có mốc trước/sau khung giờ, không nội suy; cần kiểm tra trực tiếp.";
+      }else if(candidate.weather_scope==="marine"||item?.reason_codes?.includes("ROUTE_SOURCE_UNSUPPORTED")){
+        status=item?.status||"UNKNOWN";
+        note="Dự báo khung giờ: Chưa có nguồn Weather theo tuyến biển; cần kiểm tra thời tiết và xác nhận vận hành trước khi đi.";
+      }else{
+        status=item?.status||payload?.source_status||"UNAVAILABLE";
+        note="Dự báo khung giờ: Chưa có đủ dữ liệu cho toàn bộ khoảng dự kiến; hãy xem Weather trước khi đi.";
+      }
+      candidate.weather_context={status,temporal_coverage:item?.temporal_coverage||{status:"NOT_EVALUATED"},source:item?.source||null};
+      candidate.warnings=[...keep,note];
+      candidate.badge="CHECK";
+      if(Number.isFinite(baseScore))candidate.score=baseScore+10000;
+    }
+    view.eligible.sort((a,b)=>(a.score||0)-(b.score||0)||String(a.name).localeCompare(String(b.name),"vi"));
+    view.results=view.eligible.slice(0,3);
+    view.remaining=view.eligible.slice(3);
+    view.eligible_count=view.eligible.length;
+    return view;
+  }
+
+  return {plan,clock,travel,minutesBudget,minTime,weatherWindowItems,applyWeatherContext};
 });

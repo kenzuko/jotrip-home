@@ -3,7 +3,7 @@
   const $=s=>document.querySelector(s);
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
   const zoneNames={zone_central_west:"Dương Đông & bờ Tây",zone_south:"An Thới & Nam đảo",zone_north:"Bắc đảo"};
-  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:null,position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[]};
+  const state={config:null,entities:new Map(),notices:[],visuals:null,live:null,originZone:null,position:null,radiusKm:5,mapOverview:false,locationIndex:[],venueDirectory:[],runId:0};
 
   function clock(){
     const d=new Date();
@@ -61,11 +61,29 @@
       $("#goLocationStatus").textContent="Đang tải các điểm đến. Bạn có thể chọn khu vực và xem bản đồ trước nhé.";
       return;
     }
+    const runId=++state.runId;
     $("#resultsSection").hidden=false;$("#goResults").innerHTML='<div class="go-empty"><strong>Để tụi mình xem nhé...</strong><span>Đang chọn những nơi còn đủ thời gian để ghé hôm nay.</span></div>';
     state.live=window.OpenPQGoLive?await window.OpenPQGoLive.load(pick.originZone).catch(()=>null):null;
-    const view=window.OpenPQGoEngine.plan({config:state.config,entities:state.entities,notices:state.notices,live:state.live||{},now:new Date(),...pick});
-    render(view,pick);
+    if(runId!==state.runId)return;
+    const baseView=window.OpenPQGoEngine.plan({config:state.config,entities:state.entities,notices:state.notices,live:state.live||{},now:new Date(),...pick});
+    const requests=window.OpenPQGoEngine.weatherWindowItems(baseView,state.config,state.entities);
+    const initialView=window.OpenPQGoEngine.applyWeatherContext(baseView,null,{pending:requests.length>0});
+    render(initialView,pick);
     $("#resultsSection").scrollIntoView({behavior:"smooth",block:"start"});
+    if(requests.length){
+      const client=window.OpenPQWeatherContext;
+      if(!client?.requestWindows){
+        render(window.OpenPQGoEngine.applyWeatherContext(baseView,{source_status:"UNAVAILABLE",items:[]}),pick);
+      }else{
+        client.requestWindows(requests,{timeoutMs:11500}).then(payload=>{
+          if(runId!==state.runId)return;
+          render(window.OpenPQGoEngine.applyWeatherContext(baseView,payload),pick);
+        }).catch(()=>{
+          if(runId!==state.runId)return;
+          render(window.OpenPQGoEngine.applyWeatherContext(baseView,{source_status:"UNAVAILABLE",items:[]}),pick);
+        });
+      }
+    }
   }
   function liveNote(){
     if(!state.live)return"Chưa có đủ thông tin mới về thời tiết và biển. Nếu ra ngoài, bạn nhớ xem tình hình trước khi đi nhé.";
