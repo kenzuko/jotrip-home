@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-26T16:04:51.987Z",
+  "generated_at": "2026-09-26T16:20:51.412Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 289,
-    "ready_count": 115,
-    "missing_count": 174
+    "ready_count": 117,
+    "missing_count": 172
   },
   "layers": {
     "zones": [
@@ -1973,6 +1973,31 @@
         "lookup_query": "CS68 - Cửa hàng tiện lợi Sunset Town, Sorento 2, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      },
+      {
+        "id": "utility_vinmec_duong_dong_clinic",
+        "name": "Phòng khám Đa khoa Vinmec Dương Đông",
+        "type": "utility",
+        "lat": 10.2223133,
+        "lon": 103.9623962,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named Vinmec Dương Đông clinic POI, cross-checked with previous Near Me Excel",
+        "source_id": "osm_user_export_node_12617805394",
+        "source_url": "https://www.openstreetmap.org/node/12617805394",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ POI phòng khám Dương Đông, chưa xác nhận chính xác cổng vào; không phải bệnh viện Gành Dầu."
+      },
+      {
+        "id": "utility_vinmec_phuquoc_emergency",
+        "name": "Cấp cứu Vinmec Phú Quốc",
+        "type": "utility",
+        "lat": 10.336498688188055,
+        "lon": 103.85723855555321,
+        "precision": "site_centroid",
+        "source": "Tọa độ khuôn viên Vinmec Phú Quốc được chủ dự án trực tiếp xác nhận ngày 24/09/2026",
+        "source_id": "jotrip_user_pin_20260924",
+        "verified_at": "2026-09-24",
+        "note": "Tọa độ khuôn viên bệnh viện Bãi Dài, KHÔNG phải cổng cấp cứu; không dùng để chỉ dẫn cấp cứu như cổng chính xác."
       }
     ]
   },
@@ -2136,8 +2161,6 @@
     "utility_longchau_tran_phu",
     "utility_longchau_an_thoi",
     "utility_longchau_ganh_dau",
-    "utility_vinmec_duong_dong_clinic",
-    "utility_vinmec_phuquoc_emergency",
     "utility_vcb_atm_an_thoi",
     "utility_fuel_dong_loi_1",
     "utility_parking_sunset_nightmarket",
