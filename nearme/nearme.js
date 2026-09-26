@@ -19,6 +19,8 @@
   let searchText="";
   let position=null;
   let nearMap=null;
+  let mapInitialized=false;
+  let mapOpenMobile=false;
   let markerLayer=null;
   let userLayer=null;
   const markerById=new Map();
@@ -104,8 +106,10 @@
   }
 
   function initMap(){
+    if(mapInitialized)return;
     const host=$("#nearLeaflet");
     if(!host)return;
+    mapInitialized=true;
     if(!window.L){
       showDirectoryMap();
       return;
@@ -333,6 +337,7 @@
 
   function renderMapPoints(visible){
     updateExternalMapLink();
+    if(isMobileViewport()&&!mapOpenMobile)return;
 
     if(isDiscoveryCategory()){
       showDirectoryMap(mapSearchQuery(),"Tìm trên Google Maps");
@@ -396,6 +401,30 @@
         '<p>Mở lớp bản đồ để tìm nhanh. Khi địa điểm đã có trong data Open Phu Quoc, nó sẽ dùng chung địa chỉ và pin với các trang khác.</p>'+
         '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Mở trên Google Maps ↗</a>'+
       '</article>';
+  }
+
+  function isMobileViewport(){
+    return window.matchMedia?.("(max-width: 820px)").matches||false;
+  }
+
+  function openMobileMap({scroll=true}={}){
+    mapOpenMobile=true;
+    const shell=$(".map-shell");
+    const button=$("#toggleNearMap");
+    shell?.classList.remove("mobile-map-collapsed");
+    button?.setAttribute("aria-expanded","true");
+    if(button)button.textContent="Ẩn bản đồ";
+    initMap();
+    render();
+    if(scroll)setTimeout(()=>$("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"}),80);
+  }
+
+  function closeMobileMap(){
+    mapOpenMobile=false;
+    $(".map-shell")?.classList.add("mobile-map-collapsed");
+    const button=$("#toggleNearMap");
+    button?.setAttribute("aria-expanded","false");
+    if(button)button.textContent="Xem bản đồ";
   }
 
   function exactMapQuery(row){
@@ -466,6 +495,16 @@
   }
 
   function bind(){
+    const mobileQuery=window.matchMedia?.("(max-width: 820px)");
+    mobileQuery?.addEventListener("change",e=>{
+      mapOpenMobile=!e.matches;
+      $(".map-shell")?.classList.toggle("mobile-map-collapsed",!mapOpenMobile);
+      const toggle=$("#toggleNearMap");
+      toggle?.setAttribute("aria-expanded",String(mapOpenMobile));
+      if(toggle)toggle.textContent=mapOpenMobile?"Ẩn bản đồ":"Xem bản đồ";
+      if(mapOpenMobile){initMap();render();}
+    });
+
     $("#areaRow").addEventListener("click",e=>{
       const b=e.target.closest("[data-area]");
       if(!b)return;
@@ -485,6 +524,11 @@
       render();
     });
 
+    $("#toggleNearMap").addEventListener("click",()=>{
+      if(mapOpenMobile)closeMobileMap();
+      else openMobileMap();
+    });
+
     $("#nearSearch").addEventListener("input",e=>{
       searchText=e.target.value||"";
       render();
@@ -492,7 +536,8 @@
 
     $("#nearResults").addEventListener("click",e=>{
       const pin=e.target.closest("[data-map-id]");
-      if(pin&&nearMap){
+      if(pin){
+        if(isMobileViewport()&&!mapOpenMobile)openMobileMap({scroll:false});
         const marker=markerById.get(pin.dataset.mapId);
         if(marker){
           showLiveMap();
@@ -506,6 +551,7 @@
 
       const queryButton=e.target.closest("[data-map-query]");
       if(queryButton){
+        if(isMobileViewport()&&!mapOpenMobile)openMobileMap({scroll:false});
         showDirectoryMap(queryButton.dataset.mapQuery||mapSearchQuery(),"Địa điểm trên Google Maps");
         $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
       }
@@ -539,7 +585,12 @@
   }
 
   async function load(){
-    initMap();
+    mapOpenMobile=!isMobileViewport();
+    $(".map-shell")?.classList.toggle("mobile-map-collapsed",!mapOpenMobile);
+    const toggle=$("#toggleNearMap");
+    toggle?.setAttribute("aria-expanded",String(mapOpenMobile));
+    if(toggle)toggle.textContent=mapOpenMobile?"Ẩn bản đồ":"Xem bản đồ";
+    if(mapOpenMobile)initMap();
     try{
       const [a,locationIndex,venueDirectory]=await Promise.all([
         fetch("../data/home-support.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
