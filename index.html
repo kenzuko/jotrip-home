@@ -7,7 +7,7 @@
   <title>Phú Quốc, ngay lúc này | Open Phu Quoc</title>
   <meta name="description" content="Thời tiết, đi lại, điểm đến và chuyện đang diễn ra ở Phú Quốc - để bạn chọn điều cần cho hôm nay.">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=20260926-gallery40-r1">
+  <link rel="stylesheet" href="styles.css?v=20260926-five-chapters-r1">
   <link rel="stylesheet" href="home-library.css?v=20260925-content-role3">
   <link rel="canonical" href="https://cms.openphuquoc.com/">
   <meta property="og:site_name" content="Open Phu Quoc">
@@ -179,7 +179,20 @@
     </aside>
 
 
-    <section class="section trip-clock-section" id="happening" aria-labelledby="tripClockTitle">
+    
+    <div class="home-chapter-intro home-chapter-intro--decision" data-home-chapter="decide">
+      <div class="home-chapter-copy"><span class="home-chapter-kicker">03 / CHỌN VIỆC ĐỂ LÀM</span>
+        <h2>Hôm nay, chọn gì cho hợp?</h2>
+        <p>Xem việc còn kịp, tìm nơi đáng đi hoặc giải quyết nhu cầu quanh mình.</p>
+      </div>
+      <nav class="home-chapter-links" aria-label="Đi nhanh đến việc bạn cần">
+        <a href="#happening">◷ Còn kịp gì?</a>
+        <a href="#go-now">↗ Đi đâu?</a>
+        <a href="#near-me">⌖ Quanh đây</a>
+      </nav>
+    </div>
+
+<section class="section trip-clock-section" id="happening" aria-labelledby="tripClockTitle">
       <div class="section-heading compact-heading">
         <div><p class="eyebrow">HÔM NAY / CÒN KỊP KHÔNG?</p><h2 id="tripClockTitle">Hôm nay còn kịp gì?</h2></div>
         <a href="go/">Tìm điểm hợp với tôi →</a>
@@ -229,6 +242,39 @@
       </div>
     </section>
 
+    <section class="section near-me-section" id="near-me" aria-labelledby="nearMeTitle">
+      <div class="section-heading compact-heading">
+        <div><p class="eyebrow">TIỆN ÍCH QUANH ĐÂY</p><h2 id="nearMeTitle">Bạn cần tìm gì?</h2></div>
+        <a data-near-handoff href="nearme/">Mở bản đồ tiện ích →</a>
+      </div>
+      <p class="near-quick-intro">Tìm một chỗ cần đến ngay tại đây. Chọn tiện ích hoặc khu vực, không phải tìm lại khi mở bản đồ.</p>
+      <div class="near-quick-shell">
+        <div class="near-quick-controls">
+          <label class="near-quick-search" for="nearQuickSearch"><span class="near-quick-search-label">Tìm trên đảo</span><span class="near-quick-search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="nearQuickSearch" autocomplete="off" placeholder="Nhà thuốc, ATM, tên địa điểm..."></span></label>
+          <div class="near-quick-location-row"><button class="near-location-btn" id="nearLocationBtn" type="button">⌖ Dùng vị trí của tôi</button><button class="near-mobile-expand" id="nearAreaToggle" type="button" aria-expanded="false" aria-controls="nearManualAreas">Chọn khu vực <span aria-hidden="true">⌄</span></button><span>Hoặc chọn khu vực:</span></div>
+          <div class="near-manual near-quick-areas" id="nearManualAreas" aria-label="Chọn khu vực"></div>
+          <p class="near-quick-location-note">Vị trí chỉ được dùng khi bạn chủ động bấm.</p>
+          <div class="near-quick-group-label">Những thứ thường cần</div>
+          <div class="near-category-grid near-quick-categories" id="nearCategories" aria-label="Tiện ích thiết yếu"></div>
+        </div>
+        <div class="near-quick-results">
+          <div class="near-quick-results-heading"><span class="near-quick-eyebrow">TÌM NHANH</span><h3>Những chỗ bạn có thể ghé</h3><p id="nearQuickStatus" role="status" aria-live="polite">Chọn nhu cầu hoặc khu vực để bắt đầu.</p></div>
+          <div class="near-results" id="nearResults" aria-live="polite"><div class="near-quick-empty"><strong>Bạn cần tìm gì lúc này?</strong><span>Chọn một tiện ích để xem kết quả ngay tại đây.</span></div></div>
+          <a class="near-quick-directory" data-near-handoff href="nearme/">Xem tất cả tiện ích trên bản đồ <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="near-quick-secondary">
+          <button class="near-mobile-expand near-mobile-other" id="nearOtherToggle" type="button" aria-expanded="false" aria-controls="nearQuickMore">Tiện ích khác <span aria-hidden="true">⌄</span></button>
+          <div class="near-quick-group-label near-quick-other-label">Bạn cần thứ khác?</div>
+          <div class="near-quick-more" id="nearQuickMore" aria-label="Tiện ích bổ sung"></div>
+        </div>
+        <div class="near-quick-emergency">
+          <div class="near-quick-emergency-icon" aria-hidden="true">✚</div>
+          <div class="near-quick-emergency-copy"><strong>Cần hỗ trợ y tế khẩn cấp?</strong><span>Số cấp cứu toàn quốc và cơ sở y tế trên đảo. Giờ hoạt động của từng cơ sở cần xác nhận trước.</span></div>
+          <div class="near-quick-emergency-actions"><a class="near-quick-emergency-call" href="tel:115">Gọi 115</a><a href="nearme/?category=CLINIC_HOSPITAL">Tìm cơ sở y tế →</a></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section food-now-section" id="food-now" aria-labelledby="foodNowTitle">
       <div class="section-heading compact-heading">
         <div><p class="eyebrow">BÂY GIỜ ĂN GÌ?</p><h2 id="foodNowTitle">Ba món cho giờ này, chọn món bạn thích.</h2></div>
@@ -244,7 +290,16 @@
       <div class="food-now-grid" id="foodNowGrid" aria-live="polite"><div class="surface-loading">Đang chọn ba món cho bạn. <a href="food/">Xem danh sách món →</a></div></div>
     </section>
 
-    <section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle">
+    
+    <div class="home-chapter-intro home-chapter-intro--editorial" data-home-chapter="read">
+      <div class="home-chapter-copy"><span class="home-chapter-kicker">04 / ĐỌC & KHÁM PHÁ</span>
+        <h2>Hiểu đảo trước khi đi.</h2>
+        <p>Tin vừa cập nhật, cẩm nang hữu ích và những câu chuyện đáng ngồi lại đọc.</p>
+      </div>
+      <a class="home-chapter-more" href="guide/knowledge.html">Mở thư viện cẩm nang ↗</a>
+    </div>
+
+<section class="section hot-now-section" id="hot-now" aria-labelledby="hotNowTitle">
       <div class="section-heading compact-heading"><div><p class="eyebrow">TIN & CẬP NHẬT PHÚ QUỐC</p><h2 id="hotNowTitle">Có gì mới ở Phú Quốc?</h2></div><a class="bulletin-more" href="news/">Xem các bản tin khác →</a></div>
       <div class="hot-now-list" id="hotNowList"><div class="surface-loading">Đang tìm cập nhật mới...</div></div>
     </section>
@@ -284,45 +339,6 @@
       <a class="home-library-mobile-cta" href="guide/knowledge.html">Xem thư viện 128 bài →</a>
     </section>
 
-    <section class="section near-me-section" id="near-me" aria-labelledby="nearMeTitle">
-      <div class="section-heading compact-heading">
-        <div><p class="eyebrow">TIỆN ÍCH QUANH ĐÂY</p><h2 id="nearMeTitle">Bạn cần tìm gì?</h2></div>
-        <a data-near-handoff href="nearme/">Mở bản đồ tiện ích →</a>
-      </div>
-      <p class="near-quick-intro">Tìm một chỗ cần đến ngay tại đây. Chọn tiện ích hoặc khu vực, không phải tìm lại khi mở bản đồ.</p>
-      <div class="near-quick-shell">
-        <div class="near-quick-controls">
-          <label class="near-quick-search" for="nearQuickSearch"><span class="near-quick-search-label">Tìm trên đảo</span><span class="near-quick-search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="nearQuickSearch" autocomplete="off" placeholder="Nhà thuốc, ATM, tên địa điểm..."></span></label>
-          <div class="near-quick-location-row"><button class="near-location-btn" id="nearLocationBtn" type="button">⌖ Dùng vị trí của tôi</button><button class="near-mobile-expand" id="nearAreaToggle" type="button" aria-expanded="false" aria-controls="nearManualAreas">Chọn khu vực <span aria-hidden="true">⌄</span></button><span>Hoặc chọn khu vực:</span></div>
-          <div class="near-manual near-quick-areas" id="nearManualAreas" aria-label="Chọn khu vực"></div>
-          <p class="near-quick-location-note">Vị trí chỉ được dùng khi bạn chủ động bấm.</p>
-          <div class="near-quick-group-label">Những thứ thường cần</div>
-          <div class="near-category-grid near-quick-categories" id="nearCategories" aria-label="Tiện ích thiết yếu"></div>
-        </div>
-        <div class="near-quick-results">
-          <div class="near-quick-results-heading"><span class="near-quick-eyebrow">TÌM NHANH</span><h3>Những chỗ bạn có thể ghé</h3><p id="nearQuickStatus" role="status" aria-live="polite">Chọn nhu cầu hoặc khu vực để bắt đầu.</p></div>
-          <div class="near-results" id="nearResults" aria-live="polite"><div class="near-quick-empty"><strong>Bạn cần tìm gì lúc này?</strong><span>Chọn một tiện ích để xem kết quả ngay tại đây.</span></div></div>
-          <a class="near-quick-directory" data-near-handoff href="nearme/">Xem tất cả tiện ích trên bản đồ <span aria-hidden="true">↗</span></a>
-        </div>
-        <div class="near-quick-secondary">
-          <button class="near-mobile-expand near-mobile-other" id="nearOtherToggle" type="button" aria-expanded="false" aria-controls="nearQuickMore">Tiện ích khác <span aria-hidden="true">⌄</span></button>
-          <div class="near-quick-group-label near-quick-other-label">Bạn cần thứ khác?</div>
-          <div class="near-quick-more" id="nearQuickMore" aria-label="Tiện ích bổ sung"></div>
-        </div>
-        <div class="near-quick-emergency">
-          <div class="near-quick-emergency-icon" aria-hidden="true">✚</div>
-          <div class="near-quick-emergency-copy"><strong>Cần hỗ trợ y tế khẩn cấp?</strong><span>Số cấp cứu toàn quốc và cơ sở y tế trên đảo. Giờ hoạt động của từng cơ sở cần xác nhận trước.</span></div>
-          <div class="near-quick-emergency-actions"><a class="near-quick-emergency-call" href="tel:115">Gọi 115</a><a href="nearme/?category=CLINIC_HOSPITAL">Tìm cơ sở y tế →</a></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section home-currency-section" id="currency-home" aria-labelledby="currencyHomeTitle">
-      <div class="section-heading compact-heading"><div><p class="eyebrow">TỶ GIÁ / ĐỔI TIỀN</p><h2 id="currencyHomeTitle">Tỷ giá hôm nay, nhìn nhanh.</h2></div><a href="currency/">Mở trang tỷ giá →</a></div>
-      <div class="home-currency-status" id="homeCurrencyStatus">Đang lấy tỷ giá mới nhất từ Vietcombank...</div>
-      <div class="home-currency-grid" id="homeCurrencyGrid"></div>
-    </section>
-
     <section class="section discover-section" id="discover" aria-labelledby="discoverTitle">
       <div class="section-heading compact-heading">
         <div><p class="eyebrow">CHUYỆN ĐẢO / HUYỀN TÍCH / TÒ MÒ</p><h2 id="discoverTitle">Phú Quốc còn nhiều chuyện để kể.</h2></div>
@@ -333,6 +349,20 @@
         <div class="island-story-subheading"><span>CHUYỆN ĐẢO / ĐỌC TIẾP</span><h3 id="islandStoriesTitle">Những câu chuyện dài hơn.</h3></div>
         <div class="island-story-grid" id="islandStoryGrid"><div class="surface-loading">Đang chọn chuyện để kể...</div></div>
       </div>
+    </section>
+
+    
+    <div class="home-chapter-intro home-chapter-intro--utility" data-home-chapter="more">
+      <div class="home-chapter-copy"><span class="home-chapter-kicker">05 / CẦN THÊM GÌ?</span>
+        <h2>Mọi thứ khác, khi bạn cần.</h2>
+        <p>Tỷ giá và lối tắt đến các chuyên mục đầy đủ.</p>
+      </div>
+    </div>
+
+<section class="section home-currency-section" id="currency-home" aria-labelledby="currencyHomeTitle">
+      <div class="section-heading compact-heading"><div><p class="eyebrow">TỶ GIÁ / ĐỔI TIỀN</p><h2 id="currencyHomeTitle">Tỷ giá hôm nay, nhìn nhanh.</h2></div><a href="currency/">Mở trang tỷ giá →</a></div>
+      <div class="home-currency-status" id="homeCurrencyStatus">Đang lấy tỷ giá mới nhất từ Vietcombank...</div>
+      <div class="home-currency-grid" id="homeCurrencyGrid"></div>
     </section>
 
     <section class="section explore-more-section" id="explore-more" aria-labelledby="exploreMoreTitle">
