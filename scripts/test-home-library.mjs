@@ -72,10 +72,32 @@ for(const result of [first,same,second]){
 }
 assert.equal(first.cards[0].dataset.guideId,"knowledge_014_bai-sao",
   "First lead restores the Bãi Sao practical guide");
-assert.equal(second.cards[0].dataset.guideId,"knowledge_056_bun-quay-phu-quoc",
-  "Next local day rotates to how to eat bún quậy");
+assert.equal(second.cards[0].dataset.guideId,"knowledge_014_bai-sao",
+  "Lead remains stable across a week, even when companions change");
+const secondWeek=await render("2026-10-02");
+assert.equal(secondWeek.cards[0].dataset.guideId,"knowledge_056_bun-quay-phu-quoc",
+  "The next week's lead rotates without an editor selecting it manually");
 assert.deepEqual(first.cards.map(x=>x.dataset.guideId),same.cards.map(x=>x.dataset.guideId),
   "Refreshing within one local day does not reshuffle the shelf");
+// The supporting shelf can surface photographed, published articles beyond
+// the original seven hand-written homepage picks, while remaining stable daily.
+const extraIds=new Set([
+  "knowledge_057_goi-ca-trich","knowledge_124_cano-3-dao",
+  "knowledge_134_cable-car-hon-thom","knowledge_131_sunset-watching"
+]);
+const expanded=fixture.map(o=>extraIds.has(o.topic_id)?{
+  ...o,image:{url:"/assets/media/test-public-approved.jpg",alt:o.title}
+}:o);
+const extraDays=[];
+for(const date of ["2026-09-25","2026-09-26","2026-09-27","2026-09-28","2026-09-29"]){
+  const result=await render(date,expanded);
+  extraDays.push(...result.cards.slice(1).map(x=>x.dataset.guideId));
+}
+assert.ok(extraDays.some(id=>extraIds.has(id)),
+  "Additional published photo guides must become eligible for the homepage");
+assert.deepEqual((await render("2026-09-26",expanded)).cards.map(x=>x.dataset.guideId),
+  (await render("2026-09-26",expanded)).cards.map(x=>x.dataset.guideId),
+  "Companion selection remains stable within a local day");
 const noPhoto=await render("2026-09-25",fixture.map(o=>({...o,image:null})));
 assert.equal(noPhoto.cards.length,0,"Missing photos keep the pre-rendered HTML fallback");
 assert.ok(!html.slice(html.indexOf('id="home-library"'),html.indexOf('id="near-me"'))
