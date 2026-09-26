@@ -473,6 +473,7 @@
           (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">Xem pin</button>':'<button type="button" data-map-query="'+esc(query)+'">Xem bản đồ</button>')+
           '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">'+(x.verified===false?"Vị trí tham khảo ↗":"Đường đi ↗")+'</a>'+
           (x.external_verify_url?'<a href="'+esc(x.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
+          (x.source_license==="ODbL-1.0"?'<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Nguồn OSM ↗</a>':"")+
           (x.route?'<a href="'+esc(x.route)+'">Thông tin →</a>':"")+
         '</div>'+
       '</article>';
