@@ -44,6 +44,28 @@ for(const id of ["utility_longchau_tran_phu","utility_longchau_an_thoi","utility
   assert.equal(indexed.get(id)?.map,null,"Stale or inferred pharmacy pin must not be published: "+id);
 }
 assert.ok(indexed.get("utility_longchau_nguyen_trung_truc")?.map,"Previously verified Long Chau position must remain");
+const clinic=byId.get("utility_vinmec_duong_dong_clinic");
+const hospital=byId.get("utility_vinmec_phuquoc_emergency");
+assert.equal(clinic.map.lat,10.2223133,"Do not restore prior inaccurate Dương Đông clinic area pin");
+assert.equal(clinic.map.lon,103.9623962);
+assert.equal(clinic.map.precision,"site_centroid");
+assert.equal(hospital.map.lat,10.336498688188055,"Preserve user-confirmed Vinmec hospital compound pin");
+assert.equal(hospital.map.lon,103.85723855555321);
+assert.equal(hospital.map.precision,"site_centroid");
+assert.ok(hospital.map.note.includes("KHÔNG phải cổng cấp cứu"),"Do not present hospital center as emergency entrance");
+for(const id of [clinic.id,hospital.id]){
+  assert.deepEqual([indexed.get(id)?.map?.lat,indexed.get(id)?.map?.lon],[byId.get(id).map.lat,byId.get(id).map.lon]);
+}
+const mapCoverage=read("data/views/map-coverage.json");
+const ready=entities.filter(e=>["zone","place","activity","hotel","utility","access"].includes(e.entity_type)&&Number.isFinite(e.map?.lat)&&Number.isFinite(e.map?.lon)&&["site_centroid","exact_entrance","area_anchor","route_anchor"].includes(e.map?.precision)&&e.map.source&&e.map.verified_at);
+assert.equal(mapCoverage.summary.ready_count,ready.length,"Map-ready count must follow canonical");
+const mappedHotels=ready.filter(e=>e.entity_type==="hotel");
+assert.equal(mapCoverage.layers.stay.length,mappedHotels.length,"Do not replace missing canonical hotel GPS with stale view-only coordinates");
+for(const e of mappedHotels){
+  const doc=mapCoverage.layers.stay.find(x=>x.id===e.id);
+  assert.deepEqual([doc?.lat,doc?.lon],[e.map.lat,e.map.lon],"Source-backed hotel pins remain untouched");
+}
+
 assert.equal(index.summary.total,index.documents.length);
 assert.equal(index.summary.with_map,index.documents.filter(x=>Number.isFinite(x.map?.lat)&&Number.isFinite(x.map?.lon)).length);
 for(const e of batch.filter(x=>x.verified===false)){
@@ -77,4 +99,4 @@ assert.ok(near.includes('row.entity_type==="utility"'),"Full Near Me must use ca
 assert.ok(near.includes("reliabilityLabel(x)"),"Community data must be labeled in full Near Me");
 assert.ok(home.includes("row.verified!==false"),"Homepage must not rank candidate OSM GPS as validated distance");
 assert.ok(!fs.readFileSync("scripts/build-cloudflare.mjs","utf8").includes('"research",'),"Private research must not enter public Cloudflare bundle");
-console.log("Near Me / GO intake QA PASS: 36 essentials, 4 charge points, 7 fuel points, 8 Long Chau, all 5 staging batches and legacy GO choices");
+console.log("Near Me / GO intake QA PASS: 36 essentials, 4 charge points, 7 fuel points, 8 Long Chau, two recovered Vinmec pins, canonical hotel coverage and 5 staging batches");
