@@ -8,7 +8,7 @@ GO needs forecast context across a planned arrival-to-finish interval. Near Me n
 
 The adapter returns source evidence and coverage. It does not decide whether an activity is safe, unsafe, open or cancelled. It must not change the Weather page or Weather core, and it must never send the full forecast grid to a browser.
 
-## Proposed endpoint
+## Endpoint contract
 
 POST /api/context/v1/weather/window
 
@@ -140,7 +140,7 @@ This proposal sets no nearest-cell distance cutoff or confidence bucket. Weather
 
 The draft automated test covers canonical-manifest allowlisting, sampled native cells and distances, null values, in-window and bracket-only coverage, missing horizon coverage, marine unknown, basic input rejection, origin/method/content-type checks and source outage. The current Pages build and Worker route validation run the test.
 
-The test does not yet cover every malformed upstream shape, cell movement between frames, stream bodies over the request/upstream byte caps, or product-consumer behavior. GO candidate ranking and Near Me essential-service fallback belong in their respective product PRs. Do not treat a successful API sample as a safety assessment or freshness guarantee.
+The test does not yet cover every malformed upstream shape, cell movement between frames, or product-consumer behavior. GO candidate ranking and Near Me essential-service fallback belong in their respective product PRs. Do not treat a successful API sample as a safety assessment or freshness guarantee.
 
 ## Decisions before consumers rely on the contract
 
