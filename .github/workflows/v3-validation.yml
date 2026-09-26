@@ -68,7 +68,9 @@ jobs:
       - name: Test food entity ID mapping
         run: node scripts/test-food-id-mapping.mjs
       - name: Test Near Me venue pins and canonical places
-        run: node scripts/test-nearme-venues.mjs
+        run: |
+          node scripts/test-nearme-venues.mjs
+          node scripts/test-nearme-mobile-layout.mjs
       - name: Test weather map points match production coordinates
         run: node scripts/test-weather-map-coordinates.mjs
       - name: Test Vietcombank currency parser
