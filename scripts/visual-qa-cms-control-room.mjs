@@ -118,6 +118,15 @@ try{
   await desktop.page.locator('[data-story-outline] [data-story-focus="0"]').waitFor();
   await desktop.page.locator('[data-story-focus="0"]').click();
   await desktop.page.locator('textarea[data-path="stories.0.sections.0.body"]').waitFor();
+  await desktop.page.locator("[data-story-writing]").click();
+  assert.equal(await desktop.page.locator(".story-desk.writing").count(),1);
+  assert.equal(await desktop.page.locator(".story-desk.writing .story-library").isVisible(),false);
+  await desktop.page.locator("[data-story-writing]").click();
+  await desktop.page.locator('[data-story-insert="text"]').first().click();
+  assert.equal(await desktop.page.locator("[data-story-section-card]").count(),2);
+  await desktop.page.locator("[data-story-undo]").click();
+  assert.equal(await desktop.page.locator("[data-story-section-card]").count(),1);
+  assert.ok(await desktop.page.locator("[data-story-editor-checks]").isVisible());
   await desktop.page.locator(".ew-story-preview").first().click();
   await desktop.page.locator("#ewPreviewDialog[open]").waitFor();
   assert.match(await desktop.page.locator("#ewPreviewDialog h1").textContent(),/Bài đang biên tập/);
@@ -200,6 +209,11 @@ try{
   await mobile.page.locator("#editorTools").waitFor({state:"visible"});
   await mobile.page.locator("[data-story-reading]").waitFor();
   await mobile.page.locator('[data-story-view="edit"]').click();
+  await mobile.page.locator("[data-story-writing]").click();
+  assert.ok(await mobile.page.locator(".story-desk.writing").isVisible());
+  const focusWidth=await mobile.page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(focusWidth<=2,"Focused writing overflows iPhone by "+focusWidth+"px");
+  await mobile.page.locator("[data-story-writing]").click();
   assert.ok(await mobile.page.locator(".ew-story-preview").first().isVisible());
   const editorOverflow=await mobile.page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
   assert.ok(editorOverflow<=2,"iPhone editor horizontal overflow: "+editorOverflow+"px");
@@ -386,6 +400,9 @@ try{
   await desk.locator('[data-story-view="read"]').click();
   assert.match(await desk.locator("[data-story-reading]").textContent(),/Nội dung mới trong bản demo/);
   await desk.locator('[data-story-view="edit"]').click();
+  await desk.locator("[data-story-writing]").click();
+  assert.equal(await desk.locator(".story-desk.writing").count(),1);
+  await desk.locator("[data-story-writing]").click();
   await desk.locator('[data-demo-insert-image="0"]').click();
   await desk.locator('[data-demo-photo-example="1"]').click();
   await desk.locator('[data-demo-section="1"] [data-story-layout-pick="body"]').click();

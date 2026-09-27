@@ -1,6 +1,6 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
 <title>Demo bàn biên tập bài viết - Open Phu Quoc</title>
-<link rel="stylesheet" href="admin.css?v=23"><link rel="stylesheet" href="editor-workflow.css?v=1"><link rel="stylesheet" href="admin-v2.css?v=1"><link rel="stylesheet" href="story-desk.css?v=1"><link rel="stylesheet" href="story-composer.css?v=1">
+<link rel="stylesheet" href="admin.css?v=23"><link rel="stylesheet" href="editor-workflow.css?v=1"><link rel="stylesheet" href="admin-v2.css?v=1"><link rel="stylesheet" href="story-desk.css?v=2"><link rel="stylesheet" href="story-composer.css?v=1">
 <style>body{margin:0;background:#F5F9F6;font-family:system-ui,sans-serif;color:#123D3B}.demo-shell{max-width:1480px;margin:auto;padding:16px 23px 70px}
 .demo-head{margin:17px 0 20px;display:flex;gap:16px;justify-content:space-between;align-items:center}
 .demo-head h1{font-size:clamp(23px,3vw,33px);margin:0 0 5px}.demo-head p{color:#547264;margin:0;font-size:14px}
@@ -22,12 +22,12 @@
 .demo-live .story-reading{font-size:14px}
 .demo-live .story-reading h1{font-size:24px}
 .demo-live .story-reading-section h2{font-size:19px}
-.demo-live .story-reading-section p{font-size:14px}
+.demo-live .story-reading-section p{font-size:14px}.story-desk.writing .demo-live{display:none}.story-desk.writing .demo-edit-grid{grid-template-columns:1fr}.story-desk.writing .demo-edit{max-width:900px}
 @media(max-width:960px){.demo-edit-grid{grid-template-columns:1fr}.demo-live{position:relative;top:auto;max-height:420px}}
 </style></head><body>
 <div class="demo-note"><strong>BẢN DEMO DỮ LIỆU GIẢ</strong> - Chỉ thử cách xem, cấu trúc và chỉnh bài. Không đăng nhập, không lưu CMS, không gửi duyệt hay xuất bản.</div>
 <main class="demo-shell"><header class="demo-head"><div><h1>Bàn biên tập bài viết</h1><p>Chọn bài bên trái. Đọc trước, xem cấu trúc, rồi mới mở các ô chỉnh sửa.</p></div><img src="../assets/logo-master.png?v=20260925-tight-master-r1" height="55" alt="Open Phu Quoc"></header>
-<div id="demoDesk"></div></main><script src="story-composer.js?v=1"></script><script src="story-desk.js?v=2"></script><script>
+<div id="demoDesk"></div></main><script src="story-composer.js?v=1"></script><script src="story-desk.js?v=3"></script><script>
 (function(){
 const articles=[
 {id:"vuon-tieu",category:"ĐỜI SỐNG ĐẢO",title:"Một buổi sáng trong vườn tiêu",dek:"Theo người làm vườn từ lúc trời vừa sáng.",intro:"Buổi sáng trong vườn tiêu bắt đầu khi sương còn đọng trên lá.",
@@ -67,6 +67,14 @@ function form(s){
 function esc(x){return String(x||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function draw(){
  host.innerHTML=desk.render(articles,form,"");
+ host.querySelectorAll("[data-story-writing]").forEach(b=>b.onclick=()=>{desk.toggleWriting();draw()});
+ host.querySelectorAll("[data-story-fix]").forEach(b=>b.onclick=()=>{
+   const p=b.dataset.storyFix;
+   const section=p.match(/\.sections\.(\d+)\./);
+   if(section){document.getElementById("demo-body-"+section[1])?.focus();return;}
+   const field=p.split(".").at(-1);
+   document.querySelector('[data-demo-field="'+field+'"]')?.focus();
+ });
  host.querySelectorAll("[data-story-select]").forEach(b=>b.onclick=()=>{
    desk.select(Number(b.dataset.storySelect),articles.length);draw();
  });

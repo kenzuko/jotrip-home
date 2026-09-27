@@ -3,6 +3,7 @@ const qsa=s=>Array.from(document.querySelectorAll(s));
 const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics"};
 
 let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null,moduleRequestId=0,baseData=null,publishInFlight=false;
+let storyDraftMessage="Bản nháp chỉ lưu trên trình duyệt này · chưa gửi duyệt.";
 
 const ROLE_LABELS={
   admin:"Quản trị viên",
@@ -138,6 +139,7 @@ const LABELS={
 
 function show(id){["boot","remoteGate","login","cms"].forEach(x=>$("#"+x)?.classList.toggle("hidden",x!==id))}
 function status(msg,type=""){const el=$("#status");if(!el)return;el.textContent=msg;el.className="status-bar"+(type?" "+type:"")}
+function setStoryDraftMessage(msg){storyDraftMessage=msg;const el=$("#storyLocalSave");if(el)el.textContent=msg;}
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function labelize(k){
   if(LABELS[k])return LABELS[k];
@@ -168,8 +170,9 @@ function saveDraftNow(){
     const result=wf.writeModuleDraft(info);
     wf.writeRecordCheckpoints(info);
     wf.renderPanel();
-    if(!result.ok)status(result.error||"Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");
-    if(result.blocked&&result.ok)status("Đã lưu bản sao riêng vì có tab khác đang sửa. Hãy đối chiếu trước khi gửi duyệt.","error");
+    if(!result.ok){status(result.error||"Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");setStoryDraftMessage("Không lưu được. Hãy tải bản sao JSON.");}
+    else if(result.blocked){status("Đã lưu bản sao riêng vì có tab khác đang sửa. Hãy đối chiếu trước khi gửi duyệt.","error");setStoryDraftMessage("Tab khác đang sửa · cần đối chiếu bản sao trước khi gửi.");}
+    else setStoryDraftMessage("Đã lưu trên máy lúc "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"})+" · chưa gửi duyệt.");
     return result.ok;
   }
   const k=draftKey();
@@ -184,7 +187,7 @@ function scheduleDraft(){
       status("Bản nháp đã tự lưu trên trình duyệt này. Chưa gửi duyệt.");
   },650);
 }
-function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
+function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);if(currentModule?.id==="stories")setStoryDraftMessage("Đang lưu bản nháp trên máy...");scheduleDraft()}
 
 function itemTitle(v,i){
   if(v&&typeof v==="object"){
@@ -534,6 +537,7 @@ function renderStoryWorkbench(story,i){
     ?`<button type="button" class="story-slug" data-story-slug="${i}">Tạo mã từ tiêu đề</button>`
     :"";
 
+  const jumpLinks=sections.map((part,j)=>'<button type="button" data-story-jump="'+j+'">'+(j+1)+'. '+esc(part.heading||(part.image?"Ảnh "+(j+1):"Đoạn "+(j+1)))+'</button>').join("");
   const sectionHtml=sections.map((section,j)=>{
     const sp=p+".sections."+j,arrayPath=p+".sections";
     const move='<div class="story-block-move">'+
@@ -575,6 +579,7 @@ function renderStoryWorkbench(story,i){
       <small>${esc(story.category||"Bài viết")} · ${storyReadMinutes(story)} phút</small>
     </summary>
     <div class="detail-body">
+      <nav class="story-edit-jumps" aria-label="Đi nhanh đến đoạn"><span>ĐANG VIẾT</span><button type="button" data-story-jump="intro">Mở bài</button>${jumpLinks||"<small>Chưa có đoạn</small>"}</nav>
       <div class="ew-story-actions">
         <button type="button" class="ew-story-preview" data-story-preview="${i}" data-editor-readonly-action>Xem bài đang soạn ↗</button>
         <span class="ew-story-hint">Nội dung trong trình biên tập, chưa đăng.</span>
@@ -1102,7 +1107,11 @@ function bindFields(){
         const match=el.dataset.path.match(/^stories\.(\d+)\./);
         if(match){
           const i=Number(match[1]),story=currentData.stories?.[i];
-          if(story)window.OPQStoryDesk?.refreshLive(story,i);
+          if(story){window.OPQStoryDesk?.refreshLive(story,i);window.OPQStoryDesk?.refreshChecks(story,i);}
+          if(el.dataset.path.startsWith("stories."+i+".sections.")){
+            window.OPQStoryDesk?.clearUndo();
+            const undoButton=document.querySelector("[data-story-undo]");if(undoButton)undoButton.hidden=true;
+          }
           if(el.dataset.path==="stories."+i+".title"){
             const header=document.querySelector(".story-focus-bar h2");
             if(header)header.textContent=String(v||"Bài chưa có tiêu đề");
@@ -1120,16 +1129,18 @@ function bindArrayControls(){
     const i=Number(btn.dataset.index);
     if(!Array.isArray(arr)||!Number.isInteger(i))return;
     const action=btn.dataset.arrayAction;
+    const inStory=currentModule?.id==="stories"&&btn.dataset.arrayPath==="stories."+(window.OPQStoryDesk?.selected()??-1)+".sections";
+    const remember=()=>{if(inStory)window.OPQStoryDesk?.rememberSections(window.OPQStoryDesk.selected(),arr)};
 
     if(action==="delete"){
       if(!confirm("Xóa mục này? Thay đổi chỉ có hiệu lực sau khi bấm Gửi duyệt."))return;
-      arr.splice(i,1);
+      remember();arr.splice(i,1);
     }else if(action==="duplicate"){
-      arr.splice(i+1,0,deepClone(arr[i]));
+      remember();arr.splice(i+1,0,deepClone(arr[i]));
     }else if(action==="up"&&i>0){
-      [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+      remember();[arr[i-1],arr[i]]=[arr[i],arr[i-1]];
     }else if(action==="down"&&i<arr.length-1){
-      [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+      remember();[arr[i+1],arr[i]]=[arr[i],arr[i+1]];
     }
 
     markDirty();
@@ -1139,7 +1150,15 @@ function bindArrayControls(){
   document.querySelectorAll(".add-array-item").forEach(btn=>btn.onclick=()=>{
     const arr=getAtPath(currentData,btn.dataset.arrayPath);
     if(!Array.isArray(arr))return;
-    const template=arr.length?blankLike(arr[0]):(currentModule?.id==="visuals"&&btn.dataset.arrayPath.endsWith(".images")?{url:"",alt:"",caption:"",source_label:"JoTrip",source_url:"",license:"JoTrip owned",license_url:"",scope:"exact_subject"}:"");
+    const inStory=currentModule?.id==="stories"&&
+      btn.dataset.arrayPath.startsWith("stories."+(window.OPQStoryDesk?.selected()??-1)+".");
+    if(inStory&&btn.dataset.arrayPath.endsWith(".sections"))
+      window.OPQStoryDesk?.rememberSections(window.OPQStoryDesk.selected(),arr);
+    const template=arr.length?blankLike(arr[0]):
+      inStory&&btn.dataset.arrayPath.endsWith(".sections")?{heading:"",body:"",image:"",caption:"",layout:"wide"}:
+      inStory&&btn.dataset.arrayPath.endsWith(".sources")?{label:"",url:""}:
+      currentModule?.id==="visuals"&&btn.dataset.arrayPath.endsWith(".images")?
+        {url:"",alt:"",caption:"",source_label:"JoTrip",source_url:"",license:"JoTrip owned",license_url:"",scope:"exact_subject"}:"";
     arr.push(template);
     markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Gửi duyệt.");
     rerender();
@@ -1189,6 +1208,36 @@ function bindVenueControls(){
 
 function bindStoryControls(){
   const desk=window.OPQStoryDesk,composer=window.OPQStoryComposer;
+  document.querySelectorAll("[data-story-writing]").forEach(btn=>btn.onclick=()=>{
+    if(desk?.view()!=="edit")return;
+    desk.toggleWriting();rerender();
+  });
+  document.querySelectorAll("[data-story-undo]").forEach(btn=>btn.onclick=()=>{
+    if(!currentModule?.write?.includes(session.role))return;
+    const index=desk?.selected()??-1,story=currentData.stories?.[index],snapshot=desk?.undoSections(index);
+    if(!story||!snapshot)return;
+    story.sections=snapshot;markDirty("Đã hoàn tác thao tác cấu trúc đoạn. Nội dung đang viết vẫn cần xem lại.");
+    rerender();
+  });
+  document.querySelectorAll("[data-story-jump],[data-story-fix]").forEach(btn=>btn.onclick=()=>{
+    if(desk?.view()!=="edit"||btn.hasAttribute("data-story-fix")&&!currentModule?.write?.includes(session.role))return;
+    const index=desk.selected();
+    const raw=btn.dataset.storyFix||"";
+    const number=btn.dataset.storyJump;
+    const path=raw||(number==="intro"?"stories."+index+".intro":
+      "stories."+index+".sections."+Number(number)+".body");
+    if(path==="stories."+index+".sections"||path==="stories."+index+".sources"){
+      const add=[...document.querySelectorAll("#editor [data-array-path]")].find(el=>
+        el.classList.contains("add-array-item")&&el.dataset.arrayPath===path);
+      add?.click();return;
+    }
+    const target=[...document.querySelectorAll("#editor [data-path]")].find(el=>el.dataset.path===path);
+    if(!target)return;
+    let parent=target.parentElement;
+    while(parent&&parent.id!=="editor"){if(parent.tagName==="DETAILS")parent.open=true;parent=parent.parentElement;}
+    target.focus({preventScroll:true});
+    target.scrollIntoView({behavior:"smooth",block:"center"});
+  });
   document.querySelectorAll("[data-story-select]").forEach(btn=>btn.onclick=()=>{
     if(desk?.select(Number(btn.dataset.storySelect),currentData.stories.length))rerender();
   });
@@ -1220,6 +1269,7 @@ function bindStoryControls(){
     if(!story)return;
     const sections=story.sections||(story.sections=[]);
     let index=-1;
+    desk?.rememberSections(articleIndex,sections);
     if(btn.hasAttribute("data-story-split-photo")){
       const n=Number(btn.dataset.storySplitPhoto);
       const field=[...document.querySelectorAll("#editor [data-path]")].find(el=>
@@ -1514,6 +1564,7 @@ function rerender(){
   applyPermissions();
   window.OPQEditorWorkflow?.renderPanel();
   if(currentModule.id==="stories"){
+    const localBadge=document.getElementById("storyLocalSave");if(localBadge)localBadge.textContent=storyDraftMessage;
     const catalog=document.querySelector(".story-catalog-list");
     if(catalog)catalog.scrollTop=catalogScroll;
   }
@@ -1744,6 +1795,7 @@ async function selectModule(id){
     const b=await api(API.content+"?path="+encodeURIComponent(currentModule.path));
     if(requestId!==moduleRequestId)return;
     currentData=b.content;
+    if(currentModule.id==="stories")storyDraftMessage="Bản nháp chỉ lưu trên trình duyệt này · chưa gửi duyệt.";
     currentSha=b.sha;
     baseData=deepClone(b.content);
     dirty=false;
@@ -1906,4 +1958,16 @@ window.addEventListener("beforeunload",e=>{
   }
 });
 
+document.addEventListener("keydown",event=>{
+  if(currentModule?.id!=="stories"||!(event.ctrlKey||event.metaKey)||
+      event.shiftKey||event.altKey||String(event.key).toLowerCase()!=="s")return;
+  event.preventDefault();
+  if(!currentModule.write?.includes(session?.role)){setStoryDraftMessage("Tài khoản này chỉ có quyền đọc.");return;}
+  clearTimeout(draftTimer);
+  if(dirty){
+    const ok=saveDraftNow();
+    if(ok&&!window.OPQEditorWorkflow?.hasConflict())
+      status("Đã lưu nháp trên máy. Chưa gửi duyệt.","success");
+  }else setStoryDraftMessage("Không có thay đổi mới để lưu.");
+});
 boot();
