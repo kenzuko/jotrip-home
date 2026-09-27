@@ -21,3 +21,11 @@
 .opq-feedback-actions button:disabled{opacity:.55;cursor:wait}
 .opq-feedback-trap{position:absolute;left:-10000px;height:1px;width:1px;overflow:hidden}
 @media(max-width:480px){.opq-feedback form{padding:18px}.opq-feedback-head h2{font-size:22px}}
+
+/* Quiet contextual entry points: visible when useful, never floating over maps or mobile navigation. */
+.opq-feedback-trigger--quiet{min-height:42px;padding:7px 4px;border:0;background:transparent;color:#276653;font-weight:600;font-size:13px;text-underline-offset:3px}
+.opq-feedback-trigger--quiet:hover,.opq-feedback-trigger--quiet:focus-visible{background:transparent;text-decoration:underline}
+.opq-feedback-trigger[hidden]{display:none!important}
+.opq-translation-note{display:grid;gap:6px;max-width:660px;margin:12px 0;padding:10px 14px;border-left:2px solid #88ad9b;border-radius:0 8px 8px 0;background:#f7faf8;color:#49665b;font:400 12px/1.6 system-ui,-apple-system,sans-serif}
+.opq-translation-note p{margin:0}.opq-translation-note button{justify-self:start}
+@media(max-width:480px){.opq-translation-note{font-size:12px;padding:9px 11px}.opq-feedback-trigger--quiet{min-height:44px}}

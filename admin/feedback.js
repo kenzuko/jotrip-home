@@ -3,7 +3,7 @@
 "use strict";
 const $=q=>document.querySelector(q);
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const labels={closed:"Đã đóng cửa",location:"Sai vị trí",hours:"Giờ hoạt động",phone:"Số điện thoại",details:"Thông tin khác",new_place:"Địa điểm mới",other:"Bổ sung"};
+const labels={closed:"Đã đóng cửa",location:"Sai vị trí",hours:"Giờ hoạt động",phone:"Số điện thoại",details:"Thông tin khác",new_place:"Địa điểm mới",other:"Bổ sung",translation:"Bản dịch"};
 const states={new:"Chưa xử lý",reviewing:"Đang kiểm tra",resolved:"Đã xử lý",rejected:"Không phù hợp"};
 let session,offset=0,loading=false;
 async function read(url,init={}){
@@ -16,7 +16,7 @@ const writable=()=>["admin","editor"].includes(session?.role);
 const status=message=>{$("#status").textContent=message;};
 function publicHref(raw){
   const s=String(raw||"");
-  return /^\/(nearme|go|places|stories|guide)\/[a-zA-Z0-9/_-]*(?:\?id=[a-zA-Z0-9_-]{1,120})?$/.test(s)&&!s.startsWith("//")?s:null;
+  return (s==="/"||/^\/(nearme|go|places|stories|guide)\/[a-zA-Z0-9/._-]*(?:\?id=[a-zA-Z0-9_-]{1,120})?$/.test(s))&&!s.startsWith("//")?s:null;
 }
 function editorHref(x){
   const id=String(x.entity_id||"");
@@ -32,13 +32,20 @@ function editorHref(x){
 }
 function record(x){
   const source=publicHref(x.source_path),editor=editorHref(x);
+  const translation=x.issue==="translation";
+  const translationBox=translation?'<div class="translation-box"><small>Ngôn ngữ: '+esc(x.language||"?")+
+    (x.source_revision?" · Phiên bản: "+esc(x.source_revision):"")+'</small>'+
+    (x.quoted_text?'<strong>Đoạn được góp ý</strong><blockquote lang="'+esc(x.language||"")+'">'+esc(x.quoted_text)+'</blockquote>':"")+
+    (x.suggested_text?'<strong>Khách đề xuất</strong><blockquote lang="'+esc(x.language||"")+'">'+esc(x.suggested_text)+'</blockquote>':"")+
+    '<label><strong>Câu đã kiểm tra (chỉ lưu khi chọn Đã xử lý)</strong><textarea class="approved-text" maxlength="1500" '+(writable()?"":"disabled")+' placeholder="Nhập bản sửa đã được biên tập viên xác nhận...">'+esc(x.approved_text||"")+'</textarea></label>'+
+    '<small>Bản sửa được lưu vào kho góp ý đã duyệt, không tự cập nhật bài công khai.</small></div>':"";
   return '<article class="item" data-id="'+esc(x.id)+'">'+
     '<span class="tag">'+esc(labels[x.issue]||x.issue)+'</span> '+
     '<span class="meta">'+esc(new Date(x.created_at).toLocaleString("vi-VN",{timeZone:"Asia/Ho_Chi_Minh"}))+'</span>'+
     '<h2>'+esc(x.entity_label)+'</h2>'+
     '<p class="meta">'+esc(x.entity_type)+(x.entity_id?" · "+esc(x.entity_id):"")+
       ' · Mã góp ý: <code>'+esc(x.id)+'</code></p>'+
-    '<div class="note">'+esc(x.details||"Người dùng chưa gửi mô tả thêm.")+'</div>'+
+    '<div class="note">'+esc(x.details||"Người dùng chưa gửi mô tả thêm.")+'</div>'+translationBox+
     '<div class="links">'+(source?'<a class="action" href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">Xem trang liên quan ↗</a>':"")+
       (editor?'<a class="action" href="'+esc(editor)+'">Mở hồ sơ CMS ↗</a>':"")+
     '</div>'+
@@ -61,6 +68,8 @@ async function load(reset=true){
     const filter=$("#filter").value;
     const query=new URLSearchParams({offset:String(next)});
     if(filter)query.set("status",filter);
+    if($("#kindFilter").value)query.set("kind",$("#kindFilter").value);
+    if($("#kindFilter").value==="translation"&&$("#languageFilter").value)query.set("language",$("#languageFilter").value);
     const result=await read("/api/cms/feedback?"+query);
     const items=result.items||[];
     if(reset)$("#queue").innerHTML="";
@@ -79,6 +88,13 @@ async function init(){
     session=await read("/api/cms/session");
     $("#work").hidden=false;
     $("#filter").addEventListener("change",()=>load(true));
+    $("#kindFilter").addEventListener("change",()=>{
+      const translated=$("#kindFilter").value==="translation";
+      $("#languageFilterWrap").hidden=!translated;
+      if(!translated)$("#languageFilter").value="";
+      load(true);
+    });
+    $("#languageFilter").addEventListener("change",()=>load(true));
     $("#refresh").addEventListener("click",()=>load(true));
     $("#loadMore").addEventListener("click",()=>load(false));
     $("#queue").addEventListener("click",async event=>{
@@ -87,6 +103,12 @@ async function init(){
       const item=button.closest("[data-id]");
       const next=item.querySelector(".item-state").value;
       const note=item.querySelector(".item-note").value.trim();
+      const approved=item.querySelector(".approved-text")?.value.trim()||"";
+      if(item.querySelector(".approved-text")&&next==="resolved"&&approved.length<3){
+        status("Bạn cần nhập bản dịch đã kiểm tra trước khi đánh dấu hoàn tất.");
+        item.querySelector(".approved-text").focus();
+        return;
+      }
       if(["resolved","rejected"].includes(next)&&note.length<10){
         status("Khi kết thúc góp ý, bạn ghi rõ cách đã kiểm tra hoặc lý do xử lý (ít nhất 10 ký tự).");
         item.querySelector(".item-note").focus();
@@ -95,7 +117,7 @@ async function init(){
       button.disabled=true;
       try{
         await read("/api/cms/feedback",{method:"PATCH",headers:{"content-type":"application/json"},
-          body:JSON.stringify({id:item.dataset.id,status:next,note})});
+          body:JSON.stringify({id:item.dataset.id,status:next,note,approved_text:next==="resolved"?approved:""})});
         await load(true);
       }catch(e){status("Chưa lưu được: "+e.message);button.disabled=false;}
     });
