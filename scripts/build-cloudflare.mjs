@@ -39,6 +39,8 @@ const rootFiles=[
   "jotrip-service-card.css",
   ".nojekyll"
 ];
+// Include the canoe page and its verified offline history in CMS Pages builds.
+// Live daily state and new history are read from the marine_ops data branch.
 const dirs=[
   "assets",
   "data",
