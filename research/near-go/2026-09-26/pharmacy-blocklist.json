@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "intake_date": "2026-09-26",
+  "rule": "Review flags are not permanent closure claims. Require renewed official proof to reactivate or merge.",
+  "records": [
+    {
+      "name": "Nhà thuốc Phương Nguyễn",
+      "address": "80 Trần Hưng Đạo, khu phố 7, Phú Quốc",
+      "action": "DO_NOT_PUBLISH_WITHOUT_NEW_LICENSE",
+      "reason": "Appears in April 2026 batch-2 certificate revocation list; do not reinstate from older tourism directory alone.",
+      "source_url": "https://syt.angiang.gov.vn/Lists/TinTuc/Attachments/8581/DS%20thu%20h%E1%BB%93i%20CN%20%C4%90%C4%90KKDD%20%C4%91%E1%BB%A3t%202%20th%C3%A1ng%2004.2026.pdf"
+    },
+    {
+      "name": "Bắc Thái Sanh Đường / Hồng Thuận Đường",
+      "action": "VERIFY_TYPE",
+      "reason": "Historical tourism directory; insufficient evidence to classify as Western-medicine retail pharmacy."
+    },
+    {
+      "name": "An Khang (multiple unrelated names possible)",
+      "address": "2 Nguyễn Văn Cừ / 34 Trần Phú / 242 Nguyễn Trung Trực",
+      "action": "NO_AUTOMATIC_BRAND_MERGE",
+      "reason": "The An Khang trading name does not prove common corporate ownership across addresses."
+    },
+    {
+      "name": "Long Châu Suối Đá",
+      "action": "BLOCK_OLD_WRONG_PIN",
+      "reason": "Stale derived index placed Suối Đá at Gành Dầu coordinates. Source canonical has no safe pin; regenerated branch index removed the stale marker."
+    },
+    {
+      "name": "Ánh Sao / Ánh Trăng",
+      "address": "20A Trần Phú, Dương Đông",
+      "action": "REVIEW_POSSIBLE_RENAME_OR_DUPLICATE",
+      "reason": "Older distributor directory lists Ánh Sao; April 2026 provincial record lists Ánh Trăng at matching address. Do not show duplicate map pins without confirming identity."
+    }
+  ]
+}

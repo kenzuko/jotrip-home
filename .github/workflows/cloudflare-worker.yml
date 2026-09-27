@@ -5,6 +5,15 @@ on:
     branches: ["main"]
     paths:
       - "data/knowledge/**"
+      - "data/entities/utilities.json"
+      - "data/entities/nearme-essential-*.json"
+      - "data/home-support.json"
+      - "data/views/location-index.json"
+      - "data/views/map-coverage.json"
+      - "nearme/**"
+      - "home-nearme-v2.js"
+      - "scripts/build-location-index.mjs"
+      - "scripts/build-map-coverage.mjs"
       - "guide/**"
       - "index.html"
       - "styles.css"

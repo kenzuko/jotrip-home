@@ -1,0 +1,643 @@
+{
+  "dataset": "Open Phu Quoc Near Me community POI extract",
+  "version": "2026-09-27",
+  "origin": "OpenStreetMap (© OpenStreetMap contributors)",
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "attribution_url": "https://www.openstreetmap.org/copyright",
+  "scope": "Only OSM-derived community POIs selected for Near Me; official operator and independently verified data are not part of this extract.",
+  "disclaimer": "Community POIs are unverified: not evidence of current operation, valid pharmacy licenses, charger availability or verified entrances.",
+  "record_count": 42,
+  "records": [
+    {
+      "osm_ref": "node/10649396005",
+      "osm_url": "https://www.openstreetmap.org/node/10649396005",
+      "name": "CMart 2",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1832689,
+        "lon": 103.968688
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_10649396005",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/10649401205",
+      "osm_url": "https://www.openstreetmap.org/node/10649401205",
+      "name": "CMart 3",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1981175,
+        "lon": 103.9686022
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_10649401205",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11843665982",
+      "osm_url": "https://www.openstreetmap.org/node/11843665982",
+      "name": "Bưu Điện VNPT xã Gành Dầu",
+      "category": "POST_OFFICE",
+      "coordinate": {
+        "lat": 10.3758064,
+        "lon": 103.8522202
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11843665982",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11849971252",
+      "osm_url": "https://www.openstreetmap.org/node/11849971252",
+      "name": "Nhà Thuốc Linh Chi",
+      "category": "PHARMACY",
+      "coordinate": {
+        "lat": 10.3695587,
+        "lon": 103.8464427
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11849971252",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11853095123",
+      "osm_url": "https://www.openstreetmap.org/node/11853095123",
+      "name": "Hoa Cát Tường Mart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.3711226,
+        "lon": 103.8431684
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11853095123",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11873211963",
+      "osm_url": "https://www.openstreetmap.org/node/11873211963",
+      "name": "Giặt Sấy Nhanh Khoai Tây",
+      "category": "LAUNDRY",
+      "coordinate": {
+        "lat": 10.3691597,
+        "lon": 103.8417364
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873211963",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11873211966",
+      "osm_url": "https://www.openstreetmap.org/node/11873211966",
+      "name": "Quầy Thuốc Bé Nụ",
+      "category": "PHARMACY",
+      "coordinate": {
+        "lat": 10.3699512,
+        "lon": 103.841024
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873211966",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11886047087",
+      "osm_url": "https://www.openstreetmap.org/node/11886047087",
+      "name": "Thuốc Tây Như Thành",
+      "category": "PHARMACY",
+      "coordinate": {
+        "lat": 10.3206079,
+        "lon": 103.8757995
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11886047087",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11930352245",
+      "osm_url": "https://www.openstreetmap.org/node/11930352245",
+      "name": "Nhà thuốc TRÍ TOÀN",
+      "category": "PHARMACY",
+      "coordinate": {
+        "lat": 10.2310062,
+        "lon": 103.982945
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11930352245",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11930375215",
+      "osm_url": "https://www.openstreetmap.org/node/11930375215",
+      "name": "Gara Oto Yên The Car",
+      "category": "VEHICLE_REPAIR",
+      "coordinate": {
+        "lat": 10.2374328,
+        "lon": 103.9835344
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11930375215",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/11930375256",
+      "osm_url": "https://www.openstreetmap.org/node/11930375256",
+      "name": "Trạm xăng dầu HIỆP ĐẠT (KTC)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.2641712,
+        "lon": 103.9741252
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11930375256",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/11932334086",
+      "osm_url": "https://www.openstreetmap.org/node/11932334086",
+      "name": "AUTO HOÀNG ANH 69",
+      "category": "VEHICLE_REPAIR",
+      "coordinate": {
+        "lat": 10.2418315,
+        "lon": 103.9853127
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11932334086",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/11932334089",
+      "osm_url": "https://www.openstreetmap.org/node/11932334089",
+      "name": "Garage Xanh Phát",
+      "category": "VEHICLE_REPAIR",
+      "coordinate": {
+        "lat": 10.2427316,
+        "lon": 103.9858156
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11932334089",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/11932334201",
+      "osm_url": "https://www.openstreetmap.org/node/11932334201",
+      "name": "Bưu Điện VHX Bến Tràm",
+      "category": "POST_OFFICE",
+      "coordinate": {
+        "lat": 10.2351727,
+        "lon": 104.0012115
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11932334201",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11932334202",
+      "osm_url": "https://www.openstreetmap.org/node/11932334202",
+      "name": "Garage Hai Toại",
+      "category": "VEHICLE_REPAIR",
+      "coordinate": {
+        "lat": 10.2351094,
+        "lon": 104.0010452
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11932334202",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/11932334297",
+      "osm_url": "https://www.openstreetmap.org/node/11932334297",
+      "name": "Garage ANH KIỆT",
+      "category": "VEHICLE_REPAIR",
+      "coordinate": {
+        "lat": 10.2228136,
+        "lon": 103.9901689
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11932334297",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/11932334306",
+      "osm_url": "https://www.openstreetmap.org/node/11932334306",
+      "name": "Quầy Thuốc CAO THƯƠNG",
+      "category": "PHARMACY",
+      "coordinate": {
+        "lat": 10.2169443,
+        "lon": 103.9924072
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11932334306",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/12635163017",
+      "osm_url": "https://www.openstreetmap.org/node/12635163017",
+      "name": "Giặt Sấy Huy Tín",
+      "category": "LAUNDRY",
+      "coordinate": {
+        "lat": 10.1793142,
+        "lon": 103.9745814
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12635163017",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/13564293156",
+      "osm_url": "https://www.openstreetmap.org/node/13564293156",
+      "name": "KingKong Mart Mini",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.215123,
+        "lon": 103.9600217
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_13564293156",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/13696692370",
+      "osm_url": "https://www.openstreetmap.org/node/13696692370",
+      "name": "Trạm sạc VinFast - Bắc đảo (điểm OSM 1)",
+      "category": "CHARGING",
+      "coordinate": {
+        "lat": 10.3374265,
+        "lon": 103.8906622
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_13696692370",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/13720328502",
+      "osm_url": "https://www.openstreetmap.org/node/13720328502",
+      "name": "Trạm sạc VinFast - Bắc đảo (điểm OSM 2)",
+      "category": "CHARGING",
+      "coordinate": {
+        "lat": 10.4122175,
+        "lon": 104.0325614
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_13720328502",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/13722462501",
+      "osm_url": "https://www.openstreetmap.org/node/13722462501",
+      "name": "Trạm sạc VinFast - Trung tâm - Tây đảo (điểm OSM 1)",
+      "category": "CHARGING",
+      "coordinate": {
+        "lat": 10.2065789,
+        "lon": 103.9633146
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_13722462501",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/13722487301",
+      "osm_url": "https://www.openstreetmap.org/node/13722487301",
+      "name": "Trạm sạc VinFast - Trung tâm - Tây đảo (điểm OSM 2)",
+      "category": "CHARGING",
+      "coordinate": {
+        "lat": 10.2775086,
+        "lon": 103.9377698
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_13722487301",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/1650574689",
+      "osm_url": "https://www.openstreetmap.org/node/1650574689",
+      "name": "Petrolimex - Tây đảo (điểm OSM 6)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.2652933,
+        "lon": 103.9435302
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_1650574689",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/1650587741",
+      "osm_url": "https://www.openstreetmap.org/node/1650587741",
+      "name": "Petrolimex - Tây đảo (điểm OSM 1)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.2227654,
+        "lon": 103.9633783
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_1650587741",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/1650587749",
+      "osm_url": "https://www.openstreetmap.org/node/1650587749",
+      "name": "Petrolimex - Tây đảo (điểm OSM 2)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.2271155,
+        "lon": 103.9778408
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_1650587749",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/2589014791",
+      "osm_url": "https://www.openstreetmap.org/node/2589014791",
+      "name": "ATM BIDV - khu Dinh Cậu",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.2171563,
+        "lon": 103.9582669
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_2589014791",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/3482735059",
+      "osm_url": "https://www.openstreetmap.org/node/3482735059",
+      "name": "Petrolimex - Tây đảo (điểm OSM 5)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.2623924,
+        "lon": 103.9747694
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_3482735059",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/3482735060",
+      "osm_url": "https://www.openstreetmap.org/node/3482735060",
+      "name": "ATM BIDV - Bắc đảo",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.3339603,
+        "lon": 103.8572581
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_3482735060",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/4464120534",
+      "osm_url": "https://www.openstreetmap.org/node/4464120534",
+      "name": "Petrolimex - Tây đảo (điểm OSM 3)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.2321,
+        "lon": 103.9674
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_4464120534",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/4464124612",
+      "osm_url": "https://www.openstreetmap.org/node/4464124612",
+      "name": "Petrolimex - Tây đảo (điểm OSM 4)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.2365502,
+        "lon": 103.962918
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_4464124612",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/5003536531",
+      "osm_url": "https://www.openstreetmap.org/node/5003536531",
+      "name": "DDS Petro - Nam đảo (điểm OSM 1)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.0904413,
+        "lon": 104.0139868
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_5003536531",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/5306507121",
+      "osm_url": "https://www.openstreetmap.org/node/5306507121",
+      "name": "ATM ACB - Dương Đông",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.2062297,
+        "lon": 103.9633872
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_5306507121",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/6483568748",
+      "osm_url": "https://www.openstreetmap.org/node/6483568748",
+      "name": "ATM Vietcombank - An Thới",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.0211472,
+        "lon": 104.0175449
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568748",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/6483568751",
+      "osm_url": "https://www.openstreetmap.org/node/6483568751",
+      "name": "ATM Sacombank - An Thới",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.0328626,
+        "lon": 104.0176657
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568751",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/6483568752",
+      "osm_url": "https://www.openstreetmap.org/node/6483568752",
+      "name": "DDS Petro - Nam đảo (điểm OSM 3)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.0330641,
+        "lon": 104.0173359
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568752",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/6681061187",
+      "osm_url": "https://www.openstreetmap.org/node/6681061187",
+      "name": "ATM MB Bank - An Thới",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.0358646,
+        "lon": 104.0178093
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6681061187",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/6743834277",
+      "osm_url": "https://www.openstreetmap.org/node/6743834277",
+      "name": "DDS Petro - Nam đảo (điểm OSM 2)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.0698093,
+        "lon": 104.0195922
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6743834277",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/7183898787",
+      "osm_url": "https://www.openstreetmap.org/node/7183898787",
+      "name": "Bưu Điện An Thới",
+      "category": "POST_OFFICE",
+      "coordinate": {
+        "lat": 10.0218409,
+        "lon": 104.0174325
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_7183898787",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "way/1270363430",
+      "osm_url": "https://www.openstreetmap.org/way/1270363430",
+      "name": "K+Mark",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.2318771,
+        "lon": 103.9668743
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1270363430",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "way/1498391947",
+      "osm_url": "https://www.openstreetmap.org/way/1498391947",
+      "name": "King Kong Mart - Sonasea",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1336879,
+        "lon": 103.981683
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1498391947",
+      "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "way/1498391976",
+      "osm_url": "https://www.openstreetmap.org/way/1498391976",
+      "name": "Mercury Minimart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1619377,
+        "lon": 103.9741752
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1498391976",
+      "origin_file": "data/entities/nearme-essential-20260926.json"
+    }
+  ]
+}

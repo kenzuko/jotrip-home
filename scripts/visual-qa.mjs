@@ -366,7 +366,30 @@ async function testNearMePage(page) {
   }
   const hotelResults = await page.locator('#nearResults .near-card').count().catch(() => 0);
 
+  const selectCategory=async id=>{
+    const more=page.locator('#categoryMore');
+    if(await more.count()&&!(await more.evaluate(el=>el.open)))await page.locator('#categoryMore summary').click();
+    const button=page.locator('#categoryRow [data-category="'+id+'"]');
+    if(!(await button.count()))return false;
+    await button.click();
+    await page.waitForTimeout(300);
+    return page.evaluate(expected=>window.__openpqNearState?.selectedCategory===expected,id).catch(()=>false);
+  };
+  const chargingSelected=await selectCategory("CHARGING");
+  const chargingCount=await page.locator('#nearResults .near-card').count().catch(()=>0);
+  const chargingText=await page.locator('#nearResults').textContent().catch(()=>"");
+  const chargingSources=await page.locator('#nearResults a[href*="openstreetmap.org/copyright"]').count().catch(()=>0);
+  const chargingOfficial=await page.locator('#nearResults a[href*="vinfastauto.com"]').count().catch(()=>0);
+  const fuelSelected=await selectCategory("FUEL");
+  const fuelCount=await page.locator('#nearResults .near-card').count().catch(()=>0);
+  const pharmacySelected=await selectCategory("PHARMACY");
+  const pharmacyCount=await page.locator('#nearResults .near-card').count().catch(()=>0);
   const checks = {
+    chargingDirectory:chargingSelected&&chargingCount>=4,
+    chargingUncertainty:/chưa xác minh|tham khảo/i.test(chargingText||""),
+    chargingProvenance:chargingSources>=1&&chargingOfficial>=1,
+    fuelDirectory:fuelSelected&&fuelCount>=10,
+    pharmacyDirectory:pharmacySelected&&pharmacyCount>=8,
     searchPresent: base.search,
     mapPresent: base.map,
     categoryLayers: base.categoryCount >= 10,

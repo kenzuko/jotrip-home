@@ -379,25 +379,11 @@
           "source_id": "longchau_phuquoc_storelist_2026"
         }
       ],
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2284406,
-        "lon": 103.9547422,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 257457075,
-        "google_place_id": null,
-        "osm_type": "way",
-        "osm_id": 155315719,
-        "matched_name": "Trần Phú",
-        "formatted_address": "Trần Phú, 9 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Nhà thuốc Long Châu - 42 Trần Phú, 42 Trần Phú, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-26",
+      "phone_scope": "CHAIN",
+      "operational_status": "UNKNOWN",
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
+      "map_review_note": "Đã gỡ pin geocode theo tên đường vì chưa xác minh đúng cửa nhà thuốc."
     },
     {
       "id": "utility_longchau_nguyen_trung_truc",
@@ -432,7 +418,10 @@
         "precision": "site_centroid",
         "source": "Long Châu official location page",
         "verified_at": "2026-09-21"
-      }
+      },
+      "phone_scope": "CHAIN",
+      "operational_status": "UNKNOWN",
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
     },
     {
       "id": "utility_longchau_an_thoi",
@@ -456,7 +445,10 @@
         }
       ],
       "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào.",
+      "phone_scope": "CHAIN",
+      "operational_status": "UNKNOWN",
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
     },
     {
       "id": "utility_longchau_ganh_dau",
@@ -480,7 +472,10 @@
         }
       ],
       "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào.",
+      "phone_scope": "CHAIN",
+      "operational_status": "UNKNOWN",
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
     },
     {
       "id": "utility_vinmec_duong_dong_clinic",
@@ -503,8 +498,18 @@
           "source_id": "vinmec_duongdong_current"
         }
       ],
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "updated_at": "2026-09-26",
+      "map_review_note": "Đối chiếu POI có tên đúng cơ sở trong Excel cũ. Cổng vào cần thực địa xác minh.",
+      "map": {
+        "lat": 10.2223133,
+        "lon": 103.9623962,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named Vinmec Dương Đông clinic POI, cross-checked with previous Near Me Excel",
+        "source_id": "osm_user_export_node_12617805394",
+        "source_url": "https://www.openstreetmap.org/node/12617805394",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ POI phòng khám Dương Đông, chưa xác nhận chính xác cổng vào; không phải bệnh viện Gành Dầu."
+      }
     },
     {
       "id": "utility_vinmec_phuquoc_emergency",
@@ -527,8 +532,17 @@
           "source_id": "vinmec_phuquoc_current"
         }
       ],
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "updated_at": "2026-09-26",
+      "map_review_note": "Khôi phục pin bệnh viện đã được xác nhận trong Excel; chưa xác minh cửa tiếp nhận cấp cứu.",
+      "map": {
+        "lat": 10.336498688188055,
+        "lon": 103.85723855555321,
+        "precision": "site_centroid",
+        "source": "Tọa độ khuôn viên Vinmec Phú Quốc được chủ dự án trực tiếp xác nhận ngày 24/09/2026",
+        "source_id": "jotrip_user_pin_20260924",
+        "verified_at": "2026-09-24",
+        "note": "Tọa độ khuôn viên bệnh viện Bãi Dài, KHÔNG phải cổng cấp cứu; không dùng để chỉ dẫn cấp cứu như cổng chính xác."
+      }
     },
     {
       "id": "utility_vcb_atm_hung_vuong",
@@ -1098,7 +1112,10 @@
         }
       ],
       "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào.",
+      "phone_scope": "CHAIN",
+      "operational_status": "UNKNOWN",
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
     },
     {
       "id": "utility_dienmaycholon_nguyen_trung_truc",

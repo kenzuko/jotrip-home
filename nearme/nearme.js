@@ -53,7 +53,7 @@
   function hasStoredVenueData(id=selectedCategory){
     if(!id)return false;
     return rows.some(row=>
-      row.entity_type==="venue" &&
+      (row.entity_type==="venue"||row.entity_type==="utility") &&
       (row.tags||[]).includes(id) &&
       matchesArea(row)
     );
@@ -374,7 +374,7 @@
     const color=markerColor(item);
     return L.divIcon({
       className:"",
-      html:'<div class="near-pin" style="background:'+color+'"><span>'+esc(glyphFor(item))+'</span></div>',
+      html:'<div class="near-pin" style="background:'+color+';'+(item.verified===false?'opacity:.65;border:2px dashed #fff;':'')+'"><span>'+esc(glyphFor(item))+'</span></div>',
       iconSize:[30,30],
       iconAnchor:[15,15],
       popupAnchor:[0,-14]
@@ -389,6 +389,13 @@
     return item.opening_hours_note|| (item.entity_type==='utility'?'Giờ mở cửa chưa được xác nhận.':'');
   }
 
+  function reliabilityLabel(item){
+    if(item.verified!==false)return "";
+    if(item.utility_type==="CHARGING")return "Điểm sạc do cộng đồng ghi nhận. Chưa xác nhận trạm hoạt động, quyền vào hoặc loại trụ. Hãy kiểm tra ứng dụng VinFast/V-Green trước khi đến.";
+    if(item.utility_type==="FUEL")return "Cây xăng tham khảo từ OpenStreetMap, chưa xác nhận còn bán hoặc giờ hoạt động.";
+    if(item.utility_type==="PHARMACY")return "Nhà/quầy thuốc từ dữ liệu cộng đồng; chưa xác minh giấy phép hiện hành hoặc hoạt động thực tế.";
+    return "Địa điểm tham khảo từ cộng đồng; chưa xác minh đang hoạt động.";
+  }
   function mapInfoLabel(item){
     const map=item.map||{};
     const precision=map.precision==="area_anchor"?"Pin định hướng khu vực":map.precision==="site_centroid"?"Tâm khuôn viên, có thể khác cổng vào":map.precision?"Độ chính xác: "+map.precision:"";
@@ -417,10 +424,10 @@
     let gpsFallback=false,radiusCount=null,radiusUnknown=0;
 
     if(rankByDistance&&validPoint(center)){
-      const withCoords=visible.filter(x=>validPoint({lat:x.lat,lon:x.lon}))
+      const withCoords=visible.filter(x=>x.verified!==false&&["exact_entrance","site_centroid"].includes(x.map_precision)&&validPoint({lat:x.lat,lon:x.lon}))
         .map(x=>({...x,distance_km:haversine(center,{lat:x.lat,lon:x.lon})}))
         .sort((a,b)=>a.distance_km-b.distance_km);
-      const withoutCoords=visible.filter(x=>!validPoint({lat:x.lat,lon:x.lon}))
+      const withoutCoords=visible.filter(x=>x.verified===false||!["exact_entrance","site_centroid"].includes(x.map_precision)||!validPoint({lat:x.lat,lon:x.lon}))
         .sort((a,b)=>(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi"));
       gpsFallback=withoutCoords.length>0;
       if(radiusKm!==null){
@@ -454,6 +461,7 @@
     }
 
     const mapped=visible.filter(x=>validPoint({lat:x.lat,lon:x.lon}));
+    const communityCount=mapped.filter(x=>x.verified===false).length;
     if(!mapped.length&&visible.length){
       showDirectoryMap([selectedCategory?category()?.label:"",searchText.trim(),areaQuery()].filter(Boolean).join(" "),"Tìm theo khu vực");
       return;
@@ -470,6 +478,7 @@
         '<span>'+esc(typeLabel(x))+'</span>'+
         (x.address?'<small>'+esc(x.address)+'</small>':"")+
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
+        (reliabilityLabel(x)?'<small>'+esc(reliabilityLabel(x))+'</small>':"")+
         (mapInfoLabel(x)?'<small>'+esc(mapInfoLabel(x))+'</small>':"")+
         (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi '+esc(x.phone)+'</a>':"")+
         '</div>'
@@ -487,10 +496,10 @@
     else setAreaView(selectedArea);
 
     const total=visible.length;
-    setMapBadge(mapped.length+"/"+total+" điểm có pin Open Phu Quoc");
+    setMapBadge(mapped.length+"/"+total+" điểm có pin"+(communityCount?" · "+communityCount+" pin cộng đồng chưa xác minh":""));
     const note=$("#mapNote");
     if(note)note.textContent=total===mapped.length
-      ?"Các điểm đang thấy đều đã có tọa độ lưu trong Open Phu Quoc."
+      ?"Các điểm đang thấy đều có tọa độ lưu sẵn; pin cộng đồng chưa xác minh vẫn chỉ để tham khảo."
       :mapped.length+" điểm có pin lưu sẵn. Những điểm chưa có pin vẫn mở được theo tên và địa chỉ trên bản đồ.";
   }
 
@@ -602,7 +611,7 @@
     host.innerHTML=limited.map((x,index)=>{
       const distance=Number.isFinite(x.distance_km)
         ?x.distance_km.toFixed(1)+(position?" km đường chim bay":" km từ tâm khu"):"";
-      const type=typeLabel(x),query=exactMapQuery(x);
+      const type=typeLabel(x),query=x.verified===false&&Number.isFinite(x.lat)&&Number.isFinite(x.lon)?x.lat+","+x.lon:exactMapQuery(x);
       const hasPin=validPoint({lat:x.lat,lon:x.lon});
       const address=x.address||"Tìm theo tên địa điểm trên bản đồ";
       const unknownGroup=radiusKm!==null&&result.radiusUnknown&&index===result.radiusCount
@@ -616,12 +625,15 @@
         '<strong>'+esc(x.name)+'</strong>'+
         '<p>'+esc(address)+'</p>'+
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
+        (reliabilityLabel(x)?'<small>'+esc(reliabilityLabel(x))+'</small>':"")+
         (x.map?.note?'<small>'+esc(x.map.note)+'</small>':"")+
+        (x.source_license==="ODbL-1.0"?'<small><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a></small>':"")+
         '<div>'+
           weatherCta+
           (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+
-          (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">Xem pin</button>':'<button type="button" data-map-query="'+esc(query)+'">Xem bản đồ</button>')+
-          '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Đường đi ↗</a>'+
+          (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">'+(x.verified===false?"Xem pin tham khảo":"Xem pin")+'</button>':'<button type="button" data-map-query="'+esc(query)+'">Xem bản đồ</button>')+
+          '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">'+(x.verified===false?"Vị trí tham khảo ↗":"Đường đi ↗")+'</a>'+
+          (x.external_verify_url?'<a href="'+esc(x.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
           (x.route?'<a href="'+esc(x.route)+'">Thông tin →</a>':"")+
         '</div></article>';
     }).join("")+(visible.length>limited.length?'<div class="results-more">Còn '+(visible.length-limited.length)+' kết quả. Gõ tên cụ thể để tìm nhanh hơn.</div>':"");
