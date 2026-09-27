@@ -416,6 +416,54 @@ try{
   await desk.screenshot({path:output+"/cms-story-desk-mobile.png",fullPage:true});
   assert.equal(calls.length,0,"Story desk demo must never call CMS API");
   await deskContext.close();
+
+  {
+  const inlineContext=await browser.newContext({viewport:{width:1365,height:850}});
+  const inline=await inlineContext.newPage();
+  inline.on("dialog",d=>d.accept());
+  const story={id:"test-draft",title:"Bài đang biên tập",category:"ĐỜI SỐNG ĐẢO",dek:"Mô tả ngắn",
+    intro:"Lời mở đang soạn",image:"",read_minutes:3,
+    sections:[{heading:"Buổi sáng",body:"Nội dung bản nháp trước khi sửa."}],sources:[]};
+  const fixture={version:"1",stories:[story]},posts=[];
+  await inline.route("**/api/cms/session",r=>r.fulfill({status:200,contentType:"application/json",
+    body:JSON.stringify({login:"inline-qa",role:"admin"})}));
+  await inline.route("**/data/content.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(fixture)}));
+  await inline.route("**/api/cms/content?*",r=>r.fulfill({status:200,contentType:"application/json",
+    body:JSON.stringify({sha:"qa-file-sha",content:fixture})}));
+  await inline.route("**/api/cms/edit-state?*",r=>r.fulfill({status:200,contentType:"application/json",
+    body:JSON.stringify({sha:"qa-file-sha",complete:true,conflicts:[]})}));
+  await inline.route("**/api/cms/publish",r=>{posts.push(r.request().postDataJSON());
+    return r.fulfill({status:200,contentType:"application/json",
+      body:JSON.stringify({pull_request:{number:900,url:"https://github.com/kenzuko/jotrip-home/pull/900"}})});
+  });
+  await inline.goto(base+"/stories/article.html?id=test-draft",{waitUntil:"networkidle"});
+  await inline.locator("#inlineCmsOpen").waitFor();
+  await inline.locator("#inlineCmsOpen").click();
+  await inline.locator(".inline-edit-trigger").first().waitFor();
+  const bodySection=inline.locator("#articleRoot .article-section .section-text");
+  await bodySection.locator("xpath=following-sibling::button[contains(@class,'inline-edit-trigger')]").click();
+  await inline.locator(".inline-edit-panel textarea").fill("Tớ sửa ngay lúc đọc.");
+  assert.match(await bodySection.textContent(),/sửa ngay/);
+  await inline.locator("#inlineCmsSave").click();
+  assert.ok(await inline.evaluate(()=>Boolean(localStorage.getItem("openpq-cms-draft:inline-qa:stories"))));
+  await inline.screenshot({path:output+"/cms-inline-desktop.png",fullPage:true});
+  await inline.setViewportSize({width:390,height:844});
+  const inlineOverflow=await inline.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(inlineOverflow<=2,"Inline editor mobile overflow: "+inlineOverflow);
+  await inline.screenshot({path:output+"/cms-inline-mobile.png",fullPage:true});
+  await inline.locator("#inlineCmsSubmit").click();
+  await inline.locator("#inlineCmsStatus a[href*='/pull/900']").waitFor();
+  assert.equal(posts.length,1);
+  assert.equal(posts[0].content.stories[0].sections[0].body,"Tớ sửa ngay lúc đọc.");
+  await inlineContext.close();
+  const anonCtx=await browser.newContext({viewport:{width:390,height:844}});
+  const anon=await anonCtx.newPage();
+  await anon.route("**/api/cms/session",r=>r.fulfill({status:401,contentType:"application/json",body:'{"error":"Not logged in"}'}));
+  await anon.route("**/data/content.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(fixture)}));
+  await anon.goto(base+"/stories/article.html?id=test-draft",{waitUntil:"networkidle"});
+  assert.equal(await anon.locator("#inlineCmsToolbar").count(),0);
+  await anonCtx.close();
+  }
   console.log("PASS CMS V2 browser QA: desktop/mobile, local editorial preview, record backup, GitHub conflict guard, zero-network demo, Quality D1 action refresh, Review search and role navigation");
 }finally{
   await browser.close();
