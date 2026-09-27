@@ -186,3 +186,5 @@ export async function onRequest({request,env}){
       history_count:h.events.length,commit:history.sha});
   }catch(e){return reply({error:e.message||String(e)},503);}
 }
+
+export {session,currentRole,reply,timeVN};
