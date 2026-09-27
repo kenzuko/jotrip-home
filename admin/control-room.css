@@ -213,3 +213,10 @@ a.cr-metric:hover{border-color:#8DBDB0;background:#FCFFFD}
 @media(prefers-reduced-motion:reduce){
   .module-btn,.cr-refresh{transition:none}
 }
+
+/* Keep conflicting browser drafts retrievable without confusing them with the active draft. */
+.cr-stale-heading{margin:16px 0 5px;font-size:13px;color:#815627;font-weight:820}
+.cr-stale-note{margin:0 0 10px;color:var(--cr-muted);font-size:12px;line-height:1.45}
+.cr-draft-old{border-color:#ECD5BD;background:#FFF9F0}
+.cr-draft-old .cr-draft-mark{background:#FFE9D4;color:#905328}
+.cr-draft-old:hover{border-color:#E2B989;background:#FFF2E2}
