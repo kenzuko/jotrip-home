@@ -73,7 +73,7 @@
     const count=items.length;
     return '<section class="story-editor-checks" data-story-editor-checks aria-label="Nhắc việc khi biên tập">'+
       '<div class="story-check-head"><div><strong>'+(count?count+" điều cần xem lại":"Đã điền các mục cơ bản")+
-      '</strong><small>'+(required?required+" mục cần hoàn thiện · ":"")+"Chỉ nhắc nội dung còn thiếu, không xác minh thông tin hay quyền ảnh.</small></div>'+
+      '</strong><small>'+(required?required+" mục cần hoàn thiện · ":"")+'Chỉ nhắc nội dung còn thiếu, không xác minh thông tin hay quyền ảnh.</small></div>'+
       '<span class="story-check-number">'+count+'</span></div>'+
       (count?'<div class="story-check-list">'+items.map(x=>
         '<button type="button" data-story-fix="'+esc(x.path)+'" aria-label="Đến ô: '+esc(x.title)+'">'+

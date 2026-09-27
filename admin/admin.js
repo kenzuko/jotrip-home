@@ -1219,17 +1219,23 @@ function bindStoryControls(){
     story.sections=snapshot;markDirty("Đã hoàn tác thao tác cấu trúc đoạn. Nội dung đang viết vẫn cần xem lại.");
     rerender();
   });
-  document.querySelectorAll("[data-story-jump],[data-story-fix]").forEach(btn=>btn.onclick=()=>{
-    if(desk?.view()!=="edit"||btn.hasAttribute("data-story-fix")&&!currentModule?.write?.includes(session.role))return;
+  const focusStoryField=(raw,number)=>{
+    if(desk?.view()!=="edit"||raw&&!currentModule?.write?.includes(session.role))return;
     const index=desk.selected();
-    const raw=btn.dataset.storyFix||"";
-    const number=btn.dataset.storyJump;
     const path=raw||(number==="intro"?"stories."+index+".intro":
       "stories."+index+".sections."+Number(number)+".body");
     if(path==="stories."+index+".sections"||path==="stories."+index+".sources"){
       const add=[...document.querySelectorAll("#editor [data-array-path]")].find(el=>
         el.classList.contains("add-array-item")&&el.dataset.arrayPath===path);
-      add?.click();return;
+      if(!add)return;
+      add.click();
+      const items=path.endsWith(".sections")?currentData.stories[index].sections:
+        currentData.stories[index].sources;
+      const key=path.endsWith(".sections")?".heading":".label";
+      const field=[...document.querySelectorAll("#editor [data-path]")].find(el=>
+        el.dataset.path===path+"."+(items.length-1)+key);
+      if(field){field.focus({preventScroll:true});field.scrollIntoView({behavior:"smooth",block:"center"});}
+      return;
     }
     const target=[...document.querySelectorAll("#editor [data-path]")].find(el=>el.dataset.path===path);
     if(!target)return;
@@ -1237,6 +1243,12 @@ function bindStoryControls(){
     while(parent&&parent.id!=="editor"){if(parent.tagName==="DETAILS")parent.open=true;parent=parent.parentElement;}
     target.focus({preventScroll:true});
     target.scrollIntoView({behavior:"smooth",block:"center"});
+  };
+  document.querySelectorAll("[data-story-jump]").forEach(btn=>btn.onclick=()=>
+    focusStoryField("",btn.dataset.storyJump));
+  document.querySelector(".story-focus")?.addEventListener("click",event=>{
+    const btn=event.target.closest("[data-story-fix]");
+    if(btn)focusStoryField(btn.dataset.storyFix);
   });
   document.querySelectorAll("[data-story-select]").forEach(btn=>btn.onclick=()=>{
     if(desk?.select(Number(btn.dataset.storySelect),currentData.stories.length))rerender();
