@@ -438,11 +438,19 @@
         visible=[...within,...withoutCoords];
       }else visible=[...withCoords,...withoutCoords];
     }else{
-      visible.sort((a,b)=>{
-        const wa=a.entity_type==="place"?0:a.entity_type==="utility"?1:2;
-        const wb=b.entity_type==="place"?0:b.entity_type==="utility"?1:2;
-        return wa-wb||(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi");
-      });
+      // Near Me prioritizes practical services, not beaches and hotels.
+      const priorities=["PHARMACY","CLINIC_HOSPITAL","ATM","FUEL","CHARGING","TOILET","MINIMART"];
+      const priority=row=>{
+        if(row.entity_type==="utility"){
+          const index=priorities.findIndex(id=>(row.tags||[]).includes(id));
+          return index>=0?index:priorities.length;
+        }
+        return row.entity_type==="venue"?20:row.entity_type==="place"?21:row.entity_type==="activity"?22:row.entity_type==="hotel"?23:24;
+      };
+      visible.sort((a,b)=>priority(a)-priority(b)||
+        Number(a.verified===false)-Number(b.verified===false)||
+        (b.featured?1:0)-(a.featured?1:0)||
+        String(a.name).localeCompare(String(b.name),"vi"));
     }
     return {rows:visible,gpsFallback,radiusCount,radiusUnknown,center};
   }
