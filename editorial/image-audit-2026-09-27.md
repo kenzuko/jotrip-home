@@ -1,18 +1,17 @@
 # CMS image audit 27/09/2026
 
-- Story covers: 34/34. Story unique gallery: 33/34.
+- Story covers: 34/34. Story unique gallery: 34/34.
 - Food dishes with at least one image: 32/32.
-- Guide articles with dedicated/contextual image: 88/128.
-- Story missing unique secondary image: bun-quay-tu-pha-chen-cham.
-- Guide articles without defensible exact/context photos: 40.
+- Guide articles with dedicated/contextual image: 92/128 (of these, 18 third-party sources need an explicit public-image adapter).
+- Story missing unique secondary image: none.
+- Guide articles without defensible exact/context photos: 36.
 
 ## Stories requiring original image
 
-- Bún quậy và chén chấm tự pha
+- None.
 
 ## Guides still requiring accurate images
 
-- 7 - Gành Dầu (PLACE)
 - 10 - Cửa Dương (PLACE)
 - 11 - Dương Tơ (PLACE)
 - 15 - Bãi Ông Lang (PLACE)
@@ -26,7 +25,6 @@
 - 39 - Rừng ngập mặn Phú Quốc (NATURE)
 - 41 - Chim ở Phú Quốc (NATURE)
 - 42 - Rùa biển quanh Phú Quốc (NATURE)
-- 51 - Bình minh Phú Quốc (NATURE)
 - 54 - Địa chất Phú Quốc (NATURE)
 - 64 - Rượu sim (FOOD)
 - 65 - Mật sim / siro sim / mứt sim (FOOD)
@@ -46,10 +44,8 @@
 - 112 - Nghinh Ông (HISTORY_LORE)
 - 138 - Phú Quốc khi trời mưa (ACTIVITY)
 - 106 - Nguồn gốc tên Hòn Móng Tay (HISTORY_LORE)
-- 109 - Nguyễn Trung Trực và Phú Quốc (HISTORY_LORE)
 - 117 - Bà Kim Giao (HISTORY_LORE)
 - 121 - Phú Quốc trong không gian Hà Tiên (HISTORY_LORE)
-- 132 - Đón bình minh (ACTIVITY)
 - 144 - Bắc đảo trước và sau các resort lớn (MEMORY_CHANGE)
 - 147 - Đường sá Phú Quốc qua các giai đoạn (MEMORY_CHANGE)
 
@@ -57,3 +53,10 @@
 - Added editorial images are always labeled with original place/date/context. For Rạch Vẹm, the species illustration from Cambodia is explicitly labeled and not claimed to have been photographed in Phú Quốc.
 - Existing external-source photos may require separate reuse permission. Attribution alone is not a license. Creative Commons photo rights are retained only where license could be identified.
 - Guides that would require a generic or unrelated photo stay without an image; no unrelated stock photos or false claims about geolocation.
+
+## Ảnh bổ sung cuối đợt
+- Bún quậy được bổ sung ảnh món và chén chấm RootyTrip với nhãn nguồn, quyền tái sử dụng chưa được cấp; đồng thời cập nhật thư viện ẩm thực.
+- Ảnh đền thờ Nguyễn Trung Trực Phú Quốc 2015 của Tokeisan, CC BY-SA 3.0 cho chủ đề di tích và phần văn hóa của Gành Dầu, không nhận là cảnh bãi biển.
+- Bình minh Phú Quốc 2016 của Quangpraha CC0 cho hai bài bình minh.
+- Bánh khéo và bánh tét bổ sung ảnh món thứ hai, ảnh bên ngoài có ghi nguồn và cần xin quyền.
+- Ảnh từ web khác chỉ được build guide khi được rà soát và gắn cờ curated_for_public cùng metadata nguồn, không mở whitelist cho URL bất kỳ.
