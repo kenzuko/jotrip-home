@@ -99,7 +99,7 @@ export function resolveTrafficPeriod(searchParams,today,firstDay){
   const days=inclusiveDays(from,to);
   let grain=searchParams.get("group")||"auto";
   if(!["auto","day","month","year"].includes(grain))return null;
-  if(grain==="auto")grain=days>730?"year":days>90?"month":"day";
+  if(grain==="auto")grain=days>730?"year":days>60?"month":"day";
   // Protect D1 and the browser from an unbounded daily timeseries.
   if(grain==="day"&&days>400)return null;
   const channel=searchParams.get("channel")||"all";
