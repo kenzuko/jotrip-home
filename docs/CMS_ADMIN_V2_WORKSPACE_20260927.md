@@ -75,3 +75,6 @@ hệ thống không tự hoàn thành nội dung chỉ vì bấm "Đã xử lý"
 - Sau thao tác D1, GET lại rồi xác minh task key, trạng thái hoặc hạn xử lý và dấu hiệu persistence D1. Nếu chỉ POST thành công nhưng GET thất bại hoặc trạng thái chưa khớp, thông báo chưa xác minh; không báo đã lưu chắc chắn và không tự động POST lần nữa.
 - Cập nhật cách tách tên tiếng Việt khỏi evidence (tránh dùng word boundary ASCII ở cuối từ có dấu). Các thay đổi nằm trong CMS, không sửa D1 schema, OAuth, dữ liệu chuyên trách hoặc triggers.
 - QA bổ sung tình huống việc ưu tiên nằm cuối danh sách hơn 10 việc và tình huống GET chưa xác minh được dữ liệu D1. Vẫn giữ Draft, không merge production khi chưa có xác nhận phát hành.
+
+### QA fixture correction (27/09/2026)
+Sau khi thêm kiểm tra POST → GET bền vững, mock Playwright phải phản ánh API thật: đánh dấu `persistence:"d1"` cho task ngay sau khi POST ghi thành công. Lần QA đầu phát hiện thiếu trường này ở fixture, không phải lỗi schema D1. Đây là sửa test, không thay đổi endpoint hoặc logic production.

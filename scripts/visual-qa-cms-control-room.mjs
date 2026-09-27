@@ -243,6 +243,8 @@ try{
       assert.ok(target,"quality POST must have an existing task");
       if(payload.action==="claim"){target.status="in_progress";target.owner="visual-qa";}
       if(payload.action==="due")target.due_at=payload.due_at||null;
+      // The real Quality API returns persistence=d1 after a successful D1 write.
+      target.persistence="d1";
     }
     await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify(qualityData)});
   });
