@@ -61,6 +61,7 @@ function harness(role="editor",qualityError=false,qualityData=null){
   const modules=[
     {id:"stories",label:"Bài viết",read:["admin","editor"]},
     {id:"venues",label:"Địa điểm",read:["admin","editor","operator"]},
+    {id:"foods",label:"Món ăn",read:["admin","editor"]},
     {id:"analytics",label:"Analytics",read:["admin"]}
   ];
   const jumps=[];
@@ -88,7 +89,7 @@ const settle=()=>new Promise(resolve=>setImmediate(resolve));
     target:{closest(selector){return selector==="[data-cr-filter]"?{getAttribute(){return "progress"}}:null}},
     preventDefault(){}
   });
-  assert.match(h.host.innerHTML,/Không có công việc thuộc nhóm này/);
+  assert.match(h.host.innerHTML,/Không có việc khớp bộ lọc./);
   assert.deepEqual(h.requests.map(item=>item.method),["GET","GET"]);
   assert.deepEqual(h.requests.map(item=>item.url),["/api/cms/quality","/api/cms/reviews"]);
   h.host.events.click({
