@@ -66,7 +66,7 @@ export function knowledgeBody(o){
   }
   return out+"</article>";
 }
-function structured(meta){
+export function structured(meta){
   if(meta.kind!=="story"&&meta.kind!=="knowledge")return null;
   const org={"@type":"Organization","@id":SEO_ORIGIN+"/#organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/",
     logo:{"@type":"ImageObject",url:SEO_ORIGIN+"/assets/logo-master.png"}};
