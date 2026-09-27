@@ -25,7 +25,7 @@ async function verify(){
  assert.equal(ico.readUInt16LE(4),4);
  const sizes=[...Array(4)].map((_,i)=>ico[6+i*16]);
  assert.deepEqual(sizes,[16,32,48,64]);
- const match=3,base=6+match*16,len=ico.readUInt32LE(base+8),offset=ico.readUInt32LE(base+12);
+ const match=2,base=6+match*16,len=ico.readUInt32LE(base+8),offset=ico.readUInt32LE(base+12);
  assert.ok(ico.subarray(offset,offset+len).equals(p48),"classic ICO must contain the same approved 48px icon");
  const apple=(await get("/apple-touch-icon.png")).bytes;
  assert.ok(apple.subarray(0,8).equals(pngMagic)&&apple.readUInt32BE(16)===180,"Apple icon must be PNG180");
