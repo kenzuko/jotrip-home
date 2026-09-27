@@ -3,7 +3,7 @@
 "use strict";
 const $=q=>document.querySelector(q);
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const labels={closed:"Đã đóng cửa",location:"Sai vị trí",hours:"Giờ hoạt động",phone:"Số điện thoại",details:"Thông tin khác",new_place:"Địa điểm mới",other:"Bổ sung"};
+const labels={closed:"Đã đóng cửa",location:"Sai vị trí",hours:"Giờ hoạt động",phone:"Số điện thoại",details:"Thông tin khác",new_place:"Địa điểm mới",other:"Bổ sung",translation:"Góp ý bản dịch AI"};
 const states={new:"Chưa xử lý",reviewing:"Đang kiểm tra",resolved:"Đã xử lý",rejected:"Không phù hợp"};
 let session,offset=0,loading=false;
 async function read(url,init={}){
@@ -39,6 +39,12 @@ function record(x){
     '<p class="meta">'+esc(x.entity_type)+(x.entity_id?" · "+esc(x.entity_id):"")+
       ' · Mã góp ý: <code>'+esc(x.id)+'</code></p>'+
     '<div class="note">'+esc(x.details||"Người dùng chưa gửi mô tả thêm.")+'</div>'+
+    (x.translation?'<div class="note translation-review"><p><strong>'+esc(x.translation.target_locale)+' · Đoạn '+esc(x.translation.segment_id)+' · Phiên bản '+esc(x.translation.translation_revision)+'</strong></p>'+
+      (x.translation.source_excerpt?'<p><strong>Bản gốc:</strong> '+esc(x.translation.source_excerpt)+'</p>':"")+
+      '<p><strong>Đang hiển thị:</strong> '+esc(x.translation.translation_excerpt)+'</p>'+
+      (x.translation.suggested_translation?'<p><strong>Khách đề xuất:</strong> '+esc(x.translation.suggested_translation)+'</p>':"")+
+      '<p class="meta">Góp ý chưa xác minh. Đổi trạng thái không tự sửa hoặc xuất bản bài.</p></div>':"")+
+
     '<div class="links">'+(source?'<a class="action" href="'+esc(source)+'" target="_blank" rel="noopener noreferrer">Xem trang liên quan ↗</a>':"")+
       (editor?'<a class="action" href="'+esc(editor)+'">Mở hồ sơ CMS ↗</a>':"")+
     '</div>'+
