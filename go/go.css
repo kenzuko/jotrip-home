@@ -252,3 +252,5 @@
 .go-primary-nav a[aria-current="page"]{color:#123d3b;border-bottom:2px solid #d85b3f;padding-bottom:5px}
 @media(min-width:861px){.go-head-actions{margin-left:0}}
 @media(max-width:860px){.go-primary-nav{display:none}}
+
+@media(max-width:1040px){.go-primary-nav{display:none}.go-head-actions{margin-left:auto}}
