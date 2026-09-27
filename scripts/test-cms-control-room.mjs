@@ -10,7 +10,7 @@ new Function(admin);
 assert.match(html,/control-room\.css\?v=\d+/);
 assert.match(html,/control-room\.js\?v=\d+/);
 assert.match(admin,/selectModule\(first\?first\.id:"dashboard"\)/);
-assert.match(admin,/saveDraftNow\(\);\s*if\(!confirm/);
+assert.match(admin,/if\(!saveDraftNow\(\)\)/);
 assert.match(admin,/requestId!==moduleRequestId/);
 assert.match(admin,/outdatedDraft=true/);
 assert.match(admin,/Đã tạo đề xuất PR/);
@@ -181,3 +181,6 @@ const settle=()=>new Promise(resolve=>setImmediate(resolve));
   h.window.OPQControlRoom.unmount();
 }
 console.log("PASS: CMS Control Room syntax, permissions, draft, queues, escaping, source degradation and navigation");
+// V1.3: run safety and preview tests in the existing CMS-only QA job.
+await import("./test-cms-editor-workflow.mjs");
+await import("./test-cms-edit-state.mjs");

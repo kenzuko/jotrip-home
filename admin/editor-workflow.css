@@ -1,0 +1,79 @@
+/* Open Phu Quoc CMS Editor Workflow V1.3.
+   Only CMS editor surfaces. Keep the live website stylesheet untouched. */
+.editor-tools{margin:0 0 16px;padding:17px 20px 15px;border:1px solid #D8E8DF;border-radius:18px;
+  background:linear-gradient(140deg,#FBFDFB 45%,#F3F8F1);box-shadow:0 7px 26px rgba(18,61,59,.035)}
+.ew-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:13px}
+.ew-head>div:first-child>span{display:block;font-size:10px;font-weight:850;letter-spacing:.14em;color:#608376}
+.ew-head h2{margin:3px 0 0;font-size:20px;line-height:1.2;letter-spacing:-.025em;color:#123D3B}
+.ew-head-actions{display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.ew-head-actions button,.ew-record-actions button{min-height:42px;padding:8px 12px;
+  border:1px solid #CDE1D6;border-radius:10px;background:#fff;color:#24594C;font-size:13px;font-weight:780;cursor:pointer}
+.ew-head-actions button:hover,.ew-record-actions button:hover{background:#EAF5EE}
+.ew-head-actions button:disabled{opacity:.55;cursor:wait}
+.ew-tag{display:inline-flex;align-items:center;min-height:31px;padding:6px 10px;border-radius:999px;
+  font-size:11px;line-height:1.25;font-weight:820;white-space:nowrap}
+.ew-good{background:#DFF2E6;color:#266249}.ew-warn{background:#FFF4D8;color:#805B19}
+.ew-bad{background:#FFE5DF;color:#9A392F}.ew-progress{background:#EAF2F2;color:#446967}
+.ew-warning{padding:13px 15px;margin:15px 0 0;background:#FFF3E9;border:1px solid #F0CEB8;
+  border-radius:12px;color:#74452D;font-size:13px;line-height:1.55}
+.ew-warning strong{font-size:14px;color:#8C3F30}.ew-warning p{margin:5px 0}
+.ew-warning>div{display:flex;flex-wrap:wrap;gap:8px}
+.ew-warning a{display:inline-flex;min-height:36px;padding:6px 9px;border-radius:8px;background:#fff;color:#6C3729;
+  font-size:12px;font-weight:750;text-decoration:underline;text-underline-offset:2px}
+.ew-drafts{margin:14px 0 0;border:1px solid #DBE8E0;border-radius:13px;background:#fff}
+.ew-drafts>summary{cursor:pointer;padding:12px 14px;font-size:14px;font-weight:830;color:#285B50;line-height:1.4}
+.ew-drafts>summary small{margin-left:6px;font-size:12px;font-weight:500;color:#71857C}
+.ew-draft-body{padding:0 13px 13px}
+.ew-record{display:flex;align-items:center;justify-content:space-between;gap:13px;border-top:1px solid #E4EDE7;padding:11px 1px}
+.ew-record-main{display:grid;gap:4px;min-width:0}
+.ew-record-main strong{font-size:14px;font-weight:750;line-height:1.35;color:#193F37;overflow-wrap:anywhere}
+.ew-record-main small{font-size:12px;color:#657C72}
+.ew-record-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px}
+.ew-record-actions button{padding:7px 10px;min-height:38px;font-size:12px}
+.ew-record-actions .ew-delete{background:#FFF6F3;color:#9A4F3E;border-color:#EFD5CB}
+.ew-footnote,.ew-muted{margin:12px 1px 0;font-size:12px;line-height:1.55;color:#60796C}
+.ew-footnote{padding-left:10px;border-left:3px solid #B6D4C5}
+.ew-story-actions{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin:0 0 14px}
+.ew-story-preview{
+  min-height:44px;padding:10px 15px;border:1px solid #B2D7C2;border-radius:12px;
+  background:#EAF6EF;color:#205847;font:inherit;font-size:13px;font-weight:800;cursor:pointer
+}
+.ew-story-preview:hover{background:#DDF0E5}
+.ew-story-hint{font-size:12px;color:#6F827A;line-height:1.4}
+.ew-preview-dialog{width:min(860px,calc(100% - 28px));max-width:860px;max-height:min(94dvh,1100px);
+  margin:auto;padding:0;border:1px solid #D3E3D8;border-radius:19px;background:#FCFDFB;
+  box-shadow:0 22px 90px rgba(13,36,32,.26);color:#1A3A31}
+.ew-preview-dialog::backdrop{background:rgba(16,38,35,.67);backdrop-filter:blur(3px)}
+.ew-preview-top{position:sticky;top:0;z-index:2;display:flex;gap:15px;justify-content:space-between;align-items:center;
+  padding:15px clamp(14px,3vw,30px);border-bottom:1px solid #D8E6DD;background:#F2F8F4}
+.ew-preview-top>div{display:grid;gap:4px}
+.ew-preview-top strong{font-size:12px;letter-spacing:.12em;font-weight:900;color:#9A5437}
+.ew-preview-top span{font-size:12px;line-height:1.45;color:#617E6C}
+.ew-preview-top button{flex:none;min-width:75px;min-height:42px;border:1px solid #BED7C8;
+  border-radius:10px;background:white;color:#295A4B;font:inherit;font-size:13px;font-weight:800;cursor:pointer}
+.ew-article{max-width:730px;margin:0 auto;padding:clamp(20px,4vw,45px) clamp(16px,4vw,35px) 70px}
+.ew-preview-label{display:block;margin:0 0 13px;font-size:12px;letter-spacing:.12em;font-weight:850;color:#53846B}
+.ew-article h1{margin:0 0 15px;font-size:clamp(31px,4vw,50px);line-height:1.13;
+  font-weight:830;letter-spacing:-.035em;color:#123D3B}
+.ew-article-dek{margin:0 0 23px;font-size:18px;line-height:1.64;color:#567164}
+.ew-article-intro{font-size:18px;line-height:1.8;color:#254C40}
+.ew-article-section{margin-top:26px}
+.ew-article-section h2{margin:0 0 12px;font-size:clamp(21px,3vw,29px);line-height:1.25;color:#123D3B}
+.ew-article-section p{margin:0 0 15px;line-height:1.82;font-size:17px;color:#355548;white-space:pre-line}
+.ew-article figure{margin:17px 0 25px}
+.ew-article img{display:block;width:100%;max-height:520px;object-fit:contain;border-radius:11px}
+.ew-cover img{max-height:430px;object-fit:cover}
+.ew-article figcaption{margin-top:7px;font-size:12px;line-height:1.5;text-align:center;color:#76877C}
+.ew-article-sources{padding-top:18px;margin-top:35px;border-top:1px solid #D9E7DE;color:#667C70}
+.ew-article-sources h2{font-size:17px!important}.ew-article-sources li{margin-top:6px;font-size:12px;line-height:1.5}
+@media(max-width:720px){
+ .editor-tools{padding:14px 12px}
+ .ew-head{align-items:flex-start}.ew-head-actions{width:100%}
+ .ew-head-actions button{flex:1}.ew-tag{flex-basis:100%;width:max-content}
+ .ew-record{align-items:flex-start;flex-direction:column}.ew-record-actions{width:100%;justify-content:flex-start}
+ .ew-record-actions button{min-height:43px}
+ .ew-preview-top{align-items:flex-start}.ew-article-dek{font-size:16px}
+ .ew-article-section p{font-size:16px}
+ .ew-preview-dialog{max-height:calc(100dvh - 16px);width:calc(100% - 14px)}
+}
+@media(prefers-reduced-motion:reduce){.ew-preview-dialog *{scroll-behavior:auto!important}}

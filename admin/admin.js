@@ -2,7 +2,7 @@ const $=s=>document.querySelector(s);
 const qsa=s=>Array.from(document.querySelectorAll(s));
 const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics"};
 
-let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null,moduleRequestId=0;
+let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null,moduleRequestId=0,baseData=null,publishInFlight=false;
 
 const ROLE_LABELS={
   admin:"Quản trị viên",
@@ -151,9 +151,35 @@ function blankLike(v,key=""){
  return "";
 }
 function draftKey(id=currentModule?.id){return id&&session?"openpq-cms-draft:"+session.login+":"+id:null}
-function clearDraft(id=currentModule?.id){const k=draftKey(id);if(k)localStorage.removeItem(k)}
-function saveDraftNow(){if(!dirty||!currentModule||!session)return;const k=draftKey();if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}))}
-function scheduleDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(()=>{saveDraftNow();status("Có thay đổi chưa xuất bản. Bản nháp đã tự lưu trên trình duyệt.")},650)}
+function clearDraft(id=currentModule?.id){
+  const k=draftKey(id);if(!k)return;
+  try{localStorage.removeItem(k)}catch{}
+}
+function saveDraftNow(){
+  if(!dirty||!currentModule||!session)return true;
+  const wf=window.OPQEditorWorkflow;
+  if(wf){
+    const info={login:session.login,module:currentModule.id,sha:currentSha,
+      data:currentData,baseData:baseData};
+    const result=wf.writeModuleDraft(info);
+    wf.writeRecordCheckpoints(info);
+    wf.renderPanel();
+    if(!result.ok)status(result.error||"Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");
+    if(result.blocked&&result.ok)status("Đã lưu bản sao riêng vì có tab khác đang sửa. Hãy đối chiếu trước khi gửi duyệt.","error");
+    return result.ok;
+  }
+  const k=draftKey();
+  try{if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}));return true}
+  catch{status("Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");return false}
+}
+function scheduleDraft(){
+  clearTimeout(draftTimer);
+  draftTimer=setTimeout(()=>{
+    const saved=saveDraftNow();
+    if(saved&&!window.OPQEditorWorkflow?.hasConflict())
+      status("Bản nháp đã tự lưu trên trình duyệt này. Chưa gửi duyệt.");
+  },650);
+}
 function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
 
 function itemTitle(v,i){
@@ -536,12 +562,16 @@ function renderStoryWorkbench(story,i){
     </article>`;
   }).join("");
 
-  return `<details class="field-group story-editor story-workbench cms-anchor" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}>
+  return `<details class="field-group story-editor story-workbench cms-anchor" data-story-id="${esc(story.id||"")}" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}>
     <summary class="group-summary">
       <span>${esc(story.title||("Bài "+(i+1)))}</span>
       <small>${esc(story.category||"Bài viết")} · ${storyReadMinutes(story)} phút</small>
     </summary>
     <div class="detail-body">
+      <div class="ew-story-actions">
+        <button type="button" class="ew-story-preview" data-story-preview="${i}" data-editor-readonly-action>Xem bài đang soạn ↗</button>
+        <span class="ew-story-hint">Nội dung trong trình biên tập, chưa đăng.</span>
+      </div>
       ${storyTools(i,currentData.stories.length)}
       <div class="story-editor-grid">
         <aside class="story-live-preview">
@@ -765,6 +795,16 @@ function focusRequestedVenue(){
   }
 }
 
+function focusRequestedStory(){
+  if(currentModule?.id!=="stories")return;
+  const id=new URLSearchParams(location.search).get("record");
+  if(!id)return;
+  const target=[...document.querySelectorAll("#editor [data-story-id]")]
+    .find(el=>el.dataset.storyId===id);
+  if(!target)return;
+  target.open=true;target.classList.add("quality-focus");
+  target.scrollIntoView({behavior:"smooth",block:"start"});
+}
 function renderVenueWorkbench(){
   const entities=Array.isArray(currentData?.entities)?currentData.entities:[];
   const cards=entities.map((item,i)=>{
@@ -1120,6 +1160,8 @@ function bindVenueControls(){
 }
 
 function bindStoryControls(){
+  document.querySelectorAll("[data-story-preview]").forEach(btn=>
+    btn.onclick=()=>window.OPQEditorWorkflow?.previewArticle(Number(btn.dataset.storyPreview)));
   document.querySelectorAll("[data-story-readtime]").forEach(btn=>btn.onclick=()=>{
     const i=Number(btn.dataset.storyReadtime),story=currentData.stories?.[i];
     if(!story)return;
@@ -1340,7 +1382,7 @@ function applyPermissions(){
   const writable=currentModule?.write?.includes(session.role);
   $("#saveBtn").disabled=!writable||!dirty;
   $("#editor").classList.toggle("readonly",!writable);
-  document.querySelectorAll("#editor input,#editor textarea,#editor select,#editor button").forEach(el=>el.disabled=!writable);
+  document.querySelectorAll("#editor input,#editor textarea,#editor select,#editor button").forEach(el=>el.disabled=!writable&&!el.hasAttribute("data-editor-readonly-action"));
   return writable;
 }
 
@@ -1365,6 +1407,7 @@ function rerender(){
   buildEditorNav();
   bindSearch();
   applyPermissions();
+  window.OPQEditorWorkflow?.renderPanel();
 
   requestAnimationFrame(()=>window.scrollTo(0,y));
 }
@@ -1500,13 +1543,18 @@ function renderNav(){
 }
 
 async function selectModule(id){
+  if(publishInFlight){status("Đang kiểm tra và gửi duyệt. Chờ hoàn tất trước khi chuyển mục.","error");return;}
   if(dirty){
     clearTimeout(draftTimer);
-    saveDraftNow();
+    if(!saveDraftNow()){
+      status("Không lưu được thay đổi. Hãy tải bản sao JSON từ khung Biên tập an toàn trước khi chuyển mục.","error");
+      return;
+    }
     if(!confirm("Có thay đổi chưa gửi duyệt. Bản nháp đã lưu trong trình duyệt này. Chuyển mục?"))return;
   }
   const requestId=++moduleRequestId;
   window.OPQControlRoom?.unmount();
+  window.OPQEditorWorkflow?.stop();
   $("#cmsLayout")?.classList.toggle("cms-dashboard",id==="dashboard");
   $("#editor")?.classList.remove("analytics-editor");
   $("#resetBtn")?.classList.add("hidden");
@@ -1588,10 +1636,13 @@ async function selectModule(id){
     if(requestId!==moduleRequestId)return;
     currentData=b.content;
     currentSha=b.sha;
+    baseData=deepClone(b.content);
     dirty=false;
 
     const k=draftKey();
-    const raw=k?localStorage.getItem(k):null;
+    let raw=null;
+    try{raw=k?localStorage.getItem(k):null}catch{}
+
     let outdatedDraft=false;
 
     if(raw){
@@ -1604,12 +1655,18 @@ async function selectModule(id){
             currentData=draft.data;
             dirty=true;
           }else{
-            clearDraft();
+            if(window.OPQEditorWorkflow?.archiveModule(session.login,currentModule.id,raw))
+              clearDraft();
+            else status("Không sao lưu được bản nháp đã bỏ qua. Hãy tải JSON trước khi chỉnh sửa.","error");
           }
         }else{
-          // Archive a conflicting browser draft before a new edit can overwrite its key.
-          const archiveKey="openpq-cms-stale:"+session.login+":"+currentModule.id+":"+String(draft.at||Date.now());
-          try{if(!localStorage.getItem(archiveKey))localStorage.setItem(archiveKey,raw)}catch{}
+          // Preserve stale module drafts before any next keystroke can reuse the active key.
+          const archived=window.OPQEditorWorkflow?.archiveModule(session.login,currentModule.id,raw);
+          if(archived)clearDraft();
+          else {
+            status("Chưa sao lưu được bản nháp cũ, tránh chỉnh sửa cho đến khi tải bản sao JSON.","error");
+            return;
+          }
           outdatedDraft=true;
         }
       }catch{
@@ -1617,9 +1674,18 @@ async function selectModule(id){
       }
     }
 
+    if(window.OPQEditorWorkflow&&currentModule.id!=="analytics"){
+      window.OPQEditorWorkflow.start({
+        login:session.login,module:currentModule.id,modulePath:currentModule.path,
+        writable:currentModule.write?.includes(session.role),
+        sha:currentSha,baseData,api,getCurrent:()=>currentData,
+        onDirty:markDirty,onRender:rerender
+      });
+    }
     rerender();
     focusRequestedVenue();
     focusRequestedFood();
+    focusRequestedStory();
     const writable=applyPermissions();
 
     if(dirty){
@@ -1640,15 +1706,30 @@ async function selectModule(id){
 }
 
 async function save(){
-  if(!currentModule||!dirty)return;
+  if(!currentModule||!dirty||publishInFlight)return;
+  const savingModule=currentModule,savingSha=currentSha;
   const validationErrors=validateCurrent();
   if(validationErrors.length){status("Chưa thể gửi duyệt: "+validationErrors.slice(0,3).join(" · ")+(validationErrors.length>3?" · …":""),"error");return}
 
+  publishInFlight=true;
   $("#saveBtn").disabled=true;
-  $("#saveBtn").textContent="Đang tạo bản gửi duyệt...";
-  status("Đang tạo bản nháp gửi duyệt. Nội dung chưa lên website.");
+  $("#saveBtn").textContent="Đang kiểm tra xung đột...";
+  status("Đang kiểm tra phiên bản GitHub và các PR đang chờ.");
 
   try{
+    if(window.OPQEditorWorkflow){
+      const preflight=await window.OPQEditorWorkflow.checkRemote({force:true});
+      if(currentModule!==savingModule||currentSha!==savingSha)
+        throw Error("Đã chuyển phiên bản biên tập. Giữ bản nháp và tải lại mục.");
+      if(!preflight.ok){
+        saveDraftNow();
+        throw Error(preflight.error||
+          (preflight.detail?.conflicts?.length
+            ?"Có đề xuất khác sửa cùng tệp. Mở liên kết PR trong khung Biên tập an toàn để đối chiếu."
+            :"Phiên bản GitHub đã thay đổi hoặc chưa kiểm tra đủ PR. Giữ bản nháp và kiểm tra lại."));
+      }
+    }
+    $("#saveBtn").textContent="Đang tạo đề xuất PR...";
     const b=await api(API.publish,{
       method:"POST",
       body:JSON.stringify({
@@ -1660,6 +1741,9 @@ async function save(){
     });
 
     if(!b.pull_request?.url)throw new Error("Đã lưu nhưng chưa nhận được liên kết PR nháp. Giữ lại bản nháp trên trình duyệt và thử lại.");
+    window.OPQEditorWorkflow?.clearSubmitted({
+      login:session.login,module:savingModule.id,sha:savingSha,data:currentData
+    });
     dirty=false;
     clearDraft();
     $("#resetBtn")?.classList.add("hidden");
@@ -1679,6 +1763,8 @@ async function save(){
     );
     $("#saveBtn").disabled=false;
     $("#saveBtn").textContent="Thử gửi duyệt lại";
+  }finally{
+    publishInFlight=false;
   }
 }
 

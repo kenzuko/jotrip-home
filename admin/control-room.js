@@ -14,7 +14,8 @@
     var prefix="openpq-cms-draft:"+login+":";
     var archivePrefix="openpq-cms-stale:"+login+":";
     var known=new Set(modules.map(function(m){return m.id}));
-    var drafts=[],archived=[];
+    var drafts=[],archived=[],articles=[];
+    var articlePrefix="openpq-cms-article-v1:"+encodeURIComponent(login)+":";
     try{
       for(var i=0;i<localStorage.length;i++){
         var key=localStorage.key(i);
@@ -24,6 +25,12 @@
           if(!known.has(id))continue;
           var raw=JSON.parse(localStorage.getItem(key)||"null");
           if(raw&&raw.data)drafts.push({id:id,at:raw.at});
+        }else if(key.startsWith(articlePrefix)){
+          if(!known.has("stories"))continue;
+          var rec=JSON.parse(localStorage.getItem(key)||"null");
+          if(rec?.version===1&&rec.account===login&&rec.module==="stories"&&rec.record?.id){
+            articles.push({id:rec.record.id,title:rec.record.title||rec.record.id,at:rec.at,key:key});
+          }
         }else if(key.startsWith(archivePrefix)){
           var archivedId=key.slice(archivePrefix.length).split(":")[0];
           if(!known.has(archivedId))continue;
@@ -31,9 +38,9 @@
           if(older&&older.data)archived.push({id:archivedId,at:older.at,key:key});
         }
       }
-    }catch(e){return {items:drafts,archived:archived,error:true};}
+    }catch(e){return {items:drafts,archived:archived,articles:articles,error:true};}
     var newest=function(a,b){return (b.at||0)-(a.at||0)};
-    return {items:drafts.sort(newest),archived:archived.sort(newest),error:false};
+    return {items:drafts.sort(newest),archived:archived.sort(newest),articles:articles.sort(newest),error:false};
   }
   async function getJson(url,signal){
     var r=await fetch(url,{credentials:"include",cache:"no-store",signal:signal,headers:{Accept:"application/json"}});
@@ -197,9 +204,15 @@
     var older=(local.archived||[]).slice(0,4).map(function(item){
       return '<button class="cr-draft cr-draft-old" type="button" data-cr-export="'+esc(item.key)+'"><span class="cr-draft-mark" aria-hidden="true">↓</span><span><strong>'+esc(labelById.get(item.id)||item.id)+'</strong><small>Khác phiên bản · '+esc(when(item.at))+'</small></span><span aria-hidden="true">↓</span></button>';
     }).join("");
+    var articleLinks=(local.articles||[]).slice(0,5).map(function(item){
+      return '<a class="cr-draft" href="index.html?module=stories&record='+encodeURIComponent(item.id)+'">'+
+        '<span class="cr-draft-mark" aria-hidden="true">✎</span><span><strong>'+esc(item.title)+
+        '</strong><small>Bản lưu riêng · '+esc(when(item.at))+'</small></span><span aria-hidden="true">↗</span></a>';
+    }).join("");
     return '<div class="cr-section-heading"><div><p class="cr-eyebrow">BẢN NHÁP</p><h2>Tiếp tục công việc</h2></div></div>'+
       (parts?'<div class="cr-drafts">'+parts+'</div>':
       '<div class="cr-empty cr-empty-small"><strong>Chưa có bản nháp đang sửa.</strong><span>Nháp chỉ được lưu trong trình duyệt hiện tại.</span></div>')+
+      (articleLinks?'<h3 class="cr-stale-heading">Bản lưu riêng từng bài</h3><div class="cr-drafts">'+articleLinks+'</div>':"")+
       (older?'<h3 class="cr-stale-heading">Nháp cũ cần đối chiếu</h3><p class="cr-stale-note">Nhấn để tải JSON về thiết bị trước khi tiếp tục chỉnh sửa.</p><div class="cr-drafts">'+older+'</div>':'')+
       (local.error?'<p class="cr-warning">Không đọc đủ bản nháp từ trình duyệt.</p>':'');
   }
@@ -221,7 +234,7 @@
     var metrics='<section class="cr-metrics" aria-label="Tóm tắt công việc">'+
       '<a href="quality.html" class="cr-metric"><span>Cần kiểm chứng</span><strong>'+(open===null?"—":open)+'</strong><small>'+(open===null?"Chưa đọc được nguồn":"Từ bộ quy tắc chất lượng")+'</small></a>'+
       '<a href="reviews.html" class="cr-metric"><span>Chờ duyệt</span><strong>'+(pending===null?"—":pending)+'</strong><small>'+(pending===null?"Chưa đọc được nguồn":"Đề xuất CMS đang mở")+'</small></a>'+
-      '<div class="cr-metric"><span>Nháp trên thiết bị</span><strong>'+(local.error?"—":local.items.length+(local.archived||[]).length)+'</strong><small>Không đồng bộ giữa các máy</small></div></section>';
+      '<div class="cr-metric"><span>Nháp trên thiết bị</span><strong>'+(local.error?"—":local.items.length+(local.archived||[]).length+(local.articles||[]).length)+'</strong><small>Không đồng bộ giữa các máy</small></div></section>';
     var errorMessages=[state.quality?.error,state.reviews?.error].filter(Boolean);
     var notice=errorMessages.length?'<div class="cr-notice" role="alert">Một số nguồn chưa tải được: '+errorMessages.map(esc).join(" · ")+'. Không coi số liệu thiếu là 0.</div>':'';
     host.innerHTML='<div class="control-room"><div class="cr-workspace">'+overview+metrics+notice+

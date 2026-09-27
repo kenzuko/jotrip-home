@@ -37,9 +37,26 @@ async function makePage(role,viewport){
   await page.route("**/api/cms/content?*",route=>route.fulfill({
     status:200,contentType:"application/json",body:JSON.stringify({
       path:"data/content.json",sha:"0123456789012345678901234567890123456789",
-      content:{version:"1",stories:[]}
+      content:{version:"1",stories:[{
+        id:"test-draft",title:"Bài đang biên tập",category:"ĐỜI SỐNG ĐẢO",
+        dek:"Mô tả ngắn kiểm thử",intro:"Lời mở đang soạn",
+        image:"",read_minutes:3,
+        sections:[{heading:"Buổi sáng",body:"Nội dung bản nháp trước khi sửa."}],
+        sources:[{label:"Nguồn minh họa",url:"https://example.com"}]
+      }]}
     })
   }));
+  await page.route("**/api/cms/edit-state?*",route=>route.fulfill({
+    status:200,contentType:"application/json",body:JSON.stringify({
+      path:"data/content.json",sha:"0123456789012345678901234567890123456789",
+      complete:true,conflicts:[],checked_at:"2026-09-27T08:00:00Z"
+    })
+  }));
+  const publishes=[];
+  await page.route("**/api/cms/publish",route=>{
+    publishes.push(route.request().method());return route.abort();
+  });
+  page.__publishAttempts=publishes;
   await page.goto(base+"/admin/",{waitUntil:"networkidle"});
   await page.locator(".control-room").waitFor();
   await page.locator(".cr-task").first().waitFor();
@@ -94,6 +111,40 @@ try{
   await desktop.page.locator('.module-btn[data-id="stories"]').click();
   await desktop.page.locator("#moduleTitle").getByText("Bài viết").waitFor();
   assert.equal(await desktop.page.locator('.module-btn[data-id="stories"].active').count(),1);
+  await desktop.page.locator("#editorTools").waitFor({state:"visible"});
+  await desktop.page.locator(".ew-story-preview").first().click();
+  await desktop.page.locator("#ewPreviewDialog[open]").waitFor();
+  assert.match(await desktop.page.locator("#ewPreviewDialog h1").textContent(),/Bài đang biên tập/);
+  await desktop.page.screenshot({path:output+"/cms-draft-preview-desktop.png",fullPage:true});
+  await desktop.page.locator("[data-ew-close]").click();
+  const titleField=desktop.page.locator('input[data-path="stories.0.title"]');
+  await titleField.fill("Bài vừa chỉnh chưa xuất bản");
+  await desktop.page.waitForTimeout(850);
+  const checkpoint=await desktop.page.evaluate(()=>{
+    const keys=Object.keys(localStorage).filter(k=>k.startsWith("openpq-cms-article-v1:"));
+    return{keys,record:keys.length?JSON.parse(localStorage.getItem(keys[0])).record:null};
+  });
+  assert.equal(checkpoint.keys.length,1,"article should have one local record checkpoint");
+  assert.equal(checkpoint.record?.title,"Bài vừa chỉnh chưa xuất bản");
+  await desktop.page.locator(".ew-story-preview").first().click();
+  assert.match(await desktop.page.locator("#ewPreviewDialog h1").textContent(),/Bài vừa chỉnh chưa xuất bản/);
+  await desktop.page.locator("[data-ew-close]").click();
+  await desktop.page.screenshot({path:output+"/cms-editor-workflow-desktop.png",fullPage:true});
+  // A competing PR touching the same JSON file must block publication, even if
+  // it is changing a different article. The API is mocked and must not receive POST.
+  await desktop.page.route("**/api/cms/edit-state?*",route=>route.fulfill({
+    status:200,contentType:"application/json",
+    body:JSON.stringify({path:"data/content.json",
+      sha:"0123456789012345678901234567890123456789",complete:true,
+      conflicts:[{number:99,title:"CMS: bài khác cùng tệp",
+        url:"https://github.com/kenzuko/jotrip-home/pull/99"}]})
+  }));
+  await desktop.page.locator("[data-ew-check]").click();
+  await desktop.page.locator(".ew-warning").waitFor();
+  assert.match(await desktop.page.locator(".ew-warning").textContent(),/PR khác sửa cùng tệp/);
+  await desktop.page.locator("#saveBtn").click();
+  await desktop.page.locator("#status.error").waitFor();
+  assert.equal(desktop.page.__publishAttempts.length,0,"pending PR must block POST");
   assert.equal(desktop.errors.length,0,"desktop page errors: "+desktop.errors.join("; "));
   await desktop.context.close();
 
@@ -113,6 +164,12 @@ try{
   assert.ok(mobileNav.linkRight<=392&&mobileNav.linkLeft>=mobileNav.navRight-1,
     "mobile link must stay beside, not over, the horizontal nav");
   await mobile.page.screenshot({path:output+"/cms-control-room-mobile.png",fullPage:true});
+  await mobile.page.locator('.module-btn[data-id="stories"]').click();
+  await mobile.page.locator("#editorTools").waitFor({state:"visible"});
+  assert.ok(await mobile.page.locator(".ew-story-preview").first().isVisible());
+  const editorOverflow=await mobile.page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(editorOverflow<=2,"iPhone editor horizontal overflow: "+editorOverflow+"px");
+  await mobile.page.screenshot({path:output+"/cms-editor-workflow-mobile.png",fullPage:true});
   assert.equal(mobile.errors.length,0,"mobile page errors: "+mobile.errors.join("; "));
   await mobile.context.close();
 
@@ -127,7 +184,27 @@ try{
   assert.equal(unsafe.length,0,"visual preview must not fetch CMS endpoints");
   await demo.screenshot({path:output+"/cms-control-room-public-preview.png",fullPage:true});
   await demoContext.close();
-  console.log("PASS CMS Control Room browser QA: desktop, mobile, navigation, role, responsive overflow");
+  const editorialContext=await browser.newContext({viewport:{width:1440,height:900}});
+  const editorial=await editorialContext.newPage();
+  const liveCalls=[];
+  await editorial.route("**/api/cms/**",route=>{
+    liveCalls.push(route.request().url());return route.abort();
+  });
+  await editorial.goto(base+"/admin/editor-workflow-preview.html",{waitUntil:"networkidle"});
+  await editorial.locator("#editorTools").waitFor({state:"visible"});
+  await editorial.locator("#demoTitle").fill("Tiêu đề demo chưa công bố");
+  await editorial.locator("#demoPreview").click();
+  await editorial.locator("#ewPreviewDialog[open]").waitFor();
+  assert.match(await editorial.locator("#ewPreviewDialog h1").textContent(),/Tiêu đề demo chưa công bố/);
+  await editorial.screenshot({path:output+"/cms-editor-workflow-demo-desktop.png",fullPage:true});
+  await editorial.locator("[data-ew-close]").click();
+  assert.equal(liveCalls.length,0,"editor demo must not call real CMS APIs");
+  await editorial.setViewportSize({width:390,height:844});
+  const demoOverflow=await editorial.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(demoOverflow<=2,"editor demo mobile overflow "+demoOverflow+"px");
+  await editorial.screenshot({path:output+"/cms-editor-workflow-demo-mobile.png",fullPage:true});
+  await editorialContext.close();
+  console.log("PASS CMS V1.3 browser QA: desktop/mobile, local editorial preview, record backup, GitHub conflict guard, zero-network demo");
 }finally{
   await browser.close();
 }
