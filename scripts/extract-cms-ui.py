@@ -2,7 +2,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import json,re
 ROOT=Path(__file__).resolve().parent.parent
-EXCLUDE={'admin','dist','.git'}
+EXCLUDE={'admin','dist','.git','node_modules'}
 class Texts(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True);self.skip=0;self.values=set()
