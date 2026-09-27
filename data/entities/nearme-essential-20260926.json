@@ -52,9 +52,9 @@
       "live_check_required": true,
       "source_refs": [
         {
-          "source_id": "longchau_phuquoc_storelist_20260924",
-          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
-          "checked_at": "2026-09-24"
+          "source_id": "longchau_official_directory_20260927",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
+          "checked_at": "2026-09-27"
         }
       ],
       "source_audit": {
@@ -62,7 +62,10 @@
         "prior_record_id": "utility_longchau_ham_ninh",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm."
+        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm.",
+        "official_source_recheck_at": "2026-09-27",
+        "official_source_note": "Đã đối chiếu địa chỉ thửa 32/ĐT47 ngã tư Chợ Hàm Ninh trên danh sách cửa hàng chính thức tỉnh An Giang; đường dẫn cũ trỏ nhầm cơ sở An Thới số 46.",
+        "verified_entrance": false
       },
       "updated_at": "2026-09-26",
       "phone_scope": "CHAIN",
@@ -86,9 +89,9 @@
       "live_check_required": true,
       "source_refs": [
         {
-          "source_id": "longchau_phuquoc_storelist_20260924",
-          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
-          "checked_at": "2026-09-24"
+          "source_id": "longchau_official_directory_20260927",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
+          "checked_at": "2026-09-27"
         }
       ],
       "source_audit": {
@@ -96,7 +99,10 @@
         "prior_record_id": "utility_longchau_ben_tram",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm."
+        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm.",
+        "official_source_recheck_at": "2026-09-27",
+        "official_source_note": "Đã đối chiếu địa chỉ 487 Nguyễn Trung Trực (Chợ Bến Tràm) trên danh sách cửa hàng chính thức tỉnh An Giang; đường dẫn cũ trỏ nhầm cơ sở An Thới số 46.",
+        "verified_entrance": false
       },
       "updated_at": "2026-09-26",
       "phone_scope": "CHAIN",
@@ -120,9 +126,9 @@
       "live_check_required": true,
       "source_refs": [
         {
-          "source_id": "longchau_phuquoc_storelist_20260924",
-          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
-          "checked_at": "2026-09-24"
+          "source_id": "longchau_official_directory_20260927",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
+          "checked_at": "2026-09-27"
         }
       ],
       "source_audit": {
@@ -130,7 +136,10 @@
         "prior_record_id": "utility_longchau_dt45",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm."
+        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm.",
+        "official_source_recheck_at": "2026-09-27",
+        "official_source_note": "Đã sửa link dẫn nhầm cơ sở An Thới sang danh sách cửa hàng chính thức. Chưa xác nhận được chi tiết riêng nhánh ĐT45 trong lượt đối chiếu này; giữ trạng thái mở cửa UNKNOWN, GPS null.",
+        "verified_entrance": false
       },
       "updated_at": "2026-09-26",
       "phone_scope": "CHAIN",
@@ -371,9 +380,9 @@
       "live_check_required": true,
       "source_refs": [
         {
-          "source_id": "dng_clinic_official_20260924",
-          "url": "https://dngclinic.com/dich-vu/chup-ct-2/",
-          "checked_at": "2026-09-24"
+          "source_id": "dng_official_contact_20260927",
+          "url": "https://dngclinic.com/lien-he/",
+          "checked_at": "2026-09-27"
         }
       ],
       "source_audit": {
@@ -381,7 +390,10 @@
         "prior_record_id": "utility_dng_clinic_duong_dong",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố giờ tham khảo 07:30-11:30 và 13:30-18:30 cả tuần; không mặc định cấp cứu 24/7."
+        "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố giờ tham khảo 07:30-11:30 và 13:30-18:30 cả tuần; không mặc định cấp cứu 24/7.",
+        "official_source_recheck_at": "2026-09-27",
+        "official_source_note": "Website DNG hiện công bố địa chỉ 40-41C khu tái định cư KP10 Dương Đông tại trang Liên hệ; thay link dịch vụ chung không có địa chỉ là nguồn chính.",
+        "verified_entrance": false
       },
       "updated_at": "2026-09-26"
     },
@@ -402,9 +414,9 @@
       "live_check_required": true,
       "source_refs": [
         {
-          "source_id": "dng_clinic_official_20260924",
-          "url": "https://dngclinic.com/dich-vu/chup-ct-2/",
-          "checked_at": "2026-09-24"
+          "source_id": "dng_official_contact_20260927",
+          "url": "https://dngclinic.com/lien-he/",
+          "checked_at": "2026-09-27"
         }
       ],
       "source_audit": {
@@ -412,7 +424,10 @@
         "prior_record_id": "utility_dng_clinic_an_thoi",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố khung 07:30-11:30 và 13:30-18:30 cả tuần, cần xác nhận riêng cơ sở An Thới và cổng."
+        "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố khung 07:30-11:30 và 13:30-18:30 cả tuần, cần xác nhận riêng cơ sở An Thới và cổng.",
+        "official_source_recheck_at": "2026-09-27",
+        "official_source_note": "Website DNG hiện công bố địa chỉ S259-S354, Sun Grand City An Thới tại trang Liên hệ; thay link dịch vụ chung không có địa chỉ là nguồn chính.",
+        "verified_entrance": false
       },
       "updated_at": "2026-09-26"
     },
