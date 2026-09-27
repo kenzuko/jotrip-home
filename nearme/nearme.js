@@ -317,8 +317,8 @@
     }).join("");
     const note=$("#radiusNote");
     if(note)note.textContent=position
-      ?"Vòng tròn tính theo đường chim bay từ GPS."
-      :center?"Tâm vòng tròn là điểm đại diện khu vực, không phải GPS.":"Chọn khu vực hoặc bật GPS để lọc bán kính.";
+      ?"Khoảng cách tính theo đường thẳng từ vị trí của bạn."
+      :center?"Bán kính tính từ trung tâm khu vực bạn chọn, không phải vị trí của bạn.":"Chọn khu vực hoặc bật GPS để lọc bán kính.";
   }
 
   function renderControls(){
@@ -567,20 +567,19 @@
       ?"Kết quả cho “"+searchText.trim()+"”"
       :areaLabel()+(label?" · "+label:"");
     $("#resultsCount").textContent=radiusKm!==null&&result.radiusCount!==null
-      ?result.radiusCount+" có tọa độ trong vòng "+radiusKm+" km"+(result.radiusUnknown?" · "+result.radiusUnknown+" chưa xác định khoảng cách":"")
+      ?result.radiusCount+" địa điểm trong "+radiusKm+" km"+(result.radiusUnknown?" · "+result.radiusUnknown+" chưa rõ khoảng cách":"")
       :visible.length+" địa điểm";
     $("#nearStatus").textContent=radiusKm!==null&&result.radiusCount!==null
-      ?result.radiusCount+" địa điểm có tọa độ trong vòng "+radiusKm+" km"+(position?" quanh GPS.":" từ tâm khu vực; đây không phải GPS.")+(result.radiusUnknown?" "+result.radiusUnknown+" địa điểm thiếu tọa độ, không tính trong vòng.":"")
-      :position
-        ?(result.gpsFallback?"Điểm có tọa độ được xếp theo đường chim bay; địa điểm khác vẫn hiện ở nhóm chưa rõ khoảng cách.":"Đã xếp nơi có tọa độ theo đường chim bay từ GPS.")
-        :"Chọn một lớp hoặc gõ tên nơi bạn cần tìm.";
+      ?"Đang tìm trong "+radiusKm+" km "+(position?"quanh bạn":"quanh "+areaLabel())+"."+(result.radiusUnknown?" Một số nơi chưa rõ khoảng cách vẫn có trong danh sách.":"")
+      :position?"Các địa điểm có vị trí rõ được xếp theo khoảng cách từ bạn."
+      :"Đang tìm quanh "+areaLabel()+".";
     renderMapPoints(visible);
 
     const host=$("#nearResults");
     if(!visible.length){
-      const query=(searchText.trim()||selectedCategory)?googleSearchUrl(mapSearchQuery()):"";
+      const query=googleSearchUrl(mapSearchQuery());
       host.innerHTML='<div class="empty">Chưa thấy kết quả phù hợp. Thử tên khác hoặc bỏ bớt bộ lọc nhé.'+
-        (query?' <a href="'+esc(query)+'" target="_blank" rel="noopener">Tìm trên Google Maps ↗</a>':"")+'</div>';
+        (query?' <a href="'+esc(query)+'" target="_blank" rel="noopener noreferrer">Tìm thêm trên Google Maps ↗</a><small> Kết quả bên ngoài không theo bộ lọc đang chọn.</small>':"")+'</div>';
       return;
     }
     const limited=visible.slice(0,120);
@@ -588,8 +587,12 @@
       const distance=Number.isFinite(x.distance_km)
         ?x.distance_km.toFixed(1)+(position?" km đường chim bay":" km từ tâm khu"):"";
       const type=typeLabel(x),query=x.verified===false&&Number.isFinite(x.lat)&&Number.isFinite(x.lon)?x.lat+","+x.lon:exactMapQuery(x);
-      const hasPin=validPoint({lat:x.lat,lon:x.lon});
-      const address=x.address||"Tìm theo tên địa điểm trên bản đồ";
+      const hasPin=canShowPin(x);
+      const exactEntrance=hasPin&&x.map_precision==="exact_entrance"&&x.verified!==false;
+      const externalHref=exactEntrance
+        ?"https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(x.lat+","+x.lon)
+        :googleSearchUrl(exactMapQuery(x));
+      const address=x.address||"Chưa có địa chỉ chi tiết";
       const unknownGroup=radiusKm!==null&&result.radiusUnknown&&index===result.radiusCount
         ?'<h3 class="near-unlocated-heading">Chưa xác định khoảng cách · không tính trong vòng '+radiusKm+' km</h3>':"";
       const loc=weatherLocation(x);
@@ -607,8 +610,8 @@
         '<div>'+
           weatherCta+
           (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+
-          (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">'+(x.verified===false?"Xem pin tham khảo":"Xem pin")+'</button>':'<button type="button" data-map-query="'+esc(query)+'">Xem bản đồ</button>')+
-          '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">'+(x.verified===false?"Vị trí tham khảo ↗":"Đường đi ↗")+'</a>'+
+          (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">'+(x.verified===false?"Xem vị trí tham khảo":"Xem trên bản đồ")+'</button>':"")+
+          '<a href="'+esc(externalHref)+'" target="_blank" rel="noopener noreferrer">'+(exactEntrance?"Chỉ đường ↗":"Tìm trên Google Maps ↗")+'</a>'+
           (x.external_verify_url?'<a href="'+esc(x.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
           (x.route?'<a href="'+esc(x.route)+'">Thông tin →</a>':"")+
         '</div></article>';
@@ -699,7 +702,7 @@
           nearMap.setView(p,16,{animate:true});marker.openPopup();
         }else{
           const row=rows.find(item=>item.id===id);
-          if(row)showMapFallback(exactMapQuery(row),"Địa điểm trên Google Maps");
+          if(row)showMapFallback(exactMapQuery(row),"Bản đồ chưa tải được. Bạn có thể tìm thêm trên Google Maps.");
         }
         $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
         return;
@@ -707,7 +710,7 @@
       const queryButton=e.target.closest("[data-map-query]");
       if(queryButton){
         await setMapOpen(true);
-        showMapFallback(queryButton.dataset.mapQuery||mapSearchQuery(),"Địa điểm trên Google Maps");
+        showMapFallback(queryButton.dataset.mapQuery||mapSearchQuery(),"Địa điểm chưa có vị trí rõ. Bạn có thể tìm thêm trên Google Maps.");
         $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
       }
     });
