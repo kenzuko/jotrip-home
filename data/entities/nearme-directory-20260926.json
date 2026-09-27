@@ -271,15 +271,7 @@
       },
       "updated_at": "2026-09-26",
       "opening_hours_note": "Cơ sở đăng ký hoạt động 24/24 theo hồ sơ Sở Y tế 2026; giờ các phòng khám chuyên khoa có thể khác. | Nguồn du lịch địa phương ghi số 0297 3846 972; cần gọi đối chiếu số tiếp nhận.",
-      "map": {
-        "lat": 10.2147385,
-        "lon": 103.968147,
-        "precision": "site_centroid",
-        "source": "Hồ sơ đối chiếu 25/09/2026",
-        "source_id": "prior_nearme_20260925",
-        "verified_at": "2026-09-25",
-        "note": "Vị trí khuôn viên hoặc POI tham khảo. Chưa xác minh lối vào."
-      }
+      "map": null
     },
     {
       "id": "utility_pqc_airport_atms",
@@ -343,15 +335,7 @@
         "source_note": "Nguồn: https://www.openstreetmap.org/way/1467992598. Tâm khuôn viên bệnh viện trên OSM. Chưa phải cổng cấp cứu."
       },
       "updated_at": "2026-09-26",
-      "map": {
-        "lat": 10.0388036,
-        "lon": 104.0067047,
-        "precision": "site_centroid",
-        "source": "Hồ sơ đối chiếu 25/09/2026",
-        "source_id": "prior_nearme_20260925",
-        "verified_at": "2026-09-25",
-        "note": "Vị trí khuôn viên hoặc POI tham khảo. Chưa xác minh lối vào."
-      }
+      "map": null
     },
     {
       "id": "utility_dng_clinic_duong_dong",
