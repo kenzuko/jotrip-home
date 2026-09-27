@@ -149,6 +149,9 @@ jobs:
       - name: Exercise session area handoff across homepage, GO, Near Me and Explore
         run: node scripts/visual-qa-shared-area.mjs
 
+      - name: Check Near Me MacBook layout, mobile map and homepage handoff
+        run: node scripts/visual-qa-nearme-layout.mjs
+
       - name: Run visual QA
         env:
           VISUAL_QA_BASE_URL: http://127.0.0.1:4173

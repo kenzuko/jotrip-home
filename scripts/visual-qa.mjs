@@ -192,7 +192,7 @@ async function testHomeFoundation(page) {
     await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0 && new URL(document.querySelector('[data-near-handoff]')?.href||location.href).searchParams.get('category')==='PHARMACY',{timeout:5000}).catch(()=>{});
     quickFinder.pharmacyCards=await page.locator('#nearResults .near-result-card').count().catch(()=>0);
     quickFinder.handoff=await page.locator('[data-near-handoff]').first().getAttribute('href').catch(()=>"");
-    quickFinder.directDirections=await page.locator('#nearResults .near-result-actions a[href*="google.com/maps/dir"]').count().then(n=>n>=1).catch(()=>false);
+    quickFinder.internalPlaceLink=await page.locator('#nearResults .near-result-actions a[href^="nearme/?"]').count().then(n=>n>=1).catch(()=>false);
     await clickPharmacy();
   }
   const search=page.locator('#nearQuickSearch');
@@ -302,7 +302,7 @@ async function testHomeFoundation(page) {
       manualAreas: count('#nearManualAreas [data-area]') >= 4,
       nearCategories: count('#nearCategories [data-category]') === 4,
       nearExtraCategories: count('#nearQuickMore [data-category]') === 4,
-      nearQuickFinder: quickFinder.collapsedInitially&&quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.directDirections&&quickFinder.searchFound,
+      nearQuickFinder: quickFinder.collapsedInitially&&quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.internalPlaceLink&&quickFinder.searchFound,
       nearMobileFlow: window.innerWidth>720 || (
         document.querySelector('.near-quick-controls')?.compareDocumentPosition(document.querySelector('.near-quick-results')) & Node.DOCUMENT_POSITION_FOLLOWING &&
         document.querySelector('.near-quick-results')?.compareDocumentPosition(document.querySelector('.near-quick-secondary')) & Node.DOCUMENT_POSITION_FOLLOWING &&

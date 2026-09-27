@@ -180,6 +180,10 @@
     if(loaded)initMap();
     else showMapFallback();
     if(support)render();
+    if(shell&&window.matchMedia?.("(max-width: 820px)")?.matches){
+      shell.scrollIntoView({behavior:"smooth",block:"start"});
+      setTimeout(()=>nearMap?.invalidateSize(),170);
+    }
   }
 
   function clearUserLocation(){
@@ -317,8 +321,8 @@
     }).join("");
     const note=$("#radiusNote");
     if(note)note.textContent=position
-      ?"Khoảng cách tính theo đường thẳng từ vị trí của bạn."
-      :center?"Bán kính tính từ trung tâm khu vực bạn chọn, không phải vị trí của bạn.":"Chọn khu vực hoặc bật GPS để lọc bán kính.";
+      ?"Khoảng cách ước tính, đường đi thực tế có thể dài hơn."
+      :center?"Bán kính tính từ trung tâm khu vực bạn chọn, không phải vị trí của bạn.":"Chọn khu vực hoặc dùng vị trí để tìm gần hơn.";
   }
 
   function renderControls(){
@@ -434,11 +438,19 @@
         visible=[...within,...withoutCoords];
       }else visible=[...withCoords,...withoutCoords];
     }else{
-      visible.sort((a,b)=>{
-        const wa=a.entity_type==="place"?0:a.entity_type==="utility"?1:2;
-        const wb=b.entity_type==="place"?0:b.entity_type==="utility"?1:2;
-        return wa-wb||(b.featured?1:0)-(a.featured?1:0)||String(a.name).localeCompare(String(b.name),"vi");
-      });
+      // Near Me prioritizes practical services, not beaches and hotels.
+      const priorities=["PHARMACY","CLINIC_HOSPITAL","ATM","FUEL","CHARGING","TOILET","MINIMART"];
+      const priority=row=>{
+        if(row.entity_type==="utility"){
+          const index=priorities.findIndex(id=>(row.tags||[]).includes(id));
+          return index>=0?index:priorities.length;
+        }
+        return row.entity_type==="venue"?20:row.entity_type==="place"?21:row.entity_type==="activity"?22:row.entity_type==="hotel"?23:24;
+      };
+      visible.sort((a,b)=>priority(a)-priority(b)||
+        Number(a.verified===false)-Number(b.verified===false)||
+        (b.featured?1:0)-(a.featured?1:0)||
+        String(a.name).localeCompare(String(b.name),"vi"));
     }
     return {rows:visible,gpsFallback,radiusCount,radiusUnknown,center};
   }
@@ -476,11 +488,11 @@
       window.L.circle([Number(center.lat),Number(center.lon)],{radius:Number(radiusKm)*1000,color:"#318d82",fillColor:"#6ac4ae",fillOpacity:.10,weight:2}).addTo(radiusLayer);
     if(position)showUserLocation(position);else setAreaView(selectedArea);
     const missing=Math.max(0,visible.length-mapped.length);
-    setMapBadge(mapped.length+" vị trí trên bản đồ"+(communityCount?" · "+communityCount+" chưa xác minh":""));
+    setMapBadge(mapped.length+" / "+visible.length+" vị trí"+(communityCount?" · "+communityCount+" chưa kiểm chứng":""));
     const note=$("#mapNote");
     if(note)note.textContent=isDiscoveryCategory()
       ?"Chưa có địa điểm đủ rõ vị trí trong danh mục này. Bạn có thể tìm thêm trên Google Maps."
-      :missing?missing+" địa điểm chưa có vị trí đủ rõ để đặt pin. Danh sách vẫn giữ đầy đủ kết quả."
+      :missing?missing+" địa điểm chưa rõ vị trí; bạn vẫn xem được trong danh sách."
       :"Bản đồ và danh sách đang dùng cùng bộ lọc.";
   }
 
@@ -606,7 +618,7 @@
         '<p>'+esc(address)+'</p>'+
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
         (reliabilityLabel(x)?'<small>'+esc(reliabilityLabel(x))+'</small>':"")+
-        (x.map?.note?'<small>'+esc(x.map.note)+'</small>':"")+
+        (x.map_precision==="site_centroid"?'<small>Vị trí tham khảo trong khu vực, có thể khác lối vào.</small>':"")+
         (x.source_license==="ODbL-1.0"?'<small><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a></small>':"")+
         '<div>'+
           weatherCta+
