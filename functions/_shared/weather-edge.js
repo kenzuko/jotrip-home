@@ -221,7 +221,7 @@ export async function handleWeatherData(request,fallback,waitUntil){
    }
   }
   headers.set("x-openpq-weather-edge",
-    staticUsable?"CMS_VERIFIED_SNAPSHOT":"CMS_STATIC_FALLBACK_STALE");
+    staticUsable&&ageMinutes(staticData.generated_at)<=150?"CMS_VERIFIED_SNAPSHOT":"CMS_STATIC_FALLBACK_STALE");
   return new Response(asset.body,{status:asset.status,headers});
  }
  if(path==="/weather/data/edge-health.json")return health(request,waitUntil);
