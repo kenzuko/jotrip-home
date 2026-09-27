@@ -254,3 +254,135 @@
 @media(max-width:860px){.go-primary-nav{display:none}}
 
 @media(max-width:1040px){.go-primary-nav{display:none}.go-head-actions{margin-left:auto}}
+
+/* GO desktop workspace 27/09: the map is the workspace, not the last step in a long form. */
+.go-builder{max-width:1400px;margin-top:16px;padding-inline:clamp(14px,2.2vw,34px)}
+.go-builder-head{
+  padding:26px clamp(20px,2.4vw,32px) 30px;
+  align-items:center;gap:22px;border:1px solid #dbe9e0;border-radius:22px;
+  background:linear-gradient(108deg,#fff,#f6faf7);box-shadow:none;
+}
+.go-builder-head h2{margin:7px 0 0;line-height:1.19;letter-spacing:-.035em}
+.go-builder-head>span{font-size:13px;line-height:1.6}
+.go-form{border:0;padding:0;background:transparent}
+.go-form>fieldset{
+  min-width:0;margin:0;padding:22px 23px 24px;border:0;border-radius:20px;
+  background:#fff;box-shadow:0 0 0 1px #dce9e0;
+}
+.go-form>fieldset>legend{
+  width:100%;display:flex;align-items:center;gap:10px;
+  margin:0 0 15px;padding:0;font-size:16px;line-height:1.35;
+}
+.go-form>fieldset>legend b{width:31px;height:31px;flex:none;font-size:11px}
+.go-manual-hint{margin:0 0 13px;font-size:13px;color:#506d60;font-weight:650}
+.go-location-status{margin-top:14px;font-size:12px;line-height:1.6;color:#6a7c72}
+.go-radius-panel{margin:0;min-width:0;overflow:hidden;border:1px solid #d5e6dc;border-radius:20px;background:#fff;box-shadow:0 8px 26px rgba(18,61,59,.055)}
+.go-radius-header{min-height:83px;padding:17px 20px 16px;gap:18px}
+.go-radius-header strong{font-size:21px;letter-spacing:-.025em;line-height:1.16}
+.go-radius-header span{font-size:13px;line-height:1.5}
+.go-map-reset{flex:none;border:1px solid #cae0d3;border-radius:999px;background:#f6faf7;padding:9px 12px}
+.go-map-reset[hidden],.go-radius-controls[hidden],.go-map-prompt[hidden]{display:none!important}
+.go-map-frame{position:relative;min-width:0;overflow:hidden;background:#dbece5}
+.go-map{height:clamp(350px,43vh,490px);width:100%;background:#d8ebe5}
+.go-map-prompt{
+  position:absolute;z-index:1000;bottom:17px;left:17px;
+  width:min(350px,calc(100% - 34px));padding:15px 16px;
+  border:1px solid rgba(207,227,214,.92);border-radius:16px;
+  background:rgba(255,255,255,.96);box-shadow:0 10px 33px rgba(15,54,45,.15);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+}
+.go-map-prompt>strong{display:block;font-size:15px;line-height:1.2;color:#164b3b}
+.go-map-prompt p{margin:5px 0 12px;font-size:12px;color:#647a6e;line-height:1.4}
+.go-map-prompt>div{display:flex;flex-wrap:wrap;gap:6px}
+.go-map-prompt button{
+  padding:8px 10px;min-height:37px;cursor:pointer;
+  border:1px solid #bbd9c8;border-radius:999px;
+  background:#eaf6ee;color:#205b43;font-size:12px;font-weight:850;
+}
+.go-map-prompt button:hover,.go-map-prompt button:focus-visible{
+  outline:none;border-color:#428b68;background:#dcefe2;
+  box-shadow:0 0 0 3px rgba(69,147,105,.15);
+}
+.go-radius-controls{padding:15px 20px 14px;border-top:1px solid #dfebe3}
+.go-radius-title{display:flex;gap:12px;align-items:center;justify-content:space-between}
+.go-radius-title strong{font-size:13px;color:#254f3d}
+.go-radius-title output{font-size:20px;font-weight:850;font-variant-numeric:tabular-nums;color:#185f48}
+.go-radius-actions{padding:11px 0 4px;gap:7px}
+.go-radius-actions button{min-height:41px;min-width:55px;border-radius:11px;font-size:13px}
+.go-radius-more{margin-top:8px;border-top:1px solid #e8f1ea}
+.go-radius-more summary{cursor:pointer;list-style:none;padding:11px 0 5px;color:#497461;font-size:12px;font-weight:800}
+.go-radius-more summary::-webkit-details-marker{display:none}
+.go-radius-more summary:after{content:"⌄";display:inline-block;margin-left:6px;font-size:16px;line-height:12px}
+.go-radius-more[open] summary:after{transform:rotate(180deg)}
+.go-radius-more .go-radius-slider-label{margin-top:9px;color:#607d6a;font-weight:650}
+.go-map-footer{display:grid;gap:6px;padding:13px 20px 15px;line-height:1.45;font-size:12px;background:#f9fcfa}
+.go-map-footer span:first-child{font-size:13px;font-weight:850;color:#236b50}
+.go-map-footer span:last-child{font-size:11px;color:#6b8274}
+.go-radar-popup strong{font-size:14px}
+.go-radar-popup small{font-size:12px}
+@media(min-width:1000px){
+  .go-hero{
+    min-height:252px;grid-template-columns:minmax(0,1fr) minmax(280px,.54fr);
+    padding:24px clamp(24px,5vw,72px);gap:36px;
+  }
+  .go-hero h1{font-size:clamp(43px,3.8vw,59px)}
+  .go-hero-copy{padding:0}
+  .go-hero-copy>span{margin-top:12px;font-size:15px;line-height:1.5}
+  .go-hero-photo{height:218px;min-height:218px;max-height:218px;border-radius:22px 60px 22px 22px}
+  .go-hero-photo>img{height:218px;min-height:218px;max-height:218px}
+  .go-form{
+    display:grid;grid-template-columns:minmax(345px,.43fr) minmax(0,.57fr);
+    grid-template-rows:auto auto auto auto;align-items:start;column-gap:clamp(15px,2vw,25px);row-gap:16px;
+    margin-top:20px;
+  }
+  .go-form>fieldset:first-of-type{grid-column:1;grid-row:1}
+  .go-form>fieldset:nth-of-type(2){grid-column:1;grid-row:2}
+  .go-form>fieldset:nth-of-type(3){grid-column:1;grid-row:3}
+  .go-form>.go-submit{grid-column:1;grid-row:4;width:100%;max-width:none;margin:0}
+  .go-form>.go-radius-panel{
+    grid-column:2;grid-row:1 / 5;
+    position:sticky;top:82px;align-self:start;margin:0;
+    display:flex;flex-direction:column;
+  }
+  .go-form>.go-radius-panel .go-radius-header{order:0}
+  .go-form>.go-radius-panel .go-map-frame{order:1}
+  .go-form>.go-radius-panel .go-radius-controls{order:2}
+  .go-form>.go-radius-panel .go-map-footer{order:3}
+  .go-area-row .choice-grid{width:100%;max-width:none;grid-template-columns:1fr;gap:9px}
+  .go-area-row .choice-grid label>span{
+    min-height:49px;padding:12px 16px;flex-direction:row;
+    justify-content:flex-start;align-items:center;font-size:14px;
+  }
+  .go-area-row .choice-grid label>span:before{
+    content:"";flex:none;width:12px;height:12px;margin-right:12px;
+    border:2px solid #98b6a8;border-radius:50%;background:#fff;
+  }
+  .go-area-row .choice-grid input:checked+span:before{border-color:#fff;background:#ffd35c;box-shadow:0 0 0 2px rgba(255,255,255,.2)}
+  .go-location-option{margin-top:14px}
+  .go-builder-head>span{max-width:260px;text-align:right}
+  .go-form>.go-radius-panel .go-map{height:clamp(370px,43vh,490px)}
+}
+@media(max-width:999px){
+  .go-builder{max-width:760px;margin-top:14px;padding:0 14px 28px}
+  .go-builder-head{padding:22px 20px 26px;gap:12px;display:block}
+  .go-builder-head>span{display:block;margin-top:10px;max-width:none;text-align:left}
+  .go-form{display:flex;flex-direction:column;gap:13px;margin-top:14px}
+  .go-form>fieldset,.go-form>.go-radius-panel,.go-form>.go-submit{width:100%;max-width:none;margin:0}
+  .go-form>fieldset{padding:18px 18px 20px}
+  .go-radius-panel{display:block}
+  .go-radius-header{padding:15px 16px}
+  .go-radius-controls{padding:12px 15px}
+  .go-map{height:clamp(315px,88vw,410px)}
+  .go-map-prompt{bottom:11px;left:11px;padding:12px;width:min(335px,calc(100% - 22px))}
+  .go-area-row .choice-grid{max-width:none}
+  .go-map-footer{padding:11px 15px}
+}
+@media(max-width:760px){
+  .go-builder{padding:0 10px 26px}
+  .go-builder-head{padding:19px 17px 24px}
+  .go-builder-head h2{font-size:clamp(23px,6.3vw,29px);line-height:1.2}
+  .go-map-prompt{display:none}
+  .go-radius-header strong{font-size:18px}
+  .go-form>fieldset>legend{margin-bottom:12px;font-size:15px}
+  .go-form>fieldset{padding:15px 14px 17px}
+}
