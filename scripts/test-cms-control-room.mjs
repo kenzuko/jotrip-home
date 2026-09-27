@@ -1,0 +1,94 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import vm from "node:vm";
+
+const source=readFileSync("admin/control-room.js","utf8");
+const admin=readFileSync("admin/admin.js","utf8");
+const html=readFileSync("admin/index.html","utf8");
+new Function(source);
+new Function(admin);
+assert.match(html,/control-room\.css\?v=\d+/);
+assert.match(html,/control-room\.js\?v=\d+/);
+assert.match(admin,/selectModule\(first\?first\.id:"dashboard"\)/);
+assert.match(admin,/saveDraftNow\(\);\s*if\(!confirm/);
+assert.match(admin,/requestId!==moduleRequestId/);
+assert.match(admin,/outdatedDraft=true/);
+assert.match(admin,/Đã tạo đề xuất PR/);
+
+function harness(role="editor",qualityError=false){
+  const storageData={
+    "openpq-cms-draft:tester:stories":JSON.stringify({data:{title:"Một bài viết"},sha:"old",at:"2026-09-27T08:00:00+07:00"})
+  };
+  const localStorage={
+    get length(){return Object.keys(storageData).length},
+    key(i){return Object.keys(storageData)[i]??null},
+    getItem(k){return storageData[k]??null}
+  };
+  const host={
+    innerHTML:"",
+    events:{},
+    addEventListener(event,handler){this.events[event]=handler},
+    removeEventListener(event){delete this.events[event]}
+  };
+  const requests=[];
+  const fetch=async (url,options)=>{
+    requests.push({url,method:options?.method||"GET"});
+    if(url.includes("/quality")&&qualityError){
+      return {ok:false,status:503,json:async()=>({error:"Nguồn dữ liệu chưa sẵn sàng"})};
+    }
+    if(url.includes("/quality")){
+      return {ok:true,status:200,json:async()=>({
+        computed_at:"2026-09-27T09:20:00+07:00",
+        tasks:[{
+          entity_id:"place_test",field:"source_ref",surface:"Địa điểm",
+          severity:"high",status:"open",evidence:"Thiếu <nguồn> & chưa xác minh"
+        }]
+      })};
+    }
+    return {ok:true,status:200,json:async()=>({
+      items:[{number:21,title:"CMS: bài viết mới",draft:false,updated_at:"2026-09-27T08:45:00+07:00"}]
+    })};
+  };
+  const window={};
+  vm.runInNewContext(source,{window,fetch,localStorage,AbortController,Intl,Date,URL,encodeURIComponent,Number,String,Map,Set,Array,Object,JSON,Promise},{filename:"admin/control-room.js"});
+  const modules=[
+    {id:"stories",label:"Bài viết",read:["admin","editor"]},
+    {id:"venues",label:"Địa điểm",read:["admin","editor","operator"]},
+    {id:"analytics",label:"Analytics",read:["admin"]}
+  ];
+  const jumps=[];
+  window.OPQControlRoom.mount({host,role,login:"tester",modules,onNavigate:id=>jumps.push(id)});
+  return {host,requests,jumps,window};
+}
+const settle=()=>new Promise(resolve=>setImmediate(resolve));
+{
+  const h=harness();
+  await settle();
+  assert.match(h.host.innerHTML,/Cần kiểm chứng/);
+  assert.match(h.host.innerHTML,/Thiếu &lt;nguồn&gt; &amp; chưa xác minh/);
+  assert.match(h.host.innerHTML,/index\.html\?module=venues&amp;record=place_test&amp;field=source_ref/);
+  assert.match(h.host.innerHTML,/Nháp trên thiết bị/);
+  assert.match(h.host.innerHTML,/Lưu trên trình duyệt/);
+  assert.doesNotMatch(h.host.innerHTML,/data-cr-module="analytics"/);
+  assert.deepEqual(h.requests.map(item=>item.method),["GET","GET"]);
+  assert.deepEqual(h.requests.map(item=>item.url),["/api/cms/quality","/api/cms/reviews"]);
+  h.host.events.click({
+    target:{closest(selector){return selector==="[data-cr-module]"?{getAttribute(){return "stories"}}:null}},
+    preventDefault(){}
+  });
+  assert.deepEqual(h.jumps,["stories"]);
+  h.window.OPQControlRoom.unmount();
+  assert.equal(h.host.events.click,undefined);
+}
+{
+  const h=harness("admin",true);
+  await settle();
+  assert.match(h.host.innerHTML,/Một số nguồn chưa tải được/);
+  assert.match(h.host.innerHTML,/Không coi số liệu thiếu là 0/);
+  assert.match(h.host.innerHTML,/Nguồn dữ liệu chưa sẵn sàng/);
+  assert.match(h.host.innerHTML,/data-cr-module="analytics"/);
+  assert.match(h.host.innerHTML,/CMS: bài viết mới/);
+  assert.doesNotMatch(h.host.innerHTML,/<strong>0<\/strong><small>Chưa đọc được nguồn/);
+  h.window.OPQControlRoom.unmount();
+}
+console.log("PASS: CMS Control Room syntax, permissions, draft, queues, escaping, source degradation and navigation");
