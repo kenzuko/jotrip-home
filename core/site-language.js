@@ -26,7 +26,14 @@
   });
   const style=document.createElement('style');
   style.textContent='.openpq-language-select{position:fixed;z-index:1000;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));max-width:126px;padding:8px;border:1px solid #bdcdc4;border-radius:9px;background:#fff;color:#204435;font:500 13px/1.2 system-ui;box-shadow:0 2px 12px #0002}.openpq-language-note{position:fixed;z-index:999;right:12px;bottom:calc(53px + env(safe-area-inset-bottom));max-width:260px;padding:9px 12px;border-radius:8px;background:#f7f9f6;color:#274337;font:13px/1.35 system-ui;box-shadow:0 2px 12px #0002}';
-  document.head.append(style);document.body.append(select);
+  document.head.append(style);
+  const existing=document.getElementById('languageSelect');
+  if(existing&&location.pathname.startsWith('/airport/')){
+    if([...existing.options].some(option=>option.value===locale))window.JT_SET_LANG?.(locale);
+    existing.addEventListener('change',()=>{try{localStorage.setItem('openpq-language',existing.value)}catch{}});
+    return;
+  }
+  document.body.append(select);
   // Static page translations are loaded only from reviewed catalogs.
   if(locale==='vi'||location.pathname.startsWith('/stories/'))return;
   const fallback=()=>{
