@@ -769,6 +769,21 @@
           "rights_status": "CC_VERIFIED"
         }
       ]
+    },
+    "bun-quay-tu-pha-chen-cham": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - món ăn địa phương",
+      "images": [
+        {
+          "url": "https://rootytrip.com/wp-content/uploads/2020/03/bun-quay-phu-quoc-cay-xanh.webp",
+          "alt": "Tô bún quậy Phú Quốc cùng chén nước chấm pha riêng",
+          "caption": "Bún quậy và chén chấm ăn kèm, ảnh trong bài giới thiệu món Phú Quốc của RootyTrip. Ảnh minh họa cách ăn, không giới thiệu một quán duy nhất.",
+          "scope": "exact_subject",
+          "source_label": "RootyTrip - Bún quậy Phú Quốc",
+          "source_url": "https://rootytrip.com/bun-quay-phu-quoc/",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+        }
+      ]
     }
   },
   "places": {
@@ -2119,6 +2134,15 @@
           "scope": "exact_subject",
           "source_label": "Cổng du lịch Phú Quốc - Bún quậy Kiến Xây",
           "source_url": "https://visitphuquoc.com.vn/vi/bun-quay-kien-xay"
+        },
+        {
+          "url": "https://rootytrip.com/wp-content/uploads/2020/03/bun-quay-phu-quoc-cay-xanh.webp",
+          "alt": "Tô bún quậy Phú Quốc cùng chén nước chấm pha riêng",
+          "caption": "Ảnh bún quậy Phú Quốc với chén chấm, không đại diện cho mọi cách nêm ở từng quán.",
+          "scope": "exact_subject",
+          "source_label": "RootyTrip - Bún quậy Phú Quốc",
+          "source_url": "https://rootytrip.com/bun-quay-phu-quoc/",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ],
       "infographic": [
@@ -2501,6 +2525,15 @@
           "source_label": "Lữ Hành Việt Nam",
           "source_url": "https://luhanhvietnam.com.vn/du-lich/thuong-thuc-dac-san-banh-kheo-phu-quoc.html",
           "hero_priority": "preferred"
+        },
+        {
+          "url": "https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/3/16/am-thuc-phu-quoc-1647437033546114478199.jpg",
+          "alt": "Bánh khéo Phú Quốc với những dáng bánh khác nhau",
+          "caption": "Bánh khéo Phú Quốc trong ảnh tư liệu của Dân Việt từ phuquoc247.",
+          "scope": "exact_subject",
+          "source_label": "Dân Việt / phuquoc247",
+          "source_url": "https://danviet.vn/am-thuc-phu-quoc-banh-kheo-thom-ngot-xinh-yeu-an-la-me-20220316203728096-d1007454.html",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ]
     },
@@ -2514,6 +2547,15 @@
           "source_label": "Rooty Trip",
           "source_url": "https://rootytrip.com/cho-duong-dong-phu-quoc/",
           "hero_priority": "preferred"
+        },
+        {
+          "url": "https://thoitiet24h.vn/templateEditor/kcfinder/uploads/images/dac-san-phu-quoc%20%2810%29.jpg",
+          "alt": "Bánh tét mật cật Phú Quốc và phần bánh cắt khoanh",
+          "caption": "Bánh tét lá mật cật Phú Quốc, ảnh bổ sung cách gói và dáng bánh",
+          "scope": "exact_subject",
+          "source_label": "Thời Tiết 24h",
+          "source_url": "https://thoitiet24h.vn/am-thuc/dac-san-phu-quoc",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
         }
       ]
     },
@@ -2657,7 +2699,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -2720,7 +2763,19 @@
     },
     "knowledge_007_ganh-dau": {
       "title": "Gành Dầu",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C4%90%E1%BB%81n%20th%E1%BB%9D%20Nguy%E1%BB%85n%20Trung%20Tr%E1%BB%B1c%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.JPG?width=1200",
+          "alt": "Đền thờ Nguyễn Trung Trực tại Phú Quốc năm 2015",
+          "caption": "Đền thờ Nguyễn Trung Trực tại khu vực Gành Dầu, Phú Quốc năm 2015. Ảnh di tích, không phải toàn cảnh bãi biển Gành Dầu.",
+          "scope": "context",
+          "source_label": "Tokeisan · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%81n_th%E1%BB%9D_Nguy%E1%BB%85n_Trung_Tr%E1%BB%B1c_%E1%BB%9F_Ph%C3%BA_Qu%E1%BB%91c.JPG",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_008_rach-vem": {
       "title": "Rạch Vẹm",
@@ -2751,7 +2806,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -2839,7 +2895,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -2914,7 +2971,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3196,7 +3254,19 @@
     },
     "knowledge_051_binh-minh-phu-quoc": {
       "title": "Bình minh Phú Quốc",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/PhuQuoc-2983612.jpg?width=1200",
+          "alt": "Bình minh trên đảo Phú Quốc tháng 5 năm 2016",
+          "caption": "Bình minh trên đảo Phú Quốc lúc 06:35 tháng 5/2016. Ảnh tư liệu, không xác định điểm chụp chính xác.",
+          "scope": "exact_subject",
+          "source_label": "Quangpraha · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:PhuQuoc-2983612.jpg",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "rights_status": "PUBLIC_DOMAIN"
+        }
+      ]
     },
     "knowledge_053_nguon-nuoc-ngot-tren-dao": {
       "title": "Nguồn nước ngọt trên đảo",
@@ -3270,7 +3340,8 @@
           "source_label": "Znews",
           "source_url": "https://znews.vn/nhung-dia-chi-thuong-thuc-hai-san-hut-khach-o-phu-quoc-post1112382.html",
           "hero_priority": "preferred",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3285,7 +3356,8 @@
           "source_label": "Điện Máy Chợ Lớn",
           "source_url": "https://dienmaycholon.com/kien-thuc/dac-san-phu-quoc",
           "hero_priority": "preferred",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3300,7 +3372,8 @@
           "source_label": "VietNamNet",
           "source_url": "https://vietnamnet.vn/xep-hang-doi-lan-bien-san-dac-san-tru-danh-cua-phu-quoc-dem-nuong-muoi-ot-778244.html",
           "hero_priority": "preferred",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3318,7 +3391,8 @@
           "fallback_url": "https://vietnamtrustcarrentals.com/vnt_upload/news/05_2024/Grilled-Trachurus.jpg",
           "fallback_source_label": "Vietnam Trust Car Rentals - Grilled Trachurus",
           "fallback_source_url": "https://vietnamtrustcarrentals.com/top-9-best-foods-in-phu-quoc.html",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3332,7 +3406,8 @@
           "scope": "exact_subject",
           "source_label": "Bách hóa XANH",
           "source_url": "https://www.bachhoaxanh.com/kinh-nghiem-hay/cach-lam-goi-xoai-oc-giac-gion-ngon-doi-vi-cho-bua-an-cuoi-tuan-1376526",
-          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3347,7 +3422,8 @@
           "source_label": "Rooty Trip",
           "source_url": "https://rootytrip.com/cho-duong-dong-phu-quoc/",
           "hero_priority": "preferred",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3467,7 +3543,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3506,7 +3583,8 @@
           "source_label": "VietNamNet",
           "source_url": "https://vietnamnet.vn/xep-hang-doi-lan-bien-san-dac-san-tru-danh-cua-phu-quoc-dem-nuong-muoi-ot-778244.html",
           "hero_priority": "preferred",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         },
         {
           "url": "https://cdn11.dienmaycholon.vn/filewebdmclnew/public/userupload/files/blog-2025/du-lich-kham-pha/nhum-bien-phu-quoc.jpg",
@@ -3516,7 +3594,8 @@
           "source_label": "Điện Máy Chợ Lớn",
           "source_url": "https://dienmaycholon.com/kien-thuc/dac-san-phu-quoc",
           "hero_priority": "preferred",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3797,7 +3876,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -3991,7 +4071,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -4172,7 +4253,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -4211,13 +4293,26 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
     "knowledge_109_nguyen-trung-truc-va-phu-quoc": {
       "title": "Nguyễn Trung Trực và Phú Quốc",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C4%90%E1%BB%81n%20th%E1%BB%9D%20Nguy%E1%BB%85n%20Trung%20Tr%E1%BB%B1c%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.JPG?width=1200",
+          "alt": "Đền thờ Nguyễn Trung Trực tại Phú Quốc năm 2015",
+          "caption": "Đền thờ Nguyễn Trung Trực tại khu vực Gành Dầu, Phú Quốc năm 2015. Ảnh di tích, không phải toàn cảnh bãi biển Gành Dầu.",
+          "scope": "exact_subject",
+          "source_label": "Tokeisan · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%C4%90%E1%BB%81n_th%E1%BB%9D_Nguy%E1%BB%85n_Trung_Tr%E1%BB%B1c_%E1%BB%9F_Ph%C3%BA_Qu%E1%BB%91c.JPG",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_117_ba-kim-giao": {
       "title": "Bà Kim Giao",
@@ -4237,7 +4332,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -4328,7 +4424,8 @@
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
           "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
@@ -4385,7 +4482,19 @@
     },
     "knowledge_132_sunrise-watching": {
       "title": "Đón bình minh",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/PhuQuoc-2983612.jpg?width=1200",
+          "alt": "Bình minh trên đảo Phú Quốc tháng 5 năm 2016",
+          "caption": "Bình minh trên đảo Phú Quốc lúc 06:35 tháng 5/2016. Ảnh tư liệu, không xác định điểm chụp chính xác.",
+          "scope": "exact_subject",
+          "source_label": "Quangpraha · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:PhuQuoc-2983612.jpg",
+          "license": "CC0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "rights_status": "PUBLIC_DOMAIN"
+        }
+      ]
     },
     "knowledge_139_phu-quoc-truoc-san-bay-quoc-te": {
       "title": "Phú Quốc trước sân bay quốc tế",
