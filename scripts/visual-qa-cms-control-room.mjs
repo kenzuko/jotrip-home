@@ -417,6 +417,7 @@ try{
   assert.equal(calls.length,0,"Story desk demo must never call CMS API");
   await deskContext.close();
 
+  {
   const inlineContext=await browser.newContext({viewport:{width:1365,height:850}});
   const inline=await inlineContext.newPage();
   inline.on("dialog",d=>d.accept());
@@ -462,6 +463,7 @@ try{
   await anon.goto(base+"/stories/article.html?id=test-draft",{waitUntil:"networkidle"});
   assert.equal(await anon.locator("#inlineCmsToolbar").count(),0);
   await anonCtx.close();
+  }
   console.log("PASS CMS V2 browser QA: desktop/mobile, local editorial preview, record backup, GitHub conflict guard, zero-network demo, Quality D1 action refresh, Review search and role navigation");
 }finally{
   await browser.close();
