@@ -63,7 +63,7 @@ const receipt=await first.json();
 assert.ok(receipt.reference);
 assert.equal(records.length,1);
 assert.equal(records[0].status,"new");
-assert.equal(records[0].source_path,"/nearme/?x=1");
+assert.equal(records[0].source_path,"/nearme/");
 assert.ok(!("raw_ip" in records[0]));
 for(let i=0;i<4;i++)assert.equal((await publicSubmit(request(),env)).status,201);
 assert.equal((await publicSubmit(request(),env)).status,429,"Rate limit after five in one hour");
