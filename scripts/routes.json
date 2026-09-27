@@ -9,7 +9,8 @@
     "/weather/data/*",
     "/weather/spatial-ecmwf.json",
     "/weather/spatial-icon.json",
-    "/weather/spatial-marine.json"
+    "/weather/spatial-marine.json",
+    "/api/traffic/*"
   ],
   "exclude": []
 }
