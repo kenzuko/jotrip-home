@@ -54,4 +54,34 @@ const fixed=(time)=>({state:"PUBLISHED_SCHEDULE",schedule_type:"FIXED_START",tim
   assert.equal(r.eligible[0].finish_at_local,"2026-09-25T16:15+07:00");
 }
 
+
+{
+  // Public, independently sourced experiences can broaden GO without
+  // claiming that a free stroll is a paid show or that visiting windows
+  // are operator opening hours.
+  const cfg=JSON.parse(fs.readFileSync("data/go-config.json","utf8"));
+  const places=JSON.parse(fs.readFileSync("data/entities/places.json","utf8")).entities;
+  const byId=new Map(places.map(p=>[p.id,p]));
+  const selected=["place_sunset_town","place_bai_truong","place_cua_can"];
+  const publicCfg=cfg.activities.filter(c=>selected.includes(c.entity_id));
+  assert.equal(publicCfg.length,3);
+  for(const [id,origin,when,available] of [
+    ["place_sunset_town","zone_south","2026-09-27T17:00:00+07:00","evening"],
+    ["place_bai_truong","zone_central_west","2026-09-27T15:00:00+07:00","half"],
+    ["place_cua_can","zone_north","2026-09-27T10:00:00+07:00","half"]
+  ]){
+    const subset=publicCfg.filter(c=>c.entity_id===id);
+    const item=byId.get(id);
+    assert.ok(item&&item.zone_id===origin,"Missing canonical zone for "+id);
+    const plan=engine.plan({now:when,available,originZone:origin,config:{activities:subset},entities:[item],interest:"all"});
+    assert.equal(plan.eligible_count,1,"Public GO experience should fit safe daypart: "+id);
+    assert.equal(plan.results[0].id,id);
+    assert.ok(plan.results[0].warnings.some(w=>/thời tiết|tham khảo|xác nhận/.test(w)),"Missing weather or operational caveat for "+id);
+    if(id!=="place_sunset_town"){
+      assert.ok(plan.results[0].warnings.some(w=>/Khung giờ tham khảo/.test(w)),"Soft window must not be treated as opening hours");
+    }else{
+      assert.ok(!plan.results[0].warnings.some(w=>/Khung giờ tham khảo/.test(w)),"Sunset Town pedestrian access has operator hours");
+    }
+  }
+}
 console.log("go-engine tests passed");

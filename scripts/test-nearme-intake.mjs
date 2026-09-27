@@ -111,7 +111,16 @@ for(const e of chargers){
 const existingFuel=entities.filter(x=>x.utility_type==="FUEL"&&!batch.includes(x));
 assert.ok(existingFuel.length>=3,"Keep original fuel records");
 const cfg=read("data/go-config.json");
-assert.equal(cfg.activities.length,17,"Existing GO choices must be preserved");
+assert.equal(cfg.activities.length,20,"Keep all 17 prior GO options and add exactly 3 public experiences");
+for(const id of ["place_sunset_town","place_bai_truong","place_cua_can"]){
+  const x=cfg.activities.find(a=>a.entity_id===id);
+  assert.ok(x,"Missing curated GO experience "+id);
+  assert.ok(byId.has(id),"GO experience must point to canonical place "+id);
+  assert.ok(!x.schedule_owner_confirmed,"Do not turn GO visiting suggestions into operator schedule confirmations");
+}
+assert.equal(cfg.activities.filter(x=>x.entity_id==="place_sunset_town").length,1);
+assert.equal(byId.get("place_sunset_town").opening_hours?.source_type,"OPERATOR","Sunset Town public pedestrian schedule must remain operator backed");
+assert.ok(cfg.activities.filter(x=>["place_bai_truong","place_cua_can"].includes(x.entity_id)).every(x=>x.soft_window&&!x.operational_binding),"River and beach are visiting suggestions, not operator openings");
 const cats=read("data/home-support.json").near_me.categories;
 for(const id of ["PHARMACY","FUEL","CHARGING","VEHICLE_REPAIR","LUGGAGE_STORAGE"])assert.ok(cats.some(x=>x.id===id),"Missing Near Me category "+id);
 const near=fs.readFileSync("nearme/nearme.js","utf8");

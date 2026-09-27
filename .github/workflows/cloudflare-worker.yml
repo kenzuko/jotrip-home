@@ -5,6 +5,9 @@ on:
     branches: ["main"]
     paths:
       - "data/knowledge/**"
+      - "data/go-config.json"
+      - "data/entities/places.json"
+      - "data/entities/activities.json"
       - "data/entities/utilities.json"
       - "data/entities/nearme-essential-*.json"
       - "data/home-support.json"
