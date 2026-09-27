@@ -1,0 +1,84 @@
+name: Near Me GPS smart bounded trial
+on:
+  push:
+    branches: [data/near-gps-smart-trial-20260927]
+    paths: [.github/workflows/near-gps-smart-trial.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: nearme-gps-smart-trial
+  cancel-in-progress: false
+jobs:
+  trial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/cache/restore@v4
+        with:
+          path: .cache/near-go/geoapify-cache.json
+          key: nearme-geoapify-v2-smart-trial
+          restore-keys: |
+            nearme-geoapify-v2-
+      - name: Offline-first bounded Geoapify trial (never updates canonical)
+        env:
+          GEOAPIFY_API_KEY: ${{ secrets.GEOAPIFY_API_KEY }}
+        shell: bash
+        run: |
+          mkdir -p .cache/near-go
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import crypto from 'node:crypto';
+          import {buildQuery, assess} from './scripts/geocode-geoapify.mjs';
+          const idx=JSON.parse(fs.readFileSync('data/views/location-index.json','utf8'));
+          const cacheFile='.cache/near-go/geoapify-cache.json';
+          const cache=fs.existsSync(cacheFile)?JSON.parse(fs.readFileSync(cacheFile,'utf8')):{entries:{}};
+          const fold=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/đ/g,'d').replace(/[^a-z0-9]+/g,' ').trim();
+          const family=s=>{const t=fold(s);return /the gioi di dong/.test(t)?'tgdd':/dien may xanh/.test(t)?'dmx':/long chau/.test(t)?'longchau':/vietcombank/.test(t)?'vcb':null;};
+          const zone={zone_south:{box:'103.93,9.85,104.12,10.14',lon:104.015,lat:10.025},zone_north:{box:'103.78,10.27,104.12,10.48',lon:103.847,lat:10.371},zone_central_west:{box:'103.82,10.12,104.08,10.30',lon:103.967,lat:10.222}};
+          const parse=s=>{if(/^(thửa đất|tổ\s*\d+|s\d+\s*-)/i.test(s||''))return null;const m=String(s||'').match(/^(\d+[a-zA-Z]?(?:-\d+[a-zA-Z]?)?)\s+(?:đường\s+)?([^,(]+)/i);if(!m)return null;return {no:m[1],street:m[2].trim(),ward:fold(s).match(/(?:khu pho|kp)\s*0?(\d+)/)?.[1]||null};};
+          const street=s=>fold(s).replace(/^duong\s+/,'').replace(/\b30 thang 4\b|\bba muoi thang tu\b/g,'30 4');
+          const valid=(doc,c)=>{const p=parse(doc.address);if(!p||!['building','amenity'].includes(c.result_type)||!c.housenumber||!c.street)return false;if(fold(p.no)!==fold(c.housenumber)||street(p.street)!==street(c.street))return false;const z=zone[doc.zone_id],f=fold(c.formatted);if(p.ward&&!new RegExp('\\b'+p.ward+'\\s+'+(doc.zone_id==='zone_south'?'an thoi':'duong dong')+'\\b').test(f))return false;if(z){const b=z.box.split(',').map(Number);if(c.lon<b[0]||c.lat<b[1]||c.lon>b[2]||c.lat>b[3])return false;}return !c.name||(family(doc.name)&&family(c.name)===family(doc.name));};
+          const dist=(a,b)=>{const p=Math.PI/180,dy=(a.lat-b.lat)*p,dx=(a.lon-b.lon)*p;return 12742000*Math.asin(Math.sqrt(Math.sin(dy/2)**2+Math.cos(a.lat*p)*Math.cos(b.lat*p)*Math.sin(dx/2)**2));};
+          const all=idx.documents||[];
+          const osm=all.filter(x=>x.source_license==='ODbL-1.0'&&x.verified===false&&x.map&&Number.isFinite(x.map.lat));
+          const pending=all.filter(x=>x.entity_type==='utility'&&!x.id.startsWith('utility_osm_')&&x.address&&!x.map&&x.verified===true);
+          const rank={CLINIC_HOSPITAL:0,PHARMACY:1,ATM:2,FUEL:3,ELECTRONICS:4,MINIMART:5};
+          pending.sort((a,b)=>(rank[a.utility_type]??10)-(rank[b.utility_type]??10));
+          const key=process.env.GEOAPIFY_API_KEY||'';
+          const report={version:'1.0',time:new Date().toISOString(),mode:'SMART_TRIAL_RESEARCH_ONLY',counts:{pending:pending.length,cache_hits:0,requests:0,fast_review:0,exact_address_review:0,unresolved:0,api_failures:0},records:[],policy:'Never auto-write GPS: OSM and Geoapify can share underlying coordinates. Check operator address/entrance, then deduplicate before publication.'};
+          const candidatesFor=doc=>{const h=crypto.createHash('sha256').update(JSON.stringify([doc.id,buildQuery(doc),'geoapify-v1'])).digest('hex');return cache.entries?.[h]?.candidates||[];};
+          const brandedFor=doc=>osm.filter(o=>o.utility_type===doc.utility_type&&family(doc.name)&&family(o.name)===family(doc.name)&&o.zone_id===doc.zone_id);
+          const ordered=[];
+          for(const doc of pending){const known=candidatesFor(doc);const exact=known.filter(c=>valid(doc,c));const branded=brandedFor(doc);const near=branded.flatMap(o=>exact.map(c=>({osm:o,building:c,distance_m:Math.round(dist(o.map,c))}))).filter(x=>x.distance_m<=75);
+            if(near.length===1){const x=near[0];report.counts.cache_hits++;report.counts.fast_review++;report.records.push({id:doc.id,status:'FAST_REVIEW_NOT_VERIFIED',osm_id:x.osm.id,lat:x.osm.map.lat,lon:x.osm.map.lon,distance_m:x.distance_m,house_address:doc.address});continue;}
+            if(parse(doc.address)&&known.length&&exact.length){report.counts.cache_hits++;report.counts.exact_address_review++;report.records.push({id:doc.id,status:'BUILDING_REVIEW_NOT_VERIFIED',matching:exact.map(c=>({lat:c.lat,lon:c.lon,formatted:c.formatted})),branded_osm_ids:branded.map(x=>x.id)});continue;}
+            if(parse(doc.address))ordered.push(doc);
+          }
+          for(const doc of ordered.slice(0,12)){
+            if(report.counts.requests>=24)break;
+            const p=parse(doc.address),z=zone[doc.zone_id]||{box:'103.75,9.80,104.25,10.55',lon:103.967,lat:10.22};
+            const u=new URL('https://api.geoapify.com/v1/geocode/search');
+            for(const [k,v] of Object.entries({housenumber:p.no,street:p.street,city:'Phú Quốc',country:'Việt Nam',filter:'rect:'+z.box+'|countrycode:vn',bias:'proximity:'+z.lon+','+z.lat,lang:'vi',limit:'5',apiKey:key}))u.searchParams.set(k,v);
+            let matches=[];if(!key){report.records.push({id:doc.id,status:'NO_SECRET_PREVIEW'});continue;}
+            report.counts.requests++;
+            try{const response=await fetch(u,{signal:AbortSignal.timeout(15000)});if(response.status===429){report.rate_limited=true;break;}if(!response.ok)throw Error('Geoapify HTTP '+response.status);const body=await response.json();matches=(body.features||[]).map(f=>assess(doc,f)).filter(c=>c&&valid(doc,c));}catch(e){report.counts.api_failures++;report.records.push({id:doc.id,status:'API_FAILED_REVIEW_REQUIRED'});continue;}
+            if(matches.length){report.counts.exact_address_review++;report.records.push({id:doc.id,status:'NEW_BUILDING_REVIEW_NOT_VERIFIED',matches:matches.map(c=>({lat:c.lat,lon:c.lon,formatted:c.formatted})),branded_osm_ids:brandedFor(doc).map(o=>o.id)});}
+            else{report.counts.unresolved++;report.records.push({id:doc.id,status:'NO_EXACT_BUILDING_FROM_STRUCTURED_SEARCH'});}
+            await new Promise(r=>setTimeout(r,550));
+          }
+          fs.writeFileSync('.cache/near-go/near-gps-smart-trial.json',JSON.stringify(report,null,2)+'\n');
+          console.log(JSON.stringify(report.counts));
+          NODE
+      - name: Upload GPS review evidence, no map or production changes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: near-gps-smart-trial
+          path: .cache/near-go/near-gps-smart-trial.json
+          retention-days: 30
+          if-no-files-found: ignore
