@@ -151,58 +151,53 @@ async function testHomeFoundation(page) {
     return value && value !== '--:--';
   }, { timeout: 6000 }).catch(() => {});
 
-  const initialNearClean = await page.locator('#nearResults .near-result-card').count().then(n => n === 0).catch(() => false);
-  const mobileNear = await page.evaluate(() => matchMedia('(max-width:720px)').matches);
-  const collapsedInitially = !mobileNear || (!(await page.locator('.near-quick-results').isVisible()) && !(await page.locator('#nearManualAreas').isVisible()) && !(await page.locator('#nearQuickMore').isVisible()));
-  if (mobileNear) await page.locator('#nearAreaToggle').click();
-  const area = page.locator('#nearManualAreas [data-area]').first();
-  if (await area.count()) {
-    await area.click().catch(() => {});
-    await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0, {timeout:6500}).catch(() => {});
-  }
-  // The new homepage shows only four essential cards. Check real selection,
-  // preservation of category + area when opening /nearme, and direct actions.
-  const resultsAfterArea = await page.locator('.near-quick-results').isVisible().catch(()=>false);
-  const areaSelectorClosed = !mobileNear || !(await page.locator('#nearManualAreas').isVisible());
-  const quickFinder = {
-    collapsedInitially,resultsAfterArea,areaSelectorClosed,
-    cardsAfterArea:await page.locator('#nearResults .near-result-card').count().catch(()=>0),
-    essentials:await page.locator('#nearCategories [data-category]').count().catch(()=>0),
-    others:await page.locator('#nearQuickMore [data-category]').count().catch(()=>0),
-    emergency:await page.locator('.near-quick-emergency-call[href="tel:115"]').count().then(n=>n===1).catch(()=>false)
+  const initialNearClean = await page.locator('#nearResults .near-result-card').count().then(n=>n===0).catch(()=>false);
+  const collapsedInitially=!(await page.locator('.near-quick-results').isVisible())&&
+    !(await page.locator('#nearQuickMore').isVisible());
+  const quickFinder={
+    collapsedInitially,
+    essentials:await page.locator('#nearCategories [data-category]').count(),
+    others:await page.locator('#nearQuickMore [data-category]').count(),
+    emergency:await page.locator('.near-quick-emergency-call[href="tel:115"]').count().then(n=>n===1)
   };
+  // Reuse the actual header selector: choosing a region alone should not create an empty result panel.
+  await page.locator('#nearAreaChange').click();
+  await page.locator('#siteAreaPanel [data-area-option="zone_central_west"]').click();
+  await page.waitForFunction(()=>document.querySelector('#nearAreaLabel')?.textContent?.includes('Dương Đông'),{timeout:5000});
+  quickFinder.areaSelectorClosed=await page.locator('#siteAreaPanel').isHidden();
+  quickFinder.resultsAfterArea=await page.locator('.near-quick-results').isVisible();
+  const more=page.locator('#nearOtherToggle');
+  await more.click();
+  quickFinder.moreExpanded=await page.locator('#nearQuickMore').isVisible();
+  await more.click();
   const pharmacy=page.locator('#nearCategories [data-category="PHARMACY"]');
-  async function clickPharmacy(){
-    // After the area selection, mobile smooth scrolling may still be moving.
-    // Centre the real button clear of the fixed header/dock before clicking;
-    // do not bypass pointer hit-testing with a synthetic DOM click.
-    // Results deliberately auto-scroll on mobile. Wait for that gesture to
-    // finish before returning to the filter; otherwise a later smooth-scroll
-    // frame can move the button under the fixed header while Playwright taps.
-    await page.waitForTimeout(720);
-    await pharmacy.evaluate(el=>{
-      document.documentElement.style.scrollBehavior="auto";
-      el.scrollIntoView({behavior:"instant",block:"center",inline:"nearest"});
-    });
-    await page.waitForTimeout(230);
-    await pharmacy.click({timeout:15000});
-  }
-  if(await pharmacy.count()){
-    await clickPharmacy();
-    await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0 && new URL(document.querySelector('[data-near-handoff]')?.href||location.href).searchParams.get('category')==='PHARMACY',{timeout:5000}).catch(()=>{});
-    quickFinder.pharmacyCards=await page.locator('#nearResults .near-result-card').count().catch(()=>0);
-    quickFinder.handoff=await page.locator('[data-near-handoff]').first().getAttribute('href').catch(()=>"");
-    quickFinder.internalPlaceLink=await page.locator('#nearResults .near-result-actions a[href^="nearme/?"]').count().then(n=>n>=1).catch(()=>false);
-    await clickPharmacy();
-  }
+  await pharmacy.evaluate(el=>{
+    document.documentElement.style.scrollBehavior="auto";
+    el.scrollIntoView({behavior:"instant",block:"center",inline:"nearest"});
+  });
+  await page.waitForTimeout(180);
+  await pharmacy.click({timeout:15000});
+  await page.waitForFunction(()=>
+    document.querySelectorAll('#nearResults .near-result-card').length>0&&
+    new URL(document.querySelector('[data-near-handoff]')?.href||location.href).searchParams.get('category')==='PHARMACY',
+    {timeout:6500}).catch(()=>{});
+  quickFinder.resultsAfterCategory=await page.locator('.near-quick-results').isVisible();
+  quickFinder.pharmacyCards=await page.locator('#nearResults .near-result-card').count();
+  quickFinder.handoff=await page.locator('[data-near-handoff]').first().getAttribute('href').catch(()=>"");
+  quickFinder.internalPlaceLink=await page.locator('#nearResults .near-result-actions a[href^="nearme/?"]').count().then(n=>n>=1);
+  // A free-text search must not remain trapped inside the previous category.
   const search=page.locator('#nearQuickSearch');
-  if(await search.count()){
-    await search.fill('Vietcombank');
-    await page.waitForFunction(() => [...document.querySelectorAll('#nearResults .near-result-card strong')].some(el=>el.textContent.includes('Vietcombank')),{timeout:5000}).catch(()=>{});
-    quickFinder.searchFound=await page.locator('#nearResults .near-result-card strong').filter({hasText:'Vietcombank'}).count().then(n=>n>0).catch(()=>false);
-    await search.fill('');
-    await page.waitForFunction(() => document.querySelectorAll('#nearResults .near-result-card').length > 0,{timeout:5000}).catch(()=>{});
-  }
+  await search.fill('Vietcombank');
+  await page.waitForFunction(()=>
+    [...document.querySelectorAll('#nearResults .near-result-card strong')].some(el=>el.textContent.includes('Vietcombank'))&&
+    document.querySelector('#nearCategories [data-category="PHARMACY"]')?.getAttribute('aria-pressed')==='false',
+    {timeout:6500}).catch(()=>{});
+  quickFinder.searchFound=await page.locator('#nearResults .near-result-card strong').filter({hasText:'Vietcombank'}).count().then(n=>n>0);
+  const afterSearch=await page.locator('[data-near-handoff]').first().getAttribute('href').catch(()=>"");
+  quickFinder.searchOverridesCategory=afterSearch.includes('q=Vietcombank')&&!afterSearch.includes('category=PHARMACY');
+  await search.fill('');
+  await page.waitForFunction(()=>document.querySelector('.near-quick-results')?.hidden===true,{timeout:5000}).catch(()=>{});
+  quickFinder.resultsHiddenAfterClear=!(await page.locator('.near-quick-results').isVisible());
 
   const cancelledToday = await page.evaluate(async () => {
     try {
@@ -299,17 +294,17 @@ async function testHomeFoundation(page) {
       noticesLoaded: Array.isArray(cancelledToday),
       cancelledShowHidden: Array.isArray(cancelledToday) &&
         cancelledToday.every(id=>!document.querySelector('#tripClockList .trip-item[data-entity-id="'+id+'"]')),
-      manualAreas: count('#nearManualAreas [data-area]') >= 4,
-      nearCategories: count('#nearCategories [data-category]') === 4,
-      nearExtraCategories: count('#nearQuickMore [data-category]') === 4,
-      nearQuickFinder: quickFinder.collapsedInitially&&quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===4&&quickFinder.others===4&&quickFinder.cardsAfterArea>=1&&quickFinder.cardsAfterArea<=3&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=all')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.internalPlaceLink&&quickFinder.searchFound,
+      sharedRegionControl: count('#nearAreaChange') === 1 && count('#nearManualAreas') === 0,
+      nearCategories: count('#nearCategories [data-category]') === 6,
+      nearExtraCategories: count('#nearQuickMore [data-category]') === 2,
+      nearQuickFinder: quickFinder.collapsedInitially&&!quickFinder.resultsAfterArea&&quickFinder.areaSelectorClosed&&quickFinder.essentials===6&&quickFinder.others===2&&quickFinder.moreExpanded&&quickFinder.resultsAfterCategory&&quickFinder.emergency&&quickFinder.pharmacyCards>=1&&quickFinder.pharmacyCards<=3&&quickFinder.handoff?.includes('area=zone_central_west')&&quickFinder.handoff?.includes('category=PHARMACY')&&quickFinder.internalPlaceLink&&quickFinder.searchFound&&quickFinder.searchOverridesCategory&&quickFinder.resultsHiddenAfterClear,
       nearMobileFlow: window.innerWidth>720 || (
         document.querySelector('.near-quick-controls')?.compareDocumentPosition(document.querySelector('.near-quick-results')) & Node.DOCUMENT_POSITION_FOLLOWING &&
         document.querySelector('.near-quick-results')?.compareDocumentPosition(document.querySelector('.near-quick-secondary')) & Node.DOCUMENT_POSITION_FOLLOWING &&
         !text('#nearResults').includes('bên trái')
       ),
       initialNearClean,
-      manualResults: count('#nearResults .near-result-card') >= 1,
+      manualResults: quickFinder.pharmacyCards>=1,
       noEmbeddedMap: !document.querySelector('#nearMapFrame, .near-map-shell iframe'),
       hotNow: count('#hotNowList .hot-card') >= 1,
       currency: count('#homeCurrencyGrid .home-currency-card') >= 3,

@@ -4,8 +4,8 @@
  "use strict";
  const $=sel=>document.querySelector(sel);
  const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
- const CORE=["PHARMACY","ATM","FUEL","TOILET"];
- const MORE=["CHARGING","MINIMART","PARKING","LAUNDRY"];
+ const CORE=["PHARMACY","ATM","FUEL","TOILET","MINIMART","CHARGING"];
+ const MORE=["PARKING","LAUNDRY"];
  const LABELS={PHARMACY:"Nhà thuốc",ATM:"ATM",TOILET:"Nhà vệ sinh",MINIMART:"Cửa hàng tiện lợi",FUEL:"Cây xăng",PARKING:"Bãi đỗ xe",LAUNDRY:"Giặt ủi",CHARGING:"Trạm sạc"};
  const DESCRIPTIONS={PHARMACY:"Thuốc và vật dụng y tế",ATM:"Rút tiền mặt",FUEL:"Đổ xăng trên đường",TOILET:"Nhà vệ sinh công cộng",MINIMART:"Mua đồ cần thiết"};
  const ICONS={PHARMACY:"✚",ATM:"ATM",TOILET:"WC",MINIMART:"▣",FUEL:"⛽",PARKING:"P",LAUNDRY:"◌",CHARGING:"⚡"};
@@ -26,13 +26,16 @@
   if(category)p.set("category",category);if(query.trim())p.set("q",query.trim());return "nearme/"+(p.size?"?"+p.toString():"")};
  function refreshLinks(){for(const a of document.querySelectorAll("[data-near-handoff]"))a.setAttribute("href",moreUrl())}
  function setStatus(message){const el=$("#nearQuickStatus");if(el)el.textContent=message}
- function hasSelection(){return Boolean(category||area||gps||query.trim())}
+ function hasSelection(){return Boolean(category||gps||query.trim())}
  function syncCompactState(){
   const section=$(".near-me-section");if(!section)return;
   section.classList.toggle("near-has-selection",hasSelection());
   const areas=section.classList.contains("near-show-areas");
   const others=section.classList.contains("near-show-other");
+  const results=$(".near-quick-results");if(results)results.hidden=!hasSelection();
+  const more=$("#nearQuickMore");if(more)more.hidden=!others;
   $("#nearAreaToggle")?.setAttribute("aria-expanded",String(areas));
+  const toggle=$("#nearOtherToggle");if(toggle)toggle.textContent=others?"Thu gọn tiện ích ⌃":"Xem thêm tiện ích ⌄";
   $("#nearOtherToggle")?.setAttribute("aria-expanded",String(others));
  }
  function revealResultsOnMobile(){
@@ -40,7 +43,10 @@
    $(".near-quick-results")?.scrollIntoView({behavior:"smooth",block:"start"});
  }
  function syncControls(){
-  $("#nearManualAreas").innerHTML=AREAS.map(x=>'<button type="button" data-area="'+esc(x.id)+'" aria-pressed="'+String(area===x.id&&!gps)+'" class="'+(area===x.id&&!gps?"active":"")+'">'+esc(x.label)+'</button>').join("");
+  const locName=area&&area!=="all"?(AREAS.find(x=>x.id===area)?.label||window.OpenPQArea?.label(area)||"Phú Quốc"):"Toàn đảo";
+  const areaLabel=$("#nearAreaLabel");
+  if(areaLabel)areaLabel.textContent=gps?"Đang dùng vị trí của bạn · Đổi khu vực":locName+" · Đổi khu vực";
+  $("#nearAreaChange")?.setAttribute("aria-label","Khu vực: "+(gps?"vị trí của bạn":locName)+". Bấm để đổi khu vực.");
   $("#nearCategories").innerHTML=CORE.map(id=>'<button type="button" class="near-quick-category'+(category===id?" active":"")+'" data-category="'+id+'" aria-pressed="'+String(category===id)+'"><span class="near-quick-icon" aria-hidden="true">'+ICONS[id]+'</span><strong>'+LABELS[id]+'</strong><small>'+DESCRIPTIONS[id]+'</small></button>').join("");
   $("#nearQuickMore").innerHTML=MORE.map(id=>'<button type="button" class="near-quick-chip'+(category===id?" active":"")+'" data-category="'+id+'" aria-pressed="'+String(category===id)+'"><span aria-hidden="true">'+ICONS[id]+'</span>'+LABELS[id]+'</button>').join("");
   const loc=$("#nearLocationBtn");
@@ -58,7 +64,7 @@
  }
  const fold=value=>String(value??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase();
  function matchesText(row){if(!query.trim())return true;const text=[row.name,row.address,row.what_it_is,...(row.aliases||[])].join(" ");return fold(text).includes(fold(query.trim()))}
- function coords(row){const map=row.map||{};return row.verified!==false&&map.precision==="site_centroid"&&Number.isFinite(map.lat)&&Number.isFinite(map.lon)?{lat:map.lat,lon:map.lon}:null}
+ function coords(row){const map=row.map||{};return row.verified!==false&&["exact_entrance","site_centroid"].includes(map.precision)&&Number.isFinite(map.lat)&&Number.isFinite(map.lon)?{lat:map.lat,lon:map.lon}:null}
  function ranked(docs){
   const meta=new Map((support?.near_me?.items||[]).map(item=>[item.utility_id,item]));
   const candidate=docs.filter(row=>row.entity_type==="utility"||(query.trim()&&!category&&["place","hotel","activity"].includes(row.entity_type)));
@@ -113,7 +119,7 @@
    (row.address?'<small>'+esc(row.address)+'</small>':"")+
    (note&&!is24h?'<small>Giờ tham khảo: '+esc(note)+'</small>':"")+
    '<div class="near-result-actions">'+
-    '<a href="'+esc(own)+'" aria-label="Xem '+esc(row.name)+' trong Quanh đây">⌖ Xem trên bản đồ</a>'+
+    '<a href="'+esc(own)+'" aria-label="Xem '+esc(row.name)+' trong Quanh đây">⌖ Xem trong Quanh đây</a>'+
     (direct?'<a href="'+esc(direct)+'" target="_blank" rel="noopener noreferrer" aria-label="Chỉ đường tới '+esc(row.name)+'">↗ Chỉ đường</a>':"")+
     (row.external_verify_url?'<a href="'+esc(row.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
     (row.source_license==="ODbL-1.0"?'<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Nguồn OSM ↗</a>':"")+
@@ -121,14 +127,14 @@
    '</div></article>';
  }
  function message(title,subtitle,showLink=true){
-  $("#nearResults").innerHTML='<div class="near-quick-empty"><strong>'+esc(title)+'</strong><span>'+esc(subtitle)+'</span>'+(showLink?'<a data-near-handoff href="'+esc(moreUrl())+'">Xem tất cả trên bản đồ →</a>':"")+'</div>';
+  $("#nearResults").innerHTML='<div class="near-quick-empty"><strong>'+esc(title)+'</strong><span>'+esc(subtitle)+'</span>'+(showLink?'<a data-near-handoff href="'+esc(moreUrl())+'">Mở bản đồ Quanh đây →</a>':"")+'</div>';
   refreshLinks();
  }
  async function render(){
   const run=++requestSeq;
   syncCompactState();
   refreshLinks();
-  if(!category&&!area&&!gps&&!query.trim()){
+  if(!hasSelection()){
    setStatus("Chọn một nhu cầu hoặc khu vực, chưa cần chia sẻ vị trí.");
    message("Bạn cần tìm gì lúc này?","Chọn một tiện ích để xem kết quả ngay tại đây.",false);return;
   }
@@ -150,14 +156,14 @@
    '<a class="near-quick-see-all" data-near-handoff href="'+esc(moreUrl())+'">Xem tất cả '+rows.length+' địa điểm trong Quanh đây →</a>';
   refreshLinks();
  }
- function onCategory(id){category=category===id?null:id;$(".near-me-section")?.classList.remove("near-show-other");syncControls();render().then(revealResultsOnMobile)}
+ function onCategory(id){if(query.trim()){query="";$("#nearQuickSearch").value="";}category=category===id?null:id;$(".near-me-section")?.classList.remove("near-show-other");syncControls();render().then(revealResultsOnMobile)}
  function bind(){
-  $("#nearAreaToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-areas");syncCompactState()});
+  $("#nearAreaChange")?.addEventListener("click",event=>{event.stopPropagation();const header=$("#siteAreaButton");if(!header)return;header.scrollIntoView({behavior:"auto",block:"start"});header.click();header.focus();});
   $("#nearOtherToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-other");syncCompactState()});
   $("#nearCategories").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
   $("#nearQuickMore").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
-  $("#nearManualAreas").addEventListener("click",event=>{const b=event.target.closest("[data-area]");if(!b)return;area=b.dataset.area;gps=null;window.OpenPQArea?.set(area,"near-home");$(".near-me-section")?.classList.remove("near-show-areas");syncControls();render().then(revealResultsOnMobile)});
-  $("#nearQuickSearch").addEventListener("input",event=>{query=event.target.value||"";clearTimeout(debounce);debounce=setTimeout(render,250);refreshLinks()});
+  
+  $("#nearQuickSearch").addEventListener("input",event=>{query=event.target.value||"";if(query.trim()&&category){category=null;syncControls();}clearTimeout(debounce);debounce=setTimeout(render,250);refreshLinks()});
   $("#nearQuickSearch").addEventListener("keydown",event=>{if(event.key==="Enter"){clearTimeout(debounce);render()}});
   $("#nearLocationBtn").addEventListener("click",()=>{
    const button=$("#nearLocationBtn");
@@ -169,8 +175,9 @@
     button.disabled=false;
     if(nearby>50){gps=null;area=window.OpenPQArea?.get()||null;syncControls();render();setStatus("Vị trí hiện ở ngoài Phú Quốc. Bạn có thể chọn khu vực trên đảo.");return}
     const coarse=window.OpenPQArea?.nearest?.(p.lat,p.lon);
+     gps=p;area=null;
      if(coarse)window.OpenPQArea.set(coarse,"near-gps-coarse");
-     gps=p;area=null;syncControls();render().then(revealResultsOnMobile);
+     syncControls();render().then(revealResultsOnMobile);
    },()=>{
     button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi";
     gps=null;area=window.OpenPQArea?.get()||null;syncControls();render();setStatus("Chưa lấy được vị trí. Bạn vẫn có thể chọn khu vực.");
