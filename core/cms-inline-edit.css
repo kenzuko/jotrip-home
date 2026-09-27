@@ -1,0 +1,25 @@
+#inlineCmsToolbar{position:fixed;z-index:95;right:14px;bottom:14px;width:min(350px,calc(100vw - 28px));box-sizing:border-box;
+padding:14px 15px;background:#123d3b;color:#fff;border-radius:15px;box-shadow:0 15px 44px #163d3860;font:14px/1.5 system-ui,sans-serif}
+#inlineCmsToolbar>strong{display:block;font-size:12px;letter-spacing:.06em}#inlineCmsToolbar>small{display:block;color:#c4e8d5;font-size:12px}
+#inlineCmsToolbar button{min-height:42px;padding:8px 12px;background:#edf6ed;color:#174b3b;border:1px solid #d1e8d9;border-radius:9px;font-weight:750;cursor:pointer}
+#inlineCmsToolbar button:disabled{opacity:.55;cursor:wait}
+#inlineCmsOpen{width:100%;margin-top:12px}
+#inlineCmsActions{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:12px}
+#inlineCmsActions[hidden],#inlineCmsOpen[hidden]{display:none}
+#inlineCmsSubmit{background:#fbd782!important}
+#inlineCmsStatus{margin:8px 0;color:#ecf8ee;font-size:12px}#inlineCmsStatus:empty{display:none}
+#inlineCmsStatus[data-kind=warn]{color:#ffdaa4}
+#inlineCmsToolbar a{display:inline-block;margin-top:5px;color:#e3f1e8;font-size:12px;text-decoration:underline;text-underline-offset:3px}
+.inline-edit-trigger{display:none}
+body.opq-inline-editing #articleRoot .inline-edit-trigger{display:inline-flex;align-items:center;min-height:40px;padding:8px 12px;
+margin:9px 0 21px;border:1px solid #bbdcca;border-radius:10px;background:#eaf7ef;color:#205440;font:750 13px system-ui,sans-serif;cursor:pointer}
+body.opq-inline-editing #articleRoot .inline-edit-trigger.active{background:#123d3b;color:white}
+.inline-edit-panel{clear:both;margin:8px 0 22px;padding:14px;border-radius:14px;border:1px solid #b0d7bf;background:#f1faf3}
+.inline-edit-panel label{display:block;color:#214d39;font:750 15px system-ui,sans-serif}
+.inline-edit-panel textarea{box-sizing:border-box;display:block;width:100%;min-height:120px;max-height:65vh;resize:vertical;margin-top:10px;
+padding:12px;border:1px solid #accdb7;border-radius:10px;background:#fff;color:#123d3b;font:16px/1.62 system-ui,sans-serif}
+.inline-edit-panel p{color:#577264!important;font:13px/1.5 system-ui,sans-serif!important;margin:9px 0!important}
+.inline-edit-panel button{min-height:42px;border:0;border-radius:10px;padding:8px 15px;color:#fff;background:#205b44;font-weight:800;cursor:pointer}
+body.opq-inline-editing #articleRoot{padding-bottom:80px}
+@media(max-width:700px){#inlineCmsToolbar{right:8px;bottom:max(8px,env(safe-area-inset-bottom));width:calc(100vw - 16px);padding:11px 12px}
+.inline-edit-panel{padding:11px;margin:6px -5px 21px}}
