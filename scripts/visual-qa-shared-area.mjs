@@ -19,7 +19,7 @@ try{
  assert.ok(row.button.y>=row.header.y&&row.button.y+row.button.height<=row.header.y+row.header.height+2,
    "Location control must sit on the same line as the logo");
  assert.equal((await page.locator("#siteAreaHint").textContent()).trim(),
-   "Chọn khu vực để nhận gợi ý thông minh hơn.");
+   "Chọn khu vực để xem thông tin gần bạn.");
  await page.locator("#siteAreaButton").click();
  await page.locator('[data-area-option="place_sunset_town"]').click();
  assert.match(await page.locator("#siteAreaHint").textContent(),/Sunset Town/);

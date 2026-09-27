@@ -155,12 +155,14 @@
     const p={lat:result.coords.latitude,lon:result.coords.longitude};
     const nearby=Math.min(...Object.values(CENTERS).map(c=>haversine(p,c)));
     button.disabled=false;
-    if(nearby>50){gps=null;setStatus("Vị trí hiện ở ngoài Phú Quốc. Hãy chọn khu vực trên đảo.");syncControls();return}
-    gps=p;area=null;const coarse=window.OpenPQArea?.nearest?.(p.lat,p.lon);if(coarse)window.OpenPQArea.set(coarse,"near-gps-coarse");syncControls();render().then(revealResultsOnMobile);
+    if(nearby>50){gps=null;area=window.OpenPQArea?.get()||null;syncControls();render();setStatus("Vị trí hiện ở ngoài Phú Quốc. Bạn có thể chọn khu vực trên đảo.");return}
+    const coarse=window.OpenPQArea?.nearest?.(p.lat,p.lon);
+     if(coarse)window.OpenPQArea.set(coarse,"near-gps-coarse");
+     gps=p;area=null;syncControls();render().then(revealResultsOnMobile);
    },()=>{
     button.disabled=false;button.textContent="⌖ Dùng vị trí của tôi";
-    setStatus("Không lấy được vị trí. Chọn khu vực để tiếp tục.");
-   },{enableHighAccuracy:false,timeout:8000,maximumAge:300000});
+    gps=null;area=window.OpenPQArea?.get()||null;syncControls();render();setStatus("Chưa lấy được vị trí. Bạn vẫn có thể chọn khu vực.");
+   },{enableHighAccuracy:false,timeout:8000,maximumAge:0});
   });
  }
  function onSupport(event){support=event?.detail||window.OPENPQ_HOME_SUPPORT||support;syncControls()}
@@ -169,6 +171,7 @@
   window.addEventListener("openpq:home-support-ready",onSupport);
   window.addEventListener("openpq:area-changed",event=>{
     const next=event.detail?.area;if(!window.OpenPQArea?.isValid(next))return;
+    if(event.detail?.source==="near-gps-coarse"&&gps)return;
     area=next==="all"?null:next;gps=null;syncControls();
     if(category||query.trim()||indexPromise)render();
     else{setStatus("Đã chọn "+window.OpenPQArea.label(next)+". Chọn tiện ích để xem kết quả.");

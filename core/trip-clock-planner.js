@@ -121,23 +121,26 @@
      const left=current.endMin-nowMinute,nearEnd=left<=15;
      if(later){
       decision={state:nearEnd?"watch":"active",
-       label:nearEnd?"Khung này sắp tạm nghỉ":"Trong khung giờ cáp theo lịch",
+       label:nearEnd?"Sắp nghỉ lúc "+current.end:"Nghỉ lúc "+current.end+", chiều vẫn còn cáp",
        endMin:current.endMin,remainingMin:left,nextMin:later.startMin};
-      note="Tạm nghỉ lúc "+current.end+", chạy lại lúc "+later.start+". Chiều vẫn còn cáp theo lịch.";
+      const rest=windows.filter(w=>w.startMin>=current.endMin);
+       const laterTimes=rest.map(w=>w.start+"-"+w.end).join(rest.length===2?" và ": ", ");
+       note="Cáp nghỉ từ "+current.end+" đến "+later.start+". "+
+         (rest.length===1?"Còn một khung giờ: ":rest.length===2?"Buổi chiều vẫn còn hai khung giờ: ":"Các khung giờ còn lại: ")+laterTimes+".";
       score=nearEnd?34:54;
      }else{
       decision={state:nearEnd?"watch":"active",
-       label:nearEnd?"Sắp hết khung cáp cuối":"Trong khung cáp cuối theo lịch",
+       label:nearEnd?"Sắp hết giờ cáp hôm nay":"Đây là khung giờ cáp cuối hôm nay",
        endMin:current.endMin,remainingMin:left};
-      note="Khung cáp cuối kết thúc "+current.end+" theo lịch. Kiểm tra giờ cáp lượt về trước khi lên đảo.";
+      note="Cáp kết thúc lúc "+current.end+" theo lịch. Nhớ kiểm tra giờ cáp lượt về trước khi lên đảo.";
       score=nearEnd?17:65;
      }
     }else if(following){
      const paused=windows.some(w=>w.endMin<=nowMinute);
      decision={state:"future",
-      label:paused?"Tạm nghỉ, chạy lại lúc "+following.start:"Khung cáp đầu từ "+following.start,
+      label:paused?"Đang nghỉ theo lịch, chạy lại lúc "+following.start:"Cáp bắt đầu lúc "+following.start,
       nextMin:following.startMin,endMin:following.endMin};
-     note="Cáp chạy theo từng khung, không xuyên suốt. Kiểm tra lịch vận hành trong ngày trước khi đi.";
+     note="Các khung cáp còn lại: "+windows.filter(w=>w.startMin>=following.startMin).map(w=>w.start+"-"+w.end).join(" · ")+". Kiểm tra giờ cáp lượt về trước khi đi.";
      score=paused?145+(following.startMin-nowMinute)/20:185+(following.startMin-nowMinute)/20;
     }
    }else if(activeWindow){
@@ -150,16 +153,16 @@
     }else if(id==="place_vinwonders"){
      const gamesEnd=minute(item.full_visit_end_at||"17:00"),onceStart=minute("18:45"),onceEnd=minute("19:05");
      if(nowMinute<gamesEnd){
-      decision={state:nowMinute>=11*60?"watch":"active",label:"Phần lớn trò chơi ngừng khoảng 17:00",endMin:gamesEnd,remainingMin:gamesEnd-nowMinute};
-      note="Công viên mở đến 19:30, nhưng phần lớn trò chơi ngừng khoảng 17:00. Show ONCE 18:45-19:05 theo lịch.";
+      decision={state:nowMinute>=11*60?"watch":"active",label:"Nhiều trò chơi kết thúc khoảng 17:00",endMin:gamesEnd,remainingMin:gamesEnd-nowMinute};
+      note="Công viên đóng lúc 19:30. Nhiều trò chơi kết thúc khoảng 17:00; show ONCE diễn ra 18:45-19:05 theo lịch.";
      }else if(nowMinute<onceEnd){
-      decision={state:"watch",label:nowMinute<onceStart?"Phần lớn trò chơi đã ngừng":"Đang trong khung ONCE theo lịch",endMin:onceEnd,remainingMin:onceEnd-nowMinute};
-      note="Sau khoảng 17:00, phần lớn trò chơi đã ngừng. Show ONCE 18:45-19:05 theo lịch; cần kiểm tra tình trạng thực tế.";
+      decision={state:"watch",label:nowMinute<onceStart?"Nhiều trò chơi đã kết thúc":"Đã đến giờ ONCE theo lịch",endMin:onceEnd,remainingMin:onceEnd-nowMinute};
+      note="Nhiều trò chơi đã kết thúc. ONCE diễn ra 18:45-19:05 theo lịch; kiểm tra lịch thực tế trước khi đến.";
      }else{
       decision={state:"watch",label:"ONCE đã kết thúc theo lịch",endMin:w.endMin,remainingMin:remain};
-      note="Phần lớn trò chơi đã ngừng; ONCE đã kết thúc theo lịch. Công viên đóng lúc 19:30.";
+      note="Nhiều trò chơi đã kết thúc và ONCE đã qua giờ theo lịch. Công viên đóng lúc 19:30.";
      }
-     summary="Công viên "+w.start+"-"+w.end+" · Trò chơi khoảng 17:00";
+     summary="Công viên "+w.start+"-"+w.end+" · Nhiều trò chơi đến khoảng 17:00";
      score=nowMinute>=12*60?-80:52;
     }else{
      const preferred=minute(item.preferred_start),tooShort=Number.isFinite(minVisit)&&remain<minVisit;

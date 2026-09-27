@@ -81,10 +81,6 @@
     return [term,areaQuery()].filter(Boolean).join(" ");
   }
 
-  function googleEmbedUrl(query,zoom=13){
-    return "https://www.google.com/maps?q="+encodeURIComponent(query)+"&z="+zoom+"&output=embed";
-  }
-
   function googleSearchUrl(query){
     return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(query);
   }
@@ -92,6 +88,8 @@
   function updateExternalMapLink(query=mapSearchQuery()){
     const link=$("#mapOpenLink");
     if(link)link.href=googleSearchUrl(query);
+    const fallbackLink=$("#nearMapFallbackLink");
+    if(fallbackLink)fallbackLink.href=googleSearchUrl(query);
   }
 
   function setMapBadge(text){
@@ -99,24 +97,23 @@
     if(el)el.textContent=text;
   }
 
-  function showDirectoryMap(query=mapSearchQuery(),label="Google Maps"){
-    const live=$("#nearLeaflet");
-    const frame=$("#nearDirectoryMap");
+  function showMapFallback(query=mapSearchQuery(),message="Bản đồ chưa tải được. Bạn vẫn xem được danh sách địa điểm.") {
+    const live=$("#nearLeaflet"),fallback=$("#nearMapFallback");
     if(live)live.hidden=true;
-    if(!frame)return;
-    frame.hidden=false;
-    const zoom=selectedArea==="all"?10:13;
-    frame.src=googleEmbedUrl(query,zoom);
-    setMapBadge(label);
+    if(fallback){
+      fallback.hidden=false;
+      const detail=$("#nearMapFallbackMessage");
+      if(detail)detail.textContent=message;
+    }
+    setMapBadge("Bản đồ tạm thời chưa mở được");
     const note=$("#mapNote");
-    if(note)note.textContent="Đang dùng bản đồ tìm kiếm cho những nơi chưa có pin lưu trong Open Phu Quoc.";
+    if(note)note.textContent="Bạn vẫn có thể dùng danh sách hoặc chủ động tìm thêm bên ngoài.";
     updateExternalMapLink(query);
   }
 
   function showLiveMap(){
-    const live=$("#nearLeaflet");
-    const frame=$("#nearDirectoryMap");
-    if(frame)frame.hidden=true;
+    const live=$("#nearLeaflet"),fallback=$("#nearMapFallback");
+    if(fallback)fallback.hidden=true;
     if(live)live.hidden=false;
     if(nearMap)setTimeout(()=>nearMap.invalidateSize(),60);
   }
@@ -147,7 +144,7 @@
     const host=$("#nearLeaflet");
     if(!host||!mapOpen||nearMap)return;
     if(!window.L){
-      showDirectoryMap();
+      showMapFallback();
       return;
     }
     nearMap=window.L.map(host,{
@@ -181,7 +178,7 @@
     if(!mapOpen)return;
     const loaded=await loadLeaflet();
     if(loaded)initMap();
-    else showDirectoryMap();
+    else showMapFallback();
     if(support)render();
   }
 
@@ -320,8 +317,8 @@
     }).join("");
     const note=$("#radiusNote");
     if(note)note.textContent=position
-      ?"Vòng tròn tính theo đường chim bay từ GPS."
-      :center?"Tâm vòng tròn là điểm đại diện khu vực, không phải GPS.":"Chọn khu vực hoặc bật GPS để lọc bán kính.";
+      ?"Khoảng cách tính theo đường thẳng từ vị trí của bạn."
+      :center?"Bán kính tính từ trung tâm khu vực bạn chọn, không phải vị trí của bạn.":"Chọn khu vực hoặc bật GPS để lọc bán kính.";
   }
 
   function renderControls(){
@@ -446,31 +443,20 @@
     return {rows:visible,gpsFallback,radiusCount,radiusUnknown,center};
   }
 
+  function canShowPin(row){
+    const precision=row?.map_precision||row?.map?.precision;
+    return ["exact_entrance","site_centroid"].includes(precision)&&
+      validPoint({lat:row?.lat,lon:row?.lon})&&
+      (radiusKm===null||row.verified!==false);
+  }
   function renderMapPoints(visible){
     updateExternalMapLink();
     if(!mapOpen)return;
-
-    if(isDiscoveryCategory()){
-      showDirectoryMap(mapSearchQuery(),"Tìm trên Google Maps");
-      return;
-    }
-
-    if(!nearMap){
-      showDirectoryMap();
-      return;
-    }
-
-    const mapped=visible.filter(x=>validPoint({lat:x.lat,lon:x.lon}));
-    const communityCount=mapped.filter(x=>x.verified===false).length;
-    if(!mapped.length&&visible.length){
-      showDirectoryMap([selectedCategory?category()?.label:"",searchText.trim(),areaQuery()].filter(Boolean).join(" "),"Tìm theo khu vực");
-      return;
-    }
-
+    if(!nearMap){showMapFallback();return;}
     showLiveMap();
-    markerLayer?.clearLayers();
-    markerById.clear();
-
+    markerLayer?.clearLayers();markerById.clear();
+    const mapped=isDiscoveryCategory()?[]:visible.filter(canShowPin);
+    const communityCount=mapped.filter(x=>x.verified===false).length;
     for(const x of mapped){
       const marker=L.marker([x.lat,x.lon],{icon:markerIcon(x)});
       marker.bindPopup(
@@ -479,46 +465,35 @@
         (x.address?'<small>'+esc(x.address)+'</small>':"")+
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
         (reliabilityLabel(x)?'<small>'+esc(reliabilityLabel(x))+'</small>':"")+
-        (mapInfoLabel(x)?'<small>'+esc(mapInfoLabel(x))+'</small>':"")+
+        (x.map_precision==="site_centroid"?'<small>Vị trí trong khuôn viên, có thể khác lối vào.</small>':"")+
         (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi '+esc(x.phone)+'</a>':"")+
-        '</div>'
-      );
-      marker.addTo(markerLayer);
-      markerById.set(x.id,marker);
+        '</div>');
+      marker.addTo(markerLayer);markerById.set(x.id,marker);
     }
-
     radiusLayer?.clearLayers();
     const center=radiusKm!==null?radiusCenter():null;
-    if(center&&validPoint(center)&&window.L?.circle){
+    if(center&&validPoint(center)&&window.L?.circle)
       window.L.circle([Number(center.lat),Number(center.lon)],{radius:Number(radiusKm)*1000,color:"#318d82",fillColor:"#6ac4ae",fillOpacity:.10,weight:2}).addTo(radiusLayer);
-    }
-    if(position)showUserLocation(position);
-    else setAreaView(selectedArea);
-
-    const total=visible.length;
-    setMapBadge(mapped.length+"/"+total+" điểm có pin"+(communityCount?" · "+communityCount+" pin cộng đồng chưa xác minh":""));
+    if(position)showUserLocation(position);else setAreaView(selectedArea);
+    const missing=Math.max(0,visible.length-mapped.length);
+    setMapBadge(mapped.length+" vị trí trên bản đồ"+(communityCount?" · "+communityCount+" chưa xác minh":""));
     const note=$("#mapNote");
-    if(note)note.textContent=total===mapped.length
-      ?"Các điểm đang thấy đều có tọa độ lưu sẵn; pin cộng đồng chưa xác minh vẫn chỉ để tham khảo."
-      :mapped.length+" điểm có pin lưu sẵn. Những điểm chưa có pin vẫn mở được theo tên và địa chỉ trên bản đồ.";
+    if(note)note.textContent=isDiscoveryCategory()
+      ?"Chưa có địa điểm đủ rõ vị trí trong danh mục này. Bạn có thể tìm thêm trên Google Maps."
+      :missing?missing+" địa điểm chưa có vị trí đủ rõ để đặt pin. Danh sách vẫn giữ đầy đủ kết quả."
+      :"Bản đồ và danh sách đang dùng cùng bộ lọc.";
   }
 
   function renderDiscovery(){
-    const cat=category();
-    const label=cat?.label||"Địa điểm";
+    const cat=category(),label=cat?.label||"Địa điểm";
     $("#resultsTitle").textContent=areaLabel()+" · "+label;
-    $("#resultsCount").textContent="Tìm trên bản đồ";
-    $("#nearStatus").textContent="Đang tìm "+label.toLowerCase()+" theo khu vực bạn chọn.";
+    $("#resultsCount").textContent="Chưa có địa điểm phù hợp";
+    $("#nearStatus").textContent="Chưa đủ địa điểm để lọc "+label.toLowerCase()+" quanh "+areaLabel()+".";
     renderMapPoints([]);
-
-    const query=mapSearchQuery();
-    $("#nearResults").innerHTML=
-      '<article class="discovery-card">'+
-        '<span>KHÁM PHÁ QUANH ĐÂY</span>'+
-        '<strong>'+esc(label)+' quanh '+esc(areaLabel())+'</strong>'+
-        '<p>Mở lớp bản đồ để tìm nhanh. Khi địa điểm đã có trong data Open Phu Quoc, nó sẽ dùng chung địa chỉ và pin với các trang khác.</p>'+
-        '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Mở trên Google Maps ↗</a>'+
-      '</article>';
+    $("#nearResults").innerHTML='<article class="discovery-card"><span>TÌM THÊM ĐỊA ĐIỂM</span>'+
+      '<strong>Chưa có '+esc(label.toLowerCase())+' phù hợp trong danh sách</strong>'+
+      '<p>Nếu cần tìm thêm, bạn có thể mở Google Maps. Kết quả bên ngoài không theo bộ lọc của Open Phu Quoc.</p>'+
+      '<a href="'+esc(googleSearchUrl(mapSearchQuery()))+'" target="_blank" rel="noopener noreferrer">Tìm thêm trên Google Maps ↗</a></article>';
   }
 
   function exactMapQuery(row){
@@ -553,14 +528,16 @@
   }
 
   function directoryFallback(){
-    const query=mapSearchQuery();
-    $("#resultsTitle").textContent=searchText.trim()?"Tìm ngoài bản đồ cho “"+searchText.trim()+"”":areaLabel()+" · Tìm ngoài bản đồ";
-    $("#resultsCount").textContent="Tìm trên Google Maps";
-    $("#nearStatus").textContent=dataStatus==="loading"
-      ?"Đang tải danh bạ. Bạn vẫn có thể tìm bằng Google Maps."
-      :"Danh bạ Open Phu Quoc chưa tải được. Tìm ngoài bản đồ vẫn dùng được.";
-    $("#nearResults").innerHTML='<article class="discovery-card"><span>TÌM NGOÀI BẢN ĐỒ</span><strong>'+esc(searchText.trim()||category()?.label||"Địa điểm")+' quanh '+esc(areaLabel())+'</strong><p>Kết quả ngoài bản đồ chưa được Open Phu Quoc xác minh.</p><a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Mở trên Google Maps ↗</a></article>';
-    if(mapOpen)showDirectoryMap(query,"Tìm ngoài bản đồ");
+    const query=mapSearchQuery(),loading=dataStatus==="loading";
+    const need=(searchText.trim()||category()?.label||"địa điểm").toLocaleLowerCase("vi");
+    $("#resultsTitle").textContent=loading?"Đang tìm địa điểm":areaLabel()+" · Chưa tải được danh sách";
+    $("#resultsCount").textContent="";
+    $("#nearStatus").textContent=loading?"Đang tải địa điểm quanh "+areaLabel()+".":"Chưa tải được địa điểm. Bạn thử lại sau nhé.";
+    $("#nearResults").innerHTML=loading?'<div class="empty">Đang tìm những địa điểm phù hợp...</div>':
+      '<article class="discovery-card"><strong>Chưa tải được danh sách '+esc(need)+' lúc này</strong>'+
+      '<p>Bạn có thể thử lại hoặc tìm thêm trên Google Maps. Kết quả bên ngoài chưa được Open Phu Quoc lọc.</p>'+
+      '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener noreferrer">Tìm thêm trên Google Maps ↗</a></article>';
+    if(mapOpen&&!nearMap)showMapFallback(query);
   }
 
   function render(){
@@ -591,20 +568,19 @@
       ?"Kết quả cho “"+searchText.trim()+"”"
       :areaLabel()+(label?" · "+label:"");
     $("#resultsCount").textContent=radiusKm!==null&&result.radiusCount!==null
-      ?result.radiusCount+" có tọa độ trong vòng "+radiusKm+" km"+(result.radiusUnknown?" · "+result.radiusUnknown+" chưa xác định khoảng cách":"")
+      ?result.radiusCount+" địa điểm trong "+radiusKm+" km"+(result.radiusUnknown?" · "+result.radiusUnknown+" chưa rõ khoảng cách":"")
       :visible.length+" địa điểm";
     $("#nearStatus").textContent=radiusKm!==null&&result.radiusCount!==null
-      ?result.radiusCount+" địa điểm có tọa độ trong vòng "+radiusKm+" km"+(position?" quanh GPS.":" từ tâm khu vực; đây không phải GPS.")+(result.radiusUnknown?" "+result.radiusUnknown+" địa điểm thiếu tọa độ, không tính trong vòng.":"")
-      :position
-        ?(result.gpsFallback?"Điểm có tọa độ được xếp theo đường chim bay; địa điểm khác vẫn hiện ở nhóm chưa rõ khoảng cách.":"Đã xếp nơi có tọa độ theo đường chim bay từ GPS.")
-        :"Chọn một lớp hoặc gõ tên nơi bạn cần tìm.";
+      ?"Đang tìm trong "+radiusKm+" km "+(position?"quanh bạn":"quanh "+areaLabel())+"."+(result.radiusUnknown?" Một số nơi chưa rõ khoảng cách vẫn có trong danh sách.":"")
+      :position?"Các địa điểm có vị trí rõ được xếp theo khoảng cách từ bạn."
+      :"Đang tìm quanh "+areaLabel()+".";
     renderMapPoints(visible);
 
     const host=$("#nearResults");
     if(!visible.length){
-      const query=(searchText.trim()||selectedCategory)?googleSearchUrl(mapSearchQuery()):"";
+      const query=googleSearchUrl(mapSearchQuery());
       host.innerHTML='<div class="empty">Chưa thấy kết quả phù hợp. Thử tên khác hoặc bỏ bớt bộ lọc nhé.'+
-        (query?' <a href="'+esc(query)+'" target="_blank" rel="noopener">Tìm trên Google Maps ↗</a>':"")+'</div>';
+        (query?' <a href="'+esc(query)+'" target="_blank" rel="noopener noreferrer">Tìm thêm trên Google Maps ↗</a><small> Kết quả bên ngoài không theo bộ lọc đang chọn.</small>':"")+'</div>';
       return;
     }
     const limited=visible.slice(0,120);
@@ -612,8 +588,12 @@
       const distance=Number.isFinite(x.distance_km)
         ?x.distance_km.toFixed(1)+(position?" km đường chim bay":" km từ tâm khu"):"";
       const type=typeLabel(x),query=x.verified===false&&Number.isFinite(x.lat)&&Number.isFinite(x.lon)?x.lat+","+x.lon:exactMapQuery(x);
-      const hasPin=validPoint({lat:x.lat,lon:x.lon});
-      const address=x.address||"Tìm theo tên địa điểm trên bản đồ";
+      const hasPin=canShowPin(x);
+      const exactEntrance=hasPin&&x.map_precision==="exact_entrance"&&x.verified!==false;
+      const externalHref=exactEntrance
+        ?"https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(x.lat+","+x.lon)
+        :googleSearchUrl(exactMapQuery(x));
+      const address=x.address||"Chưa có địa chỉ chi tiết";
       const unknownGroup=radiusKm!==null&&result.radiusUnknown&&index===result.radiusCount
         ?'<h3 class="near-unlocated-heading">Chưa xác định khoảng cách · không tính trong vòng '+radiusKm+' km</h3>':"";
       const loc=weatherLocation(x);
@@ -631,8 +611,8 @@
         '<div>'+
           weatherCta+
           (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+
-          (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">'+(x.verified===false?"Xem pin tham khảo":"Xem pin")+'</button>':'<button type="button" data-map-query="'+esc(query)+'">Xem bản đồ</button>')+
-          '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">'+(x.verified===false?"Vị trí tham khảo ↗":"Đường đi ↗")+'</a>'+
+          (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">'+(x.verified===false?"Xem vị trí tham khảo":"Xem trên bản đồ")+'</button>':"")+
+          '<a href="'+esc(externalHref)+'" target="_blank" rel="noopener noreferrer">'+(exactEntrance?"Chỉ đường ↗":"Tìm trên Google Maps ↗")+'</a>'+
           (x.external_verify_url?'<a href="'+esc(x.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
           (x.route?'<a href="'+esc(x.route)+'">Thông tin →</a>':"")+
         '</div></article>';
@@ -723,7 +703,7 @@
           nearMap.setView(p,16,{animate:true});marker.openPopup();
         }else{
           const row=rows.find(item=>item.id===id);
-          if(row)showDirectoryMap(exactMapQuery(row),"Địa điểm trên Google Maps");
+          if(row)showMapFallback(exactMapQuery(row),"Bản đồ chưa tải được. Bạn có thể tìm thêm trên Google Maps.");
         }
         $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
         return;
@@ -731,7 +711,7 @@
       const queryButton=e.target.closest("[data-map-query]");
       if(queryButton){
         await setMapOpen(true);
-        showDirectoryMap(queryButton.dataset.mapQuery||mapSearchQuery(),"Địa điểm trên Google Maps");
+        showMapFallback(queryButton.dataset.mapQuery||mapSearchQuery(),"Địa điểm chưa có vị trí rõ. Bạn có thể tìm thêm trên Google Maps.");
         $("#nearMap")?.scrollIntoView({behavior:"smooth",block:"center"});
       }
     });

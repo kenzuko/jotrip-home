@@ -35,7 +35,8 @@
       <img src="assets/logo-master.png?v=20260925-tight-master-r1" alt="Open Phu Quoc" width="925" height="947">
     </a>
     <nav class="app-rail-nav">
-      <a href="#happening"><span>◷</span><strong>Hôm nay</strong></a>\n      <a href="go/"><span>→</span><strong>Đi ngay</strong></a>
+      <a href="#happening"><span>◷</span><strong>Hôm nay</strong></a>
+      <a href="go/"><span>→</span><strong>GO - Đi đâu?</strong></a>
       <a href="#today"><span>●</span><strong>Lúc này</strong></a>
       <a href="explore/"><span>⌖</span><strong>Khám phá</strong></a>
       <a href="food/"><span>◎</span><strong>Ăn uống</strong></a>
@@ -70,17 +71,18 @@
           <button type="button" data-area-option="zone_north" aria-pressed="false">Bắc đảo</button>
         </div>
         <button type="button" class="site-area-gps" id="siteAreaLocate">⌖ Dùng vị trí của tôi</button>
-        <p id="siteAreaStatus" role="status" aria-live="polite">Chỉ nhớ khu vực trong phiên truy cập, không lưu tọa độ GPS.</p>
+        <p id="siteAreaStatus" role="status" aria-live="polite">Bạn có thể chọn khu vực mà không cần chia sẻ vị trí.</p>
       </div>
     </div>
 
     <nav class="desktop-nav" id="primary-nav" aria-label="Điều hướng chính">
       <a href="#happening">Hôm nay</a>
       <a href="#today">Lúc này</a>
+      <a class="nav-go" href="go/">GO - Đi đâu?</a>
+      <a class="nav-nearme" href="nearme/">Quanh đây</a>
       <a href="explore/">Khám phá</a>
       <a href="food/">Ăn uống</a>
       <a href="guide/knowledge.html">Cẩm nang</a>
-      <a href="nearme/">Quanh đây</a>
     </nav>
 
     <button class="header-search" type="button" aria-label="Tìm kiếm">⌕</button>
@@ -88,7 +90,7 @@
       <span></span><span></span>
     </button>
   </header>
-  <p class="site-area-help" id="siteAreaHint">Chọn khu vực để nhận gợi ý thông minh hơn.</p>
+  <p class="site-area-help" id="siteAreaHint">Chọn khu vực để xem thông tin gần bạn.</p>
 
   <main id="top">
     <section class="energy-ticker" aria-label="Tin nhanh Phú Quốc">
@@ -208,7 +210,7 @@
       </div>
       <nav class="home-chapter-links" aria-label="Đi nhanh đến việc bạn cần">
         <a href="#happening">◷ Còn kịp gì?</a>
-        <a href="#go-now">↗ Đi đâu?</a>
+        <a href="#go-now">↗ GO - Đi đâu?</a>
         <a href="#near-me">⌖ Quanh đây</a>
       </nav>
     </div>
@@ -268,7 +270,7 @@
         <div><p class="eyebrow">TIỆN ÍCH QUANH ĐÂY</p><h2 id="nearMeTitle">Bạn cần tìm gì?</h2></div>
         <a data-near-handoff href="nearme/">Mở bản đồ tiện ích →</a>
       </div>
-      <p class="near-quick-intro">Tìm một chỗ cần đến ngay tại đây. Chọn tiện ích hoặc khu vực, không phải tìm lại khi mở bản đồ.</p>
+      <p class="near-quick-intro">Cần tìm nhà thuốc, ATM hay một chỗ ăn uống? Chọn điều bạn cần hoặc tìm theo tên địa điểm.</p>
       <div class="near-quick-shell">
         <div class="near-quick-controls">
           <label class="near-quick-search" for="nearQuickSearch"><span class="near-quick-search-label">Tìm trên đảo</span><span class="near-quick-search-wrap"><span aria-hidden="true">⌕</span><input type="search" id="nearQuickSearch" autocomplete="off" placeholder="Nhà thuốc, ATM, tên địa điểm..."></span></label>
@@ -423,7 +425,7 @@
 
   <nav class="mobile-dock" aria-label="Điều hướng chính trên điện thoại">
     <a class="active" href="#happening" data-tab="today"><span>◷</span>Hôm nay</a>
-    <a href="explore/" data-tab="explore"><span>⌖</span>Khám phá</a>
+    <a href="go/" data-tab="go"><span>↗</span>GO</a>
     <button type="button" class="dock-search" data-tab="search"><span>⌕</span>Tìm kiếm</button>
     <a href="#today" data-tab="live"><span>●</span>Lúc này</a>
     <button type="button" class="dock-more" data-tab="more" aria-haspopup="dialog" aria-controls="more-sheet"><span>•••</span>Thêm</button>
@@ -484,9 +486,9 @@
   <script src="core/hero-context.js?v=20260926-heavy-rain1"></script>
   <script src="core/hero-gallery.js?v=20260926-gallery40-r1"></script>
   <script src="app.js?v=20260926-gallery40-r1"></script>
-  <script src="core/trip-clock-planner.js?v=20260925-featured8"></script>
-  <script src="home-foundation-v2.js?v=20260925-nearme-split"></script>
-  <script src="home-nearme-v2.js?v=20260926-area1"></script>
+  <script src="core/trip-clock-planner.js?v=20260927-cable-copy"></script>
+  <script src="home-foundation-v2.js?v=20260927-cable-copy"></script>
+  <script src="home-nearme-v2.js?v=20260927-gps-consistent"></script>
   <script src="core/decision-signals.js?v=20260926-core1"></script>
   <script src="home-live-v3.js?v=20260926-core1"></script>
   <script src="home-copy.js?v=5"></script>

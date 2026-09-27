@@ -245,3 +245,12 @@
 @media(max-width:390px){
   .go-area-row .choice-grid label>span{padding:10px;font-size:12px}
 }
+
+/* Shared desktop navigation. Mobile keeps the compact menu. */
+.go-primary-nav{display:flex;align-items:center;gap:clamp(12px,2vw,30px);margin-left:auto}
+.go-primary-nav a{font-size:13px;font-weight:760;white-space:nowrap;color:#315d53}
+.go-primary-nav a[aria-current="page"]{color:#123d3b;border-bottom:2px solid #d85b3f;padding-bottom:5px}
+@media(min-width:861px){.go-head-actions{margin-left:0}}
+@media(max-width:860px){.go-primary-nav{display:none}}
+
+@media(max-width:1040px){.go-primary-nav{display:none}.go-head-actions{margin-left:auto}}

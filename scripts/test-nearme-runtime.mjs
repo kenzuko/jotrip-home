@@ -19,8 +19,9 @@ class FakeNode{
 }
 const delay=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 function createRuntime({failData=false,failWeather=false}={}){
-  const ids=["#areaRow","#categoryRow","#quickCategoryRow","#radiusRow","#radiusNote","#nearSearch","#useLocation","#nearStatus","#nearResults","#resultsTitle","#resultsCount","#nearMapShell","#nearMapToggle","#nearLeaflet","#nearDirectoryMap","#mapOpenLink","#mapDataBadge","#mapNote","#nearMap","#categoryMore","#categoryMore summary"];
+  const ids=["#areaRow","#categoryRow","#quickCategoryRow","#radiusRow","#radiusNote","#nearSearch","#useLocation","#nearStatus","#nearResults","#resultsTitle","#resultsCount","#nearMapShell","#nearMapToggle","#nearLeaflet","#nearMapFallback","#nearMapFallbackMessage","#nearMapFallbackLink","#mapOpenLink","#mapDataBadge","#mapNote","#nearMap","#categoryMore","#categoryMore summary"];
   const nodes=new Map(ids.map(id=>[id,new FakeNode(id)]));
+  nodes.get("#nearMapFallback").hidden=true;
   let leafletScripts=0;
   const document={
     querySelector(selector){return nodes.get(selector)||null;},
@@ -124,7 +125,8 @@ function createRuntime({failData=false,failWeather=false}={}){
   assert.equal(app.leafletScripts,1,"Leaflet is loaded only after the user opens the map");
   assert.match(appSource,/window\.L\?\.circle/,"the selected radius should render on the map when it is opened");
   await app.nodes.get("#nearResults").emit("click",{target:{closest:selector=>selector==="[data-map-id]"?{dataset:{mapId:"place_bai_sao"}}:null}});
-  assert.match(app.nodes.get("#nearDirectoryMap").src,/B%C3%A3i%20Sao/,"Leaflet failure preserves exact-place directions on the directory map");
+  assert.match(app.nodes.get("#nearMapFallbackLink").href,/B%C3%A3i%20Sao/,"Leaflet failure offers explicit search for selected place");
+  assert.equal(app.nodes.get("#nearMapFallback").hidden,false,"Own-map fallback stays visible without automatically loading Google");
 }
 
 {
@@ -143,13 +145,15 @@ function createRuntime({failData=false,failWeather=false}={}){
   await delay(10);
   assert.equal(app.nodes.get("#nearSearch").disabled,false,"search stays enabled when support and index requests fail");
   await app.nodes.get("#quickCategoryRow").emit("click",{target:{closest:selector=>selector==="[data-category]"?{dataset:{category:"PHARMACY"}}:null}});
-  assert.match(app.nodes.get("#nearResults").innerHTML,/Mở trên Google Maps/,"quick category remains usable without support data");
+  assert.match(app.nodes.get("#nearResults").innerHTML,/Tìm thêm trên Google Maps/,"quick category remains usable without support data");
   assert.match(app.nodes.get("#nearResults").innerHTML,/nh%C3%A0%20thu%E1%BB%91c/i,"fallback keeps the pharmacy category in its Maps query");
   app.nodes.get("#nearSearch").value="nhà thuốc";
   await app.nodes.get("#nearSearch").emit("input",{target:app.nodes.get("#nearSearch")});
   await delay(170);
-  assert.match(app.nodes.get("#nearResults").innerHTML,/Mở trên Google Maps/,"data failure leaves a direct, explicitly unverified Maps fallback");
+  assert.match(app.nodes.get("#nearResults").innerHTML,/Tìm thêm trên Google Maps/,"data failure leaves a direct, explicitly unverified Maps fallback");
   assert.match(app.nodes.get("#nearResults").innerHTML,/nhà thuốc/);
 }
-assert.match(appSource,/const mapped=visible\.filter\(x=>validPoint\(\{lat:x\.lat,lon:x\.lon\}\)\)/,"invalid coordinates must never create map markers");
+assert.match(appSource,/const mapped=isDiscoveryCategory\(\)\?\[\]:visible\.filter\(canShowPin\)/,"only matching filtered results with suitable coordinates become markers");
+assert.doesNotMatch(appSource,/output=embed|nearDirectoryMap/,"Google Maps must never load automatically");
+assert.doesNotMatch(fs.readFileSync("nearme/index.html","utf8"),/<iframe/i,"Near Me must use its own map");
 console.log("Near Me search, denied GPS, radius, selected-place Weather and lazy-map regressions passed");

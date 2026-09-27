@@ -71,8 +71,8 @@
        b.setAttribute("aria-pressed",String(b.dataset.areaOption===selected));
        b.classList.toggle("is-selected",b.dataset.areaOption===selected);
      });
-     if(helper)helper.textContent=selected==="all"?"Chọn khu vực để nhận gợi ý thông minh hơn.":
-       "Đang ưu tiên gợi ý quanh "+title+". Bạn vẫn tìm được mọi nơi trên đảo.";
+     if(helper)helper.textContent=selected==="all"?"Chọn khu vực để xem thông tin gần bạn.":
+       "Đang xem thông tin quanh "+title+". Bạn vẫn có thể tìm trên toàn đảo.";
    }
    function toggle(open){
      panel.hidden=!open;

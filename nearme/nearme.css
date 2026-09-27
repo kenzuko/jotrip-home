@@ -236,3 +236,80 @@ html,body{max-width:100%;overflow-x:hidden}
   .radius-row{grid-template-columns:repeat(5,minmax(0,1fr))}
   .map-shell #nearMap{height:min(52vh,390px);min-height:320px}
 }
+
+/* 27/09 - One filtered list + native map. Google is an explicit external action only. */
+.near-map-fallback[hidden]{display:none!important}
+.near-map-fallback{
+  position:absolute;inset:0;z-index:450;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;text-align:center;
+  padding:28px;background:#eef5f1;color:#214a43;
+}
+.near-map-fallback strong{font-size:18px;line-height:1.2}
+.near-map-fallback p{max-width:330px;margin:0;font-size:13px;line-height:1.5;color:#52746b}
+.near-map-fallback a{display:inline-flex;align-items:center;min-height:42px;margin-top:4px;
+  padding:9px 13px;border:1px solid #b9d1c6;border-radius:12px;background:#fff;
+  font-size:12px;font-weight:800}
+.near-primary-nav{display:flex;gap:clamp(10px,1.8vw,28px);align-items:center;margin-left:auto}
+.near-primary-nav a{font-size:13px;font-weight:760;color:#315d53;white-space:nowrap}
+.near-primary-nav a[aria-current="page"]{color:#123d3b;border-bottom:2px solid #d85b3f;padding-bottom:5px}
+.near-header{display:flex;gap:18px;justify-content:space-between;align-items:center}
+.near-header .back{display:none}
+.near-header .brand{flex:0 0 auto}
+.near-header .directory{white-space:nowrap}
+@media(min-width:1200px){
+  main{max-width:1760px;padding-bottom:36px}
+  .intro{padding:25px 0 23px}
+  .intro h1{font-size:clamp(39px,3.4vw,54px);line-height:1.03}
+  .intro span{margin-top:9px;max-width:960px}
+  .near-layout{
+    display:grid;grid-template-columns:minmax(252px,290px) minmax(315px,380px) minmax(0,1fr);
+    grid-template-rows:auto minmax(0,1fr);gap:14px;align-items:start;
+  }
+  .controls{grid-column:1;grid-row:1/3;position:sticky;top:83px;
+    max-height:calc(100vh - 100px);overflow-y:auto;scrollbar-width:thin}
+  .results-head{grid-column:2;grid-row:1;margin:0;padding:8px 0 3px;align-self:end}
+  .results-head h2{font-size:23px;line-height:1.2}
+  .results{grid-column:2;grid-row:2;display:flex;flex-direction:column;
+    max-height:calc(100vh - 184px);overflow-y:auto;gap:8px;scrollbar-width:thin}
+  .results .near-card,.results .discovery-card,.results .empty{flex:0 0 auto;width:100%}
+  .near-card{padding:13px;gap:7px;border-radius:15px}
+  .near-card>strong{font-size:17px}
+  .near-card>div{gap:6px}
+  .map-shell{grid-column:3;grid-row:1/3;position:sticky;top:83px}
+  .map-shell #nearMap,#nearMap{height:calc(100vh - 155px);min-height:500px;max-height:850px}
+  .near-map-toggle{display:none}
+}
+@media(min-width:821px) and (max-width:1199px){
+  .intro{padding:26px 0 22px}
+  .intro h1{font-size:48px}
+  .near-layout{display:grid;grid-template-columns:minmax(290px,365px) minmax(0,1fr);gap:13px}
+  .controls{grid-column:1;grid-row:1;align-self:start}
+  .results-head{grid-column:1;grid-row:2;margin-top:4px}
+  .results-head h2{font-size:25px}
+  .results{grid-column:1;grid-row:3;display:flex;flex-direction:column;gap:9px}
+  .results>.near-card,.results>.discovery-card{flex:none}
+  .map-shell{grid-column:2;grid-row:1/4;position:sticky;top:81px}
+  .map-shell #nearMap,#nearMap{height:min(76vh,740px);min-height:470px}
+  .near-map-toggle{display:none}
+}
+@media(max-width:900px){
+  .near-primary-nav{display:none}
+  .near-header .back{display:inline-flex}
+  .near-header .brand{margin:auto}
+}
+@media(max-width:820px){
+  .near-header{gap:12px;justify-content:space-between}
+  .near-layout{display:flex;flex-direction:column}
+  .controls{order:1}
+  .results-head{order:2}
+  .results{order:3}
+  .map-shell{order:4}
+  .near-map-fallback{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  .near-map-fallback *, .near-card *{scroll-behavior:auto!important}
+}
+
+.near-map-explainer{flex:1;min-width:0;display:grid;gap:4px}
+.near-map-explainer small{display:block;line-height:1.4}
+.near-map-explainer .near-external-explainer{font-size:10px;color:#71877f}

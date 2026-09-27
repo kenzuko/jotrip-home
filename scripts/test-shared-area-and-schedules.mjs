@@ -43,7 +43,7 @@ const index=fs.readFileSync("index.html","utf8"),go=fs.readFileSync("go/index.ht
 assert.ok(index.indexOf('class="brand"')<index.indexOf('id="siteAreaButton"') &&
   index.indexOf('id="siteAreaButton"')<index.indexOf('id="primary-nav"'),
   "Location picker must sit beside the logo on the same top bar");
-assert.match(index,/Chọn khu vực để nhận gợi ý thông minh hơn\./);
+assert.match(index,/Chọn khu vực để xem thông tin gần bạn\./);
 assert.match(index,/aria-expanded="false" aria-controls="siteAreaPanel"/);
 assert.match(index,/id="siteAreaLocate"/,"GPS is present but opt-in");
 assert.ok(index.indexOf("core/location-context.js")<index.indexOf("home-nearme-v2.js"));
