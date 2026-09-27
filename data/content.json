@@ -975,6 +975,116 @@
       ],
       "home_featured": true,
       "updated_at": "2026-09-26"
+    },
+    {
+      "id": "goi-ca-gioi-hon-mot",
+      "category": "GỎI CÁ GIỎI · ẨM THỰC",
+      "title": "Gỏi cá giỏi Hòn Một: cuốn bánh tráng, chấm nước mắm",
+      "dek": "Cá phi lê trộn hành tây, dừa nạo và đậu phộng được cuốn cùng rau sống, bánh tráng. Món có cá sống nên cần hỏi rõ cách làm và cân nhắc an toàn thực phẩm trước khi gọi.",
+      "read_minutes": 3,
+      "image": "https://nld.mediacdn.vn/thumb_w/698/291774122806476800/2022/4/1/11-chan-11-1-1648822875408102321644.jpg",
+      "image_alt": "Đĩa gỏi cá giỏi với hành tây, dừa nạo và đậu phộng, ảnh tư liệu từ Hòn Một",
+      "image_caption": "Ảnh tham khảo món gỏi cá giỏi tại Hòn Một, đăng trong bài Báo Tuổi Trẻ năm 2022. Ảnh không xác nhận thực đơn hiện tại; quyền tái sử dụng chưa được xác nhận.",
+      "image_credit": "Ảnh: Azid Giàu/Báo Tuổi Trẻ - tư liệu tham khảo, quyền tái sử dụng chưa xác nhận.",
+      "image_source_url": "https://tuoitre.vn/nld/du-lich-xanh/goi-ca-gioi-an-la-nho-20220401212413032.htm",
+      "intro": "Gỏi cá giỏi được báo chí ghi nhận quanh Hòn Một, khu vực Bãi Thơm. Một cách dọn thường được nhắc đến là cá phi lê trộn hành tây, dừa nạo và đậu phộng, ăn cuốn với bánh tráng, rau sống rồi chấm nước mắm pha. Món này dùng cá sống; vì vậy nên hỏi rõ cách sơ chế và đừng nhầm phần cá “tái chanh” với cá đã được nấu chín.",
+      "sections": [
+        {
+          "heading": "Một đĩa gỏi, nhiều thứ để cuốn",
+          "body": "Trong bài viết về Hòn Một năm 2022, Báo Tuổi Trẻ mô tả phần cá giỏi phi lê đặt cùng hành tây, dừa nạo và đậu phộng. Khi ăn, các thành phần được trộn lên, gắp vào bánh tráng cùng rau sống rồi chấm nước mắm pha. Tên “cá giỏi” là cách gọi địa phương trong những bài ghi nhận món ăn; không nên tự gán cho nó một tên loài khoa học khi nguồn không xác định như vậy. Cách nêm và loại rau đi kèm có thể thay đổi tùy quán."
+        },
+        {
+          "heading": "Vị cá tươi đi với vị bùi, chua",
+          "body": "Miếng cá có vị biển nhẹ, hành tây hơi hăng, còn dừa nạo và đậu phộng tạo độ bùi. Bánh tráng gom các thành phần thành một cuốn, rau sống làm vị ăn thanh hơn; nước mắm pha thêm vị mặn ngọt. Một số cách làm dùng chanh hoặc giấm để trộn cá. Nếu muốn thử món này, nên hỏi quán hiện có bán không và cá được sơ chế theo cách nào, vì bài ghi nhận về món đã có từ năm 2022 chứ không phải thực đơn cập nhật của mọi nơi."
+        },
+        {
+          "heading": "Lưu ý vì cá vẫn là cá sống",
+          "body": "Chanh hay giấm làm cá đổi màu và săn mặt nhưng không biến hải sản sống thành món đã nấu chín an toàn. CDC khuyến nghị khách du lịch tránh hải sản sống, kể cả món được “làm chín” bằng nước cam chanh hoặc giấm. Người muốn tránh rủi ro từ cá sống nên chọn món cá nấu chín. Cá, đậu phộng, dừa và nước mắm là những thành phần nên hỏi nếu có dị ứng; cũng cần hỏi về rau sống và việc dùng chung dụng cụ chế biến."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Báo Tuổi Trẻ - Gỏi cá giỏi, ăn là nhớ! (2022)",
+          "url": "https://tuoitre.vn/nld/du-lich-xanh/goi-ca-gioi-an-la-nho-20220401212413032.htm"
+        },
+        {
+          "label": "CDC Travelers’ Health - Food and Drink Considerations When Traveling",
+          "url": "https://wwwnc.cdc.gov/travel/page/food-water-safety"
+        }
+      ],
+      "updated_at": "2026-09-27"
+    },
+    {
+      "id": "cha-ca-nhong-phu-quoc",
+      "category": "CHẢ CÁ NHỒNG · ẨM THỰC",
+      "title": "Chả cá nhồng: từ cá quết đến tô bánh canh",
+      "dek": "Cá nhồng được xay, nêm tiêu sọ rồi quết dẻo trước khi hấp hoặc chiên. Miếng chả có thể ăn riêng hay dùng trong bún, bánh canh; cách nêm thay đổi theo từng bếp.",
+      "read_minutes": 3,
+      "image": "https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/5/18/mon-an-ngon-noi-tieng-o-phu-quoc-16528423835382038742874.jpg",
+      "image_alt": "Ảnh tham khảo món chả cá nhồng Phú Quốc",
+      "image_caption": "Ảnh tham khảo chả cá nhồng trong bài Dân Việt năm 2022; không đại diện cho công thức của một quán cụ thể. Quyền tái sử dụng chưa được xác nhận.",
+      "image_credit": "Ảnh: Dân Việt - tư liệu tham khảo, quyền tái sử dụng chưa xác nhận.",
+      "image_source_url": "https://danviet.vn/mon-an-ngon-noi-tieng-o-phu-quoc-cha-ca-nhong-thom-ngot-hap-dan-moi-du-khach-20220518095944979-d1019843.html",
+      "intro": "Chả cá nhồng là một cách đưa cá biển vào bữa ăn thường ngày ở Phú Quốc. Một bài ghi nhận về ẩm thực đảo mô tả cá được xay cùng hành và gia vị, nêm tiêu sọ rồi quết cho dẻo; phần chả sau đó có thể hấp hoặc chiên. Miếng chả cũng xuất hiện trong các món bún, bánh canh, nên có thể gặp ở cả bữa ăn chính lẫn món ăn thêm.",
+      "sections": [
+        {
+          "heading": "Quết cá với hành và tiêu sọ",
+          "body": "Một cách làm được Dân Việt ghi nhận là chọn cá nhồng, xay nhuyễn rồi trộn hành băm và gia vị; tiêu sọ Phú Quốc được dùng để tạo mùi cay thơm. Hỗn hợp được quết đến khi dẻo và đều tay. Đây là mô tả của một cách chế biến, không phải công thức bắt buộc cho mọi hàng quán hay mọi mẻ chả. Lượng tiêu, độ mặn và độ dai có thể khác nhau theo người làm."
+        },
+        {
+          "heading": "Hấp hoặc chiên, ăn trong tô nóng",
+          "body": "Chả hấp giữ miếng mềm và vị cá rõ hơn; chả chiên có mặt ngoài vàng thơm. Cả hai kiểu thường được ăn kèm bún hoặc bánh canh, nơi phần chả làm món thêm đậm đà và có độ dai. Nếu gọi trong tô nước nóng, có thể hỏi quán chả được hấp hay chiên trước, rồi nếm thử nước dùng trước khi thêm nước chấm. Cũng có nơi bán chả riêng để ăn cùng bữa cơm hoặc mua mang về; cách phục vụ tùy cửa hàng."
+        },
+        {
+          "heading": "Hỏi thành phần theo nhu cầu ăn uống",
+          "body": "Cá là nguyên liệu chính nên người dị ứng cá cần báo trước và hỏi kỹ về chả, nước dùng lẫn nước chấm. Gia vị và thành phần thêm có thể khác giữa các nơi, vì vậy không nên mặc định một miếng chả ở đâu cũng giống nhau. Nếu muốn xác nhận chả làm từ cá nhồng thay vì một loại cá khác, hãy hỏi người bán trực tiếp; tên món trên thực đơn không cho biết toàn bộ công thức."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Báo Dân Việt - Ẩm thực Phú Quốc: Hấp dẫn loài cá chỉ sống rạn san hô... (2022)",
+          "url": "https://danviet.vn/mon-an-ngon-noi-tieng-o-phu-quoc-cha-ca-nhong-thom-ngot-hap-dan-moi-du-khach-20220518095944979-d1019843.html"
+        }
+      ],
+      "updated_at": "2026-09-27"
+    },
+    {
+      "id": "oc-gai-phu-quoc",
+      "category": "ỐC GAI · HẢI SẢN PHÚ QUỐC",
+      "title": "Ốc gai Phú Quốc: vị dai giòn sau lớp vỏ nhọn",
+      "dek": "Ốc gai thường được nướng hoặc luộc, ăn cùng muối tiêu chanh hay nước mắm chua cay. Mùa có hàng, cách chế biến và giá hiện tại cần hỏi trực tiếp nơi bán.",
+      "read_minutes": 3,
+      "image": "https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/11/2/oc-gai-nau-gi-ngon-9-16653736522301185560364-1667362224196-16673622244112099224995.jpg",
+      "image_alt": "Ốc gai đã chế biến, ảnh tham khảo từ một bài báo năm 2022",
+      "image_caption": "Ảnh minh họa ốc gai trong bài Trang Trại Việt năm 2022; ảnh không xác nhận nơi đánh bắt hay cách nấu hiện tại. Quyền tái sử dụng chưa được xác nhận.",
+      "image_credit": "Ảnh: Trang Trại Việt/Dân Việt - ảnh minh họa, quyền tái sử dụng chưa xác nhận.",
+      "image_source_url": "https://trangtraiviet.danviet.vn/loai-oc-noi-tieng-cua-phu-quoc-gia-khong-he-re-270000-dong-kg-nhung-ai-an-cung-thich-20221102111519833-d55478.html",
+      "intro": "Tên ốc gai bắt nguồn từ những mấu nhọn trên vỏ. Một số bài viết còn gọi là ốc gai xương rồng, nhưng tên dân gian trên thực đơn không phải lúc nào cũng đủ để định danh chính xác loài. Thịt ốc được mô tả là dai giòn, vị ngọt béo; cách làm quen thuộc trong các bài giới thiệu về Phú Quốc là nướng hoặc luộc rồi ăn với nước chấm.",
+      "sections": [
+        {
+          "heading": "Vỏ gai, thịt chắc",
+          "body": "Lớp vỏ nhiều gai khiến ốc dễ nhận ra giữa các loại hải sản bày bán. Bài viết về sản vật Phú Quốc của Trang Trại Việt mô tả phần thịt có độ dai giòn và vị béo ngọt. Mức độ giòn, độ mặn và phần thịt thực tế còn tùy con ốc, cách sơ chế và thời gian nấu. Khi gọi món, có thể hỏi người bán xác nhận đúng loại ốc gai mà quán đang phục vụ."
+        },
+        {
+          "heading": "Nướng hay luộc, chấm tùy khẩu vị",
+          "body": "Một bài VnExpress về ốc gai Phú Quốc ghi nhận nhiều cách chế biến như nướng, luộc, xào tỏi, hấp gừng hoặc trộn gỏi; nướng và luộc là hai cách thường gặp trong bài viết. Nước chấm không có một công thức duy nhất: có thể đơn giản là muối tiêu chanh hoặc nước mắm chua cay. Nướng làm dậy mùi thơm, còn luộc giữ cách ăn gọn và dễ nhận ra vị riêng của phần thịt. Hỏi quán cách tách thịt khỏi vỏ nếu lần đầu thử."
+        },
+        {
+          "heading": "Đừng mặc định giá hay lúc nào cũng có",
+          "body": "Những bài viết về món này đã đăng từ nhiều năm trước nên thông tin về mùa, lượng khai thác hay giá trong đó không thể dùng như báo giá hiện tại. Nếu muốn ăn, hãy hỏi quán còn món không và xác nhận giá trước khi gọi. Ốc là động vật thân mềm có vỏ; người dị ứng hải sản cần hỏi về thành phần nước chấm và nguy cơ dùng chung dụng cụ với các loại hải sản khác."
+        }
+      ],
+      "sources": [
+        {
+          "label": "VnExpress - Ốc gai, món quà của biển Phú Quốc (2012)",
+          "url": "https://vnexpress.net/oc-gai-mon-qua-cua-bien-phu-quoc-2307476.html"
+        },
+        {
+          "label": "Trang Trại Việt/Dân Việt - Loại ốc nổi tiếng của Phú Quốc... (2022)",
+          "url": "https://trangtraiviet.danviet.vn/loai-oc-noi-tieng-cua-phu-quoc-gia-khong-he-re-270000-dong-kg-nhung-ai-an-cung-thich-20221102111519833-d55478.html"
+        }
+      ],
+      "updated_at": "2026-09-27"
     }
   ]
 }
