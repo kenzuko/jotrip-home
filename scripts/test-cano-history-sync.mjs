@@ -4,6 +4,8 @@ import vm from "node:vm";
 
 const app=readFileSync("cano/app.js","utf8");
 const html=readFileSync("cano/index.html","utf8");
+const local=JSON.parse(readFileSync("data/cano-history.json","utf8"));
+assert.ok(local.events.some(x=>x.date==="2026-09-27"&&x.state==="RUNNING"),"Offline CMS fallback must retain Sep 27 confirmation");
 new vm.Script(app,{filename:"cano/app.js"});
 const start=app.indexOf("function mergeHistory(base,remote)");
 const end=app.indexOf("function renderHistory",start);
