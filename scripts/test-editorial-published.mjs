@@ -20,10 +20,11 @@ for(const item of food.dishes){
   assert.ok(item.allergy_note,"Allergen note disappeared: "+item.id);
   assert.ok(item.sources?.length,"Food source disappeared: "+item.id);
 }
-assert.equal(stories.stories.length,24,"20 original and 4 new public stories must remain available");
-assert.equal(new Set(stories.stories.map(x=>x.id)).size,24,"All 24 story IDs must be unique");
+assert.equal(stories.stories.length,34,"24 previously public and 10 reviewed local stories must remain available");
+assert.equal(new Set(stories.stories.map(x=>x.id)).size,34,"All 34 story IDs must be unique");
 for(const id of ['doc-nhan-nuoc-mam-phu-quoc','cay-di-san-vuon-quoc-gia-phu-quoc']){ const item=stories.stories.find(x=>x.id===id); assert.ok(item,'Published new story missing: '+id); assert.ok(item.image_source_url&&item.image_license_url&&item.image_credit,'Cover image license incomplete: '+id); const visual=JSON.parse(fs.readFileSync('data/visual-context.json','utf8')); assert.ok(visual.stories[id]?.images?.length>=1,'New story gallery incomplete: '+id); assert.ok(visual.stories[id].images.every(photo=>photo.license_url&&photo.source_url&&photo.alt),'Gallery license incomplete: '+id); }
 for(const id of ["mam-ruoc-an-lien-phu-quoc","tieu-chin-ngao-duong-phu-quoc"]){ const item=stories.stories.find(x=>x.id===id); assert.ok(item,'New local specialty story missing: '+id); assert.equal(item.image_rights_status,'SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED','Do not misrepresent permissions: '+id); assert.ok(item.image_source_url&&item.image_credit,'Cover source credit missing: '+id); const visual=JSON.parse(fs.readFileSync('data/visual-context.json','utf8')); assert.ok(visual.stories[id]?.images?.length>=1,'Specialty gallery incomplete: '+id); assert.ok(visual.stories[id].images.every(photo=>photo.source_url&&photo.source_label&&photo.rights_status),'Photo attribution or rights flag missing: '+id); }
+for(const id of ["mang-xe-may-ra-phu-quoc","co-bien-phu-quoc-khuat-tu-bo","canh-nam-tram-phu-quoc-vi-dang-sau-mua","banh-tet-mat-cat-phu-quoc","banh-kheo-phu-quoc-cai-kheo-trong-dang-banh","goi-ca-gioi-hon-mot","cha-ca-nhong-phu-quoc","oc-gai-phu-quoc","bao-ngu-nuong-phu-quoc-than-hong-mo-hanh","goi-xoai-oc-giac-phu-quoc"]){ const story=stories.stories.find(x=>x.id===id); assert.ok(story,'Queued publication missing: '+id); assert.ok(story.image&&story.image_alt&&story.image_credit&&story.image_source_url,'Cover attribution missing: '+id); assert.ok(['CC_VERIFIED','SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED'].includes(story.image_rights_status),'Photo rights not marked: '+id); if(story.image_rights_status==='CC_VERIFIED')assert.ok(story.image_license_url,'CC cover requires license link: '+id); const vis=JSON.parse(fs.readFileSync('data/visual-context.json','utf8')).stories[id]; assert.ok(vis&&vis.images.length>=1,'Photo gallery missing: '+id); assert.ok(vis.images.every(p=>p.url&&p.alt&&p.caption&&p.source_url&&p.source_label&&p.rights_status&&(!p.license||p.license_url)),'Gallery sources/rights incomplete: '+id); assert.ok(vis.images.every(p=>p.url!==story.image),'Gallery must not duplicate cover: '+id); }
 for(const item of stories.stories){
   assert.ok(item.dek?.length>60&&item.intro?.length>120,"Story intro incomplete: "+item.id);
   assert.ok(item.sections?.length>0&&item.sections.every(x=>x.body?.length>60),"Story sections disappeared: "+item.id);
@@ -52,4 +53,4 @@ const foodJs=fs.readFileSync("food/food.js","utf8");
 assert.match(foodJs,/ingredientsBlock\(dish\)/);
 assert.match(foodJs,/allergenBlock\(dish\)/);
 assert.match(foodJs,/renderRandomDish\(/);
-console.log("Published editorial regression PASS: 32 food, 24 stories, 128 guides, preserved sources, allergy details and article routes.");
+console.log("Published editorial regression PASS: 32 food, 34 stories, 128 guides, preserved sources, allergy details and article routes.");
