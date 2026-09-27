@@ -300,6 +300,36 @@
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
         }
       ]
+    },
+    "mam-ruoc-an-lien-phu-quoc": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - đặc sản địa phương",
+      "images": [
+        {
+          "url": "https://cdn.tgdd.vn/Products/Images/7779/174510/bhx/mam-ruoc-phu-quoc-sang-loi-hu-200g-avatar-1.jpg",
+          "alt": "Hũ mắm ruốc Phú Quốc và chén mắm ruốc được lấy ra để dùng",
+          "caption": "Một ít mắm ruốc ăn liền được lấy ra chén trước khi chấm hoặc nêm.",
+          "scope": "exact_product_example",
+          "source_label": "Bách hóa XANH - ảnh sản phẩm Sáng Lợi",
+          "source_url": "https://www.bachhoaxanh.com/sot-nuoc-cham/mam-ruoc-phu-quoc-sang-loi-hu-200g",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
+    },
+    "tieu-chin-ngao-duong-phu-quoc": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - đặc sản địa phương",
+      "images": [
+        {
+          "url": "https://static.vinwonders.com/2022/05/tieu-ngao-duong-phu-quoc.png",
+          "alt": "Hũ tiêu chín tươi ngào đường Phú Quốc bày cùng chanh và ớt",
+          "caption": "Tiêu ngào đường có nhiều cách đóng gói; khi mua nên xem thành phần trên nhãn.",
+          "scope": "exact_product_example",
+          "source_label": "VinWonders - ảnh sản phẩm tiêu ngào đường Sáng Lợi",
+          "source_url": "https://vinwonders.com/vi/wonderpedia/news/tieu-ngao-duong-phu-quoc-dac-san-lam-qua-khong-the-bo-qua/",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
     }
   },
   "places": {
