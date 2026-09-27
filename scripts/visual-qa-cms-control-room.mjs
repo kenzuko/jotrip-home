@@ -299,7 +299,7 @@ try{
   await rp.locator("#reviewSearch").fill("bun quay");
   assert.equal(await rp.locator(".review-pr-card").count(),1);
   await rp.locator(".field-toggle").first().click();
-  await rp.locator(".field-diff:not(.hidden)").waitFor();
+  await rp.locator(".field-diff h4").waitFor();
   assert.match(await rp.locator(".field-diff").textContent(),/So sánh với main hiện tại/);
   assert.equal(await rp.locator(".field-toggle").getAttribute("aria-expanded"),"true");
   await rp.screenshot({path:output+"/cms-v2-reviews-desktop.png",fullPage:true});
