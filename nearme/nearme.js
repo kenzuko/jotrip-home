@@ -466,7 +466,7 @@
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
         (reliabilityLabel(x)?'<small>'+esc(reliabilityLabel(x))+'</small>':"")+
         (x.map_precision==="site_centroid"?'<small>Vị trí trong khuôn viên, có thể khác lối vào.</small>':"")+
-        (x.phone?'<a href="tel:'+esc(x.phone.replace(/\\s/g,""))+'">Gọi '+esc(x.phone)+'</a>':"")+
+        (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi '+esc(x.phone)+'</a>':"")+
         '</div>');
       marker.addTo(markerLayer);markerById.set(x.id,marker);
     }
