@@ -18,7 +18,7 @@ const db={prepare(query){
       const filter=query.includes("WHERE status=?");
       if(filter)rows=rows.filter(x=>x.status===args[0]);
       const offset=Number(args[filter?2:1]||0),limit=Number(args[filter?1:0]||51);
-      return {results:rows.slice(offset,offset+limit).map(x=>({...x,has_photo:Number(!!x.image_key)}))};
+      return {results:rows.slice(offset,offset+limit).map(x=>({id:x.id,issue:x.issue,entity_type:x.entity_type,entity_id:x.entity_id,entity_label:x.entity_label,details:x.details,source_path:x.source_path,created_at:x.created_at,status:x.status,moderator_note:x.moderator_note||"",reviewed_at:x.reviewed_at||null,reviewed_by:x.reviewed_by||null,has_photo:Number(!!x.image_key)}))};
     },
     async run(){
       if(query.startsWith("INSERT")){
