@@ -1,0 +1,4 @@
+.opq-translation-note{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px 10px;margin:16px 0;color:#53675f;font:400 12px/1.6 system-ui,-apple-system,sans-serif}
+.opq-translation-note small{font:inherit;flex:1 1 230px}
+.opq-translation-note button{font:600 12px/1.45 system-ui,-apple-system,sans-serif;background:transparent;color:#246651;border:0;padding:0 0 1px;border-bottom:1px solid currentColor;cursor:pointer}
+.opq-translation-note button:focus-visible{outline:2px solid #246651;outline-offset:4px}
