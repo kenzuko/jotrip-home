@@ -62,6 +62,9 @@
       entity_label:String(details.entity_label||"Trang thông tin này").slice(0,120)
     };
     form.reset();
+    submit.type="submit";submit.onclick=null;
+    form.querySelectorAll(".opq-feedback-field").forEach(el=>el.hidden=false);
+    form.querySelector(".opq-feedback-note").hidden=false;
     const isNew=details.issue==="new_place";
     form.elements.issue.innerHTML=Object.entries(labels)
       .filter(([id])=>isNew?id==="new_place":id!=="new_place")
