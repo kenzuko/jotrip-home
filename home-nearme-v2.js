@@ -4,10 +4,10 @@
  "use strict";
  const $=sel=>document.querySelector(sel);
  const esc=value=>String(value??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
- const CORE=["PHARMACY","ATM","TOILET","MINIMART"];
- const MORE=["FUEL","PARKING","LAUNDRY","CHARGING"];
+ const CORE=["PHARMACY","ATM","FUEL","TOILET"];
+ const MORE=["CHARGING","MINIMART","PARKING","LAUNDRY"];
  const LABELS={PHARMACY:"Nhà thuốc",ATM:"ATM",TOILET:"Nhà vệ sinh",MINIMART:"Cửa hàng tiện lợi",FUEL:"Cây xăng",PARKING:"Bãi đỗ xe",LAUNDRY:"Giặt ủi",CHARGING:"Trạm sạc"};
- const DESCRIPTIONS={PHARMACY:"Thuốc và vật dụng y tế",ATM:"Rút tiền mặt",TOILET:"Tìm chỗ thuận tiện",MINIMART:"Mua đồ cần thiết"};
+ const DESCRIPTIONS={PHARMACY:"Thuốc và vật dụng y tế",ATM:"Rút tiền mặt",FUEL:"Đổ xăng trên đường",TOILET:"Nhà vệ sinh công cộng",MINIMART:"Mua đồ cần thiết"};
  const ICONS={PHARMACY:"✚",ATM:"ATM",TOILET:"WC",MINIMART:"▣",FUEL:"⛽",PARKING:"P",LAUNDRY:"◌",CHARGING:"⚡"};
  const AREAS=[
   {id:"all",label:"Toàn đảo"},
@@ -86,9 +86,18 @@
   if(!indexPromise)indexPromise=fetch("data/views/location-index.json",{cache:"force-cache"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{if(!Array.isArray(d.documents))throw Error("Missing index");return d.documents}).catch(error=>{indexPromise=null;throw error});
   return indexPromise;
  }
- function mapUrl(row){
-  const target=[row.name,row.address||"Phú Quốc, Việt Nam"].filter(Boolean).join(", ");
-  return "https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(target);
+ function itemUrl(row){
+  const current=moreUrl();
+  const p=new URLSearchParams(current.includes("?")?current.split("?")[1]:"");
+  p.set("q",row.name);
+  return "nearme/?"+p.toString();
+ }
+ function directionsUrl(row){
+  const map=row.map||{};
+  if(row.verified===false||map.precision!=="exact_entrance"||
+    !Number.isFinite(map.lat)||!Number.isFinite(map.lon))return null;
+  return "https://www.google.com/maps/dir/?api=1&destination="+
+    encodeURIComponent(map.lat+","+map.lon);
  }
  function phoneUrl(value){const digits=String(value||"").replace(/[^+\d]/g,"");return digits.length>=9&&digits.length<=15&&/^\+?\d+$/.test(digits)?"tel:"+digits:null}
  function card(row){
@@ -96,7 +105,7 @@
   const note=row.meta?.opening_hours_note||"";
   const is24h=/24\s*\/?\s*24|24\s*giờ/i.test(note);
   const extra=row.verified===false?"Địa điểm tham khảo - chưa xác minh hoạt động":suspended?"Tạm ngưng theo thông tin đã cập nhật":is24h?"Có thông tin hoạt động 24/24, nên xác nhận trước khi đi":row.km!==null?"≈ "+roundKm(row.km)+" km đường chim bay":"";
-  const maps=row.verified===false&&Number.isFinite(row.map?.lat)&&Number.isFinite(row.map?.lon)?"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(row.map.lat+","+row.map.lon):mapUrl(row),phone=phoneUrl(row.phone);
+  const own=itemUrl(row),direct=directionsUrl(row),phone=phoneUrl(row.phone);
   return '<article class="near-result-card near-quick-result">'+
    (extra?'<span class="near-quick-meta">'+esc(extra)+'</span>':"")+
    '<strong>'+esc(row.name)+'</strong>'+
@@ -104,7 +113,8 @@
    (row.address?'<small>'+esc(row.address)+'</small>':"")+
    (note&&!is24h?'<small>Giờ tham khảo: '+esc(note)+'</small>':"")+
    '<div class="near-result-actions">'+
-    '<a href="'+esc(maps)+'" target="_blank" rel="noopener noreferrer" aria-label="'+(row.verified===false?"Xem vị trí tham khảo":"Chỉ đường")+' tới '+esc(row.name)+'">↗ '+(row.verified===false?"Vị trí tham khảo":"Chỉ đường")+'</a>'+
+    '<a href="'+esc(own)+'" aria-label="Xem '+esc(row.name)+' trong Quanh đây">⌖ Xem trên bản đồ</a>'+
+    (direct?'<a href="'+esc(direct)+'" target="_blank" rel="noopener noreferrer" aria-label="Chỉ đường tới '+esc(row.name)+'">↗ Chỉ đường</a>':"")+
     (row.external_verify_url?'<a href="'+esc(row.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
     (row.source_license==="ODbL-1.0"?'<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Nguồn OSM ↗</a>':"")+
     (phone?'<a href="'+esc(phone)+'" aria-label="Gọi '+esc(row.name)+'">☎ Gọi điện</a>':"")+
@@ -127,6 +137,8 @@
   let docs;try{docs=await getIndex()}catch(error){if(run!==requestSeq)return;message("Chưa tải được danh sách quanh đây.","Bạn vẫn có thể mở trang Quanh đây với bộ lọc đã chọn.");return}
   if(run!==requestSeq)return;
   const rows=ranked(docs),first=rows.slice(0,3);
+  const resultHeading=$("#nearQuickResultsTitle");
+  if(resultHeading)resultHeading.textContent=category?categoryLabel(category)+(area?" quanh "+(AREAS.find(x=>x.id===area)?.label||"Phú Quốc"):" quanh đây"):query.trim()?"Địa điểm phù hợp":"Những chỗ bạn có thể ghé";
   if(!first.length){
    const directory=category&&support?.near_me?.categories?.find(x=>x.id===category)?.mode==="directory_search";
    message(directory||category==="CHARGING"?"Chưa có điểm đã xác minh trong kho.":"Chưa tìm thấy địa điểm phù hợp.",
@@ -135,7 +147,7 @@
   }
   $("#nearResults").innerHTML='<div class="near-quick-result-head"><strong>'+esc(category?categoryLabel(category):query.trim()?"Kết quả tìm kiếm":"Gợi ý cho khu vực này")+'</strong><span>'+Math.min(rows.length,3)+' địa điểm'+(rows.length>3?" trong "+rows.length+" kết quả":"")+'</span></div>'+
    '<div class="near-result-list">'+first.map(card).join("")+'</div>'+
-   '<a class="near-quick-see-all" data-near-handoff href="'+esc(moreUrl())+'">Xem tất cả '+rows.length+' địa điểm trên bản đồ →</a>';
+   '<a class="near-quick-see-all" data-near-handoff href="'+esc(moreUrl())+'">Xem tất cả '+rows.length+' địa điểm trong Quanh đây →</a>';
   refreshLinks();
  }
  function onCategory(id){category=category===id?null:id;$(".near-me-section")?.classList.remove("near-show-other");syncControls();render().then(revealResultsOnMobile)}
