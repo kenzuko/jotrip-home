@@ -28,3 +28,9 @@ Bài phà: ảnh bìa là bến phà Thạnh Thới, ảnh phụ là xe máy ch�
 
 ## QA ảnh sau xuất bản
 Ảnh phụ bào ngư trên máy chủ Pastaxi trả về lỗi 502 khi kiểm tra qua web. Thay bằng ảnh món bào ngư nướng mỡ hành từ FPT Shop đã kiểm tra tải được, chú thích đúng ảnh minh họa công thức, không nhận là ảnh chụp tại Phú Quốc. Ảnh gỏi cá giỏi trên CDN báo Người Lao Động chưa xác minh được qua web; cần kiểm tra trình duyệt thật và thay nếu ảnh không tải.
+
+## Ảnh bổ sung trong đợt 27/09
+- Bún quậy Phú Quốc (ảnh phụ bài Câu chuyện và món ăn), RootyTrip, https://rootytrip.com/bun-quay-phu-quoc/ - ảnh đúng món và có tên nguồn, chưa xác minh quyền sử dụng lại.
+- Bánh khéo Phú Quốc (ảnh phụ món ăn), Dân Việt/phuquoc247, https://danviet.vn/am-thuc-phu-quoc-banh-kheo-thom-ngot-xinh-yeu-an-la-me-20220316203728096-d1007454.html - quyền ảnh chưa xác minh.
+- Bánh tét mật cật (ảnh phụ món ăn), Thời Tiết 24h, https://thoitiet24h.vn/am-thuc/dac-san-phu-quoc - quyền ảnh chưa xác minh.
+- 19 bản ghi ảnh đã rà soát cho 18 bài Cẩm nang từ RootyTrip, Hitour, VinWonders, VietnamPlus, Znews, Điện Máy Chợ Lớn, VietNamNet, Minos, Bách hóa XANH, Asia Tour Advisor: hiển thị với nhãn nguồn và giới hạn host; quyền ảnh phải tiếp tục xử lý.
