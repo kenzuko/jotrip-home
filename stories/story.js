@@ -2,6 +2,35 @@ const CONTENT="../data/content.json";
 const VISUALS="../data/visual-context.json";
 const ZONES="../data/entities/zones.json";
 const $=s=>document.querySelector(s);
+const LANGUAGES={vi:"Tiếng Việt",en:"English",ko:"한국어",ru:"Русский",lo:"ລາວ",zh:"简体中文","zh-TW":"繁體中文",fr:"Français"};
+const preferred=()=>{
+  const explicit=new URLSearchParams(location.search).get("lang");
+  const saved=localStorage.getItem("openpq-language");
+  const raw=explicit||saved||navigator.languages?.[0]||navigator.language||"vi";
+  const normalized=raw.toLowerCase();
+  const locale=normalized.startsWith("zh")?(normalized.includes("tw")||normalized.includes("hk")||normalized.includes("hant")?"zh-TW":"zh"):normalized.split("-")[0];
+  return LANGUAGES[locale]?locale:"vi";
+};
+let activeLanguage=preferred();
+const translated=(story)=>{
+  const variant=story.translations?.[activeLanguage];
+  return variant?.status==="published"?{...story,...variant,sections:variant.sections||story.sections}:story;
+};
+function languagePicker(){
+  const target=document.querySelector(".top-actions");
+  if(!target)return;
+  const select=document.createElement("select");
+  select.setAttribute("aria-label","Ngôn ngữ / Language");
+  select.className="story-language";
+  select.innerHTML=Object.entries(LANGUAGES).map(([code,label])=>'<option value="'+code+'">'+label+'</option>').join("");
+  select.value=activeLanguage;
+  select.addEventListener("change",()=>{
+    localStorage.setItem("openpq-language",select.value);
+    const url=new URL(location.href);url.searchParams.set("lang",select.value);location.assign(url);
+  });
+  target.prepend(select);
+}
+languagePicker();
 
 async function load(){
   const r=await fetch(CONTENT+"?t="+Date.now(),{cache:"no-store"});
@@ -52,7 +81,8 @@ function applyStoryMeta(story){
 }
 
 function card(s){
-  return '<a class="story-card" href="article.html?id='+encodeURIComponent(s.id)+'">'+
+  s=translated(s);
+  return '<a class="story-card" href="article.html?id='+encodeURIComponent(s.id)+'&lang='+encodeURIComponent(activeLanguage)+'">'+
     '<img src="'+esc(s.image)+'" alt="'+esc(s.image_alt||s.title)+'" onerror="this.style.opacity=.18">'+
     '<div class="story-copy">'+
       '<span>'+esc(s.category)+'</span>'+
@@ -117,8 +147,19 @@ function sectionBlock(section,i){
 
 function renderArticle(data,visualData,zones){
   const id=new URLSearchParams(location.search).get("id");
-  const s=data.stories.find(x=>x.id===id)||data.stories[0];
-  if(!s)return;
+  const original=data.stories.find(x=>x.id===id);
+  if(!original){
+    $("#articleRoot").innerHTML='<div class="wrap"><h1>Không tìm thấy bài viết</h1><p><a href="index.html">Xem các câu chuyện khác</a></p></div>';
+    return;
+  }
+  const s=translated(original);
+  document.documentElement.lang=s===original?"vi":activeLanguage;
+  if(activeLanguage!=="vi"&&s===original){
+    const notice=document.createElement("p");
+    notice.className="translation-notice";
+    notice.textContent="Bản dịch đang được chuẩn bị. Bài viết hiện hiển thị bằng tiếng Việt.";
+    $("#articleRoot").before(notice);
+  }
 
   applyStoryMeta(s);
 
@@ -157,12 +198,12 @@ function renderArticle(data,visualData,zones){
 
   window.OpenPQVisual?.bindLazyMaps(root);
 
-  const i=data.stories.indexOf(s);
+  const i=data.stories.indexOf(original);
   const n=data.stories[(i+1)%data.stories.length];
   if(n){
     $("#nextStory").innerHTML=
-      '<a href="article.html?id='+encodeURIComponent(n.id)+'">'+
-        '<span><small>ĐỌC TIẾP</small>'+esc(n.title)+'</span>'+
+      '<a href="article.html?id='+encodeURIComponent(n.id)+'&lang='+encodeURIComponent(activeLanguage)+'">'+
+        '<span><small>ĐỌC TIẾP</small>'+esc(translated(n).title)+'</span>'+
         '<span>→</span>'+
       '</a>';
   }
@@ -170,7 +211,16 @@ function renderArticle(data,visualData,zones){
 
 load().then(async data=>{
   const grid=$("#storyGrid");
-  if(grid)grid.innerHTML=data.stories.map(card).join("");
+  if(grid){
+    grid.innerHTML=data.stories.map(card).join("");
+    document.documentElement.lang=data.stories.every(s=>s.translations?.[activeLanguage]?.status==="published")?activeLanguage:"vi";
+    if(activeLanguage!=="vi"&&document.documentElement.lang==="vi"){
+      const notice=document.createElement("p");
+      notice.className="translation-notice";
+      notice.textContent="Một số bài chưa có bản dịch. Bài đó sẽ hiển thị bằng tiếng Việt.";
+      grid.before(notice);
+    }
+  }
   if($("#articleRoot")){
     try{
       const [visualData,zonesData]=await Promise.all([
