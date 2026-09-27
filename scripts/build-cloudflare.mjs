@@ -1,4 +1,5 @@
-import { rm, mkdir, cp, copyFile, writeFile } from "node:fs/promises";
+import { rm, mkdir, cp, copyFile, writeFile, readFile, readdir } from "node:fs/promises";
+import {join} from "node:path";
 import { existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
@@ -69,6 +70,20 @@ for(const file of rootFiles){
 for(const dir of dirs){
   if(existsSync(dir)) await cp(dir,`${out}/${dir}`,{recursive:true});
 }
+// Automatically attach the lightweight analytics client to all public HTML pages.
+async function attachTrafficScript(dir){
+  const entries=await readdir(dir,{withFileTypes:true});
+  for(const entry of entries){
+    const full=join(dir,entry.name);
+    if(entry.isDirectory()){if(entry.name==="admin"||entry.name==="data"||entry.name==="assets")continue;await attachTrafficScript(full);continue}
+    if(!entry.name.endsWith(".html"))continue;
+    const html=await readFile(full,"utf8");
+    if(html.includes("</body>")&&!html.includes('src="/core/traffic.js"'))
+      await writeFile(full,html.replace("</body>",'<script defer src="/core/traffic.js?v=1"></script></body>'));
+  }
+}
+await attachTrafficScript(out);
+
 await rm(`${out}/data/knowledge`,{recursive:true,force:true});
 await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
