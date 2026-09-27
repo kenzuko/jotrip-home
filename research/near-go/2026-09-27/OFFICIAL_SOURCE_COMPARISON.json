@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-27",
+  "status": "RESEARCH_ONLY",
+  "rules": {
+    "official_first": "Compare each candidate to its own operator site whenever available; only mark operator-confirmed after branch-level matching.",
+    "location": "Official address alone does not confirm exact GPS or entrance.",
+    "operation": "Store locator presence alone does not prove currently open.",
+    "conflict": "Preserve differing observations; flag for review.",
+    "fuel": "Owner allows directory/community candidate publication with UNKNOWN operation and feedback, never verified OPEN solely from OSM.",
+    "vinfast": "No undocumented/private API scraping or inferred live charger availability."
+  },
+  "official_sources": [
+    {
+      "brand": "VinFast",
+      "url": "https://vinfastauto.com/vn_vi/tim-kiem-showroom-tram-sac",
+      "finding": "Dynamic public locator exists; Phu Quoc station-level list not retrievable from static HTML in this audit; keep existing OSM charging points unverified."
+    },
+    {
+      "brand": "VinFast",
+      "url": "https://vinfastauto.com/vn_vi/cau-hoi-thuong-gap/cau-hoi-xe-o-to/he-thong-tram-sac",
+      "finding": "App supports live plug availability, but public page does not provide individual station availability."
+    },
+    {
+      "brand": "Dien May Xanh / The Gioi Di Dong",
+      "url": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+      "finding": "Operator lists seven Phu Quoc stores, including two Dien May Xanh branches to review for additions or duplicate conflicts.",
+      "branches": [
+        [
+          "DMX",
+          "Tổ 7, ấp Gành Dầu",
+          "utility_dmx_ganhdau_to7"
+        ],
+        [
+          "TGDD",
+          "142A-142B Nguyễn Trung Trực",
+          "utility_tgdd_142a_ntr"
+        ],
+        [
+          "TGDD",
+          "37 Hùng Vương",
+          "utility_tgdd_37_hungvuong"
+        ],
+        [
+          "DMX",
+          "162 đường 30/4",
+          null
+        ],
+        [
+          "DMX",
+          "107 Nguyễn Văn Cừ",
+          null
+        ],
+        [
+          "TGDD",
+          "73 Nguyễn Văn Cừ",
+          "utility_tgdd_73_nvc"
+        ],
+        [
+          "TGDD",
+          "104 đường 30/4",
+          "utility_tgdd_104_304"
+        ]
+      ]
+    },
+    {
+      "brand": "Long Chau",
+      "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
+      "finding": "Use operator branch pages to confirm address and branch existence; Ganh Dau temporary-closure claim from third-party directory requires operator recheck."
+    },
+    {
+      "brand": "Petrolimex",
+      "url": "https://www.petrolimex.com.vn/",
+      "finding": "Corporate website is not proof of an individual Phu Quoc retail station; no current official branch-level retail list extracted in this audit."
+    }
+  ],
+  "publication": "No canonical data or production view changes in this audit."
+}
