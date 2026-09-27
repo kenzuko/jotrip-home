@@ -20,6 +20,7 @@ const publicGuides=(guide.objects||[]).filter(o=>o.topic_id&&o.status!=="draft"&
 assert.equal(urls.filter(u=>u.includes("/guide/article.html?id=")).length,publicGuides.length);
 assert.equal(urls.filter(u=>u.includes("/stories/article.html?id=")).length,publicStories.length);
 assert.match(robots,/Disallow: \/admin\//);
+assert.ok(!robots.includes("Disallow: /data/"),"Do not block public JSON used in rendering");
 assert.match(robots,/Sitemap: https:\/\/cms.openphuquoc.com\/sitemap.xml/);
 assert.ok(existsSync(join(root,"index.html")));
 console.log("SEO sitemap test PASS:",urls.length,"URLs,",publicGuides.length,"guides,",publicStories.length,"stories");
