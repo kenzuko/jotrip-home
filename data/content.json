@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-09-26",
+  "updated": "2026-09-27",
   "stories": [
     {
       "id": "mui-cay-cua-dat-do",
@@ -715,6 +715,89 @@
       ],
       "home_featured": true,
       "updated_at": "2026-09-26"
+    },
+    {
+      "id": "doc-nhan-nuoc-mam-phu-quoc",
+      "category": "NƯỚC MẮM · CẨM NANG CHỌN MUA",
+      "title": "Mua nước mắm Phú Quốc, đọc nhãn sao cho đúng?",
+      "dek": "Cùng nhắc đến Phú Quốc nhưng nước mắm có chỉ dẫn địa lý và nước mắm truyền thống không phải hai tên gọi dùng thay nhau. Nhìn nhãn đúng trước rồi hãy chọn chai hợp khẩu vị.",
+      "read_minutes": 3,
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vats%20at%20a%20Fish%20Sauce%20Factory%20on%20Phu%20Quoc%20Island%20in%20Vietnam%2001.jpg?width=1400",
+      "image_alt": "Thùng gỗ ủ cá cơm tại xưởng nước mắm ở Phú Quốc",
+      "image_caption": "Những thùng ủ cá cơm tại một nhà thùng Phú Quốc, ảnh tư liệu năm 2015.",
+      "image_credit": "Frank Fox · Wikimedia Commons · CC BY-SA 4.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Vats_at_a_Fish_Sauce_Factory_on_Phu_Quoc_Island_in_Vietnam_01.jpg",
+      "intro": "Đi ngang một nhà thùng, nghe mùi cá cơm đang ủ rồi ghé quầy nước mắm, nhiều người sẽ băn khoăn: chai nào mới đúng là nước mắm Phú Quốc? Câu trả lời không nằm ở màu đậm hay độ đạm cao nhất. Trước tiên, cần biết dòng chữ trên nhãn đang nói đến điều gì.",
+      "sections": [
+        {
+          "heading": "Hai cách gọi, hai điều cần hiểu",
+          "body": "Tên gọi Phú Quốc được bảo hộ chỉ dẫn địa lý tại Việt Nam từ năm 2001 và được Liên minh châu Âu đăng bạ năm 2012. Quy chuẩn kỹ thuật địa phương ban hành năm 2023 phân biệt nước mắm chỉ dẫn địa lý Phú Quốc và nước mắm truyền thống Phú Quốc. Mỗi loại có yêu cầu tương ứng về nguyên liệu, quy trình và chất lượng. Đó là những quy định về sản phẩm, không phải bảng xếp hạng chai nào ngon hơn."
+        },
+        {
+          "heading": "Muốn mua loại có chỉ dẫn địa lý thì nhìn gì?",
+          "body": "Hãy tìm biểu trưng chỉ dẫn địa lý và đọc tên, địa chỉ cơ sở sản xuất cùng những thông tin bắt buộc trên nhãn. Dòng chữ “nước mắm truyền thống Phú Quốc” không tự có nghĩa là sản phẩm mang chỉ dẫn địa lý. Ngược lại, chỉ nhìn vào một chi tiết của bao bì cũng chưa đủ kết luận về toàn bộ sản phẩm. Nếu còn phân vân, hỏi trực tiếp nhà sản xuất hoặc xem thông tin quản lý chỉ dẫn địa lý."
+        },
+        {
+          "heading": "Sau cùng vẫn là chai hợp bữa ăn",
+          "body": "Có người thích nước mắm đậm mùi cá cơm để chấm, có người tìm vị dịu hơn để nêm nấu. Độ đạm là một thông tin hữu ích, nhưng không nói thay được mùi, vị và cách dùng. Mua làm quà thì xem kỹ dung tích, niêm phong, thành phần và hướng dẫn bảo quản. Nếu cần tránh cá hoặc thành phần nào khác, đọc nhãn trước khi chọn."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Cục Sở hữu trí tuệ Việt Nam - Danh sách chỉ dẫn địa lý được bảo hộ tại Việt Nam",
+          "url": "https://ipvietnam.gov.vn/web/english/domestic-ip-activities/-/asset_publisher/ZMuTgR44COLR/content/list-of-geographical-indications-protected-in-vietnam-"
+        },
+        {
+          "label": "Sở Nông nghiệp và Môi trường An Giang - Quyết định 21/2023/QĐ-UBND, Quy chuẩn kỹ thuật địa phương nước mắm Phú Quốc",
+          "url": "https://snnmt.angiang.gov.vn/trang/VanBan/chitietvb.aspx?itemID=3747&loaivb=T%E1%BB%A7+s%C3%A1ch+ph%C3%A1p+lu%E1%BA%ADt"
+        },
+        {
+          "label": "Liên minh châu Âu - Regulation (EU) No 928/2012 về tên gọi xuất xứ Phú Quốc",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0928"
+        }
+      ],
+      "updated_at": "2026-09-27",
+      "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "image_captured_at": "2015-06-27"
+    },
+    {
+      "id": "cay-di-san-vuon-quoc-gia-phu-quoc",
+      "category": "RỪNG PHÚ QUỐC · CÂY DI SẢN",
+      "title": "Trong rừng Phú Quốc có những cây được ghi danh di sản",
+      "dek": "Từ sáu cây được công nhận năm 2025, Vườn quốc gia Phú Quốc có thêm 14 cây và hai quần thể được ghi danh vào tháng 5/2026. Mỗi cái tên gắn với một khoảng rừng cần được gìn giữ.",
+      "read_minutes": 3,
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%2C%20t%C3%A1n%20r%E1%BB%ABng%20(th%C6%B0%E1%BB%9Dng%20xanh)%20(3).jpg?width=1600",
+      "image_alt": "Tán rừng thường xanh tại Phú Quốc, ảnh bối cảnh không phải cây di sản định danh",
+      "image_caption": "Rừng thường xanh tại Phú Quốc. Ảnh bối cảnh, không phải ảnh định danh những cây di sản trong bài.",
+      "image_credit": "Phương Huy · Wikimedia Commons · CC BY-SA 4.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phú_Quốc_2022,_cảnh_rừng,_tán_rừng_(thường_xanh)_(3).jpg",
+      "intro": "Vào rừng Phú Quốc, điều dễ thấy đầu tiên là màu xanh. Những thân cây lớn và tán lá cao thường khiến người đi rừng dừng lại lâu hơn một chút. Có những cây ở đây đã được ghi danh Cây Di sản Việt Nam, và từ năm 2026, danh sách không còn dừng ở từng cây riêng lẻ.",
+      "sections": [
+        {
+          "heading": "Sáu cây mở đầu",
+          "body": "Tháng 3/2025, sáu cây cổ thụ trong Vườn quốc gia Phú Quốc được công nhận Cây Di sản Việt Nam: hai cây trai Nam Bộ tại Bãi Thơm, hai cây kơ nia và hai cây kiền kiền Phú Quốc tại Gành Dầu. Đó là những cây đầu tiên của Kiên Giang nhận danh hiệu này. Tuổi cây được nhắc đến khác nhau giữa một số nguồn, nên không cần gán cho mỗi thân cây một con số chưa thống nhất."
+        },
+        {
+          "heading": "Đến tháng 5/2026: 20 cây và hai quần thể",
+          "body": "Ngày 29/5/2026, Vườn quốc gia đón nhận công nhận thêm 14 cây riêng lẻ cùng hai quần thể thực vật. Như vậy, tính đến đợt công bố này, Vườn có 20 cây di sản riêng lẻ và hai quần thể di sản. Các nhóm cây được ghi danh không chỉ kể chuyện về tuổi đời của rừng; chúng còn cho thấy sự đa dạng của những sinh cảnh cần bảo vệ, từ rừng cây gỗ lớn đến khu vực ngập mặn."
+        },
+        {
+          "heading": "Ghi danh không có nghĩa là mở đường tham quan",
+          "body": "Những tấm bằng công nhận không phải bản đồ dẫn khách đến từng cây. Vùng có cây di sản vẫn thuộc khu vực được quản lý và bảo vệ của Vườn quốc gia. Nếu muốn tìm hiểu thực địa, hãy hỏi Ban quản lý về tuyến được phép tiếp cận và đi cùng người hướng dẫn phù hợp. Ngắm một thân cây lớn là một trải nghiệm, nhưng để cây tiếp tục sống trong khu rừng của nó mới là chuyện lâu dài."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Hội Bảo vệ thiên nhiên và Môi trường Việt Nam - Sáu cây đầu tiên của tỉnh Kiên Giang được công nhận Cây Di sản Việt Nam",
+          "url": "https://www.vacne.org.vn/sau-cay-dau-tien-cua-tinh-kien-giang-duoc-cong-nhan-cay-di-san-viet-nam/222604.html"
+        },
+        {
+          "label": "Cục Bảo tồn thiên nhiên và Đa dạng sinh học - Vườn quốc gia Phú Quốc đón nhận quyết định và bằng công nhận Cây Di sản",
+          "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-don-nhan-quyet-dinh-va-bang-cong-nhan-cay-di-san/"
+        }
+      ],
+      "updated_at": "2026-09-27",
+      "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
     }
   ]
 }
