@@ -1,0 +1,105 @@
+// HTML returned to crawlers and visitors includes the same published body as the client reader.
+// No private editorial/research source is loaded here.
+export const SEO_ORIGIN="https://cms.openphuquoc.com";
+export const SEO_FALLBACK_IMAGE=SEO_ORIGIN+"/assets/share-card-phu-quoc-v3.jpg";
+const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const clean=v=>String(v??"").replace(/\s+/g," ").trim();
+const desc=v=>clean(v).slice(0,190);
+const urlFor=(path)=>SEO_ORIGIN+path;
+const safeImage=url=>typeof url==="string"&&(/^\//.test(url)&&!/^\/\//.test(url)||/^https:\/\//i.test(url))?url:null;
+const dateValue=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}/.test(v)?v.slice(0,10):undefined;
+const paras=v=>String(v??"").trim().split(/\n{2,}/).filter(Boolean).map(s=>"<p>"+esc(s).replace(/\n/g,"<br>")+"</p>").join("");
+const photo=(src,alt,caption,credit)=>safeImage(src)
+  ?'<figure><img src="'+esc(src)+'" alt="'+esc(alt||"Ảnh Phú Quốc")+'" loading="lazy" decoding="async">'+
+    (caption||credit?'<figcaption>'+esc([caption,credit].filter(Boolean).join(" · "))+'</figcaption>':"")+"</figure>":"";
+export function buildStoryMeta(story){
+  if(!story?.id||!story.title)return null;
+  return {kind:"story",source:story,type:"article",title:clean(story.title)+" - Open Phu Quoc",
+    description:desc(story.dek||story.intro||"Câu chuyện về Phú Quốc."),
+    canonical:urlFor("/stories/article.html?id="+encodeURIComponent(story.id)),
+    image:safeImage(story.image)||SEO_FALLBACK_IMAGE,imageAlt:clean(story.image_alt||story.title)};
+}
+export function buildKnowledgeMeta(article){
+  if(!article?.topic_id||!article.title||!article.editorial)return null;
+  return {kind:"knowledge",source:article,type:"article",title:clean(article.title)+" - Cẩm nang Phú Quốc",
+    description:desc(article.editorial.short_summary),
+    canonical:urlFor(article.route||"/guide/article.html?id="+encodeURIComponent(article.topic_id)),
+    image:safeImage(article.media?.images?.[0]?.url)||SEO_FALLBACK_IMAGE,
+    imageAlt:clean(article.media?.images?.[0]?.alt||article.title)};
+}
+export function storyBody(s){
+  let out='<article class="article" itemscope itemtype="https://schema.org/Article"><header class="article-masthead"><div class="article-head-copy">'+
+    '<p>'+esc(s.category||"Câu chuyện Phú Quốc")+'</p><h1 itemprop="headline">'+esc(s.title)+'</h1>'+
+    paras(s.dek)+paras(s.intro)+'</div>'+
+    photo(s.image,s.image_alt||s.title,s.image_caption,s.image_credit)+'</header>';
+  for(const section of s.sections||[]){
+    out+='<section class="article-section">'+(section.heading?'<h2>'+esc(section.heading)+'</h2>':"")+
+      photo(section.image,section.caption||section.heading,section.caption,"")+
+      paras(section.body)+'</section>';
+  }
+  return out+"</article>";
+}
+export function knowledgeBody(o){
+  const ed=o.editorial||{};
+  let out='<article class="knowledge-article" itemscope itemtype="https://schema.org/Article">'+
+    '<a class="knowledge-back" href="/guide/knowledge.html">← Tất cả bài cẩm nang</a>'+
+    '<h1 itemprop="headline">'+esc(o.title)+'</h1><p class="knowledge-lead">'+esc(ed.short_summary||"")+'</p>';
+  const photographs=(o.media?.images||[]).filter(p=>safeImage(p.url));
+  if(photographs.length){
+    out+='<div class="knowledge-article-photos'+(photographs.length===1?" single":"")+'">';
+    for(const p of photographs)out+=photo(p.url,p.alt||o.title,p.caption,p.credit);
+    out+="</div>";
+  }
+  for(const [heading,value] of [["Tìm hiểu & trải nghiệm",ed.practical],["Điều cần lưu ý",ed.expectation_vs_reality]]){
+    if(value)out+='<section><h2>'+esc(heading)+'</h2>'+paras(value)+'</section>';
+  }
+  if(ed.before_you_go?.length){
+    out+='<section><h2>Trước khi đi</h2><ul>';
+    for(const item of ed.before_you_go)out+="<li>"+esc(item)+"</li>";
+    out+="</ul></section>";
+  }
+  if(o.links?.length){
+    out+='<aside class="knowledge-further"><h2>Tìm hiểu thêm</h2>';
+    for(const link of o.links)if(/^https:\/\//.test(link.url||""))
+      out+='<a href="'+esc(link.url)+'" rel="noopener noreferrer" target="_blank">'+esc(link.label||"Nguồn thông tin")+'</a>';
+    out+="</aside>";
+  }
+  return out+"</article>";
+}
+function structured(meta){
+  if(meta.kind!=="story"&&meta.kind!=="knowledge")return null;
+  const obj={"@context":"https://schema.org","@type":"Article",headline:meta.source.title,
+    description:meta.description,mainEntityOfPage:{"@type":"WebPage","@id":meta.canonical},
+    inLanguage:"vi-VN",author:{"@type":"Organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/"},
+    publisher:{"@type":"Organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/"}};
+  const d=dateValue(meta.source.updated_at);
+  if(d)obj.dateModified=d;
+  if(safeImage(meta.image))obj.image=[new URL(meta.image,SEO_ORIGIN).toString()];
+  return JSON.stringify(obj).replace(/</g,"\\u003c");
+}
+export function rewriteSeoHtml(response,meta){
+  if(!meta||!response.ok||!(response.headers.get("content-type")||"").includes("text/html"))return response;
+  const writer=new HTMLRewriter()
+    .on("title",{element(el){el.setInnerContent(meta.title)}})
+    .on('link[rel="canonical"]',{element(el){el.setAttribute("href",meta.canonical)}})
+    .on('meta[name="description"]',{element(el){el.setAttribute("content",meta.description)}})
+    .on('meta[property="og:type"]',{element(el){el.setAttribute("content",meta.type)}})
+    .on('meta[property="og:title"]',{element(el){el.setAttribute("content",meta.title)}})
+    .on('meta[property="og:description"]',{element(el){el.setAttribute("content",meta.description)}})
+    .on('meta[property="og:url"]',{element(el){el.setAttribute("content",meta.canonical)}})
+    .on('meta[property="og:image"]',{element(el){el.setAttribute("content",meta.image)}})
+    .on('meta[property="og:image:alt"]',{element(el){el.setAttribute("content",meta.imageAlt)}})
+    .on('meta[property="og:image:type"]',{element(el){el.setAttribute("content",meta.image.endsWith(".svg")?"image/svg+xml":"image/jpeg")}})
+    .on('meta[property="og:image:width"],meta[property="og:image:height"]',{element(el){el.remove()}})
+    .on('meta[name="twitter:card"]',{element(el){el.setAttribute("content","summary_large_image")}})
+    .on('meta[name="twitter:title"]',{element(el){el.setAttribute("content",meta.title)}})
+    .on('meta[name="twitter:description"]',{element(el){el.setAttribute("content",meta.description)}})
+    .on('meta[name="twitter:image"]',{element(el){el.setAttribute("content",meta.image)}});
+  if(meta.kind==="story"||meta.kind==="knowledge"){
+    writer.on(meta.kind==="story"?"#articleRoot":"#knowledgeArticle",{
+      element(el){el.setInnerContent(meta.kind==="story"?storyBody(meta.source):knowledgeBody(meta.source),{html:true})}
+    });
+    writer.on("head",{element(el){el.append('<script type="application/ld+json">'+structured(meta)+'</script>',{html:true})}});
+  }
+  return writer.transform(response);
+}

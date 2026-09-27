@@ -1,3 +1,4 @@
+import {buildStoryMeta,buildKnowledgeMeta,rewriteSeoHtml} from "./functions/_shared/seo-html.js";
 import {cleanupFeedback} from "./functions/_shared/place-feedback.js";
 import {onRequest as publicFeedback} from "./functions/api/feedback.js";
 import {onRequest as adminPlaceFeedback} from "./functions/api/cms/feedback.js";
@@ -37,16 +38,9 @@ async function storyMeta(url, env) {
   const id = url.searchParams.get("id");
   if (!id) return null;
   const data = await readAssetJson(env, url, "/data/content.json");
-  const story = (data.stories || []).find(x => x.id === id);
+  const story = (data.stories || []).find(x => x.id === id && !["draft","pending","review","scheduled"].includes(x.status));
   if (!story) return null;
-  return {
-    type: "article",
-    title: cleanText(story.title) + " - Open Phu Quoc",
-    description: truncate(story.dek || story.intro || "Câu chuyện về Phú Quốc."),
-    canonical: SITE_ORIGIN + "/stories/article.html?id=" + encodeURIComponent(story.id),
-    image: story.image || DEFAULT_IMAGE,
-    imageAlt: cleanText(story.title, "Open Phu Quoc")
-  };
+  return buildStoryMeta(story);
 }
 async function placeMeta(url, env) {
   const id = url.searchParams.get("id");
@@ -77,60 +71,7 @@ async function knowledgeMeta(url,env){
   const data=await readAssetJson(env,url,"/data/views/knowledge-public.json");
   const article=(data.objects||[]).find(o=>o.topic_id===id);
   if(!article)return null;
-  return {
-    type:"article",
-    title:cleanText(article.title)+" - Cẩm nang Phú Quốc",
-    description:truncate(article.editorial.short_summary),
-    canonical:SITE_ORIGIN+article.route,
-    image:DEFAULT_IMAGE,
-    imageAlt:"Open Phu Quoc"
-  };
-}
-function transformMeta(response, meta) {
-  const rewriter = new HTMLRewriter()
-    .on("title", {
-      element(el) { el.setInnerContent(meta.title); }
-    })
-    .on('link[rel="canonical"]', {
-      element(el) { el.setAttribute("href", meta.canonical); }
-    })
-    .on('meta[name="description"]', {
-      element(el) { el.setAttribute("content", meta.description); }
-    })
-    .on('meta[property="og:type"]', {
-      element(el) { el.setAttribute("content", meta.type); }
-    })
-    .on('meta[property="og:title"]', {
-      element(el) { el.setAttribute("content", meta.title); }
-    })
-    .on('meta[property="og:description"]', {
-      element(el) { el.setAttribute("content", meta.description); }
-    })
-    .on('meta[property="og:url"]', {
-      element(el) { el.setAttribute("content", meta.canonical); }
-    })
-    .on('meta[property="og:image"]', {
-      element(el) { el.setAttribute("content", meta.image); }
-    })
-    .on('meta[property="og:image:alt"]', {
-      element(el) { el.setAttribute("content", meta.imageAlt); }
-    })
-    .on('meta[property="og:image:width"],meta[property="og:image:height"]', {
-      element(el) { el.remove(); }
-    })
-    .on('meta[name="twitter:card"]', {
-      element(el) { el.setAttribute("content", "summary_large_image"); }
-    })
-    .on('meta[name="twitter:title"]', {
-      element(el) { el.setAttribute("content", meta.title); }
-    })
-    .on('meta[name="twitter:description"]', {
-      element(el) { el.setAttribute("content", meta.description); }
-    })
-    .on('meta[name="twitter:image"]', {
-      element(el) { el.setAttribute("content", meta.image); }
-    });
-  return rewriter.transform(response);
+  return buildKnowledgeMeta(article);
 }
 
 export default {
@@ -178,6 +119,6 @@ export default {
     if (!meta || !assetResponse.ok || !(assetResponse.headers.get("content-type") || "").includes("text/html")) {
       return assetResponse;
     }
-    return transformMeta(assetResponse, meta);
+    return rewriteSeoHtml(assetResponse, meta);
   }
 };
