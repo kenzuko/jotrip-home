@@ -595,9 +595,9 @@
     const cards=visible.slice(0,60).map(row=>{
       const hasCoordinates=Number.isFinite(row.lat)&&Number.isFinite(row.lon);
       const query=hasCoordinates?row.lat+","+row.lon:exactMapQuery(row);
-      const osmSource=(row.source_refs||[]).find(source=>/^https:\/\/www\\.openstreetmap\\.org\/(?:node|way|relation)\//i.test(source.url||""));
+      const osmSource=(row.source_refs||[]).find(source=>String(source.url||"").startsWith("https://www.openstreetmap.org/"));
       const sourceUrl=osmSource?.url||"https://www.openstreetmap.org/copyright";
-      const verifyUrl=/^https:\/\/vinfastauto\\.com\//i.test(row.external_verify_url||"")?row.external_verify_url:null;
+      const verifyUrl=String(row.external_verify_url||"").startsWith("https://vinfastauto.com/")?row.external_verify_url:null;
       return '<article class="near-card community-candidate">'+
         '<span>'+esc(typeLabel(row))+' · Vị trí tham khảo</span>'+
         '<strong>'+esc(row.name)+'</strong>'+
@@ -670,6 +670,9 @@
         ?x.distance_km.toFixed(1)+(position?" km đường chim bay":" km từ tâm khu"):"";
       const type=typeLabel(x),query=exactMapQuery(x);
       const hasPin=validPoint({lat:x.lat,lon:x.lon});
+      const directorySource=(x.source_refs||[]).find(source=>String(source.url||"").startsWith("https://"));
+      const sourceLink=directorySource?'<small><a href="'+esc(directorySource.url)+'" target="_blank" rel="noopener noreferrer">Nguồn danh bạ</a></small>':"";
+      const phoneLabel=x.phone_scope==="CHAIN"?"Gọi tổng đài →":"Gọi →";
       const address=x.address||"Tìm theo tên địa điểm trên bản đồ";
       const unknownGroup=radiusKm!==null&&result.radiusUnknown&&index===result.radiusCount
         ?'<h3 class="near-unlocated-heading">Chưa xác định khoảng cách · không tính trong vòng '+radiusKm+' km</h3>':"";
@@ -682,12 +685,16 @@
         '<strong>'+esc(x.name)+'</strong>'+
         '<p>'+esc(address)+'</p>'+
         (openingHoursLabel(x)?'<small>'+esc(openingHoursLabel(x))+'</small>':"")+
+        (reliabilityLabel(x)?'<small>'+esc(reliabilityLabel(x))+'</small>':"")+
+        (x.map_review_note?'<small>'+esc(x.map_review_note)+'</small>':"")+
         (x.map?.note?'<small>'+esc(x.map.note)+'</small>':"")+
+        sourceLink+
         '<div>'+
           weatherCta+
-          (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">Gọi →</a>':"")+
+          (x.phone?'<a href="tel:'+esc(x.phone.replace(/\s/g,""))+'">'+phoneLabel+'</a>':"")+
           (hasPin?'<button type="button" data-map-id="'+esc(x.id)+'">Xem pin</button>':'<button type="button" data-map-query="'+esc(query)+'">Xem bản đồ</button>')+
           '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener">Đường đi ↗</a>'+
+          (x.external_verify_url?'<a href="'+esc(x.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra dịch vụ ↗</a>':"")+
           (x.route?'<a href="'+esc(x.route)+'">Thông tin →</a>':"")+
         '</div></article>';
     }).join("")+(visible.length>limited.length?'<div class="results-more">Còn '+(visible.length-limited.length)+' kết quả. Gõ tên cụ thể để tìm nhanh hơn.</div>':"");
