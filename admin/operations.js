@@ -83,6 +83,10 @@ async function boot(){
   }
   $("gate").hidden=true;
   $("workspace").hidden=false;
+  if(session.role!=="admin"||String(session.login).toLowerCase()!=="kenzuko"){
+   $("runningBtn").hidden=true;$("stoppedBtn").hidden=true;$("opsNote").disabled=true;
+   result("opsResult","Chỉ tài khoản chủ dự án được xác nhận trạng thái cano.");
+  }
   await Promise.allSettled([refreshStatus(),refreshNotes()]);
   if(!today)result("opsResult","Không tải được ngày vận hành. Tạm khóa thao tác để tránh ghi sai ngày.","error");
  }catch(e){
