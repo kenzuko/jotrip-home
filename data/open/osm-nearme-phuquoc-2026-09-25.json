@@ -1,13 +1,13 @@
 {
   "dataset": "Open Phu Quoc Near Me community POI extract",
-  "version": "2026-09-27",
+  "version": "2026-09-27b",
   "origin": "OpenStreetMap (© OpenStreetMap contributors)",
   "license": "ODbL-1.0",
   "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
   "attribution_url": "https://www.openstreetmap.org/copyright",
   "scope": "Only OSM-derived community POIs selected for Near Me; official operator and independently verified data are not part of this extract.",
   "disclaimer": "Community POIs are unverified: not evidence of current operation, valid pharmacy licenses, charger availability or verified entrances.",
-  "record_count": 89,
+  "record_count": 112,
   "records": [
     {
       "osm_ref": "node/10649396005",
@@ -55,6 +55,21 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/10680866305",
+      "osm_url": "https://www.openstreetmap.org/node/10680866305",
+      "name": "Baza Mart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1860371,
+        "lon": 103.9685875
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_10680866305",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "node/10736270908",
       "osm_url": "https://www.openstreetmap.org/node/10736270908",
       "name": "DDS - Bắc đảo (điểm cộng đồng)",
@@ -68,6 +83,36 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_10736270908",
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/11361784369",
+      "osm_url": "https://www.openstreetmap.org/node/11361784369",
+      "name": "Kim Thanh (tên OSM)",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.2234431,
+        "lon": 103.9661418
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11361784369",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
+      "osm_ref": "node/11377640769",
+      "osm_url": "https://www.openstreetmap.org/node/11377640769",
+      "name": "Hương Đảo (tên OSM)",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1855996,
+        "lon": 103.9681766
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11377640769",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "node/11843665982",
@@ -205,6 +250,21 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/11873236278",
+      "osm_url": "https://www.openstreetmap.org/node/11873236278",
+      "name": "Siêu Thị Điện Máy Xanh Gành Dầu",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.3706253,
+        "lon": 103.8411782
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873236278",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "node/11873249807",
       "osm_url": "https://www.openstreetmap.org/node/11873249807",
       "name": "Bách Hóa Tổng Hợp Lê Nguyễn",
@@ -250,6 +310,36 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/11873257796",
+      "osm_url": "https://www.openstreetmap.org/node/11873257796",
+      "name": "ĐIện Cơ Nhật Tân",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.3744872,
+        "lon": 103.8461731
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873257796",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
+      "osm_ref": "node/11873257798",
+      "osm_url": "https://www.openstreetmap.org/node/11873257798",
+      "name": "Cửa hàng điện thoại DAMTUYEN (OSM)",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.374327,
+        "lon": 103.8443452
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873257798",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "node/11886047087",
       "osm_url": "https://www.openstreetmap.org/node/11886047087",
       "name": "Thuốc Tây Như Thành",
@@ -263,6 +353,36 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11886047087",
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11930352235",
+      "osm_url": "https://www.openstreetmap.org/node/11930352235",
+      "name": "Giặt ủi Anh Tuấn",
+      "category": "LAUNDRY",
+      "coordinate": {
+        "lat": 10.2316028,
+        "lon": 103.9868651
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11930352235",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
+      "osm_ref": "node/11930352238",
+      "osm_url": "https://www.openstreetmap.org/node/11930352238",
+      "name": "Giặt ủi Khánh Khương",
+      "category": "LAUNDRY",
+      "coordinate": {
+        "lat": 10.2316503,
+        "lon": 103.9861985
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11930352238",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "node/11930352245",
@@ -293,6 +413,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11930352250",
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/11930375188",
+      "osm_url": "https://www.openstreetmap.org/node/11930375188",
+      "name": "CHGD VIETTEL HOÀNG ANH",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.2309396,
+        "lon": 103.9831522
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11930375188",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "node/11930375191",
@@ -398,6 +533,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11932334202",
       "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/11932334233",
+      "osm_url": "https://www.openstreetmap.org/node/11932334233",
+      "name": "Điện Lạnh Cửu Long",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.2353067,
+        "lon": 103.993018
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11932334233",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "node/11932334297",
@@ -535,6 +685,21 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/12638643444",
+      "osm_url": "https://www.openstreetmap.org/node/12638643444",
+      "name": "Sacombank ATM",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.1784119,
+        "lon": 103.9709938
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12638643444",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "node/13564293156",
       "osm_url": "https://www.openstreetmap.org/node/13564293156",
       "name": "KingKong Mart Mini",
@@ -625,6 +790,21 @@
       "origin_file": "data/entities/nearme-essential-20260926.json"
     },
     {
+      "osm_ref": "node/13722487401",
+      "osm_url": "https://www.openstreetmap.org/node/13722487401",
+      "name": "KTC - Bắc đảo (điểm cộng đồng)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.311303,
+        "lon": 103.8989469
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_13722487401",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "node/1606076855",
       "osm_url": "https://www.openstreetmap.org/node/1606076855",
       "name": "Sacombank",
@@ -698,6 +878,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_1650587749",
       "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/1650640835",
+      "osm_url": "https://www.openstreetmap.org/node/1650640835",
+      "name": "Cửa Hàng Xăng Dầu KTC",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.0200061,
+        "lon": 104.0168339
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_1650640835",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "node/2589014791",
@@ -805,6 +1000,36 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/4081631818",
+      "osm_url": "https://www.openstreetmap.org/node/4081631818",
+      "name": "Duong Dong Petro",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.408399,
+        "lon": 104.0286274
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_4081631818",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
+      "osm_ref": "node/4459581162",
+      "osm_url": "https://www.openstreetmap.org/node/4459581162",
+      "name": "Sacombank ATM",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.264091,
+        "lon": 103.9433086
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_4459581162",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "node/4461001332",
       "osm_url": "https://www.openstreetmap.org/node/4461001332",
       "name": "PQ Little Mart",
@@ -863,6 +1088,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_4566782392",
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/5003536524",
+      "osm_url": "https://www.openstreetmap.org/node/5003536524",
+      "name": "BIDV (điểm cộng đồng)",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.1628369,
+        "lon": 103.9981216
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_5003536524",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "node/5003536531",
@@ -970,6 +1210,21 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/6341016685",
+      "osm_url": "https://www.openstreetmap.org/node/6341016685",
+      "name": "A1 Market",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.2005339,
+        "lon": 103.9671382
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6341016685",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "node/6358477331",
       "osm_url": "https://www.openstreetmap.org/node/6358477331",
       "name": "Cửa Hàng Xăng Dầu DDS Petro",
@@ -998,6 +1253,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_6404037685",
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6468337552",
+      "osm_url": "https://www.openstreetmap.org/node/6468337552",
+      "name": "Cửa Hàng Xăng Dầu KTC",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.0361706,
+        "lon": 104.0151418
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6468337552",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "node/6473349151",
@@ -1043,6 +1313,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_6483568744",
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6483568745",
+      "osm_url": "https://www.openstreetmap.org/node/6483568745",
+      "name": "Thế Giới Di Động - An Thới",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.0187955,
+        "lon": 104.0153701
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568745",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "node/6483568747",
@@ -1195,6 +1480,21 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/7106149785",
+      "osm_url": "https://www.openstreetmap.org/node/7106149785",
+      "name": "Viettel",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.2234046,
+        "lon": 103.964546
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_7106149785",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "node/7183898787",
       "osm_url": "https://www.openstreetmap.org/node/7183898787",
       "name": "Bưu Điện An Thới",
@@ -1240,6 +1540,36 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/9664735667",
+      "osm_url": "https://www.openstreetmap.org/node/9664735667",
+      "name": "Cửa Hàng Xăng Dầu DDS Petro",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.0173163,
+        "lon": 104.0126531
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_9664735667",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
+      "osm_ref": "way/1267836868",
+      "osm_url": "https://www.openstreetmap.org/way/1267836868",
+      "name": "Kingkong Mart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1952361,
+        "lon": 103.9682484
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1267836868",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
       "osm_ref": "way/1270363430",
       "osm_url": "https://www.openstreetmap.org/way/1270363430",
       "name": "K+Mark",
@@ -1268,6 +1598,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_way_1270911440",
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "way/1282342453",
+      "osm_url": "https://www.openstreetmap.org/way/1282342453",
+      "name": "Luong Mini Market",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.2626208,
+        "lon": 103.9387963
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1282342453",
+      "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
     },
     {
       "osm_ref": "way/1291272851",
