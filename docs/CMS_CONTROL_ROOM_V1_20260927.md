@@ -44,6 +44,8 @@ người quản trị thấy việc cần xác minh, PR đang chờ và bản nh
 
 - Unit: node scripts/test-cms-control-room.mjs
 - Browser có mock backend: node scripts/visual-qa-cms-control-room.mjs
+- Bản xem trước public chỉ dùng mock: `/admin/control-room-preview.html`, có noindex
+  và không gọi endpoint CMS; không chứa API key, session hay dữ liệu thật.
 - Workflow riêng: .github/workflows/cms-control-room-qa.yml (PR)
 - Kiểm tra desktop 1440x900, mobile 390x844, không overflow, quyền editor/admin,
   điều hướng tới editor, trạng thái lỗi một nguồn, không có POST khi tải dashboard.
