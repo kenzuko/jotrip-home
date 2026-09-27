@@ -92,7 +92,7 @@ export async function onRequest({request,env}){
   if(file&&typeof file.arrayBuffer==="function"&&file.size>0){
    mime=String(file.type||"");
    if(!["image/jpeg","image/png","image/webp","application/pdf"].includes(mime))return reply({error:"Chỉ hỗ trợ ảnh hoặc PDF"},415);
-   if(file.size>3*1024*1024)return reply({error:"File phải nhỏ hơn 3 MB"},413);
+   if(file.size>1500000)return reply({error:"File quá 1,5 MB. Ảnh nên thu gọn trước khi gửi; PDF cần nén nhỏ hơn."},413);
    name=String(file.name||"bulletin").replace(/[^a-zA-Z0-9._-]/g,"_").slice(0,80);
    bytes=await file.arrayBuffer();
    const digest=new Uint8Array(await crypto.subtle.digest("SHA-256",bytes));
