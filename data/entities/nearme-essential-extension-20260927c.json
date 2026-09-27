@@ -1,0 +1,491 @@
+{
+  "schema_version": "1.0",
+  "batch_date": "2026-09-27",
+  "batch_id": "2026-09-27c",
+  "scope": "10 distinct named community essentials from 96 remaining OSM candidates; prioritizes named local markets at Ganh Dau, Ham Ninh, An Thoi and practical local services. OSM GPS is never a verified entrance or live status.",
+  "origin": "2026-09-25 selected spreadsheet OSM review and research/near-go/2026-09-26",
+  "osm_license": "ODbL-1.0 © OpenStreetMap contributors",
+  "reviewed_records": 10,
+  "entities": [
+    {
+      "id": "utility_osm_node_11849971190",
+      "entity_type": "utility",
+      "name": "Chợ Gành Dầu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Gành Dầu - Bắc đảo",
+      "group": "Chợ",
+      "utility_type": "MARKET",
+      "address": "Khu vực Gành Dầu - Bắc đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Chợ ở khu vực Gành Dầu theo OpenStreetMap. Chưa xác minh cổng, quyền vào và giờ họp chợ.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11849971190",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_node_11849971190",
+        "original_osm_name": "Chợ Gành Dầu",
+        "original_category": "MARKET",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.3731575,
+        "lon": 103.8474338,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_way_1276691661",
+      "entity_type": "utility",
+      "name": "Chợ hải sản Gành Dầu (tên OSM)",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Bờ biển Gành Dầu",
+      "group": "Chợ",
+      "utility_type": "MARKET",
+      "address": "Khu vực Bờ biển Gành Dầu, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Điểm chợ hải sản cộng đồng ghi nhận, cách chợ Gành Dầu trong đất liền; chưa xác minh phạm vi hay giờ họp.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/way/1276691661",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_way_1276691661",
+        "original_osm_name": "Chợ Hải Sản Gành Dầu Phú Quốc",
+        "original_category": "MARKET",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.3704072,
+        "lon": 103.8408699,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_node_7629278439",
+      "entity_type": "utility",
+      "name": "Chợ An Thới",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "zone_hint": "An Thới - Nam đảo",
+      "group": "Chợ",
+      "utility_type": "MARKET",
+      "address": "Khu vực An Thới - Nam đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Chợ tại An Thới theo OpenStreetMap; xác minh giờ và cổng cụ thể trước khi đi.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/7629278439",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_node_7629278439",
+        "original_osm_name": "Chợ An Thới",
+        "original_category": "MARKET",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.0176177,
+        "lon": 104.0137681,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_way_468359782",
+      "entity_type": "utility",
+      "name": "Chợ Hàm Ninh (tên OSM)",
+      "aliases": [],
+      "zone_id": null,
+      "zone_hint": "Hàm Ninh - Đông đảo",
+      "group": "Chợ",
+      "utility_type": "MARKET",
+      "address": "Khu vực Hàm Ninh - Đông đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "OpenStreetMap ghi Ham Ninh Market; vị trí tâm khu chợ chỉ dùng định hướng, không phải cổng.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/way/468359782",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_way_468359782",
+        "original_osm_name": "Ham Ninh Market",
+        "original_category": "SUPERMARKET",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.1804348,
+        "lon": 104.0474713,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_node_11873236308",
+      "entity_type": "utility",
+      "name": "Điện thoại Nam Mạnh Linh (tên OSM)",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Gành Dầu - Bắc đảo",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Gành Dầu - Bắc đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Điểm kinh doanh điện thoại theo OpenStreetMap, chưa xác minh tên pháp nhân, tồn hàng và giờ mở.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11873236308",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_node_11873236308",
+        "original_osm_name": "Điện Thoại Di Động VS Thời Trang Nam Mạnh Linh",
+        "original_category": "PHONE_SIM",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.3711635,
+        "lon": 103.8447992,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_node_6387620585",
+      "entity_type": "utility",
+      "name": "MobiFone - điểm cộng đồng Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông - Tây đảo",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Dương Đông - Tây đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "OpenStreetMap ghi MobiFone tại khu này, chưa xác minh đây là điểm chính thức hoặc còn giao dịch.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/6387620585",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_node_6387620585",
+        "original_osm_name": "Mobifone",
+        "original_category": "PHONE_SIM",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2234084,
+        "lon": 103.9715683,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_node_11932334080",
+      "entity_type": "utility",
+      "name": "Mạnh Linh Smartphone (tên OSM)",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Cửa Dương - Dương Đông",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Cửa Dương - Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng điện thoại do cộng đồng ghi nhận; chưa xác minh còn phục vụ hoặc số liên hệ.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11932334080",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_node_11932334080",
+        "original_osm_name": "Cửa hàng Điện thoại Di Động Mạnh Linh Smartphone",
+        "original_category": "PHONE_SIM",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2437504,
+        "lon": 103.9863561,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_node_12638644166",
+      "entity_type": "utility",
+      "name": "Gara ô tô tận hue (tên OSM)",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Bãi Trường - Tây đảo",
+      "group": "Sửa xe",
+      "utility_type": "VEHICLE_REPAIR",
+      "address": "Khu vực Bãi Trường - Tây đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "OpenStreetMap ghi điểm sửa ô tô; tên, nhận xe và giờ hoạt động chưa xác minh.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/12638644166",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_node_12638644166",
+        "original_osm_name": "Gara ô tô tận hue",
+        "original_category": "VEHICLE_REPAIR",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.1785373,
+        "lon": 103.9708775,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_node_10736675372",
+      "entity_type": "utility",
+      "name": "Nam Vu'o'ng (tên OSM)",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Cửa Cạn - Bắc đảo",
+      "group": "Tạp hóa & siêu thị",
+      "utility_type": "GROCERY",
+      "address": "Khu vực Cửa Cạn - Bắc đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng do OpenStreetMap gắn nhãn supermarket ở Cửa Cạn; tên và tình trạng mở cần đối chiếu.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/10736675372",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_node_10736675372",
+        "original_osm_name": "Nam Vu'o'ng",
+        "original_category": "SUPERMARKET",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2930531,
+        "lon": 103.9121582,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    },
+    {
+      "id": "utility_osm_node_6361980929",
+      "entity_type": "utility",
+      "name": "T Mart (tên OSM)",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Bãi Trường - Tây đảo",
+      "group": "Tạp hóa & siêu thị",
+      "utility_type": "GROCERY",
+      "address": "Khu vực Bãi Trường - Tây đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "OpenStreetMap ghi T Mart; chưa xác minh hàng hóa, tên bảng hiệu hay giờ bán.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/6361980929",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27c",
+        "prior_record_id": "utility_osm_node_6361980929",
+        "original_osm_name": "T Mart",
+        "original_category": "SUPERMARKET",
+        "verified_identity": false,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Sàng lọc nhóm còn chờ từ kho 208, tách điểm cùng tên theo OSM ID; tọa độ chỉ để tham khảo và không dùng xếp khoảng cách GPS chính xác."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.1593433,
+        "lon": 103.9782538,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      }
+    }
+  ]
+}

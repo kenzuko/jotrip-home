@@ -1,13 +1,13 @@
 {
   "dataset": "Open Phu Quoc Near Me community POI extract",
-  "version": "2026-09-27b",
+  "version": "2026-09-27c",
   "origin": "OpenStreetMap (© OpenStreetMap contributors)",
   "license": "ODbL-1.0",
   "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
   "attribution_url": "https://www.openstreetmap.org/copyright",
   "scope": "Only OSM-derived community POIs selected for Near Me; official operator and independently verified data are not part of this extract.",
   "disclaimer": "Community POIs are unverified: not evidence of current operation, valid pharmacy licenses, charger availability or verified entrances.",
-  "record_count": 112,
+  "record_count": 122,
   "records": [
     {
       "osm_ref": "node/10649396005",
@@ -85,6 +85,21 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/10736675372",
+      "osm_url": "https://www.openstreetmap.org/node/10736675372",
+      "name": "Nam Vu'o'ng (tên OSM)",
+      "category": "GROCERY",
+      "coordinate": {
+        "lat": 10.2930531,
+        "lon": 103.9121582
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_10736675372",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
+    },
+    {
       "osm_ref": "node/11361784369",
       "osm_url": "https://www.openstreetmap.org/node/11361784369",
       "name": "Kim Thanh (tên OSM)",
@@ -143,6 +158,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11849971189",
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/11849971190",
+      "osm_url": "https://www.openstreetmap.org/node/11849971190",
+      "name": "Chợ Gành Dầu",
+      "category": "MARKET",
+      "coordinate": {
+        "lat": 10.3731575,
+        "lon": 103.8474338
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11849971190",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
     },
     {
       "osm_ref": "node/11849971252",
@@ -263,6 +293,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11873236278",
       "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
+      "osm_ref": "node/11873236308",
+      "osm_url": "https://www.openstreetmap.org/node/11873236308",
+      "name": "Điện thoại Nam Mạnh Linh (tên OSM)",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.3711635,
+        "lon": 103.8447992
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873236308",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
     },
     {
       "osm_ref": "node/11873249807",
@@ -473,6 +518,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11930375256",
       "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/11932334080",
+      "osm_url": "https://www.openstreetmap.org/node/11932334080",
+      "name": "Mạnh Linh Smartphone (tên OSM)",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.2437504,
+        "lon": 103.9863561
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11932334080",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
     },
     {
       "osm_ref": "node/11932334086",
@@ -698,6 +758,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_12638643444",
       "origin_file": "data/entities/nearme-essential-extension-20260927b.json"
+    },
+    {
+      "osm_ref": "node/12638644166",
+      "osm_url": "https://www.openstreetmap.org/node/12638644166",
+      "name": "Gara ô tô tận hue (tên OSM)",
+      "category": "VEHICLE_REPAIR",
+      "coordinate": {
+        "lat": 10.1785373,
+        "lon": 103.9708775
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12638644166",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
     },
     {
       "osm_ref": "node/13564293156",
@@ -1240,6 +1315,36 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/6361980929",
+      "osm_url": "https://www.openstreetmap.org/node/6361980929",
+      "name": "T Mart (tên OSM)",
+      "category": "GROCERY",
+      "coordinate": {
+        "lat": 10.1593433,
+        "lon": 103.9782538
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6361980929",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
+    },
+    {
+      "osm_ref": "node/6387620585",
+      "osm_url": "https://www.openstreetmap.org/node/6387620585",
+      "name": "MobiFone - điểm cộng đồng Dương Đông",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.2234084,
+        "lon": 103.9715683
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6387620585",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
+    },
+    {
       "osm_ref": "node/6404037685",
       "osm_url": "https://www.openstreetmap.org/node/6404037685",
       "name": "ATM Vietcombank",
@@ -1525,6 +1630,21 @@
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
+      "osm_ref": "node/7629278439",
+      "osm_url": "https://www.openstreetmap.org/node/7629278439",
+      "name": "Chợ An Thới",
+      "category": "MARKET",
+      "coordinate": {
+        "lat": 10.0176177,
+        "lon": 104.0137681
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_7629278439",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
+    },
+    {
       "osm_ref": "node/8231093534",
       "osm_url": "https://www.openstreetmap.org/node/8231093534",
       "name": "KingBear",
@@ -1598,6 +1718,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_way_1270911440",
       "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "way/1276691661",
+      "osm_url": "https://www.openstreetmap.org/way/1276691661",
+      "name": "Chợ hải sản Gành Dầu (tên OSM)",
+      "category": "MARKET",
+      "coordinate": {
+        "lat": 10.3704072,
+        "lon": 103.8408699
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1276691661",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
     },
     {
       "osm_ref": "way/1282342453",
@@ -1688,6 +1823,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_way_1498391976",
       "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "way/468359782",
+      "osm_url": "https://www.openstreetmap.org/way/468359782",
+      "name": "Chợ Hàm Ninh (tên OSM)",
+      "category": "MARKET",
+      "coordinate": {
+        "lat": 10.1804348,
+        "lon": 104.0474713
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_468359782",
+      "origin_file": "data/entities/nearme-essential-extension-20260927c.json"
     }
   ]
 }

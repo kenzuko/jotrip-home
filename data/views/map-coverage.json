@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-27T02:15:02.404Z",
+  "generated_at": "2026-09-27T03:15:59.589Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -19,8 +19,8 @@
     "rule": "Ưu tiên tọa độ đã xác minh. Nếu chưa có, có thể dùng tọa độ suy từ Google Maps theo tên/địa chỉ khi lưu đủ nguồn, ngày kiểm tra và precision. area_anchor chỉ dùng định hướng vùng."
   },
   "summary": {
-    "candidate_count": 382,
-    "ready_count": 210,
+    "candidate_count": 392,
+    "ready_count": 220,
     "missing_count": 172
   },
   "layers": {
@@ -3114,6 +3114,126 @@
         "lookup_query": "CS68 - Cửa hàng tiện lợi Sunset Town, Sorento 2, Sunset Town, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
+      },
+      {
+        "id": "utility_osm_node_11849971190",
+        "name": "Chợ Gành Dầu",
+        "type": "utility",
+        "lat": 10.3731575,
+        "lon": 103.8474338,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_way_1276691661",
+        "name": "Chợ hải sản Gành Dầu (tên OSM)",
+        "type": "utility",
+        "lat": 10.3704072,
+        "lon": 103.8408699,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_node_7629278439",
+        "name": "Chợ An Thới",
+        "type": "utility",
+        "lat": 10.0176177,
+        "lon": 104.0137681,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_way_468359782",
+        "name": "Chợ Hàm Ninh (tên OSM)",
+        "type": "utility",
+        "lat": 10.1804348,
+        "lon": 104.0474713,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_node_11873236308",
+        "name": "Điện thoại Nam Mạnh Linh (tên OSM)",
+        "type": "utility",
+        "lat": 10.3711635,
+        "lon": 103.8447992,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_node_6387620585",
+        "name": "MobiFone - điểm cộng đồng Dương Đông",
+        "type": "utility",
+        "lat": 10.2234084,
+        "lon": 103.9715683,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_node_11932334080",
+        "name": "Mạnh Linh Smartphone (tên OSM)",
+        "type": "utility",
+        "lat": 10.2437504,
+        "lon": 103.9863561,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_node_12638644166",
+        "name": "Gara ô tô tận hue (tên OSM)",
+        "type": "utility",
+        "lat": 10.1785373,
+        "lon": 103.9708775,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_node_10736675372",
+        "name": "Nam Vu'o'ng (tên OSM)",
+        "type": "utility",
+        "lat": 10.2930531,
+        "lon": 103.9121582,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_osm_node_6361980929",
+        "name": "T Mart (tên OSM)",
+        "type": "utility",
+        "lat": 10.1593433,
+        "lon": 103.9782538,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
       }
     ]
   },
