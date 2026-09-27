@@ -30,9 +30,12 @@ const qualityHtml=sandbox.renderQualityTasks([{
   surface:"Bản đồ",
   evidence:"Thiếu nguồn",
   next_action:"Ghi nguồn"
-}]);
+}],true);
 assert.match(qualityHtml,/module=venues&amp;record=venue%2Fone&amp;field=coordinate_source_ref/);
 assert.match(qualityHtml,/Mở đúng trường/);
+assert.match(qualityHtml,/data-quality-action="refresh"/);
+assert.doesNotMatch(qualityHtml,/data-quality-action="resolve"/);
+assert.doesNotMatch(qualityHtml,/data-quality-action="mute"/);
 
 const reviewHtml=sandbox.renderReviewTasks([{
   number:42,title:"<img src=x>",draft:false,author:"editor",updated_at:"2026-09-23",

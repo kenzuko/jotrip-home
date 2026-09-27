@@ -15,6 +15,7 @@ assert.equal(normalize({latitude:0,longitude:0}).map,null,"0,0 is not Phu Quoc")
 assert.equal(normalize({latitude:10.2172,longitude:null}).map,null,"Incomplete coordinate pairs cannot create pins");
 assert.equal(normalize({latitude:10.2172,longitude:103.9593}).map.precision,"unverified","No fabricated location precision");
 assert.equal(normalize({latitude:10.2172,longitude:103.9593,geo_precision:"site_centroid"}).map.precision,"site_centroid");
+assert.deepEqual(normalize({latitude:10.2172,longitude:103.9593,coordinate_precision:"entrance",coordinate_source_ref:"official_map",coordinate_observed_at:"2026-09-26"}).map,{lat:10.2172,lon:103.9593,precision:"entrance",source:"official_map",verified_at:"2026-09-26"},"CMS coordinate evidence must reach Near Me without a parallel schema");
 assert.equal(normalize({zone_code:"south"}).zone_id,"zone_south","South filter must match CMS venue");
 assert.equal(normalize({zone_code:"duong_dong"}).zone_id,"zone_central_west");
 assert.equal(normalize({zone_code:"long_beach"}).zone_id,"zone_central_west");

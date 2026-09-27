@@ -86,6 +86,17 @@ try{
   assert.equal(events[0][3],"claim");
   assert.equal(events[0][4],"null");
   assert.equal(events[1][3],"due");
+  const rejectedResolve=await onRequest({request:request(true,"POST",{task_key,action:"resolve"}),env});
+  assert.equal(rejectedResolve.status,409);
+  const rejectedMute=await onRequest({request:request(true,"POST",{task_key,action:"mute"}),env});
+  assert.equal(rejectedMute.status,409);
+  rows[task_key].status="resolved";
+  const afterResolved=await (await onRequest({request:request(true),env})).json();
+  assert.equal(afterResolved.tasks.find(x=>x.entity_id===task.entity_id&&x.rule_id===task.rule_id).status,"open");
+  rows[task_key].status="muted";
+  rows[task_key].muted_until=new Date(Date.now()+86400000).toISOString();
+  const afterMuted=await (await onRequest({request:request(true),env})).json();
+  assert.equal(afterMuted.tasks.find(x=>x.entity_id===task.entity_id&&x.rule_id===task.rule_id).status,"open");
   const migration=fs.readFileSync(path.join(process.cwd(),"migrations/d1/0001_cms_quality_work_items.sql"),"utf8");
   const sqlCheck=spawnSync("python3",["-c","import sqlite3,sys; db=sqlite3.connect(':memory:'); db.executescript('CREATE TABLE analytics_sync (source TEXT PRIMARY KEY); CREATE TABLE cms_weather_field_feedback (id TEXT PRIMARY KEY);'); db.executescript(sys.stdin.read()); names={r[0] for r in db.execute(\"SELECT name FROM sqlite_master WHERE type='table'\")}; assert {'analytics_sync','cms_weather_field_feedback','cms_quality_work_items','cms_quality_audit_events'} <= names"],{input:migration,encoding:"utf8"});
   assert.equal(sqlCheck.status,0,sqlCheck.stderr||sqlCheck.stdout);

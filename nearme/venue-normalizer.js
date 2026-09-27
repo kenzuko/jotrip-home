@@ -32,7 +32,7 @@
     if(!item||item.status!=="ACTIVE"||!item.id||!item.name)return null;
     const coords=phuQuocCoordinates(item);
     const category=String(item.category||"").trim();
-    const precision=item.map?.precision||item.geo_precision||"unverified";
+    const precision=item.map?.precision||item.coordinate_precision||item.geo_precision||item.precision||"unverified";
     return {
       id:item.id,
       entity_type:"venue",
@@ -47,7 +47,7 @@
       utility_type:category,
       group:category,
       route:item.route||null,
-      map:coords.lat===null?null:{...coords,precision},
+      map:coords.lat===null?null:{...coords,precision,source:item.coordinate_source_ref||item.map?.source||null,verified_at:item.coordinate_observed_at||item.map?.verified_at||null},
       lat:coords.lat,
       lon:coords.lon,
       map_precision:coords.lat===null?null:precision,
