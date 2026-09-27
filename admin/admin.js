@@ -1736,6 +1736,7 @@ async function selectModule(id){
   }
   const requestId=++moduleRequestId;
   window.OPQControlRoom?.unmount();
+  window.OPQAnalyticsV3?.unmount();
   window.OPQTrafficDashboard?.unmount();
   window.OPQEditorWorkflow?.stop();
   $("#cmsLayout")?.classList.toggle("cms-dashboard",id==="dashboard");
