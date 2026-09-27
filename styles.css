@@ -6176,14 +6176,14 @@ body.sheet-open{
 }
 .home-chapter-intro--utility h2{font-size:clamp(19px,1.9vw,25px)}
 .home-chapter-intro--utility p{font-size:12px}
-#top>.home-chapter-intro--utility+.home-currency-section{
+#top>.home-currency-section{
   padding-top:20px!important;
 }
-#top>.home-chapter-intro--utility~.explore-more-section{
+#top>.explore-more-section{
   padding-top:24px!important;
 }
 /* Decision modules lead into one another instead of being isolated banners. */
-#top>.home-chapter-intro--decision+.trip-clock-section{
+#top>.trip-clock-section{
   padding-top:18px!important;
 }
 #top>.home-go-section{margin-top:11px;margin-bottom:6px}
@@ -6193,7 +6193,7 @@ body.sheet-open{
 }
 #top>.home-library-section{margin-top:4px}
 #top>.discover-section{border-top:1px solid #ebeee6}
-#top>.home-chapter-intro--utility~.explore-more-section{
+#top>.explore-more-section{
   padding-bottom:32px!important;
 }
 @media(max-width:760px){
@@ -6237,7 +6237,7 @@ body.sheet-open{
     margin-top:17px;
   }
   .home-chapter-intro--utility h2{font-size:20px}
-  #top>.home-chapter-intro--decision+.trip-clock-section{
+  #top>.trip-clock-section{
     padding-top:18px!important;
   }
   #top>.home-go-section{margin-top:6px}
@@ -6245,7 +6245,7 @@ body.sheet-open{
   #top>.home-chapter-intro--editorial+.hot-now-section{
     padding-top:18px!important;
   }
-  #top>.home-chapter-intro--utility+.home-currency-section{
+  #top>.home-currency-section{
     padding-top:15px!important;
   }
 }
