@@ -1,0 +1,49 @@
+:root{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#173c3c;background:#f5f9f7}
+*{box-sizing:border-box}body{margin:0}a{color:#236c63;text-decoration:none}button,input,textarea{font:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #6ab6aa;outline-offset:3px}
+.ops-header{background:#fff;border-bottom:1px solid #dbe9e5;min-height:69px;padding:10px max(20px,calc((100vw - 1120px)/2));display:flex;align-items:center;gap:16px;justify-content:space-between}
+.ops-header img{width:128px;height:46px;object-fit:contain}
+.ops-header nav{display:flex;gap:18px;font-size:14px;font-weight:700}
+.ops-main{max-width:1040px;margin:auto;padding:26px 16px 68px}
+.ops-title{margin:4px 0 24px}.eyebrow{display:block;font-size:11px;letter-spacing:.09em;font-weight:800;color:#44827b}
+.ops-title h1{font-size:clamp(26px,4vw,38px);margin:7px 0}.ops-title p{font-size:15px;margin:0;color:#627b79}
+.ops-card{background:#fff;border:1px solid #dfebe7;box-shadow:0 9px 30px rgba(27,72,63,.035);border-radius:18px;padding:clamp(18px,3vw,26px);margin:0 0 18px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px}
+.section-head h2{font-size:21px;margin:4px 0}.section-head a{font-weight:800;font-size:14px}
+.date-tag,.lock-tag{font-size:12px;font-weight:800;border-radius:999px;padding:9px 12px;background:#e9f7f1;color:#2b7359;white-space:nowrap}
+.lock-tag{background:#f0f5f6;color:#4b737b}
+.ops-current{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:18px 0 22px;font-size:13px;color:#678080}
+.ops-state{border-radius:13px;padding:11px 14px;font-size:17px}
+.ops-state.running{background:#e6f5e7;color:#266b36}
+.ops-state.stopped{background:#fcefeb;color:#ad4539}
+.ops-state.unknown{background:#fff7e3;color:#896a29}
+.field-title{font-size:14px;font-weight:700;display:flex;justify-content:space-between;gap:8px;margin-bottom:7px}
+.field-title span{color:#708985;font-size:12px;font-weight:500}
+textarea,input{border:1px solid #c8dbd5;border-radius:11px;padding:11px 12px;width:100%;background:#fff;color:#203e3a;font-size:15px}
+textarea{resize:vertical}
+.ops-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.btn{min-height:47px;border:0;border-radius:12px;padding:12px 16px;font-weight:800;cursor:pointer;font-size:14px}
+.btn:disabled{opacity:.55;cursor:wait}
+.btn.running{background:#27754e;color:#fff}
+.btn.stopped{background:#a63d32;color:#fff}
+.btn.archive{background:#174a46;color:#fff;margin-top:16px}
+.result{font-size:13px;line-height:1.5;color:#667e7a;margin:12px 0 0}
+.result.error{color:#ae3b35;font-weight:750}.result.success{color:#287347;font-weight:750}
+.section-lead{font-size:14px;line-height:1.65;color:#5b7471;margin:0 0 18px}
+.ops-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.ops-grid label,#bulletinForm>label{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:750;color:#42615d}
+#bulletinForm>label{margin-top:16px}
+.upload-label{border:1px dashed #bdd8d1;border-radius:13px;padding:14px}
+.upload-label input{border:0;padding:4px 0}
+.upload-label small{font-size:12px;font-weight:400;color:#637e79}
+.bulletin-list{display:grid;gap:10px}
+.bulletin-list details{border:1px solid #e0ebe8;border-radius:12px;overflow:hidden}
+.bulletin-list summary{cursor:pointer;list-style:none;display:flex;gap:10px;padding:13px;align-items:center;font-size:14px}
+.bulletin-list summary::-webkit-details-marker{display:none}
+.bulletin-list summary span{color:#627f79;font-size:12px}
+.bulletin-list summary strong{margin-right:auto}
+.bulletin-list details[open] summary{background:#f4faf7}
+.bulletin-body{padding:13px;font-size:14px;line-height:1.65}.bulletin-body p{margin:0 0 7px}
+.bulletin-body a{display:inline-block;font-weight:750;margin-top:7px}
+#workspace[hidden]{display:none}
+@media(max-width:680px){.ops-header{padding:10px 15px}.ops-header img{width:105px}.ops-header nav{gap:10px;font-size:12px}.ops-grid{grid-template-columns:1fr}.ops-actions{display:grid}.ops-actions .btn{width:100%}.section-head{align-items:flex-start}.date-tag{font-size:11px}.ops-state{font-size:16px}}
