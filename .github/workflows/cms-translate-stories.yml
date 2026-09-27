@@ -1,0 +1,58 @@
+name: Prepare CMS story translations
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/content.json
+      - data/knowledge/**
+      - data/visual-context.json
+      - '**/*.html'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+concurrency:
+  group: cms-translation
+  cancel-in-progress: false
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Translate changed Vietnamese stories
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENPQ_TRANSLATION_MODEL: ${{ vars.OPENPQ_TRANSLATION_MODEL }}
+        run: node scripts/translate-stories.mjs
+      - name: Build public knowledge and translate changed Vietnamese guides
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENPQ_TRANSLATION_MODEL: ${{ vars.OPENPQ_TRANSLATION_MODEL }}
+        run: |
+          node scripts/build-knowledge-public.mjs
+          node scripts/translate-knowledge.mjs
+      - name: Translate changed static public page copy
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENPQ_TRANSLATION_MODEL: ${{ vars.OPENPQ_TRANSLATION_MODEL }}
+        run: node scripts/translate-ui.mjs
+      - name: Open editorial review PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data/i18n; then
+            echo 'Translations are current.'
+            exit 0
+          fi
+          branch="cms/translations-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c "$branch"
+          git add data/i18n
+          git commit -m 'cms: prepare translations for editorial review'
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" --title 'CMS: review Vietnamese story and guide translations' --body 'Generated translations are marked review. Check local names, practical guidance, dates, captions and paragraph structure before changing status to published and merging.'

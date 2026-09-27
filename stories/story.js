@@ -3,6 +3,7 @@ const VISUALS="../data/visual-context.json";
 const ZONES="../data/entities/zones.json";
 const $=s=>document.querySelector(s);
 const LANGUAGES={vi:"Tiếng Việt",en:"English",ko:"한국어",ru:"Русский",lo:"ລາວ",zh:"简体中文","zh-TW":"繁體中文",fr:"Français"};
+const fallbackNotice={en:"A reviewed translation is not available yet. This article is shown in Vietnamese.",ko:"검토된 번역이 아직 없어 베트남어로 표시합니다.",ru:"Проверенный перевод пока недоступен. Статья показана на вьетнамском языке.",lo:"ຍັງບໍ່ມີຄໍາແປທີ່ກວດສອບແລ້ວ. ບົດຄວາມນີ້ສະແດງເປັນພາສາຫວຽດ.",zh:"尚无经过审核的译文。本文显示越南语。","zh-TW":"尚無經過審核的譯文。本文顯示越南語。",fr:"La traduction vérifiée est en préparation. Cet article est affiché en vietnamien."};
 const preferred=()=>{
   const explicit=new URLSearchParams(location.search).get("lang");
   const saved=localStorage.getItem("openpq-language");
@@ -12,25 +13,36 @@ const preferred=()=>{
   return LANGUAGES[locale]?locale:"vi";
 };
 let activeLanguage=preferred();
+const sourceFields=s=>({title:s.title,category:s.category,dek:s.dek,intro:s.intro,sections:s.sections,image_alt:s.image_alt,image_caption:s.image_caption});
+async function sourceHash(story){
+  const bytes=new TextEncoder().encode(JSON.stringify(sourceFields(story)));
+  const digest=await crypto.subtle.digest("SHA-256",bytes);
+  return Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,"0")).join("");
+}
+async function attachTranslations(data){
+  if(activeLanguage==="vi")return data;
+  try{
+    const response=await fetch("../data/i18n/"+encodeURIComponent(activeLanguage)+"/stories.json",{cache:"no-store"});
+    if(!response.ok)return data;
+    const catalog=await response.json();
+    if(catalog.locale!==activeLanguage)return data;
+    await Promise.all(data.stories.map(async story=>{
+      const variant=catalog.stories?.[story.id];
+      if(variant?.status!=="published"||variant.source_hash!==await sourceHash(story))return;
+      if(!variant.title||!variant.intro||!Array.isArray(variant.sections)||variant.sections.length!==story.sections.length)return;
+      story.translations={...story.translations,[activeLanguage]:variant};
+    }));
+  }catch(error){console.warn("Translation catalog unavailable",error)}
+  return data;
+}
 const translated=(story)=>{
   const variant=story.translations?.[activeLanguage];
-  return variant?.status==="published"?{...story,...variant,sections:variant.sections||story.sections}:story;
+  return variant?.status==="published"?{
+    ...story,...variant,
+    sections:story.sections.map((section,i)=>({...section,heading:variant.sections[i].heading,body:variant.sections[i].body}))
+  }:story;
 };
-function languagePicker(){
-  const target=document.querySelector(".top-actions");
-  if(!target)return;
-  const select=document.createElement("select");
-  select.setAttribute("aria-label","Ngôn ngữ / Language");
-  select.className="story-language";
-  select.innerHTML=Object.entries(LANGUAGES).map(([code,label])=>'<option value="'+code+'">'+label+'</option>').join("");
-  select.value=activeLanguage;
-  select.addEventListener("change",()=>{
-    localStorage.setItem("openpq-language",select.value);
-    const url=new URL(location.href);url.searchParams.set("lang",select.value);location.assign(url);
-  });
-  target.prepend(select);
-}
-languagePicker();
+
 
 async function load(){
   const r=await fetch(CONTENT+"?t="+Date.now(),{cache:"no-store"});
@@ -63,7 +75,7 @@ function setCanonical(url){
 function applyStoryMeta(story){
   const title=story.title+" - Open Phu Quoc";
   const description=story.dek||story.intro||"Câu chuyện về Phú Quốc.";
-  const url="https://cms.openphuquoc.com/stories/article.html?id="+encodeURIComponent(story.id);
+  const url="https://cms.openphuquoc.com/stories/article.html?id="+encodeURIComponent(story.id)+(document.documentElement.lang!=="vi"?"&lang="+encodeURIComponent(activeLanguage):"");
   const image=story.image||"https://cms.openphuquoc.com/assets/logo-master.png";
   document.title=title;
   setCanonical(url);
@@ -74,6 +86,7 @@ function applyStoryMeta(story){
   setMeta('meta[property="og:url"]',"content",url);
   setMeta('meta[property="og:image"]',"content",image);
   setMeta('meta[property="og:image:alt"]',"content",story.title);
+  setMeta('meta[property="og:locale"]',"content",({en:"en_US",ko:"ko_KR",ru:"ru_RU",lo:"lo_LA",zh:"zh_CN","zh-TW":"zh_TW",fr:"fr_FR"})[document.documentElement.lang]||"vi_VN");
   setMeta('meta[name="twitter:card"]',"content","summary_large_image");
   setMeta('meta[name="twitter:title"]',"content",title);
   setMeta('meta[name="twitter:description"]',"content",description);
@@ -82,7 +95,7 @@ function applyStoryMeta(story){
 
 function card(s){
   s=translated(s);
-  return '<a class="story-card" href="article.html?id='+encodeURIComponent(s.id)+'&lang='+encodeURIComponent(activeLanguage)+'">'+
+  return '<a class="story-card" lang="'+(s.translations?.[activeLanguage]?.status==="published"?esc(activeLanguage):"vi")+'" href="article.html?id='+encodeURIComponent(s.id)+'&lang='+encodeURIComponent(activeLanguage)+'">'+
     '<img src="'+esc(s.image)+'" alt="'+esc(s.image_alt||s.title)+'" onerror="this.style.opacity=.18">'+
     '<div class="story-copy">'+
       '<span>'+esc(s.category)+'</span>'+
@@ -157,7 +170,7 @@ function renderArticle(data,visualData,zones){
   if(activeLanguage!=="vi"&&s===original){
     const notice=document.createElement("p");
     notice.className="translation-notice";
-    notice.textContent="Bản dịch đang được chuẩn bị. Bài viết hiện hiển thị bằng tiếng Việt.";
+    notice.textContent=fallbackNotice[activeLanguage];
     $("#articleRoot").before(notice);
   }
 
@@ -209,7 +222,7 @@ function renderArticle(data,visualData,zones){
   }
 }
 
-load().then(async data=>{
+load().then(attachTranslations).then(async data=>{
   const grid=$("#storyGrid");
   if(grid){
     grid.innerHTML=data.stories.map(card).join("");
@@ -217,7 +230,7 @@ load().then(async data=>{
     if(activeLanguage!=="vi"&&document.documentElement.lang==="vi"){
       const notice=document.createElement("p");
       notice.className="translation-notice";
-      notice.textContent="Một số bài chưa có bản dịch. Bài đó sẽ hiển thị bằng tiếng Việt.";
+      notice.textContent=fallbackNotice[activeLanguage];
       grid.before(notice);
     }
   }
