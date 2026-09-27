@@ -330,6 +330,173 @@
           "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
         }
       ]
+    },
+    "mang-xe-may-ra-phu-quoc": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phà Hà Tiên - Phú Quốc",
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Female%20motorcyclist%20wearing%20gloves%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam.jpg?width=1200",
+          "alt": "Một người chạy xe máy trên đường Dương Đông, Phú Quốc",
+          "caption": "Người chạy xe máy ở Dương Đông, Phú Quốc năm 2010. Ảnh bối cảnh sau khi đưa xe qua đảo, không phải ảnh quy trình gửi xe.",
+          "scope": "context",
+          "source_label": "Avenue - Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Female_motorcyclist_wearing_gloves,_Phú_Quốc,_Vietnam.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
+    },
+    "co-bien-phu-quoc-khuat-tu-bo": {
+      "zone_id": "zone_east",
+      "location_label": "Ven bờ Hàm Ninh, Phú Quốc",
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sea%20grass%20bed.jpg?width=1200",
+          "alt": "Thảm cỏ biển dưới nước ở Dahab, Ai Cập, minh họa cấu tạo thảm cỏ",
+          "caption": "Ảnh minh họa hình dạng thảm cỏ biển chụp ở Dahab, Ai Cập năm 2013. Không phải thảm cỏ biển Phú Quốc.",
+          "scope": "context",
+          "source_label": "Tim Sheerman-Chase - Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sea_grass_bed.jpg",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "rights_status": "CC_VERIFIED"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/H%C3%A0m%20Ninh%2C%20Bi%E1%BB%83n%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vi%E1%BB%87t%20nam%20-%20panoramio.jpg?width=1200",
+          "alt": "Bờ biển Hàm Ninh, Phú Quốc trong ảnh tư liệu năm 2013",
+          "caption": "Bờ biển Hàm Ninh, Phú Quốc, ảnh bối cảnh ven bờ, không dùng để kết luận hiện trạng cỏ biển.",
+          "scope": "context",
+          "source_label": "trungydang - Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Hàm_Ninh,_Biển_Phú_Quốc,_Việt_nam_-_panoramio.jpg",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
+    },
+    "canh-nam-tram-phu-quoc-vi-dang-sau-mua": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - ẩm thực địa phương",
+      "images": [
+        {
+          "url": "https://images.baoangiang.com.vn/image/fckeditor/upload/2026/20260326/images/2%283%29.jpg",
+          "alt": "Nấm tràm Phú Quốc được giới thiệu trong bài báo về ẩm thực địa phương",
+          "caption": "Nấm tràm Phú Quốc trong bài giới thiệu ẩm thực địa phương; ảnh tư liệu, không xác định lô nấm đang bán.",
+          "scope": "context",
+          "source_label": "Báo An Giang",
+          "source_url": "https://baoangiang.com.vn/nam-tram-phu-quoc-vao-bep-a480808.html",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
+    },
+    "banh-tet-mat-cat-phu-quoc": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - ẩm thực địa phương",
+      "images": [
+        {
+          "url": "https://thoitiet24h.vn/templateEditor/kcfinder/uploads/images/dac-san-phu-quoc%20%2810%29.jpg",
+          "alt": "Bánh tét mật cật Phú Quốc và phần bánh cắt khoanh",
+          "caption": "Bánh tét mật cật trong một bài giới thiệu đặc sản Phú Quốc, ảnh tham khảo phần bánh khi cắt.",
+          "scope": "exact_subject",
+          "source_label": "Thời Tiết 24h",
+          "source_url": "https://thoitiet24h.vn/am-thuc/dac-san-phu-quoc",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
+    },
+    "banh-kheo-phu-quoc-cai-kheo-trong-dang-banh": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - ẩm thực địa phương",
+      "images": [
+        {
+          "url": "https://rootytrip.com/wp-content/uploads/2024/04/banh-kheo-dac-san-phu-quoc.jpg",
+          "alt": "Một kiểu tạo hình bánh khéo Phú Quốc trong bài đặc sản địa phương",
+          "caption": "Một kiểu bánh khéo Phú Quốc, ảnh minh họa sự đa dạng về hình dáng và nhân bánh.",
+          "scope": "exact_subject",
+          "source_label": "RootyTrip",
+          "source_url": "https://rootytrip.com/kham-pha-dac-san-phu-quoc-noi-tieng/",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
+    },
+    "goi-ca-gioi-hon-mot": {
+      "zone_id": "zone_central_west",
+      "location_label": "Hòn Một, phía Đông Bắc Phú Quốc",
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thuy%E1%BB%81n%20%C4%91%C3%A1nh%20b%E1%BA%AFt%20h%E1%BA%A3i%20s%E1%BA%A3n%20c%E1%BB%A7a%20Vi%E1%BB%87t%20Nam%20%E1%BB%9F%20Ph%C3%BA%20Qu%E1%BB%91c.JPG?width=1200",
+          "alt": "Thuyền đánh bắt hải sản tại Phú Quốc năm 2015",
+          "caption": "Tàu cá ở Phú Quốc năm 2015, ảnh bối cảnh nghề biển; không xác định tàu đánh bắt cá giỏi hay vị trí Hòn Một.",
+          "scope": "context",
+          "source_label": "Tokeisan - Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Thuyền_đánh_bắt_hải_sản_của_Việt_Nam_ở_Phú_Quốc.JPG",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
+    },
+    "cha-ca-nhong-phu-quoc": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - ẩm thực địa phương",
+      "images": [
+        {
+          "url": "https://static.vinwonders.com/2022/11/banh-canh-phu-quoc-4.jpeg",
+          "alt": "Tô bánh canh chả cá tại Phú Quốc",
+          "caption": "Bánh canh chả cá Phú Quốc, ảnh bối cảnh cách ăn chả cá; không xác định chả trong ảnh làm từ cá nhồng.",
+          "scope": "context",
+          "source_label": "VinWonders",
+          "source_url": "https://vinwonders.com/vi/wonderpedia/news/banh-canh-phu-quoc/",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
+    },
+    "oc-gai-phu-quoc": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - ẩm thực địa phương",
+      "images": [
+        {
+          "url": "https://cdn.tgdd.vn/Files/2022/11/05/1484418/loai-oc-noi-tieng-phu-quoc-co-hinh-dang-dac-biet-gia-tu-270000-dong-kg-202211050933125482.jpg",
+          "alt": "Ốc gai nướng trong ảnh công thức giới thiệu loài ốc",
+          "caption": "Ốc gai trong ảnh giới thiệu món ăn; ảnh minh họa đúng loài, không xác định quán hoặc nơi đánh bắt.",
+          "scope": "context",
+          "source_label": "Bách hóa XANH",
+          "source_url": "https://www.bachhoaxanh.com/kinh-nghiem-hay/oc-gai-la-oc-gi-gia-bao-nhieu-va-lam-mon-gi-ngon-nhat-1582849",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
+    },
+    "bao-ngu-nuong-phu-quoc-than-hong-mo-hanh": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - ẩm thực địa phương",
+      "images": [
+        {
+          "url": "https://cdn.pastaxi-manager.onepas.vn/content/uploads/articles/trangiang/baongunuong/nuongmohanh.png",
+          "alt": "Bào ngư nướng với mỡ hành",
+          "caption": "Bào ngư nướng mỡ hành, ảnh minh họa cách chế biến; không xác định quán tại Phú Quốc.",
+          "scope": "context",
+          "source_label": "Focus Asia / Pastaxi",
+          "source_url": "https://focusasiatravel.com/6-best-types-of-food-you-must-try-in-phu-quoc-vietnam/",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
+    },
+    "goi-xoai-oc-giac-phu-quoc": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - ẩm thực địa phương",
+      "images": [
+        {
+          "url": "https://cdn.tgdd.vn/Files/2021/08/20/1376526/cach-lam-goi-xoai-oc-giac-gion-ngon-doi-vi-cho-bua-an-cuoi-tuan-202112310856125532.jpg",
+          "alt": "Gỏi xoài ốc giác trong ảnh công thức chế biến",
+          "caption": "Ảnh minh họa cách trộn gỏi xoài ốc giác tại nhà. Không xác định món được chụp ở Phú Quốc.",
+          "scope": "exact_subject",
+          "source_label": "Bách hóa XANH",
+          "source_url": "https://www.bachhoaxanh.com/kinh-nghiem-hay/cach-lam-goi-xoai-oc-giac-gion-ngon-doi-vi-cho-bua-an-cuoi-tuan-1376526",
+          "rights_status": "SOURCE_ATTRIBUTED_UNLICENSED__RIGHTS_NOT_VERIFIED"
+        }
+      ]
     }
   },
   "places": {
