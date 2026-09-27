@@ -2,9 +2,14 @@ import { rm, mkdir, cp, copyFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
-// Cloudflare Pages Git builds run this file alone. Generate the public view
-// before copying data so CMS never serves a stale or empty knowledge library.
-for (const script of ["scripts/weather-context-api.test.mjs","scripts/test-cms-shared-api-routes.mjs","scripts/test-weather-context-client.mjs","scripts/test-nearme-venues.mjs","scripts/test-nearme-runtime.mjs","scripts/test-go-engine.mjs","scripts/test-shared-area-and-schedules.mjs","scripts/test-decision-signals.mjs","scripts/test-go-geo.mjs","scripts/test-go-manual-ui.mjs","scripts/test-home-library.mjs","scripts/test-editorial-photo-curation.mjs","scripts/test-home-hero-search.mjs","scripts/test-home-hero-gallery.mjs","scripts/test-homepage-five-chapters.mjs","scripts/validate-public-copy.mjs","scripts/test-editorial-published.mjs","scripts/test-editorial-photo-audit.mjs","scripts/test-explore-labels.mjs","scripts/build-knowledge-public.mjs","scripts/build-search-index.mjs"]) {
+// Cloudflare Pages and visual QA can run this build directly. Refresh the
+// derived Near Me index first so newly added directory records are included.
+for (const script of ["scripts/build-map-coverage.mjs","scripts/build-location-index.mjs"]) {
+  execFileSync(process.execPath,[script],{stdio:"inherit"});
+}
+
+// Generate the public view before copying data so CMS never serves a stale or empty knowledge library.
+for (const script of ["scripts/weather-context-api.test.mjs","scripts/test-cms-shared-api-routes.mjs","scripts/test-weather-context-client.mjs","scripts/test-nearme-venues.mjs","scripts/test-nearme-runtime.mjs","scripts/test-nearme-intake.mjs","scripts/test-go-engine.mjs","scripts/test-shared-area-and-schedules.mjs","scripts/test-decision-signals.mjs","scripts/test-go-geo.mjs","scripts/test-go-manual-ui.mjs","scripts/test-home-library.mjs","scripts/test-editorial-photo-curation.mjs","scripts/test-home-hero-search.mjs","scripts/test-home-hero-gallery.mjs","scripts/test-homepage-five-chapters.mjs","scripts/validate-public-copy.mjs","scripts/test-editorial-published.mjs","scripts/test-editorial-photo-audit.mjs","scripts/test-explore-labels.mjs","scripts/build-knowledge-public.mjs","scripts/build-search-index.mjs"]) {
   execFileSync(process.execPath,[script],{stdio:"inherit"});
 }
 
@@ -68,6 +73,9 @@ for(const file of rootFiles){
 for(const dir of dirs){
   if(existsSync(dir)) await cp(dir,`${out}/${dir}`,{recursive:true});
 }
+// This input is build-only; the derived location index contains only runtime
+// fields and must not publish the internal source-audit payload.
+await rm(`${out}/data/entities/nearme-directory-20260926.json`,{force:true});
 await rm(`${out}/data/knowledge`,{recursive:true,force:true});
 await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
