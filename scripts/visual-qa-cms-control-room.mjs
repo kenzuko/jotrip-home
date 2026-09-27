@@ -214,7 +214,7 @@ try{
   await palette.page.keyboard.press("Control+k");
   await palette.page.locator("#quickDialog[open]").waitFor();
   await palette.page.keyboard.press("Escape");
-  await palette.page.locator("#quickDialog:not([open])").waitFor();
+  await palette.page.locator("#quickDialog").waitFor({state:"hidden"});
   await palette.page.screenshot({path:output+"/cms-v2-workspace-desktop.png",fullPage:true});
   await palette.context.close();
 
