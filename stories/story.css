@@ -205,3 +205,4 @@ header.top img[src*="logo-master"]{
 @media(max-width:720px){header.top img[src*="logo-master"]{
   width:44px!important;height:42px!important;max-width:44px!important;max-height:42px!important;
 }}
+.translation-notice{max-width:900px;margin:16px auto;padding:12px 16px;border-radius:8px;background:#f4f7f1;color:#274337;font-size:14px}

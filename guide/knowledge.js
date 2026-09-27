@@ -11,6 +11,26 @@
   const input=document.getElementById("knowledgeQuery");
   const count=document.getElementById("knowledgeCount");
   let items=[],active="ALL";
+  async function attachTranslations(objects){
+    const locale=window.OpenPQLanguage?.locale||'vi';
+    if(locale==='vi')return objects;
+    try{
+      const response=await fetch('/data/i18n/'+encodeURIComponent(locale)+'/knowledge.json',{cache:'no-store'});
+      if(!response.ok)return objects;
+      const catalog=await response.json();if(catalog.locale!==locale)return objects;
+      await Promise.all(objects.map(async o=>{
+        const original={title:o.title,editorial:{short_summary:o.editorial.short_summary,practical:o.editorial.practical,expectation_vs_reality:o.editorial.expectation_vs_reality,before_you_go:o.editorial.before_you_go},images:(o.media?.images||[]).map(p=>({alt:p.alt||'',caption:p.caption||''}))};
+        const digest=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(JSON.stringify(original)));
+        const hash=Array.from(new Uint8Array(digest),b=>b.toString(16).padStart(2,'0')).join('');
+        const variant=catalog.objects?.[o.topic_id];
+        if(variant?.status!=='published'||variant.source_hash!==hash||!variant.title||!variant.editorial?.short_summary||variant.images?.length!==(o.media?.images||[]).length)return;
+        o.title=variant.title;o.editorial={...o.editorial,...variant.editorial};
+        o._translated_locale=locale;
+        (o.media?.images||[]).forEach((photo,i)=>{photo.alt=variant.images[i].alt;photo.caption=variant.images[i].caption});
+      }));
+    }catch(error){console.warn('Knowledge translation catalog unavailable',error)}
+    return objects;
+  }
   function showList(){
     const query=fold(input.value).trim();
     const matching=items.filter(o=>(active==="ALL"||o.topic_type===active)&&(!query||fold([o.title,o.editorial.short_summary,o.editorial.practical].join(" ")).includes(query)));
@@ -48,8 +68,10 @@
   }
   function showArticle(o){
     const ed=o.editorial;
+    document.documentElement.lang=o._translated_locale||'vi';
     document.title=o.title+" - Cẩm nang Phú Quốc";
-    document.querySelector('link[rel="canonical"]')?.setAttribute("href","https://cms.openphuquoc.com"+o.route);
+    const canonical="https://cms.openphuquoc.com"+o.route+(o._translated_locale?'&lang='+encodeURIComponent(o._translated_locale):'');
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href",canonical);
     document.querySelector('meta[name="description"]')?.setAttribute("content",ed.short_summary.slice(0,190));
     article.replaceChildren();
     const root=el("article","knowledge-article");
@@ -129,7 +151,7 @@
     try{
       const response=await fetch(endpoint,{cache:"no-store"});
       if(!response.ok)throw Error("HTTP "+response.status);
-      const payload=await response.json();items=payload.objects||[];
+      const payload=await response.json();items=await attachTranslations(payload.objects||[]);
       if(page==="library"){
         const params=new URLSearchParams(location.search);
         const categoryFromUrl=params.get("category");
