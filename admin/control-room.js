@@ -11,19 +11,29 @@
     return Number.isFinite(d.getTime())?new Intl.DateTimeFormat("vi-VN",{hour:"2-digit",minute:"2-digit",day:"2-digit",month:"2-digit",timeZone:"Asia/Ho_Chi_Minh"}).format(d):"Chưa xác định";
   }
   function localDrafts(login,modules){
-    var prefix="openpq-cms-draft:"+login+":",known=new Set(modules.map(function(m){return m.id}));
-    var drafts=[];
+    var prefix="openpq-cms-draft:"+login+":";
+    var archivePrefix="openpq-cms-stale:"+login+":";
+    var known=new Set(modules.map(function(m){return m.id}));
+    var drafts=[],archived=[];
     try{
       for(var i=0;i<localStorage.length;i++){
         var key=localStorage.key(i);
-        if(!key||!key.startsWith(prefix))continue;
-        var id=key.slice(prefix.length);
-        if(!known.has(id))continue;
-        var raw=JSON.parse(localStorage.getItem(key)||"null");
-        if(raw&&raw.data)drafts.push({id:id,at:raw.at});
+        if(!key)continue;
+        if(key.startsWith(prefix)){
+          var id=key.slice(prefix.length);
+          if(!known.has(id))continue;
+          var raw=JSON.parse(localStorage.getItem(key)||"null");
+          if(raw&&raw.data)drafts.push({id:id,at:raw.at});
+        }else if(key.startsWith(archivePrefix)){
+          var archivedId=key.slice(archivePrefix.length).split(":")[0];
+          if(!known.has(archivedId))continue;
+          var older=JSON.parse(localStorage.getItem(key)||"null");
+          if(older&&older.data)archived.push({id:archivedId,at:older.at,key:key});
+        }
       }
-    }catch(e){return {items:drafts,error:true};}
-    return {items:drafts.sort(function(a,b){return (b.at||0)-(a.at||0)}),error:false};
+    }catch(e){return {items:drafts,archived:archived,error:true};}
+    var newest=function(a,b){return (b.at||0)-(a.at||0)};
+    return {items:drafts.sort(newest),archived:archived.sort(newest),error:false};
   }
   async function getJson(url,signal){
     var r=await fetch(url,{credentials:"include",cache:"no-store",signal:signal,headers:{Accept:"application/json"}});
@@ -34,7 +44,7 @@
   function taskLink(task,modules){
     var id=String(task.entity_id||"");
     var module=id.startsWith("food_")?"foods":"venues";
-    if(!modules.some(function(m){return m.id===module;}))return "";
+    if(!id||!modules.some(function(m){return m.id===module;}))return "";
     return "index.html?module="+encodeURIComponent(module)+"&record="+encodeURIComponent(id)+"&field="+encodeURIComponent(task.field||"");
   }
   function labelForSeverity(v){return {high:"Ưu tiên",medium:"Cần bổ sung",low:"Theo dõi"}[v]||"Cần kiểm tra";}
@@ -76,9 +86,13 @@
     var parts=local.items.map(function(item){
       return '<button class="cr-draft" type="button" data-cr-module="'+esc(item.id)+'"><span class="cr-draft-mark" aria-hidden="true">✎</span><span><strong>'+esc(labelById.get(item.id)||item.id)+'</strong><small>Lưu trên trình duyệt · '+esc(when(item.at))+'</small></span><span aria-hidden="true">↗</span></button>';
     }).join("");
+    var older=(local.archived||[]).slice(0,4).map(function(item){
+      return '<button class="cr-draft cr-draft-old" type="button" data-cr-export="'+esc(item.key)+'"><span class="cr-draft-mark" aria-hidden="true">↓</span><span><strong>'+esc(labelById.get(item.id)||item.id)+'</strong><small>Khác phiên bản · '+esc(when(item.at))+'</small></span><span aria-hidden="true">↓</span></button>';
+    }).join("");
     return '<div class="cr-section-heading"><div><p class="cr-eyebrow">BẢN NHÁP</p><h2>Tiếp tục công việc</h2></div></div>'+
       (parts?'<div class="cr-drafts">'+parts+'</div>':
-      '<div class="cr-empty cr-empty-small"><strong>Chưa có bản nháp trên thiết bị này.</strong><span>Bản nháp chỉ được lưu trong trình duyệt hiện tại.</span></div>')+
+      '<div class="cr-empty cr-empty-small"><strong>Chưa có bản nháp đang sửa.</strong><span>Nháp chỉ được lưu trong trình duyệt hiện tại.</span></div>')+
+      (older?'<h3 class="cr-stale-heading">Nháp cũ cần đối chiếu</h3><p class="cr-stale-note">Nhấn để tải JSON về thiết bị trước khi tiếp tục chỉnh sửa.</p><div class="cr-drafts">'+older+'</div>':'')+
       (local.error?'<p class="cr-warning">Không đọc đủ bản nháp từ trình duyệt.</p>':'');
   }
   function renderQuick(modules){
@@ -99,7 +113,7 @@
     var metrics='<section class="cr-metrics" aria-label="Tóm tắt công việc">'+
       '<a href="quality.html" class="cr-metric"><span>Cần kiểm chứng</span><strong>'+(open===null?"—":open)+'</strong><small>'+(open===null?"Chưa đọc được nguồn":"Từ bộ quy tắc chất lượng")+'</small></a>'+
       '<a href="reviews.html" class="cr-metric"><span>Chờ duyệt</span><strong>'+(pending===null?"—":pending)+'</strong><small>'+(pending===null?"Chưa đọc được nguồn":"Đề xuất CMS đang mở")+'</small></a>'+
-      '<div class="cr-metric"><span>Nháp trên thiết bị</span><strong>'+local.items.length+'</strong><small>Không đồng bộ giữa các máy</small></div></section>';
+      '<div class="cr-metric"><span>Nháp trên thiết bị</span><strong>'+(local.error?"—":local.items.length+(local.archived||[]).length)+'</strong><small>Không đồng bộ giữa các máy</small></div></section>';
     var errorMessages=[state.quality?.error,state.reviews?.error].filter(Boolean);
     var notice=errorMessages.length?'<div class="cr-notice" role="alert">Một số nguồn chưa tải được: '+errorMessages.map(esc).join(" · ")+'. Không coi số liệu thiếu là 0.</div>':'';
     host.innerHTML='<div class="control-room"><div class="cr-workspace">'+overview+metrics+notice+
@@ -126,8 +140,8 @@
     var signal=state.controller.signal;
     var results=await Promise.allSettled([getJson(API_QUALITY,signal),getJson(API_REVIEWS,signal)]);
     if(!state.active||signal.aborted)return;
-    state.quality=results[0].status==="fulfilled"?{value:results[0].value}:{error:results[0].reason?.message||"Không có kết nối"};
-    state.reviews=results[1].status==="fulfilled"?{value:results[1].value}:{error:results[1].reason?.message||"Không có kết nối"};
+    state.quality=results[0].status==="fulfilled"&&Array.isArray(results[0].value?.tasks)?{value:results[0].value}:{error:results[0].status==="fulfilled"?"Dữ liệu công việc không hợp lệ":results[0].reason?.message||"Không có kết nối"};
+    state.reviews=results[1].status==="fulfilled"&&Array.isArray(results[1].value?.items)?{value:results[1].value}:{error:results[1].status==="fulfilled"?"Hàng đợi duyệt không hợp lệ":results[1].reason?.message||"Không có kết nối"};
     state.loading=false;render(state);
   }
   function unmount(){
@@ -141,6 +155,19 @@
     unmount();
     var state={active:true,host:opts.host,role:opts.role,login:opts.login,modules:opts.modules.filter(function(m){return m.read?.includes(opts.role);}),quality:null,reviews:null,loading:false,controller:null,preview:Boolean(opts.previewData)};
     state.click=function(event){
+      var exportButton=event.target.closest("[data-cr-export]");
+      if(exportButton&&!state.preview){
+        event.preventDefault();
+        try{
+          var key=exportButton.getAttribute("data-cr-export"),raw=localStorage.getItem(key);
+          if(!key||!key.startsWith("openpq-cms-stale:"+state.login+":")||!raw)return;
+          var blob=new Blob([raw],{type:"application/json;charset=utf-8"});
+          var url=URL.createObjectURL(blob),link=document.createElement("a");
+          link.href=url;link.download="openpq-nhap-cu-"+Date.now()+".json";
+          document.body.appendChild(link);link.click();link.remove();URL.revokeObjectURL(url);
+        }catch(e){exportButton.title="Trình duyệt không cho tải. Hãy thử trên máy tính.";}
+        return;
+      }
       var refreshButton=event.target.closest("[data-cr-refresh]");
       if(refreshButton){event.preventDefault();refresh(state);return;}
       var jump=event.target.closest("[data-cr-module]");
