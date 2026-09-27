@@ -12,7 +12,7 @@ const fixture={
  cloud:{status:"POINT_NUMERIC_READY",sampled_time:now,generated_at:now,spatial:{status:"READY",frames:[{sampled_time:now,cells:[{lat:10.2,lon:104,cloud_top_cold_c:-42,convective_score:20,unused:"do-not-leak"}]}]}},
  forecast:{regions:{north:{}},generated_at:now},
  aqi:{status:"READY",generated_at:now},
- dashboard:{points:{duong_dong:{}},source_cycles:{ECMWF:now},generated_at:now},
+ dashboard:{points:Object.fromEntries(["duong_dong","an_thoi","ganh_dau","cua_can","bai_thom","ham_ninh","bai_sao","rach_gia"].map(id=>[id,{hours:[{time_iso:future,wind:12,gust:20,rain:0.2,wave:0.5}]}])),source_cycles:{ECMWF:now},generated_at:now,report_status:"LIVE"},
  tide:{status:"READY",generated_at:now},
  marine:{wave:{cells:[{lat:10,lon:104}],sampled_time:now}},
  spatial:{product:"ECMWF",run_time:now,generated_at:now,spatial:{frames:[{valid_time:future,lead_hours:1,cells:[{cell_id:"test",lat:10,lon:104,wind_kmh:12,rain_mm:0.2,unused:"do-not-leak"}]}]}},
@@ -38,13 +38,20 @@ function source(u){
 globalThis.fetch=async input=>{hits++;return new Response(JSON.stringify(source(String(input))),{headers:{"content-type":"application/json"}})};
 const memo=new Map();
 globalThis.caches={default:{match:async key=>memo.get(key.url)?.clone()||null,put:async(key,response)=>memo.set(key.url,response.clone())}};
+let snapshot={...fixture.dashboard,generated_at:new Date(Date.now()-5*3600000).toISOString()};
 const call=(path,waitUntil=undefined)=>handleWeatherData(new Request("https://cms.openphuquoc.com"+path+"?v="+Date.now()),
- ()=>new Response('{"source":"snapshot"}',{headers:{"content-type":"application/json"}}),waitUntil);
+ ()=>new Response(path==="/weather/data/dashboard-data.json"?JSON.stringify(snapshot):'{"source":"snapshot"}',{headers:{"content-type":"application/json"}}),waitUntil);
 check(WEATHER_EDGE_SOURCES.length>=17,"all relevant data routes must be explicit");
 const dashboard=await call("/weather/data/dashboard-data.json");
-check(dashboard.headers.get("x-openpq-weather-edge")==="CMS_VERIFIED_SNAPSHOT",
- "CMS dashboard must not be shadowed by older upstream at edge");
-check((await dashboard.json()).source==="snapshot","CMS revalidated snapshot must reach browser");
+check(dashboard.headers.get("x-openpq-weather-edge")==="ENGINE_DIRECT_LATEST",
+ "stale CMS dashboard must recover from newer validated data engine");
+check((await dashboard.json()).generated_at===fixture.dashboard.generated_at,
+ "newer verified engine snapshot must reach browser");
+snapshot={...fixture.dashboard,generated_at:new Date(Date.now()+60000).toISOString()};
+const recent=await call("/weather/data/dashboard-data.json");
+check(recent.headers.get("x-openpq-weather-edge")==="CMS_VERIFIED_SNAPSHOT",
+ "a newer verified CMS snapshot must not be shadowed");
+snapshot={...fixture.dashboard,generated_at:new Date(Date.now()-5*3600000).toISOString()};
 const local=await call("/weather/data/local-now.json");
 check(local.status===200&&local.headers.get("x-openpq-weather-edge")==="ENGINE_DIRECT","local source must use independent engine");
 check((await local.json()).points.duong_dong.temperature_c===30,"cached response cloning must preserve live response body");
@@ -58,11 +65,14 @@ check(forecast.spatial.frames.length===1&&!JSON.stringify(forecast).includes("do
 const current=await(await call("/weather/data/current-bundle.json")).json();
 check(current.model_72h.points.duong_dong[0].data_class==="MODEL_ONLY","models retain their provenance");
 const health=await(await call("/weather/data/edge-health.json")).json();
-check(health.schema_version==="openpq-weather-edge-health-v1"&&health.status==="READY"&&health.results.length===4,"health audits measured source sample ages");
+check(health.schema_version==="openpq-weather-edge-health-v1"&&health.status==="READY"&&health.results.length===5,"health audits measured source sample ages");
 const bad=await call("/weather/data/unknown.json");
 check(bad.headers.get("x-openpq-weather-edge")===null&&bad.status===200,"unknown routes fall through to CMS static assets");
 globalThis.fetch=async()=>{throw Error("upstream_offline")};
 memo.clear();
+const staleDashboard=await call("/weather/data/dashboard-data.json");
+check(staleDashboard.headers.get("x-openpq-weather-edge")==="CMS_STATIC_FALLBACK_STALE",
+ "upstream failure must visibly mark the static fallback as stale");
 const fallback=await call("/weather/data/local-now.json");
 check(fallback.headers.get("x-openpq-weather-edge")==="STATIC_FALLBACK","stale snapshots must be marked");
 const html=readFileSync("weather/index.html","utf8");
