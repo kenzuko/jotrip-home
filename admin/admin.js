@@ -1684,6 +1684,7 @@ async function boot(){
   $("#userName").textContent=session.name||session.login;
   $("#userRole").textContent=ROLE_LABELS[session.role]||session.role;
   $("#userRole").dataset.role=session.role;
+  $("#opsNavLink")?.classList.toggle("hidden",!["admin","operator"].includes(session.role));
 
   renderNav();
   show("cms");
