@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import {publicConfig,publicSubmit,adminFeedback,cleanupFeedback} from "../functions/_shared/place-feedback.js";
+import {onRequest as publicFeedbackRoute} from "../functions/api/feedback.js";
 
 const records=[],photos=new Map();
 const db={prepare(query){
@@ -120,4 +121,25 @@ const final=await cleanupFeedback(env,future);
 assert.equal(final.deleted,1);
 assert.equal(records.length,0);
 assert.equal(photos.size,0);
-console.log("Place feedback QA PASS: readiness, origin/CSRF, field validation, anti-spam, D1, pagination, R2, CMS permissions, mandatory resolution note and 180-day cleanup");
+
+// Official public hosts can submit through CMS Pages without creating a second Cloudflare secret.
+const fallbackEnv={...env,FEEDBACK_RATE_SECRET:undefined,CMS_SESSION_SECRET:"test-existing-cms-session"};
+assert.equal((await (await publicConfig(fallbackEnv)).json()).enabled,true,"Existing CMS secret is domain-separated as feedback HMAC fallback");
+const cmsUrl="https://cms.openphuquoc.com/api/feedback";
+const officialOrigin="https://openphuquoc.com";
+const corsGet=await publicFeedbackRoute({request:new Request(cmsUrl,{headers:{origin:officialOrigin}}),env:fallbackEnv});
+assert.equal(corsGet.headers.get("access-control-allow-origin"),officialOrigin);
+assert.equal((await corsGet.json()).enabled,true);
+const preflight=await publicFeedbackRoute({request:new Request(cmsUrl,{method:"OPTIONS",headers:{origin:officialOrigin,"access-control-request-method":"POST"}}),env:fallbackEnv});
+assert.equal(preflight.status,204);
+assert.equal(preflight.headers.get("access-control-allow-origin"),officialOrigin);
+const wrongPreflight=await publicFeedbackRoute({request:new Request(cmsUrl,{method:"OPTIONS",headers:{origin:"https://evil.example"}}),env:fallbackEnv});
+assert.equal(wrongPreflight.status,403);
+const apexSubmit=await publicFeedbackRoute({request:request("location",{source_url:"https://openphuquoc.com/nearme/?category=PHARMACY"},{origin:officialOrigin,ip:"198.51.100.250"}),env:fallbackEnv});
+assert.equal(apexSubmit.status,201);
+assert.equal(apexSubmit.headers.get("access-control-allow-origin"),officialOrigin);
+assert.equal(records[0].source_path,"/nearme/","Official apex source URLs remain attributable to the correct page");
+const crossAdmin=new Request("https://cms.openphuquoc.com/api/cms/feedback",{method:"PATCH",headers:{origin:officialOrigin,"content-type":"application/json"},body:JSON.stringify({id:records[0].id,status:"reviewing",note:"Kiểm chứng"})});
+assert.equal((await adminFeedback(crossAdmin,fallbackEnv,editor)).status,403,"CMS state changes never gain cross-origin permission");
+
+console.log("Place feedback QA PASS: readiness, origin/CSRF, field validation, anti-spam, D1, pagination, R2, CMS permissions, mandatory resolution note, 180-day cleanup, CMS-secret fallback and official-apex CORS");

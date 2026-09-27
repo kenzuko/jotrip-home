@@ -13,9 +13,10 @@ draft/review/publish process are still required to edit canonical data.
 
 ## Routes
 - GET /api/feedback -> non-sensitive upload capability. No user credentials.
-- POST /api/feedback -> multipart/form-data. JSON rejected; origin gate, honeypot,
+- POST /api/feedback -> multipart/form-data. JSON rejected; same-origin or strictly allowlisted official apex Origin, honeypot,
   5 reports/IP HMAC hash/hour, allowed issues, allowed entity types, field limits.
-- GET /api/cms/feedback?status=new -> existing CMS GitHub login and live role check.
+- Official openphuquoc.com and www.openphuquoc.com send directly to https://cms.openphuquoc.com/api/feedback with allowlisted CORS; untrusted origins are rejected. Preview workers.dev retains same-origin intake and stays disabled without its own secret.
+- GET /api/cms/feedback?status=new&offset=0 -> existing CMS GitHub login and live role check; 50 items per page.
 - PATCH /api/cms/feedback -> editor/admin only; status/note; does NOT publish data.
 - GET /api/cms/feedback/photo?id=... -> authenticated CMS-only private image.
 - GET /admin/feedback.html -> dedicated inbox UI. Access to data always checked API-side.
@@ -30,10 +31,7 @@ and an allowlisted article id only; arbitrary query parameters are discarded.
 1. On the SAME existing openpq-cms D1 used by CMS/Worker, apply migration once:
    npx wrangler d1 migrations apply openpq-cms --remote --config=wrangler.pages.jsonc
    Review DB id/bindings first. Never drop/overwrite the existing database.
-2. Configure FEEDBACK_RATE_SECRET as a strong independent secret on whichever
-   deployment serves /api/feedback (CMS Pages AND/OR v3 Worker as applicable):
-   npx wrangler secret put FEEDBACK_RATE_SECRET --name openphuquoc-v3
-   Use the dashboard for Pages secrets. Never place values in Git.
+2. For production CMS Pages, the existing CMS_SESSION_SECRET is accepted as a domain-separated HMAC fallback for anti-spam, so an extra Cloudflare secret is not required if CMS login is already configured. A dedicated FEEDBACK_RATE_SECRET is preferred for long-term key separation; when configured it takes priority. To enable the raw Worker preview endpoint independently, set FEEDBACK_RATE_SECRET on openphuquoc-v3 (the public apex form uses the existing CMS Pages API directly). Never place secret values in Git.
 3. CMS session and CMS_DB must be bound where /api/cms/feedback executes.
    When using the separate v3 Worker for these paths, explicitly bind the SAME
    existing CMS_SESSION_SECRET only after verifying access and deployment route.
@@ -41,11 +39,11 @@ and an allowlisted article id only; arbitrary query parameters are discarded.
    to the deployments that serve intake and moderation. Until binding exists,
    GET /api/feedback advertises photo_enabled=false and UI hides the attachment
    option. No public bucket URL or media auto-publication.
-5. QA on preview: invalid issue 400; honeypot stores nothing; missing secret 503;
+5. QA on preview: invalid issue 400; honeypot stores nothing; missing both secrets 503; official apex CORS allowed, arbitrary origins blocked;
    accepted report 201 with receipt; inbox 401 without session; viewer 403 on
    PATCH; editor can mark reviewing/resolved; verify D1 row and protected R2 object.
    Test mobile layout and ensure feedback buttons map to canonical entity_id.
-6. Deploy/merge only after the existing build suite and manual preview QA pass.
+6. Deploy/merge only after all four GitHub Actions suites, the extra Cloudflare Pages/Worker dry-run compilation and mobile feedback QA pass. On main, the existing CMS Pages publisher applies the additive migration before deploying; Worker publisher deploys its static shell without changing DNS.
    Never deploy unrelated Airport, Weather or Transit changes for this feature.
 
 The migration file is `migrations/d1/0003_cms_place_feedback.sql`, matching the existing CMS Pages automatic migration directory. Applying it is additive; never re-create or replace the D1 database.
@@ -62,3 +60,10 @@ Retention: 180 days for all feedback records and private photos. The existing v3
 The lightweight node script scripts/test-place-feedback.mjs is called by
 scripts/build-cloudflare.mjs before the expensive build step. Changes live on a
 feature branch, without Cloudflare production deployment or automatic DB writes.
+
+## Safe production smoke after merge
+
+1. GET https://cms.openphuquoc.com/api/feedback should return `enabled:true` and `photo_enabled:false` until private R2 is explicitly bound. If disabled, check the existing CMS_SESSION_SECRET and exact CMS_DB binding; do not claim that public intake is live.
+2. GET https://openphuquoc.com/nearme/ should serve the feedback buttons. The public apex form sends its request to the CMS Pages API with allowlisted CORS; it never sends a GitHub token, CMS login cookie or account identifier.
+3. Submit one harmless correction in a controlled smoke test, verify its receipt in the authenticated CMS inbox, mark reviewing and delete the test report by exact ID after the test. No unverified feedback may update canonical data or marine safety status automatically.
+4. Monitor CMS Pages and v3 Worker actions on the exact merged commit. If production flags or migrations are absent, leave the form fail-closed and correct only those bindings; do not modify DNS or increase the Cloudflare plan.

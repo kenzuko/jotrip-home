@@ -9,6 +9,9 @@
   };
   const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   let dialog,form,status,submit,photoRow,config=null,current=null,loadConfig;
+  // Public apex hosts use the CMS intake directly. No credentials or account required.
+  const apiEndpoint=["openphuquoc.com","www.openphuquoc.com"].includes(location.hostname)
+    ?"https://cms.openphuquoc.com/api/feedback":"/api/feedback";
   const validType=value=>["place","activity","venue","hotel","utility","article","general"].includes(value)?value:"general";
   function init(){
     if(dialog)return;
@@ -52,7 +55,7 @@
   }
   async function capabilities(){
     if(config)return config;
-    if(!loadConfig)loadConfig=fetch("/api/feedback",{cache:"no-store"})
+    if(!loadConfig)loadConfig=fetch(apiEndpoint,{cache:"no-store",credentials:"omit"})
       .then(r=>r.ok?r.json():null).catch(()=>null);
     const result=await loadConfig||{enabled:false,photo_enabled:false};
     if(result.enabled)config=result;
@@ -114,7 +117,7 @@
     submit.disabled=true;submit.textContent="Đang gửi...";
     status.textContent="";
     try{
-      const r=await fetch("/api/feedback",{method:"POST",body:data,credentials:"same-origin",headers:{"Accept":"application/json"}});
+      const r=await fetch(apiEndpoint,{method:"POST",body:data,credentials:"omit",headers:{"Accept":"application/json"}});
       const result=await r.json().catch(()=>({}));
       if(!r.ok||!result.ok){
         const messages={rate_limited:"Bạn đã gửi khá nhiều góp ý. Mình thử lại sau nhé.",
