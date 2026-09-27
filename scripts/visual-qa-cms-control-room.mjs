@@ -19,9 +19,12 @@ async function makePage(role,viewport){
     status:200,contentType:"application/json",body:JSON.stringify({
       computed_at:"2026-09-27T09:20:00+07:00",
       tasks:[
-        {rule_id:"VENUE_SOURCE_MISSING",entity_id:"venue_visual",field:"source_ref",
+        {rule_id:"VENUE_SOURCE_MISSING",entity_id:"venue_bai_khem",field:"source_ref",
          status:"open",surface:"Địa điểm",severity:"high",
-         evidence:"Chưa có nguồn xác minh tọa độ",next_action:"Bổ sung nguồn"}
+         evidence:"Bãi Khem đang ACTIVE nhưng chưa có nguồn ghi nhận.",next_action:"Bổ sung nguồn"},
+        {rule_id:"VENUE_CHECK_DATE_MISSING",entity_id:"venue_bai_sao",field:"verified_at",
+         status:"in_progress",surface:"Địa điểm",severity:"medium",
+         evidence:"Bãi Sao đang ACTIVE nhưng thiếu ngày kiểm tra.",next_action:"Kiểm chứng"}
       ]
     })
   }));
@@ -45,9 +48,35 @@ async function makePage(role,viewport){
 try{
   const desktop=await makePage("admin",{width:1440,height:900});
   assert.equal(await desktop.page.locator("#moduleTitle").textContent(),"Bàn làm việc");
-  assert.equal(await desktop.page.locator(".cr-metric strong").first().textContent(),"1");
+  assert.equal(await desktop.page.locator(".cr-metric strong").first().textContent(),"2");
   assert.equal(await desktop.page.locator(".cr-metric strong").nth(1).textContent(),"1");
-  assert.equal(await desktop.page.locator("a[href='index.html?module=venues&record=venue_visual&field=source_ref']").count(),1);
+  assert.equal(await desktop.page.locator("a[href='index.html?module=venues&record=venue_bai_khem&field=source_ref']").count(),1);
+  assert.equal(await desktop.page.locator(".cr-task h3").first().textContent(),"Bãi Khem");
+  await desktop.page.locator('.cr-filter[data-cr-filter="priority"]').click();
+  assert.equal(await desktop.page.locator(".cr-task").count(),1);
+  await desktop.page.locator('.cr-filter[data-cr-filter="progress"]').click();
+  assert.equal(await desktop.page.locator(".cr-task").count(),1);
+  assert.equal(await desktop.page.locator(".cr-task h3").first().textContent(),"Bãi Sao");
+  await desktop.page.locator('.cr-filter[data-cr-filter="all"]').click();
+  assert.equal(await desktop.page.locator(".cr-task").count(),2);
+  // Regression for the owner's screenshot: site link must remain below the scroller.
+  for(const height of [900,600]){
+    await desktop.page.setViewportSize({width:1440,height});
+    const sidebar=await desktop.page.evaluate(()=>{
+      const nav=document.querySelector("#moduleNav"),link=document.querySelector(".site-link"),
+            side=document.querySelector(".cms-side");
+      return {navBottom:nav.getBoundingClientRect().bottom,linkTop:link.getBoundingClientRect().top,
+        linkBottom:link.getBoundingClientRect().bottom,sideBottom:side.getBoundingClientRect().bottom,
+        canScroll:nav.scrollHeight>nav.clientHeight,navClient:nav.clientHeight};
+    });
+    assert.ok(sidebar.canScroll,"sidebar menu must scroll separately at "+height+"px");
+    assert.ok(sidebar.linkTop>=sidebar.navBottom+4,"website link overlaps menu at "+height+"px");
+    assert.ok(sidebar.linkBottom<=sidebar.sideBottom+1,"website link below sidebar at "+height+"px");
+    await desktop.page.locator("#moduleNav").evaluate(el=>el.scrollTop=el.scrollHeight);
+    assert.ok(await desktop.page.locator('.module-btn[data-id="users"]').isVisible(),
+      "last navigation item must be accessible at "+height+"px");
+  }
+  await desktop.page.setViewportSize({width:1440,height:900});
   assert.equal(await desktop.page.locator("button[data-cr-module=analytics]").count(),1);
   await desktop.page.screenshot({path:output+"/cms-control-room-desktop.png",fullPage:true});
   await desktop.page.locator('.module-btn[data-id="stories"]').click();
@@ -61,6 +90,14 @@ try{
   assert.ok(overflow<=2,"mobile page overflows by "+overflow+" pixels");
   assert.equal(await mobile.page.locator("button[data-cr-module=analytics]").count(),0);
   assert.equal(await mobile.page.locator('.module-btn[data-id="analytics"]').count(),0);
+  assert.ok(await mobile.page.locator(".site-link").isVisible(),"public website link must be visible on mobile");
+  const mobileNav=await mobile.page.evaluate(()=>{
+    const link=document.querySelector(".site-link").getBoundingClientRect(),
+          nav=document.querySelector("#moduleNav").getBoundingClientRect();
+    return {linkRight:link.right,linkLeft:link.left,navRight:nav.right};
+  });
+  assert.ok(mobileNav.linkRight<=392&&mobileNav.linkLeft>=mobileNav.navRight-1,
+    "mobile link must stay beside, not over, the horizontal nav");
   await mobile.page.screenshot({path:output+"/cms-control-room-mobile.png",fullPage:true});
   assert.equal(mobile.errors.length,0,"mobile page errors: "+mobile.errors.join("; "));
   await mobile.context.close();
