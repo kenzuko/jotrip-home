@@ -22,6 +22,7 @@ assert.match(home,/id="nearCategories"/);
 assert.match(home,/id="nearQuickMore"/);
 assert.match(home,/id="nearQuickSearch"/);
 assert.match(home,/id="nearQuickStatus"/);
+assert.match(home,/id="nearQuickResultsTitle"/,"Quick finder needs a context-aware result heading");
 assert.match(home,/id="nearAreaToggle"/);
 assert.match(home,/id="nearOtherToggle"/);
 assert.ok(module.includes("syncCompactState()"));
@@ -37,6 +38,9 @@ assert.ok(module.includes("rows.slice(0,3)"),"The results should show at most 3 
 assert.ok(module.includes('new URLSearchParams()'),"Keep selected filters in the handoff");
 assert.ok(module.includes('tel:'),"Verified phone numbers should be directly dialable");
 assert.ok(module.includes('google.com/maps/dir/'),"Provide one-click directions");
+assert.match(module,/const CORE=\["PHARMACY","ATM","FUEL","TOILET"\]/,"Fuel is a homepage essential");
+assert.match(module,/function itemUrl\(row\)/,"Home results must link to the internal Near Me map");
+assert.match(module,/map\.precision!=="exact_entrance"/,"Never promise turn-by-turn directions to approximate pins");
 assert.ok(module.includes('site_centroid'),"Do not show distance for approximate area anchors");
 assert.equal(module.split("getCurrentPosition(").length-1,1,"GPS may only be requested from its click handler");
 assert.match(module,/addEventListener\("click",\(\)=>\{\s*const button=\$\("#nearLocationBtn"\)/);
