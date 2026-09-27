@@ -36,13 +36,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11930375256",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2641712,
@@ -80,13 +73,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_10649396005",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.1832689,
@@ -124,13 +110,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_13564293156",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.215123,
@@ -168,13 +147,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_way_1498391976",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "opening_hours_note": "Giờ trên OSM chỉ mang tính tham khảo; chưa xác minh trực tiếp.",
       "map": {
@@ -211,13 +183,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11930375215",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "CHƯA PUBLIC. Gọi/đối chiếu đúng tên, còn hoạt động, phục vụ sửa ô tô và cổng vào."
-      },
       "updated_at": "2026-09-26",
       "opening_hours_note": "Giờ OSM chưa được xác minh.",
       "map": {
@@ -256,13 +221,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11932334086",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "CHƯA PUBLIC. Gọi/đối chiếu đúng tên, còn hoạt động, phục vụ sửa ô tô và cổng vào."
-      },
       "updated_at": "2026-09-26",
       "opening_hours_note": "Giờ OSM chưa được xác minh.",
       "map": {
@@ -301,13 +259,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11932334089",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "CHƯA PUBLIC. Gọi/đối chiếu đúng tên, còn hoạt động, phục vụ sửa ô tô và cổng vào."
-      },
       "updated_at": "2026-09-26",
       "opening_hours_note": "Giờ OSM chưa được xác minh.",
       "map": {
@@ -346,13 +297,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11932334202",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "CHƯA PUBLIC. Gọi/đối chiếu đúng tên, còn hoạt động, phục vụ sửa ô tô và cổng vào."
-      },
       "updated_at": "2026-09-26",
       "opening_hours_note": "Giờ OSM chưa được xác minh.",
       "map": {
@@ -391,13 +335,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11932334297",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "CHƯA PUBLIC. Gọi/đối chiếu đúng tên, còn hoạt động, phục vụ sửa ô tô và cổng vào."
-      },
       "updated_at": "2026-09-26",
       "opening_hours_note": "Giờ OSM chưa được xác minh.",
       "map": {
@@ -436,13 +373,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_13696692370",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.3374265,
@@ -479,13 +409,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_13720328502",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.4122175,
@@ -522,13 +445,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_13722487301",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2775086,
@@ -565,13 +481,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_13722462501",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2065789,
@@ -608,13 +517,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_1650574689",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2652933,
@@ -650,13 +552,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_1650587741",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2227654,
@@ -692,13 +587,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_1650587749",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2271155,
@@ -734,13 +622,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_3482735059",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2623924,
@@ -776,13 +657,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_4464120534",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2321,
@@ -818,13 +692,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_4464124612",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "OSM có tên/đơn vị; CHƯA nhập 260, cần đối chiếu"
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2365502,
@@ -862,13 +729,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11849971252",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.3695587,
@@ -906,13 +766,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11930352245",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2310062,
@@ -950,13 +803,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11873211966",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.3699512,
@@ -994,13 +840,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11932334306",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2169443,
@@ -1038,13 +877,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11886047087",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.3206079,
@@ -1082,13 +914,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_3482735060",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.3339603,
@@ -1126,13 +951,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_6681061187",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.0358646,
@@ -1170,13 +988,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_6483568751",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.0328626,
@@ -1214,13 +1025,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_6483568748",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.0211472,
@@ -1258,13 +1062,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_5306507121",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2062297,
@@ -1302,13 +1099,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_2589014791",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2171563,
@@ -1346,13 +1136,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_7183898787",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.0218409,
@@ -1390,13 +1173,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11932334201",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2351727,
@@ -1434,13 +1210,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11843665982",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.3758064,
@@ -1478,13 +1247,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_12635163017",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.1793142,
@@ -1522,13 +1284,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11873211963",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "CHỜ DUYỆT - gọi xác minh, không công bố trước."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.3691597,
@@ -1566,13 +1321,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_way_1498391947",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.1336879,
@@ -1610,13 +1358,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_10649401205",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.1981175,
@@ -1654,13 +1395,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_11853095123",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.3711226,
@@ -1698,13 +1432,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_way_1270363430",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.2318771,
@@ -1742,13 +1469,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_5003536531",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.0904413,
@@ -1786,13 +1506,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_6743834277",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.0698093,
@@ -1830,13 +1543,6 @@
           "attribution": "© OpenStreetMap contributors"
         }
       ],
-      "source_audit": {
-        "intake_batch": "2026-09-26",
-        "prior_record_id": "utility_osm_node_6483568752",
-        "verified_identity": false,
-        "verified_operation": false,
-        "source_note": "Xác minh tên cơ sở, đúng chi nhánh, còn hoạt động, số điện thoại/giờ; chưa public."
-      },
       "updated_at": "2026-09-26",
       "map": {
         "lat": 10.0330641,
