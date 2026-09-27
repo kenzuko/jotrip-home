@@ -70,10 +70,12 @@ function structured(meta){
   if(meta.kind!=="story"&&meta.kind!=="knowledge")return null;
   const obj={"@context":"https://schema.org","@type":"Article",headline:meta.source.title,
     description:meta.description,mainEntityOfPage:{"@type":"WebPage","@id":meta.canonical},
-    inLanguage:"vi-VN",author:{"@type":"Organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/"},
-    publisher:{"@type":"Organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/"}};
+    inLanguage:"vi-VN",author:{"@type":"Organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/",logo:SEO_ORIGIN+"/assets/logo-master.png"},
+    publisher:{"@type":"Organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/",logo:SEO_ORIGIN+"/assets/logo-master.png"}};
   const d=dateValue(meta.source.updated_at);
   if(d)obj.dateModified=d;
+  const published=dateValue(meta.source.published_at||meta.source.date_published||meta.source.publish_date);
+  if(published)obj.datePublished=published; // Only when explicitly present in public source; never infer from updated_at.
   if(safeImage(meta.image))obj.image=[new URL(meta.image,SEO_ORIGIN).toString()];
   return JSON.stringify(obj).replace(/</g,"\\u003c");
 }
