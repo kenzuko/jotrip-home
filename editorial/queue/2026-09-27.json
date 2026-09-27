@@ -387,15 +387,44 @@
       ],
       "updated_at": "2026-09-27",
       "editorial_gate": {
-        "state": "HOLD_PHOTO_RIGHTS",
-        "reason": "Đã biên tập trung lập, không giới thiệu một thương hiệu; chờ ảnh thực tế đúng món tại Phú Quốc với quyền tái sử dụng đã xác minh (ảnh bìa và ảnh phụ)",
-        "image_reference_only": false,
+        "state": "HOLD_SOURCE_PERMISSION",
+        "reason": "Đã tìm được hai ảnh đúng sản phẩm của Sáng Lợi và ghi nguồn chữ thường, không hiển thị link. Tuy nhiên trang gốc ghi Copyright; chưa có cấp phép dùng lại; ảnh thứ hai do nhà bán lẻ/trang giới thiệu đăng, cũng chưa có phép. Cần chủ sở hữu ảnh đồng ý bằng văn bản hoặc thay ảnh có giấy phép trước khi xuất bản.",
+        "image_reference_only": true,
         "public_use_cleared": false,
         "photo_requirements": [
-          "Ảnh mắm ruốc ăn liền không thương hiệu hoặc nhãn không phải trọng tâm, chụp tại Phú Quốc",
-          "Ảnh món ăn thực tế cùng mắm ruốc như xoài/cóc hoặc thịt luộc, có quyền sử dụng"
+          "Có xác nhận quyền sử dụng từ Sáng Lợi cho ảnh gốc (hoặc ảnh thay có license rõ)",
+          "Có xác nhận riêng cho ảnh phụ của Bách hóa XANH/VinWonders (hoặc ảnh khác có license rõ)"
         ]
-      }
+      },
+      "image": "https://sangloiphuquoc.com/upload/product/z2149014067815974c0e17d00dc8cb0e8e26c594f5b4fa-5079.jpg",
+      "image_alt": "Hũ mắm ruốc ăn liền Phú Quốc bày cạnh trái cây và chén chấm",
+      "image_caption": "Mắm ruốc ăn liền được đóng hũ, tiện mang về làm quà hoặc dùng trong bữa ăn.",
+      "image_credit": "Ảnh: Cơ sở Sáng Lợi Phú Quốc",
+      "image_source_url": "https://sangloiphuquoc.com/ma-ruoc-an-lien-hop-200gr",
+      "editorial_images": [
+        {
+          "url": "https://sangloiphuquoc.com/upload/product/z2149014067815974c0e17d00dc8cb0e8e26c594f5b4fa-5079.jpg",
+          "alt": "Hũ mắm ruốc ăn liền Phú Quốc bày cạnh trái cây và chén chấm",
+          "caption": "Mắm ruốc ăn liền được đóng hũ, tiện mang về làm quà hoặc dùng trong bữa ăn.",
+          "source_label": "Cơ sở Sáng Lợi Phú Quốc",
+          "source_url": "https://sangloiphuquoc.com/ma-ruoc-an-lien-hop-200gr",
+          "role": "cover",
+          "source_credit_text": "Ảnh: Cơ sở Sáng Lợi Phú Quốc",
+          "rights_status": "UNVERIFIED - source site does not grant explicit re-use",
+          "source_url_visibility": "INTERNAL_ONLY"
+        },
+        {
+          "url": "https://cdn.tgdd.vn/Products/Images/7779/174510/bhx/mam-ruoc-phu-quoc-sang-loi-hu-200g-avatar-1.jpg",
+          "alt": "Hũ mắm ruốc Phú Quốc và chén mắm ruốc được lấy ra để dùng",
+          "caption": "Một ít mắm ruốc ăn liền được lấy ra chén trước khi chấm hoặc nêm.",
+          "source_label": "Bách hóa XANH - ảnh sản phẩm Sáng Lợi",
+          "source_url": "https://www.bachhoaxanh.com/sot-nuoc-cham/mam-ruoc-phu-quoc-sang-loi-hu-200g",
+          "role": "in_article",
+          "source_credit_text": "Ảnh: Bách hóa XANH - ảnh sản phẩm Sáng Lợi",
+          "rights_status": "UNVERIFIED - source site does not grant explicit re-use",
+          "source_url_visibility": "INTERNAL_ONLY"
+        }
+      ]
     },
     {
       "id": "tieu-chin-ngao-duong-phu-quoc",
@@ -430,15 +459,44 @@
       ],
       "updated_at": "2026-09-27",
       "editorial_gate": {
-        "state": "HOLD_PHOTO_RIGHTS",
-        "reason": "Đã biên tập trung lập, không giới thiệu một thương hiệu; chờ ảnh thực tế tiêu ngào đường và món chấm tại Phú Quốc có quyền tái sử dụng",
-        "image_reference_only": false,
+        "state": "HOLD_SOURCE_PERMISSION",
+        "reason": "Đã tìm được hai ảnh đúng sản phẩm của Sáng Lợi và ghi nguồn chữ thường, không hiển thị link. Tuy nhiên trang gốc ghi Copyright; chưa có cấp phép dùng lại; ảnh thứ hai do nhà bán lẻ/trang giới thiệu đăng, cũng chưa có phép. Cần chủ sở hữu ảnh đồng ý bằng văn bản hoặc thay ảnh có giấy phép trước khi xuất bản.",
+        "image_reference_only": true,
         "public_use_cleared": false,
         "photo_requirements": [
-          "Ảnh cận cảnh tiêu chín ngào đường không quảng bá thương hiệu, chụp tại Phú Quốc",
-          "Ảnh món chấm hoặc cách dùng thực tế với tiêu ngào đường, có quyền sử dụng"
+          "Có xác nhận quyền sử dụng từ Sáng Lợi cho ảnh gốc (hoặc ảnh thay có license rõ)",
+          "Có xác nhận riêng cho ảnh phụ của Bách hóa XANH/VinWonders (hoặc ảnh khác có license rõ)"
         ]
-      }
+      },
+      "image": "https://sangloiphuquoc.com/watermark/product/600x470x1/upload/product/tieu-chin-ngao-duong-1330.png",
+      "image_alt": "Hũ tiêu chín tươi ngào đường Phú Quốc bày cùng rau xanh",
+      "image_caption": "Tiêu chín ngào đường có dạng sánh, dùng để chấm hoặc nêm món ăn.",
+      "image_credit": "Ảnh: Cơ sở Sáng Lợi Phú Quốc",
+      "image_source_url": "https://sangloiphuquoc.com/tieu-chin-ngao-duong-400g",
+      "editorial_images": [
+        {
+          "url": "https://sangloiphuquoc.com/watermark/product/600x470x1/upload/product/tieu-chin-ngao-duong-1330.png",
+          "alt": "Hũ tiêu chín tươi ngào đường Phú Quốc bày cùng rau xanh",
+          "caption": "Tiêu chín ngào đường có dạng sánh, dùng để chấm hoặc nêm món ăn.",
+          "source_label": "Cơ sở Sáng Lợi Phú Quốc",
+          "source_url": "https://sangloiphuquoc.com/tieu-chin-ngao-duong-400g",
+          "role": "cover",
+          "source_credit_text": "Ảnh: Cơ sở Sáng Lợi Phú Quốc",
+          "rights_status": "UNVERIFIED - source site does not grant explicit re-use",
+          "source_url_visibility": "INTERNAL_ONLY"
+        },
+        {
+          "url": "https://static.vinwonders.com/2022/05/tieu-ngao-duong-phu-quoc.png",
+          "alt": "Hũ tiêu chín tươi ngào đường Phú Quốc bày cùng chanh và ớt",
+          "caption": "Tiêu ngào đường có nhiều cách đóng gói; khi mua nên xem thành phần trên nhãn.",
+          "source_label": "VinWonders - ảnh sản phẩm tiêu ngào đường Sáng Lợi",
+          "source_url": "https://vinwonders.com/vi/wonderpedia/news/tieu-ngao-duong-phu-quoc-dac-san-lam-qua-khong-the-bo-qua/",
+          "role": "in_article",
+          "source_credit_text": "Ảnh: VinWonders - ảnh sản phẩm tiêu ngào đường Sáng Lợi",
+          "rights_status": "UNVERIFIED - source site does not grant explicit re-use",
+          "source_url_visibility": "INTERNAL_ONLY"
+        }
+      ]
     }
   ]
 }
