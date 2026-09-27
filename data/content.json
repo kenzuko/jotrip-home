@@ -865,6 +865,76 @@
       ],
       "home_featured": true,
       "updated_at": "2026-09-26"
+    },
+    {
+      "id": "ran-san-ho-phu-quoc-dot-tay-trang-2019",
+      "category": "BIỂN PHÚ QUỐC · RẠN SAN HÔ",
+      "title": "Rạn san hô Phú Quốc qua một đợt khảo sát tẩy trắng",
+      "dek": "Khảo sát dưới nước tháng 6-7/2019 ghi nhận độ phủ san hô cứng và mức tẩy trắng tại các điểm rạn ở Phú Quốc. Đó là lát cắt của một đợt đo, không phải tình trạng hôm nay.",
+      "read_minutes": 3,
+      "intro": "San hô là động vật sống bám, nhiều polyp cùng tạo nên bộ xương đá vôi của rạn. Một số loài sống cùng tảo cộng sinh trong mô. Khi chịu căng thẳng do thay đổi nhiệt độ, ánh sáng hoặc chất dinh dưỡng, san hô có thể mất tảo và chuyển trắng. Tẩy trắng là dấu hiệu san hô đang chịu tác động, nhưng không có nghĩa mọi cá thể đã chết.",
+      "sections": [
+        {
+          "heading": "Màu trắng chưa phải kết luận cuối",
+          "body": "Tảo cộng sinh góp phần tạo màu và cung cấp sản phẩm quang hợp cho san hô. Khi san hô tẩy trắng, mối quan hệ ấy bị gián đoạn. Nếu tác động kéo dài, nguy cơ chết tăng lên; nếu điều kiện cải thiện, một số cá thể có thể sống sót và phục hồi. Vì vậy, nhìn thấy màu trắng không đủ để kết luận cả mảng rạn đã chết."
+        },
+        {
+          "heading": "Khảo sát năm 2019 đo hai chỉ số",
+          "body": "Một nghiên cứu của Viện Hải dương học dùng phương pháp point transect tại 21 điểm thuộc bốn vùng rạn ở Nam Việt Nam trong tháng 6-7/2019. Ở các điểm khảo sát tại Phú Quốc, độ phủ san hô cứng trung bình được báo cáo là 55,9 ± 17,8%; mức san hô cứng bị tẩy trắng là 7,3 ± 9,05%. Đây là hai chỉ số khác nhau: độ phủ mô tả phần nền đáy có san hô cứng, còn số tẩy trắng ghi nhận tình trạng quan sát trong đợt khảo sát."
+        },
+        {
+          "heading": "Số liệu có ngày tháng",
+          "body": "Các con số trên đến từ những điểm được chọn và một đợt khảo sát năm 2019. Chúng không đại diện cho mọi rạn quanh đảo và cũng không phải số liệu hiện trạng năm 2026. Muốn biết rạn đang thay đổi ra sao, cần khảo sát lặp lại ở các điểm tương ứng, bằng cách đo có thể so sánh được qua thời gian."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Phan Kim Hoang và cộng sự - Bleaching of coral in Nha Trang, Ninh Thuan, Con Dao and Phu Quoc islands in June-July 2019, Vietnam Journal of Marine Science and Technology, DOI 10.15625/1859-3097/15649",
+          "url": "https://doi.org/10.15625/1859-3097/15649"
+        },
+        {
+          "label": "FAO AGRIS - Bản ghi nghiên cứu khảo sát tẩy trắng san hô tháng 6-7/2019",
+          "url": "https://agris.fao.org/search/ar/records/66744100eb5a381a33812870"
+        },
+        {
+          "label": "NOAA Ocean Service - Are corals animals or plants?",
+          "url": "https://oceanservice.noaa.gov/facts/coral.html"
+        }
+      ],
+      "updated_at": "2026-09-27"
+    },
+    {
+      "id": "anh-ve-tinh-ban-do-sinh-canh-bien-phu-quoc",
+      "category": "BIỂN PHÚ QUỐC · BẢN ĐỒ SINH CẢNH",
+      "title": "Ảnh vệ tinh nhìn được gì về sinh cảnh biển Phú Quốc?",
+      "dek": "Bản đồ sinh cảnh biển được tạo từ ảnh ở những năm cụ thể rồi kiểm tra bằng khảo sát dưới nước. Nó cho biết các lớp được nhận dạng trong phạm vi nghiên cứu, không phải tình trạng trực tiếp của biển hôm nay.",
+      "read_minutes": 3,
+      "intro": "Nhìn trên bản đồ, rạn san hô, thảm cỏ biển, đá và cát được chia thành những mảng riêng. Nhưng một bản đồ sinh cảnh không phải tấm ảnh trực tiếp của đáy biển. Đằng sau nó là ảnh vệ tinh, cách phân loại và những lượt kiểm tra tại chỗ.",
+      "sections": [
+        {
+          "heading": "Mỗi bộ ảnh có một mốc thời gian",
+          "body": "Nghiên cứu về vùng biển Phú Quốc công bố năm 2023 đối chiếu ảnh năm 2005, 2010 và 2018. Nhóm tác giả dùng ảnh ASTER độ phân giải 15 m cho mốc 2005, SPOT5 độ phân giải 10 m cho năm 2010 và Sentinel-2 độ phân giải 10 m cho năm 2018, cùng ảnh hàng không và Google Maps. Vì vậy, bản đồ mô tả các mốc dữ liệu ấy, không phải bản cập nhật trực tiếp cho hiện tại."
+        },
+        {
+          "heading": "Có bước kiểm tra dưới nước",
+          "body": "Từ tháng 3 đến tháng 4/2019, nhóm nghiên cứu lặn kiểm tra độ chính xác tại 78 điểm then chốt. Việc đối chiếu giúp đánh giá các lớp sinh cảnh được nhận dạng trên ảnh. Đây là bước xác minh cho bản đồ, không biến ảnh năm 2018 thành dữ liệu hiện trạng năm 2019 hay 2026."
+        },
+        {
+          "heading": "Bản đồ phạm vi khác với bản đồ sức khỏe",
+          "body": "Diện tích một lớp rạn trên bản đồ cho biết phạm vi sinh cảnh được phân loại theo phương pháp nghiên cứu. Nó không tự cho biết từng cụm san hô còn sống bao nhiêu, có tẩy trắng hay không, hoặc thảm cỏ có sinh khối thế nào. Một nghiên cứu phương pháp về lập bản đồ rạn cũng lưu ý ảnh viễn thám cung cấp thông tin gián tiếp về tình trạng rạn và cần dữ liệu tại chỗ để kiểm tra. Khi so hai bản đồ, nên xem năm ảnh, phạm vi, lớp phân loại và cách xác minh trước khi đọc chênh lệch như một xu hướng."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Viện Hải dương học, VAST - Status and temporal change in the distribution of seagrass beds and coral reefs in the waters of Phu Quoc islands (2023)",
+          "url": "https://vjs.ac.vn/jmst/article/view/16621"
+        },
+        {
+          "label": "Using Remote Sensing and in situ Measurements for Efficient Mapping and Optimal Sampling of Coral Reefs, Frontiers in Marine Science (2021)",
+          "url": "https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2021.689489/full"
+        }
+      ],
+      "updated_at": "2026-09-27"
     }
   ]
 }
