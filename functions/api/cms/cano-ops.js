@@ -139,6 +139,7 @@ export async function onRequest({request,env}){
         history_count:history.content?.events?.length||0});
     }
     if(request.method!=="POST")return reply({error:"Phương thức không hỗ trợ"},405);
+    if(role!=="admin"||String(user.login).toLowerCase()!=="kenzuko")return reply({error:"Chỉ chủ dự án có quyền xác nhận trạng thái cano."},403);
     const origin=request.headers.get("Origin")||"";
     if(origin!==new URL(request.url).origin)return reply({error:"Yêu cầu không cùng miền CMS"},403);
     if(!request.headers.get("Content-Type")?.startsWith("application/json"))return reply({error:"Yêu cầu phải là JSON"},415);
