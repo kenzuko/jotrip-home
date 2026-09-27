@@ -1,4 +1,5 @@
 -- Apply once to openpq-cms D1 before enabling public intake.
+-- Release gate PR #148: trigger the sole CMS Pages publisher after the prior concurrent CMS job was superseded. This migration is additive and idempotent.
 -- Store no raw IP, email, GPS of reporters or user credentials.
 CREATE TABLE IF NOT EXISTS cms_place_feedback (
   id TEXT PRIMARY KEY,
