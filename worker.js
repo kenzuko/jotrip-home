@@ -1,6 +1,6 @@
 import {buildStoryMeta,buildKnowledgeMeta,rewriteSeoHtml} from "./functions/_shared/seo-html.js";
 import {cleanupFeedback} from "./functions/_shared/place-feedback.js";
-import {collectTraffic,cleanupTraffic} from "./functions/_shared/traffic-analytics.js";
+import {collectTraffic} from "./functions/_shared/traffic-analytics.js";
 import {onRequest as ownerTrafficReport} from "./functions/api/cms/traffic.js";
 import {onRequest as publicFeedback} from "./functions/api/feedback.js";
 import {onRequest as adminPlaceFeedback} from "./functions/api/cms/feedback.js";
@@ -83,8 +83,6 @@ export default {
     const tick=new Date(event.scheduledTime||Date.now());
     if(env.CMS_DB&&tick.getUTCHours()===20&&tick.getUTCMinutes()===0)
       ctx.waitUntil(cleanupFeedback(env).catch(e=>console.warn("Community feedback cleanup retry next day",e.message)));
-    if(env.CMS_DB&&tick.getUTCHours()===20&&tick.getUTCMinutes()===0)
-      ctx.waitUntil(cleanupTraffic(env).catch(e=>console.warn("Traffic retention cleanup retry next day",e.message)));
   },
   async fetch(request, env, ctx) {
     const weatherPath=new URL(request.url).pathname;
