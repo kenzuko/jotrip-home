@@ -115,7 +115,7 @@
       const location=el("div","knowledge-location");
       location.innerHTML=OpenPQVisual.locator(null,{
         title:"Địa điểm trên bản đồ",label:o.location.label,
-        map:o.location.map,note:o.location.map.note||undefined,
+        map:o.location.map,
         openLabel:"Mở bản đồ lớn ↗"
       });
       if(location.firstElementChild)root.append(location);
