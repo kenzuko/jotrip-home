@@ -187,4 +187,4 @@ export async function onRequest({request,env}){
   }catch(e){return reply({error:e.message||String(e)},503);}
 }
 
-export {session,currentRole,reply,timeVN};
+export {session,currentRole,reply,timeVN,makeLatest,makeHistory};
