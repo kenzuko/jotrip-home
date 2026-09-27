@@ -43,8 +43,9 @@
   }
   function taskLink(task,modules){
     var id=String(task.entity_id||"");
-    var module=id.startsWith("food_")?"foods":"venues";
-    if(!id||!modules.some(function(m){return m.id===module;}))return "";
+    var rule=String(task.rule_id||"");
+    var module=rule==="FOOD_ARTICLE_GAP"?"foods":rule.startsWith("VENUE_")?"venues":null;
+    if(!id||!module||!modules.some(function(m){return m.id===module;}))return "";
     return "index.html?module="+encodeURIComponent(module)+"&record="+encodeURIComponent(id)+"&field="+encodeURIComponent(task.field||"");
   }
   function labelForSeverity(v){return {high:"Ưu tiên",medium:"Cần bổ sung",low:"Theo dõi"}[v]||"Cần kiểm tra";}
@@ -58,51 +59,135 @@
     return label&&label!==id&&!/[\/\\=_]/.test(label)
       ?label:String(task.surface||"Hồ sơ cần kiểm chứng");
   }
-  function queueTask(task,modules){
+  function localDay(){
+    var parts=new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Ho_Chi_Minh",
+      year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date());
+    function part(type){return parts.find(function(p){return p.type===type;})?.value||"";}
+    return part("year")+"-"+part("month")+"-"+part("day");
+  }
+  function overdue(task,today){
+    var due=String(task.due_at||"").slice(0,10);
+    return /^\d{4}-\d{2}-\d{2}$/.test(due)&&due<today;
+  }
+  function dueSoon(task,today){
+    var due=String(task.due_at||"").slice(0,10);
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(due)||due<today)return false;
+    return Date.parse(due+"T00:00:00Z")-Date.parse(today+"T00:00:00Z")<=2*86400000;
+  }
+  function dateLabel(raw){
+    var date=String(raw||"").slice(0,10);
+    return /^\d{4}-\d{2}-\d{2}$/.test(date)?date.slice(8)+"/"+date.slice(5,7)+"/"+date.slice(0,4):"";
+  }
+  function textMatch(task,needle){
+    if(!needle)return true;
+    function normalize(value){return String(value||"").normalize("NFD")
+      .replace(/[\u0300-\u036f]/g,"").replace(/[đĐ]/g,"d").toLowerCase();}
+    return normalize([taskTitle(task),task.entity_id,task.rule_id,task.surface,
+      task.evidence,task.next_action,task.owner].join(" ")).includes(normalize(needle));
+  }
+  function queueTask(task,modules,today){
     var href=taskLink(task,modules),name=taskTitle(task),id=String(task.entity_id||"");
-    return '<article class="cr-task">'+
+    var due=dateLabel(task.due_at),late=overdue(task,today),soon=dueSoon(task,today);
+    var meta=(task.owner?'<span>Phụ trách: '+esc(task.owner)+'</span>':"")
+      +(due?'<span class="'+(late?"cr-due-late":soon?"cr-due-soon":"cr-due")+'">'+
+      (late?"Quá hạn ":soon?"Sắp đến hạn ":"Hạn ")+esc(due)+'</span>':"");
+    return '<article class="cr-task'+(late?" cr-task-overdue":"")+'">'+
       '<div class="cr-task-top"><span class="cr-pill cr-'+esc(task.severity||"low")+'">'+esc(labelForSeverity(task.severity))+'</span><span class="cr-task-area">'+esc(task.surface||"Dữ liệu")+'</span></div>'+
       '<h3>'+esc(name)+'</h3>'+
       (id?'<p class="cr-task-id">Mã hồ sơ: <code>'+esc(id)+'</code></p>':"")+
       '<p>'+esc(task.evidence||task.next_action||"Chưa có mô tả chi tiết.")+'</p>'+
+      (meta?'<div class="cr-task-meta">'+meta+'</div>':"")+
       '<div class="cr-task-bottom"><span>'+esc(task.status==="in_progress"?"Đang xử lý":"Cần kiểm chứng")+'</span>'+
       (href?'<a href="'+esc(href)+'">Mở hồ sơ <span aria-hidden="true">↗</span></a>':'<a href="quality.html">Mở hàng đợi <span aria-hidden="true">↗</span></a>')+
       '</div></article>';
   }
-  function renderQuality(body,modules,filter){
+  function renderQuality(body,modules,state){
     if(!body)return '<div class="cr-error" role="status">Chưa tải được công việc. Không thể xác nhận tình trạng dữ liệu. <button type="button" data-cr-refresh>Thử lại</button></div>';
     var all=Array.isArray(body.tasks)?body.tasks:[];
     var tasks=all.filter(function(t){return !["resolved","muted"].includes(t.status);});
+    var today=localDay(),hasD1=body.storage==="d1";
     var rank={high:0,medium:1,low:2};
-    tasks.sort(function(a,b){
-      return (rank[a.severity]??3)-(rank[b.severity]??3)
-        ||String(a.due_at||"9999").localeCompare(String(b.due_at||"9999"));
+    tasks.sort(function(a,b){return (rank[a.severity]??3)-(rank[b.severity]??3)
+      ||String(a.due_at||"9999").localeCompare(String(b.due_at||"9999"));});
+    var mine=hasD1?tasks.filter(function(t){
+      return t.owner&&String(t.owner).toLowerCase()===String(state.login).toLowerCase();
+    }).length:0;
+    var late=hasD1?tasks.filter(function(t){return overdue(t,today);}).length:0;
+    var soon=hasD1?tasks.filter(function(t){return dueSoon(t,today);}).length:0;
+    var options=[
+      ["all","Tất cả",tasks.length,true],
+      ["priority","Ưu tiên",tasks.filter(function(t){return t.severity==="high";}).length,true],
+      ["progress","Đang làm",tasks.filter(function(t){return t.status==="in_progress";}).length,true],
+      ["mine","Của tôi",mine,hasD1],
+      ["late","Quá hạn",late,hasD1],
+      ["soon","Sắp hạn",soon,hasD1]
+    ];
+    var filter=options.some(function(f){return f[0]===state.qualityFilter&&f[3];})
+      ?state.qualityFilter:"all";
+    var shown=tasks.filter(function(t){
+      if(filter==="priority"&&t.severity!=="high")return false;
+      if(filter==="progress"&&t.status!=="in_progress")return false;
+      if(filter==="mine"&&String(t.owner||"").toLowerCase()!==String(state.login).toLowerCase())return false;
+      if(filter==="late"&&!overdue(t,today))return false;
+      if(filter==="soon"&&!dueSoon(t,today))return false;
+      return textMatch(t,state.searchTerm);
     });
-    var shown=filter==="priority"?tasks.filter(function(t){return t.severity==="high";})
-      :filter==="progress"?tasks.filter(function(t){return t.status==="in_progress";}):tasks;
-    var filters=[["all","Tất cả",tasks.length],
-      ["priority","Ưu tiên",tasks.filter(function(t){return t.severity==="high";}).length],
-      ["progress","Đang làm",tasks.filter(function(t){return t.status==="in_progress";}).length]];
-    var buttons='<div class="cr-filter-group" role="group" aria-label="Lọc công việc">'+
-      filters.map(function(x){return '<button type="button" class="cr-filter" data-cr-filter="'+x[0]+'" aria-pressed="'+(filter===x[0])+'">'+x[1]+' ('+x[2]+')</button>';}).join("")+'</div>';
-    var time=body.computed_at?'<span class="cr-timestamp">Kiểm tra lúc '+esc(when(body.computed_at))+'</span>':'<span class="cr-timestamp">Chưa có thời gian kiểm tra</span>';
-    return '<div class="cr-section-heading"><div><p class="cr-eyebrow">DỮ LIỆU</p><h2>Cần kiểm chứng</h2></div><a href="quality.html">Tất cả <span aria-hidden="true">↗</span></a></div>'+
-      '<p class="cr-section-note">'+esc(tasks.length)+' công việc đang mở. '+time+'</p>'+buttons+
-      (shown.length?'<div class="cr-queue">'+shown.slice(0,5).map(function(t){return queueTask(t,modules);}).join("")+'</div>':
-      '<div class="cr-empty"><strong>'+(filter==="all"?"Chưa có việc đang mở trong nguồn này.":"Không có công việc thuộc nhóm này.")+'</strong>'+
-      '<span>Đây chỉ là kết quả bộ quy tắc hiện tại, không thay thế xác minh thực địa.</span></div>');
+    var tabs='<div class="cr-filter-group" role="group" aria-label="Lọc công việc">'+
+      options.map(function(f){
+        return '<button type="button" class="cr-filter" data-cr-filter="'+f[0]+
+          '" aria-pressed="'+(filter===f[0])+'"'+(f[3]?"":' disabled title="Cần D1 để dùng bộ lọc này"')+
+          '>'+f[1]+' ('+(f[3]?f[2]:"—")+')</button>';
+      }).join("")+'</div>';
+    var search='<div class="cr-work-search" role="search">'+
+      '<label for="cr-work-search">Tìm hồ sơ</label><div>'+
+      '<input id="cr-work-search" type="search" data-cr-search value="'+esc(state.searchTerm)+
+      '" placeholder="Tên, mã, nguồn, người phụ trách..." autocomplete="off">'+
+      '<button type="button" data-cr-search-submit>Tìm</button>'+
+      (state.searchTerm?'<button type="button" class="cr-clear" data-cr-search-clear>Xóa lọc</button>':"")+
+      '</div></div>';
+    var time=body.computed_at?'<span class="cr-timestamp">Kiểm tra lúc '+esc(when(body.computed_at))+
+      '</span>':'<span class="cr-timestamp">Chưa có thời gian kiểm tra</span>';
+    var note=!hasD1?'<p class="cr-source-note">Chưa có trạng thái phân công và hạn xử lý từ D1. Các bộ lọc tương ứng tạm khóa.</p>':"";
+    return '<div class="cr-section-heading"><div><p class="cr-eyebrow">DỮ LIỆU</p><h2>Cần kiểm chứng</h2></div>'+
+      '<a href="quality.html">Hàng đợi đầy đủ ↗</a></div>'+
+      '<p class="cr-section-note">'+tasks.length+' công việc đang mở. '+time+'</p>'+
+      note+tabs+search+
+      (shown.length?'<div class="cr-queue">'+shown.slice(0,state.visibleCount).map(function(t){
+        return queueTask(t,modules,today);
+      }).join("")+'</div>':
+      '<div class="cr-empty"><strong>Không có việc khớp bộ lọc.</strong><span>Thử bộ lọc khác hoặc mở hàng đợi đầy đủ.</span></div>')+
+      (shown.length>state.visibleCount?'<button type="button" class="cr-more" data-cr-more>'+
+        'Xem thêm '+Math.min(5,shown.length-state.visibleCount)+' việc ('+
+        Math.min(state.visibleCount,shown.length)+' / '+shown.length+')</button>':
+        shown.length?'<p class="cr-end">Đang xem '+shown.length+' / '+tasks.length+' việc đang mở.</p>':"");
   }
   function renderReviews(body){
     if(!body)return '<div class="cr-error" role="status">Không đọc được hàng đợi duyệt. <button type="button" data-cr-refresh>Thử lại</button></div>';
     var items=Array.isArray(body.items)?body.items:[];
-    return '<div class="cr-section-heading"><div><p class="cr-eyebrow">BIÊN TẬP</p><h2>Chờ duyệt</h2></div><a href="reviews.html">Mở hàng đợi ↗</a></div>'+
-      '<p class="cr-section-note">'+esc(items.length)+' đề xuất. Chỉ lên website sau khi kiểm tra, merge và xác nhận triển khai.</p>'+
-      (items.length?'<div class="cr-proposals">'+items.slice(0,4).map(function(p){
+    var history=Array.isArray(body.history)?body.history:[];
+    var proposals=items.length?'<div class="cr-proposals">'+items.slice(0,4).map(function(p){
+      var number=Number(p.number)||0;
+      return '<a class="cr-proposal" href="reviews.html?pr='+number+'"><span class="cr-proposal-state">'+
+        (p.draft?"PR nháp":"Đề xuất mở")+'</span>'+
+        '<strong>'+esc(p.title||"Đề xuất CMS #"+number)+'</strong>'+
+        '<small>#'+number+' · '+esc(when(p.updated_at))+'</small>'+
+        '<span class="cr-proposal-arrow" aria-hidden="true">↗</span></a>';
+    }).join("")+'</div>':
+    '<div class="cr-empty"><strong>Chưa có đề xuất CMS đang mở.</strong>'+
+    '<span>Bản nháp trên thiết bị chưa phải đề xuất gửi duyệt.</span></div>';
+    var recent=history.length?'<div class="cr-history-note">'+
+      '<strong>Đã merge gần đây</strong>'+
+      '<span>Merge chưa xác nhận nội dung đã lên website. Kiểm tra trạng thái triển khai riêng.</span>'+
+      history.slice(0,3).map(function(p){
         var number=Number(p.number)||0;
-        return '<a class="cr-proposal" href="reviews.html?pr='+number+'"><span class="cr-proposal-state">'+(p.draft?"PR nháp":"Đề xuất mở")+'</span>'+
-        '<strong>'+esc(p.title||"Đề xuất CMS #"+number)+'</strong><small>#'+number+' · '+esc(when(p.updated_at))+'</small><span class="cr-proposal-arrow" aria-hidden="true">↗</span></a>';
-      }).join("")+'</div>':
-      '<div class="cr-empty"><strong>Chưa có đề xuất CMS đang mở.</strong><span>Bản nháp trên thiết bị chưa phải đề xuất gửi duyệt.</span></div>');
+        var href=number>0?"https://github.com/kenzuko/jotrip-home/pull/"+number:"reviews.html";
+        return '<a class="cr-history-link" href="'+href+'" target="_blank" rel="noopener">'+
+          '<span>'+esc(p.title||"PR #"+number)+'</span><small>#'+number+' · '+esc(when(p.merged_at))+'</small></a>';
+      }).join("")+'</div>':"";
+    return '<div class="cr-section-heading"><div><p class="cr-eyebrow">BIÊN TẬP</p><h2>Chờ duyệt</h2></div>'+
+      '<a href="reviews.html">Mở hàng đợi ↗</a></div>'+
+      '<p class="cr-section-note">'+esc(items.length)+' đề xuất. Chỉ lên website sau khi kiểm tra, merge và xác nhận triển khai.</p>'+
+      proposals+recent;
   }
   function renderDrafts(local,modules){
     var labelById=new Map(modules.map(function(m){return [m.id,m.label]}));
@@ -140,7 +225,7 @@
     var errorMessages=[state.quality?.error,state.reviews?.error].filter(Boolean);
     var notice=errorMessages.length?'<div class="cr-notice" role="alert">Một số nguồn chưa tải được: '+errorMessages.map(esc).join(" · ")+'. Không coi số liệu thiếu là 0.</div>':'';
     host.innerHTML='<div class="control-room"><div class="cr-workspace">'+overview+metrics+notice+
-      '<section class="cr-panel" id="crQuality" aria-label="Công việc chất lượng">'+(state.loading?'<div class="cr-loading" role="status">Đang đọc công việc từ CMS...</div>':renderQuality(quality,state.modules,state.qualityFilter))+'</section>'+
+      '<section class="cr-panel" id="crQuality" aria-label="Công việc chất lượng">'+(state.loading?'<div class="cr-loading" role="status">Đang đọc công việc từ CMS...</div>':renderQuality(quality,state.modules,state))+'</section>'+
       '<section class="cr-panel" id="crReviews" aria-label="Đề xuất chờ duyệt">'+(state.loading?'<div class="cr-loading" role="status">Đang đọc hàng đợi duyệt...</div>':renderReviews(reviews))+'</section></div>'+
       '<aside class="cr-context" aria-label="Công cụ nhanh">'+
       '<section class="cr-panel cr-sidepanel">'+renderDrafts(local,state.modules)+'</section>'+
@@ -172,18 +257,30 @@
     active.active=false;
     active.controller?.abort();
     active.host.removeEventListener("click",active.click);
+    active.host.removeEventListener("keydown",active.keydown);
     active=null;
   }
   function mount(opts){
     unmount();
-    var state={active:true,host:opts.host,role:opts.role,login:opts.login,modules:opts.modules.filter(function(m){return m.read?.includes(opts.role);}),quality:null,reviews:null,loading:false,controller:null,qualityFilter:"all",preview:Boolean(opts.previewData)};
+    var state={active:true,host:opts.host,role:opts.role,login:opts.login,modules:opts.modules.filter(function(m){return m.read?.includes(opts.role);}),quality:null,reviews:null,loading:false,controller:null,qualityFilter:"all",searchTerm:"",visibleCount:5,preview:Boolean(opts.previewData)};
     state.click=function(event){
+      if(event.target.closest("[data-cr-more]")&&!state.preview){
+        event.preventDefault();state.visibleCount+=5;render(state);return;
+      }
+      if(event.target.closest("[data-cr-search-clear]")&&!state.preview){
+        event.preventDefault();state.searchTerm="";state.visibleCount=5;render(state);return;
+      }
+      if(event.target.closest("[data-cr-search-submit]")&&!state.preview){
+        event.preventDefault();
+        state.searchTerm=state.host.querySelector("[data-cr-search]")?.value.trim()||"";
+        state.visibleCount=5;render(state);return;
+      }
       var filterButton=event.target.closest("[data-cr-filter]");
       if(filterButton&&!state.preview){
         event.preventDefault();
         var filter=filterButton.getAttribute("data-cr-filter");
-        if(["all","priority","progress"].includes(filter)){
-          state.qualityFilter=filter;render(state);
+        if(["all","priority","progress","mine","late","soon"].includes(filter)){
+          state.qualityFilter=filter;state.visibleCount=5;render(state);
         }
         return;
       }
@@ -205,8 +302,15 @@
       var jump=event.target.closest("[data-cr-module]");
       if(jump){event.preventDefault();var id=jump.getAttribute("data-cr-module");if(id==="analytics"||state.modules.some(function(m){return m.id===id;}))opts.onNavigate(id);}
     };
+    state.keydown=function(event){
+      if(event.key==="Enter"&&event.target.matches("[data-cr-search]")&&!state.preview){
+        event.preventDefault();state.searchTerm=event.target.value.trim();
+        state.visibleCount=5;render(state);
+      }
+    };
     active=state;
     state.host.addEventListener("click",state.click);
+    state.host.addEventListener("keydown",state.keydown);
     if(state.preview){
       state.quality={value:opts.previewData.quality};
       state.reviews={value:opts.previewData.reviews};

@@ -1540,6 +1540,8 @@ async function selectModule(id){
 
   if(currentModule.preview){
     $("#previewBtn").href=currentModule.preview;
+    $("#previewBtn").textContent="Trang đã công bố ↗";
+    $("#previewBtn").title="Bản công khai: không bao gồm thay đổi chưa gửi duyệt.";
     $("#previewBtn").classList.remove("hidden");
   }else{
     $("#previewBtn").classList.add("hidden");

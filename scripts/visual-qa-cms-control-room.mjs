@@ -18,12 +18,12 @@ async function makePage(role,viewport){
   await page.route("**/api/cms/quality",route=>route.fulfill({
     status:200,contentType:"application/json",body:JSON.stringify({
       computed_at:"2026-09-27T09:20:00+07:00",
-      tasks:[
+      storage:"d1",tasks:[
         {rule_id:"VENUE_SOURCE_MISSING",entity_id:"venue_bai_khem",field:"source_ref",
          status:"open",surface:"Địa điểm",severity:"high",
          evidence:"Bãi Khem đang ACTIVE nhưng chưa có nguồn ghi nhận.",next_action:"Bổ sung nguồn"},
         {rule_id:"VENUE_CHECK_DATE_MISSING",entity_id:"venue_bai_sao",field:"verified_at",
-         status:"in_progress",surface:"Địa điểm",severity:"medium",
+         status:"in_progress",surface:"Địa điểm",severity:"medium",owner:"visual-qa",due_at:"2020-01-01",
          evidence:"Bãi Sao đang ACTIVE nhưng thiếu ngày kiểm tra.",next_action:"Kiểm chứng"}
       ]
     })
@@ -59,6 +59,18 @@ try{
   assert.equal(await desktop.page.locator(".cr-task h3").first().textContent(),"Bãi Sao");
   await desktop.page.locator('.cr-filter[data-cr-filter="all"]').click();
   assert.equal(await desktop.page.locator(".cr-task").count(),2);
+  await desktop.page.locator('.cr-filter[data-cr-filter="mine"]').click();
+  assert.equal(await desktop.page.locator(".cr-task").count(),1);
+  assert.equal(await desktop.page.locator(".cr-task h3").first().textContent(),"Bãi Sao");
+  await desktop.page.locator('.cr-filter[data-cr-filter="late"]').click();
+  assert.equal(await desktop.page.locator(".cr-task").count(),1);
+  await desktop.page.locator('.cr-filter[data-cr-filter="all"]').click();
+  const search=desktop.page.locator("[data-cr-search]");
+  await search.fill("bai sao");
+  await search.press("Enter");
+  assert.equal(await desktop.page.locator(".cr-task").count(),1);
+  await desktop.page.locator("[data-cr-search-clear]").click();
+  assert.equal(await desktop.page.locator(".cr-task").count(),2);
   // Regression for the owner's screenshot: site link must remain below the scroller.
   for(const height of [900,600]){
     await desktop.page.setViewportSize({width:1440,height});
@@ -89,6 +101,8 @@ try{
   const overflow=await mobile.page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
   assert.ok(overflow<=2,"mobile page overflows by "+overflow+" pixels");
   assert.equal(await mobile.page.locator("button[data-cr-module=analytics]").count(),0);
+  assert.ok(await mobile.page.locator("[data-cr-search]").isVisible(),
+    "mobile inbox search should be visible");
   assert.equal(await mobile.page.locator('.module-btn[data-id="analytics"]').count(),0);
   assert.ok(await mobile.page.locator(".site-link").isVisible(),"public website link must be visible on mobile");
   const mobileNav=await mobile.page.evaluate(()=>{
