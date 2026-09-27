@@ -160,7 +160,7 @@
       '<button type="button" data-story-undo '+(canUndo(i)?"":"hidden ")+' aria-label="Hoàn tác thao tác thêm, xóa hoặc di chuyển đoạn">↶ Hoàn tác đoạn</button></div>'+
       '<span id="storyLocalSave" role="status" aria-live="polite">Bản nháp chỉ lưu trên trình duyệt này · Ctrl/Cmd+S để lưu nháp</span>'+
       '</div>'+checksHtml(item,i):"";
-    return '<div class="story-desk'+(state.writing?" writing":"")+'> <aside class="story-library"><div class="story-library-head"><div><span>BÀI VIẾT</span><h2>Chọn bài để xem</h2><p>'+list.length+' bài trong thư viện</p></div>'+
+    return '<div class="story-desk'+(state.writing?" writing":"")+'"><aside class="story-library"><div class="story-library-head"><div><span>BÀI VIẾT</span><h2>Chọn bài để xem</h2><p>'+list.length+' bài trong thư viện</p></div>'+
       '<button type="button" id="addStoryBtn">+ Bài mới</button></div>'+
       '<label class="story-library-label" for="storyDeskSearch">Tìm bài</label>'+
       '<input type="search" id="storyDeskSearch" data-editor-readonly-action value="'+esc(state.query)+'" placeholder="Nhập tiêu đề hoặc chuyên mục" autocomplete="off">'+
