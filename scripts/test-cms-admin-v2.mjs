@@ -63,8 +63,23 @@ const qs={
   severity:{high:"Cần ưu tiên",low:"Theo dõi"},
   today:()=>"2026-09-27"
 };
-vm.runInNewContext(["entityName","taskHref","datePill","renderQualityTasks"]
+vm.runInNewContext(["entityName","taskHref","datePill","sortQualityTasks","renderQualityTasks","qualityWriteConfirmed"]
   .map(name=>extract(qualitySrc,name)).join("\n"),qs);
+qs.state={qualityReady:true,storage:"d1",login:"editor",tasks:[
+  {rule_id:"VENUE_SOURCE_MISSING",entity_id:"venue_1",field:"source_ref",
+    status:"in_progress",owner:"editor",due_at:"2026-09-30",persistence:"d1"}
+]};
+assert.equal(qs.qualityWriteConfirmed("VENUE_SOURCE_MISSING|venue_1|source_ref","claim",""),true);
+assert.equal(qs.qualityWriteConfirmed("VENUE_SOURCE_MISSING|venue_1|source_ref","due","2026-09-30"),true);
+assert.equal(qs.qualityWriteConfirmed("VENUE_SOURCE_MISSING|venue_1|source_ref","resolve",""),false);
+qs.state.storage="computed-from-main";
+assert.equal(qs.qualityWriteConfirmed("VENUE_SOURCE_MISSING|venue_1|source_ref","claim",""),false);
+const unsorted=Array.from({length:11},(_,i)=>({
+  severity:i===10?"high":"low",due_at:i===10?"2026-09-28":"2026-12-01",surface:"Test"
+}));
+const firstTen=qs.sortQualityTasks(unsorted).slice(0,10);
+assert.equal(firstTen[0].severity,"high","High severity on page 2 must sort to page 1");
+assert.equal(firstTen.length,10);
 const card=qs.renderQualityTasks([{
   rule_id:"VENUE_SOURCE_MISSING",entity_id:"venue&test",field:"source_ref",
   surface:"Địa điểm",severity:"high",status:"in_progress",owner:"editor",

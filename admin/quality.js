@@ -29,7 +29,7 @@ const state={
 };
 function entityName(task){
   const evidence=String(task.evidence||"");
-  const matched=evidence.match(/^(.{2,95}?)\s+(?:đang ACTIVE|có tọa độ|có thực thể món)\b/i);
+  const matched=evidence.match(/^(.{2,95}?)\s+(?:đang ACTIVE|có tọa độ|có thực thể món)(?=\s|$)/i);
   return matched&&!/[/\\=_]/.test(matched[1])?matched[1].trim():null;
 }
 function taskHref(task){
@@ -48,14 +48,17 @@ function datePill(task){
   return '<span class="due-pill '+(late?"overdue":near?"soon":"")+'">'+
     (late?"Quá hạn ":near?"Sắp hạn ":"Hạn ")+esc(raw.slice(8)+"/"+raw.slice(5,7)+"/"+raw.slice(0,4))+"</span>";
 }
-function renderQualityTasks(tasks,canManage=false,storage="computed-from-main"){
-  if(!tasks.length)return'<div class="empty"><strong>Không có việc trong nhóm này</strong>Đổi bộ lọc hoặc xem những việc đã xử lý.</div>';
+function sortQualityTasks(tasks){
   const rank={high:0,medium:1,low:2};
   return tasks.slice().sort((a,b)=>
     (rank[a.severity]??3)-(rank[b.severity]??3)||
     String(a.due_at||"9999").localeCompare(String(b.due_at||"9999"))||
     String(a.surface||"").localeCompare(String(b.surface||""),"vi")
-  ).map(task=>{
+  );
+}
+function renderQualityTasks(tasks,canManage=false,storage="computed-from-main"){
+  if(!tasks.length)return'<div class="empty"><strong>Không có việc trong nhóm này</strong>Đổi bộ lọc hoặc xem những việc đã xử lý.</div>';
+  return sortQualityTasks(tasks).map(task=>{
     const key=[task.rule_id,task.entity_id||"",task.field].join("|");
     const title=entityName(task),rule=names[task.rule_id]||task.rule_id||"Việc cần kiểm chứng";
     const href=taskHref(task);
@@ -140,7 +143,7 @@ function syncControls(){
 }
 function renderQueue(){
   if(!state.qualityReady)return;
-  const tasks=filtered();
+  const tasks=sortQualityTasks(filtered());
   const visible=tasks.slice(0,state.pageSize);
   $("#qualityQueue").innerHTML=renderQualityTasks(visible,state.canManage,state.storage);
   $("#workCount").textContent=tasks.length+" việc khớp bộ lọc · "+
@@ -175,7 +178,7 @@ async function load(force=false){
       state.qualityReady=false;state.reviewsReady=false;
       $("#total").textContent="—";$("#checked").textContent="Cần đăng nhập CMS";
       $("#qualityQueue").innerHTML='<div class="empty"><strong>Phiên đăng nhập hết hạn</strong><a class="task-action" href="index.html">Đăng nhập lại →</a></div>';
-      $("#reviewQueue").innerHTML="";$("#mergedQueue").innerHTML="";return;
+      $("#reviewQueue").innerHTML="";$("#mergedQueue").innerHTML="";return false;
     }
     state.qualityReady=Boolean(q?.response.ok&&Array.isArray(q?.result.tasks));
     state.reviewsReady=Boolean(r?.response.ok&&Array.isArray(r?.result.items));
@@ -211,12 +214,26 @@ async function load(force=false){
     if(errors.length){$("#notice").textContent=errors.join(" · ");$("#notice").className="notice error";}
     else{$("#notice").textContent="Việc chất lượng được tính từ main. Nhận việc, hạn xử lý và lịch sử thao tác dựa trên trạng thái D1 khi có kết nối. Merge chưa xác nhận deploy.";
       $("#notice").className="notice";}
+    return state.qualityReady;
   }catch(error){
     $("#qualityQueue").innerHTML='<div class="empty"><strong>Chưa thể tải công việc</strong>Kiểm tra kết nối rồi thử lại.</div>';
     $("#reviewQueue").innerHTML="";$("#mergedQueue").innerHTML="";
     $("#total").textContent="—";$("#notice").textContent=error?.message||"Lỗi không xác định";
     $("#notice").className="notice error";
+    state.qualityReady=false;
+    return false;
   }finally{state.busy=false;$("#refresh").disabled=false;}
+}
+function qualityWriteConfirmed(taskKey,action,due){
+  if(!state.qualityReady||state.storage!=="d1")return false;
+  const saved=state.tasks.find(item=>[item.rule_id,item.entity_id||"",item.field].join("|")===taskKey);
+  if(!saved||saved.persistence!=="d1")return false;
+  if(action==="due")return (saved.due_at||"")===(due||"");
+  if(action==="claim")return saved.status==="in_progress"&&(!state.login||saved.owner===state.login);
+  if(action==="resolve")return saved.status==="resolved";
+  if(action==="mute")return saved.status==="muted";
+  if(action==="reopen")return saved.status==="open";
+  return false;
 }
 $("#qualityQueue").addEventListener("click",async event=>{
   const button=event.target.closest("[data-quality-action]");
@@ -238,9 +255,14 @@ $("#qualityQueue").addEventListener("click",async event=>{
     if(!response.ok)throw Error(result.detail||result.error||"Không lưu được trạng thái.");
     // Force-refresh while the action is running; previous code called load()
     // inside a locked handler and silently skipped it.
-    state.writing=false;await load(true);
-    $("#notice").textContent="Đã lưu và tải lại trạng thái từ CMS.";
-    $("#notice").className="notice success";
+    const reloaded=await load(true);
+    if(reloaded&&qualityWriteConfirmed(key,action,due)){
+      $("#notice").textContent="Đã lưu và kiểm tra lại trạng thái từ CMS.";
+      $("#notice").className="notice success";
+    }else{
+      $("#notice").textContent="Đã gửi thao tác nhưng chưa xác minh được trạng thái lưu trên CMS. Hãy tải lại trước khi thao tác tiếp.";
+      $("#notice").className="notice error";
+    }
   }catch(error){
     $("#notice").textContent=error?.message||"Không lưu được. Thử lại.";
     $("#notice").className="notice error";

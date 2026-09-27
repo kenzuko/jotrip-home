@@ -20,12 +20,19 @@ vm.runInNewContext([
   extract(quality,"entityName"),
   extract(quality,"taskHref"),
   extract(quality,"datePill"),
+  extract(quality,"sortQualityTasks"),
   extract(quality,"renderQualityTasks"),
   extract(quality,"renderReviewTasks"),
   extract(quality,"renderMergedHistory"),
   extract(quality,"countOpenWork")
 ].join("\n"),sandbox);
 
+const globallySorted=sandbox.sortQualityTasks([
+  ...Array.from({length:12},(_,i)=>({severity:"low",surface:"B",due_at:"2026-12-01",entity_id:"low_"+i})),
+  {severity:"high",surface:"A",due_at:"2026-09-28",entity_id:"urgent"}
+]);
+assert.equal(globallySorted.slice(0,10)[0].entity_id,"urgent",
+  "Urgent tasks must appear on the first page, even if the API returned them last");
 const qualityHtml=sandbox.renderQualityTasks([{
   entity_id:"venue/one",
   field:"coordinate_source_ref",

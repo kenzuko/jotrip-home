@@ -69,3 +69,9 @@ hệ thống không tự hoàn thành nội dung chỉ vì bấm "Đã xử lý"
   khi QA chưa đủ hoặc có xung đột file từ luồng khác.
 - Sau khi chủ dự án xác nhận preview: mới merge, xác nhận commit live,
   custom domain, pages và OAuth phiên người dùng sau deploy.
+
+## V2.1 - hàng đợi chắc chắn hơn (27/09/2026)
+- Sắp xếp toàn bộ việc theo mức độ ưu tiên, hạn xử lý rồi nhóm trước khi lấy từng trang 10 việc. Việc cần ưu tiên không bị chìm ở trang sau khi dữ liệu API chưa được sắp thứ tự.
+- Sau thao tác D1, GET lại rồi xác minh task key, trạng thái hoặc hạn xử lý và dấu hiệu persistence D1. Nếu chỉ POST thành công nhưng GET thất bại hoặc trạng thái chưa khớp, thông báo chưa xác minh; không báo đã lưu chắc chắn và không tự động POST lần nữa.
+- Cập nhật cách tách tên tiếng Việt khỏi evidence (tránh dùng word boundary ASCII ở cuối từ có dấu). Các thay đổi nằm trong CMS, không sửa D1 schema, OAuth, dữ liệu chuyên trách hoặc triggers.
+- QA bổ sung tình huống việc ưu tiên nằm cuối danh sách hơn 10 việc và tình huống GET chưa xác minh được dữ liệu D1. Vẫn giữ Draft, không merge production khi chưa có xác nhận phát hành.
