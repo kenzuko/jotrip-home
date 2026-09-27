@@ -81,6 +81,7 @@ execFileSync(process.execPath,["scripts/test-social-preview.mjs"],{stdio:"inheri
 execFileSync(process.execPath,["scripts/test-seo-render.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-seo-ai-discovery.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/build-seo-sitemap.mjs"],{stdio:"inherit"});
+execFileSync(process.execPath,["scripts/build-ai-discovery.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-seo-sitemap.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-traffic-analytics.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/build-public-traffic.mjs"],{stdio:"inherit"});
