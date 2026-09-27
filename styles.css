@@ -6349,3 +6349,16 @@ body.sheet-open{
  .app-rail-nav a[href="go/"]{background:#e8f4ee;color:#185c43}
  .app-rail-nav a[href="go/"] strong{font-weight:900}
 }
+
+/* Homepage Near Me: a small quick finder, not an empty oversized right panel. */
+@media(min-width:721px){
+ .near-me-section:not(.near-has-selection) .near-quick-results{
+   grid-row:1;align-self:start;min-height:0;padding:23px 25px;
+   background:#f2f9f5;
+ }
+ .near-me-section:not(.near-has-selection) .near-quick-results-heading h3{font-size:clamp(21px,1.8vw,26px)}
+ .near-me-section:not(.near-has-selection) .near-quick-empty{min-height:0}
+}
+@media(min-width:721px) and (max-width:1100px){
+ .near-quick-results{min-height:0}
+}
