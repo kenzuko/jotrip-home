@@ -79,6 +79,7 @@ execFileSync(process.execPath,["scripts/test-google-verification.mjs"],{stdio:"i
 execFileSync(process.execPath,["scripts/build-share-card.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-social-preview.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-seo-render.mjs"],{stdio:"inherit"});
+execFileSync(process.execPath,["scripts/test-seo-ai-discovery.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/build-seo-sitemap.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-seo-sitemap.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-traffic-analytics.mjs"],{stdio:"inherit"});
