@@ -6,16 +6,17 @@ const geo=()=>root.OpenPQGoGeo;
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 let map=null,rings=null,pins=null,originMarker=null;
 const ISLAND_FRAME=[[9.88,103.79],[10.46,104.16]]; // Full island and southern islets.
-let fitVersion=0,lastBounds=null;
-function fitVisible(bounds){
+let fitVersion=0,lastBounds=null,lastMaxZoom=11;
+function fitVisible(bounds,maxZoom=11){
   lastBounds=bounds;
+  lastMaxZoom=maxZoom;
   const version=++fitVersion;
   const apply=()=>{
     if(version!==fitVersion||!map)return;
     // Recalculate Leaflet dimensions after mobile layout or rotation.
     try{
       map.invalidateSize({pan:false});
-      map.fitBounds(bounds,{padding:[16,20],maxZoom:11,animate:false});
+      map.fitBounds(bounds,{padding:[24,28],maxZoom:lastMaxZoom,animate:false});
     }catch(error){
       console.warn("GO map viewport update skipped",error?.message||error);
     }
@@ -63,13 +64,13 @@ function ensure(){
   },12000);
   rings=L.layerGroup().addTo(map);
   pins=L.layerGroup().addTo(map);
-  map.on("resize",()=>{if(lastBounds)fitVisible(lastBounds);});
+  map.on("resize",()=>{if(lastBounds)fitVisible(lastBounds,lastMaxZoom);});
   // Mobile viewport changes after Safari address-bar movement or returning from a tab.
   if(root.ResizeObserver){
-    const observer=new ResizeObserver(()=>{if(lastBounds)fitVisible(lastBounds);});
+    const observer=new ResizeObserver(()=>{if(lastBounds)fitVisible(lastBounds,lastMaxZoom);});
     observer.observe(host);
   }
-  root.addEventListener?.("pageshow",()=>{if(lastBounds)fitVisible(lastBounds);});
+  root.addEventListener?.("pageshow",()=>{if(lastBounds)fitVisible(lastBounds,lastMaxZoom);});
   return true;
 }
 function centerIcon(gps){
@@ -104,15 +105,11 @@ function draw(position,radius,rows,options={}){
   if(!ensure())return {shown:points.length,map:false};
   const center=[+position.lat,+position.lon];
   rings.clearLayers();pins.clearLayers();
-  // Quarter-distance guides create a readable radar even at a custom 7/13/27km radius.
-  for(const fraction of [.25,.5,.75,1]){
-    const outer=fraction===1;
-    const km=selected*fraction;
-    L.circle(center,{radius:km*1000,weight:outer?3:1.15,
-      color:outer?"#186d57":"#74a994",opacity:outer?.86:.56,
-      dashArray:outer?null:"4 8",fillColor:"#53bc95",fillOpacity:outer?.085:0,
-      interactive:false}).addTo(rings);
-  }
+  // One clear radius boundary. Four nested rings obscured roads and place labels.
+  const circle=L.circle(center,{
+    radius:selected*1000,weight:2.5,color:"#177352",opacity:.95,
+    fillColor:"#43b78c",fillOpacity:.10,interactive:false
+  }).addTo(rings);
   if(!originMarker){
     originMarker=L.marker(center,{icon:centerIcon(gps),zIndexOffset:1000}).addTo(map);
   }else{originMarker.setLatLng(center);originMarker.setIcon(centerIcon(gps));}
@@ -125,10 +122,9 @@ function draw(position,radius,rows,options={}){
       .bindPopup(popup(group,!gps),{maxWidth:270})
       .addTo(pins);
   }
-  // The radius remains visible, but the entire island stays in the frame.
-  const bounds=L.latLngBounds(ISLAND_FRAME);
-  bounds.extend(L.circle(center,{radius:selected*1000}).getBounds());
-  fitVisible(bounds);
+  // Focus on the chosen area so nearby places remain legible; "Xem toàn đảo" restores the island frame.
+  const bounds=circle.getBounds();
+  fitVisible(bounds,selected<=2?13:selected<=5?12:selected<=10?11:10);
   return {shown:points.length,markers:groupPoints(points).length,map:true};
 }
 function overview(){
@@ -138,5 +134,5 @@ function overview(){
   fitVisible(L.latLngBounds(ISLAND_FRAME));
   return true;
 }
-root.OpenPQGoMap={draw,overview,refresh(){if(map)fitVisible(lastBounds||L.latLngBounds(ISLAND_FRAME));}};
+root.OpenPQGoMap={draw,overview,refresh(){if(map)fitVisible(lastBounds||L.latLngBounds(ISLAND_FRAME),lastMaxZoom);}};
 })(window);

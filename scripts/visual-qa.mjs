@@ -420,15 +420,39 @@ async function testGoPage(page) {
     radius: document.querySelector('#goRadiusValue')?.textContent?.trim() || '',
     radiusValue: document.querySelector('#goRadiusRange')?.value || ''
   }));
+  const layout = await page.evaluate(() => {
+    const rect = selector => document.querySelector(selector)?.getBoundingClientRect();
+    const head=rect(".go-builder-head"),first=rect(".go-form>fieldset:first-of-type"),
+      second=rect(".go-form>fieldset:nth-of-type(2)"),
+      map=rect("#goMap"),panel=rect("#goRadiusPanel"),
+      controls=document.querySelector("#goRadiusControls"),
+      prompt=document.querySelector("#goMapPrompt");
+    return {
+      viewport:window.innerWidth,scrollWidth:document.documentElement.scrollWidth,
+      headGap:head&&first?first.top-head.bottom:null,
+      sideBySide:first&&panel?panel.left>=first.right+10&&Math.abs(panel.top-first.top)<=30:false,
+      mobileOrder:first&&second&&panel?panel.top>=first.bottom-1&&panel.bottom<=second.top+2:false,
+      mapWidth:map?.width||0,mapHeight:map?.height||0,mapTop:map?.top||0,
+      radiusVisible:!!controls&&!controls.hidden,
+      promptHidden:!!prompt&&prompt.hidden
+    };
+  });
+  const responsiveLayout = layout.viewport>=1000
+    ?layout.sideBySide&&layout.mapWidth>=360&&layout.mapHeight>=350&&layout.mapTop<800
+    :layout.viewport<=760?layout.mobileOrder&&layout.mapHeight>=300:true;
   const checks = {
+    readableHeadingGap:layout.headGap!==null&&layout.headGap>=12,
+    desktopOrMobileWorkspace:responsiveLayout,
+    mapControlsFollowSelection:layout.radiusVisible&&layout.promptHidden,
+    noHorizontalOverflow:layout.scrollWidth<=layout.viewport+2,
     manualAreasPresent: state.choices === 3,
     manualAreaSelected: state.selected && /An Thới/.test(state.locationStatus),
     mapCopyTracksArea: /An Thới/.test(state.mapMode),
     mapCountNotStale: !!state.mapCount && !/Chọn khu vực để hiện/.test(state.mapCount),
     radiusControlUpdates: state.radius === '2 km' && state.radiusValue === '2',
-    noGpsRequired: /không phải GPS/.test(state.locationStatus)
+    noGpsRequired: /không phải vị trí của bạn/.test(state.locationStatus)
   };
-  return { ok: Object.values(checks).every(Boolean), checks, state };
+  return { ok: Object.values(checks).every(Boolean), checks, state, layout };
 }
 
 async function testUtilitiesPage(page) {
