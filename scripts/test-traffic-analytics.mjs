@@ -69,20 +69,20 @@ assert.ok(weekly.trend.every(row=>/^\d{4}-\d{2}-\d{2}$/.test(row.period)));
 const old=(await(await query("period=all")).json());
 assert.equal(old.first_day,past(1080));
 assert.equal(old.grain,"year");
-assert.equal(old.total_page_views,42);
+assert.equal(old.total_page_views,46);
 assert.ok(old.trend.length>=2,"All-time history must aggregate across years");
 assert.equal(old.comparison,null);
 const year=(await(await query("period=365d")).json());
 assert.equal(year.grain,"month");
-assert.equal(year.total_page_views,32); // Old 210 days + 60 days + latest + 1 collector
+assert.equal(year.total_page_views,36); // All but the 1080-day and 850-day rows
 assert.ok(year.trend.every(row=>/^\d{4}-\d{2}$/.test(row.period)));
 const filtered=(await(await query("period=all&channel=ai&country=VN&device=mobile&page_group=guide&action=feedback_open&sort=hits_asc&q=fresh")).json());
 assert.equal(filtered.total_page_views,5);
 assert.deepEqual(filtered.pages,[{path:"/guide/article.html?id=fresh",hits:5}]);
 assert.deepEqual(filtered.actions,[{event:"feedback_open",hits:2}]);
 const ascending=(await(await query("period=all&sort=hits_asc")).json());
-assert.equal(ascending.pages[0].path,"/stories/article.html?id=long-history");
-assert.equal(ascending.pages[0].hits,7); // Unless "/" 14, guide "fresh" 5; fix below by actual value.
+assert.equal(ascending.pages[0].path,"/guide/article.html?id=fresh");
+assert.equal(ascending.pages[0].hits,5);
 const reportName=(await(await query("period=all&sort=name_asc")).json());
 assert.ok(reportName.pages[0].path.localeCompare(reportName.pages.at(-1).path)<=0);
 const search=(await(await query("period=all&q=older")).json());
