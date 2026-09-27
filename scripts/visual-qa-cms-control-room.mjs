@@ -64,6 +64,18 @@ try{
   await mobile.page.screenshot({path:output+"/cms-control-room-mobile.png",fullPage:true});
   assert.equal(mobile.errors.length,0,"mobile page errors: "+mobile.errors.join("; "));
   await mobile.context.close();
+
+  const demoContext=await browser.newContext({viewport:{width:1440,height:900}});
+  const demo=await demoContext.newPage();
+  const unsafe=[];
+  await demo.route("**/api/cms/**",route=>{unsafe.push(route.request().url());return route.abort();});
+  await demo.goto(base+"/admin/control-room-preview.html",{waitUntil:"networkidle"});
+  await demo.locator(".control-room").waitFor();
+  assert.equal(await demo.locator(".cr-task").count(),3);
+  assert.equal(await demo.locator(".preview-banner").count(),1);
+  assert.equal(unsafe.length,0,"visual preview must not fetch CMS endpoints");
+  await demo.screenshot({path:output+"/cms-control-room-public-preview.png",fullPage:true});
+  await demoContext.close();
   console.log("PASS CMS Control Room browser QA: desktop, mobile, navigation, role, responsive overflow");
 }finally{
   await browser.close();
