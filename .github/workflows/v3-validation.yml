@@ -15,6 +15,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Check committed Near Me indexes before regenerating
+        run: node scripts/check-derived-views-sync.mjs
+      - name: Test derived-index drift gate against stale fixtures
+        run: node scripts/test-derived-views-sync.mjs
       - name: Build public knowledge view
         run: node scripts/build-knowledge-public.mjs
       - name: Build derived Near Me data

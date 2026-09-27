@@ -17,6 +17,7 @@ on:
       - "nearme/**"
       - "home-nearme-v2.js"
       - "scripts/build-location-index.mjs"
+      - "scripts/check-derived-views-sync.mjs"
       - "scripts/build-map-coverage.mjs"
       - "guide/**"
       - "index.html"
@@ -54,6 +55,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Check committed Near Me indexes before regenerating
+        run: node scripts/check-derived-views-sync.mjs
       - name: Install CMS weather collectors
         run: python -m pip install --quiet boto3 s3fs xarray h5netcdf h5py numpy pyproj
 
