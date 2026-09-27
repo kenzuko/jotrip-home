@@ -1588,6 +1588,9 @@ async function selectModule(id){
             clearDraft();
           }
         }else{
+          // Archive a conflicting browser draft before a new edit can overwrite its key.
+          const archiveKey="openpq-cms-stale:"+session.login+":"+currentModule.id+":"+String(draft.at||Date.now());
+          try{if(!localStorage.getItem(archiveKey))localStorage.setItem(archiveKey,raw)}catch{}
           outdatedDraft=true;
         }
       }catch{
@@ -1606,7 +1609,7 @@ async function selectModule(id){
       status("Đã khôi phục bản nháp trên trình duyệt.","success");
     }else{
       status(outdatedDraft
-        ?"Bản nháp cũ được giữ trên trình duyệt, nhưng tệp trên GitHub đã đổi. Chưa tự khôi phục để tránh ghi đè. Hãy đối chiếu trước khi tiếp tục."
+        ?"Bản nháp cũ khác phiên bản đã được giữ riêng khi có dung lượng trình duyệt. Về Bàn làm việc để tải bản nháp cũ và đối chiếu trước khi sửa."
         :(writable?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; gửi duyệt tạo PR, chưa lên website.":"Vai trò của bạn chỉ được xem module này."),outdatedDraft?"error":"");
     }
   }catch(e){
