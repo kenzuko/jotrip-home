@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import {publicConfig,publicSubmit,adminFeedback,cleanupFeedback} from "../functions/_shared/place-feedback.js";
 import {onRequest as publicFeedbackRoute} from "../functions/api/feedback.js";
 
-const records=[],photos=new Map();
+const records=[],photos=new Map(),translations=new Map();
 const db={prepare(query){
   let args=[];
   return {
@@ -11,6 +11,7 @@ const db={prepare(query){
       if(query.startsWith("SELECT 1 AS ready"))return {ready:1};
       if(query.startsWith("SELECT COUNT"))return {total:records.filter(x=>x.submit_hash===args[0]&&x.created_at>=args[1]).length};
       if(query.startsWith("SELECT image_key"))return records.find(x=>x.id===args[0])||null;
+      if(query.startsWith("SELECT target_locale"))return translations.get(args[0])||null;
       return null;
     },
     async all(){
@@ -22,6 +23,10 @@ const db={prepare(query){
       return {results:rows.slice(offset,offset+limit).map(x=>({id:x.id,issue:x.issue,entity_type:x.entity_type,entity_id:x.entity_id,entity_label:x.entity_label,details:x.details,source_path:x.source_path,created_at:x.created_at,status:x.status,moderator_note:x.moderator_note||"",reviewed_at:x.reviewed_at||null,reviewed_by:x.reviewed_by||null,has_photo:Number(!!x.image_key)}))};
     },
     async run(){
+      if(query.startsWith("INSERT INTO cms_translation_feedback")){
+        translations.set(args[0],Object.fromEntries(["feedback_id","article_id","target_locale","segment_id","translation_revision","translation_excerpt","source_excerpt","suggested_translation","created_at"].map((key,i)=>[key,args[i]])));
+        return {meta:{changes:1}};
+      }
       if(query.startsWith("INSERT")){
         records.push(Object.fromEntries(["id","issue","entity_type","entity_id","entity_label","details","source_path",
           "image_key","image_mime","submit_hash","created_at","status"].map((key,i)=>[key,args[i]])));
@@ -33,6 +38,7 @@ const db={prepare(query){
         Object.assign(row,{status:args[0],moderator_note:args[1],reviewed_at:args[2],reviewed_by:args[3]});
         return {meta:{changes:1}};
       }
+      if(query.startsWith("DELETE FROM cms_translation_feedback"))return {meta:{changes:Number(translations.delete(args[0]))}};
       if(query.startsWith("DELETE")){
         const i=records.findIndex(x=>x.id===args[0]&&x.created_at<args[1]);
         if(i<0)return {meta:{changes:0}};
@@ -42,6 +48,7 @@ const db={prepare(query){
     }
   };
 }};
+db.batch=async statements=>{for(const statement of statements)await statement.run();return statements.map(()=>({meta:{changes:1}}));};
 const r2={
   async put(key,content,metadata){photos.set(key,{body:content,metadata});},
   async get(key){const item=photos.get(key);return item?{body:item.body}:null;},
