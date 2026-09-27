@@ -16,7 +16,7 @@ const writable=()=>["admin","editor"].includes(session?.role);
 const status=message=>{$("#status").textContent=message;};
 function publicHref(raw){
   const s=String(raw||"");
-  return /^\/(nearme|go|places|stories|guide)\/[a-zA-Z0-9/_-]*(?:\?id=[a-zA-Z0-9_-]{1,120})?$/.test(s)&&!s.startsWith("//")?s:null;
+  return (s==="/"||/^\/(nearme|go|places|stories|guide)\/[a-zA-Z0-9/._-]*(?:\?id=[a-zA-Z0-9_-]{1,120})?$/.test(s))&&!s.startsWith("//")?s:null;
 }
 function editorHref(x){
   const id=String(x.entity_id||"");
