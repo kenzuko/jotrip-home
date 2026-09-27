@@ -52,6 +52,23 @@ function validate(value,kind){
   default:return !Array.isArray(value);
  }
 }
+// Publish the newest complete forecast without relabeling old model cycles.
+function usableDashboard(data,now=Date.now()){
+ if(!validate(data,"dashboard")||data.report_status!=="LIVE")return false;
+ const issued=parsedTime(data.generated_at);
+ if(!issued||issued>now+10*60000||issued<now-6*3600000)return false;
+ const cycles=data.source_cycles||{};
+ if(!["ECMWF","ICON"].some(k=>{
+  const t=parsedTime(cycles[k]);return t&&t<=now+30*60000&&t>=now-30*3600000;
+ }))return false;
+ const points=Object.values(data.points||{});
+ return points.length>=8&&points.every(p=>(p.hours||[]).some(r=>{
+  const t=parsedTime(r.time_iso);
+  return t>=now-10*60000&&t<=now+24*3600000&&
+   typeof r.wind==="number"&&typeof r.gust==="number"&&
+   r.wind>=0&&r.gust>=r.wind&&typeof r.rain==="number";
+ }));
+}
 function cloudRuntime(raw){
  const frames=raw.spatial.frames.slice(-6).map(f=>({
   sampled_time:f.sampled_time,
@@ -151,7 +168,8 @@ async function health(request,waitUntil){
   "/weather/data/local-now.json",
   "/weather/data/nowcast-compact.json",
   "/weather/data/groundtruth.json",
-  "/weather/data/weather-runtime/marine.json"
+  "/weather/data/weather-runtime/marine.json",
+  "/weather/data/dashboard-data.json"
  ];
  const base=new URL(request.url);
  const results=await Promise.all(targets.map(async path=>{
@@ -160,7 +178,8 @@ async function health(request,waitUntil){
   if(!response)return {path,status:"UNAVAILABLE"};
   const at=response.headers.get("x-openpq-weather-source-time");
   const age=ageMinutes(at);
-  return {path,status:age===null?"UNKNOWN":age>({[targets[0]]:45,[targets[1]]:35,[targets[2]]:60,[targets[3]]:210}[path]||60)?"STALE":"READY",
+  const forecastValid=path===targets[4]?usableDashboard(await response.clone().json().catch(()=>null)):true;
+  return {path,status:!forecastValid?"STALE":age===null?"UNKNOWN":age>({[targets[0]]:45,[targets[1]]:35,[targets[2]]:60,[targets[3]]:210,[targets[4]]:150}[path]||60)?"STALE":"READY",
     source_time:at,age_minutes:age,via:response.headers.get("x-openpq-weather-edge")};
  }));
  return jsonResponse({
@@ -172,15 +191,38 @@ async function health(request,waitUntil){
 export async function handleWeatherData(request,fallback,waitUntil){
  const path=new URL(request.url).pathname;
  if(!["GET","HEAD"].includes(request.method))return fallback();
- // The CMS snapshot builder revalidates the unchanged ECMWF cycle and writes
- // dashboard-data.json into deployed assets. Do not shadow that file with the
- // older upstream dashboard at Cloudflare's edge (the source of stale UI).
+ // Keep the independently verified CMS snapshot when it is fresher,
+ // but recover immediately from a delayed Pages publication using JoTrip-Lab.
+ // This affects /weather/data/dashboard-data.json only, not any other module.
  if(path==="/weather/data/dashboard-data.json"){
   const asset=await fallback();
   const headers=new Headers(asset.headers);
   headers.set("cache-control","no-store");
-  headers.set("x-openpq-weather-edge","CMS_VERIFIED_SNAPSHOT");
-  return new Response(request.method==="HEAD"?null:asset.body,{status:asset.status,headers});
+  if(request.method==="HEAD"){
+   headers.set("x-openpq-weather-edge","CMS_STATIC_HEAD");
+   return new Response(null,{status:asset.status,headers});
+  }
+  const staticData=await asset.clone().json().catch(()=>null);
+  const staticUsable=usableDashboard(staticData);
+  const staticAt=parsedTime(staticData?.generated_at);
+  if(!staticUsable||ageMinutes(staticData.generated_at)>5){
+   const live=await liveAsset(request,waitUntil);
+   const latest=live?await live.clone().json().catch(()=>null):null;
+   const liveAt=parsedTime(latest?.generated_at);
+   const liveCycle=parsedTime(latest?.source_cycles?.ECMWF);
+   const staticCycle=parsedTime(staticData?.source_cycles?.ECMWF);
+   if(live&&usableDashboard(latest)&&(!staticUsable||
+     liveCycle>staticCycle+60000||
+     (liveCycle>=staticCycle&&liveAt>staticAt+60000))){
+    const h=new Headers(live.headers);
+    h.set("cache-control","no-store");
+    h.set("x-openpq-weather-edge","ENGINE_DIRECT_LATEST");
+    return new Response(live.body,{status:live.status,headers:h});
+   }
+  }
+  headers.set("x-openpq-weather-edge",
+    staticUsable&&ageMinutes(staticData.generated_at)<=150?"CMS_VERIFIED_SNAPSHOT":"CMS_STATIC_FALLBACK_STALE");
+  return new Response(asset.body,{status:asset.status,headers});
  }
  if(path==="/weather/data/edge-health.json")return health(request,waitUntil);
  if(!Object.prototype.hasOwnProperty.call(SOURCES,path))return fallback();
