@@ -25,6 +25,7 @@
 
   let support=null;
   let rows=[];
+  let communityRows=[];
   let selectedArea="all";
   let selectedCategory=null;
   let searchText="";
@@ -53,10 +54,10 @@
   function hasStoredVenueData(id=selectedCategory){
     if(!id)return false;
     return rows.some(row=>
-      row.entity_type==="venue" &&
+      (row.entity_type==="venue"||row.entity_type==="utility") &&
       (row.tags||[]).includes(id) &&
       matchesArea(row)
-    );
+    ) || communityRows.some(row=>(row.tags||[]).includes(id)&&matchesArea(row));
   }
 
   function isDiscoveryCategory(id=selectedCategory){
@@ -260,6 +261,26 @@
     });
   }
 
+  function buildCommunityRows(data){
+    return (data?.entities||[]).map(entity=>{
+      const map=entity.map||null;
+      const inferredZone=entity.zone_id||window.OpenPQArea?.nearest?.(map?.lat,map?.lon)||null;
+      return {
+        ...entity,
+        community_candidate:true,
+        id:entity.id,
+        name:entity.name||entity.id,
+        entity_type:"utility",
+        zone_id:inferredZone,
+        tags:entity.utility_type?[entity.utility_type]:[],
+        lat:Number.isFinite(map?.lat)?map.lat:null,
+        lon:Number.isFinite(map?.lon)?map.lon:null,
+        group:entity.group||null,
+        source_license:"ODbL-1.0"
+      };
+    });
+  }
+
   function areaLabel(){
     if(position)return "Vị trí của tôi";
     return manualAreas().find(x=>x.id===selectedArea)?.label||"Toàn đảo";
@@ -331,7 +352,7 @@
     ).join("");
 
     const categories=support?.near_me?.categories||[];
-    const available=new Set(rows.flatMap(x=>x.tags||[]));
+    const available=new Set([...rows,...communityRows].flatMap(x=>x.tags||[]));
     const cats=categories.filter(x=>available.has(x.id)||x.mode==="directory_search");
     if(selectedCategory&&!cats.some(x=>x.id===selectedCategory)&&!available.has(selectedCategory)&&!QUICK_CATEGORY_IDS.includes(selectedCategory))selectedCategory=null;
 
@@ -389,6 +410,16 @@
     return item.opening_hours_note|| (item.entity_type==='utility'?'Giờ mở cửa chưa được xác nhận.':'');
   }
 
+  function reliabilityLabel(item){
+    if(item.verified===false){
+      if(item.utility_type==="CHARGING")return "Vị trí cộng đồng; chưa xác minh trạm còn hoạt động, quyền vào hoặc loại trụ. Kiểm tra VinFast trước khi đi.";
+      if(item.utility_type==="FUEL")return "Cây xăng tham khảo từ dữ liệu cộng đồng; chưa xác nhận hoạt động hoặc giờ mở cửa.";
+      if(item.utility_type==="PHARMACY")return "Nhà/quầy thuốc do cộng đồng ghi nhận; chưa kiểm tra giấy phép và hoạt động hiện tại.";
+      return "Địa điểm tham khảo từ cộng đồng; chưa xác minh đang hoạt động.";
+    }
+    if(item.publication_status==="DIRECTORY_REFERENCE")return "Có nguồn danh bạ; giờ và tình trạng hoạt động hiện tại chưa được xác nhận.";
+    return "";
+  }
   function mapInfoLabel(item){
     const map=item.map||{};
     const precision=map.precision==="area_anchor"?"Pin định hướng khu vực":map.precision==="site_centroid"?"Tâm khuôn viên, có thể khác cổng vào":map.precision?"Độ chính xác: "+map.precision:"";
@@ -554,21 +585,56 @@
     if(mapOpen)showDirectoryMap(query,"Tìm ngoài bản đồ");
   }
 
+  function renderCommunityResults(){
+    const host=$("#communityResults");
+    if(!host)return;
+    const active=!!selectedCategory||!!searchText.trim();
+    const visible=active?communityRows.filter(row=>matchesArea(row)&&matchesCategory(row)&&matchesSearch(row)):[];
+    if(!visible.length){host.hidden=true;host.innerHTML="";return;}
+    host.hidden=false;
+    const cards=visible.slice(0,60).map(row=>{
+      const hasCoordinates=Number.isFinite(row.lat)&&Number.isFinite(row.lon);
+      const query=hasCoordinates?row.lat+","+row.lon:exactMapQuery(row);
+      const osmSource=(row.source_refs||[]).find(source=>/^https:\/\/www\\.openstreetmap\\.org\/(?:node|way|relation)\//i.test(source.url||""));
+      const sourceUrl=osmSource?.url||"https://www.openstreetmap.org/copyright";
+      const verifyUrl=/^https:\/\/vinfastauto\\.com\//i.test(row.external_verify_url||"")?row.external_verify_url:null;
+      return '<article class="near-card community-candidate">'+
+        '<span>'+esc(typeLabel(row))+' · Vị trí tham khảo</span>'+
+        '<strong>'+esc(row.name)+'</strong>'+
+        '<p>'+esc(row.address||"Thông tin địa chỉ chưa được xác minh.")+'</p>'+
+        '<small>'+esc(reliabilityLabel(row))+'</small>'+
+        '<small class="community-attribution"><a href="'+esc(sourceUrl)+'" target="_blank" rel="noopener noreferrer">Nguồn OpenStreetMap</a> · ODbL 1.0</small>'+
+        '<div>'+
+          '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener noreferrer">Mở vị trí tham khảo ↗</a>'+
+          (verifyUrl?'<a href="'+esc(verifyUrl)+'" target="_blank" rel="noopener noreferrer">Kiểm tra VinFast ↗</a>':"")+
+        '</div></article>';
+    }).join("");
+    host.innerHTML='<h3>Gợi ý từ dữ liệu cộng đồng ('+visible.length+')</h3>'+
+      '<p>Các vị trí này được giữ tách khỏi danh bạ chính, chưa xác minh hoạt động và không được xếp hạng theo GPS hoặc tính vào bán kính. '+
+      '<a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a> · '+
+      '<a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">ODbL 1.0</a>.</p>'+
+      '<div class="community-results-grid">'+cards+'</div>'+
+      (visible.length>60?'<p>Còn '+(visible.length-60)+' ứng viên. Gõ thêm tên để thu hẹp.</p>':"");
+  }
+
   function render(){
     if(!support||dataStatus==="loading"&&rows.length===0){
       if(dataStatus!=="ready")directoryFallback();
       return;
     }
-    if(dataStatus==="unavailable"&&rows.length===0){
+    if(dataStatus==="unavailable"&&rows.length===0&&communityRows.length===0){
       directoryFallback();
+      renderCommunityResults();
       return;
     }
     if(isDiscoveryCategory()){
+      renderCommunityResults();
       renderDiscovery();
       return;
     }
 
     const result=filteredRows();
+    renderCommunityResults();
     const visible=result.rows;
     window.__openpqNearState={
       ...(window.__openpqNearState||{}),
@@ -755,15 +821,18 @@
       if(!response.ok)throw new Error(path+" HTTP "+response.status);
       return response.json();
     });
-    const [supportResult,indexResult,venueResult]=await Promise.allSettled([
+    const [supportResult,indexResult,venueResult,communityResult]=await Promise.allSettled([
       readJson("../data/home-support.json"),
       readJson("../data/views/location-index.json"),
-      readJson("../data/entities/destination-venues.json")
+      readJson("../data/entities/destination-venues.json"),
+      readJson("../data/openstreetmap/nearme-candidates-20260926.json")
     ]);
     support=supportResult.status==="fulfilled"?supportResult.value:{near_me:{categories:[],manual_areas:FALLBACK_AREAS}};
     const locationIndex=indexResult.status==="fulfilled"?indexResult.value:{documents:[]};
     const venueDirectory=venueResult.status==="fulfilled"?venueResult.value:{entities:[]};
+    const communityDirectory=communityResult.status==="fulfilled"?communityResult.value:{entities:[]};
     const indexRows=buildRows(locationIndex),venueRows=buildVenueRows(venueDirectory);
+    communityRows=buildCommunityRows(communityDirectory);
     rows=window.OpenPQVenue?.mergeWithCanonical
       ?window.OpenPQVenue.mergeWithCanonical(indexRows,venueRows):[...indexRows,...venueRows];
     dataStatus=indexResult.status==="fulfilled"?"ready":"unavailable";
@@ -771,13 +840,14 @@
     window.__openpqNearState={
       indexCount:Array.isArray(locationIndex?.documents)?locationIndex.documents.length:0,
       venueCount:Array.isArray(venueDirectory?.entities)?venueDirectory.entities.filter(x=>x.status==="ACTIVE").length:0,
-      rowsCount:rows.length,requestedArea,requestedCategory,requestedQuery,
+      rowsCount:rows.length,communityCount:communityRows.length,requestedArea,requestedCategory,requestedQuery,
       dataStatus,selectedArea,selectedCategory,searchText
     };
     const validAreas=new Set(manualAreas().map(x=>x.id));
     const validCategories=new Set([
       ...(support.near_me?.categories||[]).map(x=>x.id),
       ...rows.flatMap(row=>row.tags||[]),
+      ...communityRows.flatMap(row=>row.tags||[]),
       ...QUICK_CATEGORY_IDS
     ]);
     if(requestedArea&&validAreas.has(requestedArea)){
