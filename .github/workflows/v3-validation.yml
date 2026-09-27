@@ -134,4 +134,9 @@ jobs:
           test -f dist/transit/app.js
           test -f dist/currency/index.html
           test -f dist/currency/currency.js
+          # Bundle both Cloudflare runtimes without deploying or consuming a Cloudflare Build.
+          npx --yes wrangler@4.136.3 pages functions build functions --outdir "$RUNNER_TEMP/openpq-pages-qa"
+          npx --yes wrangler@4.136.3 deploy --dry-run --config wrangler.jsonc --outdir "$RUNNER_TEMP/openpq-worker-qa"
+          test -d "$RUNNER_TEMP/openpq-pages-qa"
+          test -d "$RUNNER_TEMP/openpq-worker-qa"
           rm -rf dist
