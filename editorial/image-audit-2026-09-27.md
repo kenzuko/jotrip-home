@@ -1,65 +1,64 @@
-# CMS image audit 27/09/2026
+# CMS image audit - 27/09 wave 2
 
-- Story covers: 34/34. Story unique gallery: 34/34.
-- Food dishes with at least one image: 32/32.
-- Guide articles with dedicated/contextual image: 92/128 (of these, 18 third-party sources need an explicit public-image adapter).
-- Story missing unique secondary image: none.
-- Guide articles without defensible exact/context photos: 36.
+**106/128 guides photographed**, from 92, with 34/34 stories retaining cover + gallery and 32/32 food articles retaining photos. 22 guides still need an appropriately matched image.
 
-## Stories requiring original image
+## Added (14 guides)
+- Cửa Dương (1 photo)
+- Dương Tơ (2 photos)
+- Bãi Ông Lang (1 photo)
+- Hòn Gầm Ghì (1 photo)
+- Rừng ngập mặn Phú Quốc (1 photo)
+- Chim ở Phú Quốc (1 photo)
+- Rùa biển quanh Phú Quốc (1 photo)
+- Rượu sim (1 photo)
+- Bus Phú Quốc (1 photo)
+- Nghinh Ông (1 photo)
+- Bà Kim Giao (1 photo)
+- Phú Quốc trong không gian Hà Tiên (1 photo)
+- Bắc đảo trước và sau các resort lớn (1 photo)
+- Đường sá Phú Quốc qua các giai đoạn (2 photos)
 
-- None.
+## Still waiting (22)
+- Bãi Dài [knowledge_017_bai-dai]
+- Bãi Thơm [knowledge_018_bai-thom]
+- Mũi Gành Dầu [knowledge_019_mui-ganh-dau]
+- Hòn Móng Tay [knowledge_022_hon-mong-tay]
+- Mây Rút Trong [knowledge_024_may-rut-trong]
+- Mây Rút Ngoài [knowledge_025_may-rut-ngoai]
+- Địa chất Phú Quốc [knowledge_054_dia-chat-phu-quoc]
+- Mật sim / siro sim / mứt sim [knowledge_065_mat-sim-siro-sim-mut-sim]
+- Taxi Phú Quốc [knowledge_083_taxi-phu-quoc]
+- Thuê ô tô tự lái [knowledge_085_thue-o-to-tu-lai]
+- ATM ở Phú Quốc [knowledge_088_atm-o-phu-quoc]
+- Thanh toán thẻ và QR [knowledge_089_thanh-toan-the-va-qr]
+- Đổi tiền [knowledge_090_doi-tien]
+- Nhà thuốc [knowledge_091_pharmacy]
+- Phòng khám & bệnh viện [knowledge_092_clinic-hospital]
+- Nhà vệ sinh [knowledge_093_toilet]
+- Bãi đỗ xe [knowledge_094_parking]
+- Cây xăng [knowledge_095_fuel-stations]
+- Cửa hàng tiện lợi [knowledge_096_minimart-convenience-store]
+- Số khẩn cấp & trợ giúp [knowledge_098_emergency-numbers-practical-help]
+- Phú Quốc khi trời mưa [knowledge_138_phu-quoc-khi-troi-mua]
+- Nguồn gốc tên Hòn Móng Tay [knowledge_106_nguon-goc-ten-hon-mong-tay]
 
-## Guides still requiring accurate images
+## Image accuracy
+Bãi Ông Lang from Vietnam Airlines is exact for the beach and contextual only for Cửa Dương; permission to reuse not verified. Hòn Gầm Ghì uses Phú Quốc reef habitat, not an unverified exact underwater location. Cần Giờ mangrove, Hawaiian sea turtle, and VinBus in Hà Nội are explicitly labeled NON-PHÚ-QUỐC subject illustrations. Bà Kim Giao uses forest scenery, not a fabricated portrait. Older road photos and geography map are labeled by year and don't imply current roads/borders. Leave Mây Rút Trong/Ngoài without photos until the two individual islands can be independently verified.
 
-- 10 - Cửa Dương (PLACE)
-- 11 - Dương Tơ (PLACE)
-- 15 - Bãi Ông Lang (PLACE)
-- 17 - Bãi Dài (PLACE)
-- 18 - Bãi Thơm (PLACE)
-- 19 - Mũi Gành Dầu (PLACE)
-- 22 - Hòn Móng Tay (PLACE)
-- 23 - Hòn Gầm Ghì (PLACE)
-- 24 - Mây Rút Trong (PLACE)
-- 25 - Mây Rút Ngoài (PLACE)
-- 39 - Rừng ngập mặn Phú Quốc (NATURE)
-- 41 - Chim ở Phú Quốc (NATURE)
-- 42 - Rùa biển quanh Phú Quốc (NATURE)
-- 54 - Địa chất Phú Quốc (NATURE)
-- 64 - Rượu sim (FOOD)
-- 65 - Mật sim / siro sim / mứt sim (FOOD)
-- 82 - Bus Phú Quốc (PRACTICAL)
-- 83 - Taxi Phú Quốc (PRACTICAL)
-- 85 - Thuê ô tô tự lái (PRACTICAL)
-- 88 - ATM ở Phú Quốc (PRACTICAL)
-- 89 - Thanh toán thẻ và QR (PRACTICAL)
-- 90 - Đổi tiền (PRACTICAL)
-- 91 - Nhà thuốc (PRACTICAL)
-- 92 - Phòng khám & bệnh viện (PRACTICAL)
-- 93 - Nhà vệ sinh (PRACTICAL)
-- 94 - Bãi đỗ xe (PRACTICAL)
-- 95 - Cây xăng (PRACTICAL)
-- 96 - Cửa hàng tiện lợi (PRACTICAL)
-- 98 - Số khẩn cấp & trợ giúp (PRACTICAL)
-- 112 - Nghinh Ông (HISTORY_LORE)
-- 138 - Phú Quốc khi trời mưa (ACTIVITY)
-- 106 - Nguồn gốc tên Hòn Móng Tay (HISTORY_LORE)
-- 117 - Bà Kim Giao (HISTORY_LORE)
-- 121 - Phú Quốc trong không gian Hà Tiên (HISTORY_LORE)
-- 144 - Bắc đảo trước và sau các resort lớn (MEMORY_CHANGE)
-- 147 - Đường sá Phú Quốc qua các giai đoạn (MEMORY_CHANGE)
-
-## Accuracy and image rights
-- Added editorial images are always labeled with original place/date/context. For Rạch Vẹm, the species illustration from Cambodia is explicitly labeled and not claimed to have been photographed in Phú Quốc.
-- Existing external-source photos may require separate reuse permission. Attribution alone is not a license. Creative Commons photo rights are retained only where license could be identified.
-- Guides that would require a generic or unrelated photo stay without an image; no unrelated stock photos or false claims about geolocation.
-
-## Ảnh bổ sung cuối đợt
-- Bún quậy được bổ sung ảnh món và chén chấm RootyTrip với nhãn nguồn, quyền tái sử dụng chưa được cấp; đồng thời cập nhật thư viện ẩm thực.
-- Ảnh đền thờ Nguyễn Trung Trực Phú Quốc 2015 của Tokeisan, CC BY-SA 3.0 cho chủ đề di tích và phần văn hóa của Gành Dầu, không nhận là cảnh bãi biển.
-- Bình minh Phú Quốc 2016 của Quangpraha CC0 cho hai bài bình minh.
-- Bánh khéo và bánh tét bổ sung ảnh món thứ hai, ảnh bên ngoài có ghi nguồn và cần xin quyền.
-- Ảnh từ web khác chỉ được build guide khi được rà soát và gắn cờ curated_for_public cùng metadata nguồn, không mở whitelist cho URL bất kỳ.
-
-## Ảnh cẩm nang được hiển thị thực tế
-Bộ build trước đó chỉ cho hình Commons, ảnh nội bộ và cổng du lịch đi qua, khiến 18 cẩm nang dù đã có ảnh biên tập vẫn trắng. Bổ sung whitelist hẹp gồm 10 máy chủ ảnh đã rà soát; từng ảnh bên ngoài phải có curated_for_public=true cùng tên và URL nguồn trong dữ liệu. Không mở cho ảnh bất kỳ. 19 bản ghi ảnh trên 18 cẩm nang vẫn cần được chủ sở hữu cấp quyền hoặc thay ảnh về lâu dài. Kiểm tra hồi quy số ảnh thực sự được ghi vào knowledge-public.json.
+## Sources
+- knowledge_010_cua-duong: https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/ong-lang-beach (reuse rights unverified)
+- knowledge_011_duong-to: https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_Ph%C3%BA_qu%E1%BB%91c%2C_D%C6%B0%C6%A1ng_T%C6%A1%2C_Vietnam_-_panoramio.jpg (CC BY 3.0)
+- knowledge_011_duong-to: https://commons.wikimedia.org/wiki/File:Nguyen_Van_cu%2C_TL_46%2CDuong_to_Phu_quoc%2C_vn_-_panoramio.jpg (CC BY 3.0)
+- knowledge_015_bai-ong-lang: https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/ong-lang-beach (reuse rights unverified)
+- knowledge_023_hon-gam-ghi: https://commons.wikimedia.org/wiki/File:Phu_Quoc_coral_mountain.jpg (CC BY-SA 4.0)
+- knowledge_039_rung-ngap-man-phu-quoc: https://commons.wikimedia.org/wiki/File:Can_Gio_mangrove_forest.jpg (CC BY-SA 3.0)
+- knowledge_041_chim-o-phu-quoc: https://commons.wikimedia.org/wiki/File:Phú_Quốc_2022,_cảnh_rừng_(rễ_cổ_thụ)_(3).jpg (CC BY-SA 4.0)
+- knowledge_042_rua-bien-quanh-phu-quoc: https://commons.wikimedia.org/wiki/File:Chelonia_mydas_in_tidepools_at_Kona.jpg (CC BY-SA 4.0)
+- knowledge_064_ruou-sim: https://commons.wikimedia.org/wiki/File:R%C6%B0%E1%BB%A3u_Sim_Ph%C3%BA_Qu%E1%BB%91c.jpg (CC BY-SA 3.0)
+- knowledge_082_bus-phu-quoc: https://commons.wikimedia.org/wiki/File:Newone_-_VinBus_02.jpg (CC BY-SA 4.0)
+- knowledge_112_nghinh-ong: https://commons.wikimedia.org/wiki/File:Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg (reuse rights unverified)
+- knowledge_117_ba-kim-giao: https://commons.wikimedia.org/wiki/File:Phú_Quốc_2022,_cảnh_rừng_(rễ_cổ_thụ)_(3).jpg (CC BY-SA 4.0)
+- knowledge_121_phu-quoc-trong-khong-gian-ha-tien: https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg (CC BY-SA 4.0)
+- knowledge_144_bac-dao-truoc-va-sau-cac-resort-lon: /assets/media/editorial-grand-world-canal-day.jpg (reuse rights unverified)
+- knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan: https://commons.wikimedia.org/wiki/File:Nguyen_Van_cu%2C_TL_46%2CDuong_to_Phu_quoc%2C_vn_-_panoramio.jpg (CC BY 3.0)
+- knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan: https://commons.wikimedia.org/wiki/File:%C4%90%C6%B0%E1%BB%9Dng_tr%E1%BA%A7n_h%C6%B0ng_%C4%90%E1%BA%A1o%2C_D%C6%B0%C6%A1ng_t%C6%A1_Phu_quoc_vn_-_panoramio.jpg (CC BY 3.0)
