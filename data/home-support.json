@@ -670,10 +670,11 @@
         "verified_at": "2026-09-27",
         "effective_until": "UNTIL_FURTHER_NOTICE",
         "review_at": "2026-10-04",
-        "expires_at": null,
-        "expiry_reason": "OPERATOR_OPEN_ENDED__REQUIRES_FOLLOWUP",
+        "expires_at": "2026-12-31T23:59:59+07:00",
+        "expiry_reason": "EDITORIAL_VISIBILITY_REVIEW__NOT_A_REOPENING_DATE",
         "confidence": "HIGH",
-        "route": "news/awaken-sea-20261001.html"
+        "route": "news/awaken-sea-20261001.html",
+        "source_id": "sunworld_awaken_sea_notice_20260927"
       },
       {
         "event_id": "hot_honthom_midautumn_menu_2026",
@@ -727,8 +728,7 @@
     ],
     "empty_behavior": "SHOW_EMPTY_STATE",
     "temporary_items_require_expiry": true,
-    "display_label": "TIN & CẬP NHẬT PHÚ QUỐC",
-    "open_ended_notice_rule": "Thông báo của nhà vận hành có hiệu lực cho đến khi có thông báo mới được giữ không có expires_at; review_at là hạn kiểm tra lại, không phải ngày mở show."
+    "display_label": "TIN & CẬP NHẬT PHÚ QUỐC"
   },
   "curiosity": [
     {

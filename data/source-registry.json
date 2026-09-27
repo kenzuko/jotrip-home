@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-24",
+  "generated_at": "2026-09-27",
   "sources": [
     {
       "id": "handbook_r3",
@@ -909,6 +909,20 @@
       "trust": "DESTINATION_TOURISM",
       "used_by": [
         "food"
+      ]
+    },
+    {
+      "id": "sunworld_awaken_sea_notice_20260927",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World Hòn Thơm - thông báo Awaken Sea tạm ngưng từ 01/10/2026",
+      "evidence": "Ảnh thông báo chính thức Sun World Hon Thom do người dùng cung cấp ngày 27/09/2026",
+      "media_filename": "IMG_6857.jpeg",
+      "checked_at": "2026-09-27",
+      "dynamic": true,
+      "trust": "OPERATOR_NOTICE_IMAGE",
+      "used_by": [
+        "home_hot_now",
+        "news"
       ]
     }
   ],
