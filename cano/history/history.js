@@ -48,7 +48,7 @@
             '<span class="archive-status '+(running?"archive-running":"archive-suspended")+'">'+esc(humanState(item.state))+'</span>'+
             '<span class="archive-source">'+esc(source)+'</span><span class="archive-chevron" aria-hidden="true">⌄</span></summary>'+
             '<div class="archive-entry-body"><p><b>Phạm vi:</b> '+esc(item.scope||"Cano An Thới")+'</p>'+
-            (item.note?'<p><b>Ghi chú:</b> '+esc(item.note)+'</p>':'')+
+            (item.note?'<p><b>Ghi chú:</b> '+esc(item.note.length>150?item.note.slice(0,147)+'…':item.note)+'</p>':'')+
             '<p><b>Nguồn xác nhận:</b> '+esc(source)+'</p></div></details>';
         }).join("")+'</div></details>';
     }).join("");
