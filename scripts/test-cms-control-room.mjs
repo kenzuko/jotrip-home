@@ -91,4 +91,20 @@ const settle=()=>new Promise(resolve=>setImmediate(resolve));
   assert.doesNotMatch(h.host.innerHTML,/<strong>0<\/strong><small>Chưa đọc được nguồn/);
   h.window.OPQControlRoom.unmount();
 }
+{
+  const mockWindow={},calls=[];
+  const host={innerHTML:"",addEventListener(){},removeEventListener(){},querySelectorAll(){return []}};
+  vm.runInNewContext(source,{
+    window:mockWindow,fetch:()=>{calls.push("unexpected");throw Error("Preview must not call a live API");},
+    localStorage:{length:0,key(){return null},getItem(){return null}},
+    AbortController,Intl,Date,URL,encodeURIComponent,Number,String,Map,Set,Array,Object,JSON,Promise
+  },{filename:"admin/control-room.js"});
+  mockWindow.OPQControlRoom.mount({
+    host,role:"admin",login:"visual-demo",modules:[{id:"analytics",label:"Analytics",read:["admin"]}],
+    previewData:{quality:{tasks:[]},reviews:{items:[]}},onNavigate(){}
+  });
+  assert.match(host.innerHTML,/Dữ liệu minh họa/);
+  assert.deepEqual(calls,[],"static preview attempted a live fetch");
+  mockWindow.OPQControlRoom.unmount();
+}
 console.log("PASS: CMS Control Room syntax, permissions, draft, queues, escaping, source degradation and navigation");
