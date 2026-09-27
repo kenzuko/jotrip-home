@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import {readFile} from "node:fs/promises";
 
 const root="https://cms.openphuquoc.com";
-const publicOrigin="https://openphuquoc.com";
+const publicOrigin=root; // The only live public Origin is the CMS hostname.
 const token=(process.env.CF_API_TOKEN||"").trim();
 const account=(process.env.CF_ACCOUNT_ID||"").trim();
 if(!token||!account)throw Error("Cloudflare D1 credentials missing: feedback smoke cannot verify persistence");
@@ -32,7 +32,7 @@ try{
     if(response.ok&&(response.headers.get("content-type")||"").includes("application/json")){
       config=await response.json();
       if(config?.enabled===true){
-        assert.equal(response.headers.get("access-control-allow-origin"),publicOrigin);
+        assert.equal(response.headers.get("access-control-allow-origin"),null,"CMS is same-origin, no CORS");
         break;
       }
     }
@@ -45,15 +45,18 @@ try{
     "CMS Near Me must expose correction controls and the shared feedback client");
   const inbox=await fetchChecked(root+"/api/cms/feedback",{headers:{Accept:"application/json"}});
   assert.equal(inbox.status,401,"CMS inbox must deny anonymous requests");
-  const options=await fetchChecked(root+"/api/feedback",{
-    method:"OPTIONS",headers:{Origin:publicOrigin,"Access-Control-Request-Method":"POST","Access-Control-Request-Headers":"content-type"}
-  });
-  assert.equal(options.status,204,"Official apex CORS preflight must work");
-  assert.equal(options.headers.get("access-control-allow-origin"),publicOrigin);
+  const options=await fetchChecked(root+"/api/feedback",{method:"OPTIONS",headers:{Origin:root}});
+  assert.equal(options.status,405,"Sole CMS hostname needs no CORS preflight");
+  const hostileForm=new FormData();
+  hostileForm.set("issue","other");
+  hostileForm.set("entity_type","general");
+  hostileForm.set("entity_id","feedback_smoke_test");
+  hostileForm.set("entity_label","Blocked cross-origin smoke");
+  hostileForm.set("details","This must never be saved");
   const hostile=await fetchChecked(root+"/api/feedback",{
-    method:"OPTIONS",headers:{Origin:"https://untrusted.example","Access-Control-Request-Method":"POST"}
+    method:"POST",headers:{Origin:"https://untrusted.example"},body:hostileForm
   });
-  assert.equal(hostile.status,403,"Unknown origins must not be permitted");
+  assert.equal(hostile.status,403,"Unknown origins must not submit reports");
 
   const form=new FormData();
   form.set("issue","other");
@@ -68,7 +71,7 @@ try{
   });
   const receipt=await submit.json().catch(()=>({}));
   assert.equal(submit.status,201,"Public feedback must return receipt 201, got: "+JSON.stringify({status:submit.status,error:receipt.error}));
-  assert.equal(submit.headers.get("access-control-allow-origin"),publicOrigin);
+  assert.equal(submit.headers.get("access-control-allow-origin"),null);
   reference=receipt.reference;
   assert.match(reference,/^[0-9a-f-]{36}$/i,"Feedback receipt ID must be a UUID");
   let row;
@@ -80,7 +83,7 @@ try{
   assert.equal(row?.id,reference,"Public report not persisted into the official CMS D1 database");
   assert.equal(row?.status,"new","Submitted report must stay unverified in CMS queue");
   assert.equal(row?.entity_id,"feedback_smoke_test");
-  console.log("LIVE FEEDBACK SMOKE PASS: official-origin CORS, anonymous intake, authenticated queue guard, D1 persistence and receipt. Private R2 photos deliberately not enabled by this test.");
+  console.log("LIVE FEEDBACK SMOKE PASS: same-origin anonymous intake, authenticated queue guard, D1 persistence and receipt. Private R2 photos deliberately not enabled by this test.");
 }finally{
   if(reference&&/^[0-9a-f-]{36}$/i.test(reference)){
     const removed=await queryD1("DELETE FROM cms_place_feedback WHERE id = ? AND entity_id = ?",[reference,"feedback_smoke_test"]);

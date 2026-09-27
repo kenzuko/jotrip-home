@@ -122,24 +122,23 @@ assert.equal(final.deleted,1);
 assert.equal(records.length,0);
 assert.equal(photos.size,0);
 
-// Official public hosts can submit through CMS Pages without creating a second Cloudflare secret.
+// CMS Pages may reuse the existing session secret with a separate HMAC domain.
 const fallbackEnv={...env,FEEDBACK_RATE_SECRET:undefined,CMS_SESSION_SECRET:"test-existing-cms-session"};
-assert.equal((await (await publicConfig(fallbackEnv)).json()).enabled,true,"Existing CMS secret is domain-separated as feedback HMAC fallback");
+assert.equal((await (await publicConfig(fallbackEnv)).json()).enabled,true,"CMS secret fallback works");
 const cmsUrl="https://cms.openphuquoc.com/api/feedback";
-const officialOrigin="https://openphuquoc.com";
-const corsGet=await publicFeedbackRoute({request:new Request(cmsUrl,{headers:{origin:officialOrigin}}),env:fallbackEnv});
-assert.equal(corsGet.headers.get("access-control-allow-origin"),officialOrigin);
-assert.equal((await corsGet.json()).enabled,true);
-const preflight=await publicFeedbackRoute({request:new Request(cmsUrl,{method:"OPTIONS",headers:{origin:officialOrigin,"access-control-request-method":"POST"}}),env:fallbackEnv});
-assert.equal(preflight.status,204);
-assert.equal(preflight.headers.get("access-control-allow-origin"),officialOrigin);
-const wrongPreflight=await publicFeedbackRoute({request:new Request(cmsUrl,{method:"OPTIONS",headers:{origin:"https://evil.example"}}),env:fallbackEnv});
-assert.equal(wrongPreflight.status,403);
-const apexSubmit=await publicFeedbackRoute({request:request("location",{source_url:"https://openphuquoc.com/nearme/?category=PHARMACY"},{origin:officialOrigin,ip:"198.51.100.250"}),env:fallbackEnv});
-assert.equal(apexSubmit.status,201);
-assert.equal(apexSubmit.headers.get("access-control-allow-origin"),officialOrigin);
-assert.equal(records[0].source_path,"/nearme/","Official apex source URLs remain attributable to the correct page");
-const crossAdmin=new Request("https://cms.openphuquoc.com/api/cms/feedback",{method:"PATCH",headers:{origin:officialOrigin,"content-type":"application/json"},body:JSON.stringify({id:records[0].id,status:"reviewing",note:"Kiểm chứng"})});
-assert.equal((await adminFeedback(crossAdmin,fallbackEnv,editor)).status,403,"CMS state changes never gain cross-origin permission");
-
-console.log("Place feedback QA PASS: readiness, origin/CSRF, field validation, anti-spam, D1, pagination, R2, CMS permissions, mandatory resolution note, 180-day cleanup, CMS-secret fallback and official-apex CORS");
+const getResponse=await publicFeedbackRoute({request:new Request(cmsUrl),env:fallbackEnv});
+assert.equal(getResponse.status,200);
+assert.equal(getResponse.headers.get("access-control-allow-origin"),null,"No cross-origin headers needed");
+assert.equal((await getResponse.json()).enabled,true);
+const preflight=await publicFeedbackRoute({request:new Request(cmsUrl,{method:"OPTIONS",headers:{origin:"https://openphuquoc.com"}}),env:fallbackEnv});
+assert.equal(preflight.status,405,"Unused apex must not have CORS preflight");
+const rejectedApex=await publicFeedbackRoute({request:request("location",{}, {origin:"https://openphuquoc.com",ip:"198.51.100.249"}),env:fallbackEnv});
+assert.equal(rejectedApex.status,403,"Inactive apex requests must be rejected");
+const sameOriginSubmit=await publicFeedbackRoute({request:request("location",{source_url:"https://cms.openphuquoc.com/nearme/?category=PHARMACY"},{origin:"https://cms.openphuquoc.com",ip:"198.51.100.250"}),env:fallbackEnv});
+assert.equal(sameOriginSubmit.status,201);
+assert.equal(sameOriginSubmit.headers.get("access-control-allow-origin"),null);
+assert.equal(records[0].source_path,"/nearme/","CMS source path is retained without arbitrary query values");
+assert.equal(records.length,1,"Rejected origin must not produce any report");
+const crossAdmin=new Request("https://cms.openphuquoc.com/api/cms/feedback",{method:"PATCH",headers:{origin:"https://openphuquoc.com","content-type":"application/json"},body:JSON.stringify({id:records[0].id,status:"reviewing",note:"Kiểm chứng"})});
+assert.equal((await adminFeedback(crossAdmin,fallbackEnv,editor)).status,403,"CMS state changes remain same-origin only");
+console.log("Place feedback QA PASS: readiness, same-origin protection, field validation, anti-spam, D1, pagination, R2, CMS permissions, mandatory resolution note, 180-day cleanup and CMS-secret fallback");
