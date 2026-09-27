@@ -1593,6 +1593,32 @@
       "search_text": "di lai tren dao grab taxi xe rieng xe may di chuyen transport first-time chon phuong tien theo so nguoi, khoang cach va nhip cua ngay."
     },
     {
+      "id": "utility_dmx_107_nvc",
+      "type": "utility",
+      "title": "Điện máy XANH - 107 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": "UNKNOWN",
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "dien may xanh - 107 nguyen van cu cua hang dien may xanh theo danh sach chi nhanh chinh thuc. chua xac minh vi tri cua vao hay tinh trang mo cua hien tai. 1900 232 461 dien thoai & dien may unknown 107 nguyen van cu, khu pho 3, an thoi, dac khu phu quoc, an giang"
+    },
+    {
+      "id": "utility_dmx_162_304",
+      "type": "utility",
+      "title": "Điện máy XANH - 162 đường 30/4",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "intents": [],
+      "star_rating": null,
+      "operational_status": "UNKNOWN",
+      "related_entities": [],
+      "route": "/utilities/#directory",
+      "search_text": "dien may xanh - 162 duong 30/4 cua hang dien may xanh theo danh sach chi nhanh chinh thuc. chua xac minh vi tri cua vao hay tinh trang mo cua hien tai. 1900 232 461 dien thoai & dien may unknown 162 duong 30/4, khu pho 1, duong dong, dac khu phu quoc, an giang"
+    },
+    {
       "id": "history_vision_2030_2010",
       "type": "history",
       "title": "Điều chỉnh tầm nhìn 2030",

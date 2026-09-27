@@ -19,9 +19,9 @@
     "rule": "Ưu tiên tọa độ đã xác minh. Nếu chưa có, có thể dùng tọa độ suy từ Google Maps theo tên/địa chỉ khi lưu đủ nguồn, ngày kiểm tra và precision. area_anchor chỉ dùng định hướng vùng."
   },
   "summary": {
-    "candidate_count": 392,
+    "candidate_count": 394,
     "ready_count": 220,
-    "missing_count": 172
+    "missing_count": 174
   },
   "layers": {
     "zones": [
@@ -3409,6 +3409,8 @@
     "utility_taxi_mailinh",
     "utility_taxi_namthang",
     "utility_longchau_suoi_da",
-    "utility_dienmaycholon_nguyen_trung_truc"
+    "utility_dienmaycholon_nguyen_trung_truc",
+    "utility_dmx_162_304",
+    "utility_dmx_107_nvc"
   ]
 }
