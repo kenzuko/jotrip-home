@@ -1,60 +1,92 @@
-name: Near Me Geoapify GPS research
+name: Near Me Geoapify GPS enrichment
 
 on:
   workflow_dispatch:
     inputs:
       limit:
-        description: 'Max new addresses for this run (1-200)'
+        description: 'Max missing addresses to process (1-200)'
         required: false
         default: '50'
       budget:
-        description: 'Max Geoapify API requests for this run (1-1000)'
+        description: 'Max Geoapify requests this run (1-1000)'
         required: false
         default: '150'
-  schedule:
-    - cron: '15 19 * * *' # 02:15 Asia/Ho_Chi_Minh, after merge to main
 
 permissions:
-  contents: read
+  contents: write
+  pull-requests: write
 
 concurrency:
-  group: nearme-geoapify-research
+  group: nearme-geoapify-enrichment
   cancel-in-progress: false
 
 jobs:
-  research:
+  geocode:
     runs-on: ubuntu-latest
-    timeout-minutes: 18
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Unit tests (offline; no API usage)
+      - name: Offline regression tests
         run: node scripts/test-geocode-geoapify.mjs
-      - name: Restore request cache
+      - name: Restore lookup cache
         uses: actions/cache@v4
         with:
           path: .cache/near-go/geoapify-cache.json
-          key: nearme-geoapify-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          key: nearme-geoapify-v2-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: |
-            nearme-geoapify-v1-
-      - name: Geocode unlocated essential businesses (research only)
+            nearme-geoapify-v2-
+      - name: Resolve new addresses and save good building points
         env:
           GEOAPIFY_API_KEY: ${{ secrets.GEOAPIFY_API_KEY }}
-          REQUEST_LIMIT: ${{ github.event.inputs.limit || '50' }}
-          REQUEST_BUDGET: ${{ github.event.inputs.budget || '150' }}
+          REQUEST_LIMIT: ${{ inputs.limit || '50' }}
+          REQUEST_BUDGET: ${{ inputs.budget || '150' }}
         run: |
           if [ -z "$GEOAPIFY_API_KEY" ]; then
-            echo 'GEOAPIFY_API_KEY secret is not set; no external requests were made.'
+            echo 'Missing GEOAPIFY_API_KEY repository secret; no API requests or data changes.'
             exit 1
           fi
-          node scripts/geocode-geoapify.mjs "--limit=$REQUEST_LIMIT" "--budget=$REQUEST_BUDGET"
-      - name: Upload GPS candidates for human review
-        if: success()
+          node scripts/geocode-geoapify.mjs --apply "--limit=$REQUEST_LIMIT" "--budget=$REQUEST_BUDGET"
+      - name: Rebuild map views if any GPS saved
+        run: |
+          if ! git diff --quiet -- data/entities; then
+            node scripts/build-map-coverage.mjs
+            node scripts/build-location-index.mjs
+            node scripts/build-search-index.mjs
+            node scripts/validate-data.mjs
+            node scripts/test-nearme-intake.mjs
+          else
+            echo 'No high-confidence points saved; existing maps untouched.'
+          fi
+      - name: Upload audit for unplaced addresses
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: nearme-geoapify-candidates
+          name: nearme-geoapify-results
           path: .cache/near-go/geoapify-candidates.json
           retention-days: 30
-          if-no-files-found: error
+          if-no-files-found: ignore
+      - name: Save coordinate changes to an isolated branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet -- data/entities data/views; then
+            echo 'No canonical changes. No branch or PR required.'
+            exit 0
+          fi
+          BRANCH="data/geoapify-gps-${{ github.run_id }}"
+          git config user.name 'Open Phu Quoc Data Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git switch -c "$BRANCH"
+          git add data/entities data/views
+          git commit -m 'data: save high-confidence Geoapify building coordinates'
+          git push origin "HEAD:$BRANCH"
+          gh pr create --draft --base main --head "$BRANCH" \
+            --title 'DATA: Geoapify GPS suggestions ready for review' \
+            --body 'Automated Geoapify lookup. Only street-numbered, high-confidence building points saved as site_centroid. Existing GPS and business operational states untouched. Verify map attribution and review before merge; no automatic deploy.' \
+            || echo "PR creation blocked by repository settings; review branch $BRANCH manually."

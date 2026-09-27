@@ -1,27 +1,24 @@
-# Geoapify GPS lookup - Near Me research only
+# Geoapify: only geocode and save missing Near Me coordinates
 
-This tool ingests `data/views/location-index.json` and selects utility/place rows **without GPS** and with a usable address. Hotels are excluded until their separate GPS audit (`--include-hotels`). Vague area descriptions go into `skipped` instead of receiving a fake precise pin. Coordinates are geocoding **suggestions**, not operating-status or entrance verification.
+Scope: **no new map UI, no new Places API data source, no business-status changes**. Reads `data/views/location-index.json` and calls Geoapify only for utility/place addresses with no GPS and a usable street-level address. Hotels are excluded by default; broad areas are skipped. Existing GPS is never overwritten.
 
-## Setup (once)
+The operator's official site remains the source for the business identity/address. Geoapify only contributes a coordinate estimate. A result can be saved into the same canonical `data/entities/*.json` record **only** when Geoapify returns a building/amenity point with confidence >=0.85 and suitable building confidence, with exactly matching house number, same street, correct island and zone, a unique high-quality match and no conflicting point within 20 m. It is stored as `site_centroid`, **not** `exact_entrance`; `verified` and `operational_status` remain untouched. Street/area hits, ambiguous or duplicate results stay in the local review audit instead of becoming false pins.
 
-1. Register the Geoapify Free account at https://myprojects.geoapify.com/ and create an API key.
-2. GitHub repository > Settings > Secrets and variables > Actions > New repository secret. Name it `GEOAPIFY_API_KEY`; paste the key. Do not put it in a JSON file or browser JavaScript.
-3. After QA and merge, run **Near Me Geoapify GPS research** in GitHub Actions with `workflow_dispatch`. It also runs daily at 02:15 Vietnam time after merging to `main`.
+## Setup once
 
-## Commands
+1. Get the free key at https://myprojects.geoapify.com/ .
+2. In `kenzuko/jotrip-home`, add `GEOAPIFY_API_KEY` under Settings > Secrets and variables > Actions. Never put it in the repository or this conversation.
+3. When this draft PR is approved and merged, open GitHub Actions > **Near Me Geoapify GPS enrichment** > Run workflow. By default, it considers up to 50 missing addresses and makes at most 150 API requests. No daily crawler or Cloudflare build is started by this workflow.
+4. Saved GPS and regenerated views go into a new **isolated data branch and draft PR**, not directly into `main`. Review then merge a verified data batch. When no strong matches exist, the job only uploads the audit report.
 
 ```sh
 node scripts/test-geocode-geoapify.mjs
 node scripts/geocode-geoapify.mjs --dry-run
-GEOAPIFY_API_KEY=... node scripts/geocode-geoapify.mjs --limit=50 --budget=150
+GEOAPIFY_API_KEY='...' node scripts/geocode-geoapify.mjs --apply --limit=50 --budget=150
 ```
 
-Outputs (local working directory only): `.cache/near-go/geoapify-candidates.json` and `.cache/near-go/geoapify-cache.json`. The workflow uploads the first as a review artifact and persists the latter as an Actions cache. It does **not** commit updated maps or trigger Cloudflare. The cache lasts 90 days; changes to address/name produce a new query hash. Default maximum is 50 addresses and 150 requests per run, with hard cap 1,000 per run. The Geoapify free plan provides **3,000 credits/day shared across all project keys**; avoid repeated manual runs on the same day if another project consumes credits.
+The script writes `.cache/near-go/geoapify-candidates.json` and `.cache/near-go/geoapify-cache.json` locally (the latter expires after 90 days). Both stay outside production. `--apply` writes qualifying coordinates to canonical data. Manually rebuild map and location views after local runs; the GitHub workflow handles this automatically. Credits are shared across your keys; current free allowance is 3,000 credits/day and the default job is capped at 150 requests. The report records weak/no-match results for better addresses or field feedback.
 
-## Review gate
+When publishing any Geoapify-derived coordinates, meet the provider/OSM attribution requirements (`Powered by Geoapify`, `© OpenStreetMap contributors`) on the relevant public surface. No undocumented APIs or Google paid services are used.
 
-Before accepting any suggestion, compare the specific branch with its official operator website if one exists. Keep exact entrance separate from a building/site centroid. A street or locality result must never be treated as the business pin. Preserve source, timestamp, address and ranking evidence. Only a human-approved result can be merged into canonical entities and regenerated views. Geocoding never proves that a business is currently open. Existing OSM fuel stations may stay as community candidates with UNKNOWN operation and user feedback, as authorized.
-
-The web UI must preserve `© OpenStreetMap contributors` and the Geoapify Free attribution (`Powered by Geoapify` linked to https://www.geoapify.com/) wherever Geoapify data is presented, according to applicable terms. Do not print/log the API key or call undocumented Geoapify/VinFast endpoints.
-
-Official docs: https://apidocs.geoapify.com/docs/geocoding/ ; pricing: https://www.geoapify.com/pricing/ ; attribution: https://www.geoapify.com/.
+Docs: https://apidocs.geoapify.com/docs/geocoding/ ; pricing: https://www.geoapify.com/pricing/ .

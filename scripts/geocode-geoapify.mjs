@@ -1,8 +1,9 @@
 /**
- * Open Phu Quoc Near Me GPS lookup - Geoapify staging only.
- * Never writes canonical entities or publishes unverified geocoded coordinates.
+ * Open Phu Quoc Near Me geocode to canonical coordinates (Geoapify).
+ * Never overwrites existing GPS; only street-numbered high-confidence buildings
+ * can be saved as site centroids. Broad/unmatched results remain in a review report.
  * Usage: node scripts/geocode-geoapify.mjs --dry-run
- *        GEOAPIFY_API_KEY=... node scripts/geocode-geoapify.mjs --limit=50 --budget=150
+ *        GEOAPIFY_API_KEY=... node scripts/geocode-geoapify.mjs --apply --limit=50 --budget=150
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -109,6 +110,7 @@ export function assess(doc, feature) {
     lat, lon, formatted: p.formatted || null,
     name: p.name || null, housenumber: outputNumber, street: p.street || null,
     result_type: level, confidence, building_confidence: rank.confidence_building_level ?? null,
+    street_confidence: rank.confidence_street_level ?? null,
     match_type: match, location_level: locationLevel, review_status: review,
     precision_suggestion: locationLevel === 'SITE' ? 'site_centroid' : locationLevel === 'STREET' ? 'route_anchor' : 'area_anchor',
     warning: numberConflict ? 'Input street number conflicts with Geoapify' :
@@ -118,6 +120,64 @@ export function assess(doc, feature) {
     provider_url: 'https://www.geoapify.com/',
     raw_place_id: p.place_id || null
   };
+}
+
+/** Only persist a street-numbered, high-confidence building point to canonical data. */
+export function eligibleForSave(doc, candidate) {
+  if (!candidate || candidate.review_status !== 'PRIORITY_MANUAL_REVIEW' ||
+      candidate.location_level !== 'SITE' || candidate.precision_suggestion !== 'site_centroid') return false;
+  // "Thửa đất 19" or "ngã tư" are not a street number and must not be auto-pinned.
+  const raw = String(doc.address || '').trim();
+  const number = raw.match(/^(\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)(?=\s|,|$)/)?.[1];
+  if (!number || !candidate.housenumber || normalizedText(number) !== normalizedText(candidate.housenumber)) return false;
+  // A matching number on a different street is not the same address.
+  if (!candidate.street || !normalizedText(raw).includes(normalizedText(candidate.street))) return false;
+  if (candidate.street_confidence !== null && candidate.street_confidence !== undefined &&
+      Number(candidate.street_confidence) < .8) return false;
+  if (doc.zone_id === 'zone_south' && candidate.lat > 10.13) return false;
+  if (doc.zone_id === 'zone_north' && candidate.lat < 10.24) return false;
+  if (doc.zone_id === 'zone_central_west' &&
+      (candidate.lat < 10.10 || candidate.lat > 10.31 || candidate.lon > 104.035)) return false;
+  return isOnIsland(candidate.lat, candidate.lon);
+}
+
+function metersBetween(a, b) {
+  const deg = Math.PI / 180, dlat = (a.lat - b.lat) * deg, dlon = (a.lon - b.lon) * deg;
+  const x = Math.sin(dlat / 2) ** 2 + Math.cos(a.lat * deg) * Math.cos(b.lat * deg) * Math.sin(dlon / 2) ** 2;
+  return 12742000 * Math.asin(Math.sqrt(x));
+}
+
+export function saveExactStreetCandidate(doc, candidates, { root, now, occupied = [] }) {
+  const eligible = (candidates || []).filter(c => eligibleForSave(doc, c));
+  if (eligible.length !== 1) return { status: 'REVIEW_REQUIRED', reason: eligible.length ? 'MULTIPLE_STRONG_MATCHES' : 'NO_STRONG_BUILDING_MATCH' };
+  const c = eligible[0];
+  if (occupied.some(o => o.id !== doc.id && metersBetween(o, c) < 20 &&
+      normalizedText(o.address || '') !== normalizedText(doc.address || ''))) {
+    return { status: 'REVIEW_REQUIRED', reason: 'NEAR_EXISTING_DIFFERENT_ADDRESS' };
+  }
+  const dir = path.join(root, 'data', 'entities');
+  for (const filename of fs.readdirSync(dir).filter(n => n.endsWith('.json')).sort()) {
+    const file = path.join(dir, filename), data = readJson(file);
+    const entity = (data.entities || []).find(e => e.id === doc.id);
+    if (!entity) continue;
+    if (entity.address !== doc.address) return { status: 'REVIEW_REQUIRED', reason: 'CANONICAL_ADDRESS_CHANGED' };
+    // Never overwrite a coordinate already present in a canonical record.
+    if (Number.isFinite(entity.map?.lat) && Number.isFinite(entity.map?.lon))
+      return { status: 'ALREADY_HAS_GPS' };
+    entity.map = {
+      lat: c.lat, lon: c.lon, precision: 'site_centroid',
+      source: 'Geoapify Geocoding / OpenStreetMap contributors',
+      source_id: 'geoapify_address_geocode', verified_at: now.toISOString().slice(0, 10),
+      accuracy: `geoapify_building_confidence_${c.confidence}`,
+      note: 'Tọa độ tòa nhà suy từ địa chỉ qua Geoapify. Chưa xác minh cửa vào hay hoạt động của cơ sở.'
+    };
+    // Address and operational/verified fields remain unchanged.
+    fs.writeFileSync(file, JSON.stringify(data, null, 2) + '\n');
+    occupied.push({ id: entity.id, address: entity.address, lat: c.lat, lon: c.lon });
+    return { status: 'SAVED_SITE_ESTIMATE', entity_id: doc.id, file: path.relative(root, file),
+      lat: c.lat, lon: c.lon, precision: 'site_centroid' };
+  }
+  return { status: 'REVIEW_REQUIRED', reason: 'CANONICAL_ID_NOT_FOUND' };
 }
 
 const readJson = file => JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -138,6 +198,8 @@ function boundedInteger(value, fallback, max) {
 
 export async function run(argv = process.argv.slice(2), { fetcher = fetch, root = ROOT, now = new Date() } = {}) {
   const dryRun = argv.includes('--dry-run');
+  const apply = argv.includes('--apply');
+  if (dryRun && apply) throw new Error('Choose --dry-run or --apply, not both.');
   const includeHotels = argv.includes('--include-hotels');
   const limit = boundedInteger(option(argv, 'limit', '50'), 50, 200);
   // Reserved for THIS run; Geoapify's 3,000 credits/day are shared with other projects.
@@ -154,10 +216,10 @@ export async function run(argv = process.argv.slice(2), { fetcher = fetch, root 
   ).map(x => ({ entity_id: x.id, name: x.name, address: x.address || null,
     status: 'ADDRESS_NEEDS_MORE_DETAIL', reason: x.address_precision === 'AREA' ? 'AREA_ONLY' : 'MISSING_OR_VAGUE_ADDRESS' }));
   const pending = all.slice(0, limit);
-  const stats = { total_pending: all.length, selected: pending.length, requests: 0, cache_hits: 0, candidates: 0, no_results: 0, failed: 0 };
+  const stats = { total_pending: all.length, selected: pending.length, requests: 0, cache_hits: 0, candidates: 0, no_results: 0, failed: 0, saved: 0, review_required: 0 };
   const meta = { schema_version: '1.0', generated_at: now.toISOString(), provider: 'Geoapify',
     attribution: 'Powered by Geoapify · © OpenStreetMap contributors',
-    publication_status: 'RESEARCH_ONLY_NOT_PUBLISHED', dry_run: dryRun,
+    publication_status: 'GEOCODE_ONLY_NOT_OPERATOR_VERIFIED', dry_run: dryRun, apply,
     policy: 'Review official operator map/address first. Geocoding alone never verifies exact entrance or opening status.',
     stats, skipped, records: [] };
   if (dryRun) {
@@ -173,6 +235,8 @@ export async function run(argv = process.argv.slice(2), { fetcher = fetch, root 
     catch { console.warn('WARN: unreadable cache; continuing without it'); }
   }
   let stop = false;
+  const occupied = (index.documents || []).filter(d => hasGps(d))
+    .map(d => ({ id: d.id, address: d.address || '', lat: d.map.lat, lon: d.map.lon }));
   for (const doc of pending) {
     if (stop) break;
     const query = buildQuery(doc);
@@ -213,9 +277,14 @@ export async function run(argv = process.argv.slice(2), { fetcher = fetch, root 
     candidates = candidates || [];
     stats.candidates += candidates.length;
     if (!candidates.length) stats.no_results++;
+    const save = apply && candidates.length
+      ? saveExactStreetCandidate(doc, candidates, { root, now, occupied })
+      : { status: candidates.length ? 'SUGGESTION_ONLY' : 'NO_MATCH' };
+    if (save.status === 'SAVED_SITE_ESTIMATE') stats.saved++;
+    if (save.status === 'REVIEW_REQUIRED') stats.review_required++;
     meta.records.push({ entity_id: doc.id, name: doc.name, address: doc.address,
       type: doc.utility_type || doc.entity_type, query, queried_at: now.toISOString(),
-      status: candidates.length ? 'NEEDS_REVIEW' : 'NO_MATCH',
+      status: save.status, save_result: save,
       official_source_check_required: true, operator_verified: false,
       exact_entrance_verified: false, operational_status: doc.operational_status || 'UNKNOWN',
       candidates });
@@ -225,7 +294,7 @@ export async function run(argv = process.argv.slice(2), { fetcher = fetch, root 
   }
   writeJson(cachePath, cache);
   writeJson(out, meta);
-  console.log(JSON.stringify({ ...stats, dry_run: false, output: out, cache: cachePath }));
+  console.log(JSON.stringify({ ...stats, dry_run: false, apply, output: out, cache: cachePath }));
   return meta;
 }
 
