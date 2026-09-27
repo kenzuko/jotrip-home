@@ -1533,7 +1533,7 @@ function renderNav(){
   const dashboard='<button class="module-btn" type="button" data-id="dashboard" title="Bàn làm việc"><span class="module-short">⌂</span><span class="module-copy"><strong>Bàn làm việc</strong><small>Tình hình và việc cần làm</small></span></button>';
   const quality='<a class="module-btn" href="quality.html" title="Cần kiểm chứng"><span class="module-short">!</span><span class="module-copy"><strong>Cần kiểm chứng</strong><small>Chất lượng và nguồn dữ liệu</small></span></a>';
   const reviews='<a class="module-btn" href="reviews.html" title="Hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất chưa public</small></span></a>';
-  const knowledge=permitted.some(x=>x.id==="guide")?'<a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện bài đã công bố"><span class="module-short">↗</span><span class="module-copy"><strong>Thư viện bài</strong><small>Mở trang đọc công khai</small></span></a>':"";
+  const knowledge=permitted.some(x=>x.id==="guide")?'<a class="module-btn" href="https://openphuquoc.com/guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện bài đã công bố"><span class="module-short">↗</span><span class="module-copy"><strong>Thư viện bài</strong><small>Mở trang đọc công khai</small></span></a>':"";
   $("#moduleNav").innerHTML=
     group("CÔNG VIỆC",dashboard+quality+reviews)+
     group("BIÊN TẬP",["home","stories","guide","visuals"].map(item).join("")+knowledge)+
@@ -1588,7 +1588,7 @@ async function selectModule(id){
   $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isDashboard);
 
   if(currentModule.preview){
-    $("#previewBtn").href=currentModule.preview;
+    $("#previewBtn").href=new URL(currentModule.preview, "https://openphuquoc.com/admin/").href;
     $("#previewBtn").textContent="Trang đã công bố ↗";
     $("#previewBtn").title="Bản công khai: không bao gồm thay đổi chưa gửi duyệt.";
     $("#previewBtn").classList.remove("hidden");

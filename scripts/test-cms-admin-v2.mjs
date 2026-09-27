@@ -98,4 +98,5 @@ vm.runInNewContext(extract(reviewSrc,"reviewMatches"),reviewSandbox);
 assert.equal(reviewSandbox.reviewMatches({draft:true,title:"Bún quậy",number:12}),true);
 assert.equal(reviewSandbox.reviewMatches({draft:false,title:"Bún quậy",number:12}),false);
 assert.equal(reviewSandbox.reviewMatches({draft:true,title:"Bài khác",number:13}),false);
-console.log("PASS CMS V2: shared visual shell, global role navigation, quality filters, XSS, D1 write gate, review search and fixed POST refresh");
+await import("./test-cms-public-nav.mjs");
+console.log("PASS CMS V2: shared visual shell, global role navigation, quality filters, XSS, D1 write gate, review search, fixed POST refresh and public navigation");
