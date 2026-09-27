@@ -128,7 +128,9 @@
     const target=event.target.closest("[data-openpq-feedback]");
     if(!target)return;
     event.preventDefault();
-    open({entity_id:target.dataset.feedbackId,entity_label:target.dataset.feedbackName,
+    const fromQuery=target.hasAttribute("data-feedback-query-id")?new URLSearchParams(location.search).get("id"):"";
+    open({entity_id:target.dataset.feedbackId||fromQuery,
+      entity_label:target.dataset.feedbackName||document.querySelector("main h1")?.textContent||"Trang thông tin này",
       entity_type:target.dataset.feedbackType,issue:target.dataset.feedbackIssue});
   });
   window.OpenPQFeedback={open};
