@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#F5F9F8">
+  <title>Lịch sử hoạt động cano An Thới - Open Phu Quoc</title>
+  <meta name="description" content="Lịch sử xác nhận cano An Thới theo ngày. Lọc ngày, trạng thái và sắp xếp để tra cứu các lần hoạt động hay tạm dừng đã được xác nhận.">
+  <link rel="canonical" href="https://cms.openphuquoc.com/cano/history/">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="stylesheet" href="../../live-module.css?v=1">
+  <link rel="stylesheet" href="../../live-module-v2.css?v=1">
+  <link rel="stylesheet" href="../../ecosystem-shell.css?v=20260925-tight-master-r1">
+  <link rel="stylesheet" href="../cano.css?v=2">
+  <link rel="stylesheet" href="history.css?v=1">
+  <script defer src="../../island-clock.js?v=5"></script>
+  <script defer src="../history-store.js?v=1"></script>
+  <script defer src="history.js?v=1"></script>
+</head>
+<body>
+<header class="module-head">
+  <a href="../../" aria-label="Trang chủ Open Phu Quoc"><img class="logo" src="/assets/logo-master.png?v=20260925-tight-master-r1" alt="Open Phu Quoc" width="925" height="947"></a>
+  <span class="divider"></span>
+  <div class="module-title"><h1>Lịch sử cano</h1><p>An Thới · nhật ký vận hành đã xác nhận</p></div>
+  <div class="module-actions"><div class="vn-clock" data-vn-clock></div><a class="home-btn" href="../">← Cano hôm nay</a></div>
+</header>
+<main class="module-main">
+  <div class="shell archive-shell">
+    <nav class="archive-breadcrumb" aria-label="Đường dẫn"><a href="../../">Trang chủ</a><span>/</span><a href="../">Cano</a><span>/</span><strong>Lịch sử</strong></nav>
+    <section class="archive-intro">
+      <div><span class="eyebrow">NHẬT KÝ VẬN HÀNH</span><h2>Lịch sử cano An Thới</h2><p>Chỉ những ngày có xác nhận. Ngày không có thông tin không được hiểu là cano chạy hoặc bị cấm.</p></div>
+      <p id="archiveFreshness" class="archive-freshness" role="status">Đang tải dữ liệu…</p>
+    </section>
+    <section class="panel archive-controls" aria-label="Bộ lọc lịch sử">
+      <div class="archive-filters">
+        <label>Trạng thái<select id="statusFilter"><option value="all">Tất cả</option><option value="RUNNING">Hoạt động bình thường</option><option value="SUSPENDED">Tạm dừng</option></select></label>
+        <label>Tháng<select id="monthFilter"><option value="all">Tất cả các tháng</option></select></label>
+        <label>Ngày<input id="dateFilter" type="date" aria-label="Lọc theo ngày"></label>
+        <label>Sắp xếp<select id="sortOrder"><option value="newest">Mới nhất trước</option><option value="oldest">Cũ nhất trước</option></select></label>
+      </div>
+      <div class="archive-toolbar"><strong id="resultCount" aria-live="polite">Đang tải…</strong><button id="resetFilters" class="history-reset" type="button">Xóa bộ lọc</button></div>
+    </section>
+    <div id="historyGroups" class="archive-groups" aria-live="polite"><p class="archive-empty">Đang tải lịch sử…</p></div>
+    <p class="archive-disclaimer">Dữ liệu là nhật ký theo ngày, không phải tình trạng cano lúc này. <a href="../">Xem trạng thái hôm nay →</a></p>
+  </div>
+</main>
+<footer class="module-footer"><div class="shell">Open Phu Quoc · biết chắc thì nói chắc, chưa biết thì nói chưa biết.</div></footer>
+</body>
+</html>
