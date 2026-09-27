@@ -23,4 +23,7 @@ assert.match(robots,/Disallow: \/admin\//);
 assert.ok(!robots.includes("Disallow: /data/"),"Do not block public JSON used in rendering");
 assert.match(robots,/Sitemap: https:\/\/cms.openphuquoc.com\/sitemap.xml/);
 assert.ok(existsSync(join(root,"index.html")));
+const llms=readFileSync(join(root,"llms.txt"),"utf8");
+assert.match(llms,/https:\/\/cms.openphuquoc.com\/sitemap.xml/);
+assert.ok(!llms.includes("https://openphuquoc.com/"),"Current canonical must stay cms subdomain");
 console.log("SEO sitemap test PASS:",urls.length,"URLs,",publicGuides.length,"guides,",publicStories.length,"stories");
