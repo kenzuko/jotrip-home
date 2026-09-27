@@ -151,7 +151,7 @@ function renderArticle(data,visualData,zones,storyLocations){
           const images=(meta.images||[]).filter(image=>image.url!==s.image);
           return [
             images.length?OpenPQVisual.gallery(images,{eyebrow:"HÌNH ẢNH",title:"Nhìn câu chuyện này bằng hình"}):"",
-            location?OpenPQVisual.locator(zone,{title:"Bài viết này nằm ở đâu?",label:location.label,map:location.map,note:location.map.note||undefined}):""
+            location?OpenPQVisual.locator(zone,{title:"Bài viết này nằm ở đâu?",label:location.label,map:location.map}):""
           ].join("");
         })()+
       '</div>'+
