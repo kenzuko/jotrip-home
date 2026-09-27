@@ -1,3 +1,5 @@
+import {collectTraffic} from "./functions/_shared/traffic-analytics.js";
+import {onRequestGet as privateTrafficReport} from "./functions/api/traffic/report.js";
 import {cleanupFeedback} from "./functions/_shared/place-feedback.js";
 import {onRequest as publicFeedback} from "./functions/api/feedback.js";
 import {onRequest as adminPlaceFeedback} from "./functions/api/cms/feedback.js";
@@ -156,6 +158,8 @@ export default {
     if (path === "/api/context/v1/weather/window") return handleWeatherWindow(request);
     if (path === "/api/go/live") return handleGoLive(request);
     if (path === "/api/feedback") return publicFeedback({request,env});
+    if (path === "/api/traffic/collect" && request.method === "POST") return collectTraffic(request,env);
+    if (path === "/api/traffic/report" && request.method === "GET") return privateTrafficReport({request,env});
     if (path === "/api/cms/feedback") return adminPlaceFeedback({request,env});
     if (path === "/api/cms/feedback/photo") return adminPlaceFeedbackPhoto({request,env});
     if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request,env});
