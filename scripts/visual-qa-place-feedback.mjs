@@ -184,6 +184,7 @@ try{
   assert.equal(patchCount,1);
   await cms.locator(".related-chip").first().click();
   await cms.locator("#relatedBanner").waitFor({state:"visible"});
+  await cms.waitForFunction(()=>document.querySelectorAll("#queue .item").length===3);
   assert.equal(await cms.locator("#queue .item").count(),3,"Related reports are shown together");
   await cms.locator("#clearRelated").click();
   await cms.locator("#kindFilter").selectOption("translation");
