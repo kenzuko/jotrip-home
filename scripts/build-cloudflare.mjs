@@ -76,6 +76,7 @@ if(existsSync("cms/schema.json")) await copyFile("cms/schema.json",`${out}/cms/s
 
 execFileSync(process.execPath,["scripts/build-share-card.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-social-preview.mjs"],{stdio:"inherit"});
+execFileSync(process.execPath,["scripts/test-seo-render.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/build-seo-sitemap.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-seo-sitemap.mjs"],{stdio:"inherit"});
 await writeFile(`${out}/_headers`,"/\n  Cache-Control: public, max-age=60, must-revalidate\n/go/*\n  Cache-Control: public, max-age=60, must-revalidate\n/assets/share-card-phu-quoc-v3.jpg\n  Cache-Control: public, max-age=86400\n");
