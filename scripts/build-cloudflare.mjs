@@ -75,6 +75,7 @@ await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
 if(existsSync("cms/schema.json")) await copyFile("cms/schema.json",`${out}/cms/schema.json`);
 
+execFileSync(process.execPath,["scripts/test-google-verification.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/build-share-card.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-social-preview.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-seo-render.mjs"],{stdio:"inherit"});
