@@ -559,10 +559,28 @@
         "prior_record_id": "utility_tgdd_73_nvc",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Nguồn: https://www.openstreetmap.org/node/6483568745. OSM không có số nhà 73. Đây là vị trí chi nhánh trong khu An Thới, cần kiểm tra số nhà/cửa vào."
+        "source_note": "Nguồn: https://www.openstreetmap.org/node/6483568745. OSM không có số nhà 73. Đây là vị trí chi nhánh trong khu An Thới, cần kiểm tra số nhà/cửa vào.",
+        "verified_entrance": false,
+        "operator_gps_verified": false,
+        "gps_estimate_source": "OSM_BRAND_NAMED_POI",
+        "gps_crosscheck_note": "Trang chính thức xác nhận số 73 KP3 An Thới, OSM POI mang tên thương hiệu trong An Thới; nguồn bên ngoài khác ghi 10.0188205,104.0153275 cách OSM khoảng 5m. Geoapify trả điểm xung đột với số 46 nên KHÔNG dùng Geoapify làm tọa độ.",
+        "gps_source_osm_ref": "https://www.openstreetmap.org/node/6483568745",
+        "linked_osm_entity_id": "utility_osm_node_6483568745"
       },
       "updated_at": "2026-09-26",
-      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
+      "map": {
+        "lat": 10.0187955,
+        "lon": 104.0153701,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named brand POI, cross-checked with operator directory",
+        "source_id": "osm_phuquoc_20260925",
+        "source_url": "https://www.openstreetmap.org/node/6483568745",
+        "source_license": "ODbL-1.0",
+        "verified_at": "2026-09-27",
+        "accuracy": "operator_name_area_osm_site_estimate",
+        "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa."
+      }
     },
     {
       "id": "utility_dmx_ganhdau_to7",
@@ -596,10 +614,28 @@
         "prior_record_id": "utility_dmx_ganhdau_to7",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố."
+        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố.",
+        "verified_entrance": false,
+        "operator_gps_verified": false,
+        "gps_estimate_source": "OSM_BRAND_NAMED_POI",
+        "gps_crosscheck_note": "Chỉ một cửa hàng Điện máy XANH thuộc khu Gành Dầu trong danh sách 7 chi nhánh chính thức; OSM POI gắn đúng thương hiệu và Gành Dầu, không dùng kết quả Geoapify sai khu.",
+        "gps_source_osm_ref": "https://www.openstreetmap.org/node/11873236278",
+        "linked_osm_entity_id": "utility_osm_node_11873236278"
       },
       "updated_at": "2026-09-26",
-      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
+      "map": {
+        "lat": 10.3706253,
+        "lon": 103.8411782,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named brand POI, cross-checked with operator directory",
+        "source_id": "osm_phuquoc_20260925",
+        "source_url": "https://www.openstreetmap.org/node/11873236278",
+        "source_license": "ODbL-1.0",
+        "verified_at": "2026-09-27",
+        "accuracy": "operator_name_area_osm_site_estimate",
+        "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa."
+      }
     },
     {
       "id": "utility_osm_node_11930375256",

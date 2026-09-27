@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 220,
-    "missing_count": 174
+    "ready_count": 222,
+    "missing_count": 172
   },
   "layers": {
     "zones": [
@@ -3234,6 +3234,36 @@
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
         "note": "Tọa độ OSM tham khảo, chưa xác minh đúng cổng hay hoạt động."
+      },
+      {
+        "id": "utility_dmx_ganhdau_to7",
+        "name": "Điện máy XANH - Tổ 7 Gành Dầu",
+        "type": "utility",
+        "lat": 10.3706253,
+        "lon": 103.8411782,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named brand POI, cross-checked with operator directory",
+        "source_id": "osm_phuquoc_20260925",
+        "source_url": "https://www.openstreetmap.org/node/11873236278",
+        "source_license": "ODbL-1.0",
+        "verified_at": "2026-09-27",
+        "accuracy": "operator_name_area_osm_site_estimate",
+        "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa."
+      },
+      {
+        "id": "utility_tgdd_73_nvc",
+        "name": "Thế Giới Di Động - 73 Nguyễn Văn Cừ",
+        "type": "utility",
+        "lat": 10.0187955,
+        "lon": 104.0153701,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named brand POI, cross-checked with operator directory",
+        "source_id": "osm_phuquoc_20260925",
+        "source_url": "https://www.openstreetmap.org/node/6483568745",
+        "source_license": "ODbL-1.0",
+        "verified_at": "2026-09-27",
+        "accuracy": "operator_name_area_osm_site_estimate",
+        "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa."
       }
     ]
   },
@@ -3370,8 +3400,6 @@
     "utility_tgdd_142a_ntr",
     "utility_tgdd_37_hungvuong",
     "utility_tgdd_104_304",
-    "utility_tgdd_73_nvc",
-    "utility_dmx_ganhdau_to7",
     "place_fish_sauce_house",
     "place_pepper_garden",
     "place_suoi_da_ban",

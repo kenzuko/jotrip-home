@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at": "2026-09-27",
+  "release_state": "DRAFT_PR_NO_DEPLOY",
+  "scope": "2 operator-address-matched named OSM POIs, site centroids only",
+  "rules": [
+    "Do not use Geoapify building-number result if same candidate coordinates are returned for unrelated house numbers.",
+    "Preserve source OSM records in canonical entity batches and ODbL extract but hide linked duplicates only in public Near Me consumers.",
+    "Never claim exact entrance or live OPEN status solely from directory/OSM.",
+    "New official electronics stores in this PR remain GPS missing until one-to-one POI evidence exists."
+  ],
+  "approved_site_estimates": [
+    {
+      "canonical_id": "utility_dmx_ganhdau_to7",
+      "source_osm_id": "utility_osm_node_11873236278",
+      "lat": 10.3706253,
+      "lon": 103.8411782,
+      "precision": "site_centroid",
+      "operator_url": "https://www.dienmayxanh.com/dien-may-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161",
+      "osm_url": "https://www.openstreetmap.org/node/11873236278",
+      "reason": "Chỉ một cửa hàng Điện máy XANH thuộc khu Gành Dầu trong danh sách 7 chi nhánh chính thức; OSM POI gắn đúng thương hiệu và Gành Dầu, không dùng kết quả Geoapify sai khu.",
+      "operator_provided_coordinates": false,
+      "entrance_verified": false,
+      "operational_status": "UNKNOWN"
+    },
+    {
+      "canonical_id": "utility_tgdd_73_nvc",
+      "source_osm_id": "utility_osm_node_6483568745",
+      "lat": 10.0187955,
+      "lon": 104.0153701,
+      "precision": "site_centroid",
+      "operator_url": "https://www.thegioididong.com/sieu-thi-so-73-duong-nguyen-van-cu-kp-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1054",
+      "osm_url": "https://www.openstreetmap.org/node/6483568745",
+      "reason": "Trang chính thức xác nhận số 73 KP3 An Thới, OSM POI mang tên thương hiệu trong An Thới; nguồn bên ngoài khác ghi 10.0188205,104.0153275 cách OSM khoảng 5m. Geoapify trả điểm xung đột với số 46 nên KHÔNG dùng Geoapify làm tọa độ.",
+      "operator_provided_coordinates": false,
+      "entrance_verified": false,
+      "operational_status": "UNKNOWN"
+    }
+  ],
+  "held_conflicts": [
+    {
+      "id": "utility_longchau_an_thoi",
+      "description": "Geoapify 46 Nguyễn Văn Cừ KP3 trả cùng tọa độ với kết quả 73 Nguyễn Văn Cừ KP3; bỏ geocoder point vì khác nhà thuốc/cửa hàng."
+    },
+    {
+      "id": "utility_tgdd_104_304",
+      "description": "Geoapify có 2 kết quả số 104 đường 30/4, chưa xác nhận cửa."
+    },
+    {
+      "id": "utility_tgdd_37_hungvuong",
+      "description": "Có một tọa độ khớp KP5 nhưng chưa có POI tên hãng để đối chiếu."
+    }
+  ],
+  "attribution": "© OpenStreetMap contributors"
+}
