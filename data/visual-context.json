@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-26",
+  "updated_at": "2026-09-27",
   "map_policy": {
     "provider": "OpenStreetMap",
     "load_mode": "click_to_load",
@@ -264,6 +264,40 @@
           "scope": "context",
           "source_label": "Internet (kho JoTrip)",
           "source_url": null
+        }
+      ]
+    },
+    "doc-nhan-nuoc-mam-phu-quoc": {
+      "zone_id": "zone_central_west",
+      "location_label": "Phú Quốc - nghề nước mắm",
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Anchovies%20for%20the%20production%20of%20Fish%20sauce.jpg?width=1200",
+          "alt": "Cá cơm muối được đưa vào cơ sở sản xuất nước mắm trên đảo Phú Quốc",
+          "caption": "Cá cơm muối được chuyển đến xưởng nước mắm Phú Quốc, ảnh tư liệu năm 2015.",
+          "scope": "exact_subject",
+          "source_label": "Frank Fox · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Anchovies_for_the_production_of_Fish_sauce.jpg",
+          "captured_at": "2015-06-27",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        }
+      ]
+    },
+    "cay-di-san-vuon-quoc-gia-phu-quoc": {
+      "zone_id": "zone_north",
+      "location_label": "Vườn quốc gia Phú Quốc - ảnh bối cảnh khu rừng",
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%20(r%E1%BB%85%20c%E1%BB%95%20th%E1%BB%A5)%20(3).jpg?width=1200",
+          "alt": "Bộ rễ của một cây lớn trong khu rừng Phú Quốc, không phải cây di sản định danh",
+          "caption": "Rễ một cây lớn trong rừng Phú Quốc, ảnh năm 2022. Không xác định đây là cây di sản được ghi danh.",
+          "scope": "context",
+          "source_label": "Phương Huy · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Phú_Quốc_2022,_cảnh_rừng_(rễ_cổ_thụ)_(3).jpg",
+          "captured_at": "2022-07-25",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
         }
       ]
     }
