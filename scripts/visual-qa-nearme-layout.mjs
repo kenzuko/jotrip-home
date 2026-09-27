@@ -48,7 +48,16 @@ try{
     await page.waitForTimeout(110);
     const after=await page.evaluate(measurements);
     assert.ok(Math.abs(before.shell.y-after.shell.y)<=4,width+"px: scrolling list must not move the map");
-    assert.ok(Math.abs(before.map.height-after.map.height)<=4,width+"px: map height must remain stable");
+    // Marker loading may add one explanatory line under the map. The panel
+    // itself must remain full-height, with map and note filling it completely.
+    assert.ok(Math.abs(before.shell.height-after.shell.height)<=4,
+      width+"px: full-height map panel must not shrink during result scroll");
+    assert.ok(Math.abs((before.map.height+(before.note?.height||0))-
+      (after.map.height+(after.note?.height||0)))<=9,
+      width+"px: map may resize only to accommodate its own note");
+    assert.ok(after.map.height>=380&&
+      after.shell.height-after.map.height-(after.note?.height||0)<12,
+      width+"px: no blank region under map after scrolling");
     await page.screenshot({path:"visual-qa-results/nearme-workspace-"+width+".png",fullPage:false});
     console.log("NEAR ME WORKSPACE PASS",width,before.map.width.toFixed(0)+"x"+before.map.height.toFixed(0));
     await page.close();
