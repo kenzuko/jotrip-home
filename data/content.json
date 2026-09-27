@@ -3,270 +3,6 @@
   "updated": "2026-09-27",
   "stories": [
     {
-      "id": "doc-nhan-nuoc-mam-phu-quoc",
-      "category": "NƯỚC MẮM · CẨM NANG CHỌN MUA",
-      "title": "Mua nước mắm Phú Quốc, đọc nhãn sao cho đúng?",
-      "dek": "Cùng nhắc đến Phú Quốc nhưng nước mắm có chỉ dẫn địa lý và nước mắm truyền thống không phải hai tên gọi dùng thay nhau. Nhìn nhãn đúng trước rồi hãy chọn chai hợp khẩu vị.",
-      "read_minutes": 3,
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fish%20sauce%20factory%2C%20Phu%20Quoc.jpg?width=1600",
-      "image_alt": "Những thùng ủ cá làm nước mắm ở Phú Quốc",
-      "image_caption": "Những thùng ủ cá trong một cơ sở nước mắm tại Phú Quốc; ảnh bối cảnh cho bài hướng dẫn đọc nhãn.",
-      "image_credit": "Wikimedia Commons · Stefan · CC BY 2.0",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fish%20sauce%20factory%2C%20Phu%20Quoc.jpg",
-      "intro": "Đi ngang một nhà thùng, nghe mùi cá cơm đang ủ rồi ghé quầy nước mắm, nhiều người sẽ băn khoăn: chai nào mới đúng là nước mắm Phú Quốc? Câu trả lời không nằm ở màu đậm hay độ đạm cao nhất. Trước tiên, cần biết dòng chữ trên nhãn đang nói đến điều gì.",
-      "sections": [
-        {
-          "heading": "Hai cách gọi, hai điều cần hiểu",
-          "body": "Tên gọi Phú Quốc được bảo hộ chỉ dẫn địa lý tại Việt Nam từ năm 2001 và được Liên minh châu Âu đăng bạ năm 2012. Quy chuẩn kỹ thuật địa phương ban hành năm 2023 phân biệt nước mắm chỉ dẫn địa lý Phú Quốc và nước mắm truyền thống Phú Quốc. Mỗi loại có yêu cầu tương ứng về nguyên liệu, quy trình và chất lượng. Đó là những quy định về sản phẩm, không phải bảng xếp hạng chai nào ngon hơn."
-        },
-        {
-          "heading": "Muốn mua loại có chỉ dẫn địa lý thì nhìn gì?",
-          "body": "Hãy tìm biểu trưng chỉ dẫn địa lý và đọc tên, địa chỉ cơ sở sản xuất cùng những thông tin bắt buộc trên nhãn. Dòng chữ “nước mắm truyền thống Phú Quốc” không tự có nghĩa là sản phẩm mang chỉ dẫn địa lý. Ngược lại, chỉ nhìn vào một chi tiết của bao bì cũng chưa đủ kết luận về toàn bộ sản phẩm. Nếu còn phân vân, hỏi trực tiếp nhà sản xuất hoặc xem thông tin quản lý chỉ dẫn địa lý."
-        },
-        {
-          "heading": "Sau cùng vẫn là chai hợp bữa ăn",
-          "body": "Có người thích nước mắm đậm mùi cá cơm để chấm, có người tìm vị dịu hơn để nêm nấu. Độ đạm là một thông tin hữu ích, nhưng không nói thay được mùi, vị và cách dùng. Mua làm quà thì xem kỹ dung tích, niêm phong, thành phần và hướng dẫn bảo quản. Nếu cần tránh cá hoặc thành phần nào khác, đọc nhãn trước khi chọn."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Cục Sở hữu trí tuệ Việt Nam - Danh sách chỉ dẫn địa lý được bảo hộ tại Việt Nam",
-          "url": "https://ipvietnam.gov.vn/web/english/domestic-ip-activities/-/asset_publisher/ZMuTgR44COLR/content/list-of-geographical-indications-protected-in-vietnam-"
-        },
-        {
-          "label": "Sở Nông nghiệp và Môi trường An Giang - Quyết định 21/2023/QĐ-UBND, Quy chuẩn kỹ thuật địa phương nước mắm Phú Quốc",
-          "url": "https://snnmt.angiang.gov.vn/trang/VanBan/chitietvb.aspx?itemID=3747&loaivb=T%E1%BB%A7+s%C3%A1ch+ph%C3%A1p+lu%E1%BA%ADt"
-        },
-        {
-          "label": "Liên minh châu Âu - Regulation (EU) No 928/2012 về tên gọi xuất xứ Phú Quốc",
-          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0928"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "mang-xe-may-ra-phu-quoc",
-      "category": "ĐI LẠI · PHÀ RA ĐẢO",
-      "title": "Mang xe máy ra Phú Quốc: đặt chỗ cho xe trước khi ra cảng",
-      "dek": "Có vé cho người chưa chắc đã có chỗ cho xe. Nếu muốn mang xe máy sang đảo, hãy chốt đúng chuyến phà nhận phương tiện và hỏi riêng quy trình gửi xe.",
-      "read_minutes": 3,
-      "intro": "Đi Phú Quốc bằng xe máy nghe cũng thích: lên đảo là có xe của mình để chạy. Nhưng đừng đặt xong vé người rồi mới hỏi chỗ cho xe. Sức chứa phương tiện và cách làm thủ tục phụ thuộc từng chuyến phà, nên chuyện này cần xác nhận ngay từ lúc lên kế hoạch.",
-      "sections": [
-        {
-          "heading": "Chọn phà có nhận xe",
-          "body": "Tàu cao tốc chủ yếu chở hành khách; phà có thể chở cả người, xe và hàng hóa theo điều kiện của đơn vị vận hành. Cano đi đảo lại là một dịch vụ khác. Với xe máy, hãy tìm chuyến phà nhận phương tiện ở đúng tuyến mình cần. Tuyến Hà Tiên - Bãi Vòng có phương án phà chở xe, nhưng không nên mặc định mọi chuyến đều còn chỗ hoặc mọi hãng đều nhận cùng loại xe."
-        },
-        {
-          "heading": "Hỏi luôn ba chuyện khi đặt vé",
-          "body": "Khi liên hệ hãng, nói rõ ngày đi, tuyến, loại xe và số người đi cùng. Hỏi vé xe đặt riêng thế nào, cần giấy tờ gì và phải đưa xe đến cảng trước giờ khởi hành bao lâu. Nhớ giữ lại xác nhận của cả người lẫn xe. Đi cùng nhóm nhiều xe thì nên báo từ đầu để hãng kiểm tra sức chứa."
-        },
-        {
-          "heading": "Đừng quên chuyến về",
-          "body": "Lịch phà có thể đổi vì thời tiết, thủy triều hoặc điều hành. Kiểm tra lại chuyến đi và chuyến về trên kênh chính thức của hãng trước ngày khởi hành. Nếu hết chỗ cho xe, bạn vẫn có thể gửi xe ở đất liền rồi sang đảo bằng tàu cao tốc, sau đó thuê xe tại Phú Quốc. Tính cả phí gửi xe và thời gian tới cảng trước khi chọn cách nào tiện hơn."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Phú Quốc Express - Cảng Bãi Vòng và lựa chọn phà chở phương tiện",
-          "url": "https://phuquocexpress.com/cang-bai-vong-phu-quoc"
-        },
-        {
-          "label": "Superdong - Lịch khởi hành và lưu ý thay đổi do thời tiết, thủy triều",
-          "url": "https://online.superdong.com.vn/Home/ScheduleBoat"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "cay-di-san-vuon-quoc-gia-phu-quoc",
-      "category": "RỪNG PHÚ QUỐC · CÂY DI SẢN",
-      "title": "Trong rừng Phú Quốc có những cây được ghi danh di sản",
-      "dek": "Từ sáu cây được công nhận năm 2025, Vườn quốc gia Phú Quốc có thêm 14 cây và hai quần thể được ghi danh vào tháng 5/2026. Mỗi cái tên gắn với một khoảng rừng cần được gìn giữ.",
-      "read_minutes": 3,
-      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Ph%C3%BA_Qu%E1%BB%91c_2022%2C_c%E1%BA%A3nh_r%E1%BB%ABng%2C_t%C3%A1n_r%E1%BB%ABng_%28th%C6%B0%E1%BB%9Dng_xanh%29_%283%29.jpg/960px-Ph%C3%BA_Qu%E1%BB%91c_2022%2C_c%E1%BA%A3nh_r%E1%BB%ABng%2C_t%C3%A1n_r%E1%BB%ABng_%28th%C6%B0%E1%BB%9Dng_xanh%29_%283%29.jpg",
-      "image_alt": "Rừng thường xanh trên đảo Phú Quốc",
-      "image_caption": "Một đoạn rừng thường xanh trên đảo Phú Quốc; ảnh bối cảnh, không định vị các cây hay quần thể di sản nêu trong bài.",
-      "image_credit": "Phương Huy · Wikimedia Commons · CC BY-SA 4.0",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%2C%20t%C3%A1n%20r%E1%BB%ABng%20(th%C6%B0%E1%BB%9Dng%20xanh)%20(3).jpg",
-      "intro": "Vào rừng Phú Quốc, điều dễ thấy đầu tiên là màu xanh. Những thân cây lớn và tán lá cao thường khiến người đi rừng dừng lại lâu hơn một chút. Có những cây ở đây đã được ghi danh Cây Di sản Việt Nam, và từ năm 2026, danh sách không còn dừng ở từng cây riêng lẻ.",
-      "sections": [
-        {
-          "heading": "Sáu cây mở đầu",
-          "body": "Tháng 3/2025, sáu cây cổ thụ trong Vườn quốc gia Phú Quốc được công nhận Cây Di sản Việt Nam: hai cây trai Nam Bộ tại Bãi Thơm, hai cây kơ nia và hai cây kiền kiền Phú Quốc tại Gành Dầu. Đó là những cây đầu tiên của Kiên Giang nhận danh hiệu này. Tuổi cây được nhắc đến khác nhau giữa một số nguồn, nên không cần gán cho mỗi thân cây một con số chưa thống nhất."
-        },
-        {
-          "heading": "Đến tháng 5/2026: 20 cây và hai quần thể",
-          "body": "Ngày 29/5/2026, Vườn quốc gia đón nhận công nhận thêm 14 cây riêng lẻ cùng hai quần thể thực vật. Như vậy, tính đến đợt công bố này, Vườn có 20 cây di sản riêng lẻ và hai quần thể di sản. Các nhóm cây được ghi danh không chỉ kể chuyện về tuổi đời của rừng; chúng còn cho thấy sự đa dạng của những sinh cảnh cần bảo vệ, từ rừng cây gỗ lớn đến khu vực ngập mặn."
-        },
-        {
-          "heading": "Ghi danh không có nghĩa là mở đường tham quan",
-          "body": "Những tấm bằng công nhận không phải bản đồ dẫn khách đến từng cây. Vùng có cây di sản vẫn thuộc khu vực được quản lý và bảo vệ của Vườn quốc gia. Nếu muốn tìm hiểu thực địa, hãy hỏi Ban quản lý về tuyến được phép tiếp cận và đi cùng người hướng dẫn phù hợp. Ngắm một thân cây lớn là một trải nghiệm, nhưng để cây tiếp tục sống trong khu rừng của nó mới là chuyện lâu dài."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Hội Bảo vệ thiên nhiên và Môi trường Việt Nam - Sáu cây đầu tiên của tỉnh Kiên Giang được công nhận Cây Di sản Việt Nam",
-          "url": "https://www.vacne.org.vn/sau-cay-dau-tien-cua-tinh-kien-giang-duoc-cong-nhan-cay-di-san-viet-nam/222604.html"
-        },
-        {
-          "label": "Cục Bảo tồn thiên nhiên và Đa dạng sinh học - Vườn quốc gia Phú Quốc đón nhận quyết định và bằng công nhận Cây Di sản",
-          "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-don-nhan-quyet-dinh-va-bang-cong-nhan-cay-di-san/"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "co-bien-phu-quoc-khuat-tu-bo",
-      "category": "BIỂN PHÚ QUỐC · CỎ BIỂN",
-      "title": "Dưới mặt nước Phú Quốc còn có những đồng cỏ",
-      "dek": "Cỏ biển không phải rong biển. Những thảm cỏ dưới nước là nơi sinh vật biển kiếm ăn, trú ẩn và lớn lên. Số liệu suy giảm được công bố cần đọc cùng năm và phạm vi khảo sát.",
-      "read_minutes": 3,
-      "intro": "Nhìn từ bờ, biển Phú Quốc thường hiện ra bằng màu nước, bãi cát và những hòn đảo xa. Ít người để ý rằng dưới vùng nước nông còn có những thảm cỏ biển. Chúng không rực rỡ như san hô, nhưng lại là nơi nhiều sinh vật bắt đầu vòng đời của mình.",
-      "sections": [
-        {
-          "heading": "Cỏ thật, sống dưới biển",
-          "body": "Cỏ biển là thực vật có hoa, có rễ, lá và hạt, khác với rong biển. Rễ bám xuống nền đáy, lá tạo thành những khoảng trú ẩn cho cá nhỏ và nhiều loài động vật không xương sống. Thảm cỏ cũng góp phần giữ trầm tích ở vùng ven bờ. Đừng nhổ hay giẫm lên cỏ chỉ để xem cho rõ: một vùng tưởng như chỉ có lá xanh có thể là chỗ sống của rất nhiều loài."
-        },
-        {
-          "heading": "Con số 652 ha nói về giai đoạn nào?",
-          "body": "Một nghiên cứu công bố năm 2023 đã đối chiếu ảnh vệ tinh và ảnh hàng không từ các năm 2005, 2010, 2018, rồi khảo sát kiểm tra ngoài thực địa năm 2019. Trong phạm vi nghiên cứu, diện tích thảm cỏ biển giảm 652 ha, tương đương 6,1%, từ năm 2005 đến 2018; Bãi Vòng là nơi ghi nhận mức giảm lớn nhất. Đây là kết quả của một giai đoạn lịch sử, tuyệt đối không dùng như số liệu hiện trạng năm 2026."
-        },
-        {
-          "heading": "Muốn biết cỏ biển hôm nay ra sao",
-          "body": "Một nghiên cứu khác công bố năm 2026 xem xét độ phủ, sinh khối, thành phần loài và môi trường tại 16 điểm thuộc bốn đảo ngoài khơi Việt Nam, trong đó có Phú Quốc. Điều đó nhắc chúng ta rằng một tấm bản đồ diện tích chưa kể hết sức khỏe của thảm cỏ. Muốn biết một khu vực đang phục hồi hay tiếp tục chịu sức ép, phải khảo sát đúng nơi, đúng thời điểm và theo dõi nhiều năm. Đi biển thì giữ khoảng cách với sinh cảnh nhạy cảm, không kéo neo tùy tiện lên thảm cỏ."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Viện Hải dương học, Viện Hàn lâm Khoa học và Công nghệ Việt Nam - Phân bố và biến động thảm cỏ biển, rạn san hô vùng biển đảo Phú Quốc (2023)",
-          "url": "https://vjs.ac.vn/jmst/article/view/16621"
-        },
-        {
-          "label": "Marine Pollution Bulletin - Spatial variability and environmental drivers of seagrass communities on offshore islands in Vietnam (2026)",
-          "url": "https://www.sciencedirect.com/science/article/pii/S0025326X2600305X"
-        },
-        {
-          "label": "NOAA Office of National Marine Sanctuaries - Seagrass Meadows",
-          "url": "https://sanctuaries.noaa.gov/visit/ecosystems/seagrass.html"
-        },
-        {
-          "label": "Vườn quốc gia Phú Quốc - Chức năng, nhiệm vụ",
-          "url": "https://vqgpq.angiang.gov.vn/chuc-nang-nhiem-vu-cua-vuon-quoc-gia-phu-quoc"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "canh-nam-tram-phu-quoc-vi-dang-sau-mua",
-      "category": "ẨM THỰC · MÓN THEO MÙA",
-      "title": "Canh nấm tràm, món ăn theo những cơn mưa đầu mùa",
-      "dek": "Mùa nấm tràm không dài. Từ một vị đắng nhẹ ban đầu, nồi canh có thể trở nên ngọt thanh khi nấu cùng gà hoặc hải sản, tùy cách của mỗi nhà.",
-      "read_minutes": 3,
-      "image": "https://toplist.vn/images/800px/canh-nam-tram-hai-san-516443.jpg",
-      "image_alt": "Canh nấm tràm hải sản",
-      "image_caption": "Ảnh tham chiếu món canh nấm tràm hải sản. Nguồn ảnh trên Toplist.vn; quyền tái sử dụng chưa được xác nhận.",
-      "image_credit": "Toplist.vn - ảnh tham chiếu, cần xác nhận tác giả và quyền sử dụng trước khi xuất bản",
-      "image_source_url": "https://toplist.vn/top-list/mon-dac-san-doc-nhat-vo-nhi-tai-phu-quoc-14107.htm",
-      "intro": "Có những món muốn ăn phải gặp đúng mùa. Nấm tràm ở Phú Quốc là một món như vậy. Sau những cơn mưa đầu mùa, nấm mọc giữa lớp lá tràm mục. Nấm hái về có vị đắng thoảng, nhưng khi nấu canh, cái đắng ấy đi cùng nước dùng ngọt và thành ra một vị rất riêng.",
-      "sections": [
-        {
-          "heading": "Không phải lúc nào cũng có nấm tươi",
-          "body": "Nấm tràm thường rộ trong một quãng ngắn sau mưa. Ngày bắt đầu và lượng nấm mỗi năm còn tùy thời tiết, nên đừng xem bất kỳ tháng nào cũng là lịch chắc chắn. Thấy quán giới thiệu canh nấm tràm, cứ hỏi hôm nay dùng nấm tươi, nấm đã bảo quản hay loại nào khác."
-        },
-        {
-          "heading": "Nồi canh ở mỗi nhà một khác",
-          "body": "Có nhà nấu nấm với gà, có nhà thêm tôm, mực hoặc ghẹ; cũng có cách nấu với chả cá và trứng. Nước dùng ngọt làm dịu vị đắng nhẹ của nấm, còn thân nấm giữ chút dai giòn. Không có lý do gì buộc tất cả phải theo một công thức. Nếu lần đầu thử, bạn có thể hỏi quán nồi canh hôm nay nấu với gì rồi chọn theo khẩu vị."
-        },
-        {
-          "heading": "Để cái đắng vừa đủ",
-          "body": "Một số cách sơ chế luộc sơ nấm trước khi nấu để vị đắng bớt gắt. Nấm được nấu vừa chín để còn độ giòn. Người dị ứng tôm, cá, mực hay trứng cần hỏi rõ nguyên liệu, bởi một tô canh trông đơn giản vẫn có thể chứa nhiều thứ từ biển. Và đừng tự hái nấm lạ trong rừng để nấu nếu không có người am hiểu xác định đúng loài."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Đặc khu Phú Quốc - Nấm tràm Phú Quốc",
-          "url": "https://phuquoc.angiang.gov.vn/nam-tram-phu-quoc"
-        },
-        {
-          "label": "VietNamNet - Sản vật trời ban, đổi màu thần tốc, có tiền cũng khó mua ở Phú Quốc",
-          "url": "https://vietnamnet.vn/san-vat-troi-ban-doi-mau-than-toc-co-tien-cung-kho-mua-o-phu-quoc-2496483.html"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "banh-tet-mat-cat-phu-quoc",
-      "category": "ẨM THỰC · KỸ THUẬT GÓI",
-      "title": "Bánh tét mật cật, chiếc bánh nhìn là biết công người gói",
-      "dek": "Lá mật cật hẹp hơn lá chuối, gân lá lại cứng. Để gói được đòn bánh có dáng tam giác, người làm phải biết xếp lá, đặt nhân và buộc vừa tay.",
-      "read_minutes": 3,
-      "image": "https://rootytrip.com/wp-content/uploads/2021/07/banh-tet-la-mat-cat-cho-duong-dong-phu-quoc.jpg",
-      "image_alt": "Bánh tét mật cật Phú Quốc",
-      "image_caption": "Ảnh tham chiếu bánh tét mật cật Phú Quốc trên trang RootyTrip; quyền tái sử dụng chưa được xác nhận.",
-      "image_credit": "RootyTrip - ảnh tham chiếu, cần xác nhận quyền sử dụng trước khi xuất bản",
-      "image_source_url": "https://rootytrip.com/cho-duong-dong-phu-quoc/",
-      "intro": "Bánh tét ở đâu cũng có, nhưng bánh tét mật cật Phú Quốc nhìn đã thấy khác. Đòn bánh có dáng gần tam giác, bên ngoài là những lớp lá được xếp khéo. Cắt ra mới thấy nếp dẻo ôm lấy nhân đậu, thịt. Cái đặc biệt bắt đầu từ thứ lá dùng để gói.",
-      "sections": [
-        {
-          "heading": "Tàu lá hẹp làm nên dáng bánh",
-          "body": "Lá mật cật vốn có mặt lá hẹp và gân khá cứng. Trước khi gói, lá được làm mềm, rửa và lau sạch. Người thợ xếp nhiều tàu lá để ôm kín phần nếp và nhân, rồi chỉnh thành đòn dài có cạnh. Chỉ nhìn một chiếc bánh gói gọn gàng cũng biết công đoạn này không hề qua loa."
-        },
-        {
-          "heading": "Buộc vừa chặt mới ra bánh ngon",
-          "body": "Gân lá mật cật còn được dùng để buộc bánh. Lỏng quá, nước dễ ngấm vào; chặt quá lại ảnh hưởng đến việc nếp nở và chín đều. Có những lời kể khác nhau về việc vì sao người Phú Quốc chọn lá mật cật, nhưng chưa đủ căn cứ để coi một dị bản là nguồn gốc chắc chắn của món bánh."
-        },
-        {
-          "heading": "Ăn một khoanh, thấy rõ lớp nếp và nhân",
-          "body": "Một cách làm được ghi nhận dùng nếp, đậu xanh, thịt mỡ; màu xanh của phần nếp có thể đến từ lá ngót hoặc lá dứa. Từng cơ sở có thể thay đổi nhân, kích cỡ và độ béo. Nếu mua làm quà hay ăn chay, nên hỏi nhân của đúng mẻ bánh mình chọn và cách bảo quản trước khi mang đi xa."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Ủy ban Nhà nước về người Việt Nam ở nước ngoài - Món bánh dân dã nổi tiếng ở Phú Quốc: Bánh tét cật (2016)",
-          "url": "https://scov.gov.vn/ban-sac-van-hoa/huong-vi-que-nha/mon-banh-dan-da-noi-tieng-o-phu-quoc-banh-tet-cat.html"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "banh-kheo-phu-quoc-cai-kheo-trong-dang-banh",
-      "category": "ẨM THỰC · NGHỀ BÁNH",
-      "title": "Bánh khéo Phú Quốc: nhìn những chiếc bánh nhỏ mới thấy cái khéo",
-      "dek": "Hoa, xoắn ốc hay những hình ngộ nghĩnh đều được nắn từ đôi tay người làm bánh. Mỗi lò có nhân và cách làm riêng, không chỉ một khuôn mẫu.",
-      "read_minutes": 3,
-      "image": "https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/3/16/am-thuc-phu-quoc-1647437033546114478199.jpg",
-      "image_alt": "Người làm bánh cầm những chiếc bánh khéo nhiều hình",
-      "image_caption": "Ảnh tham chiếu bánh khéo Phú Quốc, Dân Việt ghi nguồn ảnh phuquoc247; quyền tái sử dụng chưa được xác nhận.",
-      "image_credit": "Ảnh: phuquoc247 theo Dân Việt - ảnh tham chiếu, cần xác nhận quyền sử dụng trước khi xuất bản",
-      "image_source_url": "https://danviet.vn/am-thuc-phu-quoc-banh-kheo-thom-ngot-xinh-yeu-an-la-me-20220316203728096-d1007454.html",
-      "intro": "Ghé quầy bánh khéo, thứ khiến nhiều người dừng lại đôi khi chưa phải mùi bánh mà là hình dáng. Những chiếc bánh nhỏ xếp cạnh nhau, chiếc như bông hoa, chiếc xoắn tròn, có chiếc lại giống một con vật bé xíu. Tên bánh nghe mộc mạc mà đúng với công người thợ bỏ vào từng cái.",
-      "sections": [
-        {
-          "heading": "Khéo ngay từ lúc nặn bánh",
-          "body": "Người làm chia bột, đặt nhân rồi nắn hoặc tạo khuôn thành những hình nhỏ. Bánh càng bé, việc giữ cho các đường nét đều và phần nhân nằm gọn bên trong càng cần đôi tay quen việc. Không phải quầy nào cũng có cùng mẫu; nhìn một mẻ bánh là nhìn thấy phần nào dấu tay riêng của lò."
-        },
-        {
-          "heading": "Nhân đậu, nhân dừa và nhiều biến tấu",
-          "body": "Đậu xanh, dừa, khoai môn là những vị nhân thường được nhắc đến. Một số nơi còn làm thêm nhân khác. Ngay cả thành phần vỏ và cách làm chín cũng có thể thay đổi giữa các lò. Vì vậy, đừng mặc định chiếc bánh mình đang mua được làm đúng một công thức chỉ vì có cùng tên bánh khéo."
-        },
-        {
-          "heading": "Chọn bánh theo vị mình thích",
-          "body": "Muốn đem về làm quà, hãy hỏi bánh để được bao lâu và cần giữ thế nào. Người dị ứng bột mì, sữa, đậu hay nguyên liệu khác nên hỏi trực tiếp người bán, bởi hình dáng không cho biết thành phần bên trong. Nếu có dịp xem thợ làm bánh, bạn sẽ thấy cái hay nhất của món này nằm ngay ở đôi tay đang nắn bánh."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Dân Việt - Ẩm thực Phú Quốc: Bánh khéo, thơm ngọt xinh yêu ăn là mê",
-          "url": "https://danviet.vn/am-thuc-phu-quoc-banh-kheo-thom-ngot-xinh-yeu-an-la-me-20220316203728096-d1007454.html"
-        },
-        {
-          "label": "Visit Phu Quoc - Bánh khéo Phú Quốc: đặc sản ngọt thanh tinh tế của đảo Ngọc",
-          "url": "https://visitphuquoc.com.vn/vi/banh-kheo-phu-quoc-dac-san-ngot-thanh-tinh-te-cua-dao-ngoc-8453"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
       "id": "mui-cay-cua-dat-do",
       "category": "HỒ TIÊU · CHẤT ĐẢO",
       "title": "Ba cách thu hoạch tiêu Phú Quốc",
@@ -981,190 +717,87 @@
       "updated_at": "2026-09-26"
     },
     {
-      "id": "goi-ca-gioi-hon-mot",
-      "category": "GỎI CÁ GIỎI · ẨM THỰC",
-      "title": "Gỏi cá giỏi Hòn Một, một món cuốn ít người biết",
-      "dek": "Một ghi chép năm 2022 kể về món gỏi cá giỏi ăn với rau, bánh tráng và nước mắm pha ở khu vực Hòn Một. Cá dùng sống, nên cần hỏi thực đơn hiện tại và cân nhắc trước khi thử.",
+      "id": "doc-nhan-nuoc-mam-phu-quoc",
+      "category": "NƯỚC MẮM · CẨM NANG CHỌN MUA",
+      "title": "Mua nước mắm Phú Quốc, đọc nhãn sao cho đúng?",
+      "dek": "Cùng nhắc đến Phú Quốc nhưng nước mắm có chỉ dẫn địa lý và nước mắm truyền thống không phải hai tên gọi dùng thay nhau. Nhìn nhãn đúng trước rồi hãy chọn chai hợp khẩu vị.",
       "read_minutes": 3,
-      "image": "https://nld.mediacdn.vn/thumb_w/698/291774122806476800/2022/4/1/11-chan-11-1-1648822875408102321644.jpg",
-      "image_alt": "Đĩa gỏi cá giỏi với hành tây, dừa nạo và đậu phộng, ảnh tư liệu từ Hòn Một",
-      "image_caption": "Ảnh tham khảo món gỏi cá giỏi tại Hòn Một, đăng trong bài Báo Tuổi Trẻ năm 2022. Ảnh không xác nhận thực đơn hiện tại; quyền tái sử dụng chưa được xác nhận.",
-      "image_credit": "Ảnh: Azid Giàu/Báo Tuổi Trẻ - tư liệu tham khảo, quyền tái sử dụng chưa xác nhận.",
-      "image_source_url": "https://tuoitre.vn/nld/du-lich-xanh/goi-ca-gioi-an-la-nho-20220401212413032.htm",
-      "intro": "Ngoài gỏi cá trích quen thuộc, quanh Hòn Một từng có một món được báo chí giới thiệu với cái tên nghe khá lạ: gỏi cá giỏi. Cá phi lê trộn cùng hành tây, dừa nạo và đậu phộng, khi ăn cuốn với rau, bánh tráng rồi chấm nước mắm. Đây là ghi nhận về một món ăn địa phương, không có nghĩa quán nào ở Hòn Một bây giờ cũng còn bán.",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vats%20at%20a%20Fish%20Sauce%20Factory%20on%20Phu%20Quoc%20Island%20in%20Vietnam%2001.jpg?width=1400",
+      "image_alt": "Thùng gỗ ủ cá cơm tại xưởng nước mắm ở Phú Quốc",
+      "image_caption": "Những thùng ủ cá cơm tại một nhà thùng Phú Quốc, ảnh tư liệu năm 2015.",
+      "image_credit": "Frank Fox · Wikimedia Commons · CC BY-SA 4.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Vats_at_a_Fish_Sauce_Factory_on_Phu_Quoc_Island_in_Vietnam_01.jpg",
+      "intro": "Đi ngang một nhà thùng, nghe mùi cá cơm đang ủ rồi ghé quầy nước mắm, nhiều người sẽ băn khoăn: chai nào mới đúng là nước mắm Phú Quốc? Câu trả lời không nằm ở màu đậm hay độ đạm cao nhất. Trước tiên, cần biết dòng chữ trên nhãn đang nói đến điều gì.",
       "sections": [
         {
-          "heading": "Một cuốn gỏi có đủ vị",
-          "body": "Theo bài ghi nhận năm 2022, phần cá được chuẩn bị cùng hành tây, dừa nạo và đậu phộng. Người ăn gắp thêm rau, cuốn trong bánh tráng và chấm nước mắm pha. Vị cá đi cùng cái béo của dừa, độ bùi của đậu phộng và mùi rau thơm. Cách pha nước chấm hay rau ăn kèm có thể khác ở từng bếp."
+          "heading": "Hai cách gọi, hai điều cần hiểu",
+          "body": "Tên gọi Phú Quốc được bảo hộ chỉ dẫn địa lý tại Việt Nam từ năm 2001 và được Liên minh châu Âu đăng bạ năm 2012. Quy chuẩn kỹ thuật địa phương ban hành năm 2023 phân biệt nước mắm chỉ dẫn địa lý Phú Quốc và nước mắm truyền thống Phú Quốc. Mỗi loại có yêu cầu tương ứng về nguyên liệu, quy trình và chất lượng. Đó là những quy định về sản phẩm, không phải bảng xếp hạng chai nào ngon hơn."
         },
         {
-          "heading": "Cá giỏi là tên gọi địa phương",
-          "body": "Bài báo dùng tên cá giỏi nhưng không đủ thông tin để xác định tên khoa học của loài cá. Không nên tự ghép một tên loài chỉ vì nghe gần giống. Nếu muốn tìm món này, hãy hỏi người bán về loại cá đang dùng và quán còn phục vụ không; thông tin từ năm 2022 không thể thay cho thực đơn hiện tại."
+          "heading": "Muốn mua loại có chỉ dẫn địa lý thì nhìn gì?",
+          "body": "Hãy tìm biểu trưng chỉ dẫn địa lý và đọc tên, địa chỉ cơ sở sản xuất cùng những thông tin bắt buộc trên nhãn. Dòng chữ “nước mắm truyền thống Phú Quốc” không tự có nghĩa là sản phẩm mang chỉ dẫn địa lý. Ngược lại, chỉ nhìn vào một chi tiết của bao bì cũng chưa đủ kết luận về toàn bộ sản phẩm. Nếu còn phân vân, hỏi trực tiếp nhà sản xuất hoặc xem thông tin quản lý chỉ dẫn địa lý."
         },
         {
-          "heading": "Cá tái chanh vẫn là cá chưa nấu chín",
-          "body": "Chanh hoặc giấm có thể làm cá đổi màu và săn mặt, nhưng không làm hải sản sống trở thành món đã nấu chín an toàn. Khách muốn tránh nguy cơ từ cá sống nên chọn món cá chín. Người dị ứng cá hoặc đậu phộng phải hỏi kỹ cả nước chấm lẫn dụng cụ chế biến. Món ăn có câu chuyện thú vị, nhưng an toàn vẫn quan trọng hơn việc cố thử cho biết."
+          "heading": "Sau cùng vẫn là chai hợp bữa ăn",
+          "body": "Có người thích nước mắm đậm mùi cá cơm để chấm, có người tìm vị dịu hơn để nêm nấu. Độ đạm là một thông tin hữu ích, nhưng không nói thay được mùi, vị và cách dùng. Mua làm quà thì xem kỹ dung tích, niêm phong, thành phần và hướng dẫn bảo quản. Nếu cần tránh cá hoặc thành phần nào khác, đọc nhãn trước khi chọn."
         }
       ],
       "sources": [
         {
-          "label": "Báo Tuổi Trẻ - Gỏi cá giỏi, ăn là nhớ! (2022)",
-          "url": "https://tuoitre.vn/nld/du-lich-xanh/goi-ca-gioi-an-la-nho-20220401212413032.htm"
+          "label": "Cục Sở hữu trí tuệ Việt Nam - Danh sách chỉ dẫn địa lý được bảo hộ tại Việt Nam",
+          "url": "https://ipvietnam.gov.vn/web/english/domestic-ip-activities/-/asset_publisher/ZMuTgR44COLR/content/list-of-geographical-indications-protected-in-vietnam-"
         },
         {
-          "label": "CDC Travelers’ Health - Food and Drink Considerations When Traveling",
-          "url": "https://wwwnc.cdc.gov/travel/page/food-water-safety"
+          "label": "Sở Nông nghiệp và Môi trường An Giang - Quyết định 21/2023/QĐ-UBND, Quy chuẩn kỹ thuật địa phương nước mắm Phú Quốc",
+          "url": "https://snnmt.angiang.gov.vn/trang/VanBan/chitietvb.aspx?itemID=3747&loaivb=T%E1%BB%A7+s%C3%A1ch+ph%C3%A1p+lu%E1%BA%ADt"
+        },
+        {
+          "label": "Liên minh châu Âu - Regulation (EU) No 928/2012 về tên gọi xuất xứ Phú Quốc",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0928"
         }
       ],
-      "updated_at": "2026-09-27"
+      "updated_at": "2026-09-27",
+      "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "image_captured_at": "2015-06-27"
     },
     {
-      "id": "cha-ca-nhong-phu-quoc",
-      "category": "CHẢ CÁ NHỒNG · ẨM THỰC",
-      "title": "Chả cá nhồng, từ mẻ cá quết đến tô bánh canh nóng",
-      "dek": "Cá nhồng quết cùng gia vị, làm thành miếng chả hấp hoặc chiên. Mỗi bếp có cách nêm riêng, nhưng miếng chả dai thơm thường hợp với một tô bánh canh nóng.",
+      "id": "cay-di-san-vuon-quoc-gia-phu-quoc",
+      "category": "RỪNG PHÚ QUỐC · CÂY DI SẢN",
+      "title": "Trong rừng Phú Quốc có những cây được ghi danh di sản",
+      "dek": "Từ sáu cây được công nhận năm 2025, Vườn quốc gia Phú Quốc có thêm 14 cây và hai quần thể được ghi danh vào tháng 5/2026. Mỗi cái tên gắn với một khoảng rừng cần được gìn giữ.",
       "read_minutes": 3,
-      "image": "https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/5/18/mon-an-ngon-noi-tieng-o-phu-quoc-16528423835382038742874.jpg",
-      "image_alt": "Ảnh tham khảo món chả cá nhồng Phú Quốc",
-      "image_caption": "Ảnh tham khảo chả cá nhồng trong bài Dân Việt năm 2022; không đại diện cho công thức của một quán cụ thể. Quyền tái sử dụng chưa được xác nhận.",
-      "image_credit": "Ảnh: Dân Việt - tư liệu tham khảo, quyền tái sử dụng chưa xác nhận.",
-      "image_source_url": "https://danviet.vn/mon-an-ngon-noi-tieng-o-phu-quoc-cha-ca-nhong-thom-ngot-hap-dan-moi-du-khach-20220518095944979-d1019843.html",
-      "intro": "Một tô bánh canh nóng ở Phú Quốc có khi ngon nhờ miếng chả cá nằm bên trên. Trong những cách làm được ghi nhận, cá nhồng xay nhuyễn, nêm hành và tiêu sọ rồi quết đến khi dẻo. Chả sau đó có thể hấp hoặc chiên, ăn riêng hay thêm vào món nước.",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%2C%20t%C3%A1n%20r%E1%BB%ABng%20(th%C6%B0%E1%BB%9Dng%20xanh)%20(3).jpg?width=1600",
+      "image_alt": "Tán rừng thường xanh tại Phú Quốc, ảnh bối cảnh không phải cây di sản định danh",
+      "image_caption": "Rừng thường xanh tại Phú Quốc. Ảnh bối cảnh, không phải ảnh định danh những cây di sản trong bài.",
+      "image_credit": "Phương Huy · Wikimedia Commons · CC BY-SA 4.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phú_Quốc_2022,_cảnh_rừng,_tán_rừng_(thường_xanh)_(3).jpg",
+      "intro": "Vào rừng Phú Quốc, điều dễ thấy đầu tiên là màu xanh. Những thân cây lớn và tán lá cao thường khiến người đi rừng dừng lại lâu hơn một chút. Có những cây ở đây đã được ghi danh Cây Di sản Việt Nam, và từ năm 2026, danh sách không còn dừng ở từng cây riêng lẻ.",
       "sections": [
         {
-          "heading": "Công nằm ở lúc quết cá",
-          "body": "Cá được làm sạch, xay hoặc giã rồi nêm hành, tiêu và gia vị. Người làm quết cho hỗn hợp dẻo, kết dính trước khi tạo miếng chả. Một công thức được báo chí ghi nhận dùng tiêu sọ Phú Quốc, nhưng tỷ lệ tiêu, mức mặn và cách xử lý cá thay đổi theo từng bếp. Đừng coi một cách nêm là công thức chung của cả đảo."
+          "heading": "Sáu cây mở đầu",
+          "body": "Tháng 3/2025, sáu cây cổ thụ trong Vườn quốc gia Phú Quốc được công nhận Cây Di sản Việt Nam: hai cây trai Nam Bộ tại Bãi Thơm, hai cây kơ nia và hai cây kiền kiền Phú Quốc tại Gành Dầu. Đó là những cây đầu tiên của Kiên Giang nhận danh hiệu này. Tuổi cây được nhắc đến khác nhau giữa một số nguồn, nên không cần gán cho mỗi thân cây một con số chưa thống nhất."
         },
         {
-          "heading": "Chả hấp mềm, chả chiên thơm",
-          "body": "Chả hấp giữ vị cá rõ, còn chả chiên có mặt ngoài vàng và mùi thơm khác hẳn. Miếng chả có thể ăn với cơm, bún hoặc bánh canh. Nếu mua mang về, nên hỏi thời gian sử dụng và cách bảo quản, nhất là những hôm di chuyển lâu ngoài trời nóng."
+          "heading": "Đến tháng 5/2026: 20 cây và hai quần thể",
+          "body": "Ngày 29/5/2026, Vườn quốc gia đón nhận công nhận thêm 14 cây riêng lẻ cùng hai quần thể thực vật. Như vậy, tính đến đợt công bố này, Vườn có 20 cây di sản riêng lẻ và hai quần thể di sản. Các nhóm cây được ghi danh không chỉ kể chuyện về tuổi đời của rừng; chúng còn cho thấy sự đa dạng của những sinh cảnh cần bảo vệ, từ rừng cây gỗ lớn đến khu vực ngập mặn."
         },
         {
-          "heading": "Muốn đúng cá nhồng thì cứ hỏi",
-          "body": "Không phải miếng chả cá nào ở Phú Quốc cũng làm từ cá nhồng. Khi chọn món, hỏi quán loại cá được dùng và chả đã chế biến thế nào. Người dị ứng cá cần lưu ý cả chả, nước dùng và nước chấm; các loại hải sản khác cũng có thể được chế biến chung trong bếp."
+          "heading": "Ghi danh không có nghĩa là mở đường tham quan",
+          "body": "Những tấm bằng công nhận không phải bản đồ dẫn khách đến từng cây. Vùng có cây di sản vẫn thuộc khu vực được quản lý và bảo vệ của Vườn quốc gia. Nếu muốn tìm hiểu thực địa, hãy hỏi Ban quản lý về tuyến được phép tiếp cận và đi cùng người hướng dẫn phù hợp. Ngắm một thân cây lớn là một trải nghiệm, nhưng để cây tiếp tục sống trong khu rừng của nó mới là chuyện lâu dài."
         }
       ],
       "sources": [
         {
-          "label": "Báo Dân Việt - Ẩm thực Phú Quốc: Hấp dẫn loài cá chỉ sống rạn san hô... (2022)",
-          "url": "https://danviet.vn/mon-an-ngon-noi-tieng-o-phu-quoc-cha-ca-nhong-thom-ngot-hap-dan-moi-du-khach-20220518095944979-d1019843.html"
+          "label": "Hội Bảo vệ thiên nhiên và Môi trường Việt Nam - Sáu cây đầu tiên của tỉnh Kiên Giang được công nhận Cây Di sản Việt Nam",
+          "url": "https://www.vacne.org.vn/sau-cay-dau-tien-cua-tinh-kien-giang-duoc-cong-nhan-cay-di-san-viet-nam/222604.html"
+        },
+        {
+          "label": "Cục Bảo tồn thiên nhiên và Đa dạng sinh học - Vườn quốc gia Phú Quốc đón nhận quyết định và bằng công nhận Cây Di sản",
+          "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-don-nhan-quyet-dinh-va-bang-cong-nhan-cay-di-san/"
         }
       ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "oc-gai-phu-quoc",
-      "category": "ỐC GAI · HẢI SẢN PHÚ QUỐC",
-      "title": "Ốc gai Phú Quốc: vỏ xù xì, thịt giòn dai",
-      "dek": "Ốc gai có lớp vỏ nhiều mấu nhọn và phần thịt dai giòn. Có quán nướng, có quán luộc hoặc làm món khác; giá và tình trạng còn món phải hỏi trong ngày.",
-      "read_minutes": 3,
-      "image": "https://danviet.ex-cdn.com/files/f1/296231569849192448/2022/11/2/oc-gai-nau-gi-ngon-9-16653736522301185560364-1667362224196-16673622244112099224995.jpg",
-      "image_alt": "Ốc gai đã chế biến, ảnh tham khảo từ một bài báo năm 2022",
-      "image_caption": "Ảnh minh họa ốc gai trong bài Trang Trại Việt năm 2022; ảnh không xác nhận nơi đánh bắt hay cách nấu hiện tại. Quyền tái sử dụng chưa được xác nhận.",
-      "image_credit": "Ảnh: Trang Trại Việt/Dân Việt - ảnh minh họa, quyền tái sử dụng chưa xác nhận.",
-      "image_source_url": "https://trangtraiviet.danviet.vn/loai-oc-noi-tieng-cua-phu-quoc-gia-khong-he-re-270000-dong-kg-nhung-ai-an-cung-thich-20221102111519833-d55478.html",
-      "intro": "Nằm giữa rổ hải sản, ốc gai dễ khiến người ta nhìn thêm lần nữa vì lớp vỏ tua tủa những mấu nhọn. Phần thịt bên trong lại giòn dai, có thể đem nướng hoặc luộc rồi chấm muối tiêu chanh. Đây là món có trong những ghi chép về ẩm thực Phú Quốc, nhưng không phải lúc nào cũng sẵn ở mọi quán.",
-      "sections": [
-        {
-          "heading": "Nhìn vỏ biết tên dân gian",
-          "body": "Ốc gai, có nơi gọi ốc gai xương rồng, là cách gọi theo hình dáng vỏ. Tên trên thực đơn chưa đủ để xác định chính xác loài sinh học. Nếu bạn quan tâm đến nguồn gốc hoặc loại ốc cụ thể, hãy hỏi quán thay vì suy từ một cái tên quen miệng."
-        },
-        {
-          "heading": "Nướng hay luộc đều cần vừa lửa",
-          "body": "Ốc nướng có mùi thơm và lớp thịt săn hơn; luộc thì dễ cảm nhận vị riêng của ốc. Những cách chế biến khác như xào hoặc hấp cũng từng được giới thiệu. Lần đầu ăn, có thể hỏi cách tách thịt và nếm thử trước khi chấm thêm, vì phần nước chấm của mỗi nơi có thể khá đậm."
-        },
-        {
-          "heading": "Hỏi giá trước khi gọi",
-          "body": "Các bài báo cũ về ốc gai có nhắc đến giá và độ hiếm ở thời điểm đăng, nhưng không nên mang những con số ấy đi dùng cho chuyến du lịch hôm nay. Hỏi quán còn loại ốc nào, tính theo ký hay theo đĩa, giá trước hay sau chế biến. Người dị ứng động vật thân mềm cũng cần hỏi về nước chấm và việc dùng chung dụng cụ."
-        }
-      ],
-      "sources": [
-        {
-          "label": "VnExpress - Ốc gai, món quà của biển Phú Quốc (2012)",
-          "url": "https://vnexpress.net/oc-gai-mon-qua-cua-bien-phu-quoc-2307476.html"
-        },
-        {
-          "label": "Trang Trại Việt/Dân Việt - Loại ốc nổi tiếng của Phú Quốc... (2022)",
-          "url": "https://trangtraiviet.danviet.vn/loai-oc-noi-tieng-cua-phu-quoc-gia-khong-he-re-270000-dong-kg-nhung-ai-an-cung-thich-20221102111519833-d55478.html"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "mam-ruoc-an-lien-phu-quoc",
-      "category": "MẮM RUỐC · SẢN PHẨM ĐỊA PHƯƠNG",
-      "title": "Mắm ruốc ăn liền: đọc kỹ nhãn trước khi mang về",
-      "dek": "Một số hũ mắm ruốc Phú Quốc được phối sẵn tỏi, ớt, sả và gia vị để dùng trực tiếp. Công thức cụ thể phụ thuộc từng nhà sản xuất, không có một phiên bản chung cho cả đảo.",
-      "read_minutes": 3,
-      "image": "https://product.hstatic.net/200000244001/product/z6416593863649_f63cc3b5fa25d3a98a1dab188077c2ab_3aeda73ac9b743d3bc62ec110a08c543.jpg",
-      "image_alt": "Hũ mắm ruốc ăn liền Phú Quốc Thanh Quốc đặt cạnh trái cây và chén mắm",
-      "image_caption": "Ảnh sản phẩm Thanh Quốc 300 g; ảnh tham khảo, quyền tái sử dụng cần được xác nhận trước khi xuất bản.",
-      "image_credit": "Ảnh: Thanh Quốc - ảnh sản phẩm tham khảo; cần xác nhận quyền tái sử dụng trước khi xuất bản.",
-      "image_source_url": "https://nuocmamthanhquoc.com.vn/products/mam-ruoc-an-lien-phu-quoc-thanh-quoc-300g",
-      "intro": "Nhìn một hũ mắm ruốc ghi “ăn liền”, nhiều người nghĩ mua về là có thể mở nắp chấm ngay. Điều đó thường đúng với dòng đã nêm sẵn, nhưng mỗi cơ sở có cách phối vị riêng. Hũ mắm ruốc Thanh Quốc là một ví dụ được nhà sản xuất công bố thành phần rõ ràng, không phải công thức đại diện cho mọi loại mắm ruốc ở Phú Quốc.",
-      "sections": [
-        {
-          "heading": "“Ăn liền” nghĩa là đã phối vị",
-          "body": "Với sản phẩm được Thanh Quốc công bố, thành phần gồm ruốc, muối, đường, dầu thực vật, tỏi, ớt và sả. Hũ đã có vị mặn, ngọt, cay và mùi thơm của gia vị, khác với mắm ruốc nguyên liệu dùng để nêm nấu. Khi cầm sản phẩm của hãng khác, hãy đọc lại nhãn vì tỷ lệ và thành phần có thể không giống nhau."
-        },
-        {
-          "heading": "Chấm trực tiếp hoặc nêm từng chút",
-          "body": "Nhà sản xuất giới thiệu sản phẩm để chấm hoặc làm nguyên liệu nấu ăn. Nếu chưa quen vị, lấy một ít ra chén rồi thử với món định ăn. Khi nêm nồi canh hay món xào, thêm ít một vì mắm đã có muối, đường và ớt. Không cần thêm đủ mọi gia vị như đang dùng ruốc nguyên chất."
-        },
-        {
-          "heading": "Xem đúng thông tin trên hũ đang mua",
-          "body": "Ruốc thuộc nhóm giáp xác, nên người dị ứng cần xem thành phần và khả năng tiếp xúc chéo. Kiểm tra ngày sản xuất, hạn dùng và hướng dẫn bảo quản trên đúng hũ mình cầm, đừng lấy hạn dùng của một bài giới thiệu cũ áp cho mọi lô hàng."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Thanh Quốc - Mắm ruốc ăn liền Phú Quốc, thành phần và hướng dẫn sử dụng",
-          "url": "https://thanhquocfishsauce.com/vi/san-pham/mam-ruoc-an-lien-phu-quoc-thanh-quoc"
-        },
-        {
-          "label": "Nước Mắm Thanh Quốc - Mắm ruốc ăn liền Phú Quốc Thanh Quốc 300 g",
-          "url": "https://nuocmamthanhquoc.com.vn/products/mam-ruoc-an-lien-phu-quoc-thanh-quoc-300g"
-        }
-      ],
-      "updated_at": "2026-09-27"
-    },
-    {
-      "id": "tieu-chin-ngao-duong-phu-quoc",
-      "category": "HỒ TIÊU · GIA VỊ PHÚ QUỐC",
-      "title": "Tiêu chín ngào đường: hũ gia vị không chỉ có tiêu",
-      "dek": "Tiêu chín có thể được phối cùng đường và nước mắm để thành gia vị dùng ngay khi nấu. Đây là một dạng sản phẩm chế biến, khác với tiêu hạt hay tiêu xay nguyên chất.",
-      "read_minutes": 3,
-      "image": "https://product.hstatic.net/200000244001/product/tieu_ngao_240g_8b966b09993147e3928e7a5ad5d992ed_small.jpg",
-      "image_alt": "Hũ tiêu chín ngào Phú Quốc Thanh Quốc 240 g",
-      "image_caption": "Ảnh sản phẩm Thanh Quốc 240 g; ảnh tham khảo, quyền tái sử dụng cần được xác nhận trước khi xuất bản.",
-      "image_credit": "Ảnh: Thanh Quốc - ảnh sản phẩm tham khảo; cần xác nhận quyền tái sử dụng trước khi xuất bản.",
-      "image_source_url": "https://nuocmamthanhquoc.com.vn/products/tieu-chin-ngao-phu-quoc-thanh-quoc-240g",
-      "intro": "Ở Phú Quốc, tiêu không chỉ được bán theo hạt hay xay sẵn. Có những hũ tiêu chín ngào đường, mở nắp ra đã có sẵn nhiều lớp vị. Chẳng hạn, một sản phẩm Thanh Quốc phối tiêu chín xay với đường và nước mắm cốt nhĩ. Đó là cách làm của một nhà sản xuất, không phải công thức cố định cho mọi hũ tiêu ngào.",
-      "sections": [
-        {
-          "heading": "Tiêu, đường và nước mắm",
-          "body": "Theo thông tin sản phẩm Thanh Quốc công bố, hỗn hợp có tiêu chín xay, đường và nước mắm cốt nhĩ Phú Quốc. Thành phẩm vừa cay thơm vừa ngọt mặn, nên không thể thay một-một cho tiêu xay nguyên chất trong công thức nấu ăn. Người cần tránh đường hoặc nước mắm phải xem nhãn trước khi mua."
-        },
-        {
-          "heading": "Nêm ít trước, thử rồi thêm",
-          "body": "Khi dùng làm gia vị, hãy bắt đầu bằng một lượng nhỏ, nếm lại rồi mới thêm muối, đường hay nước mắm. Cách này giúp món ăn không vô tình quá mặn hoặc ngọt. Từng thương hiệu có công thức riêng, nên hướng dẫn trên bao bì là thông tin sát nhất với hũ đang dùng."
-        },
-        {
-          "heading": "Mua làm quà cũng cần đọc nhãn",
-          "body": "Xem thành phần, dung tích, hạn dùng, nhà sản xuất và cách bảo quản. Sản phẩm có nước mắm nên người dị ứng cá cần đặc biệt lưu ý. Nếu tìm đúng vị tiêu Phú Quốc nguyên chất, hãy chọn tiêu hạt hoặc tiêu xay thay vì nhầm với dòng đã ngào gia vị."
-        }
-      ],
-      "sources": [
-        {
-          "label": "Thanh Quốc - Tiêu chín ngào đường Phú Quốc, thành phần và hướng dẫn sử dụng",
-          "url": "https://thanhquocfishsauce.com/vi/san-pham/tieu-chin-ngao-duong-phu-quoc-thanh-quoc-300g"
-        },
-        {
-          "label": "Nước Mắm Thanh Quốc - Tiêu chín ngào Phú Quốc Thanh Quốc 240 g",
-          "url": "https://nuocmamthanhquoc.com.vn/products/tieu-chin-ngao-phu-quoc-thanh-quoc-240g"
-        }
-      ],
-      "updated_at": "2026-09-27"
+      "updated_at": "2026-09-27",
+      "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
     }
   ]
 }
