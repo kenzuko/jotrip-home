@@ -1,5 +1,7 @@
 import {buildStoryMeta,buildKnowledgeMeta,rewriteSeoHtml} from "./functions/_shared/seo-html.js";
 import {cleanupFeedback} from "./functions/_shared/place-feedback.js";
+import {collectTraffic,cleanupTraffic} from "./functions/_shared/traffic-analytics.js";
+import {onRequest as ownerTrafficReport} from "./functions/api/cms/traffic.js";
 import {onRequest as publicFeedback} from "./functions/api/feedback.js";
 import {onRequest as adminPlaceFeedback} from "./functions/api/cms/feedback.js";
 import {onRequest as adminPlaceFeedbackPhoto} from "./functions/api/cms/feedback/photo.js";
@@ -81,6 +83,8 @@ export default {
     const tick=new Date(event.scheduledTime||Date.now());
     if(env.CMS_DB&&tick.getUTCHours()===20&&tick.getUTCMinutes()===0)
       ctx.waitUntil(cleanupFeedback(env).catch(e=>console.warn("Community feedback cleanup retry next day",e.message)));
+    if(env.CMS_DB&&tick.getUTCHours()===20&&tick.getUTCMinutes()===0)
+      ctx.waitUntil(cleanupTraffic(env).catch(e=>console.warn("Traffic retention cleanup retry next day",e.message)));
   },
   async fetch(request, env, ctx) {
     const weatherPath=new URL(request.url).pathname;
@@ -97,6 +101,8 @@ export default {
     if (path === "/api/context/v1/weather/window") return handleWeatherWindow(request);
     if (path === "/api/go/live") return handleGoLive(request);
     if (path === "/api/feedback") return publicFeedback({request,env});
+    if (path === "/api/traffic/collect") return collectTraffic(request,env);
+    if (path === "/api/cms/traffic") return ownerTrafficReport({request,env});
     if (path === "/api/cms/feedback") return adminPlaceFeedback({request,env});
     if (path === "/api/cms/feedback/photo") return adminPlaceFeedbackPhoto({request,env});
     if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request,env});
