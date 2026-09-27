@@ -585,11 +585,15 @@
     if(mapOpen)showDirectoryMap(query,"Tìm ngoài bản đồ");
   }
 
+  function filteredCommunityRows(){
+    if(!selectedCategory&&!searchText.trim())return [];
+    return communityRows.filter(row=>matchesArea(row)&&matchesCategory(row)&&matchesSearch(row));
+  }
+
   function renderCommunityResults(){
     const host=$("#communityResults");
     if(!host)return;
-    const active=!!selectedCategory||!!searchText.trim();
-    const visible=active?communityRows.filter(row=>matchesArea(row)&&matchesCategory(row)&&matchesSearch(row)):[];
+    const visible=filteredCommunityRows();
     if(!visible.length){host.hidden=true;host.innerHTML="";return;}
     host.hidden=false;
     const cards=visible.slice(0,60).map(row=>{
@@ -634,6 +638,7 @@
     }
 
     const result=filteredRows();
+    const communityVisible=filteredCommunityRows();
     renderCommunityResults();
     const visible=result.rows;
     window.__openpqNearState={
@@ -647,20 +652,24 @@
     $("#resultsTitle").textContent=searchText.trim()
       ?"Kết quả cho “"+searchText.trim()+"”"
       :areaLabel()+(label?" · "+label:"");
+    const communityCountCopy=communityVisible.length?communityVisible.length+" gợi ý cộng đồng riêng":"";
     $("#resultsCount").textContent=radiusKm!==null&&result.radiusCount!==null
-      ?result.radiusCount+" có tọa độ trong vòng "+radiusKm+" km"+(result.radiusUnknown?" · "+result.radiusUnknown+" chưa xác định khoảng cách":"")
-      :visible.length+" địa điểm";
+      ?result.radiusCount+" có tọa độ trong vòng "+radiusKm+" km"+(result.radiusUnknown?" · "+result.radiusUnknown+" chưa xác định khoảng cách":"")+(communityCountCopy?" · "+communityCountCopy+", không tính trong bán kính":"")
+      :visible.length+" địa điểm"+(communityCountCopy?" · "+communityCountCopy:"");
     $("#nearStatus").textContent=radiusKm!==null&&result.radiusCount!==null
-      ?result.radiusCount+" địa điểm có tọa độ trong vòng "+radiusKm+" km"+(position?" quanh GPS.":" từ tâm khu vực; đây không phải GPS.")+(result.radiusUnknown?" "+result.radiusUnknown+" địa điểm thiếu tọa độ, không tính trong vòng.":"")
+      ?result.radiusCount+" địa điểm có tọa độ trong vòng "+radiusKm+" km"+(position?" quanh GPS.":" từ tâm khu vực; đây không phải GPS.")+(result.radiusUnknown?" "+result.radiusUnknown+" địa điểm thiếu tọa độ, không tính trong vòng.":"")+(communityCountCopy?" "+communityCountCopy+"; không tính bán kính.":"")
       :position
-        ?(result.gpsFallback?"Điểm có tọa độ được xếp theo đường chim bay; địa điểm khác vẫn hiện ở nhóm chưa rõ khoảng cách.":"Đã xếp nơi có tọa độ theo đường chim bay từ GPS.")
-        :"Chọn một lớp hoặc gõ tên nơi bạn cần tìm.";
+        ?(result.gpsFallback?"Điểm có tọa độ được xếp theo đường chim bay; địa điểm khác vẫn hiện ở nhóm chưa rõ khoảng cách.":"Đã xếp nơi có tọa độ theo đường chim bay từ GPS.")+(communityCountCopy?" "+communityCountCopy+" ở lớp riêng, chưa xếp theo GPS.":"")
+        :"Chọn một lớp hoặc gõ tên nơi bạn cần tìm."+(communityCountCopy?" "+communityCountCopy+" ở lớp riêng, chưa xếp theo GPS.":"");
     renderMapPoints(visible);
 
     const host=$("#nearResults");
     if(!visible.length){
       const query=(searchText.trim()||selectedCategory)?googleSearchUrl(mapSearchQuery()):"";
-      host.innerHTML='<div class="empty">Chưa thấy kết quả phù hợp. Thử tên khác hoặc bỏ bớt bộ lọc nhé.'+
+      const emptyCopy=communityVisible.length
+        ?"Danh bạ chính chưa có mục đã đối chiếu phù hợp. "+communityVisible.length+" gợi ý cộng đồng riêng ở bên dưới."
+        :"Chưa thấy kết quả phù hợp. Thử tên khác hoặc bỏ bớt bộ lọc nhé.";
+      host.innerHTML='<div class="empty">'+esc(emptyCopy)+
         (query?' <a href="'+esc(query)+'" target="_blank" rel="noopener">Tìm trên Google Maps ↗</a>':"")+'</div>';
       return;
     }
