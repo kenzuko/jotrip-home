@@ -703,3 +703,11 @@
 @media(max-width:780px){.food-workbench-head{align-items:stretch;flex-direction:column;padding:13px}.food-workbench-head button{width:100%}.food-record{padding:12px}.food-record-head{display:block}.food-record-head .item-tools{margin-top:10px}.food-record-fields{grid-template-columns:1fr}}
 
 .food-type-tag{display:inline-block;margin-bottom:5px;padding:4px 7px;border-radius:999px;background:#EEF5F1;color:#49675D;font-size:9px;font-weight:850}
+
+/* Community feedback is separate from the sole public-site footer link. */
+.cms-side .feedback-entry{display:flex;align-items:center;justify-content:center;min-height:38px;margin:18px 4px 0;padding:9px;border:1px solid #cbded7;border-radius:11px;background:#eef7f3;color:var(--ink);text-align:center;font-size:11px;font-weight:750}
+.cms-side .feedback-entry:hover,.cms-side .feedback-entry:focus-visible{background:#dbeee6;outline-color:var(--ink2)}
+.cms-layout.side-collapsed .feedback-entry{font-size:0;min-height:38px;padding:8px 3px}
+.cms-layout.side-collapsed .feedback-entry .site-link-full{display:none}
+.cms-layout.side-collapsed .feedback-entry .site-link-short{display:inline;font-size:15px}
+@media(max-width:780px){.cms-side .feedback-entry{display:inline-flex;vertical-align:middle;position:static;margin:6px 0;min-height:44px;padding:8px 14px;font-size:11px}.cms-layout.side-collapsed .feedback-entry{font-size:11px}.cms-layout.side-collapsed .feedback-entry .site-link-full{display:inline}.cms-layout.side-collapsed .feedback-entry .site-link-short{display:none}}

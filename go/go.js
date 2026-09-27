@@ -112,7 +112,8 @@
           '<div class="go-timing"><strong>'+esc(x.timing)+'</strong><span>Dự kiến xong khoảng '+esc(x.finish_at)+'</span></div>'+
           '<div class="go-meta">'+(km?'<div><span>Cách bạn</span><b>'+esc(km)+'</b></div>':'')+'<div><span>Đi từ khu hiện tại</span><b>'+esc(drive)+'</b></div><div><span>Dự kiến tới</span><b>'+esc(x.arrival)+'</b></div><div><span>Trước khi đi</span><b>Xem giờ & lưu ý mới nhất</b></div></div>'+
           (warnings?'<ul class="go-warnings">'+warnings+'</ul>':"")+
-          '<a href="'+esc(x.route)+'"'+(x.id==="activity_big_game_fishing"?' target="_blank" rel="noopener noreferrer"':"")+'>'+(x.id==="activity_big_game_fishing"?"Xem tour câu cá JoTrip ↗":"Xem chi tiết trước khi đi →")+'</a></article>';
+          '<a href="'+esc(x.route)+'"'+(x.id==="activity_big_game_fishing"?' target="_blank" rel="noopener noreferrer"':"")+'>'+(x.id==="activity_big_game_fishing"?"Xem tour câu cá JoTrip ↗":"Xem chi tiết trước khi đi →")+'</a>'+ 
+          '<button type="button" class="opq-feedback-trigger" data-openpq-feedback data-feedback-id="'+esc(x.id)+'" data-feedback-name="'+esc(x.name)+'" data-feedback-type="'+esc(x.id.startsWith("activity_")?"activity":"place")+'">Góp ý thông tin</button></article>';
       }).join("");
     }
 

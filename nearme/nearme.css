@@ -314,6 +314,11 @@ html,body{max-width:100%;overflow-x:hidden}
 .near-map-explainer small{display:block;line-height:1.4}
 .near-map-explainer .near-external-explainer{font-size:10px;color:#71877f}
 
+/* Keep the community correction CTA within the results heading grid row. */
+.near-layout .results-head{flex-wrap:wrap}
+.near-layout .results-head>.opq-feedback-trigger{margin-top:2px;max-width:100%;font-size:11px;min-height:34px}
+@media(max-width:820px){.near-layout .results-head>.opq-feedback-trigger{width:100%}}
+
 /* 27/09 hotfix: the map is a full-height WORKSPACE, never a short grid item
    spanning an arbitrarily tall result list. The left pane scrolls independently. */
 .near-workspace-left{min-width:0;min-height:0}
