@@ -43,6 +43,9 @@
     const isNew=form.elements.issue.value==="new_place";
     form.querySelector("#opqFeedbackNewName").hidden=!isNew;
     form.elements.new_name.required=isNew;
+    form.elements.details.required=isNew;
+    form.elements.details.minLength=isNew?10:0;
+    form.querySelector("[name=details]").closest("label").firstChild.textContent=isNew?"Địa chỉ hoặc khu vực (bắt buộc)":"Chia sẻ thêm (nếu có)";
     form.querySelector("[name=details]").placeholder=isNew
       ?"Địa chỉ hoặc khu vực, đặc điểm nhận biết, giờ mở cửa nếu biết..."
       :"Thông tin đúng là gì? Bạn biết từ khi nào?";
