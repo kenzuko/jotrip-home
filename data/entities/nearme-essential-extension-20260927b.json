@@ -1,0 +1,1091 @@
+{
+  "schema_version": "1.0",
+  "batch_date": "2026-09-27",
+  "batch_id": "2026-09-27b",
+  "scope": "23 additionally filtered priority utilities from 119 unpublished OSM review records; community-only, not live-verified.",
+  "osm_license": "ODbL-1.0 © OpenStreetMap contributors",
+  "reviewed_records": 23,
+  "entities": [
+    {
+      "id": "utility_osm_node_9664735667",
+      "entity_type": "utility",
+      "name": "Cửa Hàng Xăng Dầu DDS Petro",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "zone_hint": "An Thới - Nam đảo",
+      "group": "Cây xăng",
+      "utility_type": "FUEL",
+      "address": "Khu vực An Thới / Nam đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cây xăng cộng đồng ghi nhận. Chưa xác minh còn bán, đúng thương hiệu hoặc giờ hoạt động.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/9664735667",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_9664735667",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.0173163,
+        "lon": 104.0126531,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_1650640835",
+      "entity_type": "utility",
+      "name": "Cửa Hàng Xăng Dầu KTC",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "zone_hint": "An Thới - Nam đảo",
+      "group": "Cây xăng",
+      "utility_type": "FUEL",
+      "address": "Khu vực An Thới / Nam đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cây xăng cộng đồng ghi nhận. Chưa xác minh còn bán, đúng thương hiệu hoặc giờ hoạt động.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/1650640835",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_1650640835",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.0200061,
+        "lon": 104.0168339,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_6468337552",
+      "entity_type": "utility",
+      "name": "Cửa Hàng Xăng Dầu KTC",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "zone_hint": "An Thới - Nam đảo",
+      "group": "Cây xăng",
+      "utility_type": "FUEL",
+      "address": "Khu vực An Thới / Nam đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cây xăng cộng đồng ghi nhận. Chưa xác minh còn bán, đúng thương hiệu hoặc giờ hoạt động.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/6468337552",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_6468337552",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.0361706,
+        "lon": 104.0151418,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_4081631818",
+      "entity_type": "utility",
+      "name": "Duong Dong Petro",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Bắc Đông đảo (vị trí cộng đồng)",
+      "group": "Cây xăng",
+      "utility_type": "FUEL",
+      "address": "Khu vực Bắc đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cây xăng cộng đồng ghi nhận. Chưa xác minh còn bán, đúng thương hiệu hoặc giờ hoạt động.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/4081631818",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_4081631818",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.408399,
+        "lon": 104.0286274,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_13722487401",
+      "entity_type": "utility",
+      "name": "KTC - Bắc đảo (điểm cộng đồng)",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Gành Dầu / Bắc đảo",
+      "group": "Cây xăng",
+      "utility_type": "FUEL",
+      "address": "Khu vực Bắc đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cây xăng cộng đồng ghi nhận. Chưa xác minh còn bán, đúng thương hiệu hoặc giờ hoạt động.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/13722487401",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_13722487401",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.311303,
+        "lon": 103.8989469,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11873257798",
+      "entity_type": "utility",
+      "name": "Cửa hàng điện thoại DAMTUYEN (OSM)",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Gành Dầu / Bắc đảo",
+      "group": "SIM & điện thoại",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Bắc đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng thiết bị/điện thoại/SIM cộng đồng ghi nhận. Chưa xác minh cửa hàng còn hoạt động hoặc dịch vụ cụ thể.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11873257798",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11873257798",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.374327,
+        "lon": 103.8443452,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_6483568745",
+      "entity_type": "utility",
+      "name": "Thế Giới Di Động - An Thới",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "zone_hint": "An Thới - Nam đảo",
+      "group": "SIM & điện thoại",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực An Thới / Nam đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng thiết bị/điện thoại/SIM cộng đồng ghi nhận. Chưa xác minh cửa hàng còn hoạt động hoặc dịch vụ cụ thể.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/6483568745",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_6483568745",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.0187955,
+        "lon": 104.0153701,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11930375188",
+      "entity_type": "utility",
+      "name": "CHGD VIETTEL HOÀNG ANH",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông / Cửa Dương",
+      "group": "SIM & điện thoại",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng thiết bị/điện thoại/SIM cộng đồng ghi nhận. Chưa xác minh cửa hàng còn hoạt động hoặc dịch vụ cụ thể.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11930375188",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11930375188",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2309396,
+        "lon": 103.9831522,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_7106149785",
+      "entity_type": "utility",
+      "name": "Viettel",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông / Cửa Dương",
+      "group": "SIM & điện thoại",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng thiết bị/điện thoại/SIM cộng đồng ghi nhận. Chưa xác minh cửa hàng còn hoạt động hoặc dịch vụ cụ thể.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/7106149785",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_7106149785",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2234046,
+        "lon": 103.964546,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11873236278",
+      "entity_type": "utility",
+      "name": "Siêu Thị Điện Máy Xanh Gành Dầu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Gành Dầu / Bắc đảo",
+      "group": "Điện máy / điện tử",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Bắc đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng thiết bị/điện thoại/SIM cộng đồng ghi nhận. Chưa xác minh cửa hàng còn hoạt động hoặc dịch vụ cụ thể.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11873236278",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11873236278",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.3706253,
+        "lon": 103.8411782,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11932334233",
+      "entity_type": "utility",
+      "name": "Điện Lạnh Cửu Long",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông / Cửa Dương",
+      "group": "Điện máy / điện tử",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng thiết bị/điện thoại/SIM cộng đồng ghi nhận. Chưa xác minh cửa hàng còn hoạt động hoặc dịch vụ cụ thể.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11932334233",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11932334233",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2353067,
+        "lon": 103.993018,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11873257796",
+      "entity_type": "utility",
+      "name": "ĐIện Cơ Nhật Tân",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "zone_hint": "Gành Dầu / Bắc đảo",
+      "group": "Điện máy / điện tử",
+      "utility_type": "ELECTRONICS",
+      "address": "Khu vực Bắc đảo, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng thiết bị/điện thoại/SIM cộng đồng ghi nhận. Chưa xác minh cửa hàng còn hoạt động hoặc dịch vụ cụ thể.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11873257796",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11873257796",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.3744872,
+        "lon": 103.8461731,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11930352235",
+      "entity_type": "utility",
+      "name": "Giặt ủi Anh Tuấn",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông / Cửa Dương",
+      "group": "Giặt ủi",
+      "utility_type": "LAUNDRY",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Tiệm giặt ủi cộng đồng ghi nhận. Chưa xác minh nhận khách hay giờ làm việc.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11930352235",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11930352235",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2316028,
+        "lon": 103.9868651,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11930352238",
+      "entity_type": "utility",
+      "name": "Giặt ủi Khánh Khương",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông / Cửa Dương",
+      "group": "Giặt ủi",
+      "utility_type": "LAUNDRY",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Tiệm giặt ủi cộng đồng ghi nhận. Chưa xác minh nhận khách hay giờ làm việc.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11930352238",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11930352238",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2316503,
+        "lon": 103.9861985,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_4459581162",
+      "entity_type": "utility",
+      "name": "Sacombank ATM",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông / Cửa Dương",
+      "group": "ATM",
+      "utility_type": "ATM",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Điểm ATM cộng đồng ghi nhận. Chưa xác minh máy hoạt động, hạn mức hoặc quyền vào.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/4459581162",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_4459581162",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.264091,
+        "lon": 103.9433086,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_12638643444",
+      "entity_type": "utility",
+      "name": "Sacombank ATM",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Tơ / Bãi Trường",
+      "group": "ATM",
+      "utility_type": "ATM",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Điểm ATM cộng đồng ghi nhận. Chưa xác minh máy hoạt động, hạn mức hoặc quyền vào.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/12638643444",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_12638643444",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.1784119,
+        "lon": 103.9709938,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_5003536524",
+      "entity_type": "utility",
+      "name": "BIDV (điểm cộng đồng)",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Tơ / Bãi Trường",
+      "group": "ATM",
+      "utility_type": "ATM",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Điểm ATM cộng đồng ghi nhận. Chưa xác minh máy hoạt động, hạn mức hoặc quyền vào.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/5003536524",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_5003536524",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.1628369,
+        "lon": 103.9981216,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_way_1267836868",
+      "entity_type": "utility",
+      "name": "Kingkong Mart",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Tơ / Bãi Trường",
+      "group": "Siêu thị / tạp hóa",
+      "utility_type": "MINIMART",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng nhu yếu phẩm cộng đồng ghi nhận. Chưa xác minh địa điểm, hàng bán hoặc giờ mở cửa.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/way/1267836868",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_way_1267836868",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "site_centroid",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.1952361,
+        "lon": 103.9682484,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_way_1282342453",
+      "entity_type": "utility",
+      "name": "Luong Mini Market",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông / Cửa Dương",
+      "group": "Siêu thị / tạp hóa",
+      "utility_type": "MINIMART",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng nhu yếu phẩm cộng đồng ghi nhận. Chưa xác minh địa điểm, hàng bán hoặc giờ mở cửa.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/way/1282342453",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_way_1282342453",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "site_centroid",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2626208,
+        "lon": 103.9387963,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_6341016685",
+      "entity_type": "utility",
+      "name": "A1 Market",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Tơ / Bãi Trường",
+      "group": "Cửa hàng thiết yếu",
+      "utility_type": "MINIMART",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng nhu yếu phẩm cộng đồng ghi nhận. Chưa xác minh địa điểm, hàng bán hoặc giờ mở cửa.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/6341016685",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_6341016685",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2005339,
+        "lon": 103.9671382,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_10680866305",
+      "entity_type": "utility",
+      "name": "Baza Mart",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Tơ / Bãi Trường",
+      "group": "Siêu thị / tạp hóa",
+      "utility_type": "MINIMART",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng nhu yếu phẩm cộng đồng ghi nhận. Chưa xác minh địa điểm, hàng bán hoặc giờ mở cửa.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/10680866305",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_10680866305",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.1860371,
+        "lon": 103.9685875,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11377640769",
+      "entity_type": "utility",
+      "name": "Hương Đảo (tên OSM)",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Tơ / Bãi Trường",
+      "group": "Siêu thị / tạp hóa",
+      "utility_type": "MINIMART",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng nhu yếu phẩm cộng đồng ghi nhận. Chưa xác minh địa điểm, hàng bán hoặc giờ mở cửa.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11377640769",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11377640769",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.1855996,
+        "lon": 103.9681766,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    },
+    {
+      "id": "utility_osm_node_11361784369",
+      "entity_type": "utility",
+      "name": "Kim Thanh (tên OSM)",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "zone_hint": "Dương Đông / Cửa Dương",
+      "group": "Siêu thị / tạp hóa",
+      "utility_type": "MINIMART",
+      "address": "Khu vực Trung tâm / Bờ Tây, Đặc khu Phú Quốc, An Giang",
+      "address_precision": "AREA",
+      "address_is_approximate": true,
+      "phone": null,
+      "what_it_is": "Cửa hàng nhu yếu phẩm cộng đồng ghi nhận. Chưa xác minh địa điểm, hàng bán hoặc giờ mở cửa.",
+      "verified": false,
+      "operational_status": "UNKNOWN",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "osm_phuquoc_20260925",
+          "url": "https://www.openstreetmap.org/node/11361784369",
+          "checked_at": "2026-09-25",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27b",
+        "prior_record_id": "utility_osm_node_11361784369",
+        "source_file": "research/near-go/2026-09-26/ OSM backlogs",
+        "verified_identity": false,
+        "verified_operation": false,
+        "osm_geometry_type": "poi_node",
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+      },
+      "updated_at": "2026-09-27",
+      "map": {
+        "lat": 10.2234431,
+        "lon": 103.9661418,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap contributors, community POI",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
+      }
+    }
+  ]
+}
