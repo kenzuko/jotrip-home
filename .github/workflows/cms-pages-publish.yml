@@ -295,6 +295,13 @@ jobs:
           throw Error("CMS custom domain did not serve verified build and Weather after CDN propagation: "+lastError?.message);
           NODE
 
+      - name: Verify public feedback delivery and remove smoke report
+        if: steps.deploy.outcome == 'success'
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node scripts/smoke-place-feedback-live.mjs
+
       - name: Independently check the live CMS hostname
         if: always()
         run: |
