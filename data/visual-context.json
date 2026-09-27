@@ -2813,11 +2813,45 @@
     },
     "knowledge_010_cua-duong": {
       "title": "Cửa Dương",
-      "images": []
+      "images": [
+        {
+          "url": "https://www.vietnamairlines.com/content/dam/legacy-site-assets/SEO-images/2025%20SEO/Thay%20Anh%20Traffic%20Tieng%20Anh/ong%20lang%20beach/ong-lang-beach-is-famous-for-its-crystal-clear-waters.jpeg?width=1920",
+          "alt": "Bãi Ông Lang phía Tây Phú Quốc nhìn từ trên cao",
+          "caption": "Bờ biển Ông Lang ở phía Tây đảo, ảnh bối cảnh khu vực Cửa Dương, không đại diện toàn địa bàn.",
+          "scope": "regional_context",
+          "source_label": "Vietnam Airlines · Bãi Ông Lang",
+          "source_url": "https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/ong-lang-beach",
+          "curated_for_public": true,
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+        }
+      ]
     },
     "knowledge_011_duong-to": {
       "title": "Dương Tơ",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bi%E1%BB%83n%20Ph%C3%BA%20qu%E1%BB%91c%2C%20D%C6%B0%C6%A1ng%20T%C6%A1%2C%20Vietnam%20-%20panoramio.jpg?width=1200",
+          "alt": "Bờ biển Dương Tơ Phú Quốc năm 2013",
+          "caption": "Bờ biển Dương Tơ, ảnh tư liệu 2013. Cảnh quan hiện nay có thể thay đổi.",
+          "scope": "exact_subject",
+          "source_label": "trungydang · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_Ph%C3%BA_qu%E1%BB%91c%2C_D%C6%B0%C6%A1ng_T%C6%A1%2C_Vietnam_-_panoramio.jpg",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "rights_status": "CC_VERIFIED"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nguyen%20Van%20cu%2C%20TL%2046%2CDuong%20to%20Phu%20quoc%2C%20vn%20-%20panoramio.jpg?width=1200",
+          "alt": "Đường Nguyễn Văn Cừ qua Dương Tơ năm 2013",
+          "caption": "Đường Nguyễn Văn Cừ đoạn Dương Tơ năm 2013, không mô tả hiện trạng giao thông hôm nay.",
+          "scope": "historical_context",
+          "source_label": "trungydang · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Nguyen_Van_cu%2C_TL_46%2CDuong_to_Phu_quoc%2C_vn_-_panoramio.jpg",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_012_bai-truong": {
       "title": "Bãi Trường",
@@ -2867,7 +2901,18 @@
     },
     "knowledge_015_bai-ong-lang": {
       "title": "Bãi Ông Lang",
-      "images": []
+      "images": [
+        {
+          "url": "https://www.vietnamairlines.com/content/dam/legacy-site-assets/SEO-images/2025%20SEO/Thay%20Anh%20Traffic%20Tieng%20Anh/ong%20lang%20beach/ong-lang-beach-is-famous-for-its-crystal-clear-waters.jpeg?width=1920",
+          "alt": "Bãi Ông Lang phía Tây Phú Quốc nhìn từ trên cao",
+          "caption": "Bãi Ông Lang trong tư liệu điểm đến của Vietnam Airlines. Ảnh không phản ánh tình trạng biển hôm nay.",
+          "scope": "exact_subject",
+          "source_label": "Vietnam Airlines · Bãi Ông Lang",
+          "source_url": "https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/ong-lang-beach",
+          "curated_for_public": true,
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+        }
+      ]
     },
     "knowledge_017_bai-dai": {
       "title": "Bãi Dài",
@@ -2934,7 +2979,19 @@
     },
     "knowledge_023_hon-gam-ghi": {
       "title": "Hòn Gầm Ghì",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20coral%20mountain.jpg?width=1200",
+          "alt": "Rạn san hô Phú Quốc trong ảnh tư liệu năm 2020",
+          "caption": "Rạn san hô Phú Quốc chụp năm 2020, minh họa môi trường dưới nước; chưa xác minh ảnh chụp đúng tại Hòn Gầm Ghì.",
+          "scope": "context",
+          "source_label": "Thanhsangpi · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Phu_Quoc_coral_mountain.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_024_may-rut-trong": {
       "title": "Mây Rút Trong",
@@ -3185,7 +3242,19 @@
     },
     "knowledge_039_rung-ngap-man-phu-quoc": {
       "title": "Rừng ngập mặn Phú Quốc",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Can%20Gio%20mangrove%20forest.jpg?width=1200",
+          "alt": "Rừng đước ngập mặn tại Cần Giờ",
+          "caption": "Ảnh minh họa rừng ngập mặn ở Cần Giờ, TP.HCM, KHÔNG phải ảnh rừng Phú Quốc.",
+          "scope": "habitat_illustration",
+          "source_label": "Tho nau · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Can_Gio_mangrove_forest.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_040_he-sinh-thai-rung-thuong-xanh": {
       "title": "Hệ sinh thái rừng thường xanh",
@@ -3206,11 +3275,36 @@
     },
     "knowledge_041_chim-o-phu-quoc": {
       "title": "Chim ở Phú Quốc",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%20(r%E1%BB%85%20c%E1%BB%95%20th%E1%BB%A5)%20(3).jpg?width=1200",
+          "alt": "Bộ rễ của một cây lớn trong khu rừng Phú Quốc, không phải cây di sản định danh",
+          "caption": "Rừng Phú Quốc, bối cảnh môi trường sống của nhiều loài chim. Trong ảnh không có cá thể chim được ghi nhận.",
+          "scope": "habitat_context",
+          "source_label": "Phương Huy · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Phú_Quốc_2022,_cảnh_rừng_(rễ_cổ_thụ)_(3).jpg",
+          "captured_at": "2022-07-25",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
+        }
+      ]
     },
     "knowledge_042_rua-bien-quanh-phu-quoc": {
       "title": "Rùa biển quanh Phú Quốc",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chelonia%20mydas%20in%20tidepools%20at%20Kona.jpg?width=1200",
+          "alt": "Rùa biển xanh trong tự nhiên tại Kona Hawaii",
+          "caption": "Rùa biển xanh chụp ở Kona, Hawaii. Ảnh minh họa loài, KHÔNG phải cá thể được ghi nhận tại Phú Quốc.",
+          "scope": "species_illustration",
+          "source_label": "Mbz1 · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Chelonia_mydas_in_tidepools_at_Kona.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_048_song-va-huong-song-quanh-dao": {
       "title": "Sóng và hướng sóng quanh đảo",
@@ -3429,7 +3523,19 @@
     },
     "knowledge_064_ruou-sim": {
       "title": "Rượu sim",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/R%C6%B0%E1%BB%A3u%20Sim%20Ph%C3%BA%20Qu%E1%BB%91c.jpg?width=1200",
+          "alt": "Một chai rượu sim Phú Quốc năm 2013",
+          "caption": "Một sản phẩm rượu sim trong ảnh năm 2013, minh họa loại đặc sản nói chung, không quảng bá thương hiệu.",
+          "scope": "exact_subject",
+          "source_label": "Vuthanhandy · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:R%C6%B0%E1%BB%A3u_Sim_Ph%C3%BA_Qu%E1%BB%91c.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_065_mat-sim-siro-sim-mut-sim": {
       "title": "Mật sim / siro sim / mứt sim",
@@ -3753,7 +3859,19 @@
     },
     "knowledge_082_bus-phu-quoc": {
       "title": "Bus Phú Quốc",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Newone%20-%20VinBus%2002.jpg?width=1200",
+          "alt": "Xe buýt điện VinBus chụp tại Hà Nội năm 2021",
+          "caption": "Hình minh họa dòng xe VinBus chụp tại Hà Nội, KHÔNG phải xe hoặc tuyến cụ thể ở Phú Quốc.",
+          "scope": "vehicle_illustration",
+          "source_label": "Newone · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Newone_-_VinBus_02.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_083_taxi-phu-quoc": {
       "title": "Taxi Phú Quốc",
@@ -3926,7 +4044,17 @@
     },
     "knowledge_112_nghinh-ong": {
       "title": "Nghinh Ông",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg?width=1600",
+          "alt": "Gian thờ xương cá voi trong tín ngưỡng ngư dân biển",
+          "caption": "Gian thờ cá Ông minh họa tín ngưỡng vùng biển, KHÔNG phải ảnh lễ Nghinh Ông tại Phú Quốc.",
+          "scope": "cultural_context",
+          "source_label": "Wikimedia Commons (xem tác giả và giấy phép tại trang ảnh)",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+        }
+      ]
     },
     "knowledge_115_cho-phu-quoc": {
       "title": "Chó Phú Quốc",
@@ -4316,7 +4444,20 @@
     },
     "knowledge_117_ba-kim-giao": {
       "title": "Bà Kim Giao",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%20(r%E1%BB%85%20c%E1%BB%95%20th%E1%BB%A5)%20(3).jpg?width=1200",
+          "alt": "Bộ rễ của một cây lớn trong khu rừng Phú Quốc, không phải cây di sản định danh",
+          "caption": "Rừng Phú Quốc làm bối cảnh truyện kể Bà Kim Giao, KHÔNG phải ảnh nhân vật hoặc địa điểm lịch sử đã xác minh.",
+          "scope": "story_context",
+          "source_label": "Phương Huy · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Phú_Quốc_2022,_cảnh_rừng_(rễ_cổ_thụ)_(3).jpg",
+          "captured_at": "2022-07-25",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
+        }
+      ]
     },
     "knowledge_118_cac-giai-thoai-ve-nguyen-anh-tren-dao": {
       "title": "Các giai thoại về Nguyễn Ánh trên đảo",
@@ -4353,7 +4494,19 @@
     },
     "knowledge_121_phu-quoc-trong-khong-gian-ha-tien": {
       "title": "Phú Quốc trong không gian Hà Tiên",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/PhuQuocMap.svg?width=1200",
+          "alt": "Bản đồ đảo Phú Quốc năm 2016",
+          "caption": "Bản đồ Phú Quốc công bố năm 2016 để định hướng địa lý, KHÔNG phải bản đồ ranh giới hành chính hiện tại.",
+          "scope": "historical_map",
+          "source_label": "0x44616E68 · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_122_lich-su-nghe-nuoc-mam": {
       "title": "Lịch sử nghề nước mắm",
@@ -4568,7 +4721,18 @@
     },
     "knowledge_144_bac-dao-truoc-va-sau-cac-resort-lon": {
       "title": "Bắc đảo trước và sau các resort lớn",
-      "images": []
+      "images": [
+        {
+          "url": "/assets/media/editorial-grand-world-canal-day.jpg",
+          "alt": "Kênh đào Grand World và dãy nhà nhiều màu vào ban ngày",
+          "caption": "Grand World ở Bắc đảo trong giai đoạn phát triển, bối cảnh hiện tại. Không phải ảnh Bắc đảo trước khi xây dựng.",
+          "scope": "present_day_context",
+          "source_label": "Internet (kho JoTrip)",
+          "source_url": null,
+          "hero_priority": "primary",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+        }
+      ]
     },
     "knowledge_145_bai-truong-truoc-va-sau-resort-development": {
       "title": "Bãi Trường thay đổi cùng các khu nghỉ dưỡng",
@@ -4590,7 +4754,30 @@
     },
     "knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan": {
       "title": "Đường sá Phú Quốc qua các giai đoạn",
-      "images": []
+      "images": [
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Nguyen%20Van%20cu%2C%20TL%2046%2CDuong%20to%20Phu%20quoc%2C%20vn%20-%20panoramio.jpg?width=1200",
+          "alt": "Đường Nguyễn Văn Cừ qua Dương Tơ năm 2013",
+          "caption": "Đường Nguyễn Văn Cừ đoạn Dương Tơ năm 2013, không mô tả hiện trạng giao thông hôm nay.",
+          "scope": "historical_context",
+          "source_label": "trungydang · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Nguyen_Van_cu%2C_TL_46%2CDuong_to_Phu_quoc%2C_vn_-_panoramio.jpg",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "rights_status": "CC_VERIFIED"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/%C4%90%C6%B0%E1%BB%9Dng%20tr%E1%BA%A7n%20h%C6%B0ng%20%C4%90%E1%BA%A1o%2C%20D%C6%B0%C6%A1ng%20t%C6%A1%20Phu%20quoc%20vn%20-%20panoramio.jpg?width=1200",
+          "alt": "Đường Trần Hưng Đạo Dương Tơ năm 2013",
+          "caption": "Đường Trần Hưng Đạo đoạn Dương Tơ năm 2013; ảnh quá khứ, không phải đường phố hiện nay.",
+          "scope": "historical_context",
+          "source_label": "trungydang · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:%C4%90%C6%B0%E1%BB%9Dng_tr%E1%BA%A7n_h%C6%B0ng_%C4%90%E1%BA%A1o%2C_D%C6%B0%C6%A1ng_t%C6%A1_Phu_quoc_vn_-_panoramio.jpg",
+          "license": "CC BY 3.0",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "rights_status": "CC_VERIFIED"
+        }
+      ]
     },
     "knowledge_149_tau-ca-va-nghe-bien-thay-doi-the-nao": {
       "title": "Tàu cá và nghề biển thay đổi thế nào",

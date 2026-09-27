@@ -34,3 +34,6 @@ Bài phà: ảnh bìa là bến phà Thạnh Thới, ảnh phụ là xe máy ch�
 - Bánh khéo Phú Quốc (ảnh phụ món ăn), Dân Việt/phuquoc247, https://danviet.vn/am-thuc-phu-quoc-banh-kheo-thom-ngot-xinh-yeu-an-la-me-20220316203728096-d1007454.html - quyền ảnh chưa xác minh.
 - Bánh tét mật cật (ảnh phụ món ăn), Thời Tiết 24h, https://thoitiet24h.vn/am-thuc/dac-san-phu-quoc - quyền ảnh chưa xác minh.
 - 19 bản ghi ảnh đã rà soát cho 18 bài Cẩm nang từ RootyTrip, Hitour, VinWonders, VietnamPlus, Znews, Điện Máy Chợ Lớn, VietNamNet, Minos, Bách hóa XANH, Asia Tour Advisor: hiển thị với nhãn nguồn và giới hạn host; quyền ảnh phải tiếp tục xử lý.
+
+## 27/09 wave 2
+Vietnam Airlines Ong Lang photo - https://www.vietnamairlines.com/us/en/plan-book/travel/travel-guide/ong-lang-beach - used with plain credit for Bãi Ông Lang and Cửa Dương; **reuse permission not verified** and must be requested or replaced by a cleared photo. Other new Commons images retain authors/license links; existing site photos preserve their own source status.
