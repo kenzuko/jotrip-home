@@ -140,10 +140,13 @@ const expansionB=read("data/entities/nearme-essential-extension-20260927b.json")
 assert.equal(expansionB.length,23,"Additional community intake must contain exactly 23 filtered POIs");
 assert.ok(expansionB.every(x=>x.verified===false&&x.operational_status==="UNKNOWN"&&x.publication_status==="COMMUNITY_CANDIDATE"&&x.source_refs.some(s=>s.license==="ODbL-1.0")),"No 2026-09-27b candidate may invent business operation or provenance");
 for(const e of expansionB)assert.ok(indexed.has(e.id),"New Near Me place absent from location index: "+e.id);
+const expansionC=read("data/entities/nearme-essential-extension-20260927c.json").entities;
+assert.equal(expansionC.length,10,"Batch C must contain exactly 10 priority community POIs");
+for(const e of expansionC){ assert.equal(e.verified,false); assert.equal(e.operational_status,"UNKNOWN"); assert.equal(e.publication_status,"COMMUNITY_CANDIDATE"); assert.ok(indexed.has(e.id),"Batch C missing from generated location index: "+e.id); assert.equal(indexed.get(e.id).source_license,"ODbL-1.0"); }
 const osmExport=read("data/open/osm-nearme-phuquoc-2026-09-25.json");
 const osmRows=entities.filter(e=>e.verified===false&&e.source_refs?.some(s=>s.license==="ODbL-1.0"));
 assert.equal(osmExport.records.length,osmRows.length,"Every published community POI must have ODbL extract provenance");
-assert.equal(osmExport.records.length,112,"Public ODbL extract must contain all 89 old + 23 new source POIs");
+assert.equal(osmExport.records.length,122,"Public ODbL extract must include all 112 previous + 10 curated market and essentials POIs");
 assert.ok(osmExport.license==="ODbL-1.0"&&osmExport.license_url.includes("opendatacommons.org"));
 assert.ok(fs.readFileSync("nearme/index.html","utf8").includes("data/open/osm-nearme-phuquoc-2026-09-25.json"),"Public Near Me must expose ODbL provenance");
 assert.ok(osmExport.records.every(e=>e.osm_url.startsWith("https://www.openstreetmap.org/")),"OSM dataset must preserve every source URL");

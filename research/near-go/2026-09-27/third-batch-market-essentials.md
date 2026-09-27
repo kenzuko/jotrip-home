@@ -1,0 +1,7 @@
+# Near Me batch C - 27/09/2026
+
+Source: 96 pending candidates in the 208-POI review. Publish 10 named records (4 local markets, 3 phone/telco POIs, 1 auto repair, 2 groceries) as **COMMUNITY_CANDIDATE** only. OSM POI GPS is a site reference, not a verified entrance; no operating hours or live availability were inferred. Corrected incorrect source zone for Hàm Ninh (null until East zone exists) and Cửa Cạn (zone_north).
+
+Do not import Thế Giới Di Động node 11873236280: it is 23 m from an existing Điện máy Xanh Gành Dầu pin; the official retailer lists Điện máy Xanh at Tổ 7 Gành Dầu: https://www.thegioididong.com/sieu-thi-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161 . Do not import Gành Dầu KTC station 1650671964: its GPS is identical to the previously imported Nhi Phụng fuel POI. Keep the unverified separate An Thới KTC station node 2093881896 in review pending proof that it is distinct from the existing station 241 m away. Exclude casino ATM without public-access evidence; unlicensed currency exchange; pharmacies/dentists without licence evidence; generic unnamed minimarts and second night-market geometry near existing canonical markets.
+
+Public ODbL extract updated to 122 individually linked POIs. Canonical utilities: 180 total, 159 indexable. Derived location index: 348 docs, 223 mapped; map coverage: 220 of 392 ready by metadata (NOT 220 validated entrances); GO unchanged at 20. The authoritative data is data/entities/*.json; the sheet is a review/editing surface, not an independent production source.

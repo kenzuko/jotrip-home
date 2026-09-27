@@ -9,3 +9,5 @@ Giấy phép cho phần dữ liệu nguồn OpenStreetMap và phần phát tri�
 Phần trích xuất này chỉ chứa các địa điểm được lấy từ OpenStreetMap. Dữ liệu từ cơ sở vận hành, giấy phép công bố bởi cơ quan nhà nước và các nguồn độc lập khác không thuộc phần trích xuất này. Đây là một trích xuất có chọn lọc, không phải bản sao toàn bộ OSM Phú Quốc. Người dùng có thể tải file JSON công khai theo liên kết phía trên. Các địa điểm chưa được xác minh, đặc biệt nhà thuốc và trạm sạc, không được coi là xác nhận hoạt động.
 
 Địa chỉ, tọa độ và phân loại trong phần OSM có thể thiếu hoặc sai. Để tra cứu sửa đổi dữ liệu nguồn, dùng link `osm_url` tương ứng. Công bố bản trích xuất không xác định hoặc hạn chế các nghĩa vụ ODbL có thể áp dụng cho phần cơ sở dữ liệu phái sinh khác.
+
+Batch C (27/09/2026): 10 named public community POIs selected from 96 pending candidates. Total now **122** OSM-derived POIs in this downloadable extract; every record includes its original OSM URL and verification caveats. The 10 additions are not evidence of live operation or accurate public entrances.
