@@ -83,9 +83,24 @@ try{
   await story.locator('.opq-feedback textarea[name="quoted_text"]').fill("기존 번역 문장");
   await story.locator('.opq-feedback textarea[name="suggested_text"]').fill("더 자연스러운 문장");
   await story.locator(".opq-feedback-send").click();
-  await story.getByText("Thank you!",{exact:false}).waitFor();
+  await story.getByText("소중한 의견 감사합니다.",{exact:false}).waitFor();
   assert.ok(submitted.at(-1).includes("기존 번역 문장")||submitted.at(-1).includes("%EA%B8%B0"),
     "Korean correction should be sent through the single public intake");
+  await story.locator(".opq-feedback-close").click();
+  for(const locale of ["ru","lo","zh-CN","zh-TW","fr"]){
+    await story.evaluate(language=>{
+      document.documentElement.lang=language;
+      window.OpenPQFeedback.refresh();
+    },locale);
+    await translatedNotice.waitFor();
+    assert.equal(await story.locator("[data-opq-translation-note]").count(),1,"One compact disclosure per article");
+    await translatedNotice.locator("button").click();
+    const copy=await story.evaluate(language=>window.OpenPQFeedbackLocales[language],locale);
+    assert.equal(await story.locator("#opqFeedbackTitle").textContent(),copy.title);
+    assert.equal(await story.locator(".opq-feedback-send").textContent(),copy.submit);
+    assert.equal(await story.locator('.opq-feedback select[name="issue"]').inputValue(),"translation");
+    await story.locator(".opq-feedback-close").click();
+  }
   await story.close();
 
   const guide=await readyPage();
@@ -115,6 +130,7 @@ try{
       const payload=JSON.parse(req.postData()||"{}");
       assert.equal(payload.status,"resolved");
       assert.ok(payload.note.length>=10);
+      if(payload.id==="mock_translation_ko")assert.ok(payload.approved_text?.length>=3,"Confirmed translation is required");
       await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({ok:true,id:payload.id,status:"resolved"})});
       return;
     }
@@ -128,18 +144,26 @@ try{
         ok:true,items:[sample],limit:50,offset:0,has_more:false,next_offset:null
       })});return;
     }
-    const offset=Number(url.searchParams.get("offset")||0),total=51;
+    const offset=Number(url.searchParams.get("offset")||0),total=url.searchParams.get("related")?3:51;
     const reports=Array.from({length:Math.min(50,total-offset)},(_,i)=>{
       const n=offset+i;
       return {id:"mock_report_"+n,issue:"location",entity_type:"venue",entity_id:"venue_test",
         entity_label:n===0?'<img src=x onerror=alert(1)>':"Điểm kiểm thử "+n,
         details:"Vị trí hiện tại không chính xác.",source_path:"/nearme/",has_photo:0,
+        triage_key:n<3?"0123456789abcdef01234567":"",similar_count:n<3?3:1,
         created_at:new Date(Date.now()-n*1000).toISOString(),status:"new",moderator_note:""};
     });
     await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify({
       ok:true,items:reports,limit:50,offset,has_more:offset===0,next_offset:offset===0?50:null
     })});
   });
+  await cms.route("**/api/cms/feedback/corrections**",route=>route.fulfill({
+    status:200,contentType:"application/json",body:JSON.stringify({ok:true,items:[{
+      feedback_id:"mock_translation_ko",entity_id:"story_test",source_path:"/stories/article.html?id=story_test",
+      language:"ko",source_revision:"r1",quoted_text:"기존 번역 문장",approved_text:"자연스러운 문장으로 수정",
+      approved_at:new Date().toISOString(),approved_by:"qa-editor"
+    }],has_more:false,next_offset:null})
+  }));
   await cms.goto(base+"/admin/feedback.html",{waitUntil:"domcontentloaded"});
   await cms.locator(".item").first().waitFor();
   assert.equal(await cms.locator(".item").count(),50);
@@ -158,6 +182,10 @@ try{
     row.locator(".save").click()
   ]);
   assert.equal(patchCount,1);
+  await cms.locator(".related-chip").first().click();
+  await cms.locator("#relatedBanner").waitFor({state:"visible"});
+  assert.equal(await cms.locator("#queue .item").count(),3,"Related reports are shown together");
+  await cms.locator("#clearRelated").click();
   await cms.locator("#kindFilter").selectOption("translation");
   await cms.locator(".translation-box").waitFor();
   assert.equal(await cms.locator(".translation-box img").count(),0,"Translation suggestions must never render injected HTML");
@@ -174,10 +202,14 @@ try{
     translationItem.locator(".save").click()
   ]);
   assert.equal(patchCount,2,"Verified translations use the same moderation PATCH");
+  await cms.locator("#correctionTab").click();
+  await cms.locator(".correction-card").waitFor();
+  assert.equal(await cms.locator(".correction-card").count(),1,"Reviewed phrase library is accessible from the same CMS feedback screen");
+  assert.ok((await cms.locator(".correction-card").textContent()).includes("자연스러운 문장으로 수정"));
   await cms.screenshot({path:"visual-qa-results/place-feedback-cms-mobile.png"});
   await cms.close();
   assert.deepEqual(errors,[],"No browser JS errors in feedback flows");
-  console.log("UNIFIED FEEDBACK VISUAL QA PASS: translated Korean notice, single dialog, CMS category filter, safe translated text and reviewer gate. PLACE FEEDBACK VISUAL QA PASS: iPhone, Near Me IDs, missing-place intake, editorial context, disabled configuration, CMS permissions, pagination and safe rendering");
+  console.log("FEEDBACK V3 VISUAL QA PASS: six localized dialogs, related reports, single CMS correction library. UNIFIED FEEDBACK VISUAL QA PASS: translated Korean notice, single dialog, CMS category filter, safe translated text and reviewer gate. PLACE FEEDBACK VISUAL QA PASS: iPhone, Near Me IDs, missing-place intake, editorial context, disabled configuration, CMS permissions, pagination and safe rendering");
 }finally{
   await browser.close();
 }

@@ -15,10 +15,42 @@ button.primary{background:#1e6753;color:white}button:disabled{opacity:.55;cursor
 .tag{font-size:12px;font-weight:750;padding:4px 8px;border-radius:99px;background:#def0e6;color:#226149}
 .status{margin:15px 0;min-height:22px;color:#a44625}.translation-box{margin:12px 0;padding:12px;border:1px solid #d5e2dc;border-radius:9px;background:#f8fbf9}.translation-box strong{font-size:12px;color:#34594f}.translation-box blockquote{margin:5px 0 10px;padding:8px 10px;background:white;border-left:2px solid #91ac9e;white-space:pre-wrap;overflow-wrap:anywhere}.translation-box textarea{width:100%;min-height:66px;resize:vertical}.translation-box small{color:#59756a}.filter-language[hidden],#languageFilterWrap[hidden]{display:none!important}
 img.evidence{display:block;max-width:min(250px,100%);max-height:210px;object-fit:contain;border:1px solid #ccd9d4;margin:12px 0}
+.feedback-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.feedback-tabs button{font-weight:750;border-radius:100px;padding:10px 16px}
+.feedback-tabs button[aria-selected="true"]{background:#1e6753;color:white}
+.related-banner{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:8px 0 16px;padding:11px 14px;border:1px solid #aacfc0;background:#e9f5ef;border-radius:10px}
+.related-banner[hidden],#queueView[hidden],#correctionView[hidden]{display:none!important}
+.related-chip{font-weight:650;border:0;background:#e6f4eb;color:#215c4b;padding:5px 10px;border-radius:99px;font-size:12px}
+.related-chip:hover{text-decoration:underline}
+.translation-box .proposal{display:block;margin-top:5px;color:#255743}
+.translation-box .reuse-suggestion{margin:0 0 12px;font-size:12px;padding:7px 10px}
+.correction-filters{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:22px 0}
+.correction-filters label{display:grid;gap:5px;flex:1;min-width:150px;font-size:13px;font-weight:650}
+.correction-filters label:first-child{flex:2}
+.correction-filters input,.correction-filters select{width:100%;min-height:41px}
+.correction-items{display:grid;gap:14px}.correction-card{background:white;border:1px solid #d4e0db;border-radius:13px;padding:18px}
+.correction-card h2{font-size:17px;margin:7px 0}.correction-card blockquote{margin:6px 0 14px;padding:9px 12px;white-space:pre-wrap;overflow-wrap:anywhere;background:#f5f9f6;border-left:3px solid #86aa97}
+.correction-card .approved{border-left-color:#25845b}.correction-card small{color:#536d60}
+@media(max-width:480px){.item,.correction-card{padding:14px}.controls label,.controls input{width:100%}.controls input{min-width:0}.feedback-tabs button{flex:1}}
 </style></head><body>
 <header><strong>OPEN PHU QUOC · CMS</strong><nav><a href="./">← Bàn làm việc</a>　<a href="../" target="_blank" rel="noopener">Website ↗</a></nav></header>
 <main><h1>Góp ý từ cộng đồng</h1><p>Góp ý chưa phải thông tin xác minh. Mở trang hoặc hồ sơ liên quan để đối chiếu rồi mới cập nhật CMS. Đổi trạng thái ở đây không tự xuất bản.</p>
 <div id="login" hidden><p>Đăng nhập CMS để xem hàng chờ.</p><a class="action" href="/api/cms/auth?action=login">Đăng nhập bằng GitHub</a></div>
-<section id="work" hidden><div class="filters"><label>Hiển thị <select id="filter"><option value="new">Chưa xử lý</option><option value="reviewing">Đang kiểm tra</option><option value="resolved">Đã xử lý</option><option value="rejected">Không phù hợp</option><option value="">Tất cả</option></select></label><label>Loại góp ý <select id="kindFilter"><option value="">Tất cả</option><option value="general">Thông tin</option><option value="new_place">Địa điểm mới</option><option value="translation">Bản dịch</option></select></label><label id="languageFilterWrap" hidden>Ngôn ngữ <select id="languageFilter"><option value="">Tất cả</option><option value="ko">Hàn</option><option value="ru">Nga</option><option value="lo">Lào</option><option value="zh-CN">Trung giản thể</option><option value="zh-TW">Trung phồn thể</option><option value="fr">Pháp</option></select></label><button id="refresh">Tải lại</button><span id="count"></span></div><p id="status" class="status" role="status"></p><div class="queue" id="queue"></div><button id="loadMore" type="button" hidden style="margin:18px auto;display:block">Xem thêm góp ý</button></section>
+<section id="work" hidden>
+<div class="feedback-tabs" role="tablist" aria-label="Các mục góp ý"><button type="button" role="tab" id="queueTab" aria-controls="queueView" aria-selected="true">Góp ý cần xử lý</button><button type="button" role="tab" id="correctionTab" aria-controls="correctionView" aria-selected="false">Kho câu sửa đã duyệt</button></div>
+<section id="queueView" role="tabpanel" aria-labelledby="queueTab">
+<div id="relatedBanner" class="related-banner" hidden><strong>Đang xem các phản hồi cùng chủ đề</strong><button id="clearRelated" type="button">← Xem tất cả</button></div>
+<div class="filters"><label>Hiển thị <select id="filter"><option value="new">Chưa xử lý</option><option value="reviewing">Đang kiểm tra</option><option value="resolved">Đã xử lý</option><option value="rejected">Không phù hợp</option><option value="">Tất cả</option></select></label><label>Loại góp ý <select id="kindFilter"><option value="">Tất cả</option><option value="general">Thông tin</option><option value="new_place">Địa điểm mới</option><option value="translation">Bản dịch</option></select></label><label id="languageFilterWrap" hidden>Ngôn ngữ <select id="languageFilter"><option value="">Tất cả</option><option value="ko">Hàn</option><option value="ru">Nga</option><option value="lo">Lào</option><option value="zh-CN">Trung giản thể</option><option value="zh-TW">Trung phồn thể</option><option value="fr">Pháp</option></select></label><label>Ưu tiên <select id="sortFilter"><option value="recent">Mới nhất</option><option value="repeated">Nhiều người góp ý</option></select></label><button id="refresh">Tải lại</button><span id="count"></span></div><p id="status" class="status" role="status"></p><div class="queue" id="queue"></div><button id="loadMore" type="button" hidden style="margin:18px auto;display:block">Xem thêm góp ý</button>
+</section>
+<section id="correctionView" role="tabpanel" aria-labelledby="correctionTab" hidden>
+<p>Những câu đã được biên tập viên kiểm tra. Có thể tra cứu khi dịch bài mới, nhưng chưa tự động thay đổi nội dung đang xuất bản.</p>
+<form id="correctionSearch" class="correction-filters">
+<label>Tìm câu gốc hoặc câu đã duyệt<input id="correctionQuery" type="search" maxlength="80" placeholder="Nhập từ hoặc câu cần tìm…" autocomplete="off"></label>
+<label>Ngôn ngữ<select id="correctionLanguage"><option value="">Tất cả</option><option value="ko">Hàn</option><option value="ru">Nga</option><option value="lo">Lào</option><option value="zh-CN">Trung giản thể</option><option value="zh-TW">Trung phồn thể</option><option value="fr">Pháp</option></select></label>
+<button type="submit" class="primary">Tìm</button>
+</form>
+<p id="correctionStatus" class="status" aria-live="polite"></p><p id="correctionCount" class="meta"></p>
+<div id="correctionRows" class="correction-items"></div><button id="correctionMore" type="button" hidden>Xem thêm câu đã duyệt</button>
+</section></section>
 </main>
-<script src="feedback.js?v=2"></script></body></html>
+<script src="feedback.js?v=3"></script></body></html>
