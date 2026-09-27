@@ -2,7 +2,7 @@ const $=s=>document.querySelector(s);
 const qsa=s=>Array.from(document.querySelectorAll(s));
 const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics"};
 
-let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null;
+let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null,moduleRequestId=0;
 
 const ROLE_LABELS={
   admin:"Quản trị viên",
@@ -1465,31 +1465,47 @@ async function boot(){
   bindSidebarToggle();
 
   const requested=new URLSearchParams(location.search).get("module");
-  const first=schema.modules.find(m=>m.id===requested&&m.read.includes(session.role))
-    ||schema.modules.find(m=>m.read.includes(session.role));
-  if(first)selectModule(first.id);
+  const first=schema.modules.find(m=>m.id===requested&&m.read.includes(session.role));
+  selectModule(first?first.id:"dashboard");
 }
 
 function renderNav(){
-  const work='<a class="module-btn" href="quality.html" title="Mở việc cần xử lý"><span class="module-short">!</span><span class="module-copy"><strong>Việc cần xử lý</strong><small>Chất lượng dữ liệu và nguồn</small></span></a>';
-  const modules=schema.modules
-    .filter(m=>m.read.includes(session.role))
-    .map(m=>'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>')
-    .join("");
-  const extras='<a class="module-btn" href="reviews.html" title="Mở hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất CMS chưa public</small></span></a><a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện 128 bài"><span class="module-short">128</span><span class="module-copy"><strong>Thư viện 128 bài</strong><small>Bài đã xuất bản · mở trang đọc</small></span></a>';
-  $("#moduleNav").innerHTML=work+modules+extras;
+  const permitted=schema.modules.filter(m=>m.read.includes(session.role));
+  const item=id=>{
+    const m=permitted.find(x=>x.id===id);
+    return m?'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>':"";
+  };
+  const group=(title,children)=>children?'<div class="nav-group"><p class="nav-group-title">'+esc(title)+'</p>'+children+'</div>':"";
+  const dashboard='<button class="module-btn" type="button" data-id="dashboard" title="Bàn làm việc"><span class="module-short">⌂</span><span class="module-copy"><strong>Bàn làm việc</strong><small>Tình hình và việc cần làm</small></span></button>';
+  const quality='<a class="module-btn" href="quality.html" title="Cần kiểm chứng"><span class="module-short">!</span><span class="module-copy"><strong>Cần kiểm chứng</strong><small>Chất lượng và nguồn dữ liệu</small></span></a>';
+  const reviews='<a class="module-btn" href="reviews.html" title="Hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất chưa public</small></span></a>';
+  const knowledge=permitted.some(x=>x.id==="guide")?'<a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện bài đã công bố"><span class="module-short">↗</span><span class="module-copy"><strong>Thư viện bài</strong><small>Mở trang đọc công khai</small></span></a>':"";
+  $("#moduleNav").innerHTML=
+    group("CÔNG VIỆC",dashboard+quality+reviews)+
+    group("BIÊN TẬP",["home","stories","guide","visuals"].map(item).join("")+knowledge)+
+    group("ĐỊA ĐIỂM & TIỆN ÍCH",["venues","foods","utilities"].map(item).join(""))+
+    group("PHÂN TÍCH",item("analytics"))+
+    group("HỆ THỐNG",item("users"));
   document.querySelectorAll("button.module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
 }
 
 async function selectModule(id){
   if(dirty){
-    if(!confirm("Có thay đổi chưa xuất bản. Chuyển mục và bỏ các thay đổi này?"))return;
-    clearDraft();
+    clearTimeout(draftTimer);
+    saveDraftNow();
+    if(!confirm("Có thay đổi chưa gửi duyệt. Bản nháp đã lưu trong trình duyệt này. Chuyển mục?"))return;
   }
+  const requestId=++moduleRequestId;
+  window.OPQControlRoom?.unmount();
+  $("#cmsLayout")?.classList.toggle("cms-dashboard",id==="dashboard");
+  $("#editor")?.classList.remove("analytics-editor");
   $("#resetBtn")?.classList.add("hidden");
 
-  currentModule=schema.modules.find(m=>m.id===id);
+  currentModule=id==="dashboard"
+    ?{id:"dashboard",label:"Bàn làm việc",description:"Nắm tình hình, xử lý đúng việc và kiểm chứng kết quả.",write:[],preview:null}
+    :schema.modules.find(m=>m.id===id&&m.read.includes(session.role));
   if(!currentModule)return;
+  dirty=false;
 
   document.querySelectorAll(".module-btn").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
 
@@ -1499,10 +1515,11 @@ async function selectModule(id){
   $("#moduleDesc").textContent=currentModule.description;
   $("#saveBtn").textContent="Gửi duyệt";
 
+  const isDashboard=currentModule.id==="dashboard";
   const isAnalytics=currentModule.id==="analytics";
-  $("#saveBtn").classList.toggle("hidden",isAnalytics);
+  $("#saveBtn").classList.toggle("hidden",isAnalytics||isDashboard);
   $("#resetBtn")?.classList.add("hidden");
-  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics);
+  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isDashboard);
 
   if(currentModule.preview){
     $("#previewBtn").href=currentModule.preview;
@@ -1511,11 +1528,30 @@ async function selectModule(id){
     $("#previewBtn").classList.add("hidden");
   }
 
+  if(isDashboard){
+    $("#editorNav")?.classList.add("hidden");
+    $("#editor").innerHTML="";
+    currentData=null;
+    currentSha=null;
+    status("Bàn làm việc chỉ đọc các hàng đợi CMS và bản nháp trên thiết bị.","success");
+    if(window.OPQControlRoom){
+      window.OPQControlRoom.mount({
+        host:$("#editor"),role:session.role,login:session.login,
+        modules:schema.modules,
+        onNavigate:selectModule
+      });
+    }else{
+      status("Không tải được Control Room. Mở Cần kiểm chứng hoặc Hàng đợi duyệt để tiếp tục.","error");
+    }
+    return;
+  }
   status("Đang tải "+currentModule.label+"...");
 
   if(isAnalytics){
     try{
-      currentData=await api(API.analytics);
+      const analytics=await api(API.analytics);
+      if(requestId!==moduleRequestId)return;
+      currentData=analytics;
       currentSha=null;
       dirty=false;
       rerender();
@@ -1523,19 +1559,21 @@ async function selectModule(id){
     }catch(e){
       $("#editor").innerHTML="";
       $("#editorNav")?.classList.add("hidden");
-      status(e.message,"error");
+      if(requestId===moduleRequestId)status(e.message,"error");
     }
     return;
   }
 
   try{
     const b=await api(API.content+"?path="+encodeURIComponent(currentModule.path));
+    if(requestId!==moduleRequestId)return;
     currentData=b.content;
     currentSha=b.sha;
     dirty=false;
 
     const k=draftKey();
     const raw=k?localStorage.getItem(k):null;
+    let outdatedDraft=false;
 
     if(raw){
       try{
@@ -1550,10 +1588,13 @@ async function selectModule(id){
             clearDraft();
           }
         }else{
-          clearDraft();
+          // Archive a conflicting browser draft before a new edit can overwrite its key.
+          const archiveKey="openpq-cms-stale:"+session.login+":"+currentModule.id+":"+String(draft.at||Date.now());
+          try{if(!localStorage.getItem(archiveKey))localStorage.setItem(archiveKey,raw)}catch{}
+          outdatedDraft=true;
         }
       }catch{
-        clearDraft();
+        status("Bản nháp trên thiết bị bị lỗi, chưa tự động xóa để tránh mất dữ liệu.","error");
       }
     }
 
@@ -1567,11 +1608,12 @@ async function selectModule(id){
       $("#saveBtn").textContent="Gửi duyệt thay đổi";
       status("Đã khôi phục bản nháp trên trình duyệt.","success");
     }else{
-      status(writable
-        ?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; gửi duyệt sẽ tạo PR, chưa lên website."
-        :"Vai trò của bạn chỉ được xem module này.");
+      status(outdatedDraft
+        ?"Bản nháp cũ khác phiên bản đã được giữ riêng khi có dung lượng trình duyệt. Về Bàn làm việc để tải bản nháp cũ và đối chiếu trước khi sửa."
+        :(writable?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; gửi duyệt tạo PR, chưa lên website.":"Vai trò của bạn chỉ được xem module này."),outdatedDraft?"error":"");
     }
   }catch(e){
+    if(requestId!==moduleRequestId)return;
     $("#editor").innerHTML="";
     $("#editorNav")?.classList.add("hidden");
     status(e.message,"error");
@@ -1604,7 +1646,7 @@ async function save(){
     $("#resetBtn")?.classList.add("hidden");
 
     $("#saveBtn").textContent="Đã gửi duyệt";
-    status("Đã tạo PR nháp #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url,"success");
+    status("Đã tạo đề xuất PR #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url,"success");
 
     setTimeout(()=>{
       if(!dirty)$("#saveBtn").textContent="Gửi duyệt";

@@ -1,0 +1,52 @@
+/* Common CMS subpage shell - matches the approved Open Phu Quoc visual DNA. */
+:root{--cms-ink:#123D3B;--cms-soft:#F6F9F7;--cms-line:#DFE9E5;--cms-muted:#647974;--cms-coral:#FF704F}
+body{background:var(--cms-soft);color:#173432;-webkit-font-smoothing:antialiased}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:3px solid #2E9A8F;outline-offset:3px
+}
+.quality-shell{width:min(100%,1250px);padding:18px 30px 70px}
+.quality-top,.top{display:flex;gap:15px;align-items:center;background:#fff;border-bottom:1px solid var(--cms-line)}
+.quality-top{padding:0 7px 15px;margin-bottom:20px}
+.top{height:76px;padding:8px max(28px,calc((100vw - 1190px)/2))}
+.quality-top .brand,.top .brand{display:flex;gap:10px;align-items:center;min-width:0;text-decoration:none}
+.cms-sub-logo{display:block;width:55px;height:55px;flex:0 0 55px;object-fit:contain}
+.cms-sub-brand-text{display:grid;gap:3px}
+.cms-sub-brand-text b{display:block;font-size:13px;font-weight:850;letter-spacing:.08em;color:var(--cms-ink)}
+.cms-sub-brand-text small{display:block;font-size:11px;letter-spacing:0;color:var(--cms-muted);font-weight:650}
+.cms-subnav{display:flex;align-items:center;gap:7px;margin-left:auto}
+.cms-subnav a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:9px 13px;border-radius:999px;color:var(--cms-ink);font-size:13px;font-weight:780;border:1px solid transparent;text-decoration:none}
+.cms-subnav a:hover{background:#F0F5F1}
+.cms-subnav a[aria-current="page"]{background:#E6F4EE;border-color:#C9E6DA}
+.cms-subnav .cms-sub-home{border-color:var(--cms-line)}
+.quality-intro{margin:20px 0 18px}
+.quality-intro h1,.heading h1{font-size:clamp(31px,4vw,42px);color:var(--cms-ink);letter-spacing:-.035em}
+.quality-intro .intro-copy,.heading .intro{font-size:15px;line-height:1.65;color:var(--cms-muted)}
+.quality-summary,.task-card,.card,.loading,.empty,.work-section,.quality-note{
+  border-color:var(--cms-line);box-shadow:0 5px 23px rgba(18,61,59,.035)
+}
+#refresh{font-size:14px;min-height:44px}
+.eyebrow{font-size:11px;color:#557B6D;letter-spacing:.12em}
+.task-title{font-size:16px}
+.task-evidence,.task-next{font-size:14px;line-height:1.6}
+.task-action,.action{min-height:44px;font-size:13px;font-weight:790}
+.task-head .pill,.task-head .severity{font-size:12px}
+.quality-note p,.queue-note{font-size:14px;line-height:1.6}
+.top .private{margin-left:0;padding:6px 9px;border:1px solid #E5DFD2;border-radius:999px;font-size:10px;color:#806D4D}
+@media(max-width:720px){
+  .quality-shell{padding:8px 13px 52px}
+  .quality-top{gap:8px;padding:8px 0 12px}
+  .top{height:auto;min-height:67px;gap:9px;flex-wrap:wrap;padding:8px 13px}
+  .cms-sub-logo{width:44px;height:44px;flex-basis:44px}
+  .cms-sub-brand-text b{font-size:11px}
+  .cms-sub-brand-text small{font-size:10px}
+  .cms-subnav{gap:3px;margin-left:auto}
+  .cms-subnav a{font-size:12px;padding:8px 9px;min-height:42px}
+  .cms-subnav .cms-sub-home{display:none}
+  .top .private{display:none}
+  main{width:min(100%,calc(100% - 26px))}
+  .quality-intro h1,.heading h1{font-size:31px}
+}
+@media(max-width:425px){
+  .cms-sub-brand-text b{font-size:10px}
+  .cms-subnav a{font-size:11px;padding:7px}
+}

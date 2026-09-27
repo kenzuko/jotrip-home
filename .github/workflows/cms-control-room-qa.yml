@@ -1,0 +1,58 @@
+name: CMS Control Room QA
+
+on:
+  pull_request:
+    paths:
+      - "admin/**"
+      - "scripts/test-cms-control-room.mjs"
+      - "scripts/visual-qa-cms-control-room.mjs"
+      - ".github/workflows/cms-control-room-qa.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  control-room:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Control Room unit and safety regression tests
+        run: |
+          node --check admin/admin.js
+          node --check admin/control-room.js
+          node --check admin/reviews.js
+          node --check admin/quality.js
+          node scripts/test-cms-control-room.mjs
+      - name: Install Playwright and Chromium
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+      - name: Start isolated static site (all CMS APIs are mocked by browser tests)
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/cms-control-room-server.log 2>&1 &
+          echo $! >/tmp/cms-control-room-server.pid
+          for i in {1..20}; do
+            if curl -fsS http://127.0.0.1:4173/admin/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/cms-control-room-server.log
+          exit 1
+      - name: Desktop and mobile visual QA
+        env:
+          VISUAL_QA_BASE_URL: http://127.0.0.1:4173
+        run: node scripts/visual-qa-cms-control-room.mjs
+      - name: Upload visual snapshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cms-control-room-qa-${{ github.run_number }}
+          path: visual-qa-results/
+          retention-days: 7
+          if-no-files-found: warn

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#123D3B">
+  <title>Minh họa Control Room | Open Phu Quoc CMS</title>
+  <link rel="stylesheet" href="admin.css?v=23">
+  <link rel="stylesheet" href="control-room.css?v=2">
+  <style>
+    .preview-banner{padding:10px 18px;background:#FFF0D7;border-bottom:1px solid #EAD4A9;color:#6E5319;text-align:center;font-size:13px;font-weight:760;line-height:1.5}
+    .preview-banner strong{color:#59430E}
+    .cms-dashboard .cms-main{padding-top:29px}
+    .control-room [aria-disabled="true"],.control-room button:disabled{cursor:default!important}
+    @media(max-width:600px){.preview-banner{font-size:12px;padding:10px}}
+  </style>
+</head>
+<body>
+  <div class="preview-banner" role="status"><strong>BẢN XEM TRƯỚC GIAO DIỆN</strong> - Toàn bộ số liệu và công việc bên dưới là minh họa. Không có dữ liệu thật, đăng nhập hay quyền chỉnh sửa.</div>
+  <div class="cms" id="cms">
+    <header class="cms-top">
+      <a href="../" class="cms-brand" aria-label="Trang chủ Open Phu Quoc"><img src="../assets/logo-master.png?v=20260925-tight-master-r1" alt="Open Phu Quoc"></a>
+      <div class="cms-user"><div><strong>OpenPQ Demo</strong><span>CHẾ ĐỘ CHỈ XEM</span></div><button type="button" disabled>Minh họa</button></div>
+    </header>
+    <div class="cms-layout cms-dashboard" id="cmsLayout">
+      <aside class="cms-side" aria-label="Điều hướng minh họa">
+        <div class="side-head"><p>ĐIỀU HƯỚNG</p><button id="sideToggle" type="button" aria-label="Thu gọn menu" disabled>‹</button></div>
+        <nav id="moduleNav" aria-label="Các khu vực CMS minh họa">
+          <div class="nav-group"><p class="nav-group-title">CÔNG VIỆC</p>
+            <button class="module-btn active" type="button" disabled><span class="module-short">⌂</span><span class="module-copy"><strong>Bàn làm việc</strong><small>Tình hình và việc cần làm</small></span></button>
+            <button class="module-btn" type="button" disabled><span class="module-short">!</span><span class="module-copy"><strong>Cần kiểm chứng</strong><small>Chất lượng và nguồn dữ liệu</small></span></button>
+            <button class="module-btn" type="button" disabled><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất chưa public</small></span></button>
+          </div>
+          <div class="nav-group"><p class="nav-group-title">BIÊN TẬP</p>
+            <button class="module-btn" type="button" disabled><span class="module-short">TC</span><span class="module-copy"><strong>Trang chủ</strong><small>Thông điệp và bố cục</small></span></button>
+            <button class="module-btn" type="button" disabled><span class="module-short">BV</span><span class="module-copy"><strong>Bài viết</strong><small>Câu chuyện địa phương</small></span></button>
+            <button class="module-btn" type="button" disabled><span class="module-short">CN</span><span class="module-copy"><strong>Cẩm nang</strong><small>Thông tin hữu ích</small></span></button>
+          </div>
+          <div class="nav-group"><p class="nav-group-title">ĐỊA ĐIỂM & TIỆN ÍCH</p>
+            <button class="module-btn" type="button" disabled><span class="module-short">DD</span><span class="module-copy"><strong>Địa điểm</strong><small>Hồ sơ và nguồn</small></span></button>
+            <button class="module-btn" type="button" disabled><span class="module-short">TI</span><span class="module-copy"><strong>Tiện ích</strong><small>Thông tin hằng ngày</small></span></button>
+          </div>
+        </nav>
+      </aside>
+      <main class="cms-main" id="mainContent">
+        <div class="cms-toolbar"><div><span>OPEN PHU QUOC CMS</span><h1 id="moduleTitle">Bàn làm việc</h1><p>Nắm tình hình, xử lý đúng việc và kiểm chứng kết quả.</p></div></div>
+        <div id="status" class="status-bar" role="status" aria-live="polite">Chỉ xem giao diện minh họa.</div>
+        <form id="editor" class="editor" aria-label="Nội dung minh họa"></form>
+      </main>
+    </div>
+  </div>
+  <script src="control-room.js?v=3"></script>
+  <script>
+    (function(){
+      const modules=[
+        {id:"stories",label:"Bài viết",read:["admin"]},
+        {id:"guide",label:"Cẩm nang",read:["admin"]},
+        {id:"venues",label:"Địa điểm",read:["admin"]},
+        {id:"utilities",label:"Tiện ích",read:["admin"]},
+        {id:"home",label:"Trang chủ",read:["admin"]},
+        {id:"visuals",label:"Thư viện ảnh",read:["admin"]},
+        {id:"analytics",label:"Analytics",read:["admin"]}
+      ];
+      const quality={tasks:[
+        {entity_id:"demo_dia_diem_001",surface:"Địa điểm minh họa",field:"source_ref",severity:"high",status:"open",evidence:"Hồ sơ mẫu còn thiếu nguồn xác minh tọa độ."},
+        {entity_id:"demo_dia_diem_002",surface:"Địa điểm minh họa",field:"phone",severity:"medium",status:"in_progress",evidence:"Thông tin liên hệ mẫu cần đối chiếu với cơ sở."},
+        {entity_id:"demo_dia_diem_003",surface:"Địa điểm minh họa",field:"verified_at",severity:"low",status:"open",evidence:"Ngày xác minh mẫu chưa được bổ sung."}
+      ]};
+      const reviews={items:[
+        {number:101,title:"MINH HỌA - cập nhật bài viết Phú Quốc",draft:false,updated_at:"2026-09-27T09:00:00+07:00"},
+        {number:102,title:"MINH HỌA - bổ sung nguồn địa điểm",draft:true,updated_at:"2026-09-27T08:00:00+07:00"}
+      ]};
+      window.OPQControlRoom.mount({
+        host:document.querySelector("#editor"),role:"admin",login:"visual-demo",modules:modules,
+        previewData:{quality:quality,reviews:reviews},
+        onNavigate:function(){}
+      });
+    })();
+  </script>
+</body>
+</html>
