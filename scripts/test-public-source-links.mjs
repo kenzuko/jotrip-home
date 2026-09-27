@@ -6,7 +6,7 @@ const food=read("food/food.js"),home=read("index.html"),about=read("about/index.
 const stories=JSON.parse(read("data/content.json")).stories;
 const knowledge=JSON.parse(read("data/knowledge/objects.json")).objects.filter(x=>x.status==="READY_PUBLIC"&&x.public_ready);
 const dishes=JSON.parse(read("data/food.json")).dishes;
-assert.equal(stories.length,24);
+assert.equal(stories.length,34);
 assert.equal(dishes.length,32);
 assert.equal(knowledge.length,128);
 assert.ok(stories.reduce((n,s)=>n+(s.sources||[]).length,0)>0,"Original research links must stay in the editorial data");
@@ -30,4 +30,4 @@ assert.match(about,/Thông tin miễn phí dành cho người dân và du khách
 for(const file of ["stories/index.html","stories/article.html"])assert.match(read(file),/story\.js\?v=20260927-cc-credit-r2/);
 assert.match(read("news/index.html"),/news\.js\?v=20260927-reader-first-r1/);
 for(const file of ["guide/knowledge.html","guide/article.html"])assert.match(read(file),/knowledge\.js\?v=20260927-photo-rights-r1/);
-console.log("Public source-link QA PASS: 182 articles preserved, research archived, booking and photo-license actions retained, community statement visible.");
+console.log("Public source-link QA PASS: 194 articles preserved, research archived, booking and photo-license actions retained, community statement visible.");
