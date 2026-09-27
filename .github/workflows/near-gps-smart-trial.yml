@@ -4,6 +4,11 @@ on:
     branches: [data/near-gps-smart-trial-20260927]
     paths: [.github/workflows/near-gps-smart-trial.yml, scripts/near-gps-places-stage2.mjs, scripts/geocode-geoapify.mjs, scripts/test-geocode-geoapify.mjs]
   workflow_dispatch:
+    inputs:
+      run_places_stage2:
+        description: 'Repeat the 7 paid-credit Places requests only if new source data justifies it'
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -80,6 +85,7 @@ jobs:
       - name: Test second-phase named-POI matcher offline
         run: node scripts/near-gps-places-stage2.mjs --self-test
       - name: Search named clinics, pharmacies and fuel stations by region (max 7 calls)
+        if: github.event_name == 'workflow_dispatch' && inputs.run_places_stage2
         env:
           GEOAPIFY_API_KEY: ${{ secrets.GEOAPIFY_API_KEY }}
         run: |
