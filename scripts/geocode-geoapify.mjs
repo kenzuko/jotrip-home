@@ -249,6 +249,8 @@ export async function run(argv = process.argv.slice(2), { fetcher = fetch, root 
       if (stats.requests >= budget) { stats.budget_exhausted = true; break; }
       const url = requestUrl(query, apiKey);
       for (let attempt = 0; attempt < 3; attempt++) {
+        if (stats.requests >= budget) { stats.budget_exhausted = true; stop = true; break; }
+        stats.requests++; // Count real outbound calls, including failed/retried requests.
         try {
           // No raw API URL or key in logs, report or cache.
           const response = await fetcher(url, { signal: AbortSignal.timeout(15000) });
@@ -270,7 +272,6 @@ export async function run(argv = process.argv.slice(2), { fetcher = fetch, root 
           } else await delay((attempt + 1) * 1200);
         }
       }
-      stats.requests++;
       await delay(500); // At most two ordinary requests per second.
     }
     if (stop) break;
