@@ -1,0 +1,604 @@
+{
+  "schema_version": "openpq-nearme-directory-v1",
+  "batch_date": "2026-09-26",
+  "scope": "Operator and directory listings; identity/source checked, current operation and branch hours remain unconfirmed unless a record says otherwise.",
+  "entities": [
+    {
+      "id": "utility_laundry_phuquoc_cuaduong",
+      "entity_type": "utility",
+      "name": "Phu Quoc Laundry - Bến Tràm",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Giặt ủi",
+      "utility_type": "LAUNDRY",
+      "address": "Tổ 4, ấp Bến Tràm, Cửa Dương, Đặc khu Phú Quốc, An Giang",
+      "phone": "0877 215 765",
+      "what_it_is": "Dịch vụ giặt ủi tại Phú Quốc, nên xác nhận giờ và nhận/giao đồ.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "phuquoc_laundry_official_20260924",
+          "url": "https://phuquoclaundry.online/contacts/",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_laundry_phuquoc_cuaduong",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Giờ niêm yết 09:00-21:00; xác minh pin cửa tiệm và phạm vi giao nhận thực tế."
+      },
+      "updated_at": "2026-09-26"
+    },
+    {
+      "id": "utility_longchau_ham_ninh",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - Hàm Ninh",
+      "aliases": [],
+      "zone_id": null,
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "Thửa đất 32, Bản đồ 24, đường ĐT47 (ngã tư chợ Hàm Ninh), Đặc khu Phú Quốc, An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_storelist_20260924",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_longchau_ham_ninh",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm."
+      },
+      "updated_at": "2026-09-26",
+      "phone_scope": "CHAIN",
+      "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
+      "zone_hint": "Hàm Ninh"
+    },
+    {
+      "id": "utility_longchau_ben_tram",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - Chợ Bến Tràm",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "487 Nguyễn Trung Trực (Chợ Bến Tràm), Đặc khu Phú Quốc, An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_storelist_20260924",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_longchau_ben_tram",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm."
+      },
+      "updated_at": "2026-09-26",
+      "phone_scope": "CHAIN",
+      "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
+      "zone_hint": "Bến Tràm"
+    },
+    {
+      "id": "utility_longchau_dt45",
+      "entity_type": "utility",
+      "name": "Nhà thuốc Long Châu - ĐT45",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Nhà thuốc",
+      "utility_type": "PHARMACY",
+      "address": "Thửa đất 59, Bản đồ 12, đường ĐT45 (ngã tư Nghĩa trang Liệt sĩ), Đặc khu Phú Quốc, An Giang",
+      "phone": "1800 6928",
+      "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "longchau_phuquoc_storelist_20260924",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_longchau_dt45",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm."
+      },
+      "updated_at": "2026-09-26",
+      "phone_scope": "CHAIN",
+      "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
+      "zone_hint": null
+    },
+    {
+      "id": "utility_luggage_whalelo_nightmarket",
+      "entity_type": "utility",
+      "name": "WhaleLO - Giữ hành lý Chợ đêm Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Giữ hành lý",
+      "utility_type": "LUGGAGE_STORAGE",
+      "address": "Khu vực chợ đêm Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Dịch vụ giữ hành lý đặt trước; điểm giao nhận cụ thể được xác nhận sau khi đặt.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "whalelo_nightmarket_20260924",
+          "url": "https://whalelo.net/station/phu-quoc/138",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_luggage_whalelo_nightmarket",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Operator có đăng điểm dịch vụ; không ghim pin khi chưa đặt chỗ và xác nhận địa chỉ. Giờ, giá, nhận đồ quá giờ phải kiểm tra theo ngày."
+      },
+      "updated_at": "2026-09-26",
+      "map_review_note": "Điểm giao nhận chỉ được xác định sau khi đặt chỗ; không dẫn đường theo điểm neo khu vực.",
+      "external_verify_url": "https://whalelo.net/station/phu-quoc/138"
+    },
+    {
+      "id": "utility_luggage_whalelo_grandworld",
+      "entity_type": "utility",
+      "name": "WhaleLO - Giữ hành lý Grand World",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "group": "Giữ hành lý",
+      "utility_type": "LUGGAGE_STORAGE",
+      "address": "Khu Grand World, Bãi Dài, Gành Dầu, Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Dịch vụ giữ hành lý đặt trước; điểm giao nhận cụ thể được xác nhận sau khi đặt.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "whalelo_grandworld_20260924",
+          "url": "https://whalelo.net/station/phu-quoc/382",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_luggage_whalelo_grandworld",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Operator công bố dịch vụ nhưng địa chỉ cụ thể chỉ hiển thị sau khi đặt. Chưa có pin cửa nhận hành lý; không áp giờ 24/24 nếu chưa đối chiếu cho ngày khách sử dụng."
+      },
+      "updated_at": "2026-09-26",
+      "map_review_note": "Điểm giao nhận chỉ được xác định sau khi đặt chỗ; không dẫn đường theo điểm neo khu vực.",
+      "external_verify_url": "https://whalelo.net/station/phu-quoc/382"
+    },
+    {
+      "id": "utility_luggage_whalelo_sunset",
+      "entity_type": "utility",
+      "name": "WhaleLO - Giữ hành lý Sunset Town",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Giữ hành lý",
+      "utility_type": "LUGGAGE_STORAGE",
+      "address": "Khu Sunset Town, An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Dịch vụ giữ hành lý đặt trước; điểm giao nhận cụ thể được xác nhận sau khi đặt.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "whalelo_sunset_20260924",
+          "url": "https://whalelo.net/station/phu-quoc/384",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_luggage_whalelo_sunset",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Operator xác nhận dịch vụ trong khu vực, không có địa chỉ chính xác công khai. Chưa xác minh dịch vụ tắm và thay đồ; không mặc định có."
+      },
+      "updated_at": "2026-09-26",
+      "map_review_note": "Điểm giao nhận chỉ được xác định sau khi đặt chỗ; không dẫn đường theo điểm neo khu vực.",
+      "external_verify_url": "https://whalelo.net/station/phu-quoc/384"
+    },
+    {
+      "id": "utility_medical_phuquoc_public_hospital",
+      "entity_type": "utility",
+      "name": "Trung tâm Y tế Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Y tế",
+      "utility_type": "CLINIC_HOSPITAL",
+      "address": "128 đường 30 Tháng 4, khu phố 1, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "0297 3846 970",
+      "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "moh_phuquoc_medical_20260924",
+          "url": "https://benhandientu.moh.gov.vn/benh-vien/846/trung-tam-y-te-phu-quoc-tinh-an-giang",
+          "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "visitpq_public_hospital_hotline_20260924",
+          "url": "https://visitphuquoc.com.vn/vi/cau-hoi-thuong-gap",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_medical_phuquoc_public_hospital",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Nguồn: https://www.openstreetmap.org/way/1530858355. Tâm khuôn viên bệnh viện, chưa xác nhận cổng cấp cứu."
+      },
+      "updated_at": "2026-09-26",
+      "opening_hours_note": "Cơ sở đăng ký hoạt động 24/24 theo hồ sơ Sở Y tế 2026; giờ các phòng khám chuyên khoa có thể khác. | Nguồn du lịch địa phương ghi số 0297 3846 972; cần gọi đối chiếu số tiếp nhận.",
+      "map": {
+        "lat": 10.2147385,
+        "lon": 103.968147,
+        "precision": "site_centroid",
+        "source": "Hồ sơ đối chiếu 25/09/2026",
+        "source_id": "prior_nearme_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Vị trí khuôn viên hoặc POI tham khảo. Chưa xác minh lối vào."
+      }
+    },
+    {
+      "id": "utility_pqc_airport_atms",
+      "entity_type": "utility",
+      "name": "ATM tại sân bay Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "ATM",
+      "utility_type": "ATM",
+      "address": "Nhà ga Sân bay quốc tế Phú Quốc, Dương Tơ, Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Khu vực có dịch vụ ATM theo danh bạ; vị trí từng máy chưa xác minh.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "airline_pqc_atm_directory_20260924",
+          "url": "https://www.sunphuquocairways.com/vn/vi/travel-info/airports-network/airport/phu-quoc",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_pqc_airport_atms",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Trang thông tin sân bay của hãng bay liệt kê BIDV, Vietcombank, Agribank tại sảnh đến và tầng 2. Chưa rõ máy nào thuộc từng vị trí; không gắn pin từng ATM và không khẳng định máy sẵn tiền."
+      },
+      "updated_at": "2026-09-26",
+      "opening_hours_note": "Nguồn hàng không niêm yết ATM 24/24; không phải xác nhận thời gian thực hay tồn tiền."
+    },
+    {
+      "id": "utility_sun_hospital_an_thoi",
+      "entity_type": "utility",
+      "name": "Bệnh viện Quốc tế Mặt Trời Phú Quốc",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Y tế",
+      "utility_type": "CLINIC_HOSPITAL",
+      "address": "Khu đô thị An Thới, khu phố 6, Đặc khu Phú Quốc, An Giang",
+      "phone": null,
+      "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "sungroup_sun_hospital_opening_20260423",
+          "url": "https://sungroup.com.vn/tin-tuc/khanh-thanh-cong-trinh-dau-tien-trong-chuoi-du-an-phuc-vu-apec-2027-benh-vien-mat-troi-phu-quoc-10699",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_sun_hospital_an_thoi",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Nguồn: https://www.openstreetmap.org/way/1467992598. Tâm khuôn viên bệnh viện trên OSM. Chưa phải cổng cấp cứu."
+      },
+      "updated_at": "2026-09-26",
+      "map": {
+        "lat": 10.0388036,
+        "lon": 104.0067047,
+        "precision": "site_centroid",
+        "source": "Hồ sơ đối chiếu 25/09/2026",
+        "source_id": "prior_nearme_20260925",
+        "verified_at": "2026-09-25",
+        "note": "Vị trí khuôn viên hoặc POI tham khảo. Chưa xác minh lối vào."
+      }
+    },
+    {
+      "id": "utility_dng_clinic_duong_dong",
+      "entity_type": "utility",
+      "name": "Phòng khám Đa khoa Quốc tế DNG - Dương Đông",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Y tế",
+      "utility_type": "CLINIC_HOSPITAL",
+      "address": "40-41C, khu tái định cư khu phố 10, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 3315",
+      "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "dng_clinic_official_20260924",
+          "url": "https://dngclinic.com/dich-vu/chup-ct-2/",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_dng_clinic_duong_dong",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố giờ tham khảo 07:30-11:30 và 13:30-18:30 cả tuần; không mặc định cấp cứu 24/7."
+      },
+      "updated_at": "2026-09-26"
+    },
+    {
+      "id": "utility_dng_clinic_an_thoi",
+      "entity_type": "utility",
+      "name": "Phòng khám Đa khoa Quốc tế DNG - An Thới",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Y tế",
+      "utility_type": "CLINIC_HOSPITAL",
+      "address": "S259 - S354, Khu đô thị Sun Grand City, An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 3315",
+      "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "dng_clinic_official_20260924",
+          "url": "https://dngclinic.com/dich-vu/chup-ct-2/",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_dng_clinic_an_thoi",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố khung 07:30-11:30 và 13:30-18:30 cả tuần, cần xác nhận riêng cơ sở An Thới và cổng."
+      },
+      "updated_at": "2026-09-26"
+    },
+    {
+      "id": "utility_tgdd_142a_ntr",
+      "entity_type": "utility",
+      "name": "Thế Giới Di Động - 142A Nguyễn Trung Trực",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "142A-142B Nguyễn Trung Trực, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 232 460",
+      "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "tgdd_current_store_directory_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "tgdd_exact_store_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-so-142a-142b-duong-nguyen-trung-truc-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-935",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_tgdd_142a_ntr",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố."
+      },
+      "updated_at": "2026-09-26",
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+    },
+    {
+      "id": "utility_tgdd_37_hungvuong",
+      "entity_type": "utility",
+      "name": "Thế Giới Di Động - 37 Hùng Vương",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "37 Hùng Vương, khu phố 5, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 232 460",
+      "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "tgdd_current_store_directory_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "tgdd_exact_store_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-37-hung-vuong-khu-pho-5-nga-4-hung-vuong-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-409",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_tgdd_37_hungvuong",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố."
+      },
+      "updated_at": "2026-09-26",
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+    },
+    {
+      "id": "utility_tgdd_104_304",
+      "entity_type": "utility",
+      "name": "Thế Giới Di Động - 104 đường 30 Tháng 4",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "104 đường 30 Tháng 4, khu phố 1, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 232 460",
+      "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "tgdd_current_store_directory_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "tgdd_exact_store_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_tgdd_104_304",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố."
+      },
+      "updated_at": "2026-09-26",
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+    },
+    {
+      "id": "utility_tgdd_73_nvc",
+      "entity_type": "utility",
+      "name": "Thế Giới Di Động - 73 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "73 Nguyễn Văn Cừ, khu phố 3, An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 232 460",
+      "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "tgdd_current_store_directory_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "tgdd_exact_store_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-so-73-duong-nguyen-van-cu-kp-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1054",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_tgdd_73_nvc",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Nguồn: https://www.openstreetmap.org/node/6483568745. OSM không có số nhà 73. Đây là vị trí chi nhánh trong khu An Thới, cần kiểm tra số nhà/cửa vào."
+      },
+      "updated_at": "2026-09-26",
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+    },
+    {
+      "id": "utility_dmx_ganhdau_to7",
+      "entity_type": "utility",
+      "name": "Điện máy XANH - Tổ 7 Gành Dầu",
+      "aliases": [],
+      "zone_id": "zone_north",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "Tổ 7, ấp Gành Dầu (ngã ba Xóm Mới), Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 232 461",
+      "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "tgdd_current_store_directory_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "tgdd_exact_store_20260924",
+          "url": "https://www.thegioididong.com/sieu-thi-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161",
+          "checked_at": "2026-09-24"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-26",
+        "prior_record_id": "utility_dmx_ganhdau_to7",
+        "verified_identity": true,
+        "verified_operation": false,
+        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố."
+      },
+      "updated_at": "2026-09-26",
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+    }
+  ]
+}
