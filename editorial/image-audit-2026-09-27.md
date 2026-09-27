@@ -60,3 +60,6 @@
 - Bình minh Phú Quốc 2016 của Quangpraha CC0 cho hai bài bình minh.
 - Bánh khéo và bánh tét bổ sung ảnh món thứ hai, ảnh bên ngoài có ghi nguồn và cần xin quyền.
 - Ảnh từ web khác chỉ được build guide khi được rà soát và gắn cờ curated_for_public cùng metadata nguồn, không mở whitelist cho URL bất kỳ.
+
+## Ảnh cẩm nang được hiển thị thực tế
+Bộ build trước đó chỉ cho hình Commons, ảnh nội bộ và cổng du lịch đi qua, khiến 18 cẩm nang dù đã có ảnh biên tập vẫn trắng. Bổ sung whitelist hẹp gồm 10 máy chủ ảnh đã rà soát; từng ảnh bên ngoài phải có curated_for_public=true cùng tên và URL nguồn trong dữ liệu. Không mở cho ảnh bất kỳ. 19 bản ghi ảnh trên 18 cẩm nang vẫn cần được chủ sở hữu cấp quyền hoặc thay ảnh về lâu dài. Kiểm tra hồi quy số ảnh thực sự được ghi vào knowledge-public.json.
