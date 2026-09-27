@@ -38,7 +38,7 @@ async function storyMeta(url, env) {
   const id = url.searchParams.get("id");
   if (!id) return null;
   const data = await readAssetJson(env, url, "/data/content.json");
-  const story = (data.stories || []).find(x => x.id === id);
+  const story = (data.stories || []).find(x => x.id === id && !["draft","pending","review","scheduled"].includes(x.status));
   if (!story) return null;
   return buildStoryMeta(story);
 }
