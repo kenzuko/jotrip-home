@@ -95,7 +95,7 @@
     var pending=reviews?(Array.isArray(reviews.items)?reviews.items.length:0):null;
     var overview='<section class="cr-intro" aria-label="Tổng quan công việc"><p class="cr-eyebrow">BÀN LÀM VIỆC / OPEN PHU QUOC</p>'+
       '<h2>Nắm tình hình. Xử lý đúng việc.</h2><p>Công việc biên tập, nguồn dữ liệu và đề xuất cập nhật, ở cùng một nơi.</p>'+
-      '<button type="button" class="cr-refresh" data-cr-refresh '+(state.loading?'disabled':'')+'><span aria-hidden="true">↻</span> '+(state.loading?"Đang kiểm tra...":"Kiểm tra lại")+'</button></section>';
+      '<button type="button" class="cr-refresh" data-cr-refresh '+(state.loading||state.preview?'disabled':'')+'><span aria-hidden="true">↻</span> '+(state.preview?"Dữ liệu minh họa":state.loading?"Đang kiểm tra...":"Kiểm tra lại")+'</button></section>';
     var metrics='<section class="cr-metrics" aria-label="Tóm tắt công việc">'+
       '<a href="quality.html" class="cr-metric"><span>Cần kiểm chứng</span><strong>'+(open===null?"—":open)+'</strong><small>'+(open===null?"Chưa đọc được nguồn":"Từ bộ quy tắc chất lượng")+'</small></a>'+
       '<a href="reviews.html" class="cr-metric"><span>Chờ duyệt</span><strong>'+(pending===null?"—":pending)+'</strong><small>'+(pending===null?"Chưa đọc được nguồn":"Đề xuất CMS đang mở")+'</small></a>'+
@@ -111,9 +111,15 @@
       '<section class="cr-panel cr-sidepanel cr-source-panel"><p class="cr-eyebrow">NGUỒN & TRẠNG THÁI</p><h2>Giữ thông tin đáng tin</h2><p>Dữ liệu vận hành của Weather, Airport, Transit và các hệ thống chuyên trách không được chỉnh từ bàn làm việc này.</p>'+
       (state.role==="admin"?'<button type="button" data-cr-module="analytics" class="cr-text-link">Mở Intelligence <span aria-hidden="true">↗</span></button>':'')+
       '<a class="cr-text-link" href="quality.html">Kiểm tra nguồn dữ liệu <span aria-hidden="true">↗</span></a></section></aside></div>';
+    if(state.preview){
+      host.querySelectorAll("a,button").forEach(function(el){
+        if(el.tagName==="A"){el.removeAttribute("href");el.setAttribute("aria-disabled","true");el.setAttribute("tabindex","-1");}
+        else el.disabled=true;
+      });
+    }
   }
   async function refresh(state){
-    if(!state.active)return;
+    if(!state.active||state.preview)return;
     state.controller?.abort();
     state.controller=new AbortController();
     state.loading=true;render(state);
@@ -133,7 +139,7 @@
   }
   function mount(opts){
     unmount();
-    var state={active:true,host:opts.host,role:opts.role,login:opts.login,modules:opts.modules.filter(function(m){return m.read?.includes(opts.role);}),quality:null,reviews:null,loading:false,controller:null};
+    var state={active:true,host:opts.host,role:opts.role,login:opts.login,modules:opts.modules.filter(function(m){return m.read?.includes(opts.role);}),quality:null,reviews:null,loading:false,controller:null,preview:Boolean(opts.previewData)};
     state.click=function(event){
       var refreshButton=event.target.closest("[data-cr-refresh]");
       if(refreshButton){event.preventDefault();refresh(state);return;}
@@ -142,7 +148,13 @@
     };
     active=state;
     state.host.addEventListener("click",state.click);
-    refresh(state);
+    if(state.preview){
+      state.quality={value:opts.previewData.quality};
+      state.reviews={value:opts.previewData.reviews};
+      render(state);
+    }else{
+      refresh(state);
+    }
   }
   window.OPQControlRoom={mount:mount,unmount:unmount};
 })();
