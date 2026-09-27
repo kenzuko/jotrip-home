@@ -38,7 +38,7 @@ assert.match(goHtml,/id="goRadiusRange"[^>]*min="1"[^>]*max="50"/,"km radius is 
 assert.match(goHtml,/go-menu-open/);
 assert.match(goHtml,/go-dock-more/);
 assert.match(goHtml,/go-nav\.js/);
-assert.match(homeHtml,/href="go\/"[^>]*><span>⌖<\/span><strong>Đi gì bây giờ\?/,"Go is in the shared More menu");
+assert.match(homeHtml,/href="go\/"[^>]*><span>⌖<\/span><strong>Đi đâu bây giờ\?/,"Go is in the shared More menu");
 assert.match(goJs,/bindGeo\(\);\s*drawMap\(\);/,"draw reference map at first load");
 assert.match(goMap,/groupPoints/,"overlapping area pins are grouped");
 const dock=goHtml.match(/<nav class="go-mobile-nav"[^>]*>([\s\S]*?)<\/nav>/);
