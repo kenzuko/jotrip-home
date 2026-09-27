@@ -44,15 +44,15 @@ function scheduleDecision(opening,entityId){
       const later=windows.find(x=>x.startMin>=current.endMin);
       const ending=current.endMin-now<=15;
       return{state:ending?"watch":"active",
-        label:later?(ending?"Khung này sắp tạm nghỉ":"Trong khung cáp theo lịch"):(ending?"Sắp hết khung cáp cuối":"Trong khung cáp cuối theo lịch"),
-        detail:"Cáp chạy theo từng khung",startMin:current.startMin,endMin:current.endMin,remainingMin:current.endMin-now};
+        label:later?(ending?"Sắp nghỉ lúc "+current.end:"Cáp nghỉ lúc "+current.end+", vẫn còn chuyến sau"):(ending?"Sắp hết giờ cáp hôm nay":"Đây là khung cáp cuối hôm nay"),
+        detail:later?"Sau giờ nghỉ vẫn còn cáp theo lịch":"Nhớ kiểm tra giờ cáp lượt về",startMin:current.startMin,endMin:current.endMin,remainingMin:current.endMin-now};
     }
     if(next){
       const paused=windows.some(x=>x.endMin<=now);
-      return{state:"future",label:paused?"Tạm nghỉ, chạy lại lúc "+next.start:"Khung cáp đầu từ "+next.start,
-        detail:"Cáp chạy theo từng khung",nextMin:next.startMin,endMin:next.endMin};
+      return{state:"future",label:paused?"Đang nghỉ theo lịch, chạy lại lúc "+next.start:"Cáp bắt đầu lúc "+next.start,
+        detail:"Cáp chạy theo các khung giờ trong ngày",nextMin:next.startMin,endMin:next.endMin};
     }
-    return{state:"past",label:"Đã hết khung cáp hôm nay",detail:"Xem lịch ngày tiếp theo"};
+    return{state:"past",label:"Hôm nay đã hết giờ cáp treo",detail:"Xem lịch ngày tiếp theo"};
   }
   const active=windows.find(x=>now>=x.startMin&&now<=x.endMin);
   if(active)return{state:"active",label:"Đi lúc này vẫn kịp",detail,startMin:active.startMin,endMin:active.endMin,remainingMin:active.endMin-now};
