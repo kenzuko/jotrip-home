@@ -1,7 +1,120 @@
 {
   "version": "1.0",
-  "updated": "2026-09-26",
+  "updated": "2026-09-27",
   "stories": [
+    {
+      "id": "doc-nhan-nuoc-mam-phu-quoc",
+      "category": "NƯỚC MẮM · CẨM NANG CHỌN MUA",
+      "title": "Nước mắm Phú Quốc: đọc đúng tên gọi trên nhãn",
+      "dek": "Quy chuẩn địa phương phân biệt nước mắm chỉ dẫn địa lý Phú Quốc với nước mắm truyền thống Phú Quốc. Hai tên cùng gắn với đảo nhưng không phải một cấp hạng về mùi vị.",
+      "read_minutes": 3,
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fish%20sauce%20factory%2C%20Phu%20Quoc.jpg?width=1600",
+      "image_alt": "Những thùng ủ cá làm nước mắm ở Phú Quốc",
+      "image_caption": "Những thùng ủ cá trong một cơ sở nước mắm tại Phú Quốc; ảnh bối cảnh cho bài hướng dẫn đọc nhãn.",
+      "image_credit": "Wikimedia Commons · Stefan · CC BY 2.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fish%20sauce%20factory%2C%20Phu%20Quoc.jpg",
+      "intro": "Một chai nước mắm có thể nhắc đến Phú Quốc theo hai cách: chỉ dẫn địa lý, hoặc nước mắm truyền thống Phú Quốc. Quy chuẩn địa phương gọi rõ hai loại này. Đọc tên trước khi chọn giúp biết nhãn đang nói về loại sản phẩm nào; hương vị hợp món nào thì cần xem thêm thành phần và thông tin do cơ sở sản xuất công bố.",
+      "sections": [
+        {
+          "heading": "Tên gọi gắn với quy trình",
+          "body": "Chỉ dẫn địa lý Phú Quốc được bảo hộ tại Việt Nam từ năm 2001; năm 2012, tên gọi này được Liên minh châu Âu đăng bạ theo quy chế tên gọi xuất xứ. Quy chuẩn kỹ thuật địa phương ban hành năm 2023 quy định về nguyên liệu, quy trình, chỉ tiêu chất lượng và an toàn thực phẩm cho hai loại nước mắm Phú Quốc được sản xuất, đóng chai hoặc đóng can trên đảo. Những mốc ấy nói về xuất xứ và điều kiện làm ra sản phẩm, không phải thang điểm ngon dở."
+        },
+        {
+          "heading": "Chỉ dẫn địa lý và nước mắm truyền thống",
+          "body": "Quy chuẩn phân biệt nước mắm chỉ dẫn địa lý Phú Quốc - loại có biểu trưng chỉ dẫn địa lý theo quy định quản lý - với nước mắm truyền thống Phú Quốc, được làm theo quy trình truyền thống và đáp ứng các yêu cầu kỹ thuật tương ứng. Hai tên không thể dùng thay nhau. Nhãn ghi “truyền thống Phú Quốc” không tự chứng minh sản phẩm có chỉ dẫn địa lý; ngược lại, thiếu biểu trưng ấy cũng chưa đủ để kết luận chai nước mắm không thuộc loại truyền thống Phú Quốc. Nếu muốn mua đúng loại có chỉ dẫn địa lý, hãy tìm biểu trưng trên nhãn và đọc đầy đủ thông tin cơ sở sản xuất."
+        },
+        {
+          "heading": "Chọn theo món và khẩu vị",
+          "body": "Sau khi hiểu tên gọi, xem thành phần, cơ sở sản xuất, hướng dẫn bảo quản và các chỉ số mà nhà sản xuất công bố, chẳng hạn độ đạm. Độ đạm là một thông tin để so sánh, không quyết định thay toàn bộ khẩu vị hay cách dùng. Khi mua để chấm, nấu hoặc làm quà, hãy chọn theo vị mình thích và món định dùng; nếu cần tránh một thành phần vì dị ứng hay chế độ ăn, kiểm tra nhãn hoặc hỏi trực tiếp nhà sản xuất."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Cục Sở hữu trí tuệ Việt Nam - Danh sách chỉ dẫn địa lý được bảo hộ tại Việt Nam",
+          "url": "https://ipvietnam.gov.vn/web/english/domestic-ip-activities/-/asset_publisher/ZMuTgR44COLR/content/list-of-geographical-indications-protected-in-vietnam-"
+        },
+        {
+          "label": "Sở Nông nghiệp và Môi trường An Giang - Quyết định 21/2023/QĐ-UBND, Quy chuẩn kỹ thuật địa phương nước mắm Phú Quốc",
+          "url": "https://snnmt.angiang.gov.vn/trang/VanBan/chitietvb.aspx?itemID=3747&loaivb=T%E1%BB%A7+s%C3%A1ch+ph%C3%A1p+lu%E1%BA%ADt"
+        },
+        {
+          "label": "Liên minh châu Âu - Regulation (EU) No 928/2012 về tên gọi xuất xứ Phú Quốc",
+          "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32012R0928"
+        }
+      ],
+      "updated_at": "2026-09-27"
+    },
+    {
+      "id": "mang-xe-may-ra-phu-quoc",
+      "category": "ĐI LẠI · PHÀ RA ĐẢO",
+      "title": "Đưa xe máy ra Phú Quốc: hỏi chỗ trên phà trước",
+      "dek": "Vé hành khách và chỗ cho xe là hai việc cần xác nhận riêng. Tuyến, sức chứa và cách nhận phương tiện tùy đơn vị vận hành, nên hãy chốt chỗ xe trước khi ra cảng.",
+      "read_minutes": 3,
+      "intro": "Nếu chuyến đi cần xe máy bên kia biển, hãy tìm chuyến phà nhận phương tiện trước khi mua vé người. Một chỗ ngồi không tự đi kèm chỗ cho xe; mỗi hãng và tuyến có cách nhận xe riêng.",
+      "sections": [
+        {
+          "heading": "Chọn đúng loại chuyến",
+          "body": "Theo cách gọi dùng trong cẩm nang này, tàu cao tốc dành cho hành khách; phà chở người cùng phương tiện hoặc hàng hóa; cano thường phục vụ tour ba đảo. Vì vậy, muốn đưa xe máy từ đất liền sang đảo thì cần hỏi chuyến phà nhận xe. Một tuyến được đơn vị vận hành công bố có phương án chở xe là Hà Tiên - Bãi Vòng. Không nên suy ra rằng mọi chuyến hoặc mọi tuyến khác cũng nhận xe."
+        },
+        {
+          "heading": "Giữ chỗ cho xe thành một việc riêng",
+          "body": "Khi liên hệ đặt vé, nói rõ ngày đi, tuyến và loại xe. Hỏi xem vé xe có phải mua riêng, chuyến còn sức chứa hay không, hãng cần thông tin hoặc giấy tờ nào, và xe phải có mặt tại bến theo quy trình nào. Xác nhận cả vé của người đi cùng; đừng chờ đến lúc tới cảng mới hỏi liệu xe có được lên chuyến đã chọn. Giữ lại xác nhận đặt chỗ và hướng dẫn của đơn vị vận hành."
+        },
+        {
+          "heading": "Kiểm tra lại trước ngày khởi hành",
+          "body": "Lịch tàu có thể thay đổi theo thời tiết và thủy triều, nên hãy kiểm tra lại trên kênh chính thức của hãng trước khi rời nhà. Nếu chuyến phù hợp không còn chỗ cho xe, có thể để xe ở đất liền, đi bằng tàu cao tốc rồi thuê xe tại Phú Quốc. Khi chọn phương án nào, hãy tính cả hành trình tới bến, việc gửi xe và nhu cầu di chuyển sau khi tới đảo - không chỉ nhìn vào thời gian trên biển."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Phú Quốc Express - Cảng Bãi Vòng và lựa chọn phà chở phương tiện",
+          "url": "https://phuquocexpress.com/cang-bai-vong-phu-quoc"
+        },
+        {
+          "label": "Superdong - Lịch khởi hành và lưu ý thay đổi do thời tiết, thủy triều",
+          "url": "https://online.superdong.com.vn/Home/ScheduleBoat"
+        }
+      ],
+      "updated_at": "2026-09-27"
+    },
+    {
+      "id": "cay-di-san-vuon-quoc-gia-phu-quoc",
+      "category": "RỪNG PHÚ QUỐC · CÂY DI SẢN",
+      "title": "Rừng Phú Quốc có 20 cây và hai quần thể di sản",
+      "dek": "Sáu cây cổ thụ được ghi danh năm 2025 là khởi đầu. Đến tháng 5/2026, hồ sơ tại Vườn quốc gia Phú Quốc đã có 20 cây riêng lẻ cùng hai quần thể thực vật.",
+      "read_minutes": 3,
+      "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Ph%C3%BA_Qu%E1%BB%91c_2022%2C_c%E1%BA%A3nh_r%E1%BB%ABng%2C_t%C3%A1n_r%E1%BB%ABng_%28th%C6%B0%E1%BB%9Dng_xanh%29_%283%29.jpg/960px-Ph%C3%BA_Qu%E1%BB%91c_2022%2C_c%E1%BA%A3nh_r%E1%BB%ABng%2C_t%C3%A1n_r%E1%BB%ABng_%28th%C6%B0%E1%BB%9Dng_xanh%29_%283%29.jpg",
+      "image_alt": "Rừng thường xanh trên đảo Phú Quốc",
+      "image_caption": "Một đoạn rừng thường xanh trên đảo Phú Quốc; ảnh bối cảnh, không định vị các cây hay quần thể di sản nêu trong bài.",
+      "image_credit": "Phương Huy · Wikimedia Commons · CC BY-SA 4.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA%20Qu%E1%BB%91c%202022%2C%20c%E1%BA%A3nh%20r%E1%BB%ABng%2C%20t%C3%A1n%20r%E1%BB%ABng%20(th%C6%B0%E1%BB%9Dng%20xanh)%20(3).jpg",
+      "intro": "Tháng 3/2025, sáu cây cổ thụ trong Vườn quốc gia Phú Quốc được công nhận là Cây Di sản Việt Nam: hai cây trai Nam Bộ, hai cây kơ nia và hai cây kiền kiền Phú Quốc. Hơn một năm sau, hồ sơ được mở rộng thêm cây riêng lẻ và cả những quần thể. Câu chuyện vì thế không chỉ nằm ở từng thân cây lớn.",
+      "sections": [
+        {
+          "heading": "Sáu cây đầu tiên",
+          "body": "Hội Bảo vệ thiên nhiên và Môi trường Việt Nam ghi nhận sáu cây đầu tiên của Kiên Giang vào tháng 3/2025. Hai cây trai Nam Bộ ở Bãi Thơm, hai cây kơ nia và hai cây kiền kiền Phú Quốc ở Gành Dầu tạo nên nhóm mở đầu. Tuổi cây trong các nguồn công bố không thống nhất ở mọi chỗ, nên bài này không gắn một con số tuổi cho từng cây."
+        },
+        {
+          "heading": "Từ từng cây đến cả quần thể",
+          "body": "Ngày 29/5/2026, Vườn quốc gia Phú Quốc đón nhận công nhận cho thêm 14 cây riêng lẻ và hai quần thể. Theo thông tin của Cục Bảo tồn thiên nhiên và Đa dạng sinh học, 14 cây gồm hai cây bô, hai cà chắc, hai dầu mít, hai huỷnh, hai vên vên, cùng một cây gội, một kim giao, một thông lông gà và một sao đen. Hai quần thể gồm 35 cá thể dầu song nàng và 30 cá thể cóc đỏ, đại diện cho rừng cây gỗ lớn họ dầu và rừng ngập mặn. Tính tại thời điểm đó, Vườn có 20 cây di sản riêng lẻ và hai quần thể di sản."
+        },
+        {
+          "heading": "Ghi danh đi cùng việc bảo vệ",
+          "body": "Cây lớn trong rừng không đứng tách khỏi nơi chúng sống. Cục Bảo tồn thiên nhiên và Đa dạng sinh học cho biết việc có thêm hồ sơ đặt yêu cầu cao hơn cho công tác quản lý, tuần tra và bảo vệ rừng; dữ liệu định danh cũng sẽ phục vụ hồ sơ đề nghị Ban Thư ký ASEAN xem xét Vườn quốc gia Phú Quốc trong chương trình Vườn di sản ASEAN. Thông tin công bố về danh hiệu chưa phải lịch tham quan hay chỉ dẫn đường vào từng cây. Muốn tìm hiểu tại chỗ, cần hỏi Ban quản lý Vườn về khu vực và tuyến được phép tiếp cận."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Hội Bảo vệ thiên nhiên và Môi trường Việt Nam - Sáu cây đầu tiên của tỉnh Kiên Giang được công nhận Cây Di sản Việt Nam",
+          "url": "https://www.vacne.org.vn/sau-cay-dau-tien-cua-tinh-kien-giang-duoc-cong-nhan-cay-di-san-viet-nam/222604.html"
+        },
+        {
+          "label": "Cục Bảo tồn thiên nhiên và Đa dạng sinh học - Vườn quốc gia Phú Quốc đón nhận quyết định và bằng công nhận Cây Di sản",
+          "url": "https://nbca.gov.vn/vuon-quoc-gia-phu-quoc-don-nhan-quyet-dinh-va-bang-cong-nhan-cay-di-san/"
+        }
+      ],
+      "updated_at": "2026-09-27"
+    },
     {
       "id": "mui-cay-cua-dat-do",
       "category": "HỒ TIÊU · CHẤT ĐẢO",
