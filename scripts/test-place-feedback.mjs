@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import {publicConfig,publicSubmit,adminFeedback,cleanupFeedback} from "../functions/_shared/place-feedback.js";
+import {publicConfig,publicSubmit,adminFeedback,adminCorrections,cleanupFeedback} from "../functions/_shared/place-feedback.js";
 import {onRequest as publicFeedbackRoute} from "../functions/api/feedback.js";
 
 const records=[],photos=new Map(),corrections=new Map();
@@ -8,7 +8,7 @@ const db={prepare(query){
   return {
     bind(...v){args=v;return this;},
     async first(){
-      if(query.startsWith("SELECT language FROM"))return {language:"vi"};
+      if(query.startsWith("SELECT triage_key FROM"))return {triage_key:""};
       if(query.startsWith("SELECT issue,entity_type"))return records.find(x=>x.id===args[0])||null;
       if(query.startsWith("SELECT COUNT"))return {total:records.filter(x=>x.submit_hash===args[0]&&x.created_at>=args[1]).length};
       if(query.startsWith("SELECT image_key"))return records.find(x=>x.id===args[0])||null;
@@ -16,25 +16,40 @@ const db={prepare(query){
     },
     async all(){
       if(query.startsWith("SELECT id,image_key"))return {results:records.filter(x=>x.created_at<args[0]).slice(0,100)};
+      if(query.includes("FROM cms_translation_corrections")){
+        let rows=[...corrections.values()].sort((a,b)=>b.approved_at.localeCompare(a.approved_at)||b.feedback_id.localeCompare(a.feedback_id));
+        let n=0;
+        if(query.includes("language=?")){rows=rows.filter(x=>x.language===args[n]);n++;}
+        if(query.includes("source_path=?")){rows=rows.filter(x=>x.source_path===args[n]);n++;}
+        if(query.includes("LIKE ?")){const word=String(args[n]).replace(/\\[%_]/g,"").replace(/%/g,"").toLowerCase();rows=rows.filter(x=>[x.quoted_text,x.approved_text,x.entity_id].some(t=>t.toLowerCase().includes(word)));n+=3;}
+        return {results:rows.slice(Number(args[n+1]||0),Number(args[n+1]||0)+Number(args[n]||51))};
+      }
       let rows=records.slice().sort((a,b)=>b.created_at.localeCompare(a.created_at)||b.id.localeCompare(a.id));
       let n=0;
       if(query.includes("status=?")){rows=rows.filter(x=>x.status===args[n]);n++;}
       if(query.includes("issue=?")){rows=rows.filter(x=>x.issue===args[n]);n++;}
       if(query.includes("issue<>?")){rows=rows.filter(x=>x.issue!==args[n]);n++;}
+      if(query.includes("issue NOT IN"))rows=rows.filter(x=>!["translation","new_place"].includes(x.issue));
       if(query.includes("language=?")){rows=rows.filter(x=>x.language===args[n]);n++;}
+      if(query.includes("f.triage_key=?")){rows=rows.filter(x=>x.triage_key===args[n]);n++;}
+      if(query.includes("ORDER BY similar_count DESC"))rows.sort((a,b)=>{
+        const ac=records.filter(x=>x.triage_key&&x.triage_key===a.triage_key).length;
+        const bc=records.filter(x=>x.triage_key&&x.triage_key===b.triage_key).length;
+        return bc-ac||b.created_at.localeCompare(a.created_at);
+      });
       const limit=Number(args[n]||51),offset=Number(args[n+1]||0);
       return {results:rows.slice(offset,offset+limit).map(x=>({
         id:x.id,issue:x.issue,entity_type:x.entity_type,entity_id:x.entity_id,entity_label:x.entity_label,
         details:x.details,source_path:x.source_path,created_at:x.created_at,status:x.status,
         moderator_note:x.moderator_note||"",reviewed_at:x.reviewed_at||null,reviewed_by:x.reviewed_by||null,
         language:x.language,source_revision:x.source_revision,quoted_text:x.quoted_text,
-        suggested_text:x.suggested_text,approved_text:x.approved_text||"",has_photo:Number(!!x.image_key)
+        suggested_text:x.suggested_text,approved_text:x.approved_text||"",triage_key:x.triage_key,similar_count:x.triage_key?records.filter(y=>y.triage_key===x.triage_key).length:1,has_photo:Number(!!x.image_key)
       }))};
     },
     async run(){
       if(query.startsWith("INSERT INTO cms_place_feedback")){
         records.push(Object.fromEntries(["id","issue","entity_type","entity_id","entity_label","details","source_path",
-          "image_key","image_mime","submit_hash","created_at","status","language","source_revision","quoted_text","suggested_text"].map((key,i)=>[key,args[i]])));
+          "image_key","image_mime","submit_hash","created_at","status","language","source_revision","quoted_text","suggested_text","triage_key"].map((key,i)=>[key,args[i]])));
         return {meta:{changes:1}};
       }
       if(query.startsWith("INSERT INTO cms_translation_corrections")){
@@ -115,6 +130,14 @@ assert.equal(page1.items.length,50);
 assert.equal(page1.has_more,true);
 assert.equal(page1.next_offset,50);
 assert.ok(!("submit_hash" in page1.items[0]),"IP hash not exposed in CMS inbox");
+assert.equal(page1.items[0].similar_count,51,"51 independent reports of one issue are grouped as hints, without merging records");
+const relatedKey=page1.items[0].triage_key;
+assert.match(relatedKey,/^[a-f0-9]{24}$/);
+const related=await adminFeedback(new Request("https://cms.openphuquoc.com/api/cms/feedback?related="+relatedKey+"&sort=repeated"),env,editor);
+assert.equal((await related.json()).items.length,50,"Related reports can be browsed in the same inbox");
+assert.equal((await adminFeedback(new Request("https://cms.openphuquoc.com/api/cms/feedback?related=not-a-hash"),env,editor)).status,400);
+const frequent=await adminFeedback(new Request("https://cms.openphuquoc.com/api/cms/feedback?sort=repeated"),env,editor);
+assert.equal((await frequent.json()).items[0].similar_count,51,"Recurring reports can be prioritized by count, not treated as verified");
 const page2=await adminFeedback(new Request("https://cms.openphuquoc.com/api/cms/feedback?status=new&offset=50"),env,editor);
 assert.equal((await page2.json()).has_more,false);
 assert.equal((await adminFeedback(new Request("https://cms.openphuquoc.com/api/cms/feedback?offset=-2"),env,editor)).status,400);
@@ -166,6 +189,14 @@ assert.equal(approved.status,200);
 assert.equal((await approved.json()).correction_saved,true);
 assert.equal(corrections.get(translationId).language,"ko");
 assert.equal(corrections.get(translationId).approved_text,"수정된 자연스러운 문장");
+assert.equal((await adminCorrections(new Request("https://cms.openphuquoc.com/api/cms/feedback/corrections"),env,unauth)).status,401,
+  "The reviewed phrase library is private");
+const memory=await adminCorrections(new Request("https://cms.openphuquoc.com/api/cms/feedback/corrections?language=ko&source_path=%2Fstories%2Farticle.html%3Fid%3Dstory_test"),env,editor);
+const phrases=(await memory.json()).items;
+assert.equal(phrases.length,1,"Reviewed corrections can be found by article and language");
+assert.equal(phrases[0].approved_text,"수정된 자연스러운 문장");
+assert.equal((await adminCorrections(new Request("https://cms.openphuquoc.com/api/cms/feedback/corrections?source_path=https%3A%2F%2Fevil.example"),env,editor)).status,400,
+  "External sources cannot be queried as CMS editorial memory");
 const laterCleanup=await cleanupFeedback(env,Date.now()+181*86400000);
 assert.equal(laterCleanup.deleted,1,"Raw translation report purged after 180 days");
 assert.equal(corrections.size,1,"Staff-reviewed editorial text survives anonymous feedback purge");
@@ -189,4 +220,4 @@ assert.equal(records[0].source_path,"/nearme/","CMS source path is retained with
 assert.equal(records.length,1,"Rejected origin must not produce any report");
 const crossAdmin=new Request("https://cms.openphuquoc.com/api/cms/feedback",{method:"PATCH",headers:{origin:"https://openphuquoc.com","content-type":"application/json"},body:JSON.stringify({id:records[0].id,status:"reviewing",note:"Kiểm chứng"})});
 assert.equal((await adminFeedback(crossAdmin,fallbackEnv,editor)).status,403,"CMS state changes remain same-origin only");
-console.log("Unified feedback QA PASS: locale validation, one inbox, reviewer-approved corrections, privacy retention plus existing regressions. Place feedback QA PASS: readiness, same-origin protection, field validation, anti-spam, D1, pagination, R2, CMS permissions, mandatory resolution note, 180-day cleanup and CMS-secret fallback");
+console.log("Smart triage QA PASS: report grouping, priority sorting, authenticated correction search and existing regressions. Unified feedback QA PASS: locale validation, one inbox, reviewer-approved corrections, privacy retention plus existing regressions. Place feedback QA PASS: readiness, same-origin protection, field validation, anti-spam, D1, pagination, R2, CMS permissions, mandatory resolution note, 180-day cleanup and CMS-secret fallback");

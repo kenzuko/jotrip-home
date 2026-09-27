@@ -10,6 +10,19 @@ const json = (value,status=200) => new Response(JSON.stringify(value),{
   status,headers:{"content-type":"application/json; charset=utf-8","cache-control":"no-store","x-content-type-options":"nosniff"}
 });
 const clean=(value,max=250)=>String(value||"").replace(/[\u0000-\u001f\u007f]/g," ").trim().slice(0,max);
+const normalize=value=>clean(value,1500).normalize("NFKC").toLowerCase().replace(/\s+/g," ").trim();
+// Report similarities are only triage hints: never treat popularity as proof of accuracy.
+async function triageFingerprint({issue,type,id,label,details,language,quote,suggestion,url}){
+  const entity=id||url;
+  const topic=issue==="translation"?(quote||suggestion||details):
+    issue==="new_place"?label:
+    ["details","other"].includes(issue)?details:"";
+  // General page-level reports without meaningful text should never be merged.
+  if(!entity||((issue==="other"||issue==="details")&&!normalize(topic)))return "";
+  const payload=JSON.stringify(["v1",issue,type,normalize(entity),language,normalize(topic)]);
+  const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(payload));
+  return Array.from(new Uint8Array(digest)).map(v=>v.toString(16).padStart(2,"0")).join("").slice(0,24);
+}
 const validId=id=>/^[a-zA-Z0-9_-]{1,120}$/.test(id);
 function originAllowed(request){
   const origin=request.headers.get("origin");
@@ -38,7 +51,7 @@ function sourcePath(value,requestUrl){
 export async function publicConfig(env){
   let enabled=!!(env.CMS_DB&&feedbackRateKey(env));
   if(enabled){
-    try{await env.CMS_DB.prepare("SELECT language FROM cms_place_feedback LIMIT 1").first();} // Fails closed until the additive locale migration exists.
+    try{await env.CMS_DB.prepare("SELECT triage_key FROM cms_place_feedback LIMIT 1").first();} // Fail closed before the additive V3 migration.
     catch{enabled=false;}
   }
   return json({ok:true,enabled,photo_enabled:enabled&&!!env.FEEDBACK_IMAGES,max_photo_bytes:3145728});
@@ -85,6 +98,7 @@ export async function publicSubmit(request,env){
     return json({ok:false,error:"storage_unavailable"},503);
   }
   const id=crypto.randomUUID(),time=now.toISOString();
+  const triageKey=await triageFingerprint({issue,type,id:entityId,label,details,language,quote:quotedText,suggestion:suggestedText,url});
   const key=image?"pending/"+id+"."+image.ext:null;
   if(image){
     try{await env.FEEDBACK_IMAGES.put(key,image.bytes,{httpMetadata:{contentType:image.type},customMetadata:{feedbackId:id}});}
@@ -92,8 +106,8 @@ export async function publicSubmit(request,env){
   }
   try{
     await db.prepare(
-      "INSERT INTO cms_place_feedback(id,issue,entity_type,entity_id,entity_label,details,source_path,image_key,image_mime,submit_hash,created_at,status,language,source_revision,quoted_text,suggested_text) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
-    ).bind(id,issue,type,entityId||null,label,details,url,key,image?.type||null,hash,time,"new",language,issue==="translation"?revision:"",issue==="translation"?quotedText:"",issue==="translation"?suggestedText:"").run();
+      "INSERT INTO cms_place_feedback(id,issue,entity_type,entity_id,entity_label,details,source_path,image_key,image_mime,submit_hash,created_at,status,language,source_revision,quoted_text,suggested_text,triage_key) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+    ).bind(id,issue,type,entityId||null,label,details,url,key,image?.type||null,hash,time,"new",language,issue==="translation"?revision:"",issue==="translation"?quotedText:"",issue==="translation"?suggestedText:"",triageKey).run();
   }catch(error){
     if(key)await env.FEEDBACK_IMAGES.delete(key).catch(()=>{});
     console.error("feedback storage failed",error);
@@ -123,19 +137,29 @@ export async function adminFeedback(request,env,sessionHandler,{photo=false}={})
     const status=clean(url.searchParams.get("status"),24);
     const kind=clean(url.searchParams.get("kind"),24);
     const language=clean(url.searchParams.get("language"),12);
+    const sort=clean(url.searchParams.get("sort"),24)||"recent";
+    const related=clean(url.searchParams.get("related"),24);
     if(status&&!STATUSES.has(status))return json({error:"invalid_status"},400);
     if(kind&&!["translation","new_place","general"].includes(kind))return json({error:"invalid_kind"},400);
     if(language&&!LANGUAGES.has(language))return json({error:"invalid_language"},400);
+    if(!["recent","repeated"].includes(sort))return json({error:"invalid_sort"},400);
+    if(related&&!/^[0-9a-f]{24}$/.test(related))return json({error:"invalid_related"},400);
     const offsetRaw=Number(url.searchParams.get("offset")||0);
     if(!Number.isInteger(offsetRaw)||offsetRaw<0||offsetRaw>10000)return json({error:"invalid_offset"},400);
     const limit=50,offset=offsetRaw,conditions=[],args=[];
-    if(status){conditions.push("status=?");args.push(status);}
-    if(kind==="translation"){conditions.push("issue=?");args.push("translation");}
-    if(kind==="new_place"){conditions.push("issue=?");args.push("new_place");}
-    if(kind==="general"){conditions.push("issue<>?");args.push("translation");}
-    if(language){conditions.push("language=?");args.push(language);}
-    const select="SELECT id,issue,entity_type,entity_id,entity_label,details,source_path,image_key IS NOT NULL AS has_photo,created_at,status,moderator_note,reviewed_at,reviewed_by,language,source_revision,quoted_text,suggested_text,approved_text FROM cms_place_feedback";
-    const q=db.prepare(select+(conditions.length?" WHERE "+conditions.join(" AND "):"")+" ORDER BY created_at DESC,id DESC LIMIT ? OFFSET ?").bind(...args,limit+1,offset);
+    if(status){conditions.push("f.status=?");args.push(status);}
+    if(kind==="translation"){conditions.push("f.issue=?");args.push("translation");}
+    if(kind==="new_place"){conditions.push("f.issue=?");args.push("new_place");}
+    if(kind==="general"){conditions.push("f.issue NOT IN ('translation','new_place')");}
+    if(language){conditions.push("f.language=?");args.push(language);}
+    if(related){conditions.push("f.triage_key=?");args.push(related);}
+    const select="SELECT f.id,f.issue,f.entity_type,f.entity_id,f.entity_label,f.details,f.source_path,f.image_key IS NOT NULL AS has_photo,"+
+      "f.created_at,f.status,f.moderator_note,f.reviewed_at,f.reviewed_by,f.language,f.source_revision,"+
+      "f.quoted_text,f.suggested_text,f.approved_text,f.triage_key,"+
+      "(CASE WHEN f.triage_key='' THEN 1 ELSE (SELECT COUNT(*) FROM cms_place_feedback d WHERE d.triage_key=f.triage_key) END) AS similar_count "+
+      "FROM cms_place_feedback f";
+    const order=sort==="repeated"?" ORDER BY similar_count DESC,f.created_at DESC,f.id DESC":" ORDER BY f.created_at DESC,f.id DESC";
+    const q=db.prepare(select+(conditions.length?" WHERE "+conditions.join(" AND "):"")+order+" LIMIT ? OFFSET ?").bind(...args,limit+1,offset);
     try{
       const result=await q.all();
       const rows=result.results||[];
@@ -178,6 +202,39 @@ export async function adminFeedback(request,env,sessionHandler,{photo=false}={})
     }catch(error){console.error("feedback review failed",error);return json({error:"storage_unavailable"},503);}
   }
   return json({error:"method_not_allowed"},405);
+}
+
+/* Read-only, role-checked translation memory. No unaudited publishing or API spend. */
+export async function adminCorrections(request,env,sessionHandler){
+  if(request.method!=="GET")return json({error:"method_not_allowed"},405);
+  const authenticated=await sessionHandler({request,env});
+  if(authenticated.status!==200)return authenticated;
+  if(!env.CMS_DB)return json({error:"storage_unavailable"},503);
+  const url=new URL(request.url);
+  const language=clean(url.searchParams.get("language"),12);
+  const source=clean(url.searchParams.get("source_path"),350);
+  const q=clean(url.searchParams.get("q"),80);
+  if(language&&!TRANSLATION_LANGUAGES.has(language))return json({error:"invalid_language"},400);
+  if(source&&!/^\/(?:stories|guide)\/[a-zA-Z0-9/._-]+(?:\?id=[a-zA-Z0-9_-]{1,120})?$/.test(source))
+    return json({error:"invalid_source"},400);
+  const offset=Number(url.searchParams.get("offset")||0);
+  if(!Number.isInteger(offset)||offset<0||offset>10000)return json({error:"invalid_offset"},400);
+  const conditions=[],args=[];
+  if(language){conditions.push("language=?");args.push(language);}
+  if(source){conditions.push("source_path=?");args.push(source);}
+  if(q){
+    const like="%"+q.replace(/[\\%_]/g,c=>"\\"+c)+"%";
+    conditions.push("(quoted_text LIKE ? ESCAPE '\\' OR approved_text LIKE ? ESCAPE '\\' OR entity_id LIKE ? ESCAPE '\\')");
+    args.push(like,like,like);
+  }
+  const sql="SELECT feedback_id,entity_id,source_path,language,source_revision,quoted_text,approved_text,approved_at,approved_by "+
+    "FROM cms_translation_corrections"+(conditions.length?" WHERE "+conditions.join(" AND "):"")+
+    " ORDER BY approved_at DESC,feedback_id DESC LIMIT ? OFFSET ?";
+  try{
+    const limit=50,rows=(await env.CMS_DB.prepare(sql).bind(...args,limit+1,offset).all()).results||[];
+    return json({ok:true,items:rows.slice(0,limit),offset,limit,has_more:rows.length>limit,next_offset:rows.length>limit?offset+limit:null,
+      reuse_rule:"Exact article, language, quoted passage and source revision; verify conflicting corrections before reuse."});
+  }catch(error){console.error("CMS corrections read failed",error);return json({error:"storage_unavailable"},503);}
 }
 
 /* Housekeeping runs once per day from the existing Worker cron; no added schedule. */
