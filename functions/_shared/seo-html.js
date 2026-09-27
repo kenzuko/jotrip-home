@@ -4,7 +4,7 @@ export const SEO_ORIGIN="https://cms.openphuquoc.com";
 export const SEO_FALLBACK_IMAGE=SEO_ORIGIN+"/assets/share-card-phu-quoc-v3.jpg";
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const clean=v=>String(v??"").replace(/\s+/g," ").trim();
-const desc=v=>clean(v).slice(0,190);
+const desc=v=>clean(v).slice(0,158);
 const urlFor=(path)=>SEO_ORIGIN+path;
 const safeImage=url=>typeof url==="string"&&(/^\//.test(url)&&!/^\/\//.test(url)||/^https:\/\//i.test(url))?url:null;
 const dateValue=v=>typeof v==="string"&&/^\d{4}-\d{2}-\d{2}/.test(v)?v.slice(0,10):undefined;
@@ -68,10 +68,13 @@ export function knowledgeBody(o){
 }
 function structured(meta){
   if(meta.kind!=="story"&&meta.kind!=="knowledge")return null;
+  const org={"@type":"Organization","@id":SEO_ORIGIN+"/#organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/",
+    logo:{"@type":"ImageObject",url:SEO_ORIGIN+"/assets/logo-master.png"}};
   const obj={"@context":"https://schema.org","@type":"Article",headline:meta.source.title,
     description:meta.description,mainEntityOfPage:{"@type":"WebPage","@id":meta.canonical},
-    inLanguage:"vi-VN",author:{"@type":"Organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/"},
-    publisher:{"@type":"Organization",name:"Open Phu Quoc",url:SEO_ORIGIN+"/"}};
+    inLanguage:"vi-VN",author:org,publisher:org};
+  const published=dateValue(meta.source.published_at||meta.source.publication_date);
+  if(published)obj.datePublished=published; // Never invent an editorial publication date.
   const d=dateValue(meta.source.updated_at);
   if(d)obj.dateModified=d;
   if(safeImage(meta.image))obj.image=[new URL(meta.image,SEO_ORIGIN).toString()];
