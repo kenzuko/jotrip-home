@@ -166,7 +166,7 @@ export async function cleanupFeedback(env,now=Date.now()){
   if(!env.CMS_DB)return {deleted:0,skipped:0};
   const cutoff=new Date(now-180*86400000).toISOString();
   const expired=await env.CMS_DB.prepare(
-    "SELECT id,image_key FROM cms_place_feedback WHERE created_at<? ORDER BY created_at ASC LIMIT 100"
+    "SELECT id,image_key,issue FROM cms_place_feedback WHERE created_at<? ORDER BY created_at ASC LIMIT 100"
   ).bind(cutoff).all();
   let deleted=0,skipped=0;
   for(const record of expired.results||[]){
