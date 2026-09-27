@@ -116,6 +116,7 @@ try{
   assert.equal(await cms.locator(".item").count(),50);
   assert.equal(await cms.locator(".item img").count(),0,"Public strings must be HTML-escaped");
   await cms.locator("#loadMore").click();
+  await cms.locator(".item").nth(50).waitFor({timeout:10000});
   assert.equal(await cms.locator(".item").count(),51,"CMS inbox must not lose reports after first 50");
   const row=cms.locator(".item").first();
   assert.equal(await row.locator('a[href^="index.html?module=venues"]').count(),1);
@@ -123,7 +124,10 @@ try{
   await row.locator(".save").click();
   assert.equal(patchCount,0,"Terminal review needs a meaningful note");
   await row.locator(".item-note").fill("Đã đối chiếu và sửa địa chỉ.");
-  await row.locator(".save").click();
+  await Promise.all([
+    cms.waitForResponse(response=>response.url().includes("/api/cms/feedback")&&response.request().method()==="PATCH"),
+    row.locator(".save").click()
+  ]);
   assert.equal(patchCount,1);
   await cms.screenshot({path:"visual-qa-results/place-feedback-cms-mobile.png"});
   await cms.close();
