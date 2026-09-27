@@ -3,7 +3,7 @@
   "updated_at": "2026-09-27",
   "map_policy": {
     "provider": "OpenStreetMap",
-    "load_mode": "click_to_load",
+    "load_mode": "viewport_lazy_embed",
     "exact_point_requires": [
       "lat",
       "lon",
@@ -132,6 +132,7 @@
       ]
     },
     "duong-dong-sau-5-gio": {
+      "map_zone": true,
       "zone_id": "zone_central_west",
       "location_label": "Dương Đông - trung tâm & bờ Tây",
       "quick_facts": [
@@ -200,6 +201,7 @@
       ]
     },
     "nhung-doi-mat-tren-mui-ghe": {
+      "map_zone": true,
       "zone_id": "zone_south",
       "location_label": "Bến cá & không gian nghề biển",
       "quick_facts": [
@@ -256,6 +258,7 @@
       ]
     },
     "an-thoi-ben-ca-va-cua-ngo-dao": {
+      "map_zone": true,
       "zone_id": "zone_south",
       "location_label": "An Thới - phía Nam đảo",
       "images": [
@@ -559,6 +562,7 @@
       ]
     },
     "dinh-cau-loi-cau-an": {
+      "entity_id": "place_dinh_cau",
       "location_label": "Phú Quốc - ảnh minh họa bối cảnh",
       "images": [
         {
@@ -575,6 +579,7 @@
       ]
     },
     "gieng-tien-truyen-thuyet-hay-lich-su": {
+      "entity_id": "place_gieng_tien",
       "location_label": "Phú Quốc - ảnh minh họa bối cảnh",
       "images": [
         {
@@ -593,6 +598,7 @@
       ]
     },
     "sao-bien-rach-vem-ngam-trong-nuoc": {
+      "entity_id": "place_rach_vem",
       "location_label": "Phú Quốc - ảnh minh họa bối cảnh",
       "images": [
         {
@@ -609,6 +615,7 @@
       ]
     },
     "ham-ninh-nhip-lang-bien": {
+      "entity_id": "place_ham_ninh",
       "location_label": "Phú Quốc - ảnh minh họa bối cảnh",
       "images": [
         {
@@ -625,6 +632,7 @@
       ]
     },
     "cho-dem-duong-dong-hoi-gia-truoc-khi-goi": {
+      "entity_id": "place_night_market",
       "location_label": "Phú Quốc - ảnh minh họa bối cảnh",
       "images": [
         {
@@ -654,6 +662,7 @@
       ]
     },
     "bai-sao-thay-doi-theo-gio": {
+      "entity_id": "place_bai_sao",
       "location_label": "Phú Quốc - ảnh minh họa bối cảnh",
       "images": [
         {
@@ -670,6 +679,7 @@
       ]
     },
     "suoi-tranh-dep-theo-mua-nuoc": {
+      "entity_id": "place_suoi_tranh",
       "location_label": "Phú Quốc - ảnh minh họa bối cảnh",
       "images": [
         {
@@ -701,6 +711,7 @@
       ]
     },
     "nha-tu-phu-quoc-di-cham-de-hieu": {
+      "entity_id": "place_phu_quoc_prison",
       "location_label": "Phú Quốc - ảnh minh họa bối cảnh",
       "images": [
         {

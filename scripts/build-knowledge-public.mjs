@@ -3,6 +3,28 @@ import path from "node:path";
 const root=process.cwd();
 const payload=JSON.parse(fs.readFileSync(path.join(root,"data/knowledge/objects.json"),"utf8"));
 const visual=JSON.parse(fs.readFileSync(path.join(root,"data/visual-context.json"),"utf8"));
+const entityDir=path.join(root,"data/entities");
+const geoEntities=fs.readdirSync(entityDir).filter(name=>name.endsWith(".json"))
+ .flatMap(name=>JSON.parse(fs.readFileSync(path.join(entityDir,name),"utf8")).entities||[]);
+const geoById=new Map(geoEntities.map(x=>[x.id,x]));
+const locatableTypes=new Set(["PLACE","NATURE","HISTORY_LORE","MEMORY_CHANGE","ACTIVITY"]);
+function locationFor(o){
+ if(!locatableTypes.has(o.topic_type))return null;
+ const entity=geoById.get(o.canonical_entity_id);
+ if(!entity||!["place","zone"].includes(entity.entity_type))return null;
+ const map=entity.map;
+ if(!map||!Number.isFinite(map.lat)||!Number.isFinite(map.lon)||
+    map.lat<9.4||map.lat>10.6||map.lon<103.4||map.lon>104.6||
+    !["exact_entrance","site_centroid","area_anchor","route_anchor"].includes(map.precision)||
+    !map.source||!map.verified_at)return null;
+ return {
+   label:entity.name,
+   map:{lat:map.lat,lon:map.lon,precision:map.precision,
+        anchor_name:map.anchor_name||entity.name,
+        source:map.source,verified_at:map.verified_at,note:map.note||null}
+ };
+}
+
 const out=path.join(root,"data/views/knowledge-public.json");
 // Reuse only previously approved image records already in the site's visual catalog.
 const overrides={
@@ -34,6 +56,7 @@ const imagesFor=o=>{
 const objects=(payload.objects||[]).filter(o=>o.status==="READY_PUBLIC"&&o.public_ready===true).map(o=>({
  topic_id:o.topic_id,number:o.number,title:o.title,topic_type:o.topic_type,story_type:o.story_type,
  canonical_entity_id:o.canonical_entity_id||null,related_entity_ids:o.related_entity_ids||[],
+ location:locationFor(o),
  links:(o.public_links||[]).map(x=>({label:String(x.label||""),url:String(x.url||"")})),
  route:"/guide/article.html?id="+encodeURIComponent(o.topic_id),media:{images:imagesFor(o)},
  editorial:{short_summary:o.editorial?.short_summary||"",practical:o.editorial?.practical||"",
@@ -62,3 +85,4 @@ fs.writeFileSync(path.join(root,"data/views/knowledge-home.json"),
 console.log("Homepage knowledge feed:",homepageObjects.length,"approved teasers");
 
 console.log("Public knowledge view:",objects.length,"articles,",objects.filter(o=>o.media.images.length).length,"with photos");
+console.log("Guide maps:",objects.filter(o=>o.location).length,"specific, source-reviewed locations");

@@ -111,6 +111,15 @@
       const list=el("ul");for(const item of ed.before_you_go)list.append(el("li",null,item));
       section.append(list);root.append(section);
     }
+    if(o.location?.map && window.OpenPQVisual){
+      const location=el("div","knowledge-location");
+      location.innerHTML=OpenPQVisual.locator(null,{
+        title:"Địa điểm trên bản đồ",label:o.location.label,
+        map:o.location.map,
+        openLabel:"Mở bản đồ lớn ↗"
+      });
+      if(location.firstElementChild)root.append(location);
+    }
     // Research questions remain in internal data until answers are editorially verified.
     const more=el("aside","knowledge-further");
     more.append(el("h2",null,"Tìm hiểu thêm"));

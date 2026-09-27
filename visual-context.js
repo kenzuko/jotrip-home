@@ -71,76 +71,67 @@
     '</section>';
   }
 
+  // Article maps render as real, browser-lazy iframes. No map request is made
+  // until the section approaches the viewport; there is no second click.
   function locator(zone, options = {}) {
     const map = options.map || zone?.map;
     const lat = Number(map?.lat);
     const lon = Number(map?.lon);
-    const hasMap = Number.isFinite(lat) && Number.isFinite(lon) && map?.source;
+    const hasMap = map?.lat != null && map?.lon != null &&
+      Number.isFinite(lat) && Number.isFinite(lon) &&
+      lat >= 9.4 && lat <= 10.6 && lon >= 103.4 && lon <= 104.6 &&
+      typeof map?.source === "string" && map.source.trim() &&
+      typeof map?.verified_at === "string" && map.verified_at.trim();
+    if (!hasMap && !options.showMissing) return "";
+
     const precision = String(map?.precision || "");
     const exact = ["exact","point","verified_point","exact_entrance"].includes(precision);
     const title = options.title || "Ở đâu trên đảo?";
     const label = options.label || zone?.name || "Phú Quốc";
-    const anchor = map?.anchor_name || label;
+    const anchor = map?.anchor_name || zone?.map?.anchor_name || label;
     const eyebrow = options.eyebrow || "VỊ TRÍ";
-    const buttonLabel = options.buttonLabel || "Xem bản đồ khu vực";
     const openLabel = options.openLabel || "Mở bản đồ lớn ↗";
-    const loadedLabel = options.loadedLabel || "Bản đồ đã mở";
-    const lazyNote = options.lazyNote || "Bản đồ chỉ tải khi bạn mở";
-    const missingNote = options.missingNote || "Chưa đặt pin khi tọa độ chưa đủ chắc";
     const note = options.note || (exact
-      ? "Tọa độ đã có nguồn xác minh cho điểm này."
+      ? "Xem vị trí đã được kiểm tra của địa điểm này."
       : hasMap
-        ? "Bản đồ mở tại điểm neo "+anchor+" để định hướng khu vực, không phải pin chính xác của địa điểm này."
-        : "Hiện mới xác định được khu vực. Open Phu Quoc chưa đặt pin khi tọa độ chưa đủ chắc.");
+        ? "Bản đồ hiển thị khu vực gần " + anchor + ", không phải vị trí chính xác của địa điểm."
+        : "Chưa có tọa độ đủ tin cậy để hiển thị bản đồ.");
 
-    return '<section class="visual-locator">'+
-      '<div class="visual-locator-copy">'+
-        '<span>'+esc(eyebrow)+'</span>'+
-        '<h2>'+esc(title)+'</h2>'+
-        '<strong>'+esc(label)+'</strong>'+
-        '<p>'+esc(note)+'</p>'+
-        (hasMap
-          ? '<div class="visual-map-actions">'+
-              '<button type="button" data-lazy-map data-lat="'+lat+'" data-lon="'+lon+'" data-precision="'+esc(precision)+'" data-anchor="'+esc(anchor)+'" data-loaded-label="'+esc(loadedLabel)+'">'+esc(buttonLabel)+'</button>'+
-              '<a href="https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(lat+','+lon)+'" target="_blank" rel="noopener">'+esc(openLabel)+'</a>'+
-            '</div>'
-          : '')+
-      '</div>'+
-      '<div class="visual-locator-map" data-map-frame>'+
-        '<div class="visual-map-placeholder"><span>⌖</span><strong>'+esc(label)+'</strong><small>'+(hasMap ? esc(lazyNote) : esc(missingNote))+'</small></div>'+
-        (hasMap?'<div class="visual-map-orientation"><span>'+(exact?'ĐIỂM':'KHU VỰC')+'</span><strong>'+esc(label)+'</strong><small>'+(!exact&&anchor!==label?'Điểm neo: '+esc(anchor):'Dùng để định hướng trên đảo')+'</small></div>':'')+
-      '</div>'+
+    // A lower zoom deliberately presents area anchors as a region, not an
+    // entrance pin. This is still an approximation, so keep the visible note.
+    const zoom = exact ? 16 : (precision === "site_centroid" ? 15 : 12);
+    const mapUrl = hasMap ? "https://www.google.com/maps?q=" +
+      encodeURIComponent(lat + "," + lon) + "&z=" + zoom + "&output=embed" : "";
+    const largeUrl = hasMap ? "https://www.google.com/maps/search/?api=1&query=" +
+      encodeURIComponent(lat + "," + lon) : "";
+
+    return '<section class="visual-locator">' +
+      '<div class="visual-locator-copy">' +
+        '<span>' + esc(eyebrow) + '</span>' +
+        '<h2>' + esc(title) + '</h2>' +
+        '<strong>' + esc(label) + '</strong>' +
+        '<p>' + esc(note) + '</p>' +
+        (hasMap ? '<div class="visual-map-actions">' +
+          '<a href="' + esc(largeUrl) + '" target="_blank" rel="noopener noreferrer">' +
+          esc(openLabel) + '</a></div>' : '') +
+      '</div>' +
+      (hasMap
+        ? '<div class="visual-locator-map" data-map-frame>' +
+            '<iframe title="Bản đồ ' + esc(label) + '" src="' + esc(mapUrl) +
+              '" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" ' +
+              'allowfullscreen></iframe>' +
+            '<div class="visual-map-orientation"><span>' + (exact ? 'ĐIỂM' : 'KHU VỰC') +
+              '</span><strong>' + esc(label) + '</strong><small>' +
+              (exact ? 'Vị trí đã xác minh' : 'Bản đồ định hướng, không phải pin chính xác') +
+              '</small></div>' +
+          '</div>'
+        : '<div class="visual-locator-map visual-locator-map--missing">' +
+            '<p>Chưa có bản đồ cho địa điểm này.</p></div>') +
     '</section>';
   }
 
-  function bindLazyMaps(root = document) {
-    root.querySelectorAll("[data-lazy-map]").forEach(button => {
-      if (button.dataset.bound === "1") return;
-      button.dataset.bound = "1";
-      button.addEventListener("click", () => {
-        const card = button.closest(".visual-locator");
-        const frame = card?.querySelector("[data-map-frame]");
-        if (!frame || frame.dataset.loaded === "1") return;
-
-        const lat = Number(button.dataset.lat);
-        const lon = Number(button.dataset.lon);
-        if (!Number.isFinite(lat) || !Number.isFinite(lon)) return;
-
-        const src = "https://www.google.com/maps?q="+
-          encodeURIComponent(lat+","+lon)+
-          "&z=14&output=embed";
-
-        const precision=String(button.dataset.precision||"");
-        const isExact=["exact","point","verified_point","exact_entrance"].includes(precision);
-        const anchor=button.dataset.anchor||"Phú Quốc";
-        frame.innerHTML = '<iframe title="Bản đồ '+esc(anchor)+'" src="'+src+'" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>'+
-          '<div class="visual-map-orientation"><span>'+(isExact?'ĐIỂM':'KHU VỰC')+'</span><strong>'+esc(anchor)+'</strong><small>'+(isExact?'Vị trí đã có điểm':'Điểm neo để định hướng, không phải ranh giới chính xác')+'</small></div>';
-        frame.dataset.loaded = "1";
-        button.textContent = button.dataset.loadedLabel || "Bản đồ đã mở";
-        button.disabled = true;
-      });
-    });
-  }
+  // Retained for existing article callers; iframes are already in the markup.
+  function bindLazyMaps() {}
 
   function placeholder(title, label = "Minh họa nội dung") {
     const initial = String(title || "PQ").trim().slice(0,1).toUpperCase();
