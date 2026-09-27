@@ -157,6 +157,7 @@
         '</div>'+
       '</section>'+
       '<section class="detail-shell">'+
+        '<div style="margin:18px 0"><button type="button" class="opq-feedback-trigger" data-openpq-feedback data-feedback-id="'+esc(entity.id)+'" data-feedback-name="'+esc(entity.name)+'" data-feedback-type="'+esc(entity.entity_type)+'">Góp ý thông tin về nơi này</button></div>'+
         '<section class="decision-summary">'+
           '<div class="decision-title"><span>'+esc(pc.quick_choice||"CHỌN NHANH")+'</span><strong>'+(level?esc(level.label):'Có hợp lịch của bạn không?')+'</strong><small>'+(level?esc(level.description):'Nhìn nhanh thời gian, thời tiết và cách ghép điểm trước khi đi.')+'</small></div>'+
           '<div><span>'+esc(pc.suitable_when||"HỢP KHI")+'</span><strong>'+esc((planning.strengths||[])[0]||entity.why_go||entity.what_it_is||'Bạn thấy chỗ này đúng gu của mình')+'</strong></div>'+
