@@ -3,6 +3,7 @@ const qsa=s=>Array.from(document.querySelectorAll(s));
 const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics"};
 
 let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null,moduleRequestId=0,baseData=null,publishInFlight=false;
+let storyDraftMessage="Bản nháp chỉ lưu trên trình duyệt này · chưa gửi duyệt.";
 
 const ROLE_LABELS={
   admin:"Quản trị viên",
@@ -42,6 +43,10 @@ const LABELS={
   category:"Chuyên mục",
   dek:"Mô tả ngắn",
   read_minutes:"Thời gian đọc (phút)",
+  image_alt:"Mô tả ảnh bìa",
+  image_caption:"Chú thích ảnh bìa",
+  image_credit:"Tác giả / quyền ảnh bìa",
+  image_source_url:"Nguồn gốc ảnh bìa",
   image:"Ảnh",
   images:"Ảnh minh họa",
   source_label:"Tác giả / đơn vị cung cấp ảnh",
@@ -134,6 +139,7 @@ const LABELS={
 
 function show(id){["boot","remoteGate","login","cms"].forEach(x=>$("#"+x)?.classList.toggle("hidden",x!==id))}
 function status(msg,type=""){const el=$("#status");if(!el)return;el.textContent=msg;el.className="status-bar"+(type?" "+type:"")}
+function setStoryDraftMessage(msg){storyDraftMessage=msg;const el=$("#storyLocalSave");if(el)el.textContent=msg;}
 function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
 function labelize(k){
   if(LABELS[k])return LABELS[k];
@@ -164,8 +170,9 @@ function saveDraftNow(){
     const result=wf.writeModuleDraft(info);
     wf.writeRecordCheckpoints(info);
     wf.renderPanel();
-    if(!result.ok)status(result.error||"Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");
-    if(result.blocked&&result.ok)status("Đã lưu bản sao riêng vì có tab khác đang sửa. Hãy đối chiếu trước khi gửi duyệt.","error");
+    if(!result.ok){status(result.error||"Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");setStoryDraftMessage("Không lưu được. Hãy tải bản sao JSON.");}
+    else if(result.blocked){status("Đã lưu bản sao riêng vì có tab khác đang sửa. Hãy đối chiếu trước khi gửi duyệt.","error");setStoryDraftMessage("Tab khác đang sửa · cần đối chiếu bản sao trước khi gửi.");}
+    else setStoryDraftMessage("Đã lưu trên máy lúc "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"})+" · chưa gửi duyệt.");
     return result.ok;
   }
   const k=draftKey();
@@ -180,7 +187,7 @@ function scheduleDraft(){
       status("Bản nháp đã tự lưu trên trình duyệt này. Chưa gửi duyệt.");
   },650);
 }
-function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);scheduleDraft()}
+function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);if(currentModule?.id==="stories")setStoryDraftMessage("Đang lưu bản nháp trên máy...");scheduleDraft()}
 
 function itemTitle(v,i){
   if(v&&typeof v==="object"){
@@ -419,6 +426,10 @@ function validateCurrent(){
       else if(ids.has(s.id))errors.push("Mã bài bị trùng: "+s.id);
       else ids.add(s.id);
       if(!Array.isArray(s.sections)||!s.sections.length)errors.push("Bài “"+(s.title||("#"+(i+1)))+"” chưa có đoạn nội dung.");
+      if(i===window.OPQStoryDesk?.selected())(s.sections||[]).forEach((part,j)=>{
+        if(!String(part?.heading||"").trim()&&!String(part?.body||"").trim()&&!String(part?.image||"").trim())
+          errors.push("Bài đang sửa, đoạn "+(j+1)+" đang trống. Thêm ảnh/nội dung hoặc xóa đoạn.");
+      });
     });
   }
 
@@ -504,23 +515,18 @@ function storyReadMinutes(story){
 }
 
 function storyLayoutField(val,path){
-  const value=val||"wide";
-  return `<div class="field"><label>Kiểu hiển thị ảnh</label><select data-path="${esc(path)}">
-    <option value="body" ${value==="body"?"selected":""}>Trong cột bài viết</option>
-    <option value="wide" ${value==="wide"?"selected":""}>Ảnh rộng</option>
-    <option value="full" ${value==="full"?"selected":""}>Ảnh lớn toàn khung</option>
-  </select></div>`;
+  return window.OPQStoryComposer?.layoutControl(val,path)||
+    '<div class="field"><label>Kiểu hiển thị ảnh</label><select data-path="'+esc(path)+
+    '"><option value="body">Trong cột</option><option value="wide">Ảnh rộng</option>'+
+    '<option value="full">Toàn khung</option></select></div>';
 }
 
 function coverPositionField(val,path){
-  const value=val||"center";
-  return `<div class="field"><label>Vị trí cắt cover</label><select data-path="${esc(path)}">
-    <option value="center" ${value==="center"?"selected":""}>Giữa ảnh</option>
-    <option value="top" ${value==="top"?"selected":""}>Ưu tiên phía trên</option>
-    <option value="bottom" ${value==="bottom"?"selected":""}>Ưu tiên phía dưới</option>
-    <option value="left" ${value==="left"?"selected":""}>Ưu tiên bên trái</option>
-    <option value="right" ${value==="right"?"selected":""}>Ưu tiên bên phải</option>
-  </select></div>`;
+  return window.OPQStoryComposer?.coverControl(val,path)||
+    '<div class="field"><label>Vị trí ảnh bìa</label><select data-path="'+esc(path)+
+    '"><option value="center">Giữa</option><option value="top">Trên</option>'+
+    '<option value="bottom">Dưới</option><option value="left">Trái</option>'+
+    '<option value="right">Phải</option></select></div>';
 }
 
 function renderStoryWorkbench(story,i){
@@ -531,26 +537,31 @@ function renderStoryWorkbench(story,i){
     ?`<button type="button" class="story-slug" data-story-slug="${i}">Tạo mã từ tiêu đề</button>`
     :"";
 
-  const previewPos={top:"50% 18%",bottom:"50% 82%",left:"18% 50%",right:"82% 50%",center:"50% 50%"}[story.cover_position]||"50% 50%";
-  const cover=story.image
-    ?`<img data-story-preview-image="${i}" src="${esc(story.image)}" alt="" style="object-position:${previewPos}">`
-    :`<div class="story-cover-empty" data-story-preview-image="${i}">Chưa có ảnh cover</div>`;
-
+  const jumpLinks=sections.map((part,j)=>'<button type="button" data-story-jump="'+j+'">'+(j+1)+'. '+esc(part.heading||(part.image?"Ảnh "+(j+1):"Đoạn "+(j+1)))+'</button>').join("");
   const sectionHtml=sections.map((section,j)=>{
-    const sp=p+".sections."+j;
-    return `<article class="story-section-card">
-      <div class="story-card-head"><strong>Đoạn ${j+1}</strong>${itemTools(p+".sections",j,sections.length)}</div>
-      ${primitiveField("heading",section.heading||"",sp+".heading")}
-      ${primitiveField("body",section.body||"",sp+".body")}
-      <details class="section-media-tools" ${section.image?"open":""}>
-        <summary>Ảnh cho đoạn này <small>${section.image?"đã có ảnh":"không bắt buộc"}</small></summary>
-        <div class="section-media-body">
-          ${primitiveField("image",section.image||"",sp+".image")}
-          ${primitiveField("caption",section.caption||"",sp+".caption")}
-          ${storyLayoutField(section.layout||"wide",sp+".layout")}
-        </div>
-      </details>
-    </article>`;
+    const sp=p+".sections."+j,arrayPath=p+".sections";
+    const move='<div class="story-block-move">'+
+      '<button type="button" data-array-action="up" data-array-path="'+esc(arrayPath)+'" data-index="'+j+'" '+(j===0?"disabled":"")+' aria-label="Đưa đoạn lên">↑</button>'+
+      '<button type="button" data-array-action="down" data-array-path="'+esc(arrayPath)+'" data-index="'+j+'" '+(j===sections.length-1?"disabled":"")+' aria-label="Đưa đoạn xuống">↓</button>'+
+      '<details class="story-block-more"><summary aria-label="Tùy chọn đoạn '+(j+1)+'">⋯</summary>'+itemTools(arrayPath,j,sections.length)+'</details></div>';
+    return '<article class="story-section-card" data-story-section-card="'+j+'">'+
+      '<header class="story-card-head"><div class="story-block-label"><strong>Đoạn '+(j+1)+'</strong><small>'+
+      (section.image?"Có ảnh":section.heading||section.body?"Nội dung":"Chưa có nội dung")+'</small></div>'+move+'</header>'+
+      primitiveField("heading",section.heading||"",sp+".heading")+
+      '<div class="story-paragraph-editor">'+primitiveField("body",section.body||"",sp+".body")+
+      '<div class="story-paragraph-tools"><button type="button" data-story-split-photo="'+j+'">⊕ Chèn ảnh tại con trỏ</button>'+
+      '<small>Đặt con trỏ trong đoạn văn để chèn ảnh vào vị trí đó.</small></div></div>'+
+      '<details class="section-media-tools" '+(section.image?"open":"")+'><summary>Ảnh của đoạn này <small>'+
+      (section.image?"Đã có ảnh":"Bấm để chọn ảnh")+'</small></summary><div class="section-media-body">'+
+      '<p class="story-media-hint">Chọn ảnh từ máy hoặc dán URL. Ảnh xuất hiện trước phần chữ của đoạn này khi lên website.</p>'+
+      primitiveField("image",section.image||"",sp+".image")+
+      primitiveField("caption",section.caption||"",sp+".caption")+
+      storyLayoutField(section.layout||"wide",sp+".layout")+
+      '<p class="story-media-hint">Ghi tác giả và nguồn ảnh trong mục Nguồn tham khảo.</p></div></details>'+
+      '<div class="story-insert-row">'+
+      '<button type="button" data-story-insert="text" data-after-section="'+j+'">+ Thêm đoạn sau</button>'+
+      '<button type="button" data-story-insert="image" data-after-section="'+j+'">+ Chèn ảnh sau đoạn</button></div>'+
+      '</article>';
   }).join("");
 
   const sourceHtml=sources.map((source,j)=>{
@@ -562,40 +573,43 @@ function renderStoryWorkbench(story,i){
     </article>`;
   }).join("");
 
-  return `<details class="field-group story-editor story-workbench cms-anchor" data-story-id="${esc(story.id||"")}" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}>
+  return `<details class="field-group story-editor story-workbench cms-anchor" data-story-id="${esc(story.id||"")}" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" open>
     <summary class="group-summary">
       <span>${esc(story.title||("Bài "+(i+1)))}</span>
       <small>${esc(story.category||"Bài viết")} · ${storyReadMinutes(story)} phút</small>
     </summary>
     <div class="detail-body">
+      <nav class="story-edit-jumps" aria-label="Đi nhanh đến đoạn"><span>ĐANG VIẾT</span><button type="button" data-story-jump="intro">Mở bài</button>${jumpLinks||"<small>Chưa có đoạn</small>"}</nav>
       <div class="ew-story-actions">
         <button type="button" class="ew-story-preview" data-story-preview="${i}" data-editor-readonly-action>Xem bài đang soạn ↗</button>
         <span class="ew-story-hint">Nội dung trong trình biên tập, chưa đăng.</span>
       </div>
-      ${storyTools(i,currentData.stories.length)}
+      <details class="story-danger-zone"><summary>Quản lý bài: đổi vị trí, nhân bản hoặc xóa</summary>${storyTools(i,currentData.stories.length)}</details>
       <div class="story-editor-grid">
-        <aside class="story-live-preview">
-          <div class="story-cover">${cover}</div>
-          <span data-story-preview-category="${i}">${esc(story.category||"CHUYÊN MỤC")}</span>
-          <h2 data-story-preview-title="${i}">${esc(story.title||"Tiêu đề bài viết")}</h2>
-          <p class="story-preview-dek" data-story-preview-dek="${i}">${esc(story.dek||"Mô tả ngắn của bài viết sẽ xuất hiện ở đây.")}</p>
-          <div class="story-preview-meta"><b data-story-preview-minutes="${i}">${story.read_minutes||storyReadMinutes(story)}</b> phút đọc · <b data-story-preview-words="${i}">${storyWordCount(story)}</b> từ</div>
+        <aside class="story-live-preview" aria-label="Xem bài đang soạn">
+          <div class="story-live-head"><strong>XEM NGAY KHI ĐANG SỬA</strong><small>Bố cục mô phỏng. Nội dung chưa xuất bản.</small></div>
+          <div class="story-live-reading" data-story-live-reading="${i}">${window.OPQStoryDesk?.readHtml(story)||""}</div>
         </aside>
         <div class="story-main-fields">
           <div class="story-fields-2">
             ${primitiveField("category",story.category||"",p+".category")}
-            ${primitiveField("read_minutes",Number(story.read_minutes)||storyReadMinutes(story),p+".read_minutes")}
           </div>
           ${primitiveField("title",story.title||"",p+".title")}
-          <div class="story-slug-row">
-            ${primitiveField("id",story.id||"",p+".id")}
-            ${slugButton}
-          </div>
           ${primitiveField("dek",story.dek||"",p+".dek")}
-          ${primitiveField("image",story.image||"",p+".image")}
-          ${coverPositionField(story.cover_position||"center",p+".cover_position")}
           ${primitiveField("intro",story.intro||"",p+".intro")}
+          ${primitiveField("image",story.image||"",p+".image")}
+          <details class="story-cover-details" ${story.image?"open":""}><summary>Ảnh bìa: chú thích, nguồn và vị trí cắt</summary>
+            ${primitiveField("image_alt",story.image_alt||"",p+".image_alt")}
+            ${primitiveField("image_caption",story.image_caption||"",p+".image_caption")}
+            ${primitiveField("image_credit",story.image_credit||"",p+".image_credit")}
+            ${primitiveField("image_source_url",story.image_source_url||"",p+".image_source_url")}
+            ${coverPositionField(story.cover_position||"center",p+".cover_position")}
+          </details>
+          <details class="story-technical"><summary>Thông tin nâng cao: mã bài, ảnh cover và thời gian đọc</summary><div class="story-technical-fields">
+          <div class="story-slug-row">${primitiveField("id",story.id||"",p+".id")}${slugButton}</div>
+          ${primitiveField("read_minutes",Number(story.read_minutes)||storyReadMinutes(story),p+".read_minutes")}
           <button type="button" class="story-readtime" data-story-readtime="${i}">Tính lại thời gian đọc</button>
+          </div></details>
         </div>
       </div>
 
@@ -604,7 +618,7 @@ function renderStoryWorkbench(story,i){
         <div class="story-section-list">${sectionHtml||'<p class="empty-builder">Chưa có đoạn nội dung.</p>'}</div>
       </section>
 
-      <section class="story-builder-block">
+      <section class="story-builder-block story-source-block">
         <div class="story-builder-head"><div><span>NGUỒN</span><h3>Tài liệu tham khảo</h3></div><button type="button" class="add-array-item" data-array-path="${esc(p+".sources")}">+ Thêm nguồn</button></div>
         <div class="story-source-list">${sourceHtml||'<p class="empty-builder">Chưa có nguồn tham khảo.</p>'}</div>
       </section>
@@ -804,6 +818,11 @@ function focusRequestedStory(){
   if(!target)return;
   target.open=true;target.classList.add("quality-focus");
   target.scrollIntoView({behavior:"smooth",block:"start"});
+  const field=new URLSearchParams(location.search).get("field");
+  if(field){
+    const el=[...target.querySelectorAll("[data-path]")].find(node=>node.dataset.path.endsWith("."+field));
+    el?.focus({preventScroll:true});
+  }
 }
 function renderVenueWorkbench(){
   const entities=Array.isArray(currentData?.entities)?currentData.entities:[];
@@ -856,8 +875,7 @@ function renderRoot(){
 
   if(currentModule?.id==="stories"&&Array.isArray(currentData?.stories)){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
-    const stories=currentData.stories.map((story,i)=>renderStoryWorkbench(story,i)).join("");
-    return moduleOverview()+`<section class="meta-strip">${meta}<div class="meta-actions"><button type="button" id="addStoryBtn">+ Bài viết mới</button></div></section>${stories}`;
+    return window.OPQStoryDesk?.render(currentData.stories,renderStoryWorkbench,meta)||moduleOverview();
   }
 
   return moduleOverview()+Object.entries(currentData||{}).map(([k,v])=>{
@@ -1053,7 +1071,11 @@ function bindFields(){
         const m=el.dataset.path.match(/^stories\.(\d+)\.(title|category|dek|image|cover_position|read_minutes|intro|sections\..+)$/);
         if(m){
           const i=Number(m[1]),field=m[2],story=currentData.stories?.[i];
-          if(field==="title")document.querySelector('[data-story-preview-title="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Tiêu đề bài viết")));
+          if(field==="title"){
+            document.querySelector('[data-story-preview-title="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Tiêu đề bài viết")));
+            const nav=document.querySelector('[data-story-select="'+i+'"] strong');
+            nav?.replaceChildren(document.createTextNode(String(v||"Bài chưa có tiêu đề")));
+          }
           if(field==="category")document.querySelector('[data-story-preview-category="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"CHUYÊN MỤC")));
           if(field==="dek")document.querySelector('[data-story-preview-dek="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Mô tả ngắn của bài viết sẽ xuất hiện ở đây.")));
           if(field==="read_minutes")document.querySelector('[data-story-preview-minutes="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"1")));
@@ -1081,6 +1103,21 @@ function bindFields(){
           box.innerHTML=src?'<img src="'+esc(src)+'" alt="Xem trước ảnh">':'<span>Dán URL ảnh để xem trước</span>';
         }
       }
+      if(currentModule?.id==="stories"){
+        const match=el.dataset.path.match(/^stories\.(\d+)\./);
+        if(match){
+          const i=Number(match[1]),story=currentData.stories?.[i];
+          if(story){window.OPQStoryDesk?.refreshLive(story,i);window.OPQStoryDesk?.refreshChecks(story,i);}
+          if(el.dataset.path.startsWith("stories."+i+".sections.")){
+            window.OPQStoryDesk?.clearUndo();
+            const undoButton=document.querySelector("[data-story-undo]");if(undoButton)undoButton.hidden=true;
+          }
+          if(el.dataset.path==="stories."+i+".title"){
+            const header=document.querySelector(".story-focus-bar h2");
+            if(header)header.textContent=String(v||"Bài chưa có tiêu đề");
+          }
+        }
+      }
       markDirty();
     });
   });
@@ -1092,16 +1129,18 @@ function bindArrayControls(){
     const i=Number(btn.dataset.index);
     if(!Array.isArray(arr)||!Number.isInteger(i))return;
     const action=btn.dataset.arrayAction;
+    const inStory=currentModule?.id==="stories"&&btn.dataset.arrayPath==="stories."+(window.OPQStoryDesk?.selected()??-1)+".sections";
+    const remember=()=>{if(inStory)window.OPQStoryDesk?.rememberSections(window.OPQStoryDesk.selected(),arr)};
 
     if(action==="delete"){
       if(!confirm("Xóa mục này? Thay đổi chỉ có hiệu lực sau khi bấm Gửi duyệt."))return;
-      arr.splice(i,1);
+      remember();arr.splice(i,1);
     }else if(action==="duplicate"){
-      arr.splice(i+1,0,deepClone(arr[i]));
+      remember();arr.splice(i+1,0,deepClone(arr[i]));
     }else if(action==="up"&&i>0){
-      [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+      remember();[arr[i-1],arr[i]]=[arr[i],arr[i-1]];
     }else if(action==="down"&&i<arr.length-1){
-      [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+      remember();[arr[i+1],arr[i]]=[arr[i],arr[i+1]];
     }
 
     markDirty();
@@ -1111,7 +1150,15 @@ function bindArrayControls(){
   document.querySelectorAll(".add-array-item").forEach(btn=>btn.onclick=()=>{
     const arr=getAtPath(currentData,btn.dataset.arrayPath);
     if(!Array.isArray(arr))return;
-    const template=arr.length?blankLike(arr[0]):(currentModule?.id==="visuals"&&btn.dataset.arrayPath.endsWith(".images")?{url:"",alt:"",caption:"",source_label:"JoTrip",source_url:"",license:"JoTrip owned",license_url:"",scope:"exact_subject"}:"");
+    const inStory=currentModule?.id==="stories"&&
+      btn.dataset.arrayPath.startsWith("stories."+(window.OPQStoryDesk?.selected()??-1)+".");
+    if(inStory&&btn.dataset.arrayPath.endsWith(".sections"))
+      window.OPQStoryDesk?.rememberSections(window.OPQStoryDesk.selected(),arr);
+    const template=arr.length?blankLike(arr[0]):
+      inStory&&btn.dataset.arrayPath.endsWith(".sections")?{heading:"",body:"",image:"",caption:"",layout:"wide"}:
+      inStory&&btn.dataset.arrayPath.endsWith(".sources")?{label:"",url:""}:
+      currentModule?.id==="visuals"&&btn.dataset.arrayPath.endsWith(".images")?
+        {url:"",alt:"",caption:"",source_label:"JoTrip",source_url:"",license:"JoTrip owned",license_url:"",scope:"exact_subject"}:"";
     arr.push(template);
     markDirty("Đã thêm mục mới. Điền nội dung rồi bấm Gửi duyệt.");
     rerender();
@@ -1160,6 +1207,115 @@ function bindVenueControls(){
 }
 
 function bindStoryControls(){
+  const desk=window.OPQStoryDesk,composer=window.OPQStoryComposer;
+  document.querySelectorAll("[data-story-writing]").forEach(btn=>btn.onclick=()=>{
+    if(desk?.view()!=="edit")return;
+    desk.toggleWriting();rerender();
+  });
+  document.querySelectorAll("[data-story-undo]").forEach(btn=>btn.onclick=()=>{
+    if(!currentModule?.write?.includes(session.role))return;
+    const index=desk?.selected()??-1,story=currentData.stories?.[index],snapshot=desk?.undoSections(index);
+    if(!story||!snapshot)return;
+    story.sections=snapshot;markDirty("Đã hoàn tác thao tác cấu trúc đoạn. Nội dung đang viết vẫn cần xem lại.");
+    rerender();
+  });
+  const focusStoryField=(raw,number)=>{
+    if(desk?.view()!=="edit"||raw&&!currentModule?.write?.includes(session.role))return;
+    const index=desk.selected();
+    const path=raw||(number==="intro"?"stories."+index+".intro":
+      "stories."+index+".sections."+Number(number)+".body");
+    if(path==="stories."+index+".sections"||path==="stories."+index+".sources"){
+      const add=[...document.querySelectorAll("#editor [data-array-path]")].find(el=>
+        el.classList.contains("add-array-item")&&el.dataset.arrayPath===path);
+      if(!add)return;
+      add.click();
+      const items=path.endsWith(".sections")?currentData.stories[index].sections:
+        currentData.stories[index].sources;
+      const key=path.endsWith(".sections")?".heading":".label";
+      const field=[...document.querySelectorAll("#editor [data-path]")].find(el=>
+        el.dataset.path===path+"."+(items.length-1)+key);
+      if(field){field.focus({preventScroll:true});field.scrollIntoView({behavior:"smooth",block:"center"});}
+      return;
+    }
+    const target=[...document.querySelectorAll("#editor [data-path]")].find(el=>el.dataset.path===path);
+    if(!target)return;
+    let parent=target.parentElement;
+    while(parent&&parent.id!=="editor"){if(parent.tagName==="DETAILS")parent.open=true;parent=parent.parentElement;}
+    target.focus({preventScroll:true});
+    target.scrollIntoView({behavior:"smooth",block:"center"});
+  };
+  document.querySelectorAll("[data-story-jump]").forEach(btn=>btn.onclick=()=>
+    focusStoryField("",btn.dataset.storyJump));
+  document.querySelector(".story-focus")?.addEventListener("click",event=>{
+    const btn=event.target.closest("[data-story-fix]");
+    if(btn)focusStoryField(btn.dataset.storyFix);
+  });
+  document.querySelectorAll("[data-story-select]").forEach(btn=>btn.onclick=()=>{
+    if(desk?.select(Number(btn.dataset.storySelect),currentData.stories.length))rerender();
+  });
+  document.querySelectorAll("[data-story-view]").forEach(btn=>btn.onclick=()=>{
+    if(desk?.setView(btn.dataset.storyView))rerender();
+  });
+  const search=document.getElementById("storyDeskSearch");
+  if(search)search.oninput=()=>{
+    desk?.query(search.value);
+    const q=desk?.normalize(search.value)||"";
+    let shown=0;
+    document.querySelectorAll("[data-story-select]").forEach(btn=>{
+      const hit=btn.dataset.storySearch.includes(q);btn.hidden=!hit;if(hit)shown++;
+    });
+    document.getElementById("storyDeskCount").textContent=shown+" bài phù hợp";
+  };
+  document.querySelectorAll("[data-story-focus],[data-story-edit-intro]").forEach(btn=>btn.onclick=()=>{
+    const section=btn.dataset.storyFocus;
+    desk?.setView("edit");rerender();
+    const prefix="stories."+desk.selected()+".";
+    const path=section===undefined?prefix+"intro":prefix+"sections."+section+".body";
+    const field=[...document.querySelectorAll("#editor [data-path]")].find(el=>el.dataset.path===path);
+    field?.focus({preventScroll:true});
+    field?.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+  document.querySelectorAll("[data-story-insert],[data-story-split-photo]").forEach(btn=>btn.onclick=()=>{
+    if(!currentModule?.write?.includes(session.role)||!composer)return;
+    const articleIndex=desk?.selected()??-1,story=currentData.stories?.[articleIndex];
+    if(!story)return;
+    const sections=story.sections||(story.sections=[]);
+    let index=-1;
+    desk?.rememberSections(articleIndex,sections);
+    if(btn.hasAttribute("data-story-split-photo")){
+      const n=Number(btn.dataset.storySplitPhoto);
+      const field=[...document.querySelectorAll("#editor [data-path]")].find(el=>
+        el.dataset.path==="stories."+articleIndex+".sections."+n+".body");
+      const result=composer.splitForImage(sections,n,field?.selectionStart);
+      if(!result)return;
+      index=result.photoIndex;
+    }else index=composer.insertAfter(sections,Number(btn.dataset.afterSection),btn.dataset.storyInsert);
+    if(index<0)return;
+    markDirty("Đã thêm khối nội dung. Chọn ảnh hoặc viết tiếp rồi xem lại bài.");
+    rerender();
+    const card=document.querySelector('[data-story-section-card="'+index+'"]');
+    if(btn.dataset.storyInsert==="text"){
+      card?.querySelector('[data-path$=".heading"]')?.focus({preventScroll:true});
+    }else{
+      const details=card?.querySelector(".section-media-tools");
+      if(details)details.open=true;
+      card?.querySelector("[data-media-path]")?.focus?.({preventScroll:true});
+    }
+    card?.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+  document.querySelectorAll("[data-story-layout-pick],[data-story-cover-pick]").forEach(btn=>btn.onclick=()=>{
+    if(!currentModule?.write?.includes(session.role))return;
+    const path=btn.dataset.storyLayoutPath||btn.dataset.storyCoverPath;
+    const value=btn.dataset.storyLayoutPick||btn.dataset.storyCoverPick;
+    const select=[...document.querySelectorAll("#editor select[data-path]")].find(el=>el.dataset.path===path);
+    if(!select||select.value===value)return;
+    select.value=value;select.dispatchEvent(new Event("input",{bubbles:true}));
+    btn.parentElement?.querySelectorAll("button").forEach(el=>el.setAttribute("aria-pressed",String(el===btn)));
+  });
+  document.querySelectorAll(".story-paragraph-editor textarea").forEach(el=>{
+    const size=()=>{el.style.height="auto";el.style.height=Math.min(640,Math.max(145,el.scrollHeight+3))+"px";};
+    size();el.addEventListener("input",size);
+  });
   document.querySelectorAll("[data-story-preview]").forEach(btn=>
     btn.onclick=()=>window.OPQEditorWorkflow?.previewArticle(Number(btn.dataset.storyPreview)));
   document.querySelectorAll("[data-story-readtime]").forEach(btn=>btn.onclick=()=>{
@@ -1177,6 +1333,9 @@ function bindStoryControls(){
     story.sections=[{heading:"",body:"",image:"",caption:"",layout:"wide"}];
     story.sources=[{label:"",url:""}];
     arr.push(story);
+    window.OPQStoryDesk?.select(arr.length-1,arr.length);
+    window.OPQStoryDesk?.setView("edit");
+    window.OPQStoryDesk?.query("");
     markDirty("Đã tạo bài viết mới. Điền tiêu đề, nội dung và nguồn trước khi xuất bản.");
     rerender();
     setTimeout(()=>document.querySelectorAll(".story-editor").item(document.querySelectorAll(".story-editor").length-1)?.scrollIntoView({behavior:"smooth",block:"start"}),50);
@@ -1190,15 +1349,22 @@ function bindStoryControls(){
     if(action==="delete"){
       if(!confirm("Xóa bài viết này? Thay đổi chỉ có hiệu lực sau khi bấm Gửi duyệt."))return;
       arr.splice(i,1);
+      window.OPQStoryDesk?.select(Math.min(i,arr.length-1),arr.length);
     }else if(action==="duplicate"){
       const copy=deepClone(arr[i]);
       copy.id=copy.id?copy.id+"-copy":"";
       copy.title=copy.title?copy.title+" - bản sao":"";
       arr.splice(i+1,0,copy);
+      window.OPQStoryDesk?.select(i+1,arr.length);
+      window.OPQStoryDesk?.setView("edit");
     }else if(action==="up"&&i>0){
       [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+      window.OPQStoryDesk?.select(i-1,arr.length);
+      window.OPQStoryDesk?.setView("edit");
     }else if(action==="down"&&i<arr.length-1){
       [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+      window.OPQStoryDesk?.select(i+1,arr.length);
+      window.OPQStoryDesk?.setView("edit");
     }
 
     markDirty();
@@ -1388,6 +1554,7 @@ function applyPermissions(){
 
 function rerender(){
   const y=window.scrollY;
+  const catalogScroll=currentModule.id==="stories"?document.querySelector(".story-catalog-list")?.scrollTop||0:0;
   if(currentModule.id==="analytics"){
     $("#editorNav")?.classList.add("hidden");
     renderAnalytics();
@@ -1408,7 +1575,11 @@ function rerender(){
   bindSearch();
   applyPermissions();
   window.OPQEditorWorkflow?.renderPanel();
-
+  if(currentModule.id==="stories"){
+    const localBadge=document.getElementById("storyLocalSave");if(localBadge)localBadge.textContent=storyDraftMessage;
+    const catalog=document.querySelector(".story-catalog-list");
+    if(catalog)catalog.scrollTop=catalogScroll;
+  }
   requestAnimationFrame(()=>window.scrollTo(0,y));
 }
 
@@ -1508,6 +1679,7 @@ async function boot(){
   renderNav();
   show("cms");
   bindSidebarToggle();
+  window.OPQAdminV2?.mount({modules:schema.modules,role:session.role,onModule:selectModule});
 
   const requested=new URLSearchParams(location.search).get("module");
   const first=schema.modules.find(m=>m.id===requested&&m.read.includes(session.role));
@@ -1532,7 +1704,7 @@ function renderNav(){
   const dashboard='<button class="module-btn" type="button" data-id="dashboard" title="Bàn làm việc"><span class="module-short">⌂</span><span class="module-copy"><strong>Bàn làm việc</strong><small>Tình hình và việc cần làm</small></span></button>';
   const quality='<a class="module-btn" href="quality.html" title="Cần kiểm chứng"><span class="module-short">!</span><span class="module-copy"><strong>Cần kiểm chứng</strong><small>Chất lượng và nguồn dữ liệu</small></span></a>';
   const reviews='<a class="module-btn" href="reviews.html" title="Hàng đợi duyệt"><span class="module-short">✓</span><span class="module-copy"><strong>Hàng đợi duyệt</strong><small>Đề xuất chưa public</small></span></a>';
-  const knowledge=permitted.some(x=>x.id==="guide")?'<a class="module-btn" href="../guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện bài đã công bố"><span class="module-short">↗</span><span class="module-copy"><strong>Thư viện bài</strong><small>Mở trang đọc công khai</small></span></a>':"";
+  const knowledge=permitted.some(x=>x.id==="guide")?'<a class="module-btn" href="https://openphuquoc.com/guide/knowledge.html" target="_blank" rel="noopener" title="Mở thư viện bài đã công bố"><span class="module-short">↗</span><span class="module-copy"><strong>Thư viện bài</strong><small>Mở trang đọc công khai</small></span></a>':"";
   $("#moduleNav").innerHTML=
     group("CÔNG VIỆC",dashboard+quality+reviews)+
     group("BIÊN TẬP",["home","stories","guide","visuals"].map(item).join("")+knowledge)+
@@ -1584,10 +1756,10 @@ async function selectModule(id){
   const isAnalytics=currentModule.id==="analytics";
   $("#saveBtn").classList.toggle("hidden",isAnalytics||isDashboard);
   $("#resetBtn")?.classList.add("hidden");
-  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isDashboard);
+  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isDashboard||currentModule.id==="stories");
 
   if(currentModule.preview){
-    $("#previewBtn").href=currentModule.preview;
+    $("#previewBtn").href=new URL(currentModule.preview, "https://openphuquoc.com/admin/").href;
     $("#previewBtn").textContent="Trang đã công bố ↗";
     $("#previewBtn").title="Bản công khai: không bao gồm thay đổi chưa gửi duyệt.";
     $("#previewBtn").classList.remove("hidden");
@@ -1635,6 +1807,7 @@ async function selectModule(id){
     const b=await api(API.content+"?path="+encodeURIComponent(currentModule.path));
     if(requestId!==moduleRequestId)return;
     currentData=b.content;
+    if(currentModule.id==="stories")storyDraftMessage="Bản nháp chỉ lưu trên trình duyệt này · chưa gửi duyệt.";
     currentSha=b.sha;
     baseData=deepClone(b.content);
     dirty=false;
@@ -1674,6 +1847,8 @@ async function selectModule(id){
       }
     }
 
+    if(currentModule.id==="stories")window.OPQStoryDesk?.reset(currentData.stories,
+      new URLSearchParams(location.search).get("record"));
     if(window.OPQEditorWorkflow&&currentModule.id!=="analytics"){
       window.OPQEditorWorkflow.start({
         login:session.login,module:currentModule.id,modulePath:currentModule.path,
@@ -1757,7 +1932,7 @@ async function save(){
   }catch(e){
     status(
       e.status===409
-        ?"Nội dung trên GitHub đã đổi trong lúc cậu đang sửa. Tải lại module rồi áp dụng lại thay đổi để tránh ghi đè."
+        ?"Có đề xuất khác hoặc phiên bản GitHub đã thay đổi. Bản nháp vẫn nằm trên thiết bị. Mở khung Biên tập an toàn, tải JSON rồi đối chiếu trước khi gửi lại."
         :e.message,
       "error"
     );
@@ -1795,4 +1970,16 @@ window.addEventListener("beforeunload",e=>{
   }
 });
 
+document.addEventListener("keydown",event=>{
+  if(currentModule?.id!=="stories"||!(event.ctrlKey||event.metaKey)||
+      event.shiftKey||event.altKey||String(event.key).toLowerCase()!=="s")return;
+  event.preventDefault();
+  if(!currentModule.write?.includes(session?.role)){setStoryDraftMessage("Tài khoản này chỉ có quyền đọc.");return;}
+  clearTimeout(draftTimer);
+  if(dirty){
+    const ok=saveDraftNow();
+    if(ok&&!window.OPQEditorWorkflow?.hasConflict())
+      status("Đã lưu nháp trên máy. Chưa gửi duyệt.","success");
+  }else setStoryDraftMessage("Không có thay đổi mới để lưu.");
+});
 boot();

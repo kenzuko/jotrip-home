@@ -13,15 +13,26 @@ const sandbox={
   esc:value=>String(value??"").replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char])),
   names:{VENUE_COORDINATE_MISSING:"Địa điểm thiếu tọa độ hợp lệ"},
   severity:{high:"Cần ưu tiên",medium:"Cần bổ sung",low:"Theo dõi"},
-  when:value=>String(value||"")
+  when:value=>String(value||""),
+  today:()=>"2026-09-27"
 };
 vm.runInNewContext([
+  extract(quality,"entityName"),
+  extract(quality,"taskHref"),
+  extract(quality,"datePill"),
+  extract(quality,"sortQualityTasks"),
   extract(quality,"renderQualityTasks"),
   extract(quality,"renderReviewTasks"),
   extract(quality,"renderMergedHistory"),
   extract(quality,"countOpenWork")
 ].join("\n"),sandbox);
 
+const globallySorted=sandbox.sortQualityTasks([
+  ...Array.from({length:12},(_,i)=>({severity:"low",surface:"B",due_at:"2026-12-01",entity_id:"low_"+i})),
+  {severity:"high",surface:"A",due_at:"2026-09-28",entity_id:"urgent"}
+]);
+assert.equal(globallySorted.slice(0,10)[0].entity_id,"urgent",
+  "Urgent tasks must appear on the first page, even if the API returned them last");
 const qualityHtml=sandbox.renderQualityTasks([{
   entity_id:"venue/one",
   field:"coordinate_source_ref",
@@ -48,6 +59,19 @@ const mergedHtml=sandbox.renderMergedHistory([{
 assert.match(mergedHtml,/github\.com\/kenzuko\/jotrip-home\/pull\/41/);
 assert.match(mergedHtml,/@admin/);
 assert.equal(sandbox.countOpenWork([{},{},{}],[{}]),4);
+const foodHtml=sandbox.renderQualityTasks([{
+ rule_id:"FOOD_ARTICLE_GAP",entity_id:"food_bun_ken",field:"legacy_id",
+ surface:"Cẩm nang món ăn",status:"open",severity:"low",
+ evidence:"Bún kèn có thực thể món nhưng chưa có bài cũ map theo ID."
+}]);
+assert.match(foodHtml,/module=foods&amp;record=food_bun_ken/);
+assert.match(foodHtml,/Bún kèn/);
+const globalHtml=sandbox.renderQualityTasks([{
+ rule_id:"FOOD_PILOT_NO_READY_VENUES",entity_id:null,
+ field:"venues",surface:"Ăn quanh tôi",severity:"high",
+ evidence:"Chưa có địa điểm đạt điều kiện"
+}]);
+assert.doesNotMatch(globalHtml,/module=venues&amp;record=/);
 let reviewClicked=false;
 const reviewSandbox={
   URLSearchParams,

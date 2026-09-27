@@ -60,6 +60,10 @@ try{
     async batch(statements){
       for(const st of statements){
         if(st.sql.startsWith("INSERT INTO cms_quality_work_items")){
+          assert.match(st.sql,/DO UPDATE SET[^"]*owner=excluded.owner/,
+            "Claimed owner must survive SQLite upsert");
+          assert.match(st.sql,/DO UPDATE SET[^"]*due_at=excluded.due_at/,
+            "Edited due date must survive SQLite upsert");
           const [task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at,updated_at]=st.values;
           rows[task_key]={task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at,updated_at};
         }else if(st.sql.startsWith("INSERT INTO cms_quality_audit_events"))events.push(st.values);
@@ -81,11 +85,22 @@ try{
   assert.equal(persistedTask.status,"in_progress","Setting a due date must preserve task status");
   assert.equal(persistedTask.owner,"kenzuko");
   assert.equal(persistedTask.due_at,"2026-10-01");
-  assert.equal(events.length,2);
+  const badDate=await onRequest({request:request(true,"POST",{
+    task_key,action:"due",due_at:"2026-15-39"
+  }),env});
+  assert.equal(badDate.status,400,"Invalid calendar dates must be rejected");
+  const reopened=await onRequest({request:request(true,"POST",{task_key,action:"reopen"}),env});
+  assert.equal(reopened.status,200);
+  const afterReopen=(await(await onRequest({request:request(true),env})).json()).tasks
+    .find(x=>x.rule_id===task.rule_id&&x.entity_id===task.entity_id);
+  assert.equal(afterReopen.status,"open");
+  assert.equal(afterReopen.due_at,"2026-10-01","Reopening must preserve due date");
+  assert.equal(events.length,3);
   assert.equal(events[0][2],"kenzuko");
   assert.equal(events[0][3],"claim");
   assert.equal(events[0][4],"null");
   assert.equal(events[1][3],"due");
+  assert.equal(events[2][3],"reopen");
   const migration=fs.readFileSync(path.join(process.cwd(),"migrations/d1/0001_cms_quality_work_items.sql"),"utf8");
   const sqlCheck=spawnSync("python3",["-c","import sqlite3,sys; db=sqlite3.connect(':memory:'); db.executescript('CREATE TABLE analytics_sync (source TEXT PRIMARY KEY); CREATE TABLE cms_weather_field_feedback (id TEXT PRIMARY KEY);'); db.executescript(sys.stdin.read()); names={r[0] for r in db.execute(\"SELECT name FROM sqlite_master WHERE type='table'\")}; assert {'analytics_sync','cms_weather_field_feedback','cms_quality_work_items','cms_quality_audit_events'} <= names"],{input:migration,encoding:"utf8"});
   assert.equal(sqlCheck.status,0,sqlCheck.stderr||sqlCheck.stdout);
