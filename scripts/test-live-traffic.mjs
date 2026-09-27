@@ -18,8 +18,8 @@ const checks=[
   ["/",200,html=>html.includes("/core/traffic.js"),"Homepage must load tracker"],
   ["/core/traffic.js",200,js=>js.includes("globalPrivacyControl")&&js.includes("/api/traffic/collect"),"Public tracker must be latest code"],
   ["/admin/",200,html=>!html.includes('src="/core/traffic.js')&&html.includes("traffic-dashboard.js"),"Admin must never collect public pageviews"],
-  ["/admin/traffic-dashboard.js",200,js=>js.includes("OPQTrafficDashboard")&&js.includes("/api/cms/traffic"),"Dashboard module must be deployed"],
-  ["/admin/traffic-dashboard.css",200,css=>css.includes(".traffic-kpis"),"Dashboard styles must be deployed"],
+  ["/admin/traffic-dashboard.js",200,js=>js.includes("OPQTrafficDashboard")&&js.includes("/api/cms/traffic")&&js.includes("data-traffic-period")&&js.includes("Xuất CSV")&&!js.includes("được giữ tối đa 180 ngày"),"Long-term owner-only dashboard with all-time filters and CSV must be deployed"],
+  ["/admin/traffic-dashboard.css",200,css=>css.includes(".traffic-kpis")&&css.includes(".traffic-filter-grid")&&css.includes(".traffic-export"),"Long-term owner dashboard controls must be deployed"],
   ["/sitemap.xml",200,xml=>xml.includes("<urlset")&&xml.includes("/guide/article.html?id="),"Sitemap must contain public article URLs"]
 ];
 let problems=[];
