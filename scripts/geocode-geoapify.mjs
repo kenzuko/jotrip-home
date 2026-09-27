@@ -84,7 +84,7 @@ export function requestUrl(query, apiKey) {
 }
 
 function normalizedText(s = '') {
-  return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').toLowerCase().replace(/[^a-z0-9]/g, ' ').trim();
+  return String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[đĐ]/g, 'd').toLowerCase().replace(/[^a-z0-9]/g, ' ').trim();
 }
 
 export function assess(doc, feature) {
