@@ -529,11 +529,12 @@
 
   function directoryFallback(){
     const query=mapSearchQuery(),loading=dataStatus==="loading";
+    const need=(searchText.trim()||category()?.label||"địa điểm").toLocaleLowerCase("vi");
     $("#resultsTitle").textContent=loading?"Đang tìm địa điểm":areaLabel()+" · Chưa tải được danh sách";
     $("#resultsCount").textContent="";
     $("#nearStatus").textContent=loading?"Đang tải địa điểm quanh "+areaLabel()+".":"Chưa tải được địa điểm. Bạn thử lại sau nhé.";
     $("#nearResults").innerHTML=loading?'<div class="empty">Đang tìm những địa điểm phù hợp...</div>':
-      '<article class="discovery-card"><strong>Chưa tải được danh sách lúc này</strong>'+
+      '<article class="discovery-card"><strong>Chưa tải được danh sách '+esc(need)+' lúc này</strong>'+
       '<p>Bạn có thể thử lại hoặc tìm thêm trên Google Maps. Kết quả bên ngoài chưa được Open Phu Quoc lọc.</p>'+
       '<a href="'+esc(googleSearchUrl(query))+'" target="_blank" rel="noopener noreferrer">Tìm thêm trên Google Maps ↗</a></article>';
     if(mapOpen&&!nearMap)showMapFallback(query);
