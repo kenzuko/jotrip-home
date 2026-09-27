@@ -82,8 +82,12 @@ const fullIsland=b=>b.south<=9.88&&b.north>=10.46&&b.west<=103.79&&b.east>=104.1
 assert.equal(mapWindow.OpenPQGoMap.overview(),true,"Island overview available");
 assert.ok(fullIsland(frameEvents.at(-1)),"Overview frames the entire island on mobile");
 mapWindow.OpenPQGoMap.draw({lat:10.2172,lon:103.9593},5,[],{gps:false});
-assert.ok(fullIsland(frameEvents.at(-1)),"5km radar must not crop the northern/southern coast");
+const focused=frameEvents.at(-1);
+assert.ok(!fullIsland(focused),"Selected 5km map should zoom to the chosen area instead of shrinking its circle into an island-wide view");
+assert.ok(focused.south<10.2172&&focused.north>10.2172&&focused.west<103.9593&&focused.east>103.9593,"Focused map contains the chosen area center");
 mapWindow.OpenPQGoMap.draw({lat:10.3759,lon:103.90},50,[],{gps:false});
-assert.ok(fullIsland(frameEvents.at(-1))&&frameEvents.at(-1).north>10.6,
-  "Large north-island radius must include both island and the complete ring");
+assert.ok(frameEvents.at(-1).north>10.6&&frameEvents.at(-1).south<10.3759&&frameEvents.at(-1).west<103.90,
+  "Large north-island radius must include the whole selected ring even outside the coast");
+assert.equal(mapWindow.OpenPQGoMap.overview(),true);
+assert.ok(fullIsland(frameEvents.at(-1)),"Visitors can always return to a whole-island frame");
 console.log("go island viewport and radial overlay tests passed");
