@@ -69,6 +69,7 @@ export async function collectTraffic(request,env){
 // double-counting on deploy, or destructive backfill migrations.
 const CHANNELS=new Set(["all","direct","internal","search","ai","social","referral"]);
 const DEVICE_FILTERS=new Set(["all","desktop","mobile","tablet","other"]);
+const ACTION_FILTERS=new Set(["all",...EVENT_TYPES].filter(x=>x!=="page_view"));
 const PAGE_GROUPS=new Set(["all","home","guide","stories","go","nearme","weather","airport","transit","other"]);
 const SORTS={
   hits_desc:"hits DESC, label ASC",hits_asc:"hits ASC, label ASC",
@@ -105,12 +106,13 @@ export function resolveTrafficPeriod(searchParams,today,firstDay){
   const country=(searchParams.get("country")||"all").toUpperCase();
   const device=searchParams.get("device")||"all";
   const pageGroup=searchParams.get("page_group")||"all";
+  const action=searchParams.get("action")||"all";
   const sort=searchParams.get("sort")||"hits_desc";
   const q=(searchParams.get("q")||"").trim();
-  if(!CHANNELS.has(channel)||!DEVICE_FILTERS.has(device)||!PAGE_GROUPS.has(pageGroup)||!Object.hasOwn(SORTS,sort)
+  if(!CHANNELS.has(channel)||!DEVICE_FILTERS.has(device)||!PAGE_GROUPS.has(pageGroup)||!ACTION_FILTERS.has(action)||!Object.hasOwn(SORTS,sort)
     ||country!=="ALL"&&!/^[A-Z]{2}$/.test(country)||q.length>80)return null;
   const compare=period!=="all"&&period!=="custom"?true:searchParams.get("compare")==="1";
-  return {from,to,period,days,grain,channel,country,device,pageGroup,sort,q,compare};
+  return {from,to,period,days,grain,channel,country,device,pageGroup,action,sort,q,compare};
 }
 async function firstTrafficDay(db){
   const result=await db.prepare("SELECT MIN(day) AS first_day FROM web_traffic_daily").first();
@@ -145,11 +147,11 @@ async function aggregates(db,filter,full=false){
     referrers:"SELECT ref_domain AS label,SUM(hits) hits FROM web_traffic_daily WHERE "+view+" AND ref_domain!='' GROUP BY ref_domain ORDER BY "+groupOrder+(full?"":" LIMIT 50"),
     countries:"SELECT country AS label,SUM(hits) hits FROM web_traffic_daily WHERE "+view+" GROUP BY country ORDER BY "+groupOrder,
     devices:"SELECT device AS label,SUM(hits) hits FROM web_traffic_daily WHERE "+view+" GROUP BY device ORDER BY "+groupOrder,
-    actions:"SELECT event AS label,SUM(hits) hits FROM web_traffic_daily WHERE "+where+" AND event!='page_view' GROUP BY event ORDER BY "+groupOrder,
+    actions:"SELECT event AS label,SUM(hits) hits FROM web_traffic_daily WHERE "+where+" AND event!='page_view'"+(filter.action==="all"?"":" AND event=?")+" GROUP BY event ORDER BY "+groupOrder,
     pageGroups:"SELECT "+GROUP_CASE+" AS label,SUM(hits) hits FROM web_traffic_daily WHERE "+view+" GROUP BY label ORDER BY "+groupOrder
   };
   const keys=Object.keys(queries);
-  const responses=await Promise.all(keys.map(key=>run(queries[key])));
+  const responses=await Promise.all(keys.map(key=>run(queries[key],key==="actions"&&filter.action!=="all"?[...args,filter.action]:args)));
   const result=Object.fromEntries(keys.map((k,i)=>[k,responses[i]]));
   result.total_page_views=result.trend.reduce((s,row)=>s+row.hits,0);
   result.total_actions=result.actions.reduce((s,row)=>s+row.hits,0);
@@ -163,7 +165,8 @@ async function previousPeriod(db,filter,firstDay,current){
   if(!firstDay||firstDay>prevFrom)
     return {available:false,from:prevFrom,to:prevTo,reason:"Chưa đủ dữ liệu của kỳ trước"};
   const {where,args}=clause(filter,prevFrom,prevTo);
-  const data=await fetchRows(db,"SELECT event,SUM(hits) hits FROM web_traffic_daily WHERE "+where+" GROUP BY event",args);
+  const actionClause=filter.action==="all"?"":" AND (event='page_view' OR event=?)";
+  const data=await fetchRows(db,"SELECT event,SUM(hits) hits FROM web_traffic_daily WHERE "+where+actionClause+" GROUP BY event",filter.action==="all"?args:[...args,filter.action]);
   const views=data.find(r=>r.event==="page_view")?.hits||0;
   const actions=data.filter(r=>r.event!=="page_view").reduce((s,r)=>s+r.hits,0);
   return {available:true,from:prevFrom,to:prevTo,page_views:views,actions,
@@ -175,8 +178,9 @@ async function exportTrafficCsv(db,filter){
   // Export the actual retained aggregate rows (not only the top-50 report).
   // Refuse overlarge downloads instead of silently truncating historical data.
   const limit=20001;
-  const rows=await fetchRows(db,"SELECT day,event,path,channel,ref_domain,country,device,hits FROM web_traffic_daily WHERE "+where+
-    " ORDER BY day ASC,event ASC,path ASC LIMIT "+limit,args);
+  const actionClause=filter.action==="all"?"":" AND (event='page_view' OR event=?)";
+  const rows=await fetchRows(db,"SELECT day,event,path,channel,ref_domain,country,device,hits FROM web_traffic_daily WHERE "+where+actionClause+
+    " ORDER BY day ASC,event ASC,path ASC LIMIT "+limit,filter.action==="all"?args:[...args,filter.action]);
   if(rows.length>=limit)return json({error:"Bản xuất vượt 20.000 dòng. Chọn khoảng thời gian ngắn hơn để tải đủ dữ liệu, tránh mất dòng."},413);
   const columns=["day","event","path","channel","ref_domain","country","device","hits"];
   const csv="\uFEFF"+columns.map(csvCell).join(",")+"\r\n"+rows.map(row=>columns.map(key=>csvCell(row[key])).join(",")).join("\r\n")+"\r\n";
@@ -202,7 +206,7 @@ export async function trafficReport(request,env){
     const comparison=await previousPeriod(db,filter,first_day,data);
     return json({
       ready:true,first_day,from:filter.from,to:filter.to,period:filter.period,
-      grain:filter.grain,filters:{channel:filter.channel,country:filter.country,device:filter.device,page_group:filter.pageGroup,q:filter.q,sort:filter.sort},
+      grain:filter.grain,filters:{channel:filter.channel,country:filter.country,device:filter.device,page_group:filter.pageGroup,action:filter.action,q:filter.q,sort:filter.sort},
       updated_at:new Date().toISOString(),comparison,...data,
       // Preserve the established keys while the Admin dashboard migrates.
       pages:data.pages.map(r=>({path:r.label,hits:r.hits})),
