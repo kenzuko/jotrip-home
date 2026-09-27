@@ -49,7 +49,7 @@ assert.ok(!editorLinks.some(x=>x.id==="users"));
 assert.ok(!editorLinks.some(x=>x.id==="analytics"));
 assert.ok(root.OPQAdminV2.links(adminModules,"admin").some(x=>x.id==="analytics"));
 assert.ok(!root.OPQAdminV2.links(adminModules,"viewer").some(x=>x.id==="stories"));
-assert.deepEqual(root.OPQAdminV2.links([], "viewer").slice(0,3).map(x=>x.id),
+assert.deepEqual([...root.OPQAdminV2.links([], "viewer").slice(0,3).map(x=>x.id)],
   ["dashboard","quality","reviews"]);
 assert.equal(root.OPQAdminV2.links([], "unknown").length,3,
   "Mount must separately deny unknown session roles");
