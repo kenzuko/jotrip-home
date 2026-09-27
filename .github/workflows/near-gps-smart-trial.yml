@@ -2,7 +2,7 @@ name: Near Me GPS smart bounded trial
 on:
   push:
     branches: [data/near-gps-smart-trial-20260927]
-    paths: [.github/workflows/near-gps-smart-trial.yml, scripts/near-gps-places-stage2.mjs]
+    paths: [.github/workflows/near-gps-smart-trial.yml, scripts/near-gps-places-stage2.mjs, scripts/geocode-geoapify.mjs, scripts/test-geocode-geoapify.mjs]
   workflow_dispatch:
 permissions:
   contents: read
@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Validate Geoapify no-collision write guards
+        run: node scripts/test-geocode-geoapify.mjs
       - uses: actions/cache/restore@v4
         with:
           path: .cache/near-go/geoapify-cache.json

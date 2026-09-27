@@ -132,6 +132,17 @@ export function eligibleForSave(doc, candidate) {
   if (!number || !candidate.housenumber || normalizedText(number) !== normalizedText(candidate.housenumber)) return false;
   // A matching number on a different street is not the same address.
   if (!candidate.street || !normalizedText(raw).includes(normalizedText(candidate.street))) return false;
+  const brand = x => {
+    const n = normalizedText(x);
+    if (/long chau/.test(n)) return 'LONG_CHAU';
+    if (/the gioi di dong/.test(n)) return 'TGDD';
+    if (/dien may xanh/.test(n)) return 'DMX';
+    if (/vietcombank/.test(n)) return 'VCB';
+    if (/dng/.test(n)) return 'DNG';
+    return null;
+  };
+  if (candidate.name && brand(candidate.name) && brand(candidate.name) !== brand(doc.name))
+    return false;
   if (candidate.street_confidence !== null && candidate.street_confidence !== undefined &&
       Number(candidate.street_confidence) < .8) return false;
   if (doc.zone_id === 'zone_south' && candidate.lat > 10.13) return false;
@@ -178,6 +189,29 @@ export function saveExactStreetCandidate(doc, candidates, { root, now, occupied 
       lat: c.lat, lon: c.lon, precision: 'site_centroid' };
   }
   return { status: 'REVIEW_REQUIRED', reason: 'CANONICAL_ID_NOT_FOUND' };
+}
+
+
+/**
+ * A geocoder may resolve different numbered businesses to the same POI/tower.
+ * Detect cross-entity collisions before writing any canonical JSON. Both points
+ * stay in review, including when the second result is too weak for auto-save.
+ */
+export function crossEntityCollisions(doc, candidates, staged, radiusMeters = 15) {
+  const wanted = (candidates || []).filter(c => eligibleForSave(doc, c));
+  const out = new Set();
+  for (const c of wanted) {
+    for (const other of staged) {
+      if (doc.id === other.doc.id ||
+          normalizedText(doc.address) === normalizedText(other.doc.address)) continue;
+      for (const x of other.candidates || []) {
+        if (!Number.isFinite(x.lat) || !Number.isFinite(x.lon) ||
+            x.location_level !== 'SITE') continue;
+        if (metersBetween(c, x) <= radiusMeters) out.add(other.doc.id);
+      }
+    }
+  }
+  return [...out].sort();
 }
 
 const readJson = file => JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -235,6 +269,7 @@ export async function run(argv = process.argv.slice(2), { fetcher = fetch, root 
     catch { console.warn('WARN: unreadable cache; continuing without it'); }
   }
   let stop = false;
+  const staged = [];
   const occupied = (index.documents || []).filter(d => hasGps(d))
     .map(d => ({ id: d.id, address: d.address || '', lat: d.map.lat, lon: d.map.lon }));
   for (const doc of pending) {
@@ -278,20 +313,34 @@ export async function run(argv = process.argv.slice(2), { fetcher = fetch, root 
     candidates = candidates || [];
     stats.candidates += candidates.length;
     if (!candidates.length) stats.no_results++;
-    const save = apply && candidates.length
-      ? saveExactStreetCandidate(doc, candidates, { root, now, occupied })
-      : { status: candidates.length ? 'SUGGESTION_ONLY' : 'NO_MATCH' };
-    if (save.status === 'SAVED_SITE_ESTIMATE') stats.saved++;
-    if (save.status === 'REVIEW_REQUIRED') stats.review_required++;
-    meta.records.push({ entity_id: doc.id, name: doc.name, address: doc.address,
+    // Do not write a site before checking other selected records for reused
+    // coordinates, including weak candidates with conflicting house numbers.
+    const save = { status: apply && candidates.length ? 'PENDING_PREFLIGHT' :
+      candidates.length ? 'SUGGESTION_ONLY' : 'NO_MATCH' };
+    const record = { entity_id: doc.id, name: doc.name, address: doc.address,
       type: doc.utility_type || doc.entity_type, query, queried_at: now.toISOString(),
       status: save.status, save_result: save,
       official_source_check_required: true, operator_verified: false,
       exact_entrance_verified: false, operational_status: doc.operational_status || 'UNKNOWN',
-      candidates });
+      candidates };
+    meta.records.push(record);
+    if (apply && candidates.length) staged.push({ doc, candidates, record });
     // Save incrementally; an interrupted job must not spend the same requests again.
     writeJson(cachePath, cache);
     writeJson(out, meta);
+  }
+  // Preflight all candidate coordinates before saving even one canonical record.
+  // This avoids writing house 46 when Geoapify gave the same point as house 73.
+  for (const { doc, candidates, record } of staged) {
+    const conflictIds = crossEntityCollisions(doc, candidates, staged);
+    const save = conflictIds.length
+      ? { status: 'REVIEW_REQUIRED', reason: 'CROSS_ENTITY_COORDINATE_COLLISION',
+          conflicting_entity_ids: conflictIds }
+      : saveExactStreetCandidate(doc, candidates, { root, now, occupied });
+    record.status = save.status;
+    record.save_result = save;
+    if (save.status === 'SAVED_SITE_ESTIMATE') stats.saved++;
+    if (save.status === 'REVIEW_REQUIRED') stats.review_required++;
   }
   writeJson(cachePath, cache);
   writeJson(out, meta);

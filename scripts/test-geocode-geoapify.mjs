@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { selectPending, assess, eligibleForSave, saveExactStreetCandidate, requestUrl, buildQuery, run } from './geocode-geoapify.mjs';
+import { selectPending, assess, eligibleForSave, crossEntityCollisions, saveExactStreetCandidate, requestUrl, buildQuery, run } from './geocode-geoapify.mjs';
 
 const input = { documents: [
   { id: 'pharmacy_1', entity_type: 'utility', utility_type: 'PHARMACY', name: 'Nhà thuốc A', address: '487 Nguyễn Trung Trực, Phú Quốc', map: null },
@@ -51,7 +51,14 @@ try {
   const originalKey = process.env.GEOAPIFY_API_KEY;
   process.env.GEOAPIFY_API_KEY = 'TEST_SECRET';
   let requests = 0;
-  const mockFetch = async () => { requests++; return { ok: true, status: 200, json: async () => ({ features: [building] }) }; };
+  const mockFetch = async url => { requests++;
+    const weak = url.searchParams.get('text')?.includes('Chợ E');
+    return { ok: true, status: 200, json: async () => ({ features: [weak ? {
+      ...building, geometry: { coordinates: [104.046, 10.181] },
+      properties: { ...building.properties, lat: 10.181, lon: 104.046,
+        result_type: 'city', housenumber: null, name: 'Hàm Ninh' }
+    } : building] }) };
+  };
   const run1 = await run(['--limit=2', '--budget=2'], { root: tmp, fetcher: mockFetch, now: new Date('2026-09-27T00:00:00Z') });
   assert.equal(run1.stats.requests, 2);
   assert.equal(run1.records[0].operator_verified, false);
@@ -71,6 +78,21 @@ try {
   assert.equal(saved.address, doc.address);
   assert.equal(applied.records[1].status, 'REVIEW_REQUIRED');
   assert.equal(requests, 2);
+
+  // Real-world regression: two different house numbers resolved to one site.
+  const pharmacy73 = { ...doc, id: 'pharmacy_73',
+    address: '73 Nguyễn Trung Trực, Phú Quốc' };
+  const samePoint = { ...assess(doc, building), housenumber: '73' };
+  assert.deepEqual(
+    crossEntityCollisions(doc, [assess(doc, building)],
+      [{ doc, candidates: [assess(doc, building)] },
+       { doc: pharmacy73, candidates: [samePoint] }]),
+    ['pharmacy_73']);
+  assert.deepEqual(
+    crossEntityCollisions(doc, [assess(doc, building)],
+      [{ doc: pharmacy73, candidates: [{ ...samePoint, lat: 10.181, lon: 104.046 }] }]), []);
+  const wrongBrand = { ...assess(doc, building), name: 'Thế Giới Di Động' };
+  assert.equal(eligibleForSave({ ...doc, name: 'Nhà thuốc Long Châu' }, wrongBrand), false);
   const duplicate = saveExactStreetCandidate(doc, [assess(doc, building)], { root: tmp, now: new Date('2026-09-27T02:00:00Z') });
   assert.equal(duplicate.status, 'ALREADY_HAS_GPS');
   if (originalKey === undefined) delete process.env.GEOAPIFY_API_KEY;
