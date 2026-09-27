@@ -10,6 +10,7 @@ on:
       - "data/entities/activities.json"
       - "data/entities/utilities.json"
       - "data/entities/nearme-essential-*.json"
+      - "data/open/**"
       - "data/home-support.json"
       - "data/views/location-index.json"
       - "data/views/map-coverage.json"

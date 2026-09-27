@@ -6,6 +6,11 @@ on:
     paths:
       - ".github/workflows/cms-pages-publish.yml"
       - "scripts/build-cloudflare.mjs"
+      - "scripts/build-map-coverage.mjs"
+      - "scripts/build-location-index.mjs"
+      - "scripts/test-nearme-intake.mjs"
+      - "nearme/**"
+      - "data/open/**"
       - "scripts/build-knowledge-public.mjs"
       - "data/knowledge/**"
       - "data/visual-context.json"
