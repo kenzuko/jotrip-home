@@ -1,0 +1,13 @@
+.history-peek-panel{padding:18px 20px}
+.history-peek-list{display:grid;gap:8px;margin:12px 0}
+.history-peek-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 13px;border:1px solid #e2ece9;border-radius:12px;background:#f9fcfb}
+.history-peek-day{font-size:14px;font-weight:800;color:#254a4e}
+.history-peek-day small{display:block;font-size:12px;font-weight:500;color:#6c8184;margin-top:3px}
+.history-peek-status{font-size:13px;font-weight:750;padding:6px 10px;border-radius:999px;text-align:center}
+.history-peek-running{color:#286e49;background:#e8f6ed}
+.history-peek-suspended{color:#a34d36;background:#fff1ed}
+.history-peek-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px;color:#6c7c80;font-size:13px}
+.history-open{display:inline-flex;align-items:center;justify-content:center;min-height:42px;border-radius:10px;padding:9px 15px;color:#fff!important;background:#296b61;text-decoration:none;font-size:14px;font-weight:800}
+.history-open:focus-visible{outline:3px solid #61b09d;outline-offset:3px}
+.history-peek-empty{font-size:14px;color:#677d7d;margin:7px 0}
+@media(max-width:540px){.history-peek-panel{padding:14px}.history-peek-row{padding:10px}.history-peek-status{font-size:12px}.history-open{width:100%}}
