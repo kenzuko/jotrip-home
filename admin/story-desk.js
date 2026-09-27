@@ -33,24 +33,33 @@
   }
   function readHtml(story){
     const s=story||{},sections=Array.isArray(s.sections)?s.sections:[],sources=Array.isArray(s.sources)?s.sources:[];
-    const cover=safeImage(s.image),readTime=Math.max(1,Number(s.read_minutes)||Math.ceil(words([s.title,s.dek,s.intro,...sections.map(x=>x.body)].join(" "))/220));
+    const cover=safeImage(s.image),coverPos={center:"50% 50%",top:"50% 18%",bottom:"50% 82%",left:"18% 50%",right:"82% 50%"}[s.cover_position]||"50% 50%",readTime=Math.max(1,Number(s.read_minutes)||Math.ceil(words([s.title,s.dek,s.intro,...sections.map(x=>x.body)].join(" "))/220));
     return '<article class="story-reading" data-story-reading>'+
       '<header class="story-reading-head"><div class="story-draft-note">BẢN ĐANG SOẠN · CHƯA XUẤT BẢN</div><span>'+esc(s.category||"BÀI VIẾT")+
       '</span><h1>'+esc(s.title||"Bài chưa có tiêu đề")+'</h1>'+
       (s.dek?'<p class="story-reading-dek">'+esc(s.dek)+'</p>':"")+
       '<small>'+readTime+' phút đọc · '+sections.length+' đoạn</small></header>'+
-      (cover?'<figure class="story-reading-cover"><img src="'+esc(cover)+'" alt="'+esc(s.image_alt||s.title||"Ảnh bài viết")+'">'+
-        (s.image_caption?'<figcaption>'+esc(s.image_caption)+'</figcaption>':"")+'</figure>':
+      (cover?'<figure class="story-reading-cover"><img src="'+esc(cover)+'" alt="'+esc(s.image_alt||s.title||"Ảnh bài viết")+'" style="object-position:'+coverPos+'">'+
+        (s.image_caption||s.image_credit?'<figcaption>'+esc([s.image_caption,s.image_credit].filter(Boolean).join(" · "))+'</figcaption>':"")+'</figure>':
         '<p class="story-reading-warning">Bài chưa có ảnh đại diện.</p>')+
       (s.intro?'<div class="story-reading-intro">'+paragraph(s.intro)+'</div>':"")+
-      sections.map((part,i)=>'<section class="story-reading-section"><h2>'+esc(part.heading||"Đoạn "+(i+1))+'</h2>'+
-        (paragraph(part.body)||'<p class="story-reading-empty">Đoạn này chưa có nội dung.</p>')+
-        (safeImage(part.image)?'<figure><img src="'+esc(safeImage(part.image))+'" alt="'+esc(part.caption||part.heading||"Ảnh trong bài")+'">'+
-        (part.caption?'<figcaption>'+esc(part.caption)+'</figcaption>':"")+'</figure>':"")+
+      sections.map((part,i)=>'<section class="story-reading-section" data-reading-section="'+i+'">'+
+        (part.heading?'<h2>'+esc(part.heading)+'</h2>':"")+
+        (safeImage(part.image)?'<figure class="story-reading-figure '+(["body","wide","full"].includes(part.layout)?part.layout:"wide")+
+          '"><img src="'+esc(safeImage(part.image))+'" alt="'+esc(part.caption||part.heading||"Ảnh trong bài")+'">'+
+          (part.caption?'<figcaption>'+esc(part.caption)+'</figcaption>':"")+'</figure>':
+          (!String(part.heading||part.body||"").trim()?'<p class="story-reading-pending">Chưa chọn ảnh cho khối này.</p>':""))+
+        (paragraph(part.body)||(!part.image&&part.heading?'<p class="story-reading-empty">Đoạn này chưa có nội dung.</p>':""))+
       '</section>').join("")+
       '<footer class="story-reading-sources"><h2>Nguồn tham khảo</h2>'+
       (sources.length?'<ul>'+sources.map(x=>'<li>'+esc(x.label||"Chưa ghi tên nguồn")+'</li>').join("")+'</ul>':
         '<p>Chưa có nguồn được ghi trong bài.</p>')+'</footer></article>';
+  }
+  function refreshLive(story,index){
+    if(typeof document==="undefined")return false;
+    const host=document.querySelector('[data-story-live-reading="'+index+'"]');
+    if(!host)return false;
+    const y=host.scrollTop;host.innerHTML=readHtml(story);host.scrollTop=y;return true;
   }
   function outlineHtml(story,index){
     const s=story||{},parts=Array.isArray(s.sections)?s.sections:[],sources=Array.isArray(s.sources)?s.sources:[];
@@ -99,5 +108,5 @@
       '<nav class="story-mode-tabs" role="tablist" aria-label="Chế độ làm việc">'+tabs+'</nav>'+
       '<div class="story-focus-content" role="tabpanel">'+content+'</div></section></div>';
   }
-  root.OPQStoryDesk={reset,selected,view,select,setView,query,render,readHtml,outlineHtml,normalize};
+  root.OPQStoryDesk={reset,selected,view,select,setView,query,render,readHtml,outlineHtml,normalize,refreshLive};
 })(window);

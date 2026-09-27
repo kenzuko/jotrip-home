@@ -1,6 +1,6 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow">
 <title>Demo bàn biên tập bài viết - Open Phu Quoc</title>
-<link rel="stylesheet" href="admin.css?v=23"><link rel="stylesheet" href="editor-workflow.css?v=1"><link rel="stylesheet" href="admin-v2.css?v=1"><link rel="stylesheet" href="story-desk.css?v=1">
+<link rel="stylesheet" href="admin.css?v=23"><link rel="stylesheet" href="editor-workflow.css?v=1"><link rel="stylesheet" href="admin-v2.css?v=1"><link rel="stylesheet" href="story-desk.css?v=1"><link rel="stylesheet" href="story-composer.css?v=1">
 <style>body{margin:0;background:#F5F9F6;font-family:system-ui,sans-serif;color:#123D3B}.demo-shell{max-width:1480px;margin:auto;padding:16px 23px 70px}
 .demo-head{margin:17px 0 20px;display:flex;gap:16px;justify-content:space-between;align-items:center}
 .demo-head h1{font-size:clamp(23px,3vw,33px);margin:0 0 5px}.demo-head p{color:#547264;margin:0;font-size:14px}
@@ -8,27 +8,61 @@
 .demo-edit label{display:block;margin:14px 0 7px;font-weight:800;font-size:14px;color:#426958}
 .demo-edit input,.demo-edit textarea{box-sizing:border-box;width:100%;padding:12px;border:1px solid #CCDCD1;border-radius:11px;font:inherit;font-size:16px}
 .demo-edit textarea{min-height:150px;line-height:1.6;resize:vertical}
-@media(max-width:520px){.demo-shell{padding:11px 10px 60px}.demo-head{display:block}}</style></head><body>
+@media(max-width:520px){.demo-shell{padding:11px 10px 60px}.demo-head{display:block}}
+.demo-edit-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(270px,.76fr);gap:16px;align-items:start}
+.demo-edit{min-width:0}.demo-section{margin:18px 0;padding:15px;border:1px solid #D9E8DD;border-radius:14px;background:#FBFCFA}
+.demo-section h3{margin:0 0 13px;color:#285740;font-size:17px}
+.demo-section-actions{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+.demo-section-actions button,.demo-photo>button{min-height:42px;padding:9px 12px;border:1px solid #AFCFB6;background:#E9F5EB;border-radius:10px;color:#23563E;cursor:pointer;font-size:13px;font-weight:760}
+.demo-photo{border:1px solid #D8E7DC;border-radius:12px;padding:13px;margin-top:11px}
+.demo-photo summary{cursor:pointer;font-size:14px;font-weight:800;color:#2D6249}
+.demo-live{position:sticky;top:14px;padding:15px;border:1px solid #CFE2D6;border-radius:15px;background:#fff;max-height:calc(100dvh - 30px);overflow:auto}
+.demo-live>strong{font-size:12px;letter-spacing:.1em;color:#2F6D52}
+.demo-live>p{font-size:13px;color:#64816D}
+.demo-live .story-reading{font-size:14px}
+.demo-live .story-reading h1{font-size:24px}
+.demo-live .story-reading-section h2{font-size:19px}
+.demo-live .story-reading-section p{font-size:14px}
+@media(max-width:960px){.demo-edit-grid{grid-template-columns:1fr}.demo-live{position:relative;top:auto;max-height:420px}}
+</style></head><body>
 <div class="demo-note"><strong>BẢN DEMO DỮ LIỆU GIẢ</strong> - Chỉ thử cách xem, cấu trúc và chỉnh bài. Không đăng nhập, không lưu CMS, không gửi duyệt hay xuất bản.</div>
 <main class="demo-shell"><header class="demo-head"><div><h1>Bàn biên tập bài viết</h1><p>Chọn bài bên trái. Đọc trước, xem cấu trúc, rồi mới mở các ô chỉnh sửa.</p></div><img src="../assets/logo-master.png?v=20260925-tight-master-r1" height="55" alt="Open Phu Quoc"></header>
-<div id="demoDesk"></div></main><script src="story-desk.js?v=1"></script><script>
+<div id="demoDesk"></div></main><script src="story-composer.js?v=1"></script><script src="story-desk.js?v=2"></script><script>
 (function(){
 const articles=[
 {id:"vuon-tieu",category:"ĐỜI SỐNG ĐẢO",title:"Một buổi sáng trong vườn tiêu",dek:"Theo người làm vườn từ lúc trời vừa sáng.",intro:"Buổi sáng trong vườn tiêu bắt đầu khi sương còn đọng trên lá.",
  sections:[{heading:"Bước vào vườn",body:"Người làm vườn kiểm tra từng luống, quan sát độ chín của trái.\n\nCông việc đầu ngày diễn ra chậm rãi."},{heading:"Hái và lựa trái",body:"Những gié tiêu được lựa theo độ chín trước khi đem phơi."}],sources:[{label:"Nguồn minh họa, không phải dữ liệu thực địa"}]},
 {id:"nha-thung",category:"DI SẢN",title:"Một năm trong nhà thùng",dek:"Câu chuyện minh họa về nghề nước mắm.",intro:"Trong nhà thùng, mỗi mẻ chượp là một công việc kéo dài qua nhiều tháng.",sections:[{heading:"Từ cá đến thùng chượp",body:"Người làm nghề phải theo dõi từng giai đoạn ủ chượp."}],sources:[{label:"Nguồn minh họa"}]},
-{id:"bai-sao",category:"THIÊN NHIÊN",title:"Buổi chiều ở Bãi Sao",dek:"Quan sát bãi biển lúc bớt đông.",intro:"Khi trời dịu nắng, bờ biển bắt đầu chuyển sang một nhịp khác.",sections:[{heading:"Đi dọc mép nước",body:"Một đoạn minh họa để thử biên tập bài viết."}],sources:[]}
+{id:"bai-sao",category:"THIÊN NHIÊN",title:"Buổi chiều ở Bãi Sao",dek:"Quan sát bãi biển lúc bớt đông.",intro:"Khi trời dịu nắng, bờ biển bắt đầu chuyển sang một nhịp khác.",image:"/assets/media/editorial-bai-sao-local.jpg",image_caption:"Ảnh minh họa Bãi Sao",sections:[{heading:"Đi dọc mép nước",body:"Một đoạn minh họa để thử biên tập bài viết."}],sources:[]}
 ];
-const desk=window.OPQStoryDesk,host=document.getElementById("demoDesk");
-desk.reset(articles);
+const desk=window.OPQStoryDesk,composer=window.OPQStoryComposer,host=document.getElementById("demoDesk");
+desk.reset(articles);desk.select(2,articles.length);
 function form(s){
  const field=(k,label,val,textarea)=>'<label for="demo-'+k+'">'+label+'</label>'+
   (textarea?'<textarea id="demo-'+k+'" data-demo-field="'+k+'">'+esc(val)+'</textarea>':
   '<input id="demo-'+k+'" data-demo-field="'+k+'" value="'+esc(val)+'">');
- return '<section class="demo-edit">'+
-  '<p>Thay đổi tại đây chỉ nằm trong bản demo. Chuyển về Đọc bài để xem lại.</p>'+
+ const blocks=(s.sections||[]).map((section,j)=>
+  '<article class="demo-section" data-demo-section="'+j+'"><h3>Đoạn '+(j+1)+'</h3>'+
+  '<label for="demo-heading-'+j+'">Tiêu đề đoạn</label><input id="demo-heading-'+j+'" data-demo-heading="'+j+'" value="'+esc(section.heading||"")+'">'+
+  '<label for="demo-body-'+j+'">Nội dung</label><textarea id="demo-body-'+j+'" data-demo-section-body="'+j+'" '+
+   (j===0?'data-demo-field="body" ':"")+'>'+esc(section.body||"")+'</textarea>'+
+  '<div class="demo-section-actions"><button type="button" data-demo-insert-image="'+j+'">+ Ảnh sau đoạn</button>'+
+  '<button type="button" data-demo-insert-text="'+j+'">+ Đoạn mới</button>'+
+  '<button type="button" data-demo-split-image="'+j+'">Ảnh tại con trỏ</button></div>'+
+  '<details class="demo-photo" '+(section.image?"open":"")+'><summary>Ảnh của đoạn này</summary>'+
+  '<label for="demo-image-'+j+'">URL ảnh (HTTPS hoặc thư viện ảnh có sẵn)</label>'+
+  '<input id="demo-image-'+j+'" data-demo-image="'+j+'" value="'+esc(section.image||"")+'">'+
+  '<button type="button" data-demo-photo-example="'+j+'">Thử bằng ảnh minh họa Bãi Sao</button>'+
+  '<label for="demo-caption-'+j+'">Chú thích ảnh</label><input id="demo-caption-'+j+'" data-demo-caption="'+j+'" value="'+esc(section.caption||"")+'">'+
+  composer.layoutControl(section.layout||"wide","demo."+j+".layout")+
+  '</details></article>').join("");
+ return '<section class="demo-edit-grid"><div class="demo-edit">'+
+  '<p>Thay đổi ở đây chỉ nằm trong bản demo. Muốn tải ảnh thật, bản CMS có nút Chọn ảnh từ máy.</p>'+
   field("title","Tiêu đề",s.title)+field("dek","Mô tả ngắn",s.dek,true)+
-  field("intro","Mở bài",s.intro,true)+field("body","Nội dung đoạn đầu",s.sections[0]?.body||"",true)+'</section>';
+  field("intro","Mở bài",s.intro,true)+
+  '<h2>Các đoạn trong bài</h2>'+blocks+'</div>'+
+  '<aside class="demo-live"><strong>XEM NGAY KHI ĐANG SỬA</strong><p>Ảnh và chữ thay đổi ngay ở bản xem trước này.</p>'+
+  '<div data-demo-live>'+desk.readHtml(s)+'</div></aside></section>';
 }
 function esc(x){return String(x||"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function draw(){
@@ -48,8 +82,54 @@ function draw(){
    host.querySelectorAll("[data-story-select]").forEach(b=>{const visible=b.dataset.storySearch.includes(q);b.hidden=!visible;if(visible)count++});
    document.getElementById("storyDeskCount").textContent=count+" bài phù hợp";
  };
+ const selected=()=>articles[desk.selected()];
+ const refresh=()=>{
+   const box=host.querySelector("[data-demo-live]");
+   if(box)box.innerHTML=desk.readHtml(selected());
+   const heading=host.querySelector(".story-focus-bar h2");
+   if(heading)heading.textContent=selected().title||"Bài chưa có tiêu đề";
+ };
  host.querySelectorAll("[data-demo-field]").forEach(el=>el.oninput=()=>{
-   const s=articles[desk.selected()];if(el.dataset.demoField==="body")s.sections[0].body=el.value;else s[el.dataset.demoField]=el.value;
+   const s=selected();
+   if(el.dataset.demoField==="body")s.sections[0].body=el.value;
+   else s[el.dataset.demoField]=el.value;
+   refresh();
+ });
+ host.querySelectorAll("[data-demo-heading]").forEach(el=>el.oninput=()=>{
+   selected().sections[Number(el.dataset.demoHeading)].heading=el.value;refresh();
+ });
+ host.querySelectorAll("[data-demo-section-body]").forEach(el=>el.oninput=()=>{
+   selected().sections[Number(el.dataset.demoSectionBody)].body=el.value;refresh();
+ });
+ host.querySelectorAll("[data-demo-image]").forEach(el=>el.oninput=()=>{
+   selected().sections[Number(el.dataset.demoImage)].image=el.value;refresh();
+ });
+ host.querySelectorAll("[data-demo-caption]").forEach(el=>el.oninput=()=>{
+   selected().sections[Number(el.dataset.demoCaption)].caption=el.value;refresh();
+ });
+ host.querySelectorAll("[data-demo-insert-image],[data-demo-insert-text],[data-demo-split-image]").forEach(btn=>btn.onclick=()=>{
+   const s=selected();let i=-1;
+   if(btn.hasAttribute("data-demo-split-image")){
+     const at=Number(btn.dataset.demoSplitImage);
+     const field=host.querySelector('[data-demo-section-body="'+at+'"]');
+     i=composer.splitForImage(s.sections,at,field?.selectionStart)?.photoIndex??-1;
+   }else i=composer.insertAfter(s.sections,Number(btn.dataset.demoInsertImage??btn.dataset.demoInsertText),
+     btn.hasAttribute("data-demo-insert-image")?"image":"text");
+   if(i<0)return;
+   draw();
+   const card=host.querySelector('[data-demo-section="'+i+'"]');
+   if(card)card.querySelector(".demo-photo").open=true;
+   card?.scrollIntoView({behavior:"smooth",block:"center"});
+ });
+ host.querySelectorAll("[data-demo-photo-example]").forEach(btn=>btn.onclick=()=>{
+   const part=selected().sections[Number(btn.dataset.demoPhotoExample)];
+   part.image="/assets/media/editorial-bai-sao-local.jpg";
+   part.caption="Ảnh minh họa Bãi Sao";draw();
+ });
+ host.querySelectorAll("[data-story-layout-pick]").forEach(btn=>btn.onclick=()=>{
+   const n=Number(btn.dataset.storyLayoutPath.match(/^demo\.(\d+)\.layout$/)?.[1]);
+   if(!Number.isInteger(n)||!selected().sections[n])return;
+   selected().sections[n].layout=btn.dataset.storyLayoutPick;draw();
  });
 }
 draw();

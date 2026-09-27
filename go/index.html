@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#F7FBF9">
-  <title>Đi gì bây giờ? - Open Phu Quoc</title>
+  <title>Đi đâu bây giờ? - Open Phu Quoc</title>
   <meta name="description" content="Gợi ý việc còn kịp làm ở Phú Quốc dựa trên vị trí, thời gian, lịch hoạt động và điều kiện hiện tại.">
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
   <link rel="preload" as="image" href="/assets/logo-master.png?v=20260925-tight-master-r1">
   <link rel="stylesheet" href="../ecosystem-shell.css?v=20260925-tight-master-r1">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-  <link rel="stylesheet" href="go.css?v=20260927-primary-navigation">
+  <link rel="stylesheet" href="go.css?v=20260927-go-workspace2">
   <link rel="canonical" href="https://cms.openphuquoc.com/go/">
-  <meta property="og:title" content="Đi gì bây giờ? - Open Phu Quoc">
+  <meta property="og:title" content="Đi đâu bây giờ? - Open Phu Quoc">
   <meta property="og:description" content="Từ thông tin sang hành động: chọn vị trí, thời gian và kiểu trải nghiệm để xem việc nào còn thực sự kịp.">
   <meta property="og:image" content="https://cms.openphuquoc.com/assets/share-card-phu-quoc-v2.jpg">
   <meta property="og:image:secure_url" content="https://cms.openphuquoc.com/assets/share-card-phu-quoc-v2.jpg">
@@ -20,14 +20,14 @@
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="719">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Đi gì bây giờ? | Open Phu Quoc">
+  <meta name="twitter:title" content="Đi đâu bây giờ? | Open Phu Quoc">
   <meta name="twitter:description" content="Chọn nơi bạn đang ở và thời gian còn lại để tìm các địa điểm còn kịp ghé tại Phú Quốc.">
   <meta name="twitter:image" content="https://cms.openphuquoc.com/assets/share-card-phu-quoc-v2.jpg">
 </head>
 <body>
   <header class="go-head">
     <a class="go-brand" href="../" aria-label="Open Phu Quoc"><img src="/assets/logo-master.png?v=20260925-tight-master-r1" alt="Open Phu Quoc" width="925" height="947"></a>
-    <div class="go-head-copy"><strong>Đi gì bây giờ?</strong><span>Chọn chuyến đi hợp với hôm nay</span></div>
+    <div class="go-head-copy"><strong>Đi đâu bây giờ?</strong><span>Chọn chuyến đi hợp với hôm nay</span></div>
     <nav class="go-primary-nav" aria-label="Điều hướng Open Phu Quoc"><a href="../#happening">Hôm nay</a><a href="../go/" aria-current="page">GO - Đi đâu?</a><a href="../nearme/">Quanh đây</a><a href="../explore/">Khám phá</a></nav>
     <div class="go-head-actions"><a class="go-home" href="../">← Trang chủ</a><button class="go-menu-open" type="button" aria-label="Mở menu Open Phu Quoc" aria-controls="goMoreSheet" aria-expanded="false">☰ Menu</button></div>
   </header>
@@ -45,14 +45,14 @@
     <section class="go-builder" aria-labelledby="goBuilderTitle">
       <div class="go-builder-head">
         <div><p>3 CÂU HỎI</p><h2 id="goBuilderTitle">Bạn đang ở đâu và còn bao nhiêu thời gian?</h2></div>
-        <span>Cứ chọn khu vực bạn đang ở, không cần bật định vị.</span>
+        <span>Chọn nhanh một chút, tụi mình tìm chỗ hợp với hôm nay.</span>
       </div>
 
       <form id="goForm" class="go-form">
         <fieldset>
           <legend><b>01</b><span>Bạn đang ở đâu?</span></legend>
           <div class="go-manual-location">
-            <p class="go-manual-hint">Chọn khu vực bạn đang ở, không cần GPS</p>
+            <p class="go-manual-hint">Chọn khu vực bạn đang ở</p>
             <div class="go-area-row">
               <div class="choice-grid" id="areaChoices" role="radiogroup" aria-label="Chọn khu vực thủ công">
                 <label><input type="radio" name="origin" value="zone_central_west"><span>Dương Đông &amp; bờ Tây</span></label>
@@ -64,17 +64,40 @@
               <span>Hoặc</span>
               <button type="button" class="go-location-button" id="goLocate"><span aria-hidden="true">⌖</span> Dùng vị trí của tôi</button>
             </div>
-            <p id="goLocationStatus" class="go-location-status" role="status">Chọn một trong ba khu vực, hoặc dùng định vị nếu muốn xem khoảng cách từ nơi bạn đang đứng.</p>
+            <p id="goLocationStatus" class="go-location-status" role="status">Không cần bật định vị, chọn khu vực là được.</p>
           </div>
-          <div class="go-radius-panel" id="goRadiusPanel">
-            <div class="go-radius-header"><div><strong>Bản đồ khám phá quanh bạn</strong><span id="goMapMode">Đang xem toàn đảo Phú Quốc. Chọn khu vực hoặc dùng GPS để hiện vòng bán kính.</span></div><button type="button" class="go-map-reset" id="goMapReset">Xem cả đảo ↗</button></div>
-            <div class="go-radius-controls"><div class="go-radius-actions" id="goRadiusButtons" role="group" aria-label="Chọn nhanh bán kính"><button type="button" data-km="2">2 km</button><button type="button" data-km="5" class="active" aria-pressed="true">5 km</button><button type="button" data-km="10">10 km</button><button type="button" data-km="20">20 km</button><button type="button" data-km="30">30 km</button></div>
-            <label class="go-radius-slider-label" for="goRadiusRange">Bán kính <output id="goRadiusValue" for="goRadiusRange">5 km</output></label>
-            <input type="range" id="goRadiusRange" min="1" max="50" step="1" value="5" aria-label="Tùy chỉnh bán kính từ 1 đến 50 km"><div class="go-radius-extents"><span>1 km</span><span>50 km</span></div></div>
-            <div class="go-map" id="goMap" role="region" aria-label="Bản đồ vị trí với vòng bán kính"></div>
-            <div class="go-map-footer"><span id="goMapCount">Đang xem toàn đảo. Chọn khu vực để hiện các địa điểm gần bạn.</span><span>Khoảng cách theo đường chim bay; từ tâm khu vực chỉ để tham khảo, không phải GPS.</span></div>
+          </fieldset>
+        <section class="go-radius-panel" id="goRadiusPanel" aria-labelledby="goMapTitle">
+          <div class="go-radius-header">
+            <div><strong id="goMapTitle">Bản đồ Phú Quốc</strong><span id="goMapMode">Chọn một khu vực để xem những nơi gần đó.</span></div>
+            <button type="button" class="go-map-reset" id="goMapReset" hidden>Xem toàn đảo</button>
           </div>
-        </fieldset>
+          <div class="go-map-frame">
+            <div class="go-map" id="goMap" role="region" aria-label="Bản đồ các địa điểm và vùng bạn chọn"></div>
+            <div class="go-map-prompt" id="goMapPrompt">
+              <strong>Muốn khám phá quanh đâu?</strong>
+              <p>Chọn ngay trên bản đồ hoặc ở bên trái.</p>
+              <div role="group" aria-label="Chọn khu vực trên bản đồ">
+                <button type="button" data-go-map-area="zone_central_west">Dương Đông</button>
+                <button type="button" data-go-map-area="zone_south">An Thới</button>
+                <button type="button" data-go-map-area="zone_north">Bắc đảo</button>
+              </div>
+            </div>
+          </div>
+          <div class="go-radius-controls" id="goRadiusControls" hidden>
+            <div class="go-radius-title"><strong>Bạn muốn xem quanh đây bao xa?</strong><output id="goRadiusValue" for="goRadiusRange">5 km</output></div>
+            <div class="go-radius-actions" id="goRadiusButtons" role="group" aria-label="Chọn nhanh bán kính">
+              <button type="button" data-km="2">2 km</button><button type="button" data-km="5" class="active" aria-pressed="true">5 km</button><button type="button" data-km="10">10 km</button><button type="button" data-km="20">20 km</button><button type="button" data-km="30">30 km</button>
+            </div>
+            <details class="go-radius-more" id="goRadiusMore">
+              <summary>Tùy chỉnh khoảng cách</summary>
+              <label class="go-radius-slider-label" for="goRadiusRange">Chọn từ 1 đến 50 km</label>
+              <input type="range" id="goRadiusRange" min="1" max="50" step="1" value="5" aria-label="Tùy chỉnh bán kính từ 1 đến 50 km">
+              <div class="go-radius-extents"><span>1 km</span><span>50 km</span></div>
+            </details>
+          </div>
+          <div class="go-map-footer"><span id="goMapCount">Chọn khu vực để xem địa điểm gần đó.</span><span>Khoảng cách đường thẳng, không phải thời gian đi đường.</span></div>
+        </section>
         <fieldset>
           <legend><b>02</b><span>Bạn còn bao nhiêu thời gian?</span></legend>
           <div class="choice-grid four">
@@ -157,7 +180,7 @@
       <a href="../cano/">≈ <b>Cano & tour đảo</b></a>
     </div></div>
     <div class="go-menu-group"><strong>KHÁM PHÁ</strong><div class="go-menu-grid">
-      <a class="is-current" href="./" aria-current="page">⌖ <b>Đi gì bây giờ?</b></a>
+      <a class="is-current" href="./" aria-current="page">⌖ <b>Đi đâu bây giờ?</b></a>
       <a href="../explore/">◇ <b>Khám phá</b></a><a href="../places/">◎ <b>Điểm đến</b></a>
       <a href="../food/">♨ <b>Ăn uống</b></a><a href="../nearme/">⊙ <b>Quanh đây</b></a>
       <a href="../hotels/">⌂ <b>Khách sạn</b></a>
@@ -177,8 +200,10 @@
   <script src="../core/weather-context-client.js?v=20260926-context1" defer></script>
    <script src="live-adapter.js?v=20260926-core1" defer></script>
   <script src="../map-basemap.js?v=20260926island2" defer></script>
-  <script src="go-map.js?v=20260926island2" defer></script>
+  <script src="go-map.js?v=20260927-go-workspace2" defer></script>
   <script src="go-nav.js?v=20260925v11radar3" defer></script>
-  <script src="go.js?v=20260926-area1" defer></script>
+  <link rel="stylesheet" href="../core/place-feedback.css?v=1">
+  <script src="../core/place-feedback.js?v=1" defer></script>
+  <script src="go.js?v=20260927-go-workspace2" defer></script>
 </body>
 </html>

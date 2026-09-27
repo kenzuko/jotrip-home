@@ -135,6 +135,32 @@ try{
   await desktop.page.locator(".ew-story-preview").first().click();
   assert.match(await desktop.page.locator("#ewPreviewDialog h1").textContent(),/Bài vừa chỉnh chưa xuất bản/);
   await desktop.page.locator("[data-ew-close]").click();
+  // Real editor composer: use the existing media API through a browser mock, never publish.
+  const mockMedia=[];
+  await desktop.page.route("**/api/cms/media",route=>{
+    const body=route.request().postDataJSON();mockMedia.push({mime:body.mime,name:body.filename});
+    return route.fulfill({status:200,contentType:"application/json",
+      body:JSON.stringify({ok:true,url:"/assets/media/editorial-bai-sao-local.jpg"})});
+  });
+  await desktop.page.locator(".section-media-tools").first().evaluate(el=>{el.open=true});
+  await desktop.page.locator('[data-story-layout-pick="body"]').first().click();
+  assert.equal(await desktop.page.locator('select[data-path="stories.0.sections.0.layout"]').inputValue(),"body");
+  const bodyField=desktop.page.locator('textarea[data-path="stories.0.sections.0.body"]');
+  await bodyField.evaluate(el=>{el.focus();el.setSelectionRange(8,8)});
+  await desktop.page.locator('[data-story-split-photo="0"]').click();
+  await desktop.page.locator('[data-story-section-card="1"] [data-media-path]').waitFor();
+  const pickerPromise=desktop.page.waitForEvent("filechooser");
+  await desktop.page.locator('[data-story-section-card="1"] [data-media-path]').click();
+  const picker=await pickerPromise;
+  await picker.setFiles("assets/media/editorial-bai-sao-local.jpg");
+  await desktop.page.waitForFunction(()=>document.querySelector(
+    '[data-path="stories.0.sections.1.image"]')?.value==="/assets/media/editorial-bai-sao-local.jpg");
+  assert.equal(mockMedia.length,1,"One image should make exactly one CMS media upload");
+  await desktop.page.locator('[data-story-section-card="1"] [data-story-layout-pick="full"]').click();
+  assert.equal(await desktop.page.locator('select[data-path="stories.0.sections.1.layout"]').inputValue(),"full");
+  await desktop.page.locator('[data-story-view="read"]').click();
+  assert.equal(await desktop.page.locator(".story-reading-figure.full img").count(),1);
+  await desktop.page.locator('[data-story-view="edit"]').click();
   await desktop.page.screenshot({path:output+"/cms-editor-workflow-desktop.png",fullPage:true});
   // A competing PR touching the same JSON file must block publication, even if
   // it is changing a different article. The API is mocked and must not receive POST.
@@ -359,6 +385,12 @@ try{
   await desk.locator('[data-demo-field="body"]').fill("Nội dung mới trong bản demo.");
   await desk.locator('[data-story-view="read"]').click();
   assert.match(await desk.locator("[data-story-reading]").textContent(),/Nội dung mới trong bản demo/);
+  await desk.locator('[data-story-view="edit"]').click();
+  await desk.locator('[data-demo-insert-image="0"]').click();
+  await desk.locator('[data-demo-photo-example="1"]').click();
+  await desk.locator('[data-demo-section="1"] [data-story-layout-pick="body"]').click();
+  await desk.locator('[data-story-view="read"]').click();
+  assert.equal(await desk.locator(".story-reading-figure.body img").count(),1);
   await desk.screenshot({path:output+"/cms-story-desk-desktop.png",fullPage:true});
   await desk.setViewportSize({width:390,height:844});
   assert.ok(await desk.locator("#storyDeskSearch").isVisible());

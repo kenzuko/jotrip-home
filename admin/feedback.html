@@ -1,0 +1,24 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Góp ý cộng đồng - Open Phu Quoc CMS</title><style>
+:root{font:15px/1.5 system-ui,-apple-system,sans-serif;color:#173e37;background:#f3f7f5}
+*{box-sizing:border-box}body{margin:0}header{background:#174c43;color:white;padding:18px max(18px,calc((100vw - 1100px)/2));display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+header a{color:white}main{max-width:1100px;margin:auto;padding:22px 16px 60px}
+h1{font-size:27px;margin:8px 0}p{margin:8px 0}select,input,textarea,button{font:inherit}
+select,input,textarea{padding:9px;border:1px solid #a6bdb3;border-radius:8px;max-width:100%}
+button,.action{padding:9px 13px;border:1px solid #2a6c5a;border-radius:8px;color:#174e40;background:white;cursor:pointer;text-decoration:none}
+button.primary{background:#1e6753;color:white}button:disabled{opacity:.55;cursor:wait}button[hidden]{display:none!important} .item code{overflow-wrap:anywhere} .item .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.filters{margin:20px 0;display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+.queue{display:grid;gap:14px}.item{background:white;border:1px solid #d4e0db;border-radius:13px;padding:18px}
+.item h2{font-size:19px;margin:5px 0}.meta{font-size:12px;color:#63756f}
+.note{background:#f5f7f6;border-radius:8px;padding:10px;white-space:pre-wrap;overflow-wrap:anywhere}
+.controls{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px;align-items:center}
+.controls input{flex:1;min-width:180px}
+.tag{font-size:12px;font-weight:750;padding:4px 8px;border-radius:99px;background:#def0e6;color:#226149}
+.status{margin:15px 0;min-height:22px;color:#a44625}
+img.evidence{display:block;max-width:min(250px,100%);max-height:210px;object-fit:contain;border:1px solid #ccd9d4;margin:12px 0}
+</style></head><body>
+<header><strong>OPEN PHU QUOC · CMS</strong><nav><a href="./">← Bàn làm việc</a>　<a href="../" target="_blank" rel="noopener">Website ↗</a></nav></header>
+<main><h1>Góp ý từ cộng đồng</h1><p>Góp ý chưa phải thông tin xác minh. Mở trang hoặc hồ sơ liên quan để đối chiếu rồi mới cập nhật CMS. Đổi trạng thái ở đây không tự xuất bản.</p>
+<div id="login" hidden><p>Đăng nhập CMS để xem hàng chờ.</p><a class="action" href="/api/cms/auth?action=login">Đăng nhập bằng GitHub</a></div>
+<section id="work" hidden><div class="filters"><label>Hiển thị <select id="filter"><option value="new">Chưa xử lý</option><option value="reviewing">Đang kiểm tra</option><option value="resolved">Đã xử lý</option><option value="rejected">Không phù hợp</option><option value="">Tất cả</option></select></label><button id="refresh">Tải lại</button><span id="count"></span></div><p id="status" class="status" role="status"></p><div class="queue" id="queue"></div><button id="loadMore" type="button" hidden style="margin:18px auto;display:block">Xem thêm góp ý</button></section>
+</main>
+<script src="feedback.js?v=1"></script></body></html>

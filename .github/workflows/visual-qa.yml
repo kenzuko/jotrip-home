@@ -25,6 +25,11 @@ on:
       - "home-nearme-v2.js"
       - "go/**"
       - "nearme/**"
+      - "core/place-feedback.js"
+      - "core/place-feedback.css"
+      - "admin/feedback.js"
+      - "admin/feedback.html"
+      - "scripts/visual-qa-place-feedback.mjs"
       - "data/entities/nearme-essential-*.json"
       - "data/views/location-index.json"
       - "data/views/map-coverage.json"
@@ -151,6 +156,9 @@ jobs:
 
       - name: Check Near Me MacBook layout, mobile map and homepage handoff
         run: node scripts/visual-qa-nearme-layout.mjs
+
+      - name: Test public feedback and private CMS review on mobile
+        run: node scripts/visual-qa-place-feedback.mjs
 
       - name: Run visual QA
         env:

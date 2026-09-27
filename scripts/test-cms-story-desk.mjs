@@ -32,8 +32,20 @@ assert.match(d.render(list,()=>"<section>Editor mode</section>",""),/Editor mode
 d.query("ho tieu");
 assert.match(d.render(list,()=>"", ""),/1 bài phù hợp/);
 assert.ok(!d.select(9,list.length),"Cannot select outside catalog");
+const photoHtml=d.readHtml({title:"An toàn",image:"/assets/media/editorial-bai-sao-local.jpg",image_caption:"Chú thích bìa",
+  image_credit:"Tác giả",cover_position:"top",
+  sections:[{heading:"Đoạn thử",body:"Văn bản xuất hiện sau ảnh",image:"/assets/media/editorial-bai-sao-local.jpg",caption:"Ảnh thử",layout:"full"}]});
+assert.match(photoHtml,/style="object-position:50% 18%"/);
+assert.match(photoHtml,/Chú thích bìa · Tác giả/);
+assert.match(photoHtml,/class="story-reading-figure full"/);
+assert.ok(photoHtml.indexOf("story-reading-figure full")<photoHtml.indexOf("Văn bản xuất hiện sau ảnh"),
+  "CMS review follows published article order: figure before section text");
+const pending=d.readHtml({sections:[{heading:"",body:"",image:""}]});
+assert.match(pending,/Chưa chọn ảnh cho khối này/);
 const pub=readFileSync("admin/index.html","utf8");
-assert.match(pub,/story-desk\.js\?v=1/);
+assert.match(pub,/story-desk\.js\?v=2/);
+assert.match(pub,/story-composer\.js\?v=1/);
+assert.match(pub,/story-composer\.css\?v=1/);
 assert.match(pub,/story-desk\.css\?v=1/);
 const main=readFileSync("admin/admin.js","utf8");
 assert.match(main,/OPQStoryDesk\?\.reset/);

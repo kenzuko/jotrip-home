@@ -112,7 +112,8 @@
           '<div class="go-timing"><strong>'+esc(x.timing)+'</strong><span>Dự kiến xong khoảng '+esc(x.finish_at)+'</span></div>'+
           '<div class="go-meta">'+(km?'<div><span>Cách bạn</span><b>'+esc(km)+'</b></div>':'')+'<div><span>Đi từ khu hiện tại</span><b>'+esc(drive)+'</b></div><div><span>Dự kiến tới</span><b>'+esc(x.arrival)+'</b></div><div><span>Trước khi đi</span><b>Xem giờ & lưu ý mới nhất</b></div></div>'+
           (warnings?'<ul class="go-warnings">'+warnings+'</ul>':"")+
-          '<a href="'+esc(x.route)+'"'+(x.id==="activity_big_game_fishing"?' target="_blank" rel="noopener noreferrer"':"")+'>'+(x.id==="activity_big_game_fishing"?"Xem tour câu cá JoTrip ↗":"Xem chi tiết trước khi đi →")+'</a></article>';
+          '<a href="'+esc(x.route)+'"'+(x.id==="activity_big_game_fishing"?' target="_blank" rel="noopener noreferrer"':"")+'>'+(x.id==="activity_big_game_fishing"?"Xem tour câu cá JoTrip ↗":"Xem chi tiết trước khi đi →")+'</a>'+ 
+          '<button type="button" class="opq-feedback-trigger" data-openpq-feedback data-feedback-id="'+esc(x.id)+'" data-feedback-name="'+esc(x.name)+'" data-feedback-type="'+esc(x.id.startsWith("activity_")?"activity":"place")+'">Góp ý thông tin</button></article>';
       }).join("");
     }
 
@@ -157,10 +158,17 @@
     });
   }
   function drawMap(){
+    const geo=window.OpenPQGoGeo;
+    const selectedPoint=state.position||geo?.anchors?.[state.originZone];
+    const hasOrigin=!!geo?.valid(selectedPoint);
+    const controls=$("#goRadiusControls"),prompt=$("#goMapPrompt"),reset=$("#goMapReset");
+    if(controls)controls.hidden=state.mapOverview||!hasOrigin;
+    if(prompt)prompt.hidden=hasOrigin;
+    if(reset)reset.hidden=!hasOrigin;
     if(state.mapOverview){
-      $("#goMapReset").textContent="Hiện vòng bán kính ↗";
-      $("#goMapMode").textContent="Đang xem toàn đảo Phú Quốc. Hiện vòng bán kính để xem các địa điểm gần mình.";
-      $("#goMapCount").textContent="Chế độ xem toàn đảo, chưa lọc theo bán kính.";
+      $("#goMapReset").textContent="Về khu vực đã chọn";
+      $("#goMapMode").textContent="Đang xem toàn đảo. Bạn có thể trở về khu vực đã chọn.";
+      $("#goMapCount").textContent="Đang xem toàn đảo, chưa lọc theo khoảng cách.";
       try{
         if(window.OpenPQGoMap?.overview()===false)$("#goMapCount").textContent="Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực.";
       }catch(error){
@@ -169,15 +177,14 @@
       }
       return;
     }
-    $("#goMapReset").textContent="Chỉ xem bản đồ ↗";
+    $("#goMapReset").textContent="Xem toàn đảo";
     syncRadiusControls();
-    const geo=window.OpenPQGoGeo;
-    const point=state.position||geo?.anchors?.[state.originZone];
+    const point=selectedPoint;
     if(!geo?.valid(point)){
       let available=false;
       try{available=window.OpenPQGoMap?.overview();}
       catch(error){console.warn("GO map fallback unavailable",error?.message||error);}
-      $("#goMapReset").textContent="Xem cả đảo ↗";
+      $("#goMapReset").textContent="Xem toàn đảo";
       const areaName=zoneNames[state.originZone];
       if(state.position){
         $("#goMapMode").textContent="Đã nhận vị trí trong phiên này; bản đồ chưa sẵn sàng.";
@@ -186,16 +193,16 @@
         $("#goMapMode").textContent="Đã chọn "+areaName+". Bản đồ chưa sẵn sàng; tâm khu vực không phải GPS.";
         $("#goMapCount").textContent="Bản đồ chưa tải được; bạn vẫn có thể tiếp tục với khu vực đã chọn.";
       }else{
-        $("#goMapMode").textContent="Đang xem toàn đảo Phú Quốc. Chọn khu vực hoặc dùng định vị để vẽ vòng bán kính.";
-        $("#goMapCount").textContent=available===false?"Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực.":"Đang xem toàn đảo. Chọn khu vực để hiện các địa điểm gần bạn.";
+        $("#goMapMode").textContent="Chọn một khu vực để xem những nơi gần đó.";
+        $("#goMapCount").textContent=available===false?"Bản đồ chưa tải được. Bạn vẫn có thể chọn khu vực.":"Chọn khu vực để xem những nơi gần đó.";
       }
       return;
     }
     const gps=!!state.position;
     const areaName=zoneNames[state.originZone]||"khu vực đã chọn";
     const modeText=gps?
-      "Tâm vòng tròn là vị trí bạn vừa cho phép. Xem các điểm gần mình theo km.":
-      "Tâm vòng tròn là "+areaName+". Đây là điểm tham khảo, không phải vị trí GPS của bạn.";
+      "Những nơi trong "+state.radiusKm+" km quanh vị trí của bạn.":
+      areaName+" · "+state.radiusKm+" km tính từ trung tâm khu vực.";
     // Update copy before drawing so a map failure never leaves stale island-wide instructions.
     $("#goMapMode").textContent=modeText;
     let result;
@@ -208,7 +215,7 @@
     if(!result||result.map===false){
       $("#goMapCount").textContent="Bản đồ chưa tải được; bạn vẫn có thể chọn khu vực và nhận gợi ý.";
     }else{
-      $("#goMapCount").textContent=(result.shown||0)+" địa điểm đã có tọa độ trong vòng "+state.radiusKm+" km"+(gps?" quanh bạn.":" từ tâm khu vực.");
+      $("#goMapCount").textContent=(result.shown||0)+" địa điểm có vị trí trên bản đồ"+(gps?" quanh bạn.":" quanh "+areaName+".");
     }
   }
   function geoError(error){
@@ -254,9 +261,21 @@
         $("#goLocate").innerHTML='<span aria-hidden="true">⌖</span> Dùng vị trí của tôi';
       }
       state.mapOverview=false;
-      $("#goLocationStatus").textContent="Đã chọn "+(zoneNames[state.originZone]||"khu vực")+". Vòng trên bản đồ tính từ tâm khu vực, không phải GPS.";
+      $("#goLocationStatus").textContent="Đã chọn "+(zoneNames[state.originZone]||"khu vực")+". Khoảng cách tính từ trung tâm khu vực, không phải vị trí của bạn.";
       drawMap();
       if(!$("#resultsSection").hidden)run();
+    });
+    const mapPrompt=$("#goMapPrompt");
+    if(mapPrompt)mapPrompt.addEventListener("click",event=>{
+      const button=event.target.closest("button[data-go-map-area]");
+      if(!button)return;
+      const id=button.dataset.goMapArea;
+      if(!["zone_central_west","zone_south","zone_north"].includes(id))return;
+      const input=[...document.querySelectorAll('#areaChoices input[name="origin"]')]
+        .find(x=>x.value===id);
+      if(!input)return;
+      input.checked=true;
+      input.dispatchEvent(new Event("change",{bubbles:true}));
     });
     $("#goRadiusButtons").addEventListener("click",event=>{
       const button=event.target.closest("button[data-km]");if(!button)return;

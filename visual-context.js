@@ -18,6 +18,7 @@
             '<img src="'+esc(img.url)+'" alt="'+esc(img.alt || img.caption || "Ảnh Phú Quốc")+'" loading="lazy" decoding="async" data-fallback="'+esc(img.fallback_url||"")+'" data-fallback-label="'+esc(img.fallback_source_label||"")+'" data-fallback-source="'+esc(img.fallback_source_url||"")+'" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;delete this.dataset.fallback;var c=this.closest(\'figure\').querySelector(\'.visual-source-credit\');if(c){c.textContent=\'Ảnh: \'+(this.dataset.fallbackLabel||\'Ảnh thay thế\')}}else{this.closest(\'figure\').classList.add(\'is-error\')}">'+
             '<figcaption><span>'+esc(img.caption || "")+'</span>'+
               (img.source_label ? '<small class="visual-source-credit">Ảnh: '+esc(String(img.source_label).replace(/^Ảnh:\s*/i,""))+(img.license?' · '+esc(img.license):'')+'</small>' : '')+
+              (/^https:\/\/creativecommons\.org\/licenses\//.test(img.license_url||"")?' · <a class="visual-photo-license" href="'+esc(img.license_url)+'" rel="noopener noreferrer license" target="_blank">Điều kiện sử dụng ảnh</a>':"")+
             '</figcaption>'+
           '</figure>'
         ).join("")+

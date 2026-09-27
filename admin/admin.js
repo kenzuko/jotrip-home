@@ -42,6 +42,10 @@ const LABELS={
   category:"Chuyên mục",
   dek:"Mô tả ngắn",
   read_minutes:"Thời gian đọc (phút)",
+  image_alt:"Mô tả ảnh bìa",
+  image_caption:"Chú thích ảnh bìa",
+  image_credit:"Tác giả / quyền ảnh bìa",
+  image_source_url:"Nguồn gốc ảnh bìa",
   image:"Ảnh",
   images:"Ảnh minh họa",
   source_label:"Tác giả / đơn vị cung cấp ảnh",
@@ -419,6 +423,10 @@ function validateCurrent(){
       else if(ids.has(s.id))errors.push("Mã bài bị trùng: "+s.id);
       else ids.add(s.id);
       if(!Array.isArray(s.sections)||!s.sections.length)errors.push("Bài “"+(s.title||("#"+(i+1)))+"” chưa có đoạn nội dung.");
+      if(i===window.OPQStoryDesk?.selected())(s.sections||[]).forEach((part,j)=>{
+        if(!String(part?.heading||"").trim()&&!String(part?.body||"").trim()&&!String(part?.image||"").trim())
+          errors.push("Bài đang sửa, đoạn "+(j+1)+" đang trống. Thêm ảnh/nội dung hoặc xóa đoạn.");
+      });
     });
   }
 
@@ -504,23 +512,18 @@ function storyReadMinutes(story){
 }
 
 function storyLayoutField(val,path){
-  const value=val||"wide";
-  return `<div class="field"><label>Kiểu hiển thị ảnh</label><select data-path="${esc(path)}">
-    <option value="body" ${value==="body"?"selected":""}>Trong cột bài viết</option>
-    <option value="wide" ${value==="wide"?"selected":""}>Ảnh rộng</option>
-    <option value="full" ${value==="full"?"selected":""}>Ảnh lớn toàn khung</option>
-  </select></div>`;
+  return window.OPQStoryComposer?.layoutControl(val,path)||
+    '<div class="field"><label>Kiểu hiển thị ảnh</label><select data-path="'+esc(path)+
+    '"><option value="body">Trong cột</option><option value="wide">Ảnh rộng</option>'+
+    '<option value="full">Toàn khung</option></select></div>';
 }
 
 function coverPositionField(val,path){
-  const value=val||"center";
-  return `<div class="field"><label>Vị trí cắt cover</label><select data-path="${esc(path)}">
-    <option value="center" ${value==="center"?"selected":""}>Giữa ảnh</option>
-    <option value="top" ${value==="top"?"selected":""}>Ưu tiên phía trên</option>
-    <option value="bottom" ${value==="bottom"?"selected":""}>Ưu tiên phía dưới</option>
-    <option value="left" ${value==="left"?"selected":""}>Ưu tiên bên trái</option>
-    <option value="right" ${value==="right"?"selected":""}>Ưu tiên bên phải</option>
-  </select></div>`;
+  return window.OPQStoryComposer?.coverControl(val,path)||
+    '<div class="field"><label>Vị trí ảnh bìa</label><select data-path="'+esc(path)+
+    '"><option value="center">Giữa</option><option value="top">Trên</option>'+
+    '<option value="bottom">Dưới</option><option value="left">Trái</option>'+
+    '<option value="right">Phải</option></select></div>';
 }
 
 function renderStoryWorkbench(story,i){
@@ -531,26 +534,30 @@ function renderStoryWorkbench(story,i){
     ?`<button type="button" class="story-slug" data-story-slug="${i}">Tạo mã từ tiêu đề</button>`
     :"";
 
-  const previewPos={top:"50% 18%",bottom:"50% 82%",left:"18% 50%",right:"82% 50%",center:"50% 50%"}[story.cover_position]||"50% 50%";
-  const cover=story.image
-    ?`<img data-story-preview-image="${i}" src="${esc(story.image)}" alt="" style="object-position:${previewPos}">`
-    :`<div class="story-cover-empty" data-story-preview-image="${i}">Chưa có ảnh cover</div>`;
-
   const sectionHtml=sections.map((section,j)=>{
-    const sp=p+".sections."+j;
-    return `<article class="story-section-card">
-      <div class="story-card-head"><strong>Đoạn ${j+1}</strong>${itemTools(p+".sections",j,sections.length)}</div>
-      ${primitiveField("heading",section.heading||"",sp+".heading")}
-      ${primitiveField("body",section.body||"",sp+".body")}
-      <details class="section-media-tools" ${section.image?"open":""}>
-        <summary>Ảnh cho đoạn này <small>${section.image?"đã có ảnh":"không bắt buộc"}</small></summary>
-        <div class="section-media-body">
-          ${primitiveField("image",section.image||"",sp+".image")}
-          ${primitiveField("caption",section.caption||"",sp+".caption")}
-          ${storyLayoutField(section.layout||"wide",sp+".layout")}
-        </div>
-      </details>
-    </article>`;
+    const sp=p+".sections."+j,arrayPath=p+".sections";
+    const move='<div class="story-block-move">'+
+      '<button type="button" data-array-action="up" data-array-path="'+esc(arrayPath)+'" data-index="'+j+'" '+(j===0?"disabled":"")+' aria-label="Đưa đoạn lên">↑</button>'+
+      '<button type="button" data-array-action="down" data-array-path="'+esc(arrayPath)+'" data-index="'+j+'" '+(j===sections.length-1?"disabled":"")+' aria-label="Đưa đoạn xuống">↓</button>'+
+      '<details class="story-block-more"><summary aria-label="Tùy chọn đoạn '+(j+1)+'">⋯</summary>'+itemTools(arrayPath,j,sections.length)+'</details></div>';
+    return '<article class="story-section-card" data-story-section-card="'+j+'">'+
+      '<header class="story-card-head"><div class="story-block-label"><strong>Đoạn '+(j+1)+'</strong><small>'+
+      (section.image?"Có ảnh":section.heading||section.body?"Nội dung":"Chưa có nội dung")+'</small></div>'+move+'</header>'+
+      primitiveField("heading",section.heading||"",sp+".heading")+
+      '<div class="story-paragraph-editor">'+primitiveField("body",section.body||"",sp+".body")+
+      '<div class="story-paragraph-tools"><button type="button" data-story-split-photo="'+j+'">⊕ Chèn ảnh tại con trỏ</button>'+
+      '<small>Đặt con trỏ trong đoạn văn để chèn ảnh vào vị trí đó.</small></div></div>'+
+      '<details class="section-media-tools" '+(section.image?"open":"")+'><summary>Ảnh của đoạn này <small>'+
+      (section.image?"Đã có ảnh":"Bấm để chọn ảnh")+'</small></summary><div class="section-media-body">'+
+      '<p class="story-media-hint">Chọn ảnh từ máy hoặc dán URL. Ảnh xuất hiện trước phần chữ của đoạn này khi lên website.</p>'+
+      primitiveField("image",section.image||"",sp+".image")+
+      primitiveField("caption",section.caption||"",sp+".caption")+
+      storyLayoutField(section.layout||"wide",sp+".layout")+
+      '<p class="story-media-hint">Ghi tác giả và nguồn ảnh trong mục Nguồn tham khảo.</p></div></details>'+
+      '<div class="story-insert-row">'+
+      '<button type="button" data-story-insert="text" data-after-section="'+j+'">+ Thêm đoạn sau</button>'+
+      '<button type="button" data-story-insert="image" data-after-section="'+j+'">+ Chèn ảnh sau đoạn</button></div>'+
+      '</article>';
   }).join("");
 
   const sourceHtml=sources.map((source,j)=>{
@@ -574,12 +581,9 @@ function renderStoryWorkbench(story,i){
       </div>
       <details class="story-danger-zone"><summary>Quản lý bài: đổi vị trí, nhân bản hoặc xóa</summary>${storyTools(i,currentData.stories.length)}</details>
       <div class="story-editor-grid">
-        <aside class="story-live-preview">
-          <div class="story-cover">${cover}</div>
-          <span data-story-preview-category="${i}">${esc(story.category||"CHUYÊN MỤC")}</span>
-          <h2 data-story-preview-title="${i}">${esc(story.title||"Tiêu đề bài viết")}</h2>
-          <p class="story-preview-dek" data-story-preview-dek="${i}">${esc(story.dek||"Mô tả ngắn của bài viết sẽ xuất hiện ở đây.")}</p>
-          <div class="story-preview-meta"><b data-story-preview-minutes="${i}">${story.read_minutes||storyReadMinutes(story)}</b> phút đọc · <b data-story-preview-words="${i}">${storyWordCount(story)}</b> từ</div>
+        <aside class="story-live-preview" aria-label="Xem bài đang soạn">
+          <div class="story-live-head"><strong>XEM NGAY KHI ĐANG SỬA</strong><small>Bố cục mô phỏng. Nội dung chưa xuất bản.</small></div>
+          <div class="story-live-reading" data-story-live-reading="${i}">${window.OPQStoryDesk?.readHtml(story)||""}</div>
         </aside>
         <div class="story-main-fields">
           <div class="story-fields-2">
@@ -589,11 +593,17 @@ function renderStoryWorkbench(story,i){
           ${primitiveField("dek",story.dek||"",p+".dek")}
           ${primitiveField("intro",story.intro||"",p+".intro")}
           ${primitiveField("image",story.image||"",p+".image")}
+          <details class="story-cover-details" ${story.image?"open":""}><summary>Ảnh bìa: chú thích, nguồn và vị trí cắt</summary>
+            ${primitiveField("image_alt",story.image_alt||"",p+".image_alt")}
+            ${primitiveField("image_caption",story.image_caption||"",p+".image_caption")}
+            ${primitiveField("image_credit",story.image_credit||"",p+".image_credit")}
+            ${primitiveField("image_source_url",story.image_source_url||"",p+".image_source_url")}
+            ${coverPositionField(story.cover_position||"center",p+".cover_position")}
+          </details>
           <details class="story-technical"><summary>Thông tin nâng cao: mã bài, ảnh cover và thời gian đọc</summary><div class="story-technical-fields">
           <div class="story-slug-row">${primitiveField("id",story.id||"",p+".id")}${slugButton}</div>
           ${primitiveField("read_minutes",Number(story.read_minutes)||storyReadMinutes(story),p+".read_minutes")}
           <button type="button" class="story-readtime" data-story-readtime="${i}">Tính lại thời gian đọc</button>
-          ${coverPositionField(story.cover_position||"center",p+".cover_position")}
           </div></details>
         </div>
       </div>
@@ -603,7 +613,7 @@ function renderStoryWorkbench(story,i){
         <div class="story-section-list">${sectionHtml||'<p class="empty-builder">Chưa có đoạn nội dung.</p>'}</div>
       </section>
 
-      <section class="story-builder-block">
+      <section class="story-builder-block story-source-block">
         <div class="story-builder-head"><div><span>NGUỒN</span><h3>Tài liệu tham khảo</h3></div><button type="button" class="add-array-item" data-array-path="${esc(p+".sources")}">+ Thêm nguồn</button></div>
         <div class="story-source-list">${sourceHtml||'<p class="empty-builder">Chưa có nguồn tham khảo.</p>'}</div>
       </section>
@@ -1088,6 +1098,17 @@ function bindFields(){
           box.innerHTML=src?'<img src="'+esc(src)+'" alt="Xem trước ảnh">':'<span>Dán URL ảnh để xem trước</span>';
         }
       }
+      if(currentModule?.id==="stories"){
+        const match=el.dataset.path.match(/^stories\.(\d+)\./);
+        if(match){
+          const i=Number(match[1]),story=currentData.stories?.[i];
+          if(story)window.OPQStoryDesk?.refreshLive(story,i);
+          if(el.dataset.path==="stories."+i+".title"){
+            const header=document.querySelector(".story-focus-bar h2");
+            if(header)header.textContent=String(v||"Bài chưa có tiêu đề");
+          }
+        }
+      }
       markDirty();
     });
   });
@@ -1167,7 +1188,7 @@ function bindVenueControls(){
 }
 
 function bindStoryControls(){
-  const desk=window.OPQStoryDesk;
+  const desk=window.OPQStoryDesk,composer=window.OPQStoryComposer;
   document.querySelectorAll("[data-story-select]").forEach(btn=>btn.onclick=()=>{
     if(desk?.select(Number(btn.dataset.storySelect),currentData.stories.length))rerender();
   });
@@ -1192,6 +1213,46 @@ function bindStoryControls(){
     const field=[...document.querySelectorAll("#editor [data-path]")].find(el=>el.dataset.path===path);
     field?.focus({preventScroll:true});
     field?.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+  document.querySelectorAll("[data-story-insert],[data-story-split-photo]").forEach(btn=>btn.onclick=()=>{
+    if(!currentModule?.write?.includes(session.role)||!composer)return;
+    const articleIndex=desk?.selected()??-1,story=currentData.stories?.[articleIndex];
+    if(!story)return;
+    const sections=story.sections||(story.sections=[]);
+    let index=-1;
+    if(btn.hasAttribute("data-story-split-photo")){
+      const n=Number(btn.dataset.storySplitPhoto);
+      const field=[...document.querySelectorAll("#editor [data-path]")].find(el=>
+        el.dataset.path==="stories."+articleIndex+".sections."+n+".body");
+      const result=composer.splitForImage(sections,n,field?.selectionStart);
+      if(!result)return;
+      index=result.photoIndex;
+    }else index=composer.insertAfter(sections,Number(btn.dataset.afterSection),btn.dataset.storyInsert);
+    if(index<0)return;
+    markDirty("Đã thêm khối nội dung. Chọn ảnh hoặc viết tiếp rồi xem lại bài.");
+    rerender();
+    const card=document.querySelector('[data-story-section-card="'+index+'"]');
+    if(btn.dataset.storyInsert==="text"){
+      card?.querySelector('[data-path$=".heading"]')?.focus({preventScroll:true});
+    }else{
+      const details=card?.querySelector(".section-media-tools");
+      if(details)details.open=true;
+      card?.querySelector("[data-media-path]")?.focus?.({preventScroll:true});
+    }
+    card?.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+  document.querySelectorAll("[data-story-layout-pick],[data-story-cover-pick]").forEach(btn=>btn.onclick=()=>{
+    if(!currentModule?.write?.includes(session.role))return;
+    const path=btn.dataset.storyLayoutPath||btn.dataset.storyCoverPath;
+    const value=btn.dataset.storyLayoutPick||btn.dataset.storyCoverPick;
+    const select=[...document.querySelectorAll("#editor select[data-path]")].find(el=>el.dataset.path===path);
+    if(!select||select.value===value)return;
+    select.value=value;select.dispatchEvent(new Event("input",{bubbles:true}));
+    btn.parentElement?.querySelectorAll("button").forEach(el=>el.setAttribute("aria-pressed",String(el===btn)));
+  });
+  document.querySelectorAll(".story-paragraph-editor textarea").forEach(el=>{
+    const size=()=>{el.style.height="auto";el.style.height=Math.min(640,Math.max(145,el.scrollHeight+3))+"px";};
+    size();el.addEventListener("input",size);
   });
   document.querySelectorAll("[data-story-preview]").forEach(btn=>
     btn.onclick=()=>window.OPQEditorWorkflow?.previewArticle(Number(btn.dataset.storyPreview)));
