@@ -6,7 +6,7 @@ const food=read("food/food.js"),home=read("index.html"),about=read("about/index.
 const stories=JSON.parse(read("data/content.json")).stories;
 const knowledge=JSON.parse(read("data/knowledge/objects.json")).objects.filter(x=>x.status==="READY_PUBLIC"&&x.public_ready);
 const dishes=JSON.parse(read("data/food.json")).dishes;
-assert.equal(stories.length,20);
+assert.equal(stories.length,22);
 assert.equal(dishes.length,32);
 assert.equal(knowledge.length,128);
 assert.ok(stories.reduce((n,s)=>n+(s.sources||[]).length,0)>0,"Original research links must stay in the editorial data");
