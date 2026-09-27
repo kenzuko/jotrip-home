@@ -38,7 +38,7 @@ function sourcePath(value,requestUrl){
 export async function publicConfig(env){
   let enabled=!!(env.CMS_DB&&feedbackRateKey(env));
   if(enabled){
-    try{await env.CMS_DB.prepare("SELECT language FROM cms_place_feedback LIMIT 1").first(); // Fails closed until the additive locale migration exists.}
+    try{await env.CMS_DB.prepare("SELECT language FROM cms_place_feedback LIMIT 1").first();} // Fails closed until the additive locale migration exists.
     catch{enabled=false;}
   }
   return json({ok:true,enabled,photo_enabled:enabled&&!!env.FEEDBACK_IMAGES,max_photo_bytes:3145728});
