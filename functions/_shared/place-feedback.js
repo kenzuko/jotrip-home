@@ -1,6 +1,8 @@
 // Place-data corrections only. Never turns a public report into verified data.
 const TYPES = new Set(["place","activity","venue","hotel","utility","article","general"]);
-const ISSUES = new Set(["closed","location","hours","phone","details","new_place","other"]);
+const ISSUES = new Set(["closed","location","hours","phone","details","new_place","other","translation"]);
+const LANGUAGES = new Set(["vi","en","ko","ru","lo","zh-CN","zh-TW","fr"]);
+const TRANSLATION_LANGUAGES = new Set(["ko","ru","lo","zh-CN","zh-TW","fr"]);
 const STATUSES = new Set(["new","reviewing","resolved","rejected"]);
 // Prefer a dedicated secret. CMS Pages can safely derive a separate HMAC key from its existing session secret.
 const feedbackRateKey=env=>env.FEEDBACK_RATE_SECRET|| (env.CMS_SESSION_SECRET?"openpq-feedback-rate-v1:"+env.CMS_SESSION_SECRET:"");
@@ -36,7 +38,7 @@ function sourcePath(value,requestUrl){
 export async function publicConfig(env){
   let enabled=!!(env.CMS_DB&&feedbackRateKey(env));
   if(enabled){
-    try{await env.CMS_DB.prepare("SELECT 1 AS ready FROM cms_place_feedback LIMIT 1").first();}
+    try{await env.CMS_DB.prepare("SELECT language FROM cms_place_feedback LIMIT 1").first(); // Fails closed until the additive locale migration exists.}
     catch{enabled=false;}
   }
   return json({ok:true,enabled,photo_enabled:enabled&&!!env.FEEDBACK_IMAGES,max_photo_bytes:3145728});
@@ -54,8 +56,14 @@ export async function publicSubmit(request,env){
   const issue=clean(form.get("issue"),32),type=clean(form.get("entity_type"),32);
   const entityId=clean(form.get("entity_id"),120),label=clean(form.get("entity_label"),120);
   const details=clean(form.get("details"),1500),url=sourcePath(form.get("source_url"),request.url);
+  const language=clean(form.get("language"),12)||"vi";
+  const revision=clean(form.get("source_revision"),80);
+  const quotedText=clean(form.get("quoted_text"),500);
+  const suggestedText=clean(form.get("suggested_text"),1500);
   if(!ISSUES.has(issue)||!TYPES.has(type)||(!validId(entityId)&&issue!=="new_place")||
-    !label||label.length<2||(issue==="new_place"&&details.length<10))
+    !label||label.length<2||!LANGUAGES.has(language)||(issue==="new_place"&&details.length<10)||
+    (issue==="translation"&&(type!=="article"||!TRANSLATION_LANGUAGES.has(language)||Math.max(details.length,suggestedText.length)<5))||
+    (revision&&!/^[a-zA-Z0-9._:-]{1,80}$/.test(revision)))
     return json({ok:false,error:"invalid_fields"},400);
   const attachment=form.get("photo");
   let image=null;
@@ -84,8 +92,8 @@ export async function publicSubmit(request,env){
   }
   try{
     await db.prepare(
-      "INSERT INTO cms_place_feedback(id,issue,entity_type,entity_id,entity_label,details,source_path,image_key,image_mime,submit_hash,created_at,status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)"
-    ).bind(id,issue,type,entityId||null,label,details,url,key,image?.type||null,hash,time,"new").run();
+      "INSERT INTO cms_place_feedback(id,issue,entity_type,entity_id,entity_label,details,source_path,image_key,image_mime,submit_hash,created_at,status,language,source_revision,quoted_text,suggested_text) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+    ).bind(id,issue,type,entityId||null,label,details,url,key,image?.type||null,hash,time,"new",language,issue==="translation"?revision:"",issue==="translation"?quotedText:"",issue==="translation"?suggestedText:"").run();
   }catch(error){
     if(key)await env.FEEDBACK_IMAGES.delete(key).catch(()=>{});
     console.error("feedback storage failed",error);
@@ -111,15 +119,23 @@ export async function adminFeedback(request,env,sessionHandler,{photo=false}={})
     return new Response(obj.body,{headers:{"content-type":record.image_mime,"cache-control":"private, no-store","x-content-type-options":"nosniff","content-security-policy":"default-src 'none'; sandbox"}});
   }
   if(request.method==="GET"){
-    const status=clean(new URL(request.url).searchParams.get("status"),24);
+    const url=new URL(request.url);
+    const status=clean(url.searchParams.get("status"),24);
+    const kind=clean(url.searchParams.get("kind"),24);
+    const language=clean(url.searchParams.get("language"),12);
     if(status&&!STATUSES.has(status))return json({error:"invalid_status"},400);
-    const offsetRaw=Number(new URL(request.url).searchParams.get("offset")||0);
+    if(kind&&!["translation","new_place","general"].includes(kind))return json({error:"invalid_kind"},400);
+    if(language&&!LANGUAGES.has(language))return json({error:"invalid_language"},400);
+    const offsetRaw=Number(url.searchParams.get("offset")||0);
     if(!Number.isInteger(offsetRaw)||offsetRaw<0||offsetRaw>10000)return json({error:"invalid_offset"},400);
-    const limit=50,offset=offsetRaw;
-    const select="SELECT id,issue,entity_type,entity_id,entity_label,details,source_path,image_key IS NOT NULL AS has_photo,created_at,status,moderator_note,reviewed_at,reviewed_by FROM cms_place_feedback";
-    const q=status
-      ?db.prepare(select+" WHERE status=? ORDER BY created_at DESC,id DESC LIMIT ? OFFSET ?").bind(status,limit+1,offset)
-      :db.prepare(select+" ORDER BY created_at DESC,id DESC LIMIT ? OFFSET ?").bind(limit+1,offset);
+    const limit=50,offset=offsetRaw,conditions=[],args=[];
+    if(status){conditions.push("status=?");args.push(status);}
+    if(kind==="translation"){conditions.push("issue=?");args.push("translation");}
+    if(kind==="new_place"){conditions.push("issue=?");args.push("new_place");}
+    if(kind==="general"){conditions.push("issue<>?");args.push("translation");}
+    if(language){conditions.push("language=?");args.push(language);}
+    const select="SELECT id,issue,entity_type,entity_id,entity_label,details,source_path,image_key IS NOT NULL AS has_photo,created_at,status,moderator_note,reviewed_at,reviewed_by,language,source_revision,quoted_text,suggested_text,approved_text FROM cms_place_feedback";
+    const q=db.prepare(select+(conditions.length?" WHERE "+conditions.join(" AND "):"")+" ORDER BY created_at DESC,id DESC LIMIT ? OFFSET ?").bind(...args,limit+1,offset);
     try{
       const result=await q.all();
       const rows=result.results||[];
@@ -134,11 +150,32 @@ export async function adminFeedback(request,env,sessionHandler,{photo=false}={})
     const id=clean(payload.id,120),status=clean(payload.status,30),note=clean(payload.note,1000);
     if(!validId(id)||!STATUSES.has(status))return json({error:"invalid_fields"},400);
     if(["resolved","rejected"].includes(status)&&note.length<10)return json({error:"note_required"},400);
+    const approvedText=clean(payload.approved_text,1500);
+    let record=null;
+    if(status==="resolved"||approvedText){
+      record=await db.prepare("SELECT issue,entity_type,entity_id,source_path,language,source_revision,quoted_text FROM cms_place_feedback WHERE id=?").bind(id).first();
+      if(!record)return json({error:"not_found"},404);
+      if(approvedText&&record.issue!=="translation")return json({error:"invalid_approval"},400);
+      if(status==="resolved"&&record.issue==="translation"&&approvedText.length<3)
+        return json({error:"approved_text_required"},400);
+    }
     const reviewedAt=new Date().toISOString();
-    const result=await db.prepare("UPDATE cms_place_feedback SET status=?,moderator_note=?,reviewed_at=?,reviewed_by=? WHERE id=?")
-      .bind(status,note,reviewedAt,actor.login,id).run();
-    if(!result.meta?.changes)return json({error:"not_found"},404);
-    return json({ok:true,id,status,reviewed_at:reviewedAt});
+    const update=db.prepare("UPDATE cms_place_feedback SET status=?,moderator_note=?,reviewed_at=?,reviewed_by=?,approved_text=? WHERE id=?")
+      .bind(status,note,reviewedAt,actor.login,status==="resolved"?approvedText:"",id);
+    try{
+      // Batch keeps approved text and reusable corrections consistent. Never changes published copy.
+      const tasks=[update];
+      if(status==="resolved"&&record?.issue==="translation"){
+        tasks.push(db.prepare(
+          "INSERT INTO cms_translation_corrections(feedback_id,entity_id,source_path,language,source_revision,quoted_text,approved_text,approved_at,approved_by) VALUES(?,?,?,?,?,?,?,?,?) ON CONFLICT(feedback_id) DO UPDATE SET approved_text=excluded.approved_text,approved_at=excluded.approved_at,approved_by=excluded.approved_by"
+        ).bind(id,record.entity_id||"",record.source_path,record.language,record.source_revision||"",record.quoted_text||"",approvedText,reviewedAt,actor.login));
+      }else{
+        tasks.push(db.prepare("DELETE FROM cms_translation_corrections WHERE feedback_id=?").bind(id));
+      }
+      const result=await db.batch(tasks);
+      if(!result[0]?.meta?.changes)return json({error:"not_found"},404);
+      return json({ok:true,id,status,reviewed_at:reviewedAt,correction_saved:status==="resolved"&&record?.issue==="translation"});
+    }catch(error){console.error("feedback review failed",error);return json({error:"storage_unavailable"},503);}
   }
   return json({error:"method_not_allowed"},405);
 }
