@@ -30,5 +30,5 @@ assert.equal(sandbox.mergeHistory(base,{category:"other",schema_version:"1.0",ev
 assert.match(app,/Promise\.allSettled/,"Failure of history source must not hide live status");
 assert.match(app,/HISTORY_LIVE|ARCHIVE/,"Canonical history source must be referenced");
 assert.match(html,/id="historyMeta"/,"Public page must expose archive freshness");
-assert.match(html,/app\.js\?v=5/,"Public page must load the updated script");
+assert.match(html,/app\.js\?v=6/,"Public page must load the updated script");
 console.log("PASS: canoe history merging, date safety, offline fallback and CMS wiring");
