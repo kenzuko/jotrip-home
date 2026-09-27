@@ -13,6 +13,8 @@ assert.ok(stories.reduce((n,s)=>n+(s.sources||[]).length,0)>0,"Original research
 assert.ok(knowledge.every(o=>(o.research?.sources||[]).length),"Keep the fact-checking records");
 assert.ok(dishes.every(o=>(o.sources||[]).length),"Preserve recipe and allergy evidence");
 assert.doesNotMatch(story,/function sourceList\(|sourceList\(s\)|Nguồn bài viết/,"No public story bibliography");
+assert.match(story,/image_license_url/,"Licensed editorial photos need CC attribution");
+assert.match(read("visual-context.js"),/img\.license_url/,"Gallery photos need CC licensing links");
 assert.doesNotMatch(news,/Nguồn ↗|sourceUrl/,"News does not expose citation hyperlinks");
 assert.match(news,/source\?\.label/,"News retains a readable, non-linked source name");
 assert.match(news,/Xem liên quan/,"News keeps relevant operational navigation");
@@ -25,7 +27,7 @@ assert.match(read("hotels/app.js"),/Website chính thức/,"Hotel website / book
 assert.match(food,/renderRandomDish\(/,"Existing food suggestion must stay");
 assert.match(home,/Thông tin miễn phí dành cho người dân và du khách/);
 assert.match(about,/Thông tin miễn phí dành cho người dân và du khách/);
-for(const file of ["stories/index.html","stories/article.html"])assert.match(read(file),/story\.js\?v=20260927-reader-first-r1/);
+for(const file of ["stories/index.html","stories/article.html"])assert.match(read(file),/story\.js\?v=20260927-cc-credit-r2/);
 assert.match(read("news/index.html"),/news\.js\?v=20260927-reader-first-r1/);
 for(const file of ["guide/knowledge.html","guide/article.html"])assert.match(read(file),/knowledge\.js\?v=20260927-photo-rights-r1/);
 console.log("Public source-link QA PASS: 180 articles preserved, research archived, booking and photo-license actions retained, community statement visible.");
