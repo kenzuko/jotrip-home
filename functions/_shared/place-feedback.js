@@ -1,6 +1,7 @@
 // Place-data corrections only. Never turns a public report into verified data.
 const TYPES = new Set(["place","activity","venue","hotel","utility","article","general"]);
-const ISSUES = new Set(["closed","location","hours","phone","details","new_place","other"]);
+const ISSUES = new Set(["closed","location","hours","phone","details","new_place","other","translation"]);
+const TRANSLATION_LOCALES = new Set(["ko","ru","lo","zh-CN","zh-TW","fr"]);
 const STATUSES = new Set(["new","reviewing","resolved","rejected"]);
 // Prefer a dedicated secret. CMS Pages can safely derive a separate HMAC key from its existing session secret.
 const feedbackRateKey=env=>env.FEEDBACK_RATE_SECRET|| (env.CMS_SESSION_SECRET?"openpq-feedback-rate-v1:"+env.CMS_SESSION_SECRET:"");
@@ -54,8 +55,17 @@ export async function publicSubmit(request,env){
   const issue=clean(form.get("issue"),32),type=clean(form.get("entity_type"),32);
   const entityId=clean(form.get("entity_id"),120),label=clean(form.get("entity_label"),120);
   const details=clean(form.get("details"),1500),url=sourcePath(form.get("source_url"),request.url);
+  const translation=issue==="translation"?{
+    locale:clean(form.get("target_locale"),12), segment:clean(form.get("segment_id"),120),
+    revision:clean(form.get("translation_revision"),100), shown:clean(form.get("translation_excerpt"),1200),
+    source:clean(form.get("source_excerpt"),1200), suggested:clean(form.get("suggested_translation"),1200)
+  }:null;
   if(!ISSUES.has(issue)||!TYPES.has(type)||(!validId(entityId)&&issue!=="new_place")||
-    !label||label.length<2||(issue==="new_place"&&details.length<10))
+    !label||label.length<2||(issue==="new_place"&&details.length<10)||
+    (translation&&(type!=="article"||!validId(entityId)||!TRANSLATION_LOCALES.has(translation.locale)||
+      !/^[a-zA-Z0-9_.-]{1,120}$/.test(translation.segment)||
+      !/^[a-zA-Z0-9_.:-]{1,100}$/.test(translation.revision)||
+      translation.shown.length<5||(translation.suggested.length<5&&details.length<10))))
     return json({ok:false,error:"invalid_fields"},400);
   const attachment=form.get("photo");
   let image=null;
@@ -83,9 +93,14 @@ export async function publicSubmit(request,env){
     catch(error){console.error("feedback photo save failed",error);return json({ok:false,error:"photo_save_failed"},503);}
   }
   try{
-    await db.prepare(
+    const envelope=db.prepare(
       "INSERT INTO cms_place_feedback(id,issue,entity_type,entity_id,entity_label,details,source_path,image_key,image_mime,submit_hash,created_at,status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)"
-    ).bind(id,issue,type,entityId||null,label,details,url,key,image?.type||null,hash,time,"new").run();
+    ).bind(id,issue,type,entityId||null,label,details,url,key,image?.type||null,hash,time,"new");
+    if(translation){
+      const suggestion=db.prepare("INSERT INTO cms_translation_feedback(feedback_id,article_id,target_locale,segment_id,translation_revision,translation_excerpt,source_excerpt,suggested_translation,created_at) VALUES(?,?,?,?,?,?,?,?,?)")
+        .bind(id,entityId,translation.locale,translation.segment,translation.revision,translation.shown,translation.source,translation.suggested,time);
+      await db.batch([envelope,suggestion]);
+    }else await envelope.run();
   }catch(error){
     if(key)await env.FEEDBACK_IMAGES.delete(key).catch(()=>{});
     console.error("feedback storage failed",error);
@@ -122,8 +137,11 @@ export async function adminFeedback(request,env,sessionHandler,{photo=false}={})
       :db.prepare(select+" ORDER BY created_at DESC,id DESC LIMIT ? OFFSET ?").bind(limit+1,offset);
     try{
       const result=await q.all();
-      const rows=result.results||[];
-      return json({ok:true,items:rows.slice(0,limit),limit,offset,has_more:rows.length>limit,next_offset:rows.length>limit?offset+limit:null});
+      const rows=(result.results||[]).slice(0,limit);
+      for(const row of rows){
+        if(row.issue==="translation")row.translation=await db.prepare("SELECT target_locale,segment_id,translation_revision,translation_excerpt,source_excerpt,suggested_translation FROM cms_translation_feedback WHERE feedback_id=?").bind(row.id).first();
+      }
+      return json({ok:true,items:rows,limit,offset,has_more:(result.results||[]).length>limit,next_offset:(result.results||[]).length>limit?offset+limit:null});
     }catch(error){console.error("feedback inbox failed",error);return json({error:"storage_unavailable"},503);}
   }
   if(request.method==="PATCH"){
@@ -157,6 +175,7 @@ export async function cleanupFeedback(env,now=Date.now()){
       try{await env.FEEDBACK_IMAGES.delete(record.image_key);}
       catch{skipped++;continue;}
     }
+    if(record.issue==="translation")await env.CMS_DB.prepare("DELETE FROM cms_translation_feedback WHERE feedback_id=?").bind(record.id).run();
     const result=await env.CMS_DB.prepare("DELETE FROM cms_place_feedback WHERE id=? AND created_at<?")
       .bind(record.id,cutoff).run();
     deleted+=Number(result.meta?.changes||0);
