@@ -5,7 +5,7 @@ const $=q=>document.querySelector(q);
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const labels={closed:"Đã đóng cửa",location:"Sai vị trí",hours:"Giờ hoạt động",phone:"Số điện thoại",details:"Thông tin khác",new_place:"Địa điểm mới",other:"Bổ sung",translation:"Bản dịch"};
 const states={new:"Chưa xử lý",reviewing:"Đang kiểm tra",resolved:"Đã xử lý",rejected:"Không phù hợp"};
-let session,offset=0,loading=false,relatedKey="",correctionOffset=0,correctionLoading=false;
+let session,offset=0,loading=false,relatedKey="",correctionOffset=0,correctionLoading=false,pendingQueueReload=false,pendingCorrectionReload=false;
 async function read(url,init={}){
   const response=await fetch(url,{credentials:"same-origin",cache:"no-store",...init});
   const body=await response.json().catch(()=>({}));
@@ -61,7 +61,7 @@ function record(x){
     '</div></article>';
 }
 async function load(reset=true){
-  if(loading)return;
+  if(loading){if(reset)pendingQueueReload=true;return;}
   loading=true;
   const next=reset?0:offset;
   status("Đang tải hàng chờ...");
@@ -86,7 +86,7 @@ async function load(reset=true){
     if(!$("#queue").children.length)$("#queue").innerHTML="<p>Chưa có góp ý trong mục này.</p>";
     status("");
   }catch(e){status("Không mở được hàng chờ: "+e.message);$("#loadMore").disabled=false;}
-  finally{loading=false;}
+  finally{loading=false;if(pendingQueueReload){pendingQueueReload=false;void load(true);}}
 }
 function correctionCard(item){
   const source=publicHref(item.source_path);
@@ -102,7 +102,7 @@ function correctionCard(item){
     '<button type="button" class="copy-approved">Sao chép câu đã duyệt</button></div></article>';
 }
 async function loadCorrections(reset=true){
-  if(correctionLoading)return;
+  if(correctionLoading){if(reset)pendingCorrectionReload=true;return;}
   correctionLoading=true;
   const next=reset?0:correctionOffset;
   $("#correctionStatus").textContent="Đang mở kho câu sửa...";
@@ -121,7 +121,7 @@ async function loadCorrections(reset=true){
     if(!$("#correctionRows").children.length)$("#correctionRows").textContent="Chưa có câu sửa phù hợp.";
     $("#correctionStatus").textContent="";
   }catch(e){$("#correctionStatus").textContent="Chưa mở được kho câu sửa: "+e.message;}
-  finally{$("#correctionMore").disabled=false;correctionLoading=false;}
+  finally{$("#correctionMore").disabled=false;correctionLoading=false;if(pendingCorrectionReload){pendingCorrectionReload=false;void loadCorrections(true);}}
 }
 function showTab(name){
   const queue=name==="queue";
