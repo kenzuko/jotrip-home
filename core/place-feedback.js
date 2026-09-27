@@ -99,6 +99,13 @@
     submit.textContent="Gửi góp ý";
     photoRow.hidden=true;
     if(dialog.showModal)dialog.showModal();else dialog.setAttribute("open","");
+    // A translated paragraph without an immutable revision cannot accept usable corrections.
+    if(isTranslation&&(!["ko","ru","lo","zh-CN","zh-TW","fr"].includes(current.translation.target_locale)||
+      !current.entity_id||!current.translation.translation_revision||current.translation.translation_excerpt.trim().length<5)){
+      status.textContent="Chưa xác định được đoạn dịch và phiên bản bài. Bạn thử tải lại trang nhé.";
+      submit.disabled=true;
+      return;
+    }
     capabilities().then(cfg=>{
       if(!dialog.open)return;
       if(!cfg.enabled){
