@@ -28,7 +28,7 @@ and an allowlisted article id only; arbitrary query parameters are discarded.
 
 ## Deployment prerequisites - DO NOT RUN UNTIL APPROVED
 1. On the SAME existing openpq-cms D1 used by CMS/Worker, apply migration once:
-   npx wrangler d1 execute openpq-cms --remote --file=migrations/20260927_cms_place_feedback.sql
+   npx wrangler d1 migrations apply openpq-cms --remote --config=wrangler.pages.jsonc
    Review DB id/bindings first. Never drop/overwrite the existing database.
 2. Configure FEEDBACK_RATE_SECRET as a strong independent secret on whichever
    deployment serves /api/feedback (CMS Pages AND/OR v3 Worker as applicable):
@@ -48,16 +48,15 @@ and an allowlisted article id only; arbitrary query parameters are discarded.
 6. Deploy/merge only after the existing build suite and manual preview QA pass.
    Never deploy unrelated Airport, Weather or Transit changes for this feature.
 
+The migration file is `migrations/d1/0003_cms_place_feedback.sql`, matching the existing CMS Pages automatic migration directory. Applying it is additive; never re-create or replace the D1 database.
+
 ## Moderation & retention
 Inbox offers new, reviewing, resolved, rejected with timestamp, editor and notes.
 No report becomes verified through submission or a change of review status.
 Use the existing CMS workflow to update the underlying entity if corroborated;
 do not change canonical coordinates or operator status from an unverified report.
 
-Operational follow-up: agree and implement a retention/deletion policy for
-closed reports and R2 images before public launch. Access to submitted photos
-is restricted to authenticated CMS personnel. Publish/update a short privacy
-notice adjacent to the form before enabling public intake.
+Retention: 180 days for all feedback records and private photos. The existing v3 Worker cron invokes daily cleanup at 20:00 UTC (03:00 Phú Quốc time), in batches of 100; if R2 is unavailable, image-bearing rows are retained for retry so no orphaned images are left behind. Bind the SAME D1 and optional R2 bucket to this Worker before enabling photo uploads. A public `/about/feedback-privacy.html` disclosure is linked from the form. CMS access is authenticated and images are never public.
 
 ## Testing
 The lightweight node script scripts/test-place-feedback.mjs is called by

@@ -1,3 +1,4 @@
+import {cleanupFeedback} from "./functions/_shared/place-feedback.js";
 import {onRequest as publicFeedback} from "./functions/api/feedback.js";
 import {onRequest as adminPlaceFeedback} from "./functions/api/cms/feedback.js";
 import {onRequest as adminPlaceFeedbackPhoto} from "./functions/api/cms/feedback/photo.js";
@@ -136,6 +137,9 @@ export default {
   async scheduled(event,env,ctx){
     ctx.waitUntil(prewarmWeatherEdge("https://openphuquoc-v3.kenzuko.workers.dev",p=>ctx.waitUntil(p)));
     if(env.CMS_DB)ctx.waitUntil(captureWeatherAlerts(env).catch(e=>console.warn("Weather alert audit retry next cron",e.message)));
+    const tick=new Date(event.scheduledTime||Date.now());
+    if(env.CMS_DB&&tick.getUTCHours()===20&&tick.getUTCMinutes()===0)
+      ctx.waitUntil(cleanupFeedback(env).catch(e=>console.warn("Community feedback cleanup retry next day",e.message)));
   },
   async fetch(request, env, ctx) {
     const weatherPath=new URL(request.url).pathname;

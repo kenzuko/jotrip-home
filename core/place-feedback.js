@@ -24,7 +24,7 @@
       '<label class="opq-feedback-field">Chia sẻ thêm (nếu có)<textarea name="details" maxlength="1500" rows="4" placeholder="Thông tin đúng là gì? Bạn biết từ khi nào?"></textarea></label>'+
       '<label class="opq-feedback-field" id="opqFeedbackPhoto" hidden>Ảnh thực tế (không bắt buộc, tối đa 3 MB)<input name="photo" type="file" accept="image/jpeg,image/png,image/webp"></label>'+
       '<label class="opq-feedback-trap" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>'+
-      '<p class="opq-feedback-note">Phản hồi sẽ được kiểm tra trước khi cập nhật. Không cần đăng nhập. Đừng gửi thông tin riêng tư.</p>'+
+      '<p class="opq-feedback-note">Không cần đăng nhập. Chỉ gửi thông tin liên quan đến địa điểm hoặc bài viết. Tránh ảnh có thông tin cá nhân. <a href="/about/feedback-privacy.html" target="_blank" rel="noopener">Dữ liệu góp ý được sử dụng thế nào?</a></p>'+
       '<p class="opq-feedback-status" role="status" aria-live="polite"></p>'+
       '<div class="opq-feedback-actions"><button type="button" data-feedback-cancel>Bỏ qua</button><button type="submit" class="opq-feedback-send">Gửi góp ý</button></div>'+
       '</form>';
@@ -54,8 +54,10 @@
     if(config)return config;
     if(!loadConfig)loadConfig=fetch("/api/feedback",{cache:"no-store"})
       .then(r=>r.ok?r.json():null).catch(()=>null);
-    config=await loadConfig||{photo_enabled:false};
-    return config;
+    const result=await loadConfig||{enabled:false,photo_enabled:false};
+    if(result.enabled)config=result;
+    else loadConfig=null; // Allow retry after backend setup without trapping visitor in a stale disabled state.
+    return result;
   }
   function open(details={}){
     init();
@@ -70,20 +72,30 @@
     form.querySelector(".opq-feedback-note").hidden=false;
     const isNew=details.issue==="new_place";
     form.elements.issue.innerHTML=Object.entries(labels)
-      .filter(([id])=>isNew?id==="new_place":id!=="new_place")
-      .map(([id,label])=>'<option value="'+id+'">'+esc(label)+'</option>').join("");
+      .filter(([id])=>isNew?id==="new_place":current.entity_type==="article"?["details","other"].includes(id):id!=="new_place")
+      .map(([id,label])=>'<option value="'+id+'">'+esc(current.entity_type==="article"&&id==="details"?"Thông tin trong bài chưa đúng":label)+'</option>').join("");
     form.elements.issue.value=isNew?"new_place":"details";
     form.querySelector("#opqFeedbackContext").textContent=isNew
       ?"Biết một địa điểm hữu ích chưa có trong danh sách? Chia sẻ với Open Phu Quoc nhé."
       :current.entity_label;
     syncKind();
-    status.textContent="";
+    status.textContent="Đang kiểm tra kênh góp ý...";
     status.className="opq-feedback-status";
-    submit.disabled=false;
+    submit.disabled=true;
     submit.textContent="Gửi góp ý";
     photoRow.hidden=true;
-    capabilities().then(cfg=>{if(dialog.open)photoRow.hidden=!cfg.photo_enabled;});
     if(dialog.showModal)dialog.showModal();else dialog.setAttribute("open","");
+    capabilities().then(cfg=>{
+      if(!dialog.open)return;
+      if(!cfg.enabled){
+        status.textContent="Kênh góp ý chưa sẵn sàng lúc này. Bạn thử lại sau nhé.";
+        submit.disabled=true;
+        return;
+      }
+      status.textContent="";
+      submit.disabled=false;
+      photoRow.hidden=!cfg.photo_enabled;
+    });
   }
   async function send(event){
     event.preventDefault();
@@ -102,7 +114,7 @@
     submit.disabled=true;submit.textContent="Đang gửi...";
     status.textContent="";
     try{
-      const r=await fetch("/api/feedback",{method:"POST",body:data,credentials:"same-origin"});
+      const r=await fetch("/api/feedback",{method:"POST",body:data,credentials:"same-origin",headers:{"Accept":"application/json"}});
       const result=await r.json().catch(()=>({}));
       if(!r.ok||!result.ok){
         const messages={rate_limited:"Bạn đã gửi khá nhiều góp ý. Mình thử lại sau nhé.",

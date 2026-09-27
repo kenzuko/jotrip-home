@@ -9,7 +9,7 @@ const clean=(value,max=250)=>String(value||"").replace(/[\u0000-\u001f\u007f]/g,
 const validId=id=>/^[a-zA-Z0-9_-]{1,120}$/.test(id);
 function originAllowed(request){
   const origin=request.headers.get("origin");
-  return !origin||origin===new URL(request.url).origin;
+  return !!origin&&origin===new URL(request.url).origin;
 }
 async function dailyHash(ip,secret){
   const date=new Date().toISOString().slice(0,10);
@@ -23,15 +23,21 @@ function imageType(bytes){
   if(bytes.length>=12&&String.fromCharCode(...bytes.slice(0,4))==="RIFF"&&String.fromCharCode(...bytes.slice(8,12))==="WEBP")return ["image/webp","webp"];
   return null;
 }
-function sourcePath(value){
+function sourcePath(value,requestUrl){
   try{
     const u=new URL(String(value));
+    if(u.origin!==new URL(requestUrl).origin)return "/";
     const id=u.searchParams.get("id");
     return clean(u.pathname+(id&&validId(id)?"?id="+encodeURIComponent(id):""),350);
   }catch{return "/";}
 }
-export function publicConfig(env){
-  return json({ok:true,photo_enabled:!!env.FEEDBACK_IMAGES,max_photo_bytes:3145728});
+export async function publicConfig(env){
+  let enabled=!!(env.CMS_DB&&env.FEEDBACK_RATE_SECRET);
+  if(enabled){
+    try{await env.CMS_DB.prepare("SELECT 1 AS ready FROM cms_place_feedback LIMIT 1").first();}
+    catch{enabled=false;}
+  }
+  return json({ok:true,enabled,photo_enabled:enabled&&!!env.FEEDBACK_IMAGES,max_photo_bytes:3145728});
 }
 export async function publicSubmit(request,env){
   if(request.method!=="POST")return json({ok:false,error:"method_not_allowed"},405);
@@ -44,7 +50,7 @@ export async function publicSubmit(request,env){
   if(form.get("website"))return json({ok:true,received:true}); // Honeypot. Store nothing.
   const issue=clean(form.get("issue"),32),type=clean(form.get("entity_type"),32);
   const entityId=clean(form.get("entity_id"),120),label=clean(form.get("entity_label"),120);
-  const details=clean(form.get("details"),1500),url=sourcePath(form.get("source_url"));
+  const details=clean(form.get("details"),1500),url=sourcePath(form.get("source_url"),request.url);
   if(!ISSUES.has(issue)||!TYPES.has(type)||(!validId(entityId)&&issue!=="new_place")||
     !label||label.length<2||(issue==="new_place"&&details.length<10))
     return json({ok:false,error:"invalid_fields"},400);
@@ -104,13 +110,17 @@ export async function adminFeedback(request,env,sessionHandler,{photo=false}={})
   if(request.method==="GET"){
     const status=clean(new URL(request.url).searchParams.get("status"),24);
     if(status&&!STATUSES.has(status))return json({error:"invalid_status"},400);
-    const limit=50;
+    const offsetRaw=Number(new URL(request.url).searchParams.get("offset")||0);
+    if(!Number.isInteger(offsetRaw)||offsetRaw<0||offsetRaw>10000)return json({error:"invalid_offset"},400);
+    const limit=50,offset=offsetRaw;
+    const select="SELECT id,issue,entity_type,entity_id,entity_label,details,source_path,image_key IS NOT NULL AS has_photo,created_at,status,moderator_note,reviewed_at,reviewed_by FROM cms_place_feedback";
     const q=status
-      ?db.prepare("SELECT id,issue,entity_type,entity_id,entity_label,details,source_path,image_key IS NOT NULL AS has_photo,created_at,status,moderator_note,reviewed_at,reviewed_by FROM cms_place_feedback WHERE status=? ORDER BY created_at DESC LIMIT ?").bind(status,limit)
-      :db.prepare("SELECT id,issue,entity_type,entity_id,entity_label,details,source_path,image_key IS NOT NULL AS has_photo,created_at,status,moderator_note,reviewed_at,reviewed_by FROM cms_place_feedback ORDER BY created_at DESC LIMIT ?").bind(limit);
+      ?db.prepare(select+" WHERE status=? ORDER BY created_at DESC,id DESC LIMIT ? OFFSET ?").bind(status,limit+1,offset)
+      :db.prepare(select+" ORDER BY created_at DESC,id DESC LIMIT ? OFFSET ?").bind(limit+1,offset);
     try{
       const result=await q.all();
-      return json({ok:true,items:result.results||[],limit});
+      const rows=result.results||[];
+      return json({ok:true,items:rows.slice(0,limit),limit,offset,has_more:rows.length>limit,next_offset:rows.length>limit?offset+limit:null});
     }catch(error){console.error("feedback inbox failed",error);return json({error:"storage_unavailable"},503);}
   }
   if(request.method==="PATCH"){
@@ -120,6 +130,7 @@ export async function adminFeedback(request,env,sessionHandler,{photo=false}={})
     let payload;try{payload=await request.json()}catch{return json({error:"invalid_json"},400)}
     const id=clean(payload.id,120),status=clean(payload.status,30),note=clean(payload.note,1000);
     if(!validId(id)||!STATUSES.has(status))return json({error:"invalid_fields"},400);
+    if(["resolved","rejected"].includes(status)&&note.length<10)return json({error:"note_required"},400);
     const reviewedAt=new Date().toISOString();
     const result=await db.prepare("UPDATE cms_place_feedback SET status=?,moderator_note=?,reviewed_at=?,reviewed_by=? WHERE id=?")
       .bind(status,note,reviewedAt,actor.login,id).run();
@@ -127,4 +138,25 @@ export async function adminFeedback(request,env,sessionHandler,{photo=false}={})
     return json({ok:true,id,status,reviewed_at:reviewedAt});
   }
   return json({error:"method_not_allowed"},405);
+}
+
+/* Housekeeping runs once per day from the existing Worker cron; no added schedule. */
+export async function cleanupFeedback(env,now=Date.now()){
+  if(!env.CMS_DB)return {deleted:0,skipped:0};
+  const cutoff=new Date(now-180*86400000).toISOString();
+  const expired=await env.CMS_DB.prepare(
+    "SELECT id,image_key FROM cms_place_feedback WHERE created_at<? ORDER BY created_at ASC LIMIT 100"
+  ).bind(cutoff).all();
+  let deleted=0,skipped=0;
+  for(const record of expired.results||[]){
+    if(record.image_key){
+      if(!env.FEEDBACK_IMAGES){skipped++;continue;}
+      try{await env.FEEDBACK_IMAGES.delete(record.image_key);}
+      catch{skipped++;continue;}
+    }
+    const result=await env.CMS_DB.prepare("DELETE FROM cms_place_feedback WHERE id=? AND created_at<?")
+      .bind(record.id,cutoff).run();
+    deleted+=Number(result.meta?.changes||0);
+  }
+  return {deleted,skipped};
 }
