@@ -2,7 +2,7 @@ name: Near Me GPS smart bounded trial
 on:
   push:
     branches: [data/near-gps-smart-trial-20260927]
-    paths: [.github/workflows/near-gps-smart-trial.yml]
+    paths: [.github/workflows/near-gps-smart-trial.yml, scripts/near-gps-places-stage2.mjs]
   workflow_dispatch:
 permissions:
   contents: read
@@ -25,6 +25,7 @@ jobs:
           restore-keys: |
             nearme-geoapify-v2-
       - name: Offline-first bounded Geoapify trial (never updates canonical)
+        if: github.event_name == 'workflow_dispatch'
         env:
           GEOAPIFY_API_KEY: ${{ secrets.GEOAPIFY_API_KEY }}
         shell: bash
@@ -74,6 +75,25 @@ jobs:
           fs.writeFileSync('.cache/near-go/near-gps-smart-trial.json',JSON.stringify(report,null,2)+'\n');
           console.log(JSON.stringify(report.counts));
           NODE
+      - name: Test second-phase named-POI matcher offline
+        run: node scripts/near-gps-places-stage2.mjs --self-test
+      - name: Search named clinics, pharmacies and fuel stations by region (max 7 calls)
+        env:
+          GEOAPIFY_API_KEY: ${{ secrets.GEOAPIFY_API_KEY }}
+        run: |
+          if [ -z "$GEOAPIFY_API_KEY" ]; then
+            echo 'Missing repository Geoapify API key; no requests made.'
+            exit 1
+          fi
+          node scripts/near-gps-places-stage2.mjs --budget=7
+      - name: Upload second-phase review, no canonical changes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: near-gps-named-poi-stage2
+          path: .cache/near-go/near-gps-places-stage2.json
+          retention-days: 30
+          if-no-files-found: ignore
       - name: Upload GPS review evidence, no map or production changes
         if: always()
         uses: actions/upload-artifact@v4
