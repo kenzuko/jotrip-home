@@ -16,6 +16,7 @@ await mkdir(out,{recursive:true});
 const rootFiles=[
   "google377c966cd09536e5.html",
   "index.html",
+  "llms.txt",
   "styles.css",
   "ecosystem-shell.css",
   "enhancements.css",
