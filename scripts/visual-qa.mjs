@@ -366,6 +366,45 @@ async function testNearMePage(page) {
   }
   const hotelResults = await page.locator('#nearResults .near-card').count().catch(() => 0);
 
+  const categoryMoreOpen = await page.locator('#categoryMore').evaluate(el => el.open).catch(() => false);
+  if (!categoryMoreOpen) await page.locator('#categoryMore summary').click();
+  await page.locator('#areaRow [data-area="all"]').click();
+  const inspectCommunityCategory = async id => {
+    await page.locator('#categoryRow [data-category="' + id + '"]').click();
+    await page.waitForTimeout(180);
+    return page.evaluate(() => {
+      const host=document.querySelector('#communityResults');
+      const cards=[...document.querySelectorAll('#communityResults .community-candidate')];
+      return {
+        count:cards.length,
+        text:host?.textContent?.trim()||'',
+        links:[...host?.querySelectorAll('a')||[]].map(link=>link.href),
+        cardText:cards.map(card=>card.textContent||''),
+        mainCount:document.querySelector('#resultsCount')?.textContent?.trim()||'',
+        mainStatus:document.querySelector('#nearStatus')?.textContent?.trim()||'',
+        state:window.__openpqNearState||null,
+        mainCards:document.querySelectorAll('#nearResults .near-card').length
+      };
+    });
+  };
+  const chargingCandidates = await inspectCommunityCategory('CHARGING');
+  const fuelCandidates = await inspectCommunityCategory('FUEL');
+  const pharmacyCandidates = await inspectCommunityCategory('PHARMACY');
+
+  await page.locator('#areaRow [data-area="zone_south"]').click();
+  await page.locator('#categoryRow [data-category="FUEL"]').click();
+  await page.locator('#radiusRow [data-radius="2"]').click();
+  await page.waitForTimeout(180);
+  const radiusCandidates = await page.evaluate(() => ({
+    count:document.querySelectorAll('#communityResults .community-candidate').length,
+    cardText:[...document.querySelectorAll('#communityResults .community-candidate')].map(card=>card.textContent||''),
+    countLabel:document.querySelector('#resultsCount')?.textContent?.trim()||'',
+    status:document.querySelector('#nearStatus')?.textContent?.trim()||'',
+    state:window.__openpqNearState||null,
+    mainCards:document.querySelectorAll('#nearResults .near-card').length
+  }));
+  const candidateCopySafe = data => data.cardText.every(text=>!/\b\d+(?:\.\d+)?\s*km\b/i.test(text));
+
   const checks = {
     searchPresent: base.search,
     mapPresent: base.map,
@@ -374,7 +413,17 @@ async function testNearMePage(page) {
     dataBadgeResolved: !!base.mapBadge && !/Đang mở/i.test(base.mapBadge),
     destinationSearch: dinhCauFound,
     destinationPin: pinVisible,
-    hotelLayer: hotelResults >= 20
+    hotelLayer: hotelResults >= 20,
+    chargingCommunityLayer: chargingCandidates.count === 4 &&
+      /chưa xác minh/i.test(chargingCandidates.text) &&
+      chargingCandidates.links.some(url => url.includes('openstreetmap.org/copyright')) &&
+      chargingCandidates.links.some(url => url.includes('opendatacommons.org/licenses/odbl/1-0')),
+    fuelCommunityLayer: fuelCandidates.count === 10 && candidateCopySafe(fuelCandidates),
+    pharmacyCommunityLayer: pharmacyCandidates.count === 5 && candidateCopySafe(pharmacyCandidates),
+    communityNotRankedOrCountedByRadius: radiusCandidates.count > 0 &&
+      radiusCandidates.state?.visibleCount === radiusCandidates.mainCards &&
+      /không tính trong bán kính/i.test(radiusCandidates.countLabel) &&
+      candidateCopySafe(radiusCandidates)
   };
   return { ok:Object.values(checks).every(Boolean), checks };
 }
