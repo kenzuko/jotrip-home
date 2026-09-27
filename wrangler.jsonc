@@ -12,6 +12,7 @@
       "/places/detail.html",
       "/guide/article.html",
       "/api/feedback",
+      "/api/traffic/*",
       "/api/cms/feedback",
       "/api/cms/feedback/photo",
       "/api/weather/live/feedback",
