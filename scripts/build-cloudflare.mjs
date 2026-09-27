@@ -81,6 +81,9 @@ execFileSync(process.execPath,["scripts/test-social-preview.mjs"],{stdio:"inheri
 execFileSync(process.execPath,["scripts/test-seo-render.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/build-seo-sitemap.mjs"],{stdio:"inherit"});
 execFileSync(process.execPath,["scripts/test-seo-sitemap.mjs"],{stdio:"inherit"});
+execFileSync(process.execPath,["scripts/test-traffic-analytics.mjs"],{stdio:"inherit"});
+execFileSync(process.execPath,["scripts/build-public-traffic.mjs"],{stdio:"inherit"});
+execFileSync(process.execPath,["scripts/test-public-traffic-build.mjs"],{stdio:"inherit"});
 await writeFile(`${out}/_headers`,"/\n  Cache-Control: public, max-age=60, must-revalidate\n/go/*\n  Cache-Control: public, max-age=60, must-revalidate\n/assets/share-card-phu-quoc-v3.jpg\n  Cache-Control: public, max-age=86400\n/data/*\n  X-Robots-Tag: noindex\n");
 await copyFile(new URL("routes.json", import.meta.url),`${out}/_routes.json`);
 console.log("Cloudflare Pages output ready in dist/");

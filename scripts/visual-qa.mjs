@@ -683,6 +683,10 @@ try {
 
     await context.close();
   }
+  if(SCOPE!=="home"){
+    const {testTrafficBrowser}=await import("./test-traffic-browser.mjs");
+    await testTrafficBrowser(browser,BASE_URL,OUTPUT_DIR);
+  }
 } finally {
   await browser.close();
 }

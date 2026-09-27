@@ -2,6 +2,7 @@
   "version": 1,
   "include": [
     "/api/cms/*",
+    "/api/traffic/collect",
     "/api/feedback",
     "/api/weather/live/*",
     "/api/context/v1/weather/*",

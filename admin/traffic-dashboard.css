@@ -1,0 +1,50 @@
+/* Owner-only Open Phu Quoc web analytics; intentionally separate from Operations Intelligence. */
+.traffic-editor{display:block!important;color:#173432;opacity:1!important;max-width:100%;min-width:0}
+.traffic-editor button{cursor:pointer}
+.traffic-head{padding:26px 28px;margin-bottom:16px;background:linear-gradient(115deg,#f0faf5,#ffffff 55%,#f5f9f1);border:1px solid #dceae3;border-radius:22px;display:flex;align-items:end;justify-content:space-between;gap:22px}
+.traffic-head>div:first-child{min-width:0}
+.traffic-head span{display:block;color:#377a68;font-size:12px;font-weight:800;letter-spacing:.10em}
+.traffic-head h2{margin:9px 0;font-size:30px;letter-spacing:-.03em;line-height:1.15}
+.traffic-head p{margin:0;color:#557068;font-size:14px;line-height:1.6}
+.traffic-toolbar{display:flex;flex-wrap:wrap;gap:7px;flex:none}
+.traffic-toolbar button{border:1px solid #c8ded3;border-radius:100px;background:#fff;color:#276355;font-size:13px;font-weight:750;padding:10px 13px;min-height:42px}
+.traffic-toolbar button.active{background:#123d3b;border-color:#123d3b;color:#fff}
+.traffic-toolbar .traffic-refresh{border-color:#a0c8b9}
+.traffic-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:12px}
+.traffic-kpi{background:#fff;border:1px solid #dfebe5;border-radius:18px;padding:18px 17px;min-width:0}
+.traffic-kpi span,.traffic-kpi strong,.traffic-kpi small{display:block}
+.traffic-kpi span{font-size:13px;color:#58746a;font-weight:700}
+.traffic-kpi strong{font-size:clamp(26px,3vw,36px);margin:9px 0 8px;color:#123d3b;letter-spacing:-.045em;line-height:1}
+.traffic-kpi small{font-size:12px;line-height:1.4;color:#61796e}
+.traffic-description{font-size:13px;color:#61796e;line-height:1.6;margin:13px 1px 18px}
+.traffic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.traffic-panel{background:#fff;border:1px solid #dceae3;border-radius:20px;padding:19px;min-width:0}
+.traffic-panel-head{margin-bottom:14px}
+.traffic-panel h3{margin:0 0 4px;font-size:18px;letter-spacing:-.01em;color:#123d3b}
+.traffic-panel-head p,.traffic-panel-foot{font-size:12px;color:#72837d;line-height:1.5;margin:0}
+.traffic-empty,.traffic-loading,.traffic-failure{padding:27px 16px;border:1px dashed #d3e5d9;border-radius:13px;background:#f8fbf9;color:#577367;font-size:14px;line-height:1.6}
+.traffic-failure{background:#fff5f0;border-color:#f5d6c7;color:#a04c36}
+.traffic-failure p{font-size:13px}
+.traffic-bars{display:grid;gap:14px;padding:4px 0}
+.traffic-bar-row{display:grid;grid-template-columns:minmax(95px,1.1fr) minmax(60px,1.9fr) auto;align-items:center;gap:10px;font-size:13px}
+.traffic-bar-row span{white-space:nowrap;text-overflow:ellipsis;overflow:hidden;color:#415d50;min-width:0}
+.traffic-bar-row strong{text-align:right;font-variant-numeric:tabular-nums;color:#254d40}
+.traffic-track{background:#edf4ef;border-radius:12px;height:10px;overflow:hidden}
+.traffic-track i{display:block;background:#65ae8e;height:100%;border-radius:12px}
+.traffic-page-list{display:grid;gap:0}
+.traffic-page-row{display:grid;grid-template-columns:28px minmax(0,1fr) auto;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid #edf2ef;font-size:13px}
+.traffic-page-row:last-child{border:0}
+.traffic-page-row b{color:#6e9d87;font-size:12px}
+.traffic-page-row div{min-width:0;word-break:break-word}
+.traffic-page-row a{color:#245d50;text-decoration:underline;text-decoration-color:#bed7c8;text-underline-offset:3px}
+.traffic-page-row strong{font-variant-numeric:tabular-nums}
+.traffic-trend{height:210px;display:flex;align-items:stretch;gap:5px;padding:20px 2px 32px;border-bottom:1px solid #e6efe9;min-width:0;overflow-x:auto}
+.traffic-trend-cell{display:flex;flex:1 1 14px;min-width:8px;position:relative;align-items:center;justify-content:flex-end;flex-direction:column;height:100%}
+.traffic-trend-cell i{width:min(100%,27px);min-height:2px;background:#65ae8e;border-radius:4px 4px 0 0;display:block}
+.traffic-trend-cell small{position:absolute;top:calc(100% + 5px);font-size:10px;white-space:nowrap;color:#72887d}
+.traffic-trend-value{position:absolute;bottom:calc(100% - 12px);font-size:10px;color:#4a7662;display:none}
+.traffic-trend-cell:hover .traffic-trend-value{display:block}
+.traffic-panel-foot{margin-top:10px}
+.traffic-privacy{padding:17px 4px 4px;color:#6d8378;font-size:12px;line-height:1.55}
+@media(max-width:1050px){.traffic-head{align-items:flex-start;flex-direction:column}.traffic-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.traffic-head{padding:20px 17px}.traffic-head h2{font-size:27px}.traffic-head p{font-size:13px}.traffic-toolbar{width:100%}.traffic-toolbar button{flex:1}.traffic-kpis{gap:9px}.traffic-kpi{padding:14px}.traffic-kpi strong{font-size:28px}.traffic-grid{grid-template-columns:minmax(0,1fr)}.traffic-panel{padding:16px}.traffic-bar-row{grid-template-columns:minmax(78px,1fr) minmax(50px,1fr) auto;font-size:12px;gap:7px}.traffic-trend{gap:3px}}

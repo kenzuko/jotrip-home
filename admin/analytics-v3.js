@@ -180,13 +180,17 @@
   function requestUrl(from,to,refresh){
     const q=new URLSearchParams();if(from)q.set("from",from);if(to)q.set("to",to);if(refresh)q.set("refresh","1");return S.deps.endpoint+"?"+q.toString()
   }
+  let generation=0;
   async function load(from,to,refresh){
+    const deps=S.deps,requestGeneration=++generation;
+    if(!deps)return;
     S.loading=true;S.error=null;render();
     try{
-      const next=await S.deps.api(requestUrl(from,to,refresh));
-      S.deps.setData(next)
-    }catch(e){S.error=e&&e.message?e.message:String(e)}
-    finally{S.loading=false;render()}
+      const next=await deps.api(requestUrl(from,to,refresh));
+      if(requestGeneration!==generation||deps!==S.deps)return;
+      deps.setData(next)
+    }catch(e){if(requestGeneration===generation&&deps===S.deps)S.error=e&&e.message?e.message:String(e)}
+    finally{if(requestGeneration===generation&&deps===S.deps){S.loading=false;render()}}
   }
   function setPeriod(p){
     S.period=p;
@@ -200,7 +204,8 @@
     const refresh=$("#a3Refresh");if(refresh)refresh.onclick=()=>{const d=data(),p=d.period||{};load(p.from,p.to,true)}
   }
   window.OPQAnalyticsV3={
-    mount(deps){S.deps=deps;if(!S.period)S.period="last7";render()},
+    mount(deps){generation++;S.deps=deps;if(!S.period)S.period="last7";render()},
+    unmount(){generation++;S.deps=null;S.loading=false;S.error=null},
     refresh(){const d=data(),p=d.period||{};return load(p.from,p.to,true)},
     state:S
   }

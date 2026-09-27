@@ -143,6 +143,17 @@
         "admin"
       ],
       "write": []
+    },
+    {
+      "id": "traffic",
+      "label": "Truy cập website",
+      "description": "Lượt xem, nguồn Google/AI và tương tác của khách. Chỉ tài khoản chủ sở hữu.",
+      "path": null,
+      "preview": null,
+      "read": [
+        "admin"
+      ],
+      "write": []
     }
   ]
 }
