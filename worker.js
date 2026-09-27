@@ -1,3 +1,6 @@
+import {onRequest as publicFeedback} from "./functions/api/feedback.js";
+import {onRequest as adminPlaceFeedback} from "./functions/api/cms/feedback.js";
+import {onRequest as adminPlaceFeedbackPhoto} from "./functions/api/cms/feedback/photo.js";
 import {onRequestPost as cmsWeatherFeedbackPost} from "./functions/api/weather/live/feedback.js";
 import {onRequestGet as cmsWeatherFeedbackRecent} from "./functions/api/weather/live/feedback/recent.js";
 import {handleWeatherData,prewarmWeatherEdge} from "./functions/_shared/weather-edge.js";
@@ -148,6 +151,9 @@ export default {
     const path = new URL(request.url).pathname;
     if (path === "/api/context/v1/weather/window") return handleWeatherWindow(request);
     if (path === "/api/go/live") return handleGoLive(request);
+    if (path === "/api/feedback") return publicFeedback({request,env});
+    if (path === "/api/cms/feedback") return adminPlaceFeedback({request,env});
+    if (path === "/api/cms/feedback/photo") return adminPlaceFeedbackPhoto({request,env});
     if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request,env});
     if (path === "/api/weather/live/feedback/recent" && request.method === "GET") return cmsWeatherFeedbackRecent({request,env});
     if (request.method !== "GET" && request.method !== "HEAD") {
