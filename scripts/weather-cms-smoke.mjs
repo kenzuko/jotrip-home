@@ -1,5 +1,6 @@
 import {readFile,access} from "node:fs/promises";
 import {join} from "node:path";
+import {execFileSync} from "node:child_process";
 const file=p=>readFile(join("weather",p),"utf8");
 const load=async p=>JSON.parse(await file(p));
 const exists=async p=>{try{await access(join("weather",p));return true}catch{return false}};
@@ -16,6 +17,11 @@ const required=["index.html","weather-v2.css","weather-v2.js","weather-scene-v3.
  "data/weather-runtime/marine.json","data/weather-runtime/meta.json"];
 const time=x=>Date.parse(x||"");
 for(const path of required)assert(await exists(path),path+" missing");
+// Fail the build if a weather diagram cannot be parsed by mobile browsers.
+assert(await exists("weather-field-guide.svg"),"weather guide illustration missing");
+execFileSync("python3",["-c",
+ "import sys,xml.etree.ElementTree as ET; ET.parse(sys.argv[1])",
+ join("weather","weather-field-guide.svg")],{stdio:"pipe"});
 const manifest=await load("data/weather-runtime/manifest.json");
 const cloud=await load("data/weather-runtime/cloud.json");
 const marine=await load("data/weather-runtime/marine.json");
