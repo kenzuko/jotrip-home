@@ -116,6 +116,43 @@
       "updated_at": "2026-09-27"
     },
     {
+      "id": "co-bien-phu-quoc-khuat-tu-bo",
+      "category": "BIỂN PHÚ QUỐC · CỎ BIỂN",
+      "title": "Cỏ biển Phú Quốc, sinh cảnh khó thấy từ bờ",
+      "dek": "Cỏ biển là thực vật có hoa sống ngập dưới nước, khác với rong. Khảo sát quanh Phú Quốc ghi nhận thảm cỏ đã thay đổi theo thời gian, nhưng mỗi con số đều gắn với một mốc đo cụ thể.",
+      "read_minutes": 3,
+      "intro": "Dưới những vùng nước nông quanh Phú Quốc có các thảm cỏ biển mọc sát đáy. Từ bờ, chúng không dễ nhận ra như rạn san hô hay bãi cát. Cỏ biển là thực vật có hoa sống ngập hoàn toàn trong nước. Khi mọc thành thảm, chúng tạo chỗ trú, kiếm ăn và ươm lớn cho nhiều loài sinh vật biển.",
+      "sections": [
+        {
+          "heading": "Cỏ biển không phải rong",
+          "body": "Rong biển và cỏ biển thường cùng hiện diện dưới nước, nhưng chúng không phải một. Cỏ biển có rễ, lá, hoa và hạt; rễ bám vào nền đáy, còn tán lá tạo nơi trú ẩn và kiếm ăn cho cá cùng nhiều loài động vật không xương sống. Các thảm cỏ vì vậy góp phần duy trì sinh cảnh ven bờ. Vườn quốc gia Phú Quốc cũng có nhiệm vụ bảo tồn, phục hồi thảm cỏ biển trong các hệ sinh thái thuộc phạm vi quản lý."
+        },
+        {
+          "heading": "Bản đồ có mốc dừng",
+          "body": "Nghiên cứu của Viện Hải dương học, công bố năm 2023, dùng ảnh vệ tinh và ảnh hàng không các năm 2005, 2010, 2018; nhóm tác giả kiểm tra 78 điểm bằng lặn khảo sát năm 2019. Trong phạm vi bản đồ ấy, diện tích thảm cỏ biển giảm 652 ha, tương đương 6,1%, từ năm 2005 đến 2018. Mức giảm lớn nhất được ghi nhận tại Bãi Vòng. Nhóm nghiên cứu cho rằng phần suy giảm chủ yếu liên quan đến hạ tầng phục vụ dân cư và du lịch. Đây là kết quả của giai đoạn đo đến năm 2018, không phải diện tích cập nhật cho năm 2026.\n\nMột nghiên cứu công bố năm 2026 đo độ phủ, sinh khối, thành phần loài và mật độ tại 16 điểm thuộc bốn đảo ngoài khơi Việt Nam, trong đó có Phú Quốc, đồng thời xem xét chất lượng nước và trầm tích. Nhìn vào diện tích trên bản đồ là chưa đủ để biết từng thảm cỏ đang ra sao; cần khảo sát đúng điểm và lặp lại theo thời gian. Vì vậy, khi gặp một con số về cỏ biển Phú Quốc, hãy đọc kèm năm, phạm vi và cách đo."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Viện Hải dương học, Viện Hàn lâm Khoa học và Công nghệ Việt Nam - Phân bố và biến động thảm cỏ biển, rạn san hô vùng biển đảo Phú Quốc (2023)",
+          "url": "https://vjs.ac.vn/jmst/article/view/16621"
+        },
+        {
+          "label": "Marine Pollution Bulletin - Spatial variability and environmental drivers of seagrass communities on offshore islands in Vietnam (2026)",
+          "url": "https://www.sciencedirect.com/science/article/pii/S0025326X2600305X"
+        },
+        {
+          "label": "NOAA Office of National Marine Sanctuaries - Seagrass Meadows",
+          "url": "https://sanctuaries.noaa.gov/visit/ecosystems/seagrass.html"
+        },
+        {
+          "label": "Vườn quốc gia Phú Quốc - Chức năng, nhiệm vụ",
+          "url": "https://vqgpq.angiang.gov.vn/chuc-nang-nhiem-vu-cua-vuon-quoc-gia-phu-quoc"
+        }
+      ],
+      "updated_at": "2026-09-27"
+    },
+    {
       "id": "mui-cay-cua-dat-do",
       "category": "HỒ TIÊU · CHẤT ĐẢO",
       "title": "Ba cách thu hoạch tiêu Phú Quốc",
