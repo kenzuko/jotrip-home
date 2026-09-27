@@ -91,12 +91,39 @@ async function boot(){
 }
 $("runningBtn").addEventListener("click",()=>submitStatus("RUNNING"));
 $("stoppedBtn").addEventListener("click",()=>submitStatus("SUSPENDED"));
+async function evidenceForm(form){
+ const body=new FormData(form),file=body.get("attachment");
+ if(!file||typeof file.size!=="number"||!file.size)return body;
+ if(file.size<=1500000)return body;
+ if(!String(file.type||"").startsWith("image/"))throw Error("PDF cần nhỏ hơn 1,5 MB.");
+ if(!["image/jpeg","image/png","image/webp"].includes(file.type))throw Error("Định dạng ảnh không được hỗ trợ.");
+ const bitmap=await createImageBitmap(file);
+ try{
+  const ratio=Math.min(1,1600/Math.max(bitmap.width,bitmap.height));
+  const canvas=document.createElement("canvas");
+  canvas.width=Math.max(1,Math.round(bitmap.width*ratio));
+  canvas.height=Math.max(1,Math.round(bitmap.height*ratio));
+  const ctx=canvas.getContext("2d");
+  if(!ctx)throw Error("Không xử lý được ảnh.");
+  ctx.drawImage(bitmap,0,0,canvas.width,canvas.height);
+  for(const quality of [.78,.66,.54]){
+   const blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/jpeg",quality));
+   if(blob&&blob.size<=1500000){
+    body.set("attachment",new File([blob],file.name.replace(/\.[^.]+$/,"")+".jpg",{type:"image/jpeg"}));
+    return body;
+   }
+  }
+  throw Error("Ảnh vẫn còn lớn hơn 1,5 MB. Cậu chọn bản ảnh nhỏ hơn nhé.");
+ }finally{bitmap.close?.();}
+}
+
 $("bulletinForm").addEventListener("submit",async event=>{
  event.preventDefault();
  const btn=$("saveBulletin");
  btn.disabled=true;result("bulletinResult","Đang lưu bản tin và file bằng chứng…");
  try{
-  const data=await getJson(FORECAST,{method:"POST",body:new FormData(event.currentTarget)});
+  const formData=await evidenceForm(event.currentTarget);
+  const data=await getJson(FORECAST,{method:"POST",body:formData});
   if(!data.ok||!data.archived)throw Error("Chưa xác minh được bản tin đã lưu.");
   result("bulletinResult","Đã lưu bản tin ngày "+dateText(data.date)+(data.has_attachment?" cùng file gốc.":"."),"success");
   event.currentTarget.reset();
