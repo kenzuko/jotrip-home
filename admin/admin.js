@@ -1405,18 +1405,20 @@ function applySidebarState(collapsed){
     btn.textContent=collapsed?"›":"‹";
     btn.setAttribute("aria-label",collapsed?"Mở rộng menu":"Thu gọn menu");
     btn.title=collapsed?"Mở rộng menu":"Thu gọn menu";
+    btn.setAttribute("aria-expanded",collapsed?"false":"true");
   }
 }
 function bindSidebarToggle(){
   const key="openpq_cms_sidebar_collapsed";
-  const initial=localStorage.getItem(key)==="1";
+  let initial=false;
+  try{initial=localStorage.getItem(key)==="1"}catch{}
   applySidebarState(initial);
   const btn=$("#sideToggle");
   if(!btn)return;
   btn.onclick=()=>{
     const next=!$("#cmsLayout")?.classList.contains("side-collapsed");
     applySidebarState(next);
-    localStorage.setItem(key,next?"1":"0");
+    try{localStorage.setItem(key,next?"1":"0")}catch{}
   };
 }
 
@@ -1469,11 +1471,19 @@ async function boot(){
   selectModule(first?first.id:"dashboard");
 }
 
+const NAV_HINTS={
+  home:"Nội dung và nhịp trang chủ",stories:"Câu chuyện từ Phú Quốc",
+  guide:"Bài cẩm nang hữu ích",visuals:"Ảnh, tác giả và chú thích",
+  venues:"Địa điểm và bằng chứng",foods:"Món ăn và bài liên quan",
+  utilities:"Danh bạ và thông tin thiết yếu",analytics:"Số liệu và tình trạng nguồn",
+  users:"Tài khoản và phân quyền"
+};
+
 function renderNav(){
   const permitted=schema.modules.filter(m=>m.read.includes(session.role));
   const item=id=>{
     const m=permitted.find(x=>x.id===id);
-    return m?'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(m.description)+'</small></span></button>':"";
+    return m?'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(NAV_HINTS[m.id]||m.description)+'</small></span></button>':"";
   };
   const group=(title,children)=>children?'<div class="nav-group"><p class="nav-group-title">'+esc(title)+'</p>'+children+'</div>':"";
   const dashboard='<button class="module-btn" type="button" data-id="dashboard" title="Bàn làm việc"><span class="module-short">⌂</span><span class="module-copy"><strong>Bàn làm việc</strong><small>Tình hình và việc cần làm</small></span></button>';
@@ -1507,7 +1517,14 @@ async function selectModule(id){
   if(!currentModule)return;
   dirty=false;
 
-  document.querySelectorAll(".module-btn").forEach(b=>b.classList.toggle("active",b.dataset.id===id));
+  document.querySelectorAll(".module-btn").forEach(b=>{
+    const selected=b.dataset.id===id;
+    b.classList.toggle("active",selected);
+    if(b.tagName==="BUTTON"){
+      if(selected)b.setAttribute("aria-current","page");
+      else b.removeAttribute("aria-current");
+    }
+  });
 
   $("#cmsSearch").value="";$("#searchCount").textContent="";
   $("#moduleKicker").textContent=currentModule.id==="analytics"?"OPEN PHU QUOC INTELLIGENCE":"OPEN PHU QUOC CMS";

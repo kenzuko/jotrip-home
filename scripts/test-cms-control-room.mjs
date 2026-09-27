@@ -14,6 +14,10 @@ assert.match(admin,/saveDraftNow\(\);\s*if\(!confirm/);
 assert.match(admin,/requestId!==moduleRequestId/);
 assert.match(admin,/outdatedDraft=true/);
 assert.match(admin,/Đã tạo đề xuất PR/);
+assert.match(html,/aria-controls="moduleNav"/);
+assert.match(html,/aria-label="Mở website công khai trong tab mới"/);
+assert.match(admin,/NAV_HINTS/);
+assert.match(admin,/aria-expanded/);
 
 function harness(role="editor",qualityError=false){
   const storageData={
@@ -70,6 +74,18 @@ const settle=()=>new Promise(resolve=>setImmediate(resolve));
   assert.match(h.host.innerHTML,/Nháp trên thiết bị/);
   assert.match(h.host.innerHTML,/Lưu trên trình duyệt/);
   assert.doesNotMatch(h.host.innerHTML,/data-cr-module="analytics"/);
+  assert.match(h.host.innerHTML,/data-cr-filter="priority"/);
+  assert.match(h.host.innerHTML,/aria-pressed="true"/);
+  h.host.events.click({
+    target:{closest(selector){return selector==="[data-cr-filter]"?{getAttribute(){return "priority"}}:null}},
+    preventDefault(){}
+  });
+  assert.match(h.host.innerHTML,/aria-pressed="true">Ưu tiên/);
+  h.host.events.click({
+    target:{closest(selector){return selector==="[data-cr-filter]"?{getAttribute(){return "progress"}}:null}},
+    preventDefault(){}
+  });
+  assert.match(h.host.innerHTML,/Không có công việc thuộc nhóm này/);
   assert.deepEqual(h.requests.map(item=>item.method),["GET","GET"]);
   assert.deepEqual(h.requests.map(item=>item.url),["/api/cms/quality","/api/cms/reviews"]);
   h.host.events.click({

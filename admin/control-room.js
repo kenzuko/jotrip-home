@@ -48,26 +48,49 @@
     return "index.html?module="+encodeURIComponent(module)+"&record="+encodeURIComponent(id)+"&field="+encodeURIComponent(task.field||"");
   }
   function labelForSeverity(v){return {high:"Ưu tiên",medium:"Cần bổ sung",low:"Theo dõi"}[v]||"Cần kiểm tra";}
+  function taskTitle(task){
+    var evidence=String(task.evidence||"").trim();
+    var id=String(task.entity_id||"").trim();
+    // The existing quality endpoint leads with the verified entity name
+    // for these specific rules. Other tasks retain their stated surface.
+    var matched=evidence.match(/^(.{2,88}?)\s+(?:đang ACTIVE|có tọa độ|có thực thể món|có thực thể)\s/i);
+    var label=matched&&matched[1].trim();
+    return label&&label!==id&&!/[\/\\=_]/.test(label)
+      ?label:String(task.surface||"Hồ sơ cần kiểm chứng");
+  }
   function queueTask(task,modules){
-    var href=taskLink(task,modules),name=task.entity_id||task.surface||"Thông tin cần kiểm tra";
+    var href=taskLink(task,modules),name=taskTitle(task),id=String(task.entity_id||"");
     return '<article class="cr-task">'+
       '<div class="cr-task-top"><span class="cr-pill cr-'+esc(task.severity||"low")+'">'+esc(labelForSeverity(task.severity))+'</span><span class="cr-task-area">'+esc(task.surface||"Dữ liệu")+'</span></div>'+
-      '<h3>'+esc(name)+'</h3><p>'+esc(task.evidence||task.next_action||"Chưa có mô tả chi tiết.")+'</p>'+
+      '<h3>'+esc(name)+'</h3>'+
+      (id?'<p class="cr-task-id">Mã hồ sơ: <code>'+esc(id)+'</code></p>':"")+
+      '<p>'+esc(task.evidence||task.next_action||"Chưa có mô tả chi tiết.")+'</p>'+
       '<div class="cr-task-bottom"><span>'+esc(task.status==="in_progress"?"Đang xử lý":"Cần kiểm chứng")+'</span>'+
-      (href?'<a href="'+esc(href)+'">Mở đúng trường <span aria-hidden="true">↗</span></a>':'<a href="quality.html">Mở hàng đợi <span aria-hidden="true">↗</span></a>')+
+      (href?'<a href="'+esc(href)+'">Mở hồ sơ <span aria-hidden="true">↗</span></a>':'<a href="quality.html">Mở hàng đợi <span aria-hidden="true">↗</span></a>')+
       '</div></article>';
   }
-  function renderQuality(body,modules){
+  function renderQuality(body,modules,filter){
     if(!body)return '<div class="cr-error" role="status">Chưa tải được công việc. Không thể xác nhận tình trạng dữ liệu. <button type="button" data-cr-refresh>Thử lại</button></div>';
     var all=Array.isArray(body.tasks)?body.tasks:[];
     var tasks=all.filter(function(t){return !["resolved","muted"].includes(t.status);});
     var rank={high:0,medium:1,low:2};
-    tasks.sort(function(a,b){return (rank[a.severity]??3)-(rank[b.severity]??3);});
+    tasks.sort(function(a,b){
+      return (rank[a.severity]??3)-(rank[b.severity]??3)
+        ||String(a.due_at||"9999").localeCompare(String(b.due_at||"9999"));
+    });
+    var shown=filter==="priority"?tasks.filter(function(t){return t.severity==="high";})
+      :filter==="progress"?tasks.filter(function(t){return t.status==="in_progress";}):tasks;
+    var filters=[["all","Tất cả",tasks.length],
+      ["priority","Ưu tiên",tasks.filter(function(t){return t.severity==="high";}).length],
+      ["progress","Đang làm",tasks.filter(function(t){return t.status==="in_progress";}).length]];
+    var buttons='<div class="cr-filter-group" role="group" aria-label="Lọc công việc">'+
+      filters.map(function(x){return '<button type="button" class="cr-filter" data-cr-filter="'+x[0]+'" aria-pressed="'+(filter===x[0])+'">'+x[1]+' ('+x[2]+')</button>';}).join("")+'</div>';
     var time=body.computed_at?'<span class="cr-timestamp">Kiểm tra lúc '+esc(when(body.computed_at))+'</span>':'<span class="cr-timestamp">Chưa có thời gian kiểm tra</span>';
     return '<div class="cr-section-heading"><div><p class="cr-eyebrow">DỮ LIỆU</p><h2>Cần kiểm chứng</h2></div><a href="quality.html">Tất cả <span aria-hidden="true">↗</span></a></div>'+
-      '<p class="cr-section-note">'+esc(tasks.length)+' công việc đang mở. '+time+'</p>'+
-      (tasks.length?'<div class="cr-queue">'+tasks.slice(0,5).map(function(t){return queueTask(t,modules);}).join("")+'</div>':
-      '<div class="cr-empty"><strong>Chưa có việc đang mở trong nguồn này.</strong><span>Đây chỉ là kết quả của bộ quy tắc kiểm tra hiện tại, không thay thế xác minh thực địa.</span></div>');
+      '<p class="cr-section-note">'+esc(tasks.length)+' công việc đang mở. '+time+'</p>'+buttons+
+      (shown.length?'<div class="cr-queue">'+shown.slice(0,5).map(function(t){return queueTask(t,modules);}).join("")+'</div>':
+      '<div class="cr-empty"><strong>'+(filter==="all"?"Chưa có việc đang mở trong nguồn này.":"Không có công việc thuộc nhóm này.")+'</strong>'+
+      '<span>Đây chỉ là kết quả bộ quy tắc hiện tại, không thay thế xác minh thực địa.</span></div>');
   }
   function renderReviews(body){
     if(!body)return '<div class="cr-error" role="status">Không đọc được hàng đợi duyệt. <button type="button" data-cr-refresh>Thử lại</button></div>';
@@ -117,7 +140,7 @@
     var errorMessages=[state.quality?.error,state.reviews?.error].filter(Boolean);
     var notice=errorMessages.length?'<div class="cr-notice" role="alert">Một số nguồn chưa tải được: '+errorMessages.map(esc).join(" · ")+'. Không coi số liệu thiếu là 0.</div>':'';
     host.innerHTML='<div class="control-room"><div class="cr-workspace">'+overview+metrics+notice+
-      '<section class="cr-panel" id="crQuality" aria-label="Công việc chất lượng">'+(state.loading?'<div class="cr-loading" role="status">Đang đọc công việc từ CMS...</div>':renderQuality(quality,state.modules))+'</section>'+
+      '<section class="cr-panel" id="crQuality" aria-label="Công việc chất lượng">'+(state.loading?'<div class="cr-loading" role="status">Đang đọc công việc từ CMS...</div>':renderQuality(quality,state.modules,state.qualityFilter))+'</section>'+
       '<section class="cr-panel" id="crReviews" aria-label="Đề xuất chờ duyệt">'+(state.loading?'<div class="cr-loading" role="status">Đang đọc hàng đợi duyệt...</div>':renderReviews(reviews))+'</section></div>'+
       '<aside class="cr-context" aria-label="Công cụ nhanh">'+
       '<section class="cr-panel cr-sidepanel">'+renderDrafts(local,state.modules)+'</section>'+
@@ -153,8 +176,17 @@
   }
   function mount(opts){
     unmount();
-    var state={active:true,host:opts.host,role:opts.role,login:opts.login,modules:opts.modules.filter(function(m){return m.read?.includes(opts.role);}),quality:null,reviews:null,loading:false,controller:null,preview:Boolean(opts.previewData)};
+    var state={active:true,host:opts.host,role:opts.role,login:opts.login,modules:opts.modules.filter(function(m){return m.read?.includes(opts.role);}),quality:null,reviews:null,loading:false,controller:null,qualityFilter:"all",preview:Boolean(opts.previewData)};
     state.click=function(event){
+      var filterButton=event.target.closest("[data-cr-filter]");
+      if(filterButton&&!state.preview){
+        event.preventDefault();
+        var filter=filterButton.getAttribute("data-cr-filter");
+        if(["all","priority","progress"].includes(filter)){
+          state.qualityFilter=filter;render(state);
+        }
+        return;
+      }
       var exportButton=event.target.closest("[data-cr-export]");
       if(exportButton&&!state.preview){
         event.preventDefault();

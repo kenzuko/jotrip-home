@@ -220,3 +220,66 @@ a.cr-metric:hover{border-color:#8DBDB0;background:#FCFFFD}
 .cr-draft-old{border-color:#ECD5BD;background:#FFF9F0}
 .cr-draft-old .cr-draft-mark{background:#FFE9D4;color:#905328}
 .cr-draft-old:hover{border-color:#E2B989;background:#FFF2E2}
+
+
+/* CMS Admin V1.1 - true sidebar regions: only navigation scrolls.
+   Fixes the sticky "Mở website" overlap visible on shorter desktop screens. */
+@media(min-width:781px){
+  .cms-side,.cms-layout.side-collapsed .cms-side{
+    display:flex;flex-direction:column;min-height:0;height:calc(100dvh - 74px);
+    overflow:hidden;padding:17px 12px 14px
+  }
+  .cms-layout.side-collapsed .cms-side{padding:17px 8px 14px}
+  .cms-side .side-head{flex:0 0 auto}
+  .cms-side #moduleNav{
+    display:grid;flex:1 1 auto;min-height:0;align-content:start;
+    overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;
+    margin:0 -7px 0 0;padding:0 7px 14px 0;gap:13px;
+    scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:#A8C9BF transparent
+  }
+  .cms-side #moduleNav:focus-visible{outline-offset:-3px}
+  .cms-side .site-link,.cms-layout.side-collapsed .site-link{
+    position:static;inset:auto;display:flex;justify-content:center;align-items:center;
+    flex:0 0 auto;min-height:46px;width:100%;margin:12px 0 0;padding:11px 8px;
+    border:1px solid #D2E5DE;border-radius:12px;background:#ECF5F0;
+    color:var(--cr-ink);font-size:13px;box-shadow:none;z-index:auto
+  }
+  .cms-layout.side-collapsed .site-link{padding:11px 0}
+  .cms-side .site-link:hover{border-color:#89BDAA;background:#DAEEE4}
+}
+.cms-side .module-btn[aria-current="page"]{background:#E6F4EE}
+.cms-side #sideToggle{flex:0 0 auto;min-width:36px;min-height:36px}
+@media(max-width:780px){
+  .cms-side,.cms-layout.side-collapsed .cms-side{
+    display:flex;align-items:center;gap:8px;flex-direction:row;
+    height:auto;min-height:60px;overflow:hidden;padding:8px 10px
+  }
+  .cms-side #moduleNav{
+    display:flex;flex:1 1 auto;min-width:0;min-height:44px;
+    overflow-x:auto;overflow-y:hidden;align-items:center;gap:6px;
+    padding:0;margin:0;scrollbar-width:none;scroll-behavior:smooth
+  }
+  .cms-side #moduleNav::-webkit-scrollbar{display:none}
+  .cms-side .site-link,.cms-layout.side-collapsed .site-link{
+    display:inline-flex!important;flex:0 0 44px;width:44px;min-width:44px;min-height:44px;
+    height:44px;margin:0;padding:0;align-items:center;justify-content:center;
+    position:static;inset:auto;border:1px solid #CFE4D9;border-radius:12px;
+    background:#EAF5EF;color:var(--cr-ink);font-size:22px;z-index:auto
+  }
+  .cms-side .site-link-full,.cms-layout.side-collapsed .site-link-full{display:none}
+  .cms-side .site-link-short,.cms-layout.side-collapsed .site-link-short{display:inline}
+}
+@media(prefers-reduced-motion:reduce){
+  .cms-side #moduleNav{scroll-behavior:auto}
+}
+.cr-filter-group{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 14px}
+.cr-filter{
+  min-height:40px;padding:8px 13px;border:1px solid var(--cr-line);
+  border-radius:999px;background:#fff;color:#3C6559;font:inherit;font-size:13px;
+  font-weight:750;cursor:pointer
+}
+.cr-filter[aria-pressed="true"]{background:#E5F4EC;color:var(--cr-ink);border-color:#A4CEBB}
+.cr-filter:hover{border-color:#8BBEAD}
+.cr-task-id{margin:-2px 0 0!important;font-size:11px!important;line-height:1.35!important;color:#6C847A!important}
+.cr-task-id code{font-family:ui-monospace,Consolas,monospace;font-size:11px;overflow-wrap:anywhere}
+.cr-filter:focus-visible,.cms-side .site-link:focus-visible{outline:3px solid #329F8C;outline-offset:2px}
