@@ -71,10 +71,18 @@
           if(photo.credit){
             const creditText="Ảnh: "+String(photo.credit).replace(/^Ảnh:\s*/i,"")+(photo.license?" · "+photo.license:"");
             const label=el("small",null,creditText);
-            if(photo.source_url){
-              const sourceLink=el("a");sourceLink.href=photo.source_url;sourceLink.target="_blank";
-              sourceLink.rel="noopener noreferrer";sourceLink.title="Nguồn gốc và giấy phép ảnh";
-              sourceLink.append(label);cap.append(sourceLink);
+            // Research references stay in the editorial store. Photo credit links
+            // remain only when needed for Creative Commons author/license attribution.
+            const licenseNeedsLink=/^CC BY(?:-SA)?(?:[ .-]|$)/i.test(photo.license||"");
+            if(licenseNeedsLink&&photo.source_url){
+              const authorLink=el("a");authorLink.href=photo.source_url;authorLink.target="_blank";
+              authorLink.rel="noopener noreferrer";authorLink.title="Tác giả và ảnh gốc";
+              authorLink.append(label);cap.append(authorLink);
+              if(photo.license_url){
+                const terms=el("a",null,"Điều kiện sử dụng ảnh");
+                terms.href=photo.license_url;terms.target="_blank";terms.rel="noopener noreferrer";
+                cap.append(terms);
+              }
             }else cap.append(label);
           }
           figure.append(cap);

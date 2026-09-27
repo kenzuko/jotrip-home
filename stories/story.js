@@ -78,13 +78,6 @@ function imageCredit(story){
   return '<figcaption class="cover-credit">'+esc(label)+'</figcaption>';
 }
 
-function sourceList(story){
-  const rows=(story?.sources||[]).filter(x=>x?.label&&x?.url);
-  if(!rows.length)return "";
-  return '<details class="article-source-list"><summary>Nguồn bài viết</summary><ul>'+
-    rows.map(x=>'<li><a href="'+esc(x.url)+'" target="_blank" rel="noopener">'+esc(x.label)+'</a></li>').join("")+
-    '</ul></details>';
-}
 
 function figure(section){
   if(!section?.image)return "";
@@ -157,7 +150,6 @@ function renderArticle(data,visualData,zones){
             OpenPQVisual.locator(zone,{title:"Bài viết này nằm ở đâu?",label:meta.location_label||zone?.name})
           ].join("");
         })()+
-        sourceList(s)+
       '</div>'+
     '</article>';
 

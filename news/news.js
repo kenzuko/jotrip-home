@@ -49,12 +49,11 @@
       const source=sourceById.get(x.source_id)||null;
       const published=fmtDate(x.published_at||x.verified_at);
       const route=x.route||"../";
-      const sourceUrl=source?.url||"";
       return '<article class="news-card">'+
         '<div class="news-card-meta"><span>'+esc(x.category||"CẬP NHẬT")+'</span>'+(published?'<time>'+esc(published)+'</time>':"")+'</div>'+
         '<div class="news-card-body"><strong>'+esc(x.title)+'</strong><p>'+esc(x.short_summary||"")+'</p>'+
-        (x.source_text?'<small>'+esc(x.source_text)+'</small>':"")+'</div>'+
-        '<div class="news-card-actions"><a href="../'+esc(route.replace(/^\/+/,''))+'">Xem liên quan →</a>'+(sourceUrl?'<a href="'+esc(sourceUrl)+'" target="_blank" rel="noopener">Nguồn ↗</a>':"")+'</div>'+
+        ((x.source_text||source?.label)?'<small>'+esc(x.source_text||source.label)+'</small>':"")+'</div>'+
+        '<div class="news-card-actions"><a href="../'+esc(route.replace(/^\/+/,''))+'">Xem liên quan →</a></div>'+
       '</article>';
     }).join("");
     }
