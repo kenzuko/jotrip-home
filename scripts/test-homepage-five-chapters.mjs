@@ -9,7 +9,6 @@ const order=[
   ["approved hero",'class="hero"'],
   ["six operational tiles",'class="live-strip island-pulse"'],
   ["contextual suggestion",'class="now-card"'],
-  ["decision introduction",'data-home-chapter="decide"'],
   ["remaining-day timeline",'id="happening"'],
   ["GO decision entry",'id="go-now"'],
   ["Near Me quick finder",'id="near-me"'],
@@ -18,7 +17,6 @@ const order=[
   ["latest news",'id="hot-now"'],
   ["practical guides",'id="home-library"'],
   ["island stories",'id="discover"'],
-  ["utilities introduction",'data-home-chapter="more"'],
   ["live exchange rates",'id="currency-home"'],
   ["browse more",'id="explore-more"']
 ];
@@ -30,8 +28,9 @@ for(const [label,marker] of order){
 }
 // Chapters are internal layout groups, not numbered steps for visitors.
 const chapterLabels=[...html.matchAll(/class="home-chapter-kicker">([^<]+)<\/span>/g)].map(x=>x[1]);
-assert.deepEqual(chapterLabels,["CHỌN VIỆC ĐỂ LÀM","ĐỌC & KHÁM PHÁ","TIỆN ÍCH KHI CẦN"],
-  "Visitor-facing chapter labels should be natural words, without misleading 03/04/05 numbering");
+assert.deepEqual(chapterLabels,["ĐỌC & KHÁM PHÁ"],
+  "Only the editorial introduction should remain; decisions and utilities open directly into functional modules");
+assert.doesNotMatch(html,/data-home-chapter="(?:decide|more)"/,"Redundant decorative intro cards returned");
 // Preserve critical components / working selectors, not merely their headings.
 for(const id of [
   "tripClockList","tripClockExtraList","nearQuickSearch","nearCategories",
@@ -45,13 +44,14 @@ assert.equal((html.match(/class="live-item"/g)||[]).length,6,
   "Keep six existing live operational tiles");
 assert.equal((html.match(/class="hero-slide(?: is-active)?"/g)||[]).length,4,
   "Keep four approved contextual hero slots");
-for(const target of ["happening","go-now","near-me"]){
-  assert.ok(html.includes('href="#'+target+'"'),
-    "Fast decision shortcut missing "+target);
-}
+assert.match(html,/href="#happening"/,"Today remains in the primary navigation");
+assert.match(html,/class="nav-go" href="go\/"/,"GO remains in the primary navigation");
+assert.match(html,/class="nav-nearme" href="nearme\/"/,"Near Me remains in the primary navigation");
+assert.match(css,/#top>\.trip-clock-section\{/,"Today spacing no longer depends on the removed intro");
+assert.match(css,/#top>\.home-currency-section\{/,"Currency spacing no longer depends on the removed intro");
 assert.match(css,/#top>.home-chapter-intro\{/);
 assert.match(css,/@media\(max-width:760px\)\{/);
 assert.match(libraryCss,/Editorial chapter: one softly highlighted weekly cover/);
 assert.match(html,/core\/hero-gallery\.js\?/);
 assert.match(html,/home-library\.css\?v=20260926-five-chapters-r1/);
-console.log("Homepage five-chapter QA PASS: unchanged live/hero modules, decision before editorial, Near Me beside GO, compact mobile shortcuts.");
+console.log("Homepage QA PASS: decorative decision/utility intros removed; operational modules and navigation preserved.");
