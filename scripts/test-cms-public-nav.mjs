@@ -7,7 +7,7 @@ const quality=read("admin/quality.html");
 const reviews=read("admin/reviews.html");
 const admin=read("admin/admin.js");
 assert.equal(home.split('href="https://openphuquoc.com/"').length-1,4);
-assert.ok(home.includes("admin.js?v=36"),"Bump JS cache after public-navigation fix");
+assert.match(home,/admin\.js\?v=(?:3[6-9]|[4-9]\d|\d{3,})/,"Updated JavaScript must bust stale CMS cache");
 for(const html of [quality,reviews]) {
   assert.ok(html.includes('class="cms-external" href="https://openphuquoc.com/"'));
 }

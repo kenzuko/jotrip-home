@@ -16,6 +16,8 @@ d.reset(list);
 assert.equal(d.view(),"read");
 const html=d.render(list,()=>"<section>Editor mode</section>","");
 assert.match(html,/data-story-reading/);
+assert.match(html,/id="storyDeskSearch" data-editor-readonly-action/,"Read-only users can search articles");
+assert.match(html,/CHƯA XUẤT BẢN/,"Draft reading must never be mistaken for the public article");
 assert.match(html,/&lt;img src=x onerror=alert\(1\)&gt;/);
 assert.doesNotMatch(html,/<img src=x/);
 assert.equal((html.match(/data-story-select="\d+"/g)||[]).length,2);

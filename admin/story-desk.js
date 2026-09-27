@@ -35,7 +35,7 @@
     const s=story||{},sections=Array.isArray(s.sections)?s.sections:[],sources=Array.isArray(s.sources)?s.sources:[];
     const cover=safeImage(s.image),readTime=Math.max(1,Number(s.read_minutes)||Math.ceil(words([s.title,s.dek,s.intro,...sections.map(x=>x.body)].join(" "))/220));
     return '<article class="story-reading" data-story-reading>'+
-      '<header class="story-reading-head"><span>'+esc(s.category||"BÀI VIẾT")+
+      '<header class="story-reading-head"><div class="story-draft-note">BẢN ĐANG SOẠN · CHƯA XUẤT BẢN</div><span>'+esc(s.category||"BÀI VIẾT")+
       '</span><h1>'+esc(s.title||"Bài chưa có tiêu đề")+'</h1>'+
       (s.dek?'<p class="story-reading-dek">'+esc(s.dek)+'</p>':"")+
       '<small>'+readTime+' phút đọc · '+sections.length+' đoạn</small></header>'+
@@ -89,12 +89,12 @@
     return '<div class="story-desk"><aside class="story-library"><div class="story-library-head"><div><span>BÀI VIẾT</span><h2>Chọn bài để xem</h2><p>'+list.length+' bài trong thư viện</p></div>'+
       '<button type="button" id="addStoryBtn">+ Bài mới</button></div>'+
       '<label class="story-library-label" for="storyDeskSearch">Tìm bài</label>'+
-      '<input type="search" id="storyDeskSearch" value="'+esc(state.query)+'" placeholder="Nhập tiêu đề hoặc chuyên mục" autocomplete="off">'+
+      '<input type="search" id="storyDeskSearch" data-editor-readonly-action value="'+esc(state.query)+'" placeholder="Nhập tiêu đề hoặc chuyên mục" autocomplete="off">'+
       '<p id="storyDeskCount" aria-live="polite">'+visible+' bài phù hợp</p>'+
       '<div class="story-catalog-list" role="group" aria-label="Danh sách bài viết">'+links+'</div>'+
       (fileMetadata?'<details class="story-file-meta"><summary>Thông tin tệp nội dung</summary>'+fileMetadata+'</details>':"")+
       '</aside><section class="story-focus" aria-label="Bài đang xem">'+
-      '<header class="story-focus-bar"><div><span>ĐANG XEM BÀI '+(i+1)+' / '+list.length+'</span><h2>'+esc(item.title||"Bài chưa có tiêu đề")+
+      '<header class="story-focus-bar"><div><span>BẢN ĐANG SOẠN · BÀI '+(i+1)+' / '+list.length+'</span><h2>'+esc(item.title||"Bài chưa có tiêu đề")+
       '</h2></div><button type="button" class="ew-story-preview" data-story-preview="'+i+'" data-editor-readonly-action>Xem bản thảo ↗</button></header>'+
       '<nav class="story-mode-tabs" role="tablist" aria-label="Chế độ làm việc">'+tabs+'</nav>'+
       '<div class="story-focus-content" role="tabpanel">'+content+'</div></section></div>';
