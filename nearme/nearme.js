@@ -627,6 +627,7 @@
           '<a href="'+esc(externalHref)+'" target="_blank" rel="noopener noreferrer">'+(exactEntrance?"Chỉ đường ↗":"Tìm trên Google Maps ↗")+'</a>'+
           (x.external_verify_url?'<a href="'+esc(x.external_verify_url)+'" target="_blank" rel="noopener noreferrer">Kiểm tra nguồn ↗</a>':"")+
           (x.route?'<a href="'+esc(x.route)+'">Thông tin →</a>':"")+
+          '<button type="button" class="opq-feedback-trigger" data-openpq-feedback data-feedback-id="'+esc(x.id)+'" data-feedback-name="'+esc(x.name)+'" data-feedback-type="'+esc(["place","activity","venue","hotel","utility"].includes(x.entity_type)?x.entity_type:"general") +'">Góp ý thông tin</button>'+
         '</div></article>';
     }).join("")+(visible.length>limited.length?'<div class="results-more">Còn '+(visible.length-limited.length)+' kết quả. Gõ tên cụ thể để tìm nhanh hơn.</div>':"");
   }
