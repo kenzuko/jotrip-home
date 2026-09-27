@@ -2,7 +2,6 @@
 const TYPES = new Set(["place","activity","venue","hotel","utility","article","general"]);
 const ISSUES = new Set(["closed","location","hours","phone","details","new_place","other"]);
 const STATUSES = new Set(["new","reviewing","resolved","rejected"]);
-const PUBLIC_ORIGINS=new Set(["https://openphuquoc.com","https://www.openphuquoc.com"]);
 // Prefer a dedicated secret. CMS Pages can safely derive a separate HMAC key from its existing session secret.
 const feedbackRateKey=env=>env.FEEDBACK_RATE_SECRET|| (env.CMS_SESSION_SECRET?"openpq-feedback-rate-v1:"+env.CMS_SESSION_SECRET:"");
 const json = (value,status=200) => new Response(JSON.stringify(value),{
@@ -10,9 +9,9 @@ const json = (value,status=200) => new Response(JSON.stringify(value),{
 });
 const clean=(value,max=250)=>String(value||"").replace(/[\u0000-\u001f\u007f]/g," ").trim().slice(0,max);
 const validId=id=>/^[a-zA-Z0-9_-]{1,120}$/.test(id);
-function originAllowed(request,publicIntake=false){
-  const origin=request.headers.get("origin"),target=new URL(request.url);
-  return !!origin&&(origin===target.origin||(publicIntake&&target.hostname==="cms.openphuquoc.com"&&PUBLIC_ORIGINS.has(origin)));
+function originAllowed(request){
+  const origin=request.headers.get("origin");
+  return !!origin&&origin===new URL(request.url).origin;
 }
 async function dailyHash(ip,secret){
   const date=new Date().toISOString().slice(0,10);
@@ -29,7 +28,7 @@ function imageType(bytes){
 function sourcePath(value,requestUrl){
   try{
     const u=new URL(String(value));
-    if(u.origin!==new URL(requestUrl).origin&&!PUBLIC_ORIGINS.has(u.origin))return "/";
+    if(u.origin!==new URL(requestUrl).origin)return "/";
     const id=u.searchParams.get("id");
     return clean(u.pathname+(id&&validId(id)?"?id="+encodeURIComponent(id):""),350);
   }catch{return "/";}
@@ -44,7 +43,7 @@ export async function publicConfig(env){
 }
 export async function publicSubmit(request,env){
   if(request.method!=="POST")return json({ok:false,error:"method_not_allowed"},405);
-  if(!originAllowed(request,true))return json({ok:false,error:"origin_not_allowed"},403);
+  if(!originAllowed(request))return json({ok:false,error:"origin_not_allowed"},403);
   if(!String(request.headers.get("content-type")||"").includes("multipart/form-data"))return json({ok:false,error:"invalid_form"},415);
   if(Number(request.headers.get("content-length")||0)>4200000)return json({ok:false,error:"too_large"},413);
   const rateKey=feedbackRateKey(env);
