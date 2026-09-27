@@ -26,7 +26,8 @@ function imageType(bytes){
 function sourcePath(value){
   try{
     const u=new URL(String(value));
-    return clean(u.pathname+u.search,350);
+    const id=u.searchParams.get("id");
+    return clean(u.pathname+(id&&validId(id)?"?id="+encodeURIComponent(id):""),350);
   }catch{return "/";}
 }
 export function publicConfig(env){
