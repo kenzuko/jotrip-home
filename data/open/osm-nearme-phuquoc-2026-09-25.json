@@ -7,7 +7,7 @@
   "attribution_url": "https://www.openstreetmap.org/copyright",
   "scope": "Only OSM-derived community POIs selected for Near Me; official operator and independently verified data are not part of this extract.",
   "disclaimer": "Community POIs are unverified: not evidence of current operation, valid pharmacy licenses, charger availability or verified entrances.",
-  "record_count": 42,
+  "record_count": 89,
   "records": [
     {
       "osm_ref": "node/10649396005",
@@ -40,6 +40,36 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/10651763005",
+      "osm_url": "https://www.openstreetmap.org/node/10651763005",
+      "name": "CMart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1809648,
+        "lon": 104.0438148
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_10651763005",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/10736270908",
+      "osm_url": "https://www.openstreetmap.org/node/10736270908",
+      "name": "DDS - Bắc đảo (điểm cộng đồng)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.3785286,
+        "lon": 104.0704816
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_10736270908",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/11843665982",
       "osm_url": "https://www.openstreetmap.org/node/11843665982",
       "name": "Bưu Điện VNPT xã Gành Dầu",
@@ -53,6 +83,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11843665982",
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11849971189",
+      "osm_url": "https://www.openstreetmap.org/node/11849971189",
+      "name": "ONEBANK Gành Dầu",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.3729675,
+        "lon": 103.8455012
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11849971189",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "node/11849971252",
@@ -70,6 +115,36 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/11853095121",
+      "osm_url": "https://www.openstreetmap.org/node/11853095121",
+      "name": "Tạp Hóa An",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.3726786,
+        "lon": 103.8481231
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11853095121",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/11853095122",
+      "osm_url": "https://www.openstreetmap.org/node/11853095122",
+      "name": "Tạp Hóa Sương Thuật",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.3727512,
+        "lon": 103.8472809
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11853095122",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/11853095123",
       "osm_url": "https://www.openstreetmap.org/node/11853095123",
       "name": "Hoa Cát Tường Mart",
@@ -83,6 +158,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11853095123",
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11873191259",
+      "osm_url": "https://www.openstreetmap.org/node/11873191259",
+      "name": "Tạp Hóa Quang Long",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.370409,
+        "lon": 103.8455395
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873191259",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "node/11873211963",
@@ -115,6 +205,51 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/11873249807",
+      "osm_url": "https://www.openstreetmap.org/node/11873249807",
+      "name": "Bách Hóa Tổng Hợp Lê Nguyễn",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.3714966,
+        "lon": 103.8451693
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873249807",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/11873257781",
+      "osm_url": "https://www.openstreetmap.org/node/11873257781",
+      "name": "Tạp Hóa Loan Đỏ",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.3744351,
+        "lon": 103.8504298
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873257781",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/11873257795",
+      "osm_url": "https://www.openstreetmap.org/node/11873257795",
+      "name": "Tạp Hóa Mỹ Tiên",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.3749733,
+        "lon": 103.8499041
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11873257795",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/11886047087",
       "osm_url": "https://www.openstreetmap.org/node/11886047087",
       "name": "Thuốc Tây Như Thành",
@@ -143,6 +278,36 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_11930352245",
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/11930352250",
+      "osm_url": "https://www.openstreetmap.org/node/11930352250",
+      "name": "ATM Vietcombank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.2300448,
+        "lon": 103.9826352
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11930352250",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/11930375191",
+      "osm_url": "https://www.openstreetmap.org/node/11930375191",
+      "name": "ATM ACB",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.2325708,
+        "lon": 103.9836927
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_11930375191",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "node/11930375215",
@@ -265,6 +430,96 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/12229078354",
+      "osm_url": "https://www.openstreetmap.org/node/12229078354",
+      "name": "Siêu thị Bùi Mart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.2242542,
+        "lon": 103.9666711
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12229078354",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/12629460331",
+      "osm_url": "https://www.openstreetmap.org/node/12629460331",
+      "name": "ATM VPBank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.223349,
+        "lon": 103.9644921
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12629460331",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/12629674066",
+      "osm_url": "https://www.openstreetmap.org/node/12629674066",
+      "name": "ATM VietinBank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.1828814,
+        "lon": 103.9687145
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12629674066",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/12629674067",
+      "osm_url": "https://www.openstreetmap.org/node/12629674067",
+      "name": "ATM BIDV",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.1829025,
+        "lon": 103.9687125
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12629674067",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/12629683480",
+      "osm_url": "https://www.openstreetmap.org/node/12629683480",
+      "name": "ATM MB",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.1946276,
+        "lon": 103.9676212
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12629683480",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/12629683481",
+      "osm_url": "https://www.openstreetmap.org/node/12629683481",
+      "name": "ATM BIDV",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.1946038,
+        "lon": 103.9676165
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_12629683481",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/12635163017",
       "osm_url": "https://www.openstreetmap.org/node/12635163017",
       "name": "Giặt Sấy Huy Tín",
@@ -308,6 +563,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_13696692370",
       "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/13706200104",
+      "osm_url": "https://www.openstreetmap.org/node/13706200104",
+      "name": "ATM Sacombank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.3718604,
+        "lon": 103.8388714
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_13706200104",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "node/13720328502",
@@ -355,6 +625,21 @@
       "origin_file": "data/entities/nearme-essential-20260926.json"
     },
     {
+      "osm_ref": "node/1606076855",
+      "osm_url": "https://www.openstreetmap.org/node/1606076855",
+      "name": "Sacombank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.2137037,
+        "lon": 103.9631914
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_1606076855",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/1650574689",
       "osm_url": "https://www.openstreetmap.org/node/1650574689",
       "name": "Petrolimex - Tây đảo (điểm OSM 6)",
@@ -368,6 +653,21 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_1650574689",
       "origin_file": "data/entities/nearme-essential-20260926.json"
+    },
+    {
+      "osm_ref": "node/1650587735",
+      "osm_url": "https://www.openstreetmap.org/node/1650587735",
+      "name": "Agribank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.2157556,
+        "lon": 103.960033
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_1650587735",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "node/1650587741",
@@ -415,6 +715,21 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/3482735050",
+      "osm_url": "https://www.openstreetmap.org/node/3482735050",
+      "name": "Sửa xe Quang Nghiem - Gành Dầu (OSM)",
+      "category": "VEHICLE_REPAIR",
+      "coordinate": {
+        "lat": 10.3713077,
+        "lon": 103.8450465
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_3482735050",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/3482735059",
       "osm_url": "https://www.openstreetmap.org/node/3482735059",
       "name": "Petrolimex - Tây đảo (điểm OSM 5)",
@@ -443,6 +758,66 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_3482735060",
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/3482735061",
+      "osm_url": "https://www.openstreetmap.org/node/3482735061",
+      "name": "ATM Vietcombank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.3339947,
+        "lon": 103.8572345
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_3482735061",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/3750031760",
+      "osm_url": "https://www.openstreetmap.org/node/3750031760",
+      "name": "KTC - Bờ Tây (điểm cộng đồng)",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.1975309,
+        "lon": 103.968225
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_3750031760",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/4068135660",
+      "osm_url": "https://www.openstreetmap.org/node/4068135660",
+      "name": "Bin's Market",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1954757,
+        "lon": 103.9674783
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_4068135660",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/4461001332",
+      "osm_url": "https://www.openstreetmap.org/node/4461001332",
+      "name": "PQ Little Mart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.2644286,
+        "lon": 103.9438402
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_4461001332",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "node/4464120534",
@@ -475,6 +850,21 @@
       "origin_file": "data/entities/nearme-essential-20260926.json"
     },
     {
+      "osm_ref": "node/4566782392",
+      "osm_url": "https://www.openstreetmap.org/node/4566782392",
+      "name": "ATM Mb Bank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.2225534,
+        "lon": 103.9626486
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_4566782392",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/5003536531",
       "osm_url": "https://www.openstreetmap.org/node/5003536531",
       "name": "DDS Petro - Nam đảo (điểm OSM 1)",
@@ -488,6 +878,36 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_5003536531",
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/5157022621",
+      "osm_url": "https://www.openstreetmap.org/node/5157022621",
+      "name": "Mart 24h - Hàm Ninh (tên OSM)",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1753983,
+        "lon": 104.0187907
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_5157022621",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/5297164222",
+      "osm_url": "https://www.openstreetmap.org/node/5297164222",
+      "name": "ATM Sacombank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.2011529,
+        "lon": 103.9647257
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_5297164222",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "node/5306507121",
@@ -505,6 +925,141 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/5424811050",
+      "osm_url": "https://www.openstreetmap.org/node/5424811050",
+      "name": "Sunshine Mart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1947835,
+        "lon": 103.9660053
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_5424811050",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6092543421",
+      "osm_url": "https://www.openstreetmap.org/node/6092543421",
+      "name": "ATM MB Bank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.2060394,
+        "lon": 103.9629951
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6092543421",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6180787485",
+      "osm_url": "https://www.openstreetmap.org/node/6180787485",
+      "name": "Baza Mart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.184802,
+        "lon": 103.9682123
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6180787485",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6358477331",
+      "osm_url": "https://www.openstreetmap.org/node/6358477331",
+      "name": "Cửa Hàng Xăng Dầu DDS Petro",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.0591404,
+        "lon": 104.00555
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6358477331",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6404037685",
+      "osm_url": "https://www.openstreetmap.org/node/6404037685",
+      "name": "ATM Vietcombank",
+      "category": "ATM",
+      "coordinate": {
+        "lat": 10.2318597,
+        "lon": 103.9672336
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6404037685",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6473349151",
+      "osm_url": "https://www.openstreetmap.org/node/6473349151",
+      "name": "Agribank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.0224057,
+        "lon": 104.017513
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6473349151",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6483568742",
+      "osm_url": "https://www.openstreetmap.org/node/6483568742",
+      "name": "MB Bank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.0182567,
+        "lon": 104.0149585
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568742",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6483568744",
+      "osm_url": "https://www.openstreetmap.org/node/6483568744",
+      "name": "Sacombank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.0187095,
+        "lon": 104.0154529
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568744",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6483568747",
+      "osm_url": "https://www.openstreetmap.org/node/6483568747",
+      "name": "Kienlong Bank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.0200871,
+        "lon": 104.0166254
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568747",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/6483568748",
       "osm_url": "https://www.openstreetmap.org/node/6483568748",
       "name": "ATM Vietcombank - An Thới",
@@ -518,6 +1073,36 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_node_6483568748",
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "node/6483568749",
+      "osm_url": "https://www.openstreetmap.org/node/6483568749",
+      "name": "Cửa Hàng Xăng Dầu DDS Petro",
+      "category": "FUEL",
+      "coordinate": {
+        "lat": 10.027105,
+        "lon": 104.0166745
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568749",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/6483568750",
+      "osm_url": "https://www.openstreetmap.org/node/6483568750",
+      "name": "BIDV Bank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.0278273,
+        "lon": 104.0169562
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6483568750",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "node/6483568751",
@@ -580,6 +1165,36 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/6805686015",
+      "osm_url": "https://www.openstreetmap.org/node/6805686015",
+      "name": "CMart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.2035924,
+        "lon": 103.9641246
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_6805686015",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/7048100585",
+      "osm_url": "https://www.openstreetmap.org/node/7048100585",
+      "name": "Viettel Post - Hàm Ninh",
+      "category": "POST_OFFICE",
+      "coordinate": {
+        "lat": 10.1804612,
+        "lon": 104.0462488
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_7048100585",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "node/7183898787",
       "osm_url": "https://www.openstreetmap.org/node/7183898787",
       "name": "Bưu Điện An Thới",
@@ -595,6 +1210,36 @@
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
     },
     {
+      "osm_ref": "node/7183907685",
+      "osm_url": "https://www.openstreetmap.org/node/7183907685",
+      "name": "Chuyển Phát Nhanh Viettel",
+      "category": "POST_OFFICE",
+      "coordinate": {
+        "lat": 10.0265638,
+        "lon": 104.0168467
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_7183907685",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "node/8231093534",
+      "osm_url": "https://www.openstreetmap.org/node/8231093534",
+      "name": "KingBear",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.2235033,
+        "lon": 103.968747
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_node_8231093534",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
       "osm_ref": "way/1270363430",
       "osm_url": "https://www.openstreetmap.org/way/1270363430",
       "name": "K+Mark",
@@ -608,6 +1253,66 @@
       "operational_status": "UNKNOWN",
       "local_id": "utility_osm_way_1270363430",
       "origin_file": "data/entities/nearme-essential-extension-20260926.json"
+    },
+    {
+      "osm_ref": "way/1270911440",
+      "osm_url": "https://www.openstreetmap.org/way/1270911440",
+      "name": "Star Mart",
+      "category": "MINIMART",
+      "coordinate": {
+        "lat": 10.1877503,
+        "lon": 103.9936059
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1270911440",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "way/1291272851",
+      "osm_url": "https://www.openstreetmap.org/way/1291272851",
+      "name": "FPT Shop",
+      "category": "ELECTRONICS",
+      "coordinate": {
+        "lat": 10.2170104,
+        "lon": 103.9711843
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1291272851",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "way/1292000092",
+      "osm_url": "https://www.openstreetmap.org/way/1292000092",
+      "name": "TPBank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.2219995,
+        "lon": 103.9619414
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1292000092",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
+    },
+    {
+      "osm_ref": "way/1292548926",
+      "osm_url": "https://www.openstreetmap.org/way/1292548926",
+      "name": "VietinBank",
+      "category": "BANK",
+      "coordinate": {
+        "lat": 10.2138446,
+        "lon": 103.9663857
+      },
+      "checked_at": "2026-09-25",
+      "publication_status": "COMMUNITY_CANDIDATE",
+      "operational_status": "UNKNOWN",
+      "local_id": "utility_osm_way_1292548926",
+      "origin_file": "data/entities/nearme-essential-extension-20260927.json"
     },
     {
       "osm_ref": "way/1498391947",

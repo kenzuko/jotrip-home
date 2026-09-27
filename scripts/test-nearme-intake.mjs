@@ -123,6 +123,10 @@ assert.ok(near.includes('x.source_license==="ODbL-1.0"'),"Full Near Me must attr
 assert.ok(near.includes("reliabilityLabel(x)"),"Community data must be labeled in full Near Me");
 assert.ok(home.includes("row.verified!==false"),"Homepage must not rank candidate OSM GPS as validated distance");
 assert.ok(home.includes('row.source_license==="ODbL-1.0"'),"Homepage must attribute community data");
+const expansion=read("data/entities/nearme-essential-extension-20260927.json").entities;
+assert.equal(expansion.length,47,"Expansion must be bounded to 47 selected POIs");
+assert.ok(expansion.every(x=>x.verified===false&&x.operational_status==="UNKNOWN"&&x.source_refs.some(s=>s.license==="ODbL-1.0")),"Expansion cannot invent verified operator status");
+for(const e of expansion)assert.ok(indexed.has(e.id),"Expanded utility missing from generated index: "+e.id);
 const osmExport=read("data/open/osm-nearme-phuquoc-2026-09-25.json");
 const osmRows=entities.filter(e=>e.verified===false&&e.source_refs?.some(s=>s.license==="ODbL-1.0"));
 assert.equal(osmExport.records.length,osmRows.length,"Every published community POI must have ODbL extract provenance");
