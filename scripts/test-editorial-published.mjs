@@ -21,7 +21,7 @@ for(const item of food.dishes){
   assert.ok(item.sources?.length,"Food source disappeared: "+item.id);
 }
 assert.equal(stories.stories.length,22,"20 original and 2 verified new public stories must remain available");
-assert.equal(new Set(stories.stories.map(x=>x.id)).size,20,"Story IDs must be stable");
+assert.equal(new Set(stories.stories.map(x=>x.id)).size,22,"All 22 story IDs must be unique");
 for(const id of ['doc-nhan-nuoc-mam-phu-quoc','cay-di-san-vuon-quoc-gia-phu-quoc']){ const item=stories.stories.find(x=>x.id===id); assert.ok(item,'Published new story missing: '+id); assert.ok(item.image_source_url&&item.image_license_url&&item.image_credit,'Cover image license incomplete: '+id); const visual=JSON.parse(fs.readFileSync('data/visual-context.json','utf8')); assert.ok(visual.stories[id]?.images?.length>=1,'New story gallery incomplete: '+id); assert.ok(visual.stories[id].images.every(photo=>photo.license_url&&photo.source_url&&photo.alt),'Gallery license incomplete: '+id); }
 for(const item of stories.stories){
   assert.ok(item.dek?.length>60&&item.intro?.length>120,"Story intro incomplete: "+item.id);
