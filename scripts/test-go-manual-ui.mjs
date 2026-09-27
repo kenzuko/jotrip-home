@@ -26,4 +26,16 @@ assert.ok(html.includes('src="../map-basemap.js?')&&html.indexOf('src="../map-ba
 assert.ok(mapJs.includes('OpenPQMapBase?.add?.(map')&&mapJs.includes('basemap?.fallback?.()'),"GO should recover when map tiles do not load");
 assert.ok(mapJs.includes("fitVisible(L.latLngBounds(ISLAND_FRAME))")&&mapJs.includes("ResizeObserver"),"Whole-island frame should survive mobile resizes");
 assert.ok(css.includes('height:clamp(315px,88vw,410px)'),"Mobile map should be tall enough to fit the island");
-console.log("go manual area / GPS / basemap fallback / island fit / dock / footer regressions passed");
+assert.match(html,/<\/fieldset>\s*<section class="go-radius-panel" id="goRadiusPanel"/,
+  "The GO map must sit beside the form on desktop and follow the origin controls on mobile");
+assert.ok(html.indexOf('id="goRadiusPanel"')>html.indexOf('id="areaChoices"')&&
+  html.indexOf('id="goRadiusPanel"')<html.indexOf('value="two"'),
+  "Native map follows origin but precedes the time decision in document order");
+assert.match(html,/id="goRadiusControls" hidden/,"Do not show inactive radius controls before an origin is selected");
+assert.match(html,/class="go-radius-more"/,"Keep custom radius collapsed until requested");
+assert.equal((html.match(/data-go-map-area=/g)||[]).length,3,"Map offers three clear manual-region shortcuts");
+assert.match(css,/@media\(min-width:1000px\)\{/,"Desktop must have a dedicated two-column workspace");
+assert.match(css,/\.go-form>\.go-radius-panel\{/,"Native map must be an independent workspace panel");
+assert.match(mapJs,/fitVisible\(bounds,selected<=2\?13:/,"Selected map must focus on the chosen radius");
+assert.doesNotMatch(mapJs,/Quarter-distance guides/,"Remove the crowded nested radar rings");
+console.log("GO desktop workspace contracts PASS: map-first UX, separated heading, simple radius, preserved manual/GPS.");
