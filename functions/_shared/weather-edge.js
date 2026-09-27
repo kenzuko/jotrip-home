@@ -178,7 +178,8 @@ async function health(request,waitUntil){
   if(!response)return {path,status:"UNAVAILABLE"};
   const at=response.headers.get("x-openpq-weather-source-time");
   const age=ageMinutes(at);
-  return {path,status:age===null?"UNKNOWN":age>({[targets[0]]:45,[targets[1]]:35,[targets[2]]:60,[targets[3]]:210,[targets[4]]:150}[path]||60)?"STALE":"READY",
+  const forecastValid=path===targets[4]?usableDashboard(await response.clone().json().catch(()=>null)):true;
+  return {path,status:!forecastValid?"STALE":age===null?"UNKNOWN":age>({[targets[0]]:45,[targets[1]]:35,[targets[2]]:60,[targets[3]]:210,[targets[4]]:150}[path]||60)?"STALE":"READY",
     source_time:at,age_minutes:age,via:response.headers.get("x-openpq-weather-edge")};
  }));
  return jsonResponse({
