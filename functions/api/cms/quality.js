@@ -78,17 +78,17 @@ export async function onRequest({request,env}){
       const action=String(body.action||"");
       if(!actions[action])return json({error:"Thao tác không hợp lệ"},400);
       const dueAt=String(body.due_at||"");
-      if(action==="due"&&dueAt&&!/^\d{4}-\d{2}-\d{2}$/.test(dueAt))return json({error:"Ngày hạn cần có định dạng YYYY-MM-DD"},400);
+      if(action==="due"&&dueAt&&(!/^\d{4}-\d{2}-\d{2}$/.test(dueAt)||!Number.isFinite(Date.parse(dueAt+"T00:00:00Z"))||new Date(dueAt+"T00:00:00Z").toISOString().slice(0,10)!==dueAt))return json({error:"Ngày hạn không hợp lệ, cần định dạng YYYY-MM-DD"},400);
       const before=await db.prepare("SELECT task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at FROM cms_quality_work_items WHERE task_key=?").bind(taskKey(target)).first();
       const now=new Date().toISOString();
       const after={
         task_key:taskKey(target),rule_id:target.rule_id,entity_id:target.entity_id,field:target.field,
-        status:action==="due"?(before?.status||"open"):actions[action].status,owner:action==="reopen"?(before?.owner||user.login):user.login,
+        status:action==="due"?(before?.status||"open"):actions[action].status,owner:action==="claim"?user.login:(before?.owner||user.login),
         due_at:action==="due"?(dueAt||null):(before?.due_at||null),muted_until:action==="mute"?new Date(Date.now()+7*86400000).toISOString():null,
         note:before?.note||null,created_at:before?.created_at||now,updated_at:now
       };
       await db.batch([
-        db.prepare("INSERT INTO cms_quality_work_items (task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(task_key) DO UPDATE SET status=excluded.status,owner=excluded.owner,muted_until=excluded.muted_until,updated_at=excluded.updated_at")
+        db.prepare("INSERT INTO cms_quality_work_items (task_key,rule_id,entity_id,field,status,owner,due_at,muted_until,note,created_at,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(task_key) DO UPDATE SET status=excluded.status,owner=excluded.owner,due_at=excluded.due_at,muted_until=excluded.muted_until,updated_at=excluded.updated_at")
           .bind(after.task_key,after.rule_id,after.entity_id,after.field,after.status,after.owner,after.due_at,after.muted_until,after.note,after.created_at,after.updated_at),
         db.prepare("INSERT INTO cms_quality_audit_events (event_id,task_key,actor,action,before_json,after_json,created_at) VALUES (?,?,?,?,?,?,?)")
           .bind(crypto.randomUUID(),after.task_key,user.login,action,JSON.stringify(before||null),JSON.stringify(after),now)

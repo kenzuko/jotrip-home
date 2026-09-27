@@ -1508,6 +1508,7 @@ async function boot(){
   renderNav();
   show("cms");
   bindSidebarToggle();
+  window.OPQAdminV2?.mount({modules:schema.modules,role:session.role,onModule:selectModule});
 
   const requested=new URLSearchParams(location.search).get("module");
   const first=schema.modules.find(m=>m.id===requested&&m.read.includes(session.role));
@@ -1757,7 +1758,7 @@ async function save(){
   }catch(e){
     status(
       e.status===409
-        ?"Nội dung trên GitHub đã đổi trong lúc cậu đang sửa. Tải lại module rồi áp dụng lại thay đổi để tránh ghi đè."
+        ?"Có đề xuất khác hoặc phiên bản GitHub đã thay đổi. Bản nháp vẫn nằm trên thiết bị. Mở khung Biên tập an toàn, tải JSON rồi đối chiếu trước khi gửi lại."
         :e.message,
       "error"
     );

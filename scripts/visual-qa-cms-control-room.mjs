@@ -204,7 +204,137 @@ try{
   assert.ok(demoOverflow<=2,"editor demo mobile overflow "+demoOverflow+"px");
   await editorial.screenshot({path:output+"/cms-editor-workflow-demo-mobile.png",fullPage:true});
   await editorialContext.close();
-  console.log("PASS CMS V1.3 browser QA: desktop/mobile, local editorial preview, record backup, GitHub conflict guard, zero-network demo");
+  // V2: global work switcher, role boundaries and text scaling.
+  const palette=await makePage("admin",{width:1440,height:900});
+  await palette.page.locator("#quickOpen").click();
+  await palette.page.locator("#quickDialog[open]").waitFor();
+  await palette.page.locator("#quickInput").fill("nguoi dung");
+  assert.equal(await palette.page.locator('#quickResults [data-quick-id="users"]').count(),1);
+  await palette.page.locator("#quickClose").click();
+  await palette.page.keyboard.press("Control+k");
+  await palette.page.locator("#quickDialog[open]").waitFor();
+  await palette.page.keyboard.press("Escape");
+  await palette.page.locator("#quickDialog:not([open])").waitFor();
+  await palette.page.screenshot({path:output+"/cms-v2-workspace-desktop.png",fullPage:true});
+  await palette.context.close();
+
+  const qualityContext=await browser.newContext({viewport:{width:1440,height:900}});
+  const qp=await qualityContext.newPage();
+  qp.on("pageerror",e=>{throw e});
+  let qualityData={
+    storage:"d1",can_manage:true,computed_at:"2026-09-27T08:00:00Z",
+    tasks:[
+      {rule_id:"VENUE_SOURCE_MISSING",entity_id:"venue_bai_sao",field:"source_ref",
+        surface:"Địa điểm",severity:"high",status:"open",owner:"",due_at:null,
+        evidence:"Bãi Sao đang ACTIVE nhưng thiếu nguồn",next_action:"Ghi nguồn kiểm chứng."},
+      {rule_id:"VENUE_CHECK_DATE_MISSING",entity_id:"venue_bai_khem",field:"verified_at",
+        surface:"Địa điểm",severity:"medium",status:"open",owner:"",due_at:null,
+        evidence:"Bãi Khem đang ACTIVE nhưng thiếu ngày",next_action:"Ghi thời điểm kiểm tra."}
+    ]
+  };
+  const posts=[];
+  await qp.route("**/api/cms/session",route=>route.fulfill({status:200,
+    contentType:"application/json",body:JSON.stringify({login:"visual-qa",role:"admin"})}));
+  await qp.route("**/api/cms/quality",async route=>{
+    if(route.request().method()==="POST"){
+      const payload=route.request().postDataJSON();posts.push(payload);
+      const target=qualityData.tasks.find(t=>
+        [t.rule_id,t.entity_id||"",t.field].join("|")===payload.task_key);
+      assert.ok(target,"quality POST must have an existing task");
+      if(payload.action==="claim"){target.status="in_progress";target.owner="visual-qa";}
+      if(payload.action==="due")target.due_at=payload.due_at||null;
+    }
+    await route.fulfill({status:200,contentType:"application/json",body:JSON.stringify(qualityData)});
+  });
+  await qp.route("**/api/cms/reviews",route=>route.fulfill({status:200,
+    contentType:"application/json",body:JSON.stringify({items:[],history:[],checked_at:"2026-09-27T08:00:00Z"})}));
+  await qp.goto(base+"/admin/quality.html",{waitUntil:"networkidle"});
+  await qp.locator("#qualityQueue .task-card").first().waitFor();
+  assert.equal(await qp.locator("#qualityQueue .task-card").count(),2);
+  await qp.locator("#workSearch").fill("bai sao");
+  assert.equal(await qp.locator("#qualityQueue .task-card").count(),1);
+  assert.match(await qp.locator("#qualityQueue .task-title").textContent(),/Bãi Sao/);
+  await qp.locator("#workClear").click();
+  await qp.locator("[data-quality-action='claim']").first().click();
+  await qp.locator("#notice.success").waitFor();
+  assert.equal(posts.length,1,"Claim should cause exactly one POST");
+  assert.equal(qualityData.tasks[0].owner,"visual-qa");
+  assert.match(await qp.locator("#qualityQueue").textContent(),/Phụ trách: visual-qa/);
+  await qp.locator("[data-quality-due]").first().fill("2026-10-01");
+  await qp.locator("[data-quality-action='due']").first().click();
+  await qp.locator("#notice.success").waitFor();
+  assert.equal(posts.length,2,"Save due date should cause one additional POST");
+  assert.equal(qualityData.tasks[0].due_at,"2026-10-01");
+  assert.match(await qp.locator("#qualityQueue").textContent(),/01\/10\/2026/);
+  await qp.screenshot({path:output+"/cms-v2-quality-desktop.png",fullPage:true});
+  await qp.setViewportSize({width:390,height:844});
+  assert.ok(await qp.locator("#workSearch").isVisible());
+  const qOverflow=await qp.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(qOverflow<=2,"V2 quality overflows iPhone by "+qOverflow+"px");
+  await qp.screenshot({path:output+"/cms-v2-quality-mobile.png",fullPage:true});
+  await qualityContext.close();
+
+  const reviewContext=await browser.newContext({viewport:{width:1440,height:900}});
+  const rp=await reviewContext.newPage();
+  const reviewErrors=[];rp.on("pageerror",e=>reviewErrors.push(e.message));
+  await rp.route("**/api/cms/reviews",route=>route.fulfill({status:200,
+    contentType:"application/json",body:JSON.stringify({
+      items:[
+        {number:151,title:"CMS: Bún quậy",draft:true,author:"editor",updated_at:"2026-09-27T08:00:00Z"},
+        {number:152,title:"CMS: Hạt tiêu",draft:false,author:"kenzuko",updated_at:"2026-09-27T08:15:00Z"}
+      ],history:[{number:142,title:"CMS: đã merge",url:"https://github.com/kenzuko/jotrip-home/pull/142",
+        author:"kenzuko",can_rollback:false,merged_at:"2026-09-27T06:00:00Z"}],
+      checked_at:"2026-09-27T08:20:00Z"
+    })}));
+  await rp.route("**/api/cms/quality",route=>route.fulfill({status:200,
+    contentType:"application/json",body:JSON.stringify(qualityData)}));
+  await rp.route("**/api/cms/review-diff?*",route=>route.fulfill({status:200,
+    contentType:"application/json",body:JSON.stringify({checked_at:"2026-09-27T08:20:00Z",
+      fields:[{path:"data/content.json",fields:[{field:"stories[0].title",
+        before:"Bún quậy cũ",after:"Bún quậy mới"}]}]})}));
+  await rp.goto(base+"/admin/reviews.html",{waitUntil:"networkidle"});
+  await rp.locator(".review-pr-card").first().waitFor();
+  assert.equal(await rp.locator(".review-pr-card").count(),2);
+  await rp.locator("[data-review-filter='draft']").click();
+  await rp.locator("#reviewSearch").fill("bun quay");
+  assert.equal(await rp.locator(".review-pr-card").count(),1);
+  await rp.locator(".field-toggle").first().click();
+  await rp.locator(".field-diff:not(.hidden)").waitFor();
+  assert.match(await rp.locator(".field-diff").textContent(),/So sánh với main hiện tại/);
+  assert.equal(await rp.locator(".field-toggle").getAttribute("aria-expanded"),"true");
+  await rp.screenshot({path:output+"/cms-v2-reviews-desktop.png",fullPage:true});
+  await rp.setViewportSize({width:390,height:844});
+  const rOverflow=await rp.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(rOverflow<=2,"V2 reviews overflow iPhone by "+rOverflow+"px");
+  await rp.screenshot({path:output+"/cms-v2-reviews-mobile.png",fullPage:true});
+  assert.deepEqual(reviewErrors,[],"review page console exceptions");
+  await reviewContext.close();
+
+
+  // The public preview of the full V2 design is static. Never load CMS APIs.
+  const fullDemoContext=await browser.newContext({viewport:{width:1440,height:900}});
+  const fullDemo=await fullDemoContext.newPage();
+  const demoNetwork=[];
+  await fullDemo.route("**/api/cms/**",route=>{
+    demoNetwork.push(route.request().url());return route.abort();
+  });
+  await fullDemo.goto(base+"/admin/admin-v2-preview.html",{waitUntil:"networkidle"});
+  await fullDemo.locator('[data-demo-tab="quality"]').click();
+  await fullDemo.locator("#demoSearch").fill("bai sao");
+  assert.equal(await fullDemo.locator('#demo-quality [data-demo-item="quality"]:visible').count(),1);
+  await fullDemo.locator('[data-demo-filter="progress"]').click();
+  assert.equal(await fullDemo.locator('#demo-quality [data-demo-item="quality"]:visible').count(),0);
+  await fullDemo.locator('[data-demo-tab="reviews"]').click();
+  await fullDemo.locator("#demoDiff").click();
+  assert.equal(await fullDemo.locator("#demoDiffContent").isVisible(),true);
+  await fullDemo.screenshot({path:output+"/cms-v2-full-demo-desktop.png",fullPage:true});
+  await fullDemo.setViewportSize({width:390,height:844});
+  const fullOverflow=await fullDemo.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(fullOverflow<=2,"Full V2 demo overflows mobile by "+fullOverflow+"px");
+  await fullDemo.screenshot({path:output+"/cms-v2-full-demo-mobile.png",fullPage:true});
+  assert.equal(demoNetwork.length,0,"Full V2 demo must not fetch CMS APIs");
+  await fullDemoContext.close();
+  console.log("PASS CMS V2 browser QA: desktop/mobile, local editorial preview, record backup, GitHub conflict guard, zero-network demo, Quality D1 action refresh, Review search and role navigation");
 }finally{
   await browser.close();
 }

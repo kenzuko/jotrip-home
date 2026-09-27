@@ -90,16 +90,16 @@ export async function onRequest({request,env}){
         branch:pr.head?.ref||"",
         created_at:pr.created_at,
         updated_at:pr.updated_at,
-        changed_files:pr.changed_files||0,
-        additions:pr.additions||0,
-        deletions:pr.deletions||0
+        changed_files:Number.isFinite(pr.changed_files)?pr.changed_files:null,
+        additions:Number.isFinite(pr.additions)?pr.additions:null,
+        deletions:Number.isFinite(pr.deletions)?pr.deletions:null
       }));
     const history=(Array.isArray(closed)?closed:[])
       .filter(pr=>pr.merged_at&&String(pr.head?.ref||"").startsWith("cms/draft/"))
       .slice(0,20)
       .map(pr=>({
         number:pr.number,title:pr.title,url:pr.html_url,author:pr.user?.login||"",
-        merged_at:pr.merged_at,changed_files:pr.changed_files||0,
+        merged_at:pr.merged_at,changed_files:Number.isFinite(pr.changed_files)?pr.changed_files:null,
         can_rollback:role==="admin"
       }));
     return json({items,count:items.length,history,checked_at:new Date().toISOString()});

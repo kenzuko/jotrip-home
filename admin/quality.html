@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#123D3B">
   <title>Cần xử lý · Open Phu Quoc CMS</title>
-  <link rel="stylesheet" href="quality.css?v=5"><link rel="stylesheet" href="workbench-pages.css?v=1">
+  <link rel="stylesheet" href="quality.css?v=5"><link rel="stylesheet" href="workbench-pages.css?v=1"><link rel="stylesheet" href="admin-v2.css?v=1">
 </head>
 <body>
   <main class="quality-shell">
     <header class="quality-top">
       <a class="brand" href="index.html" aria-label="Bàn làm việc Open Phu Quoc"><img class="cms-sub-logo" src="../assets/logo-master.png?v=20260925-tight-master-r1" alt=""><span class="cms-sub-brand-text"><b>OPEN PHU QUOC</b><small>CMS · Bàn làm việc</small></span></a>
-      <nav class="cms-subnav" aria-label="Điều hướng CMS"><a class="cms-sub-home" href="index.html">Bàn làm việc</a><a href="reviews.html">Chờ duyệt</a><a href="quality.html" aria-current="page">Cần kiểm chứng</a></nav>
+      <nav class="cms-subnav" aria-label="Điều hướng CMS"><a class="cms-sub-home" href="index.html">Bàn làm việc</a><a href="quality.html" aria-current="page">Cần kiểm chứng</a><a href="reviews.html">Hàng đợi duyệt</a><a class="cms-external" href="../" target="_blank" rel="noopener noreferrer">Website ↗</a></nav>
     </header>
     <section class="quality-intro">
       <div><p class="eyebrow">BẢNG VIỆC</p><h1>Cần xử lý</h1><p class="intro-copy">Một chỗ để xem thiếu sót dữ liệu, đề xuất chờ duyệt và thay đổi đã merge.</p></div>
@@ -23,8 +23,20 @@
     </section>
     <div id="notice" class="notice hidden" role="status"></div>
     <section class="work-section" aria-labelledby="qualityHeading">
-      <div class="section-heading"><div><p class="eyebrow">DỮ LIỆU</p><h2 id="qualityHeading">Cần kiểm tra</h2></div><span>Được tính lại từ main</span></div>
-      <div id="qualityQueue" class="queue" aria-live="polite"><div class="loading">Đang kiểm tra chất lượng dữ liệu…</div></div>
+      <div class="section-heading"><div><p class="eyebrow">DỮ LIỆU</p><h2 id="qualityHeading">Cần kiểm tra</h2></div><span id="sourceState">Đang xác minh nguồn…</span></div>
+      <div class="work-controls">
+        <div class="work-search"><label for="workSearch">Tìm hồ sơ</label><input id="workSearch" type="search" placeholder="Tên, mã, nguồn hoặc người phụ trách…" autocomplete="off"></div>
+        <div class="work-filter-row" role="group" aria-label="Lọc công việc">
+          <button type="button" data-work-filter="open" aria-pressed="true">Đang mở</button>
+          <button type="button" data-work-filter="priority" aria-pressed="false">Ưu tiên</button>
+          <button type="button" data-work-filter="progress" aria-pressed="false">Đang làm</button>
+          <button type="button" data-work-filter="mine" aria-pressed="false">Của tôi</button>
+          <button type="button" data-work-filter="late" aria-pressed="false">Quá hạn</button>
+          <button type="button" data-work-filter="closed" aria-pressed="false">Đã xử lý / Tạm ẩn</button>
+        </div>
+        <div class="work-filter-summary"><span id="workCount" role="status" aria-live="polite">Đang tải công việc…</span><button type="button" id="workClear">Xóa bộ lọc</button></div>
+      </div>
+      <div id="qualityQueue" class="queue" aria-live="polite"><div class="loading">Đang kiểm tra chất lượng dữ liệu…</div></div><button id="workMore" class="work-more" type="button" hidden>Xem thêm công việc</button>
     </section>
     <section class="work-section" aria-labelledby="reviewHeading">
       <div class="section-heading"><div><p class="eyebrow">NỘI DUNG</p><h2 id="reviewHeading">Đang chờ duyệt</h2></div><span>Đề xuất từ CMS</span></div>
@@ -40,6 +52,6 @@
       <p>Tín hiệu chất lượng được tính lại từ main. Trạng thái nhận việc, xử lý, tạm ẩn 7 ngày và audit được lưu trong D1; nguồn nội dung vẫn cần xác minh trước khi gửi duyệt.</p>
     </footer>
   </main>
-  <script src="quality.js?v=5"></script>
+  <script src="quality.js?v=6"></script>
 </body>
 </html>

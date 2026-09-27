@@ -5,31 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#123D3B">
   <title>Hàng đợi duyệt | Open Phu Quoc CMS</title>
-  <link rel="stylesheet" href="reviews.css?v=6"><link rel="stylesheet" href="workbench-pages.css?v=1">
+  <link rel="stylesheet" href="reviews.css?v=6"><link rel="stylesheet" href="workbench-pages.css?v=1"><link rel="stylesheet" href="admin-v2.css?v=1">
 </head>
 <body>
   <header class="top">
     <a class="brand" href="index.html" aria-label="Bàn làm việc Open Phu Quoc"><img class="cms-sub-logo" src="../assets/logo-master.png?v=20260925-tight-master-r1" alt=""><span class="cms-sub-brand-text"><b>OPEN PHU QUOC</b><small>CMS · Bàn làm việc</small></span></a>
-    <nav class="cms-subnav" aria-label="Điều hướng CMS"><a class="cms-sub-home" href="index.html">Bàn làm việc</a><a href="quality.html">Cần kiểm chứng</a><a href="reviews.html" aria-current="page">Chờ duyệt</a></nav>
+    <nav class="cms-subnav" aria-label="Điều hướng CMS"><a class="cms-sub-home" href="index.html">Bàn làm việc</a><a href="quality.html">Cần kiểm chứng</a><a href="reviews.html" aria-current="page">Hàng đợi duyệt</a><a class="cms-external" href="../" target="_blank" rel="noopener noreferrer">Website ↗</a></nav>
     <span class="private">NỘI BỘ</span>
   </header>
   <main>
     <div class="heading">
       <p class="eyebrow">CÔNG VIỆC</p>
       <h1>Hàng đợi duyệt</h1>
-      <p class="intro">Các đề xuất nội dung từ CMS. Mở diff để xem nội dung và nguồn trước khi duyệt.</p>
+      <p class="intro">Duyệt từng đề xuất, so sánh nội dung với main hiện tại và kiểm tra nguồn trước khi merge.</p>
     </div>
     <aside class="notice"><strong>Chưa public</strong><span>Đề xuất chỉ lên website sau khi được kiểm tra, duyệt và merge. Hàng đợi này không thay cho xác minh thực địa.</span></aside>
     <div class="list-head"><h2 id="count">Đang tải đề xuất…</h2><button id="refresh" type="button">Tải lại</button></div>
-    <section id="queue" aria-live="polite"></section>
+    <div class="review-controls">
+      <div class="work-search"><label for="reviewSearch">Tìm đề xuất</label><input type="search" id="reviewSearch" placeholder="Tiêu đề, số PR hoặc người gửi…" autocomplete="off"></div>
+      <div role="group" class="work-filter-row" aria-label="Lọc đề xuất">
+        <button type="button" data-review-filter="all" aria-pressed="true">Tất cả PR</button>
+        <button type="button" data-review-filter="ready" aria-pressed="false">Đang mở</button>
+        <button type="button" data-review-filter="draft" aria-pressed="false">PR nháp</button>
+      </div>
+      <p id="reviewShown" class="review-count" role="status" aria-live="polite">Đang tải…</p>
+    </div>
+    <div class="review-diff-note"><strong>So sánh với main hiện tại</strong><span>Diff theo trường không phải ảnh chụp trước lúc gửi PR. GitHub vẫn là nơi kiểm tra và merge; CMS không tự duyệt.</span></div>
+    <section id="queue" aria-live="polite"></section><button id="reviewMore" class="work-more" type="button" hidden>Xem thêm đề xuất</button>
     <div class="list-head history-head"><h2>PR đã merge gần đây</h2></div>
     <section id="history" aria-live="polite"></section>
-    <div class="list-head quality-head"><h2>Cần kiểm tra dữ liệu</h2></div>
+    <div class="list-head quality-head"><h2>Cần kiểm tra dữ liệu</h2><a class="review-quality-link" href="quality.html">Mở hàng đợi đầy đủ ↗</a></div>
     <p class="queue-note">Tín hiệu được tính từ dữ liệu main. Trạng thái nhận việc, hạn xử lý và tạm ẩn có thể được lưu trong D1 khi hệ thống đã kết nối; dữ liệu vẫn cần kiểm chứng thực địa.</p>
     <section id="quality" aria-live="polite"><div class="loading">Đang kiểm tra dữ liệu…</div></section>
     <p id="checked" class="checked"></p>
     <p id="error" class="error" role="alert"></p>
   </main>
-  <script src="reviews.js?v=6" defer></script>
+  <script src="reviews.js?v=7" defer></script>
 </body>
 </html>
