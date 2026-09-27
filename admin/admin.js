@@ -1,6 +1,6 @@
 const $=s=>document.querySelector(s);
 const qsa=s=>Array.from(document.querySelectorAll(s));
-const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics"};
+const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics",traffic:"/api/cms/traffic"};
 
 let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null,moduleRequestId=0,baseData=null,publishInFlight=false;
 let storyDraftMessage="Bản nháp chỉ lưu trên trình duyệt này · chưa gửi duyệt.";
@@ -1555,6 +1555,13 @@ function applyPermissions(){
 function rerender(){
   const y=window.scrollY;
   const catalogScroll=currentModule.id==="stories"?document.querySelector(".story-catalog-list")?.scrollTop||0:0;
+  if(currentModule.id==="traffic"){
+    $("#editorNav")?.classList.add("hidden");
+    if(window.OPQTrafficDashboard)window.OPQTrafficDashboard.mount({host:$("#editor")});
+    else $("#editor").innerHTML='<p>Chưa tải được báo cáo truy cập.</p>';
+    requestAnimationFrame(()=>window.scrollTo(0,y));
+    return;
+  }
   if(currentModule.id==="analytics"){
     $("#editorNav")?.classList.add("hidden");
     renderAnalytics();
@@ -1671,6 +1678,8 @@ async function boot(){
   session=await r.json();
   const sr=await fetch("../cms/schema.json?t="+Date.now(),{cache:"no-store"});
   schema=await sr.json();
+  // Owner-only report, even when additional CMS administrators are added later.
+  schema.modules=schema.modules.filter(m=>m.id!=="traffic"||(session.login==="kenzuko"&&session.role==="admin"));
 
   $("#userName").textContent=session.name||session.login;
   $("#userRole").textContent=ROLE_LABELS[session.role]||session.role;
@@ -1691,6 +1700,7 @@ const NAV_HINTS={
   guide:"Bài cẩm nang hữu ích",visuals:"Ảnh, tác giả và chú thích",
   venues:"Địa điểm và bằng chứng",foods:"Món ăn và bài liên quan",
   utilities:"Danh bạ và thông tin thiết yếu",analytics:"Số liệu và tình trạng nguồn",
+  traffic:"Lượt xem, nguồn khách và tương tác",
   users:"Tài khoản và phân quyền"
 };
 
@@ -1709,7 +1719,7 @@ function renderNav(){
     group("CÔNG VIỆC",dashboard+quality+reviews)+
     group("BIÊN TẬP",["home","stories","guide","visuals"].map(item).join("")+knowledge)+
     group("ĐỊA ĐIỂM & TIỆN ÍCH",["venues","foods","utilities"].map(item).join(""))+
-    group("PHÂN TÍCH",item("analytics"))+
+    group("PHÂN TÍCH",item("analytics")+item("traffic"))+
     group("HỆ THỐNG",item("users"));
   document.querySelectorAll("button.module-btn").forEach(b=>b.onclick=()=>selectModule(b.dataset.id));
 }
@@ -1726,6 +1736,7 @@ async function selectModule(id){
   }
   const requestId=++moduleRequestId;
   window.OPQControlRoom?.unmount();
+  window.OPQTrafficDashboard?.unmount();
   window.OPQEditorWorkflow?.stop();
   $("#cmsLayout")?.classList.toggle("cms-dashboard",id==="dashboard");
   $("#editor")?.classList.remove("analytics-editor");
@@ -1747,16 +1758,17 @@ async function selectModule(id){
   });
 
   $("#cmsSearch").value="";$("#searchCount").textContent="";
-  $("#moduleKicker").textContent=currentModule.id==="analytics"?"OPEN PHU QUOC INTELLIGENCE":"OPEN PHU QUOC CMS";
+  $("#moduleKicker").textContent=currentModule.id==="traffic"?"PRIVATE WEBSITE ANALYTICS":currentModule.id==="analytics"?"OPEN PHU QUOC INTELLIGENCE":"OPEN PHU QUOC CMS";
   $("#moduleTitle").textContent=currentModule.label;
   $("#moduleDesc").textContent=currentModule.description;
   $("#saveBtn").textContent="Gửi duyệt";
 
   const isDashboard=currentModule.id==="dashboard";
   const isAnalytics=currentModule.id==="analytics";
-  $("#saveBtn").classList.toggle("hidden",isAnalytics||isDashboard);
+  const isTraffic=currentModule.id==="traffic";
+  $("#saveBtn").classList.toggle("hidden",isAnalytics||isTraffic||isDashboard);
   $("#resetBtn")?.classList.add("hidden");
-  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isDashboard||currentModule.id==="stories");
+  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isTraffic||isDashboard||currentModule.id==="stories");
 
   if(currentModule.preview){
     $("#previewBtn").href=new URL(currentModule.preview, "https://openphuquoc.com/admin/").href;
@@ -1786,6 +1798,15 @@ async function selectModule(id){
   }
   status("Đang tải "+currentModule.label+"...");
 
+  if(isTraffic){
+    $("#editorNav")?.classList.add("hidden");
+    currentData=null;
+    currentSha=null;
+    dirty=false;
+    rerender();
+    status("Chỉ chủ sở hữu CMS được xem. Không công khai dữ liệu truy cập.","success");
+    return;
+  }
   if(isAnalytics){
     try{
       const analytics=await api(API.analytics);
