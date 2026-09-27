@@ -158,7 +158,7 @@
  }
  function onCategory(id){if(query.trim()){query="";$("#nearQuickSearch").value="";}category=category===id?null:id;$(".near-me-section")?.classList.remove("near-show-other");syncControls();render().then(revealResultsOnMobile)}
  function bind(){
-  $("#nearAreaChange")?.addEventListener("click",()=>{const header=$("#siteAreaButton");if(!header)return;header.scrollIntoView({behavior:"auto",block:"start"});header.click();header.focus();});
+  $("#nearAreaChange")?.addEventListener("click",event=>{event.stopPropagation();const header=$("#siteAreaButton");if(!header)return;header.scrollIntoView({behavior:"auto",block:"start"});header.click();header.focus();});
   $("#nearOtherToggle")?.addEventListener("click",()=>{$(".near-me-section")?.classList.toggle("near-show-other");syncCompactState()});
   $("#nearCategories").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
   $("#nearQuickMore").addEventListener("click",event=>{const b=event.target.closest("[data-category]");if(b)onCategory(b.dataset.category)});
