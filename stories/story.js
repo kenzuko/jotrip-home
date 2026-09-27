@@ -1,6 +1,7 @@
 const CONTENT="../data/content.json";
 const VISUALS="../data/visual-context.json";
 const ZONES="../data/entities/zones.json";
+const STORY_LOCATIONS="../data/views/story-locations.json";
 const $=s=>document.querySelector(s);
 
 async function load(){
@@ -115,7 +116,7 @@ function sectionBlock(section,i){
   '</section>';
 }
 
-function renderArticle(data,visualData,zones){
+function renderArticle(data,visualData,zones,storyLocations){
   const id=new URLSearchParams(location.search).get("id");
   const s=data.stories.find(x=>x.id===id)||data.stories[0];
   if(!s)return;
@@ -145,11 +146,12 @@ function renderArticle(data,visualData,zones){
         (()=>{
           const meta=visualData?.stories?.[s.id]||{};
           const zone=(zones||[]).find(z=>z.id===meta.zone_id);
+          const location=storyLocations?.stories?.[s.id];
           if(!window.OpenPQVisual)return "";
           const images=(meta.images||[]).filter(image=>image.url!==s.image);
           return [
             images.length?OpenPQVisual.gallery(images,{eyebrow:"HÌNH ẢNH",title:"Nhìn câu chuyện này bằng hình"}):"",
-            OpenPQVisual.locator(zone,{title:"Bài viết này nằm ở đâu?",label:meta.location_label||zone?.name})
+            location?OpenPQVisual.locator(zone,{title:"Bài viết này nằm ở đâu?",label:location.label,map:location.map,note:location.map.note||undefined}):""
           ].join("");
         })()+
       '</div>'+
@@ -173,14 +175,15 @@ load().then(async data=>{
   if(grid)grid.innerHTML=data.stories.map(card).join("");
   if($("#articleRoot")){
     try{
-      const [visualData,zonesData]=await Promise.all([
+      const [visualData,zonesData,storyLocations]=await Promise.all([
         fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}),
-        fetch(ZONES+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{entities:[]})
+        fetch(ZONES+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{entities:[]}),
+        fetch(STORY_LOCATIONS,{cache:"no-store"}).then(r=>r.ok?r.json():{stories:{}})
       ]);
-      renderArticle(data,visualData,zonesData.entities||[]);
+      renderArticle(data,visualData,zonesData.entities||[],storyLocations);
     }catch(e){
       console.warn(e);
-      renderArticle(data,{},[]);
+      renderArticle(data,{},[],{stories:{}});
     }
   }
 }).catch(()=>{
