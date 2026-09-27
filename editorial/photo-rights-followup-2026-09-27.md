@@ -21,6 +21,10 @@ Bài phà: ảnh bìa là bến phà Thạnh Thới, ảnh phụ là xe máy ch�
 11. oc-gai-phu-quoc (cover) - Dân Việt / Trang Trại Việt: https://trangtraiviet.danviet.vn/loai-oc-noi-tieng-cua-phu-quoc-gia-khong-he-re-270000-dong-kg-nhung-ai-an-cung-thich-20221102111519833-d55478.html - No explicit reuse license established; replace with licensed/original image or get rightsholder permission
 12. oc-gai-phu-quoc (gallery) - Bách hóa XANH: https://www.bachhoaxanh.com/kinh-nghiem-hay/oc-gai-la-oc-gi-gia-bao-nhieu-va-lam-mon-gi-ngon-nhat-1582849 - No explicit reuse license established; replace with licensed/original image or get rightsholder permission
 13. bao-ngu-nuong-phu-quoc-than-hong-mo-hanh (cover) - RootyTrip: https://rootytrip.com/en/phu-quoc-specialties/ - No explicit reuse license established; replace with licensed/original image or get rightsholder permission
-14. bao-ngu-nuong-phu-quoc-than-hong-mo-hanh (gallery) - Focus Asia / Pastaxi: https://focusasiatravel.com/6-best-types-of-food-you-must-try-in-phu-quoc-vietnam/ - No explicit reuse license established; replace with licensed/original image or get rightsholder permission
+14. bao-ngu-nuong-phu-quoc-than-hong-mo-hanh (gallery) - FPT Shop: https://fptshop.com.vn/tin-tuc/dien-may/bao-ngu-nuong-mo-hanh-165915 - No explicit reuse license established; replace with licensed/original image or get rightsholder permission
 15. goi-xoai-oc-giac-phu-quoc (cover) - Bazan Travel: https://bazantravel.com/goi-xoai-oc-giac-phu-quoc/ - No explicit reuse license established; replace with licensed/original image or get rightsholder permission
 16. goi-xoai-oc-giac-phu-quoc (gallery) - Bách hóa XANH: https://www.bachhoaxanh.com/kinh-nghiem-hay/cach-lam-goi-xoai-oc-giac-gion-ngon-doi-vi-cho-bua-an-cuoi-tuan-1376526 - No explicit reuse license established; replace with licensed/original image or get rightsholder permission
+
+
+## QA ảnh sau xuất bản
+Ảnh phụ bào ngư trên máy chủ Pastaxi trả về lỗi 502 khi kiểm tra qua web. Thay bằng ảnh món bào ngư nướng mỡ hành từ FPT Shop đã kiểm tra tải được, chú thích đúng ảnh minh họa công thức, không nhận là ảnh chụp tại Phú Quốc. Ảnh gỏi cá giỏi trên CDN báo Người Lao Động chưa xác minh được qua web; cần kiểm tra trình duyệt thật và thay nếu ảnh không tải.
