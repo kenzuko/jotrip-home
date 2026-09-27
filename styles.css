@@ -6337,3 +6337,15 @@ body.sheet-open{
   .site-area-panel{left:-49px}
   .site-header .header-search,.site-header .menu-button{width:38px;flex-basis:38px;height:44px}
 }
+
+/* GO/Near Me navigation without duplicating the wide-screen app rail. */
+@media(min-width:901px) and (max-width:1219px){
+ .site-header .desktop-nav{display:flex;gap:clamp(9px,1.1vw,16px);font-size:12px}
+ .site-header .desktop-nav a{white-space:nowrap}
+ .site-header .desktop-nav .nav-go{padding:9px 11px;border-radius:999px;background:#e8f4ee;color:#205840;font-weight:850}
+ .site-header .desktop-nav .nav-nearme{font-weight:850;color:#205840}
+}
+@media(min-width:1220px){
+ .app-rail-nav a[href="go/"]{background:#e8f4ee;color:#185c43}
+ .app-rail-nav a[href="go/"] strong{font-weight:900}
+}
