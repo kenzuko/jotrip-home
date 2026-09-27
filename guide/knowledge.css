@@ -19,3 +19,19 @@
  .knowledge-article-photo img,.knowledge-article-photos.single img{aspect-ratio:16/10}
  .knowledge-article p,.knowledge-article li{font-size:17px}
 }
+
+/* The guide uses the same embedded-map card as stories and place details. */
+.knowledge-article .visual-locator{
+  border:1px solid #E3ECE9;
+  margin:34px 0;
+}
+.knowledge-article .visual-locator-copy>h2{
+  margin:0;font-size:27px;line-height:1.16;
+}
+.knowledge-article .visual-locator-copy>p{
+  margin:9px 0 0;font-size:15px;line-height:1.65;
+}
+.knowledge-article .visual-locator-map{min-height:290px}
+@media(max-width:760px){
+  .knowledge-article .visual-locator-map{min-height:225px}
+}
