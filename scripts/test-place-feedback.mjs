@@ -149,3 +149,29 @@ assert.equal(records.length,1,"Rejected origin must not produce any report");
 const crossAdmin=new Request("https://cms.openphuquoc.com/api/cms/feedback",{method:"PATCH",headers:{origin:"https://openphuquoc.com","content-type":"application/json"},body:JSON.stringify({id:records[0].id,status:"reviewing",note:"Kiểm chứng"})});
 assert.equal((await adminFeedback(crossAdmin,fallbackEnv,editor)).status,403,"CMS state changes remain same-origin only");
 console.log("Place feedback QA PASS: readiness, same-origin protection, field validation, anti-spam, D1, pagination, R2, CMS permissions, mandatory resolution note, 180-day cleanup and CMS-secret fallback");
+
+
+const tFields={entity_type:"article",entity_id:"story_test",entity_label:"Câu chuyện Phú Quốc",
+  target_locale:"ko",segment_id:"section-0",translation_revision:"rev-1",
+  translation_excerpt:"A paragraph shown to the visitor in Korean.",
+  source_excerpt:"Bản gốc tiếng Việt",suggested_translation:"A more natural Korean sentence.",details:""};
+assert.equal((await publicSubmit(request("translation",{...tFields,target_locale:"en"},{ip:"203.0.113.80"}),env)).status,400,
+  "English must use the ordinary editorial correction flow");
+assert.equal((await publicSubmit(request("translation",{...tFields,translation_revision:""},{ip:"203.0.113.80"}),env)).status,400,
+  "A translation report must carry an immutable source revision");
+assert.equal((await publicSubmit(request("translation",{...tFields,suggested_translation:"",details:""},{ip:"203.0.113.80"}),env)).status,400,
+  "Empty corrections need a meaningful explanation");
+const translationResult=await publicSubmit(request("translation",tFields,{ip:"203.0.113.81"}),env);
+assert.equal(translationResult.status,201);
+const translationId=(await translationResult.json()).reference;
+assert.equal(translations.get(translationId).target_locale,"ko");
+const queueResult=await adminFeedback(new Request("https://cms.openphuquoc.com/api/cms/feedback?status=new"),env,editor);
+assert.equal(queueResult.status,200);
+const translationItem=(await queueResult.json()).items.find(x=>x.id===translationId);
+assert.equal(translationItem.translation.segment_id,"section-0");
+assert.equal(translationItem.translation.source_excerpt,"Bản gốc tiếng Việt");
+assert.equal(translationItem.translation.suggested_translation,"A more natural Korean sentence.");
+assert.equal(translations.size,1,"One report creates one structured suggestion");
+await cleanupFeedback(env,Date.now()+181*86400000);
+assert.equal(translations.size,0,"The existing 180-day cleanup removes translation-sidecar data");
+console.log("TRANSLATION FEEDBACK QA PASS: locale and revision gates, correction validation, structured D1 intake, CMS review and retention");
