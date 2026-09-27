@@ -78,3 +78,9 @@ hệ thống không tự hoàn thành nội dung chỉ vì bấm "Đã xử lý"
 
 ### QA fixture correction (27/09/2026)
 Sau khi thêm kiểm tra POST → GET bền vững, mock Playwright phải phản ánh API thật: đánh dấu `persistence:"d1"` cho task ngay sau khi POST ghi thành công. Lần QA đầu phát hiện thiếu trường này ở fixture, không phải lỗi schema D1. Đây là sửa test, không thay đổi endpoint hoặc logic production.
+
+
+## Editorial Desk UX - đọc, xem cấu trúc và sửa theo từng bài
+Bài viết nay có thư viện riêng, tìm không dấu và chỉ render form đầy đủ của một bài được chọn. Mặc định mở **Đọc bài** để rà mạch nội dung, ảnh, chú thích và nguồn; **Cấu trúc** cho thấy các phần và nút đi thẳng tới đoạn cần sửa; **Biên tập** giữ nguyên trường dữ liệu và cơ chế lưu nháp/PR đang dùng. Mã bài, crop cover và thời gian đọc đưa vào khối nâng cao. Các nút xóa/nhân bản/di chuyển ẩn trong vùng Quản lý bài. Bài mới mở thẳng chế độ sửa, deep link record từ Quality mở đúng bài và trường. Mobile xếp danh sách bài phía trên, chỉ hiện danh sách ngắn có cuộn. Không đổi schema, API, OAuth, D1, trang public, CDN/Workers hay trigger.
+
+Demo tĩnh: `/admin/story-desk-preview.html` - dữ liệu minh họa, không gọi CMS API. QA: Unit render/xss/chọn bài/tìm tiếng Việt + Playwright desktop/mobile, tích hợp trong cổng CMS QA hiện hữu.

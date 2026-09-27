@@ -183,6 +183,7 @@ const settle=()=>new Promise(resolve=>setImmediate(resolve));
 console.log("PASS: CMS Control Room syntax, permissions, draft, queues, escaping, source degradation and navigation");
 // V1.3: run safety and preview tests in the existing CMS-only QA job.
 await import("./test-cms-editor-workflow.mjs");
+await import("./test-cms-story-desk.mjs");
 await import("./test-cms-edit-state.mjs");
 
 // Admin V2: shared shell, workflow filters, role-aware switcher and D1 regression.

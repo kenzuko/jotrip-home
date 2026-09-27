@@ -562,7 +562,7 @@ function renderStoryWorkbench(story,i){
     </article>`;
   }).join("");
 
-  return `<details class="field-group story-editor story-workbench cms-anchor" data-story-id="${esc(story.id||"")}" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" ${i===0?"open":""}>
+  return `<details class="field-group story-editor story-workbench cms-anchor" data-story-id="${esc(story.id||"")}" data-anchor-label="${esc(story.title||("Bài "+(i+1)))}" open>
     <summary class="group-summary">
       <span>${esc(story.title||("Bài "+(i+1)))}</span>
       <small>${esc(story.category||"Bài viết")} · ${storyReadMinutes(story)} phút</small>
@@ -572,7 +572,7 @@ function renderStoryWorkbench(story,i){
         <button type="button" class="ew-story-preview" data-story-preview="${i}" data-editor-readonly-action>Xem bài đang soạn ↗</button>
         <span class="ew-story-hint">Nội dung trong trình biên tập, chưa đăng.</span>
       </div>
-      ${storyTools(i,currentData.stories.length)}
+      <details class="story-danger-zone"><summary>Quản lý bài: đổi vị trí, nhân bản hoặc xóa</summary>${storyTools(i,currentData.stories.length)}</details>
       <div class="story-editor-grid">
         <aside class="story-live-preview">
           <div class="story-cover">${cover}</div>
@@ -584,18 +584,17 @@ function renderStoryWorkbench(story,i){
         <div class="story-main-fields">
           <div class="story-fields-2">
             ${primitiveField("category",story.category||"",p+".category")}
-            ${primitiveField("read_minutes",Number(story.read_minutes)||storyReadMinutes(story),p+".read_minutes")}
           </div>
           ${primitiveField("title",story.title||"",p+".title")}
-          <div class="story-slug-row">
-            ${primitiveField("id",story.id||"",p+".id")}
-            ${slugButton}
-          </div>
           ${primitiveField("dek",story.dek||"",p+".dek")}
-          ${primitiveField("image",story.image||"",p+".image")}
-          ${coverPositionField(story.cover_position||"center",p+".cover_position")}
           ${primitiveField("intro",story.intro||"",p+".intro")}
+          ${primitiveField("image",story.image||"",p+".image")}
+          <details class="story-technical"><summary>Thông tin nâng cao: mã bài, ảnh cover và thời gian đọc</summary><div class="story-technical-fields">
+          <div class="story-slug-row">${primitiveField("id",story.id||"",p+".id")}${slugButton}</div>
+          ${primitiveField("read_minutes",Number(story.read_minutes)||storyReadMinutes(story),p+".read_minutes")}
           <button type="button" class="story-readtime" data-story-readtime="${i}">Tính lại thời gian đọc</button>
+          ${coverPositionField(story.cover_position||"center",p+".cover_position")}
+          </div></details>
         </div>
       </div>
 
@@ -804,6 +803,11 @@ function focusRequestedStory(){
   if(!target)return;
   target.open=true;target.classList.add("quality-focus");
   target.scrollIntoView({behavior:"smooth",block:"start"});
+  const field=new URLSearchParams(location.search).get("field");
+  if(field){
+    const el=[...target.querySelectorAll("[data-path]")].find(node=>node.dataset.path.endsWith("."+field));
+    el?.focus({preventScroll:true});
+  }
 }
 function renderVenueWorkbench(){
   const entities=Array.isArray(currentData?.entities)?currentData.entities:[];
@@ -856,8 +860,7 @@ function renderRoot(){
 
   if(currentModule?.id==="stories"&&Array.isArray(currentData?.stories)){
     const meta=Object.entries(currentData).filter(([k])=>k!=="stories").map(([k,v])=>primitiveField(k,v,k)).join("");
-    const stories=currentData.stories.map((story,i)=>renderStoryWorkbench(story,i)).join("");
-    return moduleOverview()+`<section class="meta-strip">${meta}<div class="meta-actions"><button type="button" id="addStoryBtn">+ Bài viết mới</button></div></section>${stories}`;
+    return window.OPQStoryDesk?.render(currentData.stories,renderStoryWorkbench,meta)||moduleOverview();
   }
 
   return moduleOverview()+Object.entries(currentData||{}).map(([k,v])=>{
@@ -1053,7 +1056,11 @@ function bindFields(){
         const m=el.dataset.path.match(/^stories\.(\d+)\.(title|category|dek|image|cover_position|read_minutes|intro|sections\..+)$/);
         if(m){
           const i=Number(m[1]),field=m[2],story=currentData.stories?.[i];
-          if(field==="title")document.querySelector('[data-story-preview-title="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Tiêu đề bài viết")));
+          if(field==="title"){
+            document.querySelector('[data-story-preview-title="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Tiêu đề bài viết")));
+            const nav=document.querySelector('[data-story-select="'+i+'"] strong');
+            nav?.replaceChildren(document.createTextNode(String(v||"Bài chưa có tiêu đề")));
+          }
           if(field==="category")document.querySelector('[data-story-preview-category="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"CHUYÊN MỤC")));
           if(field==="dek")document.querySelector('[data-story-preview-dek="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"Mô tả ngắn của bài viết sẽ xuất hiện ở đây.")));
           if(field==="read_minutes")document.querySelector('[data-story-preview-minutes="'+i+'"]')?.replaceChildren(document.createTextNode(String(v||"1")));
@@ -1160,6 +1167,32 @@ function bindVenueControls(){
 }
 
 function bindStoryControls(){
+  const desk=window.OPQStoryDesk;
+  document.querySelectorAll("[data-story-select]").forEach(btn=>btn.onclick=()=>{
+    if(desk?.select(Number(btn.dataset.storySelect),currentData.stories.length))rerender();
+  });
+  document.querySelectorAll("[data-story-view]").forEach(btn=>btn.onclick=()=>{
+    if(desk?.setView(btn.dataset.storyView))rerender();
+  });
+  const search=document.getElementById("storyDeskSearch");
+  if(search)search.oninput=()=>{
+    desk?.query(search.value);
+    const q=desk?.normalize(search.value)||"";
+    let shown=0;
+    document.querySelectorAll("[data-story-select]").forEach(btn=>{
+      const hit=btn.dataset.storySearch.includes(q);btn.hidden=!hit;if(hit)shown++;
+    });
+    document.getElementById("storyDeskCount").textContent=shown+" bài phù hợp";
+  };
+  document.querySelectorAll("[data-story-focus],[data-story-edit-intro]").forEach(btn=>btn.onclick=()=>{
+    const section=btn.dataset.storyFocus;
+    desk?.setView("edit");rerender();
+    const prefix="stories."+desk.selected()+".";
+    const path=section===undefined?prefix+"intro":prefix+"sections."+section+".body";
+    const field=[...document.querySelectorAll("#editor [data-path]")].find(el=>el.dataset.path===path);
+    field?.focus({preventScroll:true});
+    field?.scrollIntoView({behavior:"smooth",block:"center"});
+  });
   document.querySelectorAll("[data-story-preview]").forEach(btn=>
     btn.onclick=()=>window.OPQEditorWorkflow?.previewArticle(Number(btn.dataset.storyPreview)));
   document.querySelectorAll("[data-story-readtime]").forEach(btn=>btn.onclick=()=>{
@@ -1177,6 +1210,9 @@ function bindStoryControls(){
     story.sections=[{heading:"",body:"",image:"",caption:"",layout:"wide"}];
     story.sources=[{label:"",url:""}];
     arr.push(story);
+    window.OPQStoryDesk?.select(arr.length-1,arr.length);
+    window.OPQStoryDesk?.setView("edit");
+    window.OPQStoryDesk?.query("");
     markDirty("Đã tạo bài viết mới. Điền tiêu đề, nội dung và nguồn trước khi xuất bản.");
     rerender();
     setTimeout(()=>document.querySelectorAll(".story-editor").item(document.querySelectorAll(".story-editor").length-1)?.scrollIntoView({behavior:"smooth",block:"start"}),50);
@@ -1190,15 +1226,22 @@ function bindStoryControls(){
     if(action==="delete"){
       if(!confirm("Xóa bài viết này? Thay đổi chỉ có hiệu lực sau khi bấm Gửi duyệt."))return;
       arr.splice(i,1);
+      window.OPQStoryDesk?.select(Math.min(i,arr.length-1),arr.length);
     }else if(action==="duplicate"){
       const copy=deepClone(arr[i]);
       copy.id=copy.id?copy.id+"-copy":"";
       copy.title=copy.title?copy.title+" - bản sao":"";
       arr.splice(i+1,0,copy);
+      window.OPQStoryDesk?.select(i+1,arr.length);
+      window.OPQStoryDesk?.setView("edit");
     }else if(action==="up"&&i>0){
       [arr[i-1],arr[i]]=[arr[i],arr[i-1]];
+      window.OPQStoryDesk?.select(i-1,arr.length);
+      window.OPQStoryDesk?.setView("edit");
     }else if(action==="down"&&i<arr.length-1){
       [arr[i+1],arr[i]]=[arr[i],arr[i+1]];
+      window.OPQStoryDesk?.select(i+1,arr.length);
+      window.OPQStoryDesk?.setView("edit");
     }
 
     markDirty();
@@ -1388,6 +1431,7 @@ function applyPermissions(){
 
 function rerender(){
   const y=window.scrollY;
+  const catalogScroll=currentModule.id==="stories"?document.querySelector(".story-catalog-list")?.scrollTop||0:0;
   if(currentModule.id==="analytics"){
     $("#editorNav")?.classList.add("hidden");
     renderAnalytics();
@@ -1408,7 +1452,10 @@ function rerender(){
   bindSearch();
   applyPermissions();
   window.OPQEditorWorkflow?.renderPanel();
-
+  if(currentModule.id==="stories"){
+    const catalog=document.querySelector(".story-catalog-list");
+    if(catalog)catalog.scrollTop=catalogScroll;
+  }
   requestAnimationFrame(()=>window.scrollTo(0,y));
 }
 
@@ -1585,7 +1632,7 @@ async function selectModule(id){
   const isAnalytics=currentModule.id==="analytics";
   $("#saveBtn").classList.toggle("hidden",isAnalytics||isDashboard);
   $("#resetBtn")?.classList.add("hidden");
-  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isDashboard);
+  $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isDashboard||currentModule.id==="stories");
 
   if(currentModule.preview){
     $("#previewBtn").href=new URL(currentModule.preview, "https://openphuquoc.com/admin/").href;
@@ -1675,6 +1722,8 @@ async function selectModule(id){
       }
     }
 
+    if(currentModule.id==="stories")window.OPQStoryDesk?.reset(currentData.stories,
+      new URLSearchParams(location.search).get("record"));
     if(window.OPQEditorWorkflow&&currentModule.id!=="analytics"){
       window.OPQEditorWorkflow.start({
         login:session.login,module:currentModule.id,modulePath:currentModule.path,
