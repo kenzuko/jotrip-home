@@ -15,4 +15,5 @@ for(const route of Object.keys(source.pages)){
 const runtime=readFileSync('core/site-language.js','utf8');
 assert(runtime.includes("catalog.status!=='published'"));
 assert(runtime.includes("localStorage.setItem('openpq-language'"));
+assert(runtime.includes("location.pathname.startsWith('/airport/')"));
 console.log(`CMS language shell passed: ${Object.keys(source.pages).length} public pages`);
