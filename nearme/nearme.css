@@ -309,3 +309,7 @@ html,body{max-width:100%;overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){
   .near-map-fallback *, .near-card *{scroll-behavior:auto!important}
 }
+
+.near-map-explainer{flex:1;min-width:0;display:grid;gap:4px}
+.near-map-explainer small{display:block;line-height:1.4}
+.near-map-explainer .near-external-explainer{font-size:10px;color:#71877f}
