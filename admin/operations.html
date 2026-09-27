@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#123D3B">
+<title>Vận hành cano | Open Phu Quoc CMS</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="operations.css?v=1">
+<script defer src="operations.js?v=1"></script>
+</head>
+<body>
+<header class="ops-header"><a href="/admin/" aria-label="Trở lại CMS"><img src="../assets/logo-master.png?v=20260925-tight-master-r1" alt="Open Phu Quoc"></a>
+<nav><a href="/admin/">← CMS</a><a href="/cano/" target="_blank" rel="noopener noreferrer">Trang cano ↗</a></nav></header>
+<main class="ops-main">
+<div class="ops-title"><span class="eyebrow">QUẢN TRỊ NỘI BỘ</span><h1>Vận hành cano An Thới</h1><p>Xác nhận trực tiếp theo ngày, không cần đăng bài CMS.</p></div>
+<section id="gate" class="ops-card" role="status">Đang xác minh đăng nhập CMS…</section>
+<div id="workspace" hidden>
+<section class="ops-card" aria-labelledby="currentTitle">
+<div class="section-head"><div><span class="eyebrow">CẬP NHẬT HÔM NAY</span><h2 id="currentTitle">Cano An Thới</h2></div><span id="todayDate" class="date-tag">…</span></div>
+<div class="ops-current"><strong id="currentState" class="ops-state unknown">Đang tải…</strong><span id="confirmedAt">Đang đọc dữ liệu vận hành.</span></div>
+<label for="opsNote" class="field-title">Ghi chú ngắn, nếu có <span>tối đa 160 ký tự</span></label>
+<textarea id="opsNote" maxlength="160" rows="2" placeholder="Ví dụ: chỉ chạy sau 09:00, đổi tuyến…"></textarea>
+<div class="ops-actions">
+<button type="button" class="btn running" id="runningBtn">✓ Xác nhận hoạt động bình thường</button>
+<button type="button" class="btn stopped" id="stoppedBtn">× Xác nhận tạm dừng</button>
+</div>
+<p id="opsResult" class="result" role="status" aria-live="polite">Một lần bấm xác nhận trạng thái cho hôm nay. Không thay đổi tàu cao tốc hoặc phà.</p>
+</section>
+<section class="ops-card" aria-labelledby="forecastTitle">
+<div class="section-head"><div><span class="eyebrow">NHẬT KÝ THAM KHẢO</span><h2 id="forecastTitle">Lưu bản tin dự báo biển</h2></div><span class="lock-tag">Lưu riêng trong CMS</span></div>
+<p class="section-lead">Khi có thông báo chính thức, ghi tóm tắt vài dòng và đính kèm ảnh hoặc PDF. Dự báo không tự chuyển trạng thái cano.</p>
+<form id="bulletinForm">
+<div class="ops-grid"><label>Nguồn phát hành <input name="issuer" maxlength="120" required placeholder="Đài KTTV tỉnh An Giang"></label>
+<label>Ngày giờ phát tin (giờ Việt Nam) <input name="issued_at" type="datetime-local" required></label>
+<label>Khu vực <input name="area" maxlength="100" required value="Biển An Thới"></label>
+<label>Mã bản tin (nếu có) <input name="source_reference" maxlength="160" placeholder="01/2809/DBTVB-ĐAG"></label>
+<label>Hiệu lực từ <input name="valid_from" type="datetime-local"></label>
+<label>Hiệu lực đến <input name="valid_until" type="datetime-local"></label></div>
+<label>Tóm tắt ngắn (gió, sóng, mưa dông, cảnh báo) <textarea name="summary" maxlength="600" rows="3" required placeholder="Ví dụ: Gió Nam - Tây Nam cấp 3-4; sóng 0,5-1,25 m. Chiều tối có mưa dông, đề phòng gió giật."></textarea></label>
+<label class="upload-label">Ảnh/PDF bằng chứng, tối đa 3 MB <input id="bulletinAttachment" name="attachment" type="file" accept="image/jpeg,image/png,image/webp,application/pdf"><small>File được lưu trong kho nội bộ, không công bố trên website.</small></label>
+<button class="btn archive" type="submit" id="saveBulletin">Lưu vào hồ sơ</button>
+<p id="bulletinResult" class="result" role="status" aria-live="polite"></p>
+</form>
+</section>
+<section class="ops-card"><div class="section-head"><h2>Hồ sơ bản tin gần đây</h2><a href="/cano/history/" target="_blank" rel="noopener">Lịch sử cano ↗</a></div>
+<p id="storageState" class="section-lead"></p><div id="bulletinList" class="bulletin-list"><p>Đang đọc kho lưu trữ…</p></div></section>
+</div>
+</main>
+</body>
+</html>
