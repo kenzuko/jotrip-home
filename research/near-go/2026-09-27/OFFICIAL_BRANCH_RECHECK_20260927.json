@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "checked_at": "2026-09-27",
+  "scope": "Two newly discovered operator-listed Điện máy XANH stores; address recheck before data PR merge",
+  "records": [
+    {
+      "entity_id": "utility_dmx_162_304",
+      "official_address": "162 đường 30/4, KP1 Dương Đông, Phú Quốc",
+      "source": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+      "identity_confirmed": true,
+      "site_gps_verified": false,
+      "status": "ADDRESS_ONLY_DO_NOT_INVENT_PIN"
+    },
+    {
+      "entity_id": "utility_dmx_107_nvc",
+      "official_address": "107 Nguyễn Văn Cừ, KP3 An Thới, Phú Quốc",
+      "source": "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723",
+      "identity_confirmed": true,
+      "site_gps_verified": false,
+      "status": "ADDRESS_ONLY_DO_NOT_INVENT_PIN"
+    }
+  ],
+  "policy": "Operator listing proves identity and address, not live operation or site entrance. Do not reuse nearby house-number centroids."
+}

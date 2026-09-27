@@ -54,7 +54,8 @@ for(const d of docs){
   assert.equal(d.verified??null,e.verified??null,"Wrong verified flag "+d.id);
   assert.equal(d.operational_status||null,e.operational_status||null,
     "Wrong operation status "+d.id);
-  const isOSM=(e.source_refs||[]).some(s=>s.license==="ODbL-1.0");
+  const isOSM=(e.source_refs||[]).some(s=>s.license==="ODbL-1.0")||e.map?.source_license==="ODbL-1.0";
+  assert.equal(d.duplicate_of||null,e.duplicate_of||null,"Duplicate linkage mismatch "+d.id);
   assert.equal(d.source_license||null,isOSM?"ODbL-1.0":null,
     "Lost OSM provenance "+d.id);
   if(validMap(e.map)){

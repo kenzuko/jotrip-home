@@ -3,14 +3,14 @@
   "generated_at": "2026-09-27T03:15:59.589Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
-    "total": 348,
-    "with_address": 348,
-    "with_map": 223,
+    "total": 350,
+    "with_address": 350,
+    "with_map": 225,
     "by_type": {
       "activity": 6,
       "hotel": 158,
       "place": 25,
-      "utility": 159
+      "utility": 161
     }
   },
   "documents": [
@@ -10072,6 +10072,70 @@
       "google_query": "Điện máy - Nội thất Chợ Lớn Phú Quốc, 200A Nguyễn Trung Trực, khu phố 5, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
     {
+      "id": "utility_dmx_107_nvc",
+      "entity_type": "utility",
+      "name": "Điện máy XANH - 107 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "categories": [],
+      "tags": [
+        "ELECTRONICS"
+      ],
+      "address": "107 Nguyễn Văn Cừ, khu phố 3, An Thới, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "1900 232 461",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "opening_hours": null,
+      "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng.",
+      "phone_alt": null,
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "external_verify_url": null,
+      "phone_scope": null,
+      "source_license": null,
+      "updated_at": "2026-09-27",
+      "star_rating": null,
+      "what_it_is": "Cửa hàng Điện máy XANH theo danh sách chi nhánh chính thức. Chưa xác minh vị trí cửa vào hay tình trạng mở cửa hiện tại.",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Điện máy XANH - 107 Nguyễn Văn Cừ, 107 Nguyễn Văn Cừ, khu phố 3, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
+      "id": "utility_dmx_162_304",
+      "entity_type": "utility",
+      "name": "Điện máy XANH - 162 đường 30/4",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "categories": [],
+      "tags": [
+        "ELECTRONICS"
+      ],
+      "address": "162 đường 30/4, khu phố 1, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "address_precision": null,
+      "phone": "1900 232 461",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "opening_hours": null,
+      "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng.",
+      "phone_alt": null,
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "external_verify_url": null,
+      "phone_scope": null,
+      "source_license": null,
+      "updated_at": "2026-09-27",
+      "star_rating": null,
+      "what_it_is": "Cửa hàng Điện máy XANH theo danh sách chi nhánh chính thức. Chưa xác minh vị trí cửa vào hay tình trạng mở cửa hiện tại.",
+      "route": "/utilities/",
+      "map": null,
+      "inherited_from": null,
+      "google_query": "Điện máy XANH - 162 đường 30/4, 162 đường 30/4, khu phố 1, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+    },
+    {
       "id": "utility_dmx_ganhdau_to7",
       "entity_type": "utility",
       "name": "Điện máy XANH - Tổ 7 Gành Dầu",
@@ -10094,12 +10158,22 @@
       "publication_status": "DIRECTORY_REFERENCE",
       "external_verify_url": null,
       "phone_scope": null,
-      "source_license": null,
+      "source_license": "ODbL-1.0",
       "updated_at": "2026-09-26",
       "star_rating": null,
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.3706253,
+        "lon": 103.8411782,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named brand POI, cross-checked with operator directory",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-27",
+        "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa.",
+        "accuracy": "operator_name_area_osm_site_estimate",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Điện máy XANH - Tổ 7 Gành Dầu, Tổ 7, ấp Gành Dầu (ngã ba Xóm Mới), Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -12620,7 +12694,8 @@
         "plus_code": null
       },
       "inherited_from": null,
-      "google_query": "Siêu Thị Điện Máy Xanh Gành Dầu, Khu vực Bắc đảo, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+      "google_query": "Siêu Thị Điện Máy Xanh Gành Dầu, Khu vực Bắc đảo, Đặc khu Phú Quốc, An Giang, Phú Quốc",
+      "duplicate_of": "utility_dmx_ganhdau_to7"
     },
     {
       "id": "utility_osm_way_1270911440",
@@ -13119,12 +13194,22 @@
       "publication_status": "DIRECTORY_REFERENCE",
       "external_verify_url": null,
       "phone_scope": null,
-      "source_license": null,
+      "source_license": "ODbL-1.0",
       "updated_at": "2026-09-26",
       "star_rating": null,
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.0187955,
+        "lon": 104.0153701,
+        "precision": "site_centroid",
+        "source": "OpenStreetMap named brand POI, cross-checked with operator directory",
+        "source_id": "osm_phuquoc_20260925",
+        "verified_at": "2026-09-27",
+        "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa.",
+        "accuracy": "operator_name_area_osm_site_estimate",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Thế Giới Di Động - 73 Nguyễn Văn Cừ, 73 Nguyễn Văn Cừ, khu phố 3, An Thới, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -13168,7 +13253,8 @@
         "plus_code": null
       },
       "inherited_from": null,
-      "google_query": "Thế Giới Di Động - An Thới, Khu vực An Thới / Nam đảo, Đặc khu Phú Quốc, An Giang, Phú Quốc"
+      "google_query": "Thế Giới Di Động - An Thới, Khu vực An Thới / Nam đảo, Đặc khu Phú Quốc, An Giang, Phú Quốc",
+      "duplicate_of": "utility_tgdd_73_nvc"
     },
     {
       "id": "utility_osm_node_11886047087",

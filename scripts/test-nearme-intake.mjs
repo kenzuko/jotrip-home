@@ -151,4 +151,14 @@ assert.ok(osmExport.license==="ODbL-1.0"&&osmExport.license_url.includes("openda
 assert.ok(fs.readFileSync("nearme/index.html","utf8").includes("data/open/osm-nearme-phuquoc-2026-09-25.json"),"Public Near Me must expose ODbL provenance");
 assert.ok(osmExport.records.every(e=>e.osm_url.startsWith("https://www.openstreetmap.org/")),"OSM dataset must preserve every source URL");
 assert.ok(!fs.readFileSync("scripts/build-cloudflare.mjs","utf8").includes('"research",'),"Private research must not enter public Cloudflare bundle");
+for(const [id,canonicalId] of [["utility_osm_node_11873236278","utility_dmx_ganhdau_to7"],["utility_osm_node_6483568745","utility_tgdd_73_nvc"]]){
+  const community=entities.find(e=>e.id===id),confirmed=entities.find(e=>e.id===canonicalId);
+  assert.equal(community?.duplicate_of,canonicalId,"Named community source must be linked to canonical");
+  assert.equal(community?.publication_status,"COMMUNITY_CANDIDATE","Preserve immutable ODbL source classification");
+  assert.equal(confirmed?.map?.source_license,"ODbL-1.0","Derived brand-pin must preserve OSM credit");
+  assert.equal(confirmed?.map?.precision,"site_centroid","Do not claim exact entrance from branded OSM point");
+  assert.equal(confirmed?.operational_status,"UNKNOWN","POI matching never establishes live open state");
+  assert.equal(indexed.get(id)?.duplicate_of,canonicalId,"Prevent duplicate UI pins");
+  assert.equal(indexed.get(canonicalId)?.source_license,"ODbL-1.0","Map attribution must be visible");
+}
 console.log("Near Me / GO intake QA PASS: 59 essentials, 4 charge points, 10 additional fuel points, 8 Long Chau, 5 named local pharmacies, two recovered Vinmec pins, canonical hotel coverage and 5 staging batches");

@@ -322,7 +322,9 @@
         "verified_identity": false,
         "verified_operation": false,
         "osm_geometry_type": "poi_node",
-        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào.",
+        "linked_to_canonical_id": "utility_tgdd_73_nvc",
+        "publication_note": "POI OSM nguồn cho bản ghi chuẩn đã có GPS; ẩn điểm trùng trong Near Me, giữ nguyên nguồn ODbL và nhãn chưa xác minh hoạt động."
       },
       "updated_at": "2026-09-27",
       "map": {
@@ -333,7 +335,8 @@
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
         "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
-      }
+      },
+      "duplicate_of": "utility_tgdd_73_nvc"
     },
     {
       "id": "utility_osm_node_11930375188",
@@ -463,7 +466,9 @@
         "verified_identity": false,
         "verified_operation": false,
         "osm_geometry_type": "poi_node",
-        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào."
+        "source_note": "Đã so với 89 POI công khai, ưu tiên khu vực còn thiếu. Tọa độ OSM để tham khảo, chưa xác minh cổng/lối vào.",
+        "linked_to_canonical_id": "utility_dmx_ganhdau_to7",
+        "publication_note": "POI OSM nguồn cho bản ghi chuẩn đã có GPS; ẩn điểm trùng trong Near Me, giữ nguyên nguồn ODbL và nhãn chưa xác minh hoạt động."
       },
       "updated_at": "2026-09-27",
       "map": {
@@ -474,7 +479,8 @@
         "source_id": "osm_phuquoc_20260925",
         "verified_at": "2026-09-25",
         "note": "Điểm POI cộng đồng, chưa xác minh đúng cổng hoặc tình trạng vận hành."
-      }
+      },
+      "duplicate_of": "utility_dmx_ganhdau_to7"
     },
     {
       "id": "utility_osm_node_11932334233",

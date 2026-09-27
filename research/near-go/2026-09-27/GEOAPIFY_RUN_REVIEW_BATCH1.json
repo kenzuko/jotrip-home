@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-27",
+  "scope": "Geoapify actual run batch 1; operator-first Near Me follow-up",
+  "status": "RESEARCH_AND_QA_NO_GPS_AUTO_PUBLISH",
+  "evidence": {
+    "workflow_run": "https://github.com/kenzuko/jotrip-home/actions/runs/36304888970",
+    "artifact_id": 10926603646,
+    "run2": "https://github.com/kenzuko/jotrip-home/actions/runs/36304895975",
+    "provider": "Geoapify",
+    "attribution": "Powered by Geoapify · © OpenStreetMap contributors",
+    "run_stats": {
+      "addresses": 22,
+      "requests": 22,
+      "cache_hit_second_run": 22,
+      "candidates": 48,
+      "automatically_saved": 0
+    }
+  },
+  "rule": "Do not turn a numbered POI from a nearby market, shrine or unrelated pharmacy into an entrance. Brand+zone+address-specific operator evidence required before site_centroid. Preserve existing community pins and do not double-publish a matched canonical branch.",
+  "records": [
+    {
+      "entity_id": "utility_dng_clinic_an_thoi",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "WRONG_BRAND_POI"
+    },
+    {
+      "entity_id": "utility_dng_clinic_duong_dong",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    },
+    {
+      "entity_id": "utility_longchau_an_thoi",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "NUMBER_WITHOUT_STREET"
+    },
+    {
+      "entity_id": "utility_longchau_ben_tram",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    },
+    {
+      "entity_id": "utility_longchau_dt45",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    },
+    {
+      "entity_id": "utility_longchau_ganh_dau",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY_POSSIBLE_CLOSURE"
+    },
+    {
+      "entity_id": "utility_longchau_ham_ninh",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    },
+    {
+      "entity_id": "utility_longchau_suoi_da",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "WRONG_PHARMACY_POI"
+    },
+    {
+      "entity_id": "utility_longchau_tran_phu",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "NUMBER_WITHOUT_STREET"
+    },
+    {
+      "entity_id": "utility_fuel_dong_loi_1",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "NUMBER_WITHOUT_STREET"
+    },
+    {
+      "entity_id": "utility_pqc_airport_atms",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    },
+    {
+      "entity_id": "utility_vcb_atm_an_thoi",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "MULTIPLE_NUMBER_MATCHES"
+    },
+    {
+      "entity_id": "utility_dienmaycholon_nguyen_trung_truc",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "TWO_NUMBER_MATCHES"
+    },
+    {
+      "entity_id": "utility_dmx_ganhdau_to7",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "WRONG_POI_BUT_OSM_BRAND_LEAD"
+    },
+    {
+      "entity_id": "utility_laundry_phuquoc_cuaduong",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "WRONG_BUILDING_POI"
+    },
+    {
+      "entity_id": "utility_minimart_one_mart_duong_dong",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    },
+    {
+      "entity_id": "utility_tgdd_104_304",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    },
+    {
+      "entity_id": "utility_tgdd_142a_ntr",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "NUMBER_WITHOUT_STREET"
+    },
+    {
+      "entity_id": "utility_tgdd_37_hungvuong",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "TWO_NUMBER_MATCHES_DIFFERENT_WARDS"
+    },
+    {
+      "entity_id": "utility_tgdd_73_nvc",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "REVIEW_OSM_BRAND_WITH_NEAR_HOUSE_NUMBER"
+    },
+    {
+      "entity_id": "utility_toilet_sunset_venice_02",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    },
+    {
+      "entity_id": "utility_toilet_sunset_venice_67",
+      "decision": "REVIEW_REQUIRED",
+      "reason": "AREA_ONLY"
+    }
+  ],
+  "promising_crosschecks": [
+    {
+      "canonical_id": "utility_tgdd_73_nvc",
+      "official": "https://www.thegioididong.com/sieu-thi-so-73-duong-nguyen-van-cu-kp-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1054",
+      "official_address": "73 Nguyễn Văn Cừ, khu phố 3, An Thới",
+      "osm_id": "utility_osm_node_6483568745",
+      "osm_coordinate": {
+        "lat": 10.0187955,
+        "lon": 104.0153701
+      },
+      "geocoder_house_number_candidate": {
+        "lat": 10.0188911,
+        "lon": 104.015554,
+        "house_number": "73",
+        "street": "Nguyễn Văn Cừ",
+        "ward": "khu phố 3",
+        "confidence": 0.45
+      },
+      "review": "OSM branded POI near address-specific geocoded building; compare operator map/entrance, then link OSM duplicate before canonical GPS publication."
+    },
+    {
+      "canonical_id": "utility_dmx_ganhdau_to7",
+      "official": "https://www.dienmayxanh.com/dien-may-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161",
+      "official_address": "Tổ 7, ấp Gành Dầu, gần ngã ba Xóm Mới",
+      "osm_id": "utility_osm_node_11873236278",
+      "osm_coordinate": {
+        "lat": 10.3706253,
+        "lon": 103.8411782
+      },
+      "review": "Same operator brand and Gành Dầu area; official page does not expose verified coordinates; inspect exact entrance and prevent double pin."
+    },
+    {
+      "canonical_id": "utility_vcb_atm_an_thoi",
+      "possible_coordinate": {
+        "lat": 10.0268439,
+        "lon": 104.0170526
+      },
+      "matched_housenumber": "199",
+      "geocoder_neighbourhood": "KP 8 An Thới",
+      "review": "Geo result matches house number and KP 8 but official bank/ATM position has not been verified. Another result matches 199 in KP 4. HOLD."
+    },
+    {
+      "canonical_id": "utility_tgdd_37_hungvuong",
+      "possible_coordinate": {
+        "lat": 10.2287548,
+        "lon": 103.9695114
+      },
+      "matched_housenumber": "37",
+      "geocoder_neighbourhood": "KP 5 Dương Đông",
+      "review": "Matches official KP5, but geocoder full-query confidence was zero. HOLD for operator map."
+    }
+  ],
+  "newly_confirmed_operator_addresses": [
+    {
+      "id": "utility_dmx_162_304",
+      "name": "Điện máy XANH - 162 đường 30/4",
+      "address": "162 đường 30/4, khu phố 1, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "source": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+      "status": "CANONICAL_ADDRESS_ADDED_NO_GPS"
+    },
+    {
+      "id": "utility_dmx_107_nvc",
+      "name": "Điện máy XANH - 107 Nguyễn Văn Cừ",
+      "address": "107 Nguyễn Văn Cừ, khu phố 3, An Thới, Đặc khu Phú Quốc, An Giang",
+      "source": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+      "status": "CANONICAL_ADDRESS_ADDED_NO_GPS"
+    }
+  ],
+  "critical_status_conflict": {
+    "id": "utility_longchau_ganh_dau",
+    "third_party_status": "temporarily_closed",
+    "operator_directory_status": "branch listed; per-branch operational status not established",
+    "action": "Do not show OPEN; retain UNKNOWN until directly verified."
+  },
+  "exclusions": "Do not import Geoapify city centroid 10.2163457/103.9587878 into any shop record; do not import mismatched 'Phòng khám Đa khoa An Thới' into DNG clinic. No official coordinates fetched for VinFast or fuel outlets."
+}

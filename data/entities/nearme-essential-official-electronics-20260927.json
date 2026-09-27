@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "batch_date": "2026-09-27",
+  "source": "Official Điện máy XANH Phú Quốc 7-branch directory",
+  "review_note": "Two operator-confirmed missing branches; no verified GPS or live opening status",
+  "entities": [
+    {
+      "id": "utility_dmx_162_304",
+      "entity_type": "utility",
+      "name": "Điện máy XANH - 162 đường 30/4",
+      "aliases": [],
+      "zone_id": "zone_central_west",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "162 đường 30/4, khu phố 1, Dương Đông, Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 232 461",
+      "what_it_is": "Cửa hàng Điện máy XANH theo danh sách chi nhánh chính thức. Chưa xác minh vị trí cửa vào hay tình trạng mở cửa hiện tại.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "dienmayxanh_phuquoc_official_20260927",
+          "url": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-27"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27-geoapify-followup",
+        "verified_identity": true,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Nguồn hãng niêm yết cửa hàng 162 đường 30/4 KP1; GPS chưa xác minh, không gán tâm khu vực vào cửa hàng."
+      },
+      "updated_at": "2026-09-27",
+      "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng."
+    },
+    {
+      "id": "utility_dmx_107_nvc",
+      "entity_type": "utility",
+      "name": "Điện máy XANH - 107 Nguyễn Văn Cừ",
+      "aliases": [],
+      "zone_id": "zone_south",
+      "group": "Điện thoại & điện máy",
+      "utility_type": "ELECTRONICS",
+      "address": "107 Nguyễn Văn Cừ, khu phố 3, An Thới, Đặc khu Phú Quốc, An Giang",
+      "phone": "1900 232 461",
+      "what_it_is": "Cửa hàng Điện máy XANH theo danh sách chi nhánh chính thức. Chưa xác minh vị trí cửa vào hay tình trạng mở cửa hiện tại.",
+      "verified": true,
+      "operational_status": "UNKNOWN",
+      "publication_status": "DIRECTORY_REFERENCE",
+      "live_check_required": true,
+      "source_refs": [
+        {
+          "source_id": "dienmayxanh_phuquoc_official_20260927",
+          "url": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-27"
+        },
+        {
+          "source_id": "dmx_exact_branch_107_20260927",
+          "url": "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723",
+          "checked_at": "2026-09-27"
+        }
+      ],
+      "source_audit": {
+        "intake_batch": "2026-09-27-geoapify-followup",
+        "verified_identity": true,
+        "verified_operation": false,
+        "verified_entrance": false,
+        "source_note": "Nguồn hãng niêm yết 107 Nguyễn Văn Cừ KP3, gần ngã 3 Công Binh; GPS chưa xác minh, không gán tâm khu vực vào cửa hàng.",
+        "official_branch_recheck": "Exact operator branch page confirms 107 Nguyễn Văn Cừ KP3, An Thới, near ngã ba Công Binh. No verified GPS coordinates or entrance disclosed in this verification."
+      },
+      "updated_at": "2026-09-27",
+      "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng."
+    }
+  ]
+}

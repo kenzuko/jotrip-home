@@ -242,7 +242,7 @@
 
   function buildRows(index){
     const utilityMeta=new Map((support?.near_me?.items||[]).map(x=>[x.utility_id,x]));
-    return (index?.documents||[]).map(doc=>{
+    return (index?.documents||[]).filter(doc=>!doc.duplicate_of).map(doc=>{
       const meta=doc.entity_type==="utility"?(utilityMeta.get(doc.id)||{}):{};
       return {
         ...doc,
