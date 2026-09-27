@@ -1,0 +1,33 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import {onRequest as ops,makeLatest,makeHistory} from "../functions/api/cms/cano-ops.js";
+import {onRequest as forecast} from "../functions/api/cms/cano-forecast.js";
+const root="https://cms.openphuquoc.com";
+const anon=await ops({request:new Request(root+"/api/cms/cano-ops"),env:{CMS_SESSION_SECRET:"test"}});
+assert.equal(anon.status,401);
+const anonArchive=await forecast({request:new Request(root+"/api/cms/cano-forecast"),env:{CMS_SESSION_SECRET:"test"}});
+assert.equal(anonArchive.status,401);
+const manual={status_label:"Hoạt động bình thường",evidence:{category:"cano",source:"JOTRIP_FIELD_CONFIRMATION",source_tier:"FIELD",evidence_class:"DIRECT",status:"Hoạt động bình thường",evidence_note:"Đã xác nhận."}};
+const prior={source_date:"27/09/2026",categories:{cano:{state:"SUSPENDED"},fast_boat:{state:"DIRECT_CONFIRMED"},ferry:{state:"DIRECT_CONFIRMED"}}};
+const fresh=makeLatest(prior,"2026-09-28","RUNNING",manual,"2026-09-28T06:30:00+07:00");
+assert.equal(fresh.source_date,"28/09/2026");
+assert.equal(fresh.categories.cano.state,"RUNNING");
+assert.equal(fresh.categories.ferry.state,"UNKNOWN","No prior-day ferry carry-over");
+assert.equal(fresh.categories.fast_boat.state,"UNKNOWN","No prior-day fast-boat carry-over");
+const same={...prior,source_date:"28/09/2026"};
+const sameDay=makeLatest(same,"2026-09-28","RUNNING",manual,"2026-09-28T06:30:00+07:00");
+assert.equal(sameDay.categories.ferry.state,"DIRECT_CONFIRMED","Keep current-day independent ferry evidence");
+assert.equal(sameDay.categories.cano.confirmed_at_vn,"2026-09-28T06:30:00+07:00");
+const history=makeHistory({schema_version:"1.0",category:"cano",events:[{date:"2026-09-27",state:"SUSPENDED"}]},
+ "2026-09-28","RUNNING",manual,"2026-09-28T06:30:00+07:00");
+assert.deepEqual(history.events.map(x=>x.date),["2026-09-27","2026-09-28"]);
+const revised=makeHistory(history,"2026-09-28","SUSPENDED",{...manual,status_label:"Tạm dừng"},
+ "2026-09-28T11:00:00+07:00");
+assert.equal(revised.events.length,2,"One most-recent record per day");
+assert.equal(revised.events[1].state,"SUSPENDED");
+const page=readFileSync("admin/operations.html","utf8");
+const main=readFileSync("admin/index.html","utf8");
+assert.match(page,/id="runningBtn"/);assert.match(page,/id="stoppedBtn"/);
+assert.match(page,/name="attachment"/);assert.match(main,/id="opsNavLink"/);
+assert.match(readFileSync("migrations/d1/0006_cano_forecast_archive.sql","utf8"),/attachment_bytes BLOB/);
+console.log("PASS: canoe permissions, date isolation, archive overwrite, CMS controls and private evidence schema");
