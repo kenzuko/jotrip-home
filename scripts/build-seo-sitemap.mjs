@@ -43,7 +43,8 @@ writeFileSync(join(output,"robots.txt"),[
   "Disallow: /admin/",
   "Disallow: /api/",
   "Disallow: /cms/",
-  "Disallow: /data/",
+  // Public app JSON must remain crawlable for Googlebot JavaScript rendering.
+  // Private sources are excluded from dist by the build.
   "Sitemap: "+base+"/sitemap.xml",
   ""
 ].join("\n"),"utf8");
