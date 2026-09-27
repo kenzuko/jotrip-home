@@ -67,6 +67,21 @@ try{
   assert.equal(await story.locator('.opq-feedback select[name="issue"] option').count(),2,
     "Article feedback must not offer irrelevant shop hours and location categories");
   await story.locator(".opq-feedback-close").click();
+  await story.addScriptTag({url:base+"/core/translation-feedback-note.js"});
+  const mounted=await story.evaluate(()=>{
+    const paragraph=document.createElement("p");paragraph.textContent="이 문장은 AI 번역 품질 테스트입니다.";document.body.appendChild(paragraph);
+    const container=document.createElement("div");document.body.appendChild(container);
+    const bad=window.OpenPQTranslationFeedback.mount({container,paragraph,articleId:"story_test",locale:"en",revision:"v1",segmentId:"intro"});
+    const good=window.OpenPQTranslationFeedback.mount({container,paragraph,articleId:"story_test",locale:"ko",revision:"v1",segmentId:"intro",sourceExcerpt:"Bài gốc tiếng Việt"});
+    return {bad,good};
+  });
+  assert.deepEqual(mounted,{bad:false,good:true},"Only AI-translated locales show the notice");
+  await story.locator(".opq-translation-note button").click();
+  await story.locator(".opq-feedback textarea[name=suggested_translation]").fill("한국어로 더 자연스러운 수정 문장입니다.");
+  await story.locator(".opq-feedback-send").click();
+  await story.getByText("Đã nhận góp ý.",{exact:false}).waitFor();
+  assert.ok(submitted.at(-1).includes("target_locale")&&submitted.at(-1).includes("ko"));
+  assert.ok(submitted.at(-1).includes("translation_revision")&&submitted.at(-1).includes("intro"));
   await story.close();
 
   const guide=await readyPage();

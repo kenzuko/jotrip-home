@@ -5,7 +5,7 @@
     closed:"Nơi này đã đóng cửa",location:"Vị trí trên bản đồ chưa đúng",
     hours:"Giờ hoạt động đã thay đổi",phone:"Số điện thoại chưa đúng",
     details:"Thông tin khác chưa chính xác",new_place:"Đề xuất địa điểm mới",
-    other:"Tôi muốn bổ sung thông tin"
+    other:"Tôi muốn bổ sung thông tin",translation:"Góp ý bản dịch AI"
   };
   const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   let dialog,form,status,submit,photoRow,config=null,current=null,loadConfig;
@@ -24,6 +24,8 @@
       '<label class="opq-feedback-field">Bạn muốn góp ý điều gì?<select name="issue" required></select></label>'+
       '<label class="opq-feedback-field" id="opqFeedbackNewName" hidden>Tên địa điểm<input name="new_name" maxlength="120" placeholder="Tên địa điểm bạn muốn thêm"></label>'+
       '<label class="opq-feedback-field">Chia sẻ thêm (nếu có)<textarea name="details" maxlength="1500" rows="4" placeholder="Thông tin đúng là gì? Bạn biết từ khi nào?"></textarea></label>'+
+      '<label class="opq-feedback-field" id="opqFeedbackTranslationExcerpt" hidden>Đoạn bản dịch được góp ý<textarea name="translation_excerpt" readonly rows="3"></textarea></label>'+
+      '<label class="opq-feedback-field" id="opqFeedbackTranslationSuggestion" hidden>Bản sửa bạn đề xuất (nếu có)<textarea name="suggested_translation" maxlength="1200" rows="3"></textarea></label>'+
       '<label class="opq-feedback-field" id="opqFeedbackPhoto" hidden>Ảnh thực tế (không bắt buộc, tối đa 3 MB)<input name="photo" type="file" accept="image/jpeg,image/png,image/webp"></label>'+
       '<label class="opq-feedback-trap" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>'+
       '<p class="opq-feedback-note">Không cần đăng nhập. Chỉ gửi thông tin liên quan đến địa điểm hoặc bài viết. Tránh ảnh có thông tin cá nhân. <a href="/about/feedback-privacy.html" target="_blank" rel="noopener">Dữ liệu góp ý được sử dụng thế nào?</a></p>'+
@@ -42,12 +44,14 @@
     form.addEventListener("submit",send);
   }
   function syncKind(){
-    const isNew=form.elements.issue.value==="new_place";
+    const isNew=form.elements.issue.value==="new_place",isTranslation=form.elements.issue.value==="translation";
+    form.querySelector("#opqFeedbackTranslationExcerpt").hidden=!isTranslation;
+    form.querySelector("#opqFeedbackTranslationSuggestion").hidden=!isTranslation;
     form.querySelector("#opqFeedbackNewName").hidden=!isNew;
     form.elements.new_name.required=isNew;
     form.elements.details.required=isNew;
     form.elements.details.minLength=isNew?10:0;
-    form.querySelector("[name=details]").closest("label").firstChild.textContent=isNew?"Địa chỉ hoặc khu vực (bắt buộc)":"Chia sẻ thêm (nếu có)";
+    form.querySelector("[name=details]").closest("label").firstChild.textContent=isNew?"Địa chỉ hoặc khu vực (bắt buộc)":isTranslation?"Vì sao câu dịch cần sửa? (nếu có)":"Chia sẻ thêm (nếu có)";
     form.querySelector("[name=details]").placeholder=isNew
       ?"Địa chỉ hoặc khu vực, đặc điểm nhận biết, giờ mở cửa nếu biết..."
       :"Thông tin đúng là gì? Bạn biết từ khi nào?";
@@ -66,17 +70,25 @@
     current={
       entity_id:String(details.entity_id||"").slice(0,120),
       entity_type:validType(details.entity_type),
-      entity_label:String(details.entity_label||"Trang thông tin này").slice(0,120)
+      entity_label:String(details.entity_label||"Trang thông tin này").slice(0,120),
+      translation:details.issue==="translation"?{
+        target_locale:String(details.target_locale||"").slice(0,12),
+        segment_id:String(details.segment_id||"article").slice(0,120),
+        translation_revision:String(details.translation_revision||"").slice(0,100),
+        translation_excerpt:String(details.translation_excerpt||"").slice(0,1200),
+        source_excerpt:String(details.source_excerpt||"").slice(0,1200)
+      }:null
     };
     form.reset();
     submit.type="submit";submit.onclick=null;
     form.querySelectorAll(".opq-feedback-field").forEach(el=>el.hidden=false);
     form.querySelector(".opq-feedback-note").hidden=false;
-    const isNew=details.issue==="new_place";
+    const isNew=details.issue==="new_place",isTranslation=details.issue==="translation"&&current.entity_type==="article";
     form.elements.issue.innerHTML=Object.entries(labels)
-      .filter(([id])=>isNew?id==="new_place":current.entity_type==="article"?["details","other"].includes(id):id!=="new_place")
+      .filter(([id])=>isNew?id==="new_place":isTranslation?id==="translation":current.entity_type==="article"?["details","other"].includes(id):!["new_place","translation"].includes(id))
       .map(([id,label])=>'<option value="'+id+'">'+esc(current.entity_type==="article"&&id==="details"?"Thông tin trong bài chưa đúng":label)+'</option>').join("");
-    form.elements.issue.value=isNew?"new_place":"details";
+    form.elements.issue.value=isNew?"new_place":isTranslation?"translation":"details";
+    form.elements.translation_excerpt.value=isTranslation?current.translation.translation_excerpt:"";
     form.querySelector("#opqFeedbackContext").textContent=isNew
       ?"Biết một địa điểm hữu ích chưa có trong danh sách? Chia sẻ với Open Phu Quoc nhé."
       :current.entity_label;
@@ -87,6 +99,13 @@
     submit.textContent="Gửi góp ý";
     photoRow.hidden=true;
     if(dialog.showModal)dialog.showModal();else dialog.setAttribute("open","");
+    // A translated paragraph without an immutable revision cannot accept usable corrections.
+    if(isTranslation&&(!["ko","ru","lo","zh-CN","zh-TW","fr"].includes(current.translation.target_locale)||
+      !current.entity_id||!current.translation.translation_revision||current.translation.translation_excerpt.trim().length<5)){
+      status.textContent="Chưa xác định được đoạn dịch và phiên bản bài. Bạn thử tải lại trang nhé.";
+      submit.disabled=true;
+      return;
+    }
     capabilities().then(cfg=>{
       if(!dialog.open)return;
       if(!cfg.enabled){
@@ -106,6 +125,9 @@
     const name=isNew?form.elements.new_name.value.trim():current.entity_label;
     if(!name){status.textContent="Bạn cho mình biết tên địa điểm nhé.";return;}
     const data=new FormData(form);
+    if(current.translation&&form.elements.issue.value==="translation"){
+      for(const [key,value] of Object.entries(current.translation))data.set(key,value);
+    }else{data.delete("translation_excerpt");data.delete("suggested_translation");}
     data.set("entity_type",isNew?"general":current.entity_type);
     data.set("entity_id",isNew?"":current.entity_id);
     data.set("entity_label",name);
@@ -148,7 +170,10 @@
     const fromQuery=target.hasAttribute("data-feedback-query-id")?new URLSearchParams(location.search).get("id"):"";
     open({entity_id:target.dataset.feedbackId||fromQuery,
       entity_label:target.dataset.feedbackName||document.querySelector("main h1")?.textContent||"Trang thông tin này",
-      entity_type:target.dataset.feedbackType,issue:target.dataset.feedbackIssue});
+      entity_type:target.dataset.feedbackType,issue:target.dataset.feedbackIssue,
+      target_locale:target.dataset.feedbackLocale,segment_id:target.dataset.feedbackSegment,
+      translation_revision:target.dataset.feedbackRevision,translation_excerpt:target.dataset.feedbackExcerpt,
+      source_excerpt:target.dataset.feedbackSource});
   });
   window.OpenPQFeedback={open};
 })();

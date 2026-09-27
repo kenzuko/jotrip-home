@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import {publicConfig,publicSubmit,adminFeedback,cleanupFeedback} from "../functions/_shared/place-feedback.js";
 import {onRequest as publicFeedbackRoute} from "../functions/api/feedback.js";
 
-const records=[],photos=new Map();
+const records=[],photos=new Map(),translations=new Map();
 const db={prepare(query){
   let args=[];
   return {
@@ -11,6 +11,7 @@ const db={prepare(query){
       if(query.startsWith("SELECT 1 AS ready"))return {ready:1};
       if(query.startsWith("SELECT COUNT"))return {total:records.filter(x=>x.submit_hash===args[0]&&x.created_at>=args[1]).length};
       if(query.startsWith("SELECT image_key"))return records.find(x=>x.id===args[0])||null;
+      if(query.startsWith("SELECT target_locale"))return translations.get(args[0])||null;
       return null;
     },
     async all(){
@@ -22,6 +23,10 @@ const db={prepare(query){
       return {results:rows.slice(offset,offset+limit).map(x=>({id:x.id,issue:x.issue,entity_type:x.entity_type,entity_id:x.entity_id,entity_label:x.entity_label,details:x.details,source_path:x.source_path,created_at:x.created_at,status:x.status,moderator_note:x.moderator_note||"",reviewed_at:x.reviewed_at||null,reviewed_by:x.reviewed_by||null,has_photo:Number(!!x.image_key)}))};
     },
     async run(){
+      if(query.startsWith("INSERT INTO cms_translation_feedback")){
+        translations.set(args[0],Object.fromEntries(["feedback_id","article_id","target_locale","segment_id","translation_revision","translation_excerpt","source_excerpt","suggested_translation","created_at"].map((key,i)=>[key,args[i]])));
+        return {meta:{changes:1}};
+      }
       if(query.startsWith("INSERT")){
         records.push(Object.fromEntries(["id","issue","entity_type","entity_id","entity_label","details","source_path",
           "image_key","image_mime","submit_hash","created_at","status"].map((key,i)=>[key,args[i]])));
@@ -33,6 +38,7 @@ const db={prepare(query){
         Object.assign(row,{status:args[0],moderator_note:args[1],reviewed_at:args[2],reviewed_by:args[3]});
         return {meta:{changes:1}};
       }
+      if(query.startsWith("DELETE FROM cms_translation_feedback"))return {meta:{changes:Number(translations.delete(args[0]))}};
       if(query.startsWith("DELETE")){
         const i=records.findIndex(x=>x.id===args[0]&&x.created_at<args[1]);
         if(i<0)return {meta:{changes:0}};
@@ -42,6 +48,7 @@ const db={prepare(query){
     }
   };
 }};
+db.batch=async statements=>{for(const statement of statements)await statement.run();return statements.map(()=>({meta:{changes:1}}));};
 const r2={
   async put(key,content,metadata){photos.set(key,{body:content,metadata});},
   async get(key){const item=photos.get(key);return item?{body:item.body}:null;},
@@ -142,3 +149,29 @@ assert.equal(records.length,1,"Rejected origin must not produce any report");
 const crossAdmin=new Request("https://cms.openphuquoc.com/api/cms/feedback",{method:"PATCH",headers:{origin:"https://openphuquoc.com","content-type":"application/json"},body:JSON.stringify({id:records[0].id,status:"reviewing",note:"Kiểm chứng"})});
 assert.equal((await adminFeedback(crossAdmin,fallbackEnv,editor)).status,403,"CMS state changes remain same-origin only");
 console.log("Place feedback QA PASS: readiness, same-origin protection, field validation, anti-spam, D1, pagination, R2, CMS permissions, mandatory resolution note, 180-day cleanup and CMS-secret fallback");
+
+
+const tFields={entity_type:"article",entity_id:"story_test",entity_label:"Câu chuyện Phú Quốc",
+  target_locale:"ko",segment_id:"section-0",translation_revision:"rev-1",
+  translation_excerpt:"A paragraph shown to the visitor in Korean.",
+  source_excerpt:"Bản gốc tiếng Việt",suggested_translation:"A more natural Korean sentence.",details:""};
+assert.equal((await publicSubmit(request("translation",{...tFields,target_locale:"en"},{ip:"203.0.113.80"}),env)).status,400,
+  "English must use the ordinary editorial correction flow");
+assert.equal((await publicSubmit(request("translation",{...tFields,translation_revision:""},{ip:"203.0.113.80"}),env)).status,400,
+  "A translation report must carry an immutable source revision");
+assert.equal((await publicSubmit(request("translation",{...tFields,suggested_translation:"",details:""},{ip:"203.0.113.80"}),env)).status,400,
+  "Empty corrections need a meaningful explanation");
+const translationResult=await publicSubmit(request("translation",tFields,{ip:"203.0.113.81"}),env);
+assert.equal(translationResult.status,201);
+const translationId=(await translationResult.json()).reference;
+assert.equal(translations.get(translationId).target_locale,"ko");
+const queueResult=await adminFeedback(new Request("https://cms.openphuquoc.com/api/cms/feedback?status=new"),env,editor);
+assert.equal(queueResult.status,200);
+const translationItem=(await queueResult.json()).items.find(x=>x.id===translationId);
+assert.equal(translationItem.translation.segment_id,"section-0");
+assert.equal(translationItem.translation.source_excerpt,"Bản gốc tiếng Việt");
+assert.equal(translationItem.translation.suggested_translation,"A more natural Korean sentence.");
+assert.equal(translations.size,1,"One report creates one structured suggestion");
+await cleanupFeedback(env,Date.now()+181*86400000);
+assert.equal(translations.size,0,"The existing 180-day cleanup removes translation-sidecar data");
+console.log("TRANSLATION FEEDBACK QA PASS: locale and revision gates, correction validation, structured D1 intake, CMS review and retention");
