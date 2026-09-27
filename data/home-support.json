@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_at": "2026-09-25",
+  "updated_at": "2026-09-27",
   "scope": "homepage_supporting_operational_data",
   "id_policy": {
     "rule": "ONE_ENTITY_ONE_CANONICAL_ID_MANY_SURFACES",
@@ -658,6 +658,24 @@
   "hot_now": {
     "items": [
       {
+        "event_id": "hot_awaken_sea_paused_20261001",
+        "title": "Awaken Sea tạm ngưng từ 01/10, chưa có ngày diễn lại",
+        "short_summary": "Sun World Hòn Thơm thông báo tạm ngưng Awaken Sea từ ngày 01/10/2026 cho đến khi có thông báo mới. Khách dự định xem show sau ngày này nên điều chỉnh lịch.",
+        "category": "SHOW / THAY ĐỔI LỊCH",
+        "affected_entity_id": "activity_awaken_sea",
+        "starts_at": "2026-10-01",
+        "source_type": "OFFICIAL_OPERATOR_NOTICE",
+        "source_text": "Sun World Hòn Thơm - thông báo Awaken Sea (ảnh thông báo được cung cấp ngày 27/09/2026)",
+        "published_at": "2026-09-27",
+        "verified_at": "2026-09-27",
+        "effective_until": "UNTIL_FURTHER_NOTICE",
+        "review_at": "2026-10-04",
+        "expires_at": null,
+        "expiry_reason": "OPERATOR_OPEN_ENDED__REQUIRES_FOLLOWUP",
+        "confidence": "HIGH",
+        "route": "news/awaken-sea-20261001.html"
+      },
+      {
         "event_id": "hot_honthom_midautumn_menu_2026",
         "title": "Hòn Thơm có menu Trung thu đặc biệt dịp 25/09",
         "short_summary": "Sun World Hòn Thơm giới thiệu menu ẩm thực mùa Trung thu chỉ xuất hiện theo dịp lễ. Trung thu năm nay rơi vào 25/09.",
@@ -709,7 +727,8 @@
     ],
     "empty_behavior": "SHOW_EMPTY_STATE",
     "temporary_items_require_expiry": true,
-    "display_label": "TIN & CẬP NHẬT PHÚ QUỐC"
+    "display_label": "TIN & CẬP NHẬT PHÚ QUỐC",
+    "open_ended_notice_rule": "Thông báo của nhà vận hành có hiệu lực cho đến khi có thông báo mới được giữ không có expires_at; review_at là hạn kiểm tra lại, không phải ngày mở show."
   },
   "curiosity": [
     {
