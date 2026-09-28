@@ -189,7 +189,7 @@ function scheduleServerDraft(){
   if(serverDraftTimer||!serverDraftSnapshot(false))return;
   serverDraftTimer=setTimeout(()=>{
     serverDraftTimer=null;
-    void syncServerDraft({silent:true});
+    if(dirty)void syncServerDraft({silent:true});
   },SERVER_DRAFT_SYNC_MS);
 }
 async function clearServerDraft(path,{silent=true}={}){
@@ -2033,6 +2033,7 @@ $("#logoutBtn").onclick=async()=>{
     if(!confirm("Có thay đổi chưa xuất bản. Lưu nháp rồi đăng xuất?"))return;
     clearTimeout(draftTimer);clearTimeout(serverDraftTimer);serverDraftTimer=null;
     saveDraftNow();
+    clearTimeout(serverDraftTimer);serverDraftTimer=null;
     await syncServerDraft({checkpoint:true,silent:true});
   }
   await fetch(API.auth+"?action=logout",{method:"POST",credentials:"include"});
