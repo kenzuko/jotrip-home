@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {readFileSync,existsSync} from "node:fs";
 import {join} from "node:path";
-const root=process.env.OPENPQ_DIST||"dist",base="https://cms.openphuquoc.com";
+const root=process.env.OPENPQ_DIST||"dist",base="https://openphuquoc.com";
 const xml=readFileSync(join(root,"sitemap.xml"),"utf8");
 const robots=readFileSync(join(root,"robots.txt"),"utf8");
 assert.match(xml,/<urlset xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9">/);
@@ -21,6 +21,7 @@ assert.equal(urls.filter(u=>u.includes("/guide/article.html?id=")).length,public
 assert.equal(urls.filter(u=>u.includes("/stories/article.html?id=")).length,publicStories.length);
 assert.match(robots,/Disallow: \/admin\//);
 assert.ok(!robots.includes("Disallow: /data/"),"Do not block public JSON used in rendering");
-assert.match(robots,/Sitemap: https:\/\/cms.openphuquoc.com\/sitemap.xml/);
+assert.match(robots,/Sitemap: https:\/\/openphuquoc.com\/sitemap.xml/);
+assert.ok(!xml.includes("cms.openphuquoc.com"),"Sitemap must not expose the CMS hostname");
 assert.ok(existsSync(join(root,"index.html")));
 console.log("SEO sitemap test PASS:",urls.length,"URLs,",publicGuides.length,"guides,",publicStories.length,"stories");
