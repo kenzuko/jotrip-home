@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "entity_id": "place_phu_quoc_ridgeback_center",
+  "decision": "HOLD_IDENTITY_SITE_VERSION_CONFLICT",
+  "canonical_snapshot": {
+    "name": "Trung tâm bảo tồn chó xoáy Phú Quốc",
+    "address": "Tiểu khu 77, Dương Tơ, Đặc khu Phú Quốc, An Giang",
+    "map": null
+  },
+  "evidence": [
+    {
+      "source": "Phú Quốc official tourism portal",
+      "url": "https://dulich.phuquoc.gov.vn/vi/trungtambaotonch",
+      "finding": "Older official destination entry identifies Trung tâm bảo tồn chó xoáy / Thanh Nga at Tiểu khu 77, Dương Tơ but does not expose a reproducible numeric map coordinate in retrieved text."
+    },
+    {
+      "source": "Visit Phu Quoc destination article",
+      "url": "https://visitphuquoc.com.vn/vi/kham-pha-trai-cho-xoay-phu-quoc-quoc-khuyen-noi-tieng-cua-dao-ngoc-8258",
+      "finding": "2026 article explicitly distinguishes Thanh Nga cũ at ấp Cây Thông Ngoài and Thanh Nga mới at ấp Suối Mây, Dương Tơ."
+    },
+    {
+      "source": "Sổ Tay Vàng third-party listing",
+      "url": "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/",
+      "finding": "Publishes malformed coordinate text '10.178.137.399.999.900, 1.040.085.517'; decoding it heuristically is not sufficient for canonical GPS."
+    }
+  ],
+  "rejected_candidate": {
+    "lat": 10.1781374,
+    "lon": 104.0085517,
+    "reason": "Heuristic repair of malformed third-party coordinate is not independently confirmed and may refer to a different Thanh Nga site/version."
+  },
+  "next_required_evidence": [
+    "Identify which Thanh Nga site the canonical record is intended to represent (old/new/current visitor site).",
+    "Find operator/official map geometry tied to that exact site/version.",
+    "Only then consider site_centroid or area_anchor."
+  ],
+  "scope_note": "GPS research only; canonical content fields are not modified here.",
+  "content_audit_note": "Canonical record currently carries stream-template fields such as categories nature/stream and best_time based on water conditions. This should be corrected in a separate content/data-quality task, not in GPS PR.",
+  "canonical_modified": false,
+  "derived_views_modified": false,
+  "deploy_triggered": false
+}
