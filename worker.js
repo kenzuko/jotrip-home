@@ -11,8 +11,8 @@ import {handleWeatherData,prewarmWeatherEdge} from "./functions/_shared/weather-
 import {handleWeatherWindow} from "./functions/_shared/weather-context.js";
 import {handleGoLive} from "./functions/_shared/go-live.js";
 import {captureWeatherAlerts,readWeatherAlertHistory} from "./functions/_shared/weather-alert-runtime.js";
-const SITE_ORIGIN = "https://cms.openphuquoc.com";
-const DEFAULT_IMAGE = SITE_ORIGIN + "/assets/share-card.svg";
+const PUBLIC_ORIGIN = "https://openphuquoc.com";
+const DEFAULT_IMAGE = PUBLIC_ORIGIN + "/assets/share-card.svg";
 
 function cleanText(value, fallback = "") {
   return String(value ?? fallback).replace(/\s+/g, " ").trim();
@@ -62,7 +62,7 @@ async function placeMeta(url, env) {
     type: "article",
     title: cleanText(entity.name) + " - Open Phu Quoc",
     description: truncate(entity.what_it_is || entity.why_go || "Thông tin điểm đến Phú Quốc."),
-    canonical: SITE_ORIGIN + "/places/detail.html?id=" + encodeURIComponent(key),
+    canonical: PUBLIC_ORIGIN + "/places/detail.html?id=" + encodeURIComponent(key),
     image: hero?.url || DEFAULT_IMAGE,
     imageAlt: cleanText(hero?.alt || entity.name, "Open Phu Quoc")
   };
