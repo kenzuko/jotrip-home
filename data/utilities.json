@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-27T17:07:39.331Z",
+  "generated_at": "2026-09-28T04:09:00.000Z",
   "source_policy": "official_public_sources_only",
   "national_emergency": [
     {
@@ -217,39 +217,153 @@
   ],
   "ticket_reference": [
     {
-      "place": "Vinpearl Safari",
-      "activity": "Vé ngày · mốc từ 01/10/2026",
-      "price": "950.000đ · 710.000đ trẻ em/cao tuổi",
-      "note": "Zoo Tram, VIP/Premium là sản phẩm riêng",
-      "dynamic": true
+      "place": "VinWonders Phú Quốc",
+      "activity": "Vé tiêu chuẩn",
+      "price": "1.050.000đ người lớn · 800.000đ trẻ em · 800.000đ người cao tuổi",
+      "adult_price": 1050000,
+      "child_price": 800000,
+      "elderly_price": 800000,
+      "note": "Tặng 01 vé Bảo tàng Gấu",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
     },
     {
-      "place": "VinWonders",
-      "activity": "Vé ngày · mốc từ 01/10/2026",
-      "price": "1.050.000đ · 800.000đ trẻ em/cao tuổi",
-      "note": "Kiểm tra lại chính sách đúng ngày",
-      "dynamic": true
+      "place": "Vinpearl Safari Phú Quốc",
+      "activity": "Vé tiêu chuẩn",
+      "price": "950.000đ người lớn · 710.000đ trẻ em · 710.000đ người cao tuổi",
+      "adult_price": 950000,
+      "child_price": 710000,
+      "elderly_price": 710000,
+      "note": "Tặng 01 vé Bảo tàng Gấu",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
     },
     {
-      "place": "VinWonders + Safari",
-      "activity": "Combo 1 ngày",
-      "price": "1.500.000đ · 1.100.000đ",
-      "note": "Lịch rất dài nếu đi cùng trẻ nhỏ",
-      "dynamic": true
+      "place": "VinWonders + Vinpearl Safari",
+      "activity": "Combo 01 ngày",
+      "price": "1.500.000đ người lớn · 1.100.000đ trẻ em · 1.100.000đ người cao tuổi",
+      "adult_price": 1500000,
+      "child_price": 1100000,
+      "elderly_price": 1100000,
+      "note": "Combo 01 ngày VinWonders + Vinpearl Safari",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
     },
     {
-      "place": "VinWonders + Safari",
-      "activity": "Combo 2 ngày",
-      "price": "1.700.000đ · 1.300.000đ",
-      "note": "Không mặc định unlimited / multi-entry",
-      "dynamic": true
+      "place": "VinWonders + Vinpearl Safari",
+      "activity": "Combo 02 ngày",
+      "price": "1.700.000đ người lớn · 1.300.000đ trẻ em · 1.300.000đ người cao tuổi",
+      "adult_price": 1700000,
+      "child_price": 1300000,
+      "elderly_price": 1300000,
+      "note": "Tặng 01 vé Bảo tàng Gấu",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
     },
     {
-      "place": "Grand World",
-      "activity": "Tinh Hoa Việt Nam · mốc 20:15",
-      "price": "300.000đ · 230.000đ trẻ em/cao tuổi",
-      "note": "Giờ có thể đổi theo mùa",
-      "dynamic": true
+      "place": "Grand World Phú Quốc",
+      "activity": "Tinh Hoa Việt Nam",
+      "price": "300.000đ người lớn · 230.000đ trẻ em · 230.000đ người cao tuổi",
+      "adult_price": 300000,
+      "child_price": 230000,
+      "elderly_price": 230000,
+      "note": "Vé lẻ Grand World",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "place": "Grand World Phú Quốc",
+      "activity": "Bảo tàng Gấu Teddy Bear",
+      "price": "200.000đ người lớn · 150.000đ trẻ em · 150.000đ người cao tuổi",
+      "adult_price": 200000,
+      "child_price": 150000,
+      "elderly_price": 150000,
+      "note": "Vé lẻ Grand World",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "place": "Grand World Phú Quốc",
+      "activity": "Đi thuyền trên sông Venice",
+      "price": "200.000đ người lớn · 150.000đ trẻ em · 150.000đ người cao tuổi",
+      "adult_price": 200000,
+      "child_price": 150000,
+      "elderly_price": 150000,
+      "note": "Vé lẻ Grand World",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "place": "Grand World Phú Quốc",
+      "activity": "Combo 2 khu: Tinh Hoa Việt Nam + Bảo tàng Gấu",
+      "price": "450.000đ người lớn · 340.000đ trẻ em · 340.000đ người cao tuổi",
+      "adult_price": 450000,
+      "child_price": 340000,
+      "elderly_price": 340000,
+      "note": "Combo 2 khu Grand World",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "place": "Grand World Phú Quốc",
+      "activity": "All-in: Venice + Bảo tàng Gấu + Tinh Hoa Việt Nam",
+      "price": "500.000đ khách ≥140cm · 380.000đ khách 100-<140cm / người cao tuổi",
+      "adult_price": 500000,
+      "child_price": 380000,
+      "elderly_price": 380000,
+      "original_adult_price": 700000,
+      "original_child_elderly_price": 530000,
+      "note": "Giá trên bảng đang giảm từ 700.000đ / 530.000đ",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "place": "Grand World Phú Quốc",
+      "activity": "Combo Venice + Tinh Hoa Việt Nam",
+      "price": "400.000đ khách ≥140cm · 300.000đ khách 100-<140cm / người cao tuổi",
+      "adult_price": 400000,
+      "child_price": 300000,
+      "elderly_price": 300000,
+      "original_adult_price": 500000,
+      "original_child_elderly_price": 380000,
+      "note": "Giá trên bảng đang giảm từ 500.000đ / 380.000đ",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "place": "Grand World Phú Quốc",
+      "activity": "Combo Venice + Bảo tàng Gấu",
+      "price": "300.000đ khách ≥140cm · 225.000đ khách 100-<140cm / người cao tuổi",
+      "adult_price": 300000,
+      "child_price": 225000,
+      "elderly_price": 225000,
+      "original_adult_price": 400000,
+      "original_child_elderly_price": 300000,
+      "note": "Giá trên bảng đang giảm từ 400.000đ / 300.000đ",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "dynamic": true,
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
     },
     {
       "place": "Sun Bavaria Gastropub",
@@ -416,5 +530,15 @@
     ],
     "source_count": 11,
     "note": "Phone numbers are curated from current official sources; auto-sync only verifies exact numbers and never replaces them with a guessed number."
+  },
+  "ticket_policy": {
+    "provider": "VinWonders / Vinpearl Safari / Grand World Phú Quốc",
+    "valid_from": "2026-10-01",
+    "valid_to": "2026-12-31",
+    "child_rule": "Trẻ em từ 100 cm đến dưới 140 cm",
+    "elderly_rule": "Người cao tuổi từ 60 tuổi, xuất trình giấy tờ tùy thân có hình tại quầy vé",
+    "free_rule": "Khách dưới 100 cm được miễn phí vé vào cửa",
+    "grand_world_water_taxi_hours": "09:00 - 22:00 (áp dụng từ 15/08/2026)",
+    "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
   }
 }
