@@ -20,7 +20,7 @@ const jpegDimensions=buffer=>{
  return null;
 };
 async function download(url){
- const response=await fetch(url,{redirect:"follow",headers:{"User-Agent":"OpenPhuQuocSocialPreview/1.0 (https://cms.openphuquoc.com/about/)","Accept":"image/jpeg,image/*;q=0.9,*/*;q=0.3"},signal:AbortSignal.timeout(16000)});
+ const response=await fetch(url,{redirect:"follow",headers:{"User-Agent":"OpenPhuQuocSocialPreview/1.0 (https://openphuquoc.com/about/)","Accept":"image/jpeg,image/*;q=0.9,*/*;q=0.3"},signal:AbortSignal.timeout(16000)});
  if(!response.ok)throw Error("HTTP "+response.status);
  const bytes=Buffer.from(await response.arrayBuffer()),size=jpegDimensions(bytes);
  if(!size||size.width<1200||size.height<600||bytes.length<75000||bytes.length>6000000)throw Error("Unexpected preview-image type, dimensions or size");
@@ -38,7 +38,7 @@ try{
 if(!photo)try{photo=await download(redirect)}catch(e){
  console.warn("Commons direct image unavailable:",e.message);
  try{
-  const r=await fetch(api,{headers:{"User-Agent":"OpenPhuQuocSocialPreview/1.0 (https://cms.openphuquoc.com/about/)"},signal:AbortSignal.timeout(13000)});
+  const r=await fetch(api,{headers:{"User-Agent":"OpenPhuQuocSocialPreview/1.0 (https://openphuquoc.com/about/)"},signal:AbortSignal.timeout(13000)});
   if(!r.ok)throw Error("API HTTP "+r.status);
   const d=await r.json(),page=Object.values(d.query?.pages||{})[0],thumb=page?.imageinfo?.[0]?.thumburl;
   if(!thumb)throw Error("Wikimedia did not return thumbnail");
@@ -54,7 +54,7 @@ if(!photo){
 }
 await mkdir(dirname(target),{recursive:true});
 await writeFile(target,photo.bytes);
-const root="https://cms.openphuquoc.com/assets/share-card-phu-quoc-v3.jpg";
+const root="https://openphuquoc.com/assets/share-card-phu-quoc-v3.jpg";
 const walk=async directory=>{
  for(const dirent of await readdir(directory,{withFileTypes:true})){
   const path=join(directory,dirent.name);
@@ -62,8 +62,8 @@ const walk=async directory=>{
   if(!dirent.name.endsWith(".html"))continue;
   let html=await readFile(path,"utf8");
   if(!html.includes('property="og:image"')&&!html.includes('name="twitter:image"'))continue;
-  html=html.replace(/https:\/\/cms\.openphuquoc\.com\/assets\/share-card\.svg/g,root)
-   .replace(/https:\/\/cms\.openphuquoc\.com\/assets\/share-card-phu-quoc-v2\.jpg/g,root)
+  html=html.replace(/https:\/\/(?:cms\.)?openphuquoc\.com\/assets\/share-card\.svg/g,root)
+   .replace(/https:\/\/(?:cms\.)?openphuquoc\.com\/assets\/share-card-phu-quoc-v2\.jpg/g,root)
    .replace(/(<meta\s+property="og:image:type"\s+content=")image\/svg\+xml(")/g,'$1image/jpeg$2')
    .replace(/(<meta\s+property="og:image:width"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.width+b)
    .replace(/(<meta\s+property="og:image:height"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.height+b);

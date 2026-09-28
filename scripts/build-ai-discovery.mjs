@@ -3,7 +3,7 @@
 import {existsSync,writeFileSync,readFileSync} from "node:fs";
 import {join} from "node:path";
 const out=process.env.OPENPQ_DIST||"dist";
-const host="https://cms.openphuquoc.com";
+const host="https://openphuquoc.com";
 const sections=[
   ["Trang chủ","/"],
   ["Cẩm nang và kiến thức địa phương","/guide/knowledge.html"],
