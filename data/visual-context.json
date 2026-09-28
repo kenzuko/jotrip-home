@@ -3202,14 +3202,14 @@
       "title": "Cỏ biển Phú Quốc",
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sea%20grass%20bed.jpg?width=1200",
-          "alt": "Thảm cỏ biển dưới nước ở Dahab, Ai Cập, minh họa cấu tạo thảm cỏ",
-          "caption": "Ảnh minh họa hình dạng thảm cỏ biển chụp ở Dahab, Ai Cập năm 2013. Không phải thảm cỏ biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Tim Sheerman-Chase - Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Sea_grass_bed.jpg",
-          "license": "CC BY 2.0",
-          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Beach%20near%20Ham%20Ninh%20Phu%20Quoc.JPG?width=1600",
+          "alt": "Bờ biển phía bắc Hàm Ninh, Phú Quốc",
+          "caption": "Bờ biển gần Hàm Ninh, Phú Quốc năm 2015. Ảnh bối cảnh vùng ven bờ, không dùng làm bằng chứng trực quan về cỏ biển hay dugong.",
+          "scope": "local_coastal_context",
+          "source_label": "Tonbi ko · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Beach_near_Ham_Ninh_Phu_Quoc.JPG",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
           "rights_status": "CC_VERIFIED"
         }
       ]
@@ -3218,14 +3218,14 @@
       "title": "Dugong ở vùng biển Phú Quốc",
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sea%20grass%20bed.jpg?width=1200",
-          "alt": "Thảm cỏ biển dưới nước ở Dahab, Ai Cập, minh họa cấu tạo thảm cỏ",
-          "caption": "Ảnh minh họa hình dạng thảm cỏ biển chụp ở Dahab, Ai Cập năm 2013. Không phải thảm cỏ biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Tim Sheerman-Chase - Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Sea_grass_bed.jpg",
-          "license": "CC BY 2.0",
-          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Beach%20near%20Ham%20Ninh%20Phu%20Quoc.JPG?width=1600",
+          "alt": "Bờ biển phía bắc Hàm Ninh, Phú Quốc",
+          "caption": "Bờ biển gần Hàm Ninh, Phú Quốc năm 2015. Ảnh bối cảnh vùng ven bờ, không dùng làm bằng chứng trực quan về cỏ biển hay dugong.",
+          "scope": "local_coastal_context",
+          "source_label": "Tonbi ko · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Beach_near_Ham_Ninh_Phu_Quoc.JPG",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
           "rights_status": "CC_VERIFIED"
         }
       ]
@@ -3253,19 +3253,7 @@
     },
     "knowledge_039_rung-ngap-man-phu-quoc": {
       "title": "Rừng ngập mặn Phú Quốc",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Can%20Gio%20mangrove%20forest.jpg?width=1200",
-          "alt": "Rừng đước ngập mặn tại Cần Giờ",
-          "caption": "Ảnh minh họa rừng ngập mặn ở Cần Giờ, TP.HCM, KHÔNG phải ảnh rừng Phú Quốc.",
-          "scope": "habitat_illustration",
-          "source_label": "Tho nau · Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Can_Gio_mangrove_forest.jpg",
-          "license": "CC BY-SA 3.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "rights_status": "CC_VERIFIED"
-        }
-      ]
+      "images": []
     },
     "knowledge_040_he-sinh-thai-rung-thuong-xanh": {
       "title": "Hệ sinh thái rừng thường xanh",
@@ -3303,19 +3291,7 @@
     },
     "knowledge_042_rua-bien-quanh-phu-quoc": {
       "title": "Rùa biển quanh Phú Quốc",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Chelonia%20mydas%20in%20tidepools%20at%20Kona.jpg?width=1200",
-          "alt": "Rùa biển xanh trong tự nhiên tại Kona Hawaii",
-          "caption": "Rùa biển xanh chụp ở Kona, Hawaii. Ảnh minh họa loài, KHÔNG phải cá thể được ghi nhận tại Phú Quốc.",
-          "scope": "species_illustration",
-          "source_label": "Mbz1 · Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Chelonia_mydas_in_tidepools_at_Kona.jpg",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "rights_status": "CC_VERIFIED"
-        }
-      ]
+      "images": []
     },
     "knowledge_048_song-va-huong-song-quanh-dao": {
       "title": "Sóng và hướng sóng quanh đảo",
@@ -3872,15 +3848,14 @@
       "title": "Bus Phú Quốc",
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Newone%20-%20VinBus%2002.jpg?width=1200",
-          "alt": "Xe buýt điện VinBus chụp tại Hà Nội năm 2021",
-          "caption": "Hình minh họa dòng xe VinBus chụp tại Hà Nội, KHÔNG phải xe hoặc tuyến cụ thể ở Phú Quốc.",
-          "scope": "vehicle_illustration",
-          "source_label": "Newone · Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Newone_-_VinBus_02.jpg",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "rights_status": "CC_VERIFIED"
+          "url": "https://photo.znews.vn/Uploaded/wyhktpu/2023_04_26/b_Zing_b_9_.jpg",
+          "alt": "Xe buýt điện VinBus tại Phú Quốc United Center năm 2023",
+          "caption": "Xe VinBus tại Phú Quốc United Center năm 2023. Ảnh tư liệu phương tiện, không mô tả lịch tuyến hôm nay.",
+          "scope": "local_vehicle_context",
+          "source_label": "Znews · Phú Quốc United Center",
+          "source_url": "https://znews.vn/kham-pha-phu-quoc-united-center-tren-tuyen-xe-vinbus-4-khong-post1425714.html",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
