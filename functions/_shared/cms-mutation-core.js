@@ -301,12 +301,12 @@ export function createCmsMutationAudit({
 }
 
 export function formatCmsMutationAudit(value){
-  const audit=createCmsMutationAudit(value);
+  const audit=value?.schema==="openpq-cms-mutation-v1"?value:createCmsMutationAudit(value);
   return "## CMS mutation metadata\n\n```json\n"+JSON.stringify(audit,null,2)+"\n```";
 }
 
 export function cmsMutationCommitTrailers(value){
-  const audit=createCmsMutationAudit(value);
+  const audit=value?.schema==="openpq-cms-mutation-v1"?value:createCmsMutationAudit(value);
   const shaPairs=map=>Object.entries(map).map(([path,sha])=>path+"="+sha).join(";");
   return[
     "OpenPQ-CMS-Mutation: v1",
