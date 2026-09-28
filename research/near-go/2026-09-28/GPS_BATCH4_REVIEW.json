@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-28",
+  "branch": "data/nearme-gps-batch4-20260928",
+  "scope": "Near Me MASTERLOCK batch 4: resolve Ridgeback Center canonical identity between old and new Thanh Nga facilities.",
+  "status": "REVIEWED_AREA_ANCHOR_BATCH",
+  "baseline": {
+    "location_total": 350,
+    "location_with_map": 230,
+    "map_candidates": 394,
+    "map_ready": 227,
+    "nonhotel_missing": 25
+  },
+  "result": {
+    "location_with_map": 231,
+    "map_ready": 228,
+    "accepted_count": 1,
+    "nonhotel_missing": 24
+  },
+  "accepted": [
+    {
+      "id": "place_phu_quoc_ridgeback_center",
+      "coordinate": {
+        "lat": 10.1781374,
+        "lon": 104.0085517
+      },
+      "precision": "area_anchor",
+      "decision": "ACCEPT_AREA_ANCHOR",
+      "evidence": [
+        "https://dulich.phuquoc.gov.vn/vi/trungtambaotonch",
+        "https://vietnamtourism.gov.vn/printer/21888?type=1",
+        "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/"
+      ],
+      "rationale": "Phu Quoc government tourism and Vietnam tourism sources identify the canonical destination at Tiểu khu 77; Vietnam tourism places Tiểu khu 77 in ấp Suối Mây. The secondary directory publishes a coordinate for the same Tiểu khu 77 named facility. Publish only as area_anchor, not entrance/site centroid."
+    }
+  ],
+  "rejected_or_hold": [
+    {
+      "candidate": {
+        "lat": 10.2535136,
+        "lon": 103.9803118
+      },
+      "decision": "REJECT_OLD_FACILITY_PIN",
+      "reason": "Historical Google Maps reference corresponds to the older Thanh Nga facility lineage around Cây Thông Ngoài/Cửa Dương. Current canonical Tiểu khu 77 destination is the newer Suối Mây facility. Do not overwrite canonical with the old-facility pin."
+    }
+  ],
+  "masterlock": [
+    "Identity disambiguation must precede coordinate promotion.",
+    "A secondary directory coordinate is not enough for exact entrance precision.",
+    "Use area_anchor when government sources establish the destination area but entrance is not verified.",
+    "No live opening status inferred from map/location evidence."
+  ],
+  "notes": [
+    "No UI changes.",
+    "No hotel GPS changes.",
+    "No operation-status changes.",
+    "Derived views synchronized."
+  ]
+}
