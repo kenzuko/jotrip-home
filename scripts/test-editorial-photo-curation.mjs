@@ -68,6 +68,9 @@ assert(!(visual.knowledge["knowledge_074_cano-tau-cao-toc-pha-khac-nhau-the-nao"
 assert(!(visual.knowledge["knowledge_140_duong-dong-truoc-va-sau-do-thi-hoa"]?.images||[]).some(p=>p.url.includes("Selling%20fruit")),"Night-market fruit stall must not stand in for Dương Đông urbanisation");
 assert.equal(visual.knowledge["knowledge_142_ham-ninh-truoc-va-sau-chinh-trang"]?.images?.length,1,"Hàm Ninh change story must not present a pre-2019 beach photo as the after view");
 assert.equal(visual.food["ca-mu-hap"]?.images?.length,0,"Cá mú card must stay photo-free until an actual cá mú image is verified");
+assert(!JSON.stringify(visual.food["tom-mu-ni-nuong"]||{}).toLowerCase().includes("con-dao"),"Phú Quốc slipper-lobster card must not reuse a Côn Đảo photo");
+assert(visual.food["tom-mu-ni-nuong"]?.images?.[0]?.url.includes("dac-san-hai-san-phu-quoc-5"),"Slipper-lobster card should use the reviewed exact-dish image from a Phú Quốc food article");
+assert(!JSON.stringify(visual.food["com-ghe-ham-ninh"]||{}).includes("trung-duong-marina"),"Hàm Ninh crab-rice card must not imply a Dương Đông restaurant photo is Hàm Ninh");
 assert.equal(visual.knowledge["knowledge_023_hon-gam-ghi"]?.images?.length,0,"Hòn Gầm Ghì stays photo-free until the exact island is visually verified");
 assert(!(visual.stories["an-thoi-ben-ca-va-cua-ngo-dao"]?.images||[]).some(p=>p.url.startsWith("/assets/media/editorial-fishing-fleet.jpg")),"An Thoi story must not use unidentified fishing-fleet imagery");
 assert(!(visual.stories["vi-sao-goi-phu-quoc-la-dao-ngoc"]?.images||[]).some(p=>p.url.startsWith("/assets/media/editorial-")),"Đảo Ngọc story must use verified Phú Quốc imagery, not unidentified cove assets");
