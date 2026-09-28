@@ -2,7 +2,7 @@ import {existsSync,readFileSync,writeFileSync} from "node:fs";
 import {join} from "node:path";
 
 const output=process.env.OPENPQ_DIST||"dist";
-const base="https://cms.openphuquoc.com";
+const base="https://openphuquoc.com";
 const records=new Map();
 const today=/^\d{4}-\d{2}-\d{2}$/.test(process.env.BUILD_DATE||"")?process.env.BUILD_DATE:null;
 const escaped=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
