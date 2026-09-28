@@ -479,6 +479,7 @@ try{
   const fixture={schema_version:"1.1",locale:"vi",dishes:[dish]};
   const foodContext=await browser.newContext({viewport:{width:1440,height:900}});
   const food=await foodContext.newPage(),foodPosts=[];
+  food.on("dialog",dialog=>dialog.accept());
   await food.route("**/api/cms/session",r=>r.fulfill({
     status:200,contentType:"application/json",
     body:JSON.stringify({login:"food-qa",name:"Food QA",role:"admin"})}));
