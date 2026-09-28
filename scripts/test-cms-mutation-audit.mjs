@@ -24,7 +24,7 @@ assert.equal(audit.operation,"direct-save");
 assert.equal(audit.actor,"kenzuko");
 assert.equal(audit.role,"admin");
 assert.equal(audit.base_main_sha,base);
-assert.deepEqual(audit.paths,["data/content.json","bad.txt"]);
+assert.deepEqual(audit.paths,["data/content.json"]);
 assert.deepEqual(audit.before_file_shas,{"data/content.json":before});
 assert.deepEqual(audit.after_file_shas,{"data/content.json":after});
 assert.deepEqual(audit.changed_fields,["sections.0.body"]);
