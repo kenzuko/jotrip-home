@@ -552,6 +552,36 @@ try{
   assert.equal(await anon.locator("#foodInlineLauncher").count(),0);
   await anonCtx.close();
   }
+  // Safe static copy: drafts span editorial pages but only one Publish request touches GitHub.
+  {
+  const staticFixture={version:"1.0",hero:{kicker:"K",title:"T",lead:"L"},sections:{},footer:{title:"F",lead:"FL",note:"FN"},site:{about:{heroLead:"Bản gốc",purposeTitle:"Mục đích",purpose1:"Một",purpose2:"Hai",purpose3:"Ba",systemTitle:"Ba lớp",system1:"S1",system2:"S2",system3:"S3",madeTitle:"Làm tại đảo",madeLead1:"M1",madeLead2:"M2",openTitle:"Open",openLead:"OL",footerLead:"Footer",footerNote:"Note"}}};
+  const ctx=await browser.newContext({viewport:{width:390,height:844}});
+  const page=await ctx.newPage(),directPosts=[];
+  page.on("dialog",d=>d.accept());
+  await page.route("**/api/cms/session",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({login:"static-qa",role:"admin"})}));
+  await page.route("**/data/home-copy.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(staticFixture)}));
+  await page.route("**/api/cms/content?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({sha:"1".repeat(40),content:staticFixture})}));
+  await page.route("**/api/cms/direct-save",r=>{directPosts.push(r.request().postDataJSON());return r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({ok:true,commit:"c".repeat(40),deployment_pending:true})});});
+  await page.goto(base+"/about/",{waitUntil:"networkidle"});
+  await page.locator("#cmsStaticLaunch").waitFor();
+  await page.locator("#cmsStaticLaunch").click();
+  const lead=page.locator('[data-cms-static-field="site.about.heroLead"]');
+  await lead.locator("xpath=following-sibling::button[contains(@class,'cms-static-trigger')]").click();
+  await page.locator(".cms-static-panel textarea").fill("Bản sửa có cảm xúc hơn.");
+  await page.locator("#cmsStaticDraft").click();
+  assert.equal(directPosts.length,0,"Static draft must never push GitHub");
+  assert.ok(await page.evaluate(()=>Object.keys(localStorage).some(k=>k.startsWith("openpq-cms-site-copy-v1:"))));
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(overflow<=2,"Static copy editor mobile overflow: "+overflow);
+  await page.screenshot({path:output+"/cms-inline-static-about-mobile.png",fullPage:true});
+  await page.locator("#cmsStaticPublish").click();
+  await page.waitForFunction(()=>!localStorage.getItem(Object.keys(localStorage).find(k=>k.startsWith("openpq-cms-site-copy-v1:"))||"missing"));
+  assert.equal(directPosts.length,1,"One static Publish must cause one GitHub request");
+  assert.equal(directPosts[0].path,"data/home-copy.json");
+  assert.equal(directPosts[0].changes.filter(x=>x.field==="site.about.heroLead").length,1);
+  assert.equal(directPosts[0].changes.find(x=>x.field==="site.about.heroLead").after,"Bản sửa có cảm xúc hơn.");
+  await ctx.close();
+  }
   console.log("PASS CMS V2 browser QA: desktop/mobile, local editorial preview, record backup, GitHub conflict guard, zero-network demo, Quality D1 action refresh, Review search and role navigation");
 }finally{
   await browser.close();

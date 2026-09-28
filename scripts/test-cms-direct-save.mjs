@@ -73,6 +73,10 @@ assert.equal(h.history.filter(x=>x.method==="POST"&&x.url.endsWith("/pulls")).le
 assert.equal(h.helpers.fieldOK("data/content.json",base.stories[0],"sections.0.body"),true);
 assert.equal(h.helpers.fieldOK("data/content.json",base.stories[0],"sections.99.body"),false);
 assert.equal(h.helpers.fieldOK("data/content.json",base.stories[0],"__proto__"),false);
+const home={hero:{kicker:"K",title:"T",lead:"L"},footer:{title:"F",lead:"FL",note:"FN"},sections:{food:{eyebrow:"E",title:"FT",lead:"FD"}},site:{about:{heroLead:"A"}}};
+assert.equal(h.helpers.fieldOK("data/home-copy.json",home,"footer.lead"),true);
+assert.equal(h.helpers.fieldOK("data/home-copy.json",home,"site.about.heroLead"),true);
+assert.equal(h.helpers.fieldOK("data/home-copy.json",home,"site.about.__proto__"),false);
 const food={ingredients:["Bún"],tips:["Nóng"],ask_staff:["Có tôm?"]};
 assert.equal(h.helpers.fieldOK("data/i18n/vi/food.json",food,"tips.0"),true);
 assert.equal(h.helpers.fieldOK("data/i18n/vi/food.json",food,"allergen_flags.0"),false);
