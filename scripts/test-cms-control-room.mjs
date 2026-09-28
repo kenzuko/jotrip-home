@@ -15,7 +15,7 @@ assert.match(admin,/requestId!==moduleRequestId/);
 assert.match(admin,/outdatedDraft=true/);
 assert.match(admin,/Đã tạo đề xuất PR/);
 assert.match(html,/aria-controls="moduleNav"/);
-assert.match(html,/aria-label="Mở website công khai trong tab mới"/);
+assert.match(html,/aria-label="Duyệt website trên miền CMS để chỉnh sửa nội dung"/);
 assert.match(admin,/NAV_HINTS/);
 assert.match(admin,/aria-expanded/);
 
