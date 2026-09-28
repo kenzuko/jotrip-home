@@ -1,17 +1,6 @@
 import { CMS_REPO_API, githubHeaders, readCmsSession, readCurrentCmsRole, readMainRef, readRepoFile, sameOrigin, scanOpenPullConflicts } from "../../_shared/cms-mutation-core.js";
+import { cmsCan } from "../../_shared/cms-mutation-policy.js";
 const te=new TextEncoder(),td=new TextDecoder();
-
-const writable={
-  "data/home-copy.json":["admin","editor"],
-  "data/content.json":["admin","editor"],
-  "guide/data.json":["admin","editor"],
-  "data/utilities.json":["admin","operator"],
-  "data/entities/destination-venues.json":["admin","editor","operator"],
-  "data/entities/food.json":["admin","editor"],
-  "data/i18n/vi/food.json":["admin","editor"],
-  "data/visual-context.json":["admin","editor"],
-  "cms/users.json":["admin"]
-};
 
 const json=(data,status=200)=>new Response(JSON.stringify(data),{
   status,
@@ -192,7 +181,7 @@ export async function onRequest({request,env}){
     const path=String(body.path||"");
     const foodMirror=path==="data/i18n/vi/food.json";
     const role=await readCurrentCmsRole(s.login,{cacheBustKey:"v",failureMessage:"Không tải được danh sách phân quyền",includeHttpStatus:true});
-    if(!role||!(writable[path]||[]).includes(role))return json({error:"Vai trò hiện tại không được xuất bản module này"},403);
+    if(!cmsCan(role,path,"publish"))return json({error:"Vai trò hiện tại không được xuất bản module này"},403);
     if(!body.sha)return json({error:"Thiếu SHA phiên bản hiện tại"},409);
 
     const validationErrors=validatePayload(path,body.content);
