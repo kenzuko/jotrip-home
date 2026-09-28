@@ -43,4 +43,9 @@ assert(!JSON.stringify(visual.knowledge["knowledge_035_sao-bien-rach-vem"]||{}).
 assert.equal(visual.knowledge["knowledge_014_bai-sao"]?.images?.[0]?.url,"/assets/media/editorial-bai-sao-local.jpg","Bãi Sao should use the matching local image");
 assert.equal(visual.knowledge["knowledge_013_bai-khem"]?.images?.[0]?.url,"/assets/media/editorial-bai-khem-local.jpg","Bãi Khem should use the matching local image");
 assert.equal(visual.knowledge["knowledge_005_sunset-town"]?.images?.[0]?.url,"/assets/media/editorial-sunset-town-aerial.jpg","Sunset Town should use the matching local image");
+const roadTopic=visual.knowledge["knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan"];
+assert(roadTopic?.images?.length>=2,"Road-history article must retain two visually reviewed real photos");
+assert(roadTopic.images[0].url.includes("H%C3%A0m%20Ninh")&&roadTopic.images[0].url.includes("%C4%91%E1%BA%A5t"),"Road-history hero must be the visually reviewed Hàm Ninh dirt-road photo");
+assert(!JSON.stringify(roadTopic).includes("Nguyen%20Van%20cu%2C%20TL%2046%2CDuong%20to%20Phu%20quoc"),"Known mislabeled Hà Nội gate photo must never return");
+assert(roadTopic.images[1].url.includes("tr%E1%BA%A7n%20h%C6%B0ng")||roadTopic.images[1].url.includes("Tr%E1%BA%A7n%20h%C6%B0ng"),"Road-history second photo should remain the reviewed Trần Hưng Đạo image");
 console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");
