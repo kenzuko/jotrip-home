@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 const source=readFileSync("functions/_shared/seo-html.js","utf8");
 const seo=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
-const canonical="https://cms.openphuquoc.com/";
+const canonical="https://openphuquoc.com/";
 const html=readFileSync("index.html","utf8");
 const scripts=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
 assert.ok(scripts.length>0,"Homepage must expose schema.org JSON-LD without JavaScript execution");
