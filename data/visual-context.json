@@ -400,17 +400,6 @@
       "location_label": "Ven bờ Hàm Ninh, Phú Quốc",
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sea%20grass%20bed.jpg?width=1200",
-          "alt": "Thảm cỏ biển dưới nước ở Dahab, Ai Cập, minh họa cấu tạo thảm cỏ",
-          "caption": "Ảnh minh họa hình dạng thảm cỏ biển chụp ở Dahab, Ai Cập năm 2013. Không phải thảm cỏ biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Tim Sheerman-Chase - Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Sea_grass_bed.jpg",
-          "license": "CC BY 2.0",
-          "license_url": "https://creativecommons.org/licenses/by/2.0/",
-          "rights_status": "CC_VERIFIED"
-        },
-        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/H%C3%A0m%20Ninh%2C%20Bi%E1%BB%83n%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vi%E1%BB%87t%20nam%20-%20panoramio.jpg?width=1200",
           "alt": "Bờ biển Hàm Ninh, Phú Quốc trong ảnh tư liệu năm 2013",
           "caption": "Bờ biển Hàm Ninh, Phú Quốc, ảnh bối cảnh ven bờ, không dùng để kết luận hiện trạng cỏ biển.",
@@ -770,13 +759,14 @@
       "images": [
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1200",
-          "alt": "Tàu cá gần cảng Dương Đông năm 2025",
-          "caption": "Tàu cá tại khu vực cảng Dương Đông năm 2025, ảnh bối cảnh nghề biển.",
-          "scope": "context",
+          "alt": "Tàu cá gần cảng Phú Quốc năm 2025",
+          "caption": "Tàu cá gần cảng Phú Quốc năm 2025, ảnh bối cảnh đời sống người đi biển.",
+          "scope": "maritime_context",
           "source_label": "Elmschrat · Wikimedia Commons",
           "source_url": "https://commons.wikimedia.org/wiki/File:Fishing_boat_Phu_Quoc.jpg",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "captured_at": "2025-11-12",
+          "license": "CC0 1.0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
           "rights_status": "CC_VERIFIED"
         }
       ]
@@ -2449,17 +2439,7 @@
       ]
     },
     "ca-mu-hap": {
-      "images": [
-        {
-          "url": "https://dichvunaucotainha.com/files/media/202304/ca-song-hap-xi-dau-mon-ngon-doi-vi-cho-ngay-ngan-thit.jpg",
-          "alt": "Cá mú hấp hành gừng",
-          "caption": "Cá mú hấp hành gừng",
-          "scope": "exact_subject",
-          "source_label": "Dịch vụ nấu cỗ tại nhà",
-          "source_url": "https://dichvunaucotainha.com/meo-hay-am-thuc/ca-song-hap-xi-dau-mon-ngon-doi-vi-cho-ngay-ngan-thit-post1336.html",
-          "hero_priority": "preferred"
-        }
-      ]
+      "images": []
     },
     "lau-ca-bop": {
       "images": [
@@ -3685,7 +3665,7 @@
           "url": "/assets/photos/tour-3-islands-jotrip-1600.jpg",
           "alt": "Du khách mặc áo phao trên cano trong chuyến đi biển Phú Quốc",
           "caption": "Khách đi cano tại Phú Quốc. Ảnh thực tế từ album JoTrip.",
-          "scope": "activity_context",
+          "scope": "one_mode_context",
           "source_label": "JoTrip",
           "source_url": "https://drive.google.com/file/d/1oCWyKnpNlQMWcAdhSjkX4lTzImrda0Ka/view",
           "hero_priority": "primary",
@@ -3693,17 +3673,6 @@
           "reviewed_at": "2026-09-25",
           "usage_note": "Nguồn album nội bộ JoTrip / Phu Quoc 2023; có khách trong ảnh; không khẳng định đây là ảnh của một điểm dừng tour cụ thể.",
           "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
-        },
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Female%20motorcyclist%20wearing%20gloves%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam.jpg?width=1200",
-          "alt": "Một người chạy xe máy trên đường Dương Đông, Phú Quốc",
-          "caption": "Người chạy xe máy ở Dương Đông, Phú Quốc năm 2010. Ảnh bối cảnh sau khi đưa xe qua đảo, không phải ảnh quy trình gửi xe.",
-          "scope": "context",
-          "source_label": "Avenue - Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Female_motorcyclist_wearing_gloves,_Phú_Quốc,_Vietnam.jpg",
-          "license": "CC BY-SA 3.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "rights_status": "CC_VERIFIED"
         }
       ]
     },
@@ -4565,20 +4534,21 @@
           "scope": "historical_context",
           "source_label": "Plicata · Wikimedia Commons",
           "source_url": "https://commons.wikimedia.org/wiki/File:Boats_PhuQuoc.jpg",
+          "captured_at": "2002-12",
           "license": "Public domain",
           "rights_status": "PUBLIC_DOMAIN"
         },
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Selling%20fruit%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1600",
-          "alt": "Quầy trái cây tại chợ đêm Phú Quốc, ảnh tháng 12/2025",
-          "caption": "Một quầy trái cây tại chợ đêm Bạch Đằng, chụp ngày 28/12/2025.",
-          "scope": "exact_subject",
-          "source_label": "Wikimedia Commons · FrogsLegs71",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Selling_fruit_in_Phu_Quoc_night_market_Vietnam.jpg",
-          "captured_at": "2025-12-28",
-          "license": "CC BY-SA 3.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1280",
+          "alt": "Tàu cá gần cửa sông Dương Đông, Phú Quốc năm 2025",
+          "caption": "Tàu cá gần cảng Phú Quốc năm 2025, chụp tại tọa độ khu cửa sông Dương Đông. Đây là bối cảnh hiện tại của khu vực cảng, không phải ảnh cùng góc máy với năm 2002.",
+          "scope": "present_day_harbour_context",
+          "source_label": "Elmschrat · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Fishing_boat_Phu_Quoc.jpg",
+          "captured_at": "2025-11-12",
+          "license": "CC0 1.0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "rights_status": "CC_VERIFIED"
         }
       ]
     },
@@ -4589,23 +4559,12 @@
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishignet.jpg?width=1280",
           "alt": "Ngư dân gỡ lưới ở cầu tàu Hàm Ninh năm 2002",
           "caption": "Cầu tàu Hàm Ninh năm 2002, không đại diện cho hiện trạng hôm nay.",
-          "scope": "archive",
+          "scope": "historical_before_context",
           "source_label": "Plicata",
           "source_url": "https://commons.wikimedia.org/wiki/File:Fishignet.jpg",
           "license": "Public domain",
           "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
           "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
-        },
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Beach%20near%20Ham%20Ninh%20Phu%20Quoc.JPG?width=1200",
-          "alt": "Bãi biển ven bờ Hàm Ninh Phú Quốc năm 2015",
-          "caption": "Bờ biển gần Hàm Ninh, Phú Quốc, ảnh năm 2015.",
-          "scope": "exact_subject",
-          "source_label": "Tonbi ko · Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Beach_near_Ham_Ninh_Phu_Quoc.JPG",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "rights_status": "CC_VERIFIED"
         }
       ]
     },
@@ -4673,20 +4632,27 @@
       "title": "Tàu cá và nghề biển thay đổi thế nào",
       "images": [
         {
-          "url": "/assets/media/editorial-fishing-fleet.jpg",
-          "alt": "Những chiếc ghe cá neo đậu trên mặt biển Phú Quốc",
-          "caption": "Ảnh bối cảnh đội ghe cá trên vùng biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1200",
+          "alt": "Thuyền đánh cá ở cảng Dương Đông cuối năm 2002",
+          "caption": "Thuyền đánh cá tại cảng Dương Đông cuối năm 2002. Ảnh tư liệu lịch sử.",
+          "scope": "historical_fishing_context",
+          "source_label": "Plicata · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Boats_PhuQuoc.jpg",
+          "captured_at": "2002-12",
+          "license": "Public domain",
+          "rights_status": "PUBLIC_DOMAIN"
         },
         {
-          "url": "/assets/photos/fishing-boats-jo-library.jpg",
-          "alt": "Ghe thuyền neo đậu trên mặt nước nhìn từ trên cao",
-          "caption": "Ghe cá và tàu nhỏ neo gần nhau, ảnh bối cảnh.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1280",
+          "alt": "Tàu cá gần cảng Phú Quốc năm 2025",
+          "caption": "Tàu cá gần khu vực cảng Phú Quốc, chụp ngày 12/11/2025. Ảnh bối cảnh nghề biển, không đại diện cho mọi loại tàu cá trên đảo.",
+          "scope": "current_fishing_context",
+          "source_label": "Elmschrat · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Fishing_boat_Phu_Quoc.jpg",
+          "captured_at": "2025-11-12",
+          "license": "CC0 1.0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "rights_status": "CC_VERIFIED"
         }
       ]
     },
@@ -4694,12 +4660,16 @@
       "title": "Một ngày ở Phú Quốc vận hành thế nào",
       "images": [
         {
-          "url": "/assets/media/editorial-fishing-fleet.jpg",
-          "alt": "Những chiếc ghe cá neo đậu trên mặt biển Phú Quốc",
-          "caption": "Ảnh bối cảnh đội ghe cá trên vùng biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1280",
+          "alt": "Tàu cá gần cảng Phú Quốc năm 2025",
+          "caption": "Một tàu cá gần cảng Phú Quốc năm 2025, dùng như một lát cắt của nhịp nghề biển trong ngày; không đại diện cho toàn bộ nhịp sống của đảo.",
+          "scope": "daily_rhythm_context",
+          "source_label": "Elmschrat · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Fishing_boat_Phu_Quoc.jpg",
+          "captured_at": "2025-11-12",
+          "license": "CC0 1.0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "rights_status": "CC_VERIFIED"
         }
       ]
     }
