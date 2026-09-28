@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {readFileSync,existsSync} from "node:fs";
 import {join} from "node:path";
-const root=process.env.OPENPQ_DIST||"dist",base="https://cms.openphuquoc.com";
+const root=process.env.OPENPQ_DIST||"dist",base="https://openphuquoc.com";
 const xml=readFileSync(join(root,"sitemap.xml"),"utf8");
 const robots=readFileSync(join(root,"robots.txt"),"utf8");
 assert.match(xml,/<urlset xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9">/);
