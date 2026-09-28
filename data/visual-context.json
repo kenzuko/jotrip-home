@@ -2944,7 +2944,7 @@
           "url": "https://static.vinwonders.com/2022/02/gieng-tien-phu-quoc-7.jpg",
           "alt": "Giếng Tiên tại Mũi Ông Đội, Phú Quốc",
           "caption": "Giếng Tiên ở Mũi Ông Đội, ảnh tư liệu từ năm 2022.",
-          "scope": "exact_subject",
+          "scope": "site_context",
           "source_label": "VinWonders - Giếng Tiên",
           "source_url": "https://vinwonders.com/vi/wonderpedia/news/kham-pha-dieu-ky-thu-cua-gieng-tien-phu-quoc-gieng-nuoc-ngot-giua-bien/",
           "published_at": "2022",
@@ -3295,21 +3295,7 @@
     },
     "knowledge_048_song-va-huong-song-quanh-dao": {
       "title": "Sóng và hướng sóng quanh đảo",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20on%20the%20Long%20Beach%20in%20Phu%20Quoc%20Island%2C%20Vietnam%2C%205%20March%202019.jpg?width=1600",
-          "alt": "Hoàng hôn tại Bãi Trường Phú Quốc, ảnh tháng 3/2019",
-          "caption": "Bãi Trường lúc hoàng hôn, ảnh chụp tháng 3/2019.",
-          "scope": "exact_subject",
-          "source_label": "Wikimedia Commons - Alexey Komarov",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_on_the_Long_Beach_in_Phu_Quoc_Island,_Vietnam,_5_March_2019.jpg",
-          "captured_at": "2019-03-05",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "hero_priority": "primary",
-          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
-        }
-      ]
+      "images": []
     },
     "knowledge_050_hoang-hon-phu-quoc": {
       "title": "Hoàng hôn Phú Quốc",
@@ -3773,76 +3759,27 @@
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20port.jpg?width=1200",
           "alt": "Cảng An Thới Phú Quốc năm 2018",
-          "caption": "Cảng An Thới năm 2018, ảnh tư liệu không phản ánh tình trạng vận hành hiện tại.",
-          "scope": "exact_subject",
+          "caption": "Cảng An Thới năm 2018, một đầu mối ở Nam đảo; ảnh chỉ làm bối cảnh điểm đến, không mô tả toàn tuyến Dương Đông - An Thới hay tình trạng giao thông hôm nay.",
+          "scope": "route_endpoint_context",
           "source_label": "Dương Đăng Khôi · Wikimedia Commons",
           "source_url": "https://commons.wikimedia.org/wiki/File:An_Thoi_port.jpg",
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
           "rights_status": "CC_VERIFIED"
-        },
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Selling%20fruit%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1600",
-          "alt": "Quầy trái cây tại chợ đêm Phú Quốc, ảnh tháng 12/2025",
-          "caption": "Một quầy trái cây tại chợ đêm Bạch Đằng, chụp ngày 28/12/2025.",
-          "scope": "exact_subject",
-          "source_label": "Wikimedia Commons · FrogsLegs71",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Selling_fruit_in_Phu_Quoc_night_market_Vietnam.jpg",
-          "captured_at": "2025-12-28",
-          "license": "CC BY-SA 3.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ]
     },
     "knowledge_079_di-chuyen-duong-dong-ganh-dau": {
       "title": "Di chuyển Dương Đông - Gành Dầu",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Selling%20fruit%20in%20Phu%20Quoc%20night%20market%20Vietnam.jpg?width=1600",
-          "alt": "Quầy trái cây tại chợ đêm Phú Quốc, ảnh tháng 12/2025",
-          "caption": "Một quầy trái cây tại chợ đêm Bạch Đằng, chụp ngày 28/12/2025.",
-          "scope": "exact_subject",
-          "source_label": "Wikimedia Commons · FrogsLegs71",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Selling_fruit_in_Phu_Quoc_night_market_Vietnam.jpg",
-          "captured_at": "2025-12-28",
-          "license": "CC BY-SA 3.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
-        }
-      ]
+      "images": []
     },
     "knowledge_080_di-chuyen-duong-dong-rach-vem": {
       "title": "Di chuyển Dương Đông - Rạch Vẹm",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Starfishes%20on%20the%20Starfish%20Beach%2C%20Phu%20Quoc%2C%20Vietnam.jpg?width=1280",
-          "alt": "Sao biển tại bãi Sao Biển phía bắc Phú Quốc năm 2019",
-          "caption": "Sao biển tại bãi phía bắc Phú Quốc, ảnh năm 2019; số lượng thay đổi theo mùa.",
-          "scope": "exact_subject",
-          "source_label": "Alexey Komarov",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Starfishes%20on%20the%20Starfish%20Beach%2C%20Phu%20Quoc%2C%20Vietnam.jpg",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
-        }
-      ]
+      "images": []
     },
     "knowledge_081_di-chuyen-duong-dong-ham-ninh": {
       "title": "Di chuyển Dương Đông - Hàm Ninh",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishignet.jpg?width=1280",
-          "alt": "Ngư dân gỡ lưới ở cầu tàu Hàm Ninh năm 2002",
-          "caption": "Cầu tàu Hàm Ninh năm 2002, không đại diện cho hiện trạng hôm nay.",
-          "scope": "archive",
-          "source_label": "Plicata",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Fishignet.jpg",
-          "license": "Public domain",
-          "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
-          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
-        }
-      ]
+      "images": []
     },
     "knowledge_082_bus-phu-quoc": {
       "title": "Bus Phú Quốc",
@@ -3901,30 +3838,7 @@
     },
     "knowledge_087_ferry-high-speed-boat-den-phu-quoc": {
       "title": "Ferry / high-speed boat đến Phú Quốc",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Female%20motorcyclist%20wearing%20gloves%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam.jpg?width=1200",
-          "alt": "Một người chạy xe máy trên đường Dương Đông, Phú Quốc",
-          "caption": "Người chạy xe máy ở Dương Đông, Phú Quốc năm 2010. Ảnh bối cảnh sau khi đưa xe qua đảo, không phải ảnh quy trình gửi xe.",
-          "scope": "context",
-          "source_label": "Avenue - Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Female_motorcyclist_wearing_gloves,_Phú_Quốc,_Vietnam.jpg",
-          "license": "CC BY-SA 3.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "rights_status": "CC_VERIFIED"
-        },
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20port.jpg?width=1200",
-          "alt": "Cảng An Thới Phú Quốc năm 2018",
-          "caption": "Cảng An Thới năm 2018, ảnh tư liệu không phản ánh tình trạng vận hành hiện tại.",
-          "scope": "exact_subject",
-          "source_label": "Dương Đăng Khôi · Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:An_Thoi_port.jpg",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "rights_status": "CC_VERIFIED"
-        }
-      ]
+      "images": []
     },
     "knowledge_088_atm-o-phu-quoc": {
       "title": "ATM ở Phú Quốc",
@@ -4030,17 +3944,7 @@
     },
     "knowledge_112_nghinh-ong": {
       "title": "Nghinh Ông",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg?width=1600",
-          "alt": "Gian thờ xương cá voi trong tín ngưỡng ngư dân biển",
-          "caption": "Gian thờ cá Ông minh họa tín ngưỡng vùng biển, KHÔNG phải ảnh lễ Nghinh Ông tại Phú Quốc.",
-          "scope": "cultural_context",
-          "source_label": "Wikimedia Commons (xem tác giả và giấy phép tại trang ảnh)",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
-        }
-      ]
+      "images": []
     },
     "knowledge_115_cho-phu-quoc": {
       "title": "Chó Phú Quốc",
@@ -4361,7 +4265,7 @@
           "url": "https://hitour.vn/storage/images/upload/tour-du-lich-phu-quoc-15-750x460-type-manager-upload.webp",
           "alt": "Du khách chèo kayak trên sông Cửa Cạn, Phú Quốc",
           "caption": "Chèo kayak trên sông Cửa Cạn. Ảnh tư liệu từ đơn vị tour.",
-          "scope": "exact_subject",
+          "scope": "local_context",
           "source_label": "Hitour - Sông Cửa Cạn",
           "source_url": "https://hitour.vn/tin-tuc-du-lich-phu-quoc/diem-den-phu-quoc/song-cua-can-phia-bac-phu-quoc",
           "hero_priority": "primary",
@@ -4400,7 +4304,7 @@
           "url": "https://static.vinwonders.com/2022/02/gieng-tien-phu-quoc-7.jpg",
           "alt": "Giếng Tiên tại Mũi Ông Đội, Phú Quốc",
           "caption": "Giếng Tiên ở Mũi Ông Đội, ảnh tư liệu từ năm 2022.",
-          "scope": "exact_subject",
+          "scope": "historical_site_context",
           "source_label": "VinWonders - Giếng Tiên",
           "source_url": "https://vinwonders.com/vi/wonderpedia/news/kham-pha-dieu-ky-thu-cua-gieng-tien-phu-quoc-gieng-nuoc-ngot-giua-bien/",
           "published_at": "2022",
@@ -4452,7 +4356,7 @@
           "url": "https://static.vinwonders.com/2022/02/gieng-tien-phu-quoc-7.jpg",
           "alt": "Giếng Tiên tại Mũi Ông Đội, Phú Quốc",
           "caption": "Giếng Tiên ở Mũi Ông Đội, ảnh tư liệu từ năm 2022.",
-          "scope": "exact_subject",
+          "scope": "historical_site_context",
           "source_label": "VinWonders - Giếng Tiên",
           "source_url": "https://vinwonders.com/vi/wonderpedia/news/kham-pha-dieu-ky-thu-cua-gieng-tien-phu-quoc-gieng-nuoc-ngot-giua-bien/",
           "published_at": "2022",
@@ -4639,15 +4543,15 @@
       "title": "Phú Quốc trước sân bay quốc tế",
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Airport%20Phu%20Quoc.jpg?width=1200",
-          "alt": "Sân bay Phú Quốc trong ảnh năm 2025",
-          "caption": "Sân bay Phú Quốc trong ảnh tư liệu 2025; không phải trạng thái chuyến bay thời gian thực.",
-          "scope": "context",
-          "source_label": "Wikimedia Commons contributor · Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Airport_Phu_Quoc.jpg",
-          "license": "CC0",
-          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "rights_status": "CC_VERIFIED"
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/PhuQuocAirport.jpg?width=1600",
+          "alt": "Sân bay Phú Quốc cũ năm 2009 trước khi sân bay quốc tế hiện nay vận hành",
+          "caption": "Sân bay Phú Quốc cũ, ảnh chụp ngày 10/02/2009 tại khu sân bay Dương Đông. Ảnh thuộc giai đoạn trước khi Cảng hàng không quốc tế Phú Quốc vận hành năm 2012.",
+          "scope": "historical_exact_context",
+          "source_label": "Michael Gerard Burns · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:PhuQuocAirport.jpg",
+          "captured_at": "2009-02-10",
+          "license": "Public domain",
+          "rights_status": "PUBLIC_DOMAIN"
         }
       ]
     },
