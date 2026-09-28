@@ -1,18 +1,23 @@
 {
   "version": 1,
   "include": [
-    "/api/cms/*",
-    "/api/traffic/collect",
-    "/api/feedback",
-    "/api/weather/live/*",
-    "/api/context/v1/weather/*",
-    "/api/go/live",
-    "/weather/data/*",
-    "/weather/spatial-ecmwf.json",
-    "/weather/spatial-icon.json",
-    "/weather/spatial-marine.json",
-    "/stories/article.html",
-    "/guide/article.html"
+    "/*"
   ],
-  "exclude": []
+  "exclude": [
+    "/assets/*",
+    "/data/*",
+    "/core/*",
+    "/*.css",
+    "/*.js",
+    "/*.mjs",
+    "/*.png",
+    "/*.jpg",
+    "/*.jpeg",
+    "/*.webp",
+    "/*.gif",
+    "/*.svg",
+    "/*.ico",
+    "/*.woff",
+    "/*.woff2"
+  ]
 }
