@@ -40,7 +40,7 @@
 .flight-drawer.hidden{display:none!important;pointer-events:none!important}
 .operation-watch-mobile{display:none}
 .fids-card{margin-top:14px}
-.lang-switch select{min-height:38px;padding:0 9px;border:1px solid var(--line);border-radius:11px;background:#fff;color:var(--navy);font-weight:800}
+.lang-switch{height:42px!important;padding:0 10px!important;gap:6px!important}.lang-switch select{height:100%!important;min-height:0!important;min-width:54px!important;padding:0 18px 0 0!important;border:0!important;border-radius:0!important;background:transparent!important;color:var(--navy)!important;font-size:12px!important;font-weight:850!important;line-height:1!important;box-shadow:none!important}.lang-switch:after{top:50%!important;right:9px!important;transform:translateY(-50%)!important}
 @media(max-width:1020px){
   .operation-watch-desktop{display:none!important}
   .operation-watch-mobile{display:block}
