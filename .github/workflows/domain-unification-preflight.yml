@@ -1,0 +1,72 @@
+name: Domain Unification Preflight Lab
+
+on:
+  push:
+    branches: ["test/openpq-domain-unification-preflight"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout lab branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Protect live content and operational data
+        shell: bash
+        run: |
+          git fetch origin main
+          CHANGED="$(git diff --name-only origin/main...HEAD)"
+          echo "$CHANGED"
+          if echo "$CHANGED" | grep -E '^(data/|guide/data\.json$|weather/data/|airport/data/|transit/data/|nearme/data/)'; then
+            echo "::error::Domain lab must not modify content or operational data."
+            exit 1
+          fi
+
+      - name: Check domain-unification audit
+        run: |
+          node --check scripts/test-domain-unification-preflight.mjs
+          node scripts/test-domain-unification-preflight.mjs
+
+      - name: Preserve CMS editing regressions
+        run: |
+          node scripts/test-cms-access.mjs
+          node scripts/test-cms-draft-review.mjs
+          node scripts/test-cms-edit-state.mjs
+          node scripts/test-cms-direct-save.mjs
+          node scripts/test-cms-inline-edit.mjs
+          node scripts/test-cms-editor-workflow.mjs
+          node scripts/test-cms-review-diff.mjs
+          node scripts/test-cms-rollback.mjs
+
+      - name: Check runtime syntax
+        run: |
+          node --check worker.js
+          node --check functions/_shared/seo-html.js
+          node --check functions/api/cms/publish.js
+          node --check functions/api/cms/direct-save.js
+          node --check functions/api/cms/edit-state.js
+          node --check functions/api/cms/rollback.js
+          node --check admin/admin.js
+
+      - name: Build static bundle and verify current SEO baseline
+        run: |
+          node scripts/build-cloudflare.mjs
+          node scripts/test-seo-sitemap.mjs
+          node scripts/test-seo-render.mjs
+          node scripts/validate-cloudflare-build.mjs
+
+      - name: Dry-build both Cloudflare runtimes
+        run: |
+          npx --yes wrangler@4.136.3 pages functions build functions --outdir "$RUNNER_TEMP/openpq-pages-domain-lab"
+          npx --yes wrangler@4.136.3 deploy --dry-run --config wrangler.jsonc --outdir "$RUNNER_TEMP/openpq-worker-domain-lab"
+          test -d "$RUNNER_TEMP/openpq-pages-domain-lab"
+          test -d "$RUNNER_TEMP/openpq-worker-domain-lab"
+
+      - name: Enforce target domain contract
+        run: node scripts/test-domain-unification-preflight.mjs --strict
