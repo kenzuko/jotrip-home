@@ -1,6 +1,6 @@
 // HTML returned to crawlers and visitors includes the same published body as the client reader.
 // No private editorial/research source is loaded here.
-export const SEO_ORIGIN="https://cms.openphuquoc.com";
+export const SEO_ORIGIN="https://openphuquoc.com";
 export const SEO_FALLBACK_IMAGE=SEO_ORIGIN+"/assets/share-card-phu-quoc-v3.jpg";
 const esc=v=>String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const clean=v=>String(v??"").replace(/\s+/g," ").trim();
