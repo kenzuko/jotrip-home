@@ -1,5 +1,5 @@
 import { CMS_REPO_API, githubJson, readCmsSession, readCurrentCmsRole, sameOrigin } from "../../_shared/cms-mutation-core.js";
-import { cmsCanAny, cmsSupports } from "../../_shared/cms-mutation-policy.js";
+import { cmsCan, cmsCanAny, cmsSupports } from "../../_shared/cms-mutation-policy.js";
 const te=new TextEncoder(),td=new TextDecoder();
 const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store"}});
 function fromB64(s){s=String(s||"").replace(/-/g,"+").replace(/_/g,"/");while(s.length%4)s+="=";const raw=atob(s);return Uint8Array.from(raw,c=>c.charCodeAt(0))}
@@ -24,7 +24,9 @@ export async function onRequest({request,env}){
     if(existing)return json({ok:true,existing:true,pull_request:{number:existing.number,url:existing.html_url}});
     const files=await gh(base+"/pulls/"+number+"/files?per_page=10",user.accessToken);
     if(files.length!==1||files[0].status!=="modified"||!cmsSupports(files[0].filename,"rollback"))return fail("PR này không phải thay đổi một tệp CMS có thể rollback an toàn tự động",422);
-    const file=files[0],encoded=file.filename.split("/").map(encodeURIComponent).join("/");
+    const file=files[0];
+    if(!cmsCan(role,file.filename,"rollback"))return fail("Chỉ Admin được tạo đề xuất rollback",403);
+    const encoded=file.filename.split("/").map(encodeURIComponent).join("/");
     const commit=await gh(base+"/commits/"+original.merge_commit_sha,user.accessToken);
     const parent=commit.parents?.[0]?.sha;
     if(!parent)return fail("Không tìm thấy phiên bản trước PR",409);
