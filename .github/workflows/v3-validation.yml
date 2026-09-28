@@ -73,6 +73,8 @@ jobs:
         run: node scripts/test-cms-mutation-policy.mjs
       - name: Test CMS mutation audit metadata
         run: node scripts/test-cms-mutation-audit.mjs
+      - name: Test CMS server draft persistence
+        run: node scripts/test-cms-server-drafts.mjs
       - name: Test CMS direct save mutation safety
         run: node scripts/test-cms-direct-save.mjs
       - name: Test CMS edit-state conflict preflight
@@ -119,6 +121,7 @@ jobs:
           node --check functions/_shared/cms-mutation-core.js
           node --check functions/_shared/cms-mutation-policy.js
           node --check functions/api/cms/direct-save.js
+          node --check functions/api/cms/drafts.js
           node --check functions/api/cms/edit-state.js
           node --check functions/api/cms/publish.js
           node --check functions/api/cms/reviews.js
