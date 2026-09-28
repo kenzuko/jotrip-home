@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-28T16:45:00.000Z",
+  "generated_at": "2026-09-28T18:00:00.000Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 227,
-    "missing_count": 167
+    "ready_count": 228,
+    "missing_count": 166
   },
   "layers": {
     "zones": [
@@ -335,6 +335,20 @@
         "source_id": "google_maps_location_lookup",
         "note": "Bảo tàng nằm trong Grand World; pin hiện dùng điểm neo trung tâm Grand World cho tới khi có pin cửa vào bảo tàng.",
         "verified_at": "2026-09-22"
+      },
+      {
+        "id": "place_suoi_da_ban",
+        "name": "Suối Đá Bàn",
+        "type": "place",
+        "lat": 10.2454375,
+        "lon": 104.027046875,
+        "precision": "area_anchor",
+        "source": "Published destination Plus Code recovered in Phu Quoc context, cross-checked across named Suoi Da Ban listings",
+        "source_id": "suoi_da_ban_pluscode_crosscheck_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Area anchor decoded from published Plus Code 62WG+5RF for Suối Đá Bàn. Dùng để định hướng khu vực; không xác nhận cổng khu du lịch, bãi xe, đầu đường mòn, tầng thác hay điểm xuống suối.",
+        "accuracy": "published_named_destination_plus_code_area_anchor",
+        "plus_code": "62WG+5RF"
       },
       {
         "id": "place_suoi_da_ngon",
@@ -3467,7 +3481,6 @@
     "utility_tgdd_104_304",
     "place_fish_sauce_house",
     "place_pepper_garden",
-    "place_suoi_da_ban",
     "place_phu_quoc_ridgeback_center",
     "utility_112",
     "utility_113",
