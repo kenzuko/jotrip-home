@@ -58,6 +58,8 @@
  }
  function plan({items=[],entities=new Map(),nowMinute,sunsetMinute,weekday=0,sunsetWeather="unknown"}={}) {
   const out=[];
+  const sunsetWx=typeof sunsetWeather==="string"?{level:sunsetWeather}:sunsetWeather||{level:"unknown"};
+  const sunsetLevel=sunsetWx.level||"unknown";
   for(const item of items){
    const e=entities.get(item.entity_id)||{},opening=e.opening_hours||null,id=item.entity_id;
    // Do not recommend Dinh Cậu as a sunset visit once it is dark.
@@ -180,10 +182,16 @@
      summary=w.start+"-"+w.end;
      if(id==="place_dinh_cau"&&Number.isFinite(sunsetMinute)&&nowMinute>=sunsetMinute){
       note="Hoàng hôn đã qua. Nếu đang ở gần, xem giờ tham quan còn lại; không cần chạy xa chỉ để ghé lúc này.";
-     }else if(id==="place_dinh_cau" && sunsetWeather==="bad"){
-      note="Bờ Tây có tín hiệu mưa hoặc dông gần hoàng hôn. Quan sát thêm dự báo trước khi di chuyển.";
-     }else if(id==="place_dinh_cau" && sunsetWeather==="watch"){
-      note="Cuối chiều có thể có mưa cục bộ ở bờ Tây. Quan sát thêm dự báo trước khi di chuyển.";
+     }else if(id==="place_dinh_cau" && sunsetLevel==="bad"){
+      note=sunsetWx.reason==="observed_weather"
+       ?"Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển."
+       :"Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Đây là dự báo, không phải xác nhận đang mưa.";
+     }else if(id==="place_dinh_cau" && sunsetLevel==="watch"){
+      note=sunsetWx.reason==="observed_rain"
+       ?"Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi."
+       :sunsetWx.reason==="satellite_convection"
+        ?"Ảnh vệ tinh cho thấy mây đối lưu quanh bờ Tây"+(sunsetWx.gauges_dry?", nhưng các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa.":".")
+        :"Dự báo cuối chiều có thể có mưa cục bộ nhẹ ở bờ Tây.";
      }
     }
    }else if(nextWindow){
