@@ -27,7 +27,7 @@ const save=api.save({
   data:{stories:[{id:"one",title:"Draft"}]}
 });
 const clear=api.clear("data/content.json");
-await Promise.resolve();
+await new Promise(resolve=>setTimeout(resolve,0));
 assert.equal(calls.length,1,"Same-path clear must queue behind an in-flight save");
 assert.equal(calls[0].body.action,"save");
 assert.equal(calls[0].options.credentials,"include");
