@@ -1710,7 +1710,7 @@
         "nature",
         "stream"
       ],
-      "what_it_is": "Khu du lịch sinh thái bên suối ở khu vực Bến Tràm. Pin sẽ được bổ sung sau khi xác minh đúng cổng vào; không dùng tọa độ của lòng suối thay cho lối vào.",
+      "what_it_is": "Khu du lịch sinh thái bên suối ở khu vực Bến Tràm. Pin hiện là neo khu vực để định hướng, không phải cổng vào, bãi xe hay điểm xuống suối đã xác minh.",
       "why_go": "Đi bộ qua rừng · Ngắm suối và ghềnh đá · Dã ngoại theo mùa",
       "best_for": [
         "nature",
@@ -1738,11 +1738,28 @@
         },
         {
           "source_id": "google_maps_place_lookup_pending_pin"
+        },
+        {
+          "source_id": "suoi_da_ban_pluscode_crosscheck_20260929",
+          "url": "https://sunworld.vn/hon-thom/an-choi/phu-quoc-co-gi-dephtml",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-09-29",
       "address": "Bến Tràm, Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA"
+      "address_precision": "AREA",
+      "map": {
+        "lat": 10.2454375,
+        "lon": 104.027046875,
+        "precision": "area_anchor",
+        "source": "Published destination Plus Code recovered in Phu Quoc context, cross-checked across named Suoi Da Ban listings",
+        "source_id": "suoi_da_ban_pluscode_crosscheck_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Area anchor decoded from published Plus Code 62WG+5RF for Suối Đá Bàn. Dùng để định hướng khu vực; không xác nhận cổng khu du lịch, bãi xe, đầu đường mòn, tầng thác hay điểm xuống suối.",
+        "accuracy": "published_named_destination_plus_code_area_anchor",
+        "plus_code": "62WG+5RF"
+      },
+      "map_review_note": "Area anchor decoded from published Plus Code 62WG+5RF for Suối Đá Bàn. Dùng để định hướng khu vực; không xác nhận cổng khu du lịch, bãi xe, đầu đường mòn, tầng thác hay điểm xuống suối."
     },
     {
       "id": "place_suoi_da_ngon",
