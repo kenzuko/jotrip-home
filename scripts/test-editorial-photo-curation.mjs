@@ -55,5 +55,14 @@ for(const forbidden of ["Sea%20grass%20bed.jpg","Can%20Gio%20mangrove%20forest.j
 assert.equal(visual.knowledge["knowledge_039_rung-ngap-man-phu-quoc"]?.images?.length,0,"Mangrove guide stays photo-free until an exact Phú Quốc image with acceptable rights is curated");
 assert.equal(visual.knowledge["knowledge_042_rua-bien-quanh-phu-quoc"]?.images?.length,0,"Sea-turtle guide stays photo-free until an exact Phú Quốc image with acceptable rights is curated");
 assert(visual.knowledge["knowledge_082_bus-phu-quoc"]?.images?.[0]?.url.includes("photo.znews.vn"),"Bus guide should use a real Phú Quốc bus photo, not a Hà Nội vehicle illustration");
+for(const k of ["knowledge_048_song-va-huong-song-quanh-dao","knowledge_079_di-chuyen-duong-dong-ganh-dau","knowledge_080_di-chuyen-duong-dong-rach-vem","knowledge_081_di-chuyen-duong-dong-ham-ninh","knowledge_087_ferry-high-speed-boat-den-phu-quoc","knowledge_112_nghinh-ong"]){
+  assert.equal(visual.knowledge[k]?.images?.length,0,k+" stays photo-free until a subject-matched verified image is curated");
+}
+const ddAt=visual.knowledge["knowledge_078_di-chuyen-duong-dong-an-thoi"]?.images||[];
+assert.equal(ddAt.length,1,"Dương Đông - An Thới route keeps only the An Thới endpoint context image");
+assert(!JSON.stringify(ddAt).includes("Selling%20fruit"),"Night-market fruit stall must not illustrate an intercity route");
+const oldAirport=visual.knowledge["knowledge_139_phu-quoc-truoc-san-bay-quoc-te"]?.images?.[0];
+assert(oldAirport?.url.includes("PhuQuocAirport.jpg"),"Pre-international-airport article must use an old Phú Quốc airport image");
+assert(/^2009-/.test(oldAirport?.captured_at||""),"Pre-international-airport hero must predate the 2012 international airport opening");
 assert(roadTopic.images[1].url.includes("tr%E1%BA%A7n%20h%C6%B0ng")||roadTopic.images[1].url.includes("Tr%E1%BA%A7n%20h%C6%B0ng"),"Road-history second photo should remain the reviewed Trần Hưng Đạo image");
 console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");
