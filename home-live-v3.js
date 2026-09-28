@@ -237,12 +237,17 @@ function freshnessText(iso, prefix = "Cập nhật") {
     }
 
     const criticalAgeNow = ageMinutes(criticalData.generated_at || criticalData.local_generated_at);
-    if (!Number.isFinite(criticalAgeNow) || criticalAgeNow > 720) {
+    // A near-sunset decision must use a genuinely recent island snapshot.
+    // Older forecast runs stay available on /weather, but do not drive a
+    // "right now" homepage warning.
+    if (!Number.isFinite(criticalAgeNow) || criticalAgeNow > 180) {
       return { level:"unknown", reason:"stale_forecast", rain_mm_max:null, rain_mm_typical:null, points:[] };
     }
 
     const sunsetMin = clockMinutes(sunsetLabel);
-    const westIds = ["duong_dong","cua_can","ganh_dau","an_thoi"];
+    // "Bờ Tây" is scoped to the west/north-west coast. An Thới is evaluated
+    // separately as Nam đảo and must not make a west-coast sunset alert fire.
+    const westIds = ["duong_dong","cua_can","ganh_dau"];
     const rows = [];
 
     westIds.forEach(id => {
@@ -280,21 +285,48 @@ function freshnessText(iso, prefix = "Cập nhật") {
       ? rainValues[mid]
       : (rainValues[mid - 1] + rainValues[mid]) / 2;
 
-    const freshNowcast = criticalAgeNow <= 120;
-    const convection = freshNowcast
-      ? westIds.map(id => String(criticalData?.points?.[id]?.nowcast?.convective_level || "").toUpperCase()).filter(Boolean)
-      : [];
-    const highConvective = convection.includes("HIGH");
-    const elevatedConvective = convection.includes("ELEVATED");
+    const nowcastLevels = westIds.map(id => {
+      const n = criticalData?.points?.[id]?.nowcast;
+      const fresh = n?.status === "POINT_NUMERIC_READY" && ageMinutes(n?.sampled_time) <= 90;
+      return fresh ? String(n?.convective_level || "").toUpperCase() : "";
+    }).filter(Boolean);
+    const highConvective = nowcastLevels.some(x => ["HIGH","SEVERE","EXTREME"].includes(x));
+    const elevatedConvective = nowcastLevels.some(x => ["ELEVATED","WATCH","MODERATE"].includes(x));
+
+    const westGaugeNames = new Set(["CỬA CẠN","CUA CAN","DƯƠNG ĐÔNG","DUONG DONG","GÀNH DẦU","GANH DAU"]);
+    const normalizeName = value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase();
+    const freshWestGauges = (Array.isArray(criticalData?.actual?.rain_gauges) ? criticalData.actual.rain_gauges : [])
+      .filter(g => g && g.qc !== "FAIL" && g.increment_qc !== "FAIL" && ageMinutes(g.observed_at) <= 90)
+      .filter(g => westGaugeNames.has(normalizeName(g.name)));
+    const observedRain = freshWestGauges.some(g => g.rain_observed === true ||
+      (Number.isFinite(Number(g.rain_intensity_mm_h)) && Number(g.rain_intensity_mm_h) > 0));
+    const observedIntensityMax = freshWestGauges.reduce((m,g) =>
+      Math.max(m, Number.isFinite(Number(g.rain_intensity_mm_h)) ? Number(g.rain_intensity_mm_h) : 0), 0);
+    const metar = criticalData?.actual?.vvpq;
+    const metarFresh = metar && ageMinutes(metar.observed_at) <= 90;
+    const metarWx = metarFresh ? String(metar.weather || "").toUpperCase() : "";
+    const observedConvective = !!(metarFresh && (metar.convective_cloud === true || /TS/.test(metarWx)));
+    const metarRain = !!(metarFresh && /(RA|SHRA|DZ)/.test(metarWx));
+    const anyObservedRain = observedRain || metarRain;
+    const gaugesDry = freshWestGauges.length > 0 && !observedRain;
 
     let level = "good";
     let reason = "low_rain";
-    if (highConvective || rainMax >= 2 || rainTypical >= 1.5) {
+    if (observedConvective || observedIntensityMax >= 2) {
       level = "bad";
-      reason = highConvective ? "convective" : "rain";
-    } else if (elevatedConvective || rainMax >= 0.5 || rainTypical >= 0.3) {
+      reason = "observed_weather";
+    } else if (rainMax >= 2 || rainTypical >= 1.5) {
+      level = "bad";
+      reason = "forecast_rain";
+    } else if (anyObservedRain) {
       level = "watch";
-      reason = elevatedConvective ? "convective" : "rain";
+      reason = "observed_rain";
+    } else if (highConvective || elevatedConvective) {
+      level = "watch";
+      reason = "satellite_convection";
+    } else if (rainMax >= 0.5 || rainTypical >= 0.3) {
+      level = "watch";
+      reason = "forecast_rain";
     }
 
     return {
@@ -302,7 +334,12 @@ function freshnessText(iso, prefix = "Cập nhật") {
       reason,
       rain_mm_max:Number(rainMax.toFixed(2)),
       rain_mm_typical:Number(rainTypical.toFixed(2)),
-      points:rows
+      points:rows,
+      observed_rain:anyObservedRain,
+      observed_convective:observedConvective,
+      gauges_dry:gaugesDry,
+      gauge_count:freshWestGauges.length,
+      satellite_level:highConvective ? "HIGH" : elevatedConvective ? "ELEVATED" : "LOW"
     };
   }
 
@@ -531,8 +568,10 @@ function freshnessText(iso, prefix = "Cập nhật") {
       if (critical && currentCriticalAge <= 90 && (hasHighConvective || hasElevatedConvective || observedRain)) {
         push({
           tone:"watch",
-          title:"Nếu đi ngoài trời, giữ lịch linh hoạt.",
-          note:"Thời tiết có dấu hiệu thay đổi. Ưu tiên nơi dễ đổi kế hoạch nếu mưa tới.",
+          title:observedRain ? "Nếu đi ngoài trời, giữ lịch linh hoạt." : "Theo dõi thêm mây đối lưu quanh đảo.",
+          note:observedRain
+            ? "Một số trạm đang ghi nhận mưa. Xem đúng khu vực mình sắp tới trước khi đi xa."
+            : "Ảnh vệ tinh đang cho thấy mây đối lưu, nhưng tín hiệu này chưa đồng nghĩa mặt đất đang mưa hoặc có dông.",
           primaryText:"Xem thời tiết →", primaryHref:"weather/",
           secondaryText:"Tìm chỗ dễ đổi lịch", secondaryHref:"explore/?intent=rainy-day"
         });
@@ -575,20 +614,29 @@ function freshnessText(iso, prefix = "Cập nhật") {
       if (Number.isFinite(minutesToSunset) && minutesToSunset > 0 && minutesToSunset <= 240) {
         const sunsetWx = sunsetWeatherAssessment(critical, todaySunset);
         if (sunsetWx.level === "bad") {
+          const observed = sunsetWx.reason === "observed_weather";
           push({
             tone:"watch",
             title:"Hoàng hôn chiều nay có thể bị mưa ảnh hưởng.",
-            note:"Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn. Quan sát thêm dự báo trước khi di chuyển.",
+            note:observed
+              ? "Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển."
+              : "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Đây là dự báo, không phải xác nhận đang mưa.",
             primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
         } else if (sunsetWx.level === "watch") {
+          const satelliteOnly = sunsetWx.reason === "satellite_convection";
+          const observed = sunsetWx.reason === "observed_rain";
           push({
             tone:"watch",
             title:minutesToSunset <= 120
-              ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn, nhưng có thể có mưa."
-              : "Cuối chiều có thể có mưa cục bộ ở bờ Tây.",
-            note:"Cuối chiều có thể có mưa cục bộ. Quan sát thêm dự báo trước khi di chuyển.",
+              ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
+              : "Cuối chiều vẫn nên xem lại thời tiết bờ Tây.",
+            note:observed
+              ? "Có điểm đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi."
+              : satelliteOnly
+                ? "Ảnh vệ tinh cho thấy mây đối lưu quanh khu vực" + (sunsetWx.gauges_dry ? ", nhưng các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa." : ".")
+                : "Dự báo quanh giờ hoàng hôn có thể có mưa cục bộ nhẹ.",
             primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
             secondaryText:"Xem điểm gần hơn", secondaryHref:"nearme/"
           });
@@ -598,9 +646,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
             title:minutesToSunset <= 120
               ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
               : "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
-            note:minutesToSunset <= 120
-              ? "Quan sát thêm dự báo trước khi di chuyển."
-              : "Quan sát thêm dự báo trước khi di chuyển.",
+            note:sunsetWx.gauges_dry
+              ? "Hiện các trạm đang theo dõi chưa ghi nhận mưa. Cuối chiều vẫn có thể thay đổi cục bộ."
+              : "Chưa thấy cảnh báo nổi bật quanh giờ hoàng hôn. Xem lại nếu thời tiết đổi nhanh.",
             primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
@@ -734,15 +782,17 @@ function freshnessText(iso, prefix = "Cập nhật") {
       if (criticalAge > 90) {
         wxTitle = "Chưa xem được thời tiết mới nhất";
         wxBadge = "TIN ĐÃ CŨ";
-      } else if (hasHighConvective) {
-        wxTitle = "Dông mạnh có thể phát triển nhanh";
-        wxBadge = "THEO DÕI";
-      } else if (hasElevatedConvective) {
-        wxTitle = "Mây dông đang dày lên";
-        wxBadge = "LƯU Ý";
       } else if (observedRain) {
         wxTitle = "Một số điểm trên đảo đang có mưa";
         wxBadge = "ĐANG MƯA";
+      } else if (hasHighConvective) {
+        wxTitle = "Ảnh vệ tinh cho thấy mây đối lưu quanh đảo";
+        wxNote = "Các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa. Xem đúng khu vực trước khi đi xa.";
+        wxBadge = "THEO DÕI";
+      } else if (hasElevatedConvective) {
+        wxTitle = "Ảnh vệ tinh cho thấy mây đối lưu đang tăng";
+        wxNote = "Chưa có quan trắc mưa tương ứng ở các trạm đang theo dõi. Tiếp tục quan sát.";
+        wxBadge = "LƯU Ý";
       } else if (islandDecision.status === "normal") {
         wxTitle = "Chưa thấy tín hiệu thời tiết nổi bật tại các điểm đang theo dõi";
         wxBadge = "CHƯA CÓ TÍN HIỆU";
@@ -829,31 +879,32 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     const quickAlerts = [];
     const weatherFreshForAlert = !!critical && criticalAge <= 90;
-    if (weatherFreshForAlert && hasHighConvective) {
-      quickAlerts.push({
-        label:"THỜI TIẾT",
-        text:"Mưa dông mạnh có thể phát triển nhanh ở một số khu vực.",
-        href:"weather/",
-        action:"Xem thời tiết",
-        priority:100,
-        level:"alert"
-      });
-    } else if (weatherFreshForAlert && hasElevatedConvective) {
-      quickAlerts.push({
-        label:"THỜI TIẾT",
-        text:"Mây đối lưu đang tăng. Nếu phải đi xa, nên xem khu vực mình sắp tới.",
-        href:"weather/",
-        action:"Xem thời tiết",
-        priority:80,
-        level:"watch"
-      });
-    } else if (weatherFreshForAlert && observedRain) {
+    // Alert priority: direct operations > observed weather > forecast/satellite watch > info.
+    if (weatherFreshForAlert && observedRain) {
       quickAlerts.push({
         label:"THỜI TIẾT",
         text:"Có nơi trên đảo đang ghi nhận mưa. Xem khu vực mình sắp đi trước khi chạy xa.",
         href:"weather/",
         action:"Xem thời tiết",
-        priority:60,
+        priority:90,
+        level:"watch"
+      });
+    } else if (weatherFreshForAlert && hasHighConvective) {
+      quickAlerts.push({
+        label:"THỜI TIẾT",
+        text:"Ảnh vệ tinh cho thấy mây đối lưu quanh đảo; chưa đồng nghĩa mặt đất đang mưa hoặc có dông.",
+        href:"weather/",
+        action:"Xem thời tiết",
+        priority:65,
+        level:"watch"
+      });
+    } else if (weatherFreshForAlert && hasElevatedConvective) {
+      quickAlerts.push({
+        label:"THỜI TIẾT",
+        text:"Ảnh vệ tinh cho thấy mây đối lưu đang tăng. Xem khu vực mình sắp tới nếu phải đi xa.",
+        href:"weather/",
+        action:"Xem thời tiết",
+        priority:55,
         level:"watch"
       });
     }
@@ -863,7 +914,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         text:"Cano Nam đảo hôm nay đang tạm dừng.",
         href:"cano/",
         action:"Xem tình hình cano",
-        priority:95,
+        priority:120,
         level:"alert"
       });
     }
@@ -873,7 +924,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         text:"Tàu cao tốc có thay đổi hôm nay.",
         href:"transit/",
         action:"Xem lịch tàu",
-        priority:90,
+        priority:115,
         level:"alert"
       });
     }
@@ -883,7 +934,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         text:"Phà có thay đổi hôm nay.",
         href:"transit/",
         action:"Xem lịch phà",
-        priority:90,
+        priority:115,
         level:"alert"
       });
     }
@@ -896,7 +947,18 @@ function freshnessText(iso, prefix = "Cập nhật") {
         text:airportIssueText,
         href:"airport/",
         action:"Xem chuyến bay",
-        priority:50,
+        priority:105,
+        level:"watch"
+      });
+    }
+    const ongoingShowNotice = (notices?.notices || []).find(x => ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status) && (!x.effective_from || x.effective_from <= vnDateKey()) && !x.valid_until);
+    if (ongoingShowNotice) {
+      quickAlerts.push({
+        label:"SHOW",
+        text:ongoingShowNotice.summary || ongoingShowNotice.title,
+        href:"places/detail.html?id=sac-mau-venice",
+        action:"Xem thông báo",
+        priority:110,
         level:"watch"
       });
     }
@@ -917,16 +979,19 @@ function freshnessText(iso, prefix = "Cập nhật") {
       if(today === lastTickerDay)return;
       lastTickerDay = today;
       const canceled = (notices?.notices || []).find(x => x.status === "CANCELLED" && x.date === today);
-      const datedLine = canceled ? [["SHOW TỐI NAY", canceled.title + " · Xem thông báo", "news/"]] : [];
-      renderTicker([...datedLine,...tickerBaseItems], canceled ? "watch" : (topAlert?.level || "normal"));
+      const ongoing = (notices?.notices || []).find(x => ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status) && (!x.effective_from || x.effective_from <= today) && !x.valid_until);
+      const datedLine = canceled ? [["SHOW TỐI NAY", canceled.title + " · Xem thông báo", "news/"]] :
+        ongoing ? [["SHOW", ongoing.title + " · Xem thông báo", "places/detail.html?id=sac-mau-venice"]] : [];
+      renderTicker([...datedLine,...tickerBaseItems], (canceled || ongoing) ? "watch" : (topAlert?.level || "normal"));
     };
     refreshDatedTicker();
     setInterval(refreshDatedTicker,60000);
 
     const pulseDot = document.querySelector(".island-pulse .live-dot");
     if (pulseDot) {
-      const hasOperationalAlert = (weatherFreshForAlert && hasHighConvective) || [canoState, fastState, ferryState].includes("SUSPENDED");
-      pulseDot.dataset.level = hasOperationalAlert ? "alert" : quickAlerts.length ? "noteworthy" : "normal";
+      const hasOperationalAlert = observedRain || [canoState, fastState, ferryState].includes("SUSPENDED");
+      const hasWeatherWatch = weatherFreshForAlert && (hasHighConvective || hasElevatedConvective);
+      pulseDot.dataset.level = hasOperationalAlert ? "alert" : (hasWeatherWatch || quickAlerts.length) ? "noteworthy" : "normal";
     }
 
     const decisionCard = document.querySelector("[data-decision-card]");
@@ -941,20 +1006,22 @@ function freshnessText(iso, prefix = "Cập nhật") {
         if (tag) tag.textContent = "KIỂM TRA TRƯỚC";
         if (title) title.textContent = "Chưa xem được thời tiết mới nhất";
         if (note) note.textContent = "Mở Thời tiết & Biển trước khi chọn hoạt động phụ thuộc thời tiết";
-      } else if (hasHighConvective || hasElevatedConvective || observedRain) {
+      } else if (observedRain || heroRain.confirmed) {
         decisionCard.href = "stories/article.html?id=mot-nam-trong-nha-thung";
         if (tag) tag.textContent = "LỊCH LINH HOẠT";
         if (title) title.textContent = "Đổi biển lấy một câu chuyện trong nhà thùng";
-        if (note) note.textContent = "Ít phụ thuộc thời tiết ngoài trời";
+        if (note) note.textContent = "Đang có quan trắc mưa ở một số điểm";
         if (img) {
           img.src = "https://statics.vinpearl.com/phu-quoc-fish-sauce-14_1693799607.jpg";
           img.alt = "Nhà thùng nước mắm Phú Quốc";
         }
       } else {
         decisionCard.href = "explore/?intent=sea";
-        if (tag) tag.textContent = "HỢP HÔM NAY";
+        if (tag) tag.textContent = hasHighConvective || hasElevatedConvective ? "THEO DÕI THÊM" : "HỢP HÔM NAY";
         if (title) title.textContent = "Ra biển trước hoàng hôn";
-        if (note) note.textContent = "Bờ Tây · kiểm tra tình hình đảo trước khi đi";
+        if (note) note.textContent = hasHighConvective || hasElevatedConvective
+          ? "Ảnh vệ tinh có mây đối lưu; xem khu vực trước khi đi"
+          : "Bờ Tây · kiểm tra tình hình đảo trước khi đi";
       }
     }
 
