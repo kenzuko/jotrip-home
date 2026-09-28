@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-27",
+  "generated_at": "2026-09-28",
   "sources": [
     {
       "id": "handbook_r3",
@@ -923,6 +923,30 @@
       "used_by": [
         "home_hot_now",
         "news"
+      ]
+    },
+    {
+      "id": "vin_phuquoc_price_board_20261001_20261231",
+      "type": "PRIMARY_PRICE_BOARD",
+      "label": "Vin Phú Quốc & Grand World - bảng giá niêm yết 01/10-31/12/2026",
+      "checked_at": "2026-09-28",
+      "effective_from": "2026-10-01",
+      "effective_to": "2026-12-31",
+      "dynamic": false,
+      "trust": "PRIMARY_DOCUMENT_USER_SUPPLIED",
+      "evidence_note": "Ảnh bảng giá do chủ dự án cung cấp ngày 28/09/2026. Ảnh ghi áp dụng từ 01/10/2026; mốc kết thúc 31/12/2026 do chủ dự án xác nhận trong cùng yêu cầu cập nhật.",
+      "used_by": [
+        "price_vinwonders_day",
+        "price_vinpearl_safari_day",
+        "price_vin_combo_1d",
+        "price_vin_combo_2d",
+        "price_grand_world_tinh_hoa",
+        "price_grand_world_teddy_bear",
+        "price_grand_world_venice",
+        "price_grand_world_combo_tinh_hoa_teddy",
+        "price_grand_world_allin",
+        "price_grand_world_combo_venice_tinh_hoa",
+        "price_grand_world_combo_venice_teddy"
       ]
     }
   ],
