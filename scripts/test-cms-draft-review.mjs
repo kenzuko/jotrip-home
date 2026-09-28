@@ -29,6 +29,7 @@ const endpointSource=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/
 const source=coreSource+"\n"+endpointSource;
 const {onRequest}=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
 const originalFetch=globalThis.fetch;
+const MAIN="f".repeat(40);
 let liveSha="expected-file-sha";
 let overlapping=false;
 let calls=[];
@@ -38,7 +39,7 @@ globalThis.fetch=async(url,options={})=>{
   if(target.startsWith("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/cms/users.json")){
     return Response.json({users:[{login:"kenzuko",role:"admin",enabled:true}]});
   }
-  if(target==="https://api.github.com/repos/kenzuko/jotrip-home/contents/data/home-copy.json?ref=main-head-sha"){
+  if(target==="https://api.github.com/repos/kenzuko/jotrip-home/contents/data/home-copy.json?ref="+MAIN){
     return Response.json({sha:liveSha});
   }
   if(target.startsWith("https://api.github.com/repos/kenzuko/jotrip-home/pulls?state=open&per_page=100")){
@@ -48,7 +49,7 @@ globalThis.fetch=async(url,options={})=>{
     return Response.json([{filename:"data/home-copy.json"}]);
   }
   if(target==="https://api.github.com/repos/kenzuko/jotrip-home/git/ref/heads/main"){
-    return Response.json({object:{sha:"main-head-sha"}});
+    return Response.json({object:{sha:MAIN}});
   }
   if(target==="https://api.github.com/repos/kenzuko/jotrip-home/git/refs"&&options.method==="POST"){
     return Response.json({ref:JSON.parse(options.body).ref},{status:201});
