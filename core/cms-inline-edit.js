@@ -1,7 +1,7 @@
 /* Inline CMS editing on cms.openphuquoc.com. Public readers see no controls. */
 (function(root){"use strict";
 const $=q=>document.querySelector(q),SOURCE="data/content.json";
-const S={id:"",login:"",sha:"",base:null,current:null,raw:null,tab:"",
+const S={id:"",login:"",role:"",sha:"",base:null,current:null,raw:null,tab:"",
   editing:false,dirty:false,blocked:false,timer:null,panel:null,targets:[]};
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const clone=x=>JSON.parse(JSON.stringify(x));
@@ -33,6 +33,7 @@ function note(message,kind=""){
 function blocked(message){
   S.blocked=true;clearTimeout(S.timer);note(message,"warn");
   $("#inlineCmsSave").disabled=true;$("#inlineCmsSubmit").disabled=true;
+  const direct=$("#inlineCmsDirect");if(direct)direct.disabled=true;
 }
 function backup(){
   if(!S.current)return;
@@ -106,6 +107,7 @@ function editPart(key,element,button){
     if(!write(item,key,input.value))return;
     S.dirty=true;reflect(element,key,input.value);schedule();
     $("#inlineCmsSubmit").disabled=false;
+    if(S.role==="admin")$("#inlineCmsDirect").disabled=false;
   });
   input.focus({preventScroll:true});panel.scrollIntoView({block:"center",behavior:"smooth"});
 }
@@ -134,7 +136,7 @@ async function begin(){
   try{
     const auth=await get("/api/cms/session");
     if(!roleOK(auth.role))throw Error("Tài khoản không có quyền sửa bài");
-    S.login=auth.login;
+    S.login=auth.login;S.role=auth.role;
     const [live,upstream]=await Promise.all([
       get("/data/content.json?inline="+Date.now()),
       get("/api/cms/content?path="+encodeURIComponent(SOURCE))
@@ -161,8 +163,51 @@ async function begin(){
     const item=story(S.current,S.id);
     if(raw)S.targets.forEach(({key,el})=>reflect(el,key,read(item,key)));
     $("#inlineCmsSubmit").disabled=!S.dirty;
+    $("#inlineCmsDirect").hidden=S.role!=="admin";
+    $("#inlineCmsDirect").disabled=!S.dirty;
     note(raw?"Đã khôi phục bản nháp. Chọn đoạn muốn chỉnh.":"Chọn phần muốn sửa ngay trên bài.");
   }catch(e){note(e.message+". Bài đang đọc chưa thay đổi.","warn");}
+}
+function storyChanges(){
+  const before=story(S.base,S.id),after=story(S.current,S.id);
+  if(!before||!after||before.sections.length!==after.sections.length)
+    throw Error("Cấu trúc bài đã đổi, phải đối chiếu trong CMS.");
+  const fields=["title","dek","intro"];
+  for(let i=0;i<before.sections.length;i++)
+    fields.push("sections."+i+".heading","sections."+i+".body");
+  return fields.map(field=>{
+    const a=String(read(before,field)),b=String(read(after,field));
+    return a===b?null:{field,before:a,after:b};
+  }).filter(Boolean);
+}
+async function directSave(){
+  if(!S.editing||S.blocked||!S.dirty||S.role!=="admin")return;
+  clearTimeout(S.timer);S.timer=null;if(!save())return;
+  const button=$("#inlineCmsDirect");button.disabled=true;
+  try{
+    const changes=storyChanges();
+    if(!changes.length){note("Chưa sửa chữ nào.");return;}
+    if(!confirm("Lưu thẳng "+changes.length+" phần chữ, không qua duyệt? Có thể xem lịch sử và hoàn tác trên GitHub."))return;
+    note("Đang kiểm tra và lưu trực tiếp lên GitHub...");
+    const result=await get("/api/cms/direct-save",{
+      method:"POST",headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({path:SOURCE,record_id:S.id,sha:S.sha,changes})
+    });
+    if(!/^[a-f0-9]{40}$/.test(result.commit||""))
+      throw Error("Chưa có xác nhận commit. Giữ nháp để kiểm tra CMS.");
+    if(localStorage.getItem(draftKey(S.login))===S.raw)localStorage.removeItem(draftKey(S.login));
+    const key=recordKey(S.login,S.id,S.sha);
+    const checkpoint=JSON.parse(localStorage.getItem(key)||"null");
+    if(checkpoint?.tab===S.tab)localStorage.removeItem(key);
+    S.dirty=false;stop();
+    const el=$("#inlineCmsStatus");
+    el.replaceChildren(document.createTextNode("Đã lưu lên GitHub. Chờ CMS cập nhật. "));
+    const link=document.createElement("a");
+    link.href="https://github.com/kenzuko/jotrip-home/commit/"+result.commit;
+    link.target="_blank";link.rel="noopener noreferrer";link.textContent="Xem lịch sử ↗";
+    el.append(link);el.dataset.kind="good";
+  }catch(error){note(String(error.message||error)+". Nháp vẫn còn trên máy.","warn");}
+  finally{if(S.dirty&&!S.blocked)button.disabled=false;}
 }
 async function submit(){
   if(!S.editing||S.blocked||!S.dirty)return;
@@ -200,22 +245,25 @@ function toolbar(){
     '<div id="inlineCmsActions" hidden><button type="button" id="inlineCmsSave">Lưu nháp</button>'+
     '<button type="button" id="inlineCmsBackup">Tải bản sao</button>'+
     '<button type="button" id="inlineCmsRead">Đọc lại</button>'+
-    '<button type="button" id="inlineCmsSubmit">Gửi duyệt</button></div>'+
+    '<button type="button" id="inlineCmsSubmit">Gửi duyệt</button>'+
+    '<button type="button" id="inlineCmsDirect" hidden>Lưu thẳng (Admin)</button></div>'+
     '<p id="inlineCmsStatus" role="status"></p>'+
     '<a href="/admin/?module=stories&record='+encodeURIComponent(S.id)+'">Biên tập đầy đủ (ảnh, nguồn, cấu trúc) ↗</a>';
   document.body.appendChild(el);
   $("#inlineCmsOpen").onclick=begin;$("#inlineCmsSave").onclick=save;
   $("#inlineCmsBackup").onclick=backup;$("#inlineCmsRead").onclick=stop;$("#inlineCmsSubmit").onclick=submit;
+  $("#inlineCmsDirect").onclick=directSave;
 }
 async function mount(){
-  if(!["cms.openphuquoc.com","localhost","127.0.0.1"].includes(location.hostname))return;
+  const localQa=["localhost","127.0.0.1"].includes(location.hostname)&&new URLSearchParams(location.search).get("cms-inline-qa")==="1";
+  if(location.hostname!=="cms.openphuquoc.com"&&!localQa)return;
   S.id=new URLSearchParams(location.search).get("id")||"";
   if(!S.id||$("#inlineCmsToolbar"))return;
   const root=$("#articleRoot article.article");
   if(!root||!root.querySelector("h1"))return;
   try{
     const session=await get("/api/cms/session");
-    if(roleOK(session.role)){S.login=session.login;toolbar();
+    if(roleOK(session.role)){S.login=session.login;S.role=session.role;toolbar();
       if(new URLSearchParams(location.search).get("inline")==="1")begin();}
   }catch{/* Anonymous readers never see a toolbar. */}
 }

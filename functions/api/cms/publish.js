@@ -8,6 +8,7 @@ const writable={
   "data/utilities.json":["admin","operator"],
   "data/entities/destination-venues.json":["admin","editor","operator"],
   "data/entities/food.json":["admin","editor"],
+  "data/i18n/vi/food.json":["admin","editor"],
   "data/visual-context.json":["admin","editor"],
   "cms/users.json":["admin"]
 };
@@ -148,6 +149,23 @@ function validatePayload(path,content){
     });
   }
 
+  if(path==="data/i18n/vi/food.json"){
+    if(content.locale!=="vi")errors.push("Bản biên tập món ăn phải thuộc ngôn ngữ vi");
+    const dishes=Array.isArray(content.dishes)?content.dishes:[];
+    if(dishes.length<32)errors.push("Kho 32 bài món ăn không được bị thiếu");
+    const ids=new Set();
+    dishes.forEach((dish,i)=>{
+      const id=String(dish?.id||"").trim();
+      if(!id||ids.has(id))errors.push("Bài món ăn thiếu/trùng ID ở vị trí "+(i+1));
+      ids.add(id);
+      if(!String(dish?.name||"").trim()||!String(dish?.intro||"").trim())
+        errors.push("Bài "+(id||i+1)+" thiếu tên hoặc lời mở");
+      if(!Array.isArray(dish?.tips)||!Array.isArray(dish?.ingredients)||
+         !Array.isArray(dish?.ask_staff)||!Array.isArray(dish?.allergen_flags))
+        errors.push("Bài "+(id||i+1)+" thiếu cấu trúc thực phẩm/an toàn");
+    });
+  }
+
   if(path==="data/entities/food.json"){
     const entities=Array.isArray(content.entities)?content.entities:[];
     if(!entities.length)errors.push("Danh sách món ăn không được để trống");
@@ -215,6 +233,7 @@ export async function onRequest({request,env}){
 
     const body=await request.json();
     const path=String(body.path||"");
+    const foodMirror=path==="data/i18n/vi/food.json";
     const role=await currentRole(s.login);
     if(!role||!(writable[path]||[]).includes(role))return json({error:"Vai trò hiện tại không được xuất bản module này"},403);
     if(!body.sha)return json({error:"Thiếu SHA phiên bản hiện tại"},409);
@@ -239,14 +258,32 @@ export async function onRequest({request,env}){
     if(!fileResponse.ok)return json({error:"Không đọc được bản live hiện tại",github_status:fileResponse.status,detail:file?.message||"Không rõ nguyên nhân"},fileResponse.status);
     if(file.sha!==body.sha)return json({error:"Nội dung trên GitHub đã đổi trong lúc cậu đang sửa. Tải lại module rồi áp dụng lại thay đổi để tránh ghi đè.",latest_sha:file.sha},409);
 
+    // Same PR must keep the Vietnamese source and its public fallback in sync.
+    let mirrorFile=null,mirrorData=null;
+    if(foodMirror){
+      const mirrorResponse=await fetch(api+"/contents/data/food.json?ref=main",{headers,cache:"no-store"});
+      mirrorFile=await mirrorResponse.json();
+      if(!mirrorResponse.ok||!mirrorFile?.sha||!mirrorFile.content)
+        return json({error:"Không đọc được bản gốc món ăn để đồng bộ",github_status:mirrorResponse.status},502);
+      try{
+        const original=JSON.parse(td.decode(fromB64(String(file.content||"").replace(/\s/g,""))));
+        mirrorData=JSON.parse(td.decode(fromB64(String(mirrorFile.content).replace(/\s/g,""))));
+        if(JSON.stringify(original.dishes)!==JSON.stringify(mirrorData.dishes))
+          return json({error:"Bản món ăn tiếng Việt và dữ liệu gốc đã lệch. Chưa tạo đề xuất.",mirror_sha:mirrorFile.sha},409);
+      }catch(error){
+        return json({error:"Không đối chiếu được dữ liệu gốc món ăn",detail:String(error.message||error)},409);
+      }
+    }
+
     const openResponse=await fetch(api+"/pulls?state=open&per_page=100",{headers,cache:"no-store"});
     const openPulls=await openResponse.json();
     if(!openResponse.ok)return json({error:"Không kiểm tra được đề xuất đang mở",github_status:openResponse.status,detail:openPulls?.message||"Không rõ nguyên nhân"},openResponse.status);
+    const pathsToCheck=new Set(foodMirror?[path,"data/food.json"]:[path]);
     for(const openPr of (Array.isArray(openPulls)?openPulls:[]).filter(pr=>String(pr.head?.ref||"").startsWith("cms/draft/"))){
       const filesResponse=await fetch(api+"/pulls/"+openPr.number+"/files?per_page=100",{headers,cache:"no-store"});
       const changedFiles=await filesResponse.json();
       if(!filesResponse.ok)return json({error:"Không kiểm tra được tệp trong đề xuất đang mở",github_status:filesResponse.status,detail:changedFiles?.message||"Không rõ nguyên nhân"},filesResponse.status);
-      if((Array.isArray(changedFiles)?changedFiles:[]).some(file=>file.filename===path)){
+      if((Array.isArray(changedFiles)?changedFiles:[]).some(file=>pathsToCheck.has(file.filename))){
         return json({error:"Đang có đề xuất CMS khác sửa cùng tệp.",detail:"Kiểm tra hoặc đóng PR #"+openPr.number+" trước khi gửi thay đổi mới để tránh ghi đè.",conflicting_pr:{number:openPr.number,url:openPr.html_url}},409);
       }
     }
@@ -276,6 +313,21 @@ export async function onRequest({request,env}){
     const fileResult=await fileWrite.json();
     if(!fileWrite.ok)return json({error:"Không lưu được bản đề xuất",github_status:fileWrite.status,detail:fileResult?.message||"Không rõ nguyên nhân"},fileWrite.status);
 
+    if(foodMirror){
+      mirrorData.dishes=body.content.dishes;
+      const mirrorText=JSON.stringify(mirrorData,null,2)+"\n";
+      const mirrorWrite=await fetch(api+"/contents/data/food.json",{
+        method:"PUT",headers,body:JSON.stringify({
+          message:"cms: synchronize Vietnamese food articles",
+          content:toStdB64(te.encode(mirrorText)),
+          sha:mirrorFile.sha,branch
+        })
+      });
+      const mirrorResult=await mirrorWrite.json();
+      if(!mirrorWrite.ok)
+        return json({error:"Đã lưu nhánh bản tiếng Việt nhưng chưa đồng bộ được bản gốc. Chưa tạo PR.",
+          branch,detail:mirrorResult?.message||"GitHub write failed"},502);
+    }
     const pullResponse=await fetch(api+"/pulls",{
       method:"POST",headers,
       body:JSON.stringify({

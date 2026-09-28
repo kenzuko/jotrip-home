@@ -1,0 +1,43 @@
+/* Editor controls exist only for an authenticated admin on the CMS hostname. */
+.cms-page-launch{min-height:40px;padding:8px 12px;border:1px solid #b9d5c5;border-radius:10px;
+  background:#e9f6ed;color:#164c3a;font:750 13px system-ui,sans-serif;cursor:pointer}
+.cms-page-launch[hidden],.cms-page-bar[hidden]{display:none!important}
+body>.cms-page-launch{position:fixed;right:15px;bottom:16px;z-index:90;
+  box-shadow:0 9px 30px rgba(17,60,43,.18)}
+.cms-page-bar{position:sticky;top:8px;z-index:92;box-sizing:border-box;
+  width:min(860px,calc(100% - 20px));max-width:860px;margin:15px auto;
+  border:1px solid #bad7c4;background:#fff;border-radius:13px;padding:13px 15px;
+  box-shadow:0 12px 34px rgba(17,60,43,.13);font:14px/1.5 system-ui,sans-serif}
+body>.cms-page-bar{position:fixed;left:50%;bottom:10px;top:auto;transform:translateX(-50%);
+  margin:0;max-height:35vh;overflow:auto}
+.cms-page-bar strong{display:block;color:#194f3b}
+.cms-page-bar small{display:block;font-size:12px;color:#63796a;font-weight:400}
+.cms-page-actions{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.cms-page-actions button,.cms-page-panel button{min-height:40px;padding:8px 12px;
+  border:1px solid #b9d6c4;border-radius:9px;background:#edf7ef;color:#25543b;
+  font:750 13px system-ui,sans-serif;cursor:pointer}
+#cmsPageDirect{background:#bcebc9}
+.cms-page-actions button:disabled{opacity:.55}
+#cmsPageStatus{margin:8px 0 0;color:#315b46;font-size:12px;overflow-wrap:anywhere}
+#cmsPageStatus:empty{display:none}
+#cmsPageStatus[data-kind=warn]{color:#a24e2c}
+.cms-page-trigger{display:none}
+body.cms-page-editing .cms-page-trigger{display:inline-flex;align-items:center;
+  margin:8px 0 16px;padding:7px 10px;min-height:36px;
+  border:1px solid #b8d7c3;border-radius:9px;background:#eaf7ed;color:#20563c;
+  font:750 12px system-ui,sans-serif;cursor:pointer}
+body.cms-page-editing .cms-page-trigger.active{background:#1b543c;color:#fff}
+.cms-page-panel{clear:both;box-sizing:border-box;max-width:100%;margin:7px 0 24px;
+  padding:14px;border:1px solid #b3d4c0;border-radius:13px;background:#f2faf3}
+.cms-page-panel label{display:block;font:750 14px system-ui,sans-serif;color:#194d36}
+.cms-page-panel textarea{display:block;box-sizing:border-box;width:100%;min-height:110px;max-height:60vh;
+  margin:8px 0 11px;resize:vertical;padding:12px;border:1px solid #a9cfb8;
+  border-radius:9px;background:#fff;color:#18442e;font:16px/1.6 system-ui,sans-serif}
+.cms-page-panel small{display:block;margin-bottom:10px;color:#547361;font:12px/1.5 system-ui,sans-serif}
+.cms-page-panel button{background:#225c40;color:#fff}
+@media(max-width:650px){
+  .cms-page-bar{top:6px;padding:11px;width:calc(100% - 12px)}
+  body>.cms-page-bar{bottom:6px;max-height:43vh}
+  .cms-page-actions button{flex:1 1 42%}
+  .knowledge-header .cms-page-launch{font-size:12px}
+}

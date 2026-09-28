@@ -15,7 +15,7 @@ assert.match(admin,/requestId!==moduleRequestId/);
 assert.match(admin,/outdatedDraft=true/);
 assert.match(admin,/Đã tạo đề xuất PR/);
 assert.match(html,/aria-controls="moduleNav"/);
-assert.match(html,/aria-label="Mở website công khai trong tab mới"/);
+assert.match(html,/aria-label="Duyệt website trên miền CMS để chỉnh sửa nội dung"/);
 assert.match(admin,/NAV_HINTS/);
 assert.match(admin,/aria-expanded/);
 
@@ -186,6 +186,9 @@ await import("./test-cms-editor-workflow.mjs");
 await import("./test-cms-story-desk.mjs");
 await import("./test-cms-story-composer.mjs");
 await import("./test-cms-inline-edit.mjs");
+await import("./test-cms-inline-food.mjs");
+await import("./test-cms-direct-save.mjs");
+await import("./test-cms-inline-pages.mjs");
 await import("./test-cms-edit-state.mjs");
 
 // Admin V2: shared shell, workflow filters, role-aware switcher and D1 regression.

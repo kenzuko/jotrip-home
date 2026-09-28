@@ -1,14 +1,14 @@
 (()=> {
   const q=s=>document.querySelector(s);
   const qa=s=>[...document.querySelectorAll(s)];
-  const set=(s,t)=>{const e=q(s);if(e&&t)e.textContent=t};
+  const set=(s,t,path)=>{const e=q(s);if(e&&t){e.textContent=t;if(path)e.dataset.cmsField=path;}};
 
   fetch("data/home-copy.json?t="+Date.now(),{cache:"no-store"})
     .then(r=>r.json())
     .then(d=>{
-      set(".hero-kicker",d.hero?.kicker);
-      set(".hero-copy h1",d.hero?.title);
-      set(".hero-copy>p:not(.hero-kicker)",d.hero?.lead);
+      set(".hero-kicker",d.hero?.kicker,"hero.kicker");
+      set(".hero-copy h1",d.hero?.title,"hero.title");
+      set(".hero-copy>p:not(.hero-kicker)",d.hero?.lead,"hero.lead");
 
       const slides=qa(".hero-slide");
       (d.hero?.slides||[]).slice(0,slides.length).forEach((slide,i)=>{
@@ -23,12 +23,12 @@
 
       for(const [id,v] of Object.entries(d.sections||{})){
         if(id==="happening") continue;
-        set("#"+id+" .eyebrow",v.eyebrow);
-        set("#"+id+" .section-heading h2",v.title);
+        set("#"+id+" .eyebrow",v.eyebrow,"sections."+id+".eyebrow");
+        set("#"+id+" .section-heading h2",v.title,"sections."+id+".title");
         if(id==="heritage"){
-          set("#heritage .heritage-intro .eyebrow",v.eyebrow);
-          set("#heritage .heritage-intro h2",v.title);
-          set("#heritage .heritage-intro>p:last-child",v.lead);
+          set("#heritage .heritage-intro .eyebrow",v.eyebrow,"sections."+id+".eyebrow");
+          set("#heritage .heritage-intro h2",v.title,"sections."+id+".title");
+          set("#heritage .heritage-intro>p:last-child",v.lead,"sections."+id+".lead");
         }
       }
     })

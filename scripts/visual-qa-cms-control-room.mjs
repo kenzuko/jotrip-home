@@ -436,7 +436,7 @@ try{
     return r.fulfill({status:200,contentType:"application/json",
       body:JSON.stringify({pull_request:{number:900,url:"https://github.com/kenzuko/jotrip-home/pull/900"}})});
   });
-  await inline.goto(base+"/stories/article.html?id=test-draft",{waitUntil:"networkidle"});
+  await inline.goto(base+"/stories/article.html?id=test-draft&cms-inline-qa=1",{waitUntil:"networkidle"});
   await inline.locator("#inlineCmsOpen").waitFor();
   await inline.locator("#inlineCmsOpen").click();
   await inline.locator(".inline-edit-trigger").first().waitFor();
@@ -460,8 +460,73 @@ try{
   const anon=await anonCtx.newPage();
   await anon.route("**/api/cms/session",r=>r.fulfill({status:401,contentType:"application/json",body:'{"error":"Not logged in"}'}));
   await anon.route("**/data/content.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(fixture)}));
-  await anon.goto(base+"/stories/article.html?id=test-draft",{waitUntil:"networkidle"});
+  await anon.goto(base+"/stories/article.html?id=test-draft&cms-inline-qa=1",{waitUntil:"networkidle"});
   assert.equal(await anon.locator("#inlineCmsToolbar").count(),0);
+  await anonCtx.close();
+  }
+  // Food article editing is separate from the CMS entity/food mapping form.
+  {
+  const dish={id:"bun-quay",name:"Bún quậy",category:"local",
+    intro:"Món ăn nóng, tự pha chén chấm.",
+    origin:"Một món ăn gắn với Phú Quốc.",
+    why_name:"Tên món có liên quan tới chén nước chấm.",
+    ingredients:["Bún tươi","Chả hải sản"],
+    how_to_eat:"Ăn khi còn nóng.",
+    tips:["Hỏi thành phần trước khi gọi."],
+    allergen_flags:[{key:"shellfish",label:"Giáp xác",level:"high"}],
+    allergy_note:"Nước dùng có thể có tôm hoặc cua.",
+    ask_staff:["Riêu có thêm tôm không?"],hashtags:[],meal_times:["lunch"]};
+  const fixture={schema_version:"1.1",locale:"vi",dishes:[dish]};
+  const foodContext=await browser.newContext({viewport:{width:1440,height:900}});
+  const food=await foodContext.newPage(),foodPosts=[];
+  food.on("dialog",dialog=>dialog.accept());
+  await food.route("**/api/cms/session",r=>r.fulfill({
+    status:200,contentType:"application/json",
+    body:JSON.stringify({login:"food-qa",name:"Food QA",role:"admin"})}));
+  await food.route("**/data/i18n/vi/food.json?*",r=>r.fulfill({
+    status:200,contentType:"application/json",body:JSON.stringify(fixture)}));
+  await food.route("**/api/cms/content?*",r=>r.fulfill({
+    status:200,contentType:"application/json",
+    body:JSON.stringify({path:"data/i18n/vi/food.json",sha:"qa-food-sha",content:fixture})}));
+  await food.route("**/api/cms/edit-state?*",r=>r.fulfill({
+    status:200,contentType:"application/json",
+    body:JSON.stringify({sha:"qa-food-sha",complete:true,conflicts:[]})}));
+  await food.route("**/api/cms/publish",r=>{
+    foodPosts.push(r.request().postDataJSON());
+    return r.fulfill({status:200,contentType:"application/json",
+      body:JSON.stringify({pull_request:{number:901,url:"https://github.com/kenzuko/jotrip-home/pull/901"}})});
+  });
+  await food.goto(base+"/food/article.html?id=bun-quay&cms-inline-qa=1",{waitUntil:"networkidle"});
+  await food.locator("#foodInlineLauncher").waitFor();
+  await food.locator("#foodInlineLauncher").click();
+  await food.locator('[data-food-path="tips.0"] + button.food-inline-trigger').click();
+  await food.locator(".food-inline-panel textarea").fill("Lưu ý vừa sửa ngay khi đang đọc.");
+  assert.match(await food.locator('[data-food-path="tips.0"]').textContent(),/vừa sửa ngay/);
+  await food.locator("#foodInlineSave").click();
+  assert.equal(await food.evaluate(()=>Object.keys(localStorage).some(k=>k.startsWith("openpq-cms-food-inline:v1:"))),true);
+  await food.setViewportSize({width:390,height:844});
+  const box=await food.locator("#foodArticle .food-safety").evaluate(el=>({
+    padding:parseFloat(getComputedStyle(el).paddingLeft),width:el.getBoundingClientRect().width
+  }));
+  assert.ok(box.padding>=20,"Food safety card text hugs its border: "+box.padding);
+  assert.ok(box.width<=390,"Food safety card overflows screen: "+box.width);
+  const overflow=await food.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(overflow<=2,"Food article editor mobile overflow: "+overflow);
+  await food.screenshot({path:output+"/cms-inline-food-mobile.png",fullPage:true});
+  await food.locator("#foodInlineSubmit").click();
+  await food.locator("#foodInlineResult a[href*='/pull/901']").waitFor();
+  assert.equal(foodPosts.length,1);
+  assert.equal(foodPosts[0].path,"data/i18n/vi/food.json");
+  assert.equal(foodPosts[0].content.dishes[0].tips[0],"Lưu ý vừa sửa ngay khi đang đọc.");
+  await foodContext.close();
+  const anonCtx=await browser.newContext({viewport:{width:390,height:844}});
+  const anon=await anonCtx.newPage();
+  await anon.route("**/api/cms/session",r=>r.fulfill({
+    status:401,contentType:"application/json",body:'{"error":"Not logged in"}'}));
+  await anon.route("**/data/i18n/vi/food.json?*",r=>r.fulfill({
+    status:200,contentType:"application/json",body:JSON.stringify(fixture)}));
+  await anon.goto(base+"/food/article.html?id=bun-quay&cms-inline-qa=1",{waitUntil:"networkidle"});
+  assert.equal(await anon.locator("#foodInlineLauncher").count(),0);
   await anonCtx.close();
   }
   console.log("PASS CMS V2 browser QA: desktop/mobile, local editorial preview, record backup, GitHub conflict guard, zero-network demo, Quality D1 action refresh, Review search and role navigation");

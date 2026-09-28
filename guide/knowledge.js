@@ -52,10 +52,12 @@
     document.querySelector('link[rel="canonical"]')?.setAttribute("href","https://cms.openphuquoc.com"+o.route);
     document.querySelector('meta[name="description"]')?.setAttribute("content",ed.short_summary.slice(0,190));
     article.replaceChildren();
-    const root=el("article","knowledge-article");
+    const root=el("article","knowledge-article");root.dataset.cmsRecord=o.topic_id;
     const back=el("a","knowledge-back","← Tất cả bài cẩm nang");
     back.href="/guide/knowledge.html";root.append(back);
-    root.append(el("p","knowledge-type",labels[o.topic_type]||"Cẩm nang"),el("h1",null,o.title),el("p","knowledge-lead",ed.short_summary));
+    const headline=el("h1",null,o.title),lead=el("p","knowledge-lead",ed.short_summary);
+    headline.dataset.cmsField="title";lead.dataset.cmsField="editorial.short_summary";
+    root.append(el("p","knowledge-type",labels[o.topic_type]||"Cẩm nang"),headline,lead);
     const photographs=o.media?.images||[];
     if(photographs.length){
       const gallery=el("div","knowledge-article-photos"+(photographs.length===1?" single":""));
@@ -102,13 +104,21 @@
     };
     const heading=guideHeadings[o.topic_type]||["Điều nên biết","Đọc thêm","Trước khi đi"];
     if(o.topic_type==="FOOD"&&[64,65,66,67,68].includes(o.number))heading[0]="Chọn mua và tìm hiểu";
-    for(const [title,value] of [[heading[0],ed.practical],[heading[1],ed.expectation_vs_reality]]){
+    for(const [title,value,field] of [
+      [heading[0],ed.practical,"editorial.practical"],
+      [heading[1],ed.expectation_vs_reality,"editorial.expectation_vs_reality"]]){
       if(!value)continue;
-      const section=el("section");section.append(el("h2",null,title),el("p",null,value));root.append(section);
+      const section=el("section"),text=el("p",null,value);text.dataset.cmsField=field;
+      section.append(el("h2",null,title),text);root.append(section);
     }
     if(ed.before_you_go?.length){
       const section=el("section");section.append(el("h2",null,heading[2]));
-      const list=el("ul");for(const item of ed.before_you_go)list.append(el("li",null,item));
+      const list=el("ul");
+      ed.before_you_go.forEach((item,i)=>{
+        const li=el("li"),label=el("span",null,item);
+        label.dataset.cmsField="editorial.before_you_go."+i;
+        li.append(label);list.append(li);
+      });
       section.append(list);root.append(section);
     }
     if(o.location?.map && window.OpenPQVisual){

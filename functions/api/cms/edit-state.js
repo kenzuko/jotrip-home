@@ -9,6 +9,7 @@ const readable={
   "data/utilities.json":["admin","editor","operator","viewer"],
   "data/entities/destination-venues.json":["admin","editor","operator","viewer"],
   "data/entities/food.json":["admin","editor","operator","viewer"],
+  "data/i18n/vi/food.json":["admin","editor","operator","viewer"],
   "data/visual-context.json":["admin","editor","viewer"],
   "cms/users.json":["admin"]
 };
@@ -74,9 +75,11 @@ export async function onRequest({request,env}){
     };
     const api="https://api.github.com/repos/kenzuko/jotrip-home";
     const encoded=path.split("/").map(encodeURIComponent).join("/");
-    const [file,pulls]=await Promise.all([
+    const companionPath=path==="data/i18n/vi/food.json"?"data/food.json":null;
+    const [file,pulls,companion]=await Promise.all([
       github(api+"/contents/"+encoded+"?ref=main",headers),
-      github(api+"/pulls?state=open&per_page=100&sort=updated&direction=desc",headers)
+      github(api+"/pulls?state=open&per_page=100&sort=updated&direction=desc",headers),
+      companionPath?github(api+"/contents/data/food.json?ref=main",headers):Promise.resolve(null)
     ]);
     if(typeof file.body?.sha!=="string")throw Error("Không có SHA phiên bản live");
     if(!Array.isArray(pulls.body))throw Error("Không đọc được hàng đợi PR");
@@ -94,14 +97,14 @@ export async function onRequest({request,env}){
       for(const item of items){
         if(!Array.isArray(item.files))throw Error("Không đọc được danh sách tệp thay đổi");
         if(item.partial)complete=false;
-        if(item.files.some(f=>f.filename===path)){
+        if(item.files.some(f=>f.filename===path||companionPath&&f.filename===companionPath)){
           conflicts.push({number:item.pr.number,title:item.pr.title||"",
             url:item.pr.html_url||"https://github.com/kenzuko/jotrip-home/pull/"+item.pr.number,
             author:item.pr.user?.login||"",updated_at:item.pr.updated_at||null});
         }
       }
     }
-    return respond({path,sha:file.body.sha,conflicts,complete,
+    return respond({path,sha:file.body.sha,companion_path:companionPath,companion_sha:companion?.body?.sha||null,conflicts,complete,
       checked_at:new Date().toISOString(),
       note:"Kiểm tra theo tệp dữ liệu và PR đang mở. Không thể nhìn thấy bản chưa gửi từ máy khác."});
   }catch(e){

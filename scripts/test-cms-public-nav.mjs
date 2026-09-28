@@ -1,4 +1,4 @@
-/** Prevent CMS website CTAs from pointing to cms.openphuquoc.com. */
+/** Preserve truly public links while allowing authenticated editors to browse on the CMS hostname. */
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 const read = p => readFileSync(new URL("../"+p, import.meta.url),"utf8");
@@ -6,7 +6,10 @@ const home=read("admin/index.html");
 const quality=read("admin/quality.html");
 const reviews=read("admin/reviews.html");
 const admin=read("admin/admin.js");
-assert.equal(home.split('href="https://openphuquoc.com/"').length-1,4);
+assert.equal(home.split('href="https://openphuquoc.com/"').length-1,2);
+assert.equal(home.split('href="https://cms.openphuquoc.com/"').length-1,2);
+assert.match(home,/class="site-link" href="https:\/\/cms\.openphuquoc\.com\/"/);
+assert.match(home,/<a href="https:\/\/cms\.openphuquoc\.com\/" class="cms-brand"/);
 assert.match(home,/admin\.js\?v=(?:3[6-9]|[4-9]\d|\d{3,})/,"Updated JavaScript must bust stale CMS cache");
 for(const html of [quality,reviews]) {
   assert.ok(html.includes('class="cms-external" href="https://openphuquoc.com/"'));
