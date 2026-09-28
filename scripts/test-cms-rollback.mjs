@@ -16,7 +16,7 @@ const coreSource=fs.readFileSync(path.join(process.cwd(),"functions/_shared/cms-
   .replace(/export const /g,"const ")
   .replace(/export async function /g,"async function ")
   .replace(/export function /g,"function ");
-const endpointSource=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/rollback.js"),"utf8")
+const policySource=fs.readFileSync(path.join(process.cwd(),"functions/_shared/cms-mutation-policy.js"),"utf8")\n  .replace(/export const /g,"const ")\n  .replace(/export function /g,"function ");\nconst endpointSource=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/rollback.js"),"utf8")
   .replace(/^import .*cms-mutation-core\.js";\n/,"");
 const source=coreSource+"\n"+endpointSource;
 const {onRequest}=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
