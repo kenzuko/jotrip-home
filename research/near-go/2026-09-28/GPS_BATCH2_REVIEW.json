@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-28",
+  "branch": "data/nearme-gps-batch2-20260928",
+  "base_main": "f639ceeb5f80df3311a1bb2a9d03065c9a54a398",
+  "scope": "Continue MASTER HANDOFF GPS cleanup for 26 utilities + 4 places only. Hotels excluded.",
+  "status": "REVIEWED_BATCH_NO_AUTO_PUBLISH",
+  "masterlock": [
+    "Accuracy over coverage.",
+    "Operator address proves identity/address, not GPS or live operation.",
+    "Geoapify and OSM may share underlying OSM geometry and are not independent evidence.",
+    "Never promote road/area centroids or house-number-only matches as a business site.",
+    "Keep operational_status UNKNOWN unless separately verified.",
+    "Use site_centroid or area_anchor honestly; never imply verified entrance."
+  ],
+  "baseline": {
+    "location_total": 350,
+    "location_with_map": 225,
+    "map_candidates": 394,
+    "map_ready": 222,
+    "nonhotel_missing": 30
+  },
+  "result": {
+    "location_with_map": 228,
+    "map_ready": 225,
+    "accepted_count": 3,
+    "nonhotel_missing": 27
+  },
+  "accepted": [
+    {
+      "id": "utility_tgdd_37_hungvuong",
+      "coordinate": {
+        "lat": 10.2287548,
+        "lon": 103.9695114
+      },
+      "precision": "site_centroid",
+      "decision": "ACCEPT_SITE_CENTROID",
+      "evidence": [
+        "research/near-go/2026-09-27/GEOAPIFY_RUN_REVIEW_BATCH1.json",
+        "https://www.thegioididong.com/sieu-thi-37-hung-vuong-khu-pho-5-nga-4-hung-vuong-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-409"
+      ],
+      "rationale": "Structured exact-address candidate matches 37 Hùng Vương, KP5 and the current operator branch identity/address. No canonical pin collision found within 15 m. Not an entrance claim."
+    },
+    {
+      "id": "place_suoi_da_ngon",
+      "coordinate": {
+        "lat": 10.2715875,
+        "lon": 104.037046875
+      },
+      "precision": "area_anchor",
+      "plus_code": "72CP+JRM",
+      "decision": "ACCEPT_AREA_ANCHOR",
+      "evidence": [
+        "https://sunworld.vn/vi/hon-thom/an-choi/phu-quoc-co-gi-dephtml"
+      ],
+      "rationale": "Named destination Plus Code recovered in Phú Quốc locality. Area orientation only; not trailhead, parking, waterfall tier or water-access point."
+    },
+    {
+      "id": "place_suoi_tien",
+      "coordinate": {
+        "lat": 10.2184625,
+        "lon": 104.042078125
+      },
+      "precision": "area_anchor",
+      "plus_code": "629R+9RP",
+      "decision": "ACCEPT_AREA_ANCHOR",
+      "evidence": [
+        "https://sunworld.vn/vi/hon-thom/an-choi/phu-quoc-co-gi-dephtml"
+      ],
+      "rationale": "Named destination Plus Code recovered in Phú Quốc locality. Area orientation only; not parking, trailhead or water-access point."
+    }
+  ],
+  "rejected_or_hold": [
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "decision": "HOLD_CONFLICTING_GEOCODER_GEOMETRY",
+      "candidate": {
+        "lat": 10.0268439,
+        "lon": 104.0170526
+      },
+      "reason": "The same Geoapify geometry had also been returned for a different house number, Long Châu 46 Nguyễn Văn Cừ KP8. Distinct numbered addresses cannot safely share this candidate without stronger map evidence."
+    },
+    {
+      "id": "utility_dienmaycholon_nguyen_trung_truc",
+      "decision": "HOLD_CONFLICTING_ADDRESS_GEOMETRY",
+      "candidate": {
+        "lat": 10.2233901,
+        "lon": 103.9676121
+      },
+      "evidence": [
+        "https://dienmaycholon.com/he-thong-sieu-thi/200a-nguyen-trung-truc-khu-pho-5-phuong-duong-dong-thanh-pho-phu-quoc-kien-giang"
+      ],
+      "reason": "Official operator confirms 200A Nguyễn Trung Trực, but independent public mapping evidence for another 200A POI is materially displaced and an unrelated 487 Nguyễn Trung Trực geocode previously landed almost on this candidate. Address identity is strong; site coordinate is not."
+    },
+    {
+      "id": "utility_tgdd_104_304",
+      "decision": "HOLD_LANDMARK_CONTRADICTION",
+      "reason": "Operator describes the store as opposite Nhà hàng Ra Khơi. Published Ra Khơi Plus Code 6X77+FP recovers near 10.21369,103.96431; both Geoapify 104-address candidates are over 1 km away, so they are rejected."
+    },
+    {
+      "id": "place_suoi_da_ban",
+      "decision": "HOLD_CONFLICTING_PLUS_CODES",
+      "reason": "Public named listings expose conflicting Plus Codes for Suối Đá Bàn; no single area anchor promoted."
+    },
+    {
+      "id": "utility_longchau_tran_phu",
+      "decision": "HOLD_MASTERLOCK_GUARD",
+      "candidate": {
+        "lat": 10.2284406,
+        "lon": 103.9547422
+      },
+      "reason": "Repository quality gate explicitly requires Long Châu Trần Phú map=null until stronger GPS evidence exists. Geoapify/OSM structured address + operator directory is not sufficient to override the protected pharmacy pin rule."
+    }
+  ],
+  "intentional_no_fixed_pin": [
+    {
+      "id": "utility_luggage_whalelo_nightmarket",
+      "reason": "Pickup/drop-off point is confirmed after booking; a fixed public pin would be misleading."
+    },
+    {
+      "id": "utility_luggage_whalelo_grandworld",
+      "reason": "Pickup/drop-off point is confirmed after booking; a fixed public pin would be misleading."
+    },
+    {
+      "id": "utility_luggage_whalelo_sunset",
+      "reason": "Pickup/drop-off point is confirmed after booking; a fixed public pin would be misleading."
+    },
+    {
+      "id": "utility_pqc_airport_atms",
+      "reason": "Directory item represents ATM availability inside the terminal, not one verified ATM machine. Do not fake a device pin from an airport centroid."
+    }
+  ],
+  "remaining_focus": [
+    "place_suoi_da_ban",
+    "place_phu_quoc_ridgeback_center",
+    "utility_pqc_airport_atms",
+    "utility_parking_sunset_nightmarket",
+    "utility_dienmaycholon_nguyen_trung_truc",
+    "utility_dmx_107_nvc",
+    "utility_dmx_162_304",
+    "utility_longchau_an_thoi",
+    "utility_longchau_ben_tram",
+    "utility_longchau_dt45",
+    "utility_longchau_ganh_dau",
+    "utility_longchau_ham_ninh",
+    "utility_longchau_suoi_da",
+    "utility_toilet_sunset_venice_02",
+    "utility_toilet_sunset_venice_67",
+    "utility_minimart_one_mart_duong_dong",
+    "utility_dng_clinic_an_thoi",
+    "utility_dng_clinic_duong_dong",
+    "utility_laundry_phuquoc_cuaduong",
+    "utility_tgdd_104_304",
+    "utility_tgdd_142a_ntr",
+    "utility_fuel_dong_loi_1",
+    "utility_vcb_atm_an_thoi",
+    "utility_luggage_whalelo_nightmarket",
+    "utility_luggage_whalelo_grandworld",
+    "utility_luggage_whalelo_sunset",
+    "utility_longchau_tran_phu"
+  ],
+  "notes": [
+    "No UI changes.",
+    "No hotel GPS changes.",
+    "No live operational status changes.",
+    "Derived views were synchronized after canonical entity changes."
+  ]
+}
