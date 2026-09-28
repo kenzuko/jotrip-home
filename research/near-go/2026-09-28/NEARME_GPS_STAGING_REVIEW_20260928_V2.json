@@ -190,5 +190,67 @@
     "ui_modified": 0,
     "deploy_triggered": false,
     "next": "Continue research in staging; only promote later from then-current main after duplicate-radius and provenance checks."
-  }
+  },
+  "latest_main_seen": "cb9c8c79a00d003a40ab45e9254c02dac47da597",
+  "difficult_points_review": [
+    {
+      "id": "place_phu_quoc_ridgeback_center",
+      "decision": "STAGING_STRONG_THIRD_PARTY_COORDINATE_PENDING_REPRODUCTION",
+      "candidate_map": {
+        "lat": 10.1781374,
+        "lon": 104.0085517,
+        "precision": "site_centroid"
+      },
+      "evidence": [
+        "https://dulich.phuquoc.gov.vn/iv/trungtambaotonch",
+        "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/",
+        "Google business place id ChIJC4baUACPpzERjbk_x22hQnI"
+      ],
+      "rationale": "Official Phu Quoc tourism portal confirms the named Thanh Nga ridgeback conservation center at Tiểu khu 77/Dương Tơ. A third-party directory publishes a coordinate that normalizes to 10.1781374,104.0085517, and a current business listing confirms the same named attraction in Suối Mây. No canonical pin lies within 400 m.",
+      "limitation": "The coordinate is not yet reproducibly exposed by the official portal or current business result. Keep staging-only; do not publish."
+    },
+    {
+      "id": "place_suoi_da_ban",
+      "decision": "HOLD_CONFLICTING_DESTINATION_GEOMETRY",
+      "evidence": [
+        "Google business place id ChIJqR3vbQCJpzERyD9DA0Mcihs: Suối Đá Bàn, short Plus Code 62VM+W76",
+        "Google business place id ChIJowkMZASJpzERbztM7_iW6ck: Suoi Da Ban Evergreen Phu Quoc, short Plus Code 62WG+4QJ"
+      ],
+      "rationale": "Named attraction and commercial tourism site expose different short Plus Codes. Do not select one as entrance/parking/waterfall access without stronger official entrance evidence."
+    },
+    {
+      "id": "utility_fuel_dong_loi_1",
+      "decision": "HOLD_IDENTITY_CORROBORATED_NO_COORDINATE",
+      "evidence": [
+        "https://dulich.phuquoc.gov.vn/iv/detailutilities/?child=1240&id=1240",
+        "Current business listing for MB ATM describes its host location as Cây xăng Đông Lợi, Nguyễn Trung Trực, KP12"
+      ],
+      "rationale": "Tourism portal confirms Trạm Xăng Dầu Đông Lợi 1 on Nguyễn Trung Trực with phone 0297 3848 639. Nearby business evidence corroborates a Cây xăng Đông Lợi site on Nguyễn Trung Trực, but no reproducible station coordinate is exposed."
+    },
+    {
+      "id": "utility_toilet_sunset_venice_02",
+      "decision": "HOLD_STREET_NUMBER_NOT_TOILET_EVIDENCE",
+      "evidence": [
+        "Current business listing at 02 Venice resolves to King Spa & Massage Sunset View"
+      ],
+      "rationale": "Street number proves a parcel/business location, not the public toilet. Do not pin the toilet to another tenant."
+    },
+    {
+      "id": "utility_toilet_sunset_venice_67",
+      "decision": "HOLD_STREET_NUMBER_NOT_TOILET_EVIDENCE",
+      "evidence": [
+        "Current business listing at 67 Venice resolves to Góc cầu thang chụp ảnh hoàng hôn"
+      ],
+      "rationale": "Street number proves a place at 67 Venice, not the public toilet. Do not infer toilet GPS."
+    },
+    {
+      "id": "utility_parking_sunset_nightmarket",
+      "decision": "HOLD_MARKET_AREA_ONLY",
+      "evidence": [
+        "Current Vui-Fest Bazaar business listing exposes area/market location and parking availability, not a dedicated verified parking-lot pin"
+      ],
+      "rationale": "A market-center or generic parking tag would misstate the parking entrance. Preserve null GPS."
+    }
+  ],
+  "progress_note": "Batch difficult-points appended after reconciling batches 2 and 3. No canonical/data-view/UI/deploy writes."
 }
