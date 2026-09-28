@@ -89,3 +89,15 @@ The next pass checked whether a real photo actually illustrates the article subj
 - Removed the non-Phú-Quốc worship illustration from **Nghinh Ông**; a caption is not enough when the same image can become a lead card.
 - Corrected **Phú Quốc trước sân bay quốc tế**: replaced a 2025 international-airport image with **PhuQuocAirport.jpg**, photographed at the old Phú Quốc airport on 10/02/2009 by Michael Gerard Burns and released to the public domain.
 - Reclassified Mũi Ông Đội / Cửa Cạn name-origin / Nguyễn Ánh legend images as contextual-site images instead of exact-subject images where appropriate.
+
+
+## Correction 28/09/2026 - semantic audit wave 5
+- **Cano - tàu cao tốc - phà khác nhau thế nào**: removed the Dương Đông motorcyclist image. It showed neither ferry nor fast ferry nor the loading process.
+- **Dương Đông trước và sau đô thị hóa**: replaced the unrelated night-market fruit stall with a pixel-reviewed 2025 fishing-boat image near Phú Quốc harbour (Elmschrat, CC0), paired with the public-domain 2002 Dương Đông harbour image. The two photos are not claimed to be the same camera angle.
+- **Hàm Ninh trước và sau chỉnh trang**: removed the 2015 beach photo because it still predates the 2019 pier removal and cannot serve as the “after” view.
+- **Tàu cá và nghề biển thay đổi thế nào**: replaced unidentified library imagery with real 2002 and 2025 Phú Quốc fishing images from Wikimedia Commons.
+- **Một ngày ở Phú Quốc vận hành thế nào**: replaced unidentified fleet imagery with the verified 2025 fishing-boat context photo.
+- Story **Cá Ông trong niềm tin của người đi biển**: removed the non-Phú-Quốc whale-shrine cover and replaced it with real Phú Quốc maritime context. Corrected the 2025 fishing image license from an erroneous CC BY-SA label to CC0.
+- Story **Dưới mặt nước Phú Quốc còn có những đồng cỏ**: removed the Dahab, Egypt seagrass gallery image; kept real Hàm Ninh coastal context.
+- Food **cá mú hấp**: removed a mislabeled image whose own filename/source identify it as **cá sòng hấp xì dầu**. The card stays photo-free until a real cá mú image is verified.
+- Regression policy changed from “keep 106 guide photos / 32 food photos at all costs” to a quality-first floor. Coverage must never force a wrong location, wrong species or wrong subject back into production.
