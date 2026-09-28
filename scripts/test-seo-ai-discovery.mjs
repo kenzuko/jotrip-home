@@ -16,7 +16,7 @@ assert.equal(org.logo.url,canonical+"assets/logo-master.png");
 assert.equal(website.publisher["@id"],org["@id"]);
 assert.equal(website.inLanguage,"vi-VN");
 assert.ok(!html.includes("JoTrip DMC"),"Portal SEO should not be a JoTrip sales funnel");
-assert.match(html,/<link rel="canonical" href="https:\/\/cms.openphuquoc.com\/">/);
+assert.match(html,/<link rel="canonical" href="https:\/\/openphuquoc.com\/">/);
 
 const story={
  id:"safe-example",title:"Chuyện trên đảo",dek:"Một ghi chép ngắn từ Phú Quốc",
