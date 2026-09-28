@@ -2,6 +2,8 @@ import { CMS_REPO_API, githubJson, readCmsSession, readCurrentCmsRole, sameOrigi
 const te=new TextEncoder(),td=new TextDecoder();
 const paths=new Set(["data/home-copy.json","data/content.json","guide/data.json","data/utilities.json","data/entities/destination-venues.json","data/entities/food.json"]);
 const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store"}});
+function fromB64(s){s=String(s||"").replace(/-/g,"+").replace(/_/g,"/");while(s.length%4)s+="=";const raw=atob(s);return Uint8Array.from(raw,c=>c.charCodeAt(0))}
+function toB64(bytes){let raw="";for(const byte of bytes)raw+=String.fromCharCode(byte);return btoa(raw)}
 async function gh(url,token,options={}){const {response,value}=await githubJson(url,token,options);if(!response.ok)throw Object.assign(new Error(value?.message||("GitHub HTTP "+response.status)),{status:response.status});return value}
 function fail(message,status){return json({error:message},status)}
 export async function onRequest({request,env}){
