@@ -29,7 +29,7 @@ function harness({role="admin",stale=false,conflict=false,failPatch=false}={}){
     if(url.includes("/pulls?")){
       return new Response(JSON.stringify(conflict?[{number:4,html_url:"https://github.com/kenzuko/jotrip-home/pull/4"}]:[]));
     }
-    if(url.endsWith("/pulls/4/files"))
+    if(url.includes("/pulls/4/files?per_page=100"))
       return new Response(JSON.stringify([{filename:"data/content.json"}]));
     if(url.endsWith("/git/blobs")&&method==="POST"){
       blobs.push(JSON.parse(opts.body));

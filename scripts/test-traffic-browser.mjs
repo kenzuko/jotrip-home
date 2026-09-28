@@ -19,7 +19,7 @@ export async function testTrafficBrowser(browser,baseUrl,outputDir){
     const requests=[];
     try{
       await page.route("**/api/cms/traffic?**",route=>{
-        const params=new URL(route.request().url).searchParams;
+        const params=new URL(route.request().url(),baseUrl).searchParams;
         requests.push(Object.fromEntries(params));
         if(params.get("format")==="csv"){
           return route.fulfill({status:200,headers:{"content-type":"text/csv; charset=utf-8","content-disposition":'attachment; filename="openpq-traffic-test.csv"'},body:'"day","event","path","hits"\n"2026-09-27","page_view","/",1287\n'});
