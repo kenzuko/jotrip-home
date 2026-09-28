@@ -65,7 +65,7 @@ try{
   calls=[];liveSha="target-final-blob";
   const response=await onRequest({request:request(),env});
   const result=await response.json();
-  assert.equal(response.status,200);
+  assert.equal(response.status,200,JSON.stringify(result));
   assert.equal(result.pull_request.number,27);
   assert.ok(calls.some(x=>x.method==="PUT"),"Rollback must restore content on a separate branch");
   assert.ok(calls.some(x=>x.method==="POST"&&x.target.endsWith("/pulls")),"Rollback must stay behind a new PR");
