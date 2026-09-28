@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 const source=readFileSync("functions/_shared/seo-html.js","utf8");
 const seo=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
-const canonical="https://cms.openphuquoc.com/";
+const canonical="https://openphuquoc.com/";
 const html=readFileSync("index.html","utf8");
 const scripts=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
 assert.ok(scripts.length>0,"Homepage must expose schema.org JSON-LD without JavaScript execution");
@@ -16,7 +16,7 @@ assert.equal(org.logo.url,canonical+"assets/logo-master.png");
 assert.equal(website.publisher["@id"],org["@id"]);
 assert.equal(website.inLanguage,"vi-VN");
 assert.ok(!html.includes("JoTrip DMC"),"Portal SEO should not be a JoTrip sales funnel");
-assert.match(html,/<link rel="canonical" href="https:\/\/cms.openphuquoc.com\/">/);
+assert.match(html,/<link rel="canonical" href="https:\/\/openphuquoc.com\/">/);
 
 const story={
  id:"safe-example",title:"Chuyện trên đảo",dek:"Một ghi chép ngắn từ Phú Quốc",
