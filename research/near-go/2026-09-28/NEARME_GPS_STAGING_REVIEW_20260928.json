@@ -151,7 +151,7 @@
   "summary": {
     "staging_candidates_ready_for_later_canonical_review": 0,
     "strong_hold_needing_operator_map": 1,
-    "holds_rechecked": 18,
+    "holds_rechecked": 24,
     "promoted_by_other_main_batches_since_staging_created": 5,
     "canonical_entities_modified": 0,
     "derived_views_modified": 0,
@@ -282,6 +282,69 @@
         "Cached Geoapify returns only Phú Quốc city/area centroids."
       ],
       "note": "Do not pin a public toilet to city or Sunset Town area center."
+    }
+  ],
+  "followup_review_batch5_staging": [
+    {
+      "entity_id": "place_phu_quoc_ridgeback_center",
+      "decision": "HOLD_MALFORMED_THIRD_PARTY_COORDINATE_NO_INDEPENDENT_CONFIRMATION",
+      "evidence": [
+        "Official Phu Quoc tourism portal confirms Trung tâm bảo tồn chó xoáy Phú Quốc / Thanh Nga at Tiểu khu 77, Dương Tơ.",
+        "Current structured business entity matches Trung tâm bảo tồn chó xoáy Phú Quốc trang trại Thanh Nga in Suối Mây with phone +84 918 123 494.",
+        "Sổ Tay Vàng publishes malformed coordinate text '10.178.137.399.999.900, 1.040.085.517', apparently encoding approximately 10.1781374,104.0085517."
+      ],
+      "rejected_or_unpromoted_candidate": {
+        "lat": 10.1781374,
+        "lon": 104.0085517
+      },
+      "note": "Exact coordinate string produced no independent web confirmation. Treat malformed third-party decoding as a research lead only, not a map point."
+    },
+    {
+      "entity_id": "utility_longchau_an_thoi",
+      "decision": "HOLD_OPERATOR_IFRAME_AND_BUSINESS_ENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "Current official Long Châu branch page confirms 46 Nguyễn Văn Cừ and includes an iframe / Xem chỉ đường surface.",
+        "Current structured business entity identifies Nhà Thuốc FPT Long Châu at 46 Nguyễn Văn Cừ, Phú Quốc.",
+        "An Giang Department of Health e-commerce retail list identifies Long Châu 1823 at 46 Nguyễn Văn Cừ with GPP/business-registration records."
+      ],
+      "note": "Available text extraction does not expose iframe lat/lon. Do not reuse colliding Geoapify geometry."
+    },
+    {
+      "entity_id": "utility_dng_clinic_an_thoi",
+      "decision": "HOLD_CONFIRMED_OPERATOR_AND_BUSINESS_ENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "Official DNG An Thới page confirms S259-S354, KĐT Sun Grand City.",
+        "Current structured business entity matches Phòng Khám Đa Khoa Quốc Tế DNG (Cơ Sở An Thới) at S259-S354.",
+        "Current tax/business registry search result also matches S259-S354."
+      ],
+      "note": "Multiple identity/address sources agree, but none of the retrieved text exposes a reproducible numeric map coordinate."
+    },
+    {
+      "entity_id": "utility_dmx_107_nvc",
+      "decision": "HOLD_STRONG_MULTI_SOURCE_IDENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "Official Điện máy XANH branch identity/address confirmed.",
+        "Current structured business entity matches 107 Nguyễn Văn Cừ, KP3.",
+        "VIB merchant list independently records ĐMM_KGI_PQU - 107 Nguyễn Văn Cừ (An Thới), KP03."
+      ],
+      "note": "Useful independent identity evidence, still not GPS evidence."
+    },
+    {
+      "entity_id": "utility_dmx_162_304",
+      "decision": "HOLD_STRONG_BUSINESS_ENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "Official branch and Phú Quốc tourism directory confirm 162 đường 30/4, KP1.",
+        "Current structured business entity matches Siêu thị Điện máy XANH at 162 Đ. 30 Tháng 4, KP1."
+      ],
+      "note": "No numeric location exposed by retrieved sources."
+    },
+    {
+      "entity_id": "utility_minimart_one_mart_duong_dong",
+      "decision": "HOLD_STRONG_BUSINESS_ENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "Current structured business entity matches One mart at 16 Đ. 30 Tháng 4, Khu 1 and phone +84 834 590 676."
+      ],
+      "note": "Business identity is current and strong; numeric coordinates remain unavailable in retrieved source."
     }
   ]
 }
