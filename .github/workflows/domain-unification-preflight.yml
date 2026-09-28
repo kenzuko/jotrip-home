@@ -2,7 +2,7 @@ name: Domain Unification Preflight Lab
 
 on:
   push:
-    branches: ["test/openpq-domain-unification-preflight"]
+    branches: ["feat/openpq-public-domain-final"]
   workflow_dispatch:
 
 permissions:
@@ -43,11 +43,13 @@ jobs:
           node scripts/test-cms-editor-workflow.mjs
           node scripts/test-cms-review-diff.mjs
           node scripts/test-cms-rollback.mjs
+          node scripts/test-cms-public-redirect.mjs
 
       - name: Check runtime syntax
         run: |
           node --check worker.js
           node --check functions/_shared/seo-html.js
+          node --check functions/_middleware.js
           node --check functions/api/cms/publish.js
           node --check functions/api/cms/direct-save.js
           node --check functions/api/cms/edit-state.js
