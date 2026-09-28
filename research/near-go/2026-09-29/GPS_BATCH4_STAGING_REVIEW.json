@@ -364,6 +364,50 @@
         "Independent directory exposes a malformed coordinate string consistent with the same vicinity but is not used as the primary candidate."
       ],
       "limitations": "Coordinate inferred from mapping-distance observations; not directly exposed raw coordinate. Staging only."
+    },
+    {
+      "id": "utility_longchau_an_thoi",
+      "name": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ",
+      "decision": "STAGING_CANDIDATE_DISTANCE_TRILATERATION_VALIDATED",
+      "candidate_map": {
+        "lat": 10.0182462,
+        "lon": 104.0146399,
+        "precision": "site_centroid_candidate"
+      },
+      "method": "distance_trilateration_from_current_exact_local_business_listing",
+      "validation": {
+        "business_place_id": "ChIJY5o0asSXpzERJEewEY1Dy9U",
+        "source_observations_m": [
+          {
+            "center": [
+              10.02,
+              104.015
+            ],
+            "distance_m": 200
+          },
+          {
+            "center": [
+              10.022,
+              104.015
+            ],
+            "distance_m": 419
+          },
+          {
+            "center": [
+              10.02,
+              104.017
+            ],
+            "distance_m": 324
+          }
+        ],
+        "validation_distance_m": 2,
+        "exact_business_match": true
+      },
+      "evidence": [
+        "Official Long Châu branch page confirms 46 Nguyễn Văn Cừ, Phú Quốc.",
+        "Current exact local-business listing matches the same address and hotline 1800 6928."
+      ],
+      "limitations": "Coordinate inferred from mapping-distance observations, not directly exposed raw operator coordinate. Staging only."
     }
   ],
   "rechecked_holds": [
@@ -403,20 +447,14 @@
       "note": "Do not infer 67 Venice toilet coordinate from adjacent buildings."
     },
     {
-      "id": "utility_longchau_an_thoi",
-      "decision": "HOLD_OFFICIAL_BRANCH_CURRENT_NO_REPRODUCIBLE_COORDINATE",
-      "evidence": [
-        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang"
-      ],
-      "note": "Current official page confirms 46 Nguyễn Văn Cừ and branch identity; iframe/directions coordinate is not exposed reproducibly in available source."
-    },
-    {
       "id": "utility_longchau_ben_tram",
-      "decision": "HOLD_OFFICIAL_DIRECTORY_CURRENT_NO_REPRODUCIBLE_COORDINATE",
+      "decision": "HOLD_OFFICIAL_AND_REGULATORY_ADDRESS_CONFIRMED_BUT_MAPPING_IDENTITY_CONFLICT",
       "evidence": [
-        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang"
+        "Current official Long Châu directory lists 487 Nguyễn Trung Trực (Chợ Bến Tràm).",
+        "An Giang health authority April 2026 licensing list records FPT Long Châu business location at 487 Nguyễn Trung Trực, KP10 Dương Đông.",
+        "Current local-business search at this address returns CMART 6 at 487 Nguyễn Trung Trực and does not surface the Long Châu branch."
       ],
-      "note": "Current official directory confirms 487 Nguyễn Trung Trực (Chợ Bến Tràm); no safe site coordinate exposed."
+      "note": "Identity/address is strong, but current mapping identity conflicts. Do not infer GPS from the house number or CMART pin; retain null map."
     },
     {
       "id": "utility_longchau_dt45",
@@ -513,10 +551,10 @@
     "canonical_modified": 0,
     "derived_views_modified": 0,
     "deploy_triggered": false,
-    "new_staging_candidates": 7,
-    "rechecked_holds": 12,
+    "new_staging_candidates": 8,
+    "rechecked_holds": 11,
     "intentional_no_fixed_pin": 4,
-    "last_update_note": "Seven strong staging candidates now validated; TGDD 104 validates at 0 m and TGDD 142A at 1 m against exact current place IDs. No canonical writes."
+    "last_update_note": "Long Châu An Thới upgraded to staging candidate (2 m validation). Bến Tràm remains HOLD due current mapping identity conflict at 487 Nguyễn Trung Trực."
   },
   "observed_main_sha_latest": "cb9c8c79a00d003a40ab45e9254c02dac47da597",
   "methodology": {
