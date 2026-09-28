@@ -1,10 +1,10 @@
 import assert from "node:assert/strict";
 import fs from "node:fs";
+import {cmsCan} from "../functions/_shared/cms-mutation-policy.js";
 
 const articles=JSON.parse(fs.readFileSync("data/food.json","utf8"));
 const entities=JSON.parse(fs.readFileSync("data/entities/food.json","utf8"));
 const schema=JSON.parse(fs.readFileSync("cms/schema.json","utf8"));
-const publish=fs.readFileSync("functions/api/cms/publish.js","utf8");
 
 assert.equal(articles.dishes.length,32,"Review the expanded food article inventory");
 assert.equal(entities.entities.length,32,"Review the food entity inventory");
