@@ -20,7 +20,13 @@ const request=body=>new Request("https://cms.openphuquoc.com/api/cms/publish",{
 });
 const fileContent={hero:{title:"Test",lead:"Test lead"}};
 const base={path:"data/home-copy.json",sha:"expected-file-sha",content:fileContent,message:"update home"};
-const source=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/publish.js"),"utf8");
+const coreSource=fs.readFileSync(path.join(process.cwd(),"functions/_shared/cms-mutation-core.js"),"utf8")
+  .replace(/export const /g,"const ")
+  .replace(/export async function /g,"async function ")
+  .replace(/export function /g,"function ");
+const endpointSource=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/publish.js"),"utf8")
+  .replace(/^import .*cms-mutation-core\.js";\n/,"");
+const source=coreSource+"\n"+endpointSource;
 const {onRequest}=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
 const originalFetch=globalThis.fetch;
 let liveSha="expected-file-sha";

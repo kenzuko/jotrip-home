@@ -1,4 +1,4 @@
-const SESSION_COOKIE="openpq_cms";
+import { CMS_REPO_API, githubHeaders, readCmsSession, readCurrentCmsRole, sameOrigin } from "../../_shared/cms-mutation-core.js";
 const te=new TextEncoder(),td=new TextDecoder();
 
 const writable={
@@ -18,15 +18,6 @@ const json=(data,status=200)=>new Response(JSON.stringify(data),{
   headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store"}
 });
 
-const parseCookies=req=>{
-  const out={};
-  for(const part of (req.headers.get("cookie")||"").split(";")){
-    const i=part.indexOf("=");
-    if(i>0) out[part.slice(0,i).trim()]=decodeURIComponent(part.slice(i+1).trim());
-  }
-  return out;
-};
-
 const fromB64=s=>{
   s=s.replace(/-/g,"+").replace(/_/g,"/");
   while(s.length%4)s+="=";
@@ -39,38 +30,6 @@ const toStdB64=u8=>{
   for(const b of u8)s+=String.fromCharCode(b);
   return btoa(s);
 };
-
-async function key(secret){
-  const digest=await crypto.subtle.digest("SHA-256",te.encode(secret));
-  return crypto.subtle.importKey("raw",digest,{name:"AES-GCM"},false,["decrypt"]);
-}
-
-async function session(req,secret){
-  const token=parseCookies(req)[SESSION_COOKIE]||"";
-  if(!token||!secret)return null;
-  try{
-    const [a,b]=token.split(".");
-    const k=await key(secret);
-    const dec=await crypto.subtle.decrypt({name:"AES-GCM",iv:fromB64(a)},k,fromB64(b));
-    const obj=JSON.parse(td.decode(dec));
-    return obj.exp>Date.now()?obj:null;
-  }catch{return null}
-}
-
-async function rawUsers(){
-  const r=await fetch("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/cms/users.json?v="+Date.now(),{
-    headers:{"User-Agent":"Open-Phu-Quoc-CMS"},
-    cache:"no-store"
-  });
-  if(!r.ok)throw new Error("Không tải được danh sách phân quyền: HTTP "+r.status);
-  return r.json();
-}
-
-async function currentRole(login){
-  const doc=await rawUsers();
-  const u=(doc.users||[]).find(x=>String(x.login).toLowerCase()===String(login).toLowerCase()&&x.enabled!==false);
-  return u?.role||null;
-}
 
 function validatePayload(path,content){
   const errors=[];
@@ -224,17 +183,15 @@ function validatePayload(path,content){
 export async function onRequest({request,env}){
   try{
     if(request.method!=="POST")return json({error:"Method not allowed"},405);
-    const origin=request.headers.get("Origin");
-    const expectedOrigin=new URL(request.url).origin;
-    if(origin&&origin!==expectedOrigin)return json({error:"Origin không hợp lệ"},403);
+    if(!sameOrigin(request,{allowMissing:true}))return json({error:"Origin không hợp lệ"},403);
 
-    const s=await session(request,String(env.CMS_SESSION_SECRET||""));
+    const s=await readCmsSession(request,String(env.CMS_SESSION_SECRET||""));
     if(!s)return json({error:"Chưa đăng nhập"},401);
 
     const body=await request.json();
     const path=String(body.path||"");
     const foodMirror=path==="data/i18n/vi/food.json";
-    const role=await currentRole(s.login);
+    const role=await readCurrentCmsRole(s.login,{cacheBustKey:"v",failureMessage:"Không tải được danh sách phân quyền",includeHttpStatus:true});
     if(!role||!(writable[path]||[]).includes(role))return json({error:"Vai trò hiện tại không được xuất bản module này"},403);
     if(!body.sha)return json({error:"Thiếu SHA phiên bản hiện tại"},409);
 
@@ -245,14 +202,8 @@ export async function onRequest({request,env}){
     if(path.endsWith(".json"))JSON.parse(text);
     if(text.length>1200000)return json({error:"Nội dung vượt giới hạn CMS"},413);
 
-    const headers={
-      Accept:"application/vnd.github+json",
-      "Content-Type":"application/json",
-      "X-GitHub-Api-Version":"2022-11-28",
-      Authorization:"Bearer "+s.accessToken,
-      "User-Agent":"Open-Phu-Quoc-CMS"
-    };
-    const api="https://api.github.com/repos/kenzuko/jotrip-home";
+    const headers=githubHeaders(s.accessToken);
+    const api=CMS_REPO_API;
     const fileResponse=await fetch(api+"/contents/"+path+"?ref=main",{headers,cache:"no-store"});
     const file=await fileResponse.json();
     if(!fileResponse.ok)return json({error:"Không đọc được bản live hiện tại",github_status:fileResponse.status,detail:file?.message||"Không rõ nguyên nhân"},fileResponse.status);

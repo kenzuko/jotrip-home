@@ -12,7 +12,13 @@ const payload={login:"kenzuko",accessToken:"test-token",exp:Date.now()+60000};
 const cipher=await webcrypto.subtle.encrypt({name:"AES-GCM",iv},key,enc.encode(JSON.stringify(payload)));
 const token=Buffer.from(iv).toString("base64url")+"."+Buffer.from(cipher).toString("base64url");
 const env={CMS_SESSION_SECRET:secret};
-const source=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/rollback.js"),"utf8");
+const coreSource=fs.readFileSync(path.join(process.cwd(),"functions/_shared/cms-mutation-core.js"),"utf8")
+  .replace(/export const /g,"const ")
+  .replace(/export async function /g,"async function ")
+  .replace(/export function /g,"function ");
+const endpointSource=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/rollback.js"),"utf8")
+  .replace(/^import .*cms-mutation-core\.js";\n/,"");
+const source=coreSource+"\n"+endpointSource;
 const {onRequest}=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
 const originalFetch=globalThis.fetch;
 const previous={hero:{title:"Previous",lead:"Lead"}};
