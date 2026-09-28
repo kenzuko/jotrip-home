@@ -6,7 +6,7 @@ const coreSource=readFileSync("functions/_shared/cms-mutation-core.js","utf8")
   .replace(/export async function /g,"async function ")
   .replace(/export function /g,"function ");
 const endpointSource=readFileSync("functions/api/cms/direct-save.js","utf8")
-  .replace(/^import .*cms-mutation-core\.js";\n/,"")
+  .replace(/^import .*cms-mutation-core\.js";\n/m,"")
   .replace("export async function onRequest","async function onRequest")
   .replace("export const DIRECT_SAVE_TEST=","const DIRECT_SAVE_TEST=");
 const source=coreSource+"\n"+endpointSource+"\nthis.onRequest=onRequest;this.helpers=DIRECT_SAVE_TEST;";
