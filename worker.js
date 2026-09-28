@@ -85,7 +85,15 @@ export default {
       ctx.waitUntil(cleanupFeedback(env).catch(e=>console.warn("Community feedback cleanup retry next day",e.message)));
   },
   async fetch(request, env, ctx) {
-    const weatherPath=new URL(request.url).pathname;
+    const requestUrl=new URL(request.url);
+    if(requestUrl.hostname.toLowerCase()==="www.openphuquoc.com"){
+      const target=new URL(request.url);
+      target.protocol="https:";
+      target.hostname="openphuquoc.com";
+      target.port="";
+      return Response.redirect(target.toString(),301);
+    }
+    const weatherPath=requestUrl.pathname;
     if(weatherPath==="/weather/data/alert-history.json"&&["GET","HEAD"].includes(request.method)){
       const result=await readWeatherAlertHistory(env);
       return request.method==="HEAD"?new Response(null,{status:result.status,headers:result.headers}):result;
@@ -95,7 +103,7 @@ export default {
     ].includes(weatherPath)){
       return handleWeatherData(request,()=>env.ASSETS.fetch(request),ctx? p=>ctx.waitUntil(p):undefined);
     }
-    const path = new URL(request.url).pathname;
+    const path = requestUrl.pathname;
     if (path === "/api/context/v1/weather/window") return handleWeatherWindow(request);
     if (path === "/api/go/live") return handleGoLive(request);
     if (path === "/api/feedback") return publicFeedback({request,env});
@@ -108,7 +116,7 @@ export default {
     if (request.method !== "GET" && request.method !== "HEAD") {
       return env.ASSETS.fetch(request);
     }
-    const url = new URL(request.url);
+    const url = requestUrl;
     let meta = null;
     try {
       if (url.pathname === "/stories/article.html") meta = await storyMeta(url, env);
