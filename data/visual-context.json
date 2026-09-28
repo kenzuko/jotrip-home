@@ -220,20 +220,15 @@
       ],
       "images": [
         {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1800",
-          "alt": "Ghe đánh cá gần cảng Phú Quốc",
-          "caption": "Một ghe đánh cá gần cảng Phú Quốc, ảnh chụp tháng 11/2025.",
-          "scope": "exact_subject",
-          "source_label": "Wikimedia Commons - Elmschrat",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Fishing_boat_Phu_Quoc.jpg"
-        },
-        {
-          "url": "/assets/media/editorial-fishing-fleet.jpg",
-          "alt": "Những chiếc ghe cá neo đậu trên mặt biển Phú Quốc",
-          "caption": "Ảnh bối cảnh đội ghe cá trên vùng biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1200",
+          "alt": "Thuyền đánh cá tại cảng Dương Đông cuối năm 2002",
+          "caption": "Cảng Dương Đông cuối năm 2002 với nhiều ghe tàu. Ảnh tư liệu nghề biển, không dùng để mô tả hiện trạng hôm nay.",
+          "scope": "historical_maritime_context",
+          "source_label": "Plicata · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Boats_PhuQuoc.jpg",
+          "license": "Public domain",
+          "rights_status": "PUBLIC_DOMAIN",
+          "captured_at": "2002-12"
         }
       ],
       "infographic": [
@@ -263,31 +258,12 @@
       "location_label": "An Thới - phía Nam đảo",
       "images": [
         {
-          "url": "/assets/media/editorial-fishing-fleet.jpg",
-          "alt": "Những chiếc ghe cá neo đậu trên mặt biển Phú Quốc",
-          "caption": "Ảnh bối cảnh đội ghe cá trên vùng biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20port.jpg?width=1200",
           "alt": "Cảng An Thới Phú Quốc năm 2018",
           "caption": "Cảng An Thới năm 2018, ảnh tư liệu không phản ánh tình trạng vận hành hiện tại.",
-          "scope": "exact_subject",
+          "scope": "harbour_context",
           "source_label": "Dương Đăng Khôi · Wikimedia Commons",
           "source_url": "https://commons.wikimedia.org/wiki/File:An_Thoi_port.jpg",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "rights_status": "CC_VERIFIED"
-        },
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fisherman%20ville%20at%20An%20Thoi%20Phu%20Quoc%20VietNam.JPG?width=1200",
-          "alt": "Khu làng chài An Thới năm 2015",
-          "caption": "Một góc làng chài An Thới, ảnh tư liệu năm 2015.",
-          "scope": "exact_subject",
-          "source_label": "Tonbi ko · Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Fisherman_ville_at_An_Thoi_Phu_Quoc_VietNam.JPG",
           "license": "CC BY-SA 4.0",
           "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
           "rights_status": "CC_VERIFIED"
@@ -297,20 +273,16 @@
     "vi-sao-goi-phu-quoc-la-dao-ngoc": {
       "images": [
         {
-          "url": "/assets/media/editorial-island-cove-aerial.jpg",
-          "alt": "Một vịnh biển nhiệt đới với mặt nước xanh và những chiếc cano",
-          "caption": "Ảnh minh họa cho cảnh sắc đảo Phú Quốc, không định danh vị trí cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-tropical-cove.jpg",
-          "alt": "Vịnh biển và bến thuyền trên một đảo nhỏ Phú Quốc",
-          "caption": "Một góc đảo với biển xanh, ảnh minh họa cho câu chuyện Đảo Ngọc, không định vị địa điểm cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20beach.jpg?width=1200",
+          "alt": "Bãi biển Phú Quốc nhìn ra biển năm 2025",
+          "caption": "Một góc bãi biển Phú Quốc, chụp ngày 15/11/2025. Không gắn tên bãi cụ thể.",
+          "scope": "island_scenery_context",
+          "source_label": "Elmschrat · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:2_Phu_Quoc_beach.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "CC_VERIFIED",
+          "captured_at": "2025-11-15"
         }
       ]
     },
@@ -1816,14 +1788,6 @@
           "hero_eligible": true,
           "reviewed_at": "2026-09-25",
           "usage_note": "Nguồn album nội bộ JoTrip / Phu Quoc 2023; có khách trong ảnh; không khẳng định đây là ảnh của một điểm dừng tour cụ thể."
-        },
-        {
-          "url": "/assets/media/editorial-island-cove-aerial.jpg",
-          "alt": "Vịnh nhỏ nước xanh với cano và bến gỗ nhìn từ trên cao",
-          "caption": "Khung cảnh một vịnh nhỏ trên đảo, ảnh bối cảnh tour cano; không xác nhận tên đảo cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
         }
       ],
       "visual_note": "Ảnh chính từ album JoTrip / Phu Quoc 2023, ghi nhận khách đi cano thực tế. Không dùng ảnh cảng hoặc Sunset Town để đại diện tour 3 đảo."
@@ -1982,14 +1946,6 @@
     },
     "activity_snorkeling_an_thoi": {
       "images": [
-        {
-          "url": "/assets/media/editorial-snorkeling-coral.jpg",
-          "alt": "Du khách lặn ống thở ngắm san hô trong làn nước trong",
-          "caption": "Trải nghiệm lặn ống thở và quan sát san hô trên biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
         {
           "url": "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MN/an%20thoi%20islands/snorkeling-in-an-thoi-island.jpg?la=en",
           "alt": "Du khách lặn ống thở tại quần đảo An Thới",
@@ -2386,12 +2342,13 @@
     "com-ghe-ham-ninh": {
       "images": [
         {
-          "url": "https://media.mia.vn/uploads/blog-du-lich/nha-hang-trung-duong-marina-phu-quoc-hai-san-ngon-va-chat-luong-phuc-vu-tuyet-voi-03-1616816526.jpg",
-          "alt": "Cơm chiên ghẹ tại nhà hàng Trùng Dương Marina, Phú Quốc",
-          "caption": "Cơm ghẹ tại Trùng Dương Marina, Phú Quốc.",
-          "scope": "exact_subject",
-          "source_label": "MIA.vn · Trùng Dương Marina",
-          "source_url": "https://mia.vn/cam-nang-du-lich/nha-hang-trung-duong-marina-phu-quoc-hai-san-ngon-va-chat-luong-phuc-vu-tuyet-voi-117",
+          "url": "https://mia.vn/media/uploads/blog-du-lich/an-gi-o-phu-quoc-7-1712706015.jpg",
+          "alt": "Đĩa cơm ghẹ trong bài giới thiệu ẩm thực Phú Quốc",
+          "caption": "Cơm ghẹ trong bài giới thiệu món ăn Phú Quốc của MIA.vn. Ảnh minh họa món, không xác nhận được chụp tại Hàm Ninh.",
+          "scope": "exact_dish_context",
+          "source_label": "MIA.vn · ảnh minh họa VinWonders",
+          "source_url": "https://mia.vn/cam-nang-du-lich/an-gi-o-phu-quoc-15269",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
           "hero_priority": "preferred"
         }
       ]
@@ -2412,12 +2369,13 @@
     "tom-mu-ni-nuong": {
       "images": [
         {
-          "url": "https://media.mia.vn/uploads/blog-du-lich/tom-mu-ni-con-dao-voi-huong-vi-thom-ngon-ai-tung-an-la-nho-hoai-4-1655807671.jpg",
-          "alt": "Tôm mũ ni nướng",
-          "caption": "Tôm mũ ni nướng",
-          "scope": "exact_subject",
-          "source_label": "MIA.vn",
-          "source_url": "https://mia.vn/cam-nang-du-lich/tom-mu-ni-con-dao-voi-huong-vi-thom-ngon-ai-tung-an-la-nho-hoai-6774",
+          "url": "https://mia.vn/media/uploads/blog-du-lich/dac-san-hai-san-phu-quoc-5-1778482432.jpg",
+          "alt": "Tôm mũ ni nướng phô mai trong bài ẩm thực Phú Quốc",
+          "caption": "Tôm mũ ni nướng phô mai. Ảnh được dùng trong bài tổng hợp hải sản Phú Quốc của MIA.vn; nguồn ảnh gốc ghi KINGFISH.",
+          "scope": "exact_dish_context",
+          "source_label": "MIA.vn · ảnh minh họa KINGFISH",
+          "source_url": "https://mia.vn/cam-nang-du-lich/dac-san-hai-san-phu-quoc-20455",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
           "hero_priority": "preferred"
         }
       ]
@@ -2970,19 +2928,7 @@
     },
     "knowledge_023_hon-gam-ghi": {
       "title": "Hòn Gầm Ghì",
-      "images": [
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20coral%20mountain.jpg?width=1200",
-          "alt": "Rạn san hô Phú Quốc trong ảnh tư liệu năm 2020",
-          "caption": "Rạn san hô Phú Quốc chụp năm 2020, minh họa môi trường dưới nước; chưa xác minh ảnh chụp đúng tại Hòn Gầm Ghì.",
-          "scope": "context",
-          "source_label": "Thanhsangpi · Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Phu_Quoc_coral_mountain.jpg",
-          "license": "CC BY-SA 4.0",
-          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "rights_status": "CC_VERIFIED"
-        }
-      ]
+      "images": []
     },
     "knowledge_024_may-rut-trong": {
       "title": "Mây Rút Trong",

@@ -101,3 +101,19 @@ The next pass checked whether a real photo actually illustrates the article subj
 - Story **Dưới mặt nước Phú Quốc còn có những đồng cỏ**: removed the Dahab, Egypt seagrass gallery image; kept real Hàm Ninh coastal context.
 - Food **cá mú hấp**: removed a mislabeled image whose own filename/source identify it as **cá sòng hấp xì dầu**. The card stays photo-free until a real cá mú image is verified.
 - Regression policy changed from “keep 106 guide photos / 32 food photos at all costs” to a quality-first floor. Coverage must never force a wrong location, wrong species or wrong subject back into production.
+
+
+## Correction 28/09/2026 - exact-location cleanup wave 6
+- Story **An Thới, thị trấn biển phía Nam đảo**: removed the unidentified fishing-fleet cover. New cover is Tonbi ko's real An Thới fishing-village photo from 27/02/2015 (CC BY-SA 4.0). The gallery keeps the separate An Thới port image.
+- Story **“Đảo Ngọc” gợi điều gì về Phú Quốc?**: removed two unidentified internet-cove assets. Cover/gallery now use geotagged real Phú Quốc beach photos from 2025 by FrogsLegs71 (CC BY-SA 3.0) and Elmschrat (CC BY-SA 4.0).
+- Story **Đôi mắt sơn trên mũi ghe**: replaced unidentified fleet imagery with a verified Phú Quốc fishing-boat cover from 2025 (CC0) and a public-domain Dương Đông harbour image from 2002. Captions explicitly avoid claiming the painted eye detail is visible.
+- **Hòn Gầm Ghì**: removed a generic Phú Quốc reef photo whose exact underwater location was not verified. Leave the guide photo-free until the island itself is visually verified.
+- **Snorkeling An Thới**: removed the unidentified local-library coral image; kept the source-reviewed An Thới activity photo.
+- **Tour 3 đảo**: removed the unidentified aerial cove; kept the actual JoTrip canoe photo.
+- Fixed a stale regression expectation that still demanded the retired unidentified fishing-fleet asset for the fisheries-change guide.
+
+
+## Correction 28/09/2026 - food image audit wave 7
+- **Tôm mũ ni nướng**: removed a real tôm mũ ni photo whose source page and filename were explicitly **Côn Đảo**. Replaced it with the exact grilled slipper-lobster dish image used in MIA.vn's 2026 Phú Quốc seafood guide. The upstream credit is preserved as MIA.vn / KINGFISH and reuse permission remains unverified.
+- **Cơm ghẹ Hàm Ninh**: removed the Trùng Dương Marina (Dương Đông) restaurant-specific image because a card crop could make it look like it was photographed in Hàm Ninh. Replaced it with a neutral exact-dish image from MIA.vn's Phú Quốc food guide; caption explicitly says the image is not verified as shot in Hàm Ninh.
+- **Ốc hương rang me** was checked and retained: despite the internal key `oc-huong-nuong`, the public dish name, article text and Commons image are all **ốc hương rang me**, so there is no cooking-method mismatch.
