@@ -15,7 +15,7 @@ export const CMS_PATH_POLICY=Object.freeze({
     read:ALL_ROLES,preflight:ALL_ROLES,publish:EDITOR_ROLES,directSave:Object.freeze(["admin"]),rollback:Object.freeze(["admin"]),draft:EDITOR_ROLES
   }),
   "data/content.json":Object.freeze({
-    read:ALL_ROLES,preflight:ALL_ROLES,publish:EDITOR_ROLES,directSave:Object.freeze(["admin"]),rollback:Object.freeze(["admin"])
+    read:ALL_ROLES,preflight:ALL_ROLES,publish:EDITOR_ROLES,directSave:Object.freeze(["admin"]),rollback:Object.freeze(["admin"]),draft:EDITOR_ROLES
   }),
   "data/knowledge/objects.json":Object.freeze({
     read:Object.freeze(["admin"]),preflight:Object.freeze([]),publish:Object.freeze([]),directSave:Object.freeze(["admin"]),rollback:Object.freeze([]),draft:Object.freeze(["admin"])
@@ -30,7 +30,7 @@ export const CMS_PATH_POLICY=Object.freeze({
     read:ALL_ROLES,preflight:ALL_ROLES,publish:Object.freeze(["admin","editor","operator"]),directSave:Object.freeze([]),rollback:Object.freeze(["admin"]),draft:Object.freeze(["admin","editor","operator"])
   }),
   "data/entities/food.json":Object.freeze({
-    read:ALL_ROLES,preflight:ALL_ROLES,publish:EDITOR_ROLES,directSave:Object.freeze([]),rollback:Object.freeze(["admin"])
+    read:ALL_ROLES,preflight:ALL_ROLES,publish:EDITOR_ROLES,directSave:Object.freeze([]),rollback:Object.freeze(["admin"]),draft:EDITOR_ROLES
   }),
   "data/i18n/vi/food.json":Object.freeze({
     read:ALL_ROLES,preflight:ALL_ROLES,publish:EDITOR_ROLES,directSave:Object.freeze(["admin"]),rollback:Object.freeze([]),draft:EDITOR_ROLES
