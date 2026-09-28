@@ -43,6 +43,12 @@ assert.equal(cmsCan("admin","cms/users.json","read"),true);
 assert.equal(cmsCan("admin","cms/users.json","preflight"),true);
 assert.equal(cmsCan("admin","cms/users.json","publish"),true);
 assert.equal(cmsCan("editor","cms/users.json","read"),false);
+assert.equal(cmsCan("editor","data/content.json","draft"),true);
+assert.equal(cmsCan("operator","data/content.json","draft"),false);
+assert.equal(cmsCan("operator","data/utilities.json","draft"),true);
+assert.equal(cmsCan("admin","data/knowledge/objects.json","draft"),true);
+assert.equal(cmsCan("viewer","data/visual-context.json","draft"),false);
+assert.equal(cmsCan("admin","cms/users.json","draft"),true);
 assert.equal(cmsSupports("../secrets.json","read"),false);
 assert.equal(cmsCan("admin","../secrets.json","publish"),false);
 
