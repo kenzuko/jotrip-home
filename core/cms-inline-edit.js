@@ -32,8 +32,9 @@ function note(message,kind=""){
 }
 function blocked(message){
   S.blocked=true;clearTimeout(S.timer);note(message,"warn");
-  $("#inlineCmsSave").disabled=true;$("#inlineCmsSubmit").disabled=true;
-  const direct=$("#inlineCmsDirect");if(direct)direct.disabled=true;
+  $("#inlineCmsSave").disabled=true;
+  const submit=$("#inlineCmsSubmit");if(submit)submit.disabled=true;
+  const publish=$("#inlineCmsPublish");if(publish)publish.disabled=true;
 }
 function backup(){
   if(!S.current)return;
@@ -99,15 +100,15 @@ function editPart(key,element,button){
     key.endsWith(".heading")?"Sửa tiêu đề đoạn":key==="intro"?"Sửa lời mở":"Sửa "+(key==="dek"?"mô tả": "tiêu đề");
   const input=document.createElement("textarea");input.rows=key.endsWith(".body")?7:4;
   input.setAttribute("aria-label",label.textContent);input.value=String(read(item,key));
-  const help=document.createElement("p");help.textContent="Chữ thay đổi ngay phía trên. Khách vẫn đọc bản cũ cho đến khi PR được duyệt.";
+  const help=document.createElement("p");help.textContent=S.role==="admin"?"Chữ được tự lưu thành nháp trên máy. Chỉ nút Xuất bản mới ghi GitHub.":"Chữ thay đổi ngay phía trên. Khách vẫn đọc bản cũ cho đến khi PR được duyệt.";
   const done=document.createElement("button");done.type="button";done.textContent="Đọc tiếp";done.onclick=closePanel;
   label.appendChild(input);panel.append(label,help,done);
   button.insertAdjacentElement("afterend",panel);S.panel=panel;
   input.addEventListener("input",()=>{
     if(!write(item,key,input.value))return;
     S.dirty=true;reflect(element,key,input.value);schedule();
-    $("#inlineCmsSubmit").disabled=false;
-    if(S.role==="admin")$("#inlineCmsDirect").disabled=false;
+    if(S.role==="admin")$("#inlineCmsPublish").disabled=false;
+    else $("#inlineCmsSubmit").disabled=false;
   });
   input.focus({preventScroll:true});panel.scrollIntoView({block:"center",behavior:"smooth"});
 }
@@ -162,9 +163,10 @@ async function begin(){
     S.raw=raw;S.blocked=false;mode(true);showButtons();
     const item=story(S.current,S.id);
     if(raw)S.targets.forEach(({key,el})=>reflect(el,key,read(item,key)));
+    $("#inlineCmsSubmit").hidden=S.role==="admin";
     $("#inlineCmsSubmit").disabled=!S.dirty;
-    $("#inlineCmsDirect").hidden=S.role!=="admin";
-    $("#inlineCmsDirect").disabled=!S.dirty;
+    $("#inlineCmsPublish").hidden=S.role!=="admin";
+    $("#inlineCmsPublish").disabled=!S.dirty;
     note(raw?"Đã khôi phục bản nháp. Chọn đoạn muốn chỉnh.":"Chọn phần muốn sửa ngay trên bài.");
   }catch(e){note(e.message+". Bài đang đọc chưa thay đổi.","warn");}
 }
@@ -180,15 +182,15 @@ function storyChanges(){
     return a===b?null:{field,before:a,after:b};
   }).filter(Boolean);
 }
-async function directSave(){
+async function publishOnce(){
   if(!S.editing||S.blocked||!S.dirty||S.role!=="admin")return;
   clearTimeout(S.timer);S.timer=null;if(!save())return;
-  const button=$("#inlineCmsDirect");button.disabled=true;
+  const button=$("#inlineCmsPublish");button.disabled=true;
   try{
     const changes=storyChanges();
     if(!changes.length){note("Chưa sửa chữ nào.");return;}
-    if(!confirm("Lưu thẳng "+changes.length+" phần chữ, không qua duyệt? Có thể xem lịch sử và hoàn tác trên GitHub."))return;
-    note("Đang kiểm tra và lưu trực tiếp lên GitHub...");
+    if(!confirm("Xuất bản "+changes.length+" phần chữ? Toàn bộ bản nháp hiện tại sẽ được gom vào 1 commit GitHub."))return;
+    note("Đang xuất bản 1 lần lên GitHub...");
     const result=await get("/api/cms/direct-save",{
       method:"POST",headers:{"Content-Type":"application/json"},
       body:JSON.stringify({path:SOURCE,record_id:S.id,sha:S.sha,changes})
@@ -201,7 +203,7 @@ async function directSave(){
     if(checkpoint?.tab===S.tab)localStorage.removeItem(key);
     S.dirty=false;stop();
     const el=$("#inlineCmsStatus");
-    el.replaceChildren(document.createTextNode("Đã lưu lên GitHub. Chờ CMS cập nhật. "));
+    el.replaceChildren(document.createTextNode("Đã xuất bản bằng 1 commit GitHub. Chờ CMS cập nhật. "));
     const link=document.createElement("a");
     link.href="https://github.com/kenzuko/jotrip-home/commit/"+result.commit;
     link.target="_blank";link.rel="noopener noreferrer";link.textContent="Xem lịch sử ↗";
@@ -246,13 +248,13 @@ function toolbar(){
     '<button type="button" id="inlineCmsBackup">Tải bản sao</button>'+
     '<button type="button" id="inlineCmsRead">Đọc lại</button>'+
     '<button type="button" id="inlineCmsSubmit">Gửi duyệt</button>'+
-    '<button type="button" id="inlineCmsDirect" hidden>Lưu thẳng (Admin)</button></div>'+
+    '<button type="button" id="inlineCmsPublish" class="inline-cms-publish" hidden>Xuất bản</button></div>'+
     '<p id="inlineCmsStatus" role="status"></p>'+
     '<a href="/admin/?module=stories&record='+encodeURIComponent(S.id)+'">Biên tập đầy đủ (ảnh, nguồn, cấu trúc) ↗</a>';
   document.body.appendChild(el);
   $("#inlineCmsOpen").onclick=begin;$("#inlineCmsSave").onclick=save;
   $("#inlineCmsBackup").onclick=backup;$("#inlineCmsRead").onclick=stop;$("#inlineCmsSubmit").onclick=submit;
-  $("#inlineCmsDirect").onclick=directSave;
+  $("#inlineCmsPublish").onclick=publishOnce;
 }
 async function mount(){
   const localQa=["localhost","127.0.0.1"].includes(location.hostname)&&new URLSearchParams(location.search).get("cms-inline-qa")==="1";

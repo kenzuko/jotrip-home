@@ -26,3 +26,5 @@ body.opq-inline-editing #articleRoot{padding-bottom:80px}
 
 #inlineCmsDirect{grid-column:1/-1;background:#bce8c3!important;color:#143c2f!important;border-color:#7fbb90!important}
 #inlineCmsDirect[hidden]{display:none!important}
+
+#inlineCmsActions .inline-cms-publish{background:#fbd782;color:#174b3b;border-color:#e0b94f}
