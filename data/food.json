@@ -500,8 +500,8 @@
         "breakfast",
         "snack"
       ],
-      "intro": "Ổ bánh mì nóng kẹp chả cá, dưa leo và rau thơm là bữa sáng gọn gàng trước một ngày đi chơi. Chả vừa chiên hoặc áp chảo còn thơm, cắn cùng vỏ bánh giòn nghe vui miệng. Mỗi hàng có loại chả và nước sốt riêng; nếu thích ít cay hoặc cần tránh thành phần nào, dặn ngay lúc gọi.",
-      "how_to_eat": "Ổ bánh mì ngon nhất khi chả cá còn nóng và vỏ bánh vẫn giòn. Nếu mua mang đi xa, có thể nhờ quán để sốt riêng để bánh không bị mềm. Thích cay ít hay nhiều thì dặn từ lúc gọi.",
+      "intro": "Ổ bánh mì nóng kẹp chả cá, dưa leo và rau thơm là bữa sáng gọn gàng trước một ngày đi chơi. Chả vừa chiên hoặc áp chảo còn thơm, cắn cùng vỏ bánh giòn nghe vui miệng. Mỗi cửa hàng có loại chả và nước sốt riêng; nếu thích ít cay hoặc cần tránh thành phần nào, dặn ngay lúc gọi món.",
+      "how_to_eat": "Ổ bánh mì ngon nhất khi chả cá còn nóng và vỏ bánh vẫn giòn. Nếu mua mang đi xa, có thể nhờ quán để sốt riêng để bánh không bị mềm. Thích cay ít hay nhiều thì dặn từ lúc gọi món.",
       "tips": [
         "Hỏi chả làm từ cá gì nếu bạn dị ứng hoặc tránh một loại cá.",
         "Dặn ít cay, ít sốt nếu mang đi xa.",
@@ -532,7 +532,7 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Chả cá và bánh mì có thể chứa cá và lúa mì; sốt hoặc đồ chua cũng thay đổi theo quán. Hỏi cả thành phần lẫn dụng cụ chế biến nếu dị ứng.",
+      "allergy_note": "Chả cá và bánh mì có thể chứa cá và bột mì; sốt hoặc đồ chua cũng thay đổi theo quán. Hỏi cả thành phần lẫn dụng cụ chế biến nếu dị ứng.",
       "ask_staff": [
         "Chả cá ở đây chiên hay hấp?",
         "Bánh mì có sốt hoặc topping nào ngoài chả cá?"
