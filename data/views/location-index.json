@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-28T17:05:00.000Z",
+  "generated_at": "2026-09-28T17:15:00.000Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
     "with_address": 350,
-    "with_map": 231,
+    "with_map": 232,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -7053,11 +7053,21 @@
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-09-28",
       "star_rating": null,
       "what_it_is": "Khu du lịch sinh thái bên suối ở khu vực Bến Tràm. Pin sẽ được bổ sung sau khi xác minh đúng cổng vào; không dùng tọa độ của lòng suối thay cho lối vào.",
       "route": "/places/detail.html?id=suoi-da-ban",
-      "map": null,
+      "map": {
+        "lat": 10.2454375,
+        "lon": 104.027046875,
+        "precision": "area_anchor",
+        "source": "Current named-destination Plus Code cluster cross-checked across Sun World, Waze/Google-derived listings and Phu Quoc/An Giang tourism sources",
+        "source_id": "suoi_da_ban_62wg_crosscheck_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Neo khu vực theo cụm Plus Code 62WG cho Suối Đá Bàn. Không xác nhận cổng khu du lịch, bãi xe, cầu dây văng hay điểm xuống suối.",
+        "accuracy": "multi_source_named_destination_plus_code_area_anchor",
+        "plus_code": "62WG+5RF"
+      },
       "inherited_from": null,
       "google_query": "Suối Đá Bàn, Bến Tràm, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
