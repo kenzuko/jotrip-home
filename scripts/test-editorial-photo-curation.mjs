@@ -15,7 +15,6 @@ const expected={
   "knowledge_130_beach-day":"editorial-tropical-beach.jpg",
   "knowledge_050_hoang-hon-phu-quoc":"editorial-fishing-boat-sunset.jpg",
   "knowledge_131_sunset-watching":"editorial-fishing-boat-sunset.jpg",
-  "knowledge_149_tau-ca-va-nghe-bien-thay-doi-the-nao":"editorial-fishing-fleet.jpg"
 };
 for(const [topic,file] of Object.entries(expected)){
   assert.equal(visual.knowledge[topic]?.images?.[0]?.url,"/assets/media/"+file,topic);
@@ -69,6 +68,11 @@ assert(!(visual.knowledge["knowledge_074_cano-tau-cao-toc-pha-khac-nhau-the-nao"
 assert(!(visual.knowledge["knowledge_140_duong-dong-truoc-va-sau-do-thi-hoa"]?.images||[]).some(p=>p.url.includes("Selling%20fruit")),"Night-market fruit stall must not stand in for Dương Đông urbanisation");
 assert.equal(visual.knowledge["knowledge_142_ham-ninh-truoc-va-sau-chinh-trang"]?.images?.length,1,"Hàm Ninh change story must not present a pre-2019 beach photo as the after view");
 assert.equal(visual.food["ca-mu-hap"]?.images?.length,0,"Cá mú card must stay photo-free until an actual cá mú image is verified");
+assert.equal(visual.knowledge["knowledge_023_hon-gam-ghi"]?.images?.length,0,"Hòn Gầm Ghì stays photo-free until the exact island is visually verified");
+assert(!(visual.stories["an-thoi-ben-ca-va-cua-ngo-dao"]?.images||[]).some(p=>p.url.startsWith("/assets/media/editorial-fishing-fleet.jpg")),"An Thoi story must not use unidentified fishing-fleet imagery");
+assert(!(visual.stories["vi-sao-goi-phu-quoc-la-dao-ngoc"]?.images||[]).some(p=>p.url.startsWith("/assets/media/editorial-")),"Đảo Ngọc story must use verified Phú Quốc imagery, not unidentified cove assets");
+assert.equal(visual.places["activity_tour_3_islands"]?.images?.length,1,"3-island activity should keep the real JoTrip canoe image only");
+assert.equal(visual.places["activity_snorkeling_an_thoi"]?.images?.length,1,"An Thoi snorkeling should keep the source-reviewed exact activity image only");
 assert(!JSON.stringify(visual.stories["co-bien-phu-quoc-khuat-tu-bo"]||{}).includes("Sea%20grass%20bed.jpg"),"Dahab seagrass image must not remain in the Phú Quốc story gallery");
 
 console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");
