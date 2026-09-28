@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-28T09:45:00.000Z",
+  "generated_at": "2026-09-28T16:45:00.000Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 225,
-    "missing_count": 169
+    "ready_count": 227,
+    "missing_count": 167
   },
   "layers": {
     "zones": [
@@ -3306,6 +3306,32 @@
         "note": "Tâm tòa nhà tại 37 Hùng Vương, KP5 theo exact-address result; đối chiếu đúng cơ sở TGDD chính thức. Không xác nhận chính xác cổng vào.",
         "accuracy": "exact_house_number_street_neighbourhood_operator_crosscheck",
         "source_license": "ODbL-1.0"
+      },
+      {
+        "id": "utility_dng_clinic_duong_dong",
+        "name": "Phòng khám Đa khoa Quốc tế DNG - Dương Đông",
+        "type": "utility",
+        "lat": 10.232189,
+        "lon": 103.97232,
+        "precision": "site_centroid",
+        "source": "Official DNG website embedded Google Maps place for the Dương Đông main clinic",
+        "source_id": "dng_official_google_map_embed_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Tâm cơ sở lấy từ Google Maps iframe do chính website DNG nhúng cho trụ sở chính Dương Đông. Không xác nhận chính xác cửa vào, vị trí cấp cứu hay điểm đón trả.",
+        "accuracy": "operator_embedded_google_map_site_centroid"
+      },
+      {
+        "id": "utility_laundry_phuquoc_cuaduong",
+        "name": "Phu Quoc Laundry - Bến Tràm",
+        "type": "utility",
+        "lat": 10.2333807689721,
+        "lon": 103.99067557668052,
+        "precision": "site_centroid",
+        "source": "Official Phu Quoc Laundry website embedded Google Maps place for Phu Quoc Laundry Online",
+        "source_id": "phuquoc_laundry_official_google_map_embed_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Tâm cơ sở lấy từ Google Maps iframe do chính website Phu Quoc Laundry nhúng. Không xác nhận chính xác cửa vào hoặc phạm vi nhận/giao đồ.",
+        "accuracy": "operator_embedded_google_map_site_centroid"
       }
     ]
   },
@@ -3429,7 +3455,6 @@
     "hotel_moxy_phu_quoc_hon_thom",
     "hotel_rivora_retreat_phu_quoc",
     "hotel_w_phu_quoc",
-    "utility_laundry_phuquoc_cuaduong",
     "utility_longchau_ham_ninh",
     "utility_longchau_ben_tram",
     "utility_longchau_dt45",
@@ -3437,7 +3462,6 @@
     "utility_luggage_whalelo_grandworld",
     "utility_luggage_whalelo_sunset",
     "utility_pqc_airport_atms",
-    "utility_dng_clinic_duong_dong",
     "utility_dng_clinic_an_thoi",
     "utility_tgdd_142a_ntr",
     "utility_tgdd_104_304",
