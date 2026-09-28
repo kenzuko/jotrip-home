@@ -35,7 +35,8 @@ const gates=[
   },
   {
     id:"worker-public-origin",
-    ok:!new RegExp('SITE_ORIGIN\\s*=\\s*["\\']'+cmsOrigin.replace(/[.*+?^$\{\}()|[\]\\]/g,"\\$&")).test(worker)
+    ok:!worker.includes('const SITE_ORIGIN = "'+cmsOrigin+'"')
+      && !worker.includes("const SITE_ORIGIN='"+cmsOrigin+"'")
       && (!worker.includes("SITE_ORIGIN") || worker.includes(publicOrigin)),
     detail:"Worker SEO metadata must not identify the CMS hostname as the public site."
   },
