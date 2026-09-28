@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-28",
+  "branch": "data/nearme-gps-batch3-20260928",
+  "scope": "Continue Near Me MASTERLOCK after batch 2; two operator-owned website map embeds only. Hotels excluded.",
+  "status": "REVIEWED_OPERATOR_EMBED_BATCH",
+  "masterlock": [
+    "Accuracy over coverage.",
+    "Operator-owned embedded map may establish site centroid when the embedded place is the same named facility.",
+    "Embedded map center is not a verified entrance, emergency entrance or pickup point.",
+    "Keep operational_status UNKNOWN unless separately verified.",
+    "Canonical entities first, derived views second."
+  ],
+  "baseline": {
+    "location_total": 350,
+    "location_with_map": 228,
+    "map_candidates": 394,
+    "map_ready": 225,
+    "nonhotel_missing": 27
+  },
+  "result": {
+    "location_with_map": 230,
+    "map_ready": 227,
+    "accepted_count": 2,
+    "nonhotel_missing": 25
+  },
+  "accepted": [
+    {
+      "id": "utility_dng_clinic_duong_dong",
+      "coordinate": {
+        "lat": 10.232189,
+        "lon": 103.97232
+      },
+      "precision": "site_centroid",
+      "decision": "ACCEPT_OPERATOR_EMBED_SITE_CENTROID",
+      "evidence": [
+        "https://dngclinic.com/lien-he/"
+      ],
+      "rationale": "Official DNG contact page identifies the Dương Đông main clinic and embeds a Google Maps place centered at this coordinate. Not an entrance/emergency claim."
+    },
+    {
+      "id": "utility_laundry_phuquoc_cuaduong",
+      "coordinate": {
+        "lat": 10.2333807689721,
+        "lon": 103.99067557668052
+      },
+      "precision": "site_centroid",
+      "decision": "ACCEPT_OPERATOR_EMBED_SITE_CENTROID",
+      "evidence": [
+        "https://phuquoclaundry.online/"
+      ],
+      "rationale": "Official Phu Quoc Laundry website embeds a Google Maps place named Phu Quoc Laundry Online centered at this coordinate. Not an entrance or service-radius claim."
+    }
+  ],
+  "hold": [
+    {
+      "id": "utility_dng_clinic_an_thoi",
+      "decision": "HOLD_NO_RESOLVED_OPERATOR_MAP_COORDINATE",
+      "reason": "Official DNG page confirms S259-S354 Sun Grand City and publishes a directions short-link, but the short-link could not be resolved to a reproducible coordinate in this review."
+    },
+    {
+      "id": "utility_dmx_107_nvc",
+      "decision": "HOLD_ADDRESS_ONLY",
+      "reason": "Official branch identity/address confirmed; no reproducible operator map coordinate yet."
+    },
+    {
+      "id": "utility_dmx_162_304",
+      "decision": "HOLD_ADDRESS_ONLY",
+      "reason": "Official branch identity/address and landmark confirmed; no reproducible operator map coordinate yet."
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "decision": "HOLD_ADDRESS_AND_PLACE_ID_ONLY",
+      "reason": "Exact business address and named map listing confirmed; coordinate not exposed by available source."
+    }
+  ],
+  "notes": [
+    "No UI changes.",
+    "No hotel GPS changes.",
+    "No live operational status changes.",
+    "No OSM attribution added because accepted coordinates came from operator-owned Google Maps embeds, not imported OSM geometry.",
+    "Derived views synchronized after canonical updates."
+  ]
+}
