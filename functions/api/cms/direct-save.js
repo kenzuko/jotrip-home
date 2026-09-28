@@ -1,6 +1,6 @@
 /* Direct text-only publishing for an authenticated CMS admin.
  * One atomic Git tree update on main, never a blind overwrite or public-client token. */
-import { CMS_REPO_API, githubJson, readCmsSession, readCurrentCmsRole, readMainRef, readRepoFile, sameOrigin, scanOpenPullConflicts } from "../../_shared/cms-mutation-core.js";
+import { CMS_REPO_API, cmsMutationCommitTrailers, createCmsMutationAudit, githubJson, readCmsSession, readCurrentCmsRole, readMainRef, readRepoFile, sameOrigin, scanOpenPullConflicts } from "../../_shared/cms-mutation-core.js";
 import { cmsCan, cmsCanAny, cmsSupports } from "../../_shared/cms-mutation-policy.js";
 const dec=new TextDecoder();
 const homeSections=new Set(["happening","things","must","areas","food","essentials","heritage","guide"]);
@@ -180,6 +180,14 @@ async function onRequestInner({request,env}){
       body:JSON.stringify({content:JSON.stringify(item.data,null,2)+"\n",encoding:"utf-8"})})).value;
     return {path:item.path,mode:"100644",type:"blob",sha:value.sha};
   }));
+  const beforeFileShas={[path]:source.sha};
+  if(mirror)beforeFileShas[mirrorPath]=mirror.sha;
+  const afterFileShas=Object.fromEntries(newBlob.map(item=>[item.path,item.sha]));
+  const auditBase=createCmsMutationAudit({
+    operation:"direct-save",actor:s.login,role:userRole,baseMainSha:currentRef,
+    paths,beforeFileShas,afterFileShas,changedFields:changes.map(x=>x.field),
+    recordId:id
+  });
   const commit=(await gh("/git/commits/"+currentRef,token)).value;
   if(!commit.tree?.sha)return json({error:"Thiếu Git tree gốc"},502);
   const tree=(await gh("/git/trees",token,{method:"POST",
@@ -188,7 +196,8 @@ async function onRequestInner({request,env}){
   const saved=(await gh("/git/commits",token,{method:"POST",
     body:JSON.stringify({message:"cms(admin): sửa chữ trực tiếp "+safeId+
       "\n\nAdmin: @"+s.login+"\nFile: "+path+
-      "\nFields: "+changes.map(x=>x.field).join(", "),
+      "\nFields: "+changes.map(x=>x.field).join(", ")+
+      "\n\n"+cmsMutationCommitTrailers(auditBase),
       tree:tree.sha,parents:[currentRef]})})).value;
   try{
     await gh("/git/refs/heads/main",token,{method:"PATCH",
@@ -199,9 +208,14 @@ async function onRequestInner({request,env}){
       "GitHub đã thay đổi hoặc từ chối bản ghi. Nháp còn nguyên, không ghi đè.",
       detail:err.message},err.code===403?403:409);
   }
+  const audit=createCmsMutationAudit({
+    operation:"direct-save",actor:s.login,role:userRole,baseMainSha:currentRef,
+    paths,beforeFileShas,afterFileShas,changedFields:changes.map(x=>x.field),
+    recordId:id,mutationCommitSha:saved.sha,resultMainSha:saved.sha
+  });
   return json({ok:true,commit:saved.sha,record_id:id,changed_fields:changes.map(x=>x.field),
     message:"Đã lưu lên main. Chờ hệ thống phát hành để khách thấy bản mới.",
-    deployment_pending:true,files:paths});
+    deployment_pending:true,files:paths,audit});
 }
 export async function onRequest(ctx){
   try{return await onRequestInner(ctx);}
