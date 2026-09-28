@@ -131,6 +131,79 @@
         "Google business listing 'Suoi Da Ban Evergreen Phu Quoc' uses compound code 62WG+4QJ but represents a restaurant/service near the attraction"
       ],
       "note": "Official sources establish destination area but not one safe public entrance/anchor. Do not reuse nearby restaurant pin."
+    },
+    {
+      "id": "utility_parking_sunset_nightmarket",
+      "decision": "HOLD_MARKET_PARKING_CONFIRMED_NO_DEDICATED_PIN",
+      "evidence": [
+        "https://sunworld.vn/vi/hon-thom/an-choi/kham-pha-cho-dem-sunset-town-thien-duong-am-thuc-va-mua-sam-ben-bien-17527",
+        "Google business listing Chợ Đêm Vui-Fest Bazaar Sunset Town (place id ChIJe-XGILOVpzERFUpU0tLXMoY) indicates parking availability"
+      ],
+      "note": "Sun World confirms parking areas around the night market, but neither source exposes a dedicated parking-lot coordinate. Do not reuse the market pin as a parking pin."
+    },
+    {
+      "id": "utility_toilet_sunset_venice_02",
+      "decision": "HOLD_NO_PUBLIC_TOILET_PIN_DO_NOT_INTERPOLATE_STREET_NUMBER",
+      "evidence": [
+        "Nearby current business listings exist at 04 Venice and other Venice addresses, but none establishes a public toilet at 02 Venice."
+      ],
+      "note": "Do not infer 02 Venice toilet coordinate from adjacent buildings."
+    },
+    {
+      "id": "utility_toilet_sunset_venice_67",
+      "decision": "HOLD_NO_PUBLIC_TOILET_PIN_DO_NOT_INTERPOLATE_STREET_NUMBER",
+      "evidence": [
+        "Nearby current business listings exist at 62, 63 and 65 Venice, but none establishes a public toilet at 67 Venice."
+      ],
+      "note": "Do not infer 67 Venice toilet coordinate from adjacent buildings."
+    },
+    {
+      "id": "utility_longchau_an_thoi",
+      "decision": "HOLD_OFFICIAL_BRANCH_CURRENT_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang"
+      ],
+      "note": "Current official page confirms 46 Nguyễn Văn Cừ and branch identity; iframe/directions coordinate is not exposed reproducibly in available source."
+    },
+    {
+      "id": "utility_longchau_ben_tram",
+      "decision": "HOLD_OFFICIAL_DIRECTORY_CURRENT_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang"
+      ],
+      "note": "Current official directory confirms 487 Nguyễn Trung Trực (Chợ Bến Tràm); no safe site coordinate exposed."
+    },
+    {
+      "id": "utility_longchau_dt45",
+      "decision": "HOLD_OFFICIAL_DIRECTORY_CURRENT_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang"
+      ],
+      "note": "Current official directory confirms Thửa Đất 59, Bản Đồ 12, ĐT45; no safe site coordinate exposed."
+    },
+    {
+      "id": "utility_longchau_ham_ninh",
+      "decision": "HOLD_OFFICIAL_DIRECTORY_CURRENT_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang"
+      ],
+      "note": "Current official directory confirms Thửa Đất 32, Bản Đồ 24, ĐT47 at ngã tư chợ Hàm Ninh; no safe site coordinate exposed."
+    },
+    {
+      "id": "utility_longchau_ganh_dau",
+      "decision": "HOLD_OFFICIAL_DIRECTORY_CURRENT_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang"
+      ],
+      "note": "Current official directory still lists the Gành Dầu branch address; no safe site coordinate exposed. Preserve operational status separately from GPS."
+    },
+    {
+      "id": "utility_longchau_suoi_da",
+      "decision": "HOLD_OFFICIAL_DIRECTORY_CURRENT_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang"
+      ],
+      "note": "Current official branch list includes Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang); no safe site coordinate exposed."
     }
   ],
   "intentional_no_fixed_pin": [
@@ -179,7 +252,9 @@
     "derived_views_modified": 0,
     "deploy_triggered": false,
     "new_staging_candidates": 1,
-    "rechecked_holds": 5,
-    "intentional_no_fixed_pin": 4
-  }
+    "rechecked_holds": 14,
+    "intentional_no_fixed_pin": 4,
+    "last_update_note": "Added Sunset Town parking/toilet guardrails and current Long Châu branch/address rechecks; no new canonical coordinate promoted."
+  },
+  "observed_main_sha_latest": "cb9c8c79a00d003a40ab45e9254c02dac47da597"
 }
