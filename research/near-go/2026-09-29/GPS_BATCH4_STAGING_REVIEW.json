@@ -204,6 +204,39 @@
         "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang"
       ],
       "note": "Current official branch list includes Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang); no safe site coordinate exposed."
+    },
+    {
+      "id": "utility_tgdd_104_304",
+      "decision": "HOLD_OFFICIAL_ADDRESS_CURRENT_GEOMETRY_CONTRADICTION_REMAINS",
+      "evidence": [
+        "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc"
+      ],
+      "note": "Current MWG directory confirms 104 Ba Mươi Tháng Tư, KP1, opposite Nhà hàng Ra Khơi. Batch2 rejected available geocoder geometry because it contradicted that landmark context. No new reproducible operator coordinate found."
+    },
+    {
+      "id": "utility_tgdd_142a_ntr",
+      "decision": "HOLD_OFFICIAL_BRANCH_CURRENT_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://www.thegioididong.com/sieu-thi-so-142a-142b-duong-nguyen-trung-truc-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-935"
+      ],
+      "note": "Current official branch page confirms exact 142A-142B Nguyễn Trung Trực and active store identity. No coordinate exposed safely; do not reuse unrelated numbered POIs."
+    },
+    {
+      "id": "utility_fuel_dong_loi_1",
+      "decision": "HOLD_OFFICIAL_DESTINATION_DIRECTORY_ADDRESS_ONLY",
+      "evidence": [
+        "https://dulich.phuquoc.gov.vn/iv/detailutilities/?child=1240&id=1240"
+      ],
+      "note": "Official Phu Quoc tourism utility directory confirms Trạm Xăng Dầu Đông Lợi 1 on Nguyễn Trung Trực with phone +84 297 3848 639. No site coordinate is exposed."
+    },
+    {
+      "id": "utility_dienmaycholon_nguyen_trung_truc",
+      "decision": "HOLD_OPERATOR_DIRECTIONS_SHORTLINK_UNRESOLVED",
+      "evidence": [
+        "https://dienmaycholon.com/he-thong-sieu-thi/200a-nguyen-trung-truc-khu-pho-5-phuong-duong-dong-thanh-pho-phu-quoc-kien-giang",
+        "https://maps.app.goo.gl/77JqfCZSfBkqBWgC7"
+      ],
+      "note": "Operator page confirms 200A Nguyễn Trung Trực, KP5 and publishes a Google Maps directions short-link. The final map coordinate is not reproducibly resolved here, so the older Geoapify candidate remains rejected/held rather than restored."
     }
   ],
   "intentional_no_fixed_pin": [
@@ -252,9 +285,9 @@
     "derived_views_modified": 0,
     "deploy_triggered": false,
     "new_staging_candidates": 1,
-    "rechecked_holds": 14,
+    "rechecked_holds": 18,
     "intentional_no_fixed_pin": 4,
-    "last_update_note": "Added Sunset Town parking/toilet guardrails and current Long Châu branch/address rechecks; no new canonical coordinate promoted."
+    "last_update_note": "Added current TGDD 104/142A, Đông Lợi 1, and Chợ Lớn 200A evidence. No new canonical GPS promoted; Chợ Lớn operator map short-link remains unresolved."
   },
   "observed_main_sha_latest": "cb9c8c79a00d003a40ab45e9254c02dac47da597"
 }
