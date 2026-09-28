@@ -17,4 +17,7 @@ assert.equal(t.write(story,"__proto__","x"),false);
 assert.match(t.paras("<script>alert(1)</script>"),/&lt;script&gt;/);
 assert.doesNotMatch(t.paras("<img src=x onerror=alert(1)>"),/<img/);
 assert.match(readFileSync("stories/article.html","utf8"),/cms-inline-edit\.js\?v=1/);
+assert.match(src,/id="inlineCmsPublish"[^>]*hidden>Xuất bản/);
+assert.match(src,/S\.role==="admin"\)\$\("#inlineCmsPublish"\)\.disabled=false/);
+assert.doesNotMatch(src,/Lưu thẳng \(Admin\)/);
 console.log("PASS CMS inline edit: role gate, field whitelist, safe preview and article boot");
