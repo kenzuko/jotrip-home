@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-28T16:45:00.000Z",
+  "generated_at": "2026-09-28T17:05:00.000Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 227,
-    "missing_count": 167
+    "ready_count": 228,
+    "missing_count": 166
   },
   "layers": {
     "zones": [
@@ -363,6 +363,20 @@
         "note": "Area anchor decoded from published Plus Code 629R+9RP for Suối Tiên. Dùng để định hướng khu vực; không xác nhận bãi giữ xe, đầu đường mòn hay điểm xuống suối.",
         "accuracy": "published_named_destination_plus_code_area_anchor",
         "plus_code": "629R+9RP"
+      },
+      {
+        "id": "place_phu_quoc_ridgeback_center",
+        "name": "Trung tâm bảo tồn chó xoáy Phú Quốc",
+        "type": "place",
+        "lat": 10.1781374,
+        "lon": 104.0085517,
+        "precision": "area_anchor",
+        "source": "Secondary place directory coordinate cross-checked with Phu Quoc government and Vietnam tourism sources for Tiểu khu 77 / ấp Suối Mây",
+        "source_id": "ridgeback_tieukhu77_area_crosscheck_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Neo khu vực cho cơ sở Thanh Nga mới tại Tiểu khu 77 / ấp Suối Mây. Không xác nhận cổng vào, bãi đỗ xe hay vị trí trường đua.",
+        "accuracy": "secondary_directory_coordinate_government_address_crosscheck",
+        "plus_code": null
       }
     ],
     "stay": [
@@ -3468,7 +3482,6 @@
     "place_fish_sauce_house",
     "place_pepper_garden",
     "place_suoi_da_ban",
-    "place_phu_quoc_ridgeback_center",
     "utility_112",
     "utility_113",
     "utility_114",
