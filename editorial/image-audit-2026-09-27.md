@@ -69,3 +69,12 @@ Bãi Ông Lang from Vietnam Airlines is exact for the beach and contextual only 
 - Replaced the hero with the visually checked Wikimedia Commons photo **Đường đất đỏ, Hàm Ninh, phú quốc, Vietnam - panoramio.jpg** (trungydang, 15/09/2013, CC BY 3.0).
 - Kept the second photo **Đường Trần Hưng Đạo, Dương Tơ, Phú Quốc** (2013, CC BY 3.0) after visual review.
 - New rule: filename, EXIF, categories, coordinates, and captions are not enough for geographic photo QA. The rendered pixels must also be checked before a location-specific image is approved.
+
+
+## Correction 28/09/2026 - non-Phú-Quốc hero sweep
+A catalog sweep found four intentionally labeled illustration files that were still eligible to become guide/card hero images. Captions were accurate, but the hero crop can hide captions, so they are not acceptable as location-specific lead images.
+- Cỏ biển Phú Quốc: replaced Dahab, Egypt seagrass hero with a licensed Hàm Ninh, Phú Quốc coastal-context photo. The caption explicitly says the coast photo is not evidence of seagrass.
+- Dugong ở vùng biển Phú Quốc: replaced the Dahab image with the same licensed Phú Quốc coastal-context photo; no claim that a dugong is pictured.
+- Rừng ngập mặn Phú Quốc: removed the Cần Giờ hero; leave photo-free until an exact Phú Quốc image with acceptable reuse rights is curated.
+- Rùa biển quanh Phú Quốc: removed the Kona, Hawaii turtle hero; leave photo-free until an exact Phú Quốc image with acceptable reuse rights is curated.
+- Bus Phú Quốc: replaced the Hà Nội VinBus illustration with a real VinBus photo at Phú Quốc United Center from Znews, source credited and reuse permission marked unverified.
