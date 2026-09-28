@@ -1,0 +1,139 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-28",
+  "repo": "kenzuko/jotrip-home",
+  "base_main_sha": "07561e2b38efa490a5891d5b6d3abeb005f80b79",
+  "status": "STAGING_ONLY_NO_CANONICAL_WRITE_NO_DEPLOY",
+  "masterlock": "OPENPQ_NEARME_GPS_MASTER_HANDOFF_20260927",
+  "scope": "Continue review of the 26 utility + 4 place GPS backlog while other data flows are changing the system. Do not alter data/entities or data/views from this staging audit.",
+  "rules": [
+    "Accuracy over coverage.",
+    "Operator address confirms identity/address, not exact GPS entrance.",
+    "Geoapify and OSM are not independent sources.",
+    "Do not use island/city/road/area centroids as store pins.",
+    "Do not promote a coordinate when house number matches but street/ward conflicts.",
+    "Any later promotion must update canonical entity, provenance/ODbL, duplicate linkage where needed, then rebuild derived views and run QA."
+  ],
+  "reviewed": [
+    {
+      "entity_id": "utility_dienmaycholon_nguyen_trung_truc",
+      "decision": "STAGING_CANDIDATE_READY_FOR_CANONICAL_REVIEW",
+      "candidate_map": {"lat": 10.2233901, "lon": 103.9676121, "precision": "site_centroid"},
+      "coordinate_source": "Geoapify / OpenStreetMap cached batch1",
+      "coordinate_evidence": "Geocoder returns building 200A Nguyễn Trung Trực, KP5 Dương Đông, matching canonical address.",
+      "identity_evidence": [
+        "Official operator branch: https://dienmaycholon.com/he-thong-sieu-thi/200a-nguyen-trung-truc-khu-pho-5-phuong-duong-dong-thanh-pho-phu-quoc-kien-giang",
+        "Current local-business listing matches 200A Nguyễn Trung Trực, Khu Phố 5, Phú Quốc."
+      ],
+      "limitations": "Site centroid candidate only; not verified exact entrance. Do not publish until canonical batch review."
+    },
+    {
+      "entity_id": "utility_tgdd_37_hungvuong",
+      "decision": "STAGING_CANDIDATE_READY_FOR_CANONICAL_REVIEW",
+      "candidate_map": {"lat": 10.2287548, "lon": 103.9695114, "precision": "site_centroid"},
+      "coordinate_source": "Geoapify / OpenStreetMap cached batch1",
+      "coordinate_evidence": "Geocoder returns building 37 Hùng Vương in KP5 Dương Đông; alternate result is KP1 and is rejected.",
+      "identity_evidence": [
+        "Official MWG branch page confirms 37 Hùng Vương, Khu Phố 5, Ngã 4 Hùng Vương, Phú Quốc.",
+        "Current local-business listing independently matches 37 Hùng Vương, Khu Phố 5."
+      ],
+      "limitations": "Site centroid candidate only; not verified exact entrance. Do not publish until canonical batch review."
+    },
+    {
+      "entity_id": "utility_vcb_atm_an_thoi",
+      "decision": "HOLD_STRONG_CANDIDATE_NEEDS_BANK_MAP",
+      "candidate_map": {"lat": 10.0268439, "lon": 104.0170526, "precision": "site_centroid"},
+      "coordinate_source": "Geoapify / OpenStreetMap cached batch1",
+      "coordinate_evidence": "Candidate matches house number 199, Nguyễn Văn Cừ and KP8 An Thới; another 199 candidate exists in KP4 and is rejected.",
+      "identity_evidence": "Current local-business listing matches Vietcombank at 199 Nguyễn Văn Cừ, An Thới.",
+      "limitations": "MASTER requires operator/bank map verification before promotion. Keep HOLD."
+    },
+    {
+      "entity_id": "utility_longchau_tran_phu",
+      "decision": "HOLD_GEO_CANDIDATES_STREET_CONFLICT",
+      "identity_evidence": "Official Long Châu directory currently lists 42 Trần Phú (Ngay Ngã Ba Trần Thú - Mạc Cửu), Phú Quốc; local-business listing also matches 42 Trần Phú.",
+      "rejected_candidates": [
+        {"lat": 10.220544, "lon": 103.959801, "reason": "house 42 but labeled Chợ Dương Đông, not Trần Phú"},
+        {"lat": 10.230422, "lon": 103.957427, "reason": "house 42 but labeled Nhà thờ Dương Đông"},
+        {"lat": 10.214346, "lon": 103.9613, "reason": "house 42 but labeled Đình thần Dương Đông"}
+      ],
+      "limitations": "Do not turn same house number on unrelated feature/street into pharmacy GPS."
+    },
+    {
+      "entity_id": "utility_longchau_an_thoi",
+      "decision": "HOLD_KNOWN_COORDINATE_CONFLICT",
+      "identity_evidence": "Official Long Châu branch page currently confirms 46 Nguyễn Văn Cừ, Phú Quốc.",
+      "rejected_evidence": "Cached Geoapify results do not establish the correct branch entrance and this address previously collided with TGDD 73 Nguyễn Văn Cừ candidates.",
+      "limitations": "No canonical GPS until branch-specific map evidence is found."
+    },
+    {
+      "entity_id": "utility_longchau_ben_tram",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY",
+      "identity_evidence": "Official Long Châu directory currently lists 487 Nguyễn Trung Trực (Chợ Bến Tràm), Phú Quốc.",
+      "limitations": "Cached geocoder returns only island/city anchors. No GPS promotion."
+    },
+    {
+      "entity_id": "utility_longchau_dt45",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY",
+      "identity_evidence": "Official Long Châu directory currently lists Thửa Đất 59, Bản Đồ 12, ĐT45 (Ngã Tư Nghĩa Trang Liệt Sĩ), Phú Quốc.",
+      "limitations": "Cached geocoder returns only area-level result. No GPS promotion."
+    },
+    {
+      "entity_id": "utility_longchau_ham_ninh",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY",
+      "identity_evidence": "Official Long Châu directory currently lists Thửa Đất 32, Bản Đồ 24, ĐT47 (Ngã tư chợ Hàm Ninh), Phú Quốc.",
+      "limitations": "Cached geocoder returns only area-level result. No GPS promotion."
+    },
+    {
+      "entity_id": "utility_longchau_ganh_dau",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY_AND_STATUS_SENSITIVE",
+      "identity_evidence": "Official Long Châu directory currently lists Thửa Đất 19, Bản Đồ 12 (Ngay Chợ Gành Dầu), Phú Quốc.",
+      "limitations": "No reliable cached GPS; preserve operational_status UNKNOWN until directly verified."
+    },
+    {
+      "entity_id": "utility_dmx_107_nvc",
+      "decision": "HOLD_EXACT_ADDRESS_NO_COORDINATE",
+      "identity_evidence": [
+        "Official Điện máy XANH branch page confirms 107 Nguyễn Văn Cừ, KP3, An Thới.",
+        "Current local-business listing matches 107 Nguyễn Văn Cừ, Khu Phố 3."
+      ],
+      "limitations": "Added after Geoapify batch1; no reviewed coordinate in cache. Do not infer from nearby TGDD/Long Châu pins."
+    },
+    {
+      "entity_id": "utility_dmx_162_304",
+      "decision": "HOLD_EXACT_ADDRESS_NO_COORDINATE",
+      "identity_evidence": [
+        "Current Điện máy XANH inventory/directory pages confirm 162 đường 30/4, KP1, Phú Quốc.",
+        "Current local-business listing matches 162 đường 30 Tháng 4, KP1."
+      ],
+      "limitations": "Added after Geoapify batch1; no reviewed coordinate in cache. No road-centroid substitution."
+    },
+    {
+      "entity_id": "utility_dng_clinic_an_thoi",
+      "decision": "HOLD_WRONG_BRAND_POI",
+      "rejected_candidate": {"lat": 10.019773, "lon": 104.015735},
+      "limitations": "Candidate is Phòng khám Đa khoa An Thới, not DNG. Preserve null GPS."
+    },
+    {
+      "entity_id": "utility_tgdd_142a_ntr",
+      "decision": "HOLD_ADDRESS_FEATURE_CONFLICT",
+      "identity_evidence": "Official TGDD page confirms 142A-142B Nguyễn Trung Trực, Phú Quốc.",
+      "limitations": "Cached candidates attach house 142A to unrelated Chợ/Nhà thờ/Đình features instead of Nguyễn Trung Trực. Preserve null GPS."
+    }
+  ],
+  "summary": {
+    "staging_candidates_ready_for_later_canonical_review": 2,
+    "strong_hold_needing_operator_map": 1,
+    "holds_rechecked": 10,
+    "canonical_entities_modified": 0,
+    "derived_views_modified": 0,
+    "deploy_triggered": false
+  },
+  "next_when_system_stabilizes": [
+    "Rebase/recreate a clean data branch from then-current main.",
+    "Re-verify the two staging candidates against current canonical records and duplicate radius.",
+    "Promote only accepted coordinates with source_refs/ODbL/source_audit fields.",
+    "Rebuild location-index.json and map-coverage.json from canonical and run Near Me/GO QA.",
+    "Continue unresolved high-priority utilities before low-priority places and WhaleLO area-only records."
+  ]
+}
