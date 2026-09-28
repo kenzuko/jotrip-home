@@ -29,7 +29,9 @@ for(const article of articles.dishes){
 const unmatched=entities.entities.filter(entity=>!articles.dishes.some(article=>article.id===entity.legacy_id));
 assert.deepEqual(unmatched,[],"Every food entity should have a public article");
 assert.ok(schema.modules.some(module=>module.id==="foods"&&module.path==="data/entities/food.json"));
-assert.match(publish,/"data\/entities\/food\.json":\["admin","editor"\]/);
+assert.equal(cmsCan("admin","data/entities/food.json","publish"),true);
+assert.equal(cmsCan("editor","data/entities/food.json","publish"),true);
+assert.equal(cmsCan("operator","data/entities/food.json","publish"),false);
 assert.ok(articles.dishes.some(x=>x.id==="chao-cha"&&x.name==="Cháo chả"));
 assert.ok(!articles.dishes.some(x=>x.id==="chao-ca"));
 assert.ok(entities.entities.some(x=>x.legacy_id==="chao-cha"&&x.name==="Cháo chả"));
