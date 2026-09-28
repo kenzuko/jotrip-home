@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "base_main_sha": "cb9c8c79a00d003a40ab45e9254c02dac47da597",
+  "entity_id": "place_suoi_da_ban",
+  "decision": "ACCEPT_AREA_ANCHOR_PUBLISHED_PLUS_CODE",
+  "accepted": {
+    "plus_code": "62WG+5RF",
+    "decoded_wgs84": {
+      "lat": 10.2454375,
+      "lon": 104.027046875
+    },
+    "precision": "area_anchor",
+    "rationale": "Published destination Plus Code is explicitly labeled for Suối Đá Bàn and independently repeated for the named ecotourism destination. It is used only as a general area anchor, not an entrance or waterfall point."
+  },
+  "evidence": [
+    {
+      "source": "Sun World Hòn Thơm destination guide",
+      "url": "https://sunworld.vn/hon-thom/an-choi/phu-quoc-co-gi-dephtml",
+      "finding": "Explicitly publishes 'Vị trí Suối Đá Bàn: 62WG+5RF' in the Phú Quốc destination context."
+    },
+    {
+      "source": "Current named business/place lookup",
+      "finding": "The named entity 'Khu du lịch sinh thái (Suối Đá Bàn)' resolves to Plus Code 62WG+5RF in Cửa Dương."
+    },
+    {
+      "source": "Trip.com / Wanderlog named destination listings",
+      "finding": "Independent destination listings repeat 62WG+5RF for Khu du lịch sinh thái (Suối Đá Bàn)."
+    }
+  ],
+  "alternate_rejected_for_canonical_area_anchor": {
+    "plus_code": "62VM+W76",
+    "decoded_wgs84": {
+      "lat": 10.2447875,
+      "lon": 104.033140625
+    },
+    "reason": "A separate named Suối Đá Bàn POI resolves to this code farther inside the attraction area. It may represent an interior attraction/waterfall POI and is not better evidence for the general destination anchor."
+  },
+  "safety_note": "Canonical point is deliberately area_anchor. Do not present it as gate, parking, trailhead, waterfall tier, or water-access point.",
+  "canonical_updated": true,
+  "derived_views_rebuilt": true,
+  "expected_post_change": {
+    "location_index_with_map": 231,
+    "map_coverage_ready": 228,
+    "map_coverage_missing": 166
+  },
+  "deploy_triggered": false
+}
