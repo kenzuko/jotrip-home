@@ -1,4 +1,4 @@
-import { CMS_REPO_API, githubJson, readCmsSession, readCurrentCmsRole, sameOrigin } from "../../_shared/cms-mutation-core.js";
+import { CMS_REPO_API, createCmsMutationAudit, formatCmsMutationAudit, githubJson, readCmsSession, readCurrentCmsRole, sameOrigin } from "../../_shared/cms-mutation-core.js";
 import { cmsCan, cmsCanAny, cmsSupports } from "../../_shared/cms-mutation-policy.js";
 const te=new TextEncoder(),td=new TextDecoder();
 const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"no-store"}});
@@ -45,11 +45,17 @@ export async function onRequest({request,env}){
       sha:current.sha,
       branch
     })});
+    const audit=createCmsMutationAudit({
+      operation:"rollback-proposal",actor:user.login,role,baseMainSha:ref.object.sha,
+      paths:[file.filename],beforeFileShas:{[file.filename]:current.sha},
+      afterFileShas:{[file.filename]:write.content?.sha||null},
+      branch,sourcePrNumber:number,mutationCommitSha:write.commit?.sha||null
+    });
     const proposal=await gh(base+"/pulls",user.accessToken,{method:"POST",body:JSON.stringify({
       title:"CMS: rollback #"+number,
       head:branch,base:"main",draft:false,
-      body:"## Đề xuất rollback CMS\n\n- PR nguồn: #"+number+"\n- Tệp: "+file.filename+"\n- Khôi phục nội dung ngay trước commit "+parent+".\n- Base main đã được kiểm tra khớp phiên bản do PR nguồn tạo.\n\nĐây vẫn là PR review; chưa public cho tới khi chủ CMS kiểm tra và merge."
+      body:"## Đề xuất rollback CMS\n\n- PR nguồn: #"+number+"\n- Tệp: "+file.filename+"\n- Khôi phục nội dung ngay trước commit "+parent+".\n- Base main đã được kiểm tra khớp phiên bản do PR nguồn tạo.\n\nĐây vẫn là PR review; chưa public cho tới khi chủ CMS kiểm tra và merge.\n\n"+formatCmsMutationAudit(audit)
     })});
-    return json({ok:true,pull_request:{number:proposal.number,url:proposal.html_url},file:file.filename,rollback_commit:write.commit?.sha||null});
+    return json({ok:true,pull_request:{number:proposal.number,url:proposal.html_url},file:file.filename,rollback_commit:write.commit?.sha||null,audit:{...audit,pull_request_number:proposal.number}});
   }catch(e){return json({error:"Không tạo được đề xuất rollback",detail:e?.message||String(e)},e?.status||502)}
 }

@@ -118,6 +118,10 @@ try{
   assert.equal(proposed.status,200);
   assert.equal(result.pull_request?.number,91);
   assert.equal(result.pull_request?.draft,false);
+  assert.equal(result.audit?.schema,"openpq-cms-mutation-v1");
+  assert.equal(result.audit?.operation,"publish-proposal");
+  assert.equal(result.audit?.base_main_sha,MAIN);
+  assert.deepEqual(result.audit?.paths,["data/home-copy.json"]);
   assert.ok(calls.some(x=>x.method==="POST"&&x.url.endsWith("/pulls")),"A valid edit must open a PR ready for owner review");
   assert.equal(calls.some(x=>x.method==="PUT"&&x.url.endsWith("/contents/data/home-copy.json")&&!JSON.parse(x.body).branch),false,
     "CMS proposals must never write directly to main");

@@ -71,6 +71,8 @@ jobs:
         run: node scripts/test-cms-access.mjs
       - name: Test CMS mutation permission policy
         run: node scripts/test-cms-mutation-policy.mjs
+      - name: Test CMS mutation audit metadata
+        run: node scripts/test-cms-mutation-audit.mjs
       - name: Test CMS direct save mutation safety
         run: node scripts/test-cms-direct-save.mjs
       - name: Test CMS edit-state conflict preflight

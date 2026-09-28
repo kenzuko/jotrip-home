@@ -1,4 +1,4 @@
-import { CMS_REPO_API, githubHeaders, readCmsSession, readCurrentCmsRole, readMainRef, readRepoFile, sameOrigin, scanOpenPullConflicts } from "../../_shared/cms-mutation-core.js";
+import { CMS_REPO_API, createCmsMutationAudit, formatCmsMutationAudit, githubHeaders, readCmsSession, readCurrentCmsRole, readMainRef, readRepoFile, sameOrigin, scanOpenPullConflicts } from "../../_shared/cms-mutation-core.js";
 import { cmsCan } from "../../_shared/cms-mutation-policy.js";
 const te=new TextEncoder(),td=new TextDecoder();
 
@@ -258,6 +258,7 @@ export async function onRequest({request,env}){
     const fileResult=await fileWrite.json();
     if(!fileWrite.ok)return json({error:"Không lưu được bản đề xuất",github_status:fileWrite.status,detail:fileResult?.message||"Không rõ nguyên nhân"},fileWrite.status);
 
+    let mirrorResult=null;
     if(foodMirror){
       mirrorData.dishes=body.content.dishes;
       const mirrorText=JSON.stringify(mirrorData,null,2)+"\n";
@@ -268,11 +269,24 @@ export async function onRequest({request,env}){
           sha:mirrorFile.sha,branch
         })
       });
-      const mirrorResult=await mirrorWrite.json();
+      mirrorResult=await mirrorWrite.json();
       if(!mirrorWrite.ok)
         return json({error:"Đã lưu nhánh bản tiếng Việt nhưng chưa đồng bộ được bản gốc. Chưa tạo PR.",
           branch,detail:mirrorResult?.message||"GitHub write failed"},502);
     }
+    const beforeFileShas={[path]:file.sha};
+    const afterFileShas={[path]:fileResult.content?.sha||null};
+    if(foodMirror){
+      beforeFileShas["data/food.json"]=mirrorFile.sha;
+      afterFileShas["data/food.json"]=mirrorResult?.content?.sha||null;
+    }
+    const mutationCommitSha=mirrorResult?.commit?.sha||fileResult.commit?.sha||null;
+    const audit=createCmsMutationAudit({
+      operation:"publish-proposal",actor:s.login,role,baseMainSha:mainRef.sha,
+      paths:pathsToCheck,beforeFileShas,afterFileShas,branch,
+      mutationCommitSha
+    });
+
     const pullResponse=await fetch(api+"/pulls",{
       method:"POST",headers,
       body:JSON.stringify({
@@ -280,13 +294,13 @@ export async function onRequest({request,env}){
         head:branch,
         base:"main",
         draft:false,
-        body:"## Đề xuất từ CMS\n\n- Module: `"+path+"`\n- Người đề xuất: @"+safeLogin+"\n- Base file SHA: `"+file.sha+"`\n- File commit: `"+String(fileResult.commit?.sha||"")+"`\n\nChủ CMS kiểm tra diff và nguồn rồi tự merge khi sẵn sàng. PR chưa được xuất bản cho khách."
+        body:"## Đề xuất từ CMS\n\n- Module: `"+path+"`\n- Người đề xuất: @"+safeLogin+"\n- Base file SHA: `"+file.sha+"`\n- File commit: `"+String(mutationCommitSha||"")+"`\n\nChủ CMS kiểm tra diff và nguồn rồi tự merge khi sẵn sàng. PR chưa được xuất bản cho khách.\n\n"+formatCmsMutationAudit(audit)
       })
     });
     const pull=await pullResponse.json();
     if(!pullResponse.ok)return json({error:"Đã lưu nhánh nhưng không tạo được PR nháp",github_status:pullResponse.status,detail:pull?.message||"Không rõ nguyên nhân",branch},pullResponse.status);
 
-    return json({ok:true,branch,commit:fileResult.commit?.sha||null,pull_request:{number:pull.number,url:pull.html_url,draft:pull.draft}});
+    return json({ok:true,branch,commit:mutationCommitSha,pull_request:{number:pull.number,url:pull.html_url,draft:pull.draft},audit:{...audit,pull_request_number:pull.number}});
 
   }catch(e){
     return json({error:e?.message||String(e)},500);

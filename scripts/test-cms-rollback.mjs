@@ -54,6 +54,8 @@ globalThis.fetch=async(url,options={})=>{
     assert.equal(body.draft,false);
     assert.equal(body.base,"main");
     assert.match(body.title,/rollback #17/);
+    assert.match(body.body||"",/CMS mutation metadata/);
+    assert.match(body.body||"",/openpq-cms-mutation-v1/);
     return Response.json({number:27,html_url:"https://github.com/kenzuko/jotrip-home/pull/27"},{status:201});
   }
   throw new Error("Unexpected GitHub request: "+method+" "+target);
@@ -71,6 +73,10 @@ try{
   const result=await response.json();
   assert.equal(response.status,200);
   assert.equal(result.pull_request.number,27);
+  assert.equal(result.audit?.schema,"openpq-cms-mutation-v1");
+  assert.equal(result.audit?.operation,"rollback-proposal");
+  assert.equal(result.audit?.source_pr_number,17);
+  assert.deepEqual(result.audit?.paths,["data/home-copy.json"]);
   assert.ok(calls.some(x=>x.method==="PUT"),"Rollback must restore content on a separate branch");
   assert.ok(calls.some(x=>x.method==="POST"&&x.target.endsWith("/pulls")),"Rollback must stay behind a new PR");
   console.log("CMS rollback tests passed: later edits conflict; safe rollback opens a review PR.");
