@@ -6,6 +6,9 @@ on:
     paths:
       - ".github/workflows/cms-pages-publish.yml"
       - "scripts/build-cloudflare.mjs"
+      - "scripts/routes.json"
+      - "scripts/test-cms-public-redirect.mjs"
+      - "scripts/weather-edge-smoke.mjs"
       - "scripts/build-map-coverage.mjs"
       - "scripts/build-location-index.mjs"
       - "scripts/check-derived-views-sync.mjs"
@@ -228,13 +231,26 @@ jobs:
           // the old SPA fallback HTML instead of the new JSON build marker.
           async function verify(attempt){
             const nonce=encodeURIComponent(expected+"-"+attempt);
+            const withNonce=path=>root+path+(path.includes("?")?"&":"?")+"v="+nonce;
             const get=async(path)=>{
-              const r=await fetch(root+path+(path.includes("?")?"&":"?")+"v="+nonce,{
+              const r=await fetch(withNonce(path),{
                 headers:{"Cache-Control":"no-cache"},signal:AbortSignal.timeout(15000)
               });
               const body=await r.text();
               if(!r.ok)throw Error(path+" HTTP "+r.status);
-              return {body,type:r.headers.get("content-type")||""};
+              return {body,type:r.headers.get("content-type")||"",url:r.url};
+            };
+            const expectPublicRedirect=async(path)=>{
+              const r=await fetch(withNonce(path),{
+                redirect:"manual",
+                headers:{"Cache-Control":"no-cache"},signal:AbortSignal.timeout(15000)
+              });
+              const location=r.headers.get("location")||"";
+              if(r.status!==301)throw Error(path+" expected anonymous 301, got "+r.status);
+              const target=new URL(location,root);
+              const source=new URL(withNonce(path));
+              if(target.origin!=="https://openphuquoc.com"||target.pathname!==source.pathname||target.search!==source.search)
+                throw Error(path+" redirect mismatch: "+location);
             };
             const marker=await get("/data/meta/cms-build.json");
             if(!marker.type.includes("json"))throw Error("CMS build marker still routed to "+marker.type);
@@ -251,9 +267,10 @@ jobs:
                !Number.isFinite(Date.parse(edgeHealth.checked_at))||
                Date.now()-Date.parse(edgeHealth.checked_at)>120000)
               throw Error("CMS live Weather Pages Function missing or unhealthy");
-            const homepage=await get("/");
-            if(!homepage.body.includes(expectedPlanner)||!homepage.body.includes(expectedHome))
-              throw Error("CMS homepage scripts differ from the current built version");
+            await expectPublicRedirect("/");
+            await expectPublicRedirect("/guide/knowledge.html");
+            await expectPublicRedirect("/stories/article.html?id=domain-migration-smoke");
+            await expectPublicRedirect("/weather/");
             const planner=await get("/core/trip-clock-planner.js");
             if(!planner.body.includes("OpenPQTripClockPlanner")||!planner.body.includes("function plan("))
               throw Error("CMS trip-clock planner asset not deployed");
@@ -261,15 +278,14 @@ jobs:
             const data=JSON.parse(library.body);
             if(data.count!==expectedCount||data.objects?.length!==expectedCount)
               throw Error("CMS article inventory mismatch, count="+data.count);
-            const guide=await get("/guide/knowledge.html");
-            if(!guide.body.includes('data-knowledge-page="library"'))
-              throw Error("Knowledge library page missing");
             const admin=await get("/admin/");
             if(!admin.body.includes(expectedAdmin))throw Error("CMS admin JS build mismatch");
-            const weather=await get("/weather/");
-            if(!weather.body.includes("/weather/weather-v2.js")||
-               !weather.body.includes("/weather/weather-wind-guard.js?v=20260924-qc1"))
-              throw Error("CMS Weather page does not load shared wind-source guard");
+            const sessionResponse=await fetch(withNonce("/api/cms/session"),{
+              redirect:"manual",
+              headers:{"Cache-Control":"no-cache"},signal:AbortSignal.timeout(15000)
+            });
+            if([301,302,307,308].includes(sessionResponse.status))
+              throw Error("CMS session API must not redirect to public domain");
             const guard=await get("/weather/weather-wind-guard.js");
             if(!guard.body.includes("JoTripWindGuard")||
                !guard.body.includes("2026.09.24.wind-qc-v1"))
@@ -283,8 +299,8 @@ jobs:
           for(let attempt=1;attempt<=16;attempt++){
             try{
               await verify(attempt);
-              console.log("Verified CMS custom domain, build "+expected+
-                ", library "+expectedCount+", Weather guard, runtime and admin on attempt "+attempt);
+              console.log("Verified CMS build "+expected+", anonymous public 301 contract, library "+
+                expectedCount+", Weather runtime and admin on attempt "+attempt);
               process.exit(0);
             }catch(error){
               lastError=error;
@@ -312,7 +328,7 @@ jobs:
             for(const path of paths){
               const label=path;
               try{
-                const r=await fetch(root+path+"?v="+process.env.GITHUB_SHA,{signal:AbortSignal.timeout(12000),headers:{"Cache-Control":"no-cache"}});
+                const r=await fetch(root+path+"?v="+process.env.GITHUB_SHA,{redirect:"manual",signal:AbortSignal.timeout(12000),headers:{"Cache-Control":"no-cache"}});
                 const contentType=r.headers.get("content-type")||"";
                 const body=await r.text();
                 const count=contentType.includes("json")?JSON.parse(body).count:null;
