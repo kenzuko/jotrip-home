@@ -38,10 +38,10 @@ globalThis.fetch=async(url,options={})=>{
   if(target.startsWith("https://raw.githubusercontent.com/kenzuko/jotrip-home/main/cms/users.json")){
     return Response.json({users:[{login:"kenzuko",role:"admin",enabled:true}]});
   }
-  if(target==="https://api.github.com/repos/kenzuko/jotrip-home/contents/data/home-copy.json?ref=main"){
+  if(target==="https://api.github.com/repos/kenzuko/jotrip-home/contents/data/home-copy.json?ref=main-head-sha"){
     return Response.json({sha:liveSha});
   }
-  if(target==="https://api.github.com/repos/kenzuko/jotrip-home/pulls?state=open&per_page=100"){
+  if(target.startsWith("https://api.github.com/repos/kenzuko/jotrip-home/pulls?state=open&per_page=100")){
     return Response.json(overlapping?[{number:42,html_url:"https://github.com/kenzuko/jotrip-home/pull/42",head:{ref:"cms/draft/kenzuko-existing"}}]:[]);
   }
   if(target==="https://api.github.com/repos/kenzuko/jotrip-home/pulls/42/files?per_page=100"){
