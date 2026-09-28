@@ -1,7 +1,7 @@
 /* Direct text-only publishing for an authenticated CMS admin.
  * One atomic Git tree update on main, never a blind overwrite or public-client token. */
-const REPO="kenzuko/jotrip-home",HOST="https://api.github.com/repos/"+REPO;
-const COOKIE="openpq_cms",enc=new TextEncoder(),dec=new TextDecoder();
+import { CMS_REPO_API, githubJson, readCmsSession, readCurrentCmsRole, sameOrigin } from "../../_shared/cms-mutation-core.js";
+const dec=new TextDecoder();
 const ALLOWED=new Set(["data/content.json","data/i18n/vi/food.json",
   "data/knowledge/objects.json","data/home-copy.json"]);
 const homeSections=new Set(["happening","things","must","areas","food","essentials","heritage","guide"]);
@@ -12,45 +12,11 @@ function b64bytes(raw){
   while(s.length%4)s+="=";
   return Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 }
-function cookies(req){
-  const piece=(req.headers.get("cookie")||"").split(";").map(x=>x.trim())
-    .find(x=>x.startsWith(COOKIE+"="));
-  if(!piece)return "";
-  try{return decodeURIComponent(piece.slice(COOKIE.length+1));}catch{return "";}
-}
-async function session(req,secret){
-  if(!secret)return null;
-  const token=cookies(req);if(!token)return null;
-  try{
-    const [a,b]=token.split(".");
-    if(!a||!b)return null;
-    const digest=await crypto.subtle.digest("SHA-256",enc.encode(secret));
-    const key=await crypto.subtle.importKey("raw",digest,{name:"AES-GCM"},false,["decrypt"]);
-    const clear=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64bytes(a)},key,b64bytes(b));
-    const s=JSON.parse(dec.decode(clear));
-    return s.exp>Date.now()&&s.accessToken?s:null;
-  }catch{return null;}
-}
-async function role(login){
-  const res=await fetch("https://raw.githubusercontent.com/"+REPO+
-    "/main/cms/users.json?at="+Date.now(),{headers:{"User-Agent":"Open-Phu-Quoc-CMS"},cache:"no-store"});
-  if(!res.ok)throw Object.assign(Error("Không xác minh được quyền CMS"),{code:503});
-  const data=await res.json();
-  return (data.users||[]).find(x=>String(x.login).toLowerCase()===String(login).toLowerCase()&&x.enabled!==false)?.role||null;
-}
-function ghHeaders(token){return{
-  Accept:"application/vnd.github+json",
-  "Content-Type":"application/json",
-  "X-GitHub-Api-Version":"2022-11-28",
-  "User-Agent":"Open-Phu-Quoc-CMS",
-  Authorization:"Bearer "+token
-};}
 async function gh(path,token,opts={}){
-  const res=await fetch(HOST+path,{...opts,headers:ghHeaders(token),cache:"no-store"});
-  const value=await res.json().catch(()=>({}));
-  if(!res.ok)throw Object.assign(Error(value.message||"GitHub HTTP "+res.status),
-    {code:res.status===401||res.status===403?res.status:res.status===422?409:502});
-  return {value,link:res.headers.get("link")||""};
+  const {response,value,link}=await githubJson(CMS_REPO_API+path,token,opts);
+  if(!response.ok)throw Object.assign(Error(value?.message||"GitHub HTTP "+response.status),
+    {code:response.status===401||response.status===403?response.status:response.status===422?409:502});
+  return {value,link};
 }
 async function atMain(path,ref,token){
   const clean=path.split("/").map(encodeURIComponent).join("/");
@@ -149,11 +115,11 @@ async function conflicts(paths,token){
 async function onRequestInner({request,env}){
   if(request.method!=="POST")return json({error:"Chỉ hỗ trợ POST"},405);
   // Publishing is privileged. No wildcard CORS or cross-site POST.
-  if(request.headers.get("Origin")!==new URL(request.url).origin)
+  if(!sameOrigin(request,{allowMissing:false}))
     return json({error:"Origin không hợp lệ"},403);
-  const s=await session(request,String(env.CMS_SESSION_SECRET||""));
+  const s=await readCmsSession(request,String(env.CMS_SESSION_SECRET||""),{requireAccessToken:true});
   if(!s)return json({error:"Hết phiên, hãy đăng nhập CMS lại"},401);
-  const userRole=await role(s.login);
+  const userRole=await readCurrentCmsRole(s.login,{cacheBustKey:"at",failureMessage:"Không xác minh được quyền CMS",failureCode:503});
   if(userRole!=="admin")return json({error:"Chỉ Admin được lưu trực tiếp"},403);
   const body=await request.json();
   const path=String(body?.path||""),id=String(body?.record_id||"");
