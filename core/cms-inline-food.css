@@ -60,3 +60,6 @@ border-radius:10px;background:#f1f7f0;color:#315b45;font:13px/1.5 system-ui,sans
 .food-inline-notice:empty{display:none}
 .food-inline-notice[data-kind=warn]{background:#fff2df;color:#924b26}
 body.food-inline-editing .ingredient-grid .food-inline-panel{grid-column:1/-1}
+
+#foodInlineDirect{background:#b9e8c7;color:#184632;border-color:#8dc89a}
+#foodInlineDirect[hidden]{display:none!important}

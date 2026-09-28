@@ -32,7 +32,7 @@ function write(record,path,value){
   else record[chunks[0]][Number(chunks[1])]=String(value);
   return true;
 }
-const state={id:"",login:"",sha:"",base:null,current:null,raw:null,tab:"",
+const state={id:"",login:"",role:"",sha:"",base:null,current:null,raw:null,tab:"",
   editing:false,dirty:false,blocked:false,timer:null,panel:null};
 async function get(url,init={}){
   const res=await fetch(url,{cache:"no-store",credentials:"same-origin",...init});
@@ -60,6 +60,7 @@ function setBlocked(message){
   state.blocked=true;clearTimeout(state.timer);state.timer=null;
   status(message+" Hãy tải bản sao trước khi thoát.","warn");
   $("#foodInlineSave").disabled=true;$("#foodInlineSubmit").disabled=true;
+  const direct=$("#foodInlineDirect");if(direct)direct.disabled=true;
 }
 function save(){
   if(!state.editing||state.blocked)return false;
@@ -113,6 +114,7 @@ function editField(element,button,path){
     if(path==="name")document.title=input.value+" - Open Phu Quoc";
     state.dirty=true;
     $("#foodInlineSubmit").disabled=false;
+    if(state.role==="admin")$("#foodInlineDirect").disabled=false;
     schedule();
   });
   input.focus({preventScroll:true});panel.scrollIntoView({block:"center",behavior:"smooth"});
@@ -154,7 +156,7 @@ async function begin(){
   try{
     const session=await get("/api/cms/session");
     if(!roleOK(session.role))throw Error("Tài khoản không được biên tập");
-    state.login=session.login;
+    state.login=session.login;state.role=session.role;
     const [publicData,git]=await Promise.all([
       get("/data/i18n/vi/food.json?inline="+Date.now()),
       get("/api/cms/content?path="+encodeURIComponent(SOURCE))
@@ -179,8 +181,53 @@ async function begin(){
     mode(true);showFields();
     $("#foodInlineSave").disabled=false;
     $("#foodInlineSubmit").disabled=!state.dirty;
+    $("#foodInlineDirect").hidden=state.role!=="admin";
+    $("#foodInlineDirect").disabled=!state.dirty;
     status(old?"Đã khôi phục bản nháp. Chọn phần muốn sửa.":"Chọn cây viết cạnh đoạn muốn chỉnh.");
   }catch(error){status(String(error.message||error),"warn");}
+}
+function foodChanges(){
+  const before=find(state.base,state.id),after=find(state.current,state.id);
+  if(!before||!after)throw Error("Không tìm thấy bài gốc");
+  const fields=["name","intro","origin","why_name","how_to_eat","allergy_note"];
+  for(const key of ["ingredients","tips","ask_staff"]){
+    if(!Array.isArray(before[key])||before[key].length!==after[key]?.length)
+      throw Error("Cấu trúc món ăn đã đổi, phải đối chiếu trong CMS.");
+    for(let i=0;i<before[key].length;i++)fields.push(key+"."+i);
+  }
+  return fields.filter(key=>goodField(before,key)).map(field=>{
+    const a=read(before,field),b=read(after,field);
+    return a===b?null:{field,before:a,after:b};
+  }).filter(Boolean);
+}
+async function directSave(){
+  if(!state.editing||state.blocked||!state.dirty||state.role!=="admin")return;
+  clearTimeout(state.timer);state.timer=null;if(!save())return;
+  const button=$("#foodInlineDirect");button.disabled=true;
+  try{
+    const changes=foodChanges();
+    if(!changes.length){status("Chưa sửa chữ nào.");return;}
+    if(!confirm("Lưu thẳng "+changes.length+" phần chữ, không cần duyệt? GitHub sẽ lưu lịch sử."))return;
+    status("Đang kiểm tra và ghi lên GitHub...");
+    const result=await get("/api/cms/direct-save",{method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({path:SOURCE,record_id:state.id,sha:state.sha,changes})
+    });
+    if(!/^[a-f0-9]{40}$/.test(result.commit||""))
+      throw Error("Chưa xác minh được commit. Hãy giữ nháp để kiểm tra.");
+    const key=draftKey(state.login,state.id,state.sha);
+    if(localStorage.getItem(key)===state.raw)localStorage.removeItem(key);
+    state.dirty=false;readAgain();
+    status("Đã lưu lên GitHub, chờ CMS phát hành bản mới.","good");
+    const el=$("#foodInlineResult")||document.createElement("p");
+    el.id="foodInlineResult";
+    el.replaceChildren(document.createTextNode("Đã lưu thẳng, không cần duyệt. "));
+    const a=document.createElement("a");
+    a.href="https://github.com/kenzuko/jotrip-home/commit/"+result.commit;
+    a.textContent="Xem lịch sử ↗";a.target="_blank";a.rel="noopener noreferrer";
+    el.append(a);$("#foodInlineLauncher").insertAdjacentElement("afterend",el);
+  }catch(error){status(String(error.message||error)+". Nháp còn trên máy.","warn");}
+  finally{if(state.dirty&&!state.blocked)button.disabled=false;}
 }
 async function submit(){
   if(!state.editing||!state.dirty||state.blocked)return;
@@ -233,7 +280,8 @@ function toolbar(){
     '<button type="button" id="foodInlineSave">Lưu nháp</button>'+
     '<button type="button" id="foodInlineBackup">Tải bản sao</button>'+
     '<button type="button" id="foodInlineRead">Đọc lại</button>'+
-    '<button type="button" id="foodInlineSubmit">Gửi duyệt</button></div>'+
+    '<button type="button" id="foodInlineSubmit">Gửi duyệt</button>'+
+    '<button type="button" id="foodInlineDirect" hidden>Lưu thẳng (Admin)</button></div>'+
     '<p id="foodInlineStatus" role="status" aria-live="polite"></p>';
   const notice=document.createElement("p");
   notice.id="foodInlineNotice";notice.className="food-inline-notice";
@@ -243,6 +291,7 @@ function toolbar(){
   $("#foodInlineBackup").onclick=backup;
   $("#foodInlineRead").onclick=readAgain;
   $("#foodInlineSubmit").onclick=submit;
+  $("#foodInlineDirect").onclick=directSave;
 }
 async function mount(){
   if(!["cms.openphuquoc.com","localhost","127.0.0.1"].includes(location.hostname))return;
@@ -254,7 +303,7 @@ async function mount(){
   state.id=id;
   try{
     const session=await get("/api/cms/session");
-    if(roleOK(session.role)){state.login=session.login;toolbar();}
+    if(roleOK(session.role)){state.login=session.login;state.role=session.role;toolbar();}
   }catch{/* Public visitors never see editing controls. */}
 }
 function observe(){

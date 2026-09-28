@@ -23,3 +23,6 @@ padding:12px;border:1px solid #accdb7;border-radius:10px;background:#fff;color:#
 body.opq-inline-editing #articleRoot{padding-bottom:80px}
 @media(max-width:700px){#inlineCmsToolbar{right:8px;bottom:max(8px,env(safe-area-inset-bottom));width:calc(100vw - 16px);padding:11px 12px}
 .inline-edit-panel{padding:11px;margin:6px -5px 21px}}
+
+#inlineCmsDirect{grid-column:1/-1;background:#bce8c3!important;color:#143c2f!important;border-color:#7fbb90!important}
+#inlineCmsDirect[hidden]{display:none!important}
