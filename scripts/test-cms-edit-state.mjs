@@ -6,7 +6,7 @@ const coreSource=readFileSync("functions/_shared/cms-mutation-core.js","utf8")
   .replace(/export const /g,"const ")
   .replace(/export async function /g,"async function ")
   .replace(/export function /g,"function ");
-const endpointSource=readFileSync("functions/api/cms/edit-state.js","utf8")
+const policySource=readFileSync("functions/_shared/cms-mutation-policy.js","utf8")\n  .replace(/export const /g,"const ")\n  .replace(/export function /g,"function ");\nconst endpointSource=readFileSync("functions/api/cms/edit-state.js","utf8")
   .replace(/^import .*cms-mutation-core\.js";\n/m,"")
   .replace("export async function onRequest","async function onRequest");
 const executable=coreSource+"\n"+endpointSource+";\nthis.onRequest=onRequest;";
