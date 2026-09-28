@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.1",
+  "audit_date": "2026-09-28",
+  "repo": "kenzuko/jotrip-home",
+  "base_main_sha": "cb9c8c79a00d003a40ab45e9254c02dac47da597",
+  "status": "STAGING_ONLY_NO_CANONICAL_WRITE_NO_DEPLOY",
+  "masterlock": "OPENPQ_NEARME_GPS_MASTER_HANDOFF_20260927",
+  "reconciles": [
+    "staging/nearme-gps-audit-20260928",
+    "Near Me GPS batch 2 (#179)",
+    "Near Me GPS batch 3 (#198)"
+  ],
+  "current_baseline": {
+    "location_total": 350,
+    "location_with_map": 230,
+    "nonhotel_location_missing": 25,
+    "map_candidates": 394,
+    "map_ready": 227,
+    "map_missing": 167
+  },
+  "canonicalized_since_staging_v1": [
+    {
+      "id": "utility_tgdd_37_hungvuong",
+      "lat": 10.2287548,
+      "lon": 103.9695114,
+      "precision": "site_centroid",
+      "via": "batch2"
+    },
+    {
+      "id": "place_suoi_da_ngon",
+      "lat": 10.2715875,
+      "lon": 104.037046875,
+      "precision": "area_anchor",
+      "via": "batch2"
+    },
+    {
+      "id": "place_suoi_tien",
+      "lat": 10.2184625,
+      "lon": 104.042078125,
+      "precision": "area_anchor",
+      "via": "batch2"
+    },
+    {
+      "id": "utility_dng_clinic_duong_dong",
+      "lat": 10.232189,
+      "lon": 103.97232,
+      "precision": "site_centroid",
+      "via": "batch3"
+    },
+    {
+      "id": "utility_laundry_phuquoc_cuaduong",
+      "lat": 10.2333807689721,
+      "lon": 103.99067557668052,
+      "precision": "site_centroid",
+      "via": "batch3"
+    }
+  ],
+  "corrected_from_v1": [
+    {
+      "id": "utility_dienmaycholon_nguyen_trung_truc",
+      "old": "STAGING_CANDIDATE_READY_FOR_CANONICAL_REVIEW",
+      "new": "HOLD_CONFLICTING_ADDRESS_GEOMETRY",
+      "reason": "Batch2 found materially conflicting public mapping geometry; operator confirms 200A Nguyễn Trung Trực but site coordinate is not strong enough."
+    },
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "old": "HOLD_STRONG_CANDIDATE_NEEDS_BANK_MAP",
+      "new": "HOLD_CONFLICTING_GEOCODER_GEOMETRY",
+      "reason": "Same geocoder geometry was returned for another numbered Nguyễn Văn Cừ address; do not promote."
+    }
+  ],
+  "new_web_business_identity_crosschecks": [
+    {
+      "id": "utility_dmx_107_nvc",
+      "decision": "HOLD_EXACT_BUSINESS_PLACE_NO_COORDINATE",
+      "address": "107 Nguyễn Văn Cừ, KP3, An Thới",
+      "google_place_id": "ChIJCWkpMJqWpzERI13yENh02xc",
+      "evidence": [
+        "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723"
+      ],
+      "note": "Operator page and current business listing agree on exact branch identity/address; no reproducible coordinate exposed."
+    },
+    {
+      "id": "utility_dmx_162_304",
+      "decision": "HOLD_EXACT_BUSINESS_PLACE_NO_COORDINATE",
+      "address": "162 đường 30 Tháng 4, KP1, Dương Đông",
+      "google_place_id": "ChIJvTPvX3qMpzERzVAwYQ9bFPc",
+      "evidence": [
+        "https://dulich.phuquoc.gov.vn/vi/sieuthidienmayxa"
+      ],
+      "note": "Current business listing and destination portal agree on exact branch address; no reproducible coordinate exposed."
+    },
+    {
+      "id": "utility_tgdd_104_304",
+      "decision": "HOLD_EXACT_BUSINESS_PLACE_LANDMARK_CONTRADICTION",
+      "address": "104 đường 30 Tháng 4, KP1, Dương Đông",
+      "google_place_id": "ChIJzebbVGOMpzERHx1ei8n8-tw",
+      "evidence": [
+        "https://www.thegioididong.com/sieu-thi-104-ba-muoi-thang-tu-kp-01-doi-dien-nha-hang-ra-khoi-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2158"
+      ],
+      "note": "Business identity is exact, but prior geocoder candidates contradicted operator landmark Ra Khơi. Preserve null GPS."
+    },
+    {
+      "id": "utility_tgdd_142a_ntr",
+      "decision": "HOLD_BUSINESS_PLACE_MATCHES_142B_NO_COORDINATE",
+      "address": "142A-142B Nguyễn Trung Trực, Dương Đông",
+      "google_place_id": "ChIJMzPhq3-MpzER6TLr6A-UMhs",
+      "note": "Current TGDD business listing resolves to 142B, while another electronics business occupies 142A. This supports branch identity but not a coordinate."
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "decision": "HOLD_EXACT_BUSINESS_PLACE_NO_COORDINATE",
+      "address": "16 đường 30 Tháng 4, Khu 1, Dương Đông",
+      "google_place_id": "ChIJoYYBDTCNpzER2dtFx6dyq1I",
+      "note": "Exact named business listing with matching address; no coordinate exposed by available result."
+    },
+    {
+      "id": "utility_dng_clinic_an_thoi",
+      "decision": "HOLD_EXACT_BUSINESS_PLACE_NO_REPRODUCIBLE_COORDINATE",
+      "address": "S259-S354, KĐT Sun Grand City, An Thới",
+      "google_place_id": "ChIJU2YY86iWpzERfGNTGD1eM6Q",
+      "evidence": [
+        "https://dngclinic.com/lien-he/",
+        "https://dngclinic.com/phong-kham-sai-gon-phu-quoc-an-thoi/"
+      ],
+      "note": "Official site and current business listing agree on An Thới facility; available official page does not expose a reproducible map coordinate."
+    },
+    {
+      "id": "utility_longchau_an_thoi",
+      "decision": "HOLD_EXACT_BUSINESS_PLACE_NO_COORDINATE",
+      "address": "46 Nguyễn Văn Cừ, An Thới",
+      "google_place_id": "ChIJY5o0asSXpzERJEewEY1Dy9U",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang"
+      ],
+      "note": "Official directory and current business listing agree on branch; no coordinate promoted because prior geocoder geometry conflicts."
+    },
+    {
+      "id": "utility_longchau_tran_phu",
+      "decision": "HOLD_MASTERLOCK_GUARD_WITH_BUSINESS_PLACE_CONFIRMED",
+      "address": "42 Trần Phú, Dương Đông",
+      "google_place_id": "ChIJTwTlvZGNpzERc1Oov0CGDQY",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang"
+      ],
+      "note": "Business listing confirms the branch at 42 Trần Phú, but repository guard still requires stronger coordinate evidence."
+    },
+    {
+      "id": "utility_longchau_ganh_dau",
+      "decision": "HOLD_EXACT_BUSINESS_PLACE_NO_COORDINATE",
+      "address": "Thửa đất 19, Bản đồ 12, Gành Dầu",
+      "google_place_id": "ChIJsaz9hhkfCDEReIJTn1VivSA",
+      "evidence": [
+        "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang"
+      ],
+      "note": "Official directory and current business listing agree on branch identity; operational status remains UNKNOWN and GPS remains null."
+    },
+    {
+      "id": "utility_longchau_suoi_da",
+      "decision": "HOLD_EXACT_BUSINESS_PLACE_NO_COORDINATE",
+      "address": "Ấp Suối Đá, Dương Tơ",
+      "google_place_id": "ChIJZdYf5V2NpzERxy-3mQ5TTZ8",
+      "note": "Current business listing confirms Long Châu Suối Đá identity; exact coordinate not exposed in available result."
+    }
+  ],
+  "unchanged_holds": [
+    "utility_longchau_ben_tram",
+    "utility_longchau_dt45",
+    "utility_longchau_ham_ninh",
+    "utility_dng_clinic_an_thoi",
+    "utility_tgdd_142a_ntr",
+    "utility_dienmaycholon_nguyen_trung_truc",
+    "utility_vcb_atm_an_thoi",
+    "utility_parking_sunset_nightmarket",
+    "utility_toilet_sunset_venice_02",
+    "utility_toilet_sunset_venice_67",
+    "utility_fuel_dong_loi_1",
+    "place_suoi_da_ban",
+    "place_phu_quoc_ridgeback_center"
+  ],
+  "intentional_no_fixed_pin": [
+    "utility_pqc_airport_atms",
+    "utility_luggage_whalelo_nightmarket",
+    "utility_luggage_whalelo_grandworld",
+    "utility_luggage_whalelo_sunset"
+  ],
+  "write_policy": {
+    "canonical_entities_modified": 0,
+    "derived_views_modified": 0,
+    "ui_modified": 0,
+    "deploy_triggered": false,
+    "next": "Continue research in staging; only promote later from then-current main after duplicate-radius and provenance checks."
+  }
+}
