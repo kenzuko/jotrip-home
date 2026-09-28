@@ -12,10 +12,10 @@
     "nonhotel_missing": 25
   },
   "result": {
-    "location_with_map": 231,
-    "map_ready": 228,
-    "accepted_count": 1,
-    "nonhotel_missing": 24
+    "location_with_map": 232,
+    "map_ready": 229,
+    "accepted_count": 2,
+    "nonhotel_missing": 23
   },
   "accepted": [
     {
@@ -32,6 +32,22 @@
         "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/"
       ],
       "rationale": "Phu Quoc government tourism and Vietnam tourism sources identify the canonical destination at Tiểu khu 77; Vietnam tourism places Tiểu khu 77 in ấp Suối Mây. The secondary directory publishes a coordinate for the same Tiểu khu 77 named facility. Publish only as area_anchor, not entrance/site centroid."
+    },
+    {
+      "id": "place_suoi_da_ban",
+      "coordinate": {
+        "lat": 10.2454375,
+        "lon": 104.027046875
+      },
+      "precision": "area_anchor",
+      "plus_code": "62WG+5RF",
+      "decision": "ACCEPT_AREA_ANCHOR",
+      "evidence": [
+        "https://sunworld.vn/hon-thom/an-choi/phu-quoc-co-gi-dephtml",
+        "https://www.waze.com/live-map/directions/vn/an-giang/phu-quoc/suoi-da-ban-evergreen-phu-quoc-%28khu-du-lich-suoi-dja-ban%29?to=place.ChIJowkMZASJpzERbztM7_iW6ck",
+        "https://dulich.angiang.gov.vn/destination/detail/1305"
+      ],
+      "rationale": "Current named-destination sources converge on the same 62WG grid. Sun World and Google-derived listings use 62WG+5RF; Waze uses 62WG+4QJ only about 20 m away. Publish the 62WG cluster as area_anchor only, not entrance/parking/water-access."
     }
   ],
   "rejected_or_hold": [
@@ -42,6 +58,13 @@
       },
       "decision": "REJECT_OLD_FACILITY_PIN",
       "reason": "Historical Google Maps reference corresponds to the older Thanh Nga facility lineage around Cây Thông Ngoài/Cửa Dương. Current canonical Tiểu khu 77 destination is the newer Suối Mây facility. Do not overwrite canonical with the old-facility pin."
+    },
+    {
+      "candidate": {
+        "plus_code": "62VM+W76"
+      },
+      "decision": "REJECT_OUTLIER_PLUS_CODE",
+      "reason": "Older/conflicting Plus Code is roughly 670 m east of the current 62WG destination cluster and lacks equivalent current cross-source support."
     }
   ],
   "masterlock": [
