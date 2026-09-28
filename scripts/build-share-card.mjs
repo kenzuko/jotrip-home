@@ -62,8 +62,8 @@ const walk=async directory=>{
   if(!dirent.name.endsWith(".html"))continue;
   let html=await readFile(path,"utf8");
   if(!html.includes('property="og:image"')&&!html.includes('name="twitter:image"'))continue;
-  html=html.replace(/https:\/\/cms\.openphuquoc\.com\/assets\/share-card\.svg/g,root)
-   .replace(/https:\/\/cms\.openphuquoc\.com\/assets\/share-card-phu-quoc-v2\.jpg/g,root)
+  html=html.replace(/https:\/\/(?:cms\.)?openphuquoc\.com\/assets\/share-card\.svg/g,root)
+   .replace(/https:\/\/(?:cms\.)?openphuquoc\.com\/assets\/share-card-phu-quoc-v2\.jpg/g,root)
    .replace(/(<meta\s+property="og:image:type"\s+content=")image\/svg\+xml(")/g,'$1image/jpeg$2')
    .replace(/(<meta\s+property="og:image:width"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.width+b)
    .replace(/(<meta\s+property="og:image:height"\s+content=")\d+(")/g,(_,a,b)=>a+photo.size.height+b);
