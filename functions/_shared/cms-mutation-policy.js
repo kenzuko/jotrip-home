@@ -61,3 +61,8 @@ export function cmsSupports(path,operation){
 export function cmsPathsFor(operation){
   return Object.keys(CMS_PATH_POLICY).filter(path=>cmsSupports(path,operation));
 }
+
+
+export function cmsCanAny(role,operation){
+  return cmsPathsFor(operation).some(path=>cmsCan(role,path,operation));
+}
