@@ -2,56 +2,23 @@
   "schema_version": "1.0",
   "entities": [
     {
-      "id": "price_vinpearl_safari_day",
-      "entity_type": "price_reference",
-      "slug": "vinpearl-safari-day",
-      "name": "Giá tham khảo Vinpearl Safari - vé ngày",
-      "aliases": [
-        "giá Vinpearl Safari",
-        "Vinpearl Safari price",
-        "Vé ngày · mốc từ 01/10/2026"
-      ],
-      "what_it_is": "Vé ngày · mốc từ 01/10/2026",
-      "price_reference": "950.000đ · 710.000đ trẻ em/cao tuổi",
-      "tips": [
-        "Zoo Tram, VIP/Premium là sản phẩm riêng"
-      ],
-      "live_check_required": true,
-      "intents": [
-        "price",
-        "ticket",
-        "booking"
-      ],
-      "related_entities": [
-        "place_vinpearl_safari"
-      ],
-      "source_refs": [
-        {
-          "source_id": "handbook_r3"
-        }
-      ],
-      "updated_at": "2026-09-12"
-    },
-    {
       "id": "price_vinwonders_day",
       "entity_type": "price_reference",
       "slug": "vinwonders-day",
-      "name": "Giá tham khảo VinWonders - vé ngày",
+      "name": "Giá niêm yết VinWonders Phú Quốc - vé tiêu chuẩn",
       "aliases": [
         "giá VinWonders",
         "VinWonders price",
-        "Vé ngày · mốc từ 01/10/2026"
+        "Vé tiêu chuẩn 01/10-31/12/2026"
       ],
-      "what_it_is": "Vé ngày · mốc từ 01/10/2026",
-      "price_reference": "1.050.000đ · 800.000đ trẻ em/cao tuổi",
+      "what_it_is": "Vé tiêu chuẩn",
+      "price_reference": "1.050.000đ người lớn · 800.000đ trẻ em/cao tuổi",
+      "adult_price_vnd": 1050000,
+      "child_price_vnd": 800000,
+      "elderly_price_vnd": 800000,
       "tips": [
-        "Kiểm tra lại chính sách đúng ngày"
-      ],
-      "live_check_required": true,
-      "intents": [
-        "price",
-        "ticket",
-        "booking"
+        "Tặng 01 vé Bảo tàng Gấu",
+        "Khách dưới 100 cm miễn phí vé vào cửa"
       ],
       "related_entities": [
         "place_vinwonders"
@@ -61,28 +28,72 @@
           "source_id": "handbook_r3"
         }
       ],
-      "updated_at": "2026-09-12"
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "id": "price_vinpearl_safari_day",
+      "entity_type": "price_reference",
+      "slug": "vinpearl-safari-day",
+      "name": "Giá niêm yết Vinpearl Safari Phú Quốc - vé tiêu chuẩn",
+      "aliases": [
+        "giá Vinpearl Safari",
+        "Vinpearl Safari price",
+        "Vé tiêu chuẩn 01/10-31/12/2026"
+      ],
+      "what_it_is": "Vé tiêu chuẩn",
+      "price_reference": "950.000đ người lớn · 710.000đ trẻ em/cao tuổi",
+      "adult_price_vnd": 950000,
+      "child_price_vnd": 710000,
+      "elderly_price_vnd": 710000,
+      "tips": [
+        "Tặng 01 vé Bảo tàng Gấu",
+        "Khách dưới 100 cm miễn phí vé vào cửa"
+      ],
+      "related_entities": [
+        "place_vinpearl_safari"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
     },
     {
       "id": "price_vin_combo_1d",
       "entity_type": "price_reference",
       "slug": "vin-combo-1d",
-      "name": "Giá tham khảo VinWonders + Safari - combo 1 ngày",
+      "name": "Giá niêm yết VinWonders + Vinpearl Safari - combo 01 ngày",
       "aliases": [
         "giá VinWonders + Safari",
         "VinWonders + Safari price",
-        "Combo 1 ngày"
+        "Combo 01 ngày"
       ],
-      "what_it_is": "Combo 1 ngày",
-      "price_reference": "1.500.000đ · 1.100.000đ",
+      "what_it_is": "Combo 01 ngày",
+      "price_reference": "1.500.000đ người lớn · 1.100.000đ trẻ em/cao tuổi",
+      "adult_price_vnd": 1500000,
+      "child_price_vnd": 1100000,
+      "elderly_price_vnd": 1100000,
       "tips": [
-        "Lịch rất dài nếu đi cùng trẻ nhỏ"
-      ],
-      "live_check_required": true,
-      "intents": [
-        "price",
-        "ticket",
-        "booking"
+        "Combo VinWonders + Vinpearl Safari trong 01 ngày"
       ],
       "related_entities": [
         "place_vinwonders",
@@ -93,28 +104,34 @@
           "source_id": "handbook_r3"
         }
       ],
-      "updated_at": "2026-09-12"
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
     },
     {
       "id": "price_vin_combo_2d",
       "entity_type": "price_reference",
       "slug": "vin-combo-2d",
-      "name": "Giá tham khảo VinWonders + Safari - combo 2 ngày",
+      "name": "Giá niêm yết VinWonders + Vinpearl Safari - combo 02 ngày",
       "aliases": [
         "giá VinWonders + Safari",
         "VinWonders + Safari price",
-        "Combo 2 ngày"
+        "Combo 02 ngày"
       ],
-      "what_it_is": "Combo 2 ngày",
-      "price_reference": "1.700.000đ · 1.300.000đ",
+      "what_it_is": "Combo 02 ngày",
+      "price_reference": "1.700.000đ người lớn · 1.300.000đ trẻ em/cao tuổi",
+      "adult_price_vnd": 1700000,
+      "child_price_vnd": 1300000,
+      "elderly_price_vnd": 1300000,
       "tips": [
-        "Không mặc định unlimited / multi-entry"
-      ],
-      "live_check_required": true,
-      "intents": [
-        "price",
-        "ticket",
-        "booking"
+        "Tặng 01 vé Bảo tàng Gấu"
       ],
       "related_entities": [
         "place_vinwonders",
@@ -125,28 +142,34 @@
           "source_id": "handbook_r3"
         }
       ],
-      "updated_at": "2026-09-12"
-    },
-    {
-      "id": "price_grand_world_tinh_hoa",
-      "entity_type": "price_reference",
-      "slug": "grand-world-tinh-hoa",
-      "name": "Giá tham khảo Tinh Hoa Việt Nam",
-      "aliases": [
-        "giá Grand World",
-        "Grand World price",
-        "Tinh Hoa Việt Nam · mốc 20:15"
-      ],
-      "what_it_is": "Tinh Hoa Việt Nam · mốc 20:15",
-      "price_reference": "300.000đ · 230.000đ trẻ em/cao tuổi",
-      "tips": [
-        "Giờ có thể đổi theo mùa"
-      ],
       "live_check_required": true,
       "intents": [
         "price",
         "ticket",
         "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "id": "price_grand_world_tinh_hoa",
+      "entity_type": "price_reference",
+      "slug": "grand-world-tinh-hoa",
+      "name": "Giá niêm yết Grand World - Tinh Hoa Việt Nam",
+      "aliases": [
+        "giá Grand World",
+        "Grand World price",
+        "Tinh Hoa Việt Nam"
+      ],
+      "what_it_is": "Tinh Hoa Việt Nam",
+      "price_reference": "300.000đ người lớn · 230.000đ trẻ em/cao tuổi",
+      "adult_price_vnd": 300000,
+      "child_price_vnd": 230000,
+      "elderly_price_vnd": 230000,
+      "tips": [
+        "Khách dưới 100 cm miễn phí vé vào cửa"
       ],
       "related_entities": [
         "place_grand_world"
@@ -156,7 +179,245 @@
           "source_id": "handbook_r3"
         }
       ],
-      "updated_at": "2026-09-12"
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "id": "price_grand_world_teddy_bear",
+      "entity_type": "price_reference",
+      "slug": "grand-world-teddy-bear",
+      "name": "Giá niêm yết Grand World - Bảo tàng Gấu Teddy Bear",
+      "aliases": [
+        "giá Bảo tàng Gấu",
+        "Teddy Bear Museum price",
+        "Grand World Teddy Bear"
+      ],
+      "what_it_is": "Bảo tàng Gấu Teddy Bear",
+      "price_reference": "200.000đ người lớn · 150.000đ trẻ em/cao tuổi",
+      "adult_price_vnd": 200000,
+      "child_price_vnd": 150000,
+      "elderly_price_vnd": 150000,
+      "tips": [
+        "Khách dưới 100 cm miễn phí vé vào cửa"
+      ],
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "id": "price_grand_world_venice",
+      "entity_type": "price_reference",
+      "slug": "grand-world-venice",
+      "name": "Giá niêm yết Grand World - đi thuyền trên sông Venice",
+      "aliases": [
+        "giá thuyền Venice",
+        "Venice boat price",
+        "Grand World Venice"
+      ],
+      "what_it_is": "Đi thuyền trên sông Venice",
+      "price_reference": "200.000đ người lớn · 150.000đ trẻ em/cao tuổi",
+      "adult_price_vnd": 200000,
+      "child_price_vnd": 150000,
+      "elderly_price_vnd": 150000,
+      "tips": [
+        "Water Taxi hoạt động 09:00 - 22:00 theo bảng giá"
+      ],
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "id": "price_grand_world_combo_tinh_hoa_teddy",
+      "entity_type": "price_reference",
+      "slug": "grand-world-combo-tinh-hoa-teddy",
+      "name": "Giá niêm yết Grand World - combo Tinh Hoa Việt Nam + Bảo tàng Gấu",
+      "aliases": [
+        "Grand World combo 2 khu",
+        "Tinh Hoa + Teddy Bear",
+        "Grand World combo"
+      ],
+      "what_it_is": "Combo 2 khu",
+      "price_reference": "450.000đ người lớn · 340.000đ trẻ em/cao tuổi",
+      "adult_price_vnd": 450000,
+      "child_price_vnd": 340000,
+      "elderly_price_vnd": 340000,
+      "tips": [
+        "Combo Tinh Hoa Việt Nam + Bảo tàng Gấu"
+      ],
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "id": "price_grand_world_allin",
+      "entity_type": "price_reference",
+      "slug": "grand-world-all-in",
+      "name": "Giá trên bảng Grand World - All-in Venice + Bảo tàng Gấu + Tinh Hoa Việt Nam",
+      "aliases": [
+        "All-in Grand World",
+        "Grand World all in",
+        "Venice Teddy Tinh Hoa"
+      ],
+      "what_it_is": "All-in Grand World",
+      "price_reference": "500.000đ khách ≥140cm · 380.000đ khách 100-<140cm / người cao tuổi",
+      "adult_price_vnd": 500000,
+      "child_price_vnd": 380000,
+      "elderly_price_vnd": 380000,
+      "original_adult_price_vnd": 700000,
+      "original_child_elderly_price_vnd": 530000,
+      "tips": [
+        "Bảng thể hiện giá cũ 700.000đ / 530.000đ bị gạch",
+        "Khách cao tuổi từ 60 tuổi"
+      ],
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "id": "price_grand_world_combo_venice_tinh_hoa",
+      "entity_type": "price_reference",
+      "slug": "grand-world-combo-venice-tinh-hoa",
+      "name": "Giá trên bảng Grand World - combo Venice + Tinh Hoa Việt Nam",
+      "aliases": [
+        "Venice + Tinh Hoa",
+        "Grand World combo Venice Tinh Hoa"
+      ],
+      "what_it_is": "Combo Venice + Tinh Hoa Việt Nam",
+      "price_reference": "400.000đ khách ≥140cm · 300.000đ khách 100-<140cm / người cao tuổi",
+      "adult_price_vnd": 400000,
+      "child_price_vnd": 300000,
+      "elderly_price_vnd": 300000,
+      "original_adult_price_vnd": 500000,
+      "original_child_elderly_price_vnd": 380000,
+      "tips": [
+        "Bảng thể hiện giá cũ 500.000đ / 380.000đ bị gạch",
+        "Khách cao tuổi từ 60 tuổi"
+      ],
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
+    },
+    {
+      "id": "price_grand_world_combo_venice_teddy",
+      "entity_type": "price_reference",
+      "slug": "grand-world-combo-venice-teddy",
+      "name": "Giá trên bảng Grand World - combo Venice + Bảo tàng Gấu",
+      "aliases": [
+        "Venice + Teddy Bear",
+        "Grand World combo Venice Teddy"
+      ],
+      "what_it_is": "Combo Venice + Bảo tàng Gấu",
+      "price_reference": "300.000đ khách ≥140cm · 225.000đ khách 100-<140cm / người cao tuổi",
+      "adult_price_vnd": 300000,
+      "child_price_vnd": 225000,
+      "elderly_price_vnd": 225000,
+      "original_adult_price_vnd": 400000,
+      "original_child_elderly_price_vnd": 300000,
+      "tips": [
+        "Bảng thể hiện giá cũ 400.000đ / 300.000đ bị gạch",
+        "Khách cao tuổi từ 60 tuổi"
+      ],
+      "related_entities": [
+        "place_grand_world"
+      ],
+      "source_refs": [
+        {
+          "source_id": "handbook_r3"
+        }
+      ],
+      "live_check_required": true,
+      "intents": [
+        "price",
+        "ticket",
+        "booking"
+      ],
+      "updated_at": "2026-09-28",
+      "valid_from": "2026-10-01",
+      "valid_to": "2026-12-31",
+      "source_note": "Bảng giá niêm yết Vin Phú Quốc & Grand World do chủ dự án cung cấp ngày 28/09/2026"
     },
     {
       "id": "price_sun_bavaria_dinner_show",
