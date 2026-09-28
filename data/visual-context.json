@@ -944,21 +944,16 @@
     "place_bai_sao": {
       "images": [
         {
-          "url": "/assets/media/editorial-bai-sao-local.jpg",
-          "alt": "Bãi Sao Phú Quốc với hàng dừa và bãi cát sáng",
-          "caption": "Bãi Sao lúc trời quang; ảnh từ kho JoTrip, chưa rõ tác giả.",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%A3i%20Sao%20Beach.jpg?width=1600",
+          "alt": "Bãi Sao, Phú Quốc năm 2016",
+          "caption": "Bãi Sao, Phú Quốc, chụp ngày 28/05/2016 tại tọa độ 10.156794, 103.972519. Ảnh tư liệu, cảnh quan hiện nay có thể thay đổi.",
           "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary"
-        },
-        {
-          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Bai%20Sao%2C%20Ph%C3%BA%20Qu%E1%BB%91c%2C%20Vietnam%20%283870300491%29.jpg?width=1800",
-          "alt": "Bãi Sao Phú Quốc",
-          "caption": "Bãi Sao ở phía Nam Phú Quốc.",
-          "scope": "exact_subject",
-          "source_label": "Wikimedia Commons",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Bai_Sao,_Ph%C3%BA_Qu%E1%BB%91c,_Vietnam_(3870300491).jpg"
+          "source_label": "Prince Roy · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:B%C3%A3i_Sao_Beach.jpg",
+          "captured_at": "2016-05-28",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "rights_status": "CC_VERIFIED"
         }
       ],
       "infographic": [
@@ -2838,13 +2833,16 @@
       "title": "Bãi Sao",
       "images": [
         {
-          "url": "/assets/media/editorial-bai-sao-local.jpg",
-          "alt": "Bãi Sao lúc trời quang với hàng dừa và bãi cát sáng",
-          "caption": "Ảnh thực tế Bãi Sao từ kho JoTrip.",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/B%C3%A3i%20Sao%20Beach.jpg?width=1600",
+          "alt": "Bãi Sao, Phú Quốc năm 2016",
+          "caption": "Bãi Sao, Phú Quốc, chụp ngày 28/05/2016 tại tọa độ 10.156794, 103.972519. Ảnh tư liệu, cảnh quan hiện nay có thể thay đổi.",
           "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary"
+          "source_label": "Prince Roy · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:B%C3%A3i_Sao_Beach.jpg",
+          "captured_at": "2016-05-28",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "rights_status": "CC_VERIFIED"
         }
       ]
     },
@@ -3160,20 +3158,17 @@
       "title": "San hô Nam đảo",
       "images": [
         {
-          "url": "/assets/media/editorial-snorkeling-coral.jpg",
-          "alt": "Du khách lặn ống thở ngắm san hô trong làn nước trong",
-          "caption": "Trải nghiệm lặn ống thở và quan sát san hô trên biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-reef-coast.jpg",
-          "alt": "Vùng nước xanh và rạn ven bờ nhìn từ trên cao",
-          "caption": "Ảnh bối cảnh hệ sinh thái ven biển, không gắn tên rạn cụ thể.",
-          "scope": "context",
-          "source_label": "Khiêm Antony · Unsplash",
-          "source_url": null
+          "url": "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MN/an%20thoi%20islands/snorkeling-in-an-thoi-island.jpg?la=en",
+          "alt": "Du khách lặn ống thở tại quần đảo An Thới",
+          "caption": "Lặn ống thở tại quần đảo An Thới. Ảnh dùng làm bối cảnh hoạt động Nam đảo, không dùng để kết luận tình trạng hay độ phủ san hô tại một rạn cụ thể.",
+          "scope": "south_islands_activity_context",
+          "source_label": "Vietnam Airlines - Quần đảo An Thới",
+          "source_url": "https://www.vietnamairlines.com/in/en/useful-information/travel-guide/an-thoi-islands",
+          "published_at": "2025",
+          "hero_priority": "primary",
+          "reviewed_at": "2026-09-25",
+          "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ]
     },
@@ -3227,21 +3222,15 @@
       "title": "Hoàng hôn Phú Quốc",
       "images": [
         {
-          "url": "/assets/media/editorial-fishing-boat-sunset.jpg",
-          "alt": "Tàu đánh cá trên mặt biển dưới ánh hoàng hôn",
-          "caption": "Ảnh bối cảnh tàu cá trong ánh chiều.",
-          "scope": "context",
-          "source_label": "Onbird · Unsplash",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-phu-quoc-sunset.jpg",
-          "alt": "Hoàng hôn trên bãi biển Phú Quốc",
-          "caption": "Ảnh bối cảnh hoàng hôn Phú Quốc, không gắn một bãi cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "preferred"
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20Phu%20Quoc%20sunset.jpg?width=1280",
+          "alt": "Hoàng hôn Phú Quốc tháng 11/2025",
+          "caption": "Hoàng hôn bờ Tây Phú Quốc, ảnh chụp tháng 11/2025.",
+          "scope": "exact_subject",
+          "source_label": "Elmschrat · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:1%20Phu%20Quoc%20sunset.jpg",
+          "license": "CC0 1.0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "rights_status": "CC_VERIFIED"
         }
       ]
     },
@@ -3897,28 +3886,16 @@
       "title": "Cano 3 đảo",
       "images": [
         {
-          "url": "/assets/media/editorial-may-rut-island.jpg",
-          "alt": "Bãi biển và cano tại khu vực đảo Mây Rút",
-          "caption": "Ảnh bối cảnh điểm dừng trên tuyến tham quan đảo, không xác nhận đảo Mây Rút Trong hay Ngoài.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-island-cove-aerial.jpg",
-          "alt": "Một vịnh nhỏ nước xanh với cano nhìn từ trên cao",
-          "caption": "Ảnh bối cảnh tuyến đi cano, chưa xác minh đảo cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
-          "url": "/assets/photos/island-jetty-jo-library.jpg",
-          "alt": "Bến thuyền và bãi biển từ trên cao",
-          "caption": "Góc nhìn từ trên cao của điểm dừng cano trên biển, ảnh bối cảnh.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "/assets/photos/tour-3-islands-jotrip-1600.jpg",
+          "alt": "Du khách mặc áo phao trên cano trong chuyến đi biển Phú Quốc",
+          "caption": "Khách đi cano tại Phú Quốc. Ảnh thực tế từ album JoTrip.",
+          "scope": "activity_context",
+          "source_label": "JoTrip",
+          "source_url": "https://drive.google.com/file/d/1oCWyKnpNlQMWcAdhSjkX4lTzImrda0Ka/view",
+          "hero_priority": "primary",
+          "hero_eligible": true,
+          "reviewed_at": "2026-09-25",
+          "usage_note": "Nguồn album nội bộ JoTrip / Phu Quoc 2023; có khách trong ảnh; không khẳng định đây là ảnh của một điểm dừng tour cụ thể."
         }
       ]
     },
@@ -3981,12 +3958,17 @@
       "title": "Lặn ống thở",
       "images": [
         {
-          "url": "/assets/media/editorial-snorkeling-coral.jpg",
-          "alt": "Du khách lặn ống thở ngắm san hô trong làn nước trong",
-          "caption": "Trải nghiệm lặn ống thở và quan sát san hô trên biển Phú Quốc.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "https://www.vietnamairlines.com/~/media/SEO-images/2025%20SEO/Traffic%20TA/MN/an%20thoi%20islands/snorkeling-in-an-thoi-island.jpg?la=en",
+          "alt": "Du khách lặn ống thở tại quần đảo An Thới",
+          "caption": "Lặn ống thở ở vùng đảo An Thới; điều kiện nhìn dưới nước thay đổi theo ngày.",
+          "scope": "south_islands_activity_context",
+          "source_label": "Vietnam Airlines - Quần đảo An Thới",
+          "source_url": "https://www.vietnamairlines.com/in/en/useful-information/travel-guide/an-thoi-islands",
+          "published_at": "2025",
+          "hero_priority": "primary",
+          "reviewed_at": "2026-09-25",
+          "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ]
     },
@@ -4391,28 +4373,28 @@
       "title": "Một ngày đi biển",
       "images": [
         {
-          "url": "/assets/media/editorial-tropical-beach.jpg",
-          "alt": "Bãi cát trắng và hàng dừa cạnh làn nước xanh",
-          "caption": "Ảnh bối cảnh bãi biển nhiệt đới, không gắn tên bãi cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1600",
+          "alt": "Một bãi biển tại Phú Quốc cuối năm 2025",
+          "caption": "Một bãi biển tại Phú Quốc, chụp ngày 28/12/2025 tại tọa độ 10.191289, 103.964386.",
+          "scope": "exact_island_context",
+          "source_label": "FrogsLegs71 · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Phu_Quoc_Beach.jpg",
+          "captured_at": "2025-12-28",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "CC_VERIFIED"
         },
         {
-          "url": "/assets/photos/beach-aerial-jo-library.webp",
-          "alt": "Bãi biển có hàng dừa nhìn từ trên cao",
-          "caption": "Một góc bãi biển trên đảo, ảnh bối cảnh không định danh bãi cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-tropical-cove.jpg",
-          "alt": "Vịnh nước xanh, bờ cát và bến thuyền trên một đảo nhỏ",
-          "caption": "Ảnh bối cảnh một vịnh nhỏ trên đảo, không dùng để xác định vị trí cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2%20Phu%20Quoc%20beach.jpg?width=1200",
+          "alt": "Bãi biển Phú Quốc năm 2025",
+          "caption": "Một góc bãi biển Phú Quốc, chụp ngày 15/11/2025 tại tọa độ 10.191017, 103.965703.",
+          "scope": "exact_island_context",
+          "source_label": "Elmschrat · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:2_Phu_Quoc_beach.jpg",
+          "captured_at": "2025-11-15",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "CC_VERIFIED"
         }
       ]
     },
@@ -4420,21 +4402,15 @@
       "title": "Ngắm hoàng hôn",
       "images": [
         {
-          "url": "/assets/media/editorial-fishing-boat-sunset.jpg",
-          "alt": "Tàu đánh cá trên mặt biển dưới ánh hoàng hôn",
-          "caption": "Ảnh bối cảnh tàu cá trong ánh chiều.",
-          "scope": "context",
-          "source_label": "Onbird · Unsplash",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-phu-quoc-sunset.jpg",
-          "alt": "Hoàng hôn trên bãi biển Phú Quốc",
-          "caption": "Ảnh bối cảnh hoàng hôn Phú Quốc, không gắn một bãi cụ thể.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "preferred"
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/1%20Phu%20Quoc%20sunset.jpg?width=1280",
+          "alt": "Hoàng hôn Phú Quốc tháng 11/2025",
+          "caption": "Hoàng hôn bờ Tây Phú Quốc, ảnh chụp tháng 11/2025.",
+          "scope": "exact_subject",
+          "source_label": "Elmschrat · Wikimedia Commons",
+          "source_url": "https://commons.wikimedia.org/wiki/File:1%20Phu%20Quoc%20sunset.jpg",
+          "license": "CC0 1.0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "rights_status": "CC_VERIFIED"
         }
       ]
     },
