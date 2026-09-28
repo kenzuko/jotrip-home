@@ -32,6 +32,7 @@ const originalFetch=globalThis.fetch;
 const MAIN="f".repeat(40);
 let liveSha="expected-file-sha";
 let overlapping=false;
+let pullNextPage=false;
 let calls=[];
 globalThis.fetch=async(url,options={})=>{
   const target=String(url);
@@ -43,7 +44,9 @@ globalThis.fetch=async(url,options={})=>{
     return Response.json({sha:liveSha});
   }
   if(target.startsWith("https://api.github.com/repos/kenzuko/jotrip-home/pulls?state=open&per_page=100")){
-    return Response.json(overlapping?[{number:42,html_url:"https://github.com/kenzuko/jotrip-home/pull/42",head:{ref:"cms/draft/kenzuko-existing"}}]:[]);
+    return new Response(JSON.stringify(overlapping?[{number:42,html_url:"https://github.com/kenzuko/jotrip-home/pull/42",head:{ref:"cms/draft/kenzuko-existing"}}]:[]),{
+      headers:pullNextPage?{Link:'<next>; rel="next"'}:{"Content-Type":"application/json"}
+    });
   }
   if(target==="https://api.github.com/repos/kenzuko/jotrip-home/pulls/42/files?per_page=100"){
     return Response.json([{filename:"data/home-copy.json"}]);
@@ -98,6 +101,13 @@ try{
   assert.equal(calls.some(x=>x.method==="POST"||x.method==="PUT"),false,"Overlapping proposals must not create a branch or write");
 
   overlapping=false;
+  pullNextPage=true;
+  calls=[];
+  const partialScan=await onRequest({request:request(base),env});
+  assert.equal(partialScan.status,409,"An incomplete CMS PR scan must fail closed before proposal creation");
+  assert.equal(calls.some(x=>x.method==="POST"||x.method==="PUT"),false,"Incomplete conflict scan must not write");
+  pullNextPage=false;
+
   calls=[];
   const proposed=await onRequest({request:request(base),env});
   const result=await proposed.json();
