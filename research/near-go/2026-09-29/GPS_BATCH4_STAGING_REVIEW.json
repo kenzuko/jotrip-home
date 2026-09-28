@@ -58,70 +58,226 @@
     {
       "id": "place_phu_quoc_ridgeback_center",
       "name": "Trung tâm bảo tồn chó xoáy Phú Quốc / Trang trại Thanh Nga",
-      "decision": "STAGING_CANDIDATE_THIRD_PARTY_COORDINATE_NEEDS_INDEPENDENT_VERIFICATION",
-      "parsed_candidate": {
+      "decision": "STAGING_CANDIDATE_STRONG_CROSSCHECK",
+      "candidate_map": {
         "lat": 10.1781374,
         "lon": 104.0085517,
         "precision": "site_centroid_candidate"
       },
+      "method": "third_party_coordinate_crosschecked_against_current_exact_local_business_listing",
+      "validation": {
+        "business_place_id": "ChIJC4baUACPpzERjbk_x22hQnI",
+        "validation_distance_m": 3,
+        "exact_business_match": true
+      },
       "evidence": [
-        {
-          "type": "OFFICIAL_DESTINATION_IDENTITY",
-          "url": "https://dulich.phuquoc.gov.vn/iv/trungtambaotonch",
-          "note": "Official Phu Quoc tourism page identifies the same attraction as Thanh Nga at tiểu khu 77, Dương Tơ."
-        },
-        {
-          "type": "CURRENT_GOOGLE_BUSINESS_IDENTITY_ONLY",
-          "google_place_id": "ChIJC4baUACPpzERjbk_x22hQnI",
-          "note": "Current business lookup matches Trung tâm bảo tồn chó xoáy Phú Quốc trang trại Thanh Nga in Suối Mây; coordinate not exposed by lookup."
-        },
-        {
-          "type": "THIRD_PARTY_DIRECTORY_COORDINATE",
-          "url": "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/",
-          "raw_coordinate_text": "10.178.137.399.999.900, 1.040.085.517",
-          "parsed_coordinate_assumption": "10.1781374, 104.0085517",
-          "note": "Directory formatting is broken into grouped digits; parsed candidate is plausible for Suối Mây/Dương Tơ but must not be canonical until independently reproduced."
-        }
+        "Official Phu Quoc tourism directory identifies Trang trại Thanh Nga / Trung tâm bảo tồn chó xoáy at Tiểu khu 77, Dương Tơ.",
+        "Third-party directory exposes a malformed coordinate string parseable as 10.1781374, 104.0085517.",
+        "Current exact local-business listing for the same named facility is 3 m from the parsed candidate."
       ],
-      "limitations": "Do not publish yet. Need reproducible map coordinate from official/first-party map or second independent mapping source."
-    }
-  ],
-  "rechecked_holds": [
-    {
-      "id": "utility_dng_clinic_an_thoi",
-      "decision": "HOLD_EXACT_IDENTITY_NO_REPRODUCIBLE_COORDINATE",
-      "evidence": [
-        "https://dngclinic.com/phong-kham-sai-gon-phu-quoc-an-thoi/",
-        "Google business place id ChIJU2YY86iWpzERfGNTGD1eM6Q matches S259-S354, KĐT Sun Grand City, An Thới"
-      ],
-      "note": "Official site and current business listing agree on facility/address; coordinate still not exposed reproducibly."
-    },
-    {
-      "id": "utility_dmx_107_nvc",
-      "decision": "HOLD_EXACT_IDENTITY_NO_REPRODUCIBLE_COORDINATE",
-      "evidence": [
-        "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723",
-        "https://map.coccoc.com/map/15061863371411906"
-      ],
-      "note": "Operator and Cốc Cốc listing agree on 107 Nguyễn Văn Cừ; no safe coordinate extracted."
-    },
-    {
-      "id": "utility_dmx_162_304",
-      "decision": "HOLD_EXACT_IDENTITY_NO_REPRODUCIBLE_COORDINATE",
-      "evidence": [
-        "https://www.dienmayxanh.com/dien-may-162-duong-30-va-4-kp-1-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1115",
-        "https://dulich.phuquoc.gov.vn/vi/sieuthidienmayxa"
-      ],
-      "note": "Operator plus official destination directory agree on 162 đường 30/4, KP1 near ngã ba Hàm Ninh; no safe coordinate extracted."
+      "limitations": "Staging only. Coordinate is not directly exposed by the official operator; require final canonical review before publish."
     },
     {
       "id": "utility_minimart_one_mart_duong_dong",
-      "decision": "HOLD_EXACT_BUSINESS_LISTING_NO_COORDINATE",
+      "name": "One Mart - 16 đường 30 Tháng 4",
+      "decision": "STAGING_CANDIDATE_DISTANCE_TRILATERATION_VALIDATED",
+      "candidate_map": {
+        "lat": 10.2153443,
+        "lon": 103.9608906,
+        "precision": "site_centroid_candidate"
+      },
+      "method": "distance_trilateration_from_current_exact_local_business_listing",
+      "validation": {
+        "business_place_id": "ChIJoYYBDTCNpzER2dtFx6dyq1I",
+        "source_observations_m": [
+          {
+            "center": [
+              10.215,
+              103.96
+            ],
+            "distance_m": 104
+          },
+          {
+            "center": [
+              10.22,
+              103.96
+            ],
+            "distance_m": 527
+          },
+          {
+            "center": [
+              10.215,
+              103.965
+            ],
+            "distance_m": 451
+          }
+        ],
+        "validation_distance_m": 3,
+        "exact_business_match": true
+      },
       "evidence": [
-        "Google business place id ChIJoYYBDTCNpzER2dtFx6dyq1I matches One mart, 16 Đ. 30 Tháng 4, Khu 1, Phú Quốc"
+        "Exact current listing matches One Mart, 16 Đ. 30 Tháng 4, Khu 1, Phú Quốc, phone +84 834 590 676."
       ],
-      "note": "Current named business/address/phone strongly established; coordinate unavailable in exposed source."
+      "limitations": "Coordinate inferred from mapping-distance observations, not raw coordinate directly exposed by operator. Staging only."
     },
+    {
+      "id": "utility_dng_clinic_an_thoi",
+      "name": "Phòng khám Đa khoa Quốc tế DNG - An Thới",
+      "decision": "STAGING_CANDIDATE_DISTANCE_TRILATERATION_VALIDATED",
+      "candidate_map": {
+        "lat": 10.0363551,
+        "lon": 104.0092959,
+        "precision": "site_centroid_candidate"
+      },
+      "method": "distance_trilateration_from_current_exact_local_business_listing",
+      "validation": {
+        "business_place_id": "ChIJU2YY86iWpzERfGNTGD1eM6Q",
+        "initial_observations_m": [
+          {
+            "center": [
+              10.025,
+              104.015
+            ],
+            "distance_m": 1400
+          },
+          {
+            "center": [
+              10.03,
+              104.015
+            ],
+            "distance_m": 940
+          },
+          {
+            "center": [
+              10.025,
+              104.02
+            ],
+            "distance_m": 1700
+          }
+        ],
+        "refinement_observations_m": [
+          {
+            "center": [
+              10.0363743,
+              104.0095243
+            ],
+            "distance_m": 25
+          },
+          {
+            "center": [
+              10.0368743,
+              104.0095243
+            ],
+            "distance_m": 63
+          },
+          {
+            "center": [
+              10.0363743,
+              104.0100243
+            ],
+            "distance_m": 80
+          }
+        ],
+        "validation_distance_m": 0,
+        "exact_business_match": true
+      },
+      "evidence": [
+        "Official DNG page confirms S259-S354, KĐT Sun Grand City, An Thới.",
+        "Current exact listing matches the same DNG An Thới facility and address."
+      ],
+      "limitations": "Coordinate inferred from current mapping-distance observations, not directly exposed raw map coordinate. Staging only."
+    },
+    {
+      "id": "utility_dmx_107_nvc",
+      "name": "Điện máy XANH - 107 Nguyễn Văn Cừ",
+      "decision": "STAGING_CANDIDATE_DISTANCE_TRILATERATION_VALIDATED",
+      "candidate_map": {
+        "lat": 10.0199434,
+        "lon": 104.0164402,
+        "precision": "site_centroid_candidate"
+      },
+      "method": "distance_trilateration_from_current_exact_local_business_listing",
+      "validation": {
+        "business_place_id": "ChIJCWkpMJqWpzERI13yENh02xc",
+        "source_observations_m": [
+          {
+            "center": [
+              10.0185,
+              104.0155
+            ],
+            "distance_m": 191
+          },
+          {
+            "center": [
+              10.0205,
+              104.0155
+            ],
+            "distance_m": 120
+          },
+          {
+            "center": [
+              10.0185,
+              104.0175
+            ],
+            "distance_m": 198
+          }
+        ],
+        "validation_distance_m": 1,
+        "exact_business_match": true
+      },
+      "evidence": [
+        "Official Điện máy XANH branch page confirms 107 Nguyễn Văn Cừ, KP3, An Thới.",
+        "Current exact local-business listing matches 107 Nguyễn Văn Cừ and phone 1900 232461."
+      ],
+      "limitations": "Coordinate inferred from mapping-distance observations, not directly exposed raw operator coordinate. Staging only."
+    },
+    {
+      "id": "utility_dmx_162_304",
+      "name": "Điện máy XANH - 162 đường 30/4",
+      "decision": "STAGING_CANDIDATE_DISTANCE_TRILATERATION_VALIDATED",
+      "candidate_map": {
+        "lat": 10.21672845,
+        "lon": 103.97068564,
+        "precision": "site_centroid_candidate"
+      },
+      "method": "distance_trilateration_from_current_exact_local_business_listing",
+      "validation": {
+        "business_place_id": "ChIJvTPvX3qMpzERzVAwYQ9bFPc",
+        "source_observations_m": [
+          {
+            "center": [
+              10.215,
+              103.968
+            ],
+            "distance_m": 352
+          },
+          {
+            "center": [
+              10.218,
+              103.968
+            ],
+            "distance_m": 326
+          },
+          {
+            "center": [
+              10.215,
+              103.971
+            ],
+            "distance_m": 195
+          }
+        ],
+        "validation_distance_m": 1,
+        "exact_business_match": true
+      },
+      "evidence": [
+        "Official Điện máy XANH directory confirms 162 đường 30/4, KP1, Phú Quốc.",
+        "Official Phu Quoc tourism directory independently confirms 162 đường 30/4 near ngã 3 Hàm Ninh.",
+        "Current exact local-business listing matches 162 Đ. 30 Tháng 4 and phone 1900 232461."
+      ],
+      "limitations": "Coordinate inferred from mapping-distance observations, not raw coordinate directly exposed by operator. Staging only."
+    }
+  ],
+  "rechecked_holds": [
     {
       "id": "place_suoi_da_ban",
       "decision": "HOLD_DESTINATION_AREA_CONFLICT",
@@ -284,10 +440,23 @@
     "canonical_modified": 0,
     "derived_views_modified": 0,
     "deploy_triggered": false,
-    "new_staging_candidates": 1,
-    "rechecked_holds": 18,
+    "new_staging_candidates": 5,
+    "rechecked_holds": 14,
     "intentional_no_fixed_pin": 4,
-    "last_update_note": "Added current TGDD 104/142A, Đông Lợi 1, and Chợ Lớn 200A evidence. No new canonical GPS promoted; Chợ Lớn operator map short-link remains unresolved."
+    "last_update_note": "Upgraded five strong staging candidates after exact-listing distance validation (0-3 m). No canonical/derived/UI/deploy changes."
   },
-  "observed_main_sha_latest": "cb9c8c79a00d003a40ab45e9254c02dac47da597"
+  "observed_main_sha_latest": "cb9c8c79a00d003a40ab45e9254c02dac47da597",
+  "methodology": {
+    "distance_trilateration_from_current_exact_local_business_listing": {
+      "purpose": "Staging-only coordinate recovery when exact business listing exposes distance but not raw lat/lon.",
+      "procedure": [
+        "Query the same exact business listing from at least three known nearby centers.",
+        "Solve the 2D distance equations for an inferred WGS84 candidate.",
+        "Query again centered on the inferred coordinate and require the exact same business/place ID to return within 0-3 m.",
+        "Keep precision as site_centroid_candidate and do not claim verified entrance.",
+        "Do not canonicalize without final review against current repo state and duplicate/conflict guards."
+      ],
+      "warning": "This is an inferred mapping coordinate, not a coordinate directly published by the operator."
+    }
+  }
 }
