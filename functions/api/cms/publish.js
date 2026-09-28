@@ -1,4 +1,4 @@
-import { CMS_REPO_API, githubHeaders, readCmsSession, readCurrentCmsRole, sameOrigin } from "../../_shared/cms-mutation-core.js";
+import { CMS_REPO_API, githubHeaders, readCmsSession, readCurrentCmsRole, readMainRef, readRepoFile, sameOrigin, scanOpenPullConflicts } from "../../_shared/cms-mutation-core.js";
 const te=new TextEncoder(),td=new TextDecoder();
 
 const writable={
@@ -204,18 +204,24 @@ export async function onRequest({request,env}){
 
     const headers=githubHeaders(s.accessToken);
     const api=CMS_REPO_API;
-    const fileResponse=await fetch(api+"/contents/"+path+"?ref=main",{headers,cache:"no-store"});
-    const file=await fileResponse.json();
-    if(!fileResponse.ok)return json({error:"Không đọc được bản live hiện tại",github_status:fileResponse.status,detail:file?.message||"Không rõ nguyên nhân"},fileResponse.status);
+    const mainRef=await readMainRef(s.accessToken);
+    if(!mainRef.ok)return json({error:"Không đọc được nhánh main",github_status:mainRef.status,
+      detail:mainRef.value?.message||"Không rõ nguyên nhân"},mainRef.status);
+    if(!/^[a-f0-9]{40}$/.test(String(mainRef.sha||"")))
+      return json({error:"Không đọc được nhánh main",detail:"GitHub không trả về commit SHA hợp lệ"},502);
+    const fileRead=await readRepoFile(path,mainRef.sha,s.accessToken);
+    const file=fileRead.value||{};
+    if(!fileRead.ok)return json({error:"Không đọc được bản live hiện tại",github_status:fileRead.status,
+      detail:file?.message||"Không rõ nguyên nhân"},fileRead.status);
     if(file.sha!==body.sha)return json({error:"Nội dung trên GitHub đã đổi trong lúc cậu đang sửa. Tải lại module rồi áp dụng lại thay đổi để tránh ghi đè.",latest_sha:file.sha},409);
 
     // Same PR must keep the Vietnamese source and its public fallback in sync.
     let mirrorFile=null,mirrorData=null;
     if(foodMirror){
-      const mirrorResponse=await fetch(api+"/contents/data/food.json?ref=main",{headers,cache:"no-store"});
-      mirrorFile=await mirrorResponse.json();
-      if(!mirrorResponse.ok||!mirrorFile?.sha||!mirrorFile.content)
-        return json({error:"Không đọc được bản gốc món ăn để đồng bộ",github_status:mirrorResponse.status},502);
+      const mirrorRead=await readRepoFile("data/food.json",mainRef.sha,s.accessToken);
+      mirrorFile=mirrorRead.value||{};
+      if(!mirrorRead.ok||!mirrorFile?.sha||!mirrorFile.content)
+        return json({error:"Không đọc được bản gốc món ăn để đồng bộ",github_status:mirrorRead.status},502);
       try{
         const original=JSON.parse(td.decode(fromB64(String(file.content||"").replace(/\s/g,""))));
         mirrorData=JSON.parse(td.decode(fromB64(String(mirrorFile.content).replace(/\s/g,""))));
@@ -226,28 +232,27 @@ export async function onRequest({request,env}){
       }
     }
 
-    const openResponse=await fetch(api+"/pulls?state=open&per_page=100",{headers,cache:"no-store"});
-    const openPulls=await openResponse.json();
-    if(!openResponse.ok)return json({error:"Không kiểm tra được đề xuất đang mở",github_status:openResponse.status,detail:openPulls?.message||"Không rõ nguyên nhân"},openResponse.status);
-    const pathsToCheck=new Set(foodMirror?[path,"data/food.json"]:[path]);
-    for(const openPr of (Array.isArray(openPulls)?openPulls:[]).filter(pr=>String(pr.head?.ref||"").startsWith("cms/draft/"))){
-      const filesResponse=await fetch(api+"/pulls/"+openPr.number+"/files?per_page=100",{headers,cache:"no-store"});
-      const changedFiles=await filesResponse.json();
-      if(!filesResponse.ok)return json({error:"Không kiểm tra được tệp trong đề xuất đang mở",github_status:filesResponse.status,detail:changedFiles?.message||"Không rõ nguyên nhân"},filesResponse.status);
-      if((Array.isArray(changedFiles)?changedFiles:[]).some(file=>pathsToCheck.has(file.filename))){
-        return json({error:"Đang có đề xuất CMS khác sửa cùng tệp.",detail:"Kiểm tra hoặc đóng PR #"+openPr.number+" trước khi gửi thay đổi mới để tránh ghi đè.",conflicting_pr:{number:openPr.number,url:openPr.html_url}},409);
-      }
+    const pathsToCheck=foodMirror?[path,"data/food.json"]:[path];
+    const scan=await scanOpenPullConflicts(pathsToCheck,s.accessToken,{
+      cmsDraftOnly:true,requireComplete:true,concurrency:3
+    });
+    if(!scan.ok){
+      const status=scan.status===409?409:(scan.status||502);
+      return json({error:scan.stage==="incomplete"?"Chưa kiểm tra đầy đủ đề xuất đang mở":"Không kiểm tra được đề xuất đang mở",
+        github_status:scan.status||undefined,detail:scan.detail||"Không rõ nguyên nhân"},status);
     }
-
-    const refResponse=await fetch(api+"/git/ref/heads/main",{headers,cache:"no-store"});
-    const ref=await refResponse.json();
-    if(!refResponse.ok)return json({error:"Không đọc được nhánh main",github_status:refResponse.status,detail:ref?.message||"Không rõ nguyên nhân"},refResponse.status);
+    const conflicting=scan.conflicts[0];
+    if(conflicting){
+      return json({error:"Đang có đề xuất CMS khác sửa cùng tệp.",
+        detail:"Kiểm tra hoặc đóng PR #"+conflicting.number+" trước khi gửi thay đổi mới để tránh ghi đè.",
+        conflicting_pr:{number:conflicting.number,url:conflicting.url}},409);
+    }
 
     const safeLogin=String(s.login||"editor").toLowerCase().replace(/[^a-z0-9-]/g,"-").slice(0,30)||"editor";
     const branch="cms/draft/"+safeLogin+"-"+Date.now();
     const branchResponse=await fetch(api+"/git/refs",{
       method:"POST",headers,
-      body:JSON.stringify({ref:"refs/heads/"+branch,sha:ref.object?.sha})
+      body:JSON.stringify({ref:"refs/heads/"+branch,sha:mainRef.sha})
     });
     const branchResult=await branchResponse.json();
     if(!branchResponse.ok)return json({error:"Không tạo được nhánh bản nháp",github_status:branchResponse.status,detail:branchResult?.message||"Không rõ nguyên nhân"},branchResponse.status);

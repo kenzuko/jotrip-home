@@ -14,7 +14,7 @@ const SHA="a".repeat(40),MAIN="f".repeat(40);
 const base={stories:[{id:"one",title:"Bài gốc",dek:"Lời giới thiệu",
   intro:"Mở bài",sections:[{heading:"Một",body:"Nội dung gốc"}]}]};
 const encode=obj=>Buffer.from(JSON.stringify(obj)).toString("base64");
-function harness({role="admin",stale=false,conflict=false,failPatch=false}={}){
+function harness({role="admin",stale=false,conflict=false,incomplete=false,failPatch=false}={}){
   const history=[],blobs=[];
   const session={login:"qa",accessToken:"test-token",exp:Date.now()+3600000};
   const crypto={subtle:{
@@ -32,7 +32,7 @@ function harness({role="admin",stale=false,conflict=false,failPatch=false}={}){
       return new Response(JSON.stringify({sha:stale?"b".repeat(40):SHA,
         encoding:"base64",content:encode(base)}));
     if(url.includes("/pulls?")){
-      return new Response(JSON.stringify(conflict?[{number:4,html_url:"https://github.com/kenzuko/jotrip-home/pull/4"}]:[]));
+      return new Response(JSON.stringify(conflict?[{number:4,html_url:"https://github.com/kenzuko/jotrip-home/pull/4"}]:[]),{headers:incomplete?{Link:'<next>; rel="next"'}:{}});
     }
     if(url.includes("/pulls/4/files?per_page=100"))
       return new Response(JSON.stringify([{filename:"data/content.json"}]));
@@ -89,7 +89,7 @@ const guide={title:"Dinh Cậu",editorial:{before_you_go:["Mang mũ"]}};
 assert.equal(h.helpers.fieldOK("data/knowledge/objects.json",guide,"editorial.before_you_go.0"),true);
 assert.equal(h.helpers.fieldOK("data/knowledge/objects.json",guide,"research.sources.0"),false);
 for(const options of [{role:"editor",status:403},{stale:true,status:409},
-  {conflict:true,status:409},{failPatch:true,status:403}]){
+  {conflict:true,status:409},{incomplete:true,status:409},{failPatch:true,status:403}]){
   const {status,...opts}=options,t=harness(opts);
   const resp=await t.onRequest({request:t.req(t.payload),env:t.env});
   assert.equal(resp.status,status,JSON.stringify(await resp.json()));

@@ -71,6 +71,8 @@ jobs:
         run: node scripts/test-cms-access.mjs
       - name: Test CMS direct save mutation safety
         run: node scripts/test-cms-direct-save.mjs
+      - name: Test CMS edit-state conflict preflight
+        run: node scripts/test-cms-edit-state.mjs
       - name: Test CMS draft review workflow
         run: node scripts/test-cms-draft-review.mjs
       - name: Test CMS review queue
@@ -112,6 +114,7 @@ jobs:
           node --check functions/api/cms/analytics.js
           node --check functions/_shared/cms-mutation-core.js
           node --check functions/api/cms/direct-save.js
+          node --check functions/api/cms/edit-state.js
           node --check functions/api/cms/publish.js
           node --check functions/api/cms/reviews.js
           node --check functions/api/cms/review-diff.js

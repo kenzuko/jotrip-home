@@ -1,6 +1,6 @@
 /* Direct text-only publishing for an authenticated CMS admin.
  * One atomic Git tree update on main, never a blind overwrite or public-client token. */
-import { CMS_REPO_API, githubJson, readCmsSession, readCurrentCmsRole, sameOrigin } from "../../_shared/cms-mutation-core.js";
+import { CMS_REPO_API, githubJson, readCmsSession, readCurrentCmsRole, readMainRef, readRepoFile, sameOrigin, scanOpenPullConflicts } from "../../_shared/cms-mutation-core.js";
 const dec=new TextDecoder();
 const ALLOWED=new Set(["data/content.json","data/i18n/vi/food.json",
   "data/knowledge/objects.json","data/home-copy.json"]);
@@ -19,8 +19,10 @@ async function gh(path,token,opts={}){
   return {value,link};
 }
 async function atMain(path,ref,token){
-  const clean=path.split("/").map(encodeURIComponent).join("/");
-  const {value}=await gh("/contents/"+clean+"?ref="+encodeURIComponent(ref),token);
+  const file=await readRepoFile(path,ref,token);
+  if(!file.ok)throw Object.assign(Error(file.value?.message||"GitHub HTTP "+file.status),
+    {code:file.status===401||file.status===403?file.status:file.status===422?409:502});
+  const value=file.value;
   if(value.encoding!=="base64"||!value.sha||!value.content)
     throw Object.assign(Error("Tệp dữ liệu chưa thể đọc trọn vẹn"),{code:502});
   const text=dec.decode(b64bytes(String(value.content).replace(/\s/g,"")));
@@ -96,21 +98,17 @@ function validate(doc,path,id){
   return "";
 }
 async function conflicts(paths,token){
-  const {value:pulls,link}=await gh("/pulls?state=open&per_page=100&sort=updated&direction=desc",token);
-  if(!Array.isArray(pulls)||/rel="next"/.test(link))
-    throw Object.assign(Error("Chưa thể kiểm tra toàn bộ đề xuất đang mở"),{code:409});
-  for(let i=0;i<pulls.length;i+=3){
-    const checked=await Promise.all(pulls.slice(i,i+3).map(async pr=>{
-      const listing=await gh("/pulls/"+pr.number+"/files?per_page=100",token);
-      if(!Array.isArray(listing.value)||/rel="next"/.test(listing.link))
-        throw Object.assign(Error("Đề xuất #"+pr.number+" có quá nhiều tệp để kiểm tra"),{code:409});
-      return {pr,files:listing.value};
-    }));
-    const hit=checked.find(item=>item.files.some(f=>paths.includes(f.filename)));
-    if(hit)throw Object.assign(Error("Đề xuất #"+hit.pr.number+
-      " đang sửa cùng tệp. Hoàn tất hoặc đóng đề xuất đó trước khi lưu trực tiếp."),
-      {code:409,pr_url:hit.pr.html_url});
+  const scan=await scanOpenPullConflicts(paths,token,{
+    cmsDraftOnly:false,requireComplete:true,concurrency:3
+  });
+  if(!scan.ok){
+    const code=scan.status===409?409:(scan.status===401||scan.status===403?scan.status:502);
+    throw Object.assign(Error(scan.detail||"Chưa thể kiểm tra toàn bộ đề xuất đang mở"),{code});
   }
+  const hit=scan.conflicts[0];
+  if(hit)throw Object.assign(Error("Đề xuất #"+hit.number+
+    " đang sửa cùng tệp. Hoàn tất hoặc đóng đề xuất đó trước khi lưu trực tiếp."),
+    {code:409,pr_url:hit.url});
 }
 async function onRequestInner({request,env}){
   if(request.method!=="POST")return json({error:"Chỉ hỗ trợ POST"},405);
@@ -139,7 +137,12 @@ async function onRequestInner({request,env}){
     seen.add(item.field);
   }
   const token=s.accessToken;
-  const currentRef=(await gh("/git/ref/heads/main",token)).value.object?.sha;
+  const mainRef=await readMainRef(token);
+  if(!mainRef.ok){
+    const code=mainRef.status===401||mainRef.status===403?mainRef.status:502;
+    throw Object.assign(Error(mainRef.value?.message||"GitHub HTTP "+mainRef.status),{code});
+  }
+  const currentRef=mainRef.sha;
   if(!/^[a-f0-9]{40}$/.test(currentRef||""))
     return json({error:"Chưa đọc được phiên bản main"},502);
   const source=await atMain(path,currentRef,token);

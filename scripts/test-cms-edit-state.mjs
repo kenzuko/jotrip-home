@@ -2,8 +2,14 @@ import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 import vm from "node:vm";
 
-const source=readFileSync("functions/api/cms/edit-state.js","utf8");
-const executable=source.replace("export async function onRequest","async function onRequest")+";\nthis.onRequest=onRequest;";
+const coreSource=readFileSync("functions/_shared/cms-mutation-core.js","utf8")
+  .replace(/export const /g,"const ")
+  .replace(/export async function /g,"async function ")
+  .replace(/export function /g,"function ");
+const endpointSource=readFileSync("functions/api/cms/edit-state.js","utf8")
+  .replace(/^import .*cms-mutation-core\.js";\n/m,"")
+  .replace("export async function onRequest","async function onRequest");
+const executable=coreSource+"\n"+endpointSource+";\nthis.onRequest=onRequest;";
 new Function(executable);
 function testEnv(opts={}){
   const calls=[];
@@ -22,6 +28,7 @@ function testEnv(opts={}){
     if(url.includes("raw.githubusercontent.com"))return new Response(JSON.stringify({
       users:[{login:"tester",role,enabled:true}]
     }));
+    if(url.includes("/git/ref/heads/main"))return new Response(JSON.stringify({object:{sha:"ffffffffffffffffffffffffffffffffffffffff"}}));
     if(url.includes("/contents/"))return new Response(JSON.stringify({sha:"live-sha"}));
     if(url.includes("/pulls?")){
       if(opts.rateLimit)return new Response(JSON.stringify({message:"rate limited"}),{status:429});
@@ -34,7 +41,7 @@ function testEnv(opts={}){
     throw Error("Unexpected fetch "+url);
   };
   const ctx={crypto,fetch,Response,URL,TextEncoder,TextDecoder,atob,
-    Uint8Array,Date,JSON,String,Number,Object,Array,Promise,encodeURIComponent};
+    Uint8Array,Date,JSON,String,Number,Object,Array,Set,Promise,encodeURIComponent,decodeURIComponent};
   vm.runInNewContext(executable,ctx);
   const request=(path="data/content.json",method="GET",auth=true)=>new Request(
     "https://cms.openphuquoc.com/api/cms/edit-state?path="+encodeURIComponent(path),
@@ -52,7 +59,7 @@ function testEnv(opts={}){
   assert.equal(data.conflicts.length,1);
   assert.equal(data.conflicts[0].number,17);
   assert.equal(data.conflicts[0].url,"https://github.com/kenzuko/jotrip-home/pull/17");
-  assert.deepEqual(h.calls.map(x=>x.method),["GET","GET","GET","GET"]);
+  assert.deepEqual(h.calls.map(x=>x.method),["GET","GET","GET","GET","GET"]);
   assert.equal(response.headers.get("cache-control"),"private, no-store");
   assert.doesNotMatch(JSON.stringify(data),/synthetic-token|synthetic-secret/);
 }
@@ -62,7 +69,7 @@ function testEnv(opts={}){
   const body=await r.json();
   assert.equal(body.conflicts.length,0);
   assert.equal(body.complete,true);
-  assert.equal(h.calls.length,3,"no file-list API calls when there are no pending CMS PRs");
+  assert.equal(h.calls.length,4,"no file-list API calls when there are no pending CMS PRs");
 }
 {
   const h=testEnv({nextPage:true});
