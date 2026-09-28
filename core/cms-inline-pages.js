@@ -14,8 +14,17 @@ const state={id:isHome?"home":new URLSearchParams(location.search).get("id")||""
   sha:"",login:"",base:null,current:null,raw:null,tab:"",dirty:false,editing:false,
   blocked:false,timer:null,panel:null};
 const deep=x=>JSON.parse(JSON.stringify(x));
-const draftKey=()=> "openpq-cms-inline-page:v1:"+encodeURIComponent(state.login)+":"+
-  encodeURIComponent(state.id)+":"+state.sha;
+const draftKey=()=> isHome?"openpq-cms-site-copy-v1:"+encodeURIComponent(state.login)+":"+state.sha:
+  "openpq-cms-inline-page:v1:"+encodeURIComponent(state.login)+":"+encodeURIComponent(state.id)+":"+state.sha;
+function homeTextFields(doc){
+  const out=[];
+  for(const p of ["hero.kicker","hero.title","hero.lead","footer.title","footer.lead","footer.note"])
+    if(typeof pathValue(doc,p)==="string")out.push(p);
+  for(const [id,v] of Object.entries(doc.sections||{}))for(const key of ["eyebrow","title","lead"])
+    if(typeof v?.[key]==="string")out.push("sections."+id+"."+key);
+  const walk=(obj,prefix)=>Object.entries(obj||{}).forEach(([k,v])=>{const next=prefix?prefix+"."+k:k;if(typeof v==="string")out.push("site."+next);else if(v&&typeof v==="object"&&!Array.isArray(v))walk(v,next);});
+  walk(doc.site,"");return out;
+}
 function pathValue(record,path){return String(path.split(".").reduce((v,k)=>v?.[k],record)??"");}
 function patch(record,path,value){
   const chunks=path.split(".");let node=record;
@@ -70,7 +79,7 @@ function schedule(){
 function controls(){
   return [...document.querySelectorAll("[data-cms-field]")].filter(el=>
     isGuide?Boolean(el.closest("#knowledgeArticle .knowledge-article")):
-      Boolean(el.closest(".hero,.section")));
+      Boolean(el.closest(".hero,.section,.site-footer")));
 }
 function closePanel(){state.panel?.remove();state.panel=null;
   document.querySelectorAll(".cms-page-trigger.active").forEach(el=>el.classList.remove("active"));}
@@ -151,7 +160,7 @@ async function begin(){
 }
 function changed(){
   const before=config.select(state.base),after=config.select(state.current);
-  const fields=[...new Set(controls().map(x=>x.dataset.cmsField))];
+  const fields=isHome?homeTextFields(state.base):[...new Set(controls().map(x=>x.dataset.cmsField))];
   return fields.map(field=>{
     const a=pathValue(before,field),b=pathValue(after,field);
     return a===b?null:{field,before:a,after:b};

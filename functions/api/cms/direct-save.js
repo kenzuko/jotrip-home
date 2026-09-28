@@ -82,10 +82,12 @@ function fieldOK(path,record,field){
       Number(m[1])<record.editorial.before_you_go.length);
   }
   if(path==="data/home-copy.json"){
-    if(["hero.kicker","hero.title","hero.lead"].includes(field))return true;
+    if(["hero.kicker","hero.title","hero.lead","footer.title","footer.lead","footer.note"].includes(field))
+      return typeof get(record,field)==="string";
     const m=/^sections\.([a-z]+)\.(eyebrow|title|lead)$/.exec(field);
-    return Boolean(m&&homeSections.has(m[1])&&
-      Object.hasOwn(record.sections||{},m[1])&&Object.hasOwn(record.sections[m[1]],m[2]));
+    if(m)return Boolean(homeSections.has(m[1])&&Object.hasOwn(record.sections||{},m[1])&&Object.hasOwn(record.sections[m[1]],m[2])&&typeof record.sections[m[1]][m[2]]==="string");
+    if(/^site(?:\.[A-Za-z0-9_-]+){2,6}$/.test(field))return typeof get(record,field)==="string";
+    return false;
   }
   return false;
 }
@@ -157,9 +159,10 @@ async function onRequestInner({request,env}){
   const path=String(body?.path||""),id=String(body?.record_id||"");
   const expectedSha=String(body?.sha||"");
   const changes=body?.changes;
+  const changeLimit=path==="data/home-copy.json"?160:60;
   if(!ALLOWED.has(path)||!id||id.length>180||
      !/^[a-f0-9]{40}$/.test(expectedSha)||!Array.isArray(changes)||
-     changes.length<1||changes.length>60||JSON.stringify(body).length>80000)
+     changes.length<1||changes.length>changeLimit||JSON.stringify(body).length>120000)
     return json({error:"Yêu cầu sửa chữ không hợp lệ"},400);
   const seen=new Set();
   for(const item of changes){

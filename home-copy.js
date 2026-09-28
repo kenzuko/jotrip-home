@@ -21,6 +21,9 @@
 
       if(d.hero?.slides?.[0]?.label)set(".hero-scene-label",d.hero.slides[0].label);
 
+      set(".site-footer .footer-brand strong",d.footer?.title,"footer.title");
+      set(".site-footer .footer-brand p",d.footer?.lead,"footer.lead");
+      set(".site-footer .footer-brand small",d.footer?.note,"footer.note");
       for(const [id,v] of Object.entries(d.sections||{})){
         if(id==="happening") continue;
         set("#"+id+" .eyebrow",v.eyebrow,"sections."+id+".eyebrow");
