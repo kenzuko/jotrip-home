@@ -17,6 +17,8 @@ const pagesConfig=read("wrangler.pages.jsonc");
 const cmsSetup=read("CMS_SETUP.md");
 const admin=read("admin/index.html");
 const cloudflareBuild=read("scripts/build-cloudflare.mjs");
+const cmsMiddleware=read("functions/_middleware.js");
+const routes=read("scripts/routes.json");
 
 assert.match(workerConfig,/"name"\s*:\s*"openphuquoc-v3"/,"Worker runtime must remain present");
 assert.match(workerConfig,/"CMS_DB"/,"Worker D1 binding must remain present");
@@ -81,6 +83,15 @@ const gates=[
     detail:publicHtmlCmsLeaks.length
       ? "Public HTML still exposes CMS hostname: "+publicHtmlCmsLeaks.join(", ")
       : "No public HTML may expose the CMS hostname."
+  },
+  {
+    id:"cms-public-redirect",
+    ok:cmsMiddleware.includes('CMS_HOST = "cms.openphuquoc.com"') &&
+      cmsMiddleware.includes('PUBLIC_ORIGIN = "https://openphuquoc.com"') &&
+      cmsMiddleware.includes("Response.redirect(publicUrl(url), 301)") &&
+      cmsMiddleware.includes("openpq_cms") &&
+      routes.includes('"/*"'),
+    detail:"Anonymous CMS public navigation must 301 to the public domain while editor sessions remain available."
   }
 ];
 
@@ -97,7 +108,7 @@ if(pending.length){
   if(strict) process.exitCode=1;
 }
 console.log("\nManual cutover gates (not automatable in repo):");
-console.log("- GitHub OAuth callback accepts https://openphuquoc.com/api/cms/auth?action=callback");
-console.log("- Cloudflare route/custom-domain cutover verified on preview before DNS/production switch");
-console.log("- cms.openphuquoc.com legacy public URLs return path-preserving 301 to openphuquoc.com");
+console.log("- GitHub OAuth remains on cms.openphuquoc.com so CMS sessions and inline editing are not migrated.");
+console.log("- Anonymous cms.openphuquoc.com public navigation returns path-preserving 301 to openphuquoc.com.");
+console.log("- Authenticated CMS editors can keep using the CMS mirror, which is noindex.");
 console.log("- Search Console sitemap/canonical check completed after production cutover");
