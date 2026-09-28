@@ -145,9 +145,10 @@ jobs:
           curl -fsSL --max-time 25 -D /tmp/cms-weather-live.h "$base/weather/data/local-now.json?t=$GITHUB_SHA" -o /tmp/cms-weather-live.json
           grep -Eiq '^x-openpq-weather-edge:[[:space:]]*(ENGINE_DIRECT|EDGE_CACHE)' /tmp/cms-weather-live.h
           node -e 'const d=require("/tmp/cms-weather-live.json");if(!d.points?.duong_dong||!d.generated_at)process.exit(1);const age=(Date.now()-Date.parse(d.generated_at))/60000;console.log("CMS Weather actual data age",age.toFixed(1),"min");if(age>60)process.exit(1)'
-          curl -fsSL --max-time 20 "$base/weather/?t=$GITHUB_SHA" -o /tmp/cms-weather-ui.html
-          grep -q 'ecosystem-shell.css' /tmp/cms-weather-ui.html
-          grep -q 'weather-module-nav' /tmp/cms-weather-ui.html
+          status="$(curl -sS --max-time 20 -o /dev/null -D /tmp/cms-weather-ui.h -w '%{http_code}' "$base/weather/?t=$GITHUB_SHA")"
+          test "$status" = "301"
+          grep -Eiq '^location:[[:space:]]*https://openphuquoc\.com/weather/\?t=' /tmp/cms-weather-ui.h
+          echo "CMS anonymous Weather UI correctly redirects to public origin"
 
       - uses: actions/upload-artifact@v4
         if: always()

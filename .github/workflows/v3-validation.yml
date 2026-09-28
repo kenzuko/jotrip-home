@@ -69,6 +69,8 @@ jobs:
         run: node scripts/test-search.mjs
       - name: Test current CMS permissions
         run: node scripts/test-cms-access.mjs
+      - name: Test CMS public-host redirect contract
+        run: node scripts/test-cms-public-redirect.mjs
       - name: Test CMS draft review workflow
         run: node scripts/test-cms-draft-review.mjs
       - name: Test CMS review queue
@@ -105,6 +107,7 @@ jobs:
           node --check guide/knowledge.js
           node --check worker.js
           node --check utilities/utilities.js
+          node --check functions/_middleware.js
           node --check functions/api/cms/session.js
           node --check functions/api/cms/content.js
           node --check functions/api/cms/analytics.js
