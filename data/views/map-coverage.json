@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-27T03:15:59.589Z",
+  "generated_at": "2026-09-28T09:45:00.000Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 222,
-    "missing_count": 172
+    "ready_count": 225,
+    "missing_count": 169
   },
   "layers": {
     "zones": [
@@ -335,6 +335,34 @@
         "source_id": "google_maps_location_lookup",
         "note": "Bảo tàng nằm trong Grand World; pin hiện dùng điểm neo trung tâm Grand World cho tới khi có pin cửa vào bảo tàng.",
         "verified_at": "2026-09-22"
+      },
+      {
+        "id": "place_suoi_da_ngon",
+        "name": "Suối Đá Ngọn",
+        "type": "place",
+        "lat": 10.2715875,
+        "lon": 104.037046875,
+        "precision": "area_anchor",
+        "source": "Published destination Plus Code recovered in Phu Quoc context, cross-checked across named Suoi Da Ngon listings",
+        "source_id": "suoi_da_ngon_pluscode_crosscheck_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Area anchor decoded from published Plus Code 72CP+JRM for Suối Đá Ngọn. Dùng để định hướng khu vực; không xác nhận bãi đỗ xe, đầu đường mòn, tầng thác hay điểm xuống nước.",
+        "accuracy": "published_named_destination_plus_code_area_anchor",
+        "plus_code": "72CP+JRM"
+      },
+      {
+        "id": "place_suoi_tien",
+        "name": "Suối Tiên",
+        "type": "place",
+        "lat": 10.2184625,
+        "lon": 104.042078125,
+        "precision": "area_anchor",
+        "source": "Published destination Plus Code recovered in Phu Quoc context, cross-checked with named Suoi Tien destination listings",
+        "source_id": "suoi_tien_pluscode_crosscheck_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Area anchor decoded from published Plus Code 629R+9RP for Suối Tiên. Dùng để định hướng khu vực; không xác nhận bãi giữ xe, đầu đường mòn hay điểm xuống suối.",
+        "accuracy": "published_named_destination_plus_code_area_anchor",
+        "plus_code": "629R+9RP"
       }
     ],
     "stay": [
@@ -3264,6 +3292,20 @@
         "verified_at": "2026-09-27",
         "accuracy": "operator_name_area_osm_site_estimate",
         "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa."
+      },
+      {
+        "id": "utility_tgdd_37_hungvuong",
+        "name": "Thế Giới Di Động - 37 Hùng Vương",
+        "type": "utility",
+        "lat": 10.2287548,
+        "lon": 103.9695114,
+        "precision": "site_centroid",
+        "source": "Geoapify/OpenStreetMap exact-address building result, cross-checked with official Thế Giới Di Động branch page and current store directory",
+        "source_id": "geoapify_exact_address_tgdd_crosscheck_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Tâm tòa nhà tại 37 Hùng Vương, KP5 theo exact-address result; đối chiếu đúng cơ sở TGDD chính thức. Không xác nhận chính xác cổng vào.",
+        "accuracy": "exact_house_number_street_neighbourhood_operator_crosscheck",
+        "source_license": "ODbL-1.0"
       }
     ]
   },
@@ -3398,13 +3440,10 @@
     "utility_dng_clinic_duong_dong",
     "utility_dng_clinic_an_thoi",
     "utility_tgdd_142a_ntr",
-    "utility_tgdd_37_hungvuong",
     "utility_tgdd_104_304",
     "place_fish_sauce_house",
     "place_pepper_garden",
     "place_suoi_da_ban",
-    "place_suoi_da_ngon",
-    "place_suoi_tien",
     "place_phu_quoc_ridgeback_center",
     "utility_112",
     "utility_113",
@@ -3422,10 +3461,8 @@
     "utility_sunworld",
     "utility_vinmec",
     "utility_vinmec_er",
-    "utility_longchau_tran_phu",
     "utility_longchau_an_thoi",
     "utility_longchau_ganh_dau",
-    "utility_vcb_atm_an_thoi",
     "utility_fuel_dong_loi_1",
     "utility_parking_sunset_nightmarket",
     "utility_toilet_sunset_venice_67",
@@ -3437,8 +3474,10 @@
     "utility_taxi_mailinh",
     "utility_taxi_namthang",
     "utility_longchau_suoi_da",
-    "utility_dienmaycholon_nguyen_trung_truc",
     "utility_dmx_162_304",
-    "utility_dmx_107_nvc"
+    "utility_dmx_107_nvc",
+    "utility_vcb_atm_an_thoi",
+    "utility_dienmaycholon_nguyen_trung_truc",
+    "utility_longchau_tran_phu"
   ]
 }
