@@ -12,7 +12,27 @@
     "/weather/spatial-icon.json",
     "/weather/spatial-marine.json",
     "/stories/article.html",
-    "/guide/article.html"
+    "/guide/article.html",
+    "/",
+    "/index.html",
+    "/about/*",
+    "/airport/*",
+    "/bus/*",
+    "/cano/*",
+    "/currency/*",
+    "/explore/*",
+    "/ferry/*",
+    "/food/*",
+    "/go/*",
+    "/guide/*",
+    "/hotels/*",
+    "/nearme/*",
+    "/news/*",
+    "/places/*",
+    "/stories/*",
+    "/transit/*",
+    "/utilities/*",
+    "/weather/*"
   ],
   "exclude": []
 }
