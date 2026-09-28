@@ -1,0 +1,56 @@
+/* A small WordPress-style edit affordance, visible only after CMS role check. */
+.food-inline-launcher{
+  min-height:42px;padding:8px 14px;border:1px solid #256c51;border-radius:11px;
+  background:#e9f5e9;color:#174c3b;font:750 14px/1.3 system-ui,sans-serif;cursor:pointer
+}
+#foodInlineResult{margin:0;font-size:13px}
+#foodInlineResult a{color:#206d52;text-decoration:underline}
+.food-inline-toolbar[hidden],.food-inline-launcher[hidden]{display:none!important}
+.food-inline-toolbar{
+  position:sticky;top:68px;z-index:45;box-sizing:border-box;
+  display:flex;flex-wrap:wrap;align-items:center;gap:11px 18px;
+  max-width:860px;margin:0 auto 25px;padding:13px 16px;
+  border:1px solid #bfdac6;border-radius:15px;background:#fff;
+  box-shadow:0 12px 34px rgba(18,61,59,.12);font:14px/1.45 system-ui,sans-serif
+}
+.food-inline-toolbar>strong{display:grid;gap:2px;color:#184d3b;font-size:13px}
+.food-inline-toolbar small{font-size:11px;color:#57796b;font-weight:500}
+.food-inline-actions{display:flex;gap:7px;flex-wrap:wrap;flex:1}
+.food-inline-actions button,.food-inline-panel button{
+  min-height:40px;padding:8px 11px;border:1px solid #bddac6;border-radius:9px;
+  background:#eff8f0;color:#21533e;font:750 13px system-ui,sans-serif;cursor:pointer
+}
+.food-inline-actions button:disabled{opacity:.5;cursor:wait}
+#foodInlineSubmit{background:#fce4a3}
+#foodInlineStatus{flex-basis:100%;min-width:0;margin:0!important;color:#486858;font-size:12px}
+#foodInlineStatus:empty{display:none}
+#foodInlineStatus[data-kind=warn]{color:#a34a2a}
+.food-inline-trigger{display:none}
+body.food-inline-editing #foodArticle .food-inline-trigger{
+  display:inline-flex;align-items:center;justify-content:center;min-height:36px;
+  margin:7px 0 13px;padding:6px 10px;border:1px solid #bcdcca;
+  border-radius:9px;background:#ecf8ef;color:#19513b;
+  font:750 12px system-ui,sans-serif;cursor:pointer
+}
+body.food-inline-editing #foodArticle .food-inline-trigger.active{
+  background:#174b3b;color:#fff
+}
+body.food-inline-editing .ingredient-grid .food-inline-trigger{grid-column:2;justify-self:start}
+.food-inline-panel{
+  box-sizing:border-box;clear:both;max-width:100%;margin:7px 0 20px;
+  padding:14px;border:1px solid #b7d8c3;border-radius:12px;background:#f3faf4
+}
+.food-inline-panel label{display:block;color:#20523d;font:750 14px system-ui,sans-serif}
+.food-inline-panel textarea{
+  box-sizing:border-box;display:block;width:100%;min-height:120px;max-height:65vh;
+  margin:9px 0;resize:vertical;padding:12px;border:1px solid #a4cbb4;
+  border-radius:9px;background:#fff;color:#173c30;font:16px/1.6 system-ui,sans-serif
+}
+.food-inline-panel small{display:block;margin:9px 0;color:#5c7669;font:12px/1.5 system-ui,sans-serif}
+.food-inline-panel button{background:#236548;color:#fff}
+@media(max-width:720px){
+ .food-inline-toolbar{top:62px;padding:11px 12px;gap:9px;margin-bottom:20px}
+ .food-inline-actions button{flex:1 1 42%}
+ .food-inline-panel{margin:7px -3px 18px;padding:11px}
+ .food-inline-launcher{font-size:12px;min-height:40px;padding:8px 10px}
+}
