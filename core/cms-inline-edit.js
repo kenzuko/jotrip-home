@@ -255,7 +255,8 @@ function toolbar(){
   $("#inlineCmsDirect").onclick=directSave;
 }
 async function mount(){
-  if(!["cms.openphuquoc.com","localhost","127.0.0.1"].includes(location.hostname))return;
+  const localQa=["localhost","127.0.0.1"].includes(location.hostname)&&new URLSearchParams(location.search).get("cms-inline-qa")==="1";
+  if(location.hostname!=="cms.openphuquoc.com"&&!localQa)return;
   S.id=new URLSearchParams(location.search).get("id")||"";
   if(!S.id||$("#inlineCmsToolbar"))return;
   const root=$("#articleRoot article.article");

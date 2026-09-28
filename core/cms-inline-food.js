@@ -294,7 +294,8 @@ function toolbar(){
   $("#foodInlineDirect").onclick=directSave;
 }
 async function mount(){
-  if(!["cms.openphuquoc.com","localhost","127.0.0.1"].includes(location.hostname))return;
+  const localQa=["localhost","127.0.0.1"].includes(location.hostname)&&new URLSearchParams(location.search).get("cms-inline-qa")==="1";
+  if(location.hostname!=="cms.openphuquoc.com"&&!localQa)return;
   const requested=new URLSearchParams(location.search).get("id");
   const host=$("#foodArticle"),id=host?.dataset.foodId||"";
   if(!requested||!id||!host.querySelector("h1")||$("#foodInlineLauncher"))return;

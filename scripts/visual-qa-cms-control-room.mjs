@@ -436,7 +436,7 @@ try{
     return r.fulfill({status:200,contentType:"application/json",
       body:JSON.stringify({pull_request:{number:900,url:"https://github.com/kenzuko/jotrip-home/pull/900"}})});
   });
-  await inline.goto(base+"/stories/article.html?id=test-draft",{waitUntil:"networkidle"});
+  await inline.goto(base+"/stories/article.html?id=test-draft&cms-inline-qa=1",{waitUntil:"networkidle"});
   await inline.locator("#inlineCmsOpen").waitFor();
   await inline.locator("#inlineCmsOpen").click();
   await inline.locator(".inline-edit-trigger").first().waitFor();
@@ -460,7 +460,7 @@ try{
   const anon=await anonCtx.newPage();
   await anon.route("**/api/cms/session",r=>r.fulfill({status:401,contentType:"application/json",body:'{"error":"Not logged in"}'}));
   await anon.route("**/data/content.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(fixture)}));
-  await anon.goto(base+"/stories/article.html?id=test-draft",{waitUntil:"networkidle"});
+  await anon.goto(base+"/stories/article.html?id=test-draft&cms-inline-qa=1",{waitUntil:"networkidle"});
   assert.equal(await anon.locator("#inlineCmsToolbar").count(),0);
   await anonCtx.close();
   }
@@ -496,7 +496,7 @@ try{
     return r.fulfill({status:200,contentType:"application/json",
       body:JSON.stringify({pull_request:{number:901,url:"https://github.com/kenzuko/jotrip-home/pull/901"}})});
   });
-  await food.goto(base+"/food/article.html?id=bun-quay",{waitUntil:"networkidle"});
+  await food.goto(base+"/food/article.html?id=bun-quay&cms-inline-qa=1",{waitUntil:"networkidle"});
   await food.locator("#foodInlineLauncher").waitFor();
   await food.locator("#foodInlineLauncher").click();
   await food.locator('[data-food-path="tips.0"] + button.food-inline-trigger').click();
@@ -525,7 +525,7 @@ try{
     status:401,contentType:"application/json",body:'{"error":"Not logged in"}'}));
   await anon.route("**/data/i18n/vi/food.json?*",r=>r.fulfill({
     status:200,contentType:"application/json",body:JSON.stringify(fixture)}));
-  await anon.goto(base+"/food/article.html?id=bun-quay",{waitUntil:"networkidle"});
+  await anon.goto(base+"/food/article.html?id=bun-quay&cms-inline-qa=1",{waitUntil:"networkidle"});
   assert.equal(await anon.locator("#foodInlineLauncher").count(),0);
   await anonCtx.close();
   }

@@ -7,7 +7,8 @@ const config=isGuide?{path:"data/knowledge/objects.json",public:"/data/views/kno
   select:data=>(data.objects||[]).find(x=>x.topic_id===state.id)}:
   isHome?{path:"data/home-copy.json",public:"/data/home-copy.json",
     select:data=>data}:null;
-if(!config||!["cms.openphuquoc.com","localhost","127.0.0.1"].includes(location.hostname))return;
+const localInlineQa=["localhost","127.0.0.1"].includes(location.hostname)&&new URLSearchParams(location.search).get("cms-inline-qa")==="1";
+if(!config||location.hostname!=="cms.openphuquoc.com"&&!localInlineQa)return;
 const $=q=>document.querySelector(q);
 const state={id:isHome?"home":new URLSearchParams(location.search).get("id")||"",
   sha:"",login:"",base:null,current:null,raw:null,tab:"",dirty:false,editing:false,
