@@ -55,6 +55,7 @@ export async function readCurrentCmsRole(login, {
   failureMessage = "Không kiểm tra được quyền CMS",
   failureCode = null,
   includeUserAgent = true,
+  includeHttpStatus = false,
 } = {}) {
   const headers = includeUserAgent ? { "User-Agent": "Open-Phu-Quoc-CMS" } : {};
   const response = await fetch(
@@ -63,9 +64,7 @@ export async function readCurrentCmsRole(login, {
     { headers, cache: "no-store" }
   );
   if (!response.ok) {
-    const error = new Error(
-      failureMessage + (failureMessage.includes("HTTP") ? "" : "")
-    );
+    const error = new Error(includeHttpStatus ? failureMessage + ": HTTP " + response.status : failureMessage);
     if (failureCode != null) error.code = failureCode;
     error.httpStatus = response.status;
     throw error;
