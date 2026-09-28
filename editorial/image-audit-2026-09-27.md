@@ -78,3 +78,14 @@ A catalog sweep found four intentionally labeled illustration files that were st
 - Rừng ngập mặn Phú Quốc: removed the Cần Giờ hero; leave photo-free until an exact Phú Quốc image with acceptable reuse rights is curated.
 - Rùa biển quanh Phú Quốc: removed the Kona, Hawaii turtle hero; leave photo-free until an exact Phú Quốc image with acceptable reuse rights is curated.
 - Bus Phú Quốc: replaced the Hà Nội VinBus illustration with a real VinBus photo at Phú Quốc United Center from Znews, source credited and reuse permission marked unverified.
+
+
+## Correction 28/09/2026 - semantic hero sweep
+The next pass checked whether a real photo actually illustrates the article subject, not merely whether it was taken somewhere on Phú Quốc.
+- Removed the calm Bãi Trường sunset from **Sóng và hướng sóng quanh đảo**. A pleasant sea photo can falsely imply sea state; leave photo-free until a marine-specific visual is verified.
+- **Di chuyển Dương Đông - An Thới** now keeps only the An Thới endpoint photo and labels it as endpoint context. Removed the unrelated night-market fruit stall.
+- Removed misleading route heroes from **Dương Đông - Gành Dầu**, **Dương Đông - Rạch Vẹm** and **Dương Đông - Hàm Ninh**. Destination/starfish/archive photos are not route photos.
+- Removed the motorcyclist image from **Ferry / high-speed boat đến Phú Quốc**; it did not depict ferry or fast-ferry travel.
+- Removed the non-Phú-Quốc worship illustration from **Nghinh Ông**; a caption is not enough when the same image can become a lead card.
+- Corrected **Phú Quốc trước sân bay quốc tế**: replaced a 2025 international-airport image with **PhuQuocAirport.jpg**, photographed at the old Phú Quốc airport on 10/02/2009 by Michael Gerard Burns and released to the public domain.
+- Reclassified Mũi Ông Đội / Cửa Cạn name-origin / Nguyễn Ánh legend images as contextual-site images instead of exact-subject images where appropriate.
