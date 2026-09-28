@@ -1913,11 +1913,37 @@
         },
         {
           "source_id": "google_maps_place_lookup_pending_pin"
+        },
+        {
+          "source_id": "phuquoc_tourism_ridgeback_tieukhu77_20260928",
+          "url": "https://dulich.phuquoc.gov.vn/vi/trungtambaotonch",
+          "checked_at": "2026-09-28"
+        },
+        {
+          "source_id": "vietnamtourism_ridgeback_tieukhu77_suoimay_20260928",
+          "url": "https://vietnamtourism.gov.vn/printer/21888?type=1",
+          "checked_at": "2026-09-28"
+        },
+        {
+          "source_id": "sotayvang_ridgeback_coordinate_20260928",
+          "url": "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/",
+          "checked_at": "2026-09-28"
         }
       ],
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-09-28",
       "address": "Tiểu khu 77, Dương Tơ, Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA"
+      "address_precision": "AREA",
+      "map": {
+        "lat": 10.1781374,
+        "lon": 104.0085517,
+        "precision": "area_anchor",
+        "source": "Secondary place directory coordinate cross-checked with Phu Quoc government and Vietnam tourism sources for Tiểu khu 77 / ấp Suối Mây",
+        "source_id": "ridgeback_tieukhu77_area_crosscheck_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Neo khu vực cho cơ sở Thanh Nga mới tại Tiểu khu 77 / ấp Suối Mây. Không xác nhận cổng vào, bãi đỗ xe hay vị trí trường đua.",
+        "accuracy": "secondary_directory_coordinate_government_address_crosscheck"
+      },
+      "map_review_note": "Neo khu vực cho cơ sở Thanh Nga mới tại Tiểu khu 77 / ấp Suối Mây. Không xác nhận cổng vào, bãi đỗ xe hay vị trí trường đua."
     }
   ]
 }
