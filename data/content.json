@@ -139,7 +139,7 @@
       "title": "Đôi mắt sơn trên mũi ghe",
       "dek": "Trên mũi nhiều chiếc ghe ở Phú Quốc có đôi mắt được sơn nổi bật. Đó là chi tiết gắn với tín ngưỡng người đi biển, hiện diện giữa một bến cá vẫn làm việc mỗi ngày.",
       "read_minutes": 3,
-      "image": "/assets/media/editorial-fishing-fleet.jpg",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1600",
       "intro": "Giữa những chuyến ghe cập bến, chuyển cá, lấy đá và chuẩn bị ra khơi, đôi mắt sơn trên mũi ghe dễ khiến người qua đường dừng lại nhìn. Người đi biển có cách gửi gắm niềm tin vào con tàu của mình, còn bến cá vẫn vận hành bằng bao nhiêu công việc cụ thể. Muốn hiểu đôi mắt ấy, phải nhìn cả chiếc ghe và nhịp sống ở nơi nó trở về.",
       "sections": [
         {
@@ -157,11 +157,13 @@
           "url": "https://vietnam.travel/node/1465"
         }
       ],
-      "image_alt": "Những chiếc ghe cá neo trên biển Phú Quốc",
-      "image_caption": "Ảnh bối cảnh đội ghe cá trên vùng biển Phú Quốc.",
-      "image_credit": "Internet (kho JoTrip), chưa rõ tác giả",
-      "image_source_url": null,
-      "updated_at": "2026-09-26"
+      "image_alt": "Tàu cá gần cảng Phú Quốc năm 2025",
+      "image_caption": "Tàu cá gần cảng Phú Quốc, chụp ngày 12/11/2025. Ảnh bối cảnh nghề biển, không khẳng định chi tiết mắt ghe nhìn thấy trong ảnh.",
+      "image_credit": "Elmschrat · Wikimedia Commons · CC0 1.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fishing_boat_Phu_Quoc.jpg",
+      "updated_at": "2026-09-26",
+      "image_rights_status": "CC_VERIFIED",
+      "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
     },
     {
       "id": "cho-phu-quoc-xoay-lung",
@@ -384,11 +386,11 @@
       "title": "An Thới, thị trấn biển phía Nam đảo",
       "dek": "An Thới là cửa ngõ của nhiều chuyến đi ra đảo nhỏ, nhưng sau bến tàu còn có chợ, khu dân cư và những con đường mang nhịp sống riêng của Nam đảo.",
       "read_minutes": 3,
-      "image": "/assets/media/editorial-fishing-fleet.jpg",
-      "image_alt": "Đội ghe cá neo gần bờ ở Phú Quốc",
-      "image_caption": "Ảnh bối cảnh nhịp ghe tàu, không xác nhận bến cụ thể.",
-      "image_credit": "Internet (kho JoTrip), chưa rõ tác giả",
-      "image_source_url": null,
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fisherman%20ville%20at%20An%20Thoi%20Phu%20Quoc%20VietNam.JPG?width=1600",
+      "image_alt": "Làng chài An Thới, Phú Quốc năm 2015",
+      "image_caption": "Một góc làng chài An Thới ngày 27/02/2015. Ảnh tư liệu về khu dân cư ven biển, không mô tả vận hành cảng hôm nay.",
+      "image_credit": "Tonbi ko · Wikimedia Commons · CC BY-SA 4.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fisherman_ville_at_An_Thoi_Phu_Quoc_VietNam.JPG",
       "intro": "Nhiều người đến An Thới chỉ để kịp giờ lên cano, rồi trở về cũng đi thẳng ra xe. Nhưng thị trấn này còn có chợ, hàng ăn và những bến cá phục vụ đời sống hằng ngày. Nếu lịch trình còn một khoảng trống, ngồi ăn một bữa ở khu phố quanh bến sẽ cho cảm giác rất khác những điểm du lịch mới ở Nam đảo.",
       "sections": [
         {
@@ -411,7 +413,9 @@
         }
       ],
       "home_featured": true,
-      "updated_at": "2026-09-26"
+      "updated_at": "2026-09-26",
+      "image_rights_status": "CC_VERIFIED",
+      "image_license_url": "https://creativecommons.org/licenses/by-sa/4.0/"
     },
     {
       "id": "bai-sao-thay-doi-theo-gio",
@@ -693,11 +697,11 @@
       "title": "“Đảo Ngọc” gợi điều gì về Phú Quốc?",
       "dek": "“Đảo Ngọc” là biệt danh du lịch của Phú Quốc, gợi biển xanh và những sản vật quý. Nhưng những gì làm nên hòn đảo còn nằm ở rừng, làng xóm và đời sống đang thay đổi.",
       "read_minutes": 3,
-      "image": "/assets/media/editorial-island-cove-aerial.jpg",
-      "image_alt": "Vịnh nước xanh và cano bên một đảo nhỏ nhìn từ trên cao",
-      "image_caption": "Ảnh minh họa cảnh sắc đảo, chưa xác minh địa danh cụ thể.",
-      "image_credit": "Internet (kho JoTrip), chưa rõ tác giả",
-      "image_source_url": null,
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Phu%20Quoc%20Beach.jpg?width=1600",
+      "image_alt": "Một bãi biển tại Phú Quốc cuối năm 2025",
+      "image_caption": "Một bãi biển thật tại Phú Quốc, chụp ngày 28/12/2025. Ảnh chỉ minh họa cảnh sắc đảo, không giải thích nguồn gốc biệt danh “Đảo Ngọc”.",
+      "image_credit": "FrogsLegs71 · Wikimedia Commons · CC BY-SA 3.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Phu_Quoc_Beach.jpg",
       "intro": "Có người nhắc Phú Quốc là nghĩ tới hai chữ “Đảo Ngọc”, một tên gọi quen trong các câu chuyện du lịch. Nó gợi vẻ đẹp của biển và sản vật, nhưng không phải tên hành chính hay cách giải thích về địa chất. Đi qua những làng xóm, vườn tiêu và khu rừng của đảo mới thấy biệt danh ấy chỉ kể được một phần câu chuyện.",
       "sections": [
         {
@@ -716,7 +720,9 @@
         }
       ],
       "home_featured": true,
-      "updated_at": "2026-09-26"
+      "updated_at": "2026-09-26",
+      "image_rights_status": "CC_VERIFIED",
+      "image_license_url": "https://creativecommons.org/licenses/by-sa/3.0/"
     },
     {
       "id": "doc-nhan-nuoc-mam-phu-quoc",
