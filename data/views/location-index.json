@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-28T09:45:00.000Z",
+  "generated_at": "2026-09-28T16:45:00.000Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
     "with_address": 350,
-    "with_map": 228,
+    "with_map": 230,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -12256,11 +12256,21 @@
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-09-28",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.232189,
+        "lon": 103.97232,
+        "precision": "site_centroid",
+        "source": "Official DNG website embedded Google Maps place for the Dương Đông main clinic",
+        "source_id": "dng_official_google_map_embed_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Tâm cơ sở lấy từ Google Maps iframe do chính website DNG nhúng cho trụ sở chính Dương Đông. Không xác nhận chính xác cửa vào, vị trí cấp cứu hay điểm đón trả.",
+        "accuracy": "operator_embedded_google_map_site_centroid",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Phòng khám Đa khoa Quốc tế DNG - Dương Đông, 40-41C, khu tái định cư khu phố 10, Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },
@@ -12330,11 +12340,21 @@
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-09-28",
       "star_rating": null,
       "what_it_is": "Dịch vụ giặt ủi tại Phú Quốc, nên xác nhận giờ và nhận/giao đồ.",
       "route": "/utilities/",
-      "map": null,
+      "map": {
+        "lat": 10.2333807689721,
+        "lon": 103.99067557668052,
+        "precision": "site_centroid",
+        "source": "Official Phu Quoc Laundry website embedded Google Maps place for Phu Quoc Laundry Online",
+        "source_id": "phuquoc_laundry_official_google_map_embed_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Tâm cơ sở lấy từ Google Maps iframe do chính website Phu Quoc Laundry nhúng. Không xác nhận chính xác cửa vào hoặc phạm vi nhận/giao đồ.",
+        "accuracy": "operator_embedded_google_map_site_centroid",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Phu Quoc Laundry - Bến Tràm, Tổ 4, ấp Bến Tràm, Cửa Dương, Đặc khu Phú Quốc, An Giang, Phú Quốc"
     },

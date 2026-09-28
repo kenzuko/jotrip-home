@@ -24,6 +24,11 @@
           "source_id": "phuquoc_laundry_official_20260924",
           "url": "https://phuquoclaundry.online/contacts/",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "phuquoc_laundry_official_google_map_embed_20260928",
+          "url": "https://phuquoclaundry.online/",
+          "checked_at": "2026-09-28"
         }
       ],
       "source_audit": {
@@ -31,9 +36,23 @@
         "prior_record_id": "utility_laundry_phuquoc_cuaduong",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Giờ niêm yết 09:00-21:00; xác minh pin cửa tiệm và phạm vi giao nhận thực tế."
+        "source_note": "Giờ niêm yết 09:00-21:00; xác minh pin cửa tiệm và phạm vi giao nhận thực tế.",
+        "gps_review_at": "2026-09-28",
+        "gps_review_status": "SITE_CENTROID_ACCEPTED",
+        "verified_entrance": false,
+        "gps_review_note": "Tâm cơ sở lấy từ Google Maps iframe do chính website Phu Quoc Laundry nhúng. Không xác nhận chính xác cửa vào hoặc phạm vi nhận/giao đồ."
       },
-      "updated_at": "2026-09-26"
+      "updated_at": "2026-09-28",
+      "map": {
+        "lat": 10.2333807689721,
+        "lon": 103.99067557668052,
+        "precision": "site_centroid",
+        "source": "Official Phu Quoc Laundry website embedded Google Maps place for Phu Quoc Laundry Online",
+        "source_id": "phuquoc_laundry_official_google_map_embed_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Tâm cơ sở lấy từ Google Maps iframe do chính website Phu Quoc Laundry nhúng. Không xác nhận chính xác cửa vào hoặc phạm vi nhận/giao đồ.",
+        "accuracy": "operator_embedded_google_map_site_centroid"
+      }
     },
     {
       "id": "utility_longchau_ham_ninh",
@@ -383,6 +402,11 @@
           "source_id": "dng_official_contact_20260927",
           "url": "https://dngclinic.com/lien-he/",
           "checked_at": "2026-09-27"
+        },
+        {
+          "source_id": "dng_official_google_map_embed_20260928",
+          "url": "https://dngclinic.com/lien-he/",
+          "checked_at": "2026-09-28"
         }
       ],
       "source_audit": {
@@ -393,9 +417,22 @@
         "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố giờ tham khảo 07:30-11:30 và 13:30-18:30 cả tuần; không mặc định cấp cứu 24/7.",
         "official_source_recheck_at": "2026-09-27",
         "official_source_note": "Website DNG hiện công bố địa chỉ 40-41C khu tái định cư KP10 Dương Đông tại trang Liên hệ; thay link dịch vụ chung không có địa chỉ là nguồn chính.",
-        "verified_entrance": false
+        "verified_entrance": false,
+        "gps_review_at": "2026-09-28",
+        "gps_review_status": "SITE_CENTROID_ACCEPTED",
+        "gps_review_note": "Tâm cơ sở lấy từ Google Maps iframe do chính website DNG nhúng cho trụ sở chính Dương Đông. Không xác nhận chính xác cửa vào, vị trí cấp cứu hay điểm đón trả."
       },
-      "updated_at": "2026-09-26"
+      "updated_at": "2026-09-28",
+      "map": {
+        "lat": 10.232189,
+        "lon": 103.97232,
+        "precision": "site_centroid",
+        "source": "Official DNG website embedded Google Maps place for the Dương Đông main clinic",
+        "source_id": "dng_official_google_map_embed_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Tâm cơ sở lấy từ Google Maps iframe do chính website DNG nhúng cho trụ sở chính Dương Đông. Không xác nhận chính xác cửa vào, vị trí cấp cứu hay điểm đón trả.",
+        "accuracy": "operator_embedded_google_map_site_centroid"
+      }
     },
     {
       "id": "utility_dng_clinic_an_thoi",
