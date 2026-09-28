@@ -16,6 +16,7 @@ const workerConfig=read("wrangler.jsonc");
 const pagesConfig=read("wrangler.pages.jsonc");
 const cmsSetup=read("CMS_SETUP.md");
 const admin=read("admin/index.html");
+const cloudflareBuild=read("scripts/build-cloudflare.mjs");
 
 assert.match(workerConfig,/"name"\s*:\s*"openphuquoc-v3"/,"Worker runtime must remain present");
 assert.match(workerConfig,/"CMS_DB"/,"Worker D1 binding must remain present");
@@ -54,6 +55,12 @@ const gates=[
     id:"admin-noindex",
     ok:/name=["']robots["'][^>]*noindex|noindex[^>]*name=["']robots["']/i.test(admin),
     detail:"The admin shell must explicitly be noindex."
+  },
+  {
+    id:"edge-noindex",
+    ok:cloudflareBuild.includes("/admin/*") && cloudflareBuild.includes("/api/*") &&
+      cloudflareBuild.includes("X-Robots-Tag: noindex, nofollow, noarchive"),
+    detail:"Cloudflare static headers must reinforce noindex for admin/API surfaces."
   }
 ];
 
