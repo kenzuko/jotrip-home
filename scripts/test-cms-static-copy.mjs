@@ -20,7 +20,7 @@ for(const page of ["about/index.html","food/index.html","stories/index.html","gu
  assert.match(html,/site-copy\.js\?v=1/,page+" missing public copy runtime");
 }
 const direct=readFileSync("functions/api/cms/direct-save.js","utf8");
-assert.match(direct,/site\(\?:\\\.[A-Za-z0-9_-]\+\)\{2,6\}/);
+assert.ok(direct.includes('if(/^site(?:\\.[A-Za-z0-9_-]+){2,6}$/.test(field))'));
 assert.match(direct,/changeLimit=path==="data\/home-copy\.json"\?160:60/);
 assert.match(readFileSync("home-copy.js","utf8"),/footer\.lead/);
 assert.match(readFileSync("index.html","utf8"),/data-cms-field="footer\.lead"/);
