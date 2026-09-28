@@ -5,11 +5,15 @@ const coreSource=readFileSync("functions/_shared/cms-mutation-core.js","utf8")
   .replace(/export const /g,"const ")
   .replace(/export async function /g,"async function ")
   .replace(/export function /g,"function ");
+const policySource=readFileSync("functions/_shared/cms-mutation-policy.js","utf8")
+  .replace(/export const /g,"const ")
+  .replace(/export function /g,"function ");
 const endpointSource=readFileSync("functions/api/cms/direct-save.js","utf8")
   .replace(/^import .*cms-mutation-core\.js";\n/m,"")
+  .replace(/^import .*cms-mutation-policy\.js";\n/m,"")
   .replace("export async function onRequest","async function onRequest")
   .replace("export const DIRECT_SAVE_TEST=","const DIRECT_SAVE_TEST=");
-const source=coreSource+"\n"+endpointSource+"\nthis.onRequest=onRequest;this.helpers=DIRECT_SAVE_TEST;";
+const source=coreSource+"\n"+policySource+"\n"+endpointSource+"\nthis.onRequest=onRequest;this.helpers=DIRECT_SAVE_TEST;";
 const SHA="a".repeat(40),MAIN="f".repeat(40);
 const base={stories:[{id:"one",title:"Bài gốc",dek:"Lời giới thiệu",
   intro:"Mở bài",sections:[{heading:"Một",body:"Nội dung gốc"}]}]};
