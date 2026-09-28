@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import {existsSync,readFileSync} from "node:fs";
+import {existsSync,readFileSync,readdirSync,statSync} from "node:fs";
 
 const strict=process.argv.includes("--strict");
 const read=path=>{
@@ -27,6 +27,19 @@ assert.match(admin,/\/api\/cms\//,"Admin must keep using the CMS API surface");
 
 const publicOrigin="https://openphuquoc.com";
 const cmsOrigin="https://cms.openphuquoc.com";
+
+const publicHtmlFiles=[];
+const walkPublicHtml=dir=>{
+  for(const name of readdirSync(dir)){
+    if(name===".git"||name==="dist"||name==="node_modules"||name==="admin")continue;
+    const path=dir==="."?name:dir+"/"+name;
+    const stat=statSync(path);
+    if(stat.isDirectory())walkPublicHtml(path);
+    else if(name.endsWith(".html"))publicHtmlFiles.push(path);
+  }
+};
+walkPublicHtml(".");
+const publicHtmlCmsLeaks=publicHtmlFiles.filter(path=>readFileSync(path,"utf8").includes(cmsOrigin));
 
 const gates=[
   {
@@ -61,6 +74,13 @@ const gates=[
     ok:cloudflareBuild.includes("/admin/*") && cloudflareBuild.includes("/api/*") &&
       cloudflareBuild.includes("X-Robots-Tag: noindex, nofollow, noarchive"),
     detail:"Cloudflare static headers must reinforce noindex for admin/API surfaces."
+  },
+  {
+    id:"public-html-no-cms-host",
+    ok:publicHtmlCmsLeaks.length===0,
+    detail:publicHtmlCmsLeaks.length
+      ? "Public HTML still exposes CMS hostname: "+publicHtmlCmsLeaks.join(", ")
+      : "No public HTML may expose the CMS hostname."
   }
 ];
 
