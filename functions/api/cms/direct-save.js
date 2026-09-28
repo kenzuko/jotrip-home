@@ -1,9 +1,8 @@
 /* Direct text-only publishing for an authenticated CMS admin.
  * One atomic Git tree update on main, never a blind overwrite or public-client token. */
 import { CMS_REPO_API, githubJson, readCmsSession, readCurrentCmsRole, readMainRef, readRepoFile, sameOrigin, scanOpenPullConflicts } from "../../_shared/cms-mutation-core.js";
+import { cmsCanAny, cmsSupports } from "../../_shared/cms-mutation-policy.js";
 const dec=new TextDecoder();
-const ALLOWED=new Set(["data/content.json","data/i18n/vi/food.json",
-  "data/knowledge/objects.json","data/home-copy.json"]);
 const homeSections=new Set(["happening","things","must","areas","food","essentials","heritage","guide"]);
 function json(body,status=200){return new Response(JSON.stringify(body),{status,
   headers:{"Content-Type":"application/json; charset=utf-8","Cache-Control":"private, no-store","Vary":"Cookie"}});}
@@ -118,13 +117,13 @@ async function onRequestInner({request,env}){
   const s=await readCmsSession(request,String(env.CMS_SESSION_SECRET||""),{requireAccessToken:true});
   if(!s)return json({error:"Hết phiên, hãy đăng nhập CMS lại"},401);
   const userRole=await readCurrentCmsRole(s.login,{cacheBustKey:"at",failureMessage:"Không xác minh được quyền CMS",failureCode:503});
-  if(userRole!=="admin")return json({error:"Chỉ Admin được lưu trực tiếp"},403);
+  if(!cmsCanAny(userRole,"directSave"))return json({error:"Chỉ Admin được lưu trực tiếp"},403);
   const body=await request.json();
   const path=String(body?.path||""),id=String(body?.record_id||"");
   const expectedSha=String(body?.sha||"");
   const changes=body?.changes;
   const changeLimit=path==="data/home-copy.json"?160:60;
-  if(!ALLOWED.has(path)||!id||id.length>180||
+  if(!cmsSupports(path,"directSave")||!id||id.length>180||
      !/^[a-f0-9]{40}$/.test(expectedSha)||!Array.isArray(changes)||
      changes.length<1||changes.length>changeLimit||JSON.stringify(body).length>120000)
     return json({error:"Yêu cầu sửa chữ không hợp lệ"},400);
