@@ -493,6 +493,13 @@
           "source_id": "tgdd_exact_store_20260924",
           "url": "https://www.thegioididong.com/sieu-thi-37-hung-vuong-khu-pho-5-nga-4-hung-vuong-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-409",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "geoapify_osm_gps_review_20260928",
+          "url": "https://www.geoapify.com/",
+          "checked_at": "2026-09-28",
+          "license": "ODbL-1.0",
+          "attribution": "© OpenStreetMap contributors"
         }
       ],
       "source_audit": {
@@ -500,10 +507,25 @@
         "prior_record_id": "utility_tgdd_37_hungvuong",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố."
+        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố.",
+        "gps_review_at": "2026-09-28",
+        "gps_review_status": "SITE_CENTROID_ACCEPTED",
+        "verified_entrance": false,
+        "gps_review_note": "Tâm tòa nhà tại 37 Hùng Vương, KP5 theo exact-address result; đối chiếu đúng cơ sở TGDD chính thức. Không xác nhận chính xác cổng vào."
       },
-      "updated_at": "2026-09-26",
-      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      "updated_at": "2026-09-28",
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
+      "map": {
+        "lat": 10.2287548,
+        "lon": 103.9695114,
+        "precision": "site_centroid",
+        "source": "Geoapify/OpenStreetMap exact-address building result, cross-checked with official Thế Giới Di Động branch page and current store directory",
+        "source_id": "geoapify_exact_address_tgdd_crosscheck_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Tâm tòa nhà tại 37 Hùng Vương, KP5 theo exact-address result; đối chiếu đúng cơ sở TGDD chính thức. Không xác nhận chính xác cổng vào.",
+        "accuracy": "exact_house_number_street_neighbourhood_operator_crosscheck",
+        "source_license": "ODbL-1.0"
+      }
     },
     {
       "id": "utility_tgdd_104_304",
