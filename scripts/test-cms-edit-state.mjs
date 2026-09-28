@@ -6,10 +6,14 @@ const coreSource=readFileSync("functions/_shared/cms-mutation-core.js","utf8")
   .replace(/export const /g,"const ")
   .replace(/export async function /g,"async function ")
   .replace(/export function /g,"function ");
+const policySource=readFileSync("functions/_shared/cms-mutation-policy.js","utf8")
+  .replace(/export const /g,"const ")
+  .replace(/export function /g,"function ");
 const endpointSource=readFileSync("functions/api/cms/edit-state.js","utf8")
   .replace(/^import .*cms-mutation-core\.js";\n/m,"")
+  .replace(/^import .*cms-mutation-policy\.js";\n/m,"")
   .replace("export async function onRequest","async function onRequest");
-const executable=coreSource+"\n"+endpointSource+";\nthis.onRequest=onRequest;";
+const executable=coreSource+"\n"+policySource+"\n"+endpointSource+";\nthis.onRequest=onRequest;";
 new Function(executable);
 function testEnv(opts={}){
   const calls=[];

@@ -16,9 +16,13 @@ const coreSource=fs.readFileSync(path.join(process.cwd(),"functions/_shared/cms-
   .replace(/export const /g,"const ")
   .replace(/export async function /g,"async function ")
   .replace(/export function /g,"function ");
+const policySource=fs.readFileSync(path.join(process.cwd(),"functions/_shared/cms-mutation-policy.js"),"utf8")
+  .replace(/export const /g,"const ")
+  .replace(/export function /g,"function ");
 const endpointSource=fs.readFileSync(path.join(process.cwd(),"functions/api/cms/rollback.js"),"utf8")
-  .replace(/^import .*cms-mutation-core\.js";\n/,"");
-const source=coreSource+"\n"+endpointSource;
+  .replace(/^import .*cms-mutation-core\.js";\n/m,"")
+  .replace(/^import .*cms-mutation-policy\.js";\n/m,"");
+const source=coreSource+"\n"+policySource+"\n"+endpointSource;
 const {onRequest}=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
 const originalFetch=globalThis.fetch;
 const previous={hero:{title:"Previous",lead:"Lead"}};

@@ -20,7 +20,19 @@ const request=pathName=>new Request("https://cms.openphuquoc.com"+pathName,{
 const env={CMS_SESSION_SECRET:secret};
 
 async function loadApi(filename){
-  const source=fs.readFileSync(path.join(process.cwd(),"functions/api/cms",filename),"utf8");
+  let source=fs.readFileSync(path.join(process.cwd(),"functions/api/cms",filename),"utf8");
+  if(filename==="content.js"){
+    const core=fs.readFileSync(path.join(process.cwd(),"functions/_shared/cms-mutation-core.js"),"utf8")
+      .replace(/export const /g,"const ")
+      .replace(/export async function /g,"async function ")
+      .replace(/export function /g,"function ");
+    const policy=fs.readFileSync(path.join(process.cwd(),"functions/_shared/cms-mutation-policy.js"),"utf8")
+      .replace(/export const /g,"const ")
+      .replace(/export function /g,"function ");
+    source=core+"\n"+policy+"\n"+source
+      .replace(/^import .*cms-mutation-core\.js";\n/m,"")
+      .replace(/^import .*cms-mutation-policy\.js";\n/m,"");
+  }
   return import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
 }
 const [session,content,analytics]=await Promise.all([

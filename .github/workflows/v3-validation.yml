@@ -69,6 +69,8 @@ jobs:
         run: node scripts/test-search.mjs
       - name: Test current CMS permissions
         run: node scripts/test-cms-access.mjs
+      - name: Test CMS mutation permission policy
+        run: node scripts/test-cms-mutation-policy.mjs
       - name: Test CMS direct save mutation safety
         run: node scripts/test-cms-direct-save.mjs
       - name: Test CMS edit-state conflict preflight
@@ -113,6 +115,7 @@ jobs:
           node --check functions/api/cms/content.js
           node --check functions/api/cms/analytics.js
           node --check functions/_shared/cms-mutation-core.js
+          node --check functions/_shared/cms-mutation-policy.js
           node --check functions/api/cms/direct-save.js
           node --check functions/api/cms/edit-state.js
           node --check functions/api/cms/publish.js
