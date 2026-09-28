@@ -1,6 +1,6 @@
 /* Safe static-copy editor. Text only. Shared draft across pages; one admin publish = one Git push. */
 (function(root){"use strict";
-if(location.hostname!=="cms.openphuquoc.com"&&!["localhost","127.0.0.1"].includes(location.hostname))return;
+const localQa=["localhost","127.0.0.1"].includes(location.hostname)&&new URLSearchParams(location.search).get("cms-inline-qa")==="1";if(location.hostname!=="cms.openphuquoc.com"&&!localQa)return;
 const SOURCE="data/home-copy.json",$=q=>document.querySelector(q),nodes=()=>[...document.querySelectorAll("[data-cms-static-field]")];
 const state={login:"",sha:"",base:null,current:null,raw:null,tab:"",editing:false,dirty:false,blocked:false,timer:null,panel:null};
 const deep=x=>JSON.parse(JSON.stringify(x)),get=(obj,path)=>path.split(".").reduce((v,k)=>v?.[k],obj);

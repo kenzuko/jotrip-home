@@ -562,7 +562,7 @@ try{
   await page.route("**/data/home-copy.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(staticFixture)}));
   await page.route("**/api/cms/content?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({sha:"1".repeat(40),content:staticFixture})}));
   await page.route("**/api/cms/direct-save",r=>{directPosts.push(r.request().postDataJSON());return r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({ok:true,commit:"c".repeat(40),deployment_pending:true})});});
-  await page.goto(base+"/about/",{waitUntil:"networkidle"});
+  await page.goto(base+"/about/?cms-inline-qa=1",{waitUntil:"networkidle"});
   await page.locator("#cmsStaticLaunch").waitFor();
   await page.locator("#cmsStaticLaunch").click();
   const lead=page.locator('[data-cms-static-field="site.about.heroLead"]');
