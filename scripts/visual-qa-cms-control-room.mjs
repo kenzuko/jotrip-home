@@ -424,7 +424,7 @@ try{
   const story={id:"test-draft",title:"Bài đang biên tập",category:"ĐỜI SỐNG ĐẢO",dek:"Mô tả ngắn",
     intro:"Lời mở đang soạn",image:"",read_minutes:3,
     sections:[{heading:"Buổi sáng",body:"Nội dung bản nháp trước khi sửa."}],sources:[]};
-  const fixture={version:"1",stories:[story]},posts=[];
+  const fixture={version:"1",stories:[story]},posts=[],directPosts=[],reviewPosts=[];
   await inline.route("**/api/cms/session",r=>r.fulfill({status:200,contentType:"application/json",
     body:JSON.stringify({login:"inline-qa",role:"admin"})}));
   await inline.route("**/data/content.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(fixture)}));
@@ -432,9 +432,13 @@ try{
     body:JSON.stringify({sha:"qa-file-sha",content:fixture})}));
   await inline.route("**/api/cms/edit-state?*",r=>r.fulfill({status:200,contentType:"application/json",
     body:JSON.stringify({sha:"qa-file-sha",complete:true,conflicts:[]})}));
-  await inline.route("**/api/cms/publish",r=>{posts.push(r.request().postDataJSON());
+  await inline.route("**/api/cms/publish",r=>{reviewPosts.push(r.request().postDataJSON());
+    return r.fulfill({status:500,contentType:"application/json",body:'{"error":"Admin publish must not create a review PR"}'});
+  });
+  await inline.route("**/api/cms/direct-save",r=>{
+    directPosts.push(r.request().postDataJSON());
     return r.fulfill({status:200,contentType:"application/json",
-      body:JSON.stringify({pull_request:{number:900,url:"https://github.com/kenzuko/jotrip-home/pull/900"}})});
+      body:JSON.stringify({ok:true,commit:"a".repeat(40),deployment_pending:true})});
   });
   await inline.goto(base+"/stories/article.html?id=test-draft&cms-inline-qa=1",{waitUntil:"networkidle"});
   await inline.locator("#inlineCmsOpen").waitFor();
@@ -446,15 +450,23 @@ try{
   assert.match(await bodySection.textContent(),/sửa ngay/);
   await inline.locator("#inlineCmsSave").click();
   assert.ok(await inline.evaluate(()=>Boolean(localStorage.getItem("openpq-cms-draft:inline-qa:stories"))));
+  assert.equal(directPosts.length,0,"Saving a draft must not push GitHub");
+  assert.equal(reviewPosts.length,0,"Saving a draft must not create a review PR");
+  assert.equal(await inline.locator("#inlineCmsSubmit").isVisible(),false);
+  assert.ok(await inline.locator("#inlineCmsPublish").isVisible());
   await inline.screenshot({path:output+"/cms-inline-desktop.png",fullPage:true});
   await inline.setViewportSize({width:390,height:844});
   const inlineOverflow=await inline.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
   assert.ok(inlineOverflow<=2,"Inline editor mobile overflow: "+inlineOverflow);
   await inline.screenshot({path:output+"/cms-inline-mobile.png",fullPage:true});
-  await inline.locator("#inlineCmsSubmit").click();
-  await inline.locator("#inlineCmsStatus a[href*='/pull/900']").waitFor();
-  assert.equal(posts.length,1);
-  assert.equal(posts[0].content.stories[0].sections[0].body,"Tớ sửa ngay lúc đọc.");
+  await inline.locator("#inlineCmsPublish").click();
+  await inline.locator("#inlineCmsStatus a[href*='/commit/']").waitFor();
+  assert.equal(directPosts.length,1,"One publish click must create exactly one direct-save request");
+  assert.equal(reviewPosts.length,0,"Admin publish must not create a PR");
+  assert.equal(directPosts[0].path,"data/content.json");
+  assert.equal(directPosts[0].changes.length,1);
+  assert.equal(directPosts[0].changes[0].field,"sections.0.body");
+  assert.equal(directPosts[0].changes[0].after,"Tớ sửa ngay lúc đọc.");
   await inlineContext.close();
   const anonCtx=await browser.newContext({viewport:{width:390,height:844}});
   const anon=await anonCtx.newPage();
@@ -478,7 +490,7 @@ try{
     ask_staff:["Riêu có thêm tôm không?"],hashtags:[],meal_times:["lunch"]};
   const fixture={schema_version:"1.1",locale:"vi",dishes:[dish]};
   const foodContext=await browser.newContext({viewport:{width:1440,height:900}});
-  const food=await foodContext.newPage(),foodPosts=[];
+  const food=await foodContext.newPage(),foodDirectPosts=[],foodReviewPosts=[];
   food.on("dialog",dialog=>dialog.accept());
   await food.route("**/api/cms/session",r=>r.fulfill({
     status:200,contentType:"application/json",
@@ -492,9 +504,13 @@ try{
     status:200,contentType:"application/json",
     body:JSON.stringify({sha:"qa-food-sha",complete:true,conflicts:[]})}));
   await food.route("**/api/cms/publish",r=>{
-    foodPosts.push(r.request().postDataJSON());
+    foodReviewPosts.push(r.request().postDataJSON());
+    return r.fulfill({status:500,contentType:"application/json",body:'{"error":"Admin publish must not create a review PR"}'});
+  });
+  await food.route("**/api/cms/direct-save",r=>{
+    foodDirectPosts.push(r.request().postDataJSON());
     return r.fulfill({status:200,contentType:"application/json",
-      body:JSON.stringify({pull_request:{number:901,url:"https://github.com/kenzuko/jotrip-home/pull/901"}})});
+      body:JSON.stringify({ok:true,commit:"b".repeat(40),deployment_pending:true})});
   });
   await food.goto(base+"/food/article.html?id=bun-quay&cms-inline-qa=1",{waitUntil:"networkidle"});
   await food.locator("#foodInlineLauncher").waitFor();
@@ -504,6 +520,10 @@ try{
   assert.match(await food.locator('[data-food-path="tips.0"]').textContent(),/vừa sửa ngay/);
   await food.locator("#foodInlineSave").click();
   assert.equal(await food.evaluate(()=>Object.keys(localStorage).some(k=>k.startsWith("openpq-cms-food-inline:v1:"))),true);
+  assert.equal(foodDirectPosts.length,0,"Food draft save must not push GitHub");
+  assert.equal(foodReviewPosts.length,0,"Food draft save must not create a PR");
+  assert.equal(await food.locator("#foodInlineSubmit").isVisible(),false);
+  assert.ok(await food.locator("#foodInlinePublish").isVisible());
   await food.setViewportSize({width:390,height:844});
   const box=await food.locator("#foodArticle .food-safety").evaluate(el=>({
     padding:parseFloat(getComputedStyle(el).paddingLeft),width:el.getBoundingClientRect().width
@@ -513,11 +533,14 @@ try{
   const overflow=await food.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
   assert.ok(overflow<=2,"Food article editor mobile overflow: "+overflow);
   await food.screenshot({path:output+"/cms-inline-food-mobile.png",fullPage:true});
-  await food.locator("#foodInlineSubmit").click();
-  await food.locator("#foodInlineResult a[href*='/pull/901']").waitFor();
-  assert.equal(foodPosts.length,1);
-  assert.equal(foodPosts[0].path,"data/i18n/vi/food.json");
-  assert.equal(foodPosts[0].content.dishes[0].tips[0],"Lưu ý vừa sửa ngay khi đang đọc.");
+  await food.locator("#foodInlinePublish").click();
+  await food.locator("#foodInlineResult a[href*='/commit/']").waitFor();
+  assert.equal(foodDirectPosts.length,1,"One food publish click must create exactly one direct-save request");
+  assert.equal(foodReviewPosts.length,0,"Admin food publish must not create a PR");
+  assert.equal(foodDirectPosts[0].path,"data/i18n/vi/food.json");
+  assert.equal(foodDirectPosts[0].changes.length,1);
+  assert.equal(foodDirectPosts[0].changes[0].field,"tips.0");
+  assert.equal(foodDirectPosts[0].changes[0].after,"Lưu ý vừa sửa ngay khi đang đọc.");
   await foodContext.close();
   const anonCtx=await browser.newContext({viewport:{width:390,height:844}});
   const anon=await anonCtx.newPage();
@@ -528,6 +551,36 @@ try{
   await anon.goto(base+"/food/article.html?id=bun-quay&cms-inline-qa=1",{waitUntil:"networkidle"});
   assert.equal(await anon.locator("#foodInlineLauncher").count(),0);
   await anonCtx.close();
+  }
+  // Safe static copy: drafts span editorial pages but only one Publish request touches GitHub.
+  {
+  const staticFixture={version:"1.0",hero:{kicker:"K",title:"T",lead:"L"},sections:{},footer:{title:"F",lead:"FL",note:"FN"},site:{about:{heroLead:"Bản gốc",purposeTitle:"Mục đích",purpose1:"Một",purpose2:"Hai",purpose3:"Ba",systemTitle:"Ba lớp",system1:"S1",system2:"S2",system3:"S3",madeTitle:"Làm tại đảo",madeLead1:"M1",madeLead2:"M2",openTitle:"Open",openLead:"OL",footerLead:"Footer",footerNote:"Note"}}};
+  const ctx=await browser.newContext({viewport:{width:390,height:844}});
+  const page=await ctx.newPage(),directPosts=[];
+  page.on("dialog",d=>d.accept());
+  await page.route("**/api/cms/session",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({login:"static-qa",role:"admin"})}));
+  await page.route("**/data/home-copy.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(staticFixture)}));
+  await page.route("**/api/cms/content?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({sha:"1".repeat(40),content:staticFixture})}));
+  await page.route("**/api/cms/direct-save",r=>{directPosts.push(r.request().postDataJSON());return r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({ok:true,commit:"c".repeat(40),deployment_pending:true})});});
+  await page.goto(base+"/about/?cms-inline-qa=1",{waitUntil:"networkidle"});
+  await page.locator("#cmsStaticLaunch").waitFor();
+  await page.locator("#cmsStaticLaunch").click();
+  const lead=page.locator('[data-cms-static-field="site.about.heroLead"]');
+  await lead.locator("xpath=following-sibling::button[contains(@class,'cms-static-trigger')]").click();
+  await page.locator(".cms-static-panel textarea").fill("Bản sửa có cảm xúc hơn.");
+  await page.locator("#cmsStaticDraft").click();
+  assert.equal(directPosts.length,0,"Static draft must never push GitHub");
+  assert.ok(await page.evaluate(()=>Object.keys(localStorage).some(k=>k.startsWith("openpq-cms-site-copy-v1:"))));
+  const overflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(overflow<=2,"Static copy editor mobile overflow: "+overflow);
+  await page.screenshot({path:output+"/cms-inline-static-about-mobile.png",fullPage:true});
+  await page.locator("#cmsStaticPublish").click();
+  await page.waitForFunction(()=>!localStorage.getItem(Object.keys(localStorage).find(k=>k.startsWith("openpq-cms-site-copy-v1:"))||"missing"));
+  assert.equal(directPosts.length,1,"One static Publish must cause one GitHub request");
+  assert.equal(directPosts[0].path,"data/home-copy.json");
+  assert.equal(directPosts[0].changes.filter(x=>x.field==="site.about.heroLead").length,1);
+  assert.equal(directPosts[0].changes.find(x=>x.field==="site.about.heroLead").after,"Bản sửa có cảm xúc hơn.");
+  await ctx.close();
   }
   console.log("PASS CMS V2 browser QA: desktop/mobile, local editorial preview, record backup, GitHub conflict guard, zero-network demo, Quality D1 action refresh, Review search and role navigation");
 }finally{

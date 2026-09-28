@@ -20,4 +20,7 @@ for(const x of ["editorial.short_summary","editorial.practical","editorial.befor
   assert.ok(guide.includes(x),"Unmapped guide editorial: "+x);
 assert.match(readFileSync("index.html","utf8"),/cms-inline-pages\.js\?v=1/);
 assert.match(readFileSync("guide/article.html","utf8"),/cms-inline-pages\.js\?v=1/);
+assert.match(code,/id="cmsPagePublish"[^>]*>Xuất bản<\/button>/);
+assert.match(code,/Nháp lưu trên máy • Xuất bản mới ghi GitHub 1 lần/);
+assert.doesNotMatch(code,/Lưu lên website/);
 console.log("PASS CMS inline pages: knowledge and homepage text mappings and safe draft utility");

@@ -41,3 +41,5 @@ body.cms-page-editing .cms-page-trigger.active{background:#1b543c;color:#fff}
   .cms-page-actions button{flex:1 1 42%}
   .knowledge-header .cms-page-launch{font-size:12px}
 }
+
+.cms-page-actions .cms-page-publish{background:#fbd782;color:#174b3b;border-color:#e0b94f}

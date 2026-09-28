@@ -59,8 +59,9 @@ function backup(){
 function setBlocked(message){
   state.blocked=true;clearTimeout(state.timer);state.timer=null;
   status(message+" Hãy tải bản sao trước khi thoát.","warn");
-  $("#foodInlineSave").disabled=true;$("#foodInlineSubmit").disabled=true;
-  const direct=$("#foodInlineDirect");if(direct)direct.disabled=true;
+  $("#foodInlineSave").disabled=true;
+  const submit=$("#foodInlineSubmit");if(submit)submit.disabled=true;
+  const publish=$("#foodInlinePublish");if(publish)publish.disabled=true;
 }
 function save(){
   if(!state.editing||state.blocked)return false;
@@ -103,7 +104,7 @@ function editField(element,button,path){
   input.value=read(item,path);
   label.appendChild(input);
   const hint=document.createElement("small");
-  hint.textContent="Chữ đổi ngay trong bài. Nội dung chỉ công khai sau khi đề xuất được duyệt.";
+  hint.textContent=state.role==="admin"?"Chữ được tự lưu thành nháp trên máy. Chỉ nút Xuất bản mới ghi GitHub.":"Chữ đổi ngay trong bài. Nội dung chỉ công khai sau khi đề xuất được duyệt.";
   const done=document.createElement("button");done.type="button";
   done.textContent="Đọc tiếp";done.onclick=closePanel;
   panel.append(label,hint,done);
@@ -113,8 +114,8 @@ function editField(element,button,path){
     element.textContent=input.value;
     if(path==="name")document.title=input.value+" - Open Phu Quoc";
     state.dirty=true;
-    $("#foodInlineSubmit").disabled=false;
-    if(state.role==="admin")$("#foodInlineDirect").disabled=false;
+    if(state.role==="admin")$("#foodInlinePublish").disabled=false;
+    else $("#foodInlineSubmit").disabled=false;
     schedule();
   });
   input.focus({preventScroll:true});panel.scrollIntoView({block:"center",behavior:"smooth"});
@@ -180,9 +181,10 @@ async function begin(){
     if(old)reflectCurrent();
     mode(true);showFields();
     $("#foodInlineSave").disabled=false;
+    $("#foodInlineSubmit").hidden=state.role==="admin";
     $("#foodInlineSubmit").disabled=!state.dirty;
-    $("#foodInlineDirect").hidden=state.role!=="admin";
-    $("#foodInlineDirect").disabled=!state.dirty;
+    $("#foodInlinePublish").hidden=state.role!=="admin";
+    $("#foodInlinePublish").disabled=!state.dirty;
     status(old?"Đã khôi phục bản nháp. Chọn phần muốn sửa.":"Chọn cây viết cạnh đoạn muốn chỉnh.");
   }catch(error){status(String(error.message||error),"warn");}
 }
@@ -200,15 +202,15 @@ function foodChanges(){
     return a===b?null:{field,before:a,after:b};
   }).filter(Boolean);
 }
-async function directSave(){
+async function publishOnce(){
   if(!state.editing||state.blocked||!state.dirty||state.role!=="admin")return;
   clearTimeout(state.timer);state.timer=null;if(!save())return;
-  const button=$("#foodInlineDirect");button.disabled=true;
+  const button=$("#foodInlinePublish");button.disabled=true;
   try{
     const changes=foodChanges();
     if(!changes.length){status("Chưa sửa chữ nào.");return;}
-    if(!confirm("Lưu thẳng "+changes.length+" phần chữ, không cần duyệt? GitHub sẽ lưu lịch sử."))return;
-    status("Đang kiểm tra và ghi lên GitHub...");
+    if(!confirm("Xuất bản "+changes.length+" phần chữ? Toàn bộ bản nháp sẽ được gom vào 1 commit GitHub."))return;
+    status("Đang xuất bản 1 lần lên GitHub...");
     const result=await get("/api/cms/direct-save",{method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({path:SOURCE,record_id:state.id,sha:state.sha,changes})
@@ -218,10 +220,10 @@ async function directSave(){
     const key=draftKey(state.login,state.id,state.sha);
     if(localStorage.getItem(key)===state.raw)localStorage.removeItem(key);
     state.dirty=false;readAgain();
-    status("Đã lưu lên GitHub, chờ CMS phát hành bản mới.","good");
+    status("Đã xuất bản bằng 1 commit GitHub, chờ CMS phát hành bản mới.","good");
     const el=$("#foodInlineResult")||document.createElement("p");
     el.id="foodInlineResult";
-    el.replaceChildren(document.createTextNode("Đã lưu thẳng, không cần duyệt. "));
+    el.replaceChildren(document.createTextNode("Đã xuất bản bằng 1 commit. "));
     const a=document.createElement("a");
     a.href="https://github.com/kenzuko/jotrip-home/commit/"+result.commit;
     a.textContent="Xem lịch sử ↗";a.target="_blank";a.rel="noopener noreferrer";
@@ -281,7 +283,7 @@ function toolbar(){
     '<button type="button" id="foodInlineBackup">Tải bản sao</button>'+
     '<button type="button" id="foodInlineRead">Đọc lại</button>'+
     '<button type="button" id="foodInlineSubmit">Gửi duyệt</button>'+
-    '<button type="button" id="foodInlineDirect" hidden>Lưu thẳng (Admin)</button></div>'+
+    '<button type="button" id="foodInlinePublish" class="food-inline-publish" hidden>Xuất bản</button></div>'+
     '<p id="foodInlineStatus" role="status" aria-live="polite"></p>';
   const notice=document.createElement("p");
   notice.id="foodInlineNotice";notice.className="food-inline-notice";
@@ -291,7 +293,7 @@ function toolbar(){
   $("#foodInlineBackup").onclick=backup;
   $("#foodInlineRead").onclick=readAgain;
   $("#foodInlineSubmit").onclick=submit;
-  $("#foodInlineDirect").onclick=directSave;
+  $("#foodInlinePublish").onclick=publishOnce;
 }
 async function mount(){
   const localQa=["localhost","127.0.0.1"].includes(location.hostname)&&new URLSearchParams(location.search).get("cms-inline-qa")==="1";

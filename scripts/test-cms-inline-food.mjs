@@ -32,4 +32,7 @@ const publish=readFileSync("functions/api/cms/publish.js","utf8");
 assert.match(publish,/mirrorData\.dishes=body\.content\.dishes/);
 assert.match(publish,/pathsToCheck\.has\(file\.filename\)/);
 assert.match(readFileSync("functions/api/cms/edit-state.js","utf8"),/companion_sha/);
+assert.match(code,/id="foodInlinePublish"[^>]*hidden>Xuất bản/);
+assert.match(code,/state\.role==="admin"\)\$\("#foodInlinePublish"\)\.disabled=false/);
+assert.doesNotMatch(code,/Lưu thẳng \(Admin\)/);
 console.log("PASS CMS food inline: role gate, text-field whitelist, article targets, safe PR API allowlist and card padding");

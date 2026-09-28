@@ -14,8 +14,17 @@ const state={id:isHome?"home":new URLSearchParams(location.search).get("id")||""
   sha:"",login:"",base:null,current:null,raw:null,tab:"",dirty:false,editing:false,
   blocked:false,timer:null,panel:null};
 const deep=x=>JSON.parse(JSON.stringify(x));
-const draftKey=()=> "openpq-cms-inline-page:v1:"+encodeURIComponent(state.login)+":"+
-  encodeURIComponent(state.id)+":"+state.sha;
+const draftKey=()=> isHome?"openpq-cms-site-copy-v1:"+encodeURIComponent(state.login)+":"+state.sha:
+  "openpq-cms-inline-page:v1:"+encodeURIComponent(state.login)+":"+encodeURIComponent(state.id)+":"+state.sha;
+function homeTextFields(doc){
+  const out=[];
+  for(const p of ["hero.kicker","hero.title","hero.lead","footer.title","footer.lead","footer.note"])
+    if(typeof pathValue(doc,p)==="string")out.push(p);
+  for(const [id,v] of Object.entries(doc.sections||{}))for(const key of ["eyebrow","title","lead"])
+    if(typeof v?.[key]==="string")out.push("sections."+id+"."+key);
+  const walk=(obj,prefix)=>Object.entries(obj||{}).forEach(([k,v])=>{const next=prefix?prefix+"."+k:k;if(typeof v==="string")out.push("site."+next);else if(v&&typeof v==="object"&&!Array.isArray(v))walk(v,next);});
+  walk(doc.site,"");return out;
+}
 function pathValue(record,path){return String(path.split(".").reduce((v,k)=>v?.[k],record)??"");}
 function patch(record,path,value){
   const chunks=path.split(".");let node=record;
@@ -36,7 +45,7 @@ function note(message,kind=""){
 function block(message){
   state.blocked=true;clearTimeout(state.timer);state.timer=null;
   note(message+". Tải bản sao trước khi thoát.","warn");
-  const btn=$("#cmsPageDirect");if(btn)btn.disabled=true;
+  const btn=$("#cmsPagePublish");if(btn)btn.disabled=true;
 }
 function backup(){
   if(!state.current)return;
@@ -70,7 +79,7 @@ function schedule(){
 function controls(){
   return [...document.querySelectorAll("[data-cms-field]")].filter(el=>
     isGuide?Boolean(el.closest("#knowledgeArticle .knowledge-article")):
-      Boolean(el.closest(".hero,.section")));
+      Boolean(el.closest(".hero,.section,.site-footer")));
 }
 function closePanel(){state.panel?.remove();state.panel=null;
   document.querySelectorAll(".cms-page-trigger.active").forEach(el=>el.classList.remove("active"));}
@@ -89,7 +98,7 @@ function editField(element,button){
   state.panel=panel;
   input.oninput=()=>{
     patch(record,field,input.value);element.textContent=input.value;
-    state.dirty=true;$("#cmsPageDirect").disabled=false;schedule();
+    state.dirty=true;$("#cmsPagePublish").disabled=false;schedule();
   };
   input.focus({preventScroll:true});panel.scrollIntoView({block:"center",behavior:"smooth"});
 }
@@ -145,27 +154,27 @@ async function begin(){
       button.onclick=()=>editField(el,button);
       el.insertAdjacentElement("afterend",button);
     });
-    $("#cmsPageDirect").disabled=!state.dirty;
+    $("#cmsPagePublish").disabled=!state.dirty;
     note(raw?"Đã khôi phục bản nháp.":"Chọn cây viết cạnh phần chữ muốn sửa.");
   }catch(error){note(String(error.message||error),"warn");}
 }
 function changed(){
   const before=config.select(state.base),after=config.select(state.current);
-  const fields=[...new Set(controls().map(x=>x.dataset.cmsField))];
+  const fields=isHome?homeTextFields(state.base):[...new Set(controls().map(x=>x.dataset.cmsField))];
   return fields.map(field=>{
     const a=pathValue(before,field),b=pathValue(after,field);
     return a===b?null:{field,before:a,after:b};
   }).filter(Boolean);
 }
-async function directSave(){
+async function publishOnce(){
   if(!state.editing||state.blocked||!state.dirty)return;
   clearTimeout(state.timer);state.timer=null;if(!saveDraft())return;
-  const button=$("#cmsPageDirect");button.disabled=true;
+  const button=$("#cmsPagePublish");button.disabled=true;
   try{
     const changes=changed();
     if(!changes.length){note("Chưa sửa chữ nào.");return;}
-    if(!confirm("Lưu trực tiếp "+changes.length+" phần chữ lên GitHub, không qua duyệt?"))return;
-    note("Đang kiểm tra quyền và lưu trực tiếp...");
+    if(!confirm("Xuất bản "+changes.length+" phần chữ? Toàn bộ bản nháp sẽ được gom vào 1 commit GitHub."))return;
+    note("Đang xuất bản 1 lần lên GitHub...");
     const result=await api("/api/cms/direct-save",{method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({path:config.path,record_id:state.id,sha:state.sha,changes})
@@ -174,7 +183,7 @@ async function directSave(){
       throw Error("Chưa xác minh được commit, bản nháp vẫn còn");
     if(localStorage.getItem(draftKey())===state.raw)localStorage.removeItem(draftKey());
     state.dirty=false;readAgain();
-    note("Đã lưu GitHub, chờ website cập nhật. Mở lịch sử: github.com/kenzuko/jotrip-home/commit/"+
+    note("Đã xuất bản bằng 1 commit GitHub, chờ website cập nhật. Lịch sử: github.com/kenzuko/jotrip-home/commit/"+
       result.commit.slice(0,8),"good");
   }catch(err){note(String(err.message||err)+". Nháp vẫn còn trên máy.","warn");}
   finally{if(state.dirty&&!state.blocked)button.disabled=false;}
@@ -186,19 +195,19 @@ function mountBar(){
   if(isGuide)$(".knowledge-header")?.append(launch);
   else document.body.append(launch);
   const bar=document.createElement("aside");bar.id="cmsPageBar";bar.className="cms-page-bar";bar.hidden=true;
-  bar.innerHTML='<strong>BIÊN TẬP TRỰC TIẾP <small>Chỉ Admin • lưu thẳng, có lịch sử GitHub</small></strong>'+
+  bar.innerHTML='<strong>BIÊN TẬP TRỰC TIẾP <small>Nháp lưu trên máy • Xuất bản mới ghi GitHub 1 lần</small></strong>'+
     '<div class="cms-page-actions">'+
     '<button id="cmsPageDraft" type="button">Lưu nháp</button>'+
     '<button id="cmsPageBackup" type="button">Tải bản sao</button>'+
     '<button id="cmsPageRead" type="button">Đọc lại</button>'+
-    '<button id="cmsPageDirect" type="button">Lưu lên website</button></div>'+
+    '<button id="cmsPagePublish" class="cms-page-publish" type="button">Xuất bản</button></div>'+
     '<p id="cmsPageStatus" role="status" aria-live="polite"></p>';
   if(isGuide)$("#knowledgeArticle")?.prepend(bar);
   else document.body.append(bar);
   $("#cmsPageDraft").onclick=saveDraft;
   $("#cmsPageBackup").onclick=backup;
   $("#cmsPageRead").onclick=readAgain;
-  $("#cmsPageDirect").onclick=directSave;
+  $("#cmsPagePublish").onclick=publishOnce;
 }
 async function mount(){
   if(!state.id||$("#cmsPageLaunch")||!controls().length)return;
