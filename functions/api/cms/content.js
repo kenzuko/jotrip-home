@@ -4,6 +4,7 @@ const te=new TextEncoder(),td=new TextDecoder();
 const readable={
   "data/home-copy.json":["admin","editor","operator","viewer"],
   "data/content.json":["admin","editor","operator","viewer"],
+  "data/knowledge/objects.json":["admin"],
   "guide/data.json":["admin","editor","operator","viewer"],
   "data/utilities.json":["admin","editor","operator","viewer"],
   "data/entities/destination-venues.json":["admin","editor","operator","viewer"],
