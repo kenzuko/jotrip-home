@@ -2,9 +2,11 @@
 
 ## Architecture
 
-- Public website: GitHub Pages / production domain.
+- Public website and canonical identity: `https://openphuquoc.com/`.
 - CMS runtime: Cloudflare Pages + Pages Functions.
-- CMS target domain: `https://cms.openphuquoc.com/`.
+- CMS technical/admin origin: `https://cms.openphuquoc.com/`.
+- Anonymous public navigation on the CMS hostname is redirected with HTTP 301 to the same path/query on `openphuquoc.com`.
+- Authenticated CMS editors may remain on the CMS mirror for inline editing; mirror HTML is `noindex`.
 - Login: GitHub OAuth.
 - Session: encrypted HttpOnly cookie.
 - Publishing: the signed-in user's GitHub OAuth token can write only whitelisted content files.
