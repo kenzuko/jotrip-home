@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import vm from "node:vm";
 import {readFileSync} from "node:fs";
+import {cmsCan} from "../functions/_shared/cms-mutation-policy.js";
 const code=readFileSync("core/cms-inline-food.js","utf8");
 const mock={addEventListener(){}},document={readyState:"loading",addEventListener(){}};
 vm.runInNewContext(code,{window:mock,document});
@@ -25,12 +26,14 @@ assert.match(html,/cms-inline-food\.js\?v=1/);
 for(const key of ['name','intro','tips.','ingredients.','ask_staff.','allergy_note','how_to_eat'])
   assert.ok(food.includes('data-food-path=\\"'+key)||food.includes('data-food-path="'+key),"Missing "+key);
 assert.match(css,/\.food-article section\.food-safety\{[\s\S]*?padding:clamp\(/);
-for(const p of ["content.js","edit-state.js","publish.js"])
-  assert.match(readFileSync("functions/api/cms/"+p,"utf8"),/"data\/i18n\/vi\/food\.json"/);
+assert.equal(cmsCan("editor","data/i18n/vi/food.json","read"),true);
+assert.equal(cmsCan("editor","data/i18n/vi/food.json","preflight"),true);
+assert.equal(cmsCan("editor","data/i18n/vi/food.json","publish"),true);
+assert.equal(cmsCan("viewer","data/i18n/vi/food.json","publish"),false);
 assert.match(readFileSync("admin/index.html","utf8"),/Duyệt website &amp; sửa bài|Duyệt website & sửa bài/);
 const publish=readFileSync("functions/api/cms/publish.js","utf8");
 assert.match(publish,/mirrorData\.dishes=body\.content\.dishes/);
-assert.match(publish,/pathsToCheck\.has\(file\.filename\)/);
+assert.match(publish,/scanOpenPullConflicts\(pathsToCheck/);
 assert.match(readFileSync("functions/api/cms/edit-state.js","utf8"),/companion_sha/);
 assert.match(code,/id="foodInlinePublish"[^>]*hidden>Xuất bản/);
 assert.match(code,/state\.role==="admin"\)\$\("#foodInlinePublish"\)\.disabled=false/);
