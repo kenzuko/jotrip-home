@@ -778,13 +778,6 @@
         "valid_until": null,
         "confidence": "HIGH",
         "note": "VinWonders hiện công bố Sắc Màu Venice 21:30-22:00. Lịch đặc biệt vẫn cần kiểm tra lại."
-      },
-      "operational_status": {
-        "state": "TEMPORARILY_SUSPENDED",
-        "reason": "UPGRADE",
-        "effective_from": "2026-09-28",
-        "until": "UNTIL_FURTHER_NOTICE",
-        "updated_at": "2026-09-28"
       }
     }
   ]
