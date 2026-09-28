@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "branch": "staging/nearme-gps-audit-20260929",
+  "base_main": "cb9c8c79a00d003a40ab45e9254c02dac47da597",
+  "scope": "Continue MASTERLOCK GPS cleanup after merged batches 2 and 3. Utilities + remaining places only; hotels excluded.",
+  "status": "STAGING_ONLY_NO_CANONICAL_WRITE_NO_DEPLOY",
+  "reconciliation": {
+    "canonical_now": {
+      "location_total": 350,
+      "location_with_map": 230,
+      "nonhotel_missing": 25
+    },
+    "merged_since_prior_staging": [
+      {
+        "id": "utility_tgdd_37_hungvuong",
+        "status": "CANONICAL_ACCEPTED_BATCH2"
+      },
+      {
+        "id": "place_suoi_da_ngon",
+        "status": "CANONICAL_ACCEPTED_BATCH2"
+      },
+      {
+        "id": "place_suoi_tien",
+        "status": "CANONICAL_ACCEPTED_BATCH2"
+      },
+      {
+        "id": "utility_dng_clinic_duong_dong",
+        "status": "CANONICAL_ACCEPTED_BATCH3"
+      },
+      {
+        "id": "utility_laundry_phuquoc_cuaduong",
+        "status": "CANONICAL_ACCEPTED_BATCH3"
+      }
+    ],
+    "prior_candidate_revised": [
+      {
+        "id": "utility_dienmaycholon_nguyen_trung_truc",
+        "prior": "STAGING_CANDIDATE",
+        "now": "HOLD_CONFLICTING_ADDRESS_GEOMETRY_PER_MERGED_BATCH2"
+      },
+      {
+        "id": "utility_vcb_atm_an_thoi",
+        "prior": "STRONG_HOLD",
+        "now": "HOLD_CONFLICTING_GEOCODER_GEOMETRY_PER_MERGED_BATCH2"
+      }
+    ]
+  },
+  "masterlock": [
+    "Accuracy over coverage.",
+    "Operator address proves identity/address, not GPS or live operation.",
+    "Google/Geoapify/OSM-derived address matches are not sufficient when geometry conflicts.",
+    "Third-party directory coordinates may be kept only as staging candidates until independently verified.",
+    "Never convert a nearby restaurant, market, landmark or area centroid into a destination/business pin.",
+    "No canonical entity, derived view, UI or deploy changes from this file."
+  ],
+  "staging_candidates": [
+    {
+      "id": "place_phu_quoc_ridgeback_center",
+      "name": "Trung tâm bảo tồn chó xoáy Phú Quốc / Trang trại Thanh Nga",
+      "decision": "STAGING_CANDIDATE_THIRD_PARTY_COORDINATE_NEEDS_INDEPENDENT_VERIFICATION",
+      "parsed_candidate": {
+        "lat": 10.1781374,
+        "lon": 104.0085517,
+        "precision": "site_centroid_candidate"
+      },
+      "evidence": [
+        {
+          "type": "OFFICIAL_DESTINATION_IDENTITY",
+          "url": "https://dulich.phuquoc.gov.vn/iv/trungtambaotonch",
+          "note": "Official Phu Quoc tourism page identifies the same attraction as Thanh Nga at tiểu khu 77, Dương Tơ."
+        },
+        {
+          "type": "CURRENT_GOOGLE_BUSINESS_IDENTITY_ONLY",
+          "google_place_id": "ChIJC4baUACPpzERjbk_x22hQnI",
+          "note": "Current business lookup matches Trung tâm bảo tồn chó xoáy Phú Quốc trang trại Thanh Nga in Suối Mây; coordinate not exposed by lookup."
+        },
+        {
+          "type": "THIRD_PARTY_DIRECTORY_COORDINATE",
+          "url": "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/",
+          "raw_coordinate_text": "10.178.137.399.999.900, 1.040.085.517",
+          "parsed_coordinate_assumption": "10.1781374, 104.0085517",
+          "note": "Directory formatting is broken into grouped digits; parsed candidate is plausible for Suối Mây/Dương Tơ but must not be canonical until independently reproduced."
+        }
+      ],
+      "limitations": "Do not publish yet. Need reproducible map coordinate from official/first-party map or second independent mapping source."
+    }
+  ],
+  "rechecked_holds": [
+    {
+      "id": "utility_dng_clinic_an_thoi",
+      "decision": "HOLD_EXACT_IDENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://dngclinic.com/phong-kham-sai-gon-phu-quoc-an-thoi/",
+        "Google business place id ChIJU2YY86iWpzERfGNTGD1eM6Q matches S259-S354, KĐT Sun Grand City, An Thới"
+      ],
+      "note": "Official site and current business listing agree on facility/address; coordinate still not exposed reproducibly."
+    },
+    {
+      "id": "utility_dmx_107_nvc",
+      "decision": "HOLD_EXACT_IDENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723",
+        "https://map.coccoc.com/map/15061863371411906"
+      ],
+      "note": "Operator and Cốc Cốc listing agree on 107 Nguyễn Văn Cừ; no safe coordinate extracted."
+    },
+    {
+      "id": "utility_dmx_162_304",
+      "decision": "HOLD_EXACT_IDENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "https://www.dienmayxanh.com/dien-may-162-duong-30-va-4-kp-1-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1115",
+        "https://dulich.phuquoc.gov.vn/vi/sieuthidienmayxa"
+      ],
+      "note": "Operator plus official destination directory agree on 162 đường 30/4, KP1 near ngã ba Hàm Ninh; no safe coordinate extracted."
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "decision": "HOLD_EXACT_BUSINESS_LISTING_NO_COORDINATE",
+      "evidence": [
+        "Google business place id ChIJoYYBDTCNpzER2dtFx6dyq1I matches One mart, 16 Đ. 30 Tháng 4, Khu 1, Phú Quốc"
+      ],
+      "note": "Current named business/address/phone strongly established; coordinate unavailable in exposed source."
+    },
+    {
+      "id": "place_suoi_da_ban",
+      "decision": "HOLD_DESTINATION_AREA_CONFLICT",
+      "evidence": [
+        "https://dulich.phuquoc.gov.vn/vi/suoidaban",
+        "https://phuquoc.angiang.gov.vn/suoi-da-ban-phu-quoc",
+        "Google business listing 'Suoi Da Ban Evergreen Phu Quoc' uses compound code 62WG+4QJ but represents a restaurant/service near the attraction"
+      ],
+      "note": "Official sources establish destination area but not one safe public entrance/anchor. Do not reuse nearby restaurant pin."
+    }
+  ],
+  "intentional_no_fixed_pin": [
+    {
+      "id": "utility_pqc_airport_atms",
+      "reason": "Directory item represents ATM availability inside terminal, not one verified machine."
+    },
+    {
+      "id": "utility_luggage_whalelo_nightmarket",
+      "reason": "Pickup/drop-off point determined after booking; fixed pin would mislead."
+    },
+    {
+      "id": "utility_luggage_whalelo_grandworld",
+      "reason": "Pickup/drop-off point determined after booking; fixed pin would mislead."
+    },
+    {
+      "id": "utility_luggage_whalelo_sunset",
+      "reason": "Pickup/drop-off point determined after booking; fixed pin would mislead."
+    }
+  ],
+  "next_priority": [
+    "place_phu_quoc_ridgeback_center",
+    "utility_dng_clinic_an_thoi",
+    "utility_dmx_107_nvc",
+    "utility_dmx_162_304",
+    "utility_minimart_one_mart_duong_dong",
+    "utility_parking_sunset_nightmarket",
+    "utility_toilet_sunset_venice_02",
+    "utility_toilet_sunset_venice_67",
+    "utility_longchau_an_thoi",
+    "utility_longchau_ben_tram",
+    "utility_longchau_dt45",
+    "utility_longchau_ganh_dau",
+    "utility_longchau_ham_ninh",
+    "utility_longchau_suoi_da",
+    "utility_tgdd_104_304",
+    "utility_tgdd_142a_ntr",
+    "utility_fuel_dong_loi_1",
+    "utility_dienmaycholon_nguyen_trung_truc",
+    "utility_vcb_atm_an_thoi",
+    "utility_longchau_tran_phu",
+    "place_suoi_da_ban"
+  ],
+  "summary": {
+    "canonical_modified": 0,
+    "derived_views_modified": 0,
+    "deploy_triggered": false,
+    "new_staging_candidates": 1,
+    "rechecked_holds": 5,
+    "intentional_no_fixed_pin": 4
+  }
+}
