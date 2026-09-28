@@ -72,5 +72,10 @@ const routes=JSON.parse(await readFile(new URL("./routes.json",import.meta.url),
 for(const required of ["/","/airport/*","/guide/*","/stories/*","/weather/*"]){
   assert.ok(routes.include.includes(required),"Missing Pages Functions route "+required);
 }
+for(const rule of routes.include.filter(x=>x.endsWith("/*"))){
+  const prefix=rule.slice(0,-1);
+  const overlaps=routes.include.filter(x=>x!==rule&&x.startsWith(prefix));
+  assert.deepEqual(overlaps,[],"Overlapping _routes.json rules under "+rule+": "+overlaps.join(", "));
+}
 
 console.log("CMS public redirect contract PASS");
