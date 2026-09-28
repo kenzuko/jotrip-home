@@ -2,8 +2,9 @@ const $=s=>document.querySelector(s);
 const qsa=s=>Array.from(document.querySelectorAll(s));
 const API={session:"/api/cms/session",auth:"/api/cms/auth",content:"/api/cms/content",publish:"/api/cms/publish",media:"/api/cms/media",analytics:"/api/cms/analytics",traffic:"/api/cms/traffic"};
 
-let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null,moduleRequestId=0,baseData=null,publishInFlight=false;
-let storyDraftMessage="Bản nháp chỉ lưu trên trình duyệt này · chưa gửi duyệt.";
+let session=null,schema=null,currentModule=null,currentData=null,currentSha=null,dirty=false,draftTimer=null,serverDraftTimer=null,moduleRequestId=0,baseData=null,publishInFlight=false;
+let storyDraftMessage="Bản nháp tự lưu trên máy; server đồng bộ khi có kết nối · chưa gửi duyệt.";
+const SERVER_DRAFT_SYNC_MS=8000;
 
 const ROLE_LABELS={
   admin:"Quản trị viên",
@@ -161,6 +162,44 @@ function clearDraft(id=currentModule?.id){
   const k=draftKey(id);if(!k)return;
   try{localStorage.removeItem(k)}catch{}
 }
+function serverDraftSnapshot(checkpoint=false,module=currentModule,data=currentData,sha=currentSha){
+  if(!window.OPQServerDrafts||!session||!module?.path||!module.write?.includes(session.role)||!sha||!data)return null;
+  return{moduleId:module.id,path:module.path,baseSha:sha,data:deepClone(data),checkpoint:Boolean(checkpoint)};
+}
+async function syncServerDraft({checkpoint=false,silent=true,snapshot=null}={}){
+  const draft=snapshot||serverDraftSnapshot(checkpoint);
+  if(!draft)return{ok:false,skipped:true};
+  try{
+    const result=await window.OPQServerDrafts.save(draft);
+    if(currentModule?.id===draft.moduleId){
+      const when=new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"});
+      if(currentModule.id==="stories")setStoryDraftMessage("Đã lưu trên máy + server lúc "+when+" · chưa gửi duyệt.");
+      if(!silent)status("Đã lưu nháp trên máy và server. Chưa gửi duyệt.","success");
+    }
+    return{ok:true,result};
+  }catch(error){
+    if(currentModule?.id===draft.moduleId){
+      if(currentModule.id==="stories")setStoryDraftMessage("Đã lưu trên máy · server chưa đồng bộ.");
+      if(!silent)status("Bản nháp trên máy vẫn an toàn; server chưa đồng bộ: "+(error?.message||error),"error");
+    }
+    return{ok:false,error};
+  }
+}
+function scheduleServerDraft(){
+  if(serverDraftTimer||!serverDraftSnapshot(false))return;
+  serverDraftTimer=setTimeout(()=>{
+    serverDraftTimer=null;
+    if(dirty)void syncServerDraft({silent:true});
+  },SERVER_DRAFT_SYNC_MS);
+}
+async function clearServerDraft(path,{silent=true}={}){
+  if(!window.OPQServerDrafts||!path)return{ok:false,skipped:true};
+  try{return{ok:true,result:await window.OPQServerDrafts.clear(path)}}
+  catch(error){
+    if(!silent)status("Chưa dọn được bản nháp server: "+(error?.message||error),"error");
+    return{ok:false,error};
+  }
+}
 function saveDraftNow(){
   if(!dirty||!currentModule||!session)return true;
   const wf=window.OPQEditorWorkflow;
@@ -172,11 +211,12 @@ function saveDraftNow(){
     wf.renderPanel();
     if(!result.ok){status(result.error||"Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");setStoryDraftMessage("Không lưu được. Hãy tải bản sao JSON.");}
     else if(result.blocked){status("Đã lưu bản sao riêng vì có tab khác đang sửa. Hãy đối chiếu trước khi gửi duyệt.","error");setStoryDraftMessage("Tab khác đang sửa · cần đối chiếu bản sao trước khi gửi.");}
-    else setStoryDraftMessage("Đã lưu trên máy lúc "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"})+" · chưa gửi duyệt.");
+    else setStoryDraftMessage("Đã lưu trên máy lúc "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"})+" · đang chờ đồng bộ server.");
+    if(result.ok&&!result.blocked)scheduleServerDraft();
     return result.ok;
   }
   const k=draftKey();
-  try{if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}));return true}
+  try{if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}));scheduleServerDraft();return true}
   catch{status("Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");return false}
 }
 function scheduleDraft(){
@@ -184,7 +224,7 @@ function scheduleDraft(){
   draftTimer=setTimeout(()=>{
     const saved=saveDraftNow();
     if(saved&&!window.OPQEditorWorkflow?.hasConflict())
-      status("Bản nháp đã tự lưu trên trình duyệt này. Chưa gửi duyệt.");
+      status("Bản nháp đã lưu trên máy. Server sẽ đồng bộ nền; chưa gửi duyệt.");
   },650);
 }
 function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);if(currentModule?.id==="stories")setStoryDraftMessage("Đang lưu bản nháp trên máy...");scheduleDraft()}
@@ -1729,11 +1769,14 @@ async function selectModule(id){
   if(publishInFlight){status("Đang kiểm tra và gửi duyệt. Chờ hoàn tất trước khi chuyển mục.","error");return;}
   if(dirty){
     clearTimeout(draftTimer);
+    clearTimeout(serverDraftTimer);serverDraftTimer=null;
     if(!saveDraftNow()){
       status("Không lưu được thay đổi. Hãy tải bản sao JSON từ khung Biên tập an toàn trước khi chuyển mục.","error");
       return;
     }
-    if(!confirm("Có thay đổi chưa gửi duyệt. Bản nháp đã lưu trong trình duyệt này. Chuyển mục?"))return;
+    const serverSnapshot=serverDraftSnapshot(true);
+    if(serverSnapshot)void syncServerDraft({snapshot:serverSnapshot,silent:true});
+    if(!confirm("Có thay đổi chưa gửi duyệt. Bản nháp đã lưu trên máy và đang đồng bộ server. Chuyển mục?"))return;
   }
   const requestId=++moduleRequestId;
   window.OPQControlRoom?.unmount();
@@ -1830,7 +1873,7 @@ async function selectModule(id){
     const b=await api(API.content+"?path="+encodeURIComponent(currentModule.path));
     if(requestId!==moduleRequestId)return;
     currentData=b.content;
-    if(currentModule.id==="stories")storyDraftMessage="Bản nháp chỉ lưu trên trình duyệt này · chưa gửi duyệt.";
+    if(currentModule.id==="stories")storyDraftMessage="Bản nháp tự lưu trên máy; server đồng bộ khi có kết nối · chưa gửi duyệt.";
     currentSha=b.sha;
     baseData=deepClone(b.content);
     dirty=false;
@@ -1893,7 +1936,7 @@ async function selectModule(id){
     }else{
       status(outdatedDraft
         ?"Bản nháp cũ khác phiên bản đã được giữ riêng khi có dung lượng trình duyệt. Về Bàn làm việc để tải bản nháp cũ và đối chiếu trước khi sửa."
-        :(writable?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; gửi duyệt tạo PR, chưa lên website.":"Vai trò của bạn chỉ được xem module này."),outdatedDraft?"error":"");
+        :(writable?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên máy và đồng bộ server; gửi duyệt tạo PR, chưa lên website.":"Vai trò của bạn chỉ được xem module này."),outdatedDraft?"error":"");
     }
   }catch(e){
     if(requestId!==moduleRequestId)return;
@@ -1944,10 +1987,13 @@ async function save(){
     });
     dirty=false;
     clearDraft();
+    clearTimeout(serverDraftTimer);serverDraftTimer=null;
+    const serverCleared=await clearServerDraft(savingModule.path,{silent:true});
     $("#resetBtn")?.classList.add("hidden");
 
     $("#saveBtn").textContent="Đã gửi duyệt";
-    status("Đã tạo đề xuất PR #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url,"success");
+    status("Đã tạo đề xuất PR #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url+
+      (serverCleared.ok?"":" · Lưu ý: bản nháp server chưa dọn được, nhưng PR đã tạo thành công."),"success");
 
     setTimeout(()=>{
       if(!dirty)$("#saveBtn").textContent="Gửi duyệt";
@@ -1974,13 +2020,22 @@ $("#saveBtn").onclick=e=>{
 $("#resetBtn")?.addEventListener("click",async()=>{
   if(!dirty)return;
   if(!confirm("Bỏ toàn bộ thay đổi chưa xuất bản trong mục này?"))return;
+  const path=currentModule?.path;
+  clearTimeout(draftTimer);clearTimeout(serverDraftTimer);serverDraftTimer=null;
   clearDraft();
+  await clearServerDraft(path,{silent:false});
   dirty=false;
   await selectModule(currentModule.id);
 });
 
 $("#logoutBtn").onclick=async()=>{
-  if(dirty&&!confirm("Có thay đổi chưa xuất bản. Vẫn đăng xuất?"))return;
+  if(dirty){
+    if(!confirm("Có thay đổi chưa xuất bản. Lưu nháp rồi đăng xuất?"))return;
+    clearTimeout(draftTimer);clearTimeout(serverDraftTimer);serverDraftTimer=null;
+    saveDraftNow();
+    clearTimeout(serverDraftTimer);serverDraftTimer=null;
+    await syncServerDraft({checkpoint:true,silent:true});
+  }
   await fetch(API.auth+"?action=logout",{method:"POST",credentials:"include"});
   location.reload();
 };
@@ -2001,8 +2056,10 @@ document.addEventListener("keydown",event=>{
   clearTimeout(draftTimer);
   if(dirty){
     const ok=saveDraftNow();
-    if(ok&&!window.OPQEditorWorkflow?.hasConflict())
-      status("Đã lưu nháp trên máy. Chưa gửi duyệt.","success");
+    if(ok&&!window.OPQEditorWorkflow?.hasConflict()){
+      status("Đã lưu nháp trên máy. Đang đồng bộ server...","success");
+      void syncServerDraft({checkpoint:true,silent:false});
+    }
   }else setStoryDraftMessage("Không có thay đổi mới để lưu.");
 });
 boot();

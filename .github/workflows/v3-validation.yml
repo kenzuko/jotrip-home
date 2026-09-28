@@ -75,6 +75,8 @@ jobs:
         run: node scripts/test-cms-mutation-audit.mjs
       - name: Test CMS server draft persistence
         run: node scripts/test-cms-server-drafts.mjs
+      - name: Test CMS server draft client mirror
+        run: node scripts/test-cms-server-draft-client.mjs
       - name: Test CMS direct save mutation safety
         run: node scripts/test-cms-direct-save.mjs
       - name: Test CMS edit-state conflict preflight
@@ -131,6 +133,7 @@ jobs:
           node --check admin/reviews.js
           node --check admin/quality.js
           node --check admin/admin.js
+          node --check admin/server-drafts.js
           node --check nearme/nearme.js
           node --check nearme/venue-normalizer.js
           node --check explore/app.js
