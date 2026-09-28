@@ -68,11 +68,5 @@ jobs:
           test -d "$RUNNER_TEMP/openpq-pages-domain-lab"
           test -d "$RUNNER_TEMP/openpq-worker-domain-lab"
 
-      - name: Show target gate status without enabling cutover
-        shell: bash
-        run: |
-          if node scripts/test-domain-unification-preflight.mjs --strict; then
-            echo "Target domain contract already satisfied."
-          else
-            echo "::notice::Expected in lab phase: target gates remain pending until implementation is applied."
-          fi
+      - name: Enforce target domain contract
+        run: node scripts/test-domain-unification-preflight.mjs --strict
