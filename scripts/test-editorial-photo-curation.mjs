@@ -48,5 +48,12 @@ assert(roadTopic?.images?.length>=2,"Road-history article must retain two visual
 assert(roadTopic.images[0].url.includes("H%C3%A0m%20Ninh")&&roadTopic.images[0].url.includes("%C4%91%E1%BA%A5t"),"Road-history hero must be the visually reviewed Hàm Ninh dirt-road photo");
 assert(!JSON.stringify(roadTopic).includes("Nguyen%20Van%20cu%2C%20TL%2046%2CDuong%20to%20Phu%20quoc"),"Known mislabeled Hà Nội gate photo must never return");
 assert(!JSON.stringify(visual).includes("Nguyen%20Van%20cu%2C%20TL%2046%2CDuong%20to%20Phu%20quoc"),"Known mislabeled Hà Nội gate photo must be absent from the entire visual catalog");
+const guidePixels=JSON.stringify(visual.knowledge);
+for(const forbidden of ["Sea%20grass%20bed.jpg","Can%20Gio%20mangrove%20forest.jpg","Chelonia%20mydas%20in%20tidepools%20at%20Kona.jpg","Newone%20-%20VinBus%2002.jpg"]){
+  assert(!guidePixels.includes(forbidden),"Non-Phú-Quốc illustration must not be used as a guide hero: "+forbidden);
+}
+assert.equal(visual.knowledge["knowledge_039_rung-ngap-man-phu-quoc"]?.images?.length,0,"Mangrove guide stays photo-free until an exact Phú Quốc image with acceptable rights is curated");
+assert.equal(visual.knowledge["knowledge_042_rua-bien-quanh-phu-quoc"]?.images?.length,0,"Sea-turtle guide stays photo-free until an exact Phú Quốc image with acceptable rights is curated");
+assert(visual.knowledge["knowledge_082_bus-phu-quoc"]?.images?.[0]?.url.includes("photo.znews.vn"),"Bus guide should use a real Phú Quốc bus photo, not a Hà Nội vehicle illustration");
 assert(roadTopic.images[1].url.includes("tr%E1%BA%A7n%20h%C6%B0ng")||roadTopic.images[1].url.includes("Tr%E1%BA%A7n%20h%C6%B0ng"),"Road-history second photo should remain the reviewed Trần Hưng Đạo image");
 console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");
