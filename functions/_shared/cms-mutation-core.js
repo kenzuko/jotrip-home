@@ -247,3 +247,79 @@ export async function scanOpenPullConflicts(paths, token, {
     inspected_count: inspect.length,
   };
 }
+
+
+function normalizeMutationText(value,max=240){
+  return String(value??"").trim().slice(0,max);
+}
+
+function normalizeMutationSha(value){
+  const sha=String(value||"").trim().toLowerCase();
+  return /^[a-f0-9]{40}$/.test(sha)?sha:null;
+}
+
+function normalizeMutationShaMap(value){
+  const out={};
+  for(const [path,sha] of Object.entries(value&&typeof value==="object"?value:{})){
+    const cleanPath=normalizeMutationText(path,500);
+    const cleanSha=normalizeMutationSha(sha);
+    if(cleanPath&&cleanSha)out[cleanPath]=cleanSha;
+  }
+  return out;
+}
+
+export function createCmsMutationAudit({
+  operation,actor,role,baseMainSha,paths,beforeFileShas,afterFileShas,
+  changedFields,recordId,branch,sourcePrNumber,mutationCommitSha,resultMainSha
+}={}){
+  const before=normalizeMutationShaMap(beforeFileShas);
+  const after=normalizeMutationShaMap(afterFileShas);
+  const normalizedPaths=Array.from(new Set([
+    ...(Array.isArray(paths)?paths:[]),
+    ...Object.keys(before),
+    ...Object.keys(after)
+  ].map(x=>normalizeMutationText(x,500)).filter(Boolean)));
+  const fields=Array.from(new Set((Array.isArray(changedFields)?changedFields:[])
+    .map(x=>normalizeMutationText(x,500)).filter(Boolean)));
+  const sourcePr=Number(sourcePrNumber);
+  return{
+    schema:"openpq-cms-mutation-v1",
+    operation:normalizeMutationText(operation,80),
+    actor:normalizeMutationText(actor,120),
+    role:normalizeMutationText(role,40)||null,
+    base_main_sha:normalizeMutationSha(baseMainSha),
+    paths:normalizedPaths,
+    before_file_shas:before,
+    after_file_shas:after,
+    changed_fields:fields,
+    record_id:normalizeMutationText(recordId,240)||null,
+    branch:normalizeMutationText(branch,240)||null,
+    source_pr_number:Number.isSafeInteger(sourcePr)&&sourcePr>0?sourcePr:null,
+    mutation_commit_sha:normalizeMutationSha(mutationCommitSha),
+    result_main_sha:normalizeMutationSha(resultMainSha)
+  };
+}
+
+export function formatCmsMutationAudit(value){
+  const audit=createCmsMutationAudit(value);
+  return "## CMS mutation metadata\n\n```json\n"+JSON.stringify(audit,null,2)+"\n```";
+}
+
+export function cmsMutationCommitTrailers(value){
+  const audit=createCmsMutationAudit(value);
+  const shaPairs=map=>Object.entries(map).map(([path,sha])=>path+"="+sha).join(";");
+  return[
+    "OpenPQ-CMS-Mutation: v1",
+    "CMS-Operation: "+audit.operation,
+    "CMS-Actor: "+audit.actor,
+    ...(audit.role?["CMS-Role: "+audit.role]:[]),
+    ...(audit.base_main_sha?["CMS-Base-Main-SHA: "+audit.base_main_sha]:[]),
+    ...(audit.paths.length?["CMS-Paths: "+audit.paths.join(",")]:[]),
+    ...(Object.keys(audit.before_file_shas).length?["CMS-Before-File-SHAs: "+shaPairs(audit.before_file_shas)]:[]),
+    ...(Object.keys(audit.after_file_shas).length?["CMS-After-File-SHAs: "+shaPairs(audit.after_file_shas)]:[]),
+    ...(audit.changed_fields.length?["CMS-Changed-Fields: "+audit.changed_fields.join(",")]:[]),
+    ...(audit.record_id?["CMS-Record-ID: "+audit.record_id]:[]),
+    ...(audit.branch?["CMS-Branch: "+audit.branch]:[]),
+    ...(audit.source_pr_number?["CMS-Source-PR: "+audit.source_pr_number]:[])
+  ].join("\n");
+}
