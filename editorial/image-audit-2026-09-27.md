@@ -60,5 +60,12 @@ Bãi Ông Lang from Vietnam Airlines is exact for the beach and contextual only 
 - knowledge_117_ba-kim-giao: https://commons.wikimedia.org/wiki/File:Phú_Quốc_2022,_cảnh_rừng_(rễ_cổ_thụ)_(3).jpg (CC BY-SA 4.0)
 - knowledge_121_phu-quoc-trong-khong-gian-ha-tien: https://commons.wikimedia.org/wiki/File:PhuQuocMap.svg (CC BY-SA 4.0)
 - knowledge_144_bac-dao-truoc-va-sau-cac-resort-lon: /assets/media/editorial-grand-world-canal-day.jpg (reuse rights unverified)
-- knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan: https://commons.wikimedia.org/wiki/File:Nguyen_Van_cu%2C_TL_46%2CDuong_to_Phu_quoc%2C_vn_-_panoramio.jpg (CC BY 3.0)
+- knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan: https://commons.wikimedia.org/wiki/File:%C4%90%C6%B0%E1%BB%9Dng_%C4%91%E1%BA%A5t_%C4%91%E1%BB%8F%2C_H%C3%A0m_Ninh%2C_ph%C3%BA_qu%E1%BB%91c%2C_Vietnam_-_panoramio.jpg (CC BY 3.0)
 - knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan: https://commons.wikimedia.org/wiki/File:%C4%90%C6%B0%E1%BB%9Dng_tr%E1%BA%A7n_h%C6%B0ng_%C4%90%E1%BA%A1o%2C_D%C6%B0%C6%A1ng_t%C6%A1_Phu_quoc_vn_-_panoramio.jpg (CC BY 3.0)
+
+
+## Correction 28/09/2026 - visual verification, not metadata-only
+- `knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan`: removed the former Commons file named `Nguyen Van cu, TL 46,Duong to Phu quoc, vn - panoramio.jpg`. Despite its filename/metadata, visual inspection shows a gate marked **PHÙ SƠN - HÀ NỘI**, so it is not acceptable evidence for Phú Quốc.
+- Replaced the hero with the visually checked Wikimedia Commons photo **Đường đất đỏ, Hàm Ninh, phú quốc, Vietnam - panoramio.jpg** (trungydang, 15/09/2013, CC BY 3.0).
+- Kept the second photo **Đường Trần Hưng Đạo, Dương Tơ, Phú Quốc** (2013, CC BY 3.0) after visual review.
+- New rule: filename, EXIF, categories, coordinates, and captions are not enough for geographic photo QA. The rendered pixels must also be checked before a location-specific image is approved.
