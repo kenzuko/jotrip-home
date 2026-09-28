@@ -735,12 +735,13 @@
         "family",
         "evening"
       ],
-      "best_time": "21:30 theo lịch show",
+      "best_time": "Tạm dừng để nâng cấp - chưa có thông báo ngày hoạt động trở lại",
       "duration": "30 phút",
       "price_reference": "Miễn phí theo thông tin VinWonders hiện hành",
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
+        "Show đang tạm dừng để nâng cấp từ 28/09/2026 và chưa có thông báo ngày hoạt động trở lại",
         "Nếu xem Tinh Hoa Việt Nam trước đó, vẫn còn một khoảng để đi bộ sang khu Hồ Tình Yêu",
         "Show ngoài trời có thể thay đổi khi có thời tiết xấu hoặc sự kiện đặc biệt"
       ],
@@ -760,7 +761,7 @@
           "source_id": "vinwonders_grandworld_show_schedule_2026"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-09-28",
       "opening_hours": {
         "state": "PUBLISHED_SCHEDULE",
         "schedule_type": "FIXED_START",
@@ -777,6 +778,13 @@
         "valid_until": null,
         "confidence": "HIGH",
         "note": "VinWonders hiện công bố Sắc Màu Venice 21:30-22:00. Lịch đặc biệt vẫn cần kiểm tra lại."
+      },
+      "operational_status": {
+        "state": "TEMPORARILY_SUSPENDED",
+        "reason": "UPGRADE",
+        "effective_from": "2026-09-28",
+        "until": "UNTIL_FURTHER_NOTICE",
+        "updated_at": "2026-09-28"
       }
     }
   ]
