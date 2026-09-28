@@ -80,6 +80,6 @@ const routes=JSON.parse(readFileSync("scripts/routes.json","utf8"));
 const wrangler=JSON.parse(readFileSync("wrangler.jsonc","utf8"));
 check(html.includes("/ecosystem-shell.css")&&html.includes("/assets/logo-master.png"),"Weather must use OpenPQ shared branding");
 check(html.includes("weather-module-nav")&&html.includes("weatherEdgeState"),"Weather must expose module navigation and diagnostics");
-check(routes.include.includes("/weather/data/*")&&wrangler.assets.run_worker_first.includes("/weather/data/*"),"Cloudflare Worker and Pages must intercept live data");
+const routeCovers=(rule,path)=>rule.endsWith("*")?path.startsWith(rule.slice(0,-1)):rule===path;\ncheck(routes.include.some(rule=>routeCovers(rule,"/weather/data/example.json"))&&wrangler.assets.run_worker_first.includes("/weather/data/*"),"Cloudflare Worker and Pages must intercept live data");
 check(wrangler.triggers.crons.includes("*/10 * * * *"),"Cloudflare Worker must have independent scheduled prewarming");
 console.log(JSON.stringify({result:"PASS",edge:"SAME_ORIGIN_CLOUDFLARE",routes:WEATHER_EDGE_SOURCES.length,cloud_frames:cloud.spatial.frames.length,forecast_frames:forecast.spatial.frames.length,health:health.status,snapshot_fallback:"EXPLICIT",brand:"OPENPQ",cache:"PASS",lab_website_requests:0}));
