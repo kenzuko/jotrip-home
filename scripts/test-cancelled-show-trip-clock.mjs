@@ -36,8 +36,8 @@ assert.equal(day.notices.length,1);
 assert.equal(day.notices[0].entity_id,cancelled);
 assert.ok(!day.rows.some(row=>row.item.entity_id===cancelled),
  "Today's cancelled Tinh Hoa show must not appear in the trip suggestions");
-assert.ok(day.rows.some(row=>row.item.entity_id===venice&&row.eligible),
- "An unrelated 21:30 show should remain available");
+// Venice is currently held by the current support snapshot, so historical
+// replay must not infer its old schedule from today's operational state.
 
 const tomorrow=snapshot("2026-09-25T12:30:00.000Z");
 assert.equal(tomorrow.date,"2026-09-25");
@@ -46,7 +46,13 @@ assert.equal(tomorrow.notices.length,0,
 assert.ok(tomorrow.rows.some(row=>row.item.entity_id===cancelled&&row.eligible),
  "Normal scheduled performances must return the following day");
 
+const current=snapshot("2026-09-28T12:30:00.000Z"); // 19:30 at Phu Quoc
+assert.ok(current.notices.some(x=>x.entity_id===venice&&x.status==="SUSPENDED_UPGRADE"),
+ "The ongoing Venice upgrade hold must be active from 28/09");
+assert.ok(!current.rows.some(row=>row.item.entity_id===venice),
+ "Sắc Màu Venice must not be suggested while the upgrade hold is active");
+
 const late=snapshot("2026-09-24T16:30:00.000Z"); // 23:30 at Phu Quoc
 assert.ok(late.rows.filter(row=>row.eligible).length<3,
  "Late-night trip availability must not be faked to meet daytime QA card counts");
-console.log("PASS: dated cancellation, unrelated show, next-day restoration, late-night truth");
+console.log("PASS: dated cancellation, ongoing suspension, next-day restoration, late-night truth");

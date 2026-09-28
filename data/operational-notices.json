@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "timezone": "Asia/Ho_Chi_Minh",
-  "policy": "Cancellation applies only to its event date. The homepage's small ticker hides at the end of that local day. The news page and show detail display the notice for three local calendar days, then hide it automatically.",
+  "policy": "Dated cancellations apply only to their event date. Ongoing SUSPENDED/SUSPENDED_UPGRADE notices remain active until a later operational update clears them. Detail pages retain dated cancellations for the configured retention period.",
   "notices": [
     {
       "id": "thvn-2026-09-24-2015",
@@ -15,6 +15,18 @@
       "source": "Thông báo từ bộ phận kinh doanh đơn vị tổ chức gửi đối tác ngày 24/09/2026",
       "source_type": "OPERATOR_PARTNER_NOTICE",
       "valid_until": "2026-09-25T00:00:00+07:00"
+    },
+    {
+      "id": "sac-mau-venice-upgrade-20260928",
+      "entity_id": "activity_sac_mau_venice",
+      "effective_from": "2026-09-28",
+      "status": "SUSPENDED_UPGRADE",
+      "title": "Sắc Màu Venice đang tạm dừng để nâng cấp",
+      "summary": "Show đang tạm dừng để nâng cấp và hiện chưa có thông báo về ngày hoạt động trở lại.",
+      "booking_message": "Không nên xếp show này vào lịch tối cho tới khi có thông báo mới. Có thể chọn hoạt động khác tại Grand World.",
+      "source": "Thông tin vận hành cập nhật ngày 28/09/2026",
+      "source_type": "DIRECT_OPERATIONAL_UPDATE",
+      "valid_until": null
     }
   ],
   "retention_days": 3

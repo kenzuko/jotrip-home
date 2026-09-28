@@ -135,10 +135,19 @@
       const start=Date.parse(x.date+"T00:00:00+07:00");
       return Number.isFinite(start)&&now>=start&&now<start+days*86400000;
     });
-    const noticeBanner=datedNotice?
-      '<aside class="show-cancel-banner" role="status" data-show-notice><span>THÔNG BÁO SUẤT DIỄN NGÀY '+esc(datedNotice.date.split("-").reverse().join("/"))+'</span>'+
-      '<h2>'+esc(datedNotice.title)+'</h2><p>'+esc(datedNotice.summary)+'</p>'+
-      '<p>'+esc(datedNotice.booking_message)+'</p><small>'+esc(datedNotice.source)+'</small></aside>':"";
+    const ongoingNotice=(notices?.notices||[]).find(x=>{
+      if(x.entity_id!==entity.id||!["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status))return false;
+      const start=x.effective_from?Date.parse(x.effective_from+"T00:00:00+07:00"):-Infinity;
+      const end=x.valid_until?Date.parse(x.valid_until):Infinity;
+      return now>=start&&now<=end;
+    });
+    const activeNotice=ongoingNotice||datedNotice;
+    const noticeEyebrow=ongoingNotice?"THÔNG BÁO VẬN HÀNH":
+      "THÔNG BÁO SUẤT DIỄN NGÀY "+datedNotice?.date?.split("-").reverse().join("/");
+    const noticeBanner=activeNotice?
+      '<aside class="show-cancel-banner" role="status" data-show-notice><span>'+esc(noticeEyebrow)+'</span>'+
+      '<h2>'+esc(activeNotice.title)+'</h2><p>'+esc(activeNotice.summary)+'</p>'+
+      '<p>'+esc(activeNotice.booking_message||"")+'</p><small>'+esc(activeNotice.source||"")+'</small></aside>':"";
     root.innerHTML=noticeBanner+
       '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
         (heroImage
@@ -191,7 +200,7 @@
 
     window.OpenPQVisual?.bindLazyMaps(root);
     // If the detail page is kept open for days, still remove an expired announcement.
-    if(datedNotice){
+    if(datedNotice&&!ongoingNotice){
       const started=Date.parse(datedNotice.date+"T00:00:00+07:00");
       const deadline=started+days*86400000;
       const checkExpiry=setInterval(()=>{if(Date.now()>=deadline){root.querySelector("[data-show-notice]")?.remove();clearInterval(checkExpiry)}},60000);

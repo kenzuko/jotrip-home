@@ -89,20 +89,34 @@ function localDateKey(date=new Date()){
  const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));
  return p.year+"-"+p.month+"-"+p.day;
 }
-function activeNotices(){const day=localDateKey();return (operationalNotices?.notices||[]).filter(x=>x.date===day&&x.status==="CANCELLED")}
+function activeNotices(){
+ const day=localDateKey();
+ return (operationalNotices?.notices||[]).filter(x=>{
+  if(x.status==="CANCELLED")return x.date===day;
+  if(["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status)){
+   if(x.effective_from&&x.effective_from>day)return false;
+   if(x.valid_until){
+    const until=String(x.valid_until).slice(0,10);
+    if(until&&until<day)return false;
+   }
+   return true;
+  }
+  return false;
+ });
+}
 function tripClockSnapshot(){
  const engine=window.OpenPQTripClockPlanner;
  if(!engine||!support)return [];
  const now=hhmmToMinutes(vnParts().time),sunset=hhmmToMinutes(localSunsetPhuQuoc());
  const weekdayName=new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Ho_Chi_Minh",weekday:"short"}).format(new Date());
  const weekday=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].indexOf(weekdayName);
- // Cancel a show for its actual local performance date only.
- // No global activeNotice() helper exists; derive the excluded IDs from the
- // same dated notices used by the homepage ticker.
- const cancelledToday=new Set(activeNotices().map(notice=>notice.entity_id));
- return engine.plan({items:support.trip_clock?.items||[],entities,nowMinute:now,sunsetMinute:sunset,weekday,
-  sunsetWeather:window.OPENPQ_HOME?.signals?.sunset_weather?.level||"unknown"})
-  .filter(x=>!cancelledToday.has(x.item.entity_id));
+ // Dated cancellations block only that performance date. Ongoing suspension
+ // notices block until a later operational update explicitly clears them.
+ const blockedToday=new Set(activeNotices().map(notice=>notice.entity_id));
+ const items=(support.trip_clock?.items||[]).filter(item=>
+  item.status_code!=="SUSPENDED"&&!blockedToday.has(item.entity_id));
+ return engine.plan({items,entities,nowMinute:now,sunsetMinute:sunset,weekday,
+  sunsetWeather:window.OPENPQ_HOME?.signals?.sunset_weather||{level:"unknown"}});
 }
 let tripClockExpanded=false;
 let tripClockLastDay="";
