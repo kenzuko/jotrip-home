@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-28T17:05:00.000Z",
+  "generated_at": "2026-09-28T17:15:00.000Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 228,
-    "missing_count": 166
+    "ready_count": 229,
+    "missing_count": 165
   },
   "layers": {
     "zones": [
@@ -377,6 +377,20 @@
         "note": "Neo khu vực cho cơ sở Thanh Nga mới tại Tiểu khu 77 / ấp Suối Mây. Không xác nhận cổng vào, bãi đỗ xe hay vị trí trường đua.",
         "accuracy": "secondary_directory_coordinate_government_address_crosscheck",
         "plus_code": null
+      },
+      {
+        "id": "place_suoi_da_ban",
+        "name": "Suối Đá Bàn",
+        "type": "place",
+        "lat": 10.2454375,
+        "lon": 104.027046875,
+        "precision": "area_anchor",
+        "source": "Current named-destination Plus Code cluster cross-checked across Sun World, Waze/Google-derived listings and Phu Quoc/An Giang tourism sources",
+        "source_id": "suoi_da_ban_62wg_crosscheck_20260928",
+        "verified_at": "2026-09-28",
+        "note": "Neo khu vực theo cụm Plus Code 62WG cho Suối Đá Bàn. Không xác nhận cổng khu du lịch, bãi xe, cầu dây văng hay điểm xuống suối.",
+        "accuracy": "multi_source_named_destination_plus_code_area_anchor",
+        "plus_code": "62WG+5RF"
       }
     ],
     "stay": [
@@ -3481,7 +3495,6 @@
     "utility_tgdd_104_304",
     "place_fish_sauce_house",
     "place_pepper_garden",
-    "place_suoi_da_ban",
     "utility_112",
     "utility_113",
     "utility_114",
