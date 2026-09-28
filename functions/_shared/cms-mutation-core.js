@@ -1,5 +1,5 @@
-const te = new TextEncoder();
-const td = new TextDecoder();
+const sessionEncoder = new TextEncoder();
+const sessionDecoder = new TextDecoder();
 
 export const CMS_REPO = "kenzuko/jotrip-home";
 export const CMS_REPO_API = "https://api.github.com/repos/" + CMS_REPO;
@@ -25,7 +25,7 @@ function base64UrlBytes(raw) {
 }
 
 async function sessionKey(secret) {
-  const digest = await crypto.subtle.digest("SHA-256", te.encode(secret));
+  const digest = await crypto.subtle.digest("SHA-256", sessionEncoder.encode(secret));
   return crypto.subtle.importKey("raw", digest, { name: "AES-GCM" }, false, ["decrypt"]);
 }
 
@@ -41,7 +41,7 @@ export async function readCmsSession(request, secret, { requireAccessToken = fal
       key,
       base64UrlBytes(payload)
     );
-    const session = JSON.parse(td.decode(clear));
+    const session = JSON.parse(sessionDecoder.decode(clear));
     if (!(session?.exp > Date.now())) return null;
     if (requireAccessToken && !session.accessToken) return null;
     return session;
