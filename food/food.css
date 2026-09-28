@@ -117,3 +117,25 @@ header.module-head img[src*="logo-master"]{
 @media(max-width:720px){header.module-head img[src*="logo-master"]{
   width:44px!important;height:42px!important;max-width:44px!important;max-height:42px!important;
 }}
+
+
+/* Food editorial: section-specific insets must outrank .food-article section {padding:25px 0}. */
+.food-article section.ingredient-panel,
+.food-article section.food-safety{
+  box-sizing:border-box;width:100%;max-width:100%;
+  padding:clamp(24px,3.6vw,36px);
+  border:1px solid var(--line);border-radius:20px;
+  overflow-wrap:break-word
+}
+.food-article section.ingredient-panel .ingredient-grid,
+.food-article section.food-safety .ask-staff{max-width:100%;min-width:0}
+.food-article section.food-safety .ask-staff{padding:20px 22px;box-sizing:border-box}
+.food-article section.food-safety .ask-staff li{padding-right:4px}
+.food-article section.food-safety h2{font-size:clamp(24px,3.4vw,30px);line-height:1.22}
+@media(max-width:640px){
+ .food-article section.ingredient-panel,.food-article section.food-safety{
+   padding:22px 20px;margin-top:30px
+ }
+ .food-article section.food-safety .ask-staff{padding:16px}
+ .food-article section.food-safety h2{font-size:clamp(23px,6.4vw,28px)}
+}

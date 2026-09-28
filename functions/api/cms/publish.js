@@ -8,6 +8,7 @@ const writable={
   "data/utilities.json":["admin","operator"],
   "data/entities/destination-venues.json":["admin","editor","operator"],
   "data/entities/food.json":["admin","editor"],
+  "data/i18n/vi/food.json":["admin","editor"],
   "data/visual-context.json":["admin","editor"],
   "cms/users.json":["admin"]
 };
@@ -145,6 +146,23 @@ function validatePayload(path,content){
       if(x?.longitude!==null&&x?.longitude!==""&&x?.longitude!==undefined){
         const lon=Number(x.longitude); if(!Number.isFinite(lon)||lon<-180||lon>180)errors.push("Longitude không hợp lệ: "+(name||id));
       }
+    });
+  }
+
+  if(path==="data/i18n/vi/food.json"){
+    if(content.locale!=="vi")errors.push("Bản biên tập món ăn phải thuộc ngôn ngữ vi");
+    const dishes=Array.isArray(content.dishes)?content.dishes:[];
+    if(dishes.length<32)errors.push("Kho 32 bài món ăn không được bị thiếu");
+    const ids=new Set();
+    dishes.forEach((dish,i)=>{
+      const id=String(dish?.id||"").trim();
+      if(!id||ids.has(id))errors.push("Bài món ăn thiếu/trùng ID ở vị trí "+(i+1));
+      ids.add(id);
+      if(!String(dish?.name||"").trim()||!String(dish?.intro||"").trim())
+        errors.push("Bài "+(id||i+1)+" thiếu tên hoặc lời mở");
+      if(!Array.isArray(dish?.tips)||!Array.isArray(dish?.ingredients)||
+         !Array.isArray(dish?.ask_staff)||!Array.isArray(dish?.allergen_flags))
+        errors.push("Bài "+(id||i+1)+" thiếu cấu trúc thực phẩm/an toàn");
     });
   }
 

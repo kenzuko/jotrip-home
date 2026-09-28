@@ -97,9 +97,9 @@ function allergenBlock(dish){
     (flags.length?'<div class="allergen-chips">'+flags.map(x=>
       '<span data-level="'+esc(x.level||"possible")+'">'+esc(x.label)+'</span>'
     ).join("")+'</div>':"")+
-    (dish.allergy_note?'<p>'+esc(dish.allergy_note)+'</p>':"")+
+    (dish.allergy_note?'<p data-food-path="allergy_note">'+esc(dish.allergy_note)+'</p>':"")+
     ((dish.ask_staff||[]).length?'<div class="ask-staff"><strong>'+esc(copy("food.ask_staff","Nếu cần hỏi quán"))+'</strong><ul>'+
-      dish.ask_staff.map(x=>'<li>'+esc(x)+'</li>').join("")+
+      dish.ask_staff.map((x,i)=>'<li data-food-path="ask_staff.'+i+'">'+esc(x)+'</li>').join("")+
     '</ul></div>':"")+
   '</section>';
 }
@@ -111,7 +111,7 @@ function ingredientsBlock(dish){
     '<div class="food-section-label">'+esc(copy("food.ingredients","TRONG MÓN CÓ GÌ?"))+'</div>'+
     '<h2>'+esc(copy("food.ingredients_title","Nguyên liệu thường gặp."))+'</h2>'+
     '<div class="ingredient-grid">'+rows.map((x,i)=>
-      '<div><span>'+String(i+1).padStart(2,"0")+'</span><strong>'+esc(x)+'</strong></div>'
+      '<div><span>'+String(i+1).padStart(2,"0")+'</span><strong data-food-path="ingredients.'+i+'">'+esc(x)+'</strong></div>'
     ).join("")+'</div>'+
     '<small>Công thức có thể thay đổi theo quán. Nếu dị ứng hoặc kiêng ăn, hãy hỏi thành phần thực tế tại nơi bạn gọi món.</small>'+
   '</section>';
@@ -139,22 +139,23 @@ function renderArticle(){
   const cultural=new Set(['goi-ca-trich','bun-quay','bun-ken','ga-ray-nuong','banh-kheo','banh-tet-mat-cat']);
   const nameStories=new Set(['bun-quay','bun-ken','ga-ray-nuong','banh-kheo','banh-tet-mat-cat']);
   const origin=cultural.has(dish.id)&&dish.origin
-    ? '<section><div class="food-section-label">'+esc(copy("food.origin","NGUỒN GỐC"))+'</div><h2>'+esc(copy("food.origin_value","Món đến từ đâu?"))+'</h2><p>'+esc(dish.origin)+'</p></section>'
+    ? '<section><div class="food-section-label">'+esc(copy("food.origin","NGUỒN GỐC"))+'</div><h2>'+esc(copy("food.origin_value","Món đến từ đâu?"))+'</h2><p data-food-path="origin">'+esc(dish.origin)+'</p></section>'
     : "";
   const nameStory=nameStories.has(dish.id)&&dish.why_name
-    ? '<section><div class="food-section-label">'+esc(copy("food.name","TÊN GỌI"))+'</div><h2>'+esc(copy("food.name_value","Vì sao gọi như vậy?"))+'</h2><p>'+esc(dish.why_name)+'</p></section>'
+    ? '<section><div class="food-section-label">'+esc(copy("food.name","TÊN GỌI"))+'</div><h2>'+esc(copy("food.name_value","Vì sao gọi như vậy?"))+'</h2><p data-food-path="why_name">'+esc(dish.why_name)+'</p></section>'
     : "";
 
+  host.dataset.foodId=dish.id;
   host.innerHTML=
     '<div class="crumb">ĂN PHÚ QUỐC · '+esc(dish.category==="seafood"?copy("food.seafood","HẢI SẢN"):copy("food.local","MÓN ĐỊA PHƯƠNG"))+'</div>'+
-    '<h1>'+esc(dish.name)+'</h1>'+
-    '<p class="lead">'+esc(dish.intro)+'</p>'+
+    '<h1 data-food-path="name">'+esc(dish.name)+'</h1>'+
+    '<p class="lead" data-food-path="intro">'+esc(dish.intro)+'</p>'+
     origin+
     nameStory+
     ingredientsBlock(dish)+
-    '<section><div class="food-section-label">'+esc(copy("food.how_to_eat","CÁCH ĂN"))+'</div><h2>'+esc(copy("food.how_to_eat_title","Ăn sao cho ngon?"))+'</h2><p>'+esc(dish.how_to_eat||"Ăn lúc món còn nóng; nêm theo khẩu vị riêng.")+'</p></section>'+
+    '<section><div class="food-section-label">'+esc(copy("food.how_to_eat","CÁCH ĂN"))+'</div><h2>'+esc(copy("food.how_to_eat_title","Ăn sao cho ngon?"))+'</h2><p data-food-path="how_to_eat">'+esc(dish.how_to_eat||"Ăn lúc món còn nóng; nêm theo khẩu vị riêng.")+'</p></section>'+
     '<section><div class="food-section-label">'+esc(copy("food.practical","LƯU Ý THỰC TẾ"))+'</div><h2>'+esc(copy("food.practical_title","Nhớ mấy chuyện này."))+'</h2><ul>'+
-      (dish.tips||[]).map(x=>'<li>'+esc(x)+'</li>').join("")+
+      (dish.tips||[]).map((x,i)=>'<li data-food-path="tips.'+i+'">'+esc(x)+'</li>').join("")+
     '</ul></section>'+
     allergenBlock(dish)+
     gallery+

@@ -186,6 +186,7 @@ await import("./test-cms-editor-workflow.mjs");
 await import("./test-cms-story-desk.mjs");
 await import("./test-cms-story-composer.mjs");
 await import("./test-cms-inline-edit.mjs");
+await import("./test-cms-inline-food.mjs");
 await import("./test-cms-edit-state.mjs");
 
 // Admin V2: shared shell, workflow filters, role-aware switcher and D1 regression.
