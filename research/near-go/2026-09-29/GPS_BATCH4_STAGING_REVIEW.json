@@ -275,6 +275,95 @@
         "Current exact local-business listing matches 162 Đ. 30 Tháng 4 and phone 1900 232461."
       ],
       "limitations": "Coordinate inferred from mapping-distance observations, not raw coordinate directly exposed by operator. Staging only."
+    },
+    {
+      "id": "utility_tgdd_104_304",
+      "name": "Thế Giới Di Động - 104 đường 30 Tháng 4",
+      "decision": "STAGING_CANDIDATE_DISTANCE_TRILATERATION_VALIDATED",
+      "candidate_map": {
+        "lat": 10.21420201,
+        "lon": 103.96670629,
+        "precision": "site_centroid_candidate"
+      },
+      "method": "distance_trilateration_from_current_exact_local_business_listing",
+      "validation": {
+        "business_place_id": "ChIJzebbVGOMpzERHx1ei8n8-tw",
+        "source_observations_m": [
+          {
+            "center": [
+              10.213,
+              103.963
+            ],
+            "distance_m": 428
+          },
+          {
+            "center": [
+              10.217,
+              103.963
+            ],
+            "distance_m": 511
+          },
+          {
+            "center": [
+              10.213,
+              103.967
+            ],
+            "distance_m": 137
+          }
+        ],
+        "validation_distance_m": 0,
+        "exact_business_match": true
+      },
+      "evidence": [
+        "Official Thế Giới Di Động branch page confirms 104 Ba Mươi Tháng Tư, KP1, opposite Nhà hàng Ra Khơi.",
+        "Current exact local-business listing matches the same address and phone 1900 232460."
+      ],
+      "limitations": "This is a new mapping-distance inference; it does not restore the earlier rejected Geoapify geometry. Staging only pending canonical review."
+    },
+    {
+      "id": "utility_tgdd_142a_ntr",
+      "name": "Thế Giới Di Động - 142A Nguyễn Trung Trực",
+      "decision": "STAGING_CANDIDATE_DISTANCE_TRILATERATION_VALIDATED",
+      "candidate_map": {
+        "lat": 10.2228822,
+        "lon": 103.96350309,
+        "precision": "site_centroid_candidate"
+      },
+      "method": "distance_trilateration_from_current_exact_local_business_listing",
+      "validation": {
+        "business_place_id": "ChIJMzPhq3-MpzER6TLr6A-UMhs",
+        "source_observations_m": [
+          {
+            "center": [
+              10.221,
+              103.965
+            ],
+            "distance_m": 266
+          },
+          {
+            "center": [
+              10.225,
+              103.965
+            ],
+            "distance_m": 287
+          },
+          {
+            "center": [
+              10.225,
+              103.967
+            ],
+            "distance_m": 450
+          }
+        ],
+        "validation_distance_m": 1,
+        "exact_business_match": true
+      },
+      "evidence": [
+        "Official Thế Giới Di Động branch page confirms 142A-142B Nguyễn Trung Trực.",
+        "Current exact local-business listing matches 142B Nguyễn Trung Trực and phone 1900 232460.",
+        "Independent directory exposes a malformed coordinate string consistent with the same vicinity but is not used as the primary candidate."
+      ],
+      "limitations": "Coordinate inferred from mapping-distance observations; not directly exposed raw coordinate. Staging only."
     }
   ],
   "rechecked_holds": [
@@ -362,22 +451,6 @@
       "note": "Current official branch list includes Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang); no safe site coordinate exposed."
     },
     {
-      "id": "utility_tgdd_104_304",
-      "decision": "HOLD_OFFICIAL_ADDRESS_CURRENT_GEOMETRY_CONTRADICTION_REMAINS",
-      "evidence": [
-        "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc"
-      ],
-      "note": "Current MWG directory confirms 104 Ba Mươi Tháng Tư, KP1, opposite Nhà hàng Ra Khơi. Batch2 rejected available geocoder geometry because it contradicted that landmark context. No new reproducible operator coordinate found."
-    },
-    {
-      "id": "utility_tgdd_142a_ntr",
-      "decision": "HOLD_OFFICIAL_BRANCH_CURRENT_NO_REPRODUCIBLE_COORDINATE",
-      "evidence": [
-        "https://www.thegioididong.com/sieu-thi-so-142a-142b-duong-nguyen-trung-truc-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-935"
-      ],
-      "note": "Current official branch page confirms exact 142A-142B Nguyễn Trung Trực and active store identity. No coordinate exposed safely; do not reuse unrelated numbered POIs."
-    },
-    {
       "id": "utility_fuel_dong_loi_1",
       "decision": "HOLD_OFFICIAL_DESTINATION_DIRECTORY_ADDRESS_ONLY",
       "evidence": [
@@ -440,10 +513,10 @@
     "canonical_modified": 0,
     "derived_views_modified": 0,
     "deploy_triggered": false,
-    "new_staging_candidates": 5,
-    "rechecked_holds": 14,
+    "new_staging_candidates": 7,
+    "rechecked_holds": 12,
     "intentional_no_fixed_pin": 4,
-    "last_update_note": "Upgraded five strong staging candidates after exact-listing distance validation (0-3 m). No canonical/derived/UI/deploy changes."
+    "last_update_note": "Seven strong staging candidates now validated; TGDD 104 validates at 0 m and TGDD 142A at 1 m against exact current place IDs. No canonical writes."
   },
   "observed_main_sha_latest": "cb9c8c79a00d003a40ab45e9254c02dac47da597",
   "methodology": {
