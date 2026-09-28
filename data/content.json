@@ -656,11 +656,11 @@
       "title": "Cá Ông trong niềm tin của người đi biển",
       "dek": "Người đi biển kính trọng gọi cá voi là Cá Ông. Ở Phú Quốc, những câu chuyện cứu nạn trên biển, lăng thờ và lễ Nghinh Ông lưu giữ niềm tin ấy qua nhiều thế hệ.",
       "read_minutes": 3,
-      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg?width=1600",
-      "image_alt": "Gian thờ xương cá voi, tư liệu về tín ngưỡng thờ Cá Ông",
-      "image_caption": "Ảnh tư liệu về một gian thờ xương cá voi tại Việt Nam; không ghi nhận tại Phú Quốc.",
-      "image_credit": "Wikimedia Commons (xem tác giả và giấy phép tại trang ảnh)",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:Gian%20th%E1%BB%9D%20x%C6%B0%C6%A1ng%20c%C3%A1%20voi.jpg",
+      "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Fishing%20boat%20Phu%20Quoc.jpg?width=1600",
+      "image_alt": "Tàu cá gần cảng Phú Quốc năm 2025",
+      "image_caption": "Tàu cá gần cảng Phú Quốc năm 2025. Ảnh bối cảnh người đi biển; không phải ảnh một gian thờ Cá Ông.",
+      "image_credit": "Elmschrat · Wikimedia Commons · CC0 1.0",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fishing_boat_Phu_Quoc.jpg",
       "intro": "Giữa biển khơi, người đi biển gọi cá voi bằng một cái tên đầy kính trọng: Cá Ông. Những chuyện kể về cá voi cứu người và mong ước được bình an trở về đã đi cùng đời sống ven biển qua nhiều thế hệ. Ở Phú Quốc, niềm tin ấy còn hiện diện trong lăng thờ và những dịp cộng đồng làm lễ.",
       "sections": [
         {
@@ -683,7 +683,9 @@
         }
       ],
       "home_featured": true,
-      "updated_at": "2026-09-26"
+      "updated_at": "2026-09-26",
+      "image_rights_status": "CC_VERIFIED",
+      "image_license_url": "https://creativecommons.org/publicdomain/zero/1.0/"
     },
     {
       "id": "vi-sao-goi-phu-quoc-la-dao-ngoc",

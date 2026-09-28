@@ -65,4 +65,10 @@ const oldAirport=visual.knowledge["knowledge_139_phu-quoc-truoc-san-bay-quoc-te"
 assert(oldAirport?.url.includes("PhuQuocAirport.jpg"),"Pre-international-airport article must use an old Phú Quốc airport image");
 assert(/^2009-/.test(oldAirport?.captured_at||""),"Pre-international-airport hero must predate the 2012 international airport opening");
 assert(roadTopic.images[1].url.includes("tr%E1%BA%A7n%20h%C6%B0ng")||roadTopic.images[1].url.includes("Tr%E1%BA%A7n%20h%C6%B0ng"),"Road-history second photo should remain the reviewed Trần Hưng Đạo image");
+assert(!(visual.knowledge["knowledge_074_cano-tau-cao-toc-pha-khac-nhau-the-nao"]?.images||[]).some(p=>p.url.includes("Female%20motorcyclist")),"Motorcyclist must not illustrate canoe / fast ferry / ferry comparison");
+assert(!(visual.knowledge["knowledge_140_duong-dong-truoc-va-sau-do-thi-hoa"]?.images||[]).some(p=>p.url.includes("Selling%20fruit")),"Night-market fruit stall must not stand in for Dương Đông urbanisation");
+assert.equal(visual.knowledge["knowledge_142_ham-ninh-truoc-va-sau-chinh-trang"]?.images?.length,1,"Hàm Ninh change story must not present a pre-2019 beach photo as the after view");
+assert.equal(visual.food["ca-mu-hap"]?.images?.length,0,"Cá mú card must stay photo-free until an actual cá mú image is verified");
+assert(!JSON.stringify(visual.stories["co-bien-phu-quoc-khuat-tu-bo"]||{}).includes("Sea%20grass%20bed.jpg"),"Dahab seagrass image must not remain in the Phú Quốc story gallery");
+
 console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");
