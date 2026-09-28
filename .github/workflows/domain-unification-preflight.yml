@@ -3,6 +3,8 @@ name: Domain Unification Preflight Lab
 on:
   push:
     branches: ["feat/openpq-public-domain-final"]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
