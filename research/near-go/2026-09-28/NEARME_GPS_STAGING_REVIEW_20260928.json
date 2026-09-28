@@ -18,7 +18,11 @@
     {
       "entity_id": "utility_dienmaycholon_nguyen_trung_truc",
       "decision": "STAGING_CANDIDATE_READY_FOR_CANONICAL_REVIEW",
-      "candidate_map": {"lat": 10.2233901, "lon": 103.9676121, "precision": "site_centroid"},
+      "candidate_map": {
+        "lat": 10.2233901,
+        "lon": 103.9676121,
+        "precision": "site_centroid"
+      },
       "coordinate_source": "Geoapify / OpenStreetMap cached batch1",
       "coordinate_evidence": "Geocoder returns building 200A Nguyễn Trung Trực, KP5 Dương Đông, matching canonical address.",
       "identity_evidence": [
@@ -30,7 +34,11 @@
     {
       "entity_id": "utility_tgdd_37_hungvuong",
       "decision": "STAGING_CANDIDATE_READY_FOR_CANONICAL_REVIEW",
-      "candidate_map": {"lat": 10.2287548, "lon": 103.9695114, "precision": "site_centroid"},
+      "candidate_map": {
+        "lat": 10.2287548,
+        "lon": 103.9695114,
+        "precision": "site_centroid"
+      },
       "coordinate_source": "Geoapify / OpenStreetMap cached batch1",
       "coordinate_evidence": "Geocoder returns building 37 Hùng Vương in KP5 Dương Đông; alternate result is KP1 and is rejected.",
       "identity_evidence": [
@@ -42,7 +50,11 @@
     {
       "entity_id": "utility_vcb_atm_an_thoi",
       "decision": "HOLD_STRONG_CANDIDATE_NEEDS_BANK_MAP",
-      "candidate_map": {"lat": 10.0268439, "lon": 104.0170526, "precision": "site_centroid"},
+      "candidate_map": {
+        "lat": 10.0268439,
+        "lon": 104.0170526,
+        "precision": "site_centroid"
+      },
       "coordinate_source": "Geoapify / OpenStreetMap cached batch1",
       "coordinate_evidence": "Candidate matches house number 199, Nguyễn Văn Cừ and KP8 An Thới; another 199 candidate exists in KP4 and is rejected.",
       "identity_evidence": "Current local-business listing matches Vietcombank at 199 Nguyễn Văn Cừ, An Thới.",
@@ -53,9 +65,21 @@
       "decision": "HOLD_GEO_CANDIDATES_STREET_CONFLICT",
       "identity_evidence": "Official Long Châu directory currently lists 42 Trần Phú (Ngay Ngã Ba Trần Thú - Mạc Cửu), Phú Quốc; local-business listing also matches 42 Trần Phú.",
       "rejected_candidates": [
-        {"lat": 10.220544, "lon": 103.959801, "reason": "house 42 but labeled Chợ Dương Đông, not Trần Phú"},
-        {"lat": 10.230422, "lon": 103.957427, "reason": "house 42 but labeled Nhà thờ Dương Đông"},
-        {"lat": 10.214346, "lon": 103.9613, "reason": "house 42 but labeled Đình thần Dương Đông"}
+        {
+          "lat": 10.220544,
+          "lon": 103.959801,
+          "reason": "house 42 but labeled Chợ Dương Đông, not Trần Phú"
+        },
+        {
+          "lat": 10.230422,
+          "lon": 103.957427,
+          "reason": "house 42 but labeled Nhà thờ Dương Đông"
+        },
+        {
+          "lat": 10.214346,
+          "lon": 103.9613,
+          "reason": "house 42 but labeled Đình thần Dương Đông"
+        }
       ],
       "limitations": "Do not turn same house number on unrelated feature/street into pharmacy GPS."
     },
@@ -111,7 +135,10 @@
     {
       "entity_id": "utility_dng_clinic_an_thoi",
       "decision": "HOLD_WRONG_BRAND_POI",
-      "rejected_candidate": {"lat": 10.019773, "lon": 104.015735},
+      "rejected_candidate": {
+        "lat": 10.019773,
+        "lon": 104.015735
+      },
       "limitations": "Candidate is Phòng khám Đa khoa An Thới, not DNG. Preserve null GPS."
     },
     {
@@ -122,18 +149,139 @@
     }
   ],
   "summary": {
-    "staging_candidates_ready_for_later_canonical_review": 2,
+    "staging_candidates_ready_for_later_canonical_review": 0,
     "strong_hold_needing_operator_map": 1,
-    "holds_rechecked": 10,
+    "holds_rechecked": 18,
+    "promoted_by_other_main_batches_since_staging_created": 5,
     "canonical_entities_modified": 0,
     "derived_views_modified": 0,
-    "deploy_triggered": false
+    "deploy_triggered": false,
+    "current_main_location_with_map": 230,
+    "current_main_nonhotel_missing": 25
   },
   "next_when_system_stabilizes": [
-    "Rebase/recreate a clean data branch from then-current main.",
-    "Re-verify the two staging candidates against current canonical records and duplicate radius.",
-    "Promote only accepted coordinates with source_refs/ODbL/source_audit fields.",
-    "Rebuild location-index.json and map-coverage.json from canonical and run Near Me/GO QA.",
-    "Continue unresolved high-priority utilities before low-priority places and WhaleLO area-only records."
+    "Treat current main as source of truth; do not replay superseded staging candidates.",
+    "Next priority: extract reproducible operator-map coordinates for DMX 107, DMX 162, DNG An Thới and One Mart if available.",
+    "Continue Long Châu branches only when branch-specific map evidence exists; reject pharmacy-name or house-number collisions.",
+    "Keep WhaleLO fixed pins intentionally absent unless booking flow exposes a stable public pickup location.",
+    "Keep airport ATM as terminal-level directory item unless a specific machine is verified.",
+    "After any future canonical promotions, rebuild location-index/map-coverage and run Near Me/GO QA."
+  ],
+  "last_observed_main_sha": "cb9c8c79a00d003a40ab45e9254c02dac47da597",
+  "last_observed_main_location_summary": {
+    "total": 350,
+    "with_address": 350,
+    "with_map": 230,
+    "by_type": {
+      "activity": 6,
+      "hotel": 158,
+      "place": 25,
+      "utility": 161
+    }
+  },
+  "reconciliation_with_newer_main": [
+    {
+      "entity_id": "utility_tgdd_37_hungvuong",
+      "status": "PROMOTED_ON_MAIN_BATCH2",
+      "note": "Main accepted 10.2287548,103.9695114 as site_centroid. Staging candidate is superseded by canonical main."
+    },
+    {
+      "entity_id": "place_suoi_da_ngon",
+      "status": "PROMOTED_ON_MAIN_BATCH2",
+      "note": "Main accepted area_anchor from published Plus Code 72CP+JRM."
+    },
+    {
+      "entity_id": "place_suoi_tien",
+      "status": "PROMOTED_ON_MAIN_BATCH2",
+      "note": "Main accepted area_anchor from published Plus Code 629R+9RP."
+    },
+    {
+      "entity_id": "utility_dienmaycholon_nguyen_trung_truc",
+      "status": "HOLD_ON_MAIN_BATCH2",
+      "note": "Override earlier staging optimism. Main audit found conflicting address geometry; do not promote 10.2233901,103.9676121 without stronger site evidence."
+    },
+    {
+      "entity_id": "utility_dng_clinic_duong_dong",
+      "status": "PROMOTED_ON_MAIN_BATCH3",
+      "note": "Main accepted 10.232189,103.97232 from operator-owned DNG Google Maps embed as site_centroid."
+    },
+    {
+      "entity_id": "utility_laundry_phuquoc_cuaduong",
+      "status": "PROMOTED_ON_MAIN_BATCH3",
+      "note": "Main accepted 10.2333807689721,103.99067557668052 from operator-owned Phu Quoc Laundry Google Maps embed as site_centroid. Earlier third-party An Thoi listing is not used."
+    }
+  ],
+  "followup_review_batch4_staging": [
+    {
+      "entity_id": "utility_dmx_107_nvc",
+      "decision": "HOLD_ADDRESS_AND_NAMED_MAP_ENTITY_NO_NUMERIC_COORDINATE",
+      "evidence": [
+        "Official Điện máy XANH branch page confirms 107 Nguyễn Văn Cừ, KP3, near ngã 3 Công Binh.",
+        "Current structured business listing identifies Điện máy XANH at 107 Nguyễn Văn Cừ, KP3.",
+        "Cốc Cốc Map exposes a named Điện máy Xanh entity at 107 Nguyễn Văn Cừ."
+      ],
+      "note": "Identity/site is strong, but no reproducible numeric coordinate was exposed by reviewed sources. Do not manufacture a point from nearby TGDD/Long Châu geometry."
+    },
+    {
+      "entity_id": "utility_dmx_162_304",
+      "decision": "HOLD_OPERATOR_ADDRESS_AND_LANDMARK_NO_NUMERIC_COORDINATE",
+      "evidence": [
+        "Official Điện máy XANH branch page confirms 162 đường 30/4, KP1.",
+        "Phú Quốc official tourism portal independently lists the same store/address and says it is at ngã 3 Hàm Ninh."
+      ],
+      "note": "Good identity/landmark evidence, but no reproducible site coordinate yet. Do not use a junction or road centroid as store GPS."
+    },
+    {
+      "entity_id": "utility_longchau_suoi_da",
+      "decision": "HOLD_WRONG_GEOAPIFY_PHARMACY_POIS",
+      "evidence": [
+        "Current Long Châu directory confirms Ấp Suối Đá, Dương Tơ (Ngã Ba Chợ Loan Sang).",
+        "Cached Geoapify candidates resolve to Nhà thuốc TRÍ TOÀN and Nhà Thuốc Linh Chi, not Long Châu Suối Đá."
+      ],
+      "note": "Reject cached site candidates; operator address remains valid but GPS stays null."
+    },
+    {
+      "entity_id": "utility_minimart_one_mart_duong_dong",
+      "decision": "HOLD_ADDRESS_AND_PLACE_ID_ONLY",
+      "evidence": [
+        "Current structured business listing identifies One mart at 16 Đ. 30 Tháng 4, Khu 1 with phone +84 834 590 676.",
+        "Independent local travel listing also gives 16 đường 30 Tháng 4 and 0834590676."
+      ],
+      "note": "Identity and address are strong, but numeric coordinate is not exposed by reviewed source. Geoapify cache only returned Phú Quốc city centroid."
+    },
+    {
+      "entity_id": "utility_fuel_dong_loi_1",
+      "decision": "HOLD_OFFICIAL_TOURISM_DIRECTORY_ADDRESS_ONLY",
+      "evidence": [
+        "Phú Quốc official tourism portal lists Trạm Xăng Dầu Đông Lợi 1 on Nguyễn Trung Trực and phone +84 297 3848 639.",
+        "Cached Geoapify house-number-1 candidates land on Chợ Dương Đông, Nhà thờ Dương Đông and Đình thần Dương Đông."
+      ],
+      "note": "Reject unrelated house-number candidates. Keep GPS null until named fuel-site geometry is found."
+    },
+    {
+      "entity_id": "utility_dng_clinic_an_thoi",
+      "decision": "HOLD_OPERATOR_ADDRESS_AND_CURRENT_BUSINESS_ENTITY_NO_REPRODUCIBLE_COORDINATE",
+      "evidence": [
+        "Official DNG site confirms S259-S354 Khu Đô Thị Sun Grand City, An Thới.",
+        "Current structured business listing identifies the DNG An Thới clinic at S259-S354."
+      ],
+      "note": "No reproducible operator-map coordinate in the reviewed material. Preserve null GPS."
+    },
+    {
+      "entity_id": "utility_toilet_sunset_venice_02",
+      "decision": "HOLD_CITY_CENTROID_ONLY",
+      "evidence": [
+        "Cached Geoapify returns only Phú Quốc city/area centroids."
+      ],
+      "note": "Do not pin a public toilet to city or Sunset Town area center."
+    },
+    {
+      "entity_id": "utility_toilet_sunset_venice_67",
+      "decision": "HOLD_CITY_CENTROID_ONLY",
+      "evidence": [
+        "Cached Geoapify returns only Phú Quốc city/area centroids."
+      ],
+      "note": "Do not pin a public toilet to city or Sunset Town area center."
+    }
   ]
 }
