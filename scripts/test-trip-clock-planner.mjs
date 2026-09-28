@@ -18,7 +18,9 @@ assert.equal(get(17,0,vin).decision.label,"Nhiều trò chơi đã kết thúc")
 assert.equal(get(13,1,temple).decision.label,"Dành thời gian tĩnh tâm");
 assert.doesNotMatch(get(13,1,temple).note,/chừa|đi đường/);
 assert.equal(get(13,1,dinh).decision.label,"Hợp hơn từ 16:00");
-assert.match(get(16,10,dinh,"bad").note,/Quan sát thêm dự báo trước khi di chuyển/);
+assert.match(get(16,10,dinh,"bad").note,/Dự báo quanh giờ hoàng hôn/);
+assert.match(get(16,10,dinh,{level:"watch",reason:"satellite_convection",gauges_dry:true}).note,/Ảnh vệ tinh cho thấy mây đối lưu/);
+assert.match(get(16,10,dinh,{level:"watch",reason:"satellite_convection",gauges_dry:true}).note,/chưa ghi nhận mưa/);
 assert.equal(get(13,1,once).eligible,true);
 assert.equal(get(10,0,cable).summary,"09:30-11:30 · 13:30-14:00 · 15:30-17:30");
 assert.equal(get(10,0,cable).decision.state,"active");
@@ -68,12 +70,15 @@ assert.ok(rows(13,1).every(x=>!/45 phút đi đường|vị trí xuất phát/.t
 for(const file of ["home-experience-v1.js","home-live-v3.js"]){
  const s=readFileSync(file,"utf8");
  assert.doesNotMatch(s,/Đừng chạy xa chỉ để ngắm chiều/);
- assert.match(s,/Quan sát thêm dự báo trước khi di chuyển/);
 }
+const homeLive=readFileSync("home-live-v3.js","utf8");
+assert.match(homeLive,/Ảnh vệ tinh cho thấy mây đối lưu/);
+assert.match(homeLive,/chưa đồng nghĩa mặt đất đang mưa hoặc có dông/);
+assert.doesNotMatch(homeLive,/Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn/);
 const homepage=readFileSync("index.html","utf8");
 assert.match(homepage,/home-experience-v1.js\?v=20260924-(?:text2|foodimages|foodrandom1|food3-stories)|home-experience-v1.js\?v=20260925-food-twoimages/);
-assert.match(homepage,/core\/trip-clock-planner.js\?v=20260927-cable-copy/);
-assert.match(homepage,/home-foundation-v2.js\?v=20260927-cable-copy/);
+assert.match(homepage,/core\/trip-clock-planner.js\?v=20260928-alert-gate1/);
+assert.match(homepage,/home-foundation-v2.js\?v=20260928-alert-gate1/);
 const homeSource=readFileSync("home-foundation-v2.js","utf8");
 assert.ok(homeSource.includes("engine.select(rows,8)"));
 assert.ok(homeSource.includes("selection.visible.map(renderCard)"));
