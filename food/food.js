@@ -99,7 +99,7 @@ function allergenBlock(dish){
     ).join("")+'</div>':"")+
     (dish.allergy_note?'<p data-food-path="allergy_note">'+esc(dish.allergy_note)+'</p>':"")+
     ((dish.ask_staff||[]).length?'<div class="ask-staff"><strong>'+esc(copy("food.ask_staff","Nếu cần hỏi quán"))+'</strong><ul>'+
-      dish.ask_staff.map((x,i)=>'<li data-food-path="ask_staff.'+i+'">'+esc(x)+'</li>').join("")+
+      dish.ask_staff.map((x,i)=>'<li><span data-food-path="ask_staff.'+i+'">'+esc(x)+'</span></li>').join("")+
     '</ul></div>':"")+
   '</section>';
 }
@@ -155,7 +155,7 @@ function renderArticle(){
     ingredientsBlock(dish)+
     '<section><div class="food-section-label">'+esc(copy("food.how_to_eat","CÁCH ĂN"))+'</div><h2>'+esc(copy("food.how_to_eat_title","Ăn sao cho ngon?"))+'</h2><p data-food-path="how_to_eat">'+esc(dish.how_to_eat||"Ăn lúc món còn nóng; nêm theo khẩu vị riêng.")+'</p></section>'+
     '<section><div class="food-section-label">'+esc(copy("food.practical","LƯU Ý THỰC TẾ"))+'</div><h2>'+esc(copy("food.practical_title","Nhớ mấy chuyện này."))+'</h2><ul>'+
-      (dish.tips||[]).map((x,i)=>'<li data-food-path="tips.'+i+'">'+esc(x)+'</li>').join("")+
+      (dish.tips||[]).map((x,i)=>'<li><span data-food-path="tips.'+i+'">'+esc(x)+'</span></li>').join("")+
     '</ul></section>'+
     allergenBlock(dish)+
     gallery+

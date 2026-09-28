@@ -54,3 +54,9 @@ body.food-inline-editing .ingredient-grid .food-inline-trigger{grid-column:2;jus
  .food-inline-panel{margin:7px -3px 18px;padding:11px}
  .food-inline-launcher{font-size:12px;min-height:40px;padding:8px 10px}
 }
+
+.food-inline-notice{box-sizing:border-box;max-width:860px;margin:8px auto 22px;padding:11px 14px;
+border-radius:10px;background:#f1f7f0;color:#315b45;font:13px/1.5 system-ui,sans-serif}
+.food-inline-notice:empty{display:none}
+.food-inline-notice[data-kind=warn]{background:#fff2df;color:#924b26}
+body.food-inline-editing .ingredient-grid .food-inline-panel{grid-column:1/-1}

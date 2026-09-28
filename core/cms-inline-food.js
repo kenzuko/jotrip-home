@@ -43,6 +43,8 @@ async function get(url,init={}){
 function status(message,kind=""){
   const target=$("#foodInlineStatus");
   if(target){target.textContent=message;target.dataset.kind=kind;}
+  const notice=$("#foodInlineNotice");
+  if(notice){notice.textContent=state.editing?"":message;notice.dataset.kind=kind;}
 }
 function download(value){
   const blob=new Blob([JSON.stringify(value,null,2)],{type:"application/json;charset=utf-8"});
@@ -233,7 +235,10 @@ function toolbar(){
     '<button type="button" id="foodInlineRead">Đọc lại</button>'+
     '<button type="button" id="foodInlineSubmit">Gửi duyệt</button></div>'+
     '<p id="foodInlineStatus" role="status" aria-live="polite"></p>';
-  $(".food-article-main")?.prepend(bar);
+  const notice=document.createElement("p");
+  notice.id="foodInlineNotice";notice.className="food-inline-notice";
+  notice.setAttribute("role","status");
+  $(".food-article-main")?.prepend(bar,notice);
   $("#foodInlineSave").onclick=save;
   $("#foodInlineBackup").onclick=backup;
   $("#foodInlineRead").onclick=readAgain;
@@ -254,9 +259,9 @@ async function mount(){
 }
 function observe(){
   const host=$("#foodArticle");if(!host)return;
-  if(host.dataset.foodId){mount();return;}
+  if(host.dataset.foodId&&host.querySelector("h1")){mount();return;}
   const observer=new MutationObserver(()=>{
-    if(host.dataset.foodId){observer.disconnect();mount();}
+    if(host.dataset.foodId&&host.querySelector("h1")){observer.disconnect();mount();}
   });
   observer.observe(host,{subtree:true,childList:true,attributes:true,attributeFilter:["data-food-id"]});
 }
