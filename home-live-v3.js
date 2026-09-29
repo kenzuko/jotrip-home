@@ -979,10 +979,19 @@ function freshnessText(iso, prefix = "Cập nhật") {
       lastTickerDay = today;
       const dated = (notices?.notices || []).find(x => ["CANCELLED","BOOKING_FULL"].includes(x.status) && x.date === today);
       const ongoing = (notices?.notices || []).find(x => ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status) && (!x.effective_from || x.effective_from <= today) && !x.valid_until);
+      const todayNoon = Date.parse(today+"T12:00:00+07:00");
+      const upcoming = (notices?.notices || [])
+        .filter(x => ["CANCELLED","BOOKING_FULL"].includes(x.status) && /^\d{4}-\d{2}-\d{2}$/.test(String(x.date||"")) && x.date > today)
+        .map(x => ({...x,days_until:Math.round((Date.parse(x.date+"T12:00:00+07:00")-todayNoon)/86400000)}))
+        .filter(x => x.days_until >= 1 && x.days_until <= 14 && (!x.effective_from || x.effective_from <= today))
+        .sort((a,b) => a.days_until-b.days_until)[0] || null;
       const datedLabel = dated?.status === "BOOKING_FULL" ? "DINNER SHOW HÔM NAY" : "SHOW TỐI NAY";
       const datedHref = dated?.entity_id === "place_sunset_town" ? "places/detail.html?id=sunset-town" : "news/";
+      const upcomingHref = noticeHref(upcoming);
+      const upcomingLabel = upcoming ? "SẮP TỚI · " + upcoming.date.split("-").slice(1).reverse().join("/") : "";
       const datedLine = dated ? [[datedLabel, dated.title + " · Xem thông báo", datedHref]] :
-        ongoing ? [["SHOW", ongoing.title + " · Xem thông báo", "places/detail.html?id=sac-mau-venice"]] : [];
+        ongoing ? [["SHOW", ongoing.title + " · Xem thông báo", "places/detail.html?id=sac-mau-venice"]] :
+        upcoming ? [[upcomingLabel, upcoming.title + " · Xem thông báo", upcomingHref]] : [];
       renderTicker([...datedLine,...tickerBaseItems], (dated || ongoing) ? "watch" : (topAlert?.level || "normal"));
     };
     refreshDatedTicker();
