@@ -78,8 +78,8 @@ function mockDb(){
 const db=mockDb();
 const env={CMS_SESSION_SECRET:secret,CMS_DB:db};
 const SHA="a".repeat(40);
-function request(method="GET",body=null,{origin="https://cms.openphuquoc.com",cookie=true,pathName="data/content.json"}={}){
-  const url="https://cms.openphuquoc.com/api/cms/drafts?path="+encodeURIComponent(pathName);
+function request(method="GET",body=null,{origin="https://cms.openphuquoc.com",cookie=true,pathName="data/content.json",scope=""}={}){
+  const url="https://cms.openphuquoc.com/api/cms/drafts?path="+encodeURIComponent(pathName)+(scope?"&scope="+encodeURIComponent(scope):"");
   const headers={...(cookie?{cookie:"openpq_cms="+token}:{}),...(origin?{origin}:{}),...(body?{"content-type":"application/json"}:{})};
   return new Request(url,{method,headers,...(body?{body:JSON.stringify(body)}:{})});
 }
@@ -185,6 +185,25 @@ try{
     action:"save",module_id:"stories",path:"data/content.json",base_sha:SHA,data:firstData
   },{origin:"https://openphuquoc.com"}),env});
   assert.equal(crossSite.status,403);
+
+  const scopedData={stories:[{id:"one",title:"Scoped"}]};
+  const scoped=await onRequest({request:request("POST",{
+    action:"save",module_id:"stories",path:"data/content.json",scope:"story:one",base_sha:SHA,data:scopedData
+  },{scope:"story:one"}),env});
+  const scopedBody=await scoped.json();
+  assert.equal(scoped.status,200,JSON.stringify(scopedBody));
+  assert.equal(scopedBody.draft.scope,"story:one");
+  assert.equal(db.drafts.size,1,"Scoped draft must use an independent key after default draft was cleared");
+  const scopedGet=await onRequest({request:request("GET",null,{scope:"story:one"}),env});
+  assert.deepEqual((await scopedGet.json()).draft.data,scopedData);
+
+  const otherScope=await onRequest({request:request("GET",null,{scope:"story:two"}),env});
+  assert.equal((await otherScope.json()).draft,null,"Different scopes for the same source file must not collide");
+
+  const invalidScope=await onRequest({request:request("POST",{
+    action:"save",module_id:"stories",path:"data/content.json",scope:"../bad",base_sha:SHA,data:firstData
+  }),env});
+  assert.equal(invalidScope.status,400);
 
   const unsupported=await onRequest({request:request("POST",{
     action:"save",module_id:"secret",path:"../secret.json",base_sha:SHA,data:{x:1}

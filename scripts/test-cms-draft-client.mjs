@@ -43,6 +43,11 @@ const server=await store.load("data/content.json");
 assert.equal(server.ok,true);
 assert.equal(store.token("data/content.json"),"v1");
 
+const scoped=await store.load("data/content.json","story:one");
+assert.equal(scoped.ok,true);
+assert.ok(calls.at(-1).target.includes("scope=story%3Aone"));
+assert.equal(store.token("data/content.json","story:one"),"v1");
+
 const cmpSame=store.compare({
   localDraft:{sha:"a".repeat(40),data:currentDraft.data},
   serverDraft:currentDraft,baseSha:"a".repeat(40)
@@ -91,6 +96,17 @@ const cleared=await store.clear({path:"data/content.json"});
 assert.equal(cleared.ok,true);
 assert.equal(calls.at(-1).body.expected_version,"v3");
 assert.equal(store.token("data/content.json"),null);
+
+currentDraft={module_id:"stories",path:"data/content.json",base_sha:"a".repeat(40),
+  data:{stories:[{id:"one",title:"Scoped"}]},version:"sv1",updated_at:"2026-09-29T00:02:00.000Z"};
+await store.load("data/content.json","story:one");
+const scopedSaved=await store.save({
+  module:"stories",path:"data/content.json",scope:"story:one",baseSha:"a".repeat(40),
+  data:{stories:[{id:"one",title:"Scoped saved"}]}
+});
+assert.equal(scopedSaved.ok,true);
+assert.equal(calls.at(-1).body.scope,"story:one");
+assert.equal(store.token("data/content.json","story:one"),"v2");
 
 const freshWindow={};
 let writeCalls=0;

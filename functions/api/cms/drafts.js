@@ -12,8 +12,15 @@ function json(data,status=200){
   }});
 }
 
-function draftKey(login,path){
-  return String(login||"").toLowerCase()+"|"+String(path||"");
+function validScope(value){
+  const scope=String(value||"").trim();
+  return !scope||/^[a-zA-Z0-9][a-zA-Z0-9:_-]{0,119}$/.test(scope);
+}
+
+function draftKey(login,path,scope=""){
+  const base=String(login||"").toLowerCase()+"|"+String(path||"");
+  const suffix=String(scope||"").trim();
+  return suffix?base+"|"+suffix:base;
 }
 
 function validSha(value){
@@ -39,10 +46,11 @@ async function draftVersion(row){
   return [...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,"0")).join("");
 }
 
-async function draftView(row){
+async function draftView(row,scope=""){
   if(!row)return null;
   return{
     module_id:row.module_id,
+    scope:String(scope||""),
     path:row.path,
     base_sha:row.base_sha,
     data:parseData(row.data_json),
@@ -66,10 +74,10 @@ async function draftVersionConflict(current,body){
   return expected!==await draftVersion(current);
 }
 
-async function versionConflictResponse(db,key,current){
+async function versionConflictResponse(db,key,current,scope=""){
   return json({
     error:"Bản nháp server đã thay đổi ở nơi khác. Tải lại bản nháp để đối chiếu trước khi ghi tiếp.",
-    draft:await draftView(current),
+    draft:await draftView(current,scope),
     history:await history(db,key)
   },409);
 }
@@ -91,6 +99,8 @@ async function saveDraft({db,user,role,body}){
   const path=String(body.path||"");
   const moduleId=String(body.module_id||"");
   const baseSha=String(body.base_sha||"").toLowerCase();
+  const scope=String(body.scope||"").trim();
+  if(!validScope(scope))return json({error:"Phạm vi bản nháp không hợp lệ"},400);
   if(!cmsSupports(path,"draft"))return json({error:"Không hỗ trợ bản nháp cho tệp này"},400);
   if(!cmsCan(role,path,"draft"))return json({error:"Vai trò hiện tại không được lưu bản nháp module này"},403);
   if(!validModuleId(moduleId)||!validSha(baseSha)||!body.data||typeof body.data!=="object")
@@ -99,11 +109,11 @@ async function saveDraft({db,user,role,body}){
   const dataJson=JSON.stringify(body.data);
   if(dataJson.length>MAX_DRAFT_BYTES)return json({error:"Bản nháp vượt giới hạn CMS"},413);
 
-  const key=draftKey(user.login,path);
+  const key=draftKey(user.login,path,scope);
   const current=await currentDraft(db,key);
-  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
+  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current,scope);
   if(current&&current.base_sha===baseSha&&current.data_json===dataJson){
-    return json({ok:true,unchanged:true,draft:await draftView(current),history:await history(db,key)});
+    return json({ok:true,unchanged:true,draft:await draftView(current,scope),history:await history(db,key)});
   }
 
   const now=new Date().toISOString();
@@ -130,19 +140,21 @@ async function saveDraft({db,user,role,body}){
 
   await db.batch(statements);
   const saved=await currentDraft(db,key);
-  return json({ok:true,unchanged:false,revision_created:checkpoint,draft:await draftView(saved),history:await history(db,key)});
+  return json({ok:true,unchanged:false,revision_created:checkpoint,draft:await draftView(saved,scope),history:await history(db,key)});
 }
 
 async function restoreDraft({db,user,role,body}){
   const path=String(body.path||"");
+  const scope=String(body.scope||"").trim();
   const revisionId=String(body.revision_id||"");
+  if(!validScope(scope))return json({error:"Phạm vi bản nháp không hợp lệ"},400);
   if(!cmsSupports(path,"draft"))return json({error:"Không hỗ trợ bản nháp cho tệp này"},400);
   if(!cmsCan(role,path,"draft"))return json({error:"Vai trò hiện tại không được khôi phục bản nháp module này"},403);
   if(!validRevisionId(revisionId))return json({error:"Phiên bản nháp không hợp lệ"},400);
 
-  const key=draftKey(user.login,path);
+  const key=draftKey(user.login,path,scope);
   const current=await currentDraft(db,key);
-  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
+  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current,scope);
   const source=await db.prepare(
     "SELECT revision_id,draft_key,actor,module_id,path,base_sha,data_json,created_at FROM cms_draft_revisions WHERE draft_key=? AND revision_id=?"
   ).bind(key,revisionId).first();
@@ -162,16 +174,18 @@ async function restoreDraft({db,user,role,body}){
       "INSERT INTO cms_draft_audit (event_id,draft_key,actor,action,revision_id,base_sha,created_at) VALUES (?,?,?,?,?,?,?)"
     ).bind(crypto.randomUUID(),key,user.login,"restore",revisionId,source.base_sha,now)
   ]);
-  return json({ok:true,restored_from:revisionId,new_revision_id:newRevisionId,draft:await draftView(await currentDraft(db,key)),history:await history(db,key)});
+  return json({ok:true,restored_from:revisionId,new_revision_id:newRevisionId,draft:await draftView(await currentDraft(db,key),scope),history:await history(db,key)});
 }
 
 async function clearDraft({db,user,role,body}){
   const path=String(body.path||"");
+  const scope=String(body.scope||"").trim();
+  if(!validScope(scope))return json({error:"Phạm vi bản nháp không hợp lệ"},400);
   if(!cmsSupports(path,"draft"))return json({error:"Không hỗ trợ bản nháp cho tệp này"},400);
   if(!cmsCan(role,path,"draft"))return json({error:"Vai trò hiện tại không được xóa bản nháp module này"},403);
-  const key=draftKey(user.login,path);
+  const key=draftKey(user.login,path,scope);
   const current=await currentDraft(db,key);
-  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
+  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current,scope);
   if(current){
     const now=new Date().toISOString();
     await db.batch([
@@ -199,10 +213,12 @@ export async function onRequest({request,env}){
     if(request.method==="GET"){
       const url=new URL(request.url);
       const path=String(url.searchParams.get("path")||"");
+      const scope=String(url.searchParams.get("scope")||"").trim();
+      if(!validScope(scope))return json({error:"Phạm vi bản nháp không hợp lệ"},400);
       if(!cmsSupports(path,"draft"))return json({error:"Không hỗ trợ bản nháp cho tệp này"},400);
       if(!cmsCan(role,path,"draft"))return json({error:"Vai trò hiện tại không được xem bản nháp module này"},403);
-      const key=draftKey(user.login,path);
-      return json({draft:await draftView(await currentDraft(db,key)),history:await history(db,key),storage:"d1"});
+      const key=draftKey(user.login,path,scope);
+      return json({draft:await draftView(await currentDraft(db,key),scope),history:await history(db,key),storage:"d1"});
     }
 
     if(!sameOrigin(request,{allowMissing:false}))return json({error:"Origin không hợp lệ"},403);
@@ -218,4 +234,4 @@ export async function onRequest({request,env}){
   }
 }
 
-export const DRAFT_TEST={draftKey,validSha,validModuleId,canCheckpoint,draftVersion,draftView};
+export const DRAFT_TEST={draftKey,validSha,validModuleId,validScope,canCheckpoint,draftVersion,draftView};
