@@ -576,7 +576,9 @@ try {
         if (/google\.com\/maps|maps\.googleapis\.com|openstreetmap|mapbox/i.test(request.url())) externalMapRequests.push(request.url());
       });
       page.on('requestfailed', request => {
-        if (sameOrigin(request.url())) failedRequests.push({ url: request.url(), error: request.failure()?.errorText || 'request failed' });
+        const errorText=request.failure()?.errorText || 'request failed';
+        const benignLazyImageAbort=request.resourceType()==='image' && errorText==='net::ERR_ABORTED';
+        if (sameOrigin(request.url()) && !benignLazyImageAbort) failedRequests.push({ url: request.url(), error: errorText });
       });
       page.on('response', response => {
         if (sameOrigin(response.url()) && response.status() >= 400) {
