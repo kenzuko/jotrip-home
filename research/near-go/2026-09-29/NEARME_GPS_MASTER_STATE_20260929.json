@@ -1,0 +1,218 @@
+{
+  "schema_version": "1.1",
+  "audit_date": "2026-09-29",
+  "scope": "Open Phu Quoc Near Me GPS - non-hotel backlog",
+  "source_of_truth": {
+    "repo": "kenzuko/jotrip-home",
+    "main_sha": "276662971e25660722cf1a9cc4cdfe8809aa411f",
+    "checked_at": "2026-09-29T09:00:00+07:00"
+  },
+  "master_architecture": {
+    "public_canonical": "https://openphuquoc.com",
+    "public_runtime": "Cloudflare Worker openphuquoc-v3",
+    "www_behavior": "https://www.openphuquoc.com -> 301 https://openphuquoc.com",
+    "cms_origin": "https://cms.openphuquoc.com",
+    "cms_role": "CMS/admin + authenticated inline editing + internal APIs only; never treat as public origin",
+    "specialized_systems": [
+      "Weather",
+      "Airport",
+      "Transit"
+    ],
+    "rule": "Do not redesign, merge, or replace the specialized systems from this Near Me GPS workstream."
+  },
+  "current_counts": {
+    "location_index_total": 350,
+    "location_index_with_map": 236,
+    "map_coverage_candidates": 394,
+    "map_coverage_ready": 233,
+    "map_coverage_missing": 161,
+    "hotels_out_of_scope": 95,
+    "inherited_activities_counted_missing_by_canonical_coverage": 6,
+    "actual_nonhotel_without_map": 19,
+    "intentional_no_fixed_pin": 4,
+    "research_holds_remaining": 15
+  },
+  "completed_this_thread": [
+    {
+      "pr": 201,
+      "status": "MERGED",
+      "subject": "Suối Đá Bàn",
+      "decision": "ACCEPT area_anchor",
+      "coordinate": {
+        "lat": 10.2454375,
+        "lon": 104.027046875
+      },
+      "evidence": "Published destination Plus Code 62WG+5RF",
+      "note": "Area anchor only; not gate/parking/trailhead/waterfall access."
+    },
+    {
+      "pr": 205,
+      "status": "MERGED",
+      "subject": "Operator retail GPS batch 5",
+      "decision": "ACCEPT 5 site_centroid points from operator-linked Google Maps directions",
+      "entities": [
+        {
+          "id": "utility_tgdd_142a_ntr",
+          "lat": 10.22274,
+          "lon": 103.96282
+        },
+        {
+          "id": "utility_tgdd_104_304",
+          "lat": 10.213899,
+          "lon": 103.96638
+        },
+        {
+          "id": "utility_dmx_162_304",
+          "lat": 10.216806,
+          "lon": 103.97066
+        },
+        {
+          "id": "utility_dmx_107_nvc",
+          "lat": 10.019978,
+          "lon": 104.0165
+        },
+        {
+          "id": "utility_dienmaycholon_nguyen_trung_truc",
+          "lat": 10.2232312,
+          "lon": 103.9700297
+        }
+      ],
+      "note": "All are site centroids; none is claimed as exact entrance."
+    },
+    {
+      "pr": 200,
+      "status": "CLOSED_SUPERSEDED",
+      "subject": "Ridgeback Center area anchor",
+      "reason": "Later audit found unresolved old/new Thanh Nga site identity. Do not merge the old candidate."
+    }
+  ],
+  "inherited_activity_maps": [
+    {
+      "id": "activity_hon_thom",
+      "inherited_from": "place_aquatopia"
+    },
+    {
+      "id": "activity_symphony_of_the_sea",
+      "inherited_from": "place_sunset_town"
+    },
+    {
+      "id": "activity_kiss_of_the_sea",
+      "inherited_from": "place_sunset_town"
+    },
+    {
+      "id": "activity_tinh_hoa_viet_nam",
+      "inherited_from": "place_grand_world"
+    },
+    {
+      "id": "activity_once_show",
+      "inherited_from": "place_vinwonders"
+    },
+    {
+      "id": "activity_sac_mau_venice",
+      "inherited_from": "place_grand_world"
+    }
+  ],
+  "intentional_no_fixed_pin": [
+    {
+      "id": "utility_pqc_airport_atms",
+      "reason": "Aggregate terminal ATM directory item; no single machine is verified."
+    },
+    {
+      "id": "utility_luggage_whalelo_nightmarket",
+      "reason": "Booking-only pickup/service point; keep fixed pin absent until a stable public pickup location is exposed."
+    },
+    {
+      "id": "utility_luggage_whalelo_grandworld",
+      "reason": "Booking-only pickup/service point; keep fixed pin absent until a stable public pickup location is exposed."
+    },
+    {
+      "id": "utility_luggage_whalelo_sunset",
+      "reason": "Booking-only pickup/service point; keep fixed pin absent until a stable public pickup location is exposed."
+    }
+  ],
+  "research_holds": [
+    {
+      "id": "utility_dng_clinic_an_thoi",
+      "decision": "HOLD_OPERATOR_IDENTITY_STRONG_NO_REPRODUCIBLE_NUMERIC_COORDINATE",
+      "rejected": "10.019773,104.015735 belongs to a different clinic; footer map on DNG pages resolves to Dương Đông, not An Thới."
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "decision": "HOLD_EXACT_IDENTITY_ADDRESS_PHONE_NO_REPRODUCIBLE_NUMERIC_COORDINATE"
+    },
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "decision": "HOLD_NEEDS_BANK_OPERATOR_MAP",
+      "candidate": {
+        "lat": 10.0268439,
+        "lon": 104.0170526
+      },
+      "note": "Raw Geoapify matches building 199 Nguyễn Văn Cừ, KP8 but has no Vietcombank brand. Do not promote without bank/operator map evidence."
+    },
+    {
+      "id": "utility_longchau_an_thoi",
+      "decision": "HOLD_BRANCH_SPECIFIC_MAP_TARGET_NOT_EXPOSED"
+    },
+    {
+      "id": "utility_longchau_ham_ninh",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY"
+    },
+    {
+      "id": "utility_longchau_ben_tram",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY",
+      "note": "Do not conflate the Chợ Bến Tràm record with other Nguyễn Trung Trực branches."
+    },
+    {
+      "id": "utility_longchau_dt45",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY"
+    },
+    {
+      "id": "utility_longchau_ganh_dau",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY_AND_STATUS_SENSITIVE"
+    },
+    {
+      "id": "utility_longchau_suoi_da",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY_REJECT_WRONG_PHARMACY_POIS"
+    },
+    {
+      "id": "utility_longchau_tran_phu",
+      "decision": "HOLD_STREET_CONFLICT_NO_BRANCH_NUMERIC_MAP"
+    },
+    {
+      "id": "utility_fuel_dong_loi_1",
+      "decision": "HOLD_OFFICIAL_DIRECTORY_ADDRESS_ONLY_NO_REPRODUCIBLE_NUMERIC_SITE"
+    },
+    {
+      "id": "utility_parking_sunset_nightmarket",
+      "decision": "HOLD_FUNCTION_CONFIRMED_NO_DEDICATED_PARKING_GEOMETRY",
+      "note": "Do not substitute the night-market/venue anchor as a parking pin."
+    },
+    {
+      "id": "utility_toilet_sunset_venice_67",
+      "decision": "HOLD_HOUSE_NUMBER_BUSINESS_COLLISION",
+      "note": "A business at the same Venice house number does not establish the public toilet."
+    },
+    {
+      "id": "utility_toilet_sunset_venice_02",
+      "decision": "HOLD_HOUSE_NUMBER_BUSINESS_COLLISION",
+      "note": "A business at the same Venice house number does not establish the public toilet."
+    },
+    {
+      "id": "place_phu_quoc_ridgeback_center",
+      "decision": "HOLD_SITE_VERSION_IDENTITY_CONFLICT",
+      "note": "Resolve old/new Thanh Nga current visitor site before any coordinate promotion."
+    }
+  ],
+  "masterlock_rules": [
+    "Accuracy > coverage.",
+    "Do not invent coordinates.",
+    "Address match alone is not GPS evidence.",
+    "Do not use road/city/market centroids or nearby wrong-brand POIs as a facility pin.",
+    "Use honest precision labels such as exact_entrance, site_centroid, area_anchor, route_anchor.",
+    "GPS evidence does not imply operational status.",
+    "After any canonical promotion, rebuild location-index.json and map-coverage.json and run validation/Near Me/GO QA.",
+    "Do not modify UI as part of GPS research.",
+    "Do not pull the 95 hotel backlog into this non-hotel GPS workstream unless scope is explicitly changed."
+  ],
+  "state": "CHECKPOINT_COMPLETE_NO_UNCOMMITTED_CANONICAL_CHANGES"
+}
