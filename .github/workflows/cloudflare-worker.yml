@@ -23,6 +23,7 @@ on:
       - "guide/**"
       - "news/**"
       - "index.html"
+      - "home-*.js"
       - "home-live-v3.js"
       - "places/detail.js"
       - "styles.css"
