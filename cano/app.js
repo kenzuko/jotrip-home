@@ -15,7 +15,7 @@ function sourceText(x){
   const source=String(x?.source||"").toUpperCase(),tier=String(x?.source_tier||"").toUpperCase();
   if(source==="JOTRIP_FIELD_CONFIRMATION"||tier==="FIELD")return"JoTrip tại Phú Quốc";
   if(source==="PORT_CLEARANCE_KGG"||tier==="PERMIT_PORT")return"Giấy phép rời cảng";
-  if(source==="THANH_THOI_OPERATOR"||tier==="OPERATOR")return"Đơn vị vận hành";
+  if(source==="THANH_THOI_OPERATOR"||tier==="OPERATOR")return"Đơn vị phụ trách";
   return"Nguồn ghi nhận hôm nay";
 }
 function historySourceText(x){
@@ -48,8 +48,8 @@ async function load(){
   if(live.status==="fulfilled")renderLive(live.value);
   else{
    $("#liveState").textContent="Chưa tải được";
-   $("#heroTitle").textContent="Chưa xem được trạng thái cano hôm nay.";
-   $("#todayRows").innerHTML='<tr><td colspan="6" class="empty">Nguồn vận hành tạm thời không truy cập được.</td></tr>';
+   $("#heroTitle").textContent="Chưa xem được tình hình cano hôm nay.";
+   $("#todayRows").innerHTML='<tr><td colspan="6" class="empty">Nguồn cập nhật tạm thời không truy cập được.</td></tr>';
   }
   const base=history.status==="fulfilled"?history.value:{events:[]};
   const remote=archive.status==="fulfilled"?archive.value:null;
