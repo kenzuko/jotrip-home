@@ -153,7 +153,7 @@
         "Chợ truyền thống trung tâm giúp đọc nhịp sống, hải sản và sản vật địa phương"
       ],
       "watch_outs": [
-        "Giờ hoạt động, parking và điều kiện lối đi là dữ liệu vận hành cần tiếp tục xác minh"
+        "Giờ hoạt động, bãi đỗ xe và điều kiện lối đi là dữ liệu vận hành cần tiếp tục xác minh"
       ]
     },
     {
@@ -185,7 +185,7 @@
       "entity_id": "place_ham_ninh",
       "level": 2,
       "strengths": [
-        "Một lớp đời sống ven biển phía Đông, phù hợp kết hợp local life và ẩm thực"
+        "Một lớp đời sống ven biển phía Đông, phù hợp kết hợp đời sống địa phương và ẩm thực"
       ],
       "watch_outs": [
         "Cảnh quan và lối tiếp cận đã thay đổi; không dùng ảnh hoặc mô tả cũ như hiện trạng"
@@ -280,7 +280,7 @@
       "entity_id": "activity_seawalker",
       "level": 3,
       "strengths": [
-        "Tiếp cận trải nghiệm dưới nước với yêu cầu kỹ năng thấp hơn scuba"
+        "Tiếp cận trải nghiệm dưới nước với yêu cầu kỹ năng thấp hơn lặn bình khí"
       ],
       "watch_outs": [
         "Cần kiểm tra điều kiện sức khỏe, môi trường và cách tổ chức"
