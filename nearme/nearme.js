@@ -394,14 +394,14 @@
     if(item.verified!==false)return "";
     if(item.utility_type==="CHARGING")return "Điểm sạc do cộng đồng ghi nhận. Chưa xác nhận trạm hoạt động, quyền vào hoặc loại trụ. Hãy kiểm tra ứng dụng VinFast/V-Green trước khi đến.";
     if(item.utility_type==="FUEL")return "Cây xăng tham khảo từ OpenStreetMap, chưa xác nhận còn bán hoặc giờ hoạt động.";
-    if(item.utility_type==="PHARMACY")return "Nhà/quầy thuốc từ dữ liệu cộng đồng; chưa xác minh giấy phép hiện hành hoặc hoạt động thực tế.";
-    return "Địa điểm tham khảo từ cộng đồng; chưa xác minh đang hoạt động.";
+    if(item.utility_type==="PHARMACY")return "Nhà/quầy thuốc do cộng đồng đóng góp; chưa xác nhận giấy phép hiện tại hoặc tình trạng hoạt động.";
+    return "Địa điểm do cộng đồng đóng góp; chưa xác nhận còn hoạt động.";
   }
   function mapInfoLabel(item){
     const map=item.map||{};
     const precision=map.precision==="area_anchor"?"Pin định hướng khu vực":map.precision==="site_centroid"?"Tâm khuôn viên, có thể khác cổng vào":map.precision?"Độ chính xác: "+map.precision:"";
     const source=map.source&&!/^https?:\/\//i.test(map.source)?"Đối chiếu: "+map.source:"";
-    const date=map.verified_at?"Rà soát dữ liệu: "+map.verified_at:"";
+    const date=map.verified_at?"Kiểm tra lần cuối: "+map.verified_at:"";
     return [precision,source,date,map.note].filter(Boolean).join(" · ");
   }
   function typeLabel(item){
@@ -526,7 +526,7 @@
   }
 
   function weatherMessage(item){
-    if(!item)return "Chưa nhận được dữ liệu thời tiết cho điểm này.";
+    if(!item)return "Chưa có thông tin thời tiết cho điểm này.";
     if(item.status==="OK"&&item.temporal_coverage?.status==="IN_WINDOW_FRAMES"){
       const distances=(item.frames||[]).map(frame=>frame?.native_cell?.distance_from_target_km).filter(Number.isFinite);
       const distance=distances.length?"; ô lưới gần nhất cách "+Math.min(...distances).toFixed(1)+" km":"";
@@ -536,7 +536,7 @@
     }
     if(item.temporal_coverage?.status==="BRACKET_ONLY")
       return "Chỉ có mốc trước/sau khoảng xem, hệ thống không nội suy. Hãy kiểm tra trực tiếp trước khi đi.";
-    return "Chưa có dữ liệu dự báo đủ cho khoảng xem này. Danh sách địa điểm vẫn dùng bình thường.";
+    return "Chưa có đủ dự báo cho khoảng thời gian này. Danh sách địa điểm vẫn dùng bình thường.";
   }
 
   function directoryFallback(){
@@ -605,7 +605,7 @@
       const externalHref=exactEntrance
         ?"https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(x.lat+","+x.lon)
         :googleSearchUrl(exactMapQuery(x));
-      const address=x.address||"Chưa có địa chỉ chi tiết";
+      const address=x.address||"Chưa có địa chỉ đầy đủ";
       const unknownGroup=radiusKm!==null&&result.radiusUnknown&&index===result.radiusCount
         ?'<h3 class="near-unlocated-heading">Chưa xác định khoảng cách · không tính trong vòng '+radiusKm+' km</h3>':"";
       const loc=weatherLocation(x);
