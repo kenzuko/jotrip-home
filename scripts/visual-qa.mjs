@@ -83,6 +83,87 @@ async function settlePage(page) {
   await page.waitForTimeout(500);
 }
 
+async function testHomeArticleLinks(page) {
+  // Every homepage surface that visually presents editorial content as a card
+  // must expose a real, actionable link and a non-error same-origin target.
+  const groups=[
+    {name:"guide",selector:"#home-library a.home-library-card"},
+    {name:"curiosity",selector:"#curiosityRail a.curiosity-story-link"},
+    {name:"stories",selector:"#islandStoryGrid a.island-story-card"},
+    {name:"food",selector:"#foodNowGrid a[href*='/article.html'], #foodNowGrid a[href*='article.html']"},
+    {name:"news",selector:"#hotNowList a.hot-card"}
+  ];
+  await page.waitForFunction(()=>
+    document.querySelectorAll("#home-library a.home-library-card").length>=3 &&
+    document.querySelectorAll("#curiosityRail a.curiosity-story-link").length>=1 &&
+    document.querySelectorAll("#islandStoryGrid a.island-story-card").length>=1 &&
+    document.querySelectorAll("#hotNowList a.hot-card").length>=1,
+    {timeout:9000}).catch(()=>{});
+
+  const failures=[];
+  const detail={};
+  const uniqueArticleHrefs=new Set();
+  for(const group of groups){
+    const cards=page.locator(group.selector);
+    const count=await cards.count();
+    detail[group.name]={count,checked:0,failures:[]};
+    for(let i=0;i<count;i++){
+      const card=cards.nth(i);
+      if(!(await card.isVisible().catch(()=>false)))continue;
+      const href=await card.getAttribute("href");
+      const label=(await card.innerText().catch(()=>"")).trim().slice(0,100);
+      if(!href||href==="#"||href.startsWith("javascript:")){
+        const failure={group:group.name,index:i,label,href,reason:"missing-or-placeholder-href"};
+        failures.push(failure);detail[group.name].failures.push(failure);continue;
+      }
+      const absolute=new URL(href,page.url()).toString();
+      try{
+        await card.click({trial:true,timeout:3000});
+      }catch(error){
+        const failure={group:group.name,index:i,label,href,reason:"not-actionable",error:String(error.message||error).slice(0,220)};
+        failures.push(failure);detail[group.name].failures.push(failure);continue;
+      }
+      detail[group.name].checked++;
+      if(sameOrigin(absolute)){
+        const result=await page.evaluate(async url=>{
+          try{
+            const response=await fetch(url,{cache:"no-store",redirect:"follow"});
+            return {status:response.status,ok:response.ok,url:response.url};
+          }catch(error){return {status:0,ok:false,url,error:String(error)}}
+        },absolute);
+        if(!result.ok){
+          const failure={group:group.name,index:i,label,href,reason:"bad-target",status:result.status,url:result.url||absolute};
+          failures.push(failure);detail[group.name].failures.push(failure);
+        }
+      }
+      if(/\/(?:guide|stories|food)\/article\.html/.test(new URL(absolute).pathname))uniqueArticleHrefs.add(absolute);
+    }
+  }
+
+  // Deep-render every visible article link once on a desktop QA pass. HTTP 200
+  // alone is insufficient when the shell can load but client-side article lookup fails.
+  const deepFailures=[];
+  if(page.viewportSize()?.width===1440){
+    for(const href of uniqueArticleHrefs){
+      const probe=await page.context().newPage();
+      try{
+        const response=await probe.goto(href,{waitUntil:"domcontentloaded",timeout:15000});
+        await probe.waitForTimeout(700);
+        const body=(await probe.locator("body").innerText().catch(()=>"")).trim();
+        const bad=!response||response.status()>=400||
+          /Không tìm thấy bài viết|Bài này chưa được công khai hoặc không tồn tại|Không tìm thấy món/i.test(body)||
+          /Đang mở bài viết|Chờ một chút, câu chuyện đang mở|Chờ một chút, mình đang mở món này/i.test(body);
+        if(bad)deepFailures.push({href,status:response?.status()||0,body:body.slice(0,180)});
+      }catch(error){
+        deepFailures.push({href,status:0,error:String(error.message||error).slice(0,220)});
+      }finally{await probe.close();}
+    }
+  }
+  failures.push(...deepFailures.map(x=>({...x,group:"deep-render",reason:"article-did-not-render"})));
+  detail.deep={checked:page.viewportSize()?.width===1440?uniqueArticleHrefs.size:0,failures:deepFailures};
+  return {ok:failures.length===0,failures,detail};
+}
+
 async function inspectPage(page) {
   return page.evaluate(() => {
     const viewportWidth = window.innerWidth;
@@ -602,12 +683,15 @@ try {
 
       let mapCta = null;
       let homeFunctional = null;
+      let homeArticleLinks = null;
       let currencyFunctional = null;
       let utilitiesFunctional = null;
       let airportFunctional = null;
       let nearmeFunctional = null;
       let goFunctional = null;
       if (!navigationError && route.name === 'home') {
+        homeArticleLinks = await testHomeArticleLinks(page);
+        console.log('HOME_ARTICLE_LINKS', JSON.stringify(homeArticleLinks));
         homeFunctional = await testHomeFoundation(page);
         console.log('HOME_SECTION_SPACING', JSON.stringify(homeFunctional.spacing));
       }
@@ -646,6 +730,7 @@ try {
         pageErrors.length ? `${pageErrors.length} page error(s)` : null,
         failedRequests.length ? `${failedRequests.length} failed same-origin request(s)` : null,
         unexpectedBadResponses.length ? `${unexpectedBadResponses.length} bad same-origin response(s)` : null,
+        homeArticleLinks && !homeArticleLinks.ok ? `homepage article links failed: ${homeArticleLinks.failures.map(x=>x.group+":"+(x.href||x.label||x.reason)).join(",")}` : null,
         homeFunctional && !homeFunctional.ok ? `homepage functional checks failed: ${Object.entries(homeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         utilitiesFunctional && !utilitiesFunctional.ok ? `utilities functional checks failed: ${Object.entries(utilitiesFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         currencyFunctional && !currencyFunctional.ok ? `currency functional checks failed: ${Object.entries(currencyFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
@@ -666,6 +751,7 @@ try {
         inspection,
         mapCta,
         homeFunctional,
+        homeArticleLinks,
         currencyFunctional,
         utilitiesFunctional,
         airportFunctional,
