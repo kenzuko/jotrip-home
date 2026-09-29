@@ -245,6 +245,7 @@
   renderDayLeft();
   setTimeout(renderDayLeft, 500);
   window.addEventListener("openpq:live-ready", renderDayLeft);
+  window.addEventListener("openpq:sunset-updated", renderDayLeft);
   setInterval(renderDayLeft, 60000);
   renderFoodNow();
   renderIslandStories();
