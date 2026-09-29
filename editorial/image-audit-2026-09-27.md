@@ -145,3 +145,12 @@ The next pass checked whether a real photo actually illustrates the article subj
 - **Bánh canh ghẹ**: removed the Khải Hoàn-specific image and replaced it with a generic bánh canh ghẹ image from a Phú Quốc food article.
 - **Cá sòng**: removed Minos-specific imagery from both the food card and guide; replaced with the generic Cổng du lịch Phú Quốc cá sòng nướng image.
 - Added regression guards for Kiến Xây / Cây Xanh / Cô Thu / Thu Hạnh / Khải Hoàn / Minos on these generic food surfaces. Existing Sunset Town/VinWonders attraction imagery remains explicitly protected.
+
+
+## Correction 29/09/2026 - product/restaurant brand image audit wave 11
+- Re-checked `main` after wave 10 before making this pass. Canonical/Worker architecture remains locked to **openphuquoc.com / openphuquoc-v3**; Weather/Airport/Transit are untouched.
+- **Ăn sáng ở Phú Quốc**: removed the remaining Kiến Xây-specific bún quậy image and reused the brand-neutral UBND Đặc khu Phú Quốc bún quậy image.
+- **Tôm mũ ni nướng**: removed the MIA/KINGFISH-attributed image. Replaced with a generic Phú Quốc tôm mũ ni dish photo from a GoStay editorial article; no restaurant is named in the image record.
+- **Tôm tích rang muối**: removed the Cá Mú Đỏ product image. No exact, brand-neutral Phú Quốc dish photo met the current bar, so this card is deliberately photo-free rather than substituting a different cooking method or another restaurant.
+- **Hàu nướng mỡ hành**: removed the Ann Seafood/PATO restaurant-specific image. Replaced with a generic grilled-oyster image from a Bãi Khem Phú Quốc travel guide; caption does not attribute it to a restaurant.
+- Regression checks now block Kiến Xây / KINGFISH / Cá Mú Đỏ / Ann Seafood on these generic surfaces. Food coverage floor is quality-first and permits the tôm tích card to remain photo-free.
