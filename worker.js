@@ -141,6 +141,11 @@ export default {
       return Response.redirect(target.toString(),301);
     }
     const localeRoute=splitLocalePath(requestUrl.pathname);
+    if(localeRoute.defaultPrefixed){
+      const target=new URL(request.url);
+      target.pathname=localeRoute.pathname;
+      return Response.redirect(target.toString(),301);
+    }
     if(localeRoute.localized){
       if(!localeRoute.published)return localizedUnavailable();
       if(!technicalLocalizedAsset(localeRoute.pathname)&&!localeCanServe(localeRoute.locale,localeRoute.pathname))

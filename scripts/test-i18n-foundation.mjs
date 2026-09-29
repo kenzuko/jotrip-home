@@ -19,10 +19,15 @@ for(const row of rows){
 }
 const server=await import("data:text/javascript;base64,"+Buffer.from(readFileSync("functions/_shared/i18n.js","utf8")).toString("base64"));
 assert.equal(server.DEFAULT_LOCALE,"vi");
+assert.deepEqual(server.LOCALES.map(x=>({code:x.code,url_code:x.urlCode,html_lang:x.htmlLang,published:x.published,surfaces:[...x.surfaces]})),
+  rows.map(x=>({code:x.code,url_code:x.url_code,html_lang:x.html_lang,published:x.published,surfaces:x.surfaces})),
+  "Worker locale registry must stay exactly synchronized with data/i18n/locales.json");
 assert.equal(server.localizedPath("/stories/article.html","vi"),"/stories/article.html");
 assert.equal(server.localizedPath("/stories/article.html","en"),"/en/stories/article.html");
 assert.deepEqual(server.splitLocalePath("/en/stories/article.html").pathname,"/stories/article.html");
 assert.equal(server.splitLocalePath("/en/stories/article.html").published,false);
+assert.equal(server.splitLocalePath("/vi/stories/").defaultPrefixed,true);
+assert.equal(server.splitLocalePath("/vi/stories/").pathname,"/stories/");
 assert.equal(server.routeGroup("/stories/article.html"),"stories");
 assert.equal(server.localeCanServe("vi","/weather/"),true);
 assert.equal(server.localeCanServe("en","/stories/"),false);

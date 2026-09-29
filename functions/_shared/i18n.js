@@ -28,9 +28,10 @@ export function splitLocalePath(pathname){
   const m=/^\/([^/]+)(\/.*|$)/.exec(path);
   if(!m)return{locale:DEFAULT_LOCALE,localized:false,published:true,pathname:path||"/",prefix:""};
   const info=byUrl.get(String(m[1]||"").toLowerCase());
-  if(!info||info.code===DEFAULT_LOCALE)return{locale:DEFAULT_LOCALE,localized:false,published:true,pathname:path||"/",prefix:""};
+  if(!info)return{locale:DEFAULT_LOCALE,localized:false,published:true,pathname:path||"/",prefix:""};
   const rest=m[2]||"/";
-  return{locale:info.code,localized:true,published:info.published,pathname:rest.startsWith("/")?rest:"/"+rest,prefix:"/"+info.urlCode,info};
+  if(info.code===DEFAULT_LOCALE)return{locale:DEFAULT_LOCALE,localized:false,defaultPrefixed:true,published:true,pathname:rest.startsWith("/")?rest:"/"+rest,prefix:"/"+info.urlCode,info};
+  return{locale:info.code,localized:true,defaultPrefixed:false,published:info.published,pathname:rest.startsWith("/")?rest:"/"+rest,prefix:"/"+info.urlCode,info};
 }
 export function canonicalFor(pathname,locale=DEFAULT_LOCALE,origin="https://openphuquoc.com"){
   return new URL(localizedPath(pathname,locale),origin).toString();

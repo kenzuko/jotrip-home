@@ -20,8 +20,17 @@ for(const locale of locales){
   availability.knowledge[locale.code]=existsSync(knowledgeFile)?ids(read(knowledgeFile).objects||[],"topic_id"):[];
   availability.food[locale.code]=existsSync(foodFile)?ids(read(foodFile).dishes||[],"id"):[];
 }
+const totals={stories:availability.stories.vi.length,knowledge:availability.knowledge.vi.length,food:availability.food.vi.length};
+const coverage={};
+for(const locale of locales){
+  coverage[locale.code]={};
+  for(const kind of Object.keys(totals)){
+    const translated=(availability[kind]?.[locale.code]||[]).length,total=totals[kind];
+    coverage[locale.code][kind]={translated,total,percent:total?Math.round(translated*1000/total)/10:0};
+  }
+}
 const catalog={schema_version:"1.0",default_locale:manifest.default_locale||"vi",
   locales:locales.map(({code,url_code,html_lang,native_name,name,direction,published,surfaces})=>({code,url_code,html_lang,native_name,name,direction,published:Boolean(published),surfaces:Array.isArray(surfaces)?surfaces:[]})),
-  availability};
+  availability,coverage};
 writeFileSync(join(root,"data/i18n/catalog.json"),JSON.stringify(catalog,null,2)+"\n","utf8");
 console.log("i18n catalog ready:",locales.length,"locales;",locales.filter(x=>x.published).length,"published");
