@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "entity_id": "utility_parking_sunset_nightmarket",
+  "decision": "HOLD_NO_FIXED_PIN",
+  "evidence": [
+    {
+      "type": "OFFICIAL_SUNWORLD_DESTINATION",
+      "url": "https://sunworld.vn/vi/hon-thom/an-choi/cho-dem-vui-phet-vui-fest-bazaar-thien-duong-mua-sam-va-vui-choi-tai-phu-quoc-19264",
+      "fact": "Sun World identifies VUI-Fest Bazaar inside Sunset Town and its approach context, but does not provide a unique parking-lot coordinate."
+    },
+    {
+      "type": "OFFICIAL_SUNWORLD_PARKING_CONTEXT",
+      "url": "https://sunworld.vn/hon-thom/di-chuyen/kinh-nghiem-di-cap-treo-hon-thomhtml",
+      "fact": "Sun World confirms parking exists at the cable-car station area in Sunset Town, but this does not prove that point is the canonical night-market parking entity."
+    }
+  ],
+  "rejected_shortcuts": [
+    "Sunset Town centroid",
+    "VUI-Fest market centroid",
+    "Ga Ánh Dương/cable-car parking reused as night-market parking without identity proof"
+  ],
+  "safety": "Keep map=null until a distinct numeric parking POI or operator map identifies the specific night-market parking facility."
+}
