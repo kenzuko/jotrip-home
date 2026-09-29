@@ -1,0 +1,17 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+const mod=await import("data:text/javascript;base64,"+Buffer.from(readFileSync("functions/_shared/i18n-content.js","utf8")).toString("base64"));
+const baseStory={id:"x",title:"VI",dek:"gốc",image:"/x.jpg",sections:[{heading:"A",body:"B",image:"/b.jpg"}]};
+const translated=mod.mergeStory(baseStory,{id:"x",title:"EN",sections:[{heading:"H",body:"Body"}]});
+assert.equal(translated.title,"EN");
+assert.equal(translated.dek,"gốc","Untranslated text fields remain available only inside a translated record");
+assert.equal(translated.image,"/x.jpg","Translation overlay must not overwrite media/logic fields");
+assert.equal(translated.sections[0].image,"/b.jpg");
+assert.equal(translated.sections[0].heading,"H");
+assert.equal(mod.mergeStory(baseStory,{id:"other"}),null);
+const baseKnowledge={topic_id:"k",title:"VI",route:"/guide/article.html?id=k",editorial:{short_summary:"S",practical:"P",before_you_go:["A"]},media:{images:[{url:"/a.jpg",alt:"VI"}]}};
+const k=mod.mergeKnowledge(baseKnowledge,{topic_id:"k",title:"EN",editorial:{short_summary:"Summary",before_you_go:["B"]},media:{images:[{alt:"English alt"}]}});
+assert.equal(k.title,"EN");assert.equal(k.route,baseKnowledge.route);assert.equal(k.media.images[0].url,"/a.jpg");assert.equal(k.media.images[0].alt,"English alt");
+const list=mod.translatedStories({stories:[baseStory,{id:"y",title:"Y"}]},{stories:[{id:"x",title:"EN"}]});
+assert.deepEqual(list.stories.map(x=>x.id),["x"],"Non-default locale must not silently fall back to untranslated records");
+console.log("PASS i18n content overlays: stable IDs, text-only merge and fail-closed translated listings");
