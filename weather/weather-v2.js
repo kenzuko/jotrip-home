@@ -2869,7 +2869,7 @@ async function feedback(kind,button){
   }
 }
 function shareWeather(){
-  const shareUrl="https://cms.openphuquoc.com/weather/";
+  const shareUrl="https://openphuquoc.com/weather/";
   const data={title:"JoTrip Weather - Phú Quốc",text:"Theo dõi thời tiết hiện tại, biển, chất lượng không khí và Dự báo JoTrip 10 ngày cho Phú Quốc.",url:shareUrl};
   if(navigator.share){navigator.share(data).catch(()=>{})}
   else if(navigator.clipboard){navigator.clipboard.writeText(shareUrl).then(()=>{const b=$("shareWeather");if(b)b.textContent="Đã sao chép link"})}

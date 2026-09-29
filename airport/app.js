@@ -1,6 +1,7 @@
 const DATA_BASE='https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport';
 const LIVE_API_URL=(window.JOTRIP_LIVE_API_URL||'').replace(/\/$/,'');
-const AUTO_REFRESH_MS=60*1000;
+const VERSION_CHECK_MS=15*1000;
+const FALLBACK_REFRESH_MS=5*60*1000;
 const LIVE_TIMEOUT_MS=4500;
 const SNAPSHOT_TIMEOUT_MS=6500;
 async function fetchWithTimeout(url,init={},ms=LIVE_TIMEOUT_MS){
@@ -377,9 +378,15 @@ $('#refreshBtn').onclick=load;$('#mobileRefresh').onclick=load;
 $('#mobileFlights').onclick=()=>{setMode('live');document.querySelector('.card.live-only')?.scrollIntoView({behavior:'smooth',block:'start'});setTimeout(()=>$('#flightSearch')?.focus(),350)};
 $('#drawerBackdrop').onclick=closeDrawer;$('#drawerClose').onclick=closeDrawer;
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(!$('#flightDrawer').classList.contains('hidden'))closeDrawer();else if(document.activeElement===$('#flightSearch')){$('#flightSearch').value='';state.query='';renderFlights();}}});
-document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){if(Date.now()-state.lastFetchAt>60*1000)load();else checkLiveVersion()}});
-window.addEventListener('online',load);
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState!=='visible')return;
+  if(Date.now()-state.lastFetchAt>FALLBACK_REFRESH_MS)load();
+  else checkLiveVersion();
+});
+window.addEventListener('online',()=>{if(document.visibilityState==='visible')load()});
 load();
-setInterval(()=>checkLiveVersion(),15*1000);
-setInterval(()=>load(),AUTO_REFRESH_MS);
+setInterval(()=>checkLiveVersion(),VERSION_CHECK_MS);
+setInterval(()=>{
+  if(document.visibilityState==='visible'&&Date.now()-state.lastFetchAt>=FALLBACK_REFRESH_MS)load();
+},FALLBACK_REFRESH_MS);
 setInterval(()=>{if(state.latest){renderSummary();renderHealth();renderNextWindow();renderWatch()}},60000);

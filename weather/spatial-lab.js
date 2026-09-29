@@ -60,6 +60,8 @@ const state={
   currentRows:null,
   currentFrame:null,
   loading:false,
+  runtimeRefreshing:false,
+  lastRuntimeRefreshAt:0,
   userSelectedLayer:false
 };
 
@@ -2006,14 +2008,11 @@ function bind(){
   addEventListener("resize",()=>{renderField();renderUncertainty();resetParticles()},{passive:true});
 }
 
-async function start(){
-  if(EMBED){
-    document.body.classList.add("embed-mode");
-    state.risk=false;
-    state.actual=false;
-  }
-  initMap();bind();setCrosshair(true);applyPresentationScene();await loadAll();
-  setInterval(async()=>{
+const RUNTIME_REFRESH_MS=2*60*1000;
+async function refreshRuntime(){
+  if(state.runtimeRefreshing||document.visibilityState==="hidden")return;
+  state.runtimeRefreshing=true;
+  try{
     const [nowcast,marine,critical,forecast,current,feedback]=await Promise.all([
       optional(URLS.nowcast),optional(URLS.marine),optional(URLS.critical),optional(URLS.forecast),optional(URLS.current),optional(URLS.feedback)
     ]);
@@ -2025,7 +2024,23 @@ async function start(){
     if(feedback)state.fieldFeedback=feedback;
     if(state.critical&&state.currentBundle)overlayCurrentBundle(state.critical,state.currentBundle);
     setStatus();renderAlert();renderRisk();renderActual();renderAll(false);
-  },2*60*1000);
+    state.lastRuntimeRefreshAt=Date.now();
+  }finally{
+    state.runtimeRefreshing=false;
+  }
+}
+async function start(){
+  if(EMBED){
+    document.body.classList.add("embed-mode");
+    state.risk=false;
+    state.actual=false;
+  }
+  initMap();bind();setCrosshair(true);applyPresentationScene();await loadAll();
+  state.lastRuntimeRefreshAt=Date.now();
+  setInterval(()=>{if(document.visibilityState==="visible")refreshRuntime()},RUNTIME_REFRESH_MS);
+  document.addEventListener("visibilitychange",()=>{
+    if(document.visibilityState==="visible"&&Date.now()-state.lastRuntimeRefreshAt>=RUNTIME_REFRESH_MS)refreshRuntime();
+  });
 }
 
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",start);else start();

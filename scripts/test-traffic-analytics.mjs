@@ -20,7 +20,7 @@ const db={
 };
 const today=new Date(Date.now()+7*3600000).toISOString().slice(0,10);
 const past=n=>new Date(Date.parse(today+"T00:00:00Z")-n*86400000).toISOString().slice(0,10);
-const origin="https://cms.openphuquoc.com",endpoint=origin+"/api/cms/traffic";
+const origin="https://openphuquoc.com",endpoint=origin+"/api/cms/traffic";
 const env={CMS_DB:db,CMS_SESSION_SECRET:"example-session-secret-for-tests"};
 const valid={event:"page_view",path:"/",device:"mobile",referrer:"chatgpt.com"};
 const eventReq=(item=valid,from=origin)=>new Request(origin+"/api/traffic/collect",{

@@ -1331,68 +1331,84 @@ function enforceSceneFreshness(){
   }
 }
 
-async function refreshCanonicalRuntime(){
-  try{
-    const manifest=await fetchCanonical(URLS.manifest);
-    const before=JSON.stringify(state.runtimeManifest?.source_times||{});
-    const after=JSON.stringify(manifest?.source_times||{});
-    if(before===after){
-      // The CMS data edge updates independently of the deployed build manifest.
-      // Every 2-minute tick also checks newer forecast, marine and source cycles:
-      // a delayed GitHub Pages deployment must never freeze the displayed map.
-      const [cloud,compact,current,forecast,meta,marine]=await Promise.allSettled([
-        fetchCanonical(URLS.nowcast),fetchCanonical(URLS.compact),fetchCanonical(URLS.current),
-        fetchCanonical(URLS.ecmwf),fetchCanonical(URLS.dashboard),fetchCanonical(URLS.marine)
-      ]);
-      const newer=(candidate,existing,field)=>candidate?.status==="POINT_NUMERIC_READY"&&
-        Number.isFinite(Date.parse(candidate?.[field]||""))&&
-        Date.parse(candidate[field])>Date.parse(existing?.[field]||0);
-      let changed=false;
-      if(cloud.status==="fulfilled"&&newer(cloud.value,state.nowcast,"sampled_time")){
-        state.nowcast=cloud.value;state.sources.nowcast=true;changed=true;
-      }
-      if(compact.status==="fulfilled"&&newer(compact.value,state.compact,"sampled_time")){
-        state.compact=compact.value;state.sources.compact=true;changed=true;
-      }
-      if(current.status==="fulfilled"&&
-         Date.parse(current.value?.local_now?.generated_at||0)>Date.parse(state.current?.local_now?.generated_at||0)){
-        state.current=current.value;state.sources.current=true;changed=true;
-      }
-      if(forecast.status==="fulfilled"&&newerRuntimeForecast(forecast.value,state.ecmwf)){
-        state.ecmwf=forecast.value;state.sources.ecmwf=true;changed=true;
-      }
-      if(marine.status==="fulfilled"&&newerMarineWave(marine.value,state.marine)){
-        state.marine=marine.value;state.sources.marine=true;changed=true;
-      }
-      if(meta.status==="fulfilled"&&newerDashboard(meta.value,state.dashboard,state.ecmwf)){
-        state.dashboard=meta.value;state.sources.dashboard=true;changed=true;
-      }
-      if(changed){
-        setTabAvailability();
-        if(sceneAvailable(state.scene))setScene(state.scene);
-        else if(sceneAvailable("cloud"))setScene("cloud");
-      }
-      enforceSceneFreshness();
-      return;
-    }
-    const [n,c,cur,e,d,m]=await Promise.allSettled([
-      fetchCanonical(URLS.nowcast),fetchCanonical(URLS.compact),fetchCanonical(URLS.current),
-      fetchCanonical(URLS.ecmwf),fetchCanonical(URLS.dashboard),fetchCanonical(URLS.marine)
-    ]);
-    state.runtimeManifest=manifest;
-    if(n.status==="fulfilled")state.nowcast=n.value;
-    if(c.status==="fulfilled")state.compact=c.value;
-    if(cur.status==="fulfilled")state.current=cur.value;
-    if(e.status==="fulfilled"&&newerRuntimeForecast(e.value,state.ecmwf))state.ecmwf=e.value;
-    if(d.status==="fulfilled"&&newerDashboard(d.value,state.dashboard,state.ecmwf))state.dashboard=d.value;
-    if(m.status==="fulfilled"&&newerMarineWave(m.value,state.marine))state.marine=m.value;
+const SCENE_FAST_REFRESH_MS=2*60*1000;
+const SCENE_SLOW_REFRESH_MS=10*60*1000;
+let lastSceneFastRefreshAt=0,lastSceneSlowRefreshAt=0;
+let sceneFastRefreshBusy=false,sceneSlowRefreshBusy=false;
+
+function applySceneRefresh(changed){
+  if(changed){
     setTabAvailability();
-    let next=state.scene;
-    if(!sceneAvailable(next))next=sceneAvailable("cloud")?"cloud":sceneAvailable("rain")?"rain":sceneAvailable("wind")?"wind":"wave";
-    if(sceneAvailable(next))setScene(next);
-    enforceSceneFreshness();
+    if(sceneAvailable(state.scene))setScene(state.scene);
+    else if(sceneAvailable("cloud"))setScene("cloud");
+  }
+  enforceSceneFreshness();
+}
+function newerPointRuntime(candidate,existing,field){
+  return candidate?.status==="POINT_NUMERIC_READY"&&
+    Number.isFinite(Date.parse(candidate?.[field]||""))&&
+    Date.parse(candidate[field])>Date.parse(existing?.[field]||0);
+}
+async function refreshFastRuntime(){
+  if(sceneFastRefreshBusy||document.visibilityState==="hidden")return;
+  sceneFastRefreshBusy=true;
+  try{
+    const [cloud,compact,current]=await Promise.allSettled([
+      fetchCanonical(URLS.nowcast),fetchCanonical(URLS.compact),fetchCanonical(URLS.current)
+    ]);
+    let changed=false;
+    if(cloud.status==="fulfilled"&&newerPointRuntime(cloud.value,state.nowcast,"sampled_time")){
+      state.nowcast=cloud.value;state.sources.nowcast=true;changed=true;
+    }
+    if(compact.status==="fulfilled"&&newerPointRuntime(compact.value,state.compact,"sampled_time")){
+      state.compact=compact.value;state.sources.compact=true;changed=true;
+    }
+    if(current.status==="fulfilled"&&
+       Date.parse(current.value?.local_now?.generated_at||0)>Date.parse(state.current?.local_now?.generated_at||0)){
+      state.current=current.value;state.sources.current=true;changed=true;
+    }
+    lastSceneFastRefreshAt=Date.now();
+    applySceneRefresh(changed);
+  }catch(e){
+    console.warn("[Weather Scene] fast runtime refresh",e);
+  }finally{
+    sceneFastRefreshBusy=false;
+  }
+}
+
+async function refreshCanonicalRuntime(){
+  if(sceneSlowRefreshBusy||document.visibilityState==="hidden")return;
+  sceneSlowRefreshBusy=true;
+  try{
+    const [manifest,forecast,meta,marine]=await Promise.allSettled([
+      fetchCanonical(URLS.manifest),fetchCanonical(URLS.ecmwf),
+      fetchCanonical(URLS.dashboard),fetchCanonical(URLS.marine)
+    ]);
+    let changed=false;
+    if(manifest.status==="fulfilled"){
+      const value=manifest.value;
+      if(value?.policy?.browser_fallback==="DISABLED"&&value?.policy?.frontend_source==="SAME_ORIGIN_CANONICAL_ONLY"){
+        const before=JSON.stringify(state.runtimeManifest?.source_times||{});
+        const after=JSON.stringify(value?.source_times||{});
+        state.runtimeManifest=value;state.sources.manifest=true;
+        changed=changed||before!==after;
+      }
+    }
+    if(forecast.status==="fulfilled"&&newerRuntimeForecast(forecast.value,state.ecmwf)){
+      state.ecmwf=forecast.value;state.sources.ecmwf=true;changed=true;
+    }
+    if(marine.status==="fulfilled"&&newerMarineWave(marine.value,state.marine)){
+      state.marine=marine.value;state.sources.marine=true;changed=true;
+    }
+    if(meta.status==="fulfilled"&&newerDashboard(meta.value,state.dashboard,state.ecmwf)){
+      state.dashboard=meta.value;state.sources.dashboard=true;changed=true;
+    }
+    lastSceneSlowRefreshAt=Date.now();
+    applySceneRefresh(changed);
   }catch(e){
     console.warn("[Weather Scene] runtime refresh",e);
+  }finally{
+    sceneSlowRefreshBusy=false;
   }
 }
 
@@ -1439,9 +1455,17 @@ async function boot(){
   }else{
     $("loading").textContent="Chưa có nguồn dữ liệu nào đủ mới để dựng Weather Scene.";
   }
-  setInterval(()=>{if(document.visibilityState==="visible")refreshCanonicalRuntime()},2*60*1000);
+  lastSceneFastRefreshAt=Date.now();
+  lastSceneSlowRefreshAt=Date.now();
+  setInterval(()=>{if(document.visibilityState==="visible")refreshFastRuntime()},SCENE_FAST_REFRESH_MS);
+  setInterval(()=>{if(document.visibilityState==="visible")refreshCanonicalRuntime()},SCENE_SLOW_REFRESH_MS);
   setInterval(()=>{if(document.visibilityState==="visible")enforceSceneFreshness()},60*1000);
-  document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")refreshCanonicalRuntime()});
+  document.addEventListener("visibilitychange",()=>{
+    if(document.visibilityState!=="visible")return;
+    const now=Date.now();
+    if(now-lastSceneFastRefreshAt>=SCENE_FAST_REFRESH_MS)refreshFastRuntime();
+    if(now-lastSceneSlowRefreshAt>=SCENE_SLOW_REFRESH_MS)refreshCanonicalRuntime();
+  });
 }
 
 boot();
