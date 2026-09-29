@@ -1,0 +1,85 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "entity_id": "utility_toilet_sunset_venice_02",
+  "decision": "ACCEPT_SITE_CENTROID",
+  "accepted_coordinate": {
+    "lat": 10.0300503,
+    "lon": 104.0063604
+  },
+  "precision": "site_centroid",
+  "evidence": [
+    {
+      "type": "STRUCTURED_BUSINESS_MAP",
+      "google_place_id": "ChIJ2aIjdACVpzER_zly-E9hYs8",
+      "fact": "Exact restroom entity is addressed as 02 Đường Venice, khu Sunset Town."
+    },
+    {
+      "type": "TRILATERATION_CHECKS",
+      "probes": [
+        {
+          "lat": 10.0262625,
+          "lon": 104.0071406,
+          "distance_m": 430
+        },
+        {
+          "lat": 10.0302625,
+          "lon": 104.0071406,
+          "distance_m": 88
+        },
+        {
+          "lat": 10.0302625,
+          "lon": 104.0031406,
+          "distance_m": 353
+        },
+        {
+          "lat": 10.0300503,
+          "lon": 104.0063604,
+          "distance_m": 2
+        }
+      ],
+      "fact": "Independent probes converge on the same exact Place ID; accepted point returned 2 m."
+    }
+  ],
+  "safety": "GPS identifies the mapped restroom site only. Keep verified=false and operational_status=UNKNOWN; do not claim current access, hours or exact doorway.",
+  "source_audit": {
+    "verified_identity": true,
+    "verified_operation": false,
+    "verified_entrance": false
+  },
+  "incremental_delta": {
+    "location_index_with_map": [
+      243,
+      244
+    ],
+    "map_coverage_ready": [
+      240,
+      241
+    ],
+    "map_coverage_missing": [
+      154,
+      153
+    ],
+    "research_holds": [
+      8,
+      7
+    ]
+  },
+  "cumulative_from_main_baseline": {
+    "location_index_with_map": [
+      236,
+      244
+    ],
+    "map_coverage_ready": [
+      233,
+      241
+    ],
+    "map_coverage_missing": [
+      161,
+      153
+    ],
+    "intentional_no_fixed_pin": 4
+  },
+  "latest_main_checked_sha": "f2d365f7bb35356b0dc050791d4210cb8aabd5cc"
+}
