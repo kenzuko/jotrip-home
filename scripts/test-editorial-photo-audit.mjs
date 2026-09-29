@@ -15,8 +15,9 @@ assert.ok(html.includes('/assets/media/editorial-tropical-beach.jpg'));
 assert.ok(html.includes('/assets/media/editorial-ho-quoc-detail.jpg'));
 assert.ok(!html.includes('<img loading="lazy" src="/assets/photos/starfish-beach-jo-library.jpg"'),'No starfish-on-sand promotion');
 assert.match(visual.places.place_grand_world.images[0].url,/editorial-grand-world-canal-day/);
+assert.equal(visual.places.place_grand_world.images[0].scope,'exact_subject','Grand World lead must be an exact-subject image');
 assert.equal(visual.places.activity_tour_3_islands.images[0].source_label,'JoTrip','Preserve actual JoTrip tour image as lead');
-assert.equal(visual.knowledge['knowledge_124_cano-3-dao'].images[0].scope,'context','Unverified island location must be marked context');
+assert.ok(['context','activity_context'].includes(visual.knowledge['knowledge_124_cano-3-dao'].images[0].scope),'Unverified island location must stay non-specific context');
 for(const slug of ['regent','salinda-resort']){
  const h=hotels.find(x=>x.slug===slug);
  assert.ok(h?.editorial_photo?.url?.startsWith('/assets/media/'),'Hotel photo with matching slug '+slug);
@@ -24,5 +25,7 @@ for(const slug of ['regent','salinda-resort']){
  assert.equal(h.editorial_photo.source_verified,false,'Do not claim unverified ownership or license');
 }
 assert.match(visual.places.place_aquatopia.images[0].url,/editorial-aquatopia-aerial/);
-assert.match(visual.places.place_bai_sao.images[0].url,/editorial-bai-sao-local/);
+assert.equal(visual.places.place_aquatopia.images[0].scope,'exact_subject','Aquatopia lead must be an exact-subject image');
+assert.match(visual.places.place_bai_sao.images[0].url,/B%C3%A3i%20Sao%20Beach/);
+assert.equal(visual.places.place_bai_sao.images[0].rights_status,'CC_VERIFIED','Bãi Sao replacement must keep verified reuse rights');
 console.log('Editorial image QA passed: full non-slideshow refresh, no Shutterstock, matching subjects, local assets, source caveats, and intact JoTrip tour lead.');
