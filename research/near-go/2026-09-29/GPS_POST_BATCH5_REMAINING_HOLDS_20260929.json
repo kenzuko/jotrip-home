@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "current_main_sha": "7737d2409a6802917470d14b5d55211ddf097847",
+  "scope": "Near Me non-hotel GPS cleanup only",
+  "current_state": {
+    "location_index_with_map": 236,
+    "map_coverage_candidates": 394,
+    "map_coverage_ready": 233,
+    "map_coverage_missing_total": 161,
+    "hotels_out_of_scope": 95,
+    "inherited_activity_canonical_missing": 6,
+    "actual_canonical_nonhotel_no_map": 19,
+    "intentional_no_fixed_pin": 4,
+    "actionable_or_research_holds": 15
+  },
+  "accounting_note": "Six fixed activities are counted missing by canonical map-coverage because the activity entities themselves have no map, but location-index already inherits safe venue maps from their related place entities. Do not duplicate parent coordinates into canonical activities merely to improve coverage totals.",
+  "inherited_activity_maps": [
+    {
+      "entity_id": "activity_hon_thom",
+      "inherited_from": "place_aquatopia"
+    },
+    {
+      "entity_id": "activity_symphony_of_the_sea",
+      "inherited_from": "place_sunset_town"
+    },
+    {
+      "entity_id": "activity_kiss_of_the_sea",
+      "inherited_from": "place_sunset_town"
+    },
+    {
+      "entity_id": "activity_tinh_hoa_viet_nam",
+      "inherited_from": "place_grand_world"
+    },
+    {
+      "entity_id": "activity_once_show",
+      "inherited_from": "place_vinwonders"
+    },
+    {
+      "entity_id": "activity_sac_mau_venice",
+      "inherited_from": "place_grand_world"
+    }
+  ],
+  "promoted_in_batch5": [
+    "utility_tgdd_142a_ntr",
+    "utility_tgdd_104_304",
+    "utility_dmx_162_304",
+    "utility_dmx_107_nvc",
+    "utility_dienmaycholon_nguyen_trung_truc"
+  ],
+  "intentional_no_fixed_pin": [
+    {
+      "entity_id": "utility_pqc_airport_atms",
+      "reason": "Aggregate terminal ATM availability; no specific machine verified."
+    },
+    {
+      "entity_id": "utility_luggage_whalelo_nightmarket",
+      "reason": "Booking-only service; actual pickup point disclosed/confirmed after booking."
+    },
+    {
+      "entity_id": "utility_luggage_whalelo_grandworld",
+      "reason": "Booking-only service; actual pickup point disclosed/confirmed after booking."
+    },
+    {
+      "entity_id": "utility_luggage_whalelo_sunset",
+      "reason": "Booking-only service; actual pickup point disclosed/confirmed after booking."
+    }
+  ],
+  "remaining_holds": [
+    {
+      "entity_id": "utility_dng_clinic_an_thoi",
+      "decision": "HOLD_OPERATOR_IDENTITY_STRONG_NO_REPRODUCIBLE_NUMERIC_COORDINATE",
+      "note": "Official DNG pages and current business entity agree on S259-S354 Sun Grand City. Directions shortlink exists but numeric target is not reproducibly exposed. Reject old wrong-brand clinic coordinate."
+    },
+    {
+      "entity_id": "utility_minimart_one_mart_duong_dong",
+      "decision": "HOLD_IDENTITY_ADDRESS_STRONG_NO_REPRODUCIBLE_NUMERIC_COORDINATE",
+      "note": "Exact address and phone strongly cross-checked; no numeric operator/map point yet."
+    },
+    {
+      "entity_id": "utility_vcb_atm_an_thoi",
+      "decision": "HOLD_STRONG_GEOCODER_CANDIDATE_NEEDS_BANK_MAP",
+      "note": "Do not replay cached geocoder candidate 10.0268439,104.0170526 without bank/operator map confirmation."
+    },
+    {
+      "entity_id": "utility_longchau_an_thoi",
+      "decision": "HOLD_BRANCH_SPECIFIC_MAP_TARGET_NOT_EXPOSED",
+      "note": "Official 46 Nguyễn Văn Cừ page includes map/directions surface but numeric target is not exposed by current extraction."
+    },
+    {
+      "entity_id": "utility_longchau_ham_ninh",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY"
+    },
+    {
+      "entity_id": "utility_longchau_ben_tram",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY",
+      "note": "Current directory still lists 487 Nguyễn Trung Trực / Chợ Bến Tràm. Do not conflate with separate 327 Nguyễn Trung Trực branch."
+    },
+    {
+      "entity_id": "utility_longchau_dt45",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY"
+    },
+    {
+      "entity_id": "utility_longchau_ganh_dau",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY_AND_STATUS_SENSITIVE"
+    },
+    {
+      "entity_id": "utility_longchau_suoi_da",
+      "decision": "HOLD_OPERATOR_ADDRESS_ONLY_REJECT_WRONG_PHARMACY_POIS"
+    },
+    {
+      "entity_id": "utility_longchau_tran_phu",
+      "decision": "HOLD_STREET_CONFLICT_NO_BRANCH_NUMERIC_MAP",
+      "note": "42 Trần Phú identity is official; same-house-number candidates on unrelated features remain rejected."
+    },
+    {
+      "entity_id": "utility_fuel_dong_loi_1",
+      "decision": "HOLD_OFFICIAL_DIRECTORY_ADDRESS_ONLY",
+      "note": "Exact operator/local directory name and phone known; no reproducible numeric site coordinate."
+    },
+    {
+      "entity_id": "utility_parking_sunset_nightmarket",
+      "decision": "HOLD_FUNCTION_CONFIRMED_NO_DEDICATED_PARKING_GEOMETRY",
+      "note": "Operator confirms parking adjacent to/around night market entrance. Do not substitute VUI-Fest market Plus Code as a parking pin."
+    },
+    {
+      "entity_id": "utility_toilet_sunset_venice_67",
+      "decision": "HOLD_HOUSE_NUMBER_BUSINESS_COLLISION",
+      "note": "Exact-house-number business results do not establish the public toilet."
+    },
+    {
+      "entity_id": "utility_toilet_sunset_venice_02",
+      "decision": "HOLD_HOUSE_NUMBER_BUSINESS_COLLISION",
+      "note": "Exact-house-number business results do not establish the public toilet."
+    },
+    {
+      "entity_id": "place_phu_quoc_ridgeback_center",
+      "decision": "HOLD_SITE_VERSION_IDENTITY_CONFLICT",
+      "note": "Old/new Thanh Nga sites must be resolved before any coordinate promotion."
+    }
+  ],
+  "next_priority": [
+    "Extract reproducible numeric operator-map target for DNG An Thới.",
+    "Extract branch-specific map coordinates for Long Châu; never use generic pharmacy/house-number candidates.",
+    "Obtain bank/operator map confirmation for Vietcombank An Thới.",
+    "Find a numeric named-map point for One Mart exact branch.",
+    "Only revisit Sunset parking/toilets if evidence identifies the correct facility function, not merely the surrounding market/building."
+  ],
+  "canonical_modified": false,
+  "derived_views_modified": false,
+  "deploy_triggered": false
+}
