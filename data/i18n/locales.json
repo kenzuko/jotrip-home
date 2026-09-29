@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "default_locale": "vi",
+  "url_strategy": "default-unprefixed",
+  "fallback_locale": "vi",
+  "locales": [
+    {
+      "code": "vi",
+      "url_code": "vi",
+      "html_lang": "vi-VN",
+      "native_name": "Tiếng Việt",
+      "name": "Vietnamese",
+      "direction": "ltr",
+      "published": true
+    },
+    {
+      "code": "en",
+      "url_code": "en",
+      "html_lang": "en",
+      "native_name": "English",
+      "name": "English",
+      "direction": "ltr",
+      "published": false
+    },
+    {
+      "code": "ko",
+      "url_code": "ko",
+      "html_lang": "ko",
+      "native_name": "한국어",
+      "name": "Korean",
+      "direction": "ltr",
+      "published": false
+    },
+    {
+      "code": "ru",
+      "url_code": "ru",
+      "html_lang": "ru",
+      "native_name": "Русский",
+      "name": "Russian",
+      "direction": "ltr",
+      "published": false
+    },
+    {
+      "code": "zh-Hant",
+      "url_code": "zh-hant",
+      "html_lang": "zh-Hant",
+      "native_name": "繁體中文",
+      "name": "Traditional Chinese",
+      "direction": "ltr",
+      "published": false
+    },
+    {
+      "code": "zh-Hans",
+      "url_code": "zh-hans",
+      "html_lang": "zh-Hans",
+      "native_name": "简体中文",
+      "name": "Simplified Chinese",
+      "direction": "ltr",
+      "published": false
+    }
+  ],
+  "resources": {
+    "ui": "ui.json",
+    "stories": "stories.json",
+    "knowledge": "knowledge.json",
+    "food": "food.json",
+    "place_explainers": "place-explainers.json"
+  },
+  "publication_rule": "A non-default locale stays unpublished until its content bundle is reviewed and explicitly enabled."
+}
