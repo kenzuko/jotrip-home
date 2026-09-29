@@ -20,7 +20,7 @@ const BOOKING={
 const state={data:null,date:today(),mode:"sea",route:"all",operator:"all",query:""};
 
 function routeKey(r){return `${r.origin||""}|${r.destination||""}`}
-function modeName(r){return r.type==="bus"?"Bus":r.mode==="FERRY"?"Phà":"Tàu cao tốc"}
+function modeName(r){return r.type==="bus"?"Xe buýt":r.mode==="FERRY"?"Phà":"Tàu cao tốc"}
 function isFast(r){return r.type==="sea"&&r.mode!=="FERRY"}
 function statusTone(v=""){const s=fold(v);if(/da xuat ben|running|on time|mo ban/.test(s))return"good";if(/delay|watch|limited|con it|gan het|can xac nhan/.test(s))return"watch";if(/cancel|suspend|closed|het|ngung|huy/.test(s))return"bad";return"neutral"}
 function sourceKind(r){if(r.data_kind==="operational_public")return"Cập nhật";if(r.data_kind==="schedule_frequency")return"Tần suất";return"Cập nhật theo ngày"}
@@ -67,7 +67,7 @@ function fillFilters(){
   $("#routeFilter").value=state.route;$("#operatorFilter").value=state.operator;
 }
 function setModeCopy(){
-  const map={sea:["Tàu & phà","Giờ chạy, hãng, tàu/phà và giá cho đúng ngày bạn chọn."],fast:["Tàu cao tốc","Xem đúng ngày đi, không lấy lịch tháng điền vào cho đủ."],ferry:["Phà","Chuyến phà theo ngày, có giá người và giá xe khi hãng công bố."],bus:["Bus","Tuyến và tần suất theo lịch. Vị trí xe chỉ hiện khi có thật."]};
+  const map={sea:["Tàu & phà","Giờ chạy, hãng, tàu/phà và giá cho đúng ngày bạn chọn."],fast:["Tàu cao tốc","Xem đúng ngày đi, không lấy lịch tháng điền vào cho đủ."],ferry:["Phà","Chuyến phà theo ngày, có giá người và giá xe khi hãng công bố."],bus:["Xe buýt","Tuyến và tần suất theo lịch. Vị trí xe chỉ hiện khi có thật."]};
   const [title,sub]=map[state.mode];$("#boardTitle").textContent=title;$("#boardSubtitle").textContent=sub;
 }
 function renderSummary(){
