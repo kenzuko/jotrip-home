@@ -245,6 +245,12 @@ function freshnessText(iso, prefix = "Cập nhật") {
     }
 
     const sunsetMin = clockMinutes(sunsetLabel);
+    const minutesToSunset = sunsetMin - vnClockParts().minutes;
+    // Satellite/ground nowcast describes "now", not a sunset ten hours away.
+    // Only let those near-term observations promote the sunset warning inside
+    // the final three hours. Earlier in the day, the sunset-period forecast
+    // remains the primary signal.
+    const nearSunsetWindow = Number.isFinite(minutesToSunset) && minutesToSunset >= -30 && minutesToSunset <= 180;
     // "Bờ Tây" is scoped to the west/north-west coast. An Thới is evaluated
     // separately as Nam đảo and must not make a west-coast sunset alert fire.
     const westIds = ["duong_dong","cua_can","ganh_dau"];
@@ -312,21 +318,27 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     let level = "good";
     let reason = "low_rain";
-    if (observedConvective || observedIntensityMax >= 2) {
+    // Strong sunset-period forecast can warn at any lead time. Current rain,
+    // METAR and satellite convection only affect the sunset decision when the
+    // sunset is close enough for those observations to remain meaningful.
+    if (nearSunsetWindow && (observedConvective || observedIntensityMax >= 2)) {
       level = "bad";
       reason = "observed_weather";
     } else if (rainMax >= 2 || rainTypical >= 1.5) {
       level = "bad";
       reason = "forecast_rain";
-    } else if (anyObservedRain) {
+    } else if (nearSunsetWindow && anyObservedRain) {
       level = "watch";
       reason = "observed_rain";
-    } else if (highConvective || elevatedConvective) {
-      level = "watch";
-      reason = "satellite_convection";
     } else if (rainMax >= 0.5 || rainTypical >= 0.3) {
       level = "watch";
       reason = "forecast_rain";
+    } else if (nearSunsetWindow && highConvective) {
+      level = "watch";
+      reason = "satellite_convection";
+    } else if (nearSunsetWindow && elevatedConvective && (rainMax >= 0.2 || rainTypical >= 0.15)) {
+      level = "watch";
+      reason = "satellite_convection";
     }
 
     return {
@@ -339,6 +351,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
       observed_convective:observedConvective,
       gauges_dry:gaugesDry,
       gauge_count:freshWestGauges.length,
+      minutes_to_sunset:Number.isFinite(minutesToSunset) ? minutesToSunset : null,
+      near_sunset_window:nearSunsetWindow,
       satellite_level:highConvective ? "HIGH" : elevatedConvective ? "ELEVATED" : "LOW"
     };
   }
@@ -636,7 +650,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
               ? "Có điểm đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi."
               : satelliteOnly
                 ? "Ảnh vệ tinh cho thấy mây đối lưu quanh khu vực" + (sunsetWx.gauges_dry ? ", nhưng các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa." : ".")
-                : "Dự báo quanh giờ hoàng hôn có thể có mưa cục bộ nhẹ.",
+                : "Cuối chiều có thể có mây hoặc mưa thoáng qua vài nơi.",
             primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
             secondaryText:"Xem điểm gần hơn", secondaryHref:"nearme/"
           });
@@ -647,8 +661,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
               ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
               : "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
             note:sunsetWx.gauges_dry
-              ? "Hiện các trạm đang theo dõi chưa ghi nhận mưa. Cuối chiều vẫn có thể thay đổi cục bộ."
-              : "Chưa thấy cảnh báo nổi bật quanh giờ hoàng hôn. Xem lại nếu thời tiết đổi nhanh.",
+              ? "Hôm nay nhìn chung khá thuận lợi. Cuối chiều có thể có mây hoặc mưa thoáng qua vài nơi."
+              : "Hôm nay nhìn chung khá thuận lợi. Cuối chiều có thể có mây hoặc mưa thoáng qua vài nơi.",
             primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
