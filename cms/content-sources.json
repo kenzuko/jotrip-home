@@ -27,6 +27,22 @@
       "derived_outputs": []
     },
     {
+      "id": "ui-vi",
+      "path": "data/i18n/vi/ui.json",
+      "kind": "localized_source",
+      "owner": "pipeline:i18n",
+      "module_ids": [],
+      "editable_via_cms": false,
+      "public_bundle": true,
+      "locale": "vi",
+      "translation_family": "ui",
+      "source_locale": true,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [],
+      "derived_outputs": []
+    },
+    {
       "id": "stories",
       "path": "data/content.json",
       "kind": "canonical",
@@ -37,7 +53,7 @@
       "editable_via_cms": true,
       "public_bundle": true,
       "locale": "vi",
-      "translation_family": null,
+      "translation_family": "stories",
       "source_locale": true,
       "derived_from": [],
       "generated_by": [],

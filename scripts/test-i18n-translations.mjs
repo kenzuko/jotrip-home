@@ -64,7 +64,7 @@ for(const locale of manifest.locales||[]){
     for(const row of rows){
       if(knowledgeIds.size)assert.ok(knowledgeIds.has(row.topic_id),locale.code+" knowledge id not found: "+row.topic_id);
       ensureAllowed(row,["topic_id","title","editorial","media","links"],locale.code+" knowledge "+row.topic_id);
-      if(row.editorial)ensureAllowed(row.editorial,["short_summary","practical","expectation_vs_reality","before_you_go"],locale.code+" knowledge editorial "+row.topic_id);
+      if(row.editorial)ensureAllowed(row.editorial,["short_summary","practical","expectation_vs_reality","before_you_go","curiosity_questions"],locale.code+" knowledge editorial "+row.topic_id);
       if(row.media){
         ensureAllowed(row.media,["images"],locale.code+" knowledge media "+row.topic_id);
         for(const img of row.media.images||[])ensureAllowed(img,["alt","caption"],locale.code+" knowledge image "+row.topic_id);

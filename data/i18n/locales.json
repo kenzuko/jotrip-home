@@ -47,6 +47,16 @@
       "surfaces": []
     },
     {
+      "code": "lo",
+      "url_code": "lo",
+      "html_lang": "lo",
+      "native_name": "ລາວ",
+      "name": "Lao",
+      "direction": "ltr",
+      "published": false,
+      "surfaces": []
+    },
+    {
       "code": "zh-Hant",
       "url_code": "zh-hant",
       "html_lang": "zh-Hant",
@@ -62,6 +72,16 @@
       "html_lang": "zh-Hans",
       "native_name": "简体中文",
       "name": "Simplified Chinese",
+      "direction": "ltr",
+      "published": false,
+      "surfaces": []
+    },
+    {
+      "code": "fr",
+      "url_code": "fr",
+      "html_lang": "fr",
+      "native_name": "Français",
+      "name": "French",
       "direction": "ltr",
       "published": false,
       "surfaces": []

@@ -12,6 +12,8 @@ assert.equal(mod.mergeStory(baseStory,{id:"other"}),null);
 const baseKnowledge={topic_id:"k",title:"VI",route:"/guide/article.html?id=k",editorial:{short_summary:"S",practical:"P",before_you_go:["A"]},media:{images:[{url:"/a.jpg",alt:"VI"}]}};
 const k=mod.mergeKnowledge(baseKnowledge,{topic_id:"k",title:"EN",editorial:{short_summary:"Summary",before_you_go:["B"]},media:{images:[{alt:"English alt"}]}});
 assert.equal(k.title,"EN");assert.equal(k.route,baseKnowledge.route);assert.equal(k.media.images[0].url,"/a.jpg");assert.equal(k.media.images[0].alt,"English alt");
+const questions=mod.mergeKnowledge({...baseKnowledge,editorial:{...baseKnowledge.editorial,curiosity_questions:["VI?"]}},{topic_id:"k",editorial:{curiosity_questions:["EN?"]}});
+assert.deepEqual(questions.editorial.curiosity_questions,["EN?"]);
 const list=mod.translatedStories({stories:[baseStory,{id:"y",title:"Y"}]},{stories:[{id:"x",title:"EN"}]});
 assert.deepEqual(list.stories.map(x=>x.id),["x"],"Non-default locale must not silently fall back to untranslated records");
 console.log("PASS i18n content overlays: stable IDs, text-only merge and fail-closed translated listings");

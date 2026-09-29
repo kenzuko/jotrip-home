@@ -1,0 +1,88 @@
+{
+  "version": "1.0",
+  "provider": "azure-translator-v3",
+  "source_locale": "vi",
+  "azure_locale_map": {
+    "en": "en",
+    "ko": "ko",
+    "ru": "ru",
+    "lo": "lo",
+    "zh-Hans": "zh-Hans",
+    "zh-Hant": "zh-Hant",
+    "fr": "fr"
+  },
+  "families": {
+    "ui": {
+      "source_path": "data/i18n/vi/ui.json",
+      "target_path_pattern": "data/i18n/{locale}/ui.json",
+      "mode": "document",
+      "exclude_root_keys": ["schema_version", "locale", "updated_at"]
+    },
+    "stories": {
+      "source_path": "data/content.json",
+      "target_path_pattern": "data/i18n/{locale}/stories.json",
+      "mode": "overlay",
+      "collection": "stories",
+      "id_field": "id",
+      "fields": [
+        "category",
+        "title",
+        "dek",
+        "intro",
+        "image_alt",
+        "image_caption",
+        "sections.*.heading",
+        "sections.*.body",
+        "sections.*.caption"
+      ]
+    },
+    "knowledge": {
+      "source_path": "data/knowledge/objects.json",
+      "target_path_pattern": "data/i18n/{locale}/knowledge.json",
+      "mode": "overlay",
+      "collection": "objects",
+      "id_field": "topic_id",
+      "fields": [
+        "title",
+        "editorial.short_summary",
+        "editorial.practical",
+        "editorial.expectation_vs_reality",
+        "editorial.before_you_go.*",
+        "editorial.curiosity_questions.*",
+        "media.images.*.alt",
+        "media.images.*.caption",
+        "links.*.label"
+      ]
+    },
+    "food": {
+      "source_path": "data/i18n/vi/food.json",
+      "target_path_pattern": "data/i18n/{locale}/food.json",
+      "mode": "document_records",
+      "collection": "dishes",
+      "id_field": "id",
+      "fields": [
+        "name",
+        "intro",
+        "how_to_eat",
+        "tips.*",
+        "origin",
+        "why_name",
+        "ingredients.*",
+        "taste_texture",
+        "allergen_flags.*.label",
+        "allergy_note",
+        "ask_staff.*",
+        "sources.*.label"
+      ]
+    }
+  },
+  "protected_patterns": [
+    "url",
+    "placeholder",
+    "time",
+    "date",
+    "measurement",
+    "phone"
+  ],
+  "publication_rule": "Machine output is always machine_draft. Human review and explicit publication are separate actions."
+}
