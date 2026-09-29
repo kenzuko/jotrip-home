@@ -1,9 +1,9 @@
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const phoneHref=p=>"tel:"+String(p||"").replace(/[^0-9+]/g,"");
-const localCard=x=>'<article class="u-card">'+(x.verified===false?'<span class="badge watch">NÊN GỌI TRƯỚC</span>':'')+'<strong>'+esc(x.label)+'</strong><a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a>'+(x.phone_alt?'<a class="phone" style="font-size:16px;margin-left:9px" href="'+phoneHref(x.phone_alt)+'">'+esc(x.phone_alt)+'</a>':'')+'<small>'+esc(x.note)+'</small><small class="source-note">Thông tin theo đơn vị vận hành; gọi để xác nhận trước khi đi.</small></article>';
+const localCard=x=>'<article class="u-card">'+(x.verified===false?'<span class="badge watch">NÊN GỌI TRƯỚC</span>':'')+'<strong>'+esc(x.label)+'</strong><a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a>'+(x.phone_alt?'<a class="phone" style="font-size:16px;margin-left:9px" href="'+phoneHref(x.phone_alt)+'">'+esc(x.phone_alt)+'</a>':'')+'<small>'+esc(x.note)+'</small><small class="source-note">Thông tin do đơn vị phụ trách công bố; nên gọi lại trước khi đi.</small></article>';
 const emergency=x=>'<a class="emergency-card" href="'+phoneHref(x.phone)+'"><strong>'+esc(x.phone)+'</strong><span>'+esc(x.label)+'</span><small>'+esc(x.note)+'</small></a>';
-const dirCard=x=>'<article class="u-card">'+(x.verified===false?'<span class="badge watch">NÊN GỌI TRƯỚC</span>':'')+'<strong>'+esc(x.label)+'</strong>'+(x.phone?'<a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a>':'')+(x.phone_alt?'<a class="phone phone-alt" href="'+phoneHref(x.phone_alt)+'">'+esc(x.phone_alt)+'</a>':'')+'<small>'+esc(x.note)+'</small>'+((x.app_url||x.whatsapp||x.zalo)?'<div class="dir-contact-actions">'+(x.app_url?'<a href="'+esc(x.app_url)+'" target="_blank" rel="noopener">Mở app / website ↗</a>':'')+(x.whatsapp?'<a href="'+esc(x.whatsapp)+'" target="_blank" rel="noopener">WhatsApp ↗</a>':'')+(x.zalo?'<a href="'+esc(x.zalo)+'" target="_blank" rel="noopener">Zalo ↗</a>':'')+'</div>':'')+'<small class="source-note">Thông tin theo đơn vị vận hành; kiểm tra lịch trước khi đi.</small></article>';
+const dirCard=x=>'<article class="u-card">'+(x.verified===false?'<span class="badge watch">NÊN GỌI TRƯỚC</span>':'')+'<strong>'+esc(x.label)+'</strong>'+(x.phone?'<a class="phone" href="'+phoneHref(x.phone)+'">'+esc(x.phone)+'</a>':'')+(x.phone_alt?'<a class="phone phone-alt" href="'+phoneHref(x.phone_alt)+'">'+esc(x.phone_alt)+'</a>':'')+'<small>'+esc(x.note)+'</small>'+((x.app_url||x.whatsapp||x.zalo)?'<div class="dir-contact-actions">'+(x.app_url?'<a href="'+esc(x.app_url)+'" target="_blank" rel="noopener">Mở app / website ↗</a>':'')+(x.whatsapp?'<a href="'+esc(x.whatsapp)+'" target="_blank" rel="noopener">WhatsApp ↗</a>':'')+(x.zalo?'<a href="'+esc(x.zalo)+'" target="_blank" rel="noopener">Zalo ↗</a>':'')+'</div>':'')+'<small class="source-note">Thông tin do đơn vị phụ trách công bố; nên xem lại lịch trước khi đi.</small></article>';
 function renderDirectory(items){
   const groups={};
   (items||[]).forEach(x=>(groups[x.group]||(groups[x.group]=[])).push(x));
@@ -52,7 +52,7 @@ async function renderCurrencyPreview(){
       if(!Array.isArray(data?.rates)||!data.rates.length)throw new Error("No FX snapshot rates");
     }catch(fallbackError){
       grid.innerHTML='<div class="u-fx-loading">Chưa lấy được tỷ giá. Bạn có thể mở trang Tỷ giá để thử lại.</div>';
-      stamp.textContent="Chưa có dữ liệu mới";
+      stamp.textContent="Chưa có cập nhật mới";
       return;
     }
   }
@@ -61,7 +61,7 @@ async function renderCurrencyPreview(){
   const specs=[["USD","Đô la Mỹ"],["EUR","Euro"],["KRW","Won Hàn Quốc"]];
   const rows=specs.map(([code,label])=>({code,label,rate:data.rates.find(x=>x.currency===code)})).filter(x=>x.rate);
   if(!rows.length){
-    grid.innerHTML='<div class="u-fx-loading">Chưa có dữ liệu cho các đồng tiền phổ biến.</div>';
+    grid.innerHTML='<div class="u-fx-loading">Chưa có tỷ giá mới cho các đồng tiền phổ biến.</div>';
     stamp.textContent="Chưa có tỷ giá tham khảo";
     return;
   }
