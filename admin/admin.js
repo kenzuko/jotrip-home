@@ -149,6 +149,10 @@ function pathParts(p){return String(p).split(".").filter(Boolean).map(x=>/^\d+$/
 function setAtPath(obj,path,val){const parts=pathParts(path);let cur=obj;for(let i=0;i<parts.length-1;i++)cur=cur[parts[i]];cur[parts.at(-1)]=val}
 function getAtPath(obj,path){return pathParts(path).reduce((a,k)=>a?.[k],obj)}
 function deepClone(v){return JSON.parse(JSON.stringify(v))}
+function canWriteCurrent(){
+  return window.OPQModuleRegistry?.writable(currentModule,session?.role) ??
+    Boolean(currentModule?.write?.includes(session?.role));
+}
 function blankLike(v,key=""){
  if(Array.isArray(v))return [];
  if(v&&typeof v==="object")return Object.fromEntries(Object.entries(v).map(([k,x])=>[k,blankLike(x,k)]));
@@ -214,128 +218,11 @@ function scheduleDraft(){
 }
 function markDirty(msg="Có thay đổi chưa xuất bản."){dirty=true;$("#saveBtn").disabled=false;$("#saveBtn").textContent="Gửi duyệt thay đổi";$("#resetBtn")?.classList.remove("hidden");status(msg);if(currentModule?.id==="stories")setStoryDraftMessage("Đang lưu bản nháp trên máy...");scheduleDraft()}
 
-function itemTitle(v,i){
-  if(v&&typeof v==="object"){
-    return v.title||v.name||v.label||v.place||v.group||v.heading||v.trip||v.id||("Mục "+(i+1));
-  }
-  return "Mục "+(i+1);
-}
-
-function inputAttrs(key){
-  if(/^(url|source|image)$/i.test(key))return ' type="url" inputmode="url"';
-  if(/phone/i.test(key))return ' type="tel" inputmode="tel"';
-  return ' type="text"';
-}
-
-function stringField(key,val,path){
-  const text=String(val??"");
-  const isVisualImage=currentModule?.id==="visuals"&&key==="url"&&/(?:^|\.)images\.\d+\.url$/.test(path);
-  const hasUploader=key==="image"||isVisualImage;
-  const long=text.length>90||/(body|summary|description|intro|dek|lead|note|items|content)/i.test(key);
-  const control=long
-    ?`<textarea data-path="${esc(path)}">${esc(text)}</textarea>`
-    :`<input${inputAttrs(key)} data-path="${esc(path)}" value="${esc(text)}">`;
-  const preview=hasUploader
-    ?`<div class="image-preview ${text.trim()?"":"empty"}" data-image-preview="${esc(path)}">${text.trim()?'<img src="'+esc(text.trim())+'" alt="Xem trước ảnh">':'<span>Chưa có ảnh</span>'}</div>`
-    :"";
-  const media=hasUploader
-    ?`<div class="media-actions"><button type="button" class="media-upload" data-media-path="${esc(path)}">Chọn ảnh từ máy</button><span>CMS sẽ thu nhỏ và tối ưu ảnh trước khi tải lên.</span></div>`
-    :"";
-  let quick="";
-  if((key==="source"||key==="url")&&/^https?:\/\//i.test(text.trim()))quick=`<a class="field-quick" href="${esc(text.trim())}" target="_blank" rel="noopener">Mở nguồn ↗</a>`;
-  if(/phone/i.test(key)&&text.trim())quick=`<a class="field-quick" href="tel:${esc(text.replace(/[^+\d]/g,""))}">Gọi thử ↗</a>`;
-  const fieldLabel=isVisualImage?"Ảnh - tải lên hoặc dán URL":key==="image"&&/^stories\.\d+\.image$/.test(path)?"Ảnh cover":key==="image"&&/\.sections\.\d+\.image$/.test(path)?"Ảnh trong bài":labelize(key);
-  return `<div class="field ${hasUploader?"image-field":""}"><label>${esc(fieldLabel)}</label>${control}${media}${preview}${quick}</div>`;
-}
-
-function primitiveField(key,val,path){
-  if(currentModule?.id==="venues"&&key==="coordinate_confidence"){
-    const value=String(val||"");
-    return `<div class="field"><label>Độ tin cậy tọa độ</label><select data-path="${esc(path)}">
-      <option value="" ${!value?"selected":""}>Chưa đánh giá</option>
-      <option value="HIGH" ${value==="HIGH"?"selected":""}>Cao</option>
-      <option value="MEDIUM" ${value==="MEDIUM"?"selected":""}>Vừa</option>
-      <option value="LOW" ${value==="LOW"?"selected":""}>Thấp</option>
-    </select></div>`;
-  }
-  if(currentModule?.id==="venues"&&key==="coordinate_observed_at"){
-    return `<div class="field"><label>Ngày kiểm tra tọa độ</label><input type="date" data-path="${esc(path)}" value="${esc(val||"")}"></div>`;
-  }
-  if(currentModule?.id==="venues"&&key==="category"){
-    const value=String(val||"");
-    return `<div class="field"><label>Loại địa điểm</label><select data-path="${esc(path)}">
-      <option value="LOCAL_FOOD" ${value==="LOCAL_FOOD"?"selected":""}>Quán ăn địa phương</option>
-      <option value="RESTAURANT" ${value==="RESTAURANT"?"selected":""}>Nhà hàng</option>
-      <option value="CAFE" ${value==="CAFE"?"selected":""}>Cà phê</option>
-      <option value="ATTRACTION" ${value==="ATTRACTION"?"selected":""}>Điểm chơi / trải nghiệm</option>
-    </select></div>`;
-  }
-  if(currentModule?.id==="venues"&&key==="zone_code"){
-    const value=String(val||"");
-    return `<div class="field"><label>Khu vực</label><select data-path="${esc(path)}">
-      <option value="" ${!value?"selected":""}>Chưa gán</option>
-      <option value="north" ${value==="north"?"selected":""}>Bắc đảo</option>
-      <option value="north_central" ${value==="north_central"?"selected":""}>Ông Lang / Bắc-trung</option>
-      <option value="duong_dong" ${value==="duong_dong"?"selected":""}>Dương Đông</option>
-      <option value="long_beach" ${value==="long_beach"?"selected":""}>Bãi Trường / Dương Tơ</option>
-      <option value="east" ${value==="east"?"selected":""}>Đông đảo / Hàm Ninh</option>
-      <option value="south" ${value==="south"?"selected":""}>Nam đảo / An Thới</option>
-    </select></div>`;
-  }
-  if(currentModule?.id==="venues"&&key==="status"){
-    const value=String(val||"REVIEW");
-    return `<div class="field"><label>Trạng thái</label><select data-path="${esc(path)}">
-      <option value="ACTIVE" ${value==="ACTIVE"?"selected":""}>Đang dùng</option>
-      <option value="REVIEW" ${value==="REVIEW"?"selected":""}>Cần kiểm tra</option>
-      <option value="CLOSED" ${value==="CLOSED"?"selected":""}>Đã đóng</option>
-    </select></div>`;
-  }
-  if(typeof val==="boolean"){
-    return `<div class="field"><label>${esc(labelize(key))}</label><select data-path="${esc(path)}" data-type="boolean"><option value="true" ${val?"selected":""}>Có / bật</option><option value="false" ${!val?"selected":""}>Không / tắt</option></select></div>`;
-  }
-  if(typeof val==="number"){
-    return `<div class="field"><label>${esc(labelize(key))}</label><input type="number" step="any" data-path="${esc(path)}" data-type="number" value="${val}"></div>`;
-  }
-  if(key==="role"){
-    return `<div class="field"><label>Vai trò</label><select data-path="${esc(path)}"><option value="admin" ${val==="admin"?"selected":""}>Quản trị viên</option><option value="editor" ${val==="editor"?"selected":""}>Biên tập viên</option><option value="operator" ${val==="operator"?"selected":""}>Vận hành</option><option value="viewer" ${val==="viewer"?"selected":""}>Chỉ xem</option></select></div>`;
-  }
-  return stringField(key,val??"",path);
-}
-
-function renderChildren(obj,path,depth){
-  return Object.entries(obj).map(([k,v])=>{
-    const p=path?path+"."+k:k;
-    if(v&&typeof v==="object")return renderNode(v,p,k,depth);
-    return primitiveField(k,v,p);
-  }).join("");
-}
-
-function itemTools(arrayPath,index,length){
-  return `<div class="item-tools">
-    <button type="button" data-array-action="up" data-array-path="${esc(arrayPath)}" data-index="${index}" ${index===0?"disabled":""}>↑ Lên</button>
-    <button type="button" data-array-action="down" data-array-path="${esc(arrayPath)}" data-index="${index}" ${index===length-1?"disabled":""}>↓ Xuống</button>
-    <button type="button" data-array-action="duplicate" data-array-path="${esc(arrayPath)}" data-index="${index}">Nhân bản</button>
-    <button type="button" class="danger" data-array-action="delete" data-array-path="${esc(arrayPath)}" data-index="${index}">Xóa</button>
-  </div>`;
-}
-
-function renderNode(value,path="",label="Nội dung",depth=0){
-  if(value===null||typeof value!=="object")return primitiveField(label,value,path);
-
-  if(Array.isArray(value)){
-    const cards=value.map((v,i)=>{
-      const p=path?path+"."+i:String(i);
-      const title=itemTitle(v,i);
-      if(v&&typeof v==="object"){
-        return `<details class="array-card" ${i===0&&value.length<4?"open":""}><summary><span>${esc(title)}</span><small>#${i+1}</small></summary><div class="detail-body">${itemTools(path,i,value.length)}${renderChildren(v,p,depth+1)}</div></details>`;
-      }
-      return `<div class="array-card primitive-array"><div class="array-title">#${i+1}</div>${itemTools(path,i,value.length)}${primitiveField(String(i),v,p)}</div>`;
-    }).join("");
-    return `<details class="field-group cms-anchor" data-anchor-label="${esc(labelize(label))}" ${depth<=1?"open":""}><summary class="group-summary"><span>${esc(labelize(label))}</span><small>${value.length} mục</small></summary><div class="detail-body">${cards}<button type="button" class="add-array-item" data-array-path="${esc(path)}">+ Thêm mục</button></div></details>`;
-  }
-
-  return `<details class="field-group cms-anchor" data-anchor-label="${esc(labelize(label))}" ${depth<=1?"open":""}><summary class="group-summary"><span>${esc(labelize(label))}</span></summary><div class="detail-body">${renderChildren(value,path,depth+1)}</div></details>`;
-}
+const editorFields=window.OPQEditorFields?.create({
+  getModuleId:()=>currentModule?.id,labelize,esc
+});
+if(!editorFields)throw new Error("Không tải được bộ dựng trường CMS");
+const {itemTitle,inputAttrs,stringField,primitiveField,renderChildren,itemTools,renderNode}=editorFields;
 
 function moduleOverview(){
   if(!currentModule||!currentData)return "";
@@ -434,90 +321,13 @@ function slugifyVi(s){
 }
 
 function validateCurrent(){
-  const errors=[];
-
-  if(currentModule.id==="home"){
-    if(!String(currentData?.hero?.title||"").trim())errors.push("Hero cần có tiêu đề.");
-    if(!String(currentData?.hero?.lead||"").trim())errors.push("Hero cần có đoạn dẫn.");
-  }
-
-  if(currentModule.id==="stories"){
-    const stories=currentData?.stories||[];
-    if(!stories.length)errors.push("Cần ít nhất một bài viết.");
-    const ids=new Set();
-    stories.forEach((s,i)=>{
-      if(!String(s.title||"").trim())errors.push("Bài #"+(i+1)+" chưa có tiêu đề.");
-      if(!String(s.id||"").trim())errors.push("Bài #"+(i+1)+" chưa có mã bài.");
-      else if(ids.has(s.id))errors.push("Mã bài bị trùng: "+s.id);
-      else ids.add(s.id);
-      if(!Array.isArray(s.sections)||!s.sections.length)errors.push("Bài “"+(s.title||("#"+(i+1)))+"” chưa có đoạn nội dung.");
-      if(i===window.OPQStoryDesk?.selected())(s.sections||[]).forEach((part,j)=>{
-        if(!String(part?.heading||"").trim()&&!String(part?.body||"").trim()&&!String(part?.image||"").trim())
-          errors.push("Bài đang sửa, đoạn "+(j+1)+" đang trống. Thêm ảnh/nội dung hoặc xóa đoạn.");
-      });
-    });
-  }
-
-  if(currentModule.id==="guide"){
-    if(!String(currentData?.title||"").trim())errors.push("Cẩm nang cần có tiêu đề.");
-    (currentData?.zones||[]).forEach((z,i)=>{if(!String(z.name||"").trim())errors.push("Khu vực #"+(i+1)+" chưa có tên.")});
-  }
-
-  if(currentModule.id==="utilities"){
-    (currentData?.national_emergency||[]).forEach((x,i)=>{
-      if(!String(x.label||"").trim()||!String(x.phone||"").trim())errors.push("Số khẩn cấp #"+(i+1)+" thiếu tên hoặc số điện thoại.");
-    });
-  }
-
-  if(currentModule.id==="venues"){
-    const entities=currentData?.entities||[];
-    const ids=new Set();
-    const allowed=new Set(["LOCAL_FOOD","RESTAURANT","CAFE","ATTRACTION"]);
-    entities.forEach((x,i)=>{
-      const id=String(x.id||"").trim();
-      const name=String(x.name||"").trim();
-      if(!id)errors.push("Địa điểm #"+(i+1)+" chưa có mã.");
-      else if(ids.has(id))errors.push("Mã địa điểm bị trùng: "+id);
-      else ids.add(id);
-      if(!name)errors.push("Địa điểm #"+(i+1)+" chưa có tên.");
-      if(!allowed.has(String(x.category||"")))errors.push("Địa điểm “"+(name||id||("#"+(i+1)))+"” chưa chọn đúng loại.");
-      if(String(x.status||"REVIEW")==="ACTIVE"){
-        if(!String(x.verified_at||"").trim())errors.push("Địa điểm đang dùng cần ngày kiểm tra: "+(name||id));
-        if(!String(x.source_ref||"").trim())errors.push("Địa điểm đang dùng cần nguồn: "+(name||id));
-      }
-      const coordinateEvidence=["coordinate_precision","coordinate_source_ref","coordinate_source_type","coordinate_observed_at","coordinate_confidence"].some(key=>String(x[key]||"").trim());
-      if(coordinateEvidence){
-        if(!String(x.coordinate_precision||"").trim())errors.push("Địa điểm "+(name||id)+" thiếu độ chính xác tọa độ.");
-        if(!String(x.coordinate_source_ref||"").trim())errors.push("Địa điểm "+(name||id)+" thiếu nguồn kiểm tra tọa độ.");
-        if(!String(x.coordinate_source_type||"").trim())errors.push("Địa điểm "+(name||id)+" thiếu loại nguồn tọa độ.");
-        if(!/^\d{4}-\d{2}-\d{2}$/.test(String(x.coordinate_observed_at||"")))errors.push("Địa điểm "+(name||id)+" thiếu ngày kiểm tra tọa độ.");
-        if(!["HIGH","MEDIUM","LOW"].includes(String(x.coordinate_confidence||"").toUpperCase()))errors.push("Địa điểm "+(name||id)+" cần chọn độ tin cậy tọa độ.");
-      }
-      if(x.latitude!==null&&x.latitude!==""&&x.latitude!==undefined){
-        const lat=Number(x.latitude);
-        if(!Number.isFinite(lat)||lat<-90||lat>90)errors.push("Vĩ độ không hợp lệ: "+(name||id));
-      }
-      if(x.longitude!==null&&x.longitude!==""&&x.longitude!==undefined){
-        const lon=Number(x.longitude);
-        if(!Number.isFinite(lon)||lon<-180||lon>180)errors.push("Kinh độ không hợp lệ: "+(name||id));
-      }
-    });
-  }
-
-  if(currentModule.id==="users"){
-    const users=currentData?.users||[];
-    const activeAdmins=users.filter(x=>x.role==="admin"&&x.enabled!==false);
-    if(!activeAdmins.length)errors.push("CMS phải còn ít nhất một Admin đang hoạt động.");
-    const seen=new Set();
-    users.forEach((u,i)=>{
-      const login=String(u.login||"").trim().toLowerCase();
-      if(!login)errors.push("Người dùng #"+(i+1)+" chưa có GitHub username.");
-      else if(seen.has(login))errors.push("GitHub username bị trùng: "+login);
-      else seen.add(login);
-    });
-  }
-
-  return errors;
+  const validator=window.OPQModuleValidation;
+  if(!validator)return ["Không tải được bộ kiểm tra nội dung CMS."];
+  return validator.validate({
+    moduleId:currentModule?.id,
+    data:currentData,
+    selectedStoryIndex:window.OPQStoryDesk?.selected()
+  });
 }
 
 function storyTools(i,len){
@@ -1238,14 +1048,14 @@ function bindStoryControls(){
     desk.toggleWriting();rerender();
   });
   document.querySelectorAll("[data-story-undo]").forEach(btn=>btn.onclick=()=>{
-    if(!currentModule?.write?.includes(session.role))return;
+    if(!canWriteCurrent())return;
     const index=desk?.selected()??-1,story=currentData.stories?.[index],snapshot=desk?.undoSections(index);
     if(!story||!snapshot)return;
     story.sections=snapshot;markDirty("Đã hoàn tác thao tác cấu trúc đoạn. Nội dung đang viết vẫn cần xem lại.");
     rerender();
   });
   const focusStoryField=(raw,number)=>{
-    if(desk?.view()!=="edit"||raw&&!currentModule?.write?.includes(session.role))return;
+    if(desk?.view()!=="edit"||raw&&!canWriteCurrent())return;
     const index=desk.selected();
     const path=raw||(number==="intro"?"stories."+index+".intro":
       "stories."+index+".sections."+Number(number)+".body");
@@ -1301,7 +1111,7 @@ function bindStoryControls(){
     field?.scrollIntoView({behavior:"smooth",block:"center"});
   });
   document.querySelectorAll("[data-story-insert],[data-story-split-photo]").forEach(btn=>btn.onclick=()=>{
-    if(!currentModule?.write?.includes(session.role)||!composer)return;
+    if(!canWriteCurrent()||!composer)return;
     const articleIndex=desk?.selected()??-1,story=currentData.stories?.[articleIndex];
     if(!story)return;
     const sections=story.sections||(story.sections=[]);
@@ -1329,7 +1139,7 @@ function bindStoryControls(){
     card?.scrollIntoView({behavior:"smooth",block:"center"});
   });
   document.querySelectorAll("[data-story-layout-pick],[data-story-cover-pick]").forEach(btn=>btn.onclick=()=>{
-    if(!currentModule?.write?.includes(session.role))return;
+    if(!canWriteCurrent())return;
     const path=btn.dataset.storyLayoutPath||btn.dataset.storyCoverPath;
     const value=btn.dataset.storyLayoutPick||btn.dataset.storyCoverPick;
     const select=[...document.querySelectorAll("#editor select[data-path]")].find(el=>el.dataset.path===path);
@@ -1570,7 +1380,7 @@ async function refreshAnalytics(){
 }
 
 function applyPermissions(){
-  const writable=currentModule?.write?.includes(session.role);
+  const writable=canWriteCurrent();
   $("#saveBtn").disabled=!writable||!dirty;
   $("#editor").classList.toggle("readonly",!writable);
   document.querySelectorAll("#editor input,#editor textarea,#editor select,#editor button").forEach(el=>el.disabled=!writable&&!el.hasAttribute("data-editor-readonly-action"));
@@ -1704,7 +1514,9 @@ async function boot(){
   const sr=await fetch("../cms/schema.json?t="+Date.now(),{cache:"no-store"});
   schema=await sr.json();
   // Owner-only report, even when additional CMS administrators are added later.
-  schema.modules=schema.modules.filter(m=>m.id!=="traffic"||(session.login==="kenzuko"&&session.role==="admin"));
+  schema.modules=window.OPQModuleRegistry
+    ?window.OPQModuleRegistry.ownerScope(schema.modules,session)
+    :schema.modules.filter(m=>m.id!=="traffic"||(session.login==="kenzuko"&&session.role==="admin"));
 
   $("#userName").textContent=session.name||session.login;
   $("#userRole").textContent=ROLE_LABELS[session.role]||session.role;
@@ -1717,7 +1529,9 @@ async function boot(){
   window.OPQAdminV2?.mount({modules:schema.modules,role:session.role,onModule:selectModule});
 
   const requested=new URLSearchParams(location.search).get("module");
-  const first=schema.modules.find(m=>m.id===requested&&m.read.includes(session.role));
+  const first=window.OPQModuleRegistry
+    ?window.OPQModuleRegistry.resolve(schema.modules,session.role,requested)
+    :schema.modules.find(m=>m.id===requested&&m.read.includes(session.role));
   selectModule(first?first.id:"dashboard");
 }
 
@@ -1731,7 +1545,9 @@ const NAV_HINTS={
 };
 
 function renderNav(){
-  const permitted=schema.modules.filter(m=>m.read.includes(session.role));
+  const permitted=window.OPQModuleRegistry
+    ?window.OPQModuleRegistry.permitted(schema.modules,session.role)
+    :schema.modules.filter(m=>m.read.includes(session.role));
   const item=id=>{
     const m=permitted.find(x=>x.id===id);
     return m?'<button class="module-btn" type="button" data-id="'+esc(m.id)+'" title="'+esc(m.label)+'"><span class="module-short">'+esc(navShort(m.label))+'</span><span class="module-copy"><strong>'+esc(m.label)+'</strong><small>'+esc(NAV_HINTS[m.id]||m.description)+'</small></span></button>':"";
@@ -1769,9 +1585,11 @@ async function selectModule(id){
   $("#editor")?.classList.remove("analytics-editor");
   $("#resetBtn")?.classList.add("hidden");
 
-  currentModule=id==="dashboard"
-    ?{id:"dashboard",label:"Bàn làm việc",description:"Nắm tình hình, xử lý đúng việc và kiểm chứng kết quả.",write:[],preview:null}
-    :schema.modules.find(m=>m.id===id&&m.read.includes(session.role));
+  currentModule=window.OPQModuleRegistry
+    ?window.OPQModuleRegistry.resolve(schema.modules,session.role,id)
+    :(id==="dashboard"
+      ?{id:"dashboard",label:"Bàn làm việc",description:"Nắm tình hình, xử lý đúng việc và kiểm chứng kết quả.",write:[],preview:null}
+      :schema.modules.find(m=>m.id===id&&m.read.includes(session.role)));
   if(!currentModule)return;
   dirty=false;
 
@@ -1790,15 +1608,20 @@ async function selectModule(id){
   $("#moduleDesc").textContent=currentModule.description;
   $("#saveBtn").textContent="Gửi duyệt";
 
-  const isDashboard=currentModule.id==="dashboard";
-  const isAnalytics=currentModule.id==="analytics";
-  const isTraffic=currentModule.id==="traffic";
+  const moduleFlags=window.OPQModuleRegistry?.flags(currentModule)||{
+    dashboard:currentModule.id==="dashboard",analytics:currentModule.id==="analytics",traffic:currentModule.id==="traffic"
+  };
+  const isDashboard=moduleFlags.dashboard;
+  const isAnalytics=moduleFlags.analytics;
+  const isTraffic=moduleFlags.traffic;
   $("#saveBtn").classList.toggle("hidden",isAnalytics||isTraffic||isDashboard);
   $("#resetBtn")?.classList.add("hidden");
   $("#cmsSearch")?.closest(".cms-filter")?.classList.toggle("hidden",isAnalytics||isTraffic||isDashboard||currentModule.id==="stories");
 
-  if(currentModule.preview){
-    $("#previewBtn").href=new URL(currentModule.preview, "https://openphuquoc.com/admin/").href;
+  const publicPreview=window.OPQModuleRegistry?.previewUrl(currentModule)||
+    (currentModule.preview?new URL(currentModule.preview,"https://openphuquoc.com/admin/").href:null);
+  if(publicPreview){
+    $("#previewBtn").href=publicPreview;
     $("#previewBtn").textContent="Trang đã công bố ↗";
     $("#previewBtn").title="Bản công khai: không bao gồm thay đổi chưa gửi duyệt.";
     $("#previewBtn").classList.remove("hidden");
@@ -1865,7 +1688,7 @@ async function selectModule(id){
     try{raw=k?localStorage.getItem(k):null;localDraft=raw?JSON.parse(raw):null}catch{}
 
     let outdatedDraft=false,restoredFromServer=false;
-    const writableHere=currentModule.write?.includes(session.role);
+    const writableHere=canWriteCurrent();
     let serverResult=null,serverDraft=null;
     if(writableHere&&window.OPQDraftStore){
       serverResult=await window.OPQDraftStore.load(currentModule.path);
@@ -1926,7 +1749,7 @@ async function selectModule(id){
     if(window.OPQEditorWorkflow&&currentModule.id!=="analytics"){
       window.OPQEditorWorkflow.start({
         login:session.login,module:currentModule.id,modulePath:currentModule.path,
-        writable:currentModule.write?.includes(session.role),
+        writable:canWriteCurrent(),
         sha:currentSha,baseData,api,getCurrent:()=>currentData,
         onDirty:markDirty,onRender:rerender
       });
@@ -2058,7 +1881,7 @@ document.addEventListener("keydown",event=>{
   if(currentModule?.id!=="stories"||!(event.ctrlKey||event.metaKey)||
       event.shiftKey||event.altKey||String(event.key).toLowerCase()!=="s")return;
   event.preventDefault();
-  if(!currentModule.write?.includes(session?.role)){setStoryDraftMessage("Tài khoản này chỉ có quyền đọc.");return;}
+  if(!canWriteCurrent()){setStoryDraftMessage("Tài khoản này chỉ có quyền đọc.");return;}
   clearTimeout(draftTimer);
   if(dirty){
     const ok=saveDraftNow();

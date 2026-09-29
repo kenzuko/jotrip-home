@@ -1,5 +1,35 @@
 {
-  "version": "1.0",
+  "version": "2.0",
+  "compatibility": {
+    "legacy_module_keys": [
+      "id",
+      "label",
+      "description",
+      "path",
+      "preview",
+      "read",
+      "write"
+    ],
+    "legacy_admin_runtime": true,
+    "migration_mode": "additive"
+  },
+  "contracts": {
+    "content_sources": "cms/content-sources.json",
+    "translation_lifecycle": "cms/translation-lifecycle.json",
+    "mutation_policy": "functions/_shared/cms-mutation-policy.js",
+    "public_preview_origin": "public_canonical"
+  },
+  "field_types": [
+    "string",
+    "text",
+    "number",
+    "boolean",
+    "url",
+    "date",
+    "enum",
+    "string_array",
+    "structured_json"
+  ],
   "modules": [
     {
       "id": "home",
@@ -16,7 +46,61 @@
       "write": [
         "admin",
         "editor"
-      ]
+      ],
+      "canonical_source": "home-copy",
+      "derived_sources": [],
+      "related_sources": [],
+      "editable_fields": [
+        {
+          "path_pattern": "**",
+          "type": "structured_json",
+          "validation": {
+            "strategy": "existing_module_validator",
+            "ref": "admin.js#validateCurrent:home"
+          }
+        }
+      ],
+      "permissions": {
+        "read": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "preflight": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "draft": [
+          "admin",
+          "editor"
+        ],
+        "publish": [
+          "admin",
+          "editor"
+        ],
+        "direct_save": [
+          "admin"
+        ],
+        "rollback": [
+          "admin"
+        ]
+      },
+      "mutation": {
+        "direct_save_allowed": true,
+        "proposal_allowed": true,
+        "proposal_only": false,
+        "rollback_allowed": true
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "content.home",
+      "preview_route": "/"
     },
     {
       "id": "stories",
@@ -33,7 +117,61 @@
       "write": [
         "admin",
         "editor"
-      ]
+      ],
+      "canonical_source": "stories",
+      "derived_sources": [],
+      "related_sources": [],
+      "editable_fields": [
+        {
+          "path_pattern": "**",
+          "type": "structured_json",
+          "validation": {
+            "strategy": "existing_module_validator",
+            "ref": "admin.js#validateCurrent:stories"
+          }
+        }
+      ],
+      "permissions": {
+        "read": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "preflight": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "draft": [
+          "admin",
+          "editor"
+        ],
+        "publish": [
+          "admin",
+          "editor"
+        ],
+        "direct_save": [
+          "admin"
+        ],
+        "rollback": [
+          "admin"
+        ]
+      },
+      "mutation": {
+        "direct_save_allowed": true,
+        "proposal_allowed": true,
+        "proposal_only": false,
+        "rollback_allowed": true
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "content.stories",
+      "preview_route": "/stories/"
     },
     {
       "id": "guide",
@@ -50,7 +188,61 @@
       "write": [
         "admin",
         "editor"
-      ]
+      ],
+      "canonical_source": "guide",
+      "derived_sources": [],
+      "related_sources": [
+        "knowledge-objects"
+      ],
+      "editable_fields": [
+        {
+          "path_pattern": "**",
+          "type": "structured_json",
+          "validation": {
+            "strategy": "existing_module_validator",
+            "ref": "admin.js#validateCurrent:guide"
+          }
+        }
+      ],
+      "permissions": {
+        "read": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "preflight": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "draft": [
+          "admin",
+          "editor"
+        ],
+        "publish": [
+          "admin",
+          "editor"
+        ],
+        "direct_save": [],
+        "rollback": [
+          "admin"
+        ]
+      },
+      "mutation": {
+        "direct_save_allowed": false,
+        "proposal_allowed": true,
+        "proposal_only": true,
+        "rollback_allowed": true
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "content.guide",
+      "preview_route": "/guide/"
     },
     {
       "id": "utilities",
@@ -67,7 +259,59 @@
       "write": [
         "admin",
         "operator"
-      ]
+      ],
+      "canonical_source": "utilities",
+      "derived_sources": [],
+      "related_sources": [],
+      "editable_fields": [
+        {
+          "path_pattern": "**",
+          "type": "structured_json",
+          "validation": {
+            "strategy": "existing_module_validator",
+            "ref": "admin.js#validateCurrent:utilities"
+          }
+        }
+      ],
+      "permissions": {
+        "read": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "preflight": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "draft": [
+          "admin",
+          "operator"
+        ],
+        "publish": [
+          "admin",
+          "operator"
+        ],
+        "direct_save": [],
+        "rollback": [
+          "admin"
+        ]
+      },
+      "mutation": {
+        "direct_save_allowed": false,
+        "proposal_allowed": true,
+        "proposal_only": true,
+        "rollback_allowed": true
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "operations.utilities",
+      "preview_route": "/utilities/"
     },
     {
       "id": "venues",
@@ -85,7 +329,61 @@
         "admin",
         "editor",
         "operator"
-      ]
+      ],
+      "canonical_source": "destination-venues",
+      "derived_sources": [],
+      "related_sources": [],
+      "editable_fields": [
+        {
+          "path_pattern": "**",
+          "type": "structured_json",
+          "validation": {
+            "strategy": "existing_module_validator",
+            "ref": "admin.js#validateCurrent:venues"
+          }
+        }
+      ],
+      "permissions": {
+        "read": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "preflight": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "draft": [
+          "admin",
+          "editor",
+          "operator"
+        ],
+        "publish": [
+          "admin",
+          "editor",
+          "operator"
+        ],
+        "direct_save": [],
+        "rollback": [
+          "admin"
+        ]
+      },
+      "mutation": {
+        "direct_save_allowed": false,
+        "proposal_allowed": true,
+        "proposal_only": true,
+        "rollback_allowed": true
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "directory.venues",
+      "preview_route": "/nearme/"
     },
     {
       "id": "foods",
@@ -102,7 +400,61 @@
       "write": [
         "admin",
         "editor"
-      ]
+      ],
+      "canonical_source": "food-entities",
+      "derived_sources": [],
+      "related_sources": [
+        "food-vi"
+      ],
+      "editable_fields": [
+        {
+          "path_pattern": "**",
+          "type": "structured_json",
+          "validation": {
+            "strategy": "existing_module_validator",
+            "ref": "admin.js#validateCurrent:foods"
+          }
+        }
+      ],
+      "permissions": {
+        "read": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "preflight": [
+          "admin",
+          "editor",
+          "operator",
+          "viewer"
+        ],
+        "draft": [
+          "admin",
+          "editor"
+        ],
+        "publish": [
+          "admin",
+          "editor"
+        ],
+        "direct_save": [],
+        "rollback": [
+          "admin"
+        ]
+      },
+      "mutation": {
+        "direct_save_allowed": false,
+        "proposal_allowed": true,
+        "proposal_only": true,
+        "rollback_allowed": true
+      },
+      "translation": {
+        "aware": true,
+        "family": "food",
+        "source_id": "food-vi"
+      },
+      "audit_category": "content.food",
+      "preview_route": "/food/"
     },
     {
       "id": "visuals",
@@ -118,7 +470,58 @@
       "write": [
         "admin",
         "editor"
-      ]
+      ],
+      "canonical_source": "visual-context",
+      "derived_sources": [
+        "knowledge-public",
+        "knowledge-home"
+      ],
+      "related_sources": [],
+      "editable_fields": [
+        {
+          "path_pattern": "**",
+          "type": "structured_json",
+          "validation": {
+            "strategy": "existing_module_validator",
+            "ref": "admin.js#validateCurrent:visuals"
+          }
+        }
+      ],
+      "permissions": {
+        "read": [
+          "admin",
+          "editor",
+          "viewer"
+        ],
+        "preflight": [
+          "admin",
+          "editor",
+          "viewer"
+        ],
+        "draft": [
+          "admin",
+          "editor"
+        ],
+        "publish": [
+          "admin",
+          "editor"
+        ],
+        "direct_save": [],
+        "rollback": []
+      },
+      "mutation": {
+        "direct_save_allowed": false,
+        "proposal_allowed": true,
+        "proposal_only": true,
+        "rollback_allowed": false
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "media.visuals",
+      "preview_route": "/guide/knowledge.html"
     },
     {
       "id": "users",
@@ -131,7 +534,49 @@
       ],
       "write": [
         "admin"
-      ]
+      ],
+      "canonical_source": "cms-users",
+      "derived_sources": [],
+      "related_sources": [],
+      "editable_fields": [
+        {
+          "path_pattern": "**",
+          "type": "structured_json",
+          "validation": {
+            "strategy": "existing_module_validator",
+            "ref": "admin.js#validateCurrent:users"
+          }
+        }
+      ],
+      "permissions": {
+        "read": [
+          "admin"
+        ],
+        "preflight": [
+          "admin"
+        ],
+        "draft": [
+          "admin"
+        ],
+        "publish": [
+          "admin"
+        ],
+        "direct_save": [],
+        "rollback": []
+      },
+      "mutation": {
+        "direct_save_allowed": false,
+        "proposal_allowed": true,
+        "proposal_only": true,
+        "rollback_allowed": false
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "security.users",
+      "preview_route": null
     },
     {
       "id": "analytics",
@@ -142,7 +587,34 @@
       "read": [
         "admin"
       ],
-      "write": []
+      "write": [],
+      "canonical_source": null,
+      "derived_sources": [],
+      "related_sources": [],
+      "editable_fields": [],
+      "permissions": {
+        "read": [
+          "admin"
+        ],
+        "preflight": [],
+        "draft": [],
+        "publish": [],
+        "direct_save": [],
+        "rollback": []
+      },
+      "mutation": {
+        "direct_save_allowed": false,
+        "proposal_allowed": false,
+        "proposal_only": false,
+        "rollback_allowed": false
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "internal.analytics",
+      "preview_route": null
     },
     {
       "id": "traffic",
@@ -153,7 +625,398 @@
       "read": [
         "admin"
       ],
-      "write": []
+      "write": [],
+      "canonical_source": null,
+      "derived_sources": [],
+      "related_sources": [],
+      "editable_fields": [],
+      "permissions": {
+        "read": [
+          "admin"
+        ],
+        "preflight": [],
+        "draft": [],
+        "publish": [],
+        "direct_save": [],
+        "rollback": []
+      },
+      "mutation": {
+        "direct_save_allowed": false,
+        "proposal_allowed": false,
+        "proposal_only": false,
+        "rollback_allowed": false
+      },
+      "translation": {
+        "aware": false,
+        "family": null,
+        "source_id": null
+      },
+      "audit_category": "internal.traffic",
+      "preview_route": null
+    }
+  ],
+  "editor_surfaces": [
+    {
+      "id": "home-inline",
+      "owner_module": "home",
+      "source_id": "home-copy",
+      "path": "data/home-copy.json",
+      "record_locator": {
+        "type": "singleton",
+        "record_id": "home"
+      },
+      "permissions": {
+        "direct_save": [
+          "admin"
+        ]
+      },
+      "audit_category": "content.home.inline",
+      "translation": {
+        "aware": false,
+        "family": null
+      },
+      "editable_fields": [
+        {
+          "path_pattern": "hero.kicker",
+          "type": "string",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "hero.title",
+          "type": "string",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "hero.lead",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "footer.title",
+          "type": "string",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "footer.lead",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "footer.note",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "sections.{happening|things|must|areas|food|essentials|heritage|guide}.{eyebrow|title|lead}",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "site.*.*",
+          "type": "string",
+          "validation": {
+            "value": "string",
+            "existing_path": true,
+            "depth": {
+              "min": 2,
+              "max": 6
+            }
+          }
+        }
+      ],
+      "record_validation": [
+        {
+          "path": "hero.title",
+          "rule": "required_nonempty_string"
+        },
+        {
+          "path": "hero.lead",
+          "rule": "required_nonempty_string"
+        }
+      ]
+    },
+    {
+      "id": "story-inline",
+      "owner_module": "stories",
+      "source_id": "stories",
+      "path": "data/content.json",
+      "record_locator": {
+        "type": "collection",
+        "collection_path": "stories",
+        "id_field": "id"
+      },
+      "permissions": {
+        "direct_save": [
+          "admin"
+        ]
+      },
+      "audit_category": "content.stories.inline",
+      "translation": {
+        "aware": false,
+        "family": null
+      },
+      "editable_fields": [
+        {
+          "path_pattern": "title",
+          "type": "string",
+          "validation": {
+            "value": "string"
+          }
+        },
+        {
+          "path_pattern": "dek",
+          "type": "text",
+          "validation": {
+            "value": "string"
+          }
+        },
+        {
+          "path_pattern": "intro",
+          "type": "text",
+          "validation": {
+            "value": "string"
+          }
+        },
+        {
+          "path_pattern": "sections.[index].heading",
+          "type": "string",
+          "validation": {
+            "value": "string",
+            "index_must_exist": true
+          }
+        },
+        {
+          "path_pattern": "sections.[index].body",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "index_must_exist": true
+          }
+        }
+      ],
+      "record_validation": [
+        {
+          "path": "title",
+          "rule": "required_nonempty_string"
+        },
+        {
+          "path": "sections",
+          "rule": "required_nonempty_array"
+        }
+      ]
+    },
+    {
+      "id": "food-inline",
+      "owner_module": "foods",
+      "source_id": "food-vi",
+      "path": "data/i18n/vi/food.json",
+      "record_locator": {
+        "type": "collection",
+        "collection_path": "dishes",
+        "id_field": "id"
+      },
+      "permissions": {
+        "direct_save": [
+          "admin"
+        ]
+      },
+      "audit_category": "content.food.inline",
+      "translation": {
+        "aware": true,
+        "family": "food"
+      },
+      "editable_fields": [
+        {
+          "path_pattern": "name",
+          "type": "string",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "intro",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "origin",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "why_name",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "how_to_eat",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "allergy_note",
+          "type": "text",
+          "validation": {
+            "value": "string",
+            "existing_path": true
+          }
+        },
+        {
+          "path_pattern": "ingredients.[index]",
+          "type": "string_array",
+          "validation": {
+            "value": "string",
+            "index_must_exist": true
+          }
+        },
+        {
+          "path_pattern": "tips.[index]",
+          "type": "string_array",
+          "validation": {
+            "value": "string",
+            "index_must_exist": true
+          }
+        },
+        {
+          "path_pattern": "ask_staff.[index]",
+          "type": "string_array",
+          "validation": {
+            "value": "string",
+            "index_must_exist": true
+          }
+        }
+      ],
+      "record_validation": [
+        {
+          "path": "$document.locale",
+          "rule": "equals",
+          "value": "vi"
+        },
+        {
+          "path": "$document.dishes",
+          "rule": "array_length",
+          "value": 32
+        },
+        {
+          "path": "name",
+          "rule": "required_nonempty_string"
+        },
+        {
+          "path": "intro",
+          "rule": "required_nonempty_string"
+        }
+      ]
+    },
+    {
+      "id": "knowledge-inline",
+      "owner_module": "guide",
+      "source_id": "knowledge-objects",
+      "path": "data/knowledge/objects.json",
+      "record_locator": {
+        "type": "collection",
+        "collection_path": "objects",
+        "id_field": "topic_id"
+      },
+      "permissions": {
+        "direct_save": [
+          "admin"
+        ]
+      },
+      "audit_category": "content.knowledge.inline",
+      "translation": {
+        "aware": true,
+        "family": "knowledge"
+      },
+      "editable_fields": [
+        {
+          "path_pattern": "title",
+          "type": "string",
+          "validation": {
+            "value": "string"
+          }
+        },
+        {
+          "path_pattern": "editorial.short_summary",
+          "type": "text",
+          "validation": {
+            "value": "string"
+          }
+        },
+        {
+          "path_pattern": "editorial.practical",
+          "type": "text",
+          "validation": {
+            "value": "string"
+          }
+        },
+        {
+          "path_pattern": "editorial.expectation_vs_reality",
+          "type": "text",
+          "validation": {
+            "value": "string"
+          }
+        },
+        {
+          "path_pattern": "editorial.before_you_go.[index]",
+          "type": "string_array",
+          "validation": {
+            "value": "string",
+            "index_must_exist": true
+          }
+        }
+      ],
+      "record_validation": [
+        {
+          "path": "title",
+          "rule": "required_nonempty_string"
+        },
+        {
+          "path": "editorial.short_summary",
+          "rule": "required_nonempty_string"
+        },
+        {
+          "path": "editorial.practical",
+          "rule": "required_nonempty_string"
+        },
+        {
+          "path": "editorial.before_you_go",
+          "rule": "required_nonempty_array"
+        }
+      ]
     }
   ]
 }

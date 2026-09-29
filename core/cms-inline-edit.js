@@ -236,7 +236,7 @@ async function publishOnce(){
     const link=document.createElement("a");
     link.href="https://github.com/kenzuko/jotrip-home/commit/"+result.commit;
     link.target="_blank";link.rel="noopener noreferrer";link.textContent="Xem lịch sử ↗";
-    el.append(link);el.dataset.kind="good";
+    el.append(link);window.OPQDirectSaveRollback?.mount(el,result.commit);el.dataset.kind="good";
   }catch(error){note(String(error.message||error)+". Nháp vẫn còn trên máy.","warn");}
   finally{if(S.dirty&&!S.blocked)button.disabled=false;}
 }
