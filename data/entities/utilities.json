@@ -1137,15 +1137,36 @@
       "what_it_is": "Siêu thị điện máy và thiết bị điện tử. Đây là địa chỉ cửa hàng, không phải GPS trạm xe buýt.",
       "live_check_required": true,
       "verified": true,
-      "map_review_note": "Đơn vị vận hành xác nhận địa chỉ và cửa hàng; chưa có tọa độ trạm VinBus. Không dùng pin cửa hàng thay pin trạm.",
+      "map_review_note": "Tọa độ lấy từ link Nhận chỉ đường Google Maps do trang chi nhánh chính thức Điện Máy Chợ Lớn Phú Quốc công bố. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
       "source_refs": [
         {
           "source_id": "dienmaycholon_store_200a_20260925",
           "url": "https://dienmaycholon.com/he-thong-sieu-thi/200a-nguyen-trung-truc-khu-pho-5-phuong-duong-dong-thanh-pho-phu-quoc-kien-giang",
           "checked_at": "2026-09-25"
+        },
+        {
+          "source_id": "dienmaycholon_operator_map_20260929",
+          "url": "https://dienmaycholon.com/he-thong-sieu-thi/200a-nguyen-trung-truc-khu-pho-5-phuong-duong-dong-thanh-pho-phu-quoc-kien-giang",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-25"
+      "updated_at": "2026-09-29",
+      "map": {
+        "lat": 10.2232312,
+        "lon": 103.9700297,
+        "precision": "site_centroid",
+        "source": "Official Dien May Cho Lon Phu Quoc branch page Google Maps directions link",
+        "source_id": "dienmaycholon_operator_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tọa độ lấy từ link Nhận chỉ đường Google Maps do trang chi nhánh chính thức Điện Máy Chợ Lớn Phú Quốc công bố. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+        "accuracy": "operator_linked_google_maps_coordinate"
+      },
+      "source_audit": {
+        "gps_review_at": "2026-09-29",
+        "gps_review_status": "SITE_CENTROID_ACCEPTED",
+        "verified_entrance": false,
+        "gps_review_note": "Tọa độ lấy từ link Nhận chỉ đường Google Maps do trang chi nhánh chính thức Điện Máy Chợ Lớn Phú Quốc công bố. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào."
+      }
     }
   ]
 }
