@@ -106,6 +106,94 @@ assert.equal(sunset.refreshDelayMs(300),30*60*1000);
 assert.equal(sunset.refreshDelayMs(120),10*60*1000);
 assert.equal(sunset.refreshDelayMs(0),null);
 
+
+// Dense ordinary cloud on the observed sunset horizon matters near sunset.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.horizon_cloud={
+      status:"LIKELY_OBSCURED",
+      obscuration_score:82,
+      trend:"STABLE",
+      dominant_layer:"LOW",
+      confidence:"HIGH"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"watch");
+  assert.equal(out.reason,"horizon_cloud");
+  assert.equal(out.horizon_cloud_status,"LIKELY_OBSCURED");
+  assert.equal(out.horizon_cloud_score,82);
+}
+
+// Moderate horizon cloud becomes actionable inside the final two hours.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.horizon_cloud={
+      status:"CLOUD_RISK",
+      obscuration_score:52,
+      trend:"STABLE",
+      dominant_layer:"MID",
+      confidence:"MEDIUM"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"watch");
+  assert.equal(out.reason,"horizon_cloud");
+}
+
+// A high-confidence clear horizon should outrank generic WATCH convection.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.horizon_cloud={
+      status:"CLEAR",
+      obscuration_score:8,
+      trend:"STABLE",
+      dominant_layer:null,
+      confidence:"HIGH"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"good");
+  assert.equal(out.reason,"horizon_clear");
+}
+
+// Even a dense horizon observation must not be projected ten hours forward.
+{
+  const data=base(0.1);
+  data.generated_at="2026-09-29T00:20:00Z";
+  data.actual.vvpq.observed_at="2026-09-29T00:20:00Z";
+  data.actual.rain_gauges[0].observed_at="2026-09-29T00:20:00Z";
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.sampled_time="2026-09-29T00:20:00Z";
+    data.points[id].nowcast.horizon_cloud={
+      status:"LIKELY_OBSCURED",
+      obscuration_score:90,
+      trend:"INCREASING",
+      dominant_layer:"LOW",
+      confidence:"HIGH"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T00:45:00Z"),
+    nowMinutes:7*60+45
+  });
+  assert.equal(out.phase,"early");
+  assert.equal(out.level,"good");
+  assert.equal(out.reason,"early_favorable");
+}
+
 // Near sunset, a usable observed cloud track aimed at the west coast becomes a watch.
 {
   const data=base(0.1);
