@@ -1,3 +1,4 @@
+// Release QA rebuilds the multilingual bundle so locale regressions fail before screenshots.
 import { chromium } from 'playwright';
 import fs from 'node:fs/promises';
 import path from 'node:path';
