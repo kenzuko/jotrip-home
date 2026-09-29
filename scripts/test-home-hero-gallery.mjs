@@ -56,10 +56,12 @@ const html=fs.readFileSync("index.html","utf8");
 const app=fs.readFileSync("app.js","utf8");
 assert.ok(html.indexOf('src="core/hero-gallery.js?')<html.indexOf('src="app.js?'),
   "Gallery must load before app");
-const heroCreditMarkup=html.match(/<div class="hero-credit"[\\s\\S]*?<\\/div>/)?.[0]||"";
+const heroCreditStart=html.indexOf('<div class="hero-credit"');
+const heroCreditEnd=heroCreditStart>=0?html.indexOf("</div>",heroCreditStart):-1;
+const heroCreditMarkup=heroCreditStart>=0&&heroCreditEnd>=0?html.slice(heroCreditStart,heroCreditEnd+6):"";
 assert.ok(html.includes("data-hero-license")&&!html.includes("data-hero-source"),
   "Hero must keep text attribution without an external source link");
-assert.ok(heroCreditMarkup&&!/<a\\b/i.test(heroCreditMarkup),
+assert.ok(heroCreditMarkup&&!heroCreditMarkup.includes("<a "),
   "Photo attribution must not add hyperlinks to the homepage hero");
 assert.match(app,/heroGallery\?\.choose\(mood,new Date\(\)\)/);
 assert.match(app,/heroMobile\.addEventListener/);
