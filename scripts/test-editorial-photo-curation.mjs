@@ -105,6 +105,16 @@ for(const forbidden of ["kiến xây","kien-xay","ki%E1%BA%BFn%20x%C3%A2y","cay-
   assert(!genericFoodImageBlob.includes(forbidden.toLowerCase()),"Generic food imagery must not promote a specific restaurant/brand: "+forbidden);
 }
 assert(JSON.stringify(visual).includes("editorial-sunset-town-aerial.jpg"),"Attraction-brand imagery remains intentionally allowed when the attraction is the subject");
+const remainingGenericBrandBlob=JSON.stringify({
+  breakfast:visual.knowledge["knowledge_071_an-sang-o-phu-quoc"],
+  slipperLobster:visual.food["tom-mu-ni-nuong"],
+  mantisShrimp:visual.food["tom-tich-rang-muoi"],
+  oysters:visual.food["hau-nuong-mo-hanh"]
+}).toLowerCase();
+for(const forbidden of ["kiến xây","ki%E1%BA%BFn%20x%C3%A2y","kingfish","cá mú đỏ","camudo","ann seafood"]){
+  assert(!remainingGenericBrandBlob.includes(forbidden.toLowerCase()),"Remaining generic editorial image must not promote a restaurant/product brand: "+forbidden);
+}
+assert.equal(visual.food["tom-tich-rang-muoi"]?.images?.length,0,"Tôm tích rang muối stays photo-free until an exact brand-neutral dish image is verified");
 
 
 console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");
