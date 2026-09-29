@@ -4,6 +4,8 @@ import fs from "node:fs";
 const html=fs.readFileSync("index.html","utf8");
 const css=fs.readFileSync("styles.css","utf8");
 const libraryCss=fs.readFileSync("home-library.css","utf8");
+const experience=fs.readFileSync("home-experience-v1.js","utf8");
+const homeLive=fs.readFileSync("home-live-v3.js","utf8");
 const order=[
   ["energy ticker",'class="energy-ticker"'],
   ["approved hero",'class="hero"'],
@@ -54,4 +56,10 @@ assert.match(css,/@media\(max-width:760px\)\{/);
 assert.match(libraryCss,/Editorial chapter: one softly highlighted weekly cover/);
 assert.match(html,/core\/hero-gallery\.js\?/);
 assert.match(html,/home-library\.css\?v=20260926-five-chapters-r1/);
-console.log("Homepage QA PASS: decorative decision/utility intros removed; operational modules and navigation preserved.");
+assert.match(experience,/Hôm nay nhìn chung khá thuận lợi\. Cuối chiều có thể có mây hoặc mưa thoáng qua vài nơi\./,
+  "Remaining-day card should use the calmer forecast wording when there is no strong sunset warning");
+assert.match(homeLive,/nearSunsetWindow && highConvective/,
+  "Satellite convection must only promote the sunset outlook near sunset");
+assert.doesNotMatch(homeLive,/else if \(highConvective \|\| elevatedConvective\)/,
+  "A standalone morning WATCH satellite signal must not warn for sunset many hours later");
+console.log("Homepage QA PASS: chapters preserved and sunset outlook uses forecast-first, lead-time-aware wording.");
