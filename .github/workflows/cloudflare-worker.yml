@@ -9,6 +9,8 @@ on:
       - "data/home-copy.json"
       - "data/i18n/**"
       - "core/i18n-runtime.js"
+      - "core/i18n-content.js"
+      - "functions/_shared/i18n-content.js"
       - "functions/_shared/i18n.js"
       - "scripts/build-i18n-catalog.mjs"
       - "scripts/test-i18n-*.mjs"
