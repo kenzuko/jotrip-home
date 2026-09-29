@@ -2,6 +2,7 @@ import { rm, mkdir, cp, copyFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 
+// Multilingual release gates run before copying the public bundle.
 // Cloudflare Pages Git builds run this file alone. Generate the public view
 // before regression tests that read data/views/knowledge-public.json, then copy
 // only the newly built public view. This also supports stand-alone Pages builds.
