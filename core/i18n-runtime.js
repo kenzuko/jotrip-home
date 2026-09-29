@@ -3,6 +3,7 @@
  * The runtime is inert on Vietnamese pages and never exposes unpublished locales. */
 (function(root){
 "use strict";
+if(root.OpenPQI18n)return;
 const DEFAULT="vi";
 const META='meta[name="openpq-locale"]';
 const CATALOG="/data/i18n/catalog.json";

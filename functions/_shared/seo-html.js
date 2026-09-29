@@ -1,3 +1,4 @@
+import {DEFAULT_LOCALE,canonicalFor,hreflang,localizedPath,alternateSet} from "./i18n.js";
 // HTML returned to crawlers and visitors includes the same published body as the client reader.
 // No private editorial/research source is loaded here.
 export const SEO_ORIGIN="https://openphuquoc.com";
@@ -12,18 +13,26 @@ const paras=v=>String(v??"").trim().split(/\n{2,}/).filter(Boolean).map(s=>"<p>"
 const photo=(src,alt,caption,credit)=>safeImage(src)
   ?'<figure><img src="'+esc(src)+'" alt="'+esc(alt||"Ảnh Phú Quốc")+'" loading="lazy" decoding="async">'+
     (caption||credit?'<figcaption>'+esc([caption,credit].filter(Boolean).join(" · "))+'</figcaption>':"")+"</figure>":"";
-export function buildStoryMeta(story){
+function alternateMeta(path,availableLocales=[]){
+  if(!Array.isArray(availableLocales)||availableLocales.length<2)return[];
+  return alternateSet(path,availableLocales).map(row=>({...row,href:new URL(row.path,SEO_ORIGIN).toString()}));
+}
+export function buildStoryMeta(story,{locale=DEFAULT_LOCALE,availableLocales=[DEFAULT_LOCALE]}={}){
   if(!story?.id||!story.title)return null;
-  return {kind:"story",source:story,type:"article",title:clean(story.title)+" - Open Phu Quoc",
+  const path="/stories/article.html?id="+encodeURIComponent(story.id);
+  return {kind:"story",source:story,type:"article",locale,htmlLang:hreflang(locale),path,
+    title:clean(story.title)+" - Open Phu Quoc",
     description:desc(story.dek||story.intro||"Câu chuyện về Phú Quốc."),
-    canonical:urlFor("/stories/article.html?id="+encodeURIComponent(story.id)),
+    canonical:canonicalFor(path,locale,SEO_ORIGIN),alternates:alternateMeta(path,availableLocales),
     image:safeImage(story.image)||SEO_FALLBACK_IMAGE,imageAlt:clean(story.image_alt||story.title)};
 }
-export function buildKnowledgeMeta(article){
+export function buildKnowledgeMeta(article,{locale=DEFAULT_LOCALE,availableLocales=[DEFAULT_LOCALE]}={}){
   if(!article?.topic_id||!article.title||!article.editorial)return null;
-  return {kind:"knowledge",source:article,type:"article",title:clean(article.title)+" - Cẩm nang Phú Quốc",
+  const path=article.route||"/guide/article.html?id="+encodeURIComponent(article.topic_id);
+  return {kind:"knowledge",source:article,type:"article",locale,htmlLang:hreflang(locale),path,
+    title:clean(article.title)+" - Cẩm nang Phú Quốc",
     description:desc(article.editorial.short_summary),
-    canonical:urlFor(article.route||"/guide/article.html?id="+encodeURIComponent(article.topic_id)),
+    canonical:canonicalFor(path,locale,SEO_ORIGIN),alternates:alternateMeta(path,availableLocales),
     image:safeImage(article.media?.images?.[0]?.url)||SEO_FALLBACK_IMAGE,
     imageAlt:clean(article.media?.images?.[0]?.alt||article.title)};
 }
@@ -39,10 +48,10 @@ export function storyBody(s){
   }
   return out+"</article>";
 }
-export function knowledgeBody(o){
+export function knowledgeBody(o,locale=DEFAULT_LOCALE){
   const ed=o.editorial||{};
   let out='<article class="knowledge-article" itemscope itemtype="https://schema.org/Article">'+
-    '<a class="knowledge-back" href="/guide/knowledge.html">← Tất cả bài cẩm nang</a>'+
+    '<a class="knowledge-back" href="'+esc(localizedPath("/guide/knowledge.html",locale))+'">← Tất cả bài cẩm nang</a>'+
     '<h1 itemprop="headline">'+esc(o.title)+'</h1><p class="knowledge-lead">'+esc(ed.short_summary||"")+'</p>';
   const photographs=(o.media?.images||[]).filter(p=>safeImage(p.url));
   if(photographs.length){
@@ -72,7 +81,7 @@ export function structured(meta){
     logo:{"@type":"ImageObject",url:SEO_ORIGIN+"/assets/logo-master.png"}};
   const obj={"@context":"https://schema.org","@type":"Article",headline:meta.source.title,
     description:meta.description,mainEntityOfPage:{"@type":"WebPage","@id":meta.canonical},
-    inLanguage:"vi-VN",author:org,publisher:org};
+    inLanguage:meta.htmlLang||"vi-VN",author:org,publisher:org};
   const published=dateValue(meta.source.published_at||meta.source.publication_date);
   if(published)obj.datePublished=published; // Never invent an editorial publication date.
   const d=dateValue(meta.source.updated_at);
@@ -83,6 +92,7 @@ export function structured(meta){
 export function rewriteSeoHtml(response,meta){
   if(!meta||!response.ok||!(response.headers.get("content-type")||"").includes("text/html"))return response;
   const writer=new HTMLRewriter()
+    .on("html",{element(el){if(meta.htmlLang)el.setAttribute("lang",meta.htmlLang)}})
     .on("title",{element(el){el.setInnerContent(meta.title)}})
     .on('link[rel="canonical"]',{element(el){el.setAttribute("href",meta.canonical)}})
     .on('meta[name="description"]',{element(el){el.setAttribute("content",meta.description)}})
@@ -100,9 +110,26 @@ export function rewriteSeoHtml(response,meta){
     .on('meta[name="twitter:image"]',{element(el){el.setAttribute("content",meta.image)}});
   if(meta.kind==="story"||meta.kind==="knowledge"){
     writer.on(meta.kind==="story"?"#articleRoot":"#knowledgeArticle",{
-      element(el){el.setInnerContent(meta.kind==="story"?storyBody(meta.source):knowledgeBody(meta.source),{html:true})}
+      element(el){el.setInnerContent(meta.kind==="story"?storyBody(meta.source):knowledgeBody(meta.source,meta.locale),{html:true})}
     });
-    writer.on("head",{element(el){el.append('<script type="application/ld+json">'+structured(meta)+'</script>',{html:true})}});
+    writer.on("head",{element(el){
+      const alternates=(meta.alternates||[]).map(x=>'<link rel="alternate" hreflang="'+esc(x.hreflang)+'" href="'+esc(x.href)+'">').join("");
+      el.append(alternates+'<script type="application/ld+json">'+structured(meta)+'</script>',{html:true});
+    }});
   }
+  return writer.transform(response);
+}
+export function rewriteLocaleHtml(response,{locale=DEFAULT_LOCALE,pathname="/",availableLocales=[DEFAULT_LOCALE]}={}){
+  if(locale===DEFAULT_LOCALE||!response.ok||!(response.headers.get("content-type")||"").includes("text/html"))return response;
+  const canonical=canonicalFor(pathname,locale,SEO_ORIGIN);
+  const alternates=alternateMeta(pathname,availableLocales);
+  const writer=new HTMLRewriter()
+    .on("html",{element(el){el.setAttribute("lang",hreflang(locale))}})
+    .on('link[rel="canonical"]',{element(el){el.setAttribute("href",canonical)}})
+    .on("head",{element(el){
+      const links=alternates.map(x=>'<link rel="alternate" hreflang="'+esc(x.hreflang)+'" href="'+esc(x.href)+'">').join("");
+      el.append('<meta name="openpq-locale" content="'+esc(locale)+'">'+links+
+        '<script src="/core/i18n-runtime.js?v=1" defer data-openpq-i18n-runtime></script>',{html:true});
+    }});
   return writer.transform(response);
 }
