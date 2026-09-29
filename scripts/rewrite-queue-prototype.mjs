@@ -98,7 +98,7 @@ function renderPack(meta, blocks) {
       '## BLOCK ' + String(b.n).padStart(3, '0'),
       '<!-- ID:' + safeMeta(b.id) + ' -->',
       '<!-- POINTER:' + safeMeta(b.pointer) + ' -->',
-      '<!-- HASH:' + b.hash + ' -->',
+      '<!-- HASH:' + (b.hash || 'ORIGINAL_ONLY') + ' -->',
       '<!-- LOCKS:' + safeMeta(JSON.stringify(b.locks)) + ' -->',
       '[ORIGINAL]',
       b.original,
@@ -118,7 +118,7 @@ function parsePack(text) {
     throw new Error('Not an OPENPQ rewrite pack v1');
   }
 
-  const re = /(?:#{1,6}\s*)?BLOCK\s+\d+[\s\S]*?<!-- ID:([^\n]*?) -->[\s\S]*?<!-- POINTER:([^\n]*?) -->[\s\S]*?<!-- HASH:([a-f0-9]{64}) -->[\s\S]*?<!-- LOCKS:([^\n]*?) -->[\s\S]*?\[ORIGINAL\]\n([\s\S]*?)\n\[\/ORIGINAL\][\s\S]*?\[REWRITE\]\n([\s\S]*?)\n\[\/REWRITE\]/g;
+  const re = /(?:#{1,6}\s*)?BLOCK\s+\d+[\s\S]*?<!-- ID:([^\n]*?) -->[\s\S]*?<!-- POINTER:([^\n]*?) -->[\s\S]*?<!-- HASH:((?:[a-f0-9]{64}|ORIGINAL_ONLY)) -->[\s\S]*?<!-- LOCKS:([^\n]*?) -->[\s\S]*?\[ORIGINAL\]\n([\s\S]*?)\n\[\/ORIGINAL\][\s\S]*?\[REWRITE\]\n([\s\S]*?)\n\[\/REWRITE\]/g;
   const blocks = [];
   for (const m of pack.matchAll(re)) {
     let locks = [];
@@ -147,7 +147,7 @@ function validateAndApply(data, blocks) {
       report.push({ id: b.id, status: 'error', reason: 'pointer_missing' });
       continue;
     }
-    if (sha256(current) !== b.hash || current !== b.original) {
+    if ((b.hash !== 'ORIGINAL_ONLY' && sha256(current) !== b.hash) || current !== b.original) {
       report.push({ id: b.id, status: 'error', reason: 'source_changed' });
       continue;
     }
