@@ -278,4 +278,5 @@ const storiesTask=loadJson(STORIES,"stories").then(data=>{if(!data)return;(data.
 const currencyTask=loadJson(CURRENCY,"currency").then(data=>{currencyPayload=data;renderHomeCurrency()});
 Promise.allSettled([noticesTask,supportTask,placesTask,activitiesTask,storiesTask,currencyTask]).then(()=>{renderClock();renderTripClock();renderActivities();renderHotNow();renderCuriosity();renderHomeCurrency()});
 window.addEventListener("openpq:live-ready",()=>{renderClock();renderTripClock();renderActivities()});
+window.addEventListener("openpq:sunset-updated",()=>{renderClock();renderTripClock();renderActivities()});
 })();

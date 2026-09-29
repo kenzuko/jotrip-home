@@ -20,6 +20,62 @@
     return m ? Number(m[1]) * 60 + Number(m[2]) : NaN;
   }
 
+  function sunsetDayNote(outlook, remain) {
+    const level=outlook?.level||"unknown";
+    const reason=outlook?.reason||"unknown";
+
+    if (remain > 360) {
+      if (level === "bad") {
+        return reason === "forecast_rain"
+          ? "Dự báo cuối chiều có tín hiệu mưa đáng kể ở bờ Tây. Hệ thống sẽ kiểm tra lại khi gần hoàng hôn."
+          : "Cuối chiều có tín hiệu thời tiết cần lưu ý ở bờ Tây. Hệ thống sẽ kiểm tra lại khi gần hoàng hôn.";
+      }
+      if (level === "watch" && reason === "forecast_rain") {
+        return "Cuối chiều còn một ít bất định về mưa. Hệ thống sẽ cập nhật lại khi gần hoàng hôn.";
+      }
+      if (level === "unknown") {
+        return "Còn sớm để kết luận về mây lúc hoàng hôn. Hệ thống sẽ cập nhật lại khi dữ liệu chiều rõ hơn.";
+      }
+      return "Hôm nay nhìn chung khá thuận lợi. Hệ thống sẽ cập nhật lại khi gần hoàng hôn.";
+    }
+
+    if (level === "bad") {
+      return reason === "observed_weather"
+        ? "Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Nên xem khu vực cụ thể trước khi đi."
+        : "Khả năng mưa quanh giờ hoàng hôn đang cao hơn. Nên xem lại trước khi di chuyển.";
+    }
+
+    if (level === "watch") {
+      if (reason === "observed_rain") {
+        return "Có điểm bờ Tây đang ghi nhận mưa. Tình hình có thể khác nhau giữa các khu vực.";
+      }
+      if (reason === "cloud_approaching") {
+        return "Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
+      }
+      if (reason === "low_visibility") {
+        return "Tầm nhìn đang giảm. Hoàng hôn có thể kém rõ dù không nhất thiết có mưa.";
+      }
+      if (reason === "satellite_convection") {
+        return "Có mây đối lưu quanh khu vực, nhưng chưa đủ bằng chứng để coi là mưa tại bờ Tây.";
+      }
+      if (reason === "forecast_rain") {
+        return "Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Sẽ tiếp tục cập nhật khi gần giờ.";
+      }
+      return "Cuối chiều còn một ít bất định. Nên xem lại khi gần giờ hoàng hôn.";
+    }
+
+    if (level === "good" && reason === "cloud_passing") {
+      return "Có mây đối lưu quanh đảo nhưng quỹ đạo hiện tại đang đi lệch hoặc đi xa bờ Tây.";
+    }
+    if (level === "good") {
+      return remain <= 180
+        ? "Hiện chưa thấy tín hiệu thời tiết đáng ngại cho hoàng hôn bờ Tây."
+        : "Hôm nay nhìn chung khá thuận lợi. Chưa thấy tín hiệu thời tiết đáng ngại cho cuối chiều.";
+    }
+
+    return "Tình hình cuối chiều chưa đủ rõ. Hệ thống sẽ cập nhật lại khi gần hoàng hôn.";
+  }
+
   function renderDayLeft() {
     const value = $("#tripClockDaylight");
     const note = $("#tripClockDayNote");
@@ -35,27 +91,14 @@
     }
     const remain = sunset - now.total;
     const sunsetWeather = window.OPENPQ_HOME?.signals?.sunset_weather || null;
-    const sunsetWeatherLevel = sunsetWeather?.level || "unknown";
     if (sunsetBlock) sunsetBlock.hidden = remain <= 0;
-    if (remain > 120) {
+
+    if (remain > 0) {
       const h = Math.floor(remain / 60), m = remain % 60;
-      value.textContent = "Còn " + h + (m >= 15 ? " giờ " + m + " phút" : " giờ") + " tới hoàng hôn";
-      if (sunsetWeatherLevel === "bad") {
-        note.textContent = "Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn. Quan sát thêm dự báo trước khi di chuyển.";
-      } else if (sunsetWeatherLevel === "watch") {
-        note.textContent = "Cuối chiều có thể có mưa cục bộ ở bờ Tây. Quan sát thêm dự báo trước khi di chuyển.";
-      } else {
-        note.textContent = "Hoàng hôn bờ Tây phụ thuộc mưa và mây chiều nay. Quan sát thêm dự báo trước khi di chuyển.";
-      }
-    } else if (remain > 0) {
-      value.textContent = "Còn khoảng " + remain + " phút tới hoàng hôn";
-      if (sunsetWeatherLevel === "bad") {
-        note.textContent = "Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn. Quan sát thêm dự báo trước khi di chuyển.";
-      } else if (sunsetWeatherLevel === "watch") {
-        note.textContent = "Có thể có mưa cục bộ ở bờ Tây. Quan sát thêm dự báo trước khi di chuyển.";
-      } else {
-        note.textContent = "Hoàng hôn bờ Tây phụ thuộc mưa và mây chiều nay. Quan sát thêm dự báo trước khi di chuyển.";
-      }
+      value.textContent = remain > 120
+        ? "Còn " + h + (m >= 15 ? " giờ " + m + " phút" : " giờ") + " tới hoàng hôn"
+        : "Còn khoảng " + remain + " phút tới hoàng hôn";
+      note.textContent = sunsetDayNote(sunsetWeather, remain);
     } else if (now.total < 21 * 60) {
       value.textContent = "Đã sang nhịp buổi tối";
       note.textContent = "Giờ này có thể ăn tối hoặc ghé chợ đêm gần nơi mình ở. Muốn xem show, hãy kiểm tra thông báo suất diễn tối nay.";
@@ -202,6 +245,7 @@
   renderDayLeft();
   setTimeout(renderDayLeft, 500);
   window.addEventListener("openpq:live-ready", renderDayLeft);
+  window.addEventListener("openpq:sunset-updated", renderDayLeft);
   setInterval(renderDayLeft, 60000);
   renderFoodNow();
   renderIslandStories();

@@ -38,8 +38,10 @@ jobs:
         run: |
           node scripts/validate-home-support.mjs
           node scripts/test-trip-clock-planner.mjs
+          node scripts/test-sunset-outlook.mjs
           node scripts/test-home-nearme.mjs
           node --check home-nearme-v2.js
+          node --check core/sunset-outlook.js
           node --check core/trip-clock-planner.js
           node --check home-foundation-v2.js
       - name: Test GO island map viewport and radius overlays
