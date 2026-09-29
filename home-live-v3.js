@@ -811,10 +811,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const activeRainGauges = gauges.filter(g =>
       g?.rain_observed === true ||
       (Number.isFinite(Number(g?.rain_intensity_mm_h)) && Number(g.rain_intensity_mm_h) > 0));
+    const dayWatchRainGauges = activeRainGauges.filter(g =>
+      Number.isFinite(Number(g?.rain_intensity_mm_h)) && Number(g.rain_intensity_mm_h) >= 0.5);
     const meaningfulObservedRain = heroRain.confirmed ||
-      activeRainGauges.length >= 2 ||
+      dayWatchRainGauges.length >= 2 ||
       activeRainGauges.some(g => Number(g?.rain_intensity_mm_h) >= 2);
-    const activeRainNames = [...new Set(activeRainGauges.map(g => String(g?.name || "").trim()).filter(Boolean))];
+    const activeRainNames = [...new Set(
+      (dayWatchRainGauges.length ? dayWatchRainGauges : activeRainGauges)
+        .map(g => String(g?.name || "").trim()).filter(Boolean)
+    )];
 
     // Candidate policy: only changes that can alter a same-day decision.
     // A trace/light shower at one gauge is not enough for this tiny "hot" surface.
@@ -924,11 +929,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
         continue;
       }
 
+      const validUntilDay = String(notice.valid_until || "").slice(0,10);
       const isOngoing = ["SUSPENDED","SUSPENDED_UPGRADE"].includes(notice.status) &&
-        (!notice.effective_from || notice.effective_from <= todayKey) && !notice.valid_until;
-      // A long-lived suspension remains in schedules/detail pages, but stops
-      // occupying this tiny "hot today" surface after its first week.
-      if (isOngoing && dateAgeDays(notice.effective_from) >= 0 && dateAgeDays(notice.effective_from) <= 7) {
+        (!notice.effective_from || notice.effective_from <= todayKey) &&
+        (!validUntilDay || validUntilDay >= todayKey);
+      // Current operational truth should not disappear just because it is old.
+      // Fresh changes rank higher; long-running suspensions remain eligible but
+      // yield to newer/more disruptive issues when the two-line surface is full.
+      if (isOngoing) {
+        const ageDays=dateAgeDays(notice.effective_from);
         quickAlerts.push({
           kind:"ongoing_operation",
           dedupe_key:"notice-"+notice.id,
@@ -936,7 +945,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           text:notice.title || notice.summary,
           href:noticeHref(notice),
           action:"Xem thông báo",
-          priority:100,
+          priority:Number.isFinite(ageDays)&&ageDays<=7?100:85,
           level:"watch"
         });
       }
