@@ -14,12 +14,50 @@ const zoneLabel={
   zone_south:"Nam đảo"
 };
 
+const areaLabels={
+  north:"Bắc đảo",
+  "north-west":"Tây Bắc đảo",
+  "center-west":"Trung tâm & bờ Tây",
+  west:"Bờ Tây",
+  east:"Đông đảo",
+  "forest-east":"Rừng phía Đông",
+  south:"Nam đảo",
+  "south-an-thoi":"An Thới",
+  "south-east":"Đông Nam đảo",
+  "south-hon-thom":"Hòn Thơm",
+  "south-sea":"Vùng biển An Thới",
+  sea:"Trên biển",
+  "island-wide":"Toàn đảo"
+};
+
+const labels={
+  agriculture:"Nông trại",architecture:"Kiến trúc",beach:"Bãi biển","cable-car":"Cáp treo",
+  craft:"Nghề truyền thống",culture:"Văn hóa",diving:"Lặn biển",entertainment:"Vui chơi giải trí",
+  evening:"Trải nghiệm buổi tối",family:"Dành cho gia đình",fishing:"Câu cá",food:"Ẩm thực",
+  history:"Lịch sử",indoor:"Trong nhà","local-life":"Đời sống địa phương",lore:"Truyền thuyết",
+  marine:"Biển đảo",market:"Chợ",multimedia:"Trình diễn đa phương tiện",museum:"Bảo tàng",
+  nature:"Thiên nhiên",outdoor:"Ngoài trời",resort:"Khu nghỉ dưỡng",river:"Sông",seafood:"Hải sản",
+  show:"Biểu diễn",snorkeling:"Lặn ngắm san hô",stream:"Suối",sunset:"Hoàng hôn",
+  "theme-park":"Công viên chủ đề",thrill:"Trò chơi cảm giác mạnh",underwater:"Trải nghiệm dưới nước",
+  viewpoint:"Điểm ngắm cảnh",village:"Làng quê",waterpark:"Công viên nước",wildlife:"Động vật hoang dã",
+  couple:"Cặp đôi",fireworks:"Pháo hoa",practical:"Thông tin hữu ích","sunset-town":"Sunset Town",
+  "first-time":"Lần đầu đến Phú Quốc"
+};
+
+function friendly(value){
+  const raw=String(value??"");
+  return labels[raw.toLowerCase()]||raw.replaceAll("-"," ");
+}
+function areaName(x){
+  return zoneLabel[x.zone_id]||areaLabels[x.area_code]||"Toàn đảo";
+}
+
 function visualFor(x){
   const images=state.visuals?.places?.[x.id]?.images||[];
   return window.OpenPQVisual?.pickHero?.(images)||images.find(v=>v?.url&&v.hero_eligible!==false)||null;
 }
 function zoneInitial(x){
-  const label=zoneLabel[x.zone_id]||"Phú Quốc";
+  const label=areaName(x);
   return '<div class="place-zone-visual" data-zone="'+esc(x.zone_id||"all")+'"><span>⌖</span><strong>'+esc(label)+'</strong><small>Bối cảnh khu vực</small></div>';
 }
 function mediaFor(x,compact=false){
@@ -34,13 +72,13 @@ function view(x){
   const planning=state.planning.get(x.id)||{};
   return {
     ...x,
-    region:zoneLabel[x.zone_id]||x.area_code||"Toàn đảo",
+    region:areaName(x),
     type:x.categories||x.intents||[],
     what:x.what_it_is||"",
     play:x.why_go?[x.why_go]:[],
     price_ref:x.price_reference||null,
     price_dynamic:!!x.live_check_required,
-    hashtags:[...(x.categories||[]),...(x.intents||[])].slice(0,8).map(v=>"#"+String(v).replace(/\s+/g,"-")),
+    hashtags:[...(x.categories||[]),...(x.intents||[])].slice(0,8).map(friendly),
     planning_level:planning.level||null,
     planning_label:state.levels.find(l=>l.id===planning.level)?.label||"",
     strengths:planning.strengths||[],
@@ -53,7 +91,7 @@ function filtered(){
     const x=view(raw);
     const hay=fold([
       x.name,x.region,x.what,x.why_go,
-      (x.type||[]).join(" "),(x.tips||[]).join(" "),
+      (x.type||[]).join(" "),(x.type||[]).map(friendly).join(" "),(x.tips||[]).join(" "),
       (x.aliases||[]).join(" "),(x.intents||[]).join(" ")
     ].join(" "));
     return(!state.q||hay.includes(fold(state.q)))&&
@@ -103,11 +141,11 @@ async function load(){
 
   const views=state.entities.map(view);
   const regions=[...new Set(views.map(x=>x.region))].sort((a,b)=>a.localeCompare(b,"vi"));
-  const types=[...new Set(views.flatMap(x=>x.type||[]))].sort();
+  const types=[...new Set(views.flatMap(x=>x.type||[]))].sort((a,b)=>friendly(a).localeCompare(friendly(b),"vi"));
 
   $("#regionFilter").innerHTML='<option value="all">Tất cả khu vực</option>'+regions.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");
   $("#levelFilter").innerHTML='<option value="all">Tất cả kiểu ghé</option>'+state.levels.map(x=>'<option value="'+x.id+'">'+esc(x.label)+'</option>').join("");
-  $("#typeFilter").innerHTML='<option value="all">Tất cả loại trải nghiệm</option>'+types.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");
+  $("#typeFilter").innerHTML='<option value="all">Tất cả loại trải nghiệm</option>'+types.map(x=>'<option value="'+esc(x)+'">'+esc(friendly(x))+'</option>').join("");
   $("#placeCount").textContent=state.entities.length;
   $("#regionCount").textContent=regions.length;
   render();
