@@ -9,16 +9,16 @@
   // Display names for the category keys in /data/entities/*.json.
   // Keep the English keys unchanged: filters, routes and source data depend on them.
   const labels={
-    family:"Gia đình",couple:"Cặp đôi",sea:"Biển",evening:"Buổi tối",nature:"Thiên nhiên",
+    family:"Dành cho gia đình",couple:"Cặp đôi",sea:"Trên biển",evening:"Trải nghiệm buổi tối",nature:"Thiên nhiên",
     "local-life":"Đời sống địa phương","rainy-day":"Ngày mưa",show:"Biểu diễn",beach:"Bãi biển",
     culture:"Văn hóa",history:"Lịch sử",outdoor:"Ngoài trời",indoor:"Trong nhà",waterpark:"Công viên nước",
     "cable-car":"Cáp treo",resort:"Khu nghỉ dưỡng",architecture:"Kiến trúc",fireworks:"Pháo hoa",marine:"Biển đảo",
-    viewpoint:"Điểm ngắm cảnh",agriculture:"Nông nghiệp",craft:"Làng nghề",entertainment:"Vui chơi",
+    viewpoint:"Điểm ngắm cảnh",agriculture:"Nông trại",craft:"Nghề truyền thống",entertainment:"Vui chơi giải trí",
     food:"Ẩm thực",lore:"Truyền thuyết",market:"Chợ",museum:"Bảo tàng",practical:"Thông tin hữu ích",
     river:"Sông",seafood:"Hải sản",stream:"Suối",sunset:"Hoàng hôn","theme-park":"Công viên chủ đề",
     thrill:"Trò chơi cảm giác mạnh",village:"Làng quê",wildlife:"Động vật hoang dã",diving:"Lặn biển",
     fishing:"Câu cá",multimedia:"Trình diễn đa phương tiện",snorkeling:"Lặn ngắm san hô",
-    "sunset-town":"Sunset Town",underwater:"Dưới nước"
+    "sunset-town":"Sunset Town",underwater:"Trải nghiệm dưới nước","first-time":"Lần đầu đến Phú Quốc"
   };
 
   const state={
