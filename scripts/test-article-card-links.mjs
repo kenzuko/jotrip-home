@@ -32,7 +32,7 @@ assert.match(home,/Đọc câu chuyện đầy đủ →/,
   "Curiosity card must state the article navigation action");
 
 const experience=read("home-experience-v1.js");
-assert.ok(experience.includes('href="stories/article.html?id='+encodeURIComponent(x.id)+'"'),
+assert.match(experience,/href="stories\/article\.html\?id='\+encodeURIComponent\(x\.id\)\+'"/,
   "Homepage long-story cards must build href from each story id");
 
 const storyJs=read("stories/story.js");
