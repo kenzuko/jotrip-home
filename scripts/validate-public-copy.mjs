@@ -12,6 +12,13 @@ const files=[
   "about/index.html",
   "food/index.html",
   "stories/index.html",
+  "stories/article.html",
+  "guide/article.html",
+  "guide/knowledge.html",
+  "guide/knowledge.js",
+  "food/article.html",
+  "places/index.html",
+  "data/home-copy.json",
   "airport/index.html",
   "weather/index.html",
   "news/news.js",
@@ -65,7 +72,13 @@ const banned=[
   "LẦN KIỂM TRA",
   "ĐO THỰC",
   "CẦN CẬP NHẬT",
-  "Nguồn tham khảo"
+  "Nguồn tham khảo",
+  "KHÁM PHÁ QUỐC",
+  "NGHỀ BIỂN · LOCAL NOTE",
+  "Ferry / high-speed boat đến Phú Quốc",
+  "Bus Phú Quốc",
+  "Dugong ở vùng biển Phú Quốc",
+  "Bắc đảo trước và sau các resort lớn"
 ];
 
 const violations=[];
@@ -74,7 +87,21 @@ const ready=knowledge.objects.filter(x=>x.status==="READY_PUBLIC");
 const untranslatedTitles=new Set(["Airport transfer","Pharmacy","Clinic / Hospital","Toilet","Parking","Fuel stations","Minimart / convenience store","Emergency numbers & practical help","Snorkeling","Diving","Night Market","Safari visit","VinWonders visit","Visit fish sauce house / pepper farm","Kayak","Beach day","Sunset watching","Sunrise watching","Cable car Hòn Thơm","Bãi Trường trước và sau resort development"]);
 for(const item of ready)if(untranslatedTitles.has(item.title))violations.push({file:"data/knowledge/objects.json",phrase:"Untranslated public title: "+item.title});
 const stories=JSON.parse(fs.readFileSync("data/content.json","utf8"));
-for(const story of stories.stories||[])for(const section of story.sections||[])if(/^open phu quoc note$/i.test(section.heading||""))violations.push({file:"data/content.json",phrase:"Internal note heading: "+section.heading});
+for(const story of stories.stories||[]){
+  if(/LOCAL NOTE/i.test(story.category||""))violations.push({file:"data/content.json",phrase:"Untranslated story category: "+story.category});
+  for(const section of story.sections||[])if(/^open phu quoc note$/i.test(section.heading||""))violations.push({file:"data/content.json",phrase:"Internal note heading: "+section.heading});
+}
+const food=JSON.parse(fs.readFileSync("data/i18n/vi/food.json","utf8"));
+const foodVisibleFields=["intro","how_to_eat","origin","why_name","taste_texture","allergy_note"];
+const foodVisibleArrays=["tips","ingredients","ask_staff"];
+for(const dish of food.dishes||[]){
+  for(const field of foodVisibleFields){
+    if(/\btopping\b/i.test(dish[field]||""))violations.push({file:"data/i18n/vi/food.json",phrase:"Untranslated food copy: "+dish[field]});
+  }
+  for(const field of foodVisibleArrays){
+    for(const value of dish[field]||[])if(/\btopping\b/i.test(value||""))violations.push({file:"data/i18n/vi/food.json",phrase:"Untranslated food copy: "+value});
+  }
+}
 for(const file of files){
   if(!fs.existsSync(file))continue;
   const text=fs.readFileSync(file,"utf8");
