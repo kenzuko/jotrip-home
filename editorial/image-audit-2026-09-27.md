@@ -127,12 +127,10 @@ The next pass checked whether a real photo actually illustrates the article subj
 - **Lặn ống thở / San hô Nam đảo**: removed the unidentified local-library snorkeling/coral asset and reused the source-reviewed An Thới snorkeling photo as activity context. Caption explicitly does not claim coral health, exact reef identity or current visibility.
 
 
-## Correction 29/09/2026 - branded-attraction image cleanup wave 9
-- Retired all public uses of the unverified local copies for **Sunset Town, Cầu Hôn, VinWonders, Grand World, Aquatopia** and **Tinh Hoa Việt Nam**.
-- **Sunset Town**: guide, route context and place gallery now use the already-curated Wikimedia Commons Sunset Town images.
-- **Cầu Hôn**: removed the local “water show” copy; kept the two traceable Wikimedia Commons Cầu Hôn images.
-- **VinWonders**: removed three local brand-image copies; guide and place page now use the traceable Wikimedia Commons VinWonders image.
-- **Grand World**: removed both local canal/day copies; place page and the “Bắc đảo trước và sau các resort lớn” present-day context now use the traceable Wikimedia Commons Grand World image.
-- **Aquatopia**: removed the local aerial copy; kept the two traceable Wikimedia Commons Aquatopia images.
-- **Tinh Hoa Việt Nam**: removed the unidentified local copy and kept the image served from the official VinWonders operator source, with reuse permission still explicitly marked unverified.
-- The nine retired files remain in the repository only as inactive archive material. Their photo-library records are now `public_eligible=false`, have empty `used_on`, and a regression test prevents them from re-entering public visual-context.
+## Correction 29/09/2026 - product-brand image rule
+- Reverted the mistaken wave that replaced attraction imagery for Sunset Town, Cầu Hôn, VinWonders, Grand World, Aquatopia and Tinh Hoa Việt Nam. Those existing attraction photos remain in use.
+- The rule is narrower: replace photos that visually promote a **third-party product brand** when the editorial subject is a general Phú Quốc specialty, not that company.
+- **Mắm ruốc ăn liền Phú Quốc**: removed Sáng Lợi packshots from cover/gallery. Replaced with real Phú Quốc ruốc-harvest / drying context from Vietnam.vn; captions make clear these are ingredients, not a packaged brand.
+- **Tiêu chín ngào đường Phú Quốc**: removed Sáng Lợi product packaging. Replaced with licensed real Phú Quốc pepper harvest / pepper-farm images from Wikimedia Commons.
+- **Rượu sim**: removed the branded bottle image `Rượu Sim Phú Quốc.jpg` (Commons itself describes it as one of the brands). Replaced with a brand-neutral Rhodomyrtus tomentosa fruit image.
+- New lock: attraction brands are allowed when the attraction itself is the subject. Product-brand packshots are not used to illustrate a generic specialty article unless that specific brand is itself the article subject.
