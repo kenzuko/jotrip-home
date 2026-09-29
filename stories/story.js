@@ -78,11 +78,14 @@ function coverPosition(value){
 }
 
 function imageCredit(story){
-  if(!story?.image_credit)return "";
-  const label=[story.image_caption,story.image_credit].filter(Boolean).join(" · ");
-  const license=String(story.image_license_url||"");
-  const terms=/^https:\/\/creativecommons\.org\/licenses\//.test(license)?' · <a href="'+esc(license)+'" rel="noopener noreferrer license" target="_blank">Điều kiện sử dụng ảnh</a>':"";
-  return '<figcaption class="cover-credit">'+esc(label)+terms+'</figcaption>';
+  const caption=String(story?.image_caption||"");
+  const credit=String(story?.image_credit||"");
+  if(!caption&&!credit)return "";
+  const license=String(story?.image_license_url||"");
+  const managed=/^https:\/\/creativecommons\.org\/(?:licenses|publicdomain)\//i.test(license) ||
+    /(?:^|\s)(?:Kho ảnh|Kho tư liệu)?\s*JoTrip(?:\s|$|·)/i.test(credit);
+  const label=[caption,managed?"":credit].filter(Boolean).join(" · ");
+  return label?'<figcaption class="cover-credit">'+esc(label)+'</figcaption>':"";
 }
 
 
