@@ -32,8 +32,8 @@ assert.match(home,/Đọc câu chuyện đầy đủ →/,
   "Curiosity card must state the article navigation action");
 
 const experience=read("home-experience-v1.js");
-assert.match(experience,/class="island-story-card [^"]*" href="stories\/article\.html\?id=/,
-  "Homepage long-story cards must be anchors to article IDs");
+assert.ok(experience.includes('href="stories/article.html?id='+encodeURIComponent(x.id)+'"'),
+  "Homepage long-story cards must build href from each story id");
 
 const storyJs=read("stories/story.js");
 assert.doesNotMatch(storyJs,/data\.stories\.find\(x=>x\.id===id\)\|\|data\.stories\[0\]/,

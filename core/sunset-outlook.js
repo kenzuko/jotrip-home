@@ -48,6 +48,8 @@
     return {
       level,reason,
       rain_mm_max:null,rain_mm_typical:null,points:[],
+      forecast_rain_points:[],
+      forecast_rain_likely_points:[],
       observed_rain:false,observed_convective:false,
       gauges_dry:false,gauge_count:0,
       satellite_level:"UNKNOWN",
@@ -109,6 +111,14 @@
     const mid=Math.floor(rainValues.length/2);
     const rainTypical=!rainValues.length?0:rainValues.length%2
       ?rainValues[mid]:(rainValues[mid-1]+rainValues[mid])/2;
+    const rainRiskThreshold=phase==="early"?0.8:0.5;
+    const rainLikelyThreshold=phase==="early"?1.5:1.0;
+    const forecastRainPoints=rows
+      .filter(row=>row.rain>=rainRiskThreshold)
+      .sort((a,b)=>b.rain-a.rain);
+    const forecastRainLikelyPoints=rows
+      .filter(row=>row.rain>=rainLikelyThreshold)
+      .sort((a,b)=>b.rain-a.rain);
 
     const freshNowcasts=WEST_IDS.map(id=>criticalData?.points?.[id]?.nowcast)
       .filter(n=>n?.status==="POINT_NUMERIC_READY"&&ageMinutes(n?.sampled_time,nowMs)<=90);
@@ -177,6 +187,8 @@
       rain_mm_max:Number(rainMax.toFixed(2)),
       rain_mm_typical:Number(rainTypical.toFixed(2)),
       points:rows,
+      forecast_rain_points:forecastRainPoints.map(row=>row.name),
+      forecast_rain_likely_points:forecastRainLikelyPoints.map(row=>row.name),
       observed_rain:anyObservedRain,
       observed_convective:observedConvective,
       gauges_dry:gaugesDry,
