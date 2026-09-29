@@ -131,9 +131,12 @@
     const now=Date.now();
     const days=Number.isInteger(notices?.retention_days)&&notices.retention_days>0?notices.retention_days:3;
     const datedNotice=(notices?.notices||[]).find(x=>{
-      if(x.entity_id!==entity.id||x.status!=="CANCELLED"||typeof x.date!=="string")return false;
-      const start=Date.parse(x.date+"T00:00:00+07:00");
-      return Number.isFinite(start)&&now>=start&&now<start+days*86400000;
+      if(x.entity_id!==entity.id||!["CANCELLED","BOOKING_FULL"].includes(x.status)||typeof x.date!=="string")return false;
+      const eventStart=Date.parse(x.date+"T00:00:00+07:00");
+      const visibleFrom=x.effective_from?Date.parse(x.effective_from+"T00:00:00+07:00"):eventStart;
+      const fallbackEnd=eventStart+days*86400000;
+      const end=x.valid_until?Date.parse(x.valid_until):fallbackEnd;
+      return Number.isFinite(eventStart)&&Number.isFinite(visibleFrom)&&Number.isFinite(end)&&now>=visibleFrom&&now<end;
     });
     const ongoingNotice=(notices?.notices||[]).find(x=>{
       if(x.entity_id!==entity.id||!["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status))return false;
@@ -143,6 +146,7 @@
     });
     const activeNotice=ongoingNotice||datedNotice;
     const noticeEyebrow=ongoingNotice?"THÔNG BÁO VẬN HÀNH":
+      datedNotice?.status==="BOOKING_FULL"?"THÔNG BÁO BOOKING NGÀY "+datedNotice.date.split("-").reverse().join("/"):
       "THÔNG BÁO SUẤT DIỄN NGÀY "+datedNotice?.date?.split("-").reverse().join("/");
     const noticeBanner=activeNotice?
       '<aside class="show-cancel-banner" role="status" data-show-notice><span>'+esc(noticeEyebrow)+'</span>'+
@@ -202,7 +206,9 @@
     // If the detail page is kept open for days, still remove an expired announcement.
     if(datedNotice&&!ongoingNotice){
       const started=Date.parse(datedNotice.date+"T00:00:00+07:00");
-      const deadline=started+days*86400000;
+      const fallbackDeadline=started+days*86400000;
+      const configuredDeadline=datedNotice.valid_until?Date.parse(datedNotice.valid_until):NaN;
+      const deadline=Number.isFinite(configuredDeadline)?configuredDeadline:fallbackDeadline;
       const checkExpiry=setInterval(()=>{if(Date.now()>=deadline){root.querySelector("[data-show-notice]")?.remove();clearInterval(checkExpiry)}},60000);
     }
   }
