@@ -73,6 +73,8 @@ jobs:
         run: node scripts/test-cms-mutation-policy.mjs
       - name: Validate CMS content source registry
         run: node scripts/test-cms-content-sources.mjs
+      - name: Validate CMS translation lifecycle
+        run: node scripts/test-cms-translation-lifecycle.mjs
       - name: Test CMS mutation audit metadata
         run: node scripts/test-cms-mutation-audit.mjs
       - name: Test CMS server draft persistence
