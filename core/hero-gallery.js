@@ -9,7 +9,7 @@
   const BY2="https://creativecommons.org/licenses/by/2.0/";
   const CC0="https://creativecommons.org/publicdomain/zero/1.0/";
   const local=(id,path,label,alt,topic,credit="Kho ảnh JoTrip",extra={})=>
-    ({id,src:"/assets/"+path,label,alt,topic,credit,...extra});
+    ({id,src:"/assets/"+path,label,alt,topic,credit,rights:"unverified",...extra});
   const cc=(id,file,creator,license,label,alt,topic,width=1800)=>{
     const licenses={
       "CC BY-SA 4.0":BYSA4,"CC BY-SA 3.0":BYSA3,"CC BY 4.0":BY4,
@@ -18,7 +18,7 @@
     return {id,src:"https://commons.wikimedia.org/wiki/Special:Redirect/file/"+
       encodeURIComponent(file)+"?width="+width,label,alt,topic,
       credit:creator,sourceUrl:"https://commons.wikimedia.org/wiki/File:"+encodeURIComponent(file),
-      license,licenseUrl:licenses[license],cropped:true};
+      license,licenseUrl:licenses[license],cropped:true,rights:license==="CC0"?"cc0":"cc"};
   };
   const list=[
     local("beach-aerial","photos/beach-aerial-jo-library.webp","NHỮNG DẢI CÁT TRẮNG","Hàng dừa và bãi cát trắng nhìn từ trên cao","beach","Ảnh: kho tư liệu JoTrip"),
@@ -31,11 +31,11 @@
     local("snorkeling","media/editorial-snorkeling-coral.jpg","THẾ GIỚI DƯỚI MẶT NƯỚC","Khám phá vùng san hô gần Phú Quốc","sea","Ảnh: kho tư liệu JoTrip"),
     local("fishing-fleet","media/editorial-fishing-fleet.jpg","MỘT NGÀY CỦA NGƯỜI ĐI BIỂN","Những chiếc tàu đánh cá trên biển Phú Quốc","harbor","Ảnh: kho tư liệu JoTrip"),
     local("fishing-golden","media/editorial-fishing-boat-sunset.jpg","VỀ PHÍA MẶT TRỜI LẶN","Ghe đánh cá dưới ánh chiều cuối ngày","sunset","Ảnh: kho tư liệu JoTrip"),
-    local("fishing-trip-golden","media/jotrip-big-game-fishing-golden-hour-2025.jpg","ÁNH CHIỀU NGOÀI KHƠI","Chuyến câu cá lớn trong ánh nắng chiều","sea","Ảnh: JoTrip"),
-    local("fishing-trip","media/jotrip-big-game-fishing-2026.jpg","MỘT CHUYẾN ĐI KHÓ QUÊN","Trải nghiệm câu cá lớn cùng JoTrip","experience","Ảnh: JoTrip"),
-    local("night-fishing","media/jotrip-night-fishing-2025.jpg","ĐÊM TRÊN BIỂN","Trải nghiệm câu cá đêm tại Phú Quốc","experience","Ảnh: JoTrip"),
-    local("fresh-squid","media/jotrip-fresh-squid-2025.jpg","HƯƠNG VỊ VỪA LÊN BỜ","Mực tươi của biển Phú Quốc","food","Ảnh: JoTrip"),
-    local("grilled-squid","media/jotrip-grilled-squid-2025.jpg","MÓN NGON CUỐI NGÀY","Mực nướng trên bàn ăn","food","Ảnh: JoTrip"),
+    local("fishing-trip-golden","media/jotrip-big-game-fishing-golden-hour-2025.jpg","ÁNH CHIỀU NGOÀI KHƠI","Chuyến câu cá lớn trong ánh nắng chiều","sea","Ảnh: JoTrip",{rights:"owned"}),
+    local("fishing-trip","media/jotrip-big-game-fishing-2026.jpg","MỘT CHUYẾN ĐI KHÓ QUÊN","Trải nghiệm câu cá lớn cùng JoTrip","experience","Ảnh: JoTrip",{rights:"owned"}),
+    local("night-fishing","media/jotrip-night-fishing-2025.jpg","ĐÊM TRÊN BIỂN","Trải nghiệm câu cá đêm tại Phú Quốc","experience","Ảnh: JoTrip",{rights:"owned"}),
+    local("fresh-squid","media/jotrip-fresh-squid-2025.jpg","HƯƠNG VỊ VỪA LÊN BỜ","Mực tươi của biển Phú Quốc","food","Ảnh: JoTrip",{rights:"owned"}),
+    local("grilled-squid","media/jotrip-grilled-squid-2025.jpg","MÓN NGON CUỐI NGÀY","Mực nướng trên bàn ăn","food","Ảnh: JoTrip",{rights:"owned"}),
     local("ho-quoc-wide","media/editorial-ho-quoc-overview.webp","NGÔI CHÙA NHÌN RA BIỂN","Không gian chùa Hộ Quốc nhìn ra bờ biển","culture","Ảnh: kho tư liệu JoTrip"),
     local("ho-quoc-detail","media/editorial-ho-quoc-detail.jpg","MỘT KHOẢNG LẶNG","Chi tiết kiến trúc của chùa Hộ Quốc","culture","Ảnh: kho tư liệu JoTrip"),
     local("vinwonders-castle","media/editorial-vinwonders-castle.jpg","KHI HÀNH TRÌNH BẮT ĐẦU","Lâu đài VinWonders Phú Quốc","experience","Ảnh: kho tư liệu JoTrip"),
@@ -102,10 +102,12 @@
   function choose(mood,date=new Date()){
     const m=shelves[mood]?mood:"noon";
     const group=shelves[m],day=vnDay(date);
+    const eligible=id=>byId[id]&&byId[id].rights!=="unverified";
+    const leads=group.leads.filter(eligible);
     // Calendar-day serial guarantees the featured cover rotates tomorrow.
     const n=Date.parse(day+"T00:00:00Z")/86400000;
-    const lead=group.leads[((n+hash(m))%group.leads.length+group.leads.length)%group.leads.length];
-    const candidates=[...new Set([...group.support,...group.leads])].filter(id=>id!==lead&&byId[id])
+    const lead=leads[((n+hash(m))%leads.length+leads.length)%leads.length];
+    const candidates=[...new Set([...group.support,...group.leads])].filter(id=>id!==lead&&eligible(id))
       .sort((a,b)=>hash(m+"|"+day+"|"+a)-hash(m+"|"+day+"|"+b));
     const chosen=[byId[lead]],used=new Set([chosen[0].topic]);
     for(const id of candidates){
