@@ -32,13 +32,21 @@ function parseData(raw){
   try{return JSON.parse(String(raw||"null"))}catch{return null}
 }
 
-function draftView(row){
+async function draftVersion(row){
+  if(!row)return null;
+  const input=[row.path,row.base_sha,row.updated_at,row.data_json].map(x=>String(x||"")).join("\n");
+  const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(input));
+  return [...new Uint8Array(digest)].map(x=>x.toString(16).padStart(2,"0")).join("");
+}
+
+async function draftView(row){
   if(!row)return null;
   return{
     module_id:row.module_id,
     path:row.path,
     base_sha:row.base_sha,
     data:parseData(row.data_json),
+    version:await draftVersion(row),
     last_revision_id:row.last_revision_id||null,
     last_checkpoint_at:row.last_checkpoint_at||null,
     created_at:row.created_at,
@@ -50,6 +58,20 @@ async function currentDraft(db,key){
   return db.prepare(
     "SELECT draft_key,actor,module_id,path,base_sha,data_json,last_revision_id,last_checkpoint_at,created_at,updated_at FROM cms_drafts WHERE draft_key=?"
   ).bind(key).first();
+}
+
+async function draftVersionConflict(current,body){
+  if(!Object.prototype.hasOwnProperty.call(body,"expected_version"))return false;
+  const expected=body.expected_version==null?null:String(body.expected_version);
+  return expected!==await draftVersion(current);
+}
+
+async function versionConflictResponse(db,key,current){
+  return json({
+    error:"Bản nháp server đã thay đổi ở nơi khác. Tải lại bản nháp để đối chiếu trước khi ghi tiếp.",
+    draft:await draftView(current),
+    history:await history(db,key)
+  },409);
 }
 
 async function history(db,key){
@@ -79,8 +101,9 @@ async function saveDraft({db,user,role,body}){
 
   const key=draftKey(user.login,path);
   const current=await currentDraft(db,key);
+  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
   if(current&&current.base_sha===baseSha&&current.data_json===dataJson){
-    return json({ok:true,unchanged:true,draft:draftView(current),history:await history(db,key)});
+    return json({ok:true,unchanged:true,draft:await draftView(current),history:await history(db,key)});
   }
 
   const now=new Date().toISOString();
@@ -107,7 +130,7 @@ async function saveDraft({db,user,role,body}){
 
   await db.batch(statements);
   const saved=await currentDraft(db,key);
-  return json({ok:true,unchanged:false,revision_created:checkpoint,draft:draftView(saved),history:await history(db,key)});
+  return json({ok:true,unchanged:false,revision_created:checkpoint,draft:await draftView(saved),history:await history(db,key)});
 }
 
 async function restoreDraft({db,user,role,body}){
@@ -118,12 +141,13 @@ async function restoreDraft({db,user,role,body}){
   if(!validRevisionId(revisionId))return json({error:"Phiên bản nháp không hợp lệ"},400);
 
   const key=draftKey(user.login,path);
+  const current=await currentDraft(db,key);
+  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
   const source=await db.prepare(
     "SELECT revision_id,draft_key,actor,module_id,path,base_sha,data_json,created_at FROM cms_draft_revisions WHERE draft_key=? AND revision_id=?"
   ).bind(key,revisionId).first();
   if(!source)return json({error:"Không tìm thấy phiên bản nháp"},404);
 
-  const current=await currentDraft(db,key);
   const now=new Date().toISOString();
   const newRevisionId=crypto.randomUUID();
   await db.batch([
@@ -138,7 +162,7 @@ async function restoreDraft({db,user,role,body}){
       "INSERT INTO cms_draft_audit (event_id,draft_key,actor,action,revision_id,base_sha,created_at) VALUES (?,?,?,?,?,?,?)"
     ).bind(crypto.randomUUID(),key,user.login,"restore",revisionId,source.base_sha,now)
   ]);
-  return json({ok:true,restored_from:revisionId,new_revision_id:newRevisionId,draft:draftView(await currentDraft(db,key)),history:await history(db,key)});
+  return json({ok:true,restored_from:revisionId,new_revision_id:newRevisionId,draft:await draftView(await currentDraft(db,key)),history:await history(db,key)});
 }
 
 async function clearDraft({db,user,role,body}){
@@ -147,6 +171,7 @@ async function clearDraft({db,user,role,body}){
   if(!cmsCan(role,path,"draft"))return json({error:"Vai trò hiện tại không được xóa bản nháp module này"},403);
   const key=draftKey(user.login,path);
   const current=await currentDraft(db,key);
+  if(await draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
   if(current){
     const now=new Date().toISOString();
     await db.batch([
@@ -177,7 +202,7 @@ export async function onRequest({request,env}){
       if(!cmsSupports(path,"draft"))return json({error:"Không hỗ trợ bản nháp cho tệp này"},400);
       if(!cmsCan(role,path,"draft"))return json({error:"Vai trò hiện tại không được xem bản nháp module này"},403);
       const key=draftKey(user.login,path);
-      return json({draft:draftView(await currentDraft(db,key)),history:await history(db,key),storage:"d1"});
+      return json({draft:await draftView(await currentDraft(db,key)),history:await history(db,key),storage:"d1"});
     }
 
     if(!sameOrigin(request,{allowMissing:false}))return json({error:"Origin không hợp lệ"},403);
@@ -193,4 +218,4 @@ export async function onRequest({request,env}){
   }
 }
 
-export const DRAFT_TEST={draftKey,validSha,validModuleId,canCheckpoint,draftView};
+export const DRAFT_TEST={draftKey,validSha,validModuleId,canCheckpoint,draftVersion,draftView};

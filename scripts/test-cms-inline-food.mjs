@@ -25,12 +25,16 @@ assert.match(html,/cms-inline-food\.js\?v=1/);
 for(const key of ['name','intro','tips.','ingredients.','ask_staff.','allergy_note','how_to_eat'])
   assert.ok(food.includes('data-food-path=\\"'+key)||food.includes('data-food-path="'+key),"Missing "+key);
 assert.match(css,/\.food-article section\.food-safety\{[\s\S]*?padding:clamp\(/);
+const policy=readFileSync("functions/_shared/cms-mutation-policy.js","utf8");
+assert.match(policy,/"data\/i18n\/vi\/food\.json"/,"Food path must stay in the centralized CMS mutation policy");
 for(const p of ["content.js","edit-state.js","publish.js"])
-  assert.match(readFileSync("functions/api/cms/"+p,"utf8"),/"data\/i18n\/vi\/food\.json"/);
+  assert.match(readFileSync("functions/api/cms/"+p,"utf8"),/cms-mutation-policy\.js/,""+p+" must use centralized CMS path policy");
 assert.match(readFileSync("admin/index.html","utf8"),/Duyệt website &amp; sửa bài|Duyệt website & sửa bài/);
 const publish=readFileSync("functions/api/cms/publish.js","utf8");
 assert.match(publish,/mirrorData\.dishes=body\.content\.dishes/);
-assert.match(publish,/pathsToCheck\.has\(file\.filename\)/);
+const mutationCore=readFileSync("functions/_shared/cms-mutation-core.js","utf8");
+assert.match(publish,/scanOpenPullConflicts/,"Publish must use the shared conflict scanner");
+assert.match(mutationCore,/wanted\.has\(file\.filename\)/,"Shared conflict scanner must match touched files");
 assert.match(readFileSync("functions/api/cms/edit-state.js","utf8"),/companion_sha/);
 assert.match(code,/id="foodInlinePublish"[^>]*hidden>Xuất bản/);
 assert.match(code,/state\.role==="admin"\)\$\("#foodInlinePublish"\)\.disabled=false/);

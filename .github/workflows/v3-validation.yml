@@ -75,6 +75,11 @@ jobs:
         run: node scripts/test-cms-mutation-audit.mjs
       - name: Test CMS server draft persistence
         run: node scripts/test-cms-server-drafts.mjs
+      - name: Test CMS browser draft integration
+        run: |
+          node scripts/test-cms-draft-client.mjs
+          node scripts/test-cms-inline-edit.mjs
+          node scripts/test-cms-editor-workflow.mjs
       - name: Test CMS direct save mutation safety
         run: node scripts/test-cms-direct-save.mjs
       - name: Test CMS edit-state conflict preflight
@@ -122,6 +127,8 @@ jobs:
           node --check functions/_shared/cms-mutation-policy.js
           node --check functions/api/cms/direct-save.js
           node --check functions/api/cms/drafts.js
+          node --check core/cms-draft-client.js
+          node --check core/cms-inline-edit.js
           node --check functions/api/cms/edit-state.js
           node --check functions/api/cms/publish.js
           node --check functions/api/cms/reviews.js
@@ -149,6 +156,10 @@ jobs:
           test -f dist/transit/app.js
           test -f dist/currency/index.html
           test -f dist/currency/currency.js
+          test -f dist/core/cms-draft-client.js
+          test -f dist/core/cms-inline-edit.js
+          grep -q 'cms-draft-client.js?v=1' dist/admin/index.html
+          grep -q 'cms-draft-client.js?v=1' dist/stories/article.html
           # Bundle both Cloudflare runtimes without deploying or consuming a Cloudflare Build.
           npx --yes wrangler@4.136.3 pages functions build functions --outdir "$RUNNER_TEMP/openpq-pages-qa"
           npx --yes wrangler@4.136.3 deploy --dry-run --config wrangler.jsonc --outdir "$RUNNER_TEMP/openpq-worker-qa"
