@@ -1,6 +1,7 @@
 (() => {
   "use strict";
   const endpoint="/data/views/knowledge-public.json";
+  const localized=path=>window.OpenPQI18n?.localize?.(path)||path;
   const page=document.body.dataset.knowledgePage;
   const labels={PLACE:"Điểm đến",NATURE:"Thiên nhiên",FOOD:"Ẩm thực",PRACTICAL:"Đi lại & tiện ích",HISTORY_LORE:"Lịch sử & văn hóa",ACTIVITY:"Trải nghiệm",MEMORY_CHANGE:"Đảo đổi thay"};
   const fold=value=>String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").replace(/Đ/g,"D").toLowerCase();
@@ -19,7 +20,7 @@
     if(!matching.length){cards.append(el("p",null,"Chưa tìm thấy bài phù hợp. Bạn thử từ khác nhé."));return;}
     const fragment=document.createDocumentFragment();
     for(const o of matching){
-      const a=el("a","knowledge-card");a.href=o.route;
+      const a=el("a","knowledge-card");a.href=localized(o.route);
       const photo=o.media?.images?.[0];
       if(photo){
         const frame=el("figure","knowledge-card-photo");
@@ -49,12 +50,12 @@
   function showArticle(o){
     const ed=o.editorial;
     document.title=o.title+" - Cẩm nang Phú Quốc";
-    document.querySelector('link[rel="canonical"]')?.setAttribute("href","https://openphuquoc.com"+o.route);
+    document.querySelector('link[rel="canonical"]')?.setAttribute("href","https://openphuquoc.com"+localized(o.route));
     document.querySelector('meta[name="description"]')?.setAttribute("content",ed.short_summary.slice(0,190));
     article.replaceChildren();
     const root=el("article","knowledge-article");root.dataset.cmsRecord=o.topic_id;
     const back=el("a","knowledge-back","← Tất cả bài cẩm nang");
-    back.href="/guide/knowledge.html";root.append(back);
+    back.href=localized("/guide/knowledge.html");root.append(back);
     const headline=el("h1",null,o.title),lead=el("p","knowledge-lead",ed.short_summary);
     headline.dataset.cmsField="title";lead.dataset.cmsField="editorial.short_summary";
     root.append(el("p","knowledge-type",labels[o.topic_type]||"Cẩm nang"),headline,lead);
@@ -146,9 +147,10 @@
   }
   async function init(){
     try{
-      const response=await fetch(endpoint,{cache:"default"});
-      if(!response.ok)throw Error("HTTP "+response.status);
-      const payload=await response.json();items=payload.objects||[];
+      const payload=window.OpenPQI18nContent?.knowledge
+        ? await window.OpenPQI18nContent.knowledge()
+        : await fetch(endpoint,{cache:"default"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()});
+      items=payload.objects||[];
       if(page==="library"){
         const params=new URLSearchParams(location.search);
         const categoryFromUrl=params.get("category");
@@ -161,7 +163,7 @@
         const found=items.find(o=>o.topic_id===id);
         if(found)showArticle(found);
         else{
-          const link=el("a",null,"Xem tất cả bài");link.href="/guide/knowledge.html";
+          const link=el("a",null,"Xem tất cả bài");link.href=localized("/guide/knowledge.html");
           article.replaceChildren(el("p",null,"Bài này chưa được công khai hoặc không tồn tại."),link);
         }
       }

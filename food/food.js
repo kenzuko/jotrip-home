@@ -1,9 +1,9 @@
-const CONTENT_LOCALE=(document.documentElement.lang||"vi").split("-")[0]||"vi";
-const DATA="../data/i18n/"+CONTENT_LOCALE+"/food.json";
-const DATA_FALLBACK="../data/food.json";
-const VISUALS="../data/visual-context.json";
-const UI="../data/i18n/"+CONTENT_LOCALE+"/ui.json";
-const UI_FALLBACK="../data/i18n/vi/ui.json";
+const CONTENT_LOCALE=window.OpenPQI18n?.locale?.()||(document.documentElement.lang||"vi").split("-")[0]||"vi";
+const DATA="/data/i18n/"+CONTENT_LOCALE+"/food.json";
+const DATA_FALLBACK="/data/food.json";
+const VISUALS="/data/visual-context.json";
+const UI="/data/i18n/"+CONTENT_LOCALE+"/ui.json";
+const UI_FALLBACK="/data/i18n/vi/ui.json";
 const $=s=>document.querySelector(s);
 const all=s=>[...document.querySelectorAll(s)];
 const state={data:null,visuals:{},ui:{},cat:"all",meal:"all",q:"",randomDishes:[]};
@@ -179,6 +179,7 @@ async function load(){
   const [r,v,u]=await Promise.all([
     fetch(DATA,{cache:"default"}).then(async res=>{
       if(res.ok)return res;
+      if(CONTENT_LOCALE!=="vi")throw Error("Locale food content is not published");
       return fetch(DATA_FALLBACK,{cache:"default"});
     }),
     fetch(VISUALS,{cache:"default"}).catch(()=>null),

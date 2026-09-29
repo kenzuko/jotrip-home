@@ -5,6 +5,7 @@ const STORY_LOCATIONS="../data/views/story-locations.json";
 const $=s=>document.querySelector(s);
 
 async function load(){
+  if(window.OpenPQI18nContent?.stories)return window.OpenPQI18nContent.stories();
   const r=await fetch(CONTENT,{cache:"default"});
   if(!r.ok)throw new Error(r.status);
   return r.json();
@@ -35,7 +36,8 @@ function setCanonical(url){
 function applyStoryMeta(story){
   const title=story.title+" - Open Phu Quoc";
   const description=story.dek||story.intro||"Câu chuyện về Phú Quốc.";
-  const url="https://openphuquoc.com/stories/article.html?id="+encodeURIComponent(story.id);
+  const route="/stories/article.html?id="+encodeURIComponent(story.id);
+  const url="https://openphuquoc.com"+(window.OpenPQI18n?.localize?.(route)||route);
   const image=new URL(story.image||"/assets/logo-master.png","https://openphuquoc.com/").href;
   document.title=title;
   setCanonical(url);
@@ -122,7 +124,7 @@ function renderArticle(data,visualData,zones,storyLocations){
   const root=$("#articleRoot");
   if(!id||!s){
     document.title="Không tìm thấy bài viết - Open Phu Quoc";
-    setCanonical("https://openphuquoc.com/stories/");
+    setCanonical("https://openphuquoc.com"+(window.OpenPQI18n?.localize?.("/stories/")||"/stories/"));
     if(root)root.innerHTML='<section class="listing-hero"><div class="wrap"><p class="eyebrow">CÂU CHUYỆN PHÚ QUỐC</p><h1>Không tìm thấy bài viết này.</h1><p>Bài có thể đã đổi địa chỉ hoặc chưa được công khai. Bạn quay lại mục Câu chuyện để chọn bài khác nhé.</p><p><a class="back" href="index.html">← Xem tất cả câu chuyện</a></p></div></section>';
     const next=$("#nextStory");if(next)next.innerHTML="";
     return;
