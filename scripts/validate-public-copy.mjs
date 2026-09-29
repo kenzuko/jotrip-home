@@ -73,7 +73,15 @@ const banned=[
   "ĐO THỰC",
   "CẦN CẬP NHẬT",
   "Nguồn tham khảo",
-  "KHÁM PHÁ QUỐC"
+  "KHÁM PHÁ QUỐC",
+  "Giá vé & show",
+  "GIÁ VÉ & SHOW",
+  "NGHỀ BIỂN · LOCAL NOTE",
+  "Luồng live tạm",
+  "JoTrip Engine",
+  "Nguồn vận hành tạm thời",
+  "Đơn vị vận hành",
+  "Ảnh minh họa: Salinda Resort · Internet (kho JoTrip)"
 ];
 
 const violations=[];
