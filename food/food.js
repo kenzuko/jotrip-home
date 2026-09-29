@@ -218,5 +218,5 @@ $("#randomDishButton")?.addEventListener("click",pickRandomDish);
 
 load().catch(()=>{
   const h=$("#foodGrid")||$("#foodArticle");
-  if(h)h.innerHTML='<div class="empty">Không tải được dữ liệu món ăn.</div>';
+  if(h)h.innerHTML='<div class="empty">Chưa mở được danh sách món ăn.</div>';
 });
