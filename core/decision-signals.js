@@ -85,7 +85,8 @@
     return m?m[3]+"-"+m[2]+"-"+m[1]:/^\d{4}-\d{2}-\d{2}$/.test(date)?date:null;
   }
   function marineCategory(snapshot,kind,now=new Date()){
-    const cat=snapshot?.categories?.[kind],stamp=snapshot?.collected_at_vn||snapshot?.generated_at||null;
+    const cat=snapshot?.categories?.[kind];
+    const stamp=cat?.confirmed_at_vn||snapshot?.collected_at_vn||snapshot?.generated_at||null;
     const today=dayKey(now),age=ageMinutes(stamp,now);
     const evidence=Array.isArray(cat?.evidence)?cat.evidence:[];
     const daily=sourceDay(snapshot?.source_date);
