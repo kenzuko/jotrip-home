@@ -5,6 +5,19 @@
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
   }[ch]));
 
+  const isManagedPhotoCredit = img => {
+    const license=String(img?.license||"");
+    const licenseUrl=String(img?.license_url||"");
+    const source=String(img?.source_label||"");
+    return /^CC(?:0| BY)/i.test(license) ||
+      /^https:\/\/creativecommons\.org\/(?:licenses|publicdomain)\//i.test(licenseUrl) ||
+      /(?:^|\s)(?:Kho ảnh|Kho tư liệu)?\s*JoTrip(?:\s|$|·)/i.test(source);
+  };
+  const inlinePhotoCredit = img => {
+    if(!img?.source_label || isManagedPhotoCredit(img)) return "";
+    return '<small class="visual-source-credit">Ảnh: '+esc(String(img.source_label).replace(/^Ảnh:\s*/i,""))+'</small>';
+  };
+
   function gallery(images, options = {}) {
     const rows = Array.isArray(images) ? images.filter(x => x?.url) : [];
     if (!rows.length) return "";
@@ -17,8 +30,7 @@
           '<figure class="visual-photo">'+
             '<img src="'+esc(img.url)+'" alt="'+esc(img.alt || img.caption || "Ảnh Phú Quốc")+'" loading="lazy" decoding="async" data-fallback="'+esc(img.fallback_url||"")+'" data-fallback-label="'+esc(img.fallback_source_label||"")+'" data-fallback-source="'+esc(img.fallback_source_url||"")+'" onerror="if(this.dataset.fallback){this.src=this.dataset.fallback;delete this.dataset.fallback;var c=this.closest(\'figure\').querySelector(\'.visual-source-credit\');if(c){c.textContent=\'Ảnh: \'+(this.dataset.fallbackLabel||\'Ảnh thay thế\')}}else{this.closest(\'figure\').classList.add(\'is-error\')}">'+
             '<figcaption><span>'+esc(img.caption || "")+'</span>'+
-              (img.source_label ? '<small class="visual-source-credit">Ảnh: '+esc(String(img.source_label).replace(/^Ảnh:\s*/i,""))+(img.license?' · '+esc(img.license):'')+'</small>' : '')+
-              (/^https:\/\/creativecommons\.org\/licenses\//.test(img.license_url||"")?' · <a class="visual-photo-license" href="'+esc(img.license_url)+'" rel="noopener noreferrer license" target="_blank">Điều kiện sử dụng ảnh</a>':"")+
+              inlinePhotoCredit(img)+
             '</figcaption>'+
           '</figure>'
         ).join("")+
@@ -140,5 +152,5 @@
     '</div>';
   }
 
-  window.OpenPQVisual = { esc, gallery, quickFacts, infographic, locator, bindLazyMaps, placeholder, pickHero };
+  window.OpenPQVisual = { esc, gallery, quickFacts, infographic, locator, bindLazyMaps, placeholder, pickHero, inlinePhotoCredit, isManagedPhotoCredit };
 })();
