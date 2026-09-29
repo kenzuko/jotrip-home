@@ -339,4 +339,24 @@ assert.equal(sunset.refreshDelayMs(0),null);
   assert.deepEqual(out.horizon_cloud_points,["Cửa Cạn","Gành Dầu"]);
 }
 
+// Morning rain guidance preserves which west-coast area carries the signal.
+{
+  const data=base(0.2);
+  data.generated_at="2026-09-29T00:20:00Z";
+  data.points.duong_dong.name="Dương Đông";
+  data.points.cua_can.name="Cửa Cạn";
+  data.points.ganh_dau.name="Gành Dầu";
+  data.points.duong_dong.today[0].rain=1.7;
+  data.points.cua_can.today[0].rain=0.2;
+  data.points.ganh_dau.today[0].rain=0.1;
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T00:45:00Z"),
+    nowMinutes:7*60+45
+  });
+  assert.equal(out.level,"watch");
+  assert.equal(out.reason,"forecast_rain");
+  assert.deepEqual(out.forecast_rain_points,["Dương Đông"]);
+  assert.deepEqual(out.forecast_rain_likely_points,["Dương Đông"]);
+}
+
 console.log("sunset outlook tests passed");
