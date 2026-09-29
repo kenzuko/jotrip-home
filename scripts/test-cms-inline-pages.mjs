@@ -21,12 +21,17 @@ for(const x of ["editorial.short_summary","editorial.practical","editorial.befor
 const loader=readFileSync("core/cms-editor-loader.js","utf8");
 for(const page of ["index.html","guide/article.html"]){
   const html=readFileSync(page,"utf8");
-  assert.match(html,/cms-editor-loader\.js\?v=1/,page+" must request the CMS editor loader");
+  assert.match(html,/cms-editor-loader\.js\?v=2/,page+" must request the CMS editor loader");
   assert.match(html,/cmsEditor="page"/,page+" must select the page editor");
 }
-assert.match(loader,/cms-inline-pages\.js\?v=1/,
+assert.match(loader,/cms-draft-client\.js\?v=2/,"CMS loader must include the shared server draft client");
+assert.match(loader,/cms-inline-pages\.js\?v=2/,
   "CMS loader must include the page editor bundle");
+assert.ok(loader.indexOf("cms-draft-client.js")<loader.indexOf("cms-inline-pages.js"),
+  "Draft client must load before the page inline editor");
 assert.match(code,/id="cmsPagePublish"[^>]*>Xuất bản<\/button>/);
-assert.match(code,/Nháp lưu trên máy • Xuất bản mới ghi GitHub 1 lần/);
+assert.match(code,/Nháp lưu server \+ máy • Xuất bản mới ghi GitHub 1 lần/);
+assert.match(code,/OPQDraftStore/,"Page inline editor must persist a server draft as well as a local backup");
+assert.match(code,/draftScope=.*guide:/,"Guide article drafts must be scoped per article");
 assert.doesNotMatch(code,/Lưu lên website/);
 console.log("PASS CMS inline pages: knowledge and homepage text mappings and safe draft utility");

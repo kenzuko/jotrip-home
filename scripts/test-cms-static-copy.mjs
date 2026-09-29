@@ -20,10 +20,13 @@ for(const page of ["about/index.html","food/index.html","stories/index.html","gu
 }
 const siteCopy=readFileSync("core/site-copy.js","utf8");
 const loader=readFileSync("core/cms-editor-loader.js","utf8");
-assert.match(siteCopy,/cms-editor-loader\.js\?v=1/,"Public copy runtime must request the conditional CMS loader");
-assert.match(loader,/cms-inline-static\.js\?v=1/,"CMS loader must include the static editor bundle");
+assert.match(siteCopy,/cms-editor-loader\.js\?v=2/,"Public copy runtime must request the conditional CMS loader");
+assert.match(loader,/cms-draft-client\.js\?v=2/,"CMS loader must include the shared server draft client");
+assert.match(loader,/cms-inline-static\.js\?v=2/,"CMS loader must include the static editor bundle");
+assert.ok(loader.indexOf("cms-draft-client.js")<loader.indexOf("cms-inline-static.js"));
+assert.match(code,/OPQDraftStore/,"Static inline editor must persist a server draft");
 const direct=readFileSync("functions/api/cms/direct-save.js","utf8");
-assert.ok(direct.includes('if(/^site(?:\\.[A-Za-z0-9_-]+){2,6}$/.test(field))'));
+assert.ok(direct.includes('if(/^site(?:\.[A-Za-z0-9_-]+){2,6}$/.test(field))'));
 assert.match(direct,/changeLimit=path==="data\/home-copy\.json"\?160:60/);
 assert.match(readFileSync("home-copy.js","utf8"),/footer\.lead/);
 assert.match(readFileSync("index.html","utf8"),/data-cms-field="footer\.lead"/);

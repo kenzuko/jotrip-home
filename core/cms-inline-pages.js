@@ -12,10 +12,13 @@ if(!config||location.hostname!=="cms.openphuquoc.com"&&!localInlineQa)return;
 const $=q=>document.querySelector(q);
 const state={id:isHome?"home":new URLSearchParams(location.search).get("id")||"",
   sha:"",login:"",base:null,current:null,raw:null,tab:"",dirty:false,editing:false,
-  blocked:false,timer:null,panel:null};
+  blocked:false,timer:null,panel:null,serverSync:Promise.resolve()};
 const deep=x=>JSON.parse(JSON.stringify(x));
 const draftKey=()=> isHome?"openpq-cms-site-copy-v1:"+encodeURIComponent(state.login)+":"+state.sha:
   "openpq-cms-inline-page:v1:"+encodeURIComponent(state.login)+":"+encodeURIComponent(state.id)+":"+state.sha;
+const draftScope=()=>isGuide?"guide:"+state.id:"";
+const draftModule=()=>isGuide?"guide":"home";
+const same=(a,b)=>{try{return JSON.stringify(a)===JSON.stringify(b)}catch{return false}};
 function homeTextFields(doc){
   const out=[];
   for(const p of ["hero.kicker","hero.title","hero.lead","footer.title","footer.lead","footer.note"])
@@ -56,18 +59,55 @@ function backup(){
   link.href=url;link.download="nhap-"+state.id+".json";document.body.appendChild(link);
   link.click();link.remove();URL.revokeObjectURL(url);
 }
-function saveDraft(){
+function writeLocalDraft(){
+  const key=draftKey();
+  const raw=JSON.stringify({version:1,login:state.login,id:state.id,sha:state.sha,
+    data:state.current,tab:state.tab,at:Date.now()});
+  localStorage.setItem(key,raw);
+  if(localStorage.getItem(key)!==raw)throw Error("Không xác minh được bản lưu");
+  state.raw=raw;return raw;
+}
+function syncServer(checkpoint=false){
+  const store=window.OPQDraftStore;
+  if(!store||!state.current||!state.sha){
+    note("Đã lưu dự phòng trên máy; server nháp chưa sẵn sàng.","warn");
+    return state.serverSync=Promise.resolve({ok:false,skipped:true});
+  }
+  const scope=draftScope(),snapshot=deep(state.current),baseSnapshot=deep(state.base);
+  const task=(async()=>{
+    let loaded=null;
+    if(store.token(config.path,scope)===undefined){
+      loaded=await store.load(config.path,scope);
+      if(!loaded.ok)return loaded;
+      const server=loaded.draft;
+      if(server&&server.base_sha!==state.sha){
+        if(same(server.data,baseSnapshot)){
+          const cleared=await store.clear({path:config.path,scope});
+          if(!cleared.ok)return cleared;
+        }else return{ok:false,status:409,conflict:true,error:"Bản nháp server thuộc phiên bản GitHub cũ"};
+      }else if(server&&server.base_sha===state.sha&&!same(server.data,snapshot)&&!same(server.data,baseSnapshot)){
+        return{ok:false,status:409,conflict:true,error:"Bản nháp server khác với bản đang sửa"};
+      }
+    }
+    return store.save({module:draftModule(),path:config.path,scope,baseSha:state.sha,
+      data:snapshot,checkpoint:Boolean(checkpoint)});
+  })().then(result=>{
+    if(result?.ok)note("Đã lưu nháp trên server và máy. Chưa công khai.","good");
+    else if(result?.status===409){block(result.error||"Bản nháp server vừa thay đổi ở nơi khác");}
+    else note("Đã lưu dự phòng trên máy; server chưa đồng bộ.","warn");
+    return result;
+  }).catch(error=>{note("Đã lưu dự phòng trên máy; server chưa đồng bộ: "+String(error.message||error),"warn");return{ok:false,error:String(error.message||error)}});
+  state.serverSync=task;return task;
+}
+function saveDraft({checkpoint=false}={}){
   if(!state.editing||state.blocked)return false;
   try{
     const key=draftKey();
     if(localStorage.getItem(key)!==state.raw){
       block("Tab khác đã đổi bản nháp");return false;
     }
-    const raw=JSON.stringify({version:1,login:state.login,id:state.id,sha:state.sha,
-      data:state.current,tab:state.tab,at:Date.now()});
-    localStorage.setItem(key,raw);
-    if(localStorage.getItem(key)!==raw)throw Error("Không xác minh được bản lưu");
-    state.raw=raw;note("Đã lưu nháp trên máy, chưa công khai.","good");
+    writeLocalDraft();note("Đã lưu dự phòng trên máy; đang đồng bộ server.","good");
+    syncServer(checkpoint);
     return true;
   }catch(err){block("Không lưu được: "+err.message);return false;}
 }
@@ -75,6 +115,52 @@ function schedule(){
   clearTimeout(state.timer);
   note("Đang lưu nháp...");
   state.timer=setTimeout(()=>{state.timer=null;saveDraft();},500);
+}
+async function recoverDraft(){
+  const raw=localStorage.getItem(draftKey());
+  let local=null;
+  if(raw){
+    try{local=JSON.parse(raw)}catch{throw Error("Bản nháp trên máy không đọc được. Hãy tải bản sao trước khi tiếp tục.");}
+    if(local.login!==state.login||local.id!==state.id||local.sha!==state.sha||!config.select(local.data))
+      throw Error("Bản nháp trên máy không khớp bài hoặc phiên bản hiện tại");
+  }
+  state.raw=raw;
+  const store=window.OPQDraftStore;
+  let server=null,serverAvailable=false;
+  if(store){
+    const loaded=await store.load(config.path,draftScope());
+    if(loaded.ok){serverAvailable=true;server=loaded.draft;}
+    else note("Server nháp tạm thời chưa đọc được; vẫn có bản dự phòng trên máy.","warn");
+  }
+  if(server&&server.base_sha!==state.sha){
+    if(same(server.data,state.base)){
+      await store.clear({path:config.path,scope:draftScope()});
+      server=null;
+    }else throw Error("Có bản nháp server thuộc phiên bản GitHub cũ. Mở CMS Admin để đối chiếu trước khi sửa tiếp.");
+  }
+  const localFresh=Boolean(local?.data),serverFresh=Boolean(server?.data&&server.base_sha===state.sha&&!same(server.data,state.base));
+  let chosen=null,label="";
+  if(localFresh&&serverFresh){
+    if(same(local.data,server.data)){chosen=local;label="server và máy";}
+    else{
+      const localAt=Number(local.at||0),serverAt=Date.parse(server.updated_at||"")||0;
+      const preferLocal=localAt>=serverAt;
+      const preferred=preferLocal?local:{data:server.data};
+      const other=preferLocal?{data:server.data}:local;
+      const preferredName=preferLocal?"trên máy":"trên server";
+      const otherName=preferLocal?"trên server":"trên máy";
+      chosen=confirm("Có hai bản nháp khác nhau. Bản "+preferredName+" mới hơn.\nOK: dùng bản "+preferredName+".\nHủy: dùng bản "+otherName+".")?preferred:other;
+      label=chosen===preferred?preferredName:otherName;
+    }
+  }else if(serverFresh){chosen={data:server.data};label="server";}
+  else if(localFresh){chosen=local;label="máy";}
+  if(chosen){
+    state.current=deep(chosen.data);state.dirty=!same(state.current,state.base);
+    writeLocalDraft();
+    if(serverAvailable&&!serverFresh||serverFresh&&!same(server?.data,state.current))syncServer(true);
+    return label||"nháp";
+  }
+  state.dirty=false;return "";
 }
 function controls(){
   return [...document.querySelectorAll("[data-cms-field]")].filter(el=>
@@ -137,16 +223,9 @@ async function begin(){
     }
     state.sha=git.sha;state.base=deep(git.content);state.current=deep(git.content);
     state.tab=crypto.randomUUID?.()||Date.now()+"-"+Math.random().toString(36).slice(2);
-    const raw=localStorage.getItem(draftKey());
-    if(raw){
-      const data=JSON.parse(raw);
-      if(data.login!==state.login||data.id!==state.id||data.sha!==state.sha||
-         !config.select(data.data))throw Error("Bản nháp không khớp bài đang đọc");
-      if(!confirm("Có bản nháp trên máy. Khôi phục để sửa tiếp?"))return;
-      state.current=deep(data.data);state.dirty=true;
-    }else state.dirty=false;
-    state.raw=raw;state.blocked=false;
-    if(raw)reflect();
+    state.blocked=false;
+    const restored=await recoverDraft();
+    if(restored)reflect();
     mode(true);
     controls().forEach(el=>{
       const button=document.createElement("button");button.type="button";
@@ -155,7 +234,7 @@ async function begin(){
       el.insertAdjacentElement("afterend",button);
     });
     $("#cmsPagePublish").disabled=!state.dirty;
-    note(raw?"Đã khôi phục bản nháp.":"Chọn cây viết cạnh phần chữ muốn sửa.");
+    note(restored?"Đã khôi phục bản nháp từ "+restored+".":"Chọn cây viết cạnh phần chữ muốn sửa.");
   }catch(error){note(String(error.message||error),"warn");}
 }
 function changed(){
@@ -168,9 +247,10 @@ function changed(){
 }
 async function publishOnce(){
   if(!state.editing||state.blocked||!state.dirty)return;
-  clearTimeout(state.timer);state.timer=null;if(!saveDraft())return;
+  clearTimeout(state.timer);state.timer=null;if(!saveDraft({checkpoint:true}))return;
   const button=$("#cmsPagePublish");button.disabled=true;
   try{
+    await state.serverSync;if(state.blocked)return;
     const changes=changed();
     if(!changes.length){note("Chưa sửa chữ nào.");return;}
     if(!confirm("Xuất bản "+changes.length+" phần chữ? Toàn bộ bản nháp sẽ được gom vào 1 commit GitHub."))return;
@@ -181,9 +261,11 @@ async function publishOnce(){
     });
     if(!/^[a-f0-9]{40}$/.test(result.commit||""))
       throw Error("Chưa xác minh được commit, bản nháp vẫn còn");
+    const clearedServer=await window.OPQDraftStore?.clear({path:config.path,scope:draftScope()});
+    const keptNewerServer=Boolean(clearedServer&&!clearedServer.ok&&clearedServer.status===409);
     if(localStorage.getItem(draftKey())===state.raw)localStorage.removeItem(draftKey());
     state.dirty=false;readAgain();
-    note("Đã xuất bản bằng 1 commit GitHub, chờ website cập nhật. Lịch sử: github.com/kenzuko/jotrip-home/commit/"+
+    note("Đã xuất bản bằng 1 commit GitHub, chờ website cập nhật. "+(keptNewerServer?"Bản nháp server mới hơn vẫn được giữ để đối chiếu. ":"")+"Lịch sử: github.com/kenzuko/jotrip-home/commit/"+
       result.commit.slice(0,8),"good");
     window.OPQDirectSaveRollback?.mount($("#cmsPageStatus"),result.commit);
   }catch(err){note(String(err.message||err)+". Nháp vẫn còn trên máy.","warn");}
@@ -196,7 +278,7 @@ function mountBar(){
   if(isGuide)$(".knowledge-header")?.append(launch);
   else document.body.append(launch);
   const bar=document.createElement("aside");bar.id="cmsPageBar";bar.className="cms-page-bar";bar.hidden=true;
-  bar.innerHTML='<strong>BIÊN TẬP TRỰC TIẾP <small>Nháp lưu trên máy • Xuất bản mới ghi GitHub 1 lần</small></strong>'+
+  bar.innerHTML='<strong>BIÊN TẬP TRỰC TIẾP <small>Nháp lưu server + máy • Xuất bản mới ghi GitHub 1 lần</small></strong>'+
     '<div class="cms-page-actions">'+
     '<button id="cmsPageDraft" type="button">Lưu nháp</button>'+
     '<button id="cmsPageBackup" type="button">Tải bản sao</button>'+
@@ -205,7 +287,7 @@ function mountBar(){
     '<p id="cmsPageStatus" role="status" aria-live="polite"></p>';
   if(isGuide)$("#knowledgeArticle")?.prepend(bar);
   else document.body.append(bar);
-  $("#cmsPageDraft").onclick=saveDraft;
+  $("#cmsPageDraft").onclick=()=>saveDraft({checkpoint:true});
   $("#cmsPageBackup").onclick=backup;
   $("#cmsPageRead").onclick=readAgain;
   $("#cmsPagePublish").onclick=publishOnce;

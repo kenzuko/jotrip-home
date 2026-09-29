@@ -22,9 +22,13 @@ const html=readFileSync("food/article.html","utf8");
 const loader=readFileSync("core/cms-editor-loader.js","utf8");
 const food=readFileSync("food/food.js","utf8");
 const css=readFileSync("food/food.css","utf8");
-assert.match(html,/cms-editor-loader\.js\?v=1/);
+assert.match(html,/cms-editor-loader\.js\?v=2/);
 assert.match(html,/cmsEditor="food"/);
-assert.match(loader,/cms-inline-food\.js\?v=1/);
+assert.match(loader,/cms-draft-client\.js\?v=2/);
+assert.match(loader,/cms-inline-food\.js\?v=2/);
+assert.ok(loader.indexOf("cms-draft-client.js")<loader.indexOf("cms-inline-food.js"));
+assert.match(code,/OPQDraftStore/,"Food inline editor must persist a server draft");
+assert.match(code,/food:"\+state\.id|food:\\"\+state\.id|food:"\+state\.id/);
 for(const key of ['name','intro','tips.','ingredients.','ask_staff.','allergy_note','how_to_eat'])
   assert.ok(food.includes('data-food-path=\\"'+key)||food.includes('data-food-path="'+key),"Missing "+key);
 assert.match(css,/\.food-article section\.food-safety\{[\s\S]*?padding:clamp\(/);

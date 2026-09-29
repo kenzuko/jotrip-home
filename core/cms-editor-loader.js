@@ -6,10 +6,10 @@
   if(location.hostname!=="cms.openphuquoc.com"&&!localQa)return;
   const type=document.currentScript?.dataset.cmsEditor;
   const config={
-    static:{css:"/core/cms-inline-static.css?v=1",scripts:["/core/cms-inline-static.js?v=1"]},
-    story:{css:"/core/cms-inline-edit.css?v=1",scripts:["/core/cms-draft-client.js?v=1","/core/cms-direct-save-rollback.js?v=1","/core/cms-inline-edit.js?v=2"]},
-    food:{css:"/core/cms-inline-food.css?v=1",scripts:["/core/cms-direct-save-rollback.js?v=1","/core/cms-inline-food.js?v=1"]},
-    page:{css:"/core/cms-inline-pages.css?v=1",scripts:["/core/cms-direct-save-rollback.js?v=1","/core/cms-inline-pages.js?v=1"]}
+    static:{css:"/core/cms-inline-static.css?v=1",scripts:["/core/cms-draft-client.js?v=2","/core/cms-inline-static.js?v=2"]},
+    story:{css:"/core/cms-inline-edit.css?v=1",scripts:["/core/cms-draft-client.js?v=2","/core/cms-direct-save-rollback.js?v=1","/core/cms-inline-edit.js?v=2"]},
+    food:{css:"/core/cms-inline-food.css?v=1",scripts:["/core/cms-draft-client.js?v=2","/core/cms-direct-save-rollback.js?v=1","/core/cms-inline-food.js?v=2"]},
+    page:{css:"/core/cms-inline-pages.css?v=1",scripts:["/core/cms-draft-client.js?v=2","/core/cms-direct-save-rollback.js?v=1","/core/cms-inline-pages.js?v=2"]}
   }[type];
   if(!config)return;
   if(config.css&&!document.querySelector('link[href="'+config.css+'"]')){

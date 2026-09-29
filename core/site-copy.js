@@ -11,6 +11,6 @@
   const localQa=["localhost","127.0.0.1"].includes(location.hostname)
     &&new URLSearchParams(location.search).get("cms-inline-qa")==="1";
   if(location.hostname==="cms.openphuquoc.com"||localQa){
-    const loader=document.createElement("script");loader.src="/core/cms-editor-loader.js?v=1";loader.dataset.cmsEditor="static";document.body.append(loader);
+    const loader=document.createElement("script");loader.src="/core/cms-editor-loader.js?v=2";loader.dataset.cmsEditor="static";document.body.append(loader);
   }
 })();
