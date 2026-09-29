@@ -119,14 +119,17 @@ export default {
     const url = requestUrl;
     let meta = null;
     try {
-      if (url.pathname === "/stories/article.html") meta = await storyMeta(url, env);
-      else if (url.pathname === "/places/detail.html") meta = await placeMeta(url, env);
-      else if (url.pathname === "/guide/article.html") meta = await knowledgeMeta(url, env);
+      if (["/stories/article.html","/stories/article"].includes(url.pathname)) meta = await storyMeta(url, env);
+      else if (["/places/detail.html","/places/detail"].includes(url.pathname)) meta = await placeMeta(url, env);
+      else if (["/guide/article.html","/guide/article"].includes(url.pathname)) meta = await knowledgeMeta(url, env);
     } catch (error) {
       console.warn("social metadata lookup failed", error);
     }
 
-    const assetUrl = new URL(url.pathname, request.url);
+    // Preserve the original query string when handing HTML to Static Assets.
+    // Cloudflare may canonicalize *.html to extensionless paths; dropping ?id=
+    // here makes the client article reader lose the requested record.
+    const assetUrl = new URL(request.url);
     const assetResponse = await env.ASSETS.fetch(new Request(assetUrl, request));
     if (!meta || !assetResponse.ok || !(assetResponse.headers.get("content-type") || "").includes("text/html")) {
       return assetResponse;
