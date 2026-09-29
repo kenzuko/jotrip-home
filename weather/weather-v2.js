@@ -2547,7 +2547,7 @@ async function startHimawariLoop(box,note,statusEl){
   });
 
   if(note)note.textContent="Himawari IR B13 · JMA High-Resolution Asia 1 được đặt theo đúng phạm vi công bố 99–110°E, 7–16°N. Phú Quốc nằm đúng trên nền bản đồ để đối chiếu mây, không dùng crop/marker ước lượng.";
-  if(statusEl){statusEl.textContent="GẦN-LIVE";statusEl.className="badge remote"}
+  if(statusEl){statusEl.textContent="GẦN THỜI GIAN THỰC";statusEl.className="badge remote"}
 }
 function ensureLeaflet(){
   if(window.L)return Promise.resolve(window.L);
@@ -2616,7 +2616,7 @@ async function renderJoTripMap(){
   if(existing){
     if(existing.getAttribute("src")!==JOTRIP_SCENE_URL)existing.setAttribute("src",JOTRIP_SCENE_URL);
     box.classList.add("jotrip-scene-active");
-    if(state){state.textContent="LIVE";state.className="badge actual"}
+    if(state){state.textContent="TRỰC TIẾP";state.className="badge actual"}
     return;
   }
   if(jotripMap){try{jotripMap.remove()}catch{} jotripMap=null}
@@ -2624,7 +2624,7 @@ async function renderJoTripMap(){
   box.innerHTML='<iframe data-jotrip-scene title="JoTrip Weather Scene - Phú Quốc" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="'+JOTRIP_SCENE_URL+'"></iframe>';
   const frame=box.firstChild;
   frame.onload=()=>{
-    if(state){state.textContent="LIVE";state.className="badge actual"}
+    if(state){state.textContent="TRỰC TIẾP";state.className="badge actual"}
     if(note)note.textContent="Chọn Mây, Mưa, Gió hoặc Sóng ngay trên bản đồ. Kéo timeline để xem diễn biến theo thời gian; chạm bản đồ để đọc số tại điểm chọn.";
   };
   frame.onerror=()=>{
@@ -3040,8 +3040,8 @@ async function boot(){
     setTimeout(flushFeedbackQueue,1800);
     setInterval(flushFeedbackQueue,5*60*1000);
   }catch(e){
-    $("heroSummary").textContent="Không tải được dữ liệu ban đầu. Bạn thử tải lại trang giúp mình.";
-    $("liveLabel").textContent="LỖI DỮ LIỆU";$("liveDot").className="warn";
+    $("heroSummary").textContent="Chưa cập nhật được thời tiết lúc này. Bạn thử tải lại trang giúp mình.";
+    $("liveLabel").textContent="CHƯA CẬP NHẬT";$("liveDot").className="warn";
     console.error(e);
   }
 }
