@@ -140,7 +140,7 @@
     }
     // Research questions remain in internal data until answers are editorially verified.
     const more=el("aside","knowledge-further");
-    more.append(el("h2",null,"Tìm hiểu thêm"));
+    more.append(el("h2",null,tr("further","Tìm hiểu thêm")));
     for(const item of o.links||[]){
       const link=el("a",null,item.label);
       link.href=item.url;
@@ -148,8 +148,8 @@
       link.rel="noopener noreferrer";
       more.append(link);
     }
-    const weather=el("a",null,"Thời tiết & biển");weather.href="/weather/";
-    const map=el("a",null,"Bản đồ khám phá");map.href="/explore/";
+    const weather=el("a",null,tr("weather","Thời tiết & biển"));weather.href=localized("/weather/");
+    const map=el("a",null,tr("explore_map","Bản đồ khám phá"));map.href=localized("/explore/");
     more.append(weather,map);root.append(more);article.append(root);
   }
   async function init(){
@@ -162,7 +162,7 @@
       if(page==="library"){
         const params=new URLSearchParams(location.search);
         const categoryFromUrl=params.get("category");
-        if(Object.prototype.hasOwnProperty.call(labels,categoryFromUrl))active=categoryFromUrl;
+        if(["PLACE","NATURE","FOOD","PRACTICAL","HISTORY_LORE","ACTIVITY","MEMORY_CHANGE"].includes(categoryFromUrl))active=categoryFromUrl;
         if(params.has("q"))input.value=params.get("q")||"";
         showFilters();showList();input.addEventListener("input",showList);
       }

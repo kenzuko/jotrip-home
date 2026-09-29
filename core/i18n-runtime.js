@@ -21,10 +21,23 @@ function prefix(code){
   const row=state.catalog?.locales?.find(x=>x.code===code);
   return !row||code===DEFAULT?"":"/"+row.url_code;
 }
+function routeGroup(path){
+  const value=String(path||"/");
+  if(value==="/"||value==="/index.html")return"home";
+  return /^\/([^/?#]+)/.exec(value)?.[1]||"home";
+}
+function canServe(code,path){
+  if(code===DEFAULT)return true;
+  const row=state.catalog?.locales?.find(x=>x.code===code&&x.published);
+  if(!row)return false;
+  const surfaces=Array.isArray(row.surfaces)?row.surfaces:[];
+  return surfaces.includes("*")||surfaces.includes(routeGroup(path));
+}
 function localize(path,code=state.locale){
   const value=String(path||"/");
   if(!value.startsWith("/")||value.startsWith("//"))return value;
   if(/^\/(?:api|admin|cms|assets|core|data)(?:\/|$)/.test(value))return value;
+  if(!canServe(code,value))return value;
   return prefix(code)+(value==="/"?"/":value);
 }
 function strip(path){
@@ -90,10 +103,11 @@ function available(kind,id){
 function languageUrl(code,{kind="",id="",pathname=location.pathname,search=location.search}={}){
   const row=state.catalog?.locales?.find(x=>x.code===code&&x.published);
   if(!row)return null;
-  if(kind&&id&&!available(kind,id).includes(code))return null;
   const base=strip(pathname);
+  if(!canServe(code,base))return null;
+  if(kind&&id&&!available(kind,id).includes(code))return null;
   return localize(base,code)+search;
 }
-root.OpenPQI18n={state,load,loadUi,t,format,apply,locale,localize,strip,available,languageUrl};
+root.OpenPQI18n={state,load,loadUi,t,format,apply,locale,localize,strip,available,languageUrl,routeGroup,canServe};
 load();
 })(window);
