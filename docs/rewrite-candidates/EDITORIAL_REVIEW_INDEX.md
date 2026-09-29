@@ -14,7 +14,7 @@ Nguồn hiện tại:
 ## Knowledge / Cẩm nang
 - [Knowledge 01 - mục 001-030](./knowledge.vi.review-01.md)
 - [Knowledge 02 - mục 031-060](./knowledge.vi.review-02.md) - ĐÃ DUYỆT 29/09/2026
-- [Knowledge 03 - mục 061-090](./knowledge.vi.review-03.md)
+- [Knowledge 03 - mục 061-090](./knowledge.vi.review-03.md) - 061-070 ĐÃ DUYỆT, 071-090 CHỜ
 - [Knowledge 04 - mục 091-120](./knowledge.vi.review-04.md)
 - [Knowledge 05 - mục 121-150](./knowledge.vi.review-05.md)
 
