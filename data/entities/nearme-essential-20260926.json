@@ -454,6 +454,16 @@
           "source_id": "dng_official_contact_20260927",
           "url": "https://dngclinic.com/lien-he/",
           "checked_at": "2026-09-27"
+        },
+        {
+          "source_id": "dng_an_thoi_official_page_20260929",
+          "url": "https://dngclinic.com/phong-kham-sai-gon-phu-quoc-an-thoi/",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "dng_an_thoi_google_place_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJU2YY86iWpzERfGNTGD1eM6Q",
+          "checked_at": "2026-09-29"
         }
       ],
       "source_audit": {
@@ -461,12 +471,23 @@
         "prior_record_id": "utility_dng_clinic_an_thoi",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố khung 07:30-11:30 và 13:30-18:30 cả tuần, cần xác nhận riêng cơ sở An Thới và cổng.",
-        "official_source_recheck_at": "2026-09-27",
+        "source_note": "Nguồn OPERATOR xác nhận cơ sở An Thới tại S259-S354 Sun Grand City; exact structured business Place ID được khóa ở mức site centroid bằng nhiều probe khoảng cách. Không suy diễn cửa vào, cấp cứu hay trạng thái tiếp nhận.",
+        "official_source_recheck_at": "2026-09-29",
         "official_source_note": "Website DNG hiện công bố địa chỉ S259-S354, Sun Grand City An Thới tại trang Liên hệ; thay link dịch vụ chung không có địa chỉ là nguồn chính.",
-        "verified_entrance": false
+        "verified_entrance": false,
+        "gps_evidence_class": "operator_identity_structured_business_site_centroid"
       },
-      "updated_at": "2026-09-26"
+      "updated_at": "2026-09-29",
+      "map": {
+        "lat": 10.03629,
+        "lon": 104.009,
+        "precision": "site_centroid",
+        "source": "Official DNG An Thoi branch identity cross-checked to the exact structured business Place ID by independent distance probes; accepted probe returned 1 m",
+        "source_id": "dng_an_thoi_operator_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm cơ sở DNG An Thới để định hướng. Không xác nhận chính xác cửa vào, vị trí cấp cứu hoặc điểm đón trả.",
+        "accuracy": "operator_identity_structured_business_site_centroid"
+      }
     },
     {
       "id": "utility_tgdd_142a_ntr",

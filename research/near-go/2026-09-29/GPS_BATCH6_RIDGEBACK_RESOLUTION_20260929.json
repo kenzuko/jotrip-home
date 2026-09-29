@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "base_main_sha": "3ad65fefd804a0cd0970d9aed572c664484c8353",
+  "entity_id": "place_phu_quoc_ridgeback_center",
+  "decision": "ACCEPT_SITE_CENTROID",
+  "accepted_coordinate": {
+    "lat": 10.1781374,
+    "lon": 104.0085517
+  },
+  "precision": "site_centroid",
+  "evidence": [
+    {
+      "type": "OFFICIAL_IDENTITY",
+      "source": "Phu Quoc official tourism portal",
+      "url": "https://dulich.phuquoc.gov.vn/iv/trungtambaotonch",
+      "fact": "Current canonical attraction identity is Trung tâm bảo tồn chó xoáy Phú Quốc at Tiểu khu 77, Dương Tơ."
+    },
+    {
+      "type": "NUMERIC_NAMED_DIRECTORY",
+      "source": "Sổ Tay Vàng",
+      "url": "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/",
+      "fact": "Exact Thanh Nga / Tiểu khu 77 listing publishes malformed coordinate text that normalizes to 10.1781374,104.0085517."
+    },
+    {
+      "type": "STRUCTURED_BUSINESS_GEO_CROSSCHECK",
+      "source": "Current structured business map result",
+      "google_place_id": "ChIJC4baUACPpzERjbk_x22hQnI",
+      "fact": "Exact named Thanh Nga Ridgeback Center result is 3 m from accepted coordinate and is labeled Suối Mây, Phú Quốc."
+    }
+  ],
+  "normalization_note": "Directory coordinate formatting inserts thousands separators into raw digit groups. Latitude text 10.178.137.399.999.900 normalizes to 10.1781374; longitude text 1.040.085.517 normalizes within Phú Quốc WGS84 range to 104.0085517.",
+  "conflicting_lead": {
+    "source": "Premier Residences Phu Quoc blog, Feb 2026",
+    "claim": "Cây Thông Ngoài / phone 0918 123 494",
+    "disposition": "REJECT_AS_LOCATION_AUTHORITY_FOR_CANONICAL_PIN",
+    "reason": "Current official tourism canonical remains Tiểu khu 77; current structured business result tied to the accepted coordinate is labeled Suối Mây. Keep conflict documented but do not use it to move the canonical pin."
+  },
+  "safety": "Accept as site centroid only, not exact entrance, ticket gate or operational-status evidence.",
+  "post_change": {
+    "location_index_with_map": 237,
+    "map_coverage_ready": 234,
+    "map_coverage_missing": 160,
+    "remaining_actual_nonhotel_no_map": 18,
+    "remaining_intentional_no_fixed_pin": 4,
+    "remaining_research_holds": 14
+  }
+}

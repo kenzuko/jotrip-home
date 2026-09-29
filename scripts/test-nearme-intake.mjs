@@ -54,9 +54,32 @@ const index=read("data/views/location-index.json");
 const indexed=new Map(index.documents.map(x=>[x.id,x]));
 assert.equal(indexed.size,index.documents.length,"Duplicate location index IDs");
 for(const e of totalEssentials)assert.ok(indexed.has(e.id),"Curated entity absent from location index: "+e.id);
-for(const id of ["utility_longchau_tran_phu","utility_longchau_an_thoi","utility_longchau_ganh_dau","utility_longchau_suoi_da"]){
+for(const id of ["utility_longchau_ganh_dau","utility_longchau_suoi_da"]){
   assert.equal(indexed.get(id)?.map,null,"Stale or inferred pharmacy pin must not be published: "+id);
 }
+for(const [id,sourceId] of [
+  ["utility_longchau_tran_phu","longchau_42_tranphu_structured_map_20260929"],
+  ["utility_longchau_an_thoi","longchau_46_operator_structured_map_20260929"]
+]){
+  const e=byId.get(id),doc=indexed.get(id);
+  assert.ok(e?.map&&doc?.map,"Resolved pharmacy pin missing: "+id);
+  assert.equal(e.map.precision,"site_centroid","Resolved pharmacy pin must remain a site centroid: "+id);
+  assert.equal(e.map.source_id,sourceId,"Resolved pharmacy pin must retain its audited source: "+id);
+  assert.equal(e.map.verified_at,"2026-09-29","Resolved pharmacy pin must retain verification date: "+id);
+  assert.equal(e.map.accuracy,"operator_identity_structured_business_site_centroid","Resolved pharmacy pin must retain evidence class: "+id);
+  assert.deepEqual([doc.map.lat,doc.map.lon],[e.map.lat,e.map.lon],"Resolved pharmacy pin must survive the canonical view build: "+id);
+}
+const vcbAnThoi=byId.get("utility_vcb_atm_an_thoi");
+assert.equal(vcbAnThoi?.map?.source_id,"vietcombank_an_thoi_operator_structured_map_20260929","Vietcombank An Thoi GPS must retain audited operator/business evidence");
+assert.equal(vcbAnThoi?.map?.precision,"site_centroid");
+assert.equal(vcbAnThoi?.verified,false,"GPS evidence must not be upgraded into an ATM-operation claim");
+assert.deepEqual([indexed.get(vcbAnThoi.id)?.map?.lat,indexed.get(vcbAnThoi.id)?.map?.lon],[vcbAnThoi.map.lat,vcbAnThoi.map.lon]);
+const dngAnThoi=byId.get("utility_dng_clinic_an_thoi");
+assert.equal(dngAnThoi?.map?.source_id,"dng_an_thoi_operator_structured_map_20260929","DNG An Thoi GPS must retain audited operator/business evidence");
+assert.equal(dngAnThoi?.map?.precision,"site_centroid");
+assert.equal(dngAnThoi?.operational_status,"UNKNOWN","GPS identity evidence must not become a live intake claim");
+assert.equal(dngAnThoi?.source_audit?.verified_entrance,false,"Site centroid must not be presented as an entrance");
+assert.deepEqual([indexed.get(dngAnThoi.id)?.map?.lat,indexed.get(dngAnThoi.id)?.map?.lon],[dngAnThoi.map.lat,dngAnThoi.map.lon]);
 assert.ok(indexed.get("utility_longchau_nguyen_trung_truc")?.map,"Previously verified Long Chau position must remain");
 const clinic=byId.get("utility_vinmec_duong_dong_clinic");
 const hospital=byId.get("utility_vinmec_phuquoc_emergency");

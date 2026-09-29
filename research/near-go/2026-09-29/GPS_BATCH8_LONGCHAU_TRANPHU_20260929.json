@@ -1,0 +1,88 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "base_main_sha": "3ad65fefd804a0cd0970d9aed572c664484c8353",
+  "entity_id": "utility_longchau_tran_phu",
+  "decision": "ACCEPT_SITE_CENTROID",
+  "accepted_coordinate": {
+    "lat": 10.222554,
+    "lon": 103.9568
+  },
+  "precision": "site_centroid",
+  "evidence": [
+    {
+      "type": "OPERATOR_DIRECTORY",
+      "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+      "fact": "Current Long Chau Phu Quoc directory lists 42 Tran Phu, immediately at Tran Thu - Mac Cuu junction."
+    },
+    {
+      "type": "STRUCTURED_BUSINESS_MAP",
+      "google_place_id": "ChIJTwTlvZGNpzERc1Oov0CGDQY",
+      "fact": "Exact named Long Chau entity at 42 Tran Phu returns distance 0 m at accepted coordinate."
+    },
+    {
+      "type": "TRILATERATION",
+      "probes": [
+        {
+          "lat": 10.220544,
+          "lon": 103.959801,
+          "distance_m": 397
+        },
+        {
+          "lat": 10.223544,
+          "lon": 103.959801,
+          "distance_m": 347
+        },
+        {
+          "lat": 10.220544,
+          "lon": 103.962801,
+          "distance_m": 695
+        },
+        {
+          "lat": 10.222544,
+          "lon": 103.95677,
+          "distance_m": 3
+        },
+        {
+          "lat": 10.222554,
+          "lon": 103.95679,
+          "distance_m": 1
+        },
+        {
+          "lat": 10.222554,
+          "lon": 103.9568,
+          "distance_m": 0
+        }
+      ]
+    }
+  ],
+  "rejected_old_candidates": [
+    {
+      "lat": 10.220544,
+      "lon": 103.959801,
+      "reason": "397 m from exact current business entity; candidate was Chợ Dương Đông feature."
+    },
+    {
+      "lat": 10.230422,
+      "lon": 103.957427,
+      "reason": "Wrong Nhà thờ Dương Đông feature."
+    },
+    {
+      "lat": 10.214346,
+      "lon": 103.9613,
+      "reason": "Wrong Đình thần Dương Đông feature."
+    }
+  ],
+  "safety": "Site centroid only; not exact entrance and not operational-status evidence.",
+  "post_change": {
+    "location_index_with_map": 239,
+    "map_coverage_ready": 236,
+    "map_coverage_missing": 158,
+    "remaining_actual_nonhotel_no_map": 16,
+    "remaining_intentional_no_fixed_pin": 4,
+    "remaining_research_holds": 12
+  },
+  "rebased_onto_main_sha": "881288c1b99b2201b35b8c330fa6e6057b66d76a",
+  "ci_guard_update": "scripts/test-nearme-intake.mjs now distinguishes audited Long Chau pins from unresolved HOLD branches"
+}
