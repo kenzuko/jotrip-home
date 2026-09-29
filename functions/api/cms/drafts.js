@@ -52,6 +52,21 @@ async function currentDraft(db,key){
   ).bind(key).first();
 }
 
+function draftVersionConflict(current,body){
+  if(!Object.prototype.hasOwnProperty.call(body,"expected_updated_at"))return false;
+  const expected=body.expected_updated_at==null?null:String(body.expected_updated_at);
+  const actual=current?.updated_at||null;
+  return expected!==actual;
+}
+
+async function versionConflictResponse(db,key,current){
+  return json({
+    error:"Bản nháp server đã thay đổi ở nơi khác. Tải lại bản nháp để đối chiếu trước khi ghi tiếp.",
+    draft:draftView(current),
+    history:await history(db,key)
+  },409);
+}
+
 async function history(db,key){
   const result=await db.prepare(
     "SELECT revision_id,base_sha,created_at FROM cms_draft_revisions WHERE draft_key=? ORDER BY created_at DESC LIMIT 20"
@@ -79,6 +94,7 @@ async function saveDraft({db,user,role,body}){
 
   const key=draftKey(user.login,path);
   const current=await currentDraft(db,key);
+  if(draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
   if(current&&current.base_sha===baseSha&&current.data_json===dataJson){
     return json({ok:true,unchanged:true,draft:draftView(current),history:await history(db,key)});
   }
@@ -118,12 +134,13 @@ async function restoreDraft({db,user,role,body}){
   if(!validRevisionId(revisionId))return json({error:"Phiên bản nháp không hợp lệ"},400);
 
   const key=draftKey(user.login,path);
+  const current=await currentDraft(db,key);
+  if(draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
   const source=await db.prepare(
     "SELECT revision_id,draft_key,actor,module_id,path,base_sha,data_json,created_at FROM cms_draft_revisions WHERE draft_key=? AND revision_id=?"
   ).bind(key,revisionId).first();
   if(!source)return json({error:"Không tìm thấy phiên bản nháp"},404);
 
-  const current=await currentDraft(db,key);
   const now=new Date().toISOString();
   const newRevisionId=crypto.randomUUID();
   await db.batch([
@@ -147,6 +164,7 @@ async function clearDraft({db,user,role,body}){
   if(!cmsCan(role,path,"draft"))return json({error:"Vai trò hiện tại không được xóa bản nháp module này"},403);
   const key=draftKey(user.login,path);
   const current=await currentDraft(db,key);
+  if(draftVersionConflict(current,body))return versionConflictResponse(db,key,current);
   if(current){
     const now=new Date().toISOString();
     await db.batch([
