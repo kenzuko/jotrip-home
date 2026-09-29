@@ -1,6 +1,6 @@
 # Open Phu Quoc - Stories Vietnamese review 1/2
 
-> Bản đã duyệt từ file người dùng gửi ngày 29/09/2026.
+> Bản đã duyệt từ file người dùng gửi ngày 29/09/2026, đã sửa các lỗi QA được xác nhận sau duyệt.
 > Giữ các dòng STORY_ID và SECTION để map lại dữ liệu chính xác.
 > Phạm vi: Stories 1-17/34.
 
@@ -197,7 +197,7 @@ Từ chi tiết nhỏ nhìn ra cửa sông
 
 **Nội dung**
 
-Đôi mắt mũi ghe gợi mở sự tò mò, nhưng nếu nán lại ngắm nhìn lâu hơn, bạn sẽ nhận ra nhịp điệu kỳ diệu của cả cửa sông: tàu thuyền nhịp nhàng theo luồng lách, người bốc xếp hối hận và những chuẩn bị ân cần trước sóng gió đại dương. Từng nét vẽ mộc mạc và giọt mồ hôi trên bến cảng chính là câu chuyện chân thực nhất về đời sống biển đảo Phú Quốc.
+Đôi mắt mũi ghe gợi mở sự tò mò, nhưng nếu nán lại ngắm nhìn lâu hơn, bạn sẽ nhận ra nhịp điệu kỳ diệu của cả cửa sông: tàu thuyền nhịp nhàng theo luồng lách, người bốc xếp hối hả và những chuẩn bị ân cần trước sóng gió đại dương. Từng nét vẽ mộc mạc và giọt mồ hôi trên bến cảng chính là câu chuyện chân thực nhất về đời sống biển đảo Phú Quốc.
 
 Nếu điểm chung, ghe xuồng vùng Rạch Giá, Phú Quốc và vịnh Thái Lan xưa kia sở hữu đôi mắt rất đặc trưng: mắt tròn, sơn hai màu đen và đỏ trên nền mang xanh dương. Nhưng với Phú Quốc, khác với mắt ghe hướng thẳng ra xa của vùng Cần Đước hay An Giang, mắt của ghe câu Phú Quốc lại được vẽ nhìn cúi xuống mặt nước. Ngư dân quan niệm hướng nhìn này giúp tàu thuyền dễ dàng phát hiện ra các luồng cá sâu và tránh được rạn san hô, bãi đá ngầm dưới đáy biển đảo Ngọc
 
@@ -221,10 +221,6 @@ Sự biến mất của những đôi mắt nhìn xuống trên mũi tàu Phú Q
 * Thương mại hóa và đóng tàu hàng loạt: Nhiều tàu du lịch, tàu câu mực đêm phục vụ khách tham quan tại Phú Quốc được đóng vội theo phom dáng công nghiệp, lược bỏ hoàn toàn chi tiết mắt ghe hoặc chỉ sơn vẽ qua loa, đánh mất đi cái hồn "mắt nhìn xuống đất biển" vốn có của đảo Ngọc.
 
 Việc đôi mắt ghe Phú Quốc dần thưa thớt trên các cửa biển như Dương Đông hay An Thới là một minh chứng cho thấy sự dịch chuyển từ nền văn hóa dân gian sông nước sang thời đại công nghiệp hóa, để lại nhiều luyến tiếc cho những ai yêu mến nét đẹp văn hóa biển đảo cổ xưa.
-
-05. Xoáy lưng chưa kể hết chuyện chó Phú Quốc
-
-CHÓ PHÚ QUỐC · GIỐNG BẢN ĐỊA · 3 phút đọc
 
 ## 05. Xoáy lưng chưa kể hết chuyện chó Phú Quốc
 <!-- STORY_ID:cho-phu-quoc-xoay-lung -->
@@ -464,7 +460,7 @@ Chợ đêm Dương Đông là thiên đường ẩm thực rực rỡ với vô
 
 ### Mở bài
 
-Bước vào chợ đêm, du khách lập tức bị cuốn hút bởi mùi hải sản nướng than hồng nức mũi và không khí náo nhiệt rực rỡ sắc màu. Để có trải nghiệm cuisine trọn vẹn nhất, bạn nên dành vài phút dạo một vòng tham quan các gian hàng, chủ động hỏi kỹ cách tính giá hải sản trước khi chọn bàn ngồi xuống.
+Bước vào chợ đêm, du khách lập tức bị cuốn hút bởi mùi hải sản nướng than hồng nức mũi và không khí náo nhiệt rực rỡ sắc màu. Để có trải nghiệm ẩm thực trọn vẹn nhất, bạn nên dành vài phút dạo một vòng tham quan các gian hàng, chủ động hỏi kỹ cách tính giá hải sản trước khi chọn bàn ngồi xuống.
 
 ### Phần 1
 <!-- SECTION:0 -->
@@ -783,11 +779,11 @@ Bún quậy và chén chấm tự pha
 
 ### Dek
 
-Bún quậy Phú Quốc hấp dẫn du khách bởi tô bún nóng hổi nghi ngút khói cùng trải nghiệm tự tay "quậy" chén nước chấm muối tắc ớt độc đáo theo khẩu vị riêng.
+Bún quậy Phú Quốc hấp dẫn bởi tô bún nóng hổi cùng trải nghiệm tự tay "quậy" chén chấm theo khẩu vị riêng.
 
 ### Mở bài
 
-Một tô bún quậy hoàn chỉnh được bưng ra với sợi bún tươi vừa ép, chả tôm chả cá tươi ngon phủ đều lòng tô và nước dùng thanh ngọt nóng hổi. Bên cạnh là quầy gia vị với muối, đường, tiêu Phú Quốc, tắc tươi và ớt xay để mỗi vị khách tự tay pha chế chén nước chấm đặc trưng của riêng mình.
+Một tô bún quậy hoàn chỉnh được dọn ra với sợi bún tươi vừa ép, chả tôm chả cá và nước dùng nóng. Bên cạnh là quầy gia vị để mỗi người tự pha chén chấm theo khẩu vị, rồi nếm và điều chỉnh từng chút trước khi ăn.
 
 ### Phần 1
 <!-- SECTION:0 -->
@@ -798,7 +794,7 @@ Quậy chén chấm theo khẩu vị
 
 **Nội dung**
 
-Bí quyết pha chén chấm bún quậy nằm ở sự hài hòa: bắt đầu với muối tiêu đặc sản, vắt thêm nước tắc tươi rồi đánh đều tay cho đến khi hỗn hợp sánh mịn, sau đó mới thêm ớt tùy độ ăn cay. Vị chua thanh của tắc quyện cùng vị mặn đậm đà và cay nồng của tiêu ớt sẽ làm tôn lên độ ngọt tự nhiên của chả hải sản tươi. Không có công thức cố định, chén nước chấm ngon nhất chính là chén nước chấm hợp với gu thưởng thức của bạn.
+Chén chấm bún quậy không có một công thức cố định giữa các quán. Tắc, ớt, đường và phần gia vị quán chuẩn bị được để người ăn tự pha, nếm thử rồi chỉnh lại theo khẩu vị. Chấm thử một miếng chả trước khi rưới thêm vào tô sẽ dễ kiểm soát độ chua, cay và đậm hơn.
 
 ### Phần 2
 <!-- SECTION:1 -->
