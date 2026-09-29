@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 238,
-    "missing_count": 156
+    "ready_count": 242,
+    "missing_count": 152
   },
   "layers": {
     "zones": [
@@ -3476,6 +3476,62 @@
         "verified_at": "2026-09-29",
         "note": "Tọa độ lấy từ link Nhận chỉ đường Google Maps do trang chi nhánh chính thức Điện Máy Chợ Lớn Phú Quốc công bố. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
         "accuracy": "operator_linked_google_maps_coordinate"
+      },
+      {
+        "id": "utility_minimart_one_mart_duong_dong",
+        "name": "One Mart - 16 đường 30 Tháng 4",
+        "type": "utility",
+        "lat": 10.215321,
+        "lon": 103.960894,
+        "precision": "site_centroid",
+        "source": "Current business-registry identity cross-checked to the exact structured business Place ID; accepted numeric probe returned 0 m",
+        "source_id": "one_mart_16_30thang4_registry_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm địa điểm One Mart tại số 16 đường 30 Tháng 4 để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa theo thời gian thực.",
+        "accuracy": "registry_identity_structured_business_site_centroid",
+        "plus_code": null
+      },
+      {
+        "id": "utility_fuel_dong_loi_1",
+        "name": "Trạm xăng dầu Đông Lợi 1",
+        "type": "utility",
+        "lat": 10.2295125,
+        "lon": 103.9820781,
+        "precision": "site_centroid",
+        "source": "Official Phu Quoc tourism directory identity cross-checked to the exact structured business Place ID; accepted numeric probe returned 2 m",
+        "source_id": "dong_loi_1_official_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm địa điểm Trạm xăng dầu Đông Lợi 1 để định hướng. Không xác nhận vị trí lối vào, trụ bơm hoặc trạng thái bán hàng theo thời gian thực.",
+        "accuracy": "official_directory_identity_structured_business_site_centroid",
+        "plus_code": null
+      },
+      {
+        "id": "utility_toilet_sunset_venice_02",
+        "name": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town",
+        "type": "utility",
+        "lat": 10.0300503,
+        "lon": 104.0063604,
+        "precision": "site_centroid",
+        "source": "Exact structured public-restroom entity at 02 Venice cross-checked by independent distance probes; accepted numeric probe returned 2 m",
+        "source_id": "sunset_venice_02_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm POI nhà vệ sinh tại 02 Venice để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa hiện tại.",
+        "accuracy": "structured_business_site_centroid",
+        "plus_code": null
+      },
+      {
+        "id": "utility_toilet_sunset_venice_67",
+        "name": "Nhà vệ sinh công cộng - 67 Venice, Sunset Town",
+        "type": "utility",
+        "lat": 10.0319107,
+        "lon": 104.0042002,
+        "precision": "site_centroid",
+        "source": "Exact structured public-restroom entity at 67 Venice cross-checked by independent distance probes; accepted numeric probe returned 1 m",
+        "source_id": "sunset_venice_67_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm POI nhà vệ sinh tại 67 Venice để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa hiện tại.",
+        "accuracy": "structured_business_site_centroid",
+        "plus_code": null
       }
     ]
   },
@@ -3625,11 +3681,7 @@
     "utility_vinmec",
     "utility_vinmec_er",
     "utility_longchau_ganh_dau",
-    "utility_fuel_dong_loi_1",
     "utility_parking_sunset_nightmarket",
-    "utility_toilet_sunset_venice_67",
-    "utility_toilet_sunset_venice_02",
-    "utility_minimart_one_mart_duong_dong",
     "utility_jotrip_local_service",
     "utility_taxi_xanhsm",
     "utility_grab_phuquoc",
