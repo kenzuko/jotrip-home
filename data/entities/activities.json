@@ -99,7 +99,7 @@
         "snorkeling"
       ],
       "what_it_is": "Cano/tàu ra cụm đảo An Thới, 2-3 hòn tùy biển",
-      "why_go": "Tắm đảo · Snorkeling · Ăn trưa · Check-in",
+      "why_go": "Tắm đảo · Lặn ngắm san hô · Ăn trưa · Chụp ảnh",
       "best_for": [
         "marine",
         "snorkeling"
@@ -146,7 +146,7 @@
       "legacy_id": "snorkeling-an-thoi",
       "entity_type": "activity",
       "slug": "snorkeling-an-thoi",
-      "name": "Snorkeling An Thới",
+      "name": "Lặn ngắm san hô An Thới",
       "aliases": [],
       "zone_id": "zone_south",
       "area_code": "south-sea",
@@ -154,8 +154,8 @@
         "marine",
         "snorkeling"
       ],
-      "what_it_is": "Bơi mặt nước với kính/mặt nạ ở cụm đảo An Thới.",
-      "why_go": "Snorkeling · Bơi · Quan sát san hô",
+      "what_it_is": "Lặn ống thở trên mặt nước với kính/mặt nạ ở cụm đảo An Thới.",
+      "why_go": "Lặn ngắm san hô · Bơi · Quan sát san hô",
       "best_for": [
         "marine",
         "snorkeling"
@@ -207,8 +207,8 @@
         "marine",
         "diving"
       ],
-      "what_it_is": "Lặn sâu hơn snorkeling với thiết bị, hướng dẫn và quy trình an toàn riêng.",
-      "why_go": "Discover Scuba · Diving theo chứng chỉ/điều kiện",
+      "what_it_is": "Lặn sâu hơn lặn ống thở với thiết bị, hướng dẫn và quy trình an toàn riêng.",
+      "why_go": "Lặn thử có hướng dẫn · Lặn theo chứng chỉ/điều kiện",
       "best_for": [
         "marine",
         "diving"
@@ -250,7 +250,7 @@
       "legacy_id": "seawalker",
       "entity_type": "activity",
       "slug": "seawalker",
-      "name": "Seawalker",
+      "name": "Đi bộ dưới biển (Seawalker)",
       "aliases": [],
       "zone_id": "zone_south",
       "area_code": "south-sea",
@@ -258,14 +258,14 @@
         "marine",
         "underwater"
       ],
-      "what_it_is": "Đi bộ dưới nước với mũ cấp khí, nằm giữa snorkeling và scuba về trải nghiệm.",
+      "what_it_is": "Đi bộ dưới nước với mũ cấp khí, nằm giữa lặn ống thở và lặn bình khí về trải nghiệm.",
       "why_go": "Đi bộ dưới nước · Quan sát dưới mặt biển",
       "best_for": [
         "marine",
         "underwater"
       ],
       "best_time": "Theo điều kiện biển và vận hành",
-      "duration": "Theo slot dịch vụ",
+      "duration": "Theo khung giờ dịch vụ",
       "price_reference": "Theo đơn vị vận hành",
       "live_check_required": true,
       "weather_dependency": "high",
@@ -311,7 +311,7 @@
         "marine"
       ],
       "what_it_is": "Chuyến câu chuyên biệt ở ngư trường An Thới/Hòn Dăm Trong với thiết bị, máy dò và tài công.",
-      "why_go": "Câu đáy · Jig · Câu cá lớn bằng mồi phù hợp",
+      "why_go": "Câu đáy · Câu jig · Câu cá lớn bằng mồi phù hợp",
       "best_for": [
         "fishing",
         "marine"
@@ -435,7 +435,7 @@
         "evening",
         "outdoor"
       ],
-      "what_it_is": "Show jetski, flyboard, ánh sáng và hiệu ứng trên mặt nước tại Sunset Town.",
+      "what_it_is": "Chương trình mô tô nước (jetski), ván bay (flyboard), ánh sáng và hiệu ứng trên mặt nước tại Sunset Town.",
       "why_go": "Phù hợp ghép sau hoàng hôn và trước Kiss of the Sea trong một buổi tối Nam đảo.",
       "best_for": [
         "couple",
@@ -661,7 +661,7 @@
         "multimedia"
       ],
       "what_it_is": "Show đa phương tiện buổi tối tại VinWonders Phú Quốc.",
-      "why_go": "Ánh sáng · mapping · hiệu ứng sân khấu · hợp để kết thúc ngày ở VinWonders",
+      "why_go": "Ánh sáng · trình chiếu ánh sáng · hiệu ứng sân khấu · hợp để kết thúc ngày ở VinWonders",
       "best_for": [
         "show",
         "family",
