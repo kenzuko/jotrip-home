@@ -1,0 +1,1594 @@
+{
+  "schema_version": "1.1",
+  "source": {
+    "id": "handbook_r3",
+    "slides": [
+      66
+    ],
+    "file": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx"
+  },
+  "dishes": [
+    {
+      "id": "goi-ca-trich",
+      "name": "Gỏi cá trích",
+      "category": "local",
+      "intro": "Một đĩa gỏi cá trích ngon không thể thiếu rổ rau xanh, ít dừa nạo, bánh tráng và chén nước chấm đi kèm. Gắp miếng cá, thêm rau, rắc chút dừa nạo rồi cuốn vừa tay; để vị béo nhẹ của dừa, hương thơm tươi mát của rau quyện cùng chút chua cay, đậm đà trong từng miếng.\n\nMón này đặc biệt hợp khi đi theo nhóm - chỉ cần gọi một đĩa là đủ để mọi người vừa cuốn, vừa thưởng thức, vừa rôm rả câu chuyện.",
+      "how_to_eat": "Trải miếng bánh tráng, thêm chút rau xanh, cá trích và dừa nạo rồi cuốn vừa tay. Chấm nhẹ một góc trước để cảm nhận vị cá quyện cùng nước chấm; nếu thích cay, có thể thêm vài lát ớt. Món này vui nhất khi cả bàn ngồi cuốn từng miếng, ăn đến đâu làm đến đó.",
+      "tips": [
+        "Nên hỏi quán cá được làm trong ngày hay không, và hiện đang phục vụ theo kiểu sống, tái hay đã qua sơ chế.",
+        "Nước chấm có thể được pha cùng đậu phộng, vì vậy nếu bị dị ứng, bạn nên hỏi riêng quán trước khi dùng.",
+        "Nếu chưa quen ăn cá sống hoặc cá tái, bạn nên gọi phần nhỏ trước để thử vị và xem cơ thể có phù hợp không."
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#goi-ca-trich",
+        "#hai-san"
+      ],
+      "origin": "Gỏi cá trích từ lâu đã trở thành món quen thuộc trên bàn ăn ở Phú Quốc, thường được dọn kèm rau xanh, dừa nạo, bánh tráng và chén nước chấm đậm đà. Mỗi bếp lại có một cách trộn cá riêng; phần rau và các món ăn kèm cũng được biến tấu theo từng nơi, không quán nào hoàn toàn giống quán nào.\n\nBởi vậy, cùng là một đĩa gỏi cá trích, nhưng mỗi quán lại mang đến một trải nghiệm khác - từ cách nêm nếm, độ tươi của cá cho đến hương vị khi cuốn cùng rau và bánh tráng.",
+      "why_name": "Tên gọi nói ngay nguyên liệu chính và cách chế biến: cá trích làm thành gỏi. Nhưng món không chỉ là cá trộn gia vị; cách cuốn với rau, dừa và bánh tráng tạo nên kiểu ăn riêng.",
+      "ingredients": [
+        "Cá trích tươi",
+        "Hành tây",
+        "Rau thơm / húng",
+        "Dừa nạo",
+        "Rau sống",
+        "Bánh tráng",
+        "Nước chấm từ nước mắm, tỏi, ớt",
+        "Đậu phộng rang - thường có"
+      ],
+      "taste_texture": "Cá trích mềm, vị tươi; dừa nạo thêm độ béo và hơi giòn, rau thơm làm miếng cuốn nhẹ mùi hơn. Chén nước chấm thường gom vị mặn, ngọt, chua, cay; nêm vừa tay để cá vẫn còn là vị chính.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "high"
+        },
+        {
+          "key": "peanut",
+          "label": "Đậu phộng",
+          "level": "high"
+        }
+      ],
+      "allergy_note": "Món thường gồm cá trích, rau, dừa nạo, bánh tráng và nước chấm; trong đó phần nước chấm hoặc đồ ăn kèm có thể có đậu phộng. Nếu không ăn được cá sống, cá tái hoặc bị dị ứng, bạn nên hỏi rõ cách sơ chế cá và thành phần nước chấm trước khi gọi món.",
+      "ask_staff": [
+        "Nước chấm có đậu phộng không?",
+        "Cá này làm trong ngày không, và đang phục vụ kiểu sống, tái hay đã qua sơ chế?",
+        "Nước chấm và đĩa gỏi có thể làm riêng, không cho đậu phộng được không?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Đặc sản hải sản Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood"
+        }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    {
+      "id": "bun-quay",
+      "name": "Bún quậy",
+      "category": "local",
+      "intro": "Bún quậy vừa bưng ra là có tô nước dùng nóng, sợi bún tươi và chả hải sản. Đừng vội nêm cả tô. Cứ pha chén muối tiêu với quất và ớt theo ý mình, chấm thử một miếng chả rồi chỉnh độ chua cay. Mỗi người một chén chấm riêng, đó cũng là cái thú khi ăn món này ở Phú Quốc.",
+      "how_to_eat": "Đừng vội nêm cả tô khi bún vừa dọn ra. Pha chén muối tiêu với quất và ớt theo ý mình, chấm thử một miếng chả rồi mới chỉnh. Nước dùng còn nóng, chả thơm và chén chấm vừa miệng là đủ.",
+      "tips": [
+        "Tô có thể có cá, tôm và mực; hỏi rõ nếu dị ứng hải sản.",
+        "Khu chế biến có thể dùng chung dụng cụ giữa các loại hải sản.",
+        "Nếu cần ăn nhạt hoặc ít cay, dặn trước và tự nêm chén chấm."
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#bun-quay"
+      ],
+      "origin": "Bún quậy là một trong những món nhiều người nhớ tới khi nhắc ẩm thực Phú Quốc. Sợi bún tươi đi cùng chả hải sản trong tô nước dùng nóng, còn cái thú nằm ở chén chấm người ăn tự pha. Loại cá, tôm và cách làm chả có thể khác nhau giữa các quán.",
+      "why_name": "Người ta thường liên hệ chữ 'quậy' với động tác khuấy muối tiêu, quất và ớt trong chén chấm. Có người thích chua nhiều, có người cho thêm cay; chén chấm vì thế mang dấu tay của chính người ăn.",
+      "ingredients": [
+        "Bún tươi làm từ bột gạo",
+        "Chả tôm",
+        "Chả cá",
+        "Mực - tùy tô/quán",
+        "Hành lá và rau thơm",
+        "Nước chấm thường có nước mắm, tắc/quất, đường và ớt"
+      ],
+      "taste_texture": "Sợi bún mềm nhưng có độ dai, chả tôm cá thơm ngọt, nước dùng nóng dịu vị. Chén chấm mới là nơi vị chua của quất, mặn của muối tiêu và cay của ớt tụ lại; pha quá tay dễ lấn vị hải sản.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "high"
+        },
+        {
+          "key": "crustacean",
+          "label": "Tôm / giáp xác",
+          "level": "high"
+        },
+        {
+          "key": "mollusc",
+          "label": "Mực / nhuyễn thể",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nếu dị ứng cá, tôm hoặc hải sản, cần hỏi quán trước khi gọi vì nước dùng, chả, phần ăn kèm và khu chế biến thường dùng chung nguyên liệu biển. Không nên tự mặc định món hoàn toàn không chứa gluten chỉ vì bún làm từ gạo - gia vị và quy trình từng quán có thể khác.",
+      "ask_staff": [
+        "Tô này có chả tôm, chả cá và mực không?",
+        "Nước dùng hoặc nước chấm có thành phần hải sản nào khác không?",
+        "Nếu dị ứng nặng, có dùng chung dụng cụ chế biến với hải sản khác không?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Bún quậy Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-signature-noodle-bun-quay"
+        },
+        {
+          "label": "VnExpress - Bún 'quậy' Phú Quốc",
+          "url": "https://vnexpress.net/bun-quay-phu-quoc-4066543.html"
+        }
+      ],
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ]
+    },
+    {
+      "id": "bun-ken",
+      "name": "Bún kèn",
+      "category": "local",
+      "intro": "Tô bún kèn có màu vàng ấm của nước dùng cốt dừa, cá làm tơi và rau ăn kèm. Trộn nhẹ để nước kèn áo đều sợi bún, rồi gắp cùng đu đủ bào và ít rau. Vị béo của cốt dừa đi với cá và chút cay trong nước dùng tạo ra một bữa sáng khá khác những tô bún nước quen thuộc.",
+      "how_to_eat": "Nếm một muỗng nước kèn trước, rồi trộn nhẹ cho cá, rau và bún quyện đều. Thích cay thì thêm ớt từng chút, đừng nêm ngay từ đầu kẻo át vị béo của cốt dừa. Ăn khi tô còn ấm sẽ thấy mùi cá và gia vị rõ hơn.",
+      "tips": [
+        "Hỏi loại cá và thành phần gia vị nếu bạn kiêng món nào.",
+        "Nếu dị ứng cá, cần hỏi cả nước chan và dụng cụ chế biến.",
+        "Có thể dặn ít cay; nếm rồi mới thêm gia vị."
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#bun-ken"
+      ],
+      "origin": "Bún kèn gắn với các quán ăn địa phương ở Phú Quốc, nơi cá là phần chính trong nước dùng cốt dừa. Mỗi người nấu chọn cá, nêm gia vị và chỉnh độ sánh một kiểu, nên tô bún kèn ở hai quán có thể khác nhau khá rõ.",
+      "why_name": "Tên gọi 'kèn' có vài cách giải thích trong lời kể địa phương và tư liệu ẩm thực, nhưng chưa có lời giải duy nhất được xác nhận chắc chắn. Thay vì gán một nguồn gốc chưa rõ, có thể nhận ra món qua tô bún cá với nước dùng cốt dừa.",
+      "ingredients": [
+        "Bún gạo sợi nhỏ",
+        "Cá - cách làm thay đổi theo quán",
+        "Nước cốt dừa",
+        "Gia vị cà ri",
+        "Rau thơm / rau răm",
+        "Dưa leo",
+        "Đu đủ bào - thường gặp"
+      ],
+      "taste_texture": "Bún kèn có nước dùng cốt dừa béo, cá làm tơi và rau ăn kèm tạo độ tươi. Mỗi tô có thể khác về độ sánh, độ cay và cách nấu, nhưng cái duyên nằm ở chỗ vị béo không lấn át phần còn lại: rau, đu đủ bào và nước mắm kéo các vị về lại với nhau.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "high"
+        }
+      ],
+      "allergy_note": "Cá là thành phần cốt lõi. Công thức nước kèn và hỗn hợp gia vị có thể khác từng quán; nếu dị ứng hải sản hoặc gia vị cụ thể, nên hỏi thành phần trước.",
+      "ask_staff": [
+        "Loại cá nào được dùng hôm nay?",
+        "Nước kèn có thêm mắm, tôm hoặc hải sản khác không?",
+        "Hỗn hợp cà ri/gia vị có thành phần nào đóng gói sẵn không?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Phú Quốc dành cho người yêu thiên nhiên",
+          "url": "https://beta.vietnam.travel/vi/things-to-do/phu-quoc-nature-lovers"
+        },
+        {
+          "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ],
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ]
+    },
+    {
+      "id": "nhum",
+      "name": "Nhum",
+      "category": "seafood",
+      "intro": "Nhum nhìn gai góc vậy mà phần ăn được bên trong lại mềm và béo. Ở Phú Quốc, người ta thường nướng nhum với mỡ hành hoặc nấu cháo, mỗi cách cho một vị khác nhau. Nhum nướng nên ăn lúc vừa ra bếp, múc từng chút phần trứng còn nóng để cảm nhận vị ngọt mặn nhẹ của biển.",
+      "how_to_eat": "Nhum nướng vừa ra bếp thì mỡ hành còn thơm, phần trứng bên trong cũng giữ được độ mềm. Múc từng chút và chấm nhẹ nếu thích; đừng để gia vị lấn mất vị nhum. Nếu gọi cháo nhum, cứ ăn khi tô còn nóng.",
+      "tips": [
+        "Đừng gọi nhiều trước khi biết có hợp vị nhum không.",
+        "Nếu dị ứng hải sản, tránh dùng chung muỗng hay vỉ nướng."
+      ],
+      "hashtags": [
+        "#hai-san",
+        "#nhum"
+      ],
+      "origin": "Người dân nhiều vùng biển, có cả Phú Quốc, đã quen với nhum nướng hoặc nấu cháo. Phần ăn được bên trong con nhum thực chất là tuyến sinh dục, thường gọi là trứng nhum. Lượng trứng thay đổi theo mùa và kích cỡ từng con.",
+      "why_name": "Ở miền Nam, nhiều người quen gọi là nhum; các vùng khác có thể dùng tên cầu gai hoặc nhím biển. Đó là những cách gọi chung cho nhóm động vật có vỏ gai, còn loài cụ thể có thể khác nhau.",
+      "ingredients": [
+        "Nhum biển",
+        "Dầu hoặc mỡ hành",
+        "Hành lá",
+        "Đậu phộng rang - thường có",
+        "Muối tiêu chanh hoặc sốt chua cay - tùy quán"
+      ],
+      "taste_texture": "Phần trứng nhum mềm, béo, có vị ngọt mặn nhẹ của biển. Nướng mỡ hành làm mùi thơm rõ và bề mặt hơi se; ăn cùng cháo thì vị dịu và ấm hơn.",
+      "allergen_flags": [
+        {
+          "key": "seafood",
+          "label": "Hải sản / nhum biển",
+          "level": "high"
+        },
+        {
+          "key": "peanut",
+          "label": "Đậu phộng",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nhum là hải sản và nhiều cách phục vụ có đậu phộng. Nếu dị ứng hải sản hoặc đậu phộng, cần hỏi quán trước vì phần ăn kèm và khu nướng có thể dùng chung.",
+      "ask_staff": [
+        "Món có đậu phộng hoặc dầu đậu phộng không?",
+        "Nhum được nướng riêng hay trên cùng vỉ với hải sản khác?",
+        "Có thể bỏ mỡ hành/đậu phộng không?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Đặc sản hải sản Phú Quốc",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood"
+        },
+        {
+          "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    {
+      "id": "coi-bien-mai",
+      "name": "Còi biên mai",
+      "category": "seafood",
+      "intro": "Còi biên mai là phần cơ khép vỏ của con sò lớn, dày và giòn dai hơn nhiều loại thịt sò khác. Nướng muối ớt, mặt ngoài thơm và hơi cay, bên trong vẫn còn vị ngọt. Món này hợp để cả bàn gắp lai rai, nhưng phải nướng vừa tay vì quá lửa là còi dễ khô và dai.",
+      "how_to_eat": "Còi vừa nướng xong nên ăn ngay, lúc phần cơ còn mọng và có độ giòn. Kiểu nướng muối ớt đã khá đậm nên thử một miếng trước khi chấm thêm. Đây là món để cả bàn gắp chung, không phải phần ăn cho no.",
+      "tips": [
+        "Hỏi khẩu phần tính theo còi hay theo con sò.",
+        "Nếu không ăn cay, dặn trước khi bếp làm sốt.",
+        "Còi có thể dai; cân nhắc nếu cần món mềm."
+      ],
+      "hashtags": [
+        "#hai-san",
+        "#bien-mai"
+      ],
+      "origin": "Sò biên mai là loài nhuyễn thể hai mảnh vỏ; phần còi dày giúp nó khép vỏ mới là nguyên liệu nhiều quán chọn để nướng hay xào. Ở Phú Quốc, còi biên mai thường lên bàn thành món ăn chung, nhất là kiểu nướng có gia vị.",
+      "why_name": "Chữ 'còi' chính là phần cơ dùng để khép vỏ của sò biên mai. Nhìn con sò nguyên vỏ khá lớn, nhưng phần còi ăn được không nhiều như tưởng, vì vậy món thường tính và dọn theo cách riêng của quán.",
+      "ingredients": [
+        "Còi biên mai",
+        "Muối ớt hoặc sa tế - tùy cách nướng",
+        "Chao - ở một số kiểu nướng",
+        "Rau ăn kèm - tùy quán"
+      ],
+      "taste_texture": "Còi có thớ chắc và độ giòn dai, vị ngọt dịu của hải sản. Nướng muối ớt thêm mùi khói, chút cay và vị mặn; nướng quá tay sẽ làm phần thịt khô, mất độ mọng.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Nhuyễn thể / sò",
+          "level": "high"
+        },
+        {
+          "key": "soy",
+          "label": "Đậu nành - có thể có trong chao",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Biên mai là nhuyễn thể. Kiểu nướng chao có thể chứa đậu nành; sa tế và sốt pha sẵn thay đổi theo quán. Nếu dị ứng hải sản, đậu nành hoặc đậu phộng, nên hỏi chính xác loại sốt trước khi gọi.",
+      "ask_staff": [
+        "Món nướng dùng muối ớt, sa tế hay chao?",
+        "Sốt có đậu nành hoặc đậu phộng không?",
+        "Có dùng chung vỉ nướng với các loại hải sản khác không?"
+      ],
+      "sources": [
+        {
+          "label": "VietnamNet - Còi biên mai nướng Phú Quốc",
+          "url": "https://vietnamnet.vn/xep-hang-doi-lan-bien-san-dac-san-tru-danh-cua-phu-quoc-dem-nuong-muoi-ot-778244.html"
+        },
+        {
+          "label": "VnExpress - Cẩm nang du lịch Phú Quốc",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    {
+      "id": "banh-canh-ca-thu",
+      "name": "Bánh canh cá thu",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Một tô bánh canh cá thu nóng có sợi bánh mềm, miếng cá chắc thịt và nước dùng thơm hành tiêu. Gắp thử cá trước rồi mới thêm nước mắm hoặc ớt, vì mỗi quán nấu đậm nhạt khác nhau. Buổi sáng muốn ăn món nước vừa ấm bụng vừa rõ vị cá biển, đây là một lựa chọn quen ở Phú Quốc.",
+      "how_to_eat": "Tô bánh canh vừa bưng ra còn nóng thì nếm nước dùng trước, rồi mới thêm nước mắm, tiêu hoặc ớt nếu muốn. Cá thu có thể còn xương nên gỡ từng miếng. Ăn sớm để sợi bánh không ngâm nước quá lâu.",
+      "tips": [
+        "Hỏi tô dùng cá thu tươi, chả cá hay cả hai.",
+        "Nếu dị ứng cá, tránh cả nước dùng và chả cá.",
+        "Dặn ít cay nếu muốn tự nêm sau."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-canh-ca-thu"
+      ],
+      "origin": "Bánh canh cá thu là món nước phổ biến ở các tỉnh ven biển miền Nam, trong đó có Phú Quốc. Cá thu có thể dùng dạng lát, chả hoặc phối hợp cả hai; cách nấu tùy quán.",
+      "why_name": "Tên gọi đơn giản chỉ hai thành phần làm nên tô: bánh canh và cá thu. Nhưng mỗi quán có thể dùng sợi bánh, loại cá và cách nấu nước dùng khác nhau.",
+      "ingredients": [
+        "Cá thu",
+        "bánh canh",
+        "hành",
+        "tiêu",
+        "nước dùng"
+      ],
+      "taste_texture": "Cá thu chắc và ngọt, nước dùng có vị đậm ấm, còn sợi bánh canh mềm dai. Tiêu và hành làm thơm phần nước; thêm chanh hay ớt tùy cách quán phục vụ.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Cá thu là nguyên liệu chính, và nước dùng cũng có thể nấu từ cá. Nếu dị ứng cá, hỏi cả phần cá lẫn nước dùng trước khi gọi.",
+      "ask_staff": [
+        "Tô này có cá thu miếng hay chả cá?",
+        "Nước dùng có nấu từ cá không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-canh-ghe",
+      "name": "Bánh canh ghẹ",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Bánh canh ghẹ được dọn trong tô nước dùng nóng, bên trên là ghẹ nguyên con hoặc phần thịt đã gỡ tùy quán. Sợi bánh mềm, dày, ăn cùng thịt ghẹ ngọt và chút hành tiêu. Nếu gọi phần có ghẹ nguyên con, hỏi giá và cách tính trước; gỡ ghẹ hơi mất công nhưng cũng là một phần của bữa ăn.",
+      "how_to_eat": "Gặp tô bánh canh có ghẹ nguyên con, cứ gỡ từng miếng thịt rồi ăn cùng sợi bánh mềm và nước dùng nóng. Có quán gỡ sẵn thịt ghẹ, có quán để nguyên con, nên hỏi lúc gọi nếu ngại bóc vỏ.",
+      "tips": [
+        "Xác nhận giá và lượng ghẹ trước khi gọi.",
+        "Hỏi ghẹ được tính theo con, theo lạng hay theo tô.",
+        "Dị ứng giáp xác cần hỏi cả nước dùng và dụng cụ chế biến."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-canh-ghe"
+      ],
+      "origin": "Bánh canh ghẹ kết hợp món bánh canh nước với ghẹ, phổ biến ở nhiều vùng biển phía Nam. Mỗi nơi có cách nấu nước dùng riêng, có quán nấu thanh, có quán làm sánh và đậm hơn.",
+      "why_name": "Tên gọi mô tả thẳng tô bánh canh có ghẹ. Khác biệt giữa các quán nằm ở cách lấy vị ngọt từ ghẹ, độ sánh nước và lượng thịt trong mỗi tô.",
+      "ingredients": [
+        "Ghẹ",
+        "bánh canh",
+        "hành",
+        "rau thơm",
+        "gia vị"
+      ],
+      "taste_texture": "Thịt ghẹ ngọt và chắc, nước dùng nóng thường có hậu vị hải sản rõ. Sợi bánh dày, mềm giúp no bụng; hành, tiêu và đôi khi chút sa tế làm mùi vị ấm hơn.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Giáp xác",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Ghẹ là giáp xác; nước dùng có thể nấu từ ghẹ hoặc hải sản khác. Nếu bị dị ứng, nên hỏi cả nước dùng, phần ăn kèm và đồ chấm.",
+      "ask_staff": [
+        "Tô có ghẹ nguyên con hay thịt ghẹ?",
+        "Nước dùng có nấu từ hải sản nào khác không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "hu-tieu-muc",
+      "name": "Hủ tiếu mực",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Hủ tiếu mực ngon ở miếng mực vừa chín, còn giòn và ngọt, ăn cùng sợi hủ tiếu trong tô nước dùng nóng. Có quán thêm tôm hoặc thịt, có quán để mực làm phần chính. Thêm rau rồi ăn lúc mới dọn để mực không bị dai; muốn biết tô có những gì, cứ hỏi người bán trước khi gọi.",
+      "how_to_eat": "Cho rau vào tô khi nước dùng vẫn còn nóng, rồi gắp mực ăn trước để cảm nhận độ giòn. Tôm, thịt và các phần ăn kèm khác thay đổi theo quán; nếu muốn tô hủ tiếu chỉ có mực, cứ hỏi người bán lúc gọi.",
+      "tips": [
+        "Hỏi có thêm tôm, thịt hoặc thành phần ngoài mực không.",
+        "Dị ứng nhuyễn thể cần hỏi cả nước dùng và khu chế biến.",
+        "Gọi tô nhỏ nếu đang ăn thêm nhiều món."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#hu-tieu-muc"
+      ],
+      "origin": "Hủ tiếu mực có mặt ở nhiều thành phố miền Nam, thường bán như món ăn sáng hoặc ăn tối. Phú Quốc có các quán dùng mực địa phương, nhưng nguồn nguyên liệu mỗi ngày phụ thuộc chuyến hàng và mùa.",
+      "why_name": "Tên món gọi đúng phần nổi bật trong tô là mực. Công thức không cố định: có nơi chỉ dùng mực, nơi khác thêm tôm, thịt hoặc trứng cút.",
+      "ingredients": [
+        "Mực",
+        "hủ tiếu",
+        "hành",
+        "rau ăn kèm",
+        "nước dùng"
+      ],
+      "taste_texture": "Mực có độ giòn, vị ngọt nhẹ; nước dùng trong thường dịu và thơm xương, hải sản. Rau xanh, hành phi và tiêu làm tô hủ tiếu thơm hơn, còn chanh ớt giúp vị sáng lên.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Nhuyễn thể",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Mực là nhuyễn thể, còn nước dùng có thể có thêm cá hoặc tôm. Hỏi thành phần nước dùng và cách dùng chung dụng cụ nếu dị ứng hải sản.",
+      "ask_staff": [
+        "Mực trong tô là mực tươi hay loại đã phơi?",
+        "Nước dùng có cá, tôm hoặc hải sản khác không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "bun-rieu",
+      "name": "Bún riêu",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Bún riêu dọn ra nghi ngút khói, có cà chua, phần riêu mềm và rổ rau sống ăn kèm. Nước dùng thường chua dịu; muốn đậm hơn thì thêm chút mắm tôm, nhưng nên nếm trước vì mỗi quán nêm một kiểu. Ăn cùng rau muống bào hay bắp chuối, tô bún có thêm độ giòn mà vẫn dễ ăn.",
+      "how_to_eat": "Nếm một muỗng nước dùng trước khi cho mắm tôm, chanh hay ớt. Gắp thêm rau muống bào hoặc bắp chuối, ăn cùng riêu mềm và sợi bún sẽ bớt đơn điệu. Mắm tôm đậm mùi nên cứ nêm từng chút một.",
+      "tips": [
+        "Hỏi riêu làm từ cua hay có pha thêm nguyên liệu khác.",
+        "Kiểm tra phần ăn kèm như huyết, ốc hoặc đậu nếu bạn không ăn.",
+        "Dị ứng cua/giáp xác cần báo trước."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#bun-rieu"
+      ],
+      "origin": "Bún riêu là món nước quen thuộc khắp Việt Nam, với nhiều biến thể theo vùng. Tô ở Phú Quốc có thể dùng cua, cà chua, đậu hũ và các loại phần ăn kèm theo cách nấu của quán.",
+      "why_name": "“Riêu” chỉ phần gạch hoặc thịt cua, tôm được làm thành mảng nổi trong nồi nước. Tên món vì vậy nhắc tới phần tạo dấu ấn, dù tô bún thường có thêm nhiều thành phần khác.",
+      "ingredients": [
+        "Bún",
+        "riêu cua",
+        "cà chua",
+        "rau",
+        "gia vị"
+      ],
+      "taste_texture": "Nước dùng chua nhẹ, thơm cà chua và mắm; riêu mềm, béo và đậm hơn. Rau sống cho độ giòn, mát, còn mắm tôm làm hậu vị sâu và nồng nếu nêm nhiều.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Giáp xác",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Riêu cua là thành phần thường gặp; nước dùng có thể có mắm tôm hoặc hải sản khác. Hỏi rõ thành phần trước khi gọi nếu dị ứng cua hay tôm.",
+      "ask_staff": [
+        "Riêu làm từ cua hay có thêm tôm?",
+        "Nước dùng có mắm tôm không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-mi-cha-ca",
+      "name": "Bánh mì chả cá",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "snack"
+      ],
+      "intro": "Ổ bánh mì nóng kẹp chả cá, dưa leo và rau thơm là bữa sáng gọn gàng trước một ngày đi chơi. Chả vừa chiên hoặc áp chảo còn thơm, cắn cùng vỏ bánh giòn nghe vui miệng. Mỗi cửa hàng có loại chả và nước sốt riêng; nếu thích ít cay hoặc cần tránh thành phần nào, dặn ngay lúc gọi món.",
+      "how_to_eat": "Ổ bánh mì ngon nhất khi chả cá còn nóng và vỏ bánh vẫn giòn. Nếu mua mang đi xa, có thể nhờ quán để sốt riêng để bánh không bị mềm. Thích cay ít hay nhiều thì dặn từ lúc gọi món.",
+      "tips": [
+        "Hỏi chả làm từ cá gì nếu bạn dị ứng hoặc tránh một loại cá.",
+        "Dặn ít cay, ít sốt nếu mang đi xa.",
+        "Món thường làm tại chỗ; hỏi thời gian chờ vào giờ đông."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-mi-cha-ca"
+      ],
+      "origin": "Bánh mì chả cá phổ biến ở các tỉnh ven biển Việt Nam, nơi chả cá là món quen trong bữa ăn. Ở Phú Quốc, chả cá có thể làm từ các loại cá địa phương và công thức riêng của từng cơ sở.",
+      "why_name": "Tên món mô tả cách ăn: chả cá kẹp trong bánh mì. Đây là món kết hợp tiện lợi giữa ổ bánh mang đi và phần chả vốn thường xuất hiện trong bữa cơm hay tô bún.",
+      "ingredients": [
+        "Bánh mì",
+        "chả cá",
+        "rau",
+        "nước sốt"
+      ],
+      "taste_texture": "Chả cá dai, đậm vị và có mùi thơm khi còn nóng; bánh mì giòn tạo tương phản với phần nhân mềm. Rau, dưa leo và đồ chua làm vị nhẹ hơn, tương ớt thêm độ cay ngọt.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "possible"
+        },
+        {
+          "key": "gluten",
+          "label": "Lúa mì",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Chả cá và bánh mì có thể chứa cá và bột mì; sốt hoặc đồ chua cũng thay đổi theo quán. Hỏi cả thành phần lẫn dụng cụ chế biến nếu dị ứng.",
+      "ask_staff": [
+        "Chả cá ở đây chiên hay hấp?",
+        "Bánh mì có sốt hoặc phần ăn kèm nào ngoài chả cá?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-mi-op-la",
+      "name": "Bánh mì ốp la",
+      "category": "local",
+      "meal_times": [
+        "breakfast"
+      ],
+      "intro": "Bánh mì ốp la hấp dẫn nhất lúc trứng còn nóng trên chảo, lòng đỏ sánh để xé bánh mì chấm vào. Thêm dưa leo, chút nước tương hoặc tương ớt tùy cách quán dọn. Có nơi ăn đơn giản với trứng, có nơi thêm pate, thịt hay xíu mại, nên chỉ cần chọn phần vừa đủ cho buổi sáng.",
+      "how_to_eat": "Trứng vừa dọn ra khỏi chảo, xé bánh mì chấm ngay khi lòng đỏ còn nóng nếu thích ăn lòng đào. Muốn trứng chín kỹ thì nhớ dặn bếp trước. Pate, thịt hay xíu mại là phần thêm tùy quán, không nhất thiết phải gọi đủ.",
+      "tips": [
+        "Nói rõ muốn lòng đào hay chín kỹ.",
+        "Hỏi thành phần pate, bơ hoặc sốt nếu có dị ứng.",
+        "Nếu mang đi, nhờ đóng gói để bánh không bị hấp hơi."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-mi-op-la"
+      ],
+      "origin": "Bánh mì ốp la là kiểu ăn sáng phổ biến ở Việt Nam: bánh mì ăn cùng trứng chiên và các món kèm. Thành phần thay đổi tùy quán và khẩu vị địa phương.",
+      "why_name": "Tên gọi chỉ cách chế biến trứng: ốp trên chảo rồi ăn cùng bánh mì. Phần pate, thịt hay xíu mại là lựa chọn thêm, không phải thành phần bắt buộc.",
+      "ingredients": [
+        "Bánh mì",
+        "trứng",
+        "rau",
+        "gia vị",
+        "phần ăn kèm tùy chọn"
+      ],
+      "taste_texture": "Trứng béo mềm, phần rìa có thể hơi giòn, lòng đỏ tạo độ sánh khi chấm bánh. Bánh mì giòn và sốt mặn ngọt khiến món đơn giản mà dễ ăn.",
+      "allergen_flags": [
+        {
+          "key": "egg",
+          "label": "Trứng",
+          "level": "possible"
+        },
+        {
+          "key": "gluten",
+          "label": "Lúa mì",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Món có trứng và bánh mì từ lúa mì; phần ăn kèm hoặc sốt có thể thêm thành phần khác. Báo dị ứng trứng hay lúa mì trước khi gọi.",
+      "ask_staff": [
+        "Một ổ có mấy trứng và phần ăn kèm gì?",
+        "Có thể làm trứng chín kỹ không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "xoi-man",
+      "name": "Xôi mặn",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "snack"
+      ],
+      "intro": "Xôi mặn thường gói gọn trong một phần nếp dẻo, phía trên có thể là lạp xưởng, chà bông, trứng và hành phi. Trộn đều một chút, mỗi muỗng sẽ có cả nếp mềm lẫn phần nhân mặn thơm. Món này hợp những buổi sáng cần ăn nhanh, nhưng nhìn phần ăn kèm của quán trước khi gọi để chọn đúng khẩu vị.",
+      "how_to_eat": "Trộn nhẹ phần lạp xưởng, chà bông, trứng hoặc phần ăn kèm khác vào nếp rồi ăn lúc xôi còn ấm. Nếu quán có dưa leo hay đồ chua, ăn kèm một ít sẽ đỡ ngấy. Gọi phần vừa bụng vì xôi khá chắc dạ.",
+      "tips": [
+        "Hỏi phần ăn kèm cụ thể, nhất là chà bông, pate, trứng hoặc hành phi.",
+        "Nếu ăn chay, đừng mặc định xôi trắng đi kèm phần ăn kèm chay.",
+        "Mua sớm nếu muốn xôi còn nóng."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#xoi-man"
+      ],
+      "origin": "Xôi mặn là món ăn sáng phổ biến trên khắp Việt Nam. Cách làm và phần ăn kèm không gắn riêng với Phú Quốc, nhưng nhiều hàng trên đảo có khẩu vị và lựa chọn riêng.",
+      "why_name": "“Mặn” phân biệt kiểu xôi ăn cùng thức ăn mặn với xôi ngọt. Tên gọi cho biết cách ăn hơn là một công thức cố định.",
+      "ingredients": [
+        "Nếp",
+        "phần ăn kèm thay đổi theo quán"
+      ],
+      "taste_texture": "Nếp dẻo và thơm, phần ăn kèm thường mặn, béo, có chút giòn từ hành phi hoặc dưa góp. Tỷ lệ phần ăn kèm quyết định món đậm đến đâu; thêm nhiều sốt có thể làm xôi ngấy.",
+      "allergen_flags": [
+        {
+          "key": "egg",
+          "label": "Trứng",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Phần ăn kèm xôi mặn thay đổi theo quán, có thể gồm trứng hoặc thịt chế biến sẵn. Hỏi đúng phần định gọi thay vì dựa vào tên món.",
+      "ask_staff": [
+        "Xôi hôm nay có những loại phần ăn kèm nào?",
+        "Giá đã gồm phần ăn kèm hay tính riêng?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "chao-cha",
+      "name": "Cháo chả",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Có những buổi sáng chỉ cần một tô cháo nóng, thêm vài miếng chả và chút hành tiêu là đủ. Cháo mềm, vị dịu; phần chả tạo thêm độ dai và vị mặn vừa phải. Ở Phú Quốc, mỗi hàng có thể dùng một loại chả khác nhau, nên hỏi trước nếu muốn biết đó là chả cá hay chả làm từ nguyên liệu khác.",
+      "how_to_eat": "Một tô cháo chả nóng chỉ cần thêm chút hành và tiêu là đã thơm. Gắp một miếng chả ăn cùng cháo mềm để thấy rõ sự khác nhau về kết cấu. Mỗi hàng có thể dùng loại chả riêng, nên hỏi trước nếu bạn chỉ ăn cá hoặc chỉ ăn thịt.",
+      "tips": [
+        "Hỏi loại chả được dùng trước khi gọi.",
+        "Nếu dị ứng cá, hỏi cả nước dùng và dụng cụ chung.",
+        "Đừng dựa vào bài đăng cũ để khẳng định một hàng quán còn mở."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#chao-cha"
+      ],
+      "origin": "Cháo chả là món cháo kết hợp với chả, có thể gặp trong thực đơn địa phương ở Phú Quốc. Cách nấu cháo và loại chả tùy hàng.",
+      "why_name": "Tên gọi ghép hai phần chính: cháo và chả. Loại chả không giống nhau ở mọi nơi, nên hỏi quán nếu muốn biết chính xác nguyên liệu.",
+      "ingredients": [
+        "Gạo",
+        "Chả (thành phần tùy quán)",
+        "Hành, tiêu",
+        "Gia vị"
+      ],
+      "taste_texture": "Cháo loãng mềm, vị dịu; miếng chả dai và mặn hơn tạo điểm nhấn. Hành lá, tiêu hoặc gừng giúp mùi thơm rõ và hậu vị ấm.",
+      "allergen_flags": [],
+      "allergy_note": "Thành phần chả khác nhau theo nơi bán; có thể chứa cá hoặc nguyên liệu khác. Nếu dị ứng, hỏi rõ người bán trước khi gọi.",
+      "ask_staff": [
+        "Chả ở đây làm từ gì?",
+        "Một tô gồm những gì và giá bao nhiêu?"
+      ],
+      "sources": [
+        {
+          "label": "Foody - Cháo Chả, đường 30 Tháng 4 (bình luận năm 2016, chỉ dùng xác nhận tên món)",
+          "url": "https://www.foody.vn/phu-quoc/chao-cha-duong-30-thang-4"
+        }
+      ]
+    },
+    {
+      "id": "chao-nhum",
+      "name": "Cháo nhum",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Cháo nhum không cầu kỳ về hình thức: tô cháo nóng, phần nhum béo thơm và chút hành tiêu. Múc một muỗng khi còn nóng, vị ngọt mặn nhẹ của nhum hòa vào cháo, ăn chậm mới thấy rõ. Tùy quán, nhum có thể nấu cùng hoặc thêm vào gần lúc dọn, vì vậy nên hỏi cách chế biến nếu cần ăn chín kỹ.",
+      "how_to_eat": "Múc cháo cùng một ít nhum trong mỗi muỗng, phần béo sẽ hòa vào cháo nóng. Đừng vội nêm quá nhiều tiêu hoặc nước mắm. Nếu cần nhum được nấu chín hoàn toàn, hãy dặn quán trước khi bếp làm.",
+      "tips": [
+        "Hỏi món có sẵn hôm đó không và nhum được bảo quản thế nào.",
+        "Báo dị ứng hải sản trước khi gọi.",
+        "Nếu chưa quen vị nhum, gọi phần nhỏ hoặc ăn cùng món khác."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#chao-nhum"
+      ],
+      "origin": "Cháo nhum là một cách chế biến nhum biển ở vùng duyên hải. Ở Phú Quốc, nhum có thể nấu cùng gạo thành cháo hoặc cho lên mặt tô cháo lúc gần dọn.",
+      "why_name": "Tên gọi nêu nguyên liệu tạo dấu ấn trong tô cháo: nhum. Phần nhum có thể nấu chung hoặc thêm sau, tùy cách làm của quán.",
+      "ingredients": [
+        "Nhum biển",
+        "gạo",
+        "hành",
+        "tiêu"
+      ],
+      "taste_texture": "Cháo mềm, thơm gạo; nhum thêm vị béo mặn ngọt và mùi biển đặc trưng. Hành tiêu làm hương vị ấm hơn, nhưng nêm mặn quá sẽ che mất vị nhum.",
+      "allergen_flags": [
+        {
+          "key": "sea_urchin",
+          "label": "Nhum biển",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nhum biển là nguyên liệu chính. Nếu dị ứng hải sản, hỏi nhum được nấu thế nào và cháo có dùng chung nồi, muỗng với món hải sản khác không.",
+      "ask_staff": [
+        "Nhum được nấu chín cùng cháo hay cho lên sau cùng?",
+        "Món này có sẵn hôm nay không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "chao-hau",
+      "name": "Cháo hàu",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Cháo hàu vừa dọn còn bốc khói, gạo nấu mềm và thịt hàu mọng, ngọt. Thêm chút tiêu, hành lá hoặc hành phi là tô cháo đã đủ thơm. Món này hợp bữa sáng hay một tối muốn ăn nhẹ; nếu cần hàu chín kỹ, nhớ dặn quán từ lúc gọi để bếp làm đúng ý.",
+      "how_to_eat": "Cháo hàu vừa ra bếp nên ăn khi còn nóng, thêm chút hành hoặc tiêu tùy sở thích. Thịt hàu mềm và mọng nếu được nấu vừa đủ; ai cần ăn chín kỹ thì cứ nói rõ với quán lúc gọi.",
+      "tips": [
+        "Hỏi hàu được nấu chín kỹ và có thành phần nào khác không.",
+        "Dị ứng nhuyễn thể cần tránh cả nước dùng, dụng cụ dùng chung.",
+        "Nếu bụng yếu, ưu tiên món nấu chín hoàn toàn."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#chao-hau"
+      ],
+      "origin": "Cháo hàu là món ăn phổ biến ở các vùng ven biển Việt Nam, trong đó có Phú Quốc. Hàu được nấu cùng cháo hoặc xào sơ rồi thêm vào; cách làm tùy quán.",
+      "why_name": "Tên món nêu rõ phần hải sản chính được nấu cùng cháo. Hàu có thể là hàu nuôi hoặc nguồn khác theo mùa và nguồn cung.",
+      "ingredients": [
+        "Hàu",
+        "gạo",
+        "hành",
+        "tiêu",
+        "gia vị"
+      ],
+      "taste_texture": "Hàu mềm, mọng, vị ngọt mặn nhẹ; cháo làm nền dịu và ấm. Hành phi, hành lá và tiêu tăng mùi thơm, còn hàu nấu quá lâu dễ co và dai.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Nhuyễn thể",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Hàu là nhuyễn thể và cần được nấu chín kỹ. Hỏi cách nấu và phần hàu trong tô nếu dị ứng hải sản hoặc cần tránh đồ sống.",
+      "ask_staff": [
+        "Hàu được nấu chín trong cháo hay cho lên sau cùng?",
+        "Một tô có khoảng bao nhiêu hàu?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "com-ghe-ham-ninh",
+      "name": "Cơm ghẹ Hàm Ninh",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Cơm ghẹ Hàm Ninh ngon lúc vừa rang xong, hạt cơm nóng, tơi và có những miếng thịt ghẹ ngọt xen trong từng muỗng. Có quán gỡ ghẹ sẵn, có quán phục vụ theo cách riêng; hành, tiêu và phần rau ăn kèm cũng thay đổi. Gọi món này ở Hàm Ninh, nên hỏi phần ghẹ và khẩu phần để khỏi nhầm với đĩa ghẹ hấp.",
+      "how_to_eat": "Cơm ghẹ thơm nhất khi vừa ra chảo, hạt cơm còn nóng và tơi. Gắp cùng phần thịt ghẹ, thêm dưa leo nếu quán có dọn. Trước khi gọi phần cho cả bàn, hãy hỏi ghẹ đã gỡ sẵn chưa và một đĩa đủ cho mấy người.",
+      "tips": [
+        "Hỏi giá theo phần và lượng ghẹ ước tính trước khi gọi.",
+        "Xác nhận thịt ghẹ đã gỡ hay ghẹ nguyên con.",
+        "Dị ứng giáp xác cần báo trước, kể cả khi chỉ gọi cơm."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#com-ghe-ham-ninh"
+      ],
+      "origin": "Cơm ghẹ là món kết hợp cơm với ghẹ, thường giới thiệu ở khu Hàm Ninh nơi nhiều khách tìm ăn hải sản. Cách rang cơm, lượng ghẹ và gia vị khác nhau theo quán.",
+      "why_name": "Tên gọi gắn món cơm với ghẹ và địa danh Hàm Ninh, nơi món này được nhiều thực khách tìm thử. Đây là cách gọi món theo nguyên liệu và vùng nổi tiếng, không phải công thức độc quyền duy nhất.",
+      "ingredients": [
+        "Cơm",
+        "thịt ghẹ",
+        "trứng hoặc rau tùy quán",
+        "gia vị"
+      ],
+      "taste_texture": "Cơm rang có hạt tơi, thơm dầu hành hoặc tỏi; ghẹ thêm vị ngọt thịt và chút mặn biển. Dưa leo, rau ăn kèm giúp cân vị; cơm quá nhiều dầu sẽ làm món nặng.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Giáp xác",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Ghẹ là giáp xác; cơm có thể rang cùng trứng hoặc nguyên liệu khác tùy quán. Hỏi phần cơm, chảo và dầu có dùng chung với hải sản khác không.",
+      "ask_staff": [
+        "Ghẹ tính theo phần hay theo trọng lượng?",
+        "Cơm có thêm trứng hoặc hải sản nào khác không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "ghe-ham-ninh",
+      "name": "Ghẹ Hàm Ninh",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Nhắc Hàm Ninh, nhiều người nghĩ ngay đến đĩa ghẹ hấp vừa ra bếp. Bẻ càng, gỡ phần thịt còn nóng rồi chấm nhẹ muối tiêu chanh, cách ăn đơn giản để nhận ra độ ngọt của ghẹ. Kích cỡ, nguồn hàng và giá thay đổi theo ngày, nên trước khi chọn hãy hỏi loại ghẹ, giá cân và phí chế biến.",
+      "how_to_eat": "Ghẹ vừa hấp xong không cần sốt cầu kỳ, chấm nhẹ muối tiêu chanh là đã rõ vị thịt. Chọn ghẹ theo cỡ và giá đã hỏi trước, rồi cứ thong thả gỡ càng, gỡ mai. Vỏ có cạnh sắc nên cẩn thận khi bóc.",
+      "tips": [
+        "Hỏi cách tính giá và xác nhận tổng tiền trước khi chế biến.",
+        "Chọn cách hấp nếu muốn vị ghẹ rõ, sốt nếu thích đậm.",
+        "Nếu dị ứng giáp xác, nên tránh món này và hỏi quán về dụng cụ dùng chung."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#ghe-ham-ninh"
+      ],
+      "origin": "Hàm Ninh từ lâu gắn với những bữa ghẹ mà du khách tìm đến thưởng thức. Tuy vậy, ghẹ trên bàn có thể đến từ nhiều nguồn hàng quanh vùng biển và thay đổi theo mùa. Tên địa danh gắn với món ăn không phải chứng nhận rằng từng con ghẹ đều được đánh bắt ngay tại làng.",
+      "why_name": "Tên gọi gắn loại hải sản với địa danh Hàm Ninh, nơi món ghẹ được nhiều người biết tới. Cách gọi không đảm bảo mọi con ghẹ đều được đánh bắt ngay tại làng; có thể hỏi quán về nguồn hàng.",
+      "ingredients": [
+        "Ghẹ",
+        "gia vị chấm"
+      ],
+      "taste_texture": "Thịt ghẹ ngọt, chắc và có độ thơm tự nhiên; hấp giữ vị nguyên bản hơn sốt đậm. Muối tiêu chanh thêm chua mặn, nhưng chấm ít sẽ cảm nhận rõ độ ngọt của thịt.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Giáp xác",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Ghẹ thuộc nhóm giáp xác. Nếu dị ứng, tránh món này và hỏi về nước chấm, nồi hấp hay dụng cụ có dùng chung với tôm, cua khác không.",
+      "ask_staff": [
+        "Ghẹ hôm nay cỡ nào và giá tính theo ký hay phần?",
+        "Giá đã gồm hấp hoặc luộc chưa?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "tom-mu-ni-nuong",
+      "name": "Tôm mũ ni nướng",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Tôm mũ ni có phần mai dẹt, vỏ dày và thịt chắc. Khi nướng vừa chín, tách lớp vỏ sẽ thấy phần thịt trắng, ngọt, ăn cùng chút muối tiêu chanh là vừa. Có quán thêm mỡ hành hay phô mai; nếu muốn cảm nhận vị tôm rõ hơn, hỏi kiểu nướng đơn giản và chốt giá trước khi bếp làm.",
+      "how_to_eat": "Khi tôm mũ ni còn nóng, tách vỏ rồi gắp phần thịt chắc, chấm một chút muối tiêu chanh. Có quán làm thêm mỡ hành hoặc phô mai, nhưng nếu muốn ăn kiểu đơn giản hãy dặn ngay lúc chọn. Nhớ hỏi giá và phụ thu chế biến trước.",
+      "tips": [
+        "Hỏi giá, trọng lượng và cỡ trước khi gọi.",
+        "Xác nhận tôm còn sống hay đã sơ chế, nướng theo kiểu nào.",
+        "Dị ứng giáp xác cần báo với quán và tránh dụng cụ chung."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#tom-mu-ni-nuong"
+      ],
+      "origin": "Tôm mũ ni là một loại giáp xác biển có mai rộng dẹt, được chế biến nướng, hấp hoặc rang. Phú Quốc có món này trong thực đơn hải sản; nguồn và cỡ tôm thay đổi theo mùa.",
+      "why_name": "Tên gọi “mũ ni” gắn với hình dáng phần đầu giống chiếc mũ ni trong cách liên tưởng dân gian. Tên địa phương có thể khác tùy vùng.",
+      "ingredients": [
+        "Tôm mũ ni",
+        "gia vị hoặc mỡ hành tùy cách làm"
+      ],
+      "taste_texture": "Thịt tôm chắc, vị ngọt và hơi dai; nướng làm mùi thơm rõ, mép thịt có thể xém nhẹ. Sốt béo tăng độ đậm nhưng muối tiêu chanh làm vị tôm nổi bật hơn.",
+      "allergen_flags": [
+        {
+          "key": "crustacean",
+          "label": "Giáp xác",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Tôm mũ ni là giáp xác. Nếu dị ứng tôm hoặc cua, tránh món này; hỏi quán về vỉ nướng và dụng cụ dùng chung.",
+      "ask_staff": [
+        "Tôm mũ ni hôm nay cỡ nào, tính giá theo ký hay con?",
+        "Phí nướng có tính riêng không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "ca-song-nuong",
+      "name": "Cá sòng nướng",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Cá sòng nướng nên ăn lúc còn nóng, khi lớp da vừa se lại và phần thịt bên trong vẫn mọng. Gỡ một miếng cá, cuốn cùng rau hoặc chấm chút muối ớt tùy cách quán dọn. Cá có xương nên cứ ăn thong thả; khi gọi, hỏi cá nướng nguyên con hay cắt khúc và tính giá thế nào.",
+      "how_to_eat": "Gỡ cá sòng từng miếng khi vừa nướng xong, cuốn cùng rau hoặc chấm muối ớt tùy cách quán dọn. Cá có xương nên ăn thong thả, nhất là khi ngồi cùng trẻ nhỏ. Phần da nóng vừa se lại thường rất thơm.",
+      "tips": [
+        "Hỏi cỡ cá và giá trước khi cân/chế biến.",
+        "Nhờ quán khứa cá hoặc gỡ sẵn nếu đi với trẻ nhỏ.",
+        "Cá có xương; ăn chậm và kiểm tra kỹ."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#ca-song-nuong"
+      ],
+      "origin": "Cá sòng là cá biển thường gặp ở vùng duyên hải và được chế biến nướng, kho hoặc chiên. Ở Phú Quốc, món nướng có thể dùng cá đánh bắt tại vùng biển quanh đảo tùy nguồn trong ngày.",
+      "why_name": "Tên món gọi cá theo tên loài và cách nấu. Cá sòng được nhận biết qua thân dẹt và thường chế biến nguyên con khi còn cỡ vừa.",
+      "ingredients": [
+        "Cá sòng",
+        "gia vị",
+        "rau hoặc bánh tráng tùy quán"
+      ],
+      "taste_texture": "Thịt cá trắng, thơm và có độ ngọt; nướng than làm lớp da hơi giòn, mùi khói nhẹ. Muối ớt hoặc nước chấm chua cay khiến vị cá đậm hơn.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Cá sòng là cá biển; nếu dị ứng cá, tránh món này và hỏi về vỉ nướng hoặc kẹp có dùng chung với món khác không.",
+      "ask_staff": [
+        "Cá sòng được tính theo ký hay theo phần?",
+        "Giá đã gồm nướng và gia vị chấm chưa?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "ca-mu-hap",
+      "name": "Cá mú hấp hành gừng",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Cá mú hấp hành gừng dọn ra còn nóng, mùi gừng bốc lên trước khi gắp được miếng cá đầu tiên. Thịt cá trắng, chắc và dễ tách thớ; ăn cùng cơm, rưới thêm chút nước hấp là đã ngon. Nếu thích hải sản được nấu nhẹ tay, ít sốt, món hấp này để vị cá hiện rõ hơn.",
+      "how_to_eat": "Cá mú hấp hành gừng vừa dọn ra còn nóng, gắp một miếng thịt trắng ăn cùng cơm rồi rưới thêm chút nước hấp nếu thích. Cá nguyên con thường tính theo trọng lượng, nên nhớ chốt giá trước khi bếp chế biến.",
+      "tips": [
+        "Hỏi giá theo trọng lượng và xác nhận cỡ cá.",
+        "Báo dị ứng cá hoặc đậu nành nếu có dùng nước tương.",
+        "Nhờ quán gỡ xương nếu phục vụ trẻ nhỏ."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#ca-mu-hap"
+      ],
+      "origin": "Cá mú là nhóm cá biển có thịt chắc, thường hấp, nướng hoặc nấu lẩu. Hấp hành gừng là cách chế biến phổ biến giúp giữ vị cá và hạn chế gia vị nặng.",
+      "why_name": "Tên gọi nêu nguyên liệu và cách chế biến: cá mú được hấp cùng hành, gừng. Một số quán thêm xì dầu hoặc dầu nóng khi dọn.",
+      "ingredients": [
+        "Cá mú",
+        "hành",
+        "gừng",
+        "nước sốt tùy quán"
+      ],
+      "taste_texture": "Cá mú chắc, ngọt và tách thớ; hấp giữ độ mọng cùng hương gừng ấm. Nước cá thanh, thơm hành, hợp ăn với cơm trắng.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Cá mú là cá biển, thường hấp cùng hành và gừng. Nếu dị ứng cá, hỏi cả nước sốt và nồi hấp, vì dụng cụ có thể dùng chung.",
+      "ask_staff": [
+        "Cá nặng khoảng bao nhiêu và giá tính thế nào?",
+        "Phí hấp có tính riêng không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "lau-ca-bop",
+      "name": "Lẩu cá bớp",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Nồi lẩu cá bớp hợp nhất với một bàn có thời gian ngồi lâu. Nước dùng chua thanh từ me, thơm hay cà chua tùy quán; cá cắt khoanh, rau và bún được dọn để mọi người tự nhúng. Chờ nước sôi rồi cho cá vào từng lượt, đừng để quá lâu kẻo miếng cá mất độ mọng.",
+      "how_to_eat": "Đợi nồi nước dùng sôi rồi mới nhúng cá bớp từng lượt để cá vừa chín. Rau và bún ăn đến đâu cho vào đến đó, đừng để cả nồi nấu quá lâu. Một nồi lẩu thong thả sẽ hợp với nhóm đi đông hơn là bữa ăn vội.",
+      "tips": [
+        "Hỏi lẩu dành cho bao nhiêu người và có những gì.",
+        "Báo dị ứng cá, hải sản hoặc thành phần nước lẩu.",
+        "Nếu có trẻ nhỏ, gắp cá ra chén và kiểm tra xương."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#lau-ca-bop"
+      ],
+      "origin": "Cá bớp là cá biển thường dùng làm lẩu ở miền Nam. Nồi lẩu tại Phú Quốc có thể nấu chua với me, thơm hoặc cà chua; rau ăn kèm tùy quán.",
+      "why_name": "Tên món ghép tên cá với cách ăn: cá bớp được nấu trong nồi lẩu dùng chung. Cá có thể cắt khoanh hoặc phi lê tùy nhà hàng.",
+      "ingredients": [
+        "Cá bớp",
+        "rau",
+        "nước dùng",
+        "bún hoặc mì tùy quán"
+      ],
+      "taste_texture": "Nước lẩu chua thanh, có vị ngọt từ cá và rau; thịt cá bớp chắc, béo nhẹ. Rau nhúng làm bữa ăn tươi hơn, còn bún hoặc cơm giúp hút phần nước đậm đà.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Cá bớp là nguyên liệu chính; nước lẩu có thể nấu chung với hải sản khác. Hỏi thành phần nồi nước và cách phục vụ nếu dị ứng.",
+      "ask_staff": [
+        "Nồi này hợp mấy người ăn?",
+        "Cá bớp tính trong giá nồi hay tính riêng?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "muc-trung-nuong",
+      "name": "Mực trứng nướng",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "Mực trứng nướng vừa ra bếp có phần thân săn nhẹ, bên trong là lớp trứng bùi và béo. Xé một miếng còn nóng, chấm muối ớt hoặc nước mắm cay tùy khẩu vị; không cần nhiều sốt mới thấy ngon. Mực trứng có mùa và kích cỡ khác nhau, nên hỏi phần đang bán trước khi gọi.",
+      "how_to_eat": "Mực trứng vừa nướng xong nên ăn ngay khi phần thân còn mềm và trứng bên trong vẫn bùi. Chấm một chút muối ớt hoặc nước mắm cay rồi nếm thử trước khi thêm sốt. Để mực nguội lâu dễ mất cái ngon của món nướng.",
+      "tips": [
+        "Hỏi mực có sẵn hôm nay và giá theo phần hay theo trọng lượng.",
+        "Báo dị ứng nhuyễn thể; hỏi về gia vị ướp.",
+        "Dặn ít cay nếu muốn cảm nhận rõ vị mực."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#muc-trung-nuong"
+      ],
+      "origin": "Mực trứng là mực cái mang trứng, thường nướng, hấp hoặc chiên. Mực có thể theo mùa và nguồn đánh bắt, nên kích cỡ cũng như lượng trứng thay đổi.",
+      "why_name": "Tên gọi nêu đặc điểm nổi bật của con mực: bên trong có trứng. Mực trứng khác mực ống thông thường ở phần trứng và độ béo khi ăn.",
+      "ingredients": [
+        "Mực trứng",
+        "gia vị chấm"
+      ],
+      "taste_texture": "Thân mực mềm dai, vị ngọt; trứng bên trong bùi và béo hơn. Nướng làm bề mặt thơm khói, nhưng để lâu trên lửa sẽ khiến mực dai.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Nhuyễn thể",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Mực trứng là nhuyễn thể. Nếu dị ứng mực hoặc hải sản, hỏi về gia vị chấm và vỉ nướng dùng cho món này.",
+      "ask_staff": [
+        "Mực trứng hôm nay cỡ nào và giá theo ký hay phần?",
+        "Món được nướng sẵn hay chờ khách gọi mới nướng?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "oc-huong-nuong",
+      "name": "Ốc hương rang me",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "Ốc hương rang me là món dành cho ai thích vừa ăn vừa gỡ. Lớp sốt me chua ngọt bám quanh vỏ, còn thịt ốc bên trong giòn dai, thơm nhẹ. Gỡ từng con rồi quệt thêm chút sốt, cả bàn có thể ngồi lai rai khá lâu. Nếu không thích ngọt hay cay nhiều, hỏi quán có thể điều chỉnh sốt không.",
+      "how_to_eat": "Ốc hương rang me hợp để ngồi gỡ từng con, quệt thêm chút sốt chua ngọt bám quanh vỏ. Dùng tăm lấy thịt ốc, ăn chậm một chút vì sốt còn nóng. Muốn sốt bớt ngọt hay ít cay thì hỏi quán ngay lúc gọi.",
+      "tips": [
+        "Hỏi giá theo đĩa hay trọng lượng và số lượng ốc ước tính.",
+        "Báo dị ứng nhuyễn thể.",
+        "Hỏi sốt có đậu phộng, bơ hoặc nguyên liệu khác nếu cần tránh."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#oc-huong",
+        "#oc-huong-rang-me"
+      ],
+      "origin": "Ốc hương là loài ốc biển có mùi thơm đặc trưng khi chế biến. Rang me là một trong nhiều cách nấu phổ biến ở các quán hải sản miền Nam, gồm cả Phú Quốc.",
+      "why_name": "Tên ốc gắn với mùi thơm được cảm nhận khi nấu chín; “rang me” mô tả cách đảo ốc cùng sốt me chua ngọt.",
+      "ingredients": [
+        "Ốc hương",
+        "Me",
+        "Gia vị nêm tùy quán"
+      ],
+      "taste_texture": "Thịt ốc giòn dai, hơi ngọt; sốt me chua, ngọt và cay nhẹ làm vị đậm hơn. Mùi thơm của ốc vẫn rõ nếu sốt không quá ngọt.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Nhuyễn thể",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Ốc hương là nhuyễn thể; sốt me và gia vị thay đổi theo quán. Hỏi thành phần sốt nếu có dị ứng với nguyên liệu ngoài hải sản.",
+      "ask_staff": [
+        "Giá tính theo đĩa hay theo trọng lượng?",
+        "Sốt me có cay không?"
+      ],
+      "sources": [
+        {
+          "label": "Wikimedia Commons - ảnh Ốc hương rang me (CC BY-SA 4.0)",
+          "url": "https://commons.wikimedia.org/wiki/File:%E1%BB%90c_h%C6%B0%C6%A1ng_rang_me.jpg"
+        },
+        {
+          "label": "Cổng du lịch Phú Quốc - ẩm thực",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "tom-tich-rang-muoi",
+      "name": "Tôm tích rang muối",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Tôm tích rang muối thơm mùi tỏi, tiêu và lớp gia vị khô bám bên ngoài. Phần thịt bên trong chắc, ngọt, nhưng muốn ăn phải bóc lớp vỏ có cạnh sắc. Món này ngon khi còn nóng; hỏi người bán cách bóc nếu lần đầu thử và nhớ chốt giá tính theo ký hay theo phần.",
+      "how_to_eat": "Tôm tích rang muối nên ăn lúc còn nóng và lớp gia vị bên ngoài vẫn thơm mùi tiêu tỏi. Bóc từ từ vì vỏ có cạnh sắc; nếu lần đầu ăn, có thể nhờ quán hướng dẫn cách gỡ. Chấm nhẹ thôi vì bản thân món rang đã đậm.",
+      "tips": [
+        "Xác nhận giá, cách cân và tổng trọng lượng.",
+        "Dị ứng giáp xác cần báo trước; món thường dùng cùng dụng cụ hải sản.",
+        "Chọn khẩu phần vừa vì món rang muối khá đậm."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#tom-tich-rang-muoi"
+      ],
+      "origin": "Tôm tích, còn gọi là bề bề ở miền Bắc, là giáp xác biển thường hấp hoặc rang. Rang muối là cách chế biến phổ biến tại các quán hải sản.",
+      "why_name": "Tên gọi “rang muối” chỉ cách nấu với lớp gia vị mặn khô, thường có tiêu, tỏi hoặc ớt. Công thức không chỉ gồm muối hạt nguyên chất.",
+      "ingredients": [
+        "Tôm tích",
+        "muối",
+        "gia vị",
+        "có thể có tỏi"
+      ],
+      "taste_texture": "Thịt tôm tích chắc và ngọt, lớp rang ngoài mặn thơm, có thể hơi cay. Bóc vỏ mới thấy phần thịt; nêm quá mặn sẽ lấn vị tự nhiên.",
+      "allergen_flags": [
+        {
+          "key": "crustacean",
+          "label": "Giáp xác",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Tôm tích là giáp xác. Nếu dị ứng tôm, cua hoặc giáp xác, tránh món này và hỏi về chảo, dầu chế biến dùng chung.",
+      "ask_staff": [
+        "Tôm tích hôm nay cỡ nào và giá tính theo ký hay phần?",
+        "Phí chế biến có tính riêng không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "hau-nuong-mo-hanh",
+      "name": "Hàu nướng mỡ hành",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "Hàu nướng mỡ hành vừa bưng ra còn nóng trong vỏ, mặt trên thơm hành lá và có thể thêm đậu phộng rang tùy quán. Thịt hàu mềm, mọng; ăn ngay lúc vừa chín, thêm chút chanh nếu thích vị thanh hơn. Khi gọi, nhớ hỏi phần ăn kèm nếu có dị ứng với đậu phộng hoặc nguyên liệu khác.",
+      "how_to_eat": "Để vỏ hàu bớt nóng rồi ăn ngay khi thịt hàu vừa chín và mỡ hành còn thơm. Phần ăn kèm có thể thêm đậu phộng hoặc phô mai tùy nơi, nên chọn trước khi nướng nếu muốn ăn đúng khẩu vị.",
+      "tips": [
+        "Hỏi hàu đã nướng chín kỹ và có phần ăn kèm nào.",
+        "Báo dị ứng nhuyễn thể; hỏi riêng phô mai và đậu phộng.",
+        "Nếu mùi hoặc cách bảo quản khiến bạn không an tâm, hãy chọn món khác."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#hau-nuong-mo-hanh"
+      ],
+      "origin": "Hàu là nhuyễn thể được nuôi hoặc khai thác ở vùng biển; nướng mỡ hành là cách chế biến phổ biến ở các quán hải sản Việt Nam, trong đó có Phú Quốc.",
+      "why_name": "Tên món gọi đúng cách làm: hàu được nướng rồi phủ mỡ hành. Một số nơi thêm đậu phộng rang hoặc phô mai, nên hỏi trước nếu cần.",
+      "ingredients": [
+        "Hàu",
+        "hành lá",
+        "dầu",
+        "đậu phộng hoặc phô mai tùy quán"
+      ],
+      "taste_texture": "Hàu mềm mọng, vị ngọt biển; mỡ hành thơm và béo, đậu phộng thêm độ bùi giòn. Nướng lâu làm hàu co lại và mất nước.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Nhuyễn thể",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Hàu là nhuyễn thể; phần mỡ hành hoặc món ăn kèm có thể có đậu phộng, phô mai tùy quán. Nếu dị ứng hải sản, đậu phộng hoặc sữa, nên hỏi rõ thành phần trước khi gọi.",
+      "ask_staff": [
+        "Món này có những nguyên liệu nào?",
+        "Giá tính theo phần, tô hay trọng lượng?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "canh-chua-ca-bop",
+      "name": "Canh chua cá bớp",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Giữa bàn hải sản nhiều món nướng hay chiên, một tô canh chua cá bớp nóng thường làm bữa cơm dễ ăn hơn. Nước canh có vị chua từ me, thơm hoặc cà chua tùy bếp, còn cá bớp chắc thịt và hơi béo. Múc canh ăn với cơm trắng, thêm ớt nếu thích, nhưng nhớ gỡ xương cá cẩn thận.",
+      "how_to_eat": "Múc một chén canh nóng ăn cùng cơm trắng, thêm ít ớt nếu thích cay. Cá bớp thường cắt khoanh nên có xương, nhớ gỡ kỹ khi chia phần cho trẻ nhỏ. Món canh chua thường dễ ăn hơn khi cả bàn đã có nhiều món nướng hoặc chiên.",
+      "tips": [
+        "Hỏi khẩu phần và lượng cá trước khi gọi chung.",
+        "Báo dị ứng cá hoặc thành phần tạo chua nếu cần.",
+        "Gỡ xương cá cẩn thận, đặc biệt khi có trẻ nhỏ."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#canh-chua-ca-bop"
+      ],
+      "origin": "Cá bớp là cá biển có thịt chắc, thường dùng trong canh chua và lẩu ở miền Nam. Canh chua tại Phú Quốc có thể thêm rau theo mùa và cách nấu của quán.",
+      "why_name": "Tên gọi mô tả món canh chua có cá bớp làm nguyên liệu chính; cách tạo vị chua và rau đi kèm thay đổi theo địa phương.",
+      "ingredients": [
+        "Cá bớp",
+        "rau",
+        "me hoặc nguyên liệu tạo vị chua"
+      ],
+      "taste_texture": "Nước canh chua dịu và thơm, cá bớp chắc, béo nhẹ. Thơm, cà chua và rau nấu mềm làm vị ngọt thanh, còn ớt tạo chút cay ấm.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Cá",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Cá bớp là thành phần chính; vị chua có thể từ me, thơm hoặc nguyên liệu khác. Hỏi cả nước dùng nếu dị ứng cá hay cần tránh một thành phần cụ thể.",
+      "ask_staff": [
+        "Nồi canh này đủ mấy người?",
+        "Vị chua dùng me, thơm hay nguyên liệu khác?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "com-chien-hai-san",
+      "name": "Cơm chiên hải sản",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Cơm chiên hải sản ngon nhất là lúc vừa ra chảo, hạt cơm còn nóng, tơi và thơm. Tôm, mực chiên cùng trứng và rau củ tùy cách làm của quán, mỗi thứ góp một chút hương vị mà không lấn át nhau. Ăn kèm vài lát dưa leo, thêm chút nước mắm ớt nếu thích đậm đà, vậy là đủ cho một bữa trưa chắc bụng.",
+      "how_to_eat": "Cơm chiên ngon khi vừa ra chảo, hạt cơm còn nóng và tơi. Một đĩa thường khá no, nên hỏi kích cỡ trước khi gọi chung cho cả bàn. Nếu thích đậm đà hơn, có thể ăn kèm dưa leo và chút nước mắm ớt nếu quán có.",
+      "tips": [
+        "Hỏi rõ loại hải sản và thành phần phụ.",
+        "Báo dị ứng cá, giáp xác hoặc nhuyễn thể.",
+        "Nếu ăn chung, thống nhất phần lớn/nhỏ để tránh gọi quá nhiều."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#com-chien-hai-san"
+      ],
+      "origin": "Cơm chiên hải sản là món phổ biến trong thực đơn nhà hàng ven biển. Loại hải sản và cách nêm ở Phú Quốc tùy nguồn nguyên liệu cũng như phong cách của quán.",
+      "why_name": "Tên món nói rõ cơm được rang cùng hải sản. Đây là món có mặt ở nhiều nơi, không phải đặc sản riêng của Phú Quốc, dù nguyên liệu tại chỗ có thể tạo khác biệt.",
+      "ingredients": [
+        "Cơm",
+        "tôm, mực hoặc hải sản khác",
+        "trứng tùy quán"
+      ],
+      "taste_texture": "Hạt cơm tơi, hơi săn và thơm dầu tỏi; hải sản góp vị ngọt, trứng làm cơm béo hơn. Rau củ hoặc dưa leo giúp cân lại vị đậm.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Giáp xác",
+          "level": "possible"
+        },
+        {
+          "key": "mollusc",
+          "label": "Nhuyễn thể",
+          "level": "possible"
+        },
+        {
+          "key": "egg",
+          "label": "Trứng",
+          "level": "possible"
+        },
+        {
+          "key": "soy",
+          "label": "Đậu nành",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Cơm có thể gồm tôm, mực, trứng hoặc hải sản khác; chảo thường dùng chung trong bếp. Nêu rõ dị ứng và hỏi quán có thể tách dụng cụ hay không.",
+      "ask_staff": [
+        "Cơm có những loại hải sản nào hôm nay?",
+        "Có thể dùng chảo riêng nếu khách dị ứng không?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "ga-ray-nuong",
+      "name": "Gà rẫy nướng",
+      "category": "local",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Gà rẫy nướng nên ăn lúc còn nóng, khi lớp da vừa vàng xém, thịt bên trong vẫn chắc mà không khô. Xé một miếng gà, chấm muối ớt chanh nếu quán có dọn, rồi ăn cùng rau sống. Đi đông người có thể gọi nguyên con để cả bàn cùng thưởng thức; nhớ hỏi trọng lượng và thời gian nướng trước.",
+      "how_to_eat": "Gà rẫy nướng nên đặt sớm vì bếp có thể cần thời gian làm nguyên con. Gọi theo số người, hỏi trọng lượng và giá trước rồi chọn nước chấm vừa khẩu vị. Ăn lúc vừa dọn, da còn thơm và thịt chưa nguội.",
+      "tips": [
+        "Hỏi nguồn gà, trọng lượng và giá trước khi bếp làm.",
+        "Xác nhận thời gian chờ nếu lịch trình còn điểm tiếp theo.",
+        "Hỏi thành phần ướp nếu dị ứng hoặc không ăn cay."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#ga-ray-nuong"
+      ],
+      "origin": "Gà rẫy là cách gọi gà nuôi thả ở vùng nông thôn, thịt thường săn hơn gà nuôi công nghiệp. Ở Phú Quốc, món gà nướng có mặt trong thực đơn của nhiều quán địa phương, mỗi nơi chọn gia vị và cách phục vụ khác nhau.",
+      "why_name": "Chữ 'rẫy' nói tới môi trường hoặc cách chăn thả, không phải tên một giống gà duy nhất. Muốn biết con gà được nuôi thế nào, hỏi nguồn hàng của từng quán sẽ rõ hơn suy từ tên món.",
+      "ingredients": [
+        "Gà",
+        "gia vị ướp",
+        "rau ăn kèm tùy quán"
+      ],
+      "taste_texture": "Thịt gà chắc và thơm, da nướng có mùi khói cùng vị mặn cay của gia vị. Muối chấm làm vị đậm hơn, rau sống giúp bữa ăn bớt ngấy.",
+      "allergen_flags": [],
+      "allergy_note": "Gia vị ướp và nước chấm thay đổi theo quán. Nếu dị ứng thực phẩm, hỏi thành phần ướp, sốt chấm và phần ăn kèm trước khi gọi.",
+      "ask_staff": [
+        "Gà bao nhiêu ký, tính giá theo con hay theo trọng lượng?",
+        "Thời gian nướng khoảng bao lâu?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-kheo",
+      "name": "Bánh khéo",
+      "category": "local",
+      "meal_times": [
+        "snack",
+        "dessert"
+      ],
+      "intro": "Bánh khéo nhỏ nhắn, có chiếc chỉ vừa vài miếng, được nặn thành nhiều hình và có các loại nhân như đậu xanh, dừa hay khoai môn. Mua một hộp nhiều vị, ăn thử từng chiếc sẽ thấy mỗi loại có độ bùi và độ ngọt riêng. Nếu mang về làm quà, nhớ xem ngày làm và hạn dùng vì bánh tươi không giữ lâu như bánh đóng gói.",
+      "how_to_eat": "Muốn biết mình thích nhân nào, hãy thử vài chiếc bánh khéo vị khác nhau trước khi mua cả hộp. Mang về làm quà thì xem ngày làm, hạn dùng và hỏi cách bảo quản, nhất là khi còn phải đi đường xa.",
+      "tips": [
+        "Hỏi loại nhân và thành phần có sữa, trứng, đậu hay dừa không.",
+        "Xem ngày làm và hướng dẫn bảo quản.",
+        "Chọn hộp vừa đủ dùng thay vì mua nhiều trước khi nếm."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-kheo"
+      ],
+      "origin": "Bánh khéo được bán nhiều ở các tiệm đặc sản Phú Quốc, thường là những chiếc bánh ngọt nhỏ được nặn thành nhiều hình. Nhân đậu xanh, dừa hay khoai môn tùy người làm, và mỗi tiệm cũng có cách phối bột, độ ngọt riêng.",
+      "why_name": "Người ta thường hiểu chữ 'khéo' là nhắc tới công nặn những chiếc bánh nhỏ thành nhiều hình dáng. Đó là cách giải thích dân gian thú vị, nhưng chưa có tư liệu đủ chắc để coi là nguồn gốc tên gọi đã được xác nhận.",
+      "ingredients": [
+        "Bột",
+        "đường",
+        "nhân đậu, dừa hoặc khoai tùy loại"
+      ],
+      "taste_texture": "Vỏ bánh mềm, hơi dai và thơm bột; nhân đậu xanh bùi, dừa béo hoặc khoai môn ngọt dịu. Bánh nhỏ nên vị ngọt vừa sẽ dễ ăn hơn.",
+      "allergen_flags": [
+        {
+          "key": "gluten",
+          "label": "Lúa mì",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nhân bánh có thể là đậu, dừa hoặc khoai, còn vỏ làm từ bột. Hỏi đúng loại nhân và nguy cơ lẫn nguyên liệu nếu dị ứng.",
+      "ask_staff": [
+        "Bánh hôm nay có những loại nhân nào?",
+        "Bánh mới làm hôm nay được không, và cần bảo quản ra sao?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-tet-mat-cat",
+      "name": "Bánh tét mật cật",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "snack"
+      ],
+      "intro": "Điểm dễ nhận ra của bánh tét mật cật nằm ở lớp lá gói. Khi cắt bánh, lớp nếp dẻo ôm lấy phần nhân; có nơi làm nhân đậu xanh, thịt mỡ, có nơi có cách phối riêng. Mua bánh về ăn hoặc mang làm quà đều nên hỏi ngày gói và cách bảo quản, nhất là trong những ngày trời nóng trên đảo.",
+      "how_to_eat": "Cắt bánh tét mật cật thành những khoanh vừa ăn, dùng cùng dưa món hoặc củ kiệu nếu thích. Nếp khá chắc bụng nên không cần cắt quá nhiều một lượt. Mua mang về nhớ hỏi ngày gói, loại nhân và cách giữ bánh.",
+      "tips": [
+        "Hỏi nhân bánh và dị ứng đậu, thịt, trứng nếu có.",
+        "Hỏi hạn dùng và cách giữ bánh khi đi xa.",
+        "Đừng để bánh nếp lâu ngoài nhiệt độ nóng."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-tet-mat-cat"
+      ],
+      "origin": "Ở Phú Quốc, lá mật cật được dùng để gói loại bánh tét mang cùng tên. Lớp lá tạo dáng bánh và hương thơm riêng, trong khi phần nếp và nhân có thể thay đổi theo cách làm của từng gia đình hay cơ sở.",
+      "why_name": "Tên bánh đến từ lá mật cật dùng để gói, thay cho lớp lá chuối quen thuộc ở nhiều nơi. Chính cách gói tạo nên dáng bánh đặc trưng; phần nhân có thể khác giữa các gia đình.",
+      "ingredients": [
+        "Nếp",
+        "đậu",
+        "thịt hoặc nhân khác tùy đòn bánh",
+        "lá mật cật"
+      ],
+      "taste_texture": "Nếp dẻo thơm, nhân mặn có đậu xanh bùi và thịt béo; lá gói để lại mùi thơm nhẹ. Ăn cùng dưa món hoặc củ kiệu giúp cân vị.",
+      "allergen_flags": [],
+      "allergy_note": "Nhân bánh thay đổi giữa các đòn, thường có nếp, đậu và có thể có thịt. Hỏi nhân cụ thể và cách bảo quản nếu dị ứng hoặc mua mang đi.",
+      "ask_staff": [
+        "Đòn bánh này nhân gì và gói ngày nào?",
+        "Nếu mang đi xa, cần bảo quản thế nào?"
+      ],
+      "sources": [
+        {
+          "label": "Tổng hợp từ cẩm nang du lịch và nội dung ẩm thực Phú Quốc; công thức và giá có thể thay đổi theo quán.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-xeo",
+      "name": "Bánh xèo",
+      "category": "local",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "Bánh xèo ngon nhất lúc vừa đổ xong, viền bánh còn giòn, phần nhân tôm thịt và giá vẫn nóng. Bẻ một miếng vừa tay, cuốn trong rau sống rồi chấm nước mắm chua ngọt. Ăn tới đâu cuốn tới đó, đừng để bánh nằm lâu trên bàn; nếu đi đông người, gọi từng lượt để món nào lên cũng còn nóng.",
+      "how_to_eat": "Bánh xèo vừa đổ xong thì bẻ từng miếng, cuốn rau rồi chấm nước mắm chua ngọt. Đi đông, nên gọi từng lượt để bánh sau vẫn còn giòn chứ không phải để nguội cả chồng trên bàn.",
+      "tips": [
+        "Hỏi nhân có tôm, thịt, trứng hay bột mì không.",
+        "Xác nhận kích thước bánh và phần ăn trước khi gọi.",
+        "Báo dị ứng; bột và vỉ nướng có thể dùng chung với nguyên liệu khác."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-xeo"
+      ],
+      "origin": "Bánh xèo vốn có mặt ở nhiều vùng Việt Nam, mỗi nơi có cách pha bột, làm nhân và dọn rau ăn kèm riêng. Ở Phú Quốc, đây cũng là món quen trong thực đơn các hàng ăn, chứ không phải món chỉ xuất hiện trên đảo.",
+      "why_name": "Âm thanh bột vừa chạm chảo nóng nghe 'xèo' là cách người ta thường giải thích tên món. Đây là lối gọi dân gian rất dễ hình dung nếu từng đứng cạnh một chảo bánh đang đổ.",
+      "ingredients": [
+        "Bột bánh xèo",
+        "Tôm hoặc thịt tùy quán",
+        "Giá và rau",
+        "Nước mắm chấm"
+      ],
+      "taste_texture": "Vỏ bánh giòn nhẹ, thơm bột nghệ hoặc nước cốt dừa tùy công thức; nhân tôm thịt mặn ngọt, giá tạo độ mọng. Rau sống và nước chấm làm miếng cuốn tươi, đỡ ngấy.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Giáp xác",
+          "level": "possible"
+        },
+        {
+          "key": "egg",
+          "label": "Trứng",
+          "level": "possible"
+        },
+        {
+          "key": "gluten",
+          "label": "Lúa mì",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Bột và nhân thay đổi theo quán; có thể chứa tôm, thịt, trứng hoặc bột mì. Hỏi rõ nếu bạn bị dị ứng.",
+      "ask_staff": [
+        "Bánh có những loại nhân nào?",
+        "Phần này có mấy cái, ăn đủ mấy người?"
+      ],
+      "sources": [
+        {
+          "label": "Bánh xèo Cuội 3 - ghi nhận quán phục vụ bánh xèo tại Phú Quốc",
+          "url": "https://www.corner.inc/place/p19ViHR8CBza"
+        }
+      ]
+    },
+    {
+      "id": "pho",
+      "name": "Phở",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Một tô phở nóng có bánh phở mềm, thịt bò hoặc gà và nước dùng thơm mùi gia vị tùy cách nấu. Nếm một muỗng nước trước khi thêm chanh, ớt hay tương, vì mỗi quán có khẩu vị riêng. Phở không phải đặc sản của đảo, nhưng vẫn là bữa sáng quen thuộc và dễ tìm ở nhiều khu dân cư Phú Quốc.",
+      "how_to_eat": "Một tô phở nóng nên được nếm nước dùng trước khi thêm chanh, tương hay ớt. Chọn bò hay gà tùy sở thích; nếu muốn thịt chín hoàn toàn, dặn người bán từ lúc gọi. Ăn khi bánh phở còn mềm và nước vẫn nóng.",
+      "tips": [
+        "Hỏi phở bò hay phở gà và các phần ăn kèm có trong tô.",
+        "Báo dị ứng đậu nành, hành hoặc gia vị nếu cần.",
+        "Nếu tránh thịt sống, nói rõ muốn phần chín."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#pho"
+      ],
+      "origin": "Phở là món ăn Việt Nam phổ biến trên cả nước, không riêng Phú Quốc. Nhiều quán trên đảo phục vụ phở cho người dân và du khách, với cách nấu riêng của từng hàng.",
+      "why_name": "Tên “phở” gọi món nước có bánh phở và nước dùng; nguồn gốc món ăn có nhiều nghiên cứu và cách giải thích. Không nên gắn món này với riêng một địa danh trên đảo.",
+      "ingredients": [
+        "Bánh phở",
+        "Nước dùng",
+        "Thịt bò hoặc thịt gà tùy quán",
+        "Hành và rau thơm"
+      ],
+      "taste_texture": "Bánh phở mềm, nước dùng có vị ngọt thơm từ xương và gia vị; thịt bò hoặc gà đem lại phần đậm đà. Rau thơm, chanh và ớt giúp tô phở sáng vị hơn.",
+      "allergen_flags": [
+        {
+          "key": "soy",
+          "label": "Đậu nành",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nước dùng và gia vị thay đổi theo quán; hỏi thành phần nếu dị ứng hoặc ăn kiêng.",
+      "ask_staff": [
+        "Quán có phở bò hay phở gà?",
+        "Nước dùng có những nguyên liệu nào?"
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Viet Cuisine ở VUI-Fest có phục vụ phở bò",
+          "url": "https://visitphuquoc.com.vn/en/viet-cuisine-vui-fest-bazaar"
+        }
+      ]
+    }
+  ],
+  "updated_at": "2026-09-26",
+  "locale": "vi"
+}
