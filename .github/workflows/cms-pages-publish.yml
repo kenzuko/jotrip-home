@@ -104,7 +104,10 @@ jobs:
         run: |
           node scripts/build-map-coverage.mjs
           node scripts/build-location-index.mjs
-          node scripts/weather-cms-sync.mjs --strict
+          # Freshness alerts belong to cms-weather-standalone.yml. Publishing
+          # the CMS should continue with the last valid snapshot when an
+          # observation feed is delayed.
+          node scripts/weather-cms-sync.mjs
           node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
           node scripts/validate-cms-publication.mjs

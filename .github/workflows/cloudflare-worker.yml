@@ -112,7 +112,10 @@ jobs:
 
       - name: Build Worker assets
         run: |
-          node scripts/weather-cms-sync.mjs --strict
+          # Deployment must not be blocked by a temporarily stale upstream
+          # observation. The dedicated Weather workflow remains the strict
+          # freshness monitor; this sync keeps the last valid snapshot on error.
+          node scripts/weather-cms-sync.mjs
           node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
           printf '{"sha":"%s","built_at":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
