@@ -183,9 +183,20 @@
      if(id==="place_dinh_cau"&&Number.isFinite(sunsetMinute)&&nowMinute>=sunsetMinute){
       note="Hoàng hôn đã qua. Nếu đang ở gần, xem giờ tham quan còn lại; không cần chạy xa chỉ để ghé lúc này.";
      }else if(id==="place_dinh_cau" && sunsetLevel==="bad"){
-      note=sunsetWx.reason==="observed_weather"
-       ?"Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển."
-       :"Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Đây là dự báo, không phải xác nhận đang mưa.";
+      if(sunsetWx.reason==="observed_weather"){
+       note="Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển.";
+      }else{
+       const areas=(Array.isArray(sunsetWx.forecast_rain_likely_points)&&sunsetWx.forecast_rain_likely_points.length
+        ?sunsetWx.forecast_rain_likely_points
+        :sunsetWx.forecast_rain_points||[]).filter(Boolean);
+       note=areas.length===1
+        ?"Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rõ hơn quanh "+areas[0]+". Đây là dự báo, không phải xác nhận đang mưa."
+        :areas.length===2
+         ?"Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rõ hơn quanh "+areas.join(" và ")+"."
+         :areas.length>=3
+          ?"Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rải rác dọc bờ Tây."
+          :"Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Đây là dự báo, không phải xác nhận đang mưa.";
+      }
      }else if(id==="place_dinh_cau" && sunsetLevel==="watch"){
       if(sunsetWx.reason==="observed_rain"){
        note="Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi.";
@@ -203,7 +214,14 @@
       }else if(sunsetWx.reason==="satellite_convection"){
        note="Có mây đối lưu quanh khu vực, nhưng chưa đủ bằng chứng để coi là mưa tại bờ Tây.";
       }else{
-       note="Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Sẽ tiếp tục cập nhật khi gần giờ.";
+       const areas=(sunsetWx.forecast_rain_points||[]).filter(Boolean);
+       note=areas.length===1
+        ?"Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh "+areas[0]+"."
+        :areas.length===2
+         ?"Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh "+areas.join(" và ")+"."
+         :areas.length>=3
+          ?"Dự báo quanh giờ hoàng hôn có thể có mưa rào rải rác dọc bờ Tây."
+          :"Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Sẽ tiếp tục cập nhật khi gần giờ.";
       }
      }
     }
