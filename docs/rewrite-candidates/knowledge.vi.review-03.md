@@ -1,16 +1,10 @@
 # Open Phu Quoc - Knowledge Vietnamese review 3/5
 
-
-
-> Bản đọc để duyệt tiếng Việt. Chỉ gồm phần editorial/public.
-
-> Không đưa research, source hay operational data vào file duyệt.
-
+> Knowledge 061-070: đã duyệt và QA ngày 29/09/2026.
+> Knowledge 071-090: chưa duyệt, giữ nội dung candidate hiện tại.
+> Research, source và operational data giữ nguyên ngoài file duyệt.
 > Giữ dòng TOPIC_ID để map lại dữ liệu chính xác.
-
 > Phạm vi: Knowledge 61-90/150.
-
-
 
 ## 061. Cá sòng
 <!-- TOPIC_ID:knowledge_061_ca-song -->
@@ -19,28 +13,27 @@
 
 ### Tóm tắt
 
-Cá sòng là loại cá biển thịt chắc, được nhiều quán chế biến nướng nguyên con. Hỏi cỡ cá trước khi gọi, rồi ăn lúc vừa nướng xong để phần da còn thơm và thịt không khô; đây là món quen ở nhiều vùng biển chứ không riêng Phú Quốc.
+Cá sòng là quà của biển với phần thịt chắc nịch, thường được các quán nướng nguyên con thơm lừng. Bạn nên hỏi trước kích cỡ cá, sau đó thưởng thức ngay khi vừa rời bếp than để tận hưởng trọn vẹn lớp da óng ả và phần thịt không bị khô.
 
 ### Thực tế khi đi
 
-Cá sòng nướng vừa ra bếp nên ăn ngay khi da còn thơm, thịt chưa bị khô. Gỡ cá từng miếng, cuốn cùng rau hoặc chấm muối ớt tùy quán. Nếu ăn với trẻ nhỏ, nhớ kiểm tra xương; còn trước khi gọi thì hỏi cỡ cá và cách tính giá.
+Cá sòng nướng ngon nhất là ăn ngay lúc nóng hổi. Hãy gỡ từng thớ thịt, cuộn chung với rau xanh hoặc chấm với muối ớt tùy theo phong cách của mỗi quán. Nếu đi cùng trẻ nhỏ, bạn nhớ cẩn thận gỡ xương. Đừng quên hỏi chủ quán về kích cỡ cá cũng như cách tính giá trước khi chốt món nhé.
 
 ### Kỳ vọng và thực tế
 
-Thấy cá sòng bán ở Phú Quốc chưa có nghĩa đó là cá vừa đánh bắt quanh đảo trong ngày. Chất lượng còn tùy mẻ hàng và cách giữ lạnh. Nếu quan tâm nguồn cá, hãy hỏi quán cụ thể thay vì mặc định theo tấm biển 'hải sản địa phương'.
+Thấy cá sòng bán rầm rộ ở Phú Quốc không đồng nghĩa đó luôn là cá vừa được đánh bắt trong ngày quanh đảo. Độ ngon ngọt của món ăn phụ thuộc nhiều vào mẻ cá và quy trình bảo quản lạnh. Nếu bạn thực sự quan tâm đến nguồn gốc, hãy hỏi trực tiếp quán thay vì tin hoàn toàn vào tấm biển "hải sản địa phương" chung chung.
 
 ### Trước khi đi
 
-- Xác nhận cỡ, trọng lượng và giá trước khi chế biến.
-- Hỏi gia vị có cay không.
-- Cá có xương nhỏ; ăn chậm và kiểm tra kỹ.
-- Nếu dị ứng cá, báo nhân viên trước.
+- Chốt rõ kích thước, trọng lượng và giá cả trước khi quán đem đi chế biến.
+- Hỏi xem đồ chấm hoặc gia vị ướp có bị cay quá không.
+- Lưu ý cá có nhiều xương dăm, nên ăn chậm và kiểm tra kỹ.
+- Nếu có tiền sử dị ứng, hãy báo trước cho nhân viên.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao cá sòng thường được nướng thay vì làm món nhiều sốt?
-- Cá sòng bán trên đảo hiện đến từ nguồn nào theo mùa?
-
+- Điều gì khiến cá sòng hợp với món nướng hơn là đem đi sốt hay kho?
+- Nguồn cá sòng ở các quán trên đảo hiện nay thường nhập từ đâu theo từng mùa?
 
 ## 062. Ốc giác và câu chuyện ngọc Melo
 <!-- TOPIC_ID:knowledge_062_oc-giac-melo -->
@@ -49,28 +42,27 @@ Thấy cá sòng bán ở Phú Quốc chưa có nghĩa đó là cá vừa đánh
 
 ### Tóm tắt
 
-Ốc giác có thể lên bàn thành nhiều món hải sản, nhưng chữ Melo còn gắn với một loại ngọc rất hiếm. Hai câu chuyện ấy nên tách ra: cứ gọi ốc vì muốn thưởng thức món ăn, đừng hiểu nhầm rằng mỗi con ốc đều có cơ hội tìm thấy ngọc.
+Ốc giác không chỉ là nguyên liệu tuyệt vời cho nhiều món hải sản mà còn gắn liền với giai thoại về viên ngọc Melo cực kỳ quý hiếm. Tuy nhiên, bạn nên rạch ròi hai điều này: cứ thoải mái gọi ốc giác vì hương vị của nó, nhưng đừng lầm tưởng rằng con ốc nào trên mâm cũng giấu một viên ngọc quý bên trong.
 
 ### Thực tế khi đi
 
-Ốc giác trên bàn ăn là một món hải sản, còn chuyện ngọc Melo nên tìm hiểu riêng. Khi gọi ốc, cứ hỏi quán đang chế biến theo cách nào, phần ăn bao nhiêu và giá tính ra sao. Nếu đọc được lời giới thiệu về ngọc, đừng lẫn nó với trải nghiệm ăn ốc thường ngày.
+Hãy xem ốc giác đơn thuần là một món ngon để thưởng thức, còn chuyện săn ngọc Melo chỉ nên coi là giai thoại bên lề. Khi gọi món, bạn chỉ cần quan tâm quán chế biến kiểu gì, phần ăn ra sao và giá cả thế nào. Dù có nghe những lời chèo kéo về cơ hội tìm thấy ngọc, hãy cứ tận hưởng bữa ăn của mình một cách thực tế nhất.
 
 ### Kỳ vọng và thực tế
 
-GIA ghi nhận loài Melo melo quanh vùng Phú Quốc và cho biết ngọc Melo rất hiếm, ngay cả khi quan sát nhiều cá thể. Điều đó không có nghĩa cứ ăn ốc giác là có cơ hội bắt gặp ngọc. Hai câu chuyện cùng nhắc một loài ốc nhưng thuộc hai lĩnh vực rất khác nhau.
+Viện Đá quý Hoa Kỳ (GIA) từng ghi nhận loài ốc Melo quanh đảo Phú Quốc và khẳng định ngọc của chúng là dạng cực hiếm, dù xét trên lượng lớn cá thể. Vậy nên, không phải cứ gọi đĩa ốc giác là bạn đang nắm cơ hội trúng ngọc. Món ăn hàng ngày và viên ngọc quý là hai khái niệm ở hai thế giới hoàn toàn khác biệt.
 
 ### Trước khi đi
 
-- Hỏi loại ốc, trọng lượng, giá và khẩu phần.
-- Không mua theo lời cam kết tìm được ngọc Melo trong ốc.
-- Nếu mua vật phẩm có giá trị, cần giấy tờ và thẩm định độc lập.
-- Dị ứng nhuyễn thể cần tránh món và dụng cụ liên quan.
+- Làm rõ loại ốc, trọng lượng, mức giá và định lượng của phần ăn.
+- Đừng chi tiền mua ốc chỉ vì lời hứa hẹn hão huyền về việc tìm thấy ngọc Melo.
+- Nếu có ý định mua vật phẩm giá trị cao, bắt buộc phải có giấy tờ kiểm định độc lập.
+- Người dị ứng nhuyễn thể cần tránh tuyệt đối món ăn cũng như dụng cụ chế biến chung.
 
 ### Câu hỏi gợi tò mò
 
-- Ngọc Melo hình thành trong ốc giác như thế nào?
-- Vì sao ngọc Melo hiếm hơn nhiều so với ốc được khai thác để ăn?
-
+- Quá trình tượng hình của viên ngọc Melo bên trong con ốc giác diễn ra như thế nào?
+- Vì sao tỷ lệ tìm thấy ngọc Melo lại thấp đến vậy so với lượng ốc bị đánh bắt làm thức ăn?
 
 ## 063. Bánh tét mật cật
 <!-- TOPIC_ID:knowledge_063_banh-tet-mat-cat -->
@@ -79,28 +71,27 @@ GIA ghi nhận loài Melo melo quanh vùng Phú Quốc và cho biết ngọc Mel
 
 ### Tóm tắt
 
-Bánh tét mật cật gây chú ý ngay từ lớp lá gói, khác dáng bánh tét thường thấy ở nhiều nơi. Cắt khoanh bánh sẽ thấy nếp dẻo và phần nhân tùy người làm; nếu mua mang về, hỏi ngày gói cùng cách bảo quản trước khi chọn số lượng.
+Bánh tét mật cật dễ dàng thu hút ánh nhìn ngay từ lớp lá gói mang hình dáng đặc trưng, khác hẳn với các loại bánh tét thông thường. Khi cắt khoanh, lớp nếp dẻo thơm và phần nhân phong phú sẽ lộ diện. Nếu định mua về làm quà, bạn nhớ hỏi ngày gói và cách bảo quản để bánh giữ được hương vị lâu nhất.
 
 ### Thực tế khi đi
 
-Mua bánh tét mật cật làm quà thì nên hỏi bánh gói ngày nào, nhân mặn hay ngọt và cần giữ lạnh ra sao. Khi ăn, cắt bánh thành khoanh rồi dùng với dưa món hoặc củ kiệu nếu thích. Đi đường xa, chỉ nên mua lượng bánh có thể bảo quản tốt đến lúc về.
+Khi chọn bánh tét mật cật làm quà, hãy hỏi kỹ người bán xem bánh vừa gói ngày nào, nhân mặn hay ngọt và cách giữ lạnh ra sao. Khi thưởng thức, bạn chỉ cần cắt thành khoanh, ăn kèm dưa món hay củ kiệu sẽ rất đưa miệng. Nếu phải di chuyển xa, chỉ nên mua một lượng vừa đủ để đảm bảo bánh không bị hỏng dọc đường.
 
 ### Kỳ vọng và thực tế
 
-Điều làm nên tên bánh tét mật cật trước hết là loại lá dùng để gói. Nhân bánh, độ mềm của nếp hay mùi lá có thể khác nhau theo người làm. Vì vậy, không phải cứ thấy một đòn bánh bọc lá xanh là biết ngay đó là bánh tét mật cật.
+Điểm nhấn tạo nên tên gọi "bánh tét mật cật" chính là loại lá dùng để gói. Còn về phần nhân, độ dẻo của nếp hay hương thơm của lá lại mang đậm dấu ấn riêng của từng nghệ nhân làm bánh. Do đó, không phải cứ thấy đòn bánh bọc lá xanh thì hương vị ở đâu cũng sẽ giống hệt nhau.
 
 ### Trước khi đi
 
-- Hỏi nhân có thịt, đậu hoặc thành phần dị ứng không.
-- Xem bánh mới gói hôm nào và hạn dùng.
-- Giữ lạnh theo hướng dẫn nếu chưa ăn ngay.
-- Chọn lượng vừa dùng nếu không có chỗ bảo quản.
+- Hỏi kỹ nhân bánh có chứa thịt, đậu hay các thành phần dễ gây dị ứng không.
+- Kiểm tra ngày sản xuất và hạn sử dụng của bánh.
+- Tuân thủ hướng dẫn giữ lạnh nếu chưa ăn ngay.
+- Mua lượng vừa phải nếu chỗ ở không có tủ lạnh để bảo quản.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao người Phú Quốc dùng lá mật cật thay lá chuối?
-- Món này gắn với dịp lễ/Tết hay được ăn quanh năm?
-
+- Vì sao người dân Phú Quốc lại chuộng dùng lá mật cật thay vì lá chuối truyền thống?
+- Bánh tét mật cật chỉ xuất hiện dịp Lễ Tết hay là món ăn thường nhật quanh năm?
 
 ## 064. Rượu sim
 <!-- TOPIC_ID:knowledge_064_ruou-sim -->
@@ -109,28 +100,27 @@ Mua bánh tét mật cật làm quà thì nên hỏi bánh gói ngày nào, nhâ
 
 ### Tóm tắt
 
-Trái sim chín có thể được ủ thành rượu sim, một món quà được bán ở nhiều cơ sở Phú Quốc. Độ ngọt, vị chát và nồng độ mỗi nơi khác nhau, nên xem nhãn và thành phần trước khi mua; đây là đồ uống có cồn, không phải thuốc bổ.
+Những trái sim chín mọng được ủ thành rượu sim - món đặc sản làm quà có mặt ở khắp các cơ sở tại Phú Quốc. Mỗi nơi sẽ có công thức riêng tạo nên độ ngọt, vị chát và nồng độ cồn khác nhau. Hãy nhớ đọc kỹ nhãn mác trước khi mua và hiểu rằng đây là một loại thức uống có cồn, không phải thuốc bổ.
 
 ### Thực tế khi đi
 
-Rượu sim ở mỗi cơ sở có thể khác cách ủ, độ ngọt và nồng độ. Nếu mua làm quà, nên xem nhãn, dung tích, nguồn gốc và quy định hành lý khi đi máy bay. Đây là đồ uống có cồn, không nên mua hay sử dụng với kỳ vọng chữa bệnh.
+Trải nghiệm thưởng thức rượu sim ở mỗi cơ sở có thể rất khác biệt tùy thuộc vào cách ủ và định lượng. Nếu mua làm quà, bạn cần chú ý đến nhãn mác, dung tích, nguồn gốc và đặc biệt là quy định mang chất lỏng lên máy bay. Dù sao đi nữa, đây vẫn là đồ uống có cồn, nên đừng sử dụng với kỳ vọng nó có tác dụng chữa bệnh.
 
 ### Kỳ vọng và thực tế
 
-Vị ngọt của rượu sim có thể khiến người uống khó nhận ra độ cồn, nhưng không làm nồng độ biến mất. Một số lời quảng cáo còn gán cho rượu công dụng chữa bệnh, trong khi đó không phải kết luận y khoa. Tốt nhất cứ đọc thông tin sản phẩm và chọn theo nhu cầu thực tế.
+Vị ngọt êm ái của rượu sim đôi khi làm bạn quên mất sự hiện diện của nồng độ cồn, nhưng thực tế cồn vẫn ở đó. Nhiều lời quảng cáo có thể thổi phồng công dụng chữa bệnh của rượu sim, nhưng không nên xem những lời quảng cáo đó là kết luận y khoa. Tốt nhất là hãy đọc kỹ thông tin và lựa chọn dựa trên sở thích uống thực tế của bản thân.
 
 ### Trước khi đi
 
-- Đọc nồng độ cồn, thành phần và cơ sở sản xuất.
-- Không dùng cho trẻ em, người mang thai hoặc người cần tránh cồn.
-- Không lái xe sau khi uống.
-- Kiểm tra quy định hành lý trước khi mang chai lên máy bay.
+- Xem kỹ nồng độ cồn, thành phần và thông tin nhà sản xuất trên chai.
+- Tuyệt đối không dùng cho trẻ em, phụ nữ mang thai hay người mẫn cảm với cồn.
+- Đã uống rượu sim thì không lái xe.
+- Kiểm tra quy định về hành lý chất lỏng trước khi mang lên máy bay.
 
 ### Câu hỏi gợi tò mò
 
-- Rượu sim Phú Quốc bắt đầu thành sản phẩm thương mại từ khi nào?
-- Vì sao sim trên đảo lại được chọn để làm đồ uống lên men?
-
+- Rượu sim Phú Quốc bắt đầu được thương mại hóa từ mốc thời gian nào?
+- Điều gì khiến trái sim trên đảo lại trở thành nguyên liệu lý tưởng cho đồ uống lên men?
 
 ## 065. Mật sim, siro sim và mứt sim
 <!-- TOPIC_ID:knowledge_065_mat-sim-siro-sim-mut-sim -->
@@ -139,28 +129,27 @@ Vị ngọt của rượu sim có thể khiến người uống khó nhận ra �
 
 ### Tóm tắt
 
-Không thích rượu, vẫn có thể thử những sản phẩm từ sim như siro, mứt hay mật sim. Tên gọi, độ ngọt và cách làm thay đổi theo cơ sở; muốn mua làm quà thì hỏi thành phần, cách bảo quản và sản phẩm có trải qua lên men hay không.
+Nếu không chuộng thức uống có cồn, bạn hoàn toàn có thể nhâm nhi các sản phẩm khác từ sim như siro, mứt hay mật sim. Tên gọi, độ ngọt và phương pháp chế biến sẽ thay đổi tùy cơ sở. Để chọn được món quà ưng ý, hãy hỏi kỹ về thành phần, cách bảo quản và xem sản phẩm đó có qua quá trình lên men hay không.
 
 ### Thực tế khi đi
 
-Mật sim, siro và mứt sim thường khác nhau về độ ngọt, cách làm và thời gian bảo quản. Nếu chọn cho người không dùng đồ uống có cồn, hãy xem thành phần và hỏi cơ sở sản phẩm có trải qua lên men hay không. Đọc nhãn sẽ rõ hơn việc đoán theo tên món.
+Độ ngọt, kết cấu và thời hạn sử dụng của mật sim, siro hay mứt sim thường không giống nhau. Nếu bạn định tặng cho người kiêng cồn, hãy xem bảng thành phần thật kỹ và hỏi rõ cơ sở sản xuất về quy trình ủ. Thay vì chỉ đoán hương vị qua tên gọi, việc đọc nhãn mác sẽ giúp bạn có lựa chọn chính xác hơn.
 
 ### Kỳ vọng và thực tế
 
-Một chai mang tên 'mật sim' chưa chắc ít đường hoặc hoàn toàn không có cồn. Màu sẫm và vị ngọt cũng không cho biết có bao nhiêu trái sim trong sản phẩm. Muốn chọn đúng, cần nhìn bảng thành phần và hỏi cách làm của nơi bán.
+Một chai có nhãn "mật sim" không đồng nghĩa với việc nó ít đường hay hoàn toàn vắng bóng cồn. Màu sắc sẫm và vị ngọt đậm cũng chưa thể hiện chính xác tỷ lệ trái sim nguyên chất bên trong. Để không bị hụt hẫng, bạn cần soi kỹ bảng thành phần và mạnh dạn hỏi người bán về cách họ làm ra sản phẩm.
 
 ### Trước khi đi
 
-- Kiểm tra thành phần, cồn, lượng đường và hạn dùng.
-- Hỏi cách bảo quản sau khi mở nắp.
-- Chọn chai còn niêm phong tốt để đi xa.
-- Đừng xem sản phẩm sim là thuốc hoặc thực phẩm chữa bệnh.
+- Soi kỹ các chỉ số về thành phần, độ cồn, lượng đường và hạn sử dụng.
+- Xin hướng dẫn cách bảo quản đúng chuẩn sau khi mở nắp.
+- Chọn những chai/lọ được niêm phong chắc chắn để tiện mang đi xa.
+- Tránh việc xem các sản phẩm từ sim như một loại thuốc hay thực phẩm chức năng trị bệnh.
 
 ### Câu hỏi gợi tò mò
 
-- Mật sim khác rượu sim ở bước nào của quá trình ủ?
-- Sản phẩm sim nào giữ được vị chát tự nhiên rõ nhất?
-
+- Mật sim và rượu sim rẽ hướng khác nhau ở công đoạn nào trong quá trình ủ?
+- Sản phẩm nào từ sim giữ lại được hương vị chát nhẹ tự nhiên nguyên bản nhất?
 
 ## 066. Nước mắm Phú Quốc
 <!-- TOPIC_ID:knowledge_066_nuoc-mam-phu-quoc -->
@@ -169,28 +158,27 @@ Một chai mang tên 'mật sim' chưa chắc ít đường hoặc hoàn toàn k
 
 ### Tóm tắt
 
-Một chai nước mắm Phú Quốc bắt đầu từ cá cơm, muối và nhiều tháng ủ trong thùng gỗ. Nghề này có chỉ dẫn địa lý được bảo hộ; khi chọn mua, hãy đọc nhãn, nguồn gốc và nơi sản xuất chứ đừng nhìn mỗi con số độ đạm.
+Hành trình của một chai nước mắm Phú Quốc trứ danh bắt đầu từ mẻ cá cơm tươi rói, hạt muối mặn mòi và những tháng ngày ròng rã ủ chượp trong thùng gỗ. Nghề truyền thống này đã được bảo hộ chỉ dẫn địa lý. Khi mua, hãy tinh ý đọc nhãn mác, xem kỹ nguồn gốc xuất xứ thay vì chỉ chăm chăm vào con số độ đạm.
 
 ### Thực tế khi đi
 
-Mua nước mắm Phú Quốc, hãy xem nơi sản xuất, thành phần và thông tin chỉ dẫn địa lý trên chai. Độ đạm là chỉ tiêu đáng tham khảo, nhưng chai hợp để chấm sống hay dùng nấu ăn còn tùy độ mặn, mùi và khẩu vị mỗi nhà. Nếu có dịp, thử nếm trước khi mua nhiều.
+Để mua được nước mắm Phú Quốc chuẩn vị, hãy quan sát nơi sản xuất, thành phần và tem chỉ dẫn địa lý in trên chai. Độ đạm là một yếu tố tốt để tham khảo, nhưng việc chai mắm đó hợp để chấm sống hay nêm nếm lại phụ thuộc vào độ mặn, mùi thơm và khẩu vị riêng của gia đình bạn. Nếu có cơ hội, đừng ngần ngại nếm thử trước khi mua số lượng lớn.
 
 ### Kỳ vọng và thực tế
 
-Hai chai có cùng độ đạm chưa chắc cho cùng cảm nhận khi ăn. Cách ủ, mùi và hậu vị còn tạo nên khác biệt, trong khi chỉ dẫn địa lý gắn với những quy định riêng về xuất xứ. Dòng chữ 'Phú Quốc' trên nhãn không tự chứng minh mọi sản phẩm đều đáp ứng chuẩn bảo hộ.
+Hai chai nước mắm có cùng độ đạm chưa chắc đã mang lại cảm giác giống nhau nơi đầu lưỡi. Khác biệt nằm ở bí quyết ủ chượp, mùi hương và hậu vị, trong khi chỉ dẫn địa lý lại có những quy định khắt khe riêng về xuất xứ. Đừng lầm tưởng cứ có chữ 'Phú Quốc' to đùng trên nhãn là sản phẩm đó đã đạt chuẩn bảo hộ.
 
 ### Trước khi đi
 
-- Đọc nhãn và xác nhận thông tin xuất xứ.
-- Thử mùi/vị nếu được phép trước khi mua chai lớn.
-- Hỏi cách đóng gói khi mang lên máy bay.
-- Không nhầm sản phẩm có chữ Phú Quốc với chứng nhận nguồn gốc.
+- Đọc kỹ nhãn mác và xác minh thông tin nguồn gốc.
+- Nếu được phép, hãy thử mùi và vị trước khi quyết định mua chai dung tích lớn.
+- Hỏi cửa hàng cách đóng gói an toàn để mang lên máy bay.
+- Phân biệt rõ giữa sản phẩm có in chữ Phú Quốc với sản phẩm có chứng nhận chỉ dẫn địa lý thực thụ.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao nhà thùng Phú Quốc dùng những thùng gỗ lớn như vậy?
-- Chỉ dẫn địa lý Phú Quốc bảo vệ điều gì trên một chai nước mắm?
-
+- Bí ẩn nào ẩn giấu bên trong việc các nhà thùng Phú Quốc luôn dùng những chiếc thùng gỗ khổng lồ?
+- Chỉ dẫn địa lý Phú Quốc thực chất đang bảo vệ những giá trị cốt lõi nào của một chai nước mắm?
 
 ## 067. Nhà thùng nước mắm
 <!-- TOPIC_ID:knowledge_067_nha-thung-nuoc-mam -->
@@ -199,28 +187,27 @@ Hai chai có cùng độ đạm chưa chắc cho cùng cảm nhận khi ăn. Cá
 
 ### Tóm tắt
 
-Trong nhà thùng nước mắm, những dãy thùng gỗ lớn cho thấy vì sao nghề này cần thời gian và người theo dõi từng mẻ chượp. Nếu ghé tham quan, cứ hỏi người làm về tỷ lệ cá muối, các công đoạn chăm chượp và việc rút nước mắm trước khi mua quà.
+Bước vào nhà thùng, những dãy thùng gỗ khổng lồ sẽ kể cho bạn nghe câu chuyện vì sao nghề làm nước mắm lại đòi hỏi sự kiên nhẫn và bàn tay chăm chút của người thợ đến vậy. Nếu ghé thăm, đừng ngần ngại trò chuyện với người làm nghề về tỷ lệ muối cá, cách chăm chượp và quá trình chắt lọc những giọt mắm cốt đầu tiên.
 
 ### Thực tế khi đi
 
-Ghé nhà thùng có người hướng dẫn sẽ hiểu được nhiều hơn việc chỉ nhìn những chiếc thùng gỗ lớn. Cứ hỏi người làm nghề cá trộn muối theo tỷ lệ nào, chăm chượp ra sao, khi nào mới rút được nước mắm. Đây vẫn là nơi sản xuất, nên đi đúng lối tham quan và xin phép trước khi chụp người đang làm việc.
+Chuyến tham quan nhà thùng sẽ thú vị hơn nhiều nếu có người hướng dẫn thay vì chỉ đi lướt qua những chiếc thùng gỗ vô tri. Hãy thử hỏi họ xem cá được trộn muối theo tỷ lệ nào, chăm sóc mẻ chượp ra sao và bao lâu mới rút được mắm. Nhớ rằng đây vẫn là một xưởng sản xuất thực tế, hãy tuân thủ lối đi dành cho khách và xin phép trước nếu muốn chụp ảnh thợ đang làm việc.
 
 ### Kỳ vọng và thực tế
 
-Mỗi nhà thùng đón khách theo một cách. Có nơi vẫn đang ủ chượp, có nơi dành nhiều không gian cho giới thiệu sản phẩm và trưng bày. Mùi chượp đậm, nền nhà có thể ẩm; đừng tự mở thùng hay bước vào khu đang làm việc nếu chưa được mời.
+Mỗi nhà thùng lại có một cách làm du lịch riêng. Có nơi bạn sẽ ngửi thấy mùi ủ chượp nồng nàn, có nơi lại đầu tư không gian khang trang để trưng bày sản phẩm. Môi trường bên trong có thể hơi ẩm ướt và mang mùi đặc trưng của biển cả; tuyệt đối đừng tự ý mở nắp thùng hay tò mò bước vào khu vực chế biến khi chưa được sự đồng ý.
 
 ### Trước khi đi
 
-- Hỏi cơ sở đang nhận khách và có thể xem công đoạn nào.
-- Đi giày dễ bước trên nền có thể ẩm.
-- Không chạm thiết bị hoặc nếm sản phẩm nếu chưa được mời.
-- Nếu mua nước mắm, hỏi nguồn gốc và cách đóng gói mang đi.
+- Liên hệ trước xem cơ sở có đón khách không và mở cửa cho xem những công đoạn nào.
+- Mang giày dép chống trượt vì nền nhà thùng đôi khi khá ẩm ướt.
+- Không tự ý chạm tay vào thiết bị hay nếm thử nếu chưa được chủ nhà mời.
+- Nếu muốn mua về, hãy hỏi kỹ nguồn gốc và quy cách đóng gói để ký gửi.
 
 ### Câu hỏi gợi tò mò
 
-- Một mẻ nước mắm nằm trong thùng bao lâu?
-- Vì sao mùi trong nhà thùng lại khác hẳn mùi của chai nước mắm ở nhà?
-
+- Một mẻ nước mắm phải "ngủ yên" trong thùng gỗ bao nhiêu tháng ròng rã?
+- Vì sao mùi hương nồng đậm trong nhà thùng lại khác hẳn với mùi thơm dịu của chai nước mắm trong bếp nhà bạn?
 
 ## 068. Tiêu Phú Quốc
 <!-- TOPIC_ID:knowledge_068_tieu-phu-quoc -->
@@ -229,28 +216,27 @@ Mỗi nhà thùng đón khách theo một cách. Có nơi vẫn đang ủ chư�
 
 ### Tóm tắt
 
-Đi qua một vườn tiêu Phú Quốc sẽ thấy trụ cây, đất, sân phơi và công việc thu hái không phải lúc nào cũng vào cùng một mùa. Hỏi người trồng hôm nay họ đang làm công đoạn nào thường giúp hiểu vườn tiêu nhiều hơn những lời giới thiệu chung.
+Tản bộ qua một vườn tiêu xanh mát ở Phú Quốc, bạn sẽ thấy những trụ cây vươn cao, khoảng sân phơi đầy nắng, và nhận ra công việc thu hoạch diễn ra theo từng thời điểm khác nhau. Hãy hỏi thăm người nông dân hôm nay họ đang làm công đoạn gì, điều này sẽ giúp bạn cảm nhận sức sống của khu vườn chân thực hơn những lời quảng cáo sáo rỗng.
 
 ### Thực tế khi đi
 
-Tới vườn tiêu, thay vì chỉ hỏi mua loại nào cay nhất, hãy hỏi hôm đó người trồng đang chăm cây, hái hay phơi tiêu. Tiêu đen, tiêu nhồi và tiêu lặt có cách chọn trái khác nhau. Khi mua mang về, xem ngày đóng gói và nguồn gốc, vì một hũ thơm lúc mở nắp chưa nói được hết chất lượng.
+Khi ghé thăm vườn tiêu, thay vì vội vã hỏi mua loại nào cay xé lưỡi, hãy nán lại hỏi thăm xem chủ vườn đang chăm bón, thu hái hay phơi phóng. Tiêu đen, tiêu nhồi và tiêu lặt có cách chọn trái khác nhau ngay từ lúc thu hái. Khi mua về làm quà, nhớ chú ý ngày đóng gói và nguồn gốc, vì một hũ tiêu thơm lừng lúc mở nắp tại vườn chưa chắc đã giữ được trọn vẹn phong độ khi về đến nhà.
 
 ### Kỳ vọng và thực tế
 
-Vườn tiêu mở cửa đón khách không phải nơi nào cũng có cùng quy mô trồng trọt. Có vườn tập trung sản xuất, có nơi làm thêm dịch vụ tham quan và bán hàng. Mùa vụ, giá và sản lượng thay đổi nên số liệu trong những bài giới thiệu cũ chưa chắc còn đúng hôm nay.
+Dù mở cửa đón khách, không phải vườn tiêu nào cũng có quy mô sản xuất như nhau. Có nơi thuần túy trồng trọt, lại có nơi đẩy mạnh làm dịch vụ du lịch. Mùa vụ, giá cả và sản lượng tiêu luôn biến động, vì thế những con số trên các bài review cũ có thể không còn khớp với thực tế ngày bạn đến.
 
 ### Trước khi đi
 
-- Xin phép trước khi chạm cây, hái quả hoặc chụp người làm vườn.
-- Hỏi mùa vụ và cách phơi đang áp dụng hiện nay.
-- Mua lượng vừa dùng, hỏi cách giữ hương.
-- Đừng coi chuyến ghé vườn là hoạt động chụp ảnh miễn phí nếu chủ vườn có quy định.
+- Luôn xin phép chủ vườn trước khi muốn sờ vào lá, hái quả hay chụp ảnh người đang làm việc.
+- Hỏi thăm xem hiện tại đang là vụ gì và kỹ thuật phơi nào đang được áp dụng.
+- Mua một lượng vừa đủ dùng và xin bí quyết bảo quản để tiêu luôn dậy mùi.
+- Nếu vườn có quy định riêng, đừng xem đây đơn thuần chỉ là phim trường chụp ảnh miễn phí.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao tiêu Phú Quốc nổi tiếng với mùi thơm hơn là chỉ độ cay?
-- Tiêu đỏ, tiêu đen và tiêu sọ khác nhau ở khâu nào?
-
+- Yếu tố nào giúp tiêu Phú Quốc vang danh bởi hương thơm nồng nàn chứ không đơn thuần chỉ vì độ cay?
+- Quá trình "biến hình" của tiêu đỏ, tiêu đen và tiêu sọ khác nhau ở điểm ngoặt nào?
 
 ## 069. Hải sản theo mùa
 <!-- TOPIC_ID:knowledge_069_hai-san-theo-mua -->
@@ -259,22 +245,9 @@ Vườn tiêu mở cửa đón khách không phải nơi nào cũng có cùng qu
 
 ### Tóm tắt
 
-Hải sản Phú Quốc thay đổi theo mùa, sản lượng, thời tiết và nguồn cung từ nhiều vùng. Hiện chưa có dataset thủy sản đủ cập nhật để public một lịch 'tháng này ăn con gì' mà không overclaim.
+Hải sản Phú Quốc thay đổi theo mùa, sản lượng, thời tiết và nguồn cung từ nhiều vùng biển lân cận. Hiện chưa có một bộ dữ liệu thủy sản đủ cập nhật để công bố chắc chắn lịch "tháng này nên ăn con gì" mà không khẳng định quá mức.
 
-### Thực tế khi đi
-
-
-
-### Kỳ vọng và thực tế
-
-
-
-### Trước khi đi
-
-
-### Câu hỏi gợi tò mò
-
-
+> Các phần còn lại chưa có nội dung trong dữ liệu nguồn.
 
 ## 070. Chợ Dương Đông ăn gì?
 <!-- TOPIC_ID:knowledge_070_cho-duong-dong-an-gi -->
@@ -283,27 +256,26 @@ Hải sản Phú Quốc thay đổi theo mùa, sản lượng, thời tiết và
 
 ### Tóm tắt
 
-Muốn ăn sáng ở chợ Dương Đông, cứ tới khi những hàng nóng còn bận rộn và đi một vòng xem món đang bán. Có thể gặp bún kèn, bún quậy hay bánh canh, nhưng giờ mở từng quầy khác nhau; sau bữa ăn, chợ thực phẩm vẫn còn nhiều điều để xem.
+Nếu muốn tìm bữa sáng đậm chất bản địa ở chợ Dương Đông, hãy hòa vào dòng người lúc các hàng quán đang bận rộn khói tỏa. Dạo một vòng, bạn sẽ dễ dàng bắt gặp tô bún kèn lạ miệng, bún quậy trứ danh hay tô bánh canh nóng hổi, tuy nhiên giờ mở cửa của mỗi quầy lại khác nhau. Ăn no nê rồi, khu chợ thực phẩm sầm uất vẫn còn vô vàn điều thú vị để bạn khám phá.
 
 ### Thực tế khi đi
 
-Buổi sáng là lúc đáng ghé Chợ Dương Đông nếu muốn ăn món nóng rồi đi xem các sạp thực phẩm. Cứ dạo một vòng để chọn quầy bún, bánh canh hoặc hải sản đang bán, hỏi giá trước khi gọi món cân ký. Giờ của mỗi quầy khác nhau, nên đi sớm sẽ có nhiều lựa chọn hơn.
+Sáng sớm là thời điểm vàng để ghé chợ Dương Đông, nhâm nhi món nước nóng hổi trước khi len lỏi qua các sạp hàng tươi sống. Cứ thong thả dạo quanh để chọn cho mình quầy bún, bánh canh hay hải sản ưng ý nhất, và nhớ hỏi giá kỹ càng trước khi chốt các món bán theo ký. Vì mỗi sạp dọn hàng một khung giờ, đi càng sớm bạn sẽ càng có nhiều lựa chọn.
 
 ### Kỳ vọng và thực tế
 
-Chợ Dương Đông ban ngày chủ yếu phục vụ việc mua bán thực phẩm của người dân, khác nhịp chợ đêm dành nhiều chỗ cho ăn uống và quà lưu niệm. Khu hàng tươi có thể ướt, đông và mùi khá rõ. Cũng không phải món nào muốn ăn lúc nào tới chợ cũng có.
+Nhịp đập của chợ Dương Đông ban ngày xoay quanh việc giao thương thực phẩm của người dân địa phương, khác hẳn với sự xô bồ của khu chợ đêm đầy ắp hàng lưu niệm. Khu hàng cá thịt có thể hơi ướt át, đông đúc và nặng mùi đặc trưng của chợ truyền thống. Cũng đừng hy vọng món nào bạn thèm cũng sẽ có sẵn vào lúc bạn tình cờ ghé qua.
 
 ### Trước khi đi
 
-- Mang tiền mặt mệnh giá nhỏ nếu cần.
-- Hỏi giá trước, đặc biệt món cân ký.
-- Tôn trọng người bán và khách địa phương; đừng chụp cận mặt khi chưa hỏi.
-- Phân biệt chợ ban ngày với chợ đêm.
+- Chuẩn bị sẵn tiền mặt lẻ để dễ dàng thanh toán nhanh chóng.
+- Luôn hỏi giá trước khi gọi, đặc biệt là với các món hải sản cân ký.
+- Tôn trọng không gian buôn bán của tiểu thương và khách địa phương; đừng đưa máy sát mặt chụp ảnh khi chưa xin phép.
+- Rạch ròi sự khác biệt giữa nét bình dị của chợ ngày và sự nhộn nhịp của chợ đêm.
 
 ### Câu hỏi gợi tò mò
 
-- Một buổi sáng ở Chợ Dương Đông ăn gì để thấy nhịp địa phương rõ nhất?
-
+- Khởi đầu một ngày mới tại chợ Dương Đông bằng món ăn nào sẽ giúp bạn "hóa thân" thành người bản địa trọn vẹn nhất?
 
 ## 071. Ăn sáng ở Phú Quốc
 <!-- TOPIC_ID:knowledge_071_an-sang-o-phu-quoc -->
@@ -333,7 +305,6 @@ Phú Quốc không có một món ăn sáng duy nhất đại diện cho cả đ
 
 - Bữa sáng nào ở Phú Quốc cho cảm giác địa phương nhất mà không phải xếp hàng dài?
 
-
 ## 072. Ăn khuya ở Phú Quốc
 <!-- TOPIC_ID:knowledge_072_an-khuya-o-phu-quoc -->
 
@@ -355,7 +326,6 @@ Phú Quốc không có một món ăn sáng duy nhất đại diện cho cả đ
 
 
 ### Câu hỏi gợi tò mò
-
 
 
 ## 073. Ẩm thực An Thới
@@ -386,7 +356,6 @@ Thực đơn Nam đảo có hải sản, nhiều món Việt và cả món phụ
 
 - An Thới ăn khác Dương Đông ở chỗ nào nếu nhìn từ lịch sử cảng và nghề biển?
 
-
 ## 074. Cano, tàu cao tốc và phà khác nhau thế nào?
 <!-- TOPIC_ID:knowledge_074_cano-tau-cao-toc-pha-khac-nhau-the-nao -->
 
@@ -416,7 +385,6 @@ Một chữ 'tàu' đôi khi khiến cả người hỏi lẫn người trả l�
 - Vì sao biển xấu có ngày cano nghỉ nhưng phà vẫn chạy?
 - Tàu cao tốc và phà khác nhau ở điểm nào ngoài tốc độ?
 
-
 ## 075. Từ sân bay về Dương Đông
 <!-- TOPIC_ID:knowledge_075_tu-san-bay-ve-duong-dong -->
 
@@ -444,7 +412,6 @@ Dương Đông là cả một khu trung tâm, không phải điểm trả khách
 ### Câu hỏi gợi tò mò
 
 - Vì sao hai khách sạn đều ghi Dương Đông nhưng thời gian từ sân bay có thể chênh khá nhiều?
-
 
 ## 076. Từ sân bay về An Thới và Sunset Town
 <!-- TOPIC_ID:knowledge_076_tu-san-bay-ve-an-thoi-sunset-town -->
@@ -474,7 +441,6 @@ Sunset Town nằm ở Nam đảo, nhưng không phải tên khác của toàn kh
 
 - Từ sân bay, đi thẳng xuống Nam đảo hay ghé Dương Đông trước sẽ thuận đường hơn?
 
-
 ## 077. Từ sân bay về Bắc đảo
 <!-- TOPIC_ID:knowledge_077_tu-san-bay-ve-bac-dao -->
 
@@ -502,7 +468,6 @@ VinBus có tuyến lên Bắc đảo nhưng không có nghĩa xe dừng ngay c�
 ### Câu hỏi gợi tò mò
 
 - Từ sân bay lên Bắc đảo, khi nào nên chọn xe đưa đón thay vì VinBus?
-
 
 ## 078. Di chuyển Dương Đông - An Thới
 <!-- TOPIC_ID:knowledge_078_di-chuyen-duong-dong-an-thoi -->
@@ -532,7 +497,6 @@ Trên bản đồ, Dương Đông - An Thới trông như một chặng thẳng,
 
 - Có những điểm nào ở Nam đảo nên ghép chung để đỡ mất thời gian đi lại?
 
-
 ## 079. Di chuyển Dương Đông - Gành Dầu
 <!-- TOPIC_ID:knowledge_079_di-chuyen-duong-dong-ganh-dau -->
 
@@ -560,7 +524,6 @@ Bắc đảo rộng hơn cảm giác khi nhìn các điểm nằm gần nhau tr�
 ### Câu hỏi gợi tò mò
 
 - Vì sao cùng ở Bắc đảo nhưng một số điểm lại cách nhau khá xa?
-
 
 ## 080. Di chuyển Dương Đông - Rạch Vẹm
 <!-- TOPIC_ID:knowledge_080_di-chuyen-duong-dong-rach-vem -->
@@ -590,7 +553,6 @@ Bản đồ biết hướng đường nhưng không cho bạn biết chắc hôm
 
 - Sau mưa, đoạn đường vào Rạch Vẹm có thể thay đổi ra sao?
 
-
 ## 081. Di chuyển Dương Đông - Hàm Ninh
 <!-- TOPIC_ID:knowledge_081_di-chuyen-duong-dong-ham-ninh -->
 
@@ -618,7 +580,6 @@ Hàm Ninh là một vùng ven biển, không phải một ghim có thể dẫn t
 ### Câu hỏi gợi tò mò
 
 - Đi ngang từ Dương Đông sang Hàm Ninh sẽ thấy cảnh hai phía đảo khác nhau thế nào?
-
 
 ## 082. Xe buýt Phú Quốc
 <!-- TOPIC_ID:knowledge_082_bus-phu-quoc -->
@@ -648,7 +609,6 @@ Có tuyến xe buýt đi ngang một khu vực không có nghĩa trạm nằm ng
 
 - Những tuyến VinBus nào kết nối thuận với sân bay và khu vui chơi phía Bắc?
 
-
 ## 083. Taxi Phú Quốc
 <!-- TOPIC_ID:knowledge_083_taxi-phu-quoc -->
 
@@ -676,7 +636,6 @@ Có ứng dụng đặt xe không có nghĩa lúc nào bấm cũng có tài xế
 ### Câu hỏi gợi tò mò
 
 - Vì sao cùng một quãng đường mà thời gian chờ xe lại khác nhau giữa các khu ở Phú Quốc?
-
 
 ## 084. Thuê xe máy
 <!-- TOPIC_ID:knowledge_084_thue-xe-may -->
@@ -706,7 +665,6 @@ Không phải giấy tờ nào có chữ 'international' cũng được chấp n
 
 - Bằng lái quốc tế loại nào được Việt Nam công nhận để thuê xe máy?
 
-
 ## 085. Thuê ô tô tự lái
 <!-- TOPIC_ID:knowledge_085_thue-o-to-tu-lai -->
 
@@ -734,7 +692,6 @@ Việc một cửa hàng đồng ý giao xe không thay thế xác nhận pháp 
 ### Câu hỏi gợi tò mò
 
 - Bằng lái quốc tế loại nào được Việt Nam công nhận để thuê ô tô?
-
 
 ## 086. Xe đưa đón sân bay
 <!-- TOPIC_ID:knowledge_086_airport-transfer -->
@@ -764,7 +721,6 @@ Trước khi đặt xe đón sân bay, hãy hỏi khách sạn có xe đưa đó
 
 - Đến Phú Quốc vào tối muộn, nên đặt xe trước hay gọi taxi tại sân bay?
 
-
 ## 087. Tàu cao tốc và phà đến Phú Quốc
 <!-- TOPIC_ID:knowledge_087_ferry-high-speed-boat-den-phu-quoc -->
 
@@ -792,7 +748,6 @@ Xem kỹ cảng đi, bến đến, ngày khởi hành và loại phương tiện
 ### Câu hỏi gợi tò mò
 
 - Mang xe máy ra Phú Quốc thì nên hỏi hãng tàu những gì trước khi đặt vé?
-
 
 ## 088. ATM ở Phú Quốc
 <!-- TOPIC_ID:knowledge_088_atm-o-phu-quoc -->
@@ -822,7 +777,6 @@ Một ghim ATM trên bản đồ chưa bảo đảm máy đang hoạt động ho
 
 - Đi Bắc đảo cả ngày, nên chuẩn bị tiền mặt từ lúc nào?
 
-
 ## 089. Thanh toán thẻ và QR
 <!-- TOPIC_ID:knowledge_089_thanh-toan-the-va-qr -->
 
@@ -850,7 +804,6 @@ QR chuyển khoản nội địa chưa chắc dùng được với mọi ứng d
 ### Câu hỏi gợi tò mò
 
 - Vì sao hai mã QR nhìn giống nhau nhưng ví nước ngoài chỉ thanh toán được một mã?
-
 
 ## 090. Đổi tiền
 <!-- TOPIC_ID:knowledge_090_doi-tien -->
