@@ -5,6 +5,10 @@ on:
     branches: ["main"]
     paths:
       - "data/knowledge/**"
+      - "data/content.json"
+      - "data/home-copy.json"
+      - "data/i18n/vi/**"
+      - "data/entities/food.json"
       - "data/go-config.json"
       - "data/entities/places.json"
       - "data/entities/activities.json"
@@ -21,6 +25,12 @@ on:
       - "scripts/check-derived-views-sync.mjs"
       - "scripts/build-map-coverage.mjs"
       - "guide/**"
+      - "stories/**"
+      - "food/**"
+      - "places/**"
+      - "explore/**"
+      - "about/**"
+      - "core/site-copy.js"
       - "news/**"
       - "index.html"
       - "home-*.js"
@@ -82,6 +92,7 @@ jobs:
           node scripts/validate-home-support.mjs
           node scripts/validate-knowledge.mjs
           node scripts/validate-home-knowledge.mjs
+          node scripts/validate-public-copy.mjs
           node scripts/test-search.mjs
           node scripts/test-currency.mjs
 
