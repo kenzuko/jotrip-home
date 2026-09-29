@@ -81,7 +81,14 @@ await page.locator("#curiosityRail .curiosity-story-link").first().waitFor({stat
 const curiosityHrefs=await page.locator("#curiosityRail .curiosity-story-link").evaluateAll(nodes=>nodes.map(x=>x.getAttribute("href")));
 for(const [i,href] of curiosityHrefs.entries()){
   assert.ok(href,"Curiosity card "+i+" missing article href");
-  await assertStoryDestination(href,"Curiosity card "+i);
+  await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
+  const link=page.locator('#curiosityRail .curiosity-story-link[href="'+href.replaceAll('"','\\\"')+'"]').first();
+  await link.waitFor({state:"visible",timeout:7000});
+  const id=storyIdFromHref(href);
+  await link.locator("img").click();
+  await page.waitForURL(url=>url.pathname.endsWith("/stories/article.html")&&url.searchParams.get("id")===id,{timeout:5000});
+  const h1=page.locator("#articleRoot h1");await h1.waitFor({state:"visible",timeout:5000});
+  assert.equal((await h1.textContent())?.trim(),storyById.get(id)?.title,"Curiosity image/title opened wrong article");
 }
 await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
 const quick=page.locator("#curiosityRail .curiosity-toggle").first();
@@ -101,7 +108,43 @@ const guideHrefs=await page.locator("#home-library .home-library-card").evaluate
 assert.ok(guideHrefs.length>=3,"Homepage should expose at least three guide cards");
 for(const [i,href] of guideHrefs.entries()){
   assert.ok(href,"Homepage guide "+i+" missing href");
-  await assertGuideDestination(href,"Homepage guide "+i);
+  await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
+  const libraryNow=page.locator("#home-library");await libraryNow.scrollIntoViewIfNeeded();
+  const card=page.locator('#home-library .home-library-card[href="'+href.replaceAll('"','\\\"')+'"]').first();
+  await card.waitFor({state:"visible",timeout:7000});
+  const id=new URL(href,BASE).searchParams.get("id");
+  await card.locator("figure").click();
+  await page.waitForURL(url=>url.pathname.endsWith("/guide/article.html")&&url.searchParams.get("id")===id,{timeout:5000});
+  const h1=page.locator("#knowledgeArticle h1");await h1.waitFor({state:"visible",timeout:5000});
+  assert.equal((await h1.textContent())?.trim(),guideById.get(id)?.title,"Homepage guide image opened wrong article");
+}
+
+// Homepage food cards must behave as whole-card article links, not CTA-only surfaces.
+await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
+await page.locator("#foodNowGrid .food-now-card.featured-food-card").first().waitFor({state:"visible",timeout:7000});
+const foodCards=page.locator("#foodNowGrid a.food-now-card.featured-food-card");
+const foodCount=await foodCards.count();
+assert.ok(foodCount>=1,"Homepage food cards must render");
+for(let i=0;i<foodCount;i++){
+  await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
+  const card=page.locator("#foodNowGrid a.food-now-card.featured-food-card").nth(i);
+  await card.waitFor({state:"visible",timeout:7000});
+  const href=await card.getAttribute("href");assert.ok(href,"Homepage food card missing href");
+  const id=new URL(href,BASE).searchParams.get("id");
+  await card.locator("figure").click();
+  await page.waitForURL(url=>url.pathname.endsWith("/food/article.html")&&url.searchParams.get("id")===id,{timeout:5000});
+  await page.locator("#foodArticle h1").waitFor({state:"visible",timeout:5000});
+  assert.equal(await page.locator("#foodArticle").getAttribute("data-food-id"),id,"Homepage food card opened wrong dish");
+}
+
+// Homepage news cards are also whole-card links.
+await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
+await page.locator("#hotNowList a.hot-card").first().waitFor({state:"visible",timeout:7000});
+const newsCards=page.locator("#hotNowList a.hot-card");
+for(let i=0;i<await newsCards.count();i++){
+  const card=newsCards.nth(i);
+  assert.ok(await card.getAttribute("href"),"Homepage news card "+i+" missing href");
+  await card.click({trial:true});
 }
 
 // Invalid IDs must never fall through to article zero.
@@ -111,6 +154,10 @@ assert.match((await page.locator("#articleRoot h1").textContent())||"",/Không t
   "Invalid story id must render not-found state");
 assert.notEqual((await page.locator("#articleRoot h1").textContent())?.trim(),content.stories?.[0]?.title,
   "Invalid story id must never render the first story");
+await page.goto(BASE+"/food/article.html?id=__missing_dish__",{waitUntil:"domcontentloaded"});
+await page.locator("#foodArticle").waitFor({state:"visible",timeout:5000});
+assert.match((await page.locator("#foodArticle").innerText())||"",/Không tìm thấy món này/,
+  "Invalid food id must render a not-found state instead of dish zero");
 
 await browser.close();
-console.log("PASS browser article-card clicks:",storyCardCount,"story cards,",islandHrefs.length,"homepage stories,",curiosityHrefs.length,"curiosity links and",guideHrefs.length,"guide cards");
+console.log("PASS browser article-card clicks:",storyCardCount,"story cards,",islandHrefs.length,"homepage stories,",curiosityHrefs.length,"curiosity links,",guideHrefs.length,"guide cards and",foodCount,"food cards");
