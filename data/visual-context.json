@@ -750,12 +750,12 @@
       "location_label": "Phú Quốc - món ăn địa phương",
       "images": [
         {
-          "url": "https://rootytrip.com/wp-content/uploads/2020/03/bun-quay-phu-quoc-cay-xanh.webp",
-          "alt": "Tô bún quậy Phú Quốc cùng chén nước chấm pha riêng",
-          "caption": "Bún quậy và chén chấm ăn kèm, ảnh trong bài giới thiệu món Phú Quốc của RootyTrip. Ảnh minh họa cách ăn, không giới thiệu một quán duy nhất.",
-          "scope": "exact_subject",
-          "source_label": "RootyTrip - Bún quậy Phú Quốc",
-          "source_url": "https://rootytrip.com/bun-quay-phu-quoc/",
+          "url": "https://visitphuquoc.com.vn/google_docs_media/post/post-8312/AD_4nXe_PFq4p9m7pf9aO-AdZLxLJOUeTkNXJe1butB6yKzY6BjEIcVsBtKj_C7_gBMmOPwPzo7Umk7oqe7Pioy35hjHyWBgfnNLUMXXbTjAat6YnZWQObpE5WQ9YCeqj4ICpiLdKjTMMVCN6BegnyE76-jaOepIpg%3Ds2048.jpg",
+          "alt": "Tô bún quậy Phú Quốc với hải sản và chén nước chấm",
+          "caption": "Bún quậy Phú Quốc trong bài giới thiệu món ăn trên Cổng du lịch Phú Quốc; ảnh sưu tầm, không gắn một quán cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "Cổng du lịch Phú Quốc · ảnh sưu tầm",
+          "source_url": "https://visitphuquoc.com.vn/vi/bun-quay-phu-quoc-mon-ngon-tru-danh-dao-ngoc-8312",
           "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ]
@@ -2082,20 +2082,21 @@
     "bun-quay": {
       "images": [
         {
-          "url": "https://visitphuquoc.com.vn/VisitPhuQuoc/POINT/%C4%82N%20U%E1%BB%90NG/M%C3%B3n%20%C4%83n/1832/image-thumb__1832__720_jpg/B%C3%BAn%20qu%E1%BA%ADy%20Ki%E1%BA%BFn%20X%C3%A2y.ec5c87e9.jpg",
-          "alt": "Bún quậy",
-          "caption": "Bún quậy",
-          "scope": "exact_subject",
-          "source_label": "Cổng du lịch Phú Quốc - Bún quậy Kiến Xây",
-          "source_url": "https://visitphuquoc.com.vn/vi/bun-quay-kien-xay"
+          "url": "https://phuquoc.angiang.gov.vn/sites/default/files/ImageOld/du%20l%E1%BB%8Bch/bun_quay1_rfsi.jpg",
+          "alt": "Tô bún quậy Phú Quốc ăn cùng chén nước chấm",
+          "caption": "Bún quậy Phú Quốc trong bài ẩm thực của UBND Đặc khu Phú Quốc; dùng minh họa món chung, không đại diện một quán cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "UBND Đặc khu Phú Quốc · bài theo VnExpress",
+          "source_url": "https://phuquoc.angiang.gov.vn/bun-quay-mon-ngon-phu-quoc",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         },
         {
-          "url": "https://rootytrip.com/wp-content/uploads/2020/03/bun-quay-phu-quoc-cay-xanh.webp",
-          "alt": "Tô bún quậy Phú Quốc cùng chén nước chấm pha riêng",
-          "caption": "Ảnh bún quậy Phú Quốc với chén chấm, không đại diện cho mọi cách nêm ở từng quán.",
-          "scope": "exact_subject",
-          "source_label": "RootyTrip - Bún quậy Phú Quốc",
-          "source_url": "https://rootytrip.com/bun-quay-phu-quoc/",
+          "url": "https://visitphuquoc.com.vn/google_docs_media/post/post-8312/AD_4nXe_PFq4p9m7pf9aO-AdZLxLJOUeTkNXJe1butB6yKzY6BjEIcVsBtKj_C7_gBMmOPwPzo7Umk7oqe7Pioy35hjHyWBgfnNLUMXXbTjAat6YnZWQObpE5WQ9YCeqj4ICpiLdKjTMMVCN6BegnyE76-jaOepIpg%3Ds2048.jpg",
+          "alt": "Tô bún quậy Phú Quốc với hải sản và chén nước chấm",
+          "caption": "Bún quậy Phú Quốc trong bài giới thiệu món ăn trên Cổng du lịch Phú Quốc; ảnh sưu tầm, không gắn một quán cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "Cổng du lịch Phú Quốc · ảnh sưu tầm",
+          "source_url": "https://visitphuquoc.com.vn/vi/bun-quay-phu-quoc-mon-ngon-tru-danh-dao-ngoc-8312",
           "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ],
@@ -2123,12 +2124,13 @@
     "bun-ken": {
       "images": [
         {
-          "url": "https://rootytrip.com/wp-content/uploads/2023/10/bun-ken-co-thu.jpg",
-          "alt": "Bún kèn",
-          "caption": "Bún kèn",
-          "scope": "exact_subject",
-          "source_label": "Rooty Trip",
-          "source_url": "https://rootytrip.com/bun-ken-phu-quoc/",
+          "url": "https://visitphuquoc.com.vn/VisitPhuQuoc/Post/Images/481/image-thumb__481__720_jpg/bun-ken-phu-quoc-7.e520a7f9.jpg",
+          "alt": "Tô bún kèn Phú Quốc",
+          "caption": "Bún kèn Phú Quốc trong bài giới thiệu ẩm thực địa phương; không đại diện một quán cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "Cổng du lịch Phú Quốc",
+          "source_url": "https://visitphuquoc.com.vn/vi/bun-ken-phu-quoc-tu-mon-an-don-gian-tro-thanh-dac-san-so-1-dao-ngoc-212",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
           "hero_priority": "preferred"
         }
       ]
@@ -2261,12 +2263,13 @@
     "banh-canh-ca-thu": {
       "images": [
         {
-          "url": "https://media.mia.vn/uploads/blog-du-lich/banh-canh-cha-thu-hanh-quan-an-dac-san-phu-quoc-sieu-hap-dan-gia-binh-dan-1611715971.jpg",
-          "alt": "Bánh canh cá thu",
-          "caption": "Bánh canh cá thu",
-          "scope": "exact_subject",
-          "source_label": "MIA.vn",
-          "source_url": "https://mia.vn/cam-nang-du-lich/banh-canh-cha-ca-thu-hanh-quan-an-dac-san-phu-quoc-sieu-hap-dan-gia-binh-dan-44",
+          "url": "https://www.vietnamairlines.com/content/dam/legacy-site-assets/SEO-images/dac-san-phu-quoc/banh-canh-ca-thu-phu-quoc.jpg",
+          "alt": "Tô bánh canh cá thu Phú Quốc",
+          "caption": "Bánh canh cá thu trong cẩm nang đặc sản Phú Quốc; ảnh món chung, không đại diện một quán cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "Vietnam Airlines · cẩm nang đặc sản Phú Quốc",
+          "source_url": "https://www.vietnamairlines.com/at/vi/plan-book/travel/travel-guide/dac-san-phu-quoc",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
           "hero_priority": "preferred"
         }
       ]
@@ -2274,12 +2277,13 @@
     "banh-canh-ghe": {
       "images": [
         {
-          "url": "https://khaihoanphuquoc.com.vn/wp-content/uploads/2023/09/banh-canh-ghe-phu-quoc-10-1.jpg",
-          "alt": "Bánh canh ghẹ",
-          "caption": "Bánh canh ghẹ",
-          "scope": "exact_subject",
-          "source_label": "Khải Hoàn Phú Quốc",
-          "source_url": "https://khaihoanphuquoc.com.vn/an-gi-o-phu-quoc/",
+          "url": "https://luhanhvietnam.com.vn/du-lich/vnt_upload/news/12_2023/banh_canh_ghe_phu_quoc.png",
+          "alt": "Tô bánh canh ghẹ Phú Quốc",
+          "caption": "Bánh canh ghẹ Phú Quốc trong bài giới thiệu món ăn; không đại diện một quán cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "Lữ Hành Việt Nam · ảnh món Phú Quốc",
+          "source_url": "https://visitphuquoc.com.vn/vi/banh-canh-ghe-phu-quoc-mon-ngon-nuc-tieng-an-la-me",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
           "hero_priority": "preferred"
         }
       ]
@@ -2380,16 +2384,14 @@
     "ca-song-nuong": {
       "images": [
         {
-          "url": "https://file.hstatic.net/1000357278/file/ca-song-nuong_4_grande.jpg",
-          "alt": "Cá sòng nướng nguyên con",
-          "caption": "Cá sòng nướng nguyên con",
-          "scope": "exact_subject",
-          "source_label": "Minos - Cá sòng nướng Phú Quốc",
-          "source_url": "https://minos.com.vn/blogs/news/ca-song-nuong-mon-ngon-phu-quoc",
-          "hero_priority": "preferred",
-          "fallback_url": "https://vietnamtrustcarrentals.com/vnt_upload/news/05_2024/Grilled-Trachurus.jpg",
-          "fallback_source_label": "Vietnam Trust Car Rentals - Grilled Trachurus",
-          "fallback_source_url": "https://vietnamtrustcarrentals.com/top-9-best-foods-in-phu-quoc.html"
+          "url": "https://visitphuquoc.com.vn/VisitPhuQuoc/POINT/%C4%82N%20U%E1%BB%90NG/M%C3%B3n%20%C4%83n/1837/image-thumb__1837__720_jpg/C%C3%A1%20s%C3%B2ng%20n%C6%B0%E1%BB%9Bng.d2d62e63.jpg",
+          "alt": "Cá sòng nướng Phú Quốc",
+          "caption": "Cá sòng nướng trong Cổng du lịch Phú Quốc; ảnh món chung, không đại diện một quán hay nhãn hàng cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "Cổng du lịch Phú Quốc",
+          "source_url": "https://visitphuquoc.com.vn/vi/ca-song-nuong-1400",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "hero_priority": "preferred"
         }
       ]
     },
@@ -3289,12 +3291,12 @@
       "title": "Bún quậy Phú Quốc",
       "images": [
         {
-          "url": "https://visitphuquoc.com.vn/VisitPhuQuoc/POINT/%C4%82N%20U%E1%BB%90NG/M%C3%B3n%20%C4%83n/1832/image-thumb__1832__720_jpg/B%C3%BAn%20qu%E1%BA%ADy%20Ki%E1%BA%BFn%20X%C3%A2y.ec5c87e9.jpg",
-          "alt": "Bún quậy",
-          "caption": "Bún quậy",
-          "scope": "exact_subject",
-          "source_label": "Cổng du lịch Phú Quốc - Bún quậy Kiến Xây",
-          "source_url": "https://visitphuquoc.com.vn/vi/bun-quay-kien-xay",
+          "url": "https://phuquoc.angiang.gov.vn/sites/default/files/ImageOld/du%20l%E1%BB%8Bch/bun_quay1_rfsi.jpg",
+          "alt": "Tô bún quậy Phú Quốc ăn cùng chén nước chấm",
+          "caption": "Bún quậy Phú Quốc trong bài ẩm thực của UBND Đặc khu Phú Quốc; dùng minh họa món chung, không đại diện một quán cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "UBND Đặc khu Phú Quốc · bài theo VnExpress",
+          "source_url": "https://phuquoc.angiang.gov.vn/bun-quay-mon-ngon-phu-quoc",
           "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ]
@@ -3365,17 +3367,14 @@
       "title": "Cá sòng",
       "images": [
         {
-          "url": "https://file.hstatic.net/1000357278/file/ca-song-nuong_4_grande.jpg",
-          "alt": "Cá sòng nướng nguyên con",
-          "caption": "Cá sòng nướng nguyên con",
-          "scope": "exact_subject",
-          "source_label": "Minos - Cá sòng nướng Phú Quốc",
-          "source_url": "https://minos.com.vn/blogs/news/ca-song-nuong-mon-ngon-phu-quoc",
-          "hero_priority": "preferred",
-          "fallback_url": "https://vietnamtrustcarrentals.com/vnt_upload/news/05_2024/Grilled-Trachurus.jpg",
-          "fallback_source_label": "Vietnam Trust Car Rentals - Grilled Trachurus",
-          "fallback_source_url": "https://vietnamtrustcarrentals.com/top-9-best-foods-in-phu-quoc.html",
+          "url": "https://visitphuquoc.com.vn/VisitPhuQuoc/POINT/%C4%82N%20U%E1%BB%90NG/M%C3%B3n%20%C4%83n/1837/image-thumb__1837__720_jpg/C%C3%A1%20s%C3%B2ng%20n%C6%B0%E1%BB%9Bng.d2d62e63.jpg",
+          "alt": "Cá sòng nướng Phú Quốc",
+          "caption": "Cá sòng nướng trong Cổng du lịch Phú Quốc; ảnh món chung, không đại diện một quán hay nhãn hàng cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "Cổng du lịch Phú Quốc",
+          "source_url": "https://visitphuquoc.com.vn/vi/ca-song-nuong-1400",
           "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "hero_priority": "preferred",
           "curated_for_public": true
         }
       ]
