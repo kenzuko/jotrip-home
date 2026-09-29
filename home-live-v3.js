@@ -891,11 +891,13 @@ function freshnessText(iso, prefix = "Cập nhật") {
       const today = vnDateKey();
       if(today === lastTickerDay)return;
       lastTickerDay = today;
-      const canceled = (notices?.notices || []).find(x => x.status === "CANCELLED" && x.date === today);
+      const dated = (notices?.notices || []).find(x => ["CANCELLED","BOOKING_FULL"].includes(x.status) && x.date === today);
       const ongoing = (notices?.notices || []).find(x => ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status) && (!x.effective_from || x.effective_from <= today) && !x.valid_until);
-      const datedLine = canceled ? [["SHOW TỐI NAY", canceled.title + " · Xem thông báo", "news/"]] :
+      const datedLabel = dated?.status === "BOOKING_FULL" ? "DINNER SHOW HÔM NAY" : "SHOW TỐI NAY";
+      const datedHref = dated?.entity_id === "place_sunset_town" ? "places/detail.html?id=sunset-town" : "news/";
+      const datedLine = dated ? [[datedLabel, dated.title + " · Xem thông báo", datedHref]] :
         ongoing ? [["SHOW", ongoing.title + " · Xem thông báo", "places/detail.html?id=sac-mau-venice"]] : [];
-      renderTicker([...datedLine,...tickerBaseItems], (canceled || ongoing) ? "watch" : (topAlert?.level || "normal"));
+      renderTicker([...datedLine,...tickerBaseItems], (dated || ongoing) ? "watch" : (topAlert?.level || "normal"));
     };
     refreshDatedTicker();
     setInterval(refreshDatedTicker,60000);
