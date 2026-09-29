@@ -1,6 +1,6 @@
 # Open Phu Quoc - Knowledge Vietnamese review 4/5
 
-> Mục 091-101 đã duyệt từ file người dùng ngày 29/09/2026; mục 102-120 chưa duyệt.
+> Mục 091-106, 108-109 và 117-120 đã duyệt; 107 và 110-116 giữ nguyên bản trước đó.
 > Chỉ gồm phần editorial/public. Research, source và operational data giữ nguyên.
 > Giữ dòng TOPIC_ID để map lại dữ liệu chính xác.
 > Phạm vi: Knowledge 91-120/150.
@@ -310,7 +310,7 @@ An Thới không phải là cái tên mới mẻ, nó đã chễm chệ với t�
 
 ### Tóm tắt
 
-Hàm Ninh là một địa danh lâu đời ở phía Đông Phú Quốc, gắn với dãy núi và làng chài cùng tên. Nguồn chính thức hiện mô tả khá rõ địa hình và đời sống cư dân, nhưng chưa giải thích đáng tin cậy vì sao nơi này mang tên Hàm Ninh.
+Nhắc đến phía Đông Phú Quốc là nhắc đến Hàm Ninh - một địa danh nhuốm màu thời gian, gắn liền với hình ảnh dãy núi sừng sững và ngôi làng chài bình yên cùng tên. Các ghi chép chính thức hiện nay miêu tả khá chi tiết về địa hình cũng như nhịp sống của cư dân nơi đây, nhưng đáng tiếc là vẫn chưa có lời giải thích nào thực sự thuyết phục về lý do vùng đất này được gọi là Hàm Ninh.
 
 ### Thực tế khi đi
 
@@ -318,15 +318,15 @@ Hàm Ninh là một địa danh lâu đời ở phía Đông Phú Quốc, gắn 
 
 ### Kỳ vọng và thực tế
 
-Có thể kể Hàm Ninh là địa danh gắn với dãy núi và làng chài phía Đông đảo, nhưng chưa nên giải nghĩa hai chữ 'Hàm Ninh' thành câu chuyện nguồn gốc nếu chưa có sử liệu.
+Bạn hoàn toàn có thể tự hào giới thiệu Hàm Ninh như một tọa độ gắn kết giữa núi rừng và làng biển phía Đông. Tuy nhiên, đừng vội vàng "chẻ chữ" hay tự vẽ ra một câu chuyện nguồn gốc ly kỳ cho hai chữ "Hàm Ninh" khi mà giới sử học vẫn chưa tìm thấy những minh chứng bằng văn bản.
 
 ### Trước khi đi
 
 
 ### Câu hỏi gợi tò mò
 
-- Tên Hàm Ninh xuất hiện sớm nhất trong bản đồ hay địa bạ nào?
-- Dãy núi có tên trước hay làng cư dân có tên trước?
+- Đã có tấm bản đồ cổ hay cuốn địa bạ nào ghi nhận sớm nhất sự xuất hiện của cái tên Hàm Ninh chưa?
+- Dãy núi được đặt tên trước rồi làng mạc mọc lên theo, hay chính con người đã mang cái tên ấy khoác lên núi rừng?
 
 ## 103. Nguồn gốc tên Gành Dầu
 <!-- TOPIC_ID:knowledge_103_nguon-goc-ten-ganh-dau -->
@@ -335,7 +335,7 @@ Có thể kể Hàm Ninh là địa danh gắn với dãy núi và làng chài p
 
 ### Tóm tắt
 
-Gành Dầu là địa danh ở cực Tây Bắc Phú Quốc, gắn với làng biển và mũi đất hướng sang phía Campuchia. Phần vị trí thì rõ, nhưng nguồn hiện có chưa đủ chắc để chốt vì sao tên gọi là Gành Dầu.
+Nằm thu mình ở cực Tây Bắc đảo ngọc, Gành Dầu là cái tên thân thuộc gắn với một làng biển mộc mạc và dải mũi đất phóng tầm mắt sang tận bờ Campuchia. Vị trí địa lý thì đã rành rành ra đó, nhưng các nguồn tư liệu hiện tại vẫn còn quá mỏng để chúng ta có thể chốt hạ chắc nịch nguồn gốc của cái tên Gành Dầu.
 
 ### Thực tế khi đi
 
@@ -343,15 +343,15 @@ Gành Dầu là địa danh ở cực Tây Bắc Phú Quốc, gắn với làng 
 
 ### Kỳ vọng và thực tế
 
-Cách giải thích 'gành đá có cây dầu' nghe hợp lý và khá phổ biến, nhưng hiện chưa đủ bằng chứng để Open Phu Quoc kể như lịch sử đã xác minh.
+Nhiều người rỉ tai nhau rằng Gành Dầu đơn giản là "gành đá mọc đầy cây dầu". Nghe qua thì thật xuôi tai và hợp lý, nhưng sự thật là chúng ta vẫn thiếu những bằng chứng vững chắc để Open Phu Quoc có thể tự tin kể lại nó như một mảnh ghép lịch sử đã được xác thực.
 
 ### Trước khi đi
 
 
 ### Câu hỏi gợi tò mò
 
-- Tên Gành Dầu có xuất hiện trên bản đồ hoặc địa bạ cũ từ khi nào?
-- Cây dầu từng phổ biến ở khu mũi này đến mức nào và có thực sự liên quan tới địa danh?
+- Cột mốc thời gian nào đánh dấu sự hiện diện đầu tiên của tên Gành Dầu trên các bản đồ hay địa bạ xưa?
+- Liệu loài cây dầu từng vươn tán rợp bóng ở mũi đất này đến mức đủ sức tạo nên một địa danh?
 
 ## 104. Nguồn gốc tên Cửa Cạn
 <!-- TOPIC_ID:knowledge_104_nguon-goc-ten-cua-can -->
@@ -360,27 +360,27 @@ Cách giải thích 'gành đá có cây dầu' nghe hợp lý và khá phổ bi
 
 ### Tóm tắt
 
-Cửa Cạn là tên con sông và cả vùng dân cư ở bờ Tây Bắc. Theo lời giải thích được nguồn địa phương ghi lại, có mùa cát bồi khiến cửa sông gần như bị lấp; đó được cho là lý do người ta gọi nơi này bằng cái tên Cửa Cạn.
+Cửa Cạn vừa là tên một dòng sông êm đềm, vừa là tên gọi của cả một vùng dân cư mộc mạc nép mình bên bờ Tây Bắc. Theo lời kể của những bậc cao niên trong vùng, có những mùa cát bồi đắp dày đặc khiến cửa sông gần như bị lấp kín; và người ta tin rằng đó chính là nguồn cơn của cái tên Cửa Cạn dân dã.
 
 ### Thực tế khi đi
 
-Cửa Cạn là tên cả vùng sông, cửa biển và khu dân cư, nên nếu đến để đi thuyền hay chèo kayak, hãy hỏi đúng bến và mực nước hôm đó. Cửa sông có thể đổi hình dáng theo mùa; chỉ xem ảnh hoặc ghim trên bản đồ chưa chắc đã tìm đúng lối xuống nước.
+Vì Cửa Cạn bao trùm cả một vùng sông nước, cửa biển lẫn xóm làng, nên nếu bạn định đến đây chèo thuyền hay vờn sóng kayak, nhớ hỏi kỹ người dân về bến bãi và con nước hôm đó. Hình dáng cửa sông có thể "biến hình" theo từng mùa, nên đừng quá tin vào những tấm ảnh cũ hay chấm ghim trên bản đồ mà tìm sai lối xuống nước nhé.
 
 ### Kỳ vọng và thực tế
 
-Người địa phương có cách giải thích tên Cửa Cạn từ hiện tượng cát bồi khiến cửa sông có mùa gần như bị lấp. Câu chuyện phù hợp với đặc điểm địa hình, nhưng chưa có nghiên cứu địa danh xác định chính xác thời điểm tên gọi xuất hiện. Cứ kể đây là lời giải thích địa phương sẽ đúng với mức bằng chứng hiện có.
+Câu chuyện cát bồi lấp cửa sông tạo nên tên Cửa Cạn nghe rất thuận tự nhiên và khớp với đặc thù địa hình. Dù vậy, giới nghiên cứu địa danh vẫn chưa thể xác định chính xác thời điểm cái tên này ra đời. Tốt nhất, hãy xem đây như một giai thoại thú vị của người địa phương, phù hợp với mức độ chứng cứ hiện có.
 
 ### Trước khi đi
 
-- Tìm điểm đến cụ thể trên sông hay ở cửa biển.
-- Không dùng ảnh mùa khác để đoán mực nước hôm nay.
-- Nếu xuống nước, hỏi điều kiện và hướng dẫn an toàn.
-- Kể nguồn gốc tên như lời giải thích địa phương, không như sự thật đã đóng.
+- Định vị rõ điểm bạn muốn đến nằm trên sông hay tít ngoài cửa biển.
+- Tuyệt đối không dùng ảnh chụp mùa khác để đoán bừa mực nước của ngày hôm nay.
+- Nếu có ý định xuống nước, hãy mạnh dạn hỏi thăm điều kiện bơi lội và những lưu ý an toàn.
+- Hãy kể câu chuyện tên gọi như một lời truyền miệng của xóm làng, đừng biến nó thành một chân lý lịch sử.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao cửa sông Cửa Cạn có lúc bị cát bồi gần kín?
-- Tên Cửa Cạn đã xuất hiện trên những bản đồ cũ nào?
+- Điều kiện thủy văn nào khiến cửa sông Cửa Cạn thỉnh thoảng lại bị những triền cát lấp gần kín?
+- Các nhà thám hiểm xưa đã vẽ tên Cửa Cạn lên những tấm bản đồ nào?
 
 ## 105. Nguồn gốc tên Hòn Thơm
 <!-- TOPIC_ID:knowledge_105_nguon-goc-ten-hon-thom -->
@@ -389,27 +389,27 @@ Người địa phương có cách giải thích tên Cửa Cạn từ hiện t�
 
 ### Tóm tắt
 
-Vì sao có tên Hòn Thơm? Người ta kể những chuyện khác nhau, từ hoa trái trên đảo đến mùi của sản vật biển. Những cách giải thích ấy vẫn là lời kể được lưu truyền, chưa có tư liệu đủ chắc để chọn một câu chuyện làm nguồn gốc duy nhất.
+Tại sao lại gọi là Hòn Thơm? Có người bảo vì đảo ngập tràn hương hoa trái, kẻ lại nói do mùi đặc trưng của sản vật biển khơi. Dù đa dạng, tất cả những lời giải thích đó vẫn đang bồng bềnh trong cõi truyền thuyết dân gian, bởi chưa có bất kỳ trang tư liệu nào đủ sức nặng để tôn vinh một câu chuyện duy nhất làm nguồn gốc chính thức.
 
 ### Thực tế khi đi
 
-Nếu có dịp nghe người Hòn Thơm kể chuyện tên đảo, cứ hỏi họ được nghe từ ai, vào thời điểm nào. Những lời kể truyền miệng cũng là một phần ký ức của nơi này, miễn là khi thuật lại mình giữ rõ đó là giai thoại, chưa phải mốc lịch sử đã được xác nhận.
+Nếu may mắn được ngồi nghe người dân Hòn Thơm mạn đàm về tên đảo, bạn cứ tò mò hỏi xem họ nghe câu chuyện đó từ ai, vào thuở nào. Những lời kể râm ran truyền miệng chính là nhịp đập ký ức của vùng đất này, miễn là bạn tỉnh táo nhận ra đó là những giai thoại bay bổng chứ chưa phải là cột mốc lịch sử khô khan.
 
 ### Kỳ vọng và thực tế
 
-Tên Hòn Thơm được giải thích theo nhiều cách, từ mùi hoa rừng tới hương biển. Hiện chưa có một lời giải được khảo cứu địa danh xác nhận là chính thức. Những dị bản có thể cùng tồn tại mà không cần chọn vội một câu chuyện làm kết luận.
+Tên Hòn Thơm giống như một khối rubik nhiều mặt, được giải mã bằng đủ mùi hương từ hoa rừng đến gió biển. Hiện tại, giới khảo cứu địa danh vẫn chưa gật đầu với bất kỳ một giả thuyết nào. Cứ để những dị bản ấy song hành cùng nhau, chẳng việc gì chúng ta phải nhắm mắt chọn bừa một cái kết.
 
 ### Trước khi đi
 
-- Giữ rõ cách nói “có lời kể rằng” khi kể lại.
-- Không gán một giai thoại thành sự kiện lịch sử.
-- Tìm bản đồ/tư liệu cũ nếu cần chốt mốc tên gọi.
-- Lắng nghe các dị bản mà không buộc người kể phải chọn một.
+- Luôn đệm cụm từ "tương truyền rằng" hay "có lời kể rằng" khi thuật lại các sự tích.
+- Đừng gò ép một giai thoại dân gian khoác lên mình chiếc áo sự kiện lịch sử.
+- Nếu muốn truy vấn tận gốc, hãy bắt đầu hành trình tìm kiếm các bản đồ hoặc tư liệu cổ.
+- Hãy là người nghe cởi mở, đón nhận mọi dị bản mà không dồn ép người kể phải chọn ra phương án đúng nhất.
 
 ### Câu hỏi gợi tò mò
 
-- Người dân An Thới kể những câu chuyện nào về tên Hòn Thơm?
-- Tên Hòn Thơm đã xuất hiện trên hải đồ từ bao giờ?
+- Người dân quanh vùng An Thới đang rỉ tai nhau những phiên bản thú vị nào về cái tên Hòn Thơm?
+- Chữ "Hòn Thơm" đã bám rễ trên các tấm hải đồ từ những năm tháng nào?
 
 ## 106. Nguồn gốc tên Hòn Móng Tay
 <!-- TOPIC_ID:knowledge_106_nguon-goc-ten-hon-mong-tay -->
@@ -418,27 +418,27 @@ Tên Hòn Thơm được giải thích theo nhiều cách, từ mùi hoa rừng 
 
 ### Tóm tắt
 
-Có cách kể rằng Hòn Móng Tay mang tên một loài cây từng mọc trên đảo. Câu chuyện được nhiều nguồn du lịch nhắc lại, nhưng chưa phải kết luận đã được chứng minh bằng khảo cứu địa danh và thực vật.
+Có một dạo người ta kháo nhau rằng, Hòn Móng Tay mang tên một loài cây từng mọc xanh tốt trên hòn đảo này. Dù mẩu chuyện ấy liên tục xuất hiện trên các trang mạng du lịch, nhưng thực tế, nó vẫn chưa nhận được cái gật đầu từ các chuyên gia khảo cứu địa danh và thực vật học.
 
 ### Thực tế khi đi
 
-Đi Hòn Móng Tay, bạn có thể hỏi hướng dẫn viên cách người địa phương kể về cái tên ấy. Có lời giải gắn với loài cây cùng tên, nhưng đừng kỳ vọng tới đảo hôm nay chắc chắn còn nhìn thấy đúng loài cây đó; cảnh quan và thảm thực vật đã thay đổi.
+Lên xuồng ra Hòn Móng Tay, bạn có thể gợi chuyện để nghe hướng dẫn viên kể về cái tên ngộ nghĩnh này. Dù có lời đồn đoán liên quan đến một loài cây, thì cũng đừng khăng khăng hy vọng sẽ tìm thấy tận mắt cái cây ấy khi đặt chân lên đảo; thời gian đã làm cảnh quan và thảm thực vật đổi thay nhiều lắm rồi.
 
 ### Kỳ vọng và thực tế
 
-Nguồn du lịch dùng cách diễn đạt 'được cho là' khi nói về nguồn gốc tên đảo, tức câu chuyện chưa có tư liệu sơ cấp xác nhận. Lời kể giúp địa danh dễ nhớ hơn, nhưng vẫn cần phân biệt với một kết luận đã được nghiên cứu.
+Những người làm nội dung du lịch cẩn trọng luôn dùng từ "được cho là" khi nhắc đến tên hòn đảo, ngầm hiểu rằng câu chuyện này vẫn vắng bóng những tư liệu gốc. Lời truyền miệng giúp cái tên đọng lại lâu hơn trong tâm trí, nhưng bạn vẫn phải rạch ròi nó với những nghiên cứu khoa học bài bản.
 
 ### Trước khi đi
 
-- Kể đây là cách giải thích được lưu truyền, không khẳng định chắc chắn.
-- Không tự hái cây để đối chiếu tên.
-- Hỏi người kể nguồn của câu chuyện nếu muốn tìm hiểu sâu.
-- Tôn trọng thực vật trên đảo nhỏ.
+- Giới thiệu nó như một cách giải thích đầy màu sắc của dân gian, đừng biến nó thành một lời khẳng định đanh thép.
+- Đừng manh động vặt lá, bẻ cành để cố đối chiếu với cái tên.
+- Nếu bạn thuộc hệ tò mò, hãy hỏi người kể về gốc gác của câu chuyện để đào sâu thêm.
+- Nhớ nhẹ tay và nâng niu mảng xanh trên hòn đảo nhỏ bé này.
 
 ### Câu hỏi gợi tò mò
 
-- Loài cây gắn với tên Hòn Móng Tay thực chất là cây gì?
-- Có tư liệu cũ nào ghi lại tên hòn đảo này không?
+- Thực chất, loài cây bí ẩn được cho là đã trao tên cho Hòn Móng Tay có hình dáng ra sao?
+- Liệu có trang bản thảo cổ nào từng lưu lại bút tích về hòn đảo nhỏ bé này không?
 
 ## 107. Giếng Tiên
 <!-- TOPIC_ID:knowledge_107_gieng-tien -->
@@ -476,27 +476,27 @@ Nguồn địa phương lưu lại câu chuyện Nguyễn Ánh tìm nước và 
 
 ### Tóm tắt
 
-Nguyễn Ánh từng tìm đến Phú Quốc trong thời gian bị quân Tây Sơn truy đuổi, theo các tư liệu về giai đoạn 1782-1783. Việc ông có mặt trên đảo thuộc lịch sử, còn các chuyện dấu kiếm, Giếng Tiên hay dấu chân là lớp truyền thuyết được kể thêm về sau.
+Những trang sử thời kỳ 1782-1783 ghi nhận rõ việc Nguyễn Ánh từng dạt ra Phú Quốc trong những ngày tháng chạy trốn quân Tây Sơn. Sự hiện diện của ông trên hòn đảo là một lát cắt lịch sử có thật; nhưng những dấu kiếm chém đá, Giếng Tiên hay vết chân hằn in thì lại là chiếc áo truyền thuyết được người đời dệt thêm sau này.
 
 ### Thực tế khi đi
 
-Ghé Mũi Ông Đội hoặc Giếng Tiên, có thể vừa xem địa hình vừa nghe chuyện Nguyễn Ánh được lưu truyền ở đây. Nếu kể lại một sự kiện lịch sử, hãy dựa vào niên đại và tư liệu sử học; những dấu vết được dân gian nhắc tới nên đặt ở phần giai thoại.
+Rong ruổi đến Mũi Ông Đội hay Giếng Tiên, bạn có thể vừa hít hà gió biển vừa mường tượng lại những câu chuyện về Nguyễn Ánh mà dân gian truyền tụng. Khi muốn nhắc về một sự kiện lịch sử, hãy bám chắc vào các mốc niên đại và tư liệu uy tín; còn những dấu tích huyễn hoặc, hãy trả chúng về đúng chỗ của những giai thoại mộng mơ.
 
 ### Kỳ vọng và thực tế
 
-Tư liệu cho biết Nguyễn Ánh từng tới Phú Quốc, nhưng không vì vậy mà mọi dấu kiếm hay vết đá gắn với ông đều trở thành chứng cứ. Phần lịch sử có nguồn riêng, còn những chuyện như kiếm chém đá là truyền thuyết địa phương.
+Sử sách xác nhận bước chân Nguyễn Ánh từng in dấu trên đất Phú Quốc, nhưng điều đó không có nghĩa mọi vết nứt trên đá hay mạch nước ngầm nào gắn với tên ông cũng tự động trở thành chứng cứ khoa học. Lịch sử có con đường riêng của nó, và truyền thuyết kiếm chém đá là cách mà ký ức dân gian được lưu truyền.
 
 ### Trước khi đi
 
-- Đọc niên đại và nguồn khi gặp câu chuyện về Nguyễn Ánh.
-- Không xem dấu kiếm hay Giếng Tiên là chứng tích lịch sử nếu chưa có kiểm chứng.
-- Hỏi lối vào hiện tại trước khi đi Mũi Ông Đội.
-- Tôn trọng câu chuyện dân gian mà không trộn lẫn với sử liệu.
+- Soi kỹ niên đại và nguồn gốc mỗi khi bắt gặp một mẩu chuyện về Nguyễn Ánh.
+- Đừng vội coi dấu kiếm hay Giếng Tiên là "chứng tích lịch sử" khi các nhà khoa học chưa lên tiếng.
+- Chịu khó hỏi thăm đường sá hiện tại trước khi quyết định chinh phục Mũi Ông Đội.
+- Trân trọng những dã sử dân gian, nhưng đừng nhào lộn chúng với những dòng sử liệu khô khan.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao Nguyễn Ánh nhiều lần tìm đến Phú Quốc khi bị truy đuổi?
-- Những câu chuyện về Nguyễn Ánh trên đảo, đâu là sử liệu và đâu là truyền thuyết?
+- Điều gì ở Phú Quốc khiến Nguyễn Ánh năm lần bảy lượt chọn làm nơi nương náu trong những ngày bôn tẩu?
+- Trong muôn vàn lời kể về Nguyễn Ánh trên đảo, ranh giới nào chia cắt giữa dòng sử thực và lớp sương mù truyền thuyết?
 
 ## 109. Nguyễn Trung Trực và Phú Quốc
 <!-- TOPIC_ID:knowledge_109_nguyen-trung-truc-va-phu-quoc -->
@@ -505,27 +505,27 @@ Tư liệu cho biết Nguyễn Ánh từng tới Phú Quốc, nhưng không vì 
 
 ### Tóm tắt
 
-Sau trận đánh đồn Kiên Giang năm 1868, Nguyễn Trung Trực cùng nghĩa quân chuyển căn cứ qua Hòn Chông rồi ra Phú Quốc. Những sự kiện cuối đời ông gắn với đảo, nhưng một số chi tiết về việc bị bắt còn có cách ghi khác nhau giữa các nguồn.
+Khép lại trận đánh rúng động đồn Kiên Giang năm 1868, Nguyễn Trung Trực cùng nghĩa quân rút về Hòn Chông rồi chọn Phú Quốc làm điểm tựa cuối cùng. Những ngày tháng cuối đời bi tráng của ông đã quyện chặt vào mảnh đất này, dẫu cho các nguồn tư liệu vẫn còn đôi chút mâu thuẫn khi kể lại khoảnh khắc ông sa cơ.
 
 ### Thực tế khi đi
 
-Muốn tìm hiểu Nguyễn Trung Trực ở Phú Quốc, hãy đọc bảng giới thiệu tại điểm tưởng niệm và xem nguồn tư liệu đứng sau từng mốc. Có những tình tiết cuối đời được kể theo các dị bản khác nhau; khi nguồn chưa thống nhất, nên ghi rõ câu chuyện đến từ đâu.
+Để thẩm thấu câu chuyện về Nguyễn Trung Trực ở Phú Quốc, hãy chậm rãi đọc những bảng giới thiệu tại khu tưởng niệm và tò mò tìm hiểu nguồn gốc của từng cột mốc. Vì những tình tiết cuối đời ông vẫn còn tồn tại các dị bản, nếu bạn định kể lại cho ai nghe, hãy sòng phẳng nói rõ mình lấy câu chuyện đó từ đâu.
 
 ### Kỳ vọng và thực tế
 
-Những sự kiện và niên đại chính của cuộc kháng chiến được nhiều nguồn ghi nhận, nhưng cách kể về việc ông bị bắt hay chủ động nộp mình cùng nguyên nhân trực tiếp chưa hoàn toàn giống nhau. Ghi lại sự khác biệt giữa các tư liệu trung thực hơn việc chọn một dị bản rồi kể như không còn tranh luận.
+Trong khi những trang vàng lịch sử đã khắc ghi các cột mốc chính của cuộc khởi nghĩa, thì khoảnh khắc ông bị bắt hay vì nghĩa lớn mà tự nộp mình lại được kể theo nhiều cách khác nhau. Việc trung thực ghi nhận những điểm chưa thống nhất giữa các tư liệu sẽ đáng giá hơn nhiều so với việc ép mình chọn một dị bản rồi đóng đinh nó như một sự thật bất di bất dịch.
 
 ### Trước khi đi
 
-- Tách sự kiện 1868 khỏi các tình tiết còn dị bản.
-- Ưu tiên tài liệu bảo tàng, chính quyền và nghiên cứu lịch sử.
-- Không gán tên địa điểm hiện tại cho vị trí lịch sử nếu chưa đối chiếu.
-- Giữ thái độ tôn trọng tại nơi tưởng niệm.
+- Rạch ròi giữa sự kiện năm 1868 và những tình tiết vẫn còn mang nhiều dị bản.
+- Đặt niềm tin vào tài liệu từ bảo tàng, chính quyền và các nhà nghiên cứu lịch sử.
+- Đừng tùy tiện lấy tên địa danh ngày nay để áp vào vị trí lịch sử nếu chưa có sự đối chiếu kỹ lưỡng.
+- Giữ một tâm thế trang nghiêm, tĩnh lặng khi bước vào nơi tưởng niệm.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao nghĩa quân Nguyễn Trung Trực chọn Phú Quốc làm căn cứ cuối?
-- Các tài liệu kể khác nhau thế nào về việc ông bị bắt hoặc nộp bạn?
+- Yếu tố nào đã biến Phú Quốc thành căn cứ địa cuối cùng cho nghĩa quân Nguyễn Trung Trực?
+- Có những mảnh ghép khác biệt nào giữa các tài liệu khi nói về việc ông sa lưới hay chủ động nộp mình cứu chúng dân?
 
 ## 110. Tín ngưỡng Dinh Cậu
 <!-- TOPIC_ID:knowledge_110_tin-nguong-dinh-cau -->
@@ -725,27 +725,27 @@ Một số nguồn ghi nhận chó Phú Quốc có khả năng leo trèo, nhưng
 
 ### Tóm tắt
 
-Trong những chuyện kể về Phú Quốc, Bà Kim Giao được nhớ như người khai khẩn đất và chỉ dẫn việc làm ruộng. Nguồn địa phương gắn bà với Dinh Bà Trong ở Cửa Cạn; đừng nhầm với vị được thờ ở Dinh Bà Ngoài Dương Đông.
+Giữa những dòng dã sử của Phú Quốc, Bà Kim Giao hiện lên như một nữ thần khai hoang, người đã dạy dân những bài học vỡ lòng về nghề nông. Người địa phương thường nhắc đến bà tại Dinh Bà Trong ở Cửa Cạn; và bạn nhớ đừng lầm tưởng bà với vị thần được thờ tại Dinh Bà Ngoài dưới Dương Đông nhé.
 
 ### Thực tế khi đi
 
-Đi thăm các nơi thờ Bà trên đảo, nên xác nhận đúng địa điểm vì tên gọi gần nhau dễ khiến người mới tới nhầm lẫn. Có thể hỏi người trông coi về câu chuyện được truyền qua các thế hệ, rồi khi kể lại nhớ tách lời tín ngưỡng khỏi những thông tin có nguồn sử liệu.
+Trên đường viếng các Dinh Bà, hãy cẩn thận đối chiếu địa danh bởi những cái tên hao hao nhau rất dễ làm người mới đến "lạc trôi". Đừng ngần ngại hỏi chuyện những người trông coi để nghe họ kể về những ký ức được truyền đời, nhưng khi mang chuyện đó đi kể lại, nhớ tách bạch lớp vỏ tín ngưỡng với những sự kiện có gốc gác sử liệu đàng hoàng.
 
 ### Kỳ vọng và thực tế
 
-Bà Kim Giao hiện diện trong truyền thuyết và sinh hoạt tín ngưỡng, nhưng chưa có nghĩa mọi chi tiết về nhân vật đều đã được lịch sử xác nhận. Bà Kim Giao và Thủy Long Thánh Mẫu cũng thuộc hai mạch thờ tự khác nhau, không nên kể gộp.
+Hình bóng Bà Kim Giao in đậm trong truyền thuyết và các nghi thức tín ngưỡng, nhưng điều đó không đồng nghĩa với việc mọi chi tiết về bà đều có thật trong lịch sử. Hơn nữa, Bà Kim Giao và Thủy Long Thánh Mẫu là hai dòng chảy tín ngưỡng hoàn toàn riêng biệt, việc "nhập chung" hai nhân vật này khi kể chuyện là điều không nên.
 
 ### Trước khi đi
 
-- Dùng đúng tên Dinh Bà Trong/Cửa Cạn và Dinh Bà Ngoài/Dương Đông.
-- Ăn mặc, cư xử phù hợp nơi thờ tự.
-- Hỏi trước khi chụp người đang hành lễ.
-- Kể câu chuyện như truyền thuyết địa phương, không gắn mốc chắc khi thiếu tư liệu.
+- Nằm lòng để gọi đúng tên: Dinh Bà Trong (Cửa Cạn) và Dinh Bà Ngoài (Dương Đông).
+- Chọn trang phục kín đáo và hành xử nhã nhặn khi đến chốn linh thiêng.
+- Luôn xin phép trước nếu muốn đưa máy ảnh lên chụp người đang làm lễ.
+- Hãy kể câu chuyện về bà như một huyền thoại đẹp của địa phương, đừng tự gán cho nó những mốc lịch sử cứng nhắc khi chưa đủ bằng chứng.
 
 ### Câu hỏi gợi tò mò
 
-- Dinh Bà Trong và Dinh Bà Ngoài thờ những ai?
-- Vì sao Phú Quốc có nhiều câu chuyện dân gian về các vị nữ thần?
+- Có những nhân vật lịch sử hay huyền thoại nào đang được suy tôn tại Dinh Bà Trong và Dinh Bà Ngoài?
+- Mảnh đất Phú Quốc có gì đặc biệt mà lại dung dưỡng nhiều truyền thuyết về các vị nữ thần đến vậy?
 
 ## 118. Các giai thoại về Nguyễn Ánh trên đảo
 <!-- TOPIC_ID:knowledge_118_cac-giai-thoai-ve-nguyen-anh-tren-dao -->
@@ -754,27 +754,27 @@ Bà Kim Giao hiện diện trong truyền thuyết và sinh hoạt tín ngưỡn
 
 ### Tóm tắt
 
-Giếng Tiên, Mũi Ông Đội, dấu kiếm và nhiều địa danh Nam đảo thường đi cùng các giai thoại về Nguyễn Ánh. Những chuyện ấy tạo nên ký ức dân gian của người địa phương, nhưng việc Nguyễn Ánh từng tới đảo không đồng nghĩa mọi dấu tích được kể đều có chứng cứ lịch sử.
+Cứ đến Nam đảo là người ta lại rỉ tai nhau về Giếng Tiên, Mũi Ông Đội, hay những phiến đá hằn sâu vết kiếm - tất cả đều được thêu dệt quanh bóng hình Nguyễn Ánh. Chúng vẽ nên một bức tranh ký ức dân gian sống động, nhưng bạn cần nhớ rằng: việc Nguyễn Ánh từng ẩn náu ở đây không biến mọi dấu tích dân gian thành chứng cứ lịch sử.
 
 ### Thực tế khi đi
 
-Đi cùng người địa phương, bạn có thể nghe nhiều giai thoại về Nguyễn Ánh ở các điểm khác nhau trên đảo. Hãy hỏi câu chuyện nào dựa trên tư liệu và phần nào được truyền miệng. Khi ghé những địa danh ấy, vẫn cần xác nhận đường vào và tránh tác động lên dấu tích tự nhiên.
+Nếu may mắn có thổ địa dẫn đường, bạn sẽ được tắm mình trong cơn mưa giai thoại về Nguyễn Ánh rải rác khắp hòn đảo. Hãy tinh ý hỏi xem đâu là tình tiết có sách vở ghi nhận, đâu là đoạn được dân gian thêm thắt. Và dù có tò mò đến mấy khi ghé thăm những địa danh ấy, nhớ hỏi rõ đường đi nước bước và tuyệt đối không xâm phạm vào các tạo tác của thiên nhiên.
 
 ### Kỳ vọng và thực tế
 
-Một câu chuyện được nhiều người kể chưa thể tự biến mỗi vết đá hay mạch nước thành chứng cứ lịch sử. Giai thoại cho biết cách cộng đồng nhớ về quá khứ; để xác nhận sự kiện cụ thể vẫn cần hồ sơ, niên đại và nghiên cứu phù hợp.
+Một giai thoại dù được hàng ngàn người truyền miệng cũng không thể hô biến một vết nứt trên đá hay một rãnh nước thành hiện vật khảo cổ. Những câu chuyện ấy cho ta thấy cách người xưa nâng niu ký ức; nhưng để chốt hạ một sự kiện lịch sử, người ta vẫn phải cần đến những tập hồ sơ, những mốc niên đại và các công trình nghiên cứu nghiêm túc.
 
 ### Trước khi đi
 
-- Giữ cách gọi “truyền thuyết/giai thoại” với các dấu tích chưa kiểm chứng.
-- Không khắc thêm hoặc làm hư bề mặt đá tự nhiên.
-- Hỏi lối tiếp cận công khai tới Mũi Ông Đội.
-- Đọc thêm nguồn lịch sử nếu cần phân biệt các sự kiện.
+- Nhất quán sử dụng từ "truyền thuyết" hay "giai thoại" cho những dấu tích còn nhuốm màu huyền bí.
+- Tuyệt đối không táy máy khắc tên hay làm sứt mẻ những khối đá tự nhiên.
+- Tìm hiểu kỹ lối tiếp cận an toàn, hợp pháp trước khi nhắm hướng Mũi Ông Đội.
+- Chịu khó lật giở vài trang sử nếu muốn minh bạch hóa các sự kiện.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao nhiều địa danh Nam đảo gắn với chuyện Nguyễn Ánh?
-- Giếng Tiên có thật, còn những chi tiết nào thuộc về truyền thuyết?
+- Có mối duyên nợ nào khiến Nam đảo lưu giữ quá nhiều giai thoại về Nguyễn Ánh đến vậy?
+- Giếng Tiên là một mạch nước có thật, vậy những chi tiết bay bổng nào xung quanh nó là do người đời dệt nên?
 
 ## 119. Nhà tù Phú Quốc qua các thời kỳ
 <!-- TOPIC_ID:knowledge_119_nha-tu-phu-quoc-qua-cac-thoi-ky -->
@@ -783,27 +783,27 @@ Một câu chuyện được nhiều người kể chưa thể tự biến mỗi
 
 ### Tóm tắt
 
-Nhà tù Phú Quốc trải qua những giai đoạn khác nhau, từ Căng Cây Dừa thời Pháp đến trại giam tù binh trong chiến tranh Việt Nam. Khi thăm di tích ngày nay, đọc mốc thời gian và phân biệt chứng tích với phần phục dựng sẽ giúp hiểu câu chuyện đầy đủ hơn.
+Trải qua bao thăng trầm, Nhà tù Phú Quốc đã chứng kiến những thời khắc đen tối, từ Căng Cây Dừa dưới ách người Pháp cho đến trại giam tù binh rùng rợn trong chiến tranh Việt Nam. Bước chân vào di tích hôm nay, việc chậm rãi đọc từng mốc thời gian và tinh ý nhận ra đâu là chứng tích gốc, đâu là mô hình phục dựng sẽ giúp bạn thấm thía trọn vẹn sức nặng của lịch sử.
 
 ### Thực tế khi đi
 
-Thăm di tích Nhà tù Phú Quốc, nên dành thời gian đọc bảng thông tin và đi theo trình tự các khu, không chỉ dừng ở những mô hình gây ấn tượng mạnh. Gia đình có trẻ nhỏ cần cân nhắc nội dung tái hiện. Khi kể lại, nhớ phân biệt những chứng tích còn lại với phần dựng lại để minh họa.
+Trong chuyến thăm Nhà tù Phú Quốc, hãy dành một khoảng lặng để đọc các bảng thông tin và bước đi theo đúng trình tự, thay vì chỉ chăm chăm chụp ảnh những mô hình tra tấn ám ảnh. Nếu đi cùng trẻ nhỏ, bạn cần cân nhắc cẩn thận trước những phân khu tái hiện cảnh bạo lực. Và khi kể lại chuyến đi, hãy nhắc mình rạch ròi giữa những mảnh vỡ còn sót lại và những khu vực được xây dựng lại để minh họa.
 
 ### Kỳ vọng và thực tế
 
-Không phải công trình nào khách nhìn thấy hôm nay cũng còn nguyên trạng từ thời nhà tù. Phục dựng giúp người xem hình dung bối cảnh nhưng phải được đọc cùng chú thích và tư liệu. Đằng sau mỗi câu chuyện là những con người từng trải qua chiến tranh, nên chuyến thăm cần sự tôn trọng.
+Đừng nhầm tưởng mọi hàng rào hay phòng giam bạn thấy hôm nay đều là những vật thể nhuốm máu từ quá khứ. Việc phục dựng giúp hậu thế dễ hình dung hơn về địa ngục trần gian, nhưng chúng cần được soi chiếu qua những dòng chú thích và tài liệu lịch sử. Phía sau mỗi mô hình là máu, nước mắt và những kiếp người bị chiến tranh vùi dập, vậy nên, mọi ánh nhìn và bước chân ở đây đều cần được nêm nếm sự thành kính.
 
 ### Trước khi đi
 
-- Xem trước nội dung trưng bày nếu đi cùng trẻ nhỏ.
-- Đọc chú thích để phân biệt hiện vật/chứng tích và phục dựng.
-- Không tạo dáng đùa cợt ở khu tưởng niệm.
-- Kiểm tra giờ tham quan trước ngày đi.
+- Quét trước nội dung các khu trưng bày để xem có phù hợp với tâm lý trẻ nhỏ đi cùng không.
+- Để tâm đọc chú thích để không nhầm lẫn giữa hiện vật thật và đồ phục dựng.
+- Tuyệt đối cấm kỵ việc đùa giỡn, cợt nhả hay tạo dáng vô duyên tại khu tưởng niệm.
+- Gọi điện kiểm tra lại giờ mở cửa trước ngày khởi hành.
 
 ### Câu hỏi gợi tò mò
 
-- Căng Cây Dừa thời Pháp khác trại giam giai đoạn 1967-1973 ra sao?
-- Những phần nào tại di tích còn là chứng tích gốc, phần nào được phục dựng?
+- Có những điểm khác biệt cốt lõi nào giữa Căng Cây Dừa thời Pháp thuộc và trại giam những năm 1967-1973?
+- Bạn có thể nhận diện đâu là những chứng tích nguyên bản gồng gánh nỗi đau lịch sử, và đâu là những phần được khôi phục sau này?
 
 ## 120. Cư dân đầu tiên và quá trình định cư
 <!-- TOPIC_ID:knowledge_120_cu-dan-dau-tien-va-qua-trinh-dinh-cu -->
@@ -812,7 +812,7 @@ Không phải công trình nào khách nhìn thấy hôm nay cũng còn nguyên 
 
 ### Tóm tắt
 
-Có thể kể khá chắc về các làn sóng định cư được ghi chép từ cuối thế kỷ XVII, khi Phú Quốc nằm trong mạng lưới Hà Tiên và nhiều nhóm Việt, Hoa được chiêu tập đến khai khẩn. Nhưng câu hỏi 'ai là cư dân đầu tiên trên đảo' hiện chưa có đủ bằng chứng khảo cổ trong bộ nguồn để trả lời nghiêm túc.
+Chúng ta có thể kể vanh vách về những luồng di dân ồ ạt từ cuối thế kỷ XVII, thời điểm Phú Quốc hòa nhịp cùng mạng lưới Hà Tiên, dang tay đón những nhóm người Việt, người Hoa đến khẩn hoang. Nhưng nếu ai đó cắc cớ hỏi "Ai mới là chủ nhân đầu tiên của hòn đảo này?", thì đành chịu, bởi kho tư liệu khảo cổ hiện tại vẫn đang bất lực trong việc đưa ra một câu trả lời khả tín.
 
 ### Thực tế khi đi
 
@@ -820,14 +820,14 @@ Có thể kể khá chắc về các làn sóng định cư được ghi chép t
 
 ### Kỳ vọng và thực tế
 
-Lịch sử khai khẩn có văn bản không đồng nghĩa với lịch sử cư trú bắt đầu từ thời Mạc Cửu. Con người có thể đã hiện diện trên đảo sớm hơn nhiều, nhưng cần khảo cổ học để nói chắc.
+Dẫu những trang sử khai hoang rực rỡ có bắt đầu từ thời Mạc Cửu, điều đó không tước đi khả năng con người đã in dấu chân lên đảo ngọc từ rất lâu trước đó. Nhưng để biến "có khả năng" thành "sự thật", chúng ta vẫn phải kiên nhẫn chờ đợi những nhát cuốc của các nhà khảo cổ học.
 
 ### Trước khi đi
 
 
 ### Câu hỏi gợi tò mò
 
-- Có di chỉ khảo cổ nào trên Phú Quốc cho biết con người đã ở đây trước thế kỷ XVII?
-- Các cộng đồng Việt, Hoa và Khmer đã tương tác với nhau trên đảo và quanh vịnh Thái Lan ra sao?
-- Khi nào các làng cư trú được ghi nhận rõ trong địa bạ?
+- Liệu lòng đất Phú Quốc có đang giấu giếm di chỉ khảo cổ nào chứng minh sự hiện diện của con người trước thế kỷ XVII?
+- Các cộng đồng người Việt, Hoa và Khmer đã va chạm, giao thoa và chung sống ra sao trên hòn đảo và quanh vùng vịnh Thái Lan?
+- Từ khi nào, những xóm làng đầu tiên mới được "điểm danh" chính thức trong các sổ địa bạ?
 
