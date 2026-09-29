@@ -190,7 +190,12 @@
       if(sunsetWx.reason==="observed_rain"){
        note="Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi.";
       }else if(sunsetWx.reason==="horizon_cloud"){
-       note="Ảnh vệ tinh đang thấy nhiều mây trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.";
+       const areas=Array.isArray(sunsetWx.horizon_cloud_points)?sunsetWx.horizon_cloud_points.filter(Boolean):[];
+       note=areas.length===1
+        ?"Mây đang dày hơn trên hướng chân trời ở "+areas[0]+". Mặt trời có thể bị che lúc lặn."
+        :areas.length>1
+         ?"Mây đang dày hơn trên hướng chân trời ở "+areas.join(" và ")+". Một phần bờ Tây có thể bị che lúc mặt trời lặn."
+         :"Ảnh vệ tinh đang thấy mây dày hơn trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.";
       }else if(sunsetWx.reason==="cloud_approaching"){
        note="Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
       }else if(sunsetWx.reason==="low_visibility"){
