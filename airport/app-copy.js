@@ -4,8 +4,8 @@ const setText=(el,text)=>{if(el&&el.textContent!==text)el.textContent=text};
 const replaceText=(el,replacements)=>{if(!el||!el.textContent)return;let next=el.textContent;for(const [a,b] of replacements)next=next.replace(a,b);if(next!==el.textContent)el.textContent=next};
 const replaceHtml=(el,replacements)=>{if(!el||!el.textContent)return;let next=el.innerHTML;for(const [a,b] of replacements)next=next.replace(a,b);if(next!==el.innerHTML)el.innerHTML=next};
 const cleanPublicCopy=()=>{if(window.JT_I18N_ACTIVE)return;
-  setText($('.source-label'),'JoTrip Live · Auto refresh');
-  replaceText($('#updatedAt'),[[/JoTrip Live API/g,'JoTrip Live']]);
+  setText($('.source-label'),'Chuyến bay · tự cập nhật');
+  replaceText($('#updatedAt'),[[/JoTrip Live API/g,'Cập nhật tự động']]);
   replaceText($('#errorBox'),[
     [/Không đọc được dữ liệu Sun Airport lúc này\./g,'Chưa lấy được thông tin chuyến bay lúc này.'],
     [/JoTrip Live API tạm gián đoạn - đang dùng snapshot JoTrip AutoSync gần nhất\./g,'Cập nhật trực tiếp đang tạm gián đoạn - trang đang hiển thị bản gần nhất đã lưu.']
@@ -15,13 +15,13 @@ const cleanPublicCopy=()=>{if(window.JT_I18N_ACTIVE)return;
     [/Nguồn sân bay:/g,'Nguồn ghi:'],
     [/Trạng thái lấy trực tiếp từ dữ liệu Sun Airport\./g,'Tình trạng theo thông tin hiện có.'],
     [/Giờ cập nhật lấy từ dữ liệu sân bay\./g,'Giờ cập nhật theo thông tin chuyến bay.'],
-    [/JoTrip Live API \/ Sun Airport/g,'JoTrip Live'],
-    [/JoTrip AutoSync \/ Sun Airport/g,'JoTrip AutoSync']
+    [/JoTrip Live API \/ Sun Airport/g,'Nguồn chuyến bay'],
+    [/JoTrip AutoSync \/ Sun Airport/g,'Bản gần nhất đã lưu']
   ]);
 };
 if(typeof renderSummary==='function'){
   const base=renderSummary;
-  renderSummary=function(){base();setText($('.source-label'),'JoTrip Live · Auto refresh');replaceText($('#updatedAt'),[[/JoTrip Live API/g,'JoTrip Live']]);const ops=$('#opsState');if(ops&&ops.textContent.startsWith('WATCH ·'))setText(ops,ops.textContent.replace('BẤT THƯỜNG','ISSUES'));cleanPublicCopy();};
+  renderSummary=function(){base();setText($('.source-label'),'Chuyến bay · tự cập nhật');replaceText($('#updatedAt'),[[/JoTrip Live API/g,'Cập nhật tự động']]);const ops=$('#opsState');if(ops&&ops.textContent.startsWith('WATCH ·'))setText(ops,ops.textContent.replace('WATCH ·','THEO DÕI ·').replace('BẤT THƯỜNG','CẦN CHÚ Ý'));cleanPublicCopy();};
 }
 if(typeof renderHealth==='function'){
   const base=renderHealth;
