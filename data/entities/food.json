@@ -69,7 +69,7 @@
       "zone_id": null,
       "category": "local",
       "what_it_is": "Một món có chất địa phương rõ, ít phổ biến hơn bún quậy.",
-      "why_go": "Thường ăn với nước kèn cá, rau và topping tùy quán.",
+      "why_go": "Thường ăn với nước kèn cá, rau và phần ăn kèm tùy quán.",
       "best_for": [
         "food"
       ],
@@ -257,7 +257,7 @@
         "lunch"
       ],
       "tips": [
-        "Hỏi loại mực, topping đi kèm và giá tô.",
+        "Hỏi loại mực, phần ăn kèm đi kèm và giá tô.",
         "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
       ],
       "intents": [
@@ -288,7 +288,7 @@
         "lunch"
       ],
       "tips": [
-        "Hỏi tô có mắm tôm không nếu bạn không dùng được; xác nhận topping thực tế.",
+        "Hỏi tô có mắm tôm không nếu bạn không dùng được; xác nhận phần ăn kèm thực tế.",
         "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
       ],
       "intents": [
@@ -372,14 +372,14 @@
       "aliases": [],
       "zone_id": null,
       "category": "local",
-      "what_it_is": "Xôi nếp ăn kèm các loại topping mặn như trứng, chà bông hoặc lạp xưởng tùy chỗ bán. Đây là món ăn sáng tiện, không phải đặc sản riêng của đảo.",
+      "what_it_is": "Xôi nếp ăn kèm các loại phần ăn kèm mặn như trứng, chà bông hoặc lạp xưởng tùy chỗ bán. Đây là món ăn sáng tiện, không phải đặc sản riêng của đảo.",
       "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
       "best_for": [
         "breakfast",
         "snack"
       ],
       "tips": [
-        "Topping có thể có trứng, thịt hoặc nước sốt; hỏi thành phần nếu cần.",
+        "Phần ăn kèm có thể có trứng, thịt hoặc nước sốt; hỏi thành phần nếu cần.",
         "Thành phần, giá và khẩu phần có thể khác nhau giữa các quán."
       ],
       "intents": [
@@ -813,7 +813,7 @@
       "aliases": [],
       "zone_id": null,
       "category": "seafood",
-      "what_it_is": "Cơm chiên với một hoặc nhiều loại hải sản, hợp khi muốn một món dễ chia phần. Topping thực tế tùy quán.",
+      "what_it_is": "Cơm chiên với một hoặc nhiều loại hải sản, hợp khi muốn một món dễ chia phần. Phần ăn kèm thực tế tùy quán.",
       "why_go": "Tên gọi thường dựa trên nguyên liệu chính hoặc cách chế biến của món.",
       "best_for": [
         "lunch",
