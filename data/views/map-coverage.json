@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 233,
-    "missing_count": 161
+    "ready_count": 242,
+    "missing_count": 152
   },
   "layers": {
     "zones": [
@@ -377,6 +377,19 @@
         "note": "Area anchor decoded from published Plus Code 629R+9RP for Suối Tiên. Dùng để định hướng khu vực; không xác nhận bãi giữ xe, đầu đường mòn hay điểm xuống suối.",
         "accuracy": "published_named_destination_plus_code_area_anchor",
         "plus_code": "629R+9RP"
+      },
+      {
+        "id": "place_phu_quoc_ridgeback_center",
+        "name": "Trung tâm bảo tồn chó xoáy Phú Quốc",
+        "type": "place",
+        "lat": 10.1781374,
+        "lon": 104.0085517,
+        "precision": "site_centroid",
+        "source": "Exact named Thanh Nga Ridgeback Center coordinate from directory, cross-checked against official Phu Quoc tourism identity and current structured business map result within 3 m",
+        "source_id": "ridgeback_tieukhu77_crosscheck_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm cơ sở để định hướng. Không xác nhận cổng vào/điểm bán vé. Candidate 10.1781374,104.0085517 khớp exact named structured business result trong bán kính 3 m; nguồn du lịch chính thức xác nhận canonical Tiểu khu 77, Dương Tơ.",
+        "accuracy": "named_business_crosschecked_site_centroid"
       }
     ],
     "stay": [
@@ -1691,6 +1704,19 @@
         "verified_at": "2026-09-28",
         "note": "Tâm cơ sở lấy từ Google Maps iframe do chính website DNG nhúng cho trụ sở chính Dương Đông. Không xác nhận chính xác cửa vào, vị trí cấp cứu hay điểm đón trả.",
         "accuracy": "operator_embedded_google_map_site_centroid"
+      },
+      {
+        "id": "utility_dng_clinic_an_thoi",
+        "name": "Phòng khám Đa khoa Quốc tế DNG - An Thới",
+        "type": "utility",
+        "lat": 10.03629,
+        "lon": 104.009,
+        "precision": "site_centroid",
+        "source": "Official DNG An Thoi branch identity cross-checked to the exact structured business Place ID by independent distance probes; accepted probe returned 1 m",
+        "source_id": "dng_an_thoi_operator_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm cơ sở DNG An Thới để định hướng. Không xác nhận chính xác cửa vào, vị trí cấp cứu hoặc điểm đón trả.",
+        "accuracy": "operator_identity_structured_business_site_centroid"
       },
       {
         "id": "utility_tgdd_142a_ntr",
@@ -3253,6 +3279,19 @@
         "accuracy": "operator_linked_google_maps_coordinate"
       },
       {
+        "id": "utility_longchau_tran_phu",
+        "name": "Nhà thuốc Long Châu - 42 Trần Phú",
+        "type": "utility",
+        "lat": 10.222554,
+        "lon": 103.9568,
+        "precision": "site_centroid",
+        "source": "Current Long Chau Phu Quoc operator directory identity cross-checked to exact structured business Place ID by distance trilateration to 0 m",
+        "source_id": "longchau_42_tranphu_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm cơ sở của đúng chi nhánh 42 Trần Phú. Exact structured business Place ID ChIJTwTlvZGNpzERc1Oov0CGDQY trả khoảng cách 0 m tại tọa độ này. Không coi là cửa vào.",
+        "accuracy": "operator_identity_structured_business_site_centroid"
+      },
+      {
         "id": "utility_longchau_nguyen_trung_truc",
         "name": "Nhà thuốc Long Châu - 327 Nguyễn Trung Trực",
         "type": "utility",
@@ -3263,6 +3302,19 @@
         "precision": "site_centroid",
         "source": "Long Châu official location page",
         "verified_at": "2026-09-21"
+      },
+      {
+        "id": "utility_longchau_an_thoi",
+        "name": "Nhà thuốc Long Châu - 46 Nguyễn Văn Cừ",
+        "type": "utility",
+        "lat": 10.018225,
+        "lon": 104.014649,
+        "precision": "site_centroid",
+        "source": "Exact Long Chau 46 Nguyen Van Cu branch identity from operator page, cross-checked to the current structured business map entity at 0 m by coordinate probe",
+        "source_id": "longchau_46_operator_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm cơ sở của đúng chi nhánh 46 Nguyễn Văn Cừ. Structured business Place ID ChIJY5o0asSXpzERJEewEY1Dy9U trả khoảng cách 0 m tại tọa độ probe này. Không coi là tọa độ cửa vào.",
+        "accuracy": "operator_identity_structured_business_site_centroid"
       },
       {
         "id": "utility_vinmec_duong_dong_clinic",
@@ -3322,6 +3374,19 @@
         "lookup_query": "Vietcombank PGD Dương Đông - ATM, 193 Nguyễn Trung Trực, Khu phố 5 Dương Đông, Đặc khu Phú Quốc, An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      {
+        "id": "utility_vcb_atm_an_thoi",
+        "name": "Vietcombank PGD An Thới - ATM",
+        "type": "utility",
+        "lat": 10.02359,
+        "lon": 104.01741,
+        "precision": "site_centroid",
+        "source": "Vietcombank official PGD An Thoi identity cross-checked to exact structured business Place ID by multi-point distance probing; candidate converged to 1 m",
+        "source_id": "vietcombank_an_thoi_operator_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm địa điểm của PGD An Thới/ATM cùng địa chỉ 199 Nguyễn Văn Cừ để định hướng. Không xác nhận cửa ATM hoặc cửa vào.",
+        "accuracy": "operator_identity_structured_business_site_centroid"
       },
       {
         "id": "utility_fuel_my_anh_an_thoi",
@@ -3411,6 +3476,62 @@
         "verified_at": "2026-09-29",
         "note": "Tọa độ lấy từ link Nhận chỉ đường Google Maps do trang chi nhánh chính thức Điện Máy Chợ Lớn Phú Quốc công bố. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
         "accuracy": "operator_linked_google_maps_coordinate"
+      },
+      {
+        "id": "utility_minimart_one_mart_duong_dong",
+        "name": "One Mart - 16 đường 30 Tháng 4",
+        "type": "utility",
+        "lat": 10.215321,
+        "lon": 103.960894,
+        "precision": "site_centroid",
+        "source": "Current business-registry identity cross-checked to the exact structured business Place ID; accepted numeric probe returned 0 m",
+        "source_id": "one_mart_16_30thang4_registry_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm địa điểm One Mart tại số 16 đường 30 Tháng 4 để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa theo thời gian thực.",
+        "accuracy": "registry_identity_structured_business_site_centroid",
+        "plus_code": null
+      },
+      {
+        "id": "utility_fuel_dong_loi_1",
+        "name": "Trạm xăng dầu Đông Lợi 1",
+        "type": "utility",
+        "lat": 10.2295125,
+        "lon": 103.9820781,
+        "precision": "site_centroid",
+        "source": "Official Phu Quoc tourism directory identity cross-checked to the exact structured business Place ID; accepted numeric probe returned 2 m",
+        "source_id": "dong_loi_1_official_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm địa điểm Trạm xăng dầu Đông Lợi 1 để định hướng. Không xác nhận vị trí lối vào, trụ bơm hoặc trạng thái bán hàng theo thời gian thực.",
+        "accuracy": "official_directory_identity_structured_business_site_centroid",
+        "plus_code": null
+      },
+      {
+        "id": "utility_toilet_sunset_venice_02",
+        "name": "Nhà vệ sinh công cộng - 02 Venice, Sunset Town",
+        "type": "utility",
+        "lat": 10.0300503,
+        "lon": 104.0063604,
+        "precision": "site_centroid",
+        "source": "Exact structured public-restroom entity at 02 Venice cross-checked by independent distance probes; accepted numeric probe returned 2 m",
+        "source_id": "sunset_venice_02_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm POI nhà vệ sinh tại 02 Venice để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa hiện tại.",
+        "accuracy": "structured_business_site_centroid",
+        "plus_code": null
+      },
+      {
+        "id": "utility_toilet_sunset_venice_67",
+        "name": "Nhà vệ sinh công cộng - 67 Venice, Sunset Town",
+        "type": "utility",
+        "lat": 10.0319107,
+        "lon": 104.0042002,
+        "precision": "site_centroid",
+        "source": "Exact structured public-restroom entity at 67 Venice cross-checked by independent distance probes; accepted numeric probe returned 1 m",
+        "source_id": "sunset_venice_67_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm POI nhà vệ sinh tại 67 Venice để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa hiện tại.",
+        "accuracy": "structured_business_site_centroid",
+        "plus_code": null
       }
     ]
   },
@@ -3541,10 +3662,8 @@
     "utility_luggage_whalelo_grandworld",
     "utility_luggage_whalelo_sunset",
     "utility_pqc_airport_atms",
-    "utility_dng_clinic_an_thoi",
     "place_fish_sauce_house",
     "place_pepper_garden",
-    "place_phu_quoc_ridgeback_center",
     "utility_112",
     "utility_113",
     "utility_114",
@@ -3561,15 +3680,8 @@
     "utility_sunworld",
     "utility_vinmec",
     "utility_vinmec_er",
-    "utility_longchau_tran_phu",
-    "utility_longchau_an_thoi",
     "utility_longchau_ganh_dau",
-    "utility_vcb_atm_an_thoi",
-    "utility_fuel_dong_loi_1",
     "utility_parking_sunset_nightmarket",
-    "utility_toilet_sunset_venice_67",
-    "utility_toilet_sunset_venice_02",
-    "utility_minimart_one_mart_duong_dong",
     "utility_jotrip_local_service",
     "utility_taxi_xanhsm",
     "utility_grab_phuquoc",

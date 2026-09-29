@@ -1,0 +1,85 @@
+{
+  "batch": "GPS_BATCH9_VIETCOMBANK_AN_THOI_20260929",
+  "date": "2026-09-29",
+  "masterlock": "accuracy > coverage; address alone is not GPS; no road/area centroid or wrong-brand POI",
+  "entity_id": "utility_vcb_atm_an_thoi",
+  "decision": "PROMOTE_SITE_CENTROID",
+  "accepted_coordinate": {
+    "lat": 10.02359,
+    "lon": 104.01741,
+    "precision": "site_centroid"
+  },
+  "identity_evidence": [
+    {
+      "kind": "operator",
+      "source": "Vietcombank official branch list 2024",
+      "finding": "PGD An Thới - Số 199 Nguyễn Văn Cừ, khu phố 8, phường An Thới, TP Phú Quốc, tỉnh Kiên Giang"
+    },
+    {
+      "kind": "operator_crosscheck",
+      "source": "Vietcombank biometric-service branch list 2024",
+      "finding": "Same PGD An Thới and same 199 Nguyễn Văn Cừ address"
+    },
+    {
+      "kind": "structured_business",
+      "place_id": "ChIJQTscCQCXpzERnTIuXmkCwLs",
+      "name": "Vietcombank",
+      "address": "199 Đ. Nguyễn Văn Cừ, Phú Quốc",
+      "finding": "Exact bank entity repeatedly returned from coordinate probes"
+    }
+  ],
+  "coordinate_probes": [
+    {
+      "lat": 10.018225,
+      "lon": 104.014649,
+      "distance_m": 667
+    },
+    {
+      "lat": 10.012225,
+      "lon": 104.014649,
+      "distance_m": 1300
+    },
+    {
+      "lat": 10.024225,
+      "lon": 104.014649,
+      "distance_m": 311
+    },
+    {
+      "lat": 10.018225,
+      "lon": 104.020649,
+      "distance_m": 692
+    },
+    {
+      "lat": 10.02356,
+      "lon": 104.01741,
+      "distance_m": 4
+    },
+    {
+      "lat": 10.02359,
+      "lon": 104.01741,
+      "distance_m": 1
+    }
+  ],
+  "interpretation": "Numeric coordinate derived from the exact structured business entity by independent distance probes, then tied to operator identity. It is not an address geocode.",
+  "caveat": "Use as site centroid only. Do not present as exact ATM doorway or branch entrance.",
+  "expected_delta": {
+    "location_index_with_map": [
+      239,
+      240
+    ],
+    "map_coverage_ready": [
+      236,
+      237
+    ],
+    "map_coverage_missing": [
+      158,
+      157
+    ],
+    "research_holds": [
+      12,
+      11
+    ],
+    "intentional_no_fixed_pin": 4
+  },
+  "ci_trigger_note": "Batch 9 added atomically after re-checking main 881288c1b99b2201b35b8c330fa6e6057b66d76a"
+}

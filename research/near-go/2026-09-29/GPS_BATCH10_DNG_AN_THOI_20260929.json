@@ -1,0 +1,106 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "entity_id": "utility_dng_clinic_an_thoi",
+  "decision": "ACCEPT_SITE_CENTROID",
+  "accepted_coordinate": {
+    "lat": 10.03629,
+    "lon": 104.009
+  },
+  "precision": "site_centroid",
+  "evidence": [
+    {
+      "type": "OPERATOR_CONTACT",
+      "url": "https://dngclinic.com/lien-he/",
+      "fact": "DNG officially lists Cơ Sở An Thới at S259-S354 Khu Đô Thị Sun Grand City, An Thới."
+    },
+    {
+      "type": "OPERATOR_BRANCH_PAGE",
+      "url": "https://dngclinic.com/phong-kham-sai-gon-phu-quoc-an-thoi/",
+      "fact": "DNG's dedicated An Thới page identifies this as its second branch and repeats the S259-S354 Sun Grand City address."
+    },
+    {
+      "type": "STRUCTURED_BUSINESS_MAP",
+      "google_place_id": "ChIJU2YY86iWpzERfGNTGD1eM6Q",
+      "fact": "Exact named DNG An Thới business entity matches S259-S354 Sun Grand City and converges to 1 m at the accepted coordinate."
+    },
+    {
+      "type": "TRILATERATION_CHECKS",
+      "probes": [
+        {
+          "lat": 10.0388036,
+          "lon": 104.0067047,
+          "distance_m": 376
+        },
+        {
+          "lat": 10.0418036,
+          "lon": 104.0067047,
+          "distance_m": 661
+        },
+        {
+          "lat": 10.0358036,
+          "lon": 104.0067047,
+          "distance_m": 257
+        },
+        {
+          "lat": 10.0388036,
+          "lon": 104.0097047,
+          "distance_m": 290
+        },
+        {
+          "lat": 10.036294,
+          "lon": 104.008995,
+          "distance_m": 2
+        },
+        {
+          "lat": 10.03629,
+          "lon": 104.009,
+          "distance_m": 1
+        }
+      ],
+      "fact": "Independent probes converge on the same exact Place ID; accepted point is numeric business-centroid evidence, not an address geocode."
+    }
+  ],
+  "safety": "Accept as site centroid only. Do not claim exact entrance, emergency access point, current intake availability or live opening status.",
+  "source_audit": {
+    "verified_identity": true,
+    "verified_operation": false,
+    "verified_entrance": false
+  },
+  "incremental_delta": {
+    "location_index_with_map": [
+      240,
+      241
+    ],
+    "map_coverage_ready": [
+      237,
+      238
+    ],
+    "map_coverage_missing": [
+      157,
+      156
+    ],
+    "research_holds": [
+      11,
+      10
+    ]
+  },
+  "cumulative_from_main_baseline": {
+    "location_index_with_map": [
+      236,
+      241
+    ],
+    "map_coverage_ready": [
+      233,
+      238
+    ],
+    "map_coverage_missing": [
+      161,
+      156
+    ],
+    "intentional_no_fixed_pin": 4
+  },
+  "rebased_onto_main_sha": "a3378f19afc636078f43b269f333c1b964264906",
+  "ci_note": "Rerun after shared-loader Near Me test contract update and latest deploy-workflow sync."
+}

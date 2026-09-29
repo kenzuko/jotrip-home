@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "base_main_sha": "3ad65fefd804a0cd0970d9aed572c664484c8353",
+  "entity_id": "utility_longchau_an_thoi",
+  "decision": "ACCEPT_SITE_CENTROID",
+  "accepted_coordinate": {
+    "lat": 10.018225,
+    "lon": 104.014649
+  },
+  "precision": "site_centroid",
+  "evidence": [
+    {
+      "type": "OPERATOR_BRANCH_IDENTITY",
+      "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+      "fact": "Current Long Chau operator page confirms branch 46 Nguyen Van Cu, Phu Quoc."
+    },
+    {
+      "type": "STRUCTURED_BUSINESS_MAP",
+      "google_place_id": "ChIJY5o0asSXpzERJEewEY1Dy9U",
+      "fact": "Exact named pharmacy at 46 Nguyen Van Cu returns distance 0 m when queried around 10.018225,104.014649."
+    },
+    {
+      "type": "TRIANGULATION_CHECKS",
+      "probes": [
+        {
+          "lat": 10.012495,
+          "lon": 104.014629,
+          "distance_m": 634
+        },
+        {
+          "lat": 10.017495,
+          "lon": 104.014629,
+          "distance_m": 81
+        },
+        {
+          "lat": 10.018195,
+          "lon": 104.014629,
+          "distance_m": 4
+        },
+        {
+          "lat": 10.018225,
+          "lon": 104.014629,
+          "distance_m": 2
+        },
+        {
+          "lat": 10.018225,
+          "lon": 104.014649,
+          "distance_m": 0
+        }
+      ],
+      "fact": "Monotonic convergence to the exact same Place ID demonstrates that the accepted point is the mapped branch centroid, not a house-number geocoder guess."
+    }
+  ],
+  "rejected_old_candidate": {
+    "lat": 10.012495,
+    "lon": 104.014629,
+    "reason": "634 m from exact current Long Chau business entity; house-number-only Geoapify candidate rejected."
+  },
+  "safety": "Site centroid only. Does not claim entrance or operational status.",
+  "post_change": {
+    "location_index_with_map": 238,
+    "map_coverage_ready": 235,
+    "map_coverage_missing": 159,
+    "remaining_actual_nonhotel_no_map": 17,
+    "remaining_intentional_no_fixed_pin": 4,
+    "remaining_research_holds": 13
+  }
+}

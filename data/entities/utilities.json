@@ -377,13 +377,33 @@
       "source_refs": [
         {
           "source_id": "longchau_phuquoc_storelist_2026"
+        },
+        {
+          "source_id": "longchau_phuquoc_directory_42_tranphu_20260929",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "longchau_42_tranphu_google_place_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJTwTlvZGNpzERc1Oov0CGDQY",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-09-29",
       "phone_scope": "CHAIN",
       "operational_status": "UNKNOWN",
       "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
-      "map_review_note": "Đã gỡ pin geocode theo tên đường vì chưa xác minh đúng cửa nhà thuốc."
+      "map_review_note": "Tâm cơ sở của đúng chi nhánh 42 Trần Phú. Exact structured business Place ID ChIJTwTlvZGNpzERc1Oov0CGDQY trả khoảng cách 0 m tại tọa độ này. Không coi là cửa vào.",
+      "map": {
+        "lat": 10.222554,
+        "lon": 103.9568,
+        "precision": "site_centroid",
+        "source": "Current Long Chau Phu Quoc operator directory identity cross-checked to exact structured business Place ID by distance trilateration to 0 m",
+        "source_id": "longchau_42_tranphu_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm cơ sở của đúng chi nhánh 42 Trần Phú. Exact structured business Place ID ChIJTwTlvZGNpzERc1Oov0CGDQY trả khoảng cách 0 m tại tọa độ này. Không coi là cửa vào.",
+        "accuracy": "operator_identity_structured_business_site_centroid"
+      }
     },
     {
       "id": "utility_longchau_nguyen_trung_truc",
@@ -442,13 +462,33 @@
       "source_refs": [
         {
           "source_id": "longchau_phuquoc_storelist_2026"
+        },
+        {
+          "source_id": "longchau_46_official_branch_20260929",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "longchau_46_google_place_crosscheck_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJY5o0asSXpzERJEewEY1Dy9U",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào.",
+      "updated_at": "2026-09-29",
+      "map_review_note": "Tâm cơ sở của đúng chi nhánh 46 Nguyễn Văn Cừ. Structured business Place ID ChIJY5o0asSXpzERJEewEY1Dy9U trả khoảng cách 0 m tại tọa độ probe này. Không coi là tọa độ cửa vào.",
       "phone_scope": "CHAIN",
       "operational_status": "UNKNOWN",
-      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
+      "map": {
+        "lat": 10.018225,
+        "lon": 104.014649,
+        "precision": "site_centroid",
+        "source": "Exact Long Chau 46 Nguyen Van Cu branch identity from operator page, cross-checked to the current structured business map entity at 0 m by coordinate probe",
+        "source_id": "longchau_46_operator_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm cơ sở của đúng chi nhánh 46 Nguyễn Văn Cừ. Structured business Place ID ChIJY5o0asSXpzERJEewEY1Dy9U trả khoảng cách 0 m tại tọa độ probe này. Không coi là tọa độ cửa vào.",
+        "accuracy": "operator_identity_structured_business_site_centroid"
+      }
     },
     {
       "id": "utility_longchau_ganh_dau",
@@ -655,10 +695,35 @@
         },
         {
           "source_id": "vietcombank_phuquoc_locations_20251201"
+        },
+        {
+          "source_id": "vietcombank_an_thoi_official_branchlist_2024",
+          "url": "https://www.vietcombank.com.vn/-/media/Project/VCB-Sites/VCB/Tin-tuc/2024/Vietcombank/Vietcombank_202411/Vietcombank_20241121/Danh-sach-diem-giao-dich-Vietcombank.pdf",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "vietcombank_an_thoi_biometric_branchlist_2024",
+          "url": "https://www.vietcombank.com.vn/-/media/Project/VCB-Sites/VCB/KHCN/KHCN_Quick-Access/TIN-TUC-NOI-BAT/2024/T6/Sinh-trac-hoc/Danh-sach-CN-PGD-thu-thap-STH.pdf?ts=00010101000000",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "vietcombank_an_thoi_google_place_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJQTscCQCXpzERnTIuXmkCwLs",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "updated_at": "2026-09-29",
+      "map_review_note": "Tâm địa điểm của PGD An Thới/ATM cùng địa chỉ 199 Nguyễn Văn Cừ để định hướng. Không xác nhận cửa ATM hoặc cửa vào.",
+      "map": {
+        "lat": 10.02359,
+        "lon": 104.01741,
+        "precision": "site_centroid",
+        "source": "Vietcombank official PGD An Thoi identity cross-checked to exact structured business Place ID by multi-point distance probing; candidate converged to 1 m",
+        "source_id": "vietcombank_an_thoi_operator_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm địa điểm của PGD An Thới/ATM cùng địa chỉ 199 Nguyễn Văn Cừ để định hướng. Không xác nhận cửa ATM hoặc cửa vào.",
+        "accuracy": "operator_identity_structured_business_site_centroid"
+      }
     },
     {
       "id": "utility_fuel_dong_loi_1",
@@ -682,10 +747,31 @@
         },
         {
           "source_id": "map_directory_phuquoc_20260921"
+        },
+        {
+          "source_id": "visitpq_fuel_directory_20260929",
+          "url": "https://dulich.phuquoc.gov.vn/iv/detailutilities/?child=1240&id=1240",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "dong_loi_1_google_place_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJm4pOYouLpzER0exl4FJ98ag",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "updated_at": "2026-09-29",
+      "map_review_note": "Tâm địa điểm Trạm xăng dầu Đông Lợi 1 để định hướng. Không xác nhận vị trí lối vào, trụ bơm hoặc trạng thái bán hàng theo thời gian thực.",
+      "operational_status": "UNKNOWN",
+      "map": {
+        "lat": 10.2295125,
+        "lon": 103.9820781,
+        "precision": "site_centroid",
+        "source": "Official Phu Quoc tourism directory identity cross-checked to the exact structured business Place ID; accepted numeric probe returned 2 m",
+        "source_id": "dong_loi_1_official_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm địa điểm Trạm xăng dầu Đông Lợi 1 để định hướng. Không xác nhận vị trí lối vào, trụ bơm hoặc trạng thái bán hàng theo thời gian thực.",
+        "accuracy": "official_directory_identity_structured_business_site_centroid"
+      }
     },
     {
       "id": "utility_fuel_my_anh_an_thoi",
@@ -813,9 +899,26 @@
       "source_refs": [
         {
           "source_id": "map_directory_phuquoc_20260921"
+        },
+        {
+          "source_id": "sunset_venice_67_google_place_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJl-3yUwCVpzERceqfSiIeqEQ",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-09-29",
+      "operational_status": "UNKNOWN",
+      "map_review_note": "Tâm POI nhà vệ sinh tại 67 Venice để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa hiện tại.",
+      "map": {
+        "lat": 10.0319107,
+        "lon": 104.0042002,
+        "precision": "site_centroid",
+        "source": "Exact structured public-restroom entity at 67 Venice cross-checked by independent distance probes; accepted numeric probe returned 1 m",
+        "source_id": "sunset_venice_67_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm POI nhà vệ sinh tại 67 Venice để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa hiện tại.",
+        "accuracy": "structured_business_site_centroid"
+      }
     },
     {
       "id": "utility_toilet_sunset_venice_02",
@@ -838,10 +941,26 @@
       "source_refs": [
         {
           "source_id": "map_directory_phuquoc_20260921"
+        },
+        {
+          "source_id": "sunset_venice_02_google_place_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJ2aIjdACVpzER_zly-E9hYs8",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "updated_at": "2026-09-29",
+      "map_review_note": "Tâm POI nhà vệ sinh tại 02 Venice để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa hiện tại.",
+      "operational_status": "UNKNOWN",
+      "map": {
+        "lat": 10.0300503,
+        "lon": 104.0063604,
+        "precision": "site_centroid",
+        "source": "Exact structured public-restroom entity at 02 Venice cross-checked by independent distance probes; accepted numeric probe returned 2 m",
+        "source_id": "sunset_venice_02_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm POI nhà vệ sinh tại 02 Venice để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa hiện tại.",
+        "accuracy": "structured_business_site_centroid"
+      }
     },
     {
       "id": "utility_minimart_one_mart_duong_dong",
@@ -862,10 +981,31 @@
       "source_refs": [
         {
           "source_id": "map_directory_phuquoc_20260921"
+        },
+        {
+          "source_id": "one_mart_tax_registry_20260929",
+          "url": "https://masothue.com/8461194714-001-ho-kinh-doanh-one-mart",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "one_mart_google_place_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJoYYBDTCNpzER2dtFx6dyq1I",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào."
+      "updated_at": "2026-09-29",
+      "map_review_note": "Tâm địa điểm One Mart tại số 16 đường 30 Tháng 4 để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa theo thời gian thực.",
+      "operational_status": "UNKNOWN",
+      "map": {
+        "lat": 10.215321,
+        "lon": 103.960894,
+        "precision": "site_centroid",
+        "source": "Current business-registry identity cross-checked to the exact structured business Place ID; accepted numeric probe returned 0 m",
+        "source_id": "one_mart_16_30thang4_registry_structured_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm địa điểm One Mart tại số 16 đường 30 Tháng 4 để định hướng. Không xác nhận cửa vào chính xác hoặc trạng thái mở cửa theo thời gian thực.",
+        "accuracy": "registry_identity_structured_business_site_centroid"
+      }
     },
     {
       "id": "utility_minimart_homemart_an_thoi",

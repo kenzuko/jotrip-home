@@ -1930,11 +1930,37 @@
         },
         {
           "source_id": "google_maps_place_lookup_pending_pin"
+        },
+        {
+          "source_id": "ridgeback_official_tourism_20260929",
+          "url": "https://dulich.phuquoc.gov.vn/iv/trungtambaotonch",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "ridgeback_sotayvang_coordinate_20260929",
+          "url": "https://sotayvang.com/trung-tam-bao-ton-cho-xoay-phu-quoc-trang-trai-thanh-nga-duong-to/",
+          "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "ridgeback_google_place_crosscheck_20260929",
+          "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJC4baUACPpzERjbk_x22hQnI",
+          "checked_at": "2026-09-29"
         }
       ],
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-09-29",
       "address": "Tiểu khu 77, Dương Tơ, Đặc khu Phú Quốc, An Giang",
-      "address_precision": "AREA"
+      "address_precision": "AREA",
+      "map": {
+        "lat": 10.1781374,
+        "lon": 104.0085517,
+        "precision": "site_centroid",
+        "source": "Exact named Thanh Nga Ridgeback Center coordinate from directory, cross-checked against official Phu Quoc tourism identity and current structured business map result within 3 m",
+        "source_id": "ridgeback_tieukhu77_crosscheck_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tâm cơ sở để định hướng. Không xác nhận cổng vào/điểm bán vé. Candidate 10.1781374,104.0085517 khớp exact named structured business result trong bán kính 3 m; nguồn du lịch chính thức xác nhận canonical Tiểu khu 77, Dương Tơ.",
+        "accuracy": "named_business_crosschecked_site_centroid"
+      },
+      "map_review_note": "Tâm cơ sở để định hướng. Không xác nhận cổng vào/điểm bán vé. Candidate 10.1781374,104.0085517 khớp exact named structured business result trong bán kính 3 m; nguồn du lịch chính thức xác nhận canonical Tiểu khu 77, Dương Tơ."
     }
   ]
 }
