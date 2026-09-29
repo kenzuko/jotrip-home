@@ -31,6 +31,7 @@ on:
       - "scripts/build-knowledge-public.mjs"
       - "scripts/build-search-index.mjs"
       - "scripts/build-cloudflare.mjs"
+      - "scripts/visual-qa.mjs"
       - "weather/**"
       - "scripts/weather-cms-*.mjs"
       - "scripts/weather-engine/**"
