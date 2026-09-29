@@ -937,7 +937,7 @@ function todayLiveOverride(){
   const conv=nowcastFresh?num(n?.convective_score??l.convection_score):null;
   if((imminence!==null&&imminence>=80)||(conv!==null&&conv>=85))return {cls:"avoid",label:"Nên né khung này",reason:"Tín hiệu đối lưu ngắn hạn đang mạnh"};
   if((imminence!==null&&imminence>=60)||(conv!==null&&conv>=65))return {cls:"watch",label:"Cần để ý",reason:"Có tín hiệu mưa/đối lưu ngắn hạn"};
-  if(!localFresh&&!nowcastFresh)return {cls:"watch",label:"Cần để ý",reason:"Dữ liệu live đang trễ - kiểm tra bản đồ"};
+  if(!localFresh&&!nowcastFresh)return {cls:"watch",label:"Cần để ý",reason:"Cập nhật trực tiếp đang trễ - kiểm tra bản đồ"};
   return null;
 }
 function safeModelGust(row){
@@ -1426,7 +1426,7 @@ function renderCloudMotionTable(){
     const heading=nowcastFresh
       ?(m.public_track_usable===false?"Chưa đủ dữ liệu đường đi":motionHeadingText(m))
       :"Dữ liệu vệ tinh đang trễ";
-    const impact=nowcastFresh?(id?cloudImpactText(id,r.nowcast):"Theo dõi hành lang mây"):"Không phát ETA từ ảnh cũ";
+    const impact=nowcastFresh?(id?cloudImpactText(id,r.nowcast):"Theo dõi hành lang mây"):"Không ước tính giờ đến từ ảnh cũ";
     return '<tr>'+
       '<td><b>'+esc(r.name)+'</b></td>'+
       '<td><b>'+esc(cloud.label)+'</b><small>'+esc(cloud.detail)+'</small></td>'+
@@ -1830,7 +1830,7 @@ function buildQuickWatchEvents(){
       severity:first.eta<=60?"alert":"watch",
       when:"DỰ KIẾN "+arrival,
       title:"Vùng mây mưa đang hướng tới "+names.join(", "),
-      detail:"Himawari cho thấy đường đi đang cắt qua khu vực. "+(impactLabels[0]||"Cường độ đang được đối chiếu với model và ensemble")+".",
+      detail:"Himawari cho thấy đường đi đang cắt qua khu vực. "+(impactLabels[0]||"Cường độ đang được đối chiếu giữa các mô hình và quan trắc")+".",
       sort:Math.max(2,first.eta/60)
     });
   });
