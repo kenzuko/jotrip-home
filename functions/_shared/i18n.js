@@ -1,11 +1,11 @@
 export const DEFAULT_LOCALE="vi";
 export const LOCALES=Object.freeze([
-  Object.freeze({code:"vi",urlCode:"vi",htmlLang:"vi-VN",published:true}),
-  Object.freeze({code:"en",urlCode:"en",htmlLang:"en",published:false}),
-  Object.freeze({code:"ko",urlCode:"ko",htmlLang:"ko",published:false}),
-  Object.freeze({code:"ru",urlCode:"ru",htmlLang:"ru",published:false}),
-  Object.freeze({code:"zh-Hant",urlCode:"zh-hant",htmlLang:"zh-Hant",published:false}),
-  Object.freeze({code:"zh-Hans",urlCode:"zh-hans",htmlLang:"zh-Hans",published:false})
+  Object.freeze({code:"vi",urlCode:"vi",htmlLang:"vi-VN",published:true,surfaces:Object.freeze(["*"])}),
+  Object.freeze({code:"en",urlCode:"en",htmlLang:"en",published:false,surfaces:Object.freeze([])}),
+  Object.freeze({code:"ko",urlCode:"ko",htmlLang:"ko",published:false,surfaces:Object.freeze([])}),
+  Object.freeze({code:"ru",urlCode:"ru",htmlLang:"ru",published:false,surfaces:Object.freeze([])}),
+  Object.freeze({code:"zh-Hant",urlCode:"zh-hant",htmlLang:"zh-Hant",published:false,surfaces:Object.freeze([])}),
+  Object.freeze({code:"zh-Hans",urlCode:"zh-hans",htmlLang:"zh-Hans",published:false,surfaces:Object.freeze([])})
 ]);
 const byCode=new Map(LOCALES.map(x=>[x.code.toLowerCase(),x]));
 const byUrl=new Map(LOCALES.map(x=>[x.urlCode.toLowerCase(),x]));
@@ -37,6 +37,18 @@ export function canonicalFor(pathname,locale=DEFAULT_LOCALE,origin="https://open
 }
 export function hreflang(locale){
   return localeInfo(locale)?.htmlLang||DEFAULT_LOCALE;
+}
+export function routeGroup(pathname){
+  const path=String(pathname||"/");
+  if(path==="/"||path==="/index.html")return"home";
+  const m=/^\/([^/?#]+)/.exec(path);
+  return m?m[1]:"home";
+}
+export function localeCanServe(locale,pathname){
+  const info=localeInfo(locale);
+  if(!info||!info.published)return false;
+  const surfaces=Array.isArray(info.surfaces)?info.surfaces:[];
+  return surfaces.includes("*")||surfaces.includes(routeGroup(pathname));
 }
 export function alternateSet(pathname,availableLocales=[]){
   const unique=[...new Set(availableLocales.map(x=>localeInfo(x)?.code).filter(Boolean))];

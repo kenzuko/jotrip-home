@@ -11,7 +11,10 @@
       "native_name": "Tiếng Việt",
       "name": "Vietnamese",
       "direction": "ltr",
-      "published": true
+      "published": true,
+      "surfaces": [
+        "*"
+      ]
     },
     {
       "code": "en",
@@ -20,7 +23,8 @@
       "native_name": "English",
       "name": "English",
       "direction": "ltr",
-      "published": false
+      "published": false,
+      "surfaces": []
     },
     {
       "code": "ko",
@@ -29,7 +33,8 @@
       "native_name": "한국어",
       "name": "Korean",
       "direction": "ltr",
-      "published": false
+      "published": false,
+      "surfaces": []
     },
     {
       "code": "ru",
@@ -38,7 +43,8 @@
       "native_name": "Русский",
       "name": "Russian",
       "direction": "ltr",
-      "published": false
+      "published": false,
+      "surfaces": []
     },
     {
       "code": "zh-Hant",
@@ -47,7 +53,8 @@
       "native_name": "繁體中文",
       "name": "Traditional Chinese",
       "direction": "ltr",
-      "published": false
+      "published": false,
+      "surfaces": []
     },
     {
       "code": "zh-Hans",
@@ -56,7 +63,8 @@
       "native_name": "简体中文",
       "name": "Simplified Chinese",
       "direction": "ltr",
-      "published": false
+      "published": false,
+      "surfaces": []
     }
   ],
   "resources": {

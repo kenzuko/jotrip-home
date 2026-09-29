@@ -21,7 +21,7 @@ for(const locale of locales){
   availability.food[locale.code]=existsSync(foodFile)?ids(read(foodFile).dishes||[],"id"):[];
 }
 const catalog={schema_version:"1.0",default_locale:manifest.default_locale||"vi",
-  locales:locales.map(({code,url_code,html_lang,native_name,name,direction,published})=>({code,url_code,html_lang,native_name,name,direction,published:Boolean(published)})),
+  locales:locales.map(({code,url_code,html_lang,native_name,name,direction,published,surfaces})=>({code,url_code,html_lang,native_name,name,direction,published:Boolean(published),surfaces:Array.isArray(surfaces)?surfaces:[]})),
   availability};
 writeFileSync(join(root,"data/i18n/catalog.json"),JSON.stringify(catalog,null,2)+"\n","utf8");
 console.log("i18n catalog ready:",locales.length,"locales;",locales.filter(x=>x.published).length,"published");

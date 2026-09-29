@@ -13,6 +13,9 @@ for(const row of rows){
   assert.match(row.code,/^[A-Za-z]{2,3}(?:-[A-Za-z]{4})?$/);
   assert.match(row.url_code,/^[a-z]{2,3}(?:-[a-z]+)?$/);
   assert.ok(row.html_lang&&row.native_name&&row.direction);
+  assert.ok(Array.isArray(row.surfaces));
+  if(row.code==="vi")assert.deepEqual(row.surfaces,["*"]);
+  else assert.equal(row.surfaces.length,0);
 }
 const server=await import("data:text/javascript;base64,"+Buffer.from(readFileSync("functions/_shared/i18n.js","utf8")).toString("base64"));
 assert.equal(server.DEFAULT_LOCALE,"vi");
@@ -20,6 +23,9 @@ assert.equal(server.localizedPath("/stories/article.html","vi"),"/stories/articl
 assert.equal(server.localizedPath("/stories/article.html","en"),"/en/stories/article.html");
 assert.deepEqual(server.splitLocalePath("/en/stories/article.html").pathname,"/stories/article.html");
 assert.equal(server.splitLocalePath("/en/stories/article.html").published,false);
+assert.equal(server.routeGroup("/stories/article.html"),"stories");
+assert.equal(server.localeCanServe("vi","/weather/"),true);
+assert.equal(server.localeCanServe("en","/stories/"),false);
 assert.equal(server.canonicalFor("/guide/article.html?id=x","vi"),"https://openphuquoc.com/guide/article.html?id=x");
 assert.equal(server.canonicalFor("/guide/article.html?id=x","ko"),"https://openphuquoc.com/ko/guide/article.html?id=x");
 assert.equal(server.alternateSet("/stories/article.html",["vi","en"]).at(-1).hreflang,"x-default");
