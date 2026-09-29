@@ -34,7 +34,7 @@ const publish=readFileSync("functions/api/cms/publish.js","utf8");
 assert.match(publish,/mirrorData\.dishes=body\.content\.dishes/);
 const mutationCore=readFileSync("functions/_shared/cms-mutation-core.js","utf8");
 assert.match(publish,/scanOpenPullConflicts/,"Publish must use the shared conflict scanner");
-assert.match(mutationCore,/pathsToCheck\.has\(file\.filename\)/,"Shared conflict scanner must match touched files");
+assert.match(mutationCore,/wanted\.has\(file\.filename\)/,"Shared conflict scanner must match touched files");
 assert.match(readFileSync("functions/api/cms/edit-state.js","utf8"),/companion_sha/);
 assert.match(code,/id="foodInlinePublish"[^>]*hidden>Xuất bản/);
 assert.match(code,/state\.role==="admin"\)\$\("#foodInlinePublish"\)\.disabled=false/);
