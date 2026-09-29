@@ -46,6 +46,7 @@ on:
       - "places/detail.js"
       - "styles.css"
       - "scripts/validate-home-knowledge.mjs"
+      - "scripts/validate-public-copy.mjs"
       - "scripts/build-knowledge-public.mjs"
       - "scripts/build-search-index.mjs"
       - "scripts/build-cloudflare.mjs"
