@@ -1070,7 +1070,10 @@ function freshnessText(iso, prefix = "Cập nhật") {
         return false;
       }
       sunsetRecoveryCandidate = null;
-      if (sunsetKey(candidate) === sunsetKey(sunsetStable)) return false;
+      if (sunsetKey(candidate) === sunsetKey(sunsetStable)) {
+        sunsetStable = candidate;
+        return false;
+      }
       sunsetStable = candidate;
       return true;
     }
@@ -1090,9 +1093,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
         critical = fresh;
         const candidate = sunsetWeatherAssessment(fresh, sunset);
         const changed = acceptSunsetCandidate(candidate);
+        window.OPENPQ_HOME.signals.sunset_weather = sunsetStable;
+        window.OPENPQ_HOME.signals.sunset_context_checked_at = new Date().toISOString();
         if (changed) {
-          window.OPENPQ_HOME.signals.sunset_weather = sunsetStable;
-          window.OPENPQ_HOME.signals.sunset_context_checked_at = new Date().toISOString();
           renderNowSuggestion();
           window.dispatchEvent(new CustomEvent("openpq:sunset-updated", {
             detail: {sunset_weather:sunsetStable}
