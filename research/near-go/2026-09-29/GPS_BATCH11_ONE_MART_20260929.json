@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "entity_id": "utility_minimart_one_mart_duong_dong",
+  "decision": "ACCEPT_SITE_CENTROID",
+  "accepted_coordinate": {
+    "lat": 10.215321,
+    "lon": 103.960894
+  },
+  "precision": "site_centroid",
+  "evidence": [
+    {
+      "type": "BUSINESS_REGISTRY",
+      "url": "https://masothue.com/8461194714-001-ho-kinh-doanh-one-mart",
+      "fact": "Registry record HỘ KINH DOANH ONE MART matches number 16, đường 30/4, Khu phố 1, Dương Đông; registry status is active. This confirms entity identity, not live shop hours."
+    },
+    {
+      "type": "STRUCTURED_BUSINESS_MAP",
+      "google_place_id": "ChIJoYYBDTCNpzER2dtFx6dyq1I",
+      "fact": "Exact One mart entity matches 16 Đ. 30 Tháng 4 and phone +84 834 590 676."
+    },
+    {
+      "type": "DISTANCE_PROBES",
+      "probes": [
+        {
+          "lat": 10.2172,
+          "lon": 103.9593,
+          "distance_m": 272
+        },
+        {
+          "lat": 10.2172,
+          "lon": 103.9618,
+          "distance_m": 231
+        },
+        {
+          "lat": 10.2197,
+          "lon": 103.9593,
+          "distance_m": 515
+        },
+        {
+          "lat": 10.2147,
+          "lon": 103.9593,
+          "distance_m": 188
+        },
+        {
+          "lat": 10.215321,
+          "lon": 103.960894,
+          "distance_m": 0
+        }
+      ],
+      "fact": "Independent numeric probes converge on the same Place ID; accepted point returned 0 m and is not an address geocode."
+    }
+  ],
+  "safety": "Accept as site centroid only. Keep live opening status UNKNOWN and do not claim an exact entrance.",
+  "source_audit": {
+    "verified_identity": true,
+    "verified_operation": false,
+    "verified_entrance": false
+  },
+  "incremental_delta": {
+    "location_index_with_map": [
+      241,
+      242
+    ],
+    "map_coverage_ready": [
+      238,
+      239
+    ],
+    "map_coverage_missing": [
+      156,
+      155
+    ],
+    "research_holds": [
+      10,
+      9
+    ]
+  },
+  "cumulative_from_main_baseline": {
+    "location_index_with_map": [
+      236,
+      242
+    ],
+    "map_coverage_ready": [
+      233,
+      239
+    ],
+    "map_coverage_missing": [
+      161,
+      155
+    ],
+    "intentional_no_fixed_pin": 4
+  },
+  "latest_main_checked_sha": "f2d365f7bb35356b0dc050791d4210cb8aabd5cc"
+}
