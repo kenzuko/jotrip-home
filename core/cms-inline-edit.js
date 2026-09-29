@@ -225,15 +225,14 @@ async function publishOnce(){
     if(!/^[a-f0-9]{40}$/.test(result.commit||""))
       throw Error("Chưa có xác nhận commit. Giữ nháp để kiểm tra CMS.");
     const clearedServer=await window.OPQDraftStore?.clear({path:SOURCE});
-    if(clearedServer&&!clearedServer.ok&&clearedServer.status===409)
-      note("Đã xuất bản, nhưng server có bản nháp mới hơn nên không xóa bản đó.","warn");
+    const keptNewerServer=Boolean(clearedServer&&!clearedServer.ok&&clearedServer.status===409);
     if(localStorage.getItem(draftKey(S.login))===S.raw)localStorage.removeItem(draftKey(S.login));
     const key=recordKey(S.login,S.id,S.sha);
     const checkpoint=JSON.parse(localStorage.getItem(key)||"null");
     if(checkpoint?.tab===S.tab)localStorage.removeItem(key);
     S.dirty=false;stop();
     const el=$("#inlineCmsStatus");
-    el.replaceChildren(document.createTextNode("Đã xuất bản bằng 1 commit GitHub. Chờ CMS cập nhật. "));
+    el.replaceChildren(document.createTextNode("Đã xuất bản bằng 1 commit GitHub. Chờ CMS cập nhật. "+(keptNewerServer?"Bản nháp server mới hơn vẫn được giữ để đối chiếu. ":"")));
     const link=document.createElement("a");
     link.href="https://github.com/kenzuko/jotrip-home/commit/"+result.commit;
     link.target="_blank";link.rel="noopener noreferrer";link.textContent="Xem lịch sử ↗";
@@ -261,14 +260,13 @@ async function submit(){
     if(!/^https:\/\/github\.com\/kenzuko\/jotrip-home\/pull\/\d+$/.test(link))
       throw Error("CMS chưa trả về PR. Kiểm tra hàng đợi duyệt trước khi thử lại.");
     const clearedServer=await window.OPQDraftStore?.clear({path:SOURCE});
-    if(clearedServer&&!clearedServer.ok&&clearedServer.status===409)
-      note("Đã gửi PR, nhưng server có bản nháp mới hơn nên không xóa bản đó.","warn");
+    const keptNewerServer=Boolean(clearedServer&&!clearedServer.ok&&clearedServer.status===409);
     if(localStorage.getItem(draftKey(S.login))===S.raw)localStorage.removeItem(draftKey(S.login));
     const record=recordKey(S.login,S.id,S.sha);
     const ck=JSON.parse(localStorage.getItem(record)||"null");
     if(ck?.tab===S.tab)localStorage.removeItem(record);
     S.dirty=false;stop();
-    const status=$("#inlineCmsStatus");status.replaceChildren(document.createTextNode("Đã gửi đề xuất, chưa công khai. "));
+    const status=$("#inlineCmsStatus");status.replaceChildren(document.createTextNode("Đã gửi đề xuất, chưa công khai. "+(keptNewerServer?"Bản nháp server mới hơn vẫn được giữ để đối chiếu. ":"")));
     const a=document.createElement("a");a.href=link;a.target="_blank";a.rel="noopener";a.textContent="Mở PR ↗";
     status.appendChild(a);status.dataset.kind="good";
   }catch(e){note(e.message||"Chưa gửi được, nháp vẫn còn.","warn");}
