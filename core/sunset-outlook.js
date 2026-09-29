@@ -59,6 +59,9 @@
       horizon_cloud_trend:"UNKNOWN",
       horizon_cloud_confidence:null,
       horizon_cloud_layer:null,
+      horizon_cloud_risk_count:0,
+      horizon_cloud_likely_count:0,
+      horizon_cloud_points:[],
       visibility_m:null,
       phase:"unknown",
       minutes_to_sunset:null,
@@ -121,10 +124,15 @@
     // Ordinary cloud cover on the actual sunset horizon is intentionally
     // separate from convective tracking. Only MEDIUM/HIGH-confidence occupancy
     // is allowed to drive public wording because this is not optical-depth data.
-    const horizonViews=freshNowcasts.map(n=>n?.horizon_cloud).filter(h=>{
+    const horizonViews=WEST_IDS.map(id=>{
+      const point=criticalData?.points?.[id];
+      const nowcast=point?.nowcast;
+      const h=nowcast?.horizon_cloud;
       const confidence=String(h?.confidence||"").toUpperCase();
-      return h&&number(h?.obscuration_score)!==null&&["MEDIUM","HIGH"].includes(confidence);
-    });
+      if(!nowcast||nowcast.status!=="POINT_NUMERIC_READY"||ageMinutes(nowcast.sampled_time,nowMs)>90) return null;
+      if(!h||number(h?.obscuration_score)===null||!["MEDIUM","HIGH"].includes(confidence)) return null;
+      return {id,name:point?.name||id,...h};
+    }).filter(Boolean);
     const horizonScores=horizonViews.map(h=>number(h.obscuration_score)).filter(x=>x!==null);
     const horizonScore=horizonScores.length?Math.max(...horizonScores):null;
     const horizonStates=horizonViews.map(h=>String(h.status||"").toUpperCase());
@@ -138,6 +146,8 @@
       horizonViews.length?"STABLE":"UNKNOWN";
     const horizonConfidence=horizonViews.some(h=>String(h.confidence||"").toUpperCase()==="HIGH")?"HIGH":
       horizonViews.length?"MEDIUM":null;
+    const horizonRiskPoints=horizonViews.filter(h=>number(h.obscuration_score)>=45);
+    const horizonLikelyPoints=horizonViews.filter(h=>number(h.obscuration_score)>=70);
     const layerCounts=new Map();
     for(const h of horizonViews){
       const layer=String(h?.dominant_layer||"").toUpperCase();
@@ -181,6 +191,9 @@
       horizon_cloud_trend:horizonTrend,
       horizon_cloud_confidence:horizonConfidence,
       horizon_cloud_layer:horizonLayer,
+      horizon_cloud_risk_count:horizonRiskPoints.length,
+      horizon_cloud_likely_count:horizonLikelyPoints.length,
+      horizon_cloud_points:horizonRiskPoints.map(h=>h.name),
       visibility_m:visibility,
       phase,
       minutes_to_sunset:minutesToSunset
@@ -213,10 +226,10 @@
     // A dense cloud bank already sitting on the sunset horizon is the most
     // direct non-rain reason the sun may disappear. Moderate occupancy waits
     // until the final two hours unless it is clearly increasing.
-    if(horizonStatus==="LIKELY_OBSCURED"&&horizonScore!==null&&horizonScore>=70)
+    if(horizonLikelyPoints.length>=1)
       return result("watch","horizon_cloud",common);
-    if(horizonScore!==null&&horizonScore>=45&&
-      (minutesToSunset<=120||(horizonIncreasing&&horizonScore>=55)))
+    if(horizonRiskPoints.length>=2&&
+      (minutesToSunset<=120||(horizonIncreasing&&horizonScore!==null&&horizonScore>=55)))
       return result("watch","horizon_cloud",common);
 
     if(cloudImpact)
