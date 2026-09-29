@@ -161,6 +161,31 @@ function clearDraft(id=currentModule?.id){
   const k=draftKey(id);if(!k)return;
   try{localStorage.removeItem(k)}catch{}
 }
+async function clearServerDraft(path=currentModule?.path){
+  const store=window.OPQDraftStore;
+  if(!store||!path)return{ok:false,skipped:true};
+  return store.clear({path});
+}
+function syncServerDraft({checkpoint=false}={}){
+  const store=window.OPQDraftStore;
+  if(!store||!dirty||!currentModule||!session||!currentSha)return;
+  const snapshot={module:currentModule.id,path:currentModule.path,sha:currentSha,
+    data:deepClone(currentData)};
+  store.save({module:snapshot.module,path:snapshot.path,baseSha:snapshot.sha,
+    data:snapshot.data,checkpoint}).then(result=>{
+    if(currentModule?.path!==snapshot.path||currentSha!==snapshot.sha||!dirty)return;
+    if(result?.ok){
+      if(currentModule.id==="stories")setStoryDraftMessage("Đã lưu nháp trên server · chưa gửi duyệt.");
+      return;
+    }
+    if(result?.status===409){
+      status("Bản nháp server vừa thay đổi ở nơi khác. Đã giữ bản trên máy này; tải lại mục để đối chiếu trước khi gửi.","error");
+      if(currentModule.id==="stories")setStoryDraftMessage("Có bản nháp server mới hơn · cần đối chiếu.");
+    }else if(!result?.skipped){
+      if(currentModule.id==="stories")setStoryDraftMessage("Đã lưu trên máy · server chưa đồng bộ.");
+    }
+  });
+}
 function saveDraftNow(){
   if(!dirty||!currentModule||!session)return true;
   const wf=window.OPQEditorWorkflow;
@@ -172,11 +197,11 @@ function saveDraftNow(){
     wf.renderPanel();
     if(!result.ok){status(result.error||"Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");setStoryDraftMessage("Không lưu được. Hãy tải bản sao JSON.");}
     else if(result.blocked){status("Đã lưu bản sao riêng vì có tab khác đang sửa. Hãy đối chiếu trước khi gửi duyệt.","error");setStoryDraftMessage("Tab khác đang sửa · cần đối chiếu bản sao trước khi gửi.");}
-    else setStoryDraftMessage("Đã lưu trên máy lúc "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"})+" · chưa gửi duyệt.");
+    else {setStoryDraftMessage("Đã lưu trên máy lúc "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"})+" · đang đồng bộ server.");syncServerDraft();}
     return result.ok;
   }
   const k=draftKey();
-  try{if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}));return true}
+  try{if(k)localStorage.setItem(k,JSON.stringify({sha:currentSha,data:currentData,at:Date.now()}));syncServerDraft();return true}
   catch{status("Không lưu được bản nháp. Hãy tải JSON trước khi chuyển mục.","error");return false}
 }
 function scheduleDraft(){
@@ -1830,39 +1855,65 @@ async function selectModule(id){
     const b=await api(API.content+"?path="+encodeURIComponent(currentModule.path));
     if(requestId!==moduleRequestId)return;
     currentData=b.content;
-    if(currentModule.id==="stories")storyDraftMessage="Bản nháp chỉ lưu trên trình duyệt này · chưa gửi duyệt.";
+    if(currentModule.id==="stories")storyDraftMessage="Bản nháp lưu trên server, máy này giữ bản dự phòng · chưa gửi duyệt.";
     currentSha=b.sha;
     baseData=deepClone(b.content);
     dirty=false;
 
     const k=draftKey();
-    let raw=null;
-    try{raw=k?localStorage.getItem(k):null}catch{}
+    let raw=null,localDraft=null;
+    try{raw=k?localStorage.getItem(k):null;localDraft=raw?JSON.parse(raw):null}catch{}
 
-    let outdatedDraft=false;
+    let outdatedDraft=false,restoredFromServer=false;
+    const writableHere=currentModule.write?.includes(session.role);
+    let serverResult=null,serverDraft=null;
+    if(writableHere&&window.OPQDraftStore){
+      serverResult=await window.OPQDraftStore.load(currentModule.path);
+      if(requestId!==moduleRequestId)return;
+      serverDraft=serverResult?.ok?serverResult.draft:null;
+    }
 
-    if(raw){
+    if(serverDraft&&serverDraft.base_sha!==currentSha){
+      const discard=confirm("Có bản nháp server thuộc phiên bản GitHub cũ. Lịch sử vẫn được giữ. Xóa bản nháp đang hoạt động để bắt đầu từ phiên bản mới?");
+      if(!discard){status("Đang giữ bản nháp server cũ để đối chiếu. Chưa mở chỉnh sửa để tránh ghi đè.","error");return;}
+      const cleared=await clearServerDraft(currentModule.path);
+      if(!cleared?.ok){status("Chưa xóa được bản nháp server cũ. Không mở chỉnh sửa để tránh ghi đè.","error");return;}
+      serverDraft=null;outdatedDraft=true;
+    }
+
+    if(serverDraft&&serverDraft.base_sha===currentSha){
+      const compare=window.OPQDraftStore.compare({localDraft,serverDraft,baseSha:currentSha});
+      if(compare.state==="diverged"){
+        const useServer=confirm("Bản nháp trên server và trên máy này khác nhau. Bản trên máy sẽ được giữ riêng. Khôi phục bản trên server?");
+        if(!useServer){status("Hai bản nháp đang khác nhau. Chưa mở chỉnh sửa để tránh ghi đè; tải JSON bản trên máy rồi đối chiếu.","error");return;}
+        if(raw&&!window.OPQEditorWorkflow?.archiveModule(session.login,currentModule.id,raw)){
+          status("Không giữ được bản nháp trên máy trước khi khôi phục server. Hãy tải JSON rồi thử lại.","error");return;
+        }
+        if(raw)clearDraft();
+        currentData=deepClone(serverDraft.data);dirty=true;restoredFromServer=true;
+      }else if(compare.serverFresh){
+        const when=new Date(serverDraft.updated_at).toLocaleString("vi-VN");
+        if(!confirm("Có bản nháp trên server lưu lúc "+when+". Khôi phục để sửa tiếp?")){
+          status("Bản nháp server vẫn được giữ. Chưa mở chỉnh sửa để tránh ghi đè.","error");return;
+        }
+        currentData=deepClone(serverDraft.data);dirty=true;restoredFromServer=true;
+        if(raw&&compare.state==="same")clearDraft();
+      }
+    }else if(raw){
       try{
-        const draft=JSON.parse(raw);
-
+        const draft=localDraft||JSON.parse(raw);
         if(draft.sha===currentSha&&draft.data){
           const when=new Date(draft.at).toLocaleString("vi-VN");
-          if(confirm("Có bản nháp chưa xuất bản lưu lúc "+when+". Khôi phục bản nháp?")){
-            currentData=draft.data;
-            dirty=true;
+          if(confirm("Server chưa có bản nháp. Khôi phục bản lưu trên máy lúc "+when+"?")){
+            currentData=draft.data;dirty=true;
           }else{
-            if(window.OPQEditorWorkflow?.archiveModule(session.login,currentModule.id,raw))
-              clearDraft();
+            if(window.OPQEditorWorkflow?.archiveModule(session.login,currentModule.id,raw))clearDraft();
             else status("Không sao lưu được bản nháp đã bỏ qua. Hãy tải JSON trước khi chỉnh sửa.","error");
           }
         }else{
-          // Preserve stale module drafts before any next keystroke can reuse the active key.
           const archived=window.OPQEditorWorkflow?.archiveModule(session.login,currentModule.id,raw);
           if(archived)clearDraft();
-          else {
-            status("Chưa sao lưu được bản nháp cũ, tránh chỉnh sửa cho đến khi tải bản sao JSON.","error");
-            return;
-          }
+          else {status("Chưa sao lưu được bản nháp cũ, tránh chỉnh sửa cho đến khi tải bản sao JSON.","error");return;}
           outdatedDraft=true;
         }
       }catch{
@@ -1889,11 +1940,11 @@ async function selectModule(id){
     if(dirty){
       $("#saveBtn").disabled=!writable;
       $("#saveBtn").textContent="Gửi duyệt thay đổi";
-      status("Đã khôi phục bản nháp trên trình duyệt.","success");
+      status(restoredFromServer?"Đã khôi phục bản nháp từ server.":"Đã khôi phục bản nháp dự phòng trên máy.","success");
     }else{
       status(outdatedDraft
         ?"Bản nháp cũ khác phiên bản đã được giữ riêng khi có dung lượng trình duyệt. Về Bàn làm việc để tải bản nháp cũ và đối chiếu trước khi sửa."
-        :(writable?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu trên trình duyệt; gửi duyệt tạo PR, chưa lên website.":"Vai trò của bạn chỉ được xem module này."),outdatedDraft?"error":"");
+        :(writable?"Sẵn sàng chỉnh sửa. Bản nháp tự lưu lên server và giữ dự phòng trên máy; gửi duyệt mới tạo PR.":"Vai trò của bạn chỉ được xem module này."),outdatedDraft?"error":"");
     }
   }catch(e){
     if(requestId!==moduleRequestId)return;
@@ -1944,7 +1995,10 @@ async function save(){
     });
     dirty=false;
     clearDraft();
+    const clearedServer=await clearServerDraft(savingModule.path);
     $("#resetBtn")?.classList.add("hidden");
+    if(clearedServer&&!clearedServer.ok&&clearedServer.status===409)
+      status("Đã tạo PR nhưng bản nháp server có phiên bản mới hơn nên chưa xóa. Tải lại để đối chiếu.","error");
 
     $("#saveBtn").textContent="Đã gửi duyệt";
     status("Đã tạo đề xuất PR #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url,"success");
@@ -1974,6 +2028,8 @@ $("#saveBtn").onclick=e=>{
 $("#resetBtn")?.addEventListener("click",async()=>{
   if(!dirty)return;
   if(!confirm("Bỏ toàn bộ thay đổi chưa xuất bản trong mục này?"))return;
+  const cleared=await clearServerDraft(currentModule.path);
+  if(cleared&&!cleared.ok&&!cleared.skipped){status("Chưa xóa được bản nháp server. Không bỏ bản nháp trên máy để tránh mất dữ liệu.","error");return;}
   clearDraft();
   dirty=false;
   await selectModule(currentModule.id);
@@ -2002,7 +2058,7 @@ document.addEventListener("keydown",event=>{
   if(dirty){
     const ok=saveDraftNow();
     if(ok&&!window.OPQEditorWorkflow?.hasConflict())
-      status("Đã lưu nháp trên máy. Chưa gửi duyệt.","success");
+      status("Đã lưu bản dự phòng trên máy và đang đồng bộ nháp server.","success");
   }else setStoryDraftMessage("Không có thay đổi mới để lưu.");
 });
 boot();
