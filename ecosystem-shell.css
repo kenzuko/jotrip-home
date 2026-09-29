@@ -331,3 +331,13 @@ header.knowledge-header img[src*="logo-master"]{
   .watch-item p,.arrival-main span,.watch-detail-link,.flight-time small,.route small,.market-label,.metric-grid small,
   .go-badge,.go-more-card span,.go-more-card small,.go-more-head p,.go-more-headbar small{font-size:11px!important}
 }
+
+/* OPENPQ RELEASE TYPOGRAPHY FOLLOW-UP - 29/09/2026 - interactive/semantic labels still below 11px in QA. */
+@media(max-width:720px){
+  .app .eyebrow,.app .section-kicker,.board-day-switch button,.fids-head p,.fids-head-state,
+  .fids-tape,.fids-foot,.fids-direction-tabs button,.segmented button,.chips button,.ops-state,
+  .currency-shell .mini-note,.currency-shell .pin-current,.currency-shell .board-explainer,
+  .currency-shell .fine-print,.currency-shell .rate-metrics span,.currency-shell .chart-label,
+  .currency-shell .comparison-cell small,.currency-shell .range-tabs button,.currency-shell .currency-tabs button,
+  .go-hero-photo figcaption span,.go-builder-head p{font-size:11px!important}
+}
