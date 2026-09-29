@@ -624,7 +624,7 @@ function renderTechnicalPointForecast(){
   const rows=(engineDashboard?.points?.[current]?.hours||[]).filter(r=>Date.parse(r.time_iso||"")>=Date.now()-30*60*1000);
   if(!rows.length){
     body.innerHTML='<tr><td colspan="6">Chưa có chuỗi dự báo theo điểm.</td></tr>';
-    if(meta)meta.textContent="Đang chờ JoTrip Engine.";
+    if(meta)meta.textContent="Đang chờ Dự báo JoTrip.";
     return;
   }
   body.innerHTML=rows.map(r=>'<tr>'+
@@ -635,7 +635,7 @@ function renderTechnicalPointForecast(){
     '<td>'+ (num(r.rain)===null?'-':fmt(r.rain,2)+' mm/mốc') +'</td>'+
     '<td>'+ (num(r.wave)===null?'-':fmt(r.wave,2)+' m') +'</td>'+
   '</tr>').join("");
-  if(meta)meta.textContent=rows.length+" mốc · JoTrip Engine · "+sourceAgeLabel(engineDashboard?.generated_at,180)+". D0-D3 có độ phân giải cao hơn; các ngày xa chỉ dùng như xu hướng.";
+  if(meta)meta.textContent=rows.length+" mốc · Dự báo JoTrip · "+sourceAgeLabel(engineDashboard?.generated_at,180)+". D0-D3 có độ phân giải cao hơn; các ngày xa chỉ dùng như xu hướng.";
 }
 function renderTechnical(){
   renderTechnicalPointTabs();
@@ -995,7 +995,7 @@ function renderTodayDecision(){
   const root=$("todayDecisionStrip"),summaryEl=$("todayDecisionSummary"),meta=$("todayEngineMeta"),badge=$("todayEngineBadge");
   if(!root||!summaryEl)return;
   if(!engineDashboard){
-    root.innerHTML='<span class="inline-loader">Đang lấy dữ liệu từ JoTrip Engine...</span>';
+    root.innerHTML='<span class="inline-loader">Đang lấy dữ liệu từ Dự báo JoTrip...</span>';
     summaryEl.textContent="Đang đọc các mốc thời tiết còn lại hôm nay.";
     return;
   }
@@ -1018,9 +1018,9 @@ function renderTodayDecision(){
   const rows=engineTodayRows().filter(r=>Number.isFinite(Date.parse(r.time_iso||""))&&
     (num(r.wind)!==null||num(r.rain)!==null||num(r.wave)!==null));
   const enginePoint=engineDashboard.points?.[current]||{};
-  if(badge)badge.textContent=(enginePoint.name||point().name||"Phú Quốc")+" · JoTrip Engine";
+  if(badge)badge.textContent=(enginePoint.name||point().name||"Phú Quốc")+" · Dự báo JoTrip";
   const cycle=engineDashboard.source_cycles?.ECMWF;
-  if(meta)meta.textContent="JoTrip Engine · ECMWF · mốc thật 3 giờ"+(cycle?" · chu kỳ "+localTime(cycle):"")+(engineDashboard.revalidation_status==="REVALIDATED_UNCHANGED_MODEL"?" · kiểm tra lại dữ liệu cũ, chưa có chu kỳ mô hình mới":"");
+  if(meta)meta.textContent="Dự báo JoTrip · ECMWF · mốc 3 giờ"+(cycle?" · chu kỳ "+localTime(cycle):"")+(engineDashboard.revalidation_status==="REVALIDATED_UNCHANGED_MODEL"?" · kiểm tra lại dữ liệu cũ, chưa có chu kỳ mô hình mới":"");
   const marineLabel=$("todayMarineReference");
   if(marineLabel){
     const mt=enginePoint.marine_sampled_time;
@@ -1100,13 +1100,13 @@ async function loadEngineDashboard(){
     renderQuickAlert();
     if($("deepWeatherDetails")?.open){renderTechnicalPointForecast();renderTechnicalFreshness()}
   }catch(e){
-    console.warn("[Weather V2] JoTrip Engine today",e);
+    console.warn("[Weather V2] Dự báo JoTrip today",e);
     const root=$("todayDecisionStrip"),summaryEl=$("todayDecisionSummary");
     // Preserve a previously verified snapshot during a temporary edge outage.
     // Do not clear its timestamp or silently upgrade it to current data.
     if(engineDashboard){renderTodayDecision();return}
     if(root)root.innerHTML='<div class="today-decision-empty"><b>Đang kết nối lại dữ liệu dự báo</b><span>Tự thử lại mỗi 2 phút. Quan trắc tại điểm vẫn hoạt động độc lập.</span></div>';
-    if(summaryEl)summaryEl.textContent="Hệ thống đang tự kết nối lại JoTrip Engine.";
+    if(summaryEl)summaryEl.textContent="Hệ thống đang tự kết nối lại dự báo JoTrip.";
   }
 }
 
@@ -1913,17 +1913,17 @@ function renderForecastDayDetail(){
   const day=first?phuQuocDay(first.time_iso):null;
   if(title)title.textContent=(day?.date||selectedForecastDayKey)+" · "+(p.name||point().name||current);
   if(!engineDashboard){
-    slots.innerHTML='<span class="inline-loader">Đang lấy các mốc từ JoTrip Engine...</span>';
+    slots.innerHTML='<span class="inline-loader">Đang lấy các mốc từ Dự báo JoTrip...</span>';
     if(note)note.textContent="Đang tải dự báo theo điểm.";
     return;
   }
   if(!dayRows.length){
-    slots.innerHTML='<div class="forecast-day-detail-empty">JoTrip Engine chưa có mốc point-level cho ngày này.</div>';
-    if(note)note.textContent="Không dùng dữ liệu vùng để giả thành dữ liệu tại điểm.";
+    slots.innerHTML='<div class="forecast-day-detail-empty">Dự báo JoTrip chưa có mốc chi tiết cho điểm này trong ngày.</div>';
+    if(note)note.textContent="Không lấy số liệu vùng thay cho số liệu tại điểm.";
     return;
   }
   const step=engineDayStepHours(dayRows);
-  if(note)note.textContent="JoTrip Engine · "+(step?("mốc "+fmt(step,0)+" giờ"):"mốc theo chu kỳ nguồn")+" · chạm ngày khác để đổi.";
+  if(note)note.textContent="Dự báo JoTrip · "+(step?("mốc "+fmt(step,0)+" giờ"):"mốc theo chu kỳ nguồn")+" · chạm ngày khác để đổi.";
   slots.innerHTML=dayRows.map(r=>{
     const rain=num(r.rain),wind=num(r.wind),gust=safeModelGust(r),wave=num(r.wave),temp=num(r.temperature);
     return '<article class="forecast-hour-slot">'+
