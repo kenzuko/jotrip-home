@@ -13,6 +13,7 @@ const paras=v=>String(v??"").trim().split(/\n{2,}/).filter(Boolean).map(s=>"<p>"
 const photo=(src,alt,caption,credit)=>safeImage(src)
   ?'<figure><img src="'+esc(src)+'" alt="'+esc(alt||"Ảnh Phú Quốc")+'" loading="lazy" decoding="async">'+
     (caption||credit?'<figcaption>'+esc([caption,credit].filter(Boolean).join(" · "))+'</figcaption>':"")+"</figure>":"";
+const uiText=(ui,path,fallback)=>{const value=String(path||"").split(".").reduce((o,k)=>o?.[k],ui);return typeof value==="string"&&value?value:fallback};
 function alternateMeta(path,availableLocales=[]){
   if(!Array.isArray(availableLocales)||availableLocales.length<2)return[];
   return alternateSet(path,availableLocales).map(row=>({...row,href:new URL(row.path,SEO_ORIGIN).toString()}));
@@ -26,10 +27,10 @@ export function buildStoryMeta(story,{locale=DEFAULT_LOCALE,availableLocales=[DE
     canonical:canonicalFor(path,locale,SEO_ORIGIN),alternates:alternateMeta(path,availableLocales),
     image:safeImage(story.image)||SEO_FALLBACK_IMAGE,imageAlt:clean(story.image_alt||story.title)};
 }
-export function buildKnowledgeMeta(article,{locale=DEFAULT_LOCALE,availableLocales=[DEFAULT_LOCALE]}={}){
+export function buildKnowledgeMeta(article,{locale=DEFAULT_LOCALE,availableLocales=[DEFAULT_LOCALE],ui=null}={}){
   if(!article?.topic_id||!article.title||!article.editorial)return null;
   const path=article.route||"/guide/article.html?id="+encodeURIComponent(article.topic_id);
-  return {kind:"knowledge",source:article,type:"article",locale,htmlLang:hreflang(locale),path,
+  return {kind:"knowledge",source:article,type:"article",locale,htmlLang:hreflang(locale),path,ui,
     title:clean(article.title)+" - Cẩm nang Phú Quốc",
     description:desc(article.editorial.short_summary),
     canonical:canonicalFor(path,locale,SEO_ORIGIN),alternates:alternateMeta(path,availableLocales),
@@ -48,10 +49,27 @@ export function storyBody(s){
   }
   return out+"</article>";
 }
-export function knowledgeBody(o,locale=DEFAULT_LOCALE){
+export function knowledgeBody(o,locale=DEFAULT_LOCALE,ui=null){
   const ed=o.editorial||{};
+  const type=o.topic_type||"";
+  const fallbackHeadings={
+    PLACE:["Ghé thế nào cho tiện?","Điều nên biết trước khi tới","Trước khi ghé"],
+    NATURE:["Xem điều kiện thực tế","Những điều dễ bỏ sót","Khi ra ngoài"],
+    FOOD:["Ăn và chọn món","Điều cần biết khi gọi","Trước khi ăn hoặc mua"],
+    PRACTICAL:["Chuẩn bị thế nào?","Những trường hợp cần lưu ý","Trước khi đi"],
+    HISTORY_LORE:["Tìm hiểu thêm","Hiểu đúng câu chuyện","Nếu ghé thăm"],
+    ACTIVITY:["Sắp lịch thế nào?","Điều có thể khác dự tính","Trước chuyến đi"],
+    MEMORY_CHANGE:["Nhìn đảo hôm nay","Đọc tư liệu đúng thời điểm","Nếu muốn xem tận nơi"]
+  };
+  const fb=fallbackHeadings[type]||["Điều nên biết","Đọc thêm","Trước khi đi"];
+  const headings=[
+    uiText(ui,"knowledge.headings."+type+".practical",fb[0]),
+    uiText(ui,"knowledge.headings."+type+".reality",fb[1]),
+    uiText(ui,"knowledge.headings."+type+".before",fb[2])
+  ];
+  if(type==="FOOD"&&[64,65,66,67,68].includes(o.number))headings[0]=uiText(ui,"knowledge.headings.FOOD.buy","Chọn mua và tìm hiểu");
   let out='<article class="knowledge-article" itemscope itemtype="https://schema.org/Article">'+
-    '<a class="knowledge-back" href="'+esc(localizedPath("/guide/knowledge.html",locale))+'">← Tất cả bài cẩm nang</a>'+
+    '<a class="knowledge-back" href="'+esc(localizedPath("/guide/knowledge.html",locale))+'">'+esc(uiText(ui,"knowledge.back_all","← Tất cả bài cẩm nang"))+'</a>'+
     '<h1 itemprop="headline">'+esc(o.title)+'</h1><p class="knowledge-lead">'+esc(ed.short_summary||"")+'</p>';
   const photographs=(o.media?.images||[]).filter(p=>safeImage(p.url));
   if(photographs.length){
@@ -59,18 +77,18 @@ export function knowledgeBody(o,locale=DEFAULT_LOCALE){
     for(const p of photographs)out+=photo(p.url,p.alt||o.title,p.caption,p.credit);
     out+="</div>";
   }
-  for(const [heading,value] of [["Tìm hiểu & trải nghiệm",ed.practical],["Điều cần lưu ý",ed.expectation_vs_reality]]){
+  for(const [heading,value] of [[headings[0],ed.practical],[headings[1],ed.expectation_vs_reality]]){
     if(value)out+='<section><h2>'+esc(heading)+'</h2>'+paras(value)+'</section>';
   }
   if(ed.before_you_go?.length){
-    out+='<section><h2>Trước khi đi</h2><ul>';
+    out+='<section><h2>'+esc(headings[2])+'</h2><ul>';
     for(const item of ed.before_you_go)out+="<li>"+esc(item)+"</li>";
     out+="</ul></section>";
   }
   if(o.links?.length){
-    out+='<aside class="knowledge-further"><h2>Tìm hiểu thêm</h2>';
+    out+='<aside class="knowledge-further"><h2>'+esc(uiText(ui,"knowledge.further","Tìm hiểu thêm"))+'</h2>';
     for(const link of o.links)if(/^https:\/\//.test(link.url||""))
-      out+='<a href="'+esc(link.url)+'" rel="noopener noreferrer" target="_blank">'+esc(link.label||"Nguồn thông tin")+'</a>';
+      out+='<a href="'+esc(link.url)+'" rel="noopener noreferrer" target="_blank">'+esc(link.label||uiText(ui,"knowledge.source","Nguồn thông tin"))+'</a>';
     out+="</aside>";
   }
   return out+"</article>";
@@ -110,7 +128,7 @@ export function rewriteSeoHtml(response,meta){
     .on('meta[name="twitter:image"]',{element(el){el.setAttribute("content",meta.image)}});
   if(meta.kind==="story"||meta.kind==="knowledge"){
     writer.on(meta.kind==="story"?"#articleRoot":"#knowledgeArticle",{
-      element(el){el.setInnerContent(meta.kind==="story"?storyBody(meta.source):knowledgeBody(meta.source,meta.locale),{html:true})}
+      element(el){el.setInnerContent(meta.kind==="story"?storyBody(meta.source):knowledgeBody(meta.source,meta.locale,meta.ui),{html:true})}
     });
     writer.on("head",{element(el){
       const alternates=(meta.alternates||[]).map(x=>'<link rel="alternate" hreflang="'+esc(x.hreflang)+'" href="'+esc(x.href)+'">').join("");

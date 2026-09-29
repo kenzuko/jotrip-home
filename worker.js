@@ -100,14 +100,20 @@ async function knowledgeMeta(url,env,locale=DEFAULT_LOCALE){
   const base=(data.objects||[]).find(o=>o.topic_id===id);
   if(!base)return null;
   let article=base;
+  let ui=null;
   if(locale!==DEFAULT_LOCALE){
     let overlay;
-    try{overlay=await readAssetJson(env,url,"/data/i18n/"+locale+"/knowledge.json")}catch{return null}
+    try{
+      [overlay,ui]=await Promise.all([
+        readAssetJson(env,url,"/data/i18n/"+locale+"/knowledge.json"),
+        readAssetJson(env,url,"/data/i18n/"+locale+"/ui.json")
+      ]);
+    }catch{return null}
     const translated=(overlay.objects||[]).find(x=>x.topic_id===id);
     article=mergeKnowledge(base,translated);
     if(!article)return null;
   }
-  return buildKnowledgeMeta(article,{locale,availableLocales:availableLocales(catalog,"knowledge",id)});
+  return buildKnowledgeMeta(article,{locale,availableLocales:availableLocales(catalog,"knowledge",id),ui});
 }
 function localizedUnavailable(){
   return new Response("Not Found",{status:404,headers:{"Content-Type":"text/plain; charset=utf-8","X-Robots-Tag":"noindex, nofollow","Cache-Control":"public, max-age=60"}});
