@@ -552,8 +552,8 @@
         {
           "icon": "01",
           "label": "TRỤC CHÍNH",
-          "value": "Safari bus + Open Zoo",
-          "note": "Nếu thời gian hạn chế, nên ưu tiên bus bán hoang dã rồi mới chọn các khu phụ."
+          "value": "xe buýt Safari + vườn thú mở",
+          "note": "Nếu thời gian hạn chế, nên ưu tiên xe buýt bán hoang dã rồi mới chọn các khu phụ."
         },
         {
           "icon": "02",
@@ -571,7 +571,7 @@
       "sections": [
         {
           "heading": "Không chỉ là một sở thú truyền thống",
-          "body": "Trang vận hành chính thức mô tả Vinpearl Safari là công viên chăm sóc và bảo tồn động vật bán hoang dã, với khu bus quan sát động vật, vườn thú mở và các khu theo nhóm loài."
+          "body": "Trang vận hành chính thức mô tả Vinpearl Safari là công viên chăm sóc và bảo tồn động vật bán hoang dã, với khu xe buýt quan sát động vật, vườn thú mở và các khu theo nhóm loài."
         },
         {
           "heading": "Nhịp đi quan trọng hơn số lượng khu đã check",
@@ -579,7 +579,7 @@
         }
       ],
       "visitor_questions": [
-        "Bus bán hoang dã hiện mất khoảng bao lâu?",
+        "xe buýt bán hoang dã hiện mất khoảng bao lâu?",
         "Show hoặc hoạt động nào hôm nay cần tới sớm?"
       ],
       "sources": [
@@ -614,7 +614,7 @@
       "sections": [
         {
           "heading": "Một khu lớn cần đi có mục tiêu",
-          "body": "Website chính thức giới thiệu Grand World như tổ hợp giải trí và mua sắm với kênh Venice, gondola, bảo tàng và các chương trình biểu diễn. Nếu chỉ tới mà không biết muốn xem gì, rất dễ đi nhiều nhưng cảm thấy ít trải nghiệm."
+          "body": "Website chính thức giới thiệu Grand World như tổ hợp giải trí và mua sắm với kênh Venice, thuyền gondola, bảo tàng và các chương trình biểu diễn. Nếu chỉ tới mà không biết muốn xem gì, rất dễ đi nhiều nhưng cảm thấy ít trải nghiệm."
         },
         {
           "heading": "Chọn điểm dừng trước khi tới",
@@ -1051,7 +1051,7 @@
         {
           "icon": "01",
           "label": "HIỂU ĐÚNG",
-          "value": "3 đảo là format, không phải tên tuyến cố định",
+          "value": "3 đảo là định dạng, không phải tên tuyến cố định",
           "note": "Danh sách đảo và thứ tự dừng có thể khác giữa đơn vị vận hành."
         },
         {
@@ -1074,12 +1074,12 @@
         },
         {
           "heading": "San hô không phải đạo cụ của tour",
-          "body": "Khi snorkeling, không đứng lên san hô, không bẻ/chạm và không cho cá ăn chỉ để gom cá chụp ảnh. Trải nghiệm tốt cần giữ được hệ sinh thái sau khi khách rời đi."
+          "body": "Khi lặn ngắm san hô, không đứng lên san hô, không bẻ/chạm và không cho cá ăn chỉ để gom cá chụp ảnh. Trải nghiệm tốt cần giữ được hệ sinh thái sau khi khách rời đi."
         }
       ],
       "visitor_questions": [
         "Hôm nay dự kiến dừng những đảo nào và vì sao?",
-        "Thời gian snorkeling thực tế là bao lâu?",
+        "Thời gian lặn ngắm san hô thực tế là bao lâu?",
         "Nếu biển đổi, phương án thay thế là gì?"
       ],
       "sources": [
@@ -1094,13 +1094,13 @@
       ]
     },
     "activity_snorkeling_an_thoi": {
-      "lede": "Snorkeling là cách quan sát rạn san hô từ mặt nước bằng kính và ống thở. Dễ tiếp cận hơn scuba nhưng vẫn cần điều kiện biển phù hợp, áo phao khi cần và người hướng dẫn biết điểm.",
+      "lede": "lặn ngắm san hô là cách quan sát rạn san hô từ mặt nước bằng kính và ống thở. Dễ tiếp cận hơn lặn bình khí nhưng vẫn cần điều kiện biển phù hợp, áo phao khi cần và người hướng dẫn biết điểm.",
       "infographic": [
         {
           "icon": "01",
           "label": "DỤNG CỤ",
           "value": "Kính + ống thở + chân vịt tùy tour",
-          "note": "Không cần bình khí, nhưng mask phải vừa mặt để trải nghiệm dễ chịu."
+          "note": "Không cần bình khí, nhưng mặt nạ phải vừa mặt để trải nghiệm dễ chịu."
         },
         {
           "icon": "02",
@@ -1137,13 +1137,13 @@
       ]
     },
     "activity_scuba": {
-      "lede": "Scuba đưa người tham gia xuống sâu hơn snorkeling bằng bình khí và thiết bị riêng. Đây là hoạt động cần quy trình an toàn, hướng dẫn chuyên môn và sàng lọc sức khỏe nghiêm túc hơn một tour bơi biển.",
+      "lede": "lặn bình khí đưa người tham gia xuống sâu hơn lặn ngắm san hô bằng bình khí và thiết bị riêng. Đây là hoạt động cần quy trình an toàn, hướng dẫn chuyên môn và sàng lọc sức khỏe nghiêm túc hơn một tour bơi biển.",
       "infographic": [
         {
           "icon": "01",
           "label": "KHÁC SNORKEL",
           "value": "Thở bằng bình khí dưới nước",
-          "note": "Người mới cần briefing và đi cùng người hướng dẫn trong chương trình phù hợp."
+          "note": "Người mới cần hướng dẫn an toàn và đi cùng người hướng dẫn trong chương trình phù hợp."
         },
         {
           "icon": "02",
@@ -1160,7 +1160,7 @@
       ],
       "sections": [
         {
-          "heading": "Đây là hoạt động kỹ thuật, không chỉ là phiên bản snorkeling sâu hơn",
+          "heading": "Đây là hoạt động kỹ thuật, không chỉ là phiên bản lặn ngắm san hô sâu hơn",
           "body": "Nguồn địa phương mô tả lặn bình khí sử dụng bình dưỡng khí và có huấn luyện viên hướng dẫn cách thở, ký hiệu và giữ thăng bằng trước khi xuống nước. Người mới nên chọn chương trình có quy trình rõ ràng thay vì chỉ so giá."
         },
         {
@@ -1181,7 +1181,7 @@
       ]
     },
     "activity_seawalker": {
-      "lede": "Seawalker cho phép khách đi bộ dưới nước với mũ cấp khí thay vì bình khí đeo lưng. Dễ tiếp cận hơn scuba với nhiều người, nhưng vẫn cần briefing và sàng lọc sức khỏe cơ bản.",
+      "lede": "Seawalker cho phép khách đi bộ dưới nước với mũ cấp khí thay vì bình khí đeo lưng. Dễ tiếp cận hơn lặn bình khí với nhiều người, nhưng vẫn cần hướng dẫn an toàn và sàng lọc sức khỏe cơ bản.",
       "infographic": [
         {
           "icon": "01",
@@ -1191,7 +1191,7 @@
         },
         {
           "icon": "02",
-          "label": "KHÔNG PHẢI SCUBA",
+          "label": "KHÔNG PHẢI lặn bình khí",
           "value": "Ít kỹ thuật hơn nhưng vẫn có quy trình",
           "note": "Người tham gia cần nghe hướng dẫn cách cân bằng áp lực và giao tiếp."
         },
