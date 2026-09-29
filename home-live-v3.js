@@ -779,10 +779,16 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const attentionLine = airportWatch.count
       ? airportWatch.count + " cảnh báo đang cần chú ý"
       : "Chưa có cảnh báo đáng chú ý";
+    const airportPrimary = !airportAvailable
+      ? "Chưa có thông tin mới"
+      : airportWatch.count ? "Có chuyến cần chú ý" : "Hoạt động ổn định";
+    const airportHappening = !airportAvailable
+      ? "Sân bay chưa có cập nhật mới"
+      : airportWatch.count ? "Sân bay có chuyến cần chú ý" : "Sân bay đang hoạt động ổn định";
 
     setHappening(
       "airport",
-      !airportAvailable ? "Sân bay chưa có cập nhật mới" : "Sân bay đang hoạt động ổn định",
+      airportHappening,
       airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem các chuyến hôm nay.",
       !airportAvailable ? "CHƯA BIẾT" : airportWatch.count ? "CẦN CHÚ Ý" : "BÌNH THƯỜNG",
       airportAvailable
@@ -790,14 +796,14 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     setContext(
       "airport",
-      !airportAvailable ? "Chưa có thông tin mới" : "Hoạt động ổn định",
+      airportPrimary,
       airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem thêm",
       !airportAvailable ? "unknown" : airportWatch.count ? "watch" : "good"
     );
 
     setLive(
       "airport",
-      !airportAvailable ? "Chưa có thông tin mới" : "Hoạt động ổn định",
+      airportPrimary,
       airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem các chuyến hôm nay",
       !airportAvailable ? "unknown" : airportWatch.count ? "watch" : "good",
       airportLoaded ? freshnessText(airportStamp) : "Chưa có tin mới"

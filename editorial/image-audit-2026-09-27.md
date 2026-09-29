@@ -120,7 +120,7 @@ The next pass checked whether a real photo actually illustrates the article subj
 
 
 ## Correction 28/09/2026 - visual/pixel audit wave 8
-- **Bãi Sao**: direct pixel inspection of the local file previously tagged “Bãi Sao” showed the **sun setting over the sea**. That is incompatible with Bãi Sao's east/southeast-facing location and was treated as a geographic mismatch. Both guide and place records now use Prince Roy's geotagged Bãi Sao photo from 28/05/2016 (10.156794, 103.972519, CC BY 2.0).
+- **Bãi Sao**: direct pixel inspection of the local file previously tagged “Bãi Sao” showed the **sun setting over the sea**. That is incompatible with Bãi Sao's east/southeast-facing location and was treated as a geographic mismatch. Both guide and place records now use Prince Roy's Bãi Sao photo from 28/05/2016 (CC BY 2.0). Its embedded camera coordinates conflict with the reviewed Bãi Sao map anchor, so they are retained only as source metadata and are not used for navigation.
 - **Hoàng hôn Phú Quốc / Ngắm hoàng hôn**: replaced unidentified local/stock-like sunset assets with Elmschrat's real Phú Quốc sunset image (2025, CC0).
 - **Một ngày đi biển**: replaced three unidentified tropical-beach/cove assets with two geotagged real Phú Quốc beach photos from 2025 (FrogsLegs71, CC BY-SA 3.0; Elmschrat, CC BY-SA 4.0).
 - **Cano 3 đảo**: removed unidentified “Mây Rút” and cove imagery; the guide now uses the actual JoTrip canoe field photo only.

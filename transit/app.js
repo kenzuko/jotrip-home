@@ -83,7 +83,9 @@ function renderSummary(){
 }
 function renderHealth(){
   const age=ageMin(state.data?.generated_at),h=state.data?.health?.status||"bad";
-  $("#healthState").textContent=!state.data?"Chưa lấy được lịch":h==="good"?(age<=30?"Lịch còn mới":"Thông tin hơi cũ"):h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được từ hãng";
+  // Published schedules do not become unreliable after 30 minutes. Reserve a
+  // freshness warning for data old enough to miss a meaningful schedule update.
+  $("#healthState").textContent=!state.data?"Chưa lấy được lịch":h==="good"?(age<=180?"Lịch đã cập nhật":age<=720?"Nên xem lại trước khi đi":"Lịch chưa có cập nhật mới"):h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được từ hãng";
   $("#updatedAt").textContent=Number.isFinite(age)&&state.data?.generated_at?`Cập nhật ${new Date(state.data.generated_at).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ})} · ${age} phút trước`:"Chưa biết lần cập nhật gần nhất";
   const el=$("#sourceHealth");el.className=`status-chip ${h==="good"?"good":h==="watch"?"watch":"bad"}`;el.textContent=h==="good"?"Đã lấy được lịch":h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được lịch";
 }

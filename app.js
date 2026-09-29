@@ -372,7 +372,10 @@ function updateHeroCredit(slide){
   const label=heroCredit.querySelector("[data-hero-credit-label]");
   const source=heroCredit.querySelector("[data-hero-source]");
   const license=heroCredit.querySelector("[data-hero-license]");
-  if(label)label.textContent="Ảnh: "+(slide.dataset.credit||"Kho ảnh JoTrip");
+  // Some older gallery entries already include the Vietnamese "Ảnh:" prefix.
+  // Normalize it here so the public caption can never render "Ảnh: Ảnh: …".
+  const credit=String(slide.dataset.credit||"Kho ảnh JoTrip").replace(/^Ảnh:\s*/i,"");
+  if(label)label.textContent="Ảnh: "+credit;
   if(source){
     source.hidden=!slide.dataset.sourceUrl;
     if(slide.dataset.sourceUrl)source.href=slide.dataset.sourceUrl;
