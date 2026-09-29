@@ -117,7 +117,8 @@ jobs:
           test -f dist/core/cms-draft-client.js
           test -f dist/core/cms-inline-edit.js
           grep -q 'cms-draft-client.js?v=1' dist/admin/index.html
-          grep -q 'cms-draft-client.js?v=1' dist/stories/article.html
+          grep -q 'cms-editor-loader.js?v=2' dist/stories/article.html
+          grep -q 'cms-draft-client.js?v=2' dist/core/cms-editor-loader.js
           # Bundle both Cloudflare runtimes without deploying or consuming a Cloudflare Build.
           npx --yes wrangler@4.136.3 pages functions build functions --outdir "$RUNNER_TEMP/openpq-pages-qa"
           npx --yes wrangler@4.136.3 deploy --dry-run --config wrangler.jsonc --outdir "$RUNNER_TEMP/openpq-worker-qa"

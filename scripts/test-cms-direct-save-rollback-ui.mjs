@@ -21,7 +21,7 @@ for(const [path,type] of [
   ["index.html","page"]
 ]){
   const html=read(path);
-  assert.ok(html.includes('/core/cms-editor-loader.js?v=1'),path+" must expose the CMS-only editor loader");
+  assert.ok(html.includes('/core/cms-editor-loader.js?v=2'),path+" must expose the CMS-only editor loader");
   assert.ok(html.includes('dataset.cmsEditor="'+type+'"'),path+" must select the correct CMS editor");
 }
 
