@@ -26,7 +26,7 @@ assert.match(loader,/cms-inline-static\.js\?v=2/,"CMS loader must include the st
 assert.ok(loader.indexOf("cms-draft-client.js")<loader.indexOf("cms-inline-static.js"));
 assert.match(code,/OPQDraftStore/,"Static inline editor must persist a server draft");
 const direct=readFileSync("functions/api/cms/direct-save.js","utf8");
-assert.ok(direct.includes('if(/^site(?:\.[A-Za-z0-9_-]+){2,6}$/.test(field))'));
+assert.ok(direct.includes(String.raw`if(/^site(?:\.[A-Za-z0-9_-]+){2,6}$/.test(field))`));
 assert.match(direct,/changeLimit=path==="data\/home-copy\.json"\?160:60/);
 assert.match(readFileSync("home-copy.js","utf8"),/footer\.lead/);
 assert.match(readFileSync("index.html","utf8"),/data-cms-field="footer\.lead"/);
