@@ -29,8 +29,8 @@
     const title=entity.name+" - Open Phu Quoc";
     const description=entity.what_it_is||entity.why_go||"Thông tin điểm đến Phú Quốc.";
     const key=entity.slug||entity.id;
-    const url="https://cms.openphuquoc.com/places/detail.html?id="+encodeURIComponent(key);
-    const shareImage=image||"https://cms.openphuquoc.com/assets/logo-master.png";
+    const url="https://openphuquoc.com/places/detail.html?id="+encodeURIComponent(key);
+    const shareImage=image||"https://openphuquoc.com/assets/logo-master.png";
     document.title=title;
     setCanonical(url);
     setMeta('meta[name="description"]',"content",description);
@@ -49,10 +49,23 @@
 
   const typeLabel={place:"ĐỊA ĐIỂM",activity:"TRẢI NGHIỆM"};
   const labels={
-    family:"Gia đình",couple:"Cặp đôi",sea:"Biển",evening:"Buổi tối",nature:"Thiên nhiên",
-    "local-life":"Đời sống địa phương","rainy-day":"Ngày mưa",show:"Biểu diễn",beach:"Bãi biển",
-    culture:"Văn hóa",history:"Lịch sử",outdoor:"Ngoài trời",indoor:"Trong nhà",waterpark:"Công viên nước",
-    "cable-car":"Cáp treo",resort:"Khu nghỉ dưỡng",architecture:"Kiến trúc",fireworks:"Pháo hoa",marine:"Biển đảo"
+    agriculture:"Nông trại",architecture:"Kiến trúc",beach:"Bãi biển","cable-car":"Cáp treo",
+    craft:"Nghề truyền thống",culture:"Văn hóa",diving:"Lặn biển",entertainment:"Vui chơi giải trí",
+    evening:"Trải nghiệm buổi tối",family:"Dành cho gia đình",fishing:"Câu cá",food:"Ẩm thực",
+    history:"Lịch sử",indoor:"Trong nhà","local-life":"Đời sống địa phương",lore:"Truyền thuyết",
+    marine:"Biển đảo",market:"Chợ",multimedia:"Trình diễn đa phương tiện",museum:"Bảo tàng",
+    nature:"Thiên nhiên",outdoor:"Ngoài trời",resort:"Khu nghỉ dưỡng",river:"Sông",sea:"Trên biển",
+    seafood:"Hải sản",show:"Biểu diễn",snorkeling:"Lặn ngắm san hô",stream:"Suối",sunset:"Hoàng hôn",
+    "theme-park":"Công viên chủ đề",thrill:"Trò chơi cảm giác mạnh",underwater:"Trải nghiệm dưới nước",
+    viewpoint:"Điểm ngắm cảnh",village:"Làng quê",waterpark:"Công viên nước",wildlife:"Động vật hoang dã",
+    couple:"Cặp đôi",fireworks:"Pháo hoa",practical:"Thông tin hữu ích","rainy-day":"Ngày mưa",
+    "sunset-town":"Sunset Town","first-time":"Lần đầu đến Phú Quốc"
+  };
+  const areaLabels={
+    north:"Bắc đảo","north-west":"Tây Bắc đảo","center-west":"Trung tâm & bờ Tây",west:"Bờ Tây",
+    east:"Đông đảo","forest-east":"Rừng phía Đông",south:"Nam đảo","south-an-thoi":"An Thới",
+    "south-east":"Đông Nam đảo","south-hon-thom":"Hòn Thơm","south-sea":"Vùng biển An Thới",
+    sea:"Trên biển","island-wide":"Toàn đảo"
   };
   const priceDimensionLabel={travel_date:"Ngày đi",height_band:"Chiều cao",age_band:"Độ tuổi",ticket_bundle:"Loại vé hoặc combo",time_slot:"Khung giờ"};
 
@@ -64,6 +77,9 @@
 
   function weatherLevel(value){
     return ({high:"Cao",medium:"Vừa",low:"Thấp",none:"Không đáng kể"})[String(value||"").toLowerCase()]||friendly(value);
+  }
+  function areaName(entity,zone){
+    return zone?.name||areaLabels[String(entity?.area_code||"").toLowerCase()]||"Toàn đảo";
   }
 
   function detailHref(entity){
@@ -97,6 +113,8 @@
   function render(entity,zones,all,prices,planningData,visualData,explainerData,uiData,notices){
     const root=$("#detailRoot");
     const zone=zones.find(z=>z.id===entity.zone_id);
+    const regionName=areaName(entity,zone);
+    const subregionName=areaLabels[String(entity.area_code||"").toLowerCase()]||regionName;
     const lookup=new Map(all.map(x=>[x.id,x]));
     const directPriceRows=prices.filter(p=>(p.related_entities||[]).includes(entity.id));
     const relatedPriceRows=prices.filter(p=>(p.related_entities||[]).some(id=>(entity.related_entities||[]).includes(id)));
@@ -118,7 +136,7 @@
     const heroAlt=heroVisual?.alt||entity.name;
     const extraVisuals=heroVisual?visualImages.filter(x=>x!==heroVisual):visualImages;
     const facts=[
-      [pc.fact_area||"Khu vực",zone?.name||"Toàn đảo"],
+      [pc.fact_area||"Khu vực",regionName],
       [pc.fact_best_time||"Lúc nên đi",entity.best_time||"Tùy lịch"],
       [pc.fact_duration||"Thời lượng",entity.duration||"Tùy trải nghiệm"],
       [pc.fact_weather||"Phụ thuộc thời tiết",entity.weather_dependency?weatherLevel(entity.weather_dependency):"Chưa xác định"],
@@ -147,7 +165,7 @@
     });
     const activeNotice=ongoingNotice||datedNotice;
     const noticeEyebrow=ongoingNotice?"THÔNG BÁO VẬN HÀNH":
-      datedNotice?.status==="BOOKING_FULL"?"THÔNG BÁO BOOKING NGÀY "+datedNotice.date.split("-").reverse().join("/"):
+      datedNotice?.status==="BOOKING_FULL"?"THÔNG BÁO HẾT CHỖ NGÀY "+datedNotice.date.split("-").reverse().join("/"):
       "THÔNG BÁO SUẤT DIỄN NGÀY "+datedNotice?.date?.split("-").reverse().join("/");
     const noticeBanner=activeNotice?
       '<aside class="show-cancel-banner" role="status" data-show-notice><span>'+esc(noticeEyebrow)+'</span>'+
@@ -157,14 +175,14 @@
       '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
         (heroImage
           ? '<img class="detail-hero-photo" src="'+esc(heroImage)+'" alt="'+esc(heroAlt)+'" decoding="async">'
-          : '<div class="detail-hero-fallback" aria-label="Sơ đồ vị trí '+esc(zone?.name||"Phú Quốc")+'">'+
+          : '<div class="detail-hero-fallback" aria-label="Sơ đồ vị trí '+esc(regionName)+'">'+
               '<img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/PhuQuocMap.svg?width=900" alt="" aria-hidden="true">'+
-              '<div><span>'+esc(cc.island_location||"Vị trí trên đảo")+'</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>'+esc(cc.image_updating||"Ảnh điểm đến đang được cập nhật")+'</small></div>'+
+              '<div><span>'+esc(cc.island_location||"Vị trí trên đảo")+'</span><strong>'+esc(regionName)+'</strong><small>'+esc(cc.image_updating||"Ảnh điểm đến đang được cập nhật")+'</small></div>'+
             '</div>')+
         (heroIsContext?'<span class="detail-hero-context">'+esc(cc.zone_diagram||"Sơ đồ vùng")+'</span>':'')+
         (heroSource ? '<small class="detail-hero-credit">Ảnh: '+esc(String(heroSource).replace(/^Ảnh:\s*/i,""))+(heroVisual?.license?' · '+esc(heroVisual.license):'')+'</small>' : '<small class="detail-hero-credit">Bản đồ định hướng Phú Quốc</small>')+
         '<div class="detail-hero-inner">'+
-          '<p class="detail-kicker">'+esc(placeTypeLabel)+' · '+esc(zone?.name||"PHÚ QUỐC")+'</p>'+
+          '<p class="detail-kicker">'+esc(placeTypeLabel)+' · '+esc(regionName.toUpperCase())+'</p>'+
           '<h1>'+esc(entity.name)+'</h1>'+
           '<p class="lead">'+esc(entity.what_it_is||entity.why_go||"")+'</p>'+
           '<div class="detail-badges">'+[...new Set(tags)].slice(0,7).map(t=>'<span>'+esc(friendly(t))+'</span>').join("")+'</div>'+
@@ -180,13 +198,13 @@
         '<div class="detail-main">'+
           (explainer.lede?'<article class="detail-panel detail-explainer-intro"><span>'+esc(pc.why_understand||"VÌ SAO NƠI NÀY ĐÁNG HIỂU")+'</span><h2>'+esc(explainer.lede)+'</h2></article>':'')+
           (window.OpenPQVisual&&extraVisuals.length?OpenPQVisual.gallery(extraVisuals,{eyebrow:pc.images||"HÌNH ẢNH",title:pc.images_title||"Nhìn một vòng trước khi đi"}):"")+
-          (window.OpenPQVisual?OpenPQVisual.locator(zone,{title:pc.location_title||"Ở đâu trên đảo?",label:zone?.name||"Phú Quốc",map:entity.map||visual.map||zone?.map,eyebrow:cc.island_location||"Vị trí",buttonLabel:cc.view_area_map||"Xem bản đồ khu vực",openLabel:cc.open_map||"Mở bản đồ lớn ↗",loadedLabel:cc.map_loaded||"Bản đồ đã mở"}):"")+
+          (window.OpenPQVisual?OpenPQVisual.locator(zone,{title:pc.location_title||"Ở đâu trên đảo?",label:regionName,map:entity.map||visual.map||zone?.map,eyebrow:cc.island_location||"Vị trí",buttonLabel:cc.view_area_map||"Xem bản đồ khu vực",openLabel:cc.open_map||"Mở bản đồ lớn ↗",loadedLabel:cc.map_loaded||"Bản đồ đã mở"}):"")+
           (window.OpenPQVisual?OpenPQVisual.infographic(explainer.infographic||visual.infographic||[],{eyebrow:pc.explainer_eyebrow||"HIỂU ĐIỂM ĐẾN",title:pc.explainer_title||"Ba chuyện đáng biết trước khi ghé"}):"")+
           ((explainer.sections||[]).length?'<article class="detail-panel"><span>'+esc(pc.context||"BỐI CẢNH")+'</span><h2>'+esc(pc.context_title||"Đọc chỗ này như một nơi có câu chuyện.")+'</h2><div class="explainer-sections">'+explainer.sections.map(x=>'<section><h3>'+esc(x.heading||"")+'</h3><p>'+esc(x.body||"")+'</p></section>').join("")+'</div></article>':'')+
           ((explainer.visitor_questions||[]).length?'<article class="detail-panel detail-questions"><span>'+esc(pc.questions||"HỎI GÌ KHI TỚI?")+'</span><h2>'+esc(pc.questions_title||"Mấy câu hỏi giúp hiểu nơi này hơn.")+'</h2><ul>'+explainer.visitor_questions.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></article>':'')+
           (entity.why_go?'<article class="detail-panel"><span>'+esc(pc.what_here||"CÓ GÌ Ở ĐÂY")+'</span><h2>'+esc(pc.what_here_title||"Chỗ này đáng ghé vì điều gì?")+'</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
           '<article class="detail-panel"><span>'+esc(pc.quick_facts||"NẮM NHANH")+'</span><h2>'+esc(pc.quick_facts_title||"Mấy chuyện chính trước khi đi.")+'</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
-          ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>GIÁ VÉ</span><h2>Giá thay đổi theo những gì?</h2><p>Nếu nguồn chưa công bố đủ, Open Phu Quoc sẽ không tự điền số. Khi xem vé, nhớ chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||x)+'</span>').join("")+'</div></article>':'')+
+          ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>GIÁ VÉ</span><h2>Giá thay đổi theo những gì?</h2><p>Nếu nguồn chưa công bố đủ, Open Phu Quoc sẽ không tự điền số. Khi xem vé, nhớ chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||friendly(x))+'</span>').join("")+'</div></article>':'')+
           ((entity.tips||[]).length?'<article class="detail-panel"><span>TRƯỚC KHI ĐI</span><h2>Nhớ mấy chuyện này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+
           (priceRows.length?'<article class="detail-panel"><span>'+(inheritedPrice?'GIÁ ĐI CÙNG TRẢI NGHIỆM CHÍNH':'GIÁ THAM KHẢO')+'</span><h2>'+(inheritedPrice?'Quyền lợi này thường đi chung trong vé hoặc combo chính.':'Dùng để dự trù, không phải giá cố định.')+'</h2>'+(inheritedPrice?'<p>Giá bên dưới thuộc vé hoặc combo của trải nghiệm liên quan. Hãy chọn đúng ngày đi, chiều cao, độ tuổi và quyền lợi trước khi thanh toán.</p>':'')+'<div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>KIỂM TRA ĐÚNG NGÀY</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
           (entity.id==="activity_big_game_fishing"&&entity.official_url==="https://phuquocfishingtours.com/"?
@@ -196,9 +214,9 @@
         '</div>'+
         '<aside class="detail-context">'+
           '<span>'+esc(pc.useful_now||"CẦN DÙNG KHI ĐANG ĐI")+'</span>'+
-          '<div class="context-card"><span>'+esc(pc.area||"KHU VỰC")+'</span><strong>'+esc(zone?.name||"Phú Quốc")+'</strong><small>'+esc(entity.area_code||"")+'</small></div>'+
+          '<div class="context-card"><span>'+esc(pc.area||"KHU VỰC")+'</span><strong>'+esc(regionName)+'</strong><small>'+esc(subregionName)+'</small></div>'+
           '<a class="context-link" href="../weather/"><span>☀</span><div><strong>Thời tiết & biển</strong><small>Xem tình hình mới nhất trước hoạt động ngoài trời</small></div><b>→</b></a>'+
-          '<a class="context-link alt" href="../explore/?zone='+encodeURIComponent(entity.zone_id||"all")+'"><span>⌖</span><div><strong>Xem thêm quanh đây</strong><small>'+esc(zone?.name||"Toàn đảo")+'</small></div><b>→</b></a>'+
+          '<a class="context-link alt" href="../explore/?zone='+encodeURIComponent(entity.zone_id||"all")+'"><span>⌖</span><div><strong>Xem thêm quanh đây</strong><small>'+esc(regionName)+'</small></div><b>→</b></a>'+
           (priceRows.length?'<a class="context-link alt" href="../utilities/#prices"><span>₫</span><div><strong>Giá & quyền lợi</strong><small>Chọn đúng ngày đi trước khi so giá</small></div><b>→</b></a>':'')+
         '</aside>'+
       '</section>';
@@ -228,7 +246,7 @@
     const all=[...(places.entities||[]),...(activities.entities||[])];
     const entity=all.find(x=>x.id===id||x.slug===id||x.legacy_id===id);
     if(!entity){
-      $("#detailRoot").innerHTML='<section class="detail-loading"><strong>Không tìm thấy địa điểm.</strong><br><br><a href="../explore/">← Quay lại Explore</a></section>';
+      $("#detailRoot").innerHTML='<section class="detail-loading"><strong>Không tìm thấy địa điểm.</strong><br><br><a href="../explore/">← Quay lại Khám phá</a></section>';
       return;
     }
     render(entity,zones.entities||[],all,prices.entities||[],planning,visualData,explainerData,uiData,notices);
