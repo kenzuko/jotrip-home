@@ -2,7 +2,7 @@
 // We never retain IP, GPS, session IDs, user agents, raw URLs, search text or cookies.
 const EVENT_TYPES=new Set(["page_view","go_open","nearme_open","weather_open","airport_open","transit_open","feedback_open"]);
 const DEVICES=new Set(["desktop","mobile","tablet","other"]);
-const BASE_HOST="cms.openphuquoc.com";
+const BASE_HOST="openphuquoc.com";
 const headers={"Content-Type":"application/json; charset=utf-8","Cache-Control":"private, no-store","X-Robots-Tag":"noindex"};
 const json=(body,status=200)=>new Response(JSON.stringify(body),{status,headers});
 const dayVN=()=>new Date(Date.now()+7*3600000).toISOString().slice(0,10);
