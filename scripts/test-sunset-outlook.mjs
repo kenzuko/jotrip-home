@@ -106,6 +106,94 @@ assert.equal(sunset.refreshDelayMs(300),30*60*1000);
 assert.equal(sunset.refreshDelayMs(120),10*60*1000);
 assert.equal(sunset.refreshDelayMs(0),null);
 
+
+// Dense ordinary cloud on the observed sunset horizon matters near sunset.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.horizon_cloud={
+      status:"LIKELY_OBSCURED",
+      obscuration_score:82,
+      trend:"STABLE",
+      dominant_layer:"LOW",
+      confidence:"HIGH"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"watch");
+  assert.equal(out.reason,"horizon_cloud");
+  assert.equal(out.horizon_cloud_status,"LIKELY_OBSCURED");
+  assert.equal(out.horizon_cloud_score,82);
+}
+
+// Moderate horizon cloud becomes actionable inside the final two hours.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.horizon_cloud={
+      status:"CLOUD_RISK",
+      obscuration_score:52,
+      trend:"STABLE",
+      dominant_layer:"MID",
+      confidence:"MEDIUM"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"watch");
+  assert.equal(out.reason,"horizon_cloud");
+}
+
+// A high-confidence clear horizon should outrank generic WATCH convection.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.horizon_cloud={
+      status:"CLEAR",
+      obscuration_score:8,
+      trend:"STABLE",
+      dominant_layer:null,
+      confidence:"HIGH"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"good");
+  assert.equal(out.reason,"horizon_clear");
+}
+
+// Even a dense horizon observation must not be projected ten hours forward.
+{
+  const data=base(0.1);
+  data.generated_at="2026-09-29T00:20:00Z";
+  data.actual.vvpq.observed_at="2026-09-29T00:20:00Z";
+  data.actual.rain_gauges[0].observed_at="2026-09-29T00:20:00Z";
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.sampled_time="2026-09-29T00:20:00Z";
+    data.points[id].nowcast.horizon_cloud={
+      status:"LIKELY_OBSCURED",
+      obscuration_score:90,
+      trend:"INCREASING",
+      dominant_layer:"LOW",
+      confidence:"HIGH"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T00:45:00Z"),
+    nowMinutes:7*60+45
+  });
+  assert.equal(out.phase,"early");
+  assert.equal(out.level,"good");
+  assert.equal(out.reason,"early_favorable");
+}
+
 // Near sunset, a usable observed cloud track aimed at the west coast becomes a watch.
 {
   const data=base(0.1);
@@ -151,6 +239,104 @@ assert.equal(sunset.refreshDelayMs(0),null);
   });
   assert.equal(out.level,"watch");
   assert.equal(out.reason,"low_visibility");
+}
+
+
+// Dense ordinary cloud on the actual sunset horizon must warn even without rain.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.horizon_cloud={
+      status:"LIKELY_OBSCURED",
+      obscuration_score:82,
+      trend:"INCREASING",
+      dominant_layer:"LOW",
+      confidence:"HIGH"
+    };
+    data.points[id].nowcast.cloud_motion={
+      status:"PASSING_BY",
+      public_track_usable:true,
+      predicted_impact:false,
+      approaching:false
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"watch");
+  assert.equal(out.reason,"horizon_cloud");
+  assert.equal(out.horizon_cloud_status,"LIKELY_OBSCURED");
+  assert.equal(out.horizon_cloud_layer,"LOW");
+  assert.equal(out.horizon_cloud_likely_count,3);
+  assert.deepEqual(out.horizon_cloud_points,["Bờ Tây","Bờ Tây","Bờ Tây"]);
+}
+
+// A clear sunset horizon should beat generic nearby convective cloud.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.convective_level="HIGH";
+    data.points[id].nowcast.horizon_cloud={
+      status:"CLEAR",
+      obscuration_score:8,
+      trend:"STABLE",
+      dominant_layer:null,
+      confidence:"HIGH"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"good");
+  assert.equal(out.reason,"horizon_clear");
+}
+
+
+// One moderate cloudy west-coast point is too local to become an island-wide warning.
+{
+  const data=base(0.1);
+  const ids=["duong_dong","cua_can","ganh_dau"];
+  ids.forEach((id,index)=>{
+    data.points[id].name=["Dương Đông","Cửa Cạn","Gành Dầu"][index];
+    data.points[id].nowcast.horizon_cloud={
+      status:index===2?"CLOUD_RISK":"PARTLY_CLOUDY",
+      obscuration_score:index===2?55:25,
+      trend:"STABLE",
+      dominant_layer:"MID",
+      confidence:"HIGH"
+    };
+  });
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.notEqual(out.reason,"horizon_cloud");
+  assert.equal(out.horizon_cloud_risk_count,1);
+}
+
+// Two cloudy west-coast points are enough for a localized late sunset warning.
+{
+  const data=base(0.1);
+  const ids=["duong_dong","cua_can","ganh_dau"];
+  ids.forEach((id,index)=>{
+    data.points[id].name=["Dương Đông","Cửa Cạn","Gành Dầu"][index];
+    data.points[id].nowcast.horizon_cloud={
+      status:index===0?"PARTLY_CLOUDY":"CLOUD_RISK",
+      obscuration_score:index===0?25:index===1?52:64,
+      trend:"STABLE",
+      dominant_layer:"MID",
+      confidence:"HIGH"
+    };
+  });
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.reason,"horizon_cloud");
+  assert.equal(out.horizon_cloud_risk_count,2);
+  assert.deepEqual(out.horizon_cloud_points,["Cửa Cạn","Gành Dầu"]);
 }
 
 console.log("sunset outlook tests passed");
