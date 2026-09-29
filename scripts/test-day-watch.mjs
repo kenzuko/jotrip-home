@@ -61,7 +61,9 @@ const live=readFileSync("home-live-v3.js","utf8");
 assert.match(homepage,/id="tripDayWatch"/);
 assert.doesNotMatch(homepage,/Operations Watch|Cần lưu ý hôm nay/);
 assert.match(live,/notice\.date === todayKey/);
-assert.match(live,/dateAgeDays\(notice\.effective_from\).*<= 7/);
+assert.match(live,/priority:Number\.isFinite\(ageDays\)&&ageDays<=7\?100:85/);
+assert.match(live,/validUntilDay >= todayKey/);
+assert.match(live,/dayWatchRainGauges\.length >= 2/);
 assert.match(live,/day_watch_candidates: dayWatchCandidates/);
 
 console.log("day-watch tests passed");
