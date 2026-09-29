@@ -5,7 +5,7 @@ const STORY_LOCATIONS="../data/views/story-locations.json";
 const $=s=>document.querySelector(s);
 
 async function load(){
-  const r=await fetch(CONTENT+"?t="+Date.now(),{cache:"no-store"});
+  const r=await fetch(CONTENT,{cache:"default"});
   if(!r.ok)throw new Error(r.status);
   return r.json();
 }
@@ -181,9 +181,9 @@ load().then(async data=>{
   if($("#articleRoot")){
     try{
       const [visualData,zonesData,storyLocations]=await Promise.all([
-        fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}),
-        fetch(ZONES+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{entities:[]}),
-        fetch(STORY_LOCATIONS,{cache:"no-store"}).then(r=>r.ok?r.json():{stories:{}})
+        fetch(VISUALS,{cache:"default"}).then(r=>r.ok?r.json():{}),
+        fetch(ZONES,{cache:"default"}).then(r=>r.ok?r.json():{entities:[]}),
+        fetch(STORY_LOCATIONS,{cache:"default"}).then(r=>r.ok?r.json():{stories:{}})
       ]);
       renderArticle(data,visualData,zonesData.entities||[],storyLocations);
     }catch(e){

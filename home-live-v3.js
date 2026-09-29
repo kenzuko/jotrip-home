@@ -374,7 +374,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
     getJson(SRC.marineOps),
     getAirport(),
     getText(SRC.airportHistoryBase + "/" + vnDateKey() + "/events.jsonl"),
-    getJson("data/operational-notices.json")
+    window.OpenPQPublicData?.json
+      ? window.OpenPQPublicData.json("data/operational-notices.json")
+      : getJson("data/operational-notices.json")
   ]).then(([c, m, a, e, n]) => {
     let critical = c.status === "fulfilled" ? c.value : null;
     const marine = m.status === "fulfilled" ? m.value : null;
@@ -779,16 +781,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const attentionLine = airportWatch.count
       ? airportWatch.count + " cảnh báo đang cần chú ý"
       : "Chưa có cảnh báo đáng chú ý";
-    const airportPrimary = !airportAvailable
-      ? "Chưa có thông tin mới"
-      : airportWatch.count ? "Có chuyến cần chú ý" : "Hoạt động ổn định";
-    const airportHappening = !airportAvailable
-      ? "Sân bay chưa có cập nhật mới"
-      : airportWatch.count ? "Sân bay có chuyến cần chú ý" : "Sân bay đang hoạt động ổn định";
-
     setHappening(
       "airport",
-      airportHappening,
+      !airportAvailable ? "Sân bay chưa có cập nhật mới" : "Sân bay đang hoạt động ổn định",
       airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem các chuyến hôm nay.",
       !airportAvailable ? "CHƯA BIẾT" : airportWatch.count ? "CẦN CHÚ Ý" : "BÌNH THƯỜNG",
       airportAvailable
@@ -796,14 +791,14 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     setContext(
       "airport",
-      airportPrimary,
+      !airportAvailable ? "Chưa có thông tin mới" : "Hoạt động ổn định",
       airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem thêm",
       !airportAvailable ? "unknown" : airportWatch.count ? "watch" : "good"
     );
 
     setLive(
       "airport",
-      airportPrimary,
+      !airportAvailable ? "Chưa có thông tin mới" : "Hoạt động ổn định",
       airportAvailable ? attentionLine + " · " + total + " chuyến hôm nay" : "Mở Sân bay để xem các chuyến hôm nay",
       !airportAvailable ? "unknown" : airportWatch.count ? "watch" : "good",
       airportLoaded ? freshnessText(airportStamp) : "Chưa có tin mới"

@@ -12,12 +12,18 @@ assert.match(pages,/OPQDirectSaveRollback\?\.mount\([^\n]*result\.commit/);
 assert.match(stat,/cms-direct-save-rollback\.js\?v=1/);
 assert.match(stat,/mountRollback\(result\.commit\)/);
 
-for(const [path,needle] of [
-  ["stories/article.html",'../core/cms-direct-save-rollback.js?v=1'],
-  ["food/article.html",'../core/cms-direct-save-rollback.js?v=1'],
-  ["guide/article.html",'/core/cms-direct-save-rollback.js?v=1'],
-  ["index.html",'core/cms-direct-save-rollback.js?v=1']
-]) assert.ok(read(path).includes(needle),path+" must load direct-save rollback helper");
+const loader=read("core/cms-editor-loader.js");
+assert.match(loader,/cms-direct-save-rollback\.js\?v=1/);
+for(const [path,type] of [
+  ["stories/article.html","story"],
+  ["food/article.html","food"],
+  ["guide/article.html","page"],
+  ["index.html","page"]
+]){
+  const html=read(path);
+  assert.ok(html.includes('/core/cms-editor-loader.js?v=1'),path+" must expose the CMS-only editor loader");
+  assert.ok(html.includes('dataset.cmsEditor="'+type+'"'),path+" must select the correct CMS editor");
+}
 
 const helper=read("core/cms-direct-save-rollback.js");
 assert.match(helper,/direct_save_commit/);

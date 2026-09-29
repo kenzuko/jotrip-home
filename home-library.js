@@ -152,9 +152,10 @@
 
   async function load(){
     try{
-      const response=await fetch("/data/views/knowledge-home.json",{cache:"no-store"});
-      if(!response.ok)throw Error("Guide feed unavailable");
-      const payload=await response.json();
+      const load=window.OpenPQPublicData?.json||((url)=>fetch(url,{cache:"default"}).then(response=>{
+        if(!response.ok)throw Error("Guide feed unavailable");return response.json();
+      }));
+      const payload=await load("/data/views/knowledge-home.json");
       if(!Array.isArray(payload.objects)||!Number.isInteger(payload.count))return;
       const selected=choose(payload.objects);
       if(selected.length<3)return;

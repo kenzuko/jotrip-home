@@ -11,7 +11,7 @@
     const date=new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",weekday:"long",day:"2-digit",month:"2-digit"}).format(d);
     $("#goClock").textContent=fmt.format(d);$("#goDate").textContent=date;
   }
-  async function json(path){const r=await fetch(path+(path.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store"});if(!r.ok)throw Error(path+" HTTP "+r.status);return r.json()}
+  async function json(path){const r=await fetch(path,{cache:"default"});if(!r.ok)throw Error(path+" HTTP "+r.status);return r.json()}
   async function load(){
     const [config,places,activities,notices,visuals,locationIndex,venueDirectory]=await Promise.all([
       json("../data/go-config.json"),json("../data/entities/places.json"),json("../data/entities/activities.json"),json("../data/operational-notices.json"),json("../data/visual-context.json").catch(()=>null),json("../data/views/location-index.json").catch(()=>({documents:[]})),json("../data/entities/destination-venues.json").catch(()=>({entities:[]}))

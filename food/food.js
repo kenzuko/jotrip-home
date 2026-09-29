@@ -177,13 +177,13 @@ function renderArticle(){
 
 async function load(){
   const [r,v,u]=await Promise.all([
-    fetch(DATA+"?t="+Date.now(),{cache:"no-store"}).then(async res=>{
+    fetch(DATA,{cache:"default"}).then(async res=>{
       if(res.ok)return res;
-      return fetch(DATA_FALLBACK+"?t="+Date.now(),{cache:"no-store"});
+      return fetch(DATA_FALLBACK,{cache:"default"});
     }),
-    fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).catch(()=>null),
-    fetch(UI+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject())
-      .catch(()=>fetch(UI_FALLBACK+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({})))
+    fetch(VISUALS,{cache:"default"}).catch(()=>null),
+    fetch(UI,{cache:"default"}).then(r=>r.ok?r.json():Promise.reject())
+      .catch(()=>fetch(UI_FALLBACK,{cache:"default"}).then(r=>r.ok?r.json():{}).catch(()=>({})))
   ]);
   state.data=await r.json();
   state.visuals=v?.ok?await v.json():{};

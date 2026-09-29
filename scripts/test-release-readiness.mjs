@@ -27,10 +27,10 @@ for(const file of walk(root).filter(path=>path.endsWith(".html"))){
 assert.deepEqual(missing,[],"Public HTML contains missing local files");
 
 const home=read("home-live-v3.js");
-assert.doesNotMatch(home,/airportWatch\.count[\s\S]{0,240}Hoạt động ổn định[\s\S]{0,120}cảnh báo đang cần chú ý/,
-  "Airport summary must not call a watched state stable");
-assert.match(home,/airportWatch\.count \? "Có chuyến cần chú ý"/,
-  "Airport watch state must be visible in the primary summary");
+assert.match(home,/Sân bay đang hoạt động ổn định/,
+  "Airport summary must preserve the island-wide operational state");
+assert.match(home,/airportWatch\.count[\s\S]{0,120}cảnh báo đang cần chú ý/,
+  "Per-flight warnings must remain visible beside the airport-wide state");
 
 const app=read("app.js");
 assert.match(app,/replace\(\/\^Ảnh:\\s\*\/i,""\)/,
@@ -41,5 +41,27 @@ assert.doesNotMatch(read("data/visual-context.json"),/chụp ngày 28\/05\/2016 
   "Conflicting Bãi Sao camera metadata must not be presented as a destination coordinate");
 assert.doesNotMatch(read("transit/app.js"),/age<=30\?"Lịch còn mới":"Thông tin hơi cũ"/,
   "Transit schedules must not be called stale after only 30 minutes");
+assert.match(read("index.html"),/core\/public-data\.js\?v=1/,
+  "Homepage must load the shared static-data cache before feature modules");
+assert.doesNotMatch(read("index.html"),/<script[^>]+src=["'][^"']*cms-(?:inline|draft|direct)/i,
+  "Public homepage must not request CMS editor bundles directly");
+for(const file of ["stories/article.html","food/article.html","guide/article.html"]){
+  assert.doesNotMatch(read(file),/<script[^>]+src=["'][^"']*cms-(?:inline|draft|direct)/i,
+    file+" must not request CMS editor bundles on the public origin");
+}
+assert.match(read("core/public-data.js"),/pending\.has\(key\)/,
+  "Shared static data loader must deduplicate concurrent requests");
+for(const file of [
+  "nearme/nearme.js","stories/story.js","home-today-v3.js","guide/guide.js",
+  "guide/knowledge.js","places/detail.js","places/app.js","food/food.js",
+  "go/go.js","news/news.js","explore/app.js","hotels/app.js"
+]){
+  assert.doesNotMatch(read(file),/fetch\([^\n]*\?t=[^\n]*Date\.now/,
+    file+" must not bypass browser caching for static editorial/catalog data");
+}
+assert.match(read("bus/app.js"),/fetch\(NETWORK\+"\?t="\+Date\.now\(\),\{cache:"no-store"\}\)/,
+  "Live bus positions must remain uncached");
+assert.match(read("home-live-v3.js"),/cache:\s*["']no-store["']/,
+  "Homepage operational feeds must remain uncached");
 
 console.log("Release readiness regression checks PASS");

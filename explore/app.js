@@ -281,12 +281,12 @@
   initExploreMap();
 
   Promise.all([
-    fetch("../data/entities/zones.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/entities/places.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/entities/activities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/views/explore-facets.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({}))
+    fetch("../data/entities/zones.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/entities/places.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/entities/activities.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/views/explore-facets.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/views/place-planning-levels.json",{cache:"default"}).then(r=>r.json()),
+    fetch(VISUALS,{cache:"default"}).then(r=>r.ok?r.json():{}).catch(()=>({}))
   ]).then(([zones,places,activities,facets,planning,visuals])=>{
     state.zones=zones.entities||[];
     state.entities=[...(places.entities||[]),...(activities.entities||[])];

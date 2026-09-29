@@ -17,7 +17,7 @@ function renderTravel(rows){
 function renderChoices(rows){$("#transportChoices").innerHTML=(rows||[]).map(x=>'<article class="choice"><span>'+esc(x.trip)+'</span><strong>'+esc(x.choice)+'</strong></article>').join("")}
 function renderPrices(rows){$("#priceGrid").innerHTML=(rows||[]).map(x=>'<article class="price-card"><span>'+esc(x.place)+'</span><h3>'+esc(x.activity)+'</h3><strong>'+esc(x.price)+'</strong><small>'+esc(x.note)+'</small></article>').join("")}
 function renderChecklist(rows){$("#checklistGrid").innerHTML=(rows||[]).map(x=>'<article class="check-card"><h3>'+esc(x.group)+'</h3><ul>'+x.items.map(i=>'<li>'+esc(i)+'</li>').join("")+'</ul></article>').join("")}
-fetch("../data/utilities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(d=>{
+fetch("../data/utilities.json",{cache:"default"}).then(r=>r.json()).then(d=>{
   $("#national").innerHTML=(d.national_emergency||[]).map(emergency).join("");
   $("#local").innerHTML=(d.phu_quoc||[]).map(localCard).join("");
   renderDirectory(d.directory||[]);

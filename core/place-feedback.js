@@ -23,7 +23,7 @@
   );
   const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   let dialog,form,status,submit,photoRow,config=null,current=null,loadConfig,lastSelection="",selectionButton=null;
-  // The current Open Phu Quoc website is cms.openphuquoc.com only.
+  // Public feedback is served from the canonical Open Phu Quoc origin.
   const apiEndpoint="/api/feedback";
   const validType=value=>["place","activity","venue","hotel","utility","article","general"].includes(value)?value:"general";
   function init(){

@@ -146,7 +146,7 @@
   }
   async function init(){
     try{
-      const response=await fetch(endpoint,{cache:"no-store"});
+      const response=await fetch(endpoint,{cache:"default"});
       if(!response.ok)throw Error("HTTP "+response.status);
       const payload=await response.json();items=payload.objects||[];
       if(page==="library"){

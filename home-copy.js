@@ -3,8 +3,10 @@
   const qa=s=>[...document.querySelectorAll(s)];
   const set=(s,t,path)=>{const e=q(s);if(e&&t){e.textContent=t;if(path)e.dataset.cmsField=path;}};
 
-  fetch("data/home-copy.json?t="+Date.now(),{cache:"no-store"})
-    .then(r=>r.json())
+  const load=window.OpenPQPublicData?.json||((url)=>fetch(url,{cache:"default"}).then(r=>{
+    if(!r.ok)throw new Error(String(r.status));return r.json();
+  }));
+  load("data/home-copy.json")
     .then(d=>{
       set(".hero-kicker",d.hero?.kicker,"hero.kicker");
       set(".hero-copy h1",d.hero?.title,"hero.title");

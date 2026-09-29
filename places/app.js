@@ -129,10 +129,10 @@ function render(){
 }
 
 async function load(){
-  const [payloads,planning,visuals]=await Promise.all([Promise.all(DATA.map(url=>fetch(url+"?t="+Date.now(),{cache:"no-store"}).then(r=>{
+  const [payloads,planning,visuals]=await Promise.all([Promise.all(DATA.map(url=>fetch(url,{cache:"default"}).then(r=>{
     if(!r.ok)throw new Error(url+" "+r.status);
     return r.json();
-  }))),fetch(PLANNING+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({}))]);
+  }))),fetch(PLANNING,{cache:"default"}).then(r=>r.json()),fetch(VISUALS,{cache:"default"}).then(r=>r.ok?r.json():{}).catch(()=>({}))]);
   state.levels=planning.levels||[];
   state.visuals=visuals||{};
   state.planning=new Map((planning.items||[]).map(x=>[x.entity_id,x]));

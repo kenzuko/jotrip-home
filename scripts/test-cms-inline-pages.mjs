@@ -18,8 +18,14 @@ for(const x of ["hero.kicker","hero.title","hero.lead","sections."])
   assert.ok(home.includes(x),"Unmapped home copy: "+x);
 for(const x of ["editorial.short_summary","editorial.practical","editorial.before_you_go.","editorial.expectation_vs_reality"])
   assert.ok(guide.includes(x),"Unmapped guide editorial: "+x);
-assert.match(readFileSync("index.html","utf8"),/cms-inline-pages\.js\?v=1/);
-assert.match(readFileSync("guide/article.html","utf8"),/cms-inline-pages\.js\?v=1/);
+const loader=readFileSync("core/cms-editor-loader.js","utf8");
+for(const page of ["index.html","guide/article.html"]){
+  const html=readFileSync(page,"utf8");
+  assert.match(html,/cms-editor-loader\.js\?v=1/,page+" must request the CMS editor loader");
+  assert.match(html,/cmsEditor="page"/,page+" must select the page editor");
+}
+assert.match(loader,/cms-inline-pages\.js\?v=1/,
+  "CMS loader must include the page editor bundle");
 assert.match(code,/id="cmsPagePublish"[^>]*>Xuất bản<\/button>/);
 assert.match(code,/Nháp lưu trên máy • Xuất bản mới ghi GitHub 1 lần/);
 assert.doesNotMatch(code,/Lưu lên website/);

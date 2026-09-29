@@ -11,9 +11,9 @@
   const isActive=(item,now)=>!item.expires_at||Date.parse(item.expires_at)>now;
 
   Promise.all([
-    fetch("../data/home-support.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/source-registry.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/operational-notices.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{notices:[]}).catch(()=>({notices:[]}))
+    fetch("../data/home-support.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/source-registry.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/operational-notices.json",{cache:"default"}).then(r=>r.ok?r.json():{notices:[]}).catch(()=>({notices:[]}))
   ]).then(([support,registry,notices])=>{
     const sourceById=new Map((registry.sources||[]).map(x=>[x.id,x]));
     const days=Number.isInteger(notices?.retention_days)&&notices.retention_days>0?notices.retention_days:3;

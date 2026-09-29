@@ -13,7 +13,7 @@
 
   async function loadRules(){
     try{
-      const r=await fetch("data/views/today-rules.json?t="+Date.now(),{cache:"no-store"});
+      const r=await fetch("data/views/today-rules.json",{cache:"default"});
       if(r.ok){
         const d=await r.json();
         rules=Array.isArray(d.rules)?d.rules:[];

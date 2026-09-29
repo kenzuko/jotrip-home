@@ -756,7 +756,7 @@
   }
 
   async function load(){
-    const readJson=path=>fetch(path+"?t="+Date.now(),{cache:"no-store"}).then(response=>{
+    const readJson=path=>fetch(path,{cache:"default"}).then(response=>{
       if(!response.ok)throw new Error(path+" HTTP "+response.status);
       return response.json();
     });

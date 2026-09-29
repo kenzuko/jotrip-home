@@ -233,15 +233,15 @@
   }
 
   Promise.all([
-    fetch("../data/entities/places.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/entities/activities.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/entities/zones.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/entities/prices.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch("../data/views/place-planning-levels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
-    fetch(VISUALS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}),
-    fetch(EXPLAINERS+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{items:{}}).catch(()=>fetch("../data/i18n/vi/place-explainers.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).catch(()=>({items:{}}))),
-    fetch(UI+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch(UI_FALLBACK+"?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{}).catch(()=>({}))),
-    fetch("../data/operational-notices.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.ok?r.json():{notices:[]}).catch(()=>({notices:[]}))
+    fetch("../data/entities/places.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/entities/activities.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/entities/zones.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/entities/prices.json",{cache:"default"}).then(r=>r.json()),
+    fetch("../data/views/place-planning-levels.json",{cache:"default"}).then(r=>r.json()),
+    fetch(VISUALS,{cache:"default"}).then(r=>r.ok?r.json():{}),
+    fetch(EXPLAINERS,{cache:"default"}).then(r=>r.ok?r.json():{items:{}}).catch(()=>fetch("../data/i18n/vi/place-explainers.json",{cache:"default"}).then(r=>r.json()).catch(()=>({items:{}}))),
+    fetch(UI,{cache:"default"}).then(r=>r.ok?r.json():Promise.reject()).catch(()=>fetch(UI_FALLBACK,{cache:"default"}).then(r=>r.ok?r.json():{}).catch(()=>({}))),
+    fetch("../data/operational-notices.json",{cache:"default"}).then(r=>r.ok?r.json():{notices:[]}).catch(()=>({notices:[]}))
   ]).then(([places,activities,zones,prices,planning,visualData,explainerData,uiData,notices])=>{
     const all=[...(places.entities||[]),...(activities.entities||[])];
     const entity=all.find(x=>x.id===id||x.slug===id||x.legacy_id===id);

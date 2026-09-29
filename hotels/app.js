@@ -78,7 +78,7 @@
   function bindValues(){$("#hotelSearch").value=state.query;$("#areaFilter").value=state.area;$("#starFilter").value=state.star;$("#statusFilter").value=state.status}
 
   $("#hotelGrid")?.addEventListener("error",event=>{if(event.target?.tagName==="IMG")event.target.closest(".hotel-card-thumb")?.remove();},true);
-  fetch("../data/entities/hotels.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()).then(data=>{
+  fetch("../data/entities/hotels.json",{cache:"default"}).then(r=>r.json()).then(data=>{
     state.hotels=data.entities||[];
     const areas=[...new Set(state.hotels.map(x=>x.area_label).filter(x=>x&&!/cần rà/i.test(x)))].sort((a,b)=>a.localeCompare(b,"vi"));
     $("#areaFilter").innerHTML='<option value="all">Tất cả khu vực</option>'+areas.map(x=>'<option value="'+esc(x)+'">'+esc(x)+'</option>').join("");

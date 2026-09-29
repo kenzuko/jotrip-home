@@ -303,7 +303,11 @@ function renderCuriosity(){
     if(willOpen&&answer){btn.setAttribute("aria-expanded","true");btn.textContent="Thu gọn ↑";answer.hidden=false;card.dataset.open="true"}
   }));
 }
-async function loadJson(url,label){try{const r=await fetch(url+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error(label+" HTTP "+r.status);return await r.json()}catch(error){console.warn("Homepage source unavailable:",label,error);return null}}
+async function loadJson(url,label){try{
+ const loader=window.OpenPQPublicData?.json;
+ if(loader)return await loader(url);
+ const r=await fetch(url,{cache:"default"});if(!r.ok)throw new Error(label+" HTTP "+r.status);return await r.json();
+}catch(error){console.warn("Homepage source unavailable:",label,error);return null}}
 renderClock();setInterval(()=>{renderClock();renderTripClock()},60000);renderHotNow();renderHomeCurrency();
 const noticesTask=loadJson(NOTICES,"operational-notices").then(data=>{operationalNotices=data;renderTripClock();renderActivities();renderHotNow()});
 const supportTask=loadJson(SUPPORT,"home-support").then(data=>{if(!data)return;support=data;window.OPENPQ_HOME_SUPPORT=data;window.dispatchEvent(new CustomEvent("openpq:home-support-ready",{detail:data}));renderHotNow();renderCuriosity();renderTripClock();renderActivities()});

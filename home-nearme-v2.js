@@ -89,7 +89,10 @@
   });
  }
  async function getIndex(){
-  if(!indexPromise)indexPromise=fetch("data/views/location-index.json",{cache:"force-cache"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}).then(d=>{if(!Array.isArray(d.documents))throw Error("Missing index");return d.documents.filter(row=>!row.duplicate_of)}).catch(error=>{indexPromise=null;throw error});
+  if(!indexPromise){
+    const load=window.OpenPQPublicData?.json||((url)=>fetch(url,{cache:"default"}).then(r=>{if(!r.ok)throw Error("HTTP "+r.status);return r.json()}));
+    indexPromise=load("data/views/location-index.json").then(d=>{if(!Array.isArray(d.documents))throw Error("Missing index");return d.documents.filter(row=>!row.duplicate_of)}).catch(error=>{indexPromise=null;throw error});
+  }
   return indexPromise;
  }
  function itemUrl(row){

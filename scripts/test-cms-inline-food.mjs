@@ -19,9 +19,12 @@ assert.equal(t.read(record,"tips.0"),"Nhớ kiểm tra");
 assert.equal(t.write(record,"constructor","bad"),false);
 assert.notEqual(t.draftKey("admin","bun-quay","aaa"),t.draftKey("admin","bun-quay","bbb"));
 const html=readFileSync("food/article.html","utf8");
+const loader=readFileSync("core/cms-editor-loader.js","utf8");
 const food=readFileSync("food/food.js","utf8");
 const css=readFileSync("food/food.css","utf8");
-assert.match(html,/cms-inline-food\.js\?v=1/);
+assert.match(html,/cms-editor-loader\.js\?v=1/);
+assert.match(html,/cmsEditor="food"/);
+assert.match(loader,/cms-inline-food\.js\?v=1/);
 for(const key of ['name','intro','tips.','ingredients.','ask_staff.','allergy_note','how_to_eat'])
   assert.ok(food.includes('data-food-path=\\"'+key)||food.includes('data-food-path="'+key),"Missing "+key);
 assert.match(css,/\.food-article section\.food-safety\{[\s\S]*?padding:clamp\(/);

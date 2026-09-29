@@ -16,9 +16,12 @@ assert.equal(t.get(copy,"site.about.heroLead"),"Đã sửa tại chỗ");
 for(const page of ["about/index.html","food/index.html","stories/index.html","guide/index.html","places/index.html","utilities/index.html","explore/index.html","hotels/index.html","nearme/index.html","go/index.html"]){
  const html=readFileSync(page,"utf8");
  assert.match(html,/data-cms-static-field=/,page+" missing safe copy fields");
- assert.match(html,/cms-inline-static\.js\?v=1/,page+" missing inline static editor");
  assert.match(html,/site-copy\.js\?v=1/,page+" missing public copy runtime");
 }
+const siteCopy=readFileSync("core/site-copy.js","utf8");
+const loader=readFileSync("core/cms-editor-loader.js","utf8");
+assert.match(siteCopy,/cms-editor-loader\.js\?v=1/,"Public copy runtime must request the conditional CMS loader");
+assert.match(loader,/cms-inline-static\.js\?v=1/,"CMS loader must include the static editor bundle");
 const direct=readFileSync("functions/api/cms/direct-save.js","utf8");
 assert.ok(direct.includes('if(/^site(?:\\.[A-Za-z0-9_-]+){2,6}$/.test(field))'));
 assert.match(direct,/changeLimit=path==="data\/home-copy\.json"\?160:60/);

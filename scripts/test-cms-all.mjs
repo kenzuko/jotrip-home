@@ -26,6 +26,8 @@ function run(label,args){
 for(const file of [...tests,...syntax]){
   if(!fs.existsSync(file))throw new Error("CMS unified test discovery referenced missing file: "+file);
 }
+console.log("\n[CMS PREP] scripts/build-knowledge-public.mjs");
+run("scripts/build-knowledge-public.mjs",["scripts/build-knowledge-public.mjs"]);
 for(const file of tests){
   console.log("\n[CMS TEST]",file);
   run(file,[file]);

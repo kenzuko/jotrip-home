@@ -228,12 +228,12 @@
   async function renderFoodNow() {
     const host = $("#foodNowGrid"), context = $("#foodNowContext");
     if (!host) return;
-    const visualsPromise = fetch("data/visual-context.json?t=" + Date.now(), {cache:"no-store"})
-      .then(r => r.ok ? r.json() : {}).catch(() => ({}));
+    const load=window.OpenPQPublicData?.json||((url)=>fetch(url,{cache:"default"}).then(r=>{
+      if(!r.ok)throw new Error(String(r.status));return r.json();
+    }));
+    const visualsPromise = load("data/visual-context.json").catch(() => ({}));
     try {
-      const response = await fetch("data/food.json?t=" + Date.now(), {cache:"no-store"});
-      if (!response.ok) throw new Error(String(response.status));
-      const data = await response.json();
+      const data = await load("data/food.json");
       const plan = mealPlan(data.dishes || []);
       if (!plan.pool.length) throw new Error("no dishes");
       foodNowState.pool = plan.pool;
@@ -271,9 +271,10 @@
     const host = $("#islandStoryGrid");
     if (!host) return;
     try {
-      const r = await fetch("data/content.json?t=" + Date.now(), { cache:"no-store" });
-      if (!r.ok) throw new Error(String(r.status));
-      const data = await r.json();
+      const load=window.OpenPQPublicData?.json||((url)=>fetch(url,{cache:"default"}).then(r=>{
+        if(!r.ok)throw new Error(String(r.status));return r.json();
+      }));
+      const data = await load("data/content.json");
       const stories = data.stories || [];
       const rows = sessionStorySlice(stories, 3);
       if (!rows.length) throw new Error("empty");

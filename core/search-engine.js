@@ -119,9 +119,10 @@
   }
 
   async function load(url){
-    const response=await fetch(url,{cache:'no-store'});
-    if(!response.ok) throw new Error('search-index '+response.status);
-    const payload=await response.json();
+    const shared=global.OpenPQPublicData?.json;
+    const payload=shared?await shared(url):await fetch(url,{cache:'default'}).then(response=>{
+      if(!response.ok)throw new Error('search-index '+response.status);return response.json();
+    });
     documents=Array.isArray(payload.documents)?payload.documents:[];
     return documents.length;
   }

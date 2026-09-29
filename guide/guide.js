@@ -31,10 +31,10 @@ function renderStatic(){
  $$("[data-days]").forEach(b=>b.onclick=()=>{const days=Number(b.dataset.days),d=state.itineraries.duration_guides.find(x=>x.days===days),templates=state.itineraries.templates.filter(x=>x.title.startsWith(String(days)));$$("[data-days]").forEach(x=>x.classList.toggle("active",x===b));$("#routeIdeas").innerHTML='<div class="route-answer"><span>'+esc(d.label)+'</span><strong>'+esc(d.principle)+'</strong><p>'+esc(d.weather_rule||d.avoid||"")+'</p>'+(templates.length?'<div class="route-template">'+templates.map(t=>'<b>'+esc(t.title)+'</b><ol>'+t.days.map(day=>'<li>'+esc(Array.isArray(day)?day.join(" · "):day)+'</li>').join("")+'</ol>').join("")+'</div>':'')+'</div>'});
 }
 Promise.all([
- fetch("data.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
- fetch("../data/views/search-index.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
- fetch("../data/stay.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
- fetch("../data/itineraries.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json()),
- fetch("../data/practical-guide.json?t="+Date.now(),{cache:"no-store"}).then(r=>r.json())
+ fetch("data.json",{cache:"default"}).then(r=>r.json()),
+ fetch("../data/views/search-index.json",{cache:"default"}).then(r=>r.json()),
+ fetch("../data/stay.json",{cache:"default"}).then(r=>r.json()),
+ fetch("../data/itineraries.json",{cache:"default"}).then(r=>r.json()),
+ fetch("../data/practical-guide.json",{cache:"default"}).then(r=>r.json())
 ]).then(([guide,search,stay,itineraries,practical])=>{Object.assign(state,{guide,search,stay,itineraries,practical});$("#sourceMeta").textContent="Điểm đến, lịch trình và những điều cần biết - chọn đúng thứ bạn đang cần là đủ.";$("#handbookCoverage").textContent=(search.documents||[]).length+" mục có thể tìm";const featured=["visa","tàu cao tốc","khách sạn","Hòn Thơm","ẩm thực","APEC","Bãi Sao","gói bữa ăn"];$("#knowledgeGrid").innerHTML=featured.map((q,i)=>'<button type="button" data-guide-query="'+esc(q)+'"><span>GỢI Ý '+String(i+1).padStart(2,"0")+'</span><strong>'+esc(q)+'</strong><small>Xem nội dung liên quan</small></button>').join("");$$("[data-guide-query]").forEach(b=>b.onclick=()=>{$("#guideQ").value=b.dataset.guideQuery;renderSearch(b.dataset.guideQuery)});renderStatic();renderIntent("first");if(initialGuideQuery){$("#guideQ").value=initialGuideQuery;renderSearch(initialGuideQuery)}}).catch(e=>{$("#sourceMeta").textContent="Cẩm nang chưa mở được lúc này. Thử lại sau một chút nhé.";console.warn(e)});
 $$("[data-intent]").forEach(b=>b.onclick=()=>renderIntent(b.dataset.intent));$("#guideSearch").onsubmit=e=>{e.preventDefault();const q=$("#guideQ").value.trim();if(q)renderSearch(q)};$("#guideQ").oninput=()=>{if(!$("#guideQ").value.trim())$("#guideSearchResults").hidden=true};
