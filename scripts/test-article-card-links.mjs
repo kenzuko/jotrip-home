@@ -38,14 +38,14 @@ assert.match(experience,/href="stories\/article\.html\?id='\+encodeURIComponent\
 const storyJs=read("stories/story.js");
 assert.doesNotMatch(storyJs,/data\.stories\.find\(x=>x\.id===id\)\|\|data\.stories\[0\]/,
   "An invalid story id must never silently render the first story");
-assert.match(storyJs,/https:\/\/openphuquoc\.com\/stories\/article\.html\?id=/,
-  "Story canonical must use the public root");
+assert.match(storyJs,/https:\/\/openphuquoc\.com["']?\+\(window\.OpenPQI18n\?\.localize/,
+  "Story canonical must remain rooted at the public origin while allowing a reviewed locale prefix");
 assert.doesNotMatch(storyJs,/https:\/\/cms\.openphuquoc\.com/,
   "CMS host must never be a public story canonical");
 
 const guideJs=read("guide/knowledge.js");
-assert.match(guideJs,/https:\/\/openphuquoc\.com"\+o\.route/,
-  "Guide canonical must use the public root");
+assert.match(guideJs,/https:\/\/openphuquoc\.com"\+localized\(o\.route\)/,
+  "Guide canonical must remain rooted at the public origin while allowing a reviewed locale prefix");
 assert.doesNotMatch(guideJs,/https:\/\/cms\.openphuquoc\.com/,
   "CMS host must never be a public guide canonical");
 
