@@ -49,6 +49,7 @@ on:
       - "functions/_shared/owner-traffic-auth.js"
       - "functions/api/traffic/**"
       - "functions/api/cms/traffic.js"
+      - "functions/api/ops/**"
       - "admin/traffic-dashboard.*"
       - "scripts/build-public-traffic.mjs"
       - "scripts/test-traffic-*.mjs"
