@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
-const source=readFileSync("functions/_shared/seo-html.js","utf8");
+const i18nSource=readFileSync("functions/_shared/i18n.js","utf8");
+const i18nUrl="data:text/javascript;base64,"+Buffer.from(i18nSource).toString("base64");
+const source=readFileSync("functions/_shared/seo-html.js","utf8")
+  .replace('from "./i18n.js"', 'from "'+i18nUrl+'"');
 const seo=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
 const story={id:"phan-biet-tieu",title:"Tiêu Phú Quốc & chuyện vườn",dek:"Nội dung mô tả",intro:"Mở bài\n\nĐoạn hai",updated_at:"2026-09-27",sections:[{heading:"Cách làm",body:"Câu chuyện thực địa."}]};
 const article=seo.buildStoryMeta(story);
