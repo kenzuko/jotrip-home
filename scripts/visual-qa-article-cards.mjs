@@ -110,9 +110,9 @@ for(const [i,href] of guideHrefs.entries()){
   assert.ok(href,"Homepage guide "+i+" missing href");
   await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
   const libraryNow=page.locator("#home-library");await libraryNow.scrollIntoViewIfNeeded();
-  const card=page.locator('#home-library .home-library-card[href="'+href.replaceAll('"','\\\"')+'"]').first();
-  await card.waitFor({state:"visible",timeout:7000});
   const id=new URL(href,BASE).searchParams.get("id");
+  const card=page.locator('#home-library .home-library-card[href*="id='+id+'"]').first();
+  await card.waitFor({state:"visible",timeout:7000});
   await card.locator("figure").click();
   await page.waitForURL(url=>url.pathname.endsWith("/guide/article.html")&&url.searchParams.get("id")===id,{timeout:5000});
   const h1=page.locator("#knowledgeArticle h1");await h1.waitFor({state:"visible",timeout:5000});
