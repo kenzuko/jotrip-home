@@ -202,7 +202,7 @@ function buildLocalNowHint(){
    if(left<=120)candidates.push({
     score:130+left,priority:"deadline",tone:"default",
     title:"VinWonders: trò chơi dừng khoảng 17:00",
-    note:"Sau đó còn show ONCE lúc 18:45 theo lịch.",
+    note:"Sau đó còn ONCE Show lúc 18:45 theo lịch.",
     primaryText:"Xem VinWonders →",primaryHref:x.item.route,
     secondaryText:"Xem ONCE",secondaryHref:"places/detail.html?id=once-show"
    });
