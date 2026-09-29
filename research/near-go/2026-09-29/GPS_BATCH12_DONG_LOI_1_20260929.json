@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "entity_id": "utility_fuel_dong_loi_1",
+  "decision": "ACCEPT_SITE_CENTROID",
+  "accepted_coordinate": {
+    "lat": 10.2295125,
+    "lon": 103.9820781
+  },
+  "precision": "site_centroid",
+  "evidence": [
+    {
+      "type": "OFFICIAL_TOURISM_DIRECTORY",
+      "url": "https://dulich.phuquoc.gov.vn/iv/detailutilities/?child=1240&id=1240",
+      "fact": "Official Phú Quốc tourism directory lists Trạm Xăng Dầu Đông Lợi 1 on Nguyễn Trung Trực with phone +84 297 3848 639."
+    },
+    {
+      "type": "STRUCTURED_BUSINESS_MAP",
+      "google_place_id": "ChIJm4pOYouLpzER0exl4FJ98ag",
+      "plus_code": "6XHJ+RR4",
+      "fact": "Exact structured station entity matches Nguyễn Trung Trực and the same phone number."
+    },
+    {
+      "type": "PLUS_CODE_NUMERIC_CHECK",
+      "full_code": "7P256XHJ+RR4",
+      "decoded_cell_center": {
+        "lat": 10.2295125,
+        "lon": 103.982078125
+      },
+      "accepted_probe": {
+        "lat": 10.2295125,
+        "lon": 103.9820781,
+        "distance_m": 2
+      },
+      "fact": "The short Plus Code was expanded with the Phú Quốc locality prefix and decoded to a numeric cell; accepted probe returned the same Place ID at 2 m."
+    }
+  ],
+  "safety": "Accept as site centroid only. Do not claim exact driveway, pump position, fuel availability or live opening status.",
+  "source_audit": {
+    "verified_identity": true,
+    "verified_operation": false,
+    "verified_entrance": false
+  },
+  "incremental_delta": {
+    "location_index_with_map": [
+      242,
+      243
+    ],
+    "map_coverage_ready": [
+      239,
+      240
+    ],
+    "map_coverage_missing": [
+      155,
+      154
+    ],
+    "research_holds": [
+      9,
+      8
+    ]
+  },
+  "cumulative_from_main_baseline": {
+    "location_index_with_map": [
+      236,
+      243
+    ],
+    "map_coverage_ready": [
+      233,
+      240
+    ],
+    "map_coverage_missing": [
+      161,
+      154
+    ],
+    "intentional_no_fixed_pin": 4
+  },
+  "latest_main_checked_sha": "f2d365f7bb35356b0dc050791d4210cb8aabd5cc"
+}
