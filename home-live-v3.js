@@ -990,7 +990,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
       const upcomingHref = noticeHref(upcoming);
       const upcomingLabel = upcoming ? "SẮP TỚI · " + upcoming.date.split("-").slice(1).reverse().join("/") : "";
       const datedLine = dated ? [[datedLabel, dated.title + " · Xem thông báo", datedHref]] :
-        ongoing ? [["SHOW", ongoing.title + " · Xem thông báo", "places/detail.html?id=sac-mau-venice"]] :
+        ongoing ? [["BIỂU DIỄN", ongoing.title + " · Xem thông báo", "places/detail.html?id=sac-mau-venice"]] :
         upcoming ? [[upcomingLabel, upcoming.title + " · Xem thông báo", upcomingHref]] : [];
       renderTicker([...datedLine,...tickerBaseItems], (dated || ongoing) ? "watch" : (topAlert?.level || "normal"));
     };
