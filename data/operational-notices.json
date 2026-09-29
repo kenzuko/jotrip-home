@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "timezone": "Asia/Ho_Chi_Minh",
-  "policy": "Dated CANCELLED notices apply to their affected event date unless an earlier effective_from is provided. BOOKING_FULL notices may surface from effective_from in advance-planning/news contexts, while day-of operational surfaces stay scoped to the affected date. Ongoing SUSPENDED/SUSPENDED_UPGRADE notices remain active until a later operational update clears them.",
+  "policy": "Dated CANCELLED notices apply to their affected event date unless an earlier effective_from is provided. BOOKING_FULL notices may surface from effective_from in news/homepage-news contexts; detail_visible_from can delay generic place-page banners, while day-of operational surfaces stay scoped to the affected date. Ongoing SUSPENDED/SUSPENDED_UPGRADE notices remain active until a later operational update clears them.",
   "notices": [
     {
       "id": "thvn-2026-09-24-2015",
@@ -39,7 +39,9 @@
       "booking_message": "Nhà hàng không đóng cửa và thông báo này không áp dụng cho các ngày khác.",
       "source": "Thông tin booking đối tác cập nhật ngày 29/09/2026",
       "source_type": "OPERATOR_PARTNER_NOTICE",
-      "valid_until": "2026-10-12T00:00:00+07:00"
+      "valid_until": "2026-10-12T00:00:00+07:00",
+      "homepage_visible_from": "2026-09-29",
+      "detail_visible_from": "2026-10-04"
     }
   ],
   "retention_days": 3
