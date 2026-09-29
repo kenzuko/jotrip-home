@@ -1,335 +1,9 @@
 # Open Phu Quoc - Knowledge Vietnamese review 5/5
 
-
-
-> Bản đọc để duyệt tiếng Việt. Chỉ gồm phần editorial/public.
-
-> Không đưa research, source hay operational data vào file duyệt.
-
+> Mục 121-122 đã duyệt; 123-150 chưa duyệt.
+> Chỉ gồm phần editorial/public. Research, source và operational data giữ nguyên.
 > Giữ dòng TOPIC_ID để map lại dữ liệu chính xác.
-
 > Phạm vi: Knowledge 121-150/150.
-
-
-
-## 102. Nguồn gốc tên Hàm Ninh
-<!-- TOPIC_ID:knowledge_102_nguon-goc-ten-ham-ninh -->
-
-> HISTORY_LORE · DOCUMENTED_HISTORY
-
-### Tóm tắt
-
-Hàm Ninh là một địa danh lâu đời ở phía Đông Phú Quốc, gắn với dãy núi và làng chài cùng tên. Nguồn chính thức hiện mô tả khá rõ địa hình và đời sống cư dân, nhưng chưa giải thích đáng tin cậy vì sao nơi này mang tên Hàm Ninh.
-
-### Thực tế khi đi
-
-
-
-### Kỳ vọng và thực tế
-
-Có thể kể Hàm Ninh là địa danh gắn với dãy núi và làng chài phía Đông đảo, nhưng chưa nên giải nghĩa hai chữ 'Hàm Ninh' thành câu chuyện nguồn gốc nếu chưa có sử liệu.
-
-### Trước khi đi
-
-
-### Câu hỏi gợi tò mò
-
-- Tên Hàm Ninh xuất hiện sớm nhất trong bản đồ hay địa bạ nào?
-- Dãy núi có tên trước hay làng cư dân có tên trước?
-
-
-## 103. Nguồn gốc tên Gành Dầu
-<!-- TOPIC_ID:knowledge_103_nguon-goc-ten-ganh-dau -->
-
-> HISTORY_LORE · DOCUMENTED_HISTORY
-
-### Tóm tắt
-
-Gành Dầu là địa danh ở cực Tây Bắc Phú Quốc, gắn với làng biển và mũi đất hướng sang phía Campuchia. Phần vị trí thì rõ, nhưng nguồn hiện có chưa đủ chắc để chốt vì sao tên gọi là Gành Dầu.
-
-### Thực tế khi đi
-
-
-
-### Kỳ vọng và thực tế
-
-Cách giải thích 'gành đá có cây dầu' nghe hợp lý và khá phổ biến, nhưng hiện chưa đủ bằng chứng để Open Phu Quoc kể như lịch sử đã xác minh.
-
-### Trước khi đi
-
-
-### Câu hỏi gợi tò mò
-
-- Tên Gành Dầu có xuất hiện trên bản đồ hoặc địa bạ cũ từ khi nào?
-- Cây dầu từng phổ biến ở khu mũi này đến mức nào và có thực sự liên quan tới địa danh?
-
-
-## 104. Nguồn gốc tên Cửa Cạn
-<!-- TOPIC_ID:knowledge_104_nguon-goc-ten-cua-can -->
-
-> HISTORY_LORE · DOCUMENTED_HISTORY
-
-### Tóm tắt
-
-Cửa Cạn là tên con sông và cả vùng dân cư ở bờ Tây Bắc. Theo lời giải thích được nguồn địa phương ghi lại, có mùa cát bồi khiến cửa sông gần như bị lấp; đó được cho là lý do người ta gọi nơi này bằng cái tên Cửa Cạn.
-
-### Thực tế khi đi
-
-Cửa Cạn là tên cả vùng sông, cửa biển và khu dân cư, nên nếu đến để đi thuyền hay chèo kayak, hãy hỏi đúng bến và mực nước hôm đó. Cửa sông có thể đổi hình dáng theo mùa; chỉ xem ảnh hoặc ghim trên bản đồ chưa chắc đã tìm đúng lối xuống nước.
-
-### Kỳ vọng và thực tế
-
-Người địa phương có cách giải thích tên Cửa Cạn từ hiện tượng cát bồi khiến cửa sông có mùa gần như bị lấp. Câu chuyện phù hợp với đặc điểm địa hình, nhưng chưa có nghiên cứu địa danh xác định chính xác thời điểm tên gọi xuất hiện. Cứ kể đây là lời giải thích địa phương sẽ đúng với mức bằng chứng hiện có.
-
-### Trước khi đi
-
-- Tìm điểm đến cụ thể trên sông hay ở cửa biển.
-- Không dùng ảnh mùa khác để đoán mực nước hôm nay.
-- Nếu xuống nước, hỏi điều kiện và hướng dẫn an toàn.
-- Kể nguồn gốc tên như lời giải thích địa phương, không như sự thật đã đóng.
-
-### Câu hỏi gợi tò mò
-
-- Vì sao cửa sông Cửa Cạn có lúc bị cát bồi gần kín?
-- Tên Cửa Cạn đã xuất hiện trên những bản đồ cũ nào?
-
-
-## 105. Nguồn gốc tên Hòn Thơm
-<!-- TOPIC_ID:knowledge_105_nguon-goc-ten-hon-thom -->
-
-> HISTORY_LORE · LEGEND
-
-### Tóm tắt
-
-Vì sao có tên Hòn Thơm? Người ta kể những chuyện khác nhau, từ hoa trái trên đảo đến mùi của sản vật biển. Những cách giải thích ấy vẫn là lời kể được lưu truyền, chưa có tư liệu đủ chắc để chọn một câu chuyện làm nguồn gốc duy nhất.
-
-### Thực tế khi đi
-
-Nếu có dịp nghe người Hòn Thơm kể chuyện tên đảo, cứ hỏi họ được nghe từ ai, vào thời điểm nào. Những lời kể truyền miệng cũng là một phần ký ức của nơi này, miễn là khi thuật lại mình giữ rõ đó là giai thoại, chưa phải mốc lịch sử đã được xác nhận.
-
-### Kỳ vọng và thực tế
-
-Tên Hòn Thơm được giải thích theo nhiều cách, từ mùi hoa rừng tới hương biển. Hiện chưa có một lời giải được khảo cứu địa danh xác nhận là chính thức. Những dị bản có thể cùng tồn tại mà không cần chọn vội một câu chuyện làm kết luận.
-
-### Trước khi đi
-
-- Giữ rõ cách nói “có lời kể rằng” khi kể lại.
-- Không gán một giai thoại thành sự kiện lịch sử.
-- Tìm bản đồ/tư liệu cũ nếu cần chốt mốc tên gọi.
-- Lắng nghe các dị bản mà không buộc người kể phải chọn một.
-
-### Câu hỏi gợi tò mò
-
-- Người dân An Thới kể những câu chuyện nào về tên Hòn Thơm?
-- Tên Hòn Thơm đã xuất hiện trên hải đồ từ bao giờ?
-
-
-## 106. Nguồn gốc tên Hòn Móng Tay
-<!-- TOPIC_ID:knowledge_106_nguon-goc-ten-hon-mong-tay -->
-
-> HISTORY_LORE · LOCAL_EXPLANATION
-
-### Tóm tắt
-
-Có cách kể rằng Hòn Móng Tay mang tên một loài cây từng mọc trên đảo. Câu chuyện được nhiều nguồn du lịch nhắc lại, nhưng chưa phải kết luận đã được chứng minh bằng khảo cứu địa danh và thực vật.
-
-### Thực tế khi đi
-
-Đi Hòn Móng Tay, bạn có thể hỏi hướng dẫn viên cách người địa phương kể về cái tên ấy. Có lời giải gắn với loài cây cùng tên, nhưng đừng kỳ vọng tới đảo hôm nay chắc chắn còn nhìn thấy đúng loài cây đó; cảnh quan và thảm thực vật đã thay đổi.
-
-### Kỳ vọng và thực tế
-
-Nguồn du lịch dùng cách diễn đạt 'được cho là' khi nói về nguồn gốc tên đảo, tức câu chuyện chưa có tư liệu sơ cấp xác nhận. Lời kể giúp địa danh dễ nhớ hơn, nhưng vẫn cần phân biệt với một kết luận đã được nghiên cứu.
-
-### Trước khi đi
-
-- Kể đây là cách giải thích được lưu truyền, không khẳng định chắc chắn.
-- Không tự hái cây để đối chiếu tên.
-- Hỏi người kể nguồn của câu chuyện nếu muốn tìm hiểu sâu.
-- Tôn trọng thực vật trên đảo nhỏ.
-
-### Câu hỏi gợi tò mò
-
-- Loài cây gắn với tên Hòn Móng Tay thực chất là cây gì?
-- Có tư liệu cũ nào ghi lại tên hòn đảo này không?
-
-
-## 108. Nguyễn Ánh tại Phú Quốc
-<!-- TOPIC_ID:knowledge_108_nguyen-anh-tai-phu-quoc -->
-
-> HISTORY_LORE · DOCUMENTED_HISTORY
-
-### Tóm tắt
-
-Nguyễn Ánh từng tìm đến Phú Quốc trong thời gian bị quân Tây Sơn truy đuổi, theo các tư liệu về giai đoạn 1782-1783. Việc ông có mặt trên đảo thuộc lịch sử, còn các chuyện dấu kiếm, Giếng Tiên hay dấu chân là lớp truyền thuyết được kể thêm về sau.
-
-### Thực tế khi đi
-
-Ghé Mũi Ông Đội hoặc Giếng Tiên, có thể vừa xem địa hình vừa nghe chuyện Nguyễn Ánh được lưu truyền ở đây. Nếu kể lại một sự kiện lịch sử, hãy dựa vào niên đại và tư liệu sử học; những dấu vết được dân gian nhắc tới nên đặt ở phần giai thoại.
-
-### Kỳ vọng và thực tế
-
-Tư liệu cho biết Nguyễn Ánh từng tới Phú Quốc, nhưng không vì vậy mà mọi dấu kiếm hay vết đá gắn với ông đều trở thành chứng cứ. Phần lịch sử có nguồn riêng, còn những chuyện như kiếm chém đá là truyền thuyết địa phương.
-
-### Trước khi đi
-
-- Đọc niên đại và nguồn khi gặp câu chuyện về Nguyễn Ánh.
-- Không xem dấu kiếm hay Giếng Tiên là chứng tích lịch sử nếu chưa có kiểm chứng.
-- Hỏi lối vào hiện tại trước khi đi Mũi Ông Đội.
-- Tôn trọng câu chuyện dân gian mà không trộn lẫn với sử liệu.
-
-### Câu hỏi gợi tò mò
-
-- Vì sao Nguyễn Ánh nhiều lần tìm đến Phú Quốc khi bị truy đuổi?
-- Những câu chuyện về Nguyễn Ánh trên đảo, đâu là sử liệu và đâu là truyền thuyết?
-
-
-## 109. Nguyễn Trung Trực và Phú Quốc
-<!-- TOPIC_ID:knowledge_109_nguyen-trung-truc-va-phu-quoc -->
-
-> HISTORY_LORE · DOCUMENTED_HISTORY
-
-### Tóm tắt
-
-Sau trận đánh đồn Kiên Giang năm 1868, Nguyễn Trung Trực cùng nghĩa quân chuyển căn cứ qua Hòn Chông rồi ra Phú Quốc. Những sự kiện cuối đời ông gắn với đảo, nhưng một số chi tiết về việc bị bắt còn có cách ghi khác nhau giữa các nguồn.
-
-### Thực tế khi đi
-
-Muốn tìm hiểu Nguyễn Trung Trực ở Phú Quốc, hãy đọc bảng giới thiệu tại điểm tưởng niệm và xem nguồn tư liệu đứng sau từng mốc. Có những tình tiết cuối đời được kể theo các dị bản khác nhau; khi nguồn chưa thống nhất, nên ghi rõ câu chuyện đến từ đâu.
-
-### Kỳ vọng và thực tế
-
-Những sự kiện và niên đại chính của cuộc kháng chiến được nhiều nguồn ghi nhận, nhưng cách kể về việc ông bị bắt hay chủ động nộp mình cùng nguyên nhân trực tiếp chưa hoàn toàn giống nhau. Ghi lại sự khác biệt giữa các tư liệu trung thực hơn việc chọn một dị bản rồi kể như không còn tranh luận.
-
-### Trước khi đi
-
-- Tách sự kiện 1868 khỏi các tình tiết còn dị bản.
-- Ưu tiên tài liệu bảo tàng, chính quyền và nghiên cứu lịch sử.
-- Không gán tên địa điểm hiện tại cho vị trí lịch sử nếu chưa đối chiếu.
-- Giữ thái độ tôn trọng tại nơi tưởng niệm.
-
-### Câu hỏi gợi tò mò
-
-- Vì sao nghĩa quân Nguyễn Trung Trực chọn Phú Quốc làm căn cứ cuối?
-- Các tài liệu kể khác nhau thế nào về việc ông bị bắt hoặc nộp bạn?
-
-
-## 117. Bà Kim Giao
-<!-- TOPIC_ID:knowledge_117_ba-kim-giao -->
-
-> HISTORY_LORE · LEGEND
-
-### Tóm tắt
-
-Trong những chuyện kể về Phú Quốc, Bà Kim Giao được nhớ như người khai khẩn đất và chỉ dẫn việc làm ruộng. Nguồn địa phương gắn bà với Dinh Bà Trong ở Cửa Cạn; đừng nhầm với vị được thờ ở Dinh Bà Ngoài Dương Đông.
-
-### Thực tế khi đi
-
-Đi thăm các nơi thờ Bà trên đảo, nên xác nhận đúng địa điểm vì tên gọi gần nhau dễ khiến người mới tới nhầm lẫn. Có thể hỏi người trông coi về câu chuyện được truyền qua các thế hệ, rồi khi kể lại nhớ tách lời tín ngưỡng khỏi những thông tin có nguồn sử liệu.
-
-### Kỳ vọng và thực tế
-
-Bà Kim Giao hiện diện trong truyền thuyết và sinh hoạt tín ngưỡng, nhưng chưa có nghĩa mọi chi tiết về nhân vật đều đã được lịch sử xác nhận. Bà Kim Giao và Thủy Long Thánh Mẫu cũng thuộc hai mạch thờ tự khác nhau, không nên kể gộp.
-
-### Trước khi đi
-
-- Dùng đúng tên Dinh Bà Trong/Cửa Cạn và Dinh Bà Ngoài/Dương Đông.
-- Ăn mặc, cư xử phù hợp nơi thờ tự.
-- Hỏi trước khi chụp người đang hành lễ.
-- Kể câu chuyện như truyền thuyết địa phương, không gắn mốc chắc khi thiếu tư liệu.
-
-### Câu hỏi gợi tò mò
-
-- Dinh Bà Trong và Dinh Bà Ngoài thờ những ai?
-- Vì sao Phú Quốc có nhiều câu chuyện dân gian về các vị nữ thần?
-
-
-## 118. Các giai thoại về Nguyễn Ánh trên đảo
-<!-- TOPIC_ID:knowledge_118_cac-giai-thoai-ve-nguyen-anh-tren-dao -->
-
-> HISTORY_LORE · LEGEND_COLLECTION
-
-### Tóm tắt
-
-Giếng Tiên, Mũi Ông Đội, dấu kiếm và nhiều địa danh Nam đảo thường đi cùng các giai thoại về Nguyễn Ánh. Những chuyện ấy tạo nên ký ức dân gian của người địa phương, nhưng việc Nguyễn Ánh từng tới đảo không đồng nghĩa mọi dấu tích được kể đều có chứng cứ lịch sử.
-
-### Thực tế khi đi
-
-Đi cùng người địa phương, bạn có thể nghe nhiều giai thoại về Nguyễn Ánh ở các điểm khác nhau trên đảo. Hãy hỏi câu chuyện nào dựa trên tư liệu và phần nào được truyền miệng. Khi ghé những địa danh ấy, vẫn cần xác nhận đường vào và tránh tác động lên dấu tích tự nhiên.
-
-### Kỳ vọng và thực tế
-
-Một câu chuyện được nhiều người kể chưa thể tự biến mỗi vết đá hay mạch nước thành chứng cứ lịch sử. Giai thoại cho biết cách cộng đồng nhớ về quá khứ; để xác nhận sự kiện cụ thể vẫn cần hồ sơ, niên đại và nghiên cứu phù hợp.
-
-### Trước khi đi
-
-- Giữ cách gọi “truyền thuyết/giai thoại” với các dấu tích chưa kiểm chứng.
-- Không khắc thêm hoặc làm hư bề mặt đá tự nhiên.
-- Hỏi lối tiếp cận công khai tới Mũi Ông Đội.
-- Đọc thêm nguồn lịch sử nếu cần phân biệt các sự kiện.
-
-### Câu hỏi gợi tò mò
-
-- Vì sao nhiều địa danh Nam đảo gắn với chuyện Nguyễn Ánh?
-- Giếng Tiên có thật, còn những chi tiết nào thuộc về truyền thuyết?
-
-
-## 119. Nhà tù Phú Quốc qua các thời kỳ
-<!-- TOPIC_ID:knowledge_119_nha-tu-phu-quoc-qua-cac-thoi-ky -->
-
-> HISTORY_LORE · DOCUMENTED_HISTORY
-
-### Tóm tắt
-
-Nhà tù Phú Quốc trải qua những giai đoạn khác nhau, từ Căng Cây Dừa thời Pháp đến trại giam tù binh trong chiến tranh Việt Nam. Khi thăm di tích ngày nay, đọc mốc thời gian và phân biệt chứng tích với phần phục dựng sẽ giúp hiểu câu chuyện đầy đủ hơn.
-
-### Thực tế khi đi
-
-Thăm di tích Nhà tù Phú Quốc, nên dành thời gian đọc bảng thông tin và đi theo trình tự các khu, không chỉ dừng ở những mô hình gây ấn tượng mạnh. Gia đình có trẻ nhỏ cần cân nhắc nội dung tái hiện. Khi kể lại, nhớ phân biệt những chứng tích còn lại với phần dựng lại để minh họa.
-
-### Kỳ vọng và thực tế
-
-Không phải công trình nào khách nhìn thấy hôm nay cũng còn nguyên trạng từ thời nhà tù. Phục dựng giúp người xem hình dung bối cảnh nhưng phải được đọc cùng chú thích và tư liệu. Đằng sau mỗi câu chuyện là những con người từng trải qua chiến tranh, nên chuyến thăm cần sự tôn trọng.
-
-### Trước khi đi
-
-- Xem trước nội dung trưng bày nếu đi cùng trẻ nhỏ.
-- Đọc chú thích để phân biệt hiện vật/chứng tích và phục dựng.
-- Không tạo dáng đùa cợt ở khu tưởng niệm.
-- Kiểm tra giờ tham quan trước ngày đi.
-
-### Câu hỏi gợi tò mò
-
-- Căng Cây Dừa thời Pháp khác trại giam giai đoạn 1967-1973 ra sao?
-- Những phần nào tại di tích còn là chứng tích gốc, phần nào được phục dựng?
-
-
-## 120. Cư dân đầu tiên và quá trình định cư
-<!-- TOPIC_ID:knowledge_120_cu-dan-dau-tien-va-qua-trinh-dinh-cu -->
-
-> HISTORY_LORE · DOCUMENTED_HISTORY
-
-### Tóm tắt
-
-Có thể kể khá chắc về các làn sóng định cư được ghi chép từ cuối thế kỷ XVII, khi Phú Quốc nằm trong mạng lưới Hà Tiên và nhiều nhóm Việt, Hoa được chiêu tập đến khai khẩn. Nhưng câu hỏi 'ai là cư dân đầu tiên trên đảo' hiện chưa có đủ bằng chứng khảo cổ trong bộ nguồn để trả lời nghiêm túc.
-
-### Thực tế khi đi
-
-
-
-### Kỳ vọng và thực tế
-
-Lịch sử khai khẩn có văn bản không đồng nghĩa với lịch sử cư trú bắt đầu từ thời Mạc Cửu. Con người có thể đã hiện diện trên đảo sớm hơn nhiều, nhưng cần khảo cổ học để nói chắc.
-
-### Trước khi đi
-
-
-### Câu hỏi gợi tò mò
-
-- Có di chỉ khảo cổ nào trên Phú Quốc cho biết con người đã ở đây trước thế kỷ XVII?
-- Các cộng đồng Việt, Hoa và Khmer đã tương tác với nhau trên đảo và quanh vịnh Thái Lan ra sao?
-- Khi nào các làng cư trú được ghi nhận rõ trong địa bạ?
-
 
 ## 121. Phú Quốc trong không gian Hà Tiên
 <!-- TOPIC_ID:knowledge_121_phu-quoc-trong-khong-gian-ha-tien -->
@@ -338,28 +12,27 @@ Lịch sử khai khẩn có văn bản không đồng nghĩa với lịch sử c
 
 ### Tóm tắt
 
-Trước khi trở thành điểm du lịch quen thuộc, Phú Quốc nằm trong tuyến cư trú và giao thương lâu đời quanh Hà Tiên, Vịnh Thái Lan. Tư liệu về họ Mạc và những ghi chép hành chính thế kỷ XIX cho thấy hòn đảo từng gắn chặt với cả một vùng ven biển rộng lớn.
+Trước khi lột xác thành thiên đường nghỉ dưỡng, Phú Quốc từng là một mắt xích quan trọng trong chuỗi cư trú và giao thương nhộn nhịp quanh vùng Hà Tiên và Vịnh Thái Lan. Những tư liệu về gia tộc họ Mạc hay những dòng địa bạ thế kỷ XIX đều khắc họa hình ảnh một hòn đảo đan chặt vận mệnh với cả một dải bờ biển rộng lớn.
 
 ### Thực tế khi đi
 
-Đọc lịch sử Phú Quốc, hãy đặt đảo trong mối liên hệ với Hà Tiên, những tuyến đường biển và các đợt dịch chuyển dân cư. Muốn tra một mốc cụ thể thì nên đối chiếu văn bản hành chính, công trình nghiên cứu, đừng chỉ dựa vào bài giới thiệu du lịch.
+Để "thấm" lịch sử Phú Quốc, bạn đừng cô lập nó mà hãy đặt hòn đảo vào bức tranh toàn cảnh vùng Hà Tiên, theo dõi những tuyến hải trình và sự dịch chuyển của các dòng người. Nếu muốn tìm hiểu một cột mốc nào đó cho thấu đáo, tốt nhất là tìm đọc các văn bản hành chính hay công trình nghiên cứu uy tín, chứ đừng phó mặc hoàn toàn cho những bài PR du lịch.
 
 ### Kỳ vọng và thực tế
 
-Địa giới và cách quản lý vùng biển này đã thay đổi qua nhiều thời kỳ. Không thể lấy ranh giới ngày nay áp ngược lên bản đồ thế kỷ XVIII. Vai trò của họ Mạc cần được hiểu trong bối cảnh rộng, thay vì gom mọi sự kiện vào quyết định của một nhân vật.
+Tấm bản đồ ranh giới và cách cai trị vùng biển này đã nhiều lần được vẽ lại qua các triều đại. Việc lấy đường biên giới hiện tại để ốp lên bản đồ thế kỷ XVIII là một sự khiên cưỡng. Vai trò của dòng họ Mạc cũng cần được đánh giá trong một không gian rộng lớn, thay vì cứ quy kết mọi sự kiện lịch sử đều xuất phát từ ý chí của một cá nhân.
 
 ### Trước khi đi
 
-- Chú ý niên đại trước khi đọc tên huyện/tổng trong tư liệu.
-- Phân biệt mạng lưới cư trú-giao thương với địa giới hành chính.
-- Không dùng bản đồ hôm nay để suy ranh giới xưa.
-- Đối chiếu nhiều nguồn nếu cần kể chi tiết lịch sử.
+- Dò kỹ niên đại trước khi đọc lướt qua tên của một huyện hay tổng trong các tư liệu cổ.
+- Rạch ròi giữa mạng lưới giao thương tự nhiên và đường ranh giới hành chính cứng nhắc.
+- Đừng dùng bản đồ Google Maps hiện đại để định vị lãnh thổ của người xưa.
+- Hãy là người đọc thông thái, chịu khó đối chiếu đa nguồn nếu muốn đào sâu vào các tiểu tiết lịch sử.
 
 ### Câu hỏi gợi tò mò
 
-- Phú Quốc từng gắn với những tuyến giao thương nào quanh vịnh Thái Lan?
-- Đảo được ghi nhận thế nào trong tổ chức hành chính Hà Châu?
-
+- Phú Quốc từng đóng vai trò trạm trung chuyển trong những tuyến giao thương khét tiếng nào quanh vịnh Thái Lan?
+- Trong hệ thống hành chính Hà Châu xa xưa, hòn đảo này được định vị như thế nào?
 
 ## 122. Lịch sử nghề nước mắm
 <!-- TOPIC_ID:knowledge_122_lich-su-nghe-nuoc-mam -->
@@ -368,28 +41,27 @@ Trước khi trở thành điểm du lịch quen thuộc, Phú Quốc nằm tron
 
 ### Tóm tắt
 
-Nghề nước mắm Phú Quốc được làm từ cá cơm, muối và những tháng dài chăm chượp trong thùng gỗ. Chỉ dẫn xuất xứ được bảo hộ tại Việt Nam từ năm 2001 và tại EU dưới dạng PDO năm 2012; phía sau các mốc ấy vẫn là công việc cụ thể của từng nhà thùng.
+Mẻ nước mắm Phú Quốc trứ danh là kết tinh của cá cơm tươi rói, hạt muối mặn mòi và những tháng ngày ròng rã ủ chượp trong những chiếc thùng gỗ khổng lồ. Dù đã được cấp chứng nhận chỉ dẫn địa lý tại Việt Nam (năm 2001) và vươn tầm châu Âu với chứng nhận PDO (năm 2012), linh hồn thực sự của nghề mắm vẫn nằm ở mồ hôi và bí quyết riêng của từng nhà thùng.
 
 ### Thực tế khi đi
 
-Nếu ghé nhà thùng để hiểu lịch sử nghề nước mắm, hãy hỏi hôm đó cơ sở đang làm công đoạn nào, cách chọn cá và muối, cũng như thời gian ủ một mẻ. Khi mua mang về, xem nơi sản xuất và thông tin ghi trên chai; độ đạm chỉ là một trong những tiêu chí chọn nước mắm.
+Đến thăm nhà thùng để tìm về cội nguồn nghề mắm, bạn hãy tò mò hỏi xem hôm nay họ đang làm công đoạn gì, tỉ lệ muối cá ra sao, và phải mỏi mòn chờ bao lâu mới chắt được giọt mắm cốt đầu tiên. Khi định xách vài chai về làm quà, nhớ soi kỹ nơi sản xuất và nhãn mác; bởi độ đạm cao vút chưa chắc đã là bảo chứng duy nhất cho một chai mắm ngon.
 
 ### Kỳ vọng và thực tế
 
-Chỉ dẫn địa lý bảo hộ tên gọi cho sản phẩm đáp ứng quy định, không có nghĩa mọi chai in chữ 'Phú Quốc' đều đạt chuẩn. Lịch sử nghề đã trải qua thời gian dài trước những mốc pháp lý hiện đại, nên hai phần ấy cần được kể riêng.
+Việc một sản phẩm được bảo hộ chỉ dẫn địa lý không đồng nghĩa với việc cứ nhắm mắt mua chai mắm nào in chữ 'Phú Quốc' to đùng cũng đều đạt chuẩn mực ấy. Lịch sử thăng trầm của nghề làm mắm đã có từ rất lâu trước khi những chứng chỉ pháp lý hiện đại ra đời, nên hãy tách bạch câu chuyện văn hóa với những tiêu chuẩn thương mại.
 
 ### Trước khi đi
 
-- Hỏi rõ cơ sở đang làm nghề hay chủ yếu trưng bày/bán hàng.
-- Xem nhãn và nguồn gốc trước khi mua.
-- Đóng gói theo hướng dẫn hãng vận chuyển nếu mang đi.
-- Không xem một con số độ đạm là toàn bộ câu chuyện chất lượng.
+- Xác định xem cơ sở bạn định đến là một xưởng sản xuất thực thụ hay chỉ là phòng trưng bày hào nhoáng.
+- Lật nhãn mác lên xem nguồn gốc xuất xứ trước khi móc hầu bao.
+- Nếu muốn mang lên máy bay, phải nhờ đóng gói đúng chuẩn của hãng hàng không.
+- Đừng để một con số độ đạm che mờ đi toàn bộ nghệ thuật làm mắm thủ công.
 
 ### Câu hỏi gợi tò mò
 
-- Vì sao nước mắm Phú Quốc thường được ủ trong thùng gỗ lớn?
-- Một mẻ nước mắm đi từ cá cơm tươi đến lúc rút thành phẩm như thế nào?
-
+- Yếu tố nào khiến các nhà thùng ở Phú Quốc cứ phải chung thủy với những chiếc thùng gỗ khổng lồ thay vì các vật liệu hiện đại?
+- Hành trình lột xác của một mẻ cá cơm tươi rói cho đến khi biến thành giọt nước mắm hổ phách trải qua những công đoạn kỳ công nào?
 
 ## 123. Lịch sử nghề hồ tiêu và nghề biển
 <!-- TOPIC_ID:knowledge_123_lich-su-nghe-ho-tieu-va-nghe-bien -->
@@ -420,6 +92,145 @@ Trên đảo không chỉ có một kiểu sống bằng nghề biển. Ghe nh�
 - Vì sao Phú Quốc vừa có nghề trồng tiêu vừa có nhiều nghề khai thác biển?
 - Một gia đình làm nghề biển thay đổi công việc thế nào giữa các mùa?
 
+## 124. Cano 3 đảo
+<!-- TOPIC_ID:knowledge_124_cano-3-dao -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Tour cano 3 đảo thường xuất phát từ An Thới, ghé những hòn nhỏ để bơi, lặn ống thở hoặc nghỉ trên bãi. Nhưng con số ba không nói hết chuyến đi; cần hỏi thời gian thực ở mỗi điểm và phương án đổi tuyến nếu biển không thuận.
+
+### Thực tế khi đi
+
+Đặt tour cano đi đảo, hãy hỏi rõ bến khởi hành, số khách trên chuyến, thời gian dừng từng đảo, bữa ăn và áo phao được cấp. Nếu biển không phù hợp, đơn vị tổ chức cần có phương án đổi tuyến hoặc dời chuyến. Đi cùng trẻ nhỏ hay người bơi yếu thì nên chọn lịch có nhịp thong thả.
+
+### Kỳ vọng và thực tế
+
+Đi qua nhiều hòn không nhất thiết là được chơi nhiều hơn; đôi khi phần lớn thời gian lại ở trên cano. Điểm dừng, độ trong của nước và tình trạng san hô thay đổi theo biển từng ngày. Một tuyến ít điểm nhưng dành đủ thời gian xuống nước có thể dễ chịu hơn lịch chạy liên tục.
+
+### Trước khi đi
+
+- Xác nhận cano và bến tour trong ngày đi.
+- Hỏi phương án khi gió, sóng hoặc mưa không phù hợp.
+- Mặc áo phao theo hướng dẫn, không tự đổi điểm xuống nước.
+- Mang túi chống nước, đồ thay và thuốc chống say nếu cần.
+
+### Câu hỏi gợi tò mò
+
+- Vì sao cùng là tour 3 đảo mà hai ngày khác nhau có thể ghé những hòn khác nhau?
+
+## 125. Câu cá lớn
+<!-- TOPIC_ID:knowledge_125_cau-ca-lon -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Câu cá lớn ở An Thới là chuyến ra bãi dành thời gian cho việc câu, khác với tour tham quan chỉ cho khách thả cần vài phút. Có khung sáng và chiều tối, nhưng điểm câu, thời gian thực đi và khả năng ra khơi luôn phụ thuộc điều kiện biển.
+
+### Thực tế khi đi
+
+Trước chuyến câu cá lớn, hãy hỏi bến tập trung, giờ đi về, số khách, thiết bị, bữa ăn và quy định mang cá về. Phần nào đã bao gồm trong giá cũng cần nói rõ từ lúc đặt. Nếu lần đầu ra khơi lâu hoặc dễ say sóng, hãy báo người tổ chức để được hướng dẫn chuẩn bị.
+
+### Kỳ vọng và thực tế
+
+Máy dò cá và kinh nghiệm của tài công giúp tìm bãi, nhưng không thể bảo đảm mỗi chuyến đều câu được cá lớn. Gió, dòng nước, con nước và sự di chuyển của cá đều ảnh hưởng kết quả. Có hôm ít cá, nhưng chuyến đi vẫn cho người tham gia hiểu công việc và nhịp chờ đợi ngoài biển.
+
+### Trước khi đi
+
+- Ngủ nghỉ trước chuyến dài và mang đồ chống nắng.
+- Hỏi thiết bị nào được cấp và món ăn có bao gồm không.
+- Báo say sóng, bệnh lý hoặc nhu cầu ăn uống trước.
+- Nếu thời tiết đổi, hỏi rõ cách dời hoặc hoãn chuyến.
+
+### Câu hỏi gợi tò mò
+
+- Tài công dựa vào những gì để quyết định chuyển bãi câu trong ngày?
+
+## 126. Câu mực đêm
+<!-- TOPIC_ID:knowledge_126_cau-muc-dem -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Câu mực đêm thường bắt đầu từ chiều tối, khi tàu bật đèn và khách thả câu chờ mực. Có đêm được nhiều, có đêm gần như trắng tay; điều đáng chuẩn bị nhất là một chuyến ra biển an toàn chứ không phải kỳ vọng chắc chắn mang mực về.
+
+### Thực tế khi đi
+
+Đi câu mực đêm, nên hỏi giờ có mặt, bến lên tàu, thời gian về, bữa ăn và áo phao trước khi đặt. Ai dễ say sóng cứ nói với người tổ chức từ đầu. Mang một chiếc áo khoác mỏng và túi chống nước; ngoài biển ban đêm có thể gió, mát và tối hơn lúc đứng ở bờ.
+
+### Kỳ vọng và thực tế
+
+Có những đêm mực đến gần ánh đèn nhiều, cũng có đêm chờ mãi chỉ câu được ít. Mực không xuất hiện theo lịch đặt tour, nên đừng xem sản lượng là điều được bảo đảm. Ngắm đảo lên đèn từ biển cũng đáng nhớ, nhưng thời tiết không thuận thì phải theo quyết định của người phụ trách.
+
+### Trước khi đi
+
+- Xác nhận bến và giờ về cụ thể.
+- Hỏi điều kiện biển và phương án khi phải hoãn.
+- Mang thuốc say sóng theo hướng dẫn của dược sĩ/bác sĩ nếu cần.
+- Không đứng ngoài khu vực an toàn khi tàu đang chạy.
+
+### Câu hỏi gợi tò mò
+
+- Vì sao có đêm mực đến gần ánh đèn nhiều, có đêm lại rất ít?
+
+## 127. Lặn ống thở
+<!-- TOPIC_ID:knowledge_127_snorkeling -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Đeo kính và ống thở, bơi trên mặt nước rồi nhìn xuống những rạn quanh các hòn An Thới là cách nhiều người lần đầu gặp thế giới dưới biển. Nhưng độ trong, dòng chảy và lượng khách tại điểm dừng thay đổi theo ngày; hãy nghe hướng dẫn trước khi xuống nước.
+
+### Thực tế khi đi
+
+Lần đầu lặn ống thở hoặc chưa bơi vững, hãy nói ngay với hướng dẫn viên để được chọn áo phao đúng cỡ và ở gần người hỗ trợ. Hỏi trước thời gian thực sự ở dưới nước, thiết bị được cấp và cách ra tín hiệu cần giúp. Nếu mệt, lạnh hoặc thấy khó chịu, hãy quay lại tàu.
+
+### Kỳ vọng và thực tế
+
+Dưới nước, san hô là những sinh vật sống chứ không phải chỗ đứng nghỉ chân. Có hôm nước đục hay cá xuất hiện ít hơn trong ảnh; đó còn là điều kiện tự nhiên của vùng biển. Chuyến lặn đáng giá là chuyến ngắm được điều mình muốn mà không chạm, giẫm hay làm hỏng rạn.
+
+### Trước khi đi
+
+- Nghe hướng dẫn trước khi xuống nước; mặc áo phao khi cần.
+- Không chạm san hô, cho cá ăn hay đứng lên rạn.
+- Ở trong vùng quan sát được; không bơi tách đoàn.
+- Báo ngay khi mệt, lạnh hoặc khó thở.
+
+### Câu hỏi gợi tò mò
+
+- Vì sao cùng một rạn san hô mà hôm nay nhìn rất rõ, hôm khác nước lại đục?
+
+## 128. Lặn biển
+<!-- TOPIC_ID:knowledge_128_diving -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Lặn bình khí đưa bạn xuống sâu hơn so với lặn ống thở, nên thiết bị và quy trình an toàn cũng khác. Chọn đơn vị giải thích rõ điều kiện sức khỏe, giới hạn độ sâu và cách giao tiếp dưới nước trước khi quyết định tham gia.
+
+### Thực tế khi đi
+
+Trước buổi lặn biển, hãy khai báo trung thực tình trạng sức khỏe, thuốc đang dùng và kinh nghiệm lặn. Hỏi người hướng dẫn về thiết bị, độ sâu dự kiến, cách cân bằng áp suất và quy trình dừng khi có vấn đề. Nếu còn chuyến bay, phải tính thời gian nghỉ sau lặn theo hướng dẫn chuyên môn.
+
+### Kỳ vọng và thực tế
+
+Đeo bình dưỡng khí không có nghĩa chỉ việc xuống nước rồi ngắm cảnh. Áp suất và thời gian lặn đòi hỏi quy trình an toàn rõ ràng. Đau tai, hoảng sợ hay gặp trục trặc thiết bị thì phải báo và dừng; thời gian nghỉ trước chuyến bay cũng phụ thuộc hoạt động lặn thực tế, không có một con số phù hợp cho tất cả.
+
+### Trước khi đi
+
+- Báo tiền sử tim, phổi, tai/xoang và thuốc đang dùng.
+- Dừng lại và báo hướng dẫn viên nếu đau tai hay thấy bất thường.
+- Không xếp chuyến bay sát ngay sau buổi lặn; làm theo hướng dẫn chuyên môn.
+- Kiểm tra chứng nhận và thiết bị của đơn vị tổ chức.
+
+### Câu hỏi gợi tò mò
+
+- Vì sao người lặn bình khí phải chờ một khoảng thời gian trước khi lên máy bay?
 
 ## 129. Chèo kayak
 <!-- TOPIC_ID:knowledge_129_kayak -->
@@ -450,7 +261,6 @@ Nhìn từ bờ, mặt nước có thể phẳng và rất dễ chịu; nhưng g
 - Chèo kayak trên sông khác chèo ngoài biển ở điểm nào?
 - Vì sao cần tính hướng gió cho cả chiều đi và chiều về?
 
-
 ## 130. Một ngày đi biển
 <!-- TOPIC_ID:knowledge_130_beach-day -->
 
@@ -479,7 +289,6 @@ Cùng một ngày, bờ Tây, bờ Đông và vùng ngoài khơi có thể mang 
 
 - Vì sao bờ Tây và các bãi phía Nam có thể khác nhau trong cùng một ngày?
 - Những yếu tố nào làm một bãi biển đổi màu và độ trong qua từng mùa?
-
 
 ## 131. Ngắm hoàng hôn
 <!-- TOPIC_ID:knowledge_131_sunset-watching -->
@@ -510,7 +319,6 @@ Hoàng hôn rực rỡ phụ thuộc vào mây và ánh sáng, chẳng có đi�
 - Hoàng hôn ở Dinh Cậu khác Bãi Trường ở khung cảnh nào?
 - Vì sao đôi khi bầu trời đẹp hơn sau khi mặt trời vừa khuất?
 
-
 ## 132. Đón bình minh
 <!-- TOPIC_ID:knowledge_132_sunrise-watching -->
 
@@ -540,6 +348,174 @@ Có sáng nhìn thấy mặt trời tròn nhô khỏi mặt nước, có sáng c
 - Buổi sáng ở Hàm Ninh có gì khác chiều muộn?
 - Vì sao bờ Đông thuận góc nhìn bình minh hơn bờ Tây?
 
+## 133. Chợ đêm Phú Quốc
+<!-- TOPIC_ID:knowledge_133_night-market -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Chợ đêm Dương Đông hợp một buổi tối đi bộ, ăn món nóng và tìm vài thứ mang về. Hải sản, đồ ăn nhanh và quầy đặc sản nằm gần nhau, nhưng đừng xem cả nền ẩm thực Phú Quốc chỉ qua một khu chợ; hỏi giá trước khi gọi món cân ký.
+
+### Thực tế khi đi
+
+Muốn vừa đi dạo vừa ăn ở chợ đêm, khoảng một đến hai giờ thường là vừa. Các quầy hải sản bán theo cân nên hỏi rõ trọng lượng, giá, cách chế biến và phụ thu trước khi bếp làm. Đi nhóm, cứ thống nhất vài món đầu tiên rồi ăn thử, không cần gọi ào ạt lúc vừa tới.
+
+### Kỳ vọng và thực tế
+
+Chợ đêm có nhiều quầy, nhưng giờ bán, khẩu phần và giá không đồng nhất. Những tối đông khách khá ồn ào, có thể không hợp với ai muốn ăn yên tĩnh. Nếu thích xem bữa ăn thường ngày của người dân, chợ ban ngày hoặc các quán trong khu dân cư lại cho một trải nghiệm khác.
+
+### Trước khi đi
+
+- Xác nhận giá, trọng lượng và phí chế biến trước khi gọi.
+- Giữ đồ cá nhân ở đoạn đông người.
+- Đừng chặn lối đi khi dừng chụp ảnh.
+- Nếu muốn tìm món địa phương, hỏi món đó được làm thế nào.
+
+### Câu hỏi gợi tò mò
+
+- Chợ đêm Dương Đông khác chợ Dương Đông buổi sáng thế nào?
+
+## 134. Cáp treo Hòn Thơm
+<!-- TOPIC_ID:knowledge_134_cable-car-hon-thom -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Tuyến cáp treo Hòn Thơm đưa khách vượt biển, nhìn xuống những hòn nhỏ của quần đảo An Thới. Nếu còn muốn tắm biển hay vui chơi trên đảo, hãy xem kỹ các khung chạy và giờ chuyến về thay vì chỉ chọn giờ lên cáp.
+
+### Thực tế khi đi
+
+Cáp treo Hòn Thơm hiện có các khung giờ được xác nhận là 09:30-11:30, 13:30-14:00 và 15:30-17:30. Trước ngày đi vẫn nên xem thông báo trong ngày vì gió, mưa hoặc bảo trì có thể làm lịch thay đổi. Muốn chơi trên đảo, hãy xác định trước chuyến về rồi tính thời gian đi bộ ra ga.
+
+### Kỳ vọng và thực tế
+
+Đến ga không có nghĩa sẽ lên cabin ngay, bởi giữa các khung giờ có khoảng nghỉ và đôi khi phải xếp hàng. Lịch niêm yết cũng không phải lời xác nhận cáp chạy bất kể thời tiết. Nếu cáp tạm dừng, những hoạt động đã xếp trên đảo có thể phải điều chỉnh theo.
+
+### Trước khi đi
+
+- Xem thông báo chính thức và lịch đúng ngày.
+- Tính thời gian từ khu vui chơi về ga trước chuyến cuối.
+- Chừa thời gian xếp hàng và đi bộ.
+- Nếu có trẻ nhỏ hoặc người lớn tuổi, chọn nhịp tham quan vừa sức.
+
+### Câu hỏi gợi tò mò
+
+- Vì sao cáp treo Hòn Thơm không chạy liên tục suốt cả ngày?
+
+## 135. Đi Vinpearl Safari
+<!-- TOPIC_ID:knowledge_135_safari-visit -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Vinpearl Safari ở Bắc đảo có khu vườn thú mở cùng tuyến tham quan bán hoang dã bằng xe. Khuôn viên rộng, nên gia đình đi cùng trẻ nhỏ thường thoải mái hơn khi dành một buổi làm hoạt động chính và chừa giờ nghỉ giữa các chặng.
+
+### Thực tế khi đi
+
+Vinpearl Safari có giờ niêm yết 09:00-16:00 trong thông tin đang được công bố; trước ngày đi nên kiểm tra lại. Chọn vài hoạt động muốn xem nhất rồi tính giờ di chuyển trong khu và nghỉ ăn trưa. Nếu ghép thêm VinWonders, nhớ chừa thời gian đi giữa hai điểm, nhất là khi có trẻ nhỏ.
+
+### Kỳ vọng và thực tế
+
+Safari rộng hơn vẻ ngoài khi nhìn sơ đồ, nên tới muộn mà cố chạy hết các khu dễ bỏ lỡ hoạt động mình muốn. Động vật cũng không đứng sẵn ở vị trí dễ chụp ảnh. Cứ quan sát theo hướng dẫn và không tự ý cho ăn.
+
+### Trước khi đi
+
+- Kiểm tra giờ mở và lịch hoạt động trong ngày.
+- Mang nón, nước và giày dễ đi.
+- Không chọc, cho ăn hay làm động vật hoảng sợ.
+- Với trẻ nhỏ, dự trù giờ nghỉ.
+
+### Câu hỏi gợi tò mò
+
+- Vì sao nhiều gia đình dành riêng một buổi cho Safari thay vì ghép quá nhiều điểm?
+
+## 136. Đi VinWonders
+<!-- TOPIC_ID:knowledge_136_vinwonders-visit -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+VinWonders tập hợp trò chơi, thủy cung, công viên nước và các chương trình biểu diễn trong một khu rộng. Chọn trước vài hoạt động cả nhà thật sự muốn trải nghiệm, rồi xếp theo giờ diễn; cố đi hết mọi nơi đôi khi chỉ khiến cả ngày vội vã.
+
+### Thực tế khi đi
+
+Giờ niêm yết của VinWonders là 09:00-19:30, còn từng trò chơi và chương trình biểu diễn lại có lịch riêng. Đi cùng trẻ nhỏ, nên xem giới hạn chiều cao trước khi xếp hàng. Những giờ nắng gắt có thể dành cho khu trong nhà; chơi nước thì nhớ tính cả lúc thay đồ và di chuyển.
+
+### Kỳ vọng và thực tế
+
+Giờ công viên đóng cửa không có nghĩa trò nào cũng nhận khách tới phút cuối. Xếp hàng, lịch diễn hay việc bảo trì có thể làm thứ tự vui chơi thay đổi. Mua vé cả ngày không bắt buộc phải trải nghiệm bằng hết mọi khu, nhất là nếu cả nhóm đã mệt.
+
+### Trước khi đi
+
+- Kiểm tra giờ mở cửa, chương trình biểu diễn và trò chơi trước ngày tới.
+- Xem điều kiện chiều cao của trẻ nhỏ.
+- Mang đồ thay và túi chống nước nếu vào công viên nước.
+- Chọn trải nghiệm ưu tiên và chừa giờ nghỉ.
+
+### Câu hỏi gợi tò mò
+
+- Đi VinWonders cả ngày nên chọn thứ tự các khu thế nào để vẫn còn sức xem chương trình tối?
+
+## 137. Ghé nhà thùng nước mắm và vườn tiêu
+<!-- TOPIC_ID:knowledge_137_visit-fish-sauce-house-pepper-farm -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Trong một ngày, có thể ghé nhà thùng nước mắm rồi tới vườn tiêu để thấy hai nghề gắn với Phú Quốc từ lâu. Hỏi người làm về cá muối, cách ủ chượp hay mùa hái tiêu sẽ hiểu nhiều hơn việc chỉ dừng xe mua vài món quà.
+
+### Thực tế khi đi
+
+Ghé nhà thùng và vườn tiêu sẽ thú vị hơn nếu biết hôm đó người ta đang làm công đoạn gì. Hãy hỏi nhà thùng có đón khách và đang ủ chượp không, vườn tiêu đang chăm cây hay thu hái. Chọn một hoặc hai điểm gần tuyến rồi dành thời gian nghe người làm nghề kể, thay vì đi thật nhiều cho đủ danh sách.
+
+### Kỳ vọng và thực tế
+
+Có nhà thùng vẫn làm nghề ngay nơi đón khách, có nơi chủ yếu trưng bày và bán sản phẩm. Vườn tiêu cũng không phải tháng nào có trái chín, còn khu sản xuất có thể không mở cho người ngoài. Hỏi trước sẽ biết mình thực sự được xem và trải nghiệm những gì.
+
+### Trước khi đi
+
+- Xác nhận giờ nhận khách và lối vào.
+- Xin phép trước khi chụp người làm nghề hoặc khu sản xuất.
+- Không tự mở thùng, hái tiêu hay chạm thiết bị.
+- Hỏi cách làm và nguồn sản phẩm trước khi mua.
+
+### Câu hỏi gợi tò mò
+
+- Vì sao nhà thùng nước mắm và vườn tiêu kể được hai câu chuyện rất khác về đời sống trên đảo?
+
+## 138. Phú Quốc khi trời mưa
+<!-- TOPIC_ID:knowledge_138_phu-quoc-khi-troi-mua -->
+
+> ACTIVITY · ACTIVITY
+
+### Tóm tắt
+
+Trời mưa ở Phú Quốc không có nghĩa phải bỏ sạch lịch trình. Mưa ngắn có thể chờ ở quán gần đó rồi đi tiếp; mưa kéo dài thì chọn nơi có mái che cùng khu vực và tránh chạy xuyên đảo giữa lúc đường ngập hoặc tầm nhìn kém.
+
+### Thực tế khi đi
+
+Trời mưa ở Phú Quốc, trước tiên hãy xem mưa dự kiến theo giờ ngay tại khu mình đang ở. Có thể chuyển sang nhà thùng, bảo tàng, thủy cung hoặc một bữa ăn thong thả, nhưng nhớ kiểm tra giờ mở và đường đi. Tour biển hay cáp treo có thông báo riêng, không thể suy từ cơn mưa nhẹ ở khách sạn.
+
+### Kỳ vọng và thực tế
+
+Một điểm tham quan trong nhà vẫn có thể khó tới nếu đường ngập hoặc ngoài trời đang có dông mạnh. Mưa trên đảo có thể lệch giữa các khu vực nên dự báo chung chưa kể hết tình hình. Gặp sấm sét, gió mạnh hoặc đường ngập, hãy ở chỗ an toàn thay vì cố giữ lịch.
+
+### Trước khi đi
+
+- Xem mưa theo khu và cập nhật gần giờ rời chỗ.
+- Chọn điểm thay thế trong cùng khu để giảm quãng chạy.
+- Kiểm tra giờ hoạt động trước khi khởi hành.
+- Không ra biển khi có dông/sét hoặc cảnh báo.
+
+### Câu hỏi gợi tò mò
+
+- Khi nào nên chờ cơn mưa qua, khi nào nên đổi hẳn kế hoạch?
+- Vì sao Dương Đông có lúc mưa lớn nhưng Nam đảo lại ít mưa?
 
 ## 139. Phú Quốc trước sân bay quốc tế
 <!-- TOPIC_ID:knowledge_139_phu-quoc-truoc-san-bay-quoc-te -->
@@ -569,7 +545,6 @@ Sân bay quốc tế không đơn thuần thay một nhà ga: luồng khách đ�
 - Sân bay Dương Đông cũ nằm ở đâu so với trung tâm đảo hôm nay?
 - Đi máy bay đến Phú Quốc trước năm 2012 khác hiện nay ra sao?
 
-
 ## 140. Dương Đông trước và sau đô thị hóa
 <!-- TOPIC_ID:knowledge_140_duong-dong-truoc-va-sau-do-thi-hoa -->
 
@@ -598,7 +573,6 @@ Dương Đông vẫn là nơi thuận tiện để ở gần chợ, hàng quán 
 - Sân bay Dương Đông cũ từng nằm ở vị trí nào trong đô thị hiện tại?
 - Những khu vực nào quanh chợ và ven sông đã thay đổi nhiều qua các giai đoạn?
 
-
 ## 141. An Thới trước và sau cáp treo
 <!-- TOPIC_ID:knowledge_141_an-thoi-truoc-va-sau-cap-treo -->
 
@@ -624,7 +598,6 @@ Cáp treo là mốc để chia ảnh trước - sau, không phải lời giải 
 - An Thới năm 2010 nhìn khác khu vực ga cáp treo hôm nay như thế nào?
 - Phần nào của An Thới thay đổi trước 2018, phần nào xuất hiện sau đó?
 - Cảng An Thới và đời sống dân cư thay đổi ra sao song song với du lịch?
-
 
 ## 142. Hàm Ninh trước và sau chỉnh trang
 <!-- TOPIC_ID:knowledge_142_ham-ninh-truoc-va-sau-chinh-trang -->
@@ -654,7 +627,6 @@ Hàm Ninh vừa là khu dân cư, vừa có nghề biển và đón khách tới
 - Cầu gỗ đầu tiên ở Hàm Ninh từng được người dân xây dựng ra sao?
 - Việc tháo dỡ cầu cũ ảnh hưởng thế nào đến nhịp sống làng chài?
 
-
 ## 143. Nam đảo trước và sau Sunset Town
 <!-- TOPIC_ID:knowledge_143_nam-dao-truoc-va-sau-sunset-town -->
 
@@ -680,7 +652,6 @@ Sunset Town là một lớp mới rất lớn của Nam đảo, nhưng không ph
 - Khu phố An Thới cũ nằm ở đâu so với Sunset Town hôm nay?
 - Những thay đổi nào ở Nam đảo đã diễn ra trước khi cáp treo và Sunset Town xuất hiện?
 - Nếu đặt ba ảnh vệ tinh 2010, 2018 và hiện nay cạnh nhau, đường bờ và khu xây dựng thay đổi ra sao?
-
 
 ## 144. Bắc đảo trước và sau các khu nghỉ dưỡng lớn
 <!-- TOPIC_ID:knowledge_144_bac-dao-truoc-va-sau-cac-resort-lon -->
@@ -710,7 +681,6 @@ Các khu nghỉ dưỡng lớn có thể khiến Bắc đảo trông như một 
 - Bãi Dài trông như thế nào trước khi các khu nghỉ dưỡng lớn đi vào hoạt động?
 - Gành Dầu còn giữ những nhịp sống làng biển nào bên cạnh khu du lịch?
 
-
 ## 145. Bãi Trường thay đổi cùng các khu nghỉ dưỡng
 <!-- TOPIC_ID:knowledge_145_bai-truong-truoc-va-sau-resort-development -->
 
@@ -739,7 +709,6 @@ Tên Bãi Trường thường được dùng cho cả một vùng rộng, nhưng
 - Những đoạn nào của Bãi Trường thay đổi rõ sau khi sân bay quốc tế hoạt động?
 - Vì sao cùng một dải biển mà mỗi đoạn có cách sử dụng rất khác nhau?
 
-
 ## 146. Các bến tàu cũ
 <!-- TOPIC_ID:knowledge_146_cac-ben-tau-cu -->
 
@@ -765,7 +734,6 @@ Một bến tàu cũ không nhất thiết biến mất hoàn toàn. Có nơi đ
 - Trước Bãi Vòng, khách từ đất liền thường xuống đảo ở đâu?
 - Bến Dương Đông từng phục vụ những tuyến nào?
 - An Thới từng tách bến khách, cảng cá và cảng hàng hóa ra sao?
-
 
 ## 147. Đường sá Phú Quốc qua các giai đoạn
 <!-- TOPIC_ID:knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan -->
@@ -795,7 +763,6 @@ Một bến tàu cũ không nhất thiết biến mất hoàn toàn. Có nơi đ
 - Đường Bắc - Nam từng thay đổi việc đi lại trên đảo như thế nào?
 - Những tuyến nào được nâng cấp từ đường cũ, những tuyến nào được mở mới?
 
-
 ## 148. Chợ cũ và chợ hiện tại
 <!-- TOPIC_ID:knowledge_148_cho-cu-va-cho-hien-tai -->
 
@@ -821,7 +788,6 @@ Hai chữ 'chợ cũ' nghe đơn giản nhưng dễ làm lẫn chợ Dương Đ�
 - Chợ Dương Đông từng thay đổi vị trí hay quy mô qua những giai đoạn nào?
 - Chợ đêm Dinh Cậu và chợ đêm Bạch Đằng cũ được nhập lại khi nào?
 - Những mặt hàng nào vẫn giữ được nhịp chợ địa phương qua nhiều năm?
-
 
 ## 149. Tàu cá và nghề biển thay đổi thế nào?
 <!-- TOPIC_ID:knowledge_149_tau-ca-va-nghe-bien-thay-doi-the-nao -->
@@ -850,7 +816,6 @@ Giờ ghe ra khơi hay quay về không cố định cho mọi nghề biển. Lo
 
 - Tàu cá Phú Quốc đã thay đổi về máy móc và thiết bị qua các thế hệ ra sao?
 - Vì sao tàu lớn thường có khả năng đi ngư trường xa hơn?
-
 
 ## 150. Một ngày ở Phú Quốc diễn ra thế nào?
 <!-- TOPIC_ID:knowledge_150_mot-ngay-o-phu-quoc-van-hanh-the-nao -->
