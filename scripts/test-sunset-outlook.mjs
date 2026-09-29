@@ -268,6 +268,8 @@ assert.equal(sunset.refreshDelayMs(0),null);
   assert.equal(out.reason,"horizon_cloud");
   assert.equal(out.horizon_cloud_status,"LIKELY_OBSCURED");
   assert.equal(out.horizon_cloud_layer,"LOW");
+  assert.equal(out.horizon_cloud_likely_count,3);
+  assert.deepEqual(out.horizon_cloud_points,["Bờ Tây","Bờ Tây","Bờ Tây"]);
 }
 
 // A clear sunset horizon should beat generic nearby convective cloud.
@@ -289,6 +291,52 @@ assert.equal(sunset.refreshDelayMs(0),null);
   });
   assert.equal(out.level,"good");
   assert.equal(out.reason,"horizon_clear");
+}
+
+
+// One moderate cloudy west-coast point is too local to become an island-wide warning.
+{
+  const data=base(0.1);
+  const ids=["duong_dong","cua_can","ganh_dau"];
+  ids.forEach((id,index)=>{
+    data.points[id].name=["Dương Đông","Cửa Cạn","Gành Dầu"][index];
+    data.points[id].nowcast.horizon_cloud={
+      status:index===2?"CLOUD_RISK":"PARTLY_CLOUDY",
+      obscuration_score:index===2?55:25,
+      trend:"STABLE",
+      dominant_layer:"MID",
+      confidence:"HIGH"
+    };
+  });
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.notEqual(out.reason,"horizon_cloud");
+  assert.equal(out.horizon_cloud_risk_count,1);
+}
+
+// Two cloudy west-coast points are enough for a localized late sunset warning.
+{
+  const data=base(0.1);
+  const ids=["duong_dong","cua_can","ganh_dau"];
+  ids.forEach((id,index)=>{
+    data.points[id].name=["Dương Đông","Cửa Cạn","Gành Dầu"][index];
+    data.points[id].nowcast.horizon_cloud={
+      status:index===0?"PARTLY_CLOUDY":"CLOUD_RISK",
+      obscuration_score:index===0?25:index===1?52:64,
+      trend:"STABLE",
+      dominant_layer:"MID",
+      confidence:"HIGH"
+    };
+  });
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.reason,"horizon_cloud");
+  assert.equal(out.horizon_cloud_risk_count,2);
+  assert.deepEqual(out.horizon_cloud_points,["Cửa Cạn","Gành Dầu"]);
 }
 
 console.log("sunset outlook tests passed");
