@@ -2370,12 +2370,12 @@
     "tom-mu-ni-nuong": {
       "images": [
         {
-          "url": "https://mia.vn/media/uploads/blog-du-lich/dac-san-hai-san-phu-quoc-5-1778482432.jpg",
-          "alt": "Tôm mũ ni nướng phô mai trong bài ẩm thực Phú Quốc",
-          "caption": "Tôm mũ ni nướng phô mai. Ảnh được dùng trong bài tổng hợp hải sản Phú Quốc của MIA.vn; nguồn ảnh gốc ghi KINGFISH.",
+          "url": "https://cdn.realtech.com.vn/uploads/gostay/news/379/tom-mu-ni-phu-quoc.jpg",
+          "alt": "Tôm mũ ni nướng trong bài ẩm thực Phú Quốc",
+          "caption": "Tôm mũ ni nướng trong bài tổng hợp ẩm thực Phú Quốc của GoStay; ảnh món chung, không đại diện một nhà hàng cụ thể.",
           "scope": "exact_dish_context",
-          "source_label": "MIA.vn · ảnh minh họa KINGFISH",
-          "source_url": "https://mia.vn/cam-nang-du-lich/dac-san-hai-san-phu-quoc-20455",
+          "source_label": "GoStay · ẩm thực Phú Quốc",
+          "source_url": "https://gostay.vn/tin-tuc/379/top-15-mon-an-noi-thien-duong-am-thuc-tran-gian---phu-quoc",
           "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
           "hero_priority": "preferred"
         }
@@ -2412,27 +2412,18 @@
       ]
     },
     "tom-tich-rang-muoi": {
-      "images": [
-        {
-          "url": "https://product.hstatic.net/200000325181/product/be-be-chua_026b65ffbc174021bae32f056cf93990_grande.jpg",
-          "alt": "Tôm tích rang muối",
-          "caption": "Tôm tích rang muối",
-          "scope": "exact_subject",
-          "source_label": "Cá Mú Đỏ",
-          "source_url": "https://camudo.com/products/be-be-chua-rang-muoi",
-          "hero_priority": "preferred"
-        }
-      ]
+      "images": []
     },
     "hau-nuong-mo-hanh": {
       "images": [
         {
-          "url": "https://product.hstatic.net/1000275435/product/478927135_611708731607302_8358439628026884469_n_c3709446753241bc838bee1e1c69e7a3_master.jpg",
-          "alt": "Hàu nướng với hành lá và đậu phộng tại Bãi Khem",
-          "caption": "Hàu nướng tại Ann Seafood, Bãi Khem.",
-          "scope": "exact_subject",
-          "source_label": "PATO · Ann Seafood Restaurant Bãi Khem",
-          "source_url": "https://pato.com.vn/products/ann-seafood-restaurant-bai-khem",
+          "url": "https://static.vinwonders.com/production/hai-san-bai-khem.jpg",
+          "alt": "Hàu nướng trên than với hành và hành phi tại bối cảnh Bãi Khem Phú Quốc",
+          "caption": "Hàu nướng trong bài hướng dẫn Bãi Khem Phú Quốc; dùng minh họa món chung, không đại diện một nhà hàng cụ thể.",
+          "scope": "exact_dish_context",
+          "source_label": "VinWonders · cẩm nang Bãi Khem",
+          "source_url": "https://vinwonders.com/vi/wonderpedia/news/bai-khem-phu-quoc-tron-bo-kinh-nghiem-du-lich-moi-nhat/",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
           "hero_priority": "preferred"
         }
       ]
@@ -3547,22 +3538,12 @@
       "title": "Ăn sáng ở Phú Quốc",
       "images": [
         {
-          "url": "https://visitphuquoc.com.vn/VisitPhuQuoc/POINT/%C4%82N%20U%E1%BB%90NG/M%C3%B3n%20%C4%83n/1832/image-thumb__1832__720_jpg/B%C3%BAn%20qu%E1%BA%ADy%20Ki%E1%BA%BFn%20X%C3%A2y.ec5c87e9.jpg",
-          "alt": "Bún quậy",
-          "caption": "Bún quậy",
-          "scope": "exact_subject",
-          "source_label": "Cổng du lịch Phú Quốc - Bún quậy Kiến Xây",
-          "source_url": "https://visitphuquoc.com.vn/vi/bun-quay-kien-xay",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
-        },
-        {
-          "url": "https://media.mia.vn/uploads/blog-du-lich/banh-canh-cha-thu-hanh-quan-an-dac-san-phu-quoc-sieu-hap-dan-gia-binh-dan-1611715971.jpg",
-          "alt": "Bánh canh cá thu",
-          "caption": "Bánh canh cá thu",
-          "scope": "exact_subject",
-          "source_label": "MIA.vn",
-          "source_url": "https://mia.vn/cam-nang-du-lich/banh-canh-cha-ca-thu-hanh-quan-an-dac-san-phu-quoc-sieu-hap-dan-gia-binh-dan-44",
-          "hero_priority": "preferred",
+          "url": "https://phuquoc.angiang.gov.vn/sites/default/files/ImageOld/du%20l%E1%BB%8Bch/bun_quay1_rfsi.jpg",
+          "alt": "Tô bún quậy Phú Quốc ăn cùng chén nước chấm",
+          "caption": "Bún quậy Phú Quốc trong bài ẩm thực của UBND Đặc khu Phú Quốc; dùng làm một gợi ý bữa sáng, không đại diện một quán cụ thể.",
+          "scope": "breakfast_dish_context",
+          "source_label": "UBND Đặc khu Phú Quốc · bài theo VnExpress",
+          "source_url": "https://phuquoc.angiang.gov.vn/bun-quay-mon-ngon-phu-quoc",
           "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ]
