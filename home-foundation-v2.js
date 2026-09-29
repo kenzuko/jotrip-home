@@ -216,14 +216,47 @@ function liveFor(binding){return binding?window.OPENPQ_HOME?.live_status?.[bindi
 function renderActivities(){if(!support)return;const host=$("#activityBoard");if(!host)return;host.innerHTML=(support.activity_board||[]).map(item=>{const e=entities.get(item.entity_id)||{},live=liveFor(item.operational_binding),opening=e.opening_hours||null,decision=scheduleDecision(opening,item.entity_id);const state=live?.status||(opening?.state==="PUBLISHED_SCHEDULE"?"info":"unknown");const primary=live?(liveStateText[state]||live.primary||"Hôm nay chưa có tin mới"):(opening?.state==="PUBLISHED_SCHEDULE"?decision.label:(stateText[item.status_code]||"Hôm nay chưa có tin mới"));const context=live?.context||live?.secondary||(opening?scheduleSummary(opening):([e.best_time,e.duration].filter(Boolean).join(" · ")||"Mở ra để xem kỹ hơn"));const fresh=live?.source_updated_at?ageText(live.source_updated_at):(opening?scheduleFreshness(opening):"Hôm nay chưa có tin mới");return'<a class="activity-status-card" data-state="'+esc(state)+'" href="'+esc(item.route)+'"><span>'+esc(primary)+'</span><strong>'+esc(e.name||item.entity_id)+'</strong><p>'+esc(context)+'</p><small>'+esc(fresh)+'</small><b>Xem hôm nay →</b></a>'}).join("");const live=window.OPENPQ_HOME?.live_status||{};const bad=live.cano?.status==="bad"||live.weather?.status==="watch";const plan=$("#planBCard");if(plan)plan.hidden=!bad}
 function currencyRate(value){if(value===null||value===undefined||value==="")return"—";const n=Number(value);if(!Number.isFinite(n)||n<=0)return"—";const digits=n<100?2:n<1000?1:0;return new Intl.NumberFormat("vi-VN",{minimumFractionDigits:digits,maximumFractionDigits:digits}).format(n)+" ₫"}
 function renderHomeCurrency(payload=currencyPayload){const host=$("#homeCurrencyGrid"),status=$("#homeCurrencyStatus");if(!host||!status)return;const rates=payload?.rates||[];if(!rates.length){host.innerHTML='<div class="home-currency-empty">Chưa lấy được tỷ giá lúc này. <a href="currency/">Mở trang tỷ giá →</a></div>';status.textContent="Thử lại sau một chút nhé.";return}const flags={USD:"🇺🇸",KRW:"🇰🇷",CNY:"🇨🇳",RUB:"🇷🇺",EUR:"🇪🇺"},wanted=["USD","KRW","CNY","RUB","EUR"],by=new Map(rates.map(x=>[x.currency,x]));host.innerHTML=wanted.map(code=>{const r=by.get(code);if(!r)return"";const cash=Number(r.cash_buy),transfer=Number(r.transfer_buy),hasCash=r.cash_buy!==null&&r.cash_buy!==undefined&&r.cash_buy!==""&&Number.isFinite(cash)&&cash>0,hasTransfer=r.transfer_buy!==null&&r.transfer_buy!==undefined&&r.transfer_buy!==""&&Number.isFinite(transfer)&&transfer>0;const buy=hasCash?r.cash_buy:hasTransfer?r.transfer_buy:null;const note=hasCash?"VCB mua tiền mặt · bán "+currencyRate(r.sell):hasTransfer?"VCB mua chuyển khoản · bán "+currencyRate(r.sell):"VCB chưa có giá mua · bán "+currencyRate(r.sell);return'<a class="home-currency-card" href="currency/?from='+code+'&amount=100"><span>'+esc((flags[code]||"¤")+" "+code)+'</span><strong>'+esc(currencyRate(buy))+'</strong><small>'+esc(note)+'</small></a>'}).join("");const source=payload.source_updated_at||payload.fetched_at,when=source?new Intl.DateTimeFormat("vi-VN",{timeZone:"Asia/Ho_Chi_Minh",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}).format(new Date(source)):"chưa biết";status.textContent=(payload.data_status==="live"?"Vietcombank · cập nhật ":"Bản gần nhất · ")+when+" · mở trang tỷ giá để quy đổi và xem 30 ngày."}
+function hotNowOperationalItems(now){
+  const days=Number.isInteger(operationalNotices?.retention_days)&&operationalNotices.retention_days>0?operationalNotices.retention_days:3;
+  return (operationalNotices?.notices||[]).filter(x=>{
+    if(!["CANCELLED","BOOKING_FULL","SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status))return false;
+    const eventStart=typeof x.date==="string"?Date.parse(x.date+"T00:00:00+07:00"):NaN;
+    const visibleFrom=x.homepage_visible_from?Date.parse(x.homepage_visible_from+"T00:00:00+07:00"):
+      x.effective_from?Date.parse(x.effective_from+"T00:00:00+07:00"):
+      Number.isFinite(eventStart)?eventStart:-Infinity;
+    const fallbackEnd=Number.isFinite(eventStart)?eventStart+days*86400000:Infinity;
+    const visibleUntil=x.valid_until?Date.parse(x.valid_until):fallbackEnd;
+    return now>=visibleFrom&&now<visibleUntil;
+  }).map(x=>{
+    const entity=entities.get(x.entity_id)||{};
+    const key=entity.slug||entity.legacy_id||entity.id;
+    const route=x.news_route||(key?"places/detail.html?id="+encodeURIComponent(key):"news/");
+    const category=x.status==="BOOKING_FULL"?"ĐẶT CHỖ / CẬP NHẬT":
+      ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status)?"SHOW / THAY ĐỔI LỊCH":"SHOW / THÔNG BÁO";
+    return{
+      event_id:"operational:"+x.id,
+      title:x.title,
+      short_summary:[x.summary,x.booking_message].filter(Boolean).join(" "),
+      category,
+      published_at:x.effective_from||x.date,
+      verified_at:x.effective_from||x.date,
+      route
+    };
+  });
+}
 function renderHotNow(){
   const section=$("#hot-now"),host=$("#hotNowList");if(!section||!host)return;
   section.hidden=false;
-  if(!support){host.innerHTML='<div class="surface-loading">Đang mở những chuyện mới trên đảo...</div>';return}
-  const now=Date.now(),items=(support.hot_now?.items||[]).filter(x=>!x.expires_at||Date.parse(x.expires_at)>now);
+  if(!support&&!operationalNotices){host.innerHTML='<div class="surface-loading">Đang mở những chuyện mới trên đảo...</div>';return}
+  const now=Date.now();
+  const editorial=(support?.hot_now?.items||[]).filter(x=>!x.expires_at||Date.parse(x.expires_at)>now);
+  const merged=[...hotNowOperationalItems(now),...editorial]
+    .sort((a,b)=>Date.parse(b.published_at||b.verified_at||0)-Date.parse(a.published_at||a.verified_at||0));
+  const seen=new Set(),items=merged.filter(x=>{const key=x.event_id||x.title;if(seen.has(key))return false;seen.add(key);return true});
   if(!items.length){host.innerHTML='<div class="surface-loading">Hôm nay chưa có thay đổi nào đủ đáng kể để đưa lên đây.</div>';return}
-  host.innerHTML=items.slice(0,4).map(x=>{
-    const published=x.published_at?new Intl.DateTimeFormat("vi-VN",{day:"2-digit",month:"2-digit"}).format(new Date(x.published_at+"T12:00:00+07:00")):"";
+  host.innerHTML=items.slice(0,3).map(x=>{
+    const raw=x.published_at||x.verified_at||"";
+    const published=raw?new Intl.DateTimeFormat("vi-VN",{day:"2-digit",month:"2-digit"}).format(new Date(/^\d{4}-\d{2}-\d{2}$/.test(raw)?raw+"T12:00:00+07:00":raw)):"";
     return '<a class="hot-card" href="'+esc(x.route||"#")+'"><span>'+esc(x.category||"CẬP NHẬT")+'</span>'+
       '<strong>'+esc(x.title)+'</strong><p>'+esc(x.short_summary||"")+'</p>'+
       (published?'<small>Cập nhật '+esc(published)+'</small>':"")+'</a>';
@@ -272,10 +305,10 @@ function renderCuriosity(){
 }
 async function loadJson(url,label){try{const r=await fetch(url+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error(label+" HTTP "+r.status);return await r.json()}catch(error){console.warn("Homepage source unavailable:",label,error);return null}}
 renderClock();setInterval(()=>{renderClock();renderTripClock()},60000);renderHotNow();renderHomeCurrency();
-const noticesTask=loadJson(NOTICES,"operational-notices").then(data=>{operationalNotices=data;renderTripClock();renderActivities()});
+const noticesTask=loadJson(NOTICES,"operational-notices").then(data=>{operationalNotices=data;renderTripClock();renderActivities();renderHotNow()});
 const supportTask=loadJson(SUPPORT,"home-support").then(data=>{if(!data)return;support=data;window.OPENPQ_HOME_SUPPORT=data;window.dispatchEvent(new CustomEvent("openpq:home-support-ready",{detail:data}));renderHotNow();renderCuriosity();renderTripClock();renderActivities()});
-const placesTask=loadJson(PLACES,"places").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities()});
-const activitiesTask=loadJson(ACTIVITIES,"activities").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities()});
+const placesTask=loadJson(PLACES,"places").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities();renderHotNow()});
+const activitiesTask=loadJson(ACTIVITIES,"activities").then(data=>{if(!data)return;(data.entities||[]).forEach(x=>entities.set(x.id,x));renderTripClock();renderActivities();renderHotNow()});
 const storiesTask=loadJson(STORIES,"stories").then(data=>{if(!data)return;(data.stories||[]).forEach(x=>stories.set(x.id,x));renderCuriosity()});
 const currencyTask=loadJson(CURRENCY,"currency").then(data=>{currencyPayload=data;renderHomeCurrency()});
 Promise.allSettled([noticesTask,supportTask,placesTask,activitiesTask,storiesTask,currencyTask]).then(()=>{renderClock();renderTripClock();renderActivities();renderHotNow();renderCuriosity();renderHomeCurrency()});
