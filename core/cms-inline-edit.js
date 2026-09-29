@@ -2,7 +2,7 @@
 (function(root){"use strict";
 const $=q=>document.querySelector(q),SOURCE="data/content.json";
 const S={id:"",login:"",role:"",sha:"",base:null,current:null,raw:null,tab:"",
-  editing:false,dirty:false,blocked:false,timer:null,panel:null,targets:[]};
+  editing:false,dirty:false,blocked:false,timer:null,panel:null,targets:[],serverSync:Promise.resolve()};
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const clone=x=>JSON.parse(JSON.stringify(x));
 const story=(data,id)=>data?.stories?.find(s=>s.id===id);
@@ -43,6 +43,19 @@ function backup(){
   const url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;
   a.download="nhap-bai-"+S.id+".json";document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
 }
+function syncServer(){
+  const store=window.OPQDraftStore;
+  if(!store||!S.current||!S.sha)return Promise.resolve({ok:false,skipped:true});
+  const snapshot=clone(S.current),sha=S.sha,id=S.id;
+  const task=store.save({module:"stories",path:SOURCE,baseSha:sha,data:snapshot}).then(result=>{
+    if(S.sha!==sha||S.id!==id)return result;
+    if(result?.ok)note("Đã lưu nháp trên server. Bài công khai chưa thay đổi.","good");
+    else if(result?.status===409)blocked("Bản nháp server vừa thay đổi ở nơi khác. Mở Admin để đối chiếu, không ghi đè.");
+    else if(!result?.skipped)note("Đã lưu bản dự phòng trên máy; server chưa đồng bộ.","warn");
+    return result;
+  });
+  S.serverSync=task;return task;
+}
 function save(){
   if(!S.editing||S.blocked)return false;
   try{
@@ -62,7 +75,7 @@ function save(){
     S.raw=raw;
     localStorage.setItem(checkpointKey,JSON.stringify({version:1,account:S.login,module:"stories",
       baseSha:S.sha,id:S.id,baseRecord:initial,record:changed,at:Date.now(),tab:S.tab}));
-    note("Đã lưu nháp trên máy này. Bài công khai chưa thay đổi.","good");return true;
+    note("Đã lưu bản dự phòng trên máy; đang đồng bộ server.","good");syncServer();return true;
   }catch(e){blocked("Không lưu được nháp: "+e.message+". Hãy tải JSON trước khi thoát.");return false;}
 }
 function schedule(){clearTimeout(S.timer);note("Đang lưu nháp...");
@@ -100,7 +113,7 @@ function editPart(key,element,button){
     key.endsWith(".heading")?"Sửa tiêu đề đoạn":key==="intro"?"Sửa lời mở":"Sửa "+(key==="dek"?"mô tả": "tiêu đề");
   const input=document.createElement("textarea");input.rows=key.endsWith(".body")?7:4;
   input.setAttribute("aria-label",label.textContent);input.value=String(read(item,key));
-  const help=document.createElement("p");help.textContent=S.role==="admin"?"Chữ được tự lưu thành nháp trên máy. Chỉ nút Xuất bản mới ghi GitHub.":"Chữ thay đổi ngay phía trên. Khách vẫn đọc bản cũ cho đến khi PR được duyệt.";
+  const help=document.createElement("p");help.textContent=S.role==="admin"?"Chữ tự lưu vào nháp server, máy này giữ bản dự phòng. Chỉ nút Xuất bản mới ghi GitHub.":"Chữ tự lưu vào nháp server, máy này giữ bản dự phòng. Khách vẫn đọc bản cũ cho đến khi PR được duyệt.";
   const done=document.createElement("button");done.type="button";done.textContent="Đọc tiếp";done.onclick=closePanel;
   label.appendChild(input);panel.append(label,help,done);
   button.insertAdjacentElement("afterend",panel);S.panel=panel;
@@ -130,7 +143,7 @@ function stop(){
   if(S.timer){clearTimeout(S.timer);S.timer=null;save();}
   closePanel();document.querySelectorAll(".inline-edit-trigger").forEach(el=>el.remove());
   mode(false);
-  if(S.dirty)note("Đang đọc bản đã sửa trên thiết bị, chưa phải bản công khai.","good");
+  if(S.dirty)note("Đang đọc bản nháp đã sửa, chưa phải bản công khai.","good");
 }
 async function begin(){
   if(S.editing)return;note("Đang kiểm tra phiên bản GitHub...");
@@ -148,11 +161,24 @@ async function begin(){
     S.sha=upstream.sha;S.base=clone(upstream.content);S.current=clone(upstream.content);
     S.tab=crypto.randomUUID?.()||String(Date.now())+"-"+Math.random().toString(36).slice(2);
     const raw=localStorage.getItem(draftKey(S.login));
-    if(raw){
-      let saved;try{saved=JSON.parse(raw);}catch{throw Error("Bản nháp CMS không đọc được. Mở Admin để sao lưu.");}
+    let saved=null;
+    if(raw){try{saved=JSON.parse(raw);}catch{throw Error("Bản nháp CMS không đọc được. Mở Admin để sao lưu.");}}
+    const store=window.OPQDraftStore;
+    const serverResult=store?await store.load(SOURCE):{ok:false,skipped:true};
+    const serverDraft=serverResult?.ok?serverResult.draft:null;
+    if(serverDraft&&serverDraft.base_sha!==S.sha)
+      throw Error("Có bản nháp server thuộc phiên bản GitHub cũ. Mở Admin để đối chiếu trước khi sửa inline.");
+    if(serverDraft&&JSON.stringify(serverDraft.data)!==JSON.stringify(upstream.content)){
+      const sameInline=saved&&saved.sha===S.sha&&saved.source==="inline-article"&&saved.storyId===S.id&&
+        JSON.stringify(saved.data)===JSON.stringify(serverDraft.data);
+      if(!sameInline)
+        throw Error("Đang có bản nháp server khác của Bài viết. Mở Admin để đối chiếu, inline edit không ghi đè.");
+      if(!confirm("Đã có bản nháp server của bài này. Khôi phục để sửa tiếp?"))return;
+      S.current=clone(serverDraft.data);S.dirty=true;
+    }else if(raw){
       if(saved.sha!==S.sha||saved.source!=="inline-article"||saved.storyId!==S.id)
         throw Error("Đã có bản nháp CMS khác. Mở Admin để đối chiếu trước khi sửa tiếp.");
-      if(!confirm("Đã có bản nháp của bài này. Khôi phục để sửa tiếp?"))return;
+      if(!confirm("Server chưa có thay đổi khác. Khôi phục bản dự phòng trên máy của bài này?"))return;
       S.current=saved.data;S.dirty=true;
     }else{
       const checkpoint=JSON.parse(localStorage.getItem(recordKey(S.login,S.id,S.sha))||"null");
@@ -167,7 +193,7 @@ async function begin(){
     $("#inlineCmsSubmit").disabled=!S.dirty;
     $("#inlineCmsPublish").hidden=S.role!=="admin";
     $("#inlineCmsPublish").disabled=!S.dirty;
-    note(raw?"Đã khôi phục bản nháp. Chọn đoạn muốn chỉnh.":"Chọn phần muốn sửa ngay trên bài.");
+    note(S.dirty?"Đã khôi phục bản nháp an toàn. Chọn đoạn muốn chỉnh.":"Chọn phần muốn sửa ngay trên bài.");
   }catch(e){note(e.message+". Bài đang đọc chưa thay đổi.","warn");}
 }
 function storyChanges(){
@@ -187,6 +213,7 @@ async function publishOnce(){
   clearTimeout(S.timer);S.timer=null;if(!save())return;
   const button=$("#inlineCmsPublish");button.disabled=true;
   try{
+    await S.serverSync;if(S.blocked)return;
     const changes=storyChanges();
     if(!changes.length){note("Chưa sửa chữ nào.");return;}
     if(!confirm("Xuất bản "+changes.length+" phần chữ? Toàn bộ bản nháp hiện tại sẽ được gom vào 1 commit GitHub."))return;
@@ -197,6 +224,9 @@ async function publishOnce(){
     });
     if(!/^[a-f0-9]{40}$/.test(result.commit||""))
       throw Error("Chưa có xác nhận commit. Giữ nháp để kiểm tra CMS.");
+    const clearedServer=await window.OPQDraftStore?.clear({path:SOURCE});
+    if(clearedServer&&!clearedServer.ok&&clearedServer.status===409)
+      note("Đã xuất bản, nhưng server có bản nháp mới hơn nên không xóa bản đó.","warn");
     if(localStorage.getItem(draftKey(S.login))===S.raw)localStorage.removeItem(draftKey(S.login));
     const key=recordKey(S.login,S.id,S.sha);
     const checkpoint=JSON.parse(localStorage.getItem(key)||"null");
@@ -217,6 +247,7 @@ async function submit(){
   const button=$("#inlineCmsSubmit");button.disabled=true;
   note("Đang đối chiếu phiên bản và đề xuất đang mở...");
   try{
+    await S.serverSync;if(S.blocked)return;
     const [auth,check]=await Promise.all([
       get("/api/cms/session"),get("/api/cms/edit-state?path="+encodeURIComponent(SOURCE))
     ]);
@@ -229,6 +260,9 @@ async function submit(){
     const link=result?.pull_request?.url||"";
     if(!/^https:\/\/github\.com\/kenzuko\/jotrip-home\/pull\/\d+$/.test(link))
       throw Error("CMS chưa trả về PR. Kiểm tra hàng đợi duyệt trước khi thử lại.");
+    const clearedServer=await window.OPQDraftStore?.clear({path:SOURCE});
+    if(clearedServer&&!clearedServer.ok&&clearedServer.status===409)
+      note("Đã gửi PR, nhưng server có bản nháp mới hơn nên không xóa bản đó.","warn");
     if(localStorage.getItem(draftKey(S.login))===S.raw)localStorage.removeItem(draftKey(S.login));
     const record=recordKey(S.login,S.id,S.sha);
     const ck=JSON.parse(localStorage.getItem(record)||"null");
