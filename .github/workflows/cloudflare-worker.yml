@@ -210,6 +210,43 @@ jobs:
           VISUAL_QA_OUTPUT: production-smoke-results
         run: node scripts/visual-qa.mjs
 
+      - name: Production sanity check
+        if: env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
+        run: |
+          origin="https://openphuquoc.com"
+          ok=false
+          for i in {1..20}; do
+            body="$(curl -fsS "$origin/build.json?t=$GITHUB_SHA" || true)"
+            if echo "$body" | grep -q "$GITHUB_SHA"; then ok=true; break; fi
+            sleep 2
+          done
+          if [ "$ok" != true ]; then
+            echo "::error::Canonical production build.json did not match $GITHUB_SHA"
+            exit 1
+          fi
+          for path in / /go/ /nearme/ /explore/ /weather/ /airport/ /transit/ /bus/ /cano/ /utilities/ /currency/ /guide/knowledge.html /robots.txt /sitemap.xml; do
+            curl -fsSL "$origin$path" -o /dev/null || { echo "::error::Production route failed: $path"; exit 1; }
+          done
+          curl -fsSL "$origin/" -o /tmp/openpq-home.html
+          grep -Fq '<link rel="canonical" href="https://openphuquoc.com/">' /tmp/openpq-home.html || { echo "::error::Homepage canonical is missing or incorrect"; exit 1; }
+          curl -fsSL "$origin/robots.txt" -o /tmp/openpq-robots.txt
+          grep -Fq 'Sitemap: https://openphuquoc.com/sitemap.xml' /tmp/openpq-robots.txt
+          grep -Fq 'Disallow: /admin/' /tmp/openpq-robots.txt
+          grep -Fq 'Disallow: /api/' /tmp/openpq-robots.txt
+          grep -Fq 'Disallow: /cms/' /tmp/openpq-robots.txt
+          curl -fsSL "$origin/sitemap.xml" -o /tmp/openpq-sitemap.xml
+          grep -Fq '<loc>https://openphuquoc.com/</loc>' /tmp/openpq-sitemap.xml
+          if grep -Fq 'cms.openphuquoc.com' /tmp/openpq-sitemap.xml; then echo "::error::CMS hostname leaked into sitemap"; exit 1; fi
+          guide_count="$(grep -o '/guide/article.html?id=' /tmp/openpq-sitemap.xml | wc -l | tr -d ' ')"
+          if [ "$guide_count" -lt 128 ]; then echo "::error::Production sitemap exposes only $guide_count knowledge articles"; exit 1; fi
+          www_status="$(curl -sS -o /dev/null -D /tmp/openpq-www.headers -w '%{http_code}' https://www.openphuquoc.com/)"
+          www_location="$(awk 'tolower($1)=="location:" {print $2; exit}' /tmp/openpq-www.headers | tr -d '\r')"
+          if [ "$www_status" != "301" ] || [ "$www_location" != "https://openphuquoc.com/" ]; then
+            echo "::error::www redirect invalid: status=$www_status location=$www_location"
+            exit 1
+          fi
+          echo "Production sanity PASS: canonical, key routes, robots, sitemap, www redirect"
+
       - name: Upload production smoke report
         if: always() && env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
         uses: actions/upload-artifact@v4

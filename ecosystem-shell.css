@@ -314,3 +314,20 @@ header.knowledge-header img[src*="logo-master"]{
     padding:2px 0!important;object-fit:contain!important;
   }
 }
+
+/* OPENPQ SUBPAGE RELEASE TYPOGRAPHY FLOOR - 29/09/2026
+   Raise launch-critical supporting text on mobile; preserve module layouts. */
+@media(max-width:720px){
+  .explore-map-layer span,.explore-map-layer b,.explore-map-layer small,.explore-photo-credit,
+  .near-search>span,.near-card>span,.near-popup span,.near-popup small,.discovery-card>span,.near-map-explainer .near-external-explainer,
+  .transit-shell .overview-copy .eyebrow,.transit-shell .overview-metrics span,.transit-shell .overview-metrics small,
+  .transit-shell .section-kicker,.transit-shell .info-kicker,.transit-shell .info-head span,.transit-shell .mobile-kv span,
+  .transit-shell .source-item small,.transit-shell .status-examples span,.transit-shell .ticket-kicker,.transit-shell .ticket-meta,
+  .u-route-guide span,.travel-line small,.u-card small,.price-card span,.price-card small,.choice span,.dynamic-note,.check-card li,.sync-note,
+  .currency-head .vn-clock>span,.currency-head .back,.status-pill,.converter-panel .eyebrow,.converter-panel .mode,
+  .money-input>span,.convert-result>span,.convert-result small,.rate-type,.quick-amounts button,.converter-panel .fine-print,
+  .comparison-head,.comparison-cell small,.comparison-note,.rate-card small,.search-result small,.compare-card span,.compare-card small,
+  .health-pill,.live-pill,.source-label,.updated-at,.day-switch button,.operation-watch-subtitle,.count-pill,
+  .watch-item p,.arrival-main span,.watch-detail-link,.flight-time small,.route small,.market-label,.metric-grid small,
+  .go-badge,.go-more-card span,.go-more-card small,.go-more-head p,.go-more-headbar small{font-size:11px!important}
+}

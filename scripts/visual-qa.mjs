@@ -196,6 +196,39 @@ async function inspectPage(page) {
       .filter(img => img.complete && img.naturalWidth === 0)
       .map(img => ({ src: img.currentSrc || img.src, alt: img.alt || '' }));
 
+    const fetchResources = performance.getEntriesByType('resource')
+      .filter(entry => ['fetch','xmlhttprequest'].includes(entry.initiatorType))
+      .map(entry => entry.name);
+    const normalizeFetchUrl = value => {
+      try {
+        const url = new URL(value);
+        const bust = url.searchParams.get('t');
+        if (bust && /^\\d{10,}$/.test(bust)) url.searchParams.delete('t');
+        return url.toString();
+      } catch { return value; }
+    };
+    const fetchCounts = new Map();
+    for (const value of fetchResources) {
+      const normalized = normalizeFetchUrl(value);
+      fetchCounts.set(normalized, (fetchCounts.get(normalized) || 0) + 1);
+    }
+    const isOperationalFetch = value => {
+      try {
+        const url = new URL(value);
+        return url.pathname.includes('/data/') || url.pathname.startsWith('/api/') ||
+          url.hostname === 'raw.githubusercontent.com' || url.hostname.includes('jotrip-airport-live');
+      } catch { return false; }
+    };
+    const duplicateFetches = [...fetchCounts]
+      .filter(([url,count]) => count > 1 && isOperationalFetch(url))
+      .map(([url,count]) => ({url,count}));
+    const cacheBustedFetches = fetchResources.filter(value => {
+      try {
+        const bust = new URL(value).searchParams.get('t');
+        return !!bust && /^\\d{10,}$/.test(bust);
+      } catch { return false; }
+    });
+
     const tinyText = [...document.querySelectorAll('body *')]
       .filter(el => {
         if (['SCRIPT', 'STYLE', 'SVG', 'PATH'].includes(el.tagName)) return false;
@@ -221,7 +254,8 @@ async function inspectPage(page) {
       viewportWidth,
       overflowElements,
       brokenImages,
-      tinyText
+      tinyText,
+      networkAudit: { fetchCount: fetchResources.length, duplicateFetches, cacheBustedFetches }
     };
   });
 }
@@ -737,6 +771,8 @@ try {
         airportFunctional && !airportFunctional.ok ? `airport functional checks failed: ${Object.entries(airportFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         nearmeFunctional && !nearmeFunctional.ok ? `nearme functional checks failed: ${Object.entries(nearmeFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
         goFunctional && !goFunctional.ok ? `GO functional checks failed: ${Object.entries(goFunctional.checks).filter(([,ok])=>!ok).map(([key])=>key).join(",")}` : null,
+        route.name === 'home' && inspection?.networkAudit?.duplicateFetches?.length ? `homepage duplicated operational fetches: ${inspection.networkAudit.duplicateFetches.map(x=>x.count+"x "+x.url).join(",")}` : null,
+        route.name === 'home' && inspection?.networkAudit?.cacheBustedFetches?.length ? `homepage used ${inspection.networkAudit.cacheBustedFetches.length} timestamp cache-busting fetch(es)` : null,
         route.name === 'home' && externalMapRequests.length ? `homepage made ${externalMapRequests.length} external map request(s)` : null
       ].filter(Boolean);
 

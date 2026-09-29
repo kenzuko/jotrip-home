@@ -321,3 +321,10 @@ header.detail-head img[src*="logo-master"]{
 @media(max-width:720px){header.detail-head img[src*="logo-master"]{
   width:44px!important;height:42px!important;max-width:44px!important;max-height:42px!important;
 }}
+
+/* OPENPQ PLACE DETAIL MOBILE TYPOGRAPHY FLOOR - 29/09/2026 */
+@media(max-width:760px){
+  .detail-kicker,.detail-badges span,.detail-panel>span,.detail-context>span,.fact span,
+  .related-card span,.related-card small,.related-card b,.context-card>span,.context-card>small,
+  .context-link small,.source-row,.detail-mobile-nav a,.detail-hero-context,.detail-hero-fallback span{font-size:11px!important}
+}

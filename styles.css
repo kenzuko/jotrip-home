@@ -6482,3 +6482,38 @@ body.sheet-open{
  .near-quick-location-row{grid-template-columns:1fr}
  .near-quick-location-row>.near-location-btn{width:100%}
 }
+
+/* OPENPQ RELEASE TYPOGRAPHY FLOOR - 29/09/2026
+   Readability hardening only: no layout/module redesign. */
+@media(max-width:760px){
+  #top>.energy-ticker .ticker-label strong,
+  #top>.energy-ticker .ticker-track span,
+  #top>.energy-ticker .ticker-track b,
+  .hero-kicker,
+  .hero-scene-count,
+  .hero-scene-label,
+  .live-title strong,
+  .live-title small,
+  #top>.island-pulse .live-item span,
+  #top>.island-pulse .live-item small,
+  #top>.island-pulse .live-item time,
+  #top>.island-pulse .live-item b,
+  .eyebrow,
+  .section-heading>a,
+  .trip-day-left small,
+  .near-result-card>span,
+  .near-result-card>em,
+  .hot-card small,
+  .curiosity-card em,
+  .curiosity-media span,
+  .curiosity-answer em,
+  .mobile-dock a,
+  .mobile-dock button,
+  .more-head p,
+  .more-label,
+  .more-grid strong,
+  .more-grid small,
+  .more-list a,
+  .credit{font-size:11px!important}
+  #top>.energy-ticker .ticker-track b{line-height:1.35}
+}

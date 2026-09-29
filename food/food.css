@@ -139,3 +139,9 @@ header.module-head img[src*="logo-master"]{
  .food-article section.food-safety .ask-staff{padding:16px}
  .food-article section.food-safety h2{font-size:clamp(23px,6.4vw,28px)}
 }
+
+/* OPENPQ FOOD MOBILE TYPOGRAPHY FLOOR - 29/09/2026 */
+@media(max-width:760px){
+  .food-article .crumb,.food-hashtags span,.dish-card span,.dish-card .dish-foot small,
+  .more-dish-links a,.random-dish-pick>span{font-size:11px!important}
+}

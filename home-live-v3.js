@@ -37,35 +37,55 @@ function stateText(s) {
     }[s] || "Chưa có thông tin mới");
   }
 
+  // Revalidate live upstreams without manufacturing a unique URL on every read.
+  // In-flight dedupe prevents two homepage surfaces from requesting the same resource together.
+  const liveInFlight = new Map();
+  function dedupeLiveRequest(key, factory) {
+    const existing = liveInFlight.get(key);
+    if (existing) return existing;
+    const task = Promise.resolve().then(factory);
+    liveInFlight.set(key, task);
+    task.finally(() => {
+      if (liveInFlight.get(key) === task) liveInFlight.delete(key);
+    });
+    return task;
+  }
+
   async function getJson(url, timeoutMs = 10000) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), {
-        cache: "no-store",
-        signal: controller.signal
-      });
-      if (!r.ok) throw new Error(String(r.status));
-      return r.json();
-    } finally {
-      clearTimeout(timeout);
-    }
+    return dedupeLiveRequest("json:" + url, async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const r = await fetch(url, {
+          cache: "no-cache",
+          headers: { accept: "application/json" },
+          signal: controller.signal
+        });
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json();
+      } finally {
+        clearTimeout(timeout);
+      }
+    });
   }
 
   async function getText(url, timeoutMs = 10000) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      const r = await fetch(url + (url.includes("?") ? "&" : "?") + "t=" + Date.now(), {
-        cache: "no-store",
-        signal: controller.signal
-      });
-      if (r.status === 404) return "";
-      if (!r.ok) throw new Error(String(r.status));
-      return r.text();
-    } finally {
-      clearTimeout(timeout);
-    }
+    return dedupeLiveRequest("text:" + url, async () => {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const r = await fetch(url, {
+          cache: "no-cache",
+          headers: { accept: "text/plain,*/*;q=0.8" },
+          signal: controller.signal
+        });
+        if (r.status === 404) return "";
+        if (!r.ok) throw new Error(String(r.status));
+        return r.text();
+      } finally {
+        clearTimeout(timeout);
+      }
+    });
   }
 
   function vnDateKey(date = new Date()) {
