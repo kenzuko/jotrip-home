@@ -13,13 +13,15 @@ assert.ok(stories.reduce((n,s)=>n+(s.sources||[]).length,0)>0,"Original research
 assert.ok(knowledge.every(o=>(o.research?.sources||[]).length),"Keep the fact-checking records");
 assert.ok(dishes.every(o=>(o.sources||[]).length),"Preserve recipe and allergy evidence");
 assert.doesNotMatch(story,/function sourceList\(|sourceList\(s\)|Nguồn bài viết/,"No public story bibliography");
-assert.match(story,/image_license_url/,"Licensed editorial photos need CC attribution");
-assert.match(read("visual-context.js"),/img\.license_url/,"Gallery photos need CC licensing links");
+assert.match(story,/image_credit/,"Photo attribution remains readable as text");
+assert.doesNotMatch(story,/image_license_url|Điều kiện sử dụng ảnh/,"Story photo attribution must not link out");
+assert.match(read("visual-context.js"),/img\.license/,"Gallery keeps readable license text");
+assert.doesNotMatch(read("visual-context.js"),/visual-photo-license|license_url/,"Gallery attribution must not add license hyperlinks");
 assert.doesNotMatch(news,/Nguồn ↗|sourceUrl/,"News does not expose citation hyperlinks");
 assert.match(news,/source\?\.label/,"News retains a readable, non-linked source name");
 assert.match(news,/Xem liên quan/,"News keeps relevant operational navigation");
-assert.match(guide,/licenseNeedsLink/,"Only required Creative Commons photo attribution may link out");
-assert.match(guide,/photo\.license_url/,"Licensed images retain their terms");
+assert.match(guide,/photo\.license/,"Guide keeps readable photo license text");
+assert.doesNotMatch(guide,/licenseNeedsLink|photo\.source_url|photo\.license_url/,"Guide photo attribution must not link out");
 assert.match(guide,/o\.links/,"Visitor action links remain available");
 assert.ok(knowledge.flatMap(o=>o.public_links||[]).some(l=>/^https:\/\/phuquocfishingtours\.com\/?/.test(l.url)),"Existing fishing booking link must stay");
 assert.match(read("places/detail.js"),/https:\/\/phuquocfishingtours\.com\//,"Fishing booking CTA must work");
@@ -30,4 +32,4 @@ assert.match(about,/Thông tin miễn phí dành cho người dân và du khách
 for(const file of ["stories/index.html","stories/article.html"])assert.match(read(file),/story\.js\?v=20260927-cc-credit-r2/);
 assert.match(read("news/index.html"),/news\.js\?v=20260927-reader-first-r1/);
 for(const file of ["guide/knowledge.html","guide/article.html"])assert.match(read(file),/knowledge\.js\?v=20260927-photo-rights-r1/);
-console.log("Public source-link QA PASS: 194 articles preserved, research archived, booking and photo-license actions retained, community statement visible.");
+console.log("Public source-link QA PASS: 194 articles preserved, research archived, booking actions retained, photo attribution text-only, community statement visible.");
