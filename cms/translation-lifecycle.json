@@ -35,7 +35,7 @@
   "statuses": {
     "missing": "No translation artifact exists yet.",
     "machine_draft": "Machine-assisted draft exists but is not approved for publication.",
-    "human_review": "Translation is under or has completed human editorial review but is not yet published.",
+    "human_review": "Human-reviewed translation is approved editorially but has not been published yet.",
     "published": "Published translation matches the current Vietnamese source revision.",
     "stale": "Translation exists but its recorded Vietnamese source revision is no longer current."
   },
