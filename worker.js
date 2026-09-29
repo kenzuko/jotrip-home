@@ -13,6 +13,7 @@ import {handleWeatherData,prewarmWeatherEdge} from "./functions/_shared/weather-
 import {handleWeatherWindow} from "./functions/_shared/weather-context.js";
 import {handleGoLive} from "./functions/_shared/go-live.js";
 import {captureWeatherAlerts,readWeatherAlertHistory} from "./functions/_shared/weather-alert-runtime.js";
+// Locale routes stay opt-in until reviewed translations and their surfaces are published.
 const PUBLIC_ORIGIN = "https://openphuquoc.com";
 const DEFAULT_IMAGE = PUBLIC_ORIGIN + "/assets/share-card.svg";
 
