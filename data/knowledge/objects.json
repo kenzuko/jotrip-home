@@ -3985,7 +3985,7 @@
     {
       "topic_id": "knowledge_062_oc-giac-melo",
       "number": 62,
-      "title": "Ốc giác / Melo",
+      "title": "Ốc giác và câu chuyện ngọc Melo",
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
@@ -4169,7 +4169,7 @@
     {
       "topic_id": "knowledge_065_mat-sim-siro-sim-mut-sim",
       "number": 65,
-      "title": "Mật sim / siro sim / mứt sim",
+      "title": "Mật sim, siro sim và mứt sim",
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
@@ -4483,7 +4483,7 @@
     {
       "topic_id": "knowledge_070_cho-duong-dong-an-gi",
       "number": 70,
-      "title": "Chợ Dương Đông ăn gì",
+      "title": "Chợ Dương Đông ăn gì?",
       "topic_type": "FOOD",
       "canonical_entity_id": null,
       "related_entity_ids": [],
@@ -10203,7 +10203,7 @@
     {
       "topic_id": "knowledge_150_mot-ngay-o-phu-quoc-van-hanh-the-nao",
       "number": 150,
-      "title": "Một ngày ở Phú Quốc vận hành thế nào?",
+      "title": "Một ngày ở Phú Quốc diễn ra thế nào?",
       "topic_type": "MEMORY_CHANGE",
       "canonical_entity_id": null,
       "related_entity_ids": [
