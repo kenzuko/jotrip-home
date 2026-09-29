@@ -16,6 +16,7 @@ const writeJson=(file,data)=>{
 const sha=text=>crypto.createHash("sha256").update(String(text),"utf8").digest("hex");
 const blobSha=file=>execFileSync("git",["hash-object",file],{encoding:"utf8"}).trim();
 const clone=value=>structuredClone(value);
+const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 
 function args(argv){
   const out={_:[]};
@@ -147,13 +148,25 @@ async function azureTranslate(items,locale,config){
   if(!to)throw new Error("No Azure locale mapping for "+locale);
   const url=new URL(endpoint+"/translate");
   url.searchParams.set("api-version","3.0");url.searchParams.set("from","vi");url.searchParams.append("to",to);
-  const headers={"Content-Type":"application/json","Ocp-Apim-Subscription-Key":key,"X-ClientTraceId":crypto.randomUUID()};
-  if(process.env.AZURE_TRANSLATOR_REGION)headers["Ocp-Apim-Subscription-Region"]=process.env.AZURE_TRANSLATOR_REGION;
-  const response=await fetch(url,{method:"POST",headers,body:JSON.stringify(items.map(item=>({Text:item.protected.text})))});
-  const body=await response.json().catch(()=>null);
-  if(!response.ok)throw new Error("Azure Translator failed ("+response.status+"): "+String(body?.error?.message||"unknown error"));
-  if(!Array.isArray(body)||body.length!==items.length)throw new Error("Azure response count mismatch");
-  return body.map((row,index)=>restore(row?.translations?.[0]?.text??"",items[index].protected.markers));
+  const maxAttempts=6;
+  for(let attempt=1;attempt<=maxAttempts;attempt++){
+    const headers={"Content-Type":"application/json","Ocp-Apim-Subscription-Key":key,"X-ClientTraceId":crypto.randomUUID()};
+    if(process.env.AZURE_TRANSLATOR_REGION)headers["Ocp-Apim-Subscription-Region"]=process.env.AZURE_TRANSLATOR_REGION;
+    const response=await fetch(url,{method:"POST",headers,body:JSON.stringify(items.map(item=>({Text:item.protected.text})))});
+    const body=await response.json().catch(()=>null);
+    if(response.ok){
+      if(!Array.isArray(body)||body.length!==items.length)throw new Error("Azure response count mismatch");
+      return body.map((row,index)=>restore(row?.translations?.[0]?.text??"",items[index].protected.markers));
+    }
+    const retryable=response.status===429||response.status>=500;
+    if(!retryable||attempt===maxAttempts)throw new Error("Azure Translator failed ("+response.status+"): "+String(body?.error?.message||"unknown error"));
+    const retryHeader=response.headers.get("retry-after");
+    const retrySeconds=retryHeader&&/^\d+$/.test(retryHeader)?Number(retryHeader):0;
+    const waitMs=Math.max(retrySeconds*1000,Math.min(60000,2000*2**(attempt-1)));
+    console.warn("Azure "+response.status+"; retry "+(attempt+1)+"/"+maxAttempts+" after "+Math.ceil(waitMs/1000)+"s");
+    await sleep(waitMs);
+  }
+  throw new Error("Azure Translator retry loop ended unexpectedly");
 }
 
 function loadMemory(){return fs.existsSync(MEMORY_PATH)?readJson(MEMORY_PATH):{version:"1.0",provider:"azure-translator-v3",entries:{}}}
@@ -190,7 +203,8 @@ async function translate(config,a){
     if(cached?.source===job.value&&typeof cached.translation==="string")setAt(target,targetJobPath(family,job),cached.translation);
     else pending.push({index,job,label:familyId+":"+(job.recordId||"document")+":"+job.path.join("."),protected:protect(job.value),key});
   }
-  for(const batch of batches(pending)){
+  const pendingBatches=batches(pending);
+  for(const [batchIndex,batch] of pendingBatches.entries()){
     const translations=await azureTranslate(batch,locale,config);
     batch.forEach((item,index)=>{
       const translated=translations[index];
@@ -198,6 +212,14 @@ async function translate(config,a){
       setAt(target,targetJobPath(family,item.job),translated);
       memory.entries[locale][item.key]={source:item.job.value,translation:translated,updated_at:new Date().toISOString()};
     });
+    writeJson(MEMORY_PATH,memory);
+    if(batchIndex<pendingBatches.length-1){
+      const chars=batch.reduce((sum,item)=>sum+item.protected.text.length,0);
+      const hourlyRate=Number(process.env.AZURE_TRANSLATOR_CHARS_PER_HOUR||1900000);
+      const waitMs=Math.max(1000,Math.ceil(chars*3600000/hourlyRate));
+      console.warn("Azure F0 pacing: waiting "+Math.ceil(waitMs/1000)+"s before next batch");
+      await sleep(waitMs);
+    }
   }
   const revision=blobSha(family.source_path);
   writeJson(targetPath,target);writeJson(MEMORY_PATH,memory);
