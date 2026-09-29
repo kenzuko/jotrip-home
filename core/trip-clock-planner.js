@@ -191,7 +191,7 @@
        ?"Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi."
        :sunsetWx.reason==="satellite_convection"
         ?"Ảnh vệ tinh cho thấy mây đối lưu quanh bờ Tây"+(sunsetWx.gauges_dry?", nhưng các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa.":".")
-        :"Dự báo cuối chiều có thể có mưa cục bộ nhẹ ở bờ Tây.";
+        :"Cuối chiều có thể có mây hoặc mưa thoáng qua ở bờ Tây.";
      }
     }
    }else if(nextWindow){
