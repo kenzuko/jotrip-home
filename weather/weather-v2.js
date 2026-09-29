@@ -1379,7 +1379,7 @@ function cloudImpactText(id,n){
   }
   if(l.rain_impact_label)return l.rain_impact_label;
   const avg=Math.max(0,(num(m.rain_3h_mm)||0)/3),score=num(n?.convective_score)||0;
-  let label=avg>=7.5?"Mưa mạnh":avg>=2.5?"Mưa vừa":avg>=.5?"Mưa nhẹ đến vừa":avg>.05?"Mưa nhẹ":"Nền model ít mưa";
+  let label=avg>=7.5?"Mưa mạnh":avg>=2.5?"Mưa vừa":avg>=.5?"Mưa nhẹ đến vừa":avg>.05?"Mưa nhẹ":"Nền dự báo ít mưa";
   if(score>=75&&avg<2.5)label+=", cục bộ có thể mạnh hơn";
   else if(score>=75)label+=", cục bộ có thể mưa mạnh";
   return label;
