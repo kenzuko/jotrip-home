@@ -74,6 +74,16 @@ assert.doesNotMatch(foodJs,/\|\|state\.data\.dishes\[0\]/,
 assert.match(foodJs,/Không tìm thấy món này/,
   "Food article needs an explicit not-found state");
 
+const worker=read("worker.js");
+assert.doesNotMatch(worker,/new URL\(url\.pathname, request\.url\)/,
+  "Worker must not drop article query parameters before Static Assets");
+assert.match(worker,/const assetUrl = new URL\(request\.url\)/,
+  "Worker Static Assets handoff must preserve ?id= for article routes");
+const wrangler=json("wrangler.jsonc");
+for(const route of ["/stories/article","/places/detail","/guide/article"])
+  assert.ok(wrangler.assets?.run_worker_first?.includes(route),
+    "Worker must also intercept extensionless canonical article route: "+route);
+
 const edge=read("functions/stories/article.html.js");
 assert.match(edge,/status:404/,"Unknown story IDs must be a 404 at the edge");
 assert.match(edge,/\.find\(o=>o\.id===id/,
