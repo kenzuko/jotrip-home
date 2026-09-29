@@ -135,11 +135,10 @@
     }).filter(Boolean);
     const horizonScores=horizonViews.map(h=>number(h.obscuration_score)).filter(x=>x!==null);
     const horizonScore=horizonScores.length?Math.max(...horizonScores):null;
-    const horizonStates=horizonViews.map(h=>String(h.status||"").toUpperCase());
-    const horizonStatus=horizonStates.includes("LIKELY_OBSCURED")?"LIKELY_OBSCURED":
-      horizonStates.includes("CLOUD_RISK")?"CLOUD_RISK":
-      horizonStates.includes("PARTLY_CLOUDY")?"PARTLY_CLOUDY":
-      horizonStates.includes("CLEAR")?"CLEAR":"UNKNOWN";
+    const horizonStatus=horizonScore===null?"UNKNOWN":
+      horizonScore>=70?"LIKELY_OBSCURED":
+      horizonScore>=45?"CLOUD_RISK":
+      horizonScore>=20?"PARTLY_CLOUDY":"CLEAR";
     const horizonIncreasing=horizonViews.some(h=>String(h.trend||"").toUpperCase()==="INCREASING");
     const horizonTrend=horizonIncreasing?"INCREASING":
       horizonViews.some(h=>String(h.trend||"").toUpperCase()==="DECREASING")?"DECREASING":
