@@ -7,7 +7,7 @@ if(root.OpenPQI18n)return;
 const DEFAULT="vi";
 const META='meta[name="openpq-locale"]';
 const CATALOG="/data/i18n/catalog.json";
-const state={locale:DEFAULT,catalog:null};
+const state={locale:DEFAULT,catalog:null,ui:null,ready:null};
 const q=s=>document.querySelector(s);
 function locale(){
   const fromMeta=q(META)?.content;
@@ -39,12 +39,49 @@ function strip(path){
   return value;
 }
 async function load(){
-  state.locale=locale();
-  try{
-    const res=await fetch(CATALOG,{cache:"default"});
-    if(res.ok)state.catalog=await res.json();
-  }catch{}
-  return state;
+  if(state.ready)return state.ready;
+  state.ready=(async()=>{
+    state.locale=locale();
+    try{
+      const res=await fetch(CATALOG,{cache:"default"});
+      if(res.ok)state.catalog=await res.json();
+    }catch{}
+    return state;
+  })();
+  return state.ready;
+}
+async function loadUi(){
+  await load();
+  if(state.ui)return state.ui;
+  const url="/data/i18n/"+encodeURIComponent(state.locale)+"/ui.json";
+  const res=await fetch(url,{cache:"default"});
+  if(!res.ok)throw Error("UI locale is not published: "+state.locale);
+  state.ui=await res.json();
+  return state.ui;
+}
+function t(path,fallback=""){
+  const value=String(path||"").split(".").reduce((o,k)=>o?.[k],state.ui);
+  return typeof value==="string"?value:fallback;
+}
+function format(path,vars={},fallback=""){
+  return t(path,fallback).replace(/\{([A-Za-z0-9_]+)\}/g,(_,key)=>Object.prototype.hasOwnProperty.call(vars,key)?String(vars[key]):"{"+key+"}");
+}
+async function apply(rootNode=document){
+  await loadUi();
+  rootNode.querySelectorAll?.("[data-i18n-key]").forEach(el=>{
+    const value=t(el.dataset.i18nKey,"");
+    if(value)el.textContent=value;
+  });
+  rootNode.querySelectorAll?.("[data-i18n-placeholder]").forEach(el=>{
+    const value=t(el.dataset.i18nPlaceholder,"");
+    if(value)el.setAttribute("placeholder",value);
+  });
+  rootNode.querySelectorAll?.("[data-i18n-aria-label]").forEach(el=>{
+    const value=t(el.dataset.i18nAriaLabel,"");
+    if(value)el.setAttribute("aria-label",value);
+  });
+  document.documentElement.lang=state.catalog?.locales?.find(x=>x.code===state.locale)?.html_lang||state.locale;
+  return state.ui;
 }
 function available(kind,id){
   const rows=state.catalog?.availability?.[kind]||{};
@@ -57,6 +94,6 @@ function languageUrl(code,{kind="",id="",pathname=location.pathname,search=locat
   const base=strip(pathname);
   return localize(base,code)+search;
 }
-root.OpenPQI18n={state,load,locale,localize,strip,available,languageUrl};
+root.OpenPQI18n={state,load,loadUi,t,format,apply,locale,localize,strip,available,languageUrl};
 load();
 })(window);

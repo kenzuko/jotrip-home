@@ -86,5 +86,84 @@
     "practical_title": "Nhớ mấy chuyện này.",
     "sources": "NGUỒN THAM KHẢO",
     "more": "Ăn tiếp món gì?"
+  },
+  "stories": {
+    "not_found_title": "Không tìm thấy bài viết này.",
+    "not_found_description": "Bài có thể đã đổi địa chỉ hoặc chưa được công khai. Bạn quay lại mục Câu chuyện để chọn bài khác nhé.",
+    "back_all": "← Xem tất cả câu chuyện",
+    "read_minutes": "ĐỌC KHOẢNG {minutes} PHÚT · OPEN PHU QUOC",
+    "note_label": "MỘT LƯU Ý",
+    "image_alt": "Ảnh trong bài",
+    "images_eyebrow": "HÌNH ẢNH",
+    "images_title": "Nhìn câu chuyện này bằng hình",
+    "map_title": "Bài viết này nằm ở đâu?",
+    "next": "ĐỌC TIẾP",
+    "load_error": "Chưa tải được nội dung."
+  },
+  "knowledge": {
+    "types": {
+      "PLACE": "Điểm đến",
+      "NATURE": "Thiên nhiên",
+      "FOOD": "Ẩm thực",
+      "PRACTICAL": "Đi lại & tiện ích",
+      "HISTORY_LORE": "Lịch sử & văn hóa",
+      "ACTIVITY": "Trải nghiệm",
+      "MEMORY_CHANGE": "Đảo đổi thay"
+    },
+    "all": "Tất cả",
+    "count": "{count} bài",
+    "no_match": "Chưa tìm thấy bài phù hợp. Bạn thử từ khác nhé.",
+    "read": "Đọc bài →",
+    "title_suffix": "Cẩm nang Phú Quốc",
+    "back_all": "← Tất cả bài cẩm nang",
+    "fallback_type": "Cẩm nang",
+    "image_unavailable": "Ảnh hiện chưa tải được.",
+    "photo_prefix": "Ảnh: ",
+    "license_terms": "Điều kiện sử dụng ảnh",
+    "location_title": "Địa điểm trên bản đồ",
+    "open_map": "Mở bản đồ lớn ↗",
+    "view_all": "Xem tất cả bài",
+    "missing": "Bài này chưa được công khai hoặc không tồn tại.",
+    "load_error": "Cẩm nang chưa mở được lúc này. Bạn thử tải lại trang nhé.",
+    "further": "Tìm hiểu thêm",
+    "source": "Nguồn thông tin",
+    "headings": {
+      "PLACE": {
+        "practical": "Ghé thế nào cho tiện?",
+        "reality": "Điều nên biết trước khi tới",
+        "before": "Trước khi ghé"
+      },
+      "NATURE": {
+        "practical": "Xem điều kiện thực tế",
+        "reality": "Những điều dễ bỏ sót",
+        "before": "Khi ra ngoài"
+      },
+      "FOOD": {
+        "practical": "Ăn và chọn món",
+        "reality": "Điều cần biết khi gọi",
+        "before": "Trước khi ăn hoặc mua",
+        "buy": "Chọn mua và tìm hiểu"
+      },
+      "PRACTICAL": {
+        "practical": "Chuẩn bị thế nào?",
+        "reality": "Những trường hợp cần lưu ý",
+        "before": "Trước khi đi"
+      },
+      "HISTORY_LORE": {
+        "practical": "Tìm hiểu thêm",
+        "reality": "Hiểu đúng câu chuyện",
+        "before": "Nếu ghé thăm"
+      },
+      "ACTIVITY": {
+        "practical": "Sắp lịch thế nào?",
+        "reality": "Điều có thể khác dự tính",
+        "before": "Trước chuyến đi"
+      },
+      "MEMORY_CHANGE": {
+        "practical": "Nhìn đảo hôm nay",
+        "reality": "Đọc tư liệu đúng thời điểm",
+        "before": "Nếu muốn xem tận nơi"
+      }
+    }
   }
 }
