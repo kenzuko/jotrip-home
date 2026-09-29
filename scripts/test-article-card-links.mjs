@@ -63,6 +63,17 @@ const homeLibrary=read("home-library.js");
 for(const id of [...homeLibrary.matchAll(/id:"(knowledge_[^"]+)"/g)].map(x=>x[1]))
   assert.ok(publicGuideIds.has(id),"Homepage curated guide is not public: "+id);
 
+const foodHome=read("home-experience-v1.js");
+assert.match(foodHome,/class="food-now-card featured-food-card" href="/,
+  "Homepage food card must be a whole-card article link");
+assert.doesNotMatch(foodHome,/<article class="food-now-card featured-food-card">/,
+  "Homepage food card must not leave image/title outside the link");
+const foodJs=read("food/food.js");
+assert.doesNotMatch(foodJs,/\|\|state\.data\.dishes\[0\]/,
+  "Invalid food article ids must never silently render the first dish");
+assert.match(foodJs,/Không tìm thấy món này/,
+  "Food article needs an explicit not-found state");
+
 const edge=read("functions/stories/article.html.js");
 assert.match(edge,/status:404/,"Unknown story IDs must be a 404 at the edge");
 assert.match(edge,/\.find\(o=>o\.id===id/,
