@@ -518,7 +518,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
             title:"Hoàng hôn chiều nay có thể bị thời tiết ảnh hưởng.",
             note:observed
               ? "Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển."
-              : "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Hệ thống sẽ tiếp tục cập nhật khi gần giờ.",
+              : (() => {
+                  const areas=(Array.isArray(sunsetWx.forecast_rain_likely_points)&&sunsetWx.forecast_rain_likely_points.length
+                    ? sunsetWx.forecast_rain_likely_points
+                    : sunsetWx.forecast_rain_points||[]).filter(Boolean);
+                  if (areas.length === 1) return "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rõ hơn quanh " + areas[0] + ".";
+                  if (areas.length === 2) return "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rõ hơn quanh " + areas.join(" và ") + ".";
+                  if (areas.length >= 3) return "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rải rác dọc bờ Tây.";
+                  return "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Hệ thống sẽ tiếp tục cập nhật khi gần giờ.";
+                })(),
             primaryText:"Xem thời tiết bờ Tây →", primaryHref:"weather/",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
@@ -540,7 +548,14 @@ function freshnessText(iso, prefix = "Cập nhật") {
           } else if (sunsetWx.reason === "satellite_convection") {
             note = "Ảnh vệ tinh cho thấy mây đối lưu quanh khu vực. Chưa đủ bằng chứng để coi là mưa tại bờ Tây.";
           } else if (sunsetWx.reason === "forecast_rain") {
-            note = "Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Hệ thống sẽ cập nhật lại khi gần giờ hơn.";
+            const areas = (sunsetWx.forecast_rain_points || []).filter(Boolean);
+            note = areas.length === 1
+              ? "Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh " + areas[0] + "."
+              : areas.length === 2
+                ? "Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh " + areas.join(" và ") + "."
+                : areas.length >= 3
+                  ? "Dự báo quanh giờ hoàng hôn có thể có mưa rào rải rác dọc bờ Tây."
+                  : "Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Hệ thống sẽ cập nhật lại khi gần giờ hơn.";
           }
           push({
             tone:"watch",
