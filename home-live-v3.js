@@ -376,7 +376,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
     getText(SRC.airportHistoryBase + "/" + vnDateKey() + "/events.jsonl"),
     getJson("data/operational-notices.json")
   ]).then(([c, m, a, e, n]) => {
-    const critical = c.status === "fulfilled" ? c.value : null;
+    let critical = c.status === "fulfilled" ? c.value : null;
     const marine = m.status === "fulfilled" ? m.value : null;
     const airport = a.status === "fulfilled" ? a.value : null;
     const notices = n.status === "fulfilled" ? n.value : null;
@@ -510,7 +510,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
       }
 
       if (Number.isFinite(minutesToSunset) && minutesToSunset > 0 && minutesToSunset <= 240) {
-        const sunsetWx = sunsetWeatherAssessment(critical, todaySunset);
+        const sunsetWx = window.OPENPQ_HOME?.signals?.sunset_weather || sunsetWeatherAssessment(critical, todaySunset);
         if (sunsetWx.level === "bad") {
           const observed = sunsetWx.reason === "observed_weather";
           push({
@@ -1032,6 +1032,81 @@ function freshnessText(iso, prefix = "Cập nhật") {
       }
     };
 
+    // Refresh only the sunset context at a cadence that matches how useful
+    // new evidence is. The rest of Homepage keeps its existing load behavior.
+    // UI copy changes only when the material sunset state changes.
+    let sunsetStable = window.OPENPQ_HOME.signals.sunset_weather;
+    let sunsetRecoveryCandidate = null;
+    let sunsetRefreshTimer = null;
+    const sunsetRank = {unknown:0,good:1,watch:2,bad:3};
+    const sunsetKey = value => [
+      value?.level || "unknown",
+      value?.reason || "unknown",
+      value?.cloud_track_status || "UNKNOWN"
+    ].join("|");
+
+    function acceptSunsetCandidate(candidate) {
+      if (!candidate) return false;
+      if (!sunsetStable) {
+        sunsetStable = candidate;
+        sunsetRecoveryCandidate = null;
+        return true;
+      }
+      const currentRank = sunsetRank[sunsetStable.level] ?? 0;
+      const candidateRank = sunsetRank[candidate.level] ?? 0;
+      if (candidateRank > currentRank) {
+        sunsetStable = candidate;
+        sunsetRecoveryCandidate = null;
+        return true;
+      }
+      if (candidateRank < currentRank) {
+        const key = sunsetKey(candidate);
+        if (sunsetRecoveryCandidate?.key === key) {
+          sunsetStable = candidate;
+          sunsetRecoveryCandidate = null;
+          return true;
+        }
+        sunsetRecoveryCandidate = {key};
+        return false;
+      }
+      sunsetRecoveryCandidate = null;
+      if (sunsetKey(candidate) === sunsetKey(sunsetStable)) return false;
+      sunsetStable = candidate;
+      return true;
+    }
+
+    function scheduleSunsetRefresh() {
+      if (sunsetRefreshTimer) clearTimeout(sunsetRefreshTimer);
+      const sunsetMinute = clockMinutes(sunset);
+      const remain = Number.isFinite(sunsetMinute) ? sunsetMinute - vnClockParts().minutes : NaN;
+      const delay = window.OpenPQSunsetOutlook?.refreshDelayMs?.(remain);
+      if (!Number.isFinite(delay) || delay <= 0) return;
+      sunsetRefreshTimer = setTimeout(refreshSunsetContext, delay);
+    }
+
+    async function refreshSunsetContext() {
+      try {
+        const fresh = await getJson(SRC.critical);
+        critical = fresh;
+        const candidate = sunsetWeatherAssessment(fresh, sunset);
+        const changed = acceptSunsetCandidate(candidate);
+        if (changed) {
+          window.OPENPQ_HOME.signals.sunset_weather = sunsetStable;
+          window.OPENPQ_HOME.signals.sunset_context_checked_at = new Date().toISOString();
+          renderNowSuggestion();
+          window.dispatchEvent(new CustomEvent("openpq:sunset-updated", {
+            detail: {sunset_weather:sunsetStable}
+          }));
+        }
+      } catch (_) {
+        // Keep the last accepted state. A transient fetch failure must not turn
+        // a useful sunset assessment into a new warning.
+      } finally {
+        scheduleSunsetRefresh();
+      }
+    }
+
+    scheduleSunsetRefresh();
     window.dispatchEvent(new CustomEvent("openpq:live-ready", { detail: window.OPENPQ_HOME }));
   });
 })();
