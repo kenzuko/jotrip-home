@@ -20,16 +20,29 @@
     function currentItems(){
       const now=Date.now();
       const updates=(support.hot_now?.items||[]).filter(x=>isActive(x,now));
+      const operationalRoute=x=>({
+        place_sunset_town:"places/detail.html?id=sunset-town",
+        activity_tinh_hoa_viet_nam:"places/detail.html?id=tinh-hoa-viet-nam",
+        activity_sac_mau_venice:"places/detail.html?id=sac-mau-venice"
+      })[x.entity_id]||"news/";
+      const operationalCategory=x=>x.status==="BOOKING_FULL"?"ĐẶT CHỖ / SUNSET TOWN":
+        ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status)?"HOẠT ĐỘNG / TẠM DỪNG":"SHOW / THÔNG BÁO";
       const operationals=(notices?.notices||[]).filter(x=>{
-        if(x.status!=="CANCELLED"||typeof x.date!=="string")return false;
-        const start=Date.parse(x.date+"T00:00:00+07:00");
-        return Number.isFinite(start)&&now>=start&&now<start+days*86400000;
+        const eventStart=typeof x.date==="string"?Date.parse(x.date+"T00:00:00+07:00"):NaN;
+        const visibleFrom=x.effective_from?Date.parse(x.effective_from+"T00:00:00+07:00"):
+          Number.isFinite(eventStart)?eventStart:-Infinity;
+        const fallbackEnd=Number.isFinite(eventStart)?eventStart+days*86400000:Infinity;
+        const visibleUntil=x.valid_until?Date.parse(x.valid_until):fallbackEnd;
+        if(!Number.isFinite(visibleFrom)&&visibleFrom!==-Infinity)return false;
+        if(!Number.isFinite(visibleUntil)&&visibleUntil!==Infinity)return false;
+        if(now<visibleFrom||now>=visibleUntil)return false;
+        return ["CANCELLED","BOOKING_FULL","SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status);
       }).map(x=>({
-        category:"SHOW / THÔNG BÁO",
-        title:x.title,short_summary:x.summary+" "+x.booking_message,
-        published_at:x.date,verified_at:x.date,
+        category:operationalCategory(x),
+        title:x.title,short_summary:[x.summary,x.booking_message].filter(Boolean).join(" "),
+        published_at:x.effective_from||x.date,verified_at:x.effective_from||x.date,
         source_text:x.source,
-        route:"places/detail.html?id=tinh-hoa-viet-nam"
+        route:operationalRoute(x)
       }));
       return [...operationals,...updates]
         .sort((a,b)=>Date.parse(b.published_at||b.verified_at||0)-Date.parse(a.published_at||a.verified_at||0));
@@ -38,7 +51,9 @@
       const items=currentItems();
 
     $("#newsCount").textContent=items.length?items.length+" điều đáng chú ý":"Hôm nay chưa có gì mới";
-    $("#newsUpdated").textContent=fmtDate(support.updated_at)||"Hôm nay";
+    const latestDate=[support.updated_at,...items.map(x=>x.published_at||x.verified_at).filter(Boolean)]
+      .sort((a,b)=>Date.parse(b)-Date.parse(a))[0];
+    $("#newsUpdated").textContent=fmtDate(latestDate)||"Hôm nay";
 
     if(!items.length){
       $("#newsList").innerHTML='<div class="news-empty">Hôm nay chưa có thay đổi nào đủ lớn để phải để ý.</div>';
