@@ -53,6 +53,11 @@ const marine=()=>({source_date:"26/09/2026",collected_at_vn:"2026-09-26T10:55:00
   }});
 const m=marine();
 assert.equal(S.marineCategory(m,"cano",now).state,"SUSPENDED");
+const categoryStamped=marine();
+categoryStamped.collected_at_vn="2026-09-26T10:59:00+07:00";
+categoryStamped.categories.cano.confirmed_at_vn="2026-09-26T09:15:00+07:00";
+assert.equal(S.marineCategory(categoryStamped,"cano",now).source_updated_at,"2026-09-26T09:15:00+07:00",
+  "Cano freshness should reflect its direct confirmation time, not a later unrelated snapshot refresh");
 assert.equal(S.marineCategory(m,"fast_boat",now).state,"DIRECT_CONFIRMED");
 assert.equal(S.marineCategory(m,"ferry",now).state,"RUNNING");
 assert.equal(S.marineCategory(m,"charter_boat",now).state,"UNKNOWN",
@@ -149,6 +154,8 @@ const home=fs.readFileSync("home-live-v3.js","utf8"),homepage=fs.readFileSync("i
   go=fs.readFileSync("go/index.html","utf8");
 assert.match(home,/islandDecision\.status/);
 assert.match(home,/decisionSignals\?\.marineCategory/);
+assert.match(home,/SRC\.marineOps.*Date\.now\(\)/s,
+  "Homepage marine_ops must bypass stale CDN/browser cache on each page load");
 assert.match(home,/Đã ghi nhận chuyến rời cảng/);
 assert.match(home,/transitRunning/);
 assert.ok(homepage.indexOf('src="core/decision-signals.js?')<
