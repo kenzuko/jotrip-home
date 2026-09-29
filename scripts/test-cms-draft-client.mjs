@@ -70,7 +70,22 @@ const stale=await store.save({
 });
 assert.equal(stale.ok,false);
 assert.equal(stale.status,409);
-assert.equal(store.token("data/content.json"),"v3","409 must advance the local token to the current server draft");
+assert.equal(store.token("data/content.json"),"v2","409 must not silently adopt the competing server version");
+assert.equal(store.hasConflict("data/content.json"),true);
+
+const beforeBlocked=calls.length;
+const blockedSave=await store.save({
+  module:"stories",path:"data/content.json",baseSha:"a".repeat(40),
+  data:{stories:[{id:"one",title:"Still blocked"}]}
+});
+assert.equal(blockedSave.skipped,true);
+assert.equal(blockedSave.status,409);
+assert.equal(calls.length,beforeBlocked,"A conflicted client must not issue another blind write");
+
+const refreshed=await store.load("data/content.json");
+assert.equal(refreshed.ok,true);
+assert.equal(store.token("data/content.json"),"v3");
+assert.equal(store.hasConflict("data/content.json"),false);
 
 const cleared=await store.clear({path:"data/content.json"});
 assert.equal(cleared.ok,true);
@@ -87,4 +102,4 @@ const skipped=await freshWindow.OPQDraftStore.save({
 assert.equal(skipped.skipped,true,"Client must never blind-write before loading the server draft version");
 assert.equal(writeCalls,0);
 
-console.log("PASS CMS draft client: D1 token sync, divergence detection, 409 refresh, guarded clear and no blind writes");
+console.log("PASS CMS draft client: D1 token sync, divergence detection, 409 fail-closed, guarded clear and no blind writes");
