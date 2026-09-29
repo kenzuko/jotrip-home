@@ -157,5 +157,5 @@ $("#levelFilter").onchange=e=>{state.level=e.target.value;render()};
 $("#typeFilter").onchange=e=>{state.type=e.target.value;render()};
 load().catch(error=>{
   console.warn(error);
-  $("#placeRows").innerHTML='<tr><td colspan="7" class="empty">Không tải được dữ liệu địa điểm & trải nghiệm.</td></tr>';
+  $("#placeRows").innerHTML='<tr><td colspan="7" class="empty">Chưa mở được danh sách địa điểm & trải nghiệm.</td></tr>';
 });
