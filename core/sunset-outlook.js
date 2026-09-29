@@ -54,6 +54,11 @@
       cloud_track_status:"UNKNOWN",
       cloud_track_impact:false,
       cloud_track_usable:false,
+      horizon_cloud_status:"UNKNOWN",
+      horizon_cloud_score:null,
+      horizon_cloud_trend:"UNKNOWN",
+      horizon_cloud_confidence:null,
+      horizon_cloud_layer:null,
       visibility_m:null,
       phase:"unknown",
       minutes_to_sunset:null,
@@ -113,6 +118,33 @@
     const passingOnly=tracks.length>0&&tracks.every(m=>PASSING_STATES.has(String(m.status||"").toUpperCase()));
     const trackStatus=cloudImpact?"IMPACT_EXPECTED":passingOnly?"PASSING_OR_AWAY":tracks.length?"TRACKED":"UNKNOWN";
 
+    // Ordinary cloud cover on the actual sunset horizon is intentionally
+    // separate from convective tracking. Only MEDIUM/HIGH-confidence occupancy
+    // is allowed to drive public wording because this is not optical-depth data.
+    const horizonViews=freshNowcasts.map(n=>n?.horizon_cloud).filter(h=>{
+      const confidence=String(h?.confidence||"").toUpperCase();
+      return h&&number(h?.obscuration_score)!==null&&["MEDIUM","HIGH"].includes(confidence);
+    });
+    const horizonScores=horizonViews.map(h=>number(h.obscuration_score)).filter(x=>x!==null);
+    const horizonScore=horizonScores.length?Math.max(...horizonScores):null;
+    const horizonStates=horizonViews.map(h=>String(h.status||"").toUpperCase());
+    const horizonStatus=horizonStates.includes("LIKELY_OBSCURED")?"LIKELY_OBSCURED":
+      horizonStates.includes("CLOUD_RISK")?"CLOUD_RISK":
+      horizonStates.includes("PARTLY_CLOUDY")?"PARTLY_CLOUDY":
+      horizonStates.includes("CLEAR")?"CLEAR":"UNKNOWN";
+    const horizonIncreasing=horizonViews.some(h=>String(h.trend||"").toUpperCase()==="INCREASING");
+    const horizonTrend=horizonIncreasing?"INCREASING":
+      horizonViews.some(h=>String(h.trend||"").toUpperCase()==="DECREASING")?"DECREASING":
+      horizonViews.length?"STABLE":"UNKNOWN";
+    const horizonConfidence=horizonViews.some(h=>String(h.confidence||"").toUpperCase()==="HIGH")?"HIGH":
+      horizonViews.length?"MEDIUM":null;
+    const layerCounts=new Map();
+    for(const h of horizonViews){
+      const layer=String(h?.dominant_layer||"").toUpperCase();
+      if(layer) layerCounts.set(layer,(layerCounts.get(layer)||0)+1);
+    }
+    const horizonLayer=[...layerCounts.entries()].sort((a,b)=>b[1]-a[1])[0]?.[0]||null;
+
     const westGaugeNames=new Set(["CUA CAN","DUONG DONG","GANH DAU"]);
     const freshWestGauges=(Array.isArray(criticalData?.actual?.rain_gauges)?criticalData.actual.rain_gauges:[])
       .filter(g=>g&&g.qc!=="FAIL"&&g.increment_qc!=="FAIL"&&ageMinutes(g.observed_at,nowMs)<=90)
@@ -144,6 +176,11 @@
       cloud_track_status:trackStatus,
       cloud_track_impact:cloudImpact,
       cloud_track_usable:tracks.length>0,
+      horizon_cloud_status:horizonStatus,
+      horizon_cloud_score:horizonScore,
+      horizon_cloud_trend:horizonTrend,
+      horizon_cloud_confidence:horizonConfidence,
+      horizon_cloud_layer:horizonLayer,
       visibility_m:visibility,
       phase,
       minutes_to_sunset:minutesToSunset
@@ -172,6 +209,16 @@
       return result("bad","forecast_rain",common);
     if(anyObservedRain)
       return result("watch","observed_rain",common);
+
+    // A dense cloud bank already sitting on the sunset horizon is the most
+    // direct non-rain reason the sun may disappear. Moderate occupancy waits
+    // until the final two hours unless it is clearly increasing.
+    if(horizonStatus==="LIKELY_OBSCURED"&&horizonScore!==null&&horizonScore>=70)
+      return result("watch","horizon_cloud",common);
+    if(horizonScore!==null&&horizonScore>=45&&
+      (minutesToSunset<=120||(horizonIncreasing&&horizonScore>=55)))
+      return result("watch","horizon_cloud",common);
+
     if(cloudImpact)
       return result("watch","cloud_approaching",common);
     if(lowVisibility)
@@ -183,6 +230,8 @@
     if(elevatedConvective&&!tracks.length)
       return result("watch","satellite_convection",common);
 
+    if(horizonStatus==="CLEAR"&&horizonScore!==null&&horizonScore<20)
+      return result("good","horizon_clear",common);
     return result("good",passingOnly?"cloud_passing":"favorable",common);
   }
 
