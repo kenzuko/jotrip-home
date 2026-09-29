@@ -117,3 +117,11 @@ The next pass checked whether a real photo actually illustrates the article subj
 - **Tôm mũ ni nướng**: removed a real tôm mũ ni photo whose source page and filename were explicitly **Côn Đảo**. Replaced it with the exact grilled slipper-lobster dish image used in MIA.vn's 2026 Phú Quốc seafood guide. The upstream credit is preserved as MIA.vn / KINGFISH and reuse permission remains unverified.
 - **Cơm ghẹ Hàm Ninh**: removed the Trùng Dương Marina (Dương Đông) restaurant-specific image because a card crop could make it look like it was photographed in Hàm Ninh. Replaced it with a neutral exact-dish image from MIA.vn's Phú Quốc food guide; caption explicitly says the image is not verified as shot in Hàm Ninh.
 - **Ốc hương rang me** was checked and retained: despite the internal key `oc-huong-nuong`, the public dish name, article text and Commons image are all **ốc hương rang me**, so there is no cooking-method mismatch.
+
+
+## Correction 28/09/2026 - visual/pixel audit wave 8
+- **Bãi Sao**: direct pixel inspection of the local file previously tagged “Bãi Sao” showed the **sun setting over the sea**. That is incompatible with Bãi Sao's east/southeast-facing location and was treated as a geographic mismatch. Both guide and place records now use Prince Roy's geotagged Bãi Sao photo from 28/05/2016 (10.156794, 103.972519, CC BY 2.0).
+- **Hoàng hôn Phú Quốc / Ngắm hoàng hôn**: replaced unidentified local/stock-like sunset assets with Elmschrat's real Phú Quốc sunset image (2025, CC0).
+- **Một ngày đi biển**: replaced three unidentified tropical-beach/cove assets with two geotagged real Phú Quốc beach photos from 2025 (FrogsLegs71, CC BY-SA 3.0; Elmschrat, CC BY-SA 4.0).
+- **Cano 3 đảo**: removed unidentified “Mây Rút” and cove imagery; the guide now uses the actual JoTrip canoe field photo only.
+- **Lặn ống thở / San hô Nam đảo**: removed the unidentified local-library snorkeling/coral asset and reused the source-reviewed An Thới snorkeling photo as activity context. Caption explicitly does not claim coral health, exact reef identity or current visibility.
