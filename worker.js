@@ -4,6 +4,7 @@ import {mergeStory,mergeKnowledge} from "./functions/_shared/i18n-content.js";
 import {cleanupFeedback} from "./functions/_shared/place-feedback.js";
 import {collectTraffic} from "./functions/_shared/traffic-analytics.js";
 import {onRequest as ownerTrafficReport} from "./functions/api/cms/traffic.js";
+import {onRequest as opsTrafficReport} from "./functions/api/ops/traffic-summary.js";
 import {onRequest as publicFeedback} from "./functions/api/feedback.js";
 import {onRequest as adminPlaceFeedback} from "./functions/api/cms/feedback.js";
 import {onRequest as adminPlaceFeedbackPhoto} from "./functions/api/cms/feedback/photo.js";
@@ -171,6 +172,7 @@ export default {
     if (path === "/api/feedback") return publicFeedback({request:routedRequest,env});
     if (path === "/api/traffic/collect") return collectTraffic(routedRequest,env);
     if (path === "/api/cms/traffic") return ownerTrafficReport({request:routedRequest,env});
+    if (path === "/api/ops/traffic-summary") return opsTrafficReport({request:routedRequest,env});
     if (path === "/api/cms/feedback") return adminPlaceFeedback({request:routedRequest,env});
     if (path === "/api/cms/feedback/photo") return adminPlaceFeedbackPhoto({request:routedRequest,env});
     if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request:routedRequest,env});
