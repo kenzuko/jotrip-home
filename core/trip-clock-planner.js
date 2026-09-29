@@ -187,11 +187,17 @@
        ?"Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển."
        :"Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Đây là dự báo, không phải xác nhận đang mưa.";
      }else if(id==="place_dinh_cau" && sunsetLevel==="watch"){
-      note=sunsetWx.reason==="observed_rain"
-       ?"Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi."
-       :sunsetWx.reason==="satellite_convection"
-        ?"Ảnh vệ tinh cho thấy mây đối lưu quanh bờ Tây"+(sunsetWx.gauges_dry?", nhưng các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa.":".")
-        :"Dự báo cuối chiều có thể có mưa cục bộ nhẹ ở bờ Tây.";
+      if(sunsetWx.reason==="observed_rain"){
+       note="Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi.";
+      }else if(sunsetWx.reason==="cloud_approaching"){
+       note="Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
+      }else if(sunsetWx.reason==="low_visibility"){
+       note="Tầm nhìn đang giảm. Hoàng hôn có thể kém rõ dù không nhất thiết có mưa.";
+      }else if(sunsetWx.reason==="satellite_convection"){
+       note="Có mây đối lưu quanh khu vực, nhưng chưa đủ bằng chứng để coi là mưa tại bờ Tây.";
+      }else{
+       note="Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Sẽ tiếp tục cập nhật khi gần giờ.";
+      }
      }
     }
    }else if(nextWindow){
