@@ -35,7 +35,7 @@ async function save({module,path,baseSha,data,checkpoint=false}){
       action:"save",module_id:module,path,base_sha:baseSha,data,checkpoint:Boolean(checkpoint),
       expected_version:versions.get(path)
     })});
-    versions.set(path,body.draft?.updated_at||versions.get(path)||null);
+    versions.set(path,body.draft?.version||versions.get(path)||null);
     return body;
   }catch(error){
     if(error.status===409)conflicts.add(path);
