@@ -1,0 +1,71 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+
+const read=path=>fs.readFileSync(new URL("../"+path,import.meta.url),"utf8");
+const json=path=>JSON.parse(read(path));
+
+const content=json("data/content.json");
+const stories=content.stories||[];
+assert.ok(stories.length>0,"Story catalog must not be empty");
+const storyIds=new Set(stories.map(x=>x.id));
+assert.equal(storyIds.size,stories.length,"Story IDs must be unique");
+for(const story of stories){
+  assert.ok(story.id&&story.title,"Every story needs id and title");
+  assert.ok(String(story.image||"").trim(),"Every story card needs an image");
+  assert.ok(Array.isArray(story.sections)&&story.sections.length>0,story.id+" must have article sections");
+}
+
+const support=json("data/home-support.json");
+for(const item of support.curiosity||[]){
+  assert.ok(item.story_id,"Curiosity item must point to a story: "+item.prompt_id);
+  assert.ok(storyIds.has(item.story_id),"Curiosity story missing: "+item.story_id);
+  const expected="stories/article.html?id="+encodeURIComponent(item.story_id);
+  assert.equal(item.route,expected,"Curiosity route must match story_id: "+item.prompt_id);
+}
+
+const home=read("home-foundation-v2.js");
+assert.match(home,/class="curiosity-story-link" href="/,
+  "Curiosity image/title must be a real article link");
+assert.match(home,/Xem nhanh vì sao ↓/,
+  "Curiosity quick answer must remain a separate action");
+assert.match(home,/Đọc câu chuyện đầy đủ →/,
+  "Curiosity card must state the article navigation action");
+
+const experience=read("home-experience-v1.js");
+assert.match(experience,/class="island-story-card [^"]*" href="stories\/article\.html\?id=/,
+  "Homepage long-story cards must be anchors to article IDs");
+
+const storyJs=read("stories/story.js");
+assert.doesNotMatch(storyJs,/data\.stories\.find\(x=>x\.id===id\)\|\|data\.stories\[0\]/,
+  "An invalid story id must never silently render the first story");
+assert.match(storyJs,/https:\/\/openphuquoc\.com\/stories\/article\.html\?id=/,
+  "Story canonical must use the public root");
+assert.doesNotMatch(storyJs,/https:\/\/cms\.openphuquoc\.com/,
+  "CMS host must never be a public story canonical");
+
+const guideJs=read("guide/knowledge.js");
+assert.match(guideJs,/https:\/\/openphuquoc\.com"\+o\.route/,
+  "Guide canonical must use the public root");
+assert.doesNotMatch(guideJs,/https:\/\/cms\.openphuquoc\.com/,
+  "CMS host must never be a public guide canonical");
+
+const knowledge=json("data/knowledge/objects.json").objects||[];
+const publicGuideIds=new Set(knowledge
+  .filter(x=>x.status==="READY_PUBLIC"&&x.public_ready===true)
+  .map(x=>x.topic_id));
+const index=read("index.html");
+const fallbackGuideIds=[...index.matchAll(/guide\/article\.html\?id=([^"'&<]+)/g)]
+  .map(match=>decodeURIComponent(match[1]));
+for(const id of fallbackGuideIds)
+  assert.ok(publicGuideIds.has(id),"Homepage fallback guide is not public: "+id);
+
+const homeLibrary=read("home-library.js");
+for(const id of [...homeLibrary.matchAll(/id:"(knowledge_[^"]+)"/g)].map(x=>x[1]))
+  assert.ok(publicGuideIds.has(id),"Homepage curated guide is not public: "+id);
+
+const edge=read("functions/stories/article.html.js");
+assert.match(edge,/status:404/,"Unknown story IDs must be a 404 at the edge");
+assert.match(edge,/\.find\(o=>o\.id===id/,
+  "Edge route must resolve the requested story id explicitly");
+
+console.log("PASS article-card link contract:",stories.length,"stories,",(support.curiosity||[]).length,"curiosity routes and public guide fallbacks");

@@ -250,22 +250,24 @@ function renderCuriosity(){
   host.innerHTML=rows.map((x,index)=>{
     const s=stories.get(x.story_id)||{},answer=x.short_teaser||s.dek||"Câu chuyện này đang được bổ sung thêm tư liệu.";
     const image=s.image||x.image||"assets/hero-local.svg",alt=x.image_alt||s.title||x.question;
+    const route=x.route||(x.story_id?"stories/article.html?id="+encodeURIComponent(x.story_id):"stories/");
     const verify=x.verification_status==="NEEDS_VERIFICATION"?"Câu chuyện này còn vài chi tiết chưa chắc":x.verification_status==="PARTIAL_VERIFIED"?"Có tư liệu, một phần vẫn là lời kể địa phương":"Có tài liệu ghi lại";
     return '<article class="curiosity-card" data-curiosity-card>'+
-      '<button class="curiosity-toggle" type="button" aria-expanded="false" aria-controls="curiosity-answer-'+index+'">'+
+      '<a class="curiosity-story-link" href="'+esc(route)+'" aria-label="Đọc đầy đủ: '+esc(x.question)+'">'+
         '<figure class="curiosity-media"><img src="'+esc(image)+'" alt="'+esc(alt)+'" loading="lazy" decoding="async"></figure>'+
-        '<div class="curiosity-question"><span>'+esc(typeLabel[x.story_type]||"CHUYỆN PHÚ QUỐC")+'</span><strong>'+esc(x.question)+'</strong><small>Chạm để biết vì sao</small></div>'+
-      '</button>'+
-      '<div class="curiosity-answer" id="curiosity-answer-'+index+'" hidden><p>'+esc(answer)+'</p><div><em>'+esc(verify)+'</em>'+(x.route?'<a href="'+esc(x.route)+'">Đọc câu chuyện đầy đủ →</a>':"")+'</div></div>'+
+        '<div class="curiosity-question"><span>'+esc(typeLabel[x.story_type]||"CHUYỆN PHÚ QUỐC")+'</span><strong>'+esc(x.question)+'</strong><small>Đọc câu chuyện đầy đủ →</small></div>'+
+      '</a>'+
+      '<button class="curiosity-toggle" type="button" aria-expanded="false" aria-controls="curiosity-answer-'+index+'">Xem nhanh vì sao ↓</button>'+
+      '<div class="curiosity-answer" id="curiosity-answer-'+index+'" hidden><p>'+esc(answer)+'</p><div><em>'+esc(verify)+'</em><a href="'+esc(route)+'">Đọc câu chuyện đầy đủ →</a></div></div>'+
     '</article>';
   }).join("");
   host.querySelectorAll(".curiosity-toggle").forEach(btn=>btn.addEventListener("click",()=>{
     const card=btn.closest("[data-curiosity-card]"),answer=card?.querySelector(".curiosity-answer"),willOpen=btn.getAttribute("aria-expanded")!=="true";
     host.querySelectorAll("[data-curiosity-card]").forEach(other=>{
       const ob=other.querySelector(".curiosity-toggle"),oa=other.querySelector(".curiosity-answer");
-      if(ob)ob.setAttribute("aria-expanded","false");if(oa)oa.hidden=true;other.dataset.open="false";
+      if(ob){ob.setAttribute("aria-expanded","false");ob.textContent="Xem nhanh vì sao ↓"}if(oa)oa.hidden=true;other.dataset.open="false";
     });
-    if(willOpen&&answer){btn.setAttribute("aria-expanded","true");answer.hidden=false;card.dataset.open="true"}
+    if(willOpen&&answer){btn.setAttribute("aria-expanded","true");btn.textContent="Thu gọn ↑";answer.hidden=false;card.dataset.open="true"}
   }));
 }
 async function loadJson(url,label){try{const r=await fetch(url+"?t="+Date.now(),{cache:"no-store"});if(!r.ok)throw new Error(label+" HTTP "+r.status);return await r.json()}catch(error){console.warn("Homepage source unavailable:",label,error);return null}}

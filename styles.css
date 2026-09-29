@@ -4722,11 +4722,31 @@ body.sheet-open{
 .curiosity-card{
   min-height:0;
 }
-.curiosity-toggle{
+.curiosity-story-link{
   display:grid;
   grid-template-columns:118px minmax(0,1fr);
   min-height:142px;
   align-items:stretch;
+  color:inherit;
+  text-decoration:none;
+}
+.curiosity-story-link:hover .curiosity-question strong,
+.curiosity-story-link:focus-visible .curiosity-question strong{
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.curiosity-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:42px;
+  padding:10px 14px;
+  border-top:1px solid var(--line);
+  background:#fff;
+  color:#476b65;
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.01em;
 }
 .curiosity-media{
   height:auto;
