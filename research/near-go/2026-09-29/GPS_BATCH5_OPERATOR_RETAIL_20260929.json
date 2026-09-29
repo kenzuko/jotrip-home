@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "audit_date": "2026-09-29",
+  "repo": "kenzuko/jotrip-home",
+  "base_main_sha": "c4b0977f44a2540595dcec3c5293d618d3632707",
+  "decision": "ACCEPT_5_OPERATOR_LINKED_SITE_CENTROIDS",
+  "records": [
+    {
+      "entity_id": "utility_tgdd_142a_ntr",
+      "coordinate": {
+        "lat": 10.22274,
+        "lon": 103.96282
+      },
+      "operator_page": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+      "operator_map_url": "https://www.google.com/maps/search/?api=1&query=10.22274%2C103.96282"
+    },
+    {
+      "entity_id": "utility_tgdd_104_304",
+      "coordinate": {
+        "lat": 10.213899,
+        "lon": 103.96638
+      },
+      "operator_page": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+      "operator_map_url": "https://www.google.com/maps/search/?api=1&query=10.213899%2C103.96638"
+    },
+    {
+      "entity_id": "utility_dmx_162_304",
+      "coordinate": {
+        "lat": 10.216806,
+        "lon": 103.97066
+      },
+      "operator_page": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+      "operator_map_url": "https://www.google.com/maps/search/?api=1&query=10.216806%2C103.97066"
+    },
+    {
+      "entity_id": "utility_dmx_107_nvc",
+      "coordinate": {
+        "lat": 10.019978,
+        "lon": 104.0165
+      },
+      "operator_page": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+      "operator_map_url": "https://www.google.com/maps/search/?api=1&query=10.019978%2C104.0165"
+    },
+    {
+      "entity_id": "utility_dienmaycholon_nguyen_trung_truc",
+      "coordinate": {
+        "lat": 10.2232312,
+        "lon": 103.9700297
+      },
+      "operator_page": "https://dienmaycholon.com/he-thong-sieu-thi/200a-nguyen-trung-truc-khu-pho-5-phuong-duong-dong-thanh-pho-phu-quoc-kien-giang",
+      "operator_map_url": "https://maps.app.goo.gl/77JqfCZSfBkqBWgC7"
+    }
+  ],
+  "rule": "Coordinates are accepted as site_centroid because each numeric point is reached from an exact operator branch/directory directions link. None is promoted to exact_entrance.",
+  "expected_post_change": {
+    "location_index_with_map": 236,
+    "map_coverage_ready": 233,
+    "map_coverage_missing": 161
+  },
+  "canonical_updated": true,
+  "derived_views_updated": true,
+  "deploy_triggered": false
+}

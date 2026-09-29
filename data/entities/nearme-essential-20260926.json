@@ -493,6 +493,11 @@
           "source_id": "tgdd_exact_store_20260924",
           "url": "https://www.thegioididong.com/sieu-thi-so-142a-142b-duong-nguyen-trung-truc-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-935",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "tgdd_operator_map_20260929",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-29"
         }
       ],
       "source_audit": {
@@ -500,10 +505,26 @@
         "prior_record_id": "utility_tgdd_142a_ntr",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố."
+        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố.",
+        "gps_review_at": "2026-09-29",
+        "gps_review_status": "SITE_CENTROID_ACCEPTED",
+        "verified_entrance": false,
+        "gps_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch."
       },
-      "updated_at": "2026-09-26",
-      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      "updated_at": "2026-09-29",
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
+      "map": {
+        "lat": 10.22274,
+        "lon": 103.96282,
+        "precision": "site_centroid",
+        "source": "Official The Gioi Di Dong Phu Quoc store directory 'Tim duong' Google Maps coordinate",
+        "source_id": "tgdd_operator_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+        "accuracy": "operator_linked_google_maps_coordinate"
+      },
+      "map_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào."
     },
     {
       "id": "utility_tgdd_37_hungvuong",
@@ -589,6 +610,11 @@
           "source_id": "tgdd_exact_store_20260924",
           "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "tgdd_operator_map_20260929",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-09-29"
         }
       ],
       "source_audit": {
@@ -596,10 +622,26 @@
         "prior_record_id": "utility_tgdd_104_304",
         "verified_identity": true,
         "verified_operation": false,
-        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố."
+        "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố.",
+        "gps_review_at": "2026-09-29",
+        "gps_review_status": "SITE_CENTROID_ACCEPTED",
+        "verified_entrance": false,
+        "gps_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch."
       },
-      "updated_at": "2026-09-26",
-      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      "updated_at": "2026-09-29",
+      "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
+      "map": {
+        "lat": 10.213899,
+        "lon": 103.96638,
+        "precision": "site_centroid",
+        "source": "Official The Gioi Di Dong Phu Quoc store directory 'Tim duong' Google Maps coordinate",
+        "source_id": "tgdd_operator_map_20260929",
+        "verified_at": "2026-09-29",
+        "note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+        "accuracy": "operator_linked_google_maps_coordinate"
+      },
+      "map_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào."
     },
     {
       "id": "utility_tgdd_73_nvc",
