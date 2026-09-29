@@ -318,7 +318,6 @@ const heroPrev = document.querySelector('.hero-prev');
 const heroNext = document.querySelector('.hero-next');
 const heroCount = document.querySelector('.hero-scene-count');
 const heroLabel = document.querySelector('.hero-scene-label');
-const heroCredit = document.querySelector('.hero-credit');
 const heroProgress = document.querySelector('.hero-progress');
 
 const heroGallery=window.OpenPQHeroGallery;
@@ -336,10 +335,6 @@ function assignHeroPhoto(slide,scene,i){
   if(!scene)return;
   const shown=heroGallery.variant(scene,heroMobile.matches);
   slide.dataset.label=scene.label;
-  slide.dataset.credit=shown.credit||"Kho ảnh JoTrip";
-  slide.dataset.sourceUrl=shown.sourceUrl||"";
-  slide.dataset.license=shown.license||"";
-  slide.dataset.licenseUrl=shown.licenseUrl||"";
   const photo=slide.querySelector("img");
   if(!photo)return;
   photo.alt=shown.alt||scene.alt;
@@ -352,11 +347,6 @@ function assignHeroPhoto(slide,scene,i){
     // unavailable. Recredit to the real local fallback, not the failed photo.
     photo.onerror=null;
     photo.src=HERO_FALLBACK;
-    slide.dataset.credit="Kho ảnh JoTrip";
-    slide.dataset.sourceUrl="";
-    slide.dataset.license="";
-    slide.dataset.licenseUrl="";
-    if(heroSlides[heroIndex]===slide)updateHeroCredit(slide);
   };
   if(i===0){
     if(photo.getAttribute("src")!==shown.src)photo.src=shown.src;
@@ -365,27 +355,6 @@ function assignHeroPhoto(slide,scene,i){
     // Four slides in the DOM, only current/next image in network memory.
     photo.src=HERO_BLANK;
     photo.dataset.loadedSrc="";
-  }
-}
-function updateHeroCredit(slide){
-  if(!heroCredit||!slide)return;
-  const label=heroCredit.querySelector("[data-hero-credit-label]");
-  const source=heroCredit.querySelector("[data-hero-source]");
-  const license=heroCredit.querySelector("[data-hero-license]");
-  // Some older gallery entries already include the Vietnamese "Ảnh:" prefix.
-  // Normalize it here so the public caption can never render "Ảnh: Ảnh: …".
-  const credit=String(slide.dataset.credit||"Kho ảnh JoTrip").replace(/^Ảnh:\s*/i,"");
-  if(label)label.textContent="Ảnh: "+credit;
-  if(source){
-    source.hidden=!slide.dataset.sourceUrl;
-    if(slide.dataset.sourceUrl)source.href=slide.dataset.sourceUrl;
-  }
-  if(license){
-    license.hidden=!slide.dataset.licenseUrl;
-    if(slide.dataset.licenseUrl){
-      license.href=slide.dataset.licenseUrl;
-      license.textContent=slide.dataset.license+" · cắt khung";
-    }
   }
 }
 function useHeroMood(mood){
@@ -405,7 +374,6 @@ heroMobile.addEventListener?.("change",()=>{
   heroSlides.forEach((slide,i)=>assignHeroPhoto(slide,currentAlbum[i],i));
   primeHeroPhoto(heroIndex);
   warmHeroPhoto((heroIndex+1)%heroSlides.length);
-  updateHeroCredit(heroSlides[heroIndex]);
 });
 function primeHeroPhoto(index){
   const photo=heroSlides[index]?.querySelector("img");
@@ -462,7 +430,6 @@ function showHeroSlide(index,userInitiated=false){
   });
   if(heroCount)heroCount.textContent=String(heroIndex+1).padStart(2,"0")+" / "+String(heroSlides.length).padStart(2,"0");
   if(heroLabel)heroLabel.textContent=heroSlides[heroIndex]?.dataset.label||"";
-  updateHeroCredit(heroSlides[heroIndex]);
   restartHeroProgress();
   if(userInitiated)restartHeroAutoplay();
 }
