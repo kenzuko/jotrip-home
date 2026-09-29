@@ -164,7 +164,7 @@
       return now>=start&&now<=end;
     });
     const activeNotice=ongoingNotice||datedNotice;
-    const noticeEyebrow=ongoingNotice?"THÔNG BÁO VẬN HÀNH":
+    const noticeEyebrow=ongoingNotice?"THÔNG BÁO HOẠT ĐỘNG":
       datedNotice?.status==="BOOKING_FULL"?"THÔNG BÁO HẾT CHỖ NGÀY "+datedNotice.date.split("-").reverse().join("/"):
       "THÔNG BÁO SUẤT DIỄN NGÀY "+datedNotice?.date?.split("-").reverse().join("/");
     const noticeBanner=activeNotice?
