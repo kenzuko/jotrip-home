@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
-const source=readFileSync("functions/_shared/seo-html.js","utf8");
+const i18nSource=readFileSync("functions/_shared/i18n.js","utf8");
+const i18nUrl="data:text/javascript;base64,"+Buffer.from(i18nSource).toString("base64");
+const source=readFileSync("functions/_shared/seo-html.js","utf8")
+  .replace('from "./i18n.js"', 'from "'+i18nUrl+'"');
 const seo=await import("data:text/javascript;base64,"+Buffer.from(source).toString("base64"));
 const canonical="https://openphuquoc.com/";
 const html=readFileSync("index.html","utf8");
