@@ -8,12 +8,12 @@ const CURRENT_BUNDLE="/weather/data/current-bundle.json";
 const TIDE=["/weather/data/tide.json"];
 const AQI=["/weather/data/air-quality.json"];
 const NOWCAST=["/weather/data/nowcast-compact.json"];
-const FRESH_BUNDLE="/weather/data/current-bundle.json";
 const JOTRIP_FORECAST="/weather/data/jotrip-forecast.json";
 const ENGINE_DASHBOARD="/weather/data/dashboard-data.json";
 const RUNTIME_AUTHORITY="/weather/data/runtime-authority.json";
 const LIVE_REFRESH_MS=2*60*1000;
-const LIVE_NO_STORE_URLS=[CRITICAL,LOCAL_NOW,GROUND_TRUTH,CURRENT_BUNDLE,JOTRIP_FORECAST,ENGINE_DASHBOARD,RUNTIME_AUTHORITY,FRESH_BUNDLE,...NOWCAST];
+const SLOW_REFRESH_MS=10*60*1000;
+const LIVE_NO_STORE_URLS=[CRITICAL,LOCAL_NOW,GROUND_TRUTH,CURRENT_BUNDLE,JOTRIP_FORECAST,ENGINE_DASHBOARD,RUNTIME_AUTHORITY,...NOWCAST];
 const WEATHER_LIVE_API="/api/weather/live";
 const FEEDBACK_ENDPOINT=WEATHER_LIVE_API+"/feedback";
 const RECENT_FEEDBACK_ENDPOINT=WEATHER_LIVE_API+"/feedback/recent?minutes=90&limit=30";
@@ -61,7 +61,9 @@ let mapLayer="jotrip";
 let jotripMap=null;
 let leafletPromise=null;
 let liveRefreshBusy=false;
+let slowRefreshBusy=false;
 let lastLiveRefreshAt=0;
+let lastSlowRefreshAt=0;
 let recentFieldFeedback=null;
 let himawariLoopTimer=null;
 let himawariLoopPlaying=true;
@@ -273,18 +275,14 @@ async function getCriticalWithFreshLocal(){
   // The read-only Cloudflare gateway reads the SAME canonical JoTrip-Lab
   // data-weather branch. Select the newest valid snapshot, never combine
   // unrelated model baselines or treat data recency as forecast accuracy.
-  const [base,mirror,edge]=await Promise.allSettled([
+  const [base,bundle]=await Promise.allSettled([
     getJSON(CRITICAL,2*60*1000),
-    getJSON(CURRENT_BUNDLE,2*60*1000),
-    getJSON(FRESH_BUNDLE,60*1000)
+    getJSON(CURRENT_BUNDLE,2*60*1000)
   ]);
   if(base.status!=="fulfilled")throw base.reason;
   critical=base.value;
-  const bundles=[mirror,edge].filter(x=>x.status==="fulfilled")
-    .map(x=>x.value).filter(x=>x?.local_now?.points&&x?.groundtruth);
-  bundles.sort((a,b)=>Date.parse(b.local_now.generated_at||b.generated_at||0)-Date.parse(a.local_now.generated_at||a.generated_at||0));
-  if(bundles.length){
-    const live=bundles[0];
+  if(bundle.status==="fulfilled"&&bundle.value?.local_now?.points&&bundle.value?.groundtruth){
+    const live=bundle.value;
     currentBundle=live;
     overlayFreshLocalNow(critical,live.local_now);
     overlayFreshGroundTruth(critical,live.groundtruth);
@@ -2979,7 +2977,7 @@ function events(){
 
 function registerWeatherWorker(){/* CMS owns the site service-worker scope. */}
 async function refreshLive(){
-  if(liveRefreshBusy)return;
+  if(liveRefreshBusy||document.visibilityState==="hidden")return;
   liveRefreshBusy=true;
   try{
     const next=await getCriticalWithFreshLocal();
@@ -2988,15 +2986,25 @@ async function refreshLive(){
     renderAll();
     refreshActiveMap();
     lastLiveRefreshAt=Date.now();
-    const jobs=[loadEngineDashboard(),loadRegionalForecast(),loadRecentFeedback(),loadNowcast()];
-    if($("deepWeatherDetails")?.open)jobs.push(loadTide(),loadAQI());
-    await Promise.allSettled(jobs);
   }catch(e){
     console.warn("[Weather V2] live refresh",e);
     renderStatus();
     setTimeout(()=>{if(document.visibilityState==="visible")refreshLive()},60000);
   }finally{
     liveRefreshBusy=false;
+  }
+}
+async function refreshSlow(){
+  if(slowRefreshBusy||document.visibilityState==="hidden")return;
+  slowRefreshBusy=true;
+  try{
+    const jobs=[loadEngineDashboard(),loadRegionalForecast(),loadRecentFeedback()];
+    if(!fullNowcast)jobs.push(loadNowcast());
+    if($("deepWeatherDetails")?.open)jobs.push(loadTide(),loadAQI());
+    await Promise.allSettled(jobs);
+    lastSlowRefreshAt=Date.now();
+  }finally{
+    slowRefreshBusy=false;
   }
 }
 async function boot(){
@@ -3009,21 +3017,24 @@ async function boot(){
     lastLiveRefreshAt=Date.now();
     renderAll();
     installMapObserver();
-    defer(loadEngineDashboard,120);
-    if(!fullNowcast)defer(loadNowcast,450);
-    defer(loadRegionalForecast,620);
-    defer(loadRecentFeedback,850);
+    defer(refreshSlow,180);
     setInterval(()=>{renderStatus();renderHero();renderTodayDecision();renderQuickAlert()},60000);
-    setInterval(refreshLive,LIVE_REFRESH_MS);
+    setInterval(()=>{if(document.visibilityState==="visible")refreshLive()},LIVE_REFRESH_MS);
+    setInterval(()=>{if(document.visibilityState==="visible")refreshSlow()},SLOW_REFRESH_MS);
     // Re-evaluate the forecast publication gate even if the network is down;
     // never leave an old "favorable" card visible after it expires.
     setInterval(()=>{if(document.visibilityState==="visible")renderTodayDecision()},60000);
     setInterval(()=>{if(mapLayer==="himawari"&&document.visibilityState==="visible")refreshActiveMap()},10*60*1000);
     document.addEventListener("visibilitychange",()=>{
-      if(document.visibilityState==="visible"&&Date.now()-lastLiveRefreshAt>5*60*1000)refreshLive();
+      if(document.visibilityState!=="visible")return;
+      const now=Date.now();
+      if(now-lastLiveRefreshAt>LIVE_REFRESH_MS)refreshLive();
+      if(now-lastSlowRefreshAt>SLOW_REFRESH_MS)refreshSlow();
     });
     window.addEventListener("online",()=>{
-      if(Date.now()-lastLiveRefreshAt>2*60*1000)refreshLive();
+      const now=Date.now();
+      if(now-lastLiveRefreshAt>LIVE_REFRESH_MS)refreshLive();
+      if(now-lastSlowRefreshAt>SLOW_REFRESH_MS)refreshSlow();
       flushFeedbackQueue();
     });
     setTimeout(flushFeedbackQueue,1800);
