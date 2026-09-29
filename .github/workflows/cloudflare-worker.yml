@@ -21,6 +21,7 @@ on:
       - "scripts/check-derived-views-sync.mjs"
       - "scripts/build-map-coverage.mjs"
       - "guide/**"
+      - "news/**"
       - "index.html"
       - "home-live-v3.js"
       - "places/detail.js"
