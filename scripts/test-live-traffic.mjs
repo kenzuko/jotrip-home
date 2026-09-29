@@ -1,7 +1,7 @@
 // Zero-credential live QA against the canonical public CMS deployment.
 // Checks only anonymous-visible assets and denies access to private reporting.
 import assert from "node:assert/strict";
-const base="https://cms.openphuquoc.com";
+const base="https://openphuquoc.com";
 const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 async function request(path,method="GET",extra={}){
   const url=base+path;
