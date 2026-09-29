@@ -9,7 +9,7 @@ Nguồn hiện tại:
 
 ## Stories
 - [Stories 01 - bài 01-17](./stories.vi.review-01.md) - ĐÃ DUYỆT 29/09/2026
-- [Stories 02 - bài 18-34](./stories.vi.review-02.md)
+- [Stories 02 - bài 18-34](./stories.vi.review-02.md) - ĐÃ DUYỆT 29/09/2026
 
 ## Knowledge - file gộp còn chờ duyệt
 - [Knowledge pending review - 86 mục](./knowledge.vi.pending-review.md) - 001-030, 071-090, 107, 110-116, 123-150
