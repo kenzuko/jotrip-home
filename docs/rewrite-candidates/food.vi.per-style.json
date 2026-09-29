@@ -70,8 +70,8 @@
       "id": "bun-quay",
       "name": "Bún quậy",
       "category": "local",
-      "intro": "Bún quậy vừa bưng ra là có tô nước dùng nóng, sợi bún tươi và chả hải sản. Đừng vội nêm cả tô. Cứ pha chén muối tiêu với quất và ớt theo ý mình, chấm thử một miếng chả rồi chỉnh độ chua cay. Mỗi người một chén chấm riêng, đó cũng là cái thú khi ăn món này ở Phú Quốc.",
-      "how_to_eat": "Đừng vội nêm cả tô khi bún vừa dọn ra. Pha chén muối tiêu với quất và ớt theo ý mình, chấm thử một miếng chả rồi mới chỉnh. Nước dùng còn nóng, chả thơm và chén chấm vừa miệng là đủ.",
+      "intro": "Bún quậy dọn ra với tô nước dùng nóng, bún tươi và chả hải sản. Phần vui nhất lại nằm ở chén chấm: mỗi người tự pha theo khẩu vị rồi chấm thử, thấy thiếu chua hay cay thì chỉnh thêm. Vì vậy ngồi cùng một bàn nhưng chén của mỗi người thường không giống nhau.",
+      "how_to_eat": "Khi tô vừa dọn ra, cứ nếm nước dùng và thử miếng chả trước. Chén chấm pha theo khẩu vị riêng, nên thêm từng chút rồi thử lại thay vì làm đậm ngay từ đầu. Ăn lúc nước còn nóng và chả còn thơm là vừa.",
       "tips": [
         "Tô có thể có cá, tôm và mực; hỏi rõ nếu dị ứng hải sản.",
         "Khu chế biến có thể dùng chung dụng cụ giữa các loại hải sản.",
@@ -81,8 +81,8 @@
         "#mon-dia-phuong",
         "#bun-quay"
       ],
-      "origin": "Bún quậy là một trong những món nhiều người nhớ tới khi nhắc ẩm thực Phú Quốc. Sợi bún tươi đi cùng chả hải sản trong tô nước dùng nóng, còn cái thú nằm ở chén chấm người ăn tự pha. Loại cá, tôm và cách làm chả có thể khác nhau giữa các quán.",
-      "why_name": "Người ta thường liên hệ chữ 'quậy' với động tác khuấy muối tiêu, quất và ớt trong chén chấm. Có người thích chua nhiều, có người cho thêm cay; chén chấm vì thế mang dấu tay của chính người ăn.",
+      "origin": "Bún quậy là món quen thuộc khi nhắc đến ẩm thực Phú Quốc. Bún tươi ăn cùng chả hải sản trong nước dùng nóng, còn chén chấm được để người ăn tự pha. Loại cá, tôm và cách làm chả có thể khác nhau giữa các quán.",
+      "why_name": "Người ta thường liên hệ chữ 'quậy' với động tác khuấy chén chấm trước khi ăn. Cách giải thích này khá quen thuộc, nhưng không nên xem đó là nguồn gốc tên gọi đã được xác nhận chắc chắn.",
       "ingredients": [
         "Bún tươi làm từ bột gạo",
         "Chả tôm",
@@ -91,7 +91,7 @@
         "Hành lá và rau thơm",
         "Nước chấm thường có nước mắm, tắc/quất, đường và ớt"
       ],
-      "taste_texture": "Sợi bún mềm nhưng có độ dai, chả tôm cá thơm ngọt, nước dùng nóng dịu vị. Chén chấm mới là nơi vị chua của quất, mặn của muối tiêu và cay của ớt tụ lại; pha quá tay dễ lấn vị hải sản.",
+      "taste_texture": "Sợi bún mềm nhưng có độ dai, chả tôm cá thơm ngọt, nước dùng dịu. Chén chấm tạo thêm vị chua, cay và đậm hơn, nhưng pha vừa tay để vẫn còn thấy rõ vị hải sản.",
       "allergen_flags": [
         {
           "key": "fish",
