@@ -27,6 +27,19 @@
       "source": "Thông tin vận hành cập nhật ngày 28/09/2026",
       "source_type": "DIRECT_OPERATIONAL_UPDATE",
       "valid_until": null
+    },
+    {
+      "id": "sun-bavaria-dinner-show-20261011-booking-full",
+      "entity_id": "place_sunset_town",
+      "date": "2026-10-11",
+      "effective_from": "2026-09-29",
+      "status": "BOOKING_FULL",
+      "title": "Sun Bavaria Dinner Show đã hết chỗ ngày 11/10",
+      "summary": "Sun Bavaria tạm ngưng nhận booking Dinner Show cho ngày 11/10/2026 vì số chỗ dành cho booking đã được block/hết chỗ.",
+      "booking_message": "Không nhận thêm booking Dinner Show ngày 11/10. Thông báo này không đồng nghĩa nhà hàng đóng cửa và không áp dụng cho các ngày khác.",
+      "source": "Thông tin booking đối tác cập nhật ngày 29/09/2026",
+      "source_type": "OPERATOR_PARTNER_NOTICE",
+      "valid_until": "2026-10-12T00:00:00+07:00"
     }
   ],
   "retention_days": 3
