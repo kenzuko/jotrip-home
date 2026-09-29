@@ -97,7 +97,7 @@
         </div>
         <div class="weather-now-copy">
           <b id="heroCondition">Đang đọc thời tiết...</b>
-          <p id="heroSummary">Đang đọc dữ liệu quan trắc và phân tích địa phương...</p>
+          <p id="heroSummary">Đang cập nhật quan trắc và phân tích tại Phú Quốc...</p>
         </div>
       </div>
 
@@ -141,7 +141,7 @@
     <p id="todayDecisionSummary" class="today-decision-summary">Đang đọc các mốc thời tiết còn lại hôm nay...</p>
     <small id="todayMarineReference" class="today-marine-reference">Sóng nền hiển thị riêng theo chu kỳ biển, không thay cho dự báo sóng từng giờ.</small>
     <div id="todayDecisionStrip" class="today-decision-strip" aria-label="Các mốc dự báo còn lại hôm nay">
-      <span class="inline-loader">Đang lấy dữ liệu từ JoTrip Engine...</span>
+      <span class="inline-loader">Đang cập nhật dự báo...</span>
     </div>
     <div class="today-decision-legend">
       <span class="good">Khá thuận lợi</span>
@@ -161,7 +161,7 @@
 
   <section class="panel actual-panel">
     <div class="panel-head">
-      <div><span class="eyebrow">QUAN TRẮC THỰC TẾ</span><h2>Dữ liệu đo được</h2></div>
+      <div><span class="eyebrow">QUAN TRẮC THỰC TẾ</span><h2>Quan trắc thực tế</h2></div>
       <small id="actualState">ĐANG TẢI</small>
     </div>
 
@@ -250,7 +250,7 @@
   <div class="panel-head"><div><span class="eyebrow">CÁCH ĐỌC</span><h2 id="weatherFieldGuideTitle">Các con số thời tiết nói gì?</h2></div></div>
   <p class="weather-guide-intro">Mưa, gió, sóng, bụi và thủy triều là những tín hiệu riêng. Xem từng chỉ số cùng giờ cập nhật và khu vực áp dụng.</p>
   <img src="/weather/weather-field-guide.svg?v=20260927-xml1" width="1120" height="820" loading="lazy" alt="Infographic giải thích cách đọc lượng mưa, xác suất mưa, gió giật, chiều cao sóng, mây đối lưu, AQI PM2.5 và thủy triều.">
-  <p class="weather-guide-note">Đây là hướng dẫn đọc dữ liệu, không phải cảnh báo tại thời điểm thực. Với kế hoạch ra biển, kiểm tra đồng thời gió, sóng và khuyến cáo vận hành.</p>
+  <p class="weather-guide-note">Đây là hướng dẫn cách đọc các chỉ số, không phải cảnh báo theo thời gian thực. Nếu định ra biển, hãy xem cùng lúc gió, sóng và khuyến cáo trong ngày.</p>
 </section>
   <details class="deep-weather-disclosure" id="deepWeatherDetails">
     <summary>
@@ -262,7 +262,7 @@
         <div class="technical-subhead"><div><span class="eyebrow">CHỌN ĐIỂM KỸ THUẬT</span><h3 id="technicalPointTitle">Dương Đông</h3></div><small>Đổi điểm để xem toàn bộ phân tích kỹ thuật tương ứng.</small></div>
         <small class="technical-point-follow">Tự đi theo điểm đã chọn ở đầu trang.</small>
       </div>
-      <div class="technical-freshness" aria-label="Tuổi dữ liệu theo nguồn">
+      <div class="technical-freshness" aria-label="Cập nhật cách đây bao lâu">
         <span><b>Local Now</b><em id="technicalLocalAge">-</em></span>
         <span><b>Quan trắc</b><em id="technicalActualAge">-</em></span>
         <span><b>Himawari</b><em id="technicalNowcastAge">-</em></span>
@@ -340,7 +340,7 @@
   </details>
   
 <div class="technical-region-forecast">
-    <div class="technical-subhead"><div><span class="eyebrow">DỰ BÁO VÙNG</span><h3>Ensemble & chi tiết vùng</h3></div><span id="ensembleState" class="badge learning">ĐANG HIỆU CHỈNH</span></div>
+    <div class="technical-subhead"><div><span class="eyebrow">DỰ BÁO VÙNG</span><h3>Tổng hợp nhiều mô hình & chi tiết vùng</h3></div><span id="ensembleState" class="badge learning">ĐANG HIỆU CHỈNH</span></div>
     <details class="forecast-detail-toggle">
       <summary>Xem dự báo chi tiết theo giờ</summary>
       <div class="forecast-table-shell">
@@ -401,9 +401,9 @@
       <b id="decisionNow">-</b>
     </div>
     <details class="data-health-details">
-      <summary>Chất lượng dữ liệu</summary>
-      <div class="status-strip data-health-strip" aria-label="Chất lượng dữ liệu thời tiết">
-        <div><span>Độ phủ dữ liệu</span><b id="completenessNow">-</b></div>
+      <summary>Độ tin cậy thông tin</summary>
+      <div class="status-strip data-health-strip" aria-label="Độ tin cậy thông tin thời tiết">
+        <div><span>Mức độ đầy đủ</span><b id="completenessNow">-</b></div>
         <div><span>Mức tin cậy</span><b id="confidenceNow">-</b></div>
         <div><span>Tầm dự báo</span><b id="horizonNow">-</b></div>
       </div>
@@ -413,7 +413,7 @@
   
 <section class="panel health-panel" id="dataHealth">
     <div class="panel-head">
-      <div><span class="eyebrow">TÌNH TRẠNG DỮ LIỆU</span><h2>Nguồn dữ liệu & phần còn thiếu</h2></div>
+      <div><span class="eyebrow">TÌNH TRẠNG CẬP NHẬT</span><h2>Nguồn & phần còn thiếu</h2></div>
       <span id="dataMode" class="badge deferred">-</span>
     </div>
     <div id="sourceGrid" class="source-grid"><div class="skeleton wide"></div></div>
