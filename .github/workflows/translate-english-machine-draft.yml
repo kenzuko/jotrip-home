@@ -41,8 +41,11 @@ jobs:
       - name: Translate all English families
         run: |
           node scripts/i18n-pipeline.mjs translate --family ui --locale en --apply
+          sleep 12
           node scripts/i18n-pipeline.mjs translate --family food --locale en --apply
+          sleep 12
           node scripts/i18n-pipeline.mjs translate --family stories --locale en --apply
+          sleep 12
           node scripts/i18n-pipeline.mjs translate --family knowledge --locale en --apply
 
       - name: Validate machine drafts
