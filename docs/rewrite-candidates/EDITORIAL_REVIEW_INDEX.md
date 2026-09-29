@@ -11,15 +11,15 @@ Nguồn hiện tại:
 - [Stories 01 - bài 01-17](./stories.vi.review-01.md) - ĐÃ DUYỆT 29/09/2026
 - [Stories 02 - bài 18-34](./stories.vi.review-02.md) - ĐÃ DUYỆT 29/09/2026
 
-## Knowledge - file gộp còn chờ duyệt
-- [Knowledge pending review - 86 mục](./knowledge.vi.pending-review.md) - 001-030, 071-090, 107, 110-116, 123-150
+## Knowledge - batch gộp đã duyệt
+- [Knowledge pending review - 86 mục](./knowledge.vi.pending-review.md) - ĐÃ DUYỆT 29/09/2026
 
 ## Knowledge / Cẩm nang
-- [Knowledge 01 - mục 001-030](./knowledge.vi.review-01.md)
+- [Knowledge 01 - mục 001-030](./knowledge.vi.review-01.md) - ĐÃ DUYỆT 001-030
 - [Knowledge 02 - mục 031-060](./knowledge.vi.review-02.md) - ĐÃ DUYỆT 29/09/2026
-- [Knowledge 03 - mục 061-090](./knowledge.vi.review-03.md) - ĐÃ DUYỆT 061-070
-- [Knowledge 04 - mục 091-120](./knowledge.vi.review-04.md) - ĐÃ DUYỆT 091-106, 108-109, 117-120
-- [Knowledge 05 - mục 121-150](./knowledge.vi.review-05.md) - ĐÃ DUYỆT 121-122
+- [Knowledge 03 - mục 061-090](./knowledge.vi.review-03.md) - ĐÃ DUYỆT 061-090
+- [Knowledge 04 - mục 091-120](./knowledge.vi.review-04.md) - ĐÃ DUYỆT 091-120
+- [Knowledge 05 - mục 121-150](./knowledge.vi.review-05.md) - ĐÃ DUYỆT 121-150
 
 ## Cách sửa
 
