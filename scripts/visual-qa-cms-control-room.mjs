@@ -554,7 +554,7 @@ try{
   }
   // Safe static copy: drafts span editorial pages but only one Publish request touches GitHub.
   {
-  const staticFixture={version:"1.0",hero:{kicker:"K",title:"T",lead:"L"},sections:{},footer:{title:"F",lead:"FL",note:"FN"},site:{about:{heroLead:"Bản gốc",purposeTitle:"Mục đích",purpose1:"Một",purpose2:"Hai",purpose3:"Ba",systemTitle:"Ba lớp",system1:"S1",system2:"S2",system3:"S3",madeTitle:"Làm tại đảo",madeLead1:"M1",madeLead2:"M2",openTitle:"Open",openLead:"OL",footerLead:"Footer",footerNote:"Note"}}};
+  const staticFixture={version:"1.0",hero:{kicker:"K",title:"T",lead:"L"},sections:{},footer:{title:"F",lead:"FL",note:"FN"},site:{about:{heroLead:"Bản gốc",purposeTitle:"Mục đích",purpose1:"Một",purpose2:"Hai",purpose3:"Ba",systemTitle:"Ba lớp",system1:"S1",system2:"S2",system3:"S3",madeTitle:"Làm tại đảo",madeLead1:"M1",madeLead2:"M2",openTitle:"Open",openLead:"OL",footerLead:"Footer",footerNote:"Note"},explore:{eyebrow:"KHÁM PHÁ PHÚ QUỐC",step1Title:"Chọn một vùng",step1Lead:"Bắc, trung tâm hay Nam đảo",step2Title:"Chọn đúng gu",step2Lead:"Biển, gia đình, buổi tối hay đời sống địa phương",step3Title:"Trước khi đi",step3Lead:"Thời tiết, giờ hoạt động và giá đúng ngày bạn đi",noteTitle:"Đừng cố gom Bắc và Nam đảo vào cùng một ngày.",noteLead:"Đi một phía cho trọn rồi đổi khu vào ngày khác.",weatherLead:"Kiểm tra tình hình mới nhất"}}};
   const ctx=await browser.newContext({viewport:{width:390,height:844}});
   const page=await ctx.newPage(),directPosts=[];
   page.on("dialog",d=>d.accept());
@@ -562,6 +562,23 @@ try{
   await page.route("**/data/home-copy.json?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify(staticFixture)}));
   await page.route("**/api/cms/content?*",r=>r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({sha:"1".repeat(40),content:staticFixture})}));
   await page.route("**/api/cms/direct-save",r=>{directPosts.push(r.request().postDataJSON());return r.fulfill({status:200,contentType:"application/json",body:JSON.stringify({ok:true,commit:"c".repeat(40),deployment_pending:true})});});
+  await page.goto(base+"/explore/?cms-inline-qa=1",{waitUntil:"networkidle"});
+  await page.locator("#cmsStaticLaunch").waitFor();
+  await page.locator("#cmsStaticLaunch").click();
+  const step2=page.locator('[data-cms-static-field="site.explore.step2Title"]');
+  await step2.locator("xpath=following-sibling::button[contains(@class,'cms-static-trigger')]").click();
+  const exploreEditLayout=await page.locator(".explore-path>div").nth(1).evaluate(card=>{
+    const lead=card.querySelector('[data-cms-static-field="site.explore.step2Lead"]');
+    const panel=card.querySelector(".cms-static-panel");
+    return {cardWidth:card.getBoundingClientRect().width,leadWidth:lead?.getBoundingClientRect().width||0,panelWidth:panel?.getBoundingClientRect().width||0};
+  });
+  assert.ok(exploreEditLayout.leadWidth>100,"Explore inline editor collapses lead text: "+JSON.stringify(exploreEditLayout));
+  assert.ok(exploreEditLayout.panelWidth>exploreEditLayout.cardWidth*.8,"Explore inline editor panel does not span the card: "+JSON.stringify(exploreEditLayout));
+  const exploreOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(exploreOverflow<=2,"Explore inline editor mobile overflow: "+exploreOverflow);
+  await page.screenshot({path:output+"/cms-inline-static-explore-mobile.png",fullPage:true});
+  await page.locator("#cmsStaticRead").click();
+
   await page.goto(base+"/about/?cms-inline-qa=1",{waitUntil:"networkidle"});
   await page.locator("#cmsStaticLaunch").waitFor();
   await page.locator("#cmsStaticLaunch").click();
