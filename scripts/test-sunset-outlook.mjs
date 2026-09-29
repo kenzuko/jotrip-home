@@ -241,4 +241,54 @@ assert.equal(sunset.refreshDelayMs(0),null);
   assert.equal(out.reason,"low_visibility");
 }
 
+
+// Dense ordinary cloud on the actual sunset horizon must warn even without rain.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.horizon_cloud={
+      status:"LIKELY_OBSCURED",
+      obscuration_score:82,
+      trend:"INCREASING",
+      dominant_layer:"LOW",
+      confidence:"HIGH"
+    };
+    data.points[id].nowcast.cloud_motion={
+      status:"PASSING_BY",
+      public_track_usable:true,
+      predicted_impact:false,
+      approaching:false
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"watch");
+  assert.equal(out.reason,"horizon_cloud");
+  assert.equal(out.horizon_cloud_status,"LIKELY_OBSCURED");
+  assert.equal(out.horizon_cloud_layer,"LOW");
+}
+
+// A clear sunset horizon should beat generic nearby convective cloud.
+{
+  const data=base(0.1);
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.convective_level="HIGH";
+    data.points[id].nowcast.horizon_cloud={
+      status:"CLEAR",
+      obscuration_score:8,
+      trend:"STABLE",
+      dominant_layer:null,
+      confidence:"HIGH"
+    };
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T09:30:00Z"),
+    nowMinutes:16*60+30
+  });
+  assert.equal(out.level,"good");
+  assert.equal(out.reason,"horizon_clear");
+}
+
 console.log("sunset outlook tests passed");
