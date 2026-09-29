@@ -26,7 +26,7 @@
         activity_sac_mau_venice:"places/detail.html?id=sac-mau-venice"
       })[x.entity_id]||"news/";
       const operationalCategory=x=>x.status==="BOOKING_FULL"?"ĐẶT CHỖ / SUNSET TOWN":
-        ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status)?"HOẠT ĐỘNG / TẠM DỪNG":"SHOW / THÔNG BÁO";
+        ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status)?"HOẠT ĐỘNG / TẠM DỪNG":"BIỂU DIỄN / THÔNG BÁO";
       const operationals=(notices?.notices||[]).filter(x=>{
         const eventStart=typeof x.date==="string"?Date.parse(x.date+"T00:00:00+07:00"):NaN;
         const visibleFrom=x.effective_from?Date.parse(x.effective_from+"T00:00:00+07:00"):
