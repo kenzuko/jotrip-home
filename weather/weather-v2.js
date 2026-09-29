@@ -591,7 +591,7 @@ function renderHazardBoard(){
       f.severity
     );
   }else{
-    setHazard("hazardVolatility","Chưa thấy mốc xấu rõ trong 12 giờ tới","JoTrip vẫn tiếp tục đối chiếu ensemble và dữ liệu thực tế mỗi chu kỳ",0);
+    setHazard("hazardVolatility","Chưa thấy mốc xấu rõ trong 12 giờ tới","Dự báo JoTrip vẫn đối chiếu nhiều mô hình và quan trắc thực tế ở mỗi chu kỳ",0);
   }
 }
 
@@ -635,7 +635,7 @@ function renderTechnicalPointForecast(){
     '<td>'+ (num(r.rain)===null?'-':fmt(r.rain,2)+' mm/mốc') +'</td>'+
     '<td>'+ (num(r.wave)===null?'-':fmt(r.wave,2)+' m') +'</td>'+
   '</tr>').join("");
-  if(meta)meta.textContent=rows.length+" mốc · Dự báo JoTrip · "+sourceAgeLabel(engineDashboard?.generated_at,180)+". D0-D3 có độ phân giải cao hơn; các ngày xa chỉ dùng như xu hướng.";
+  if(meta)meta.textContent=rows.length+" mốc · Dự báo JoTrip · "+sourceAgeLabel(engineDashboard?.generated_at,180)+". Ba ngày đầu có độ phân giải cao hơn; những ngày xa hơn chỉ nên xem như xu hướng.";
 }
 function renderTechnical(){
   renderTechnicalPointTabs();
@@ -843,7 +843,7 @@ function renderPointGust(){
   head.textContent="Gió giật 0-30 phút · "+label+": "+risk;
   if(o?.status==="ALERT"||o?.status==="WATCH"){
     const lead=o.window?("Khung theo dõi "+o.window+". "):
-      "Gió nền đáng chú ý nhưng chưa có ETA đáng tin cậy. ";
+      "Gió nền đáng chú ý nhưng chưa xác định được thời điểm rõ ràng. ";
     const signs=o.evidence?.length?o.evidence.slice(0,3).join(" · ")+". ":"";
     detail.textContent=lead+signs+
       "Đây là tín hiệu rủi ro, không phải đo được gió giật hoặc xác suất đã kiểm chứng.";
