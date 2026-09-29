@@ -8,10 +8,13 @@ for(const needle of [
  "cycleAges.some(a=>a>=0&&a<=30*60)",
  "Không hiển thị các mốc cũ như dự báo hiện tại",
  "Bản tổng hợp trễ",
- "setInterval(refreshLive,LIVE_REFRESH_MS)",
+ "setInterval(()=>{if(document.visibilityState===\"visible\")refreshLive()},LIVE_REFRESH_MS)",
  "if(engineDashboard){renderTodayDecision();return}"
 ])assert.ok(js.includes(needle),"CMS auto-recovery contract missing: "+needle);
 assert.ok(!js.includes("snapshotAge<=360||"),"stale reference gate must require valid cycle");
+assert.ok(js.includes("const SLOW_REFRESH_MS=10*60*1000"),"slow Weather sources must be decoupled from the two-minute live loop");
+assert.ok(js.includes("if(liveRefreshBusy||document.visibilityState===\"hidden\")return"),"hidden tabs must not consume live Worker quota");
+assert.ok(!js.includes("FRESH_BUNDLE"),"current-bundle must not be fetched twice per live refresh");
 const jsVersion=html.match(/\/weather\/weather-v2\.js\?v=(\d{8}-[a-z0-9-]+)/)?.[1]||"";
 const cssVersion=html.match(/\/weather\/weather-v2\.css\?v=(\d{8}-[a-z0-9-]+)/)?.[1]||"";
 assert.ok(jsVersion&&cssVersion&&Number(jsVersion.slice(0,8))>=20260924&&Number(cssVersion.slice(0,8))>=20260924,
