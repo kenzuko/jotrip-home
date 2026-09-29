@@ -9,8 +9,11 @@
     "binding": "ASSETS",
     "run_worker_first": [
       "/stories/article.html",
+      "/stories/article",
       "/places/detail.html",
+      "/places/detail",
       "/guide/article.html",
+      "/guide/article",
       "/api/feedback",
       "/api/traffic/collect",
       "/api/cms/traffic",
