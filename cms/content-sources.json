@@ -1,0 +1,250 @@
+{
+  "version": "1.0",
+  "purpose": "Metadata-only registry of CMS content sources, generated views and source relationships. Runtime authorization remains in the mutation policy.",
+  "permission_source": "functions/_shared/cms-mutation-policy.js",
+  "rules": [
+    "Do not duplicate role permissions here; use the mutation policy.",
+    "Generated or derived outputs are never edited directly through CMS mutation endpoints.",
+    "Localized-source metadata does not activate translation workflow; translation lifecycle is handled separately."
+  ],
+  "sources": [
+    {
+      "id": "home-copy",
+      "path": "data/home-copy.json",
+      "kind": "canonical",
+      "owner": "cms:home",
+      "module_ids": [
+        "home"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": true,
+      "locale": null,
+      "translation_family": null,
+      "source_locale": false,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [],
+      "derived_outputs": []
+    },
+    {
+      "id": "stories",
+      "path": "data/content.json",
+      "kind": "canonical",
+      "owner": "cms:stories",
+      "module_ids": [
+        "stories"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": true,
+      "locale": "vi",
+      "translation_family": null,
+      "source_locale": true,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [],
+      "derived_outputs": []
+    },
+    {
+      "id": "guide",
+      "path": "guide/data.json",
+      "kind": "canonical",
+      "owner": "cms:guide",
+      "module_ids": [
+        "guide"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": true,
+      "locale": "vi",
+      "translation_family": null,
+      "source_locale": true,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [],
+      "derived_outputs": []
+    },
+    {
+      "id": "utilities",
+      "path": "data/utilities.json",
+      "kind": "canonical",
+      "owner": "cms:utilities",
+      "module_ids": [
+        "utilities"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": true,
+      "locale": "vi",
+      "translation_family": null,
+      "source_locale": true,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [],
+      "derived_outputs": []
+    },
+    {
+      "id": "destination-venues",
+      "path": "data/entities/destination-venues.json",
+      "kind": "canonical",
+      "owner": "cms:venues",
+      "module_ids": [
+        "venues"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": true,
+      "locale": null,
+      "translation_family": null,
+      "source_locale": false,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [],
+      "derived_outputs": []
+    },
+    {
+      "id": "food-entities",
+      "path": "data/entities/food.json",
+      "kind": "canonical",
+      "owner": "cms:foods",
+      "module_ids": [
+        "foods"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": true,
+      "locale": null,
+      "translation_family": null,
+      "source_locale": false,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [
+        "data/food.json"
+      ],
+      "derived_outputs": []
+    },
+    {
+      "id": "food-vi",
+      "path": "data/i18n/vi/food.json",
+      "kind": "localized_source",
+      "owner": "cms:foods",
+      "module_ids": [
+        "foods"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": true,
+      "locale": "vi",
+      "translation_family": "food",
+      "source_locale": true,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [
+        "data/food.json"
+      ],
+      "derived_outputs": []
+    },
+    {
+      "id": "visual-context",
+      "path": "data/visual-context.json",
+      "kind": "canonical",
+      "owner": "cms:visuals",
+      "module_ids": [
+        "visuals"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": true,
+      "locale": null,
+      "translation_family": null,
+      "source_locale": false,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [],
+      "derived_outputs": [
+        "data/views/knowledge-public.json",
+        "data/views/knowledge-home.json"
+      ]
+    },
+    {
+      "id": "cms-users",
+      "path": "cms/users.json",
+      "kind": "canonical",
+      "owner": "cms:access",
+      "module_ids": [
+        "users"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": false,
+      "locale": null,
+      "translation_family": null,
+      "source_locale": false,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [],
+      "derived_outputs": []
+    },
+    {
+      "id": "knowledge-objects",
+      "path": "data/knowledge/objects.json",
+      "kind": "internal_canonical",
+      "owner": "cms:knowledge",
+      "module_ids": [],
+      "editing_surfaces": [
+        "inline:guide-knowledge"
+      ],
+      "editable_via_cms": true,
+      "public_bundle": false,
+      "locale": "vi",
+      "translation_family": "knowledge",
+      "source_locale": true,
+      "derived_from": [],
+      "generated_by": [],
+      "build_dependencies": [
+        "data/visual-context.json",
+        "data/entities/*.json"
+      ],
+      "derived_outputs": [
+        "data/views/knowledge-public.json",
+        "data/views/knowledge-home.json"
+      ]
+    },
+    {
+      "id": "knowledge-public",
+      "path": "data/views/knowledge-public.json",
+      "kind": "generated",
+      "owner": "pipeline:knowledge-publication",
+      "module_ids": [],
+      "editable_via_cms": false,
+      "public_bundle": true,
+      "locale": "vi",
+      "translation_family": null,
+      "source_locale": false,
+      "derived_from": [
+        "data/knowledge/objects.json",
+        "data/visual-context.json",
+        "data/entities/*.json"
+      ],
+      "generated_by": [
+        "scripts/build-knowledge-public.mjs"
+      ],
+      "build_dependencies": [],
+      "derived_outputs": []
+    },
+    {
+      "id": "knowledge-home",
+      "path": "data/views/knowledge-home.json",
+      "kind": "derived",
+      "owner": "pipeline:knowledge-publication",
+      "module_ids": [],
+      "editable_via_cms": false,
+      "public_bundle": true,
+      "locale": "vi",
+      "translation_family": null,
+      "source_locale": false,
+      "derived_from": [
+        "data/knowledge/objects.json",
+        "data/visual-context.json",
+        "data/entities/*.json"
+      ],
+      "generated_by": [
+        "scripts/build-knowledge-public.mjs"
+      ],
+      "build_dependencies": [],
+      "derived_outputs": []
+    }
+  ]
+}
