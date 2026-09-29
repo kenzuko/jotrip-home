@@ -24,5 +24,6 @@ for(const slug of ['regent','salinda-resort']){
  assert.equal(h.editorial_photo.source_verified,false,'Do not claim unverified ownership or license');
 }
 assert.match(visual.places.place_aquatopia.images[0].url,/editorial-aquatopia-aerial/);
-assert.match(visual.places.place_bai_sao.images[0].url,/editorial-bai-sao-local/);
+assert.match(visual.places.place_bai_sao.images[0].url,/B%C3%A3i%20Sao%20Beach/);
+assert.equal(visual.places.place_bai_sao.images[0].rights_status,'CC_VERIFIED','Bãi Sao replacement must keep verified reuse rights');
 console.log('Editorial image QA passed: full non-slideshow refresh, no Shutterstock, matching subjects, local assets, source caveats, and intact JoTrip tour lead.');
