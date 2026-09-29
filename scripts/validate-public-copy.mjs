@@ -79,7 +79,7 @@ const banned=[
 const violations=[];
 const knowledge=JSON.parse(fs.readFileSync("data/knowledge/objects.json","utf8"));
 const ready=knowledge.objects.filter(x=>x.status==="READY_PUBLIC");
-const untranslatedTitles=new Set(["Airport transfer","Pharmacy","Clinic / Hospital","Toilet","Parking","Fuel stations","Minimart / convenience store","Emergency numbers & practical help","Snorkeling","Diving","Night Market","Safari visit","VinWonders visit","Visit fish sauce house / pepper farm","Kayak","Beach day","Sunset watching","Sunrise watching","Cable car Hòn Thơm","Bãi Trường trước và sau resort development","Bus Phú Quốc","Ferry / high-speed boat đến Phú Quốc","Dugong ở vùng biển Phú Quốc","Bắc đảo trước và sau các resort lớn"]);
+const untranslatedTitles=new Set(["Airport transfer","Pharmacy","Clinic / Hospital","Toilet","Parking","Fuel stations","Minimart / convenience store","Emergency numbers & practical help","Snorkeling","Diving","Night Market","Safari visit","VinWonders visit","Visit fish sauce house / pepper farm","Kayak","Beach day","Sunset watching","Sunrise watching","Cable car Hòn Thơm","Bãi Trường trước và sau resort development","Bus Phú Quốc","Ferry / high-speed boat đến Phú Quốc","Dugong ở vùng biển Phú Quốc","Bắc đảo trước và sau các resort lớn","Ốc giác / Melo","Mật sim / siro sim / mứt sim","Một ngày ở Phú Quốc vận hành thế nào?","Chợ Dương Đông ăn gì"]);
 for(const item of ready)if(untranslatedTitles.has(item.title))violations.push({file:"data/knowledge/objects.json",phrase:"Untranslated public title: "+item.title});
 const stories=JSON.parse(fs.readFileSync("data/content.json","utf8"));
 for(const story of stories.stories||[]){
