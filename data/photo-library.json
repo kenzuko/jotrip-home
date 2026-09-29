@@ -10,7 +10,7 @@
     "wildlife": "Do not use starfish photographed out of water as the lead for articles about keeping starfish underwater.",
     "previous_release": "Slide photos remain unchanged; this release updates matching photos outside the slideshow.",
     "resolution": "Do not replace stronger verified location-specific photos with prettier but unidentified island scenes.",
-    "current_release": "Full non-slideshow photo refresh: prefer local staged assets when they match the subject; retain stronger verified external exact-subject photos when they remain better."
+    "current_release": "Brand-image cleanup 29/09/2026: unverified local copies for branded attractions are retired from public use; public surfaces prefer traceable Commons or official-operator source records."
   },
   "items": [
     {
@@ -91,10 +91,9 @@
       "subject": "theme-park",
       "exact_location_verified": true,
       "license_status": "unverified",
-      "used_on": [
-        "knowledge.knowledge_136_vinwonders-visit",
-        "places.place_vinwonders"
-      ]
+      "used_on": [],
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     },
     {
       "id": "editorial-vinwonders-show",
@@ -103,10 +102,9 @@
       "subject": "theme-park",
       "exact_location_verified": true,
       "license_status": "unverified",
-      "used_on": [
-        "knowledge.knowledge_136_vinwonders-visit",
-        "places.place_vinwonders"
-      ]
+      "used_on": [],
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     },
     {
       "id": "editorial-may-rut-island",
@@ -226,10 +224,10 @@
       "subject": "grand-world-canal",
       "exact_location_verified": false,
       "license_status": "unverified",
-      "used_on": [
-        "places.place_grand_world"
-      ],
-      "note": "Landmark recognizable as Grand World; original capture time and photographer unknown."
+      "used_on": [],
+      "note": "Landmark recognizable as Grand World; original capture time and photographer unknown.",
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     },
     {
       "id": "editorial-island-cove-aerial",
@@ -294,10 +292,9 @@
       "subject": "vinwonders",
       "exact_location_verified": true,
       "license_status": "unverified",
-      "used_on": [
-        "places.place_vinwonders",
-        "knowledge.knowledge_136_vinwonders-visit"
-      ]
+      "used_on": [],
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     },
     {
       "id": "editorial-sunset-town-aerial",
@@ -306,12 +303,9 @@
       "subject": "sunset-town-kiss-bridge",
       "exact_location_verified": true,
       "license_status": "unverified",
-      "used_on": [
-        "places.place_sunset_town",
-        "knowledge.knowledge_005_sunset-town",
-        "knowledge.knowledge_076_tu-san-bay-ve-an-thoi-sunset-town",
-        "guide.zone.south"
-      ]
+      "used_on": [],
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     },
     {
       "id": "editorial-aquatopia-aerial",
@@ -320,9 +314,9 @@
       "subject": "aquatopia-waterpark",
       "exact_location_verified": true,
       "license_status": "unverified",
-      "used_on": [
-        "places.place_aquatopia"
-      ]
+      "used_on": [],
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     },
     {
       "id": "editorial-tinh-hoa-viet-nam",
@@ -331,9 +325,9 @@
       "subject": "tinh-hoa-viet-nam-show",
       "exact_location_verified": true,
       "license_status": "unverified",
-      "used_on": [
-        "places.activity_tinh_hoa_viet_nam"
-      ]
+      "used_on": [],
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     },
     {
       "id": "editorial-kiss-bridge-water-show",
@@ -342,9 +336,9 @@
       "subject": "kiss-bridge",
       "exact_location_verified": true,
       "license_status": "unverified",
-      "used_on": [
-        "places.place_kiss_bridge"
-      ]
+      "used_on": [],
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     },
     {
       "id": "editorial-grand-world-canal-day",
@@ -353,10 +347,9 @@
       "subject": "grand-world-canal",
       "exact_location_verified": true,
       "license_status": "unverified",
-      "used_on": [
-        "places.place_grand_world",
-        "homepage-go-visual"
-      ]
+      "used_on": [],
+      "editorial_hold": "Retired 29/09/2026: branded-attraction image replaced in public surfaces by a traceable Wikimedia Commons or official-operator source.",
+      "public_eligible": false
     }
   ]
 }
