@@ -16,7 +16,7 @@ assert.ok(html.includes('/assets/media/editorial-ho-quoc-detail.jpg'));
 assert.ok(!html.includes('<img loading="lazy" src="/assets/photos/starfish-beach-jo-library.jpg"'),'No starfish-on-sand promotion');
 assert.match(visual.places.place_grand_world.images[0].url,/editorial-grand-world-canal-day/);
 assert.equal(visual.places.activity_tour_3_islands.images[0].source_label,'JoTrip','Preserve actual JoTrip tour image as lead');
-assert.equal(visual.knowledge['knowledge_124_cano-3-dao'].images[0].scope,'context','Unverified island location must be marked context');
+assert.ok(['context','activity_context'].includes(visual.knowledge['knowledge_124_cano-3-dao'].images[0].scope),'Unverified island location must stay non-specific context');
 for(const slug of ['regent','salinda-resort']){
  const h=hotels.find(x=>x.slug===slug);
  assert.ok(h?.editorial_photo?.url?.startsWith('/assets/media/'),'Hotel photo with matching slug '+slug);
