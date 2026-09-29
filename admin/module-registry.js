@@ -4,6 +4,7 @@
 "use strict";
 
 const PUBLIC_ORIGIN="https://openphuquoc.com";
+const CMS_EDITOR_ORIGIN="https://cms.openphuquoc.com";
 const DASHBOARD=Object.freeze({
   id:"dashboard",label:"Bàn làm việc",
   description:"Nắm tình hình, xử lý đúng việc và kiểm chứng kết quả.",
@@ -43,6 +44,13 @@ function previewUrl(module){
   if(typeof module.preview!=="string"||!module.preview)return null;
   return new URL(module.preview,PUBLIC_ORIGIN+"/admin/").href;
 }
+function editorUrl(module){
+  const publicUrl=previewUrl(module);
+  if(!publicUrl)return null;
+  const url=new URL(publicUrl);
+  if(url.origin!==PUBLIC_ORIGIN)return null;
+  return new URL(url.pathname+url.search+url.hash,CMS_EDITOR_ORIGIN).href;
+}
 
-root.OPQModuleRegistry={PUBLIC_ORIGIN,DASHBOARD,roles,can,readable,writable,permitted,ownerScope,resolve,flags,previewUrl};
+root.OPQModuleRegistry={PUBLIC_ORIGIN,CMS_EDITOR_ORIGIN,DASHBOARD,roles,can,readable,writable,permitted,ownerScope,resolve,flags,previewUrl,editorUrl};
 })(typeof window!=="undefined"?window:globalThis);

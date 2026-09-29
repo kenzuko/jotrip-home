@@ -10,7 +10,9 @@ assert.equal(home.split('href="https://openphuquoc.com/"').length-1,2);
 assert.equal(home.split('href="https://cms.openphuquoc.com/"').length-1,2);
 assert.match(home,/class="site-link" href="https:\/\/cms\.openphuquoc\.com\/"/);
 assert.match(home,/<a href="https:\/\/cms\.openphuquoc\.com\/" class="cms-brand"/);
-assert.match(home,/admin\.js\?v=(?:3[6-9]|[4-9]\d|\d{3,})/,"Updated JavaScript must bust stale CMS cache");
+assert.match(home,/admin\.js\?v=(?:4[4-9]|[5-9]\d|\d{3,})/,"Updated JavaScript must bust stale CMS cache");
+assert.match(home,/id="editPreviewBtn"/,"CMS toolbar must expose a same-host editing preview");
+assert.match(home,/id="previewBtn"/,"CMS toolbar must keep a separate public preview");
 for(const html of [quality,reviews]) {
   assert.ok(html.includes('class="cms-external" href="https://openphuquoc.com/"'));
 }
@@ -18,12 +20,18 @@ assert.ok(admin.includes('href="https://openphuquoc.com/guide/knowledge.html"'))
 const registry=read("admin/module-registry.js");
 assert.ok(admin.includes("window.OPQModuleRegistry?.previewUrl(currentModule)"),
   "Admin must delegate public preview resolution to the module registry");
+assert.ok(admin.includes("window.OPQModuleRegistry?.editorUrl(currentModule)"),
+  "Admin must resolve a separate authenticated CMS browsing URL");
 assert.ok(admin.includes('new URL(currentModule.preview,"https://openphuquoc.com/admin/").href'),
   "Legacy preview fallback must remain rooted at the public canonical origin");
 assert.ok(registry.includes('const PUBLIC_ORIGIN="https://openphuquoc.com";'),
   "Module registry public preview origin must be openphuquoc.com");
+assert.ok(registry.includes('const CMS_EDITOR_ORIGIN="https://cms.openphuquoc.com";'),
+  "Authenticated inline editing must stay on the CMS hostname");
 assert.ok(!registry.includes('PUBLIC_ORIGIN="https://cms.openphuquoc.com"'),
   "cms.openphuquoc.com must never become the public preview origin");
+assert.ok(registry.includes("function editorUrl(module)"),
+  "Module registry must provide a CMS-host mirror URL without changing the canonical public preview");
 for(const target of ["../","../stories/","../guide/","../utilities/","../nearme/","../guide/knowledge.html"]) {
   const resolved=new URL(target,"https://openphuquoc.com/admin/");
   assert.equal(resolved.hostname,"openphuquoc.com",target);

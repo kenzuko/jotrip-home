@@ -1620,10 +1620,19 @@ async function selectModule(id){
 
   const publicPreview=window.OPQModuleRegistry?.previewUrl(currentModule)||
     (currentModule.preview?new URL(currentModule.preview,"https://openphuquoc.com/admin/").href:null);
+  const editorPreview=window.OPQModuleRegistry?.editorUrl(currentModule)||null;
+  if(editorPreview){
+    $("#editPreviewBtn").href=editorPreview;
+    $("#editPreviewBtn").textContent="✎ Duyệt trên CMS";
+    $("#editPreviewBtn").title="Mở cùng đường dẫn trên cms.openphuquoc.com. Phiên đăng nhập CMS được giữ ở đây nên các trang hỗ trợ biên tập sẽ hiện cây bút.";
+    $("#editPreviewBtn").classList.remove("hidden");
+  }else{
+    $("#editPreviewBtn").classList.add("hidden");
+  }
   if(publicPreview){
     $("#previewBtn").href=publicPreview;
-    $("#previewBtn").textContent="Trang đã công bố ↗";
-    $("#previewBtn").title="Bản công khai: không bao gồm thay đổi chưa gửi duyệt.";
+    $("#previewBtn").textContent="Xem public ↗";
+    $("#previewBtn").title="Bản công khai: không có quyền biên tập và không bao gồm thay đổi chưa gửi duyệt.";
     $("#previewBtn").classList.remove("hidden");
   }else{
     $("#previewBtn").classList.add("hidden");
