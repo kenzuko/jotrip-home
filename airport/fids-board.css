@@ -103,3 +103,17 @@
     text-align:left;
   }
 }
+
+/* OPENPQ AIRPORT MOBILE READABILITY HARDENING - 29/09/2026
+   Keep the FIDS compact, but remove 7-8px operational text on phones. */
+@media(max-width:680px){
+  .fids-cell:before{font-size:9.5px!important}
+  .fids-cell>span:not(.fids-status-pill):not(.fids-change-badge){font-size:10.5px!important}
+  .fids-dir{font-size:10px!important;padding:3px 6px}
+  .fids-flight span{font-size:10.5px!important}
+  .fids-route strong{font-size:11px!important}
+  .fids-status-pill{font-size:10.5px!important;padding:5px 7px;max-width:96px}
+  .fids-service-prev{font-size:9.5px!important}
+  .fids-change-badge{font-size:9.5px!important;padding:5px 6px;max-width:96px}
+  .fids-foot{font-size:10.5px!important}
+}
