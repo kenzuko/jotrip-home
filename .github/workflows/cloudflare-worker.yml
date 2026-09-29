@@ -44,7 +44,7 @@ permissions:
 
 concurrency:
   group: openphuquoc-worker
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy-worker:
@@ -111,8 +111,20 @@ jobs:
             echo "::warning::Worker deploy skipped: add CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets."
           fi
 
+      - name: Confirm this run is still current main
+        run: |
+          CURRENT_MAIN_SHA="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          echo "Current main: $CURRENT_MAIN_SHA"
+          echo "This run:     $GITHUB_SHA"
+          if [ "$CURRENT_MAIN_SHA" = "$GITHUB_SHA" ]; then
+            echo "OPENPQ_CURRENT_HEAD=true" >> "$GITHUB_ENV"
+          else
+            echo "OPENPQ_CURRENT_HEAD=false" >> "$GITHUB_ENV"
+            echo "::notice::Skipping stale Worker deploy for $GITHUB_SHA because main is now $CURRENT_MAIN_SHA"
+          fi
+
       - name: Deploy openphuquoc-v3 Worker
-        if: env.CLOUDFLARE_READY == 'true'
+        if: env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           wranglerVersion: "4.136.3"
@@ -122,7 +134,7 @@ jobs:
 
 
       - name: Verify deployed Worker version and knowledge pages
-        if: env.CLOUDFLARE_READY == 'true'
+        if: env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
         run: |
           base="https://openphuquoc-v3.kenzuko.workers.dev"
           ok=false
@@ -158,13 +170,13 @@ jobs:
             exit 1
           fi
       - name: Install production smoke browser
-        if: env.CLOUDFLARE_READY == 'true'
+        if: env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
         run: |
           npm install --no-save --package-lock=false playwright@1.63.0
           npx playwright install --with-deps chromium
 
       - name: Smoke test production homepage
-        if: env.CLOUDFLARE_READY == 'true'
+        if: env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
         env:
           VISUAL_QA_BASE_URL: https://openphuquoc-v3.kenzuko.workers.dev
           VISUAL_QA_SCOPE: home
@@ -172,7 +184,7 @@ jobs:
         run: node scripts/visual-qa.mjs
 
       - name: Upload production smoke report
-        if: always() && env.CLOUDFLARE_READY == 'true'
+        if: always() && env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: openpq-cms-production-smoke-${{ github.run_number }}
