@@ -4621,6 +4621,37 @@ body.sheet-open{
   line-height:1.5;
   color:rgba(255,255,255,.72);
 }
+.trip-day-watch{
+  margin-top:10px;
+  display:grid;
+  gap:6px;
+}
+.trip-day-watch[hidden]{display:none!important}
+.trip-day-watch-line{
+  display:grid;
+  grid-template-columns:7px minmax(0,1fr);
+  align-items:start;
+  gap:8px;
+  color:rgba(255,255,255,.72);
+  text-decoration:none;
+  font-size:11.5px;
+  line-height:1.42;
+}
+.trip-day-watch-line::before{
+  content:"";
+  width:6px;
+  height:6px;
+  margin-top:.42em;
+  border-radius:999px;
+  background:rgba(255,255,255,.45);
+}
+.trip-day-watch-line[data-level="alert"]{
+  color:rgba(255,255,255,.9);
+}
+.trip-day-watch-line[data-level="alert"]::before{
+  background:rgba(255,255,255,.82);
+}
+.trip-day-watch-line:hover{color:#fff}
 .trip-item{
   min-height:150px;
 }
