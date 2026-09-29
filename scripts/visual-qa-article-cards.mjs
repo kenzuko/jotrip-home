@@ -3,6 +3,7 @@ import { chromium } from "playwright";
 import fs from "node:fs";
 
 const BASE=process.env.VISUAL_QA_BASE_URL||"http://127.0.0.1:4173";
+fs.mkdirSync("visual-qa-results",{recursive:true});
 const content=JSON.parse(fs.readFileSync("data/content.json","utf8"));
 const storyById=new Map((content.stories||[]).map(x=>[x.id,x]));
 const knowledge=JSON.parse(fs.readFileSync("data/knowledge/objects.json","utf8"));
@@ -103,7 +104,10 @@ assert.ok(await page.locator("#curiosityRail .curiosity-answer").first().isVisib
 await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
 const library=page.locator("#home-library");
 await library.scrollIntoViewIfNeeded();
-await page.locator("#home-library .home-library-card").first().waitFor({state:"visible",timeout:7000});
+// The initial HTML contains an editorial fallback. Wait for the public guide
+// feed to replace it before retaining locators, otherwise the observed card can
+// be detached between waitFor() and click().
+await page.locator("#home-library .home-library-card[data-guide-id]").first().waitFor({state:"visible",timeout:7000});
 const guideHrefs=await page.locator("#home-library .home-library-card").evaluateAll(nodes=>nodes.map(x=>x.getAttribute("href")));
 assert.ok(guideHrefs.length>=3,"Homepage should expose at least three guide cards");
 for(const [i,href] of guideHrefs.entries()){
@@ -111,7 +115,7 @@ for(const [i,href] of guideHrefs.entries()){
   await page.goto(BASE+"/",{waitUntil:"domcontentloaded"});
   const libraryNow=page.locator("#home-library");await libraryNow.scrollIntoViewIfNeeded();
   const id=new URL(href,BASE).searchParams.get("id");
-  const card=page.locator('#home-library .home-library-card[href*="id='+id+'"]').first();
+  const card=page.locator('#home-library .home-library-card[data-guide-id="'+id+'"]').first();
   await card.waitFor({state:"visible",timeout:7000});
   await card.locator("figure").click();
   await page.waitForURL(url=>url.pathname.endsWith("/guide/article.html")&&url.searchParams.get("id")===id,{timeout:5000});
