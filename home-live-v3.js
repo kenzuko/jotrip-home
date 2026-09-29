@@ -503,7 +503,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         push({
           tone:"default",
           title:"Tối nay cứ chọn một khu rồi đi chậm lại.",
-          note:"Ăn tối hoặc đi bộ gần nơi bạn ở. Nếu muốn xem show, hãy kiểm tra thông báo từng suất." ,
+          note:"Ăn tối hoặc đi bộ gần nơi bạn ở. Nếu muốn xem biểu diễn, hãy kiểm tra thông báo từng suất." ,
           primaryText:"Xem tối nay có gì →", primaryHref:"#happening",
           secondaryText:"Tìm món ăn", secondaryHref:"food/"
         });
@@ -587,7 +587,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         push({
           tone:"default",
           title:"Tối nay vẫn còn nhiều lựa chọn.",
-          note:"Chợ đêm, ăn uống, đi bộ và các show tối phù hợp hơn với một lịch nhẹ.",
+          note:"Chợ đêm, ăn uống, đi bộ và các chương trình buổi tối phù hợp hơn với một lịch nhẹ.",
           primaryText:"Xem tối nay →", primaryHref:"#happening",
           secondaryText:"Bây giờ ăn gì?", secondaryHref:"#food-now"
         });
@@ -595,7 +595,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         push({
           tone:"default",
           title:"Tối nay vẫn còn chỗ để đi.",
-          note:"Chợ đêm, ăn uống hoặc đi bộ gần vẫn là lựa chọn. Muốn xem show, kiểm tra thông báo từng suất." ,
+          note:"Chợ đêm, ăn uống hoặc đi bộ gần vẫn là lựa chọn. Muốn xem biểu diễn, kiểm tra thông báo từng suất." ,
           primaryText:"Xem tối nay →", primaryHref:"#happening",
           secondaryText:"Bây giờ ăn gì?", secondaryHref:"#food-now"
         });
@@ -603,7 +603,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         push({
           tone:"default",
           title:"Giờ này hợp ăn uống và đi bộ hơn.",
-          note:"Muốn xem show thì kiểm tra giờ trước khi chạy tới; nhiều show tối đã vào giờ.",
+          note:"Muốn xem biểu diễn thì kiểm tra giờ trước khi chạy tới; nhiều suất tối đã bắt đầu.",
           primaryText:"Tìm món ăn →", primaryHref:"#food-now",
           secondaryText:"Khám phá gần đây", secondaryHref:"nearme/"
         });
@@ -985,7 +985,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         .map(x => ({...x,days_until:Math.round((Date.parse(x.date+"T12:00:00+07:00")-todayNoon)/86400000)}))
         .filter(x => x.days_until >= 1 && x.days_until <= 14 && (!x.effective_from || x.effective_from <= today))
         .sort((a,b) => a.days_until-b.days_until)[0] || null;
-      const datedLabel = dated?.status === "BOOKING_FULL" ? "DINNER SHOW HÔM NAY" : "SHOW TỐI NAY";
+      const datedLabel = dated?.status === "BOOKING_FULL" ? "DINNER SHOW HÔM NAY" : "LỊCH DIỄN TỐI NAY";
       const datedHref = dated?.entity_id === "place_sunset_town" ? "places/detail.html?id=sunset-town" : "news/";
       const upcomingHref = noticeHref(upcoming);
       const upcomingLabel = upcoming ? "SẮP TỚI · " + upcoming.date.split("-").slice(1).reverse().join("/") : "";
