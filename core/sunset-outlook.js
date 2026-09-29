@@ -225,9 +225,9 @@
       return result("watch","low_visibility",common);
     if(rainMax>=0.8||rainTypical>=0.5)
       return result("watch","forecast_rain",common);
-    if(highConvective&&!passingOnly)
+    if(highConvective&&!passingOnly&&horizonStatus==="UNKNOWN")
       return result("watch","satellite_convection",common);
-    if(elevatedConvective&&!tracks.length)
+    if(elevatedConvective&&!tracks.length&&horizonStatus==="UNKNOWN")
       return result("watch","satellite_convection",common);
 
     if(horizonStatus==="CLEAR"&&horizonScore!==null&&horizonScore<20)
