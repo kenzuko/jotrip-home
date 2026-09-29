@@ -23,7 +23,7 @@ assert.ok(article.indexOf("cms-draft-client.js")<article.indexOf("cms-inline-edi
 assert.match(src,/id="inlineCmsPublish"[^>]*hidden>Xuất bản/);
 assert.match(src,/S\.role==="admin"\)\$\("#inlineCmsPublish"\)\.disabled=false/);
 assert.doesNotMatch(src,/Lưu thẳng \(Admin\)/);
-assert.match(src,/location\\.hostname!==["']cms\\.openphuquoc\\.com["']/,"Inline editing must stay on the CMS host");
-assert.doesNotMatch(src,/location\\.hostname===["']openphuquoc\\.com["']/,"Public canonical must never become an inline-edit origin");
+assert.ok(src.includes('location.hostname!=="cms.openphuquoc.com"'),"Inline editing must stay on the CMS host");
+assert.ok(!src.includes('location.hostname==="openphuquoc.com"'),"Public canonical must never become an inline-edit origin");
 assert.match(src,/OPQDraftStore/,"Inline editing must use the server draft client");
 console.log("PASS CMS inline edit: CMS-only host gate, server draft client, role gate, field whitelist and safe preview");
