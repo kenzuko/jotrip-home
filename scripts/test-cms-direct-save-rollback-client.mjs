@@ -1,0 +1,17 @@
+import assert from "node:assert/strict";
+import fs from "node:fs";
+import vm from "node:vm";
+const src=fs.readFileSync(new URL("../core/cms-direct-save-rollback.js",import.meta.url),"utf8");
+const root={};
+vm.runInNewContext(src,{window:root,globalThis:root,JSON,String,Error,RegExp});
+const api=root.OPQDirectSaveRollback;
+const SHA="a".repeat(40);let call=null;
+const okFetch=async(url,init)=>{call={url,init};return new Response(JSON.stringify({pull_request:{url:"https://github.com/kenzuko/jotrip-home/pull/44"}}),{headers:{"content-type":"application/json"}})};
+const result=await api.propose(SHA,{fetchFn:okFetch});
+assert.equal(result.pull_request.url,"https://github.com/kenzuko/jotrip-home/pull/44");
+assert.equal(call.url,"/api/cms/rollback");
+assert.equal(JSON.parse(call.init.body).direct_save_commit,SHA);
+await assert.rejects(()=>api.propose("bad",{fetchFn:okFetch}),/không hợp lệ/);
+const badFetch=async()=>new Response(JSON.stringify({error:"Tệp đã thay đổi"}),{status:409,headers:{"content-type":"application/json"}});
+await assert.rejects(()=>api.propose(SHA,{fetchFn:badFetch}),/Tệp đã thay đổi/);
+console.log("PASS P2.4 rollback client proposal-only API");

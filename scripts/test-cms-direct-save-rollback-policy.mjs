@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import {cmsCanRollbackDirectSave,cmsDirectSaveRollbackUnit,cmsSupports} from "../functions/_shared/cms-mutation-policy.js";
+assert.equal(cmsCanRollbackDirectSave("admin",["data/content.json"]),true);
+assert.equal(cmsCanRollbackDirectSave("editor",["data/content.json"]),false);
+assert.equal(cmsCanRollbackDirectSave("admin",["data/knowledge/objects.json"]),true);
+assert.equal(cmsCanRollbackDirectSave("admin",["data/i18n/vi/food.json","data/food.json"]),true);
+assert.equal(cmsCanRollbackDirectSave("admin",["data/i18n/vi/food.json"]),false,"Food rollback must be atomic with mirror");
+assert.equal(cmsCanRollbackDirectSave("admin",["data/food.json"]),false,"Mirror can never rollback alone");
+assert.equal(cmsCanRollbackDirectSave("admin",["data/content.json","data/home-copy.json"]),false);
+assert.equal(cmsDirectSaveRollbackUnit(["data/food.json","data/i18n/vi/food.json"]).primary,"data/i18n/vi/food.json");
+assert.equal(cmsSupports("data/food.json","rollback"),false,"Mirror must not become a general CMS rollback path");
+console.log("PASS P2.4 direct-save rollback unit policy");

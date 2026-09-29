@@ -185,6 +185,7 @@ async function publishOnce(){
     state.dirty=false;readAgain();
     note("Đã xuất bản bằng 1 commit GitHub, chờ website cập nhật. Lịch sử: github.com/kenzuko/jotrip-home/commit/"+
       result.commit.slice(0,8),"good");
+    window.OPQDirectSaveRollback?.mount($("#cmsPageStatus"),result.commit);
   }catch(err){note(String(err.message||err)+". Nháp vẫn còn trên máy.","warn");}
   finally{if(state.dirty&&!state.blocked)button.disabled=false;}
 }

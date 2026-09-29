@@ -15,7 +15,15 @@ for(const html of [quality,reviews]) {
   assert.ok(html.includes('class="cms-external" href="https://openphuquoc.com/"'));
 }
 assert.ok(admin.includes('href="https://openphuquoc.com/guide/knowledge.html"'));
-assert.ok(admin.includes('$("#previewBtn").href=new URL(currentModule.preview, "https://openphuquoc.com/admin/").href;'));
+const registry=read("admin/module-registry.js");
+assert.ok(admin.includes("window.OPQModuleRegistry?.previewUrl(currentModule)"),
+  "Admin must delegate public preview resolution to the module registry");
+assert.ok(admin.includes('new URL(currentModule.preview,"https://openphuquoc.com/admin/").href'),
+  "Legacy preview fallback must remain rooted at the public canonical origin");
+assert.ok(registry.includes('const PUBLIC_ORIGIN="https://openphuquoc.com";'),
+  "Module registry public preview origin must be openphuquoc.com");
+assert.ok(!registry.includes('PUBLIC_ORIGIN="https://cms.openphuquoc.com"'),
+  "cms.openphuquoc.com must never become the public preview origin");
 for(const target of ["../","../stories/","../guide/","../utilities/","../nearme/","../guide/knowledge.html"]) {
   const resolved=new URL(target,"https://openphuquoc.com/admin/");
   assert.equal(resolved.hostname,"openphuquoc.com",target);
