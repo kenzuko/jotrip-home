@@ -8,7 +8,7 @@ Nguồn hiện tại:
 - [Food - 32/32 món](./food.vi.review.md)
 
 ## Stories
-- [Stories 01 - bài 01-17](./stories.vi.review-01.md)
+- [Stories 01 - bài 01-17](./stories.vi.review-01.md) - ĐÃ DUYỆT 29/09/2026
 - [Stories 02 - bài 18-34](./stories.vi.review-02.md)
 
 ## Knowledge / Cẩm nang
