@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "timezone": "Asia/Ho_Chi_Minh",
-  "policy": "Dated cancellations apply only to their event date. Ongoing SUSPENDED/SUSPENDED_UPGRADE notices remain active until a later operational update clears them. Detail pages retain dated cancellations for the configured retention period.",
+  "policy": "Dated CANCELLED notices apply to their affected event date unless an earlier effective_from is provided. BOOKING_FULL notices may surface from effective_from in advance-planning/news contexts, while day-of operational surfaces stay scoped to the affected date. Ongoing SUSPENDED/SUSPENDED_UPGRADE notices remain active until a later operational update clears them.",
   "notices": [
     {
       "id": "thvn-2026-09-24-2015",
@@ -34,9 +34,9 @@
       "date": "2026-10-11",
       "effective_from": "2026-09-29",
       "status": "BOOKING_FULL",
-      "title": "Sun Bavaria Dinner Show đã hết chỗ ngày 11/10",
-      "summary": "Sun Bavaria tạm ngưng nhận booking Dinner Show cho ngày 11/10/2026 vì số chỗ dành cho booking đã được block/hết chỗ.",
-      "booking_message": "Không nhận thêm booking Dinner Show ngày 11/10. Thông báo này không đồng nghĩa nhà hàng đóng cửa và không áp dụng cho các ngày khác.",
+      "title": "Dinner Show Sun Bavaria đã hết chỗ ngày 11/10",
+      "summary": "Sun Bavaria đã hết chỗ dành cho Dinner Show ngày 11/10/2026 và tạm ngưng nhận thêm booking cho ngày này.",
+      "booking_message": "Nhà hàng không đóng cửa và thông báo này không áp dụng cho các ngày khác.",
       "source": "Thông tin booking đối tác cập nhật ngày 29/09/2026",
       "source_type": "OPERATOR_PARTNER_NOTICE",
       "valid_until": "2026-10-12T00:00:00+07:00"
