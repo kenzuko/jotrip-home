@@ -22,7 +22,9 @@ Một đĩa gỏi cá trích ngon không thể thiếu rổ rau xanh, ít dừa 
 Món này đặc biệt hợp khi đi theo nhóm - chỉ cần gọi một đĩa là đủ để mọi người vừa cuốn, vừa thưởng thức, vừa rôm rả câu chuyện.
 [/ORIGINAL]
 [REWRITE]
+Một phần gỏi cá trích thường ăn kèm rau xanh, dừa nạo, bánh tráng và nước chấm. Gắp cá, thêm rau cùng chút dừa nạo rồi cuốn vừa tay để cảm nhận vị béo nhẹ, tươi mát, chua cay và đậm đà trong từng miếng.
 
+Món này rất hợp khi đi theo nhóm, vì mọi người có thể vừa cuốn vừa ăn vừa trò chuyện.
 [/REWRITE]
 
 ## BLOCK 002
@@ -36,7 +38,9 @@ Gỏi cá trích từ lâu đã trở thành món quen thuộc trên bàn ăn �
 Bởi vậy, cùng là một đĩa gỏi cá trích, nhưng mỗi quán lại mang đến một trải nghiệm khác - từ cách nêm nếm, độ tươi của cá cho đến hương vị khi cuốn cùng rau và bánh tráng.
 [/ORIGINAL]
 [REWRITE]
+Gỏi cá trích là món quen thuộc trong bữa ăn ở Phú Quốc, thường dùng cùng rau xanh, dừa nạo, bánh tráng và nước chấm đậm đà. Mỗi nơi có cách trộn cá, chọn rau và chuẩn bị đồ ăn kèm khác nhau nên hương vị cũng không hoàn toàn giống nhau.
 
+Vì vậy, cùng là gỏi cá trích nhưng mỗi quán lại cho một trải nghiệm riêng, từ cách nêm nếm, độ tươi của cá đến vị khi cuốn với rau và bánh tráng.
 [/REWRITE]
 
 ## BLOCK 003
@@ -48,7 +52,7 @@ Bởi vậy, cùng là một đĩa gỏi cá trích, nhưng mỗi quán lại ma
 Trải miếng bánh tráng, thêm chút rau xanh, cá trích và dừa nạo rồi cuốn vừa tay. Chấm nhẹ một góc trước để cảm nhận vị cá quyện cùng nước chấm; nếu thích cay, có thể thêm vài lát ớt. Món này vui nhất khi cả bàn ngồi cuốn từng miếng, ăn đến đâu làm đến đó.
 [/ORIGINAL]
 [REWRITE]
-
+Đặt rau xanh, cá trích và dừa nạo lên bánh tráng rồi cuốn vừa tay. Chấm thử một góc trước để cảm nhận vị cá hòa cùng nước chấm; nếu thích cay, có thể thêm vài lát ớt. Món này ngon và vui hơn khi cả bàn cùng cuốn, làm đến đâu ăn đến đó.
 [/REWRITE]
 
 ## BLOCK 004
@@ -60,7 +64,7 @@ Trải miếng bánh tráng, thêm chút rau xanh, cá trích và dừa nạo r�
 Món thường gồm cá trích, rau, dừa nạo, bánh tráng và nước chấm; trong đó phần nước chấm hoặc đồ ăn kèm có thể có đậu phộng. Nếu không ăn được cá sống, cá tái hoặc bị dị ứng, bạn nên hỏi rõ cách sơ chế cá và thành phần nước chấm trước khi gọi món.
 [/ORIGINAL]
 [REWRITE]
-
+Món thường gồm cá trích, rau, dừa nạo, bánh tráng và nước chấm. Nước chấm hoặc đồ ăn kèm có thể có đậu phộng. Nếu không ăn được cá sống, cá tái hoặc có dị ứng, bạn nên hỏi rõ cách sơ chế cá và thành phần nước chấm trước khi gọi.
 [/REWRITE]
 
 ## BLOCK 005
@@ -72,7 +76,7 @@ Món thường gồm cá trích, rau, dừa nạo, bánh tráng và nước ch�
 Nên hỏi quán cá được làm trong ngày hay không, và hiện đang phục vụ theo kiểu sống, tái hay đã qua sơ chế.
 [/ORIGINAL]
 [REWRITE]
-
+Nên hỏi quán cá có được làm trong ngày không và đang phục vụ theo kiểu sống, tái hay đã qua sơ chế.
 [/REWRITE]
 
 ## BLOCK 006
@@ -84,7 +88,7 @@ Nên hỏi quán cá được làm trong ngày hay không, và hiện đang ph�
 Nước chấm có thể được pha cùng đậu phộng, vì vậy nếu bị dị ứng, bạn nên hỏi riêng quán trước khi dùng.
 [/ORIGINAL]
 [REWRITE]
-
+Nước chấm có thể được pha cùng đậu phộng. Nếu bị dị ứng, bạn nên hỏi kỹ quán trước khi dùng.
 [/REWRITE]
 
 ## BLOCK 007
@@ -96,5 +100,5 @@ Nước chấm có thể được pha cùng đậu phộng, vì vậy nếu bị
 Nếu chưa quen ăn cá sống hoặc cá tái, bạn nên gọi phần nhỏ trước để thử vị và xem cơ thể có phù hợp không.
 [/ORIGINAL]
 [REWRITE]
-
+Nếu chưa quen ăn cá sống hoặc cá tái, bạn nên gọi phần nhỏ trước để thử vị và xem có phù hợp với mình không.
 [/REWRITE]
