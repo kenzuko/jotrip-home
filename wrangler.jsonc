@@ -17,6 +17,7 @@
       "/api/feedback",
       "/api/traffic/collect",
       "/api/cms/traffic",
+      "/api/ops/traffic-summary",
       "/api/cms/feedback",
       "/api/cms/feedback/photo",
       "/api/weather/live/feedback",
