@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f7fbfd">
 <title>Sân bay Phú Quốc - Open Phu Quoc</title>
-<meta name="description" content="Chuyến bay đến và đi Phú Quốc (PQC), giờ dự kiến - thực tế, trạng thái, cửa ra máy bay, quầy check-in, băng hành lý và các thay đổi đang cần chú ý.">
+<meta name="description" content="Chuyến bay đến và đi Phú Quốc (PQC), giờ dự kiến - thực tế, trạng thái, cửa ra máy bay, quầy làm thủ tục, băng hành lý và các thay đổi đang cần chú ý.">
 <link rel="canonical" href="https://openphuquoc.com/airport/">
 <link rel="preconnect" href="https://jotrip-airport-live.kenzuko.workers.dev" crossorigin>
 <link rel="dns-prefetch" href="//jotrip-airport-live.kenzuko.workers.dev">
@@ -55,8 +55,8 @@
     <div class="source-strip">
       <span class="live-pill"><i></i> ĐANG DIỄN RA</span>
       <span id="healthPill" class="health-pill loading">ĐANG TẢI</span>
-      <span class="source-label">Dữ liệu chuyến bay · tự cập nhật</span>
-      <span id="updatedAt" class="updated-at">Đang đồng bộ dữ liệu...</span>
+      <span class="source-label">Chuyến bay · tự cập nhật</span>
+      <span id="updatedAt" class="updated-at">Đang cập nhật chuyến bay...</span>
     </div>
     <div id="errorBox" class="error-box hidden"></div>
 
@@ -86,7 +86,7 @@
         <div class="fids-columns" aria-hidden="true"><span>LỊCH</span><span>DỰ KIẾN / THỰC TẾ</span><span>CHUYẾN</span><span>HÀNH TRÌNH</span><span>TRẠNG THÁI</span><span>CỬA</span><span>QUẦY / BĂNG</span><span>THAY ĐỔI</span></div>
         <div id="fidsGrid" class="fids-grid"><div class="empty-state">Đang đồng bộ thông tin nhà ga...</div></div>
       </div>
-      <div class="fids-foot"><span>Cập nhật theo dữ liệu sân bay</span><span id="fidsUpdated"></span></div>
+      <div class="fids-foot"><span>Cập nhật theo thông tin sân bay</span><span id="fidsUpdated"></span></div>
       <div class="hidden" aria-hidden="true"><span id="nextWindowText"></span><span id="nextArrivals"></span><span id="nextDepartures"></span><span id="nextInternational"></span><span id="nextWatch"></span></div>
     </section>
 
@@ -128,9 +128,9 @@
       <div class="watch-list operation-watch-list"></div>
     </section>
     <section class="side-card" id="dataHealthCard">
-      <div class="side-head"><h3>Tình trạng dữ liệu</h3><span id="qaBadge" class="qa-badge">...</span></div>
-      <div class="health-summary"><div id="healthIcon" class="health-icon">⋯</div><div><strong id="healthTitle">ĐANG KIỂM TRA</strong><p id="healthDescription">Đang kiểm tra nguồn và độ mới của dữ liệu chuyến bay.</p></div></div>
-      <dl class="health-meta"><div><dt>Trực tiếp</dt><dd>JoTrip Live</dd></div><div><dt>Dự phòng</dt><dd>JoTrip AutoSync</dd></div><div><dt>QA</dt><dd id="qaText">-</dd></div><div><dt>Độ trễ dữ liệu</dt><dd id="dataAge">-</dd></div></dl>
+      <div class="side-head"><h3>Tình trạng cập nhật</h3><span id="qaBadge" class="qa-badge">...</span></div>
+      <div class="health-summary"><div id="healthIcon" class="health-icon">⋯</div><div><strong id="healthTitle">ĐANG KIỂM TRA</strong><p id="healthDescription">Đang kiểm tra nguồn và thời điểm cập nhật chuyến bay.</p></div></div>
+      <dl class="health-meta"><div><dt>Trực tiếp</dt><dd>JoTrip Live</dd></div><div><dt>Dự phòng</dt><dd>JoTrip AutoSync</dd></div><div><dt>QA</dt><dd id="qaText">-</dd></div><div><dt>Độ trễ cập nhật</dt><dd id="dataAge">-</dd></div></dl>
     </section>
   </aside>
 </main>
