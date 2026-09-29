@@ -8,6 +8,7 @@ const visual=read("data/visual-context.json");
 const library=read("data/photo-library.json");
 const expected={
   "knowledge_029_chua-ho-quoc":"editorial-ho-quoc-overview.webp",
+  "knowledge_136_vinwonders-visit":"editorial-vinwonders-castle.jpg",
 };
 for(const [topic,file] of Object.entries(expected)){
   assert.equal(visual.knowledge[topic]?.images?.[0]?.url,"/assets/media/"+file,topic);
@@ -34,7 +35,7 @@ for(const [topic,record] of Object.entries(visual.knowledge)){
 assert(!JSON.stringify(visual.knowledge["knowledge_035_sao-bien-rach-vem"]||{}).includes("starfish-beach-jo-library"),"Do not promote photographed starfish out of water");
 assert(visual.knowledge["knowledge_014_bai-sao"]?.images?.[0]?.url.includes("B%C3%A3i%20Sao%20Beach.jpg"),"Bãi Sao must use the geotagged exact Bãi Sao image");
 assert.equal(visual.knowledge["knowledge_013_bai-khem"]?.images?.[0]?.url,"/assets/media/editorial-bai-khem-local.jpg","Bãi Khem should use the matching local image");
-assert(visual.knowledge["knowledge_005_sunset-town"]?.images?.[0]?.url.includes("commons.wikimedia.org"),"Sunset Town should use a traceable Commons image, not an unverified local brand copy");
+assert.equal(visual.knowledge["knowledge_005_sunset-town"]?.images?.[0]?.url,"/assets/media/editorial-sunset-town-aerial.jpg","Sunset Town should use the matching local image");
 const roadTopic=visual.knowledge["knowledge_147_duong-sa-phu-quoc-qua-cac-giai-doan"];
 assert(roadTopic?.images?.length>=2,"Road-history article must retain two visually reviewed real photos");
 assert(roadTopic.images[0].url.includes("H%C3%A0m%20Ninh")&&roadTopic.images[0].url.includes("%C4%91%E1%BA%A5t"),"Road-history hero must be the visually reviewed Hàm Ninh dirt-road photo");
@@ -79,26 +80,17 @@ assert.equal(visual.knowledge["knowledge_130_beach-day"]?.images?.length,2,"Beac
 assert(visual.knowledge["knowledge_130_beach-day"].images.every(p=>/commons\.wikimedia\.org/.test(p.url)&&p.rights_status==="CC_VERIFIED"),"Beach-day images must be licensed and verifiable");
 assert(!JSON.stringify(visual.knowledge["knowledge_038_san-ho-nam-dao"]||{}).includes("editorial-snorkeling-coral"),"South-coral guide must not use unidentified library snorkeling imagery");
 assert(!JSON.stringify(visual.stories["co-bien-phu-quoc-khuat-tu-bo"]||{}).includes("Sea%20grass%20bed.jpg"),"Dahab seagrass image must not remain in the Phú Quốc story gallery");
-const retiredBrandFiles=[
-  "editorial-sunset-town-aerial.jpg",
-  "editorial-vinwonders-castle.jpg",
-  "editorial-vinwonders-show.jpg",
-  "editorial-vinwonders-royal-day.webp",
-  "editorial-grand-world-day.jpg",
-  "editorial-grand-world-canal-day.jpg",
-  "editorial-aquatopia-aerial.jpg",
-  "editorial-tinh-hoa-viet-nam.jpg",
-  "editorial-kiss-bridge-water-show.jpg"
-];
-for(const file of retiredBrandFiles){
-  assert(!JSON.stringify(visual).includes(file),"Retired unverified branded image must not return to public visual-context: "+file);
-  const item=library.items.find(x=>x.path?.endsWith(file));
-  assert(item&&item.public_eligible===false&&item.used_on?.length===0,"Retired branded library item must remain disabled: "+file);
+assert(JSON.stringify(visual).includes("editorial-sunset-town-aerial.jpg"),"Existing branded-attraction imagery is intentionally retained; do not retire it under the product-brand rule");
+assert(JSON.stringify(visual).includes("editorial-vinwonders-castle.jpg"),"Existing VinWonders attraction imagery is intentionally retained");
+const productImageBlob=JSON.stringify({
+  mam:visual.stories["mam-ruoc-an-lien-phu-quoc"],
+  pepper:visual.stories["tieu-chin-ngao-duong-phu-quoc"],
+  sim:visual.knowledge["knowledge_064_ruou-sim"]
+}).toLowerCase();
+for(const forbidden of ["sang-loi","sangloi","sáng lợi","r%C6%B0%E1%BB%A3u%20sim%20ph%C3%BA%20qu%E1%BB%91c.jpg"]){
+  assert(!productImageBlob.includes(forbidden.toLowerCase()),"Product-brand image must not return: "+forbidden);
 }
-assert((visual.places["place_vinwonders"]?.images||[]).every(p=>p.source_url&&p.url.includes("commons.wikimedia.org")),"VinWonders public images must be traceable Commons sources");
-assert((visual.places["place_grand_world"]?.images||[]).every(p=>p.source_url&&p.url.includes("commons.wikimedia.org")),"Grand World public images must be traceable Commons sources");
-assert((visual.places["place_aquatopia"]?.images||[]).every(p=>p.source_url&&p.url.includes("commons.wikimedia.org")),"Aquatopia public images must be traceable Commons sources");
-assert((visual.places["place_kiss_bridge"]?.images||[]).every(p=>p.source_url&&p.url.includes("commons.wikimedia.org")),"Kiss Bridge public images must be traceable Commons sources");
-assert(visual.places["activity_tinh_hoa_viet_nam"]?.images?.[0]?.source_label?.includes("VinWonders"),"Tinh Hoa Viet Nam should use the official operator source");
+assert(visual.knowledge["knowledge_064_ruou-sim"]?.images?.[0]?.url.includes("R%20tomentosa%20fruit.jpg"),"Rượu sim guide should use brand-neutral sim fruit imagery");
+
 
 console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");
