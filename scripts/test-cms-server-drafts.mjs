@@ -100,6 +100,7 @@ try{
   assert.equal(firstBody.revision_created,true);
   assert.equal(firstBody.draft.base_sha,SHA);
   assert.deepEqual(firstBody.draft.data,firstData);
+  assert.match(firstBody.draft.version,/^[a-f0-9]{64}$/);
   assert.equal(firstBody.history.length,1);
   assert.equal(db.revisions.length,1);
   assert.equal(db.audits.length,1);
@@ -115,7 +116,8 @@ try{
 
   const secondData={stories:[{id:"one",title:"Bản 2"}]};
   const second=await onRequest({request:request("POST",{
-    action:"save",module_id:"stories",path:"data/content.json",base_sha:SHA,data:secondData
+    action:"save",module_id:"stories",path:"data/content.json",base_sha:SHA,data:secondData,
+    expected_version:firstBody.draft.version
   }),env});
   const secondBody=await second.json();
   assert.equal(second.status,200);
@@ -124,9 +126,20 @@ try{
   assert.equal(db.revisions.length,1);
   assert.equal(db.audits.length,2);
 
+  const staleWrite=await onRequest({request:request("POST",{
+    action:"save",module_id:"stories",path:"data/content.json",base_sha:SHA,
+    data:{stories:[{id:"one",title:"Không được ghi"}]},
+    expected_version:firstBody.draft.version
+  }),env});
+  const staleBody=await staleWrite.json();
+  assert.equal(staleWrite.status,409,"Stale browser/device must not overwrite a newer server draft");
+  assert.deepEqual(staleBody.draft.data,secondData);
+  assert.equal(db.audits.length,2,"Rejected stale writes must not add audit rows");
+
   const checkpointData={stories:[{id:"one",title:"Bản 3"}]};
   const checkpoint=await onRequest({request:request("POST",{
-    action:"save",module_id:"stories",path:"data/content.json",base_sha:SHA,data:checkpointData,checkpoint:true
+    action:"save",module_id:"stories",path:"data/content.json",base_sha:SHA,data:checkpointData,checkpoint:true,
+    expected_version:secondBody.draft.version
   }),env});
   const checkpointBody=await checkpoint.json();
   assert.equal(checkpointBody.revision_created,true);
@@ -141,7 +154,8 @@ try{
   assert.equal(getBody.history.length,2);
 
   const restored=await onRequest({request:request("POST",{
-    action:"restore",path:"data/content.json",revision_id:firstRevision
+    action:"restore",path:"data/content.json",revision_id:firstRevision,
+    expected_version:getBody.draft.version
   }),env});
   const restoredBody=await restored.json();
   assert.equal(restored.status,200,JSON.stringify(restoredBody));
@@ -151,7 +165,7 @@ try{
   assert.equal(db.audits.at(-1).action,"restore");
 
   const cleared=await onRequest({request:request("POST",{
-    action:"clear",path:"data/content.json"
+    action:"clear",path:"data/content.json",expected_version:restoredBody.draft.version
   }),env});
   const clearedBody=await cleared.json();
   assert.equal(cleared.status,200);
@@ -186,7 +200,7 @@ try{
   ],{input:migration,encoding:"utf8"});
   assert.equal(sqlCheck.status,0,sqlCheck.stderr||sqlCheck.stdout);
 
-  console.log("CMS server draft PASS: auth, D1 current draft, dedupe, checkpoints, restore, clear, history and additive migration.");
+  console.log("CMS server draft PASS: auth, D1 current draft, version conflicts, dedupe, checkpoints, restore, clear, history and additive migration.");
 }finally{
   globalThis.fetch=originalFetch;
 }
