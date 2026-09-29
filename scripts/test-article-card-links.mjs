@@ -77,8 +77,12 @@ assert.match(foodJs,/Không tìm thấy món này/,
 const worker=read("worker.js");
 assert.doesNotMatch(worker,/new URL\(url\.pathname, request\.url\)/,
   "Worker must not drop article query parameters before Static Assets");
-assert.match(worker,/const assetUrl = new URL\(request\.url\)/,
-  "Worker Static Assets handoff must preserve ?id= for article routes");
+assert.match(worker,/const routedUrl=new URL\(request\.url\)/,
+  "Worker route normalization must start from the full request URL, including ?id=");
+assert.match(worker,/const assetUrl = new URL\(routedUrl\)/,
+  "Worker Static Assets handoff must preserve the normalized URL query string");
+assert.doesNotMatch(worker,/routedUrl\.search\s*=/,
+  "Locale routing must never rewrite or drop article query parameters");
 const wrangler=json("wrangler.jsonc");
 for(const route of ["/stories/article","/places/detail","/guide/article"])
   assert.ok(wrangler.assets?.run_worker_first?.includes(route),
