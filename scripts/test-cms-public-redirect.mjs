@@ -69,13 +69,23 @@ assert.equal(__test.isPublicPage("/weather/data/x.json"),false);
 assert.equal(__test.isPublicPage("/admin/"),false);
 
 const routes=JSON.parse(await readFile(new URL("./routes.json",import.meta.url),"utf8"));
-for(const required of ["/","/airport/*","/guide/*","/stories/*","/weather/*"]){
+for(const required of [
+  "/","/index.html","/airport/","/airport/index.html",
+  "/guide/","/guide/article.html","/stories/article.html",
+  "/weather/","/weather/index.html","/weather/weather-history.html",
+  "/api/cms/*","/api/weather/live/*"
+]){
   assert.ok(routes.include.includes(required),"Missing Pages Functions route "+required);
 }
-for(const rule of routes.include.filter(x=>x.endsWith("/*"))){
-  const prefix=rule.slice(0,-1);
-  const overlaps=routes.include.filter(x=>x!==rule&&x.startsWith(prefix));
-  assert.deepEqual(overlaps,[],"Overlapping _routes.json rules under "+rule+": "+overlaps.join(", "));
+for(const forbidden of [
+  "/about/*","/airport/*","/bus/*","/cano/*","/currency/*","/explore/*",
+  "/ferry/*","/food/*","/go/*","/guide/*","/hotels/*","/nearme/*",
+  "/news/*","/places/*","/stories/*","/transit/*","/utilities/*","/weather/*"
+]){
+  assert.ok(!routes.include.includes(forbidden),"Broad public wildcard would invoke Pages Functions for static assets: "+forbidden);
 }
+assert.ok(routes.include.length<=100,"Cloudflare Pages _routes.json must stay within the route rule limit");
+assert.ok(!routes.include.includes("/weather/weather-v2.js"),"Static Weather JS must bypass Pages Functions");
+assert.ok(!routes.include.includes("/weather/data/critical.json"),"Static/dedicated Weather data must not be pulled into CMS middleware routing");
 
 console.log("CMS public redirect contract PASS");
