@@ -1,4 +1,6 @@
-import {buildStoryMeta,buildKnowledgeMeta,rewriteSeoHtml} from "./functions/_shared/seo-html.js";
+import {buildStoryMeta,buildKnowledgeMeta,rewriteSeoHtml,rewriteLocaleHtml} from "./functions/_shared/seo-html.js";
+import {DEFAULT_LOCALE,splitLocalePath,localeCanServe,publishedLocales} from "./functions/_shared/i18n.js";
+import {mergeStory,mergeKnowledge} from "./functions/_shared/i18n-content.js";
 import {cleanupFeedback} from "./functions/_shared/place-feedback.js";
 import {collectTraffic} from "./functions/_shared/traffic-analytics.js";
 import {onRequest as ownerTrafficReport} from "./functions/api/cms/traffic.js";
@@ -36,13 +38,34 @@ function pickVisualImage(visual) {
     null
   );
 }
-async function storyMeta(url, env) {
+async function i18nCatalog(env,url){
+  try{return await readAssetJson(env,url,"/data/i18n/catalog.json")}
+  catch{return{locales:[{code:"vi",published:true}],availability:{stories:{vi:[]},knowledge:{vi:[]},food:{vi:[]}}}}
+}
+function availableLocales(catalog,kind,id){
+  const published=new Set((catalog?.locales||[]).filter(x=>x.published).map(x=>x.code));
+  return Object.entries(catalog?.availability?.[kind]||{})
+    .filter(([code,ids])=>published.has(code)&&Array.isArray(ids)&&ids.includes(id))
+    .map(([code])=>code);
+}
+async function storyMeta(url, env, locale=DEFAULT_LOCALE) {
   const id = url.searchParams.get("id");
   if (!id) return null;
-  const data = await readAssetJson(env, url, "/data/content.json");
-  const story = (data.stories || []).find(x => x.id === id && !["draft","pending","review","scheduled"].includes(x.status));
-  if (!story) return null;
-  return buildStoryMeta(story);
+  const [data,catalog]=await Promise.all([
+    readAssetJson(env,url,"/data/content.json"),
+    i18nCatalog(env,url)
+  ]);
+  const base = (data.stories || []).find(x => x.id === id && !["draft","pending","review","scheduled"].includes(x.status));
+  if (!base) return null;
+  let story=base;
+  if(locale!==DEFAULT_LOCALE){
+    let overlay;
+    try{overlay=await readAssetJson(env,url,"/data/i18n/"+locale+"/stories.json")}catch{return null}
+    const translated=(overlay.stories||[]).find(x=>x.id===id);
+    story=mergeStory(base,translated);
+    if(!story)return null;
+  }
+  return buildStoryMeta(story,{locale,availableLocales:availableLocales(catalog,"stories",id)});
 }
 async function placeMeta(url, env) {
   const id = url.searchParams.get("id");
@@ -67,13 +90,31 @@ async function placeMeta(url, env) {
     imageAlt: cleanText(hero?.alt || entity.name, "Open Phu Quoc")
   };
 }
-async function knowledgeMeta(url,env){
+async function knowledgeMeta(url,env,locale=DEFAULT_LOCALE){
   const id=url.searchParams.get("id");
   if(!id)return null;
-  const data=await readAssetJson(env,url,"/data/views/knowledge-public.json");
-  const article=(data.objects||[]).find(o=>o.topic_id===id);
-  if(!article)return null;
-  return buildKnowledgeMeta(article);
+  const [data,catalog]=await Promise.all([
+    readAssetJson(env,url,"/data/views/knowledge-public.json"),
+    i18nCatalog(env,url)
+  ]);
+  const base=(data.objects||[]).find(o=>o.topic_id===id);
+  if(!base)return null;
+  let article=base;
+  if(locale!==DEFAULT_LOCALE){
+    let overlay;
+    try{overlay=await readAssetJson(env,url,"/data/i18n/"+locale+"/knowledge.json")}catch{return null}
+    const translated=(overlay.objects||[]).find(x=>x.topic_id===id);
+    article=mergeKnowledge(base,translated);
+    if(!article)return null;
+  }
+  return buildKnowledgeMeta(article,{locale,availableLocales:availableLocales(catalog,"knowledge",id)});
+}
+function localizedUnavailable(){
+  return new Response("Not Found",{status:404,headers:{"Content-Type":"text/plain; charset=utf-8","X-Robots-Tag":"noindex, nofollow","Cache-Control":"public, max-age=60"}});
+}
+function technicalLocalizedAsset(pathname){
+  return /^\/(?:assets|core|data)\//.test(pathname)||
+    /\.(?:js|css|json|png|jpe?g|webp|svg|ico|woff2?|map)$/i.test(pathname);
 }
 
 export default {
@@ -93,7 +134,16 @@ export default {
       target.port="";
       return Response.redirect(target.toString(),301);
     }
-    const weatherPath=requestUrl.pathname;
+    const localeRoute=splitLocalePath(requestUrl.pathname);
+    if(localeRoute.localized){
+      if(!localeRoute.published)return localizedUnavailable();
+      if(!technicalLocalizedAsset(localeRoute.pathname)&&!localeCanServe(localeRoute.locale,localeRoute.pathname))
+        return localizedUnavailable();
+    }
+    const routedUrl=new URL(request.url);
+    if(localeRoute.localized)routedUrl.pathname=localeRoute.pathname;
+    const routedRequest=localeRoute.localized?new Request(routedUrl.toString(),request):request;
+    const weatherPath=routedUrl.pathname;
     if(weatherPath==="/weather/data/alert-history.json"&&["GET","HEAD"].includes(request.method)){
       const result=await readWeatherAlertHistory(env);
       return request.method==="HEAD"?new Response(null,{status:result.status,headers:result.headers}):result;
@@ -101,39 +151,49 @@ export default {
     if(weatherPath.startsWith("/weather/data/")||[
       "/weather/spatial-ecmwf.json","/weather/spatial-icon.json","/weather/spatial-marine.json"
     ].includes(weatherPath)){
-      return handleWeatherData(request,()=>env.ASSETS.fetch(request),ctx? p=>ctx.waitUntil(p):undefined);
+      return handleWeatherData(routedRequest,()=>env.ASSETS.fetch(routedRequest),ctx? p=>ctx.waitUntil(p):undefined);
     }
-    const path = requestUrl.pathname;
-    if (path === "/api/context/v1/weather/window") return handleWeatherWindow(request);
-    if (path === "/api/go/live") return handleGoLive(request);
-    if (path === "/api/feedback") return publicFeedback({request,env});
-    if (path === "/api/traffic/collect") return collectTraffic(request,env);
-    if (path === "/api/cms/traffic") return ownerTrafficReport({request,env});
-    if (path === "/api/cms/feedback") return adminPlaceFeedback({request,env});
-    if (path === "/api/cms/feedback/photo") return adminPlaceFeedbackPhoto({request,env});
-    if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request,env});
-    if (path === "/api/weather/live/feedback/recent" && request.method === "GET") return cmsWeatherFeedbackRecent({request,env});
+    const path = routedUrl.pathname;
+    if (path === "/api/context/v1/weather/window") return handleWeatherWindow(routedRequest);
+    if (path === "/api/go/live") return handleGoLive(routedRequest);
+    if (path === "/api/feedback") return publicFeedback({request:routedRequest,env});
+    if (path === "/api/traffic/collect") return collectTraffic(routedRequest,env);
+    if (path === "/api/cms/traffic") return ownerTrafficReport({request:routedRequest,env});
+    if (path === "/api/cms/feedback") return adminPlaceFeedback({request:routedRequest,env});
+    if (path === "/api/cms/feedback/photo") return adminPlaceFeedbackPhoto({request:routedRequest,env});
+    if (path === "/api/weather/live/feedback" && request.method === "POST") return cmsWeatherFeedbackPost({request:routedRequest,env});
+    if (path === "/api/weather/live/feedback/recent" && request.method === "GET") return cmsWeatherFeedbackRecent({request:routedRequest,env});
     if (request.method !== "GET" && request.method !== "HEAD") {
-      return env.ASSETS.fetch(request);
+      return env.ASSETS.fetch(routedRequest);
     }
-    const url = requestUrl;
+    const url = routedUrl;
+    const locale=localeRoute.locale||DEFAULT_LOCALE;
     let meta = null;
     try {
-      if (["/stories/article.html","/stories/article"].includes(url.pathname)) meta = await storyMeta(url, env);
-      else if (["/places/detail.html","/places/detail"].includes(url.pathname)) meta = await placeMeta(url, env);
-      else if (["/guide/article.html","/guide/article"].includes(url.pathname)) meta = await knowledgeMeta(url, env);
+      if (["/stories/article.html","/stories/article"].includes(url.pathname)) meta = await storyMeta(url, env, locale);
+      else if (["/places/detail.html","/places/detail"].includes(url.pathname)) meta = locale===DEFAULT_LOCALE?await placeMeta(url, env):null;
+      else if (["/guide/article.html","/guide/article"].includes(url.pathname)) meta = await knowledgeMeta(url, env, locale);
     } catch (error) {
       console.warn("social metadata lookup failed", error);
+    }
+    if(localeRoute.localized&&(["/stories/article.html","/stories/article","/guide/article.html","/guide/article"].includes(url.pathname))&&!meta)
+      return localizedUnavailable();
+    if(localeRoute.localized&&["/food/article.html","/food/article"].includes(url.pathname)){
+      const id=url.searchParams.get("id");
+      const catalog=await i18nCatalog(env,url);
+      if(!id||!availableLocales(catalog,"food",id).includes(locale))return localizedUnavailable();
     }
 
     // Preserve the original query string when handing HTML to Static Assets.
     // Cloudflare may canonicalize *.html to extensionless paths; dropping ?id=
     // here makes the client article reader lose the requested record.
-    const assetUrl = new URL(request.url);
-    const assetResponse = await env.ASSETS.fetch(new Request(assetUrl, request));
-    if (!meta || !assetResponse.ok || !(assetResponse.headers.get("content-type") || "").includes("text/html")) {
-      return assetResponse;
+    const assetUrl = new URL(routedUrl);
+    const assetResponse = await env.ASSETS.fetch(new Request(assetUrl.toString(), routedRequest));
+    if(meta)return rewriteSeoHtml(assetResponse,meta);
+    if(localeRoute.localized&&assetResponse.ok&&(assetResponse.headers.get("content-type")||"").includes("text/html")){
+      const available=publishedLocales().filter(x=>localeCanServe(x.code,url.pathname)).map(x=>x.code);
+      return rewriteLocaleHtml(assetResponse,{locale,pathname:url.pathname+url.search,availableLocales:available});
     }
-    return rewriteSeoHtml(assetResponse, meta);
+    return assetResponse;
   }
 };
