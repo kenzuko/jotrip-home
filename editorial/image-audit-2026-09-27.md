@@ -134,3 +134,14 @@ The next pass checked whether a real photo actually illustrates the article subj
 - **Tiêu chín ngào đường Phú Quốc**: removed Sáng Lợi product packaging. Replaced with licensed real Phú Quốc pepper harvest / pepper-farm images from Wikimedia Commons.
 - **Rượu sim**: removed the branded bottle image `Rượu Sim Phú Quốc.jpg` (Commons itself describes it as one of the brands). Replaced with a brand-neutral Rhodomyrtus tomentosa fruit image.
 - New lock: attraction brands are allowed when the attraction itself is the subject. Product-brand packshots are not used to illustrate a generic specialty article unless that specific brand is itself the article subject.
+
+
+## Correction 29/09/2026 - product/restaurant brand image audit wave 10
+- Re-checked latest `main` first: public canonical remains **https://openphuquoc.com**, Worker remains **openphuquoc-v3**, and the existing specialized Weather/Airport/Transit architecture is untouched.
+- Clarified the image rule again: attraction names remain valid when the attraction itself is the subject. This wave targets **generic food/editorial cards that visually inherit a specific restaurant or product brand**.
+- **Bún quậy**: removed Kiến Xây-specific cover/guide imagery and the RootyTrip/Cây Xanh image. Replaced with a generic bún quậy image from the UBND Đặc khu Phú Quốc article plus a separate Cổng du lịch Phú Quốc “ảnh sưu tầm” image.
+- **Bún kèn**: removed the `bun-ken-co-thu.jpg` source and replaced it with a generic Cổng du lịch Phú Quốc bún kèn image.
+- **Bánh canh cá thu**: removed the MIA image tied by filename/source to quán Thu Hạnh. Replaced with a generic dish image from Vietnam Airlines' Phú Quốc specialty guide.
+- **Bánh canh ghẹ**: removed the Khải Hoàn-specific image and replaced it with a generic bánh canh ghẹ image from a Phú Quốc food article.
+- **Cá sòng**: removed Minos-specific imagery from both the food card and guide; replaced with the generic Cổng du lịch Phú Quốc cá sòng nướng image.
+- Added regression guards for Kiến Xây / Cây Xanh / Cô Thu / Thu Hạnh / Khải Hoàn / Minos on these generic food surfaces. Existing Sunset Town/VinWonders attraction imagery remains explicitly protected.
