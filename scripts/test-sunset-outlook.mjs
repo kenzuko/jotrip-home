@@ -51,6 +51,61 @@ const base=(rain=0)=>({
   assert.equal(out.reason,"early_favorable");
 }
 
+
+// Morning observed rain must not be projected ten hours forward to sunset.
+{
+  const data=base(0.2);
+  data.generated_at="2026-09-29T00:20:00Z";
+  data.actual.vvpq.observed_at="2026-09-29T00:20:00Z";
+  data.actual.vvpq.weather="SHRA";
+  data.actual.rain_gauges[0]={
+    ...data.actual.rain_gauges[0],
+    observed_at:"2026-09-29T00:20:00Z",
+    rain_observed:true,
+    rain_intensity_mm_h:4
+  };
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.sampled_time="2026-09-29T00:20:00Z";
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T00:45:00Z"),
+    nowMinutes:7*60+45
+  });
+  assert.equal(out.phase,"early");
+  assert.equal(out.level,"good");
+  assert.equal(out.reason,"early_favorable");
+}
+
+// Three to six hours out, current rain still must not become a sunset warning.
+{
+  const data=base(0.2);
+  data.generated_at="2026-09-29T07:20:00Z";
+  data.actual.vvpq.observed_at="2026-09-29T07:20:00Z";
+  data.actual.vvpq.weather="SHRA";
+  data.actual.rain_gauges[0]={
+    ...data.actual.rain_gauges[0],
+    observed_at:"2026-09-29T07:20:00Z",
+    rain_observed:true,
+    rain_intensity_mm_h:4
+  };
+  for(const id of ["duong_dong","cua_can","ganh_dau"]){
+    data.points[id].nowcast.sampled_time="2026-09-29T07:20:00Z";
+  }
+  const out=sunset.assess(data,"17:56",{
+    nowMs:Date.parse("2026-09-29T07:30:00Z"),
+    nowMinutes:14*60+30
+  });
+  assert.equal(out.phase,"afternoon");
+  assert.equal(out.level,"good");
+  assert.equal(out.reason,"afternoon_favorable");
+}
+
+// Refresh cadence follows source value: hourly early, 30m in afternoon, 10m near sunset.
+assert.equal(sunset.refreshDelayMs(600),60*60*1000);
+assert.equal(sunset.refreshDelayMs(300),30*60*1000);
+assert.equal(sunset.refreshDelayMs(120),10*60*1000);
+assert.equal(sunset.refreshDelayMs(0),null);
+
 // Near sunset, a usable observed cloud track aimed at the west coast becomes a watch.
 {
   const data=base(0.1);
