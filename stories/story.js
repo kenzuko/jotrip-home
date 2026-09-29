@@ -137,7 +137,7 @@ function renderArticle(data,visualData,zones,storyLocations){
             '<p class="eyebrow">'+esc(s.category)+'</p>'+
             '<h1>'+esc(s.title)+'</h1>'+
             '<p class="dek">'+esc(s.dek)+'</p>'+
-            '<div class="article-meta">'+esc(s.read_minutes)+' PHÚT ĐỌC · OPEN PHU QUOC</div>'+
+            '<div class="article-meta">ĐỌC KHOẢNG '+esc(s.read_minutes)+' PHÚT · OPEN PHU QUOC</div>'+
           '</div>'+
           '<figure class="article-cover">'+
             '<img src="'+esc(s.image)+'" alt="'+esc(s.image_alt||s.title)+'" style="object-position:'+coverPosition(s.cover_position)+'" onerror="this.style.opacity=.18">'+
