@@ -526,6 +526,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
           let note = "Cuối chiều còn một ít bất định. Xem lại khi gần giờ hoàng hôn.";
           if (sunsetWx.reason === "observed_rain") {
             note = "Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi.";
+          } else if (sunsetWx.reason === "horizon_cloud") {
+            note = "Ảnh vệ tinh đang thấy nhiều mây trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.";
           } else if (sunsetWx.reason === "cloud_approaching") {
             note = "Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
           } else if (sunsetWx.reason === "low_visibility") {
@@ -550,9 +552,11 @@ function freshnessText(iso, prefix = "Cập nhật") {
             title:minutesToSunset <= 120
               ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
               : "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
-            note:sunsetWx.reason === "cloud_passing"
-              ? "Có mây đối lưu quanh đảo nhưng quỹ đạo hiện tại đang đi lệch hoặc đi xa bờ Tây."
-              : "Hiện chưa thấy tín hiệu thời tiết đáng ngại cho hoàng hôn bờ Tây.",
+            note:sunsetWx.reason === "horizon_clear"
+              ? "Ảnh vệ tinh hiện cho thấy hướng chân trời hoàng hôn khá ít mây."
+              : sunsetWx.reason === "cloud_passing"
+                ? "Có mây đối lưu quanh đảo nhưng quỹ đạo hiện tại đang đi lệch hoặc đi xa bờ Tây."
+                : "Hiện chưa thấy tín hiệu thời tiết đáng ngại cho hoàng hôn bờ Tây.",
             primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
