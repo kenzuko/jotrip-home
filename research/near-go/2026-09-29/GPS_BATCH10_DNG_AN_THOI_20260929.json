@@ -101,6 +101,6 @@
     ],
     "intentional_no_fixed_pin": 4
   },
-  "rebased_onto_main_sha": "d65b521a29556f0626483efa37908dcdca19bef3",
-  "ci_note": "Includes latest visual-qa article-card baseline fix; rerun required before merge."
+  "rebased_onto_main_sha": "a3378f19afc636078f43b269f333c1b964264906",
+  "ci_note": "Rerun after shared-loader Near Me test contract update and latest deploy-workflow sync."
 }
