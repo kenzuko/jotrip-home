@@ -15,10 +15,17 @@ for(const url of urls.filter(u=>u.includes("/guide/article.html?id=")||u.include
 }
 const guide=JSON.parse(readFileSync(join(root,"data/views/knowledge-public.json"),"utf8"));
 const stories=JSON.parse(readFileSync(join(root,"data/content.json"),"utf8"));
+const catalog=JSON.parse(readFileSync(join(root,"data/i18n/catalog.json"),"utf8"));
+const published=new Set((catalog.locales||[]).filter(x=>x.published).map(x=>x.code));
 const publicStories=(stories.stories||[]).filter(o=>o.id&&!["draft","pending","review","scheduled"].includes(o.status));
 const publicGuides=(guide.objects||[]).filter(o=>o.topic_id&&o.status!=="draft"&&o.public_ready!==false);
-assert.equal(urls.filter(u=>u.includes("/guide/article.html?id=")).length,publicGuides.length);
-assert.equal(urls.filter(u=>u.includes("/stories/article.html?id=")).length,publicStories.length);
+const expectedGuides=publicGuides.reduce((n,o)=>n+[...published].filter(code=>(catalog.availability?.knowledge?.[code]||[]).includes(o.topic_id)).length,0);
+const expectedStories=publicStories.reduce((n,o)=>n+[...published].filter(code=>(catalog.availability?.stories?.[code]||[]).includes(o.id)).length,0);
+assert.equal(urls.filter(u=>u.includes("/guide/article.html?id=")).length,expectedGuides);
+assert.equal(urls.filter(u=>u.includes("/stories/article.html?id=")).length,expectedStories);
+for(const locale of (catalog.locales||[]).filter(x=>!x.published)){
+  assert.ok(!urls.some(u=>new URL(u).pathname.startsWith("/"+locale.url_code+"/")),"Unpublished locale leaked into sitemap: "+locale.code);
+}
 assert.match(robots,/Disallow: \/admin\//);
 assert.ok(!robots.includes("Disallow: /data/"),"Do not block public JSON used in rendering");
 assert.match(robots,/Sitemap: https:\/\/openphuquoc.com\/sitemap.xml/);
