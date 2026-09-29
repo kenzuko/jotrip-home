@@ -49,6 +49,9 @@
       if (reason === "observed_rain") {
         return "Có điểm bờ Tây đang ghi nhận mưa. Tình hình có thể khác nhau giữa các khu vực.";
       }
+      if (reason === "horizon_cloud") {
+        return "Ảnh vệ tinh đang thấy nhiều mây trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.";
+      }
       if (reason === "cloud_approaching") {
         return "Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
       }
@@ -64,6 +67,9 @@
       return "Cuối chiều còn một ít bất định. Nên xem lại khi gần giờ hoàng hôn.";
     }
 
+    if (level === "good" && reason === "horizon_clear") {
+      return "Ảnh vệ tinh hiện cho thấy hướng chân trời hoàng hôn khá ít mây.";
+    }
     if (level === "good" && reason === "cloud_passing") {
       return "Có mây đối lưu quanh đảo nhưng quỹ đạo hiện tại đang đi lệch hoặc đi xa bờ Tây.";
     }
