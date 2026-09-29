@@ -1,7 +1,7 @@
 (() => {
   "use strict";
-  // Only the public CMS website is measured; never the admin area or preview.
-  if(location.hostname!=="cms.openphuquoc.com")return;
+  // Only the canonical public website is measured; never CMS/admin or preview hosts.
+  if(location.hostname!=="openphuquoc.com")return;
   if(/^\/(?:admin|api|cms)(?:\/|$)/.test(location.pathname))return;
   if(navigator.globalPrivacyControl===true||navigator.doNotTrack==="1"||window.doNotTrack==="1")return;
   if(/bot|crawl|spider|headless|lighthouse/i.test(navigator.userAgent||""))return;
