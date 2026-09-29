@@ -125,3 +125,14 @@ The next pass checked whether a real photo actually illustrates the article subj
 - **Một ngày đi biển**: replaced three unidentified tropical-beach/cove assets with two geotagged real Phú Quốc beach photos from 2025 (FrogsLegs71, CC BY-SA 3.0; Elmschrat, CC BY-SA 4.0).
 - **Cano 3 đảo**: removed unidentified “Mây Rút” and cove imagery; the guide now uses the actual JoTrip canoe field photo only.
 - **Lặn ống thở / San hô Nam đảo**: removed the unidentified local-library snorkeling/coral asset and reused the source-reviewed An Thới snorkeling photo as activity context. Caption explicitly does not claim coral health, exact reef identity or current visibility.
+
+
+## Correction 29/09/2026 - branded-attraction image cleanup wave 9
+- Retired all public uses of the unverified local copies for **Sunset Town, Cầu Hôn, VinWonders, Grand World, Aquatopia** and **Tinh Hoa Việt Nam**.
+- **Sunset Town**: guide, route context and place gallery now use the already-curated Wikimedia Commons Sunset Town images.
+- **Cầu Hôn**: removed the local “water show” copy; kept the two traceable Wikimedia Commons Cầu Hôn images.
+- **VinWonders**: removed three local brand-image copies; guide and place page now use the traceable Wikimedia Commons VinWonders image.
+- **Grand World**: removed both local canal/day copies; place page and the “Bắc đảo trước và sau các resort lớn” present-day context now use the traceable Wikimedia Commons Grand World image.
+- **Aquatopia**: removed the local aerial copy; kept the two traceable Wikimedia Commons Aquatopia images.
+- **Tinh Hoa Việt Nam**: removed the unidentified local copy and kept the image served from the official VinWonders operator source, with reuse permission still explicitly marked unverified.
+- The nine retired files remain in the repository only as inactive archive material. Their photo-library records are now `public_eligible=false`, have empty `used_on`, and a regression test prevents them from re-entering public visual-context.

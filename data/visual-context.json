@@ -824,15 +824,6 @@
     "place_sunset_town": {
       "images": [
         {
-          "url": "/assets/media/editorial-sunset-town-aerial.jpg",
-          "alt": "Sunset Town và Cầu Hôn nhìn từ trên cao lúc chiều",
-          "caption": "Toàn cảnh Sunset Town và Cầu Hôn trong ánh chiều; ảnh từ kho JoTrip.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary"
-        },
-        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset-town-phu-quoc-2.jpg?width=1800",
           "alt": "Sunset Town Phú Quốc",
           "caption": "Sunset Town nhìn từ khu vực ven biển phía Nam đảo.",
@@ -841,7 +832,8 @@
           "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg",
           "captured_at": "2026-03-28",
           "hero_priority": "primary",
-          "visual_quality": "hero"
+          "visual_quality": "hero",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20Town%20Phu%20Quoc%20at%20night.jpg?width=1800",
@@ -852,7 +844,8 @@
           "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_Town_Phu_Quoc_at_night.jpg",
           "captured_at": "2026-04-25",
           "hero_priority": "preferred",
-          "visual_quality": "hero"
+          "visual_quality": "hero",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ],
       "infographic": [
@@ -887,7 +880,8 @@
           "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_at_sunset_Phu_Quoc_Island_Vietnam.jpg",
           "captured_at": "2026-03-14",
           "hero_priority": "primary",
-          "visual_quality": "hero"
+          "visual_quality": "hero",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Kiss%20Bridge%20Phu%20Quoc%20aerial%20sunset%20view.jpg?width=1800",
@@ -898,16 +892,8 @@
           "source_url": "https://commons.wikimedia.org/wiki/File:Kiss_Bridge_Phu_Quoc_aerial_sunset_view.jpg",
           "captured_at": "2026",
           "hero_priority": "preferred",
-          "visual_quality": "hero"
-        },
-        {
-          "url": "/assets/media/editorial-kiss-bridge-water-show.jpg",
-          "alt": "Cầu Hôn và khu vực trình diễn trên mặt nước nhìn từ trên cao",
-          "caption": "Cầu Hôn nhìn cùng không gian trình diễn trên biển; ảnh từ kho JoTrip.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "preferred"
+          "visual_quality": "hero",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ],
       "infographic": [
@@ -980,37 +966,13 @@
     "place_vinwonders": {
       "images": [
         {
-          "url": "/assets/media/editorial-vinwonders-castle.jpg",
-          "alt": "Tòa lâu đài ở VinWonders Phú Quốc",
-          "caption": "Khu lâu đài tại VinWonders Phú Quốc.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-vinwonders-show.jpg",
-          "alt": "Các nhân vật biểu diễn tại VinWonders Phú Quốc",
-          "caption": "Không khí vui chơi tại VinWonders Phú Quốc.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%20%28C%C3%B4ng%20vi%C3%AAn%20ch%E1%BB%A7%20%C4%91%E1%BB%81%2C%20%C4%91u%20quay%20nh%C3%ACn%20xa%29%20%282%29.jpg?width=1800",
           "alt": "VinWonders Phú Quốc",
           "caption": "Một góc VinWonders Phú Quốc.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Phương Huy",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA_Qu%E1%BB%91c_2022_(C%C3%B4ng_vi%C3%AAn_ch%E1%BB%A7_%C4%91%E1%BB%81,_đu_quay_nh%C3%ACn_xa)_(2).jpg"
-        },
-        {
-          "url": "/assets/media/editorial-vinwonders-royal-day.webp",
-          "alt": "Khu lâu đài và quảng trường VinWonders Phú Quốc",
-          "caption": "Không gian VinWonders vào ban ngày; ảnh từ kho JoTrip.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "preferred"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA_Qu%E1%BB%91c_2022_(C%C3%B4ng_vi%C3%AAn_ch%E1%BB%A7_%C4%91%E1%BB%81,_đu_quay_nh%C3%ACn_xa)_(2).jpg",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ],
       "infographic": [
@@ -1092,30 +1054,13 @@
     "place_grand_world": {
       "images": [
         {
-          "url": "/assets/media/editorial-grand-world-canal-day.jpg",
-          "alt": "Kênh đào Grand World và dãy nhà nhiều màu vào ban ngày",
-          "caption": "Grand World nhìn dọc kênh đào vào ban ngày; ảnh từ kho JoTrip.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary"
-        },
-        {
-          "url": "/assets/media/editorial-grand-world-day.jpg",
-          "alt": "Kênh đào và những dãy nhà nhiều màu tại Grand World Phú Quốc",
-          "caption": "Grand World nhìn dọc kênh đào vào ban ngày. Ảnh từ kho JoTrip, chưa xác minh tác giả.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary"
-        },
-        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2023-07-30%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20193144.jpg?width=1800",
           "alt": "Grand World Phú Quốc buổi tối",
           "caption": "Một góc Grand World Phú Quốc vào buổi tối.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - 松岡明芳",
-          "source_url": "https://commons.wikimedia.org/wiki/File:2023-07-30_Grand_World_Ph%C3%BA_Qu%E1%BB%91c_193144.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:2023-07-30_Grand_World_Ph%C3%BA_Qu%E1%BB%91c_193144.jpg",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ],
       "map": {
@@ -1198,21 +1143,13 @@
     "place_aquatopia": {
       "images": [
         {
-          "url": "/assets/media/editorial-aquatopia-aerial.jpg",
-          "alt": "Công viên nước Aquatopia nhìn từ trên cao",
-          "caption": "Toàn cảnh các cụm máng trượt Aquatopia tại Hòn Thơm; ảnh từ kho JoTrip.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary"
-        },
-        {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aquatopia%20in2026.jpg?width=1800",
           "alt": "Aquatopia trên Hòn Thơm năm 2026",
           "caption": "Aquatopia trên Hòn Thơm, ảnh chụp tháng 8/2026.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - 黛梓",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Aquatopia_in2026.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Aquatopia_in2026.jpg",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         },
         {
           "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cong-vien-nuoc-aquatopia-5.jpg?width=1800",
@@ -1220,7 +1157,8 @@
           "caption": "Một góc công viên nước Aquatopia trên Hòn Thơm.",
           "scope": "exact_subject",
           "source_label": "Wikimedia Commons - Vivu Vietnam",
-          "source_url": "https://commons.wikimedia.org/wiki/File:Cong-vien-nuoc-aquatopia-5.jpg"
+          "source_url": "https://commons.wikimedia.org/wiki/File:Cong-vien-nuoc-aquatopia-5.jpg",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ],
       "map": {
@@ -1990,25 +1928,17 @@
     "activity_tinh_hoa_viet_nam": {
       "images": [
         {
-          "url": "/assets/media/editorial-tinh-hoa-viet-nam.jpg",
-          "alt": "Sân khấu Tinh hoa Việt Nam tại Grand World về đêm",
-          "caption": "Một cảnh trình diễn Tinh hoa Việt Nam tại Grand World; ảnh từ kho JoTrip.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary"
-        },
-        {
           "url": "https://static.vinwonders.com/2022/05/check-in-grand-world-phu-quoc-03.jpg",
           "alt": "Sân khấu biểu diễn Tinh Hoa Việt Nam tại Grand World",
           "caption": "Một cảnh biểu diễn của Tinh Hoa Việt Nam. Lịch show cần kiểm tra đúng ngày.",
-          "scope": "exact_subject",
+          "scope": "official_operator_context",
           "source_label": "VinWonders - Tinh Hoa Việt Nam",
           "source_url": "https://vinwonders.com/vi/wonderpedia/news/check-in-grand-world-phu-quoc/",
           "published_at": "2022",
           "hero_priority": "primary",
           "reviewed_at": "2026-09-25",
-          "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution."
+          "usage_note": "External source; verify media reuse rights according to source/operator partnership before redistribution.",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
         }
       ]
     },
@@ -2679,13 +2609,28 @@
       "title": "Sunset Town",
       "images": [
         {
-          "url": "/assets/media/editorial-sunset-town-aerial.jpg",
-          "alt": "Sunset Town và Cầu Hôn nhìn từ trên cao",
-          "caption": "Ảnh toàn cảnh Nam đảo, đúng chủ thể Sunset Town.",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset-town-phu-quoc-2.jpg?width=1800",
+          "alt": "Sunset Town Phú Quốc",
+          "caption": "Sunset Town nhìn từ khu vực ven biển phía Nam đảo.",
           "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary"
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg",
+          "captured_at": "2026-03-28",
+          "hero_priority": "primary",
+          "visual_quality": "hero",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
+        },
+        {
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset%20Town%20Phu%20Quoc%20at%20night.jpg?width=1800",
+          "alt": "Sunset Town Phú Quốc về đêm",
+          "caption": "Sunset Town về đêm trong thời gian diễn ra Kiss of the Sea.",
+          "scope": "exact_subject",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset_Town_Phu_Quoc_at_night.jpg",
+          "captured_at": "2026-04-25",
+          "hero_priority": "preferred",
+          "visual_quality": "hero",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ]
     },
@@ -3631,13 +3576,16 @@
       "title": "Từ sân bay về An Thới/Sunset Town",
       "images": [
         {
-          "url": "/assets/media/editorial-sunset-town-aerial.jpg",
-          "alt": "Sunset Town và Cầu Hôn nhìn từ trên cao",
-          "caption": "Ảnh nhận diện khu Sunset Town ở Nam đảo; dùng làm bối cảnh điểm đến.",
-          "scope": "context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "preferred"
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Sunset-town-phu-quoc-2.jpg?width=1800",
+          "alt": "Sunset Town Phú Quốc",
+          "caption": "Sunset Town ở Nam đảo, dùng làm bối cảnh điểm đến cho chặng từ sân bay về An Thới/Sunset Town.",
+          "scope": "destination_context",
+          "source_label": "Wikimedia Commons - Vivu Vietnam",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Sunset-town-phu-quoc-2.jpg",
+          "captured_at": "2026-03-28",
+          "hero_priority": "primary",
+          "visual_quality": "hero",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ]
     },
@@ -4080,29 +4028,13 @@
       "title": "Đi VinWonders",
       "images": [
         {
-          "url": "/assets/media/editorial-vinwonders-castle.jpg",
-          "alt": "Tòa lâu đài ở VinWonders Phú Quốc",
-          "caption": "Khu lâu đài tại VinWonders Phú Quốc.",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Ph%C3%BA%20Qu%E1%BB%91c%202022%20%28C%C3%B4ng%20vi%C3%AAn%20ch%E1%BB%A7%20%C4%91%E1%BB%81%2C%20%C4%91u%20quay%20nh%C3%ACn%20xa%29%20%282%29.jpg?width=1800",
+          "alt": "VinWonders Phú Quốc",
+          "caption": "Một góc VinWonders Phú Quốc.",
           "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-vinwonders-show.jpg",
-          "alt": "Các nhân vật biểu diễn tại VinWonders Phú Quốc",
-          "caption": "Không khí vui chơi tại VinWonders Phú Quốc.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null
-        },
-        {
-          "url": "/assets/media/editorial-vinwonders-royal-day.webp",
-          "alt": "Quảng trường và lâu đài VinWonders Phú Quốc",
-          "caption": "Không gian VinWonders ban ngày từ kho JoTrip.",
-          "scope": "exact_subject",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "preferred"
+          "source_label": "Wikimedia Commons - Phương Huy",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Ph%C3%BA_Qu%E1%BB%91c_2022_(C%C3%B4ng_vi%C3%AAn_ch%E1%BB%A7_%C4%91%E1%BB%81,_đu_quay_nh%C3%ACn_xa)_(2).jpg",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ]
     },
@@ -4494,14 +4426,13 @@
       "title": "Bắc đảo trước và sau các resort lớn",
       "images": [
         {
-          "url": "/assets/media/editorial-grand-world-canal-day.jpg",
-          "alt": "Kênh đào Grand World và dãy nhà nhiều màu vào ban ngày",
-          "caption": "Grand World ở Bắc đảo trong giai đoạn phát triển, bối cảnh hiện tại. Không phải ảnh Bắc đảo trước khi xây dựng.",
+          "url": "https://commons.wikimedia.org/wiki/Special:Redirect/file/2023-07-30%20Grand%20World%20Ph%C3%BA%20Qu%E1%BB%91c%20193144.jpg?width=1800",
+          "alt": "Grand World Phú Quốc buổi tối",
+          "caption": "Grand World ở Bắc đảo trong giai đoạn phát triển hiện nay. Ảnh dùng làm bối cảnh hiện tại, không phải ảnh Bắc đảo trước khi xây dựng.",
           "scope": "present_day_context",
-          "source_label": "Internet (kho JoTrip)",
-          "source_url": null,
-          "hero_priority": "primary",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "source_label": "Wikimedia Commons - 松岡明芳",
+          "source_url": "https://commons.wikimedia.org/wiki/File:2023-07-30_Grand_World_Ph%C3%BA_Qu%E1%BB%91c_193144.jpg",
+          "rights_status": "LICENSE_LISTED_VERIFY_SOURCE"
         }
       ]
     },
