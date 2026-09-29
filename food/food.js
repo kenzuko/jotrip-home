@@ -125,8 +125,15 @@ function renderArticle(){
   const host=$("#foodArticle");
   if(!host)return;
   const id=new URLSearchParams(location.search).get("id");
-  const dish=state.data.dishes.find(x=>x.id===(id==="chao-ca"?"chao-cha":id))||state.data.dishes[0];
-  if(!dish)return;
+  const resolvedId=id==="chao-ca"?"chao-cha":id;
+  const dish=state.data.dishes.find(x=>x.id===resolvedId);
+  if(!id||!dish){
+    document.title="Không tìm thấy món - Open Phu Quoc";
+    host.removeAttribute("data-food-id");
+    host.innerHTML='<div class="empty"><strong>Không tìm thấy món này.</strong><p>Món có thể đã đổi địa chỉ hoặc chưa được công khai.</p><p><a href="index.html">← Xem tất cả món</a></p></div>';
+    const more=$("#moreDishes");if(more)more.innerHTML="";
+    return;
+  }
 
   document.title=dish.name+" - Open Phu Quoc";
 
