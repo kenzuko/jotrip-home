@@ -1,0 +1,194 @@
+{
+  "version": "1.0",
+  "source_locale": "vi",
+  "source_revision_strategy": "git_blob_sha1",
+  "target_locales": [
+    {
+      "code": "en",
+      "label": "English"
+    },
+    {
+      "code": "ko",
+      "label": "Korean"
+    },
+    {
+      "code": "ru",
+      "label": "Russian"
+    },
+    {
+      "code": "lo",
+      "label": "Lao"
+    },
+    {
+      "code": "zh-Hans",
+      "label": "Chinese - Simplified"
+    },
+    {
+      "code": "zh-Hant",
+      "label": "Chinese - Traditional"
+    },
+    {
+      "code": "fr",
+      "label": "French"
+    }
+  ],
+  "statuses": {
+    "missing": "No translation artifact exists yet.",
+    "machine_draft": "Machine-assisted draft exists but is not approved for publication.",
+    "human_review": "Human-reviewed translation is approved editorially but has not been published yet.",
+    "published": "Published translation matches the current Vietnamese source revision.",
+    "stale": "Translation exists but its recorded Vietnamese source revision is no longer current."
+  },
+  "rules": [
+    "Vietnamese is the editorial source of truth for registered translation families.",
+    "Machine output never becomes published automatically.",
+    "A translation may be published only after human review.",
+    "Any source revision change makes a previously published translation stale until it is reviewed against the new source.",
+    "Missing targets do not require placeholder files or bulk translation.",
+    "Translation lifecycle metadata does not grant CMS permissions and does not change public routing."
+  ],
+  "families": [
+    {
+      "id": "food",
+      "source_id": "food-vi",
+      "source_path": "data/i18n/vi/food.json",
+      "target_path_pattern": "data/i18n/{locale}/food.json",
+      "targets": {
+        "en": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "ko": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "ru": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "lo": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "zh-Hans": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "zh-Hant": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "fr": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        }
+      }
+    },
+    {
+      "id": "knowledge",
+      "source_id": "knowledge-objects",
+      "source_path": "data/knowledge/objects.json",
+      "target_path_pattern": null,
+      "targets": {
+        "en": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "ko": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "ru": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "lo": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "zh-Hans": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "zh-Hant": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "fr": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        }
+      }
+    }
+  ]
+}
