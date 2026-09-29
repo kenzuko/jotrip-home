@@ -63,7 +63,9 @@ assert(!(visual.knowledge["knowledge_140_duong-dong-truoc-va-sau-do-thi-hoa"]?.i
 assert.equal(visual.knowledge["knowledge_142_ham-ninh-truoc-va-sau-chinh-trang"]?.images?.length,1,"Hàm Ninh change story must not present a pre-2019 beach photo as the after view");
 assert.equal(visual.food["ca-mu-hap"]?.images?.length,0,"Cá mú card must stay photo-free until an actual cá mú image is verified");
 assert(!JSON.stringify(visual.food["tom-mu-ni-nuong"]||{}).toLowerCase().includes("con-dao"),"Phú Quốc slipper-lobster card must not reuse a Côn Đảo photo");
-assert(visual.food["tom-mu-ni-nuong"]?.images?.[0]?.url.includes("dac-san-hai-san-phu-quoc-5"),"Slipper-lobster card should use the reviewed exact-dish image from a Phú Quốc food article");
+assert(visual.food["tom-mu-ni-nuong"]?.images?.[0]?.url.includes("tom-mu-ni-phu-quoc.jpg"),"Slipper-lobster card should use the reviewed exact-dish image from a Phú Quốc food article");
+assert.equal(visual.food["tom-mu-ni-nuong"]?.images?.[0]?.scope,"exact_dish_context","Slipper-lobster image must stay exact-dish context, not a restaurant claim");
+assert(visual.food["tom-mu-ni-nuong"]?.images?.[0]?.source_url?.includes("gostay.vn"),"Slipper-lobster image should keep the reviewed Phú Quốc food-article source");
 assert(!JSON.stringify(visual.food["com-ghe-ham-ninh"]||{}).includes("trung-duong-marina"),"Hàm Ninh crab-rice card must not imply a Dương Đông restaurant photo is Hàm Ninh");
 assert.equal(visual.knowledge["knowledge_023_hon-gam-ghi"]?.images?.length,0,"Hòn Gầm Ghì stays photo-free until the exact island is visually verified");
 assert(!(visual.stories["an-thoi-ben-ca-va-cua-ngo-dao"]?.images||[]).some(p=>p.url.startsWith("/assets/media/editorial-fishing-fleet.jpg")),"An Thoi story must not use unidentified fishing-fleet imagery");
