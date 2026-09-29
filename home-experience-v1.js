@@ -26,11 +26,22 @@
 
     if (remain > 360) {
       if (level === "bad") {
-        return reason === "forecast_rain"
-          ? "Dự báo cuối chiều có tín hiệu mưa đáng kể ở bờ Tây. Hệ thống sẽ kiểm tra lại khi gần hoàng hôn."
-          : "Cuối chiều có tín hiệu thời tiết cần lưu ý ở bờ Tây. Hệ thống sẽ kiểm tra lại khi gần hoàng hôn.";
+        if (reason === "forecast_rain") {
+          const areas=(Array.isArray(outlook?.forecast_rain_likely_points)&&outlook.forecast_rain_likely_points.length
+            ? outlook.forecast_rain_likely_points
+            : outlook?.forecast_rain_points||[]).filter(Boolean);
+          if (areas.length === 1) return "Dự báo cuối chiều cho thấy khả năng mưa rào rõ hơn quanh " + areas[0] + ". Hệ thống sẽ kiểm tra lại khi gần hoàng hôn.";
+          if (areas.length === 2) return "Dự báo cuối chiều cho thấy khả năng mưa rào rõ hơn quanh " + areas.join(" và ") + ". Hệ thống sẽ kiểm tra lại khi gần hoàng hôn.";
+          if (areas.length >= 3) return "Dự báo cuối chiều cho thấy khả năng mưa rào rải rác dọc bờ Tây. Hệ thống sẽ kiểm tra lại khi gần hoàng hôn.";
+          return "Dự báo cuối chiều có tín hiệu mưa đáng kể ở bờ Tây. Hệ thống sẽ kiểm tra lại khi gần hoàng hôn.";
+        }
+        return "Cuối chiều có tín hiệu thời tiết cần lưu ý ở bờ Tây. Hệ thống sẽ kiểm tra lại khi gần hoàng hôn.";
       }
       if (level === "watch" && reason === "forecast_rain") {
+        const areas=(outlook?.forecast_rain_points||[]).filter(Boolean);
+        if (areas.length === 1) return "Cuối chiều có thể có mưa rào cục bộ quanh " + areas[0] + ". Các khu khác của bờ Tây chưa thấy tín hiệu đáng kể.";
+        if (areas.length === 2) return "Cuối chiều có thể có mưa rào cục bộ quanh " + areas.join(" và ") + ".";
+        if (areas.length >= 3) return "Cuối chiều có thể có mưa rào rải rác ở một số nơi dọc bờ Tây.";
         return "Cuối chiều còn một ít bất định về mưa. Hệ thống sẽ cập nhật lại khi gần hoàng hôn.";
       }
       if (level === "unknown") {
@@ -65,6 +76,10 @@
         return "Có mây đối lưu quanh khu vực, nhưng chưa đủ bằng chứng để coi là mưa tại bờ Tây.";
       }
       if (reason === "forecast_rain") {
+        const areas=(outlook?.forecast_rain_points||[]).filter(Boolean);
+        if (areas.length === 1) return "Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh " + areas[0] + ".";
+        if (areas.length === 2) return "Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh " + areas.join(" và ") + ".";
+        if (areas.length >= 3) return "Dự báo quanh giờ hoàng hôn có thể có mưa rào rải rác dọc bờ Tây.";
         return "Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Sẽ tiếp tục cập nhật khi gần giờ.";
       }
       return "Cuối chiều còn một ít bất định. Nên xem lại khi gần giờ hoàng hôn.";
@@ -85,7 +100,31 @@
     return "Tình hình cuối chiều chưa đủ rõ. Hệ thống sẽ cập nhật lại khi gần hoàng hôn.";
   }
 
+  function renderDayWatch() {
+    const host = $("#tripDayWatch");
+    if (!host) return;
+    const selector = window.OpenPQDayWatch;
+    const candidates = window.OPENPQ_HOME?.signals?.day_watch_candidates || [];
+    const sunsetWeather = window.OPENPQ_HOME?.signals?.sunset_weather || null;
+    const items = selector?.select
+      ? selector.select(candidates,{sunsetWeather,maxItems:2})
+      : [];
+    if (!items.length) {
+      host.hidden = true;
+      host.innerHTML = "";
+      return;
+    }
+    host.hidden = false;
+    host.innerHTML = items.map(item => {
+      const body = '<span>'+esc(item.text)+'</span>';
+      return item.href
+        ? '<a class="trip-day-watch-line" data-level="'+esc(item.level||"watch")+'" href="'+esc(item.href)+'">'+body+'</a>'
+        : '<div class="trip-day-watch-line" data-level="'+esc(item.level||"watch")+'">'+body+'</div>';
+    }).join("");
+  }
+
   function renderDayLeft() {
+    renderDayWatch();
     const value = $("#tripClockDaylight");
     const note = $("#tripClockDayNote");
     const sunsetBlock = document.querySelector(".trip-sunset");
