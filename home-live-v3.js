@@ -391,7 +391,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
   Promise.allSettled([
     getJson(SRC.critical),
-    getJson(SRC.marineOps),
+    getJson(SRC.marineOps + (SRC.marineOps.includes("?") ? "&" : "?") + "t=" + Date.now()),
     getAirport(),
     getText(SRC.airportHistoryBase + "/" + vnDateKey() + "/events.jsonl"),
     window.OpenPQPublicData?.json
@@ -446,7 +446,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
       marine ? stateText(canoState) : "Chưa có tin mới",
       !marine ? "Chưa có cập nhật hôm nay" : canoState === "FIELD_REQUIRED" ? "Chưa có cập nhật hôm nay" : "Cano Nam đảo",
       !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "good" : canoState === "SUSPENDED" ? "bad" : canoState === "FIELD_REQUIRED" ? "watch" : "unknown",
-      marine ? freshnessText(marineStamp) : "Chưa biết lần cập nhật gần nhất"
+      marine ? freshnessText(canoEvidence?.source_updated_at || marineStamp) : "Chưa biết lần cập nhật gần nhất"
     );
 
     const sunset = sunsetFor();
@@ -1087,7 +1087,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           context: !marine ? "Chưa có cập nhật hôm nay" : canoState === "FIELD_REQUIRED" ? "Chưa có cập nhật hôm nay" : "Khu vực Nam đảo",
           status: !marine ? "unknown" : ["RUNNING", "DIRECT_CONFIRMED"].includes(canoState) ? "normal" : ["SUSPENDED", "FIELD_REQUIRED"].includes(canoState) ? "watch" : "unknown",
           source_class: "DIRECT_OPERATIONAL",
-          source_updated_at: marineStamp,
+          source_updated_at: canoEvidence?.source_updated_at || marineStamp,
           freshness: canoEvidence?.freshness || "unknown",
           detail_url: "cano/"
         },
