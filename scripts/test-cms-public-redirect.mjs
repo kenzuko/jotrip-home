@@ -54,6 +54,12 @@ for(const path of [
 }
 {
   const {result,nextCalls}=await run("https://jotrip-home.pages.dev/guide/article.html?id=x");
+  assert.equal(nextCalls,0);
+  assert.equal(result.status,301);
+  assert.equal(result.headers.get("location"),"https://openphuquoc.com/guide/article.html?id=x");
+}
+{
+  const {result,nextCalls}=await run("https://fix-branch.jotrip-home.pages.dev/guide/article.html?id=x");
   assert.equal(nextCalls,1);
   assert.equal(result.status,200);
 }
@@ -65,6 +71,7 @@ for(const path of [
 
 assert.equal(__test.isPublicPage("/"),true);
 assert.equal(__test.isPublicPage("/airport/"),true);
+assert.equal(__test.isPublicPage("/airport"),true);
 assert.equal(__test.isPublicPage("/weather/data/x.json"),false);
 assert.equal(__test.isPublicPage("/admin/"),false);
 
@@ -86,6 +93,7 @@ for(const forbidden of [
   assert.ok(!routes.include.includes(forbidden),"Broad public wildcard would invoke Pages Functions for static assets: "+forbidden);
 }
 assert.ok(routes.include.length<=100,"Cloudflare Pages _routes.json must stay within the route rule limit");
+assert.ok(!routes.include.includes("/api/traffic/collect"),"Legacy CMS Pages must not receive canonical traffic collection");
 const routeCovers=(rule,path)=>rule.endsWith("*")?path.startsWith(rule.slice(0,-1)):rule===path;
 assert.ok(!routes.include.some(rule=>routeCovers(rule,"/weather/weather-v2.js")),"Static Weather JS must bypass Pages Functions");
 assert.ok(routes.include.some(rule=>routeCovers(rule,"/weather/data/critical.json")),"CMS live Weather data must keep its dedicated Pages Function route");
