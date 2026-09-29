@@ -73,6 +73,7 @@ for(const required of [
   "/","/index.html","/airport/","/airport/index.html",
   "/guide/","/guide/article.html","/stories/article.html",
   "/weather/","/weather/index.html","/weather/weather-history.html",
+  "/weather/data/*","/weather/spatial-ecmwf.json",
   "/api/cms/*","/api/weather/live/*"
 ]){
   assert.ok(routes.include.includes(required),"Missing Pages Functions route "+required);
@@ -85,7 +86,8 @@ for(const forbidden of [
   assert.ok(!routes.include.includes(forbidden),"Broad public wildcard would invoke Pages Functions for static assets: "+forbidden);
 }
 assert.ok(routes.include.length<=100,"Cloudflare Pages _routes.json must stay within the route rule limit");
-assert.ok(!routes.include.includes("/weather/weather-v2.js"),"Static Weather JS must bypass Pages Functions");
-assert.ok(!routes.include.includes("/weather/data/critical.json"),"Static/dedicated Weather data must not be pulled into CMS middleware routing");
+const routeCovers=(rule,path)=>rule.endsWith("*")?path.startsWith(rule.slice(0,-1)):rule===path;
+assert.ok(!routes.include.some(rule=>routeCovers(rule,"/weather/weather-v2.js")),"Static Weather JS must bypass Pages Functions");
+assert.ok(routes.include.some(rule=>routeCovers(rule,"/weather/data/critical.json")),"CMS live Weather data must keep its dedicated Pages Function route");
 
 console.log("CMS public redirect contract PASS");
