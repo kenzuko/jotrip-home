@@ -4951,7 +4951,7 @@ body.sheet-open{
     display:inline-block;
     margin:7px 0 0;
   }
-  .curiosity-toggle{
+  .curiosity-story-link{
     grid-template-columns:92px minmax(0,1fr);
     min-height:128px;
   }
