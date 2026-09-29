@@ -41,20 +41,18 @@
       const h = Math.floor(remain / 60), m = remain % 60;
       value.textContent = "Còn " + h + (m >= 15 ? " giờ " + m + " phút" : " giờ") + " tới hoàng hôn";
       if (sunsetWeatherLevel === "bad") {
-        note.textContent = "Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn. Quan sát thêm dự báo trước khi di chuyển.";
-      } else if (sunsetWeatherLevel === "watch") {
-        note.textContent = "Cuối chiều có thể có mưa cục bộ ở bờ Tây. Quan sát thêm dự báo trước khi di chuyển.";
+        note.textContent = "Bờ Tây có tín hiệu mưa hoặc dông đáng chú ý gần giờ hoàng hôn. Xem dự báo khu vực trước khi di chuyển.";
       } else {
-        note.textContent = "Hoàng hôn bờ Tây phụ thuộc mưa và mây chiều nay. Quan sát thêm dự báo trước khi di chuyển.";
+        note.textContent = "Hôm nay nhìn chung khá thuận lợi. Cuối chiều có thể có mây hoặc mưa thoáng qua vài nơi.";
       }
     } else if (remain > 0) {
       value.textContent = "Còn khoảng " + remain + " phút tới hoàng hôn";
       if (sunsetWeatherLevel === "bad") {
-        note.textContent = "Bờ Tây có tín hiệu mưa hoặc dông gần giờ hoàng hôn. Quan sát thêm dự báo trước khi di chuyển.";
+        note.textContent = "Bờ Tây có tín hiệu mưa hoặc dông đáng chú ý gần giờ hoàng hôn. Xem dự báo khu vực trước khi di chuyển.";
       } else if (sunsetWeatherLevel === "watch") {
-        note.textContent = "Có thể có mưa cục bộ ở bờ Tây. Quan sát thêm dự báo trước khi di chuyển.";
+        note.textContent = "Tình hình nhìn chung vẫn khá ổn. Cuối chiều có thể có mây hoặc mưa thoáng qua vài nơi.";
       } else {
-        note.textContent = "Hoàng hôn bờ Tây phụ thuộc mưa và mây chiều nay. Quan sát thêm dự báo trước khi di chuyển.";
+        note.textContent = "Tình hình hiện khá thuận lợi cho cuối chiều. Mây và mưa cục bộ vẫn có thể thay đổi nhanh.";
       }
     } else if (now.total < 21 * 60) {
       value.textContent = "Đã sang nhịp buổi tối";
