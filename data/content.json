@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-09-27",
+  "updated": "2026-09-29",
   "stories": [
     {
       "id": "mui-cay-cua-dat-do",
@@ -135,7 +135,7 @@
     },
     {
       "id": "nhung-doi-mat-tren-mui-ghe",
-      "category": "NGHỀ BIỂN · LOCAL NOTE",
+      "category": "NGHỀ BIỂN · GHI CHÚ BẢN ĐỊA",
       "title": "Đôi mắt sơn trên mũi ghe",
       "dek": "Trên mũi nhiều chiếc ghe ở Phú Quốc có đôi mắt được sơn nổi bật. Đó là chi tiết gắn với tín ngưỡng người đi biển, hiện diện giữa một bến cá vẫn làm việc mỗi ngày.",
       "read_minutes": 3,
@@ -560,7 +560,7 @@
     {
       "id": "cap-treo-hon-thom-vuot-bien",
       "category": "HÒN THƠM · CÁP TREO",
-      "title": "Cáp treo Hòn Thơm: nhìn quần đảo từ trên biển",
+      "title": "Cáp treo Hòn Thơm: nhìn quần đảo từ trên cao",
       "dek": "Cáp treo Hòn Thơm mở ra góc nhìn từ trên cao xuống quần đảo phía Nam. Một chuyến đi nên tính cả thời tiết, giờ vận hành và những hoạt động muốn làm khi tới đảo.",
       "read_minutes": 2,
       "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Hon%20Thom%20Cable%20Car%20aerial%20view%20Phu%20Quoc%20Island%20Vietnam.jpg?width=1600",
