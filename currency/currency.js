@@ -211,7 +211,7 @@ function currentSearchResult(code,amount){
   if(amount && Number.isFinite(buy.value)){
     return '<button class="search-result" type="button" data-search-action="convert" data-search-code="'+code+'" data-search-amount="'+amount+'"><span><strong>'+formatAmount(amount)+' '+code+' ≈ '+formatVnd(amount*buy.value)+'</strong><small>'+buy.label+' Vietcombank · tỷ giá hiện tại</small></span><b>→</b></button>';
   }
-  return '<button class="search-result" type="button" data-search-action="inspect" data-search-code="'+code+'"><span><strong>'+code+' · '+formatRate(buy.value)+' ₫</strong><small>Mua tiền mặt '+formatRate(number(item.cash_buy))+' · CK '+formatRate(number(item.transfer_buy))+' · Bán '+formatRate(number(item.sell))+'</small></span><b>Chi tiết</b></button>';
+  return '<button class="search-result" type="button" data-search-action="inspect" data-search-code="'+code+'"><span><strong>'+code+' · '+formatRate(buy.value)+' ₫</strong><small>Mua tiền mặt '+formatRate(number(item.cash_buy))+' · CK '+formatRate(number(item.transfer_buy))+' · Bán '+formatRate(number(item.sell))+'</small></span><b>Xem tỷ giá</b></button>';
 }
 function historicResult(row,amount){
   const buy=preferredBuy(row);
