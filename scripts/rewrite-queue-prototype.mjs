@@ -118,7 +118,7 @@ function parsePack(text) {
     throw new Error('Not an OPENPQ rewrite pack v1');
   }
 
-  const re = /## BLOCK\s+\d+[\s\S]*?<!-- ID:([^\n]*?) -->[\s\S]*?<!-- POINTER:([^\n]*?) -->[\s\S]*?<!-- HASH:([a-f0-9]{64}) -->[\s\S]*?<!-- LOCKS:([^\n]*?) -->[\s\S]*?\[ORIGINAL\]\n([\s\S]*?)\n\[\/ORIGINAL\][\s\S]*?\[REWRITE\]\n([\s\S]*?)\n\[\/REWRITE\]/g;
+  const re = /(?:#{1,6}\s*)?BLOCK\s+\d+[\s\S]*?<!-- ID:([^\n]*?) -->[\s\S]*?<!-- POINTER:([^\n]*?) -->[\s\S]*?<!-- HASH:([a-f0-9]{64}) -->[\s\S]*?<!-- LOCKS:([^\n]*?) -->[\s\S]*?\[ORIGINAL\]\n([\s\S]*?)\n\[\/ORIGINAL\][\s\S]*?\[REWRITE\]\n([\s\S]*?)\n\[\/REWRITE\]/g;
   const blocks = [];
   for (const m of pack.matchAll(re)) {
     let locks = [];
