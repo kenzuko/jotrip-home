@@ -337,7 +337,6 @@ function assignHeroPhoto(slide,scene,i){
   const shown=heroGallery.variant(scene,heroMobile.matches);
   slide.dataset.label=scene.label;
   slide.dataset.credit=shown.credit||"Kho ảnh JoTrip";
-  slide.dataset.sourceUrl=shown.sourceUrl||"";
   slide.dataset.license=shown.license||"";
   slide.dataset.licenseUrl=shown.licenseUrl||"";
   const photo=slide.querySelector("img");
@@ -353,7 +352,6 @@ function assignHeroPhoto(slide,scene,i){
     photo.onerror=null;
     photo.src=HERO_FALLBACK;
     slide.dataset.credit="Kho ảnh JoTrip";
-    slide.dataset.sourceUrl="";
     slide.dataset.license="";
     slide.dataset.licenseUrl="";
     if(heroSlides[heroIndex]===slide)updateHeroCredit(slide);
@@ -370,22 +368,14 @@ function assignHeroPhoto(slide,scene,i){
 function updateHeroCredit(slide){
   if(!heroCredit||!slide)return;
   const label=heroCredit.querySelector("[data-hero-credit-label]");
-  const source=heroCredit.querySelector("[data-hero-source]");
   const license=heroCredit.querySelector("[data-hero-license]");
   // Some older gallery entries already include the Vietnamese "Ảnh:" prefix.
   // Normalize it here so the public caption can never render "Ảnh: Ảnh: …".
   const credit=String(slide.dataset.credit||"Kho ảnh JoTrip").replace(/^Ảnh:\s*/i,"");
   if(label)label.textContent="Ảnh: "+credit;
-  if(source){
-    source.hidden=!slide.dataset.sourceUrl;
-    if(slide.dataset.sourceUrl)source.href=slide.dataset.sourceUrl;
-  }
   if(license){
-    license.hidden=!slide.dataset.licenseUrl;
-    if(slide.dataset.licenseUrl){
-      license.href=slide.dataset.licenseUrl;
-      license.textContent=slide.dataset.license+" · cắt khung";
-    }
+    license.hidden=!slide.dataset.license;
+    license.textContent=slide.dataset.license?" · "+slide.dataset.license:"";
   }
 }
 function useHeroMood(mood){
