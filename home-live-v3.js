@@ -232,117 +232,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
   }
 
   function sunsetWeatherAssessment(criticalData, sunsetLabel) {
-    if (!criticalData || !Number.isFinite(clockMinutes(sunsetLabel))) {
-      return { level:"unknown", reason:"no_forecast", rain_mm_max:null, rain_mm_typical:null, points:[] };
+    const engine = window.OpenPQSunsetOutlook;
+    if (!engine?.assess) {
+      return { level:"unknown", reason:"engine_unavailable", rain_mm_max:null, rain_mm_typical:null, points:[] };
     }
-
-    const criticalAgeNow = ageMinutes(criticalData.generated_at || criticalData.local_generated_at);
-    // A near-sunset decision must use a genuinely recent island snapshot.
-    // Older forecast runs stay available on /weather, but do not drive a
-    // "right now" homepage warning.
-    if (!Number.isFinite(criticalAgeNow) || criticalAgeNow > 180) {
-      return { level:"unknown", reason:"stale_forecast", rain_mm_max:null, rain_mm_typical:null, points:[] };
-    }
-
-    const sunsetMin = clockMinutes(sunsetLabel);
-    // "Bờ Tây" is scoped to the west/north-west coast. An Thới is evaluated
-    // separately as Nam đảo and must not make a west-coast sunset alert fire.
-    const westIds = ["duong_dong","cua_can","ganh_dau"];
-    const rows = [];
-
-    westIds.forEach(id => {
-      const point = criticalData?.points?.[id];
-      const today = Array.isArray(point?.today) ? point.today : [];
-      let best = null;
-      today.forEach(row => {
-        const d = new Date(row?.t || "");
-        if (!Number.isFinite(d.getTime())) return;
-        const parts = new Intl.DateTimeFormat("en-GB", {
-          timeZone:"Asia/Ho_Chi_Minh", hour:"2-digit", minute:"2-digit", hour12:false
-        }).formatToParts(d);
-        const hour = Number(parts.find(p => p.type === "hour")?.value || 0);
-        const minute = Number(parts.find(p => p.type === "minute")?.value || 0);
-        const diff = Math.abs(hour * 60 + minute - sunsetMin);
-        if (!best || diff < best.diff) best = { diff, row };
-      });
-      if (!best || best.diff > 180 || !Number.isFinite(Number(best.row?.rain))) return;
-      rows.push({
-        id,
-        name:point?.name || id,
-        rain:Number(best.row.rain),
-        time:best.row.t
-      });
+    return engine.assess(criticalData, sunsetLabel, {
+      nowMs:Date.now(),
+      nowMinutes:vnClockParts().minutes
     });
-
-    if (!rows.length) {
-      return { level:"unknown", reason:"no_sunset_window", rain_mm_max:null, rain_mm_typical:null, points:[] };
-    }
-
-    const rainValues = rows.map(x => x.rain).sort((a,b) => a-b);
-    const rainMax = Math.max(...rainValues);
-    const mid = Math.floor(rainValues.length / 2);
-    const rainTypical = rainValues.length % 2
-      ? rainValues[mid]
-      : (rainValues[mid - 1] + rainValues[mid]) / 2;
-
-    const nowcastLevels = westIds.map(id => {
-      const n = criticalData?.points?.[id]?.nowcast;
-      const fresh = n?.status === "POINT_NUMERIC_READY" && ageMinutes(n?.sampled_time) <= 90;
-      return fresh ? String(n?.convective_level || "").toUpperCase() : "";
-    }).filter(Boolean);
-    const highConvective = nowcastLevels.some(x => ["HIGH","SEVERE","EXTREME"].includes(x));
-    const elevatedConvective = nowcastLevels.some(x => ["ELEVATED","WATCH","MODERATE"].includes(x));
-
-    const westGaugeNames = new Set(["CỬA CẠN","CUA CAN","DƯƠNG ĐÔNG","DUONG DONG","GÀNH DẦU","GANH DAU"]);
-    const normalizeName = value => String(value || "").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase();
-    const freshWestGauges = (Array.isArray(criticalData?.actual?.rain_gauges) ? criticalData.actual.rain_gauges : [])
-      .filter(g => g && g.qc !== "FAIL" && g.increment_qc !== "FAIL" && ageMinutes(g.observed_at) <= 90)
-      .filter(g => westGaugeNames.has(normalizeName(g.name)));
-    const observedRain = freshWestGauges.some(g => g.rain_observed === true ||
-      (Number.isFinite(Number(g.rain_intensity_mm_h)) && Number(g.rain_intensity_mm_h) > 0));
-    const observedIntensityMax = freshWestGauges.reduce((m,g) =>
-      Math.max(m, Number.isFinite(Number(g.rain_intensity_mm_h)) ? Number(g.rain_intensity_mm_h) : 0), 0);
-    const metar = criticalData?.actual?.vvpq;
-    const metarFresh = metar && ageMinutes(metar.observed_at) <= 90;
-    const metarWx = metarFresh ? String(metar.weather || "").toUpperCase() : "";
-    const observedConvective = !!(metarFresh && (metar.convective_cloud === true || /TS/.test(metarWx)));
-    const metarRain = !!(metarFresh && /(RA|SHRA|DZ)/.test(metarWx));
-    const anyObservedRain = observedRain || metarRain;
-    const gaugesDry = freshWestGauges.length > 0 && !observedRain;
-
-    let level = "good";
-    let reason = "low_rain";
-    if (observedConvective || observedIntensityMax >= 2) {
-      level = "bad";
-      reason = "observed_weather";
-    } else if (rainMax >= 2 || rainTypical >= 1.5) {
-      level = "bad";
-      reason = "forecast_rain";
-    } else if (anyObservedRain) {
-      level = "watch";
-      reason = "observed_rain";
-    } else if (highConvective || elevatedConvective) {
-      level = "watch";
-      reason = "satellite_convection";
-    } else if (rainMax >= 0.5 || rainTypical >= 0.3) {
-      level = "watch";
-      reason = "forecast_rain";
-    }
-
-    return {
-      level,
-      reason,
-      rain_mm_max:Number(rainMax.toFixed(2)),
-      rain_mm_typical:Number(rainTypical.toFixed(2)),
-      points:rows,
-      observed_rain:anyObservedRain,
-      observed_convective:observedConvective,
-      gauges_dry:gaugesDry,
-      gauge_count:freshWestGauges.length,
-      satellite_level:highConvective ? "HIGH" : elevatedConvective ? "ELEVATED" : "LOW"
-    };
   }
-
 
   function buildAirportWatchSummary(airport, eventsText = "") {
     const records = Array.isArray(airport?.records) ? airport.records : [];
@@ -617,27 +515,33 @@ function freshnessText(iso, prefix = "Cập nhật") {
           const observed = sunsetWx.reason === "observed_weather";
           push({
             tone:"watch",
-            title:"Hoàng hôn chiều nay có thể bị mưa ảnh hưởng.",
+            title:"Hoàng hôn chiều nay có thể bị thời tiết ảnh hưởng.",
             note:observed
               ? "Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển."
-              : "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Đây là dự báo, không phải xác nhận đang mưa.",
-            primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
+              : "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Hệ thống sẽ tiếp tục cập nhật khi gần giờ.",
+            primaryText:"Xem thời tiết bờ Tây →", primaryHref:"weather/",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
         } else if (sunsetWx.level === "watch") {
-          const satelliteOnly = sunsetWx.reason === "satellite_convection";
-          const observed = sunsetWx.reason === "observed_rain";
+          let note = "Cuối chiều còn một ít bất định. Xem lại khi gần giờ hoàng hôn.";
+          if (sunsetWx.reason === "observed_rain") {
+            note = "Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi.";
+          } else if (sunsetWx.reason === "cloud_approaching") {
+            note = "Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
+          } else if (sunsetWx.reason === "low_visibility") {
+            note = "Tầm nhìn đang giảm. Hoàng hôn có thể kém rõ dù không nhất thiết có mưa.";
+          } else if (sunsetWx.reason === "satellite_convection") {
+            note = "Ảnh vệ tinh cho thấy mây đối lưu quanh khu vực. Chưa đủ bằng chứng để coi là mưa tại bờ Tây.";
+          } else if (sunsetWx.reason === "forecast_rain") {
+            note = "Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Hệ thống sẽ cập nhật lại khi gần giờ hơn.";
+          }
           push({
             tone:"watch",
             title:minutesToSunset <= 120
               ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
-              : "Cuối chiều vẫn nên xem lại thời tiết bờ Tây.",
-            note:observed
-              ? "Có điểm đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi."
-              : satelliteOnly
-                ? "Ảnh vệ tinh cho thấy mây đối lưu quanh khu vực" + (sunsetWx.gauges_dry ? ", nhưng các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa." : ".")
-                : "Dự báo quanh giờ hoàng hôn có thể có mưa cục bộ nhẹ.",
-            primaryText:"Xem mưa chiều nay →", primaryHref:"weather/",
+              : "Cuối chiều vẫn nên xem lại tình hình bờ Tây.",
+            note,
+            primaryText:"Xem thời tiết bờ Tây →", primaryHref:"weather/",
             secondaryText:"Xem điểm gần hơn", secondaryHref:"nearme/"
           });
         } else {
@@ -646,9 +550,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
             title:minutesToSunset <= 120
               ? "Còn khoảng " + minutesToSunset + " phút tới hoàng hôn."
               : "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
-            note:sunsetWx.gauges_dry
-              ? "Hiện các trạm đang theo dõi chưa ghi nhận mưa. Cuối chiều vẫn có thể thay đổi cục bộ."
-              : "Chưa thấy cảnh báo nổi bật quanh giờ hoàng hôn. Xem lại nếu thời tiết đổi nhanh.",
+            note:sunsetWx.reason === "cloud_passing"
+              ? "Có mây đối lưu quanh đảo nhưng quỹ đạo hiện tại đang đi lệch hoặc đi xa bờ Tây."
+              : "Hiện chưa thấy tín hiệu thời tiết đáng ngại cho hoàng hôn bờ Tây.",
             primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
