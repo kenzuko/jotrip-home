@@ -91,6 +91,20 @@ for(const forbidden of ["sang-loi","sangloi","sáng lợi","r%C6%B0%E1%BB%A3u%20
   assert(!productImageBlob.includes(forbidden.toLowerCase()),"Product-brand image must not return: "+forbidden);
 }
 assert(visual.knowledge["knowledge_064_ruou-sim"]?.images?.[0]?.url.includes("R%20tomentosa%20fruit.jpg"),"Rượu sim guide should use brand-neutral sim fruit imagery");
+const genericFoodImageBlob=JSON.stringify({
+  bunQuayStory:visual.stories["bun-quay-tu-pha-chen-cham"],
+  bunQuayFood:visual.food["bun-quay"],
+  bunQuayGuide:visual.knowledge["knowledge_056_bun-quay-phu-quoc"],
+  bunKen:visual.food["bun-ken"],
+  banhCanhCaThu:visual.food["banh-canh-ca-thu"],
+  banhCanhGhe:visual.food["banh-canh-ghe"],
+  caSongFood:visual.food["ca-song-nuong"],
+  caSongGuide:visual.knowledge["knowledge_061_ca-song"]
+}).toLowerCase();
+for(const forbidden of ["kiến xây","kien-xay","ki%E1%BA%BFn%20x%C3%A2y","cay-xanh","cô thu","co-thu","thu-hanh","thu hạnh","khải hoàn","khaihoan","minos"]){
+  assert(!genericFoodImageBlob.includes(forbidden.toLowerCase()),"Generic food imagery must not promote a specific restaurant/brand: "+forbidden);
+}
+assert(JSON.stringify(visual).includes("editorial-sunset-town-aerial.jpg"),"Attraction-brand imagery remains intentionally allowed when the attraction is the subject");
 
 
 console.log("Editorial photo curation PASS: 24 editorial assets, 28 library entries, full non-slideshow refresh, subject/location checks");
