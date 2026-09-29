@@ -20,7 +20,7 @@ async function request(url,options={}){
 async function load(path){
   try{
     const body=await request(API+"?path="+encodeURIComponent(path));
-    versions.set(path,body.draft?.updated_at||null);
+    versions.set(path,body.draft?.version||null);
     return{ok:true,...body};
   }catch(error){
     return{ok:false,error:error.message,status:error.status||0,detail:error.body||null};
@@ -31,12 +31,12 @@ async function save({module,path,baseSha,data,checkpoint=false}){
   try{
     const body=await request(API,{method:"POST",body:JSON.stringify({
       action:"save",module_id:module,path,base_sha:baseSha,data,checkpoint:Boolean(checkpoint),
-      expected_updated_at:versions.get(path)
+      expected_version:versions.get(path)
     })});
     versions.set(path,body.draft?.updated_at||versions.get(path)||null);
     return body;
   }catch(error){
-    if(error.status===409&&error.body?.draft)versions.set(path,error.body.draft.updated_at||null);
+    if(error.status===409&&error.body?.draft)versions.set(path,error.body.draft.version||null);
     return{ok:false,error:error.message,status:error.status||0,detail:error.body||null};
   }
 }
@@ -44,12 +44,12 @@ async function clear({path}){
   if(!versions.has(path))return{ok:false,skipped:true,error:"Chưa đồng bộ trạng thái bản nháp server"};
   try{
     const body=await request(API,{method:"POST",body:JSON.stringify({
-      action:"clear",path,expected_updated_at:versions.get(path)
+      action:"clear",path,expected_version:versions.get(path)
     })});
     versions.set(path,null);
     return body;
   }catch(error){
-    if(error.status===409&&error.body?.draft)versions.set(path,error.body.draft.updated_at||null);
+    if(error.status===409&&error.body?.draft)versions.set(path,error.body.draft.version||null);
     return{ok:false,error:error.message,status:error.status||0,detail:error.body||null};
   }
 }
