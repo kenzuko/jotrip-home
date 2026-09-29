@@ -16,6 +16,15 @@ on:
     paths:
       - ".github/workflows/visual-qa.yml"
       - "home-foundation-v2.js"
+      - "home-experience-v1.js"
+      - "home-library.js"
+      - "stories/**"
+      - "guide/**"
+      - "data/content.json"
+      - "data/home-support.json"
+      - "data/knowledge/objects.json"
+      - "scripts/test-article-card-links.mjs"
+      - "scripts/visual-qa-article-cards.mjs"
       - "index.html"
       - "styles.css"
       - "app.js"
@@ -71,7 +80,16 @@ on:
       - "index.html"
       - "styles.css"
       - "home-foundation-v2.js"
+      - "home-experience-v1.js"
+      - "home-library.js"
       - "home-library.css"
+      - "stories/**"
+      - "guide/**"
+      - "data/content.json"
+      - "data/home-support.json"
+      - "data/knowledge/objects.json"
+      - "scripts/test-article-card-links.mjs"
+      - "scripts/visual-qa-article-cards.mjs"
       - "home-live-v3.js"
       - "app.js"
       - "core/hero-context.js"
@@ -144,6 +162,11 @@ jobs:
           done
           cat /tmp/openpq-visual-server.log
           exit 1
+
+      - name: Click every article-card surface and verify its destination
+        env:
+          VISUAL_QA_BASE_URL: http://127.0.0.1:4173
+        run: node scripts/visual-qa-article-cards.mjs
 
       - name: Verify homepage contextual hero and keyboard-safe search
         run: |

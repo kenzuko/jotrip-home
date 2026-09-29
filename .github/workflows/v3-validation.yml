@@ -71,6 +71,8 @@ jobs:
         run: node scripts/validate-public-copy.mjs
       - name: Test search ranking and grouping
         run: node scripts/test-search.mjs
+      - name: Test article card link contracts
+        run: npm run test:article-links
       - name: Test CMS regression suite
         run: npm run test:cms
       - name: Test Near Me venue pins and canonical places
@@ -91,6 +93,7 @@ jobs:
           node --check places/app.js
           node --check guide/guide.js
           node --check guide/knowledge.js
+          node --check stories/story.js
           node --check worker.js
           node --check utilities/utilities.js
           node --check nearme/nearme.js
