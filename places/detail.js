@@ -133,7 +133,8 @@
     const datedNotice=(notices?.notices||[]).find(x=>{
       if(x.entity_id!==entity.id||!["CANCELLED","BOOKING_FULL"].includes(x.status)||typeof x.date!=="string")return false;
       const eventStart=Date.parse(x.date+"T00:00:00+07:00");
-      const visibleFrom=x.effective_from?Date.parse(x.effective_from+"T00:00:00+07:00"):eventStart;
+      const visibleFrom=x.detail_visible_from?Date.parse(x.detail_visible_from+"T00:00:00+07:00"):
+        x.effective_from?Date.parse(x.effective_from+"T00:00:00+07:00"):eventStart;
       const fallbackEnd=eventStart+days*86400000;
       const end=x.valid_until?Date.parse(x.valid_until):fallbackEnd;
       return Number.isFinite(eventStart)&&Number.isFinite(visibleFrom)&&Number.isFinite(end)&&now>=visibleFrom&&now<end;
