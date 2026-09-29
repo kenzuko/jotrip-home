@@ -1959,6 +1959,11 @@ async function save(){
   const savingModule=currentModule,savingSha=currentSha;
   const validationErrors=validateCurrent();
   if(validationErrors.length){status("Chưa thể gửi duyệt: "+validationErrors.slice(0,3).join(" · ")+(validationErrors.length>3?" · …":""),"error");return}
+  if(window.OPQDraftStore?.hasConflict(currentModule.path)){
+    saveDraftNow();
+    status("Bản nháp server đã thay đổi ở nơi khác. Tải lại mục để đối chiếu trước khi gửi duyệt.","error");
+    return;
+  }
 
   publishInFlight=true;
   $("#saveBtn").disabled=true;
@@ -1996,12 +2001,12 @@ async function save(){
     dirty=false;
     clearDraft();
     const clearedServer=await clearServerDraft(savingModule.path);
+    const keptNewerDraft=Boolean(clearedServer&&!clearedServer.ok&&clearedServer.status===409);
     $("#resetBtn")?.classList.add("hidden");
-    if(clearedServer&&!clearedServer.ok&&clearedServer.status===409)
-      status("Đã tạo PR nhưng bản nháp server có phiên bản mới hơn nên chưa xóa. Tải lại để đối chiếu.","error");
 
     $("#saveBtn").textContent="Đã gửi duyệt";
-    status("Đã tạo đề xuất PR #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url,"success");
+    status("Đã tạo đề xuất PR #"+b.pull_request.number+". Chưa lên website; cậu kiểm tra diff rồi merge khi sẵn sàng. "+b.pull_request.url+
+      (keptNewerDraft?" · Có bản nháp server mới hơn vẫn được giữ để đối chiếu.":""),keptNewerDraft?"error":"success");
 
     setTimeout(()=>{
       if(!dirty)$("#saveBtn").textContent="Gửi duyệt";
