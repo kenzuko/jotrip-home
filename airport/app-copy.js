@@ -7,14 +7,14 @@ const cleanPublicCopy=()=>{if(window.JT_I18N_ACTIVE)return;
   setText($('.source-label'),'JoTrip Live · Auto refresh');
   replaceText($('#updatedAt'),[[/JoTrip Live API/g,'JoTrip Live']]);
   replaceText($('#errorBox'),[
-    [/Không đọc được dữ liệu Sun Airport lúc này\./g,'Không đọc được dữ liệu chuyến bay lúc này.'],
-    [/JoTrip Live API tạm gián đoạn - đang dùng snapshot JoTrip AutoSync gần nhất\./g,'Luồng live tạm gián đoạn - đang dùng bản lưu JoTrip AutoSync gần nhất.']
+    [/Không đọc được dữ liệu Sun Airport lúc này\./g,'Chưa lấy được thông tin chuyến bay lúc này.'],
+    [/JoTrip Live API tạm gián đoạn - đang dùng snapshot JoTrip AutoSync gần nhất\./g,'Cập nhật trực tiếp đang tạm gián đoạn - trang đang hiển thị bản gần nhất đã lưu.']
   ]);
   replaceHtml($('#drawerContent'),[
-    [/Actual time lấy từ API chính thức Sun Airport\./g,'Giờ thực tế đã được ghi nhận trong dữ liệu chuyến bay.'],
-    [/Nguồn sân bay:/g,'Trạng thái gốc:'],
-    [/Trạng thái lấy trực tiếp từ dữ liệu Sun Airport\./g,'Trạng thái theo dữ liệu đang ghi nhận.'],
-    [/Giờ cập nhật lấy từ dữ liệu sân bay\./g,'Giờ cập nhật theo dữ liệu chuyến bay.'],
+    [/Actual time lấy từ API chính thức Sun Airport\./g,'Giờ thực tế đã được ghi nhận.'],
+    [/Nguồn sân bay:/g,'Nguồn ghi:'],
+    [/Trạng thái lấy trực tiếp từ dữ liệu Sun Airport\./g,'Tình trạng theo thông tin hiện có.'],
+    [/Giờ cập nhật lấy từ dữ liệu sân bay\./g,'Giờ cập nhật theo thông tin chuyến bay.'],
     [/JoTrip Live API \/ Sun Airport/g,'JoTrip Live'],
     [/JoTrip AutoSync \/ Sun Airport/g,'JoTrip AutoSync']
   ]);
@@ -25,7 +25,7 @@ if(typeof renderSummary==='function'){
 }
 if(typeof renderHealth==='function'){
   const base=renderHealth;
-  renderHealth=function(){base();const title=$('#healthTitle'),desc=$('#healthDescription'),l=state?.latest,h=state?.health,age=l?.collected_at_vn?ageInfo(l.collected_at_vn):null,qa=!!(h?.collector_completed&&h?.parser_passed&&h?.normalization_passed&&h?.qa_passed&&l?.quality?.usable);if(title&&desc){if(!qa){setText(title,'QA FAILED');setText(desc,'Luồng thu thập hoặc chuẩn hóa chưa đạt. Không nên dùng số liệu để điều hành.');}else if(state?.dataSource==='fallback'){setText(title,'FALLBACK · AUTOSYNC');setText(desc,'Luồng live tạm không phản hồi. Giao diện đã chuyển sang bản lưu gần nhất.');}else if(age?.level==='good'){setText(title,'GOOD · DATA FRESH');setText(desc,'JoTrip Live đang cập nhật tự động, có cache ngắn để giữ ổn định.');}else if(age?.level==='watch'){setText(title,'WATCH · DATA DELAYED');setText(desc,'Dữ liệu đang có độ trễ cao hơn bình thường. Trang sẽ tự kiểm tra lại mỗi phút.');}else if(age?.level==='stale'){setText(title,'STALE · DATA OLD');setText(desc,'Dữ liệu không còn đủ mới để xem như trạng thái tức thời.');}}cleanPublicCopy();};
+  renderHealth=function(){base();const title=$('#healthTitle'),desc=$('#healthDescription'),l=state?.latest,h=state?.health,age=l?.collected_at_vn?ageInfo(l.collected_at_vn):null,qa=!!(h?.collector_completed&&h?.parser_passed&&h?.normalization_passed&&h?.qa_passed&&l?.quality?.usable);if(title&&desc){if(!qa){setText(title,'QA FAILED');setText(desc,'Luồng thu thập hoặc chuẩn hóa chưa đạt. Không nên dùng số liệu để điều hành.');}else if(state?.dataSource==='fallback'){setText(title,'FALLBACK · AUTOSYNC');setText(desc,'Cập nhật trực tiếp tạm không phản hồi. Trang đang hiển thị bản gần nhất đã lưu.');}else if(age?.level==='good'){setText(title,'GOOD · DATA FRESH');setText(desc,'Chuyến bay được cập nhật tự động.');}else if(age?.level==='watch'){setText(title,'WATCH · DATA DELAYED');setText(desc,'Thông tin đang chậm hơn bình thường. Trang sẽ tự kiểm tra lại mỗi phút.');}else if(age?.level==='stale'){setText(title,'STALE · DATA OLD');setText(desc,'Thông tin này đã cũ, không nên xem như tình trạng ngay lúc này.');}}cleanPublicCopy();};
 }
 if(typeof openDrawer==='function'){
   const base=openDrawer;
