@@ -36,6 +36,14 @@
     return String(value||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase();
   }
 
+  function refreshDelayMs(minutesToSunset){
+    const remain=Number(minutesToSunset);
+    if(!Number.isFinite(remain)||remain<=0) return null;
+    if(remain>360) return 60*60*1000;
+    if(remain>180) return 30*60*1000;
+    return 10*60*1000;
+  }
+
   function result(level,reason,extra={}){
     return {
       level,reason,
@@ -141,35 +149,42 @@
       minutes_to_sunset:minutesToSunset
     };
 
-    if(observedConvective||observedIntensityMax>=2)
-      return result("bad","observed_weather",common);
-
     if(phase==="early"){
       if(rainMax>=3||rainTypical>=2) return result("bad","forecast_rain",common);
       if(rainMax>=1.5||rainTypical>=0.8) return result("watch","forecast_rain",common);
       return result("good","early_favorable",common);
     }
 
+    // Three to six hours before sunset, use the forecast sunset window only.
+    // Current rain or convective cloud can pass long before sunset and must not
+    // be projected forward as a sunset warning.
+    if(phase==="afternoon"){
+      if(rainMax>=2||rainTypical>=1.5) return result("bad","forecast_rain",common);
+      if(rainMax>=0.8||rainTypical>=0.5) return result("watch","forecast_rain",common);
+      return result("good","afternoon_favorable",common);
+    }
+
+    // Inside the final three hours, observed weather, visibility and a usable
+    // Himawari cloud track become relevant to the sunset decision.
+    if(observedConvective||observedIntensityMax>=2)
+      return result("bad","observed_weather",common);
     if(rainMax>=2||rainTypical>=1.5)
       return result("bad","forecast_rain",common);
     if(anyObservedRain)
       return result("watch","observed_rain",common);
     if(cloudImpact)
       return result("watch","cloud_approaching",common);
-    if(lowVisibility&&phase==="near")
+    if(lowVisibility)
       return result("watch","low_visibility",common);
     if(rainMax>=0.8||rainTypical>=0.5)
       return result("watch","forecast_rain",common);
-
-    if(phase==="near"){
-      if(highConvective&&!passingOnly) return result("watch","satellite_convection",common);
-      if(elevatedConvective&&!tracks.length) return result("watch","satellite_convection",common);
-    }else if(highConvective&&!passingOnly){
+    if(highConvective&&!passingOnly)
       return result("watch","satellite_convection",common);
-    }
+    if(elevatedConvective&&!tracks.length)
+      return result("watch","satellite_convection",common);
 
     return result("good",passingOnly?"cloud_passing":"favorable",common);
   }
 
-  return {assess,clockMinutes};
+  return {assess,clockMinutes,refreshDelayMs};
 });
