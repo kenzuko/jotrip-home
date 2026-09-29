@@ -28,10 +28,19 @@ const newMeta={generated_at:"2026-09-25T00:20:00Z",source_cycles:{ECMWF:t}};
 assert(helpers.newerDashboard(newMeta,oldMeta,freshForecast),"Accept matching source-cycle metadata");
 assert(!helpers.newerDashboard({...newMeta,source_cycles:{ECMWF:"2026-09-25T06:00:00Z"}},oldMeta,freshForecast),"Do not label a forecast with a different future cycle");
 assert(!helpers.newerDashboard(oldMeta,newMeta,freshForecast),"Do not regress source cycles");
-const branch=scene.slice(scene.indexOf("if(before===after){"),scene.indexOf("enforceSceneFreshness();",scene.indexOf("if(before===after){")));
-for(const expr of ["fetchCanonical(URLS.ecmwf)","fetchCanonical(URLS.dashboard)","fetchCanonical(URLS.marine)","newerRuntimeForecast(forecast.value,state.ecmwf)","newerMarineWave(marine.value,state.marine)"])
-  assert(branch.includes(expr),"Missing on-demand same-origin refresh: "+expr);
+const fast=scene.slice(scene.indexOf("async function refreshFastRuntime(){"),scene.indexOf("async function refreshCanonicalRuntime(){"));
+for(const expr of ["fetchCanonical(URLS.nowcast)","fetchCanonical(URLS.compact)","fetchCanonical(URLS.current)"])
+  assert(fast.includes(expr),"Missing fast same-origin refresh: "+expr);
+for(const expr of ["URLS.ecmwf","URLS.dashboard","URLS.marine"])
+  assert(!fast.includes(expr),"Slow model source leaked into two-minute fast refresh: "+expr);
+const slow=scene.slice(scene.indexOf("async function refreshCanonicalRuntime(){"),scene.indexOf("async function boot(){"));
+for(const expr of ["fetchCanonical(URLS.manifest)","fetchCanonical(URLS.ecmwf)","fetchCanonical(URLS.dashboard)","fetchCanonical(URLS.marine)","newerRuntimeForecast(forecast.value,state.ecmwf)","newerMarineWave(marine.value,state.marine)"])
+  assert(slow.includes(expr),"Missing slow canonical refresh: "+expr);
+assert(scene.includes("const SCENE_FAST_REFRESH_MS=2*60*1000"),"Fast Weather Scene cadence must stay at two minutes");
+assert(scene.includes("const SCENE_SLOW_REFRESH_MS=10*60*1000"),"Model/marine Weather Scene cadence must be ten minutes");
+assert(scene.includes("if(now-lastSceneFastRefreshAt>=SCENE_FAST_REFRESH_MS)refreshFastRuntime()"),"Visibility resume must not force an early fast refresh");
+assert(scene.includes("if(now-lastSceneSlowRefreshAt>=SCENE_SLOW_REFRESH_MS)refreshCanonicalRuntime()"),"Visibility resume must not force an early slow refresh");
 assert(scene.includes("return state.ecmwf?.run_time||state.ecmwf?.spatial?.short_run_time||cycles.ECMWF"),"Displayed forecast must cite its actual model cycle");
 const html=readFileSync("weather/weather-scene-v3.html","utf8");
 assert(html.includes("/weather/weather-scene-v3.js?v=20260925-edge-model1"),"Scene JS cache not invalidated");
-console.log("CMS Scene: 14 live model/marine freshness and source-cycle regression assertions PASS");
+console.log("CMS Scene: freshness, split-cadence refresh and source-cycle regression assertions PASS");
