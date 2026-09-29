@@ -56,12 +56,15 @@ const html=fs.readFileSync("index.html","utf8");
 const app=fs.readFileSync("app.js","utf8");
 assert.ok(html.indexOf('src="core/hero-gallery.js?')<html.indexOf('src="app.js?'),
   "Gallery must load before app");
-assert.ok(html.includes("data-hero-license")&&html.includes("data-hero-source"),
-  "Exact author and Creative Commons license links must be visible");
+const heroCreditMarkup=html.match(/<div class="hero-credit"[\\s\\S]*?<\\/div>/)?.[0]||"";
+assert.ok(html.includes("data-hero-license")&&!html.includes("data-hero-source"),
+  "Hero must keep text attribution without an external source link");
+assert.ok(heroCreditMarkup&&!/<a\\b/i.test(heroCreditMarkup),
+  "Photo attribution must not add hyperlinks to the homepage hero");
 assert.match(app,/heroGallery\?\.choose\(mood,new Date\(\)\)/);
 assert.match(app,/heroMobile\.addEventListener/);
 assert.match(app,/pendingMood/);
 assert.match(app,/photo\.onerror=/);
 assert.match(app,/updateHeroCredit/);
 assert.equal((html.match(/class="hero-slide(?: is-active)?"/g)||[]).length,4);
-console.log("Hero gallery PASS:",items.length,"curated scenes / 7 contexts / 4 scenes per view / exact source attribution.");
+console.log("Hero gallery PASS:",items.length,"curated scenes / 7 contexts / 4 scenes per view / text-only attribution.");
