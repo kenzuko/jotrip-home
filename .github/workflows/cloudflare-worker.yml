@@ -52,6 +52,7 @@ on:
       - "scripts/build-cloudflare.mjs"
       - "scripts/visual-qa.mjs"
       - "scripts/test-article-card-links.mjs"
+      - "scripts/test-home-nearme.mjs"
       - "scripts/visual-qa-article-cards.mjs"
       - "weather/**"
       - "scripts/weather-cms-*.mjs"
