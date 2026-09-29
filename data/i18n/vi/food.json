@@ -49,7 +49,7 @@
           "level": "high"
         }
       ],
-      "allergy_note": "Món thường có cá và đậu phộng trong phần nước chấm hoặc topping. Nếu không ăn cá sống/tái hoặc có dị ứng, hãy hỏi rõ cách sơ chế và thành phần nước chấm trước khi gọi.",
+      "allergy_note": "Món thường có cá và đậu phộng trong phần nước chấm hoặc phần ăn kèm. Nếu không ăn cá sống/tái hoặc có dị ứng, hãy hỏi rõ cách sơ chế và thành phần nước chấm trước khi gọi.",
       "ask_staff": [
         "Nước chấm có đậu phộng không?",
         "Cá được phục vụ sống, tái hay đã xử lý nhiệt?",
@@ -109,7 +109,7 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Nếu dị ứng cá, tôm hoặc hải sản, cần hỏi quán trước khi gọi vì nước dùng, chả, topping và khu chế biến thường dùng chung nguyên liệu biển. Không nên tự mặc định món hoàn toàn không gluten chỉ vì bún làm từ gạo - gia vị và quy trình từng quán có thể khác.",
+      "allergy_note": "Nếu dị ứng cá, tôm hoặc hải sản, cần hỏi quán trước khi gọi vì nước dùng, chả, phần ăn kèm và khu chế biến thường dùng chung nguyên liệu biển. Không nên tự mặc định món hoàn toàn không chứa gluten chỉ vì bún làm từ gạo - gia vị và quy trình từng quán có thể khác.",
       "ask_staff": [
         "Tô này có chả tôm, chả cá và mực không?",
         "Nước dùng hoặc nước chấm có thành phần hải sản nào khác không?",
@@ -222,7 +222,7 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Nhum là hải sản và nhiều cách phục vụ có đậu phộng. Nếu dị ứng hải sản hoặc đậu phộng, cần hỏi quán trước vì topping và khu nướng có thể dùng chung.",
+      "allergy_note": "Nhum là hải sản và nhiều cách phục vụ có đậu phộng. Nếu dị ứng hải sản hoặc đậu phộng, cần hỏi quán trước vì phần ăn kèm và khu nướng có thể dùng chung.",
       "ask_staff": [
         "Món có đậu phộng hoặc dầu đậu phộng không?",
         "Nhum được nướng riêng hay trên cùng vỉ với hải sản khác?",
@@ -384,7 +384,7 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Ghẹ là giáp xác; nước dùng có thể nấu từ ghẹ hoặc hải sản khác. Người dị ứng nên hỏi cả nước dùng, phần topping và đồ chấm.",
+      "allergy_note": "Ghẹ là giáp xác; nước dùng có thể nấu từ ghẹ hoặc hải sản khác. Người dị ứng nên hỏi cả nước dùng, phần phần ăn kèm và đồ chấm.",
       "ask_staff": [
         "Tô có ghẹ nguyên con hay thịt ghẹ?",
         "Nước dùng có nấu từ hải sản nào khác không?"
@@ -405,7 +405,7 @@
         "lunch"
       ],
       "intro": "Hủ tiếu mực ngon ở miếng mực vừa chín, còn giòn và ngọt, ăn cùng sợi hủ tiếu trong tô nước dùng nóng. Có quán thêm tôm hoặc thịt, có quán để mực làm phần chính. Thêm rau rồi ăn lúc mới dọn để mực không bị dai; muốn biết tô có những gì, cứ hỏi người bán trước khi gọi.",
-      "how_to_eat": "Cho rau vào tô khi nước dùng vẫn còn nóng, rồi gắp mực ăn trước để cảm nhận độ giòn. Tôm, thịt và các topping khác thay đổi theo quán; nếu muốn tô hủ tiếu chỉ có mực, cứ hỏi người bán lúc gọi.",
+      "how_to_eat": "Cho rau vào tô khi nước dùng vẫn còn nóng, rồi gắp mực ăn trước để cảm nhận độ giòn. Tôm, thịt và các phần ăn kèm khác thay đổi theo quán; nếu muốn tô hủ tiếu chỉ có mực, cứ hỏi người bán lúc gọi.",
       "tips": [
         "Hỏi có thêm tôm, thịt hoặc thành phần ngoài mực không.",
         "Dị ứng nhuyễn thể cần hỏi cả nước dùng và khu chế biến.",
@@ -456,14 +456,14 @@
       "how_to_eat": "Nếm một muỗng nước dùng trước khi cho mắm tôm, chanh hay ớt. Gắp thêm rau muống bào hoặc bắp chuối, ăn cùng riêu mềm và sợi bún sẽ bớt đơn điệu. Mắm tôm đậm mùi nên cứ nêm từng chút một.",
       "tips": [
         "Hỏi riêu làm từ cua hay có pha thêm nguyên liệu khác.",
-        "Kiểm tra topping như huyết, ốc hoặc đậu nếu bạn không ăn.",
+        "Kiểm tra phần ăn kèm như huyết, ốc hoặc đậu nếu bạn không ăn.",
         "Dị ứng cua/giáp xác cần báo trước."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#bun-rieu"
       ],
-      "origin": "Bún riêu là món nước quen thuộc khắp Việt Nam, với nhiều biến thể theo vùng. Tô ở Phú Quốc có thể dùng cua, cà chua, đậu hũ và các loại topping theo cách nấu của quán.",
+      "origin": "Bún riêu là món nước quen thuộc khắp Việt Nam, với nhiều biến thể theo vùng. Tô ở Phú Quốc có thể dùng cua, cà chua, đậu hũ và các loại phần ăn kèm theo cách nấu của quán.",
       "why_name": "“Riêu” chỉ phần gạch hoặc thịt cua, tôm được làm thành mảng nổi trong nồi nước. Tên món vì vậy nhắc tới phần tạo dấu ấn, dù tô bún thường có thêm nhiều thành phần khác.",
       "ingredients": [
         "Bún",
@@ -535,7 +535,7 @@
       "allergy_note": "Chả cá và bánh mì có thể chứa cá và bột mì; sốt hoặc đồ chua cũng thay đổi theo quán. Hỏi cả thành phần lẫn dụng cụ chế biến nếu dị ứng.",
       "ask_staff": [
         "Chả cá ở đây chiên hay hấp?",
-        "Bánh mì có sốt hoặc topping nào ngoài chả cá?"
+        "Bánh mì có sốt hoặc phần ăn kèm nào ngoài chả cá?"
       ],
       "sources": [
         {
@@ -569,7 +569,7 @@
         "trứng",
         "rau",
         "gia vị",
-        "topping tùy chọn"
+        "phần ăn kèm tùy chọn"
       ],
       "taste_texture": "Trứng béo mềm, phần rìa có thể hơi giòn, lòng đỏ tạo độ sánh khi chấm bánh. Bánh mì giòn và sốt mặn ngọt khiến món đơn giản mà dễ ăn.",
       "allergen_flags": [
@@ -584,9 +584,9 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Món có trứng và bánh mì từ lúa mì; topping hoặc sốt có thể thêm thành phần khác. Báo dị ứng trứng hay lúa mì trước khi gọi.",
+      "allergy_note": "Món có trứng và bánh mì từ lúa mì; phần ăn kèm hoặc sốt có thể thêm thành phần khác. Báo dị ứng trứng hay lúa mì trước khi gọi.",
       "ask_staff": [
-        "Một ổ có mấy trứng và topping gì?",
+        "Một ổ có mấy trứng và phần ăn kèm gì?",
         "Có thể làm trứng chín kỹ không?"
       ],
       "sources": [
@@ -604,24 +604,24 @@
         "breakfast",
         "snack"
       ],
-      "intro": "Xôi mặn thường được gói gọn trong một phần nếp dẻo, phía trên có thể là lạp xưởng, chà bông, trứng và hành phi. Trộn đều một chút, mỗi muỗng sẽ có cả nếp mềm lẫn phần nhân mặn thơm. Món này hợp những buổi sáng cần ăn nhanh, nhưng nhìn topping của quán trước khi gọi để chọn đúng khẩu vị.",
-      "how_to_eat": "Trộn nhẹ phần lạp xưởng, chà bông, trứng hoặc topping khác vào nếp rồi ăn lúc xôi còn ấm. Nếu quán có dưa leo hay đồ chua, ăn kèm một ít sẽ đỡ ngấy. Gọi phần vừa bụng vì xôi khá chắc dạ.",
+      "intro": "Xôi mặn thường được gói gọn trong một phần nếp dẻo, phía trên có thể là lạp xưởng, chà bông, trứng và hành phi. Trộn đều một chút, mỗi muỗng sẽ có cả nếp mềm lẫn phần nhân mặn thơm. Món này hợp những buổi sáng cần ăn nhanh, nhưng nhìn phần ăn kèm của quán trước khi gọi để chọn đúng khẩu vị.",
+      "how_to_eat": "Trộn nhẹ phần lạp xưởng, chà bông, trứng hoặc phần ăn kèm khác vào nếp rồi ăn lúc xôi còn ấm. Nếu quán có dưa leo hay đồ chua, ăn kèm một ít sẽ đỡ ngấy. Gọi phần vừa bụng vì xôi khá chắc dạ.",
       "tips": [
-        "Hỏi phần topping cụ thể, nhất là chà bông, pate, trứng hoặc hành phi.",
-        "Nếu ăn chay, đừng mặc định xôi trắng đi kèm topping chay.",
+        "Hỏi phần phần ăn kèm cụ thể, nhất là chà bông, pate, trứng hoặc hành phi.",
+        "Nếu ăn chay, đừng mặc định xôi trắng đi kèm phần ăn kèm chay.",
         "Mua giờ sớm nếu muốn xôi còn nóng."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#xoi-man"
       ],
-      "origin": "Xôi mặn là món ăn sáng phổ biến trên khắp Việt Nam. Cách làm và topping không gắn riêng với Phú Quốc, nhưng nhiều hàng trên đảo có khẩu vị và lựa chọn riêng.",
+      "origin": "Xôi mặn là món ăn sáng phổ biến trên khắp Việt Nam. Cách làm và phần ăn kèm không gắn riêng với Phú Quốc, nhưng nhiều hàng trên đảo có khẩu vị và lựa chọn riêng.",
       "why_name": "“Mặn” phân biệt kiểu xôi ăn cùng thức ăn mặn với xôi ngọt. Tên gọi cho biết cách ăn hơn là một công thức cố định.",
       "ingredients": [
         "Nếp",
-        "topping thay đổi theo quán"
+        "phần ăn kèm thay đổi theo quán"
       ],
-      "taste_texture": "Nếp dẻo và thơm, topping thường mặn, béo, có chút giòn từ hành phi hoặc dưa góp. Tỷ lệ topping quyết định món đậm đến đâu; thêm nhiều sốt có thể làm xôi ngấy.",
+      "taste_texture": "Nếp dẻo và thơm, phần ăn kèm thường mặn, béo, có chút giòn từ hành phi hoặc dưa góp. Tỷ lệ phần ăn kèm quyết định món đậm đến đâu; thêm nhiều sốt có thể làm xôi ngấy.",
       "allergen_flags": [
         {
           "key": "egg",
@@ -629,10 +629,10 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Topping xôi mặn thay đổi theo quán, có thể gồm trứng hoặc thịt chế biến sẵn. Hỏi đúng phần định gọi thay vì dựa vào tên món.",
+      "allergy_note": "Phần ăn kèm xôi mặn thay đổi theo quán, có thể gồm trứng hoặc thịt chế biến sẵn. Hỏi đúng phần định gọi thay vì dựa vào tên món.",
       "ask_staff": [
-        "Xôi hôm nay có những loại topping nào?",
-        "Giá đã gồm topping hay tính riêng?"
+        "Xôi hôm nay có những loại phần ăn kèm nào?",
+        "Giá đã gồm phần ăn kèm hay tính riêng?"
       ],
       "sources": [
         {
@@ -1209,10 +1209,10 @@
         "dinner",
         "snack"
       ],
-      "intro": "Hàu nướng mỡ hành vừa bưng ra còn nóng trong vỏ, mặt trên thơm hành lá và có thể thêm đậu phộng rang tùy quán. Thịt hàu mềm, mọng; ăn ngay lúc vừa chín, thêm chút chanh nếu thích vị thanh hơn. Khi gọi, nhớ hỏi phần topping nếu có dị ứng với đậu phộng hoặc nguyên liệu khác.",
-      "how_to_eat": "Để vỏ hàu bớt nóng rồi ăn ngay khi thịt hàu vừa chín và mỡ hành còn thơm. Topping có thể thêm đậu phộng hoặc phô mai tùy nơi, nên chọn trước khi nướng nếu muốn ăn đúng khẩu vị.",
+      "intro": "Hàu nướng mỡ hành vừa bưng ra còn nóng trong vỏ, mặt trên thơm hành lá và có thể thêm đậu phộng rang tùy quán. Thịt hàu mềm, mọng; ăn ngay lúc vừa chín, thêm chút chanh nếu thích vị thanh hơn. Khi gọi, nhớ hỏi phần phần ăn kèm nếu có dị ứng với đậu phộng hoặc nguyên liệu khác.",
+      "how_to_eat": "Để vỏ hàu bớt nóng rồi ăn ngay khi thịt hàu vừa chín và mỡ hành còn thơm. Phần ăn kèm có thể thêm đậu phộng hoặc phô mai tùy nơi, nên chọn trước khi nướng nếu muốn ăn đúng khẩu vị.",
       "tips": [
-        "Hỏi hàu đã nướng chín kỹ và có topping nào.",
+        "Hỏi hàu đã nướng chín kỹ và có phần ăn kèm nào.",
         "Báo dị ứng nhuyễn thể; hỏi riêng phô mai và đậu phộng.",
         "Nếu mùi hoặc cách bảo quản khiến bạn không an tâm, hãy chọn món khác."
       ],
@@ -1552,7 +1552,7 @@
       "intro": "Một tô phở nóng có bánh phở mềm, thịt bò hoặc gà và nước dùng thơm mùi gia vị tùy cách nấu. Nếm một muỗng nước trước khi thêm chanh, ớt hay tương, bởi mỗi quán có khẩu vị riêng. Phở không phải đặc sản của đảo, nhưng vẫn là bữa sáng quen thuộc và dễ tìm ở nhiều khu dân cư Phú Quốc.",
       "how_to_eat": "Một tô phở nóng nên được nếm nước dùng trước khi thêm chanh, tương hay ớt. Chọn bò hay gà tùy sở thích; nếu muốn thịt chín hoàn toàn, dặn người bán từ lúc gọi. Ăn khi bánh phở còn mềm và nước vẫn nóng.",
       "tips": [
-        "Hỏi phở bò hay phở gà và các topping có trong tô.",
+        "Hỏi phở bò hay phở gà và các phần ăn kèm có trong tô.",
         "Báo dị ứng đậu nành, hành hoặc gia vị nếu cần.",
         "Nếu tránh thịt sống, nói rõ muốn phần chín."
       ],
