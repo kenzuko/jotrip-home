@@ -170,7 +170,16 @@ function renderTripClock(){
  extraList.innerHTML=hasMore&&tripClockExpanded?selection.hidden.map(renderCard).join(""):"";
  moreButton.textContent=tripClockExpanded?"Thu gọn ↑":"Xem thêm "+selection.hidden.length+" hoạt động ↓";
  moreButton.setAttribute("aria-expanded",String(tripClockExpanded));
- moreButton.onclick=()=>{tripClockExpanded=!tripClockExpanded;renderTripClock()};
+ moreButton.onclick=()=>{
+  // Toggle only the already-planned extra rows. Re-running the time-based
+  // planner here can change the featured set if the clock crosses a minute
+  // boundary while the user is expanding/collapsing the list.
+  tripClockExpanded=!tripClockExpanded;
+  extraList.hidden=!tripClockExpanded;
+  extraList.innerHTML=tripClockExpanded?selection.hidden.map(renderCard).join(""):"";
+  moreButton.textContent=tripClockExpanded?"Thu gọn ↑":"Xem thêm "+selection.hidden.length+" hoạt động ↓";
+  moreButton.setAttribute("aria-expanded",String(tripClockExpanded));
+ };
  publishLocalNowHint();
 }
 function buildLocalNowHint(){
