@@ -34,7 +34,7 @@ assert.match(seo.storyBody(unsafe),/&lt;script&gt;/);
 assert.equal(seo.buildStoryMeta({id:"x"}),null);
 assert.equal(seo.buildKnowledgeMeta({topic_id:"x"}),null);
 const worker=readFileSync("worker.js","utf8");
-assert.match(worker,/rewriteSeoHtml\(assetResponse, meta\)/);
+assert.match(worker,/rewriteSeoHtml\(assetResponse,\s*meta\)/);
 assert.match(worker,/\["draft","pending","review","scheduled"\]/);
 for(const path of ["functions/stories/article.html.js","functions/guide/article.html.js"]){
  const c=readFileSync(path,"utf8");
