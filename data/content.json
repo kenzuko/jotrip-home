@@ -594,11 +594,11 @@
       "title": "Bún quậy và chén chấm tự pha",
       "dek": "Bún quậy có tô nước dùng nóng, bún tươi, chả hải sản và một chén chấm để mỗi người tự pha. Cách pha ấy là một phần không thể thiếu của món.",
       "read_minutes": 2,
-      "image": "https://visitphuquoc.com.vn/VisitPhuQuoc/POINT/%C4%82N%20U%E1%BB%90NG/M%C3%B3n%20%C4%83n/1832/image-thumb__1832__720_jpg/B%C3%BAn%20qu%E1%BA%ADy%20Ki%E1%BA%BFn%20X%C3%A2y.ec5c87e9.jpg",
-      "image_alt": "Tô bún quậy Kiến Xây với bún, chả và hải sản ăn kèm",
-      "image_caption": "Ảnh món bún quậy Kiến Xây từ Cổng du lịch Phú Quốc.",
-      "image_credit": "Cổng du lịch Phú Quốc",
-      "image_source_url": "https://visitphuquoc.com.vn/vi/bun-quay-kien-xay",
+      "image": "https://phuquoc.angiang.gov.vn/sites/default/files/ImageOld/du%20l%E1%BB%8Bch/bun_quay1_rfsi.jpg",
+      "image_alt": "Tô bún quậy Phú Quốc ăn cùng chén nước chấm",
+      "image_caption": "Bún quậy Phú Quốc trong bài ẩm thực của UBND Đặc khu Phú Quốc; dùng minh họa món chung, không đại diện một quán cụ thể.",
+      "image_credit": "UBND Đặc khu Phú Quốc · bài theo VnExpress",
+      "image_source_url": "https://phuquoc.angiang.gov.vn/bun-quay-mon-ngon-phu-quoc",
       "intro": "Bún quậy vừa dọn ra đã có tô nước nóng với bún tươi và phần chả hải sản, bên cạnh là chén muối tiêu, quất và ớt. Cứ pha chén chấm theo khẩu vị, thử một miếng chả rồi điều chỉnh dần. Không ai bắt buộc phải làm chén chấm thật cay; vị vừa miệng mới là điều quan trọng trong bữa ăn.",
       "sections": [
         {
@@ -621,7 +621,8 @@
         }
       ],
       "home_featured": true,
-      "updated_at": "2026-09-26"
+      "updated_at": "2026-09-26",
+      "image_rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
     },
     {
       "id": "cua-song-duong-dong-ge-ra-bien",
