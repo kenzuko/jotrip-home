@@ -50,7 +50,10 @@
         return "Có điểm bờ Tây đang ghi nhận mưa. Tình hình có thể khác nhau giữa các khu vực.";
       }
       if (reason === "horizon_cloud") {
-        return "Ảnh vệ tinh đang thấy nhiều mây trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.";
+        const areas=Array.isArray(outlook?.horizon_cloud_points)?outlook.horizon_cloud_points.filter(Boolean):[];
+        if (areas.length === 1) return "Mây đang dày hơn trên hướng chân trời ở " + areas[0] + ". Mặt trời có thể bị che lúc lặn.";
+        if (areas.length > 1) return "Mây đang dày hơn trên hướng chân trời ở " + areas.join(" và ") + ". Một phần bờ Tây có thể bị che lúc mặt trời lặn.";
+        return "Ảnh vệ tinh đang thấy mây dày hơn trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.";
       }
       if (reason === "cloud_approaching") {
         return "Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
