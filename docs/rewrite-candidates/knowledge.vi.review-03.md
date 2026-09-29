@@ -1,8 +1,7 @@
 # Open Phu Quoc - Knowledge Vietnamese review 3/5
 
-> Knowledge 061-070: đã duyệt và QA ngày 29/09/2026.
-> Knowledge 071-090: chưa duyệt, giữ nội dung candidate hiện tại.
-> Research, source và operational data giữ nguyên ngoài file duyệt.
+> Mục 061-070 đã duyệt từ file người dùng ngày 29/09/2026; mục 071-090 chưa duyệt.
+> Chỉ gồm phần editorial/public. Research, source và operational data giữ nguyên.
 > Giữ dòng TOPIC_ID để map lại dữ liệu chính xác.
 > Phạm vi: Knowledge 61-90/150.
 
@@ -17,7 +16,7 @@ Cá sòng là quà của biển với phần thịt chắc nịch, thường đ�
 
 ### Thực tế khi đi
 
-Cá sòng nướng ngon nhất là ăn ngay lúc nóng hổi. Hãy gỡ từng thớ thịt, cuộn chung với rau xanh hoặc chấm với muối ớt tùy theo phong cách của mỗi quán. Nếu đi cùng trẻ nhỏ, bạn nhớ cẩn thận gỡ xương. Đừng quên hỏi chủ quán về kích cỡ cá cũng như cách tính giá trước khi chốt món nhé.
+Cá sòng nướng ngon nhất là ăn ngay lúc nóng hổi. Hãy gỡ từng thớ thịt, cuộn chung với rau xanh hoặc chấm quyện cùng muối ớt đậm đà tùy theo phong cách của mỗi quán. Nếu đi cùng trẻ nhỏ, bạn nhớ cẩn thận gỡ xương. Đừng quên hỏi chủ quán về kích cỡ cá cũng như cách tính giá trước khi chốt món nhé.
 
 ### Kỳ vọng và thực tế
 
@@ -50,7 +49,7 @@ Hãy xem ốc giác đơn thuần là một món ngon để thưởng thức, c�
 
 ### Kỳ vọng và thực tế
 
-Viện Đá quý Hoa Kỳ (GIA) từng ghi nhận loài ốc Melo quanh đảo Phú Quốc và khẳng định ngọc của chúng là dạng cực hiếm, dù xét trên lượng lớn cá thể. Vậy nên, không phải cứ gọi đĩa ốc giác là bạn đang nắm cơ hội trúng ngọc. Món ăn hàng ngày và viên ngọc quý là hai khái niệm ở hai thế giới hoàn toàn khác biệt.
+Viện Ngọc học Hoa Kỳ (GIA) từng ghi nhận loài ốc Melo quanh đảo Phú Quốc và khẳng định ngọc của chúng là dạng cực hiếm, dù xét trên lượng lớn cá thể. Vậy nên, không phải cứ gọi đĩa ốc giác là bạn đang nắm cơ hội trúng ngọc. Món ăn hàng ngày và viên ngọc quý là hai khái niệm ở hai thế giới hoàn toàn khác biệt.
 
 ### Trước khi đi
 
@@ -108,7 +107,7 @@ Trải nghiệm thưởng thức rượu sim ở mỗi cơ sở có thể rất 
 
 ### Kỳ vọng và thực tế
 
-Vị ngọt êm ái của rượu sim đôi khi làm bạn quên mất sự hiện diện của nồng độ cồn, nhưng thực tế cồn vẫn ở đó. Nhiều lời quảng cáo có thể thổi phồng công dụng chữa bệnh của rượu sim, nhưng không nên xem những lời quảng cáo đó là kết luận y khoa. Tốt nhất là hãy đọc kỹ thông tin và lựa chọn dựa trên sở thích uống thực tế của bản thân.
+Vị ngọt êm ái của rượu sim đôi khi làm bạn quên mất sự hiện diện của nồng độ cồn, nhưng thực tế cồn vẫn ở đó. Nhiều lời quảng cáo có thể thổi phồng công dụng chữa bệnh của rượu sim, trong khi y khoa chưa từng có kết luận chính thức. Tốt nhất là hãy đọc kỹ thông tin và lựa chọn dựa trên sở thích uống thực tế của bản thân.
 
 ### Trước khi đi
 
@@ -220,7 +219,7 @@ Tản bộ qua một vườn tiêu xanh mát ở Phú Quốc, bạn sẽ thấy 
 
 ### Thực tế khi đi
 
-Khi ghé thăm vườn tiêu, thay vì vội vã hỏi mua loại nào cay xé lưỡi, hãy nán lại hỏi thăm xem chủ vườn đang chăm bón, thu hái hay phơi phóng. Tiêu đen, tiêu nhồi và tiêu lặt có cách chọn trái khác nhau ngay từ lúc thu hái. Khi mua về làm quà, nhớ chú ý ngày đóng gói và nguồn gốc, vì một hũ tiêu thơm lừng lúc mở nắp tại vườn chưa chắc đã giữ được trọn vẹn phong độ khi về đến nhà.
+Khi ghé thăm vườn tiêu, thay vì vội vã hỏi mua loại nào cay xé lưỡi, hãy nán lại hỏi thăm xem chủ vườn đang chăm bón, thu hái hay phơi phóng. Tiêu đen, tiêu sọ hay tiêu ngào đường đều trải qua cách lựa chọn trái rất riêng. Khi mua về làm quà, nhớ chú ý ngày đóng gói và nguồn gốc, vì một hũ tiêu thơm lừng lúc mở nắp tại vườn chưa chắc đã giữ được trọn vẹn phong độ khi về đến nhà.
 
 ### Kỳ vọng và thực tế
 
@@ -245,9 +244,21 @@ Dù mở cửa đón khách, không phải vườn tiêu nào cũng có quy mô 
 
 ### Tóm tắt
 
-Hải sản Phú Quốc thay đổi theo mùa, sản lượng, thời tiết và nguồn cung từ nhiều vùng biển lân cận. Hiện chưa có một bộ dữ liệu thủy sản đủ cập nhật để công bố chắc chắn lịch "tháng này nên ăn con gì" mà không khẳng định quá mức.
+Bức tranh hải sản Phú Quốc luôn luân chuyển theo mùa, sản lượng, điều kiện thời tiết và nguồn cung từ các vùng biển lân cận. Hiện tại, chưa có một bảng dữ liệu thủy sản nào đủ độ cập nhật để mạnh miệng công bố lịch "tháng này phải ăn con gì" mà không khẳng định quá mức.
 
-> Các phần còn lại chưa có nội dung trong dữ liệu nguồn.
+### Thực tế khi đi
+
+
+
+### Kỳ vọng và thực tế
+
+
+
+### Trước khi đi
+
+
+### Câu hỏi gợi tò mò
+
 
 ## 070. Chợ Dương Đông ăn gì?
 <!-- TOPIC_ID:knowledge_070_cho-duong-dong-an-gi -->
@@ -260,7 +271,7 @@ Nếu muốn tìm bữa sáng đậm chất bản địa ở chợ Dương Đôn
 
 ### Thực tế khi đi
 
-Sáng sớm là thời điểm vàng để ghé chợ Dương Đông, nhâm nhi món nước nóng hổi trước khi len lỏi qua các sạp hàng tươi sống. Cứ thong thả dạo quanh để chọn cho mình quầy bún, bánh canh hay hải sản ưng ý nhất, và nhớ hỏi giá kỹ càng trước khi chốt các món bán theo ký. Vì mỗi sạp dọn hàng một khung giờ, đi càng sớm bạn sẽ càng có nhiều lựa chọn.
+Sáng sớm là thời điểm vàng để ghé chợ Dương Đông, nhâm nhi món nước nóng hổi trước khi len lỏi qua các sạp hàng tươi sống. Cứ thong thả dạo quanh để chọn cho mình quầy bún, bánh canh hay hải sản ưng ý nhất, và nhớ hỏi giá kỹ càng trước khi chốt các món bán theo ký. Vì mỗi sạp dọn hàng một khung giờ, đi càng sớm bạn sẽ càng có nhiều đặc quyền lựa chọn.
 
 ### Kỳ vọng và thực tế
 
