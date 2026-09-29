@@ -24,6 +24,7 @@ export function mergeKnowledge(base,translation){
     out.editorial={...(out.editorial||{})};
     for(const key of ["short_summary","practical","expectation_vs_reality"])applyText(out.editorial,translation.editorial,key);
     applyTextArray(out.editorial,translation.editorial,"before_you_go");
+    applyTextArray(out.editorial,translation.editorial,"curiosity_questions");
   }
   if(Array.isArray(translation.media?.images)&&Array.isArray(out.media?.images)){
     out.media={...out.media,images:out.media.images.map((img,i)=>{

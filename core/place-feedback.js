@@ -7,14 +7,14 @@
     details:"Thông tin khác chưa chính xác",new_place:"Đề xuất địa điểm mới",
     other:"Tôi muốn bổ sung thông tin",translation:"Bản dịch chưa tự nhiên hoặc chưa đúng"
   };
-  const translationLocales=new Set(["ko","ru","lo","zh-CN","zh-TW","fr"]);
+  const translationLocales=new Set(["ko","ru","lo","zh-Hans","zh-Hant","fr"]);
   const translationNotices={
-    ko:["이 글은 AI로 번역되었습니다. 어색하거나 잘못된 표현이 있다면 수정 의견을 보내주세요. ❤️","번역 수정 제안"],
-    ru:["Эта статья переведена с помощью ИИ. Заметили неточность? Помогите нам улучшить перевод. ❤️","Предложить исправление"],
-    lo:["ບົດຄວາມນີ້ແປໂດຍ AI. ຖ້າພົບຄຳແປທີ່ບໍ່ເໝາະສົມ ກະລຸນາຊ່ວຍແນະນຳ. ❤️","ແນະນຳການແກ້ໄຂ"],
-    "zh-CN":["本文由 AI 翻译。如果发现不准确或不自然的表达，欢迎帮助我们改进。❤️","建议修改翻译"],
-    "zh-TW":["本文由 AI 翻譯。如果發現不準確或不自然的表達，歡迎協助我們改進。❤️","建議修改翻譯"],
-    fr:["Cet article a été traduit par une IA. Une phrase vous semble incorrecte ou peu naturelle ? Aidez-nous à améliorer la traduction. ❤️","Proposer une correction"]
+    ko:["이 번역은 AI의 도움을 받아 작성되었으며 계속 다듬고 있습니다. 부정확하거나 어색한 표현이 있다면 Open Phu Quoc이 더 나은 번역으로 고칠 수 있도록 알려주세요. ❤️","번역 수정 제안"],
+    ru:["Этот перевод выполнен с помощью ИИ и ещё дорабатывается. Если вы заметили неточность или неестественную фразу, сообщите нам, чтобы Open Phu Quoc мог улучшить перевод. ❤️","Предложить исправление"],
+    lo:["ຄຳແປນີ້ຈັດເຮັດຂຶ້ນດ້ວຍການຊ່ວຍເຫຼືອຂອງ AI ແລະຍັງກຳລັງປັບປຸງ. ຖ້າພົບຈຸດທີ່ບໍ່ຖືກຕ້ອງ ຫຼືບໍ່ເປັນທຳມະຊາດ ກະລຸນາແນະນຳເພື່ອໃຫ້ Open Phu Quoc ປັບແກ້ໃຫ້ດີຂຶ້ນ. ❤️","ແນະນຳການແກ້ໄຂ"],
+    "zh-Hans":["本翻译在 AI 辅助下完成，目前仍在持续完善。如果您发现不准确或不自然的表达，欢迎提出建议，帮助 Open Phu Quoc 改进翻译。❤️","建议修改翻译"],
+    "zh-Hant":["本翻譯在 AI 協助下完成，目前仍在持續完善。如果您發現不準確或不自然的表達，歡迎提出建議，協助 Open Phu Quoc 改進翻譯。❤️","建議修改翻譯"],
+    fr:["Cette traduction a été réalisée avec l’aide de l’IA et continue d’être améliorée. Si un passage vous semble inexact ou peu naturel, signalez-le pour aider Open Phu Quoc à mieux le formuler. ❤️","Proposer une correction"]
   };
   const translationUI=window.OpenPQFeedbackLocales||{};
   const currentLocale=()=>document.documentElement.lang||"vi";

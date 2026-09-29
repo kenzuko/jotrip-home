@@ -87,7 +87,7 @@ try{
   assert.ok(submitted.at(-1).includes("기존 번역 문장")||submitted.at(-1).includes("%EA%B8%B0"),
     "Korean correction should be sent through the single public intake");
   await story.locator(".opq-feedback-close").click();
-  for(const locale of ["ru","lo","zh-CN","zh-TW","fr"]){
+  for(const locale of ["ru","lo","zh-Hans","zh-Hant","fr"]){
     await story.evaluate(language=>{
       document.documentElement.lang=language;
       window.OpenPQFeedback.refresh();

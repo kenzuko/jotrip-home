@@ -4,8 +4,10 @@ export const LOCALES=Object.freeze([
   Object.freeze({code:"en",urlCode:"en",htmlLang:"en",published:false,surfaces:Object.freeze([])}),
   Object.freeze({code:"ko",urlCode:"ko",htmlLang:"ko",published:false,surfaces:Object.freeze([])}),
   Object.freeze({code:"ru",urlCode:"ru",htmlLang:"ru",published:false,surfaces:Object.freeze([])}),
+  Object.freeze({code:"lo",urlCode:"lo",htmlLang:"lo",published:false,surfaces:Object.freeze([])}),
   Object.freeze({code:"zh-Hant",urlCode:"zh-hant",htmlLang:"zh-Hant",published:false,surfaces:Object.freeze([])}),
-  Object.freeze({code:"zh-Hans",urlCode:"zh-hans",htmlLang:"zh-Hans",published:false,surfaces:Object.freeze([])})
+  Object.freeze({code:"zh-Hans",urlCode:"zh-hans",htmlLang:"zh-Hans",published:false,surfaces:Object.freeze([])}),
+  Object.freeze({code:"fr",urlCode:"fr",htmlLang:"fr",published:false,surfaces:Object.freeze([])})
 ]);
 const byCode=new Map(LOCALES.map(x=>[x.code.toLowerCase(),x]));
 const byUrl=new Map(LOCALES.map(x=>[x.urlCode.toLowerCase(),x]));

@@ -1,8 +1,8 @@
 // Place-data corrections only. Never turns a public report into verified data.
 const TYPES = new Set(["place","activity","venue","hotel","utility","article","general"]);
 const ISSUES = new Set(["closed","location","hours","phone","details","new_place","other","translation"]);
-const LANGUAGES = new Set(["vi","en","ko","ru","lo","zh-CN","zh-TW","fr"]);
-const TRANSLATION_LANGUAGES = new Set(["ko","ru","lo","zh-CN","zh-TW","fr"]);
+const LANGUAGES = new Set(["vi","en","ko","ru","lo","zh-Hans","zh-Hant","fr"]);
+const TRANSLATION_LANGUAGES = new Set(["ko","ru","lo","zh-Hans","zh-Hant","fr"]);
 const STATUSES = new Set(["new","reviewing","resolved","rejected"]);
 // Prefer a dedicated secret. CMS Pages can safely derive a separate HMAC key from its existing session secret.
 const feedbackRateKey=env=>env.FEEDBACK_RATE_SECRET|| (env.CMS_SESSION_SECRET?"openpq-feedback-rate-v1:"+env.CMS_SESSION_SECRET:"");

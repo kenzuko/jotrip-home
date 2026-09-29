@@ -22,7 +22,7 @@ function story(base,tr){
 function knowledge(base,tr){
   if(!base||!tr||base.topic_id!==tr.topic_id)return null;
   const out=copy(base);put(out,tr,"title");
-  if(tr.editorial){out.editorial={...(out.editorial||{})};["short_summary","practical","expectation_vs_reality"].forEach(k=>put(out.editorial,tr.editorial,k));strings(out.editorial,tr.editorial,"before_you_go")}
+  if(tr.editorial){out.editorial={...(out.editorial||{})};["short_summary","practical","expectation_vs_reality"].forEach(k=>put(out.editorial,tr.editorial,k));strings(out.editorial,tr.editorial,"before_you_go");strings(out.editorial,tr.editorial,"curiosity_questions")}
   if(Array.isArray(tr.media?.images)&&Array.isArray(out.media?.images))out.media={...out.media,images:out.media.images.map((img,i)=>{const row={...img},x=tr.media.images[i];if(x)["alt","caption"].forEach(k=>put(row,x,k));return row})};
   if(Array.isArray(tr.links)&&Array.isArray(out.links))out.links=out.links.map((link,i)=>{const row={...link},x=tr.links[i];if(x)put(row,x,"label");return row});
   return out;
