@@ -80,6 +80,31 @@ assert.equal(dngAnThoi?.map?.precision,"site_centroid");
 assert.equal(dngAnThoi?.operational_status,"UNKNOWN","GPS identity evidence must not become a live intake claim");
 assert.equal(dngAnThoi?.source_audit?.verified_entrance,false,"Site centroid must not be presented as an entrance");
 assert.deepEqual([indexed.get(dngAnThoi.id)?.map?.lat,indexed.get(dngAnThoi.id)?.map?.lon],[dngAnThoi.map.lat,dngAnThoi.map.lon]);
+const oneMart=byId.get("utility_minimart_one_mart_duong_dong");
+assert.equal(oneMart?.map?.source_id,"one_mart_16_30thang4_registry_structured_map_20260929","One Mart GPS must retain registry/business evidence");
+assert.equal(oneMart?.map?.precision,"site_centroid");
+assert.equal(oneMart?.operational_status,"UNKNOWN","One Mart GPS must not become a live opening claim");
+assert.equal(oneMart?.verified,false,"Business-location evidence must not silently upgrade the existing verification flag");
+assert.deepEqual([indexed.get(oneMart.id)?.map?.lat,indexed.get(oneMart.id)?.map?.lon],[oneMart.map.lat,oneMart.map.lon]);
+
+const dongLoi=byId.get("utility_fuel_dong_loi_1");
+assert.equal(dongLoi?.map?.source_id,"dong_loi_1_official_structured_map_20260929","Dong Loi 1 GPS must retain official-directory/business evidence");
+assert.equal(dongLoi?.map?.precision,"site_centroid");
+assert.equal(dongLoi?.operational_status,"UNKNOWN","Fuel-station GPS must not become a live sales-status claim");
+assert.deepEqual([indexed.get(dongLoi.id)?.map?.lat,indexed.get(dongLoi.id)?.map?.lon],[dongLoi.map.lat,dongLoi.map.lon]);
+
+for(const [id,sourceId] of [
+  ["utility_toilet_sunset_venice_02","sunset_venice_02_structured_map_20260929"],
+  ["utility_toilet_sunset_venice_67","sunset_venice_67_structured_map_20260929"]
+]){
+  const e=byId.get(id),doc=indexed.get(id);
+  assert.equal(e?.map?.source_id,sourceId,"Sunset Venice restroom GPS must retain exact structured-business evidence: "+id);
+  assert.equal(e?.map?.precision,"site_centroid","Restroom POI is a site centroid, not a doorway: "+id);
+  assert.equal(e?.verified,false,"GPS identity must not become a live restroom-operation claim: "+id);
+  assert.equal(e?.operational_status,"UNKNOWN","Restroom live status remains unknown: "+id);
+  assert.deepEqual([doc?.map?.lat,doc?.map?.lon],[e.map.lat,e.map.lon],"Restroom pin must survive canonical view build: "+id);
+}
+
 assert.ok(indexed.get("utility_longchau_nguyen_trung_truc")?.map,"Previously verified Long Chau position must remain");
 const clinic=byId.get("utility_vinmec_duong_dong_clinic");
 const hospital=byId.get("utility_vinmec_phuquoc_emergency");
