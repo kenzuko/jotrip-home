@@ -194,15 +194,16 @@
     if (!host || !foodNowState.selected.length) return;
     host.innerHTML = foodNowState.selected.map(dish => {
       const safety = (dish.allergen_flags || []).slice(0,2).map(x => x.label).join(" · ");
-      return '<article class="food-now-card featured-food-card">'+
+      const href="food/article.html?id="+encodeURIComponent(dish.id);
+      return '<a class="food-now-card featured-food-card" href="'+href+'" aria-label="Đọc món: '+esc(dish.name)+'">'+
         foodNowPhoto(dish)+
         '<div class="food-now-copy">'+
           '<span>'+(dish.category === "seafood" ? "HẢI SẢN" : "MÓN ĐỊA PHƯƠNG")+'</span>'+
           '<h3>'+esc(dish.name)+'</h3>'+
           '<p>'+esc(dish.intro || "")+'</p>'+
           (safety ? '<small>Thành phần cần lưu ý: '+esc(safety)+'</small>' : "")+
-          '<a href="food/article.html?id='+encodeURIComponent(dish.id)+'">Xem món này →</a>'+
-        '</div></article>';
+          '<span class="food-now-link">Xem món này →</span>'+
+        '</div></a>';
     }).join("");
     const button = $("#foodRandomBtn");
     if (button) button.disabled = foodNowState.pool.length <= 3;
