@@ -518,7 +518,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
             title:"Hoàng hôn chiều nay có thể bị thời tiết ảnh hưởng.",
             note:observed
               ? "Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển."
-              : "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Hệ thống sẽ tiếp tục cập nhật khi gần giờ.",
+              : (() => {
+                  const areas=(Array.isArray(sunsetWx.forecast_rain_likely_points)&&sunsetWx.forecast_rain_likely_points.length
+                    ? sunsetWx.forecast_rain_likely_points
+                    : sunsetWx.forecast_rain_points||[]).filter(Boolean);
+                  if (areas.length === 1) return "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rõ hơn quanh " + areas[0] + ".";
+                  if (areas.length === 2) return "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rõ hơn quanh " + areas.join(" và ") + ".";
+                  if (areas.length >= 3) return "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rải rác dọc bờ Tây.";
+                  return "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Hệ thống sẽ tiếp tục cập nhật khi gần giờ.";
+                })(),
             primaryText:"Xem thời tiết bờ Tây →", primaryHref:"weather/",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
           });
@@ -540,7 +548,14 @@ function freshnessText(iso, prefix = "Cập nhật") {
           } else if (sunsetWx.reason === "satellite_convection") {
             note = "Ảnh vệ tinh cho thấy mây đối lưu quanh khu vực. Chưa đủ bằng chứng để coi là mưa tại bờ Tây.";
           } else if (sunsetWx.reason === "forecast_rain") {
-            note = "Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Hệ thống sẽ cập nhật lại khi gần giờ hơn.";
+            const areas = (sunsetWx.forecast_rain_points || []).filter(Boolean);
+            note = areas.length === 1
+              ? "Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh " + areas[0] + "."
+              : areas.length === 2
+                ? "Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh " + areas.join(" và ") + "."
+                : areas.length >= 3
+                  ? "Dự báo quanh giờ hoàng hôn có thể có mưa rào rải rác dọc bờ Tây."
+                  : "Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Hệ thống sẽ cập nhật lại khi gần giờ hơn.";
           }
           push({
             tone:"watch",
@@ -792,18 +807,37 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     const quickAlerts = [];
     const weatherFreshForAlert = !!critical && criticalAge <= 90;
-    // Alert priority: direct operations > observed weather > forecast/satellite watch > info.
-    if (weatherFreshForAlert && observedRain) {
+    const todayKey = vnDateKey();
+    const activeRainGauges = gauges.filter(g =>
+      g?.rain_observed === true ||
+      (Number.isFinite(Number(g?.rain_intensity_mm_h)) && Number(g.rain_intensity_mm_h) > 0));
+    const meaningfulObservedRain = heroRain.confirmed ||
+      activeRainGauges.length >= 2 ||
+      activeRainGauges.some(g => Number(g?.rain_intensity_mm_h) >= 2);
+    const activeRainNames = [...new Set(activeRainGauges.map(g => String(g?.name || "").trim()).filter(Boolean))];
+
+    // Candidate policy: only changes that can alter a same-day decision.
+    // A trace/light shower at one gauge is not enough for this tiny "hot" surface.
+    if (weatherFreshForAlert && meaningfulObservedRain) {
+      const localRainText = activeRainNames.length === 1
+        ? "Đang ghi nhận mưa rõ hơn quanh " + activeRainNames[0] + ". Xem lại khu vực trước khi đi xa."
+        : "Một số điểm trên đảo đang ghi nhận mưa rõ hơn. Xem khu vực mình sắp đi trước khi chạy xa.";
       quickAlerts.push({
+        kind:"weather",
+        dedupe_key:"weather-current",
+        overlaps_sunset:true,
         label:"THỜI TIẾT",
-        text:"Có nơi trên đảo đang ghi nhận mưa. Xem khu vực mình sắp đi trước khi chạy xa.",
+        text:localRainText,
         href:"weather/",
         action:"Xem thời tiết",
-        priority:90,
+        priority:heroRain.confirmed ? 100 : 90,
         level:"watch"
       });
     } else if (weatherFreshForAlert && hasHighConvective) {
       quickAlerts.push({
+        kind:"weather",
+        dedupe_key:"weather-convection",
+        overlaps_sunset:true,
         label:"THỜI TIẾT",
         text:"Ảnh vệ tinh cho thấy mây đối lưu quanh đảo; chưa đồng nghĩa mặt đất đang mưa hoặc có dông.",
         href:"weather/",
@@ -813,6 +847,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
       });
     } else if (weatherFreshForAlert && hasElevatedConvective) {
       quickAlerts.push({
+        kind:"weather",
+        dedupe_key:"weather-convection",
+        overlaps_sunset:true,
         label:"THỜI TIẾT",
         text:"Ảnh vệ tinh cho thấy mây đối lưu đang tăng. Xem khu vực mình sắp tới nếu phải đi xa.",
         href:"weather/",
@@ -821,60 +858,100 @@ function freshnessText(iso, prefix = "Cập nhật") {
         level:"watch"
       });
     }
-    if (canoState === "SUSPENDED") {
+
+    const suspendedMarine = [];
+    if (canoState === "SUSPENDED") suspendedMarine.push("Cano Nam đảo");
+    if (fastState === "SUSPENDED") suspendedMarine.push("tàu cao tốc");
+    if (ferryState === "SUSPENDED") suspendedMarine.push("phà");
+    if (suspendedMarine.length) {
+      const marineNames = suspendedMarine.length === 1
+        ? suspendedMarine[0]
+        : suspendedMarine.length === 2
+          ? suspendedMarine.join(" và ")
+          : suspendedMarine.slice(0,-1).join(", ") + " và " + suspendedMarine.at(-1);
       quickAlerts.push({
-        label:"CANO",
-        text:"Cano Nam đảo hôm nay đang tạm dừng.",
-        href:"cano/",
-        action:"Xem tình hình cano",
-        priority:120,
+        kind:"marine_operation",
+        dedupe_key:"marine-suspended",
+        label:"DI CHUYỂN BIỂN",
+        text:marineNames + " đang tạm dừng hôm nay.",
+        href:suspendedMarine.length === 1 && canoState === "SUSPENDED" ? "cano/" : "transit/",
+        action:"Xem tình hình",
+        priority:130,
         level:"alert"
       });
     }
-    if (fastState === "SUSPENDED") {
-      quickAlerts.push({
-        label:"TÀU CAO TỐC",
-        text:"Tàu cao tốc có thay đổi hôm nay.",
-        href:"transit/",
-        action:"Xem lịch tàu",
-        priority:115,
-        level:"alert"
-      });
-    }
-    if (ferryState === "SUSPENDED") {
-      quickAlerts.push({
-        label:"PHÀ",
-        text:"Phà có thay đổi hôm nay.",
-        href:"transit/",
-        action:"Xem lịch phà",
-        priority:115,
-        level:"alert"
-      });
-    }
+
     if (airportAvailable && (airportWatch.cancelledCount > 0 || airportWatch.delayed30Count >= 3)) {
       const airportIssueText = airportWatch.cancelledCount > 0
-        ? "Có chuyến bị hủy hoặc thay đổi đáng kể. Nếu sắp ra sân bay, nên xem lại chuyến của mình."
+        ? "Có chuyến bay bị hủy hoặc thay đổi đáng kể. Nếu sắp ra sân bay, nên xem lại chuyến của mình."
         : airportWatch.delayed30Count + " chuyến đang chậm từ 30 phút. Nếu sắp ra sân bay, nên xem lại chuyến của mình.";
       quickAlerts.push({
+        kind:"airport",
+        dedupe_key:"airport-disruption",
         label:"SÂN BAY",
         text:airportIssueText,
         href:"airport/",
         action:"Xem chuyến bay",
-        priority:105,
+        priority:airportWatch.cancelledCount > 0 ? 120 : 105,
         level:"watch"
       });
     }
-    const ongoingShowNotice = (notices?.notices || []).find(x => ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status) && (!x.effective_from || x.effective_from <= vnDateKey()) && !x.valid_until);
-    if (ongoingShowNotice) {
-      quickAlerts.push({
-        label:"SHOW",
-        text:ongoingShowNotice.summary || ongoingShowNotice.title,
-        href:"places/detail.html?id=sac-mau-venice",
-        action:"Xem thông báo",
-        priority:110,
-        level:"watch"
-      });
+
+    const noticeHref = notice => notice?.entity_id === "place_sunset_town"
+      ? "places/detail.html?id=sunset-town"
+      : notice?.entity_id === "activity_sac_mau_venice"
+        ? "places/detail.html?id=sac-mau-venice"
+        : "news/";
+    const dateAgeDays = dateKey => {
+      if(!/^\d{4}-\d{2}-\d{2}$/.test(String(dateKey||""))) return Infinity;
+      const a=Date.parse(todayKey+"T12:00:00+07:00"),b=Date.parse(dateKey+"T12:00:00+07:00");
+      return Number.isFinite(a)&&Number.isFinite(b)?Math.floor((a-b)/86400000):Infinity;
+    };
+
+    for (const notice of (notices?.notices || [])) {
+      const isDatedToday = ["CANCELLED","BOOKING_FULL"].includes(notice.status) && notice.date === todayKey;
+      if (isDatedToday) {
+        quickAlerts.push({
+          kind:"dated_operation",
+          dedupe_key:"notice-"+notice.id,
+          label:notice.status === "BOOKING_FULL" ? "HẾT CHỖ" : "THAY ĐỔI HÔM NAY",
+          text:notice.title || notice.summary,
+          href:noticeHref(notice),
+          action:"Xem thông báo",
+          priority:notice.status === "CANCELLED" ? 118 : 108,
+          level:"watch"
+        });
+        continue;
+      }
+
+      const isOngoing = ["SUSPENDED","SUSPENDED_UPGRADE"].includes(notice.status) &&
+        (!notice.effective_from || notice.effective_from <= todayKey) && !notice.valid_until;
+      // A long-lived suspension remains in schedules/detail pages, but stops
+      // occupying this tiny "hot today" surface after its first week.
+      if (isOngoing && dateAgeDays(notice.effective_from) >= 0 && dateAgeDays(notice.effective_from) <= 7) {
+        quickAlerts.push({
+          kind:"ongoing_operation",
+          dedupe_key:"notice-"+notice.id,
+          label:"HOẠT ĐỘNG",
+          text:notice.title || notice.summary,
+          href:noticeHref(notice),
+          action:"Xem thông báo",
+          priority:100,
+          level:"watch"
+        });
+      }
     }
+
+    const dayWatchCandidates = quickAlerts.map(x => ({
+      kind:x.kind,
+      dedupe_key:x.dedupe_key,
+      overlaps_sunset:x.overlaps_sunset,
+      text:x.text,
+      href:x.href,
+      priority:x.priority,
+      level:x.level,
+      day_watch:x.day_watch
+    }));
     const topAlert = quickAlerts.sort((a,b) => b.priority - a.priority)[0] || null;
     const tickerBaseItems = [];
     if (topAlert) tickerBaseItems.push(["LƯU Ý", topAlert.text]);
@@ -1025,6 +1102,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         heavy_rain_confirmed: heroRain.confirmed,
         heavy_rain_gauge_count: heroRain.count,
         sunset_weather: sunsetWeatherAssessment(critical, sunset),
+        day_watch_candidates: dayWatchCandidates,
         airport_attention_count: airportAvailable ? airportWatch.count : null,
         airport_attention_flights: airportAvailable ? airportWatch.flightCount : null,
         airport_delayed_15m_count: airportAvailable ? airportWatch.delayed15Count : null,
