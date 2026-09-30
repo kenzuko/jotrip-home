@@ -286,13 +286,13 @@
           "note": "Azure Translator v3 machine draft; human review required."
         },
         "ru": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ru/knowledge.json",
+          "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Azure Translator v3 machine draft; human review required."
         },
         "lo": {
           "status": "missing",
