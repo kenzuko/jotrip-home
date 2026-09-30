@@ -109,7 +109,7 @@
     const p=Object.fromEntries(parts.map(x=>[x.type,x.value]));
     return p.year+"-"+p.month+"-"+p.day;
   }
-  planningStyle.textContent += '.show-cancel-banner{margin:14px auto;max-width:1160px;padding:18px 22px;border:2px solid #c96e34;border-radius:16px;background:#fff6ea;color:#623518}.show-cancel-banner span{font-size:12px;font-weight:900;color:#974b16}.show-cancel-banner h2{font-size:22px;line-height:1.35;margin:8px 0}.show-cancel-banner p{margin:8px 0;line-height:1.55}.show-cancel-banner small{display:block;line-height:1.5}';
+  planningStyle.textContent += '.show-cancel-banner{margin:14px auto;max-width:1160px;padding:18px 22px;border:2px solid #c96e34;border-radius:16px;background:#fff6ea;color:#623518}.show-cancel-banner span{font-size:12px;font-weight:900;color:#974b16}.show-cancel-banner h2{font-size:22px;line-height:1.35;margin:8px 0}.show-cancel-banner p{margin:8px 0;line-height:1.55}.show-cancel-banner small{display:block;line-height:1.5}.show-cancel-banner .notice-item+.notice-item{margin-top:16px;padding-top:16px;border-top:1px solid rgba(151,75,22,.22)}';
   function render(entity,zones,all,prices,planningData,visualData,explainerData,uiData,notices){
     const root=$("#detailRoot");
     const zone=zones.find(z=>z.id===entity.zone_id);
@@ -157,20 +157,23 @@
       const end=x.valid_until?Date.parse(x.valid_until):fallbackEnd;
       return Number.isFinite(eventStart)&&Number.isFinite(visibleFrom)&&Number.isFinite(end)&&now>=visibleFrom&&now<end;
     });
-    const ongoingNotice=(notices?.notices||[]).find(x=>{
+    const ongoingNotices=(notices?.notices||[]).filter(x=>{
       if(x.entity_id!==entity.id||!["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status))return false;
       const start=x.effective_from?Date.parse(x.effective_from+"T00:00:00+07:00"):-Infinity;
       const end=x.valid_until?Date.parse(x.valid_until):Infinity;
-      return now>=start&&now<=end;
-    });
-    const activeNotice=ongoingNotice||datedNotice;
+      return now>=start&&now<end;
+    }).sort((a,b)=>Date.parse((b.effective_from||"1970-01-01")+"T00:00:00+07:00")-Date.parse((a.effective_from||"1970-01-01")+"T00:00:00+07:00"));
+    const ongoingNotice=ongoingNotices[0]||null;
+    const activeNotices=ongoingNotices.length?ongoingNotices:(datedNotice?[datedNotice]:[]);
     const noticeEyebrow=ongoingNotice?"THÔNG BÁO HOẠT ĐỘNG":
       datedNotice?.status==="BOOKING_FULL"?"THÔNG BÁO HẾT CHỖ NGÀY "+datedNotice.date.split("-").reverse().join("/"):
       "THÔNG BÁO SUẤT DIỄN NGÀY "+datedNotice?.date?.split("-").reverse().join("/");
-    const noticeBanner=activeNotice?
+    const noticeBanner=activeNotices.length?
       '<aside class="show-cancel-banner" role="status" data-show-notice><span>'+esc(noticeEyebrow)+'</span>'+
-      '<h2>'+esc(activeNotice.title)+'</h2><p>'+esc(activeNotice.summary)+'</p>'+
-      '<p>'+esc(activeNotice.booking_message||"")+'</p><small>'+esc(activeNotice.source||"")+'</small></aside>':"";
+      activeNotices.map((activeNotice,index)=>
+        '<div class="notice-item" data-notice-item="'+index+'"><h2>'+esc(activeNotice.title)+'</h2><p>'+esc(activeNotice.summary)+'</p>'+
+        '<p>'+esc(activeNotice.booking_message||"")+'</p><small>'+esc(activeNotice.source||"")+'</small></div>'
+      ).join("")+'</aside>':"";
     root.innerHTML=noticeBanner+
       '<section class="detail-hero" data-zone="'+esc(entity.zone_id||"")+'">'+
         (heroImage
@@ -222,13 +225,32 @@
       '</section>';
 
     window.OpenPQVisual?.bindLazyMaps(root);
-    // If the detail page is kept open for days, still remove an expired announcement.
-    if(datedNotice&&!ongoingNotice){
-      const started=Date.parse(datedNotice.date+"T00:00:00+07:00");
-      const fallbackDeadline=started+days*86400000;
-      const configuredDeadline=datedNotice.valid_until?Date.parse(datedNotice.valid_until):NaN;
-      const deadline=Number.isFinite(configuredDeadline)?configuredDeadline:fallbackDeadline;
-      const checkExpiry=setInterval(()=>{if(Date.now()>=deadline){root.querySelector("[data-show-notice]")?.remove();clearInterval(checkExpiry)}},60000);
+    // If the detail page stays open across an expiry boundary, remove only the
+    // notice that ended. Other simultaneous maintenance notices remain visible.
+    const finiteDeadlines=activeNotices.map((item,index)=>{
+      if(item.valid_until){
+        const configured=Date.parse(item.valid_until);
+        return Number.isFinite(configured)?{index,deadline:configured}:null;
+      }
+      if(typeof item.date==="string"){
+        const started=Date.parse(item.date+"T00:00:00+07:00");
+        return Number.isFinite(started)?{index,deadline:started+days*86400000}:null;
+      }
+      return null;
+    }).filter(Boolean);
+    if(finiteDeadlines.length){
+      const expired=new Set();
+      const checkExpiry=setInterval(()=>{
+        const current=Date.now();
+        finiteDeadlines.forEach(item=>{
+          if(current>=item.deadline&&!expired.has(item.index)){
+            root.querySelector('[data-notice-item="'+item.index+'"]')?.remove();
+            expired.add(item.index);
+          }
+        });
+        if(!root.querySelector("[data-notice-item]"))root.querySelector("[data-show-notice]")?.remove();
+        if(expired.size===finiteDeadlines.length)clearInterval(checkExpiry);
+      },60000);
     }
   }
 
