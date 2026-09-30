@@ -684,6 +684,32 @@
       },
       "reason": "WRONG_BRAND_ROAD_AREA_OR_DIFFERENT_SITE",
       "approved_replacement": null
+    },
+    {
+      "id": "hotel_lotus",
+      "name": "Lotus",
+      "status": "HOLD_NO_EXACT_POI_IDENTITY",
+      "rejected_match": null,
+      "rejected_map": {
+        "lat": 10.1961798,
+        "lon": 103.9901978,
+        "precision": "site_centroid",
+        "source_id": "osm_photon_geocode",
+        "source": "OpenStreetMap Photon location geocoding",
+        "verified_at": "2026-09-22",
+        "accuracy": "OSM_PHOTON",
+        "place_id": null,
+        "google_place_id": null,
+        "osm_type": "N",
+        "osm_id": 10277593609,
+        "matched_name": null,
+        "formatted_address": "City, Tổ 3, ấp Suối Đá, Kiên Giang 92509, Vietnam, Phú Quốc, An Giang, Việt Nam",
+        "lookup_query": "Lotus, Tổ 4, ấp Suối Đá, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
+        "location_type": null,
+        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      "reason": "NO_MATCHED_BUSINESS_NAME_AND_SOURCE_ADDRESS_CONFLICTS_CANONICAL_T3_VS_T4",
+      "approved_replacement": null
     }
   ],
   "accepted": [
