@@ -28,13 +28,13 @@
       "why_name": "The name is straightforward: fresh herring is prepared as a salad. Its character, however, comes from the combination of shredded coconut, island herbs and the dipping sauce served alongside.",
       "ingredients": [
         "Fresh herring",
-        "Onions",
-        "Herb/basil",
-        "Grated Coconut",
-        "Raw vegetables",
+        "Onion",
+        "Herbs / Vietnamese basil",
+        "Shredded coconut",
+        "Fresh greens",
         "Rice paper",
-        "Dipping sauce from fish sauce, garlic, chili",
-        "Roasted peanuts – usually available"
+        "Fish-sauce dip with garlic and chilli",
+        "Roasted peanuts - commonly used"
       ],
       "taste_texture": "The herring is tender and naturally sweet. Shredded coconut adds richness and a gentle crunch, while the herbs bring fresh, slightly astringent notes. The dipping sauce ties everything together with sour, spicy, salty and sweet flavours.",
       "allergen_flags": [
@@ -49,11 +49,11 @@
           "level": "high"
         }
       ],
-      "allergy_note": "Dipping sauces and side dishes often contain crushed roasted peanuts. If you have a history of allergies to peanuts, fresh seafood, or a weak stomach, carefully discuss with the restaurant how to prepare the fish and dipping sauce ingredients before ordering.",
+      "allergy_note": "The dipping sauce and garnishes often contain roasted peanuts. If you have a peanut or seafood allergy, ask the restaurant about the fish preparation and dipping-sauce ingredients before ordering.",
       "ask_staff": [
-        "Does the dipping sauce come with peanuts?",
-        "Today's herring is fresh fish made during the day, right, the restaurant serves raw or raw?",
-        "Can you prepare your own peanut-free dipping sauce for me?"
+        "Does the dipping sauce contain peanuts?",
+        "Was today's herring prepared fresh, and is it served raw or lightly cured with lime?",
+        "Could you prepare a separate peanut-free dipping sauce for me?"
       ],
       "sources": [
         {
@@ -84,12 +84,12 @@
       "origin": "Bún quậy developed from Binh Dinh-style shrimp noodles and was adapted in Phu Quoc around the island's fresh seafood. What began as an everyday workers' meal is now one of the island's signature food experiences.",
       "why_name": "Quậy means to stir. Diners vigorously stir their dipping sauce, while the fresh shrimp and fish paste is cooked by stirring it into the hot broth.",
       "ingredients": [
-        "Fresh vermicelli made from rice flour",
-        "Shrimp Rolls",
-        "Fish cakes",
+        "Fresh rice noodles",
+        "Fresh shrimp paste",
+        "Fresh fish paste",
         "Squid - depending on the restaurant",
-        "Green onions and herbs",
-        "The dipping sauce usually has fish sauce, cactus/kumquat, sugar and chili"
+        "Spring onion and herbs",
+        "Dipping sauce usually made with fish sauce, calamansi, sugar and chilli"
       ],
       "taste_texture": "The freshly pressed noodles are soft and warm. Shrimp and fish paste add a springy texture and clean seafood sweetness. The broth is deliberately light, leaving the punchier sour and spicy notes to the dipping sauce.",
       "allergen_flags": [
@@ -100,28 +100,28 @@
         },
         {
           "key": "crustacean",
-          "label": "Shrimp/crustaceans",
+          "label": "Shrimp / crustaceans",
           "level": "high"
         },
         {
           "key": "mollusc",
-          "label": "Squid/krill",
+          "label": "Squid / molluscs",
           "level": "possible"
         }
       ],
-      "allergy_note": "The broth and patties have the main ingredients of shrimp, fish, and fresh squid. In addition, the area where fresh vermicelli and seafood patties are often operated continuously with shared utensils, diners with severe seafood or gluten allergies need to consider carefully.",
+      "allergy_note": "The bowl commonly contains shrimp, fish and squid, and preparation areas may use shared utensils. If you have a severe seafood allergy, tell the restaurant before ordering. If gluten is a concern, ask how the fresh noodles and seafood pastes are prepared.",
       "ask_staff": [
-        "What kind of seafood does today's special bowl include?",
-        "Can the restaurant adjust the spiciness or not put pepper in the bowl?",
-        "Does the vermicelli process use additives or flour?"
+        "Which seafood is included in today's bowl?",
+        "Can you make it less spicy or leave out the pepper?",
+        "Are the fresh noodles made only from rice flour, or are any additives or wheat flour used?"
       ],
       "sources": [
         {
-          "label": "Vietnam Tourism - Phu Quoc Bun Quyen",
+          "label": "Vietnam Tourism - Bún quậy Phu Quoc",
           "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-signature-noodle-bun-quay"
         },
         {
-          "label": "VnExpress - Phu Quoc noodle soup",
+          "label": "VnExpress - Bún quậy Phu Quoc",
           "url": "https://vnexpress.net/bun-quay-phu-quoc-4066543.html"
         }
       ],
@@ -146,16 +146,16 @@
         "#mon-dia-phuong",
         "#bun-ken"
       ],
-      "origin": "Bún kèn is linked to Khmer and southern Vietnamese cooking traditions, then adapted in Phu Quoc with locally available fish. The fish is flaked and cooked with coconut milk and aromatic spices.",
+      "origin": "Bún kèn is linked to Khmer and southern Vietnamese cooking traditions, then adapted in Phu Quoc with locally available fish such as barracuda or cá ngân. The fish is flaked and cooked with coconut milk and aromatic spices.",
       "why_name": "Kèn is associated with Khmer-influenced dishes in which fish is cooked with coconut milk and spices. The name has remained attached to this distinctive noodle dish.",
       "ingredients": [
-        "Microfiber rice noodles",
-        "Fish - how to make it varies by restaurant",
+        "Fine rice noodles",
+        "Fish - preparation varies by vendor",
         "Coconut milk",
-        "Curry seasoning",
-        "Herbs/spinach",
+        "Curry spices",
+        "Herbs / Vietnamese coriander",
         "Cucumber",
-        "Grated papaya - common"
+        "Shredded green papaya - commonly used"
       ],
       "taste_texture": "Flaked fish blends into a smooth, coconut-rich sauce. Shredded papaya and cucumber add crunch and freshness, keeping the bowl from feeling heavy.",
       "allergen_flags": [
@@ -165,10 +165,10 @@
           "level": "high"
         }
       ],
-      "allergy_note": "The core ingredients of the dish are sea fish and thick fatty coconut milk. People with a digestive system that is sensitive to fatty foods or a seafood allergy should be careful to enjoy it in moderation.",
+      "allergy_note": "Fish and coconut milk are core ingredients. If you have a fish allergy or are sensitive to rich coconut-based dishes, ask the vendor about the preparation before ordering.",
       "ask_staff": [
-        "Today, the restaurant cooks vermicelli with barracuda or barracuda fish?",
-        "Does the broth have shrimp paste or any other special spices ready?"
+        "Is today's Bún kèn made with barracuda or cá ngân?",
+        "Does the sauce contain fermented shrimp paste or any other ingredients I should know about?"
       ],
       "sources": [
         {
@@ -187,7 +187,7 @@
     },
     {
       "id": "nhum",
-      "name": "Sea urchin",
+      "name": "Nhum (sea urchin)",
       "category": "seafood",
       "intro": "Sea urchin, known locally as nhum, has a forbidding shell but delicate golden roe inside. In Phu Quoc it is often grilled with spring-onion oil, sometimes with a quail egg, or stirred into a warm bowl of congee.",
       "how_to_eat": "For grilled sea urchin, use a small spoon to scoop the roe while it is hot and season lightly with green chilli salt if you wish. For congee, add a little ground pepper and spring onion and eat it while warm.",
@@ -203,11 +203,11 @@
       "origin": "Sea urchins cling to rocky reefs around Phu Quoc's smaller islands. Collecting them requires careful diving, and the amount of roe varies with season and size.",
       "why_name": "Nhum is the familiar southern Vietnamese name for sea urchin, also called nhím biển in other regions.",
       "ingredients": [
-        "Sea urchins",
-        "Onion oil or fat",
-        "Green onions",
-        "Roasted peanuts – usually available",
-        "Salt, pepper, lemon or spicy and sour sauce - depending on the restaurant"
+        "Sea urchin",
+        "Scallion oil - for grilled versions",
+        "Spring onion",
+        "Roasted peanuts - commonly added to grilled versions",
+        "Salt, pepper, lime or a spicy-sour dip - depending on the restaurant"
       ],
       "taste_texture": "The roe is soft and creamy, with a naturally briny sweetness. Spring-onion oil and peanuts add aroma and a light crunch when it is grilled.",
       "allergen_flags": [
@@ -222,11 +222,11 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Grilled oysters with spring-onion oil are often accompanied by roasted peanuts. In addition, because it is naturally caught seafood, diners with a history of mollusk or crustacean allergies should be cautious.",
+      "allergy_note": "Sea urchin can cause allergic reactions in some people, and grilled versions may also contain peanuts. If you have a seafood or peanut allergy, ask the restaurant about ingredients and shared preparation surfaces before ordering.",
       "ask_staff": [
-        "Today's shrimp is a fresh catch of the day, right?",
-        "Does baked goods sprinkle extra peanuts?",
-        "Can the restaurant grill the original noodles without spring-onion oil or spices?"
+        "Is the sea urchin fresh today?",
+        "Do you add roasted peanuts to the grilled sea urchin?",
+        "Can you grill it without scallion oil or extra seasoning?"
       ],
       "sources": [
         {
@@ -245,7 +245,7 @@
     },
     {
       "id": "coi-bien-mai",
-      "name": "Pen-shell scallop",
+      "name": "Còi biên mai (pen-shell adductor muscle)",
       "category": "seafood",
       "intro": "Còi biên mai is the firm adductor muscle of the pen shell, prized more than the rest of the shellfish. In Phu Quoc it is commonly skewered and grilled with chilli salt. The meat is sweet, springy and slightly crisp, making it a favourite at seafood restaurants.",
       "how_to_eat": "Eat the scallop muscle just after grilling, with herbs, cucumber or grilled okra on the side. It may be seasoned with chilli salt, satay or fermented bean curd sauce.",
@@ -261,36 +261,36 @@
       "origin": "Pen shells live on the seabed around Phu Quoc. Most of the animal is not commonly eaten; restaurants keep the two round adductor muscles for their firm texture and clean sweetness.",
       "why_name": "Còi refers to the adductor muscle that opens and closes the shell. Biên mai is the local name for the large triangular pen shell.",
       "ingredients": [
-        "Pen-shell scallop muscle",
-        "Chili salt or satay - depending on how grilled",
-        "Chao – in some grilling styles",
-        "Accompanying vegetables - depending on the restaurant"
+        "Pen-shell adductor muscle",
+        "Chilli salt or satay - depending on the preparation",
+        "Chao (fermented tofu) - in some grilling styles",
+        "Vegetables or herbs - depending on the restaurant"
       ],
       "taste_texture": "The meat is firm, springy and naturally sweet. Chilli salt adds heat and salinity, while charcoal grilling gives it a light smoky aroma.",
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Krill / Oysters",
+          "label": "Pen shell / molluscs",
           "level": "high"
         },
         {
           "key": "soy",
-          "label": "Soybeans – can be in a colander",
+          "label": "Soy - may be present in chao",
           "level": "possible"
         }
       ],
-      "allergy_note": "The grilled horn may contain soy ingredients; satay sauce or marinade Some restaurants may use peanuts or additives. Allergy sufferers need to double-check the type of marinade.",
+      "allergy_note": "Còi biên mai is a mollusc. Versions grilled with chao may contain soy, while satay or marinades can contain peanuts or other allergens. Ask about the marinade if you have food allergies.",
       "ask_staff": [
-        "Is today's grilled sauce chili salt, satay or chao?",
-        "Does the grill sauce ingredients contain peanuts or soybeans?"
+        "Is today's grilled version seasoned with chilli salt, satay or chao?",
+        "Does the marinade contain peanuts or soy?"
       ],
       "sources": [
         {
-          "label": "VietnamNet - Phu Quoc grilled apricot whistle",
+          "label": "VietnamNet - Grilled còi biên mai in Phu Quoc",
           "url": "https://vietnamnet.vn/xep-hang-doi-lan-bien-san-dac-san-tru-danh-cua-phu-quoc-dem-nuong-muoi-ot-778244.html"
         },
         {
-          "label": "VnExpress - Phu Quoc Travel Guide",
+          "label": "VnExpress - Phu Quoc travel guide",
           "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
         }
       ],
@@ -426,7 +426,7 @@
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Krill",
+          "label": "Squid / molluscs",
           "level": "possible"
         }
       ],
@@ -530,8 +530,8 @@
       ],
       "allergy_note": "Fish cakes are usually made from fresh sea fish seasoned with a lot of black pepper and spices. People with fish or flour allergies should be aware.",
       "ask_staff": [
-        "What kind of fish are fish cakes made of (mackerel, barracuda or termite)?",
-        "Does bread sauce taste very spicy?"
+        "What fish is the fish cake made from - for example mackerel, barracuda or lizardfish?",
+        "Is the sauce spicy, and can the heat be adjusted?"
       ],
       "sources": [
         {
@@ -753,7 +753,7 @@
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Krill",
+          "label": "Oysters / molluscs",
           "level": "possible"
         }
       ],
@@ -1070,11 +1070,11 @@
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Krill",
+          "label": "Squid / molluscs",
           "level": "possible"
         }
       ],
-      "allergy_note": "The amount of eggs in the squid's belly depends on the fishing season. Squid is a seafood belonging to the group of krill that are prone to allergies.",
+      "allergy_note": "The amount of roe varies with the fishing season. Squid is a mollusc and can trigger shellfish allergies, so diners with a known mollusc allergy should avoid this dish.",
       "ask_staff": [
         "Does the egg squid hold a lot of eggs inside the belly today?",
         "Is this dish priced by plate or by weight?"
@@ -1117,7 +1117,7 @@
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Krill",
+          "label": "Sea snails / molluscs",
           "level": "possible"
         }
       ],
@@ -1214,7 +1214,7 @@
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Krill",
+          "label": "Oysters / molluscs",
           "level": "possible"
         }
       ],
@@ -1309,7 +1309,7 @@
         },
         {
           "key": "mollusc",
-          "label": "Krill",
+          "label": "Molluscs",
           "level": "possible"
         },
         {

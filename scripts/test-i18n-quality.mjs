@@ -32,6 +32,20 @@ const restoredKo=restoreAfterTranslation(protectedKo.text,protectedKo);
 assert.match(restoredKo,/성게/);
 assert.match(restoredKo,/파기름/);
 
+const bunQuayFish=protectForTranslation("Chả cá",{
+  fromLocale:"vi",targetLocale:"en",familyId:"food",recordId:"bun-quay",path:["ingredients",2],glossary
+});
+assert.match(restoreAfterTranslation(bunQuayFish.text,bunQuayFish),/fresh fish paste/i);
+const banhMiFish=protectForTranslation("Chả cá",{
+  fromLocale:"vi",targetLocale:"en",familyId:"food",recordId:"banh-mi-cha-ca",path:["ingredients",1],glossary
+});
+assert.match(restoreAfterTranslation(banhMiFish.text,banhMiFish),/fish cake/i);
+assert.equal(
+  qualityProblems("Phú Quốc có nhiều thay đổi.","The island has changed a lot.",{fromLocale:"vi",targetLocale:"en",familyId:"knowledge",glossary}).length,
+  0,
+  "Natural existing copy may omit a glossary term; markers protect new machine translations without forcing needless rewrites"
+);
+
 assert.ok(qualityProblems("Bún quậy","邦码头",{fromLocale:"vi",targetLocale:"zh-Hans",familyId:"food",glossary}).length);
 assert.equal(qualityProblems("Bún quậy","Bún quậy（富国现压米粉汤）",{fromLocale:"vi",targetLocale:"zh-Hans",familyId:"food",glossary}).length,0);
 assert.ok(scanRejected("en","The road network underwent orthopedic surgery.",{glossary}).length);
