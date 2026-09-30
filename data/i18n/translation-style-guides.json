@@ -14,7 +14,11 @@
     "ui": [
       "Use compact interface language.",
       "Translate bài or bài viết as article/post in editorial UI, never as song.",
-      "Translate trải nghiệm in tourism context as experience/activity, never career."
+      "Translate trải nghiệm in tourism context as experience/activity, never career.",
+      "Human Weather copy must preserve the evidence distinction between observed/actual data and derived or estimated interpretation.",
+      "Do not strengthen or weaken rain certainty, duration, heat stress or safety wording when translating weather copy.",
+      "Translate comfort labels into natural everyday language; avoid overly technical meteorological jargon unless the source is explicitly technical.",
+      "Keep weather placeholders such as {temperature}, {speed}, {lower}, {upper}, {location}, {place} and {intensity} unchanged."
     ],
     "food": [
       "Dish identity must never change.",
