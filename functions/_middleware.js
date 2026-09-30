@@ -1,3 +1,4 @@
+import {verifyCmsCookie} from "./api/cms/session.js";
 const PUBLIC_HOST="openphuquoc.com";
 const CMS_HOST="cms.openphuquoc.com";
 const SESSION_COOKIE="openpq_cms";
@@ -44,7 +45,8 @@ export async function onRequest(context){
   if(!isPublicPage(url.pathname))return context.next();
 
   // Authenticated CMS users keep the same-origin editing surface.
-  if(hasCookie(request,SESSION_COOKIE)){
+  if(hasCookie(request,SESSION_COOKIE)&&
+     await verifyCmsCookie(request,String(context.env?.CMS_SESSION_SECRET||""))){
     const response=await context.next();
     const headers=new Headers(response.headers);
     headers.set("X-Robots-Tag","noindex, nofollow, noarchive");
