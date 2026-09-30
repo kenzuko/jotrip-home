@@ -6,7 +6,7 @@ on:
       - ".github/workflows/retire-places-ui-hotfix.yml"
       - "scripts/places-hotfix-retire-qa.mjs"
       - "scripts/verify-places-route.mjs"
-      - "wrangler.places-hotfix.retire.jsonc"
+      - "scripts/test-places-route-safety.mjs"
   push:
     branches: [main]
     paths:
@@ -31,6 +31,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Verify exact route ownership regression cases
+        run: node scripts/test-places-route-safety.mjs
       - name: Prove direct canonical Worker has the complete approved Places UI
         shell: bash
         run: |
@@ -59,7 +61,6 @@ jobs:
     timeout-minutes: 13
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       DIRECT: https://openphuquoc-v3.kenzuko.workers.dev
       PUBLIC: https://openphuquoc.com
     steps:
@@ -76,17 +77,9 @@ jobs:
           curl -fsSL "$DIRECT/build.json" -o /tmp/places-build-before.json
           curl -fsSL "$DIRECT/weather/data/weather-runtime/manifest.json" -o /tmp/places-manifest-before.json
           curl -fsSL "$DIRECT/weather/data/runtime-authority.json" -o /tmp/places-authority-before.json
-      - name: Prepare local config assets without deploying a Worker build
+      - name: Delete only the route ID verified as belonging to the temporary Worker
         if: steps.inventory.outputs.route_present == 'true'
-        run: |
-          mkdir -p hotfix-places-assets/places
-          cp places/index.html places/app.js places/catalog-cards.css hotfix-places-assets/places/
-      - name: Detach only the temporary /places route
-        if: steps.inventory.outputs.route_present == 'true'
-        run: |
-          export CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]')"
-          export CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
-          npx --yes wrangler@4.136.3 triggers deploy --config wrangler.places-hotfix.retire.jsonc
+        run: node scripts/verify-places-route.mjs detach
       - name: Require independent Cloudflare API proof that the route is absent
         run: |
           set -euo pipefail

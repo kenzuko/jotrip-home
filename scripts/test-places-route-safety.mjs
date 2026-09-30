@@ -1,0 +1,15 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import {selectOwnedHotfixRoute} from "./verify-places-route.mjs";
+const id="0123456789abcdef0123456789abcdef";
+const good={id,pattern:"openphuquoc.com/places*",script:"openpq-places-ui-hotfix"};
+assert.equal(selectOwnedHotfixRoute([]),null);
+assert.equal(selectOwnedHotfixRoute([{...good,pattern:"openphuquoc.com/weather*"}]),null);
+assert.equal(selectOwnedHotfixRoute([good])?.id,id);
+assert.throws(()=>selectOwnedHotfixRoute([good,good]),/Ambiguous/);
+assert.throws(()=>selectOwnedHotfixRoute([{...good,script:"openphuquoc-v3"}]),/another Worker/);
+assert.throws(()=>selectOwnedHotfixRoute([{...good,id:"not-a-route"}]),/Invalid Cloudflare route ID/);
+const code=readFileSync("scripts/verify-places-route.mjs","utf8");
+assert.match(code,/api\(path\+"\/"\+id,"DELETE"\)/);
+assert.doesNotMatch(code,/api\(path,"DELETE"\)/);
+console.log("PASS exact Cloudflare route ownership gate; no wildcard or unrelated deletion");
