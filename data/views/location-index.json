@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T03:16:53.103Z",
+  "generated_at": "2026-09-30T03:25:51.126Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
     "with_address": 350,
-    "with_map": 258,
+    "with_map": 262,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -2813,7 +2813,17 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Nội đảo - Suối Mây / Suối Đá / Bến Tràm.",
       "route": "/hotels/?q=Maison%20Du%20Vietnam%20Resort%20%26%20Spa",
-      "map": null,
+      "map": {
+        "lat": 10.24439,
+        "lon": 104.02728,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + two converging numeric hotel locations + official tourism identity",
+        "source_id": "maison_du_vietnam_structured_numeric_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Maison Du Vietnam Resort & Spa exact business identity cross-checked with numeric locations 10.24439,104.02728 and 10.2444,104.0273 plus official tourism identity. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Maison Du Vietnam Resort & Spa, Tổ 12, ấp Bến Tràm, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3757,7 +3767,7 @@
       "entity_type": "hotel",
       "name": "Paralia",
       "aliases": [],
-      "zone_id": "zone_central_west",
+      "zone_id": "zone_south",
       "categories": [],
       "tags": [
         "HOTEL"
@@ -3781,7 +3791,17 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn 4 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Paralia",
-      "map": null,
+      "map": {
+        "lat": 10.035858,
+        "lon": 104.030587,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + numeric hotel location + official property/tourism identity",
+        "source_id": "paralia_structured_numeric_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "PARALIA HOTEL PHU QUOC exact business identity cross-checked with numeric hotel location 10.035858,104.030587 and official Khem Beach property identity. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Paralia, D107, D109, D111, D115, D129-D131, D133-D135 Khu biệt thự Sun Premier Village Kem Beach Resort, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4211,7 +4231,7 @@
       "aliases": [
         "Premier Village"
       ],
-      "zone_id": "zone_central_west",
+      "zone_id": "zone_south",
       "categories": [],
       "tags": [
         "HOTEL"
@@ -4436,7 +4456,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
       "route": "/hotels/?q=Regent%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.109405,
+        "lon": 103.982735,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + converging numeric resort locations",
+        "source_id": "regent_structured_numeric_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Regent Phu Quoc exact business identity cross-checked with numeric resort location 10.109405,103.982735 and an independent nearby named Regent location. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Regent Phú Quốc, Lô M1, M2, Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -6292,7 +6322,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Vinpearl%20Wonderworld%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.342238,
+        "lon": 103.8513,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + multiple converging numeric hotel locations + official Vinpearl identity",
+        "source_id": "vinpearl_wonderworld_structured_numeric_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Vinpearl Wonderworld Phu Quoc exact business identity cross-checked with multiple named numeric hotel locations around 10.3422,103.8513 and official Vinpearl identity. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Vinpearl Wonderworld Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
