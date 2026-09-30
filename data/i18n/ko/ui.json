@@ -169,5 +169,55 @@
     },
     "weather": "날씨와 해상",
     "explore_map": "지도에서 둘러보기"
+  },
+  "weather_human": {
+    "source_actual": "실측",
+    "source_estimated": "현재 추정",
+    "no_new_weather": "최신 날씨 정보가 없습니다",
+    "wind": "바람 {speed} km/h",
+    "actual": "실측",
+    "actual_at": "{location} 실측",
+    "feels_about": "체감 약 {temperature}°",
+    "location_airport": "푸꾸옥 공항",
+    "points": {
+      "an_thoi": "An Thoi",
+      "duong_dong": "Duong Dong",
+      "cua_can": "Cua Can",
+      "ganh_dau": "Ganh Dau",
+      "bai_thom": "Bai Thom",
+      "ham_ninh": "Ham Ninh",
+      "bai_sao": "Bai Sao"
+    },
+    "comfort": {
+      "very_hot_very_humid": "매우 덥고 매우 후텁지근함",
+      "very_hot_humid": "매우 덥고 후텁지근함",
+      "hot_very_humid": "덥고 매우 후텁지근함",
+      "very_humid": "매우 후텁지근함",
+      "hot_quite_humid": "덥고 꽤 후텁지근함",
+      "quite_humid": "꽤 후텁지근함",
+      "warm_humid": "따뜻하고 습함",
+      "hot_slightly_humid": "덥고 약간 후텁지근함",
+      "slightly_humid": "약간 습함",
+      "hot": "더움",
+      "warm": "따뜻함",
+      "comfortable": "비교적 쾌적함"
+    },
+    "rain": {
+      "light_shower": "약한 소나기",
+      "light": "약한 비",
+      "moderate": "보통 비",
+      "heavy": "강한 비",
+      "generic": "비",
+      "observed": "{place}에 {intensity}가 내리고 있습니다",
+      "duration": "비는 약 {lower}-{upper}분 안에 약해질 것으로 예상됩니다",
+      "observed_detail": "이 지역의 관측 지점에서 비가 확인되고 있습니다"
+    },
+    "reason": {
+      "humidity_hotter": "습도가 높아 실제 기온보다 더 덥게 느껴집니다.",
+      "humid_air": "공기 중 수분이 많아 후텁지근하게 느껴집니다.",
+      "wind_relief": "바람이 있어 답답함이 조금 덜합니다.",
+      "weak_wind": "바람이 약해 후텁지근함이 더 뚜렷하게 느껴집니다.",
+      "close_to_measured": "현재 체감은 실제 측정 기온과 크게 다르지 않습니다."
+    }
   }
 }

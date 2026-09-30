@@ -169,5 +169,55 @@
     },
     "weather": "Погода и море",
     "explore_map": "Открыть карту"
+  },
+  "weather_human": {
+    "source_actual": "Фактическое наблюдение",
+    "source_estimated": "Текущая оценка",
+    "no_new_weather": "Нет свежего обновления погоды",
+    "wind": "Ветер {speed} км/ч",
+    "actual": "Фактическое наблюдение",
+    "actual_at": "Наблюдение: {location}",
+    "feels_about": "ощущается примерно как {temperature}°",
+    "location_airport": "Аэропорт Фукуок",
+    "points": {
+      "an_thoi": "An Thoi",
+      "duong_dong": "Duong Dong",
+      "cua_can": "Cua Can",
+      "ganh_dau": "Ganh Dau",
+      "bai_thom": "Bai Thom",
+      "ham_ninh": "Ham Ninh",
+      "bai_sao": "Bai Sao"
+    },
+    "comfort": {
+      "very_hot_very_humid": "Очень жарко и очень душно",
+      "very_hot_humid": "Очень жарко и душно",
+      "hot_very_humid": "Жарко и очень душно",
+      "very_humid": "Очень душно",
+      "hot_quite_humid": "Жарко и довольно душно",
+      "quite_humid": "Довольно душно",
+      "warm_humid": "Тепло и влажно",
+      "hot_slightly_humid": "Жарко и немного душно",
+      "slightly_humid": "Слегка влажно",
+      "hot": "Жарко",
+      "warm": "Тепло",
+      "comfortable": "Довольно комфортно"
+    },
+    "rain": {
+      "light_shower": "небольшой кратковременный дождь",
+      "light": "небольшой дождь",
+      "moderate": "умеренный дождь",
+      "heavy": "сильный дождь",
+      "generic": "дождь",
+      "observed": "В {place} сейчас идёт {intensity}",
+      "duration": "Ожидается, что дождь ослабеет примерно через {lower}-{upper} минут",
+      "observed_detail": "На измерительном пункте в этом районе сейчас фиксируется дождь"
+    },
+    "reason": {
+      "humidity_hotter": "Из-за высокой влажности ощущается жарче, чем показывает измеренная температура.",
+      "humid_air": "В воздухе много влаги, поэтому ощущается духота.",
+      "wind_relief": "Ветер немного уменьшает ощущение духоты.",
+      "weak_wind": "Из-за слабого ветра духота ощущается сильнее.",
+      "close_to_measured": "Сейчас ощущаемая температура довольно близка к измеренной."
+    }
   }
 }

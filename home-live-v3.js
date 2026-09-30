@@ -389,6 +389,10 @@ function freshnessText(iso, prefix = "Cập nhật") {
     };
   }
 
+  const localeUiReady = window.OpenPQI18n?.locale?.() && window.OpenPQI18n.locale() !== "vi"
+    ? window.OpenPQI18n.loadUi().catch(() => null)
+    : Promise.resolve(null);
+
   Promise.allSettled([
     getJson(SRC.critical),
     getJson(SRC.marineOps + (SRC.marineOps.includes("?") ? "&" : "?") + "t=" + Date.now()),
@@ -396,7 +400,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
     getText(SRC.airportHistoryBase + "/" + vnDateKey() + "/events.jsonl"),
     window.OpenPQPublicData?.json
       ? window.OpenPQPublicData.json("data/operational-notices.json")
-      : getJson("data/operational-notices.json")
+      : getJson("data/operational-notices.json"),
+    localeUiReady
   ]).then(([c, m, a, e, n]) => {
     let critical = c.status === "fulfilled" ? c.value : null;
     const marine = m.status === "fulfilled" ? m.value : null;
@@ -412,16 +417,24 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const islandDecision = decisionSignals?.islandWeather?.(critical) ||
       {status:"unknown",convective_levels:[],observed_rain:false,valid_gauges:[]};
 
-    const humanWeather = window.OpenPQHumanWeather?.homepage?.(critical) || null;
+    const wh = (key, vars = {}, fallback = "") =>
+      window.OpenPQI18n?.format?.("weather_human." + key, vars, fallback) ||
+      String(fallback).replace(/\{([A-Za-z0-9_]+)\}/g, (_, k) =>
+        Object.prototype.hasOwnProperty.call(vars, k) ? String(vars[k]) : "{" + k + "}");
+    const humanWeather = window.OpenPQHumanWeather?.homepage?.(critical, {i18n:window.OpenPQI18n}) || null;
     const weatherTemp = humanWeather?.temperatureC ?? vvpq?.temperature_c ?? dd?.local?.temperature_c ?? null;
     const weatherWind = vvpq?.wind_kmh ?? dd?.local?.wind_kmh ?? null;
     const weatherObservedAt = humanWeather?.observedAt || vvpq?.observed_at || criticalStamp;
     const weatherAge = ageMinutes(weatherObservedAt);
-    const weatherSource = vvpq ? "Quan trắc thực tế" : dd?.local?.temperature_class === "ESTIMATED_NOW" ? "Ước tính hiện tại" : "JoTrip Weather";
+    const weatherSource = vvpq
+      ? wh("source_actual", {}, "Quan trắc thực tế")
+      : dd?.local?.temperature_class === "ESTIMATED_NOW"
+        ? wh("source_estimated", {}, "Ước tính hiện tại")
+        : "JoTrip Weather";
     const weatherPrimary = humanWeather?.primary || (weatherTemp != null ? Math.round(weatherTemp) + "°" : "--");
     const weatherSecondary = humanWeather?.secondary || (weatherTemp != null
-      ? (weatherWind != null ? "Gió " + Math.round(weatherWind) + " km/h · " : "") + weatherSource.toLowerCase()
-      : "Chưa có thông tin thời tiết mới");
+      ? (weatherWind != null ? wh("wind", {speed:Math.round(weatherWind)}, "Gió {speed} km/h") + " · " : "") + weatherSource
+      : wh("no_new_weather", {}, "Chưa có thông tin thời tiết mới"));
     const weatherState = weatherAge > 180 || islandDecision.status === "unknown" ? "unknown" :
       islandDecision.status === "normal" && weatherAge <= 60 ? "good" : "watch";
 

@@ -169,5 +169,55 @@
     },
     "weather": "天气与海洋",
     "explore_map": "在地图上探索"
+  },
+  "weather_human": {
+    "source_actual": "实测",
+    "source_estimated": "当前估算",
+    "no_new_weather": "暂无最新天气信息",
+    "wind": "风速 {speed} km/h",
+    "actual": "实测",
+    "actual_at": "{location} 实测",
+    "feels_about": "体感约 {temperature}°",
+    "location_airport": "富国机场",
+    "points": {
+      "an_thoi": "An Thoi",
+      "duong_dong": "Duong Dong",
+      "cua_can": "Cua Can",
+      "ganh_dau": "Ganh Dau",
+      "bai_thom": "Bai Thom",
+      "ham_ninh": "Ham Ninh",
+      "bai_sao": "Bai Sao"
+    },
+    "comfort": {
+      "very_hot_very_humid": "非常炎热且非常闷热",
+      "very_hot_humid": "非常炎热且闷热",
+      "hot_very_humid": "炎热且非常闷热",
+      "very_humid": "非常闷热",
+      "hot_quite_humid": "炎热且较闷热",
+      "quite_humid": "较闷热",
+      "warm_humid": "温暖潮湿",
+      "hot_slightly_humid": "炎热且稍闷",
+      "slightly_humid": "略潮湿",
+      "hot": "炎热",
+      "warm": "温暖",
+      "comfortable": "较舒适"
+    },
+    "rain": {
+      "light_shower": "小阵雨",
+      "light": "小雨",
+      "moderate": "中雨",
+      "heavy": "大雨",
+      "generic": "降雨",
+      "observed": "{place}目前有{intensity}",
+      "duration": "预计雨势将在约 {lower}-{upper} 分钟内减弱",
+      "observed_detail": "该区域的观测点正在记录到降雨"
+    },
+    "reason": {
+      "humidity_hotter": "湿度较高，因此体感温度高于实测气温。",
+      "humid_air": "空气中的水汽较多，所以感觉比较闷热。",
+      "wind_relief": "有风时会稍微没那么闷。",
+      "weak_wind": "风较弱，因此闷热感会更明显。",
+      "close_to_measured": "目前体感温度与实测气温比较接近。"
+    }
   }
 }
