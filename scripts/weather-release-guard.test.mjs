@@ -20,7 +20,7 @@ for(const [label,make] of [
  ["stale candidate",{...next,source_times:{...next.source_times,cloud_sampled_time:at(64)}}],
  ["future model",{...next,source_times:{...next.source_times,forecast_run_time:at(-15)}}],
  ["wrong authority",{...next,policy:{frontend_source:"EXTERNAL"}}],
- ["fake READY",{...next,status:"PARTIAL"}}]
+ ["fake READY",{...next,status:"PARTIAL"}]
 ])assert.throws(()=>verifyWeatherRelease(make,old,now),undefined,label);
 assert.throws(()=>verifyWeatherRelease(next,null,now),/Last deployed/, "missing production state cannot be invented");
 assert.throws(()=>verifyWeatherRelease(next,{...old,status:"UNAVAILABLE"},now),/Last deployed/);
