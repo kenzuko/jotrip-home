@@ -134,7 +134,27 @@ jobs:
           # Deployment must not be blocked by a temporarily stale upstream
           # observation. The dedicated Weather workflow remains the strict
           # freshness monitor; this sync keeps the last valid snapshot on error.
-          node scripts/weather-cms-sync.mjs
+          # A missing forecast gust must block Weather promotion, never a
+          # non-Weather site update. Only this explicit, fail-closed refusal
+          # permits retaining the last validated Weather snapshot.
+          before="$(sha256sum weather/data/current-bundle.json weather/data/weather-runtime/manifest.json | sha256sum | cut -d' ' -f1)"
+          if node scripts/weather-cms-sync.mjs > /tmp/openpq-weather-refresh.log 2>&1; then
+            cat /tmp/openpq-weather-refresh.log
+          elif grep -Fq 'gust coverage below 80% - refusing deploy' /tmp/openpq-weather-refresh.log &&
+               grep -Fq 'existing snapshot preserved' /tmp/openpq-weather-refresh.log; then
+            cat /tmp/openpq-weather-refresh.log
+            after="$(sha256sum weather/data/current-bundle.json weather/data/weather-runtime/manifest.json | sha256sum | cut -d' ' -f1)"
+            if [ "$before" != "$after" ]; then
+              echo "::error::Weather sync claimed preservation but mutated canonical snapshot"
+              exit 1
+            fi
+            echo "::warning::Forecast gust gate refused new Weather data. Retaining last validated snapshot; freshness UI must mark old sources as stale."
+          else
+            cat /tmp/openpq-weather-refresh.log >&2
+            echo "::error::Unexpected Weather refresh failure; refusing Worker deploy"
+            exit 1
+          fi
+          node scripts/weather-autorecover.test.mjs
           node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
           printf '{"sha":"%s","built_at":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
