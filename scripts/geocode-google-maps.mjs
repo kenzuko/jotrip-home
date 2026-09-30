@@ -5,10 +5,24 @@ const root=process.cwd();
 const entityDir=path.join(root,"data","entities");
 const apiKey=process.env.GOOGLE_MAPS_API_KEY||"";
 const args=new Set(process.argv.slice(2));
-const dryRun=args.has("--dry-run");
-const force=args.has("--force");
+// RESEARCH ONLY. No command-line flag may auto-write public entity coordinates.
+const forbidden=["--force","--apply","--write","--unsafe-write"];
+if(forbidden.some(x=>args.has(x)))throw Error("GPS review-only resolver: direct canonical writes are forbidden. Review evidence and apply via a separate audited PR.");
 const limitArg=process.argv.find(x=>x.startsWith("--limit="));
-const limit=limitArg?Math.max(1,Number(limitArg.split("=")[1])||1):Infinity;
+const limit=limitArg?Number(limitArg.split("=")[1]):15;
+if(!Number.isInteger(limit)||limit<1||limit>100)throw Error("GPS research query budget must be an integer from 1 to 100");
+const typeArg=process.argv.find(x=>x.startsWith("--type="));
+const typeFilter=typeArg?typeArg.split("=")[1]:null;
+if(typeFilter&&!["hotel","utility","place"].includes(typeFilter))
+  throw Error("GPS research --type must be hotel, utility or place");
+const idsArg=process.argv.find(x=>x.startsWith("--ids="));
+const idFilter=idsArg?new Set(idsArg.slice("--ids=".length).split(",").map(x=>x.trim()).filter(Boolean)):null;
+if(idFilter&&!idFilter.size)throw Error("--ids cannot be empty");
+const outArg=process.argv.find(x=>x.startsWith("--out="));
+const out=outArg?outArg.slice("--out=".length):".cache/near-go/geocode-candidates.json";
+if(path.isAbsolute(out)||out.includes("..")||out.includes("\\")||!out.startsWith(".cache/near-go/")){
+  throw Error("Research output must remain within .cache/near-go/");
+}
 
 const PHU_QUOC_BOUNDS={south:9.80,north:10.55,west:103.75,east:104.25};
 const TODAY=new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Ho_Chi_Minh",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
@@ -421,78 +435,82 @@ async function resolveEntity(entity){
   return {query,match};
 }
 
+// This assessment triages a candidate; it never qualifies one for automatic publication.
+function reviewCandidate(entity,match,precision){
+  if(!match)return{status:"NO_MATCH",reason:"No numeric named candidate found"};
+  if(match.resolver==="GOOGLE_GEOCODING"||match.query_kind==="address")
+    return{status:"HOLD_ADDRESS_GEOCODE",reason:"A geocoded address is not exact business GPS"};
+  if(precision!=="site_centroid")
+    return{status:"HOLD_AREA_OR_ROAD",reason:"Only a named business-site candidate can advance to independent evidence review"};
+  if(!match.name)
+    return{status:"HOLD_UNNAMED_POI",reason:"Candidate has no exact business name"};
+  if(!zoneMatches(entity,match.lat,match.lon))
+    return{status:"HOLD_WRONG_ZONE",reason:"Candidate falls outside declared entity zone"};
+  const wanted=nameTokens(entity.name);
+  const got=new Set(normalizeText(match.name).split(/\s+/));
+  if(!wanted.length||!wanted.every(token=>got.has(token)))
+    return{status:"HOLD_BRAND_MISMATCH",reason:"Named mapped business does not contain every distinctive canonical name token"};
+  return{status:"NAMED_CANDIDATE_REVIEW",reason:"Named POI only. Require independent numeric source, verified operator identity, license audit, and human review before a separate canonical PR."};
+}
+
+if(args.has("--self-test")){
+  const property={entity_type:"hotel",name:"La Festa Phu Quoc",zone_id:"zone_south"};
+  const base={resolver:"OSM_PHOTON",query_kind:"name",name:"La Festa Phu Quoc",lat:10.0295,lon:104.0076};
+  if(reviewCandidate(property,base,"site_centroid").status!=="NAMED_CANDIDATE_REVIEW")throw Error("Named hotel should enter review, not publication");
+  if(reviewCandidate({...property,name:"Sentina"},base,"site_centroid").status!=="HOLD_BRAND_MISMATCH")throw Error("Wrong brand must be held");
+  if(reviewCandidate(property,{...base,name:null},"site_centroid").status!=="HOLD_UNNAMED_POI")throw Error("Unnamed POI must be held");
+  if(reviewCandidate(property,{...base,query_kind:"address"},"site_centroid").status!=="HOLD_ADDRESS_GEOCODE")throw Error("Address centroid must be held");
+  if(reviewCandidate(property,base,"area_anchor").status!=="HOLD_AREA_OR_ROAD")throw Error("Area centroid must be held");
+  console.log("Research-only GPS candidate safety self-test PASS");
+  process.exit(0);
+}
+
 const files=fs.readdirSync(entityDir).filter(x=>x.endsWith(".json")).sort();
-let attempted=0,resolved=0,changedFiles=0,skipped=0,missed=0;
+let attempted=0,resolved=0,skipped=0,missed=0;
 const resolverCounts={};
+const proposals=[];
 
 for(const file of files){
   if(attempted>=limit)break;
-  const filePath=path.join(entityDir,file);
-  const data=JSON.parse(fs.readFileSync(filePath,"utf8"));
-  let changed=false;
-
+  const data=JSON.parse(fs.readFileSync(path.join(entityDir,file),"utf8"));
   for(const entity of data.entities||[]){
     if(attempted>=limit)break;
     if(!["utility","place","hotel"].includes(entity.entity_type))continue;
+    if(typeFilter&&entity.entity_type!==typeFilter)continue;
+    if(idFilter&&!idFilter.has(entity.id))continue;
     if(!entity.address)continue;
-
-    const hasMap=Number.isFinite(entity.map?.lat)&&Number.isFinite(entity.map?.lon);
-    if(hasMap&&!force){skipped++;continue;}
-
+    // Existing accepted site pins must never be overwritten by a discovery tool.
+    if(Number.isFinite(entity.map?.lat)&&Number.isFinite(entity.map?.lon)){skipped++;continue;}
     attempted++;
     const {query,match}=await resolveEntity(entity);
     if(!match){
       missed++;
-      console.warn("MISS",entity.id,query);
+      proposals.push({id:entity.id,entity_type:entity.entity_type,name:entity.name,query,assessment:{status:"NO_MATCH",reason:"No candidate"},candidate:null});
       continue;
     }
-
     const precision=match.resolver.startsWith("GOOGLE")
-      ? precisionForGoogleTypes(match.types||[])
-      : precisionForNominatim(match,entity);
-
-    entity.map={
-      lat:match.lat,
-      lon:match.lon,
-      precision,
-      source_id:match.source_id,
-      source:match.source,
-      verified_at:TODAY,
-      accuracy:match.resolver,
-      place_id:match.place_id,
-      google_place_id:match.resolver.startsWith("GOOGLE")?match.place_id:null,
-      osm_type:match.osm_type||null,
-      osm_id:match.osm_id||null,
-      matched_name:match.name,
-      formatted_address:match.formatted_address,
-      lookup_query:query,
-      location_type:match.location_type||null,
-      note:precision==="area_anchor"
-        ?"Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-        :precision==="route_anchor"
-          ?"Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-          :"Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-    };
-    entity.updated_at=TODAY;
-    changed=true;
+      ?precisionForGoogleTypes(match.types||[]):precisionForNominatim(match,entity);
+    const assessment=reviewCandidate(entity,match,precision);
+    proposals.push({
+      id:entity.id,entity_type:entity.entity_type,name:entity.name,address:entity.address,
+      zone_id:entity.zone_id||null,query,assessment,
+      candidate:{lat:match.lat,lon:match.lon,precision,resolver:match.resolver,
+        source_id:match.source_id,name:match.name||null,formatted_address:match.formatted_address||null,
+        place_id:match.place_id||null,osm_type:match.osm_type||null,osm_id:match.osm_id||null,
+        source_license_review_required:match.resolver.startsWith("OSM_")}
+    });
     resolved++;
     resolverCounts[match.resolver]=(resolverCounts[match.resolver]||0)+1;
-    console.log("OK",entity.id,match.resolver,match.lat,match.lon,precision,match.formatted_address||"");
-  }
-
-  if(changed){
-    changedFiles++;
-    if(!dryRun)fs.writeFileSync(filePath,JSON.stringify(data,null,2)+"\n");
+    console.log(assessment.status,entity.id,match.resolver,match.name||"(unnamed)",match.lat,match.lon);
   }
 }
 
-console.log(JSON.stringify({
-  google_key_available:!!apiKey,
-  attempted,
-  resolved,
-  missed,
-  skipped_existing:skipped,
-  changed_files:changedFiles,
-  resolver_counts:resolverCounts,
-  dry_run:dryRun
-},null,2));
+const report={schema_version:"1.0",generated_at:new Date().toISOString(),
+  mode:"RESEARCH_ONLY",publication_allowed:false,
+  policy:"No geocoder output automatically writes canonical entity GPS. Independent numeric source plus exact operator identity and license review are required for a separate audited PR.",
+  counts:{attempted,resolved,missed,skipped_existing:skipped,resolver_counts:resolverCounts},
+  proposals};
+const output=path.resolve(root,out);
+fs.mkdirSync(path.dirname(output),{recursive:true});
+fs.writeFileSync(output,JSON.stringify(report,null,2)+"\n");
+console.log(JSON.stringify({output,...report.counts,mode:report.mode},null,2));
