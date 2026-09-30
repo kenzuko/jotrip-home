@@ -1,0 +1,1536 @@
+{
+  "places/app.js": {
+    "sha": "a6a1cab2b18658ed77739854d5d1fa45cfc794b5",
+    "fields": [
+      {
+        "offset": 695,
+        "kind": "string",
+        "original": "Trung tâm & bờ Tây",
+        "review_only": true
+      },
+      {
+        "offset": 797,
+        "kind": "string",
+        "original": "Tây Bắc đảo",
+        "review_only": true
+      },
+      {
+        "offset": 874,
+        "kind": "string",
+        "original": "Đông đảo",
+        "review_only": true
+      },
+      {
+        "offset": 902,
+        "kind": "string",
+        "original": "Rừng phía Đông",
+        "review_only": true
+      },
+      {
+        "offset": 983,
+        "kind": "string",
+        "original": "Đông Nam đảo",
+        "review_only": true
+      },
+      {
+        "offset": 1044,
+        "kind": "string",
+        "original": "Vùng biển An Thới",
+        "review_only": true
+      },
+      {
+        "offset": 1071,
+        "kind": "string",
+        "original": "Trên biển",
+        "review_only": true
+      },
+      {
+        "offset": 1100,
+        "kind": "string",
+        "original": "Toàn đảo",
+        "review_only": true
+      },
+      {
+        "offset": 1144,
+        "kind": "string",
+        "original": "Nông trại",
+        "review_only": true
+      },
+      {
+        "offset": 1169,
+        "kind": "string",
+        "original": "Kiến trúc",
+        "review_only": true
+      },
+      {
+        "offset": 1187,
+        "kind": "string",
+        "original": "Bãi biển",
+        "review_only": true
+      },
+      {
+        "offset": 1230,
+        "kind": "string",
+        "original": "Nghề truyền thống",
+        "review_only": true
+      },
+      {
+        "offset": 1275,
+        "kind": "string",
+        "original": "Lặn biển",
+        "review_only": true
+      },
+      {
+        "offset": 1300,
+        "kind": "string",
+        "original": "Vui chơi giải trí",
+        "review_only": true
+      },
+      {
+        "offset": 1331,
+        "kind": "string",
+        "original": "Trải nghiệm buổi tối",
+        "review_only": true
+      },
+      {
+        "offset": 1466,
+        "kind": "string",
+        "original": "Đời sống địa phương",
+        "review_only": true
+      },
+      {
+        "offset": 1493,
+        "kind": "string",
+        "original": "Truyền thuyết",
+        "review_only": true
+      },
+      {
+        "offset": 1519,
+        "kind": "string",
+        "original": "Biển đảo",
+        "review_only": true
+      },
+      {
+        "offset": 1632,
+        "kind": "string",
+        "original": "Ngoài trời",
+        "review_only": true
+      },
+      {
+        "offset": 1652,
+        "kind": "string",
+        "original": "Khu nghỉ dưỡng",
+        "review_only": true
+      },
+      {
+        "offset": 1708,
+        "kind": "string",
+        "original": "Biểu diễn",
+        "review_only": true
+      },
+      {
+        "offset": 1731,
+        "kind": "string",
+        "original": "Lặn ngắm san hô",
+        "review_only": true
+      },
+      {
+        "offset": 1798,
+        "kind": "string",
+        "original": "Công viên chủ đề",
+        "review_only": true
+      },
+      {
+        "offset": 1824,
+        "kind": "string",
+        "original": "Trò chơi cảm giác mạnh",
+        "review_only": true
+      },
+      {
+        "offset": 1860,
+        "kind": "string",
+        "original": "Trải nghiệm dưới nước",
+        "review_only": true
+      },
+      {
+        "offset": 1897,
+        "kind": "string",
+        "original": "Điểm ngắm cảnh",
+        "review_only": true
+      },
+      {
+        "offset": 1943,
+        "kind": "string",
+        "original": "Công viên nước",
+        "review_only": true
+      },
+      {
+        "offset": 1969,
+        "kind": "string",
+        "original": "Động vật hoang dã",
+        "review_only": true
+      },
+      {
+        "offset": 2040,
+        "kind": "string",
+        "original": "Thông tin hữu ích",
+        "review_only": true
+      },
+      {
+        "offset": 2104,
+        "kind": "string",
+        "original": "Lần đầu đến Phú Quốc",
+        "review_only": true
+      },
+      {
+        "offset": 2714,
+        "kind": "html",
+        "original": "Bối cảnh khu vực",
+        "review_only": true
+      },
+      {
+        "offset": 4441,
+        "kind": "html",
+        "original": "Nhớ trước khi đi",
+        "review_only": true
+      },
+      {
+        "offset": 4577,
+        "kind": "html",
+        "original": "Phù hợp khi",
+        "review_only": true
+      },
+      {
+        "offset": 4690,
+        "kind": "html",
+        "original": "Cần cân nhắc",
+        "review_only": true
+      },
+      {
+        "offset": 5355,
+        "kind": "string",
+        "original": "Xem thông tin chi tiết",
+        "review_only": true
+      },
+      {
+        "offset": 5702,
+        "kind": "string",
+        "original": "Cần kiểm tra",
+        "review_only": true
+      },
+      {
+        "offset": 5787,
+        "kind": "html",
+        "original": "Giá có thể thay đổi",
+        "review_only": true
+      },
+      {
+        "offset": 5885,
+        "kind": "html",
+        "original": "Trải nghiệm & lưu ý",
+        "review_only": true
+      },
+      {
+        "offset": 6167,
+        "kind": "html",
+        "original": "Xem chi tiết →",
+        "review_only": true
+      },
+      {
+        "offset": 6422,
+        "kind": "html",
+        "original": "Không có mục phù hợp.",
+        "review_only": true
+      },
+      {
+        "offset": 7351,
+        "kind": "html",
+        "original": "Tất cả khu vực",
+        "review_only": true
+      },
+      {
+        "offset": 7502,
+        "kind": "html",
+        "original": "Tất cả kiểu ghé",
+        "review_only": true
+      },
+      {
+        "offset": 7662,
+        "kind": "html",
+        "original": "Tất cả loại trải nghiệm",
+        "review_only": true
+      },
+      {
+        "offset": 8261,
+        "kind": "html",
+        "original": "Chưa mở được danh sách địa điểm & trải nghiệm.",
+        "review_only": true
+      }
+    ]
+  },
+  "places/detail.js": {
+    "sha": "cd13ce1b9ae97b9d884ec408e483b93614428c36",
+    "fields": [
+      {
+        "offset": 1990,
+        "kind": "string",
+        "original": "Thông tin điểm đến Phú Quốc.",
+        "review_only": true
+      },
+      {
+        "offset": 3142,
+        "kind": "string",
+        "original": "Nông trại",
+        "review_only": true
+      },
+      {
+        "offset": 3167,
+        "kind": "string",
+        "original": "Kiến trúc",
+        "review_only": true
+      },
+      {
+        "offset": 3185,
+        "kind": "string",
+        "original": "Bãi biển",
+        "review_only": true
+      },
+      {
+        "offset": 3230,
+        "kind": "string",
+        "original": "Nghề truyền thống",
+        "review_only": true
+      },
+      {
+        "offset": 3275,
+        "kind": "string",
+        "original": "Lặn biển",
+        "review_only": true
+      },
+      {
+        "offset": 3300,
+        "kind": "string",
+        "original": "Vui chơi giải trí",
+        "review_only": true
+      },
+      {
+        "offset": 3333,
+        "kind": "string",
+        "original": "Trải nghiệm buổi tối",
+        "review_only": true
+      },
+      {
+        "offset": 3470,
+        "kind": "string",
+        "original": "Đời sống địa phương",
+        "review_only": true
+      },
+      {
+        "offset": 3497,
+        "kind": "string",
+        "original": "Truyền thuyết",
+        "review_only": true
+      },
+      {
+        "offset": 3525,
+        "kind": "string",
+        "original": "Biển đảo",
+        "review_only": true
+      },
+      {
+        "offset": 3640,
+        "kind": "string",
+        "original": "Ngoài trời",
+        "review_only": true
+      },
+      {
+        "offset": 3660,
+        "kind": "string",
+        "original": "Khu nghỉ dưỡng",
+        "review_only": true
+      },
+      {
+        "offset": 3734,
+        "kind": "string",
+        "original": "Biểu diễn",
+        "review_only": true
+      },
+      {
+        "offset": 3757,
+        "kind": "string",
+        "original": "Lặn ngắm san hô",
+        "review_only": true
+      },
+      {
+        "offset": 3826,
+        "kind": "string",
+        "original": "Công viên chủ đề",
+        "review_only": true
+      },
+      {
+        "offset": 3852,
+        "kind": "string",
+        "original": "Trò chơi cảm giác mạnh",
+        "review_only": true
+      },
+      {
+        "offset": 3888,
+        "kind": "string",
+        "original": "Trải nghiệm dưới nước",
+        "review_only": true
+      },
+      {
+        "offset": 3927,
+        "kind": "string",
+        "original": "Điểm ngắm cảnh",
+        "review_only": true
+      },
+      {
+        "offset": 3973,
+        "kind": "string",
+        "original": "Công viên nước",
+        "review_only": true
+      },
+      {
+        "offset": 3999,
+        "kind": "string",
+        "original": "Động vật hoang dã",
+        "review_only": true
+      },
+      {
+        "offset": 4072,
+        "kind": "string",
+        "original": "Thông tin hữu ích",
+        "review_only": true
+      },
+      {
+        "offset": 4161,
+        "kind": "string",
+        "original": "Lần đầu đến Phú Quốc",
+        "review_only": true
+      },
+      {
+        "offset": 4243,
+        "kind": "string",
+        "original": "Tây Bắc đảo",
+        "review_only": true
+      },
+      {
+        "offset": 4271,
+        "kind": "string",
+        "original": "Trung tâm & bờ Tây",
+        "review_only": true
+      },
+      {
+        "offset": 4316,
+        "kind": "string",
+        "original": "Đông đảo",
+        "review_only": true
+      },
+      {
+        "offset": 4341,
+        "kind": "string",
+        "original": "Rừng phía Đông",
+        "review_only": true
+      },
+      {
+        "offset": 4418,
+        "kind": "string",
+        "original": "Đông Nam đảo",
+        "review_only": true
+      },
+      {
+        "offset": 4473,
+        "kind": "string",
+        "original": "Vùng biển An Thới",
+        "review_only": true
+      },
+      {
+        "offset": 4502,
+        "kind": "string",
+        "original": "Trên biển",
+        "review_only": true
+      },
+      {
+        "offset": 4528,
+        "kind": "string",
+        "original": "Toàn đảo",
+        "review_only": true
+      },
+      {
+        "offset": 4607,
+        "kind": "string",
+        "original": "Chiều cao",
+        "review_only": true
+      },
+      {
+        "offset": 4652,
+        "kind": "string",
+        "original": "Loại vé hoặc combo",
+        "review_only": true
+      },
+      {
+        "offset": 4683,
+        "kind": "string",
+        "original": "Khung giờ",
+        "review_only": true
+      },
+      {
+        "offset": 5475,
+        "kind": "html",
+        "original": "Chưa có điểm nào đủ liên quan để ghép vào đây.",
+        "review_only": true
+      },
+      {
+        "offset": 8604,
+        "kind": "string",
+        "original": "Tùy lịch",
+        "review_only": true
+      },
+      {
+        "offset": 8672,
+        "kind": "string",
+        "original": "Tùy trải nghiệm",
+        "review_only": true
+      },
+      {
+        "offset": 8804,
+        "kind": "string",
+        "original": "Chưa xác định",
+        "review_only": true
+      },
+      {
+        "offset": 8915,
+        "kind": "string",
+        "original": "Kiểm tra theo ngày",
+        "review_only": true
+      },
+      {
+        "offset": 9003,
+        "kind": "string",
+        "original": "Xem lại tình hình mới nhất",
+        "review_only": true
+      },
+      {
+        "offset": 9032,
+        "kind": "string",
+        "original": "Không có bước bắt buộc",
+        "review_only": true
+      },
+      {
+        "offset": 10669,
+        "kind": "string",
+        "original": "THÔNG BÁO HOẠT ĐỘNG",
+        "review_only": true
+      },
+      {
+        "offset": 10735,
+        "kind": "string",
+        "original": "THÔNG BÁO HẾT CHỖ NGÀY",
+        "review_only": true
+      },
+      {
+        "offset": 10816,
+        "kind": "string",
+        "original": "THÔNG BÁO SUẤT DIỄN NGÀY",
+        "review_only": true
+      },
+      {
+        "offset": 12401,
+        "kind": "html",
+        "original": "Bản đồ định hướng Phú Quốc",
+        "review_only": true
+      },
+      {
+        "offset": 13154,
+        "kind": "html",
+        "original": "Góp ý thông tin về nơi này",
+        "review_only": true
+      },
+      {
+        "offset": 13342,
+        "kind": "html",
+        "original": "'+(level?esc(level.label):'Có hợp lịch của bạn không?')+'",
+        "review_only": true
+      },
+      {
+        "offset": 13369,
+        "kind": "string",
+        "original": "Có hợp lịch của bạn không?",
+        "review_only": true
+      },
+      {
+        "offset": 13415,
+        "kind": "html",
+        "original": "'+(level?esc(level.description):'Nhìn nhanh thời gian, thời tiết và cách ghép điểm trước khi đi.')+'",
+        "review_only": true
+      },
+      {
+        "offset": 13448,
+        "kind": "string",
+        "original": "Nhìn nhanh thời gian, thời tiết và cách ghép điểm trước khi đi.",
+        "review_only": true
+      },
+      {
+        "offset": 13675,
+        "kind": "string",
+        "original": "Bạn thấy chỗ này đúng gu của mình",
+        "review_only": true
+      },
+      {
+        "offset": 13883,
+        "kind": "string",
+        "original": "Xem lại tình hình trong ngày trước khi khởi hành",
+        "review_only": true
+      },
+      {
+        "offset": 13934,
+        "kind": "string",
+        "original": "Chưa có lưu ý đặc biệt",
+        "review_only": true
+      },
+      {
+        "offset": 16323,
+        "kind": "html",
+        "original": "Nếu nguồn chưa công bố đủ, Open Phu Quoc sẽ không tự điền số. Khi xem vé, nhớ chọn đúng:",
+        "review_only": true
+      },
+      {
+        "offset": 16852,
+        "kind": "html",
+        "original": "'+(inheritedPrice?'GIÁ ĐI CÙNG TRẢI NGHIỆM CHÍNH':'GIÁ THAM KHẢO')+'",
+        "review_only": true
+      },
+      {
+        "offset": 16931,
+        "kind": "html",
+        "original": "'+(inheritedPrice?'Quyền lợi này thường đi chung trong vé hoặc combo chính.':'Dùng để dự trù, không phải giá cố định.')+'",
+        "review_only": true
+      },
+      {
+        "offset": 16950,
+        "kind": "string",
+        "original": "Quyền lợi này thường đi chung trong vé hoặc combo chính.",
+        "review_only": true
+      },
+      {
+        "offset": 17009,
+        "kind": "string",
+        "original": "Dùng để dự trù, không phải giá cố định.",
+        "review_only": true
+      },
+      {
+        "offset": 17330,
+        "kind": "html",
+        "original": "KIỂM TRA ĐÚNG NGÀY",
+        "review_only": true
+      },
+      {
+        "offset": 17435,
+        "kind": "html",
+        "original": "Kiểm tra →",
+        "review_only": true
+      },
+      {
+        "offset": 17648,
+        "kind": "html",
+        "original": "CÂU CÁ LỚN AN THỚI",
+        "review_only": true
+      },
+      {
+        "offset": 17677,
+        "kind": "html",
+        "original": "Lịch và thông tin chuyến câu cá",
+        "review_only": true
+      },
+      {
+        "offset": 17716,
+        "kind": "html",
+        "original": "Chuyến sáng 05:00–14:00 · Chuyến chiều–tối 14:00–21:00. Kiểm tra điều kiện biển và xác nhận tàu trong ngày.",
+        "review_only": true
+      },
+      {
+        "offset": 17941,
+        "kind": "html",
+        "original": "Xem tour câu cá của JoTrip ↗",
+        "review_only": true
+      },
+      {
+        "offset": 18057,
+        "kind": "string",
+        "original": "Gợi ý từ JoTrip",
+        "review_only": true
+      },
+      {
+        "offset": 18080,
+        "kind": "html",
+        "original": "GỢI Ý TỪ JOTRIP",
+        "review_only": true
+      },
+      {
+        "offset": 18110,
+        "kind": "html",
+        "original": "Muốn có xe riêng hoặc ghép trải nghiệm này vào một ngày trọn gói?",
+        "review_only": true
+      },
+      {
+        "offset": 18187,
+        "kind": "html",
+        "original": "JoTrip hỗ trợ xe, tour, vé và lịch trình tại Phú Quốc.",
+        "review_only": true
+      },
+      {
+        "offset": 18308,
+        "kind": "html",
+        "original": "Gọi +84 817 060 067",
+        "review_only": true
+      },
+      {
+        "offset": 22232,
+        "kind": "html",
+        "original": "Không tìm thấy địa điểm.",
+        "review_only": true
+      },
+      {
+        "offset": 22295,
+        "kind": "html",
+        "original": "← Quay lại Khám phá",
+        "review_only": true
+      },
+      {
+        "offset": 22572,
+        "kind": "html",
+        "original": "Trang này chưa mở được lúc này. Thử lại sau một chút nhé.",
+        "review_only": true
+      }
+    ]
+  },
+  "explore/app.js": {
+    "sha": "80dfc822c0710d08d9dd7aace29f6f808babf4c0",
+    "fields": [
+      {
+        "offset": 916,
+        "kind": "string",
+        "original": "Trên biển",
+        "review_only": true
+      },
+      {
+        "offset": 936,
+        "kind": "string",
+        "original": "Trải nghiệm buổi tối",
+        "review_only": true
+      },
+      {
+        "offset": 998,
+        "kind": "string",
+        "original": "Đời sống địa phương",
+        "review_only": true
+      },
+      {
+        "offset": 1048,
+        "kind": "string",
+        "original": "Biểu diễn",
+        "review_only": true
+      },
+      {
+        "offset": 1066,
+        "kind": "string",
+        "original": "Bãi biển",
+        "review_only": true
+      },
+      {
+        "offset": 1126,
+        "kind": "string",
+        "original": "Ngoài trời",
+        "review_only": true
+      },
+      {
+        "offset": 1168,
+        "kind": "string",
+        "original": "Công viên nước",
+        "review_only": true
+      },
+      {
+        "offset": 1220,
+        "kind": "string",
+        "original": "Khu nghỉ dưỡng",
+        "review_only": true
+      },
+      {
+        "offset": 1250,
+        "kind": "string",
+        "original": "Kiến trúc",
+        "review_only": true
+      },
+      {
+        "offset": 1290,
+        "kind": "string",
+        "original": "Biển đảo",
+        "review_only": true
+      },
+      {
+        "offset": 1316,
+        "kind": "string",
+        "original": "Điểm ngắm cảnh",
+        "review_only": true
+      },
+      {
+        "offset": 1345,
+        "kind": "string",
+        "original": "Nông trại",
+        "review_only": true
+      },
+      {
+        "offset": 1363,
+        "kind": "string",
+        "original": "Nghề truyền thống",
+        "review_only": true
+      },
+      {
+        "offset": 1397,
+        "kind": "string",
+        "original": "Vui chơi giải trí",
+        "review_only": true
+      },
+      {
+        "offset": 1442,
+        "kind": "string",
+        "original": "Truyền thuyết",
+        "review_only": true
+      },
+      {
+        "offset": 1601,
+        "kind": "string",
+        "original": "Công viên chủ đề",
+        "review_only": true
+      },
+      {
+        "offset": 1632,
+        "kind": "string",
+        "original": "Trò chơi cảm giác mạnh",
+        "review_only": true
+      },
+      {
+        "offset": 1685,
+        "kind": "string",
+        "original": "Động vật hoang dã",
+        "review_only": true
+      },
+      {
+        "offset": 1712,
+        "kind": "string",
+        "original": "Lặn biển",
+        "review_only": true
+      },
+      {
+        "offset": 1756,
+        "kind": "string",
+        "original": "Trình diễn đa phương tiện",
+        "review_only": true
+      },
+      {
+        "offset": 1795,
+        "kind": "string",
+        "original": "Lặn ngắm san hô",
+        "review_only": true
+      },
+      {
+        "offset": 1857,
+        "kind": "string",
+        "original": "Trải nghiệm dưới nước",
+        "review_only": true
+      },
+      {
+        "offset": 1894,
+        "kind": "string",
+        "original": "Lần đầu đến Phú Quốc",
+        "review_only": true
+      },
+      {
+        "offset": 2321,
+        "kind": "string",
+        "original": "Dương Đông & trung tâm",
+        "review_only": true
+      },
+      {
+        "offset": 2748,
+        "kind": "html",
+        "original": "Chưa mở được bản đồ.",
+        "review_only": true
+      },
+      {
+        "offset": 2783,
+        "kind": "html",
+        "original": "Bộ lọc khu vực bên dưới vẫn dùng được.",
+        "review_only": true
+      },
+      {
+        "offset": 4171,
+        "kind": "string",
+        "original": "Vùng định hướng",
+        "review_only": true
+      },
+      {
+        "offset": 4206,
+        "kind": "string",
+        "original": "Tên khu vực",
+        "review_only": true
+      },
+      {
+        "offset": 5669,
+        "kind": "string",
+        "original": "Toàn đảo",
+        "review_only": true
+      },
+      {
+        "offset": 8404,
+        "kind": "html",
+        "original": "Bối cảnh khu vực",
+        "review_only": true
+      },
+      {
+        "offset": 9191,
+        "kind": "html",
+        "original": "KIỂM TRA TRƯỚC KHI ĐI",
+        "review_only": true
+      },
+      {
+        "offset": 9966,
+        "kind": "html",
+        "original": "Xem kỹ hơn",
+        "review_only": true
+      },
+      {
+        "offset": 10449,
+        "kind": "string",
+        "original": "lựa chọn phù hợp",
+        "review_only": true
+      },
+      {
+        "offset": 10819,
+        "kind": "html",
+        "original": "Chưa có lựa chọn phù hợp. Hãy thử bỏ bớt một điều kiện lọc.",
+        "review_only": true
+      },
+      {
+        "offset": 11490,
+        "kind": "html",
+        "original": "Ảnh đang được cập nhật",
+        "review_only": true
+      },
+      {
+        "offset": 12920,
+        "kind": "html",
+        "original": "{ console.warn(error); $(\"#resultTitle\").textContent=\"Chưa tải được nội dung khám phá\"; $(\"#exploreGrid\").innerHTML='",
+        "review_only": true
+      },
+      {
+        "offset": 12982,
+        "kind": "string",
+        "original": "Chưa tải được nội dung khám phá",
+        "review_only": true
+      },
+      {
+        "offset": 13070,
+        "kind": "html",
+        "original": "Thông tin khám phá đang tạm thời chưa tải được. Vui lòng thử lại sau.",
+        "review_only": true
+      }
+    ]
+  },
+  "hotels/app.js": {
+    "sha": "616fa1c0558e5773b188ab59a4839b2cb86b62c7",
+    "fields": [
+      {
+        "offset": 615,
+        "kind": "string",
+        "original": "Đang hoạt động",
+        "review_only": true
+      },
+      {
+        "offset": 632,
+        "kind": "string",
+        "original": "Sắp mở hoặc đã công bố",
+        "review_only": true
+      },
+      {
+        "offset": 777,
+        "kind": "string",
+        "original": "Chưa xác định hạng",
+        "review_only": true
+      },
+      {
+        "offset": 875,
+        "kind": "string",
+        "original": "Chưa rõ khu vực",
+        "review_only": true
+      },
+      {
+        "offset": 1050,
+        "kind": "string",
+        "original": "Cơ sở lưu trú",
+        "review_only": true
+      },
+      {
+        "offset": 1208,
+        "kind": "string",
+        "original": "tại Phú Quốc",
+        "review_only": true
+      },
+      {
+        "offset": 1349,
+        "kind": "string",
+        "original": "Phân hạng được công bố",
+        "review_only": true
+      },
+      {
+        "offset": 1410,
+        "kind": "string",
+        "original": "Hạng tham khảo",
+        "review_only": true
+      },
+      {
+        "offset": 1439,
+        "kind": "string",
+        "original": "Chưa rõ hạng",
+        "review_only": true
+      },
+      {
+        "offset": 2738,
+        "kind": "string",
+        "original": "Chưa công bố",
+        "review_only": true
+      },
+      {
+        "offset": 3667,
+        "kind": "string",
+        "original": "Phù hợp với",
+        "review_only": true
+      },
+      {
+        "offset": 3787,
+        "kind": "html",
+        "original": "Loại hình",
+        "review_only": true
+      },
+      {
+        "offset": 4193,
+        "kind": "html",
+        "original": "Website chính thức ↗",
+        "review_only": true
+      },
+      {
+        "offset": 4266,
+        "kind": "html",
+        "original": "Gọi cơ sở",
+        "review_only": true
+      },
+      {
+        "offset": 4404,
+        "kind": "string",
+        "original": "cơ sở phù hợp",
+        "review_only": true
+      },
+      {
+        "offset": 4470,
+        "kind": "string",
+        "original": "KẾT QUẢ ĐƯỢC CHỌN",
+        "review_only": true
+      },
+      {
+        "offset": 4514,
+        "kind": "string",
+        "original": "ĐANG HOẠT ĐỘNG",
+        "review_only": true
+      },
+      {
+        "offset": 4557,
+        "kind": "string",
+        "original": "SẮP MỞ HOẶC ĐÃ CÔNG BỐ",
+        "review_only": true
+      },
+      {
+        "offset": 4679,
+        "kind": "html",
+        "original": "Chưa có cơ sở phù hợp. Hãy thử bỏ bớt một điều kiện lọc.",
+        "review_only": true
+      },
+      {
+        "offset": 6187,
+        "kind": "html",
+        "original": "Tất cả khu vực",
+        "review_only": true
+      },
+      {
+        "offset": 6480,
+        "kind": "html",
+        "original": "{$(\"#resultTitle\").textContent=\"Chưa mở được danh sách\";$(\"#hotelGrid\").innerHTML='",
+        "review_only": true
+      },
+      {
+        "offset": 6512,
+        "kind": "string",
+        "original": "Chưa mở được danh sách",
+        "review_only": true
+      },
+      {
+        "offset": 6584,
+        "kind": "html",
+        "original": "Chưa mở được thông tin khách sạn lúc này. Thử lại sau một chút nhé.",
+        "review_only": true
+      }
+    ]
+  },
+  "go/go.js": {
+    "sha": "2a7af9d311b90cce1b1c92081639f2298bff5bb5",
+    "fields": [
+      {
+        "offset": 222,
+        "kind": "string",
+        "original": "Dương Đông & bờ Tây",
+        "review_only": true
+      },
+      {
+        "offset": 255,
+        "kind": "string",
+        "original": "An Thới & Nam đảo",
+        "review_only": true
+      },
+      {
+        "offset": 3472,
+        "kind": "string",
+        "original": "Chọn khu vực bạn đang ở hoặc bấm dùng vị trí của tôi trước nhé.",
+        "review_only": true
+      },
+      {
+        "offset": 3718,
+        "kind": "string",
+        "original": "Đang tải các điểm đến. Bạn có thể chọn khu vực và xem bản đồ trước nhé.",
+        "review_only": true
+      },
+      {
+        "offset": 3938,
+        "kind": "html",
+        "original": "Để tụi mình xem nhé...",
+        "review_only": true
+      },
+      {
+        "offset": 3975,
+        "kind": "html",
+        "original": "Đang chọn những nơi còn đủ thời gian để ghé hôm nay.",
+        "review_only": true
+      },
+      {
+        "offset": 5346,
+        "kind": "string",
+        "original": "Chưa có đủ thông tin mới về thời tiết và biển. Nếu ra ngoài, bạn nhớ xem tình hình trước khi đi nhé.",
+        "review_only": true
+      },
+      {
+        "offset": 5592,
+        "kind": "string",
+        "original": "Thời tiết khu vực chưa có tín hiệu nổi bật.",
+        "review_only": true
+      },
+      {
+        "offset": 5638,
+        "kind": "string",
+        "original": "Thời tiết khu vực cần xem lại trước khi đi.",
+        "review_only": true
+      },
+      {
+        "offset": 5685,
+        "kind": "string",
+        "original": "Thời tiết chưa có cập nhật đủ mới.",
+        "review_only": true
+      },
+      {
+        "offset": 5787,
+        "kind": "string",
+        "original": "Cano hôm nay đã có thông tin hoạt động.",
+        "review_only": true
+      },
+      {
+        "offset": 5853,
+        "kind": "string",
+        "original": "Cano hôm nay đang tạm dừng.",
+        "review_only": true
+      },
+      {
+        "offset": 5884,
+        "kind": "string",
+        "original": "Muốn đi biển? Nhớ kiểm tra lịch cano hôm nay.",
+        "review_only": true
+      },
+      {
+        "offset": 6045,
+        "kind": "string",
+        "original": "QUANH VỊ TRÍ CỦA BẠN ·",
+        "review_only": true
+      },
+      {
+        "offset": 6204,
+        "kind": "string",
+        "original": "Những nơi bạn có thể ghé hôm nay.",
+        "review_only": true
+      },
+      {
+        "offset": 6240,
+        "kind": "string",
+        "original": "Thử một lịch nhẹ nhàng hơn nhé.",
+        "review_only": true
+      },
+      {
+        "offset": 6410,
+        "kind": "html",
+        "original": "Đừng cố nhét thêm lịch.",
+        "review_only": true
+      },
+      {
+        "offset": 6448,
+        "kind": "html",
+        "original": "Thử chọn thêm thời gian, đổi khu vực hoặc chọn “Tất cả”. Đừng chạy quá xa chỉ để cố ghép cho đủ lịch.",
+        "review_only": true
+      },
+      {
+        "offset": 7447,
+        "kind": "string",
+        "original": "km đường chim bay",
+        "review_only": true
+      },
+      {
+        "offset": 7658,
+        "kind": "html",
+        "original": "'+(x.badge===\"POSSIBLE\"?\"CÒN KỊP\":\"CẦN KIỂM TRA\")+'",
+        "review_only": true
+      },
+      {
+        "offset": 7693,
+        "kind": "string",
+        "original": "CẦN KIỂM TRA",
+        "review_only": true
+      },
+      {
+        "offset": 7791,
+        "kind": "string",
+        "original": "Một lựa chọn còn phù hợp với thời gian hiện tại.",
+        "review_only": true
+      },
+      {
+        "offset": 8030,
+        "kind": "html",
+        "original": "Cách bạn",
+        "review_only": true
+      },
+      {
+        "offset": 8087,
+        "kind": "html",
+        "original": "Đi từ khu hiện tại",
+        "review_only": true
+      },
+      {
+        "offset": 8150,
+        "kind": "html",
+        "original": "Dự kiến tới",
+        "review_only": true
+      },
+      {
+        "offset": 8232,
+        "kind": "html",
+        "original": "Xem giờ & lưu ý mới nhất",
+        "review_only": true
+      },
+      {
+        "offset": 8470,
+        "kind": "html",
+        "original": "'+(x.id===\"activity_big_game_fishing\"?\"Xem tour câu cá JoTrip ↗\":\"Xem chi tiết trước khi đi →\")+'",
+        "review_only": true
+      },
+      {
+        "offset": 8536,
+        "kind": "string",
+        "original": "Xem chi tiết trước khi đi →",
+        "review_only": true
+      },
+      {
+        "offset": 9645,
+        "kind": "html",
+        "original": "Đang bổ sung ảnh",
+        "review_only": true
+      },
+      {
+        "offset": 9775,
+        "kind": "string",
+        "original": "· đi khoảng",
+        "review_only": true
+      },
+      {
+        "offset": 10068,
+        "kind": "html",
+        "original": "Một vài nơi chưa hợp lịch hôm nay",
+        "review_only": true
+      },
+      {
+        "offset": 11876,
+        "kind": "string",
+        "original": "Về khu vực đã chọn",
+        "review_only": true
+      },
+      {
+        "offset": 11932,
+        "kind": "string",
+        "original": "Đang xem toàn đảo. Bạn có thể trở về khu vực đã chọn.",
+        "review_only": true
+      },
+      {
+        "offset": 12024,
+        "kind": "string",
+        "original": "Đang xem toàn đảo, chưa lọc theo khoảng cách.",
+        "review_only": true
+      },
+      {
+        "offset": 12472,
+        "kind": "string",
+        "original": "Xem toàn đảo",
+        "review_only": true
+      },
+      {
+        "offset": 12997,
+        "kind": "string",
+        "original": "Bạn vẫn có thể tiếp tục gợi ý theo khu vực thủ công.",
+        "review_only": true
+      },
+      {
+        "offset": 13346,
+        "kind": "string",
+        "original": "Chọn một khu vực để xem những nơi gần đó.",
+        "review_only": true
+      },
+      {
+        "offset": 13446,
+        "kind": "string",
+        "original": "Bản đồ chưa tải được. Bạn vẫn có thể chọn khu vực.",
+        "review_only": true
+      },
+      {
+        "offset": 13499,
+        "kind": "string",
+        "original": "Chọn khu vực để xem những nơi gần đó.",
+        "review_only": true
+      },
+      {
+        "offset": 13648,
+        "kind": "string",
+        "original": "khu vực đã chọn",
+        "review_only": true
+      },
+      {
+        "offset": 13697,
+        "kind": "string",
+        "original": "Những nơi trong",
+        "review_only": true
+      },
+      {
+        "offset": 13731,
+        "kind": "string",
+        "original": "km quanh vị trí của bạn.",
+        "review_only": true
+      },
+      {
+        "offset": 14407,
+        "kind": "string",
+        "original": "địa điểm có vị trí trên bản đồ",
+        "review_only": true
+      },
+      {
+        "offset": 14446,
+        "kind": "string",
+        "original": "quanh bạn.",
+        "review_only": true
+      },
+      {
+        "offset": 14553,
+        "kind": "string",
+        "original": "Bạn chưa cho phép dùng vị trí. Vẫn có thể chọn khu vực bên trên nhé.",
+        "review_only": true
+      },
+      {
+        "offset": 14655,
+        "kind": "string",
+        "original": "Điện thoại chưa xác định được vị trí. Bạn thử lại hoặc chọn khu vực.",
+        "review_only": true
+      },
+      {
+        "offset": 14757,
+        "kind": "string",
+        "original": "Định vị mất hơi lâu. Thử lại khi GPS ổn định hoặc chọn khu vực.",
+        "review_only": true
+      },
+      {
+        "offset": 14835,
+        "kind": "string",
+        "original": "Chưa lấy được vị trí, bạn cứ chọn khu vực bên trên.",
+        "review_only": true
+      },
+      {
+        "offset": 15043,
+        "kind": "string",
+        "original": "Thiết bị này chưa hỗ trợ định vị. Bạn chọn khu vực bên trên nhé.",
+        "review_only": true
+      },
+      {
+        "offset": 15207,
+        "kind": "string",
+        "original": "Đang tìm vị trí...",
+        "review_only": true
+      },
+      {
+        "offset": 15546,
+        "kind": "string",
+        "original": "Bạn đang ở ngoài phạm vi Phú Quốc. Hãy chọn khu vực thủ công nhé.",
+        "review_only": true
+      },
+      {
+        "offset": 16947,
+        "kind": "string",
+        "original": ". Khoảng cách tính từ trung tâm khu vực, không phải vị trí của bạn.",
+        "review_only": true
+      },
+      {
+        "offset": 19484,
+        "kind": "string",
+        "original": "Một vài địa chỉ có tọa độ trong danh bạ:",
+        "review_only": true
+      },
+      {
+        "offset": 19611,
+        "kind": "string",
+        "original": ". Kiểm tra giờ mở cửa trước khi ghé.",
+        "review_only": true
+      },
+      {
+        "offset": 19657,
+        "kind": "string",
+        "original": "Danh bạ Quanh đây có mục tìm quán ăn và cà phê theo khu vực. Chưa có danh sách quán xác minh tọa độ để tính khoảng cách chính xác.",
+        "review_only": true
+      }
+    ]
+  },
+  "food/food.js": {
+    "sha": "a6d84907527621748cfabf0753843551067e9aec",
+    "fields": [
+      {
+        "offset": 1794,
+        "kind": "string",
+        "original": "Ảnh riêng của món đang được bổ sung",
+        "review_only": true
+      },
+      {
+        "offset": 2159,
+        "kind": "html",
+        "original": "'+(x.category===\"seafood\"?copy(\"food.seafood\",\"HẢI SẢN\"):copy(\"food.local\",\"MÓN ĐỊA PHƯƠNG\"))+'",
+        "review_only": true
+      },
+      {
+        "offset": 2507,
+        "kind": "html",
+        "original": "Không có món phù hợp.",
+        "review_only": true
+      },
+      {
+        "offset": 2719,
+        "kind": "html",
+        "original": "Chọn bữa bạn muốn ăn, tớ gợi ý ba món để lựa.",
+        "review_only": true
+      },
+      {
+        "offset": 2879,
+        "kind": "string",
+        "original": "Món ngọt",
+        "review_only": true
+      },
+      {
+        "offset": 3114,
+        "kind": "string",
+        "original": "Gợi ý hôm nay",
+        "review_only": true
+      },
+      {
+        "offset": 5328,
+        "kind": "html",
+        "original": "Công thức có thể thay đổi theo quán. Nếu dị ứng hoặc kiêng ăn, hãy hỏi thành phần thực tế tại nơi bạn gọi món.",
+        "review_only": true
+      },
+      {
+        "offset": 5791,
+        "kind": "string",
+        "original": "Không tìm thấy món - Open Phu Quoc",
+        "review_only": true
+      },
+      {
+        "offset": 5917,
+        "kind": "html",
+        "original": "Không tìm thấy món này.",
+        "review_only": true
+      },
+      {
+        "offset": 5952,
+        "kind": "html",
+        "original": "Món có thể đã đổi địa chỉ hoặc chưa được công khai.",
+        "review_only": true
+      },
+      {
+        "offset": 6031,
+        "kind": "html",
+        "original": "← Xem tất cả món",
+        "review_only": true
+      },
+      {
+        "offset": 9542,
+        "kind": "string",
+        "original": "ẢNH TƯ LIỆU JOTRIP · BỐI CẢNH CHUNG",
+        "review_only": true
+      },
+      {
+        "offset": 9593,
+        "kind": "string",
+        "original": "Hải sản trong bếp - ảnh không gắn với món cụ thể",
+        "review_only": true
+      },
+      {
+        "offset": 10339,
+        "kind": "html",
+        "original": "Chưa mở được danh sách món ăn.",
+        "review_only": true
+      }
+    ]
+  },
+  "guide/knowledge.js": {
+    "sha": "0541399acee7712ecef9dd70e68ee6e80bd86f36",
+    "fields": [
+      {
+        "offset": 5702,
+        "kind": "string",
+        "original": "Điều nên biết",
+        "review_only": true
+      },
+      {
+        "offset": 5718,
+        "kind": "string",
+        "original": "Đọc thêm",
+        "review_only": true
+      }
+    ]
+  },
+  "stories/story.js": {
+    "sha": "9708c80647282ef1c686859aecd46f68124be34a",
+    "fields": [
+      {
+        "offset": 1445,
+        "kind": "string",
+        "original": "Câu chuyện về Phú Quốc.",
+        "review_only": true
+      }
+    ]
+  }
+}
