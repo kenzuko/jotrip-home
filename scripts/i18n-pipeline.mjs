@@ -2,18 +2,27 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import {execFileSync} from "node:child_process";
+import {
+  loadGlossary,
+  protectForTranslation,
+  qualityProblems,
+  repairScopeIncludes,
+  restoreAfterTranslation,
+  scanRejected
+} from "./i18n-quality.mjs";
 
 const ROOT=process.cwd();
 const CONFIG_PATH="cms/translation-pipeline.json";
 const LIFECYCLE_PATH="cms/translation-lifecycle.json";
 const MEMORY_PATH="cms/translation-memory.json";
+const GLOSSARY=loadGlossary();
 const readJson=file=>JSON.parse(fs.readFileSync(path.join(ROOT,file),"utf8"));
 const writeJson=(file,data)=>{
   const full=path.join(ROOT,file);
   fs.mkdirSync(path.dirname(full),{recursive:true});
   fs.writeFileSync(full,JSON.stringify(data,null,2)+"\n","utf8");
 };
-const sha=text=>crypto.createHash("sha256").update(String(text),"utf8").digest("hex");
+const sha256=text=>crypto.createHash("sha256").update(String(text),"utf8").digest("hex");
 const blobSha=file=>execFileSync("git",["hash-object",file],{encoding:"utf8"}).trim();
 const clone=value=>structuredClone(value);
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
@@ -60,44 +69,6 @@ function setAt(value,parts,next){
     cur=cur[key];
   }
   cur[parts.at(-1)]=next;
-}
-
-function protectedTokens(text){
-  const patterns=[
-    /https?:\/\/[^\s)\]}>"']+/g,
-    /\{[A-Za-z0-9_.-]+\}/g,
-    /\b\d{1,2}:\d{2}\b/g,
-    /\b\d{1,2}[\/-]\d{1,2}(?:[\/-]\d{2,4})?\b/g,
-    /\b\d+(?:[.,]\d+)?\s?(?:%|km|m|cm|mm|kg|g|ml|l|VND|đ|₫|USD|EUR)\b/gi,
-    /(?:\+?84|0)(?:[ .-]?\d){8,10}\b/g
-  ];
-  const found=[];
-  for(const pattern of patterns)for(const match of text.matchAll(pattern))found.push(match[0]);
-  return [...new Set(found)].sort((a,b)=>b.length-a.length);
-}
-
-const regexSpecial=new Set("\\^$.*+?()[]{}|".split(""));
-const regexEscape=value=>[...String(value)].map(char=>regexSpecial.has(char)?"\\"+char:char).join("");
-const htmlEscape=value=>String(value).replace(/[&<>"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
-function protect(text){
-  const tokens=protectedTokens(text);let output=String(text);
-  const markers=tokens.map(token=>{
-    const encoded=htmlEscape(token);
-    return {token,encoded,marker:'<span translate="no" class="notranslate">'+encoded+'</span>'};
-  });
-  for(const {token,marker} of markers)output=output.split(token).join(marker);
-  return {text:output,markers};
-}
-function restore(text,markers){
-  let output=String(text);
-  for(const {token,encoded} of markers){
-    const tag=new RegExp("<span\\b[^>]*>\\s*"+regexEscape(encoded)+"\\s*<\\/span>","gi");
-    output=output.replace(tag,token);
-    if(encoded!==token)output=output.split(encoded).join(token);
-    if(!output.includes(token))throw new Error("Azure changed a protected token: "+token);
-  }
-  if(/OPENPQLOCK\d+XQZ/.test(output))throw new Error("Unresolved protected token in translated text");
-  return output;
 }
 
 function familyJobs(config,familyId){
@@ -147,15 +118,19 @@ function batches(items){
   if(batch.length)out.push(batch);return out;
 }
 
-async function azureTranslate(items,locale,config){
+async function azureTranslate(items,targetLocale,fromLocale,config){
   const key=process.env.AZURE_TRANSLATOR_KEY;
   if(!key)throw new Error("AZURE_TRANSLATOR_KEY is required with --apply");
   const endpoint=String(process.env.AZURE_TRANSLATOR_ENDPOINT||"https://api.cognitive.microsofttranslator.com").replace(/\/$/,"");
   if(!/^https:\/\//.test(endpoint))throw new Error("AZURE_TRANSLATOR_ENDPOINT must use https");
-  const to=config.azure_locale_map[locale];
-  if(!to)throw new Error("No Azure locale mapping for "+locale);
+  const to=config.azure_locale_map[targetLocale];
+  const from=config.azure_locale_map[fromLocale]||fromLocale;
+  if(!to)throw new Error("No Azure locale mapping for "+targetLocale);
   const url=new URL(endpoint+"/translate");
-  url.searchParams.set("api-version","3.0");url.searchParams.set("from","vi");url.searchParams.set("textType","html");url.searchParams.append("to",to);
+  url.searchParams.set("api-version","3.0");
+  url.searchParams.set("from",from);
+  url.searchParams.set("textType","html");
+  url.searchParams.append("to",to);
   const maxAttempts=6;
   for(let attempt=1;attempt<=maxAttempts;attempt++){
     const headers={"Content-Type":"application/json","Ocp-Apim-Subscription-Key":key,"X-ClientTraceId":crypto.randomUUID()};
@@ -164,7 +139,7 @@ async function azureTranslate(items,locale,config){
     const body=await response.json().catch(()=>null);
     if(response.ok){
       if(!Array.isArray(body)||body.length!==items.length)throw new Error("Azure response count mismatch");
-      return body.map((row,index)=>restore(row?.translations?.[0]?.text??"",items[index].protected.markers));
+      return body.map((row,index)=>restoreAfterTranslation(row?.translations?.[0]?.text??"",items[index].protected));
     }
     const retryable=response.status===429||response.status>=500;
     if(!retryable||attempt===maxAttempts)throw new Error("Azure Translator failed ("+response.status+"): "+String(body?.error?.message||"unknown error"));
@@ -177,17 +152,109 @@ async function azureTranslate(items,locale,config){
   throw new Error("Azure Translator retry loop ended unexpectedly");
 }
 
-function loadMemory(){return fs.existsSync(MEMORY_PATH)?readJson(MEMORY_PATH):{version:"1.0",provider:"azure-translator-v3",entries:{}}}
+function loadMemory(){return fs.existsSync(MEMORY_PATH)?readJson(MEMORY_PATH):{version:"1.1",provider:"azure-translator-v3",entries:{}}}
 function lifecycleFamily(lifecycle,id){
   const family=lifecycle.families.find(row=>row.id===id);
   if(!family)throw new Error("Translation lifecycle missing family: "+id);
   return family;
 }
 
-function printPlan(config,familyId,locale){
-  const {family,jobs}=familyJobs(config,familyId),characters=jobs.reduce((sum,row)=>sum+row.value.length,0);
-  const target=family.target_path_pattern.replace("{locale}",locale);
-  console.log(JSON.stringify({family:familyId,locale,source:family.source_path,target,fields:jobs.length,characters,azure_requests_at_most:batches(jobs.map((job,index)=>({label:String(index),protected:protect(job.value)}))).length,mode:"plan_only"},null,2));
+const pivotCache=new Map();
+function pivotBundle(family,pivotLocale){
+  if(!pivotLocale)return null;
+  const key=family.target_path_pattern.replace("{locale}",pivotLocale);
+  if(pivotCache.has(key))return pivotCache.get(key);
+  const full=path.join(ROOT,key);
+  if(!fs.existsSync(full)){pivotCache.set(key,null);return null;}
+  const value=readJson(key);pivotCache.set(key,value);return value;
+}
+
+function resolveSource(familyId,family,job,pivotLocale){
+  if(pivotLocale){
+    const pivot=pivotBundle(family,pivotLocale);
+    const candidate=pivot&&getAt(pivot,targetJobPath(family,job));
+    if(typeof candidate==="string"&&candidate.trim()&&!scanRejected(pivotLocale,candidate,{glossary:GLOSSARY}).length){
+      return {value:candidate,locale:pivotLocale,pivot:true};
+    }
+  }
+  return {value:job.value,locale:"vi",pivot:false};
+}
+
+function candidateProblems(source,candidate,locale,familyId){
+  return qualityProblems(source.value,candidate,{
+    fromLocale:source.locale,
+    targetLocale:locale,
+    familyId,
+    glossary:GLOSSARY
+  });
+}
+
+function existingTarget(family,locale){
+  const file=family.target_path_pattern.replace("{locale}",locale);
+  if(!fs.existsSync(path.join(ROOT,file)))return null;
+  return readJson(file);
+}
+
+function buildWorkPlan(config,familyId,locale,{pivotLocale=null,repairScope="quality"}={}){
+  const {family,source,jobs}=familyJobs(config,familyId);
+  const current=existingTarget(family,locale);
+  const memory=loadMemory();memory.entries[locale]||={};
+  const items=[];
+  let totalCharacters=0,pivotFields=0,fallbackFields=0,reusedExisting=0,reusedMemory=0;
+  for(const [index,job] of jobs.entries()){
+    const resolved=resolveSource(familyId,family,job,pivotLocale);
+    totalCharacters+=resolved.value.length;
+    if(resolved.pivot)pivotFields++;else fallbackFields++;
+    const key=sha256(resolved.locale+"\u0000"+resolved.value);
+    const legacyKey=resolved.locale==="vi"?sha256(resolved.value):null;
+    const cached=memory.entries[locale][key]||(legacyKey?memory.entries[locale][legacyKey]:null);
+    const existing=current&&getAt(current,targetJobPath(family,job));
+    const force=repairScopeIncludes(repairScope,familyId,job);
+    if(!force&&typeof existing==="string"&&!candidateProblems(resolved,existing,locale,familyId).length){
+      reusedExisting++;continue;
+    }
+    if(!force&&cached?.source===resolved.value&&typeof cached.translation==="string"&&!candidateProblems(resolved,cached.translation,locale,familyId).length){
+      reusedMemory++;continue;
+    }
+    const protectedValue=protectForTranslation(resolved.value,{
+      fromLocale:resolved.locale,
+      targetLocale:locale,
+      familyId,
+      glossary:GLOSSARY
+    });
+    items.push({index,job,label:familyId+":"+(job.recordId||"document")+":"+job.path.join("."),protected:protectedValue,key,source:resolved});
+  }
+  const byFrom=new Map();
+  for(const item of items){
+    if(!byFrom.has(item.source.locale))byFrom.set(item.source.locale,[]);
+    byFrom.get(item.source.locale).push(item);
+  }
+  let requests=0;
+  for(const group of byFrom.values())requests+=batches(group).length;
+  return {
+    family,source,jobs,current,memory,items,
+    stats:{
+      family:familyId,locale,pivot_locale:pivotLocale||null,repair_scope:repairScope,
+      fields:jobs.length,characters:totalCharacters,
+      azure_fields:items.length,
+      azure_characters_estimate:items.reduce((sum,item)=>sum+item.source.value.length,0),
+      azure_requests_at_most:requests,
+      pivot_fields:pivotFields,fallback_vi_fields:fallbackFields,
+      reused_existing:reusedExisting,reused_memory:reusedMemory
+    }
+  };
+}
+
+function requestedPivot(a,config,locale){
+  if(a.pivot==="none"||a.pivot==="vi")return null;
+  if(a.pivot)return String(a.pivot);
+  return locale==="en"?null:(config.preferred_pivot_locale||null);
+}
+
+function printPlan(config,familyId,locale,options={}){
+  const plan=buildWorkPlan(config,familyId,locale,options);
+  const target=plan.family.target_path_pattern.replace("{locale}",locale);
+  console.log(JSON.stringify({...plan.stats,source:plan.family.source_path,target,mode:"plan_only"},null,2));
 }
 
 async function translate(config,a){
@@ -195,45 +262,92 @@ async function translate(config,a){
   if(!familyId||!locale)throw new Error("translate requires --family and --locale");
   if(locale===config.source_locale)throw new Error("Target locale cannot be Vietnamese");
   if(!config.azure_locale_map[locale])throw new Error("Unsupported target locale: "+locale);
-  if(!a.apply){printPlan(config,familyId,locale);return;}
+  const pivotLocale=requestedPivot(a,config,locale);
+  if(pivotLocale===locale)throw new Error("Pivot locale cannot equal target locale");
+  if(pivotLocale&&!config.azure_locale_map[pivotLocale])throw new Error("Unsupported pivot locale: "+pivotLocale);
+  const repairScope=String(a["repair-scope"]||"quality");
+  if(!a.apply){printPlan(config,familyId,locale,{pivotLocale,repairScope});return;}
 
-  const {family,source,jobs}=familyJobs(config,familyId);
   const lifecycle=readJson(LIFECYCLE_PATH),lifeFamily=lifecycleFamily(lifecycle,familyId),state=lifeFamily.targets[locale];
   if(!state)throw new Error("Lifecycle target missing: "+familyId+"/"+locale);
   if(["human_review","published"].includes(state.status)&&!a["force-machine-overwrite"]){
     throw new Error("Refusing to overwrite "+state.status+" translation. Use --force-machine-overwrite only after explicit review decision.");
   }
-  const targetPath=family.target_path_pattern.replace("{locale}",locale),target=targetSkeleton(familyId,family,source,locale);
-  const memory=loadMemory();memory.entries[locale]||={};
-  const pending=[];
-  for(const [index,job] of jobs.entries()){
-    const key=sha(job.value),cached=memory.entries[locale][key];
-    if(cached?.source===job.value&&typeof cached.translation==="string")setAt(target,targetJobPath(family,job),cached.translation);
-    else pending.push({index,job,label:familyId+":"+(job.recordId||"document")+":"+job.path.join("."),protected:protect(job.value),key});
-  }
-  const pendingBatches=batches(pending);
-  for(const [batchIndex,batch] of pendingBatches.entries()){
-    const translations=await azureTranslate(batch,locale,config);
-    batch.forEach((item,index)=>{
-      const translated=translations[index];
-      if(!translated.trim())throw new Error("Azure returned an empty translation for "+item.label);
-      setAt(target,targetJobPath(family,item.job),translated);
-      memory.entries[locale][item.key]={source:item.job.value,translation:translated,updated_at:new Date().toISOString()};
-    });
-    writeJson(MEMORY_PATH,memory);
-    if(batchIndex<pendingBatches.length-1){
-      const chars=batch.reduce((sum,item)=>sum+item.protected.text.length,0);
-      const hourlyRate=Number(process.env.AZURE_TRANSLATOR_CHARS_PER_HOUR||1900000);
-      const waitMs=Math.max(1000,Math.ceil(chars*3600000/hourlyRate));
-      console.warn("Azure F0 pacing: waiting "+Math.ceil(waitMs/1000)+"s before next batch");
-      await sleep(waitMs);
+
+  const plan=buildWorkPlan(config,familyId,locale,{pivotLocale,repairScope});
+  const {family,source,jobs,current,memory,items}=plan;
+  const targetPath=family.target_path_pattern.replace("{locale}",locale);
+  const target=targetSkeleton(familyId,family,source,locale);
+
+  for(const job of jobs){
+    const resolved=resolveSource(familyId,family,job,pivotLocale);
+    const key=sha256(resolved.locale+"\u0000"+resolved.value);
+    const legacyKey=resolved.locale==="vi"?sha256(resolved.value):null;
+    const cached=memory.entries[locale][key]||(legacyKey?memory.entries[locale][legacyKey]:null);
+    const existing=current&&getAt(current,targetJobPath(family,job));
+    const force=repairScopeIncludes(repairScope,familyId,job);
+    if(!force&&typeof existing==="string"&&!candidateProblems(resolved,existing,locale,familyId).length){
+      setAt(target,targetJobPath(family,job),existing);
+      memory.entries[locale][key]={source:resolved.value,source_locale:resolved.locale,translation:existing,updated_at:new Date().toISOString(),quality:"glossary_guarded"};
+      continue;
+    }
+    if(!force&&cached?.source===resolved.value&&typeof cached.translation==="string"&&!candidateProblems(resolved,cached.translation,locale,familyId).length){
+      setAt(target,targetJobPath(family,job),cached.translation);
     }
   }
+
+  const byFrom=new Map();
+  for(const item of items){
+    if(!byFrom.has(item.source.locale))byFrom.set(item.source.locale,[]);
+    byFrom.get(item.source.locale).push(item);
+  }
+  for(const [fromLocale,group] of byFrom.entries()){
+    const pendingBatches=batches(group);
+    for(const [batchIndex,batch] of pendingBatches.entries()){
+      const translations=await azureTranslate(batch,locale,fromLocale,config);
+      batch.forEach((item,index)=>{
+        const translated=translations[index];
+        if(!translated.trim())throw new Error("Azure returned an empty translation for "+item.label);
+        const problems=candidateProblems(item.source,translated,locale,familyId);
+        if(problems.length)throw new Error("Quality guard rejected "+item.label+": "+problems.join(", "));
+        setAt(target,targetJobPath(family,item.job),translated);
+        memory.entries[locale][item.key]={
+          source:item.source.value,
+          source_locale:item.source.locale,
+          translation:translated,
+          updated_at:new Date().toISOString(),
+          quality:"glossary_guarded"
+        };
+      });
+      writeJson(MEMORY_PATH,memory);
+      if(batchIndex<pendingBatches.length-1){
+        const chars=batch.reduce((sum,item)=>sum+item.protected.text.length,0);
+        const hourlyRate=Number(process.env.AZURE_TRANSLATOR_CHARS_PER_HOUR||1900000);
+        const waitMs=Math.max(1000,Math.ceil(chars*3600000/hourlyRate));
+        console.warn("Azure F0 pacing: waiting "+Math.ceil(waitMs/1000)+"s before next batch");
+        await sleep(waitMs);
+      }
+    }
+  }
+
+  for(const job of jobs){
+    const value=getAt(target,targetJobPath(family,job));
+    if(typeof value!=="string"||!value.trim())throw new Error("Target field unresolved after translation: "+familyId+":"+job.path.join("."));
+  }
+
   const revision=blobSha(family.source_path);
   writeJson(targetPath,target);writeJson(MEMORY_PATH,memory);
-  Object.assign(state,{status:"machine_draft",target_path:targetPath,translated_from_blob_sha:revision,reviewed_by:null,reviewed_at:null,published_at:null,note:"Azure Translator v3 machine draft; human review required."});
+  Object.assign(state,{
+    status:"machine_draft",
+    target_path:targetPath,
+    translated_from_blob_sha:revision,
+    reviewed_by:null,
+    reviewed_at:null,
+    published_at:null,
+    note:"Azure Translator v3 machine draft with OpenPhuQuoc glossary/semantic guard"+(pivotLocale?"; pivot "+pivotLocale:"")+"; human review required."
+  });
   writeJson(LIFECYCLE_PATH,lifecycle);
-  console.log(JSON.stringify({ok:true,family:familyId,locale,target:targetPath,source_revision:revision,fields:jobs.length,azure_fields:pending.length,memory_hits:jobs.length-pending.length,status:"machine_draft"},null,2));
+  console.log(JSON.stringify({ok:true,...plan.stats,target:targetPath,source_revision:revision,status:"machine_draft"},null,2));
 }
 
 function inventory(config){
@@ -266,8 +380,8 @@ try{
   if(command==="inventory")inventory(config);
   else if(command==="plan"){
     if(!a.family||!a.locale)throw new Error("plan requires --family and --locale");
-    printPlan(config,a.family,a.locale);
+    printPlan(config,a.family,a.locale,{pivotLocale:requestedPivot(a,config,a.locale),repairScope:String(a["repair-scope"]||"quality")});
   }else if(command==="translate")await translate(config,a);
   else if(command==="validate")validate(config);
-  else throw new Error("Usage: node scripts/i18n-pipeline.mjs <inventory|plan|translate|validate> [--family ID --locale CODE --apply]");
+  else throw new Error("Usage: node scripts/i18n-pipeline.mjs <inventory|plan|translate|validate> [--family ID --locale CODE --pivot en --repair-scope quality|core|editorial --apply]");
 }catch(error){console.error("i18n pipeline:",error.message);process.exitCode=1;}

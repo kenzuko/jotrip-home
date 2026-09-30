@@ -1,0 +1,117 @@
+name: Repair current locale drafts
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "data/i18n/translation-glossary.json"
+      - "data/i18n/translation-style-guides.json"
+      - "cms/translation-pipeline.json"
+      - "scripts/i18n-quality.mjs"
+      - "scripts/i18n-pipeline.mjs"
+      - "scripts/test-i18n-quality.mjs"
+      - "scripts/test-i18n-translations.mjs"
+      - ".github/workflows/i18n-quality-repair.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: openpq-i18n-quality-repair
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
+      AZURE_TRANSLATOR_REGION: ${{ secrets.AZURE_TRANSLATOR_REGION }}
+      FOUNDATION_BRANCH: main
+      REPAIR_BRANCH: translation/quality-repair-20260930
+      LEGACY_DRAFT_BRANCH: translation/priority-machine-drafts
+      TARGET_LOCALES: "ko ru zh-Hans"
+      MAX_REPAIR_CHARACTERS: "1100000"
+    steps:
+      - name: Checkout quality foundation
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ env.FOUNDATION_BRANCH }}
+
+      - name: Configure durable repair
+        run: |
+          test -n "$AZURE_TRANSLATOR_KEY" || {
+            echo "Missing repository secret AZURE_TRANSLATOR_KEY"
+            exit 1
+          }
+          git config user.name "openpq-translation-bot"
+          git config user.email "openpq-translation-bot@users.noreply.github.com"
+          npm run i18n:check
+
+      - name: Resume or create clean priority repair branch
+        run: |
+          git fetch origin "$FOUNDATION_BRANCH:refs/remotes/origin/$FOUNDATION_BRANCH"
+          git fetch origin "$REPAIR_BRANCH:refs/remotes/origin/$REPAIR_BRANCH" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/$REPAIR_BRANCH"; then
+            git switch -C "$REPAIR_BRANCH" "origin/$REPAIR_BRANCH"
+            git merge --no-edit "origin/$FOUNDATION_BRANCH"
+          else
+            git switch -c "$REPAIR_BRANCH" "origin/$FOUNDATION_BRANCH"
+            git fetch origin "$LEGACY_DRAFT_BRANCH:refs/remotes/origin/$LEGACY_DRAFT_BRANCH"
+            git checkout "origin/$LEGACY_DRAFT_BRANCH" -- data/i18n/ko data/i18n/ru data/i18n/zh-Hans
+            git add data/i18n/ko data/i18n/ru data/i18n/zh-Hans
+            git commit -m "i18n: import completed priority machine drafts for repair"
+            git push -u origin "$REPAIR_BRANCH"
+          fi
+
+      - name: Repair residual English machine literals
+        run: |
+          for family in ui food stories knowledge; do
+            node scripts/i18n-pipeline.mjs translate --family "$family" --locale en --pivot none --repair-scope quality --apply
+            git add cms/translation-lifecycle.json cms/translation-memory.json data/i18n/en
+            git diff --cached --quiet || git commit -m "i18n: quality-repair English $family"
+            git push -u origin "$REPAIR_BRANCH"
+          done
+
+      - name: Estimate semantic repair cost
+        run: |
+          total=0
+          for locale in $TARGET_LOCALES; do
+            for family in ui food stories knowledge; do
+              plan="$(node scripts/i18n-pipeline.mjs plan --family "$family" --locale "$locale" --pivot en --repair-scope core)"
+              echo "$plan"
+              chars="$(node -e 'const fs=require("fs");const p=JSON.parse(fs.readFileSync(0,"utf8"));process.stdout.write(String(p.azure_characters_estimate ?? 0))' <<<"$plan")"
+              total=$((total + chars))
+            done
+          done
+          echo "Estimated quality-repair characters: $total"
+          if [ "$total" -gt "$MAX_REPAIR_CHARACTERS" ]; then
+            echo "Repair plan exceeds safety ceiling: $MAX_REPAIR_CHARACTERS"
+            exit 1
+          fi
+
+      - name: Repair Korean Russian and Simplified Chinese
+        run: |
+          for locale in $TARGET_LOCALES; do
+            for family in ui food stories knowledge; do
+              node scripts/i18n-pipeline.mjs translate --family "$family" --locale "$locale" --pivot en --repair-scope core --apply
+              git add cms/translation-lifecycle.json cms/translation-memory.json "data/i18n/$locale"
+              git diff --cached --quiet || git commit -m "i18n: quality-repair $locale $family"
+              git push -u origin "$REPAIR_BRANCH"
+            done
+          done
+
+      - name: Final translation validation
+        run: npm run i18n:check
+
+      - name: Preserve checkpoint after failure
+        if: failure()
+        run: |
+          git add cms/translation-lifecycle.json cms/translation-memory.json data/i18n 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "i18n: preserve quality-repair checkpoint"
+          current="$(git branch --show-current)"
+          if [ -n "$current" ]; then
+            git push -u origin "$current" || true
+          fi
