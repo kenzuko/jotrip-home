@@ -412,15 +412,16 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const islandDecision = decisionSignals?.islandWeather?.(critical) ||
       {status:"unknown",convective_levels:[],observed_rain:false,valid_gauges:[]};
 
-    const weatherTemp = vvpq?.temperature_c ?? dd?.local?.temperature_c ?? null;
+    const humanWeather = window.OpenPQHumanWeather?.homepage?.(critical) || null;
+    const weatherTemp = humanWeather?.temperatureC ?? vvpq?.temperature_c ?? dd?.local?.temperature_c ?? null;
     const weatherWind = vvpq?.wind_kmh ?? dd?.local?.wind_kmh ?? null;
-    const weatherObservedAt = vvpq?.observed_at || criticalStamp;
+    const weatherObservedAt = humanWeather?.observedAt || vvpq?.observed_at || criticalStamp;
     const weatherAge = ageMinutes(weatherObservedAt);
-    const weatherSource = vvpq ? "Quan trắc sân bay" : dd?.local?.temperature_class === "ESTIMATED_NOW" ? "Ước tính hiện tại" : "JoTrip Weather";
-    const weatherPrimary = weatherTemp != null ? Math.round(weatherTemp) + "°" : "--";
-    const weatherSecondary = weatherTemp != null
+    const weatherSource = vvpq ? "Quan trắc thực tế" : dd?.local?.temperature_class === "ESTIMATED_NOW" ? "Ước tính hiện tại" : "JoTrip Weather";
+    const weatherPrimary = humanWeather?.primary || (weatherTemp != null ? Math.round(weatherTemp) + "°" : "--");
+    const weatherSecondary = humanWeather?.secondary || (weatherTemp != null
       ? (weatherWind != null ? "Gió " + Math.round(weatherWind) + " km/h · " : "") + weatherSource.toLowerCase()
-      : "Chưa có thông tin thời tiết mới";
+      : "Chưa có thông tin thời tiết mới");
     const weatherState = weatherAge > 180 || islandDecision.status === "unknown" ? "unknown" :
       islandDecision.status === "normal" && weatherAge <= 60 ? "good" : "watch";
 

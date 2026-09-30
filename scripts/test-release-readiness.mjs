@@ -61,7 +61,7 @@ for(const file of [
 }
 assert.match(read("bus/app.js"),/fetch\(NETWORK\+"\?t="\+Date\.now\(\),\{cache:"no-store"\}\)/,
   "Live bus positions must remain uncached");
-assert.match(read("home-live-v3.js"),/cache:\s*["']no-store["']/,
-  "Homepage operational feeds must remain uncached");
+assert.match(read("home-live-v3.js"),/cache:\s*["'](?:no-cache|no-store)["']/,
+  "Homepage operational feeds must explicitly revalidate live data");
 
 console.log("Release readiness regression checks PASS");

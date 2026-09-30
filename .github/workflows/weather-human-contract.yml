@@ -1,0 +1,35 @@
+name: Human Weather Homepage CI
+
+on:
+  push:
+    branches: ["feat/weather-human-layer-v1-clean-20260930"]
+    paths:
+      - ".github/workflows/weather-human-contract.yml"
+      - "core/weather-human-contract.js"
+      - "home-live-v3.js"
+      - "index.html"
+      - "package.json"
+      - "scripts/test-weather-human-contract.mjs"
+      - "scripts/test-release-readiness.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Syntax
+        run: |
+          node --check core/weather-human-contract.js
+          node --check home-live-v3.js
+      - name: Shared homepage contract
+        run: node scripts/test-weather-human-contract.mjs
+      - name: Full homepage build regression
+        run: npm run build
