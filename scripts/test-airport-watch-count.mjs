@@ -15,7 +15,7 @@ const watch=section(airport,"function buildOperationWatchItems(){","function ren
 const homeWatch=section(home,"  function buildAirportWatchSummary(","  const localeUiReady");
 const clock=15*60+3;
 const minutes=value=>{
-  const match=String(value||"").match(/(\\d{1,2}):(\\d{2})/);
+  const match=String(value||"").match(/(\d{1,2}):(\d{2})/);
   return match?Number(match[1])*60+Number(match[2]):null;
 };
 const records=Array.from({length:61},(_,i)=>({
@@ -38,10 +38,10 @@ const internal=new Function(
   "state","window","FIDS_FIELDS","nowMinutes","ageInfo","foldText",
   "mins","todayVn","flightKey","cleanFidsValue","stationLabel",
   "scheduledTime","scheduleDeviation","isDelayed","displayStatusLabel","uiStatus",
-  upsert+"\\n"+watch+"\\nreturn {upsertFidsEvent,buildOperationWatchItems}"
+  upsert+"\n"+watch+"\nreturn {upsertFidsEvent,buildOperationWatchItems}"
 )(
   state,{},fields,()=>clock,()=>({level:"good"}),
-  text=>String(text||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").toUpperCase(),
+  text=>String(text||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toUpperCase(),
   minutes,()=>"2026-09-30",
   r=>`${r.direction}|${r.operating_flight_number}`,
   value=>String(value??"").trim(),value=>value,
@@ -61,12 +61,12 @@ internal.upsertFidsEvent({
   field:"belt",from:"1",to:"2",source:"history"
 });
 const homepage=new Function(
-  "vnClockParts","vnDateKey",homeWatch+"\\nreturn buildAirportWatchSummary"
+  "vnClockParts","vnDateKey",homeWatch+"\nreturn buildAirportWatchSummary"
 )(()=>({minutes:clock}),()=>"2026-09-30");
-const homeCount=homepage({records},events.map(e=>JSON.stringify(e)).join("\\n")).count;
+const homeCount=homepage({records},events.map(e=>JSON.stringify(e)).join("\n")).count;
 const innerCount=internal.buildOperationWatchItems().filter(x=>x.kind!=="data").length;
 assert.equal(state.fidsEvents.length,61,"All today's relevant events must be retained");
 assert.equal(homeCount,61,"Fixture must yield 61 homepage watch items");
 assert.equal(innerCount,homeCount,"Homepage and Airport must agree for the same snapshot");
-assert.match(airport,/state\\.fidsHistoryDate!==boardDate/,"Reload history on board-day rollover");
+assert.match(airport,/state\.fidsHistoryDate!==boardDate/,"Reload history on board-day rollover");
 console.log("Airport watch count regression PASS (61 events; homepage and Airport agree)");
