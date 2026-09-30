@@ -5,6 +5,12 @@ on:
     branches: ["feat/weather-human-layer-v1-20260930"]
     paths:
       - ".github/workflows/weather-human-contract.yml"
+      - "core/weather-human-contract.js"
+      - "home-live-v3.js"
+      - "index.html"
+      - "package.json"
+      - "scripts/test-weather-human-contract.mjs"
+      - "scripts/test-release-readiness.mjs"
   workflow_dispatch:
 
 permissions:
