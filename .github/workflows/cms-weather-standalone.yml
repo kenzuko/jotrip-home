@@ -5,7 +5,7 @@ on:
     paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-wind-guard.test.mjs", "scripts/weather-gust-outlook.test.mjs", "scripts/weather-alert-ledger.test.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json", ".github/workflows/cms-weather-standalone.yml"]
   pull_request:
     branches: [main]
-    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-wind-guard.test.mjs", "scripts/weather-gust-outlook.test.mjs", "scripts/weather-alert-ledger.test.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json"]
+    paths: ["weather/**", "scripts/weather-cms-*.mjs", "scripts/weather-wind-guard.test.mjs", "scripts/weather-gust-outlook.test.mjs", "scripts/weather-alert-ledger.test.mjs", "scripts/weather-edge-smoke.mjs", "scripts/weather-engine/**", "functions/_shared/weather-edge.js", "functions/weather/**", "worker.js", "wrangler.jsonc", "scripts/routes.json", ".github/workflows/cms-weather-standalone.yml", "scripts/weather-release-guard.*"]
   workflow_dispatch:
   schedule:
     - cron: "7,27,47 * * * *"
