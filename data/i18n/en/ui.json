@@ -169,5 +169,55 @@
     },
     "weather": "Weather & sea conditions",
     "explore_map": "Explore the map"
+  },
+  "weather_human": {
+    "source_actual": "Live observation",
+    "source_estimated": "Current estimate",
+    "no_new_weather": "No recent weather update",
+    "wind": "Wind {speed} km/h",
+    "actual": "Live observation",
+    "actual_at": "Observed at {location}",
+    "feels_about": "feels like around {temperature}°",
+    "location_airport": "Phu Quoc Airport",
+    "points": {
+      "an_thoi": "An Thoi",
+      "duong_dong": "Duong Dong",
+      "cua_can": "Cua Can",
+      "ganh_dau": "Ganh Dau",
+      "bai_thom": "Bai Thom",
+      "ham_ninh": "Ham Ninh",
+      "bai_sao": "Bai Sao"
+    },
+    "comfort": {
+      "very_hot_very_humid": "Very hot and extremely humid",
+      "very_hot_humid": "Very hot and humid",
+      "hot_very_humid": "Hot and very humid",
+      "very_humid": "Very humid",
+      "hot_quite_humid": "Hot and quite humid",
+      "quite_humid": "Quite humid",
+      "warm_humid": "Warm and humid",
+      "hot_slightly_humid": "Hot and slightly humid",
+      "slightly_humid": "Slightly humid",
+      "hot": "Hot",
+      "warm": "Warm",
+      "comfortable": "Fairly comfortable"
+    },
+    "rain": {
+      "light_shower": "light showers",
+      "light": "light rain",
+      "moderate": "moderate rain",
+      "heavy": "heavy rain",
+      "generic": "rain",
+      "observed": "{place} is seeing {intensity}",
+      "duration": "Rain is expected to ease in about {lower}-{upper} minutes",
+      "observed_detail": "Rain is being recorded at a gauge in this area"
+    },
+    "reason": {
+      "humidity_hotter": "High humidity is making it feel hotter than the measured temperature.",
+      "humid_air": "The air is very moist, so it feels muggy.",
+      "wind_relief": "The breeze is making it feel a little less stuffy.",
+      "weak_wind": "Light winds are making the muggy feeling more noticeable.",
+      "close_to_measured": "It currently feels fairly close to the measured temperature."
+    }
   }
 }
