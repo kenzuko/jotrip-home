@@ -346,13 +346,11 @@ function freshnessText(iso, prefix = "Cập nhật") {
     for (const e of latestByField.values()) {
       const r = e.record;
       if (r.direction === "departure" && e.field === "belt") continue;
-      if (r.direction === "arrival" && (e.field === "checkin_row" || e.field === "gate")) continue;
-      if (r.direction === "departure" && completed(r)) continue;
-      if (r.direction === "arrival" && completed(r)) {
-        if (e.field !== "belt") continue;
-        const after = minutesAfter(r.actual_time);
-        if (after == null || after > 60) continue;
-      }
+      // Operation Watch is for actionable flight changes: baggage belt
+      // changes on arriving flights are detail-only, not public alerts.
+      if (r.direction === "arrival") continue;
+      if (r.direction === "departure" && e.field !== "gate" && e.field !== "checkin_row") continue;
+      if (completed(r)) continue;
       items.push({kind:"fids", flight:flightKey(r)});
     }
 
