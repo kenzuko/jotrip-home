@@ -117,7 +117,9 @@ function upsertFidsEvent(e){
   if(i>=0){if(new Date(e.at).getTime()>new Date(state.fidsEvents[i].at).getTime())state.fidsEvents[i]=e;}
   else state.fidsEvents.push(e);
   state.fidsEvents.sort((a,b)=>new Date(b.at)-new Date(a.at));
-  state.fidsEvents=state.fidsEvents.slice(0,40);
+  // Retain the full board-day history. A last-N cap drops older but still
+  // actionable belt, gate and check-in changes on busy flight days.
+  // loadFidsHistory resets the collection whenever the board day changes.
 }
 function captureFidsSnapshotChanges(previous,current){
   const prev=new Map((previous||[]).map(r=>[flightKey(r),r]));
@@ -230,7 +232,9 @@ async function load(){
       captureFidsSnapshotChanges(previousLatest.records,payload.latest?.records||[]);
     }
     renderAll();
-    if(!state.fidsHistoryLoaded&&!state.fidsHistoryLoading)loadFidsHistory();
+    // A long-lived tab must load the new day's history after midnight, too.
+    const boardDate=window.JOTRIP_BOARD_DATE||state.latest?.source_date||todayVn();
+    if((!state.fidsHistoryLoaded||state.fidsHistoryDate!==boardDate)&&!state.fidsHistoryLoading)loadFidsHistory();
     if(state.dataSource==='fallback'){$('#errorBox').textContent=uiT('fallbackError','Luồng live tạm gián đoạn - đang dùng bản lưu JoTrip AutoSync gần nhất.');$('#errorBox').classList.remove('hidden');}
     else $('#errorBox').classList.add('hidden');
   }catch(e){
