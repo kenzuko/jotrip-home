@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import {readFileSync} from "node:fs";
 
-// Regression: on busy days, a 40-event client cap caused Airport to show
-// fewer actionable FIDS changes than the homepage from the same data.
+// Regression: preserve all actionable departure changes on busy days, while
+// keeping arrival baggage-belt notifications out of Operation Watch.
+ // Both homepage and Airport must derive the same count from identical data.
 const airport=readFileSync(new URL("../airport/app.js",import.meta.url),"utf8");
 const home=readFileSync(new URL("../home-live-v3.js",import.meta.url),"utf8");
 function section(src,begin,end){
@@ -18,15 +19,21 @@ const minutes=value=>{
   const match=String(value||"").match(/(\d{1,2}):(\d{2})/);
   return match?Number(match[1])*60+Number(match[2]):null;
 };
-const records=Array.from({length:61},(_,i)=>({
+const arrivals=Array.from({length:61},(_,i)=>({
   direction:"arrival",operating_flight_number:`VJ${5000+i}`,
   scheduled_time:"18:00",actual_time:null,status_code:"ON_TIME",
   status:"ĐÚNG GIỜ",station:"HÀ NỘI",belt:"2"
 }));
+const departures=Array.from({length:61},(_,i)=>({
+  direction:"departure",operating_flight_number:`VJ${6000+i}`,
+  scheduled_time:"18:00",actual_time:null,status_code:"ON_TIME",
+  status:"ĐÚNG GIỜ",station:"TP.HCM",gate:"2"
+}));
+const records=[...arrivals,...departures];
 const events=records.map(r=>({
   type:"CHANGED",at:"2026-09-30T09:00:00+07:00",
   direction:r.direction,flight_number:r.operating_flight_number,
-  changes:{belt:{from:"1",to:"2"}}
+  changes:r.direction==="arrival"?{belt:{from:"1",to:"2"}}:{gate:{from:"1",to:"2"}}
 }));
 const state={fidsEvents:[],latest:{
   records,collected_at_vn:"2026-09-30T15:03:00+07:00"
@@ -52,7 +59,7 @@ for(const e of events){
   internal.upsertFidsEvent({
     at:e.at,flightKey:`${e.direction}|${e.flight_number}`,
     flightNumber:e.flight_number,direction:e.direction,
-    field:"belt",from:"1",to:"2",source:"history"
+    field:e.direction==="arrival"?"belt":"gate",from:"1",to:"2",source:"history"
   });
 }
 // Duplicate identical event must not create an additional watch item.
@@ -65,8 +72,8 @@ const homepage=new Function(
 )(()=>({minutes:clock}),()=>"2026-09-30");
 const homeCount=homepage({records},events.map(e=>JSON.stringify(e)).join("\n")).count;
 const innerCount=internal.buildOperationWatchItems().filter(x=>x.kind!=="data").length;
-assert.equal(state.fidsEvents.length,61,"All today's relevant events must be retained");
-assert.equal(homeCount,61,"Fixture must yield 61 homepage watch items");
-assert.equal(innerCount,homeCount,"Homepage and Airport must agree for the same snapshot");
+assert.equal(state.fidsEvents.length,122,"Retain history without a last-40 cap");
+assert.equal(homeCount,61,"Ignore 61 arrival belt events; keep 61 departure gate events");
+assert.equal(innerCount,homeCount,"Homepage and Airport must agree for identical data");
 assert.match(airport,/state\.fidsHistoryDate!==boardDate/,"Reload history on board-day rollover");
-console.log("Airport watch count regression PASS (61 events; homepage and Airport agree)");
+console.log("Airport watch regression PASS (61 arrival belts ignored; 61 departure gates retained; counts agree)");
