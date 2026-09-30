@@ -218,6 +218,9 @@
       "wind_relief": "바람이 있어 답답함이 조금 덜합니다.",
       "weak_wind": "바람이 약해 후텁지근함이 더 뚜렷하게 느껴집니다.",
       "close_to_measured": "현재 체감은 실제 측정 기온과 크게 다르지 않습니다."
-    }
+    },
+    "heat_index": "열지수: 약 {temperature}°C",
+    "heat_index_method": "기온 {air_temperature}°C와 습도 약 {humidity}%를 바탕으로 계산했습니다.",
+    "heat_index_note": "이 값은 계산된 지수이며 직접 측정한 기온이 아닙니다."
   }
 }
