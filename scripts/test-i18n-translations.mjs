@@ -28,6 +28,21 @@ const ensureUnique=(rows,key,label)=>{
 const ensureAllowed=(obj,allowed,label)=>{
   for(const key of Object.keys(obj||{}))assert.ok(allowed.includes(key),label+" contains non-translatable field "+key);
 };
+const editorialText=value=>{
+  if(typeof value==="string")return value;
+  if(Array.isArray(value))return value.map(editorialText).join("\n");
+  if(value&&typeof value==="object")return Object.values(value).map(editorialText).join("\n");
+  return "";
+};
+const rejectedEnglishLiterals=[
+  /\bcasino fish\b/i,
+  /\bbien mai whistle\b/i,
+  /\bhoneysuckle tacos?\b/i,
+  /\bmackerel soup cake\b/i,
+  /\bonion fat\b/i,
+  /\bcockroach wing colou?r\b/i,
+  /\bpeach eggs?\b/i
+];
 for(const locale of manifest.locales||[]){
   if(locale.code==="vi")continue;
   const dir=join("data/i18n",locale.code);
@@ -83,6 +98,18 @@ for(const locale of manifest.locales||[]){
 
   if(locale.published){
     assert.ok(Array.isArray(locale.surfaces)&&locale.surfaces.length>0,"Published locale needs at least one enabled surface: "+locale.code);
+  }
+
+  if(locale.code==="en"){
+    const text=editorialText({
+      ui:existsSync(uiPath)?read(uiPath):null,
+      stories:existsSync(storyPath)?read(storyPath):null,
+      knowledge:existsSync(knowledgePath)?read(knowledgePath):null,
+      food:existsSync(foodPath)?read(foodPath):null
+    });
+    for(const pattern of rejectedEnglishLiterals){
+      assert.doesNotMatch(text,pattern,"English editorial bundle contains rejected machine literal "+pattern);
+    }
   }
 }
 console.log("PASS i18n translation guard: stable IDs, UI-key parity, text-only editorial overlays and publication locks");
