@@ -136,7 +136,7 @@ assert.equal(priorHotelAudit.records.length,60,"Keep dropped low-confidence hote
 assert.ok(priorHotelAudit.records.every(x=>x.legacy_coordinates.precision!=="exact_entrance"));
 
 const hotelBatch15=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH15_TIER_A_20260930.json");
-assert.equal(hotelBatch15.accepted.length,9,"Hotel GPS batch 15 evidence must cover every promoted hotel");
+assert.equal(hotelBatch15.accepted.length,13,"Hotel GPS batch 15 evidence must cover every promoted hotel");
 const resolvedHotelIds=new Set(hotelBatch15.accepted.map(x=>x.id));
 for(const item of hotelBatch15.accepted){
   const e=byId.get(item.id),doc=indexed.get(item.id);
