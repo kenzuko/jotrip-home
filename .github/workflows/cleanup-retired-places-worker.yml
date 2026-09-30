@@ -1,0 +1,113 @@
+name: Remove unbound retired Places preview Worker
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/cleanup-retired-places-worker.yml"
+      - "scripts/cleanup-retired-places-worker.mjs"
+      - "scripts/cleanup-retired-places-worker.test.mjs"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/cleanup-retired-places-worker.yml"
+      - "scripts/cleanup-retired-places-worker.mjs"
+      - "scripts/cleanup-retired-places-worker.test.mjs"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: openpq-places-route-retirement
+  cancel-in-progress: false
+
+jobs:
+  safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Verify exact unbound script cleanup policy
+        run: |
+          node --check scripts/cleanup-retired-places-worker.mjs
+          node scripts/cleanup-retired-places-worker.test.mjs
+          node scripts/test-places-route-safety.mjs
+
+  remove-preview:
+    needs: safety
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      DIRECT: https://openphuquoc-v3.kenzuko.workers.dev
+      PUBLIC: https://openphuquoc.com
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Require the newest main and verified canonical Places before touching Cloudflare
+        run: |
+          set -euo pipefail
+          HEAD_SHA="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          test "$HEAD_SHA" = "$GITHUB_SHA" || {
+            echo "::error::Main advanced during cleanup; do not remove any Worker"; exit 1;
+          }
+          for site in "$DIRECT" "$PUBLIC"; do
+            curl -fsSL --retry 3 --retry-delay 2 "$site/places/" -o /tmp/places-cleanup.html
+            curl -fsSL --retry 3 --retry-delay 2 "$site/places/app.js" -o /tmp/places-cleanup.js
+            curl -fsSL --retry 3 --retry-delay 2 "$site/places/catalog-cards.css" -o /tmp/places-cleanup.css
+            curl -fsSL --retry 3 --retry-delay 2 "$site/places/detail.html?id=vinpearl-safari" -o /tmp/places-cleanup-detail.html
+            grep -Fq 'catalog-cards.css?v=' /tmp/places-cleanup.html
+            grep -Fq 'place-quick-facts' /tmp/places-cleanup.js
+            grep -Fq '.place-quick-facts' /tmp/places-cleanup.css
+            grep -Fq 'detail' /tmp/places-cleanup-detail.html
+            cmp places/app.js /tmp/places-cleanup.js
+            cmp places/catalog-cards.css /tmp/places-cleanup.css
+          done
+          curl -fsSL "$DIRECT/build.json" -o /tmp/places-build-before.json
+          curl -fsSL "$DIRECT/weather/data/weather-runtime/manifest.json" -o /tmp/places-weather-before.json
+          node -e 'const x=require("/tmp/places-weather-before.json");if(x.status!=="READY"||x.policy?.frontend_source!=="SAME_ORIGIN_CANONICAL_ONLY")process.exit(1)'
+          echo "Canonical public and direct Places match main; Weather boundary verified"
+      - name: Verify account-wide available routes and Worker custom-domain bindings
+        run: node scripts/cleanup-retired-places-worker.mjs inspect
+      - name: Delete only the known, unbound obsolete preview script
+        run: |
+          set -euo pipefail
+          HEAD_SHA="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          test "$HEAD_SHA" = "$GITHUB_SHA" || {
+            echo "::error::Main changed after preflight; stopping without deletion"; exit 1;
+          }
+          node scripts/cleanup-retired-places-worker.mjs delete
+      - name: Independently verify old script absent and canonical unchanged
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5; do
+            if node scripts/cleanup-retired-places-worker.mjs verify; then break; fi
+            if [ "$attempt" = "5" ]; then exit 1; fi
+            sleep 3
+          done
+          curl -fsSL "$DIRECT/build.json" -o /tmp/places-build-after.json
+          cmp /tmp/places-build-before.json /tmp/places-build-after.json
+          curl -fsSL "$DIRECT/weather/data/weather-runtime/manifest.json" -o /tmp/places-weather-after.json
+          node --input-type=module - <<'NODE'
+          import {readFileSync} from "node:fs";
+          const a=JSON.parse(readFileSync("/tmp/places-weather-before.json"));
+          const b=JSON.parse(readFileSync("/tmp/places-weather-after.json"));
+          for(const key of ["cloud_sampled_time","forecast_run_time","marine_sampled_time"]){
+            if(!Number.isFinite(Date.parse(b.source_times?.[key]))||
+               Date.parse(b.source_times[key])<Date.parse(a.source_times?.[key]))
+              throw Error("Canonical Weather regressed after isolated preview deletion: "+key);
+          }
+          console.log("Canonical Weather timestamps unchanged or advanced safely");
+          NODE
+          curl -fsSL "$PUBLIC/places/app.js?verify=$GITHUB_RUN_ID" -o /tmp/places-final.js
+          cmp places/app.js /tmp/places-final.js
+          echo "Retired preview script removed; canonical Worker, Weather and Places untouched"

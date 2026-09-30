@@ -1,0 +1,13 @@
+import assert from "node:assert/strict";
+import {verifyNoPlacesBindings} from "./cleanup-retired-places-worker.mjs";
+const id="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+const own={name:"openphuquoc.com",id:"zone-one",account:{id}};
+const other={name:"example.com",id:"zone-two",account:{id}};
+assert.equal(verifyNoPlacesBindings([own,other],[[],[]],[],id),true);
+assert.throws(()=>verifyNoPlacesBindings([own],[[{script:"openpq-places-ui-hotfix",pattern:"openphuquoc.com/places*"}]],[],id),/route/);
+assert.throws(()=>verifyNoPlacesBindings([own,other],[[],[{script:"openpq-places-ui-hotfix"}]],[],id),/route/);
+assert.throws(()=>verifyNoPlacesBindings([own],[[]],[{service:"openpq-places-ui-hotfix"}],id),/custom domain/);
+assert.throws(()=>verifyNoPlacesBindings([own],[null],[],id),/incomplete/);
+assert.throws(()=>verifyNoPlacesBindings([{...own,account:{id:"another"}}],[[]],[],id),/Expected exact/);
+assert.throws(()=>verifyNoPlacesBindings([own],[[]],null,id),/incomplete/);
+console.log("PASS retired Places Worker exact-name no-route/no-domain safety gate");
