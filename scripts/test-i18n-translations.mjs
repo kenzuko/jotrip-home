@@ -5,7 +5,10 @@ import {join} from "node:path";
 const read=p=>JSON.parse(readFileSync(p,"utf8"));
 const manifest=read("data/i18n/locales.json");
 const sourceStories=read("data/content.json");
-const sourceKnowledge=existsSync("data/views/knowledge-public.json")?read("data/views/knowledge-public.json"):null;
+// Translation coverage follows the canonical editorial source, including
+// unpublished records. The public view intentionally filters that source and
+// must not make valid machine drafts fail during a production build.
+const sourceKnowledge=existsSync("data/knowledge/objects.json")?read("data/knowledge/objects.json"):null;
 const sourceFood=read("data/i18n/vi/food.json");
 const storyIds=new Set((sourceStories.stories||[]).map(x=>x.id));
 const knowledgeIds=new Set((sourceKnowledge?.objects||[]).map(x=>x.topic_id));
@@ -28,6 +31,21 @@ const ensureUnique=(rows,key,label)=>{
 const ensureAllowed=(obj,allowed,label)=>{
   for(const key of Object.keys(obj||{}))assert.ok(allowed.includes(key),label+" contains non-translatable field "+key);
 };
+const editorialText=value=>{
+  if(typeof value==="string")return value;
+  if(Array.isArray(value))return value.map(editorialText).join("\n");
+  if(value&&typeof value==="object")return Object.values(value).map(editorialText).join("\n");
+  return "";
+};
+const rejectedEnglishLiterals=[
+  /\bcasino fish\b/i,
+  /\bbien mai whistle\b/i,
+  /\bhoneysuckle tacos?\b/i,
+  /\bmackerel soup cake\b/i,
+  /\bonion fat\b/i,
+  /\bcockroach wing colou?r\b/i,
+  /\bpeach eggs?\b/i
+];
 for(const locale of manifest.locales||[]){
   if(locale.code==="vi")continue;
   const dir=join("data/i18n",locale.code);
@@ -83,6 +101,18 @@ for(const locale of manifest.locales||[]){
 
   if(locale.published){
     assert.ok(Array.isArray(locale.surfaces)&&locale.surfaces.length>0,"Published locale needs at least one enabled surface: "+locale.code);
+  }
+
+  if(locale.code==="en"){
+    const text=editorialText({
+      ui:existsSync(uiPath)?read(uiPath):null,
+      stories:existsSync(storyPath)?read(storyPath):null,
+      knowledge:existsSync(knowledgePath)?read(knowledgePath):null,
+      food:existsSync(foodPath)?read(foodPath):null
+    });
+    for(const pattern of rejectedEnglishLiterals){
+      assert.doesNotMatch(text,pattern,"English editorial bundle contains rejected machine literal "+pattern);
+    }
   }
 }
 console.log("PASS i18n translation guard: stable IDs, UI-key parity, text-only editorial overlays and publication locks");

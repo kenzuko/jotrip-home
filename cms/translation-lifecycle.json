@@ -55,13 +55,13 @@
       "target_path_pattern": "data/i18n/{locale}/ui.json",
       "targets": {
         "en": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/en/ui.json",
+          "translated_from_blob_sha": "50d0c001977b955360cfead7d60b0dfc6aa7957d",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
           "status": "missing",
@@ -126,13 +126,13 @@
       "target_path_pattern": "data/i18n/{locale}/stories.json",
       "targets": {
         "en": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/en/stories.json",
+          "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
           "status": "missing",
@@ -197,13 +197,13 @@
       "target_path_pattern": "data/i18n/{locale}/food.json",
       "targets": {
         "en": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/en/food.json",
+          "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
           "status": "missing",
@@ -268,13 +268,13 @@
       "target_path_pattern": "data/i18n/{locale}/knowledge.json",
       "targets": {
         "en": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/en/knowledge.json",
+          "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
           "status": "missing",
