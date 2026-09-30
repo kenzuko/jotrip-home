@@ -80,7 +80,7 @@ function protect(text){
   const tokens=protectedTokens(text);let output=String(text);
   const markers=tokens.map((token,index)=>{
     const key="OPENPQLOCK"+index+"XQZ";
-    return {token,key,marker:`<span translate="no" class="notranslate">${key}</span>`};
+    return {token,key,marker:'<span translate="no" class="notranslate">'+key+'</span>'};
   });
   for(const {token,marker} of markers)output=output.split(token).join(marker);
   return {text:output,markers};
@@ -88,22 +88,7 @@ function protect(text){
 function restore(text,markers){
   let output=String(text);
   for(const {token,key} of markers){
-    const escaped=key.replace(/[.*+?^${}()|[\]\\]/g,"\\function protect(text){
-  const tokens=protectedTokens(text);let output=String(text);
-  const markers=tokens.map((token,index)=>({token,marker:`__OPENPQ_LOCK_${index}__`}));
-  for(const {token,marker} of markers)output=output.split(token).join(marker);
-  return {text:output,markers};
-}
-function restore(text,markers){
-  let output=String(text);
-  for(const {token,marker} of markers){
-    if(!output.includes(marker))throw new Error("Azure changed a protected token: "+token);
-    output=output.split(marker).join(token);
-  }
-  if(/__OPENPQ_LOCK_\d+__/.test(output))throw new Error("Unresolved protected token in translated text");
-  return output;
-}");
-    const tag=new RegExp("<span\\\\b[^>]*>\\\\s*"+escaped+"\\\\s*<\\\\/span>","gi");
+    const tag=new RegExp("<span\\b[^>]*>\\s*"+key+"\\s*<\\/span>","gi");
     if(tag.test(output))output=output.replace(tag,token);
     else if(output.includes(key))output=output.split(key).join(token);
     else throw new Error("Azure changed a protected token: "+token);
