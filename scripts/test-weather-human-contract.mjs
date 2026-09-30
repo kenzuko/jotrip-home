@@ -112,4 +112,29 @@ function i18n(locale){
   }}};
   assert.equal(human.homepage(estimateOnly),null);
 }
+
+// Missing actuals must never become a zero-degree airport observation.
+for(const missing of [null,undefined,"","  ",false]){
+  const bad=structuredClone(critical);
+  bad.human_weather.reference.actual.temperature_c=missing;
+  assert.equal(human.homepage(bad),null,"missing temperature must hide the actual card");
+}
+{
+  const noDerived=structuredClone(critical);
+  noDerived.human_weather.rain={};
+  noDerived.human_weather.reference.derived.feels_like_c=null;
+  noDerived.human_weather.reference.derived.humidity_pct=null;
+  const v=human.homepage(noDerived);
+  assert.equal(v.feelsLikeC,null);
+  assert.equal(v.humidityPct,null);
+  assert.equal(v.heatIndexText,null);
+  assert.equal(v.heatIndexMethod,null);
+}
+{
+  const missingRate=structuredClone(critical);
+  missingRate.human_weather.rain.an_thoi.derived_rate_mm_h=null;
+  missingRate.human_weather.rain.an_thoi.intensity_code="light_shower";
+  const v=human.homepage(missingRate);
+  assert.equal(v.rain.derived_rate_mm_h,null);
+}
 console.log("weather human contract tests passed");
