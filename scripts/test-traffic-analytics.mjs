@@ -107,6 +107,31 @@ assert.ok(!readFileSync("worker.js","utf8").includes("cleanupTraffic"),"Schedule
 assert.ok(readFileSync("admin/traffic-dashboard.js","utf8").includes("data-traffic-period"));
 assert.ok(readFileSync("admin/traffic-dashboard.js","utf8").includes("Xuất CSV"));
 
+// First-class public surface groups must not disappear into "other".
+const surfaceDay=20;
+const surfaceRows=[
+ ["explore","/explore/",1],
+ ["food","/food/",2],
+ ["places","/places/",3],
+ ["hotels","/hotels/",4],
+ ["utilities","/utilities/",5],
+ ["currency","/currency/",6],
+ ["bus","/bus/",7],
+ ["ferry","/ferry/",8],
+ ["cano","/cano/",9],
+ ["news","/news/",10],
+ ["about","/about/",11]
+];
+for(const [,path,hits] of surfaceRows)add(surfaceDay,"page_view",path,"direct","","VN","mobile",hits);
+const surfaceDate=past(surfaceDay);
+const grouped=(await(await query("period=custom&from="+surfaceDate+"&to="+surfaceDate)).json());
+const groupedMap=Object.fromEntries(grouped.pageGroups.map(row=>[row.label,row.hits]));
+for(const [group,,hits] of surfaceRows)assert.equal(groupedMap[group],hits,"missing page group "+group);
+assert.equal(groupedMap.other,undefined,"known public surfaces must not fall through to other");
+const foodOnly=await query("period=custom&from="+surfaceDate+"&to="+surfaceDate+"&page_group=food");
+assert.equal(foodOnly.status,200);
+assert.equal((await foodOnly.json()).total_page_views,2);
+
 assert.equal((await ownerRoute({request:new Request(endpoint),env})).status,401);
 assert.equal((await ownerRoute({request:new Request(endpoint,{method:"POST"}),env})).status,405);
 async function cookie(login,role){
