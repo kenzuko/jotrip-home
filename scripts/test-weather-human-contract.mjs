@@ -4,8 +4,9 @@ const require=createRequire(import.meta.url);
 const human=require("../core/weather-human-contract.js");
 
 const critical={human_weather:{
-  island:{observation_status:"ACTUAL",data_class:"ACTUAL",observed_at:"2026-09-30T03:00:00Z",
-    temperature_c:31,derived:{feels_like_c:40.6,comfort_label:"Nóng và rất oi",data_class:"DERIVED"}},
+  island:{observation_status:"ACTUAL",observed_at:"2026-09-30T03:00:00Z",
+    actual:{temperature_c:31,dewpoint_c:27,wind_kmh:4,data_class:"ACTUAL"},
+    derived:{humidity_percent:79.3,feels_like_c:40.6,comfort_label:"Nóng và rất oi",data_class:"DERIVED_FROM_ACTUAL"}},
   points:{an_thoi:{rain:{actual:{observation_status:"ACTUAL",rain_observed:true}},
     interpretation:{headline:"An Thới đang có mưa rào nhẹ.",
       detail:"Dự kiến mưa sẽ giảm trong khoảng 30-45 phút.",evidence_class:"ACTUAL"}}}
@@ -27,7 +28,7 @@ const critical={human_weather:{
 {
   const stale=structuredClone(critical);
   stale.human_weather.island.observation_status="LAST_OBSERVED";
-  stale.human_weather.island.data_class="ACTUAL_STALE";
+  stale.human_weather.island.actual.data_class="ACTUAL_STALE";
   assert.equal(human.homepage(stale),null);
 }
 {
