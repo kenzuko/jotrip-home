@@ -1,906 +1,445 @@
 # CẨM NANG - NƠI Ở VÀ LỊCH TRÌNH
 
-Các phần này dùng để hướng dẫn du khách. Những dữ kiện cần kiểm chứng hãy ghi riêng, không tự thay bằng số mới.
+Sửa trực tiếp phần văn bản như một bài viết. Giữ thứ tự và các tiêu đề để sau khi duyệt, nội dung trở về đúng mục.
 
+## Khu lưu trú: Dương Đông
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên**
-
-Dương Đông
-
-**Không khí**
+### Không khí
 
 Trung tâm, nhộn nhịp
 
-**Ý 1**
+### Phù hợp
 
 khách lần đầu
 
-**Ý 1**
+### Điểm thuận tiện
 
-Ăn uống
+- Ăn uống
+- Chợ đêm
+- Dễ gọi xe
 
-**Ý 2**
-
-Chợ đêm
-
-**Ý 3**
-
-Dễ gọi xe
-
-**Ý 1**
+### Điều cần lưu ý
 
 Không phải nơi nào cũng sát biển
 
+## Khu lưu trú: Bãi Trường
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên**
-
-Bãi Trường
-
-**Không khí**
+### Không khí
 
 Resort, bờ Tây
 
-**Ý 1**
+### Phù hợp
 
-gia đình
+- gia đình
+- cặp đôi
 
-**Ý 2**
+### Điểm thuận tiện
 
-cặp đôi
+- Nhiều lựa chọn
+- Hoàng hôn
 
-**Ý 1**
-
-Nhiều lựa chọn
-
-**Ý 2**
-
-Hoàng hôn
-
-**Ý 1**
+### Điều cần lưu ý
 
 Một số đoạn biển đổi theo mùa
 
+## Khu lưu trú: Ông Lang
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên**
-
-Ông Lang
-
-**Không khí**
+### Không khí
 
 Yên, xanh, chậm
 
-**Ý 1**
+### Phù hợp
 
-cặp đôi
+- cặp đôi
+- nghỉ lâu
 
-**Ý 2**
+### Điểm thuận tiện
 
-nghỉ lâu
+- Thư giãn
+- Ít xô bồ
 
-**Ý 1**
-
-Thư giãn
-
-**Ý 2**
-
-Ít xô bồ
-
-**Ý 1**
+### Điều cần lưu ý
 
 Ít lựa chọn về đêm
 
+## Khu lưu trú: Bãi Khem
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên**
-
-Bãi Khem
-
-**Không khí**
+### Không khí
 
 Chỉn chu, cao cấp
 
-**Ý 1**
+### Phù hợp
 
-gia đình
+- gia đình
+- cặp đôi
 
-**Ý 2**
+### Điểm thuận tiện
 
-cặp đôi
+- Bãi đẹp
+- Resort tốt
 
-**Ý 1**
+### Điều cần lưu ý
 
-Bãi đẹp
+- Xa trung tâm
+- Dịch vụ ngoài ít
 
-**Ý 2**
+## Khu lưu trú: Cửa Cạn
 
-Resort tốt
-
-**Ý 1**
-
-Xa trung tâm
-
-**Ý 2**
-
-Dịch vụ ngoài ít
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên**
-
-Cửa Cạn
-
-**Không khí**
+### Không khí
 
 Sông, rừng, địa phương
 
-**Ý 1**
+### Phù hợp
 
 trải nghiệm nhẹ
 
-**Ý 1**
+### Điểm thuận tiện
 
-Thuyền thúng
+- Thuyền thúng
+- Cảnh ven sông
 
-**Ý 2**
+### Điều cần lưu ý
 
-Cảnh ven sông
+- Ít dịch vụ tối
+- Đi xa hơn
 
-**Ý 1**
+## Khu lưu trú: Gành Dầu
 
-Ít dịch vụ tối
-
-**Ý 2**
-
-Đi xa hơn
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên**
-
-Gành Dầu
-
-**Không khí**
+### Không khí
 
 Tổ hợp nghỉ và chơi
 
-**Ý 1**
+### Phù hợp
 
 gia đình đi Safari/VinWonders
 
-**Ý 1**
+### Điểm thuận tiện
 
 Gần cụm Bắc đảo
 
-**Ý 1**
+### Điều cần lưu ý
 
 Xa Nam đảo
 
+## Hạng khách sạn: 3 sao
 
-## Nơi ở / areas 1 - Dương Đông
+### Tiêu chí chọn
 
-**Tên mục**
+- Vị trí
+- Vệ sinh
+- Bữa sáng
+- Khoảng cách ăn uống/biển
+- Vận hành thực tế
 
-3 sao
+## Hạng khách sạn: 4 sao
 
-**Ý 1**
+### Tiêu chí chọn
 
-Vị trí
+- Hồ bơi
+- Bãi biển
+- Phòng gia đình
+- Shuttle
+- Meal plan
 
-**Ý 2**
+## Hạng khách sạn: 5 sao / luxury
 
-Vệ sinh
+### Tiêu chí chọn
 
-**Ý 3**
+- Bãi biển
+- Thiết kế phòng/villa
+- Dịch vụ
+- Nhà hàng
+- Spa
+- Kids club
+- Riêng tư
 
-Bữa sáng
+## Hạng khách sạn: Ultra-luxury
 
-**Ý 4**
+### Tiêu chí chọn
 
-Khoảng cách ăn uống/biển
+- Thương hiệu
+- Villa/phòng
+- Bãi biển
+- Dịch vụ cá nhân
+- Riêng tư
 
-**Ý 5**
+## Cụm khách sạn: Nam đảo
 
-Vận hành thực tế
+### Phù hợp
 
+- nghỉ dưỡng
+- honeymoon
+- lịch Nam đảo
 
-## Nơi ở / areas 1 - Dương Đông
+## Cụm khách sạn: Bãi Trường
 
-**Tên mục**
+### Phù hợp
 
-4 sao
+- gia đình
+- luxury
+- hoàng hôn
+- gần sân bay
 
-**Ý 1**
+## Cụm khách sạn: Bắc & Tây Bắc
 
-Hồ bơi
+### Phù hợp
 
-**Ý 2**
+- United Center
+- yên tĩnh
+- nghỉ dài
 
-Bãi biển
+## Cách đặt phòng: OTA
 
-**Ý 3**
-
-Phòng gia đình
-
-**Ý 4**
-
-Shuttle
-
-**Ý 5**
-
-Meal plan
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-5 sao / luxury
-
-**Ý 1**
-
-Bãi biển
-
-**Ý 2**
-
-Thiết kế phòng/villa
-
-**Ý 3**
-
-Dịch vụ
-
-**Ý 4**
-
-Nhà hàng
-
-**Ý 5**
-
-Spa
-
-**Ý 6**
-
-Kids club
-
-**Ý 7**
-
-Riêng tư
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-Ultra-luxury
-
-**Ý 1**
-
-Thương hiệu
-
-**Ý 2**
-
-Villa/phòng
-
-**Ý 3**
-
-Bãi biển
-
-**Ý 4**
-
-Dịch vụ cá nhân
-
-**Ý 5**
-
-Riêng tư
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Vùng**
-
-Nam đảo
-
-**Ý 1**
-
-nghỉ dưỡng
-
-**Ý 2**
-
-honeymoon
-
-**Ý 3**
-
-lịch Nam đảo
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Vùng**
-
-Bãi Trường
-
-**Ý 1**
-
-gia đình
-
-**Ý 2**
-
-luxury
-
-**Ý 3**
-
-hoàng hôn
-
-**Ý 4**
-
-gần sân bay
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Vùng**
-
-Bắc & Tây Bắc
-
-**Ý 1**
-
-United Center
-
-**Ý 2**
-
-yên tĩnh
-
-**Ý 3**
-
-nghỉ dài
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-OTA
-
-**Phù hợp khi**
+### Phù hợp khi
 
 So giá nhanh, sát ngày, cần hủy linh hoạt
 
-**Ý 1**
+### Cần kiểm tra
 
-Thuế phí
+- Thuế phí
+- Bữa sáng
+- Loại giường
+- Số khách
+- Trẻ em
+- Điều kiện hỗ trợ
 
-**Ý 2**
+## Cách đặt phòng: Đặt trực tiếp
 
-Bữa sáng
-
-**Ý 3**
-
-Loại giường
-
-**Ý 4**
-
-Số khách
-
-**Ý 5**
-
-Trẻ em
-
-**Ý 6**
-
-Điều kiện hỗ trợ
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-Đặt trực tiếp
-
-**Phù hợp khi**
+### Phù hợp khi
 
 Tích điểm, xác nhận phòng, yêu cầu đặc biệt, combo resort
 
-**Ý 1**
+### Cần kiểm tra
 
-Meal plan
+- Meal plan
+- Quyền lợi thành viên
+- Hủy đổi
 
-**Ý 2**
+## Cách đặt phòng: Đại lý / DMC
 
-Quyền lợi thành viên
-
-**Ý 3**
-
-Hủy đổi
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-Đại lý / DMC
-
-**Phù hợp khi**
+### Phù hợp khi
 
 Ghép trọn hành trình hoặc nhiều phòng
 
-**Ý 1**
+### Cần kiểm tra
 
-Pháp nhân
+- Pháp nhân
+- Booking confirmation
+- Quyền lợi
+- Người nhận tiền
+- Hủy đổi
+- Đầu mối sự cố
 
-**Ý 2**
+## Gói bữa ăn: Breakfast
 
-Booking confirmation
-
-**Ý 3**
-
-Quyền lợi
-
-**Ý 4**
-
-Người nhận tiền
-
-**Ý 5**
-
-Hủy đổi
-
-**Ý 6**
-
-Đầu mối sự cố
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-Breakfast
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Phòng + bữa sáng
 
+## Gói bữa ăn: Half board
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-Half board
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Thường sáng + một bữa chính; cấu hình tùy resort
 
+## Gói bữa ăn: Full board
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-Full board
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Thường sáng + trưa + tối; đồ uống/quyền lợi cần đọc kỹ
 
+## Gói bữa ăn: All inclusive
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-All inclusive
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Có thể gồm ăn uống và nhiều quyền lợi; mỗi resort định nghĩa khác nhau
 
+## Gói bữa ăn: Ultra All Inclusive
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-Ultra All Inclusive
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Tên thương mại; không mặc định giống nhau giữa thương hiệu
 
+## Gói bữa ăn: BX
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-BX
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Bữa sáng + vé vui chơi, phổ biến ở nhóm Vinpearl
 
+## Gói bữa ăn: BX2
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-BX2
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Như BX, thường áp dụng tối thiểu 2 đêm
 
+## Gói bữa ăn: FX
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-FX
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Ba bữa + vé vui chơi, phổ biến ở nhóm Vinpearl
 
+## Gói bữa ăn: FX2
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-FX2
-
-**Ý nghĩa**
+### Ý nghĩa
 
 Như FX, thường áp dụng tối thiểu 2 đêm
 
+## Theo số ngày: 2 ngày 1 đêm
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-2 ngày 1 đêm
-
-**Cách xếp lịch**
+### Cách xếp lịch
 
 Chọn một nửa đảo
 
-**Điều tránh**
+### Cần tránh
 
 Không cố gộp Bắc + Nam + tour biển
 
+## Theo số ngày: 3 ngày 2 đêm
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-3 ngày 2 đêm
-
-**Cách xếp lịch**
+### Cách xếp lịch
 
 Một ngày biển/Hòn Thơm, một ngày Bắc hoặc Nam, một ngày nhẹ Dương Đông
 
-**Lưu ý thời tiết**
+### Lưu ý thời tiết
 
 Dành ngày dự báo đẹp nhất cho biển
 
+## Theo số ngày: 4 ngày 3 đêm
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-4 ngày 3 đêm
-
-**Cách xếp lịch**
+### Cách xếp lịch
 
 Một ngày biển, một ngày Bắc, một ngày Nam, thêm nửa ngày/chiều Dương Đông
 
+## Theo số ngày: 5 ngày trở lên
 
-## Nơi ở / areas 1 - Dương Đông
-
-**Tên mục**
-
-5 ngày trở lên
-
-**Cách xếp lịch**
+### Cách xếp lịch
 
 Có chỗ cho ngày trống, local, câu cá, rừng/suối hoặc bữa ăn trải nghiệm
 
+## Lịch trình: 3N2Đ - Gia đình có trẻ
 
-## Nơi ở / areas 1 - Dương Đông
+### Từng ngày
 
-**Tiêu đề**
+- Dương Đông
+- Dinh Cậu
+- Chợ đêm
+- Bãi Sao
+- Hòn Thơm hoặc trải nghiệm biển
+- Safari hoặc VinWonders
 
-3N2Đ - Gia đình có trẻ
+### Gợi ý
 
-**Ý 1**
+- Mỗi ngày một trục
+- Chừa giờ nghỉ
+- Không ôm Safari và VinWonders trong một ngày
 
-Dương Đông
+## Lịch trình: 4N3Đ - Honeymoon & nghỉ dưỡng
 
-**Ý 2**
+### Từng ngày
 
-Dinh Cậu
+- Check-in
+- Spa
+- Hoàng hôn
+- Hòn Thơm
+- Sunset Town
+- 1 show
+- Resort / trải nghiệm riêng
+- Khoảng trống linh hoạt
 
-**Ý 3**
+### Gợi ý
 
-Chợ đêm
+- Lịch phải có quyền bỏ bớt
+- Chốt thời tiết và giờ bay trước
 
-**Ý 1**
+## Lịch trình: 5N4Đ - Đi sâu hơn một lớp
 
-Bãi Sao
+### Từng ngày
 
-**Ý 2**
+- Dương Đông / bờ Tây
+- Safari hoặc VinWonders + Grand World
+- Biển An Thới hoặc Hòn Thơm
+- Dinh Cậu + nhà thùng + vườn tiêu
+- Nhà tù + Hộ Quốc + Bãi Sao/Khem hoặc ngày trống
 
-Hòn Thơm hoặc trải nghiệm biển
+## Tuyến khám phá: Nam đảo lần đầu
 
-**Ý 1**
+### Điểm dừng
 
-Safari hoặc VinWonders
+- Nhà tù
+- Hộ Quốc
+- Bãi Sao hoặc Bãi Khem
+- Sunset Town hoặc cáp treo
 
-**Ý 1**
-
-Mỗi ngày một trục
-
-**Ý 2**
-
-Chừa giờ nghỉ
-
-**Ý 3**
-
-Không ôm Safari và VinWonders trong một ngày
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tiêu đề**
-
-4N3Đ - Honeymoon & nghỉ dưỡng
-
-**Ý 1**
-
-Check-in
-
-**Ý 2**
-
-Spa
-
-**Ý 3**
-
-Hoàng hôn
-
-**Ý 1**
-
-Hòn Thơm
-
-**Ý 2**
-
-Sunset Town
-
-**Ý 3**
-
-1 show
-
-**Ý 1**
-
-Resort / trải nghiệm riêng
-
-**Ý 1**
-
-Khoảng trống linh hoạt
-
-**Ý 1**
-
-Lịch phải có quyền bỏ bớt
-
-**Ý 2**
-
-Chốt thời tiết và giờ bay trước
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tiêu đề**
-
-5N4Đ - Đi sâu hơn một lớp
-
-**Ý 1**
-
-Dương Đông / bờ Tây
-
-**Ý 1**
-
-Safari hoặc VinWonders + Grand World
-
-**Ý 1**
-
-Biển An Thới hoặc Hòn Thơm
-
-**Ý 1**
-
-Dinh Cậu + nhà thùng + vườn tiêu
-
-**Ý 1**
-
-Nhà tù + Hộ Quốc + Bãi Sao/Khem hoặc ngày trống
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tiêu đề**
-
-Nam đảo lần đầu
-
-**Ý 1**
-
-Nhà tù
-
-**Ý 2**
-
-Hộ Quốc
-
-**Ý 3**
-
-Bãi Sao hoặc Bãi Khem
-
-**Ý 4**
-
-Sunset Town hoặc cáp treo
-
-**Nguyên tắc**
+### Nguyên tắc
 
 Đừng cố ghép cả cáp treo và tour đảo.
 
+## Tuyến khám phá: Một ngày hiểu Phú Quốc
 
-## Nơi ở / areas 1 - Dương Đông
+### Điểm dừng
 
-**Tiêu đề**
+- Dinh Cậu
+- Nhà thùng
+- Vườn tiêu hoặc nhà vườn
+- Bữa trưa địa phương
+- Làng ven biển hoặc hoàng hôn Dương Đông
 
-Một ngày hiểu Phú Quốc
+## Tuyến khám phá: Bắc đảo cho gia đình
 
-**Ý 1**
+### Điểm dừng
 
-Dinh Cậu
+- Safari hoặc VinWonders
+- Grand World nếu còn sức
 
-**Ý 2**
-
-Nhà thùng
-
-**Ý 3**
-
-Vườn tiêu hoặc nhà vườn
-
-**Ý 4**
-
-Bữa trưa địa phương
-
-**Ý 5**
-
-Làng ven biển hoặc hoàng hôn Dương Đông
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tiêu đề**
-
-Bắc đảo cho gia đình
-
-**Ý 1**
-
-Safari hoặc VinWonders
-
-**Ý 2**
-
-Grand World nếu còn sức
-
-**Nguyên tắc**
+### Nguyên tắc
 
 Một điểm lớn làm trục.
 
+## Tuyến khám phá: Biển An Thới theo điều kiện thật
 
-## Nơi ở / areas 1 - Dương Đông
+### Điểm dừng
 
-**Tiêu đề**
+- Cụm hòn theo gió/sóng
+- Bơi/lặn vừa sức
+- Ăn trưa
+- Về bờ trước khi nhóm quá mệt
 
-Biển An Thới theo điều kiện thật
+## Tuyến khám phá: Rừng & phía Đông
 
-**Ý 1**
+### Điểm dừng
 
-Cụm hòn theo gió/sóng
+- Một điểm rừng/suối
+- Hàm Ninh hoặc làng ven biển phía Đông
 
-**Ý 2**
-
-Bơi/lặn vừa sức
-
-**Ý 3**
-
-Ăn trưa
-
-**Ý 4**
-
-Về bờ trước khi nhóm quá mệt
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tiêu đề**
-
-Rừng & phía Đông
-
-**Ý 1**
-
-Một điểm rừng/suối
-
-**Ý 2**
-
-Hàm Ninh hoặc làng ven biển phía Đông
-
-**Nguyên tắc**
+### Nguyên tắc
 
 Cần câu chuyện địa phương, tránh biến thành tuyến mua sắm.
 
+## Tuyến khám phá: Phú Quốc hôm qua, hôm nay và ngày mai
 
-## Nơi ở / areas 1 - Dương Đông
+### Điểm dừng
 
-**Tiêu đề**
+- Nhà tù
+- An Thới cũ
+- Cảng và nghề biển
+- Nam đảo mới
 
-Phú Quốc hôm qua, hôm nay và ngày mai
+## Lịch trình linh hoạt: Một ngày không lên lịch
 
-**Ý 1**
-
-Nhà tù
-
-**Ý 2**
-
-An Thới cũ
-
-**Ý 3**
-
-Cảng và nghề biển
-
-**Ý 4**
-
-Nam đảo mới
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Tiêu đề**
-
-Một ngày không lên lịch
-
-**Nguyên tắc**
+### Nguyên tắc
 
 Sáng dậy mới quyết định
 
+### Khi trời thuận lợi
 
-## Nơi ở / areas 1 - Dương Đông
+- Đi biển
+- Tìm bãi tắm
 
-**Ý 1**
+### Khi trời xấu
 
-Đi biển
+- Ăn sáng lâu hơn
+- Nhà thùng
+- Cà phê
+- Chợ
+- Spa
 
-**Ý 2**
-
-Tìm bãi tắm
-
-
-## Nơi ở / areas 1 - Dương Đông
-
-**Ý 1**
-
-Ăn sáng lâu hơn
-
-**Ý 2**
-
-Nhà thùng
-
-**Ý 3**
-
-Cà phê
-
-**Ý 4**
-
-Chợ
-
-**Ý 5**
-
-Spa
