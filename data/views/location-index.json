@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T09:43:43.478Z",
+  "generated_at": "2026-09-30T09:52:19.320Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
     "with_address": 350,
-    "with_map": 237,
+    "with_map": 240,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -2304,7 +2304,17 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Dương Đông.",
       "route": "/hotels/?q=L'Azure%20Resort%20%26%20Spa%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.2078,
+        "lon": 103.9619,
+        "precision": "site_centroid",
+        "source": "L'Azure exact-name independent numeric locations crosschecked with official hotel identity at 64 Tran Hung Dao",
+        "source_id": "lazure_exact_name_dual_numeric_operator_identity_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Two exact-name numeric hotel listings agree within ~20 m and the official property confirms 64 Tran Hung Dao. Site centroid only, not an independently checked entrance.",
+        "accuracy": "EXACT_NAME_INDEPENDENT_NUMERIC_OPERATOR_IDENTITY",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "L'Azure Resort & Spa Phu Quoc, 64 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4170,7 +4180,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Pullman%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.120242,
+        "lon": 103.983464,
+        "precision": "site_centroid",
+        "source": "Accor corporate official GPS crosschecked against exact-name independent lodging GPS",
+        "source_id": "pullman_corporate_accor_gps_independent_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Accor corporate GPS (chosen site reference) is ~48 m from exact-name independent Roomcard GPS; property microsite publishes a second on-site point ~116 m to the west. Neither point is verified as lobby/entrance. Retain alternate for review.",
+        "accuracy": "OPERATOR_GPS_INDEPENDENT_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Pullman Phú Quốc, Tổ 6, xóm Bàn Quy, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4957,7 +4977,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
       "route": "/hotels/?q=Sonaga%20Beach%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.134199,
+        "lon": 103.978493,
+        "precision": "site_centroid",
+        "source": "Exact-name Sonaga Beach Resort & Villas numeric locations with operator phone and Sonasea Duong Bao property identity",
+        "source_id": "sonaga_exact_name_dual_numeric_operator_identity_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Independent named Sonaga Resort GPS sources differ by ~57 m within the resort site. Official Sonaga property page matches Sonasea Duong Bao address and 0297 267 8888 phone. Broad site centroid only.",
+        "accuracy": "EXACT_NAME_INDEPENDENT_NUMERIC_OPERATOR_IDENTITY",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Sonaga Beach Resort, Khu tổ hợp DL Sonasea Villas & Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
