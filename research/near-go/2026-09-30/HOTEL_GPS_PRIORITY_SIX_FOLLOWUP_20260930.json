@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-09-30",
+  "scope": "Six priority hotel GPS holds; research only, no auto-promotion",
+  "base_main": "bdafbf4afd408e4699b93eff2aecf2c2d54d77f0",
+  "baseline": {
+    "hotels": 166,
+    "hotel_pins": 58,
+    "map_ready": 237,
+    "map_candidates": 394,
+    "quarantined": 27
+  },
+  "cases": [
+    {
+      "id": "hotel_sailing_club_signature_resort_phu_quoc",
+      "status": "HOLD_VERIFY_SITE_GEOMETRY_AND_SOURCE_INDEPENDENCE",
+      "fix": "Resort operator site is sc-signaturephuquoc.com; previously recorded sailingclubphuquoc.com is BEACH CLUB about 800m away.",
+      "sources": [
+        [
+          "operator",
+          "https://sc-signaturephuquoc.com/"
+        ],
+        [
+          "IMPT exact hotel GPS",
+          "https://impt.io/hotels/vietnam/phu-quoc/sailing-club-signature-resort-phu-quoc/",
+          10.1152,
+          103.9899
+        ],
+        [
+          "Roomcard indexed, direct page 404",
+          "https://roomcard.com/hotel/sailing-club-signature-resort-phu-quoc/31128582",
+          10.115192,
+          103.989855
+        ],
+        [
+          "SearchSpot indexed, direct page unavailable",
+          "https://www.searchspot.ai/places/sailing-club-signature-resort-phu-quoc",
+          10.11519,
+          103.98988
+        ],
+        [
+          "The Park within resort, NOT hotel",
+          "https://mapcarta.com/W1543934141",
+          10.11457,
+          103.98847
+        ]
+      ],
+      "conflict": "The Park is ~171m from candidate. Confirm operator/map hotel reception or site centroid and numeric source lineage before promotion."
+    },
+    {
+      "id": "hotel_m_hotel_phu_quoc",
+      "status": "HOLD_NO_EXACT_NUMERIC",
+      "operator": "https://mhotel.vn/property/m-hotel-phu-quoc/",
+      "booking": "https://www.booking.com/hotel/vn/m-phu-quoc.html",
+      "verified_address": "46 Tran Hung Dao",
+      "issue": "Canonical Sở address broad; do not mistake MTown Hotel & Residences or auto-edit canonical address."
+    },
+    {
+      "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
+      "status": "HOLD_NUMERIC_CROSSCHECK",
+      "operator": "https://booking.muongthanh.com/hotel-muong-thanh-luxury-phu-quoc",
+      "operator_phone": "+84 297 364 5555",
+      "candidate": {
+        "source": "https://tanitour.vn/khach-san-muong-thanh-luxury-phu-quoc-duong-bao/",
+        "printed": "101.329.561,1.039.800.812",
+        "possible_interpretation": [
+          10.1329561,
+          103.9800812
+        ],
+        "note": "unverified site number formatting; Google maps CID 15682215195151615407; no promotion"
+      }
+    },
+    {
+      "id": "hotel_sunset_beach_resort_spa",
+      "status": "HOLD_NUMERIC_CROSSCHECK",
+      "identities": [
+        "https://tourism.angiang.gov.vn/hotel/13641",
+        "https://www.google.com/travel/hotels/entity/ChkIgMj93oSemIYdGg0vZy8xMWhfYngxXzYzEAE"
+      ],
+      "verified_address": "100C/2 Tran Hung Dao",
+      "tourism_phone": "02973567888",
+      "canonical_phone": "0977287777",
+      "issue": "Separate phone audit. Route endpoint not hotel site witness, reject Tween's Kitchen at 100C/4."
+    },
+    {
+      "id": "hotel_the_up_phu_quoc",
+      "status": "HOLD_NO_EXACT_NUMERIC",
+      "identities": [
+        "https://sdl.angiang.gov.vn/dac-khu-phu-quoc-co-so-luu-tru-0",
+        "https://www.google.com/travel/hotels/entity/ChkIxd_v9I2quId6Gg0vZy8xMXZ5XzdxZjdkEAE"
+      ],
+      "address": "Thua 253, to 10, Cua Lap",
+      "issue": "Need exact parcel-aligned numeric business point, not locality centroid."
+    },
+    {
+      "id": "hotel_venice_hotel_phu_quoc",
+      "status": "HOLD_BUILDING_COLLISION",
+      "identities": [
+        "https://sdl.angiang.gov.vn/dac-khu-phu-quoc-co-so-luu-tru-0",
+        "https://www.google.com/travel/hotels/entity/ChoI-9KSprzM1IiMARoNL2cvMTFsMXF2aHJ5NRAB"
+      ],
+      "address": "15-17 Venice",
+      "candidate": [
+        10.030483,
+        104.005664
+      ],
+      "candidate_source": "https://www.myrealtrip.com/union/products/3699758",
+      "conflict": "Atina Boutique Homestay at 19 Venice approx 47m away; second 3-decimal coordinate insufficient. Need independently verifiable building point."
+    }
+  ],
+  "result": {
+    "promoted": 0,
+    "held": 6,
+    "public_changes": false
+  },
+  "followup": "Check source independence and exact property geometry; retain site_centroid vs entrance; preserve OSM provenance. Main's generated map-coverage contract wording still allows inferred name/address geocodes - assess generator and guards separately."
+}
