@@ -1,0 +1,1225 @@
+{
+  "sha": {
+    "weather/index.html": "8ee12d7286b05b26c78c60b9c78ad42cfcac02c0",
+    "airport/index.html": "3c8950588ba2d2d64b8534c5c230ab385001ee87",
+    "transit/index.html": "01b4986133d3aa825291e0e79db672ce01be9735",
+    "bus/index.html": "2aac3d724c23c252c960b3df6da9c1b0dcbd7fa3",
+    "ferry/index.html": "78489ddc24447cdbc6fe9f901cb9367e0fdd070c",
+    "cano/index.html": "8717216fbe8b506bcf6252cb21628de32dbff555",
+    "currency/index.html": "d7e693e1a408ad63be7748a640c8a357b670e326"
+  },
+  "pages": {
+    "weather/index.html": {
+      "sha": "8ee12d7286b05b26c78c60b9c78ad42cfcac02c0",
+      "fields": [
+        {
+          "tag": "strong",
+          "value": "Thời tiết & Biển",
+          "offset": 2778,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Phú Quốc · Dự báo JoTrip",
+          "offset": 2815,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "TIN NHANH · TOÀN ĐẢO",
+          "offset": 3748,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Hiển thị tối đa 6 mục trước; mở rộng để xem các cảnh báo còn lại. Quan trắc, tín hiệu ngắn hạn và dự báo mô hình được ghi riêng. Khi dữ liệu mất kết nối, không coi là thời tiết an toàn.",
+          "offset": 4013,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Chọn một điểm, các mục bên dưới sẽ cùng hiển thị theo điểm đó.",
+          "offset": 4316,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Xem thời tiết hiện tại và các mốc còn lại trong ngày tại điểm bạn chọn.",
+          "offset": 4714,
+          "review_only": true
+        },
+        {
+          "tag": "h1",
+          "value": "Dương Đông",
+          "offset": 5010,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Đang cập nhật quan trắc và phân tích tại Phú Quốc...",
+          "offset": 5544,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "mm/h · ước tính tại điểm",
+          "offset": 5778,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "km/h · JoTrip",
+          "offset": 5894,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Đang tìm số liệu có nguồn",
+          "offset": 6039,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "m Hs · mô hình biển",
+          "offset": 6170,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Bạn đang thấy thực tế thế nào?",
+          "offset": 6742,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Phản hồi sẽ gắn với điểm bạn đang xem.",
+          "offset": 6891,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Mưa nhiều hơn",
+          "offset": 7069,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Mưa ít hơn",
+          "offset": 7146,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Gió mạnh hơn",
+          "offset": 7220,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Gió yếu hơn",
+          "offset": 7296,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "JoTrip không nhận vị trí GPS của bạn. Phản hồi chỉ gắn với điểm đang xem.",
+          "offset": 7449,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Mưa gió những giờ còn lại",
+          "offset": 7888,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Đang đọc các mốc thời tiết còn lại hôm nay...",
+          "offset": 8026,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Sóng nền hiển thị riêng theo chu kỳ biển, không thay cho dự báo sóng từng giờ.",
+          "offset": 8140,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Dự báo JoTrip · ECMWF · mốc 3 giờ",
+          "offset": 8658,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Đang đo được gì ngoài kia?",
+          "offset": 8865,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Số đo từ các trạm đang hoạt động giúp bạn so sánh với dự báo JoTrip.",
+          "offset": 8911,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Quan trắc thực tế",
+          "offset": 9130,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "ĐANG TẢI",
+          "offset": 9169,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Mưa quan trắc: trạng thái có/không mưa dựa trên chênh lệch giữa hai mẫu đo liên tiếp. Lượng mưa ghi bằng mm trong đúng cửa sổ quan trắc; cường độ được quy đổi về mm/h theo chuẩn biến quan trắc WMO.",
+          "offset": 9313,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Lên kế hoạch 10 ngày",
+          "offset": 9659,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Xem xu hướng để lên kế hoạch; hãy kiểm tra lại khi gần ngày đi.",
+          "offset": 9699,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "10 ngày tới theo khu vực",
+          "offset": 9918,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Ba ngày đầu có nhiều mốc dự báo hơn. Từ ngày thứ tư, hãy xem đây là xu hướng và kiểm tra lại khi gần ngày đi.",
+          "offset": 10005,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Các mốc dưới đây lấy trực tiếp từ Dự báo JoTrip tại điểm đang chọn.",
+          "offset": 11278,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Radar & bản đồ",
+          "offset": 11577,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Khi có mưa hoặc mây đối lưu, dùng bản đồ để nhìn vị trí và hướng di chuyển.",
+          "offset": 11611,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Mưa đang ở đâu?",
+          "offset": 11912,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Thời tiết toàn đảo theo không gian",
+          "offset": 12213,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Thông tin mây",
+          "offset": 12301,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Himawari IR",
+          "offset": 12735,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Windy Gió",
+          "offset": 12804,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Windy Mưa",
+          "offset": 12867,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Windy Sóng",
+          "offset": 12930,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Ảnh Himawari cho biết độ cao và nhiệt độ đỉnh mây, qua đó giúp theo dõi mây đang phát triển ra sao. Ảnh này không cho biết xác suất mưa hay sét.",
+          "offset": 13926,
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "value": "Nguồn đối chiếu",
+          "offset": 14160,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Các con số thời tiết nói gì?",
+          "offset": 14642,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Mưa, gió, sóng, bụi và thủy triều là những tín hiệu riêng. Xem từng chỉ số cùng giờ cập nhật và khu vực áp dụng.",
+          "offset": 14722,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Đây là hướng dẫn cách đọc các chỉ số, không phải cảnh báo theo thời gian thực. Nếu định ra biển, hãy xem cùng lúc gió, sóng và khuyến cáo trong ngày.",
+          "offset": 15103,
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "value": "XEM SÂU HƠN Phân tích kỹ thuật theo điểm 72 giờ, dự báo theo điểm, gió/biển nâng cao, tổng hợp nhiều mô hình, AQI, triều và độ tin cậy nguồn",
+          "offset": 15370,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Đổi điểm để xem toàn bộ phân tích kỹ thuật tương ứng.",
+          "offset": 15824,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Tự đi theo điểm đã chọn ở đầu trang.",
+          "offset": 15907,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Biểu đồ theo điểm",
+          "offset": 16512,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Phần này dành cho ai muốn xem diễn biến chi tiết và mức chênh lệch giữa các dự báo.",
+          "offset": 16553,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Gió 72 giờ",
+          "offset": 16858,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "72 giờ tới · Giờ Phú Quốc UTC+7",
+          "offset": 16941,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "🌡️ Nhiệt độ",
+          "offset": 17312,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "↕️ Triều",
+          "offset": 17527,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Số liệu hiện tại và dự báo 72 giờ được trình bày riêng.",
+          "offset": 17886,
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "value": "Bảng số liệu gốc theo giờ (mở khi cần)",
+          "offset": 18054,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Chi tiết mô hình tại Dương Đông",
+          "offset": 18260,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Đây là các thông số kỹ thuật của mô hình, không phải quan trắc trực tiếp.",
+          "offset": 18963,
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "value": "Gió và biển hiện tại - thông số mô hình",
+          "offset": 19099,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "m · giá trị ước tính khi cần",
+          "offset": 19398,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Tổng hợp nhiều mô hình & chi tiết vùng",
+          "offset": 19979,
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "value": "Xem dự báo chi tiết theo giờ",
+          "offset": 20160,
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "value": "JoTrip tính dự báo theo khu vực như thế nào?",
+          "offset": 20964,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "AQI & bụi mịn",
+          "offset": 21788,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Triều & đổi nước",
+          "offset": 22180,
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "value": "Độ tin cậy thông tin",
+          "offset": 22677,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Nguồn & phần còn thiếu",
+          "offset": 23211,
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "value": "Giải thích các chỉ số kỹ thuật",
+          "offset": 23724,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Một hệ thống thời tiết được xây riêng cho Phú Quốc",
+          "offset": 25005,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "JoTrip Weather là dự án thời tiết dành riêng cho Phú Quốc. Chúng tôi không lấy nguyên kết quả của một mô hình rồi hiển thị lại. Hệ thống tập hợp dữ liệu đo thực tế, radar - vệ tinh, các mô hình khí quyển và biển, sau đó đối chiếu chúng với điều kiện trên đảo để tạo ra lớp phân tích và dự báo riêng của JoTrip.",
+          "offset": 25153,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Cách chúng tôi xây hệ thống",
+          "offset": 26505,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Cách làm này lấy cảm hứng từ quy trình dự báo thời tiết hiện đại: trước tiên xây bức tranh hiện tại từ quan trắc mặt đất, radar và vệ tinh; sau đó mới kết hợp các mô hình số và dự báo tổ hợp để đánh giá những gì có thể xảy ra tiếp theo. NOAA/NWS cũng vận hành theo nguyên tắc nhiều lớp dữ liệu như vậy. JoTrip không phải NOAA và không sao chép hệ thống của NOAA - chúng tôi chỉ áp dụng cùng tư duy đó ở quy mô nhỏ, tập trung riêng cho điều kiện thời tiết rất đặc thù của Phú Quốc.",
+          "offset": 26548,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Dự án được mở miễn phí và không có kế hoạch thu phí. Nếu bạn đang ở Phú Quốc, một phản hồi ngắn về mưa, gió hoặc dông tại nơi mình đứng sẽ rất hữu ích để chúng tôi kiểm tra lại hệ thống. Nếu trang có ích, bạn có thể chia sẻ cho người khác cùng theo dõi và góp ý.",
+          "offset": 27749,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Chia sẻ JoTrip Weather",
+          "offset": 28077,
+          "review_only": true
+        }
+      ]
+    },
+    "airport/index.html": {
+      "sha": "3c8950588ba2d2d64b8534c5c230ab385001ee87",
+      "fields": [
+        {
+          "tag": "h1",
+          "value": "Sân bay Phú Quốc",
+          "offset": 2882,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "PQC · chuyến bay hôm nay",
+          "offset": 2907,
+          "review_only": true
+        },
+        {
+          "tag": "label",
+          "value": "VI EN 한국 RU 中文",
+          "offset": 2986,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Hôm nay tại Phú Quốc",
+          "offset": 4021,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Xem nhanh tình hình sân bay hôm nay.",
+          "offset": 4050,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Chuyến cần chú ý",
+          "offset": 4699,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Thay đổi đang còn hiệu lực",
+          "offset": 4754,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Bảng thông tin chuyến bay",
+          "offset": 5143,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Giờ bay dự kiến và thực tế, tình trạng chuyến, cửa khởi hành, quầy làm thủ tục và băng chuyền hành lý.",
+          "offset": 5177,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Chuyến đi",
+          "offset": 5484,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Chuyến đến",
+          "offset": 5580,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Chuyến bay hôm nay",
+          "offset": 6685,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Tìm chuyến",
+          "offset": 6718,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "3 giờ tới",
+          "offset": 7270,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Có thay đổi",
+          "offset": 7415,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Xem thêm",
+          "offset": 7525,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Đừng vội chạy xuyên đảo.",
+          "offset": 7754,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Từ sân bay, thời gian di chuyển còn tùy giờ hạ cánh, hướng đi và nơi bạn ở.",
+          "offset": 7796,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "15-25 phút về Dương Đông",
+          "offset": 8160,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Grand World và Sunset Town nằm ở hai hướng khác nhau.",
+          "offset": 8201,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "Chọn khu trước, chọn điểm sau.",
+          "offset": 8535,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Chọn một ngày khám phá Bắc đảo, một ngày cho Nam đảo sẽ đỡ mất công chạy xe hơn.",
+          "offset": 8582,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "Cần hỗ trợ ở sân bay?",
+          "offset": 8903,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Số hỗ trợ hành lý thất lạc và các số khẩn cấp được để cùng một chỗ.",
+          "offset": 8941,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Tình trạng cập nhật",
+          "offset": 9592,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "ĐANG KIỂM TRA",
+          "offset": 9760,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Đang kiểm tra nguồn và thời điểm cập nhật chuyến bay.",
+          "offset": 9807,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "⌂ Lúc này",
+          "offset": 10236,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "✈ Chuyến bay",
+          "offset": 10316,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "↻ Làm mới",
+          "offset": 10428,
+          "review_only": true
+        }
+      ]
+    },
+    "transit/index.html": {
+      "sha": "01b4986133d3aa825291e0e79db672ce01be9735",
+      "fields": [
+        {
+          "tag": "h1",
+          "value": "Di chuyển",
+          "offset": 2317,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Tàu cao tốc · Phà · Xe buýt Phú Quốc",
+          "offset": 2335,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Đang xem lịch từ các hãng...",
+          "offset": 2783,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Đi chuyến nào, lúc mấy giờ?",
+          "offset": 2988,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Chọn ngày đi để xem lịch của ngày đó. Lịch tháng chỉ giúp bạn tham khảo, không xác nhận chuyến sẽ chạy.",
+          "offset": 3031,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "ngày đã chọn",
+          "offset": 3259,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Chưa có chuyến",
+          "offset": 3370,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "đang có lịch",
+          "offset": 3494,
+          "review_only": true
+        },
+        {
+          "tag": "label",
+          "value": "Tuyến Tất cả tuyến",
+          "offset": 3673,
+          "review_only": true
+        },
+        {
+          "tag": "label",
+          "value": "Hãng Tất cả hãng",
+          "offset": 3786,
+          "review_only": true
+        },
+        {
+          "tag": "label",
+          "value": "Tìm nhanh",
+          "offset": 3900,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Tàu & phà",
+          "offset": 4086,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Tàu cao tốc",
+          "offset": 4150,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Giờ chạy, hãng, tàu/phà và giá cho đúng ngày bạn chọn.",
+          "offset": 4497,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Theo đúng ngày bạn chọn",
+          "offset": 5698,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Chỉ kiểm tra khi cần.",
+          "offset": 5961,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Trang không hiển thị số ghế cụ thể. Khi bạn chọn Kiểm tra vé , trang chỉ báo mức chung như Còn vé / Còn ít / Hết vé và giờ vừa kiểm tra.",
+          "offset": 5998,
+          "review_only": true
+        }
+      ]
+    },
+    "bus/index.html": {
+      "sha": "2aac3d724c23c252c960b3df6da9c1b0dcbd7fa3",
+      "fields": [
+        {
+          "tag": "h1",
+          "value": "Xe buýt & xe trung chuyển",
+          "offset": 2159,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Phú Quốc · tuyến 17 · 19 · 20",
+          "offset": 2193,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Đang xem...",
+          "offset": 2584,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Biết tuyến nào đi qua, / và xe đang gần đâu.",
+          "offset": 2733,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Lịch chạy và vị trí xe được tách riêng. Nếu chưa thấy vị trí xe từ VinBus, trang chỉ hiện lịch và không tự đoán xe đang ở đâu.",
+          "offset": 2787,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Vị trí xe trực tiếp",
+          "offset": 3215,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Đang xem VinBus có gửi vị trí xe lúc này không...",
+          "offset": 3243,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Tuyến 17",
+          "offset": 3673,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Lịch từ VinBus",
+          "offset": 3734,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "GPS từ OpenStreetMap là vị trí tham khảo. Với trạm hai chiều hoặc trạm chưa có pin, hãy xác nhận trên bản đồ VinBus trước khi tới. Dữ liệu bản đồ: © OpenStreetMap contributors (ODbL) .",
+          "offset": 3866,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Xe có gần điểm này không?",
+          "offset": 4246,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Chọn một trạm để xem xe gần nhất khi VinBus có gửi vị trí xe. Nếu chưa có, mình chỉ hiện lịch tuyến.",
+          "offset": 4280,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Xe trung chuyển nội khu",
+          "offset": 4568,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Nhóm tuyến phục vụ các khu nghỉ dưỡng và Phú Quốc United Center.",
+          "offset": 4600,
+          "review_only": true
+        }
+      ]
+    },
+    "ferry/index.html": {
+      "sha": "78489ddc24447cdbc6fe9f901cb9367e0fdd070c",
+      "fields": [
+        {
+          "tag": "h1",
+          "value": "Tàu & Phà",
+          "offset": 2073,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Phú Quốc · giờ chạy & tình hình vé",
+          "offset": 2091,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Thạnh Thới · Superdong · Phú Quốc Express",
+          "offset": 2469,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Chọn tuyến trước, / rồi chọn hãng.",
+          "offset": 2663,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Chọn đúng ngày để xem giờ chạy, hãng và tình hình vé. Nếu hãng không công bố số ghế, trang cũng không tự đoán.",
+          "offset": 2707,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Đọc bảng này thế nào?",
+          "offset": 3106,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Mở bán nghĩa là hãng đang nhận đặt vé. Theo lịch chỉ nói chuyến có trong lịch, chưa chắc còn chỗ. Khi hãng có thông tin, Open Phu Quoc chỉ báo mức chung như Còn nhiều / Còn ít / Gần hết / Hết chỗ.",
+          "offset": 3136,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Cano, tàu cao tốc và phà được xem riêng.",
+          "offset": 3620,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Đang xem tình hình hôm nay...",
+          "offset": 3695,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "Đang xem",
+          "offset": 3882,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Cano được xem riêng",
+          "offset": 3919,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Xem riêng cho hôm nay",
+          "offset": 4109,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Tàu cao tốc",
+          "offset": 4733,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Lịch hôm nay",
+          "offset": 4837,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Chọn một chuyến để xem giờ, giá và mở trang hãng.",
+          "offset": 4858,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Đặt vé chính thức",
+          "offset": 5303,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Đi thẳng tới hệ thống hãng, không đi qua link trung gian.",
+          "offset": 5329,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "Đặt vé chính thức ↗",
+          "offset": 5549,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Tàu cao tốc Rạch Giá / Hà Tiên ↔ Phú Quốc.",
+          "offset": 5585,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "Kiểm tra phà ↗",
+          "offset": 5742,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Phà chở khách, xe và hàng.",
+          "offset": 5773,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "Kiểm tra lịch ↗",
+          "offset": 5941,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Xem lịch công bố và tình trạng đặt vé trực tiếp từ hãng.",
+          "offset": 5973,
+          "review_only": true
+        }
+      ]
+    },
+    "cano/index.html": {
+      "sha": "8717216fbe8b506bcf6252cb21628de32dbff555",
+      "fields": [
+        {
+          "tag": "h1",
+          "value": "Cano & Tour đảo",
+          "offset": 2105,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "An Thới · cano tour đảo hôm nay",
+          "offset": 2129,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "JoTrip · tình hình cano Nam đảo",
+          "offset": 2511,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Đang xem hôm nay cano có chạy không.",
+          "offset": 2687,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Cano tour đảo được xem riêng. Tàu cao tốc hay phà có chạy cũng không có nghĩa cano chắc chắn chạy.",
+          "offset": 2747,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Khi chưa biết chắc",
+          "offset": 3135,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Nghĩa là mình chưa có thông tin đủ chắc để nói cano chạy hay dừng. Đừng hiểu “chưa biết” thành “bị cấm” hoặc “đang chạy”.",
+          "offset": 3162,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Cano hôm nay",
+          "offset": 3549,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Chỉ nói riêng cano tour đảo ở An Thới.",
+          "offset": 3570,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Lịch sử cano",
+          "offset": 4059,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Ba ngày được xác nhận gần nhất; lịch sử đầy đủ nằm ở trang riêng.",
+          "offset": 4100,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Đang đồng bộ",
+          "offset": 4183,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Đang mở lịch sử…",
+          "offset": 4309,
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "value": "Tour 3 đảo An Thới",
+          "offset": 4950,
+          "review_only": true
+        }
+      ]
+    },
+    "currency/index.html": {
+      "sha": "d7e693e1a408ad63be7748a640c8a357b670e326",
+      "fields": [
+        {
+          "tag": "h1",
+          "value": "Đổi tiền, xem tỷ giá / hôm nay.",
+          "offset": 2624,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Xem tỷ giá Vietcombank, tính nhanh số tiền cần đổi và tra lại biến động trong 30 ngày.",
+          "offset": 2672,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Đổi ngoại tệ",
+          "offset": 3790,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Ngoại tệ → VND",
+          "offset": 3923,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "VND → Ngoại tệ",
+          "offset": 4012,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Theo tỷ giá mua tiền mặt của Vietcombank.",
+          "offset": 4566,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Tiền mặt",
+          "offset": 4732,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "Chuyển khoản",
+          "offset": 4817,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Tỷ giá tại quầy hoặc điểm đổi tiền thực tế có thể khác.",
+          "offset": 4972,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "TỶ GIÁ HÔM NAY",
+          "offset": 5185,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Tỷ giá phổ biến",
+          "offset": 5222,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "SO SÁNH NHANH",
+          "offset": 5604,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Hôm nay so với trước đây",
+          "offset": 5640,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Nếu Vietcombank không có giá mua tiền mặt, bảng sẽ dùng giá mua chuyển khoản và ghi rõ.",
+          "offset": 5902,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Diễn biến tỷ giá",
+          "offset": 6182,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "So sánh mức tăng giảm",
+          "offset": 7329,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "Để so sánh công bằng giữa các đồng tiền có mệnh giá khác nhau, mỗi đồng được quy về 100 ở đầu kỳ. Phần này chỉ cho biết mức tăng hoặc giảm tương đối so với VND.",
+          "offset": 7457,
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "value": "NHIỀU LOẠI TIỀN",
+          "offset": 7953,
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "value": "Cộng và quy đổi",
+          "offset": 7991,
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "value": "+ Thêm ngoại tệ",
+          "offset": 8178,
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "value": "Theo tỷ giá mua tiền mặt.",
+          "offset": 8351,
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "value": "Nguồn: Vietcombank",
+          "offset": 8460,
+          "review_only": true
+        }
+      ]
+    }
+  },
+  "review_only": true
+}
