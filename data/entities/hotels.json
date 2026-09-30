@@ -418,8 +418,8 @@
         "La Festa",
         "La Festa Phú Quốc"
       ],
-      "zone_id": "zone_central_west",
-      "area_label": "Khác / cần rà",
+      "zone_id": "zone_south",
+      "area_label": "Sunset Town - An Thới",
       "accommodation_type": "Khách sạn",
       "operational_status": "active",
       "status_label": "Đang hoạt động - trong SDL 27/07/2026",
@@ -433,7 +433,7 @@
       "phone_sdl": "02973525555",
       "website": "https://www.hilton.com/en/hotels/pqcpqqq-la-festa-phu-quoc/",
       "room_count": 197,
-      "what_it_is": "Khách sạn 5 sao tại Khác / cần rà.",
+      "what_it_is": "Khách sạn 5 sao tại Sunset Town - An Thới.",
       "why_go": "",
       "best_for": [
         "nghỉ dưỡng",
@@ -448,8 +448,9 @@
         "nghi-duong",
         "honeymoon",
         "lich-nam-dao",
-        "central_west",
-        "5-sao"
+        "5-sao",
+        "south",
+        "sunset-town"
       ],
       "source_refs": [
         {
@@ -467,7 +468,28 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.0296551,
+        "lon": 104.0074053,
+        "precision": "site_centroid",
+        "source_id": "la_festa_named_osm_hilton_numeric_crosscheck_20260930",
+        "source": "Exact-name OSM hotel POI independently cross-checked against Hilton property identity and named numeric hotel location",
+        "source_license": "ODbL-1.0",
+        "source_url": "https://www.openstreetmap.org/node/11499885685",
+        "verified_at": "2026-09-30",
+        "accuracy": "NAMED_OSM_EXACT_IDENTITY_PLUS_INDEPENDENT_NUMERIC_27M",
+        "osm_type": "N",
+        "osm_id": 11499885685,
+        "matched_name": "La Festa Phu Quoc, Curio Collection by Hilton",
+        "numeric_crosscheck": {
+          "lat": 10.0295,
+          "lon": 104.0076,
+          "url": "https://itinerai.ai/en/stays/la-festa-phu-quoc-curio-collection-by-hilton-phu-quoc"
+        },
+        "operator_identity_url": "https://www.hilton.com/en/hotels/pqcpqqq-la-festa-phu-quoc/hotel-location/",
+        "note": "Exact-name mapped La Festa OSM POI crosschecked ~27 m against independent exact-name numeric hotel location and Hilton's Sunset Town identity. Not a verified check-in entrance."
+      }
     },
     {
       "id": "hotel_melia_vinpearl",
@@ -1443,7 +1465,7 @@
       "name": "Sunset Sanato",
       "aliases": [],
       "zone_id": "zone_central_west",
-      "area_label": "Khác / cần rà",
+      "area_label": "Bãi Trường - Đường Bào",
       "accommodation_type": "Khách sạn nghỉ dưỡng",
       "operational_status": "active",
       "status_label": "Đang hoạt động - trong SDL 27/07/2026",
@@ -1484,8 +1506,24 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.1516,
+        "lon": 103.9748,
+        "precision": "site_centroid",
+        "source_id": "sunset_sanato_two_numeric_hotel_crosscheck_20260930",
+        "source": "Two exact-name Sunset Sanato Resort & Villas numeric lodging location sources with official property identity",
+        "source_url": "https://impt.io/last-minute-hotels/phu-quoc/sunset-sanato-resort-villas/",
+        "verified_at": "2026-09-30",
+        "accuracy": "TWO_EXACT_NAMED_NUMERIC_SOURCES_APPROX_80M",
+        "numeric_crosscheck": {
+          "lat": 10.1521,
+          "lon": 103.9753,
+          "url": "https://itinerai.ai/en/stays/sunset-sanato-resort-villas-phu-quoc"
+        },
+        "operator_identity_url": "https://sunsetsanato.com/",
+        "note": "Independent exact-name lodging sources locate the resort within ~80 m in the same Duong Bao beachfront property area. Site centroid only: not a confirmed lobby, driveway or exact entrance."
+      }
     },
     {
       "id": "hotel_the_shells_resort_spa_phu_quoc",
@@ -2143,25 +2181,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1324574,
-        "lon": 103.9845258,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 10182443118,
-        "matched_name": "MTown Hotel & Residences Phu Quoc",
-        "formatted_address": "Đường tỉnh 975, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "M Hotel Phú Quốc, Tổ 3, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"MTown Hotel & Residences Phu Quoc\" instead of the exact property \"M Hotel Phú Quốc\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_maison_du_vietnam_resort_spa",
@@ -2547,25 +2568,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2001894,
-        "lon": 103.9645329,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 9406890219,
-        "matched_name": "Tween's Kitchen",
-        "formatted_address": "100C/4, Trần Hưng Đạo, Phú Quốc, Kiên Giang, Việt Nam",
-        "lookup_query": "Sunset Beach Resort & Spa, 100C/2 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Tween's Kitchen\" instead of the exact property \"Sunset Beach Resort & Spa\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_the_up_phu_quoc",
@@ -2662,25 +2666,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.0308471,
-        "lon": 104.0054519,
-        "precision": "site_centroid",
-        "source_id": "osm_overpass_catalog",
-        "source": "OpenStreetMap Overpass catalog",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_OVERPASS",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 11383154942,
-        "matched_name": "Atina Boutique Homestay",
-        "formatted_address": "19, Venice Street, Thành phố Phú Quốc",
-        "lookup_query": "Venice Hotel Phú Quốc, 15-17 Venice, Khu Sun Premier Village Primavera, khu phố 6, đặc khu Phú Quốc, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Atina Boutique Homestay\" instead of the exact property \"Venice Hotel Phú Quốc\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_vinholidays_fiesta_phu_quoc",
@@ -2845,25 +2832,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1953628,
-        "lon": 103.9649362,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 550539882,
-        "matched_name": "Brenta Phu Quoc Annex",
-        "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Brenta Phú Quốc, Hẻm 118, KP8, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Brenta Phu Quoc Annex\" instead of the exact property \"Brenta Phú Quốc\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_coco_palm_beach_resort_spa",
@@ -3221,25 +3191,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1948968,
-        "lon": 103.9659163,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 6537442166,
-        "matched_name": "The Rabbit Hole Irish Bar",
-        "formatted_address": "2/1/118, Trần Hưng Đạo, Phú Quốc, Kiên Giang, Việt Nam",
-        "lookup_query": "La Mer Resort, 118/2/6 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"The Rabbit Hole Irish Bar\" instead of the exact property \"La Mer Resort\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_orange_resort",
@@ -3465,25 +3418,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2573819,
-        "lon": 103.936662,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 451452489,
-        "matched_name": "Bãi Ông Lang",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Chensea, Bãi Xếp, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Bãi Ông Lang\" instead of the exact property \"Chensea\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_suny_hotel",
@@ -4290,25 +4226,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1921779,
-        "lon": 103.9665575,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 4740929621,
-        "matched_name": "143 seafood",
-        "formatted_address": "143, Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "ECO Resort Phú Quốc, 143 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"143 seafood\" instead of the exact property \"ECO Resort Phú Quốc\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_elwood_resort_phu_quoc",
@@ -4817,25 +4736,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1989991,
-        "lon": 103.9685924,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 12073653650,
-        "matched_name": "Rosetta Hotel Phu Quoc",
-        "formatted_address": "127/2, Trần Hưng Đạo, Thành phố Phú Quốc, Kiên Giang, Việt Nam",
-        "lookup_query": "HOPAPA, 127/5 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Rosetta Hotel Phu Quoc\" instead of the exact property \"HOPAPA\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_hong_tuyet",
@@ -5293,25 +5195,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1961798,
-        "lon": 103.9901978,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 10277593609,
-        "matched_name": null,
-        "formatted_address": "City, Tổ 3, ấp Suối Đá, Kiên Giang 92509, Vietnam, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Lotus, Tổ 4, ấp Suối Đá, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: OSM Photon returned no matched POI name and its formatted address says To 3 Suoi Da whereas the canonical hotel directory says To 4. No exact-brand numeric site evidence."
     },
     {
       "id": "hotel_lucky_phu_quoc",
@@ -5412,25 +5297,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2084622,
-        "lon": 103.9647398,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 6417519762,
-        "matched_name": "Mely Wow Phu Quoc Resort",
-        "formatted_address": "Duong 30 thang 4, hem tòa án, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "M Resort, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Mely Wow Phu Quoc Resort\" instead of the exact property \"M Resort\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_maison_hotel",
@@ -5828,25 +5696,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.241514,
-        "lon": 103.9854362,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256899945,
-        "google_place_id": null,
-        "osm_type": "way",
-        "osm_id": 722464591,
-        "matched_name": "Nguyễn Trung Trực",
-        "formatted_address": "Nguyễn Trung Trực, Cây Thông Ngoài Cửa Dương, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Nguyên Phan Phú Quốc, 76 Nguyễn Trung Trực, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Nguyễn Trung Trực\" instead of the exact property \"Nguyên Phan Phú Quốc\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_nha_khach_tram_giao_dich_ve_so_kien_thiet_can_tho",
@@ -5930,25 +5781,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2196528,
-        "lon": 103.9651595,
-        "precision": "route_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 155315693,
-        "matched_name": "Nguyễn Huệ",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Nhà khách Phú Quốc, 01 Nguyễn Huệ, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Nguyễn Huệ\" instead of the exact property \"Nhà khách Phú Quốc\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_nha_tranh_gia_vi",
@@ -6033,25 +5867,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2090043,
-        "lon": 103.9661505,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 256695673,
-        "google_place_id": null,
-        "osm_type": "node",
-        "osm_id": 4416039489,
-        "matched_name": "88 Hilltop Hostel",
-        "formatted_address": "88 Hilltop Hostel, Trần Hưng Đạo, 7 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Nice Life Hotel, 88 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"88 Hilltop Hostel\" instead of the exact property \"Nice Life Hotel\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_nipola",
@@ -6346,25 +6163,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.23531,
-        "lon": 104.0019981,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 11932334200,
-        "matched_name": "Bông Hồng Xanh Villa Phú Quốc",
-        "formatted_address": "Suối Đá Bàn, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Phú Hồng, 16 Bạch Đằng, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Bông Hồng Xanh Villa Phú Quốc\" instead of the exact property \"Phú Hồng\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_phu_quoc_phung_hung",
@@ -6447,25 +6247,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1998486,
-        "lon": 103.9675148,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 13644761701,
-        "matched_name": "Mì Tê - Artisan Noodles",
-        "formatted_address": "126, Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Phú Vân, 126 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Mì Tê - Artisan Noodles\" instead of the exact property \"Phú Vân\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_phuc_loc",
@@ -6550,25 +6333,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2317922,
-        "lon": 103.9865868,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 11930352229,
-        "matched_name": "Nhà Trọ Phương Quỳnh",
-        "formatted_address": "Suối Đá Bàn, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Phương Đông, 19 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Nhà Trọ Phương Quỳnh\" instead of the exact property \"Phương Đông\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_positano_horse",
@@ -6695,25 +6461,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2320594,
-        "lon": 103.972816,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1285561137,
-        "matched_name": "Lee Villa Phu Quoc",
-        "formatted_address": "Cách Mạng Tháng Tám, Phú Quốc, Tỉnh Kiên Giang, Việt Nam",
-        "lookup_query": "Quốc Thắng, Tổ 4, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Lee Villa Phu Quoc\" instead of the exact property \"Quốc Thắng\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_quynh_mai_phu_quoc_resort",
@@ -6922,25 +6671,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1069986,
-        "lon": 104.0148801,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 13305912493,
-        "matched_name": "Suối Lớn Dương Tơ",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Ru By, Tổ 1, ấp Suối Lớn, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Suối Lớn Dương Tơ\" instead of the exact property \"Ru By\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_sakurakyo_hotel_spa",
@@ -7108,25 +6840,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1880213,
-        "lon": 103.9790444,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1327474862,
-        "matched_name": "Valley Sen Bungalow",
-        "formatted_address": "Suối Mây, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "SEN, Hẻm 63, Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Valley Sen Bungalow\" instead of the exact property \"SEN\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_sentina",
@@ -7168,25 +6883,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.0296551,
-        "lon": 104.0074053,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 11499885685,
-        "matched_name": "La Festa Phu Quoc, Curio Collection by Hilton",
-        "formatted_address": "Sunset Town, Thành phố Phú Quốc, Kiên Giang, Việt Nam",
-        "lookup_query": "Sentina, 16 Venice, Sunset Town, đặc khu Phú Quốc, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"La Festa Phu Quoc, Curio Collection by Hilton\" instead of the exact property \"Sentina\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_star_hill_resort",
@@ -7348,25 +7046,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2130163,
-        "lon": 103.9598032,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 12345190748,
-        "matched_name": "Mộc Kitchen PQ Cooking Class",
-        "formatted_address": "47/9, Trần Hưng Đạo, Thành phố Phú Quốc, Kiên Giang, Việt Nam",
-        "lookup_query": "Suncosy Central Resort Phú Quốc, 47/8 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Mộc Kitchen PQ Cooking Class\" instead of the exact property \"Suncosy Central Resort Phú Quốc\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_sunrise_boutique",
@@ -7620,25 +7301,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2198308,
-        "lon": 103.987724,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 11932334318,
-        "matched_name": "Homestay Hoàng Hôn",
-        "formatted_address": "Gia Long, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Thái Hoàng Gia, 89 Nguyễn Trung Trực, KP4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Homestay Hoàng Hôn\" instead of the exact property \"Thái Hoàng Gia\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_thala_hotel",
@@ -7722,25 +7386,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2142741,
-        "lon": 103.9817192,
-        "precision": "area_anchor",
-        "source_id": "osm_nominatim_geocode",
-        "source": "OpenStreetMap Nominatim address geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_NOMINATIM",
-        "place_id": 254303568,
-        "google_place_id": null,
-        "osm_type": "way",
-        "osm_id": 721131934,
-        "matched_name": "Đường 30 Tháng 4",
-        "formatted_address": "Đường 30 Tháng 4, 1 Dương Đông, Đặc khu Phú Quốc, Tỉnh An Giang, 92516, Việt Nam",
-        "lookup_query": "Thành Trung, 14/1 đường 30/4, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Đường 30 Tháng 4\" instead of the exact property \"Thành Trung\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_thi_long_phung",
@@ -7782,25 +7429,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2137819,
-        "lon": 103.9648997,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 4486938390,
-        "matched_name": "Quảng cáo Phú Quốc",
-        "formatted_address": "151A, Đường 30 Tháng 4, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Thi Long Phụng, 155 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Quảng cáo Phú Quốc\" instead of the exact property \"Thi Long Phụng\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_thuan_hai",
@@ -7842,25 +7472,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2187445,
-        "lon": 103.9591525,
-        "precision": "route_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 778021895,
-        "matched_name": "Nguyễn Du",
-        "formatted_address": "Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Thuận Hải, 26 Nguyễn Du, KP2, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Địa điểm chưa có pin cơ sở đủ chắc; đang neo theo đúng tuyến đường/khu lân cận từ địa chỉ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Nguyễn Du\" instead of the exact property \"Thuận Hải\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_times_corner_amalfi",
@@ -8063,25 +7676,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2138989,
-        "lon": 103.9637497,
-        "precision": "area_anchor",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "W",
-        "osm_id": 1119760289,
-        "matched_name": "Trang - Ngan Cháy Tỏi Phú Quốc",
-        "formatted_address": "119, Đường 30 Tháng 4, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Tùng Hương, Tổ 11 đường 30/4, KP1, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Kết quả geocode ở mức khu vực; dùng để định hướng, không giả là cửa vào chính xác."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Trang - Ngan Cháy Tỏi Phú Quốc\" instead of the exact property \"Tùng Hương\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_tuyet_hien",
@@ -8166,25 +7762,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.2351195,
-        "lon": 104.0070334,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 12581499561,
-        "matched_name": "Home Coffee shop Ty Uyen",
-        "formatted_address": "Bến Tràm, Phú Quốc, Kiên Giang, Việt Nam",
-        "lookup_query": "Uyên Gia, 42 Chu Văn An, KP5, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: geocoder matched \"Home Coffee shop Ty Uyen\" instead of the exact property \"Uyên Gia\". Keep directory entry without a pin pending independent numeric + identity verification."
     },
     {
       "id": "hotel_valentina_resort",
