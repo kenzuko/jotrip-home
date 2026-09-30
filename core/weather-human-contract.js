@@ -10,9 +10,10 @@
 
   function freshIsland(human){
     const island=human?.island;
-    const t=num(island?.temperature_c);
-    if(!island||island.observation_status!=="ACTUAL"||island.data_class!=="ACTUAL"||t===null)return null;
-    return {island,t};
+    const actual=island?.actual;
+    const t=num(actual?.temperature_c);
+    if(!island||island.observation_status!=="ACTUAL"||actual?.data_class!=="ACTUAL"||t===null)return null;
+    return {island,actual,t};
   }
 
   function actualRain(points){
