@@ -1,12 +1,23 @@
 import assert from "node:assert/strict";
 import {readFile} from "node:fs/promises";
 import {onRequest,__test} from "../functions/_middleware.js";
+const TEST_SECRET="test-only-non-production-secret-20260930";
+async function sessionCookie(login="test-operator",exp=Date.now()+60_000){
+  const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(TEST_SECRET));
+  const key=await crypto.subtle.importKey("raw",digest,{name:"AES-GCM"},false,["encrypt"]);
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const body=new TextEncoder().encode(JSON.stringify({login,exp}));
+  const encrypted=await crypto.subtle.encrypt({name:"AES-GCM",iv},key,body);
+  return "openpq_cms="+Buffer.from(iv).toString("base64url")+"."+Buffer.from(encrypted).toString("base64url");
+}
+
 
 async function run(url,{method="GET",cookie="",nextStatus=200}={}){
   let nextCalls=0;
   const request=new Request(url,{method,headers:cookie?{cookie}:{}});
   const result=await onRequest({
     request,
+    env:{CMS_SESSION_SECRET:TEST_SECRET},
     next:async()=>{
       nextCalls++;
       return new Response("<html>cms</html>",{
@@ -36,12 +47,21 @@ async function run(url,{method="GET",cookie="",nextStatus=200}={}){
 }
 {
   const {result,nextCalls}=await run("https://cms.openphuquoc.com/stories/article.html?id=abc",{
-    cookie:"foo=1; openpq_cms=sealed-session; bar=2"
+    cookie:"foo=1; "+await sessionCookie()+"; bar=2"
   });
   assert.equal(result.status,200);
   assert.equal(nextCalls,1);
   assert.match(result.headers.get("x-robots-tag")||"",/noindex/);
   assert.match(result.headers.get("cache-control")||"",/no-store/);
+}
+for(const cookie of [
+  "foo=1; openpq_cms=sealed-session; bar=2",
+  await sessionCookie("test-operator",Date.now()-30_000),
+  "openpq_cms="+(await sessionCookie()).split("=")[1].slice(0,-7)+"tampered"
+]){
+  const {result,nextCalls}=await run("https://cms.openphuquoc.com/stories/article.html?id=abc",{cookie});
+  assert.equal(result.status,301,"Forged/expired session must redirect");
+  assert.equal(nextCalls,0,"Invalid session cannot enter CMS editing surface");
 }
 for(const path of [
   "/admin/","/api/cms/session","/assets/logo-master.png","/core/cms-inline-edit.js",
