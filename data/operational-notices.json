@@ -42,6 +42,32 @@
       "valid_until": "2026-10-12T00:00:00+07:00",
       "homepage_visible_from": "2026-09-29",
       "detail_visible_from": "2026-10-04"
+    },
+    {
+      "id": "exotica-moc-xa-maintenance-20260928-20261007",
+      "entity_id": "place_exotica",
+      "affected_item": "Mộc Xà Thịnh Nộ",
+      "effective_from": "2026-09-28",
+      "status": "SUSPENDED",
+      "title": "Mộc Xà Thịnh Nộ tạm ngưng đến hết 07/10",
+      "summary": "Trò chơi tạm ngưng từ 28/09 đến hết 07/10/2026 để thực hiện công tác bảo trì, dự kiến hoạt động bình thường trở lại từ 08/10/2026.",
+      "booking_message": "Khách đi Hòn Thơm trong thời gian này nên chủ động sắp xếp lịch vui chơi và kiểm tra tình trạng các hạng mục khác tại Công viên Chủ đề.",
+      "source": "Thông báo nhắc lại từ KDL gửi Quý Đối tác, cập nhật 30/09/2026",
+      "source_type": "OPERATOR_PARTNER_NOTICE",
+      "valid_until": "2026-10-08T00:00:00+07:00"
+    },
+    {
+      "id": "exotica-mat-dai-bang-maintenance-20260929",
+      "entity_id": "place_exotica",
+      "affected_item": "Mắt Đại Bàng",
+      "effective_from": "2026-09-29",
+      "status": "SUSPENDED",
+      "title": "Mắt Đại Bàng tạm ngưng đến khi có thông báo mới",
+      "summary": "Trò chơi tạm ngưng hoạt động từ 29/09/2026 để thực hiện công tác bảo trì và chưa có ngày hoạt động trở lại.",
+      "booking_message": "Khách đi Hòn Thơm nên kiểm tra lại tình trạng trò chơi trước khi xếp lịch tại Công viên Chủ đề.",
+      "source": "Thông báo nhắc lại từ KDL gửi Quý Đối tác, cập nhật 30/09/2026",
+      "source_type": "OPERATOR_PARTNER_NOTICE",
+      "valid_until": null
     }
   ],
   "retention_days": 3
