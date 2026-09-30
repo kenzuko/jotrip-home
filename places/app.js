@@ -2,7 +2,6 @@ const DATA=["../data/entities/places.json","../data/entities/activities.json"];
 const PLANNING="../data/views/place-planning-levels.json";
 const VISUALS="../data/visual-context.json";
 const $=s=>document.querySelector(s);
-const readableStyle=document.createElement("style");readableStyle.textContent='.planning-level{display:inline-flex;margin-top:7px;padding:5px 8px;border-radius:999px;background:#eef6f4;color:#315f5b;font-size:11px;font-weight:850}.level-1{background:#fff0e8!important;color:#9a452f!important}.level-2{background:#e8f5fb!important;color:#17638f!important}.level-3{background:#eef6f4!important;color:#315f5b!important}.place-card .region,.place-card dt,.place-tags span,.price-dynamic{font-size:11px}.place-card dd{font-size:14px;line-height:1.55}.place-card h3{font-size:19px}.place-detail-link{display:inline-flex;margin-top:14px;font-size:14px;font-weight:850;color:var(--ink)}@media(max-width:720px){.place-card{padding:18px 15px}.place-card dl{gap:13px}.place-card dl div{grid-template-columns:104px 1fr}.toolbar{grid-template-columns:1fr}.toolbar input,.toolbar select{grid-column:1;width:100%;min-height:44px;font-size:14px}}';document.head.appendChild(readableStyle);
 const initialQ=new URLSearchParams(location.search).get("q")||"";
 const state={entities:[],levels:[],planning:new Map(),visuals:{},q:initialQ,region:"all",level:"all",type:"all"};
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
@@ -101,30 +100,32 @@ function filtered(){
   }).map(view);
 }
 
-function tableRow(x){
-  return '<tr><td><div class="place-table-main">'+mediaFor(x,true)+'<div><a class="place-name-link" href="detail.html?id='+encodeURIComponent(x.slug||x.id)+'"><strong>'+esc(x.name)+'</strong></a><div class="place-tags">'+
-    (x.planning_label?'<span class="level level-'+x.planning_level+'">'+esc(x.planning_label)+'</span>':'')+
-    (x.hashtags||[]).slice(0,4).map(t=>'<span>'+esc(t)+'</span>').join("")+
-    '</div></div></div></td><td>'+esc(x.region)+'</td><td>'+esc(x.what)+'</td><td>'+
-    esc((x.play||[]).join(" · "))+'</td><td><strong>'+esc(x.price_ref||"Cần kiểm tra")+'</strong>'+
-    (x.price_dynamic?'<span class="price-dynamic">GIÁ CÓ THỂ ĐỔI</span>':'')+
-    '</td><td><strong>'+esc(x.duration||"-")+'</strong><small>'+esc(x.best_time||"")+
-    '</small></td><td><ul class="tips-list">'+(x.tips||[]).map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></td></tr>';
-}
-
 function card(x){
-  return '<article class="place-card">'+mediaFor(x)+'<div class="place-card-head"><div><span class="region">'+esc(x.region)+
-    '</span><h3>'+esc(x.name)+'</h3>'+(x.planning_label?'<span class="planning-level level-'+x.planning_level+'">'+esc(x.planning_label)+'</span>':'')+'</div>'+(x.price_dynamic?'<span class="pill watch">Xem lại trước khi đi</span>':'')+
-    '</div><dl><div><dt>CHỖ NÀY CÓ GÌ</dt><dd>'+esc(x.what)+'</dd></div><div><dt>VÌ SAO GHÉ</dt><dd>'+esc((x.play||[]).join(" · "))+ 
-    '</dd></div><div><dt>GIÁ</dt><dd>'+esc(x.price_ref||"-")+'</dd></div><div><dt>Ở BAO LÂU</dt><dd>'+
-    esc(x.duration||"-")+' · '+esc(x.best_time||"")+'</dd></div><div><dt>NHỚ TRƯỚC KHI ĐI</dt><dd>'+esc((x.tips||[]).join(" · "))+
-    '</dd></div>'+(x.strengths.length?'<div><dt>HỢP KHI</dt><dd>'+esc(x.strengths.join(" · "))+'</dd></div>':'')+(x.watch_outs.length?'<div><dt>TRƯỚC KHI ĐI</dt><dd>'+esc(x.watch_outs.join(" · "))+'</dd></div>':'')+'</dl><div class="place-tags">'+(x.hashtags||[]).map(t=>'<span>'+esc(t)+'</span>').join("")+'</div><a class="place-detail-link" href="detail.html?id='+encodeURIComponent(x.slug||x.id)+'">Xem kỹ hơn →</a></article>';
+  const url="detail.html?id="+encodeURIComponent(x.slug||x.id);
+  const extra=[
+    (x.play||[]).length?'<section><b>Trải nghiệm</b><p>'+esc(x.play.join(" · "))+'</p></section>':"",
+    (x.tips||[]).length?'<section><b>Nhớ trước khi đi</b><ul>'+x.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></section>':"",
+    (x.strengths||[]).length?'<section><b>Phù hợp khi</b><p>'+esc(x.strengths.join(" · "))+'</p></section>':"",
+    (x.watch_outs||[]).length?'<section><b>Cần cân nhắc</b><p>'+esc(x.watch_outs.join(" · "))+'</p></section>':""
+  ].filter(Boolean).join("");
+  return '<article class="place-card">'+
+    '<div class="place-card-top"><a class="place-card-media" href="'+url+'" aria-label="Xem chi tiết '+esc(x.name)+'">'+mediaFor(x,true)+'</a>'+
+    '<div class="place-card-main"><div class="place-card-kicker"><span>'+esc(x.region)+'</span>'+
+    (x.planning_label?'<span class="planning-level level-'+esc(x.planning_level)+'">'+esc(x.planning_label)+'</span>':'')+
+    '</div><h3><a class="place-name-link" href="'+url+'">'+esc(x.name)+'</a></h3>'+
+    '<p class="place-card-description">'+esc(x.what||((x.play||[])[0])||"Xem thông tin chi tiết")+'</p></div></div>'+
+    '<div class="place-quick-facts"><div class="place-fact"><span>Thời lượng</span><strong>'+esc(x.duration||"Chưa rõ")+'</strong>'+
+    (x.best_time?'<small>'+esc(x.best_time)+'</small>':'')+'</div>'+
+    '<div class="place-fact place-fact-price"><span>Giá tham khảo</span><strong>'+esc(x.price_ref||"Cần kiểm tra")+'</strong>'+
+    (x.price_dynamic?'<small class="place-price-dynamic">Giá có thể thay đổi</small>':'')+'</div></div>'+
+    (extra?'<details class="place-more"><summary>Trải nghiệm & lưu ý</summary><div class="place-more-content">'+extra+'</div></details>':'')+
+    '<div class="place-card-footer"><div class="place-tags">'+(x.hashtags||[]).slice(0,3).map(t=>'<span>'+esc(t)+'</span>').join("")+
+    '</div><a class="place-detail-link" href="'+url+'">Xem chi tiết →</a></div></article>';
 }
 
 function render(){
   const a=filtered();
   $("#resultMeta").textContent=a.length+" / "+state.entities.length+" địa điểm & trải nghiệm";
-  $("#placeRows").innerHTML=a.length?a.map(tableRow).join(""):'<tr><td colspan="7" class="empty">Không có mục phù hợp.</td></tr>';
   $("#placeCards").innerHTML=a.length?a.map(card).join(""):'<div class="empty">Không có mục phù hợp.</div>';
 }
 
@@ -157,5 +158,5 @@ $("#levelFilter").onchange=e=>{state.level=e.target.value;render()};
 $("#typeFilter").onchange=e=>{state.type=e.target.value;render()};
 load().catch(error=>{
   console.warn(error);
-  $("#placeRows").innerHTML='<tr><td colspan="7" class="empty">Chưa mở được danh sách địa điểm & trải nghiệm.</td></tr>';
+  $("#placeCards").innerHTML='<div class="empty">Chưa mở được danh sách địa điểm & trải nghiệm.</div>';
 });
