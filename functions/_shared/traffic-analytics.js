@@ -70,11 +70,12 @@ export async function collectTraffic(request,env){
 const CHANNELS=new Set(["all","direct","internal","search","ai","social","referral"]);
 const DEVICE_FILTERS=new Set(["all","desktop","mobile","tablet","other"]);
 const ACTION_FILTERS=new Set(["all",...EVENT_TYPES].filter(x=>x!=="page_view"));
-const PAGE_GROUPS=new Set([
-  "all","home","go","nearme","explore","food","places","hotels",
+export const PUBLIC_ANALYTICS_GROUPS=Object.freeze([
+  "home","go","nearme","explore","food","places","hotels",
   "utilities","currency","weather","airport","transit","bus","ferry",
-  "cano","guide","stories","news","about","other"
+  "cano","guide","stories","news","about"
 ]);
+const PAGE_GROUPS=new Set(["all",...PUBLIC_ANALYTICS_GROUPS,"other"]);
 const SORTS={
   hits_desc:"hits DESC, label ASC",hits_asc:"hits ASC, label ASC",
   name_asc:"label COLLATE NOCASE ASC",name_desc:"label COLLATE NOCASE DESC"
@@ -212,6 +213,7 @@ export async function trafficReport(request,env){
       ready:true,first_day,from:filter.from,to:filter.to,period:filter.period,
       grain:filter.grain,filters:{channel:filter.channel,country:filter.country,device:filter.device,page_group:filter.pageGroup,action:filter.action,q:filter.q,sort:filter.sort},
       updated_at:new Date().toISOString(),comparison,...data,
+      instrumented_groups:[...PUBLIC_ANALYTICS_GROUPS],
       // Preserve the established keys while the Admin dashboard migrates.
       pages:data.pages.map(r=>({path:r.label,hits:r.hits})),
       channels:data.channels.map(r=>({channel:r.label,hits:r.hits})),
