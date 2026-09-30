@@ -118,6 +118,18 @@ jobs:
         if: steps.preflight.outputs.skip == 'false'
         run: npx --yes wrangler@4.136.3 deploy --config wrangler.places-hotfix.preview.jsonc
 
+      - name: Diagnose preview routing before QA
+        if: steps.preflight.outputs.skip == 'false'
+        run: |
+          for path in /places/app.js /places/ /places/index.html /places/catalog-cards.css /data/entities/places.json; do
+            echo "Preview path: $path"
+            curl --silent --show-error --location --max-time 12 --output /tmp/places-hotfix/diag.txt \
+              --write-out 'HTTP=%{http_code} bytes=%{size_download} final=%{url_effective}\\n' \
+              "$HOTFIX_PREVIEW$path" || true
+            head -c 80 /tmp/places-hotfix/diag.txt || true
+            echo
+          done
+
       - name: HTTP preview and canonical API isolation smoke
         if: steps.preflight.outputs.skip == 'false'
         run: |
@@ -128,7 +140,14 @@ jobs:
             fi
             sleep 2
           done
-          curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/" -o /tmp/places-hotfix/preview.html
+          for i in $(seq 1 30); do
+            if curl --fail --silent --show-error --location "$HOTFIX_PREVIEW/places/" -o /tmp/places-hotfix/preview.html \
+              && grep -q 'catalog-cards.css?v=' /tmp/places-hotfix/preview.html; then
+              break
+            fi
+            sleep 2
+          done
+          test -s /tmp/places-hotfix/preview.html
           curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/catalog-cards.css" -o /tmp/places-hotfix/preview.css
           curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/app.js" -o /tmp/places-hotfix/preview.js
           grep -q 'catalog-cards.css?v=' /tmp/places-hotfix/preview.html
