@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "provider": "azure-translator-v3",
   "source_locale": "vi",
   "azure_locale_map": {
@@ -16,7 +16,11 @@
       "source_path": "data/i18n/vi/ui.json",
       "target_path_pattern": "data/i18n/{locale}/ui.json",
       "mode": "document",
-      "exclude_root_keys": ["schema_version", "locale", "updated_at"]
+      "exclude_root_keys": [
+        "schema_version",
+        "locale",
+        "updated_at"
+      ]
     },
     "stories": {
       "source_path": "data/content.json",
@@ -84,5 +88,18 @@
     "measurement",
     "phone"
   ],
-  "publication_rule": "Machine output is always machine_draft. Human review and explicit publication are separate actions."
+  "publication_rule": "Machine output is always machine_draft. Human review and explicit publication are separate actions.",
+  "preferred_pivot_locale": "en",
+  "quality": {
+    "glossary": "data/i18n/translation-glossary.json",
+    "style_guides": "data/i18n/translation-style-guides.json",
+    "default_repair_scope": "quality",
+    "rules": [
+      "Use reviewed English as a semantic pivot for non-English locales when the matching English field exists and passes the rejected-literal guard.",
+      "Fall back field-by-field to the Vietnamese source when no safe English pivot field exists.",
+      "Protect registered Phu Quoc names, dishes, ingredients and recurring concepts before Azure translation and restore the approved locale form afterward.",
+      "Reject known literal mistranslations before writing a machine draft.",
+      "Machine output remains unpublished until human review."
+    ]
+  }
 }
