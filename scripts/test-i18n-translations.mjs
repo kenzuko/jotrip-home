@@ -5,7 +5,10 @@ import {join} from "node:path";
 const read=p=>JSON.parse(readFileSync(p,"utf8"));
 const manifest=read("data/i18n/locales.json");
 const sourceStories=read("data/content.json");
-const sourceKnowledge=existsSync("data/views/knowledge-public.json")?read("data/views/knowledge-public.json"):null;
+// Translation coverage follows the canonical editorial source, including
+// unpublished records. The public view intentionally filters that source and
+// must not make valid machine drafts fail during a production build.
+const sourceKnowledge=existsSync("data/knowledge/objects.json")?read("data/knowledge/objects.json"):null;
 const sourceFood=read("data/i18n/vi/food.json");
 const storyIds=new Set((sourceStories.stories||[]).map(x=>x.id));
 const knowledgeIds=new Set((sourceKnowledge?.objects||[]).map(x=>x.topic_id));
