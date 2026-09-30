@@ -110,7 +110,8 @@ jobs:
           # Freshness alerts belong to cms-weather-standalone.yml. Publishing
           # the CMS should continue with the last valid snapshot when an
           # observation feed is delayed.
-          node scripts/weather-cms-sync.mjs
+          node scripts/weather-cms-sync.mjs --strict
+          node scripts/weather-release-guard.test.mjs
           node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
           node scripts/validate-cms-publication.mjs
@@ -185,9 +186,27 @@ jobs:
           })().catch(e=>{console.log("CMS discovery failed:",e.message);output("ready","false");});
           NODE
 
+      - name: Confirm CMS main and monotonic Weather before publishing
+        id: release
+        if: steps.discover.outputs.ready == 'true'
+        run: |
+          set -euo pipefail
+          CURRENT_MAIN_SHA="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$CURRENT_MAIN_SHA" != "$GITHUB_SHA" ]; then
+            echo "::notice::Skipping old CMS release: main is now $CURRENT_MAIN_SHA"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          curl -fsSL --retry 3 --retry-delay 2 --max-time 20 \
+            "https://cms.openphuquoc.com/weather/data/weather-runtime/manifest.json?release-check=$GITHUB_RUN_ID" \
+            -o /tmp/openpq-cms-live-manifest.json
+          node scripts/weather-release-guard.mjs \
+            dist/weather/data/weather-runtime/manifest.json /tmp/openpq-cms-live-manifest.json
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
       - name: Deploy verified CMS Pages
         id: deploy
-        if: steps.discover.outputs.ready == 'true'
+        if: steps.discover.outputs.ready == 'true' && steps.release.outputs.ready == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
