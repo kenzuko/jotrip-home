@@ -77,6 +77,8 @@ jobs:
         run: npm run test:article-links
       - name: Test CMS regression suite
         run: npm run test:cms
+      - name: Enforce monotonic Weather release and single Worker deploy writer
+        run: node scripts/weather-release-guard.test.mjs
       - name: Test private Ops analytics bridge
         run: node scripts/test-ops-analytics-bridge.mjs
       - name: Test Near Me venue pins and canonical places
