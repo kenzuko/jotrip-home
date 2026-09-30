@@ -37,6 +37,7 @@ jobs:
     env:
       AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
       AZURE_TRANSLATOR_REGION: ${{ secrets.AZURE_TRANSLATOR_REGION }}
+      AZURE_TRANSLATOR_ENDPOINT: ${{ secrets.AZURE_TRANSLATOR_ENDPOINT }}
       TRANSLATION_BRANCH: ${{ inputs.branch }}
       REQUESTED_LOCALES: ${{ inputs.locales }}
       PIVOT_LOCALE: ${{ inputs.pivot }}

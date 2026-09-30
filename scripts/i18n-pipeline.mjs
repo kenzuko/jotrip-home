@@ -119,9 +119,10 @@ function batches(items){
 }
 
 async function azureTranslate(items,targetLocale,fromLocale,config){
-  const key=process.env.AZURE_TRANSLATOR_KEY;
+  const key=String(process.env.AZURE_TRANSLATOR_KEY||"").trim();
   if(!key)throw new Error("AZURE_TRANSLATOR_KEY is required with --apply");
-  const endpoint=String(process.env.AZURE_TRANSLATOR_ENDPOINT||"https://api.cognitive.microsofttranslator.com").replace(/\/$/,"");
+  const endpoint=String(process.env.AZURE_TRANSLATOR_ENDPOINT||"https://api.cognitive.microsofttranslator.com").trim().replace(/\/$/,"");
+  const region=String(process.env.AZURE_TRANSLATOR_REGION||"").trim();
   if(!/^https:\/\//.test(endpoint))throw new Error("AZURE_TRANSLATOR_ENDPOINT must use https");
   const to=config.azure_locale_map[targetLocale];
   const from=config.azure_locale_map[fromLocale]||fromLocale;
@@ -131,17 +132,29 @@ async function azureTranslate(items,targetLocale,fromLocale,config){
   url.searchParams.set("from",from);
   url.searchParams.set("textType","html");
   url.searchParams.append("to",to);
+  const payload=JSON.stringify(items.map(item=>({Text:item.protected.text})));
+  const request=async useRegion=>{
+    const headers={"Content-Type":"application/json","Ocp-Apim-Subscription-Key":key,"X-ClientTraceId":crypto.randomUUID()};
+    if(useRegion&&region)headers["Ocp-Apim-Subscription-Region"]=region;
+    const response=await fetch(url,{method:"POST",headers,body:payload});
+    const body=await response.json().catch(()=>null);
+    return {response,body};
+  };
   const maxAttempts=6;
   for(let attempt=1;attempt<=maxAttempts;attempt++){
-    const headers={"Content-Type":"application/json","Ocp-Apim-Subscription-Key":key,"X-ClientTraceId":crypto.randomUUID()};
-    if(process.env.AZURE_TRANSLATOR_REGION)headers["Ocp-Apim-Subscription-Region"]=process.env.AZURE_TRANSLATOR_REGION;
-    const response=await fetch(url,{method:"POST",headers,body:JSON.stringify(items.map(item=>({Text:item.protected.text})))});
-    const body=await response.json().catch(()=>null);
+    let {response,body}=await request(true);
+    if(response.status===401&&region&&endpoint==="https://api.cognitive.microsofttranslator.com"){
+      console.warn("Azure returned 401 with region header; retrying global endpoint once without region header");
+      ({response,body}=await request(false));
+    }
     if(response.ok){
       if(!Array.isArray(body)||body.length!==items.length)throw new Error("Azure response count mismatch");
       return body.map((row,index)=>restoreAfterTranslation(row?.translations?.[0]?.text??"",items[index].protected));
     }
     const retryable=response.status===429||response.status>=500;
+    if(response.status===401){
+      throw new Error("Azure Translator authentication failed (401). Check key, region/endpoint pairing, and current Azure Translator quota.");
+    }
     if(!retryable||attempt===maxAttempts)throw new Error("Azure Translator failed ("+response.status+"): "+String(body?.error?.message||"unknown error"));
     const retryHeader=response.headers.get("retry-after");
     const retrySeconds=retryHeader&&/^\d+$/.test(retryHeader)?Number(retryHeader):0;
