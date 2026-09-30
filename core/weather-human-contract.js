@@ -9,11 +9,11 @@
   const clean=s=>String(s||"").trim().replace(/[.\s]+$/,"");
 
   function freshIsland(human){
-    const island=human?.island;
-    const actual=island?.actual;
+    const reference=human?.reference;
+    const actual=reference?.actual;
     const t=num(actual?.temperature_c);
-    if(!island||island.observation_status!=="ACTUAL"||actual?.data_class!=="ACTUAL"||t===null)return null;
-    return {island,actual,t,referenceLocation:island.reference_location_name||"Sân bay Phú Quốc"};
+    if(!reference||reference.status!=="ACTUAL"||actual?.class!=="ACTUAL"||t===null)return null;
+    return {reference,actual,t,referenceLocation:reference.location||"Sân bay Phú Quốc"};
   }
 
   function actualRain(points){
@@ -30,8 +30,8 @@
     const human=critical?.human_weather;
     const base=freshIsland(human);
     if(!base)return null;
-    const {island,t,referenceLocation}=base;
-    const derived=island.derived||{};
+    const {reference,t,referenceLocation}=base;
+    const derived=reference.derived||{};
     const feels=num(derived.feels_like_c);
     const rain=actualRain(human?.points);
     let secondary;
@@ -46,7 +46,7 @@
     return {
       primary:Math.round(t)+"°",
       secondary,
-      observedAt:island.observed_at||null,
+      observedAt:reference.at||null,
       temperatureC:t,
       feelsLikeC:feels,
       rain,
