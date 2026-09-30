@@ -137,9 +137,11 @@ assert.ok(priorHotelAudit.records.every(x=>x.legacy_coordinates.precision!=="exa
 
 const hotelBatch15=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH15_TIER_A_20260930.json");
 const hotelBatch16=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH16_20260930.json");
+const hotelBatch17=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH17_20260930.json");
 assert.equal(hotelBatch15.accepted.length,13,"Hotel GPS batch 15 evidence must cover every promoted hotel");
 assert.equal(hotelBatch16.accepted.length,4,"Hotel GPS batch 16 evidence must cover every promoted hotel");
-const reviewedHotelPins=[...hotelBatch15.accepted,...hotelBatch16.accepted];
+assert.equal(hotelBatch17.accepted.length,6,"Hotel GPS batch 17 evidence must cover every promoted hotel");
+const reviewedHotelPins=[...hotelBatch15.accepted,...hotelBatch16.accepted,...hotelBatch17.accepted];
 const resolvedHotelIds=new Set(reviewedHotelPins.map(x=>x.id));
 for(const item of reviewedHotelPins){
   const e=byId.get(item.id),doc=indexed.get(item.id);
@@ -154,6 +156,7 @@ for(const id of ["hotel_paralia","hotel_premier_village"]){
   assert.equal(byId.get(id)?.zone_id,"zone_south","South-island hotel must use the south canonical zone: "+id);
   assert.equal(indexed.get(id)?.zone_id,"zone_south","South-island hotel zone must survive the location-index build: "+id);
 }
+assert.equal(byId.get("hotel_sunset_sanato")?.area_label,"Bãi Trường - Đường Bào","Resolved Sunset Sanato location should no longer stay in the review bucket");
 for(const item of priorHotelAudit.records){
   const doc=indexed.get(item.id);
   assert.ok(doc,"Audited hotel must remain in the canonical location index: "+item.id);
