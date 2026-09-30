@@ -123,6 +123,7 @@ jobs:
           node scripts/test-search.mjs
           node scripts/test-currency.mjs
           node scripts/test-weather-human-contract.mjs
+          node scripts/test-transit-snapshot-health.mjs
 
       - name: Check public knowledge
         run: |
