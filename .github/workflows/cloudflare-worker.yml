@@ -131,28 +131,10 @@ jobs:
 
       - name: Build Worker assets
         run: |
-          # Deployment must not be blocked by a temporarily stale upstream
-          # observation. The dedicated Weather workflow remains the strict
-          # freshness monitor; this sync keeps the last valid snapshot on error.
-          # Forecast coverage remains a strict promotion gate. An unrelated
-          # frontend deploy may retain the previous verified Weather snapshot
-          # only for this specific logged insufficiency and unchanged files.
-          before="$(sha256sum weather/data/current-bundle.json weather/data/weather-runtime/manifest.json | sha256sum | cut -d' ' -f1)"
-          if node scripts/weather-cms-sync.mjs > /tmp/openpq-weather-refresh.log 2>&1; then
-            cat /tmp/openpq-weather-refresh.log
-          elif grep -Fq 'gust coverage below 80% - refusing deploy' /tmp/openpq-weather-refresh.log &&
-               grep -Fq 'existing snapshot preserved' /tmp/openpq-weather-refresh.log; then
-            cat /tmp/openpq-weather-refresh.log
-            after="$(sha256sum weather/data/current-bundle.json weather/data/weather-runtime/manifest.json | sha256sum | cut -d' ' -f1)"
-            if [ "$before" != "$after" ]; then
-              echo "::error::Weather sync claimed preservation but changed its authoritative snapshot"
-              exit 1
-            fi
-            echo "::warning::Weather forecast not promoted: insufficient gust coverage; retained prior validated snapshot"
-          else
-            cat /tmp/openpq-weather-refresh.log >&2
-            exit 1
-          fi
+          # Fail closed. The last deployed Worker is our Last Known Good.
+          # Never ship a stale Git-checkout snapshot as a successful fallback.
+          node scripts/weather-cms-sync.mjs --strict
+          node scripts/weather-release-guard.test.mjs
           node scripts/weather-autorecover.test.mjs
           node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
@@ -188,8 +170,22 @@ jobs:
             echo "::notice::Skipping stale Worker deploy for $GITHUB_SHA because main is now $CURRENT_MAIN_SHA"
           fi
 
-      - name: Deploy openphuquoc-v3 Worker
+      - name: Verify production Weather does not roll back
         if: env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true'
+        run: |
+          set -euo pipefail
+          CURRENT_MAIN_SHA="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          test "$CURRENT_MAIN_SHA" = "$GITHUB_SHA" || { echo "::error::Main moved after release verification"; exit 1; }
+          curl -fsSL --retry 3 --retry-delay 2 --max-time 20 \
+            "https://openphuquoc-v3.kenzuko.workers.dev/weather/data/weather-runtime/manifest.json?release-check=$GITHUB_SHA" \
+            -o /tmp/openpq-deployed-weather-manifest.json
+          node scripts/weather-release-guard.mjs \
+            dist/weather/data/weather-runtime/manifest.json \
+            /tmp/openpq-deployed-weather-manifest.json dist/weather-release.json
+          echo "OPENPQ_WEATHER_RELEASE_READY=true" >> "$GITHUB_ENV"
+
+      - name: Deploy openphuquoc-v3 Worker
+        if: env.CLOUDFLARE_READY == 'true' && env.OPENPQ_CURRENT_HEAD == 'true' && env.OPENPQ_WEATHER_RELEASE_READY == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
           wranglerVersion: "4.136.3"
