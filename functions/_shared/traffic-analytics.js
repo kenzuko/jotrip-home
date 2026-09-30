@@ -70,12 +70,16 @@ export async function collectTraffic(request,env){
 const CHANNELS=new Set(["all","direct","internal","search","ai","social","referral"]);
 const DEVICE_FILTERS=new Set(["all","desktop","mobile","tablet","other"]);
 const ACTION_FILTERS=new Set(["all",...EVENT_TYPES].filter(x=>x!=="page_view"));
-const PAGE_GROUPS=new Set(["all","home","guide","stories","go","nearme","weather","airport","transit","other"]);
+const PAGE_GROUPS=new Set([
+  "all","home","go","nearme","explore","food","places","hotels",
+  "utilities","currency","weather","airport","transit","bus","ferry",
+  "cano","guide","stories","news","about","other"
+]);
 const SORTS={
   hits_desc:"hits DESC, label ASC",hits_asc:"hits ASC, label ASC",
   name_asc:"label COLLATE NOCASE ASC",name_desc:"label COLLATE NOCASE DESC"
 };
-const GROUP_CASE="CASE WHEN path='/' THEN 'home' WHEN path LIKE '/guide/%' THEN 'guide' WHEN path LIKE '/stories/%' THEN 'stories' WHEN path LIKE '/go/%' THEN 'go' WHEN path LIKE '/nearme/%' THEN 'nearme' WHEN path LIKE '/weather/%' THEN 'weather' WHEN path LIKE '/airport/%' THEN 'airport' WHEN path LIKE '/transit/%' OR path LIKE '/ferry/%' OR path LIKE '/bus/%' THEN 'transit' ELSE 'other' END";
+const GROUP_CASE="CASE WHEN path='/' THEN 'home' WHEN path LIKE '/go/%' THEN 'go' WHEN path LIKE '/nearme/%' THEN 'nearme' WHEN path LIKE '/explore/%' THEN 'explore' WHEN path LIKE '/food/%' THEN 'food' WHEN path LIKE '/places/%' THEN 'places' WHEN path LIKE '/hotels/%' THEN 'hotels' WHEN path LIKE '/utilities/%' THEN 'utilities' WHEN path LIKE '/currency/%' THEN 'currency' WHEN path LIKE '/weather/%' THEN 'weather' WHEN path LIKE '/airport/%' THEN 'airport' WHEN path LIKE '/transit/%' THEN 'transit' WHEN path LIKE '/bus/%' THEN 'bus' WHEN path LIKE '/ferry/%' THEN 'ferry' WHEN path LIKE '/cano/%' THEN 'cano' WHEN path LIKE '/guide/%' THEN 'guide' WHEN path LIKE '/stories/%' THEN 'stories' WHEN path LIKE '/news/%' THEN 'news' WHEN path LIKE '/about/%' THEN 'about' ELSE 'other' END";
 const ERR={error:"Bộ lọc không hợp lệ. Hãy chọn lại ngày hoặc bộ lọc."};
 const numeric=x=>Number(x)||0;
 const isoDay=s=>isDay(s)&&new Date(s+"T00:00:00Z").toISOString().slice(0,10)===s;
