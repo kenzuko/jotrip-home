@@ -9,6 +9,6 @@
     "test:cms": "node scripts/test-cms-all.mjs",
     "test:article-links": "node scripts/test-article-card-links.mjs",
     "i18n:inventory": "node scripts/i18n-pipeline.mjs inventory",
-    "i18n:check": "node scripts/i18n-pipeline.mjs validate && node scripts/test-i18n-pipeline.mjs && node scripts/test-i18n-foundation.mjs && node scripts/test-i18n-content.mjs && node scripts/test-i18n-translations.mjs && node scripts/test-cms-translation-lifecycle.mjs"
+    "i18n:check": "node scripts/i18n-pipeline.mjs validate && node scripts/test-i18n-pipeline.mjs && node scripts/test-i18n-foundation.mjs && node scripts/test-i18n-content.mjs && node scripts/test-i18n-quality.mjs && node scripts/test-i18n-translations.mjs && node scripts/test-cms-translation-lifecycle.mjs"
   }
 }
