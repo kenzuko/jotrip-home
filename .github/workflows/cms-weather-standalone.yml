@@ -66,6 +66,7 @@ jobs:
       - name: Verify all UI, sources and 8-point 4-field model
         run: |
           node scripts/weather-cms-smoke.mjs
+          node scripts/weather-release-guard.test.mjs
           node scripts/build-cloudflare.mjs
           node scripts/validate-cloudflare-build.mjs
           test -f dist/weather/weather-scene-v3.html
@@ -75,20 +76,9 @@ jobs:
           test ! -e dist/data/knowledge/objects.json
           printf '{"sha":"%s","built_at":"%s","weather_runtime":"OPENPQ_CMS_WEATHER_V1"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
 
-      - name: Deploy standalone Weather on OpenPQ Worker
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-        run: |
-          export CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]')"
-          export CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
-          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::warning::Weather build passed; Worker Cloudflare credentials are unavailable."
-            exit 0
-          fi
-          npx --yes wrangler@4.136.3 deploy --config wrangler.jsonc
-          curl -fsS --retry 4 --retry-delay 3 https://openphuquoc-v3.kenzuko.workers.dev/weather/data/weather-runtime/manifest.json -o /tmp/cms-weather-manifest.json
-          node -e 'const x=require("/tmp/cms-weather-manifest.json");if(x.pipeline_version!=="OPENPQ_CMS_WEATHER_V1")process.exit(1);console.log("OpenPQ Worker Weather READY")'
-
-      - name: Verify actual Cloudflare Weather edge freshness and OpenPQ identity
+      # This workflow owns strict Weather verification and CMS Pages only.
+      # The canonical Worker has exactly one release writer: cloudflare-worker.yml.
+      - name: Inspect existing canonical Weather edge without redeploying Worker
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
           base="https://openphuquoc-v3.kenzuko.workers.dev"
@@ -121,8 +111,25 @@ jobs:
           })().catch(e=>console.log("CMS Pages discovery",e.message));
           NODE
 
-      - name: Deploy CMS Pages without changing DNS
+      - name: Guard CMS Pages source and production Weather age
         if: steps.cms-pages.outputs.ready == 'true'
+        run: |
+          set -euo pipefail
+          CURRENT_MAIN_SHA="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          if [ "$CURRENT_MAIN_SHA" != "$GITHUB_SHA" ]; then
+            echo "::notice::CMS build skipped: main advanced to $CURRENT_MAIN_SHA"
+            echo "CMS_RELEASE_READY=false" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          curl -fsSL --retry 3 --retry-delay 2 --max-time 20 \
+            "https://cms.openphuquoc.com/weather/data/weather-runtime/manifest.json?release-check=$GITHUB_RUN_ID" \
+            -o /tmp/openpq-cms-live-manifest.json
+          node scripts/weather-release-guard.mjs \
+            dist/weather/data/weather-runtime/manifest.json /tmp/openpq-cms-live-manifest.json
+          echo "CMS_RELEASE_READY=true" >> "$GITHUB_ENV"
+
+      - name: Deploy CMS Pages without changing DNS
+        if: steps.cms-pages.outputs.ready == 'true' && env.CMS_RELEASE_READY == 'true'
         run: |
           export CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]')"
           export CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
@@ -131,7 +138,7 @@ jobs:
           node -e 'const x=require("/tmp/cms-pages-weather.json");if(x.pipeline_version!=="OPENPQ_CMS_WEATHER_V1")process.exit(1);console.log("CMS Pages Weather READY")'
 
       - name: Verify CMS hostname serves live Cloudflare Weather and the shared shell
-        if: steps.cms-pages.outputs.ready == 'true'
+        if: steps.cms-pages.outputs.ready == 'true' && env.CMS_RELEASE_READY == 'true'
         run: |
           base="https://cms.openphuquoc.com"
           # Cloudflare custom-domain propagation may briefly return the old SPA HTML.
