@@ -70,7 +70,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "ru": {
           "status": "machine_draft",
@@ -79,7 +79,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "lo": {
           "status": "missing",
@@ -97,7 +97,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "zh-Hant": {
           "status": "missing",
@@ -141,7 +141,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "ru": {
           "status": "machine_draft",
@@ -150,7 +150,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "lo": {
           "status": "missing",
@@ -168,7 +168,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "zh-Hant": {
           "status": "missing",
@@ -212,7 +212,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "ru": {
           "status": "machine_draft",
@@ -221,7 +221,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "lo": {
           "status": "missing",
@@ -239,7 +239,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "zh-Hant": {
           "status": "missing",
@@ -283,7 +283,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "ru": {
           "status": "machine_draft",
@@ -292,7 +292,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "lo": {
           "status": "missing",
@@ -310,7 +310,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
         },
         "zh-Hant": {
           "status": "missing",
