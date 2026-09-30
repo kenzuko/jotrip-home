@@ -66,6 +66,7 @@ jobs:
       - name: Verify all UI, sources and 8-point 4-field model
         run: |
           node scripts/weather-cms-smoke.mjs
+          node scripts/weather-cms-runtime-identity.test.mjs
           node scripts/weather-release-guard.test.mjs
           node scripts/build-cloudflare.mjs
           node scripts/validate-cloudflare-build.mjs
