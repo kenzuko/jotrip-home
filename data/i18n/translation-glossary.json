@@ -11,212 +11,888 @@
     {
       "id": "open-phu-quoc",
       "canonical": "Open Phu Quoc",
-      "forms": {"vi": ["OpenPhuQuoc", "Open Phu Quoc"], "en": ["Open Phu Quoc"]},
-      "targets": {"en": "Open Phu Quoc", "ko": "Open Phu Quoc", "ru": "Open Phu Quoc", "zh-Hans": "Open Phu Quoc", "zh-Hant": "Open Phu Quoc", "fr": "Open Phu Quoc"}
+      "forms": {
+        "vi": [
+          "OpenPhuQuoc",
+          "Open Phu Quoc"
+        ],
+        "en": [
+          "Open Phu Quoc"
+        ]
+      },
+      "targets": {
+        "en": "Open Phu Quoc",
+        "ko": "Open Phu Quoc",
+        "ru": "Open Phu Quoc",
+        "zh-Hans": "Open Phu Quoc",
+        "zh-Hant": "Open Phu Quoc",
+        "fr": "Open Phu Quoc"
+      }
     },
     {
       "id": "jotrip",
       "canonical": "JoTrip",
-      "forms": {"vi": ["JoTrip"], "en": ["JoTrip"]},
-      "targets": {"en": "JoTrip", "ko": "JoTrip", "ru": "JoTrip", "zh-Hans": "JoTrip", "zh-Hant": "JoTrip", "fr": "JoTrip"}
+      "forms": {
+        "vi": [
+          "JoTrip"
+        ],
+        "en": [
+          "JoTrip"
+        ]
+      },
+      "targets": {
+        "en": "JoTrip",
+        "ko": "JoTrip",
+        "ru": "JoTrip",
+        "zh-Hans": "JoTrip",
+        "zh-Hant": "JoTrip",
+        "fr": "JoTrip"
+      }
     },
     {
       "id": "phu-quoc",
       "canonical": "Phu Quoc",
-      "forms": {"vi": ["Phú Quốc", "Phu Quoc"], "en": ["Phu Quoc"]},
-      "targets": {"en": "Phu Quoc", "ko": "푸꾸옥", "ru": "Фукуок", "zh-Hans": "富国岛", "zh-Hant": "富國島", "fr": "Phu Quoc"}
+      "forms": {
+        "vi": [
+          "Phú Quốc",
+          "Phu Quoc"
+        ],
+        "en": [
+          "Phu Quoc"
+        ]
+      },
+      "targets": {
+        "en": "Phu Quoc",
+        "ko": "푸꾸옥",
+        "ru": "Фукуок",
+        "zh-Hans": "富国岛",
+        "zh-Hant": "富國島",
+        "fr": "Phu Quoc"
+      }
     },
     {
       "id": "duong-dong",
       "canonical": "Duong Dong",
-      "forms": {"vi": ["Dương Đông", "Duong Dong"], "en": ["Duong Dong"]},
-      "targets": {"en": "Duong Dong", "ko": "즈엉동", "ru": "Зыонгдонг", "zh-Hans": "阳东", "zh-Hant": "陽東", "fr": "Duong Dong"}
+      "forms": {
+        "vi": [
+          "Dương Đông",
+          "Duong Dong"
+        ],
+        "en": [
+          "Duong Dong"
+        ]
+      },
+      "targets": {
+        "en": "Duong Dong",
+        "ko": "즈엉동",
+        "ru": "Зыонгдонг",
+        "zh-Hans": "阳东",
+        "zh-Hant": "陽東",
+        "fr": "Duong Dong"
+      }
     },
     {
       "id": "an-thoi",
       "canonical": "An Thoi",
-      "forms": {"vi": ["An Thới", "An Thoi"], "en": ["An Thoi"]},
-      "targets": {"en": "An Thoi", "ko": "안토이", "ru": "Антхой", "zh-Hans": "安泰", "zh-Hant": "安泰", "fr": "An Thoi"}
+      "forms": {
+        "vi": [
+          "An Thới",
+          "An Thoi"
+        ],
+        "en": [
+          "An Thoi"
+        ]
+      },
+      "targets": {
+        "en": "An Thoi",
+        "ko": "안토이",
+        "ru": "Антхой",
+        "zh-Hans": "安泰",
+        "zh-Hant": "安泰",
+        "fr": "An Thoi"
+      }
     },
     {
       "id": "ham-ninh",
       "canonical": "Ham Ninh",
-      "forms": {"vi": ["Hàm Ninh", "Ham Ninh"], "en": ["Ham Ninh"]},
-      "targets": {"en": "Ham Ninh", "ko": "함닌", "ru": "Хамнинь", "zh-Hans": "咸宁", "zh-Hant": "咸寧", "fr": "Ham Ninh"}
+      "forms": {
+        "vi": [
+          "Hàm Ninh",
+          "Ham Ninh"
+        ],
+        "en": [
+          "Ham Ninh"
+        ]
+      },
+      "targets": {
+        "en": "Ham Ninh",
+        "ko": "함닌",
+        "ru": "Хамнинь",
+        "zh-Hans": "咸宁",
+        "zh-Hant": "咸寧",
+        "fr": "Ham Ninh"
+      }
     },
     {
       "id": "rach-vem",
       "canonical": "Rach Vem",
-      "forms": {"vi": ["Rạch Vẹm", "Rach Vem"], "en": ["Rach Vem"]},
-      "targets": {"en": "Rach Vem", "ko": "락벰", "ru": "Ратьвем", "zh-Hans": "拉赫维姆", "zh-Hant": "拉赫維姆", "fr": "Rach Vem"}
+      "forms": {
+        "vi": [
+          "Rạch Vẹm",
+          "Rach Vem"
+        ],
+        "en": [
+          "Rach Vem"
+        ]
+      },
+      "targets": {
+        "en": "Rach Vem",
+        "ko": "락벰",
+        "ru": "Ратьвем",
+        "zh-Hans": "拉赫维姆",
+        "zh-Hant": "拉赫維姆",
+        "fr": "Rach Vem"
+      }
     },
     {
       "id": "bai-truong",
       "canonical": "Bai Truong",
-      "forms": {"vi": ["Bãi Trường", "Bai Truong"], "en": ["Bai Truong", "Long Beach"]},
-      "targets": {"en": "Bai Truong (Long Beach)", "ko": "바이쯔엉(Bai Truong)", "ru": "Бай Чыонг (Long Beach)", "zh-Hans": "白长海滩（Bai Truong）", "zh-Hant": "白長海灘（Bai Truong）", "fr": "Bai Truong (Long Beach)"}
+      "forms": {
+        "vi": [
+          "Bãi Trường",
+          "Bai Truong"
+        ],
+        "en": [
+          "Bai Truong",
+          "Long Beach"
+        ]
+      },
+      "targets": {
+        "en": "Bai Truong (Long Beach)",
+        "ko": "바이쯔엉(Bai Truong)",
+        "ru": "Бай Чыонг (Long Beach)",
+        "zh-Hans": "白长海滩（Bai Truong）",
+        "zh-Hant": "白長海灘（Bai Truong）",
+        "fr": "Bai Truong (Long Beach)"
+      }
     },
     {
       "id": "dinh-cau",
       "canonical": "Dinh Cau",
-      "forms": {"vi": ["Dinh Cậu", "Dinh Cau"], "en": ["Dinh Cau"]},
-      "targets": {"en": "Dinh Cau", "ko": "딘꺼우", "ru": "Динь Кау", "zh-Hans": "丁考", "zh-Hant": "丁考", "fr": "Dinh Cau"}
+      "forms": {
+        "vi": [
+          "Dinh Cậu",
+          "Dinh Cau"
+        ],
+        "en": [
+          "Dinh Cau"
+        ]
+      },
+      "targets": {
+        "en": "Dinh Cau",
+        "ko": "딘꺼우",
+        "ru": "Динь Кау",
+        "zh-Hans": "丁考",
+        "zh-Hant": "丁考",
+        "fr": "Dinh Cau"
+      }
     },
     {
       "id": "hon-thom",
       "canonical": "Hon Thom",
-      "forms": {"vi": ["Hòn Thơm", "Hon Thom"], "en": ["Hon Thom"]},
-      "targets": {"en": "Hon Thom", "ko": "혼텀", "ru": "Хон Тхом", "zh-Hans": "香岛（Hon Thom）", "zh-Hant": "香島（Hon Thom）", "fr": "Hon Thom"}
+      "forms": {
+        "vi": [
+          "Hòn Thơm",
+          "Hon Thom"
+        ],
+        "en": [
+          "Hon Thom"
+        ]
+      },
+      "targets": {
+        "en": "Hon Thom",
+        "ko": "혼텀",
+        "ru": "Хон Тхом",
+        "zh-Hans": "香岛（Hon Thom）",
+        "zh-Hant": "香島（Hon Thom）",
+        "fr": "Hon Thom"
+      }
     },
     {
       "id": "sunset-town",
       "canonical": "Sunset Town",
-      "forms": {"vi": ["Sunset Town"], "en": ["Sunset Town"]},
-      "targets": {"en": "Sunset Town", "ko": "Sunset Town", "ru": "Sunset Town", "zh-Hans": "Sunset Town", "zh-Hant": "Sunset Town", "fr": "Sunset Town"}
+      "forms": {
+        "vi": [
+          "Sunset Town"
+        ],
+        "en": [
+          "Sunset Town"
+        ]
+      },
+      "targets": {
+        "en": "Sunset Town",
+        "ko": "Sunset Town",
+        "ru": "Sunset Town",
+        "zh-Hans": "Sunset Town",
+        "zh-Hant": "Sunset Town",
+        "fr": "Sunset Town"
+      }
     },
     {
       "id": "bun-quay",
       "canonical": "Bún quậy",
-      "forms": {"vi": ["Bún quậy", "bún quậy"], "en": ["Bún quậy", "bun quay"]},
-      "targets": {"en": "Bún quậy", "ko": "Bún quậy(분 꾸어이)", "ru": "Bún quậy", "zh-Hans": "Bún quậy（富国现压米粉汤）", "zh-Hant": "Bún quậy（富國現壓米粉湯）", "fr": "Bún quậy"}
+      "forms": {
+        "vi": [
+          "Bún quậy",
+          "bún quậy"
+        ],
+        "en": [
+          "Bún quậy",
+          "bun quay"
+        ]
+      },
+      "targets": {
+        "en": "Bún quậy",
+        "ko": "Bún quậy(분 꾸어이)",
+        "ru": "Bún quậy",
+        "zh-Hans": "Bún quậy（富国现压米粉汤）",
+        "zh-Hant": "Bún quậy（富國現壓米粉湯）",
+        "fr": "Bún quậy"
+      }
     },
     {
       "id": "bun-ken",
       "canonical": "Bún kèn",
-      "forms": {"vi": ["Bún kèn", "bún kèn"], "en": ["Bún kèn", "bun ken"]},
-      "targets": {"en": "Bún kèn", "ko": "Bún kèn(분껜)", "ru": "Bún kèn", "zh-Hans": "Bún kèn（椰香鱼肉米粉）", "zh-Hant": "Bún kèn（椰香魚肉米粉）", "fr": "Bún kèn"}
+      "forms": {
+        "vi": [
+          "Bún kèn",
+          "bún kèn"
+        ],
+        "en": [
+          "Bún kèn",
+          "bun ken"
+        ]
+      },
+      "targets": {
+        "en": "Bún kèn",
+        "ko": "Bún kèn(분껜)",
+        "ru": "Bún kèn",
+        "zh-Hans": "Bún kèn（椰香鱼肉米粉）",
+        "zh-Hant": "Bún kèn（椰香魚肉米粉）",
+        "fr": "Bún kèn"
+      }
     },
     {
       "id": "goi-ca-trich",
       "canonical": "Gỏi cá trích",
-      "forms": {"vi": ["Gỏi cá trích", "gỏi cá trích"], "en": ["Phu Quoc herring salad", "herring salad"]},
-      "targets": {"en": "Phu Quoc herring salad", "ko": "푸꾸옥 청어 샐러드(Gỏi cá trích)", "ru": "салат из сельди Gỏi cá trích", "zh-Hans": "富国鲱鱼沙拉（Gỏi cá trích）", "zh-Hant": "富國鯡魚沙拉（Gỏi cá trích）", "fr": "salade de hareng de Phu Quoc (Gỏi cá trích)"}
+      "forms": {
+        "vi": [
+          "Gỏi cá trích",
+          "gỏi cá trích"
+        ],
+        "en": [
+          "Phu Quoc herring salad",
+          "herring salad"
+        ]
+      },
+      "targets": {
+        "en": "Phu Quoc herring salad",
+        "ko": "푸꾸옥 청어 샐러드(Gỏi cá trích)",
+        "ru": "салат из сельди Gỏi cá trích",
+        "zh-Hans": "富国鲱鱼沙拉（Gỏi cá trích）",
+        "zh-Hant": "富國鯡魚沙拉（Gỏi cá trích）",
+        "fr": "salade de hareng de Phu Quoc (Gỏi cá trích)"
+      }
     },
     {
       "id": "nhum",
       "canonical": "nhum",
-      "forms": {"vi": ["nhum", "Nhum", "nhím biển"], "en": ["sea urchin", "nhum"]},
-      "targets": {"en": "nhum (sea urchin)", "ko": "성게(nhum)", "ru": "морской ёж (nhum)", "zh-Hans": "海胆（nhum）", "zh-Hant": "海膽（nhum）", "fr": "oursin (nhum)"}
+      "forms": {
+        "vi": [
+          "nhum",
+          "Nhum",
+          "nhím biển"
+        ],
+        "en": [
+          "sea urchin",
+          "nhum"
+        ]
+      },
+      "targets": {
+        "en": "nhum (sea urchin)",
+        "ko": "성게(nhum)",
+        "ru": "морской ёж (nhum)",
+        "zh-Hans": "海胆（nhum）",
+        "zh-Hant": "海膽（nhum）",
+        "fr": "oursin (nhum)"
+      }
     },
     {
       "id": "coi-bien-mai",
       "canonical": "còi biên mai",
-      "forms": {"vi": ["còi biên mai", "Còi biên mai"], "en": ["pen-shell adductor muscle", "còi biên mai"]},
-      "targets": {"en": "còi biên mai (pen-shell adductor muscle)", "ko": "키조개 관자살(còi biên mai)", "ru": "мускул-замыкатель морской раковины (còi biên mai)", "zh-Hans": "江珧贝柱（còi biên mai）", "zh-Hant": "江珧貝柱（còi biên mai）", "fr": "muscle adducteur de pen shell (còi biên mai)"}
+      "forms": {
+        "vi": [
+          "còi biên mai",
+          "Còi biên mai"
+        ],
+        "en": [
+          "pen-shell adductor muscle",
+          "còi biên mai"
+        ]
+      },
+      "targets": {
+        "en": "còi biên mai (pen-shell adductor muscle)",
+        "ko": "키조개 관자살(còi biên mai)",
+        "ru": "мускул-замыкатель морской раковины (còi biên mai)",
+        "zh-Hans": "江珧贝柱（còi biên mai）",
+        "zh-Hant": "江珧貝柱（còi biên mai）",
+        "fr": "muscle adducteur de pen shell (còi biên mai)"
+      }
     },
     {
       "id": "nuoc-mam",
       "canonical": "nước mắm",
-      "forms": {"vi": ["nước mắm", "Nước mắm"], "en": ["fish sauce"]},
-      "targets": {"en": "fish sauce", "ko": "베트남 피시소스(nước mắm)", "ru": "рыбный соус nước mắm", "zh-Hans": "鱼露（nước mắm）", "zh-Hant": "魚露（nước mắm）", "fr": "sauce de poisson nước mắm"}
+      "forms": {
+        "vi": [
+          "nước mắm",
+          "Nước mắm"
+        ],
+        "en": [
+          "fish sauce"
+        ]
+      },
+      "targets": {
+        "en": "fish sauce",
+        "ko": "베트남 피시소스(nước mắm)",
+        "ru": "рыбный соус nước mắm",
+        "zh-Hans": "鱼露（nước mắm）",
+        "zh-Hant": "魚露（nước mắm）",
+        "fr": "sauce de poisson nước mắm"
+      }
     },
     {
       "id": "nha-thung",
       "canonical": "nhà thùng",
-      "forms": {"vi": ["nhà thùng", "Nhà thùng"], "en": ["fish sauce barrel house", "barrel house"]},
-      "targets": {"en": "fish sauce barrel house", "ko": "피시소스 발효 통 저장고(nhà thùng)", "ru": "дом с бочками для ферментации рыбного соуса (nhà thùng)", "zh-Hans": "鱼露木桶发酵坊（nhà thùng）", "zh-Hant": "魚露木桶發酵坊（nhà thùng）", "fr": "maison de fûts de fermentation de sauce de poisson (nhà thùng)"}
+      "forms": {
+        "vi": [
+          "nhà thùng",
+          "Nhà thùng"
+        ],
+        "en": [
+          "fish sauce barrel house",
+          "barrel house"
+        ]
+      },
+      "targets": {
+        "en": "fish sauce barrel house",
+        "ko": "피시소스 발효 통 저장고(nhà thùng)",
+        "ru": "дом с бочками для ферментации рыбного соуса (nhà thùng)",
+        "zh-Hans": "鱼露木桶发酵坊（nhà thùng）",
+        "zh-Hant": "魚露木桶發酵坊（nhà thùng）",
+        "fr": "maison de fûts de fermentation de sauce de poisson (nhà thùng)"
+      }
     },
     {
       "id": "tieu-so",
       "canonical": "tiêu sọ",
-      "forms": {"vi": ["tiêu sọ", "Tiêu sọ"], "en": ["white pepper", "white peppercorns"]},
-      "targets": {"en": "white peppercorns", "ko": "백후추", "ru": "белый перец", "zh-Hans": "白胡椒", "zh-Hant": "白胡椒", "fr": "poivre blanc"}
+      "forms": {
+        "vi": [
+          "tiêu sọ",
+          "Tiêu sọ"
+        ],
+        "en": [
+          "white pepper",
+          "white peppercorns"
+        ]
+      },
+      "targets": {
+        "en": "white peppercorns",
+        "ko": "백후추",
+        "ru": "белый перец",
+        "zh-Hans": "白胡椒",
+        "zh-Hant": "白胡椒",
+        "fr": "poivre blanc"
+      }
     },
     {
       "id": "tieu-chin",
       "canonical": "tiêu chín",
-      "forms": {"vi": ["tiêu chín", "Tiêu chín"], "en": ["ripe red peppercorns", "ripe peppercorns"]},
-      "targets": {"en": "ripe red peppercorns", "ko": "완숙 붉은 후추 열매", "ru": "спелый красный перец горошком", "zh-Hans": "成熟红胡椒粒", "zh-Hant": "成熟紅胡椒粒", "fr": "grains de poivre rouges mûrs"}
+      "forms": {
+        "vi": [
+          "tiêu chín",
+          "Tiêu chín"
+        ],
+        "en": [
+          "ripe red peppercorns",
+          "ripe peppercorns"
+        ]
+      },
+      "targets": {
+        "en": "ripe red peppercorns",
+        "ko": "완숙 붉은 후추 열매",
+        "ru": "спелый красный перец горошком",
+        "zh-Hans": "成熟红胡椒粒",
+        "zh-Hant": "成熟紅胡椒粒",
+        "fr": "grains de poivre rouges mûrs"
+      }
     },
     {
       "id": "tieu-den",
       "canonical": "tiêu đen",
-      "forms": {"vi": ["tiêu đen", "Tiêu đen"], "en": ["black pepper", "black peppercorns"]},
-      "targets": {"en": "black peppercorns", "ko": "흑후추", "ru": "чёрный перец", "zh-Hans": "黑胡椒", "zh-Hant": "黑胡椒", "fr": "poivre noir"}
+      "forms": {
+        "vi": [
+          "tiêu đen",
+          "Tiêu đen"
+        ],
+        "en": [
+          "black pepper",
+          "black peppercorns"
+        ]
+      },
+      "targets": {
+        "en": "black peppercorns",
+        "ko": "흑후추",
+        "ru": "чёрный перец",
+        "zh-Hans": "黑胡椒",
+        "zh-Hant": "黑胡椒",
+        "fr": "poivre noir"
+      }
     },
     {
       "id": "tac-quat",
       "canonical": "calamansi",
-      "forms": {"vi": ["tắc/quất", "tắc", "trái tắc", "nước cốt tắc"], "en": ["calamansi"]},
-      "targets": {"en": "calamansi", "ko": "깔라만시", "ru": "каламондин (calamansi)", "zh-Hans": "卡拉曼橘（calamansi）", "zh-Hant": "卡拉曼橘（calamansi）", "fr": "calamansi"}
+      "forms": {
+        "vi": [
+          "tắc/quất",
+          "tắc",
+          "trái tắc",
+          "nước cốt tắc"
+        ],
+        "en": [
+          "calamansi"
+        ]
+      },
+      "targets": {
+        "en": "calamansi",
+        "ko": "깔라만시",
+        "ru": "каламондин (calamansi)",
+        "zh-Hans": "卡拉曼橘（calamansi）",
+        "zh-Hant": "卡拉曼橘（calamansi）",
+        "fr": "calamansi"
+      }
     },
     {
       "id": "cha-tom",
       "canonical": "chả tôm",
-      "forms": {"vi": ["chả tôm", "Chả tôm"], "en": ["shrimp paste", "shrimp patty"]},
-      "targets": {"en": "fresh shrimp paste", "ko": "새우살 반죽", "ru": "паста из свежих креветок", "zh-Hans": "鲜虾滑", "zh-Hant": "鮮蝦滑", "fr": "farce de crevettes fraîches"}
+      "forms": {
+        "vi": [
+          "chả tôm",
+          "Chả tôm"
+        ],
+        "en": [
+          "shrimp paste",
+          "shrimp patty"
+        ]
+      },
+      "targets": {
+        "en": "fresh shrimp paste",
+        "ko": "새우살 반죽",
+        "ru": "паста из свежих креветок",
+        "zh-Hans": "鲜虾滑",
+        "zh-Hant": "鮮蝦滑",
+        "fr": "farce de crevettes fraîches"
+      }
     },
     {
       "id": "cha-ca",
       "canonical": "chả cá",
-      "forms": {"vi": ["chả cá", "Chả cá"], "en": ["fish paste", "fish cake"]},
-      "targets": {"en": "fish paste", "ko": "생선살 반죽", "ru": "рыбная паста", "zh-Hans": "鱼滑", "zh-Hant": "魚滑", "fr": "farce de poisson"}
+      "forms": {
+        "vi": [
+          "chả cá",
+          "Chả cá"
+        ],
+        "en": [
+          "fish paste",
+          "fish cake"
+        ]
+      },
+      "targets": {
+        "en": "fish paste",
+        "ko": "생선살 반죽",
+        "ru": "рыбная паста",
+        "zh-Hans": "鱼滑",
+        "zh-Hant": "魚滑",
+        "fr": "farce de poisson"
+      }
     },
     {
       "id": "mo-hanh",
       "canonical": "mỡ hành",
-      "forms": {"vi": ["mỡ hành", "Mỡ hành"], "en": ["scallion oil", "spring-onion oil"]},
-      "targets": {"en": "scallion oil", "ko": "파기름", "ru": "масло с зелёным луком", "zh-Hans": "葱油", "zh-Hant": "蔥油", "fr": "huile aux oignons verts"}
+      "forms": {
+        "vi": [
+          "mỡ hành",
+          "Mỡ hành"
+        ],
+        "en": [
+          "scallion oil",
+          "spring-onion oil"
+        ]
+      },
+      "targets": {
+        "en": "scallion oil",
+        "ko": "파기름",
+        "ru": "масло с зелёным луком",
+        "zh-Hans": "葱油",
+        "zh-Hant": "蔥油",
+        "fr": "huile aux oignons verts"
+      }
     },
     {
       "id": "mam-tom",
       "canonical": "mắm tôm",
-      "forms": {"vi": ["mắm tôm", "Mắm tôm"], "en": ["shrimp paste"]},
-      "targets": {"en": "fermented shrimp paste", "ko": "발효 새우젓 소스", "ru": "ферментированная креветочная паста", "zh-Hans": "发酵虾酱", "zh-Hant": "發酵蝦醬", "fr": "pâte de crevettes fermentée"}
+      "forms": {
+        "vi": [
+          "mắm tôm",
+          "Mắm tôm"
+        ],
+        "en": [
+          "shrimp paste"
+        ]
+      },
+      "targets": {
+        "en": "fermented shrimp paste",
+        "ko": "발효 새우젓 소스",
+        "ru": "ферментированная креветочная паста",
+        "zh-Hans": "发酵虾酱",
+        "zh-Hant": "發酵蝦醬",
+        "fr": "pâte de crevettes fermentée"
+      }
     },
     {
       "id": "ca-bop",
       "canonical": "cá bóp",
-      "forms": {"vi": ["cá bóp", "Cá bóp"], "en": ["cobia"]},
-      "targets": {"en": "cobia", "ko": "날새기(cobia)", "ru": "кобия", "zh-Hans": "军曹鱼", "zh-Hant": "軍曹魚", "fr": "cobia"}
+      "forms": {
+        "vi": [
+          "cá bóp",
+          "Cá bóp"
+        ],
+        "en": [
+          "cobia"
+        ]
+      },
+      "targets": {
+        "en": "cobia",
+        "ko": "날새기(cobia)",
+        "ru": "кобия",
+        "zh-Hans": "军曹鱼",
+        "zh-Hant": "軍曹魚",
+        "fr": "cobia"
+      }
     },
     {
       "id": "ca-song",
       "canonical": "cá sòng",
-      "forms": {"vi": ["cá sòng", "Cá sòng"], "en": ["scad"]},
-      "targets": {"en": "scad", "ko": "전갱이류(cá sòng)", "ru": "ставрида (cá sòng)", "zh-Hans": "鲹鱼（cá sòng）", "zh-Hant": "鰺魚（cá sòng）", "fr": "chinchard (cá sòng)"}
+      "forms": {
+        "vi": [
+          "cá sòng",
+          "Cá sòng"
+        ],
+        "en": [
+          "scad"
+        ]
+      },
+      "targets": {
+        "en": "scad",
+        "ko": "전갱이류(cá sòng)",
+        "ru": "ставрида (cá sòng)",
+        "zh-Hans": "鲹鱼（cá sòng）",
+        "zh-Hant": "鰺魚（cá sòng）",
+        "fr": "chinchard (cá sòng)"
+      }
     },
     {
       "id": "ca-nhong",
       "canonical": "cá nhồng",
-      "forms": {"vi": ["cá nhồng", "Cá nhồng"], "en": ["barracuda"]},
-      "targets": {"en": "barracuda", "ko": "꼬치고기(barracuda)", "ru": "барракуда", "zh-Hans": "梭鱼（barracuda）", "zh-Hant": "梭魚（barracuda）", "fr": "barracuda"}
+      "forms": {
+        "vi": [
+          "cá nhồng",
+          "Cá nhồng"
+        ],
+        "en": [
+          "barracuda"
+        ]
+      },
+      "targets": {
+        "en": "barracuda",
+        "ko": "꼬치고기(barracuda)",
+        "ru": "барракуда",
+        "zh-Hans": "梭鱼（barracuda）",
+        "zh-Hant": "梭魚（barracuda）",
+        "fr": "barracuda"
+      }
     },
     {
       "id": "banh-trang",
       "canonical": "bánh tráng",
-      "forms": {"vi": ["bánh tráng", "Bánh tráng"], "en": ["rice paper"]},
-      "targets": {"en": "rice paper", "ko": "라이스페이퍼", "ru": "рисовая бумага", "zh-Hans": "越南米纸", "zh-Hant": "越南米紙", "fr": "galette de riz"}
+      "forms": {
+        "vi": [
+          "bánh tráng",
+          "Bánh tráng"
+        ],
+        "en": [
+          "rice paper"
+        ]
+      },
+      "targets": {
+        "en": "rice paper",
+        "ko": "라이스페이퍼",
+        "ru": "рисовая бумага",
+        "zh-Hans": "越南米纸",
+        "zh-Hant": "越南米紙",
+        "fr": "galette de riz"
+      }
     },
     {
       "id": "rau-rung",
       "canonical": "rau rừng",
-      "forms": {"vi": ["rau rừng", "Rau rừng"], "en": ["island herbs", "wild herbs"]},
-      "targets": {"en": "island herbs", "ko": "섬에서 나는 향채", "ru": "островные травы", "zh-Hans": "岛上香草", "zh-Hant": "島上香草", "fr": "herbes de l'île"}
+      "forms": {
+        "vi": [
+          "rau rừng",
+          "Rau rừng"
+        ],
+        "en": [
+          "island herbs",
+          "wild herbs"
+        ]
+      },
+      "targets": {
+        "en": "island herbs",
+        "ko": "섬에서 나는 향채",
+        "ru": "островные травы",
+        "zh-Hans": "岛上香草",
+        "zh-Hant": "島上香草",
+        "fr": "herbes de l'île"
+      }
     },
     {
       "id": "mau-canh-gian",
       "canonical": "amber-brown",
-      "forms": {"vi": ["màu cánh gián", "màu cánh gián trong"], "en": ["cockroach-wing colour", "cockroach wing color", "cockroach wing colour"]},
-      "targets": {"en": "clear amber-brown", "ko": "맑은 호박빛 갈색", "ru": "прозрачный янтарно-коричневый цвет", "zh-Hans": "清澈的琥珀褐色", "zh-Hant": "清澈的琥珀褐色", "fr": "brun ambré limpide"}
+      "forms": {
+        "vi": [
+          "màu cánh gián",
+          "màu cánh gián trong"
+        ],
+        "en": [
+          "cockroach-wing colour",
+          "cockroach wing color",
+          "cockroach wing colour"
+        ]
+      },
+      "targets": {
+        "en": "clear amber-brown",
+        "ko": "맑은 호박빛 갈색",
+        "ru": "прозрачный янтарно-коричневый цвет",
+        "zh-Hans": "清澈的琥珀褐色",
+        "zh-Hant": "清澈的琥珀褐色",
+        "fr": "brun ambré limpide"
+      }
     },
     {
       "id": "xac-ca-u-hoai",
       "canonical": "composted fish remains",
-      "forms": {"vi": ["xác cá ủ hoai", "xác cá đã ủ hoai"], "en": ["composted fish remains", "fish corpse"]},
-      "targets": {"en": "composted fish remains", "ko": "발효·퇴비화한 생선 부산물", "ru": "компостированные рыбные остатки", "zh-Hans": "腐熟的鱼类残余物", "zh-Hant": "腐熟的魚類殘餘物", "fr": "résidus de poisson compostés"}
+      "forms": {
+        "vi": [
+          "xác cá ủ hoai",
+          "xác cá đã ủ hoai"
+        ],
+        "en": [
+          "composted fish remains",
+          "fish corpse"
+        ]
+      },
+      "targets": {
+        "en": "composted fish remains",
+        "ko": "발효·퇴비화한 생선 부산물",
+        "ru": "компостированные рыбные остатки",
+        "zh-Hans": "腐熟的鱼类残余物",
+        "zh-Hant": "腐熟的魚類殘餘物",
+        "fr": "résidus de poisson compostés"
+      }
     },
     {
       "id": "dai-phau-metaphor",
       "canonical": "major transformation",
-      "forms": {"vi": ["đại phẫu", "cuộc đại phẫu"], "en": ["orthopedic surgery", "major overhaul"]},
-      "targets": {"en": "major transformation", "ko": "대대적인 변화", "ru": "масштабное преобразование", "zh-Hans": "大规模改造", "zh-Hant": "大規模改造", "fr": "transformation majeure"}
+      "forms": {
+        "vi": [
+          "đại phẫu",
+          "cuộc đại phẫu"
+        ],
+        "en": [
+          "orthopedic surgery",
+          "major overhaul"
+        ]
+      },
+      "targets": {
+        "en": "major transformation",
+        "ko": "대대적인 변화",
+        "ru": "масштабное преобразование",
+        "zh-Hans": "大规模改造",
+        "zh-Hant": "大規模改造",
+        "fr": "transformation majeure"
+      }
     },
     {
       "id": "nhip-song",
       "canonical": "daily rhythm",
-      "forms": {"vi": ["nhịp sống", "nhịp sinh hoạt", "nhịp đời sống"], "en": ["daily rhythm", "biological rhythm"]},
-      "targets": {"en": "daily rhythm", "ko": "일상의 리듬", "ru": "ритм повседневной жизни", "zh-Hans": "日常生活节奏", "zh-Hant": "日常生活節奏", "fr": "rythme de vie quotidien"}
+      "forms": {
+        "vi": [
+          "nhịp sống",
+          "nhịp sinh hoạt",
+          "nhịp đời sống"
+        ],
+        "en": [
+          "daily rhythm",
+          "biological rhythm"
+        ]
+      },
+      "targets": {
+        "en": "daily rhythm",
+        "ko": "일상의 리듬",
+        "ru": "ритм повседневной жизни",
+        "zh-Hans": "日常生活节奏",
+        "zh-Hant": "日常生活節奏",
+        "fr": "rythme de vie quotidien"
+      }
+    },
+    {
+      "id": "tai-chanh-hay-song",
+      "canonical": "lime-cured or raw",
+      "forms": {
+        "vi": [
+          "tái chanh hay sống",
+          "tái hay sống",
+          "tái chanh"
+        ],
+        "en": [
+          "lime-cured or raw",
+          "lime-cured"
+        ]
+      },
+      "targets": {
+        "en": "lime-cured or raw",
+        "ko": "라임에 가볍게 절인 것 또는 생것",
+        "ru": "слегка маринованная в лайме или сырая",
+        "zh-Hans": "青柠轻腌或生食",
+        "zh-Hant": "青檸輕醃或生食",
+        "fr": "mariné au citron vert ou cru"
+      }
+    },
+    {
+      "id": "bun-gao-soi-nho",
+      "canonical": "fine rice noodles",
+      "forms": {
+        "vi": [
+          "bún gạo sợi nhỏ"
+        ],
+        "en": [
+          "fine rice noodles",
+          "microfiber rice noodles"
+        ]
+      },
+      "targets": {
+        "en": "fine rice noodles",
+        "ko": "가는 쌀국수",
+        "ru": "тонкая рисовая лапша",
+        "zh-Hans": "细米粉",
+        "zh-Hant": "細米粉",
+        "fr": "fines nouilles de riz"
+      }
+    },
+    {
+      "id": "oc-gai",
+      "canonical": "spiny sea snail",
+      "forms": {
+        "vi": [
+          "ốc gai",
+          "Ốc gai"
+        ],
+        "en": [
+          "spiny sea snail",
+          "cactus snail",
+          "cactus snails"
+        ]
+      },
+      "targets": {
+        "en": "spiny sea snail",
+        "ko": "가시고둥",
+        "ru": "морская улитка с шиповатой раковиной",
+        "zh-Hans": "刺螺",
+        "zh-Hant": "刺螺",
+        "fr": "escargot de mer à coquille épineuse"
+      }
+    },
+    {
+      "id": "rau-ram",
+      "canonical": "Vietnamese coriander",
+      "forms": {
+        "vi": [
+          "rau răm",
+          "Rau răm"
+        ],
+        "en": [
+          "Vietnamese coriander"
+        ]
+      },
+      "targets": {
+        "en": "Vietnamese coriander",
+        "ko": "베트남 고수(라우람)",
+        "ru": "вьетнамский кориандр",
+        "zh-Hans": "越南香菜（rau răm）",
+        "zh-Hant": "越南香菜（rau răm）",
+        "fr": "coriandre vietnamienne"
+      }
+    },
+    {
+      "id": "trung-nhum",
+      "canonical": "sea urchin roe",
+      "forms": {
+        "vi": [
+          "trứng nhum",
+          "Trứng nhum"
+        ],
+        "en": [
+          "sea urchin roe"
+        ]
+      },
+      "targets": {
+        "en": "sea urchin roe",
+        "ko": "성게알",
+        "ru": "икра морского ежа",
+        "zh-Hans": "海胆黄",
+        "zh-Hant": "海膽黃",
+        "fr": "corail d'oursin"
+      }
+    },
+    {
+      "id": "ca-ngan",
+      "canonical": "cá ngân",
+      "forms": {
+        "vi": [
+          "cá ngân",
+          "Cá ngân"
+        ],
+        "en": [
+          "cá ngân"
+        ]
+      },
+      "targets": {
+        "en": "cá ngân (local fish)",
+        "ko": "cá ngân(현지 생선)",
+        "ru": "cá ngân (местная рыба)",
+        "zh-Hans": "cá ngân（当地鱼类）",
+        "zh-Hant": "cá ngân（當地魚類）",
+        "fr": "cá ngân (poisson local)"
+      }
     }
   ],
   "rejected_literals": {
@@ -231,7 +907,8 @@
       "bien mai whistle",
       "peach eggs",
       "casino fish",
-      "biological rhythm"
+      "biological rhythm",
+      "cactus snails"
     ],
     "ko": [
       "번 키",
