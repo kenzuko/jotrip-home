@@ -1,0 +1,1472 @@
+{
+  "source_sha": {
+    "index.html": "22084244974a37dd197c7f0938c3e83d358b8559",
+    "places/index.html": "0bc59ed9dade86bbc7bac0385514cd4efab16957",
+    "places/detail.html": "33e5d7120f21bc2812e309b1e5124053081eb7ea",
+    "explore/index.html": "ab06bb5cf8bc072c24165e088d470a78c4a49fd4",
+    "hotels/index.html": "c3cf9a08c6a2658c2ec23813e7109e94c975ed4d",
+    "go/index.html": "b72b1a00a5a16eb74e5fc0016d3153e761003caa",
+    "guide/knowledge.html": "fde098b8490679edc7925f401e85271c77178e3c",
+    "guide/article.html": "632b3c2861c5050aec13f2d91e92e77379560877"
+  },
+  "files": {
+    "index.html": [
+      {
+        "source": "index.html",
+        "position": 2365,
+        "tag": "strong",
+        "original": "Hôm nay",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 2428,
+        "tag": "strong",
+        "original": "GO - Đi đâu?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 2499,
+        "tag": "strong",
+        "original": "Lúc này",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 2633,
+        "tag": "strong",
+        "original": "Ăn uống",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 2767,
+        "tag": "strong",
+        "original": "Quanh đây",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 3256,
+        "tag": "button",
+        "original": "⌖ Toàn đảo ⌄",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 3698,
+        "tag": "strong",
+        "original": "Bạn đang ở đâu?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 3739,
+        "tag": "p",
+        "original": "Chọn khu vực, không cần bật GPS.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 3868,
+        "tag": "button",
+        "original": "Toàn đảo",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 3961,
+        "tag": "button",
+        "original": "Dương Đông",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 4071,
+        "tag": "button",
+        "original": "Nam đảo",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 4171,
+        "tag": "button",
+        "original": "Sunset Town",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 4282,
+        "tag": "button",
+        "original": "Bắc đảo",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 4395,
+        "tag": "button",
+        "original": "⌖ Dùng vị trí của tôi",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 4498,
+        "tag": "p",
+        "original": "Bạn có thể chọn khu vực mà không cần chia sẻ vị trí.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 5290,
+        "tag": "p",
+        "original": "Chọn khu vực để xem thông tin gần bạn.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 5509,
+        "tag": "strong",
+        "original": "TIN NHANH",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 6813,
+        "tag": "p",
+        "original": "OPEN PHU QUOC",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 6862,
+        "tag": "h1",
+        "original": "Phú Quốc, / ngay lúc này.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 6906,
+        "tag": "p",
+        "original": "Xem thời tiết, chuyện đi lại và những nơi đáng ghé hôm nay. Chọn điều bạn cần rồi lên đường.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 7130,
+        "tag": "label",
+        "original": "Tìm trên Open Phu Quoc",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 8040,
+        "tag": "strong",
+        "original": "MỘT NGÀY NGOÀI ĐẢO",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 9224,
+        "tag": "strong",
+        "original": "PHÚ QUỐC LÚC NÀY",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 9257,
+        "tag": "small",
+        "original": "Thời tiết, biển và di chuyển hôm nay",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 9442,
+        "tag": "small",
+        "original": "Thời tiết lúc này",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 9682,
+        "tag": "small",
+        "original": "Biển hôm nay",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 9922,
+        "tag": "small",
+        "original": "Các chuyến hôm nay",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 10155,
+        "tag": "small",
+        "original": "Cano Nam đảo hôm nay",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 10393,
+        "tag": "small",
+        "original": "Tàu & phà hôm nay",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 10605,
+        "tag": "strong",
+        "original": "Tìm tuyến xe phù hợp",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 10642,
+        "tag": "small",
+        "original": "Tra cứu tuyến, điểm đón và giờ chạy",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 11082,
+        "tag": "h2",
+        "original": "Phú Quốc lúc này",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 11131,
+        "tag": "p",
+        "original": "Xem những lựa chọn vẫn kịp làm từ giờ tới tối.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 11661,
+        "tag": "p",
+        "original": "HÔM NAY / CÒN KỊP KHÔNG?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 11708,
+        "tag": "h2",
+        "original": "Hôm nay còn kịp gì?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 11999,
+        "tag": "p",
+        "original": "Theo giờ Phú Quốc",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 12093,
+        "tag": "small",
+        "original": "PHẦN NGÀY CÒN LẠI",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 12184,
+        "tag": "p",
+        "original": "Chọn việc còn kịp làm từ giờ tới tối.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 12303,
+        "tag": "small",
+        "original": "Hoàng hôn bờ Tây",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 12810,
+        "tag": "button",
+        "original": "Xem thêm hoạt động ↓",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 13268,
+        "tag": "h2",
+        "original": "Bạn còn vài tiếng. / Phú Quốc còn nhiều điều hay.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 13364,
+        "tag": "p",
+        "original": "Cho tụi mình biết bạn đang ở khu nào và còn bao nhiêu thời gian. Tụi mình chọn những nơi còn kịp ghé, đỡ phải chạy lòng vòng.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 13893,
+        "tag": "small",
+        "original": "Gợi ý theo khu vực, giờ hoạt động và tình hình hôm nay.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 14622,
+        "tag": "strong",
+        "original": "Chọn chuyến đi vừa đủ cho hôm nay.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 14878,
+        "tag": "p",
+        "original": "TIỆN ÍCH QUANH ĐÂY",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 14919,
+        "tag": "h2",
+        "original": "Bạn cần tìm gì?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 15132,
+        "tag": "label",
+        "original": "Tìm địa điểm trên đảo ⌕",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 15588,
+        "tag": "button",
+        "original": "⌖ Toàn đảo · Đổi khu vực ⌄",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 16301,
+        "tag": "h3",
+        "original": "Địa điểm phù hợp",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 16715,
+        "tag": "button",
+        "original": "Xem thêm tiện ích ⌄",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 17205,
+        "tag": "strong",
+        "original": "Cần hỗ trợ y tế khẩn cấp?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 17692,
+        "tag": "p",
+        "original": "BÂY GIỜ ĂN GÌ?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 17729,
+        "tag": "h2",
+        "original": "Ba món cho giờ này, chọn món bạn thích.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 17851,
+        "tag": "button",
+        "original": "↻ Gợi ý 3 món khác",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 18077,
+        "tag": "strong",
+        "original": "Gợi ý theo giờ Phú Quốc",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 18631,
+        "tag": "h2",
+        "original": "Hiểu đảo trước khi đi.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 18671,
+        "tag": "p",
+        "original": "Tin vừa cập nhật, cẩm nang hữu ích và những câu chuyện đáng ngồi lại đọc.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 19008,
+        "tag": "p",
+        "original": "TIN & CẬP NHẬT PHÚ QUỐC",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 19054,
+        "tag": "h2",
+        "original": "Có gì mới ở Phú Quốc?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 19477,
+        "tag": "p",
+        "original": "CẨM NANG PHÚ QUỐC / 128 BÀI",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 19546,
+        "tag": "h2",
+        "original": "Đi chơi có chuẩn bị, vui hơn. Đi chơi có chuẩn bị, vui hơn.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 19852,
+        "tag": "p",
+        "original": "Chọn ngày đi biển, ăn đúng điệu và biết những điều cần thiết trước mỗi chuyến đi.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 20460,
+        "tag": "strong",
+        "original": "Bãi Sao hôm nào đẹp?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 20497,
+        "tag": "p",
+        "original": "Xem gió, sóng và tình hình thực tế trước khi chọn một ngày tắm biển.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 21163,
+        "tag": "strong",
+        "original": "Ăn bún quậy sao cho đúng điệu?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 21210,
+        "tag": "p",
+        "original": "Chọn món, tự pha chén chấm rồi thưởng thức cho ra chất Phú Quốc.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 21861,
+        "tag": "strong",
+        "original": "Ghé nhà thùng nước mắm thế nào cho thú vị?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 21920,
+        "tag": "p",
+        "original": "Nhìn tận mắt thùng gỗ, cách ủ chượp và những điều đáng hỏi người làm nghề.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 22448,
+        "tag": "strong",
+        "original": "Đi câu cá lớn cần biết gì?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 22491,
+        "tag": "p",
+        "original": "Phân biệt một chuyến biển thật sự với tour tham quan có thêm đoạn câu.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 22662,
+        "tag": "p",
+        "original": "Vuốt ngang để đọc thêm →",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 23376,
+        "tag": "p",
+        "original": "CHUYỆN ĐẢO / HUYỀN TÍCH / TÒ MÒ",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 23430,
+        "tag": "h2",
+        "original": "Phú Quốc còn nhiều chuyện để kể.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 23839,
+        "tag": "h3",
+        "original": "Những câu chuyện dài hơn.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 24223,
+        "tag": "p",
+        "original": "TỶ GIÁ / ĐỔI TIỀN",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 24263,
+        "tag": "h2",
+        "original": "Tỷ giá hôm nay, nhìn nhanh.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 24732,
+        "tag": "p",
+        "original": "KHÁM PHÁ THÊM",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 24768,
+        "tag": "h2",
+        "original": "Tìm thêm khi bạn muốn biết rõ hơn.",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 24949,
+        "tag": "small",
+        "original": "Điểm đến và trải nghiệm",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25054,
+        "tag": "small",
+        "original": "Món địa phương và cách ăn",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25140,
+        "tag": "strong",
+        "original": "Bản đồ & khám phá",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25174,
+        "tag": "small",
+        "original": "Chọn theo vùng và nhu cầu",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25272,
+        "tag": "strong",
+        "original": "Thư viện 128 bài",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25305,
+        "tag": "small",
+        "original": "Bãi biển, món ăn, lịch sử và kinh nghiệm",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25406,
+        "tag": "strong",
+        "original": "Chuyện đảo",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25433,
+        "tag": "small",
+        "original": "Đời sống, ký ức và câu chuyện đảo",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25525,
+        "tag": "strong",
+        "original": "Thông tin đang diễn ra",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25564,
+        "tag": "small",
+        "original": "Thời tiết, sân bay, biển và giao thông",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25774,
+        "tag": "strong",
+        "original": "Mở nhanh",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25879,
+        "tag": "strong",
+        "original": "Đi đâu bây giờ?",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 25911,
+        "tag": "small",
+        "original": "Vị trí · thời gian · lịch hoạt động",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26039,
+        "tag": "strong",
+        "original": "Tìm thứ bạn cần",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26071,
+        "tag": "small",
+        "original": "Chọn khu vực hoặc dùng vị trí khi cần",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26204,
+        "tag": "strong",
+        "original": "Một câu hỏi về đảo",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26239,
+        "tag": "small",
+        "original": "Câu chuyện · huyền tích · điều tò mò",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26390,
+        "tag": "strong",
+        "original": "112 · 113 · 114 · 115",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26428,
+        "tag": "small",
+        "original": "Mở hotline và danh bạ cần thiết",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26541,
+        "tag": "strong",
+        "original": "Định hướng nhanh",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26574,
+        "tag": "small",
+        "original": "Bắc · Trung tâm · Nam",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 26859,
+        "tag": "button",
+        "original": "⌕ Tìm kiếm",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27018,
+        "tag": "button",
+        "original": "••• Thêm",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27454,
+        "tag": "h2",
+        "original": "Mở nhanh",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27624,
+        "tag": "p",
+        "original": "ĐANG DIỄN RA",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27734,
+        "tag": "strong",
+        "original": "Thời tiết & Biển",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27767,
+        "tag": "small",
+        "original": "Mưa, gió, sóng, radar",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27849,
+        "tag": "strong",
+        "original": "Sân bay",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27873,
+        "tag": "small",
+        "original": "Chuyến bay, trễ chuyến",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27956,
+        "tag": "strong",
+        "original": "Tàu & Phà",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 27982,
+        "tag": "small",
+        "original": "Lịch theo ngày, giá vé",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28062,
+        "tag": "strong",
+        "original": "Xe buýt & xe trung chuyển",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28104,
+        "tag": "small",
+        "original": "Tuyến 17, 19, 20",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28178,
+        "tag": "strong",
+        "original": "Cano & Tour đảo",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28210,
+        "tag": "small",
+        "original": "Cập nhật hôm nay, lịch sử",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28315,
+        "tag": "p",
+        "original": "KHÁM PHÁ",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28448,
+        "tag": "small",
+        "original": "Chọn theo giờ và vị trí",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28556,
+        "tag": "small",
+        "original": "Có gì, chơi gì, giá, lưu ý",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28664,
+        "tag": "small",
+        "original": "Từng món và cách ăn",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28743,
+        "tag": "strong",
+        "original": "Khách sạn",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28769,
+        "tag": "small",
+        "original": "Lọc theo khu vực và hạng sao",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 28883,
+        "tag": "small",
+        "original": "ATM · nhà thuốc · xăng · minimart · WC",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29132,
+        "tag": "p",
+        "original": "HỮU ÍCH",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29220,
+        "tag": "strong",
+        "original": "Tin & cập nhật Phú Quốc",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29309,
+        "tag": "strong",
+        "original": "128 bài Cẩm nang Phú Quốc",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29409,
+        "tag": "strong",
+        "original": "Danh bạ & hotline",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29490,
+        "tag": "strong",
+        "original": "Tỷ giá & đổi tiền",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29579,
+        "tag": "strong",
+        "original": "Giá vé & lịch diễn",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29672,
+        "tag": "strong",
+        "original": "Những việc cần nhớ trước chuyến đi",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29769,
+        "tag": "strong",
+        "original": "Di sản & câu chuyện địa phương",
+        "review_only": true
+      },
+      {
+        "source": "index.html",
+        "position": 29868,
+        "tag": "strong",
+        "original": "Cách chúng tôi kiểm chứng thông tin",
+        "review_only": true
+      }
+    ],
+    "places/index.html": [
+      {
+        "source": "places/index.html",
+        "position": 2711,
+        "tag": "h2",
+        "original": "Nhìn cho rõ, / rồi hãy quyết định đi.",
+        "review_only": true
+      },
+      {
+        "source": "places/index.html",
+        "position": 3092,
+        "tag": "strong",
+        "original": "Theo nhu cầu",
+        "review_only": true
+      },
+      {
+        "source": "places/index.html",
+        "position": 3995,
+        "tag": "h3",
+        "original": "Điểm tham quan & trải nghiệm",
+        "review_only": true
+      },
+      {
+        "source": "places/index.html",
+        "position": 4032,
+        "tag": "p",
+        "original": "Đang tải...",
+        "review_only": true
+      },
+      {
+        "source": "places/index.html",
+        "position": 4072,
+        "tag": "small",
+        "original": "Xem nhanh từng điểm, mở thêm khi cần",
+        "review_only": true
+      }
+    ],
+    "explore/index.html": [
+      {
+        "source": "explore/index.html",
+        "position": 4617,
+        "tag": "small",
+        "original": "Gành Dầu · Safari · VinWonders",
+        "review_only": true
+      },
+      {
+        "source": "explore/index.html",
+        "position": 4707,
+        "tag": "small",
+        "original": "Dinh Cậu · Chợ đêm · Bãi Trường",
+        "review_only": true
+      },
+      {
+        "source": "explore/index.html",
+        "position": 4794,
+        "tag": "small",
+        "original": "An Thới · Hòn Thơm · Sunset Town",
+        "review_only": true
+      },
+      {
+        "source": "explore/index.html",
+        "position": 6712,
+        "tag": "p",
+        "original": "TẤT CẢ PHÚ QUỐC",
+        "review_only": true
+      },
+      {
+        "source": "explore/index.html",
+        "position": 6753,
+        "tag": "h2",
+        "original": "Đang mở các gợi ý...",
+        "review_only": true
+      },
+      {
+        "source": "explore/index.html",
+        "position": 6816,
+        "tag": "button",
+        "original": "Xóa lọc",
+        "review_only": true
+      }
+    ],
+    "hotels/index.html": [
+      {
+        "source": "hotels/index.html",
+        "position": 2150,
+        "tag": "strong",
+        "original": "Khách sạn",
+        "review_only": true
+      },
+      {
+        "source": "hotels/index.html",
+        "position": 2429,
+        "tag": "h1",
+        "original": "Chọn nơi ở, / đừng chỉ nhìn số sao.",
+        "review_only": true
+      },
+      {
+        "source": "hotels/index.html",
+        "position": 3523,
+        "tag": "label",
+        "original": "TÌM KHÁCH SẠN",
+        "review_only": true
+      },
+      {
+        "source": "hotels/index.html",
+        "position": 3692,
+        "tag": "label",
+        "original": "KHU VỰC Tất cả khu vực",
+        "review_only": true
+      },
+      {
+        "source": "hotels/index.html",
+        "position": 3812,
+        "tag": "label",
+        "original": "HẠNG SAO Tất cả hạng 5 sao 4 sao 3 sao 2 sao Chưa xác định",
+        "review_only": true
+      },
+      {
+        "source": "hotels/index.html",
+        "position": 4104,
+        "tag": "label",
+        "original": "ĐANG MỞ? Đang hoạt động Sắp mở hoặc đã công bố Tất cả",
+        "review_only": true
+      },
+      {
+        "source": "hotels/index.html",
+        "position": 4321,
+        "tag": "button",
+        "original": "Xóa bộ lọc",
+        "review_only": true
+      },
+      {
+        "source": "hotels/index.html",
+        "position": 4651,
+        "tag": "p",
+        "original": "ĐANG HOẠT ĐỘNG",
+        "review_only": true
+      },
+      {
+        "source": "hotels/index.html",
+        "position": 4691,
+        "tag": "h2",
+        "original": "Đang mở danh sách...",
+        "review_only": true
+      }
+    ],
+    "go/index.html": [
+      {
+        "source": "go/index.html",
+        "position": 2031,
+        "tag": "strong",
+        "original": "Đi đâu bây giờ?",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 2738,
+        "tag": "h1",
+        "original": "Còn thời gian. / Còn nhiều nơi để đi.",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 3265,
+        "tag": "small",
+        "original": "Giờ trên đảo",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 3458,
+        "tag": "p",
+        "original": "3 CÂU HỎI",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 3867,
+        "tag": "p",
+        "original": "Chọn khu vực bạn đang ở",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 4085,
+        "tag": "label",
+        "original": "Dương Đông & bờ Tây",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 4213,
+        "tag": "label",
+        "original": "An Thới & Nam đảo",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 4332,
+        "tag": "label",
+        "original": "Bắc đảo",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 4552,
+        "tag": "button",
+        "original": "⌖ Dùng vị trí của tôi",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 4709,
+        "tag": "p",
+        "original": "Không cần bật định vị, chọn khu vực là được.",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 5011,
+        "tag": "strong",
+        "original": "Bản đồ Phú Quốc",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 5147,
+        "tag": "button",
+        "original": "Xem toàn đảo",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 5474,
+        "tag": "strong",
+        "original": "Muốn khám phá quanh đâu?",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 5530,
+        "tag": "p",
+        "original": "Chọn ngay trên bản đồ hoặc ở bên trái.",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 5663,
+        "tag": "button",
+        "original": "Dương Đông",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 5758,
+        "tag": "button",
+        "original": "An Thới",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 5843,
+        "tag": "button",
+        "original": "Bắc đảo",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 6082,
+        "tag": "strong",
+        "original": "Bạn muốn xem quanh đây bao xa?",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 6694,
+        "tag": "summary",
+        "original": "Tùy chỉnh khoảng cách",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 6749,
+        "tag": "label",
+        "original": "Chọn từ 1 đến 50 km",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 7445,
+        "tag": "label",
+        "original": "2 giờ Đi gần, gọn",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 7566,
+        "tag": "label",
+        "original": "Nửa ngày Khoảng 5 giờ",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 7700,
+        "tag": "label",
+        "original": "Cả ngày Khoảng 10 giờ",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 7826,
+        "tag": "label",
+        "original": "Buổi tối Từ giờ tới 23:00",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 8239,
+        "tag": "label",
+        "original": "Biển & đảo",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 8338,
+        "tag": "label",
+        "original": "Gia đình",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 8438,
+        "tag": "label",
+        "original": "Văn hóa",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 8538,
+        "tag": "label",
+        "original": "Ăn uống",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 8635,
+        "tag": "label",
+        "original": "Buổi tối",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 8736,
+        "tag": "label",
+        "original": "Thiên nhiên",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 8839,
+        "tag": "label",
+        "original": "Nhẹ nhàng",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 8972,
+        "tag": "button",
+        "original": "Tìm điểm hợp với tôi →",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 9229,
+        "tag": "p",
+        "original": "GỢI Ý CHO BẠN",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 9268,
+        "tag": "h2",
+        "original": "Những việc còn khả thi từ giờ.",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 9339,
+        "tag": "button",
+        "original": "Đổi lựa chọn",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 9601,
+        "tag": "p",
+        "original": "CÒN CÓ THỂ GHÉ THÊM",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 9627,
+        "tag": "h3",
+        "original": "Nếu vẫn còn sức, đây là vài lựa chọn nữa.",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 9916,
+        "tag": "p",
+        "original": "ĂN NGON QUANH ĐÂY",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 9940,
+        "tag": "h3",
+        "original": "Tìm quán địa phương gần chỗ bạn.",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 10433,
+        "tag": "p",
+        "original": "CHƯA CHỐT ĐƯỢC LỊCH?",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 11095,
+        "tag": "small",
+        "original": "CHỌN MỘT VÙNG",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 11123,
+        "tag": "strong",
+        "original": "Một ngày thong thả ở Nam đảo",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 11594,
+        "tag": "small",
+        "original": "ĐÓI BỤNG RỒI?",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 11622,
+        "tag": "strong",
+        "original": "Hôm nay ăn gì?",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 11830,
+        "tag": "strong",
+        "original": "Trước khi đi xa, ngó trời một chút.",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 12343,
+        "tag": "button",
+        "original": "••• Thêm",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 12779,
+        "tag": "small",
+        "original": "OPEN PHU QUOC",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 12807,
+        "tag": "h2",
+        "original": "Mở nhanh",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 12962,
+        "tag": "strong",
+        "original": "ĐANG DIỄN RA",
+        "review_only": true
+      },
+      {
+        "source": "go/index.html",
+        "position": 13727,
+        "tag": "strong",
+        "original": "HỮU ÍCH",
+        "review_only": true
+      }
+    ],
+    "guide/knowledge.html": [
+      {
+        "source": "guide/knowledge.html",
+        "position": 1439,
+        "tag": "p",
+        "original": "CẨM NANG PHÚ QUỐC",
+        "review_only": true
+      },
+      {
+        "source": "guide/knowledge.html",
+        "position": 1489,
+        "tag": "h1",
+        "original": "Chuyện về đảo, đọc theo cách của bạn.",
+        "review_only": true
+      },
+      {
+        "source": "guide/knowledge.html",
+        "position": 1535,
+        "tag": "p",
+        "original": "Từ bãi biển, món ăn đến lịch sử, nghề truyền thống và những điều cần biết trước khi đi.",
+        "review_only": true
+      },
+      {
+        "source": "guide/knowledge.html",
+        "position": 1676,
+        "tag": "label",
+        "original": "Bạn muốn tìm hiểu gì?",
+        "review_only": true
+      },
+      {
+        "source": "guide/knowledge.html",
+        "position": 2095,
+        "tag": "p",
+        "original": "Đang mở cẩm nang...",
+        "review_only": true
+      }
+    ],
+    "guide/article.html": [
+      {
+        "source": "guide/article.html",
+        "position": 1792,
+        "tag": "p",
+        "original": "Đang mở bài viết...",
+        "review_only": true
+      },
+      {
+        "source": "guide/article.html",
+        "position": 1884,
+        "tag": "button",
+        "original": "Góp ý bài viết",
+        "review_only": true
+      }
+    ]
+  },
+  "review_only": true,
+  "record_count": 206
+}
