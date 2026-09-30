@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "locale": "vi",
-  "updated_at": "2026-09-20",
+  "updated_at": "2026-09-30",
   "common": {
     "source_image": "Nguồn ảnh ↗",
     "source_map": "Nguồn bản đồ ↗",
@@ -169,5 +169,55 @@
     },
     "weather": "Thời tiết & biển",
     "explore_map": "Bản đồ khám phá"
+  },
+  "weather_human": {
+    "source_actual": "Quan trắc thực tế",
+    "source_estimated": "Ước tính hiện tại",
+    "no_new_weather": "Chưa có thông tin thời tiết mới",
+    "wind": "Gió {speed} km/h",
+    "actual": "Đo thực tế",
+    "actual_at": "Đo thực tế tại {location}",
+    "feels_about": "cảm giác khoảng {temperature}°",
+    "location_airport": "Sân bay Phú Quốc",
+    "points": {
+      "an_thoi": "An Thới",
+      "duong_dong": "Dương Đông",
+      "cua_can": "Cửa Cạn",
+      "ganh_dau": "Gành Dầu",
+      "bai_thom": "Bãi Thơm",
+      "ham_ninh": "Hàm Ninh",
+      "bai_sao": "Bãi Sao"
+    },
+    "comfort": {
+      "very_hot_very_humid": "Rất nóng và rất oi",
+      "very_hot_humid": "Rất nóng và oi",
+      "hot_very_humid": "Nóng và rất oi",
+      "very_humid": "Rất oi",
+      "hot_quite_humid": "Nóng và khá oi",
+      "quite_humid": "Khá oi",
+      "warm_humid": "Ấm và ẩm",
+      "hot_slightly_humid": "Nóng và hơi oi",
+      "slightly_humid": "Hơi ẩm",
+      "hot": "Nóng",
+      "warm": "Ấm",
+      "comfortable": "Khá dễ chịu"
+    },
+    "rain": {
+      "light_shower": "mưa rào nhẹ",
+      "light": "mưa nhẹ",
+      "moderate": "mưa vừa",
+      "heavy": "mưa lớn",
+      "generic": "mưa",
+      "observed": "{place} đang có {intensity}",
+      "duration": "Dự kiến mưa sẽ giảm trong khoảng {lower}-{upper} phút",
+      "observed_detail": "Mưa đang được ghi nhận tại điểm quan trắc trong khu vực"
+    },
+    "reason": {
+      "humidity_hotter": "Độ ẩm cao làm cơ thể cảm thấy nóng hơn nhiệt độ đo được.",
+      "humid_air": "Không khí có nhiều hơi ẩm nên cảm giác khá oi.",
+      "wind_relief": "Có gió nên cảm giác đỡ bí hơn một chút.",
+      "weak_wind": "Gió yếu nên cảm giác oi rõ hơn.",
+      "close_to_measured": "Cảm nhận ngoài trời hiện khá gần với nhiệt độ đo được."
+    }
   }
 }
