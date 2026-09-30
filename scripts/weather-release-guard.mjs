@@ -6,7 +6,7 @@ import {createHash} from "node:crypto";
 import {readFile,writeFile} from "node:fs/promises";
 import {pathToFileURL} from "node:url";
 const FIELDS=["cloud_sampled_time","forecast_run_time","marine_sampled_time"];
-const MAX_AGE={cloud_sampled_time:60,forecast_run_time:24*60,marine_sampled_time:240};
+const MAX_AGE={cloud_sampled_time:60,forecast_run_time:24*60,marine_sampled_time:480};
 const parsed=(value)=>{
   if(typeof value!=="string"||!/(?:Z|[+-]\d\d:\d\d)$/.test(value))return null;
   const t=Date.parse(value);
