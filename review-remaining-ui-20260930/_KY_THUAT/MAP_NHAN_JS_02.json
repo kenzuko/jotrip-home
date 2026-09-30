@@ -1,0 +1,1465 @@
+{
+  "nearme/nearme.js": {
+    "sha": "d294f21e0264f5e15b66a231d507277fa090bec1",
+    "fields": [
+      {
+        "value": "Dương Đông",
+        "offset": 279,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Dương Đông, Phú Quốc, Việt Nam",
+        "offset": 302,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "An Thới, Phú Quốc, Việt Nam",
+        "offset": 384,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Sunset Town, An Thới, Phú Quốc, Việt Nam",
+        "offset": 474,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Gành Dầu",
+        "offset": 546,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Gành Dầu, Phú Quốc, Việt Nam",
+        "offset": 567,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Nhà thuốc",
+        "offset": 760,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "nhà thuốc",
+        "offset": 917,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "bệnh viện phòng khám",
+        "offset": 945,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Phú Quốc, Việt Nam",
+        "offset": 2799,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Sunset Town, Phú Quốc, Việt Nam",
+        "offset": 2951,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "địa điểm",
+        "offset": 3193,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Bản đồ chưa tải được. Bạn vẫn xem được danh sách địa điểm.",
+        "offset": 3808,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Bản đồ tạm thời chưa mở được",
+        "offset": 4129,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Bạn vẫn có thể dùng danh sách hoặc chủ động tìm thêm bên ngoài.",
+        "offset": 4221,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Ẩn bản đồ",
+        "offset": 6458,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Xem bản đồ",
+        "offset": 6470,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Vị trí của bạn",
+        "offset": 7464,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chỉ dùng trong phiên này.",
+        "offset": 7494,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Vị trí của tôi",
+        "offset": 9504,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Toàn đảo",
+        "offset": 9584,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Khoảng cách ước tính, đường đi thực tế có thể dài hơn.",
+        "offset": 11622,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Bán kính tính từ trung tâm khu vực bạn chọn, không phải vị trí của bạn.",
+        "offset": 11693,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chọn khu vực hoặc dùng vị trí để tìm gần hơn.",
+        "offset": 11767,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Giờ mở cửa chưa được xác nhận.",
+        "offset": 15075,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Điểm sạc do cộng đồng ghi nhận. Chưa xác nhận trạm hoạt động, quyền vào hoặc loại trụ. Hãy kiểm tra ứng dụng VinFast/V-Green trước khi đến.",
+        "offset": 15238,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Pin định hướng khu vực",
+        "offset": 15838,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tâm khuôn viên, có thể khác cổng vào",
+        "offset": 15895,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Độ chính xác:",
+        "offset": 15948,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đối chiếu:",
+        "offset": 16046,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Kiểm tra lần cuối:",
+        "offset": 16106,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Khách sạn",
+        "offset": 16449,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Trải nghiệm",
+        "offset": 16551,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Điểm đến",
+        "offset": 16839,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tiện ích",
+        "offset": 16916,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Vị trí trong khuôn viên, có thể khác lối vào.",
+        "offset": 20151,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có địa điểm đủ rõ vị trí trong danh mục này. Bạn có thể tìm thêm trên Google Maps.",
+        "offset": 21056,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Bản đồ và danh sách đang dùng cùng bộ lọc.",
+        "offset": 21238,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Địa điểm",
+        "offset": 21362,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có địa điểm phù hợp",
+        "offset": 21469,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa đủ địa điểm để lọc",
+        "offset": 21530,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "TÌM THÊM ĐỊA ĐIỂM",
+        "offset": 21699,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Nếu cần tìm thêm, bạn có thể mở Google Maps. Kết quả bên ngoài không theo bộ lọc của Open Phu Quoc.",
+        "offset": 21823,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Phú Quốc",
+        "offset": 22145,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có thông tin thời tiết cho điểm này.",
+        "offset": 22766,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chỉ có mốc trước/sau khoảng xem, hệ thống không nội suy. Hãy kiểm tra trực tiếp trước khi đi.",
+        "offset": 23502,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có đủ dự báo cho khoảng thời gian này. Danh sách địa điểm vẫn dùng bình thường.",
+        "offset": 23610,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang tìm địa điểm",
+        "offset": 23934,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "· Chưa tải được danh sách",
+        "offset": 23966,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang tải địa điểm quanh",
+        "offset": 24076,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa tải được địa điểm. Bạn thử lại sau nhé.",
+        "offset": 24119,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang tìm những địa điểm phù hợp...",
+        "offset": 24226,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Bạn có thể thử lại hoặc tìm thêm trên Google Maps. Kết quả bên ngoài chưa được Open Phu Quoc lọc.",
+        "offset": 24383,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Kết quả cho “",
+        "offset": 25595,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "địa điểm trong",
+        "offset": 25780,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang tìm trong",
+        "offset": 26008,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Các địa điểm có vị trí rõ được xếp theo khoảng cách từ bạn.",
+        "offset": 26190,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang tìm quanh",
+        "offset": 26259,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa thấy kết quả phù hợp. Thử tên khác hoặc bỏ bớt bộ lọc nhé.'+ (query?'",
+        "offset": 26477,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Kết quả bên ngoài không theo bộ lọc đang chọn.",
+        "offset": 26665,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "km đường chim bay",
+        "offset": 26937,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "km từ tâm khu",
+        "offset": 26958,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có địa chỉ đầy đủ",
+        "offset": 27454,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa xác định khoảng cách · không tính trong vòng '+radiusKm+' km",
+        "offset": 27615,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Thời tiết 3 giờ tới",
+        "offset": 27839,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Vị trí tham khảo trong khu vực, có thể khác lối vào.",
+        "offset": 28454,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "'+(x.verified===false?\"Xem vị trí tham khảo\":\"Xem trên bản đồ\")+'",
+        "offset": 28900,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Xem vị trí tham khảo",
+        "offset": 28923,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Xem trên bản đồ",
+        "offset": 28946,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "'+(exactEntrance?\"Chỉ đường ↗\":\"Tìm trên Google Maps ↗\")+'",
+        "offset": 29066,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chỉ đường ↗",
+        "offset": 29084,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Kiểm tra nguồn ↗",
+        "offset": 29248,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Còn '+(visible.length-limited.length)+' kết quả. Gõ tên cụ thể để tìm nhanh hơn.",
+        "offset": 29752,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "⌖ Dùng vị trí của tôi",
+        "offset": 30203,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa kết nối được nguồn dự báo. Danh sách và đường đi vẫn hoạt động.",
+        "offset": 31965,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang kiểm tra...",
+        "offset": 32136,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang lấy các mốc dự báo cho địa điểm đã chọn.",
+        "offset": 32193,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy được dự báo. Danh sách, tìm kiếm và đường đi vẫn hoạt động.",
+        "offset": 32732,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Bản đồ chưa tải được. Bạn có thể tìm thêm trên Google Maps.",
+        "offset": 33374,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Địa điểm chưa có vị trí rõ. Bạn có thể tìm thêm trên Google Maps.",
+        "offset": 33735,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Thiết bị này không chia sẻ được vị trí. Hãy chọn khu vực.",
+        "offset": 34058,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang lấy vị trí...",
+        "offset": 34189,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Vị trí ngoài Phú Quốc. Chọn khu vực thủ công nhé.",
+        "offset": 34563,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "✓ Đang dùng vị trí này",
+        "offset": 34795,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy được vị trí. Bạn vẫn có thể tìm bằng tên hoặc chọn khu vực.",
+        "offset": 35010,
+        "kind": "string",
+        "review_only": true
+      }
+    ]
+  },
+  "utilities/utilities.js": {
+    "sha": "2c8e9a3d4b4d28a6e8d84d6c5ed61a59b11ecf5c",
+    "fields": [
+      {
+        "value": "NÊN GỌI TRƯỚC",
+        "offset": 312,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Thông tin do đơn vị phụ trách công bố; nên gọi lại trước khi đi.",
+        "offset": 633,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Mở app / website ↗",
+        "offset": 1408,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Thông tin do đơn vị phụ trách công bố; nên xem lại lịch trước khi đi.",
+        "offset": 1653,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Đi thường mất khoảng",
+        "offset": 2232,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "chưa biết",
+        "offset": 3476,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Danh bạ được xem lại gần nhất lúc",
+        "offset": 3518,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": ". Mục nào chưa chắc sẽ có ghi chú để bạn gọi hoặc xem lại trước.",
+        "offset": 3561,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa mở được danh bạ lúc này. Thử lại sau một chút nhé.",
+        "offset": 4095,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy được tỷ giá. Bạn có thể mở trang Tỷ giá để thử lại.",
+        "offset": 5116,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có cập nhật mới",
+        "offset": 5210,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đô la Mỹ",
+        "offset": 5456,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Won Hàn Quốc",
+        "offset": 5490,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có tỷ giá mới cho các đồng tiền phổ biến.",
+        "offset": 5690,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có tỷ giá tham khảo",
+        "offset": 5768,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "'+(hasCash?\"Mua tiền mặt\":\"Mua chuyển khoản\")+'",
+        "offset": 6295,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Mua tiền mặt",
+        "offset": 6307,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Mua chuyển khoản",
+        "offset": 6322,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Bản gần nhất",
+        "offset": 7136,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật trực tiếp",
+        "offset": 7151,
+        "kind": "string",
+        "review_only": true
+      }
+    ]
+  },
+  "airport/app-copy.js": {
+    "sha": "daac60d0e7427c7a5098d4c5377c299003d8141d",
+    "fields": [
+      {
+        "value": "Chuyến bay · tự cập nhật",
+        "offset": 595,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật tự động",
+        "offset": 675,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy được thông tin chuyến bay lúc này.",
+        "offset": 782,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật trực tiếp đang tạm gián đoạn - trang đang hiển thị bản gần nhất đã lưu.",
+        "offset": 916,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Giờ thực tế đã được ghi nhận.",
+        "offset": 1098,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Nguồn ghi:",
+        "offset": 1155,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tình trạng theo thông tin hiện có.",
+        "offset": 1228,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Giờ cập nhật theo thông tin chuyến bay.",
+        "offset": 1313,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Nguồn chuyến bay",
+        "offset": 1396,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Bản gần nhất đã lưu",
+        "offset": 1456,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "THEO DÕI ·",
+        "offset": 1832,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "BẤT THƯỜNG",
+        "offset": 1854,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "CẦN CHÚ Ý",
+        "offset": 1867,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "CHƯA ĐẠT KIỂM TRA",
+        "offset": 2293,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Nguồn cập nhật hiện chưa đạt kiểm tra chất lượng. Không nên dùng thông tin này để quyết định chuyến đi.",
+        "offset": 2327,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "BẢN GẦN NHẤT",
+        "offset": 2489,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật trực tiếp tạm không phản hồi. Trang đang hiển thị bản gần nhất đã lưu.",
+        "offset": 2518,
+        "kind": "string",
+        "review_only": true
+      }
+    ]
+  },
+  "bus/app.js": {
+    "sha": "882f0f7bca9f77ceb77ed24d234cd8da00e1746f",
+    "fields": [
+      {
+        "value": "Pin OSM tham khảo, chưa phải pin VinBus xác nhận",
+        "offset": 2466,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa xác định GPS trạm",
+        "offset": 2518,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "🚌 Tuyến '+r.id+'",
+        "offset": 3061,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "🚌 Tuyến",
+        "offset": 3299,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Theo lịch VinBus",
+        "offset": 3451,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Có vị trí xe",
+        "offset": 3470,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa thấy vị trí xe cho tuyến '+state.current+'.",
+        "offset": 3902,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Hiện trang chỉ có lịch chạy. Khi VinBus gửi vị trí xe, mình sẽ hiện ngay ở đây.",
+        "offset": 3986,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang chạy",
+        "offset": 4274,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "TRỰC TIẾP",
+        "offset": 4325,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Vị trí trực tiếp",
+        "offset": 5383,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Lịch công bố",
+        "offset": 5402,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang có vị trí xe trực tiếp.",
+        "offset": 5466,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa thấy vị trí xe lúc này. Lịch tuyến vẫn có, nhưng trang không tự đoán xe đang ở đâu.",
+        "offset": 5497,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Lịch xem lại",
+        "offset": 5675,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa mở được",
+        "offset": 5920,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Trang xe buýt chưa mở được lúc này. Thử lại sau một chút nhé.",
+        "offset": 5962,
+        "kind": "string",
+        "review_only": true
+      }
+    ]
+  },
+  "ferry/app.js": {
+    "sha": "07dd2494208b6a050e1e38d6e63a0b919adddd48",
+    "fields": [
+      {
+        "value": "Tàu cao tốc",
+        "offset": 1221,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang mở bán",
+        "offset": 1428,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có thông tin chỗ",
+        "offset": 1460,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đang chạy",
+        "offset": 1542,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tạm dừng",
+        "offset": 1593,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa biết chắc",
+        "offset": 1619,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Có cập nhật riêng cho hôm nay",
+        "offset": 2994,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật ngày",
+        "offset": 3155,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "· mỗi nhóm xem riêng",
+        "offset": 3197,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Thông tin gần nhất là của ngày trước, hôm nay chưa biết chắc",
+        "offset": 3221,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tất cả tuyến",
+        "offset": 3518,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Tất cả hãng",
+        "offset": 3650,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy đủ lịch",
+        "offset": 4950,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Lịch còn mới",
+        "offset": 4975,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Nên xem lại",
+        "offset": 4990,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật",
+        "offset": 5056,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa biết lần cập nhật gần nhất · nên mở lại trang hãng",
+        "offset": 5242,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "chuyến ·",
+        "offset": 5365,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đến '+time(r.arrival_time)+'",
+        "offset": 5608,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Lịch hãng",
+        "offset": 6155,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Ngày này chưa có lịch để hiện ở đây. Bạn có thể mở thẳng trang hãng bên dưới để xem.",
+        "offset": 6232,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chưa mở được lịch tàu và phà lúc này. Trước khi ra bến, bạn nên mở lại trang hãng.",
+        "offset": 6982,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "';$(\"#health\").textContent=\"Chưa có lịch\";$(\"#updatedAt\").textContent=\"Chưa lấy được lịch mới từ các hãng\"}}catch(e){$(\"#rows\").innerHTML='",
+        "offset": 7074,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có lịch",
+        "offset": 7102,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy được lịch mới từ các hãng",
+        "offset": 7145,
+        "kind": "string",
+        "review_only": true
+      }
+    ]
+  },
+  "cano/app.js": {
+    "sha": "dd262e51eea27d77cee9fde5dfd3b6526c161079",
+    "fields": [
+      {
+        "value": "Đang chạy",
+        "offset": 963,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tạm dừng",
+        "offset": 985,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Ghi nhận trực tiếp",
+        "offset": 1219,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Có ghi nhận",
+        "offset": 1302,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Giấy phép rời cảng",
+        "offset": 1591,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đơn vị phụ trách",
+        "offset": 1674,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Nguồn ghi nhận hôm nay",
+        "offset": 1702,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Ghi nhận ngày đó",
+        "offset": 1969,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật ngày",
+        "offset": 2642,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Hôm nay chưa có tin mới",
+        "offset": 2672,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "ghi nhận",
+        "offset": 2812,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Hôm nay mình chưa biết chắc cano có chạy không.",
+        "offset": 3007,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Mình đang chờ thêm thông tin từ thực địa hoặc đầu mối cano. Tàu cao tốc và phà có chạy cũng không dùng để đoán cano.",
+        "offset": 3092,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Thông tin gần nhất là của ngày trước, nên hôm nay mình không dùng lại để kết luận.",
+        "offset": 3211,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tình hình này chỉ áp dụng cho cano tour đảo hôm nay.",
+        "offset": 3381,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa biết chắc",
+        "offset": 3944,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Hôm nay chưa có ghi nhận đủ chắc",
+        "offset": 3974,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Không lấy tình trạng tàu hoặc phà để đoán cano.",
+        "offset": 4030,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Tour 3 đảo An Thới",
+        "offset": 5053,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa tải được",
+        "offset": 5774,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa xem được tình hình cano hôm nay.",
+        "offset": 5822,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Nguồn cập nhật tạm thời không truy cập được.",
+        "offset": 5926,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Đồng bộ đến",
+        "offset": 6253,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa tải được lịch sử mới",
+        "offset": 6327,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa mở được",
+        "offset": 6465,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa xem được tình hình cano lúc này.",
+        "offset": 6543,
+        "kind": "html",
+        "review_only": true
+      }
+    ]
+  },
+  "transit/app.js": {
+    "sha": "c3447abd9cb1d8d22aa1fde0ba67140262b3e522",
+    "fields": [
+      {
+        "value": "Thạnh Thới",
+        "offset": 1118,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Phú Quốc Express",
+        "offset": 1221,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tàu cao tốc",
+        "offset": 1612,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật",
+        "offset": 2010,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tần suất",
+        "offset": 2065,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Cập nhật theo ngày",
+        "offset": 2082,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Liên tuyến",
+        "offset": 2261,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Còn hạn chế",
+        "offset": 2849,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Có thể đặt vé",
+        "offset": 2939,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa xác định",
+        "offset": 2984,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tất cả tuyến",
+        "offset": 4563,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tất cả hãng",
+        "offset": 4660,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Giờ chạy, hãng, tàu/phà và giá cho đúng ngày bạn chọn.",
+        "offset": 4964,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Xem đúng ngày đi, không lấy lịch tháng điền vào cho đủ.",
+        "offset": 5042,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chuyến phà theo ngày, có giá người và giá xe khi hãng công bố.",
+        "offset": 5114,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Tuyến và tần suất theo lịch. Vị trí xe chỉ hiện khi có thật.",
+        "offset": 5195,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Xem tuyến bên dưới",
+        "offset": 5917,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có chuyến sắp tới",
+        "offset": 5938,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy được lịch",
+        "offset": 6423,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Lịch chưa có cập nhật mới",
+        "offset": 6520,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Còn thiếu vài hãng",
+        "offset": 6561,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy được từ hãng",
+        "offset": 6582,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa biết lần cập nhật gần nhất",
+        "offset": 6826,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Đã lấy được lịch",
+        "offset": 6991,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Các hãng cần xem đã có lịch",
+        "offset": 7598,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Vẫn còn hãng chưa có lịch cho ngày này",
+        "offset": 7628,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Còn thiếu",
+        "offset": 7783,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Theo ngày thực tế",
+        "offset": 7850,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Không dùng lịch tháng để khẳng định chuyến trong ngày",
+        "offset": 7883,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "chưa có lịch chắc cho đúng ngày này, nên chưa đưa vào bảng chuyến.",
+        "offset": 8664,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Theo tuyến",
+        "offset": 8905,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "'; const f=fareFor(r);if(!f.adult)return compact?\"Kiểm tra hãng\":'",
+        "offset": 8922,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Kiểm tra hãng",
+        "offset": 9014,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có giá để hiện",
+        "offset": 9059,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Theo lịch công bố",
+        "offset": 9572,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa có chuyến phù hợp với ngày hoặc bộ lọc này. Mình không lấy lịch tháng điền vào cho đủ.",
+        "offset": 9707,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Theo lịch",
+        "offset": 10821,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Kiểm tra vé",
+        "offset": 10886,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Lịch theo ngày",
+        "offset": 11331,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Vé người lớn",
+        "offset": 12185,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Theo lịch tuyến",
+        "offset": 12282,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Mở trang hãng để xem lại",
+        "offset": 13552,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chỉ báo mức chung, không hiện số ghế cụ thể.",
+        "offset": 13596,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa biết chắc còn vé hay không. Mở trang hãng để xem lại nhé.",
+        "offset": 13643,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Liên hệ / kiểm tra ↗",
+        "offset": 13921,
+        "kind": "html",
+        "review_only": true
+      },
+      {
+        "value": "Chưa tải được",
+        "offset": 14700,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa lấy được lịch mới từ các hãng",
+        "offset": 14744,
+        "kind": "string",
+        "review_only": true
+      },
+      {
+        "value": "Chưa mở được lịch lúc này. Bạn có thể kiểm tra trực tiếp với hãng.",
+        "offset": 14818,
+        "kind": "html",
+        "review_only": true
+      }
+    ]
+  }
+}
