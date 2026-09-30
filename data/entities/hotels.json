@@ -5195,25 +5195,8 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-22",
-      "map": {
-        "lat": 10.1961798,
-        "lon": 103.9901978,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 10277593609,
-        "matched_name": null,
-        "formatted_address": "City, Tổ 3, ấp Suối Đá, Kiên Giang 92509, Vietnam, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Lotus, Tổ 4, ấp Suối Đá, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      }
+      "updated_at": "2026-09-30",
+      "map_review_note": "GPS 30/09/2026 HOLD: OSM Photon returned no matched POI name and its formatted address says To 3 Suoi Da whereas the canonical hotel directory says To 4. No exact-brand numeric site evidence."
     },
     {
       "id": "hotel_lucky_phu_quoc",
