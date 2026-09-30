@@ -346,13 +346,11 @@ function freshnessText(iso, prefix = "Cập nhật") {
     for (const e of latestByField.values()) {
       const r = e.record;
       if (r.direction === "departure" && e.field === "belt") continue;
-      if (r.direction === "arrival" && (e.field === "checkin_row" || e.field === "gate")) continue;
-      if (r.direction === "departure" && completed(r)) continue;
-      if (r.direction === "arrival" && completed(r)) {
-        if (e.field !== "belt") continue;
-        const after = minutesAfter(r.actual_time);
-        if (after == null || after > 60) continue;
-      }
+      // Arrival baggage-belt changes are detail-only, not public Operation Watch alerts.
+      // Keep actionable departure gate/check-in changes and flight status alerts.
+      if (r.direction === "arrival") continue;
+      if (e.field !== "gate" && e.field !== "checkin_row") continue;
+      if (completed(r)) continue;
       items.push({kind:"fids", flight:flightKey(r)});
     }
 
