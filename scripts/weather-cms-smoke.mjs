@@ -58,12 +58,28 @@ for(const point of ["duong_dong","an_thoi","ganh_dau","cua_can","bai_thom","ham_
   if(row.gust_kmh!=null){
    gustPresent++;
    assert(Number.isFinite(Number(row.gust_kmh)),point+": gust is not numeric");
+   if(row.wind_gust_source!=null){
+    assert(row.wind_gust_source==="ECMWF_SAME_CYCLE_MEDIUM_PAIR",
+     point+": unrecognized wind/gust fallback provenance");
+    assert(row.gust_kmh>=row.wind_kmh,
+     point+": fallback gust cannot be lower than its paired wind");
+   }
   }else{
    assert(row.missing_fields?.includes("gust_kmh")&&row.data_quality==="PARTIAL_MODEL",
     point+": missing gust must be declared at "+row.time);
   }
  }
  assert(gustPresent/rows.length>=0.8,point+": less than 80% gust coverage");
+}
+for(const frame of forecast.spatial.frames||[]){
+ for(const cell of frame.cells||[]){
+  if(cell.wind_gust_source!=null){
+   assert(cell.wind_gust_source==="ECMWF_SAME_CYCLE_MEDIUM_GRID_PAIR",
+    "unrecognized spatial wind/gust provenance");
+   assert(Number.isFinite(cell.wind_kmh)&&Number.isFinite(cell.gust_kmh)
+    &&cell.gust_kmh>=cell.wind_kmh,"spatial wind/gust pair inconsistent");
+  }
+ }
 }
 assert(time(manifest.source_times.cloud_sampled_time)>0,"satellite sample time missing");
 assert(time(manifest.source_times.marine_sampled_time)>0,"marine sample time missing");
