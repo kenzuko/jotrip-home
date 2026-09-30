@@ -1,0 +1,129 @@
+name: Retire temporary Places UI route
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/retire-places-ui-hotfix.yml"
+      - "scripts/places-hotfix-retire-qa.mjs"
+      - "scripts/verify-places-route.mjs"
+      - "wrangler.places-hotfix.retire.jsonc"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/retire-places-ui-hotfix.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: openpq-places-route-retirement
+  cancel-in-progress: false
+
+jobs:
+  canonical-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    env:
+      CANONICAL: https://openphuquoc-v3.kenzuko.workers.dev
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Prove direct canonical Worker has the complete approved Places UI
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSL --retry 3 --retry-delay 3 "$CANONICAL/places/" -o /tmp/places-direct.html
+          curl -fsSL --retry 3 --retry-delay 3 "$CANONICAL/places/app.js" -o /tmp/places-direct.js
+          curl -fsSL --retry 3 --retry-delay 3 "$CANONICAL/places/catalog-cards.css" -o /tmp/places-direct.css
+          curl -fsSL --retry 3 --retry-delay 3 "$CANONICAL/places/detail.html?id=vinpearl-safari" -o /tmp/places-detail.html
+          grep -Fq 'catalog-cards.css?v=' /tmp/places-direct.html
+          grep -Fq 'place-quick-facts' /tmp/places-direct.js
+          grep -Fq '.place-quick-facts' /tmp/places-direct.css
+          grep -Fq 'detail' /tmp/places-detail.html
+          cmp places/app.js /tmp/places-direct.js
+          cmp places/catalog-cards.css /tmp/places-direct.css
+          echo 'Canonical Worker Places assets match current main, not the temporary overlay.'
+      - name: Browser preflight on direct Worker (39 cards, phone, tablet, desktop)
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+          PLACES_QA_BASE_URL="$CANONICAL" node scripts/places-hotfix-retire-qa.mjs
+
+  retire:
+    needs: canonical-preflight
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 13
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      DIRECT: https://openphuquoc-v3.kenzuko.workers.dev
+      PUBLIC: https://openphuquoc.com
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Inventory the exact temporary route before touching Cloudflare
+        id: inventory
+        run: node scripts/verify-places-route.mjs before
+      - name: Capture production identity and Weather before route cleanup
+        run: |
+          set -euo pipefail
+          curl -fsSL "$DIRECT/build.json" -o /tmp/places-build-before.json
+          curl -fsSL "$DIRECT/weather/data/weather-runtime/manifest.json" -o /tmp/places-manifest-before.json
+          curl -fsSL "$DIRECT/weather/data/runtime-authority.json" -o /tmp/places-authority-before.json
+      - name: Prepare local config assets without deploying a Worker build
+        if: steps.inventory.outputs.route_present == 'true'
+        run: |
+          mkdir -p hotfix-places-assets/places
+          cp places/index.html places/app.js places/catalog-cards.css hotfix-places-assets/places/
+      - name: Detach only the temporary /places route
+        if: steps.inventory.outputs.route_present == 'true'
+        run: |
+          export CLOUDFLARE_ACCOUNT_ID="$(printf '%s' "$CLOUDFLARE_ACCOUNT_ID" | tr -d '[:space:]')"
+          export CLOUDFLARE_API_TOKEN="$(printf '%s' "$CLOUDFLARE_API_TOKEN" | tr -d '[:space:]')"
+          npx --yes wrangler@4.136.3 triggers deploy --config wrangler.places-hotfix.retire.jsonc
+      - name: Require independent Cloudflare API proof that the route is absent
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5 6 7 8; do
+            if node scripts/verify-places-route.mjs after; then break; fi
+            if [ "$attempt" = "8" ]; then exit 1; fi
+            sleep 4
+          done
+      - name: Verify unmodified canonical Worker and Weather after cleanup
+        run: |
+          set -euo pipefail
+          curl -fsSL "$DIRECT/build.json" -o /tmp/places-build-after.json
+          curl -fsSL "$DIRECT/weather/data/weather-runtime/manifest.json" -o /tmp/places-manifest-after.json
+          curl -fsSL "$DIRECT/weather/data/runtime-authority.json" -o /tmp/places-authority-after.json
+          cmp /tmp/places-build-before.json /tmp/places-build-after.json
+          cmp /tmp/places-manifest-before.json /tmp/places-manifest-after.json
+          cmp /tmp/places-authority-before.json /tmp/places-authority-after.json
+      - name: Validate public Places is now served without missing UI or detail
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
+            curl -fsSL "$PUBLIC/places/app.js?v=$GITHUB_RUN_ID-$attempt" -o /tmp/places-public.js || true
+            if cmp -s places/app.js /tmp/places-public.js; then break; fi
+            if [ "$attempt" = "10" ]; then echo "::error::Public Places did not propagate"; exit 1; fi
+            sleep 3
+          done
+          curl -fsSL "$PUBLIC/places/?retired=$GITHUB_RUN_ID" -o /tmp/places-public.html
+          curl -fsSL "$PUBLIC/places/catalog-cards.css?retired=$GITHUB_RUN_ID" -o /tmp/places-public.css
+          curl -fsSL "$PUBLIC/places/detail.html?id=vinpearl-safari&retired=$GITHUB_RUN_ID" -o /tmp/places-public-detail.html
+          grep -Fq 'catalog-cards.css?v=' /tmp/places-public.html
+          grep -Fq 'place-quick-facts' /tmp/places-public.css
+          grep -Fq 'detail' /tmp/places-public-detail.html
+          cmp places/catalog-cards.css /tmp/places-public.css
+      - name: Browser QA on the public domain after route detach
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+          PLACES_QA_BASE_URL="$PUBLIC" node scripts/places-hotfix-retire-qa.mjs
+      - name: Note the retired Worker is kept only as an unbound preview for safe recovery
+        run: echo 'Temporary /places custom route removed; canonical Worker untouched. Preview script can be deleted separately after verified propagation.'

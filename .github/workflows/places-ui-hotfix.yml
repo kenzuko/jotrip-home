@@ -18,6 +18,8 @@ concurrency:
 
 jobs:
   places-ui-only:
+    # Retired: never reattach the temporary route after the canonical release.
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
