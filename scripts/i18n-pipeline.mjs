@@ -193,11 +193,13 @@ function resolveSource(familyId,family,job,pivotLocale){
   return {value:job.value,locale:"vi",pivot:false};
 }
 
-function candidateProblems(source,candidate,locale,familyId){
+function candidateProblems(source,candidate,locale,familyId,job){
   return qualityProblems(source.value,candidate,{
     fromLocale:source.locale,
     targetLocale:locale,
     familyId,
+    recordId:job?.recordId||null,
+    path:job?.recordPath||job?.path||[],
     glossary:GLOSSARY
   });
 }
@@ -223,16 +225,18 @@ function buildWorkPlan(config,familyId,locale,{pivotLocale=null,repairScope="qua
     const cached=memory.entries[locale][key]||(legacyKey?memory.entries[locale][legacyKey]:null);
     const existing=current&&getAt(current,targetJobPath(family,job));
     const force=repairScopeIncludes(repairScope,familyId,job);
-    if(!force&&typeof existing==="string"&&!candidateProblems(resolved,existing,locale,familyId).length){
+    if(!force&&typeof existing==="string"&&!candidateProblems(resolved,existing,locale,familyId,job).length){
       reusedExisting++;continue;
     }
-    if(!force&&cached?.source===resolved.value&&typeof cached.translation==="string"&&!candidateProblems(resolved,cached.translation,locale,familyId).length){
+    if(!force&&cached?.source===resolved.value&&typeof cached.translation==="string"&&!candidateProblems(resolved,cached.translation,locale,familyId,job).length){
       reusedMemory++;continue;
     }
     const protectedValue=protectForTranslation(resolved.value,{
       fromLocale:resolved.locale,
       targetLocale:locale,
       familyId,
+      recordId:job.recordId||null,
+      path:job.recordPath||job.path||[],
       glossary:GLOSSARY
     });
     items.push({index,job,label:familyId+":"+(job.recordId||"document")+":"+job.path.join("."),protected:protectedValue,key,source:resolved});
@@ -299,12 +303,12 @@ async function translate(config,a){
     const cached=memory.entries[locale][key]||(legacyKey?memory.entries[locale][legacyKey]:null);
     const existing=current&&getAt(current,targetJobPath(family,job));
     const force=repairScopeIncludes(repairScope,familyId,job);
-    if(!force&&typeof existing==="string"&&!candidateProblems(resolved,existing,locale,familyId).length){
+    if(!force&&typeof existing==="string"&&!candidateProblems(resolved,existing,locale,familyId,job).length){
       setAt(target,targetJobPath(family,job),existing);
       memory.entries[locale][key]={source:resolved.value,source_locale:resolved.locale,translation:existing,updated_at:new Date().toISOString(),quality:"glossary_guarded"};
       continue;
     }
-    if(!force&&cached?.source===resolved.value&&typeof cached.translation==="string"&&!candidateProblems(resolved,cached.translation,locale,familyId).length){
+    if(!force&&cached?.source===resolved.value&&typeof cached.translation==="string"&&!candidateProblems(resolved,cached.translation,locale,familyId,job).length){
       setAt(target,targetJobPath(family,job),cached.translation);
     }
   }
@@ -321,7 +325,7 @@ async function translate(config,a){
       batch.forEach((item,index)=>{
         const translated=translations[index];
         if(!translated.trim())throw new Error("Azure returned an empty translation for "+item.label);
-        const problems=candidateProblems(item.source,translated,locale,familyId);
+        const problems=candidateProblems(item.source,translated,locale,familyId,item.job);
         if(problems.length)throw new Error("Quality guard rejected "+item.label+": "+problems.join(", "));
         setAt(target,targetJobPath(family,item.job),translated);
         memory.entries[locale][item.key]={

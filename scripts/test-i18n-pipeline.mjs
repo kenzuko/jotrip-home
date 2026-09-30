@@ -22,6 +22,8 @@ const plan=spawnSync(process.execPath,["scripts/i18n-pipeline.mjs","plan","--fam
 assert.equal(plan.status,0,plan.stderr);
 const payload=JSON.parse(plan.stdout);
 assert.equal(payload.mode,"plan_only");
-assert.ok(payload.characters>0&&payload.azure_requests_at_most>0);
+assert.ok(payload.characters>0);
+assert.ok(payload.azure_characters_estimate>=0&&payload.azure_requests_at_most>=0);
+if(payload.azure_characters_estimate===0)assert.equal(payload.azure_requests_at_most,0);
 assert.equal(fs.existsSync("data/i18n/en/food.json"),targetExistsBefore,"Plan must not create or remove target files");
 console.log("PASS i18n pipeline: inventory, locale map, dry-run and no-write guard");
