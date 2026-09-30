@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T09:39:47.453Z",
+  "generated_at": "2026-09-30T09:43:43.478Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
     "with_address": 350,
-    "with_map": 238,
+    "with_map": 237,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -2601,17 +2601,7 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Khác / cần rà.",
       "route": "/hotels/?q=Lotus",
-      "map": {
-        "lat": 10.1961798,
-        "lon": 103.9901978,
-        "precision": "site_centroid",
-        "source": "OpenStreetMap Photon location geocoding",
-        "source_id": "osm_photon_geocode",
-        "verified_at": "2026-09-22",
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ.",
-        "accuracy": "OSM_PHOTON",
-        "plus_code": null
-      },
+      "map": null,
       "inherited_from": null,
       "google_query": "Lotus, Tổ 4, ấp Suối Đá, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
