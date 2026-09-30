@@ -64,22 +64,22 @@
           "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ko/ui.json",
+          "translated_from_blob_sha": "50d0c001977b955360cfead7d60b0dfc6aa7957d",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "ru": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ru/ui.json",
+          "translated_from_blob_sha": "50d0c001977b955360cfead7d60b0dfc6aa7957d",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "lo": {
           "status": "missing",
@@ -91,13 +91,13 @@
           "note": null
         },
         "zh-Hans": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/zh-Hans/ui.json",
+          "translated_from_blob_sha": "50d0c001977b955360cfead7d60b0dfc6aa7957d",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "zh-Hant": {
           "status": "missing",
@@ -135,22 +135,22 @@
           "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ko/stories.json",
+          "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "ru": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ru/stories.json",
+          "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "lo": {
           "status": "missing",
@@ -162,13 +162,13 @@
           "note": null
         },
         "zh-Hans": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/zh-Hans/stories.json",
+          "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "zh-Hant": {
           "status": "missing",
@@ -206,22 +206,22 @@
           "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ko/food.json",
+          "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "ru": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ru/food.json",
+          "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "lo": {
           "status": "missing",
@@ -233,13 +233,13 @@
           "note": null
         },
         "zh-Hans": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/zh-Hans/food.json",
+          "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "zh-Hant": {
           "status": "missing",
@@ -277,22 +277,22 @@
           "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ko/knowledge.json",
+          "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "ru": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/ru/knowledge.json",
+          "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "lo": {
           "status": "missing",
@@ -304,13 +304,13 @@
           "note": null
         },
         "zh-Hans": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/zh-Hans/knowledge.json",
+          "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Machine draft manually repaired against the reviewed English pivot and Vietnamese source; Azure was not used for this repair. Human review required before publication."
         },
         "zh-Hant": {
           "status": "missing",
