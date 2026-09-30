@@ -1760,7 +1760,19 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.1883623924995,
+        "lon": 103.965312951043,
+        "precision": "site_centroid",
+        "source_id": "worldhotels_structured_numeric_crosscheck_20260930",
+        "source": "Exact structured business identity + exact-name numeric location + official property identity",
+        "source_url": "https://swimfinder.net/places/worldhotels-long-beach-resort-phu-quoc/",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "google_place_id": "ChIJFWslYgCNpzERgLUvblBUfB0",
+        "note": "WorldHotels Long Beach Resort Phu Quoc exact business identity cross-checked against an exact-name numeric location and the official 152 Tran Hung Dao property page. Site centroid only."
+      }
     },
     {
       "id": "hotel_wyndham_grand_phu_quoc",
@@ -1995,8 +2007,19 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.184372,
+        "lon": 103.968243,
+        "precision": "site_centroid",
+        "source_id": "famiana_structured_numeric_crosscheck_20260930",
+        "source": "Exact structured business identity + two converging numeric hotel locations + official property identity",
+        "source_url": "https://www.travelticker.com/hotels/-586284",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "google_place_id": "ChIJH6gTS6ONpzER_cZCsyP05Fo",
+        "note": "Famiana Resort & Spa exact business identity cross-checked with numeric location 10.184372,103.968243 and a second listing at 10.184458,103.968092, plus official Cua Lap property identity. Site centroid only."
+      }
     },
     {
       "id": "hotel_l_azure_resort_spa_phu_quoc",
@@ -2423,8 +2446,19 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.261361,
+        "lon": 103.93376,
+        "precision": "site_centroid",
+        "source_id": "sea_sense_structured_numeric_crosscheck_20260930",
+        "source": "Exact structured business identity + independent numeric hotel location + Google Hotels identity",
+        "source_url": "https://www.meinreisebuero24.com/hotel/sea-sense-resort-phu-quoc-island",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "google_place_id": "ChIJC2Y1CSOLpzERxmVWuGyoy8o",
+        "note": "Sea Sense Resort exact business identity cross-checked with a named numeric hotel marker at 10.261361,103.93376 and Google Hotels address/Plus Code 7W6J+WF. Site centroid only."
+      }
     },
     {
       "id": "hotel_sunset_beach_resort_spa",
@@ -2706,8 +2740,19 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.323617,
+        "lon": 103.856429,
+        "precision": "site_centroid",
+        "source_id": "wyndham_garden_structured_numeric_crosscheck_20260930",
+        "source": "Exact structured business identity + exact-name numeric hotel location + official Wyndham identity",
+        "source_url": "https://verify-www.com/siteinfo/holidays-infinity-phu-quoc.hotel-mix.in",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "google_place_id": "ChIJq6qqEz8eCDERmBJCVbcpqgQ",
+        "note": "Wyndham Garden Grandworld Phu Quoc exact business identity cross-checked with exact-name numeric location 10.323617,103.856429 and official Wyndham property identity. Site centroid only."
+      }
     },
     {
       "id": "hotel_brenta_phu_quoc",
