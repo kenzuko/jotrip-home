@@ -1,0 +1,4234 @@
+{
+  "format": "remaining-editorial-review-v1",
+  "source_shas": {
+    "data/i18n/vi/place-explainers.json": "7d6f0acd85dde1ca86919e673b5fd962cc39b683",
+    "data/entities/places.json": "0a45517b02c777950b419cefd0de26ae60c04caa",
+    "data/entities/activities.json": "e05aa065e0476ff11e32717cb3eb4fecda020395",
+    "data/i18n/vi/ui.json": "ae1b0400305118b0fc7a58f304fd23d87cb03a38"
+  },
+  "snapshot_base": "editorial/unreviewed-ui-copy-20260930",
+  "files": {
+    "01_CHI_TIET_KHAM_PHA/BAC_DAO.md": [
+      {
+        "loc": "place_rach_vem/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.lede",
+        "record_id": "place_rach_vem",
+        "original": "Rạch Vẹm trước hết là một làng chài ở Bắc đảo. Sao biển chỉ là một phần của trải nghiệm và không nên trở thành lời hứa rằng tới đây lúc nào cũng thấy."
+      },
+      {
+        "loc": "place_rach_vem/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.0.label",
+        "record_id": "place_rach_vem",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "place_rach_vem/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.0.value",
+        "record_id": "place_rach_vem",
+        "original": "Làng chài ven biển Bắc đảo"
+      },
+      {
+        "loc": "place_rach_vem/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.0.note",
+        "record_id": "place_rach_vem",
+        "original": "Khu dân cư gắn với đánh bắt gần bờ và nuôi trồng thủy sản quy mô hộ gia đình."
+      },
+      {
+        "loc": "place_rach_vem/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.1.label",
+        "record_id": "place_rach_vem",
+        "original": "ĐI VÌ GÌ?"
+      },
+      {
+        "loc": "place_rach_vem/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.1.value",
+        "record_id": "place_rach_vem",
+        "original": "Nước nông, nhà bè và nhịp làng chài"
+      },
+      {
+        "loc": "place_rach_vem/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.1.note",
+        "record_id": "place_rach_vem",
+        "original": "Hợp với người muốn nhìn một Phú Quốc đời thường hơn thay vì chỉ đi resort và khu vui chơi."
+      },
+      {
+        "loc": "place_rach_vem/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.2.label",
+        "record_id": "place_rach_vem",
+        "original": "ĐỪNG KỲ VỌNG SAI"
+      },
+      {
+        "loc": "place_rach_vem/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.2.value",
+        "record_id": "place_rach_vem",
+        "original": "Sao biển không phải lúc nào cũng có"
+      },
+      {
+        "loc": "place_rach_vem/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.infographic.2.note",
+        "record_id": "place_rach_vem",
+        "original": "Mùa, thủy triều và điều kiện bãi thay đổi. Không nên nhấc sao biển khỏi nước để chụp ảnh."
+      },
+      {
+        "loc": "place_rach_vem/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.sections.0.heading",
+        "record_id": "place_rach_vem",
+        "original": "Rạch Vẹm không phải một “bãi sao biển” cố định"
+      },
+      {
+        "loc": "place_rach_vem/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.sections.0.body",
+        "record_id": "place_rach_vem",
+        "original": "Nguồn du lịch địa phương mô tả Rạch Vẹm là một làng chài phía Bắc đảo, cách Dương Đông khoảng 20-25 km theo tuyến đường hiện hành. Trải nghiệm đáng giá nhất là nhìn không gian làng chài, bãi nước nông và sinh hoạt ven biển. Việc có thấy nhiều sao biển hay không phụ thuộc điều kiện tự nhiên."
+      },
+      {
+        "loc": "place_rach_vem/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.sections.1.heading",
+        "record_id": "place_rach_vem",
+        "original": "Điểm cần để ý là cách mình tương tác với bãi"
+      },
+      {
+        "loc": "place_rach_vem/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.sections.1.body",
+        "record_id": "place_rach_vem",
+        "original": "Sao biển là sinh vật sống. Nếu bắt gặp, nên quan sát tại chỗ và tránh cầm lên khỏi nước. Với khu nhà bè và bến nhỏ, cũng nên nhớ đây là nơi người dân làm việc chứ không phải sân khấu du lịch."
+      },
+      {
+        "loc": "place_rach_vem/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.visitor_questions.0",
+        "record_id": "place_rach_vem",
+        "original": "Hôm nay bãi nào dễ tiếp cận và đường đi ra sao?"
+      },
+      {
+        "loc": "place_rach_vem/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_rach_vem.visitor_questions.1",
+        "record_id": "place_rach_vem",
+        "original": "Mực nước và điều kiện bãi hiện tại có phù hợp để ghé không?"
+      },
+      {
+        "loc": "place_vinwonders/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.lede",
+        "record_id": "place_vinwonders",
+        "original": "VinWonders là một công viên chủ đề quy mô lớn, không phải điểm ghé nhanh. Nếu đã chọn đi, nên dành phần lớn ngày cho nó và chọn vài phân khu ưu tiên thay vì cố hoàn thành toàn bộ."
+      },
+      {
+        "loc": "place_vinwonders/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.0.label",
+        "record_id": "place_vinwonders",
+        "original": "QUY MÔ"
+      },
+      {
+        "loc": "place_vinwonders/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.0.value",
+        "record_id": "place_vinwonders",
+        "original": "6 phân khu lớn"
+      },
+      {
+        "loc": "place_vinwonders/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.0.note",
+        "record_id": "place_vinwonders",
+        "original": "Có công viên nước, trò chơi, thủy cung và show nên thời gian di chuyển bên trong cũng đáng kể."
+      },
+      {
+        "loc": "place_vinwonders/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.1.label",
+        "record_id": "place_vinwonders",
+        "original": "ĐI CÙNG TRẺ?"
+      },
+      {
+        "loc": "place_vinwonders/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.1.value",
+        "record_id": "place_vinwonders",
+        "original": "Xem giới hạn chiều cao trước"
+      },
+      {
+        "loc": "place_vinwonders/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.1.note",
+        "record_id": "place_vinwonders",
+        "original": "Đọc quy định trò chơi từ đầu ngày sẽ tránh đi tới nơi rồi mới biết trẻ chưa đủ điều kiện."
+      },
+      {
+        "loc": "place_vinwonders/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.2.label",
+        "record_id": "place_vinwonders",
+        "original": "MỐC CUỐI NGÀY"
+      },
+      {
+        "loc": "place_vinwonders/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.2.value",
+        "record_id": "place_vinwonders",
+        "original": "Giữ sức cho show tối"
+      },
+      {
+        "loc": "place_vinwonders/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.infographic.2.note",
+        "record_id": "place_vinwonders",
+        "original": "Nếu muốn xem ONCE hoặc các show cuối ngày, đừng dùng hết năng lượng ở nửa đầu lịch trình."
+      },
+      {
+        "loc": "place_vinwonders/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.sections.0.heading",
+        "record_id": "place_vinwonders",
+        "original": "Một ngày ở đây nên có chiến lược"
+      },
+      {
+        "loc": "place_vinwonders/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.sections.0.body",
+        "record_id": "place_vinwonders",
+        "original": "Trang chính thức hiện công bố nhiều khu chức năng và lịch show trong ngày. Với khách gia đình, cách dễ nhất là chọn 2-3 trải nghiệm quan trọng trước, xen các khu trong nhà để nghỉ giữa trưa."
+      },
+      {
+        "loc": "place_vinwonders/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.sections.1.heading",
+        "record_id": "place_vinwonders",
+        "original": "Giờ show và giờ hoạt động là dữ liệu cần kiểm tra theo ngày"
+      },
+      {
+        "loc": "place_vinwonders/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.sections.1.body",
+        "record_id": "place_vinwonders",
+        "original": "Lịch vận hành có thể cập nhật. Open Phu Quoc chỉ dùng giờ hiện hành từ kênh chính thức khi hiển thị trực tiếp, còn phần cẩm nang chỉ giải thích cách lên kế hoạch."
+      },
+      {
+        "loc": "place_vinwonders/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.visitor_questions.0",
+        "record_id": "place_vinwonders",
+        "original": "Show nào hôm nay phù hợp nhất với lịch của gia đình?"
+      },
+      {
+        "loc": "place_vinwonders/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinwonders.visitor_questions.1",
+        "record_id": "place_vinwonders",
+        "original": "Trò nào có giới hạn chiều cao hoặc cần xếp hàng lâu?"
+      },
+      {
+        "loc": "place_vinpearl_safari/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.lede",
+        "record_id": "place_vinpearl_safari",
+        "original": "Safari là trải nghiệm xem động vật bán hoang dã và vườn thú mở. Buổi sáng thường dễ chịu hơn vì thời tiết mát hơn và khách chưa quá mệt."
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.0.label",
+        "record_id": "place_vinpearl_safari",
+        "original": "TRỤC CHÍNH"
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.0.value",
+        "record_id": "place_vinpearl_safari",
+        "original": "xe buýt Safari + vườn thú mở"
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.0.note",
+        "record_id": "place_vinpearl_safari",
+        "original": "Nếu thời gian hạn chế, nên ưu tiên xe buýt bán hoang dã rồi mới chọn các khu phụ."
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.1.label",
+        "record_id": "place_vinpearl_safari",
+        "original": "ĐI VỚI TRẺ"
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.1.value",
+        "record_id": "place_vinpearl_safari",
+        "original": "Nhẹ hơn nếu đi sớm"
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.1.note",
+        "record_id": "place_vinpearl_safari",
+        "original": "Nắng và quãng đi bộ có thể làm trẻ nhanh mệt hơn dự kiến."
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.2.label",
+        "record_id": "place_vinpearl_safari",
+        "original": "ĐỪNG NHỒI CẢ HAI"
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.2.value",
+        "record_id": "place_vinpearl_safari",
+        "original": "Safari + VinWonders không phải lúc nào cũng hợp"
+      },
+      {
+        "loc": "place_vinpearl_safari/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.infographic.2.note",
+        "record_id": "place_vinpearl_safari",
+        "original": "Với trẻ nhỏ hoặc người lớn tuổi, cố gộp hai công viên trong một ngày dễ quá tải."
+      },
+      {
+        "loc": "place_vinpearl_safari/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.sections.0.heading",
+        "record_id": "place_vinpearl_safari",
+        "original": "Không chỉ là một sở thú truyền thống"
+      },
+      {
+        "loc": "place_vinpearl_safari/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.sections.0.body",
+        "record_id": "place_vinpearl_safari",
+        "original": "Trang vận hành chính thức mô tả Vinpearl Safari là công viên chăm sóc và bảo tồn động vật bán hoang dã, với khu xe buýt quan sát động vật, vườn thú mở và các khu theo nhóm loài."
+      },
+      {
+        "loc": "place_vinpearl_safari/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.sections.1.heading",
+        "record_id": "place_vinpearl_safari",
+        "original": "Nhịp đi quan trọng hơn số lượng khu đã check"
+      },
+      {
+        "loc": "place_vinpearl_safari/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.sections.1.body",
+        "record_id": "place_vinpearl_safari",
+        "original": "Nếu đi gia đình, nên nhìn sức đi bộ và nắng trong ngày. Một lịch ngắn nhưng có thời gian ngồi nghỉ thường dễ chịu hơn cố đi đủ mọi khu."
+      },
+      {
+        "loc": "place_vinpearl_safari/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.visitor_questions.0",
+        "record_id": "place_vinpearl_safari",
+        "original": "xe buýt bán hoang dã hiện mất khoảng bao lâu?"
+      },
+      {
+        "loc": "place_vinpearl_safari/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_vinpearl_safari.visitor_questions.1",
+        "record_id": "place_vinpearl_safari",
+        "original": "Show hoặc hoạt động nào hôm nay cần tới sớm?"
+      },
+      {
+        "loc": "place_grand_world/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.lede",
+        "record_id": "place_grand_world",
+        "original": "Grand World là một khu phố giải trí - mua sắm quy mô lớn ở Bắc đảo. Giá trị trải nghiệm phụ thuộc khá nhiều vào giờ đến, khu nào đang hoạt động và bạn có định xem show hay chỉ đi dạo."
+      },
+      {
+        "loc": "place_grand_world/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.0.label",
+        "record_id": "place_grand_world",
+        "original": "ĐI KHI NÀO?"
+      },
+      {
+        "loc": "place_grand_world/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.0.value",
+        "record_id": "place_grand_world",
+        "original": "Cuối chiều đến tối"
+      },
+      {
+        "loc": "place_grand_world/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.0.note",
+        "record_id": "place_grand_world",
+        "original": "Dễ chịu hơn về nhiệt độ và hợp với nhịp show, ánh sáng và ăn tối."
+      },
+      {
+        "loc": "place_grand_world/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.1.label",
+        "record_id": "place_grand_world",
+        "original": "CÓ GÌ?"
+      },
+      {
+        "loc": "place_grand_world/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.1.value",
+        "record_id": "place_grand_world",
+        "original": "Kênh Venice - bảo tàng - phố - show"
+      },
+      {
+        "loc": "place_grand_world/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.1.note",
+        "record_id": "place_grand_world",
+        "original": "Không cần cố đi hết. Chọn một trục phù hợp với thời gian của mình."
+      },
+      {
+        "loc": "place_grand_world/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.2.label",
+        "record_id": "place_grand_world",
+        "original": "CẦN BIẾT"
+      },
+      {
+        "loc": "place_grand_world/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.2.value",
+        "record_id": "place_grand_world",
+        "original": "Không mặc định mọi cửa hàng mở khuya"
+      },
+      {
+        "loc": "place_grand_world/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.infographic.2.note",
+        "record_id": "place_grand_world",
+        "original": "Khu rất rộng, nhưng mật độ hoạt động thực tế có thể thay đổi theo ngày và mùa."
+      },
+      {
+        "loc": "place_grand_world/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.sections.0.heading",
+        "record_id": "place_grand_world",
+        "original": "Một khu lớn cần đi có mục tiêu"
+      },
+      {
+        "loc": "place_grand_world/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.sections.0.body",
+        "record_id": "place_grand_world",
+        "original": "Website chính thức giới thiệu Grand World như tổ hợp giải trí và mua sắm với kênh Venice, thuyền gondola, bảo tàng và các chương trình biểu diễn. Nếu chỉ tới mà không biết muốn xem gì, rất dễ đi nhiều nhưng cảm thấy ít trải nghiệm."
+      },
+      {
+        "loc": "place_grand_world/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.sections.1.heading",
+        "record_id": "place_grand_world",
+        "original": "Chọn điểm dừng trước khi tới"
+      },
+      {
+        "loc": "place_grand_world/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.sections.1.body",
+        "record_id": "place_grand_world",
+        "original": "Nếu đi cùng trẻ nhỏ, bảo tàng hoặc hoạt động có cấu trúc rõ thường dễ hơn đi bộ kéo dài. Nếu đi cặp đôi, cuối chiều - tối hợp hơn để kết hợp ánh sáng, ăn uống và show."
+      },
+      {
+        "loc": "place_grand_world/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.visitor_questions.0",
+        "record_id": "place_grand_world",
+        "original": "Show nào đang chạy hôm nay?"
+      },
+      {
+        "loc": "place_grand_world/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_grand_world.visitor_questions.1",
+        "record_id": "place_grand_world",
+        "original": "Khu nào còn hoạt động muộn nhất tối nay?"
+      },
+      {
+        "loc": "place_cua_can/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.lede",
+        "record_id": "place_cua_can",
+        "original": "Cửa Cạn là một khu dân cư ven sông ở phía Tây Bắc Phú Quốc. Giá trị của nơi này nằm ở nhịp sông, nhà ven bờ và trải nghiệm chèo kayak/thuyền chậm hơn là một điểm check-in duy nhất."
+      },
+      {
+        "loc": "place_cua_can/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.0.label",
+        "record_id": "place_cua_can",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "place_cua_can/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.0.value",
+        "record_id": "place_cua_can",
+        "original": "Khu dân cư ven sông"
+      },
+      {
+        "loc": "place_cua_can/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.0.note",
+        "record_id": "place_cua_can",
+        "original": "Sông Cửa Cạn tạo ra một kiểu cảnh quan khác hẳn bãi biển: nhà ven bờ, cửa sông, rừng và sinh hoạt địa phương."
+      },
+      {
+        "loc": "place_cua_can/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.1.label",
+        "record_id": "place_cua_can",
+        "original": "TRẢI NGHIỆM"
+      },
+      {
+        "loc": "place_cua_can/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.1.value",
+        "record_id": "place_cua_can",
+        "original": "Kayak hoặc đi thuyền chậm"
+      },
+      {
+        "loc": "place_cua_can/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.1.note",
+        "record_id": "place_cua_can",
+        "original": "Đi chậm giúp nhìn đời sống ven sông rõ hơn chạy xe ghé vài phút rồi đi."
+      },
+      {
+        "loc": "place_cua_can/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.2.label",
+        "record_id": "place_cua_can",
+        "original": "CẦN BIẾT"
+      },
+      {
+        "loc": "place_cua_can/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.2.value",
+        "record_id": "place_cua_can",
+        "original": "Nước, mưa và gió làm trải nghiệm đổi khác"
+      },
+      {
+        "loc": "place_cua_can/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.infographic.2.note",
+        "record_id": "place_cua_can",
+        "original": "Hoạt động trên sông vẫn cần áo phao và kiểm tra điều kiện trong ngày."
+      },
+      {
+        "loc": "place_cua_can/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.sections.0.heading",
+        "record_id": "place_cua_can",
+        "original": "Một Phú Quốc không chỉ có biển"
+      },
+      {
+        "loc": "place_cua_can/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.sections.0.body",
+        "record_id": "place_cua_can",
+        "original": "Cửa Cạn cho thấy hệ sông và đời sống ven bờ của đảo. Một số hành trình địa phương kết hợp chèo kayak, đi thuyền và ăn uống quanh khu vực, phù hợp với người muốn đổi nhịp khỏi resort và bãi biển."
+      },
+      {
+        "loc": "place_cua_can/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.sections.1.heading",
+        "record_id": "place_cua_can",
+        "original": "Đi để quan sát, không cần cố biến thành tour phiêu lưu"
+      },
+      {
+        "loc": "place_cua_can/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.sections.1.body",
+        "record_id": "place_cua_can",
+        "original": "Nếu mới chèo kayak, nên chọn đoạn nước yên, mặc áo phao và đi cùng đơn vị có hướng dẫn. Trải nghiệm hay nhất thường nằm ở cảnh quan và nhịp sống hai bên bờ hơn là quãng đường đi được."
+      },
+      {
+        "loc": "place_cua_can/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.visitor_questions.0",
+        "record_id": "place_cua_can",
+        "original": "Mực nước và dòng chảy hôm nay có phù hợp cho người mới chèo không?"
+      },
+      {
+        "loc": "place_cua_can/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_cua_can.visitor_questions.1",
+        "record_id": "place_cua_can",
+        "original": "Áo phao và hướng dẫn an toàn đã bao gồm chưa?"
+      }
+    ],
+    "01_CHI_TIET_KHAM_PHA/TRUNG_TAM_BO_TAY.md": [
+      {
+        "loc": "place_dinh_cau/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.lede",
+        "record_id": "place_dinh_cau",
+        "original": "Dinh Cậu đáng ghé không phải vì đây là một điểm ngắm hoàng hôn, mà vì nó nằm đúng chỗ giao nhau giữa cửa sông, biển và đời sống tín ngưỡng của cư dân làm nghề biển ở Dương Đông."
+      },
+      {
+        "loc": "place_dinh_cau/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.0.label",
+        "record_id": "place_dinh_cau",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "place_dinh_cau/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.0.value",
+        "record_id": "place_dinh_cau",
+        "original": "Không gian tín ngưỡng ven biển"
+      },
+      {
+        "loc": "place_dinh_cau/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.0.note",
+        "record_id": "place_dinh_cau",
+        "original": "Một ngôi miếu nhỏ trên ghềnh đá cạnh cửa sông Dương Đông, gắn với niềm tin cầu bình an trước những chuyến ra khơi."
+      },
+      {
+        "loc": "place_dinh_cau/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.1.label",
+        "record_id": "place_dinh_cau",
+        "original": "VÌ SAO QUAN TRỌNG?"
+      },
+      {
+        "loc": "place_dinh_cau/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.1.value",
+        "record_id": "place_dinh_cau",
+        "original": "Một lát cắt của văn hóa biển"
+      },
+      {
+        "loc": "place_dinh_cau/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.1.note",
+        "record_id": "place_dinh_cau",
+        "original": "Nguồn du lịch địa phương ghi nhận Dinh Cậu đã hiện diện qua nhiều thế hệ và trở thành một điểm tựa tinh thần quen thuộc của cư dân đảo."
+      },
+      {
+        "loc": "place_dinh_cau/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.2.label",
+        "record_id": "place_dinh_cau",
+        "original": "NHÌN GÌ?"
+      },
+      {
+        "loc": "place_dinh_cau/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.2.value",
+        "record_id": "place_dinh_cau",
+        "original": "Ghềnh đá - cửa sông - không gian thờ"
+      },
+      {
+        "loc": "place_dinh_cau/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.infographic.2.note",
+        "record_id": "place_dinh_cau",
+        "original": "Đừng chỉ nhìn ra biển. Hãy để ý cách một nơi thờ tự nhỏ nằm sát hoạt động tàu thuyền và nhịp sống Dương Đông."
+      },
+      {
+        "loc": "place_dinh_cau/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.sections.0.heading",
+        "record_id": "place_dinh_cau",
+        "original": "Một nơi nên đọc bằng bối cảnh"
+      },
+      {
+        "loc": "place_dinh_cau/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.sections.0.body",
+        "record_id": "place_dinh_cau",
+        "original": "Các nguồn du lịch địa phương đặt lịch sử Dinh Cậu từ khoảng thế kỷ XVII, sau đó công trình được xây dựng kiên cố hơn vào năm 1937 và trùng tu vào năm 1997. Những mốc này nên được hiểu như phần lịch sử của một nơi thờ tự đã sống cùng cộng đồng cư dân biển qua nhiều thế hệ, không phải chỉ là một “điểm check-in”."
+      },
+      {
+        "loc": "place_dinh_cau/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.sections.1.heading",
+        "record_id": "place_dinh_cau",
+        "original": "Đi như khách nhưng cư xử như đang vào nơi thờ tự"
+      },
+      {
+        "loc": "place_dinh_cau/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.sections.1.body",
+        "record_id": "place_dinh_cau",
+        "original": "Dinh Cậu vẫn là không gian tín ngưỡng. Khi vào khu thờ, nên ăn mặc gọn gàng, nói nhỏ, không chắn lối hành lễ và không xem bậc thềm hay ban thờ như đạo cụ chụp ảnh."
+      },
+      {
+        "loc": "place_dinh_cau/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.visitor_questions.0",
+        "record_id": "place_dinh_cau",
+        "original": "Có nghi lễ hoặc thời điểm thờ cúng nào đang diễn ra không?"
+      },
+      {
+        "loc": "place_dinh_cau/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_dinh_cau.visitor_questions.1",
+        "record_id": "place_dinh_cau",
+        "original": "Khu vực nào nên tránh đứng lâu để không cản người hành lễ?"
+      },
+      {
+        "loc": "place_night_market/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.lede",
+        "record_id": "place_night_market",
+        "original": "Chợ đêm Dương Đông là nơi dễ cảm nhận nhịp ăn uống và mua sắm buổi tối ở trung tâm đảo. Điểm đáng giá không phải ăn thật nhiều, mà là biết mình đang mua gì, giá tính theo cách nào và thử vài món đúng khẩu vị."
+      },
+      {
+        "loc": "place_night_market/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.0.label",
+        "record_id": "place_night_market",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "place_night_market/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.0.value",
+        "record_id": "place_night_market",
+        "original": "Khu ăn uống - mua sắm buổi tối"
+      },
+      {
+        "loc": "place_night_market/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.0.note",
+        "record_id": "place_night_market",
+        "original": "Chợ nằm ở khu Bạch Đằng, trung tâm Dương Đông và tập trung nhiều quầy hải sản, đặc sản, đồ ăn vặt và quà lưu niệm."
+      },
+      {
+        "loc": "place_night_market/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.1.label",
+        "record_id": "place_night_market",
+        "original": "ĂN HẢI SẢN"
+      },
+      {
+        "loc": "place_night_market/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.1.value",
+        "record_id": "place_night_market",
+        "original": "Hỏi giá và đơn vị tính trước"
+      },
+      {
+        "loc": "place_night_market/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.1.note",
+        "record_id": "place_night_market",
+        "original": "Món theo cân, kích cỡ hoặc có phí chế biến cần chốt rõ trước khi gọi."
+      },
+      {
+        "loc": "place_night_market/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.2.label",
+        "record_id": "place_night_market",
+        "original": "ĐI THẾ NÀO?"
+      },
+      {
+        "loc": "place_night_market/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.2.value",
+        "record_id": "place_night_market",
+        "original": "Ăn vừa đủ rồi đi bộ tiếp"
+      },
+      {
+        "loc": "place_night_market/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.infographic.2.note",
+        "record_id": "place_night_market",
+        "original": "Có thể ghép Dinh Cậu, cửa sông và phố quanh trung tâm thay vì coi chợ là toàn bộ buổi tối."
+      },
+      {
+        "loc": "place_night_market/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.sections.0.heading",
+        "record_id": "place_night_market",
+        "original": "Chợ đêm là một lát cắt của Dương Đông về tối"
+      },
+      {
+        "loc": "place_night_market/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.sections.0.body",
+        "record_id": "place_night_market",
+        "original": "Nguồn du lịch địa phương mô tả chợ hiện nay hình thành từ sự kết hợp của chợ đêm Dinh Cậu và chợ Bạch Đằng cũ. Khu đầu chợ thiên về đồ ăn, hải sản và đặc sản; các khu sau có thêm quà lưu niệm và hàng thủ công."
+      },
+      {
+        "loc": "place_night_market/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.sections.1.heading",
+        "record_id": "place_night_market",
+        "original": "Khách quốc tế nên hỏi thành phần trước khi thử món lạ"
+      },
+      {
+        "loc": "place_night_market/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.sections.1.body",
+        "record_id": "place_night_market",
+        "original": "Nước chấm, sa tế, sốt ướp và topping có thể chứa cá, tôm, nhuyễn thể, đậu phộng hoặc đậu nành. Nếu có dị ứng, nên hỏi trực tiếp từng quầy vì công thức và dụng cụ chế biến khác nhau."
+      },
+      {
+        "loc": "place_night_market/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.visitor_questions.0",
+        "record_id": "place_night_market",
+        "original": "Món này tính theo phần hay theo cân?"
+      },
+      {
+        "loc": "place_night_market/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.visitor_questions.1",
+        "record_id": "place_night_market",
+        "original": "Sốt hoặc nước chấm có đậu phộng, tôm hay cá không?"
+      },
+      {
+        "loc": "place_night_market/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_night_market.visitor_questions.2",
+        "record_id": "place_night_market",
+        "original": "Giá đã gồm phí chế biến chưa?"
+      },
+      {
+        "loc": "place_bai_truong/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.lede",
+        "record_id": "place_bai_truong",
+        "original": "Bãi Trường không phải một bãi nhỏ có một cổng vào duy nhất. Đây là dải bờ biển rất dài ở phía Tây đảo, gồm nhiều đoạn bãi, resort, nhà hàng và điểm ngắm hoàng hôn khác nhau."
+      },
+      {
+        "loc": "place_bai_truong/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.0.label",
+        "record_id": "place_bai_truong",
+        "original": "QUY MÔ"
+      },
+      {
+        "loc": "place_bai_truong/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.0.value",
+        "record_id": "place_bai_truong",
+        "original": "Dải bờ Tây dài gần 20 km"
+      },
+      {
+        "loc": "place_bai_truong/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.0.note",
+        "record_id": "place_bai_truong",
+        "original": "Vì rất dài, trải nghiệm ở hai đoạn Bãi Trường có thể khác nhau rõ rệt."
+      },
+      {
+        "loc": "place_bai_truong/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.1.label",
+        "record_id": "place_bai_truong",
+        "original": "ĐI VÌ GÌ?"
+      },
+      {
+        "loc": "place_bai_truong/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.1.value",
+        "record_id": "place_bai_truong",
+        "original": "Hoàng hôn + nghỉ dưỡng + tiện di chuyển"
+      },
+      {
+        "loc": "place_bai_truong/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.1.note",
+        "record_id": "place_bai_truong",
+        "original": "Khu này gần sân bay và có mật độ khách sạn, nhà hàng, resort cao."
+      },
+      {
+        "loc": "place_bai_truong/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.2.label",
+        "record_id": "place_bai_truong",
+        "original": "CẦN CHỌN"
+      },
+      {
+        "loc": "place_bai_truong/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.2.value",
+        "record_id": "place_bai_truong",
+        "original": "Chọn đúng đoạn bãi"
+      },
+      {
+        "loc": "place_bai_truong/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.infographic.2.note",
+        "record_id": "place_bai_truong",
+        "original": "Đừng tìm 'Bãi Trường' như một pin duy nhất rồi mặc định đó là chỗ đẹp nhất."
+      },
+      {
+        "loc": "place_bai_truong/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.sections.0.heading",
+        "record_id": "place_bai_truong",
+        "original": "Tên một bãi nhưng thực tế là cả một dải bờ biển"
+      },
+      {
+        "loc": "place_bai_truong/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.sections.0.body",
+        "record_id": "place_bai_truong",
+        "original": "Các nguồn du lịch địa phương mô tả Bãi Trường trải dài gần 20 km dọc bờ Tây Nam Phú Quốc. Vì vậy, chất lượng bãi, mật độ dịch vụ, lối xuống biển và mức độ riêng tư khác nhau theo từng đoạn."
+      },
+      {
+        "loc": "place_bai_truong/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.sections.1.heading",
+        "record_id": "place_bai_truong",
+        "original": "Hoàng hôn là thế mạnh, nhưng bãi hôm đó vẫn phụ thuộc thời tiết"
+      },
+      {
+        "loc": "place_bai_truong/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.sections.1.body",
+        "record_id": "place_bai_truong",
+        "original": "Bờ Tây thuận hướng ngắm hoàng hôn. Tuy nhiên màu trời, sóng, rong và tình trạng bãi thay đổi theo mùa và thời tiết, nên ảnh đẹp của một ngày không đại diện cho toàn bộ dải bờ biển."
+      },
+      {
+        "loc": "place_bai_truong/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.visitor_questions.0",
+        "record_id": "place_bai_truong",
+        "original": "Đoạn bãi này có lối công cộng hay thuộc cơ sở lưu trú?"
+      },
+      {
+        "loc": "place_bai_truong/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_truong.visitor_questions.1",
+        "record_id": "place_bai_truong",
+        "original": "Hôm nay khu nào thuận để tắm và ngắm hoàng hôn?"
+      },
+      {
+        "loc": "place_suoi_tranh/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.lede",
+        "record_id": "place_suoi_tranh",
+        "original": "Suối Tranh là điểm thiên nhiên gần trung tâm nhưng trải nghiệm phụ thuộc rất mạnh vào mùa nước. Cùng một con suối có thể trông hoàn toàn khác giữa mùa mưa và thời kỳ khô."
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.0.label",
+        "record_id": "place_suoi_tranh",
+        "original": "ĐIỂM QUYẾT ĐỊNH"
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.0.value",
+        "record_id": "place_suoi_tranh",
+        "original": "Có nước hay không"
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.0.note",
+        "record_id": "place_suoi_tranh",
+        "original": "Mùa mưa thường nhiều nước hơn; ảnh thác đầy nước không đại diện cho mọi tháng."
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.1.label",
+        "record_id": "place_suoi_tranh",
+        "original": "CẦN MANG"
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.1.value",
+        "record_id": "place_suoi_tranh",
+        "original": "Giày có độ bám"
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.1.note",
+        "record_id": "place_suoi_tranh",
+        "original": "Đá ướt và đường rừng dễ trơn sau mưa."
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.2.label",
+        "record_id": "place_suoi_tranh",
+        "original": "HỢP KHI"
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.2.value",
+        "record_id": "place_suoi_tranh",
+        "original": "Muốn đổi nhịp khỏi biển"
+      },
+      {
+        "loc": "place_suoi_tranh/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.infographic.2.note",
+        "record_id": "place_suoi_tranh",
+        "original": "Từ Dương Đông có thể ghé nửa buổi thay vì dành trọn ngày."
+      },
+      {
+        "loc": "place_suoi_tranh/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.sections.0.heading",
+        "record_id": "place_suoi_tranh",
+        "original": "Một điểm phải xem mùa trước khi xem ảnh"
+      },
+      {
+        "loc": "place_suoi_tranh/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.sections.0.body",
+        "record_id": "place_suoi_tranh",
+        "original": "Nguồn du lịch địa phương nhấn mạnh giai đoạn có mưa là lúc dòng suối rõ và cảnh quan xanh hơn. Vì vậy Open Phu Quoc không dùng một bức ảnh nhiều nước để hứa rằng hiện trường luôn như vậy."
+      },
+      {
+        "loc": "place_suoi_tranh/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.sections.1.heading",
+        "record_id": "place_suoi_tranh",
+        "original": "Sau mưa đẹp hơn nhưng cũng trơn hơn"
+      },
+      {
+        "loc": "place_suoi_tranh/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.sections.1.body",
+        "record_id": "place_suoi_tranh",
+        "original": "Lượng nước tăng làm cảnh quan hấp dẫn hơn nhưng bề mặt đá và đường tiếp cận cũng có thể trơn. Với trẻ nhỏ hoặc người lớn tuổi, nên cân nhắc quãng đi bộ và điều kiện ngay hôm đó."
+      },
+      {
+        "loc": "place_suoi_tranh/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.visitor_questions.0",
+        "record_id": "place_suoi_tranh",
+        "original": "Hôm nay suối có nhiều nước không?"
+      },
+      {
+        "loc": "place_suoi_tranh/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_suoi_tranh.visitor_questions.1",
+        "record_id": "place_suoi_tranh",
+        "original": "Đường đi bộ sau mưa có trơn hoặc khu vực nào đang hạn chế không?"
+      }
+    ],
+    "01_CHI_TIET_KHAM_PHA/NAM_DAO_1.md": [
+      {
+        "loc": "place_ho_quoc/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.lede",
+        "record_id": "place_ho_quoc",
+        "original": "Hộ Quốc là một thiền viện Trúc Lâm nằm ở Suối Lớn, nơi kiến trúc, sườn núi và tầm nhìn ra biển tạo nên trải nghiệm hoàn toàn khác các điểm vui chơi ở Nam đảo."
+      },
+      {
+        "loc": "place_ho_quoc/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.0.label",
+        "record_id": "place_ho_quoc",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "place_ho_quoc/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.0.value",
+        "record_id": "place_ho_quoc",
+        "original": "Thiền viện Trúc Lâm Hộ Quốc"
+      },
+      {
+        "loc": "place_ho_quoc/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.0.note",
+        "record_id": "place_ho_quoc",
+        "original": "Một không gian Phật giáo lớn ở Phú Quốc, nằm tại khu Suối Lớn."
+      },
+      {
+        "loc": "place_ho_quoc/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.1.label",
+        "record_id": "place_ho_quoc",
+        "original": "CẢNH QUAN"
+      },
+      {
+        "loc": "place_ho_quoc/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.1.value",
+        "record_id": "place_ho_quoc",
+        "original": "Lưng núi - mặt biển"
+      },
+      {
+        "loc": "place_ho_quoc/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.1.note",
+        "record_id": "place_ho_quoc",
+        "original": "Nguồn du lịch địa phương mô tả vị thế “tựa sơn hướng hải”, một phần quan trọng tạo nên cảm giác của nơi này."
+      },
+      {
+        "loc": "place_ho_quoc/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.2.label",
+        "record_id": "place_ho_quoc",
+        "original": "CÁCH GHÉ"
+      },
+      {
+        "loc": "place_ho_quoc/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.2.value",
+        "record_id": "place_ho_quoc",
+        "original": "Đi chậm và giữ sự tôn trọng"
+      },
+      {
+        "loc": "place_ho_quoc/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.infographic.2.note",
+        "record_id": "place_ho_quoc",
+        "original": "Hợp để ghé buổi sáng hoặc khi muốn có một khoảng lặng giữa các điểm vui chơi."
+      },
+      {
+        "loc": "place_ho_quoc/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.sections.0.heading",
+        "record_id": "place_ho_quoc",
+        "original": "Không chỉ là một điểm có view đẹp"
+      },
+      {
+        "loc": "place_ho_quoc/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.sections.0.body",
+        "record_id": "place_ho_quoc",
+        "original": "Thiền viện Trúc Lâm Hộ Quốc nằm tại ấp Suối Lớn. Cảnh quan núi phía sau và biển phía trước khiến nhiều người đến đây vì tầm nhìn, nhưng đây trước hết vẫn là một không gian tôn giáo đang được sử dụng."
+      },
+      {
+        "loc": "place_ho_quoc/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.sections.1.heading",
+        "record_id": "place_ho_quoc",
+        "original": "Ứng xử quan trọng hơn việc tìm góc chụp"
+      },
+      {
+        "loc": "place_ho_quoc/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.sections.1.body",
+        "record_id": "place_ho_quoc",
+        "original": "Nên mặc trang phục kín đáo, nói nhỏ, tránh chụp sát người đang hành lễ và không bước vào khu vực có chỉ dẫn hạn chế. Nếu đi cùng trẻ nhỏ, nên giải thích trước đây là nơi thờ tự chứ không phải điểm vui chơi."
+      },
+      {
+        "loc": "place_ho_quoc/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.visitor_questions.0",
+        "record_id": "place_ho_quoc",
+        "original": "Khu vực nào đang có lễ hoặc cần giữ yên lặng?"
+      },
+      {
+        "loc": "place_ho_quoc/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_ho_quoc.visitor_questions.1",
+        "record_id": "place_ho_quoc",
+        "original": "Có khu vực nào không nên chụp ảnh không?"
+      },
+      {
+        "loc": "place_phu_quoc_prison/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.lede",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Nhà tù Phú Quốc là một di tích lịch sử nhạy cảm. Đây không phải một điểm “tham quan cho đủ”, mà là nơi cần thời gian đọc bối cảnh trước khi nhìn các mô hình tái hiện."
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.0.label",
+        "record_id": "place_phu_quoc_prison",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.0.value",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Di tích lịch sử về hệ thống trại giam thời chiến"
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.0.note",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Nơi lưu giữ ký ức về tù binh và những điều kiện giam giữ khắc nghiệt trong các giai đoạn chiến tranh."
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.1.label",
+        "record_id": "place_phu_quoc_prison",
+        "original": "NÊN ĐỌC THẾ NÀO?"
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.1.value",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Bối cảnh trước - mô hình sau"
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.1.note",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Các con số và mốc thành lập khác nhau giữa một số nguồn phổ thông. Open Phu Quoc tránh rút gọn lịch sử thành một mốc duy nhất khi chưa đối chiếu hồ sơ gốc."
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.2.label",
+        "record_id": "place_phu_quoc_prison",
+        "original": "ỨNG XỬ"
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.2.value",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Đây là nơi tưởng niệm"
+      },
+      {
+        "loc": "place_phu_quoc_prison/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.infographic.2.note",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Không nên tạo dáng đùa cợt trong khu tái hiện tra tấn hoặc biến các hiện vật thành phông chụp ảnh."
+      },
+      {
+        "loc": "place_phu_quoc_prison/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.sections.0.heading",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Một nơi có nhiều lớp lịch sử"
+      },
+      {
+        "loc": "place_phu_quoc_prison/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.sections.0.body",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Các nguồn công khai mô tả khu trại giam tại Phú Quốc qua nhiều giai đoạn khác nhau và không hoàn toàn thống nhất về năm bắt đầu. Điều chắc chắn là địa điểm này gắn với hệ thống giam giữ quy mô lớn trong thời chiến và được công nhận là di tích lịch sử quốc gia trong thập niên 1990."
+      },
+      {
+        "loc": "place_phu_quoc_prison/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.sections.1.heading",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Nên dành thời gian đọc bảng thông tin"
+      },
+      {
+        "loc": "place_phu_quoc_prison/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.sections.1.body",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Các mô hình tái hiện rất trực diện. Nếu chỉ đi qua nhanh, người xem dễ nhớ phần gây sốc mà bỏ qua bối cảnh lịch sử. Nên đọc phần giới thiệu, sơ đồ khu trại và các tài liệu tại chỗ trước khi đi sâu vào khu tái hiện."
+      },
+      {
+        "loc": "place_phu_quoc_prison/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.visitor_questions.0",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Có thuyết minh hoặc tài liệu tiếng Anh nào tại điểm không?"
+      },
+      {
+        "loc": "place_phu_quoc_prison/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_phu_quoc_prison.visitor_questions.1",
+        "record_id": "place_phu_quoc_prison",
+        "original": "Khu nào phù hợp nếu đi cùng trẻ nhỏ hoặc người nhạy cảm với nội dung bạo lực?"
+      },
+      {
+        "loc": "place_bai_khem/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.lede",
+        "record_id": "place_bai_khem",
+        "original": "Bãi Khem là một dải biển Nam đảo gần An Thới, nổi bật bởi cát sáng màu, vịnh cong và không gian resort. Cần phân biệt phần bãi công cộng, lối tiếp cận và khu vực thuộc các cơ sở lưu trú."
+      },
+      {
+        "loc": "place_bai_khem/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.0.label",
+        "record_id": "place_bai_khem",
+        "original": "Ở ĐÂU?"
+      },
+      {
+        "loc": "place_bai_khem/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.0.value",
+        "record_id": "place_bai_khem",
+        "original": "Nam đảo - khu An Thới"
+      },
+      {
+        "loc": "place_bai_khem/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.0.note",
+        "record_id": "place_bai_khem",
+        "original": "Nguồn du lịch địa phương mô tả Bãi Khem nằm phía Nam Phú Quốc, cách trung tâm Dương Đông khoảng 25 km."
+      },
+      {
+        "loc": "place_bai_khem/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.1.label",
+        "record_id": "place_bai_khem",
+        "original": "HỢP VỚI AI?"
+      },
+      {
+        "loc": "place_bai_khem/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.1.value",
+        "record_id": "place_bai_khem",
+        "original": "Muốn một buổi biển nhẹ nhàng"
+      },
+      {
+        "loc": "place_bai_khem/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.1.note",
+        "record_id": "place_bai_khem",
+        "original": "Hợp để ghép với các điểm Nam đảo thay vì chạy ngược lên Bắc trong cùng ngày."
+      },
+      {
+        "loc": "place_bai_khem/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.2.label",
+        "record_id": "place_bai_khem",
+        "original": "CẦN BIẾT"
+      },
+      {
+        "loc": "place_bai_khem/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.2.value",
+        "record_id": "place_bai_khem",
+        "original": "Lối vào và khu sử dụng có thể khác nhau"
+      },
+      {
+        "loc": "place_bai_khem/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.infographic.2.note",
+        "record_id": "place_bai_khem",
+        "original": "Một phần bãi gắn với khu nghỉ dưỡng. Nên kiểm tra lối tiếp cận phù hợp trước khi đi."
+      },
+      {
+        "loc": "place_bai_khem/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.sections.0.heading",
+        "record_id": "place_bai_khem",
+        "original": "Đẹp nhất khi coi đây là một phần của ngày Nam đảo"
+      },
+      {
+        "loc": "place_bai_khem/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.sections.0.body",
+        "record_id": "place_bai_khem",
+        "original": "Bãi Khem nằm gần An Thới và thuận để ghép với Hộ Quốc, Nhà tù Phú Quốc hoặc các điểm phía Nam. Giá trị của nó nằm ở bãi biển và nhịp nghỉ, không phải ở việc cố gom thêm nhiều điểm sau đó."
+      },
+      {
+        "loc": "place_bai_khem/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.sections.1.heading",
+        "record_id": "place_bai_khem",
+        "original": "Đừng mặc định toàn bộ bãi vận hành như một bãi công cộng duy nhất"
+      },
+      {
+        "loc": "place_bai_khem/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.sections.1.body",
+        "record_id": "place_bai_khem",
+        "original": "Khu vực có nhiều cơ sở lưu trú và lối tiếp cận khác nhau. Trước khi đi, nên xác định mình đang vào khu nào, gửi xe ở đâu và có yêu cầu sử dụng dịch vụ hay không."
+      },
+      {
+        "loc": "place_bai_khem/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.visitor_questions.0",
+        "record_id": "place_bai_khem",
+        "original": "Lối vào nào đang mở cho khách không lưu trú?"
+      },
+      {
+        "loc": "place_bai_khem/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_khem.visitor_questions.1",
+        "record_id": "place_bai_khem",
+        "original": "Khu vực nào có thể tắm biển và gửi xe thuận tiện?"
+      },
+      {
+        "loc": "activity_hon_thom/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.lede",
+        "record_id": "activity_hon_thom",
+        "original": "Hòn Thơm không chỉ là một chuyến cáp treo. Cáp treo là cách tiếp cận một đảo lớn trong quần đảo An Thới, nơi hiện có công viên nước, khu vui chơi và các bãi biển."
+      },
+      {
+        "loc": "activity_hon_thom/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.0.label",
+        "record_id": "activity_hon_thom",
+        "original": "HÀNH TRÌNH"
+      },
+      {
+        "loc": "activity_hon_thom/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.0.value",
+        "record_id": "activity_hon_thom",
+        "original": "Ga An Thới → cáp treo → Hòn Thơm"
+      },
+      {
+        "loc": "activity_hon_thom/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.0.note",
+        "record_id": "activity_hon_thom",
+        "original": "Cáp treo là một phần của trải nghiệm, không phải toàn bộ ngày đi Hòn Thơm."
+      },
+      {
+        "loc": "activity_hon_thom/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.1.label",
+        "record_id": "activity_hon_thom",
+        "original": "TRÊN ĐẢO CÓ GÌ?"
+      },
+      {
+        "loc": "activity_hon_thom/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.1.value",
+        "record_id": "activity_hon_thom",
+        "original": "Aquatopia - Exotica - bãi biển"
+      },
+      {
+        "loc": "activity_hon_thom/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.1.note",
+        "record_id": "activity_hon_thom",
+        "original": "Nên chọn trước thứ mình ưu tiên thay vì cố làm tất cả trong vài giờ."
+      },
+      {
+        "loc": "activity_hon_thom/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.2.label",
+        "record_id": "activity_hon_thom",
+        "original": "CẦN KIỂM TRA"
+      },
+      {
+        "loc": "activity_hon_thom/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.2.value",
+        "record_id": "activity_hon_thom",
+        "original": "Giờ cáp, quyền lợi vé và thời tiết"
+      },
+      {
+        "loc": "activity_hon_thom/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.infographic.2.note",
+        "record_id": "activity_hon_thom",
+        "original": "Lịch vận hành, combo và điều kiện biển có thể thay đổi theo ngày."
+      },
+      {
+        "loc": "activity_hon_thom/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.sections.0.heading",
+        "record_id": "activity_hon_thom",
+        "original": "Hiểu đúng: Hòn Thơm là một hòn đảo, không phải tên của tuyến cáp treo"
+      },
+      {
+        "loc": "activity_hon_thom/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.sections.0.body",
+        "record_id": "activity_hon_thom",
+        "original": "Hòn Thơm nằm trong quần đảo An Thới và là một trong những đảo lớn nhất ở khu vực này. Cáp treo nối từ An Thới ra Hòn Thơm giúp việc tiếp cận thuận tiện hơn, nhưng trải nghiệm trên đảo còn gồm công viên nước Aquatopia, Exotica và các khu vực biển."
+      },
+      {
+        "loc": "activity_hon_thom/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.sections.1.heading",
+        "record_id": "activity_hon_thom",
+        "original": "Một ngày tốt thường bắt đầu từ việc chọn ưu tiên"
+      },
+      {
+        "loc": "activity_hon_thom/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.sections.1.body",
+        "record_id": "activity_hon_thom",
+        "original": "Nếu đi gia đình có trẻ nhỏ, Aquatopia có thể là trục chính. Nếu muốn biển và ngắm cảnh, đừng để toàn bộ thời gian bị hút vào trò chơi. Với vé combo, hãy đọc rõ quyền lợi trước khi mua vì không phải mọi gói đều giống nhau."
+      },
+      {
+        "loc": "activity_hon_thom/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.visitor_questions.0",
+        "record_id": "activity_hon_thom",
+        "original": "Vé hôm nay bao gồm những khu nào?"
+      },
+      {
+        "loc": "activity_hon_thom/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.visitor_questions.1",
+        "record_id": "activity_hon_thom",
+        "original": "Chuyến cáp cuối về An Thới lúc mấy giờ?"
+      },
+      {
+        "loc": "activity_hon_thom/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_hon_thom.visitor_questions.2",
+        "record_id": "activity_hon_thom",
+        "original": "Trò nào có giới hạn chiều cao hoặc điều kiện sức khỏe?"
+      },
+      {
+        "loc": "place_sunset_town/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.lede",
+        "record_id": "place_sunset_town",
+        "original": "Sunset Town là một cụm đô thị - giải trí ở bờ Tây Nam đảo, không phải một điểm đơn lẻ. Cách đi hợp lý nhất là chọn một trục buổi chiều - tối rồi nối Cầu Hôn, ăn uống và show theo đúng giờ."
+      },
+      {
+        "loc": "place_sunset_town/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.0.label",
+        "record_id": "place_sunset_town",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "place_sunset_town/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.0.value",
+        "record_id": "place_sunset_town",
+        "original": "Cụm trải nghiệm Nam đảo"
+      },
+      {
+        "loc": "place_sunset_town/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.0.note",
+        "record_id": "place_sunset_town",
+        "original": "Kiến trúc ven biển, ga cáp treo, Cầu Hôn, phố đi bộ, ăn uống và show nằm trong cùng một hệ sinh thái."
+      },
+      {
+        "loc": "place_sunset_town/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.1.label",
+        "record_id": "place_sunset_town",
+        "original": "ĐI KHI NÀO?"
+      },
+      {
+        "loc": "place_sunset_town/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.1.value",
+        "record_id": "place_sunset_town",
+        "original": "Cuối chiều đến tối"
+      },
+      {
+        "loc": "place_sunset_town/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.1.note",
+        "record_id": "place_sunset_town",
+        "original": "Đi sớm hơn hoàng hôn một chút để có thời gian đi bộ, tìm chỗ và không phải chạy giữa các mốc giờ."
+      },
+      {
+        "loc": "place_sunset_town/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.2.label",
+        "record_id": "place_sunset_town",
+        "original": "ĐỪNG NHỒI LỊCH"
+      },
+      {
+        "loc": "place_sunset_town/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.2.value",
+        "record_id": "place_sunset_town",
+        "original": "Chọn 2-3 điểm chính"
+      },
+      {
+        "loc": "place_sunset_town/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.infographic.2.note",
+        "record_id": "place_sunset_town",
+        "original": "Khoảng cách đi bộ và giờ show khiến việc cố gom mọi thứ trong một tối dễ thành chạy điểm."
+      },
+      {
+        "loc": "place_sunset_town/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.sections.0.heading",
+        "record_id": "place_sunset_town",
+        "original": "Hiểu đúng để đỡ mệt"
+      },
+      {
+        "loc": "place_sunset_town/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.sections.0.body",
+        "record_id": "place_sunset_town",
+        "original": "Sunset Town nằm ở bờ Tây Nam Phú Quốc và hiện là một cụm lớn gồm cảnh quan đô thị, Cầu Hôn, khu cáp treo Hòn Thơm, các show và nhiều điểm ăn uống. Với khách lần đầu, nên coi đây là một buổi chiều - tối hoàn chỉnh hơn là một điểm chụp ảnh."
+      },
+      {
+        "loc": "place_sunset_town/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.sections.1.heading",
+        "record_id": "place_sunset_town",
+        "original": "Hoàng hôn chỉ là một mốc trong cả buổi"
+      },
+      {
+        "loc": "place_sunset_town/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.sections.1.body",
+        "record_id": "place_sunset_town",
+        "original": "Nếu mục tiêu là Cầu Hôn hoặc show tối, hãy dựng lịch ngược từ giờ biểu diễn rồi mới chèn ăn uống và đi bộ. Cách này dễ chịu hơn nhiều so với tới nơi rồi mới quyết định từng điểm."
+      },
+      {
+        "loc": "place_sunset_town/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.visitor_questions.0",
+        "record_id": "place_sunset_town",
+        "original": "Show tối nay chạy lúc nào và có thay đổi do thời tiết không?"
+      },
+      {
+        "loc": "place_sunset_town/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_sunset_town.visitor_questions.1",
+        "record_id": "place_sunset_town",
+        "original": "Điểm đón xe về sau show thuận nhất ở đâu?"
+      },
+      {
+        "loc": "place_kiss_bridge/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.lede",
+        "record_id": "place_kiss_bridge",
+        "original": "Cầu Hôn được thiết kế như một công trình đi bộ ngắm biển và hoàng hôn với hai nhánh không chạm nhau. Trải nghiệm tốt phụ thuộc khá nhiều vào giờ nắng, mật độ khách và cách ghép với cả buổi tối ở Sunset Town."
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.0.label",
+        "record_id": "place_kiss_bridge",
+        "original": "ĐIỂM KHÁC BIỆT"
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.0.value",
+        "record_id": "place_kiss_bridge",
+        "original": "Hai nhánh cầu không chạm nhau"
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.0.note",
+        "record_id": "place_kiss_bridge",
+        "original": "Khoảng hở ở giữa là chủ ý thiết kế, không phải một đoạn cầu bị thiếu."
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.1.label",
+        "record_id": "place_kiss_bridge",
+        "original": "LÚC ĐẸP"
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.1.value",
+        "record_id": "place_kiss_bridge",
+        "original": "Cuối chiều"
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.1.note",
+        "record_id": "place_kiss_bridge",
+        "original": "Ánh sáng hoàng hôn làm thay đổi rõ cảm giác của công trình và ảnh chụp."
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.2.label",
+        "record_id": "place_kiss_bridge",
+        "original": "GHÉP CÙNG"
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.2.value",
+        "record_id": "place_kiss_bridge",
+        "original": "Sunset Town + show tối"
+      },
+      {
+        "loc": "place_kiss_bridge/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.infographic.2.note",
+        "record_id": "place_kiss_bridge",
+        "original": "Hợp để làm mốc chuyển từ chiều sang tối thay vì đi riêng chỉ 20-30 phút."
+      },
+      {
+        "loc": "place_kiss_bridge/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.sections.0.heading",
+        "record_id": "place_kiss_bridge",
+        "original": "Một công trình được xây quanh ý niệm khoảng cách và kết nối"
+      },
+      {
+        "loc": "place_kiss_bridge/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.sections.0.body",
+        "record_id": "place_kiss_bridge",
+        "original": "Cầu Hôn nằm tại Sunset Town, gồm hai nhánh vươn ra biển nhưng để lại một khoảng hở nhỏ ở điểm cuối. Đây là phần cốt lõi của hình thức kiến trúc và câu chuyện biểu tượng của công trình."
+      },
+      {
+        "loc": "place_kiss_bridge/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.sections.1.heading",
+        "record_id": "place_kiss_bridge",
+        "original": "Đừng mặc định giá và quyền vào luôn giống nhau"
+      },
+      {
+        "loc": "place_kiss_bridge/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.sections.1.body",
+        "record_id": "place_kiss_bridge",
+        "original": "Cách bán vé, combo và quyền lợi có thể thay đổi theo thời điểm. Trước khi đi, nên kiểm tra đúng ngày thay vì dựa vào ảnh chụp giá cũ trên mạng."
+      },
+      {
+        "loc": "place_kiss_bridge/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.visitor_questions.0",
+        "record_id": "place_kiss_bridge",
+        "original": "Hôm nay Cầu Hôn mở tới mấy giờ?"
+      },
+      {
+        "loc": "place_kiss_bridge/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_kiss_bridge.visitor_questions.1",
+        "record_id": "place_kiss_bridge",
+        "original": "Vé hoặc combo hôm nay bao gồm những quyền lợi nào?"
+      },
+      {
+        "loc": "place_bai_sao/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.lede",
+        "record_id": "place_bai_sao",
+        "original": "Bãi Sao là một bãi biển Nam đảo nổi tiếng từ rất sớm trong du lịch Phú Quốc. Điều đáng nhớ là màu nước, cát sáng và nhịp biển thay đổi mạnh theo mùa, nắng và gió."
+      },
+      {
+        "loc": "place_bai_sao/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.0.label",
+        "record_id": "place_bai_sao",
+        "original": "HỢP KHI"
+      },
+      {
+        "loc": "place_bai_sao/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.0.value",
+        "record_id": "place_bai_sao",
+        "original": "Muốn một buổi biển Nam đảo"
+      },
+      {
+        "loc": "place_bai_sao/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.0.note",
+        "record_id": "place_bai_sao",
+        "original": "Dễ ghép cùng Hộ Quốc, Nhà tù Phú Quốc hoặc Bãi Khem."
+      },
+      {
+        "loc": "place_bai_sao/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.1.label",
+        "record_id": "place_bai_sao",
+        "original": "MÀU NƯỚC"
+      },
+      {
+        "loc": "place_bai_sao/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.1.value",
+        "record_id": "place_bai_sao",
+        "original": "Phụ thuộc nắng và mùa biển"
+      },
+      {
+        "loc": "place_bai_sao/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.1.note",
+        "record_id": "place_bai_sao",
+        "original": "Ảnh quảng bá không đại diện cho mọi ngày. Trời âm u hoặc gió khác hướng sẽ làm bãi đổi cảm giác rõ rệt."
+      },
+      {
+        "loc": "place_bai_sao/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.2.label",
+        "record_id": "place_bai_sao",
+        "original": "Ở BAO LÂU?"
+      },
+      {
+        "loc": "place_bai_sao/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.2.value",
+        "record_id": "place_bai_sao",
+        "original": "2-4 giờ"
+      },
+      {
+        "loc": "place_bai_sao/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.infographic.2.note",
+        "record_id": "place_bai_sao",
+        "original": "Đủ cho tắm biển, nghỉ và ăn nhẹ nếu không muốn lịch quá dày."
+      },
+      {
+        "loc": "place_bai_sao/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.sections.0.heading",
+        "record_id": "place_bai_sao",
+        "original": "Một bãi biển nên đi theo điều kiện ngày hôm đó"
+      },
+      {
+        "loc": "place_bai_sao/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.sections.0.body",
+        "record_id": "place_bai_sao",
+        "original": "Bãi Sao nằm ở Nam đảo và có lịch sử lâu năm trong các cẩm nang Phú Quốc. Cảm giác thực tế của bãi thay đổi theo mùa, thủy triều, gió và mật độ khách, nên xem thời tiết trong ngày hữu ích hơn việc chỉ nhìn ảnh đẹp."
+      },
+      {
+        "loc": "place_bai_sao/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.sections.1.heading",
+        "record_id": "place_bai_sao",
+        "original": "Đừng nhầm Bãi Sao với Rạch Vẹm"
+      },
+      {
+        "loc": "place_bai_sao/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.sections.1.body",
+        "record_id": "place_bai_sao",
+        "original": "Bãi Sao ở Nam đảo. Rạch Vẹm là làng chài phía Bắc, thường được nhắc cùng sao biển. Đây là hai nơi hoàn toàn khác nhau."
+      },
+      {
+        "loc": "place_bai_sao/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.visitor_questions.0",
+        "record_id": "place_bai_sao",
+        "original": "Hôm nay sóng và gió ở bãi có mạnh không?"
+      },
+      {
+        "loc": "place_bai_sao/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_bai_sao.visitor_questions.1",
+        "record_id": "place_bai_sao",
+        "original": "Khu nào dễ tắm và ít tàu thuyền hơn?"
+      },
+      {
+        "loc": "place_aquatopia/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.lede",
+        "record_id": "place_aquatopia",
+        "original": "Aquatopia là công viên nước trên Hòn Thơm. Trải nghiệm phụ thuộc vào chiều cao, mức chịu trò cảm giác mạnh, thời tiết và việc bạn muốn dành bao nhiêu thời gian cho biển bên ngoài công viên."
+      },
+      {
+        "loc": "place_aquatopia/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.0.label",
+        "record_id": "place_aquatopia",
+        "original": "ĐI CÙNG AI?"
+      },
+      {
+        "loc": "place_aquatopia/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.0.value",
+        "record_id": "place_aquatopia",
+        "original": "Gia đình và nhóm thích trò nước"
+      },
+      {
+        "loc": "place_aquatopia/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.0.note",
+        "record_id": "place_aquatopia",
+        "original": "Trẻ em cần xem giới hạn chiều cao từng trò trước khi xếp hàng."
+      },
+      {
+        "loc": "place_aquatopia/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.1.label",
+        "record_id": "place_aquatopia",
+        "original": "MỚI 2026"
+      },
+      {
+        "loc": "place_aquatopia/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.1.value",
+        "record_id": "place_aquatopia",
+        "original": "Có thêm trò Wavy Whirl"
+      },
+      {
+        "loc": "place_aquatopia/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.1.note",
+        "record_id": "place_aquatopia",
+        "original": "Sun World công bố bổ sung làn trượt thế hệ mới trong mùa hè 2026."
+      },
+      {
+        "loc": "place_aquatopia/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.2.label",
+        "record_id": "place_aquatopia",
+        "original": "ĐỪNG QUÊN"
+      },
+      {
+        "loc": "place_aquatopia/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.2.value",
+        "record_id": "place_aquatopia",
+        "original": "Hòn Thơm còn có biển và Exotica"
+      },
+      {
+        "loc": "place_aquatopia/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.infographic.2.note",
+        "record_id": "place_aquatopia",
+        "original": "Nếu vé và thời gian cho phép, nên cân bằng công viên nước với phần còn lại của đảo."
+      },
+      {
+        "loc": "place_aquatopia/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.sections.0.heading",
+        "record_id": "place_aquatopia",
+        "original": "Đây là một phần của ngày Hòn Thơm"
+      },
+      {
+        "loc": "place_aquatopia/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.sections.0.body",
+        "record_id": "place_aquatopia",
+        "original": "Aquatopia nằm trên Hòn Thơm và thường đi cùng hành trình cáp treo. Với nhiều gia đình, công viên nước là trục chính của ngày; với người muốn ngắm biển, không nên để toàn bộ lịch bị hút vào các máng trượt."
+      },
+      {
+        "loc": "place_aquatopia/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.sections.1.heading",
+        "record_id": "place_aquatopia",
+        "original": "Đọc giới hạn trò chơi trước khi xếp hàng"
+      },
+      {
+        "loc": "place_aquatopia/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.sections.1.body",
+        "record_id": "place_aquatopia",
+        "original": "Chiều cao, tình trạng sức khỏe và điều kiện vận hành có thể giới hạn một số trò. Xem quy định từ đầu giúp tránh mất thời gian và giảm thất vọng cho trẻ."
+      },
+      {
+        "loc": "place_aquatopia/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.visitor_questions.0",
+        "record_id": "place_aquatopia",
+        "original": "Trò nào hôm nay tạm đóng hoặc có giới hạn chiều cao?"
+      },
+      {
+        "loc": "place_aquatopia/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_aquatopia.visitor_questions.1",
+        "record_id": "place_aquatopia",
+        "original": "Có tủ đồ, khăn hoặc khu thay đồ nào cần mua thêm không?"
+      }
+    ],
+    "01_CHI_TIET_KHAM_PHA/NAM_DAO_2.md": [
+      {
+        "loc": "activity_symphony_of_the_sea/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.lede",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Symphony of the Sea là show ngoài trời ở Sunset Town kết hợp jetski, flyboard, ánh sáng và hiệu ứng trên mặt nước. Vì là show ngoài trời, trải nghiệm phụ thuộc thời tiết và vị trí xem rõ hơn một show trong nhà."
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.0.label",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.0.value",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Show jetski + flyboard + ánh sáng"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.0.note",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Xem trên mặt nước, với nhịp nhanh và nhiều hiệu ứng trực quan."
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.1.label",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "ĐI KHI NÀO?"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.1.value",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Theo lịch show trong ngày"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.1.note",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Nên có mặt sớm hơn giờ bắt đầu để ổn định vị trí xem."
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.2.label",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "PHỤ THUỘC"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.2.value",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Gió, mưa và vận hành"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.infographic.2.note",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Show ngoài trời có thể thay đổi nếu điều kiện không phù hợp."
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.sections.0.heading",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Nên xem như một phần của buổi tối Nam đảo"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.sections.0.body",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Show dễ ghép cùng Cầu Hôn và Sunset Town. Nếu cùng tối còn xem Kiss of the Sea, cần kiểm tra khoảng cách thời gian giữa hai show để không phải chạy."
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.sections.1.heading",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Vị trí xem tạo khác biệt lớn"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.sections.1.body",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Một show trên mặt nước có nhiều lớp chuyển động. Nếu tới quá sát giờ, vị trí còn lại có thể hạn chế tầm nhìn hơn nhiều so với trải nghiệm trong ảnh quảng bá."
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.visitor_questions.0",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Show hôm nay có chạy đúng lịch không?"
+      },
+      {
+        "loc": "activity_symphony_of_the_sea/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_symphony_of_the_sea.visitor_questions.1",
+        "record_id": "activity_symphony_of_the_sea",
+        "original": "Khu xem nào phù hợp nếu đi cùng trẻ nhỏ?"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.lede",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Kiss of the Sea là show đa phương tiện ngoài trời tại Sunset Town, thường được xem như điểm chốt của buổi tối Nam đảo. Đừng mua vé chỉ vì thấy pháo hoa trong ảnh - hãy xem vị trí ngồi, giờ show và quyền lợi đúng ngày."
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.0.label",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.0.value",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Show đa phương tiện + pháo hoa"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.0.note",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Sân khấu ngoài trời lớn, kết hợp hình ảnh, nước, ánh sáng và hiệu ứng."
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.1.label",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "TRƯỚC KHI MUA"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.1.value",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Xem đúng hạng vé"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.1.note",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Vị trí ngồi và quyền lợi combo có thể khác nhau."
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.2.label",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "GHÉP LỊCH"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.2.value",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Dựng ngược từ giờ show"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.infographic.2.note",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Sau đó mới chèn ăn tối, Cầu Hôn và các điểm khác để tránh nối lịch quá sát."
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.sections.0.heading",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Đây là show cần lên lịch chứ không phải ghé ngẫu hứng"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.sections.0.body",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Với show lớn và giờ bắt đầu cố định, toàn bộ buổi tối dễ chịu hơn nếu lấy giờ show làm mốc. Điều này đặc biệt quan trọng nếu đi cùng trẻ, người lớn tuổi hoặc nhóm đông."
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.sections.1.heading",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Ảnh pháo hoa không nói hết trải nghiệm"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.sections.1.body",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Tầm nhìn, vị trí ngồi, thời tiết và quyền lợi vé ảnh hưởng trực tiếp tới cảm giác thực tế. Trước khi thanh toán, nên xem sơ đồ khu ngồi và điều kiện đổi lịch nếu thời tiết xấu."
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.visitor_questions.0",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Hôm nay show có thay đổi do thời tiết không?"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.visitor_questions.1",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Hạng vé này nằm ở khu nào trên sơ đồ?"
+      },
+      {
+        "loc": "activity_kiss_of_the_sea/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_kiss_of_the_sea.visitor_questions.2",
+        "record_id": "activity_kiss_of_the_sea",
+        "original": "Sau show nên đón xe ở đâu?"
+      },
+      {
+        "loc": "place_exotica/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.lede",
+        "record_id": "place_exotica",
+        "original": "Exotica Village là phân khu trò chơi cảm giác mạnh trên Hòn Thơm. Đây là nơi nên xem giới hạn chiều cao, sức khỏe và thời gian xếp hàng trước khi quyết định dành bao lâu."
+      },
+      {
+        "loc": "place_exotica/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.0.label",
+        "record_id": "place_exotica",
+        "original": "ĐÂY LÀ GÌ?"
+      },
+      {
+        "loc": "place_exotica/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.0.value",
+        "record_id": "place_exotica",
+        "original": "Phân khu trò chơi mạo hiểm"
+      },
+      {
+        "loc": "place_exotica/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.0.note",
+        "record_id": "place_exotica",
+        "original": "Nằm trong Sun World Hòn Thơm, khác với công viên nước Aquatopia."
+      },
+      {
+        "loc": "place_exotica/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.1.label",
+        "record_id": "place_exotica",
+        "original": "ĐIỂM NỔI BẬT"
+      },
+      {
+        "loc": "place_exotica/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.1.value",
+        "record_id": "place_exotica",
+        "original": "Mộc Xà Thịnh Nộ + Mắt Đại Bàng"
+      },
+      {
+        "loc": "place_exotica/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.1.note",
+        "record_id": "place_exotica",
+        "original": "Hai trải nghiệm thường được nhắc nhiều nhất trong phân khu."
+      },
+      {
+        "loc": "place_exotica/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.2.label",
+        "record_id": "place_exotica",
+        "original": "TRƯỚC KHI XẾP HÀNG"
+      },
+      {
+        "loc": "place_exotica/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.2.value",
+        "record_id": "place_exotica",
+        "original": "Xem chiều cao và sức khỏe"
+      },
+      {
+        "loc": "place_exotica/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.infographic.2.note",
+        "record_id": "place_exotica",
+        "original": "Trò cảm giác mạnh có thể có điều kiện tham gia riêng."
+      },
+      {
+        "loc": "place_exotica/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.sections.0.heading",
+        "record_id": "place_exotica",
+        "original": "Đừng gộp Aquatopia và Exotica thành một trải nghiệm"
+      },
+      {
+        "loc": "place_exotica/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.sections.0.body",
+        "record_id": "place_exotica",
+        "original": "Sun World giới thiệu Exotica như khu thiên về phiêu lưu và cảm giác mạnh, trong khi Aquatopia là công viên nước. Nếu đi cùng gia đình nhiều độ tuổi, nên thống nhất trước khu nào là ưu tiên chính."
+      },
+      {
+        "loc": "place_exotica/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.sections.1.heading",
+        "record_id": "place_exotica",
+        "original": "Một ngày Hòn Thơm tốt không nhất thiết phải chơi hết"
+      },
+      {
+        "loc": "place_exotica/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.sections.1.body",
+        "record_id": "place_exotica",
+        "original": "Cáp treo, công viên nước, trò mạo hiểm và bãi biển đều cạnh tranh cùng một quỹ thời gian. Chọn vài trải nghiệm quan trọng thường dễ chịu hơn chạy từ trò này sang trò khác."
+      },
+      {
+        "loc": "place_exotica/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.visitor_questions.0",
+        "record_id": "place_exotica",
+        "original": "Trò này có giới hạn chiều cao hoặc sức khỏe nào?"
+      },
+      {
+        "loc": "place_exotica/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_exotica.visitor_questions.1",
+        "record_id": "place_exotica",
+        "original": "Hôm nay Mộc Xà Thịnh Nộ và Mắt Đại Bàng có đang vận hành không?"
+      },
+      {
+        "loc": "activity_tour_3_islands/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.lede",
+        "record_id": "activity_tour_3_islands",
+        "original": "“Tour 3 đảo” là tên một định dạng hành trình ở quần đảo An Thới, không phải một bộ ba đảo cố định cho mọi đơn vị và mọi ngày. Điểm dừng có thể đổi theo biển, mật độ khách và cấu hình tour."
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.0.label",
+        "record_id": "activity_tour_3_islands",
+        "original": "HIỂU ĐÚNG"
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.0.value",
+        "record_id": "activity_tour_3_islands",
+        "original": "3 đảo là định dạng, không phải tên tuyến cố định"
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.0.note",
+        "record_id": "activity_tour_3_islands",
+        "original": "Danh sách đảo và thứ tự dừng có thể khác giữa đơn vị vận hành."
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.1.label",
+        "record_id": "activity_tour_3_islands",
+        "original": "CHẤT LƯỢNG"
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.1.value",
+        "record_id": "activity_tour_3_islands",
+        "original": "Thời gian ở nước quan trọng hơn số điểm"
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.1.note",
+        "record_id": "activity_tour_3_islands",
+        "original": "Ít điểm nhưng đủ thời gian bơi/snorkel thường tốt hơn chạy nhiều điểm."
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.2.label",
+        "record_id": "activity_tour_3_islands",
+        "original": "TRƯỚC KHI ĐI"
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.2.value",
+        "record_id": "activity_tour_3_islands",
+        "original": "Xem biển + xác nhận cano"
+      },
+      {
+        "loc": "activity_tour_3_islands/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.infographic.2.note",
+        "record_id": "activity_tour_3_islands",
+        "original": "Thời tiết đẹp trên bờ không tự động nghĩa là biển An Thới phù hợp."
+      },
+      {
+        "loc": "activity_tour_3_islands/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.sections.0.heading",
+        "record_id": "activity_tour_3_islands",
+        "original": "Đừng mua chỉ bằng danh sách tên đảo"
+      },
+      {
+        "loc": "activity_tour_3_islands/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.sections.0.body",
+        "record_id": "activity_tour_3_islands",
+        "original": "Quần đảo An Thới có nhiều điểm dừng có thể kết hợp. Một tour tốt cần nói rõ thời gian thật trên biển, thời gian tại từng điểm, hoạt động bao gồm và phương án đổi điểm nếu điều kiện không phù hợp."
+      },
+      {
+        "loc": "activity_tour_3_islands/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.sections.1.heading",
+        "record_id": "activity_tour_3_islands",
+        "original": "San hô không phải đạo cụ của tour"
+      },
+      {
+        "loc": "activity_tour_3_islands/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.sections.1.body",
+        "record_id": "activity_tour_3_islands",
+        "original": "Khi lặn ngắm san hô, không đứng lên san hô, không bẻ/chạm và không cho cá ăn chỉ để gom cá chụp ảnh. Trải nghiệm tốt cần giữ được hệ sinh thái sau khi khách rời đi."
+      },
+      {
+        "loc": "activity_tour_3_islands/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.visitor_questions.0",
+        "record_id": "activity_tour_3_islands",
+        "original": "Hôm nay dự kiến dừng những đảo nào và vì sao?"
+      },
+      {
+        "loc": "activity_tour_3_islands/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.visitor_questions.1",
+        "record_id": "activity_tour_3_islands",
+        "original": "Thời gian lặn ngắm san hô thực tế là bao lâu?"
+      },
+      {
+        "loc": "activity_tour_3_islands/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_tour_3_islands.visitor_questions.2",
+        "record_id": "activity_tour_3_islands",
+        "original": "Nếu biển đổi, phương án thay thế là gì?"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.lede",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "lặn ngắm san hô là cách quan sát rạn san hô từ mặt nước bằng kính và ống thở. Dễ tiếp cận hơn lặn bình khí nhưng vẫn cần điều kiện biển phù hợp, áo phao khi cần và người hướng dẫn biết điểm."
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.0.label",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "DỤNG CỤ"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.0.value",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Kính + ống thở + chân vịt tùy tour"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.0.note",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Không cần bình khí, nhưng mặt nạ phải vừa mặt để trải nghiệm dễ chịu."
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.1.label",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "ĐIỀU KIỆN TỐT"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.1.value",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Nước đủ trong, sóng vừa"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.1.note",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Độ nhìn dưới nước thay đổi theo mưa, sóng và dòng chảy."
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.2.label",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "NGUYÊN TẮC"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.2.value",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Không đứng/chạm san hô"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.infographic.2.note",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Quan sát từ khoảng cách an toàn để không làm hỏng rạn."
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.sections.0.heading",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Dễ thử không có nghĩa là không cần an toàn"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.sections.0.body",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Người không bơi giỏi vẫn có thể trải nghiệm trong điều kiện phù hợp nếu có áo phao và hướng dẫn, nhưng không nên ép xuống nước khi hoảng sợ hoặc biển xấu."
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.sections.1.heading",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Chất lượng điểm lặn thay đổi theo ngày"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.sections.1.body",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Nước trong, dòng chảy và mật độ tàu khách ảnh hưởng trực tiếp tới trải nghiệm. Đừng đánh giá một điểm chỉ qua ảnh quảng cáo chụp vào ngày lý tưởng."
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.visitor_questions.0",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Hôm nay độ trong của nước và dòng chảy thế nào?"
+      },
+      {
+        "loc": "activity_snorkeling_an_thoi/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_snorkeling_an_thoi.visitor_questions.1",
+        "record_id": "activity_snorkeling_an_thoi",
+        "original": "Có áo phao và người kèm riêng cho người bơi yếu không?"
+      },
+      {
+        "loc": "activity_scuba/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.lede",
+        "record_id": "activity_scuba",
+        "original": "lặn bình khí đưa người tham gia xuống sâu hơn lặn ngắm san hô bằng bình khí và thiết bị riêng. Đây là hoạt động cần quy trình an toàn, hướng dẫn chuyên môn và sàng lọc sức khỏe nghiêm túc hơn một tour bơi biển."
+      },
+      {
+        "loc": "activity_scuba/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.0.label",
+        "record_id": "activity_scuba",
+        "original": "KHÁC SNORKEL"
+      },
+      {
+        "loc": "activity_scuba/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.0.value",
+        "record_id": "activity_scuba",
+        "original": "Thở bằng bình khí dưới nước"
+      },
+      {
+        "loc": "activity_scuba/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.0.note",
+        "record_id": "activity_scuba",
+        "original": "Người mới cần hướng dẫn an toàn và đi cùng người hướng dẫn trong chương trình phù hợp."
+      },
+      {
+        "loc": "activity_scuba/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.1.label",
+        "record_id": "activity_scuba",
+        "original": "TRƯỚC KHI LẶN"
+      },
+      {
+        "loc": "activity_scuba/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.1.value",
+        "record_id": "activity_scuba",
+        "original": "Khai báo sức khỏe"
+      },
+      {
+        "loc": "activity_scuba/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.1.note",
+        "record_id": "activity_scuba",
+        "original": "Tai xoang, hô hấp, tim mạch và một số tình trạng khác cần được hỏi kỹ."
+      },
+      {
+        "loc": "activity_scuba/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.2.label",
+        "record_id": "activity_scuba",
+        "original": "SAU KHI LẶN"
+      },
+      {
+        "loc": "activity_scuba/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.2.value",
+        "record_id": "activity_scuba",
+        "original": "Không xếp chuyến bay quá sát"
+      },
+      {
+        "loc": "activity_scuba/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.infographic.2.note",
+        "record_id": "activity_scuba",
+        "original": "Khoảng thời gian an toàn trước khi bay phụ thuộc hồ sơ lặn; hãy theo hướng dẫn chuyên môn của đơn vị lặn."
+      },
+      {
+        "loc": "activity_scuba/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.sections.0.heading",
+        "record_id": "activity_scuba",
+        "original": "Đây là hoạt động kỹ thuật, không chỉ là phiên bản lặn ngắm san hô sâu hơn"
+      },
+      {
+        "loc": "activity_scuba/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.sections.0.body",
+        "record_id": "activity_scuba",
+        "original": "Nguồn địa phương mô tả lặn bình khí sử dụng bình dưỡng khí và có huấn luyện viên hướng dẫn cách thở, ký hiệu và giữ thăng bằng trước khi xuống nước. Người mới nên chọn chương trình có quy trình rõ ràng thay vì chỉ so giá."
+      },
+      {
+        "loc": "activity_scuba/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.sections.1.heading",
+        "record_id": "activity_scuba",
+        "original": "Hỏi về tiêu chuẩn an toàn trước khi hỏi ảnh đẹp"
+      },
+      {
+        "loc": "activity_scuba/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.sections.1.body",
+        "record_id": "activity_scuba",
+        "original": "Nên biết ai là người hướng dẫn, tỷ lệ khách/người hướng dẫn, thiết bị được kiểm tra thế nào và quy trình xử lý khi khách không thoải mái dưới nước."
+      },
+      {
+        "loc": "activity_scuba/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.visitor_questions.0",
+        "record_id": "activity_scuba",
+        "original": "Người hướng dẫn có chứng chỉ gì và kèm bao nhiêu khách?"
+      },
+      {
+        "loc": "activity_scuba/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.visitor_questions.1",
+        "record_id": "activity_scuba",
+        "original": "Có bảng câu hỏi sức khỏe trước khi lặn không?"
+      },
+      {
+        "loc": "activity_scuba/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_scuba.visitor_questions.2",
+        "record_id": "activity_scuba",
+        "original": "Sau lần lặn này tôi cần chờ bao lâu trước khi bay?"
+      },
+      {
+        "loc": "activity_seawalker/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.lede",
+        "record_id": "activity_seawalker",
+        "original": "Seawalker cho phép khách đi bộ dưới nước với mũ cấp khí thay vì bình khí đeo lưng. Dễ tiếp cận hơn lặn bình khí với nhiều người, nhưng vẫn cần hướng dẫn an toàn và sàng lọc sức khỏe cơ bản."
+      },
+      {
+        "loc": "activity_seawalker/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.0.label",
+        "record_id": "activity_seawalker",
+        "original": "DỤNG CỤ"
+      },
+      {
+        "loc": "activity_seawalker/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.0.value",
+        "record_id": "activity_seawalker",
+        "original": "Mũ cấp khí"
+      },
+      {
+        "loc": "activity_seawalker/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.0.note",
+        "record_id": "activity_seawalker",
+        "original": "Khách thở trong mũ khi đi bộ dưới nước theo khu vực được tổ chức."
+      },
+      {
+        "loc": "activity_seawalker/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.1.label",
+        "record_id": "activity_seawalker",
+        "original": "KHÔNG PHẢI lặn bình khí"
+      },
+      {
+        "loc": "activity_seawalker/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.1.value",
+        "record_id": "activity_seawalker",
+        "original": "Ít kỹ thuật hơn nhưng vẫn có quy trình"
+      },
+      {
+        "loc": "activity_seawalker/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.1.note",
+        "record_id": "activity_seawalker",
+        "original": "Người tham gia cần nghe hướng dẫn cách cân bằng áp lực và giao tiếp."
+      },
+      {
+        "loc": "activity_seawalker/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.2.label",
+        "record_id": "activity_seawalker",
+        "original": "CẦN HỎI"
+      },
+      {
+        "loc": "activity_seawalker/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.2.value",
+        "record_id": "activity_seawalker",
+        "original": "Sức khỏe và giới hạn tham gia"
+      },
+      {
+        "loc": "activity_seawalker/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.infographic.2.note",
+        "record_id": "activity_seawalker",
+        "original": "Không mặc định hoạt động phù hợp với mọi người chỉ vì không cần biết lặn."
+      },
+      {
+        "loc": "activity_seawalker/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.sections.0.heading",
+        "record_id": "activity_seawalker",
+        "original": "Trải nghiệm được thiết kế để người mới dễ tiếp cận"
+      },
+      {
+        "loc": "activity_seawalker/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.sections.0.body",
+        "record_id": "activity_seawalker",
+        "original": "Nguồn du lịch địa phương mô tả seawalker như hình thức đi bộ dưới đáy biển với mũ cấp khí. Khách thường được hướng dẫn trước và đi trong khu vực kiểm soát."
+      },
+      {
+        "loc": "activity_seawalker/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.sections.1.heading",
+        "record_id": "activity_seawalker",
+        "original": "Dễ tham gia vẫn không đồng nghĩa bỏ qua sức khỏe"
+      },
+      {
+        "loc": "activity_seawalker/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.sections.1.body",
+        "record_id": "activity_seawalker",
+        "original": "Các vấn đề tai xoang, hô hấp, tim mạch hoặc cảm giác hoảng sợ dưới nước cần được trao đổi với đơn vị vận hành trước khi xuống."
+      },
+      {
+        "loc": "activity_seawalker/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.visitor_questions.0",
+        "record_id": "activity_seawalker",
+        "original": "Ai không nên tham gia hoạt động này?"
+      },
+      {
+        "loc": "activity_seawalker/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.visitor_questions.1",
+        "record_id": "activity_seawalker",
+        "original": "Có hướng dẫn cân bằng áp lực tai trước khi xuống không?"
+      },
+      {
+        "loc": "activity_seawalker/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_seawalker.visitor_questions.2",
+        "record_id": "activity_seawalker",
+        "original": "Thời gian thật dưới nước là bao lâu?"
+      },
+      {
+        "loc": "activity_big_game_fishing/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.lede",
+        "record_id": "activity_big_game_fishing",
+        "original": "Câu cá lớn ở An Thới là chuyến đi dài và chuyên biệt hơn tour câu cá ngắn. Giá trị nằm ở ngư trường, thiết bị, tài công và cách đổi bãi theo nước - gió - tín hiệu cá, không phải lời hứa chắc chắn sẽ có cá lớn."
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.0.label",
+        "record_id": "activity_big_game_fishing",
+        "original": "THỜI GIAN"
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.0.value",
+        "record_id": "activity_big_game_fishing",
+        "original": "Chuyến dài nhiều giờ"
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.0.note",
+        "record_id": "activity_big_game_fishing",
+        "original": "Nên xem rõ thời gian thật trên biển, không chỉ giờ xe đón - trả."
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.1.label",
+        "record_id": "activity_big_game_fishing",
+        "original": "KỸ THUẬT"
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.1.value",
+        "record_id": "activity_big_game_fishing",
+        "original": "Câu đáy hoặc jig tùy bãi"
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.1.note",
+        "record_id": "activity_big_game_fishing",
+        "original": "Loại mồi, độ sâu và dòng nước quyết định cách câu."
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.2.label",
+        "record_id": "activity_big_game_fishing",
+        "original": "KHÔNG CAM KẾT"
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.2.value",
+        "record_id": "activity_big_game_fishing",
+        "original": "Sản lượng cá"
+      },
+      {
+        "loc": "activity_big_game_fishing/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.infographic.2.note",
+        "record_id": "activity_big_game_fishing",
+        "original": "Ngay cả ekip tốt vẫn không thể biến hoạt động đánh bắt tự nhiên thành kết quả chắc chắn."
+      },
+      {
+        "loc": "activity_big_game_fishing/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.sections.0.heading",
+        "record_id": "activity_big_game_fishing",
+        "original": "Đi câu chuyên biệt khác với một điểm phụ trong tour đảo"
+      },
+      {
+        "loc": "activity_big_game_fishing/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.sections.0.body",
+        "record_id": "activity_big_game_fishing",
+        "original": "Chuyến câu dài cần tàu phù hợp, thiết bị, máy dò, tài công hiểu ngư trường và quyền thay đổi bãi khi điều kiện không tốt. Nếu mục tiêu thật sự là câu, đừng chọn chỉ vì tour có thêm chữ 'fishing'."
+      },
+      {
+        "loc": "activity_big_game_fishing/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.sections.1.heading",
+        "record_id": "activity_big_game_fishing",
+        "original": "An toàn và sức đi biển cần được tính từ đầu"
+      },
+      {
+        "loc": "activity_big_game_fishing/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.sections.1.body",
+        "record_id": "activity_big_game_fishing",
+        "original": "Chuyến nhiều giờ ngoài khơi dễ gây say sóng và mệt hơn hành trình tham quan đảo. Nên kiểm tra gió, sóng, thuốc say tàu phù hợp với bản thân và khả năng nghỉ trên tàu."
+      },
+      {
+        "loc": "activity_big_game_fishing/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.visitor_questions.0",
+        "record_id": "activity_big_game_fishing",
+        "original": "Thiết bị câu và máy dò nào được dùng?"
+      },
+      {
+        "loc": "activity_big_game_fishing/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.visitor_questions.1",
+        "record_id": "activity_big_game_fishing",
+        "original": "Tài công có thể đổi bãi theo nước/gió không?"
+      },
+      {
+        "loc": "activity_big_game_fishing/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_big_game_fishing.visitor_questions.2",
+        "record_id": "activity_big_game_fishing",
+        "original": "Giá đã gồm mồi, thiết bị, bữa ăn và phụ phí chưa?"
+      }
+    ],
+    "01_CHI_TIET_KHAM_PHA/CAC_DIEM_KHAC.md": [
+      {
+        "loc": "place_fish_sauce_house/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.lede",
+        "record_id": "place_fish_sauce_house",
+        "original": "Nhà thùng là nơi dễ hiểu nghề nước mắm Phú Quốc nhất vì khách có thể nhìn thấy quy mô thật của quá trình ủ chượp: cá cơm, muối, thùng gỗ và thời gian."
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.0.label",
+        "record_id": "place_fish_sauce_house",
+        "original": "NGUYÊN LIỆU"
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.0.value",
+        "record_id": "place_fish_sauce_house",
+        "original": "Cá cơm + muối"
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.0.note",
+        "record_id": "place_fish_sauce_house",
+        "original": "Nguồn du lịch địa phương mô tả cá cơm là nguyên liệu chính; độ tươi và loại cá ảnh hưởng nhiều tới chất lượng mắm."
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.1.label",
+        "record_id": "place_fish_sauce_house",
+        "original": "VÌ SAO GỌI NHÀ THÙNG?"
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.1.value",
+        "record_id": "place_fish_sauce_house",
+        "original": "Không gian chứa những thùng ủ lớn"
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.1.note",
+        "record_id": "place_fish_sauce_house",
+        "original": "Các cơ sở truyền thống xây khu riêng để đặt hàng chục tới hàng trăm thùng gỗ."
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.2.label",
+        "record_id": "place_fish_sauce_house",
+        "original": "ĐI ĐỂ HIỂU GÌ?"
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.2.value",
+        "record_id": "place_fish_sauce_house",
+        "original": "Thời gian tạo nên vị"
+      },
+      {
+        "loc": "place_fish_sauce_house/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.infographic.2.note",
+        "record_id": "place_fish_sauce_house",
+        "original": "Nước mắm truyền thống không phải một thứ pha xong trong ngày. Quá trình ủ và rút mắm là phần quan trọng nhất của câu chuyện."
+      },
+      {
+        "loc": "place_fish_sauce_house/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.sections.0.heading",
+        "record_id": "place_fish_sauce_house",
+        "original": "Đừng ghé nhà thùng chỉ để mua chai nước mắm"
+      },
+      {
+        "loc": "place_fish_sauce_house/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.sections.0.body",
+        "record_id": "place_fish_sauce_house",
+        "original": "Điều đáng xem nhất là quy mô của nghề. Những thùng gỗ lớn, đường ống, mùi lên men và cách người làm mắm nói về cá cơm - muối - thời gian khiến sản phẩm quen thuộc trên bàn ăn trở thành một câu chuyện có nơi chốn."
+      },
+      {
+        "loc": "place_fish_sauce_house/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.sections.1.heading",
+        "record_id": "place_fish_sauce_house",
+        "original": "Nếu muốn hiểu sâu hơn, hãy hỏi về nguyên liệu và cách rút mắm"
+      },
+      {
+        "loc": "place_fish_sauce_house/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.sections.1.body",
+        "record_id": "place_fish_sauce_house",
+        "original": "Nguồn du lịch địa phương ghi nhận nhiều loại cá cơm được dùng tại Phú Quốc, cùng yêu cầu khá cao về độ tươi. Mỗi nhà thùng có cách vận hành và phân hạng sản phẩm khác nhau, nên đây là nơi tốt để hỏi sự khác nhau giữa nước mắm cốt, độ đạm và các dòng pha chế."
+      },
+      {
+        "loc": "place_fish_sauce_house/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.visitor_questions.0",
+        "record_id": "place_fish_sauce_house",
+        "original": "Cá cơm nào đang được dùng cho mẻ này?"
+      },
+      {
+        "loc": "place_fish_sauce_house/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.visitor_questions.1",
+        "record_id": "place_fish_sauce_house",
+        "original": "Mẻ này đã ủ bao lâu?"
+      },
+      {
+        "loc": "place_fish_sauce_house/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_fish_sauce_house.visitor_questions.2",
+        "record_id": "place_fish_sauce_house",
+        "original": "Nước mắm cốt khác dòng đóng chai thông thường ở điểm nào?"
+      },
+      {
+        "loc": "place_pepper_garden/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.lede",
+        "record_id": "place_pepper_garden",
+        "original": "Vườn tiêu là cách nhìn thấy phần nông nghiệp của Phú Quốc - một phần thường bị che khuất bởi câu chuyện biển, resort và khu vui chơi."
+      },
+      {
+        "loc": "place_pepper_garden/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.0.label",
+        "record_id": "place_pepper_garden",
+        "original": "TRỒNG Ở ĐÂU?"
+      },
+      {
+        "loc": "place_pepper_garden/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.0.value",
+        "record_id": "place_pepper_garden",
+        "original": "Khu Tượng - Cửa Dương - Gành Dầu"
+      },
+      {
+        "loc": "place_pepper_garden/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.0.note",
+        "record_id": "place_pepper_garden",
+        "original": "Các nguồn du lịch địa phương ghi nhận đây là những vùng tập trung nhiều vườn tiêu."
+      },
+      {
+        "loc": "place_pepper_garden/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.1.label",
+        "record_id": "place_pepper_garden",
+        "original": "NHÌN GÌ?"
+      },
+      {
+        "loc": "place_pepper_garden/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.1.value",
+        "record_id": "place_pepper_garden",
+        "original": "Trụ tiêu, chùm quả và cách thu hoạch"
+      },
+      {
+        "loc": "place_pepper_garden/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.1.note",
+        "record_id": "place_pepper_garden",
+        "original": "Ảnh đẹp chỉ là lớp đầu. Điều đáng hỏi là mùa vụ, cách phơi và sự khác nhau giữa tiêu đen, tiêu đỏ, tiêu sọ."
+      },
+      {
+        "loc": "place_pepper_garden/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.2.label",
+        "record_id": "place_pepper_garden",
+        "original": "MẤT BAO LÂU?"
+      },
+      {
+        "loc": "place_pepper_garden/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.2.value",
+        "record_id": "place_pepper_garden",
+        "original": "20-40 phút thường đã đủ"
+      },
+      {
+        "loc": "place_pepper_garden/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.infographic.2.note",
+        "record_id": "place_pepper_garden",
+        "original": "Nếu có người giải thích tốt, một điểm dừng ngắn vẫn giúp hiểu nghề rõ hơn một điểm check-in kéo dài."
+      },
+      {
+        "loc": "place_pepper_garden/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.sections.0.heading",
+        "record_id": "place_pepper_garden",
+        "original": "Một sản phẩm nông nghiệp có mùi của nơi chốn"
+      },
+      {
+        "loc": "place_pepper_garden/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.sections.0.body",
+        "record_id": "place_pepper_garden",
+        "original": "Hồ tiêu Phú Quốc được nhắc đến nhiều như một món quà, nhưng trải nghiệm tại vườn giúp thấy phần đất, khí hậu và lao động đứng phía sau hạt tiêu khô. Những hàng trụ tiêu thẳng đứng cũng cho thấy một kiểu cảnh quan nông nghiệp rất khác bãi biển."
+      },
+      {
+        "loc": "place_pepper_garden/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.sections.1.heading",
+        "record_id": "place_pepper_garden",
+        "original": "Hỏi người trồng thay vì chỉ chụp ảnh"
+      },
+      {
+        "loc": "place_pepper_garden/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.sections.1.body",
+        "record_id": "place_pepper_garden",
+        "original": "Nếu có cơ hội, hãy hỏi về mùa thu hoạch, cách phơi và cách phân loại. Một cuộc trò chuyện ngắn thường mang lại nhiều giá trị hơn việc chỉ đứng giữa hai hàng tiêu để chụp hình."
+      },
+      {
+        "loc": "place_pepper_garden/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.visitor_questions.0",
+        "record_id": "place_pepper_garden",
+        "original": "Hiện đang là giai đoạn nào của mùa tiêu?"
+      },
+      {
+        "loc": "place_pepper_garden/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.visitor_questions.1",
+        "record_id": "place_pepper_garden",
+        "original": "Tiêu đen, tiêu đỏ và tiêu sọ khác nhau thế nào?"
+      },
+      {
+        "loc": "place_pepper_garden/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_pepper_garden.visitor_questions.2",
+        "record_id": "place_pepper_garden",
+        "original": "Sản phẩm bán tại vườn có phải do chính vườn này trồng không?"
+      },
+      {
+        "loc": "place_other_streams/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.lede",
+        "record_id": "place_other_streams",
+        "original": "Suối Đá Bàn, Đá Ngọn và Suối Tiên không nên được hiểu như ba phiên bản giống nhau của Suối Tranh. Mỗi nơi có mức độ tiếp cận, địa hình và mùa nước khác nhau."
+      },
+      {
+        "loc": "place_other_streams/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.0.label",
+        "record_id": "place_other_streams",
+        "original": "ĐÁ BÀN"
+      },
+      {
+        "loc": "place_other_streams/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.0.value",
+        "record_id": "place_other_streams",
+        "original": "Phiến đá rộng, dễ nhận diện"
+      },
+      {
+        "loc": "place_other_streams/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.0.note",
+        "record_id": "place_other_streams",
+        "original": "Tên gọi gắn với những mặt đá lớn và khá phẳng dọc dòng suối."
+      },
+      {
+        "loc": "place_other_streams/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.1.label",
+        "record_id": "place_other_streams",
+        "original": "SUỐI TIÊN"
+      },
+      {
+        "loc": "place_other_streams/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.1.value",
+        "record_id": "place_other_streams",
+        "original": "Thiên về dã ngoại và rừng"
+      },
+      {
+        "loc": "place_other_streams/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.1.note",
+        "record_id": "place_other_streams",
+        "original": "Nguồn địa phương mô tả suối ở khu Hàm Ninh, cách trung tâm xa hơn và có tính hoang dã."
+      },
+      {
+        "loc": "place_other_streams/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.2.label",
+        "record_id": "place_other_streams",
+        "original": "ĐÁ NGỌN"
+      },
+      {
+        "loc": "place_other_streams/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.2.value",
+        "record_id": "place_other_streams",
+        "original": "Khó hơn, cần thận trọng"
+      },
+      {
+        "loc": "place_other_streams/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.infographic.2.note",
+        "record_id": "place_other_streams",
+        "original": "Địa hình và đá trơn khiến điểm này không phù hợp để coi như một điểm ghé nhẹ cho mọi khách."
+      },
+      {
+        "loc": "place_other_streams/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.sections.0.heading",
+        "record_id": "place_other_streams",
+        "original": "Không nên dùng một nhãn 'đi suối' cho tất cả"
+      },
+      {
+        "loc": "place_other_streams/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.sections.0.body",
+        "record_id": "place_other_streams",
+        "original": "Suối Đá Bàn nổi bật bởi các phiến đá phẳng; Suối Tiên thiên về không gian rừng và dã ngoại; Đá Ngọn thường được mô tả khó tiếp cận hơn. Hãy chọn theo sức đi và điều kiện nước thay vì chỉ chọn theo ảnh."
+      },
+      {
+        "loc": "place_other_streams/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.sections.1.heading",
+        "record_id": "place_other_streams",
+        "original": "Mùa nước vừa tạo cảnh đẹp vừa làm tăng rủi ro"
+      },
+      {
+        "loc": "place_other_streams/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.sections.1.body",
+        "record_id": "place_other_streams",
+        "original": "Mưa giúp suối nhiều nước nhưng làm đá trơn và đường khó hơn. Nếu vừa có mưa lớn, nên hỏi điều kiện tiếp cận thực tế trước khi đi sâu."
+      },
+      {
+        "loc": "place_other_streams/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.visitor_questions.0",
+        "record_id": "place_other_streams",
+        "original": "Hôm nay đường vào có đi được bằng xe thông thường không?"
+      },
+      {
+        "loc": "place_other_streams/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.place_other_streams.visitor_questions.1",
+        "record_id": "place_other_streams",
+        "original": "Mực nước và đá trơn có phù hợp với trẻ nhỏ/người lớn tuổi không?"
+      },
+      {
+        "loc": "activity_squid_fishing/lede",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.lede",
+        "record_id": "activity_squid_fishing",
+        "original": "Câu mực đêm là một trải nghiệm biển sau hoàng hôn: tàu bật đèn, thả mồi giả và chờ mực. Niềm vui nằm ở quá trình hơn là lời hứa rằng ai cũng sẽ câu được nhiều."
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/0/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.0.label",
+        "record_id": "activity_squid_fishing",
+        "original": "BẮT ĐẦU"
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/0/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.0.value",
+        "record_id": "activity_squid_fishing",
+        "original": "Cuối chiều - tối"
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/0/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.0.note",
+        "record_id": "activity_squid_fishing",
+        "original": "Nhiều tour kết hợp đoạn ngắm hoàng hôn trước khi bắt đầu câu."
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/1/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.1.label",
+        "record_id": "activity_squid_fishing",
+        "original": "CÁCH CÂU"
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/1/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.1.value",
+        "record_id": "activity_squid_fishing",
+        "original": "Đèn + mồi giả + nhấp cần"
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/1/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.1.note",
+        "record_id": "activity_squid_fishing",
+        "original": "Thuyền viên thường hướng dẫn người mới cách thả và kéo mồi."
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/2/label",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.2.label",
+        "record_id": "activity_squid_fishing",
+        "original": "ĐỪNG KỲ VỌNG"
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/2/value",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.2.value",
+        "record_id": "activity_squid_fishing",
+        "original": "Đi là chắc chắn có mực"
+      },
+      {
+        "loc": "activity_squid_fishing/infographic/2/note",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.infographic.2.note",
+        "record_id": "activity_squid_fishing",
+        "original": "Mực tự nhiên phụ thuộc mùa, nước và điều kiện biển."
+      },
+      {
+        "loc": "activity_squid_fishing/section/0/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.sections.0.heading",
+        "record_id": "activity_squid_fishing",
+        "original": "Một hoạt động du lịch bắt nguồn từ nhịp đánh bắt biển đêm"
+      },
+      {
+        "loc": "activity_squid_fishing/section/0/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.sections.0.body",
+        "record_id": "activity_squid_fishing",
+        "original": "Nguồn du lịch địa phương mô tả tour thường xuất phát từ Dương Đông hoặc An Thới, sử dụng ánh đèn để thu hút mực và hướng dẫn khách thử câu trong vài giờ."
+      },
+      {
+        "loc": "activity_squid_fishing/section/1/heading",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.sections.1.heading",
+        "record_id": "activity_squid_fishing",
+        "original": "Chọn bến theo mùa và điều kiện biển"
+      },
+      {
+        "loc": "activity_squid_fishing/section/1/body",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.sections.1.body",
+        "record_id": "activity_squid_fishing",
+        "original": "Điểm xuất phát và vùng câu có thể đổi theo mùa gió. Hãy xác nhận bến thật trong ngày, đặc biệt nếu lịch trình ban đầu ghi từ nhiều tháng trước."
+      },
+      {
+        "loc": "activity_squid_fishing/question/0",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.visitor_questions.0",
+        "record_id": "activity_squid_fishing",
+        "original": "Hôm nay tàu đi từ Dương Đông hay An Thới?"
+      },
+      {
+        "loc": "activity_squid_fishing/question/1",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.visitor_questions.1",
+        "record_id": "activity_squid_fishing",
+        "original": "Biển tối nay có phù hợp với người dễ say sóng không?"
+      },
+      {
+        "loc": "activity_squid_fishing/question/2",
+        "source": "data/i18n/vi/place-explainers.json",
+        "pointer": "items.activity_squid_fishing.visitor_questions.2",
+        "record_id": "activity_squid_fishing",
+        "original": "Bữa ăn và chế biến mực câu được có nằm trong giá không?"
+      }
+    ],
+    "02_NHAN_GIAO_DIEN/01_NHAN_CHUNG_VA_CHI_TIET.md": [
+      {
+        "loc": "common.source_image",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "common.source_image",
+        "record_id": null,
+        "original": "Nguồn ảnh ↗"
+      },
+      {
+        "loc": "common.source_map",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "common.source_map",
+        "record_id": null,
+        "original": "Nguồn bản đồ ↗"
+      },
+      {
+        "loc": "common.open_map",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "common.open_map",
+        "record_id": null,
+        "original": "Mở bản đồ lớn ↗"
+      },
+      {
+        "loc": "common.view_area_map",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "common.view_area_map",
+        "record_id": null,
+        "original": "Xem bản đồ khu vực"
+      },
+      {
+        "loc": "common.map_loaded",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "common.map_loaded",
+        "record_id": null,
+        "original": "Bản đồ đã mở"
+      },
+      {
+        "loc": "common.island_location",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "common.island_location",
+        "record_id": null,
+        "original": "Vị trí trên đảo"
+      },
+      {
+        "loc": "common.zone_diagram",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "common.zone_diagram",
+        "record_id": null,
+        "original": "Sơ đồ vùng"
+      },
+      {
+        "loc": "common.image_updating",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "common.image_updating",
+        "record_id": null,
+        "original": "Ảnh điểm đến đang được cập nhật"
+      },
+      {
+        "loc": "place_detail.type_place",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.type_place",
+        "record_id": null,
+        "original": "ĐỊA ĐIỂM"
+      },
+      {
+        "loc": "place_detail.type_activity",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.type_activity",
+        "record_id": null,
+        "original": "TRẢI NGHIỆM"
+      },
+      {
+        "loc": "place_detail.quick_choice",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.quick_choice",
+        "record_id": null,
+        "original": "CHỌN NHANH"
+      },
+      {
+        "loc": "place_detail.suitable_when",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.suitable_when",
+        "record_id": null,
+        "original": "HỢP KHI"
+      },
+      {
+        "loc": "place_detail.before_go",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.before_go",
+        "record_id": null,
+        "original": "TRƯỚC KHI ĐI"
+      },
+      {
+        "loc": "place_detail.why_understand",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.why_understand",
+        "record_id": null,
+        "original": "VÌ SAO NƠI NÀY ĐÁNG HIỂU"
+      },
+      {
+        "loc": "place_detail.images",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.images",
+        "record_id": null,
+        "original": "HÌNH ẢNH"
+      },
+      {
+        "loc": "place_detail.images_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.images_title",
+        "record_id": null,
+        "original": "Nhìn một vòng trước khi đi"
+      },
+      {
+        "loc": "place_detail.location_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.location_title",
+        "record_id": null,
+        "original": "Ở đâu trên đảo?"
+      },
+      {
+        "loc": "place_detail.explainer_eyebrow",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.explainer_eyebrow",
+        "record_id": null,
+        "original": "HIỂU ĐIỂM ĐẾN"
+      },
+      {
+        "loc": "place_detail.explainer_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.explainer_title",
+        "record_id": null,
+        "original": "Ba chuyện đáng biết trước khi ghé"
+      },
+      {
+        "loc": "place_detail.context",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.context",
+        "record_id": null,
+        "original": "BỐI CẢNH"
+      },
+      {
+        "loc": "place_detail.context_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.context_title",
+        "record_id": null,
+        "original": "Đọc chỗ này như một nơi có câu chuyện."
+      },
+      {
+        "loc": "place_detail.questions",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.questions",
+        "record_id": null,
+        "original": "HỎI GÌ KHI TỚI?"
+      },
+      {
+        "loc": "place_detail.questions_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.questions_title",
+        "record_id": null,
+        "original": "Mấy câu hỏi giúp hiểu nơi này hơn."
+      },
+      {
+        "loc": "place_detail.what_here",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.what_here",
+        "record_id": null,
+        "original": "CÓ GÌ Ở ĐÂY"
+      },
+      {
+        "loc": "place_detail.what_here_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.what_here_title",
+        "record_id": null,
+        "original": "Chỗ này đáng ghé vì điều gì?"
+      },
+      {
+        "loc": "place_detail.quick_facts",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.quick_facts",
+        "record_id": null,
+        "original": "NẮM NHANH"
+      },
+      {
+        "loc": "place_detail.quick_facts_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.quick_facts_title",
+        "record_id": null,
+        "original": "Mấy chuyện chính trước khi đi."
+      },
+      {
+        "loc": "place_detail.price",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.price",
+        "record_id": null,
+        "original": "GIÁ VÉ"
+      },
+      {
+        "loc": "place_detail.price_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.price_title",
+        "record_id": null,
+        "original": "Giá thay đổi theo những gì?"
+      },
+      {
+        "loc": "place_detail.tips",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.tips",
+        "record_id": null,
+        "original": "TRƯỚC KHI ĐI"
+      },
+      {
+        "loc": "place_detail.tips_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.tips_title",
+        "record_id": null,
+        "original": "Nhớ mấy chuyện này."
+      },
+      {
+        "loc": "place_detail.nearby",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.nearby",
+        "record_id": null,
+        "original": "ĐI CÙNG GÌ CHO TIỆN"
+      },
+      {
+        "loc": "place_detail.nearby_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.nearby_title",
+        "record_id": null,
+        "original": "Nếu còn thời gian, đi tiếp đâu?"
+      },
+      {
+        "loc": "place_detail.sources",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.sources",
+        "record_id": null,
+        "original": "NGUỒN ĐỌC THÊM"
+      },
+      {
+        "loc": "place_detail.sources_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.sources_title",
+        "record_id": null,
+        "original": "Thông tin nền được đối chiếu từ đâu?"
+      },
+      {
+        "loc": "place_detail.useful_now",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.useful_now",
+        "record_id": null,
+        "original": "CẦN DÙNG KHI ĐANG ĐI"
+      },
+      {
+        "loc": "place_detail.area",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.area",
+        "record_id": null,
+        "original": "KHU VỰC"
+      },
+      {
+        "loc": "place_detail.weather",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.weather",
+        "record_id": null,
+        "original": "Thời tiết & biển"
+      },
+      {
+        "loc": "place_detail.weather_note",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.weather_note",
+        "record_id": null,
+        "original": "Xem tình hình mới nhất trước hoạt động ngoài trời"
+      },
+      {
+        "loc": "place_detail.nearby_area",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.nearby_area",
+        "record_id": null,
+        "original": "Xem thêm quanh đây"
+      },
+      {
+        "loc": "place_detail.price_rights",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.price_rights",
+        "record_id": null,
+        "original": "Giá & quyền lợi"
+      },
+      {
+        "loc": "place_detail.price_rights_note",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.price_rights_note",
+        "record_id": null,
+        "original": "Chọn đúng ngày đi trước khi so giá"
+      },
+      {
+        "loc": "place_detail.fact_area",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.fact_area",
+        "record_id": null,
+        "original": "Khu vực"
+      },
+      {
+        "loc": "place_detail.fact_best_time",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.fact_best_time",
+        "record_id": null,
+        "original": "Lúc nên đi"
+      },
+      {
+        "loc": "place_detail.fact_duration",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.fact_duration",
+        "record_id": null,
+        "original": "Thời lượng"
+      },
+      {
+        "loc": "place_detail.fact_weather",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.fact_weather",
+        "record_id": null,
+        "original": "Phụ thuộc thời tiết"
+      },
+      {
+        "loc": "place_detail.fact_price",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.fact_price",
+        "record_id": null,
+        "original": "Giá tham khảo"
+      },
+      {
+        "loc": "place_detail.fact_before",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.fact_before",
+        "record_id": null,
+        "original": "Trước khi đi"
+      },
+      {
+        "loc": "place_detail.fact_role",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "place_detail.fact_role",
+        "record_id": null,
+        "original": "Kiểu ghé phù hợp"
+      },
+      {
+        "loc": "food.local",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.local",
+        "record_id": null,
+        "original": "MÓN ĐỊA PHƯƠNG"
+      },
+      {
+        "loc": "food.seafood",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.seafood",
+        "record_id": null,
+        "original": "HẢI SẢN"
+      },
+      {
+        "loc": "food.images_eyebrow",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.images_eyebrow",
+        "record_id": null,
+        "original": "NHÌN MÓN"
+      },
+      {
+        "loc": "food.images_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.images_title",
+        "record_id": null,
+        "original": "Nhìn món trước khi gọi"
+      },
+      {
+        "loc": "food.quick_group",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.quick_group",
+        "record_id": null,
+        "original": "Nhóm"
+      },
+      {
+        "loc": "food.quick_taste",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.quick_taste",
+        "record_id": null,
+        "original": "Vị & kết cấu"
+      },
+      {
+        "loc": "food.quick_order",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.quick_order",
+        "record_id": null,
+        "original": "Khi gọi món"
+      },
+      {
+        "loc": "food.allergy_check",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.allergy_check",
+        "record_id": null,
+        "original": "Nên xem thành phần & dị ứng"
+      },
+      {
+        "loc": "food.ask_preparation",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.ask_preparation",
+        "record_id": null,
+        "original": "Hỏi cách chế biến"
+      },
+      {
+        "loc": "food.explainer_eyebrow",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.explainer_eyebrow",
+        "record_id": null,
+        "original": "HIỂU MÓN"
+      },
+      {
+        "loc": "food.explainer_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.explainer_title",
+        "record_id": null,
+        "original": "Ba chuyện đáng biết trước khi ăn"
+      },
+      {
+        "loc": "food.origin",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.origin",
+        "record_id": null,
+        "original": "NGUỒN GỐC"
+      },
+      {
+        "loc": "food.origin_value",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.origin_value",
+        "record_id": null,
+        "original": "Món đến từ đâu?"
+      },
+      {
+        "loc": "food.name",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.name",
+        "record_id": null,
+        "original": "TÊN GỌI"
+      },
+      {
+        "loc": "food.name_value",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.name_value",
+        "record_id": null,
+        "original": "Vì sao gọi như vậy?"
+      },
+      {
+        "loc": "food.eat",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.eat",
+        "record_id": null,
+        "original": "CÁCH ĂN"
+      },
+      {
+        "loc": "food.eat_value",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.eat_value",
+        "record_id": null,
+        "original": "Ăn sao cho đúng nhịp?"
+      },
+      {
+        "loc": "food.ingredients",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.ingredients",
+        "record_id": null,
+        "original": "TRONG MÓN CÓ GÌ?"
+      },
+      {
+        "loc": "food.ingredients_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.ingredients_title",
+        "record_id": null,
+        "original": "Nguyên liệu thường gặp."
+      },
+      {
+        "loc": "food.allergy",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.allergy",
+        "record_id": null,
+        "original": "DỊ ỨNG & THÀNH PHẦN CẦN HỎI"
+      },
+      {
+        "loc": "food.allergy_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.allergy_title",
+        "record_id": null,
+        "original": "Đọc phần này trước khi gọi món."
+      },
+      {
+        "loc": "food.ask_staff",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.ask_staff",
+        "record_id": null,
+        "original": "Nếu cần hỏi quán"
+      },
+      {
+        "loc": "food.taste",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.taste",
+        "record_id": null,
+        "original": "VỊ & KẾT CẤU"
+      },
+      {
+        "loc": "food.taste_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.taste_title",
+        "record_id": null,
+        "original": "Ăn vào sẽ cảm thấy gì?"
+      },
+      {
+        "loc": "food.how_to_eat",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.how_to_eat",
+        "record_id": null,
+        "original": "CÁCH ĂN"
+      },
+      {
+        "loc": "food.how_to_eat_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.how_to_eat_title",
+        "record_id": null,
+        "original": "Ăn sao cho ngon?"
+      },
+      {
+        "loc": "food.practical",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.practical",
+        "record_id": null,
+        "original": "LƯU Ý THỰC TẾ"
+      },
+      {
+        "loc": "food.practical_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.practical_title",
+        "record_id": null,
+        "original": "Nhớ mấy chuyện này."
+      },
+      {
+        "loc": "food.sources",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.sources",
+        "record_id": null,
+        "original": "NGUỒN THAM KHẢO"
+      },
+      {
+        "loc": "food.more",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "food.more",
+        "record_id": null,
+        "original": "Ăn tiếp món gì?"
+      },
+      {
+        "loc": "stories.not_found_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.not_found_title",
+        "record_id": null,
+        "original": "Không tìm thấy bài viết này."
+      },
+      {
+        "loc": "stories.not_found_description",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.not_found_description",
+        "record_id": null,
+        "original": "Bài có thể đã đổi địa chỉ hoặc chưa được công khai. Bạn quay lại mục Câu chuyện để chọn bài khác nhé."
+      },
+      {
+        "loc": "stories.back_all",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.back_all",
+        "record_id": null,
+        "original": "← Xem tất cả câu chuyện"
+      },
+      {
+        "loc": "stories.read_minutes",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.read_minutes",
+        "record_id": null,
+        "original": "ĐỌC KHOẢNG {minutes} PHÚT · OPEN PHU QUOC"
+      },
+      {
+        "loc": "stories.note_label",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.note_label",
+        "record_id": null,
+        "original": "MỘT LƯU Ý"
+      },
+      {
+        "loc": "stories.image_alt",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.image_alt",
+        "record_id": null,
+        "original": "Ảnh trong bài"
+      },
+      {
+        "loc": "stories.images_eyebrow",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.images_eyebrow",
+        "record_id": null,
+        "original": "HÌNH ẢNH"
+      },
+      {
+        "loc": "stories.images_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.images_title",
+        "record_id": null,
+        "original": "Nhìn câu chuyện này bằng hình"
+      },
+      {
+        "loc": "stories.map_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.map_title",
+        "record_id": null,
+        "original": "Bài viết này nằm ở đâu?"
+      },
+      {
+        "loc": "stories.next",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.next",
+        "record_id": null,
+        "original": "ĐỌC TIẾP"
+      },
+      {
+        "loc": "stories.load_error",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.load_error",
+        "record_id": null,
+        "original": "Chưa tải được nội dung."
+      },
+      {
+        "loc": "stories.eyebrow",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.eyebrow",
+        "record_id": null,
+        "original": "CÂU CHUYỆN PHÚ QUỐC"
+      },
+      {
+        "loc": "stories.not_found_document_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "stories.not_found_document_title",
+        "record_id": null,
+        "original": "Không tìm thấy bài viết - Open Phu Quoc"
+      },
+      {
+        "loc": "knowledge.all",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.all",
+        "record_id": null,
+        "original": "Tất cả"
+      },
+      {
+        "loc": "knowledge.count",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.count",
+        "record_id": null,
+        "original": "{count} bài"
+      },
+      {
+        "loc": "knowledge.no_match",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.no_match",
+        "record_id": null,
+        "original": "Chưa tìm thấy bài phù hợp. Bạn thử từ khác nhé."
+      },
+      {
+        "loc": "knowledge.read",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.read",
+        "record_id": null,
+        "original": "Đọc bài →"
+      },
+      {
+        "loc": "knowledge.title_suffix",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.title_suffix",
+        "record_id": null,
+        "original": "Cẩm nang Phú Quốc"
+      },
+      {
+        "loc": "knowledge.back_all",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.back_all",
+        "record_id": null,
+        "original": "← Tất cả bài cẩm nang"
+      },
+      {
+        "loc": "knowledge.fallback_type",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.fallback_type",
+        "record_id": null,
+        "original": "Cẩm nang"
+      },
+      {
+        "loc": "knowledge.image_unavailable",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.image_unavailable",
+        "record_id": null,
+        "original": "Ảnh hiện chưa tải được."
+      },
+      {
+        "loc": "knowledge.photo_prefix",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.photo_prefix",
+        "record_id": null,
+        "original": "Ảnh: "
+      },
+      {
+        "loc": "knowledge.license_terms",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.license_terms",
+        "record_id": null,
+        "original": "Điều kiện sử dụng ảnh"
+      },
+      {
+        "loc": "knowledge.location_title",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.location_title",
+        "record_id": null,
+        "original": "Địa điểm trên bản đồ"
+      },
+      {
+        "loc": "knowledge.open_map",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.open_map",
+        "record_id": null,
+        "original": "Mở bản đồ lớn ↗"
+      },
+      {
+        "loc": "knowledge.view_all",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.view_all",
+        "record_id": null,
+        "original": "Xem tất cả bài"
+      },
+      {
+        "loc": "knowledge.missing",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.missing",
+        "record_id": null,
+        "original": "Bài này chưa được công khai hoặc không tồn tại."
+      },
+      {
+        "loc": "knowledge.load_error",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.load_error",
+        "record_id": null,
+        "original": "Cẩm nang chưa mở được lúc này. Bạn thử tải lại trang nhé."
+      },
+      {
+        "loc": "knowledge.further",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.further",
+        "record_id": null,
+        "original": "Tìm hiểu thêm"
+      },
+      {
+        "loc": "knowledge.source",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.source",
+        "record_id": null,
+        "original": "Nguồn thông tin"
+      },
+      {
+        "loc": "knowledge.weather",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.weather",
+        "record_id": null,
+        "original": "Thời tiết & biển"
+      },
+      {
+        "loc": "knowledge.explore_map",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "knowledge.explore_map",
+        "record_id": null,
+        "original": "Bản đồ khám phá"
+      }
+    ],
+    "02_NHAN_GIAO_DIEN/02_THOI_TIET_CHI_RA_SOAT.md": [
+      {
+        "loc": "weather_human.source_actual",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.source_actual",
+        "record_id": null,
+        "original": "Quan trắc thực tế",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.source_estimated",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.source_estimated",
+        "record_id": null,
+        "original": "Ước tính hiện tại",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.no_new_weather",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.no_new_weather",
+        "record_id": null,
+        "original": "Chưa có thông tin thời tiết mới",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.wind",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.wind",
+        "record_id": null,
+        "original": "Gió {speed} km/h",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.actual",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.actual",
+        "record_id": null,
+        "original": "Đo thực tế",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.actual_at",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.actual_at",
+        "record_id": null,
+        "original": "Đo thực tế tại {location}",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.feels_about",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.feels_about",
+        "record_id": null,
+        "original": "cảm giác khoảng {temperature}°",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.location_airport",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.location_airport",
+        "record_id": null,
+        "original": "Sân bay Phú Quốc",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.heat_index",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.heat_index",
+        "record_id": null,
+        "original": "Chỉ số cảm giác nóng: khoảng {temperature}°C",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.heat_index_method",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.heat_index_method",
+        "record_id": null,
+        "original": "Tính từ nhiệt độ {air_temperature}°C và độ ẩm khoảng {humidity}%.",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.heat_index_note",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.heat_index_note",
+        "record_id": null,
+        "original": "Đây là chỉ số suy ra, không phải nhiệt độ đo trực tiếp.",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.live",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.live",
+        "record_id": null,
+        "original": "LIVE",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.updating",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.updating",
+        "record_id": null,
+        "original": "Đang cập nhật",
+        "review_only": true
+      },
+      {
+        "loc": "weather_human.data_delayed",
+        "source": "data/i18n/vi/ui.json",
+        "pointer": "weather_human.data_delayed",
+        "record_id": null,
+        "original": "Dữ liệu đang trễ",
+        "review_only": true
+      }
+    ]
+  },
+  "not_for_automatic_patch": true
+}
