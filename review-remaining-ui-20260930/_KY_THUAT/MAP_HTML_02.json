@@ -1,0 +1,522 @@
+{
+  "sha": {
+    "about/index.html": "a79ce28b4cd7fedbf60a9cabd8eb9309d9ebce93",
+    "food/index.html": "dbcc054a6f61cc2bc2ec3d876af219ce5141b963",
+    "food/article.html": "2aa13de1711b994da5dc1079cdf76e6b5e6da8a7",
+    "stories/index.html": "4c3e66bf46ed1a8cdb0aaf7e447b67304f53a076",
+    "stories/article.html": "a1208f4d954c29c11ad4dc54981ae06c9a8babd9",
+    "utilities/index.html": "7c86070a93fd637d7c5b741cd2d03a2319f76567",
+    "nearme/index.html": "41e803747d6b0acc8445309e283ae1ee02566f24",
+    "news/index.html": "53c4f0330adc1bb4ce533bff5315394c97c10c20"
+  },
+  "pages": {
+    "about/index.html": {
+      "sha": "a79ce28b4cd7fedbf60a9cabd8eb9309d9ebce93",
+      "extracted": [
+        {
+          "tag": "p",
+          "offset": 2489,
+          "original": "VỀ OPEN PHU QUOC",
+          "review_only": true
+        },
+        {
+          "tag": "h1",
+          "offset": 2538,
+          "original": "Hiểu đảo trước. / Rồi hãy quyết định.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 2942,
+          "original": "Được làm tại Phú Quốc",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 4420,
+          "original": "VÌ SAO CÓ OPEN PHU QUOC?",
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "offset": 4719,
+          "original": "Hiểu nơi mình sắp đến",
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "offset": 4998,
+          "original": "Nắm tình hình trong ngày",
+          "review_only": true
+        },
+        {
+          "tag": "h3",
+          "offset": 5319,
+          "original": "Nói rõ khi chưa chắc",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 5738,
+          "original": "OPEN PHU QUOC HOẠT ĐỘNG NHƯ THẾ NÀO?",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 6119,
+          "original": "Cẩm nang điểm đến",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 6453,
+          "original": "Những thứ thay đổi theo giờ",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 6827,
+          "original": "Để bạn tự quyết định",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 7207,
+          "original": "ĐƯỢC LÀM TẠI PHÚ QUỐC",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 7962,
+          "original": "Giúp ích trước, giới thiệu sau",
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "offset": 8009,
+          "original": "Viết để bạn có thêm cơ sở chọn lịch trình, không viết theo kiểu quảng cáo.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 8133,
+          "original": "Đúng trước, đẹp sau",
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "offset": 8169,
+          "original": "Không biết thì để trống, không điền một con số chỉ để giao diện trông đầy.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 8293,
+          "original": "Ưu tiên ảnh đúng địa điểm",
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "offset": 8335,
+          "original": "Ảnh đúng chủ thể được tách với ảnh bối cảnh, và luôn lần lại được ảnh từ đâu.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 8462,
+          "original": "Thiếu thì nói thiếu",
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "offset": 8498,
+          "original": "Chưa biết thì nói chưa biết; thông tin cũ thì nói là cũ.",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 8734,
+          "original": "CÁCH CHÚNG TÔI KIỂM CHỨNG",
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "offset": 8792,
+          "original": "Mỗi loại thông tin có một tiêu chuẩn khác nhau.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 8973,
+          "original": "Nguồn chính thức + biên tập địa phương",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 9041,
+          "original": "Thông tin được xem từ cơ quan du lịch, hãng dịch vụ, tài liệu đáng tin và nguồn địa phương. Bài cũ không được dùng để khẳng định chuyện đang xảy ra hôm nay.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 9292,
+          "original": "Quan trắc, ước tính và dự báo phải tách nhau",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 9366,
+          "original": "Số đo thực tế thì gọi đúng là quan trắc. Dự báo vẫn là dự báo. Nếu một nguồn không gửi về, trang không được tự hiểu thành “không mưa” hay “biển bình thường”.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 9618,
+          "original": "Cần bằng chứng đúng loại phương tiện",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 9684,
+          "original": "Cano, tàu cao tốc và phà được xem riêng. Tàu chạy không có nghĩa cano chắc chắn chạy, và ngược lại.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 9872,
+          "original": "Không chắc thì không khẳng định",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 9933,
+          "original": "Giá vé, lịch diễn và quyền lợi đi kèm có thể đổi theo ngày, độ tuổi, chiều cao hoặc loại vé. Mốc cũ chỉ nên dùng để dự trù, không phải giá bán được cam kết.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 10180,
+          "original": "Đúng chủ thể, đúng quyền dùng, đúng độ chính xác",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 10258,
+          "original": "Ưu tiên ảnh đúng địa điểm. Ảnh chỉ mang tính bối cảnh thì phải nói rõ. Bản đồ chỉ ghim đúng một điểm khi biết chắc vị trí; chưa chắc thì chỉ khoanh khu vực.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 10500,
+          "original": "Không chỉ kể món ngon",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 10551,
+          "original": "Mỗi món cần giải thích nguồn gốc, nguyên liệu, cách ăn và thành phần có thể gây dị ứng. Công thức thay đổi theo quán nên phần an toàn luôn hướng người dùng hỏi lại nơi phục vụ.",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 10855,
+          "original": "Vì sao là “Open”?",
+          "review_only": true
+        }
+      ]
+    },
+    "food/index.html": {
+      "sha": "dbcc054a6f61cc2bc2ec3d876af219ce5141b963",
+      "extracted": [
+        {
+          "tag": "h2",
+          "offset": 2723,
+          "original": "Nhìn món trước. / Rồi hãy chọn quán.",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 3031,
+          "original": "Theo khẩu vị",
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "offset": 3839,
+          "original": "Món địa phương",
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "offset": 4393,
+          "original": "↻ Gợi ý 3 món khác",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 4510,
+          "original": "Chọn bữa hoặc nhóm món trước, rồi để tớ gợi ý.",
+          "review_only": true
+        }
+      ]
+    },
+    "food/article.html": {
+      "sha": "2aa13de1711b994da5dc1079cdf76e6b5e6da8a7",
+      "extracted": [
+        {
+          "tag": "h1",
+          "offset": 1344,
+          "original": "Ăn Phú Quốc",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 1364,
+          "original": "Món địa phương",
+          "review_only": true
+        }
+      ]
+    },
+    "stories/index.html": {
+      "sha": "4c3e66bf46ed1a8cdb0aaf7e447b67304f53a076",
+      "extracted": []
+    },
+    "stories/article.html": {
+      "sha": "a1208f4d954c29c11ad4dc54981ae06c9a8babd9",
+      "extracted": [
+        {
+          "tag": "p",
+          "offset": 2217,
+          "original": "Chờ một chút, câu chuyện đang mở.",
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "offset": 2328,
+          "original": "Góp ý bài viết",
+          "review_only": true
+        }
+      ]
+    },
+    "utilities/index.html": {
+      "sha": "7c86070a93fd637d7c5b741cd2d03a2319f76567",
+      "extracted": [
+        {
+          "tag": "p",
+          "offset": 3001,
+          "original": "DANH BẠ HỮU ÍCH",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 3277,
+          "original": "TỶ GIÁ · VIETCOMBANK",
+          "review_only": true
+        },
+        {
+          "tag": "h2",
+          "offset": 3330,
+          "original": "Cần đổi tiền? Xem nhanh ở đây.",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 3451,
+          "original": "Tỷ giá Vietcombank để bạn ước chừng trước khi đổi. Điểm đổi tiền tại Phú Quốc có thể có mức khác.",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 3878,
+          "original": "DI CHUYỂN TRÊN ĐẢO",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 4163,
+          "original": "Nguyên tắc dễ nhớ",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 4560,
+          "original": "VinWonders · Safari · Rạch Vẹm",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 4671,
+          "original": "Dương Đông · Bờ Tây · Hàm Ninh",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 4780,
+          "original": "An Thới · Bãi Sao · Hòn Thơm",
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "offset": 4831,
+          "original": "Sơ đồ nhóm lịch tham khảo, không thể hiện tỷ lệ hoặc vị trí GPS. Mở chỉ đường để xem tuyến đường thực tế.",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 5062,
+          "original": "GIÁ VÉ & LỊCH DIỄN",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 5561,
+          "original": "TRƯỚC KHI ĐI",
+          "review_only": true
+        }
+      ]
+    },
+    "nearme/index.html": {
+      "sha": "41e803747d6b0acc8445309e283ae1ee02566f24",
+      "extracted": [
+        {
+          "tag": "label",
+          "offset": 2658,
+          "original": "Tìm địa điểm hoặc dịch vụ",
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "offset": 2958,
+          "original": "⌖ Dùng vị trí của tôi",
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "offset": 3178,
+          "original": "Dương Đông",
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "offset": 3372,
+          "original": "Sunset Town",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 3493,
+          "original": "Lọc theo bán kính",
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "offset": 3616,
+          "original": "Chọn khu vực hoặc bật GPS để lọc bán kính.",
+          "review_only": true
+        },
+        {
+          "tag": "summary",
+          "offset": 3753,
+          "original": "Xem thêm danh mục",
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "offset": 3889,
+          "original": "Xem bản đồ",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 4033,
+          "original": "Chọn khu vực hoặc bật vị trí để tìm quanh đây.",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 4102,
+          "original": "Tìm điểm đón xe buýt? Xem GPS tham khảo theo tuyến 17, 19, 20 ↗",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 4280,
+          "original": "ĐỊA CHỈ & QUANH ĐÂY",
+          "review_only": true
+        },
+        {
+          "tag": "button",
+          "offset": 4396,
+          "original": "+ Đề xuất địa điểm còn thiếu",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 4927,
+          "original": "Chưa mở được bản đồ lúc này",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 4971,
+          "original": "Bạn vẫn có thể xem danh sách địa điểm bên cạnh.",
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "offset": 5394,
+          "original": "Những nơi chưa rõ vị trí vẫn có trong danh sách.",
+          "review_only": true
+        },
+        {
+          "tag": "small",
+          "offset": 5470,
+          "original": "Google Maps có kết quả riêng, không theo bộ lọc ở đây.",
+          "review_only": true
+        }
+      ]
+    },
+    "news/index.html": {
+      "sha": "53c4f0330adc1bb4ce533bff5315394c97c10c20",
+      "extracted": [
+        {
+          "tag": "strong",
+          "offset": 1656,
+          "original": "Tin & cập nhật",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 1841,
+          "original": "OPEN PHU QUOC · CẬP NHẬT",
+          "review_only": true
+        },
+        {
+          "tag": "h1",
+          "offset": 1881,
+          "original": "Có gì mới ở Phú Quốc?",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 2127,
+          "original": "Đang xem...",
+          "review_only": true
+        },
+        {
+          "tag": "strong",
+          "offset": 2443,
+          "original": "Cách đọc mục này",
+          "review_only": true
+        },
+        {
+          "tag": "p",
+          "offset": 2485,
+          "original": "Ở đây chỉ có những cập nhật có thể ảnh hưởng đến chuyến đi - như thời tiết, giờ chạy, chuyến bay và hoạt động trong ngày.",
+          "review_only": true
+        }
+      ]
+    }
+  },
+  "review_only": true
+}
