@@ -1,4 +1,5 @@
 name: Deploy Open Phu Quoc Worker
+# Direct Wrangler deploy from GitHub Actions; independent of Cloudflare Builds quota.
 
 on:
   push:
