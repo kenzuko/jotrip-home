@@ -925,13 +925,23 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     const noticeHref = notice => notice?.entity_id === "place_sunset_town"
       ? "places/detail.html?id=sunset-town"
-      : notice?.entity_id === "activity_sac_mau_venice"
-        ? "places/detail.html?id=sac-mau-venice"
-        : "news/";
+      : notice?.entity_id === "place_exotica"
+        ? "places/detail.html?id=exotica"
+        : notice?.entity_id === "activity_sac_mau_venice"
+          ? "places/detail.html?id=sac-mau-venice"
+          : "news/";
     const dateAgeDays = dateKey => {
       if(!/^\d{4}-\d{2}-\d{2}$/.test(String(dateKey||""))) return Infinity;
       const a=Date.parse(todayKey+"T12:00:00+07:00"),b=Date.parse(dateKey+"T12:00:00+07:00");
       return Number.isFinite(a)&&Number.isFinite(b)?Math.floor((a-b)/86400000):Infinity;
+    };
+    const suspensionActiveOn = (notice, dayKey=todayKey) => {
+      if(!notice || !["SUSPENDED","SUSPENDED_UPGRADE"].includes(notice.status)) return false;
+      if(notice.effective_from && notice.effective_from > dayKey) return false;
+      if(!notice.valid_until) return true;
+      const dayStart=Date.parse(dayKey+"T00:00:00+07:00");
+      const validUntil=Date.parse(notice.valid_until);
+      return Number.isFinite(dayStart)&&Number.isFinite(validUntil)&&validUntil>dayStart;
     };
 
     for (const notice of (notices?.notices || [])) {
@@ -950,10 +960,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
         continue;
       }
 
-      const validUntilDay = String(notice.valid_until || "").slice(0,10);
-      const isOngoing = ["SUSPENDED","SUSPENDED_UPGRADE"].includes(notice.status) &&
-        (!notice.effective_from || notice.effective_from <= todayKey) &&
-        (!validUntilDay || validUntilDay >= todayKey);
+      const isOngoing = suspensionActiveOn(notice,todayKey);
       // Current operational truth should not disappear just because it is old.
       // Fresh changes rank higher; long-running suspensions remain eligible but
       // yield to newer/more disruptive issues when the two-line surface is full.
@@ -999,7 +1006,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
       if(today === lastTickerDay)return;
       lastTickerDay = today;
       const dated = (notices?.notices || []).find(x => ["CANCELLED","BOOKING_FULL"].includes(x.status) && x.date === today);
-      const ongoing = (notices?.notices || []).find(x => ["SUSPENDED","SUSPENDED_UPGRADE"].includes(x.status) && (!x.effective_from || x.effective_from <= today) && !x.valid_until);
+      const ongoing = (notices?.notices || [])
+        .filter(x => suspensionActiveOn(x,today))
+        .sort((a,b) => String(b.effective_from||"").localeCompare(String(a.effective_from||"")))[0] || null;
       const todayNoon = Date.parse(today+"T12:00:00+07:00");
       const upcoming = (notices?.notices || [])
         .filter(x => ["CANCELLED","BOOKING_FULL"].includes(x.status) && /^\d{4}-\d{2}-\d{2}$/.test(String(x.date||"")) && x.date > today)
@@ -1011,7 +1020,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
       const upcomingHref = noticeHref(upcoming);
       const upcomingLabel = upcoming ? "SẮP TỚI · " + upcoming.date.split("-").slice(1).reverse().join("/") : "";
       const datedLine = dated ? [[datedLabel, dated.title + " · Xem thông báo", datedHref]] :
-        ongoing ? [["BIỂU DIỄN", ongoing.title + " · Xem thông báo", "places/detail.html?id=sac-mau-venice"]] :
+        ongoing ? [["HOẠT ĐỘNG", ongoing.title + " · Xem thông báo", noticeHref(ongoing)]] :
         upcoming ? [[upcomingLabel, upcoming.title + " · Xem thông báo", upcomingHref]] : [];
       renderTicker([...datedLine,...tickerBaseItems], (dated || ongoing) ? "watch" : (topAlert?.level || "normal"));
     };
