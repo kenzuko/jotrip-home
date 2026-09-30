@@ -131,10 +131,32 @@ for(const e of mappedHotels){
 const priorHotelAudit=read(base+"hotel-stale-geocode-audit.json");
 const historicHotels=index.documents.filter(x=>x.entity_type==="hotel");
 assert.equal(historicHotels.length,158,"All hotel directory entries must survive the index rebuild");
-assert.equal(historicHotels.filter(x=>x.map).length,63,"Only canonical hotel pins may be placed on the map");
+assert.equal(historicHotels.filter(x=>x.map).length,mappedHotels.length,"Only canonical hotel pins may be placed on the map");
 assert.equal(priorHotelAudit.records.length,60,"Keep dropped low-confidence hotel geocodes available for later review");
 assert.ok(priorHotelAudit.records.every(x=>x.legacy_coordinates.precision!=="exact_entrance"));
-assert.ok(priorHotelAudit.records.every(x=>indexed.has(x.id)&&!indexed.get(x.id).map),"No old inaccurate hotel map pin may be silently restored");
+
+const hotelBatch15=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH15_TIER_A_20260930.json");
+assert.equal(hotelBatch15.accepted.length,13,"Hotel GPS batch 15 evidence must cover every promoted hotel");
+const resolvedHotelIds=new Set(hotelBatch15.accepted.map(x=>x.id));
+for(const item of hotelBatch15.accepted){
+  const e=byId.get(item.id),doc=indexed.get(item.id);
+  assert.ok(e?.map&&doc?.map,"Resolved hotel must have a canonical and indexed pin: "+item.id);
+  assert.equal(e.map.precision,"site_centroid","Hotel batch 15 pins are site centroids, never entrances: "+item.id);
+  assert.equal(e.map.verified_at,"2026-09-30","Hotel GPS evidence date must remain explicit: "+item.id);
+  assert.deepEqual([e.map.lat,e.map.lon],[item.lat,item.lon],"Canonical hotel coordinates must match the evidence file: "+item.id);
+  assert.deepEqual([doc.map.lat,doc.map.lon],[e.map.lat,e.map.lon],"Resolved hotel pin must survive the canonical view build: "+item.id);
+  assert.notEqual(e.map.source_id,"osm_photon_geocode","A rejected Photon geocode may not be silently restored: "+item.id);
+}
+for(const item of priorHotelAudit.records){
+  const doc=indexed.get(item.id);
+  assert.ok(doc,"Audited hotel must remain in the canonical location index: "+item.id);
+  if(resolvedHotelIds.has(item.id)){
+    assert.ok(doc.map,"Re-resolved audited hotel must now have a reviewed pin: "+item.id);
+    assert.notDeepEqual([doc.map.lat,doc.map.lon],[item.legacy_coordinates.lat,item.legacy_coordinates.lon],"Re-resolution may not reuse the rejected coordinates: "+item.id);
+  }else{
+    assert.equal(doc.map,null,"Unresolved audited hotel must stay off the map: "+item.id);
+  }
+}
 assert.equal(index.summary.total,index.documents.length);
 assert.equal(index.summary.with_map,index.documents.filter(x=>Number.isFinite(x.map?.lat)&&Number.isFinite(x.map?.lon)).length);
 for(const e of totalEssentials.filter(x=>x.verified===false)){
