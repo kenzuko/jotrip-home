@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-29T07:11:16.708Z",
+  "generated_at": "2026-09-30T03:09:25.675Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
     "with_address": 350,
-    "with_map": 245,
+    "with_map": 252,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -1277,7 +1277,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Cửa Lấp - Bà Kèo.",
       "route": "/hotels/?q=Dusit%20Princess%20Moonrise%20Beach%20Resort%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.18128,
+        "lon": 103.967676,
+        "precision": "site_centroid",
+        "source": "Dusit official property GPS coordinates",
+        "source_id": "dusit_operator_gps_20260930",
+        "verified_at": "2026-09-30",
+        "note": "GPS do chính Dusit công bố cho Dusit Princess Moonrise Beach Resort Phu Quoc; dùng site centroid, không coi là cửa vào chính xác.",
+        "accuracy": "OPERATOR_GPS",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Dusit Princess Moonrise Beach Resort Phu Quoc, Tổ 2, ấp Cửa Lấp, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2861,7 +2871,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Melia%20Vinpearl%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.355079,
+        "lon": 103.847329,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + two matching numeric location sources",
+        "source_id": "melia_structured_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Exact Meliá Vinpearl Phu Quoc business entity; two independent numeric sources converge at 10.355079,103.847329. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Melia Vinpearl Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3038,7 +3058,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=M%C3%B6venpick%20Resort%20Waverly%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.283542,
+        "lon": 103.921902,
+        "precision": "site_centroid",
+        "source": "Mövenpick official property location",
+        "source_id": "movenpick_operator_gps_20260930",
+        "verified_at": "2026-09-30",
+        "note": "GPS do trang chính thức Mövenpick Resort Waverly Phu Quoc công bố; dùng site centroid, không coi là cửa vào chính xác.",
+        "accuracy": "OPERATOR_GPS",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Mövenpick Resort Waverly Phu Quoc, Tổ 1, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4195,7 +4225,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Premier%20Village%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.005315,
+        "lon": 104.05185,
+        "precision": "site_centroid",
+        "source": "Accor official hotel GPS",
+        "source_id": "accor_premier_village_gps_20260930",
+        "verified_at": "2026-09-30",
+        "note": "GPS do Accor công bố cho Premier Village Phu Quoc Resort; dùng site centroid, không coi là cổng vào chính xác.",
+        "accuracy": "OPERATOR_GPS",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Premier Village Phú Quốc, Mũi Ông Đội, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4341,7 +4381,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Radisson%20Blu%20Resort%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.32795,
+        "lon": 103.85364,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + named OSM hotel building",
+        "source_id": "radisson_osm_structured_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Named Radisson Blu Resort Phu Quoc hotel building in OSM, cross-checked against exact structured business identity and official Radisson property page.",
+        "accuracy": "STRUCTURED_BUSINESS_OSM_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Radisson Blu Resort Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4939,7 +4989,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Sheraton%20Ph%C3%BA%20Qu%E1%BB%91c%20Long%20Beach%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.33755,
+        "lon": 103.84988,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + two matching numeric hotel sources + Marriott identity",
+        "source_id": "sheraton_structured_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Numeric sources agree within metres around 10.33755,103.84988; identity cross-checked with Marriott and exact structured business entity. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Sheraton Phú Quốc Long Beach Resort, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -6159,7 +6219,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Vinpearl%20Resort%20%26%20Spa%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.30708,
+        "lon": 103.86211,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + named GeoNames/OSM location + official Vinpearl identity",
+        "source_id": "vinpearl_geonames_structured_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Named Vinpearl Phu Quoc Resort location cross-checked against exact structured business entity and official Vinpearl property identity. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_GEONAMES_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Vinpearl Resort & Spa Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
