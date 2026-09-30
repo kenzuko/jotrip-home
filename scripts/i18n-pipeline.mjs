@@ -76,22 +76,25 @@ function protectedTokens(text){
   return [...new Set(found)].sort((a,b)=>b.length-a.length);
 }
 
+const regexSpecial=new Set("\\^$.*+?()[]{}|".split(""));
+const regexEscape=value=>[...String(value)].map(char=>regexSpecial.has(char)?"\\"+char:char).join("");
+const htmlEscape=value=>String(value).replace(/[&<>"]/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[char]));
 function protect(text){
   const tokens=protectedTokens(text);let output=String(text);
-  const markers=tokens.map((token,index)=>{
-    const key="OPENPQLOCK"+index+"XQZ";
-    return {token,key,marker:'<span translate="no" class="notranslate">'+key+'</span>'};
+  const markers=tokens.map(token=>{
+    const encoded=htmlEscape(token);
+    return {token,encoded,marker:'<span translate="no" class="notranslate">'+encoded+'</span>'};
   });
   for(const {token,marker} of markers)output=output.split(token).join(marker);
   return {text:output,markers};
 }
 function restore(text,markers){
   let output=String(text);
-  for(const {token,key} of markers){
-    const tag=new RegExp("<span\\b[^>]*>\\s*"+key+"\\s*<\\/span>","gi");
-    if(tag.test(output))output=output.replace(tag,token);
-    else if(output.includes(key))output=output.split(key).join(token);
-    else throw new Error("Azure changed a protected token: "+token);
+  for(const {token,encoded} of markers){
+    const tag=new RegExp("<span\\b[^>]*>\\s*"+regexEscape(encoded)+"\\s*<\\/span>","gi");
+    output=output.replace(tag,token);
+    if(encoded!==token)output=output.split(encoded).join(token);
+    if(!output.includes(token))throw new Error("Azure changed a protected token: "+token);
   }
   if(/OPENPQLOCK\d+XQZ/.test(output))throw new Error("Unresolved protected token in translated text");
   return output;
