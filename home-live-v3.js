@@ -202,8 +202,8 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const tuneSpeed = () => {
       const halfWidth = Math.max(1, track.scrollWidth / 2);
       const mobile = matchMedia("(max-width:760px)").matches;
-      const pxPerSecond = mobile ? 104 : 92;
-      const seconds = Math.max(mobile ? 8.5 : 9.5, Math.min(17, halfWidth / pxPerSecond));
+      const pxPerSecond = mobile ? 86 : 78;
+      const seconds = Math.max(mobile ? 10.5 : 11.5, Math.min(21, halfWidth / pxPerSecond));
       track.style.setProperty("--ticker-duration", seconds.toFixed(2) + "s");
 
       if (typeof track.animate === "function") {
