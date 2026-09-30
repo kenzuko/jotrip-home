@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-09-30",
+  "scope": "Priority outstanding active 4-5-star hotels; RESEARCH ONLY",
+  "baseline": {
+    "main_sha": "01f00bad61f2c51257f08b13533aeef510e7417b",
+    "hotel_total": 166,
+    "hotel_mapped": 58,
+    "hotel_missing": 108,
+    "map_ready": 237,
+    "map_candidates": 394,
+    "map_missing": 157,
+    "active_high_star_holds": 6
+  },
+  "policy": {
+    "canonical_write": false,
+    "guarantee": "Candidate GPS does not establish exact property identity, entrance or live operational status.",
+    "promotion": "Require operator-verified identity plus independent exact-name numeric hotel witness; investigate OSM building/annex collisions and rejected legacy geocodes. Publish via separate reviewed PR with derived views and regression guards.",
+    "do_not_merge": "Superseded PR #250 and its stale pre-quarantine hotel/view snapshots."
+  },
+  "cases": [
+    {
+      "id": "hotel_sailing_club_signature_resort_phu_quoc",
+      "status": "HOLD_SECOND_INDEPENDENT_NUMERIC",
+      "exact_name_numeric_candidate": {
+        "lat": 10.1152,
+        "lon": 103.9899,
+        "source": "https://impt.io/hotels/vietnam/phu-quoc/sailing-club-signature-resort-phu-quoc/",
+        "source_updated": "2026-03-29"
+      },
+      "property_site": "https://sailingclubphuquoc.com/",
+      "nearby_conflict": {
+        "lat": 10.11457,
+        "lon": 103.98847,
+        "name": "The Park by Sailing Club Signature Resort Phu Quoc",
+        "source": "https://mapcarta.com/W1543934141",
+        "type": "park_not_hotel"
+      },
+      "next_check": "Independent numeric hotel-site source and exact named business point. Do not mistake operator park or nearby Sailing Pool Villas for this resort."
+    },
+    {
+      "id": "hotel_m_hotel_phu_quoc",
+      "status": "HOLD_NUMERIC_EXACT_MATCH",
+      "confirmed_address": "46 Tran Hung Dao, Phu Quoc",
+      "identity_sources": [
+        "https://www.booking.com/hotel/vn/m-phu-quoc.html",
+        "https://www.tiimhotel.vn/hotel/m-hotel-phu-quoc"
+      ],
+      "previous_bad_match": "MTown Hotel & Residences Phu Quoc",
+      "next_check": "Exact M Hotel numeric location on same 46 Tran Hung Dao property. Preserve canonical official SDL address until separately checked."
+    },
+    {
+      "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
+      "status": "HOLD_NUMERIC_EXACT_MATCH",
+      "canonical_identity": {
+        "address": "Tổ 3, ấp Đường Bào",
+        "phone": "02973645555"
+      },
+      "next_check": "Operator property GPS or exact-name numeric hotel marker plus independent check. Exclude Mường Thanh branch/name collisions."
+    },
+    {
+      "id": "hotel_sunset_beach_resort_spa",
+      "status": "HOLD_NUMERIC_CROSSCHECK",
+      "confirmed_address": "100C/2 Tran Hung Dao",
+      "identity_sources": [
+        "https://tourism.angiang.gov.vn/hotel/13641",
+        "https://www.google.com/travel/hotels/entity/ChkIgMj93oSemIYdGg0vZy8xMWhfYngxXzYzEAE"
+      ],
+      "candidate": {
+        "lat": 10.20028,
+        "lon": 103.96379,
+        "source": "https://fromto.travel/en/vietnam/ke-phu-quoc-airport/sunset-beach-resort-and-spa-phu-quoc",
+        "evidence_type": "route_endpoint_not_sufficient_alone"
+      },
+      "previously_rejected": {
+        "name": "Tween's Kitchen",
+        "lat": 10.2001894,
+        "lon": 103.9645329
+      },
+      "phone_discrepancy": {
+        "canonical": "0977287777",
+        "tourism_angiang": "02973567888",
+        "action": "verify contact fields separately; do not overwrite from GPS research"
+      },
+      "next_check": "Another independent exact-name numeric property point and named structured business point; check 100C/2 versus 100C/4 neighbor."
+    },
+    {
+      "id": "hotel_the_up_phu_quoc",
+      "status": "HOLD_NUMERIC_EXACT_MATCH",
+      "canonical_identity": {
+        "address": "Thửa 253, tờ bản đồ 10, Cửa Lấp",
+        "phone": "0922186588"
+      },
+      "next_check": "Find direct exact-name point for the same cadastral parcel and property, not area centroid."
+    },
+    {
+      "id": "hotel_venice_hotel_phu_quoc",
+      "status": "HOLD_EXACT_BUILDING_COLLISION",
+      "confirmed_address": "15-17 Venice, Sunset Town",
+      "identity_source": "https://www.google.com/travel/hotels/entity/ChoI-9KSprzM1IiMARoNL2cvMTFsMXF2aHJ5NRAB",
+      "candidate": {
+        "lat": 10.030483,
+        "lon": 104.005664,
+        "source": "https://www.myrealtrip.com/union/products/3699758?adultCount=2&checkIn=2026-07-23&checkOut=2026-07-24&childCount=0&isDomestic=false&providerRoomId=&roomCount=1&segment=",
+        "evidence_type": "named_booking_listing"
+      },
+      "rough_numeric_second": {
+        "lat": 10.031,
+        "lon": 104.006,
+        "source": "https://hotelsoncall.com/hotels-map/phu-quoc/",
+        "precision": "rounded_3_decimal_degrees_not_precise_confirmation"
+      },
+      "previously_rejected": {
+        "name": "Atina Boutique Homestay",
+        "address": "19 Venice",
+        "lat": 10.0308471,
+        "lon": 104.0054519
+      },
+      "next_check": "Resolve building 15-17 Venice, distinguish Atina at 19 Venice; obtain exact named structured business point before publishing."
+    }
+  ],
+  "triage_counts": {
+    "no_unambiguous_publication_this_review": 6,
+    "numeric_candidates_for_additional_crosscheck": 3,
+    "legacy_identity_conflict_cases": 3
+  },
+  "no_changes_to": [
+    "data/entities",
+    "data/views",
+    "Weather",
+    "Airport",
+    "Transit",
+    "CMS"
+  ]
+}
