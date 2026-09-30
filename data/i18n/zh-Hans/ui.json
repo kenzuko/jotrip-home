@@ -221,6 +221,9 @@
     },
     "heat_index": "热指数：约 {temperature}°C",
     "heat_index_method": "根据气温 {air_temperature}°C 和约 {humidity}% 的湿度计算。",
-    "heat_index_note": "这是计算得到的指数，不是直接测得的气温。"
+    "heat_index_note": "这是计算得到的指数，不是直接测得的气温。",
+    "live": "LIVE",
+    "updating": "正在更新",
+    "data_delayed": "数据更新延迟"
   }
 }

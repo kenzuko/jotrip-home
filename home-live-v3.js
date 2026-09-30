@@ -437,8 +437,13 @@ function freshnessText(iso, prefix = "Cập nhật") {
       : wh("no_new_weather", {}, "Chưa có thông tin thời tiết mới"));
     const weatherState = weatherAge > 180 || islandDecision.status === "unknown" ? "unknown" :
       islandDecision.status === "normal" && weatherAge <= 60 ? "good" : "watch";
+    const weatherPublicFreshness = weatherAge <= 60
+      ? wh("live", {}, "LIVE")
+      : weatherAge <= 180
+        ? wh("updating", {}, "Đang cập nhật")
+        : wh("data_delayed", {}, "Dữ liệu đang trễ");
 
-    setLive("weather", weatherPrimary, weatherSecondary, weatherState, freshnessText(weatherObservedAt));
+    setLive("weather", weatherPrimary, weatherSecondary, weatherState, weatherPublicFreshness);
     setContext("weather", weatherPrimary, weatherSecondary, weatherState);
 
     const seaHs = anThoi?.model?.wave_hs_m ?? anThoi?.local?.wave_hs_m ?? null;
@@ -449,7 +454,10 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const seaSecondary = seaHs != null
       ? "Sóng Nam đảo · dự báo biển"
       : "Chưa có thông tin biển mới";
-    setLive("sea", seaPrimary, seaSecondary, seaAge <= 360 ? "info" : "unknown", freshnessText(seaTime));
+    const seaPublicFreshness = seaAge <= 360
+      ? wh("live", {}, "LIVE")
+      : wh("updating", {}, "Đang cập nhật");
+    setLive("sea", seaPrimary, seaSecondary, seaAge <= 360 ? "info" : "unknown", seaPublicFreshness);
 
     const marineStamp = marine?.collected_at_vn || marine?.generated_at || null;
     const marineAge = ageMinutes(marineStamp);

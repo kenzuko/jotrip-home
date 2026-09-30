@@ -221,6 +221,9 @@
     },
     "heat_index": "열지수: 약 {temperature}°C",
     "heat_index_method": "기온 {air_temperature}°C와 습도 약 {humidity}%를 바탕으로 계산했습니다.",
-    "heat_index_note": "이 값은 계산된 지수이며 직접 측정한 기온이 아닙니다."
+    "heat_index_note": "이 값은 계산된 지수이며 직접 측정한 기온이 아닙니다.",
+    "live": "LIVE",
+    "updating": "업데이트 중",
+    "data_delayed": "데이터 업데이트 지연"
   }
 }
