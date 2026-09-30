@@ -22,7 +22,7 @@ const fromB64=s=>{
   return Uint8Array.from(bin,c=>c.charCodeAt(0));
 };
 
-async function session(req,secret){
+export async function verifyCmsCookie(req,secret){
   const token=parseCookies(req)[SESSION_COOKIE]||"";
   if(!token||!secret)return null;
   try{
@@ -32,7 +32,7 @@ async function session(req,secret){
     const key=await crypto.subtle.importKey("raw",digest,{name:"AES-GCM"},false,["decrypt"]);
     const dec=await crypto.subtle.decrypt({name:"AES-GCM",iv:fromB64(a)},key,fromB64(b));
     const obj=JSON.parse(td.decode(dec));
-    return obj.exp>Date.now()?obj:null;
+    return Number.isFinite(obj.exp)&&obj.exp>Date.now()&&typeof obj.login==="string"&&obj.login.trim()?obj:null;
   }catch{return null}
 }
 
@@ -48,7 +48,7 @@ async function currentRole(login){
 }
 
 export async function onRequest({request,env}){
-  const s=await session(request,String(env.CMS_SESSION_SECRET||""));
+  const s=await verifyCmsCookie(request,String(env.CMS_SESSION_SECRET||""));
   if(!s)return json({error:"Chưa đăng nhập"},401);
   try{
     const role=await currentRole(s.login);
