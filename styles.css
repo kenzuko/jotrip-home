@@ -6542,7 +6542,7 @@ body.sheet-open{
 }
 
 #top>.energy-ticker .ticker-track b{
-  font-size:15px!important;
+  font-size:12px!important;
   line-height:1.2!important;
   font-weight:700!important;
 }
@@ -6556,6 +6556,6 @@ body.sheet-open{
 
 @media(max-width:760px){
   #top>.energy-ticker .ticker-track b{
-    font-size:14px!important;
+    font-size:12px!important;
   }
 }
