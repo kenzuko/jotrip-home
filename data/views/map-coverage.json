@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T03:09:25.680Z",
+  "generated_at": "2026-09-30T03:11:35.373Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 249,
-    "missing_count": 145
+    "ready_count": 251,
+    "missing_count": 143
   },
   "layers": {
     "zones": [
@@ -1764,6 +1764,34 @@
         "osm_type": null,
         "osm_id": null,
         "note": "Named Vinpearl Phu Quoc Resort location cross-checked against exact structured business entity and official Vinpearl property identity. Site centroid only."
+      },
+      {
+        "id": "hotel_sol_by_melia",
+        "name": "SOL by Meliá Phu Quoc",
+        "lat": 10.1463,
+        "lon": 103.9773,
+        "precision": "site_centroid",
+        "source_id": "sol_melia_structured_crosscheck_20260930",
+        "source": "Exact structured business identity + independent numeric hotel location",
+        "source_url": "https://impt.io/hotels/vietnam/phu-quoc/sol-by-melia-phu-quoc/",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_CROSSCHECK",
+        "google_place_id": "ChIJX5g8DI6NpzERD3kfpnZmESY",
+        "note": "SOL by Meliá Phu Quoc exact structured business identity cross-checked with numeric hotel location 10.1463,103.9773. Site centroid only."
+      },
+      {
+        "id": "hotel_wyndham_grand_phu_quoc",
+        "name": "Wyndham Grand Phú Quốc",
+        "lat": 10.33024,
+        "lon": 103.8552,
+        "precision": "site_centroid",
+        "source_id": "wyndham_grand_structured_crosscheck_20260930",
+        "source": "Exact structured business identity + independent numeric hotel location + operator identity",
+        "source_url": "https://www.searchspot.ai/places/wyndham-grand-phu-quoc",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_CROSSCHECK",
+        "google_place_id": "ChIJGeOzddMfCDERWqFBHDihXo0",
+        "note": "Wyndham Grand Phu Quoc exact structured business identity cross-checked with numeric location and official Wyndham Grand property identity. Site centroid only."
       }
     ],
     "utilities": [
@@ -3668,12 +3696,10 @@
     "hotel_pullman",
     "hotel_regent",
     "hotel_sailing_club_signature_resort_phu_quoc",
-    "hotel_sol_by_melia",
     "hotel_sonaga_beach_resort",
     "hotel_sunset_sanato",
     "hotel_vinpearl_wonderworld_phu_quoc",
     "hotel_worldhotels_long_beach_resort_phu_quoc",
-    "hotel_wyndham_grand_phu_quoc",
     "hotel_famiana_resort_spa",
     "hotel_l_azure_resort_spa_phu_quoc",
     "hotel_maison_du_vietnam_resort_spa",
