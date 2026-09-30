@@ -1,307 +1,204 @@
 # CẨM NANG - BA VÙNG, KHÁCH SẠN VÀ MÓN ĂN
 
-Các phần này dùng để hướng dẫn du khách. Những dữ kiện cần kiểm chứng hãy ghi riêng, không tự thay bằng số mới.
+Sửa trực tiếp phần văn bản như một bài viết. Giữ thứ tự và các tiêu đề để sau khi duyệt, nội dung trở về đúng mục.
 
+## Giới thiệu
 
-## title
-
-**Tiêu đề**
+### Tiêu đề
 
 Cẩm nang Phú Quốc
 
-**Lời giới thiệu**
+### Lời giới thiệu
 
 Phú Quốc không phải một hòn đảo nhỏ. Chọn vùng trước, chọn khách sạn và điểm đi sau - như vậy chuyến đi nhẹ hơn rất nhiều.
 
+## Vùng: Bắc đảo
 
-## title
-
-**Tên**
-
-Bắc đảo
-
-**Đặc trưng**
+### Đặc trưng
 
 RỪNG · VUI CHƠI
 
-**Giới thiệu**
+### Giới thiệu
 
 Rừng, Gành Dầu, Rạch Vẹm, Safari, VinWonders và Grand World.
 
-**Phù hợp**
+### Phù hợp
 
 Gia đình · một ngày vui chơi lớn
 
+## Vùng: Trung tâm & bờ Tây
 
-## title
-
-**Tên**
-
-Trung tâm & bờ Tây
-
-**Đặc trưng**
+### Đặc trưng
 
 ĐỜI SỐNG · HOÀNG HÔN
 
-**Giới thiệu**
+### Giới thiệu
 
 Dương Đông, Dinh Cậu, chợ đêm, Bãi Trường, Ông Lang và hoàng hôn.
 
-**Phù hợp**
+### Phù hợp
 
 Khách lần đầu · ăn uống · chiều tối
 
+## Vùng: Nam đảo
 
-## title
-
-**Tên**
-
-Nam đảo
-
-**Đặc trưng**
+### Đặc trưng
 
 BIỂN · CÁP TREO · SHOW
 
-**Giới thiệu**
+### Giới thiệu
 
 Bãi Sao, Bãi Khem, Hòn Thơm, tour đảo, Nhà tù, Hộ Quốc và Sunset Town.
 
-**Phù hợp**
+### Phù hợp
 
 Biển · cáp treo · trải nghiệm tối
 
+## Điểm Bắc đảo: Vinpearl Safari
 
-## title
-
-**Tên**
-
-Vinpearl Safari
-
-**Ghi chú**
+### Ghi chú
 
 Nên đi sáng · nhịp chậm · hợp gia đình
 
+## Điểm Bắc đảo: VinWonders
 
-## title
-
-**Tên**
-
-VinWonders
-
-**Ghi chú**
+### Ghi chú
 
 Cần nhiều giờ · gần trọn ngày
 
+## Điểm Bắc đảo: Grand World
 
-## title
-
-**Tên**
-
-Grand World
-
-**Ghi chú**
+### Ghi chú
 
 Phố đi bộ · kênh đào · show · ăn tối
 
+## Ẩm thực: Món tươi
 
-## title
-
-**Nhóm món**
-
-Món tươi
-
-**Nội dung**
+### Nội dung
 
 Gỏi cá trích, nhum, còi biên mai, ghẹ / mực / cá theo mùa
 
-**Ghi chú**
+### Ghi chú
 
 Ưu tiên độ tươi và cách chế biến hơn việc cố đủ danh sách.
 
+## Ẩm thực: Món bình dân
 
-## title
-
-**Nhóm món**
-
-Món bình dân
-
-**Nội dung**
+### Nội dung
 
 Bún quậy, bún kèn
 
-**Ghi chú**
+### Ghi chú
 
 Dễ ăn, phản ánh nhịp quán địa phương; mỗi quán có cách làm riêng.
 
+## Ẩm thực: Mang về
 
-## title
-
-**Nhóm món**
-
-Mang về
-
-**Nội dung**
+### Nội dung
 
 Nước mắm, hồ tiêu, sim, hải sản khô
 
-**Ghi chú**
+### Ghi chú
 
 Xem nguồn gốc, đóng gói và quy định hành lý nếu đi máy bay.
 
+## Ẩm thực: Quà lưu niệm
 
-## title
-
-**Nhóm món**
-
-Quà lưu niệm
-
-**Nội dung**
+### Nội dung
 
 Ngọc trai
 
-**Ghi chú**
+### Ghi chú
 
 Nên mua ở nơi có thông tin sản phẩm và chính sách rõ ràng.
 
+## Gợi ý lịch trình: 3 ngày 2 đêm · gia đình có trẻ
 
-## title
-
-**Tên**
-
-3 ngày 2 đêm · gia đình có trẻ
-
-**Ghi chú**
+### Ghi chú
 
 Giữ mỗi ngày một trục, chừa giờ nghỉ và thời gian di chuyển cho trẻ.
 
-**Ý 1**
+### Từng ngày
 
-Ngày 1 · Trung tâm: nhận phòng, Dinh Cậu, chợ đêm
+- Ngày 1 · Trung tâm: nhận phòng, Dinh Cậu, chợ đêm
+- Ngày 2 · Nam đảo: Bãi Sao, cáp treo hoặc trải nghiệm biển
+- Ngày 3 · Bắc đảo: chọn Safari hoặc VinWonders, không ôm cả hai
 
-**Ý 2**
+## Gợi ý lịch trình: 4 ngày 3 đêm · honeymoon
 
-Ngày 2 · Nam đảo: Bãi Sao, cáp treo hoặc trải nghiệm biển
-
-**Ý 3**
-
-Ngày 3 · Bắc đảo: chọn Safari hoặc VinWonders, không ôm cả hai
-
-
-## title
-
-**Tên**
-
-4 ngày 3 đêm · honeymoon
-
-**Ghi chú**
+### Ghi chú
 
 Honeymoon đẹp nhất khi lịch còn khoảng trống.
 
-**Ý 1**
+### Từng ngày
 
-Ngày 1 · Check-in, nghỉ phòng/spa, hoàng hôn
+- Ngày 1 · Check-in, nghỉ phòng/spa, hoàng hôn
+- Ngày 2 · Hòn Thơm + Sunset Town + 1 show
+- Ngày 3-4 · Resort + một trải nghiệm riêng
 
-**Ý 2**
+## Gợi ý lịch trình: 5 ngày 4 đêm · đi sâu hơn một lớp
 
-Ngày 2 · Hòn Thơm + Sunset Town + 1 show
-
-**Ý 3**
-
-Ngày 3-4 · Resort + một trải nghiệm riêng
-
-
-## title
-
-**Tên**
-
-5 ngày 4 đêm · đi sâu hơn một lớp
-
-**Ghi chú**
+### Ghi chú
 
 Một lịch trình tốt luôn có quyền bỏ bớt.
 
-**Ý 1**
+### Từng ngày
 
-Ngày 1-2 · Làm quen trung tâm + một ngày Bắc đảo
+- Ngày 1-2 · Làm quen trung tâm + một ngày Bắc đảo
+- Ngày 3 · Biển An Thới / Hòn Thơm theo thời tiết
+- Ngày 4-5 · Nghề đảo, lịch sử và một ngày chậm
 
-**Ý 2**
+## Lưu trú: 3 sao
 
-Ngày 3 · Biển An Thới / Hòn Thơm theo thời tiết
-
-**Ý 3**
-
-Ngày 4-5 · Nghề đảo, lịch sử và một ngày chậm
-
-
-## title
-
-**Tên**
-
-3 sao
-
-**Ghi chú**
+### Ghi chú
 
 Ưu tiên vị trí, vệ sinh, bữa sáng và khoảng cách tới ăn uống/biển.
 
-**Tên**
+## Lưu trú: 4 sao
 
-4 sao
-
-**Ghi chú**
+### Ghi chú
 
 Quan tâm thêm hồ bơi, bãi biển, phòng gia đình, xe đưa đón và gói bữa ăn.
 
-**Tên**
+## Lưu trú: 5 sao / luxury
 
-5 sao / luxury
-
-**Ghi chú**
+### Ghi chú
 
 So chất lượng bãi biển, phòng/villa, dịch vụ, nhà hàng, spa, kids club và riêng tư.
 
-**Tên**
+## Lưu trú: Ultra-luxury
 
-Ultra-luxury
-
-**Ghi chú**
+### Ghi chú
 
 Nhìn thương hiệu, villa/phòng, bãi biển và dịch vụ cá nhân thay vì chữ “6 sao”.
 
+## Lưu trú: Nam đảo
 
-## title
-
-**Tên**
-
-Nam đảo
-
-**Ví dụ nơi ở**
+### Ví dụ nơi ở
 
 JW Marriott, New World, Premier Residences, Premier Village, La Festa
 
-**Ghi chú**
+### Ghi chú
 
 Nghỉ dưỡng, honeymoon, biển đẹp và lịch Nam đảo.
 
-**Tên**
+## Lưu trú: Bãi Trường
 
-Bãi Trường
-
-**Ví dụ nơi ở**
+### Ví dụ nơi ở
 
 Regent, InterContinental, Pullman, Novotel, Sol by Meliá
 
-**Ghi chú**
+### Ghi chú
 
 Thuận sân bay, trung tâm, gia đình/luxury và hoàng hôn.
 
-**Tên**
+## Lưu trú: Bắc & Tây Bắc
 
-Bắc & Tây Bắc
-
-**Ví dụ nơi ở**
+### Ví dụ nơi ở
 
 Sheraton, Meliá Vinpearl, Radisson Blu; Ông Lang/Cửa Cạn có Ocean Bay, Camia, Green Bay, Mövenpick
 
-**Ghi chú**
+### Ghi chú
 
 Gần cụm vui chơi hoặc yên tĩnh hơn.
+
