@@ -12,16 +12,16 @@
     const reference=human?.reference;
     const actual=reference?.actual;
     const t=num(actual?.temperature_c);
-    if(!reference||reference.status!=="ACTUAL"||actual?.class!=="ACTUAL"||t===null)return null;
+    if(!reference||reference.status!=="ACTUAL"||t===null)return null;
     return {reference,actual,t,referenceLocation:reference.location||"Sân bay Phú Quốc"};
   }
 
-  function actualRain(points){
+  function actualRain(rain){
     const order=["an_thoi","duong_dong","cua_can","ganh_dau","bai_thom","ham_ninh","bai_sao"];
     for(const id of order){
-      const p=points?.[id],a=p?.rain?.actual,i=p?.message;
-      if(a?.status==="ACTUAL"&&a?.observed===true&&i?.evidence==="ACTUAL")
-        return {id,headline:clean(i.headline),detail:clean(i.detail)};
+      const item=rain?.[id];
+      if(item?.evidence==="ACTUAL"&&item?.observed===true)
+        return {id,headline:clean(item.headline),detail:clean(item.detail)};
     }
     return null;
   }
@@ -33,7 +33,7 @@
     const {reference,t,referenceLocation}=base;
     const derived=reference.derived||{};
     const feels=num(derived.feels_like_c);
-    const rain=actualRain(human?.points);
+    const rain=actualRain(human?.rain);
     let secondary;
     if(rain){
       secondary="Đo thực tế · "+rain.headline;
