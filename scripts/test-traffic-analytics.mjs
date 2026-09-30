@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import {webcrypto} from "node:crypto";
 import {DatabaseSync} from "node:sqlite";
 import {readFileSync} from "node:fs";
-import {normalizeEvent,collectTraffic,trafficReport,resolveTrafficPeriod} from "../functions/_shared/traffic-analytics.js";
+import {PUBLIC_ANALYTICS_GROUPS,normalizeEvent,collectTraffic,trafficReport,resolveTrafficPeriod} from "../functions/_shared/traffic-analytics.js";
 import {onRequest as ownerRoute} from "../functions/api/cms/traffic.js";
 if(!globalThis.crypto)globalThis.crypto=webcrypto;
 
@@ -60,6 +60,7 @@ assert.equal(weeklyResponse.status,200);
 const weekly=await weeklyResponse.json();
 assert.equal(weekly.total_page_views,12); // 6 direct + 5 AI + 1 anonymous collector
 assert.equal(weekly.total_actions,10);
+assert.deepEqual(weekly.instrumented_groups,PUBLIC_ANALYTICS_GROUPS);
 assert.equal(weekly.first_day,past(1080));
 assert.equal(weekly.grain,"day");
 assert.equal(weekly.comparison.available,true);
