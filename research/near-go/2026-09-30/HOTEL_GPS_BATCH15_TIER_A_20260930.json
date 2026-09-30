@@ -160,6 +160,47 @@
           "detail": "Official Vinpearl property page confirms the property identity."
         }
       ]
+    },
+    {
+      "id": "hotel_sol_by_melia",
+      "lat": 10.1463,
+      "lon": 103.9773,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJX5g8DI6NpzERD3kfpnZmESY",
+          "detail": "Exact SOL by Meliá Phu Quoc business identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://impt.io/hotels/vietnam/phu-quoc/sol-by-melia-phu-quoc/",
+          "detail": "Publishes 10.1463 / 103.9773."
+        }
+      ]
+    },
+    {
+      "id": "hotel_wyndham_grand_phu_quoc",
+      "lat": 10.33024,
+      "lon": 103.8552,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJGeOzddMfCDERWqFBHDihXo0",
+          "detail": "Exact Wyndham Grand Phu Quoc business identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.searchspot.ai/places/wyndham-grand-phu-quoc",
+          "detail": "Publishes 10.33024 / 103.85520."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://wyndhamgrand-phuquoc.com/contact-us/",
+          "detail": "Official Wyndham Grand page confirms the Bai Dai property."
+        }
+      ]
     }
   ],
   "held": [
