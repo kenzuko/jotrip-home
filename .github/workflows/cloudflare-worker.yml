@@ -45,6 +45,8 @@ on:
       - "transit/**"
       - "utilities/**"
       - "core/site-copy.js"
+      - "core/weather-human-contract.js"
+      - "scripts/test-weather-human-contract.mjs"
       - "core/traffic.js"
       - "functions/_shared/traffic-analytics.js"
       - "functions/_shared/owner-traffic-auth.js"
@@ -120,6 +122,7 @@ jobs:
           node scripts/validate-public-copy.mjs
           node scripts/test-search.mjs
           node scripts/test-currency.mjs
+          node scripts/test-weather-human-contract.mjs
 
       - name: Check public knowledge
         run: |
@@ -137,6 +140,7 @@ jobs:
           printf '{"sha":"%s","built_at":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
           test -f dist/index.html
           test -f dist/home-foundation-v2.js
+          test -f dist/core/weather-human-contract.js
           test -f dist/currency/index.html
           test -f dist/transit/index.html
 
