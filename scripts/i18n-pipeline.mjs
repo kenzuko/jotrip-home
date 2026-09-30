@@ -67,7 +67,6 @@ function protectedTokens(text){
     /https?:\/\/[^\s)\]}>"']+/g,
     /\{[A-Za-z0-9_.-]+\}/g,
     /\b\d{1,2}:\d{2}\b/g,
-    /\b\d{1,2}[\/-]\d{1,2}(?:[\/-]\d{2,4})?\b/g,
     /\b\d+(?:[.,]\d+)?\s?(?:%|km|m|cm|mm|kg|g|ml|l|VND|đ|₫|USD|EUR)\b/gi,
     /(?:\+?84|0)(?:[ .-]?\d){8,10}\b/g
   ];
