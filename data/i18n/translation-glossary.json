@@ -1005,6 +1005,118 @@
         "zh-Hant": "狗母魚（lizardfish）",
         "fr": "poisson-lézard (lizardfish)"
       }
+    },
+    {
+      "id": "phu-quoc-airport",
+      "canonical": "Phu Quoc Airport",
+      "families": [
+        "ui"
+      ],
+      "forms": {
+        "vi": [
+          "Sân bay Phú Quốc"
+        ],
+        "en": [
+          "Phu Quoc Airport"
+        ]
+      },
+      "targets": {
+        "en": "Phu Quoc Airport",
+        "ko": "푸꾸옥 공항",
+        "ru": "Аэропорт Фукуок",
+        "zh-Hans": "富国机场",
+        "zh-Hant": "富國機場",
+        "fr": "Aéroport de Phu Quoc",
+        "lo": "Phu Quoc Airport"
+      }
+    },
+    {
+      "id": "cua-can",
+      "canonical": "Cua Can",
+      "forms": {
+        "vi": [
+          "Cửa Cạn",
+          "Cua Can"
+        ],
+        "en": [
+          "Cua Can"
+        ]
+      },
+      "targets": {
+        "en": "Cua Can",
+        "ko": "Cua Can",
+        "ru": "Cua Can",
+        "zh-Hans": "Cua Can",
+        "zh-Hant": "Cua Can",
+        "fr": "Cua Can",
+        "lo": "Cua Can"
+      }
+    },
+    {
+      "id": "ganh-dau",
+      "canonical": "Ganh Dau",
+      "forms": {
+        "vi": [
+          "Gành Dầu",
+          "Ganh Dau"
+        ],
+        "en": [
+          "Ganh Dau"
+        ]
+      },
+      "targets": {
+        "en": "Ganh Dau",
+        "ko": "Ganh Dau",
+        "ru": "Ganh Dau",
+        "zh-Hans": "Ganh Dau",
+        "zh-Hant": "Ganh Dau",
+        "fr": "Ganh Dau",
+        "lo": "Ganh Dau"
+      }
+    },
+    {
+      "id": "bai-thom",
+      "canonical": "Bai Thom",
+      "forms": {
+        "vi": [
+          "Bãi Thơm",
+          "Bai Thom"
+        ],
+        "en": [
+          "Bai Thom"
+        ]
+      },
+      "targets": {
+        "en": "Bai Thom",
+        "ko": "Bai Thom",
+        "ru": "Bai Thom",
+        "zh-Hans": "Bai Thom",
+        "zh-Hant": "Bai Thom",
+        "fr": "Bai Thom",
+        "lo": "Bai Thom"
+      }
+    },
+    {
+      "id": "bai-sao",
+      "canonical": "Bai Sao",
+      "forms": {
+        "vi": [
+          "Bãi Sao",
+          "Bai Sao"
+        ],
+        "en": [
+          "Bai Sao"
+        ]
+      },
+      "targets": {
+        "en": "Bai Sao",
+        "ko": "Bai Sao",
+        "ru": "Bai Sao",
+        "zh-Hans": "Bai Sao",
+        "zh-Hant": "Bai Sao",
+        "fr": "Bai Sao",
+        "lo": "Bai Sao"
+      }
     }
   ],
   "rejected_literals": {
