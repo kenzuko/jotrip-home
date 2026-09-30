@@ -14,6 +14,7 @@
 - `guide/03-stay-and-itineraries.md`: phần /guide lấy từ hai kho dữ liệu riêng.
 - `guide/04-review-only-hardcoded.md`: hero và các câu trả lời còn ghi cứng trong code. **Chỉ duyệt chữ**, chưa tự động map JSON.
 - `explore/01-explore-static-copy.md` và `explore/cards-*.md`: giao diện và nội dung thẻ.
-- `knowledge/knowledge-*.md`: 150 bài để rà trọn bài, gồm bài trong ảnh Symphony of the Sea.
+- `explore/02-planning-levels.md`: các ô Chọn nhanh, Hợp khi và Trước khi đi, gồm ví dụ Symphony of the Sea; hiện chỉ duyệt chữ, cần đối chiếu riêng khi nhập.
+- `knowledge/knowledge-*.md`: 150 bài Cẩm nang để rà trọn bài.
 
 **Ranh giới:** những file trong thư mục này chỉ là bản xuất duyệt chữ. Main và website không thay đổi; dịch đa ngôn ngữ sẽ được xử lý từ bản tiếng Việt đã chốt sau.
