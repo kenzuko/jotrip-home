@@ -1,5 +1,668 @@
 {
   "version": "1.0",
   "provider": "azure-translator-v3",
-  "entries": {}
+  "entries": {
+    "en": {
+      "71e86dbfb0ce8e257533e2131b7e32194cc73845f257550eaf022c1002db8752": {
+        "source": "Nguồn ảnh ↗",
+        "translation": "Image ↗ Source",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "6f102eec02179fac2cb5e6f685518a10d3423eee4aba0efbd3b06ae218de289c": {
+        "source": "Nguồn bản đồ ↗",
+        "translation": "Map ↗ Source",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "d4d7f6325680fead3d11657802ec2a2e2823cb54c1eb0d871477c3dc0b42f742": {
+        "source": "Mở bản đồ lớn ↗",
+        "translation": "Open large ↗ map",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "5d31d1dec4ea96813ece00a163a87f93d86d119e915066f77bb2a37f3c297b2e": {
+        "source": "Xem bản đồ khu vực",
+        "translation": "View area map",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "10b158689eb759aef04cf2cb8fc37011e46eab15e2f2c70867c38570bb29a744": {
+        "source": "Bản đồ đã mở",
+        "translation": "Maps opened",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "887ac4df01ae5b6ad7dfe6d0cc287c8a0791fa3005be1af82acb150f231c81ac": {
+        "source": "Vị trí trên đảo",
+        "translation": "Location on the island",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "4aa9514e6d3b92ea5d5531b395d7db99a8bc65b821fdee57fd5bdb56220915db": {
+        "source": "Sơ đồ vùng",
+        "translation": "Area Map",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "dc4ed2f8bb959621c7a992308510d39c548c3d315f3243350510a2b16041eac5": {
+        "source": "Ảnh điểm đến đang được cập nhật",
+        "translation": "Destination photos are being updated",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "3075b0204e3a34e772a5dbe620e842f6c149b48099b0ed9cb23100c11737f9a2": {
+        "source": "ĐỊA ĐIỂM",
+        "translation": "LOCATION",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "b82a41836d5b3b84369cf8aa38c246f1f3b70d0c77e61b46d1d3c62990d661a4": {
+        "source": "TRẢI NGHIỆM",
+        "translation": "EXPERIENCE",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "2ed1390c823688e36fb7c6ea34cefaedfca23ebfd27a79818fe1401e99dc1f9a": {
+        "source": "CHỌN NHANH",
+        "translation": "QUICK SELECT",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "2420298a7c664cf19db72dd701830fe28bb0976088092881eb90da840d3d0685": {
+        "source": "HỢP KHI",
+        "translation": "SUITABLE WHEN",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "863c5de1d235199a546f897b1c7e7261bf26dee1333e06d80eecce7087d1ecd9": {
+        "source": "TRƯỚC KHI ĐI",
+        "translation": "BEFORE YOU GO",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "d6d08054e60deb73146f9d41640753fcbe05632b3b4f6089361dbc9afef41721": {
+        "source": "VÌ SAO NƠI NÀY ĐÁNG HIỂU",
+        "translation": "WHY THIS PLACE IS WORTH UNDERSTANDING",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "c5b0c1533598732a7fff003e3bbe1662cbfda013577e029d97ba8e13f3a14008": {
+        "source": "HÌNH ẢNH",
+        "translation": "IMAGE",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "3fce03c65b5d9bda3ccc87c582c68c5d8cd088dc3bf5884ab7625399a62bfb72": {
+        "source": "Nhìn một vòng trước khi đi",
+        "translation": "Take a look around before you go",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "c487143c6d4b32c65815d5aa4f1303274b77b40c93b26bf8a60367472be089e2": {
+        "source": "Ở đâu trên đảo?",
+        "translation": "Where on the island?",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "e5105da786cea71c8dcd1bd7ac4fb4c92bd57d6b9c389420304cd4493cc6c5bb": {
+        "source": "HIỂU ĐIỂM ĐẾN",
+        "translation": "UNDERSTANDING THE DESTINATION",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "352470a876537f5860431c063e422de024a91403c6cff732bc1a3917201384b2": {
+        "source": "Ba chuyện đáng biết trước khi ghé",
+        "translation": "Three things to know before visiting",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "4025f03b208c81703237aaff516095ddbed8028fce8d27fafd0b3ec70871e8e4": {
+        "source": "BỐI CẢNH",
+        "translation": "BACKGROUND",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "45e6b5923c6b82c86a458bfe12319c0bddc3cd25293accbbec1e21482e7408b4": {
+        "source": "Đọc chỗ này như một nơi có câu chuyện.",
+        "translation": "Read this place as a place with stories.",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "e3cd037d97125c5681af3dd4270a3619d3d7028dbb71c6de2eaa9b6cf291386a": {
+        "source": "HỎI GÌ KHI TỚI?",
+        "translation": "WHAT TO ASK WHEN YOU ARRIVE?",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "63951cb8dea72feb05773962b3d3efb4cba1c992c7adf0fbfdd9570c88881ff9": {
+        "source": "Mấy câu hỏi giúp hiểu nơi này hơn.",
+        "translation": "Some questions help me understand this place better.",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "2cfa1794c63ad7aabade153f72e9b4ef3f2332ceb6cdffb8570e7554d7bf4bf5": {
+        "source": "CÓ GÌ Ở ĐÂY",
+        "translation": "WHAT'S HERE",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "b26240c296801341c52a6967373d8eef975ed413c1d9d8d21127f31d6a0e8c3e": {
+        "source": "Chỗ này đáng ghé vì điều gì?",
+        "translation": "What is this place worth visiting for?",
+        "updated_at": "2026-09-30T01:14:35.875Z"
+      },
+      "4edaea9ea5aa7d1d66ce901c1f2f71a36e0af3f16a2783671f538d84d3c6abd9": {
+        "source": "NẮM NHANH",
+        "translation": "QUICK GRIP",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "28a3c3a9403abbf90b71c6f9ed93cd4fd5c8e7cfaad362c0db37f3b971d6ae4e": {
+        "source": "Mấy chuyện chính trước khi đi.",
+        "translation": "The main things before leaving.",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "b6a22fd686e43d5fb6df31e690e229cdfefaf7b31cd7c33a0df7e08c723e2eb2": {
+        "source": "GIÁ VÉ",
+        "translation": "FARES",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "86151938f294ef2eebbfd1b8034a7d353d8be532adc2dbabe7393d15fe259ac7": {
+        "source": "Giá thay đổi theo những gì?",
+        "translation": "What does the price change by?",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "f2dee47a8082aa3fe60a2ae6b7627adee938948b7d7f71bef1259ec021b2bdfd": {
+        "source": "Nhớ mấy chuyện này.",
+        "translation": "Remember these things.",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "78245dada69809e6f5be24c108c767239a0093dbc9921c696ce049f37cc4606b": {
+        "source": "ĐI CÙNG GÌ CHO TIỆN",
+        "translation": "WHAT TO COME WITH FOR CONVENIENCE",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "e0ec37f0c704447524a59be027fb038ee6d11b6355b3ff6589cc96b3203550c6": {
+        "source": "Nếu còn thời gian, đi tiếp đâu?",
+        "translation": "If there is still time, where to go next?",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "ffb6a8f5168ea99b3500ecdda23cdcf686d778cc8315817853bb4cea4baa9f37": {
+        "source": "NGUỒN ĐỌC THÊM",
+        "translation": "FURTHER READING SOURCES",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "7b49b780b724c16e7776a762d4fd4ad42504489d55e7ac17d62f39127adf8473": {
+        "source": "Thông tin nền được đối chiếu từ đâu?",
+        "translation": "Where is background information collated from?",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "31237ca7530e6e0bd8891fbf10cee79f17735d06eccb98dc939cc2c0d9c72109": {
+        "source": "CẦN DÙNG KHI ĐANG ĐI",
+        "translation": "TO USE ON THE GO",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "afcdff3afe657f93d3408150fc7174da75a713c98dbbd6d54d72e90480ccb79b": {
+        "source": "KHU VỰC",
+        "translation": "REGION",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "d46a8161ed921edd6f911b5b765b43940469573c8b16efe9e6da47025d184cdb": {
+        "source": "Thời tiết & biển",
+        "translation": "Weather & Sea",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "c26fe7100a5c7826e9bf38c9d871d913fc399397f7425eab46072efb29c27acf": {
+        "source": "Xem tình hình mới nhất trước hoạt động ngoài trời",
+        "translation": "See the latest situation before outdoor activities",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "2f485905da9ea50cd76b82b5a4eed7f1d825d5a581ae00c04f13c469a45b830b": {
+        "source": "Xem thêm quanh đây",
+        "translation": "See more around here",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "538c4352aafe3fd12a936bd2a077f45186ff54442f950966ff3d658d3c263fef": {
+        "source": "Giá & quyền lợi",
+        "translation": "Pricing & Benefits",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "cbb8e60fe58220e0f20e08da31be93afe7b6794dc99f1b48b0a65b368f817176": {
+        "source": "Chọn đúng ngày đi trước khi so giá",
+        "translation": "Choose the right travel dates before comparing prices",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "e8336bddff5db69050a2283cfec4b73b3290e5b9eecec372600e64855946cd4b": {
+        "source": "Khu vực",
+        "translation": "Region",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "47d114f8b37f01f18dc3a92dc592e712ee6a38016fd5bb690bf94652f250e830": {
+        "source": "Lúc nên đi",
+        "translation": "When to go",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "c580ed7790896d6f8f485925accda611f0aba20a16203fa1ae2165b3187ed0a1": {
+        "source": "Thời lượng",
+        "translation": "Duration",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "57f5797c65cd3a3287cb480afa498227fb444d6d68aa57eb5d61e728684e49b8": {
+        "source": "Phụ thuộc thời tiết",
+        "translation": "Weather dependent",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "b28552f10b935a753be824c0bfbba3077a9057fa28b7cdd820e4ac1ef3746985": {
+        "source": "Giá tham khảo",
+        "translation": "Reference price",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "cc6e4d5a8edd58a6f3bda930e07781a2524f958fde9165663e703ce1fd32e760": {
+        "source": "Trước khi đi",
+        "translation": "Before you go",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "3a2c5a7017d988f69f8b3d373dd59a5c2b0cc51771d0575b0f38f6a99f2f56f0": {
+        "source": "Kiểu ghé phù hợp",
+        "translation": "The right type of visit",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "844ec423cdc707bd38962cabc1af1541ed8e8600b5708af5fa89ce8a0dbfb5ca": {
+        "source": "MÓN ĐỊA PHƯƠNG",
+        "translation": "LOCAL DISHES",
+        "updated_at": "2026-09-30T01:14:38.202Z"
+      },
+      "3ed3db97b5e689103fba63a1e8f9fb964609c608f5e97e1caa111eb38813d89d": {
+        "source": "HẢI SẢN",
+        "translation": "SEAFOOD",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "e7a75429985c205965f9cd8986cca830cbc51050eeb9ab1ed292013955e4c36b": {
+        "source": "NHÌN MÓN",
+        "translation": "LOOK AWAY",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "cdddda17b8d3eb49341a1f5e8f0e03f3ff1911cc3924ccc00d7e2312cada1d45": {
+        "source": "Nhìn món trước khi gọi",
+        "translation": "Look at the dish before ordering",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "cd7a71c0f5f747113920d400bf6bd9880aeabb001947322ce011b27d7d84cf26": {
+        "source": "Nhóm",
+        "translation": "Groups",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "08a54bd87ec1a3d6fbe91e050db85f672a90d47d447bce2e1bb5a3caf09797aa": {
+        "source": "Vị & kết cấu",
+        "translation": "Taste & texture",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "b751be37b595bb39fa351d156bbe94d45ff8ed9b6762a1a980101660bb9566e3": {
+        "source": "Khi gọi món",
+        "translation": "When ordering",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "142d6b9c721ae3927b412040df383a69d3528ca964e6a18c903aefdd1fe688da": {
+        "source": "Nên xem thành phần & dị ứng",
+        "translation": "Should watch ingredients & allergies",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "1a09e3aad27c3bcb755450a9af6a561264ae9bbef709a5602ca68d0863ed714f": {
+        "source": "Hỏi cách chế biến",
+        "translation": "Ask how to prepare",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "23d189578c4abbaefe0d3d941b6715ccc562138a63b29bef34ca7fd6ac0de186": {
+        "source": "HIỂU MÓN",
+        "translation": "UNDERSTAND THE DISH",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "a89840924ad78d125cd1a2f04e5121a7eca9934643de021c1ad9ac2501e89d7b": {
+        "source": "Ba chuyện đáng biết trước khi ăn",
+        "translation": "Three things to know before eating",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "ba03b19d41c4ccf92fadc53a4d9bfeec18851c24bd9119cd35a4ee886d0a5df6": {
+        "source": "NGUỒN GỐC",
+        "translation": "ORIGIN",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "b102b5052899ec5aaa45536c9f63634a7fac469efd3e4e2ada69623fdf1fd615": {
+        "source": "Món đến từ đâu?",
+        "translation": "Where does the dish come from?",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "a863fea9706a4e6a462e4fa144f3336d57f6de0e943f55c9ebb56189a13493ba": {
+        "source": "TÊN GỌI",
+        "translation": "NAME",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "8b34bade3697c1d7be6891bc0e41bdc3f17ef33458bb985cd3c37fff2e6a4e00": {
+        "source": "Vì sao gọi như vậy?",
+        "translation": "Why is it called that?",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "7c6286824ec06a40ab5c0b524ad70042be49822bada26d3939bae77a9f835f6e": {
+        "source": "CÁCH ĂN",
+        "translation": "HOW TO EAT",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "c76a131caee7232fad42abb7479a982a343a2d00f565fb9278b367d308a97d44": {
+        "source": "Ăn sao cho đúng nhịp?",
+        "translation": "How to eat at the right rhythm?",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "21839e7561528437dd92e1e1a7ebfdaa58a4ce7fba2419366fd7470b18a62302": {
+        "source": "TRONG MÓN CÓ GÌ?",
+        "translation": "What's IN THE DISH?",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "aac1e040481390daf187d278fa93172dcf6df90c77e96f46ed49c91813f4aa39": {
+        "source": "Nguyên liệu thường gặp.",
+        "translation": "Common ingredients.",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "e3e26480cadd27d419e7d4c91c59b230e956126f95244548c4b461c56fe52bb2": {
+        "source": "DỊ ỨNG & THÀNH PHẦN CẦN HỎI",
+        "translation": "ALLERGIES & INGREDIENTS TO ASK",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "c4b9caf80019728f413cae67fd071343783643670f8a0fbe3b1c9e09e875eb74": {
+        "source": "Đọc phần này trước khi gọi món.",
+        "translation": "Read this section before ordering.",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "f2c5eb14009e333ccf73f9e784d5b948dfbaaee9f9e186d3b1bc14ea22c1997b": {
+        "source": "Nếu cần hỏi quán",
+        "translation": "If you need to ask the restaurant",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "1c2862c4d06cd942abda188b6cbd526ee57aa9dd8f2d0f5da1ccea6bb7a1053e": {
+        "source": "VỊ & KẾT CẤU",
+        "translation": "TASTE & TEXTURE",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "9f3251978b825f159580383912873bffcb73a14b44ba0c7a68558f384345a45a": {
+        "source": "Ăn vào sẽ cảm thấy gì?",
+        "translation": "What will it feel like to eat it?",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "82def8068ae46f502e9f13a3431de98a19cb27153e9ba84c692916b9ef11135e": {
+        "source": "Ăn sao cho ngon?",
+        "translation": "How to eat deliciously?",
+        "updated_at": "2026-09-30T01:14:40.592Z"
+      },
+      "c44b8950c241dd88277cebeeb5eb5c3bb60c388461ba9a8f853dad80c1b3d62c": {
+        "source": "LƯU Ý THỰC TẾ",
+        "translation": "PRACTICAL NOTE",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "188f2b42f46a9dab633c5204c02d86eca6b5b6c9107371f242252c33e0b809af": {
+        "source": "NGUỒN THAM KHẢO",
+        "translation": "REFERENCES",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "ba5f0b2cb00a5cd18c0936bd0e923fb6d45aec55f16dcd5ed2acf01e50daa3e3": {
+        "source": "Ăn tiếp món gì?",
+        "translation": "What to eat next?",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "f081d091990063412630733c3d2d26605a640b45ed49aefb9a1c3606ac52c218": {
+        "source": "Không tìm thấy bài viết này.",
+        "translation": "This article was not found.",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "3b7d9655bbc8968bfada66a7cf5bf40eed1aafd0eb40cfaaee32f2a4c49b2ecd": {
+        "source": "Bài có thể đã đổi địa chỉ hoặc chưa được công khai. Bạn quay lại mục Câu chuyện để chọn bài khác nhé.",
+        "translation": "The post may have changed its address or may not be public. Return to the Story section to choose a different song.",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "91bc19ecabff7d7c1467ad357bcd628efcb2e472966e52430523562856a4b5c9": {
+        "source": "← Xem tất cả câu chuyện",
+        "translation": "← See all stories",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "b05e8867b805f314712acdef66ec571a19ac94e8e348a730a75c44190d6b2db2": {
+        "source": "ĐỌC KHOẢNG {minutes} PHÚT · OPEN PHU QUOC",
+        "translation": "ABOUT {minutes} MIN READ · OPEN PHU QUOC",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "0e52a90d5492b09735b4197b9d226f5bb0d2d06676f1cab99f428e1875c6ecc9": {
+        "source": "MỘT LƯU Ý",
+        "translation": "A NOTE",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "645b80657622558333b7ef60b1f748e90c05c5a358be4eb6bde0d077e1565eab": {
+        "source": "Ảnh trong bài",
+        "translation": "Photo in the article",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "af1ffcb1f3275eebcbadc88ba7972e6f9ac5092db9f0d390fa4f6e3d392f3157": {
+        "source": "Nhìn câu chuyện này bằng hình",
+        "translation": "Look at this story with a picture",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "0b651f8f968d41fd5a607165941321c20432f141524cf0a04c53ee9db24a3c5d": {
+        "source": "Bài viết này nằm ở đâu?",
+        "translation": "Where is this article located?",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "a1a294c3ef4f2f47a794c6a3aafdc955c87ba60a38957b8220a94de0005a9ae1": {
+        "source": "ĐỌC TIẾP",
+        "translation": "READ MORE",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "6ef2ae921411c5fbd509bc7f9574e5ffdac6a0f6f82d3aa6278139d210badef0": {
+        "source": "Chưa tải được nội dung.",
+        "translation": "The content has not been loaded.",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "035ebd2935c4127b33538c5fc21e87f9b7c1e7abe5600a98ab88e2551d5a52f2": {
+        "source": "CÂU CHUYỆN PHÚ QUỐC",
+        "translation": "PHU QUOC STORY",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "34716fb3325567eadd2e8524cad9bd8ec0c72863ebeb5eca8ab425dcac790f5f": {
+        "source": "Không tìm thấy bài viết - Open Phu Quoc",
+        "translation": "No Posts Found - Open Phu Quoc",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "b071365c68725bd6b4b9548c1c5db9830f69abccb71e2fba6111b6c3195dd4b2": {
+        "source": "Điểm đến",
+        "translation": "Destinations",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "7e1752e08949fb2c4bdc6ffaa6b790cc73b08ba469f0e64febe42237011a6f59": {
+        "source": "Thiên nhiên",
+        "translation": "Nature",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "d5fcc24fe0b23659c5526aca761dfc2aa8ee867eccebd5405ce034ff3f2fe988": {
+        "source": "Ẩm thực",
+        "translation": "Cuisine",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "997dd2288d4fa290f992c55c5c35d3d292d4128f22ac3b950a9ddc1a02aa114c": {
+        "source": "Đi lại & tiện ích",
+        "translation": "Transportation & Utilities",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "2a2dd6618730f8c0ec1a09afa70474deb16fe6f9a000286f91583c4c42528818": {
+        "source": "Lịch sử & văn hóa",
+        "translation": "History & Culture",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "94bfb29dfd7afadc3d1c387a26e1c6fb84885fd57e72571fb781805127b5f6b4": {
+        "source": "Trải nghiệm",
+        "translation": "Experience",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "e32ceaf656c29a65f54659ce828598dabb424ac00517b25122fc475beb12cd51": {
+        "source": "Đảo đổi thay",
+        "translation": "Change Island",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "49c73a3150d770384280a5447f743a6ee91bfe6a6bf83b658c159c58adccab47": {
+        "source": "Tất cả",
+        "translation": "All",
+        "updated_at": "2026-09-30T01:14:41.987Z"
+      },
+      "890e6deb7107f9e815958d86f2e6a0e04693325318bf158e924f2375a304090c": {
+        "source": "{count} bài",
+        "translation": "{count} Post",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "b55a705bdb01a263994cab57e71851b956d7d780596bf3dc7d68429f2dc4b0b7": {
+        "source": "Chưa tìm thấy bài phù hợp. Bạn thử từ khác nhé.",
+        "translation": "Haven't found a suitable article yet. Try another word.",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "19fd706e005ab20ff0c4e8617510350a96caf84a3e8ba5ba8e131565ff61578f": {
+        "source": "Đọc bài →",
+        "translation": "Read →",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "83675409fc8f6c0055e24b9fe2e920af69b88bdcb7f8119459989b259d0fbe0e": {
+        "source": "Cẩm nang Phú Quốc",
+        "translation": "Phu Quoc Handbook",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "86ae56d9745285e0a599f7c401b8a353970737fd030d8a16cd4406815a1b9f15": {
+        "source": "← Tất cả bài cẩm nang",
+        "translation": "← All Manuals",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "5d8ff3d1bbef43359106c20025519ce31c1bfd3f0f1430f0dbbb74f5825e2907": {
+        "source": "Cẩm nang",
+        "translation": "Handbook",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "76d53c125846696ade6944a6b6f067b8cfa09b7d7b3b6233b2e9b2c211b1473d": {
+        "source": "Ảnh hiện chưa tải được.",
+        "translation": "The photo is currently unloadable.",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "eaacaf30f6c303eabb4c1e0c2f4a4dcc88cc7e6ae9269e046669700e56e428ff": {
+        "source": "Ảnh: ",
+        "translation": "Photo: ",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "aa9abfa619bced283f847cb1f7a12ec375bb5e7b839cbdc79c962027572c9dbe": {
+        "source": "Điều kiện sử dụng ảnh",
+        "translation": "Conditions for using photos",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "8d1936c59110b3cee539ffaa9d8e3114343981b3182d2fa5e8ae19923fcbe2b0": {
+        "source": "Địa điểm trên bản đồ",
+        "translation": "Places on the map",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "949f1f2cc7af626df12ac61afdc22fad79864e7af64b6dc5f62d3f49281872f4": {
+        "source": "Xem tất cả bài",
+        "translation": "View all posts",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "ac574d448339cdf9e468c1f0a2a4b52789cf90201a2926e9beddc014bf67a1f3": {
+        "source": "Bài này chưa được công khai hoặc không tồn tại.",
+        "translation": "This article is not public or does not exist.",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "c500c2414ad05d4209c0c887b9b25c437fbeacdaf86560f9a621a9dd53b12fbf": {
+        "source": "Cẩm nang chưa mở được lúc này. Bạn thử tải lại trang nhé.",
+        "translation": "The manual is not open at this time. Please try reloading the page.",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "032fe408ef5659a47ee4f8dc1b94c7f9f09b539924aebd10ce2c2bb50eec047a": {
+        "source": "Tìm hiểu thêm",
+        "translation": "Learn more",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "4405f8a619251dc34b17b700f849ff1492f26a82a011a1e66b991b1b7966d5b7": {
+        "source": "Nguồn thông tin",
+        "translation": "Sources of information",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "e77c354e63e7a3ac527f5271c2a0462fd5716a6f02c834a8842c9556ea572072": {
+        "source": "Ghé thế nào cho tiện?",
+        "translation": "How to visit for convenience?",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "c8b61525e27e8ea7ff6a1b02c899c21d3aa112771b6c58da8721a3f4b8e3c731": {
+        "source": "Điều nên biết trước khi tới",
+        "translation": "Know before you go",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "ae7f4d951cef0dc74c33cb5523d790699dc9ac396f9946a87ead7dee5410d777": {
+        "source": "Trước khi ghé",
+        "translation": "Before you visit",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "1ebcb582de7aaff933b373c6914a40917780dda5eb8d1cebc15230b1c489417d": {
+        "source": "Xem điều kiện thực tế",
+        "translation": "View actual conditions",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "b0b8d232f1af6aa56275edcb8ce48f6aa2d06b11ab359f8e0413ab1241bfabd7": {
+        "source": "Những điều dễ bỏ sót",
+        "translation": "Things that are easy to miss",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "5e3af042415818ea0dab0e2bce1b650c3f36845670e71a489363757a962b1968": {
+        "source": "Khi ra ngoài",
+        "translation": "When going out",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "bd5475fcd1e5f23aa1f507969c2cac8784cf0d1e1649b8f43cc689b348880e8a": {
+        "source": "Ăn và chọn món",
+        "translation": "Eat and choose your dishes",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "a49445186712c59881bb779b0a7fc05c1dbffa00861f6ace7886ee48239192e9": {
+        "source": "Điều cần biết khi gọi",
+        "translation": "What to know when calling",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "c7339b484566aa5d766b58d7f48b11babbcca4c43aa6c6ae54fac92304bf1281": {
+        "source": "Trước khi ăn hoặc mua",
+        "translation": "Before eating or buying",
+        "updated_at": "2026-09-30T01:14:43.954Z"
+      },
+      "1d8106b53d0decbef80af7e27119704f57358c6be0875bd8f7a636ad09c13b61": {
+        "source": "Chọn mua và tìm hiểu",
+        "translation": "Shop and learn",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "10563a621b4ca78f6dcb3a26415f6d9292e64e4503c5006bc2ae0e7cab5491e8": {
+        "source": "Chuẩn bị thế nào?",
+        "translation": "How to prepare?",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "40ef54f3aa600611a7f3c6294efebaa19849e95a9109621dfd09b9101a2133c2": {
+        "source": "Những trường hợp cần lưu ý",
+        "translation": "Cases to note",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "89a9dc00859b699053bb959cbf99945d9651717f025fe93a0bdc4c7fdfd0bc4c": {
+        "source": "Hiểu đúng câu chuyện",
+        "translation": "Understand the right story",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "9329922a19cc1d8245e46e72af625c910444ba7491193aae36600b14312dfd61": {
+        "source": "Nếu ghé thăm",
+        "translation": "If you visit",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "86b93b69aa075e1b361a5ee732da3603aa1b53e751c521b8ac9a5d79d56734cf": {
+        "source": "Sắp lịch thế nào?",
+        "translation": "How to schedule?",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "7bcf6e0b31646e664382909b1ddc02dda35d01bc85e577e4a8548b79e2e80b5f": {
+        "source": "Điều có thể khác dự tính",
+        "translation": "What may be different",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "98103552bce98e9682da129af24009f94c3145a7cb123312defeb25817cba396": {
+        "source": "Trước chuyến đi",
+        "translation": "Before the trip",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "793dab6750b25c51e71cd48ca454c7a1c09dac47bd18704072b6dca70cd646e1": {
+        "source": "Nhìn đảo hôm nay",
+        "translation": "Looking at the island today",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "b0a6f7c84a88bfb6d60b0989d2c0bb1f8f3120df09e5bc09c8a448f696dc9ef4": {
+        "source": "Đọc tư liệu đúng thời điểm",
+        "translation": "Read materials at the right time",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "b1745933f749647192cc511f9df131a5db169c246195b92484b74c5a30ddca12": {
+        "source": "Nếu muốn xem tận nơi",
+        "translation": "If you want to see it in person",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      },
+      "83d870517dbbc9f12a9d5e53d5b146150611ea06b75ce15f1af84b063ce7bb41": {
+        "source": "Bản đồ khám phá",
+        "translation": "Discovery Map",
+        "updated_at": "2026-09-30T01:14:45.673Z"
+      }
+    }
+  }
 }
