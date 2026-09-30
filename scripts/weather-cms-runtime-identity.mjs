@@ -2,7 +2,7 @@
 // own enclosed assets. This is not a freshness check and does not alter data.
 // Run in addition to the independent last-deployed monotonic release guard.
 const timestamp=(s,label)=>{
-  if(typeof s!=="string"||!/(?:Z|[+-]\\d\\d:\\d\\d)$/.test(s))throw Error(label+" must include an explicit timezone");
+  if(typeof s!=="string"||!/(?:Z|[+-]\d\d:\d\d)$/.test(s))throw Error(label+" must include an explicit timezone");
   const n=Date.parse(s);
   if(!Number.isFinite(n))throw Error(label+" is not a valid instant");
   return n;
