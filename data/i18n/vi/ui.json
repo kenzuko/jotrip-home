@@ -221,6 +221,9 @@
     },
     "heat_index": "Chỉ số cảm giác nóng: khoảng {temperature}°C",
     "heat_index_method": "Tính từ nhiệt độ {air_temperature}°C và độ ẩm khoảng {humidity}%.",
-    "heat_index_note": "Đây là chỉ số suy ra, không phải nhiệt độ đo trực tiếp."
+    "heat_index_note": "Đây là chỉ số suy ra, không phải nhiệt độ đo trực tiếp.",
+    "live": "LIVE",
+    "updating": "Đang cập nhật",
+    "data_delayed": "Dữ liệu đang trễ"
   }
 }
