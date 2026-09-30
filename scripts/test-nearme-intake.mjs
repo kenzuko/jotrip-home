@@ -184,7 +184,7 @@ assert.equal(byId.get("hotel_sentina")?.map??null,null,"La Festa coordinates mus
 
 // Broad preventative check: named OSM-derived hotel points must share a distinctive brand token.
 // This complements, rather than replaces, the exact-brand quarantine/evidence review above.
-const hotelFold=s=>String(s||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/đ/g,"d").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+const hotelFold=s=>String(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
 const hotelGeneric=new Set(["phu","quoc","resort","hotel","spa","and","by","the","beach","villa","villas","luxury","long","grand","collection","premium","island"]);
 for(const e of entities.filter(x=>x.entity_type==="hotel"&&x.map?.source_id?.startsWith("osm_"))){
   assert.ok(e.map.matched_name,"Legacy OSM hotel candidate needs a specific matched place name: "+e.id);
