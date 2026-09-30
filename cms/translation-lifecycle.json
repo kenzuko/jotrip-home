@@ -197,13 +197,13 @@
       "target_path_pattern": "data/i18n/{locale}/food.json",
       "targets": {
         "en": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/en/food.json",
+          "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Azure Translator v3 machine draft; human review required."
         },
         "ko": {
           "status": "missing",

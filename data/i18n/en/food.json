@@ -1,0 +1,1569 @@
+{
+  "schema_version": "1.1",
+  "source": {
+    "id": "handbook_r3",
+    "slides": [
+      66
+    ],
+    "file": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx"
+  },
+  "dishes": [
+    {
+      "id": "goi-ca-trich",
+      "name": "Herring salad",
+      "category": "local",
+      "intro": "A plate of Phu Quoc standard herring salad always evokes cravings with the bright green color of wild vegetables, the white color of grated coconut and a plate of fragrant flexible rice paper next to a cup of smooth dipping sauce. Pick up each piece of fresh fish, add a little fatty coconut, herbs and roll it to fit your hand; just lightly dip the corner of the cake to the sweetness of the sea, the light fat taste of coconut and the fresh aroma of vegetables are tightly intertwined in each corner of the taste buds. This dish was born for gatherings - where the whole table meticulously rolls each piece and chats in the middle of the sea and island space.",
+      "how_to_eat": "Spread the soft rice paper flat, layer it with green vegetables, add a few handfuls of herring and sprinkle a little shredded coconut. Roll it up lightly but neatly enough, then lightly dip a corner into a cup of rich peanut sauce. If you like spicy food, you can add a few slices of fresh chili pepper to stimulate the taste buds.",
+      "tips": [
+        "It is recommended to ask in advance whether the fish is imported and made during the day, served fresh, lemoned or pre-cooked.",
+        "Peanut dipping sauce is the \"soul\" of the dish; if you are allergic to nuts, ask the restaurant to make a separate cup of traditional sweet and sour fish sauce.",
+        "If you are experiencing fresh food for the first time, you should order a small portion to try it first to feel the suitability of the taste."
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#goi-ca-trich",
+        "#hai-san"
+      ],
+      "origin": "Herring salad has long become an indispensable culinary symbol on the Phu Quoc tourism map. Initially just a simple dish of fishermen after sea trips, over time, the dish has appeared from coastal popular restaurants to luxury restaurants. Each kitchen on the island keeps its own secret of mixing fish; the accompanying vegetables also vary depending on the season and the forest area on the island, creating a richness that no place is quite the same.",
+      "why_name": "The name fully reveals the essence of the dish: fresh herring meat is skillfully prepared and then mixed into salads. However, what makes it unique is not only the fish, but the art of combining it with grated coconut, wild vegetables and the typical peanut sauce.",
+      "ingredients": [
+        "Fresh herring",
+        "Onions",
+        "Herb/basil",
+        "Grated Coconut",
+        "Raw vegetables",
+        "Rice paper",
+        "Dipping sauce from fish sauce, garlic, chili",
+        "Roasted peanuts – usually available"
+      ],
+      "taste_texture": "Herring meat is fresh, soft and sweet naturally without being fishy. Grated coconut brings a greasy texture with a slight crunch, blending with the mild, fresh astringency of wild vegetables. All are elevated thanks to a cup of dark, rounded dipping sauce with a sour - spicy - salty - sweet taste.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "high"
+        },
+        {
+          "key": "peanut",
+          "label": "Peanuts",
+          "level": "high"
+        }
+      ],
+      "allergy_note": "Dipping sauces and side dishes often contain crushed roasted peanuts. If you have a history of allergies to peanuts, fresh seafood, or a weak stomach, carefully discuss with the restaurant how to prepare the fish and dipping sauce ingredients before ordering.",
+      "ask_staff": [
+        "Does the dipping sauce come with peanuts?",
+        "Today's herring is fresh fish made during the day, right, the restaurant serves raw or raw?",
+        "Can you prepare your own peanut-free dipping sauce for me?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Phu Quoc seafood specialties",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood"
+        }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    {
+      "id": "bun-quay",
+      "name": "Bun quay",
+      "category": "local",
+      "intro": "The attraction of vermicelli comes not only from the smoky hot bowl of vermicelli but also from the extremely interesting culinary experience. When the bowl of fresh vermicelli is served with a layer of seafood cakes spread around the side of the bowl, the main \"stage\" belongs to the cup of dipping sauce prepared by your own hands. Add your own hands to reduce the congestion, chili, sugar, salt and then \"stir\" evenly until it turns smooth orange - the feeling of perfecting the flavor of your bowl of vermicelli with your own hands is the most memorable point.",
+      "how_to_eat": "When the bowl of vermicelli has just been opened, you should taste a spoonful of the original broth to feel the natural sweetness. Then, make your own cup of dipping sauce according to your taste, scoop each spoonful of dipping sauce into the bowl or use it to directly dip each piece of shrimp and sweet crispy fish cake.",
+      "tips": [
+        "A full bowl usually has shrimp cakes, fish cakes, and squid eggs; tell the restaurant to remove them if you can't eat any seafood.",
+        "Mix the dipping sauce little by little, taste before adding too much chili or clogged.",
+        "Noodles are best eaten as soon as they are served, avoid leaving them for a long time, causing the vermicelli to swell."
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#bun-quay"
+      ],
+      "origin": "Bun Quay originated from Binh Dinh shrimp noodles, following in the footsteps of immigrants to Phu Quoc and flexibly modified to suit the abundant seafood here. From a popular dish serving workers, Bun Quay has become a unique culinary culture that anyone visiting the pearl island wants to experience once.",
+      "why_name": "The name \"vermicelli\" comes from the movement of the diners: constantly stirring the spices to dissolve evenly, and at the same time quickly stirring the fresh fish and shrimp rolls in a bowl of boiling broth so that the meat is just cooked.",
+      "ingredients": [
+        "Fresh vermicelli made from rice flour",
+        "Shrimp Rolls",
+        "Fish cakes",
+        "Squid - depending on the restaurant",
+        "Green onions and herbs",
+        "The dipping sauce usually has fish sauce, cactus/kumquat, sugar and chili"
+      ],
+      "taste_texture": "Fresh vermicelli is pressed on the spot to be soft and warm. Shrimp cakes, fish cakes are chewy and crispy, sweet with a rich sea flavor. The broth has a mild taste, perfectly combined with a cup of explosive spicy and sour chili dipping sauce.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "high"
+        },
+        {
+          "key": "crustacean",
+          "label": "Shrimp/crustaceans",
+          "level": "high"
+        },
+        {
+          "key": "mollusc",
+          "label": "Squid/krill",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The broth and patties have the main ingredients of shrimp, fish, and fresh squid. In addition, the area where fresh vermicelli and seafood patties are often operated continuously with shared utensils, diners with severe seafood or gluten allergies need to consider carefully.",
+      "ask_staff": [
+        "What kind of seafood does today's special bowl include?",
+        "Can the restaurant adjust the spiciness or not put pepper in the bowl?",
+        "Does the vermicelli process use additives or flour?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Phu Quoc Bun Quyen",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-signature-noodle-bun-quay"
+        },
+        {
+          "label": "VnExpress - Phu Quoc noodle soup",
+          "url": "https://vnexpress.net/bun-quay-phu-quoc-4066543.html"
+        }
+      ],
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ]
+    },
+    {
+      "id": "bun-ken",
+      "name": "Bun Ken",
+      "category": "local",
+      "intro": "Bun ken is a gentle but surprising silence in the vibrant culinary picture of Phu Quoc. Not as clear as fish noodles or rich as vermicelli, vermicelli seduces diners with its golden broth, smooth from coconut milk and pureed fish meat. A bowl of vermicelli served is always brilliant in color: the white of the vermicelli, the yellow color of the trumpet juice, the green color of herbs and crispy grated cucumbers and papaya.",
+      "how_to_eat": "First, scoop a spoonful of trumpet juice to fully feel the aromatic fatty taste. Then, mix the bowl of vermicelli well so that the vermicelli, herbs, cucumber and grated papaya are soaked in the fatty broth. If you like spicy food, add a little fresh chili pepper to explode the taste buds.",
+      "tips": [
+        "It is recommended to eat vermicelli in the morning to fully feel the freshness of the broth that has just been cooked.",
+        "Mix the crispy vegetables underneath well before eating so that the layers of flavors blend.",
+        "If you can't eat spicy, tell the seller not to pour more chili peppers on the top of the bowl."
+      ],
+      "hashtags": [
+        "#mon-dia-phuong",
+        "#bun-ken"
+      ],
+      "origin": "Bun ken is a rustic dish associated with the life of the Southern Khmer community, then received and adapted by the people of Phu Quoc according to the taste of the sea and islands. Locally caught fresh barracuda or silverfish is cooked with coconut milk and five spices, creating a unique dish that is rarely found anywhere else.",
+      "why_name": "The word \"trumpet\" in Khmer refers to dishes that use coconut milk combined with five-spice powder or curry powder. Over time, this name has become a familiar name for this unique vermicelli dish.",
+      "ingredients": [
+        "Microfiber rice noodles",
+        "Fish - how to make it varies by restaurant",
+        "Coconut milk",
+        "Curry seasoning",
+        "Herbs/spinach",
+        "Cucumber",
+        "Grated papaya - common"
+      ],
+      "taste_texture": "Fresh fish meat is shredded, stir-fried and then cooked finely, so it is tightly blended into the fatty coconut milk. The crunchy crispiness of grated papaya and the freshness of raw vegetables help perfectly balance the fatty taste, making you eat it all the time.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "high"
+        }
+      ],
+      "allergy_note": "The core ingredients of the dish are sea fish and thick fatty coconut milk. People with a digestive system that is sensitive to fatty foods or a seafood allergy should be careful to enjoy it in moderation.",
+      "ask_staff": [
+        "Today, the restaurant cooks vermicelli with barracuda or barracuda fish?",
+        "Does the broth have shrimp paste or any other special spices ready?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Phu Quoc for nature lovers",
+          "url": "https://beta.vietnam.travel/vi/things-to-do/phu-quoc-nature-lovers"
+        },
+        {
+          "label": "VnExpress - Phu Quoc Travel Guide",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ],
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ]
+    },
+    {
+      "id": "nhum",
+      "name": "Pinch",
+      "category": "seafood",
+      "intro": "Sea urchins - also known as \"ginseng of the sea\" - possess a shaggy, prickly and challenging appearance, but inside they hide a greasy golden egg. In Phu Quoc, fresh urchins freshly caught from the sea are often processed in many ways, but the most attractive is still grilling onion fat and beating quail eggs, or cooking into a bowl of warm porridge to soothe the stomach after hours of soaking in the sea.",
+      "how_to_eat": "With grilled porridge with onion fat, use a small spoon to scoop each part of the hot porridge eggs, sprinkle a little fish sauce with salt and green chili and enjoy immediately. For porridge, sprinkle a little ground pepper, green onions and eat while the porridge is still smoking.",
+      "tips": [
+        "Try ordering from 1-2 grilled onion fat first to get used to the taste before ordering large quantities.",
+        "Enjoy the grilled hom as soon as you leave the charcoal stove to avoid being fishy when cold.",
+        "If your stomach is weak, well-cooked porridge is the safest and easiest option to digest."
+      ],
+      "hashtags": [
+        "#hai-san",
+        "#nhum"
+      ],
+      "origin": "Live urchins cling to sharp reefs around small islands in Phu Quoc. Fishermen must dive deep and carefully separate each urchin from the rocks. The amount of meat (eggs) depends greatly on the moon season and the size of each fish.",
+      "why_name": "Depending on the region, this seafood species is called sea urchin, prickly bridge or sea urchin. The name \"nhum\" is the closest and most familiar name of the people of the southern sea and islands.",
+      "ingredients": [
+        "Sea urchins",
+        "Onion oil or fat",
+        "Green onions",
+        "Roasted peanuts – usually available",
+        "Salt, pepper, lemon or spicy and sour sauce - depending on the restaurant"
+      ],
+      "taste_texture": "Eggs have a flexible texture, a natural sweet and salty taste mixed with a characteristic creaminess. When baked with onion fat and peanuts, the seductive aroma spreads and explodes in the oral cavity.",
+      "allergen_flags": [
+        {
+          "key": "seafood",
+          "label": "Seafood / sea urchin",
+          "level": "high"
+        },
+        {
+          "key": "peanut",
+          "label": "Peanuts",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Grilled oysters with onion fat are often accompanied by roasted peanuts. In addition, because it is naturally caught seafood, diners with a history of mollusk or crustacean allergies should be cautious.",
+      "ask_staff": [
+        "Today's shrimp is a fresh catch of the day, right?",
+        "Does baked goods sprinkle extra peanuts?",
+        "Can the restaurant grill the original noodles without onion fat or spices?"
+      ],
+      "sources": [
+        {
+          "label": "Vietnam Tourism - Phu Quoc seafood specialties",
+          "url": "https://vietnam.travel/vi/things-to-do/phu-quoc-specialty-seafood"
+        },
+        {
+          "label": "VnExpress - Phu Quoc Travel Guide",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    {
+      "id": "coi-bien-mai",
+      "name": "Bien Mai Whistle",
+      "category": "seafood",
+      "intro": "Grilled apricot whistle with salt and chili is a \"national\" target dish on Phu Quoc coastal drinking tables. The triangular apricot whistle is as big as a hand, but the best meat is only two round, thick and firm whistle blocks. The whistles are grilled on a charcoal stove, sizzling with a layer of spicy chili salt sauce, emitting a sweet aroma that makes anyone passing by have to look at it.",
+      "how_to_eat": "Bien Mai whistle is usually skewered into grilled strings with salt and chili or grilled with chao. Eat each plate of grilled whistle just to be cooked, accompanied by a few leaves of basil, cucumber or okra beans (okra) grilled together to enhance the flavor.",
+      "tips": [
+        "Apricot whistle cooks very quickly; over-grilling will make the whistle tough and dry.",
+        "If you can't eat spicy, order the onion fat grill or the lightly spicy satay grill.",
+        "Ask carefully whether the price is calculated by the plate, by the string or by the weight of the fresh whistle."
+      ],
+      "hashtags": [
+        "#hai-san",
+        "#bien-mai"
+      ],
+      "origin": "Oysters live deep in the bottom of the Phu Quoc sea. The shellfish meat is mushy and not tasty, but the whistle - the shell closing muscle - is an invaluable gift of the sea with a rare rough crispiness.",
+      "why_name": "The \"whistle\" is the contractile muscle that helps the shellfish open and close two pieces of sturdy shell. The name is brief but reflects the most quintessential part of this seafood.",
+      "ingredients": [
+        "Bien Mai Whistle",
+        "Chili salt or satay - depending on how grilled",
+        "Chao – in some grilling styles",
+        "Accompanying vegetables - depending on the restaurant"
+      ],
+      "taste_texture": "Bien Mai whistle possesses a characteristic rough crispiness and a natural sweet taste. When grilling chili salt, the spicy taste of chili peppers is mixed with the salty taste of the sea and the aroma from the embers creates an irresistible attraction.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Krill / Oysters",
+          "level": "high"
+        },
+        {
+          "key": "soy",
+          "label": "Soybeans – can be in a colander",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The grilled horn may contain soy ingredients; satay sauce or marinade Some restaurants may use peanuts or additives. Allergy sufferers need to double-check the type of marinade.",
+      "ask_staff": [
+        "Is today's grilled sauce chili salt, satay or chao?",
+        "Does the grill sauce ingredients contain peanuts or soybeans?"
+      ],
+      "sources": [
+        {
+          "label": "VietnamNet - Phu Quoc grilled apricot whistle",
+          "url": "https://vietnamnet.vn/xep-hang-doi-lan-bien-san-dac-san-tru-danh-cua-phu-quoc-dem-nuong-muoi-ot-778244.html"
+        },
+        {
+          "label": "VnExpress - Phu Quoc Travel Guide",
+          "url": "https://vnexpress.net/cam-nang-du-lich-phu-quoc-4106697.html"
+        }
+      ],
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ]
+    },
+    {
+      "id": "banh-canh-ca-thu",
+      "name": "Mackerel soup cake",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Starting the day in Phu Quoc with a bowl of hot mackerel soup is the most gentle and complete experience. The bowl of smoky cake soup is filled with clear broth, dotted with pieces of white mackerel, golden fried fish cakes with chopped green onions and a little fragrant Phu Quoc black pepper.",
+      "how_to_eat": "Taste a spoonful of the original hot broth. Pick up each piece of mackerel, dip it into a cup of pure salty fish sauce, cut a few more slices of chili pepper. You can squeeze a little more fresh lemon to make the broth more elegant.",
+      "tips": [
+        "It is recommended to order a bowl combining both mackerel meat pieces and fish cakes to experience a variety of textures.",
+        "Use caution when feeding children as the fish pieces may have small bones.",
+        "Mackerel soup cake shops usually sell very early and sell out quickly in the middle of the morning."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-canh-ca-thu"
+      ],
+      "origin": "Phu Quoc mackerel is famous for its freshness and sweetness thanks to being caught and transported on the same day. Locals have cleverly used fresh mackerel and carefully simmered fish bones to create a sweet soup cake rich in sea flavor.",
+      "why_name": "The name combines the type of cake fiber (filtered flour soup or rice flour) and the main ingredient is fresh mackerel - a favorite product of the Southwest sea.",
+      "ingredients": [
+        "Mackerel",
+        "Cake soup",
+        "Onions",
+        "pepper",
+        "Broth"
+      ],
+      "taste_texture": "Mackerel meat is firm and sweet, not brittle; the fish cakes are chewy and crispy with the smell of pepper. The soup noodles are soft and silky, the broth is sweet and gentle without being harsh with artificial flavors.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The broth is simmered from fresh mackerel bones. Diners with sea fish allergies should pay special attention. In addition, fresh mackerel meat sometimes still has a few small pieces of bone chips left.",
+      "ask_staff": [
+        "What fish ingredients are included in a small/special bowl?",
+        "Is the restaurant's soup noodles made from filtered flour or rice flour?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-canh-ghe",
+      "name": "Crab soup cake",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Crab soup cake is a dish that represents the generosity and richness of Phu Quoc seafood cuisine. Looking at the bowl of banh canh with a whole red crab lying on a layer of white soup noodles, mixed in the red broth the color of crab bricks, it is difficult for anyone to hold their hearts without wanting to hold a spoon to enjoy it immediately.",
+      "how_to_eat": "If you order a bowl of whole crabs, you use tongs to peel off the shells, peel off each strip of sweet crab meat and dip it in green chili salt and enjoy it with the soup and dark broth. If you want to eat it quickly, you can order the crab with the meat removed.",
+      "tips": [
+        "Ask for the price of a bowl of whole crabs before ordering because the price changes according to the price of seafood.",
+        "If you are afraid to peel and get your hands dirty, choose a bowl of pre-removed crab meat.",
+        "Squeeze a little more tackle/lemon into the broth to soften the fatty taste of the crab bricks."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-canh-ghe"
+      ],
+      "origin": "Starting from coastal fishing villages, crab soup cakes have gradually become a high-class specialty that attracts tourists thanks to the source of fresh crabs caught on the spot, especially the famous Ham Ninh crab with sweet meat.",
+      "why_name": "The dish is named after the highlight ingredient is fresh crab meat, combined with noodles rolled into bite-sized pieces.",
+      "ingredients": [
+        "Crabs",
+        "Cake soup",
+        "Onions",
+        "Herbs",
+        "Spices"
+      ],
+      "taste_texture": "The crab meat is fresh and firm, rich in sea flavor; the broth cooked from crab bricks and seafood should be creamy and sweet. The soft and chewy soup noodles are infused with extremely attractive spices.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Crustaceans",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Crabs belong to the crustacean seafood group that are very easy to cause allergies to people with sensitive bodies. Ask for the price because whole crabs are usually calculated according to the actual weight.",
+      "ask_staff": [
+        "Is the price of today's crab soup bowl fixed or according to the weight of the crab?",
+        "Does the restaurant have a bowl of crab meat to remove the pieces?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "hu-tieu-muc",
+      "name": "Squid noodle soup",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Not complicated and complicated, squid noodle soup conquers diners with the original freshness of the sea. The bowl of noodle soup attracts attention by the fresh squid rings, curled and crispy, prominent on the background of clear broth, dotted with a few green chives, golden fried onions and delicious minced meat.",
+      "how_to_eat": "Pick up a piece of squid and dip it right into a cup of green chili salt or fresh chili fish sauce to fully feel the sweet crispiness. Mix the noodles with spinach and raw bean sprouts and enjoy with the hot broth.",
+      "tips": [
+        "It is recommended to enjoy the squid as soon as it is hot to keep the crispiness, avoid letting the squid soak for a long time in hot broth, making the squid tough.",
+        "You can order quail eggs or fresh shrimp if you want a richer bowl of noodles."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#hu-tieu-muc"
+      ],
+      "origin": "Squid noodle soup is a cross between the familiar culture of eating noodles in the South and the abundant and fresh source of squid caught by Phu Quoc fishermen at night.",
+      "why_name": "The name of the dish is simple and direct: noodle soup served with fresh squid as the main filling.",
+      "ingredients": [
+        "Ink",
+        "Noodle soup",
+        "Onions",
+        "Accompanying vegetables",
+        "Broth"
+      ],
+      "taste_texture": "The squid meat is crispy, juicy and sweet. The broth is cooked from dried squid and pork bones for a deep sweetness, fragrant with the smell of fried onions and ground pepper.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Krill",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Diners with krill allergies (squid, octopus) should avoid this dish. The broth also often contains dried shrimp or pork bones.",
+      "ask_staff": [
+        "Today's squid is fresh squid caught at night, right?",
+        "Is the broth cooked with dried shrimp or any other seafood?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "bun-rieu",
+      "name": "Bun Rieu",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Located in the middle of an expensive seafood paradise, Phu Quoc bowl of vermicelli brings a warm, rustic but charming bass note. The bowl of vermicelli served is full of colors: the red color of ripe tomatoes, the yellow color of fried tofu, the fragrant crab shell and soft soft pork blood, immersed in a gentle sour broth.",
+      "how_to_eat": "Taste the original sour broth, then add a scoop of shrimp paste, a little chili pepper and fresh lemon to taste. Serve with a plate of raw vegetables including grated morning glory, bean sprouts and thinly sliced banana flowers.",
+      "tips": [
+        "Taste the broth before deciding to add shrimp paste or spices.",
+        "If you can't eat blood or shrimp paste, tell the seller right from the moment you order the bowl."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#bun-rieu"
+      ],
+      "origin": "Bun rieu follows the people of the North and South to Phu Quoc, then is localized by combining fresh sea fish cakes or sea snails, creating a version of bun rieu rich in the flavor of the sea and islands.",
+      "why_name": "\"Rieu\" refers to the layer of shrimp/crab that closes into greasy patches on the surface of the broth pot when boiling.",
+      "ingredients": [
+        "Noodles",
+        "Crab",
+        "Tomatoes",
+        "Vegetables",
+        "Spices"
+      ],
+      "taste_texture": "The broth is mildly sour and refreshing thanks to the tomatoes and vinegar; the soft and greasy crab sauce; the chewy and crispy fish cakes and fresh raw vegetables create a great balance.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Crustaceans",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Shrimp paste is a seasoning that determines the flavor but is easily irritating or unpalatable to some people. Crab sauce can also contain shrimp or crustaceans.",
+      "ask_staff": [
+        "Is it made from field crabs, sea crabs or with shrimp meat?",
+        "Is the broth seasoned with shrimp paste in the pot?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-mi-cha-ca",
+      "name": "Fish cake bread",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "snack"
+      ],
+      "intro": "Fish cake bread is a quick, popular but extremely tasty breakfast dish on the streets of Phu Quoc. The crispy loaf of bread that has just come out of the oven is filled with hot fried fish cakes, mixed with cucumbers, fresh vegetables and drizzled with a rich sweet and salty spicy and sour sauce.",
+      "how_to_eat": "Hold the hot loaf of bread, bite your teeth to feel the crispiness of the crust blending with the chewy sweetness of the fish cakes and the rich taste of the sauce.",
+      "tips": [
+        "Ask the seller to reheat the bread on the stove so that the crust reaches maximum crispiness.",
+        "If you can't eat spicy, tell the restaurant not to sprinkle satay or chopped chili."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-mi-cha-ca"
+      ],
+      "origin": "As a perfect combination of traditional Vietnamese bread and fresh fish cakes, a specialty of Phu Quoc island waters, the dish meets the criteria of fast - delicious - enough quality for people and tourists.",
+      "why_name": "The dish is simply named after two main ingredients: crispy bread crust and fried fish cake filling.",
+      "ingredients": [
+        "Bread",
+        "Fish Cakes",
+        "Vegetables",
+        "Sauce"
+      ],
+      "taste_texture": "The crust is crispy and fluffy, the fried fish cakes are chewy and crispy with a rich aroma of pepper; Spinach and cucumber help balance the greasy taste, and the slightly spicy sauce stimulates the taste buds.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "possible"
+        },
+        {
+          "key": "gluten",
+          "label": "Wheat",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Fish cakes are usually made from fresh sea fish seasoned with a lot of black pepper and spices. People with fish or flour allergies should be aware.",
+      "ask_staff": [
+        "What kind of fish are fish cakes made of (mackerel, barracuda or termite)?",
+        "Does bread sauce taste very spicy?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-mi-op-la",
+      "name": "Omelet bread",
+      "category": "local",
+      "meal_times": [
+        "breakfast"
+      ],
+      "intro": "Omelet bread is a familiar and safe breakfast option but never boring. No matter where you are on Phu Quoc Island, a sizzling pan with 2 golden peach eggs, dotted with a few slices of fatty pate, pork patties or rich shumai served with a crispy loaf of bread is always enough to recharge your energy for the journey of discovery.",
+      "how_to_eat": "Use a fork to gently roll the egg yolk of the peach so that it flows out, tear off the crispy bread, toss the egg yolk and the fragrant pate and enjoy.",
+      "tips": [
+        "Specify the level of doneness of the eggs (peach, medium or well-cooked) when ordering.",
+        "Serve with sweet and sour pickles so that the dish does not get sick."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-mi-op-la"
+      ],
+      "origin": "The breakfast dish is popular throughout the country, flexibly served by Phu Quoc restaurants in the style of a hot pan or sandwiched directly into bread.",
+      "why_name": "\"O la\" is a transliteration of the French word \"Œufs au plat\" (egg fried on a flat pan), served with bread.",
+      "ingredients": [
+        "Bread",
+        "Eggs",
+        "Vegetables",
+        "Spices",
+        "optional serving"
+      ],
+      "taste_texture": "The omelet has a slightly crispy edge, the yolk is soft and greasy; the pate is smooth and rich, served with crispy hot bread to create an extremely round feeling.",
+      "allergen_flags": [
+        {
+          "key": "egg",
+          "label": "Eggs",
+          "level": "possible"
+        },
+        {
+          "key": "gluten",
+          "label": "Wheat",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The dish contains chicken eggs and gluten from wheat flour. If you are not used to eating peach eggs, you should tell the restaurant to fry them until they are cooked.",
+      "ask_staff": [
+        "What side dishes does the full omelet include?",
+        "Can you fry cooked eggs completely for me?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "xoi-man",
+      "name": "Salty sticky rice",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "snack"
+      ],
+      "intro": "Phu Quoc salty sticky rice brings a firm, plump and fragrant breakfast. The fragrant sticky rice is spread out on a hot plate, covered with rich side dishes such as fried sausages, scrubs, quail eggs, shredded braised meat, crispy fried onions and drizzled with a spoonful of rich sauce.",
+      "how_to_eat": "Use a spoon to gently dig from the bottom up so that the sticky rice seeds blend evenly with the sauce, sausage and fried onions, creating the most round sticky rice spoon.",
+      "tips": [
+        "Buy sticky rice early in the morning when the sticky rice has just finished cooking to ensure the softest plasticity.",
+        "If you can't eat fried onions or onion fat, be sure to tell the seller from the beginning."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#xoi-man"
+      ],
+      "origin": "Vietnam's national breakfast dish, appearing popularly at popular sticky rice carts along Phu Quoc road to serve students, workers and tourists who need a quick breakfast.",
+      "why_name": "\"Salty\" to distinguish it from sweet sticky rice (coconut sticky rice, gac sticky rice, mango sticky rice), emphasizing that the accompanying filling is rich and salty dishes.",
+      "ingredients": [
+        "Sticky Rice",
+        "Side dishes vary by restaurant"
+      ],
+      "taste_texture": "Soft sticky rice seeds, fragrant with the smell of new glutinous rice; rich and greasy sausage; fluffy scrub and fragrant crispy fried onions create an extremely mouth-catching texture.",
+      "allergen_flags": [
+        {
+          "key": "egg",
+          "label": "Eggs",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Salty sticky rice is rich in energy and starch. Side dishes such as sausages and pates can contain pork or rich spices.",
+      "ask_staff": [
+        "What are the side dishes included in today's full box of sticky rice?",
+        "Does the restaurant serve spicy sauce?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "chao-cha",
+      "name": "Porridge",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "intro": "If you are looking for a gentle breakfast or dinner dish, patting your stomach after a full seafood meal, porridge is the ideal choice. A bowl of white porridge is simmered with soft flesh, fragrant with the aroma of shredded ginger and black pepper, served with slices of fish or pork rolls that are rich and crispy.",
+      "how_to_eat": "Scoop each spoonful of hot porridge and serve with sliced patties. Sprinkle with a little Phu Quoc ground pepper and sliced ginger to warm your stomach.",
+      "tips": [
+        "Mix the shredded ginger and ground pepper well so that the flavor spreads evenly in the bowl of porridge.",
+        "The dish is especially suitable for cool rainy days or when the stomach is weak."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#chao-cha"
+      ],
+      "origin": "The idyllic dish is popular at people's markets in Phu Quoc, with the warm taste of Southern family cuisine.",
+      "why_name": "The name of the dish is simply combined from two constituent ingredients: soft simmered porridge and pork rolls (sea fish cakes or pork cakes).",
+      "ingredients": [
+        "Rice",
+        "Pork rolls (optional ingredients)",
+        "Onion and pepper",
+        "Spices"
+      ],
+      "taste_texture": "Porridge puree is mild; chewy and crispy patties; the warm spiciness of pepper and ginger makes for a great comfort.",
+      "allergen_flags": [],
+      "allergy_note": "The accompanying patties can be sea fish cakes or pork patties, depending on the restaurant. You should ask if you have a history of seafood allergies.",
+      "ask_staff": [
+        "Does the restaurant serve porridge served with fish cakes or pork cakes?",
+        "Are there any special seasonings or spices in the porridge?"
+      ],
+      "sources": [
+        {
+          "label": "Foody - Porridge Cha, 30 Thang 4 (commented in 2016, only used to confirm the name of the dish)",
+          "url": "https://www.foody.vn/phu-quoc/chao-cha-duong-30-thang-4"
+        }
+      ]
+    },
+    {
+      "id": "chao-nhum",
+      "name": "Porridge",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Porridge is a delicate combination of fragrant flexible rice grains and the original greasy taste of fresh Phu Quoc sea urchins. The bowl of porridge is served smoky, dressed in a charming light yellow color from the shallot eggs, awakening the aroma of green onions and ground pepper - a dish that is both delicious and extremely nutritious.",
+      "how_to_eat": "Gently mix the bowl of porridge while it is still hot so that the eggs blend, sprinkle a little Phu Quoc ground pepper and enjoy slowly one spoon at a time.",
+      "tips": [
+        "It is recommended to eat porridge when it is still very hot to feel the fatty and rounded aroma and avoid the fishy taste of seafood when cold.",
+        "This is a great energy recovery dish after a full-day scuba diving tour."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#chao-nhum"
+      ],
+      "origin": "After scuba diving, the people of the pearl island often collect the freshest hummus and cook porridge to improve their health. The dish gradually became a high-class specialty at Phu Quoc seafood restaurants.",
+      "why_name": "The name shows the star ingredient of the dish: fresh sea urchin eggs cooked with sticky rice porridge.",
+      "ingredients": [
+        "Sea urchins",
+        "Rice",
+        "Onions",
+        "pepper"
+      ],
+      "taste_texture": "Soft and smooth porridge; greasy, sweet and salty eggs with a sea flavor that lingers on the tip of the tongue; patting the taste buds gently.",
+      "allergen_flags": [
+        {
+          "key": "sea_urchin",
+          "label": "Sea urchins",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Nhum is a seafood rich in protein. Diners with a history of mollusk seafood allergies should consider before enjoying it.",
+      "ask_staff": [
+        "Is the hom stir-fried first or is fresh egg directly cooked with porridge?",
+        "How much does a bowl of porridge cost and how many people are there to eat?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "chao-hau",
+      "name": "Oyster porridge",
+      "category": "seafood",
+      "meal_times": [
+        "breakfast",
+        "lunch"
+      ],
+      "intro": "Another great nutritional option from Phu Quoc seafood is the hot oyster porridge. The fatty milk oysters, stir-fried with fragrant onions and then dropped into a pot of flexible rice porridge, bring an irresistible sweet and rich taste.",
+      "how_to_eat": "Enjoy while the porridge is still smoky. Scoop a spoonful of porridge with succulent milk oysters, add a little chopped spinach or cilantro for extra flavor.",
+      "tips": [
+        "Ask the restaurant to cook the oysters thoroughly if you have a sensitive digestive system.",
+        "Sprinkle a little stripped-down ginger and Phu Quoc pepper to make the dish more round and warmer."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#chao-hau"
+      ],
+      "origin": "Milk oysters are raised and exploited naturally in the calm waters around Phu Quoc Island. Oyster porridge is a nutritious dish familiar to coastal residents.",
+      "why_name": "The short name represents the traditional rice porridge cooked in combination with fresh milk oysters.",
+      "ingredients": [
+        "Oysters",
+        "Rice",
+        "Onions",
+        "pepper",
+        "Spices"
+      ],
+      "taste_texture": "Milk oysters are soft and juicy, biting into the natural sweet and fatty taste; the porridge is smooth and rich in the flavor of the sea mixed with the pungent taste of black pepper.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Krill",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Oysters need to be cleaned of sand and cooked thoroughly to ensure food safety. Diners who are allergic to bivalve mollusks should avoid using them.",
+      "ask_staff": [
+        "Are milk oysters fresh and juicy today?",
+        "Do you stir-fry oysters separately and pour them into porridge or cook them together from scratch?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "com-ghe-ham-ninh",
+      "name": "Ham Ninh crab rice",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Ham Ninh crab rice is the perfect connection between the golden fried rice grains and the rich sweet crab meat fibers. The plate of fried rice served is fragrant with the smell of fried garlic, the yellow color dotted with the red color of crab meat and the green color of cucumber and cilantro.",
+      "how_to_eat": "Spoon each spoonful of fluffy fried rice mixed with shredded crab meat, serve with a few slices of cucumber, tomato and sprinkle with a little chili soy sauce if you like the rich taste.",
+      "tips": [
+        "The dish is suitable to order as a strong main dish for the whole family or group of friends.",
+        "It is recommended to ask the restaurant for small or large crab rice plates to order the right quantity."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#com-ghe-ham-ninh"
+      ],
+      "origin": "Starting from the ancient fishing village of Ham Ninh - the crab capital of Phu Quoc. The people here have taken advantage of fresh, sweet boiled crab meat and stir-fried with fried rice to create a famous specialty dish.",
+      "why_name": "The name is a combination of crab fried rice and the famous Ham Ninh fishing village.",
+      "ingredients": [
+        "Rice",
+        "Crab meat",
+        "Eggs or vegetables depending on the restaurant",
+        "Spices"
+      ],
+      "taste_texture": "The rice grains are not dry, the crab meat is sweet and fleshy; the fragrant taste of fried garlic and the seasoning are just right, making the rice plate extremely attractive.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Crustaceans",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The main ingredient contains crab meat (crustacean seafood) and fried rice that can be stir-fried with eggs or fish sauce.",
+      "ask_staff": [
+        "How many people is this crab rice plate suitable for eating?",
+        "Is the crab meat pre-stir-fried with rice or remove the fresh meat and stir-fry separately and cover the surface of the rice?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "ghe-ham-ninh",
+      "name": "Ham Ninh crab",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Coming to Phu Quoc without visiting Ham Ninh to enjoy a plate of hot steamed crabs, it is considered not a complete trip. Ham Ninh crab is not too big, but the skin is thin, the meat is firm and sweet, rare anywhere else. Just a plate of boiled crab and fragrant served next to a cup of salt and pepper with lemon is enough to captivate any fastidious diner.",
+      "how_to_eat": "Use your hands to lightly separate the crab shell, break the hot crab body in half, use tongs to break the claws to get the whole white crab meat. Dip the crab meat in a cup of lemon pepper salt or green chili salt and enjoy.",
+      "tips": [
+        "The best crab is steamed with lemongrass ginger or boiled originally to keep its natural sweetness.",
+        "You should choose female crabs if you like to eat a lot of fatty bricks, choose male crabs if you like to eat a lot of firm meat.",
+        "Select live crabs that swim in the lake and require direct weighing before processing."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#ghe-ham-ninh"
+      ],
+      "origin": "Ham Ninh fishing village is located in the east of Phu Quoc Island, where there is shallow water with abundant food sources that create the best quality of crab meat in the Southwest Sea.",
+      "why_name": "Fresh crabs are caught and served in the Ham Ninh fishing village area.",
+      "ingredients": [
+        "Crabs",
+        "Spice dip"
+      ],
+      "taste_texture": "The crab meat is firm, chewy and naturally sweet, and the greasy crab bricks stick to the tongue. The original sweet and salty taste of the sea shines without elaborate processing.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Crustaceans",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Crabs belong to the group of crustacean seafood. Customers with a history of allergies should note. The price of crabs fluctuates according to the time of year, size (large, medium, small) and seasonality.",
+      "ask_staff": [
+        "How much does Ham Ninh crab cost per kilogram today by size?",
+        "Is this type of crab a meaty male crab or a female crab with a lot of bricks?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "tom-mu-ni-nuong",
+      "name": "Grilled shrimp with ni hat",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Grilled shrimp is known as the \"banquet\" of seafood cuisine because of its fancy appearance and extremely expensive meat quality. The shrimp has a characteristic flat shell, when grilled on a charcoal stove, it emits a pleasant aroma. The white shrimp meat inside is firm and sweet and will make you remember forever.",
+      "how_to_eat": "Use tongs or scissors to cut the shrimp shell in half lengthwise, pick up the thick shrimp meat and dip it with Phu Quoc green chili salt or fragrant garlic butter sauce.",
+      "tips": [
+        "Grilled shrimp or grilled with cheese/onion fat are very delicious; however, grilling them all will retain the most original sweetness.",
+        "Always check the weight of fresh shrimp and fix the price per kilogram before the restaurant processes it."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#tom-mu-ni-nuong"
+      ],
+      "origin": "Shrimp lives in deep-water reefs around Phu Quoc Island. Catching shrimp requires a lot of effort, so this is always a high-class seafood on the table.",
+      "why_name": "The \"nun hat\" comes from the flattened head of the shrimp with a tactile shape that spreads out like the nun hat that covers the ears of the monks in the past.",
+      "ingredients": [
+        "Shrimp",
+        "spices or onion fat depending on how you make it"
+      ],
+      "taste_texture": "The meat of shrimp is firm, chewy and sweeter than lobster, the pure and rich sweetness stays on the tip of the tongue for a long time.",
+      "allergen_flags": [
+        {
+          "key": "crustacean",
+          "label": "Crustaceans",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "This is a high-class seafood with a fairly high price. Shrimp belongs to the crustacean family, so people with crab and shrimp allergies need to be cautious.",
+      "ask_staff": [
+        "Is today's shrimp swimming in the lake or shrimp marinated in ice?",
+        "What is the current price of shrimp per kilogram and how is the processing fee calculated?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "ca-song-nuong",
+      "name": "Grilled casino fish",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Grilled mackerel is rustic and simple but fully contains the flavor of the sea off Phu Quoc. The freshly caught mackerel is grilled whole on a charcoal stove until the skin of the fish cracks, scorches yellow and exudes a strong aroma. Picking up a piece of white fish meat rolled with wild vegetables and rice paper, you will understand why this dish holds tourists so much.",
+      "how_to_eat": "Use chopsticks to remove the skin of the grilled fish, pick up the smoky white fish meat and roll it into rice paper with herbs and cucumbers and dip it in a cup of sweet and sour fish sauce or salt and lemon pepper.",
+      "tips": [
+        "Grilled casino fish is best grilled (without seasoning) to keep its natural sweetness.",
+        "It is recommended to enjoy the fish as soon as it is taken out of the charcoal stove so that the meat is juicy and does not dry out."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#ca-song-nuong"
+      ],
+      "origin": "Casino fish is a marine fish that appears a lot in the waters of Kien Giang and Phu Quoc. Sea people pass on the saying \"First leads second song\" to honor the special deliciousness of this fish.",
+      "why_name": "The rustic name of the elongated-bodied, silver-skinned marine fish is popular in the Southern Islands.",
+      "ingredients": [
+        "Casino Fish",
+        "Spices",
+        "vegetables or rice paper depending on the restaurant"
+      ],
+      "taste_texture": "The meat of the fish is sweet, dark, chewy and very benign, especially the fatty fish intestines have a very unique slight bitterness.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Casino fish has a row of small bones along the body of the fish, it is necessary to pay attention to removing the bones carefully when eating or when picking for children.",
+      "ask_staff": [
+        "Does casino fish have fresh fish grilled whole today?",
+        "How many fish does the grilled casino fish plate consist of and what vegetables are served with?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "ca-mu-hap",
+      "name": "Steamed grouper with ginger onion",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Steamed grouper with ginger onion is an elegant dish, fully honoring the excellent freshness of Phu Quoc seafood. Fresh red grouper or black grouper is steamed to the point of being just cooked with shredded ginger, green onions and delicate soy sauce. The dish served is smoky, fragrant with ginger and onion, and the soft and sweet white fish meat melts right in the mouth.",
+      "how_to_eat": "Use a spoon to roll up each fiber of the tender grouper meat, add a spoonful of steamed fish with ginger sauce flavor to a plate of white rice or roll it with raw vegetable rice paper.",
+      "tips": [
+        "It is recommended to choose a medium-sized live grouper swimming in the lake (from 1kg - 1.5kg) so that the fish meat reaches the most delicious flexibility.",
+        "The fish steamed water is extremely delicious, you can order a plate of fresh vermicelli or bread to accompany it."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#ca-mu-hap"
+      ],
+      "origin": "Grouper is a high-class crustacean marine fish that lives on coral reefs around Phu Quoc. Steamed ginger onions in the style of Asian cuisine helps eliminate the natural fishy smell and preserve the nutrients of the fish.",
+      "why_name": "The dish is named after the high-quality sea fish (grouper) and the delicate processing method (steamed with green onions, fresh ginger).",
+      "ingredients": [
+        "Grouper",
+        "Onions",
+        "Ginger",
+        "Sauce"
+      ],
+      "taste_texture": "Grouper meat is pure white, thick, chewy, naturally sweet and extremely juicy; the fluffy and soft fish skin is mixed with the warm aroma of fresh ginger and green onions.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Steamed sauce usually contains soy sauce (with soy and gluten ingredients). Fresh grouper weighs in kilograms, so the price is quite expensive.",
+      "ask_staff": [
+        "How many kilograms does this grouper weigh?",
+        "Hong Kong soy sauce-style fish steamer or traditional ginger onion steamer?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "lau-ca-bop",
+      "name": "Cod hotpot",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "After a long day of experiencing outdoor activities, there is nothing better than when the whole family gathers around the smoky cod hot pot. The pot of sour hot pot water exudes the aroma of sour bamboo shoots, tomatoes and coriander; the white juicy cod meat rings dipped in the boiling hot pot water will bring complete warmth.",
+      "how_to_eat": "Wait for the hot pot water to boil, drop each round of fresh cod and vegetables dipped (water spinach, tongs, pins) into the pot. The fish is just cooked, take it out to a cup and serve with fresh vermicelli and dip it into a cup of salted fish sauce and chop chili.",
+      "tips": [
+        "Don't put the whole fish in the hot pot at the same time, dip the fish in each turn so that the fish meat doesn't crumble and always keep the sweetness juicy.",
+        "Fresh vermicelli served with cod hotpot is the most standard combination."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#lau-ca-bop"
+      ],
+      "origin": "Cod is a large marine fish that is raised very successfully in the calm waters around Phu Quoc Island. Sour bamboo shoot cod hotpot has become a familiar meeting dish at every coastal seafood restaurant.",
+      "why_name": "Seafood hotpot with the main ingredient is seasoned cut cod meat.",
+      "ingredients": [
+        "Cod",
+        "Vegetables",
+        "Broth",
+        "vermicelli or noodles depending on the restaurant"
+      ],
+      "taste_texture": "The cod meat is thick, soft and sweet, and the skin of the fish is characteristically greasy; the gentle and rich sour hot pot soup helps to balance perfectly.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The skin and fat of the cod are quite fatty. Diners with marine fish allergies should pay attention. It is necessary to remove fish bones carefully when serving to young children.",
+      "ask_staff": [
+        "How many people is this cod hot pot for eating?",
+        "Is the hot pot soup cooked according to the taste of sour bamboo shoots or the spicy and sour taste of Thai hot pot?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "muc-trung-nuong",
+      "name": "Grilled egg squid",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "Grilled egg squid is a unique gift that the sea gives to tourists visiting Phu Quoc. The egg squid are as small as two fingers, but the inside compresses the fatty egg layer. When grilled on a charcoal stove, the squid body turns yellow, emitting a nasal aroma that makes anyone reluctant to refuse.",
+      "how_to_eat": "Hold a string of hot grilled squid, dip it in a cup of green chili salt or spicy and sour satay and take a bite to cover your teeth so that the greasy squid egg spills out.",
+      "tips": [
+        "Grilled egg squid with satay or grilled satay with garlic satay is the most attractive way to prepare.",
+        "Choose shops with fresh and rounded squid to ensure a high egg hugging rate."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#muc-trung-nuong"
+      ],
+      "origin": "Egg squid (milk squid) is caught a lot by Phu Quoc fishermen during the breeding season. Fresh whole squid grilled right at the beach is the ultimate culinary experience.",
+      "why_name": "The identifying feature of the small female squid is filled with fatty eggs inside the abdominal cavity.",
+      "ingredients": [
+        "Egg squid",
+        "Spice dip"
+      ],
+      "taste_texture": "The outside of the squid body is crispy and thick; the egg inside is fleshy, fragrant and extremely attractive; the salty and spicy grilled satay taste stimulating.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Krill",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The amount of eggs in the squid's belly depends on the fishing season. Squid is a seafood belonging to the group of krill that are prone to allergies.",
+      "ask_staff": [
+        "Does the egg squid hold a lot of eggs inside the belly today?",
+        "Is this dish priced by plate or by weight?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "oc-huong-nuong",
+      "name": "Roasted snails in tamarind",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "Roasted snails with tamarind are a \"divine\" dish that is always in the top favorite of seafood lovers. The plate of snails served is covered with a smooth brown tamarind sauce of cockroach wings, emitting a gentle sweet and sour taste. The crispy snail meat is tightly blended with the rich sauce that makes you want to sip it forever.",
+      "how_to_eat": "Use a small toothpick to gently squeeze the crispy snail meat out of the shell, gently swirl the snail meat into the sweet and sour tamarind sauce on the plate and enjoy. Don't forget to order more crispy hot bread loaf to dip this delicious tamarind sauce clean.",
+      "tips": [
+        "Order an extra loaf of undipped bread with a smooth tamarind sauce.",
+        "You can ask the restaurant to reduce the spiciness of the fever if you are accompanied by children."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#oc-huong",
+        "#oc-huong-rang-me"
+      ],
+      "origin": "Snails are likened to the \"queen of snails\" thanks to their natural aroma. The sweet and sour tamarind roasting method is a unique creation of Southern cuisine that helps enhance the sweet crispiness of the snails.",
+      "why_name": "The dish combines the name of the high-quality sea snail (snail) and the typical processed sauce (roasted tamarind sauce).",
+      "ingredients": [
+        "Snails",
+        "Mother",
+        "Seasonings vary depending on the shop"
+      ],
+      "taste_texture": "The snail meat is crispy, thick and sweet; the rich tamarind sauce perfectly intertwines the sour - sweet - spicy - salty flavors.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Krill",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Tamarind sauce can be seasoned with a lot of sugar or add a little butter/crushed peanuts depending on the restaurant. People with krill allergies need to be careful.",
+      "ask_staff": [
+        "Are snails large or medium-sized today?",
+        "Can you make tamarind sauce that is less sweet/less spicy as requested?"
+      ],
+      "sources": [
+        {
+          "label": "Wikimedia Commons - photo of Roasted snail (CC BY-SA 4.0)",
+          "url": "https://commons.wikimedia.org/wiki/File:%E1%BB%90c_h%C6%B0%C6%A1ng_rang_me.jpg"
+        },
+        {
+          "label": "Phu Quoc tourism portal - cuisine",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "tom-tich-rang-muoi",
+      "name": "Roasted shrimp with salt",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Salt-roasted shrimp (also known as salt-roasted superficial) always knows how to challenge patience but rewards diners well. The shell of the shrimp is roasted on the edge covered with a layer of fragrant garlic salt and spice. When patiently peeling off the sharp shell, the thick, sweet shrimp meat inside will make you burst with joy.",
+      "how_to_eat": "Use scissors to cut off two rows of spines along the side of the shrimp body, lightly peel off the shell on the back to reveal the white shrimp meat chain. Dip the shrimp meat in salt and pepper and lemon or eat it directly to feel the rich salt-roasted spices on the outside.",
+      "tips": [
+        "You can ask the restaurant staff to use scissors to help you cut the shrimp shells if you are not used to peeling.",
+        "Choose live shrimp that swim well so that the meat does not rot or squeeze after processing."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#tom-tich-rang-muoi"
+      ],
+      "origin": "Shrimp live in abundance in the warm waters of Phu Quoc. Hong Kong salt roast or spicy salty salt roast is a popular way to prepare seafood at restaurants.",
+      "why_name": "Shrimp (called surface in the North) is processed by the dry roasting method with a mixture of salt, garlic, pepper and spices.",
+      "ingredients": [
+        "Shrimp",
+        "salt",
+        "Spices",
+        "may have garlic"
+      ],
+      "taste_texture": "The shrimp meat is firm, chewy, sweeter than ordinary shrimp; the grilled crust with salt and garlic on the outside is salty, fragrant and slightly spicy.",
+      "allergen_flags": [
+        {
+          "key": "crustacean",
+          "label": "Crustaceans",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The shell of the shrimp is very sharp, easy to cut the hand if not peeled properly. The dish belongs to the group of crustacean seafood.",
+      "ask_staff": [
+        "Is today's shrimp swimming in the lake or frozen shrimp?",
+        "Does the restaurant support shrimp peeling to help guests at the table?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "hau-nuong-mo-hanh",
+      "name": "Grilled oysters with onion fat",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "Grilled oysters with onion fat are the perfect opening dish for any seafood party. The fatty oysters are neatly nestled in the shell, grilled on a charcoal stove with green onion fat and crushed roasted peanuts. The dish served is sweet and fragrant, smashing all the senses of diners.",
+      "how_to_eat": "Holding the grilled oyster shells still warm, use a small spoon to sip the entire oyster juice released with soft and fatty oyster meat and fragrant onion fat.",
+      "tips": [
+        "You can ask to replace the onion fat with an oven-baked cheese sauce if you prefer a creamy, Western-style taste.",
+        "Only oysters that have been grilled thoroughly on a high charcoal stove should be eaten."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#hau-nuong-mo-hanh"
+      ],
+      "origin": "Stone oysters and milk oysters are exploited naturally in abundance on the coast of Phu Quoc. Grilling onion fat is a familiar seafood processing style of Southern cuisine.",
+      "why_name": "Whole sea oysters grilled directly with onion fat and garnished with peanuts.",
+      "ingredients": [
+        "Oysters",
+        "Green onions",
+        "Oil",
+        "Peanuts or cheese"
+      ],
+      "taste_texture": "Soft, greasy oyster meat breaks down in the mouth; the fragrant onion fat is mixed with the crispiness of roasted peanuts.",
+      "allergen_flags": [
+        {
+          "key": "mollusc",
+          "label": "Krill",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Roasted peanuts and green onions are required. Diners with peanut or krill allergies need to inform the restaurant in advance.",
+      "ask_staff": [
+        "Can the restaurant not put peanuts in the grilled oysters for me?",
+        "In addition to grilling onion fat, does the restaurant have grilled oysters with cheese or grilled everything?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "canh-chua-ca-bop",
+      "name": "Sour fish soup",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Family meals on the pearl island will become extremely full of taste when there is the appearance of a bowl of sour cod soup. The cool and smoky soup water is cool and smoky with the red color of tomatoes, the yellow color of pineapple, green okra and fresh bean sprouts. The white cod circle in the middle of the soup bowl is like a perfect touch for a meal rich in the taste of the homeland.",
+      "how_to_eat": "Pour the sour soup into a plate of hot white rice. Pick up the fish rings, dip them into a cup of salted fish sauce, chop the chili peppers to fully feel the rich sweetness of the fish meat.",
+      "tips": [
+        "The dish is extremely \"expensive\", very suitable for accompanying lunch or dinner.",
+        "You can tell the restaurant to reduce the acidity or spiciness depending on the family's taste."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#canh-chua-ca-bop"
+      ],
+      "origin": "Sour soup is the soul dish in the Southern rice tray. In Phu Quoc, the use of fresh sea cod to cook sour soup has elevated this dish to an unforgettable specialty.",
+      "why_name": "Traditional Southern sour soup combines sweet and fatty sea flounder ingredients.",
+      "ingredients": [
+        "Cod",
+        "Vegetables",
+        "tamarind or sour ingredients"
+      ],
+      "taste_texture": "The sour soup is gentle thanks to ripe tamarind and pineapple; the mackerel meat is greasy and chewy; the vegetables served with crispy and juicy make the overall extremely catchy.",
+      "allergen_flags": [
+        {
+          "key": "fish",
+          "label": "Fish",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The carp meat has a round bone circle in the middle, it is necessary to pay attention to removing the bones when dividing the sour soup for young children.",
+      "ask_staff": [
+        "How many users is this bowl of sour fish soup suitable for?",
+        "Do you cook sour flavors with fresh tamarind or sour bamboo shoots?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "com-chien-hai-san",
+      "name": "Fried rice with seafood",
+      "category": "seafood",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Seafood fried rice is a firm, plump choice and always satisfies all members of the tour group. The fried rice plate is served attractively with golden rice grains, mixed with diced shrimp, fresh squid, chicken eggs and green peas, exuding the sweet aroma of fried garlic.",
+      "how_to_eat": "Scoop the fried rice into a small bowl, pour a few tablespoons of fresh chili chopped soy sauce, serve with a few slices of cucumber and tomato to add freshness.",
+      "tips": [
+        "Plates of seafood fried rice in Phu Quoc restaurants are usually very full, ask for the size of the plate before ordering many other dishes.",
+        "Suitable for ordering as a main starchy dish for the whole table."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#com-chien-hai-san"
+      ],
+      "origin": "A familiar dish at every Vietnamese seafood restaurant, helping to take advantage of the abundant source of fresh seafood in Phu Quoc to create a quick and nutritious meal.",
+      "why_name": "Fried rice on a large pan combined with a variety of finely chopped seafood.",
+      "ingredients": [
+        "Rice",
+        "shrimp, squid or other seafood",
+        "Eggs"
+      ],
+      "taste_texture": "The rice grains are dry, fluffy and firm; the squid and shrimp meat is naturally crispy and sweet; the fatty fried egg blends evenly in each grain of rice.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Crustaceans",
+          "level": "possible"
+        },
+        {
+          "key": "mollusc",
+          "label": "Krill",
+          "level": "possible"
+        },
+        {
+          "key": "egg",
+          "label": "Eggs",
+          "level": "possible"
+        },
+        {
+          "key": "soy",
+          "label": "Soybeans",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Synthetic seafood ingredients can include shrimp, squid, fish cakes, and chicken eggs. Please notify if any member is allergic to any of the above types.",
+      "ask_staff": [
+        "A medium-sized plate of seafood fried rice for many people?",
+        "What specific types of seafood are included in fried rice?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "ga-ray-nuong",
+      "name": "Grilled chicken",
+      "category": "local",
+      "meal_times": [
+        "lunch",
+        "dinner"
+      ],
+      "intro": "In addition to fresh seafood, Phu Quoc also treats diners to the famous grilled chicken. Although the chicken in the garden on the island is not too big, the meat is extremely firm and the skin is thin. The chicken is grilled golden on a charcoal stove, dressed with rich marinated spices, dipped with salt and pepper of Phu Quoc forest sim with a strong and spicy aroma.",
+      "how_to_eat": "Tear each piece of hot grilled chicken by hand, dip it into a cup of spicy and sour forest sim chili salt and enjoy it with a few plates of sticky rice or bread.",
+      "tips": [
+        "You must definitely try dipping grilled chicken with Phu Quoc forest sim pepper salt - a combination that explodes with flavors.",
+        "It can be ordered with a plate of fried sticky rice or sticky rice to be eaten with grilled chicken as a main meal."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#ga-ray-nuong"
+      ],
+      "origin": "Chickens are raised and released naturally on the slopes and foothills of the mountains in Phu Quoc. Thanks to moving a lot, the chicken meat is especially firm and sweet, not brittle like industrial chickens.",
+      "why_name": "\"Rice chicken\" refers to the method of grazing chickens naturally on local hilly areas.",
+      "ingredients": [
+        "Chicken",
+        "Marinating Seasoning",
+        "Vegetables are served depending on the restaurant"
+      ],
+      "taste_texture": "The chicken meat is firm, chewy, naturally sweet and fragrant; crispy grilled chicken skin on the edges; rich marinated spices mixed with the typical pungent taste of wild sim peppers.",
+      "allergen_flags": [],
+      "allergy_note": "Whole grilled chicken usually takes 25-30 minutes to cook evenly on a charcoal stove. You should book in advance if you have an urgent schedule.",
+      "ask_staff": [
+        "How much does a whole roasted chicken weigh today?",
+        "How many minutes does it take to wait for a chicken roast?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-kheo",
+      "name": "Skillful cake",
+      "category": "local",
+      "meal_times": [
+        "snack",
+        "dessert"
+      ],
+      "intro": "Skillful cakes are a sweet and pretty gift that anyone leaving Phu Quoc wants to carry in their luggage. Small cakes with just two fingers with all kinds of funny shapes: hedgehogs, lotus buds, spirals... contained inside a layer of mung bean, grated coconut or sweet and soft taro.",
+      "how_to_eat": "Sip on a small cake with a cup of hot tea. The sweetness of the cake blends with the slight bitterness of tea to create a relaxing tea experience.",
+      "tips": [
+        "Try a plate of mixed cakes with a variety of fillings at the shop before deciding to buy them in bulk as a gift.",
+        "Pack carefully in a hard plastic container to prevent the cake from being crushed when transported on the plane."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-kheo"
+      ],
+      "origin": "The long-standing traditional specialty cake created by the skillful hands of Phu Quoc women has become a typical tourist gift of the pearl island.",
+      "why_name": "\"Skill\" comes from the praise for the meticulousness and ingenuity of the craftsman when molding each small cake full of art.",
+      "ingredients": [
+        "Powder",
+        "Sugar",
+        "bean, coconut or potato filling depending on the type"
+      ],
+      "taste_texture": "The fluffy crust is light and flexible; the fluffy green bean filling, the greasy coconut filling or the moderately sweet taro filling without causing discomfort.",
+      "allergen_flags": [
+        {
+          "key": "gluten",
+          "label": "Wheat",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Fresh cakes do not use preservatives, so the shelf life is usually short (about 3-5 days at room temperature).",
+      "ask_staff": [
+        "Is the cake just produced today and how many days does it last?",
+        "What types of fillings does a mixed gift box include?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-tet-mat-cat",
+      "name": "Honeysuckle tacos",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "snack"
+      ],
+      "intro": "Completely different from the usual banana leaf or dong leaf wrapped tacos, Phu Quoc honeysuckle cake has a unique jade green color thanks to being wrapped in honeysuckle leaves - an endemic leaf in the high mountains of Phu Quoc. The cut tacos exude the pure aroma of forest leaves, sticky rice mixed with a layer of mung bean filling and fragrant fatty pork.",
+      "how_to_eat": "Use the nylon sewing rope to tie the cake to roll the cake into bite-sized circles. Enjoy directly or serve with sweet and sour pickled melon and palanquin.",
+      "tips": [
+        "Buy cakes at long-established reputable establishments in Duong Dong town to ensure that the glutinous rice is tamarind and preserved for a long time.",
+        "If you're taking it away by plane, ask the seller to wrap extra plastic wrap on the outside."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-tet-mat-cat"
+      ],
+      "origin": "The people of Phu Quoc have long taken advantage of the gall leaves that grow wild on the rocky mountains to wrap the tacos. The technique of tying the cake with the tendons of the honeysuckle leaf requires great ingenuity so that the water does not penetrate the cake when boiling.",
+      "why_name": "The name is given to the type of leaf used to wrap the cake - honeysuckle leaf.",
+      "ingredients": [
+        "Sticky Rice",
+        "Beans",
+        "meat or other filling depending on the cake",
+        "Kidney honey leaf"
+      ],
+      "taste_texture": "Sticky amaranth seeds are flexible, fragrant with a unique aroma of honey leaves; the smooth mung bean filling is mixed with fatty meat swallowed evenly in the cake.",
+      "allergen_flags": [],
+      "allergy_note": "The filling contains pork fat and green beans. The cake needs to be stored in a cool, dry place.",
+      "ask_staff": [
+        "Is this honey tacos salty (mung bean fatty meat) or vegetarian?",
+        "What day is the cake wrapped and how many days can it be stored at room temperature?"
+      ],
+      "sources": [
+        {
+          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "banh-xeo",
+      "name": "Pancakes",
+      "category": "local",
+      "meal_times": [
+        "lunch",
+        "dinner",
+        "snack"
+      ],
+      "intro": "The sound of \"sizzling...\" is pleasant to the ears when pouring golden flour into a hot cast iron pan has become a familiar sound to awaken the taste buds of diners. Phu Quoc pancakes are attracted by the big round cake, the crispy edges, the filling is full of fresh sea shrimp, pork belly and crispy open bean sprouts. Roll the hot pancakes with a plate of fresh green wild vegetables and dip them in sweet and sour fish sauce, the deliciousness explodes from the first bite.",
+      "how_to_eat": "Roll up a corner of hot pancakes, place on a broccoli leaf or rice paper, add herbs, thinly sliced cucumbers and roll up neatly. Dip into a cup of sweet and sour fish sauce mixed with chopped garlic and chili.",
+      "tips": [
+        "Enjoy the pancakes as soon as they are poured in the kitchen to feel the absolute crispiness of the crust.",
+        "If you go in a large group, order one plate at a time so that the cake always retains the crispy heat."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#banh-xeo"
+      ],
+      "origin": "Pancakes are a typical rustic dish of the Southwest. In Phu Quoc, the filling of pancakes is favored with sea shrimp and fresh squid caught on the spot, making the cake more rich in the taste of the sea.",
+      "why_name": "Originated from the \"sizzling\" sound emitted when pouring a layer of turmeric rice flour into a hot fat pan.",
+      "ingredients": [
+        "Pancake dough",
+        "Shrimp or meat depending on the restaurant",
+        "Bean sprouts and vegetables",
+        "Dipping fish sauce"
+      ],
+      "taste_texture": "The crust is crispy on the outside of the edge, the inside is flexible and fragrant with the smell of coconut milk and turmeric; the shrimp filling is sweet and dark; fresh raw vegetables perfectly balance the greasy taste.",
+      "allergen_flags": [
+        {
+          "key": "shellfish",
+          "label": "Crustaceans",
+          "level": "possible"
+        },
+        {
+          "key": "egg",
+          "label": "Eggs",
+          "level": "possible"
+        },
+        {
+          "key": "gluten",
+          "label": "Wheat",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "Pancake batter is usually pre-mixed with coconut milk and turmeric powder. The filling contains sea shrimp, pork, and bean sprouts.",
+      "ask_staff": [
+        "Does the restaurant's pancakes have seafood squid and shrimp?",
+        "Does the accompanying vegetable plate contain Phu Quoc wild vegetables?"
+      ],
+      "sources": [
+        {
+          "label": "Cuoi 3 pancakes - recorded as a pancake shop in Phu Quoc",
+          "url": "https://www.corner.inc/place/p19ViHR8CBza"
+        }
+      ]
+    },
+    {
+      "id": "pho",
+      "name": "Pho",
+      "category": "local",
+      "meal_times": [
+        "breakfast",
+        "lunch",
+        "dinner"
+      ],
+      "intro": "Although pho is not a native dish of the island sea, pho shops in Phu Quoc still know how to please diners with hot bowls of pho with the aroma of cardamom in pure mornings. The broth simmered from rich beef bones, silky noodles and soft slices of recooked beef bring a sense of familiarity to anyone who remembers the taste of traditional cuisine.",
+      "how_to_eat": "Taste the hot broth to feel the sweetness simmering from the bones. Add a little black sauce, chili sauce, squeeze fresh pieces and sprinkle with a handful of basil and cilantro and mix gently to enjoy.",
+      "tips": [
+        "Tell the restaurant to \"re-roll\" or \"cook\" depending on your taste in beef.",
+        "Add a little chili pepper soaked in Phu Quoc vinegar to add a standard elegance to the pho."
+      ],
+      "hashtags": [
+        "#am-thuc-phu-quoc",
+        "#pho"
+      ],
+      "origin": "Pho follows families of Northern and Southern descent who migrate to Phu Quoc, becoming a popular and convenient breakfast choice alongside a multitude of local seafood dishes.",
+      "why_name": "The national dish of Vietnamese cuisine.",
+      "ingredients": [
+        "Pho cake",
+        "Broth",
+        "Beef or chicken, depending on the restaurant",
+        "Onions and herbs"
+      ],
+      "taste_texture": "The broth is clear, rich and fragrant with traditional spices; soft and silky noodles; fresh and sweet and rich beef.",
+      "allergen_flags": [
+        {
+          "key": "soy",
+          "label": "Soybeans",
+          "level": "possible"
+        }
+      ],
+      "allergy_note": "The main ingredients are beef and broth simmered from beef bones. Some Southern-style restaurants have a slightly sweet broth seasoning.",
+      "ask_staff": [
+        "Does the restaurant cook pho according to the standards of Northern or Southern tastes?",
+        "Broth simmered from pure beef bones, right?"
+      ],
+      "sources": [
+        {
+          "label": "Visit Phu Quoc - Viet Cuisine at VUI-Fest with beef pho",
+          "url": "https://visitphuquoc.com.vn/en/viet-cuisine-vui-fest-bazaar"
+        }
+      ]
+    }
+  ],
+  "updated_at": "2026-09-26",
+  "locale": "en"
+}
