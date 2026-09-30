@@ -57,29 +57,29 @@
         "en": {
           "status": "machine_draft",
           "target_path": "data/i18n/en/ui.json",
-          "translated_from_blob_sha": "ad8e90ad6da901da752ba8035c332787ee9fea57",
+          "translated_from_blob_sha": "ae1b0400305118b0fc7a58f304fd23d87cb03a38",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication."
+          "note": "Azure Translator v3 machine draft; human review required. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication. Weather LIVE freshness labels aligned to current Vietnamese UI source."
         },
         "ko": {
           "status": "machine_draft",
           "target_path": "data/i18n/ko/ui.json",
-          "translated_from_blob_sha": "ad8e90ad6da901da752ba8035c332787ee9fea57",
+          "translated_from_blob_sha": "ae1b0400305118b0fc7a58f304fd23d87cb03a38",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication. Weather LIVE freshness labels aligned to current Vietnamese UI source."
         },
         "ru": {
           "status": "machine_draft",
           "target_path": "data/i18n/ru/ui.json",
-          "translated_from_blob_sha": "ad8e90ad6da901da752ba8035c332787ee9fea57",
+          "translated_from_blob_sha": "ae1b0400305118b0fc7a58f304fd23d87cb03a38",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication. Weather LIVE freshness labels aligned to current Vietnamese UI source."
         },
         "lo": {
           "status": "missing",
@@ -93,11 +93,11 @@
         "zh-Hans": {
           "status": "machine_draft",
           "target_path": "data/i18n/zh-Hans/ui.json",
-          "translated_from_blob_sha": "ad8e90ad6da901da752ba8035c332787ee9fea57",
+          "translated_from_blob_sha": "ae1b0400305118b0fc7a58f304fd23d87cb03a38",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication. Weather LIVE freshness labels aligned to current Vietnamese UI source."
         },
         "zh-Hant": {
           "status": "missing",
