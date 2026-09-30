@@ -245,6 +245,12 @@ function buildWorkPlan(config,familyId,locale,{pivotLocale=null,repairScope="qua
   };
 }
 
+function requestedPivot(a,config,locale){
+  if(a.pivot==="none"||a.pivot==="vi")return null;
+  if(a.pivot)return String(a.pivot);
+  return locale==="en"?null:(config.preferred_pivot_locale||null);
+}
+
 function printPlan(config,familyId,locale,options={}){
   const plan=buildWorkPlan(config,familyId,locale,options);
   const target=plan.family.target_path_pattern.replace("{locale}",locale);
@@ -256,7 +262,7 @@ async function translate(config,a){
   if(!familyId||!locale)throw new Error("translate requires --family and --locale");
   if(locale===config.source_locale)throw new Error("Target locale cannot be Vietnamese");
   if(!config.azure_locale_map[locale])throw new Error("Unsupported target locale: "+locale);
-  const pivotLocale=a.pivot?String(a.pivot):null;
+  const pivotLocale=requestedPivot(a,config,locale);
   if(pivotLocale===locale)throw new Error("Pivot locale cannot equal target locale");
   if(pivotLocale&&!config.azure_locale_map[pivotLocale])throw new Error("Unsupported pivot locale: "+pivotLocale);
   const repairScope=String(a["repair-scope"]||"quality");
@@ -374,7 +380,7 @@ try{
   if(command==="inventory")inventory(config);
   else if(command==="plan"){
     if(!a.family||!a.locale)throw new Error("plan requires --family and --locale");
-    printPlan(config,a.family,a.locale,{pivotLocale:a.pivot?String(a.pivot):null,repairScope:String(a["repair-scope"]||"quality")});
+    printPlan(config,a.family,a.locale,{pivotLocale:requestedPivot(a,config,a.locale),repairScope:String(a["repair-scope"]||"quality")});
   }else if(command==="translate")await translate(config,a);
   else if(command==="validate")validate(config);
   else throw new Error("Usage: node scripts/i18n-pipeline.mjs <inventory|plan|translate|validate> [--family ID --locale CODE --pivot en --repair-scope quality|core|editorial --apply]");
