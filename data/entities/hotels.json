@@ -954,7 +954,28 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.120242,
+        "lon": 103.983464,
+        "precision": "site_centroid",
+        "source_id": "pullman_corporate_accor_gps_independent_crosscheck_20260930",
+        "source": "Accor corporate official GPS crosschecked against exact-name independent lodging GPS",
+        "source_url": "https://all.accor.com/hotel/A248/index.en.shtml",
+        "verified_at": "2026-09-30",
+        "accuracy": "OPERATOR_GPS_INDEPENDENT_CROSSCHECK",
+        "numeric_crosscheck": {
+          "lat": 10.119809,
+          "lon": 103.983499,
+          "url": "https://roomcard.com/hotel/pullman-phu-quoc-beach-resort/30804044"
+        },
+        "note": "Accor corporate GPS (chosen site reference) is ~48 m from exact-name independent Roomcard GPS; property microsite publishes a second on-site point ~116 m to the west. Neither point is verified as lobby/entrance. Retain alternate for review.",
+        "official_alternate_location": {
+          "lat": 10.1202632,
+          "lon": 103.982399,
+          "url": "https://pullmanphuquoc.com/"
+        }
+      }
     },
     {
       "id": "hotel_radisson_blu",
@@ -1456,7 +1477,23 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-19"
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.134199,
+        "lon": 103.978493,
+        "precision": "site_centroid",
+        "source_id": "sonaga_exact_name_dual_numeric_operator_identity_20260930",
+        "source": "Exact-name Sonaga Beach Resort & Villas numeric locations with operator phone and Sonasea Duong Bao property identity",
+        "source_url": "https://www.travelmyth.com/Phu-Quoc/Hotels/Sonaga-Beach-Resort-Villas-Phu-Quoc_tmid3229048",
+        "verified_at": "2026-09-30",
+        "accuracy": "EXACT_NAME_INDEPENDENT_NUMERIC_OPERATOR_IDENTITY",
+        "numeric_crosscheck": {
+          "lat": 10.1343,
+          "lon": 103.979,
+          "url": "https://impt.io/last-minute-hotels/phu-quoc/sonaga-beach-resort-villas-phu-quoc/"
+        },
+        "note": "Independent named Sonaga Resort GPS sources differ by ~57 m within the resort site. Official Sonaga property page matches Sonasea Duong Bao address and 0297 267 8888 phone. Broad site centroid only."
+      }
     },
     {
       "id": "hotel_sunset_sanato",
@@ -2133,8 +2170,23 @@
       ],
       "source_checked_at": "2026-09-19",
       "notes": null,
-      "updated_at": "2026-09-24",
-      "map_review_note": "Tọa độ cũ trùng khít với cơ sở lưu trú tên khác từ kết quả geocoding OSM, chưa xác nhận đúng địa điểm. Giữ địa chỉ để tìm kiếm; chỉ gắn lại pin sau khi đối chiếu từng cơ sở."
+      "updated_at": "2026-09-30",
+      "map": {
+        "lat": 10.2078,
+        "lon": 103.9619,
+        "precision": "site_centroid",
+        "source_id": "lazure_exact_name_dual_numeric_operator_identity_20260930",
+        "source": "L'Azure exact-name independent numeric locations crosschecked with official hotel identity at 64 Tran Hung Dao",
+        "source_url": "https://itinerai.ai/en/stays/lazure-resort-and-spa-phu-quoc",
+        "verified_at": "2026-09-30",
+        "accuracy": "EXACT_NAME_INDEPENDENT_NUMERIC_OPERATOR_IDENTITY",
+        "numeric_crosscheck": {
+          "lat": 10.2076887,
+          "lon": 103.9620395,
+          "url": "https://tanitour.vn/lazure-resort-and-spa-phu-quoc/"
+        },
+        "note": "Two exact-name numeric hotel listings agree within ~20 m and the official property confirms 64 Tran Hung Dao. Site centroid only, not an independently checked entrance."
+      }
     },
     {
       "id": "hotel_m_hotel_phu_quoc",
