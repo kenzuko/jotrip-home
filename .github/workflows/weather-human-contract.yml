@@ -25,3 +25,5 @@ jobs:
           node --check home-live-v3.js
       - name: Shared homepage contract
         run: node scripts/test-weather-human-contract.mjs
+      - name: Full homepage build regression
+        run: npm run build
