@@ -1,0 +1,137 @@
+{
+  "version": "1.0",
+  "date": "2026-09-30",
+  "batch": "HOTEL_GPS_BATCH18",
+  "accuracy_first": true,
+  "policy": "Numeric GPS must belong to exact named property, with operator identity or official GPS corroboration. Published positions are site centroids, not exact entrances. No operational claim inferred.",
+  "accepted": [
+    {
+      "id": "hotel_l_azure_resort_spa_phu_quoc",
+      "lat": 10.2078,
+      "lon": 103.9619,
+      "decision": "ACCEPT",
+      "precision": "site_centroid",
+      "sources": [
+        {
+          "type": "EXACT_NAME_NUMERIC",
+          "url": "https://itinerai.ai/en/stays/lazure-resort-and-spa-phu-quoc",
+          "location": {
+            "lat": 10.2078,
+            "lon": 103.9619
+          },
+          "address": "64 Tran Hung Dao, Duong Dong"
+        },
+        {
+          "type": "EXACT_NAME_NUMERIC_CROSSCHECK",
+          "url": "https://tanitour.vn/lazure-resort-and-spa-phu-quoc/",
+          "location": {
+            "lat": 10.2076887,
+            "lon": 103.9620395
+          },
+          "address": "64 Tran Hung Dao, Duong Dong"
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://lazureresort.com/contact/",
+          "address": "64 Tran Hung Dao, Duong Dong",
+          "phone": "0297 3994 499"
+        }
+      ],
+      "constraints": [
+        "Not reception, gate or lobby point",
+        "Previously rejected geocoder coordinate cannot be reinstated"
+      ]
+    },
+    {
+      "id": "hotel_sonaga_beach_resort",
+      "lat": 10.134199,
+      "lon": 103.978493,
+      "decision": "ACCEPT",
+      "precision": "site_centroid",
+      "sources": [
+        {
+          "type": "EXACT_NAME_NUMERIC",
+          "url": "https://www.travelmyth.com/Phu-Quoc/Hotels/Sonaga-Beach-Resort-Villas-Phu-Quoc_tmid3229048",
+          "location": {
+            "lat": 10.134199,
+            "lon": 103.978493
+          }
+        },
+        {
+          "type": "EXACT_NAME_NUMERIC_CROSSCHECK",
+          "url": "https://impt.io/last-minute-hotels/phu-quoc/sonaga-beach-resort-villas-phu-quoc/",
+          "location": {
+            "lat": 10.1343,
+            "lon": 103.979
+          }
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://sonagaresortphuquoc.com/overview/",
+          "address": "Sonasea Villas & Resort, To 5 Ap Duong Bao",
+          "phone": "0297 267 88 88"
+        }
+      ],
+      "constraints": [
+        "Independent GPS sources ~56m apart; resort-site scale only",
+        "Do not imply a driveway or reception point"
+      ]
+    },
+    {
+      "id": "hotel_pullman",
+      "lat": 10.120242,
+      "lon": 103.983464,
+      "decision": "ACCEPT",
+      "precision": "site_centroid",
+      "sources": [
+        {
+          "type": "FIRST_PARTY_CORPORATE_GPS",
+          "url": "https://all.accor.com/hotel/A248/index.en.shtml",
+          "location": {
+            "lat": 10.120242,
+            "lon": 103.983464
+          },
+          "address": "Group 6 Ban Quy Hamlet Duong Bao",
+          "phone": "+84 297 2679 999"
+        },
+        {
+          "type": "EXACT_NAME_INDEPENDENT_NUMERIC",
+          "url": "https://roomcard.com/hotel/pullman-phu-quoc-beach-resort/30804044",
+          "location": {
+            "lat": 10.119809,
+            "lon": 103.983499
+          },
+          "address": "Group 6 Ban Quy Hamlet Duong Bao"
+        },
+        {
+          "type": "FIRST_PARTY_PROPERTY_MICROSITE_ALTERNATE",
+          "url": "https://pullmanphuquoc.com/",
+          "location": {
+            "lat": 10.1202632,
+            "lon": 103.982399
+          },
+          "note": "~116 m west of Accor corporate GPS. Retain as alternate on-site reference and require entrance review before route guidance."
+        }
+      ],
+      "constraints": [
+        "Corporate operator point chosen for published site reference",
+        "Alternative official property point retained in metadata",
+        "No claim of entrance GPS, route navigation must remain guarded"
+      ]
+    }
+  ],
+  "held": [
+    {
+      "id": "hotel_sailing_club_signature_resort_phu_quoc",
+      "reason": "Only one exact-name numeric source; nearby Sailing Pool Villas belongs to another property. Need independent matching exact-name site reference."
+    },
+    {
+      "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
+      "reason": "Exact operator identity established, numeric site point not independently corroborated."
+    },
+    {
+      "id": "hotel_the_up_phu_quoc",
+      "reason": "Operator location established, no strong independently checked numeric GPS."
+    }
+  ]
+}
