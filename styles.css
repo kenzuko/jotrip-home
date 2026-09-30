@@ -6517,3 +6517,45 @@ body.sheet-open{
   .credit{font-size:11px!important}
   #top>.energy-ticker .ticker-track b{line-height:1.35}
 }
+
+
+/* HOME TICKER TYPOGRAPHY LOCK - 30/09/2026 */
+/* Keep the moving headline stable on iOS Safari: no per-item text inflation. */
+#top>.energy-ticker,
+#top>.energy-ticker *{
+  -webkit-text-size-adjust:100%!important;
+  text-size-adjust:100%!important;
+}
+
+#top>.energy-ticker .ticker-label strong,
+#top>.energy-ticker .ticker-track span{
+  font-size:13px!important;
+  line-height:1.2!important;
+}
+
+#top>.energy-ticker .ticker-label strong{
+  letter-spacing:.10em!important;
+}
+
+#top>.energy-ticker .ticker-track span{
+  letter-spacing:.08em!important;
+}
+
+#top>.energy-ticker .ticker-track b{
+  font-size:17px!important;
+  line-height:1.2!important;
+  font-weight:700!important;
+}
+
+#top>.energy-ticker .ticker-track b>a{
+  font-size:inherit!important;
+  line-height:inherit!important;
+  font-weight:inherit!important;
+  color:inherit!important;
+}
+
+@media(max-width:760px){
+  #top>.energy-ticker .ticker-track b{
+    font-size:16px!important;
+  }
+}
