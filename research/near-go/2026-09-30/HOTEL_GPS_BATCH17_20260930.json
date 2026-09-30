@@ -1,0 +1,181 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-30",
+  "batch": "HOTEL_GPS_BATCH17",
+  "policy": {
+    "accuracy_over_coverage": true,
+    "precision": "site_centroid",
+    "rule": "Accept an exact property only when current canonical identity is matched to numeric location evidence. Old area-anchor geocodes remain rejected. Site centroid is not an entrance and GPS does not prove live operation."
+  },
+  "accepted": [
+    {
+      "id": "hotel_sailing_club_signature_resort_phu_quoc",
+      "lat": 10.1152,
+      "lon": 103.9899,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "GOOGLE_HOTELS_IDENTITY",
+          "url": "https://www.google.com/travel/hotels/entity/ChkIi8bQt6eB2JZ9Gg0vZy8xMXJjczN4MDdzEAE",
+          "detail": "Canonical exact property identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://impt.io/hotels/vietnam/phu-quoc/sailing-club-signature-resort-phu-quoc/",
+          "detail": "Exact-name property publishes 10.1152 / 103.9899."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://sailingclubphuquoc.com/",
+          "detail": "Official Sailing Club Signature Resort identity."
+        }
+      ]
+    },
+    {
+      "id": "hotel_sunset_sanato",
+      "lat": 10.1516,
+      "lon": 103.9748,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "GOOGLE_HOTELS_IDENTITY",
+          "url": "https://www.google.com/travel/hotels/entity/ChkI0qyH1cn5p6kwGg0vZy8xMWYxcjdjcTZjEAE",
+          "detail": "Canonical exact property identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://impt.io/hotels/vietnam/phu-quoc/sunset-sanato-resort-villas/",
+          "detail": "Exact-name property publishes 10.1516 / 103.9748."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://sunsetsanato.com/",
+          "detail": "Official Sunset Sanato Resort & Villas identity."
+        }
+      ]
+    },
+    {
+      "id": "hotel_l_azure_resort_spa_phu_quoc",
+      "lat": 10.207758,
+      "lon": 103.961949,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "GOOGLE_HOTELS_IDENTITY",
+          "url": "https://www.google.com/travel/hotels/entity/ChoIi6nr37qC_qvmARoNL2cvMTFmbWRucms5eRAB",
+          "detail": "Canonical exact property identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.ehotelsreviews.com/l-azure-resort-and-spa-403234-en",
+          "detail": "Exact-name property publishes 10.207758 / 103.961949."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://lazureresort.com/",
+          "detail": "Official L'Azure identity at 64 Tran Hung Dao."
+        }
+      ]
+    },
+    {
+      "id": "hotel_phu_quoc_eco_beach_resort",
+      "lat": 10.26593,
+      "lon": 103.929285,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "GOOGLE_HOTELS_IDENTITY",
+          "url": "https://www.google.com/travel/hotels/entity/ChgI_t3Whoupq78oGgwvZy8xcHR4NGp6emYQAQ",
+          "detail": "Canonical exact property identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.travelmyth.co.uk/Phu-Quoc/Hotels/Phu-Quoc-Eco-Beach-Resort_tmid227041",
+          "detail": "Exact-name property publishes 10.26593 / 103.929285."
+        },
+        {
+          "type": "NUMERIC_LOCATION_CROSSCHECK",
+          "url": "https://impt.io/hotels/vietnam/phu-quoc/phu-quoc-eco-beach-resort/",
+          "detail": "Independent exact-name property publishes 10.2659 / 103.9288."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://www.phuquocecobeachresort.com/en/contactus",
+          "detail": "Official property confirms Ong Lang address and phone."
+        }
+      ]
+    },
+    {
+      "id": "hotel_kosmos_apart_hotel",
+      "lat": 10.1302,
+      "lon": 103.9821,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "GOOGLE_HOTELS_IDENTITY",
+          "url": "https://www.google.com/travel/hotels/entity/ChoIpJTVyK65xMr4ARoNL2cvMTFmNHd0bWhqXxAB",
+          "detail": "Canonical exact Kosmos Apart Hotel identity at SS02/SS06 Sonasea."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://impt.io/carbon-neutral-hotels/phu-quoc/kosmos-apart-hotel-phu-quoc-night-market-walkin-to-beach/",
+          "detail": "Exact-name property publishes 10.1302 / 103.9821."
+        }
+      ]
+    },
+    {
+      "id": "hotel_gaia_hotel",
+      "lat": 10.207058583333332,
+      "lon": 103.96281569444444,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://gaiaphuquoc.com/pages/contact",
+          "detail": "Official Gaia Hotel confirms 71 Tran Hung Dao."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.urlop.pl/hotele/wietnam/phu-quoc/duong-dong/gaia-hotel-phu-quoc-htl23342/",
+          "detail": "Exact-name property publishes DMS GPS equivalent to 10.2070585833 / 103.9628156944."
+        },
+        {
+          "type": "NUMERIC_LOCATION_CROSSCHECK",
+          "url": "https://impt.io/hotels/vietnam/phu-quoc/gaia-hotel-phu-quoc/",
+          "detail": "Independent exact-name property publishes 10.2068 / 103.9628."
+        }
+      ]
+    }
+  ],
+  "corrected_location_metadata": [
+    {
+      "id": "hotel_sunset_sanato",
+      "field": "area_label",
+      "from": "Khác / cần rà",
+      "to": "Bãi Trường - Đường Bào",
+      "reason": "Address and reviewed GPS resolve the property to Duong Bao / Bai Truong."
+    }
+  ],
+  "held": [
+    {
+      "id": "hotel_pullman",
+      "reason": "Two current official property pages publish materially different longitude values."
+    },
+    {
+      "id": "hotel_sonaga_beach_resort",
+      "reason": "Exact-name numeric hotel sources exist, but current OTIUM/Tuana naming nearby must be reconciled before canonical identity is promoted."
+    },
+    {
+      "id": "hotel_la_festa",
+      "reason": "Official identity is strong but numeric location evidence remains too coarse for this accuracy lock."
+    },
+    {
+      "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
+      "reason": "Official identity is strong; no accepted direct hotel coordinate yet."
+    },
+    {
+      "id": "hotel_the_up_phu_quoc",
+      "reason": "Exact identity is known; no accepted numeric hotel coordinate yet."
+    }
+  ]
+}
