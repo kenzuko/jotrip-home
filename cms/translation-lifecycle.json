@@ -274,7 +274,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required."
+          "note": "Azure Translator v3 machine draft with OpenPhuQuoc glossary/semantic guard; human review required."
         },
         "ko": {
           "status": "missing",
