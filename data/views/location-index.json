@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T03:09:25.675Z",
+  "generated_at": "2026-09-30T03:11:35.373Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
     "with_address": 350,
-    "with_map": 252,
+    "with_map": 254,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -5034,7 +5034,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn 5 sao tại Khác / cần rà.",
       "route": "/hotels/?q=SOL%20by%20Meli%C3%A1%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.1463,
+        "lon": 103.9773,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + independent numeric hotel location",
+        "source_id": "sol_melia_structured_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "SOL by Meliá Phu Quoc exact structured business identity cross-checked with numeric hotel location 10.1463,103.9773. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "SOL by Meliá Phu Quoc, Tổ 2, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -6396,7 +6406,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bắc đảo - Bãi Dài / Gành Dầu.",
       "route": "/hotels/?q=Wyndham%20Grand%20Ph%C3%BA%20Qu%E1%BB%91c",
-      "map": null,
+      "map": {
+        "lat": 10.33024,
+        "lon": 103.8552,
+        "precision": "site_centroid",
+        "source": "Exact structured business identity + independent numeric hotel location + operator identity",
+        "source_id": "wyndham_grand_structured_crosscheck_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Wyndham Grand Phu Quoc exact structured business identity cross-checked with numeric location and official Wyndham Grand property identity. Site centroid only.",
+        "accuracy": "STRUCTURED_BUSINESS_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Wyndham Grand Phú Quốc, Khu Bãi Dài, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
