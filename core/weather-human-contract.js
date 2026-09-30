@@ -13,7 +13,7 @@
     const actual=island?.actual;
     const t=num(actual?.temperature_c);
     if(!island||island.observation_status!=="ACTUAL"||actual?.data_class!=="ACTUAL"||t===null)return null;
-    return {island,actual,t};
+    return {island,actual,t,referenceLocation:island.reference_location_name||"Sân bay Phú Quốc"};
   }
 
   function actualRain(points){
@@ -30,15 +30,15 @@
     const human=critical?.human_weather;
     const base=freshIsland(human);
     if(!base)return null;
-    const {island,t}=base;
+    const {island,t,referenceLocation}=base;
     const derived=island.derived||{};
     const feels=num(derived.feels_like_c);
     const rain=actualRain(human?.points);
     let secondary;
     if(rain){
-      secondary="Actual · "+rain.headline;
+      secondary="Đo thực tế · "+rain.headline;
     }else{
-      const pieces=["Actual"];
+      const pieces=["Đo thực tế tại "+referenceLocation];
       if(derived.comfort_label)pieces.push(clean(derived.comfort_label));
       if(feels!==null&&Math.abs(feels-t)>=1)pieces.push("cảm giác khoảng "+Math.round(feels)+"°");
       secondary=pieces.join(" · ");
