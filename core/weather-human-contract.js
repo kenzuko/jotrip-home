@@ -70,12 +70,15 @@
     return null;
   }
 
-  function localizedComfort(label,tr){
-    const key=comfortKeys[clean(label)];
+  function localizedComfort(label,tr,semanticCode=""){
+    const key=semanticCode||comfortKeys[clean(label)];
     return key?tr("comfort."+key,clean(label)):clean(label);
   }
 
-  function localizedReason(reason,tr){
+  function localizedReason(reason,tr,semanticCodes=[]){
+    if(Array.isArray(semanticCodes)&&semanticCodes.length){
+      return semanticCodes.map(code=>tr("reason."+code,"")).filter(Boolean).join(" ");
+    }
     const source=String(reason||"").trim();
     if(!source)return "";
     const parts=source.split(/(?<=\.)\s+/).filter(Boolean);
@@ -88,8 +91,12 @@
   function localizedRain(rain,tr){
     if(!rain)return null;
     const rate=num(rain.derived_rate_mm_h);
-    let intensityKey="generic",fallback="mưa";
-    if(/mưa rào nhẹ/i.test(rain.headline||"")){intensityKey="light_shower";fallback="mưa rào nhẹ"}
+    let intensityKey=rain.intensity_code||"generic",fallback="mưa";
+    if(intensityKey==="light_shower")fallback="mưa rào nhẹ";
+    else if(intensityKey==="light")fallback="mưa nhẹ";
+    else if(intensityKey==="moderate")fallback="mưa vừa";
+    else if(intensityKey==="heavy")fallback="mưa lớn";
+    else if(/mưa rào nhẹ/i.test(rain.headline||"")){intensityKey="light_shower";fallback="mưa rào nhẹ"}
     else if(rate!==null&&rate<2.5){intensityKey="light";fallback="mưa nhẹ"}
     else if(rate!==null&&rate<7.5){intensityKey="moderate";fallback="mưa vừa"}
     else if(rate!==null){intensityKey="heavy";fallback="mưa lớn"}
@@ -119,14 +126,24 @@
     const referenceLocation=rawLocation==="Sân bay Phú Quốc"
       ?tr("location_airport","Sân bay Phú Quốc")
       :rawLocation;
+    const comfortLabel=localizedComfort(derived.label,tr,derived.comfort_code)||null;
+    const comfortReason=localizedReason(derived.reason,tr,derived.reason_codes)||null;
+    const humidity=num(derived.humidity_pct);
+    const showHeatIndex=feels!==null&&Math.abs(feels-t)>=1;
+    const heatIndexText=showHeatIndex
+      ?tr("heat_index","Chỉ số cảm giác nóng: khoảng {temperature}°C",{temperature:Math.round(feels)})
+      :null;
+    const heatIndexMethod=showHeatIndex&&humidity!==null
+      ?tr("heat_index_method","Tính từ nhiệt độ {air_temperature}°C và độ ẩm khoảng {humidity}%.",{
+          air_temperature:Math.round(t),humidity:Math.round(humidity)
+        })
+      :null;
     let secondary;
     if(rain){
       secondary=tr("actual","Đo thực tế")+" · "+rain.headline;
     }else{
       const pieces=[tr("actual_at","Đo thực tế tại {location}",{location:referenceLocation})];
-      if(derived.label)pieces.push(localizedComfort(derived.label,tr));
-      if(feels!==null&&Math.abs(feels-t)>=1)
-        pieces.push(tr("feels_about","cảm giác khoảng {temperature}°",{temperature:Math.round(feels)}));
+      if(comfortLabel)pieces.push(comfortLabel);
       secondary=pieces.join(" · ");
     }
     return {
@@ -135,8 +152,12 @@
       observedAt:reference.at||null,
       temperatureC:t,
       feelsLikeC:feels,
-      comfortLabel:localizedComfort(derived.label,tr)||null,
-      comfortReason:localizedReason(derived.reason,tr)||null,
+      heatIndexC:showHeatIndex?feels:null,
+      humidityPct:humidity,
+      heatIndexText,
+      heatIndexMethod,
+      comfortLabel,
+      comfortReason,
       rain,
       evidenceClass:"ACTUAL"
     };
