@@ -1,0 +1,204 @@
+name: Deploy isolated Places UI hotfix
+
+# One-time, strictly scoped release while canonical Weather sync is gated.
+# DO NOT deploy the main Worker, skip its Weather safety checks, or replace its assets.
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/places-ui-hotfix.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: openpq-places-isolated-hotfix
+  cancel-in-progress: false
+
+jobs:
+  places-ui-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      PINNED_UI_SHA: 116fd07326300cde3d601a31623390f696d9dcb9
+      KNOWN_LAST_WORKER_SHA: 32eb0f8fca3743334ebaa57bb4ec1cc7e749340b
+      BASE_URL: https://openphuquoc.com
+      ORIGIN_WORKERS_DEV: https://openphuquoc-v3.kenzuko.workers.dev
+      HOTFIX_PREVIEW: https://openpq-places-ui-hotfix.kenzuko.workers.dev
+
+    steps:
+      - name: Check Cloudflare credentials
+        run: test -n "$CLOUDFLARE_API_TOKEN" && test -n "$CLOUDFLARE_ACCOUNT_ID"
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Preflight canonical and existing Weather before any changes
+        id: preflight
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/places-hotfix
+          curl --fail --silent --show-error --location "$ORIGIN_WORKERS_DEV/build.json?ui-check=$GITHUB_RUN_ID" -o /tmp/places-hotfix/build-before.json
+          BASE_SHA="$(node -e 'const d=require("/tmp/places-hotfix/build-before.json");console.log(d.sha||"")')"
+          echo "Canonical Worker SHA: $BASE_SHA"
+          curl --fail --silent --show-error --location "$ORIGIN_WORKERS_DEV/weather/data/weather-runtime/manifest.json" -o /tmp/places-hotfix/weather-manifest-before.json
+          curl --fail --silent --show-error --location "$ORIGIN_WORKERS_DEV/weather/data/runtime-authority.json" -o /tmp/places-hotfix/weather-authority-before.json
+          node - <<'JS'
+          const fs=require("fs");
+          const m=JSON.parse(fs.readFileSync("/tmp/places-hotfix/weather-manifest-before.json"));
+          const a=JSON.parse(fs.readFileSync("/tmp/places-hotfix/weather-authority-before.json"));
+          if(m.schema_version!=="weather-runtime-manifest-v1" || !m.source_times ||
+            a.schema_version!=="openpq-cms-weather-authority-v1")
+            throw Error("Existing Weather snapshot cannot be verified; stop UI hotfix");
+          JS
+          sha256sum /tmp/places-hotfix/weather-*before.json
+          curl --fail --silent --show-error --location "$ORIGIN_WORKERS_DEV/places/" -o /tmp/places-hotfix/original-places.html
+          if grep -q 'catalog-cards.css?v=' /tmp/places-hotfix/original-places.html; then
+            echo "Canonical Worker already has the approved Places cards; no override required."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          elif [ "$BASE_SHA" != "$KNOWN_LAST_WORKER_SHA" ]; then
+            echo "::error::Canonical Worker changed from known baseline and still lacks UI. No isolated override without a new baseline audit."
+            exit 1
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Materialize ONLY the previously approved three Places UI files
+        if: steps.preflight.outputs.skip == 'false'
+        run: |
+          set -euo pipefail
+          mkdir -p hotfix-places-assets/places
+          for file in index.html app.js catalog-cards.css; do
+            git show "$PINNED_UI_SHA:places/$file" > "hotfix-places-assets/places/$file"
+          done
+          test "$(find hotfix-places-assets -type f | wc -l)" -eq 3
+          node --check hotfix-places-assets/places/app.js
+          node --check workers/places-ui-hotfix.js
+          grep -q 'catalog-cards.css?v=' hotfix-places-assets/places/index.html
+          grep -q 'place-quick-facts' hotfix-places-assets/places/app.js
+          grep -q '@media(max-width:720px)' hotfix-places-assets/places/catalog-cards.css
+
+      - name: Deploy isolated preview WITHOUT production route
+        if: steps.preflight.outputs.skip == 'false'
+        run: npx --yes wrangler@4.136.3 deploy --config wrangler.places-hotfix.preview.jsonc
+
+      - name: HTTP preview and canonical API isolation smoke
+        if: steps.preflight.outputs.skip == 'false'
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 25); do
+            if curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/app.js" | grep -q 'place-quick-facts'; then
+              break
+            fi
+            sleep 2
+          done
+          curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/" -o /tmp/places-hotfix/preview.html
+          curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/catalog-cards.css" -o /tmp/places-hotfix/preview.css
+          curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/app.js" -o /tmp/places-hotfix/preview.js
+          grep -q 'catalog-cards.css?v=' /tmp/places-hotfix/preview.html
+          grep -q 'grid-template-columns:repeat(2,minmax(0,1fr))' /tmp/places-hotfix/preview.css
+          grep -q 'place-quick-facts' /tmp/places-hotfix/preview.js
+          # This path is NOT owned by the new Worker. It must still resolve
+          # through the original custom-domain Worker.
+          curl --fail --silent --show-error "$HOTFIX_PREVIEW/data/entities/places.json" \
+            | node -e 'let s="";process.stdin.on("data",x=>s+=x);process.stdin.on("end",()=>{const v=JSON.parse(s);if(!v.entities.some(e=>e.id==="place_vinpearl_safari"))process.exit(1);});'
+          curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/detail.html?id=vinpearl-safari" \
+            | grep -q 'detail'
+
+      - name: Install Playwright for tablet desktop and phone checks
+        if: steps.preflight.outputs.skip == 'false'
+        run: |
+          npm install --no-save --package-lock=false playwright@1.63.0
+          npx playwright install --with-deps chromium
+
+      - name: Browser QA on isolated preview BEFORE routing public traffic
+        if: steps.preflight.outputs.skip == 'false'
+        run: |
+          mkdir -p /tmp/places-hotfix/screenshots
+          node --input-type=module <<'JS'
+          import {chromium} from "playwright";
+          const browser=await chromium.launch({headless:true});
+          for(const width of [390,768,1440]){
+            const page=await browser.newPage({viewport:{width,height:900},deviceScaleFactor:1});
+            await page.goto(process.env.HOTFIX_PREVIEW+"/places/",{waitUntil:"domcontentloaded",timeout:30000});
+            await page.locator(".place-card").first().waitFor({timeout:35000});
+            const count=await page.locator(".place-card").count();
+            if(count!==39)throw Error(width+": expected 39 places, got "+count);
+            const grid=await page.locator("#placeCards").evaluate(el=>({
+              columns:getComputedStyle(el).gridTemplateColumns.split(" ").length,
+              width:el.getBoundingClientRect().width
+            }));
+            if(width===1440&&grid.columns!==2)throw Error("Desktop must show two columns: "+JSON.stringify(grid));
+            if(width<=768&&grid.columns!==1)throw Error("Phone/tablet must show one column: "+JSON.stringify(grid));
+            const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth+4);
+            if(overflow)throw Error(width+": horizontal page overflow");
+            await page.locator(".place-more summary").first().click();
+            if(!(await page.locator(".place-more[open]").count()))
+              throw Error(width+": expandable tips do not open");
+            await page.screenshot({path:"/tmp/places-hotfix/screenshots/places-"+width+".png",fullPage:false});
+            await page.close();
+          }
+          const filter=await browser.newPage();
+          await filter.goto(process.env.HOTFIX_PREVIEW+"/places/",{waitUntil:"domcontentloaded"});
+          await filter.locator(".place-card").first().waitFor({timeout:30000});
+          await filter.locator("#placeSearch").fill("Safari");
+          if(await filter.locator(".place-card").count()!==1)
+            throw Error("Safari search regression");
+          await browser.close();
+          console.log("Isolated UI preview browser QA passed: 390, 768, 1440, 39 places and Safari filter.");
+          JS
+
+      - name: Attach temporary /places-only route (never edit canonical Worker)
+        id: attach
+        if: steps.preflight.outputs.skip == 'false'
+        run: npx --yes wrangler@4.136.3 triggers deploy --config wrangler.places-hotfix.production.jsonc
+
+      - name: Verify public UI plus unchanged canonical Worker and Weather
+        if: steps.preflight.outputs.skip == 'false'
+        run: |
+          set -euo pipefail
+          for i in $(seq 1 25); do
+            if curl --fail --silent --show-error "$BASE_URL/places/app.js?places-ui-release=$GITHUB_RUN_ID" | grep -q 'place-quick-facts'; then
+              break
+            fi
+            sleep 2
+          done
+          curl --fail --silent --show-error --location "$BASE_URL/places/?places-ui-release=$GITHUB_RUN_ID" -o /tmp/places-hotfix/public.html
+          curl --fail --silent --show-error "$BASE_URL/places/catalog-cards.css?places-ui-release=$GITHUB_RUN_ID" -o /tmp/places-hotfix/public.css
+          grep -q 'catalog-cards.css?v=' /tmp/places-hotfix/public.html
+          grep -q 'place-quick-facts' /tmp/places-hotfix/public.css
+          curl --fail --silent --show-error "$ORIGIN_WORKERS_DEV/build.json?places-ui-release=$GITHUB_RUN_ID" -o /tmp/places-hotfix/build-after.json
+          node - <<'JS'
+          const fs=require("fs");
+          const a=JSON.parse(fs.readFileSync("/tmp/places-hotfix/build-before.json"));
+          const b=JSON.parse(fs.readFileSync("/tmp/places-hotfix/build-after.json"));
+          if(a.sha!==b.sha)throw Error("Canonical Worker changed during UI release; review before proceeding");
+          JS
+          curl --fail --silent --show-error "$ORIGIN_WORKERS_DEV/weather/data/weather-runtime/manifest.json" -o /tmp/places-hotfix/weather-manifest-after.json
+          curl --fail --silent --show-error "$ORIGIN_WORKERS_DEV/weather/data/runtime-authority.json" -o /tmp/places-hotfix/weather-authority-after.json
+          cmp /tmp/places-hotfix/weather-manifest-before.json /tmp/places-hotfix/weather-manifest-after.json
+          cmp /tmp/places-hotfix/weather-authority-before.json /tmp/places-hotfix/weather-authority-after.json
+          echo "PUBLIC_PLACES_UI_HOTFIX_PASSED_AND_CANONICAL_WEATHER_UNCHANGED"
+
+      - name: Roll back only the temporary route on a post-attach failure
+        if: failure() && steps.attach.outcome == 'success'
+        run: |
+          echo "::warning::Public verification failed. Detaching the temporary Places route; canonical Worker remains untouched."
+          npx --yes wrangler@4.136.3 triggers deploy --config wrangler.places-hotfix.preview.jsonc
+
+      - name: Save preview screenshots
+        if: always() && steps.preflight.outputs.skip == 'false'
+        uses: actions/upload-artifact@v4
+        with:
+          name: isolated-places-ui-preview-${{ github.run_number }}
+          path: /tmp/places-hotfix/screenshots/
+          retention-days: 7
+          if-no-files-found: ignore
