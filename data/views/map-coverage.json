@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T03:16:53.103Z",
+  "generated_at": "2026-09-30T03:25:51.127Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 255,
-    "missing_count": 139
+    "ready_count": 259,
+    "missing_count": 135
   },
   "layers": {
     "zones": [
@@ -1848,6 +1848,62 @@
         "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
         "google_place_id": "ChIJq6qqEz8eCDERmBJCVbcpqgQ",
         "note": "Wyndham Garden Grandworld Phu Quoc exact business identity cross-checked with exact-name numeric location 10.323617,103.856429 and official Wyndham property identity. Site centroid only."
+      },
+      {
+        "id": "hotel_maison_du_vietnam_resort_spa",
+        "name": "Maison Du Vietnam Resort & Spa",
+        "lat": 10.24439,
+        "lon": 104.02728,
+        "precision": "site_centroid",
+        "source_id": "maison_du_vietnam_structured_numeric_crosscheck_20260930",
+        "source": "Exact structured business identity + two converging numeric hotel locations + official tourism identity",
+        "source_url": "https://www.searchspot.ai/places/maison-du-vietnam-resort-spa",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "google_place_id": "ChIJEaZiA5mJpzERLbB4ty6IUuM",
+        "note": "Maison Du Vietnam Resort & Spa exact business identity cross-checked with numeric locations 10.24439,104.02728 and 10.2444,104.0273 plus official tourism identity. Site centroid only."
+      },
+      {
+        "id": "hotel_regent",
+        "name": "Regent Phú Quốc",
+        "lat": 10.109405,
+        "lon": 103.982735,
+        "precision": "site_centroid",
+        "source_id": "regent_structured_numeric_crosscheck_20260930",
+        "source": "Exact structured business identity + converging numeric resort locations",
+        "source_url": "https://www.meinreisebuero24.com/hotel/regent-phu-quoc-phu-quoc-island",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "google_place_id": "ChIJ0R95YniTpzER8HfwfZ2aMZI",
+        "note": "Regent Phu Quoc exact business identity cross-checked with numeric resort location 10.109405,103.982735 and an independent nearby named Regent location. Site centroid only."
+      },
+      {
+        "id": "hotel_vinpearl_wonderworld_phu_quoc",
+        "name": "Vinpearl Wonderworld Phú Quốc",
+        "lat": 10.342238,
+        "lon": 103.8513,
+        "precision": "site_centroid",
+        "source_id": "vinpearl_wonderworld_structured_numeric_crosscheck_20260930",
+        "source": "Exact structured business identity + multiple converging numeric hotel locations + official Vinpearl identity",
+        "source_url": "https://www.ehotelsreviews.com/vinpearl-wonderworld-phu-quoc-2998467-en",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "google_place_id": "ChIJ4TCVW2ceCDERj-MHdcQ8iIw",
+        "note": "Vinpearl Wonderworld Phu Quoc exact business identity cross-checked with multiple named numeric hotel locations around 10.3422,103.8513 and official Vinpearl identity. Site centroid only."
+      },
+      {
+        "id": "hotel_paralia",
+        "name": "Paralia",
+        "lat": 10.035858,
+        "lon": 104.030587,
+        "precision": "site_centroid",
+        "source_id": "paralia_structured_numeric_crosscheck_20260930",
+        "source": "Exact structured business identity + numeric hotel location + official property/tourism identity",
+        "source_url": "https://www.hotelprio.com/en/hotel/vietnam-vn/24099349-paralia-hotel-phu-quoc/",
+        "verified_at": "2026-09-30",
+        "accuracy": "STRUCTURED_BUSINESS_NUMERIC_CROSSCHECK",
+        "google_place_id": "ChIJ--GCQXqXpzER7itlt0HX5Ps",
+        "note": "PARALIA HOTEL PHU QUOC exact business identity cross-checked with numeric hotel location 10.035858,104.030587 and official Khem Beach property identity. Site centroid only."
       }
     ],
     "utilities": [
@@ -3750,15 +3806,11 @@
     "activity_sac_mau_venice",
     "hotel_la_festa",
     "hotel_pullman",
-    "hotel_regent",
     "hotel_sailing_club_signature_resort_phu_quoc",
     "hotel_sonaga_beach_resort",
     "hotel_sunset_sanato",
-    "hotel_vinpearl_wonderworld_phu_quoc",
     "hotel_l_azure_resort_spa_phu_quoc",
-    "hotel_maison_du_vietnam_resort_spa",
     "hotel_muong_thanh_luxury_phu_quoc_hotel",
-    "hotel_paralia",
     "hotel_the_up_phu_quoc",
     "hotel_kosmos_apart_hotel",
     "hotel_phu_quoc_eco_beach_resort",
