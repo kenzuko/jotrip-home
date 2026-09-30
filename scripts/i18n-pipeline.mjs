@@ -78,17 +78,22 @@ function protectedTokens(text){
 
 function protect(text){
   const tokens=protectedTokens(text);let output=String(text);
-  const markers=tokens.map((token,index)=>({token,marker:`__OPENPQ_LOCK_${index}__`}));
+  const markers=tokens.map((token,index)=>{
+    const key="OPENPQLOCK"+index+"XQZ";
+    return {token,key,marker:'<span translate="no" class="notranslate">'+key+'</span>'};
+  });
   for(const {token,marker} of markers)output=output.split(token).join(marker);
   return {text:output,markers};
 }
 function restore(text,markers){
   let output=String(text);
-  for(const {token,marker} of markers){
-    if(!output.includes(marker))throw new Error("Azure changed a protected token: "+token);
-    output=output.split(marker).join(token);
+  for(const {token,key} of markers){
+    const tag=new RegExp("<span\\b[^>]*>\\s*"+key+"\\s*<\\/span>","gi");
+    if(tag.test(output))output=output.replace(tag,token);
+    else if(output.includes(key))output=output.split(key).join(token);
+    else throw new Error("Azure changed a protected token: "+token);
   }
-  if(/__OPENPQ_LOCK_\d+__/.test(output))throw new Error("Unresolved protected token in translated text");
+  if(/OPENPQLOCK\d+XQZ/.test(output))throw new Error("Unresolved protected token in translated text");
   return output;
 }
 
@@ -147,7 +152,7 @@ async function azureTranslate(items,locale,config){
   const to=config.azure_locale_map[locale];
   if(!to)throw new Error("No Azure locale mapping for "+locale);
   const url=new URL(endpoint+"/translate");
-  url.searchParams.set("api-version","3.0");url.searchParams.set("from","vi");url.searchParams.append("to",to);
+  url.searchParams.set("api-version","3.0");url.searchParams.set("from","vi");url.searchParams.set("textType","html");url.searchParams.append("to",to);
   const maxAttempts=6;
   for(let attempt=1;attempt<=maxAttempts;attempt++){
     const headers={"Content-Type":"application/json","Ocp-Apim-Subscription-Key":key,"X-ClientTraceId":crypto.randomUUID()};
