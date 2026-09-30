@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "timezone": "Asia/Ho_Chi_Minh",
-  "policy": "Dated CANCELLED notices apply to their affected event date unless an earlier effective_from is provided. BOOKING_FULL notices may surface from effective_from in news/homepage-news contexts; detail_visible_from can delay generic place-page banners, while day-of operational surfaces stay scoped to the affected date. Ongoing SUSPENDED/SUSPENDED_UPGRADE notices remain active until a later operational update clears them.",
+  "policy": "Dated CANCELLED notices apply to their affected event date unless an earlier effective_from is provided. BOOKING_FULL notices may surface from effective_from in news/homepage-news contexts; detail_visible_from can delay generic place-page banners, while day-of operational surfaces stay scoped to the affected date. SUSPENDED/SUSPENDED_UPGRADE notices are active from effective_from; when valid_until is set they expire exactly at that timestamp, otherwise they remain active until a later operational update clears them.",
   "notices": [
     {
       "id": "thvn-2026-09-24-2015",
