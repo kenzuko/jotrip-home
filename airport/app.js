@@ -279,12 +279,11 @@ function buildOperationWatchItems(){
     const r=e.record;
     // Operational relevance: departures care about check-in, arrivals care about baggage belt.
     if(r.direction==='departure'&&e.field==='belt')continue;
-    if(r.direction==='arrival'&&(e.field==='checkin_row'||e.field==='gate'))continue;
-    if(r.direction==='departure'&&completed(r))continue;
-    if(r.direction==='arrival'&&completed(r)){
-      if(e.field!=='belt')continue;
-      const after=minutesAfter(r.actual_time);if(after==null||after>60)continue;
-    }
+    // Keep arriving-flight baggage details in the flight drawer, not Operation Watch.
+    // Only actionable gate and check-in changes on departing flights appear here.
+    if(r.direction==='arrival')continue;
+    if(r.direction==='departure'&&e.field!=='gate'&&e.field!=='checkin_row')continue;
+    if(completed(r))continue;
     const label=e.field==='gate'?tr('watchChangeGate','Cửa hiện tại {to} · trước {from}',{from:e.from,to:e.to}):e.field==='checkin_row'?tr('watchChangeCounter','Quầy check-in hiện tại {to} · trước {from}',{from:e.from,to:e.to}):tr('watchChangeBelt','Băng hành lý hiện tại {to} · trước {from}',{from:e.from,to:e.to});
     items.push({kind:'fids',priority:1,title:`${r.operating_flight_number} · ${label}`,body:r.direction==='arrival'?`${stationLabel(r.station)} → PQC`:`PQC → ${stationLabel(r.station)}`,icon:'⇄',at:new Date(e.at).getTime(),sort:mins(scheduledTime(r))??9999,flight:r.operating_flight_number,direction:r.direction});
   }
