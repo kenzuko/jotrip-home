@@ -12,15 +12,22 @@ export function loadGlossary(){
   return readJson(GLOSSARY_PATH);
 }
 
-function familyAllowed(rule,familyId){
-  return !Array.isArray(rule.families)||!rule.families.length||rule.families.includes(familyId);
+function ruleAllowed(rule,{familyId=null,recordId=null,path=[]}={}){
+  if(Array.isArray(rule.families)&&rule.families.length&&!rule.families.includes(familyId))return false;
+  if(Array.isArray(rule.record_ids)&&rule.record_ids.length&&!rule.record_ids.includes(recordId))return false;
+  if(Array.isArray(rule.exclude_record_ids)&&rule.exclude_record_ids.includes(recordId))return false;
+  if(Array.isArray(rule.path_prefixes)&&rule.path_prefixes.length){
+    const value=Array.isArray(path)?path.join("."):String(path||"");
+    if(!rule.path_prefixes.some(prefix=>value===prefix||value.startsWith(prefix+".")))return false;
+  }
+  return true;
 }
 
-export function glossaryMatches(text,{fromLocale="vi",targetLocale,familyId=null,glossary=loadGlossary()}={}){
+export function glossaryMatches(text,{fromLocale="vi",targetLocale,familyId=null,recordId=null,path=[],glossary=loadGlossary()}={}){
   const source=String(text??"");
   const matches=[];
   for(const rule of glossary.terms||[]){
-    if(!familyAllowed(rule,familyId))continue;
+    if(!ruleAllowed(rule,{familyId,recordId,path}))continue;
     const forms=rule.forms?.[fromLocale]||[];
     for(const form of forms){
       if(!form)continue;
@@ -30,7 +37,8 @@ export function glossaryMatches(text,{fromLocale="vi",targetLocale,familyId=null
           id:rule.id,
           form,
           canonical:rule.canonical||form,
-          target:rule.targets?.[targetLocale]||rule.canonical||form
+          target:rule.targets?.[targetLocale]||rule.canonical||form,
+          required_target:rule.required_target===true
         });
       }
     }
@@ -53,13 +61,13 @@ export function scanRejected(locale,text,{glossary=loadGlossary()}={}){
   return rejectedLiterals(locale,{glossary}).filter(literal=>value.includes(String(literal).toLocaleLowerCase()));
 }
 
-export function qualityProblems(sourceText,targetText,{fromLocale="vi",targetLocale,familyId=null,glossary=loadGlossary()}={}){
+export function qualityProblems(sourceText,targetText,{fromLocale="vi",targetLocale,familyId=null,recordId=null,path=[],glossary=loadGlossary()}={}){
   const problems=[];
   const target=String(targetText??"");
   if(!target.trim())problems.push("empty");
   for(const literal of scanRejected(targetLocale,target,{glossary}))problems.push("rejected:"+literal);
-  for(const match of glossaryMatches(sourceText,{fromLocale,targetLocale,familyId,glossary})){
-    if(!target.toLocaleLowerCase().includes(String(match.target).toLocaleLowerCase())){
+  for(const match of glossaryMatches(sourceText,{fromLocale,targetLocale,familyId,recordId,path,glossary})){
+    if(match.required_target&&!target.toLocaleLowerCase().includes(String(match.target).toLocaleLowerCase())){
       problems.push("glossary:"+match.id+"=>"+match.target);
     }
   }
@@ -81,12 +89,12 @@ function protectedTokens(text){
   return [...new Set(found)].sort((a,b)=>b.length-a.length);
 }
 
-export function protectForTranslation(text,{fromLocale="vi",targetLocale,familyId=null,glossary=loadGlossary()}={}){
+export function protectForTranslation(text,{fromLocale="vi",targetLocale,familyId=null,recordId=null,path=[],glossary=loadGlossary()}={}){
   let output=String(text);
   const markers=[];
   let counter=0;
 
-  for(const match of glossaryMatches(output,{fromLocale,targetLocale,familyId,glossary})){
+  for(const match of glossaryMatches(output,{fromLocale,targetLocale,familyId,recordId,path,glossary})){
     const marker="OPENPQTERM"+counter+++"XQZ";
     const re=new RegExp(regexEscape(match.form),"giu");
     if(!re.test(output))continue;
