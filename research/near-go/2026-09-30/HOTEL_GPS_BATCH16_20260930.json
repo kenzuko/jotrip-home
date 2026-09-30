@@ -1,0 +1,140 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-30",
+  "batch": "HOTEL_GPS_BATCH16",
+  "policy": {
+    "accuracy_over_coverage": true,
+    "precision": "site_centroid",
+    "rule": "Publish only when exact property identity is tied to numeric coordinates by structured business evidence plus independent numeric location evidence. Site centroid is not an entrance and GPS does not imply live operation."
+  },
+  "accepted": [
+    {
+      "id": "hotel_maison_du_vietnam_resort_spa",
+      "lat": 10.24439,
+      "lon": 104.02728,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJEaZiA5mJpzERLbB4ty6IUuM",
+          "detail": "Exact Maison Du Vietnam Resort & Spa business identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.searchspot.ai/places/maison-du-vietnam-resort-spa",
+          "detail": "Publishes 10.24439 / 104.02728."
+        },
+        {
+          "type": "NUMERIC_LOCATION_CROSSCHECK",
+          "detail": "Independent exact-name source publishes 10.2444 / 104.0273."
+        },
+        {
+          "type": "OFFICIAL_TOURISM_IDENTITY",
+          "url": "https://tourism.angiang.gov.vn/en/hotel/13676",
+          "detail": "Official tourism directory confirms Tổ 12, ấp Bến Tràm, Phú Quốc."
+        }
+      ]
+    },
+    {
+      "id": "hotel_regent",
+      "lat": 10.109405,
+      "lon": 103.982735,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJ0R95YniTpzER8HfwfZ2aMZI",
+          "detail": "Exact Regent Phu Quoc business identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.meinreisebuero24.com/hotel/regent-phu-quoc-phu-quoc-island",
+          "detail": "Exact-name property publishes 10.109405 / 103.982735."
+        },
+        {
+          "type": "NUMERIC_LOCATION_CROSSCHECK",
+          "detail": "Independent named Regent resort location found at 10.109561 / 103.982582, converging within the same property site."
+        }
+      ]
+    },
+    {
+      "id": "hotel_vinpearl_wonderworld_phu_quoc",
+      "lat": 10.342238,
+      "lon": 103.8513,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJ4TCVW2ceCDERj-MHdcQ8iIw",
+          "detail": "Exact Vinpearl Wonderworld Phu Quoc business identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.ehotelsreviews.com/vinpearl-wonderworld-phu-quoc-2998467-en",
+          "detail": "Exact-name property publishes 10.342238 / 103.8513."
+        },
+        {
+          "type": "NUMERIC_LOCATION_CROSSCHECK",
+          "detail": "Multiple exact-name hotel sources converge around 10.3422 / 103.8513."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://vinpearl.com/en/hotels/vinpearl-wonderworld-phu-quoc",
+          "detail": "Official Vinpearl property identity at Bai Dai, Phu Quoc."
+        }
+      ]
+    },
+    {
+      "id": "hotel_paralia",
+      "lat": 10.035858,
+      "lon": 104.030587,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJ--GCQXqXpzER7itlt0HX5Ps",
+          "detail": "Exact PARALIA HOTEL PHÚ QUỐC business identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.hotelprio.com/en/hotel/vietnam-vn/24099349-paralia-hotel-phu-quoc/",
+          "detail": "Exact-name property publishes 10.035858 / 104.030587."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://paraliaphuquoc.com/explore/",
+          "detail": "Official property confirms Sun Premier Village Khem Beach, An Thoi."
+        },
+        {
+          "type": "OFFICIAL_TOURISM_IDENTITY",
+          "url": "https://checkinangiang.vn/vi/paralia",
+          "detail": "Tourism directory confirms the Khem Beach property address."
+        }
+      ]
+    }
+  ],
+  "corrected_location_metadata": [
+    {
+      "id": "hotel_paralia",
+      "from_zone": "zone_central_west",
+      "to_zone": "zone_south",
+      "reason": "Khem Beach / An Thoi address and resolved GPS are in South Phu Quoc."
+    },
+    {
+      "id": "hotel_premier_village",
+      "from_zone": "zone_central_west",
+      "to_zone": "zone_south",
+      "reason": "Mui Ong Doi address and operator-published GPS are in South Phu Quoc."
+    }
+  ],
+  "held": [
+    {
+      "id": "hotel_pullman",
+      "reason": "Two current official property pages publish materially different longitude values; keep HOLD until site intent is reconciled."
+    },
+    {
+      "id": "hotel_sailing_club_signature_resort_phu_quoc",
+      "reason": "Available numeric evidence is tied to an associated park/pool-villa marker rather than a sufficiently certain canonical resort centroid."
+    }
+  ]
+}

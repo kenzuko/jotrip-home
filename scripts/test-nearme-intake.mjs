@@ -136,16 +136,23 @@ assert.equal(priorHotelAudit.records.length,60,"Keep dropped low-confidence hote
 assert.ok(priorHotelAudit.records.every(x=>x.legacy_coordinates.precision!=="exact_entrance"));
 
 const hotelBatch15=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH15_TIER_A_20260930.json");
+const hotelBatch16=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH16_20260930.json");
 assert.equal(hotelBatch15.accepted.length,13,"Hotel GPS batch 15 evidence must cover every promoted hotel");
-const resolvedHotelIds=new Set(hotelBatch15.accepted.map(x=>x.id));
-for(const item of hotelBatch15.accepted){
+assert.equal(hotelBatch16.accepted.length,4,"Hotel GPS batch 16 evidence must cover every promoted hotel");
+const reviewedHotelPins=[...hotelBatch15.accepted,...hotelBatch16.accepted];
+const resolvedHotelIds=new Set(reviewedHotelPins.map(x=>x.id));
+for(const item of reviewedHotelPins){
   const e=byId.get(item.id),doc=indexed.get(item.id);
   assert.ok(e?.map&&doc?.map,"Resolved hotel must have a canonical and indexed pin: "+item.id);
-  assert.equal(e.map.precision,"site_centroid","Hotel batch 15 pins are site centroids, never entrances: "+item.id);
+  assert.equal(e.map.precision,"site_centroid","Reviewed hotel pins are site centroids, never entrances: "+item.id);
   assert.equal(e.map.verified_at,"2026-09-30","Hotel GPS evidence date must remain explicit: "+item.id);
   assert.deepEqual([e.map.lat,e.map.lon],[item.lat,item.lon],"Canonical hotel coordinates must match the evidence file: "+item.id);
   assert.deepEqual([doc.map.lat,doc.map.lon],[e.map.lat,e.map.lon],"Resolved hotel pin must survive the canonical view build: "+item.id);
   assert.notEqual(e.map.source_id,"osm_photon_geocode","A rejected Photon geocode may not be silently restored: "+item.id);
+}
+for(const id of ["hotel_paralia","hotel_premier_village"]){
+  assert.equal(byId.get(id)?.zone_id,"zone_south","South-island hotel must use the south canonical zone: "+id);
+  assert.equal(indexed.get(id)?.zone_id,"zone_south","South-island hotel zone must survive the location-index build: "+id);
 }
 for(const item of priorHotelAudit.records){
   const doc=indexed.get(item.id);
