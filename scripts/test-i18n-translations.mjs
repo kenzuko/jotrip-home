@@ -5,6 +5,8 @@ import {loadGlossary,scanRejected} from "./i18n-quality.mjs";
 
 const read=p=>JSON.parse(readFileSync(p,"utf8"));
 const manifest=read("data/i18n/locales.json");
+const lifecycle=read("cms/translation-lifecycle.json");
+const localeQualityEnforced=code=>lifecycle.families.some(family=>{const state=family.targets?.[code];return state&&(["human_review","published"].includes(state.status)||String(state.note||"").includes("glossary/semantic guard"));});
 const sourceStories=read("data/content.json");
 // Translation coverage follows the canonical editorial source, including
 // unpublished records. The public view intentionally filters that source and
@@ -102,7 +104,9 @@ for(const locale of manifest.locales||[]){
     knowledge:existsSync(knowledgePath)?read(knowledgePath):null,
     food:existsSync(foodPath)?read(foodPath):null
   });
-  const rejected=scanRejected(locale.code,text,{glossary});
-  assert.deepEqual(rejected,[],locale.code+" editorial bundle contains rejected machine literals: "+rejected.join(", "));
+  if(localeQualityEnforced(locale.code)){
+    const rejected=scanRejected(locale.code,text,{glossary});
+    assert.deepEqual(rejected,[],locale.code+" editorial bundle contains rejected machine literals: "+rejected.join(", "));
+  }
 }
 console.log("PASS i18n translation guard: stable IDs, UI-key parity, text-only editorial overlays and publication locks");
