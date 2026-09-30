@@ -11,6 +11,13 @@ if(forbidden.some(x=>args.has(x)))throw Error("GPS review-only resolver: direct 
 const limitArg=process.argv.find(x=>x.startsWith("--limit="));
 const limit=limitArg?Number(limitArg.split("=")[1]):15;
 if(!Number.isInteger(limit)||limit<1||limit>100)throw Error("GPS research query budget must be an integer from 1 to 100");
+const typeArg=process.argv.find(x=>x.startsWith("--type="));
+const typeFilter=typeArg?typeArg.split("=")[1]:null;
+if(typeFilter&&!["hotel","utility","place"].includes(typeFilter))
+  throw Error("GPS research --type must be hotel, utility or place");
+const idsArg=process.argv.find(x=>x.startsWith("--ids="));
+const idFilter=idsArg?new Set(idsArg.slice("--ids=".length).split(",").map(x=>x.trim()).filter(Boolean)):null;
+if(idFilter&&!idFilter.size)throw Error("--ids cannot be empty");
 const outArg=process.argv.find(x=>x.startsWith("--out="));
 const out=outArg?outArg.slice("--out=".length):".cache/near-go/geocode-candidates.json";
 if(path.isAbsolute(out)||out.includes("..")||out.includes("\\")||!out.startsWith(".cache/near-go/")){
@@ -469,6 +476,8 @@ for(const file of files){
   for(const entity of data.entities||[]){
     if(attempted>=limit)break;
     if(!["utility","place","hotel"].includes(entity.entity_type))continue;
+    if(typeFilter&&entity.entity_type!==typeFilter)continue;
+    if(idFilter&&!idFilter.has(entity.id))continue;
     if(!entity.address)continue;
     // Existing accepted site pins must never be overwritten by a discovery tool.
     if(Number.isFinite(entity.map?.lat)&&Number.isFinite(entity.map?.lon)){skipped++;continue;}
