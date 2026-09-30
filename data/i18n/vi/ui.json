@@ -218,6 +218,9 @@
       "wind_relief": "Có gió nên cảm giác đỡ bí hơn một chút.",
       "weak_wind": "Gió yếu nên cảm giác oi rõ hơn.",
       "close_to_measured": "Cảm nhận ngoài trời hiện khá gần với nhiệt độ đo được."
-    }
+    },
+    "heat_index": "Chỉ số cảm giác nóng: khoảng {temperature}°C",
+    "heat_index_method": "Tính từ nhiệt độ {air_temperature}°C và độ ẩm khoảng {humidity}%.",
+    "heat_index_note": "Đây là chỉ số suy ra, không phải nhiệt độ đo trực tiếp."
   }
 }

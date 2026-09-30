@@ -218,6 +218,9 @@
       "wind_relief": "有风时会稍微没那么闷。",
       "weak_wind": "风较弱，因此闷热感会更明显。",
       "close_to_measured": "目前体感温度与实测气温比较接近。"
-    }
+    },
+    "heat_index": "热指数：约 {temperature}°C",
+    "heat_index_method": "根据气温 {air_temperature}°C 和约 {humidity}% 的湿度计算。",
+    "heat_index_note": "这是计算得到的指数，不是直接测得的气温。"
   }
 }

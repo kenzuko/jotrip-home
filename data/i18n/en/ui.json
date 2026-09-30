@@ -218,6 +218,9 @@
       "wind_relief": "The breeze is making it feel a little less stuffy.",
       "weak_wind": "Light winds are making the muggy feeling more noticeable.",
       "close_to_measured": "It currently feels fairly close to the measured temperature."
-    }
+    },
+    "heat_index": "Heat index: around {temperature}°C",
+    "heat_index_method": "Calculated from an air temperature of {air_temperature}°C and about {humidity}% humidity.",
+    "heat_index_note": "This is a derived index, not a directly measured temperature."
   }
 }
