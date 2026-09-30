@@ -19,8 +19,8 @@
   function actualRain(points){
     const order=["an_thoi","duong_dong","cua_can","ganh_dau","bai_thom","ham_ninh","bai_sao"];
     for(const id of order){
-      const p=points?.[id],a=p?.rain?.actual,i=p?.interpretation;
-      if(a?.observation_status==="ACTUAL"&&a?.rain_observed===true&&i?.evidence_class==="ACTUAL")
+      const p=points?.[id],a=p?.rain?.actual,i=p?.message;
+      if(a?.status==="ACTUAL"&&a?.observed===true&&i?.evidence==="ACTUAL")
         return {id,headline:clean(i.headline),detail:clean(i.detail)};
     }
     return null;
@@ -39,7 +39,7 @@
       secondary="Đo thực tế · "+rain.headline;
     }else{
       const pieces=["Đo thực tế tại "+referenceLocation];
-      if(derived.comfort_label)pieces.push(clean(derived.comfort_label));
+      if(derived.label)pieces.push(clean(derived.label));
       if(feels!==null&&Math.abs(feels-t)>=1)pieces.push("cảm giác khoảng "+Math.round(feels)+"°");
       secondary=pieces.join(" · ");
     }
