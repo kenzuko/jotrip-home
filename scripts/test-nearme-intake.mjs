@@ -141,7 +141,7 @@ const hotelBatch17=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH17_IDENTITY_
 assert.equal(hotelBatch15.accepted.length,13,"Hotel GPS batch 15 evidence must cover every promoted hotel");
 assert.equal(hotelBatch16.accepted.length,4,"Hotel GPS batch 16 evidence must cover every promoted hotel");
 assert.equal(hotelBatch17.accepted.length,2,"Hotel GPS batch 17 must cover the two independently resolved hotel sites");
-assert.equal(hotelBatch17.rejected.length,26,"Hotel identity quarantine must preserve all 26 rejected map records");
+assert.equal(hotelBatch17.rejected.length,27,"Hotel identity quarantine must preserve all 27 rejected map records");
 const reviewedHotelPins=[...hotelBatch15.accepted,...hotelBatch16.accepted,...hotelBatch17.accepted];
 const resolvedHotelIds=new Set(reviewedHotelPins.map(x=>x.id));
 for(const item of reviewedHotelPins){
@@ -169,7 +169,7 @@ for(const item of priorHotelAudit.records){
 }
 // Identity-first audit: do not let legacy address/fuzzy geocoding reinstate a wrong business pin.
 const quarantineIds=new Set(hotelBatch17.rejected.map(x=>x.id));
-assert.equal(quarantineIds.size,26,"Quarantine IDs must be unique");
+assert.equal(quarantineIds.size,27,"Quarantine IDs must be unique");
 for(const item of hotelBatch17.rejected){
   const e=byId.get(item.id),doc=indexed.get(item.id);
   assert.ok(e&&doc,"Quarantined hotel must remain searchable in the directory: "+item.id);
