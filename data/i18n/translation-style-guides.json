@@ -1,0 +1,70 @@
+{
+  "version": "1.0",
+  "global": [
+    "Translate meaning and traveller intent, not Vietnamese word order.",
+    "Keep place names, dish names and local concepts consistent with translation-glossary.json.",
+    "Do not invent facts, ingredients, prices, timings, access rules or safety claims.",
+    "Safety, allergy, transport and pricing language must be literal and unambiguous.",
+    "Prefer short natural travel copy over ornate machine-translated prose.",
+    "Keep Open Phu Quoc and JoTrip brand names unchanged.",
+    "Preserve URLs, placeholders, dates, times, measurements and phone numbers exactly.",
+    "When a local term has no clean equivalent, keep the Vietnamese name and add a short local-language explanation rather than guessing."
+  ],
+  "families": {
+    "ui": [
+      "Use compact interface language.",
+      "Translate bài or bài viết as article/post in editorial UI, never as song.",
+      "Translate trải nghiệm in tourism context as experience/activity, never career."
+    ],
+    "food": [
+      "Dish identity must never change.",
+      "Do not translate names such as Bún quậy or Bún kèn into unrelated common nouns.",
+      "Keep ingredient and allergen identity exact. Nhum is sea urchin, not shrimp, oyster or noodles.",
+      "Tắc/quất in Phu Quoc food copy means calamansi in the registered glossary context.",
+      "Còi biên mai means the edible adductor muscle, not a whistle.",
+      "Ask-staff questions must refer to the same dish and ingredient as the Vietnamese source."
+    ],
+    "stories": [
+      "Keep the editorial voice warm, observational and grounded.",
+      "Avoid literal Vietnamese metaphors when they sound strange in the target language.",
+      "Do not turn local names into translated objects or unrelated place names."
+    ],
+    "knowledge": [
+      "Write like a practical destination handbook, not a literal translation.",
+      "Separate documented facts from legends and interpretation.",
+      "Metaphors such as đại phẫu should become natural target-language expressions such as major transformation, not medical procedures.",
+      "Nhịp sống means the rhythm of daily life in destination prose, not biological rhythm."
+    ]
+  },
+  "locales": {
+    "en": [
+      "Use international travel English with concise sentences.",
+      "Prefer Phu Quoc, Duong Dong and An Thoi spellings in running English copy.",
+      "Retain Vietnamese dish names where they are useful for ordering or search."
+    ],
+    "ko": [
+      "Use natural contemporary Korean travel language and polite-neutral guide tone.",
+      "Avoid dictionary-style Sino-Korean substitutions when a familiar travel expression is clearer.",
+      "Keep the Vietnamese/Latin dish name alongside Korean explanation when useful for ordering."
+    ],
+    "ru": [
+      "Use natural contemporary Russian travel-guide prose, not Vietnamese syntax mapped word for word.",
+      "Keep Vietnamese dish names where transliteration would obscure what a traveller should order."
+    ],
+    "zh-Hans": [
+      "Use natural Mainland Simplified Chinese travel-guide phrasing.",
+      "Keep Vietnamese or Latin names in parentheses when this helps map search or ordering.",
+      "Do not translate proper nouns by decomposing their Vietnamese words."
+    ],
+    "zh-Hant": [
+      "Use natural Traditional Chinese travel-guide phrasing.",
+      "Keep Vietnamese or Latin names in parentheses when this helps map search or ordering."
+    ],
+    "fr": [
+      "Use clear contemporary travel French and retain local food names where useful."
+    ],
+    "lo": [
+      "When a registered local term has no Lao target in the glossary, preserve its canonical Latin/Vietnamese form rather than guessing."
+    ]
+  }
+}
