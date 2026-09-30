@@ -464,9 +464,9 @@
       "forms": {
         "vi": [
           "tắc/quất",
-          "tắc",
           "trái tắc",
-          "nước cốt tắc"
+          "nước cốt tắc",
+          "tắc ớt"
         ],
         "en": [
           "calamansi"
@@ -479,7 +479,12 @@
         "zh-Hans": "卡拉曼橘（calamansi）",
         "zh-Hant": "卡拉曼橘（calamansi）",
         "fr": "calamansi"
-      }
+      },
+      "families": [
+        "food",
+        "stories",
+        "knowledge"
+      ]
     },
     {
       "id": "cha-tom",
@@ -492,6 +497,67 @@
         "en": [
           "shrimp paste",
           "shrimp patty"
+        ]
+      },
+      "targets": {
+        "en": "shrimp cake",
+        "ko": "새우 완자",
+        "ru": "креветочная котлета",
+        "zh-Hans": "虾饼",
+        "zh-Hant": "蝦餅",
+        "fr": "galette de crevettes"
+      },
+      "families": [
+        "food",
+        "stories",
+        "knowledge"
+      ]
+    },
+    {
+      "id": "bun-quay-cha-ca",
+      "canonical": "fresh fish paste in Bún quậy",
+      "families": [
+        "food"
+      ],
+      "record_ids": [
+        "bun-quay"
+      ],
+      "forms": {
+        "vi": [
+          "chả cá",
+          "Chả cá"
+        ],
+        "en": [
+          "fresh fish paste",
+          "fish paste"
+        ]
+      },
+      "targets": {
+        "en": "fresh fish paste",
+        "ko": "생선살 반죽",
+        "ru": "паста из свежей рыбы",
+        "zh-Hans": "鲜鱼滑",
+        "zh-Hant": "鮮魚滑",
+        "fr": "farce de poisson frais"
+      }
+    },
+    {
+      "id": "bun-quay-cha-tom",
+      "canonical": "fresh shrimp paste in Bún quậy",
+      "families": [
+        "food"
+      ],
+      "record_ids": [
+        "bun-quay"
+      ],
+      "forms": {
+        "vi": [
+          "chả tôm",
+          "Chả tôm"
+        ],
+        "en": [
+          "fresh shrimp paste",
+          "shrimp paste"
         ]
       },
       "targets": {
@@ -517,13 +583,18 @@
         ]
       },
       "targets": {
-        "en": "fish paste",
-        "ko": "생선살 반죽",
-        "ru": "рыбная паста",
-        "zh-Hans": "鱼滑",
-        "zh-Hant": "魚滑",
-        "fr": "farce de poisson"
-      }
+        "en": "fish cake",
+        "ko": "어묵",
+        "ru": "рыбная котлета",
+        "zh-Hans": "鱼饼",
+        "zh-Hant": "魚餅",
+        "fr": "galette de poisson"
+      },
+      "families": [
+        "food",
+        "stories",
+        "knowledge"
+      ]
     },
     {
       "id": "mo-hanh",
@@ -695,7 +766,12 @@
         "zh-Hans": "清澈的琥珀褐色",
         "zh-Hant": "清澈的琥珀褐色",
         "fr": "brun ambré limpide"
-      }
+      },
+      "families": [
+        "food",
+        "stories",
+        "knowledge"
+      ]
     },
     {
       "id": "xac-ca-u-hoai",
@@ -739,7 +815,11 @@
         "zh-Hans": "大规模改造",
         "zh-Hant": "大規模改造",
         "fr": "transformation majeure"
-      }
+      },
+      "families": [
+        "stories",
+        "knowledge"
+      ]
     },
     {
       "id": "nhip-song",
@@ -762,7 +842,11 @@
         "zh-Hans": "日常生活节奏",
         "zh-Hant": "日常生活節奏",
         "fr": "rythme de vie quotidien"
-      }
+      },
+      "families": [
+        "stories",
+        "knowledge"
+      ]
     },
     {
       "id": "tai-chanh-hay-song",
@@ -893,6 +977,32 @@
         "zh-Hant": "cá ngân（當地魚類）",
         "fr": "cá ngân (poisson local)"
       }
+    },
+    {
+      "id": "ca-moi",
+      "canonical": "lizardfish",
+      "families": [
+        "food",
+        "stories",
+        "knowledge"
+      ],
+      "forms": {
+        "vi": [
+          "cá mối",
+          "Cá mối"
+        ],
+        "en": [
+          "lizardfish"
+        ]
+      },
+      "targets": {
+        "en": "lizardfish",
+        "ko": "매퉁이류(lizardfish)",
+        "ru": "ящероголов (lizardfish)",
+        "zh-Hans": "狗母鱼（lizardfish）",
+        "zh-Hant": "狗母魚（lizardfish）",
+        "fr": "poisson-lézard (lizardfish)"
+      }
     }
   ],
   "rejected_literals": {
@@ -908,7 +1018,17 @@
       "peach eggs",
       "casino fish",
       "biological rhythm",
-      "cactus snails"
+      "cactus snails",
+      "aphocmatically",
+      "grilled apricot whistle",
+      "separate whistle or whole apricot",
+      "apricot scallops",
+      "apricot oyster",
+      "barracuda or termite",
+      "Squid/krill",
+      "Krill / Oysters",
+      "group of krill",
+      "allergic to krill seafood"
     ],
     "ko": [
       "번 키",
