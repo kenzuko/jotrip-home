@@ -63,7 +63,7 @@ function modelHours(dashboard){
     gust_kmh:r.gust??null,rain_3h_mm:r.rain??null,
     wave_hs_m:r.wave??null,wave_hmax_m:r.wave_max??null,period_s:r.period??null,
     data_class:"MODEL_ONLY",reference_mode:"DIRECT_MARINE_SERIES",reference_point:point,
-    reference_distance_km:0
+    reference_distance_km:0,wind_gust_source:r.wind_gust_source??null
    };
    // A model cycle can lack gust at its horizon. Keep the verified wind,
    // rain and wave values, but never substitute zero or a made-up gust.
@@ -141,7 +141,7 @@ function cloudScene(full,previous){
 }
 function forecastScene(ecmwf,previous){
  if(!ecmwf?.spatial?.frames?.length)return previous||null;
- const fields=["cell_id","lat","lon","valid_time","lead_hours","temperature_c","u10_ms","v10_ms","wind_kmh","wind_direction_deg","gust_kmh","rain_mm","wave_hs_m","wave_direction_deg","wave_period_s"];
+ const fields=["cell_id","lat","lon","valid_time","lead_hours","temperature_c","u10_ms","v10_ms","wind_kmh","wind_direction_deg","gust_kmh","wind_gust_source","rain_mm","wave_hs_m","wave_direction_deg","wave_period_s"];
  const frames=ecmwf.spatial.frames.filter(f=>{
   const t=stamp(f.valid_time);return t>=Date.now()-4*3600000&&t<=Date.now()+72*3600000;
  }).map(f=>({lead_hours:f.lead_hours,valid_time:f.valid_time,cells:(f.cells||[]).map(c=>
@@ -278,6 +278,9 @@ async function main(){
  const gustGaps=Object.entries(d.bundle.model_72h.points||{}).flatMap(([point,rows])=>
   rows.filter(r=>r.gust_kmh==null).map(r=>point+"@"+r.time));
  if(gustGaps.length)warnings.push("forecast_gust_unavailable:"+gustGaps.slice(0,15).join(","));
+ const gustPaired=Object.values(d.bundle.model_72h.points||{}).flat().filter(r=>
+   r.wind_gust_source==="ECMWF_SAME_CYCLE_MEDIUM_PAIR").length;
+ if(gustPaired)warnings.push("forecast_verified_same_cycle_medium_wind_gust_pairs:"+gustPaired);
  const criticalFile=join(tmp,"critical.json");
  try{
   runPython("weather.pipeline.build_critical_payload",["--dashboard",localDashboard,
