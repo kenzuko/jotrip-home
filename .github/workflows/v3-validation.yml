@@ -35,6 +35,7 @@ jobs:
       - name: Test Transit compact mobile display
         run: |
           node scripts/test-transit-mobile-ui.mjs
+          node scripts/test-transit-snapshot-health.mjs
           node --check transit/app.js
       - name: Test CMS attraction timing decision
         run: |
