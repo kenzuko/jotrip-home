@@ -91,13 +91,13 @@
           "note": null
         },
         "zh-Hans": {
-          "status": "missing",
-          "target_path": null,
-          "translated_from_blob_sha": null,
+          "status": "machine_draft",
+          "target_path": "data/i18n/zh-Hans/ui.json",
+          "translated_from_blob_sha": "50d0c001977b955360cfead7d60b0dfc6aa7957d",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": null
+          "note": "Azure Translator v3 machine draft; human review required."
         },
         "zh-Hant": {
           "status": "missing",
