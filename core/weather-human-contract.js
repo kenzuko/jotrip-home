@@ -5,7 +5,7 @@
   root.OpenPQHumanWeather=api;
 })(typeof globalThis!=="undefined"?globalThis:this,function(root){
   "use strict";
-  const num=v=>{const n=Number(v);return Number.isFinite(n)?n:null};
+  const num=v=>{if((typeof v!=="number"&&typeof v!=="string")||(typeof v==="string"&&!v.trim()))return null;const n=Number(v);return Number.isFinite(n)?n:null};
   const clean=s=>String(s||"").trim().replace(/[.\s]+$/,"");
   const fmt=(template,vars={})=>String(template||"").replace(/\{([A-Za-z0-9_]+)\}/g,(_,key)=>
     Object.prototype.hasOwnProperty.call(vars,key)?String(vars[key]):"{"+key+"}");
