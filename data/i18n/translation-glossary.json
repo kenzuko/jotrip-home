@@ -487,33 +487,6 @@
       ]
     },
     {
-      "id": "cha-tom",
-      "canonical": "chả tôm",
-      "forms": {
-        "vi": [
-          "chả tôm",
-          "Chả tôm"
-        ],
-        "en": [
-          "shrimp paste",
-          "shrimp patty"
-        ]
-      },
-      "targets": {
-        "en": "shrimp cake",
-        "ko": "새우 완자",
-        "ru": "креветочная котлета",
-        "zh-Hans": "虾饼",
-        "zh-Hant": "蝦餅",
-        "fr": "galette de crevettes"
-      },
-      "families": [
-        "food",
-        "stories",
-        "knowledge"
-      ]
-    },
-    {
       "id": "bun-quay-cha-ca",
       "canonical": "fresh fish paste in Bún quậy",
       "families": [
@@ -568,6 +541,33 @@
         "zh-Hant": "鮮蝦滑",
         "fr": "farce de crevettes fraîches"
       }
+    },
+    {
+      "id": "cha-tom",
+      "canonical": "chả tôm",
+      "forms": {
+        "vi": [
+          "chả tôm",
+          "Chả tôm"
+        ],
+        "en": [
+          "shrimp paste",
+          "shrimp patty"
+        ]
+      },
+      "targets": {
+        "en": "shrimp cake",
+        "ko": "새우 완자",
+        "ru": "креветочная котлета",
+        "zh-Hans": "虾饼",
+        "zh-Hant": "蝦餅",
+        "fr": "galette de crevettes"
+      },
+      "families": [
+        "food",
+        "stories",
+        "knowledge"
+      ]
     },
     {
       "id": "cha-ca",
