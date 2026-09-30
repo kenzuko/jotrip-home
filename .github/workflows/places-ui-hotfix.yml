@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 25
     env:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CF_ACCOUNT_ID_RAW: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
       PINNED_UI_SHA: 116fd07326300cde3d601a31623390f696d9dcb9
       KNOWN_LAST_WORKER_SHA: 32eb0f8fca3743334ebaa57bb4ec1cc7e749340b
       BASE_URL: https://openphuquoc.com
@@ -31,7 +31,35 @@ jobs:
 
     steps:
       - name: Check Cloudflare credentials
-        run: test -n "$CLOUDFLARE_API_TOKEN" && test -n "$CLOUDFLARE_ACCOUNT_ID"
+        run: test -n "$CLOUDFLARE_API_TOKEN" && test -n "$CF_ACCOUNT_ID_RAW"
+
+      - name: Normalize pasted Cloudflare Account ID without logging secret
+        run: |
+          node --input-type=module <<'JS'
+          import fs from "node:fs";
+          const raw=process.env.CF_ACCOUNT_ID_RAW||"";
+          const simple=[...raw].filter(c=>c.trim()!=='' && c!==String.fromCharCode(34) && c!==String.fromCharCode(39) && c!==String.fromCharCode(96)).join('');
+          let id=/^[A-Za-z0-9_-]{20,64}$/.test(simple)?simple:"";
+          if(!id){
+            const ids=raw.match(/(?:[a-fA-F0-9]{32}|[a-fA-F0-9]{8}(?:-[a-fA-F0-9]{4}){3}-[a-fA-F0-9]{12})/g)||[];
+            if(ids.length===1)id=ids[0];
+          }
+          if(!id){
+            const r=await fetch("https://api.cloudflare.com/client/v4/accounts?per_page=50",{
+              headers:{authorization:"Bearer "+process.env.CLOUDFLARE_API_TOKEN}
+            });
+            const data=await r.json();
+            const accounts=data?.result||[];
+            if(r.ok&&data.success&&accounts.length===1)id=accounts[0].id;
+          }
+          if(!/^[A-Za-z0-9_-]{20,64}$/.test(id)){
+            throw Error("Cloudflare account ID secret is malformed or ambiguous. Do not deploy without corrected account ID.");
+          }
+          // Never echo the ID. The Actions environment mechanism supplies it
+          // to later Wrangler steps after stripping pasted whitespace/quotes.
+          fs.appendFileSync(process.env.GITHUB_ENV,'CLOUDFLARE_ACCOUNT_ID='+id+String.fromCharCode(10));
+          console.log("Cloudflare Account ID normalized and syntax validated.");
+          JS
 
       - uses: actions/checkout@v4
         with:
