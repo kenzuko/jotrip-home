@@ -3,7 +3,7 @@ name: Repair current locale drafts
 on:
   push:
     branches:
-      - fix/i18n-quality-layer-20260930
+      - main
     paths:
       - "data/i18n/translation-glossary.json"
       - "data/i18n/translation-style-guides.json"
@@ -28,7 +28,7 @@ jobs:
     env:
       AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
       AZURE_TRANSLATOR_REGION: ${{ secrets.AZURE_TRANSLATOR_REGION }}
-      FOUNDATION_BRANCH: fix/i18n-quality-layer-20260930
+      FOUNDATION_BRANCH: main
       REPAIR_BRANCH: translation/quality-repair-20260930
       LEGACY_DRAFT_BRANCH: translation/priority-machine-drafts
       TARGET_LOCALES: "ko ru zh-Hans"
@@ -50,16 +50,6 @@ jobs:
           git config user.email "openpq-translation-bot@users.noreply.github.com"
           npm run i18n:check
 
-      - name: Repair residual English machine literals
-        run: |
-          for family in ui food stories knowledge; do
-            node scripts/i18n-pipeline.mjs translate --family "$family" --locale en --pivot none --repair-scope quality --apply
-            git add cms/translation-lifecycle.json cms/translation-memory.json data/i18n/en
-            git diff --cached --quiet || git commit -m "i18n: quality-repair English $family"
-          done
-          npm run i18n:check
-          git push origin HEAD:"$FOUNDATION_BRANCH"
-
       - name: Resume or create clean priority repair branch
         run: |
           git fetch origin "$FOUNDATION_BRANCH:refs/remotes/origin/$FOUNDATION_BRANCH"
@@ -75,6 +65,15 @@ jobs:
             git commit -m "i18n: import completed priority machine drafts for repair"
             git push -u origin "$REPAIR_BRANCH"
           fi
+
+      - name: Repair residual English machine literals
+        run: |
+          for family in ui food stories knowledge; do
+            node scripts/i18n-pipeline.mjs translate --family "$family" --locale en --pivot none --repair-scope quality --apply
+            git add cms/translation-lifecycle.json cms/translation-memory.json data/i18n/en
+            git diff --cached --quiet || git commit -m "i18n: quality-repair English $family"
+            git push -u origin "$REPAIR_BRANCH"
+          done
 
       - name: Estimate semantic repair cost
         run: |
