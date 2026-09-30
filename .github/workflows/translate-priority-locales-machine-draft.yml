@@ -10,9 +10,17 @@ on:
       branch:
         description: "Checkpoint branch"
         required: true
-        default: "translation/priority-machine-drafts"
+        default: "translation/priority-quality-drafts"
+      pivot:
+        description: "Semantic pivot locale (en, or none)"
+        required: true
+        default: "en"
+      repair_scope:
+        description: "quality, core, or editorial"
+        required: true
+        default: "quality"
       max_characters:
-        description: "Safety ceiling for planned Azure characters"
+        description: "Safety ceiling for estimated Azure characters"
         required: true
         default: "1300000"
 
@@ -31,10 +39,12 @@ jobs:
       AZURE_TRANSLATOR_REGION: ${{ secrets.AZURE_TRANSLATOR_REGION }}
       TRANSLATION_BRANCH: ${{ inputs.branch }}
       REQUESTED_LOCALES: ${{ inputs.locales }}
+      PIVOT_LOCALE: ${{ inputs.pivot }}
+      REPAIR_SCOPE: ${{ inputs.repair_scope }}
       MAX_CHARACTERS: ${{ inputs.max_characters }}
     steps:
       - name: Checkout current main
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -53,6 +63,10 @@ jobs:
                 ;;
             esac
           done
+          case "$REPAIR_SCOPE" in
+            quality|core|editorial) ;;
+            *) echo "Unsupported repair scope: $REPAIR_SCOPE"; exit 1 ;;
+          esac
 
       - name: Resume or create one durable checkpoint branch
         run: |
@@ -67,19 +81,19 @@ jobs:
             git switch -c "$TRANSLATION_BRANCH"
           fi
 
-      - name: Validate source and enforce the monthly safety ceiling
+      - name: Validate source and enforce Azure safety ceiling
         run: |
           npm run i18n:check
           total=0
           for locale in $REQUESTED_LOCALES; do
             for family in ui food stories knowledge; do
-              plan="$(node scripts/i18n-pipeline.mjs plan --family "$family" --locale "$locale")"
+              plan="$(node scripts/i18n-pipeline.mjs plan --family "$family" --locale "$locale" --pivot "$PIVOT_LOCALE" --repair-scope "$REPAIR_SCOPE")"
               echo "$plan"
-              chars="$(node -e 'const fs=require("fs");const p=JSON.parse(fs.readFileSync(0,"utf8"));process.stdout.write(String(p.characters||0))' <<<"$plan")"
+              chars="$(node -e 'const fs=require("fs");const p=JSON.parse(fs.readFileSync(0,"utf8"));process.stdout.write(String(p.azure_characters_estimate ?? p.characters ?? 0))' <<<"$plan")"
               total=$((total + chars))
             done
           done
-          echo "Planned Azure characters: $total"
+          echo "Estimated Azure characters: $total"
           if [ "$total" -gt "$MAX_CHARACTERS" ]; then
             echo "Plan exceeds safety ceiling: $MAX_CHARACTERS"
             exit 1
@@ -89,7 +103,7 @@ jobs:
         run: |
           for locale in $REQUESTED_LOCALES; do
             for family in ui food stories knowledge; do
-              node scripts/i18n-pipeline.mjs translate --family "$family" --locale "$locale" --apply
+              node scripts/i18n-pipeline.mjs translate --family "$family" --locale "$locale" --pivot "$PIVOT_LOCALE" --repair-scope "$REPAIR_SCOPE" --apply
               git add cms/translation-lifecycle.json cms/translation-memory.json "data/i18n/$locale"
               git diff --cached --quiet || git commit -m "i18n: checkpoint $locale $family"
             done
@@ -105,7 +119,7 @@ jobs:
         if: failure()
         run: |
           git add cms/translation-memory.json cms/translation-lifecycle.json data/i18n 2>/dev/null || true
-          git diff --cached --quiet || git commit -m "i18n: save partial priority locale checkpoint"
+          git diff --cached --quiet || git commit -m "i18n: save partial quality checkpoint"
           if git rev-parse --verify "$TRANSLATION_BRANCH" >/dev/null 2>&1; then
             git push -u origin "$TRANSLATION_BRANCH"
           fi
