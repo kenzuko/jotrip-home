@@ -77,7 +77,10 @@
 
   function localizedReason(reason,tr,semanticCodes=[]){
     if(Array.isArray(semanticCodes)&&semanticCodes.length){
-      return semanticCodes.map(code=>tr("reason."+code,"")).filter(Boolean).join(" ");
+      const localized=semanticCodes.map(code=>tr("reason."+code,"")).filter(Boolean);
+      if(localized.length)return localized.join(" ");
+      // A missing translation bundle must not silently discard the observed
+      // comfort explanation; use the original explanation below.
     }
     const source=String(reason||"").trim();
     if(!source)return "";
