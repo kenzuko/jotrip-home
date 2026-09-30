@@ -1,0 +1,111 @@
+name: Build priority locale machine drafts
+
+on:
+  workflow_dispatch:
+    inputs:
+      locales:
+        description: "Space-separated locale codes"
+        required: true
+        default: "ko ru zh-Hans"
+      branch:
+        description: "Checkpoint branch"
+        required: true
+        default: "translation/priority-machine-drafts"
+      max_characters:
+        description: "Safety ceiling for planned Azure characters"
+        required: true
+        default: "1300000"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: openpq-translate-priority-locales
+  cancel-in-progress: false
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    env:
+      AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
+      AZURE_TRANSLATOR_REGION: ${{ secrets.AZURE_TRANSLATOR_REGION }}
+      TRANSLATION_BRANCH: ${{ inputs.branch }}
+      REQUESTED_LOCALES: ${{ inputs.locales }}
+      MAX_CHARACTERS: ${{ inputs.max_characters }}
+    steps:
+      - name: Checkout current main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate request and Azure secret
+        run: |
+          test -n "$AZURE_TRANSLATOR_KEY" || {
+            echo "Missing repository secret AZURE_TRANSLATOR_KEY"
+            exit 1
+          }
+          for locale in $REQUESTED_LOCALES; do
+            case "$locale" in
+              ko|ru|lo|zh-Hans|zh-Hant|fr) ;;
+              *)
+                echo "Unsupported locale: $locale"
+                exit 1
+                ;;
+            esac
+          done
+
+      - name: Resume or create one durable checkpoint branch
+        run: |
+          git config user.name "openpq-translation-bot"
+          git config user.email "openpq-translation-bot@users.noreply.github.com"
+          git fetch origin main:refs/remotes/origin/main
+          git fetch origin "$TRANSLATION_BRANCH:refs/remotes/origin/$TRANSLATION_BRANCH" || true
+          if git show-ref --verify --quiet "refs/remotes/origin/$TRANSLATION_BRANCH"; then
+            git switch -C "$TRANSLATION_BRANCH" "origin/$TRANSLATION_BRANCH"
+            git merge --no-edit origin/main
+          else
+            git switch -c "$TRANSLATION_BRANCH"
+          fi
+
+      - name: Validate source and enforce the monthly safety ceiling
+        run: |
+          npm run i18n:check
+          total=0
+          for locale in $REQUESTED_LOCALES; do
+            for family in ui food stories knowledge; do
+              plan="$(node scripts/i18n-pipeline.mjs plan --family "$family" --locale "$locale")"
+              echo "$plan"
+              chars="$(node -e 'const fs=require("fs");const p=JSON.parse(fs.readFileSync(0,"utf8"));process.stdout.write(String(p.characters||0))' <<<"$plan")"
+              total=$((total + chars))
+            done
+          done
+          echo "Planned Azure characters: $total"
+          if [ "$total" -gt "$MAX_CHARACTERS" ]; then
+            echo "Plan exceeds safety ceiling: $MAX_CHARACTERS"
+            exit 1
+          fi
+
+      - name: Translate requested locales
+        run: |
+          for locale in $REQUESTED_LOCALES; do
+            for family in ui food stories knowledge; do
+              node scripts/i18n-pipeline.mjs translate --family "$family" --locale "$locale" --apply
+              git add cms/translation-lifecycle.json cms/translation-memory.json "data/i18n/$locale"
+              git diff --cached --quiet || git commit -m "i18n: checkpoint $locale $family"
+            done
+          done
+
+      - name: Validate all machine drafts
+        run: npm run i18n:check
+
+      - name: Push once after successful validation
+        run: git push -u origin "$TRANSLATION_BRANCH"
+
+      - name: Preserve a partial checkpoint after failure
+        if: failure()
+        run: |
+          git add cms/translation-memory.json cms/translation-lifecycle.json data/i18n 2>/dev/null || true
+          git diff --cached --quiet || git commit -m "i18n: save partial priority locale checkpoint"
+          if git rev-parse --verify "$TRANSLATION_BRANCH" >/dev/null 2>&1; then
+            git push -u origin "$TRANSLATION_BRANCH"
+          fi
