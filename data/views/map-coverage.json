@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T09:39:47.458Z",
+  "generated_at": "2026-09-30T09:43:43.479Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 235,
-    "missing_count": 159
+    "ready_count": 234,
+    "missing_count": 160
   },
   "layers": {
     "zones": [
@@ -1284,26 +1284,6 @@
         "matched_name": "Levan Hotel",
         "formatted_address": "Trần Hưng Đạo, Phú Quốc, An Giang, Việt Nam",
         "lookup_query": "LeVan Hotel, 79 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
-        "location_type": null,
-        "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
-      },
-      {
-        "id": "hotel_lotus",
-        "name": "Lotus",
-        "lat": 10.1961798,
-        "lon": 103.9901978,
-        "precision": "site_centroid",
-        "source_id": "osm_photon_geocode",
-        "source": "OpenStreetMap Photon location geocoding",
-        "verified_at": "2026-09-22",
-        "accuracy": "OSM_PHOTON",
-        "place_id": null,
-        "google_place_id": null,
-        "osm_type": "N",
-        "osm_id": 10277593609,
-        "matched_name": null,
-        "formatted_address": "City, Tổ 3, ấp Suối Đá, Kiên Giang 92509, Vietnam, Phú Quốc, An Giang, Việt Nam",
-        "lookup_query": "Lotus, Tổ 4, ấp Suối Đá, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
       },
@@ -3468,6 +3448,7 @@
     "hotel_thi_long_phung",
     "hotel_thuan_hai",
     "hotel_tung_huong",
-    "hotel_uyen_gia"
+    "hotel_uyen_gia",
+    "hotel_lotus"
   ]
 }
