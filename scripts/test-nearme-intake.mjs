@@ -138,11 +138,13 @@ assert.ok(priorHotelAudit.records.every(x=>x.legacy_coordinates.precision!=="exa
 const hotelBatch15=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH15_TIER_A_20260930.json");
 const hotelBatch16=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH16_20260930.json");
 const hotelBatch17=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH17_IDENTITY_QUARANTINE_20260930.json");
+const hotelBatch18=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH18_20260930.json");
 assert.equal(hotelBatch15.accepted.length,13,"Hotel GPS batch 15 evidence must cover every promoted hotel");
 assert.equal(hotelBatch16.accepted.length,4,"Hotel GPS batch 16 evidence must cover every promoted hotel");
 assert.equal(hotelBatch17.accepted.length,2,"Hotel GPS batch 17 must cover the two independently resolved hotel sites");
 assert.equal(hotelBatch17.rejected.length,27,"Hotel identity quarantine must preserve all 27 rejected map records");
-const reviewedHotelPins=[...hotelBatch15.accepted,...hotelBatch16.accepted,...hotelBatch17.accepted];
+assert.equal(hotelBatch18.accepted.length,3,"Hotel GPS batch 18 must carry exact evidence for 3 approved sites");
+const reviewedHotelPins=[...hotelBatch15.accepted,...hotelBatch16.accepted,...hotelBatch17.accepted,...hotelBatch18.accepted];
 const resolvedHotelIds=new Set(reviewedHotelPins.map(x=>x.id));
 for(const item of reviewedHotelPins){
   const e=byId.get(item.id),doc=indexed.get(item.id);
@@ -168,6 +170,16 @@ for(const item of priorHotelAudit.records){
   }
 }
 // Identity-first audit: do not let legacy address/fuzzy geocoding reinstate a wrong business pin.
+// Approved batch 18 records must preserve operator-vs-independent position evidence.
+for(const item of hotelBatch18.accepted){
+  const e=byId.get(item.id),doc=indexed.get(item.id);
+  assert.ok(item.sources.length>=2&&item.sources.some(s=>s.location),"Batch 18 requires numeric source evidence: "+item.id);
+  assert.equal(e?.map?.precision,"site_centroid","Batch 18 does not claim an entrance: "+item.id);
+  assert.deepEqual([doc?.map?.lat,doc?.map?.lon],[item.lat,item.lon],"Batch 18 GPS must survive derived views: "+item.id);
+}
+const pullman=byId.get("hotel_pullman");
+assert.ok(pullman?.map?.official_alternate_location,"Conflicting Pullman microsite point must remain auditable");
+assert.notDeepEqual([pullman.map.lat,pullman.map.lon],[pullman.map.official_alternate_location.lat,pullman.map.official_alternate_location.lon],"Do not silently substitute Pullman's other published operator point");
 const quarantineIds=new Set(hotelBatch17.rejected.map(x=>x.id));
 assert.equal(quarantineIds.size,27,"Quarantine IDs must be unique");
 for(const item of hotelBatch17.rejected){

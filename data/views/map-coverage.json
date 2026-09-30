@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T09:43:43.479Z",
+  "generated_at": "2026-09-30T09:52:19.321Z",
   "contract": {
     "coordinate_system": "WGS84",
     "required_fields": [
@@ -20,8 +20,8 @@
   },
   "summary": {
     "candidate_count": 394,
-    "ready_count": 234,
-    "missing_count": 160
+    "ready_count": 237,
+    "missing_count": 157
   },
   "layers": {
     "zones": [
@@ -1406,6 +1406,65 @@
         "lookup_query": "Tropicana Resort, 100C/4 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc, An Giang, Việt Nam",
         "location_type": null,
         "note": "Tọa độ khớp tên/loại địa điểm và được lưu lại để dùng chung trên các bản đồ."
+      },
+      {
+        "id": "hotel_pullman",
+        "name": "Pullman Phú Quốc",
+        "lat": 10.120242,
+        "lon": 103.983464,
+        "precision": "site_centroid",
+        "source_id": "pullman_corporate_accor_gps_independent_crosscheck_20260930",
+        "source": "Accor corporate official GPS crosschecked against exact-name independent lodging GPS",
+        "source_url": "https://all.accor.com/hotel/A248/index.en.shtml",
+        "verified_at": "2026-09-30",
+        "accuracy": "OPERATOR_GPS_INDEPENDENT_CROSSCHECK",
+        "numeric_crosscheck": {
+          "lat": 10.119809,
+          "lon": 103.983499,
+          "url": "https://roomcard.com/hotel/pullman-phu-quoc-beach-resort/30804044"
+        },
+        "note": "Accor corporate GPS (chosen site reference) is ~48 m from exact-name independent Roomcard GPS; property microsite publishes a second on-site point ~116 m to the west. Neither point is verified as lobby/entrance. Retain alternate for review.",
+        "official_alternate_location": {
+          "lat": 10.1202632,
+          "lon": 103.982399,
+          "url": "https://pullmanphuquoc.com/"
+        }
+      },
+      {
+        "id": "hotel_sonaga_beach_resort",
+        "name": "Sonaga Beach Resort",
+        "lat": 10.134199,
+        "lon": 103.978493,
+        "precision": "site_centroid",
+        "source_id": "sonaga_exact_name_dual_numeric_operator_identity_20260930",
+        "source": "Exact-name Sonaga Beach Resort & Villas numeric locations with operator phone and Sonasea Duong Bao property identity",
+        "source_url": "https://www.travelmyth.com/Phu-Quoc/Hotels/Sonaga-Beach-Resort-Villas-Phu-Quoc_tmid3229048",
+        "verified_at": "2026-09-30",
+        "accuracy": "EXACT_NAME_INDEPENDENT_NUMERIC_OPERATOR_IDENTITY",
+        "numeric_crosscheck": {
+          "lat": 10.1343,
+          "lon": 103.979,
+          "url": "https://impt.io/last-minute-hotels/phu-quoc/sonaga-beach-resort-villas-phu-quoc/"
+        },
+        "note": "Independent named Sonaga Resort GPS sources differ by ~57 m within the resort site. Official Sonaga property page matches Sonasea Duong Bao address and 0297 267 8888 phone. Broad site centroid only."
+      },
+      {
+        "id": "hotel_l_azure_resort_spa_phu_quoc",
+        "name": "L'Azure Resort & Spa Phu Quoc",
+        "lat": 10.2078,
+        "lon": 103.9619,
+        "precision": "site_centroid",
+        "source_id": "lazure_exact_name_dual_numeric_operator_identity_20260930",
+        "source": "L'Azure exact-name independent numeric locations crosschecked with official hotel identity at 64 Tran Hung Dao",
+        "source_url": "https://itinerai.ai/en/stays/lazure-resort-and-spa-phu-quoc",
+        "verified_at": "2026-09-30",
+        "accuracy": "EXACT_NAME_INDEPENDENT_NUMERIC_OPERATOR_IDENTITY",
+        "numeric_crosscheck": {
+          "lat": 10.2076887,
+          "lon": 103.9620395,
+          "url": "https://tanitour.vn/lazure-resort-and-spa-phu-quoc/"
+        },
+        "note": "Two exact-name numeric hotel listings agree within ~20 m and the official property confirms 64 Tran Hung Dao. Site centroid only, not an independently checked entrance."
       }
     ],
     "utilities": [
@@ -3306,10 +3365,7 @@
     "activity_tinh_hoa_viet_nam",
     "activity_once_show",
     "activity_sac_mau_venice",
-    "hotel_pullman",
     "hotel_sailing_club_signature_resort_phu_quoc",
-    "hotel_sonaga_beach_resort",
-    "hotel_l_azure_resort_spa_phu_quoc",
     "hotel_muong_thanh_luxury_phu_quoc_hotel",
     "hotel_the_up_phu_quoc",
     "hotel_kosmos_apart_hotel",
