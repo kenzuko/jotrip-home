@@ -47,7 +47,7 @@ async function inventory(token,accountId){
 }
 function accountIdFromSecret(raw){
   // Normalize pasted whitespace/quotes, never print the secret.
-  const val=String(raw||"").trim().replace(/^['"`]|['"`]$/g,"").replace(/\\s+/g,"");
+  const val=String(raw||"").trim().replace(/^['"`]|['"`]$/g,"").replace(/\s+/g,"");
   return /^[a-f0-9]{32}$/i.test(val)?val:null;
 }
 async function main(){
