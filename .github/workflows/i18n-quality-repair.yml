@@ -28,6 +28,7 @@ jobs:
     env:
       AZURE_TRANSLATOR_KEY: ${{ secrets.AZURE_TRANSLATOR_KEY }}
       AZURE_TRANSLATOR_REGION: ${{ secrets.AZURE_TRANSLATOR_REGION }}
+      AZURE_TRANSLATOR_ENDPOINT: ${{ secrets.AZURE_TRANSLATOR_ENDPOINT }}
       FOUNDATION_BRANCH: main
       REPAIR_BRANCH: translation/quality-repair-20260930
       LEGACY_DRAFT_BRANCH: translation/priority-machine-drafts
