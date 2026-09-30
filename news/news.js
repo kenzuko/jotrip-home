@@ -22,6 +22,7 @@
       const updates=(support.hot_now?.items||[]).filter(x=>isActive(x,now));
       const operationalRoute=x=>({
         place_sunset_town:"places/detail.html?id=sunset-town",
+        place_exotica:"places/detail.html?id=exotica",
         activity_tinh_hoa_viet_nam:"places/detail.html?id=tinh-hoa-viet-nam",
         activity_sac_mau_venice:"places/detail.html?id=sac-mau-venice"
       })[x.entity_id]||"news/";
