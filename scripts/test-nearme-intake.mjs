@@ -137,9 +137,12 @@ assert.ok(priorHotelAudit.records.every(x=>x.legacy_coordinates.precision!=="exa
 
 const hotelBatch15=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH15_TIER_A_20260930.json");
 const hotelBatch16=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH16_20260930.json");
+const hotelBatch17=read("research/near-go/2026-09-30/HOTEL_GPS_BATCH17_IDENTITY_QUARANTINE_20260930.json");
 assert.equal(hotelBatch15.accepted.length,13,"Hotel GPS batch 15 evidence must cover every promoted hotel");
 assert.equal(hotelBatch16.accepted.length,4,"Hotel GPS batch 16 evidence must cover every promoted hotel");
-const reviewedHotelPins=[...hotelBatch15.accepted,...hotelBatch16.accepted];
+assert.equal(hotelBatch17.accepted.length,2,"Hotel GPS batch 17 must cover the two independently resolved hotel sites");
+assert.equal(hotelBatch17.rejected.length,26,"Hotel identity quarantine must preserve all 26 rejected map records");
+const reviewedHotelPins=[...hotelBatch15.accepted,...hotelBatch16.accepted,...hotelBatch17.accepted];
 const resolvedHotelIds=new Set(reviewedHotelPins.map(x=>x.id));
 for(const item of reviewedHotelPins){
   const e=byId.get(item.id),doc=indexed.get(item.id);
@@ -163,6 +166,32 @@ for(const item of priorHotelAudit.records){
   }else{
     assert.equal(doc.map,null,"Unresolved audited hotel must stay off the map: "+item.id);
   }
+}
+// Identity-first audit: do not let legacy address/fuzzy geocoding reinstate a wrong business pin.
+const quarantineIds=new Set(hotelBatch17.rejected.map(x=>x.id));
+assert.equal(quarantineIds.size,26,"Quarantine IDs must be unique");
+for(const item of hotelBatch17.rejected){
+  const e=byId.get(item.id),doc=indexed.get(item.id);
+  assert.ok(e&&doc,"Quarantined hotel must remain searchable in the directory: "+item.id);
+  assert.ok(!item.approved_replacement,"New hotel GPS must first be separately evidence-reviewed: "+item.id);
+  assert.equal(e.map??null,null,"Wrong-brand hotel location may not be reintroduced: "+item.id);
+  assert.equal(doc.map??null,null,"Wrong-brand hotel map may not leak into Near Me: "+item.id);
+}
+assert.equal(byId.get("hotel_la_festa")?.zone_id,"zone_south","La Festa is in Sunset Town, not central west");
+assert.equal(indexed.get("hotel_la_festa")?.zone_id,"zone_south","La Festa zone must survive derived indexes");
+assert.equal(indexed.get("hotel_la_festa")?.source_license,"ODbL-1.0","La Festa OSM provenance must survive derived indexes");
+assert.equal(byId.get("hotel_sentina")?.map??null,null,"La Festa coordinates must never be presented as Sentina");
+
+// Broad preventative check: named OSM-derived hotel points must share a distinctive brand token.
+// This complements, rather than replaces, the exact-brand quarantine/evidence review above.
+const hotelFold=s=>String(s||"").normalize("NFD").replace(/[\\u0300-\\u036f]/g,"").replace(/đ/g,"d").toLowerCase().replace(/[^a-z0-9]+/g," ").trim();
+const hotelGeneric=new Set(["phu","quoc","resort","hotel","spa","and","by","the","beach","villa","villas","luxury","long","grand","collection","premium","island"]);
+for(const e of entities.filter(x=>x.entity_type==="hotel"&&x.map?.source_id?.startsWith("osm_"))){
+  assert.ok(e.map.matched_name,"Legacy OSM hotel candidate needs a specific matched place name: "+e.id);
+  const tokens=hotelFold(e.name).split(" ").filter(t=>t.length>2&&!hotelGeneric.has(t));
+  const matched=new Set(hotelFold(e.map.matched_name).split(" "));
+  assert.ok(tokens.length&&tokens.some(t=>matched.has(t)),
+    "Legacy OSM hotel pin must match at least one distinctive brand token: "+e.id);
 }
 assert.equal(index.summary.total,index.documents.length);
 assert.equal(index.summary.with_map,index.documents.filter(x=>Number.isFinite(x.map?.lat)&&Number.isFinite(x.map?.lon)).length);
