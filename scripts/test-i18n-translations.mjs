@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import {existsSync,readdirSync,readFileSync} from "node:fs";
 import {join} from "node:path";
+import {loadGlossary,scanRejected} from "./i18n-quality.mjs";
 
 const read=p=>JSON.parse(readFileSync(p,"utf8"));
 const manifest=read("data/i18n/locales.json");
@@ -37,15 +38,7 @@ const editorialText=value=>{
   if(value&&typeof value==="object")return Object.values(value).map(editorialText).join("\n");
   return "";
 };
-const rejectedEnglishLiterals=[
-  /\bcasino fish\b/i,
-  /\bbien mai whistle\b/i,
-  /\bhoneysuckle tacos?\b/i,
-  /\bmackerel soup cake\b/i,
-  /\bonion fat\b/i,
-  /\bcockroach wing colou?r\b/i,
-  /\bpeach eggs?\b/i
-];
+const glossary=loadGlossary();
 for(const locale of manifest.locales||[]){
   if(locale.code==="vi")continue;
   const dir=join("data/i18n",locale.code);
@@ -103,16 +96,13 @@ for(const locale of manifest.locales||[]){
     assert.ok(Array.isArray(locale.surfaces)&&locale.surfaces.length>0,"Published locale needs at least one enabled surface: "+locale.code);
   }
 
-  if(locale.code==="en"){
-    const text=editorialText({
-      ui:existsSync(uiPath)?read(uiPath):null,
-      stories:existsSync(storyPath)?read(storyPath):null,
-      knowledge:existsSync(knowledgePath)?read(knowledgePath):null,
-      food:existsSync(foodPath)?read(foodPath):null
-    });
-    for(const pattern of rejectedEnglishLiterals){
-      assert.doesNotMatch(text,pattern,"English editorial bundle contains rejected machine literal "+pattern);
-    }
-  }
+  const text=editorialText({
+    ui:existsSync(uiPath)?read(uiPath):null,
+    stories:existsSync(storyPath)?read(storyPath):null,
+    knowledge:existsSync(knowledgePath)?read(knowledgePath):null,
+    food:existsSync(foodPath)?read(foodPath):null
+  });
+  const rejected=scanRejected(locale.code,text,{glossary});
+  assert.deepEqual(rejected,[],locale.code+" editorial bundle contains rejected machine literals: "+rejected.join(", "));
 }
 console.log("PASS i18n translation guard: stable IDs, UI-key parity, text-only editorial overlays and publication locks");
