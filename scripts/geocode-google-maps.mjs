@@ -13,7 +13,7 @@ const limit=limitArg?Number(limitArg.split("=")[1]):15;
 if(!Number.isInteger(limit)||limit<1||limit>100)throw Error("GPS research query budget must be an integer from 1 to 100");
 const outArg=process.argv.find(x=>x.startsWith("--out="));
 const out=outArg?outArg.slice("--out=".length):".cache/near-go/geocode-candidates.json";
-if(path.isAbsolute(out)||out.split(/[\\/]/).includes("..")||!out.startsWith(".cache/near-go/")){
+if(path.isAbsolute(out)||out.includes("..")||out.includes("\\")||!out.startsWith(".cache/near-go/")){
   throw Error("Research output must remain within .cache/near-go/");
 }
 
@@ -440,7 +440,7 @@ function reviewCandidate(entity,match,precision){
   if(!zoneMatches(entity,match.lat,match.lon))
     return{status:"HOLD_WRONG_ZONE",reason:"Candidate falls outside declared entity zone"};
   const wanted=nameTokens(entity.name);
-  const got=new Set(normalizeText(match.name).split(/\\s+/));
+  const got=new Set(normalizeText(match.name).split(/\s+/));
   if(!wanted.length||!wanted.every(token=>got.has(token)))
     return{status:"HOLD_BRAND_MISMATCH",reason:"Named mapped business does not contain every distinctive canonical name token"};
   return{status:"NAMED_CANDIDATE_REVIEW",reason:"Named POI only. Require independent numeric source, verified operator identity, license audit, and human review before a separate canonical PR."};
@@ -503,5 +503,5 @@ const report={schema_version:"1.0",generated_at:new Date().toISOString(),
   proposals};
 const output=path.resolve(root,out);
 fs.mkdirSync(path.dirname(output),{recursive:true});
-fs.writeFileSync(output,JSON.stringify(report,null,2)+"\\n");
+fs.writeFileSync(output,JSON.stringify(report,null,2)+"\n");
 console.log(JSON.stringify({output,...report.counts,mode:report.mode},null,2));
