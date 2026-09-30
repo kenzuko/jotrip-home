@@ -45,6 +45,8 @@ on:
       - "transit/**"
       - "utilities/**"
       - "core/site-copy.js"
+      - "core/weather-human-contract.js"
+      - "scripts/test-weather-human-contract.mjs"
       - "core/traffic.js"
       - "functions/_shared/traffic-analytics.js"
       - "functions/_shared/owner-traffic-auth.js"
@@ -120,6 +122,7 @@ jobs:
           node scripts/validate-public-copy.mjs
           node scripts/test-search.mjs
           node scripts/test-currency.mjs
+          node scripts/test-weather-human-contract.mjs
 
       - name: Check public knowledge
         run: |
@@ -131,12 +134,32 @@ jobs:
           # Deployment must not be blocked by a temporarily stale upstream
           # observation. The dedicated Weather workflow remains the strict
           # freshness monitor; this sync keeps the last valid snapshot on error.
-          node scripts/weather-cms-sync.mjs
+          # Forecast coverage remains a strict promotion gate. An unrelated
+          # frontend deploy may retain the previous verified Weather snapshot
+          # only for this specific logged insufficiency and unchanged files.
+          before="$(sha256sum weather/data/current-bundle.json weather/data/weather-runtime/manifest.json | sha256sum | cut -d' ' -f1)"
+          if node scripts/weather-cms-sync.mjs > /tmp/openpq-weather-refresh.log 2>&1; then
+            cat /tmp/openpq-weather-refresh.log
+          elif grep -Fq 'gust coverage below 80% - refusing deploy' /tmp/openpq-weather-refresh.log &&
+               grep -Fq 'existing snapshot preserved' /tmp/openpq-weather-refresh.log; then
+            cat /tmp/openpq-weather-refresh.log
+            after="$(sha256sum weather/data/current-bundle.json weather/data/weather-runtime/manifest.json | sha256sum | cut -d' ' -f1)"
+            if [ "$before" != "$after" ]; then
+              echo "::error::Weather sync claimed preservation but changed its authoritative snapshot"
+              exit 1
+            fi
+            echo "::warning::Weather forecast not promoted: insufficient gust coverage; retained prior validated snapshot"
+          else
+            cat /tmp/openpq-weather-refresh.log >&2
+            exit 1
+          fi
+          node scripts/weather-autorecover.test.mjs
           node scripts/weather-cms-smoke.mjs
           node scripts/build-cloudflare.mjs
           printf '{"sha":"%s","built_at":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
           test -f dist/index.html
           test -f dist/home-foundation-v2.js
+          test -f dist/core/weather-human-contract.js
           test -f dist/currency/index.html
           test -f dist/transit/index.html
 
