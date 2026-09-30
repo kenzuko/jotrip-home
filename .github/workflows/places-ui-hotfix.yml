@@ -155,10 +155,23 @@ jobs:
           grep -q 'place-quick-facts' /tmp/places-hotfix/preview.js
           # This path is NOT owned by the new Worker. It must still resolve
           # through the original custom-domain Worker.
-          curl --fail --silent --show-error "$HOTFIX_PREVIEW/data/entities/places.json" \
-            | node -e 'let s="";process.stdin.on("data",x=>s+=x);process.stdin.on("end",()=>{const v=JSON.parse(s);if(!v.entities.some(e=>e.id==="place_vinpearl_safari"))process.exit(1);});'
-          curl --fail --silent --show-error "$HOTFIX_PREVIEW/places/detail.html?id=vinpearl-safari" \
-            | grep -q 'detail'
+          echo "LOCAL_UI_ASSETS_OK"
+          curl --fail --silent --show-error "$HOTFIX_PREVIEW/data/entities/places.json" -o /tmp/places-hotfix/proxied-places.json
+          node -e 'const v=require("/tmp/places-hotfix/proxied-places.json");if(!v.entities.some(e=>e.id==="place_vinpearl_safari"))process.exit(1)'
+          echo "PARENT_DATA_API_PROXY_OK"
+          for site in "$BASE_URL" "$HOTFIX_PREVIEW"; do
+            echo "Probing parent/delegated detail: $site"
+            curl --silent --show-error --location --max-time 20 \
+              --output /tmp/places-hotfix/detail-last.html \
+              --write-out 'detail-status=%{http_code} bytes=%{size_download}\\n' \
+              "$site/places/detail.html?id=vinpearl-safari"
+            grep -q 'detail' /tmp/places-hotfix/detail-last.html || {
+              echo "::error::Detail route missing expected HTML on $site"
+              head -c 300 /tmp/places-hotfix/detail-last.html
+              exit 1
+            }
+          done
+          echo "DETAIL_ROUTE_PROXY_OK"
 
       - name: Install Playwright for tablet desktop and phone checks
         if: steps.preflight.outputs.skip == 'false'
