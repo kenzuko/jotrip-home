@@ -123,6 +123,7 @@ jobs:
           node scripts/test-search.mjs
           node scripts/test-currency.mjs
           node scripts/test-weather-human-contract.mjs
+          node scripts/test-transit-snapshot-health.mjs
 
       - name: Check public knowledge
         run: |
@@ -137,6 +138,7 @@ jobs:
           node scripts/weather-release-guard.test.mjs
           node scripts/weather-autorecover.test.mjs
           node scripts/weather-cms-smoke.mjs
+          node scripts/weather-cms-runtime-identity.test.mjs
           node scripts/build-cloudflare.mjs
           printf '{"sha":"%s","built_at":"%s"}\n' "$GITHUB_SHA" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > dist/build.json
           test -f dist/index.html

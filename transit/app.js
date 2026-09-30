@@ -8,6 +8,14 @@ const today=()=>dayOf(new Date());
 const hhmm=v=>v?new Date(v).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:TZ}):"--:--";
 const dayLabel=d=>new Date(d+"T12:00:00+07:00").toLocaleDateString("vi-VN",{weekday:"short",day:"2-digit",month:"2-digit",year:"numeric",timeZone:TZ});
 const ageMin=v=>{const t=Date.parse(v||"");return Number.isFinite(t)?Math.max(0,Math.round((Date.now()-t)/60000)):Infinity};
+// Different from source-specific cached/empty warnings: this is the age
+// of the entire published board. A stale board cannot be "partially fresh".
+const transitSnapshotHealth=(age,reported)=>{
+  if(!Number.isFinite(age)||age>120)return"stale";
+  if(reported==="good")return age>30?"watch":"good";
+  if(reported==="watch"||reported==="partial")return"watch";
+  return"bad";
+};
 const money=v=>Number.isFinite(Number(v))?new Intl.NumberFormat("vi-VN").format(Number(v))+"đ":"-";
 
 const BOOKING={
@@ -83,11 +91,20 @@ function renderSummary(){
 }
 function renderHealth(){
   const age=ageMin(state.data?.generated_at),h=state.data?.health?.status||"bad";
+  const health=transitSnapshotHealth(age,h);
   // Published schedules do not become unreliable after 30 minutes. Reserve a
   // freshness warning for data old enough to miss a meaningful schedule update.
-  $("#healthState").textContent=!state.data?"Chưa lấy được lịch":h==="good"?(age<=180?"Lịch đã cập nhật":age<=720?"Nên xem lại trước khi đi":"Lịch chưa có cập nhật mới"):h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được từ hãng";
+  $("#healthState").textContent=!state.data?"Chưa lấy được lịch":
+    health==="stale"?"Lịch quá hạn cập nhật, xác nhận trực tiếp với hãng":
+    health==="good"?"Lịch đã cập nhật":
+    health==="watch"?(h==="watch"?"Còn thiếu vài hãng":"Nên kiểm tra trước khi đi"):
+    "Chưa lấy được từ hãng";
   $("#updatedAt").textContent=Number.isFinite(age)&&state.data?.generated_at?`Cập nhật ${new Date(state.data.generated_at).toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit",timeZone:TZ})} · ${age} phút trước`:"Chưa biết lần cập nhật gần nhất";
-  const el=$("#sourceHealth");el.className=`status-chip ${h==="good"?"good":h==="watch"?"watch":"bad"}`;el.textContent=h==="good"?"Đã lấy được lịch":h==="watch"?"Còn thiếu vài hãng":"Chưa lấy được lịch";
+  const el=$("#sourceHealth");
+  el.className=`status-chip ${health==="good"?"good":health==="watch"?"watch":"bad"}`;
+  el.textContent=health==="stale"?"Bản tổng hợp đã cũ":
+    health==="good"?"Đã lấy được lịch":
+    health==="watch"?"Kiểm tra nguồn":"Chưa lấy được lịch";
 }
 function renderSources(){
   const reg=state.data?.sources?.registry||{};

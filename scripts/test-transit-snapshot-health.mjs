@@ -1,0 +1,18 @@
+import assert from "node:assert/strict";
+import {readFileSync} from "node:fs";
+import vm from "node:vm";
+const src=readFileSync("transit/app.js","utf8");
+const match=src.match(/const transitSnapshotHealth=\(age,reported\)=>\{[\s\S]*?\n\};/);
+assert(match,"public Transit health decision must be present");
+const context={};
+vm.runInNewContext(match[0]+"\nthis.policy=transitSnapshotHealth;",context);
+const f=context.policy;
+assert.equal(f(10,"good"),"good");
+assert.equal(f(38,"good"),"watch");
+assert.equal(f(38,"watch"),"watch");
+assert.equal(f(125,"watch"),"stale","old partial cannot hide stale board");
+assert.equal(f(125,"good"),"stale","old good flag cannot hide stale board");
+assert.equal(f(Infinity,"good"),"stale","missing timestamp must be stale");
+assert.equal(f(NaN,"watch"),"stale","invalid timestamp must be stale");
+assert.equal(f(5,"bad"),"bad","recent snapshot does not override bad sources");
+console.log("PASS OpenPQ Transit snapshot age takes precedence over persistent partial status");

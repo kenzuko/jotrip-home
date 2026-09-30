@@ -1,6 +1,7 @@
 import {readFile,access} from "node:fs/promises";
 import {join} from "node:path";
 import {execFileSync} from "node:child_process";
+import {verifyCMSWeatherRuntimeIdentity} from "./weather-cms-runtime-identity.mjs";
 const file=p=>readFile(join("weather",p),"utf8");
 const load=async p=>JSON.parse(await file(p));
 const exists=async p=>{try{await access(join("weather",p));return true}catch{return false}};
@@ -25,6 +26,8 @@ execFileSync("python3",["-c",
 const manifest=await load("data/weather-runtime/manifest.json");
 const cloud=await load("data/weather-runtime/cloud.json");
 const marine=await load("data/weather-runtime/marine.json");
+const compact=await load("data/weather-runtime/compact.json");
+const meta=await load("data/weather-runtime/meta.json");
 const current=await load("data/current-bundle.json");
 const forecast=await load("data/weather-runtime/forecast.json");
 const critical=await load("data/critical.json");
@@ -35,6 +38,7 @@ const scene=await file("weather-scene-v3.js");
 const spatial=await file("spatial-lab.js");
 const history=await file("weather-history.js");
 assert(manifest.status==="READY","manifest not ready");
+verifyCMSWeatherRuntimeIdentity({manifest,cloud,compact,forecast,marine,meta});
 assert(manifest.policy.frontend_source==="SAME_ORIGIN_CANONICAL_ONLY","same-origin lock absent");
 for(const [name,path] of Object.entries(manifest.files||{})){
  assert(path==="/weather/data/weather-runtime/"+name+".json","runtime URL wrongly points outside CMS: "+name);
