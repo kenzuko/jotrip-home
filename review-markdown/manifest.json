@@ -1,0 +1,41 @@
+{
+  "base_commit": "b272d1513ccf98b0f4e4be205790d6394d5f65a1",
+  "generated_for": "Open Phu Quoc Vietnamese editorial review",
+  "scope": "guide + explore + knowledge",
+  "sources": {
+    "data/home-copy.json": "c98137fe78e19bf87f7f082e27bd4e1fbc6e133f",
+    "guide/data.json": "19996a58318c1460cb4ae49e634c821585020092",
+    "data/stay.json": "d1915f91b4d197d57bb56b16bca1ae5e6d146293",
+    "data/itineraries.json": "234a494fd48eed188754aa22ddc72015318f0b8c",
+    "data/entities/places.json": "3118deabb1b9366ae1cee2bfb5cb8982a8d9b579",
+    "data/entities/activities.json": "3fcedf26ffc7495358418ac4eb00563b720a2906",
+    "data/knowledge/objects.json": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
+    "data/views/explore-facets.json": "30bd7ff7e4c577e310022030df802b4118b8e5bf",
+    "guide/index.html": "4919eb84c03f7f309b157d4922d28a6c545d3a71",
+    "explore/index.html": "96249c28a2b88dcc3ee8872b92bfe16e7b665020",
+    "guide/guide.js": "22aaa8d9b7b7dbeda056dbd5e495c6ae47662418"
+  },
+  "outputs": [
+    "review-markdown/guide/01-guide-static-copy.md",
+    "review-markdown/explore/01-explore-static-copy.md",
+    "review-markdown/guide/02-guide-data.md",
+    "review-markdown/guide/03-stay-and-itineraries.md",
+    "review-markdown/explore/cards-zone-north.md",
+    "review-markdown/explore/cards-zone-central-west.md",
+    "review-markdown/explore/cards-zone-south.md",
+    "review-markdown/explore/cards-other.md",
+    "review-markdown/explore/cards-activities.md",
+    "review-markdown/knowledge/knowledge-001-025.md",
+    "review-markdown/knowledge/knowledge-026-050.md",
+    "review-markdown/knowledge/knowledge-051-075.md",
+    "review-markdown/knowledge/knowledge-076-100.md",
+    "review-markdown/knowledge/knowledge-101-125.md",
+    "review-markdown/knowledge/knowledge-126-150.md",
+    "review-markdown/guide/04-review-only-hardcoded.md"
+  ],
+  "warnings": [
+    "Metadata and operational data not editable in this pack.",
+    "HTML/JS hardcoded copy is review-only.",
+    "Do not merge or publish without diff and fact checks."
+  ]
+}
