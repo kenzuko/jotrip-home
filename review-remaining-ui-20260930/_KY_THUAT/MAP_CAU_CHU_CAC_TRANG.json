@@ -1,0 +1,400 @@
+{
+  "source_sha": "6dbfafb046cbc898bd7de62f06655a054c0c2bd7",
+  "snapshot_ref": "editorial/unreviewed-ui-copy-20260930",
+  "notes": "Review wording only. Footer text exported separately and not duplicated here.",
+  "files": {
+    "03_CAU_CHU_CAC_TRANG/03_TRANG_CHU.md": [
+      {
+        "source": "data/home-copy.json",
+        "pointer": "hero.kicker",
+        "original": "PHÚ QUỐC · NGAY LÚC NÀY"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "hero.title",
+        "original": "Phú Quốc, ngay lúc này."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "hero.lead",
+        "original": "Xem đảo đang thế nào, chọn việc đáng làm và đi tiếp bằng thông tin thực dụng."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.happening.eyebrow",
+        "original": "CÓ GÌ HÔM NAY"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.happening.title",
+        "original": "Phú Quốc có gì?"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.things.eyebrow",
+        "original": "HÔM NAY ĐI ĐÂU"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.things.title",
+        "original": "Chọn một Phú Quốc hợp với hôm nay."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.must.eyebrow",
+        "original": "KHÔNG NÊN BỎ LỠ"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.must.title",
+        "original": "Nếu chỉ có vài ngày ở đảo."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.areas.eyebrow",
+        "original": "KHÁM PHÁ THEO KHU VỰC"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.areas.title",
+        "original": "Mỗi khu vực của đảo có một nhịp rất khác."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.food.eyebrow",
+        "original": "ĂN GÌ Ở PHÚ QUỐC"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.food.title",
+        "original": "Không chỉ là hải sản."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.essentials.eyebrow",
+        "original": "CẦN LÀ CÓ"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.essentials.title",
+        "original": "Thông tin thực dụng."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.heritage.eyebrow",
+        "original": "DI SẢN & CHẤT ĐẢO"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.heritage.title",
+        "original": "Phú Quốc không chỉ có biển."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.heritage.lead",
+        "original": "Những thứ làm nên mùi, vị và ký ức của đảo - nghề biển, nước mắm, hồ tiêu và những câu chuyện địa phương."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.guide.eyebrow",
+        "original": "HIỂU PHÚ QUỐC NHANH"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "sections.guide.title",
+        "original": "Hiểu đảo trong vài phút."
+      }
+    ],
+    "03_CAU_CHU_CAC_TRANG/04_ABOUT_FOOD_STORIES.md": [
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.heroLead",
+        "original": "Đi Phú Quốc thường phải tìm thông tin ở nhiều nơi. Open Phu Quoc gom thời tiết, đường đi, điểm đến và những điều nên biết để bạn dễ chọn hơn."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.purposeTitle",
+        "original": "Thông tin du lịch thường nằm rải rác, trong khi mình lại cần quyết định khá nhanh."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.purpose1",
+        "original": "Tên điểm đến mới chỉ là bắt đầu. Cần biết nơi đó có gì, nên dành bao lâu, đi lúc nào và có thể ghép với điểm nào."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.purpose2",
+        "original": "Thời tiết, sân bay, tàu phà, cano và các hoạt động có thể đổi theo giờ. Vì vậy mỗi mục đều ghi lúc cập nhật và được tách khỏi phần cẩm nang ít thay đổi."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.purpose3",
+        "original": "Không có thông tin không có nghĩa là mọi thứ bình thường. Dự báo vẫn là dự báo. Có chuyến trong lịch cũng chưa chắc còn vé. Nếu chưa biết, trang phải nói là chưa biết."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.systemTitle",
+        "original": "Ba loại thông tin giúp bạn dễ lên kế hoạch hơn."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.system1",
+        "original": "Điểm đến, món ăn, văn hóa, khách sạn và lịch trình được biên tập để bạn tìm đúng thứ mình cần."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.system2",
+        "original": "Thời tiết, chuyến bay và chuyện đi lại được xem từ các nguồn riêng, luôn ghi rõ lúc nào vừa cập nhật và khi nào chưa biết chắc."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.system3",
+        "original": "Open Phu Quoc đặt thông tin vào đúng bối cảnh để bạn tự cân nhắc. Một nhãn “đẹp” hay “xấu” không thể quyết định thay người đang đi."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.madeTitle",
+        "original": "JoTrip làm trang này cho người đang khám phá đảo."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.madeLead1",
+        "original": "Open Phu Quoc được JoTrip xây dựng từ những câu hỏi lặp lại trong công việc thật trên đảo: hôm nay biển có đi được không, chuyến bay có thay đổi không, khách ở khu này nên đi đâu, một món ăn có gì bên trong, một điểm đến có đáng chạy xuyên đảo hay không."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.madeLead2",
+        "original": "Sống và làm việc trên đảo giúp tụi mình biết khách thường cần hỏi gì. Còn con số và tình hình hôm nay phải dựa trên nguồn có thời điểm rõ ràng."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.openTitle",
+        "original": "“Open” nhắc tụi mình luôn nói rõ thông tin đến từ đâu, cập nhật khi nào và còn điều gì chưa chắc."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.about.openLead",
+        "original": "Với mỗi thông tin quan trọng, tụi mình ghi rõ lấy từ đâu, cập nhật khi nào và còn điều gì chưa chắc. Sau này dù có thêm ngôn ngữ hay app, nguyên tắc đó vẫn giữ nguyên."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.food.headerTitle",
+        "original": "Ăn gì ở Phú Quốc?"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.food.headerSub",
+        "original": "Món địa phương · cách ăn · lưu ý"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.food.heroEyebrow",
+        "original": "ẨM THỰC · HƯƠNG VỊ ĐẢO"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.food.heroLead",
+        "original": "Mỗi bài giúp bạn hình dung món có vị ra sao, thường ăn thế nào và nên hỏi gì trước khi gọi."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.food.sideTitle",
+        "original": "Đừng cố ăn cho đủ danh sách."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.food.sideLead",
+        "original": "Một tô ngon đúng lúc đáng nhớ hơn năm món gọi chỉ để “đã thử”. Nhìn độ tươi, cách làm và khẩu vị của chính mình."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.food.randomTitle",
+        "original": "Chọn ba món cho dễ lựa."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.stories.eyebrow",
+        "original": "CHUYỆN NGHỀ · CHUYỆN ĐẢO"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.stories.title",
+        "original": "Hiểu Phú Quốc sâu hơn một chút."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.stories.lead",
+        "original": "Chuyện về nghề biển, làng nghề và đời sống trên đảo - kể từ tư liệu đã kiểm tra và trải nghiệm của người làm du lịch tại Phú Quốc."
+      }
+    ],
+    "03_CAU_CHU_CAC_TRANG/05_PLACES_HOTELS_GO.md": [
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.places.headerTitle",
+        "original": "Điểm tham quan"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.places.headerSub",
+        "original": "Phú Quốc · xem nhanh trước khi chọn"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.places.heroEyebrow",
+        "original": "ĐIỂM ĐẾN · OPEN PHU QUOC"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.places.heroLead",
+        "original": "Mỗi chỗ đều có ảnh, thời gian nên dành, lúc nên đi và vài chuyện cần biết trước khi lên xe."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.places.sideTitle",
+        "original": "Đừng xếp lịch chỉ từ một tấm ảnh đẹp."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.places.sideLead",
+        "original": "Cùng một nơi có thể rất khác tùy giờ, thời tiết và quãng đường bạn phải chạy tới đó."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.eyebrow",
+        "original": "LƯU TRÚ Ở PHÚ QUỐC"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.lead",
+        "original": "Khu vực quyết định quãng đường, nhịp chuyến đi và phần lớn trải nghiệm. Hãy chọn vị trí trước, rồi mới so hạng sao và tiện nghi."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.step1Title",
+        "original": "Chọn khu vực"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.step1Lead",
+        "original": "Ưu tiên nơi gần lịch trình chính"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.step2Title",
+        "original": "So trong cùng hạng"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.step2Lead",
+        "original": "Xem loại hình, vị trí và quy mô"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.step3Title",
+        "original": "Kiểm tra quyền lợi"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.step3Lead",
+        "original": "Xem kỹ giá, bữa ăn và điều kiện phòng"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.hotels.filterNote",
+        "original": "Số sao và thông tin liên hệ có thể đổi. Trước khi đặt, nên xem lại trực tiếp với khách sạn."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.go.eyebrow",
+        "original": "HÔM NAY ĐI ĐÂU?"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.go.builderTitle",
+        "original": "Bạn đang ở đâu và còn bao nhiêu thời gian?"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.go.nextTitle",
+        "original": "Còn cả một hòn đảo để khám phá."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.go.nextLead",
+        "original": "Bạn có thể chọn theo vùng, tìm quán ngon hoặc xem tình hình biển trước khi lên đường."
+      }
+    ],
+    "03_CAU_CHU_CAC_TRANG/06_UTILITIES_NEARME.md": [
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.heroEyebrow",
+        "original": "OPEN PHU QUOC · TIỆN ÍCH"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.heroTitle",
+        "original": "Cần gì, tìm ở đây."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.heroLead",
+        "original": "Số điện thoại, tỷ giá, thời gian đi lại, giá vé và những điều dễ quên - gom ở đây để bạn tìm nhanh khi cần."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.emergencyTitle",
+        "original": "Bốn số khẩn cấp cần nhớ."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.directoryTitle",
+        "original": "Gọi đúng nơi."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.transportTitle",
+        "original": "Đi xa hay gần còn tùy đường."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.transportLead",
+        "original": "Mỗi ngày chọn một khu - Bắc đảo, Nam đảo hoặc Dương Đông và bờ Tây - thường đỡ mất thời gian chạy xe hơn."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.pricesTitle",
+        "original": "Dùng để ước chừng trước khi đi."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.pricesNote",
+        "original": "Giá và quyền lợi có thể đổi theo ngày, độ tuổi hoặc chiều cao. Xem để ước chừng chi phí, còn trước khi trả tiền thì nên kiểm tra lại đúng ngày đi."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.checklistTitle",
+        "original": "Ba việc nên kiểm tra trước ngày đi."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.utilities.checklistTip",
+        "original": "Xem lại thời tiết, giờ cáp treo, lịch biểu diễn và giờ tàu. Một biểu tượng mưa chưa nói hết thời tiết cả ngày."
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.nearme.eyebrow",
+        "original": "QUANH ĐÂY"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.nearme.title",
+        "original": "Cần gì quanh đây?"
+      },
+      {
+        "source": "data/home-copy.json",
+        "pointer": "site.nearme.privacy",
+        "original": "Vị trí của bạn chỉ được dùng trong phiên này khi bạn chủ động bật."
+      }
+    ]
+  }
+}
