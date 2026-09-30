@@ -1,0 +1,179 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-09-30",
+  "batch": "HOTEL_GPS_BATCH15_TIER_A",
+  "policy": {
+    "accuracy_over_coverage": true,
+    "precision": "site_centroid",
+    "rule": "Only publish when a numeric coordinate is tied to the named property by operator GPS or by an exact structured business identity plus an independent numeric location source. Do not infer entrances or live operation from GPS evidence."
+  },
+  "accepted": [
+    {
+      "id": "hotel_dusit_princess_moonrise_beach_resort_phu_quoc",
+      "lat": 10.18128,
+      "lon": 103.967676,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "OPERATOR_GPS",
+          "url": "https://www.dusit.com/dusitprincess-moonrisebeachresort/offer_cat/rooms/",
+          "detail": "Dusit publishes Latitude 10.181280 / Longitude 103.967676 and a Google Place ID."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://www.dusit.com/dusitprincess-moonrisebeachresort/ar/attractions/",
+          "detail": "Dusit property page repeats the same GPS coordinates for the named Phu Quoc resort."
+        }
+      ]
+    },
+    {
+      "id": "hotel_movenpick",
+      "lat": 10.283542,
+      "lon": 103.921902,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "OPERATOR_GPS",
+          "url": "https://movenpickresortwaverlyphuquoc.com/about-us/our-location/",
+          "detail": "Official Mövenpick location page publishes 10.283542 / 103.921902."
+        },
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJSTGCnBuLpzERx2KCLdVFKIk",
+          "detail": "Exact named business identity in Phu Quoc."
+        }
+      ]
+    },
+    {
+      "id": "hotel_premier_village",
+      "lat": 10.005315,
+      "lon": 104.05185,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "OPERATOR_GPS",
+          "url": "https://all.accor.com/hotel/B2R4/index.en.shtml",
+          "detail": "Accor publishes GPS 10.005315 / 104.05185 for Premier Village Phu Quoc Resort."
+        },
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJcSDG-fqWpzERQkkxuLWDUyU",
+          "detail": "Exact named structured business identity."
+        }
+      ]
+    },
+    {
+      "id": "hotel_melia_vinpearl",
+      "lat": 10.355079,
+      "lon": 103.847329,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJQ6NpnkEeCDER1xPLzXd8bKk",
+          "detail": "Exact Meliá Vinpearl Phú Quốc business identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://www.ehotelsreviews.com/melia-vinpearl-phu-quoc-2183328-en",
+          "detail": "Publishes 10.355079 / 103.847329."
+        },
+        {
+          "type": "NUMERIC_LOCATION_CROSSCHECK",
+          "url": "https://fromto.travel/en/vietnam/ke-phu-quoc-airport/melia-vinpearl-phu-quoc",
+          "detail": "Route endpoint gives 10.35508 / 103.84733."
+        }
+      ]
+    },
+    {
+      "id": "hotel_radisson_blu",
+      "lat": 10.32795,
+      "lon": 103.85364,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJq6qqEz8eCDER7vOnb6Q6Ol8",
+          "detail": "Exact Radisson Blu Resort Phú Quốc business identity."
+        },
+        {
+          "type": "NAMED_OSM_BUILDING",
+          "url": "https://mapcarta.com/W1279555129",
+          "osm_type": "way",
+          "osm_id": 1279555129,
+          "detail": "Named hotel building at 10.32795 / 103.85364."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://www.radissonhotels.com/vi-vn/hotels/radisson-blu-resort-phu-quoc",
+          "detail": "Official Radisson property page confirms the Bai Dai Phu Quoc property."
+        }
+      ]
+    },
+    {
+      "id": "hotel_sheraton",
+      "lat": 10.33755,
+      "lon": 103.84988,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJX3VOsa2NpzERsU0djuBRb-U",
+          "detail": "Exact Sheraton Phu Quoc Long Beach Resort business identity."
+        },
+        {
+          "type": "NUMERIC_LOCATION",
+          "url": "https://aroundus.com/p/171881532-sheraton-phu-quoc-long-beach-resort",
+          "detail": "Publishes 10.33755 / 103.84988."
+        },
+        {
+          "type": "NUMERIC_LOCATION_CROSSCHECK",
+          "url": "https://www.hotelplanner.com/Hotels/224593/Reservations-Sheraton-Phu-Quoc-Long-Beach-Resort-Phu-Quoc-City-Bai-Dai-Ganh-Dau-Phu-Quoc-District-Kien-Giang-922200",
+          "detail": "Publishes 10.337529 / 103.849900."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://www.marriott.com/en-us/hotels/pqcsr-sheraton-phu-quoc-long-beach-resort/overview/",
+          "detail": "Official Marriott property identity and Bai Dai address."
+        }
+      ]
+    },
+    {
+      "id": "hotel_vinpearl_resort_spa_phu_quoc",
+      "lat": 10.30708,
+      "lon": 103.86211,
+      "decision": "ACCEPT",
+      "evidence": [
+        {
+          "type": "STRUCTURED_BUSINESS",
+          "place_id": "ChIJhS_cnzseCDERAMqYy7efZBo",
+          "detail": "Exact Vinpearl Resort & Spa Phu Quoc business identity."
+        },
+        {
+          "type": "NAMED_GEONAMES_OSM",
+          "url": "https://mapcarta.com/32548532",
+          "detail": "Named Vinpearl Phu Quoc Resort location at 10.30708 / 103.86211."
+        },
+        {
+          "type": "OPERATOR_IDENTITY",
+          "url": "https://vinpearl.com/en/hotels/vinpearl-resort-spa-phu-quoc",
+          "detail": "Official Vinpearl property page confirms the property identity."
+        }
+      ]
+    }
+  ],
+  "held": [
+    {
+      "id": "hotel_pullman",
+      "reason": "Two current official Pullman/Accor pages publish materially different longitude values (~100 m apart). Hold until structured point/entrance intent is reconciled."
+    },
+    {
+      "id": "hotel_regent",
+      "reason": "Exact structured business identity confirmed but no independent numeric coordinate accepted in this batch."
+    },
+    {
+      "id": "hotel_sailing_club_signature_resort_phu_quoc",
+      "reason": "Exact structured business identity confirmed; numeric source found for an associated park, not the resort building itself."
+    }
+  ]
+}
