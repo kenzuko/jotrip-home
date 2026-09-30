@@ -1,11 +1,11 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T03:25:51.126Z",
+  "generated_at": "2026-09-30T03:34:38.062Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
     "with_address": 350,
-    "with_map": 262,
+    "with_map": 268,
     "by_type": {
       "activity": 6,
       "hotel": 158,
@@ -1647,7 +1647,17 @@
       "star_rating": null,
       "what_it_is": "Khách sạn tại Dương Đông.",
       "route": "/hotels/?q=Gaia%20Hotel",
-      "map": null,
+      "map": {
+        "lat": 10.207058583333332,
+        "lon": 103.96281569444444,
+        "precision": "site_centroid",
+        "source": "Official property identity + two converging exact-name numeric hotel locations",
+        "source_id": "gaia_official_multi_numeric_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Gaia Hotel official 71 Tran Hung Dao identity cross-checked with DMS GPS 10.2070586,103.9628157 and an independent exact-name location around 10.2068,103.9628. Site centroid only.",
+        "accuracy": "OPERATOR_IDENTITY_MULTI_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Gaia Hotel, 71 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2276,7 +2286,17 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn 3 sao tại Bãi Trường - Đường Bào.",
       "route": "/hotels/?q=Kosmos%20Apart%20Hotel",
-      "map": null,
+      "map": {
+        "lat": 10.1302,
+        "lon": 103.9821,
+        "precision": "site_centroid",
+        "source": "Exact Google Hotels identity + exact-name numeric hotel location",
+        "source_id": "kosmos_impt_googlehotels_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Kosmos Apart Hotel exact Google Hotels identity at SS02/SS06 Sonasea cross-checked with exact-name numeric location 10.1302,103.9821. Site centroid only.",
+        "accuracy": "EXACT_PROPERTY_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Kosmos Apart Hotel, SS02, Sonasea Vill & Resort, tổ 5, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -2344,7 +2364,17 @@
       "star_rating": 4,
       "what_it_is": "Khách sạn nghỉ dưỡng 4 sao tại Dương Đông.",
       "route": "/hotels/?q=L'Azure%20Resort%20%26%20Spa%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.207758,
+        "lon": 103.961949,
+        "precision": "site_centroid",
+        "source": "Exact Google Hotels/property identity + exact-name numeric hotel location + official property identity",
+        "source_id": "lazure_ehotels_structured_20260930",
+        "verified_at": "2026-09-30",
+        "note": "L'Azure Resort & Spa Phu Quoc exact property identity cross-checked with exact-name numeric location 10.207758,103.961949 and official 64 Tran Hung Dao identity. Site centroid only.",
+        "accuracy": "EXACT_PROPERTY_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "L'Azure Resort & Spa Phu Quoc, 64 Trần Hưng Đạo, KP7, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -3912,7 +3942,17 @@
       "star_rating": 3,
       "what_it_is": "Khách sạn nghỉ dưỡng 3 sao tại Ông Lang - Cửa Cạn.",
       "route": "/hotels/?q=Phu%20Quoc%20Eco%20Beach%20Resort",
-      "map": null,
+      "map": {
+        "lat": 10.26593,
+        "lon": 103.929285,
+        "precision": "site_centroid",
+        "source": "Exact Google Hotels/property identity + converging numeric hotel locations + official property identity",
+        "source_id": "phu_quoc_eco_multi_numeric_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Phu Quoc Eco Beach Resort exact identity cross-checked with 10.26593,103.929285 and nearby independent exact-name locations around 10.2659,103.929. Site centroid only.",
+        "accuracy": "EXACT_PROPERTY_MULTI_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Phu Quoc Eco Beach Resort, Tổ 3, ấp Ông Lang, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -4688,7 +4728,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Bãi Trường - Đường Bào.",
       "route": "/hotels/?q=Sailing%20Club%20Signature%20Resort%20Phu%20Quoc",
-      "map": null,
+      "map": {
+        "lat": 10.1152,
+        "lon": 103.9899,
+        "precision": "site_centroid",
+        "source": "Exact Google Hotels/property identity + exact-name numeric hotel location + official property identity",
+        "source_id": "sailing_club_signature_impt_structured_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Sailing Club Signature Resort Phu Quoc exact property identity cross-checked with exact-name numeric location 10.1152,103.9899 and the official resort identity. Site centroid only.",
+        "accuracy": "EXACT_PROPERTY_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Sailing Club Signature Resort Phu Quoc, Lô N8, N9, N10, N11, N12, N13, N14, N14A, X11, X12 Khu phức hợp Bãi Trường, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
@@ -5365,7 +5415,17 @@
       "star_rating": 5,
       "what_it_is": "Khách sạn nghỉ dưỡng 5 sao tại Khác / cần rà.",
       "route": "/hotels/?q=Sunset%20Sanato",
-      "map": null,
+      "map": {
+        "lat": 10.1516,
+        "lon": 103.9748,
+        "precision": "site_centroid",
+        "source": "Exact Google Hotels/property identity + exact-name numeric hotel location + official property identity",
+        "source_id": "sunset_sanato_impt_structured_20260930",
+        "verified_at": "2026-09-30",
+        "note": "Sunset Sanato Resort & Villas exact property identity cross-checked with exact-name numeric location 10.1516,103.9748 and official property identity. Site centroid only.",
+        "accuracy": "EXACT_PROPERTY_NUMERIC_CROSSCHECK",
+        "plus_code": null
+      },
       "inherited_from": null,
       "google_query": "Sunset Sanato, Tổ 3, ấp Đường Bào, đặc khu Phú Quốc, tỉnh An Giang, Phú Quốc"
     },
