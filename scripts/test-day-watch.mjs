@@ -62,7 +62,16 @@ assert.match(homepage,/id="tripDayWatch"/);
 assert.doesNotMatch(homepage,/Operations Watch|Cần lưu ý hôm nay/);
 assert.match(live,/notice\.date === todayKey/);
 assert.match(live,/priority:Number\.isFinite\(ageDays\)&&ageDays<=7\?100:85/);
-assert.match(live,/validUntilDay >= todayKey/);
+assert.match(live,/suspensionActiveOn/);
+assert.match(live,/validUntil>dayStart/);
+
+const operational=JSON.parse(readFileSync("data/operational-notices.json","utf8"));
+const mocXa=operational.notices.find(x=>x.id==="exotica-moc-xa-maintenance-20260928-20261007");
+const matDaiBang=operational.notices.find(x=>x.id==="exotica-mat-dai-bang-maintenance-20260929");
+assert.equal(mocXa?.effective_from,"2026-09-28");
+assert.equal(mocXa?.valid_until,"2026-10-08T00:00:00+07:00");
+assert.equal(matDaiBang?.effective_from,"2026-09-29");
+assert.equal(matDaiBang?.valid_until,null);
 assert.match(live,/dayWatchRainGauges\.length >= 2/);
 assert.match(live,/day_watch_candidates: dayWatchCandidates/);
 
