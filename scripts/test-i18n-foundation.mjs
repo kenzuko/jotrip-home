@@ -5,7 +5,7 @@ assert.equal(manifest.default_locale,"vi");
 assert.equal(manifest.url_strategy,"default-unprefixed");
 const rows=manifest.locales||[];
 assert.ok(rows.length>=2);
-assert.equal(rows.filter(x=>x.published).length,2,"Vietnamese and reviewed English should be public");
+assert.equal(rows.filter(x=>x.published).length,1,"Only Vietnamese may be public until English reaches full-site coverage");
 assert.equal(rows.find(x=>x.code==="vi")?.published,true);
 assert.equal(new Set(rows.map(x=>x.code)).size,rows.length);
 assert.equal(new Set(rows.map(x=>x.url_code)).size,rows.length);
@@ -15,8 +15,7 @@ for(const row of rows){
   assert.ok(row.html_lang&&row.native_name&&row.direction);
   assert.ok(Array.isArray(row.surfaces));
   if(row.code==="vi")assert.deepEqual(row.surfaces,["*"]);
-  else if(row.code==="en")assert.deepEqual(row.surfaces,["home","stories","guide","food","airport"]);
-  else assert.equal(row.surfaces.length,0);
+  else assert.equal(row.surfaces.length,0,"Non-Vietnamese locales stay locked until full-site release");
 }
 const server=await import("data:text/javascript;base64,"+Buffer.from(readFileSync("functions/_shared/i18n.js","utf8")).toString("base64"));
 assert.equal(server.DEFAULT_LOCALE,"vi");
@@ -26,19 +25,19 @@ assert.deepEqual(server.LOCALES.map(x=>({code:x.code,url_code:x.urlCode,html_lan
 assert.equal(server.localizedPath("/stories/article.html","vi"),"/stories/article.html");
 assert.equal(server.localizedPath("/stories/article.html","en"),"/en/stories/article.html");
 assert.deepEqual(server.splitLocalePath("/en/stories/article.html").pathname,"/stories/article.html");
-assert.equal(server.splitLocalePath("/en/stories/article.html").published,true);
+assert.equal(server.splitLocalePath("/en/stories/article.html").published,false);
 assert.equal(server.splitLocalePath("/vi/stories/").defaultPrefixed,true);
 assert.equal(server.splitLocalePath("/vi/stories/").pathname,"/stories/");
 assert.equal(server.routeGroup("/stories/article.html"),"stories");
 assert.equal(server.localeCanServe("vi","/weather/"),true);
-assert.equal(server.localeCanServe("en","/stories/"),true);
+assert.equal(server.localeCanServe("en","/stories/"),false);
 assert.equal(server.localeCanServe("en","/weather/"),false);
-assert.equal(server.localeCanServe("en","/airport/"),true);
+assert.equal(server.localeCanServe("en","/airport/"),false);
 assert.equal(server.localeFromLanguageTag("en-US")?.code,"en");
 assert.equal(server.localeFromLanguageTag("zh-TW")?.code,"zh-Hant");
 assert.equal(server.localeFromLanguageTag("zh-CN")?.code,"zh-Hans");
-assert.equal(server.preferredPublishedLocale("en-US,en;q=0.9","/stories/"),"en",
-  "Reviewed English should be selected for an English browser on a published surface");
+assert.equal(server.preferredPublishedLocale("en-US,en;q=0.9","/stories/"),"vi",
+  "English browser must fall back to Vietnamese while English publication is locked");
 assert.equal(server.preferredPublishedLocale("en-US,en;q=0.9","/weather/"),"vi",
   "English must fall back to Vietnamese on an unpublished surface");
 assert.equal(server.canonicalFor("/guide/article.html?id=x","vi"),"https://openphuquoc.com/guide/article.html?id=x");
