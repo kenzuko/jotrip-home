@@ -120,6 +120,77 @@
       }
     },
     {
+      "id": "place_explainers",
+      "source_id": "place-explainers-vi",
+      "source_path": "data/i18n/vi/place-explainers.json",
+      "target_path_pattern": "data/i18n/{locale}/place-explainers.json",
+      "targets": {
+        "en": {
+          "status": "machine_draft",
+          "target_path": "data/i18n/en/place-explainers.json",
+          "translated_from_blob_sha": "f04a3a339e2ef6fbfe94e4198716a838e2632de4",
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": "Editorial model draft translated directly from the final Vietnamese source on 2026-10-01; facts, structure and source URLs preserved; human review required before publication."
+        },
+        "ko": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "ru": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "lo": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "zh-Hans": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "zh-Hant": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        },
+        "fr": {
+          "status": "missing",
+          "target_path": null,
+          "translated_from_blob_sha": null,
+          "reviewed_by": null,
+          "reviewed_at": null,
+          "published_at": null,
+          "note": null
+        }
+      }
+    },
+    {
       "id": "stories",
       "source_id": "stories",
       "source_path": "data/content.json",
