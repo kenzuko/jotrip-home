@@ -402,7 +402,7 @@ function rainActualState(){
     const a=ageMinutes(g.observed_at);
     return a!==null&&a<=45;
   });
-  if(!recent.length) return {label:"VRain đang chờ dữ liệu mới",wet:0,known:0,unknown:stations.length};
+  if(!recent.length) return {label:"Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc",wet:0,known:0,unknown:stations.length};
 
   let wet=0,known=0,unknown=0;
   for(const g of recent){
@@ -986,7 +986,7 @@ function renderActualStations(){
     if(a===null||a>45) continue;
     const wet=g.rain_recently_observed===true;
     const currentWindow=g.increment_qc!=="WINDOW_TOO_OLD_FOR_CURRENT_RAIN";
-    const stateLabel=wet?"Có mưa gần đây":currentWindow&&g.rain_recently_observed===false?"Chưa ghi nhận mưa gần đây":"Cửa sổ hiện tại chưa đủ";
+    const stateLabel=wet?"Có mưa gần đây":currentWindow&&g.rain_recently_observed===false?"Trạm mới cập nhật chưa ghi nhận mưa":"Chưa có tín hiệu mưa mới";
     const marker=L.circleMarker([g.lat,g.lon],{
       radius:wet?6:5,
       color:wet?"#ffffff":"#285a67",
