@@ -139,12 +139,13 @@ async function load(){
       try{
         for(const record of records){
           if(record.type==="characterData")translateTextNode(record.target);
+          if(record.type==="attributes")translateAttrs(record.target);
           for(const node of record.addedNodes)walk(node);
         }
         translateHead();
       }finally{state.muting=false}
     });
-    observer.observe(document.documentElement,{subtree:true,childList:true,characterData:true});
+    observer.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:["placeholder","aria-label","title","alt","value"]});
     document.documentElement.dataset.openpqEnglishReady="true";
     return state;
   })();
