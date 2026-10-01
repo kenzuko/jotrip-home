@@ -281,7 +281,9 @@ jobs:
           curl -fsSL "$origin/weather/?v3=$GITHUB_SHA" -o /tmp/openpq-weather-v3.html
           grep -Fq 'class="weather-version-badge"' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Weather V3 badge missing"; exit 1; }
           grep -Fq 'id="v3ObservationPanel"' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Weather V3 panel missing"; exit 1; }
-          grep -Fq '/weather/weather-v3-public.js?v=20261001-corev3-1' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Weather V3 asset missing"; exit 1; }
+          grep -Eq '/weather/weather-v3-public\.js\?v=[^"]+' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Weather V3 asset missing"; exit 1; }
+          grep -Fq 'weather-now-primary human-first' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Human Layer markup missing"; exit 1; }
+          grep -Fq 'Vì sao hệ thống nói vậy?' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Human Layer evidence disclosure missing"; exit 1; }
           curl -fsSL "$origin/" -o /tmp/openpq-home.html
           grep -Fq '<link rel="canonical" href="https://openphuquoc.com/">' /tmp/openpq-home.html || { echo "::error::Homepage canonical is missing or incorrect"; exit 1; }
           curl -fsSL "$origin/robots.txt" -o /tmp/openpq-robots.txt

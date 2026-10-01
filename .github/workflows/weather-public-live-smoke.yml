@@ -36,20 +36,23 @@ jobs:
         run: npm install --no-save --package-lock=false playwright@1.63.0
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
-      - name: Wait for canonical Weather V3
+      - name: Wait for this production release
         run: |
           ok=false
           for i in {1..72}; do
-            body="$(curl -fsSL "https://openphuquoc.com/weather/?v3-smoke=$GITHUB_SHA-$i" || true)"
-            if echo "$body" | grep -Fq 'class="weather-version-badge"' && echo "$body" | grep -Fq 'id="v3ObservationPanel"'; then
-              echo "Canonical Weather V3 is visible."
-              ok=true
-              break
+            build="$(curl -fsSL "https://openphuquoc.com/build.json?t=$GITHUB_SHA-$i" || true)"
+            if echo "$build" | grep -Fq "$GITHUB_SHA"; then
+              body="$(curl -fsSL "https://openphuquoc.com/weather/?v3-smoke=$GITHUB_SHA-$i" || true)"
+              if echo "$body" | grep -Fq 'class="weather-version-badge"' &&                  echo "$body" | grep -Fq 'id="v3ObservationPanel"' &&                  echo "$body" | grep -Fq 'weather-now-primary human-first'; then
+                echo "Canonical Human Layer release $GITHUB_SHA is visible."
+                ok=true
+                break
+              fi
             fi
             sleep 5
           done
           if [ "$ok" != true ]; then
-            echo "::error::Canonical Weather V3 did not become visible within the release window."
+            echo "::error::Canonical Human Layer release $GITHUB_SHA did not become visible within the release window."
             exit 1
           fi
       - name: Verify homepage and canonical Weather
