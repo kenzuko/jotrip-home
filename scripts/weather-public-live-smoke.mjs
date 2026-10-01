@@ -53,10 +53,9 @@ try{
   const cloudAgeMin=Number.isFinite(sampled)?Math.max(0,(Date.now()-sampled)/60000):null;
 
   const anThoi=page.locator('#pointTabs button[data-point="an_thoi"]');
-  if(await anThoi.count()){
-    await anThoi.click();
-    await page.waitForFunction(()=>/An Thới/.test(document.getElementById("v3PointLabel")?.textContent||""),null,{timeout:10000});
-  }
+  await anThoi.waitFor({state:"visible",timeout:45000});
+  await anThoi.click();
+  await page.waitForFunction(()=>/An Thới/.test(document.getElementById("v3PointLabel")?.textContent||""),null,{timeout:10000});
   const pointAfterSwitch=(await page.locator("#v3PointLabel").innerText()).trim();
 
   result.weather={panelText,width:box?.width||0,viewportWidth:390,nowEvidence,soonEvidence,soonTitle,cloudAgeMin,pointAfterSwitch,versionBadge};
