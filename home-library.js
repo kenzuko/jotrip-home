@@ -75,7 +75,7 @@
         approvedById.set(item.topic_id,item);
     }
     const available=[...approvedById.values()].filter(item=>
-      item?.image?.url&&/^\/assets\/(?:media|uploads)\/|^https:\/\/(?:commons\.wikimedia\.org|visitphuquoc\.com\.vn)\//.test(item.image.url)
+      item?.image?.url&&/^\/assets\/(?:media|uploads)\/|^https:\/\/(?:commons\.wikimedia\.org|visitphuquoc\.com\.vn|gcs\.tripi\.vn)\//.test(item.image.url)
     ).map(autoGuide).filter(Boolean);
     const leadCandidates=guides.slice(0,4).filter(g=>available.some(a=>a.id===g.id));
     if(available.length<3||!leadCandidates.length)return [];

@@ -12,6 +12,13 @@
   const $ = s => document.querySelector(s);
   const fmt = (n, d = 1) => Number.isFinite(Number(n)) ? Number(n).toFixed(d) : "--";
 
+  function joinViList(items) {
+    const values = (Array.isArray(items) ? items : []).filter(Boolean);
+    if (values.length <= 1) return values[0] || "";
+    if (values.length === 2) return values.join(" và ");
+    return values.slice(0, -1).join(", ") + " và " + values.at(-1);
+  }
+
   function ageMinutes(iso) {
     const t = Date.parse(iso || "");
     return Number.isFinite(t) ? Math.max(0, (Date.now() - t) / 60000) : Infinity;
@@ -581,7 +588,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
             note = areas.length === 1
               ? "Mây đang dày hơn trên hướng chân trời ở " + areas[0] + ". Mặt trời có thể bị che lúc lặn."
               : areas.length > 1
-                ? "Mây đang dày hơn trên hướng chân trời ở " + areas.join(" và ") + ". Một phần bờ Tây có thể bị che lúc mặt trời lặn."
+                ? "Mây đang dày hơn trên hướng chân trời ở " + joinViList(areas) + ". Một phần bờ Tây có thể bị che lúc mặt trời lặn."
                 : "Ảnh vệ tinh đang thấy mây dày hơn trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.";
           } else if (sunsetWx.reason === "cloud_approaching") {
             note = "Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
