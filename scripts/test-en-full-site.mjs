@@ -13,6 +13,7 @@ const phrases=[...(shell.phrases||[])].sort((a,b)=>String(b?.[0]||"").length-Str
 const publicRoots=["about","airport","bus","cano","currency","explore","ferry","food","go","guide","hotels","nearme","news","places","stories","transit","utilities","weather"];
 const rootFiles=["index.html","app.js","home-live.js","home-live-v3.js","home-foundation-v2.js","home-nearme-v2.js","home-today-v3.js","home-copy.js","home-experience-v1.js","home-library.js","island-clock.js"];
 const skip=/\b(?:admin|cms|localized-pages)\b|(?:\.test|\.spec)\.(?:m?js)$/i;
+const skipLocaleSources=new Set(["airport/i18n.js","airport/app-copy.js"]);
 const skipWeather=/^weather\/(?:spatial-lab|weather-scene)/;
 
 function walk(dir,out=[]){
@@ -29,7 +30,7 @@ const files=[
   ...publicRoots.flatMap(x=>walk(join(ROOT,x)))
 ].filter(path=>{
   const rel=relative(ROOT,path).split(sep).join("/");
-  return !skip.test(rel)&&!skipWeather.test(rel);
+  return !skip.test(rel)&&!skipWeather.test(rel)&&!skipLocaleSources.has(rel);
 });
 
 function routeKey(rel){
