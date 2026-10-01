@@ -1213,44 +1213,44 @@
       ]
     },
     "activity_scuba": {
-      "lede": "Lặn bình khí đưa người tham gia xuống dưới mặt nước bằng bình dưỡng khí và thiết bị riêng. Đây là hoạt động kỹ thuật, cần quy trình an toàn, hướng dẫn chuyên môn và sàng lọc sức khỏe nghiêm túc hơn snorkeling.\nVới người mới, chương trình thử lặn có thể được tổ chức ở độ sâu và thời lượng giới hạn, có người hướng dẫn giám sát trực tiếp. Không nên gọi đây đơn giản là “snorkeling sâu hơn”.",
+      "lede": "Scuba diving takes you below the surface with a tank and dedicated diving equipment. It is a technical activity that needs more safety procedure, professional supervision and health screening than snorkeling.\nFor beginners, an introductory dive may be run at limited depth and duration with direct instructor supervision. It should not be treated simply as 'snorkeling, but deeper'.",
       "infographic": [
         {
           "icon": "01",
-          "label": "QUY MÔ",
-          "value": "Buổi lặn gồm briefing, kiểm tra thiết bị và thời gian dưới nước",
-          "note": "Một chương trình scuba thường có nhiều phần:\n• Di chuyển tới điểm lặn.\n• Khai báo sức khỏe.\n• Hướng dẫn lý thuyết và ký hiệu dưới nước.\n• Kiểm tra, đeo và thử thiết bị.\n• Lặn cùng hướng dẫn viên.\n• Lên mặt nước, nghỉ và theo dõi tình trạng cơ thể.\n• Có thể có một hoặc nhiều lần lặn tùy chương trình.\nThời gian từ lúc rời bến đến khi kết thúc dài hơn nhiều so với thời gian thật dưới nước. Người mới cần hỏi rõ mình mua một lần lặn thử hay chương trình nhiều lần lặn, độ sâu dự kiến và tỷ lệ hướng dẫn viên/khách."
+          "label": "SCALE",
+          "value": "A dive session includes briefing, equipment checks and underwater time",
+          "note": "A scuba programme usually includes several stages:\n• Travel to the dive site.\n• Health declaration.\n• Theory briefing and underwater hand signals.\n• Fitting and checking equipment.\n• Diving with an instructor or guide.\n• Returning to the surface, resting and monitoring how you feel.\n• One or more dives depending on the programme.\nTotal time from departure to finish is much longer than the actual time underwater. Beginners should ask whether they are buying one introductory dive or a multi-dive programme, what depth is planned and how many guests each instructor supervises."
         },
         {
           "icon": "02",
-          "label": "KHÁC SNORKEL",
-          "value": "Thở bằng bình khí dưới nước và chịu thay đổi áp suất",
-          "note": "Lặn bình khí cho phép người tham gia ở dưới nước lâu hơn và xuống sâu hơn snorkeling, nhưng cần học cách:\n• Thở đều bằng bộ điều áp.\n• Cân bằng áp suất tai.\n• Sử dụng ký hiệu tay.\n• Giữ độ nổi và khoảng cách.\n• Xử lý khi kính hoặc bộ điều áp có vấn đề.\n• Lên mặt nước theo hướng dẫn.\nNgười mới không nên tự ý lặn sâu hoặc tách khỏi người hướng dẫn. Chương trình không chứng chỉ cần có giám sát trực tiếp, kiểm soát độ sâu và thiết bị."
+          "label": "HOW IT DIFFERS FROM SNORKELING",
+          "value": "You breathe from a tank underwater and deal with pressure changes",
+          "note": "Scuba lets you stay underwater longer and go deeper than snorkeling, but you need to learn how to:\n• Breathe steadily through a regulator.\n• Equalise ear pressure.\n• Use hand signals.\n• Control buoyancy and distance.\n• Respond if a mask or regulator has a problem.\n• Ascend under instruction.\nBeginners should never descend on their own or separate from the instructor. Non-certified programmes need direct supervision, controlled depth and properly checked equipment."
         },
         {
           "icon": "03",
-          "label": "TRƯỚC KHI LẶN",
-          "value": "Khai báo sức khỏe và sắp xếp thời gian sau lặn",
-          "note": "Tai xoang, hô hấp, tim mạch, huyết áp, tiền sử ngất, phẫu thuật gần đây hoặc một số loại thuốc có thể ảnh hưởng tới khả năng lặn. Không nên giấu thông tin sức khỏe chỉ vì sợ mất cơ hội tham gia.\nSau khi lặn, không nên xếp chuyến bay hoặc hoạt động thay đổi áp suất quá sát. Khoảng chờ cụ thể phụ thuộc hồ sơ lặn, số lần lặn, độ sâu và hướng dẫn của đơn vị chuyên môn."
+          "label": "BEFORE YOU DIVE",
+          "value": "Declare health conditions and plan the time after diving",
+          "note": "Ear or sinus problems, breathing conditions, heart or blood-pressure issues, a history of fainting, recent surgery or certain medications can affect diving suitability. Do not hide health information just because you are worried about missing the activity.\nAfter diving, do not schedule a flight or another major pressure-change activity too soon. The appropriate wait depends on the dive profile, number of dives, depth and professional guidance."
         }
       ],
       "sections": [
         {
-          "heading": "Đây là hoạt động kỹ thuật, không chỉ là phiên bản lặn ngắm san hô sâu hơn",
-          "body": "Giá trị của scuba nằm ở cảm giác hít thở dưới nước, quan sát sinh vật ở không gian ba chiều và học cách di chuyển trong môi trường biển.\nNgười mới nên ưu tiên đơn vị có:\n• Briefing rõ ràng.\n• Bảng khai báo sức khỏe.\n• Thiết bị vừa vặn, được kiểm tra.\n• Tỷ lệ hướng dẫn viên phù hợp.\n• Quy trình xử lý khi khách hoảng sợ hoặc muốn kết thúc sớm.\n• Thông tin minh bạch về độ sâu và thời lượng."
+          "heading": "This is a technical activity, not simply a deeper version of snorkeling",
+          "body": "The appeal of scuba is breathing underwater, seeing marine life in three dimensions and learning how to move safely below the surface.\nBeginners should favour an operator that provides:\n• A clear briefing.\n• A proper health questionnaire.\n• Well-fitting, checked equipment.\n• An appropriate instructor-to-guest ratio.\n• A clear procedure if someone panics or wants to end the dive early.\n• Transparent information on planned depth and duration."
         },
         {
-          "heading": "Hỏi về tiêu chuẩn an toàn trước khi hỏi ảnh đẹp",
-          "body": "Nên biết ai là người hướng dẫn, có chứng chỉ hoặc đào tạo phù hợp không, kèm bao nhiêu khách, thiết bị kiểm tra thế nào và quy trình xử lý khi khách không thoải mái dưới nước.\nKhông nên chọn chỉ vì tour có ảnh đẹp hoặc giá thấp hơn. Với hoạt động dưới nước, chất lượng giám sát quan trọng hơn số lượng điểm check-in."
+          "heading": "Ask about safety standards before asking about the photos",
+          "body": "Find out who is supervising the dive, whether they hold appropriate training or certification, how many guests they supervise, how the equipment is checked and what happens if a guest feels uncomfortable underwater.\nDo not choose only because one operator has prettier photos or a lower price. For an underwater technical activity, supervision quality matters more than the number of photo stops."
         }
       ],
       "visitor_questions": [
-        "Người hướng dẫn có chứng chỉ gì và kèm bao nhiêu khách?",
-        "Đây là lặn thử cho người mới hay chương trình dành cho người có chứng chỉ?",
-        "Có bảng câu hỏi sức khỏe trước khi lặn không?",
-        "Độ sâu và thời gian dưới nước dự kiến là bao nhiêu?",
-        "Thiết bị được kiểm tra và thay thế thế nào?",
-        "Sau lần lặn này tôi cần chờ bao lâu trước khi bay?"
+        "What qualification does the instructor hold, and how many guests will they supervise?",
+        "Is this an introductory dive for beginners or a programme for certified divers?",
+        "Is there a health questionnaire before diving?",
+        "What depth and underwater time are planned?",
+        "How is the equipment checked and replaced when needed?",
+        "How long should I wait before flying after this dive?"
       ],
       "sources": [
         {
@@ -1260,44 +1260,44 @@
       ]
     },
     "activity_seawalker": {
-      "lede": "Seawalker cho phép khách đi bộ dưới nước với mũ cấp khí thay vì đeo bình khí sau lưng. Đây là hình thức được thiết kế để người mới dễ tiếp cận hơn, nhưng vẫn cần hướng dẫn, kiểm soát độ sâu, thiết bị phù hợp và sàng lọc sức khỏe cơ bản.\nKhông cần biết bơi hoặc biết lặn không có nghĩa hoạt động phù hợp với tất cả mọi người. Áp lực nước, cảm giác ở dưới mặt biển và việc đội mũ kín có thể khiến một số khách hoảng sợ.",
+      "lede": "Seawalking lets visitors walk underwater while breathing through an air-supplied helmet instead of carrying a scuba tank. It is designed to be easier for beginners, but it still requires instruction, controlled depth, suitable equipment and basic health screening.\n'No swimming or diving skill required' does not mean it suits everyone. Water pressure, the feeling of being below the surface and the enclosed helmet can make some people anxious.",
       "infographic": [
         {
           "icon": "01",
-          "label": "QUY MÔ",
-          "value": "Một tuyến đi bộ dưới nước có thời gian giới hạn",
-          "note": "Trải nghiệm thường gồm:\n• Di chuyển tới khu vực seawalker.\n• Nghe hướng dẫn và kiểm tra sức khỏe.\n• Đội mũ cấp khí.\n• Đi xuống khu vực dưới nước theo cầu thang hoặc sàn dẫn.\n• Đi bộ, quan sát san hô và cá theo tuyến.\n• Trở lại mặt nước, tháo thiết bị và kết thúc.\nThời gian thực sự dưới nước thường chỉ khoảng 15-20 phút ở một số chương trình, trong khi tổng thời gian chờ và chuẩn bị dài hơn.\nDu khách nên hỏi “bao nhiêu phút dưới nước” thay vì chỉ hỏi tổng thời lượng hoạt động."
+          "label": "SCALE",
+          "value": "A controlled underwater walking route with limited bottom time",
+          "note": "A typical experience may include:\n• Travel to the seawalking area.\n• Safety briefing and basic health check.\n• Putting on the air-supplied helmet.\n• Descending by steps or a platform.\n• Walking a set route to observe coral and fish.\n• Returning to the surface and removing the equipment.\nActual underwater time is often around 15-20 minutes in some programmes, while preparation and waiting take longer.\nAsk 'how many minutes are actually underwater?' rather than only asking for the total activity duration."
         },
         {
           "icon": "02",
-          "label": "DỤNG CỤ",
-          "value": "Mũ cấp khí và tuyến đi có kiểm soát",
-          "note": "Khách thở trong mũ cấp khí được thiết kế giống mũ phi hành gia. Mũ giúp người tham gia không phải ngậm ống thở và không đeo bình khí sau lưng, nhưng vẫn cần làm quen với áp lực và cách bước dưới nước.\nTuyến đi thường được tổ chức trong khu vực kiểm soát, có người hỗ trợ. Không nên tự ý đi lệch khỏi lối dẫn, chạm vào sinh vật hoặc bám lên san hô để giữ thăng bằng."
+          "label": "EQUIPMENT",
+          "value": "Air-supplied helmet and a controlled route",
+          "note": "Guests breathe inside a helmet often compared in shape to an astronaut helmet. It removes the need to use a snorkel or wear a tank, but participants still need to get used to pressure and to walking underwater.\nThe route is normally controlled and supported by staff. Do not leave the route, touch marine life or use coral as a handhold for balance."
         },
         {
           "icon": "03",
-          "label": "CẦN HỎI",
-          "value": "Sức khỏe, độ tuổi và khả năng chịu áp lực",
-          "note": "Không mặc định hoạt động phù hợp với mọi người chỉ vì không cần biết lặn. Cần hỏi về:\n• Độ tuổi tối thiểu.\n• Tình trạng tai, xoang và hô hấp.\n• Bệnh tim mạch hoặc huyết áp.\n• Thời lượng dưới nước.\n• Cách xử lý nếu khách muốn lên sớm.\n• Người hướng dẫn có đi kèm trong suốt tuyến không.\nThông tin độ tuổi giữa các đơn vị có thể khác nhau, nên phải xác nhận trực tiếp với đơn vị vận hành thay vì dùng một con số chung."
+          "label": "ASK FIRST",
+          "value": "Health, age and comfort with pressure",
+          "note": "Do not assume the activity suits everyone simply because swimming skill is not required. Ask about:\n• Minimum age.\n• Ear, sinus and respiratory conditions.\n• Heart or blood-pressure conditions.\n• Actual underwater duration.\n• What happens if someone wants to come up early.\n• Whether a guide stays beside participants for the whole route.\nAge rules can vary between operators, so confirm directly instead of relying on one general number."
         }
       ],
       "sections": [
         {
-          "heading": "Trải nghiệm được thiết kế để người mới dễ tiếp cận",
-          "body": "Seawalker phù hợp với người muốn nhìn san hô và cá ở khoảng cách gần nhưng không muốn học kỹ thuật lặn bình khí. Trải nghiệm đi bộ chậm cũng phù hợp với người không muốn bơi liên tục.\nTuy nhiên, đừng kỳ vọng đây là một buổi lặn tự do. Tuyến đi, thời gian, độ sâu và tốc độ đều được kiểm soát. Giá trị nằm ở khả năng tiếp cận, không phải mức độ phiêu lưu."
+          "heading": "Designed to be accessible to beginners",
+          "body": "Seawalking suits travellers who want a close look at fish and coral without learning full scuba skills. The slow walking format can also work for people who do not want to swim continuously.\nDo not expect a free-roaming dive. Route, duration, depth and pace are controlled. The value is accessibility, not adventure intensity."
         },
         {
-          "heading": "Dễ tham gia vẫn không đồng nghĩa bỏ qua sức khỏe",
-          "body": "Các vấn đề tai xoang, hô hấp, tim mạch hoặc cảm giác hoảng sợ dưới nước cần được trao đổi với đơn vị vận hành trước khi xuống.\nKhách có thể không biết bơi nhưng vẫn cần bình tĩnh, nghe hướng dẫn và báo ngay nếu đau tai, khó thở hoặc cảm thấy không ổn."
+          "heading": "Easy to join still does not mean health can be ignored",
+          "body": "Ear or sinus problems, breathing conditions, heart issues or anxiety underwater should be discussed with the operator before descending.\nA non-swimmer may still participate, but they need to remain calm, listen to instructions and signal immediately if there is ear pain, breathing discomfort or panic."
         }
       ],
       "visitor_questions": [
-        "Ai không nên tham gia hoạt động này?",
-        "Có hướng dẫn cân bằng áp lực tai trước khi xuống không?",
-        "Thời gian thật dưới nước là bao lâu?",
-        "Có người kèm sát trong suốt tuyến đi không?",
-        "Nếu khách hoảng sợ hoặc đau tai thì có thể lên sớm không?",
-        "Khu vực đi bộ có bảo vệ san hô và giới hạn tiếp xúc không?"
+        "Who should not take part in this activity?",
+        "Is ear-pressure equalisation explained before descent?",
+        "How much actual time is spent underwater?",
+        "Does a guide stay close throughout the route?",
+        "Can a guest come up early if they panic or have ear pain?",
+        "Does the route protect coral and limit physical contact?"
       ],
       "sources": [
         {
@@ -1307,45 +1307,45 @@
       ]
     },
     "activity_big_game_fishing": {
-      "lede": "Câu cá lớn ở An Thới là chuyến đi chuyên biệt và dài hơn tour câu cá ngắn. Giá trị nằm ở ngư trường, thiết bị, tài công, kỹ thuật câu và khả năng đổi bãi theo nước - gió - tín hiệu cá, không phải lời hứa chắc chắn sẽ có cá lớn.\nĐây là hoạt động đánh bắt tự nhiên. Ngay cả ekip tốt, tàu tốt và thiết bị tốt cũng không thể biến sản lượng cá thành kết quả được bảo đảm.",
+      "lede": "Big-game fishing from An Thoi is a dedicated sea trip and is very different from a short fishing stop added to an island tour. The value lies in the fishing grounds, equipment, captain, techniques and the ability to move when current, wind or fish signs change - not in a promise that everyone will land a big fish.\nThis is natural fishing. Even a good crew, good boat and good tackle cannot guarantee a catch.",
       "infographic": [
         {
           "icon": "01",
-          "label": "QUY MÔ",
-          "value": "Một chuyến biển dài, nhiều giờ và nhiều yếu tố vận hành",
-          "note": "Một chuyến câu cá lớn thường gồm:\n• Di chuyển từ khách sạn tới bến.\n• Chuẩn bị tàu, mồi và thiết bị.\n• Chạy tới ngư trường.\n• Câu tại một hoặc nhiều bãi.\n• Đổi bãi nếu dòng nước hoặc tín hiệu cá không thuận lợi.\n• Nghỉ, ăn uống và xử lý sản phẩm câu được nếu có.\n• Quay về cảng.\nTổng thời gian có thể kéo dài nhiều giờ, thậm chí gần trọn ngày. Thời gian thật sự cầm cần chưa chắc chiếm phần lớn hành trình vì tàu phải di chuyển giữa các bãi.\nCần phân biệt tour câu cá lớn với tour đi đảo có thêm 30-60 phút câu thử. Hai sản phẩm khác nhau về tàu, thiết bị, mục tiêu và kỳ vọng."
+          "label": "SCALE",
+          "value": "A long sea trip with several hours of fishing operations",
+          "note": "A dedicated fishing trip may include:\n• Transfer from the hotel to the harbour.\n• Boat, bait and tackle preparation.\n• Running out to the fishing grounds.\n• Fishing one or more spots.\n• Moving if current or fish signs are poor.\n• Rest, food and handling the catch if there is one.\n• Return to port.\nThe trip can last many hours, sometimes close to a full day. Actual rod-in-hand time may be much shorter than total duration because the boat needs to travel between fishing grounds.\nDo not confuse this with an island tour that adds 30-60 minutes of casual fishing. The boat, tackle, objective and expectations are different."
         },
         {
           "icon": "02",
-          "label": "KỸ THUẬT",
-          "value": "Câu đáy, jig hoặc kỹ thuật tùy ngư trường",
-          "note": "Cách câu phụ thuộc vào:\n• Độ sâu.\n• Dòng chảy.\n• Loài cá mục tiêu.\n• Mùa và thời tiết.\n• Loại mồi.\n• Khả năng của tài công và người câu.\nMột chuyến có thể sử dụng câu đáy, jig hoặc hình thức khác tùy bãi. Không nên mặc định “câu cá lớn” luôn đồng nghĩa với một kỹ thuật cố định.\nThiết bị có thể gồm cần, máy câu, dây, mồi, chì, móc và máy dò cá. Chất lượng, số lượng và tình trạng thiết bị cần được hỏi rõ trước khi đặt."
+          "label": "TECHNIQUE",
+          "value": "Bottom fishing, jigging or another method depending on the grounds",
+          "note": "Fishing method depends on:\n• Depth.\n• Current.\n• Target species.\n• Season and weather.\n• Bait or lure.\n• The captain's judgement and the angler's ability.\nA trip may use bottom fishing, jigging or another approach depending on the spot. Do not assume 'big-game fishing' always means one fixed technique.\nEquipment may include rods, reels, line, bait or lures, weights, hooks and fish-finding electronics. Ask about quality, quantity and condition before booking."
         },
         {
           "icon": "03",
-          "label": "KHÔNG CAM KẾT",
-          "value": "Không bảo đảm sản lượng cá",
-          "note": "Cá tự nhiên phụ thuộc vào mùa, dòng chảy, nhiệt độ nước, mồi, ngư trường và nhiều yếu tố không thể kiểm soát. Đơn vị vận hành có thể bảo đảm tàu, thiết bị, thời gian hoặc kỹ thuật hỗ trợ - nhưng không nên bảo đảm chắc chắn “câu được cá lớn”.\nNếu có chính sách đổi bãi, đổi ngày hoặc bù dịch vụ khi không có cá, cần đọc rõ điều kiện thay vì chỉ nghe tư vấn miệng."
+          "label": "NO CATCH GUARANTEE",
+          "value": "Natural fish cannot be guaranteed",
+          "note": "Wild fish depend on season, current, water temperature, bait, fishing ground and other factors that cannot be controlled. An operator can guarantee the boat, equipment, duration and support - but should not guarantee that you will definitely catch a large fish.\nIf there is a policy to move spots, change date or compensate in another way when fishing is poor, read the actual conditions rather than relying on verbal promises."
         }
       ],
       "sections": [
         {
-          "heading": "Đi câu chuyên biệt khác với một điểm phụ trong tour đảo",
-          "body": "Chuyến câu dài cần tàu phù hợp, thiết bị, tài công hiểu ngư trường và quyền thay đổi bãi khi điều kiện không tốt. Nếu mục tiêu thật sự là câu, đừng chọn chỉ vì tour có thêm chữ “fishing”.\nNên hỏi rõ khách sẽ có bao nhiêu thời gian thực sự câu, mỗi người có thiết bị riêng không và thuyền viên hỗ trợ tới mức nào. Một chuyến chuyên nghiệp không chỉ đưa khách ra biển rồi phát cần."
+          "heading": "A dedicated fishing trip is not the same as a side activity on an island tour",
+          "body": "A long fishing trip needs a suitable boat, proper tackle, a captain who understands the grounds and the freedom to change location when conditions are poor. If fishing is the real goal, do not choose only because an island tour includes the word 'fishing'.\nAsk how much time guests actually spend fishing, whether each person has their own setup and how much hands-on help the crew provides. A serious fishing trip is more than taking guests offshore and handing out rods."
         },
         {
-          "heading": "An toàn và sức đi biển cần được tính từ đầu",
-          "body": "Chuyến nhiều giờ ngoài khơi dễ gây say sóng và mệt hơn hành trình tham quan đảo. Người tham gia nên:\n• Kiểm tra dự báo gió và sóng.\n• Ăn nhẹ trước khi đi.\n• Chuẩn bị thuốc say tàu phù hợp.\n• Mang nón, áo chống nắng và nước uống.\n• Hỏi về khu vực nghỉ và nhà vệ sinh.\n• Không uống quá nhiều rượu bia trước hoặc trong chuyến.\nNếu đi cùng người lớn tuổi hoặc người dễ say sóng, cần cân nhắc thời lượng và loại tàu trước khi đặt."
+          "heading": "Sea conditions and endurance matter from the start",
+          "body": "Several hours offshore can cause more fatigue and seasickness than a sightseeing trip. Participants should:\n• Check wind and wave conditions.\n• Eat lightly before departure.\n• Prepare suitable motion-sickness medication if needed.\n• Bring a hat, sun protection and drinking water.\n• Ask about rest space and toilet facilities.\n• Avoid excessive alcohol before or during the trip.\nWith older travellers or anyone prone to seasickness, consider trip duration and boat type before booking."
         }
       ],
       "visitor_questions": [
-        "Chuyến đi kéo dài bao nhiêu giờ trên biển?",
-        "Thiết bị câu và máy dò nào được dùng?",
-        "Mỗi khách có cần câu riêng không?",
-        "Tài công có thể đổi bãi theo nước, gió và tín hiệu cá không?",
-        "Giá đã gồm mồi, thiết bị, bữa ăn và phụ phí chưa?",
-        "Nếu không có cá hoặc biển không thuận, chính sách xử lý thế nào?",
-        "Trên tàu có chỗ nghỉ, nhà vệ sinh và áo phao đầy đủ không?"
+        "How many hours will we actually be at sea?",
+        "What fishing tackle and fish-finding equipment are used?",
+        "Does each guest have a separate rod and reel?",
+        "Can the captain change fishing grounds based on current, wind and fish signs?",
+        "Does the price include bait, equipment, meals and any extra charges?",
+        "What is the policy if fishing is poor or sea conditions are unsuitable?",
+        "Does the boat have proper rest space, toilet facilities and life jackets?"
       ],
       "sources": [
         {
@@ -1355,47 +1355,47 @@
       ]
     },
     "activity_squid_fishing": {
-      "lede": "Câu mực đêm là một trải nghiệm biển sau hoàng hôn: tàu rời bến, bật đèn, thả mồi giả và chờ mực tiếp cận. Niềm vui nằm ở quá trình ngồi trên biển, học cách câu và chia sẻ không khí ban đêm - chứ không phải lời hứa rằng ai cũng sẽ câu được nhiều.\nĐây là hoạt động phụ thuộc trực tiếp vào biển, mùa gió, con nước, ánh sáng, vùng câu và kinh nghiệm của thuyền viên. Vì vậy, câu mực nên được bán như một trải nghiệm thử sức và thư giãn, không nên biến thành cam kết về sản lượng.",
+      "lede": "Night squid fishing is an after-dark sea experience: the boat leaves port, lights are used, artificial squid jigs are lowered and guests wait for squid to approach. The point is the time on the water, learning the technique and sharing the night atmosphere - not a promise that everyone will catch plenty.\nThe activity depends directly on sea conditions, monsoon season, tide, light, fishing area and crew experience. It should be sold as a try-it-and-enjoy-the-night experience, not as guaranteed production.",
       "infographic": [
         {
           "icon": "01",
-          "label": "QUY MÔ",
-          "value": "Một chuyến biển kéo dài vài giờ, gồm nhiều chặng trải nghiệm",
-          "note": "Một tour câu mực đêm thường không chỉ có thời gian ngồi thả câu. Lịch trình có thể gồm:\n• Di chuyển từ khách sạn hoặc điểm tập trung tới bến.\n• Chờ lên tàu và sắp xếp vị trí.\n• Ngắm hoàng hôn hoặc di chuyển ra vùng câu.\n• Nghe hướng dẫn cách dùng cần và mồi giả.\n• Câu mực trong đêm.\n• Ăn nhẹ, dùng bữa hoặc chế biến sản phẩm câu được tùy tour.\n• Quay về bến và di chuyển trở lại nơi lưu trú.\nThời gian thực tế trên biển thường kéo dài vài giờ, nhưng tổng thời gian từ lúc đón khách đến khi về lại khách sạn có thể lâu hơn đáng kể. Người dễ say sóng nên hỏi rõ thời lượng ngồi trên tàu, loại tàu và vùng biển trước khi đặt."
+          "label": "SCALE",
+          "value": "A several-hour sea trip with more than just fishing time",
+          "note": "A night squid-fishing tour may include:\n• Transfer from the hotel or meeting point to the harbour.\n• Waiting to board and getting settled.\n• Sunset viewing or travel to the fishing area.\n• Instruction on the rod and artificial squid jig.\n• Fishing after dark.\n• A light meal or cooking the catch depending on the tour.\n• Return to port and transfer back to accommodation.\nTime on the water often lasts several hours, but the total door-to-door trip can be considerably longer. Travellers prone to seasickness should ask about time on the boat, boat type and fishing area before booking."
         },
         {
           "icon": "02",
-          "label": "CÁCH CÂU",
-          "value": "Đèn, mồi giả và thao tác nhấp cần",
-          "note": "Tàu thường sử dụng ánh đèn để tạo điều kiện thu hút mực, sau đó hướng dẫn khách thả mồi giả, giữ dây và nhấp cần theo cách phù hợp.\nNgười mới cần hiểu rằng câu mực không giống câu cá thông thường. Cảm giác kéo mồi, nhận biết mực bám và thu dây cần sự hướng dẫn của thuyền viên. Không nên tự ý đổi vị trí, quăng mồi ra xa hoặc thao tác khi tàu đang di chuyển.\nMỗi khách có thể được phát cần riêng hoặc dùng chung tùy tour. Số lượng cần, tình trạng mồi, không gian đứng và mức độ hỗ trợ của thuyền viên ảnh hưởng trực tiếp tới trải nghiệm."
+          "label": "HOW IT WORKS",
+          "value": "Lights, artificial jigs and a controlled lifting action",
+          "note": "Boats commonly use lights to help attract squid, then crew show guests how to lower an artificial jig, manage the line and work the lure.\nSquid fishing does not feel the same as ordinary line fishing. Recognising when squid take the lure and bringing it in takes some guidance. Do not move position, cast far from the boat or handle gear while the boat is moving unless the crew says it is safe.\nDepending on the tour, guests may receive their own setup or share equipment. Rod count, lure condition, standing space and crew support all affect the experience."
         },
         {
           "icon": "03",
-          "label": "ĐỪNG KỲ VỌNG",
-          "value": "Đi là chắc chắn có mực",
-          "note": "Mực tự nhiên phụ thuộc vào mùa, con nước, thời tiết, ánh sáng và điều kiện biển. Có chuyến khách câu được nhiều, có chuyến chỉ câu được ít hoặc không câu được con nào.\nNếu tour có phục vụ mực câu được, cần hỏi rõ cách tính: mực có được chế biến tại chỗ không, có phải chia cho cả tàu không, có giới hạn sản lượng không và bữa ăn đã bao gồm trong giá hay chưa."
+          "label": "DON'T EXPECT",
+          "value": "A guaranteed catch",
+          "note": "Wild squid depend on season, tide, weather, light and sea conditions. Some trips catch plenty; others catch very little or none at all.\nIf the tour cooks the squid caught, ask how that works: whether the catch is cooked on board, shared among guests, limited in any way and whether the meal is already included in the price."
         }
       ],
       "sections": [
         {
-          "heading": "Một hoạt động du lịch bắt nguồn từ nhịp đánh bắt biển đêm",
-          "body": "Câu mực đêm cho du khách chạm vào một phần nhịp sống của người đi biển sau hoàng hôn: ánh đèn trên mặt nước, sự chờ đợi, thao tác với dây câu và cảm giác phụ thuộc vào thiên nhiên.\nMột số tour được giới thiệu xuất phát từ Dương Đông hoặc An Thới, nhưng bến và vùng câu có thể thay đổi theo mùa gió, điều kiện biển và cách tổ chức của từng đơn vị. Không nên xem tên bến ghi trong lịch trình cũ là thông tin cố định cho mọi ngày."
+          "heading": "A tourism experience built from the rhythm of night fishing",
+          "body": "Night squid fishing gives travellers a small taste of what happens on the water after sunset: boat lights, waiting, handling a line and accepting that nature controls the result.\nSome tours depart from Duong Dong, others from An Thoi, but harbour and fishing area can change with monsoon season, sea conditions and operator logistics. Do not treat the departure point written in an old itinerary as permanent."
         },
         {
-          "heading": "Chọn bến theo mùa và điều kiện biển",
-          "body": "Trước khi đi, hãy xác nhận lại:\n• Tàu khởi hành từ Dương Đông, An Thới hay bến khác.\n• Thời gian di chuyển từ khách sạn đến bến.\n• Vùng câu nằm trong vịnh, ngoài khơi hay gần khu đảo.\n• Loại tàu, số lượng khách và khu vực ngồi.\n• Dự báo gió, sóng và khả năng hoãn chuyến.\n• Có nhà vệ sinh, áo phao và phương án hỗ trợ người say sóng không.\nNgười dễ say sóng nên ăn nhẹ trước chuyến đi, tránh uống rượu bia và hỏi đơn vị tổ chức về vị trí ngồi ít rung lắc hơn. Trẻ nhỏ cần được mặc áo phao đúng cách và luôn có người lớn quan sát."
+          "heading": "Choose the harbour and fishing area according to the season and sea conditions",
+          "body": "Before departure, confirm:\n• Whether the boat leaves from Duong Dong, An Thoi or another harbour.\n• Transfer time from your hotel.\n• Whether the fishing area is in a bay, offshore or near smaller islands.\n• Boat type, group size and seating or standing area.\n• Wind, wave forecast and the chance of postponement.\n• Toilet, life jackets and support for seasick guests.\nAnyone prone to motion sickness should eat lightly, avoid alcohol and ask where the boat moves least. Children need correctly fitted life jackets and continuous adult supervision."
         }
       ],
       "visitor_questions": [
-        "Hôm nay tàu đi từ Dương Đông hay An Thới?",
-        "Tổng thời gian trên biển khoảng bao lâu?",
-        "Tàu chở tối đa bao nhiêu khách?",
-        "Biển tối nay có phù hợp với người dễ say sóng không?",
-        "Mỗi khách có một cần câu riêng hay dùng chung?",
-        "Nếu không câu được mực thì bữa ăn có thay đổi không?",
-        "Mực câu được có được chế biến tại chỗ không?",
-        "Bữa ăn, nước uống và thuốc say sóng đã nằm trong giá chưa?",
-        "Nếu thời tiết xấu, tour có đổi ngày hoặc hoàn tiền không?"
+        "Is tonight's departure from Duong Dong or An Thoi?",
+        "How much total time will we spend on the water?",
+        "What is the boat's maximum guest capacity?",
+        "Are sea conditions tonight suitable for someone prone to motion sickness?",
+        "Does each guest get a separate fishing setup or are rods shared?",
+        "If no squid are caught, does the meal change?",
+        "Can any squid caught be cooked on board?",
+        "Are the meal, drinking water and motion-sickness medicine included?",
+        "If weather is poor, can the tour be rescheduled or refunded?"
       ],
       "sources": [
         {
