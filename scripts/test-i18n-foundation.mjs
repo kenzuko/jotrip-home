@@ -73,5 +73,7 @@ assert.match(worker,/openpq_lang/);
 const seoHtml=readFileSync("functions/_shared/seo-html.js","utf8");
 assert.match(seoHtml,/i18n-runtime\.js\?v=4/);
 assert.match(seoHtml,/language-switcher\.js\?v=4/);
+assert.match(seoHtml,/data-openpq-language-switcher-server/,"Worker HTML must include a server-rendered VI/EN selector");
+assert.match(switcher,/serverFallback/,"Client enhancement must preserve the server selector when locale catalog loading fails");
 assert.match(worker,/private, no-store/);
 console.log("PASS i18n foundation: locale registry, URL policy, canonical paths and publication lock");
