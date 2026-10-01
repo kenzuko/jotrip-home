@@ -482,20 +482,20 @@
         "food",
         "evening"
       ],
-      "what_it_is": "Khu phố tấp nập nhất về đêm với các hàng quán ăn uống và mua sắm đồ lưu niệm.",
-      "why_go": "Ăn tối hải sản. · Đi bộ ngắm phố phường. · Ăn thử các món ăn vặt đường phố.",
+      "what_it_is": "Khu chợ đêm Bạch Đằng cũ ở Dương Đông đã dừng hoạt động sau ngày 28/02/2026.",
+      "why_go": "Không dùng như một điểm đang hoạt động. Nếu gặp lịch trình hoặc bài review cũ, hãy kiểm tra lại điểm ăn uống thực tế trước khi di chuyển.",
       "best_for": [
         "food",
         "evening"
       ],
-      "best_time": "Buổi tối",
-      "duration": "1-2 giờ",
-      "price_reference": "Theo quán/món",
+      "best_time": "Khu chợ cũ đã dừng hoạt động",
+      "duration": "Không còn áp dụng",
+      "price_reference": "Không còn áp dụng",
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Tuyệt chiêu ăn hải sản: Luôn hỏi thật rõ giá bán tính theo cân, hỏi kỹ xem có tính thêm phụ phí chế biến không trước khi chốt món.",
-        "Một góc nhìn thực tế: Đừng xem chợ đêm là toàn bộ bức tranh ẩm thực của Phú Quốc, đảo ngọc còn rất nhiều quán ăn địa phương ngon rẻ ở bên ngoài."
+        "Đừng chạy tới địa chỉ cũ chỉ vì một bài review hoặc bản đồ chưa cập nhật.",
+        "Nếu tìm chỗ ăn tối, hãy kiểm tra đúng địa điểm đang hoạt động và giờ mở cửa trong ngày."
       ],
       "intents": [
         "food",
@@ -524,24 +524,7 @@
           "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-22",
-      "opening_hours": {
-        "state": "APPROXIMATE_SCHEDULE",
-        "schedule_type": "DAILY_APPROXIMATE",
-        "timezone": "Asia/Ho_Chi_Minh",
-        "windows": [
-          {
-            "start": "18:00",
-            "end": "23:30",
-            "label": "Khung hoạt động thường thấy"
-          }
-        ],
-        "source_id": "visitpq_night_market_current_20260417",
-        "source_type": "OFFICIAL_TOURISM",
-        "verified_at": "2026-09-21",
-        "confidence": "MEDIUM",
-        "note": "Visit Phu Quoc 2026 ghi chợ thường hoạt động khoảng 18:00-23:30; một số gian có thể mở từ khoảng 15:00. Đây là khung tham khảo, không phải giờ đóng cửa đồng loạt."
-      },
+      "updated_at": "2026-10-01",
       "address": "54 Nguyễn Trãi, Dương Đông, Phú Quốc, An Giang, Việt Nam",
       "map": {
         "lat": 10.2183125,
