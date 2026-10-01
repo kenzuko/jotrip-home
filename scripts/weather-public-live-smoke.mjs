@@ -20,7 +20,9 @@ try{
   await page.locator('[data-live="weather"]').waitFor({state:"visible",timeout:45000});
   await page.waitForTimeout(3500);
   const homeText=(await page.locator('[data-live="weather"]').innerText()).trim();
-  const rawWeatherRequests=result.requests.filter(x=>/raw\.githubusercontent\.com/i.test(x));
+  const rawWeatherRequests=result.requests.filter(x=>
+    /raw\.githubusercontent\.com\/kenzuko\/Jotrip-Lab\/(?:gh-pages\/weather\/data\/critical\.json|data-weather\/data\/weather-nowcast\/compact-latest\.json)/i.test(x)
+  );
   const canonicalCritical=result.requests.some(x=>x.startsWith(base+"/weather/data/critical.json"));
   const canonicalNowcast=result.requests.some(x=>x.startsWith(base+"/weather/data/nowcast-compact.json"));
   result.home={text:homeText,canonicalCritical,canonicalNowcast,rawWeatherRequests};
