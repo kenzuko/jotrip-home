@@ -1237,14 +1237,18 @@ function renderActual(){
     cards.push('<article class="actual-card"><header><b>VVPQ · Dương Tơ</b><em class="badge actual">ĐO THỰC</em></header><strong>'+fmt(v.temperature_c,1)+'°C</strong><small>Gió '+fmt(v.wind_kmh,1)+' km/h'+airportGust+' · '+(v.weather?esc(v.weather)+' · ':'')+ageText(v.observed_at)+'</small></article>');
   }
   const sd=s.latest_numeric?.decoded_actual||{},sw=sd.wind||{};
-  const synopUsable=s.runtime_eligible===true&&String(s.numeric_status||"").toUpperCase()==="FRESH"&&s.latest_numeric_observed_at;
+  const synopAt=s.observed_at||s.latest_numeric_observed_at||null;
+  const synopUsable=s.runtime_eligible===true&&String(s.numeric_status||"").toUpperCase()==="FRESH"&&synopAt;
   if(synopUsable){
-    const temp=num(sd.air_temperature_c),wind=num(sw.speed_kmh),dir=num(sw.direction_deg),pressure=num(sd.sea_level_pressure_hpa??sd.station_pressure_hpa);
+    const temp=num(s.temperature_c??sd.air_temperature_c);
+    const wind=num(s.wind_kmh??sw.speed_kmh);
+    const dir=num(s.wind_direction_deg??sw.direction_deg);
+    const pressure=num(s.pressure_hpa??sd.sea_level_pressure_hpa??sd.station_pressure_hpa);
     const details=[];
-    if(wind!==null)details.push("Gió "+fmt(wind,1)+" km/h"+(dir!==null?" · "+fmt(dir,0)+"°":""));
+    if(wind!==null)details.push("Gió "+fmt(wind,1)+" km/h"+(dir!==null?" · hướng "+fmt(dir,0)+"°":""));
     if(pressure!==null)details.push("Áp suất "+fmt(pressure,1)+" hPa");
-    details.push(ageText(s.latest_numeric_observed_at));
-    cards.push('<article class="actual-card"><header><b>WMO 48917 · Dương Đông</b><em class="badge actual">ĐO THỰC</em></header><strong>'+(temp===null?"SYNOP":fmt(temp,1)+"°C")+'</strong><small>'+details.map(esc).join(" · ")+'</small></article>');
+    details.push(ageText(synopAt));
+    cards.push('<article class="actual-card"><header><b>Dương Đông · WMO 48917</b><em class="badge actual">ĐO THỰC</em></header><strong>'+(temp===null?"Có số đo mới":fmt(temp,1)+"°C")+'</strong><small>'+details.map(esc).join(" · ")+'</small></article>');
   }
   g.forEach(x=>{
     const win=num(x.increment_min),inc=num(x.increment_mm),rate=num(x.rain_intensity_mm_h),acc=num(x.accum_mm);
