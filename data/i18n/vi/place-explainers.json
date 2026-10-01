@@ -1,43 +1,57 @@
 {
   "schema_version": "1.0",
   "locale": "vi",
-  "updated_at": "2026-09-20",
+  "updated_at": "2026-10-01",
   "items": {
     "place_dinh_cau": {
-      "lede": "Dinh Cậu đáng ghé không phải vì đây là một điểm ngắm hoàng hôn, mà vì nó nằm đúng chỗ giao nhau giữa cửa sông, biển và đời sống tín ngưỡng của cư dân làm nghề biển ở Dương Đông.",
+      "lede": "Dinh Cậu đáng ghé không chỉ vì đây là một điểm ngắm hoàng hôn, mà vì nó nằm đúng nơi giao nhau giữa cửa sông Dương Đông, biển và đời sống tín ngưỡng của cư dân làm nghề biển. Đây là một không gian nhỏ nhưng có nhiều lớp: ghềnh đá, miếu thờ, lối đi, khu dân cư, tàu thuyền và nhịp sinh hoạt trung tâm Dương Đông. Du khách không cần dành cả buổi cho Dinh Cậu, nhưng nên nhìn nơi này như một phần của lịch sử và văn hóa biển Phú Quốc, không phải chỉ là một góc chụp ảnh.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÂY LÀ GÌ?",
-          "value": "Không gian tín ngưỡng ven biển",
-          "note": "Một ngôi miếu nhỏ trên ghềnh đá cạnh cửa sông Dương Đông, gắn với niềm tin cầu bình an trước những chuyến ra khơi."
+          "label": "QUY MÔ",
+          "value": "Ghềnh đá, miếu thờ và không gian cửa sông",
+          "note": "Dinh Cậu không phải một quần thể tham quan lớn. Trải nghiệm tập trung trong một khu vực gọn gồm:"
         },
         {
           "icon": "02",
           "label": "VÌ SAO QUAN TRỌNG?",
           "value": "Một lát cắt của văn hóa biển",
-          "note": "Nguồn du lịch địa phương ghi nhận Dinh Cậu đã hiện diện qua nhiều thế hệ và trở thành một điểm tựa tinh thần quen thuộc của cư dân đảo."
+          "note": "Dinh Cậu gắn với niềm tin cầu bình an cho người đi biển và cộng đồng cư dân ven biển. Các nguồn phổ thông thường cho rằng nơi này có lịch sử từ khoảng thế kỷ XVII; công trình hiện nay được xây dựng vào năm 1937 và trùng tu năm 1997. Tuy nhiên, mốc hình thành ban đầu vẫn nên diễn đạt thận trọng vì các nguồn không hoàn toàn thống nhất."
         },
         {
           "icon": "03",
           "label": "NHÌN GÌ?",
           "value": "Ghềnh đá - cửa sông - không gian thờ",
-          "note": "Đừng chỉ nhìn ra biển. Hãy để ý cách một nơi thờ tự nhỏ nằm sát hoạt động tàu thuyền và nhịp sống Dương Đông."
+          "note": "Đừng chỉ nhìn ra biển. Hãy quan sát cách miếu nằm trên ghềnh đá, cửa sông mở ra phía trước, tàu thuyền di chuyển bên dưới và khu dân cư bao quanh."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Ghềnh đá, miếu thờ và không gian cửa sông",
+          "body": "Dinh Cậu không phải một quần thể tham quan lớn. Trải nghiệm tập trung trong một khu vực gọn gồm: • Lối tiếp cận từ khu trung tâm Dương Đông. • Bậc thang lên ghềnh đá. • Miếu thờ và không gian hành lễ. • Sân hoặc khoảng đứng nhìn ra biển. • Khu vực cửa sông, tàu thuyền và bờ kè xung quanh. Vì diện tích tham quan không lớn, du khách thường chỉ cần khoảng 20-40 phút để đi lên, quan sát, thắp hương nếu có nhu cầu và ngắm cảnh. Vào giờ hoàng hôn hoặc dịp lễ, thời gian có thể kéo dài do đông người và khó tìm vị trí đứng. Dinh Cậu nằm cách khu vực chợ đêm Dương Đông một đoạn đi bộ ngắn, nên thường được ghép cùng chợ đêm, bờ sông và các tuyến phố trung tâm."
+        },
+        {
+          "heading": "VÌ SAO QUAN TRỌNG?: Một lát cắt của văn hóa biển",
+          "body": "Dinh Cậu gắn với niềm tin cầu bình an cho người đi biển và cộng đồng cư dân ven biển. Các nguồn phổ thông thường cho rằng nơi này có lịch sử từ khoảng thế kỷ XVII; công trình hiện nay được xây dựng vào năm 1937 và trùng tu năm 1997. Tuy nhiên, mốc hình thành ban đầu vẫn nên diễn đạt thận trọng vì các nguồn không hoàn toàn thống nhất. Điều quan trọng không nằm ở việc nhớ chính xác một con số, mà ở việc hiểu vì sao một miếu nhỏ trên ghềnh đá lại tồn tại lâu dài trong đời sống cộng đồng. Với người dân biển, đây là nơi gửi gắm niềm tin trước những chuyến ra khơi, không phải công trình được tạo ra riêng cho khách du lịch."
+        },
+        {
+          "heading": "NHÌN GÌ?: Ghềnh đá - cửa sông - không gian thờ",
+          "body": "Đừng chỉ nhìn ra biển. Hãy quan sát cách miếu nằm trên ghềnh đá, cửa sông mở ra phía trước, tàu thuyền di chuyển bên dưới và khu dân cư bao quanh. Trải nghiệm ở Dinh Cậu có thể chia thành ba lớp: • Không gian thờ tự: nơi cần giữ thái độ nghiêm túc. • Không gian địa hình: bậc đá, ghềnh và góc nhìn ra biển. • Không gian đời sống: cửa sông, tàu thuyền, hàng quán và phố trung tâm."
+        },
+        {
           "heading": "Một nơi nên đọc bằng bối cảnh",
-          "body": "Các nguồn du lịch địa phương đặt lịch sử Dinh Cậu từ khoảng thế kỷ XVII, sau đó công trình được xây dựng kiên cố hơn vào năm 1937 và trùng tu vào năm 1997. Những mốc này nên được hiểu như phần lịch sử của một nơi thờ tự đã sống cùng cộng đồng cư dân biển qua nhiều thế hệ, không phải chỉ là một “điểm check-in”."
+          "body": "Dinh Cậu là một nơi thờ tự nhỏ nhưng nằm ở vị trí có ý nghĩa đặc biệt với Dương Đông. Các mốc thế kỷ XVII, năm 1937 và năm 1997 nên được hiểu như những lớp lịch sử của một nơi đã sống cùng cộng đồng cư dân biển qua nhiều thế hệ, không phải lý do để biến nơi này thành một “điểm check-in cổ”. Vị trí hiện tại cũng cho thấy Dinh Cậu không tách khỏi đời sống đô thị. Đây là nơi tín ngưỡng, cảnh quan và hoạt động du lịch cùng tồn tại trong một không gian hẹp."
         },
         {
           "heading": "Đi như khách nhưng cư xử như đang vào nơi thờ tự",
-          "body": "Dinh Cậu vẫn là không gian tín ngưỡng. Khi vào khu thờ, nên ăn mặc gọn gàng, nói nhỏ, không chắn lối hành lễ và không xem bậc thềm hay ban thờ như đạo cụ chụp ảnh."
+          "body": "Khi vào khu thờ, nên ăn mặc gọn gàng, nói nhỏ, không chắn lối hành lễ và không xem bậc thềm, ban thờ hay tượng thờ như đạo cụ chụp ảnh. Ghềnh đá có thể trơn, đặc biệt sau mưa hoặc khi có hơi nước biển. Không nên leo ra mép đá chỉ để lấy góc ảnh đẹp, nhất là lúc trời tối hoặc gió mạnh."
         }
       ],
       "visitor_questions": [
         "Có nghi lễ hoặc thời điểm thờ cúng nào đang diễn ra không?",
-        "Khu vực nào nên tránh đứng lâu để không cản người hành lễ?"
+        "Khu vực nào nên tránh đứng lâu để không cản người hành lễ?",
+        "Lối lên ghềnh đá hôm nay có trơn hoặc hạn chế tiếp cận không?",
+        "Có thể quan sát cửa sông và tàu thuyền từ vị trí nào an toàn?"
       ],
       "sources": [
         {
@@ -51,41 +65,50 @@
       ]
     },
     "place_rach_vem": {
-      "lede": "Rạch Vẹm trước hết là một làng chài ở Bắc đảo. Sao biển chỉ là một phần của trải nghiệm và không nên trở thành lời hứa rằng tới đây lúc nào cũng thấy.",
+      "lede": "Rạch Vẹm thực chất là một xóm chài ở phía Bắc đảo, nơi cảnh quan du lịch vẫn gắn với biển cạn, những bè nổi và sinh kế của người dân địa phương. Đây không phải một khu vui chơi được quy hoạch đồng bộ, càng không phải một “bãi sao biển” hoạt động theo lịch cố định. Trải nghiệm tại đây phụ thuộc nhiều vào con nước, thời tiết, tình trạng bãi và cách từng nhà bè tổ chức đón khách.",
       "infographic": [
         {
           "icon": "01",
           "label": "ĐÂY LÀ GÌ?",
-          "value": "Làng chài ven biển Bắc đảo",
-          "note": "Khu dân cư gắn với đánh bắt gần bờ và nuôi trồng thủy sản quy mô hộ gia đình."
+          "value": "",
+          "note": "Ý chính: Làng chài ven biển Bắc đảo"
         },
         {
           "icon": "02",
           "label": "ĐI VÌ GÌ?",
-          "value": "Nước nông, nhà bè và nhịp làng chài",
-          "note": "Hợp với người muốn nhìn một Phú Quốc đời thường hơn thay vì chỉ đi resort và khu vui chơi."
+          "value": "",
+          "note": "Ý chính: Biển xanh, cát trắng, nhà bè và nhịp làng chài"
         },
         {
           "icon": "03",
           "label": "ĐỪNG KỲ VỌNG SAI",
-          "value": "Sao biển không phải lúc nào cũng có",
-          "note": "Mùa, thủy triều và điều kiện bãi thay đổi. Không nên nhấc sao biển khỏi nước để chụp ảnh."
+          "value": "",
+          "note": "Ý chính: Sao biển không phải lúc nào cũng có"
         }
       ],
       "sections": [
         {
+          "heading": "ĐÂY LÀ GÌ?",
+          "body": "Ý chính: Làng chài ven biển Bắc đảo Rạch Vẹm là một không gian dân cư ven biển với nhiều lớp cảnh quan đan xen: đường làng, bãi cát, vùng nước cạn, bè nổi, khu neo đậu và những nếp sinh hoạt gắn với biển. Quy mô của Rạch Vẹm không nằm ở số lượng trò chơi hay công trình, mà nằm ở độ trải dài và tính phân tán của trải nghiệm. Du khách có thể ghé bãi, đi ra bè, ăn hải sản, quan sát đời sống ven biển hoặc tìm những vùng nước cạn để ngắm sinh vật biển. Mỗi hoạt động lại phụ thuộc vào một khu vực và điều kiện tự nhiên khác nhau. Vì đây là một làng chài chứ không phải công viên du lịch, chất lượng dịch vụ, lối đi, bãi đỗ xe, nhà vệ sinh và cách phục vụ có thể không đồng đều giữa các điểm. Đừng kỳ vọng toàn bộ khu vực vận hành giống một tổ hợp nghỉ dưỡng được chuẩn hóa."
+        },
+        {
+          "heading": "ĐI VÌ GÌ?",
+          "body": "Ý chính: Biển xanh, cát trắng, nhà bè và nhịp làng chài Rạch Vẹm phù hợp với người muốn nhìn thấy một Phú Quốc đời thường hơn: đi trên những đoạn đường ven biển, ngồi ở nhà bè, ăn hải sản và quan sát cách người dân sống cùng mặt nước. Có thể chia trải nghiệm ở đây thành ba lớp: • Bãi và vùng nước cạn: phù hợp để đi bộ, ngắm cảnh và quan sát sinh vật biển khi điều kiện cho phép. • Nhà bè: phù hợp để dùng bữa, nghỉ chân và nhìn đời sống đánh bắt, nuôi trồng hoặc kinh doanh hải sản. • Không gian làng chài: phù hợp với người thích chụp ảnh, tìm hiểu địa phương và đi chậm thay vì tìm một chuỗi trò chơi liên tục. Điểm đáng giá nhất không nhất thiết là “gặp được bao nhiêu sao biển”, mà là cảm nhận được mối liên hệ giữa biển, bãi, nhà bè và sinh kế của người dân."
+        },
+        {
+          "heading": "ĐỪNG KỲ VỌNG SAI",
+          "body": "Ý chính: Sao biển không phải lúc nào cũng có Sao biển không xuất hiện theo lịch và không phải khu vực nào ở Rạch Vẹm cũng có cùng điều kiện quan sát. Con nước, độ trong của nước, thời tiết, mùa và tác động của con người đều có thể làm trải nghiệm thay đổi. Đừng mua một lời hứa tuyệt đối rằng cứ đến là chắc chắn thấy sao biển. Nếu không gặp, chuyến đi vẫn có thể đáng giá nhờ cảnh biển, nhà bè và không khí làng chài."
+        },
+        {
           "heading": "Rạch Vẹm không phải một “bãi sao biển” cố định",
-          "body": "Nguồn du lịch địa phương mô tả Rạch Vẹm là một làng chài phía Bắc đảo, cách Dương Đông khoảng 20-25 km theo tuyến đường hiện hành. Trải nghiệm đáng giá nhất là nhìn không gian làng chài, bãi nước nông và sinh hoạt ven biển. Việc có thấy nhiều sao biển hay không phụ thuộc điều kiện tự nhiên."
+          "body": "Nằm cách trung tâm Dương Đông khoảng 20-25 km, Rạch Vẹm là một khu vực trải nghiệm trải dài chứ không phải một điểm check-in duy nhất. Từ đường vào, bãi ven biển, những đoạn nước cạn cho tới các nhà bè, mỗi vị trí có điều kiện tiếp cận và cảnh quan khác nhau. Nếu đi cùng trẻ nhỏ hoặc người lớn tuổi, cần tính thêm thời gian di chuyển, tìm chỗ đỗ xe, đi bộ trên nền cát và nghỉ ngơi. Vào những ngày mưa, gió mạnh hoặc đường xấu, trải nghiệm có thể khác đáng kể so với hình ảnh quảng bá."
         },
         {
           "heading": "Điểm cần để ý là cách mình tương tác với bãi",
-          "body": "Sao biển là sinh vật sống. Nếu bắt gặp, nên quan sát tại chỗ và tránh cầm lên khỏi nước. Với khu nhà bè và bến nhỏ, cũng nên nhớ đây là nơi người dân làm việc chứ không phải sân khấu du lịch."
+          "body": "Nếu may mắn bắt gặp sao biển, hãy chỉ ngắm nhìn chúng trong môi trường tự nhiên dưới làn nước. Không nhấc lên khỏi mặt nước, không đặt lên cát, không chuyền tay nhau và không di chuyển chúng sang vị trí khác để chụp ảnh. Khi đặt chân lên những nhà bè, xin nhớ rằng đây là nơi mưu sinh của người dân bản địa - không phải một sân khấu được dựng lên chỉ để phục vụ khách du lịch. Hãy hỏi trước khi chụp ảnh, giữ lối đi thông thoáng và tôn trọng không gian làm việc của họ."
         }
       ],
-      "visitor_questions": [
-        "Hôm nay bãi nào dễ tiếp cận và đường đi ra sao?",
-        "Mực nước và điều kiện bãi hiện tại có phù hợp để ghé không?"
-      ],
+      "visitor_questions": [],
       "sources": [
         {
           "label": "VisitPhuQuoc - Cách đi Rạch Vẹm Phú Quốc",
@@ -94,40 +117,54 @@
       ]
     },
     "place_ho_quoc": {
-      "lede": "Hộ Quốc là một thiền viện Trúc Lâm nằm ở Suối Lớn, nơi kiến trúc, sườn núi và tầm nhìn ra biển tạo nên trải nghiệm hoàn toàn khác các điểm vui chơi ở Nam đảo.",
+      "lede": "Hộ Quốc là thiền viện Trúc Lâm nằm ở khu Suối Lớn, trên sườn núi hướng ra biển. Giá trị của nơi này không chỉ nằm ở một góc nhìn đẹp, mà ở sự kết hợp giữa không gian Phật giáo, kiến trúc, địa hình núi và cảnh quan biển Nam đảo. Khu vực chùa thường được giới thiệu nằm trong một quần thể du lịch tâm linh khoảng 110 ha, trong đó phần công trình chùa chỉ chiếm một phần diện tích, phần còn lại gắn với rừng và cảnh quan tự nhiên. Tuy nhiên, các con số về tổng diện tích và tỷ lệ sử dụng cần ghi rõ là của toàn bộ dự án, không nên hiểu toàn bộ 110 ha đều là khu khách tham quan tự do.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÂY LÀ GÌ?",
-          "value": "Thiền viện Trúc Lâm Hộ Quốc",
-          "note": "Một không gian Phật giáo lớn ở Phú Quốc, nằm tại khu Suối Lớn."
+          "label": "QUY MÔ",
+          "value": "Quần thể tâm linh trên sườn núi, không chỉ một ngôi chùa",
+          "note": "Hộ Quốc gồm nhiều lớp không gian:"
         },
         {
           "icon": "02",
           "label": "CẢNH QUAN",
-          "value": "Lưng núi - mặt biển",
-          "note": "Nguồn du lịch địa phương mô tả vị thế “tựa sơn hướng hải”, một phần quan trọng tạo nên cảm giác của nơi này."
+          "value": "Lưng núi - mặt biển - tầm nhìn mở",
+          "note": "Vị thế “tựa sơn hướng hải” là phần quan trọng tạo nên cảm giác của Hộ Quốc. Núi phía sau tạo độ che chắn và chiều sâu, còn phía trước mở ra biển và đường chân trời."
         },
         {
           "icon": "03",
           "label": "CÁCH GHÉ",
-          "value": "Đi chậm và giữ sự tôn trọng",
-          "note": "Hợp để ghé buổi sáng hoặc khi muốn có một khoảng lặng giữa các điểm vui chơi."
+          "value": "Đi chậm, mặc phù hợp và giữ sự yên tĩnh",
+          "note": "Hộ Quốc hợp để ghé buổi sáng hoặc ghép vào một ngày tham quan Nam đảo. Không nên xếp chùa vào giữa một lịch trình quá gấp, nhất là khi du khách vừa đi biển, vừa di chuyển xa và chỉ còn ít phút trước điểm tiếp theo."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Quần thể tâm linh trên sườn núi, không chỉ một ngôi chùa",
+          "body": "Hộ Quốc gồm nhiều lớp không gian: • Khu cổng và lối tiếp cận. • Sân, bậc thang và khu chính điện. • Các công trình phụ trợ, khu thờ tự và không gian sinh hoạt Phật giáo. • Sườn núi, cây xanh và các khoảng nhìn ra biển. • Những đoạn đường dốc, bậc cao và khu vực cần giữ yên lặng. Du khách thường chỉ dừng ở khu chính điện và sân trước, nhưng cảm nhận về nơi này đến từ cả quá trình đi lên, nhìn xuống biển và chuyển từ không gian giao thông bên ngoài sang không gian tôn giáo bên trong. Đây không phải điểm tham quan cần đi bộ cả ngày. Một chuyến ghé cơ bản có thể kéo dài khoảng 30-60 phút; nếu muốn ngồi tĩnh tâm, tìm hiểu kiến trúc hoặc đi chậm trong khuôn viên, nên dành lâu hơn."
+        },
+        {
+          "heading": "CẢNH QUAN: Lưng núi - mặt biển - tầm nhìn mở",
+          "body": "Vị thế “tựa sơn hướng hải” là phần quan trọng tạo nên cảm giác của Hộ Quốc. Núi phía sau tạo độ che chắn và chiều sâu, còn phía trước mở ra biển và đường chân trời. Tầm nhìn thay đổi theo: • Giờ trong ngày. • Độ trong của không khí. • Mây, nắng và sương. • Hướng gió. • Vị trí đứng trong khuôn viên. Không nên xem Hộ Quốc như một đài quan sát biển được xây riêng cho khách du lịch. Cảnh quan là một phần của không gian tôn giáo, nên việc tìm góc chụp cần đứng sau sự tôn trọng nơi thờ tự."
+        },
+        {
+          "heading": "CÁCH GHÉ: Đi chậm, mặc phù hợp và giữ sự yên tĩnh",
+          "body": "Hộ Quốc hợp để ghé buổi sáng hoặc ghép vào một ngày tham quan Nam đảo. Không nên xếp chùa vào giữa một lịch trình quá gấp, nhất là khi du khách vừa đi biển, vừa di chuyển xa và chỉ còn ít phút trước điểm tiếp theo. Trang phục kín đáo, giày dép dễ đi bậc thang và thái độ giữ yên lặng quan trọng hơn việc chuẩn bị quá nhiều thiết bị chụp ảnh. Người lớn tuổi cần lưu ý các đoạn bậc và dốc; gia đình có trẻ nhỏ nên nhắc trẻ không chạy nhảy trong khu thờ tự."
+        },
+        {
           "heading": "Không chỉ là một điểm có view đẹp",
-          "body": "Thiền viện Trúc Lâm Hộ Quốc nằm tại ấp Suối Lớn. Cảnh quan núi phía sau và biển phía trước khiến nhiều người đến đây vì tầm nhìn, nhưng đây trước hết vẫn là một không gian tôn giáo đang được sử dụng."
+          "body": "Thiền viện Trúc Lâm Hộ Quốc nằm tại ấp Suối Lớn, thuộc khu vực Nam đảo. Kiến trúc, bậc thang, sân chùa và vị trí tựa núi hướng biển tạo thành một trải nghiệm có nhịp chậm. Nếu chỉ đến để chụp biển, du khách sẽ bỏ qua phần quan trọng nhất: đây là một cơ sở tôn giáo đang được sử dụng. Người đến lễ, người tu tập và người làm công quả có thể xuất hiện bất cứ lúc nào."
         },
         {
           "heading": "Ứng xử quan trọng hơn việc tìm góc chụp",
-          "body": "Nên mặc trang phục kín đáo, nói nhỏ, tránh chụp sát người đang hành lễ và không bước vào khu vực có chỉ dẫn hạn chế. Nếu đi cùng trẻ nhỏ, nên giải thích trước đây là nơi thờ tự chứ không phải điểm vui chơi."
+          "body": "Nên mặc trang phục kín đáo, nói nhỏ, tắt hoặc giảm âm thanh điện thoại, không chụp sát người đang hành lễ và không đứng chắn lối đi. Nếu có biển hạn chế chụp ảnh, không bước vào hoặc không sử dụng đèn flash, cần tuân thủ ngay cả khi khu vực đó có góc nhìn đẹp. Nếu đi cùng trẻ nhỏ, nên giải thích trước đây là nơi thờ tự chứ không phải điểm vui chơi."
         }
       ],
       "visitor_questions": [
         "Khu vực nào đang có lễ hoặc cần giữ yên lặng?",
-        "Có khu vực nào không nên chụp ảnh không?"
+        "Có khu vực nào không nên chụp ảnh không?",
+        "Đường lên chính điện hôm nay có phù hợp với người lớn tuổi không?",
+        "Nếu chỉ có 30 phút, nên ưu tiên khu vực nào?"
       ],
       "sources": [
         {
@@ -137,40 +174,55 @@
       ]
     },
     "place_phu_quoc_prison": {
-      "lede": "Nhà tù Phú Quốc là một di tích lịch sử nhạy cảm. Đây không phải một điểm “tham quan cho đủ”, mà là nơi cần thời gian đọc bối cảnh trước khi nhìn các mô hình tái hiện.",
+      "lede": "Nhà tù Phú Quốc, tên gọi trong hồ sơ di tích là Trại giam Phú Quốc, là một di tích lịch sử nhạy cảm. Đây không phải điểm “tham quan cho đủ”, mà là nơi cần đọc bối cảnh trước khi nhìn các mô hình tái hiện. Theo hồ sơ của Cục Di sản văn hóa, trại giam từng có diện tích khoảng 400 ha, gần 500 ngôi nhà chia thành 12 khu; trong thời gian tồn tại từ tháng 6/1967 đến tháng 3/1973, nơi đây giam giữ khoảng 40.000 lượt tù binh. Những con số và mốc liên quan đến các giai đoạn trước đó có thể xuất hiện khác nhau giữa các nguồn phổ thông, nên cần tách rõ từng giai đoạn lịch sử.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÂY LÀ GÌ?",
-          "value": "Di tích lịch sử về hệ thống trại giam thời chiến",
-          "note": "Nơi lưu giữ ký ức về tù binh và những điều kiện giam giữ khắc nghiệt trong các giai đoạn chiến tranh."
+          "label": "QUY MÔ",
+          "value": "Một hệ thống trại giam lớn, không phải một căn nhà tù đơn lẻ",
+          "note": "Quy mô lịch sử của Nhà tù Phú Quốc từng gồm:"
         },
         {
           "icon": "02",
           "label": "NÊN ĐỌC THẾ NÀO?",
-          "value": "Bối cảnh trước - mô hình sau",
-          "note": "Các con số và mốc thành lập khác nhau giữa một số nguồn phổ thông. Open Phu Quoc tránh rút gọn lịch sử thành một mốc duy nhất khi chưa đối chiếu hồ sơ gốc."
+          "value": "Bối cảnh trước - mô hình sau - suy ngẫm cuối cùng",
+          "note": "Các mô hình tái hiện có tính trực diện và dễ gây sốc. Nếu chỉ đi qua nhanh, người xem dễ nhớ phần hình ảnh bạo lực mà bỏ qua bối cảnh: hệ thống trại giam vận hành ra sao, tù binh là ai, các giai đoạn lịch sử khác nhau như thế nào và vì sao di tích có ý nghĩa."
         },
         {
           "icon": "03",
           "label": "ỨNG XỬ",
-          "value": "Đây là nơi tưởng niệm",
-          "note": "Không nên tạo dáng đùa cợt trong khu tái hiện tra tấn hoặc biến các hiện vật thành phông chụp ảnh."
+          "value": "Đây là di tích và nơi tưởng niệm",
+          "note": "Không nên tạo dáng đùa cợt trong khu tái hiện tra tấn, bắt chước tư thế của tù binh hoặc biến hiện vật thành phông chụp ảnh vui vẻ."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Một hệ thống trại giam lớn, không phải một căn nhà tù đơn lẻ",
+          "body": "Quy mô lịch sử của Nhà tù Phú Quốc từng gồm: • Nhiều khu trại được phân chia theo từng khu vực. • Hàng trăm nhà giam và công trình phục vụ quản lý. • Các phân khu cách nhau theo khoảng cách nhất định. • Khu giam giữ, khu biệt giam và những không gian liên quan đến đời sống tù binh. • Khu trưng bày, bảng giới thiệu và mô hình tái hiện tại phần di tích mở cửa cho khách. Không gian khách tham quan hiện nay không đồng nghĩa với toàn bộ quy mô 400 ha của trại giam trong lịch sử. Đây là điểm cần nói rõ để tránh việc du khách tưởng mình đang đi qua toàn bộ khu trại cũ. Một buổi tham quan cơ bản có thể kéo dài khoảng 45-90 phút, tùy việc đọc bảng thông tin, xem hiện vật và dành thời gian ở khu tái hiện. Nếu đi theo đoàn đông, nên chừa thêm thời gian cho thuyết minh và việc di chuyển giữa các khu."
+        },
+        {
+          "heading": "NÊN ĐỌC THẾ NÀO?: Bối cảnh trước - mô hình sau - suy ngẫm cuối cùng",
+          "body": "Các mô hình tái hiện có tính trực diện và dễ gây sốc. Nếu chỉ đi qua nhanh, người xem dễ nhớ phần hình ảnh bạo lực mà bỏ qua bối cảnh: hệ thống trại giam vận hành ra sao, tù binh là ai, các giai đoạn lịch sử khác nhau như thế nào và vì sao di tích có ý nghĩa. Nên đi theo ba bước: • Đọc tên di tích, mốc thời gian và sơ đồ tổng thể. • Tìm hiểu cơ cấu các khu trại và hoàn cảnh giam giữ. • Sau đó mới xem mô hình, hiện vật và khu tái hiện. Cách này giúp chuyến đi chuyển từ cảm giác “xem một nơi đáng sợ” sang hiểu một phần lịch sử chiến tranh và ký ức của những người từng bị giam giữ."
+        },
+        {
+          "heading": "ỨNG XỬ: Đây là di tích và nơi tưởng niệm",
+          "body": "Không nên tạo dáng đùa cợt trong khu tái hiện tra tấn, bắt chước tư thế của tù binh hoặc biến hiện vật thành phông chụp ảnh vui vẻ. Trẻ nhỏ có thể đi cùng, nhưng người lớn cần chuẩn bị trước rằng nội dung tại đây có hình ảnh và mô hình bạo lực. Với trẻ nhạy cảm, nên chọn cách giới thiệu phù hợp, tránh để trẻ tự tiếp xúc đột ngột với các cảnh tái hiện."
+        },
+        {
           "heading": "Một nơi có nhiều lớp lịch sử",
-          "body": "Các nguồn công khai mô tả khu trại giam tại Phú Quốc qua nhiều giai đoạn khác nhau và không hoàn toàn thống nhất về năm bắt đầu. Điều chắc chắn là địa điểm này gắn với hệ thống giam giữ quy mô lớn trong thời chiến và được công nhận là di tích lịch sử quốc gia trong thập niên 1990."
+          "body": "Các nguồn phổ thông thường mô tả Nhà tù Phú Quốc qua nhiều giai đoạn khác nhau, trong đó có các cơ sở giam giữ thời Pháp và hệ thống trại giam tù binh được mở rộng trong giai đoạn 1967-1973. Không nên rút toàn bộ lịch sử thành một mốc duy nhất. Điểm chắc chắn cần giữ là quy mô giam giữ rất lớn, thời gian tồn tại gắn với chiến tranh và di tích có giá trị đặc biệt trong việc lưu giữ ký ức về tù binh."
         },
         {
           "heading": "Nên dành thời gian đọc bảng thông tin",
-          "body": "Các mô hình tái hiện rất trực diện. Nếu chỉ đi qua nhanh, người xem dễ nhớ phần gây sốc mà bỏ qua bối cảnh lịch sử. Nên đọc phần giới thiệu, sơ đồ khu trại và các tài liệu tại chỗ trước khi đi sâu vào khu tái hiện."
+          "body": "Các mô hình tái hiện rất trực diện. Nếu chỉ đi qua nhanh, người xem dễ nhớ phần gây sốc mà bỏ qua bối cảnh lịch sử. Nên đọc phần giới thiệu, sơ đồ khu trại và những ghi chú tại chỗ trước khi đi sâu vào khu tái hiện. Nếu có thuyết minh viên hoặc tài liệu chính thức, nên ưu tiên nguồn đó thay vì chỉ nghe những lời kể rời rạc bên ngoài."
         }
       ],
       "visitor_questions": [
-        "Có thuyết minh hoặc tài liệu tiếng Anh nào tại điểm không?",
-        "Khu nào phù hợp nếu đi cùng trẻ nhỏ hoặc người nhạy cảm với nội dung bạo lực?"
+        "Tài liệu tại điểm có giải thích rõ các giai đoạn lịch sử không?",
+        "Có thuyết minh hoặc tài liệu tiếng Anh không?",
+        "Khu nào phù hợp nếu đi cùng trẻ nhỏ hoặc người nhạy cảm với nội dung bạo lực?",
+        "Phần di tích hiện mở cửa cho khách tham quan gồm những khu nào?",
+        "Những mô hình đang xem là hiện vật gốc hay phần tái hiện?"
       ],
       "sources": [
         {
@@ -184,40 +236,55 @@
       ]
     },
     "place_bai_khem": {
-      "lede": "Bãi Khem là một dải biển Nam đảo gần An Thới, nổi bật bởi cát sáng màu, vịnh cong và không gian resort. Cần phân biệt phần bãi công cộng, lối tiếp cận và khu vực thuộc các cơ sở lưu trú.",
+      "lede": "Bãi Khem là một dải biển Nam đảo gần An Thới, nổi bật bởi bãi cát sáng màu, vịnh cong và không gian nghỉ dưỡng. Tuy nhiên, du khách cần phân biệt giữa bãi biển, các lối tiếp cận, khu dịch vụ và phần không gian gắn với cơ sở lưu trú. Bãi Khem không nên được hiểu là một bãi công cộng duy nhất với một cổng vào và một cách sử dụng thống nhất. Cách tiếp cận thực tế có thể thay đổi theo khu vực, thời điểm và đơn vị đang vận hành dịch vụ.",
       "infographic": [
         {
           "icon": "01",
-          "label": "Ở ĐÂU?",
-          "value": "Nam đảo - khu An Thới",
-          "note": "Nguồn du lịch địa phương mô tả Bãi Khem nằm phía Nam Phú Quốc, cách trung tâm Dương Đông khoảng 25 km."
+          "label": "QUY MÔ",
+          "value": "Dải bãi cong, khu nghỉ dưỡng và nhiều lối tiếp cận",
+          "note": "Bãi Khem là một không gian biển trải dài theo vịnh, phía sau là các khu rừng và khu phát triển nghỉ dưỡng. Trải nghiệm thường gồm:"
         },
         {
           "icon": "02",
           "label": "HỢP VỚI AI?",
-          "value": "Muốn một buổi biển nhẹ nhàng",
-          "note": "Hợp để ghép với các điểm Nam đảo thay vì chạy ngược lên Bắc trong cùng ngày."
+          "value": "Muốn một buổi biển nhẹ nhàng và dễ ghép lịch",
+          "note": "Bãi Khem hợp với du khách muốn nghỉ biển, tắm nước nông khi điều kiện thuận lợi, ăn hải sản hoặc kết hợp với các điểm Nam đảo."
         },
         {
           "icon": "03",
           "label": "CẦN BIẾT",
-          "value": "Lối vào và khu sử dụng có thể khác nhau",
-          "note": "Một phần bãi gắn với khu nghỉ dưỡng. Nên kiểm tra lối tiếp cận phù hợp trước khi đi."
+          "value": "Lối vào, dịch vụ và phạm vi sử dụng có thể khác nhau",
+          "note": "Một phần bãi gắn với khu nghỉ dưỡng và các cơ sở dịch vụ. Trước khi đi, nên xác định:"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Dải bãi cong, khu nghỉ dưỡng và nhiều lối tiếp cận",
+          "body": "Bãi Khem là một không gian biển trải dài theo vịnh, phía sau là các khu rừng và khu phát triển nghỉ dưỡng. Trải nghiệm thường gồm: • Dải cát và vùng nước ven bờ. • Các lối xuống biển từ khu dân cư hoặc khu dịch vụ. • Khu nghỉ dưỡng và các công trình lưu trú. • Dịch vụ ăn uống, ghế nghỉ, tắm tráng hoặc thể thao biển tùy điểm. • Những đoạn bãi có mức độ yên tĩnh và mật độ khách khác nhau. Quy hoạch khu vực Bãi Khem được giới thiệu với nhiều khu chức năng du lịch, trong đó có các phân khu nghỉ dưỡng sinh thái. Con số quy hoạch không đồng nghĩa toàn bộ khu vực đều đã xây dựng hoặc mở cho khách tham quan tự do."
+        },
+        {
+          "heading": "HỢP VỚI AI?: Muốn một buổi biển nhẹ nhàng và dễ ghép lịch",
+          "body": "Bãi Khem hợp với du khách muốn nghỉ biển, tắm nước nông khi điều kiện thuận lợi, ăn hải sản hoặc kết hợp với các điểm Nam đảo. Đây không phải nơi cần cố chinh phục trong nhiều giờ. Một lịch trình 2-4 giờ thường đủ cho tắm biển, nghỉ ngơi, dùng bữa và chụp ảnh nếu không tham gia thêm hoạt động dài. Gia đình có trẻ nhỏ cần chọn khu nước êm, có chỗ nghỉ và dịch vụ hỗ trợ. Cặp đôi hoặc khách thích yên tĩnh nên đi vào khung giờ vắng hơn, tránh thời điểm giữa trưa mùa cao điểm."
+        },
+        {
+          "heading": "CẦN BIẾT: Lối vào, dịch vụ và phạm vi sử dụng có thể khác nhau",
+          "body": "Một phần bãi gắn với khu nghỉ dưỡng và các cơ sở dịch vụ. Trước khi đi, nên xác định: • Mình đang vào bãi qua lối công cộng hay khu dịch vụ. • Có chỗ đỗ xe và phí gửi xe hay không. • Khu vực nào được tắm biển tự do. • Có phải thuê ghế, dùng dịch vụ hoặc mua combo không. • Hôm đó biển có an toàn để tắm không. Không nên chỉ nghe câu “Bãi Khem vào tự do” rồi mặc định mọi lối vào, bãi đỗ và tiện ích đều miễn phí. Quyền tiếp cận bờ biển và việc sử dụng dịch vụ tại từng khu là hai chuyện khác nhau."
+        },
+        {
           "heading": "Đẹp nhất khi coi đây là một phần của ngày Nam đảo",
-          "body": "Bãi Khem nằm gần An Thới và thuận để ghép với Hộ Quốc, Nhà tù Phú Quốc hoặc các điểm phía Nam. Giá trị của nó nằm ở bãi biển và nhịp nghỉ, không phải ở việc cố gom thêm nhiều điểm sau đó."
+          "body": "Bãi Khem nằm gần An Thới và thuận để ghép với Hộ Quốc, Nhà tù Phú Quốc hoặc các điểm phía Nam. Một ngày hợp lý có thể bắt đầu bằng điểm lịch sử hoặc tâm linh, nghỉ biển tại Bãi Khem rồi kết thúc ở Sunset Town hoặc Cầu Hôn. Giá trị của Bãi Khem nằm ở nhịp nghỉ. Đừng xếp quá nhiều điểm sau đó nếu muốn có thời gian tắm, ăn và ngồi yên bên biển."
         },
         {
           "heading": "Đừng mặc định toàn bộ bãi vận hành như một bãi công cộng duy nhất",
-          "body": "Khu vực có nhiều cơ sở lưu trú và lối tiếp cận khác nhau. Trước khi đi, nên xác định mình đang vào khu nào, gửi xe ở đâu và có yêu cầu sử dụng dịch vụ hay không."
+          "body": "Khu vực có nhiều cơ sở lưu trú và lối tiếp cận khác nhau. Trước khi đi, nên xác định mình vào khu nào, gửi xe ở đâu và có yêu cầu sử dụng dịch vụ hay không. Nếu đi theo đoàn, nên thống nhất điểm tập trung, khu vực xuống biển và thời gian rời bãi. Bãi dài và các lối vào phân tán có thể khiến đoàn khó tìm nhau."
         }
       ],
       "visitor_questions": [
         "Lối vào nào đang mở cho khách không lưu trú?",
-        "Khu vực nào có thể tắm biển và gửi xe thuận tiện?"
+        "Khu vực nào có thể tắm biển và gửi xe thuận tiện?",
+        "Hôm nay biển có an toàn cho trẻ nhỏ không?",
+        "Có cứu hộ, tắm tráng và nhà vệ sinh ở khu này không?",
+        "Ghế nghỉ hoặc dịch vụ biển có bắt buộc phải thuê không?"
       ],
       "sources": [
         {
@@ -227,41 +294,56 @@
       ]
     },
     "activity_hon_thom": {
-      "lede": "Hòn Thơm không chỉ là một chuyến cáp treo. Cáp treo là cách tiếp cận một đảo lớn trong quần đảo An Thới, nơi hiện có công viên nước, khu vui chơi và các bãi biển.",
+      "lede": "Hòn Thơm không chỉ là một chuyến cáp treo. Cáp treo là phương tiện đưa khách từ ga An Thới qua các đảo Hòn Rỏi, Hòn Dừa tới Hòn Thơm; phần trải nghiệm còn lại nằm trên đảo, nơi có công viên nước, khu chủ đề, bãi biển và các dịch vụ nghỉ dưỡng. Tuyến cáp treo dài khoảng 7.899,9 m và được Guinness ghi nhận là tuyến cáp treo ba dây vượt biển dài nhất thế giới tại thời điểm khai trương. Vì quãng đường vượt biển dài và hành trình phụ thuộc giờ vận hành, đây cần được xem như một hoạt động nửa ngày hoặc cả ngày, không phải một điểm ghé nhanh.",
       "infographic": [
         {
           "icon": "01",
-          "label": "HÀNH TRÌNH",
-          "value": "Ga An Thới → cáp treo → Hòn Thơm",
-          "note": "Cáp treo là một phần của trải nghiệm, không phải toàn bộ ngày đi Hòn Thơm."
+          "label": "QUY MÔ",
+          "value": "Tuyến cáp vượt biển và một ngày trải nghiệm trên Hòn Thơm",
+          "note": "Hành trình gồm nhiều lớp:"
         },
         {
           "icon": "02",
           "label": "TRÊN ĐẢO CÓ GÌ?",
-          "value": "Aquatopia - Exotica - bãi biển",
-          "note": "Nên chọn trước thứ mình ưu tiên thay vì cố làm tất cả trong vài giờ."
+          "value": "Aquatopia - Exotica - biển - cảnh quan",
+          "note": "Có thể chia trải nghiệm trên Hòn Thơm thành ba nhóm:"
         },
         {
           "icon": "03",
           "label": "CẦN KIỂM TRA",
           "value": "Giờ cáp, quyền lợi vé và thời tiết",
-          "note": "Lịch vận hành, combo và điều kiện biển có thể thay đổi theo ngày."
+          "note": "Trước khi mua vé, cần kiểm tra:"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Tuyến cáp vượt biển và một ngày trải nghiệm trên Hòn Thơm",
+          "body": "Hành trình gồm nhiều lớp: • Di chuyển tới ga An Thới. • Làm thủ tục và chờ lên cabin. • Cáp treo vượt qua vùng biển và các đảo trung gian. • Đến ga Hòn Thơm. • Di chuyển tới Aquatopia, Exotica hoặc khu biển. • Chờ cáp chiều về và quay lại An Thới. Bản thân chặng cáp treo chỉ là một phần của lịch trình. Thời gian thực tế còn phụ thuộc vào hàng chờ, thời điểm đi, việc di chuyển giữa các khu và thời gian chờ chuyến về. Hòn Thơm có đủ nhóm trải nghiệm để lấp đầy một ngày: công viên nước, trò chơi, bãi biển, chụp ảnh và nghỉ dưỡng. Nếu chỉ có vài giờ, không nên mua vé với kỳ vọng làm hết mọi thứ."
+        },
+        {
+          "heading": "TRÊN ĐẢO CÓ GÌ?: Aquatopia - Exotica - biển - cảnh quan",
+          "body": "Có thể chia trải nghiệm trên Hòn Thơm thành ba nhóm: • Aquatopia: công viên nước, phù hợp với gia đình và nhóm thích trò dưới nước. • Exotica hoặc các khu vui chơi chủ đề: phù hợp với người muốn thêm hoạt động giải trí ngoài công viên nước. • Bãi biển và cảnh quan: phù hợp với người muốn nghỉ, tắm biển, chụp ảnh hoặc ngắm quần đảo An Thới. Ba nhóm này dùng thể lực và thời gian khác nhau. Vào công viên nước cần tính chuyện thay đồ, tắm tráng và gửi đồ. Đi biển cần kiểm tra tình trạng sóng, khu vực tắm và dịch vụ. Đi khu vui chơi cần xem giới hạn chiều cao và thời gian xếp hàng."
+        },
+        {
+          "heading": "CẦN KIỂM TRA: Giờ cáp, quyền lợi vé và thời tiết",
+          "body": "Trước khi mua vé, cần kiểm tra: • Giờ cáp bắt đầu và chuyến cuối về An Thới. • Vé bao gồm Aquatopia, Exotica hay khu nào khác. • Vé dùng một lần hay có thể ra vào lại. • Trò chơi nào có giới hạn chiều cao hoặc điều kiện sức khỏe. • Điều kiện vận hành khi mưa, gió lớn hoặc biển động. • Khu thay đồ, tủ gửi đồ, khăn và dịch vụ phát sinh. Không nên chỉ nhìn giá vé rồi quyết định. Với gia đình, quyền lợi vé và thời gian thực tế trên đảo quan trọng không kém giá niêm yết."
+        },
+        {
           "heading": "Hiểu đúng: Hòn Thơm là một hòn đảo, không phải tên của tuyến cáp treo",
-          "body": "Hòn Thơm nằm trong quần đảo An Thới và là một trong những đảo lớn nhất ở khu vực này. Cáp treo nối từ An Thới ra Hòn Thơm giúp việc tiếp cận thuận tiện hơn, nhưng trải nghiệm trên đảo còn gồm công viên nước Aquatopia, Exotica và các khu vực biển."
+          "body": "Hòn Thơm nằm trong quần đảo An Thới và là một trong những đảo lớn ở khu vực phía Nam. Cáp treo giúp việc tiếp cận thuận tiện hơn, nhưng không thay thế cho việc lập lịch trình trên đảo. Sau khi xuống ga, du khách vẫn phải chọn mình muốn chơi nước, đi khu chủ đề, nghỉ biển hay kết hợp nhiều hoạt động. Nếu không chọn trước, cả ngày rất dễ trôi vào việc xếp hàng, thay đồ và di chuyển."
         },
         {
           "heading": "Một ngày tốt thường bắt đầu từ việc chọn ưu tiên",
-          "body": "Nếu đi gia đình có trẻ nhỏ, Aquatopia có thể là trục chính. Nếu muốn biển và ngắm cảnh, đừng để toàn bộ thời gian bị hút vào trò chơi. Với vé combo, hãy đọc rõ quyền lợi trước khi mua vì không phải mọi gói đều giống nhau."
+          "body": "Nếu đi gia đình có trẻ nhỏ, Aquatopia có thể là trục chính. Nếu muốn biển và ngắm cảnh, nên dành riêng thời gian cho khu bờ biển thay vì để toàn bộ ngày bị hút vào trò chơi. Một số cách chia lịch: • Gia đình: Aquatopia + nghỉ trưa + một đoạn biển. • Nhóm bạn trẻ: Aquatopia + Exotica + ngắm cảnh. • Cặp đôi: cáp treo + biển + ăn uống + chụp ảnh. • Người chỉ có nửa ngày: chọn một khu chính và giữ dư thời gian cho cáp chiều về."
         }
       ],
       "visitor_questions": [
         "Vé hôm nay bao gồm những khu nào?",
         "Chuyến cáp cuối về An Thới lúc mấy giờ?",
-        "Trò nào có giới hạn chiều cao hoặc điều kiện sức khỏe?"
+        "Nếu mưa hoặc gió lớn, cáp có tạm dừng không?",
+        "Trò nào có giới hạn chiều cao hoặc điều kiện sức khỏe?",
+        "Có cần đặt trước tủ đồ, khăn hoặc dịch vụ trên đảo không?",
+        "Nếu chỉ có nửa ngày, nên ưu tiên khu nào?"
       ],
       "sources": [
         {
@@ -275,41 +357,57 @@
       ]
     },
     "place_fish_sauce_house": {
-      "lede": "Nhà thùng là nơi dễ hiểu nghề nước mắm Phú Quốc nhất vì khách có thể nhìn thấy quy mô thật của quá trình ủ chượp: cá cơm, muối, thùng gỗ và thời gian.",
+      "lede": "Nhà thùng là nơi dễ hiểu nghề nước mắm Phú Quốc nhất vì du khách có thể nhìn thấy toàn bộ quy mô phía sau một chai nước mắm: cá cơm, muối, thùng gỗ, thời gian ủ, cách rút mắm và khâu đóng chai. Đây không đơn thuần là một cửa hàng đặc sản. Một số cơ sở có hàng trăm thùng gỗ, diện tích nhà xưởng lên tới hàng chục nghìn mét vuông và sức chứa nguyên liệu rất lớn. Chẳng hạn, một số nhà thùng được giới thiệu có gần 500 thùng gỗ, trong khi cơ sở khác vận hành hơn 900 thùng ủ chượp tại nhiều nhà xưởng. Các con số này thay đổi theo từng cơ sở, nên không nên dùng để đại diện cho toàn bộ nghề nước mắm Phú Quốc.",
       "infographic": [
         {
           "icon": "01",
-          "label": "NGUYÊN LIỆU",
-          "value": "Cá cơm + muối",
-          "note": "Nguồn du lịch địa phương mô tả cá cơm là nguyên liệu chính; độ tươi và loại cá ảnh hưởng nhiều tới chất lượng mắm."
+          "label": "QUY MÔ",
+          "value": "Nhà xưởng, thùng gỗ và dây chuyền rút mắm",
+          "note": "Nhà thùng thường gồm nhiều lớp không gian:"
         },
         {
           "icon": "02",
-          "label": "VÌ SAO GỌI NHÀ THÙNG?",
-          "value": "Không gian chứa những thùng ủ lớn",
-          "note": "Các cơ sở truyền thống xây khu riêng để đặt hàng chục tới hàng trăm thùng gỗ."
+          "label": "NGUYÊN LIỆU",
+          "value": "Cá cơm, muối và điều kiện bảo quản",
+          "note": "Cá cơm là nguyên liệu chính, nhưng không phải cứ là cá cơm thì cho ra chất lượng giống nhau. Loại cá, độ tươi, thời điểm đánh bắt, cách bảo quản trên tàu và thời điểm trộn muối đều ảnh hưởng tới mẻ chượp."
         },
         {
           "icon": "03",
           "label": "ĐI ĐỂ HIỂU GÌ?",
-          "value": "Thời gian tạo nên vị",
-          "note": "Nước mắm truyền thống không phải một thứ pha xong trong ngày. Quá trình ủ và rút mắm là phần quan trọng nhất của câu chuyện."
+          "value": "Thời gian, kỹ thuật và sự khác nhau giữa các dòng mắm",
+          "note": "Điều đáng hiểu nhất không phải là “chai nào ngon nhất”, mà là mỗi dòng sản phẩm được tạo ra như thế nào."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Nhà xưởng, thùng gỗ và dây chuyền rút mắm",
+          "body": "Nhà thùng thường gồm nhiều lớp không gian: • Khu tiếp nhận và bảo quản nguyên liệu. • Khu đặt các thùng gỗ ủ chượp. • Hệ thống gài nén, kéo rút và tuần hoàn nước mắm. • Khu lọc, phân loại, phối trộn hoặc xử lý sản phẩm. • Khu đóng chai, lưu kho và bán hàng. Điểm du khách nhìn thấy rõ nhất thường là dãy thùng gỗ lớn được xếp trong nhà xưởng. Mỗi thùng có thể chứa nhiều tấn cá chượp, tùy kích thước và cách vận hành của từng cơ sở. Một số nguồn mô tả thùng gỗ cao khoảng 2 m, chứa hàng chục tấn nguyên liệu và được ủ trong thời gian khoảng 12-15 tháng. Vì vậy, một chuyến tham quan nhà thùng không nên chỉ tính bằng thời gian mua hàng. Nếu có người thuyết minh, du khách cần khoảng 30-60 phút để hiểu nguyên liệu, tỷ lệ cá - muối, cách ủ, cách rút và sự khác nhau giữa các dòng sản phẩm."
+        },
+        {
+          "heading": "NGUYÊN LIỆU: Cá cơm, muối và điều kiện bảo quản",
+          "body": "Cá cơm là nguyên liệu chính, nhưng không phải cứ là cá cơm thì cho ra chất lượng giống nhau. Loại cá, độ tươi, thời điểm đánh bắt, cách bảo quản trên tàu và thời điểm trộn muối đều ảnh hưởng tới mẻ chượp. Muối cũng không phải thành phần phụ có thể chọn tùy ý. Nghề nước mắm truyền thống cần loại muối phù hợp, ít tạp chất và thường được lưu kho trước khi đưa vào sử dụng. Một số tài liệu nghề mô tả tỷ lệ phổ biến là khoảng 3 phần cá với 1 phần muối, nhưng tỷ lệ và cách xử lý có thể thay đổi theo từng nhà thùng. Đây là lý do cùng là nước mắm Phú Quốc nhưng các cơ sở có thể cho ra sản phẩm khác nhau về màu, mùi, độ đạm, độ mặn và hậu vị."
+        },
+        {
+          "heading": "ĐI ĐỂ HIỂU GÌ?: Thời gian, kỹ thuật và sự khác nhau giữa các dòng mắm",
+          "body": "Điều đáng hiểu nhất không phải là “chai nào ngon nhất”, mà là mỗi dòng sản phẩm được tạo ra như thế nào. Du khách có thể hỏi về: • Nước mắm cốt được rút ở giai đoạn nào. • Một mẻ được ủ trong bao lâu. • Độ đạm tự nhiên khác gì với sản phẩm đã pha chế. • Nước mắm cốt được dùng trực tiếp hay làm nguyên liệu phối trộn. • Màu sắc, độ trong và mùi thơm được hình thành ra sao. • Sản phẩm bán tại nhà thùng là nước mắm do chính cơ sở sản xuất hay sản phẩm thương mại tổng hợp. Không nên mặc định độ đạm càng cao thì mọi người đều thấy ngon hơn. Độ đạm, vị mặn, mùi cá và cách sử dụng phù hợp với từng nhu cầu khác nhau."
+        },
+        {
           "heading": "Đừng ghé nhà thùng chỉ để mua chai nước mắm",
-          "body": "Điều đáng xem nhất là quy mô của nghề. Những thùng gỗ lớn, đường ống, mùi lên men và cách người làm mắm nói về cá cơm - muối - thời gian khiến sản phẩm quen thuộc trên bàn ăn trở thành một câu chuyện có nơi chốn."
+          "body": "Điều đáng xem nhất là quy mô của nghề. Những thùng gỗ lớn, đường ống, mùi lên men, lớp nguyên liệu đang ủ và cách người làm mắm nói về cá cơm - muối - thời gian khiến một sản phẩm quen thuộc trên bàn ăn trở thành câu chuyện có nơi chốn. Nếu nhà thùng có khu tham quan rõ ràng, hãy đi theo hướng dẫn thay vì tự ý mở nắp, chạm vào thùng hoặc bước vào khu sản xuất. Đây vẫn là nơi vận hành nghề và sản xuất thực tế, không phải toàn bộ đều là không gian trưng bày."
         },
         {
           "heading": "Nếu muốn hiểu sâu hơn, hãy hỏi về nguyên liệu và cách rút mắm",
-          "body": "Nguồn du lịch địa phương ghi nhận nhiều loại cá cơm được dùng tại Phú Quốc, cùng yêu cầu khá cao về độ tươi. Mỗi nhà thùng có cách vận hành và phân hạng sản phẩm khác nhau, nên đây là nơi tốt để hỏi sự khác nhau giữa nước mắm cốt, độ đạm và các dòng pha chế."
+          "body": "Mỗi nhà thùng có quy mô, thời gian ủ và cách phân hạng sản phẩm khác nhau. Vì vậy, đừng chỉ hỏi “nước mắm bao nhiêu độ đạm?”. Hãy hỏi thêm độ đạm đó là tự nhiên hay sau phối trộn, sản phẩm thuộc nhóm nước mắm cốt hay nước mắm pha, và cá - muối được xử lý ở đâu. Cũng cần phân biệt thông tin giới thiệu của một cơ sở với thông tin đại diện cho toàn bộ nghề nước mắm Phú Quốc. Những con số như số lượng thùng, diện tích nhà xưởng hoặc thời gian ủ nên ghi rõ là của từng nhà thùng cụ thể."
         }
       ],
       "visitor_questions": [
-        "Cá cơm nào đang được dùng cho mẻ này?",
-        "Mẻ này đã ủ bao lâu?",
-        "Nước mắm cốt khác dòng đóng chai thông thường ở điểm nào?"
+        "Nhà thùng hiện có bao nhiêu thùng đang ủ?",
+        "Mỗi thùng chứa khoảng bao nhiêu tấn cá chượp?",
+        "Cá được đánh bắt, trộn muối và đưa về nhà thùng trong bao lâu?",
+        "Mẻ này đã ủ được bao nhiêu tháng?",
+        "Nước mắm cốt khác dòng đóng chai thông thường ở điểm nào?",
+        "Độ đạm ghi trên nhãn là độ đạm tự nhiên hay sau phối trộn?",
+        "Sản phẩm này do chính nhà thùng sản xuất hay chỉ phân phối?"
       ],
       "sources": [
         {
@@ -323,41 +421,57 @@
       ]
     },
     "place_pepper_garden": {
-      "lede": "Vườn tiêu là cách nhìn thấy phần nông nghiệp của Phú Quốc - một phần thường bị che khuất bởi câu chuyện biển, resort và khu vui chơi.",
+      "lede": "Vườn tiêu là cách nhìn thấy phần nông nghiệp của Phú Quốc - một phần thường bị che khuất bởi câu chuyện biển, resort và khu vui chơi. Một vườn tiêu không phải điểm tham quan có nhiều trò chơi. Quy mô trải nghiệm thường nằm ở những hàng trụ tiêu, diện tích canh tác, mùa vụ và câu chuyện lao động phía sau hạt tiêu. Du khách nên đến đây để hiểu cây tiêu được trồng, chăm sóc, thu hoạch và chế biến như thế nào, thay vì chỉ xem đây là một phông nền chụp ảnh.",
       "infographic": [
         {
           "icon": "01",
-          "label": "TRỒNG Ở ĐÂU?",
-          "value": "Khu Tượng - Cửa Dương - Gành Dầu",
-          "note": "Các nguồn du lịch địa phương ghi nhận đây là những vùng tập trung nhiều vườn tiêu."
+          "label": "QUY MÔ",
+          "value": "Những vùng trồng tiêu phân tán, không phải một công viên duy nhất",
+          "note": "Các khu vực thường được nhắc đến khi tìm hiểu vườn tiêu Phú Quốc gồm Khu Tượng, Cửa Dương và Gành Dầu. Đây là những vùng có nhiều vườn tiêu và cơ sở bán sản phẩm, nhưng không nên hiểu toàn bộ là một khu tham quan thống nhất."
         },
         {
           "icon": "02",
           "label": "NHÌN GÌ?",
-          "value": "Trụ tiêu, chùm quả và cách thu hoạch",
-          "note": "Ảnh đẹp chỉ là lớp đầu. Điều đáng hỏi là mùa vụ, cách phơi và sự khác nhau giữa tiêu đen, tiêu đỏ, tiêu sọ."
+          "value": "Trụ tiêu, mùa vụ và các dạng hạt tiêu",
+          "note": "Điều đáng quan sát không chỉ là những hàng trụ tiêu thẳng đứng. Hãy để ý cách cây bám vào trụ, độ cao của giàn, khoảng cách giữa các cây, chùm quả và tình trạng đất dưới gốc."
         },
         {
           "icon": "03",
           "label": "MẤT BAO LÂU?",
-          "value": "20-40 phút thường đã đủ",
-          "note": "Nếu có người giải thích tốt, một điểm dừng ngắn vẫn giúp hiểu nghề rõ hơn một điểm check-in kéo dài."
+          "value": "20-40 phút cho một điểm dừng cơ bản",
+          "note": "Một điểm dừng ngắn vẫn đủ giá trị nếu có người giải thích rõ về cây tiêu, mùa vụ và sản phẩm. Không cần kéo dài lịch trình chỉ để đi hết mọi lối trong vườn."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Những vùng trồng tiêu phân tán, không phải một công viên duy nhất",
+          "body": "Các khu vực thường được nhắc đến khi tìm hiểu vườn tiêu Phú Quốc gồm Khu Tượng, Cửa Dương và Gành Dầu. Đây là những vùng có nhiều vườn tiêu và cơ sở bán sản phẩm, nhưng không nên hiểu toàn bộ là một khu tham quan thống nhất. Mỗi vườn có thể khác nhau về: • Diện tích canh tác. • Số lượng hàng trụ tiêu. • Mức độ đầu tư cho khách tham quan. • Có người thuyết minh hay không. • Có khu bán sản phẩm, khu sơ chế hoặc chỉ là vườn gia đình. • Khả năng tiếp cận bằng xe du lịch. Một điểm dừng thông thường có thể chỉ cần 20-40 phút nếu mục tiêu là nghe giới thiệu, xem cây và mua đặc sản. Nếu muốn tìm hiểu sâu về mùa vụ, sơ chế hoặc chụp ảnh thoải mái, cần dành nhiều thời gian hơn và nên xác nhận trước vườn có đón khách hay không."
+        },
+        {
+          "heading": "NHÌN GÌ?: Trụ tiêu, mùa vụ và các dạng hạt tiêu",
+          "body": "Điều đáng quan sát không chỉ là những hàng trụ tiêu thẳng đứng. Hãy để ý cách cây bám vào trụ, độ cao của giàn, khoảng cách giữa các cây, chùm quả và tình trạng đất dưới gốc. Một vườn tiêu có thể cho thấy nhiều giai đoạn khác nhau: • Cây đang phát triển và bám trụ. • Tiêu ra hoa hoặc kết trái. • Quả còn xanh. • Quả chuyển màu và chuẩn bị thu hoạch. • Hạt đã được phơi, tách và phân loại. Tiêu đen, tiêu đỏ và tiêu sọ không chỉ khác nhau ở màu sắc. Chúng liên quan đến độ chín, cách thu hoạch và phương pháp xử lý sau đó. Tuy nhiên, cách phân loại và tên gọi sản phẩm có thể khác giữa các cơ sở, nên cần hỏi người bán thay vì tự suy đoán."
+        },
+        {
+          "heading": "MẤT BAO LÂU?: 20-40 phút cho một điểm dừng cơ bản",
+          "body": "Một điểm dừng ngắn vẫn đủ giá trị nếu có người giải thích rõ về cây tiêu, mùa vụ và sản phẩm. Không cần kéo dài lịch trình chỉ để đi hết mọi lối trong vườn. Có thể chia thời gian như sau: • 5-10 phút: quan sát tổng thể và nghe giới thiệu. • 10-15 phút: tìm hiểu cây, quả, cách thu hoạch và phơi. • 10-15 phút: thử hoặc xem sản phẩm, hỏi cách dùng và bảo quản. Nếu đi theo tour có nhiều điểm tham quan, vườn tiêu nên được xem là một điểm tìm hiểu nông nghiệp ngắn, không nên biến thành một buổi mua sắm bắt buộc."
+        },
+        {
           "heading": "Một sản phẩm nông nghiệp có mùi của nơi chốn",
-          "body": "Hồ tiêu Phú Quốc được nhắc đến nhiều như một món quà, nhưng trải nghiệm tại vườn giúp thấy phần đất, khí hậu và lao động đứng phía sau hạt tiêu khô. Những hàng trụ tiêu thẳng đứng cũng cho thấy một kiểu cảnh quan nông nghiệp rất khác bãi biển."
+          "body": "Hồ tiêu Phú Quốc được nhắc đến nhiều như một món quà, nhưng trải nghiệm tại vườn giúp thấy phần đất, khí hậu và lao động đứng phía sau hạt tiêu khô. Những hàng trụ tiêu cho thấy một kiểu cảnh quan nông nghiệp rất khác bãi biển. Mùi đất, lá tiêu, hạt tiêu phơi và các sản phẩm chế biến tạo nên một lớp ký ức khác về đảo - không phải từ biển mà từ vườn, nông hộ và mùa vụ."
         },
         {
           "heading": "Hỏi người trồng thay vì chỉ chụp ảnh",
-          "body": "Nếu có cơ hội, hãy hỏi về mùa thu hoạch, cách phơi và cách phân loại. Một cuộc trò chuyện ngắn thường mang lại nhiều giá trị hơn việc chỉ đứng giữa hai hàng tiêu để chụp hình."
+          "body": "Nếu có cơ hội, hãy hỏi người trồng về tuổi của vườn, thời gian từ lúc trồng đến lúc cho trái, mùa thu hoạch và cách xử lý sau thu hoạch. Cũng nên hỏi sản phẩm bán tại vườn có phải do chính vườn trồng hay được nhập từ nhiều nguồn. Đây là câu hỏi giúp phân biệt một điểm bán đặc sản với một vườn thực sự đang sản xuất. Không nên tự ý bẻ chùm tiêu, leo lên trụ, đi vào luống đang canh tác hoặc chụp ảnh ở khu vực người dân chưa cho phép."
         }
       ],
       "visitor_questions": [
+        "Vườn hiện có bao nhiêu diện tích và bao nhiêu hàng tiêu?",
         "Hiện đang là giai đoạn nào của mùa tiêu?",
+        "Cây tiêu cần bao lâu mới bắt đầu cho trái?",
         "Tiêu đen, tiêu đỏ và tiêu sọ khác nhau thế nào?",
-        "Sản phẩm bán tại vườn có phải do chính vườn này trồng không?"
+        "Cách phơi và bảo quản ảnh hưởng tới mùi vị ra sao?",
+        "Sản phẩm bán tại vườn có phải do chính vườn này trồng không?",
+        "Vườn có nhận khách vào mùa thu hoạch hay không?"
       ],
       "sources": [
         {
@@ -371,40 +485,55 @@
       ]
     },
     "place_sunset_town": {
-      "lede": "Sunset Town là một cụm đô thị - giải trí ở bờ Tây Nam đảo, không phải một điểm đơn lẻ. Cách đi hợp lý nhất là chọn một trục buổi chiều - tối rồi nối Cầu Hôn, ăn uống và show theo đúng giờ.",
+      "lede": "Sunset Town là một cụm đô thị - giải trí ở bờ Tây Nam đảo, không phải một điểm đơn lẻ. Khu này được phát triển theo mô hình phố ven biển với shophouse, căn hộ, nhà hàng, công trình biểu tượng, ga cáp treo, Cầu Hôn và các chương trình biểu diễn. Các nguồn dự án thường nêu quy mô khoảng 39,9 ha, trong khi một số tài liệu khác dùng phạm vi lớn hơn cho toàn bộ khu phát triển. Vì vậy, khi viết nên dùng cách diễn đạt “cụm đô thị - giải trí quy mô lớn” và không gắn một con số duy nhất nếu chưa xác định rõ phạm vi đo.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÂY LÀ GÌ?",
-          "value": "Cụm trải nghiệm Nam đảo",
-          "note": "Kiến trúc ven biển, ga cáp treo, Cầu Hôn, phố đi bộ, ăn uống và show nằm trong cùng một hệ sinh thái."
+          "label": "QUY MÔ",
+          "value": "Cụm phố ven biển gồm nhiều trục trải nghiệm",
+          "note": "Sunset Town có thể được hiểu qua các lớp:"
         },
         {
           "icon": "02",
           "label": "ĐI KHI NÀO?",
           "value": "Cuối chiều đến tối",
-          "note": "Đi sớm hơn hoàng hôn một chút để có thời gian đi bộ, tìm chỗ và không phải chạy giữa các mốc giờ."
+          "note": "Cuối chiều là thời điểm hợp lý để bắt đầu vì du khách có thể:"
         },
         {
           "icon": "03",
           "label": "ĐỪNG NHỒI LỊCH",
           "value": "Chọn 2-3 điểm chính",
-          "note": "Khoảng cách đi bộ và giờ show khiến việc cố gom mọi thứ trong một tối dễ thành chạy điểm."
+          "note": "Một buổi tối hợp lý chỉ nên có 2-3 mục tiêu:"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Cụm phố ven biển gồm nhiều trục trải nghiệm",
+          "body": "Sunset Town có thể được hiểu qua các lớp: • Phố kiến trúc Địa Trung Hải và các dãy shophouse. • Quảng trường, tháp đồng hồ và các không gian công cộng. • Ga cáp treo Hòn Thơm. • Cầu Hôn. • Khu nhà hàng, quán cà phê và phố đi bộ. • Các show diễn, gallery và điểm tham quan có giờ cố định. Khoảng cách giữa các điểm không nhất thiết quá xa trên bản đồ, nhưng đi bộ dưới nắng, lên dốc, chờ chụp ảnh và chen trong giờ cao điểm có thể khiến lịch trình kéo dài hơn dự tính. Đây là nơi nên dành ít nhất một buổi chiều - tối nếu muốn trải nghiệm có nhịp. Ghé nhanh 20-30 phút chỉ đủ nhìn một vài góc, chưa đủ để hiểu cấu trúc không gian hoặc xem show."
+        },
+        {
+          "heading": "ĐI KHI NÀO?: Cuối chiều đến tối",
+          "body": "Cuối chiều là thời điểm hợp lý để bắt đầu vì du khách có thể: • Đi bộ và chụp ảnh khi còn ánh sáng. • Chọn vị trí ngắm hoàng hôn. • Ăn tối trước hoặc sau show. • Xem Cầu Hôn và các công trình lên đèn. • Kết hợp chương trình biểu diễn buổi tối. Nên đến sớm hơn giờ hoàng hôn một chút. Nếu chỉ đến sát giờ mặt trời lặn, du khách dễ phải chen chỗ, bỏ qua việc tìm đường và không còn đủ thời gian di chuyển tới show."
+        },
+        {
+          "heading": "ĐỪNG NHỒI LỊCH: Chọn 2-3 điểm chính",
+          "body": "Một buổi tối hợp lý chỉ nên có 2-3 mục tiêu: • Cầu Hôn + ăn tối + show. • Phố kiến trúc + cáp treo hoặc gallery + show. • Hoàng hôn + đi bộ + một nhà hàng. Đừng cố ghép thêm cả Aquatopia, cáp treo, Cầu Hôn, nhiều show và bữa tối trong cùng một buổi. Các điểm này nằm trong cùng hệ sinh thái nhưng không có nghĩa là có thể trải nghiệm sâu tất cả trong vài giờ."
+        },
+        {
           "heading": "Hiểu đúng để đỡ mệt",
-          "body": "Sunset Town nằm ở bờ Tây Nam Phú Quốc và hiện là một cụm lớn gồm cảnh quan đô thị, Cầu Hôn, khu cáp treo Hòn Thơm, các show và nhiều điểm ăn uống. Với khách lần đầu, nên coi đây là một buổi chiều - tối hoàn chỉnh hơn là một điểm chụp ảnh."
+          "body": "Sunset Town là một không gian đô thị - giải trí có nhiều lớp, trong đó một số điểm miễn phí, một số điểm cần vé và một số chương trình có giờ cố định. Khách lần đầu nên xem đây là một buổi chiều - tối hoàn chỉnh, không phải một điểm chụp ảnh ghé qua. Cần chọn điểm bắt đầu, điểm ăn tối, nơi xem show và phương án rời khu sau chương trình."
         },
         {
           "heading": "Hoàng hôn chỉ là một mốc trong cả buổi",
-          "body": "Nếu mục tiêu là Cầu Hôn hoặc show tối, hãy dựng lịch ngược từ giờ biểu diễn rồi mới chèn ăn uống và đi bộ. Cách này dễ chịu hơn nhiều so với tới nơi rồi mới quyết định từng điểm."
+          "body": "Nếu mục tiêu là Cầu Hôn hoặc show tối, hãy dựng lịch ngược từ giờ biểu diễn rồi mới chèn ăn uống và đi bộ. Ví dụ: • Trước hoàng hôn: đến nơi, tìm điểm đỗ hoặc điểm tập trung. • Hoàng hôn: chụp ảnh và ngắm cảnh. • Sau hoàng hôn: ăn tối hoặc đi bộ phố. • Trước giờ show: đến khu biểu diễn và ổn định chỗ. • Sau show: xác định trước điểm đón xe hoặc lối ra."
         }
       ],
       "visitor_questions": [
-        "Show tối nay chạy lúc nào và có thay đổi do thời tiết không?",
-        "Điểm đón xe về sau show thuận nhất ở đâu?"
+        "Tối nay có những show nào và diễn ở đâu?",
+        "Cần đến trước giờ diễn bao lâu?",
+        "Điểm đón xe về sau show thuận nhất ở đâu?",
+        "Khu nào phù hợp để ăn tối trước chương trình?",
+        "Cầu Hôn và các điểm tham quan hôm nay có cần mua vé riêng không?"
       ],
       "sources": [
         {
@@ -414,40 +543,55 @@
       ]
     },
     "place_kiss_bridge": {
-      "lede": "Cầu Hôn được thiết kế như một công trình đi bộ ngắm biển và hoàng hôn với hai nhánh không chạm nhau. Trải nghiệm tốt phụ thuộc khá nhiều vào giờ nắng, mật độ khách và cách ghép với cả buổi tối ở Sunset Town.",
+      "lede": "Cầu Hôn được thiết kế như một công trình đi bộ ngắm biển và hoàng hôn, gồm hai nhánh cầu hướng vào nhau nhưng không chạm. Tổng chiều dài thường được giới thiệu khoảng 800 m, với khoảng hở 30 cm ở điểm gần nhau nhất. Công trình không chỉ là một góc chụp ảnh. Du khách cần đi hết hoặc đi một phần cầu, tính thời gian chờ chụp ảnh, di chuyển trong Sunset Town và ghép với giờ hoàng hôn hoặc show tối.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐIỂM KHÁC BIỆT",
-          "value": "Hai nhánh cầu không chạm nhau",
-          "note": "Khoảng hở ở giữa là chủ ý thiết kế, không phải một đoạn cầu bị thiếu."
+          "label": "QUY MÔ",
+          "value": "Hai nhánh cầu dài hơn 800 m, mở ra không gian đi bộ trên biển",
+          "note": "Cầu Hôn gồm hai nhánh phía Bắc và phía Nam:"
         },
         {
           "icon": "02",
-          "label": "LÚC ĐẸP",
-          "value": "Cuối chiều",
-          "note": "Ánh sáng hoàng hôn làm thay đổi rõ cảm giác của công trình và ảnh chụp."
+          "label": "ĐIỂM KHÁC BIỆT",
+          "value": "Hai nhánh cầu không chạm nhau",
+          "note": "Khoảng hở ở giữa là chủ ý thiết kế, không phải một đoạn cầu bị thiếu. Đây là điểm tạo nên hình ảnh nhận diện của công trình và cũng là nơi đông khách nhất vào giờ hoàng hôn."
         },
         {
           "icon": "03",
-          "label": "GHÉP CÙNG",
-          "value": "Sunset Town + show tối",
-          "note": "Hợp để làm mốc chuyển từ chiều sang tối thay vì đi riêng chỉ 20-30 phút."
+          "label": "LÚC ĐẸP",
+          "value": "Cuối chiều, nhưng cần đến trước giờ cao điểm",
+          "note": "Ánh sáng hoàng hôn làm thay đổi rõ cảm giác của công trình và ảnh chụp. Tuy nhiên, giờ đẹp cũng thường là giờ đông nhất."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Hai nhánh cầu dài hơn 800 m, mở ra không gian đi bộ trên biển",
+          "body": "Cầu Hôn gồm hai nhánh phía Bắc và phía Nam: • Hai nhánh vươn ra biển từ hai phía. • Tổng chiều dài toàn công trình khoảng 800 m. • Điểm cuối để lại khoảng hở khoảng 30 cm. • Không gian trên cầu phục vụ đi bộ, ngắm biển và chụp ảnh. • Trải nghiệm chịu ảnh hưởng rõ bởi nắng, gió và mật độ khách. Khoảng cách đi bộ thực tế không chỉ tính từ cổng vào tới cầu. Du khách còn phải di chuyển trong Sunset Town, xếp hàng hoặc tìm góc chụp, rồi quay lại khu ăn uống hoặc show. Nếu đi cùng người lớn tuổi, trẻ nhỏ hoặc khách không thích đi bộ lâu, nên xác định trước chỉ đi một phần cầu hay đi hết hai nhánh."
+        },
+        {
+          "heading": "ĐIỂM KHÁC BIỆT: Hai nhánh cầu không chạm nhau",
+          "body": "Khoảng hở ở giữa là chủ ý thiết kế, không phải một đoạn cầu bị thiếu. Đây là điểm tạo nên hình ảnh nhận diện của công trình và cũng là nơi đông khách nhất vào giờ hoàng hôn. Không nên chen lấn hoặc trèo qua lan can để chụp ảnh. Gió trên cầu có thể mạnh hơn trong phố, đặc biệt vào buổi chiều và những ngày thời tiết không ổn định."
+        },
+        {
+          "heading": "LÚC ĐẸP: Cuối chiều, nhưng cần đến trước giờ cao điểm",
+          "body": "Ánh sáng hoàng hôn làm thay đổi rõ cảm giác của công trình và ảnh chụp. Tuy nhiên, giờ đẹp cũng thường là giờ đông nhất. Nên đến sớm hơn thời điểm mặt trời lặn để: • Tìm đường và khu vực vào. • Đi qua các đoạn cầu khi còn ánh sáng. • Chọn góc chụp phù hợp. • Không phải chạy sang show ngay sau đó. • Có phương án dự phòng nếu mây che nắng hoặc trời mưa."
+        },
+        {
           "heading": "Một công trình được xây quanh ý niệm khoảng cách và kết nối",
-          "body": "Cầu Hôn nằm tại Sunset Town, gồm hai nhánh vươn ra biển nhưng để lại một khoảng hở nhỏ ở điểm cuối. Đây là phần cốt lõi của hình thức kiến trúc và câu chuyện biểu tượng của công trình."
+          "body": "Cầu Hôn nằm tại Sunset Town, gồm hai nhánh uốn cong vươn ra biển nhưng dừng lại ở khoảng cách nhỏ. Hình thức này tạo nên biểu tượng thị giác, đồng thời biến cây cầu thành một nơi ngắm cảnh và gặp gỡ. Giá trị của công trình nằm ở cả kiến trúc, vị trí trên biển và cách nó được đặt trong chuỗi trải nghiệm của Sunset Town. Nếu chỉ đến, chụp đúng một tấm ở khoảng hở rồi đi ngay, du khách sẽ bỏ qua phần đi bộ và cảnh quan hai bên."
         },
         {
           "heading": "Đừng mặc định giá và quyền vào luôn giống nhau",
-          "body": "Cách bán vé, combo và quyền lợi có thể thay đổi theo thời điểm. Trước khi đi, nên kiểm tra đúng ngày thay vì dựa vào ảnh chụp giá cũ trên mạng."
+          "body": "Cách bán vé, combo và quyền lợi có thể thay đổi theo thời điểm. Trước khi đi, nên kiểm tra đúng ngày: • Vé Cầu Hôn có bao gồm show nào không. • Có thể kết hợp vé với cáp treo hoặc điểm tham quan nào. • Giờ mở cửa và thời gian lưu trú tối đa có giới hạn không. • Trời mưa hoặc gió lớn có ảnh hưởng tới việc tham quan không."
         }
       ],
       "visitor_questions": [
         "Hôm nay Cầu Hôn mở tới mấy giờ?",
-        "Vé hoặc combo hôm nay bao gồm những quyền lợi nào?"
+        "Nên vào từ phía nào để đi thuận tuyến?",
+        "Vé hoặc combo hôm nay bao gồm những quyền lợi nào?",
+        "Khoảng thời gian nào ít đông hơn?",
+        "Nếu đi cùng người lớn tuổi, có khu nghỉ hoặc lối đi dễ hơn không?"
       ],
       "sources": [
         {
@@ -461,40 +605,55 @@
       ]
     },
     "place_bai_sao": {
-      "lede": "Bãi Sao là một bãi biển Nam đảo nổi tiếng từ rất sớm trong du lịch Phú Quốc. Điều đáng nhớ là màu nước, cát sáng và nhịp biển thay đổi mạnh theo mùa, nắng và gió.",
+      "lede": "Bãi Sao là một bãi biển Nam đảo nổi tiếng từ rất sớm trong du lịch Phú Quốc. Bãi có dạng vịnh, cát sáng màu và thường được nhắc đến với điều kiện biển tương đối êm vào một số giai đoạn gió nhất định. Điều đáng nhớ là màu nước, độ trong, sóng và chất lượng bãi thay đổi theo mùa, nắng, gió, thủy triều và khu vực du khách tiếp cận. Không nên dùng một bức ảnh quảng bá để đại diện cho mọi ngày ở Bãi Sao.",
       "infographic": [
         {
           "icon": "01",
-          "label": "HỢP KHI",
-          "value": "Muốn một buổi biển Nam đảo",
-          "note": "Dễ ghép cùng Hộ Quốc, Nhà tù Phú Quốc hoặc Bãi Khem."
+          "label": "QUY MÔ",
+          "value": "Một vịnh biển dài, nhiều khu dịch vụ và mức độ đông khách khác nhau",
+          "note": "Bãi Sao không phải một bãi nhỏ chỉ có một điểm dừng. Không gian thường gồm:"
         },
         {
           "icon": "02",
-          "label": "MÀU NƯỚC",
-          "value": "Phụ thuộc nắng và mùa biển",
-          "note": "Ảnh quảng bá không đại diện cho mọi ngày. Trời âm u hoặc gió khác hướng sẽ làm bãi đổi cảm giác rõ rệt."
+          "label": "HỢP KHI",
+          "value": "Muốn một buổi biển Nam đảo, có thể ghép nhiều điểm",
+          "note": "Bãi Sao dễ ghép cùng Hộ Quốc, Nhà tù Phú Quốc, Bãi Khem hoặc các điểm An Thới. Tuy nhiên, không nên xếp quá nhiều điểm chỉ vì chúng cùng nằm ở phía Nam."
         },
         {
           "icon": "03",
-          "label": "Ở BAO LÂU?",
-          "value": "2-4 giờ",
-          "note": "Đủ cho tắm biển, nghỉ và ăn nhẹ nếu không muốn lịch quá dày."
+          "label": "MÀU NƯỚC",
+          "value": "Phụ thuộc nắng, gió, mùa và thủy triều",
+          "note": "Bãi Sao nằm ở phía Đông Nam đảo, khuất một phần gió Tây Nam nên có thể có điều kiện êm hơn một số bãi phía Tây vào mùa gió Tây Nam. Tuy nhiên, không nên diễn đạt thành “quanh năm luôn lặng sóng”; biển vẫn thay đổi theo ngày."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Một vịnh biển dài, nhiều khu dịch vụ và mức độ đông khách khác nhau",
+          "body": "Bãi Sao không phải một bãi nhỏ chỉ có một điểm dừng. Không gian thường gồm: • Dải cát và vùng nước ven bờ. • Các khu dịch vụ biển, nhà hàng và ghế nghỉ. • Những lối tiếp cận khác nhau. • Các đoạn bãi có mức độ yên tĩnh, sạch và đông khách không giống nhau. • Khu vực dành cho tắm biển, chụp ảnh hoặc hoạt động thể thao. Quy hoạch khu vực Bãi Sao được giới thiệu với quy mô khoảng 436,31 ha cho một phân khu đô thị du lịch hỗn hợp và nghỉ dưỡng sinh thái. Đây là quy mô quy hoạch rộng, không phải diện tích bãi cát mà du khách sử dụng trong một chuyến đi. Một buổi 2-4 giờ thường đủ cho tắm biển, nghỉ ngơi, ăn nhẹ và chụp ảnh. Nếu có trẻ nhỏ hoặc muốn ăn trưa tại chỗ, nên dành lâu hơn và xác định trước khu dịch vụ."
+        },
+        {
+          "heading": "HỢP KHI: Muốn một buổi biển Nam đảo, có thể ghép nhiều điểm",
+          "body": "Bãi Sao dễ ghép cùng Hộ Quốc, Nhà tù Phú Quốc, Bãi Khem hoặc các điểm An Thới. Tuy nhiên, không nên xếp quá nhiều điểm chỉ vì chúng cùng nằm ở phía Nam. Một lịch trình hợp lý có thể chọn: • Di tích hoặc điểm văn hóa buổi sáng. • Bãi Sao vào khoảng giữa ngày nếu biển thuận. • Nghỉ hoặc ăn trưa. • Một điểm Nam đảo khác vào cuối chiều. Nếu mục tiêu chính là tắm biển và nghỉ, hãy dành đủ thời gian cho Bãi Sao thay vì chỉ ghé 30 phút để chụp ảnh."
+        },
+        {
+          "heading": "MÀU NƯỚC: Phụ thuộc nắng, gió, mùa và thủy triều",
+          "body": "Bãi Sao nằm ở phía Đông Nam đảo, khuất một phần gió Tây Nam nên có thể có điều kiện êm hơn một số bãi phía Tây vào mùa gió Tây Nam. Tuy nhiên, không nên diễn đạt thành “quanh năm luôn lặng sóng”; biển vẫn thay đổi theo ngày. Màu nước đẹp nhất thường cần ánh sáng tốt, gió vừa phải và độ trong phù hợp. Trời âm u, mưa, gió đổi hướng hoặc nước biển bị khuấy đều có thể làm bãi đổi cảm giác rõ rệt."
+        },
+        {
           "heading": "Một bãi biển nên đi theo điều kiện ngày hôm đó",
-          "body": "Bãi Sao nằm ở Nam đảo và có lịch sử lâu năm trong các cẩm nang Phú Quốc. Cảm giác thực tế của bãi thay đổi theo mùa, thủy triều, gió và mật độ khách, nên xem thời tiết trong ngày hữu ích hơn việc chỉ nhìn ảnh đẹp."
+          "body": "Bãi Sao nằm ở Nam đảo và có lịch sử lâu năm trong các cẩm nang Phú Quốc. Cảm giác thực tế của bãi thay đổi theo mùa, thủy triều, gió, mưa và mật độ khách. Trước khi đi, nên kiểm tra: • Gió đang thổi hướng nào. • Sóng ở khu bãi dự kiến đến có lớn không. • Có mưa hoặc dông trong khung giờ tắm biển không. • Khu vực nào đang được chăm sóc tốt và có dịch vụ phù hợp. • Có cứu hộ hoặc biển cảnh báo tại điểm xuống nước không."
         },
         {
           "heading": "Đừng nhầm Bãi Sao với Rạch Vẹm",
-          "body": "Bãi Sao ở Nam đảo. Rạch Vẹm là làng chài phía Bắc, thường được nhắc cùng sao biển. Đây là hai nơi hoàn toàn khác nhau."
+          "body": "Bãi Sao ở Nam đảo, là một bãi biển và khu dịch vụ biển. Rạch Vẹm ở phía Bắc, là một xóm chài thường được nhắc cùng trải nghiệm sao biển và nhà bè. Tên gọi gần nhau trong nội dung du lịch có thể khiến khách nhầm lịch trình. Hai nơi cách xa nhau và có tính chất trải nghiệm hoàn toàn khác."
         }
       ],
       "visitor_questions": [
         "Hôm nay sóng và gió ở bãi có mạnh không?",
-        "Khu nào dễ tắm và ít tàu thuyền hơn?"
+        "Khu vực nào dễ tắm và ít tàu thuyền hơn?",
+        "Có cứu hộ và nhà vệ sinh ở khu này không?",
+        "Ghế nghỉ, tắm tráng hoặc dịch vụ biển có tính phí riêng không?",
+        "Nếu biển không thuận, điểm thay thế trong lịch trình là gì?"
       ],
       "sources": [
         {
@@ -504,41 +663,50 @@
       ]
     },
     "place_vinwonders": {
-      "lede": "VinWonders là một công viên chủ đề quy mô lớn, không phải điểm ghé nhanh. Nếu đã chọn đi, nên dành phần lớn ngày cho nó và chọn vài phân khu ưu tiên thay vì cố hoàn thành toàn bộ.",
+      "lede": "VinWonders là một quần thể vui chơi quy mô lớn, rộng khoảng 50 ha, gồm 6 phân khu theo 12 chủ đề, hơn 100 trò chơi, công viên nước, thủy cung và các chương trình biểu diễn. Đây không phải điểm có thể “ghé qua cho biết” trong một buổi ngắn, bởi thời gian di chuyển, xếp hàng, thay đồ, nghỉ ngơi và chờ show đều chiếm đáng kể trong lịch trình.",
       "infographic": [
         {
           "icon": "01",
           "label": "QUY MÔ",
-          "value": "6 phân khu lớn",
-          "note": "Có công viên nước, trò chơi, thủy cung và show nên thời gian di chuyển bên trong cũng đáng kể."
+          "value": "",
+          "note": "Ý chính: Gần 50 ha, 6 phân khu, hơn 100 trò chơi"
         },
         {
           "icon": "02",
           "label": "ĐI CÙNG TRẺ?",
-          "value": "Xem giới hạn chiều cao trước",
-          "note": "Đọc quy định trò chơi từ đầu ngày sẽ tránh đi tới nơi rồi mới biết trẻ chưa đủ điều kiện."
+          "value": "",
+          "note": "Ý chính: Xem giới hạn chiều cao trước"
         },
         {
           "icon": "03",
           "label": "MỐC CUỐI NGÀY",
-          "value": "Giữ sức cho show tối",
-          "note": "Nếu muốn xem ONCE hoặc các show cuối ngày, đừng dùng hết năng lượng ở nửa đầu lịch trình."
+          "value": "",
+          "note": "Ý chính: Giữ sức cho show tối"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ",
+          "body": "Ý chính: Gần 50 ha, 6 phân khu, hơn 100 trò chơi VinWonders được tổ chức như một quần thể giải trí hoàn chỉnh với nhiều nhóm trải nghiệm khác nhau: • Đại lộ châu Âu: không gian kiến trúc, mua sắm, ăn uống và các hoạt động mang màu sắc châu Âu. • Thế giới diệu kỳ: các chủ đề cổ tích, trò chơi gia đình và khu phù hợp với trẻ nhỏ. • Khu làng bí mật: không gian lấy cảm hứng từ văn hóa và hình ảnh làng Viking. • Thế giới lốc xoáy: công viên nước với nhiều khu vui chơi dưới nước. • Cung điện Hải Vương: thủy cung và không gian khám phá thế giới đại dương. • Thế giới phiêu lưu: nhóm trò chơi cảm giác mạnh và trải nghiệm vận động. Mỗi phân khu không chỉ khác nhau về chủ đề mà còn khác về nhịp trải nghiệm. Công viên nước cần thời gian thay đồ và tắm tráng; thủy cung phù hợp để tránh nắng và đi chậm; trò cảm giác mạnh cần sức khỏe và thời gian xếp hàng; còn khu show lại buộc du khách phải canh giờ. Vì vậy, quy mô lớn không có nghĩa là nên cố đi hết. Một gia đình có thể dành gần cả ngày mà vẫn chỉ trải nghiệm sâu 2-3 phân khu. Nếu cố “quét” toàn bộ công viên, du khách dễ mất nhiều thời gian di chuyển nhưng không thật sự tận hưởng được điểm nào."
+        },
+        {
+          "heading": "ĐI CÙNG TRẺ?",
+          "body": "Ý chính: Xem giới hạn chiều cao trước Hơn 100 trò chơi không đồng nghĩa với việc trẻ nào cũng chơi được tất cả. Mỗi trò có thể có yêu cầu riêng về chiều cao, độ tuổi, người lớn đi kèm hoặc tình trạng sức khỏe. Gia đình nên chia trước các trò thành ba nhóm: • Chắc chắn chơi được. • Có thể chơi nếu đủ chiều cao hoặc có người lớn đi cùng. • Không phù hợp với trẻ trong nhóm. Nên xem bản đồ và quy định trước khi vào, sau đó gom những trải nghiệm gần nhau thành từng cụm. Cách này thực tế hơn việc đi theo cảm hứng, xếp hàng một lúc lâu rồi mới phát hiện bé không đủ điều kiện."
+        },
+        {
+          "heading": "MỐC CUỐI NGÀY",
+          "body": "Ý chính: Giữ sức cho show tối Nếu đã muốn xem show ONCE hoặc chương trình biểu diễn cuối ngày, hãy xem đó là mốc cố định của lịch trình. Cần chừa thời gian để rời khu vui chơi cuối cùng, thay đồ, đi vệ sinh, ăn nhẹ và di chuyển tới khu biểu diễn. Đừng để gia đình vừa mệt vừa phải chạy từ công viên nước sang khu show. Với trẻ nhỏ và người lớn tuổi, nên kết thúc hoạt động nặng sớm hơn dự kiến thay vì cố chơi đến sát giờ."
+        },
+        {
           "heading": "Một ngày ở đây nên có chiến lược",
-          "body": "Trang chính thức hiện công bố nhiều khu chức năng và lịch show trong ngày. Với khách gia đình, cách dễ nhất là chọn 2-3 trải nghiệm quan trọng trước, xen các khu trong nhà để nghỉ giữa trưa."
+          "body": "Trước khi vào cổng, hãy chọn 2-3 ưu tiên chính: • Công viên nước + thủy cung + show tối. • Trò cảm giác mạnh + một khu chủ đề + show tối. • Khu trẻ em + thủy cung + các hoạt động nhẹ. Công viên nước cần tính thêm thời gian thay đồ, tắm tráng và bảo quản tư trang. Thủy cung có thể dùng làm điểm nghỉ giữa ngày. Các trò cảm giác mạnh nên xếp khi cả nhóm còn đủ sức, không nên để dồn vào cuối buổi. Hãy đọc bản đồ theo hướng “đi một vòng có chủ đích”, tránh đi qua đi lại giữa các khu. Quy mô 50 ha khiến việc quay đầu nhiều lần trở thành nguyên nhân chính làm du khách mệt."
         },
         {
           "heading": "Giờ show và giờ hoạt động là dữ liệu cần kiểm tra theo ngày",
-          "body": "Lịch vận hành có thể cập nhật. Open Phu Quoc chỉ dùng giờ hiện hành từ kênh chính thức khi hiển thị trực tiếp, còn phần cẩm nang chỉ giải thích cách lên kế hoạch."
+          "body": "Giờ vận hành trò chơi, lịch biểu diễn và tình trạng hoạt động có thể thay đổi. Kiểm tra kênh chính thức trước khi đi, đặc biệt nếu lịch trình phụ thuộc vào công viên nước, thủy cung hoặc show ONCE."
         }
       ],
-      "visitor_questions": [
-        "Show nào hôm nay phù hợp nhất với lịch của gia đình?",
-        "Trò nào có giới hạn chiều cao hoặc cần xếp hàng lâu?"
-      ],
+      "visitor_questions": [],
       "sources": [
         {
           "label": "VinWonders Phú Quốc - Website chính thức",
@@ -547,41 +715,50 @@
       ]
     },
     "place_vinpearl_safari": {
-      "lede": "Safari là trải nghiệm xem động vật bán hoang dã và vườn thú mở. Buổi sáng thường dễ chịu hơn vì thời tiết mát hơn và khách chưa quá mệt.",
+      "lede": "Vinpearl Safari không chỉ là một vườn thú đi bộ mà là một quần thể chăm sóc và bảo tồn động vật quy mô lớn. Giai đoạn khai thác được giới thiệu với quy mô khoảng 380 ha, gồm hai khu chính: Vườn thú mở và khu Safari bán hoang dã; toàn bộ dự án được giới thiệu với tổng diện tích gần 500 ha. Vì không gian rộng và các khu tham quan phân tán, đây là điểm cần đi theo nhịp thể lực. Đi sớm giúp du khách tránh phần nào nắng nóng, có thời gian xem các khu chính và giảm nguy cơ trẻ nhỏ hoặc người lớn tuổi bị quá sức.",
       "infographic": [
         {
           "icon": "01",
           "label": "TRỤC CHÍNH",
-          "value": "xe buýt Safari + vườn thú mở",
-          "note": "Nếu thời gian hạn chế, nên ưu tiên xe buýt bán hoang dã rồi mới chọn các khu phụ."
+          "value": "",
+          "note": "Ý chính: Vườn thú mở và khu Safari bán hoang dã"
         },
         {
           "icon": "02",
           "label": "ĐI VỚI TRẺ",
-          "value": "Nhẹ hơn nếu đi sớm",
-          "note": "Nắng và quãng đi bộ có thể làm trẻ nhanh mệt hơn dự kiến."
+          "value": "",
+          "note": "Ý chính: Nhẹ hơn nếu đi sớm"
         },
         {
           "icon": "03",
           "label": "ĐỪNG NHỒI CẢ HAI",
-          "value": "Safari + VinWonders không phải lúc nào cũng hợp",
-          "note": "Với trẻ nhỏ hoặc người lớn tuổi, cố gộp hai công viên trong một ngày dễ quá tải."
+          "value": "",
+          "note": "Ý chính: Safari và VinWonders không phải lúc nào cũng hợp"
         }
       ],
       "sections": [
         {
+          "heading": "TRỤC CHÍNH",
+          "body": "Ý chính: Vườn thú mở và khu Safari bán hoang dã Safari có hai kiểu trải nghiệm khác nhau: • Vườn thú mở: du khách đi bộ qua các khu nuôi dưỡng, chăm sóc và quan sát nhiều nhóm động vật. • Khu Safari bán hoang dã: du khách ngồi trên xe chuyên dụng để quan sát động vật trong không gian rộng hơn, với khoảng cách và cách tổ chức khác với khu chuồng thú truyền thống. Đây là hai trải nghiệm không nên đánh đồng. Vườn thú mở cho phép dừng lâu hơn ở từng khu nhưng cần đi bộ nhiều. Khu Safari giúp giảm quãng đường đi bộ nhưng phụ thuộc vào tuyến xe, thời gian chờ và khả năng quan sát động vật tại thời điểm tham quan. Nếu thời gian có hạn, nên ưu tiên khu Safari bằng xe chuyên dụng trước, sau đó mới chọn một số khu đi bộ phù hợp. Nếu đi cùng trẻ nhỏ, không nhất thiết phải cố xem toàn bộ các khu động vật."
+        },
+        {
+          "heading": "ĐI VỚI TRẺ",
+          "body": "Ý chính: Nhẹ hơn nếu đi sớm Quy mô lớn khiến quãng đường đi bộ và thời gian đứng chờ dễ bị đánh giá thấp. Trẻ có thể hào hứng trong giờ đầu nhưng nhanh mệt khi phải đi liên tục dưới nắng. Nên chuẩn bị: • Nước uống và thời gian nghỉ định kỳ. • Mũ, kem chống nắng và trang phục nhẹ. • Lộ trình có điểm nghỉ dưới bóng râm. • Phương án rút ngắn nếu trẻ bắt đầu mệt hoặc mất hứng thú. Với gia đình có người lớn tuổi, cần ưu tiên tuyến xe và các khu dễ tiếp cận thay vì đặt mục tiêu đi hết toàn bộ công viên."
+        },
+        {
+          "heading": "ĐỪNG NHỒI CẢ HAI",
+          "body": "Ý chính: Safari và VinWonders không phải lúc nào cũng hợp VinWonders thiên về trò chơi, nước và show diễn; Safari thiên về đi bộ, quan sát động vật và di chuyển bằng xe chuyên dụng. Hai nơi đều có quy mô lớn nhưng tiêu hao thể lực theo cách khác nhau. Gộp cả hai vào một ngày chỉ phù hợp với nhóm có sức khỏe tốt, chấp nhận lược bớt trải nghiệm và có kế hoạch di chuyển thật chặt. Với gia đình có trẻ nhỏ hoặc người cao tuổi, nên dành riêng một ngày cho Safari để giữ nhịp thư thả hơn."
+        },
+        {
           "heading": "Không chỉ là một sở thú truyền thống",
-          "body": "Trang vận hành chính thức mô tả Vinpearl Safari là công viên chăm sóc và bảo tồn động vật bán hoang dã, với khu xe buýt quan sát động vật, vườn thú mở và các khu theo nhóm loài."
+          "body": "Safari được tổ chức theo nhiều lớp không gian: khu đi bộ, khu bán hoang dã, tuyến xe, khu chăm sóc động vật và các điểm quan sát. Giá trị của nơi này nằm ở cách thiết kế môi trường sống và khoảng cách quan sát, không chỉ ở số lượng loài. Du khách nên xem đây là một hành trình quan sát có nhịp, không phải danh sách điểm check-in. Có những lúc động vật không ở gần tuyến xe hoặc không hoạt động mạnh; đó là đặc điểm của trải nghiệm với động vật, không nên biến thành áp lực cho người đi cùng."
         },
         {
           "heading": "Nhịp đi quan trọng hơn số lượng khu đã check",
-          "body": "Nếu đi gia đình, nên nhìn sức đi bộ và nắng trong ngày. Một lịch ngắn nhưng có thời gian ngồi nghỉ thường dễ chịu hơn cố đi đủ mọi khu."
+          "body": "Không cần cố đi hết mọi khu. Nên chọn một tuyến chính, xen kẽ điểm nghỉ và chấp nhận bỏ qua một số khu nếu thời tiết hoặc thể lực không thuận lợi."
         }
       ],
-      "visitor_questions": [
-        "xe buýt bán hoang dã hiện mất khoảng bao lâu?",
-        "Show hoặc hoạt động nào hôm nay cần tới sớm?"
-      ],
+      "visitor_questions": [],
       "sources": [
         {
           "label": "Vinpearl Safari Phú Quốc - Website chính thức",
@@ -590,41 +767,50 @@
       ]
     },
     "place_grand_world": {
-      "lede": "Grand World là một khu phố giải trí - mua sắm quy mô lớn ở Bắc đảo. Giá trị trải nghiệm phụ thuộc khá nhiều vào giờ đến, khu nào đang hoạt động và bạn có định xem show hay chỉ đi dạo.",
+      "lede": "Grand World là một tổ hợp mua sắm, giải trí và phố thương mại quy mô khoảng 85 ha, nằm trong Phú Quốc United Center. Không gian được tổ chức theo nhiều khu phố, kênh đào, điểm tham quan, nhà hàng, cửa hàng và chương trình biểu diễn. Điểm khó của Grand World là diện tích lớn nhưng trải nghiệm không vận hành giống một công viên có tuyến tham quan rõ ràng. Có khu miễn phí, khu cần mua vé, khu hoạt động theo giờ và khu phụ thuộc vào tình hình mở cửa của từng cửa hàng. Vì vậy, đi Grand World không nên chỉ hiểu là “đến rồi đi bộ xem có gì”.",
       "infographic": [
         {
           "icon": "01",
           "label": "ĐI KHI NÀO?",
-          "value": "Cuối chiều đến tối",
-          "note": "Dễ chịu hơn về nhiệt độ và hợp với nhịp show, ánh sáng và ăn tối."
+          "value": "",
+          "note": "Ý chính: Cuối chiều đến tối"
         },
         {
           "icon": "02",
           "label": "CÓ GÌ?",
-          "value": "Kênh Venice - bảo tàng - phố - show",
-          "note": "Không cần cố đi hết. Chọn một trục phù hợp với thời gian của mình."
+          "value": "",
+          "note": "Ý chính: Kênh Venice - bảo tàng - phố - show"
         },
         {
           "icon": "03",
           "label": "CẦN BIẾT",
-          "value": "Không mặc định mọi cửa hàng mở khuya",
-          "note": "Khu rất rộng, nhưng mật độ hoạt động thực tế có thể thay đổi theo ngày và mùa."
+          "value": "",
+          "note": "Ý chính: Không mặc định mọi cửa hàng mở khuya"
         }
       ],
       "sections": [
         {
+          "heading": "ĐI KHI NÀO?",
+          "body": "Ý chính: Cuối chiều đến tối Cuối chiều thường là thời điểm dễ bắt đầu hơn vì giảm nắng và thuận tiện kết hợp ăn tối, tham quan, đi thuyền hoặc xem show. Tuy nhiên, không nên mặc định mọi khu đều đông vui như nhau vào buổi tối. Mức độ nhộn nhịp phụ thuộc vào ngày trong tuần, mùa du lịch, lịch sự kiện và lượng khách thực tế. Nếu đi ban ngày, nên chọn một điểm có mục tiêu thay vì đi bộ lang thang trên toàn khu. Nếu đi từ cuối chiều, có thể chia lịch trình thành ba nhịp: • Tham quan và chụp ảnh khi còn sáng. • Ăn uống hoặc trải nghiệm kênh đào vào đầu tối. • Xem show hoặc dạo phố sau khi lên đèn."
+        },
+        {
+          "heading": "CÓ GÌ?",
+          "body": "Ý chính: Kênh Venice - bảo tàng - phố - show Grand World có nhiều lớp trải nghiệm, không phải tất cả đều phù hợp với cùng một nhóm khách: • Kênh đào và thuyền gondola: phù hợp với người muốn ngắm kiến trúc, chụp ảnh và trải nghiệm nhẹ. • Phố thương mại và ẩm thực: phù hợp để ăn tối, mua sắm hoặc dạo bộ. • Bảo tàng và điểm tham quan theo chủ đề: phù hợp với người muốn có điểm dừng cụ thể thay vì chỉ đi bộ. • Show diễn: phù hợp với khách muốn xem chương trình có giờ cố định. • Không gian check-in: phù hợp với nhóm bạn, cặp đôi và người thích chụp ảnh kiến trúc. Quy mô 85 ha khiến việc “đi cho hết” không phải mục tiêu hợp lý. Hãy chọn một trục chính theo nhu cầu: ăn uống, chụp ảnh, xem show, đi thuyền hoặc tham quan có vé."
+        },
+        {
+          "heading": "CẦN BIẾT",
+          "body": "Ý chính: Không mặc định mọi cửa hàng mở khuya Grand World có thể tạo cảm giác như một thành phố hoạt động liên tục, nhưng không phải mọi cửa hàng, nhà hàng, điểm tham quan và quầy dịch vụ đều mở cùng giờ. Một số khu có thể sáng đèn nhưng hoạt động thực tế không đầy đủ như kỳ vọng. Trước khi đến, nên kiểm tra: • Show nào diễn trong ngày. • Điểm tham quan nào cần mua vé. • Nhà hàng nào đang mở. • Khu vực nào phù hợp với trẻ nhỏ. • Có cần đặt trước trải nghiệm thuyền hoặc chương trình cụ thể không."
+        },
+        {
           "heading": "Một khu lớn cần đi có mục tiêu",
-          "body": "Website chính thức giới thiệu Grand World như tổ hợp giải trí và mua sắm với kênh Venice, thuyền gondola, bảo tàng và các chương trình biểu diễn. Nếu chỉ tới mà không biết muốn xem gì, rất dễ đi nhiều nhưng cảm thấy ít trải nghiệm."
+          "body": "Tại đây có kênh đào Venice, phố thương mại, bảo tàng, ẩm thực và các chương trình biểu diễn. Nếu không chọn trước mục tiêu, du khách dễ đi bộ rất nhiều nhưng chỉ lướt qua từng khu, vừa mệt vừa khó nhớ được điểm nhấn. Có thể chọn một trong các kiểu lịch trình: • Cặp đôi: cuối chiều chụp ảnh, đi thuyền, ăn tối và xem show. • Gia đình: chọn một điểm tham quan rõ ràng, ăn tối sớm và hạn chế đi bộ quá dài. • Nhóm bạn: ưu tiên ẩm thực, phố lên đèn và chương trình biểu diễn. • Khách chỉ có ít thời gian: chọn kênh đào, một điểm check-in và một bữa ăn, không cố đi toàn khu."
         },
         {
           "heading": "Chọn điểm dừng trước khi tới",
-          "body": "Nếu đi cùng trẻ nhỏ, bảo tàng hoặc hoạt động có cấu trúc rõ thường dễ hơn đi bộ kéo dài. Nếu đi cặp đôi, cuối chiều - tối hợp hơn để kết hợp ánh sáng, ăn uống và show."
+          "body": "Nên đánh dấu trước điểm bắt đầu, điểm ăn uống và điểm kết thúc. Nếu có show, hãy lấy giờ show làm mốc rồi sắp xếp các hoạt động còn lại xung quanh. Grand World phù hợp với kiểu đi “chọn điểm rồi nối lại”, không phù hợp với kiểu đi không kế hoạch trong một không gian rất rộng."
         }
       ],
-      "visitor_questions": [
-        "Show nào đang chạy hôm nay?",
-        "Khu nào còn hoạt động muộn nhất tối nay?"
-      ],
+      "visitor_questions": [],
       "sources": [
         {
           "label": "Grand World Phú Quốc - Website chính thức",
@@ -633,40 +819,56 @@
       ]
     },
     "place_aquatopia": {
-      "lede": "Aquatopia là công viên nước trên Hòn Thơm. Trải nghiệm phụ thuộc vào chiều cao, mức chịu trò cảm giác mạnh, thời tiết và việc bạn muốn dành bao nhiêu thời gian cho biển bên ngoài công viên.",
+      "lede": "Aquatopia là công viên nước trên Hòn Thơm, thường được ghép trong hành trình cáp treo từ An Thới. Đây không phải một khu hồ bơi đơn giản, mà là một tổ hợp trò chơi nước với nhiều nhóm mức độ khác nhau, từ khu gia đình đến đường trượt cảm giác mạnh. Vì nằm trên đảo, du khách phải tính cả thời gian đi cáp treo, chờ cáp, thay đồ, gửi tư trang và quay về ga. Aquatopia nên được xem là trục chính của một ngày Hòn Thơm, không phải một điểm chen thêm vào cuối lịch trình.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐI CÙNG AI?",
-          "value": "Gia đình và nhóm thích trò nước",
-          "note": "Trẻ em cần xem giới hạn chiều cao từng trò trước khi xếp hàng."
+          "label": "QUY MÔ",
+          "value": "Nhiều khu trò chơi nước trong một ngày đi đảo",
+          "note": "Aquatopia thường gồm nhiều nhóm trải nghiệm:"
         },
         {
           "icon": "02",
-          "label": "MỚI 2026",
-          "value": "Có thêm trò Wavy Whirl",
-          "note": "Sun World công bố bổ sung làn trượt thế hệ mới trong mùa hè 2026."
+          "label": "ĐI CÙNG AI?",
+          "value": "Gia đình, nhóm bạn và người thích trò nước",
+          "note": "Aquatopia phù hợp với nhiều nhóm nhưng mỗi nhóm cần một cách đi khác:"
         },
         {
           "icon": "03",
           "label": "ĐỪNG QUÊN",
-          "value": "Hòn Thơm còn có biển và Exotica",
-          "note": "Nếu vé và thời gian cho phép, nên cân bằng công viên nước với phần còn lại của đảo."
+          "value": "Cáp treo, thay đồ, tủ gửi đồ và thời gian về",
+          "note": "Một ngày Aquatopia thường phát sinh nhiều mốc thời gian:"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Nhiều khu trò chơi nước trong một ngày đi đảo",
+          "body": "Aquatopia thường gồm nhiều nhóm trải nghiệm: • Khu vui chơi nước cho trẻ nhỏ. • Khu hồ và trò chơi gia đình. • Các đường trượt dành cho khách đủ chiều cao. • Trò chơi cảm giác mạnh. • Khu thay đồ, tắm tráng, gửi đồ và nghỉ giữa chặng. • Các điểm ăn uống hoặc dịch vụ phụ trợ. Quy mô trải nghiệm không chỉ tính bằng số máng trượt. Một gia đình cần tính thêm thời gian xếp hàng, đi giữa các khu, thay đồ, nghỉ dưới nắng và quay lại cáp treo. Nếu muốn chơi nhiều trò, nên dành phần lớn thời gian trên đảo cho Aquatopia. Nếu còn muốn đi biển hoặc khám phá Exotica, cần chấp nhận không thể chơi hết các trò nước."
+        },
+        {
+          "heading": "ĐI CÙNG AI?: Gia đình, nhóm bạn và người thích trò nước",
+          "body": "Aquatopia phù hợp với nhiều nhóm nhưng mỗi nhóm cần một cách đi khác: • Trẻ nhỏ: ưu tiên khu nước nông, trò nhẹ và có người lớn quan sát. • Gia đình có trẻ lớn: xem trước chiều cao để chọn đường trượt. • Nhóm bạn: có thể dành nhiều thời gian cho trò cảm giác mạnh. • Người không thích nước hoặc dễ lạnh: nên cân nhắc tỷ lệ thời gian giữa công viên nước và các hoạt động khô. Không phải thành viên nào cũng cần mua cùng một kỳ vọng. Người không chơi nước có thể cần khu nghỉ, biển hoặc hoạt động khác trên Hòn Thơm."
+        },
+        {
+          "heading": "ĐỪNG QUÊN: Cáp treo, thay đồ, tủ gửi đồ và thời gian về",
+          "body": "Một ngày Aquatopia thường phát sinh nhiều mốc thời gian: • Chờ tại ga An Thới. • Đi cáp treo vượt biển. • Nhận vòng tay hoặc làm thủ tục vào khu. • Thay đồ và gửi tư trang. • Xếp hàng tại các trò chơi. • Tắm tráng, thay đồ trước khi về. • Chờ và đi cáp treo chuyến cuối. Sun World công bố bổ sung trò Wavy Whirl - Lốc Xoáy Nhiệt Đới trong mùa hè 2026, nhưng tình trạng vận hành từng trò vẫn cần kiểm tra theo ngày."
+        },
+        {
           "heading": "Đây là một phần của ngày Hòn Thơm",
-          "body": "Aquatopia nằm trên Hòn Thơm và thường đi cùng hành trình cáp treo. Với nhiều gia đình, công viên nước là trục chính của ngày; với người muốn ngắm biển, không nên để toàn bộ lịch bị hút vào các máng trượt."
+          "body": "Aquatopia nằm trên Hòn Thơm và thường đi cùng hành trình cáp treo. Với nhiều gia đình, công viên nước là trục chính của ngày; với người muốn ngắm biển, không nên để toàn bộ lịch bị hút vào các máng trượt. Nếu đi cùng trẻ nhỏ, nên thống nhất trước thời gian chơi nước, thời gian ăn và thời điểm rời công viên. Trẻ rất dễ mệt sau nhiều giờ dưới nước và nắng, dù ban đầu vẫn còn hào hứng."
         },
         {
           "heading": "Đọc giới hạn trò chơi trước khi xếp hàng",
-          "body": "Chiều cao, tình trạng sức khỏe và điều kiện vận hành có thể giới hạn một số trò. Xem quy định từ đầu giúp tránh mất thời gian và giảm thất vọng cho trẻ."
+          "body": "Chiều cao, tình trạng sức khỏe và điều kiện vận hành có thể giới hạn một số trò. Xem quy định từ đầu giúp tránh mất thời gian và giảm thất vọng cho trẻ. Ngoài ra, cần hỏi rõ: • Tủ gửi đồ có giới hạn kích thước hay không. • Điện thoại và kính có được mang lên trò chơi không. • Có được dùng áo phao riêng không. • Khu vực nào dành cho trẻ nhỏ. • Nếu trò tạm đóng thì có phương án thay thế không."
         }
       ],
       "visitor_questions": [
-        "Trò nào hôm nay tạm đóng hoặc có giới hạn chiều cao?",
-        "Có tủ đồ, khăn hoặc khu thay đồ nào cần mua thêm không?"
+        "Hôm nay trò nào tạm đóng hoặc có giới hạn chiều cao?",
+        "Vé đã bao gồm Aquatopia và khu nào khác?",
+        "Có tủ đồ, khăn hoặc khu thay đồ nào cần mua thêm không?",
+        "Nên vào công viên nước lúc nào để giảm thời gian chờ?",
+        "Chuyến cáp cuối về An Thới lúc mấy giờ?",
+        "Nếu đi cùng trẻ nhỏ, khu nào an toàn và dễ nghỉ nhất?"
       ],
       "sources": [
         {
@@ -680,40 +882,55 @@
       ]
     },
     "activity_symphony_of_the_sea": {
-      "lede": "Symphony of the Sea là show ngoài trời ở Sunset Town kết hợp jetski, flyboard, ánh sáng và hiệu ứng trên mặt nước. Vì là show ngoài trời, trải nghiệm phụ thuộc thời tiết và vị trí xem rõ hơn một show trong nhà.",
+      "lede": "Symphony of the Sea là show ngoài trời tại Sunset Town, kết hợp jetski, flyboard, âm nhạc, ánh sáng, hiệu ứng nước và pháo hoa. Show thường được giới thiệu với thời lượng khoảng 20-30 phút, nhưng giờ diễn và nội dung có thể thay đổi theo mùa hoặc phiên bản chương trình. Đây không phải show ngồi trong khán phòng kín. Người xem đứng hoặc ngồi ở khu vực hướng ra mặt nước, vì vậy gió, mưa, tầm nhìn và vị trí quan sát ảnh hưởng trực tiếp tới trải nghiệm.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÂY LÀ GÌ?",
-          "value": "Show jetski + flyboard + ánh sáng",
-          "note": "Xem trên mặt nước, với nhịp nhanh và nhiều hiệu ứng trực quan."
+          "label": "QUY MÔ",
+          "value": "Sân khấu mặt nước, jetski, flyboard và hiệu ứng ánh sáng",
+          "note": "Symphony of the Sea được dàn dựng trên một vùng mặt nước rộng, với nhiều lớp chuyển động:"
         },
         {
           "icon": "02",
           "label": "ĐI KHI NÀO?",
-          "value": "Theo lịch show trong ngày",
-          "note": "Nên có mặt sớm hơn giờ bắt đầu để ổn định vị trí xem."
+          "value": "Theo lịch show, nên đến sớm hơn giờ bắt đầu",
+          "note": "Nên có mặt sớm để:"
         },
         {
           "icon": "03",
           "label": "PHỤ THUỘC",
-          "value": "Gió, mưa và vận hành",
-          "note": "Show ngoài trời có thể thay đổi nếu điều kiện không phù hợp."
+          "value": "Gió, mưa, sóng và vận hành thiết bị",
+          "note": "Show ngoài trời phụ thuộc vào điều kiện biển và khả năng vận hành jetski, flyboard, ánh sáng, âm thanh hoặc pháo hoa. Trời đẹp trong khu phố không đồng nghĩa mặt biển chắc chắn phù hợp cho biểu diễn."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Sân khấu mặt nước, jetski, flyboard và hiệu ứng ánh sáng",
+          "body": "Symphony of the Sea được dàn dựng trên một vùng mặt nước rộng, với nhiều lớp chuyển động: • Jetski di chuyển tốc độ cao trên mặt biển. • Flyboard tạo điểm nhấn theo chiều đứng. • Ánh sáng và âm nhạc dẫn nhịp chương trình. • Hiệu ứng nước và pháo hoa tạo phần kết. • Không gian khán giả trải dài quanh khu vực trình diễn. Vì sân khấu nằm ngoài trời, không phải vị trí nào cũng cho góc nhìn giống nhau. Khu gần mặt nước có thể nhìn rõ chuyển động ngang, trong khi vị trí cao hoặc xa hơn có thể nhìn tổng thể ánh sáng và pháo hoa tốt hơn. Thời lượng show không quá dài, nhưng tổng thời gian dành cho việc tìm chỗ, ổn định vị trí, chờ bắt đầu và di chuyển sau show có thể lâu hơn nhiều."
+        },
+        {
+          "heading": "ĐI KHI NÀO?: Theo lịch show, nên đến sớm hơn giờ bắt đầu",
+          "body": "Nên có mặt sớm để: • Tìm đúng khu xem. • Chọn vị trí không bị công trình hoặc đám đông che khuất. • Ổn định trẻ nhỏ và người lớn tuổi. • Tránh phải đứng ngoài rìa vì đến sát giờ. • Có thời gian xử lý vé, nhà vệ sinh và đồ ăn trước show. Nếu muốn ghép Symphony of the Sea với Cầu Hôn hoặc một show khác, cần tính cả thời gian rời khu xem chứ không chỉ tính thời lượng biểu diễn."
+        },
+        {
+          "heading": "PHỤ THUỘC: Gió, mưa, sóng và vận hành thiết bị",
+          "body": "Show ngoài trời phụ thuộc vào điều kiện biển và khả năng vận hành jetski, flyboard, ánh sáng, âm thanh hoặc pháo hoa. Trời đẹp trong khu phố không đồng nghĩa mặt biển chắc chắn phù hợp cho biểu diễn. Mưa nhẹ có thể chỉ ảnh hưởng tới cảm giác xem; gió mạnh, sóng lớn hoặc thời tiết cực đoan có thể khiến chương trình thay đổi hoặc tạm dừng. Cần kiểm tra thông báo trong ngày thay vì chỉ dựa vào lịch quảng bá."
+        },
+        {
           "heading": "Nên xem như một phần của buổi tối Nam đảo",
-          "body": "Show dễ ghép cùng Cầu Hôn và Sunset Town. Nếu cùng tối còn xem Kiss of the Sea, cần kiểm tra khoảng cách thời gian giữa hai show để không phải chạy."
+          "body": "Show dễ ghép cùng Cầu Hôn, Sunset Town, ăn tối và các chương trình buổi tối khác. Tuy nhiên, không nên xem nhiều show liên tiếp là mặc định phù hợp. Nếu cùng tối còn xem Kiss of the Sea, hãy kiểm tra: • Giờ kết thúc thực tế của Symphony of the Sea. • Khoảng cách giữa hai khu xem. • Thời gian đi bộ và kiểm tra vé. • Khả năng tìm chỗ ngồi khi đến show sau. • Phương án nếu show đầu tiên kéo dài hoặc khách rời khu cùng lúc."
         },
         {
           "heading": "Vị trí xem tạo khác biệt lớn",
-          "body": "Một show trên mặt nước có nhiều lớp chuyển động. Nếu tới quá sát giờ, vị trí còn lại có thể hạn chế tầm nhìn hơn nhiều so với trải nghiệm trong ảnh quảng bá."
+          "body": "Một show trên mặt nước có nhiều lớp chuyển động: jetski chạy ngang, flyboard bay lên, ánh sáng quét trên mặt biển và pháo hoa ở phía sau. Nếu tới quá sát giờ, vị trí còn lại có thể hạn chế tầm nhìn hơn nhiều so với hình ảnh quảng bá. Gia đình có trẻ nhỏ nên chọn vị trí dễ ra vào, không quá sát khu đông người và có thể quan sát an toàn. Người muốn chụp ảnh nên cân nhắc giữa vị trí đẹp bằng mắt và vị trí thuận lợi cho máy ảnh, vì hai mục tiêu này không phải lúc nào cũng trùng nhau."
         }
       ],
       "visitor_questions": [
         "Show hôm nay có chạy đúng lịch không?",
-        "Khu xem nào phù hợp nếu đi cùng trẻ nhỏ?"
+        "Thời lượng và nội dung hôm nay có thay đổi không?",
+        "Khu xem nào phù hợp nếu đi cùng trẻ nhỏ?",
+        "Vị trí nào ít bị che khuất và dễ rời đi sau show?",
+        "Nếu thời tiết xấu, chính sách đổi lịch hoặc hoàn vé thế nào?"
       ],
       "sources": [
         {
@@ -723,41 +940,56 @@
       ]
     },
     "activity_kiss_of_the_sea": {
-      "lede": "Kiss of the Sea là show đa phương tiện ngoài trời tại Sunset Town, thường được xem như điểm chốt của buổi tối Nam đảo. Đừng mua vé chỉ vì thấy pháo hoa trong ảnh - hãy xem vị trí ngồi, giờ show và quyền lợi đúng ngày.",
+      "lede": "Kiss of the Sea là show đa phương tiện ngoài trời tại Sunset Town, kết hợp sân khấu nước, hình ảnh, ánh sáng, laser, lửa, âm nhạc và pháo hoa. Sân khấu và khán đài được giới thiệu có sức chứa khoảng 5.000 khán giả; phần trình diễn chính thường kéo dài khoảng 30 phút, sau đó có thể nối tiếp bằng màn pháo hoa. Đây là show cần lên lịch trước. Không nên mua vé chỉ vì thấy pháo hoa trong ảnh, bởi vị trí ngồi, góc nhìn, thời tiết và quyền lợi từng hạng vé ảnh hưởng lớn tới trải nghiệm thực tế.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÂY LÀ GÌ?",
-          "value": "Show đa phương tiện + pháo hoa",
-          "note": "Sân khấu ngoài trời lớn, kết hợp hình ảnh, nước, ánh sáng và hiệu ứng."
+          "label": "QUY MÔ",
+          "value": "Sân khấu nước lớn, khán đài nhiều tầng và show đa lớp",
+          "note": "Kiss of the Sea không chỉ là một sân khấu biểu diễn thông thường. Cấu trúc trải nghiệm gồm:"
         },
         {
           "icon": "02",
           "label": "TRƯỚC KHI MUA",
-          "value": "Xem đúng hạng vé",
-          "note": "Vị trí ngồi và quyền lợi combo có thể khác nhau."
+          "value": "Xem đúng hạng vé và sơ đồ khu ngồi",
+          "note": "Các hạng vé có thể khác nhau về:"
         },
         {
           "icon": "03",
           "label": "GHÉP LỊCH",
           "value": "Dựng ngược từ giờ show",
-          "note": "Sau đó mới chèn ăn tối, Cầu Hôn và các điểm khác để tránh nối lịch quá sát."
+          "note": "Với show lớn và giờ bắt đầu cố định, toàn bộ buổi tối dễ chịu hơn nếu lấy giờ show làm mốc. Sau đó mới chèn Cầu Hôn, ăn tối, chụp ảnh và các hoạt động khác."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Sân khấu nước lớn, khán đài nhiều tầng và show đa lớp",
+          "body": "Kiss of the Sea không chỉ là một sân khấu biểu diễn thông thường. Cấu trúc trải nghiệm gồm: • Sân khấu mặt nước ngoài trời. • Màn hình nước và hệ thống trình chiếu. • Ánh sáng, laser, lửa và hiệu ứng sân khấu. • Nghệ sĩ biểu diễn trực tiếp. • Khán đài nhiều tầng với nhiều khu vực vé. • Pháo hoa sau phần diễn chính tùy lịch vận hành. Sức chứa lớn giúp show đón đông khách, nhưng cũng khiến việc di chuyển, tìm đúng cổng, kiểm tra vé và rời khu sau chương trình mất thời gian. Nếu đi cùng nhóm đông, nên thống nhất điểm tập trung trước khi vào."
+        },
+        {
+          "heading": "TRƯỚC KHI MUA: Xem đúng hạng vé và sơ đồ khu ngồi",
+          "body": "Các hạng vé có thể khác nhau về: • Vị trí khán đài. • Góc nhìn sân khấu và mặt nước. • Khoảng cách tới màn hình nước. • Quyền lợi combo. • Điều kiện đổi ngày hoặc hoàn vé. • Khả năng kết hợp với Cầu Hôn, cáp treo hoặc dịch vụ khác. Không nên chỉ nhìn giá rẻ nhất. Hãy xem sơ đồ chỗ ngồi và hỏi rõ vé đang mua là vé vào show, vé combo hay vé có thêm quyền lợi khác."
+        },
+        {
+          "heading": "GHÉP LỊCH: Dựng ngược từ giờ show",
+          "body": "Với show lớn và giờ bắt đầu cố định, toàn bộ buổi tối dễ chịu hơn nếu lấy giờ show làm mốc. Sau đó mới chèn Cầu Hôn, ăn tối, chụp ảnh và các hoạt động khác. Nên chừa thời gian cho: • Di chuyển tới khu khán đài. • Xếp hàng vào cửa. • Tìm ghế. • Mua nước hoặc đi vệ sinh. • Trường hợp đông khách sau show. Không nên xếp một điểm ở quá xa ngay sau Kiss of the Sea, đặc biệt nếu đi cùng trẻ nhỏ hoặc người lớn tuổi."
+        },
+        {
           "heading": "Đây là show cần lên lịch chứ không phải ghé ngẫu hứng",
-          "body": "Với show lớn và giờ bắt đầu cố định, toàn bộ buổi tối dễ chịu hơn nếu lấy giờ show làm mốc. Điều này đặc biệt quan trọng nếu đi cùng trẻ, người lớn tuổi hoặc nhóm đông."
+          "body": "Một show có khán đài lớn và giờ diễn cố định không phù hợp với kiểu “đến xem thử nếu còn thời gian”. Nếu đến trễ, du khách có thể bỏ phần đầu, mất vị trí thuận lợi hoặc phải đứng chờ ở khu ngoài. Một lịch trình dễ chịu có thể là: • Cuối chiều: đến Sunset Town và đi bộ. • Trước show: ăn nhẹ hoặc ăn tối sớm. • Trước giờ diễn: vào khán đài. • Sau show: xem pháo hoa, rời khu theo lối đã xác định."
         },
         {
           "heading": "Ảnh pháo hoa không nói hết trải nghiệm",
-          "body": "Tầm nhìn, vị trí ngồi, thời tiết và quyền lợi vé ảnh hưởng trực tiếp tới cảm giác thực tế. Trước khi thanh toán, nên xem sơ đồ khu ngồi và điều kiện đổi lịch nếu thời tiết xấu."
+          "body": "Pháo hoa chỉ là phần kết. Trải nghiệm chính còn nằm ở sân khấu nước, màn hình trình chiếu, âm nhạc và sự phối hợp giữa nghệ sĩ với công nghệ. Vị trí ngồi ảnh hưởng tới việc cảm nhận từng lớp này. Khu quá xa có thể nhìn tổng thể tốt nhưng khó thấy chi tiết; khu quá gần có thể tạo cảm giác choáng ngợp nhưng không phải lúc nào cũng thuận lợi để quan sát toàn cảnh."
         }
       ],
       "visitor_questions": [
         "Hôm nay show có thay đổi do thời tiết không?",
         "Hạng vé này nằm ở khu nào trên sơ đồ?",
-        "Sau show nên đón xe ở đâu?"
+        "Vé có bao gồm pháo hoa và quyền lợi nào khác không?",
+        "Nên có mặt trước giờ diễn bao lâu?",
+        "Sau show nên đón xe ở đâu?",
+        "Nếu đi cùng trẻ nhỏ, khu khán đài nào dễ ra vào hơn?"
       ],
       "sources": [
         {
@@ -767,41 +999,50 @@
       ]
     },
     "place_cua_can": {
-      "lede": "Cửa Cạn là một khu dân cư ven sông ở phía Tây Bắc Phú Quốc. Giá trị của nơi này nằm ở nhịp sông, nhà ven bờ và trải nghiệm chèo kayak/thuyền chậm hơn là một điểm check-in duy nhất.",
+      "lede": "Cửa Cạn là khu vực nơi sông, cửa biển và bãi biển gặp nhau, tạo nên một kiểu cảnh quan khác với những bãi biển thuần túy. Giá trị của nơi này nằm ở sự chuyển tiếp giữa nước ngọt, nước lợ và biển, cùng đời sống dân cư ven sông và các hoạt động đi thuyền, chèo kayak khi điều kiện phù hợp. Sông Cửa Cạn được giới thiệu dài khoảng 15 km và chảy ra biển tại khu vực Cửa Cạn; tuy nhiên, không phải toàn bộ chiều dài con sông đều là tuyến tham quan dành cho du khách.  Cần phân biệt điểm ngắm cảnh, bãi biển Cửa Cạn và tuyến kayak cụ thể của từng đơn vị tổ chức.",
       "infographic": [
         {
           "icon": "01",
           "label": "ĐÂY LÀ GÌ?",
-          "value": "Khu dân cư ven sông",
-          "note": "Sông Cửa Cạn tạo ra một kiểu cảnh quan khác hẳn bãi biển: nhà ven bờ, cửa sông, rừng và sinh hoạt địa phương."
+          "value": "",
+          "note": "Ý chính: Khu dân cư ven sông, cửa biển và bãi biển"
         },
         {
           "icon": "02",
           "label": "TRẢI NGHIỆM",
-          "value": "Kayak hoặc đi thuyền chậm",
-          "note": "Đi chậm giúp nhìn đời sống ven sông rõ hơn chạy xe ghé vài phút rồi đi."
+          "value": "",
+          "note": "Ý chính: Kayak, đi thuyền chậm và quan sát ven bờ"
         },
         {
           "icon": "03",
           "label": "CẦN BIẾT",
-          "value": "Nước, mưa và gió làm trải nghiệm đổi khác",
-          "note": "Hoạt động trên sông vẫn cần áo phao và kiểm tra điều kiện trong ngày."
+          "value": "",
+          "note": "Ý chính: Nước, mưa và gió làm trải nghiệm đổi khác"
         }
       ],
       "sections": [
         {
+          "heading": "ĐÂY LÀ GÌ?",
+          "body": "Ý chính: Khu dân cư ven sông, cửa biển và bãi biển Cửa Cạn không chỉ là một bãi biển. Không gian nơi đây gồm: • Khu cửa sông, nơi dòng nước đổ ra biển. • Các đoạn sông và bờ ven sông, phù hợp để quan sát cảnh quan hoặc tham gia hoạt động có tổ chức. • Khu dân cư và làng chài ven bờ. • Bãi biển, nơi cảnh quan chịu ảnh hưởng rõ của gió, sóng, mưa và thủy triều. Vì cấu trúc trải nghiệm phân tán, du khách cần xác định mình đang đến đâu và muốn làm gì. Đi ngắm cảnh ở cửa sông khác với chèo kayak trên sông; đi tắm biển cũng khác với tham gia một tuyến khám phá có hướng dẫn."
+        },
+        {
+          "heading": "TRẢI NGHIỆM",
+          "body": "Ý chính: Kayak, đi thuyền chậm và quan sát ven bờ Kayak là một cách tiếp cận cảnh quan chậm hơn, cho phép du khách tự điều chỉnh tốc độ và quan sát bờ sông, cây cối, những đoạn nước lặng hoặc đời sống ven bờ. Một số tuyến trải nghiệm còn kết hợp đi qua khu vực rừng ngập mặn, làng chài hoặc các đoạn cửa biển, tùy theo điểm xuất phát và điều kiện thực tế. Đi thuyền có người lái phù hợp với nhóm muốn nhẹ sức hơn hoặc có trẻ nhỏ, người lớn tuổi. Chèo kayak phù hợp với người có thể tự giữ thăng bằng, nghe hướng dẫn và chủ động xử lý khi thuyền đổi hướng. Không nên xem Cửa Cạn như một tour phiêu lưu bắt buộc phải chèo thật xa. Giá trị nằm ở việc đi chậm, quan sát và hiểu địa hình sông nước. Nếu lần đầu chèo, nên chọn tuyến ngắn, mặt nước êm và có người hướng dẫn."
+        },
+        {
+          "heading": "CẦN BIẾT",
+          "body": "Ý chính: Nước, mưa và gió làm trải nghiệm đổi khác Cửa sông là môi trường thay đổi liên tục. Mực nước, dòng chảy, thủy triều, mưa và gió có thể ảnh hưởng đến khả năng khởi hành, độ an toàn và quãng đường chèo. Trước khi xuống nước, cần xác nhận: • Tuyến hôm nay đi trên sông, cửa sông hay ra gần biển. • Mực nước và dòng chảy có phù hợp với người mới không. • Áo phao có bắt buộc và được chuẩn bị đủ không. • Có người hướng dẫn hoặc phương án hỗ trợ khi khách mệt không. • Thời tiết có khả năng mưa lớn, giông hoặc gió mạnh không. Không nên tự ý chèo ra vùng cửa biển hoặc đi xa khỏi nhóm nếu chưa có kinh nghiệm. Áo phao, hướng dẫn an toàn và việc tuân thủ tuyến đi quan trọng hơn chuyện chụp được một bức ảnh đẹp."
+        },
+        {
           "heading": "Một Phú Quốc không chỉ có biển",
-          "body": "Cửa Cạn cho thấy hệ sông và đời sống ven bờ của đảo. Một số hành trình địa phương kết hợp chèo kayak, đi thuyền và ăn uống quanh khu vực, phù hợp với người muốn đổi nhịp khỏi resort và bãi biển."
+          "body": "Cửa Cạn cho thấy một lớp địa hình khác của Phú Quốc: nơi biển không đứng riêng mà nối với sông, cửa nước, bờ cây và đời sống dân cư. Đây là điểm phù hợp để đổi nhịp sau những ngày đi bãi biển, công viên hoặc khu nghỉ dưỡng. Tuy nhiên, trải nghiệm ở đây không phải lúc nào cũng “đẹp sẵn”. Có ngày nước đục, gió lớn, mưa hoặc dòng chảy mạnh. Những thay đổi đó không có nghĩa điểm đến kém giá trị; chúng chỉ cho thấy đây là một không gian tự nhiên cần được tiếp cận đúng thời điểm."
         },
         {
           "heading": "Đi để quan sát, không cần cố biến thành tour phiêu lưu",
-          "body": "Nếu mới chèo kayak, nên chọn đoạn nước yên, mặc áo phao và đi cùng đơn vị có hướng dẫn. Trải nghiệm hay nhất thường nằm ở cảnh quan và nhịp sống hai bên bờ hơn là quãng đường đi được."
+          "body": "Đừng cố đua xem ai chèo đi xa hơn. Nếu chưa rành kayak, hãy đi cùng người có chuyên môn, mặc áo phao, giữ khoảng cách với nhóm và chọn khúc sông phù hợp. Với gia đình, nên ưu tiên tuyến ngắn, có điểm nghỉ và thời lượng vừa phải. Với người đã có kinh nghiệm, có thể chọn tuyến dài hơn nhưng vẫn cần căn cứ vào thời tiết, thủy triều và hướng dẫn tại chỗ."
         }
       ],
-      "visitor_questions": [
-        "Mực nước và dòng chảy hôm nay có phù hợp cho người mới chèo không?",
-        "Áo phao và hướng dẫn an toàn đã bao gồm chưa?"
-      ],
+      "visitor_questions": [],
       "sources": [
         {
           "label": "VisitPhuQuoc - Lịch trình Phú Quốc 4 ngày 3 đêm có trải nghiệm kayak Cửa Cạn",
@@ -810,41 +1051,42 @@
       ]
     },
     "place_night_market": {
-      "lede": "Chợ đêm Dương Đông là nơi dễ cảm nhận nhịp ăn uống và mua sắm buổi tối ở trung tâm đảo. Điểm đáng giá không phải ăn thật nhiều, mà là biết mình đang mua gì, giá tính theo cách nào và thử vài món đúng khẩu vị.",
+      "lede": "Chợ đêm Dương Đông, còn được gọi là chợ đêm Phú Quốc hoặc chợ đêm Bạch Đằng, từng là một trong những nơi dễ cảm nhận nhất nhịp ăn uống và mua sắm buổi tối ở trung tâm đảo. Khu chợ Bạch Đằng cũ đã dừng hoạt động sau ngày 28/02/2026, vì vậy không nên dùng các mô tả cũ về giờ mở cửa hay quy mô gian hàng để lên lịch hiện tại.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÂY LÀ GÌ?",
-          "value": "Khu ăn uống - mua sắm buổi tối",
-          "note": "Chợ nằm ở khu Bạch Đằng, trung tâm Dương Đông và tập trung nhiều quầy hải sản, đặc sản, đồ ăn vặt và quà lưu niệm."
+          "label": "TRẠNG THÁI",
+          "value": "Khu chợ Bạch Đằng cũ đã dừng hoạt động",
+          "note": "Không dùng giờ mở cửa hoặc mô tả gian hàng từ các bài cũ để lên lịch hiện tại."
         },
         {
           "icon": "02",
-          "label": "ĂN HẢI SẢN",
-          "value": "Hỏi giá và đơn vị tính trước",
-          "note": "Món theo cân, kích cỡ hoặc có phí chế biến cần chốt rõ trước khi gọi."
+          "label": "NẾU ĐỌC BÀI CŨ",
+          "value": "Xem như thông tin về một khu chợ đã từng hoạt động",
+          "note": "Các mô tả về hải sản, món ăn và cách tính giá phản ánh trải nghiệm trước khi khu chợ dừng hoạt động."
         },
         {
           "icon": "03",
-          "label": "ĐI THẾ NÀO?",
-          "value": "Ăn vừa đủ rồi đi bộ tiếp",
-          "note": "Có thể ghép Dinh Cậu, cửa sông và phố quanh trung tâm thay vì coi chợ là toàn bộ buổi tối."
+          "label": "TRƯỚC KHI ĐI",
+          "value": "Kiểm tra đúng điểm ăn uống đang hoạt động",
+          "note": "Đừng chạy tới địa chỉ cũ chỉ vì một bài review hoặc bản đồ chưa cập nhật."
         }
       ],
       "sections": [
         {
-          "heading": "Chợ đêm là một lát cắt của Dương Đông về tối",
-          "body": "Nguồn du lịch địa phương mô tả chợ hiện nay hình thành từ sự kết hợp của chợ đêm Dinh Cậu và chợ Bạch Đằng cũ. Khu đầu chợ thiên về đồ ăn, hải sản và đặc sản; các khu sau có thêm quà lưu niệm và hàng thủ công."
+          "heading": "Khu chợ cũ đã dừng hoạt động",
+          "body": "Chợ đêm Bạch Đằng từng là một dải phố ăn uống - mua sắm quen thuộc ở trung tâm Dương Đông. Sau thời gian được gia hạn hoạt động đến hết ngày 28/02/2026, khu chợ cũ đã dừng hoạt động. Vì vậy, các thông tin cũ như giờ mở cửa mỗi tối, số lượng gian hàng hay gợi ý đến ăn trực tiếp tại đây không còn phù hợp để dùng cho lịch trình hiện tại."
         },
         {
-          "heading": "Khách quốc tế nên hỏi thành phần trước khi thử món lạ",
-          "body": "Nước chấm, sa tế, sốt ướp và topping có thể chứa cá, tôm, nhuyễn thể, đậu phộng hoặc đậu nành. Nếu có dị ứng, nên hỏi trực tiếp từng quầy vì công thức và dụng cụ chế biến khác nhau."
+          "heading": "Những kinh nghiệm gọi hải sản vẫn đáng nhớ",
+          "body": "Với các khu ăn uống hoặc quầy hải sản khác, nguyên tắc vẫn vậy: hỏi rõ món tính theo phần hay theo cân, giá đã gồm phí chế biến chưa, xác nhận trọng lượng và hỏi thành phần nước chấm nếu có dị ứng. Khách ăn chay hoặc không dùng hải sản cũng nên hỏi kỹ nước dùng, sốt và gia vị thay vì chỉ hỏi món có thịt hay không."
         }
       ],
       "visitor_questions": [
+        "Điểm ăn uống mình định tới hôm nay có đang hoạt động không?",
         "Món này tính theo phần hay theo cân?",
-        "Sốt hoặc nước chấm có đậu phộng, tôm hay cá không?",
-        "Giá đã gồm phí chế biến chưa?"
+        "Giá đã gồm phí chế biến chưa?",
+        "Sốt hoặc nước chấm có thành phần nào cần lưu ý nếu có dị ứng?"
       ],
       "sources": [
         {
@@ -858,40 +1100,51 @@
       ]
     },
     "place_bai_truong": {
-      "lede": "Bãi Trường không phải một bãi nhỏ có một cổng vào duy nhất. Đây là dải bờ biển rất dài ở phía Tây đảo, gồm nhiều đoạn bãi, resort, nhà hàng và điểm ngắm hoàng hôn khác nhau.",
+      "lede": "Bãi Trường không phải một bãi nhỏ có một cổng vào duy nhất. Đây là tên gọi của một dải bờ biển dài ở phía Tây đảo, gồm nhiều đoạn bãi, khu dân cư, resort, nhà hàng, công viên ven biển và điểm ngắm hoàng hôn. Các nguồn du lịch thường mô tả Bãi Trường dài gần 20 km, kéo từ khu vực Dinh Cậu về phía Nam tới gần An Thới. Tuy nhiên, con số này có thể thay đổi tùy cách xác định điểm đầu - điểm cuối, nên nên dùng “dải bờ biển gần 20 km” thay vì coi đó là số đo tuyệt đối",
       "infographic": [
         {
           "icon": "01",
           "label": "QUY MÔ",
-          "value": "Dải bờ Tây dài gần 20 km",
-          "note": "Vì rất dài, trải nghiệm ở hai đoạn Bãi Trường có thể khác nhau rõ rệt."
+          "value": "Dải bờ Tây dài, chia thành nhiều đoạn trải nghiệm",
+          "note": "Bãi Trường có thể được hình dung qua nhiều lớp:"
         },
         {
           "icon": "02",
           "label": "ĐI VÌ GÌ?",
-          "value": "Hoàng hôn + nghỉ dưỡng + tiện di chuyển",
-          "note": "Khu này gần sân bay và có mật độ khách sạn, nhà hàng, resort cao."
+          "value": "Hoàng hôn, nghỉ dưỡng và tiện di chuyển",
+          "note": "Bờ Tây thuận lợi để ngắm hoàng hôn, nghỉ biển, ăn uống và kết hợp với khu lưu trú. Bãi Trường cũng nằm gần sân bay, Dương Đông, Dương Tơ và nhiều khu nghỉ dưỡng nên phù hợp với lịch trình ngắn."
         },
         {
           "icon": "03",
           "label": "CẦN CHỌN",
-          "value": "Chọn đúng đoạn bãi",
-          "note": "Đừng tìm 'Bãi Trường' như một pin duy nhất rồi mặc định đó là chỗ đẹp nhất."
+          "value": "Chọn đúng đoạn bãi và lối tiếp cận",
+          "note": "Trước khi đi, cần hỏi:"
         }
       ],
       "sections": [
         {
-          "heading": "Tên một bãi nhưng thực tế là cả một dải bờ biển",
-          "body": "Các nguồn du lịch địa phương mô tả Bãi Trường trải dài gần 20 km dọc bờ Tây Nam Phú Quốc. Vì vậy, chất lượng bãi, mật độ dịch vụ, lối xuống biển và mức độ riêng tư khác nhau theo từng đoạn."
+          "heading": "QUY MÔ: Dải bờ Tây dài, chia thành nhiều đoạn trải nghiệm",
+          "body": "Bãi Trường có thể được hình dung qua nhiều lớp: • Đoạn gần trung tâm Dương Đông. • Khu vực gần sân bay và Dương Tơ. • Các đoạn tập trung resort, khách sạn và nhà hàng. • Những đoạn có lối xuống biển công cộng. • Các khu phù hợp ngắm hoàng hôn, tắm biển hoặc đi dạo. • Những đoạn bờ chịu ảnh hưởng của công trình, thủy triều và mùa gió khác nhau. Vì rất dài, hai điểm cùng được gọi là Bãi Trường có thể khác nhau rõ về cát, nước, mật độ khách, lối xuống, dịch vụ và độ riêng tư. Không nên chọn “Bãi Trường” như một pin duy nhất trên bản đồ. Cần xác định đúng đoạn bãi, tên cơ sở hoặc lối tiếp cận."
+        },
+        {
+          "heading": "ĐI VÌ GÌ?: Hoàng hôn, nghỉ dưỡng và tiện di chuyển",
+          "body": "Bờ Tây thuận lợi để ngắm hoàng hôn, nghỉ biển, ăn uống và kết hợp với khu lưu trú. Bãi Trường cũng nằm gần sân bay, Dương Đông, Dương Tơ và nhiều khu nghỉ dưỡng nên phù hợp với lịch trình ngắn. Các nhóm trải nghiệm chính gồm: • Ngắm hoàng hôn. • Tắm biển khi điều kiện thuận lợi. • Đi dạo hoặc dùng dịch vụ tại resort, nhà hàng. • Chụp ảnh bờ biển. • Kết hợp với điểm trung tâm và các khu lưu trú. Nếu chỉ muốn xem hoàng hôn, không nhất thiết phải tìm đoạn bãi xa nhất. Chọn nơi có lối xuống thuận tiện, chỗ đỗ xe và tầm nhìn phù hợp thường thực tế hơn."
+        },
+        {
+          "heading": "CẦN CHỌN: Chọn đúng đoạn bãi và lối tiếp cận",
+          "body": "Trước khi đi, cần hỏi: • Đoạn bãi nào đang muốn ghé. • Có lối công cộng hay phải đi qua cơ sở lưu trú. • Xe có thể đỗ ở đâu. • Khu vực đó phù hợp để tắm hay chỉ ngắm cảnh. • Có nhà vệ sinh, tắm tráng, ghế nghỉ hoặc cứu hộ không. • Hoàng hôn hôm đó nhìn từ vị trí nào thuận nhất. Không nên mặc định mọi đoạn của Bãi Trường đều có cùng quyền tiếp cận và tiện ích. Tên một bãi nhưng thực tế là cả một dải bờ biển Các nguồn du lịch địa phương mô tả Bãi Trường trải dài gần 20 km dọc bờ Tây Nam Phú Quốc. Quy mô lớn khiến nơi này không thể được trải nghiệm theo một cách duy nhất. Một gia đình ở gần Dương Tơ có thể chỉ cần tìm một lối xuống biển gần khách sạn. Một cặp đôi muốn ngắm hoàng hôn có thể chọn đoạn có nhà hàng. Nhóm khách thích đi bộ cần xác định điểm bắt đầu và kết thúc, thay vì nghĩ rằng có thể đi hết cả dải bờ trong một buổi."
         },
         {
           "heading": "Hoàng hôn là thế mạnh, nhưng bãi hôm đó vẫn phụ thuộc thời tiết",
-          "body": "Bờ Tây thuận hướng ngắm hoàng hôn. Tuy nhiên màu trời, sóng, rong và tình trạng bãi thay đổi theo mùa và thời tiết, nên ảnh đẹp của một ngày không đại diện cho toàn bộ dải bờ biển."
+          "body": "Bờ Tây thuận hướng ngắm hoàng hôn, nhưng màu trời, mây, sóng, rong và tình trạng bãi thay đổi theo mùa và thời tiết. Ảnh đẹp của một ngày không đại diện cho toàn bộ dải bờ biển. Trời nhiều mây có thể làm hoàng hôn không rực nhưng vẫn tạo ánh sáng mềm; gió mạnh có thể làm biển đẹp để ngắm nhưng không phù hợp để tắm."
         }
       ],
       "visitor_questions": [
         "Đoạn bãi này có lối công cộng hay thuộc cơ sở lưu trú?",
-        "Hôm nay khu nào thuận để tắm và ngắm hoàng hôn?"
+        "Hôm nay khu nào thuận để tắm và ngắm hoàng hôn?",
+        "Có chỗ đỗ xe và nhà vệ sinh gần không?",
+        "Khu này có cứu hộ hoặc cảnh báo biển không?",
+        "Nên đến trước hoàng hôn bao lâu để tìm chỗ thuận tiện?"
       ],
       "sources": [
         {
@@ -905,40 +1158,55 @@
       ]
     },
     "place_exotica": {
-      "lede": "Exotica Village là phân khu trò chơi cảm giác mạnh trên Hòn Thơm. Đây là nơi nên xem giới hạn chiều cao, sức khỏe và thời gian xếp hàng trước khi quyết định dành bao lâu.",
+      "lede": "Exotica Village là phân khu trò chơi phiêu lưu và cảm giác mạnh trên Hòn Thơm, thuộc Sun World Hòn Thơm. Đây là trải nghiệm khác với Aquatopia: một bên tập trung vào trò chơi nước, một bên thiên về độ cao, tốc độ, chuyển động và cảm giác mạo hiểm. Không nên quyết định chỉ dựa trên tên trò chơi. Cần xem giới hạn chiều cao, sức khỏe, thời gian chờ và khả năng kết hợp với cáp treo, Aquatopia, bãi biển trong cùng một ngày.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÂY LÀ GÌ?",
-          "value": "Phân khu trò chơi mạo hiểm",
-          "note": "Nằm trong Sun World Hòn Thơm, khác với công viên nước Aquatopia."
+          "label": "QUY MÔ",
+          "value": "Phân khu trò chơi mạo hiểm trong ngày Hòn Thơm",
+          "note": "Exotica Village thường được hiểu qua các nhóm trải nghiệm:"
         },
         {
           "icon": "02",
           "label": "ĐIỂM NỔI BẬT",
-          "value": "Mộc Xà Thịnh Nộ + Mắt Đại Bàng",
-          "note": "Hai trải nghiệm thường được nhắc nhiều nhất trong phân khu."
+          "value": "Mộc Xà Thịnh Nộ, Mắt Đại Bàng và các trò theo mùa",
+          "note": "Mộc Xà Thịnh Nộ thường được nhắc như trò chơi cảm giác mạnh chủ đạo. Mắt Đại Bàng thiên về ngắm cảnh từ trên cao hơn là tốc độ thuần túy. Các trò khác có thể được bổ sung, thay đổi hoặc vận hành theo từng giai đoạn."
         },
         {
           "icon": "03",
           "label": "TRƯỚC KHI XẾP HÀNG",
-          "value": "Xem chiều cao và sức khỏe",
-          "note": "Trò cảm giác mạnh có thể có điều kiện tham gia riêng."
+          "value": "Xem chiều cao, sức khỏe và thời gian chờ",
+          "note": "Trước khi xếp hàng, nên kiểm tra:"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Phân khu trò chơi mạo hiểm trong ngày Hòn Thơm",
+          "body": "Exotica Village thường được hiểu qua các nhóm trải nghiệm: • Trò chơi trên cao. • Trò chơi chuyển động và cảm giác mạnh. • Đài quan sát hoặc trải nghiệm ngắm toàn cảnh. • Khu vực chờ, xếp hàng và nghỉ. • Các điểm kết nối với Aquatopia, biển và ga cáp treo. Mắt Đại Bàng được giới thiệu là đài quan sát 360 độ cao 120 m, với cabin đưa khách lên độ cao khoảng 80 m; cabin có sức chứa được công bố khoảng 70 người mỗi lượt. Những con số này cho thấy Exotica không phải một khu có thể đi ngang qua trong vài phút nếu muốn chơi nhiều trò. Thời gian thực tế phụ thuộc vào hàng chờ, tình trạng vận hành và số trò phù hợp với từng thành viên."
+        },
+        {
+          "heading": "ĐIỂM NỔI BẬT: Mộc Xà Thịnh Nộ, Mắt Đại Bàng và các trò theo mùa",
+          "body": "Mộc Xà Thịnh Nộ thường được nhắc như trò chơi cảm giác mạnh chủ đạo. Mắt Đại Bàng thiên về ngắm cảnh từ trên cao hơn là tốc độ thuần túy. Các trò khác có thể được bổ sung, thay đổi hoặc vận hành theo từng giai đoạn. Cần phân biệt: • Trò thiên về tốc độ và gia tốc. • Trò thiên về độ cao. • Trò phù hợp để ngắm cảnh. • Trò cần sức khỏe hoặc giới hạn chiều cao nghiêm ngặt. Không phải người thích ngắm cảnh sẽ thích trò rơi hoặc xoay tốc độ cao. Gia đình nên chọn theo khả năng chịu trò của từng người, không nên ép tất cả chơi cùng một nhóm."
+        },
+        {
+          "heading": "TRƯỚC KHI XẾP HÀNG: Xem chiều cao, sức khỏe và thời gian chờ",
+          "body": "Trước khi xếp hàng, nên kiểm tra: • Chiều cao tối thiểu hoặc tối đa. • Yêu cầu về tim mạch, huyết áp, cổ, lưng và thai kỳ. • Có được mang kính, điện thoại hoặc túi nhỏ không. • Thời gian chờ hiện tại. • Trò có đang vận hành ổn định không. • Nếu không chơi được, khu vực chờ có thuận tiện không. Trò cảm giác mạnh có thể khiến người chơi mệt, chóng mặt hoặc không thoải mái sau khi xuống. Đừng xếp liên tiếp quá nhiều trò chỉ vì muốn tận dụng vé."
+        },
+        {
           "heading": "Đừng gộp Aquatopia và Exotica thành một trải nghiệm",
-          "body": "Sun World giới thiệu Exotica như khu thiên về phiêu lưu và cảm giác mạnh, trong khi Aquatopia là công viên nước. Nếu đi cùng gia đình nhiều độ tuổi, nên thống nhất trước khu nào là ưu tiên chính."
+          "body": "Sun World giới thiệu Exotica như khu thiên về phiêu lưu và cảm giác mạnh, trong khi Aquatopia là công viên nước. Hai khu có cách sử dụng thể lực, trang phục và thời gian chờ khác nhau. Nếu đi cùng gia đình nhiều độ tuổi, nên thống nhất trước khu nào là ưu tiên chính. Người không chơi trò mạnh có thể dành thời gian ở biển, khu ngắm cảnh hoặc điểm nghỉ thay vì đứng chờ suốt lịch trình."
         },
         {
           "heading": "Một ngày Hòn Thơm tốt không nhất thiết phải chơi hết",
-          "body": "Cáp treo, công viên nước, trò mạo hiểm và bãi biển đều cạnh tranh cùng một quỹ thời gian. Chọn vài trải nghiệm quan trọng thường dễ chịu hơn chạy từ trò này sang trò khác."
+          "body": "Cáp treo, công viên nước, trò mạo hiểm và bãi biển đều cạnh tranh cùng một quỹ thời gian. Chọn vài trải nghiệm quan trọng thường dễ chịu hơn chạy từ trò này sang trò khác. Có thể chọn: • Exotica + ngắm cảnh + nghỉ biển. • Aquatopia + một trò Exotica phù hợp. • Cáp treo + Mắt Đại Bàng + chụp ảnh. • Một khu chính và dành thời gian còn lại cho ăn uống, thư giãn."
         }
       ],
       "visitor_questions": [
         "Trò này có giới hạn chiều cao hoặc sức khỏe nào?",
-        "Hôm nay Mộc Xà Thịnh Nộ và Mắt Đại Bàng có đang vận hành không?"
+        "Hôm nay Mộc Xà Thịnh Nộ và Mắt Đại Bàng có đang vận hành không?",
+        "Thời gian chờ hiện tại khoảng bao lâu?",
+        "Có trò nào phù hợp với người không muốn chơi cảm giác mạnh không?",
+        "Chuyến cáp cuối về An Thới lúc mấy giờ?"
       ],
       "sources": [
         {
@@ -952,40 +1220,56 @@
       ]
     },
     "place_suoi_tranh": {
-      "lede": "Suối Tranh là điểm thiên nhiên gần trung tâm nhưng trải nghiệm phụ thuộc rất mạnh vào mùa nước. Cùng một con suối có thể trông hoàn toàn khác giữa mùa mưa và thời kỳ khô.",
+      "lede": "Suối Tranh là điểm thiên nhiên gần khu trung tâm nhưng trải nghiệm phụ thuộc rất mạnh vào mùa nước. Cùng một con suối có thể trông hoàn toàn khác giữa mùa mưa và thời kỳ khô. Con suối được mô tả bắt nguồn từ dãy núi Hàm Ninh, dài khoảng 15 km; tuy nhiên, phần khách tham quan thường chỉ tiếp cận một đoạn ngắn trong khu du lịch, không phải toàn bộ chiều dài dòng suối. Một số nguồn nhắc đoạn đường mòn tham quan khoảng 1,5 km và khoảng 30 phút đi bộ tới khu thác, nhưng cần kiểm tra theo tuyến mở thực tế.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐIỂM QUYẾT ĐỊNH",
-          "value": "Có nước hay không",
-          "note": "Mùa mưa thường nhiều nước hơn; ảnh thác đầy nước không đại diện cho mọi tháng."
+          "label": "QUY MÔ",
+          "value": "Dòng suối dài, khu tham quan chỉ khai thác một đoạn",
+          "note": "Suối Tranh có thể được hiểu theo hai quy mô khác nhau:"
         },
         {
           "icon": "02",
-          "label": "CẦN MANG",
-          "value": "Giày có độ bám",
-          "note": "Đá ướt và đường rừng dễ trơn sau mưa."
+          "label": "ĐIỂM QUYẾT ĐỊNH",
+          "value": "Có nước hay không",
+          "note": "Mùa mưa thường làm dòng suối rõ hơn, cây cối xanh hơn và các đoạn thác có sức sống hơn. Một số nguồn gợi ý khoảng tháng 5-9 hoặc tháng 6-11 là giai đoạn cảnh quan nhiều nước, nhưng không nên dùng một khung tháng cứng cho mọi năm."
         },
         {
           "icon": "03",
-          "label": "HỢP KHI",
-          "value": "Muốn đổi nhịp khỏi biển",
-          "note": "Từ Dương Đông có thể ghé nửa buổi thay vì dành trọn ngày."
+          "label": "CẦN MANG",
+          "value": "Giày có độ bám, đồ gọn và phương án sau mưa",
+          "note": "Đường rừng, bậc đá và mặt đá gần suối có thể trơn. Nên mang:"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Dòng suối dài, khu tham quan chỉ khai thác một đoạn",
+          "body": "Suối Tranh có thể được hiểu theo hai quy mô khác nhau: • Quy mô tự nhiên: dòng suối và hệ thống khe nước kéo dài từ khu vực núi Hàm Ninh. • Quy mô tham quan: đoạn đường mòn, cầu, bậc đá, khu nghỉ và vùng thác mà khách có thể tiếp cận. Du khách không cần dành cả ngày để đi hết con suối. Một chuyến tham quan cơ bản thường gồm: • Đi từ cổng hoặc khu gửi xe vào tuyến rừng. • Đi bộ qua đoạn đường mòn. • Dừng tại các điểm nước, đá và thác. • Nghỉ hoặc tắm suối nếu điều kiện cho phép. • Quay trở lại theo cùng tuyến. Thời lượng thường khoảng nửa buổi, nhưng thay đổi theo tốc độ đi, mùa nước, tình trạng đường và việc có dừng tắm hay không."
+        },
+        {
+          "heading": "ĐIỂM QUYẾT ĐỊNH: Có nước hay không",
+          "body": "Mùa mưa thường làm dòng suối rõ hơn, cây cối xanh hơn và các đoạn thác có sức sống hơn. Một số nguồn gợi ý khoảng tháng 5-9 hoặc tháng 6-11 là giai đoạn cảnh quan nhiều nước, nhưng không nên dùng một khung tháng cứng cho mọi năm. Điều kiện thực tế cần xem là: • Mưa gần đây có đủ để suối có nước không. • Mưa có quá lớn khiến nước đục hoặc đường nguy hiểm không. • Các hồ và đoạn thác có được phép tiếp cận không. • Khu tắm có an toàn và có người quản lý không. Ảnh thác đầy nước chỉ cho thấy một thời điểm nhất định, không đại diện cho tất cả các tháng."
+        },
+        {
+          "heading": "CẦN MANG: Giày có độ bám, đồ gọn và phương án sau mưa",
+          "body": "Đường rừng, bậc đá và mặt đá gần suối có thể trơn. Nên mang: • Giày có độ bám. • Quần áo nhẹ, dễ khô. • Túi chống nước cho điện thoại. • Nước uống. • Thuốc chống côn trùng nếu cần. • Đồ thay nếu có ý định xuống nước. Không nên đi dép trơn, leo lên mỏm đá cao hoặc đứng dưới chân thác khi dòng chảy mạnh."
+        },
+        {
           "heading": "Một điểm phải xem mùa trước khi xem ảnh",
-          "body": "Nguồn du lịch địa phương nhấn mạnh giai đoạn có mưa là lúc dòng suối rõ và cảnh quan xanh hơn. Vì vậy Open Phu Quoc không dùng một bức ảnh nhiều nước để hứa rằng hiện trường luôn như vậy."
+          "body": "Suối Tranh gần trung tâm nên thường được đưa vào các lịch trình nửa ngày. Tuy nhiên, hình ảnh quảng bá thường chụp vào lúc cây xanh, nước đầy và ánh sáng thuận. Open Phu Quoc không dùng một bức ảnh nhiều nước để hứa rằng hiện trường luôn như vậy. Trước khi đi, cần xác định rõ mục tiêu là đi rừng, ngắm cảnh, dã ngoại hay tắm suối, vì mỗi mục tiêu cần điều kiện khác nhau."
         },
         {
           "heading": "Sau mưa đẹp hơn nhưng cũng trơn hơn",
-          "body": "Lượng nước tăng làm cảnh quan hấp dẫn hơn nhưng bề mặt đá và đường tiếp cận cũng có thể trơn. Với trẻ nhỏ hoặc người lớn tuổi, nên cân nhắc quãng đi bộ và điều kiện ngay hôm đó."
+          "body": "Lượng nước tăng làm cảnh quan hấp dẫn hơn nhưng bề mặt đá và đường tiếp cận cũng có thể trơn. Mưa lớn kéo dài còn có thể khiến nước đục, dòng chảy mạnh hoặc một số đoạn bị hạn chế. Điều kiện lý tưởng không phải “mưa càng nhiều càng tốt”, mà là sau những đợt mưa vừa phải, trời đã tạnh, nước còn đủ và đường chưa quá nguy hiểm."
         }
       ],
       "visitor_questions": [
         "Hôm nay suối có nhiều nước không?",
-        "Đường đi bộ sau mưa có trơn hoặc khu vực nào đang hạn chế không?"
+        "Đường đi bộ sau mưa có trơn hoặc khu vực nào đang hạn chế không?",
+        "Từ cổng đến điểm thác mất khoảng bao lâu?",
+        "Khu vực nào được phép tắm?",
+        "Có cảnh báo nước dâng hoặc mưa lớn gần đây không?",
+        "Trẻ nhỏ và người lớn tuổi có phù hợp với đoạn đường hôm nay không?"
       ],
       "sources": [
         {
@@ -999,40 +1283,56 @@
       ]
     },
     "place_other_streams": {
-      "lede": "Suối Đá Bàn, Đá Ngọn và Suối Tiên không nên được hiểu như ba phiên bản giống nhau của Suối Tranh. Mỗi nơi có mức độ tiếp cận, địa hình và mùa nước khác nhau.",
+      "lede": "Suối Đá Bàn, Đá Ngọn và Suối Tiên không nên được hiểu như ba phiên bản giống nhau của Suối Tranh. Mỗi nơi khác nhau về quy mô cảnh quan, kiểu địa hình, mức độ tiếp cận, độ dài đoạn đi bộ và điều kiện nước theo mùa. Đây là nhóm điểm đến không nên xếp lịch chỉ dựa trên ảnh đẹp. Một con suối có thể rất hấp dẫn khi nhiều nước nhưng cũng trơn trượt, khó đi và nguy hiểm hơn. Ngược lại, mùa ít nước dễ tiếp cận hơn nhưng trải nghiệm thác và hồ tự nhiên có thể kém ấn tượng.",
       "infographic": [
         {
           "icon": "01",
           "label": "ĐÁ BÀN",
-          "value": "Phiến đá rộng, dễ nhận diện",
-          "note": "Tên gọi gắn với những mặt đá lớn và khá phẳng dọc dòng suối."
+          "value": "Phiến đá rộng, dễ nhận diện và hợp dã ngoại",
+          "note": "Suối Đá Bàn thuộc khu vực Cửa Dương, cách trung tâm Dương Đông khoảng 10 km. Tên gọi gắn với những tảng đá lớn, mặt tương đối phẳng nằm dọc dòng suối."
         },
         {
           "icon": "02",
           "label": "SUỐI TIÊN",
-          "value": "Thiên về dã ngoại và rừng",
-          "note": "Nguồn địa phương mô tả suối ở khu Hàm Ninh, cách trung tâm xa hơn và có tính hoang dã."
+          "value": "Thiên về rừng, dã ngoại và cảm giác tách khỏi khu đô thị",
+          "note": "Suối Tiên thường được nhắc đến ở khu vực Hàm Ninh, có không gian rừng và cảnh quan tự nhiên hơn. Đây không phải kiểu điểm đến phù hợp với khách chỉ muốn xuống xe, đi vài bước rồi chụp ảnh."
         },
         {
           "icon": "03",
           "label": "ĐÁ NGỌN",
-          "value": "Khó hơn, cần thận trọng",
-          "note": "Địa hình và đá trơn khiến điểm này không phù hợp để coi như một điểm ghé nhẹ cho mọi khách."
+          "value": "Nhiều đoạn thác, khó hơn và cần thận trọng",
+          "note": "Suối Đá Ngọn thường được mô tả với nhiều tầng thác và địa hình tự nhiên phức tạp hơn. Một số nguồn nhắc tới hệ thống khoảng 7 thác, nhưng thông tin về tuyến đi, độ dài và khả năng tiếp cận có thể khác nhau theo từng mùa và từng điểm xuất phát."
         }
       ],
       "sections": [
         {
-          "heading": "Không nên dùng một nhãn 'đi suối' cho tất cả",
-          "body": "Suối Đá Bàn nổi bật bởi các phiến đá phẳng; Suối Tiên thiên về không gian rừng và dã ngoại; Đá Ngọn thường được mô tả khó tiếp cận hơn. Hãy chọn theo sức đi và điều kiện nước thay vì chỉ chọn theo ảnh."
+          "heading": "ĐÁ BÀN: Phiến đá rộng, dễ nhận diện và hợp dã ngoại",
+          "body": "Suối Đá Bàn thuộc khu vực Cửa Dương, cách trung tâm Dương Đông khoảng 10 km. Tên gọi gắn với những tảng đá lớn, mặt tương đối phẳng nằm dọc dòng suối. Quy mô trải nghiệm ở đây gồm: • Đoạn đường tiếp cận từ khu dân cư vào suối. • Các phiến đá lớn ven dòng nước. • Những điểm ngồi nghỉ, ăn uống hoặc dã ngoại. • Các đoạn nước sâu - nông thay đổi theo mùa. Đá Bàn thường dễ hình dung hơn với nhóm khách gia đình và nhóm bạn muốn dã ngoại nhẹ. Tuy nhiên, “đá phẳng” không đồng nghĩa với “không trơn”. Rêu, nước chảy và mưa có thể làm bề mặt đá thay đổi rất nhanh."
+        },
+        {
+          "heading": "SUỐI TIÊN: Thiên về rừng, dã ngoại và cảm giác tách khỏi khu đô thị",
+          "body": "Suối Tiên thường được nhắc đến ở khu vực Hàm Ninh, có không gian rừng và cảnh quan tự nhiên hơn. Đây không phải kiểu điểm đến phù hợp với khách chỉ muốn xuống xe, đi vài bước rồi chụp ảnh. Trải nghiệm có thể gồm: • Đi bộ qua đường rừng hoặc lối đất. • Theo dòng suối qua các đoạn đá và cây xanh. • Tìm điểm ngồi nghỉ hoặc picnic. • Tắm suối nếu mực nước và điều kiện an toàn cho phép. Mức độ hoang sơ cũng có nghĩa là dịch vụ, biển chỉ dẫn, sóng điện thoại và khả năng hỗ trợ có thể hạn chế hơn các điểm du lịch được khai thác bài bản. Nên đi cùng người biết đường hoặc đơn vị có kinh nghiệm địa phương."
+        },
+        {
+          "heading": "ĐÁ NGỌN: Nhiều đoạn thác, khó hơn và cần thận trọng",
+          "body": "Suối Đá Ngọn thường được mô tả với nhiều tầng thác và địa hình tự nhiên phức tạp hơn. Một số nguồn nhắc tới hệ thống khoảng 7 thác, nhưng thông tin về tuyến đi, độ dài và khả năng tiếp cận có thể khác nhau theo từng mùa và từng điểm xuất phát. Đây không phải lựa chọn phù hợp cho mọi khách. Đường trơn, đá lớn, đoạn leo và dòng nước mạnh có thể khiến người không quen địa hình gặp khó khăn. Không nên đưa Đá Ngọn vào lịch trình gia đình chỉ vì thấy ảnh đẹp. Nếu đi, cần hỏi rõ tuyến thực tế, thời gian đi bộ, độ khó và có người dẫn đường hay không."
+        },
+        {
+          "heading": "Không nên dùng một nhãn “đi suối” cho tất cả",
+          "body": "Suối Đá Bàn nổi bật bởi các phiến đá lớn và khả năng tổ chức dã ngoại. Suối Tiên thiên về rừng, không gian tự nhiên và đi chậm. Đá Ngọn có tính khám phá và yêu cầu thể lực, kỹ năng địa hình cao hơn. Có thể chọn theo nhóm khách: • Trẻ nhỏ, người lớn tuổi: ưu tiên điểm dễ tiếp cận, đoạn đường ngắn và có nơi nghỉ. • Nhóm bạn muốn dã ngoại: có thể cân nhắc Đá Bàn nếu điều kiện thời tiết thuận lợi. • Người thích đi rừng: cân nhắc Suối Tiên nhưng cần chuẩn bị kỹ. • Người có kinh nghiệm trekking: mới nên xem xét các tuyến khó hơn như Đá Ngọn."
         },
         {
           "heading": "Mùa nước vừa tạo cảnh đẹp vừa làm tăng rủi ro",
-          "body": "Mưa giúp suối nhiều nước nhưng làm đá trơn và đường khó hơn. Nếu vừa có mưa lớn, nên hỏi điều kiện tiếp cận thực tế trước khi đi sâu."
+          "body": "Mùa mưa thường giúp suối nhiều nước, thác rõ và cảnh quan ấn tượng hơn. Suối Đá Bàn đẹp vào khoảng tháng 5-11, nhưng đây cũng là giai đoạn đường ẩm, đá trơn và dòng chảy có thể mạnh hơn. Không nên xem “nhiều nước” là điều kiện tốt tuyệt đối. Trước khi đi cần hỏi: • Mưa gần đây có lớn không? • Dòng suối có dâng nhanh không? • Đường vào có lầy hoặc trơn không? • Có đoạn nào bị cấm hoặc không thể tiếp cận không? • Điểm tắm có an toàn cho người không biết bơi không? Nếu vừa có mưa lớn, nên tránh đi sâu vào lòng suối hoặc đứng dưới chân thác. Không cắm trại sát mép nước vì mực nước có thể thay đổi nhanh."
         }
       ],
       "visitor_questions": [
         "Hôm nay đường vào có đi được bằng xe thông thường không?",
-        "Mực nước và đá trơn có phù hợp với trẻ nhỏ/người lớn tuổi không?"
+        "Từ điểm đỗ xe đến suối phải đi bộ bao lâu?",
+        "Mực nước và đá trơn có phù hợp với trẻ nhỏ hoặc người lớn tuổi không?",
+        "Gần đây có mưa lớn hoặc cảnh báo nước dâng không?",
+        "Khu vực nào được phép tắm và khu vực nào nên tránh?",
+        "Có người địa phương hoặc hướng dẫn viên hỗ trợ khi đi sâu vào suối không?"
       ],
       "sources": [
         {
@@ -1046,41 +1346,56 @@
       ]
     },
     "activity_tour_3_islands": {
-      "lede": "“Tour 3 đảo” là tên một định dạng hành trình ở quần đảo An Thới, không phải một bộ ba đảo cố định cho mọi đơn vị và mọi ngày. Điểm dừng có thể đổi theo biển, mật độ khách và cấu hình tour.",
+      "lede": "“Tour 3 đảo” là tên một định dạng hành trình ở quần đảo An Thới, không phải một bộ ba đảo cố định cho mọi đơn vị và mọi ngày. Nhiều lịch trình phổ biến nhắc tới Hòn Móng Tay, Hòn Gầm Ghì và Hòn Mây Rút, nhưng thứ tự, điểm dừng và thời lượng thực tế có thể thay đổi. Đây là tour trong ngày, thường gồm di chuyển bằng cano hoặc tàu, tắm biển, lặn ngắm san hô, ăn trưa và nghỉ trên đảo. Vì vậy, chất lượng không nằm ở việc đọc được bao nhiêu tên đảo, mà ở cách đơn vị vận hành phân bổ thời gian và xử lý khi biển thay đổi.",
       "infographic": [
         {
           "icon": "01",
-          "label": "HIỂU ĐÚNG",
-          "value": "3 đảo là định dạng, không phải tên tuyến cố định",
-          "note": "Danh sách đảo và thứ tự dừng có thể khác giữa đơn vị vận hành."
+          "label": "QUY MÔ",
+          "value": "Một ngày trên biển, nhiều chặng và nhiều điểm dừng",
+          "note": "Một tour 3 đảo thường có các lớp:"
         },
         {
           "icon": "02",
           "label": "CHẤT LƯỢNG",
           "value": "Thời gian ở nước quan trọng hơn số điểm",
-          "note": "Ít điểm nhưng đủ thời gian bơi/snorkel thường tốt hơn chạy nhiều điểm."
+          "note": "Một lịch trình tốt nên nói rõ:"
         },
         {
           "icon": "03",
           "label": "TRƯỚC KHI ĐI",
-          "value": "Xem biển + xác nhận cano",
-          "note": "Thời tiết đẹp trên bờ không tự động nghĩa là biển An Thới phù hợp."
+          "value": "Xem biển và xác nhận cano",
+          "note": "Thời tiết đẹp trên bờ không tự động nghĩa là biển An Thới phù hợp. Cần kiểm tra gió, sóng, mưa, tầm nhìn dưới nước và chính sách đổi tuyến."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Một ngày trên biển, nhiều chặng và nhiều điểm dừng",
+          "body": "Một tour 3 đảo thường có các lớp: • Đón khách và di chuyển tới cảng. • Lên cano hoặc tàu ra quần đảo An Thới. • Dừng tại một hoặc nhiều điểm tắm biển. • Lặn ngắm san hô. • Ăn trưa và nghỉ. • Có thể thêm công viên san hô, đi bộ dưới biển hoặc dịch vụ tự túc. • Quay về cảng và trả khách. Tổng thời gian từ lúc đón tới khi kết thúc có thể kéo dài khoảng 8-10 giờ, trong đó thời gian thật sự ở dưới nước thường ít hơn thời gian di chuyển, xếp đồ và ăn nghỉ. Một tour ghi “3 đảo” không có nghĩa khách có ba buổi trải nghiệm riêng biệt. Có thể một đảo dành để lặn, một đảo để ăn trưa và một đảo để tắm hoặc chụp ảnh."
+        },
+        {
+          "heading": "CHẤT LƯỢNG: Thời gian ở nước quan trọng hơn số điểm",
+          "body": "Một lịch trình tốt nên nói rõ: • Mỗi điểm dừng bao lâu. • Có bao nhiêu phút thực sự để bơi hoặc lặn. • Điểm nào là điểm san hô chính. • Ăn trưa ở đảo hay trên tàu. • Thời gian di chuyển giữa các điểm. • Có bao nhiêu khách trên cano. • Có người hỗ trợ khách bơi yếu hay không. Ít điểm nhưng đủ thời gian ở nước thường tốt hơn chạy qua nhiều đảo, mỗi nơi chỉ dừng 20-30 phút. Nếu du khách thích lặn, nên ưu tiên tour dành thời gian dài ở rạn san hô thay vì tour nặng về chụp ảnh và ăn uống."
+        },
+        {
+          "heading": "TRƯỚC KHI ĐI: Xem biển và xác nhận cano",
+          "body": "Thời tiết đẹp trên bờ không tự động nghĩa là biển An Thới phù hợp. Cần kiểm tra gió, sóng, mưa, tầm nhìn dưới nước và chính sách đổi tuyến. Cũng cần xác nhận: • Đi tàu hay cano. • Điểm tập trung và thời gian đón. • Tên đảo dự kiến trong ngày. • Hoạt động nào đã bao gồm. • Phí nào trả thêm. • Có áo phao, kính, ống thở và chân vịt không. • Phương án nếu biển xấu hoặc không thể vào đảo."
+        },
+        {
           "heading": "Đừng mua chỉ bằng danh sách tên đảo",
-          "body": "Quần đảo An Thới có nhiều điểm dừng có thể kết hợp. Một tour tốt cần nói rõ thời gian thật trên biển, thời gian tại từng điểm, hoạt động bao gồm và phương án đổi điểm nếu điều kiện không phù hợp."
+          "body": "Quần đảo An Thới có nhiều điểm dừng có thể kết hợp. Một tour tốt cần nói rõ thời gian thật trên biển, thời gian tại từng điểm, hoạt động bao gồm và phương án đổi điểm nếu điều kiện không phù hợp. Tên đảo đẹp không bảo đảm trải nghiệm tốt. Một điểm có thể vắng, nước trong và phù hợp để lặn vào ngày này nhưng đông, đục hoặc sóng lớn vào ngày khác."
         },
         {
           "heading": "San hô không phải đạo cụ của tour",
-          "body": "Khi lặn ngắm san hô, không đứng lên san hô, không bẻ/chạm và không cho cá ăn chỉ để gom cá chụp ảnh. Trải nghiệm tốt cần giữ được hệ sinh thái sau khi khách rời đi."
+          "body": "Khi lặn ngắm san hô, không đứng lên san hô, không bẻ, chạm hoặc cầm sinh vật biển lên khỏi mặt nước. Không nên cho cá ăn chỉ để gom cá vào một góc chụp ảnh. Du khách cần nghe hướng dẫn về điểm xuống nước, luồng cano và cách giữ khoảng cách với rạn. Trải nghiệm tốt là trải nghiệm mà hệ sinh thái vẫn còn nguyên sau khi khách rời đi."
         }
       ],
       "visitor_questions": [
         "Hôm nay dự kiến dừng những đảo nào và vì sao?",
         "Thời gian lặn ngắm san hô thực tế là bao lâu?",
-        "Nếu biển đổi, phương án thay thế là gì?"
+        "Điểm nào là điểm lặn chính?",
+        "Ăn trưa ở đâu và thực đơn có thay đổi theo ngày không?",
+        "Nếu biển đổi, phương án thay thế là gì?",
+        "Trên cano có bao nhiêu khách và bao nhiêu người hỗ trợ?"
       ],
       "sources": [
         {
@@ -1094,40 +1409,56 @@
       ]
     },
     "activity_snorkeling_an_thoi": {
-      "lede": "lặn ngắm san hô là cách quan sát rạn san hô từ mặt nước bằng kính và ống thở. Dễ tiếp cận hơn lặn bình khí nhưng vẫn cần điều kiện biển phù hợp, áo phao khi cần và người hướng dẫn biết điểm.",
+      "lede": "Lặn ngắm san hô là cách quan sát rạn từ mặt nước bằng kính và ống thở, có thể dùng thêm chân vịt và áo phao tùy tour. Hoạt động dễ tiếp cận hơn lặn bình khí nhưng vẫn cần điều kiện biển phù hợp, thiết bị vừa vặn và người hướng dẫn biết cách tổ chức. Không nên gọi snorkeling là “chỉ cần úp mặt xuống nước”. Người bơi yếu có thể hoảng sợ vì kính vào nước, ống thở không đúng cách, dòng chảy hoặc không nhìn thấy đáy.",
       "infographic": [
         {
           "icon": "01",
-          "label": "DỤNG CỤ",
-          "value": "Kính + ống thở + chân vịt tùy tour",
-          "note": "Không cần bình khí, nhưng mặt nạ phải vừa mặt để trải nghiệm dễ chịu."
+          "label": "QUY MÔ",
+          "value": "Một hoạt động ngắn trong hành trình biển, không phải toàn bộ tour",
+          "note": "Snorkeling thường được tổ chức tại một hoặc vài điểm rạn, với các bước:"
         },
         {
           "icon": "02",
-          "label": "ĐIỀU KIỆN TỐT",
-          "value": "Nước đủ trong, sóng vừa",
-          "note": "Độ nhìn dưới nước thay đổi theo mưa, sóng và dòng chảy."
+          "label": "DỤNG CỤ",
+          "value": "Kính, ống thở, chân vịt và áo phao tùy tour",
+          "note": "Kính phải vừa mặt để không bị tràn nước. Ống thở cần được hướng dẫn cách ngậm và thổi nước. Chân vịt giúp di chuyển nhưng cũng có thể khiến người mới mất thăng bằng nếu chưa quen."
         },
         {
           "icon": "03",
-          "label": "NGUYÊN TẮC",
-          "value": "Không đứng/chạm san hô",
-          "note": "Quan sát từ khoảng cách an toàn để không làm hỏng rạn."
+          "label": "ĐIỀU KIỆN TỐT",
+          "value": "Nước đủ trong, sóng vừa và dòng chảy không quá mạnh",
+          "note": "Độ nhìn dưới nước thay đổi theo:"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Một hoạt động ngắn trong hành trình biển, không phải toàn bộ tour",
+          "body": "Snorkeling thường được tổ chức tại một hoặc vài điểm rạn, với các bước: • Di chuyển từ bến hoặc đảo tới khu lặn. • Nghe hướng dẫn và kiểm tra thiết bị. • Xuống nước theo nhóm. • Quan sát rạn trong khoảng thời gian giới hạn. • Lên lại cano hoặc tàu theo giờ tập trung. Thời gian có mặt tại điểm không đồng nghĩa toàn bộ thời gian đều được lặn. Cần hỏi rõ thời gian thực tế dưới nước, số người trong nhóm và có người kèm hay không."
+        },
+        {
+          "heading": "DỤNG CỤ: Kính, ống thở, chân vịt và áo phao tùy tour",
+          "body": "Kính phải vừa mặt để không bị tràn nước. Ống thở cần được hướng dẫn cách ngậm và thổi nước. Chân vịt giúp di chuyển nhưng cũng có thể khiến người mới mất thăng bằng nếu chưa quen. Áo phao không phải dấu hiệu khách bơi kém. Đây là thiết bị hỗ trợ an toàn, đặc biệt khi có dòng chảy, khách đông hoặc người tham gia chưa quen biển."
+        },
+        {
+          "heading": "ĐIỀU KIỆN TỐT: Nước đủ trong, sóng vừa và dòng chảy không quá mạnh",
+          "body": "Độ nhìn dưới nước thay đổi theo: • Mưa trước đó. • Gió và sóng. • Dòng chảy. • Thủy triều. • Số lượng tàu và khách tại điểm. • Ánh sáng trong ngày. Một điểm từng rất trong không có nghĩa ngày nào cũng nhìn rõ. Nếu nước đục hoặc sóng mạnh, hoạt động có thể giảm chất lượng dù lịch trình vẫn đi đúng điểm."
+        },
+        {
           "heading": "Dễ thử không có nghĩa là không cần an toàn",
-          "body": "Người không bơi giỏi vẫn có thể trải nghiệm trong điều kiện phù hợp nếu có áo phao và hướng dẫn, nhưng không nên ép xuống nước khi hoảng sợ hoặc biển xấu."
+          "body": "Người không bơi giỏi vẫn có thể trải nghiệm trong điều kiện phù hợp nếu có áo phao và hướng dẫn, nhưng không nên ép xuống nước khi hoảng sợ hoặc biển xấu. Người mới nên tập thở ở khu nước nông hoặc sát phương tiện trước khi bơi ra xa. Trẻ nhỏ cần có người lớn kèm trực tiếp, không chỉ giao hoàn toàn cho hướng dẫn viên khi biển đông."
         },
         {
           "heading": "Chất lượng điểm lặn thay đổi theo ngày",
-          "body": "Nước trong, dòng chảy và mật độ tàu khách ảnh hưởng trực tiếp tới trải nghiệm. Đừng đánh giá một điểm chỉ qua ảnh quảng cáo chụp vào ngày lý tưởng."
+          "body": "Nước trong, dòng chảy và mật độ tàu khách ảnh hưởng trực tiếp tới trải nghiệm. Đừng đánh giá một điểm chỉ qua ảnh quảng cáo chụp vào ngày lý tưởng. Nếu biển không phù hợp, lựa chọn an toàn là rút ngắn thời gian hoặc đổi điểm, không cố giữ lịch chỉ để đủ số hoạt động."
         }
       ],
       "visitor_questions": [
         "Hôm nay độ trong của nước và dòng chảy thế nào?",
-        "Có áo phao và người kèm riêng cho người bơi yếu không?"
+        "Thời gian thật dưới nước là bao lâu?",
+        "Có áo phao và người kèm riêng cho người bơi yếu không?",
+        "Khu vực này có tàu hoặc cano di chuyển gần không?",
+        "Nếu người tham gia hoảng sợ giữa chừng thì được hỗ trợ thế nào?",
+        "Có cần mang theo kính cận lặn hoặc thiết bị riêng không?"
       ],
       "sources": [
         {
@@ -1137,40 +1468,55 @@
       ]
     },
     "activity_scuba": {
-      "lede": "lặn bình khí đưa người tham gia xuống sâu hơn lặn ngắm san hô bằng bình khí và thiết bị riêng. Đây là hoạt động cần quy trình an toàn, hướng dẫn chuyên môn và sàng lọc sức khỏe nghiêm túc hơn một tour bơi biển.",
+      "lede": "Lặn bình khí đưa người tham gia xuống dưới mặt nước bằng bình dưỡng khí và thiết bị riêng. Đây là hoạt động kỹ thuật, cần quy trình an toàn, hướng dẫn chuyên môn và sàng lọc sức khỏe nghiêm túc hơn snorkeling. Với người mới, chương trình thử lặn có thể được tổ chức ở độ sâu và thời lượng giới hạn, có người hướng dẫn giám sát trực tiếp. Không nên gọi đây đơn giản là “snorkeling sâu hơn”.",
       "infographic": [
         {
           "icon": "01",
-          "label": "KHÁC SNORKEL",
-          "value": "Thở bằng bình khí dưới nước",
-          "note": "Người mới cần hướng dẫn an toàn và đi cùng người hướng dẫn trong chương trình phù hợp."
+          "label": "QUY MÔ",
+          "value": "Buổi lặn gồm briefing, kiểm tra thiết bị và thời gian dưới nước",
+          "note": "Một chương trình scuba thường có nhiều phần:"
         },
         {
           "icon": "02",
-          "label": "TRƯỚC KHI LẶN",
-          "value": "Khai báo sức khỏe",
-          "note": "Tai xoang, hô hấp, tim mạch và một số tình trạng khác cần được hỏi kỹ."
+          "label": "KHÁC SNORKEL",
+          "value": "Thở bằng bình khí dưới nước và chịu thay đổi áp suất",
+          "note": "Lặn bình khí cho phép người tham gia ở dưới nước lâu hơn và xuống sâu hơn snorkeling, nhưng cần học cách:"
         },
         {
           "icon": "03",
-          "label": "SAU KHI LẶN",
-          "value": "Không xếp chuyến bay quá sát",
-          "note": "Khoảng thời gian an toàn trước khi bay phụ thuộc hồ sơ lặn; hãy theo hướng dẫn chuyên môn của đơn vị lặn."
+          "label": "TRƯỚC KHI LẶN",
+          "value": "Khai báo sức khỏe và sắp xếp thời gian sau lặn",
+          "note": "Tai xoang, hô hấp, tim mạch, huyết áp, tiền sử ngất, phẫu thuật gần đây hoặc một số loại thuốc có thể ảnh hưởng tới khả năng lặn. Không nên giấu thông tin sức khỏe chỉ vì sợ mất cơ hội tham gia."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Buổi lặn gồm briefing, kiểm tra thiết bị và thời gian dưới nước",
+          "body": "Một chương trình scuba thường có nhiều phần: • Di chuyển tới điểm lặn. • Khai báo sức khỏe. • Hướng dẫn lý thuyết và ký hiệu dưới nước. • Kiểm tra, đeo và thử thiết bị. • Lặn cùng hướng dẫn viên. • Lên mặt nước, nghỉ và theo dõi tình trạng cơ thể. • Có thể có một hoặc nhiều lần lặn tùy chương trình. Thời gian từ lúc rời bến đến khi kết thúc dài hơn nhiều so với thời gian thật dưới nước. Người mới cần hỏi rõ mình mua một lần lặn thử hay chương trình nhiều lần lặn, độ sâu dự kiến và tỷ lệ hướng dẫn viên/khách."
+        },
+        {
+          "heading": "KHÁC SNORKEL: Thở bằng bình khí dưới nước và chịu thay đổi áp suất",
+          "body": "Lặn bình khí cho phép người tham gia ở dưới nước lâu hơn và xuống sâu hơn snorkeling, nhưng cần học cách: • Thở đều bằng bộ điều áp. • Cân bằng áp suất tai. • Sử dụng ký hiệu tay. • Giữ độ nổi và khoảng cách. • Xử lý khi kính hoặc bộ điều áp có vấn đề. • Lên mặt nước theo hướng dẫn. Người mới không nên tự ý lặn sâu hoặc tách khỏi người hướng dẫn. Chương trình không chứng chỉ cần có giám sát trực tiếp, kiểm soát độ sâu và thiết bị."
+        },
+        {
+          "heading": "TRƯỚC KHI LẶN: Khai báo sức khỏe và sắp xếp thời gian sau lặn",
+          "body": "Tai xoang, hô hấp, tim mạch, huyết áp, tiền sử ngất, phẫu thuật gần đây hoặc một số loại thuốc có thể ảnh hưởng tới khả năng lặn. Không nên giấu thông tin sức khỏe chỉ vì sợ mất cơ hội tham gia. Sau khi lặn, không nên xếp chuyến bay hoặc hoạt động thay đổi áp suất quá sát. Khoảng chờ cụ thể phụ thuộc hồ sơ lặn, số lần lặn, độ sâu và hướng dẫn của đơn vị chuyên môn."
+        },
+        {
           "heading": "Đây là hoạt động kỹ thuật, không chỉ là phiên bản lặn ngắm san hô sâu hơn",
-          "body": "Nguồn địa phương mô tả lặn bình khí sử dụng bình dưỡng khí và có huấn luyện viên hướng dẫn cách thở, ký hiệu và giữ thăng bằng trước khi xuống nước. Người mới nên chọn chương trình có quy trình rõ ràng thay vì chỉ so giá."
+          "body": "Giá trị của scuba nằm ở cảm giác hít thở dưới nước, quan sát sinh vật ở không gian ba chiều và học cách di chuyển trong môi trường biển. Người mới nên ưu tiên đơn vị có: • Briefing rõ ràng. • Bảng khai báo sức khỏe. • Thiết bị vừa vặn, được kiểm tra. • Tỷ lệ hướng dẫn viên phù hợp. • Quy trình xử lý khi khách hoảng sợ hoặc muốn kết thúc sớm. • Thông tin minh bạch về độ sâu và thời lượng."
         },
         {
           "heading": "Hỏi về tiêu chuẩn an toàn trước khi hỏi ảnh đẹp",
-          "body": "Nên biết ai là người hướng dẫn, tỷ lệ khách/người hướng dẫn, thiết bị được kiểm tra thế nào và quy trình xử lý khi khách không thoải mái dưới nước."
+          "body": "Nên biết ai là người hướng dẫn, có chứng chỉ hoặc đào tạo phù hợp không, kèm bao nhiêu khách, thiết bị kiểm tra thế nào và quy trình xử lý khi khách không thoải mái dưới nước. Không nên chọn chỉ vì tour có ảnh đẹp hoặc giá thấp hơn. Với hoạt động dưới nước, chất lượng giám sát quan trọng hơn số lượng điểm check-in."
         }
       ],
       "visitor_questions": [
         "Người hướng dẫn có chứng chỉ gì và kèm bao nhiêu khách?",
+        "Đây là lặn thử cho người mới hay chương trình dành cho người có chứng chỉ?",
         "Có bảng câu hỏi sức khỏe trước khi lặn không?",
+        "Độ sâu và thời gian dưới nước dự kiến là bao nhiêu?",
+        "Thiết bị được kiểm tra và thay thế thế nào?",
         "Sau lần lặn này tôi cần chờ bao lâu trước khi bay?"
       ],
       "sources": [
@@ -1181,41 +1527,56 @@
       ]
     },
     "activity_seawalker": {
-      "lede": "Seawalker cho phép khách đi bộ dưới nước với mũ cấp khí thay vì bình khí đeo lưng. Dễ tiếp cận hơn lặn bình khí với nhiều người, nhưng vẫn cần hướng dẫn an toàn và sàng lọc sức khỏe cơ bản.",
+      "lede": "Seawalker cho phép khách đi bộ dưới nước với mũ cấp khí thay vì đeo bình khí sau lưng. Đây là hình thức được thiết kế để người mới dễ tiếp cận hơn, nhưng vẫn cần hướng dẫn, kiểm soát độ sâu, thiết bị phù hợp và sàng lọc sức khỏe cơ bản. Không cần biết bơi hoặc biết lặn không có nghĩa hoạt động phù hợp với tất cả mọi người. Áp lực nước, cảm giác ở dưới mặt biển và việc đội mũ kín có thể khiến một số khách hoảng sợ.",
       "infographic": [
         {
           "icon": "01",
-          "label": "DỤNG CỤ",
-          "value": "Mũ cấp khí",
-          "note": "Khách thở trong mũ khi đi bộ dưới nước theo khu vực được tổ chức."
+          "label": "QUY MÔ",
+          "value": "Một tuyến đi bộ dưới nước có thời gian giới hạn",
+          "note": "Trải nghiệm thường gồm:"
         },
         {
           "icon": "02",
-          "label": "KHÔNG PHẢI lặn bình khí",
-          "value": "Ít kỹ thuật hơn nhưng vẫn có quy trình",
-          "note": "Người tham gia cần nghe hướng dẫn cách cân bằng áp lực và giao tiếp."
+          "label": "DỤNG CỤ",
+          "value": "Mũ cấp khí và tuyến đi có kiểm soát",
+          "note": "Khách thở trong mũ cấp khí được thiết kế giống mũ phi hành gia. Mũ giúp người tham gia không phải ngậm ống thở và không đeo bình khí sau lưng, nhưng vẫn cần làm quen với áp lực và cách bước dưới nước."
         },
         {
           "icon": "03",
           "label": "CẦN HỎI",
-          "value": "Sức khỏe và giới hạn tham gia",
-          "note": "Không mặc định hoạt động phù hợp với mọi người chỉ vì không cần biết lặn."
+          "value": "Sức khỏe, độ tuổi và khả năng chịu áp lực",
+          "note": "Không mặc định hoạt động phù hợp với mọi người chỉ vì không cần biết lặn. Cần hỏi về:"
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Một tuyến đi bộ dưới nước có thời gian giới hạn",
+          "body": "Trải nghiệm thường gồm: • Di chuyển tới khu vực seawalker. • Nghe hướng dẫn và kiểm tra sức khỏe. • Đội mũ cấp khí. • Đi xuống khu vực dưới nước theo cầu thang hoặc sàn dẫn. • Đi bộ, quan sát san hô và cá theo tuyến. • Trở lại mặt nước, tháo thiết bị và kết thúc. Thời gian thực sự dưới nước thường chỉ khoảng 15-20 phút ở một số chương trình, trong khi tổng thời gian chờ và chuẩn bị dài hơn.[phuquocgo] Du khách nên hỏi “bao nhiêu phút dưới nước” thay vì chỉ hỏi tổng thời lượng hoạt động."
+        },
+        {
+          "heading": "DỤNG CỤ: Mũ cấp khí và tuyến đi có kiểm soát",
+          "body": "Khách thở trong mũ cấp khí được thiết kế giống mũ phi hành gia. Mũ giúp người tham gia không phải ngậm ống thở và không đeo bình khí sau lưng, nhưng vẫn cần làm quen với áp lực và cách bước dưới nước. Tuyến đi thường được tổ chức trong khu vực kiểm soát, có người hỗ trợ. Không nên tự ý đi lệch khỏi lối dẫn, chạm vào sinh vật hoặc bám lên san hô để giữ thăng bằng."
+        },
+        {
+          "heading": "CẦN HỎI: Sức khỏe, độ tuổi và khả năng chịu áp lực",
+          "body": "Không mặc định hoạt động phù hợp với mọi người chỉ vì không cần biết lặn. Cần hỏi về: • Độ tuổi tối thiểu. • Tình trạng tai, xoang và hô hấp. • Bệnh tim mạch hoặc huyết áp. • Thời lượng dưới nước. • Cách xử lý nếu khách muốn lên sớm. • Người hướng dẫn có đi kèm trong suốt tuyến không. Thông tin độ tuổi giữa các đơn vị có thể khác nhau, nên phải xác nhận trực tiếp với đơn vị vận hành thay vì dùng một con số chung."
+        },
+        {
           "heading": "Trải nghiệm được thiết kế để người mới dễ tiếp cận",
-          "body": "Nguồn du lịch địa phương mô tả seawalker như hình thức đi bộ dưới đáy biển với mũ cấp khí. Khách thường được hướng dẫn trước và đi trong khu vực kiểm soát."
+          "body": "Seawalker phù hợp với người muốn nhìn san hô và cá ở khoảng cách gần nhưng không muốn học kỹ thuật lặn bình khí. Trải nghiệm đi bộ chậm cũng phù hợp với người không muốn bơi liên tục. Tuy nhiên, đừng kỳ vọng đây là một buổi lặn tự do. Tuyến đi, thời gian, độ sâu và tốc độ đều được kiểm soát. Giá trị nằm ở khả năng tiếp cận, không phải mức độ phiêu lưu."
         },
         {
           "heading": "Dễ tham gia vẫn không đồng nghĩa bỏ qua sức khỏe",
-          "body": "Các vấn đề tai xoang, hô hấp, tim mạch hoặc cảm giác hoảng sợ dưới nước cần được trao đổi với đơn vị vận hành trước khi xuống."
+          "body": "Các vấn đề tai xoang, hô hấp, tim mạch hoặc cảm giác hoảng sợ dưới nước cần được trao đổi với đơn vị vận hành trước khi xuống. Khách có thể không biết bơi nhưng vẫn cần bình tĩnh, nghe hướng dẫn và báo ngay nếu đau tai, khó thở hoặc cảm thấy không ổn."
         }
       ],
       "visitor_questions": [
         "Ai không nên tham gia hoạt động này?",
         "Có hướng dẫn cân bằng áp lực tai trước khi xuống không?",
-        "Thời gian thật dưới nước là bao lâu?"
+        "Thời gian thật dưới nước là bao lâu?",
+        "Có người kèm sát trong suốt tuyến đi không?",
+        "Nếu khách hoảng sợ hoặc đau tai thì có thể lên sớm không?",
+        "Khu vực đi bộ có bảo vệ san hô và giới hạn tiếp xúc không?"
       ],
       "sources": [
         {
@@ -1225,41 +1586,57 @@
       ]
     },
     "activity_big_game_fishing": {
-      "lede": "Câu cá lớn ở An Thới là chuyến đi dài và chuyên biệt hơn tour câu cá ngắn. Giá trị nằm ở ngư trường, thiết bị, tài công và cách đổi bãi theo nước - gió - tín hiệu cá, không phải lời hứa chắc chắn sẽ có cá lớn.",
+      "lede": "Câu cá lớn ở An Thới là chuyến đi chuyên biệt và dài hơn tour câu cá ngắn. Giá trị nằm ở ngư trường, thiết bị, tài công, kỹ thuật câu và khả năng đổi bãi theo nước - gió - tín hiệu cá, không phải lời hứa chắc chắn sẽ có cá lớn. Đây là hoạt động đánh bắt tự nhiên. Ngay cả ekip tốt, tàu tốt và thiết bị tốt cũng không thể biến sản lượng cá thành kết quả được bảo đảm.",
       "infographic": [
         {
           "icon": "01",
-          "label": "THỜI GIAN",
-          "value": "Chuyến dài nhiều giờ",
-          "note": "Nên xem rõ thời gian thật trên biển, không chỉ giờ xe đón - trả."
+          "label": "QUY MÔ",
+          "value": "Một chuyến biển dài, nhiều giờ và nhiều yếu tố vận hành",
+          "note": "Một chuyến câu cá lớn thường gồm:"
         },
         {
           "icon": "02",
           "label": "KỸ THUẬT",
-          "value": "Câu đáy hoặc jig tùy bãi",
-          "note": "Loại mồi, độ sâu và dòng nước quyết định cách câu."
+          "value": "Câu đáy, jig hoặc kỹ thuật tùy ngư trường",
+          "note": "Cách câu phụ thuộc vào:"
         },
         {
           "icon": "03",
           "label": "KHÔNG CAM KẾT",
-          "value": "Sản lượng cá",
-          "note": "Ngay cả ekip tốt vẫn không thể biến hoạt động đánh bắt tự nhiên thành kết quả chắc chắn."
+          "value": "Không bảo đảm sản lượng cá",
+          "note": "Cá tự nhiên phụ thuộc vào mùa, dòng chảy, nhiệt độ nước, mồi, ngư trường và nhiều yếu tố không thể kiểm soát. Đơn vị vận hành có thể bảo đảm tàu, thiết bị, thời gian hoặc kỹ thuật hỗ trợ - nhưng không nên bảo đảm chắc chắn “câu được cá lớn”."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Một chuyến biển dài, nhiều giờ và nhiều yếu tố vận hành",
+          "body": "Một chuyến câu cá lớn thường gồm: • Di chuyển từ khách sạn tới bến. • Chuẩn bị tàu, mồi và thiết bị. • Chạy tới ngư trường. • Câu tại một hoặc nhiều bãi. • Đổi bãi nếu dòng nước hoặc tín hiệu cá không thuận lợi. • Nghỉ, ăn uống và xử lý sản phẩm câu được nếu có. • Quay về cảng. Tổng thời gian có thể kéo dài nhiều giờ, thậm chí gần trọn ngày. Thời gian thật sự cầm cần chưa chắc chiếm phần lớn hành trình vì tàu phải di chuyển giữa các bãi. Cần phân biệt tour câu cá lớn với tour đi đảo có thêm 30-60 phút câu thử. Hai sản phẩm khác nhau về tàu, thiết bị, mục tiêu và kỳ vọng."
+        },
+        {
+          "heading": "KỸ THUẬT: Câu đáy, jig hoặc kỹ thuật tùy ngư trường",
+          "body": "Cách câu phụ thuộc vào: • Độ sâu. • Dòng chảy. • Loài cá mục tiêu. • Mùa và thời tiết. • Loại mồi. • Khả năng của tài công và người câu. Một chuyến có thể sử dụng câu đáy, jig hoặc hình thức khác tùy bãi. Không nên mặc định “câu cá lớn” luôn đồng nghĩa với một kỹ thuật cố định. Thiết bị có thể gồm cần, máy câu, dây, mồi, chì, móc và máy dò cá. Chất lượng, số lượng và tình trạng thiết bị cần được hỏi rõ trước khi đặt."
+        },
+        {
+          "heading": "KHÔNG CAM KẾT: Không bảo đảm sản lượng cá",
+          "body": "Cá tự nhiên phụ thuộc vào mùa, dòng chảy, nhiệt độ nước, mồi, ngư trường và nhiều yếu tố không thể kiểm soát. Đơn vị vận hành có thể bảo đảm tàu, thiết bị, thời gian hoặc kỹ thuật hỗ trợ - nhưng không nên bảo đảm chắc chắn “câu được cá lớn”. Nếu có chính sách đổi bãi, đổi ngày hoặc bù dịch vụ khi không có cá, cần đọc rõ điều kiện thay vì chỉ nghe tư vấn miệng."
+        },
+        {
           "heading": "Đi câu chuyên biệt khác với một điểm phụ trong tour đảo",
-          "body": "Chuyến câu dài cần tàu phù hợp, thiết bị, máy dò, tài công hiểu ngư trường và quyền thay đổi bãi khi điều kiện không tốt. Nếu mục tiêu thật sự là câu, đừng chọn chỉ vì tour có thêm chữ 'fishing'."
+          "body": "Chuyến câu dài cần tàu phù hợp, thiết bị, tài công hiểu ngư trường và quyền thay đổi bãi khi điều kiện không tốt. Nếu mục tiêu thật sự là câu, đừng chọn chỉ vì tour có thêm chữ “fishing”. Nên hỏi rõ khách sẽ có bao nhiêu thời gian thực sự câu, mỗi người có thiết bị riêng không và thuyền viên hỗ trợ tới mức nào. Một chuyến chuyên nghiệp không chỉ đưa khách ra biển rồi phát cần."
         },
         {
           "heading": "An toàn và sức đi biển cần được tính từ đầu",
-          "body": "Chuyến nhiều giờ ngoài khơi dễ gây say sóng và mệt hơn hành trình tham quan đảo. Nên kiểm tra gió, sóng, thuốc say tàu phù hợp với bản thân và khả năng nghỉ trên tàu."
+          "body": "Chuyến nhiều giờ ngoài khơi dễ gây say sóng và mệt hơn hành trình tham quan đảo. Người tham gia nên: • Kiểm tra dự báo gió và sóng. • Ăn nhẹ trước khi đi. • Chuẩn bị thuốc say tàu phù hợp. • Mang nón, áo chống nắng và nước uống. • Hỏi về khu vực nghỉ và nhà vệ sinh. • Không uống quá nhiều rượu bia trước hoặc trong chuyến. Nếu đi cùng người lớn tuổi hoặc người dễ say sóng, cần cân nhắc thời lượng và loại tàu trước khi đặt."
         }
       ],
       "visitor_questions": [
+        "Chuyến đi kéo dài bao nhiêu giờ trên biển?",
         "Thiết bị câu và máy dò nào được dùng?",
-        "Tài công có thể đổi bãi theo nước/gió không?",
-        "Giá đã gồm mồi, thiết bị, bữa ăn và phụ phí chưa?"
+        "Mỗi khách có cần câu riêng không?",
+        "Tài công có thể đổi bãi theo nước, gió và tín hiệu cá không?",
+        "Giá đã gồm mồi, thiết bị, bữa ăn và phụ phí chưa?",
+        "Nếu không có cá hoặc biển không thuận, chính sách xử lý thế nào?",
+        "Trên tàu có chỗ nghỉ, nhà vệ sinh và áo phao đầy đủ không?"
       ],
       "sources": [
         {
@@ -1269,41 +1646,65 @@
       ]
     },
     "activity_squid_fishing": {
-      "lede": "Câu mực đêm là một trải nghiệm biển sau hoàng hôn: tàu bật đèn, thả mồi giả và chờ mực. Niềm vui nằm ở quá trình hơn là lời hứa rằng ai cũng sẽ câu được nhiều.",
+      "lede": "Câu mực đêm là một trải nghiệm biển sau hoàng hôn: tàu rời bến, bật đèn, thả mồi giả và chờ mực tiếp cận. Niềm vui nằm ở quá trình ngồi trên biển, học cách câu và chia sẻ không khí ban đêm - chứ không phải lời hứa rằng ai cũng sẽ câu được nhiều. Đây là hoạt động phụ thuộc trực tiếp vào biển, mùa gió, con nước, ánh sáng, vùng câu và kinh nghiệm của thuyền viên. Vì vậy, câu mực nên được bán như một trải nghiệm thử sức và thư giãn, không nên biến thành cam kết về sản lượng.",
       "infographic": [
         {
           "icon": "01",
-          "label": "BẮT ĐẦU",
-          "value": "Cuối chiều - tối",
-          "note": "Nhiều tour kết hợp đoạn ngắm hoàng hôn trước khi bắt đầu câu."
+          "label": "QUY MÔ",
+          "value": "Một chuyến biển kéo dài vài giờ, gồm nhiều chặng trải nghiệm",
+          "note": "Một tour câu mực đêm thường không chỉ có thời gian ngồi thả câu. Lịch trình có thể gồm:"
         },
         {
           "icon": "02",
           "label": "CÁCH CÂU",
-          "value": "Đèn + mồi giả + nhấp cần",
-          "note": "Thuyền viên thường hướng dẫn người mới cách thả và kéo mồi."
+          "value": "Đèn, mồi giả và thao tác nhấp cần",
+          "note": "Tàu thường sử dụng ánh đèn để tạo điều kiện thu hút mực, sau đó hướng dẫn khách thả mồi giả, giữ dây và nhấp cần theo cách phù hợp."
         },
         {
           "icon": "03",
           "label": "ĐỪNG KỲ VỌNG",
           "value": "Đi là chắc chắn có mực",
-          "note": "Mực tự nhiên phụ thuộc mùa, nước và điều kiện biển."
+          "note": "Mực tự nhiên phụ thuộc vào mùa, con nước, thời tiết, ánh sáng và điều kiện biển. Có chuyến khách câu được nhiều, có chuyến chỉ câu được ít hoặc không câu được con nào."
         }
       ],
       "sections": [
         {
+          "heading": "QUY MÔ: Một chuyến biển kéo dài vài giờ, gồm nhiều chặng trải nghiệm",
+          "body": "Một tour câu mực đêm thường không chỉ có thời gian ngồi thả câu. Lịch trình có thể gồm: • Di chuyển từ khách sạn hoặc điểm tập trung tới bến. • Chờ lên tàu và sắp xếp vị trí. • Ngắm hoàng hôn hoặc di chuyển ra vùng câu. • Nghe hướng dẫn cách dùng cần và mồi giả. • Câu mực trong đêm. • Ăn nhẹ, dùng bữa hoặc chế biến sản phẩm câu được tùy tour. • Quay về bến và di chuyển trở lại nơi lưu trú. Thời gian thực tế trên biển thường kéo dài vài giờ, nhưng tổng thời gian từ lúc đón khách đến khi về lại khách sạn có thể lâu hơn đáng kể. Người dễ say sóng nên hỏi rõ thời lượng ngồi trên tàu, loại tàu và vùng biển trước khi đặt."
+        },
+        {
+          "heading": "CÁCH CÂU: Đèn, mồi giả và thao tác nhấp cần",
+          "body": "Tàu thường sử dụng ánh đèn để tạo điều kiện thu hút mực, sau đó hướng dẫn khách thả mồi giả, giữ dây và nhấp cần theo cách phù hợp. Người mới cần hiểu rằng câu mực không giống câu cá thông thường. Cảm giác kéo mồi, nhận biết mực bám và thu dây cần sự hướng dẫn của thuyền viên. Không nên tự ý đổi vị trí, quăng mồi ra xa hoặc thao tác khi tàu đang di chuyển. Mỗi khách có thể được phát cần riêng hoặc dùng chung tùy tour. Số lượng cần, tình trạng mồi, không gian đứng và mức độ hỗ trợ của thuyền viên ảnh hưởng trực tiếp tới trải nghiệm."
+        },
+        {
+          "heading": "ĐỪNG KỲ VỌNG: Đi là chắc chắn có mực",
+          "body": "Mực tự nhiên phụ thuộc vào mùa, con nước, thời tiết, ánh sáng và điều kiện biển. Có chuyến khách câu được nhiều, có chuyến chỉ câu được ít hoặc không câu được con nào. Nếu tour có phục vụ mực câu được, cần hỏi rõ cách tính: mực có được chế biến tại chỗ không, có phải chia cho cả tàu không, có giới hạn sản lượng không và bữa ăn đã bao gồm trong giá hay chưa."
+        },
+        {
           "heading": "Một hoạt động du lịch bắt nguồn từ nhịp đánh bắt biển đêm",
-          "body": "Nguồn du lịch địa phương mô tả tour thường xuất phát từ Dương Đông hoặc An Thới, sử dụng ánh đèn để thu hút mực và hướng dẫn khách thử câu trong vài giờ."
+          "body": "Câu mực đêm cho du khách chạm vào một phần nhịp sống của người đi biển sau hoàng hôn: ánh đèn trên mặt nước, sự chờ đợi, thao tác với dây câu và cảm giác phụ thuộc vào thiên nhiên. Một số tour được giới thiệu xuất phát từ Dương Đông hoặc An Thới, nhưng bến và vùng câu có thể thay đổi theo mùa gió, điều kiện biển và cách tổ chức của từng đơn vị. Không nên xem tên bến ghi trong lịch trình cũ là thông tin cố định cho mọi ngày."
         },
         {
           "heading": "Chọn bến theo mùa và điều kiện biển",
-          "body": "Điểm xuất phát và vùng câu có thể đổi theo mùa gió. Hãy xác nhận bến thật trong ngày, đặc biệt nếu lịch trình ban đầu ghi từ nhiều tháng trước."
+          "body": "Trước khi đi, hãy xác nhận lại: • Tàu khởi hành từ Dương Đông, An Thới hay bến khác. • Thời gian di chuyển từ khách sạn đến bến. • Vùng câu nằm trong vịnh, ngoài khơi hay gần khu đảo. • Loại tàu, số lượng khách và khu vực ngồi. • Dự báo gió, sóng và khả năng hoãn chuyến. • Có nhà vệ sinh, áo phao và phương án hỗ trợ người say sóng không. Người dễ say sóng nên ăn nhẹ trước chuyến đi, tránh uống rượu bia và hỏi đơn vị tổ chức về vị trí ngồi ít rung lắc hơn. Trẻ nhỏ cần được mặc áo phao đúng cách và luôn có người lớn quan sát."
         }
       ],
       "visitor_questions": [
         "Hôm nay tàu đi từ Dương Đông hay An Thới?",
+        "Tổng thời gian trên biển khoảng bao lâu?",
+        "Tàu chở tối đa bao nhiêu khách?",
         "Biển tối nay có phù hợp với người dễ say sóng không?",
-        "Bữa ăn và chế biến mực câu được có nằm trong giá không?"
+        "Mỗi khách có một cần câu riêng hay dùng chung?",
+        "Nếu không câu được mực thì bữa ăn có thay đổi không?",
+        "Mực câu được có được chế biến tại chỗ không?",
+        "Bữa ăn, nước uống và thuốc say sóng đã nằm trong giá chưa?",
+        "Nếu thời tiết xấu, tour có đổi ngày hoặc hoàn tiền không?",
+        "Số lượng thùng, diện tích nhà xưởng và sức chứa của từng nhà thùng nước mắm.",
+        "Tỷ lệ cá - muối, thời gian ủ và độ đạm vì có thể khác theo cơ sở.",
+        "Khu vực vườn tiêu đang mở đón khách và sản phẩm có phải do chính vườn trồng hay không.",
+        "Tuyến đường, thời gian đi bộ và mức độ khó của Suối Tiên, Suối Đá Ngọn.",
+        "Mùa nước đẹp và điều kiện an toàn thực tế của từng con suối.",
+        "Bến khởi hành, thời lượng tour và chính sách khi biển động của các tour câu mực."
       ],
       "sources": [
         {
