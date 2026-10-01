@@ -343,7 +343,23 @@
       "Không chỉ kể món ngon": "More than saying a dish tastes good",
       "Vì sao là “Open”?": "Why “Open”?",
       "Chữ “Open” là lời nhắc: phải minh bạch nguồn tin, rõ ràng giờ giấc và dám thừa nhận những rủi ro có thể đến.": "“Open” is a reminder to be transparent about sources and timestamps, and to acknowledge uncertainty when it matters.",
-      "Góc nhìn chân thực. Trải nghiệm sâu sắc. Khám phá trọn vẹn Phú Quốc.": "A grounded view of Phu Quoc, built for better travel decisions."
+      "Góc nhìn chân thực. Trải nghiệm sâu sắc. Khám phá trọn vẹn Phú Quốc.": "A grounded view of Phu Quoc, built for better travel decisions.",
+      "Thông tin về góp ý - Open Phu Quoc": "Feedback information - Open Phu Quoc",
+      "Dữ liệu bạn gửi qua mục góp ý": "Data you send through feedback",
+      "Cập nhật 27/09/2026": "Updated 27/09/2026",
+      "Open Phu Quoc nhận góp ý để sửa những thông tin sai, bổ sung địa điểm còn thiếu và giúp mọi người sử dụng cẩm nang chính xác hơn, kể cả góp ý cho bản dịch AI. Bạn không cần đăng ký tài khoản.": "Open Phu Quoc accepts feedback to correct inaccurate information, add missing places and improve the guide, including feedback on machine-assisted translations. You do not need an account.",
+      "Mình lưu thông tin gì?": "What information is stored?",
+      "Nội dung góp ý, mã và tên địa điểm hoặc bài viết, loại vấn đề, ngôn ngữ bản dịch, đoạn văn được chọn, câu sửa được đề xuất, phiên bản bài (nếu có), đường dẫn trang, thời gian gửi và ảnh đính kèm nếu bạn tự chọn. Biểu mẫu không yêu cầu họ tên, email hay quyền GPS. Để hạn chế gửi tràn lan, máy chủ dùng mã kiểm soát luân phiên hằng ngày, tạo từ địa chỉ kết nối và khóa bí mật; bảng góp ý không lưu địa chỉ IP gốc.": "The system may store the feedback text, place or article ID and name, issue type, translation language, selected passage, proposed correction, content version when available, page URL, submission time and any image you choose to attach. The form does not require your name, email address or GPS permission. To reduce abuse, the server uses a daily rotating control token derived from connection information and a secret key; the feedback table does not store the original IP address.",
+      "Ai xem được và thông tin dùng để làm gì?": "Who can see it and what is it used for?",
+      "Chỉ người có quyền truy cập CMS mới xem và xử lý góp ý cùng ảnh đính kèm. Phản hồi là đề xuất cần được kiểm tra, không tự động xuất bản, đổi vị trí trên bản đồ hoặc thay thế xác nhận vận hành chính thức. Mình không công khai ảnh góp ý lên website.": "Only people with CMS access can review feedback and attachments. Feedback is a suggestion that must be checked; it does not automatically publish content, move a map pin or replace an official operating confirmation. Feedback images are not made public on the website.",
+      "Góp ý bản dịch được duyệt": "Approved translation feedback",
+      "Nếu biên tập viên xác nhận một cách diễn đạt tốt hơn, hệ thống có thể giữ lại đoạn văn và bản sửa đã được duyệt trong kho thuật ngữ để cải thiện những bản dịch sau. Kho này không lưu tên, email, IP hay dữ liệu người gửi. Bản sửa không tự động thay đổi bài đã xuất bản. Bạn có thể dùng mã tham chiếu để yêu cầu xem xét rút lại phần đã đóng góp.": "If an editor confirms a better phrasing, the approved passage and correction may be retained in the terminology memory to improve later translations. This memory does not store the contributor's name, email, IP address or personal profile. An approved correction does not automatically change already published content. You can use your reference code to request review or withdrawal of a contribution.",
+      "Ảnh và thời gian lưu": "Images and retention",
+      "Nếu tính năng gửi ảnh được bật, ảnh được lưu trong kho riêng và không có đường dẫn công khai. Ảnh điện thoại có thể mang theo thông tin vị trí hoặc chi tiết cá nhân. Bạn chỉ nên gửi ảnh cần thiết, tránh ảnh chứa khuôn mặt, giấy tờ hoặc thông tin riêng tư. Hệ thống xóa bản góp ý gốc và ảnh sau tối đa 180 ngày bằng lịch dọn dẹp hàng ngày; nếu khâu dọn dẹp gặp lỗi, việc xóa sẽ được thử lại.": "If image upload is enabled, images are stored in a separate private store and do not have a public URL. Phone photos may contain location metadata or personal details. Send only images that are necessary and avoid faces, documents or private information. Original feedback records and images are deleted after a maximum of 180 days through a daily cleanup process; failed cleanup attempts are retried.",
+      "Muốn rút lại góp ý?": "Want to withdraw feedback?",
+      "Sau khi gửi thành công, hãy lưu mã tham chiếu. Bạn có thể gửi yêu cầu xóa kèm mã tới": "After a successful submission, keep the reference code. You can send a deletion request with that code to",
+      "để bên mình tìm đúng bản ghi và xử lý. Không cần gửi thêm giấy tờ cá nhân.": "so the correct record can be found and processed. You do not need to send additional identity documents.",
+      "← Về Quanh đây": "← Back to Near me"
     },
     "explore": {
       "Khám phá Phú Quốc - Open Phu Quoc": "Explore Phu Quoc - Open Phu Quoc",
@@ -924,7 +940,23 @@
       "Hôm nay chưa có gì mới": "Nothing new today",
       "Hôm nay chưa có thay đổi nào đủ lớn để phải để ý.": "No change today is significant enough to affect your plans.",
       "Chưa mở được lúc này": "Unavailable right now",
-      "Mục này chưa mở được. Thử lại sau một chút nhé.": "This section is unavailable. Please try again shortly."
+      "Mục này chưa mở được. Thử lại sau một chút nhé.": "This section is unavailable. Please try again shortly.",
+      "Awaken Sea tạm ngưng từ 01/10/2026 - Open Phu Quoc": "Awaken Sea suspended from 01/10/2026 - Open Phu Quoc",
+      "← Tin & cập nhật": "← News & updates",
+      "THAY ĐỔI LỊCH SHOW": "SHOW SCHEDULE CHANGE",
+      "Awaken Sea tạm ngưng từ ngày 01/10/2026": "Awaken Sea suspended from 01/10/2026",
+      "Sun World Hòn Thơm thông báo show Awaken Sea sẽ tạm ngưng từ ngày 1/10/2026 cho đến khi có thông báo mới. Hiện chưa có ngày diễn lại được công bố.": "Sun World Hon Thom announced that the Awaken Sea show will be suspended from 1 October 2026 until further notice. No return date has been announced.",
+      "Cập nhật ngày 27/09/2026 · Nguồn: Sun World Hòn Thơm": "Updated 27/09/2026 · Source: Sun World Hon Thom",
+      "Bắt đầu tạm ngưng": "Suspension begins",
+      "Chưa có lịch hoạt động trở lại": "No return schedule announced",
+      "Nếu bạn dự định xem show": "If you planned to see the show",
+      "Awaken Sea là chương trình miễn phí, không bán vé xem show. Vé tham quan Cầu Hôn là dịch vụ riêng. Nếu dự định đến khu vực này để xem Awaken Sea từ ngày 01/10/2026, du khách nên điều chỉnh lịch trình. Trường hợp đã mua vé Cầu Hôn hoặc combo cho ngày dự định đi, hãy liên hệ nơi bán để hỏi điều kiện sử dụng và chính sách hỗ trợ. Việc Awaken Sea tạm ngưng không đồng nghĩa vé Cầu Hôn tự động được đổi hoặc hoàn. Sun World Hòn Thơm hiện chưa công bố ngày biểu diễn trở lại.": "Awaken Sea is a free show and does not have a separate show ticket. Kiss Bridge admission is a different service. If you planned to visit the area specifically for Awaken Sea on or after 01/10/2026, adjust your itinerary. If you already bought a Kiss Bridge ticket or package for that date, contact the seller about usage conditions and support policies. The suspension of Awaken Sea does not automatically mean Kiss Bridge tickets can be changed or refunded. Sun World Hon Thom has not announced a return date.",
+      "Lưu ý": "Note",
+      "Thông báo này chỉ đề cập Awaken Sea, không có nghĩa các show hoặc dịch vụ khác của Sun World Hòn Thơm cũng tạm ngưng. Giờ hoạt động của từng dịch vụ cần được kiểm tra riêng.": "This notice applies only to Awaken Sea. It does not mean other Sun World Hon Thom shows or services are also suspended. Check each service separately.",
+      "Nguồn: Thông báo bằng hình ảnh do Sun World Hòn Thơm phát hành, được cung cấp cho Open Phu Quoc ngày 27/09/2026. Theo dõi": "Source: image notice issued by Sun World Hon Thom and provided to Open Phu Quoc on 27/09/2026. Follow",
+      "website Sun World Hòn Thơm": "the Sun World Hon Thom website",
+      "để biết các cập nhật tiếp theo.": "for further updates.",
+      "Open Phu Quoc · Thông tin miễn phí dành cho người dân và du khách": "Open Phu Quoc · free information for residents and travellers"
     },
     "weather_history": {
       "JoTrip Weather Lab - Lịch sử và so sánh": "JoTrip Weather Lab - History & comparison",
@@ -1351,7 +1383,12 @@
       "Rối quá thì thử trước ba món này.": "Start with these three dishes.",
       "↻ Gợi ý 3 món khác": "↻ Suggest 3 different dishes",
       "Chọn bữa hoặc nhóm món trước, rồi để tớ gợi ý.": "Choose a meal time or category first, then get suggestions.",
-      "Biết món ngon, chọn quán chuẩn. Đừng quên gọi kiểm tra lại giá và giờ mở cửa để tránh mất công chạy xe đường xa đến nơi quán lại nghỉ.": "Understand the dish first, then choose a restaurant. Recheck prices and opening hours before making a long trip."
+      "Biết món ngon, chọn quán chuẩn. Đừng quên gọi kiểm tra lại giá và giờ mở cửa để tránh mất công chạy xe đường xa đến nơi quán lại nghỉ.": "Understand the dish first, then choose a restaurant. Recheck prices and opening hours before making a long trip.",
+      "Món Phú Quốc - Open Phu Quoc": "Phu Quoc dish - Open Phu Quoc",
+      "Ăn Phú Quốc": "Eat Phu Quoc",
+      "← Danh sách món": "← All dishes",
+      "Chờ một chút, mình đang mở món này.": "Opening this dish...",
+      "Open Phu Quoc · đọc món để hiểu trước khi chọn quán.": "Open Phu Quoc · understand the dish before choosing a restaurant."
     }
   }
 }
