@@ -145,9 +145,10 @@
     if(rain){
       secondary=tr("actual","Đo thực tế")+" · "+rain.headline;
     }else{
-      const pieces=[tr("actual_at","Đo thực tế tại {location}",{location:referenceLocation})];
-      if(comfortLabel)pieces.push(comfortLabel);
-      secondary=pieces.join(" · ");
+      // VVPQ is a periodic airport observation. Keep its measured temperature
+      // useful, but do not promote the airport heat/humidity interpretation to
+      // an island-wide or selected-point "outdoor feel" statement.
+      secondary=tr("actual_at","Đo thực tế tại {location}",{location:referenceLocation});
     }
     return {
       primary:Math.round(t)+"°",
@@ -161,6 +162,8 @@
       heatIndexMethod,
       comfortLabel,
       comfortReason,
+      comfortScope:"REFERENCE_STATION_ONLY",
+      observationMode:"PERIODIC_METAR_SPECI",
       rain,
       evidenceClass:"ACTUAL"
     };
