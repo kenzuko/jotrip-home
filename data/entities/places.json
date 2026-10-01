@@ -537,7 +537,15 @@
         "plus_code": "6X96+83R"
       },
       "address_source_id": "google_maps_location_lookup",
-      "address_verified_at": "2026-09-22"
+      "address_verified_at": "2026-09-22",
+      "opening_hours": {
+        "state": "CLOSED",
+        "schedule_type": "CLOSED",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "closed_from": "2026-03-01",
+        "verified_at": "2026-10-01",
+        "note": "Khu chợ đêm Bạch Đằng/Dương Đông cũ đã dừng hoạt động sau ngày 28/02/2026. Không dùng lịch mở cửa cũ để lên lịch hiện tại."
+      }
     },
     {
       "id": "place_bai_truong",
