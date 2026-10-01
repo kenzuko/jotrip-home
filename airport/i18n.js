@@ -1,8 +1,12 @@
 
 (function(){
   const LANGS=['vi','en','ko','ru','zh'];
-  let lang='vi';
-  try{lang=localStorage.getItem('jotrip_airport_lang')||'vi'}catch(_){}
+  const pageLocale=document.querySelector('meta[name="openpq-locale"]')?.content||'';
+  let stored='';
+  try{stored=localStorage.getItem('jotrip_airport_lang')||''}catch(_){}
+  const browser=(navigator.languages?.[0]||navigator.language||'').toLowerCase();
+  const browserLang=browser.startsWith('en')?'en':browser.startsWith('ko')?'ko':browser.startsWith('ru')?'ru':browser.startsWith('zh')?'zh':'vi';
+  let lang=pageLocale==='en'?'en':pageLocale==='vi'?'vi':stored||browserLang;
   if(!LANGS.includes(lang))lang='vi';
   window.JT_I18N_ACTIVE=true;
 
