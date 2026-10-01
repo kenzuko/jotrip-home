@@ -6,7 +6,11 @@
   const load=window.OpenPQPublicData?.json||((url)=>fetch(url,{cache:"default"}).then(r=>{
     if(!r.ok)throw new Error(String(r.status));return r.json();
   }));
-  load("data/home-copy.json")
+  const rawLocale=document.querySelector('meta[name="openpq-locale"]')?.content||document.documentElement.lang||"vi";
+  const locale=/^zh-hant/i.test(rawLocale)?"zh-Hant":/^zh-(?:hans|cn)/i.test(rawLocale)?"zh-Hans":String(rawLocale).toLowerCase().split("-")[0];
+  const source=locale&&locale!=="vi"?"/data/i18n/"+encodeURIComponent(locale)+"/home-copy.json":"/data/home-copy.json";
+  const copyTask=load(source).catch(()=>source!=="/data/home-copy.json"?load("/data/home-copy.json"):Promise.reject());
+  copyTask
     .then(d=>{
       set(".hero-kicker",d.hero?.kicker,"hero.kicker");
       set(".hero-copy h1",d.hero?.title,"hero.title");
