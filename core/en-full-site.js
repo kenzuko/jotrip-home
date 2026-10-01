@@ -74,6 +74,8 @@ function translateString(raw){
   const trimmed=normalize(raw),exact=exactMap();
   if(exact[trimmed])return preserve(raw,exact[trimmed]);
   let value=trimmed;
+  const phrases=Array.isArray(state.copy.phrases)?[...state.copy.phrases].sort((a,b)=>String(b?.[0]||"").length-String(a?.[0]||"").length):[];
+  for(const [from,to] of phrases)if(from&&value.includes(from))value=value.split(from).join(to);
   for(const [from,to] of COMMON)if(value.includes(from))value=value.split(from).join(to);
   for(const [re,to] of RULES)value=value.replace(re,to);
   return preserve(raw,value);
