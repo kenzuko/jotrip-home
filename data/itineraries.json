@@ -19,24 +19,24 @@
     {
       "days": 2,
       "label": "2 ngày 1 đêm",
-      "principle": "Chọn một nửa đảo",
-      "avoid": "Không cố gộp Bắc + Nam + tour biển"
+      "principle": "Quỹ thời gian này quá ngắn, bạn chỉ nên chọn đi khám phá đúng một nửa phần đảo (Bắc hoặc Nam) thôi.",
+      "avoid": "Lỗi xương máu: Tuyệt đối không cố nhồi nhét gộp cả đi Bắc đảo, Nam đảo và ra tour biển vào lịch trình này, bạn sẽ chỉ toàn ngồi xe chứ không được chơi gì."
     },
     {
       "days": 3,
       "label": "3 ngày 2 đêm",
-      "principle": "Một ngày biển/Hòn Thơm, một ngày Bắc hoặc Nam, một ngày nhẹ Dương Đông",
-      "weather_rule": "Dành ngày dự báo đẹp nhất cho biển"
+      "principle": "Lịch đẹp nhất là: Một ngày dành cho biển hoặc Hòn Thơm, một ngày đi Bắc đảo hoặc Nam đảo, ngày còn lại đi dạo nhẹ nhàng quanh Dương Đông.",
+      "weather_rule": "Mẹo nhỏ: Hãy xem dự báo và dành ngày có thời tiết đẹp nhất để ra biển chơi nhé."
     },
     {
       "days": 4,
       "label": "4 ngày 3 đêm",
-      "principle": "Một ngày biển, một ngày Bắc, một ngày Nam, thêm nửa ngày/chiều Dương Đông"
+      "principle": "Bạn sẽ có một lịch trình khá thoải mái: Một ngày trọn cho biển, một ngày cày Bắc đảo, một ngày đi Nam đảo, và dư ra thêm nửa ngày hoặc buổi chiều để loanh quanh Dương Đông."
     },
     {
       "days": 5,
       "label": "5 ngày trở lên",
-      "principle": "Có chỗ cho ngày trống, local, câu cá, rừng/suối hoặc bữa ăn trải nghiệm"
+      "principle": "Quá tuyệt vời! Bạn sẽ dư dả để có những khoảng trống linh hoạt, đi sâu vào đời sống local, đi câu cá, khám phá rừng/suối hoặc thong thả thưởng thức những bữa ăn trải nghiệm chất lượng."
     }
   ],
   "templates": [
@@ -49,22 +49,19 @@
       ],
       "days": [
         [
-          "Dương Đông",
-          "Dinh Cậu",
-          "Chợ đêm"
+          "Ngày 1: Nhận phòng, lượn lờ Dương Đông, chiều ra Dinh Cậu, tối dạo Chợ đêm."
         ],
         [
-          "Bãi Sao",
-          "Hòn Thơm hoặc trải nghiệm biển"
+          "Ngày 2: Tour 3 đảo, hoặc đi Hòn Thơm hoặc đi Safari hoặc VinWonders."
         ],
         [
-          "Safari hoặc VinWonders"
+          "Ngày 3: Tùy giờ bay, chọn một hoạt động nhẹ nhàng gần khách sạn hoặc thong thả nghỉ ngơi trước khi ra sân bay."
         ]
       ],
       "tips": [
-        "Mỗi ngày một trục",
-        "Chừa giờ nghỉ",
-        "Không ôm Safari và VinWonders trong một ngày"
+        "Tuân thủ nguyên tắc: Mỗi ngày chỉ đi một trục đường duy nhất.",
+        "Luôn chừa khoảng thời gian nghỉ trưa cho các bé.",
+        "Xin đừng cố ôm đồm đi cả Safari và VinWonders trong cùng một ngày, trẻ em sẽ rất đuối."
       ]
     },
     {
@@ -76,25 +73,21 @@
       ],
       "days": [
         [
-          "Check-in",
-          "Spa",
-          "Hoàng hôn"
+          "Ngày 1: Check-in thong thả, làm liệu trình Spa, ngắm Hoàng hôn lãng mạn."
         ],
         [
-          "Hòn Thơm",
-          "Sunset Town",
-          "1 show"
+          "Ngày 2: Khám phá Hòn Thơm, dạo Sunset Town và xem 1 show diễn. Hoặc lựa chọn khám phá Safari/VinWonders. Hoặc tour 3 đảo."
         ],
         [
-          "Resort / trải nghiệm riêng"
+          "Ngày 3: Dành trọn cho Resort hoặc 1 trải nghiệm riêng tư theo sở thích."
         ],
         [
-          "Khoảng trống linh hoạt"
+          "Ngày 4: Chừa khoảng trống linh hoạt để nghỉ ngơi trước khi về."
         ]
       ],
       "tips": [
-        "Lịch phải có quyền bỏ bớt",
-        "Chốt thời tiết và giờ bay trước"
+        "Trăng mật thì lịch trình phải \"mở\", sẵn sàng bỏ bớt điểm nếu thấy mệt để dưỡng sức. Nên chọn 1 ngày nam hoặc 1 ngày bắc, đừng quá ôm đồm.",
+        "Nhớ chốt tình hình thời tiết và giờ bay chuẩn xác từ trước."
       ]
     },
     {
@@ -106,19 +99,19 @@
       ],
       "days": [
         [
-          "Dương Đông / bờ Tây"
+          "Ngày 1: Khám phá Dương Đông và dọc bờ Tây."
         ],
         [
-          "Safari hoặc VinWonders + Grand World"
+          "Ngày 2: Đi Safari hoặc VinWonders, tối ghé Grand World."
         ],
         [
-          "Biển An Thới hoặc Hòn Thơm"
+          "Ngày 3: Trải nghiệm Biển An Thới hoặc Hòn Thơm."
         ],
         [
-          "Dinh Cậu + nhà thùng + vườn tiêu"
+          "Ngày 4: Đi cụm Dinh Cậu, thăm nhà thùng nước mắm và vườn tiêu."
         ],
         [
-          "Nhà tù + Hộ Quốc + Bãi Sao/Khem hoặc ngày trống"
+          "Ngày 5: Thăm Nhà tù, thắp hương Hộ Quốc, tắm Bãi Sao/Khem hoặc cứ để trống lịch thong thả nghỉ ngơi."
         ]
       ]
     }
@@ -128,41 +121,41 @@
       "id": "south-first",
       "title": "Nam đảo lần đầu",
       "stops": [
-        "Nhà tù",
-        "Hộ Quốc",
-        "Bãi Sao hoặc Bãi Khem",
-        "Sunset Town hoặc cáp treo"
+        "Di tích Nhà tù.",
+        "Chùa Hộ Quốc.",
+        "Tắm Bãi Sao hoặc Bãi Khem.",
+        "Dạo Sunset Town hoặc đi cáp treo."
       ],
-      "rule": "Đừng cố ghép cả cáp treo và tour đảo."
+      "rule": "Kinh nghiệm xương máu: Đừng cố ghép đi cả cáp treo Hòn Thơm và đi tour đảo vào cùng một ngày, không đủ sức đâu."
     },
     {
       "id": "understand-island",
       "title": "Một ngày hiểu Phú Quốc",
       "stops": [
-        "Dinh Cậu",
-        "Nhà thùng",
-        "Vườn tiêu hoặc nhà vườn",
-        "Bữa trưa địa phương",
-        "Làng ven biển hoặc hoàng hôn Dương Đông"
+        "Ghé thăm Dinh Cậu.",
+        "Tìm hiểu Nhà thùng.",
+        "Thăm Vườn tiêu hoặc nhà vườn địa phương.",
+        "Thưởng thức Bữa trưa đậm chất địa phương.",
+        "Tham quan Làng ven biển hoặc ngồi ngắm hoàng hôn tại Dương Đông."
       ]
     },
     {
       "id": "north-family",
       "title": "Bắc đảo cho gia đình",
       "stops": [
-        "Safari hoặc VinWonders",
-        "Grand World nếu còn sức"
+        "Chọn đi Safari hoặc VinWonders.",
+        "Đến tối ghé qua Grand World nếu cả nhà vẫn còn sức."
       ],
-      "rule": "Một điểm lớn làm trục."
+      "rule": "Luôn bám sát nguyên tắc: Chỉ chọn đúng một điểm lớn làm trục chính cho cả ngày."
     },
     {
       "id": "an-thoi-sea",
       "title": "Biển An Thới theo điều kiện thật",
       "stops": [
-        "Cụm hòn theo gió/sóng",
-        "Bơi/lặn vừa sức",
-        "Ăn trưa",
-        "Về bờ trước khi nhóm quá mệt"
+        "Lựa chọn Cụm hòn tùy theo tình hình gió/sóng thực tế trong ngày.",
+        "Tham gia Bơi/lặn ngắm san hô vừa với sức mình.",
+        "Ăn trưa nạp năng lượng.",
+        "Lên tàu về bờ trước khi cả nhóm có dấu hiệu quá mệt mỏi."
       ],
       "dynamic_dependency": [
         "weather_v2",
@@ -173,36 +166,36 @@
       "id": "forest-east",
       "title": "Rừng & phía Đông",
       "stops": [
-        "Một điểm rừng/suối",
-        "Hàm Ninh hoặc làng ven biển phía Đông"
+        "Dành thời gian cho một điểm rừng/suối mát mẻ.",
+        "Ghé Hàm Ninh hoặc một làng ven biển hoang sơ phía Đông."
       ],
-      "rule": "Cần câu chuyện địa phương, tránh biến thành tuyến mua sắm."
+      "rule": "Cần tìm hiểu và lắng nghe câu chuyện địa phương chân thực, cố gắng tránh biến tuyến này thành một buổi đi mua sắm quà cáp đơn thuần."
     },
     {
       "id": "past-present-future",
       "title": "Phú Quốc hôm qua, hôm nay và ngày mai",
       "stops": [
-        "Nhà tù",
-        "An Thới cũ",
-        "Cảng và nghề biển",
-        "Nam đảo mới"
+        "Di tích Nhà tù.",
+        "Ngắm nhìn An Thới cũ.",
+        "Tìm hiểu cảng và nghề đi biển.",
+        "Khám phá sự đổi thay của Nam đảo mới."
       ],
       "theme": "Ký ức chiến tranh → đời sống hiện tại → đô thị mới"
     }
   ],
   "flexible_day": {
     "title": "Một ngày không lên lịch",
-    "rule": "Sáng dậy mới quyết định",
+    "rule": "Cứ ngủ thoải mái, sáng dậy thấy hứng thú điều gì thì mới quyết định đi cái đó.",
     "good_weather": [
-      "Đi biển",
-      "Tìm bãi tắm"
+      "Xách đồ đi biển khi điều kiện biển an toàn.",
+      "Xách xe máy lượn lờ tìm các bãi tắm đẹp khi thời tiết thuận lợi."
     ],
     "bad_weather": [
-      "Ăn sáng lâu hơn",
-      "Nhà thùng",
-      "Cà phê",
-      "Chợ",
-      "Spa"
+      "Thong thả ăn sáng lâu hơn một chút.",
+      "Tham quan nhà thùng nước mắm nếu nơi đó đón khách và đường đi an toàn.",
+      "Tìm một quán cà phê chill chill.",
+      "Lượn lờ chợ truyền thống nếu thời tiết cho phép.",
+      "Tự thưởng một buổi đi Spa thư giãn."
     ]
   }
 }
