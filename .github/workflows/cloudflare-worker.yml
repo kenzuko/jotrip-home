@@ -130,6 +130,11 @@ jobs:
           node --check guide/knowledge.js
           node --check worker.js
 
+      - name: Test production Weather Ground Truth engine
+        env:
+          PYTHONPATH: scripts/weather-engine
+        run: python -m unittest discover -s scripts/weather-engine/weather/tests -v
+
       - name: Build Worker assets
         run: |
           # Fail closed. The last deployed Worker is our Last Known Good.
