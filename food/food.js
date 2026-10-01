@@ -35,7 +35,7 @@ function dishMedia(x){
     '</div>';
   }
   return window.OpenPQVisual
-    ? OpenPQVisual.placeholder(x.name,"Ảnh riêng của món đang được bổ sung")
+    ? OpenPQVisual.placeholder(x.name,copy("food.image_pending","Ảnh riêng của món đang được bổ sung"))
     : "";
 }
 
@@ -54,7 +54,7 @@ function renderGrid(){
         '<div class="dish-foot"><small>'+esc((x.hashtags||[]).slice(0,2).join(" · "))+'</small><b>→</b></div>'+
       '</div>'+
     '</a>'
-  ).join(""):'<div class="empty">Không có món phù hợp.</div>';
+  ).join(""):'<div class="empty">'+esc(copy("food.no_match","Không có món phù hợp."))+'</div>';
 }
 
 
@@ -62,13 +62,13 @@ function renderRandomDish(){
   const host=$("#randomDishResult"),rows=state.randomDishes;
   if(!host)return;
   if(!rows.length){
-    host.innerHTML='<p class="random-dish-empty">Chọn bữa bạn muốn ăn, tớ gợi ý ba món để lựa.</p>';
+    host.innerHTML='<p class="random-dish-empty">'+esc(copy("food.random_empty","Chọn bữa bạn muốn ăn, tớ gợi ý ba món để lựa."))+'</p>';
     return;
   }
-  const meals={breakfast:"Ăn sáng",lunch:"Ăn trưa",dinner:"Ăn tối",snack:"Ăn chơi",dessert:"Món ngọt"};
+  const meals={breakfast:copy("food.meal_breakfast","Ăn sáng"),lunch:copy("food.meal_lunch","Ăn trưa"),dinner:copy("food.meal_dinner","Ăn tối"),snack:copy("food.meal_snack","Ăn chơi"),dessert:copy("food.meal_dessert","Món ngọt")};
   host.innerHTML='<div class="random-dish-picks">'+rows.map(dish=>{
     const time=(dish.meal_times||[]).map(x=>meals[x]).filter(Boolean).slice(0,2).join(" · ");
-    return '<div class="random-dish-pick"><span>'+esc(time||"Gợi ý hôm nay")+'</span><strong>'+esc(dish.name)+'</strong><p>'+esc(dish.intro)+'</p><a href="article.html?id='+encodeURIComponent(dish.id)+'">Xem món này →</a></div>';
+    return '<div class="random-dish-pick"><span>'+esc(time||copy("food.suggestion_today","Gợi ý hôm nay"))+'</span><strong>'+esc(dish.name)+'</strong><p>'+esc(dish.intro)+'</p><a href="article.html?id='+encodeURIComponent(dish.id)+'">Xem món này →</a></div>';
   }).join("")+'</div>';
 }
 
@@ -113,7 +113,7 @@ function ingredientsBlock(dish){
     '<div class="ingredient-grid">'+rows.map((x,i)=>
       '<div><span>'+String(i+1).padStart(2,"0")+'</span><strong data-food-path="ingredients.'+i+'">'+esc(x)+'</strong></div>'
     ).join("")+'</div>'+
-    '<small>Công thức có thể thay đổi theo quán. Nếu dị ứng hoặc kiêng ăn, hãy hỏi thành phần thực tế tại nơi bạn gọi món.</small>'+
+    '<small>'+esc(copy("food.recipe_note","Công thức có thể thay đổi theo quán. Nếu dị ứng hoặc kiêng ăn, hãy hỏi thành phần thực tế tại nơi bạn gọi món."))+'</small>'+
   '</section>';
 }
 
@@ -128,9 +128,9 @@ function renderArticle(){
   const resolvedId=id==="chao-ca"?"chao-cha":id;
   const dish=state.data.dishes.find(x=>x.id===resolvedId);
   if(!id||!dish){
-    document.title="Không tìm thấy món - Open Phu Quoc";
+    document.title=copy("food.not_found_document_title","Không tìm thấy món - Open Phu Quoc");
     host.removeAttribute("data-food-id");
-    host.innerHTML='<div class="empty"><strong>Không tìm thấy món này.</strong><p>Món có thể đã đổi địa chỉ hoặc chưa được công khai.</p><p><a href="index.html">← Xem tất cả món</a></p></div>';
+    host.innerHTML='<div class="empty"><strong>'+esc(copy("food.not_found_title","Không tìm thấy món này."))+'</strong><p>'+esc(copy("food.not_found_description","Món có thể đã đổi địa chỉ hoặc chưa được công khai."))+'</p><p><a href="index.html">'+esc(copy("food.all_dishes","← Xem tất cả món"))+'</a></p></div>';
     const more=$("#moreDishes");if(more)more.innerHTML="";
     return;
   }
@@ -154,13 +154,13 @@ function renderArticle(){
 
   host.dataset.foodId=dish.id;
   host.innerHTML=
-    '<div class="crumb">ĂN PHÚ QUỐC · '+esc(dish.category==="seafood"?copy("food.seafood","HẢI SẢN"):copy("food.local","MÓN ĐỊA PHƯƠNG"))+'</div>'+
+    '<div class="crumb">'+esc(copy("food.crumb","ĂN PHÚ QUỐC"))+' · '+esc(dish.category==="seafood"?copy("food.seafood","HẢI SẢN"):copy("food.local","MÓN ĐỊA PHƯƠNG"))+'</div>'+
     '<h1 data-food-path="name">'+esc(dish.name)+'</h1>'+
     '<p class="lead" data-food-path="intro">'+esc(dish.intro)+'</p>'+
     origin+
     nameStory+
     ingredientsBlock(dish)+
-    '<section><div class="food-section-label">'+esc(copy("food.how_to_eat","CÁCH ĂN"))+'</div><h2>'+esc(copy("food.how_to_eat_title","Ăn sao cho ngon?"))+'</h2><p data-food-path="how_to_eat">'+esc(dish.how_to_eat||"Ăn lúc món còn nóng; nêm theo khẩu vị riêng.")+'</p></section>'+
+    '<section><div class="food-section-label">'+esc(copy("food.how_to_eat","CÁCH ĂN"))+'</div><h2>'+esc(copy("food.how_to_eat_title","Ăn sao cho ngon?"))+'</h2><p data-food-path="how_to_eat">'+esc(dish.how_to_eat||copy("food.default_how_to_eat","Ăn lúc món còn nóng; nêm theo khẩu vị riêng."))+'</p></section>'+
     '<section><div class="food-section-label">'+esc(copy("food.practical","LƯU Ý THỰC TẾ"))+'</div><h2>'+esc(copy("food.practical_title","Nhớ mấy chuyện này."))+'</h2><ul>'+
       (dish.tips||[]).map((x,i)=>'<li><span data-food-path="tips.'+i+'">'+esc(x)+'</span></li>').join("")+
     '</ul></section>'+
@@ -193,8 +193,8 @@ async function load(){
   const context=$("#foodVisualContext");
   if(context && window.OpenPQVisual){
     context.innerHTML=OpenPQVisual.gallery(state.visuals?.food_context?.seafood||[],{
-      eyebrow:"ẢNH TƯ LIỆU JOTRIP · BỐI CẢNH CHUNG",
-      title:"Hải sản trong bếp - ảnh không gắn với món cụ thể"
+      eyebrow:copy("food.visual_context_eyebrow","ẢNH TƯ LIỆU JOTRIP · BỐI CẢNH CHUNG"),
+      title:copy("food.visual_context_title","Hải sản trong bếp - ảnh không gắn với món cụ thể")
     });
   }
   renderGrid();
@@ -219,5 +219,5 @@ $("#randomDishButton")?.addEventListener("click",pickRandomDish);
 
 load().catch(()=>{
   const h=$("#foodGrid")||$("#foodArticle");
-  if(h)h.innerHTML='<div class="empty">Chưa mở được danh sách món ăn.</div>';
+  if(h)h.innerHTML='<div class="empty">'+esc(copy("food.load_error","Chưa mở được danh sách món ăn."))+'</div>';
 });
