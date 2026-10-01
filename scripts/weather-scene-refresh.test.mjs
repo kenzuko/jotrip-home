@@ -33,5 +33,5 @@ for(const expr of ["fetchCanonical(URLS.ecmwf)","fetchCanonical(URLS.dashboard)"
   assert(branch.includes(expr),"Missing on-demand same-origin refresh: "+expr);
 assert(scene.includes("return state.ecmwf?.run_time||state.ecmwf?.spatial?.short_run_time||cycles.ECMWF"),"Displayed forecast must cite its actual model cycle");
 const html=readFileSync("weather/weather-scene-v3.html","utf8");
-assert(html.includes("/weather/weather-scene-v3.js?v=20260925-edge-model1"),"Scene JS cache not invalidated");
+assert(html.includes("/weather/weather-scene-v3.js?v=20261001-rain-observation-copy1"),"Scene JS cache not invalidated");
 console.log("CMS Scene: 14 live model/marine freshness and source-cycle regression assertions PASS");
