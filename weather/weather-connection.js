@@ -13,18 +13,21 @@
    const h=await response.json();if(h.schema_version!=="openpq-weather-edge-health-v1")throw Error("invalid contract");
    const rows=h.results||[];
    const item=suffix=>rows.find(x=>x.path.endsWith(suffix));
-   const current=item("/local-now.json"),cloud=item("/nowcast-compact.json"),marine=item("/marine.json"),forecast=item("/dashboard-data.json");
-   const stale=rows.filter(x=>x.status!=="READY");
-   box.hidden=false;
-   if(!stale.length){box.dataset.state="ready";box.textContent="Quan trắc tại điểm "+ago(current?.age_minutes)+" · Mây "+ago(cloud?.age_minutes)+" · Dự báo theo giờ "+ago(forecast?.age_minutes)}
-   else{
+   const current=item("/local-now.json"),cloud=item("/nowcast-compact.json"),ground=item("/groundtruth.json");
+   const currentWaiting=current?.status!=="READY";
+   const groundWaiting=ground?.status!=="READY";
+   // This strip is reserved for a real current-condition data gap. Model-cycle
+   // age and a late satellite frame are shown in their own sections instead of
+   // making the whole Weather page look broken.
+   if(!(currentWaiting&&groundWaiting)){
+    box.hidden=true;
+    box.textContent="";
+   }else{
+    box.hidden=false;
     box.dataset.state="degraded";
-    const parts=[];
-    if(current?.status!=="READY")parts.push("dữ liệu tại điểm "+ago(current?.age_minutes));
+    const parts=["dữ liệu tại điểm "+ago(current?.age_minutes),"quan trắc mặt đất "+ago(ground?.age_minutes)];
     if(cloud?.status!=="READY")parts.push("ảnh mây "+ago(cloud?.age_minutes));
-    if(marine?.status!=="READY")parts.push("mô hình sóng nền "+ago(marine?.age_minutes));
-    if(forecast?.status!=="READY")parts.push("dự báo theo giờ "+ago(forecast?.age_minutes));
-    box.textContent="Đang chờ dữ liệu mới: "+parts.join(" · ")+". Sóng nền theo chu kỳ mô hình, không phải số đo biển trực tiếp. Xem thời điểm riêng trong từng mục.";
+    box.textContent="Đang chờ dữ liệu hiện tại mới: "+parts.join(" · ")+". Các lớp dự báo và biển vẫn ghi thời điểm riêng trong từng mục.";
    }
   }catch(e){
    box.hidden=false;box.dataset.state="offline";
