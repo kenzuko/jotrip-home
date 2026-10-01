@@ -268,31 +268,31 @@
       "target_path_pattern": "data/i18n/{locale}/knowledge.json",
       "targets": {
         "en": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/en/knowledge.json",
           "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required."
+          "note": "Azure Translator v3 machine draft; human review required. Vietnamese Cẩm nang source changed on 2026-10-01; translation requires refresh before reuse."
         },
         "ko": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/ko/knowledge.json",
           "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese Cẩm nang source changed on 2026-10-01; translation requires refresh before reuse."
         },
         "ru": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/ru/knowledge.json",
           "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese Cẩm nang source changed on 2026-10-01; translation requires refresh before reuse."
         },
         "lo": {
           "status": "missing",
@@ -304,13 +304,13 @@
           "note": null
         },
         "zh-Hans": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/zh-Hans/knowledge.json",
           "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese Cẩm nang source changed on 2026-10-01; translation requires refresh before reuse."
         },
         "zh-Hant": {
           "status": "missing",
