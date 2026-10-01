@@ -55,6 +55,67 @@ const NOW=Date.parse("2026-10-01T11:30:00Z");
   assert.equal(v.state,"CONVECTIVE_WATCH");assert.equal(v.evidenceClass,"REMOTE_OBSERVED");assert.match(v.detail,/chưa đủ để kết luận mưa sẽ tới/i);
 }
 {
+  const critical={
+    local_generated_at:"2026-10-01T11:25:00Z",
+    points:{duong_dong:{name:"Dương Đông",local:{
+      available:true,temperature_c:28.2,temperature_class:"ESTIMATED_NOW",
+      rain_rate_mm_h:1.1,rain_class:"ESTIMATED_NOW",rain_confidence:0.44,
+      analysis_time:"2026-10-01T11:25:00Z"
+    }}}
+  };
+  const nowcast={sampled_time:"2026-10-01T11:20:00Z",points:{duong_dong:{
+    score:80,cloud_motion:{public_track_usable:true,predicted_impact:true,approaching:false,status:"NEARBY",eta_minutes:0}
+  }}};
+  const h=short.humanSummary(critical,nowcast,"duong_dong",NOW);
+  assert.equal(h.headline,"Dương Đông · khoảng 28°C");
+  assert.equal(h.situation.text,"Có mưa nhẹ cục bộ quanh khu vực.");
+  assert.equal(h.motion.text,"Vùng mây đối lưu đang ở gần nhưng chưa thấy tiến thẳng vào Dương Đông.");
+  assert.equal(h.policy.editorialOnly,true);
+  assert.equal(h.policy.changesDecisionThresholds,false);
+  assert.equal(h.policy.genericAdviceDisabled,true);
+}
+{
+  const critical={
+    local_generated_at:"2026-10-01T11:25:00Z",
+    points:{duong_dong:{name:"Dương Đông",local:{
+      available:true,temperature_c:28.2,temperature_class:"ESTIMATED_NOW",
+      rain_rate_mm_h:0.0,rain_class:"ESTIMATED_NOW",rain_confidence:0.6,
+      analysis_time:"2026-10-01T11:25:00Z"
+    }}}
+  };
+  const nowcast={sampled_time:"2026-10-01T11:20:00Z",points:{duong_dong:{score:15,cloud_motion:{public_track_usable:false,status:"TRACK_UNCERTAIN"}}}};
+  const h=short.humanSummary(critical,nowcast,"duong_dong",NOW);
+  assert.equal(h.situation.text,"Chưa có tín hiệu thời tiết đáng chú ý lúc này.");
+  assert.equal(h.motion,null);
+  assert.doesNotMatch(h.detail,/mát hơn|mang áo mưa|ra ngoài/i);
+}
+{
+  const critical={
+    local_generated_at:"2026-10-01T10:00:00Z",
+    points:{duong_dong:{name:"Dương Đông",local:{
+      available:true,temperature_c:30.0,temperature_class:"ESTIMATED_NOW",
+      rain_rate_mm_h:0.0,rain_class:"ESTIMATED_NOW",analysis_time:"2026-10-01T10:00:00Z"
+    }}}
+  };
+  const h=short.humanSummary(critical,{},"duong_dong",NOW);
+  assert.equal(h.headline,"Dương Đông · đang cập nhật");
+  assert.equal(h.temperature,null);
+  assert.equal(h.policy.referenceStationNeverPromotedToLocalCurrent,true);
+}
+{
+  const critical={
+    local_generated_at:"2026-10-01T11:25:00Z",
+    points:{duong_dong:{name:"Dương Đông",local:{
+      available:true,temperature_c:28.0,temperature_class:"ESTIMATED_NOW",
+      rain_rate_mm_h:0.4,rain_class:"ESTIMATED_NOW",rain_confidence:0.2,
+      analysis_time:"2026-10-01T11:25:00Z"
+    }}}
+  };
+  const h=short.humanSummary(critical,{},"duong_dong",NOW);
+  assert.match(h.situation.text,/^Có tín hiệu mưa nhẹ/);
+}
+
+{
   const out=short.pointView({},{},"duong_dong",NOW);
   assert.equal(out.policy.v2DecisionAuthority,true);
   assert.equal(out.policy.pointEstimateNeverActual,true);
@@ -77,11 +138,16 @@ assert.ok(home.indexOf('local.temperature_c') < home.indexOf('humanWeather?.temp
   "Homepage Weather must prefer the current point estimate before falling back to periodic VVPQ");
 assert.match(homepage,/weather\/weather-v3-public-contract\.js/);
 assert.match(weather,/id="v3ObservationPanel"/);
+assert.match(weather,/v3-evidence-disclosure/);
+assert.match(weather,/Vì sao hệ thống nói vậy\?/);
+assert.match(weather,/weather-now-primary human-first/);
 assert.match(weather,/class="weather-version-badge"[^>]*>V3</);
 assert.match(weather,/THỜI TIẾT V3/);
 assert.match(weather,/THAM CHIẾU SÂN BAY/);
 assert.match(weather,/METAR\/SPECI ĐỊNH KỲ/);
 assert.doesNotMatch(weather,/CẢM NHẬN NGOÀI TRỜI/);
+assert.ok(weather.indexOf('id="actualStrip"') < weather.indexOf('id="humanComfortLayer"'),
+  "Periodic airport reference belongs with field observations, not the primary Human Layer");
 const weatherHuman=fs.readFileSync("weather/weather-human-contract.js","utf8");
 assert.doesNotMatch(weatherHuman,/Chỉ số cảm giác nóng/);
 const connection=fs.readFileSync("weather/weather-connection.js","utf8");
