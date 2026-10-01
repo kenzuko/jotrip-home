@@ -1,5 +1,5 @@
 import {buildStoryMeta,buildKnowledgeMeta,rewriteSeoHtml,rewriteLocaleHtml} from "./functions/_shared/seo-html.js";
-import {DEFAULT_LOCALE,splitLocalePath,localeCanServe,publishedLocales} from "./functions/_shared/i18n.js";
+import {DEFAULT_LOCALE,splitLocalePath,localeCanServe,publishedLocales,localeInfo,localizedPath,preferredPublishedLocale} from "./functions/_shared/i18n.js";
 import {mergeStory,mergeKnowledge} from "./functions/_shared/i18n-content.js";
 import {cleanupFeedback} from "./functions/_shared/place-feedback.js";
 import {collectTraffic} from "./functions/_shared/traffic-analytics.js";
@@ -124,6 +124,55 @@ function technicalLocalizedAsset(pathname){
   return /^\/(?:assets|core|data)\//.test(pathname)||
     /\.(?:js|css|json|png|jpe?g|webp|svg|ico|woff2?|map)$/i.test(pathname);
 }
+const LANGUAGE_COOKIE="openpq_lang";
+function cookieValue(request,name){
+  const raw=request.headers.get("cookie")||"";
+  for(const part of raw.split(";")){
+    const [key,...rest]=part.trim().split("=");
+    if(key===name)return decodeURIComponent(rest.join("=")||"");
+  }
+  return "";
+}
+function languageCookie(code){
+  return LANGUAGE_COOKIE+"="+encodeURIComponent(code)+"; Max-Age=31536000; Path=/; SameSite=Lax; Secure";
+}
+function languageRedirect(url,pathname,code,{remember=false}={}){
+  const target=new URL(url.toString());
+  target.pathname=localizedPath(pathname,code);
+  target.searchParams.delete("lang");
+  const headers=new Headers({
+    "Location":target.toString(),
+    "Cache-Control":"private, no-store",
+    "Vary":"Accept-Language, Cookie"
+  });
+  if(remember)headers.append("Set-Cookie",languageCookie(code));
+  return new Response(null,{status:302,headers});
+}
+function languageNegotiation(request,url,localeRoute){
+  if(!["GET","HEAD"].includes(request.method))return null;
+  const basePath=localeRoute.pathname||url.pathname||"/";
+  if(technicalLocalizedAsset(basePath)||/^\/(?:api|admin|cms)(?:\/|$)/.test(basePath))return null;
+
+  const manual=localeInfo(url.searchParams.get("lang"));
+  if(manual&&localeCanServe(manual.code,basePath))
+    return languageRedirect(url,basePath,manual.code,{remember:true});
+
+  // An explicit localized URL always wins over a remembered or browser locale.
+  if(localeRoute.localized)return null;
+
+  const remembered=localeInfo(cookieValue(request,LANGUAGE_COOKIE));
+  if(remembered){
+    if(remembered.code===DEFAULT_LOCALE)return null;
+    if(localeCanServe(remembered.code,basePath))
+      return languageRedirect(url,basePath,remembered.code);
+    return null;
+  }
+
+  const preferred=preferredPublishedLocale(request.headers.get("accept-language"),basePath);
+  if(preferred&&preferred!==DEFAULT_LOCALE&&localeCanServe(preferred,basePath))
+    return languageRedirect(url,basePath,preferred);
+  return null;
+}
 
 export default {
   async scheduled(event,env,ctx){
@@ -143,6 +192,8 @@ export default {
       return Response.redirect(target.toString(),301);
     }
     const localeRoute=splitLocalePath(requestUrl.pathname);
+    const languageResponse=languageNegotiation(request,requestUrl,localeRoute);
+    if(languageResponse)return languageResponse;
     if(localeRoute.defaultPrefixed){
       const target=new URL(request.url);
       target.pathname=localeRoute.pathname;
@@ -203,11 +254,13 @@ export default {
     // here makes the client article reader lose the requested record.
     const assetUrl = new URL(routedUrl);
     const assetResponse = await env.ASSETS.fetch(new Request(assetUrl.toString(), routedRequest));
-    if(meta)return rewriteSeoHtml(assetResponse,meta);
-    if(localeRoute.localized&&assetResponse.ok&&(assetResponse.headers.get("content-type")||"").includes("text/html")){
-      const available=publishedLocales().filter(x=>localeCanServe(x.code,url.pathname)).map(x=>x.code);
-      return rewriteLocaleHtml(assetResponse,{locale,pathname:url.pathname+url.search,availableLocales:available});
+    const available=publishedLocales().filter(x=>localeCanServe(x.code,url.pathname)).map(x=>x.code);
+    if(meta){
+      const withSeo=rewriteSeoHtml(assetResponse,meta);
+      return rewriteLocaleHtml(withSeo,{locale,pathname:url.pathname+url.search,availableLocales:available});
     }
+    if(assetResponse.ok&&(assetResponse.headers.get("content-type")||"").includes("text/html"))
+      return rewriteLocaleHtml(assetResponse,{locale,pathname:url.pathname+url.search,availableLocales:available});
     return assetResponse;
   }
 };
