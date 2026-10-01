@@ -7306,11 +7306,12 @@
             "confidence": "MEDIUM"
           },
           {
-            "claim": "Cáp treo Hòn Thơm - lịch niêm yết: 09:30-11:30, 13:30-14:00, 15:30-17:30",
+            "claim": "Lịch cáp treo Hòn Thơm là dữ liệu vận hành động. Lần kiểm tra ngày 01/10/2026, trang chính Sun World Hòn Thơm hiển thị khung mở cửa 09:30-17:00; các thông báo lịch riêng có thể chia thành các khung cáp chạy cụ thể. Cần kiểm tra nguồn chính thức đúng ngày đi, đặc biệt chuyến về cuối.",
             "source_ids": [
+              "sunworld_hon_thom_live_hours_20261001",
               "sunworld_hon_thom_schedule_20260723"
             ],
-            "verification_status": "VERIFIED_EXISTING_DATA",
+            "verification_status": "VERIFIED_CURRENT_OFFICIAL",
             "confidence": "HIGH"
           }
         ],
@@ -7330,13 +7331,21 @@
             "url": "https://sunworld.vn/vi/hon-thom/an-choi/top-cac-tro-choi-tai-aquatopia-cong-vien-nuoc-hon-thom-hot-nhat-phu-quoc-20615",
             "published_at": "2026-07-23",
             "verified_at": "2026-09-21"
+          },
+          {
+            "source_id": "sunworld_hon_thom_live_hours_20261001",
+            "source_type": "OFFICIAL_OPERATOR",
+            "label": "Sun World Hòn Thơm - giờ vận hành hiện hành",
+            "url": "https://sunworld.vn/vi/hon-thom",
+            "published_at": null,
+            "verified_at": "2026-10-01"
           }
         ],
         "known_unknowns": []
       },
       "editorial": {
         "short_summary": "Hành trình lơ lửng trên tuyến cáp treo Hòn Thơm sẽ mang đến cho du khách cảm giác như đang bay vút qua đại dương, phóng tầm mắt ôm trọn những hòn đảo ngọc lục bảo nhỏ xinh của quần đảo An Thới bên dưới. Nếu bạn dự tính dành nhiều thời gian sức lực để tắm biển hay chơi các khu vui chơi trên Hòn Thơm, hãy tinh ý soi kỹ các khung giờ cáp chạy và đặc biệt là nắm chắc giờ xuất phát của chuyến cuối cùng quay về, thay vì chỉ chăm chăm nhẩm tính giờ lên cáp lượt đi.",
-        "practical": "Tính đến hiện tại, cáp treo Hòn Thơm đang vận hành theo các khung giờ niêm yết cụ thể là 09:30-11:30, 13:30-14:00 và 15:30-17:30. Tuy nhiên, trước ngày lên đường lên đường, bạn vẫn phải thường xuyên lướt xem các thông báo cập nhật nóng hổi trong ngày, bởi sự can thiệp của những cơn gió lớn, mưa giông hay lịch bảo trì đột xuất hoàn toàn có thể làm xáo trộn lịch trình vận hành. Nếu muốn \"bung lụa\" thả ga trên đảo, bước đầu tiên là phải chốt hạ được giờ giấc chuyến cáp treo quay về đất liền, sau đó mới trừ hao thời gian thong thả đi bộ từ các phân khu giải trí ra đến tận ga.\n\nHiểu đúng: Hòn Thơm là một hòn đảo, không phải tên của tuyến cáp treo\nHòn Thơm nằm trong quần đảo An Thới và là một trong những đảo lớn ở khu vực phía Nam. Cáp treo giúp việc tiếp cận thuận tiện hơn, nhưng không thay thế cho việc lập lịch trình trên đảo.\nSau khi xuống ga, du khách vẫn phải chọn mình muốn chơi nước, đi khu chủ đề, nghỉ biển hay kết hợp nhiều hoạt động. Nếu không chọn trước, cả ngày rất dễ trôi vào việc xếp hàng, thay đồ và di chuyển.",
+        "practical": "Lịch cáp treo Hòn Thơm nên được xem là dữ liệu vận hành theo ngày, không phải một khung giờ cố định để dùng mãi. Ở lần kiểm tra ngày 01/10/2026, trang chính Sun World Hòn Thơm hiển thị giờ mở cửa 09:30-17:00; trong khi các thông báo lịch riêng của chính đơn vị vận hành có thể chia cáp thành những khung chạy cụ thể. Vì vậy trước ngày đi, cần xem lại lịch chính thức và đặc biệt xác nhận chuyến cáp cuối về An Thới. Nếu muốn dành cả ngày trên đảo, hãy chốt giờ về trước rồi trừ hao thời gian đi bộ từ khu vui chơi ra ga.\n\nHiểu đúng: Hòn Thơm là một hòn đảo, không phải tên của tuyến cáp treo\nHòn Thơm nằm trong quần đảo An Thới và là một trong những đảo lớn ở khu vực phía Nam. Cáp treo giúp việc tiếp cận thuận tiện hơn, nhưng không thay thế cho việc lập lịch trình trên đảo.\nSau khi xuống ga, du khách vẫn phải chọn mình muốn chơi nước, đi khu chủ đề, nghỉ biển hay kết hợp nhiều hoạt động. Nếu không chọn trước, cả ngày rất dễ trôi vào việc xếp hàng, thay đồ và di chuyển.",
         "expectation_vs_reality": "Đến ga không có nghĩa là lúc nào cũng lên cabin ngay. Cáp treo chạy theo các khung giờ, có thể có khoảng nghỉ và đôi lúc phải xếp hàng. Lịch vận hành cũng có thể thay đổi khi thời tiết xấu hoặc có bảo trì, nên kiểm tra lại đúng ngày đi.\n\nMột ngày tốt thường bắt đầu từ việc chọn ưu tiên\nNếu đi gia đình có trẻ nhỏ, Aquatopia có thể là trục chính. Nếu muốn biển và ngắm cảnh, nên dành riêng thời gian cho khu bờ biển thay vì để toàn bộ ngày bị hút vào trò chơi.\nMột số cách chia lịch:\n• Gia đình: Aquatopia + nghỉ trưa + một đoạn biển.\n• Nhóm bạn trẻ: Aquatopia + Exotica + ngắm cảnh.\n• Cặp đôi: cáp treo + biển + ăn uống + chụp ảnh.\n• Người chỉ có nửa ngày: chọn một khu chính và giữ dư thời gian cho cáp chiều về.",
         "before_you_go": [
           "Theo dõi sát sao các thông báo chính thức và lịch vận hành cập nhật cho đúng ngày bạn ghé thăm.",
