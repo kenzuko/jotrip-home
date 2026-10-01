@@ -2116,7 +2116,7 @@ function groundTruthHealthSources(){
     const usable=Boolean(synop.runtime_eligible)&&numericFresh;
     const observed=synop.latest_numeric_observed_at||synop.latest_observed_at||null;
     out.SYNOP_48917={
-      status:usable?"PASS":publicState(numericFresh?synop.numeric_status:synop.status),
+      status:usable?"PASS":(["FRESH","STALE"].includes(String(synop.status||"").toUpperCase())?"PARTIAL":"FAIL"),
       detail:usable
         ?"Bản tin SYNOP 48917 khu Dương Đông đang có số liệu mới - "+ageText(observed)+". Đây là nguồn quan trắc độc lập với VVPQ và hệ thống không gộp hai nguồn."
         :"Nguồn SYNOP 48917 vẫn được theo dõi riêng, nhưng bản tin số hiện chưa đủ mới hoặc chưa đủ điều kiện để dùng như quan trắc hiện tại."
