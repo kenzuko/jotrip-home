@@ -1,0 +1,43 @@
+name: Weather Ground Truth production adapter CI
+
+on:
+  push:
+    paths:
+      - "scripts/weather-engine/**"
+      - "scripts/weather-cms-sync.mjs"
+      - ".github/workflows/weather-groundtruth-production-ci.yml"
+  pull_request:
+    paths:
+      - "scripts/weather-engine/**"
+      - "scripts/weather-cms-sync.mjs"
+      - ".github/workflows/weather-groundtruth-production-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  adapter-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Production Weather engine regression tests
+        env:
+          PYTHONPATH: scripts/weather-engine
+        run: python -m unittest discover -s scripts/weather-engine/weather/tests -v
+
+      - name: Production Weather sync syntax
+        run: node --check scripts/weather-cms-sync.mjs
+
+      - name: Verify internal Ground Truth registry is not a public Weather asset
+        run: |
+          test -f scripts/weather-engine/weather/config/groundtruth_sources.json
+          test ! -f weather/config/groundtruth_sources.json
+          test ! -f weather/groundtruth/corpus/observations_seed_v6.csv
