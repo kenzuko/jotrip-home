@@ -48,7 +48,7 @@ assert.equal(server.alternateSet("/stories/article.html",["vi","en"]).at(-1).hre
 const runtime=readFileSync("core/i18n-runtime.js","utf8");
 assert.match(runtime,/OpenPQI18n/);
 assert.match(runtime,/unpublished locales/i);
-assert.match(runtime,/catalog\\.json\\?v=4/,"Locale catalog must be cache-busted after publication changes");
+assert.match(runtime,/catalog\.json\?v=4/,"Locale catalog must be cache-busted after publication changes");
 assert.match(runtime,/cache:"no-store"/,"Locale discovery must not rely on a stale browser cache");
 const switcher=readFileSync("core/language-switcher.js","utf8");
 assert.match(switcher,/searchParams\.set\("lang",code\)/,
@@ -71,7 +71,7 @@ assert.match(switcher,/querySelector\("\.site-header, header\.top, header\.knowl
   "Language selector must mount in the public header");
 assert.match(worker,/openpq_lang/);
 const seoHtml=readFileSync("functions/_shared/seo-html.js","utf8");
-assert.match(seoHtml,/i18n-runtime\\.js\\?v=4/);
-assert.match(seoHtml,/language-switcher\\.js\\?v=4/);
+assert.match(seoHtml,/i18n-runtime\.js\?v=4/);
+assert.match(seoHtml,/language-switcher\.js\?v=4/);
 assert.match(worker,/private, no-store/);
 console.log("PASS i18n foundation: locale registry, URL policy, canonical paths and publication lock");
