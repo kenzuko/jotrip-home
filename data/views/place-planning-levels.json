@@ -5,17 +5,17 @@
     {
       "id": 1,
       "label": "Dấu ấn của đảo",
-      "description": "Lần đầu tới Phú Quốc, nhóm này giúp bạn cảm được một phần khá rõ của hòn đảo."
+      "description": "Nếu đây là lần đầu tiên bạn đặt chân đến Phú Quốc, những điểm đến trong nhóm này là lựa chọn \"chuẩn bài\" nhất để bạn thực sự cảm nhận được bản sắc và cái \"hồn\" đặc trưng của hòn đảo ngọc."
     },
     {
       "id": 2,
       "label": "Nên dành riêng thời gian",
-      "description": "Những chỗ này thường chiếm nửa ngày hoặc cả ngày. Chọn trước rồi xếp các điểm khác quanh nó."
+      "description": "Kinh nghiệm thực tế là những điểm vui chơi hoặc tour trong nhóm này sẽ ngốn của bạn ít nhất là nửa ngày cho đến trọn vẹn cả một ngày. Hãy \"chốt\" lịch đi những nơi này trước làm trọng tâm, sau đó mới tính toán xếp các điểm tham quan nhỏ lẻ ở xung quanh vào để lịch trình không bị cập rập hay phải \"chạy sô\" quá sức."
     },
     {
       "id": 3,
       "label": "Đi nếu đúng gu",
-      "description": "Hay khi đúng sở thích hoặc đang ở gần. Không cần cố nhét vào mọi lịch trình."
+      "description": "Du lịch là để tận hưởng, nên những điểm này chỉ thực sự hấp dẫn khi đúng với sở thích cá nhân của bạn, hoặc tiện đường bạn đang ở ngay gần đó. Lời khuyên chân thành là đừng cố \"nhồi nhét\" chúng vào mọi lịch trình chỉ vì thấy review trên mạng, cứ đi theo gu của mình cho thoải mái."
     }
   ],
   "items": [
@@ -23,111 +23,110 @@
       "entity_id": "activity_hon_thom",
       "level": 1,
       "strengths": [
-        "Góc nhìn toàn cảnh quần đảo An Thới từ cáp treo"
+        "Cần một góc nhìn toàn cảnh từ trên cao bao quát quần đảo An Thới."
       ],
       "watch_outs": [
-        "Lịch vận hành và cấu hình vé có thể đổi theo ngày"
+        "Lịch vận hành cáp và các loại cấu hình vé có thể thay đổi linh hoạt theo từng ngày."
       ]
     },
     {
       "entity_id": "place_bai_sao",
       "level": 1,
       "strengths": [
-        "Bãi biển dễ hình dung với khách lần đầu"
+        "Cần một bãi biển \"quốc dân\", dễ hình dung và thân thiện cho những du khách lần đầu tiên đến Phú Quốc."
       ],
       "watch_outs": [
-        "Trải nghiệm thay đổi theo mùa biển và tình trạng bãi"
+        "Nhiều khách hay vỡ mộng vì bãi không như ảnh mạng; thực tế là trải nghiệm ở đây thay đổi rất lớn theo mùa biển và tình trạng vệ sinh bãi của từng thời điểm."
       ]
     },
     {
       "entity_id": "place_dinh_cau",
       "level": 1,
       "strengths": [
-        "Biểu tượng gắn với đời sống biển và trung tâm Dương Đông"
+        "Bạn muốn tìm hiểu một biểu tượng văn hóa gắn liền với đời sống bám biển của người dân và dạo chơi quanh trung tâm Dương Đông."
       ],
       "watch_outs": [
-        "Không gian tín ngưỡng, nên ăn mặc và ứng xử phù hợp"
+        "Lưu ý quan trọng: Đây là không gian tín ngưỡng tôn nghiêm, du khách hay mắc lỗi mặc đồ tắm hoặc quần áo quá ngắn khi đến đây. Hãy ăn mặc lịch sự và ứng xử chuẩn mực nhé."
       ]
     },
     {
       "entity_id": "place_fish_sauce_house",
       "level": 1,
       "strengths": [
-        "Giúp hiểu nghề truyền thống đặc trưng của đảo"
+        "Bạn muốn tìm hiểu sâu về một nghề truyền thống làm nên thương hiệu đặc trưng của đảo ngọc."
       ],
       "watch_outs": [
-        "Nên chọn nhà thùng còn hoạt động thật, không chỉ là điểm bán hàng"
+        "Lỗi lớn nhất của khách là vào nhầm các trạm dừng chân kinh doanh; hãy tìm hiểu và chọn những nhà thùng còn đang sản xuất và hoạt động thật, chứ không chỉ là một điểm chuyên bán hàng."
       ]
     },
     {
       "entity_id": "place_night_market",
       "level": 1,
       "strengths": [
-        "Dễ kết hợp vào buổi tối ở Dương Đông"
+        "Rất dễ kết hợp vào lịch trình buổi tối nếu bạn đang lưu trú ở khu vực Dương Đông."
       ],
       "watch_outs": [
-        "Giá và chất lượng khác nhau theo từng quầy"
+        "Đừng để bị \"ngợp\", giá cả và chất lượng chế biến ở đây khác nhau rất nhiều tùy theo từng quầy hàng."
       ]
     },
     {
       "entity_id": "place_sunset_town",
       "level": 1,
       "strengths": [
-        "Cụm kiến trúc, hoàng hôn và hoạt động buổi tối"
+        "Tìm kiếm một cụm kiến trúc độc đáo, ngắm hoàng hôn trọn vẹn và trải nghiệm hàng loạt hoạt động giải trí vào buổi tối."
       ],
       "watch_outs": [
-        "Khu vực rộng, không nên gom mọi điểm trong một lượt ngắn"
+        "Khu vực này cực kỳ rộng lớn, sai lầm phổ biến là cố \"chạy sô\" gom mọi điểm vào một lượt đi ngắn ngủi khiến cả đoàn rã rời."
       ]
     },
     {
       "entity_id": "activity_kiss_of_the_sea",
       "level": 2,
       "strengths": [
-        "Show quy mô lớn trong cụm giải trí Nam đảo"
+        "Bạn muốn thưởng thức một show diễn quy mô lớn trong cụm giải trí Nam đảo."
       ],
       "watch_outs": [
-        "Chọn hạng vé và vị trí ngồi theo nhu cầu; kiểm tra lịch đúng ngày"
+        "Cần nghiên cứu chọn hạng vé và vị trí ngồi phù hợp với nhu cầu; luôn nhớ kiểm tra lịch diễn xem có đúng ngày bạn đi không."
       ]
     },
     {
       "entity_id": "activity_snorkeling_an_thoi",
       "level": 2,
       "strengths": [
-        "Tiếp cận cảnh quan dưới nước ở quần đảo An Thới"
+        "Bạn muốn tiếp cận và chiêm ngưỡng cảnh quan tuyệt đẹp dưới mặt nước ở quần đảo An Thới."
       ],
       "watch_outs": [
-        "Chất lượng phụ thuộc điểm lặn, dòng chảy và cách tổ chức của đơn vị tour"
+        "Trải nghiệm đẹp hay không phụ thuộc hoàn toàn vào điểm lặn được chọn, dòng chảy hôm đó và sự chuyên nghiệp trong cách tổ chức của đơn vị tour."
       ]
     },
     {
       "entity_id": "activity_symphony_of_the_sea",
       "level": 2,
       "strengths": [
-        "Hoạt động buổi tối dễ kết hợp tại Sunset Town"
+        "Bạn cần một hoạt động giải trí buổi tối dễ dàng kết hợp khi đang dạo chơi tại Sunset Town."
       ],
       "watch_outs": [
-        "Show ngoài trời, cần kiểm tra lịch và thời tiết"
+        "Vì là show diễn ngoài trời, việc kiểm tra lịch hoạt động và thời tiết trong ngày là bắt buộc."
       ]
     },
     {
       "entity_id": "activity_tour_3_islands",
       "level": 2,
       "strengths": [
-        "Trải nghiệm biển đảo đặc trưng của cụm An Thới"
+        "Bạn muốn có trải nghiệm đi biển đảo đặc trưng nhất của khu vực An Thới."
       ],
       "watch_outs": [
-        "Phụ thuộc vận hành cano, thời tiết biển và cấu hình tour"
+        "Mọi thứ phụ thuộc rất nhiều vào cách vận hành của cano, tình hình thời tiết trên biển và cấu hình cụ thể của tour bạn chọn."
       ]
     },
     {
       "entity_id": "place_aquatopia",
       "level": 2,
       "strengths": [
-        "Công viên nước phù hợp gia đình và nhóm bạn trong ngày Hòn Thơm"
+        "Cần một điểm vui chơi công viên nước chất lượng, đặc biệt phù hợp cho các gia đình và nhóm bạn muốn đi trọn vẹn một ngày ở Hòn Thơm."
       ],
       "watch_outs": [
-        "Nên ghép trong ngày Hòn Thơm thay vì tách thành một hành trình riêng",
-        "Điều kiện trò chơi và vé phụ thuộc ngày đi, chiều cao, độ tuổi và cấu hình combo"
+        "Lịch trình chuẩn xác nhất là ghép luôn vào chuyến đi Hòn Thơm trong ngày thay vì tốn công tách thành một hành trình đi lẻ. Điều kiện trải nghiệm trò chơi và giá vé thực tế sẽ phụ thuộc vào ngày đi, chiều cao, độ tuổi cũng như cấu hình gói combo vé mà bạn mua."
       ],
       "price_dimensions": [
         "travel_date",
@@ -140,30 +139,30 @@
       "entity_id": "place_bai_khem",
       "level": 2,
       "strengths": [
-        "Cảnh quan bãi biển đẹp ở Nam đảo"
+        "Bạn muốn đắm mình vào một trong những cảnh quan bãi biển đẹp và quyến rũ nhất ở Nam đảo."
       ],
       "watch_outs": [
-        "Quyền tiếp cận và tiện ích phụ thuộc lối vào hoặc cơ sở lưu trú"
+        "Lối xuống bãi biển và quyền sử dụng các tiện ích đi kèm phụ thuộc vào khu vực bạn chọn hoặc cơ sở lưu trú mà bạn đang ở."
       ]
     },
     {
       "entity_id": "place_duong_dong_market",
       "level": 2,
       "strengths": [
-        "Chợ truyền thống trung tâm giúp đọc nhịp sống, hải sản và sản vật địa phương"
+        "Bạn muốn có một góc nhìn sâu sắc hơn về đời sống văn hóa bản địa, hoặc muốn mua hải sản, sản vật địa phương về làm quà."
       ],
       "watch_outs": [
-        "Giờ hoạt động, bãi đỗ xe và điều kiện lối đi là dữ liệu vận hành cần tiếp tục xác minh"
+        "Giờ hoạt động, bãi đỗ xe và điều kiện lối đi hẹp là những vấn đề thực tế bạn cần chuẩn bị tâm lý và xác minh tình hình khi đến nơi."
       ]
     },
     {
       "entity_id": "place_exotica",
       "level": 2,
       "strengths": [
-        "Nhóm trò cảm giác mạnh trong tổ hợp Hòn Thơm"
+        "Bạn thuộc team mê mạo hiểm, muốn tìm kiếm nhóm trò chơi cảm giác mạnh khi đã đặt chân đến Hòn Thơm."
       ],
       "watch_outs": [
-        "Kiểm tra giới hạn chiều cao, sức khỏe và lịch vận hành từng trò"
+        "Bắt buộc phải tự kiểm tra giới hạn chiều cao, điều kiện sức khỏe của bản thân và lịch vận hành chi tiết của từng trò chơi. Riêng những trò chơi đang bảo trì hoặc tạm ngưng, hãy kiểm tra thông báo vận hành mới nhất trước khi lên lịch."
       ],
       "price_dimensions": [
         "travel_date",
@@ -175,40 +174,40 @@
       "entity_id": "place_grand_world",
       "level": 2,
       "strengths": [
-        "Phù hợp đi dạo và giải trí buổi tối ở Bắc đảo"
+        "Đây là điểm dừng chân phù hợp để dạo phố, ăn uống và giải trí vào buổi tối tại khu vực Bắc đảo."
       ],
       "watch_outs": [
-        "Hoạt động và mật độ khách thay đổi theo ngày"
+        "Lịch hoạt động đường phố, show diễn và mật độ khách có thể thay đổi theo từng ngày. Bạn nên kiểm tra lịch trước khi sắp xếp các hoạt động chính."
       ]
     },
     {
       "entity_id": "place_ham_ninh",
       "level": 2,
       "strengths": [
-        "Một lớp đời sống ven biển phía Đông, phù hợp kết hợp đời sống địa phương và ẩm thực"
+        "Bạn muốn khám phá một lớp đời sống ven biển phía Đông, cực kỳ phù hợp để kết hợp ngắm nhìn đời sống địa phương và ăn uống ẩm thực."
       ],
       "watch_outs": [
-        "Cảnh quan và lối tiếp cận đã thay đổi; không dùng ảnh hoặc mô tả cũ như hiện trạng"
+        "Cảnh báo thực tế: Cảnh quan và lối tiếp cận của khu vực này đã thay đổi rất nhiều so với trước đây; tuyệt đối không dùng những hình ảnh hoặc bài mô tả cũ mèm trên mạng để áp vào hiện trạng bây giờ kẻo hụt hẫng."
       ]
     },
     {
       "entity_id": "place_ho_quoc",
       "level": 2,
       "strengths": [
-        "Không gian tín ngưỡng và tầm nhìn ven biển"
+        "Bạn đang tìm một không gian tín ngưỡng thanh tịnh kết hợp với tầm nhìn ngắm cảnh ven biển ngoạn mục."
       ],
       "watch_outs": [
-        "Giữ trang phục và thái độ phù hợp nơi tôn nghiêm"
+        "Đây là chốn tôn nghiêm, hãy nhớ giữ trang phục kín đáo và thái độ cư xử mực thước."
       ]
     },
     {
       "entity_id": "place_kiss_bridge",
       "level": 2,
       "strengths": [
-        "Kiến trúc và hoàng hôn trong cụm Sunset Town"
+        "Bạn muốn thưởng thức trọn vẹn vẻ đẹp kiến trúc và khung cảnh hoàng hôn đặc trưng trong cụm Sunset Town."
       ],
       "watch_outs": [
-        "Giá và quyền lợi thay đổi theo khung giờ hoặc combo"
+        "Giá vé và các quyền lợi đi kèm thường xuyên thay đổi tùy theo khung giờ tham quan hoặc combo vé bạn chọn."
       ],
       "price_dimensions": [
         "travel_date",
@@ -220,210 +219,210 @@
       "entity_id": "place_phu_quoc_prison",
       "level": 2,
       "strengths": [
-        "Bổ sung chiều sâu lịch sử cho hành trình Nam đảo"
+        "Bạn muốn bổ sung thêm chiều sâu lịch sử và sự lắng đọng cho hành trình khám phá Nam đảo của mình."
       ],
       "watch_outs": [
-        "Nội dung nặng, không phải trải nghiệm giải trí"
+        "Cần chuẩn bị tâm lý vì nội dung trưng bày khá nặng nề; xin lưu ý đây hoàn toàn không phải là một trải nghiệm mang tính giải trí."
       ]
     },
     {
       "entity_id": "place_rach_vem",
       "level": 2,
       "strengths": [
-        "Không gian làng biển và thiên nhiên phía Bắc"
+        "Điểm đến này dành cho những ai yêu thích không gian làng biển mộc mạc, gần gũi với thiên nhiên và muốn tìm một nhịp trải nghiệm chậm rãi hơn ở Bắc đảo."
       ],
       "watch_outs": [
-        "Đường đi, mùa biển và trải nghiệm sao biển cần kiểm tra trước"
+        "Trước chuyến đi, bạn nên kiểm tra tình trạng đường vào làng, mùa biển êm và điều kiện thực tế tại điểm đến. Đừng mặc định rằng lần nào đến Rạch Vẹm cũng có thể nhìn thấy sao biển."
       ]
     },
     {
       "entity_id": "place_vinpearl_safari",
       "level": 2,
       "strengths": [
-        "Một trục tham quan lớn cho gia đình ở Bắc đảo"
+        "Đây chắc chắn là một trong những điểm tham quan lớn không thể thiếu trong lịch trình khám phá Bắc đảo, đặc biệt với các gia đình có trẻ nhỏ."
       ],
       "watch_outs": [
-        "Cần dành đủ thời gian, tránh ghép quá nhiều điểm lớn cùng ngày"
+        "Safari có diện tích rất rộng, vì vậy bạn nên dành đủ thời gian để tham quan thong thả. Sai lầm phổ biến nhất là cố ghép quá nhiều điểm vui chơi quy mô lớn trong cùng một ngày, khiến cả gia đình nhanh chóng xuống sức."
       ]
     },
     {
       "entity_id": "place_vinwonders",
       "level": 2,
       "strengths": [
-        "Tổ hợp vui chơi quy mô lớn cho gia đình và nhóm bạn"
+        "Đây là lựa chọn lý tưởng để vui chơi, thư giãn và “xả stress” cho các gia đình hoặc nhóm bạn năng động."
       ],
       "watch_outs": [
-        "Nên chọn trước nhóm trò ưu tiên vì khó trải nghiệm hết trong thời gian ngắn"
+        "Công viên rất rộng, nên gần như không thể trải nghiệm toàn bộ trong thời gian ngắn. Hãy xem bản đồ trước và xác định nhóm trò chơi, khu vực hoặc show diễn ưu tiên để chủ động sắp xếp lịch trình."
       ]
     },
     {
       "entity_id": "activity_big_game_fishing",
       "level": 3,
       "strengths": [
-        "Trải nghiệm chuyên sâu cho người thực sự thích câu cá"
+        "Một trải nghiệm đi biển chuyên sâu dành riêng cho những người thực sự đam mê bộ môn câu cá."
       ],
       "watch_outs": [
-        "Thời lượng dài, phụ thuộc biển và không phù hợp mọi nhóm khách"
+        "Thời lượng chuyến đi thường rất dài, chịu ảnh hưởng lớn từ biển và chắc chắn không phù hợp cho mọi nhóm khách du lịch thông thường."
       ]
     },
     {
       "entity_id": "activity_scuba",
       "level": 3,
       "strengths": [
-        "Trải nghiệm chuyên biệt cho người muốn lặn sâu hơn"
+        "Đây là trải nghiệm chuyên biệt dành cho những ai thực sự muốn khám phá độ sâu của đại dương."
       ],
       "watch_outs": [
-        "Cần đơn vị đủ năng lực, khai báo sức khỏe và tuân thủ hướng dẫn an toàn"
+        "Bắt buộc phải chọn đơn vị có đủ năng lực, thành thật khai báo tình trạng sức khỏe và tuân thủ tuyệt đối các hướng dẫn an toàn."
       ]
     },
     {
       "entity_id": "activity_seawalker",
       "level": 3,
       "strengths": [
-        "Tiếp cận trải nghiệm dưới nước với yêu cầu kỹ năng thấp hơn lặn bình khí"
+        "Bạn muốn một trải nghiệm khám phá dưới nước rõ nét nhưng lại yêu cầu kỹ năng thấp hơn so với lặn bình khí."
       ],
       "watch_outs": [
-        "Cần kiểm tra điều kiện sức khỏe, môi trường và cách tổ chức"
+        "Vẫn cần kiểm tra kỹ lưỡng điều kiện sức khỏe của bản thân, môi trường nước hôm đó và cách tổ chức của nhà cung cấp."
       ]
     },
     {
       "entity_id": "activity_squid_fishing",
       "level": 3,
       "strengths": [
-        "Hoạt động buổi tối dễ ghép vào lịch trình"
+        "Rất dễ để ghép vào lịch trình làm một hoạt động thư giãn buổi tối."
       ],
       "watch_outs": [
-        "Sản lượng không được bảo đảm và trải nghiệm phụ thuộc thời tiết biển"
+        "Sản lượng mực không bao giờ được bảo đảm và toàn bộ trải nghiệm phụ thuộc vào thời tiết biển êm hay động."
       ]
     },
     {
       "entity_id": "place_bai_truong",
       "level": 3,
       "strengths": [
-        "Thuận tiện ngắm hoàng hôn và kết hợp resort bờ Tây"
+        "Cực kỳ thuận tiện để ngắm hoàng hôn và kết hợp tận hưởng dịch vụ nếu bạn ở các resort dọc bờ Tây này."
       ],
       "watch_outs": [
-        "Trải nghiệm phụ thuộc đoạn bãi và cơ sở bạn chọn"
+        "Trải nghiệm thực tế của bạn (bãi cát có mịn không, có sạch không) phụ thuộc rất nhiều vào đoạn bãi và cơ sở resort/beach club mà bạn chọn dừng chân."
       ]
     },
     {
       "entity_id": "place_cua_can",
       "level": 3,
       "strengths": [
-        "Nhịp sông nước và đời sống địa phương nhẹ nhàng"
+        "Cửa Cạn phù hợp với những ai yêu thích nhịp sống sông nước êm đềm, muốn ngắm cảnh và trải nghiệm đời sống địa phương theo cách nhẹ nhàng."
       ],
       "watch_outs": [
-        "Phù hợp người thích đi chậm hơn là khách muốn nhiều hoạt động"
+        "Đây là điểm đến dành cho nhóm khách thích du lịch chậm, thư thả và thiên về ngắm cảnh hơn là một lịch trình dày đặc các hoạt động sôi động."
       ]
     },
     {
       "entity_id": "place_gieng_tien",
       "level": 3,
       "strengths": [
-        "Điểm nhỏ nhưng có giá trị khi đọc song song địa điểm thật và truyền thuyết địa phương"
+        "Đây là một điểm đến nhỏ nhắn nhưng mang lại giá trị văn hóa cao khi bạn thích trải nghiệm đọc song song địa điểm thật và nghe kể truyền thuyết."
       ],
       "watch_outs": [
-        "Không kể truyền thuyết Nguyễn Ánh như sự kiện lịch sử đã được chứng minh; cần xác minh tiếp cận thực tế"
+        "Bạn cần rạch ròi: Không kể truyền thuyết về Nguyễn Ánh tại đây như một sự kiện lịch sử đã được chứng minh chính thức; đồng thời bắt buộc phải xác minh kỹ đường tiếp cận thực tế trước khi đi vì có thể phải đi xuồng hoặc qua đường mòn."
       ]
     },
     {
       "entity_id": "place_pepper_garden",
       "level": 3,
       "strengths": [
-        "Giới thiệu nông nghiệp và một phần lịch sử kinh tế của đảo"
+        "Cần một điểm đến nhẹ nhàng để tìm hiểu về mảng nông nghiệp và một phần lịch sử kinh tế lâu đời của đảo."
       ],
       "watch_outs": [
-        "Nên chọn vườn còn canh tác thực tế"
+        "Để không bị thất vọng, nhớ tìm và chọn những khu vườn hiện vẫn còn canh tác tiêu thực tế thay vì các bối cảnh chỉ dựng lên để bán hàng."
       ]
     },
     {
       "entity_id": "place_suoi_tranh",
       "level": 3,
       "strengths": [
-        "Lựa chọn thiên nhiên gần khu trung tâm"
+        "Bạn đang tìm một không gian thiên nhiên trong lành, rợp bóng cây ngay gần khu trung tâm."
       ],
       "watch_outs": [
-        "Tính mùa vụ cao; cần kiểm tra nước và vận hành"
+        "Lỗi kinh điển của khách là đi suối vào mùa khô. Suối Tranh mang tính mùa vụ rất cao; bắt buộc phải kiểm tra xem suối có nước không và khu du lịch có đang vận hành bình thường không trước khi đến."
       ]
     },
     {
       "entity_id": "activity_tinh_hoa_viet_nam",
       "level": 3,
       "strengths": [
-        "Show thực cảnh dễ ghép khi đã dành buổi tối ở Grand World"
+        "Cực kỳ dễ ghép lịch nếu bạn đã quyết định dành trọn buổi tối để dạo chơi ở khu Grand World."
       ],
       "watch_outs": [
-        "Kiểm tra lịch đúng ngày và nên có mặt sớm trước giờ diễn"
+        "Phải kiểm tra xem ngày hôm đó show có diễn không và kinh nghiệm là nên có mặt sớm trước giờ mở màn."
       ]
     },
     {
       "entity_id": "activity_once_show",
       "level": 3,
       "strengths": [
-        "Hợp để kết thúc ngày nếu bạn đã ở VinWonders tới chiều tối"
+        "Quá hợp lý để dùng làm điểm chốt hạ nếu bạn đã ở trong VinWonders vui chơi từ chiều đến chập tối."
       ],
       "watch_outs": [
-        "Không cần chạy riêng lên Bắc đảo chỉ để xem show này"
+        "Lời khuyên thật lòng: Không cần thiết phải cất công chạy xe xa xôi lên Bắc đảo chỉ để xem mỗi show này."
       ]
     },
     {
       "entity_id": "activity_sac_mau_venice",
       "level": 3,
       "strengths": [
-        "Dễ ghép sau Tinh Hoa Việt Nam trong cùng khu Grand World"
+        "Chỉ phù hợp để ghép lịch với Tinh Hoa Việt Nam khi Sắc Màu Venice có lịch biểu diễn trở lại."
       ],
       "watch_outs": [
-        "Show ngoài trời, lịch có thể thay đổi khi thời tiết xấu hoặc có sự kiện đặc biệt"
+        "Show diễn ngoài trời và đang được thông báo tạm ngưng để nâng cấp; xác nhận trạng thái vận hành thực tế từ đơn vị tổ chức trước khi lên lịch."
       ]
     },
     {
       "entity_id": "place_teddy_bear_museum",
       "level": 3,
       "strengths": [
-        "Điểm trong nhà nhẹ, hợp gia đình hoặc lúc đang ở Grand World"
+        "Đây là điểm tham quan nhẹ nhàng, phù hợp với gia đình và rất tiện để ghé khi bạn đang vui chơi tại Grand World."
       ],
       "watch_outs": [
-        "Nên chừa khoảng 60-90 phút; không cần chạy riêng lên Bắc đảo chỉ vì điểm này"
+        "Chỉ nên kết hợp Teddy Bear Museum khi lịch trình đã có Bắc đảo. Không nên di chuyển quãng đường dài chỉ để tham quan riêng bảo tàng, vì sẽ tốn nhiều thời gian và chi phí đi lại."
       ]
     },
     {
       "entity_id": "place_suoi_da_ban",
       "level": 3,
       "strengths": [
-        "Thiên nhiên khác nhịp với các điểm vui chơi lớn"
+        "Cần một điểm đến thiên nhiên hoang sơ, nhịp độ chậm rãi, khác biệt hoàn toàn với các khu vui chơi lớn."
       ],
       "watch_outs": [
-        "Đường vào và mực nước thay đổi theo mùa; kiểm tra điểm vào trước khi đi"
+        "Tình trạng đường vào và mực nước thay đổi liên tục theo mùa; hãy tìm hiểu hoặc hỏi người địa phương về điểm vào trước khi xách xe đi."
       ]
     },
     {
       "entity_id": "place_suoi_da_ngon",
       "level": 3,
       "strengths": [
-        "Lựa chọn cho người thích đi rừng và khám phá suối"
+        "Chỉ dành cho những \"phượt thủ\" thực thụ thích băng rừng, lội suối và tìm kiếm sự mạo hiểm."
       ],
       "watch_outs": [
-        "Đường tiếp cận cần xác minh; tránh đi một mình khi điều kiện không rõ"
+        "Đường tiếp cận rất mù mờ và cần xác minh kỹ; tuyệt đối tránh đi một mình hoặc tự mò đường khi điều kiện không rõ ràng."
       ]
     },
     {
       "entity_id": "place_suoi_tien",
       "level": 3,
       "strengths": [
-        "Trải nghiệm suối rừng ít đông hơn các điểm phổ biến"
+        "Bạn muốn có một trải nghiệm tắm suối rừng yên tĩnh, ít chen chúc hơn so với các điểm quá nổi tiếng."
       ],
       "watch_outs": [
-        "Xác minh nơi gửi xe và lối vào với người địa phương"
+        "Đừng mù quáng tin Google Maps, hãy hỏi người địa phương để xác minh đúng nơi gửi xe và lối vào suối."
       ]
     },
     {
       "entity_id": "place_phu_quoc_ridgeback_center",
       "level": 3,
       "strengths": [
-        "Tìm hiểu giống chó xoáy bản địa"
+        "Phù hợp cho người yêu động vật và muốn tìm hiểu sâu về giống chó xoáy bản địa Phú Quốc."
       ],
       "watch_outs": [
-        "Ưu tiên thấp; cần xác nhận cơ sở còn đón khách và giờ tham quan"
+        "Xếp điểm này vào nhóm ưu tiên thấp; tránh mất thời gian thì bắt buộc cần xác nhận xem cơ sở có đang đón khách không và giờ tham quan cụ thể là mấy giờ."
       ]
     }
   ]
