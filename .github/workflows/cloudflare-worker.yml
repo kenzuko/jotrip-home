@@ -135,6 +135,11 @@ jobs:
           PYTHONPATH: scripts/weather-engine
         run: python -m unittest discover -s scripts/weather-engine/weather/tests -v
 
+      - name: Test Weather V2 Ground Truth UI contract
+        run: |
+          node --check weather/weather-v2.js
+          node scripts/weather-v2-groundtruth-ui.test.mjs
+
       - name: Build Worker assets
         run: |
           # Fail closed. The last deployed Worker is our Last Known Good.
