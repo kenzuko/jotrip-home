@@ -458,7 +458,7 @@ function renderHazardBoard(){
 
   // Mưa hiện tại: ưu tiên VRain đo thực, sau đó mới tới Local Now.
   const gauges=(critical?.actual?.rain_gauges||[])
-    .filter(g=>freshEnough(g.observed_at,35))
+    .filter(g=>rainGaugeHasCurrentSignal(g,35))
     .map(g=>({...g,rate:num(g.rain_intensity_mm_h)}))
     .sort((a,b)=>(b.rate||0)-(a.rate||0));
   const fieldRain=combinedRecentFeedback().find(x=>feedbackCategoryFromRecord(x)==="RAIN_MORE");
@@ -502,16 +502,24 @@ function renderHazardBoard(){
     }else{
       const dryNames=gauges.filter(g=>g.rain_observed===false).slice(0,3).map(g=>g.name);
       const cloudMax=points.map(x=>num(effectiveNowcastFor(x.id)?.convective_score)||0).sort((a,b)=>b-a)[0]||0;
-      if(cloudMax>=70){
+      if(!gauges.length){
         setHazard("hazardRain",
-          "Các trạm VRain gần đây chưa ghi nhận mưa tại đúng vị trí trạm",
+          "Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc",
+          cloudMax>=70
+            ?"VRain chưa có mẫu mới. Himawari đang thấy vùng mây rất cao quanh đảo, nên vẫn cần để ý mưa cục bộ."
+            :"VRain chưa có mẫu mới. Ước tính mưa hiện tại đang thấp, nhưng đây chưa phải số đo mưa mới tại trạm.",
+          cloudMax>=70?1:0
+        );
+      }else if(cloudMax>=70){
+        setHazard("hazardRain",
+          "Các trạm VRain mới cập nhật chưa ghi nhận mưa tại đúng vị trí trạm",
           (dryNames.length?("VRain "+dryNames.join(", ")+" đang 0 mm/h. "):"")+
           "Tuy vậy Himawari đang thấy vùng mây rất cao quanh đảo, nên vẫn có thể có mưa cục bộ giữa các trạm.",
           1
         );
       }else{
         setHazard("hazardRain",
-          "Chưa thấy mưa đáng kể trong các nguồn đang có",
+          "Các trạm quan trắc mới cập nhật chưa ghi nhận mưa",
           dryNames.length?("VRain "+dryNames.join(", ")+" hiện chưa ghi nhận mưa tại vị trí trạm"):"Ước tính mưa hiện tại đang thấp",
           0
         );
@@ -724,6 +732,11 @@ function kmBetween(lat1,lon1,lat2,lon2){
   const a=Math.sin(dp/2)**2+Math.cos(p1)*Math.cos(p2)*Math.sin(dl/2)**2;
   return 2*r*Math.asin(Math.sqrt(a));
 }
+function rainGaugeHasCurrentSignal(g,maxAgeMinutes=45){
+  if(!g||!freshEnough(g.observed_at,maxAgeMinutes))return false;
+  const qc=String(g.increment_qc||"").toUpperCase();
+  return qc!=="NO_NEW_SENSOR_SAMPLE"&&qc!=="WINDOW_TOO_OLD_FOR_CURRENT_RAIN";
+}
 function nearestRainGauge(){
   const l=localPoint(),gauges=critical?.actual?.rain_gauges||[];
   const lat=num(l.reference_lat),lon=num(l.reference_lon);
@@ -733,7 +746,7 @@ function nearestRainGauge(){
     .sort((a,b)=>a.distance_km-b.distance_km)[0]||null;
 }
 function colocatedRainActual(maxDistanceKm=1.5,maxAgeMinutes=25){
-  const g=nearestRainGauge();if(!g||num(g.distance_km)===null||g.distance_km>maxDistanceKm||g.qc!=="PASS")return null;
+  const g=nearestRainGauge();if(!g||num(g.distance_km)===null||g.distance_km>maxDistanceKm||g.qc!=="PASS"||!rainGaugeHasCurrentSignal(g,maxAgeMinutes))return null;
   const age=(Date.now()-Date.parse(g.observed_at||""))/60000;
   if(!Number.isFinite(age)||age<0||age>maxAgeMinutes)return null;
   let rate=null,state="";
@@ -753,6 +766,9 @@ function rainActualContext(){
   }
   if(!g)return "";
   const name=esc(g.name||"gần nhất"),dist=fmt(g.distance_km,1);
+  if(!rainGaugeHasCurrentSignal(g,45)){
+    return "Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc.";
+  }
   if(g.rain_observed===true){
     const rate=num(g.rain_intensity_mm_h);
     return "Trạm "+name+" đang ghi nhận mưa"+(rate!==null?" ~"+fmt(rate,1)+" mm/h":"")+" · cách điểm đang xem "+dist+" km.";
@@ -1157,16 +1173,20 @@ function renderActual(){
     const win=num(x.increment_min),inc=num(x.increment_mm),rate=num(x.rain_intensity_mm_h),acc=num(x.accum_mm);
     let observed="CHƯA CÓ DỮ LIỆU HIỆN TẠI";
     let detail="Không đủ dữ liệu mới để xác định trạng thái mưa.";
+    const hasCurrentSignal=rainGaugeHasCurrentSignal(x,45);
 
-    if(x.rain_observed===true){
+    if(!hasCurrentSignal){
+      observed="CHƯA CÓ TÍN HIỆU MƯA MỚI";
+      detail="Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc.";
+    }else if(x.rain_observed===true){
       observed="CÓ MƯA";
       detail="Lượng mưa "+fmt(inc,2)+" mm / "+fmt(win,0)+" phút";
       if(rate!==null)detail+=" · cường độ "+fmt(rate,2)+" mm/h";
     }else if(x.rain_observed===false){
-      observed="TRẠM CHƯA GHI NHẬN MƯA";
+      observed="TRẠM MỚI CẬP NHẬT CHƯA GHI NHẬN MƯA";
       detail="Tại đúng vị trí trạm chưa ghi nhận thêm lượng mưa trong "+fmt(win,0)+" phút gần nhất. Không dùng kết quả này để kết luận cả khu vực đều không mưa."
     }else if(acc===0){
-      observed="TRẠM CHƯA GHI NHẬN MƯA";
+      observed="TRẠM MỚI CẬP NHẬT CHƯA GHI NHẬN MƯA";
       detail="VRain tại đúng vị trí trạm hiện ghi 0 mm trong kỳ quan trắc. Mưa cục bộ có thể xảy ra ngoài vị trí trạm."
     }else if(num(x.recent_change_mm)>0&&num(x.recent_change_min)>0){
       observed="VỪA GHI NHẬN CÓ MƯA";
@@ -1176,14 +1196,18 @@ function renderActual(){
       detail="Tổng kỳ "+fmt(acc,1)+" mm · chưa đủ hai mẫu gần nhau để kết luận đang mưa ngay lúc này.";
     }
 
-    if(acc!==null&&x.rain_observed!==true&&!(acc>0&&x.rain_observed===null))detail+=" · tổng kỳ "+fmt(acc,1)+" mm";
+    if(hasCurrentSignal&&acc!==null&&x.rain_observed!==true&&!(acc>0&&x.rain_observed===null))detail+=" · tổng kỳ "+fmt(acc,1)+" mm";
     detail+=" · "+ageText(x.observed_at);
     cards.push('<article class="actual-card rain-actual"><header><b>'+esc(x.name)+'</b><em class="badge actual">ĐO THỰC</em></header><strong>'+observed+'</strong><small>'+detail+'</small></article>');
   });
   $("actualStrip").innerHTML=cards.join("");
   const vFresh=freshEnough(v.observed_at,45);
-  const rainFresh=g.some(x=>freshEnough(x.observed_at,45));
-  $("actualState").textContent=(vFresh&&rainFresh)?"VVPQ + VRain vừa cập nhật":"Có nguồn cập nhật chậm";
+  const rainFresh=g.some(x=>rainGaugeHasCurrentSignal(x,45));
+  $("actualState").textContent=(vFresh&&rainFresh)
+    ?"VVPQ + VRain vừa cập nhật"
+    :vFresh
+      ?"Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc"
+      :"Có nguồn cập nhật chậm";
 }
 
 function renderFeedbackPoint(){
