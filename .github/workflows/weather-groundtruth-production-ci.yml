@@ -5,11 +5,17 @@ on:
     paths:
       - "scripts/weather-engine/**"
       - "scripts/weather-cms-sync.mjs"
+      - "weather/weather-v2.js"
+      - "weather/index.html"
+      - "scripts/weather-v2-groundtruth-ui.test.mjs"
       - ".github/workflows/weather-groundtruth-production-ci.yml"
   pull_request:
     paths:
       - "scripts/weather-engine/**"
       - "scripts/weather-cms-sync.mjs"
+      - "weather/weather-v2.js"
+      - "weather/index.html"
+      - "scripts/weather-v2-groundtruth-ui.test.mjs"
       - ".github/workflows/weather-groundtruth-production-ci.yml"
 
 permissions:
@@ -35,6 +41,11 @@ jobs:
 
       - name: Production Weather sync syntax
         run: node --check scripts/weather-cms-sync.mjs
+
+      - name: Weather V2 Ground Truth UI contract
+        run: |
+          node --check weather/weather-v2.js
+          node scripts/weather-v2-groundtruth-ui.test.mjs
 
       - name: Verify internal Ground Truth registry is not a public Weather asset
         run: |
