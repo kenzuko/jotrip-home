@@ -6,7 +6,7 @@
 if(root.OpenPQI18n)return;
 const DEFAULT="vi";
 const META='meta[name="openpq-locale"]';
-const CATALOG="/data/i18n/catalog.json";
+const CATALOG="/data/i18n/catalog.json?v=4";
 const state={locale:DEFAULT,catalog:null,ui:null,ready:null};
 const q=s=>document.querySelector(s);
 function locale(){
@@ -56,7 +56,7 @@ async function load(){
   state.ready=(async()=>{
     state.locale=locale();
     try{
-      const res=await fetch(CATALOG,{cache:"default"});
+      const res=await fetch(CATALOG,{cache:"no-store"});
       if(res.ok)state.catalog=await res.json();
     }catch{}
     return state;
