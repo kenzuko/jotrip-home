@@ -250,6 +250,25 @@ function overlayFreshGroundTruth(base,ground){
     };
     base.source_state={...(base.source_state||{}),vvpq:v.status};
   }
+  const synop=ground.atmosphere?.synop_48917||{};
+  if(synop.status){
+    const decoded=synop.latest_numeric?.decoded_actual||synop.latest?.decoded_actual||{};
+    const wind=decoded.wind||{};
+    actual.synop_48917={
+      status:synop.status,
+      numeric_status:synop.numeric_status||null,
+      runtime_eligible:Boolean(synop.runtime_eligible),
+      observed_at:synop.latest_numeric_observed_at||synop.latest_observed_at||null,
+      station_name:synop.station_name||"PHU QUOC",
+      location_context:synop.location_context||null,
+      temperature_c:num(decoded.air_temperature_c),
+      wind_kmh:num(wind.speed_kmh),
+      wind_direction_deg:num(wind.direction_deg),
+      pressure_hpa:num(decoded.sea_level_pressure_hpa??decoded.station_pressure_hpa),
+      identity_resolution_id:synop.identity_resolution_id||null
+    };
+    base.source_state={...(base.source_state||{}),synop_48917:synop.numeric_status||synop.status};
+  }
   const stations=ground.rainfall?.stations||{};
   actual.rain_gauges=Object.values(stations).map(s=>({
     name:s.station_name,
@@ -2064,6 +2083,7 @@ function publicSourceName(key){
     COPERNICUS:"Copernicus Marine",
     RADAR_LIGHTNING:"Radar và sét",
     VVPQ:"Quan trắc VVPQ",
+    SYNOP_48917:"Quan trắc SYNOP 48917",
     VRAIN:"Mưa đo VRain",
     HIMAWARI:"Himawari",
     AQI:"Chất lượng không khí",
@@ -2071,8 +2091,53 @@ function publicSourceName(key){
   };
   return names[key]||key;
 }
+function groundTruthHealthSources(){
+  const ground=critical?._groundtruth||{};
+  const atmosphere=ground.atmosphere||{};
+  const vvpq=atmosphere.vvpq||{};
+  const synop=atmosphere.synop_48917||{};
+  const rainfall=ground.rainfall||{};
+  const out={};
+  const publicState=status=>{
+    const value=String(status||"").toUpperCase();
+    return value==="FRESH"?"PASS":value==="STALE"?"PARTIAL":"FAIL";
+  };
+  if(vvpq.status){
+    const fresh=String(vvpq.status).toUpperCase()==="FRESH";
+    out.VVPQ={
+      status:publicState(vvpq.status),
+      detail:fresh
+        ?"METAR/SPECI sân bay Phú Quốc đang có quan trắc mới - "+ageText(vvpq.observed_at)+". Dùng để đối chiếu nhiệt độ, gió, áp suất và trạng thái thời tiết hiện tại."
+        :"Bản tin VVPQ hiện không còn mới - "+ageText(vvpq.observed_at)+". Hệ thống vẫn giữ nguồn nhưng không coi dữ liệu cũ là trạng thái hiện tại."
+    };
+  }
+  if(synop.status){
+    const numericFresh=String(synop.numeric_status||"").toUpperCase()==="FRESH";
+    const usable=Boolean(synop.runtime_eligible)&&numericFresh;
+    const observed=synop.latest_numeric_observed_at||synop.latest_observed_at||null;
+    out.SYNOP_48917={
+      status:usable?"PASS":publicState(numericFresh?synop.numeric_status:synop.status),
+      detail:usable
+        ?"Bản tin SYNOP 48917 khu Dương Đông đang có số liệu mới - "+ageText(observed)+". Đây là nguồn quan trắc độc lập với VVPQ và hệ thống không gộp hai nguồn."
+        :"Nguồn SYNOP 48917 vẫn được theo dõi riêng, nhưng bản tin số hiện chưa đủ mới hoặc chưa đủ điều kiện để dùng như quan trắc hiện tại."
+    };
+  }
+  if(rainfall.status){
+    const stationCount=Object.keys(rainfall.stations||{}).length;
+    const latest=Object.values(rainfall.stations||{})
+      .map(row=>row?.observed_at).filter(Boolean)
+      .sort((a,b)=>Date.parse(b)-Date.parse(a))[0]||null;
+    out.VRAIN={
+      status:publicState(rainfall.status),
+      detail:String(rainfall.status).toUpperCase()==="FRESH"
+        ?"Mưa đo thực tế đang nhận từ "+stationCount+" trạm trên đảo"+(latest?" - "+ageText(latest):"")+". Hệ thống dùng mức tăng giữa các lần đo để nhận biết mưa gần hiện tại."
+        :"Dữ liệu mưa đo hiện chưa đủ mới. Việc thiếu bản tin mới không được hiểu là ngoài trời đang không mưa."
+    };
+  }
+  return out;
+}
 function renderHealth(){
-  const src=critical.sources||{};
+  const src={...(critical.sources||{}),...groundTruthHealthSources()};
   const stLabel=st=>({PASS:"Sẵn sàng",PARTIAL:"Một phần",FAIL:"Chưa sẵn sàng",UNRESOLVED:"Chưa kết nối"}[st]||st.replaceAll("_"," ").toLowerCase());
   $("sourceGrid").innerHTML=Object.entries(src).map(([k,v])=>{
     const st=String(v.status||"UNRESOLVED").toUpperCase();
