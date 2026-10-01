@@ -522,9 +522,12 @@
         {
           "source_id": "google_maps_location_lookup",
           "checked_at": "2026-09-22"
+        },
+        {
+          "source_id": "visitpq_night_market_current_20260929"
         }
       ],
-      "updated_at": "2026-09-22",
+      "updated_at": "2026-10-01",
       "opening_hours": {
         "state": "APPROXIMATE_SCHEDULE",
         "schedule_type": "DAILY_APPROXIMATE",
@@ -533,14 +536,14 @@
           {
             "start": "18:00",
             "end": "23:30",
-            "label": "Khung hoạt động thường thấy"
+            "label": "Khung hoạt động tham khảo"
           }
         ],
-        "source_id": "visitpq_night_market_current_20260417",
+        "source_id": "visitpq_night_market_place",
         "source_type": "OFFICIAL_TOURISM",
-        "verified_at": "2026-09-21",
+        "verified_at": "2026-10-01",
         "confidence": "MEDIUM",
-        "note": "Visit Phu Quoc 2026 ghi chợ thường hoạt động khoảng 18:00-23:30; một số gian có thể mở từ khoảng 15:00. Đây là khung tham khảo, không phải giờ đóng cửa đồng loạt."
+        "note": "Trang điểm đến Visit Phu Quoc ghi khoảng 18:00-23:30; bài cập nhật 29/09/2026 ghi khoảng 15:00-23:00. Chợ hiện vẫn hoạt động, nhưng giờ từng quầy có thể khác nhau."
       },
       "address": "54 Nguyễn Trãi, Dương Đông, Phú Quốc, An Giang, Việt Nam",
       "map": {
