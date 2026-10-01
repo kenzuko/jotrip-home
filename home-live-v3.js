@@ -458,17 +458,23 @@ function freshnessText(iso, prefix = "Cập nhật") {
       zone_north:"ganh_dau",
       all:"duong_dong"
     };
-    const selectedArea = window.OpenPQArea?.get?.() || "all";
-    const homeWeatherPoint = areaToPoint[selectedArea] || "duong_dong";
-    const shortWeather = window.OpenPQWeatherShortView?.pointView?.(critical, nowcast, homeWeatherPoint) || null;
-    const shortWeatherSoon = shortWeather?.soon || null;
-    const weatherSecondaryPublic =
-      shortWeather?.now?.state === "ACTUAL_RAIN"
-        ? shortWeather.now.headline
-        : weatherSecondary;
-
-    setLive("weather", weatherPrimary, weatherSecondaryPublic, weatherState, weatherPublicFreshness);
-    setContext("weather", weatherPrimary, weatherSecondaryPublic, weatherState);
+    function selectedWeatherContext() {
+      const area = window.OpenPQArea?.get?.() || "all";
+      const pointId = areaToPoint[area] || "duong_dong";
+      const view = window.OpenPQWeatherShortView?.pointView?.(critical, nowcast, pointId) || null;
+      return {area, pointId, view};
+    }
+    function renderHomeWeather() {
+      const weatherContext = selectedWeatherContext();
+      const secondary =
+        weatherContext.view?.now?.state === "ACTUAL_RAIN"
+          ? weatherContext.view.now.headline
+          : weatherSecondary;
+      setLive("weather", weatherPrimary, secondary, weatherState, weatherPublicFreshness);
+      setContext("weather", weatherPrimary, secondary, weatherState);
+      return weatherContext;
+    }
+    renderHomeWeather();
 
     const seaHs = anThoi?.model?.wave_hs_m ?? anThoi?.local?.wave_hs_m ?? null;
     const seaHmax = anThoi?.model?.wave_hmax_m ?? null;
@@ -531,8 +537,10 @@ function freshnessText(iso, prefix = "Cập nhật") {
       };
 
       const currentCriticalAge = ageMinutes(criticalStamp);
+      const weatherContext = selectedWeatherContext();
+      const shortWeatherSoon = weatherContext.view?.soon || null;
       if (shortWeatherSoon?.state === "APPROACHING_CONVECTION") {
-        const areaLabel = window.OpenPQArea?.label?.(selectedArea) || "khu vực bạn chọn";
+        const areaLabel = window.OpenPQArea?.label?.(weatherContext.area) || "khu vực bạn chọn";
         push({
           tone:"watch",
           title:"Có vùng mây đang tiến gần "+areaLabel+".",
@@ -620,11 +628,11 @@ function freshnessText(iso, prefix = "Cập nhật") {
                 ? "Mây đang dày hơn trên hướng chân trời ở " + joinViList(areas) + ". Một phần bờ Tây có thể bị che lúc mặt trời lặn."
                 : "Ảnh vệ tinh đang thấy mây dày hơn trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.";
           } else if (sunsetWx.reason === "cloud_approaching") {
-            note = "Mây đối lưu đang có quỹ đạo tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
+            note = "Một vùng mây phát triển mạnh đang tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.";
           } else if (sunsetWx.reason === "low_visibility") {
             note = "Tầm nhìn đang giảm. Hoàng hôn có thể kém rõ dù không nhất thiết có mưa.";
           } else if (sunsetWx.reason === "satellite_convection") {
-            note = "Ảnh vệ tinh cho thấy mây đối lưu quanh khu vực. Chưa đủ bằng chứng để coi là mưa tại bờ Tây.";
+            note = "Ảnh mây cho thấy vùng mây phát triển mạnh quanh khu vực. Chưa đủ để coi là mưa tại bờ Tây.";
           } else if (sunsetWx.reason === "forecast_rain") {
             const areas = (sunsetWx.forecast_rain_points || []).filter(Boolean);
             note = areas.length === 1
@@ -653,7 +661,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
             note:sunsetWx.reason === "horizon_clear"
               ? "Ảnh vệ tinh hiện cho thấy hướng chân trời hoàng hôn khá ít mây."
               : sunsetWx.reason === "cloud_passing"
-                ? "Có mây đối lưu quanh đảo nhưng quỹ đạo hiện tại đang đi lệch hoặc đi xa bờ Tây."
+                ? "Có vùng mây phát triển mạnh quanh đảo nhưng đường đi hiện tại đang lệch hoặc đi xa bờ Tây."
                 : "Hiện chưa thấy tín hiệu thời tiết đáng ngại cho hoàng hôn bờ Tây.",
             primaryText:"Xem điểm cuối chiều →", primaryHref:"explore/?intent=evening",
             secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
@@ -776,6 +784,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
     renderNowSuggestion();
     window.addEventListener("openpq:local-ready", renderNowSuggestion);
+    window.addEventListener("openpq:area-changed", () => { renderHomeWeather(); renderNowSuggestion(); });
     setInterval(renderNowSuggestion, 60000);
 
     let wxTitle = "Chưa có thông tin thời tiết mới";
@@ -792,16 +801,16 @@ function freshnessText(iso, prefix = "Cập nhật") {
         wxTitle = "Một số điểm trên đảo đang có mưa";
         wxBadge = "ĐANG MƯA";
       } else if (hasHighConvective) {
-        wxTitle = "Ảnh vệ tinh cho thấy mây đối lưu quanh đảo";
+        wxTitle = "Ảnh mây cho thấy vùng mây phát triển mạnh quanh đảo";
         wxNote = "Các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa. Xem đúng khu vực trước khi đi xa.";
         wxBadge = "THEO DÕI";
       } else if (hasElevatedConvective) {
-        wxTitle = "Ảnh vệ tinh cho thấy mây đối lưu đang tăng";
-        wxNote = "Chưa có quan trắc mưa tương ứng ở các trạm đang theo dõi. Tiếp tục quan sát.";
+        wxTitle = "Vùng mây quanh đảo đang phát triển mạnh hơn";
+        wxNote = "Các trạm đang theo dõi chưa ghi nhận mưa tương ứng. Nên xem lại trước khi đi xa.";
         wxBadge = "LƯU Ý";
       } else if (islandDecision.status === "normal") {
         wxTitle = "Chưa thấy tín hiệu thời tiết nổi bật tại các điểm đang theo dõi";
-        wxBadge = "CHƯA CÓ TÍN HIỆU";
+        wxBadge = "BÌNH THƯỜNG";
         wxGood = weatherState === "good";
       } else {
         wxTitle = "Chưa đủ dữ liệu thời tiết mới tại các điểm đang theo dõi";
