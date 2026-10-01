@@ -963,43 +963,43 @@
       ]
     },
     "place_exotica": {
-      "lede": "Exotica Village là phân khu trò chơi phiêu lưu và cảm giác mạnh trên Hòn Thơm, thuộc Sun World Hòn Thơm. Đây là trải nghiệm khác với Aquatopia: một bên tập trung vào trò chơi nước, một bên thiên về độ cao, tốc độ, chuyển động và cảm giác mạo hiểm.\nKhông nên quyết định chỉ dựa trên tên trò chơi. Cần xem giới hạn chiều cao, sức khỏe, thời gian chờ và khả năng kết hợp với cáp treo, Aquatopia, bãi biển trong cùng một ngày.",
+      "lede": "Exotica Village is the adventure and thrill-ride zone on Hon Thom within Sun World Hon Thom. It is different from Aquatopia: one is a water park, while the other is built around height, speed, movement and more intense rides.\nDo not choose only by ride names. Check height limits, health requirements, current wait times and how Exotica fits with the cable car, Aquatopia and the beach in the same day.",
       "infographic": [
         {
           "icon": "01",
-          "label": "QUY MÔ",
-          "value": "Phân khu trò chơi mạo hiểm trong ngày Hòn Thơm",
-          "note": "Exotica Village thường được hiểu qua các nhóm trải nghiệm:\n• Trò chơi trên cao.\n• Trò chơi chuyển động và cảm giác mạnh.\n• Đài quan sát hoặc trải nghiệm ngắm toàn cảnh.\n• Khu vực chờ, xếp hàng và nghỉ.\n• Các điểm kết nối với Aquatopia, biển và ga cáp treo.\nMắt Đại Bàng được giới thiệu là đài quan sát 360 độ cao 120 m, với cabin đưa khách lên độ cao khoảng 80 m; cabin có sức chứa được công bố khoảng 70 người mỗi lượt.\nNhững con số này cho thấy Exotica không phải một khu có thể đi ngang qua trong vài phút nếu muốn chơi nhiều trò. Thời gian thực tế phụ thuộc vào hàng chờ, tình trạng vận hành và số trò phù hợp với từng thành viên."
+          "label": "SCALE",
+          "value": "An adventure-ride zone inside a full Hon Thom day",
+          "note": "Exotica Village is best understood as several types of experience:\n• Elevated rides.\n• Motion and thrill rides.\n• Observation or panoramic-view attractions.\n• Queue, waiting and rest areas.\n• Links to Aquatopia, the beach and the cable-car station.\nEagle Eye is promoted as a 360-degree observation attraction about 120 m high, lifting its cabin to around 80 m; published capacity is about 70 people per ride.\nThat scale means Exotica is not something you simply walk through in a few minutes if you want to try several attractions. Real timing depends on queues, operating status and which rides suit each person in your group."
         },
         {
           "icon": "02",
-          "label": "ĐIỂM NỔI BẬT",
-          "value": "Mộc Xà Thịnh Nộ, Mắt Đại Bàng và các trò theo mùa",
-          "note": "Mộc Xà Thịnh Nộ thường được nhắc như trò chơi cảm giác mạnh chủ đạo. Mắt Đại Bàng thiên về ngắm cảnh từ trên cao hơn là tốc độ thuần túy. Các trò khác có thể được bổ sung, thay đổi hoặc vận hành theo từng giai đoạn.\nCần phân biệt:\n• Trò thiên về tốc độ và gia tốc.\n• Trò thiên về độ cao.\n• Trò phù hợp để ngắm cảnh.\n• Trò cần sức khỏe hoặc giới hạn chiều cao nghiêm ngặt.\nKhông phải người thích ngắm cảnh sẽ thích trò rơi hoặc xoay tốc độ cao. Gia đình nên chọn theo khả năng chịu trò của từng người, không nên ép tất cả chơi cùng một nhóm."
+          "label": "HIGHLIGHTS",
+          "value": "Wooden Snake Fury, Eagle Eye and seasonal attractions",
+          "note": "Wooden Snake Fury is commonly presented as one of the main thrill rides. Eagle Eye is more about elevated views than pure speed. Other rides can be added, changed or operated differently over time.\nIt helps to separate:\n• Speed and acceleration rides.\n• Height-focused rides.\n• Viewpoint-style experiences.\n• Attractions with stricter health or height rules.\nSomeone who enjoys panoramic views may not enjoy drops or high-speed spinning. Families should choose by each person's comfort level rather than pushing everyone onto the same ride type."
         },
         {
           "icon": "03",
-          "label": "TRƯỚC KHI XẾP HÀNG",
-          "value": "Xem chiều cao, sức khỏe và thời gian chờ",
-          "note": "Trước khi xếp hàng, nên kiểm tra:\n• Chiều cao tối thiểu hoặc tối đa.\n• Yêu cầu về tim mạch, huyết áp, cổ, lưng và thai kỳ.\n• Có được mang kính, điện thoại hoặc túi nhỏ không.\n• Thời gian chờ hiện tại.\n• Trò có đang vận hành ổn định không.\n• Nếu không chơi được, khu vực chờ có thuận tiện không.\nTrò cảm giác mạnh có thể khiến người chơi mệt, chóng mặt hoặc không thoải mái sau khi xuống. Đừng xếp liên tiếp quá nhiều trò chỉ vì muốn tận dụng vé."
+          "label": "BEFORE YOU QUEUE",
+          "value": "Check height, health rules and current wait",
+          "note": "Before joining a queue, check:\n• Minimum or maximum height.\n• Heart, blood-pressure, neck, back or pregnancy restrictions.\n• Whether glasses, phones or small bags are allowed.\n• Current wait time.\n• Whether the ride is operating normally.\n• Whether there is a convenient waiting area for anyone who does not ride.\nThrill rides can leave some people tired, dizzy or uncomfortable. Do not stack too many intense rides back-to-back just to 'get value' from the ticket."
         }
       ],
       "sections": [
         {
-          "heading": "Đừng gộp Aquatopia và Exotica thành một trải nghiệm",
-          "body": "Sun World giới thiệu Exotica như khu thiên về phiêu lưu và cảm giác mạnh, trong khi Aquatopia là công viên nước. Hai khu có cách sử dụng thể lực, trang phục và thời gian chờ khác nhau.\nNếu đi cùng gia đình nhiều độ tuổi, nên thống nhất trước khu nào là ưu tiên chính. Người không chơi trò mạnh có thể dành thời gian ở biển, khu ngắm cảnh hoặc điểm nghỉ thay vì đứng chờ suốt lịch trình."
+          "heading": "Do not treat Aquatopia and Exotica as the same experience",
+          "body": "Sun World positions Exotica around adventure and thrill rides, while Aquatopia is the water park. They use your energy, clothing and waiting time in different ways.\nIf your group spans several ages, agree on the main priority before the day begins. Anyone who does not want intense rides can spend time at the beach, a viewpoint or a rest area instead of standing around for the entire itinerary."
         },
         {
-          "heading": "Một ngày Hòn Thơm tốt không nhất thiết phải chơi hết",
-          "body": "Cáp treo, công viên nước, trò mạo hiểm và bãi biển đều cạnh tranh cùng một quỹ thời gian. Chọn vài trải nghiệm quan trọng thường dễ chịu hơn chạy từ trò này sang trò khác.\nCó thể chọn:\n• Exotica + ngắm cảnh + nghỉ biển.\n• Aquatopia + một trò Exotica phù hợp.\n• Cáp treo + Mắt Đại Bàng + chụp ảnh.\n• Một khu chính và dành thời gian còn lại cho ăn uống, thư giãn."
+          "heading": "A good Hon Thom day does not require doing everything",
+          "body": "The cable car, water park, thrill rides and beach all compete for the same hours. Choosing a few priorities is usually more enjoyable than running from one attraction to another.\nSome workable combinations:\n• Exotica + viewpoints + beach rest.\n• Aquatopia + one suitable Exotica ride.\n• Cable car + Eagle Eye + photos.\n• One main zone, then food and downtime."
         }
       ],
       "visitor_questions": [
-        "Trò này có giới hạn chiều cao hoặc sức khỏe nào?",
-        "Hôm nay Mộc Xà Thịnh Nộ và Mắt Đại Bàng có đang vận hành không?",
-        "Thời gian chờ hiện tại khoảng bao lâu?",
-        "Có trò nào phù hợp với người không muốn chơi cảm giác mạnh không?",
-        "Chuyến cáp cuối về An Thới lúc mấy giờ?"
+        "Does this ride have any height or health restrictions?",
+        "Are Wooden Snake Fury and Eagle Eye operating today?",
+        "What is the current wait time?",
+        "Is there a good option for someone who does not want a thrill ride?",
+        "What time is the last cable car back to An Thoi?"
       ],
       "sources": [
         {
@@ -1013,44 +1013,44 @@
       ]
     },
     "place_suoi_tranh": {
-      "lede": "Suối Tranh là điểm thiên nhiên gần khu trung tâm nhưng trải nghiệm phụ thuộc rất mạnh vào mùa nước. Cùng một con suối có thể trông hoàn toàn khác giữa mùa mưa và thời kỳ khô.\nCon suối được mô tả bắt nguồn từ dãy núi Hàm Ninh, dài khoảng 15 km; tuy nhiên, phần khách tham quan thường chỉ tiếp cận một đoạn ngắn trong khu du lịch, không phải toàn bộ chiều dài dòng suối. Một số nguồn nhắc đoạn đường mòn tham quan khoảng 1,5 km và khoảng 30 phút đi bộ tới khu thác, nhưng cần kiểm tra theo tuyến mở thực tế.",
+      "lede": "Suoi Tranh is a nature stop close to central Phu Quoc, but the experience depends heavily on the water season. The same stream can look completely different in the wet season and during a dry spell.\nThe stream is commonly described as beginning in the Ham Ninh mountain range and running for about 15 km; visitors normally access only a short section inside the attraction, not the full watercourse. Some sources mention a walking route of around 1.5 km and about 30 minutes to the falls, but the actual open route should be checked on the day.",
       "infographic": [
         {
           "icon": "01",
-          "label": "QUY MÔ",
-          "value": "Dòng suối dài, khu tham quan chỉ khai thác một đoạn",
-          "note": "Suối Tranh có thể được hiểu theo hai quy mô khác nhau:\n• Quy mô tự nhiên: dòng suối và hệ thống khe nước kéo dài từ khu vực núi Hàm Ninh.\n• Quy mô tham quan: đoạn đường mòn, cầu, bậc đá, khu nghỉ và vùng thác mà khách có thể tiếp cận.\nDu khách không cần dành cả ngày để đi hết con suối. Một chuyến tham quan cơ bản thường gồm:\n• Đi từ cổng hoặc khu gửi xe vào tuyến rừng.\n• Đi bộ qua đoạn đường mòn.\n• Dừng tại các điểm nước, đá và thác.\n• Nghỉ hoặc tắm suối nếu điều kiện cho phép.\n• Quay trở lại theo cùng tuyến.\nThời lượng thường khoảng nửa buổi, nhưng thay đổi theo tốc độ đi, mùa nước, tình trạng đường và việc có dừng tắm hay không."
+          "label": "SCALE",
+          "value": "A long natural stream, with only one section set up for visitors",
+          "note": "Think of Suoi Tranh at two different scales:\n• Natural scale: the stream and feeder channels extending from the Ham Ninh mountains.\n• Visitor scale: trails, bridges, stone steps, rest areas and waterfall sections that are actually accessible.\nYou do not need a full day. A standard visit usually means:\n• Walking from the entrance or parking area into the forest route.\n• Following the trail.\n• Stopping at pools, rocks and waterfall areas.\n• Resting or entering the water if conditions allow.\n• Returning along the same general route.\nA half day is usually enough, but real timing changes with walking speed, water level, trail condition and whether you stop to swim."
         },
         {
           "icon": "02",
-          "label": "ĐIỂM QUYẾT ĐỊNH",
-          "value": "Có nước hay không",
-          "note": "Mùa mưa thường làm dòng suối rõ hơn, cây cối xanh hơn và các đoạn thác có sức sống hơn. Một số nguồn gợi ý khoảng tháng 5-9 hoặc tháng 6-11 là giai đoạn cảnh quan nhiều nước, nhưng không nên dùng một khung tháng cứng cho mọi năm.\nĐiều kiện thực tế cần xem là:\n• Mưa gần đây có đủ để suối có nước không.\n• Mưa có quá lớn khiến nước đục hoặc đường nguy hiểm không.\n• Các hồ và đoạn thác có được phép tiếp cận không.\n• Khu tắm có an toàn và có người quản lý không.\nẢnh thác đầy nước chỉ cho thấy một thời điểm nhất định, không đại diện cho tất cả các tháng."
+          "label": "THE DECIDING FACTOR",
+          "value": "Whether there is enough water",
+          "note": "Rainy periods usually make the stream fuller, the forest greener and the falls more noticeable. Some sources suggest roughly May-September or June-November as wetter-looking periods, but one fixed month range should not be treated as correct every year.\nWhat matters more is:\n• Has there been enough recent rain for the stream to be flowing well?\n• Has there been too much rain, making water cloudy or access unsafe?\n• Are pools and waterfall sections open to visitors?\n• Is the swimming area safe and supervised?\nPhotos of a full waterfall capture one moment, not every month of the year."
         },
         {
           "icon": "03",
-          "label": "CẦN MANG",
-          "value": "Giày có độ bám, đồ gọn và phương án sau mưa",
-          "note": "Đường rừng, bậc đá và mặt đá gần suối có thể trơn. Nên mang:\n• Giày có độ bám.\n• Quần áo nhẹ, dễ khô.\n• Túi chống nước cho điện thoại.\n• Nước uống.\n• Thuốc chống côn trùng nếu cần.\n• Đồ thay nếu có ý định xuống nước.\nKhông nên đi dép trơn, leo lên mỏm đá cao hoặc đứng dưới chân thác khi dòng chảy mạnh."
+          "label": "WHAT TO BRING",
+          "value": "Shoes with grip, light clothing and a wet-weather backup plan",
+          "note": "Forest paths, steps and wet rock can be slippery. Useful items include:\n• Shoes with good grip.\n• Light, quick-drying clothing.\n• A waterproof pouch for your phone.\n• Drinking water.\n• Insect repellent if you need it.\n• A change of clothes if you plan to enter the water.\nAvoid smooth-soled sandals, climbing high wet rocks or standing directly under a waterfall when the flow is strong."
         }
       ],
       "sections": [
         {
-          "heading": "Một điểm phải xem mùa trước khi xem ảnh",
-          "body": "Suối Tranh gần trung tâm nên thường được đưa vào các lịch trình nửa ngày. Tuy nhiên, hình ảnh quảng bá thường chụp vào lúc cây xanh, nước đầy và ánh sáng thuận.\nOpen Phu Quoc không dùng một bức ảnh nhiều nước để hứa rằng hiện trường luôn như vậy. Trước khi đi, cần xác định rõ mục tiêu là đi rừng, ngắm cảnh, dã ngoại hay tắm suối, vì mỗi mục tiêu cần điều kiện khác nhau."
+          "heading": "Check the season before judging the photos",
+          "body": "Suoi Tranh is close enough to central Phu Quoc to fit easily into a half-day plan, but promotional images are usually taken when the forest is green, the water is flowing and the light is good.\nOpen Phu Quoc should not use a high-water photo as a promise of what visitors will see every day. Decide whether your goal is a forest walk, scenery, a picnic or swimming, because each needs different conditions."
         },
         {
-          "heading": "Sau mưa đẹp hơn nhưng cũng trơn hơn",
-          "body": "Lượng nước tăng làm cảnh quan hấp dẫn hơn nhưng bề mặt đá và đường tiếp cận cũng có thể trơn. Mưa lớn kéo dài còn có thể khiến nước đục, dòng chảy mạnh hoặc một số đoạn bị hạn chế.\nĐiều kiện lý tưởng không phải “mưa càng nhiều càng tốt”, mà là sau những đợt mưa vừa phải, trời đã tạnh, nước còn đủ và đường chưa quá nguy hiểm."
+          "heading": "After rain it can look better - and become more slippery",
+          "body": "More water can make the stream more attractive, but it also changes rock grip and trail safety. Prolonged heavy rain can make the water muddy, increase flow or lead to sections being restricted.\nThe best condition is not simply 'the more rain the better'. A better window is often after moderate rain has passed, when the stream still has water but the trail is not dangerously wet."
         }
       ],
       "visitor_questions": [
-        "Hôm nay suối có nhiều nước không?",
-        "Đường đi bộ sau mưa có trơn hoặc khu vực nào đang hạn chế không?",
-        "Từ cổng đến điểm thác mất khoảng bao lâu?",
-        "Khu vực nào được phép tắm?",
-        "Có cảnh báo nước dâng hoặc mưa lớn gần đây không?",
-        "Trẻ nhỏ và người lớn tuổi có phù hợp với đoạn đường hôm nay không?"
+        "Is there much water in the stream today?",
+        "Are the trails slippery after recent rain, or are any sections restricted?",
+        "How long does it take to walk from the entrance to the main waterfall area?",
+        "Which sections are open for swimming?",
+        "Has there been any recent warning about rising water or heavy rain?",
+        "Is today's route suitable for young children or older visitors?"
       ],
       "sources": [
         {
@@ -1064,44 +1064,44 @@
       ]
     },
     "place_other_streams": {
-      "lede": "Suối Đá Bàn, Đá Ngọn và Suối Tiên không nên được hiểu như ba phiên bản giống nhau của Suối Tranh. Mỗi nơi khác nhau về quy mô cảnh quan, kiểu địa hình, mức độ tiếp cận, độ dài đoạn đi bộ và điều kiện nước theo mùa.\nĐây là nhóm điểm đến không nên xếp lịch chỉ dựa trên ảnh đẹp. Một con suối có thể rất hấp dẫn khi nhiều nước nhưng cũng trơn trượt, khó đi và nguy hiểm hơn. Ngược lại, mùa ít nước dễ tiếp cận hơn nhưng trải nghiệm thác và hồ tự nhiên có thể kém ấn tượng.",
+      "lede": "Da Ban, Da Ngon and Suoi Tien should not be treated as three interchangeable versions of Suoi Tranh. They differ in landscape, terrain, access, walking distance and seasonal water conditions.\nThese are places where you should not plan from photos alone. A stream can look more impressive with more water while also becoming more slippery, difficult and dangerous. In drier periods access may be easier, but waterfalls and natural pools may be much less dramatic.",
       "infographic": [
         {
           "icon": "01",
-          "label": "ĐÁ BÀN",
-          "value": "Phiến đá rộng, dễ nhận diện và hợp dã ngoại",
-          "note": "Suối Đá Bàn thuộc khu vực Cửa Dương, cách trung tâm Dương Đông khoảng 10 km. Tên gọi gắn với những tảng đá lớn, mặt tương đối phẳng nằm dọc dòng suối.\nQuy mô trải nghiệm ở đây gồm:\n• Đoạn đường tiếp cận từ khu dân cư vào suối.\n• Các phiến đá lớn ven dòng nước.\n• Những điểm ngồi nghỉ, ăn uống hoặc dã ngoại.\n• Các đoạn nước sâu - nông thay đổi theo mùa.\nĐá Bàn thường dễ hình dung hơn với nhóm khách gia đình và nhóm bạn muốn dã ngoại nhẹ. Tuy nhiên, “đá phẳng” không đồng nghĩa với “không trơn”. Rêu, nước chảy và mưa có thể làm bề mặt đá thay đổi rất nhanh."
+          "label": "DA BAN",
+          "value": "Broad rock slabs, easy to recognise and suitable for a light picnic",
+          "note": "Suoi Da Ban is in the Cua Duong area, around 10 km from central Duong Dong. Its name comes from the large, relatively flat rock slabs along the stream.\nA visit may involve:\n• The access road from the residential area toward the stream.\n• Large rock slabs along the water.\n• Places to sit, eat or picnic.\n• Deeper and shallower water sections that change by season.\nDa Ban is generally easier to imagine for families or groups wanting a lighter outdoor stop. But 'flat rock' does not mean 'not slippery'. Moss, flowing water and rain can change the surface very quickly."
         },
         {
           "icon": "02",
-          "label": "SUỐI TIÊN",
-          "value": "Thiên về rừng, dã ngoại và cảm giác tách khỏi khu đô thị",
-          "note": "Suối Tiên thường được nhắc đến ở khu vực Hàm Ninh, có không gian rừng và cảnh quan tự nhiên hơn. Đây không phải kiểu điểm đến phù hợp với khách chỉ muốn xuống xe, đi vài bước rồi chụp ảnh.\nTrải nghiệm có thể gồm:\n• Đi bộ qua đường rừng hoặc lối đất.\n• Theo dòng suối qua các đoạn đá và cây xanh.\n• Tìm điểm ngồi nghỉ hoặc picnic.\n• Tắm suối nếu mực nước và điều kiện an toàn cho phép.\nMức độ hoang sơ cũng có nghĩa là dịch vụ, biển chỉ dẫn, sóng điện thoại và khả năng hỗ trợ có thể hạn chế hơn các điểm du lịch được khai thác bài bản. Nên đi cùng người biết đường hoặc đơn vị có kinh nghiệm địa phương."
+          "label": "SUOI TIEN",
+          "value": "More forested, more rustic and further removed from urban areas",
+          "note": "Suoi Tien is usually described around the Ham Ninh area, with a more natural forest setting. It is not the kind of place for someone who only wants to step out of a vehicle, walk a few metres and take a photo.\nThe visit may involve:\n• Walking on forest or dirt tracks.\n• Following the stream through rocks and vegetation.\n• Finding a place to rest or picnic.\n• Swimming if water level and safety conditions allow.\nA more rustic setting can also mean fewer services, less signage, weaker phone signal and slower access to help. Go with someone who knows the route or an operator with real local experience."
         },
         {
           "icon": "03",
-          "label": "ĐÁ NGỌN",
-          "value": "Nhiều đoạn thác, khó hơn và cần thận trọng",
-          "note": "Suối Đá Ngọn thường được mô tả với nhiều tầng thác và địa hình tự nhiên phức tạp hơn. Một số nguồn nhắc tới hệ thống khoảng 7 thác, nhưng thông tin về tuyến đi, độ dài và khả năng tiếp cận có thể khác nhau theo từng mùa và từng điểm xuất phát.\nĐây không phải lựa chọn phù hợp cho mọi khách. Đường trơn, đá lớn, đoạn leo và dòng nước mạnh có thể khiến người không quen địa hình gặp khó khăn.\nKhông nên đưa Đá Ngọn vào lịch trình gia đình chỉ vì thấy ảnh đẹp. Nếu đi, cần hỏi rõ tuyến thực tế, thời gian đi bộ, độ khó và có người dẫn đường hay không."
+          "label": "DA NGON",
+          "value": "More waterfall sections, harder terrain and more caution required",
+          "note": "Suoi Da Ngon is often described as having several waterfall levels and more demanding natural terrain. Some sources mention around seven waterfalls, but route length and accessibility can differ by season and starting point.\nThis is not suitable for every traveller. Slippery ground, large rocks, climbing sections and stronger water can be difficult for anyone without terrain experience.\nDo not put Da Ngon into a family itinerary just because the photos look good. Ask about the real route, walking time, difficulty and whether a local guide is involved."
         }
       ],
       "sections": [
         {
-          "heading": "Không nên dùng một nhãn 'đi suối' cho tất cả",
-          "body": "Suối Đá Bàn nổi bật bởi các phiến đá lớn và khả năng tổ chức dã ngoại. Suối Tiên thiên về rừng, không gian tự nhiên và đi chậm. Đá Ngọn có tính khám phá và yêu cầu thể lực, kỹ năng địa hình cao hơn.\nCó thể chọn theo nhóm khách:\n• Trẻ nhỏ, người lớn tuổi: ưu tiên điểm dễ tiếp cận, đoạn đường ngắn và có nơi nghỉ.\n• Nhóm bạn muốn dã ngoại: có thể cân nhắc Đá Bàn nếu điều kiện thời tiết thuận lợi.\n• Người thích đi rừng: cân nhắc Suối Tiên nhưng cần chuẩn bị kỹ.\n• Người có kinh nghiệm trekking: mới nên xem xét các tuyến khó hơn như Đá Ngọn."
+          "heading": "Do not put all island streams under one label",
+          "body": "Da Ban is known for broad rock slabs and a picnic-friendly feel. Suoi Tien is more forested and suits a slower nature stop. Da Ngon is more exploratory and demands more fitness and terrain awareness.\nChoose by group:\n• Young children or older travellers: favour easy access, shorter walking and a proper place to rest.\n• Friends wanting a picnic: consider Da Ban when weather is suitable.\n• Travellers who enjoy forest walks: Suoi Tien can work with good preparation.\n• Experienced trekkers: only then consider harder routes such as Da Ngon."
         },
         {
-          "heading": "Mùa nước vừa tạo cảnh đẹp vừa làm tăng rủi ro",
-          "body": "Mùa mưa thường giúp suối nhiều nước, thác rõ và cảnh quan ấn tượng hơn. Suối Đá Bàn đẹp vào khoảng tháng 5-11, nhưng đây cũng là giai đoạn đường ẩm, đá trơn và dòng chảy có thể mạnh hơn.\nKhông nên xem “nhiều nước” là điều kiện tốt tuyệt đối. Trước khi đi cần hỏi:\n• Mưa gần đây có lớn không?\n• Dòng suối có dâng nhanh không?\n• Đường vào có lầy hoặc trơn không?\n• Có đoạn nào bị cấm hoặc không thể tiếp cận không?\n• Điểm tắm có an toàn cho người không biết bơi không?\nNếu vừa có mưa lớn, nên tránh đi sâu vào lòng suối hoặc đứng dưới chân thác. Không cắm trại sát mép nước vì mực nước có thể thay đổi nhanh."
+          "heading": "More water can improve the scenery and increase the risk at the same time",
+          "body": "Rainy-season conditions can make streams fuller and waterfalls more impressive. Da Ban is often promoted for roughly May-November, but that is also when paths can be damp, rocks slippery and currents stronger.\nDo not treat 'more water' as automatically better. Before going, ask:\n• Has there been heavy rain recently?\n• Can the water level rise quickly?\n• Is the access road muddy or slippery?\n• Are any sections closed or inaccessible?\n• Is the swimming area suitable for non-swimmers?\nAfter heavy rain, avoid moving deep into the stream channel or standing below a waterfall. Do not camp right beside the water because levels can change quickly."
         }
       ],
       "visitor_questions": [
-        "Hôm nay đường vào có đi được bằng xe thông thường không?",
-        "Từ điểm đỗ xe đến suối phải đi bộ bao lâu?",
-        "Mực nước và đá trơn có phù hợp với trẻ nhỏ hoặc người lớn tuổi không?",
-        "Gần đây có mưa lớn hoặc cảnh báo nước dâng không?",
-        "Khu vực nào được phép tắm và khu vực nào nên tránh?",
-        "Có người địa phương hoặc hướng dẫn viên hỗ trợ khi đi sâu vào suối không?"
+        "Can a normal vehicle use the access road today?",
+        "How long is the walk from parking to the stream?",
+        "Are water levels and slippery rocks suitable for children or older visitors?",
+        "Has there been heavy rain or any rising-water warning recently?",
+        "Which sections are open for swimming and which should be avoided?",
+        "Is a local guide available if we go farther into the stream area?"
       ],
       "sources": [
         {
@@ -1115,44 +1115,44 @@
       ]
     },
     "activity_tour_3_islands": {
-      "lede": "“Tour 3 đảo” là tên một định dạng hành trình ở quần đảo An Thới, không phải một bộ ba đảo cố định cho mọi đơn vị và mọi ngày. Nhiều lịch trình phổ biến nhắc tới Hòn Móng Tay, Hòn Gầm Ghì và Hòn Mây Rút, nhưng thứ tự, điểm dừng và thời lượng thực tế có thể thay đổi.\nĐây là tour trong ngày, thường gồm di chuyển bằng cano hoặc tàu, tắm biển, lặn ngắm san hô, ăn trưa và nghỉ trên đảo. Vì vậy, chất lượng không nằm ở việc đọc được bao nhiêu tên đảo, mà ở cách đơn vị vận hành phân bổ thời gian và xử lý khi biển thay đổi.",
+      "lede": "'Three-island tour' is a trip format in the An Thoi archipelago, not a fixed set of the same three islands for every operator and every day. Popular routes often mention Hon Mong Tay, Hon Gam Ghi and Hon May Rut, but the order, actual stops and time spent at each can change.\nIt is a full-day sea trip, usually combining speedboat or boat transfers, swimming, snorkeling, lunch and time on the islands. Quality is not about how many island names appear in the brochure. It depends on how the operator uses the day and how the route changes when sea conditions do.",
       "infographic": [
         {
           "icon": "01",
-          "label": "QUY MÔ",
-          "value": "Một ngày trên biển, nhiều chặng và nhiều điểm dừng",
-          "note": "Một tour 3 đảo thường có các lớp:\n• Đón khách và di chuyển tới cảng.\n• Lên cano hoặc tàu ra quần đảo An Thới.\n• Dừng tại một hoặc nhiều điểm tắm biển.\n• Lặn ngắm san hô.\n• Ăn trưa và nghỉ.\n• Có thể thêm công viên san hô, đi bộ dưới biển hoặc dịch vụ tự túc.\n• Quay về cảng và trả khách.\nTổng thời gian từ lúc đón tới khi kết thúc có thể kéo dài khoảng 8-10 giờ, trong đó thời gian thật sự ở dưới nước thường ít hơn thời gian di chuyển, xếp đồ và ăn nghỉ.\nMột tour ghi “3 đảo” không có nghĩa khách có ba buổi trải nghiệm riêng biệt. Có thể một đảo dành để lặn, một đảo để ăn trưa và một đảo để tắm hoặc chụp ảnh."
+          "label": "SCALE",
+          "value": "A full day at sea with several legs and stops",
+          "note": "A typical three-island tour may include:\n• Hotel pickup and transfer to the port.\n• Speedboat or boat travel into the An Thoi archipelago.\n• One or more swimming stops.\n• Snorkeling.\n• Lunch and rest.\n• Optional extras such as a coral park, seawalking or paid activities.\n• Return to port and hotel drop-off.\nFrom pickup to finish, the day can last around 8-10 hours. Actual time in the water is usually much shorter than total transfer, boarding, meal and rest time.\nA tour advertised as 'three islands' does not mean three separate long island experiences. One stop may be mainly for snorkeling, another for lunch and another for swimming or photos."
         },
         {
           "icon": "02",
-          "label": "CHẤT LƯỢNG",
-          "value": "Thời gian ở nước quan trọng hơn số điểm",
-          "note": "Một lịch trình tốt nên nói rõ:\n• Mỗi điểm dừng bao lâu.\n• Có bao nhiêu phút thực sự để bơi hoặc lặn.\n• Điểm nào là điểm san hô chính.\n• Ăn trưa ở đảo hay trên tàu.\n• Thời gian di chuyển giữa các điểm.\n• Có bao nhiêu khách trên cano.\n• Có người hỗ trợ khách bơi yếu hay không.\nÍt điểm nhưng đủ thời gian ở nước thường tốt hơn chạy qua nhiều đảo, mỗi nơi chỉ dừng 20-30 phút. Nếu du khách thích lặn, nên ưu tiên tour dành thời gian dài ở rạn san hô thay vì tour nặng về chụp ảnh và ăn uống."
+          "label": "QUALITY",
+          "value": "Useful time in the water matters more than the number of stops",
+          "note": "A good itinerary should make clear:\n• How long each stop lasts.\n• How many minutes are actually available for swimming or snorkeling.\n• Which stop is the main coral site.\n• Whether lunch is on an island or on the boat.\n• Travel time between stops.\n• How many guests share the speedboat.\n• Whether weak swimmers have dedicated support.\nFewer stops with enough water time can be much better than racing across several islands for 20-30 minutes each. If snorkeling is your priority, choose a tour that gives real time at the reef rather than one built mostly around photos and meals."
         },
         {
           "icon": "03",
-          "label": "TRƯỚC KHI ĐI",
-          "value": "Xem biển và xác nhận cano",
-          "note": "Thời tiết đẹp trên bờ không tự động nghĩa là biển An Thới phù hợp. Cần kiểm tra gió, sóng, mưa, tầm nhìn dưới nước và chính sách đổi tuyến.\nCũng cần xác nhận:\n• Đi tàu hay cano.\n• Điểm tập trung và thời gian đón.\n• Tên đảo dự kiến trong ngày.\n• Hoạt động nào đã bao gồm.\n• Phí nào trả thêm.\n• Có áo phao, kính, ống thở và chân vịt không.\n• Phương án nếu biển xấu hoặc không thể vào đảo."
+          "label": "BEFORE YOU GO",
+          "value": "Check the sea and confirm the boat setup",
+          "note": "Good weather on land does not automatically mean An Thoi waters are suitable. Check wind, waves, rain, underwater visibility and the operator's route-change policy.\nAlso confirm:\n• Boat or speedboat.\n• Meeting point and pickup time.\n• Planned island stops for that day.\n• What activities are included.\n• What costs extra.\n• Whether life jackets, masks, snorkels and fins are provided.\n• What happens if rough sea prevents access to one of the islands."
         }
       ],
       "sections": [
         {
-          "heading": "Đừng mua chỉ bằng danh sách tên đảo",
-          "body": "Quần đảo An Thới có nhiều điểm dừng có thể kết hợp. Một tour tốt cần nói rõ thời gian thật trên biển, thời gian tại từng điểm, hoạt động bao gồm và phương án đổi điểm nếu điều kiện không phù hợp.\nTên đảo đẹp không bảo đảm trải nghiệm tốt. Một điểm có thể vắng, nước trong và phù hợp để lặn vào ngày này nhưng đông, đục hoặc sóng lớn vào ngày khác."
+          "heading": "Do not buy the tour only from the list of island names",
+          "body": "The An Thoi archipelago gives operators several possible stops. A good tour should explain real time at sea, time at each stop, included activities and the backup plan if conditions change.\nA beautiful island name does not guarantee a good visit. A beach may be quiet and clear one day, then crowded, murky or exposed to waves the next."
         },
         {
-          "heading": "San hô không phải đạo cụ của tour",
-          "body": "Khi lặn ngắm san hô, không đứng lên san hô, không bẻ, chạm hoặc cầm sinh vật biển lên khỏi mặt nước. Không nên cho cá ăn chỉ để gom cá vào một góc chụp ảnh.\nDu khách cần nghe hướng dẫn về điểm xuống nước, luồng cano và cách giữ khoảng cách với rạn. Trải nghiệm tốt là trải nghiệm mà hệ sinh thái vẫn còn nguyên sau khi khách rời đi."
+          "heading": "Coral is not a prop for the tour",
+          "body": "When snorkeling, do not stand on coral, break it, touch it or lift marine life out of the water. Avoid feeding fish simply to gather them for photos.\nListen to instructions about where to enter the water, boat traffic and how to keep distance from the reef. A good experience is one where the ecosystem is still intact after the group leaves."
         }
       ],
       "visitor_questions": [
-        "Hôm nay dự kiến dừng những đảo nào và vì sao?",
-        "Thời gian lặn ngắm san hô thực tế là bao lâu?",
-        "Điểm nào là điểm lặn chính?",
-        "Ăn trưa ở đâu và thực đơn có thay đổi theo ngày không?",
-        "Nếu biển đổi, phương án thay thế là gì?",
-        "Trên cano có bao nhiêu khách và bao nhiêu người hỗ trợ?"
+        "Which islands are planned for today, and why those stops?",
+        "How much actual snorkeling time is included?",
+        "Which stop is the main reef site?",
+        "Where is lunch, and does the menu change by day?",
+        "What is the backup route if the sea changes?",
+        "How many guests and how many crew or guides are on the speedboat?"
       ],
       "sources": [
         {
@@ -1166,44 +1166,44 @@
       ]
     },
     "activity_snorkeling_an_thoi": {
-      "lede": "Lặn ngắm san hô là cách quan sát rạn từ mặt nước bằng kính và ống thở, có thể dùng thêm chân vịt và áo phao tùy tour. Hoạt động dễ tiếp cận hơn lặn bình khí nhưng vẫn cần điều kiện biển phù hợp, thiết bị vừa vặn và người hướng dẫn biết cách tổ chức.\nKhông nên gọi snorkeling là “chỉ cần úp mặt xuống nước”. Người bơi yếu có thể hoảng sợ vì kính vào nước, ống thở không đúng cách, dòng chảy hoặc không nhìn thấy đáy.",
+      "lede": "Snorkeling lets you observe the reef from the surface using a mask and snorkel, with fins and a life jacket depending on the tour. It is easier to access than scuba diving, but it still needs suitable sea conditions, well-fitting equipment and a guide who knows how to organise the group.\nDo not reduce snorkeling to 'just put your face in the water'. Weak swimmers can panic if the mask leaks, breathing through the snorkel feels unfamiliar, the current moves them or they cannot see the bottom.",
       "infographic": [
         {
           "icon": "01",
-          "label": "QUY MÔ",
-          "value": "Một hoạt động ngắn trong hành trình biển, không phải toàn bộ tour",
-          "note": "Snorkeling thường được tổ chức tại một hoặc vài điểm rạn, với các bước:\n• Di chuyển từ bến hoặc đảo tới khu lặn.\n• Nghe hướng dẫn và kiểm tra thiết bị.\n• Xuống nước theo nhóm.\n• Quan sát rạn trong khoảng thời gian giới hạn.\n• Lên lại cano hoặc tàu theo giờ tập trung.\nThời gian có mặt tại điểm không đồng nghĩa toàn bộ thời gian đều được lặn. Cần hỏi rõ thời gian thực tế dưới nước, số người trong nhóm và có người kèm hay không."
+          "label": "SCALE",
+          "value": "A short activity inside a larger sea trip, not the whole tour",
+          "note": "Snorkeling is usually organised at one or more reef sites:\n• Travel from the port or island to the reef.\n• Safety briefing and equipment check.\n• Enter the water as a group.\n• Observe the reef for a limited period.\n• Return to the boat or speedboat at the agreed time.\nBeing at the site for 45 minutes does not mean you get 45 minutes underwater. Ask how much actual water time you have, how large the group is and whether anyone stays close to weaker swimmers."
         },
         {
           "icon": "02",
-          "label": "DỤNG CỤ",
-          "value": "Kính, ống thở, chân vịt và áo phao tùy tour",
-          "note": "Kính phải vừa mặt để không bị tràn nước. Ống thở cần được hướng dẫn cách ngậm và thổi nước. Chân vịt giúp di chuyển nhưng cũng có thể khiến người mới mất thăng bằng nếu chưa quen.\nÁo phao không phải dấu hiệu khách bơi kém. Đây là thiết bị hỗ trợ an toàn, đặc biệt khi có dòng chảy, khách đông hoặc người tham gia chưa quen biển."
+          "label": "EQUIPMENT",
+          "value": "Mask, snorkel, fins and a life jacket depending on the tour",
+          "note": "The mask needs to fit properly so it does not flood. Travellers should be shown how to hold the snorkel, breathe through it and clear water. Fins help movement but can make a beginner feel unbalanced at first.\nA life jacket is not a sign that someone 'cannot swim'. It is a useful safety aid, especially with current, crowded water or anyone unfamiliar with open-sea snorkeling."
         },
         {
           "icon": "03",
-          "label": "ĐIỀU KIỆN TỐT",
-          "value": "Nước đủ trong, sóng vừa và dòng chảy không quá mạnh",
-          "note": "Độ nhìn dưới nước thay đổi theo:\n• Mưa trước đó.\n• Gió và sóng.\n• Dòng chảy.\n• Thủy triều.\n• Số lượng tàu và khách tại điểm.\n• Ánh sáng trong ngày.\nMột điểm từng rất trong không có nghĩa ngày nào cũng nhìn rõ. Nếu nước đục hoặc sóng mạnh, hoạt động có thể giảm chất lượng dù lịch trình vẫn đi đúng điểm."
+          "label": "GOOD CONDITIONS",
+          "value": "Clear enough water, manageable waves and no strong current",
+          "note": "Underwater visibility changes with:\n• Recent rain.\n• Wind and waves.\n• Current.\n• Tide.\n• Boat and visitor density at the site.\n• Light during the day.\nA reef that looked crystal clear yesterday may not look the same today. Murky water or stronger waves can reduce the quality of the activity even if the boat reaches the planned location."
         }
       ],
       "sections": [
         {
-          "heading": "Dễ thử không có nghĩa là không cần an toàn",
-          "body": "Người không bơi giỏi vẫn có thể trải nghiệm trong điều kiện phù hợp nếu có áo phao và hướng dẫn, nhưng không nên ép xuống nước khi hoảng sợ hoặc biển xấu.\nNgười mới nên tập thở ở khu nước nông hoặc sát phương tiện trước khi bơi ra xa. Trẻ nhỏ cần có người lớn kèm trực tiếp, không chỉ giao hoàn toàn cho hướng dẫn viên khi biển đông."
+          "heading": "Easy to try does not mean risk-free",
+          "body": "Someone who is not a strong swimmer can still enjoy snorkeling in the right conditions with a life jacket and good support, but nobody should be forced into the water when frightened or when the sea is poor.\nBeginners should first practise breathing in calm or shallow water close to the boat before moving farther away. Young children need direct adult supervision, not only a guide watching a large group."
         },
         {
-          "heading": "Chất lượng điểm lặn thay đổi theo ngày",
-          "body": "Nước trong, dòng chảy và mật độ tàu khách ảnh hưởng trực tiếp tới trải nghiệm. Đừng đánh giá một điểm chỉ qua ảnh quảng cáo chụp vào ngày lý tưởng.\nNếu biển không phù hợp, lựa chọn an toàn là rút ngắn thời gian hoặc đổi điểm, không cố giữ lịch chỉ để đủ số hoạt động."
+          "heading": "A reef changes from day to day",
+          "body": "Visibility, current and boat traffic all change the experience. Do not judge a reef only from promotional photos taken on an ideal day.\nWhen conditions are poor, shortening the session or changing location is the better decision. The goal is not to preserve the number of advertised activities at any cost."
         }
       ],
       "visitor_questions": [
-        "Hôm nay độ trong của nước và dòng chảy thế nào?",
-        "Thời gian thật dưới nước là bao lâu?",
-        "Có áo phao và người kèm riêng cho người bơi yếu không?",
-        "Khu vực này có tàu hoặc cano di chuyển gần không?",
-        "Nếu người tham gia hoảng sợ giữa chừng thì được hỗ trợ thế nào?",
-        "Có cần mang theo kính cận lặn hoặc thiết bị riêng không?"
+        "What are underwater visibility and current like today?",
+        "How much actual time will we spend in the water?",
+        "Are life jackets and close support available for weak swimmers?",
+        "Will boats or speedboats be moving close to the snorkeling area?",
+        "What happens if someone panics or wants to leave the water early?",
+        "Do I need to bring my own prescription mask or any personal equipment?"
       ],
       "sources": [
         {
