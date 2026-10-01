@@ -147,7 +147,71 @@
     "Trên biển": "At sea",
     "Dương Đông & trung tâm": "Duong Dong & central area",
     "Dương Đông & bờ Tây": "Duong Dong & west coast",
-    "An Thới & Nam đảo": "An Thoi & south island"
+    "An Thới & Nam đảo": "An Thoi & south island",
+    "Giờ này có thể ăn tối hoặc ghé chợ đêm gần nơi mình ở. Muốn xem biểu diễn, hãy kiểm tra thông báo suất tối nay.": "This is a good time for dinner or a nearby night market. If you want to see a show, check tonight's performance notice first.",
+    "Giờ này hợp lịch nhẹ hơn": "A lighter plan works better at this hour",
+    "Ăn tối, chợ đêm hoặc đi bộ gần sẽ hợp hơn cố thêm một điểm xa.": "Dinner, a night market or a nearby walk makes more sense than squeezing in one more distant stop.",
+    "Ngày hôm nay gần khép lại": "The day is almost over",
+    "Giữ phần còn lại nhẹ nhàng, hoặc xem trước lịch cho ngày mai.": "Keep the rest of the day easy, or look ahead to tomorrow.",
+    "Ba món cho buổi sáng": "Three picks for breakfast",
+    "Ba món cho bữa trưa": "Three picks for lunch",
+    "Tối nay chọn món gì?": "What should you eat tonight?",
+    "<figure class=\"food-now-media food-now-media-empty\"><span>Ảnh món đang được bổ sung</span></figure>": "<figure class=\"food-now-media food-now-media-empty\"><span>Dish photo coming soon</span></figure>",
+    "<small>Thành phần cần lưu ý:": "<small>Ingredients to note:",
+    "<span class=\"food-now-link\">Xem món này →</span>": "<span class=\"food-now-link\">View this dish →</span>",
+    "<div class=\"surface-loading\">Chưa mở được gợi ý lúc này. <a href=\"food/\">Xem các món Phú Quốc →</a></div>": "<div class=\"surface-loading\">Suggestions are unavailable right now. <a href=\"food/\">Explore Phu Quoc dishes →</a></div>",
+    "phút đọc ·": "min read ·",
+    "<div class=\"surface-loading\">Những câu chuyện của đảo đang được mở lại. <a href=\"stories/\">Vào mục Câu chuyện →</a></div>": "<div class=\"surface-loading\">Island stories are being reloaded. <a href=\"stories/\">Go to Stories →</a></div>",
+    "Đi câu mực đêm có gì cần biết?": "What should you know before night squid fishing?",
+    "Chọn một buổi tối trên biển và chuẩn bị cho chuyến đi thoải mái hơn.": "Choose an evening at sea and prepare for a more comfortable trip.",
+    "Đi chợ đêm ăn gì, hỏi giá thế nào?": "What to eat at the night market, and how should you ask the price?",
+    "Đi một vòng chợ đêm nhẹ nhàng, chọn món vừa ý và hỏi giá trước khi gọi.": "Take an easy walk around the night market, pick what looks good and ask the price before ordering.",
+    "Một lịch trình tìm hiểu hai nghề truyền thống, không phải chạy theo điểm check-in.": "An itinerary built around two traditional crafts, not a race between photo stops.",
+    "Xem thư viện": "Browse the library",
+    "<span>GIỜ PHÚ QUỐC</span><strong>": "<span>PHU QUOC TIME</span><strong>",
+    "Mở phần khác": "Open another section",
+    "Open Phu Quoc ra đời từ chính những câu hỏi \"cháy máy\" tụi mình nghe mỗi ngày khi làm nghề trên đảo: Sóng vầy cano chạy không em? Khách sạn ở Bắc đảo thì ăn gì cho tiện? Hay đơn giản là cái bãi đó có đáng để chạy xe cả tiếng đồng hồ mòn mỏi tới nơi hay không?": "Open Phu Quoc grew out of the questions we hear all day while working on the island: Can the speedboats run in these waves? Where is it convenient to eat if my hotel is in the north? Is that beach really worth an hour-long drive?",
+    "Lăn lộn làm nghề du lịch đủ lâu giúp tụi mình bắt trúng mạch những ấm ức, bỡ ngỡ của khách. Nhưng để đưa ra lời khuyên thì phải nhìn vào dữ liệu, thời tiết và tình hình thực tế từng ngày chứ không thể nói suông.": "Years of working in tourism have taught us where visitors usually get stuck or frustrated. But useful advice still has to come from data, weather and what is actually happening on the island that day.",
+    "Thông tin được xem từ cơ quan du lịch, hãng dịch vụ, tài liệu đáng tin và nguồn địa phương. Bài cũ không được dùng để khẳng định chuyện đang xảy ra hôm nay.": "We cross-check tourism authorities, operators, reliable documents and local sources. Older articles are not used as proof of what is happening today.",
+    "Số đo thực tế thì gọi đúng là quan trắc. Dự báo vẫn là dự báo. Nếu một nguồn không gửi về, trang không được tự hiểu thành “không mưa” hay “biển bình thường”.": "Measurements are labelled as observations. Forecasts remain forecasts. If a source stops reporting, the site must not interpret that as \"no rain\" or \"normal sea conditions\".",
+    "Cano, tàu cao tốc và phà được xem riêng. Tàu chạy không có nghĩa cano chắc chắn chạy, và ngược lại.": "Island speedboats, passenger fast ferries and vehicle ferries are tracked separately. One operating does not mean the others are automatically operating too.",
+    "Giá vé, lịch diễn và quyền lợi đi kèm có thể đổi theo ngày, độ tuổi, chiều cao hoặc loại vé. Mốc cũ chỉ nên dùng để dự trù, không phải giá bán được cam kết.": "Ticket prices, show schedules and included benefits can change by date, age, height or ticket type. Older prices are useful for budgeting, not as a guaranteed selling price.",
+    "Ưu tiên ảnh đúng địa điểm. Ảnh chỉ mang tính bối cảnh thì phải nói rõ. Bản đồ chỉ ghim đúng một điểm khi biết chắc vị trí; chưa chắc thì chỉ khoanh khu vực.": "We prefer photos of the actual place. Context-only images are labelled clearly. A map pin is used only when the location is verified; otherwise we show the broader area.",
+    "Mỗi món cần giải thích nguồn gốc, nguyên liệu, cách ăn và thành phần có thể gây dị ứng. Công thức thay đổi theo quán nên phần an toàn luôn hướng người dùng hỏi lại nơi phục vụ.": "Each dish should explain its origin, ingredients, how it is eaten and possible allergens. Recipes vary by venue, so safety notes always tell guests to confirm with the place serving it.",
+    "Tụi mình cố gắng minh bạch: thông tin lấy từ đâu, cập nhật lúc mấy giờ và có biến số nào cần quan tâm. Dù sau này Open Phu Quoc có lớn lên thành app hay dịch ra bao nhiêu thứ tiếng, cái cốt lõi \"nói thật - làm thật\" vẫn sẽ không đổi.": "We try to stay transparent about where information comes from, when it was updated and what can still change. However Open Phu Quoc grows - into an app or more languages - the core principle stays the same: say what is true and do what we say.",
+    "Nền tảng thông tin miễn phí cho cộng đồng và du khách. Được xây dựng và chăm sóc tại Phú Quốc bởi JoTrip.": "A free information platform for the community and visitors, built and maintained in Phu Quoc by JoTrip.",
+    "Phú Quốc hôm nay": "Phu Quoc today",
+    "Phú Quốc nhìn từ trên cao năm 2025": "Phu Quoc from above in 2025",
+    "Tìm và lọc bài": "Search and filter articles",
+    "Đi lại & tiện ích": "Transport & practical information",
+    "Lịch sử & văn hóa": "History & culture",
+    "Chưa tìm thấy bài phù hợp. Bạn thử từ khác nhé.": "No matching article found. Try a different search.",
+    "Ảnh hiện chưa tải được.": "The image could not be loaded.",
+    "Ghé thế nào cho tiện?": "How to visit conveniently",
+    "Điều nên biết trước khi tới": "What to know before you go",
+    "Trước khi ghé": "Before you visit",
+    "Xem điều kiện thực tế": "Check current conditions",
+    "Những điều dễ bỏ sót": "Easy things to miss",
+    "Ăn và chọn món": "Eating and choosing dishes",
+    "Điều cần biết khi gọi": "What to know when ordering",
+    "Trước khi ăn hoặc mua": "Before eating or buying",
+    "Những trường hợp cần lưu ý": "Situations to be aware of",
+    "Tìm hiểu thêm": "Learn more",
+    "Nếu ghé thăm": "If you visit",
+    "Sắp lịch thế nào?": "How to plan the timing",
+    "Trước chuyến đi": "Before the trip",
+    "Nhìn đảo hôm nay": "See the island today",
+    "Đọc tư liệu đúng thời điểm": "Read the background in context",
+    "Nếu muốn xem tận nơi": "If you want to see it in person",
+    "Điều nên biết": "What to know",
+    "Chọn mua và tìm hiểu": "Choose, buy and learn",
+    "Địa điểm trên bản đồ": "Location on the map",
+    "Xem tất cả bài": "View all articles",
+    "Bài này chưa được công khai hoặc không tồn tại.": "This article is not public or does not exist.",
+    "Cẩm nang chưa mở được lúc này. Bạn thử tải lại trang nhé.": "The guide is unavailable right now. Please reload the page.",
+    "cách": "away",
+    "đỉnh": "top",
+    "KHÁ": "FAIR"
   },
   "routes": {
     "home": {
@@ -1893,10 +1957,6 @@
       "nearest"
     ],
     [
-      "cách",
-      "away"
-    ],
-    [
       "có thể ghi khác vì mưa cục bộ.",
       "may report differently because rain can be highly local."
     ],
@@ -2629,10 +2689,6 @@
       "Satellite signal is currently low"
     ],
     [
-      "đỉnh",
-      "top"
-    ],
-    [
       "Khá rõ",
       "Fairly clear"
     ],
@@ -2859,10 +2915,6 @@
     [
       "TRUNG BÌNH",
       "MODERATE"
-    ],
-    [
-      "KHÁ",
-      "FAIR"
     ],
     [
       "Mưa dông cần theo dõi",
