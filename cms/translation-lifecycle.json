@@ -126,31 +126,31 @@
       "target_path_pattern": "data/i18n/{locale}/stories.json",
       "targets": {
         "en": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/en/stories.json",
           "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required."
+          "note": "Azure Translator v3 machine draft; human review required. Vietnamese stories source changed on 2026-10-01; translation requires refresh before review/publication."
         },
         "ko": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/ko/stories.json",
           "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese stories source changed on 2026-10-01; translation requires refresh before review/publication."
         },
         "ru": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/ru/stories.json",
           "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese stories source changed on 2026-10-01; translation requires refresh before review/publication."
         },
         "lo": {
           "status": "missing",
@@ -162,13 +162,13 @@
           "note": null
         },
         "zh-Hans": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/zh-Hans/stories.json",
           "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese stories source changed on 2026-10-01; translation requires refresh before review/publication."
         },
         "zh-Hant": {
           "status": "missing",
@@ -197,31 +197,31 @@
       "target_path_pattern": "data/i18n/{locale}/food.json",
       "targets": {
         "en": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/en/food.json",
           "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required."
+          "note": "Azure Translator v3 machine draft; human review required. Vietnamese food source changed on 2026-10-01; translation requires refresh before review/publication."
         },
         "ko": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/ko/food.json",
           "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese food source changed on 2026-10-01; translation requires refresh before review/publication."
         },
         "ru": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/ru/food.json",
           "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese food source changed on 2026-10-01; translation requires refresh before review/publication."
         },
         "lo": {
           "status": "missing",
@@ -233,13 +233,13 @@
           "note": null
         },
         "zh-Hans": {
-          "status": "machine_draft",
+          "status": "stale",
           "target_path": "data/i18n/zh-Hans/food.json",
           "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication."
+          "note": "Manual semantic repair with OpenPhuQuoc glossary/semantic guard against the reviewed English pivot and Vietnamese source; Azure was not used. Human review required before publication. Vietnamese food source changed on 2026-10-01; translation requires refresh before review/publication."
         },
         "zh-Hant": {
           "status": "missing",

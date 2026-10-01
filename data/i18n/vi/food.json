@@ -247,7 +247,7 @@
       "id": "coi-bien-mai",
       "name": "Còi biên mai",
       "category": "seafood",
-      "intro": "Còi biên mai nướng muối ớt là món nhắm \"quốc dân\" trên các bàn nhậu ven biển Phú Quốc. Con biên mai tam giác to bằng bàn tay nhưng phần thịt ngon nhất lại chỉ là hai khối còi tròn lẳn, dầy dặn và săn chắc. Những xâu còi được nướng trên bếp than hồng, xèo xèo lớp sốt muối ớt cay nồng, tỏa ra hương thơm ngào ngạt khiến bất kỳ ai đi ngang qua cũng phải ngoái nhìn.",
+      "intro": "Còi biên mai nướng muối ớt là món nhắm \"quốc dân\" trên các bàn nhậu ven biển Phú Quốc. Con biên mai tam giác to bằng bàn tay nhưng phần thịt ngon nhất lại chỉ là hai khối còi tròn lẳn, dày dặn và săn chắc. Những xâu còi được nướng trên bếp than hồng, xèo xèo lớp sốt muối ớt cay nồng, tỏa ra hương thơm ngào ngạt khiến bất kỳ ai đi ngang qua cũng phải ngoái nhìn.",
       "how_to_eat": "Còi biên mai thường được xiên thành xâu nướng muối ớt hoặc nướng chao. Ăn từng đĩa còi nướng vừa chín tới, kèm theo vài lá rau húng, dưa leo hoặc đậu okra (đậu bắp) nướng cùng để tăng thêm hương vị.",
       "tips": [
         "Còi biên mai rất mau chín; nướng quá lửa sẽ làm còi bị dai và khô cứng.",
@@ -667,7 +667,7 @@
       "allergy_note": "Chả đi kèm có thể là chả cá biển hoặc chả thịt lợn tùy quán. Bạn nên hỏi rõ nếu có tiền sử dị ứng hải sản.",
       "ask_staff": [
         "Quán phục vụ cháo ăn kèm chả cá hay chả thịt heo?",
-        "Trong cháo có nêm sẵn mọt hay gia vị gì đặc biệt không?"
+        "Trong cháo có nêm sẵn bột ngọt hay gia vị gì đặc biệt không?"
       ],
       "sources": [
         {
@@ -975,7 +975,7 @@
         "gừng",
         "nước sốt tùy quán"
       ],
-      "taste_texture": "Thịt cá mú trắng tinh, dầy thớ, dai ngọt tự nhiên và vô cùng mọng nước; da cá dẻo béo ngậy quyện cùng hương thơm ấm áp của gừng tươi và hành lá.",
+      "taste_texture": "Thịt cá mú trắng tinh, dày thớ, dai ngọt tự nhiên và vô cùng mọng nước; da cá dẻo béo ngậy quyện cùng hương thơm ấm áp của gừng tươi và hành lá.",
       "allergen_flags": [
         {
           "key": "fish",
@@ -1014,14 +1014,14 @@
         "#lau-ca-bop"
       ],
       "origin": "Cá bớp là loài cá biển lớn được nuôi bè rất thành công tại vùng biển êm quanh đảo Phú Quốc. Lẩu cá bớp măng chua trở thành món ăn hội họp quen thuộc tại mọi nhà hàng hải sản ven biển.",
-      "why_name": "Món lẩu hải sản với nguyên liệu chính là thịt cá bớp cắt khoanh dầy dặn.",
+      "why_name": "Món lẩu hải sản với nguyên liệu chính là thịt cá bớp cắt khoanh dày dặn.",
       "ingredients": [
         "Cá bớp",
         "rau",
         "nước dùng",
         "bún hoặc mì tùy quán"
       ],
-      "taste_texture": "Thịt cá bớp dầy thớ, mềm ngọt, lớp da cá dẻo béo ngậy đặc trưng; nước lẩu chua thanh dịu nhẹ đậm đà giúp cân bằng hoàn hảo.",
+      "taste_texture": "Thịt cá bớp dày thớ, mềm ngọt, lớp da cá dẻo béo ngậy đặc trưng; nước lẩu chua thanh dịu nhẹ đậm đà giúp cân bằng hoàn hảo.",
       "allergen_flags": [
         {
           "key": "fish",
@@ -1060,13 +1060,13 @@
         "#am-thuc-phu-quoc",
         "#muc-trung-nuong"
       ],
-      "origin": "Mực trứng (mực sữa) được ngư dân Phú Quốc đánh bắt nhiều vào mùa sinh sản. Mực tươi nguyên mi nơ đem nướng ngay tại bãi biển là trải nghiệm ẩm thực đỉnh cao.",
+      "origin": "Mực trứng (mực sữa) được ngư dân Phú Quốc đánh bắt nhiều vào mùa sinh sản. Mực tươi nguyên con đem nướng ngay tại bãi biển là một kiểu ăn rất hợp không khí biển.",
       "why_name": "Đặc điểm nhận dạng của loại mực cái nhỏ chứa đầy trứng béo bùi bên trong khoang bụng.",
       "ingredients": [
         "Mực trứng",
         "gia vị chấm"
       ],
-      "taste_texture": "Thân mực bên ngoài giòn dai, dầy dặn; phần trứng bên trong bùi ngậy, thơm béo vô cùng cuốn hút; vị sa tế nướng mặn cay kích thích.",
+      "taste_texture": "Thân mực bên ngoài giòn dai, dày dặn; phần trứng bên trong bùi ngậy, thơm béo vô cùng cuốn hút; vị sa tế nướng mặn cay kích thích.",
       "allergen_flags": [
         {
           "key": "mollusc",
@@ -1113,7 +1113,7 @@
         "Me",
         "Gia vị nêm tùy quán"
       ],
-      "taste_texture": "Thịt ốc hương giòn sần sật, dầy dặn và ngọt đậm; sốt me đậm đà đan xen hoàn hảo các vị chua - ngọt - cay - mặn.",
+      "taste_texture": "Thịt ốc hương giòn sần sật, dày dặn và ngọt đậm; sốt me đậm đà đan xen hoàn hảo các vị chua - ngọt - cay - mặn.",
       "allergen_flags": [
         {
           "key": "mollusc",
@@ -1145,7 +1145,7 @@
         "lunch",
         "dinner"
       ],
-      "intro": "Tôm tích rang muối (hay còn gọi là bề bề rang muối) luôn biết cách thử thách sự kiên nhẫn nhưng thưởng đền xứng đáng cho thực khách. Lớp vỏ tôm tích được rang cháy cạnh phủ đầy lớp gia vị muối tỏi thơm lừng. Khi kiên nhẫn bóc tách lớp vỏ sắc nhọn, phần thịt tôm tích dầy dặn, ngọt đậm bên trong sẽ khiến bạn vỡ òa vì sung sướng.",
+      "intro": "Tôm tích rang muối (hay còn gọi là bề bề rang muối) luôn biết cách thử thách sự kiên nhẫn nhưng thưởng đền xứng đáng cho thực khách. Lớp vỏ tôm tích được rang cháy cạnh phủ đầy lớp gia vị muối tỏi thơm lừng. Khi kiên nhẫn bóc tách lớp vỏ sắc nhọn, phần thịt tôm tích dày dặn, ngọt đậm bên trong sẽ khiến bạn vỡ òa vì sung sướng.",
       "how_to_eat": "Dùng kéo cắt bỏ hai hàng gai dọc bên thân tôm tích, lột nhẹ lớp vỏ mai trên lưng để lộ ra chuỗi thịt tôm trắng nõn. Chấm thịt tôm vào muối tiêu chanh hoặc ăn trực tiếp để cảm nhận lớp gia vị rang muối đậm đà bên ngoài.",
       "tips": [
         "Bạn có thể nhờ nhân viên nhà hàng dùng kéo hỗ trợ cắt vỏ tôm tích giúp nếu chưa quen bóc.",
@@ -1192,7 +1192,7 @@
         "dinner",
         "snack"
       ],
-      "intro": "Hàu nướng mỡ hành là món ăn mở màn hoàn hảo cho mọi bữa tiệc hải sản ven biển. Con hàu béo mọng nằm gọn trong lớp vỏ, nướng xèo xèo trên bếp than hồng cùng mỡ hành xanh mướt và đậu phộng rang giã nhỏ. Món ăn dọn ra ngào ngạt hương thơm, đập tan mọi giác quan của thực khách.",
+      "intro": "Hàu nướng mỡ hành là món ăn mở màn hoàn hảo cho mọi bữa tiệc hải sản ven biển. Con hàu béo mọng nằm gọn trong lớp vỏ, nướng xèo xèo trên bếp than hồng cùng mỡ hành xanh mướt và đậu phộng rang giã nhỏ. Món ăn dọn ra thơm nức mùi mỡ hành, nhìn là muốn ăn ngay.",
       "how_to_eat": "Cầm nguyên vỏ hàu nướng còn ấm tay, dùng muỗng nhỏ húp trọn phần nước ngọt hàu tiết ra cùng thịt hàu mềm béo và mỡ hành thơm nức.",
       "tips": [
         "Bạn có thể yêu cầu thay thế mỡ hành bằng sốt phô mai bỏ lò nếu thích vị béo ngậy kiểu Tây.",
@@ -1249,7 +1249,7 @@
         "#canh-chua-ca-bop"
       ],
       "origin": "Canh chua là món ăn linh hồn trong mâm cơm người Nam Bộ. Tại Phú Quốc, việc sử dụng cá bớp biển tươi rói nấu canh chua đã nâng tầm món ăn này thành đặc sản khó quên.",
-      "why_name": "Mon canh chua truyền thống Nam Bộ kết hợp nguyên liệu cá bớp biển béo ngọt.",
+      "why_name": "Món canh chua truyền thống Nam Bộ kết hợp với cá bớp biển béo ngọt.",
       "ingredients": [
         "Cá bớp",
         "rau",
