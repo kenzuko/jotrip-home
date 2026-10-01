@@ -8,6 +8,11 @@ assert.equal(byId.size,hotels.length,"Duplicate canonical hotel IDs");
 assert.equal(enrichment.schema_version,"1.0","Unexpected hotel enrichment schema version");
 assert.ok(Array.isArray(enrichment.entries),"Hotel enrichment entries must be an array");
 assert.ok(Array.isArray(enrichment.conflicts),"Hotel enrichment conflicts must be an array");
+assert.equal(enrichment.coverage?.canonical_hotels,hotels.length,"Hotel enrichment canonical coverage mismatch");
+assert.equal(enrichment.coverage?.research_pass_complete,hotels.length,"Hotel research pass must cover all canonical hotels");
+assert.equal(enrichment.coverage?.enriched_entries,enrichment.entries.length,"Hotel enrichment entry coverage mismatch");
+assert.equal(enrichment.coverage?.canonical_only_no_additional_public_evidence,hotels.length-enrichment.entries.length,
+  "Hotel canonical-only coverage mismatch");
 
 const rejectedHosts=new Set([
   "ngocchauhotel.com",
@@ -55,6 +60,19 @@ for(const row of enrichment.entries){
     assert.ok(Number.isFinite(claim.value)&&claim.value>0&&claim.value<=5,
       "Invalid star claim: "+row.id);
     assert.ok(typeof claim.scope==="string"&&claim.scope.trim(),"Missing star claim scope: "+row.id);
+    assert.ok(/^https?:\/\//.test(claim.source_url||""),"Missing star claim source URL: "+row.id);
+  }
+  for(const claim of row.amenity_claims||[]){
+    assert.ok(Array.isArray(claim.values)&&claim.values.length>0,"Empty amenity claim: "+row.id);
+    assert.ok(claim.values.every(x=>typeof x==="string"&&x.trim()),"Invalid amenity value: "+row.id);
+    assert.ok(/^https?:\/\//.test(claim.source_url||""),"Missing amenity source URL: "+row.id);
+    assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(claim.checked_at||""),"Missing amenity checked_at: "+row.id);
+  }
+  if(row.operations){
+    assert.equal(typeof row.operations,"object","Invalid operations object: "+row.id);
+    for(const [key,value] of Object.entries(row.operations)){
+      assert.ok(typeof value==="string"&&value.trim(),"Invalid operation value "+key+": "+row.id);
+    }
   }
 }
 for(const issue of enrichment.conflicts){
