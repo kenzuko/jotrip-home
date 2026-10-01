@@ -332,9 +332,21 @@
           "source_id": "external",
           "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
           "checked_at": "2026-09-19T04:51:03.054Z"
+        },
+        {
+          "source_id": "vinmec__operation_20261001",
+          "url": "https://www.vinmec.com/vie/bai-viet/contact_vinmec-healthcare-system-vi",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.054Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.vinmec.com/vie/bai-viet/contact_vinmec-healthcare-system-vi",
+        "operation_review_note": "Current Vinmec contact page lists Vinmec Phú Quốc and hotline 0297 398 5588; outpatient hours vary by specialty."
+      }
     },
     {
       "id": "utility_vinmec_er",
@@ -354,9 +366,22 @@
           "source_id": "external",
           "url": "https://www.vinmec.com/eng/hospital/vinmec-phu-quoc-hospital",
           "checked_at": "2026-09-19T04:51:03.080Z"
+        },
+        {
+          "source_id": "vinmec_er__operation_20261001",
+          "url": "https://www.vinmec.com/vie/bai-viet/danh-sach-trung-tam-cap-cuu-o-phu-quoc",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.080Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Cấp cứu hoạt động 24/7.",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.vinmec.com/vie/bai-viet/danh-sach-trung-tam-cap-cuu-o-phu-quoc",
+        "operation_review_note": "Vinmec states Phú Quốc emergency service and emergency hotline operate 24/7."
+      }
     },
     {
       "id": "utility_longchau_tran_phu",
@@ -387,11 +412,16 @@
           "source_id": "longchau_42_tranphu_google_place_20260929",
           "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJTwTlvZGNpzERc1Oov0CGDQY",
           "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "longchau_tran_phu__operation_20261001",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "phone_scope": "CHAIN",
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
       "map_review_note": "Tâm cơ sở của đúng chi nhánh 42 Trần Phú. Exact structured business Place ID ChIJTwTlvZGNpzERc1Oov0CGDQY trả khoảng cách 0 m tại tọa độ này. Không coi là cửa vào.",
       "map": {
@@ -403,6 +433,22 @@
         "verified_at": "2026-09-29",
         "note": "Tâm cơ sở của đúng chi nhánh 42 Trần Phú. Exact structured business Place ID ChIJTwTlvZGNpzERc1Oov0CGDQY trả khoảng cách 0 m tại tọa độ này. Không coi là cửa vào.",
         "accuracy": "operator_identity_structured_business_site_centroid"
+      },
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "operation_review_note": "Current Long Châu directory lists 8 Phú Quốc branches including 42 Trần Phú."
       }
     },
     {
@@ -427,9 +473,14 @@
         },
         {
           "source_id": "longchau_327_official_map_2026"
+        },
+        {
+          "source_id": "longchau_nguyen_trung_truc__operation_20261001",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-10-01",
       "map": {
         "lat": 10.2236257,
         "lon": 103.9719213,
@@ -440,8 +491,24 @@
         "verified_at": "2026-09-21"
       },
       "phone_scope": "CHAIN",
-      "operational_status": "UNKNOWN",
-      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "operation_review_note": "Current exact branch page and Phú Quốc directory."
+      }
     },
     {
       "id": "utility_longchau_an_thoi",
@@ -472,12 +539,17 @@
           "source_id": "longchau_46_google_place_crosscheck_20260929",
           "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJY5o0asSXpzERJEewEY1Dy9U",
           "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "longchau_an_thoi__operation_20261001",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "map_review_note": "Tâm cơ sở của đúng chi nhánh 46 Nguyễn Văn Cừ. Structured business Place ID ChIJY5o0asSXpzERJEewEY1Dy9U trả khoảng cách 0 m tại tọa độ probe này. Không coi là tọa độ cửa vào.",
       "phone_scope": "CHAIN",
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
       "map": {
         "lat": 10.018225,
@@ -488,6 +560,22 @@
         "verified_at": "2026-09-29",
         "note": "Tâm cơ sở của đúng chi nhánh 46 Nguyễn Văn Cừ. Structured business Place ID ChIJY5o0asSXpzERJEewEY1Dy9U trả khoảng cách 0 m tại tọa độ probe này. Không coi là tọa độ cửa vào.",
         "accuracy": "operator_identity_structured_business_site_centroid"
+      },
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+        "operation_review_note": "Current exact branch page lists address, phone and daily system hours."
       }
     },
     {
@@ -509,13 +597,34 @@
       "source_refs": [
         {
           "source_id": "longchau_phuquoc_storelist_2026"
+        },
+        {
+          "source_id": "longchau_ganh_dau__operation_20261001",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/thua-dat-19-ban-do-12-x-ganh-dau-tp-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-10-01",
       "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào.",
       "phone_scope": "CHAIN",
-      "operational_status": "UNKNOWN",
-      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/thua-dat-19-ban-do-12-x-ganh-dau-tp-phu-quoc-tinh-kien-giang",
+        "operation_review_note": "Current exact branch page lists Gành Dầu branch and opening from 06:00."
+      }
     },
     {
       "id": "utility_vinmec_duong_dong_clinic",
@@ -570,9 +679,14 @@
       "source_refs": [
         {
           "source_id": "vinmec_phuquoc_current"
+        },
+        {
+          "source_id": "vinmec_phuquoc_emergency__operation_20261001",
+          "url": "https://www.vinmec.com/vie/bai-viet/danh-sach-trung-tam-cap-cuu-o-phu-quoc",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "map_review_note": "Khôi phục pin bệnh viện đã được xác nhận trong Excel; chưa xác minh cửa tiếp nhận cấp cứu.",
       "map": {
         "lat": 10.336498688188055,
@@ -582,6 +696,14 @@
         "source_id": "jotrip_user_pin_20260924",
         "verified_at": "2026-09-24",
         "note": "Tọa độ khuôn viên bệnh viện Bãi Dài, KHÔNG phải cổng cấp cứu; không dùng để chỉ dẫn cấp cứu như cổng chính xác."
+      },
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Cấp cứu hoạt động 24/7; pin là khuôn viên bệnh viện, không phải cổng cấp cứu.",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.vinmec.com/vie/bai-viet/danh-sach-trung-tam-cap-cuu-o-phu-quoc",
+        "operation_review_note": "Vinmec states Phú Quốc emergency service and hotline operate 24/7."
       }
     },
     {
@@ -1249,13 +1371,34 @@
       "source_refs": [
         {
           "source_id": "longchau_phuquoc_storelist_2026"
+        },
+        {
+          "source_id": "longchau_suoi_da__operation_20261001",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/ap-suoi-da-x-duong-to-tp-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-10-01",
       "map_review_note": "Tọa độ cũ bị loại khỏi bản đồ: kết quả OSM khớp địa điểm khác hoặc trùng pin với cơ sở khác. Giữ thông tin trong danh sách cho tới khi xác minh được điểm vào.",
       "phone_scope": "CHAIN",
-      "operational_status": "UNKNOWN",
-      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/ap-suoi-da-x-duong-to-tp-phu-quoc-tinh-kien-giang",
+        "operation_review_note": "Current exact branch page lists Suối Đá branch."
+      }
     },
     {
       "id": "utility_dienmaycholon_nguyen_trung_truc",
@@ -1288,9 +1431,14 @@
           "source_id": "dienmaycholon_operator_map_20260929",
           "url": "https://dienmaycholon.com/he-thong-sieu-thi/200a-nguyen-trung-truc-khu-pho-5-phuong-duong-dong-thanh-pho-phu-quoc-kien-giang",
           "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "dienmaycholon_nguyen_trung_truc__operation_20261001",
+          "url": "https://dienmaycholon.com/he-thong-sieu-thi",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "map": {
         "lat": 10.2232312,
         "lon": 103.9700297,
@@ -1305,7 +1453,22 @@
         "gps_review_at": "2026-09-29",
         "gps_review_status": "SITE_CENTROID_ACCEPTED",
         "verified_entrance": false,
-        "gps_review_note": "Tọa độ lấy từ link Nhận chỉ đường Google Maps do trang chi nhánh chính thức Điện Máy Chợ Lớn Phú Quốc công bố. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào."
+        "gps_review_note": "Tọa độ lấy từ link Nhận chỉ đường Google Maps do trang chi nhánh chính thức Điện Máy Chợ Lớn Phú Quốc công bố. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://dienmaycholon.com/he-thong-sieu-thi",
+        "operation_review_note": "Current official store directory lists the Phú Quốc branch at 200A Nguyễn Trung Trực and system hours 08:30-21:30 daily."
+      },
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:30",
+            "end": "21:30",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Điện Máy - Nội Thất Chợ Lớn; chi nhánh có thể thay đổi."
       }
     }
   ]
