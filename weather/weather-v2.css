@@ -2740,3 +2740,50 @@ footer{font-size:9.5px}
 .human-comfort-layer .human-comfort-index{margin-top:6px;font-weight:850;color:#345765}
 .human-comfort-layer .human-comfort-method{margin-top:5px;color:#829198}
 @media(max-width:640px){.human-comfort-layer{padding:12px 13px;border-radius:14px}.human-comfort-head{align-items:flex-start}.human-comfort-head em{max-width:45%;text-align:right}.human-comfort-layer>strong{font-size:18px}.human-comfort-layer>p{font-size:12.5px}}
+
+
+/* Human Layer V1 - editorial output first, evidence and raw metrics second.
+   The engine keeps its existing decision thresholds; this only changes presentation. */
+.weather-now-primary.human-first{
+  grid-template-columns:86px minmax(0,1fr)!important;
+  align-items:center;
+}
+.weather-now-primary.human-first .weather-now-copy{
+  padding-left:20px;
+}
+.weather-now-primary.human-first .weather-now-copy b{
+  font-size:clamp(20px,2.2vw,28px);
+  line-height:1.28;
+  letter-spacing:-.025em;
+}
+.weather-now-primary.human-first .weather-now-copy p{
+  margin-top:8px;
+  max-width:700px;
+  font-size:14px;
+  line-height:1.55;
+  color:#526e7b;
+}
+.actual-panel .human-comfort-layer{
+  margin-top:12px;
+  background:#fbfcfc;
+  border-style:dashed;
+}
+@media(max-width:640px){
+  .weather-now-primary.human-first{
+    grid-template-columns:52px minmax(0,1fr)!important;
+    min-height:92px;
+    gap:11px;
+  }
+  .weather-now-primary.human-first .weather-now-copy{padding-left:10px}
+  .weather-now-primary.human-first .weather-now-copy b{
+    font-size:16px;
+    line-height:1.35;
+  }
+  .weather-now-primary.human-first .weather-now-copy p{
+    margin-top:5px;
+    font-size:12px;
+    line-height:1.45;
+    display:block;
+    -webkit-line-clamp:unset;
+  }
+}
