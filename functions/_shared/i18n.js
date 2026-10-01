@@ -15,7 +15,35 @@ export function localeInfo(value){
   const key=String(value||"").trim().toLowerCase();
   return byCode.get(key)||byUrl.get(key)||null;
 }
+export function localeFromLanguageTag(value){
+  const raw=String(value||"").trim().toLowerCase().replace(/_/g,"-");
+  if(!raw||raw==="*")return null;
+  if(raw==="zh-hant"||raw.startsWith("zh-hant-")||/^zh-(?:tw|hk|mo)(?:-|$)/.test(raw))return localeInfo("zh-Hant");
+  if(raw==="zh-hans"||raw.startsWith("zh-hans-")||/^zh-(?:cn|sg)(?:-|$)/.test(raw)||raw==="zh")return localeInfo("zh-Hans");
+  const exact=localeInfo(raw);
+  if(exact)return exact;
+  return localeInfo(raw.split("-")[0]);
+}
 export function publishedLocales(){return LOCALES.filter(x=>x.published)}
+export function preferredPublishedLocale(header,pathname="/"){
+  const raw=String(header||"").trim();
+  if(!raw)return DEFAULT_LOCALE;
+  const ranked=raw.split(",").map((part,index)=>{
+    const bits=part.trim().split(";"),tag=bits.shift()?.trim()||"";
+    let q=1;
+    for(const bit of bits){
+      const m=/^q=([0-9.]+)$/i.exec(bit.trim());
+      if(m)q=Math.max(0,Math.min(1,Number(m[1])||0));
+    }
+    return{tag,q,index};
+  }).filter(x=>x.tag&&x.q>0).sort((a,b)=>b.q-a.q||a.index-b.index);
+  for(const item of ranked){
+    if(item.tag==="*")return DEFAULT_LOCALE;
+    const info=localeFromLanguageTag(item.tag);
+    if(info&&localeCanServe(info.code,pathname))return info.code;
+  }
+  return DEFAULT_LOCALE;
+}
 export function localePrefix(locale){
   const info=localeInfo(locale);
   return !info||info.code===DEFAULT_LOCALE?"":"/"+info.urlCode;
