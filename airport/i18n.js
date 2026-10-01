@@ -317,6 +317,13 @@
 
   window.JT_SET_LANG=function(next){
     if(!LANGS.includes(next))return;
+    if(next==='vi'||next==='en'){
+      const base='/airport/'+location.search.replace(/(?:^\?|&)lang=[^&]*/,'').replace(/^&/,'?');
+      const target=new URL(base,location.origin);
+      target.searchParams.set('lang',next);
+      location.assign(target.pathname+target.search);
+      return;
+    }
     lang=next;try{localStorage.setItem('jotrip_airport_lang',lang)}catch(_){}
     if(typeof window.renderAll==='function')window.renderAll();
     if(typeof window.JT_RENDER_FIDS==='function')window.JT_RENDER_FIDS(true);
