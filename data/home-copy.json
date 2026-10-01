@@ -1,10 +1,10 @@
 {
   "version": "1.0",
-  "updated": "2026-09-21",
+  "updated": "2026-10-01",
   "hero": {
     "kicker": "PHÚ QUỐC · NGAY LÚC NÀY",
     "title": "Phú Quốc, ngay lúc này.",
-    "lead": "Xem đảo đang thế nào, chọn việc đáng làm và đi tiếp bằng thông tin thực dụng.",
+    "lead": "Nhìn đúng tình trạng của đảo, chọn đúng việc đáng làm rồi đi tiếp với những thông tin thật sự hữu ích.",
     "slides": [
       {
         "label": "MỘT NĂM TRONG NHÀ THÙNG",
@@ -64,44 +64,44 @@
     }
   },
   "footer": {
-    "title": "Hiểu đảo trước. Rồi hãy quyết định.",
-    "lead": "Mở trang khi cần biết đảo đang thế nào, đi đâu cho thuận đường hoặc có chuyện gì nên xem lại trước khi di chuyển.",
-    "note": "Thông tin miễn phí dành cho người dân và du khách. Được xây dựng tại Phú Quốc bởi JoTrip."
+    "title": "Hiểu rõ Phú Quốc, lịch trình thảnh thơi.",
+    "lead": "Kiểm tra nhanh tình hình thực tế, thời tiết hay đường đi để không lỡ việc. Tra cứu trước khi di chuyển để chuyến đi luôn suôn sẻ và tránh chạy quãng đường xa vô ích.",
+    "note": "Nền tảng thông tin miễn phí cho cộng đồng và du khách. Được xây dựng và vận hành tại Phú Quốc bởi JoTrip."
   },
   "site": {
     "about": {
-      "heroLead": "Đi Phú Quốc thường phải tìm thông tin ở nhiều nơi. Open Phu Quoc gom thời tiết, đường đi, điểm đến và những điều nên biết để bạn dễ chọn hơn.",
-      "purposeTitle": "Thông tin du lịch thường nằm rải rác, trong khi mình lại cần quyết định khá nhanh.",
-      "purpose1": "Tên điểm đến mới chỉ là bắt đầu. Cần biết nơi đó có gì, nên dành bao lâu, đi lúc nào và có thể ghép với điểm nào.",
-      "purpose2": "Thời tiết, sân bay, tàu phà, cano và các hoạt động có thể đổi theo giờ. Vì vậy mỗi mục đều ghi lúc cập nhật và được tách khỏi phần cẩm nang ít thay đổi.",
-      "purpose3": "Không có thông tin không có nghĩa là mọi thứ bình thường. Dự báo vẫn là dự báo. Có chuyến trong lịch cũng chưa chắc còn vé. Nếu chưa biết, trang phải nói là chưa biết.",
-      "systemTitle": "Ba loại thông tin giúp bạn dễ lên kế hoạch hơn.",
-      "system1": "Điểm đến, món ăn, văn hóa, khách sạn và lịch trình được biên tập để bạn tìm đúng thứ mình cần.",
-      "system2": "Thời tiết, chuyến bay và chuyện đi lại được xem từ các nguồn riêng, luôn ghi rõ lúc nào vừa cập nhật và khi nào chưa biết chắc.",
-      "system3": "Open Phu Quoc đặt thông tin vào đúng bối cảnh để bạn tự cân nhắc. Một nhãn “đẹp” hay “xấu” không thể quyết định thay người đang đi.",
-      "madeTitle": "JoTrip làm trang này cho người đang khám phá đảo.",
-      "madeLead1": "Open Phu Quoc được JoTrip xây dựng từ những câu hỏi lặp lại trong công việc thật trên đảo: hôm nay biển có đi được không, chuyến bay có thay đổi không, khách ở khu này nên đi đâu, một món ăn có gì bên trong, một điểm đến có đáng chạy xuyên đảo hay không.",
-      "madeLead2": "Sống và làm việc trên đảo giúp tụi mình biết khách thường cần hỏi gì. Còn con số và tình hình hôm nay phải dựa trên nguồn có thời điểm rõ ràng.",
-      "openTitle": "“Open” nhắc tụi mình luôn nói rõ thông tin đến từ đâu, cập nhật khi nào và còn điều gì chưa chắc.",
-      "openLead": "Với mỗi thông tin quan trọng, tụi mình ghi rõ lấy từ đâu, cập nhật khi nào và còn điều gì chưa chắc. Sau này dù có thêm ngôn ngữ hay app, nguyên tắc đó vẫn giữ nguyên.",
-      "footerLead": "Nhìn rõ hơn. Khám phá sâu hơn. Mở ra nhiều hơn.",
-      "footerNote": "Thông tin miễn phí dành cho người dân và du khách. Được xây dựng và chăm sóc tại Phú Quốc bởi JoTrip."
+      "heroLead": "Lên lịch đi Phú Quốc cực nhất là phải nhặt nhạnh thông tin từ chục nguồn khác nhau. Tụi mình làm Open Phu Quoc để gom hết từ thời tiết thực tế, đường đi đến những góc khuất du lịch vào một chỗ, giúp bạn chốt lịch khỏe re.",
+      "purposeTitle": "Giữa ma trận thông tin rối rắm, bạn cần những gợi ý sắc sảo để chốt kèo nhanh gọn.",
+      "purpose1": "Biết tên một cái bãi, một hòn đảo chỉ mới là bước một. Cái dân du lịch thực sự cần là: tới đó chơi được gì, mất mấy tiếng, đi giờ nào đỡ nắng và tiện đường tạt ngang những đâu.",
+      "purpose2": "Đặc sản của đảo là thời tiết biển, giờ tàu phà và cano \"quay xe\" liên tục. Đó là lý do những thông tin biến động tụi mình luôn cố gắng ghi rõ thời điểm cập nhật, tách bạch hẳn với những cẩm nang cố định.",
+      "purpose3": "Dự báo thì vẫn mãi là dự báo, và thấy tàu có lịch chạy không có nghĩa là bạn còn mua được vé. Quan điểm của tụi mình rất rõ: cái gì chắc chắn thì nói, cái gì chưa rõ hoặc đổi tùy ngày thì phải cảnh báo ngay để bạn đỡ lỡ việc.",
+      "systemTitle": "Ba bộ lọc thông tin thực chiến cứu nguy cho lịch trình của bạn.",
+      "system1": "Điểm check-in, quán ngon, chỗ ngủ hay văn hóa bản địa được tụi mình chọn lọc kỹ, lược bỏ bớt những lời khen sáo rỗng để bạn chạm đúng thứ mình cần tìm.",
+      "system2": "Bảng tin thời tiết, biến động chuyến bay hay vé tàu phà được cập nhật theo dữ liệu và nhịp của từng nguồn, có mốc thời gian rõ ràng để bạn đỡ bị động trước giờ G.",
+      "system3": "Open Phu Quoc trả mọi điểm đến về đúng thực tế của nó. Đẹp hay xấu là chuyện của gu, tụi mình chỉ đưa những gì biết được ra rõ ràng để bạn tự cân đo đong đếm cho chuyến đi của chính mình.",
+      "madeTitle": "Jotrip xây nền tảng này cho những ai muốn đi đảo bằng con mắt người bản địa.",
+      "madeLead1": "Open Phu Quoc ra đời từ chính những câu hỏi \"cháy máy\" tụi mình nghe mỗi ngày khi làm nghề trên đảo: Sóng vầy cano chạy không em? Khách sạn ở Bắc đảo thì ăn gì cho tiện? Hay đơn giản là cái bãi đó có đáng để chạy xe cả tiếng đồng hồ mòn mỏi tới nơi hay không?",
+      "madeLead2": "Lăn lộn làm nghề du lịch đủ lâu giúp tụi mình bắt trúng mạch những ấm ức, bỡ ngỡ của khách. Nhưng để đưa ra lời khuyên thì phải nhìn vào dữ liệu, thời tiết và tình hình thực tế từng ngày chứ không thể nói suông.",
+      "openTitle": "Chữ “Open” là lời nhắc: phải minh bạch nguồn tin, rõ ràng giờ giấc và dám thừa nhận những rủi ro có thể đến.",
+      "openLead": "Tụi mình cố gắng minh bạch: thông tin lấy từ đâu, cập nhật lúc mấy giờ và có biến số nào cần quan tâm. Dù sau này Open Phu Quoc có lớn lên thành app hay dịch ra bao nhiêu thứ tiếng, cái cốt lõi \"nói thật - làm thật\" vẫn sẽ không đổi.",
+      "footerLead": "Góc nhìn chân thực. Trải nghiệm sâu sắc. Khám phá trọn vẹn Phú Quốc.",
+      "footerNote": "Nền tảng thông tin miễn phí cho cộng đồng và du khách. Được xây dựng và chăm sóc tại Phú Quốc bởi JoTrip."
     },
     "food": {
-      "headerTitle": "Ăn gì ở Phú Quốc?",
-      "headerSub": "Món địa phương · cách ăn · lưu ý",
+      "headerTitle": "Ăn đúng bài ở Phú Quốc",
+      "headerSub": "Đặc sản bản địa · Cẩm nang gọi món · Bẫy cần tránh",
       "heroEyebrow": "ẨM THỰC · HƯƠNG VỊ ĐẢO",
-      "heroLead": "Mỗi bài giúp bạn hình dung món có vị ra sao, thường ăn thế nào và nên hỏi gì trước khi gọi.",
-      "sideTitle": "Đừng cố ăn cho đủ danh sách.",
-      "sideLead": "Một tô ngon đúng lúc đáng nhớ hơn năm món gọi chỉ để “đã thử”. Nhìn độ tươi, cách làm và khẩu vị của chính mình.",
-      "randomTitle": "Chọn ba món cho dễ lựa.",
-      "footer": "Hiểu món trước, rồi chọn quán sau. Giờ bán, địa chỉ và giá vẫn nên xem lại với từng quán."
+      "heroLead": "Thay vì đọc review khen lấy khen để rồi mặc nhiên nó ngon, tụi mình bóc tách xem món đó mặn ngọt ra sao, dân đảo ăn kiểu gì và mách nhỏ bạn vài câu \"mật khẩu\" cần hỏi chủ quán trước khi gọi món.",
+      "sideTitle": "Bỏ ngay áp lực phải \"ăn sập Phú Quốc\".",
+      "sideLead": "Một đĩa hải sản tươi rói, hợp khẩu vị nhâm nhi lúc đói có giá trị hơn chục món gọi bừa chỉ để check-in. Khẩu vị là của bạn, hãy chọn món dựa trên độ tươi sống, cách chế biến và gu của chính mình.",
+      "randomTitle": "Rối quá thì thử trước ba món này.",
+      "footer": "Biết món ngon, chọn quán chuẩn. Đừng quên gọi kiểm tra lại giá và giờ mở cửa để tránh mất công chạy xe đường xa đến nơi quán lại nghỉ."
     },
     "stories": {
       "eyebrow": "CHUYỆN NGHỀ · CHUYỆN ĐẢO",
-      "title": "Hiểu Phú Quốc sâu hơn một chút.",
-      "lead": "Chuyện về nghề biển, làng nghề và đời sống trên đảo - kể từ tư liệu đã kiểm tra và trải nghiệm của người làm du lịch tại Phú Quốc.",
-      "footer": "Đọc để hiểu đảo hơn một chút. Những chi tiết có thể thay đổi theo thời điểm sẽ được kiểm tra riêng."
+      "title": "Hiểu Phú Quốc qua góc nhìn người trong cuộc.",
+      "lead": "Những câu chuyện ngầm về nghề bám biển, nếp sống làng chài và văn hóa bản địa - được chắt lọc từ dữ liệu, những gì diễn ra thực tế và vốn sống của những người làm du lịch gắn với hòn đảo này.",
+      "footer": "Hiểu hơn về nhịp sống và văn hóa đảo. Tuy nhiên, các thông tin thời sự có thể thay đổi nhanh chóng, hãy luôn cập nhật thông tin mới nhất trước mỗi chuyến đi."
     },
     "guide": {
       "heroEyebrow": "OPEN PHU QUOC · CẨM NANG PHÚ QUỐC",
@@ -122,30 +122,30 @@
       "liveEyebrow": "THÔNG TIN ĐANG DIỄN RA",
       "liveTitle": "Xem nhanh trước khi lên đường.",
       "liveNote": "Thời tiết, chuyến bay và giờ chạy thay đổi theo ngày, nên mình để riêng để bạn mở ra xem lúc cần.",
-      "footer": "Open Phu Quoc · cẩm nang để hiểu trước khi đi. Những gì thay đổi trong ngày sẽ có thời điểm cập nhật riêng."
+      "footer": "Open Phu Quoc · Cuốn cẩm nang \"nằm lòng\" giúp bạn hiểu thấu đáo hòn đảo trước khi đặt chân tới. Những thông tin có thể thay đổi trong ngày được cập nhật theo dữ liệu và lịch của từng nguồn để bạn tiện theo dõi."
     },
     "places": {
-      "headerTitle": "Điểm tham quan",
-      "headerSub": "Phú Quốc · xem nhanh trước khi chọn",
+      "headerTitle": "Chơi đâu ở Phú Quốc?",
+      "headerSub": "Phú Quốc · Lướt nhanh trước khi chốt lịch",
       "heroEyebrow": "ĐIỂM ĐẾN · OPEN PHU QUOC",
-      "heroLead": "Mỗi chỗ đều có ảnh, thời gian nên dành, lúc nên đi và vài chuyện cần biết trước khi lên xe.",
-      "sideTitle": "Đừng xếp lịch chỉ từ một tấm ảnh đẹp.",
-      "sideLead": "Cùng một nơi có thể rất khác tùy giờ, thời tiết và quãng đường bạn phải chạy tới đó.",
-      "footer": "Xem chỗ trước, rồi mới xếp lịch. Giờ mở cửa và hoạt động trong ngày vẫn nên kiểm tra lại trước khi đi."
+      "heroLead": "Mỗi điểm đến tụi mình đều bóc tách rõ: chơi mất bao lâu, đi khung giờ nào ít hành xác nhất và vài \"luật ngầm\" bạn nên biết trước khi di chuyển.",
+      "sideTitle": "Đừng bê nguyên lịch trình chỉ vì một tấm ảnh \"sống ảo\".",
+      "sideLead": "Cùng một góc check-in nhưng đi trưa nắng gắt hay ngày biển động là hai câu chuyện hoàn toàn khác. Hãy tính toán cả quãng đường cày ải tới đó xem có đáng bỏ sức không trước khi quyết định đi.",
+      "footer": "Tìm hiểu kỹ điểm đến để tối ưu lịch trình. Nhớ xem lại giờ mở cửa thực tế trong ngày kẻo đến nơi lại \"cửa đóng then cài\"."
     },
     "utilities": {
-      "heroEyebrow": "OPEN PHU QUOC · TIỆN ÍCH",
-      "heroTitle": "Cần gì, tìm ở đây.",
-      "heroLead": "Số điện thoại, tỷ giá, thời gian đi lại, giá vé và những điều dễ quên - gom ở đây để bạn tìm nhanh khi cần.",
-      "emergencyTitle": "Bốn số khẩn cấp cần nhớ.",
-      "directoryTitle": "Gọi đúng nơi.",
-      "transportTitle": "Đi xa hay gần còn tùy đường.",
-      "transportLead": "Mỗi ngày chọn một khu - Bắc đảo, Nam đảo hoặc Dương Đông và bờ Tây - thường đỡ mất thời gian chạy xe hơn.",
-      "pricesTitle": "Dùng để ước chừng trước khi đi.",
-      "pricesNote": "Giá và quyền lợi có thể đổi theo ngày, độ tuổi hoặc chiều cao. Xem để ước chừng chi phí, còn trước khi trả tiền thì nên kiểm tra lại đúng ngày đi.",
-      "checklistTitle": "Ba việc nên kiểm tra trước ngày đi.",
-      "checklistTip": "Xem lại thời tiết, giờ cáp treo, lịch biểu diễn và giờ tàu. Một biểu tượng mưa chưa nói hết thời tiết cả ngày.",
-      "footer": "Số điện thoại và giờ hoạt động có thể thay đổi. Với những mục này, hãy gọi hoặc xem lại trang chính thức trước khi đi."
+      "heroEyebrow": "OPEN PHU QUOC · TIỆN ÍCH BỎ TÚI",
+      "heroTitle": "Cần thông tin gấp, tra ngay ở đây.",
+      "heroLead": "Các số điện thoại nóng, tỷ giá, thời gian chạy xe, giá vé và mấy điều vụn vặt hay bị bỏ quên - tụi mình gom hết sẵn vào đây để bạn cần là lôi ra xài ngay khỏi phải Google.",
+      "emergencyTitle": "Bốn đầu số \"cứu bồ\" buộc phải lưu.",
+      "directoryTitle": "Gõ đúng cửa, gọi đúng người.",
+      "transportTitle": "Xa hay gần còn tùy vào tình trạng đường sá.",
+      "transportLead": "Nguyên tắc để không chạy xe mòn mỏi: mỗi ngày thường nên gom lịch theo một khu chính - Bắc đảo, Nam đảo, hoặc mạn trung tâm Dương Đông và bờ Tây.",
+      "pricesTitle": "Nhẩm tính hầu bao trước khi chốt đơn.",
+      "pricesNote": "Các quy định về giá vé và quyền lợi rất hay thay đổi theo từng dịch vụ, độ tuổi hay chiều cao của khách. Bảng giá này giúp bạn ước chừng ngân sách, nhưng ngay trước lúc quẹt thẻ hay xuống tiền thì nhớ chốt lại giá thực tế với bên bán cho chắc cú.",
+      "checklistTitle": "Ba việc nằm lòng phải check trước giờ G.",
+      "checklistTip": "Cập nhật lại thời tiết, giờ cáp treo vận hành, lịch diễn show và giờ tàu xe. Kinh nghiệm xương máu: thấy app thời tiết báo mưa thì đừng vội hoảng mà hủy lịch, thời tiết biển đảo rất thất thường và một cơn mưa bóng mây không có nghĩa là sẽ hỏng lịch trình cả ngày của bạn đâu.",
+      "footer": "Giờ làm việc và hotline ở đảo có thể thay đổi. Để không mất thời gian chờ đợi hay lỡ việc, hãy gọi trực tiếp trước khi ghé."
     },
     "explore": {
       "eyebrow": "KHÁM PHÁ PHÚ QUỐC",
@@ -160,29 +160,29 @@
       "weatherLead": "Kiểm tra tình hình mới nhất trước các hoạt động ngoài trời"
     },
     "hotels": {
-      "eyebrow": "LƯU TRÚ Ở PHÚ QUỐC",
-      "lead": "Khu vực quyết định quãng đường, nhịp chuyến đi và phần lớn trải nghiệm. Hãy chọn vị trí trước, rồi mới so hạng sao và tiện nghi.",
-      "step1Title": "Chọn khu vực",
-      "step1Lead": "Ưu tiên nơi gần lịch trình chính",
-      "step2Title": "So trong cùng hạng",
-      "step2Lead": "Xem loại hình, vị trí và quy mô",
-      "step3Title": "Kiểm tra quyền lợi",
-      "step3Lead": "Xem kỹ giá, bữa ăn và điều kiện phòng",
-      "filterNote": "Số sao và thông tin liên hệ có thể đổi. Trước khi đặt, nên xem lại trực tiếp với khách sạn."
+      "eyebrow": "CHUYỆN CHỖ NGỦ Ở PHÚ QUỐC",
+      "lead": "Nằm ở khu nào sẽ quyết định bạn phải chạy xe bao xa và ăn uống ra sao. Kinh nghiệm xương máu: hãy chọn vị trí lưu trú cho khớp với cụm điểm chơi trước, sau đó mới mang tiêu chuẩn khách sạn và tiện ích ra đong đếm.",
+      "step1Title": "Bước 1: Chốt khu vực",
+      "step1Lead": "Ưu tiên nằm cùng khu hoặc thuận trục di chuyển với những nơi bạn định bung sức nhiều nhất.",
+      "step2Title": "Bước 2: So kèo cùng phân khúc",
+      "step2Lead": "Đặt lên bàn cân về quy mô, độ tiện lợi đi lại và kiểu không gian hợp với gu của bạn.",
+      "step3Title": "Bước 3: Soi kỹ quyền lợi",
+      "step3Lead": "Đừng chỉ nhìn vào mức giá cuối. Hãy kiểm tra xem đã bao gồm ăn sáng chưa, chính sách đưa đón thế nào và có phụ thu trẻ em không.",
+      "filterNote": "Xếp hạng sao, thông tin liên hệ hoặc một số tiện ích có thể thay đổi hay sai lệch giữa các nguồn. Chắc cú nhất là bạn nên kiểm tra chéo trực tiếp với khách sạn trước khi chốt phòng để tránh những phiền toái không đáng có."
     },
     "nearme": {
-      "eyebrow": "QUANH ĐÂY",
-      "title": "Cần gì quanh đây?",
-      "privacy": "Vị trí của bạn chỉ được dùng trong phiên này khi bạn chủ động bật."
+      "eyebrow": "XUNG QUANH ĐÂY",
+      "title": "Đang đứng đây thì có gì tiện nhất?",
+      "privacy": "Vị trí của bạn chỉ được dùng khi bạn chủ động bật tính năng này để tìm những thứ phù hợp quanh mình."
     },
     "go": {
-      "eyebrow": "HÔM NAY ĐI ĐÂU?",
-      "builderTitle": "Bạn đang ở đâu và còn bao nhiêu thời gian?",
-      "nextTitle": "Còn cả một hòn đảo để khám phá.",
-      "nextLead": "Bạn có thể chọn theo vùng, tìm quán ngon hoặc xem tình hình biển trước khi lên đường.",
-      "footerTitle": "Hiểu đảo trước. Chọn chuyến đi hợp với mình.",
-      "footerLead": "Thông tin về Phú Quốc, làm tại Phú Quốc. Có gì mới, tụi mình cập nhật để bạn dễ lên đường.",
-      "footerNote": "Giờ hoạt động và điều kiện đi lại có thể thay đổi. Hãy xem thông tin mới nhất trước khi đi."
+      "eyebrow": "GIỜ CHẠY ĐI ĐÂU?",
+      "builderTitle": "Bạn đang ở khu nào của đảo và quỹ thời gian còn được mấy tiếng?",
+      "nextTitle": "Vẫn còn cả một hòn đảo đang chờ phía trước.",
+      "nextLead": "Bạn có thể linh hoạt rẽ hướng theo vùng, lùng một quán ăn chắc bụng, hoặc ngó qua tình hình sóng gió hôm nay rồi hẵng lên đường.",
+      "footerTitle": "Nắm rõ tình hình. Chọn đúng hành trình.",
+      "footerLead": "Thông tin được tụi mình cập nhật thường xuyên từ các nguồn đang theo dõi và thực tế tại Phú Quốc, để bạn dễ quyết định nên đi đâu và đi lúc nào.",
+      "footerNote": "Thời tiết biển đảo và giờ hoạt động có thể thay đổi đột xuất. Luôn kiểm tra lại thông tin trước khi xuất phát để không bỏ lỡ."
     }
   }
 }
