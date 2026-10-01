@@ -43,6 +43,11 @@ jobs:
           node --check scripts/weather-cms-smoke.mjs
           node --check functions/_shared/weather-edge.js
           node --check weather/weather-connection.js
+          node --check weather/weather-human-contract.js
+          node --check weather/weather-v3-public-contract.js
+          node --check weather/weather-v3-public.js
+          node --check home-live-v3.js
+          node scripts/weather-cms-v3-public.test.mjs
           node scripts/weather-edge-smoke.mjs
           node scripts/weather-autorecover.test.mjs
           node --check weather/weather-v2.js
