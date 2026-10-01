@@ -66,8 +66,7 @@ const dirs=[
   "hotels",
   "about",
   "news",
-  "go",
-  "localized-pages"
+  "go"
 ];
 
 for(const file of rootFiles){
@@ -76,9 +75,6 @@ for(const file of rootFiles){
 for(const dir of dirs){
   if(existsSync(dir)) await cp(dir,`${out}/${dir}`,{recursive:true});
 }
-// Static alias for Cloudflare Pages previews; production Worker still runs
-// first on /en/* and serves the same reviewed templates through locale routing.
-if(existsSync("localized-pages/en")) await cp("localized-pages/en",`${out}/en`,{recursive:true});
 await rm(`${out}/data/knowledge`,{recursive:true,force:true});
 await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
