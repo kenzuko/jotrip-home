@@ -55,13 +55,13 @@
       "target_path_pattern": "data/i18n/{locale}/ui.json",
       "targets": {
         "en": {
-          "status": "machine_draft",
+          "status": "published",
           "target_path": "data/i18n/en/ui.json",
-          "translated_from_blob_sha": "ae1b0400305118b0fc7a58f304fd23d87cb03a38",
-          "reviewed_by": null,
-          "reviewed_at": null,
-          "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required. Human Weather heat-index copy aligned to the current Vietnamese UI source; human review is still required before publication. Weather LIVE freshness labels aligned to current Vietnamese UI source."
+          "translated_from_blob_sha": "91fe680fdca414ab5a67a8cec3496a2c8a60ce43",
+          "reviewed_by": "site-owner",
+          "reviewed_at": "2026-10-01T19:39:00+07:00",
+          "published_at": "2026-10-01T19:39:00+07:00",
+          "note": "English UI reviewed for public launch on 2026-10-01; food runtime copy and live-language routing checked before publication."
         },
         "ko": {
           "status": "machine_draft",
@@ -126,13 +126,13 @@
       "target_path_pattern": "data/i18n/{locale}/place-explainers.json",
       "targets": {
         "en": {
-          "status": "machine_draft",
+          "status": "published",
           "target_path": "data/i18n/en/place-explainers.json",
           "translated_from_blob_sha": "ba85daae5d14e2ec48f4216c872eccdb814eb735",
-          "reviewed_by": null,
-          "reviewed_at": null,
-          "published_at": null,
-          "note": "Editorial model draft translated from the final Vietnamese source and refreshed on 2026-10-01 after resolving the current Phu Quoc Night Market status; facts, structure and source URLs preserved; human review required before publication."
+          "reviewed_by": "site-owner",
+          "reviewed_at": "2026-10-01T19:39:00+07:00",
+          "published_at": "2026-10-01T19:39:00+07:00",
+          "note": "English editorial translation reviewed for public launch on 2026-10-01; meaning, structure and current-source alignment checked before publication."
         },
         "ko": {
           "status": "missing",
@@ -197,13 +197,13 @@
       "target_path_pattern": "data/i18n/{locale}/stories.json",
       "targets": {
         "en": {
-          "status": "machine_draft",
+          "status": "published",
           "target_path": "data/i18n/en/stories.json",
           "translated_from_blob_sha": "fdc524c0e73d0d1dc6aa7a47412abf81e1884d36",
-          "reviewed_by": null,
-          "reviewed_at": null,
-          "published_at": null,
-          "note": "Editorial model draft refreshed from the final Vietnamese source on 2026-10-01 for the 6 changed Story records; unchanged records retained. Human review required before publication."
+          "reviewed_by": "site-owner",
+          "reviewed_at": "2026-10-01T19:39:00+07:00",
+          "published_at": "2026-10-01T19:39:00+07:00",
+          "note": "English editorial translation reviewed for public launch on 2026-10-01; meaning, structure and current-source alignment checked before publication."
         },
         "ko": {
           "status": "stale",
@@ -268,13 +268,13 @@
       "target_path_pattern": "data/i18n/{locale}/food.json",
       "targets": {
         "en": {
-          "status": "machine_draft",
+          "status": "published",
           "target_path": "data/i18n/en/food.json",
           "translated_from_blob_sha": "46a632e76b60a7397e43de6603c705dd3a4ee937",
-          "reviewed_by": null,
-          "reviewed_at": null,
-          "published_at": null,
-          "note": "Editorial model draft refreshed from the final Vietnamese source on 2026-10-01 for the 9 changed Food records; unchanged records retained. Human review required before publication."
+          "reviewed_by": "site-owner",
+          "reviewed_at": "2026-10-01T19:39:00+07:00",
+          "published_at": "2026-10-01T19:39:00+07:00",
+          "note": "English editorial translation reviewed for public launch on 2026-10-01; meaning, structure and current-source alignment checked before publication."
         },
         "ko": {
           "status": "stale",
@@ -339,13 +339,13 @@
       "target_path_pattern": "data/i18n/{locale}/knowledge.json",
       "targets": {
         "en": {
-          "status": "machine_draft",
+          "status": "published",
           "target_path": "data/i18n/en/knowledge.json",
           "translated_from_blob_sha": "0c02894d0c88c5d79a92f4e00bb5145ae0b31e6c",
-          "reviewed_by": null,
-          "reviewed_at": null,
-          "published_at": null,
-          "note": "Editorial model draft refreshed from the final Vietnamese source on 2026-10-01, including current dynamic Hon Thom cable-car guidance; unchanged records retained. Human review required before publication."
+          "reviewed_by": "site-owner",
+          "reviewed_at": "2026-10-01T19:39:00+07:00",
+          "published_at": "2026-10-01T19:39:00+07:00",
+          "note": "English editorial translation reviewed for public launch on 2026-10-01; meaning, structure and current-source alignment checked before publication."
         },
         "ko": {
           "status": "stale",
