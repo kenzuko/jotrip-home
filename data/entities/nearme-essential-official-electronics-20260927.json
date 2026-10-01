@@ -16,7 +16,7 @@
       "phone": "1900 232 461",
       "what_it_is": "Cửa hàng Điện máy XANH theo danh sách chi nhánh chính thức. Chưa xác minh vị trí cửa vào hay tình trạng mở cửa hiện tại.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -29,20 +29,28 @@
           "source_id": "dmx_operator_map_20260929",
           "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
           "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "dmx_162_304__operation_20261001",
+          "url": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-27-geoapify-followup",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "verified_entrance": false,
         "source_note": "Nguồn hãng niêm yết cửa hàng 162 đường 30/4 KP1; GPS chưa xác minh, không gán tâm khu vực vào cửa hàng.",
         "gps_review_at": "2026-09-29",
         "gps_review_status": "SITE_CENTROID_ACCEPTED",
         "gps_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức Điện máy XANH/TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
-        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch."
+        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+        "operation_review_note": "Current Điện máy XANH directory lists 162 đường 30/4; exact branch hours not promoted in this pass."
       },
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng.",
       "map": {
         "lat": 10.216806,
@@ -68,7 +76,7 @@
       "phone": "1900 232 461",
       "what_it_is": "Cửa hàng Điện máy XANH theo danh sách chi nhánh chính thức. Chưa xác minh vị trí cửa vào hay tình trạng mở cửa hiện tại.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -86,21 +94,29 @@
           "source_id": "dmx_operator_map_20260929",
           "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
           "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "dmx_107_nvc__operation_20261001",
+          "url": "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-27-geoapify-followup",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "verified_entrance": false,
         "source_note": "Nguồn hãng niêm yết 107 Nguyễn Văn Cừ KP3, gần ngã 3 Công Binh; GPS chưa xác minh, không gán tâm khu vực vào cửa hàng.",
         "official_branch_recheck": "Exact operator branch page confirms 107 Nguyễn Văn Cừ KP3, An Thới, near ngã ba Công Binh. No verified GPS coordinates or entrance disclosed in this verification.",
         "gps_review_at": "2026-09-29",
         "gps_review_status": "SITE_CENTROID_ACCEPTED",
         "gps_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức Điện máy XANH/TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
-        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch."
+        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723",
+        "operation_review_note": "Current exact branch page lists 08:00-21:30 including Sundays and holidays."
       },
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng.",
       "map": {
         "lat": 10.019978,
@@ -112,7 +128,17 @@
         "note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức Điện máy XANH/TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
         "accuracy": "operator_linked_google_maps_coordinate"
       },
-      "map_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức Điện máy XANH/TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào."
+      "map_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức Điện máy XANH/TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:30",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      }
     }
   ]
 }
