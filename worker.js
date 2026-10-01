@@ -127,7 +127,7 @@ function technicalLocalizedAsset(pathname){
 const EN_PUBLIC_PAGES=new Set([
   "/","/index.html",
   "/stories","/stories/","/stories/index.html","/stories/article","/stories/article.html",
-  "/guide/knowledge.html","/guide/article","/guide/article.html",
+  "/guide/knowledge","/guide/knowledge.html","/guide/article","/guide/article.html",
   "/food","/food/","/food/index.html","/food/article","/food/article.html",
   "/airport","/airport/","/airport/index.html"
 ]);
@@ -142,7 +142,7 @@ function localizedTemplatePath(locale,pathname){
   if(path==="/"||path==="/index.html")return"/localized-pages/en/index.html";
   if(path==="/stories"||path==="/stories/"||path==="/stories/index.html")return"/localized-pages/en/stories/index.html";
   if(path==="/stories/article"||path==="/stories/article.html")return"/localized-pages/en/stories/article.html";
-  if(path==="/guide/knowledge.html")return"/localized-pages/en/guide/knowledge.html";
+  if(path==="/guide/knowledge"||path==="/guide/knowledge.html")return"/localized-pages/en/guide/knowledge.html";
   if(path==="/guide/article"||path==="/guide/article.html")return"/localized-pages/en/guide/article.html";
   if(path==="/food"||path==="/food/"||path==="/food/index.html")return"/localized-pages/en/food/index.html";
   if(path==="/food/article"||path==="/food/article.html")return"/localized-pages/en/food/article.html";
