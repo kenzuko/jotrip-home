@@ -1,0 +1,50 @@
+{
+  "schema_version": "openpq-dataset-registry-v1",
+  "status": "DESIGN_ONLY",
+  "datasets": [
+    {
+      "id": "weather.current",
+      "cadence_seconds": 300,
+      "failure_isolation": "dataset",
+      "canonical_prefix": "weather/current"
+    },
+    {
+      "id": "weather.groundtruth",
+      "cadence_seconds": 300,
+      "failure_isolation": "dataset",
+      "canonical_prefix": "weather/groundtruth"
+    },
+    {
+      "id": "weather.forecast",
+      "cadence_seconds": 1800,
+      "failure_isolation": "dataset",
+      "canonical_prefix": "weather/forecast"
+    },
+    {
+      "id": "weather.marine",
+      "cadence_seconds": 1800,
+      "failure_isolation": "dataset",
+      "canonical_prefix": "weather/marine"
+    },
+    {
+      "id": "airport.live",
+      "cadence_seconds": 60,
+      "failure_isolation": "dataset",
+      "canonical_prefix": "airport/live",
+      "note": "Final cadence must preserve current Airport freshness requirement and may use source-aware scheduling."
+    },
+    {
+      "id": "transit.network",
+      "cadence_seconds": 1800,
+      "failure_isolation": "dataset",
+      "canonical_prefix": "transit/network"
+    },
+    {
+      "id": "cano.operation",
+      "cadence_seconds": null,
+      "trigger": "event_or_manual",
+      "failure_isolation": "dataset",
+      "canonical_prefix": "marine/cano"
+    }
+  ]
+}
