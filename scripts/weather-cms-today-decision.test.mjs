@@ -37,6 +37,10 @@ check("dry calm valid forecast",row(0,8,14,.6),"good");
   assert.equal(helperCtx.rainGaugeHasCurrentSignal({observed_at:"2026-10-01T05:10:00Z",increment_qc:"NO_NEW_SENSOR_SAMPLE"},45),false);
   assert.equal(helperCtx.rainGaugeHasCurrentSignal({observed_at:"2026-10-01T03:00:00Z",increment_qc:"PASS"},45),false);
   assert(src.includes("Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc."));
+  assert(src.includes("WMO 48917 · Dương Đông"),"WMO 48917 actual card is missing");
+  assert(src.includes("ĐANG CHỜ ẢNH MÂY MỚI"),"source-specific Himawari waiting state is missing");
+  assert(src.includes("Quan trắc mặt đất vẫn đang cập nhật"),"ground-current remote-waiting wording is missing");
+  assert(src.includes("groundEvidenceFresh()"),"ground evidence freshness guard is missing");
   const scene=readFileSync("weather/weather-scene-v3.js","utf8");
   assert(scene.includes("Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc"));
 }
