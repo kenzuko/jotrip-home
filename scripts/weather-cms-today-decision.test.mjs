@@ -21,4 +21,24 @@ check("strong sustained wind",row(0,40,48,.6),"avoid","gió");
 check("missing gust cannot be green",row(0,8,null,.6),"watch","Thiếu");
 check("incomparable gust cannot be green",row(0,25,12,.6),"watch","Thiếu");
 check("dry calm valid forecast",row(0,8,14,.6),"good");
+
+{
+  const helperStart=src.indexOf("function rainGaugeHasCurrentSignal(");
+  const helperEnd=src.indexOf("\nfunction nearestRainGauge(",helperStart);
+  assert(helperStart>=0&&helperEnd>helperStart,"Rain observation freshness helper is missing");
+  const helperCtx={
+    freshEnough:(iso,maxAge)=>{
+      const age=(Date.parse("2026-10-01T05:20:00Z")-Date.parse(iso||""))/60000;
+      return Number.isFinite(age)&&age>=0&&age<=maxAge;
+    }
+  };
+  vm.runInNewContext(src.slice(helperStart,helperEnd)+"\nthis.rainGaugeHasCurrentSignal=rainGaugeHasCurrentSignal;",helperCtx);
+  assert.equal(helperCtx.rainGaugeHasCurrentSignal({observed_at:"2026-10-01T05:10:00Z",increment_qc:"PASS"},45),true);
+  assert.equal(helperCtx.rainGaugeHasCurrentSignal({observed_at:"2026-10-01T05:10:00Z",increment_qc:"NO_NEW_SENSOR_SAMPLE"},45),false);
+  assert.equal(helperCtx.rainGaugeHasCurrentSignal({observed_at:"2026-10-01T03:00:00Z",increment_qc:"PASS"},45),false);
+  assert(src.includes("Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc."));
+  const scene=readFileSync("weather/weather-scene-v3.js","utf8");
+  assert(scene.includes("Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc"));
+}
+
 console.log("10/10 multi-hazard forecast decisions PASS");
