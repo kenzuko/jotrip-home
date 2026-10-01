@@ -23,11 +23,15 @@ async function mount(target,{kind="",id=""}={}){
   if(!host||!root.OpenPQI18n)return false;
   await root.OpenPQI18n.load();
   const current=root.OpenPQI18n.locale();
+  const serverFallback=host.hasAttribute("data-openpq-language-switcher-server");
   const rows=(root.OpenPQI18n.state.catalog?.locales||[]).filter(x=>x.published);
   const available=kind&&id?new Set(root.OpenPQI18n.available(kind,id)):null;
   const basePath=root.OpenPQI18n.strip(location.pathname);
   const choices=rows.filter(x=>(!available||available.has(x.code))&&root.OpenPQI18n.canServe(x.code,basePath));
-  if(choices.length<2){host.hidden=true;host.replaceChildren();return false}
+  if(choices.length<2){
+    if(serverFallback){host.hidden=false;ensureStyle();return host.querySelectorAll("a").length>1}
+    host.hidden=true;host.replaceChildren();return false
+  }
   host.hidden=false;host.replaceChildren();
   const label=document.createElement("span");label.className="opq-language-label";label.textContent="Language";
   const list=document.createElement("div");list.className="opq-language-options";
