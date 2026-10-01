@@ -5,7 +5,7 @@ const root=process.env.OPENPQ_DIST||"dist",base="https://openphuquoc.com";
 const xml=readFileSync(join(root,"sitemap.xml"),"utf8");
 const robots=readFileSync(join(root,"robots.txt"),"utf8");
 assert.match(xml,/<urlset\s+[^>]*xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"[^>]*>/);
-assert.match(xml,/xmlns:xhtml="http:\/\/www.w3.org\/1999\/xhtml"/,"Multilingual sitemap must declare the XHTML namespace");
+if((JSON.parse(readFileSync(join(root,"data/i18n/catalog.json"),"utf8")).locales||[]).filter(x=>x.published).length>1)\n  assert.match(xml,/xmlns:xhtml="http:\/\/www.w3.org\/1999\/xhtml"/,"Multilingual sitemap must declare the XHTML namespace");\nelse\n  assert.doesNotMatch(xml,/xmlns:xhtml=/,"Single-locale sitemap should not declare an unused XHTML namespace");
 const urls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1].replace(/&amp;/g,"&"));
 assert.ok(urls.length>=30,"Sitemap must include published content");
 assert.equal(urls.length,new Set(urls).size,"No duplicate canonical URLs");
