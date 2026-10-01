@@ -22,6 +22,7 @@ from pathlib import Path
 from typing import Any
 
 from weather.points import POINT_NAMES
+from weather.processing.human_weather import build_human_weather
 
 POINTS=tuple(POINT_NAMES)
 NAMES=POINT_NAMES
@@ -130,6 +131,8 @@ def compact_tide(tide:dict,key:str)->dict:
 def compact_nowcast(nowcast:dict,key:str)->dict:
     p=(nowcast.get("points") or {}).get(key,{})
     sig=p.get("convective_signal") or {}
+    motion=p.get("cloud_motion") or {}
+    horizon=p.get("horizon_cloud") or {}
     return {
         "status":nowcast.get("status","UNAVAILABLE"),
         "sampled_time":nowcast.get("sampled_time"),
@@ -139,6 +142,29 @@ def compact_nowcast(nowcast:dict,key:str)->dict:
         "cooling_c_per_20m":num(p.get("cooling_c_per_20m_proxy")),
         "convective_score":num(sig.get("score")),
         "convective_level":sig.get("level"),
+        # Keep public critical.json compact: detailed horizon diagnostics remain
+        # in data-weather/compact-latest.json for audit and Weather internals.
+        "horizon_cloud":{
+            "obscuration_score":num(horizon.get("obscuration_score")),
+            "trend":horizon.get("trend"),
+            "confidence":horizon.get("confidence"),
+        },
+        "cloud_motion":{
+            "status":motion.get("status"),
+            "source_sector":motion.get("source_sector"),
+            "motion_heading":motion.get("motion_heading"),
+            "motion_heading_deg":num(motion.get("motion_heading_deg")),
+            "motion_speed_kmh":num(motion.get("motion_speed_kmh")),
+            "distance_to_target_km":num(motion.get("distance_to_target_km")),
+            "predicted_impact":bool(motion.get("predicted_impact")),
+            "approaching":bool(motion.get("approaching")),
+            "public_track_usable":bool(motion.get("public_track_usable")),
+            "eta_minutes":num(motion.get("eta_minutes")),
+            "closest_approach_km":num(motion.get("closest_approach_km")),
+            "closest_approach_minutes":num(motion.get("closest_approach_minutes")),
+            "tracking_confidence":motion.get("tracking_confidence"),
+            "method":motion.get("method"),
+        },
         "lightning":p.get("lightning_observed") or (nowcast.get("lightning_observed") or {}).get("status"),
     }
 
@@ -155,17 +181,18 @@ def compact_ensemble(ensemble:dict,key:str)->dict:
             if lead_num <= 0 or lead_num > 72:
                 continue
             vars=row.get("variables") or {}
-            item={"lead_hours":lead,"valid_time":row.get("valid_time"),"members":row.get("member_count")}
+            item={"lead_hours":lead,"valid_time":row.get("valid_time")}
             for name in ("wind","rain","temperature"):
                 v=(vars.get(name) or {}).get("corrected") or (vars.get(name) or {}).get("raw") or {}
+                # critical.json is a first-paint contract. q95, thresholds and
+                # member counts remain in the full ensemble product and are not
+                # duplicated here because current consumers use q50/q90,
+                # spread and exceedance probability only.
                 item[name]={
                     "q50":num(v.get("q50")),
                     "q90":num(v.get("q90")),
-                    "q95":num(v.get("q95")),
                     "spread":num(v.get("spread")),
                     "prob":num(v.get("exceedance_probability")),
-                    "threshold":num(v.get("exceedance_threshold")),
-                    "members":v.get("member_count"),
                 }
             out.append(item)
     return {
@@ -187,6 +214,7 @@ def build(dashboard:dict, local:dict, ground:dict, aqi:dict|None=None, tide:dict
     dg=iso(dashboard.get("generated_at"))
     lg=iso(local.get("generated_at"))
     generated=max([x for x in (dg,lg) if x],default=datetime.now(timezone.utc))
+    human_weather=build_human_weather(local,ground,nowcast,generated)
 
     out={}
     for key in POINTS:
@@ -230,6 +258,10 @@ def build(dashboard:dict, local:dict, ground:dict, aqi:dict|None=None, tide:dict
         }
 
     v=(ground.get("atmosphere") or {}).get("vvpq",{})
+    synop=(ground.get("atmosphere") or {}).get("synop_48917",{})
+    synop_resolution=synop.get("identity_resolution") or {}
+    corpus=ground.get("historical_corpus") or {}
+    registry=ground.get("source_registry") or {}
     gauges=[]
     for s in ((ground.get("rainfall") or {}).get("stations") or {}).values():
         gauges.append({
@@ -273,15 +305,23 @@ def build(dashboard:dict, local:dict, ground:dict, aqi:dict|None=None, tide:dict
     }
     sources["VVPQ"]={
         "status":ready_status(v.get("status")),
-        "detail":"METAR sân bay Phú Quốc là một trong các mốc quan trắc thực tế để JoTrip kiểm tra nhiệt độ, gió, tầm nhìn và trạng thái thời tiết hiện tại."
+        "detail":"METAR/SPECI sân bay Phú Quốc là một mốc quan trắc thực tế độc lập cho gió, nhiệt độ, tầm nhìn, mây và hiện tượng thời tiết."
+    }
+    sources["SYNOP_48917"]={
+        "status":ready_status(synop.get("status"),partial_ok=True),
+        "detail":"WMO 48917 là quan trắc SYNOP gần thời gian thực độc lập ở khu Dương Đông. JoTrip dùng nó cùng VVPQ như hai mốc mặt đất riêng, nhưng sẽ hạ độ tin cậy khi hai trạm lệch nhau rõ. Các nhóm mưa/biển chỉ dùng đúng ngữ nghĩa bản tin."
     }
     sources["VRAIN"]={
         "status":ready_status((ground.get("rainfall") or {}).get("status")),
-        "detail":f"Mưa đo thực tế tại {len(gauges)} trạm công khai trên đảo. JoTrip theo dõi mức tăng giữa các lần cập nhật để ước tính cường độ mưa gần hiện tại."
+        "detail":f"Mưa đo thực tế tại {len(gauges)} trạm công khai trên đảo. Chỉ mẫu cảm biến đủ mới mới được dùng để mô tả mưa hiện tại."
+    }
+    sources["GROUNDTRUTH_CORPUS"]={
+        "status":"PASS" if (corpus.get("record_count") or 0)>0 else "FAIL",
+        "detail":f"Bộ Ground Truth đã đưa {int(corpus.get('record_count') or 0)} quan trắc đã xác minh vào lớp kiểm chứng/backtest, đồng thời giữ riêng các nguồn live, lịch sử, báo cáo tổng hợp và nguồn đang chờ raw feed."
     }
     sources["HIMAWARI"]={
         "status":ready_status(nowcast.get("status")),
-        "detail":"Himawari-9 giúp theo dõi mây đối lưu quanh Phú Quốc qua nhiệt độ đỉnh mây, độ cao đỉnh mây và xu hướng phát triển trong khoảng 20 phút."
+        "detail":"Himawari-9 giúp theo dõi mây quanh Phú Quốc qua trường đỉnh mây, xu hướng phát triển và vùng mây trên hướng chân trời hoàng hôn. Lớp chân trời là chỉ báo che khuất, không phải phép đo độ dày quang học."
     }
     sources["AQI"]={
         "status":ready_status(aqi.get("status"),partial_ok=True),
@@ -313,8 +353,85 @@ def build(dashboard:dict, local:dict, ground:dict, aqi:dict|None=None, tide:dict
         else:
             gaps.append({"name":name or "Phần còn thiếu","detail":detail})
 
+    human_evidence=(human_weather.get("evidence_status") or {})
+    operational_sources=registry.get("sources") or []
+    def compact_source_state(source:dict)->dict:
+        freshness=source.get("freshness") or {}
+        return {
+            "id":source.get("id"),
+            "tier":source.get("tier"),
+            "health":source.get("health"),
+            "status":source.get("status"),
+            "last_observation":source.get("last_observation"),
+            "freshness":{
+                "state":freshness.get("state"),
+                "age_minutes":num(freshness.get("age_minutes")),
+                "budget_minutes":num(freshness.get("budget_minutes")),
+            },
+        }
+    evidence_layers={
+        "ACTUAL_GROUND":{
+            "data_class":"ACTUAL",
+            "sources":[compact_source_state(s) for s in operational_sources if s.get("tier") in {"ACTIVE_REALTIME","ACTIVE_NEAR_REALTIME"}],
+        },
+        "OBSERVED_REMOTE":{
+            "data_class":"OBSERVED_REMOTE",
+            "sources":[
+                {
+                    "id":"himawari_9",
+                    "role":"OBSERVED_REMOTE_CLOUD",
+                    "status":((human_evidence.get("observed_remote") or {}).get("himawari") or {}).get("status"),
+                    "health":"HEALTHY" if ((human_evidence.get("observed_remote") or {}).get("himawari") or {}).get("status")=="FRESH" else "DEGRADED_OR_UNAVAILABLE",
+                    "last_observation":nowcast.get("sampled_time"),
+                    "freshness":((human_evidence.get("observed_remote") or {}).get("himawari") or {}),
+                    "provenance":{"source":nowcast.get("source")},
+                    "status_reason":"Ảnh mây là quan sát từ xa, không phải ground truth mặt đất.",
+                },
+                {
+                    "id":"lightning_observation",
+                    "role":"OBSERVED_REMOTE_LIGHTNING",
+                    "status":((nowcast.get("lightning_observed") or {}).get("status") if isinstance(nowcast.get("lightning_observed"),dict) else "NOT_CONNECTED"),
+                    "health":"UNAVAILABLE" if ((nowcast.get("lightning_observed") or {}).get("status") if isinstance(nowcast.get("lightning_observed"),dict) else "NOT_CONNECTED") in {"NOT_CONNECTED","UNAVAILABLE",None} else "HEALTHY",
+                    "last_observation":None,
+                    "freshness":{"state":"NO_DIRECT_FEED","age_minutes":None,"budget_minutes":None},
+                    "provenance":{"source":"DIRECT_LIGHTNING_FEED_PENDING"},
+                    "status_reason":((nowcast.get("lightning_observed") or {}).get("detail") if isinstance(nowcast.get("lightning_observed"),dict) else "Chưa có feed sét trực tiếp ổn định. Không có dữ liệu không có nghĩa là không có sét."),
+                },
+                {
+                    "id":"radar_observation",
+                    "role":"OBSERVED_REMOTE_RADAR",
+                    "status":"NOT_CONNECTED",
+                    "health":"UNAVAILABLE",
+                    "last_observation":None,
+                    "freshness":{"state":"NO_STABLE_FEED","age_minutes":None,"budget_minutes":None},
+                    "provenance":{"source":"RADAR_FEED_PENDING"},
+                    "status_reason":"Chưa có feed radar quan trắc ổn định trong runtime. Không suy không mưa từ việc thiếu radar.",
+                },
+            ],
+        },
+        "DERIVED":{
+            "data_class":"DERIVED",
+            "sources":[{
+                "id":"pq_local_now",
+                "role":"OBSERVATION_ANCHORED_LOCAL_ANALYSIS",
+                "status":"READY" if local.get("points") else "UNAVAILABLE",
+                "last_observation":local.get("generated_at"),
+                "provenance":{"engine":local.get("engine")},
+                "status_reason":"Local Now là phân tích dẫn bởi quan trắc và mô hình nền, không phải phép đo tại trạm.",
+            }],
+        },
+        "FORECAST":{
+            "data_class":"FORECAST",
+            "sources":[
+                {"id":name.lower(),"role":"FORECAST_OR_MODEL_CONTEXT","status":payload.get("status"),"detail":payload.get("detail")}
+                for name,payload in sources.items()
+                if name in {"ECMWF","ICON","GEFS","COPERNICUS","TRIỀU"}
+            ],
+        },
+    }
+
     return {
-        "schema_version":"2.1",
+        "schema_version":"2.2",
         "generated_at":generated.isoformat(),
         "default_point":"duong_dong",
         "island_watch_order":[p for p in ISLAND_WATCH_ORDER if p in out],
@@ -332,6 +449,7 @@ def build(dashboard:dict, local:dict, ground:dict, aqi:dict|None=None, tide:dict
         "local_generated_at":local.get("generated_at"),
         "source_cycles":dashboard.get("source_cycles") or {},
         "sources":sources,
+        "evidence_layers":evidence_layers,
         "gaps":gaps,
         "points":out,
         "actual":{
@@ -339,6 +457,7 @@ def build(dashboard:dict, local:dict, ground:dict, aqi:dict|None=None, tide:dict
                 "status":v.get("status"),
                 "observed_at":v.get("observed_at"),
                 "temperature_c":num(v.get("temperature_c")),
+                "dewpoint_c":num(v.get("dewpoint_c")),
                 "wind_kmh":num(v.get("wind_speed_kmh")),
                 "wind_direction_deg":num(v.get("wind_direction_deg")),
                 "pressure_hpa":num(v.get("pressure_hpa")),
@@ -346,10 +465,46 @@ def build(dashboard:dict, local:dict, ground:dict, aqi:dict|None=None, tide:dict
                 "weather":v.get("weather"),
                 "convective_cloud":bool(v.get("convective_cloud")),
             },
+            "synop_48917":{
+                "status":synop.get("status"),
+                "numeric_status":synop.get("numeric_status"),
+                "runtime_eligible":bool(synop.get("runtime_eligible")),
+                "source_namespace":synop.get("source_namespace"),
+                "identifier":synop.get("identifier"),
+                "latest_observed_at":synop.get("latest_observed_at"),
+                "age_minutes":num(synop.get("age_minutes")),
+                "latest_numeric_observed_at":synop.get("latest_numeric_observed_at"),
+                "numeric_age_minutes":num(synop.get("numeric_age_minutes")),
+                "reference_lat":num(synop.get("reference_lat")),
+                "reference_lon":num(synop.get("reference_lon")),
+                "station_epoch":synop.get("station_epoch"),
+                "identity_status":synop.get("identity_status"),
+                "identity_confidence":synop.get("identity_confidence"),
+                "identity_resolution_id":synop.get("identity_resolution_id"),
+                "identity_resolution_status":synop_resolution.get("status"),
+                "identity_resolution_effective_at":synop_resolution.get("effective_at"),
+                "production_role":synop.get("production_role"),
+                "latest_numeric":synop.get("latest_numeric"),
+            },
             "rain_gauges":gauges,
         },
+        "groundtruth":{
+            "schema_version":ground.get("schema_version"),
+            "status":ground.get("status"),
+            "corpus_record_count":int(corpus.get("record_count") or 0),
+            "counts_by_class":corpus.get("counts_by_class") or {},
+            "source_count":len(registry.get("sources") or []),
+            "registry_path":registry.get("canonical_path") or "data/weather-groundtruth/corpus/source-registry.json",
+            "tier_counts":{
+                tier:sum(1 for s in (registry.get("sources") or []) if s.get("tier")==tier)
+                for tier in ("ACTIVE_REALTIME","ACTIVE_NEAR_REALTIME","VALIDATION_HISTORICAL","HOLD_CANDIDATE","RETIRED")
+            },
+            "policy":ground.get("actual_policy"),
+        },
+        "human_weather":human_weather,
         "source_state":{
             "vvpq":v.get("status","UNAVAILABLE"),
+            "synop_48917":synop.get("numeric_status") or synop.get("status","UNAVAILABLE"),
             "vrain":(ground.get("rainfall") or {}).get("status","UNAVAILABLE"),
             "aqi":aqi.get("status","UNAVAILABLE"),
             "tide":tide.get("status","UNAVAILABLE"),
