@@ -44,7 +44,8 @@ for(const id of shops){
   const e=byId.get(id);
   assert.equal(e.utility_type,"PHARMACY");
   assert.equal(e.verified,true);
-  assert.equal(e.operational_status,"UNKNOWN");
+  assert.equal(e.operational_status,"ACTIVE_CONFIRMED","Current Long Châu operator listing independently verifies branch operation: "+id);
+  assert.equal(e.source_audit?.verified_operation,true,"Operation promotion must carry independent source audit: "+id);
   assert.equal(e.phone_scope,"CHAIN");
   assert.ok(e.address);
   assert.ok(!e.map,"Official store listing must not become a guessed GPS pin");
@@ -77,7 +78,8 @@ assert.deepEqual([indexed.get(vcbAnThoi.id)?.map?.lat,indexed.get(vcbAnThoi.id)?
 const dngAnThoi=byId.get("utility_dng_clinic_an_thoi");
 assert.equal(dngAnThoi?.map?.source_id,"dng_an_thoi_operator_structured_map_20260929","DNG An Thoi GPS must retain audited operator/business evidence");
 assert.equal(dngAnThoi?.map?.precision,"site_centroid");
-assert.equal(dngAnThoi?.operational_status,"UNKNOWN","GPS identity evidence must not become a live intake claim");
+assert.equal(dngAnThoi?.operational_status,"ACTIVE_CONFIRMED","Current DNG operator source may verify operation independently of GPS evidence");
+assert.equal(dngAnThoi?.source_audit?.verified_operation,true,"DNG operation promotion must retain its current operator audit");
 assert.equal(dngAnThoi?.source_audit?.verified_entrance,false,"Site centroid must not be presented as an entrance");
 assert.deepEqual([indexed.get(dngAnThoi.id)?.map?.lat,indexed.get(dngAnThoi.id)?.map?.lon],[dngAnThoi.map.lat,dngAnThoi.map.lon]);
 const oneMart=byId.get("utility_minimart_one_mart_duong_dong");
@@ -275,7 +277,8 @@ for(const [id,canonicalId] of [["utility_osm_node_11873236278","utility_dmx_ganh
   assert.equal(community?.publication_status,"COMMUNITY_CANDIDATE","Preserve immutable ODbL source classification");
   assert.equal(confirmed?.map?.source_license,"ODbL-1.0","Derived brand-pin must preserve OSM credit");
   assert.equal(confirmed?.map?.precision,"site_centroid","Do not claim exact entrance from branded OSM point");
-  assert.equal(confirmed?.operational_status,"UNKNOWN","POI matching never establishes live open state");
+  assert.equal(confirmed?.operational_status,"ACTIVE_CONFIRMED","Current operator source, not POI matching, independently establishes active directory status");
+  assert.equal(confirmed?.source_audit?.verified_operation,true,"Active status must carry a separate operation-source audit");
   assert.equal(indexed.get(id)?.duplicate_of,canonicalId,"Prevent duplicate UI pins");
   assert.equal(indexed.get(canonicalId)?.source_license,"ODbL-1.0","Map attribution must be visible");
 }

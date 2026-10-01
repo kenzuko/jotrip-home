@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {existsSync,readFileSync,readdirSync,statSync} from "node:fs";
 import {dirname,join,resolve} from "node:path";
-import {fileURLToPath} from "node:url";
+import {fileURLToPath} from "node:url";\nimport "./test-utility-enrichment.mjs";
 
 const root=resolve(dirname(fileURLToPath(import.meta.url)),"..");
 const read=path=>readFileSync(join(root,path),"utf8");
