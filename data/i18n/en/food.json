@@ -637,7 +637,7 @@
     },
     {
       "id": "chao-cha",
-      "name": "Congee with fish cake",
+      "name": "Cháo chả (congee with sliced fish or pork cake)",
       "category": "local",
       "meal_times": [
         "breakfast",
@@ -658,16 +658,16 @@
       "why_name": "The name describes the dish directly: slow-cooked rice congee served with fish cake.",
       "ingredients": [
         "Rice",
-        "Pork rolls (optional ingredients)",
-        "Onion and pepper",
-        "Spices"
+        "Fish cake or pork cake - depending on the shop",
+        "Spring onion and pepper",
+        "Seasoning"
       ],
       "taste_texture": "The congee is smooth and mild; the fish cake is savoury and springy. Pepper and ginger add warmth.",
       "allergen_flags": [],
-      "allergy_note": "The accompanying patties can be sea fish cakes or pork patties, depending on the restaurant. You should ask if you have a history of seafood allergies.",
+      "allergy_note": "The sliced chả may be fish cake or pork cake depending on the shop. Ask before ordering if you have a fish or seafood allergy.",
       "ask_staff": [
-        "Does the restaurant serve porridge served with fish cakes or pork cakes?",
-        "Are there any special seasonings or spices in the porridge?"
+        "Is today's cháo chả served with fish cake or pork cake?",
+        "Does the porridge already contain MSG or any other seasoning I should know about?"
       ],
       "sources": [
         {
@@ -985,8 +985,8 @@
       ],
       "allergy_note": "Steamed sauce usually contains soy sauce (with soy and gluten ingredients). Fresh grouper weighs in kilograms, so the price is quite expensive.",
       "ask_staff": [
-        "How many kilograms does this grouper weigh?",
-        "Hong Kong soy sauce-style fish steamer or traditional ginger onion steamer?"
+        "About how much does this grouper weigh?",
+        "Is the fish steamed with soy sauce in a Hong Kong style, or simply with ginger and spring onion?"
       ],
       "sources": [
         {
@@ -1031,8 +1031,8 @@
       ],
       "allergy_note": "The skin and fat of the cobia are quite fatty. Diners with marine fish allergies should pay attention. It is necessary to remove fish bones carefully when serving to young children.",
       "ask_staff": [
-        "How many people is this cobia hot pot for eating?",
-        "Is the hot pot soup cooked according to the taste of sour bamboo shoots or the spicy and sour taste of Thai hot pot?"
+        "About how many people is this cobia hotpot sized for?",
+        "Is the broth based on sour bamboo shoots, or a spicier Thai-style sour broth?"
       ],
       "sources": [
         {
@@ -1060,7 +1060,7 @@
         "#am-thuc-phu-quoc",
         "#muc-trung-nuong"
       ],
-      "origin": "Egg-bearing squid, sometimes called milk squid locally, are caught around Phu Quoc during their breeding season. Beachside charcoal grilling is a popular preparation.",
+      "origin": "Egg-bearing squid, sometimes called milk squid locally, are caught around Phu Quoc during their breeding season. Fresh squid brought ashore and grilled straight away is a simple style that fits the island's seaside atmosphere.",
       "why_name": "The name describes small female squid carrying roe inside the body.",
       "ingredients": [
         "Egg squid",
@@ -1076,8 +1076,8 @@
       ],
       "allergy_note": "The amount of roe varies with the fishing season. Squid is a mollusc and can trigger shellfish allergies, so diners with a known mollusc allergy should avoid this dish.",
       "ask_staff": [
-        "Does the egg squid hold a lot of eggs inside the belly today?",
-        "Is this dish priced by plate or by weight?"
+        "Is today's squid likely to have roe inside?",
+        "Is this dish priced by the plate or by weight?"
       ],
       "sources": [
         {
@@ -1109,9 +1109,9 @@
       "origin": "Ốc hương, literally fragrant snails, are prized for their aroma and firm texture. Coating them in sweet-sour tamarind sauce is a popular southern Vietnamese preparation.",
       "why_name": "The name combines the type of sea snail with its defining tamarind glaze.",
       "ingredients": [
-        "Snails",
-        "Mother",
-        "Seasonings vary depending on the shop"
+        "Sweet snails",
+        "Tamarind",
+        "Seasoning - varies by restaurant"
       ],
       "taste_texture": "The snail meat is firm, crisp and sweet; the thick sauce brings sour, sweet, salty and spicy notes.",
       "allergen_flags": [
@@ -1121,10 +1121,10 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Tamarind sauce can be seasoned with a lot of sugar or add a little butter/crushed peanuts depending on the restaurant. People with shellfish allergies need to be careful.",
+      "allergy_note": "Tamarind sauce may include butter, peanuts or other seasonings depending on the restaurant. Anyone with a mollusc or nut allergy should ask about the sauce before ordering.",
       "ask_staff": [
-        "Are snails large or medium-sized today?",
-        "Can you make tamarind sauce that is less sweet/less spicy as requested?"
+        "Are today's sweet snails large or medium-sized?",
+        "Can you make the tamarind sauce less sweet or less spicy?"
       ],
       "sources": [
         {
@@ -1158,10 +1158,10 @@
       "origin": "Mantis shrimp are common in the warm waters around Phu Quoc. Dry-roasting them with seasoned salt is a widely served seafood preparation.",
       "why_name": "Mantis shrimp, called bề bề in northern Vietnam, are dry-roasted with salt, garlic, pepper and spices.",
       "ingredients": [
-        "Shrimp",
-        "salt",
-        "Spices",
-        "may have garlic"
+        "Mantis shrimp",
+        "Salt",
+        "Seasoning",
+        "Garlic - may be included"
       ],
       "taste_texture": "The meat is firm, springy and naturally sweet; the seasoned shell is salty, garlicky and mildly spicy.",
       "allergen_flags": [
@@ -1171,10 +1171,10 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "The shell of the shrimp is very sharp, easy to cut the hand if not peeled properly. The dish belongs to the group of crustacean seafood.",
+      "allergy_note": "Mantis shrimp are crustaceans, and the shell has sharp edges. Ask staff to cut or help peel them if you are not used to handling them.",
       "ask_staff": [
-        "Is today's shrimp swimming in the lake or frozen shrimp?",
-        "Does the restaurant support shrimp peeling to help guests at the table?"
+        "Are today's mantis shrimp live or previously frozen?",
+        "Can the restaurant help cut or peel the shells at the table?"
       ],
       "sources": [
         {
@@ -1192,7 +1192,7 @@
         "dinner",
         "snack"
       ],
-      "intro": "Grilled oysters with spring-onion oil make an easy opening dish for a seafood meal. Each oyster is cooked in its shell with fragrant spring-onion oil and crushed roasted peanuts.",
+      "intro": "Grilled oysters with spring-onion oil make an easy opening dish for a seafood meal. Each oyster is cooked in its shell with fragrant spring-onion oil, often finished with crushed roasted peanuts.",
       "how_to_eat": "Hold the warm shell steady and use a small spoon to take the oyster together with its juices, spring-onion oil and peanuts.",
       "tips": [
         "Some restaurants can replace the spring-onion oil with cheese for a creamier preparation.",
@@ -1203,12 +1203,13 @@
         "#hau-nuong-mo-hanh"
       ],
       "origin": "Oysters are farmed or harvested around Phu Quoc's coast. Grilling shellfish with spring-onion oil is a familiar southern Vietnamese preparation.",
-      "why_name": "Whole oysters are grilled in their shells with spring-onion oil and usually finished with peanuts.",
+      "why_name": "Whole oysters are grilled in their shells with spring-onion oil, often with roasted peanuts on top.",
       "ingredients": [
         "Oysters",
-        "Green onions",
+        "Spring onion",
         "Oil",
-        "Peanuts or cheese"
+        "Peanuts - often included",
+        "Cheese - in some variations"
       ],
       "taste_texture": "The oyster is soft, juicy and briny; aromatic oil and crisp roasted peanuts add richness and texture.",
       "allergen_flags": [
@@ -1218,10 +1219,10 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Roasted peanuts and green onions are required. Diners with peanut or shellfish allergies need to inform the restaurant in advance.",
+      "allergy_note": "This dish often contains roasted peanuts and is always a mollusc dish. If you have a peanut or mollusc allergy, tell the restaurant before ordering and ask whether a separate preparation is possible.",
       "ask_staff": [
-        "Can the restaurant not put peanuts in the grilled oysters for me?",
-        "In addition to grilling spring-onion oil, does the restaurant have grilled oysters with cheese or grilled everything?"
+        "Can you make the grilled oysters without peanuts?",
+        "Do you also serve them with cheese or simply grilled without toppings?"
       ],
       "sources": [
         {
@@ -1263,10 +1264,10 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "The carp meat has a round bone circle in the middle, it is necessary to pay attention to removing the bones when dividing the sour soup for young children.",
+      "allergy_note": "Cobia steaks can contain a central bone. Remove bones carefully when serving the soup to young children.",
       "ask_staff": [
-        "How many users is this bowl of sour fish soup suitable for?",
-        "Do you cook sour flavors with fresh tamarind or sour bamboo shoots?"
+        "About how many people is this bowl of cobia sour soup meant to serve?",
+        "Is the sourness mainly from tamarind, pineapple, sour bamboo shoots, or a combination?"
       ],
       "sources": [
         {
