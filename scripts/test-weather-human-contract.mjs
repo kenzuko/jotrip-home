@@ -42,7 +42,7 @@ function i18n(locale){
   const dry=structuredClone(critical);
   dry.human_weather.rain={};
   const v=human.homepage(dry);
-  assert.equal(v.secondary,"Đo thực tế tại Sân bay Phú Quốc · Nóng và rất oi");
+  assert.equal(v.secondary,"Đo thực tế tại Sân bay Phú Quốc");\n  assert.equal(v.observationMode,"PERIODIC_METAR_SPECI");\n  assert.equal(v.comfortScope,"REFERENCE_STATION_ONLY");
   assert.equal(v.heatIndexText,"Chỉ số cảm giác nóng: khoảng 41°C");
   assert.equal(v.heatIndexMethod,"Tính từ nhiệt độ 31°C và độ ẩm khoảng 79%.");
 }
@@ -75,7 +75,7 @@ function i18n(locale){
   const dry=structuredClone(critical);
   dry.human_weather.rain={};
   const en=human.homepage(dry,{i18n:i18n("en")});
-  assert.equal(en.secondary,"Observed at Phu Quoc Airport · Hot and very humid");
+  assert.equal(en.secondary,"Observed at Phu Quoc Airport");
   assert.equal(en.heatIndexText,"Heat index: around 41°C");
   assert.equal(en.heatIndexMethod,"Calculated from an air temperature of 31°C and about 79% humidity.");
 }
@@ -83,21 +83,21 @@ function i18n(locale){
   const dry=structuredClone(critical);
   dry.human_weather.rain={};
   const ko=human.homepage(dry,{i18n:i18n("ko")});
-  assert.equal(ko.secondary,"푸꾸옥 공항 실측 · 덥고 매우 후텁지근함");
+  assert.equal(ko.secondary,"푸꾸옥 공항 실측");
   assert.equal(ko.heatIndexText,"열지수: 약 41°C");
 }
 {
   const dry=structuredClone(critical);
   dry.human_weather.rain={};
   const ru=human.homepage(dry,{i18n:i18n("ru")});
-  assert.equal(ru.secondary,"Наблюдение: Аэропорт Фукуок · Жарко и очень душно");
+  assert.equal(ru.secondary,"Наблюдение: Аэропорт Фукуок");
   assert.equal(ru.heatIndexText,"Тепловой индекс: около 41°C");
 }
 {
   const dry=structuredClone(critical);
   dry.human_weather.rain={};
   const zh=human.homepage(dry,{i18n:i18n("zh-Hans")});
-  assert.equal(zh.secondary,"富国机场 实测 · 炎热且非常闷热");
+  assert.equal(zh.secondary,"富国机场 实测");
   assert.equal(zh.heatIndexText,"热指数：约 41°C");
 }
 {
