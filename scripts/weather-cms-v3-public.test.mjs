@@ -134,6 +134,9 @@ assert.doesNotMatch(home,/raw\.githubusercontent\.com\/kenzuko\/Jotrip-Lab\/gh-p
 assert.match(home,/local\.temperature_class === "ESTIMATED_NOW"/);
 assert.match(home,/localAge <= 45/);
 assert.match(home,/freshnessText\(localStamp, "Ước tính"\)/);
+assert.match(home,/const weatherSecondary = weatherSnapshot\.secondary/);
+assert.match(home,/const weatherPrimary = weatherSnapshot\.primary/);
+assert.match(home,/source_class: weatherSnapshot\.sourceClass/);
 assert.ok(home.indexOf('local.temperature_c') < home.indexOf('humanWeather?.temperatureC ?? vvpq?.temperature_c'),
   "Homepage Weather must prefer the current point estimate before falling back to periodic VVPQ");
 assert.match(homepage,/weather\/weather-v3-public-contract\.js/);
