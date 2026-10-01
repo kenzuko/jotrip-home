@@ -50,6 +50,10 @@ assert.match(runtime,/unpublished locales/i);
 const switcher=readFileSync("core/language-switcher.js","utf8");
 assert.match(switcher,/searchParams\.set\("lang",code\)/,
   "Manual language choices must pass through the edge preference endpoint");
+assert.match(switcher,/querySelector\("\.site-header, header\[role=banner\], body > header"\)/,
+  "Language selector must mount in the public header");
+assert.doesNotMatch(switcher,/document\.body\.append\(host\)/,
+  "Language selector must not fall back to a floating body control");
 const worker=readFileSync("worker.js","utf8");
 assert.match(worker,/accept-language/i);
 assert.match(worker,/localized-pages\/en\/index\.html/);
