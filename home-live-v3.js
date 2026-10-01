@@ -2,7 +2,8 @@
   "use strict";
 
   const SRC = {
-    critical: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/gh-pages/weather/data/critical.json",
+    critical: "/weather/data/critical.json",
+    nowcast: "/weather/data/nowcast-compact.json",
     marineOps: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-marine-ops/data/marine_ops/latest.json",
     airport: "https://jotrip-airport-live.kenzuko.workers.dev",
     airportFallback: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-sunairport/data/sunairport/latest.json",
@@ -400,6 +401,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
   Promise.allSettled([
     getJson(SRC.critical),
+    getJson(SRC.nowcast),
     getJson(SRC.marineOps + (SRC.marineOps.includes("?") ? "&" : "?") + "t=" + Date.now()),
     getAirport(),
     getText(SRC.airportHistoryBase + "/" + vnDateKey() + "/events.jsonl"),
@@ -407,8 +409,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
       ? window.OpenPQPublicData.json("data/operational-notices.json")
       : getJson("data/operational-notices.json"),
     localeUiReady
-  ]).then(([c, m, a, e, n]) => {
+  ]).then(([c, w, m, a, e, n]) => {
     let critical = c.status === "fulfilled" ? c.value : null;
+    const nowcast = w.status === "fulfilled" ? w.value : null;
     const marine = m.status === "fulfilled" ? m.value : null;
     const airport = a.status === "fulfilled" ? a.value : null;
     const notices = n.status === "fulfilled" ? n.value : null;
@@ -443,13 +446,29 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const weatherState = weatherAge > 180 || islandDecision.status === "unknown" ? "unknown" :
       islandDecision.status === "normal" && weatherAge <= 60 ? "good" : "watch";
     const weatherPublicFreshness = weatherAge <= 60
-      ? wh("live", {}, "LIVE")
+      ? freshnessText(weatherObservedAt)
       : weatherAge <= 180
         ? wh("updating", {}, "Đang cập nhật")
         : wh("data_delayed", {}, "Dữ liệu đang trễ");
 
-    setLive("weather", weatherPrimary, weatherSecondary, weatherState, weatherPublicFreshness);
-    setContext("weather", weatherPrimary, weatherSecondary, weatherState);
+    const areaToPoint = {
+      zone_central_west:"duong_dong",
+      zone_south:"an_thoi",
+      place_sunset_town:"an_thoi",
+      zone_north:"ganh_dau",
+      all:"duong_dong"
+    };
+    const selectedArea = window.OpenPQArea?.get?.() || "all";
+    const homeWeatherPoint = areaToPoint[selectedArea] || "duong_dong";
+    const shortWeather = window.OpenPQWeatherShortView?.pointView?.(critical, nowcast, homeWeatherPoint) || null;
+    const shortWeatherSoon = shortWeather?.soon || null;
+    const weatherSecondaryPublic =
+      shortWeather?.now?.state === "ACTUAL_RAIN"
+        ? shortWeather.now.headline
+        : weatherSecondary;
+
+    setLive("weather", weatherPrimary, weatherSecondaryPublic, weatherState, weatherPublicFreshness);
+    setContext("weather", weatherPrimary, weatherSecondaryPublic, weatherState);
 
     const seaHs = anThoi?.model?.wave_hs_m ?? anThoi?.local?.wave_hs_m ?? null;
     const seaHmax = anThoi?.model?.wave_hmax_m ?? null;
@@ -512,13 +531,23 @@ function freshnessText(iso, prefix = "Cập nhật") {
       };
 
       const currentCriticalAge = ageMinutes(criticalStamp);
+      if (shortWeatherSoon?.state === "APPROACHING_CONVECTION") {
+        const areaLabel = window.OpenPQArea?.label?.(selectedArea) || "khu vực bạn chọn";
+        push({
+          tone:"watch",
+          title:"Có vùng mây đang tiến gần "+areaLabel+".",
+          note:shortWeatherSoon.detail,
+          primaryText:"Xem thời tiết →", primaryHref:"weather/",
+          secondaryText:"Xem còn kịp gì", secondaryHref:"#happening"
+        });
+      }
       if (critical && currentCriticalAge <= 90 && (hasHighConvective || hasElevatedConvective || observedRain)) {
         push({
           tone:"watch",
-          title:observedRain ? "Nếu đi ngoài trời, giữ lịch linh hoạt." : "Theo dõi thêm mây đối lưu quanh đảo.",
+          title:observedRain ? "Nếu đi ngoài trời, giữ lịch linh hoạt." : "Theo dõi thêm vùng mây phát triển quanh đảo.",
           note:observedRain
             ? "Một số trạm đang ghi nhận mưa. Xem đúng khu vực mình sắp tới trước khi đi xa."
-            : "Ảnh vệ tinh đang cho thấy mây đối lưu, nhưng tín hiệu này chưa đồng nghĩa mặt đất đang mưa hoặc có dông.",
+            : "Ảnh mây đang cho thấy vùng mây phát triển mạnh, nhưng chưa có nghĩa mặt đất đang mưa.",
           primaryText:"Xem thời tiết →", primaryHref:"weather/",
           secondaryText:"Tìm chỗ dễ đổi lịch", secondaryHref:"explore/?intent=rainy-day"
         });
