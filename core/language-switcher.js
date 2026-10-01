@@ -15,7 +15,7 @@ function ensureStyle(){
   if(document.getElementById("openpq-language-switcher-style"))return;
   const style=document.createElement("style");
   style.id="openpq-language-switcher-style";
-  style.textContent=".opq-language-auto{position:fixed;right:14px;bottom:16px;z-index:9998;display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid rgba(23,42,48,.14);border-radius:999px;background:rgba(255,255,255,.94);box-shadow:0 8px 28px rgba(23,42,48,.12);backdrop-filter:blur(10px);font:600 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif}.opq-language-auto[hidden]{display:none}.opq-language-auto .opq-language-label{color:#647178}.opq-language-options{display:flex;gap:4px}.opq-language-options a{display:inline-flex;align-items:center;min-height:32px;padding:0 9px;border-radius:999px;color:#233239;text-decoration:none}.opq-language-options a[aria-current=page]{background:#edf4f1;color:#0b5d4b}.opq-language-options a:focus-visible{outline:2px solid currentColor;outline-offset:2px}@media(max-width:760px){.opq-language-auto{right:10px;bottom:84px}.opq-language-auto .opq-language-label{display:none}.opq-language-options a{min-height:36px;padding:0 10px}}";
+  style.textContent=".opq-language-auto{display:flex;align-items:center;gap:6px;margin-left:auto;padding:4px;border:1px solid rgba(23,42,48,.14);border-radius:999px;background:rgba(255,255,255,.94);font:600 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;white-space:nowrap}.opq-language-auto[hidden]{display:none}.opq-language-auto .opq-language-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.opq-language-options{display:flex;gap:2px}.opq-language-options a{display:inline-flex;align-items:center;justify-content:center;min-width:38px;min-height:32px;padding:0 8px;border-radius:999px;color:#233239;text-decoration:none}.opq-language-options a[aria-current=page]{background:#edf4f1;color:#0b5d4b}.opq-language-options a:focus-visible{outline:2px solid currentColor;outline-offset:2px}@media(max-width:760px){.opq-language-auto{order:8;margin-left:auto;margin-right:4px}.opq-language-options a{min-width:40px;min-height:36px;padding:0 8px}}";
   document.head.append(style);
 }
 async function mount(target,{kind="",id=""}={}){
@@ -42,6 +42,8 @@ async function mount(target,{kind="",id=""}={}){
 }
 async function autoMount(){
   if(!document.body||!root.OpenPQI18n)return false;
+  const header=document.querySelector(".site-header, header.top, header.knowledge-header, header[role=banner], body > header");
+  if(!header)return false;
   let host=document.querySelector("[data-openpq-language-switcher-auto]");
   if(!host){
     host=document.createElement("nav");
@@ -49,7 +51,11 @@ async function autoMount(){
     host.dataset.openpqLanguageSwitcherAuto="";
     host.setAttribute("aria-label","Language");
     host.hidden=true;
-    document.body.append(host);
+  }
+  const menuButton=header.querySelector(".menu-button");
+  if(host.parentElement!==header){
+    if(menuButton)header.insertBefore(host,menuButton);
+    else header.append(host);
   }
   const shown=await mount(host);
   if(shown)ensureStyle();
