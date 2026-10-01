@@ -141,6 +141,7 @@ jobs:
           node scripts/weather-v2-groundtruth-ui.test.mjs
           node --check weather/weather-v3-public-contract.js
           node --check weather/weather-v3-public.js
+          node --check scripts/weather-public-live-smoke.mjs
           node scripts/weather-cms-v3-public.test.mjs
 
       - name: Build Worker assets
