@@ -2,15 +2,15 @@
   "version": "2027 IslandEditorial R3",
   "source_file": "PhuQuoc_SoTayDuLich_2027_IslandEditorial_R3.pptx",
   "source_updated": "2026-09-12",
-  "title": "Cẩm nang Phú Quốc",
-  "intro": "Phú Quốc không phải một hòn đảo nhỏ. Chọn vùng trước, chọn khách sạn và điểm đi sau - như vậy chuyến đi nhẹ hơn rất nhiều.",
+  "title": "Cẩm nang Phú Quốc: Lên lịch trình chuẩn thổ địa",
+  "intro": "Nhiều bạn hay lầm tưởng, nhưng thực tế Phú Quốc không phải là một hòn đảo nhỏ đâu. Bí kíp để đi nhàn nhất là: Chọn vùng muốn khám phá trước, chọn khu lưu trú thuận tiện cho lịch trình, rồi mới nhặt các điểm vui chơi vào sau - làm đúng thứ tự này thì chuyến đi của bạn sẽ nhẹ nhàng hơn rất nhiều.",
   "zones": [
     {
       "id": "north",
       "name": "Bắc đảo",
-      "tag": "RỪNG · VUI CHƠI",
-      "summary": "Rừng, Gành Dầu, Rạch Vẹm, Safari, VinWonders và Grand World.",
-      "best_for": "Gia đình · một ngày vui chơi lớn",
+      "tag": "RỪNG · VUI CHƠI KHÔNG NGỦ",
+      "summary": "Khu vực này nổi tiếng với các mảng rừng, mũi Gành Dầu, làng chài Rạch Vẹm, cùng các tổ hợp giải trí khổng lồ như Safari, VinWonders và Grand World.",
+      "best_for": "Cực kỳ lý tưởng cho các gia đình hoặc những ai cần một ngày xả láng với các khu vui chơi lớn.",
       "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/The%20Herd%20of%20Rhinos.jpg?width=1600",
       "image_source_label": "Wikimedia Commons · Aidashhk",
       "image_source_url": "https://commons.wikimedia.org/wiki/File:The_Herd_of_Rhinos.jpg",
@@ -19,9 +19,9 @@
     {
       "id": "center",
       "name": "Trung tâm & bờ Tây",
-      "tag": "ĐỜI SỐNG · HOÀNG HÔN",
-      "summary": "Dương Đông, Dinh Cậu, chợ đêm, Bãi Trường, Ông Lang và hoàng hôn.",
-      "best_for": "Khách lần đầu · ăn uống · chiều tối",
+      "tag": "ĐỜI SỐNG ĐỊA PHƯƠNG · ĐẶC SẢN HOÀNG HÔN",
+      "summary": "Nơi nhịp sống tấp nập nhất với khu Dương Đông, Dinh Cậu, chợ đêm, cùng dải Bãi Trường và Ông Lang - nơi ngắm hoàng hôn đỉnh nhất đảo.",
+      "best_for": "Đây là lựa chọn \"an toàn\" và tiện lợi cho nhóm khách đi lần đầu, hội đam mê ăn uống và thích lượn lờ chiều tối.",
       "image": "/assets/media/editorial-phu-quoc-sunset.jpg",
       "image_source_label": "Internet (kho JoTrip)",
       "image_source_url": null,
@@ -30,9 +30,9 @@
     {
       "id": "south",
       "name": "Nam đảo",
-      "tag": "BIỂN · CÁP TREO · SHOW",
-      "summary": "Bãi Sao, Bãi Khem, Hòn Thơm, tour đảo, Nhà tù, Hộ Quốc và Sunset Town.",
-      "best_for": "Biển · cáp treo · trải nghiệm tối",
+      "tag": "BIỂN XANH · CÁP TREO · SHOW ĐỈNH CAO",
+      "summary": "Sở hữu những bãi biển đẹp xuất sắc như Bãi Sao, Bãi Khem, tổ hợp cáp treo Hòn Thơm, các tour đảo, Di tích Nhà tù, Chùa Hộ Quốc và thị trấn Sunset Town rực rỡ.",
+      "best_for": "Dành cho team nghiện tắm biển, thích đi cáp treo vượt biển và cày các trải nghiệm giải trí buổi tối.",
       "image": "/assets/media/editorial-sunset-town-aerial.jpg",
       "image_source_label": "Internet (kho JoTrip)",
       "image_source_url": null,
@@ -43,105 +43,105 @@
     {
       "name": "Vinpearl Safari",
       "type": "Thiên nhiên",
-      "note": "Nên đi sáng · nhịp chậm · hợp gia đình"
+      "note": "Kinh nghiệm là nên đi vào buổi sáng cho mát mẻ, giữ nhịp độ tham quan chậm rãi, rất hợp lý cho các gia đình có con nhỏ hay người lớn tuổi."
     },
     {
       "name": "VinWonders",
       "type": "Giải trí",
-      "note": "Cần nhiều giờ · gần trọn ngày"
+      "note": "Khu này rất rộng và ngốn sức, bạn cần xác định dành nhiều giờ đồng hồ, thậm chí là gần trọn một ngày mới đi chơi đã đời được."
     },
     {
       "name": "Grand World",
       "type": "Chiều tối",
-      "note": "Phố đi bộ · kênh đào · show · ăn tối"
+      "note": "Thích hợp để dạo bộ quanh khu phố, đi thuyền trên kênh đào, xem show thực cảnh và ăn tối nhẹ nhàng."
     }
   ],
   "hotels": {
     "tiers": [
       {
         "name": "3 sao",
-        "note": "Ưu tiên vị trí, vệ sinh, bữa sáng và khoảng cách tới ăn uống/biển."
+        "note": "Nên đặt ưu tiên hàng đầu vào vị trí, mức độ vệ sinh sạch sẽ, chất lượng bữa sáng và khoảng cách di chuyển tới các khu ăn uống hoặc bãi biển."
       },
       {
         "name": "4 sao",
-        "note": "Quan tâm thêm hồ bơi, bãi biển, phòng gia đình, xe đưa đón và gói bữa ăn."
+        "note": "Bạn cần quan tâm thêm đến thiết kế hồ bơi, có bãi biển không, sự tiện nghi của phòng gia đình, dịch vụ xe đưa đón và các gói bữa ăn đi kèm."
       },
       {
         "name": "5 sao / luxury",
-        "note": "So chất lượng bãi biển, phòng/villa, dịch vụ, nhà hàng, spa, kids club và riêng tư."
+        "note": "Tầm này thì phải khắt khe so sánh chất lượng bãi biển, sự sang trọng của phòng/villa, đẳng cấp dịch vụ, nhà hàng, khu spa, kids club cho trẻ và tính riêng tư."
       },
       {
         "name": "Ultra-luxury",
-        "note": "Nhìn thương hiệu, villa/phòng, bãi biển và dịch vụ cá nhân thay vì chữ “6 sao”."
+        "note": "Hãy nhìn vào danh tiếng thương hiệu, độ độc bản của villa/phòng, bãi biển và chất lượng của dịch vụ cá nhân thay vì chỉ chăm chăm tin vào mác quảng cáo “6 sao”."
       }
     ],
     "areas": [
       {
         "name": "Nam đảo",
-        "hotels": "JW Marriott, New World, Premier Residences, Premier Village, La Festa",
-        "note": "Nghỉ dưỡng, honeymoon, biển đẹp và lịch Nam đảo."
+        "hotels": "Gợi ý vài cái tên: JW Marriott, New World, Premier Residences, Premier Village, La Festa.",
+        "note": "Khu vực này là chân ái cho các chuyến nghỉ dưỡng xịn sò, kỳ nghỉ trăng mật (honeymoon), mê bãi biển đẹp và tiện cho lịch trình vui chơi Nam đảo."
       },
       {
         "name": "Bãi Trường",
-        "hotels": "Regent, InterContinental, Pullman, Novotel, Sol by Meliá",
-        "note": "Thuận sân bay, trung tâm, gia đình/luxury và hoàng hôn."
+        "hotels": "Những cái tên đáng chú ý: Regent, InterContinental, Pullman, Novotel, Sol by Meliá.",
+        "note": "Tùy vị trí resort, khu vực này có thể rất thuận tiện đi ra sân bay và vào trung tâm, hợp với nhóm gia đình/khách chuộng phân khúc luxury và đặc biệt là ngắm hoàng hôn tuyệt đẹp."
       },
       {
         "name": "Bắc & Tây Bắc",
-        "hotels": "Sheraton, Meliá Vinpearl, Radisson Blu; Ông Lang/Cửa Cạn có Ocean Bay, Camia, Green Bay, Mövenpick",
-        "note": "Gần cụm vui chơi hoặc yên tĩnh hơn."
+        "hotels": "Khu Bắc có Sheraton, Meliá Vinpearl, Radisson Blu; còn khu vực Ông Lang/Cửa Cạn thì có Ocean Bay, Camia, Green Bay, Mövenpick.",
+        "note": "Vị trí này vô cùng tiện lợi nếu bạn muốn ở sát gần cụm vui chơi, hoặc lùi về các resort yên tĩnh hơn hẳn."
       }
     ]
   },
   "food": [
     {
       "group": "Món tươi",
-      "items": "Gỏi cá trích, nhum, còi biên mai, ghẹ / mực / cá theo mùa",
-      "note": "Ưu tiên độ tươi và cách chế biến hơn việc cố đủ danh sách."
+      "items": "Đừng bỏ qua gỏi cá trích, nhum biển (cầu gai), còi biên mai, cùng các loại ghẹ, mực, cá tươi rói theo từng mùa.",
+      "note": "Bí quyết ăn ngon: Hãy ưu tiên độ tươi sống của nguyên liệu và cách chế biến hợp khẩu vị, thay vì mải miết đi check-in cho cố đủ danh sách các quán hot trên mạng."
     },
     {
       "group": "Món bình dân",
-      "items": "Bún quậy, bún kèn",
-      "note": "Dễ ăn, phản ánh nhịp quán địa phương; mỗi quán có cách làm riêng."
+      "items": "Đặc sản bình dân quen mặt nhất là bún quậy và bún kèn.",
+      "note": "Mấy món này rất dễ ăn, phản ánh chân thực nhịp sống của các quán xá địa phương; mỗi quán sẽ có một cách làm và nêm nếm mang hương vị riêng."
     },
     {
       "group": "Mang về",
-      "items": "Nước mắm, hồ tiêu, sim, hải sản khô",
-      "note": "Xem nguồn gốc, đóng gói và quy định hành lý nếu đi máy bay."
+      "items": "Nước mắm chuẩn vị, hạt tiêu, rượu sim và các loại hải sản khô.",
+      "note": "Cẩn thận nhé: Nhớ xem kỹ nguồn gốc, cách đóng gói kỹ càng và đặc biệt lưu ý quy định hành lý của hãng hàng không nếu bạn bay về."
     },
     {
       "group": "Quà lưu niệm",
-      "items": "Ngọc trai",
-      "note": "Nên mua ở nơi có thông tin sản phẩm và chính sách rõ ràng."
+      "items": "Ngọc trai Phú Quốc.",
+      "note": "Tránh mua hàng trôi nổi; chỉ nên mua ở những cơ sở uy tín có đầy đủ thông tin sản phẩm và chính sách rõ ràng."
     }
   ],
   "itineraries": [
     {
       "name": "3 ngày 2 đêm · gia đình có trẻ",
       "days": [
-        "Ngày 1 · Trung tâm: nhận phòng, Dinh Cậu, chợ đêm",
-        "Ngày 2 · Nam đảo: Bãi Sao, cáp treo hoặc trải nghiệm biển",
-        "Ngày 3 · Bắc đảo: chọn Safari hoặc VinWonders, không ôm cả hai"
+        "Ngày 1 · Trung tâm: nhận phòng, Dinh Cậu, chợ đêm.",
+        "Ngày 2 · Chọn một hoạt động chính: tour 3 đảo, Hòn Thơm, Safari hoặc VinWonders.",
+        "Ngày 3 · Tùy giờ bay, chọn hoạt động nhẹ gần khách sạn hoặc nghỉ ngơi trước khi ra sân bay."
       ],
-      "note": "Giữ mỗi ngày một trục, chừa giờ nghỉ và thời gian di chuyển cho trẻ."
+      "note": "Nguyên tắc vàng: Giữ mỗi ngày một trục đường chính thôi, luôn chừa giờ nghỉ ngơi buổi trưa và tính toán thời gian di chuyển thong thả cho trẻ nhỏ. Nếu ngày cuối phải ra sân bay sớm, dành ngày về cho những hoạt động nhẹ nhàng."
     },
     {
       "name": "4 ngày 3 đêm · honeymoon",
       "days": [
-        "Ngày 1 · Check-in, nghỉ phòng/spa, hoàng hôn",
-        "Ngày 2 · Hòn Thơm + Sunset Town + 1 show",
-        "Ngày 3-4 · Resort + một trải nghiệm riêng"
+        "Ngày 1 · Thong thả check-in, nghỉ ngơi tại phòng hoặc đi spa, chiều cùng nhau ngắm hoàng hôn.",
+        "Ngày 2 · Khuấy đảo Hòn Thơm + dạo Sunset Town + chọn xem 1 show diễn buổi tối.",
+        "Ngày 3-4 · Dành thời gian lười biếng ở Resort + đan xen một trải nghiệm riêng tư theo sở thích."
       ],
-      "note": "Honeymoon đẹp nhất khi lịch còn khoảng trống."
+      "note": "Trăng mật (Honeymoon) chỉ thực sự lãng mạn và đẹp nhất khi lịch trình của hai bạn còn những khoảng trống để thong thả tận hưởng."
     },
     {
       "name": "5 ngày 4 đêm · đi sâu hơn một lớp",
       "days": [
-        "Ngày 1-2 · Làm quen trung tâm + một ngày Bắc đảo",
-        "Ngày 3 · Biển An Thới / Hòn Thơm theo thời tiết",
-        "Ngày 4-5 · Nghề đảo, lịch sử và một ngày chậm"
+        "Ngày 1-2 · Dành thời gian làm quen nhịp sống trung tâm + trọn vẹn một ngày quẩy Bắc đảo.",
+        "Ngày 3 · Đi biển An Thới hoặc Hòn Thơm tùy tình hình thời tiết ngày hôm đó.",
+        "Ngày 4-5 · Tìm hiểu nghề truyền thống của dân đảo, các điểm di tích lịch sử và dành một ngày sống thật chậm trước khi về."
       ],
-      "note": "Một lịch trình tốt luôn có quyền bỏ bớt."
+      "note": "Sự thật là: Một lịch trình tốt luôn là lịch trình bạn có quyền mạnh dạn bỏ bớt điểm nếu thấy mệt, không cần chạy sô."
     }
   ]
 }
