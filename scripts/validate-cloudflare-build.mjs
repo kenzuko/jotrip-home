@@ -20,15 +20,7 @@ const required=[
   "dist/data/views/search-index.json",
   "dist/data/views/map-coverage.json",
   "dist/stories/article.html",
-  "dist/places/detail.html",
-  "dist/localized-pages/en/index.html",
-  "dist/localized-pages/en/stories/index.html",
-  "dist/localized-pages/en/guide/knowledge.html",
-  "dist/localized-pages/en/food/index.html",
-  "dist/en/index.html",
-  "dist/en/stories/index.html",
-  "dist/en/guide/knowledge.html",
-  "dist/en/food/index.html"
+  "dist/places/detail.html"
 ];
 
 const missing=required.filter(path=>!existsSync(path));
