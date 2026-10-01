@@ -18,6 +18,20 @@ function alternateMeta(path,availableLocales=[]){
   if(!Array.isArray(availableLocales)||availableLocales.length<2)return[];
   return alternateSet(path,availableLocales).map(row=>({...row,href:new URL(row.path,SEO_ORIGIN).toString()}));
 }
+function languageHref(pathname,code){
+  const source=new URL(pathname,SEO_ORIGIN);
+  const target=new URL(localizedPath(source.pathname,code),SEO_ORIGIN);
+  for(const [key,value] of source.searchParams)if(key!=="lang")target.searchParams.append(key,value);
+  target.searchParams.set("lang",code);
+  return target.pathname+target.search;
+}
+function languageSwitcher(pathname,locale,availableLocales=[]){
+  const codes=[...new Set(availableLocales)].filter(code=>code==="vi"||code==="en");
+  if(codes.length<2)return"";
+  const links=codes.map(code=>'<a href="'+esc(languageHref(pathname,code))+'" lang="'+esc(hreflang(code))+'"'+(code===locale?' aria-current="page"':"")+'>'+code.toUpperCase()+'</a>').join("");
+  return '<nav class="opq-language-auto" data-openpq-language-switcher-auto data-openpq-language-switcher-server aria-label="Language"><span class="opq-language-label">Language</span><div class="opq-language-options">'+links+'</div></nav>';
+}
+const LANGUAGE_SWITCHER_STYLE='.opq-language-auto{display:flex;align-items:center;gap:6px;margin-left:auto;padding:4px;border:1px solid rgba(23,42,48,.14);border-radius:999px;background:rgba(255,255,255,.96);font:700 12px/1.2 system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif;white-space:nowrap;flex:0 0 auto;z-index:30}.opq-language-auto[hidden]{display:none}.opq-language-auto .opq-language-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.opq-language-options{display:flex;gap:2px}.opq-language-options a{display:inline-flex;align-items:center;justify-content:center;min-width:38px;min-height:32px;padding:0 8px;border-radius:999px;color:#233239;text-decoration:none}.opq-language-options a[aria-current=page]{background:#edf4f1;color:#0b5d4b}.opq-language-options a:focus-visible{outline:2px solid currentColor;outline-offset:2px}@media(max-width:760px){.opq-language-auto{order:8;margin-left:auto;margin-right:4px}.opq-language-options a{min-width:40px;min-height:36px;padding:0 8px}}';
 export function buildStoryMeta(story,{locale=DEFAULT_LOCALE,availableLocales=[DEFAULT_LOCALE]}={}){
   if(!story?.id||!story.title)return null;
   const path="/stories/article.html?id="+encodeURIComponent(story.id);
@@ -141,15 +155,21 @@ export function rewriteLocaleHtml(response,{locale=DEFAULT_LOCALE,pathname="/",a
   if(!response.ok||!(response.headers.get("content-type")||"").includes("text/html"))return response;
   const canonical=canonicalFor(pathname,locale,SEO_ORIGIN);
   const alternates=alternateMeta(pathname,availableLocales);
+  const serverSwitcher=languageSwitcher(pathname,locale,availableLocales);
+  let switcherInjected=false;
   const writer=new HTMLRewriter()
     .on("html",{element(el){el.setAttribute("lang",hreflang(locale))}})
     .on('link[rel="canonical"]',{element(el){el.setAttribute("href",canonical)}})
     .on("head",{element(el){
       const links=alternates.map(x=>'<link rel="alternate" hreflang="'+esc(x.hreflang)+'" href="'+esc(x.href)+'">').join("");
       el.append('<meta name="openpq-locale" content="'+esc(locale)+'">'+links+
+        (serverSwitcher?'<style id="openpq-language-switcher-style">'+LANGUAGE_SWITCHER_STYLE+'</style>':"")+
         '<script src="/core/i18n-runtime.js?v=4" defer data-openpq-i18n-runtime></script>'+
         (locale==="en"?'<script src="/core/en-full-site.js?v=2" defer data-openpq-en-full-site></script>':"")+
         '<script src="/core/language-switcher.js?v=4" defer data-openpq-language-switcher></script>',{html:true});
+    }})
+    .on("header",{element(el){
+      if(serverSwitcher&&!switcherInjected){el.append(serverSwitcher,{html:true});switcherInjected=true}
     }});
   return writer.transform(response);
 }
