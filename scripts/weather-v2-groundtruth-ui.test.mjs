@@ -7,7 +7,7 @@ const html=fs.readFileSync("weather/index.html","utf8");
 
 assert.match(js,/actual\.synop_48917\s*=\s*\{/,"Weather V2 must keep SYNOP 48917 as a separate actual stream");
 assert.match(js,/SYNOP_48917:"Quan trắc SYNOP 48917"/,"Weather V2 must expose the 48917 source label");
-assert.match(html,/weather-v2\.js\?v=20261001-human-layer2/,"Weather V2 cache-bust must ship with the Human Layer UI");
+assert.match(html,/weather-v2\.js\?v=20261001-human-layer3/,"Weather V2 cache-bust must ship with the Human Layer UI");
 assert.ok(js.includes("rain:/RA|DZ/.test(wx)"),"VVPQ TS alone must not be treated as measured rain");
 assert.ok(!js.includes("rain:/RA|SHRA|TS/.test(wx)"),"TS without a precipitation code must not imply rain");
 assert.doesNotMatch(js,/thunder:\/TS\/\.test\(wx\)\|\|Boolean\(v\.convective_cloud\)/,"convective cloud must not be relabelled as observed thunder");
