@@ -179,8 +179,17 @@ async function health(request,waitUntil){
   const at=response.headers.get("x-openpq-weather-source-time");
   const age=ageMinutes(at);
   const forecastValid=path===targets[4]?usableDashboard(await response.clone().json().catch(()=>null)):true;
-  return {path,status:!forecastValid?"STALE":age===null?"UNKNOWN":age>({[targets[0]]:45,[targets[1]]:35,[targets[2]]:60,[targets[3]]:210,[targets[4]]:150}[path]||60)?"STALE":"READY",
-    source_time:at,age_minutes:age,via:response.headers.get("x-openpq-weather-edge")};
+  const budgets={
+    [targets[0]]:45,   // Local Now: current-point estimate
+    [targets[1]]:60,   // Himawari: public V3 short-term freshness gate
+    [targets[2]]:90,   // Ground Truth: periodic METAR/SPECI + rain-gauge collection
+    [targets[3]]:420,  // Marine model: cycle product, not a live sea sensor
+    [targets[4]]:360   // Forecast dashboard: usableDashboard also verifies future frames/cycle
+  };
+  const staleByAge=age!==null&&age>budgets[path];
+  return {path,status:!forecastValid?"STALE":age===null?"UNKNOWN":staleByAge?"STALE":"READY",
+    source_time:at,age_minutes:age,freshness_budget_minutes:budgets[path],
+    via:response.headers.get("x-openpq-weather-edge")};
  }));
  return jsonResponse({
   schema_version:"openpq-weather-edge-health-v1",checked_at:new Date().toISOString(),
