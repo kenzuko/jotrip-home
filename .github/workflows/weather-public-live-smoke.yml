@@ -30,12 +30,28 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Validate live smoke syntax
+        run: node --check scripts/weather-public-live-smoke.mjs
       - name: Install Playwright
         run: npm install --no-save --package-lock=false playwright@1.63.0
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
-      - name: Allow canonical Worker/CDN to settle
-        run: sleep 50
+      - name: Wait for canonical Weather V3
+        run: |
+          ok=false
+          for i in {1..72}; do
+            body="$(curl -fsSL "https://openphuquoc.com/weather/?v3-smoke=$GITHUB_SHA-$i" || true)"
+            if echo "$body" | grep -Fq 'class="weather-version-badge"' && echo "$body" | grep -Fq 'id="v3ObservationPanel"'; then
+              echo "Canonical Weather V3 is visible."
+              ok=true
+              break
+            fi
+            sleep 5
+          done
+          if [ "$ok" != true ]; then
+            echo "::error::Canonical Weather V3 did not become visible within the release window."
+            exit 1
+          fi
       - name: Verify homepage and canonical Weather
         env:
           OPENPQ_BASE: https://openphuquoc.com

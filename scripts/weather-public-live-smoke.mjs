@@ -40,7 +40,8 @@ try{
   const box=await panel.boundingBox();
   const nowEvidence=(await page.locator("#v3NowEvidence").innerText()).trim();
   const soonEvidence=(await page.locator("#v3SoonEvidence").innerText()).trim();
-  const soonTitle=(await page.locator("#v3SoonTitle").innerText()).trim();\n  const versionBadge=(await page.locator(".weather-version-badge").innerText()).trim();
+  const soonTitle=(await page.locator("#v3SoonTitle").innerText()).trim();
+  const versionBadge=(await page.locator(".weather-version-badge").innerText()).trim();
 
   const nowcast=await page.evaluate(async()=>{
     const r=await fetch("/weather/data/nowcast-compact.json?t="+Date.now(),{cache:"no-store"});
@@ -61,7 +62,8 @@ try{
   if(badPublicText(panelText))throw new Error("Weather panel exposes machine/internal wording: "+panelText);
   if(!["SỐ ĐO THỰC TẾ","QUAN TRẮC SÂN BAY","CHƯA CÓ SỐ ĐO"].includes(nowEvidence))throw new Error("Unexpected current evidence label: "+nowEvidence);
   if(!["DIỄN BIẾN MÂY","ẢNH VỆ TINH"].includes(soonEvidence))throw new Error("Unexpected short-term evidence label: "+soonEvidence);
-  if(versionBadge!=="V3")throw new Error("Canonical Weather does not expose the V3 badge");\n  if(!/An Thới/.test(pointAfterSwitch))throw new Error("Weather panel did not follow point switch");
+  if(versionBadge!=="V3")throw new Error("Canonical Weather does not expose the V3 badge");
+  if(!/An Thới/.test(pointAfterSwitch))throw new Error("Weather panel did not follow point switch");
   if(cloudAgeMin!==null&&cloudAgeMin>60&&/tiến gần|đi ngang|dịch ra xa/i.test(soonTitle))
     throw new Error("Stale Himawari data still drives motion wording at "+cloudAgeMin.toFixed(1)+" min");
   if(result.errors.length)throw new Error("Page errors: "+result.errors.join(" | "));
