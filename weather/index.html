@@ -34,6 +34,7 @@
   <link rel="manifest" href="/weather/weather-manifest.webmanifest">
   <script defer src="/weather/weather-wind-guard.js?v=20260924-qc1"></script>
   <script defer src="/weather/weather-gust-outlook.js?v=20260924-0930"></script>
+  <script defer src="/weather/weather-human-contract.js?v=20261001-human1"></script>
   <script defer src="/weather/weather-v3-public-contract.js?v=20261001-human1"></script>
   <script defer src="/weather/weather-v2.js?v=20261001-groundtruth-ui1"></script>
   <script defer src="/weather/weather-v3-public.js?v=20261001-human1"></script>
@@ -102,6 +103,16 @@
           <b id="heroCondition">Đang đọc thời tiết...</b>
           <p id="heroSummary">Đang cập nhật quan trắc và phân tích tại Phú Quốc...</p>
         </div>
+      </div>
+
+      <div id="humanComfortLayer" class="human-comfort-layer" hidden aria-live="polite">
+        <div class="human-comfort-head"><span>CẢM NHẬN NGOÀI TRỜI</span><em>ĐO THỰC TẾ + CẢM NHẬN</em></div>
+        <strong id="humanComfortTitle">-</strong>
+        <p id="humanComfortNote">-</p>
+        <small id="humanHeatIndex" class="human-comfort-index" hidden>-</small>
+        <small id="humanHeatIndexMethod" hidden>-</small>
+        <small id="humanHeatIndexNote" class="human-comfort-method" hidden>Đây là chỉ số suy ra, không phải nhiệt độ đo trực tiếp.</small>
+        <small id="humanComfortReason">-</small>
       </div>
 
       <div class="weather-now-facts" aria-label="Thông tin nhanh">
