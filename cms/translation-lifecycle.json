@@ -132,7 +132,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Editorial model draft translated from the final Vietnamese source and refreshed on 2026-10-01 after resolving the current Phu Quoc Night Market status; facts, structure and source URLs preserved; human review required before publication."
+          "note": "Editorial model draft translated directly from the final Vietnamese source on 2026-10-01; current Phu Quoc Night Market status resolved against 29/09/2026 official tourism information; facts, structure and source URLs preserved; human review required before publication."
         },
         "ko": {
           "status": "missing",
@@ -345,7 +345,7 @@
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Editorial model draft refreshed from the final Vietnamese source on 2026-10-01, including current dynamic Hon Thom cable-car guidance; unchanged records retained. Human review required before publication."
+          "note": "Editorial model draft refreshed from the final Vietnamese source on 2026-10-01, including the current Hon Thom cable-car operating guidance; unchanged records retained. Human review required before publication."
         },
         "ko": {
           "status": "stale",
