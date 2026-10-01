@@ -1,0 +1,188 @@
+{
+  "version": "1.0",
+  "updated": "2026-10-01",
+  "hero": {
+    "kicker": "PHU QUOC · RIGHT NOW",
+    "title": "Phu Quoc, right now.",
+    "lead": "See the island as it really is, choose what is worth doing, then move on with information you can actually use.",
+    "slides": [
+      {
+        "label": "A YEAR INSIDE A FISH SAUCE BARREL HOUSE",
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vats%20at%20a%20Fish%20Sauce%20Factory%20on%20Phu%20Quoc%20Island%20in%20Vietnam%2001.jpg?width=1800",
+        "alt": "Traditional wooden fish-sauce barrels in Phu Quoc"
+      },
+      {
+        "label": "AN THOI AFTER DARK",
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/An%20Thoi%20fishing%20harbour%20Sunset%20Town%20Sun%20World%20Phu%20Quoc%20Vietnam.jpg?width=2000",
+        "alt": "An Thoi and Sunset Town"
+      },
+      {
+        "label": "THE BITE OF RED SOIL",
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Pfefferanbau%20auf%20Phu%20Quoc.jpg?width=1600",
+        "alt": "A pepper garden in Phu Quoc"
+      },
+      {
+        "label": "LIFE ALONG THE COAST",
+        "image": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Boats%20PhuQuoc.jpg?width=1800",
+        "alt": "Fishing boats along the Phu Quoc coast"
+      }
+    ]
+  },
+  "sections": {
+    "happening": {
+      "eyebrow": "WHAT'S HAPPENING TODAY",
+      "title": "What's happening in Phu Quoc?"
+    },
+    "things": {
+      "eyebrow": "WHERE TO GO TODAY",
+      "title": "Choose the Phu Quoc that fits today."
+    },
+    "must": {
+      "eyebrow": "WORTH MAKING TIME FOR",
+      "title": "If you only have a few days on the island."
+    },
+    "areas": {
+      "eyebrow": "EXPLORE BY AREA",
+      "title": "Each part of the island moves at a different pace."
+    },
+    "food": {
+      "eyebrow": "WHAT TO EAT IN PHU QUOC",
+      "title": "There is more here than seafood."
+    },
+    "essentials": {
+      "eyebrow": "USEFUL WHEN YOU NEED IT",
+      "title": "Practical information."
+    },
+    "heritage": {
+      "eyebrow": "HERITAGE & ISLAND CHARACTER",
+      "title": "Phu Quoc is more than the sea.",
+      "lead": "The things that give the island its smell, taste and memory - fishing, fish sauce, pepper and local stories."
+    },
+    "guide": {
+      "eyebrow": "UNDERSTAND PHU QUOC QUICKLY",
+      "title": "Get the island in a few minutes."
+    }
+  },
+  "footer": {
+    "title": "Understand Phu Quoc. Plan with less guesswork.",
+    "lead": "Check real conditions, weather and routes before you move. A quick look first can save a long, unnecessary trip across the island.",
+    "note": "A free information platform for residents and visitors. Built and operated in Phu Quoc by JoTrip."
+  },
+  "site": {
+    "about": {
+      "heroLead": "The hardest part of planning Phu Quoc is piecing together useful information from a dozen different places. We built Open Phu Quoc to bring real weather, routes and the less-obvious realities of travelling the island into one place, so you can make decisions faster.",
+      "purposeTitle": "When information is scattered everywhere, you need sharp guidance that helps you decide quickly.",
+      "purpose1": "Knowing the name of a beach or an island is only step one. What travellers actually need to know is what there is to do, how many hours it takes, when the heat is easier and what else fits naturally along the same route.",
+      "purpose2": "Island weather, ferry schedules and speedboat operations can change quickly. That is why time-sensitive information is shown with a clear update time and kept separate from slower-changing guide content.",
+      "purpose3": "A forecast is still a forecast, and seeing a ferry on the timetable does not mean seats are still available. Our rule is simple: say what we know, and clearly flag what is uncertain or likely to change.",
+      "systemTitle": "Three practical filters to keep your itinerary from going off track.",
+      "system1": "Attractions, food, places to stay and local culture are edited down to what is genuinely useful, without the usual layer of empty praise.",
+      "system2": "Weather, flight changes and ferry information follow the data and update rhythm of each source, with timestamps so you know how fresh the information is.",
+      "system3": "Open Phu Quoc tries to put each place back into its real context. Beautiful or not is personal taste; our job is to show what we know clearly so you can decide for yourself.",
+      "madeTitle": "JoTrip built this for people who want to see the island through local eyes.",
+      "madeLead1": "Open Phu Quoc grew out of the questions we hear constantly while working in tourism here: Are the speedboats running in these waves? If guests stay in the north, where should they eat? Is that beach really worth an hour's drive?",
+      "madeLead2": "Working on the island for years helps us recognise where travellers usually get stuck. But useful advice still has to come from data, weather and what is actually happening that day - not from confident-sounding guesses.",
+      "openTitle": "“Open” is a reminder to be clear about sources, timing and the risks we still cannot rule out.",
+      "openLead": "We try to be transparent about where information comes from, when it was updated and what variables still matter. Whether Open Phu Quoc later becomes an app or expands into more languages, the core principle stays the same: say what is true, and do what we say.",
+      "footerLead": "A grounded view. Deeper experiences. More of Phu Quoc.",
+      "footerNote": "A free information platform for residents and visitors. Built and maintained in Phu Quoc by JoTrip."
+    },
+    "food": {
+      "headerTitle": "Eat Phu Quoc properly",
+      "headerSub": "Local dishes · How to order · What to watch for",
+      "heroEyebrow": "FOOD · ISLAND FLAVOURS",
+      "heroLead": "Instead of assuming a dish is good because every review praises it, we break down how it actually tastes, how locals eat it and the questions worth asking before you order.",
+      "sideTitle": "Drop the pressure to 'eat your way through all of Phu Quoc'.",
+      "sideLead": "One plate of fresh seafood that suits your taste when you are hungry is worth more than ten random dishes ordered for a photo. Your palate is your own - choose by freshness, cooking style and what you actually enjoy.",
+      "randomTitle": "Can't decide? Start with these three.",
+      "footer": "Know what to order and choose the right place. Call ahead to confirm prices and opening hours so you do not drive across the island only to find the restaurant closed."
+    },
+    "stories": {
+      "eyebrow": "WORK STORIES · ISLAND STORIES",
+      "title": "Understand Phu Quoc from the inside.",
+      "lead": "Stories about fishing livelihoods, village life and local culture - grounded in data, what actually happens on the island and the experience of people who work in tourism here.",
+      "footer": "Get closer to the island's rhythm and culture. Current information can change quickly, so check the latest details before each trip."
+    },
+    "guide": {
+      "heroEyebrow": "OPEN PHU QUOC · A PRACTICAL LOCAL TRAVEL GUIDE",
+      "smartEyebrow": "WHAT ARE YOU TRYING TO FIGURE OUT?",
+      "smartTitle": "Choose the situation you are dealing with.",
+      "smartLead": "Work out whether you need food, things to do or transport, and we will point you straight to the part that answers that problem.",
+      "libraryEyebrow": "PHU QUOC GUIDE LIBRARY",
+      "libraryTitle": "Understand the island before you pack.",
+      "libraryLead": "From major attractions and natural landscapes to food, history and the practical things visitors often learn the hard way. Filter by what matters to you, then open each guide for the details.",
+      "zonesEyebrow": "THREE MAIN AREAS",
+      "zonesTitle": "The easiest way to plan Phu Quoc: divide the island into three zones.",
+      "zonesNote": "A useful rule of thumb: build each day around one main area so you spend less time crossing the island.",
+      "stayEyebrow": "CHOOSING WHERE TO STAY",
+      "stayTitle": "The right area can mean more time enjoying the island and much less time on the road.",
+      "daysEyebrow": "TRIP PACE",
+      "daysTitle": "How many real days do you actually have?",
+      "daysNote": "Do not overpack the itinerary. Fewer stops with enough time to enjoy them usually makes for a much better trip.",
+      "liveEyebrow": "CHECK WHAT'S CHANGED TODAY",
+      "liveTitle": "Look here before you start the engine.",
+      "liveNote": "Island weather, flights and operating hours can change during the day. We keep the most time-sensitive information together so you can check it quickly when you need it.",
+      "footer": "Open Phu Quoc · A practical guide to help you understand the island before you arrive. Information that can change during the day follows the data and schedule of each source."
+    },
+    "places": {
+      "headerTitle": "Where should you go in Phu Quoc?",
+      "headerSub": "Phu Quoc · Scan first, then decide",
+      "heroEyebrow": "PLACES · OPEN PHU QUOC",
+      "heroLead": "For each place, we break down how long it really takes, which time of day is easier and the practical details worth knowing before you set off.",
+      "sideTitle": "Do not copy an itinerary just because one photo looked good.",
+      "sideLead": "The same photo spot at midday in hard sun and on a rough-sea day can feel completely different. Count the travel time and effort before deciding whether the stop is worth it.",
+      "footer": "Understand the place before you shape the route. Check the actual opening hours for the day so you do not arrive after a long drive to a closed gate."
+    },
+    "utilities": {
+      "heroEyebrow": "OPEN PHU QUOC · QUICK UTILITIES",
+      "heroTitle": "Need an answer fast? Check here.",
+      "heroLead": "Emergency numbers, exchange rates, drive times, ticket prices and the small details that are easy to forget - kept together so you can pull them up when you need them.",
+      "emergencyTitle": "Four numbers worth saving before you need them.",
+      "directoryTitle": "Call the right place, speak to the right people.",
+      "transportTitle": "Distance is only half the story; road conditions matter too.",
+      "transportLead": "A practical way to avoid spending the day driving is to plan around one main area: North Island, South Island, or central Duong Dong and the west coast.",
+      "pricesTitle": "Get a rough budget before you book.",
+      "pricesNote": "Ticket rules and inclusions can change by service, age or height. Use these prices to estimate your budget, then confirm the actual amount with the seller before you pay.",
+      "checklistTitle": "Three things to check before you leave.",
+      "checklistTip": "Recheck the weather, cable-car operation, show times and ferry or transport schedules. If a weather app shows rain, do not cancel the whole day immediately - island showers can be short and local, and a rain icon does not automatically mean the entire itinerary is lost.",
+      "footer": "Opening hours and phone numbers can change. Call directly before visiting if timing matters."
+    },
+    "explore": {
+      "eyebrow": "PRACTICAL PHU QUOC EXPLORATION",
+      "step1Title": "Choose the area first",
+      "step1Lead": "Decide whether today is for the north, central Duong Dong or the South Island.",
+      "step2Title": "Build the day around your travel style",
+      "step2Lead": "Whether you want beaches, an easy family day, an evening out or a closer look at local life, choose experiences that fit the way you actually travel.",
+      "step3Title": "Check the day before you leave",
+      "step3Lead": "Before driving across the island, recheck the weather, operating hours and any ticket price that applies that day.",
+      "noteTitle": "A lesson worth remembering: do not try to cover both North and South Island in the same day.",
+      "noteLead": "The two ends of the island are genuinely far apart. Instead of spending the day in a vehicle, explore one side properly and change areas the next day.",
+      "weatherLead": "Island weather can change quickly. Check the latest conditions before outdoor activities or island tours."
+    },
+    "hotels": {
+      "eyebrow": "WHERE YOU SLEEP CHANGES THE WHOLE TRIP",
+      "lead": "Where you stay determines how far you drive and how easy food and evening plans feel. Choose the area around the places you expect to spend most of your time first, then compare hotel standards and facilities.",
+      "step1Title": "Step 1: Choose the area",
+      "step1Lead": "Stay in the same area, or on an easy route, as the places where you expect to spend most of your time.",
+      "step2Title": "Step 2: Compare within the same tier",
+      "step2Lead": "Compare scale, transport convenience and the kind of atmosphere that actually suits you.",
+      "step3Title": "Step 3: Check the inclusions",
+      "step3Lead": "Do not look only at the final price. Check breakfast, transfer policy and any child surcharge.",
+      "filterNote": "Star ratings, contact details and some facilities can differ between sources or change over time. Confirm important details directly with the hotel before booking."
+    },
+    "nearme": {
+      "eyebrow": "AROUND YOU",
+      "title": "What is useful from where you are right now?",
+      "privacy": "Your location is used only when you choose to turn this feature on, so we can show useful places around you."
+    },
+    "go": {
+      "eyebrow": "WHERE CAN YOU GO RIGHT NOW?",
+      "builderTitle": "Which part of the island are you in, and how many hours do you still have?",
+      "nextTitle": "There is still plenty of island ahead.",
+      "nextLead": "You can change direction by area, find somewhere solid to eat, or check today's sea and weather conditions before heading out.",
+      "footerTitle": "Know the conditions. Choose the right route.",
+      "footerLead": "We regularly update information from the sources we follow and from what is happening in Phu Quoc, so you can make a better call on where to go and when.",
+      "footerNote": "Island weather and operating hours can change unexpectedly. Recheck before you leave."
+    }
+  }
+}
