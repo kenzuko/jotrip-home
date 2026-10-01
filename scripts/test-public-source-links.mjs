@@ -27,8 +27,8 @@ assert.ok(knowledge.flatMap(o=>o.public_links||[]).some(l=>/^https:\/\/phuquocfi
 assert.match(read("places/detail.js"),/https:\/\/phuquocfishingtours\.com\//,"Fishing booking CTA must work");
 assert.match(read("hotels/app.js"),/Website chính thức/,"Hotel website / booking action must stay");
 assert.match(food,/renderRandomDish\(/,"Existing food suggestion must stay");
-assert.match(home,/Thông tin miễn phí dành cho người dân và du khách/);
-assert.match(about,/Thông tin miễn phí dành cho người dân và du khách/);
+assert.match(home,/Nền tảng thông tin miễn phí cho cộng đồng và du khách/);
+assert.match(about,/Nền tảng thông tin miễn phí cho cộng đồng và du khách/);
 for(const file of ["stories/index.html","stories/article.html"])assert.match(read(file),/story\.js\?v=20260927-cc-credit-r2/);
 assert.match(read("news/index.html"),/news\.js\?v=20260927-reader-first-r1/);
 for(const file of ["guide/knowledge.html","guide/article.html"])assert.match(read(file),/knowledge\.js\?v=20260927-photo-rights-r1/);

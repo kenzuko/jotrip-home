@@ -14,8 +14,8 @@
         "cable-car",
         "family"
       ],
-      "what_it_is": "Tuyến cáp 3 dây vượt biển qua quần đảo An Thới",
-      "why_go": "Cáp treo · Aquatopia · Exotica · Bãi biển",
+      "what_it_is": "Tuyến cáp treo 3 dây vượt biển ngắm trọn vẹn quần đảo An Thới từ trên cao.",
+      "why_go": "Ngồi cáp treo ngắm cảnh · Quẩy tung công viên nước Aquatopia · Thử thách ở khu Exotica · Tắm bãi biển trong xanh.",
       "best_for": [
         "cable-car",
         "family"
@@ -26,9 +26,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Chốt giờ cáp lượt về trước",
-        "Mang đồ bơi và túi chống nước",
-        "Combo buffet có thể khác mua lẻ"
+        "Lỗi hay gặp nhất là mải chơi quên giờ, hãy chốt ngay giờ cáp treo chuyến lượt về trước khi vui chơi.",
+        "Nhớ mang theo đồ bơi và chuẩn bị sẵn túi chống nước cho điện thoại.",
+        "Lưu ý, quyền lợi của gói combo vé kèm buffet có thể sẽ khác biệt so với khi bạn mua lẻ từng dịch vụ."
       ],
       "intents": [
         "cable-car",
@@ -98,8 +98,8 @@
         "marine",
         "snorkeling"
       ],
-      "what_it_is": "Cano/tàu ra cụm đảo An Thới, 2-3 hòn tùy biển",
-      "why_go": "Tắm đảo · Lặn ngắm san hô · Ăn trưa · Chụp ảnh",
+      "what_it_is": "Trải nghiệm ngồi cano hoặc tàu ra khám phá cụm đảo An Thới, thường đi qua 2-3 hòn tùy theo tình hình sóng biển thực tế.",
+      "why_go": "Tắm biển tại các đảo nhỏ · Lặn ngắm san hô · Ăn trưa trên đảo · Thả dáng chụp ảnh.",
       "best_for": [
         "marine",
         "snorkeling"
@@ -110,9 +110,9 @@
       "live_check_required": true,
       "weather_dependency": "high",
       "tips": [
-        "So số khách/cano, bữa ăn, thiết bị, thời gian ở nước",
-        "Đổi hòn theo gió/sóng là bình thường",
-        "An toàn trước ảnh đẹp"
+        "Đừng chỉ nhìn giá, hãy so sánh số lượng khách trên mỗi cano, thực đơn bữa ăn, thiết bị cung cấp và thời gian thực tế bạn được ở dưới nước.",
+        "Việc tài công quyết định đổi hòn khác do hướng gió hoặc sóng lớn là chuyện hết sức bình thường.",
+        "Luôn nhớ nguyên tắc: An toàn phải đặt lên trên những bức ảnh đẹp."
       ],
       "intents": [
         "marine",
@@ -154,8 +154,8 @@
         "marine",
         "snorkeling"
       ],
-      "what_it_is": "Lặn ống thở trên mặt nước với kính/mặt nạ ở cụm đảo An Thới.",
-      "why_go": "Lặn ngắm san hô · Bơi · Quan sát san hô",
+      "what_it_is": "Hoạt động lặn ống thở (snorkeling) ngay trên mặt nước với trang bị kính và mặt nạ tại cụm đảo An Thới.",
+      "why_go": "Lặn ngắm san hô · Bơi lội thư giãn · Quan sát hệ sinh thái san hô dưới nước.",
       "best_for": [
         "marine",
         "snorkeling"
@@ -166,9 +166,9 @@
       "live_check_required": true,
       "weather_dependency": "high",
       "tips": [
-        "Không đứng/chạm/bẻ san hô",
-        "Không cho cá ăn chỉ để gom cá chụp ảnh",
-        "Ít điểm nhưng đủ thời gian ở nước thường tốt hơn"
+        "Tuyệt đối không đứng dẫm lên, chạm tay hay bẻ san hô.",
+        "Đừng rắc mồi cho cá ăn chỉ để gom chúng lại chụp ảnh.",
+        "Lời khuyên thật: Đi ít điểm nhưng có đủ thời gian thong thả bơi dưới nước thường tốt hơn."
       ],
       "intents": [
         "marine",
@@ -207,8 +207,8 @@
         "marine",
         "diving"
       ],
-      "what_it_is": "Lặn sâu hơn lặn ống thở với thiết bị, hướng dẫn và quy trình an toàn riêng.",
-      "why_go": "Lặn thử có hướng dẫn · Lặn theo chứng chỉ/điều kiện",
+      "what_it_is": "Trải nghiệm khám phá thế giới dưới nước bằng bình khí, đi kèm thiết bị chuyên dụng, người hướng dẫn sát sao và quy trình an toàn riêng.",
+      "why_go": "Lặn thử có người hướng dẫn kèm cặp · Lặn chuyên sâu theo chứng chỉ hoặc điều kiện riêng.",
       "best_for": [
         "marine",
         "diving"
@@ -219,9 +219,9 @@
       "live_check_required": true,
       "weather_dependency": "high",
       "tips": [
-        "Hỏi tiêu chuẩn an toàn và năng lực người hướng dẫn",
-        "Tim mạch/hô hấp/tai xoang cần cân nhắc chuyên môn",
-        "Không chọn chỉ theo ảnh quảng cáo"
+        "Đừng ngại hỏi thẳng về tiêu chuẩn an toàn và năng lực của người sẽ hướng dẫn bạn.",
+        "Nếu bạn có vấn đề về tim mạch, hô hấp hay tai xoang, hãy khai báo trong bảng sàng lọc sức khỏe và được bác sĩ đánh giá nếu thuộc diện cần kiểm tra trước khi lặn.",
+        "Không nhắm mắt chọn tour chỉ vì mấy bức ảnh quảng cáo lung linh trên mạng."
       ],
       "intents": [
         "marine",
@@ -258,8 +258,8 @@
         "marine",
         "underwater"
       ],
-      "what_it_is": "Đi bộ dưới nước với mũ cấp khí, nằm giữa lặn ống thở và lặn bình khí về trải nghiệm.",
-      "why_go": "Đi bộ dưới nước · Quan sát dưới mặt biển",
+      "what_it_is": "Trải nghiệm đội chiếc mũ cấp khí để đi bộ dưới đáy biển.",
+      "why_go": "Trải nghiệm đi bộ dưới đáy nước · Dễ dàng quan sát hệ sinh thái dưới mặt biển.",
       "best_for": [
         "marine",
         "underwater"
@@ -270,9 +270,9 @@
       "live_check_required": true,
       "weather_dependency": "high",
       "tips": [
-        "Cần hướng dẫn thao tác",
-        "Sàng lọc sức khỏe cơ bản",
-        "Không mặc định phù hợp với mọi người"
+        "Bắt buộc phải lắng nghe hướng dẫn các thao tác an toàn.",
+        "Cần có bước sàng lọc sức khỏe cơ bản trước khi xuống nước.",
+        "Đừng mặc định trò này nhẹ nhàng và phù hợp với tất cả mọi người."
       ],
       "intents": [
         "marine",
@@ -310,8 +310,8 @@
         "fishing",
         "marine"
       ],
-      "what_it_is": "Chuyến câu chuyên biệt ở ngư trường An Thới/Hòn Dăm Trong với thiết bị, máy dò và tài công.",
-      "why_go": "Câu đáy · Câu jig · Câu cá lớn bằng mồi phù hợp",
+      "what_it_is": "Chuyến đi câu chuyên biệt tại vùng biển An Thới, bao gồm những khu vực như Hòn Dăm Trong, được trang bị thiết bị xịn, máy dò cá và có tài công dày dạn kinh nghiệm.",
+      "why_go": "Trải nghiệm câu đáy · Kỹ thuật câu jig · Săn cá lớn bằng các loại mồi phù hợp.",
       "best_for": [
         "fishing",
         "marine"
@@ -322,9 +322,9 @@
       "live_check_required": true,
       "weather_dependency": "high",
       "tips": [
-        "Không cam kết sản lượng cá",
-        "Hỏi thời gian thật trên biển, thiết bị, bữa ăn, phụ thu",
-        "Tài công cần quyền đổi bãi theo nước/gió/tín hiệu cá"
+        "Xác định tinh thần là không ai cam kết sản lượng cá bạn sẽ câu được.",
+        "Cần hỏi rõ thời gian thực tế lênh đênh trên biển, loại thiết bị cung cấp, các bữa ăn và các khoản phụ thu.",
+        "Tài công là người có quyền quyết định đổi bãi câu tùy theo con nước, hướng gió hoặc tín hiệu cá."
       ],
       "intents": [
         "fishing",
@@ -386,8 +386,8 @@
         "fishing",
         "evening"
       ],
-      "what_it_is": "Ra biển cuối chiều/buổi tối, bật đèn và thử câu mực theo điều kiện thực tế.",
-      "why_go": "Ngắm hoàng hôn · Câu mực · Ăn tối tùy tour",
+      "what_it_is": "Trải nghiệm lênh đênh ra biển vào cuối chiều hoặc buổi tối, chong đèn sáng rực để thử vận may câu mực tùy theo điều kiện thực tế.",
+      "why_go": "Ngắm hoàng hôn trên biển · Thử tài câu mực · Thưởng thức bữa tối ngay trên tàu tùy theo gói tour.",
       "best_for": [
         "fishing",
         "evening"
@@ -398,9 +398,9 @@
       "live_check_required": true,
       "weather_dependency": "high",
       "tips": [
-        "Không hứa đi là có nhiều mực",
-        "Hỏi giờ đi-về và bến theo mùa",
-        "Chọn theo sức đi và tình trạng biển"
+        "Không nhà tàu nào dám hứa cứ đi là sẽ câu được nhiều mực.",
+        "Nhớ hỏi kỹ giờ khởi hành, giờ về và bến tàu cụ thể vì có thể thay đổi theo mùa gió.",
+        "Hãy chọn đi hay không dựa trên sức khỏe cá nhân và tình trạng sóng biển thực tế."
       ],
       "intents": [
         "fishing",
@@ -435,8 +435,8 @@
         "evening",
         "outdoor"
       ],
-      "what_it_is": "Chương trình mô tô nước (jetski), ván bay (flyboard), ánh sáng và hiệu ứng trên mặt nước tại Sunset Town.",
-      "why_go": "Phù hợp ghép sau hoàng hôn và trước Kiss of the Sea trong một buổi tối Nam đảo.",
+      "what_it_is": "Chương trình biểu diễn kết hợp mô tô nước (jetski), ván bay (flyboard), cùng ánh sáng và hiệu ứng trên mặt nước tại Sunset Town.",
+      "why_go": "Là hoạt động cực kỳ phù hợp để xem nối tiếp sau khi ngắm hoàng hôn và ngay trước khi bắt đầu show Kiss of the Sea trong một buổi tối ở Nam đảo. Hãy đối chiếu lịch diễn của hai show trong đúng ngày bạn đi.",
       "best_for": [
         "couple",
         "family",
@@ -448,8 +448,8 @@
       "live_check_required": true,
       "weather_dependency": "high",
       "tips": [
-        "Show ngoài trời có thể đổi do gió/mưa",
-        "Đến sớm để ổn định chỗ"
+        "Lịch show ngoài trời hoàn toàn có thể bị thay đổi nếu có gió to hay mưa lớn.",
+        "Nhớ đến sớm để ổn định chỗ ngồi hoặc vị trí đứng xem."
       ],
       "intents": [
         "show",
@@ -512,8 +512,8 @@
         "evening",
         "multimedia"
       ],
-      "what_it_is": "Show đa phương tiện lớn kèm pháo hoa tại Sunset Town, tách riêng với Symphony of the Sea.",
-      "why_go": "Là một mốc buổi tối để dựng lịch ngược cho Sunset Town.",
+      "what_it_is": "Show diễn đa phương tiện quy mô lớn kết hợp bắn pháo hoa tại Sunset Town, đây là chương trình tách biệt hoàn toàn với Symphony of the Sea.",
+      "why_go": "Được xem là một cột mốc quan trọng vào buổi tối để từ đó bạn dựng lịch trình ngược lại cho khu vực Sunset Town.",
       "best_for": [
         "couple",
         "family",
@@ -525,8 +525,8 @@
       "live_check_required": true,
       "weather_dependency": "high",
       "tips": [
-        "Tính trước xe về sau show",
-        "Đừng mua combo nếu thời gian nối quá sát"
+        "Phải tính trước phương án gọi xe để về sau khi show kết thúc vì lúc này rất đông đúc.",
+        "Đừng dại mua vé combo nối các hoạt động nếu khoảng thời gian giữa chúng quá sát nhau."
       ],
       "intents": [
         "show",
@@ -593,8 +593,8 @@
         "culture",
         "evening"
       ],
-      "what_it_is": "Vở diễn thực cảnh buổi tối tại Grand World Phú Quốc.",
-      "why_go": "Show thực cảnh · âm nhạc · sân khấu ngoài trời",
+      "what_it_is": "Vở diễn thực cảnh hoành tráng tái hiện văn hóa truyền thống diễn ra vào buổi tối tại Grand World Phú Quốc.",
+      "why_go": "Xem show thực cảnh · Thưởng thức âm nhạc · Trải nghiệm sân khấu ngoài trời quy mô lớn.",
       "best_for": [
         "show",
         "culture",
@@ -606,8 +606,8 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Nên có mặt trước giờ diễn để tìm vị trí và ổn định chỗ ngồi",
-        "Lịch có thể thay đổi khi có sự kiện đặc biệt hoặc thời tiết xấu"
+        "Việc đến trước giờ diễn giúp bạn thong thả tìm vị trí đẹp và ổn định chỗ ngồi.",
+        "Lịch diễn luôn có thể bị điều chỉnh đột xuất nếu vướng sự kiện đặc biệt hoặc thời tiết chuyển xấu."
       ],
       "intents": [
         "show",
@@ -660,8 +660,8 @@
         "evening",
         "multimedia"
       ],
-      "what_it_is": "Show đa phương tiện buổi tối tại VinWonders Phú Quốc.",
-      "why_go": "Ánh sáng · trình chiếu ánh sáng · hiệu ứng sân khấu · hợp để kết thúc ngày ở VinWonders",
+      "what_it_is": "Show diễn đa phương tiện bùng nổ vào buổi tối, nằm gọn ngay trong lòng VinWonders Phú Quốc.",
+      "why_go": "Trình chiếu ánh sáng rực rỡ · Hiệu ứng sân khấu ấn tượng · Là cái kết hoàn hảo khép lại một ngày quậy tưng bừng ở VinWonders.",
       "best_for": [
         "show",
         "family",
@@ -673,8 +673,8 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Nếu đã ở VinWonders, nên canh giờ từ trước để không phải chạy ngược trong công viên",
-        "Lịch có thể thay đổi khi có sự kiện đặc biệt"
+        "Nếu bạn đã ở sẵn trong VinWonders, hãy chủ động canh giờ xem show từ trước để sắp xếp đường đi, tránh tình trạng phải chạy ngược lại trong công viên.",
+        "Lưu ý lịch diễn có thể thay đổi khi có sự kiện đặc biệt."
       ],
       "intents": [
         "show",
@@ -727,8 +727,8 @@
         "evening",
         "outdoor"
       ],
-      "what_it_is": "Show ánh sáng và trình diễn trên mặt nước tại Hồ Tình Yêu, Grand World Phú Quốc.",
-      "why_go": "Show buổi tối · mặt nước · ánh sáng · hợp ghép sau Tinh Hoa Việt Nam",
+      "what_it_is": "Show diễn kết hợp ánh sáng và nghệ thuật trình diễn ngay trên mặt nước tại khu vực Hồ Tình Yêu, Grand World Phú Quốc.",
+      "why_go": "Xem show buổi tối · Tận hưởng không gian mặt nước lãng mạn · Chiêm ngưỡng ánh sáng. Chỉ lên lịch xem khi chương trình có thông báo hoạt động trở lại.",
       "best_for": [
         "show",
         "couple",
@@ -741,9 +741,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Show đang tạm dừng để nâng cấp từ 28/09/2026 và chưa có thông báo ngày hoạt động trở lại",
-        "Nếu xem Tinh Hoa Việt Nam trước đó, vẫn còn một khoảng để đi bộ sang khu Hồ Tình Yêu",
-        "Show ngoài trời có thể thay đổi khi có thời tiết xấu hoặc sự kiện đặc biệt"
+        "Show hiện đang tạm dừng để nâng cấp và chưa có ngày hoạt động trở lại được xác nhận. Nhớ kiểm tra thông báo mới nhất của Grand World trước khi xếp lịch.",
+        "Không mặc định có thể xem tiếp ngay sau Tinh Hoa Việt Nam trong thời gian chương trình tạm ngưng.",
+        "Khi show hoạt động trở lại, lịch ngoài trời vẫn có thể thay đổi do thời tiết hoặc sự kiện đặc biệt."
       ],
       "intents": [
         "show",

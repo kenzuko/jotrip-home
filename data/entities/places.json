@@ -14,8 +14,8 @@
         "wildlife",
         "family"
       ],
-      "what_it_is": "Vườn thú mở (Open Zoo) + khu bán hoang dã bằng xe buýt",
-      "why_go": "Xe buýt Safari · Vườn thú mở · Biểu diễn động vật · Night Safari (safari đêm) theo lịch",
+      "what_it_is": "Đây là công viên chăm sóc và bảo tồn động vật bán hoang dã lớn nhất Việt Nam, kết hợp mô hình Vườn thú mở (Open Zoo), nơi du khách có thể tự do dạo bước giữa thiên nhiên, cùng khu trải nghiệm “người nhốt, thú thả” khám phá bằng xe buýt.",
+      "why_go": "Trải nghiệm hành trình Safari bằng xe buýt chân thực và đầy thú vị. · Tự do khám phá Vườn thú mở rộng lớn. · Thưởng thức những màn biểu diễn động vật hấp dẫn. · Tham gia tour Night Safari, khám phá thế giới động vật về đêm theo lịch trình riêng.",
       "best_for": [
         "wildlife",
         "family"
@@ -26,10 +26,10 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Safari đóng cửa lúc 16:00; đi sớm sẽ có thời gian tham quan thong thả hơn.",
-        "Nếu đến muộn, xem thời gian còn lại và giờ nhận khách tại cổng trước khi quyết định.",
-        "Zoo Tram (xe điện trong vườn thú) là dịch vụ riêng",
-        "Không cố ghép Safari + VinWonders nếu có trẻ nhỏ"
+        "Safari đóng cửa lúc 16:00. Nên đến từ sáng sớm để tận hưởng thời tiết mát mẻ, quan sát động vật lúc chúng hoạt động nhiều và có thêm thời gian tham quan.",
+        "Nếu đến muộn, hãy kiểm tra lại thời gian hoạt động trong ngày và giờ nhận khách cuối cùng tại cổng trước khi mua vé.",
+        "Vé Zoo Tram, tức xe điện di chuyển trong khu vườn thú, là dịch vụ tính phí riêng và không mặc định bao gồm trong vé vào cửa.",
+        "Nếu đi cùng trẻ nhỏ, không nên cố ghép Safari và VinWonders trong cùng một ngày. Các bé rất dễ bị quá tải và mệt mỏi."
       ],
       "intents": [
         "wildlife",
@@ -104,8 +104,8 @@
         "theme-park",
         "family"
       ],
-      "what_it_is": "6 phân khu, thủy cung, công viên nước, trò chơi, show",
-      "why_go": "Cung điện Hải Vương · Thế giới Lốc xoáy · Thế giới Phiêu lưu · ONCE",
+      "what_it_is": "VinWonders Phú Quốc là công viên chủ đề quy mô lớn với 6 phân khu đặc sắc, bao gồm thủy cung, công viên nước, các trò chơi cảm giác mạnh và những show diễn hoành tráng.",
+      "why_go": "Check-in tại Cung điện Hải Vương với kiến trúc hình rùa khổng lồ. · Vui chơi tại Thế giới Lốc xoáy, khu công viên nước sôi động. · Thử thách bản thân ở Thế giới Phiêu lưu. · Thưởng thức show thực cảnh ONCE với quy mô ấn tượng.",
       "best_for": [
         "theme-park",
         "family"
@@ -116,11 +116,11 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Phần lớn trò chơi ngừng hoạt động vào khoảng 17:00 (giờ ước tính, tùy phân khu).",
-        "Show ONCE diễn ra 18:45–19:05; nếu đến muộn, có thể ưu tiên xem show.",
-        "Muốn chơi nhiều trò, nên vào công viên sớm hơn.",
-        "Xem giới hạn chiều cao đầu ngày",
-        "Thủy cung là khoảng nghỉ tốt giữa trưa"
+        "Nhiều trò chơi ngừng hoạt động trước giờ đóng cửa công viên; thời gian thực tế có thể thay đổi theo từng phân khu.",
+        "Show ONCE thường diễn ra trong khung giờ 18:45-19:05. Nếu đến công viên vào buổi chiều muộn, bạn có thể ưu tiên giữ thời gian để xem show.",
+        "Nếu muốn chơi được nhiều trò nhất, hãy vào công viên từ sớm.",
+        "Đi cùng em bé, nên kiểm tra quy định về chiều cao ngay từ đầu ngày để tránh xếp hàng nhưng không đủ điều kiện tham gia.",
+        "Thủy cung là nơi tránh nóng lý tưởng vào giữa trưa, đặc biệt trong những ngày nắng gắt."
       ],
       "intents": [
         "theme-park",
@@ -195,8 +195,8 @@
         "evening",
         "entertainment"
       ],
-      "what_it_is": "Khu phố mở, kênh Venice, bảo tàng, show",
-      "why_go": "Dạo phố · Thuyền Gondola · Teddy Bear Museum · Tinh Hoa Việt Nam · Sắc Màu Venice",
+      "what_it_is": "Grand World Phú Quốc là “thành phố không ngủ” với không gian phố mở, dòng kênh mang phong cách Venice, các bảo tàng độc đáo và nhiều show diễn thực cảnh ấn tượng.",
+      "why_go": "Tản bộ và tận hưởng không gian phố đêm. · Trải nghiệm ngồi thuyền Gondola lãng mạn. · Check-in tại Teddy Bear Museum. · Thưởng thức show Tinh hoa Việt Nam hào hùng. · Xem show Sắc màu Venice lung linh trên hồ khi chương trình hoạt động trở lại.",
       "best_for": [
         "evening",
         "entertainment"
@@ -207,9 +207,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Đến cuối chiều đỡ nắng",
-        "Chốt xe về nếu ở xa Bắc đảo",
-        "Không mặc định mọi cửa hàng mở xuyên đêm"
+        "Khu vực này phải đi bộ ngoài trời khá nhiều, nên đến vào cuối buổi chiều để tránh nắng và kết hợp ngắm hoàng hôn.",
+        "Nếu lưu trú xa Bắc đảo, hãy chủ động chốt phương tiện về trước vì việc tìm xe vào tối muộn có thể không thuận tiện.",
+        "Không nên mặc định rằng mọi cửa hàng đều hoạt động xuyên đêm; nhiều dịch vụ vẫn đóng cửa theo giờ bình thường."
       ],
       "intents": [
         "evening",
@@ -264,8 +264,8 @@
         "village",
         "nature"
       ],
-      "what_it_is": "Làng chài, nhà bè, vùng nước nông phía Bắc",
-      "why_go": "Nhìn nhịp làng chài · Nhà bè · Bãi nước nông",
+      "what_it_is": "Rạch Vẹm là một làng chài yên bình ở phía Bắc đảo, nổi bật với những căn nhà bè vươn ra biển và vùng nước nông trong veo.",
+      "why_go": "Ngắm nhịp sống dung dị của làng chài. · Thưởng thức hải sản trên nhà bè. · Tắm biển ở một số khu vực nước nông khi thời tiết và điều kiện biển thuận lợi.",
       "best_for": [
         "village",
         "nature"
@@ -276,9 +276,9 @@
       "live_check_required": false,
       "weather_dependency": "medium",
       "tips": [
-        "Không hứa có sao biển mọi ngày",
-        "Không nhấc sao biển khỏi nước",
-        "Bãi Sao Nam đảo không phải Rạch Vẹm"
+        "Sao biển là sinh vật tự nhiên, không ai có thể đảm bảo chúng xuất hiện vào mọi ngày.",
+        "Tuyệt đối không nhấc sao biển lên khỏi mặt nước để chụp ảnh. Đây là nguyên tắc quan trọng để bảo vệ sinh vật biển.",
+        "Nhiều du khách nhầm Rạch Vẹm với Bãi Sao. Bãi Sao nằm ở Nam đảo, hoàn toàn khác với Rạch Vẹm ở Bắc đảo."
       ],
       "intents": [
         "village",
@@ -331,8 +331,8 @@
         "river",
         "local-life"
       ],
-      "what_it_is": "Nhịp sông, nhà ven bờ, chèo kayak/thuyền thúng",
-      "why_go": "Kayak · Thuyền thúng · Ăn địa phương",
+      "what_it_is": "Cửa Cạn là khu vực nơi một nhánh sông thanh bình đổ ra biển, với cảnh quan dân cư ven sông và các hoạt động như chèo kayak, đi thuyền thúng len lỏi trên mặt nước.",
+      "why_go": "Tự tay chèo kayak khám phá dòng sông. · Ngồi thuyền thúng ngắm cảnh. · Thưởng thức những món ăn mang đậm hương vị địa phương.",
       "best_for": [
         "river",
         "local-life"
@@ -343,9 +343,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Chốt xe nếu ở xa",
-        "Mặc áo phao",
-        "Không ghép Cửa Cạn với Nam đảo cùng ngày"
+        "Nếu lưu trú xa khu vực Cửa Cạn, hãy chủ động chốt phương tiện di chuyển chiều về.",
+        "Khi tham gia các hoạt động chèo thuyền trên sông, bắt buộc phải mặc áo phao để đảm bảo an toàn.",
+        "Nên bố trí Cửa Cạn trong một lịch trình riêng hoặc kết hợp với các điểm lân cận. Không nên ghép Cửa Cạn với Nam đảo trong cùng một ngày vì thời gian di chuyển rất mệt."
       ],
       "intents": [
         "river",
@@ -398,8 +398,8 @@
         "culture",
         "sunset"
       ],
-      "what_it_is": "Không gian tín ngưỡng của cư dân biển ở cửa sông Dương Đông",
-      "why_go": "Tham quan · Ngắm cửa sông · Ngắm chiều",
+      "what_it_is": "Không gian tín ngưỡng linh thiêng lâu đời của cư dân vùng biển, nằm ở vị trí tuyệt đẹp ngay cửa sông Dương Đông.",
+      "why_go": "Tham quan Dinh Cậu. · Ngắm cửa sông nhộn nhịp tàu thuyền. · Điểm ngắm hoàng hôn (chiều tà) cực đỉnh ngay trung tâm.",
       "best_for": [
         "culture",
         "sunset"
@@ -410,8 +410,8 @@
       "live_check_required": false,
       "weather_dependency": "medium",
       "tips": [
-        "Giữ thái độ tôn trọng không gian tín ngưỡng",
-        "Có thể ghép chợ đêm"
+        "Luôn giữ thái độ tôn trọng tuyệt đối với không gian tín ngưỡng của người địa phương.",
+        "Kinh nghiệm xếp lịch: Rất tiện để đi ngắm hoàng hôn ở Dinh Cậu xong rồi đi bộ sang ghép với lịch đi chợ đêm luôn."
       ],
       "intents": [
         "culture",
@@ -482,20 +482,20 @@
         "food",
         "evening"
       ],
-      "what_it_is": "Khu ăn uống và mua sắm buổi tối",
-      "why_go": "Ăn tối · Đi bộ · Thử món",
+      "what_it_is": "Khu chợ đêm Bạch Đằng cũ ở Dương Đông đã dừng hoạt động sau ngày 28/02/2026.",
+      "why_go": "Không dùng như một điểm đang hoạt động. Nếu gặp lịch trình hoặc bài review cũ, hãy kiểm tra lại điểm ăn uống thực tế trước khi di chuyển.",
       "best_for": [
         "food",
         "evening"
       ],
-      "best_time": "Buổi tối",
-      "duration": "1-2 giờ",
-      "price_reference": "Theo quán/món",
+      "best_time": "Khu chợ cũ đã dừng hoạt động",
+      "duration": "Không còn áp dụng",
+      "price_reference": "Không còn áp dụng",
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Hải sản hỏi rõ giá theo cân, cách chế biến và phụ phí",
-        "Không xem chợ đêm là toàn bộ ẩm thực Phú Quốc"
+        "Đừng chạy tới địa chỉ cũ chỉ vì một bài review hoặc bản đồ chưa cập nhật.",
+        "Nếu tìm chỗ ăn tối, hãy kiểm tra đúng địa điểm đang hoạt động và giờ mở cửa trong ngày."
       ],
       "intents": [
         "food",
@@ -524,24 +524,7 @@
           "checked_at": "2026-09-22"
         }
       ],
-      "updated_at": "2026-09-22",
-      "opening_hours": {
-        "state": "APPROXIMATE_SCHEDULE",
-        "schedule_type": "DAILY_APPROXIMATE",
-        "timezone": "Asia/Ho_Chi_Minh",
-        "windows": [
-          {
-            "start": "18:00",
-            "end": "23:30",
-            "label": "Khung hoạt động thường thấy"
-          }
-        ],
-        "source_id": "visitpq_night_market_current_20260417",
-        "source_type": "OFFICIAL_TOURISM",
-        "verified_at": "2026-09-21",
-        "confidence": "MEDIUM",
-        "note": "Visit Phu Quoc 2026 ghi chợ thường hoạt động khoảng 18:00-23:30; một số gian có thể mở từ khoảng 15:00. Đây là khung tham khảo, không phải giờ đóng cửa đồng loạt."
-      },
+      "updated_at": "2026-10-01",
       "address": "54 Nguyễn Trãi, Dương Đông, Phú Quốc, An Giang, Việt Nam",
       "map": {
         "lat": 10.2183125,
@@ -554,7 +537,15 @@
         "plus_code": "6X96+83R"
       },
       "address_source_id": "google_maps_location_lookup",
-      "address_verified_at": "2026-09-22"
+      "address_verified_at": "2026-09-22",
+      "opening_hours": {
+        "state": "CLOSED",
+        "schedule_type": "CLOSED",
+        "timezone": "Asia/Ho_Chi_Minh",
+        "closed_from": "2026-03-01",
+        "verified_at": "2026-10-01",
+        "note": "Khu chợ đêm Bạch Đằng/Dương Đông cũ đã dừng hoạt động sau ngày 28/02/2026. Không dùng lịch mở cửa cũ để lên lịch hiện tại."
+      }
     },
     {
       "id": "place_bai_truong",
@@ -569,8 +560,8 @@
         "beach",
         "sunset"
       ],
-      "what_it_is": "Dải bờ Tây dài, thuận nghỉ dưỡng và ngắm hoàng hôn",
-      "why_go": "Tắm biển · Khu dịch vụ bãi biển · Ngắm hoàng hôn",
+      "what_it_is": "Dải bờ Tây trải dài miên man, thủ phủ của các khu nghỉ dưỡng và là nơi ngắm hoàng hôn đẹp nhất nhì Việt Nam.",
+      "why_go": "Tắm biển. · Chill tại các khu dịch vụ bãi biển (beach club). · Ngắm hoàng hôn \"đặc sản\".",
       "best_for": [
         "beach",
         "sunset"
@@ -581,8 +572,8 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Giữ 30-45 phút cuối ngày cho hoàng hôn",
-        "Chất lượng bãi đổi theo thời tiết"
+        "Luôn nhớ giữ lại khoảng 30-45 phút cuối ngày để đón trọn vẹn khoảnh khắc hoàng hôn lãng mạn.",
+        "Chất lượng bãi biển ở đây có thể thay đổi tùy theo mùa gió và thời tiết, nên hỏi lễ tân khách sạn tình hình thực tế."
       ],
       "intents": [
         "beach",
@@ -636,8 +627,8 @@
         "beach",
         "family"
       ],
-      "what_it_is": "Bãi tắm dễ tiếp cận ở Nam đảo",
-      "why_go": "Tắm biển · Ăn uống · Nghỉ bãi",
+      "what_it_is": "Một trong những bãi tắm dễ tiếp cận và quen mặt nhất ở khu vực Nam đảo.",
+      "why_go": "Thỏa sức tắm biển xanh mát. · Ăn uống hải sản trực tiếp ven bờ. · Nằm nghỉ ngơi thư giãn trên bãi cát.",
       "best_for": [
         "beach",
         "family"
@@ -648,8 +639,8 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Chọn đoạn bãi thực tế đẹp nhất trong ngày",
-        "Không nhầm với bãi sao biển Rạch Vẹm"
+        "Khi đến nơi, hãy chịu khó đi bộ dọc bờ để chọn được đoạn bãi thực tế đẹp và sạch nhất trong ngày để dừng chân.",
+        "Rất nhiều người nhầm lẫn lỗi này: Bãi Sao không phải là bãi có sao biển (như Rạch Vẹm ở tận Bắc đảo)."
       ],
       "intents": [
         "beach",
@@ -707,8 +698,8 @@
         "beach",
         "resort"
       ],
-      "what_it_is": "Vịnh cát sáng gắn với các resort cao cấp",
-      "why_go": "Tắm biển · Nghỉ dưỡng",
+      "what_it_is": "Vịnh biển tuyệt đẹp sở hữu bờ cát sáng mịn, cảnh quan gắn liền với các khu resort nghỉ dưỡng cao cấp.",
+      "why_go": "Tắm biển trong vắt. · Tận hưởng không gian nghỉ dưỡng sang trọng.",
       "best_for": [
         "beach",
         "resort"
@@ -719,9 +710,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Quy hoạch có không gian bãi tắm/quảng trường công cộng, nhưng lối vào thực tế và quyền dùng tiện ích resort phải kiểm tra riêng.",
-        "Không gọi toàn bộ Bãi Khem là 'bãi riêng' hoặc 'bãi resort' như một mô tả pháp lý.",
-        "Không mặc định tiện ích resort như ghế, hồ bơi, nhà vệ sinh, bãi đỗ xe là dịch vụ công cộng."
+        "Dù quy hoạch có không gian bãi tắm hay quảng trường công cộng, nhưng lối vào thực tế và quyền dùng tiện ích của resort thì bạn phải kiểm tra riêng để tránh bỡ ngỡ.",
+        "Tránh dùng từ sai: Không nên gọi toàn bộ Bãi Khem là 'bãi riêng' hoặc 'bãi resort' như một mô tả mang tính pháp lý.",
+        "Đừng mặc định các tiện ích của resort (như ghế tắm nắng, hồ bơi, nhà vệ sinh, bãi đỗ xe) là dịch vụ công cộng dành cho tất cả mọi người."
       ],
       "intents": [
         "beach",
@@ -785,8 +776,8 @@
         "architecture",
         "show"
       ],
-      "what_it_is": "Khu phố mở, hoàng hôn, Cầu Hôn và chuỗi show",
-      "why_go": "Dạo phố · Cầu Hôn · Symphony of the Sea · Kiss of the Sea · Ăn tối",
+      "what_it_is": "Khu phố mở mang âm hưởng Địa Trung Hải, là tọa độ ngắm hoàng hôn đỉnh cao cùng biểu tượng Cầu Hôn và chuỗi show diễn hoành tráng.",
+      "why_go": "Dạo phố chụp ảnh. · Check-in Cầu Hôn. · Xem show Symphony of the Sea. · Thưởng thức Kiss of the Sea. · Ăn tối lãng mạn.",
       "best_for": [
         "evening",
         "architecture",
@@ -798,9 +789,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Dựng lịch ngược từ giờ show",
-        "Tới trước hoàng hôn",
-        "Chốt xe về sau show"
+        "Mẹo xếp lịch từ dân bản địa: Hãy dựng lịch trình ngược lại từ giờ diễn show để căn thời gian dạo chơi hợp lý nhất.",
+        "Đảm bảo tới nơi trước khi hoàng hôn buông xuống để săn được những khung hình đẹp nhất.",
+        "Chắc chắn phải chốt trước xe chiều về sau khi xem show xong, vì lúc tối muộn tìm xe rất khó."
       ],
       "intents": [
         "evening",
@@ -883,8 +874,8 @@
         "history",
         "culture"
       ],
-      "what_it_is": "Di tích lịch sử gắn với ký ức chiến tranh",
-      "why_go": "Tham quan · Đọc tư liệu",
+      "what_it_is": "Di tích lịch sử quan trọng, nơi lưu giữ những ký ức chân thực, đau thương về chiến tranh.",
+      "why_go": "Tham quan di tích lịch sử. · Đọc và tìm hiểu các tư liệu quý giá.",
       "best_for": [
         "history",
         "culture"
@@ -895,7 +886,7 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Nên đi với mạch lịch sử, không chỉ chụp ảnh"
+        "Nên đi tham quan với tâm thế kết nối mạch lịch sử, đừng chỉ đến đi lướt qua để chụp vài tấm ảnh rồi về."
       ],
       "intents": [
         "history",
@@ -951,8 +942,8 @@
         "culture",
         "viewpoint"
       ],
-      "what_it_is": "Không gian tâm linh yên tĩnh để tĩnh tâm, dâng hương, cầu nguyện và ngắm biển phía Đông Nam.",
-      "why_go": "Tĩnh tâm · Dâng hương · Cầu nguyện",
+      "what_it_is": "Một không gian tâm linh rộng lớn, yên tĩnh để tĩnh tâm, dâng hương, cầu nguyện và phóng tầm mắt ngắm biển khơi phía Đông Nam.",
+      "why_go": "Tĩnh tâm. · Dâng hương. · Cầu nguyện bình an.",
       "best_for": [
         "culture",
         "viewpoint"
@@ -963,9 +954,9 @@
       "live_check_required": false,
       "weather_dependency": "medium",
       "tips": [
-        "Dành thời gian tĩnh tâm, dâng hương và cầu nguyện; không cần ghé vội chỉ để chụp ảnh.",
-        "Mặc trang phục phù hợp, giữ yên tĩnh và làm theo hướng dẫn tại khu thờ tự.",
-        "Có thể ghép với Bãi Sao, Bãi Khem hoặc Nhà tù Phú Quốc nếu lịch trình thong thả."
+        "Hãy thực sự dành thời gian để tĩnh tâm, dâng hương và cầu nguyện; không cần phải ghé qua vội vàng chỉ để chụp ảnh.",
+        "Mặc trang phục phù hợp, giữ yên tĩnh tối đa và tuân thủ các hướng dẫn của ban quản lý tại khu vực thờ tự.",
+        "Rất dễ để ghép điểm này cùng Bãi Sao, Bãi Khem hoặc Nhà tù Phú Quốc nếu lịch trình trong ngày của bạn đang thong thả."
       ],
       "intents": [
         "culture",
@@ -1016,8 +1007,8 @@
         "waterpark",
         "family"
       ],
-      "what_it_is": "Công viên nước trên Hòn Thơm với hơn 20 trò và khu gia đình.",
-      "why_go": "Trò trượt nước · Khu gia đình · Nghỉ giữa ngày",
+      "what_it_is": "Công viên nước hiện đại rực rỡ nằm trên Hòn Thơm với hơn 20 trò chơi hấp dẫn và cả khu vực dành riêng cho gia đình.",
+      "why_go": "Thử thách bùng nổ với các trò trượt nước. · Vui chơi an toàn tại khu gia đình. · Giải nhiệt và vui chơi với hàng loạt trò chơi dưới nước.",
       "best_for": [
         "waterpark",
         "family"
@@ -1028,9 +1019,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Kiểm tra chiều cao trẻ",
-        "Sau 2-3 giờ nên nghỉ ăn/uống",
-        "Mang đồ thay và dép chống trượt"
+        "Cực kỳ lưu ý việc đo và kiểm tra chiều cao của trẻ em để chọn trò chơi cho phù hợp, tránh mất công xếp hàng.",
+        "Chơi nước rất hao sức, cứ sau 2-3 giờ vùng vẫy bạn nên có thời gian nghỉ ngơi, ăn uống để nạp lại năng lượng.",
+        "Đừng quên mang theo đồ thay dự phòng và một đôi dép chống trượt để đi lại an toàn."
       ],
       "intents": [
         "waterpark",
@@ -1087,8 +1078,8 @@
         "thrill",
         "theme-park"
       ],
-      "what_it_is": "Cụm trò khô/cảm giác mạnh trên Hòn Thơm.",
-      "why_go": "Mộc Xà Thịnh Nộ · Mắt Đại Bàng",
+      "what_it_is": "Cụm trò chơi khô và cảm giác mạnh cực kỳ thử thách nằm trong tổ hợp Hòn Thơm.",
+      "why_go": "Khám phá tàu lượn bằng gỗ Mộc Xà Thịnh Nộ. · Trải nghiệm đài quan sát Mắt Đại Bàng.",
       "best_for": [
         "thrill",
         "theme-park"
@@ -1099,9 +1090,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Kiểm tra chiều cao và bảo trì trò",
-        "Không cần cố chơi nếu say độ cao/tim mạch",
-        "Giữ giờ cáp lượt về"
+        "Kiểm tra kỹ chiều cao quy định và xem thông tin bảo trì trò chơi trong ngày.",
+        "Đừng cố đấm ăn xôi: Không cần cố chấp chơi nếu bạn có tiền sử say độ cao hoặc các vấn đề về tim mạch.",
+        "Lỗi kinh điển là mải chơi quên lối về, hãy luôn giữ ý thức canh giờ cáp treo chuyến lượt về nhé."
       ],
       "intents": [
         "thrill",
@@ -1158,8 +1149,8 @@
         "nature",
         "stream"
       ],
-      "what_it_is": "Một trong các điểm suối quen thuộc nhất Phú Quốc, đẹp hơn khi có nước.",
-      "why_go": "Đi bộ nhẹ · Rừng/suối · Nghỉ thiên nhiên",
+      "what_it_is": "Điểm đến quen thuộc nhất khi nhắc đến suối ở Phú Quốc. Lời khuyên thật lòng: Cảnh chỉ thực sự đẹp khi suối có nước.",
+      "why_go": "Đi bộ dạo nhẹ nhàng trong rừng. · Tắm suối/ngắm cảnh rừng. · Nghỉ ngơi giữa thiên nhiên xanh mát.",
       "best_for": [
         "nature",
         "stream"
@@ -1170,9 +1161,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Đá trơn sau mưa",
-        "Nước có thể lên nhanh",
-        "Không xả rác hoặc tách nhóm ở tuyến ít người"
+        "Đá ở suối cực kỳ trơn trượt sau những cơn mưa, đi đứng phải cẩn thận.",
+        "Chú ý an toàn vì nước từ thượng nguồn có thể lên rất nhanh.",
+        "Vui chơi văn minh: Không xả rác và tuyệt đối không tách nhóm đi vào các tuyến đường rừng ít người qua lại."
       ],
       "intents": [
         "nature",
@@ -1221,8 +1212,8 @@
         "culture",
         "craft"
       ],
-      "what_it_is": "Nơi có thể nhìn nghề ủ chượp nước mắm bằng thùng gỗ và nghe câu chuyện nghề đảo.",
-      "why_go": "Xem nhà thùng · Nghe quy trình ủ chượp · Đọc độ đạm/sản phẩm",
+      "what_it_is": "Tọa độ lý tưởng để bạn tận mắt chiêm ngưỡng nghề ủ chượp nước mắm truyền thống trong những chiếc thùng gỗ khổng lồ và lắng nghe những câu chuyện làm nghề bao đời của dân đảo.",
+      "why_go": "Tận mắt xem quy mô nhà thùng. · Nghe chi tiết quy trình ủ chượp kỳ công. · Tìm hiểu cách đọc độ đạm và phân loại sản phẩm.",
       "best_for": [
         "culture",
         "craft"
@@ -1233,9 +1224,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Hỏi nguồn cá, muối, thời gian ủ, độ đạm tự nhiên",
-        "Ưu tiên nơi còn sản xuất thật",
-        "Không coi đây chỉ là điểm mua sắm"
+        "Đừng ngại đặt câu hỏi cho thợ lành nghề về nguồn cá, loại muối, thời gian ủ và thế nào là độ đạm tự nhiên.",
+        "Luôn ưu tiên tham quan nơi còn đang sản xuất thật sự.",
+        "Thay đổi tư duy: Đừng chỉ coi đây là một điểm dừng chân để mua sắm qua loa."
       ],
       "intents": [
         "culture",
@@ -1270,8 +1261,8 @@
         "culture",
         "agriculture"
       ],
-      "what_it_is": "Lớp nông nghiệp của đảo với trụ tiêu, mùa thu hoạch, phơi và phân loại hạt.",
-      "why_go": "Tham quan vườn · Nghe câu chuyện canh tác · Thử/đọc sản phẩm",
+      "what_it_is": "Bức tranh nông nghiệp đặc sắc của đảo với những hàng trụ tiêu xanh mướt, nơi bạn có thể quan sát thực tế mùa thu hoạch, phơi phóng cho đến lúc phân loại hạt, tùy theo mùa vụ và hoạt động của từng vườn.",
+      "why_go": "Dạo bước tham quan vườn cây mát mẻ. · Nghe người nông dân kể câu chuyện canh tác nhọc nhằn. · Ăn thử và tìm hiểu thông tin các sản phẩm từ tiêu.",
       "best_for": [
         "culture",
         "agriculture"
@@ -1282,9 +1273,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Ưu tiên vườn còn canh tác thật",
-        "Hỏi về trụ tiêu, mùa thu hoạch, phơi và phân loại",
-        "Không biến mọi điểm thành nơi mua sắm"
+        "Hãy ưu tiên những vườn tiêu của người dân còn đang duy trì canh tác thật.",
+        "Hỏi chủ vườn những câu chuyện thú vị về quy trình làm trụ tiêu, mùa thu hoạch, cách phơi và phân loại tiêu.",
+        "Cũng giống nhà thùng, đừng biến mọi điểm tham quan nông nghiệp thành một nơi chỉ để cắm cúi mua sắm."
       ],
       "intents": [
         "culture",
@@ -1322,8 +1313,8 @@
         "sunset",
         "evening"
       ],
-      "what_it_is": "Điểm tham quan tại Sunset Town, bán vé riêng và phù hợp nhất khi ghép với cuối chiều - buổi tối.",
-      "why_go": "Ngắm cảnh, kiến trúc và hoàng hôn trước khi nối sang bữa tối hoặc show.",
+      "what_it_is": "Biểu tượng kiến trúc lãng mạn tại Sunset Town; vé tham quan có thể mua riêng hoặc nằm trong một số gói combo, và lên hình đẹp nhất khi đi vào cuối chiều nối sang buổi tối.",
+      "why_go": "Ngắm cảnh biển bao la, chiêm ngưỡng kiến trúc ấn tượng và đón hoàng hôn rực rỡ trước khi nối lịch sang dùng bữa tối hoặc đi xem show.",
       "best_for": [
         "couple",
         "sunset",
@@ -1335,8 +1326,8 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Đừng tới sát giờ show mới bắt đầu đổi vé hoặc tìm đường",
-        "Giờ và giá có thể thay đổi theo ngày vận hành"
+        "Tránh tình trạng cập rập: Đừng để sát giờ show diễn mới bắt đầu nháo nhào chạy đi đổi vé hoặc tìm đường lên cầu.",
+        "Luôn chủ động cập nhật vì giờ mở cửa và giá vé có thể thay đổi linh hoạt theo từng ngày vận hành."
       ],
       "intents": [
         "couple",
@@ -1401,8 +1392,8 @@
         "lore",
         "nature"
       ],
-      "what_it_is": "Mạch nước ngọt trong khu vực An Thới gắn với truyền thuyết dân gian về Nguyễn Ánh.",
-      "why_go": "Đọc một địa điểm thật qua hai lớp: địa hình - mạch nước và truyền thuyết địa phương.",
+      "what_it_is": "Một mạch nước ngọt bí ẩn nằm ngay sát biển trong khu vực An Thới, gắn liền với những truyền thuyết dân gian thú vị về chúa Nguyễn Ánh.",
+      "why_go": "Có cơ hội đọc một địa điểm thật qua hai lớp ý nghĩa: lớp địa hình thực tế với mạch nước ngọt độc đáo, và lớp truyền thuyết dân gian địa phương ly kỳ.",
       "best_for": [
         "history",
         "lore"
@@ -1413,8 +1404,8 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Không kể truyền thuyết Nguyễn Ánh như sự kiện lịch sử đã được chứng minh.",
-        "Cần kiểm tra điều kiện tiếp cận thực tế trước khi đi."
+        "Nhắc lại lần nữa: Không kể truyền thuyết Nguyễn Ánh như một sự kiện lịch sử đã được khoa học chứng minh.",
+        "Cần cẩn thận kiểm tra điều kiện tiếp cận thực tế trước khi quyết định ghé qua để không bị quay xe giữa chừng."
       ],
       "intents": [
         "history",
@@ -1468,8 +1459,8 @@
         "local-life",
         "food"
       ],
-      "what_it_is": "Chợ truyền thống bên sông Dương Đông, phục vụ cả nhu cầu địa phương và du khách.",
-      "why_go": "Quan sát nhịp chợ địa phương, hải sản tươi/khô và các sản vật của đảo.",
+      "what_it_is": "Khu chợ truyền thống tấp nập nằm sát mép sông Dương Đông, nơi người dân địa phương và du khách mua sắm thực phẩm, hải sản cùng nhiều sản vật của đảo.",
+      "why_go": "Quan sát nhịp sống đời thường chân thực của dân đảo. · Mua sắm các loại hải sản tươi/khô và vô vàn sản vật phong phú của Phú Quốc.",
       "best_for": [
         "local-life",
         "food"
@@ -1480,9 +1471,9 @@
       "live_check_required": true,
       "weather_dependency": "low",
       "tips": [
-        "Giờ mở cửa hiện được nguồn du lịch chính thức niêm yết 05:00-19:00, nhưng nên coi là dữ liệu vận hành cần cập nhật.",
-        "Không nhầm Chợ Dương Đông ban ngày với Chợ đêm Phú Quốc.",
-        "Bãi đỗ xe, thanh toán và điều kiện lối đi cần xác minh theo thực địa."
+        "Giờ mở cửa hiện được các nguồn du lịch chính thức niêm yết là từ 05:00-19:00, nhưng kinh nghiệm là nên coi đây là dữ liệu vận hành có thể xê dịch, đi buổi sáng sớm là tốt nhất.",
+        "Rất nhiều khách nhầm lẫn, hãy nhớ Chợ Dương Đông (ban ngày) hoàn toàn khác với Chợ đêm Phú Quốc nhé.",
+        "Việc tìm bãi đỗ xe, phương thức thanh toán và điều kiện lối đi chen chúc trong chợ cần linh hoạt theo thực địa."
       ],
       "intents": [
         "food",
@@ -1552,8 +1543,8 @@
         "local-life",
         "seafood"
       ],
-      "what_it_is": "Khu dân cư ven biển phía Đông Phú Quốc gắn lâu dài với nghề khai thác hải sản và hoạt động làng chài.",
-      "why_go": "Đọc nhịp sống ven biển, ăn hải sản và hiểu một lớp nghề biển phía Đông đảo.",
+      "what_it_is": "Khu dân cư nhộn nhịp ven biển phía Đông Phú Quốc, nơi gắn bó mật thiết và lâu dài với nghề khai thác hải sản cũng như các hoạt động làng chài truyền thống.",
+      "why_go": "Cảm nhận chân thực nhịp sống ven biển, thưởng thức hải sản và hiểu thêm về một lớp nghề bám biển ở phía Đông của đảo.",
       "best_for": [
         "local-life",
         "food"
@@ -1564,9 +1555,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Không dùng từ 'làng cổ' như một fact lịch sử nếu chưa có nguồn chuyên sâu.",
-        "Cầu cảng, cảnh quan và lối tiếp cận đã thay đổi theo thời gian - cần tách ảnh/tư liệu cũ khỏi thực tế hiện tại.",
-        "Nguồn ghẹ/hải sản tại từng quán cần xác minh riêng, không suy từ vị trí Hàm Ninh."
+        "Tránh gọi bừa đây là 'làng cổ' như một sự thật (fact) lịch sử để truyền miệng nếu chưa có các nguồn tài liệu chuyên sâu xác nhận.",
+        "Hiện tại, cầu cảng, cảnh quan và lối tiếp cận ở Hàm Ninh đã thay đổi theo thời gian - bạn cần rạch ròi tách biệt hình ảnh/tư liệu cũ trên mạng khỏi thực tế hiện tại khi đến đây.",
+        "Kinh nghiệm ăn uống: Nguồn ghẹ và chất lượng hải sản tại từng quán cần phải được bạn tự xác minh riêng, đừng mặc định suy ra là cứ ngồi ở vị trí Hàm Ninh thì nhà hàng nào cũng ngon và chuẩn gốc."
       ],
       "intents": [
         "local-life",
@@ -1628,8 +1619,8 @@
         "family",
         "indoor"
       ],
-      "what_it_is": "Bảo tàng chủ đề gấu Teddy tại Grand World Phú Quốc.",
-      "why_go": "Không gian trong nhà · gia đình · trẻ nhỏ · phù hợp buổi tối hoặc lúc nắng/mưa",
+      "what_it_is": "Teddy Bear Museum Phú Quốc là bảo tàng chủ đề gấu Teddy, nằm ngay trong khuôn viên Grand World Phú Quốc.",
+      "why_go": "Tận hưởng không gian trong nhà có máy lạnh, mát mẻ. · Phù hợp với gia đình có trẻ nhỏ. · Là lựa chọn hữu ích vào buổi tối hoặc những lúc trời nắng gắt, mưa bất chợt.",
       "best_for": [
         "museum",
         "family",
@@ -1641,8 +1632,9 @@
       "live_check_required": true,
       "weather_dependency": "low",
       "tips": [
-        "Hợp để ghép với Grand World và show Tinh Hoa Việt Nam",
-        "Nếu đến muộn nên chừa ít nhất khoảng 60-90 phút để xem thoải mái"
+        "Lịch trình thuận tiện nhất là kết hợp bảo tàng với Grand World và show Tinh hoa Việt Nam trong cùng một buổi.",
+        "Nên dành khoảng 60-90 phút để tham quan.",
+        "Nếu đến vào cuối ngày, hãy kiểm tra giờ mở cửa và thời gian nhận khách cuối cùng để tránh phải tham quan vội."
       ],
       "intents": [
         "museum",
@@ -1710,8 +1702,8 @@
         "nature",
         "stream"
       ],
-      "what_it_is": "Khu du lịch sinh thái bên suối ở khu vực Bến Tràm. Pin hiện là neo khu vực để định hướng, không phải cổng vào, bãi xe hay điểm xuống suối đã xác minh.",
-      "why_go": "Đi bộ qua rừng · Ngắm suối và ghềnh đá · Dã ngoại theo mùa",
+      "what_it_is": "Khu du lịch sinh thái bên suối nằm ở khu vực Bến Tràm. Lưu ý: Vị trí ghim (pin) trên bản đồ hiện tại chỉ để định hướng khu vực, không phải là cổng vào chính thức, bãi xe hay điểm xuống suối đã được xác minh chính xác.",
+      "why_go": "Trải nghiệm đi bộ xuyên rừng. · Ngắm dòng suối và những bãi đá tảng rộng lớn. · Tổ chức dã ngoại (tùy theo mùa).",
       "best_for": [
         "nature",
         "stream"
@@ -1722,9 +1714,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Kiểm tra đường vào",
-        "Không dùng một lời khuyên cố định cho mọi ngày",
-        "Đi có trách nhiệm với rừng"
+        "Bắt buộc kiểm tra đường vào thực tế.",
+        "Không có một lời khuyên cố định nào đúng cho mọi thời điểm trong năm khi đi suối.",
+        "Luôn giữ ý thức đi du lịch có trách nhiệm với cảnh quan rừng."
       ],
       "intents": [
         "nature",
@@ -1774,8 +1766,8 @@
         "nature",
         "stream"
       ],
-      "what_it_is": "Suối rừng ở khu vực phía đông bắc đảo. Đường tiếp cận và dòng chảy thay đổi theo mùa; chưa gắn pin vì chưa xác minh được lối vào công khai.",
-      "why_go": "Khám phá thiên nhiên · Đi cùng người có kinh nghiệm · Kiểm tra mùa nước trước khi đi",
+      "what_it_is": "Con suối rừng hoang sơ nằm ẩn mình ở khu vực phía đông bắc đảo. Đường tiếp cận rất khó và dòng chảy thay đổi theo mùa; hiện tại pin bản đồ chỉ để định hướng khu vực, chưa xác minh được lối vào công khai an toàn.",
+      "why_go": "Đam mê khám phá thiên nhiên hoang dã. · Cần đi cùng người bản địa có kinh nghiệm. · Luôn phải kiểm tra mùa nước trước khi đi.",
       "best_for": [
         "nature",
         "stream"
@@ -1786,9 +1778,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Kiểm tra đường vào",
-        "Không dùng một lời khuyên cố định cho mọi ngày",
-        "Đi có trách nhiệm với rừng"
+        "Kiểm tra kỹ càng đường vào.",
+        "Điều kiện thay đổi theo ngày, không thể áp dụng một lời khuyên cứng nhắc.",
+        "Chú ý an toàn và giữ gìn vệ sinh rừng."
       ],
       "intents": [
         "nature",
@@ -1838,8 +1830,8 @@
         "nature",
         "stream"
       ],
-      "what_it_is": "Suối rừng phía đông bắc đảo. Hướng dẫn bản đồ có thể dẫn tới bãi giữ xe tư nhân thay vì lối vào, nên mục này chưa gắn tọa độ.",
-      "why_go": "Đi bộ trong rừng · Ngắm suối · Đi xe máy tới khu gửi xe đã xác minh trước",
+      "what_it_is": "Một dòng suối rừng ở Phú Quốc. Cẩn thận: Ứng dụng bản đồ có thể chỉ đường dẫn bạn tới một bãi giữ xe tư nhân thay vì lối vào thực sự của suối, nên pin hiện chỉ để định hướng khu vực, không xác nhận nơi gửi xe hay lối vào.",
+      "why_go": "Thích đi bộ trekking nhẹ trong rừng. · Ngắm suối hoang sơ. · Phù hợp đi xe máy tới các bãi gửi xe đã được người đi trước xác minh.",
       "best_for": [
         "nature",
         "stream"
@@ -1850,9 +1842,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Kiểm tra đường vào",
-        "Không dùng một lời khuyên cố định cho mọi ngày",
-        "Đi có trách nhiệm với rừng"
+        "Nhớ kiểm tra đường vào từ trước.",
+        "Tùy thời tiết mà suối đẹp hay xấu, không dùng một lời khuyên cố định cho mọi ngày.",
+        "Vui chơi có ý thức và đi có trách nhiệm với rừng."
       ],
       "intents": [
         "nature",
@@ -1902,8 +1894,8 @@
         "nature",
         "stream"
       ],
-      "what_it_is": "Trung tâm bảo tồn và trường đua chó xoáy Thanh Nga. Ưu tiên thấp; nên xác nhận giờ mở cửa trước khi ghé.",
-      "why_go": "Tìm hiểu giống chó xoáy · Tham quan theo lịch của cơ sở",
+      "what_it_is": "Trung tâm bảo tồn và trường đua chó xoáy Thanh Nga nổi tiếng. Tuy nhiên, đây là điểm có mức độ ưu tiên thấp; bạn nên gọi điện xác nhận giờ mở cửa trước khi cất công ghé qua.",
+      "why_go": "Muốn tìm hiểu về giống chó xoáy bản địa, thông minh của Phú Quốc. · Tham quan trường đua theo lịch hoạt động của cơ sở.",
       "best_for": [
         "nature",
         "stream"
@@ -1914,9 +1906,9 @@
       "live_check_required": true,
       "weather_dependency": "medium",
       "tips": [
-        "Kiểm tra đường vào",
-        "Không dùng một lời khuyên cố định cho mọi ngày",
-        "Đi có trách nhiệm với rừng"
+        "Kiểm tra lại kỹ đường vào trại.",
+        "Tình trạng đón khách có thể thay đổi, không nên dựa vào một kinh nghiệm cố định cho mọi ngày.",
+        "Tham quan tuân thủ quy định và đi có trách nhiệm với không gian tự nhiên xung quanh."
       ],
       "intents": [
         "nature",
