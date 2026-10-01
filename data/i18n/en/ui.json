@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "locale": "en",
-  "updated_at": "2026-09-30",
+  "updated_at": "2026-10-01",
   "common": {
     "source_image": "Image source ↗",
     "source_map": "Map source ↗",
@@ -85,7 +85,27 @@
     "practical": "PRACTICAL NOTE",
     "practical_title": "A few things to keep in mind.",
     "sources": "REFERENCES",
-    "more": "What to try next"
+    "more": "What to try next",
+    "image_pending": "A dedicated photo for this dish is being added",
+    "no_match": "No matching dishes.",
+    "random_empty": "Choose a meal and we will suggest three dishes.",
+    "meal_breakfast": "Breakfast",
+    "meal_lunch": "Lunch",
+    "meal_dinner": "Dinner",
+    "meal_snack": "Snack",
+    "meal_dessert": "Dessert",
+    "suggestion_today": "Today's suggestion",
+    "view_dish": "View this dish →",
+    "recipe_note": "Recipes vary by restaurant. If you have allergies or dietary restrictions, ask about the actual ingredients before ordering.",
+    "not_found_document_title": "Dish not found - Open Phu Quoc",
+    "not_found_title": "This dish was not found.",
+    "not_found_description": "The dish may have moved or may not be public yet.",
+    "all_dishes": "← See all dishes",
+    "crumb": "EAT PHU QUOC",
+    "default_how_to_eat": "Enjoy it while it is hot and season to your own taste.",
+    "visual_context_eyebrow": "JOTRIP REFERENCE PHOTOS · GENERAL CONTEXT",
+    "visual_context_title": "Seafood in the kitchen - context photos, not tied to one specific dish",
+    "load_error": "The food guide could not be loaded."
   },
   "stories": {
     "not_found_title": "This article was not found.",

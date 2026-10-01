@@ -23,8 +23,14 @@
       "native_name": "English",
       "name": "English",
       "direction": "ltr",
-      "published": false,
-      "surfaces": []
+      "published": true,
+      "surfaces": [
+        "home",
+        "stories",
+        "guide",
+        "food",
+        "airport"
+      ]
     },
     {
       "code": "ko",
