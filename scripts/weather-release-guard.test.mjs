@@ -13,12 +13,17 @@ const valid=(cloud=20,cycle=480,marine=100)=>({
 const old=valid(43,680,160),next=valid();
 assert.equal(verifyWeatherRelease(next,old,now).status,"VERIFIED_NO_REGRESSION");
 assert.equal(verifyWeatherRelease(next,next,now).status,"VERIFIED_NO_REGRESSION");
+const futureMarineWithinCadence={...next,source_times:{...next.source_times,marine_sampled_time:at(-120)}};
+const priorForFutureMarine={...old,source_times:{...old.source_times,marine_sampled_time:at(10)}};
+assert.equal(verifyWeatherRelease(futureMarineWithinCadence,priorForFutureMarine,now).status,"VERIFIED_NO_REGRESSION",
+ "Copernicus PT3H valid time may be ahead of wall clock within one model frame");
 for(const [label,make] of [
  ["old satellite",{...next,source_times:{...next.source_times,cloud_sampled_time:at(44)}}],
  ["old model",{...next,source_times:{...next.source_times,forecast_run_time:at(681)}}],
  ["old marine",{...next,source_times:{...next.source_times,marine_sampled_time:at(161)}}],
  ["stale candidate",{...next,source_times:{...next.source_times,cloud_sampled_time:at(64)}}],
  ["future model",{...next,source_times:{...next.source_times,forecast_run_time:at(-15)}}],
+ ["marine valid time too far ahead",{...next,source_times:{...next.source_times,marine_sampled_time:at(-181)}}],
  ["wrong authority",{...next,policy:{frontend_source:"EXTERNAL"}}],
  ["fake READY",{...next,status:"PARTIAL"}]
 ])assert.throws(()=>verifyWeatherRelease(make,old,now),undefined,label);
