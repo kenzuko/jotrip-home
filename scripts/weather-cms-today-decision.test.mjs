@@ -41,4 +41,14 @@ check("dry calm valid forecast",row(0,8,14,.6),"good");
   assert(scene.includes("Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc"));
 }
 
+{
+  const source=readFileSync("weather/weather-v2.js","utf8");
+  assert(source.includes('key:"weather-cloud-delayed"'),"Cloud-only delay must have its own source event");
+  assert(source.includes('title:"Đang chờ ảnh mây mới"'),"Cloud-only delay must use source-specific public wording");
+  assert(source.includes("Quan trắc mặt đất vẫn đang cập nhật"),"Ground observations must remain independently visible");
+  assert(!source.includes("Chưa có cập nhật đủ mới để kết luận thời tiết đã ổn"),"Old global stale wording must not return");
+  const html=readFileSync("weather/index.html","utf8");
+  assert(html.includes("/weather/weather-v2.js?v=20261001-source-freshness1"),"Weather V2 cache must be invalidated");
+}
+
 console.log("10/10 multi-hazard forecast decisions PASS");
