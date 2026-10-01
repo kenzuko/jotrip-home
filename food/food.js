@@ -68,7 +68,7 @@ function renderRandomDish(){
   const meals={breakfast:copy("food.meal_breakfast","Ăn sáng"),lunch:copy("food.meal_lunch","Ăn trưa"),dinner:copy("food.meal_dinner","Ăn tối"),snack:copy("food.meal_snack","Ăn chơi"),dessert:copy("food.meal_dessert","Món ngọt")};
   host.innerHTML='<div class="random-dish-picks">'+rows.map(dish=>{
     const time=(dish.meal_times||[]).map(x=>meals[x]).filter(Boolean).slice(0,2).join(" · ");
-    return '<div class="random-dish-pick"><span>'+esc(time||copy("food.suggestion_today","Gợi ý hôm nay"))+'</span><strong>'+esc(dish.name)+'</strong><p>'+esc(dish.intro)+'</p><a href="article.html?id='+encodeURIComponent(dish.id)+'">Xem món này →</a></div>';
+    return '<div class="random-dish-pick"><span>'+esc(time||copy("food.suggestion_today","Gợi ý hôm nay"))+'</span><strong>'+esc(dish.name)+'</strong><p>'+esc(dish.intro)+'</p><a href="article.html?id='+encodeURIComponent(dish.id)+'">'+esc(copy("food.view_dish","Xem món này →"))+'</a></div>';
   }).join("")+'</div>';
 }
 
