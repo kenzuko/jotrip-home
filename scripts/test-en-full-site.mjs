@@ -13,7 +13,11 @@ const phrases=[...(shell.phrases||[])].sort((a,b)=>String(b?.[0]||"").length-Str
 const publicRoots=["about","airport","bus","cano","currency","explore","ferry","food","go","guide","hotels","nearme","news","places","stories","transit","utilities","weather"];
 const rootFiles=["index.html","app.js","home-live.js","home-live-v3.js","home-foundation-v2.js","home-nearme-v2.js","home-today-v3.js","home-copy.js","home-experience-v1.js","home-library.js","island-clock.js"];
 const skip=/\b(?:admin|cms|localized-pages)\b|(?:\.test|\.spec)\.(?:m?js)$/i;
-const skipLocaleSources=new Set(["airport/i18n.js","airport/app-copy.js"]);
+const skipLocaleSources=new Set([
+  "airport/i18n.js","airport/app-copy.js","airport/app.js","airport/airport.js",
+  "airport/board-days.js","airport/fids-board.js","airport/flight-status-policy.js",
+  "airport/live-config.js","airport/live-source.js","airport/openpq-stability.js"
+]);
 const skipWeather=/^weather\/(?:spatial-lab|weather-scene)/;
 
 function walk(dir,out=[]){
