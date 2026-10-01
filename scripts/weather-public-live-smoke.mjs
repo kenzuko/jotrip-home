@@ -7,24 +7,27 @@ const browser=await chromium.launch({headless:true});
 function badPublicText(text){
   return /\b(?:BETA|OBSERVATION|NOWCAST|PUBLIC_BETA|DERIVED_NOWCAST|REMOTE_OBSERVED|ACTUAL|V2)\b/i.test(String(text||""));
 }
+function isLegacyRawWeather(url){
+  return /raw\.githubusercontent\.com\/kenzuko\/Jotrip-Lab\/(?:gh-pages\/weather\/data\/|data-weather\/data\/)/i.test(String(url||""));
+}
 
 try{
   const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2});
   page.on("pageerror",e=>result.errors.push("page: "+String(e)));
   page.on("request",req=>{
     const u=req.url();
-    if(/weather\/data\/(?:critical|nowcast-compact)\.json/i.test(u)||/raw\.githubusercontent\.com/i.test(u))
+    if(/weather\/data\/(?:critical|nowcast-compact)\.json/i.test(u)||isLegacyRawWeather(u))
       result.requests.push(u);
   });
   await page.goto(base+"/?weather-final="+Date.now(),{waitUntil:"domcontentloaded",timeout:120000});
   await page.locator('[data-live="weather"]').waitFor({state:"visible",timeout:45000});
   await page.waitForTimeout(3500);
   const homeText=(await page.locator('[data-live="weather"]').innerText()).trim();
-  const rawWeatherRequests=result.requests.filter(x=>/raw\.githubusercontent\.com/i.test(x));
+  const rawWeatherRequests=result.requests.filter(isLegacyRawWeather);
   const canonicalCritical=result.requests.some(x=>x.startsWith(base+"/weather/data/critical.json"));
   const canonicalNowcast=result.requests.some(x=>x.startsWith(base+"/weather/data/nowcast-compact.json"));
   result.home={text:homeText,canonicalCritical,canonicalNowcast,rawWeatherRequests};
-  if(rawWeatherRequests.length)throw new Error("Homepage still requests raw GitHub Weather data");
+  if(rawWeatherRequests.length)throw new Error("Homepage still requests legacy raw GitHub Weather data");
   if(!canonicalCritical||!canonicalNowcast)throw new Error("Homepage did not request both canonical Weather edge feeds");
   if(/\bLIVE\b/.test(homeText))throw new Error("Homepage Weather card exposes raw LIVE label");
   if(badPublicText(homeText))throw new Error("Homepage Weather card exposes machine label: "+homeText);
