@@ -42,7 +42,9 @@ function i18n(locale){
   const dry=structuredClone(critical);
   dry.human_weather.rain={};
   const v=human.homepage(dry);
-  assert.equal(v.secondary,"Đo thực tế tại Sân bay Phú Quốc");\n  assert.equal(v.observationMode,"PERIODIC_METAR_SPECI");\n  assert.equal(v.comfortScope,"REFERENCE_STATION_ONLY");
+  assert.equal(v.secondary,"Đo thực tế tại Sân bay Phú Quốc");
+  assert.equal(v.observationMode,"PERIODIC_METAR_SPECI");
+  assert.equal(v.comfortScope,"REFERENCE_STATION_ONLY");
   assert.equal(v.heatIndexText,"Chỉ số cảm giác nóng: khoảng 41°C");
   assert.equal(v.heatIndexMethod,"Tính từ nhiệt độ 31°C và độ ẩm khoảng 79%.");
 }
