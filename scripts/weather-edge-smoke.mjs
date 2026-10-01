@@ -66,6 +66,18 @@ const current=await(await call("/weather/data/current-bundle.json")).json();
 check(current.model_72h.points.duong_dong[0].data_class==="MODEL_ONLY","models retain their provenance");
 const health=await(await call("/weather/data/edge-health.json")).json();
 check(health.schema_version==="openpq-weather-edge-health-v1"&&health.status==="READY"&&health.results.length===5,"health audits measured source sample ages");
+check(health.results.find(x=>x.path.endsWith("/nowcast-compact.json"))?.freshness_budget_minutes===60,
+ "Himawari health must use the same 60-minute public V3 gate");
+
+// Normal source cadence must not become a global failure. A 50-minute
+// Himawari frame, 4-hour marine model and 3-hour forecast issue are still
+// usable when their own contracts remain valid.
+memo.clear();
+fixture.compact.sampled_time=new Date(Date.now()-50*60000).toISOString();
+fixture.marine.wave.sampled_time=new Date(Date.now()-4*3600000).toISOString();
+fixture.dashboard.generated_at=new Date(Date.now()-3*3600000).toISOString();
+const cadenceHealth=await(await call("/weather/data/edge-health.json")).json();
+check(cadenceHealth.status==="READY","normal satellite/model cadence must not degrade the whole Weather system");
 const bad=await call("/weather/data/unknown.json");
 check(bad.headers.get("x-openpq-weather-edge")===null&&bad.status===200,"unknown routes fall through to CMS static assets");
 globalThis.fetch=async()=>{throw Error("upstream_offline")};
