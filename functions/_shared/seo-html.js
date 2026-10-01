@@ -138,7 +138,7 @@ export function rewriteSeoHtml(response,meta){
   return writer.transform(response);
 }
 export function rewriteLocaleHtml(response,{locale=DEFAULT_LOCALE,pathname="/",availableLocales=[DEFAULT_LOCALE]}={}){
-  if(locale===DEFAULT_LOCALE||!response.ok||!(response.headers.get("content-type")||"").includes("text/html"))return response;
+  if(!response.ok||!(response.headers.get("content-type")||"").includes("text/html"))return response;
   const canonical=canonicalFor(pathname,locale,SEO_ORIGIN);
   const alternates=alternateMeta(pathname,availableLocales);
   const writer=new HTMLRewriter()
@@ -147,7 +147,8 @@ export function rewriteLocaleHtml(response,{locale=DEFAULT_LOCALE,pathname="/",a
     .on("head",{element(el){
       const links=alternates.map(x=>'<link rel="alternate" hreflang="'+esc(x.hreflang)+'" href="'+esc(x.href)+'">').join("");
       el.append('<meta name="openpq-locale" content="'+esc(locale)+'">'+links+
-        '<script src="/core/i18n-runtime.js?v=1" defer data-openpq-i18n-runtime></script>',{html:true});
+        '<script src="/core/i18n-runtime.js?v=2" defer data-openpq-i18n-runtime></script>'+
+        '<script src="/core/language-switcher.js?v=2" defer data-openpq-language-switcher></script>',{html:true});
     }});
   return writer.transform(response);
 }
