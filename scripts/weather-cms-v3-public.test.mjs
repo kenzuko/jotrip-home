@@ -70,6 +70,11 @@ const client=fs.readFileSync("weather/weather-v3-public.js","utf8");
 assert.match(home,/critical:\s*"\/weather\/data\/critical\.json"/);
 assert.match(home,/nowcast:\s*"\/weather\/data\/nowcast-compact\.json"/);
 assert.doesNotMatch(home,/raw\.githubusercontent\.com\/kenzuko\/Jotrip-Lab\/gh-pages\/weather\/data\/critical\.json/);
+assert.match(home,/local\.temperature_class === "ESTIMATED_NOW"/);
+assert.match(home,/localAge <= 45/);
+assert.match(home,/freshnessText\(localStamp, "Ước tính"\)/);
+assert.ok(home.indexOf('local.temperature_c') < home.indexOf('humanWeather?.temperatureC ?? vvpq?.temperature_c'),
+  "Homepage Weather must prefer the current point estimate before falling back to periodic VVPQ");
 assert.match(homepage,/weather\/weather-v3-public-contract\.js/);
 assert.match(weather,/id="v3ObservationPanel"/);
 assert.match(weather,/class="weather-version-badge"[^>]*>V3</);
