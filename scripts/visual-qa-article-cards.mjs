@@ -117,10 +117,13 @@ for(const [i,href] of guideHrefs.entries()){
   const id=new URL(href,BASE).searchParams.get("id");
   const card=page.locator('#home-library .home-library-card[data-guide-id="'+id+'"]').first();
   await card.waitFor({state:"visible",timeout:7000});
-  await card.locator("figure").click();
+  // The whole card is the navigation target. Images can intentionally collapse
+  // when an external editorial asset is unavailable, so QA must exercise the
+  // user-visible card instead of requiring a visible <figure>.
+  await card.click();
   await page.waitForURL(url=>url.pathname.endsWith("/guide/article.html")&&url.searchParams.get("id")===id,{timeout:5000});
   const h1=page.locator("#knowledgeArticle h1");await h1.waitFor({state:"visible",timeout:5000});
-  assert.equal((await h1.textContent())?.trim(),guideById.get(id)?.title,"Homepage guide image opened wrong article");
+  assert.equal((await h1.textContent())?.trim(),guideById.get(id)?.title,"Homepage guide card opened wrong article");
 }
 
 // Homepage food cards must behave as whole-card article links, not CTA-only surfaces.
