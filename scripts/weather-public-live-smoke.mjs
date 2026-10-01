@@ -13,7 +13,7 @@ try{
   page.on("pageerror",e=>result.errors.push("page: "+String(e)));
   page.on("request",req=>{
     const u=req.url();
-    if(/weather\/data\/(?:critical|nowcast-compact)\.json/i.test(u)||/raw\.githubusercontent\.com/i.test(u))
+    if(/weather\/data\/(?:critical|local-now|nowcast-compact)\.json/i.test(u)||/raw\.githubusercontent\.com/i.test(u))
       result.requests.push(u);
   });
   await page.goto(base+"/?weather-final="+Date.now(),{waitUntil:"domcontentloaded",timeout:120000});
@@ -24,10 +24,12 @@ try{
     /raw\.githubusercontent\.com\/kenzuko\/Jotrip-Lab\/(?:gh-pages\/weather\/data\/critical\.json|data-weather\/data\/weather-nowcast\/compact-latest\.json)/i.test(x)
   );
   const canonicalCritical=result.requests.some(x=>x.startsWith(base+"/weather/data/critical.json"));
+  const canonicalLocalNow=result.requests.some(x=>x.startsWith(base+"/weather/data/local-now.json"));
   const canonicalNowcast=result.requests.some(x=>x.startsWith(base+"/weather/data/nowcast-compact.json"));
-  result.home={text:homeText,canonicalCritical,canonicalNowcast,rawWeatherRequests};
+  result.home={text:homeText,canonicalCritical,canonicalLocalNow,canonicalNowcast,rawWeatherRequests};
   if(rawWeatherRequests.length)throw new Error("Homepage still requests raw GitHub Weather data");
-  if(!canonicalCritical||!canonicalNowcast)throw new Error("Homepage did not request both canonical Weather edge feeds");
+  if(!canonicalCritical||!canonicalLocalNow||!canonicalNowcast)
+    throw new Error("Homepage did not request canonical critical + Local Now + nowcast feeds");
   if(/\bLIVE\b/.test(homeText))throw new Error("Homepage Weather card exposes raw LIVE label");
   if(badPublicText(homeText))throw new Error("Homepage Weather card exposes machine label: "+homeText);
 
@@ -38,6 +40,13 @@ try{
     const p=document.getElementById("v3ObservationPanel");
     return p&&!p.hidden&&(document.getElementById("v3NowTitle")?.textContent||"").trim().length>0;
   },null,{timeout:45000});
+  const humanHeadline=(await page.locator("#placeName").innerText()).trim();
+  const humanSituation=(await page.locator("#heroCondition").innerText()).trim();
+  if(!/· (?:khoảng \d+°C|đang cập nhật)/i.test(humanHeadline))
+    throw new Error("Canonical Weather is not showing the Human Layer headline: "+humanHeadline);
+  if(!humanSituation)throw new Error("Canonical Weather Human Layer situation is empty");
+  await panel.evaluate(el=>{if(el instanceof HTMLDetailsElement)el.open=true});
+  await page.waitForTimeout(150);
   const panelText=(await panel.innerText()).trim();
   const box=await panel.boundingBox();
   const nowEvidence=(await page.locator("#v3NowEvidence").innerText()).trim();
@@ -58,7 +67,7 @@ try{
   await page.waitForFunction(()=>/An Thới/.test(document.getElementById("v3PointLabel")?.textContent||""),null,{timeout:10000});
   const pointAfterSwitch=(await page.locator("#v3PointLabel").innerText()).trim();
 
-  result.weather={panelText,width:box?.width||0,viewportWidth:390,nowEvidence,soonEvidence,soonTitle,cloudAgeMin,pointAfterSwitch,versionBadge};
+  result.weather={humanHeadline,humanSituation,panelText,width:box?.width||0,viewportWidth:390,nowEvidence,soonEvidence,soonTitle,cloudAgeMin,pointAfterSwitch,versionBadge};
   if(!box||box.width>390)throw new Error("Weather short-term panel overflows mobile viewport");
   if(badPublicText(panelText))throw new Error("Weather panel exposes machine/internal wording: "+panelText);
   if(!["SỐ ĐO THỰC TẾ","QUAN TRẮC SÂN BAY","CHƯA CÓ SỐ ĐO"].includes(nowEvidence))throw new Error("Unexpected current evidence label: "+nowEvidence);

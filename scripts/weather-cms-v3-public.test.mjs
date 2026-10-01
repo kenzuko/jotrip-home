@@ -129,6 +129,7 @@ const homepage=fs.readFileSync("index.html","utf8");
 const weather=fs.readFileSync("weather/index.html","utf8");
 const client=fs.readFileSync("weather/weather-v3-public.js","utf8");
 assert.match(home,/critical:\s*"\/weather\/data\/critical\.json"/);
+assert.match(home,/localNow:\s*"\/weather\/data\/local-now\.json"/);
 assert.match(home,/nowcast:\s*"\/weather\/data\/nowcast-compact\.json"/);
 assert.doesNotMatch(home,/raw\.githubusercontent\.com\/kenzuko\/Jotrip-Lab\/gh-pages\/weather\/data\/critical\.json/);
 assert.match(home,/local\.temperature_class === "ESTIMATED_NOW"/);
@@ -137,6 +138,8 @@ assert.match(home,/freshnessText\(localStamp, "Ước tính"\)/);
 assert.match(home,/const weatherSecondary = weatherSnapshot\.secondary/);
 assert.match(home,/const weatherPrimary = weatherSnapshot\.primary/);
 assert.match(home,/source_class: weatherSnapshot\.sourceClass/);
+assert.match(home,/const weatherSource = weatherSnapshot\.sourceClass/);
+assert.match(home,/localNow\?\.points\?\.\[pointId\]/);
 assert.ok(home.indexOf('local.temperature_c') < home.indexOf('humanWeather?.temperatureC ?? vvpq?.temperature_c'),
   "Homepage Weather must prefer the current point estimate before falling back to periodic VVPQ");
 assert.match(homepage,/weather\/weather-v3-public-contract\.js/);
