@@ -1390,5 +1390,2359 @@
       "Chờ một chút, mình đang mở món này.": "Opening this dish...",
       "Open Phu Quoc · đọc món để hiểu trước khi chọn quán.": "Open Phu Quoc · understand the dish before choosing a restaurant."
     }
-  }
+  },
+  "phrases": [
+    [
+      "Dữ liệu tại điểm và ảnh mây đều đang trễ - chưa nên dùng số cũ để kết luận trời đang ổn.",
+      "Point data and cloud imagery are both delayed - do not use old values to conclude that conditions are fine."
+    ],
+    [
+      "Ảnh mây đang có tín hiệu đáng chú ý. Số mưa tại điểm chưa có cập nhật mới - xem kỹ khu vực trước khi ra ngoài.",
+      "Cloud imagery shows a notable signal. Point rain data is not fresh - check the area carefully before going out."
+    ],
+    [
+      "Quan trắc và vệ tinh mới chưa cho tín hiệu đủ mạnh; không có nghĩa là sẽ không xuất hiện giật cục bộ.",
+      "Recent observations and satellite data do not show a strong enough signal; this does not mean local gusts cannot occur."
+    ],
+    [
+      "Thiếu dữ liệu mới hoặc chưa theo dõi được hướng di chuyển của mây. Xem thông báo chính thức nếu chuẩn bị ra biển.",
+      "Fresh data is missing or cloud movement is not clear enough. Check official notices if you are preparing to go to sea."
+    ],
+    [
+      "Không coi thiếu cảnh báo là điều kiện biển an toàn. Đối chiếu quan trắc và VISHIPEL.",
+      "The absence of an alert must not be treated as safe sea conditions. Cross-check observations and VISHIPEL."
+    ],
+    [
+      "Đây là tín hiệu rủi ro, không phải đo được gió giật hoặc xác suất đã kiểm chứng.",
+      "This is a risk signal, not a measured gust or a validated probability."
+    ],
+    [
+      "Không dùng kết quả tại vài trạm để kết luận cho toàn đảo.",
+      "Do not use readings from a few stations to describe the entire island."
+    ],
+    [
+      "Ảnh mây vẫn cho thấy vùng mây phát triển mạnh quanh đảo, nên mưa cục bộ giữa các trạm vẫn có thể xảy ra.",
+      "Cloud imagery still shows strong cloud development around the island, so local rain can occur between gauges."
+    ],
+    [
+      "Ước tính tại các điểm hiện chưa cho tín hiệu mưa đáng kể, nhưng đây chưa phải số đo mặt đất.",
+      "Point estimates do not currently show significant rain, but these are not ground observations."
+    ],
+    [
+      "Trạm mưa chưa có mẫu mới và lớp ước tính tại điểm cũng chưa đủ dữ liệu.",
+      "The rain gauge has no fresh sample and the point-estimate layer also lacks enough data."
+    ],
+    [
+      "Trạm mưa chưa có mẫu mới. Ảnh mây vẫn cho thấy khả năng mưa cục bộ cần được theo dõi.",
+      "The rain gauge has no fresh sample. Cloud imagery still suggests local rain is worth watching."
+    ],
+    [
+      "Chưa có số đo mưa mới, nhưng vùng mây quanh đảo đang phát triển mạnh",
+      "There is no fresh rain observation, but clouds around the island are developing strongly"
+    ],
+    [
+      "Tổng tại trạm tăng",
+      "Gauge total increased by"
+    ],
+    [
+      "trong khoảng",
+      "over about"
+    ],
+    [
+      "phút kể từ lần lấy trước. Chưa dùng khoảng này để tính mm/h hiện tại.",
+      "minutes since the previous sample. This interval is not used to calculate current mm/h."
+    ],
+    [
+      "Ước tính tại điểm · chưa phải số đo tại chỗ",
+      "Point estimate · not an on-site measurement"
+    ],
+    [
+      "Các trạm mới cập nhật chưa ghi nhận mưa tại đúng vị trí trạm",
+      "Recently updated gauges have not recorded rain at the gauge locations"
+    ],
+    [
+      "Các trạm mới cập nhật chưa ghi nhận mưa tại vị trí đo",
+      "Recently updated gauges have not recorded rain at the measurement locations"
+    ],
+    [
+      "hiện chưa ghi nhận mưa.",
+      "currently show no recorded rain."
+    ],
+    [
+      "Vùng mây mưa đang hướng tới",
+      "Rain-bearing clouds are moving toward"
+    ],
+    [
+      "đang rời xa",
+      "moving away from"
+    ],
+    [
+      "dự kiến đi lệch khu vực",
+      "expected to pass away from the area"
+    ],
+    [
+      "chưa xác định đường vào đủ rõ",
+      "the approach path is not clear enough yet"
+    ],
+    [
+      "Chưa thấy vùng mây mưa đáng lo",
+      "No concerning rain cloud area is currently apparent"
+    ],
+    [
+      "Himawari chưa cho thấy quỹ đạo mây mạnh đi thẳng vào các điểm đảo trong 3 giờ tới",
+      "Himawari does not currently show a strong cloud track moving directly into the island points in the next 3 hours"
+    ],
+    [
+      "Gió địa phương cao nhất",
+      "Highest local wind"
+    ],
+    [
+      "Chưa có số gió tại điểm đủ mới",
+      "No sufficiently fresh wind value at this point"
+    ],
+    [
+      "Sóng nền MÔ HÌNH",
+      "MODEL background waves"
+    ],
+    [
+      "Chưa có số sóng nền mới",
+      "No fresh background-wave value"
+    ],
+    [
+      "Chưa thấy mốc xấu rõ trong 12 giờ tới",
+      "No clearly adverse time step is visible in the next 12 hours"
+    ],
+    [
+      "Dự báo JoTrip vẫn đối chiếu nhiều mô hình và quan trắc thực tế ở mỗi chu kỳ",
+      "JoTrip Forecast continues to cross-check multiple models and observations each cycle"
+    ],
+    [
+      "NÊN ĐIỀU CHỈNH",
+      "ADJUST PLANS"
+    ],
+    [
+      "THEO DÕI SÁT",
+      "WATCH CLOSELY"
+    ],
+    [
+      "CÓ ĐIỂM CẦN LƯU Ý",
+      "SOME CONDITIONS NEED ATTENTION"
+    ],
+    [
+      "TƯƠNG ĐỐI ỔN",
+      "RELATIVELY STABLE"
+    ],
+    [
+      "Chi tiết mô hình tại",
+      "Model detail at"
+    ],
+    [
+      "Chưa có chuỗi dự báo theo điểm.",
+      "No point forecast series is available."
+    ],
+    [
+      "Đang chờ Dự báo JoTrip.",
+      "Waiting for JoTrip Forecast."
+    ],
+    [
+      "Ba ngày đầu có độ phân giải cao hơn; những ngày xa hơn chỉ nên xem như xu hướng.",
+      "The first three days have higher time resolution; later days should be treated as a trend."
+    ],
+    [
+      "Điểm đối chiếu Rạch Giá - không tính vào tổng quan 7 điểm đảo",
+      "Rach Gia comparison point - not included in the seven-island-point overview"
+    ],
+    [
+      "Đối chiếu hành lang mây Himawari tại Hà Tiên",
+      "Compare the Himawari cloud corridor at Ha Tien"
+    ],
+    [
+      "Quan trắc mặt đất đang cập nhật.",
+      "Ground observations are updating."
+    ],
+    [
+      "Đang chờ dữ liệu quan trắc mới.",
+      "Waiting for fresh observation data."
+    ],
+    [
+      "Tại điểm chưa có dữ liệu",
+      "No data at this point"
+    ],
+    [
+      "mây chưa cập nhật",
+      "cloud data not updated"
+    ],
+    [
+      "Dữ liệu tại điểm đang trễ",
+      "Point data is delayed"
+    ],
+    [
+      "Lúc này đã cập nhật",
+      "Current data updated"
+    ],
+    [
+      "10 NGÀY · ĐANG CẬP NHẬT",
+      "10 DAYS · UPDATING"
+    ],
+    [
+      "Tỷ lệ các lớp phân tích hiện tại, dự báo JoTrip, AQI, triều, Himawari và dự báo tổ hợp đang có dữ liệu trên 7 điểm đảo.",
+      "Share of current analysis, JoTrip Forecast, AQI, tides, Himawari and ensemble layers currently available across seven island points."
+    ],
+    [
+      "Mức tin cậy của toàn bộ dữ liệu đang dùng, không phải xác suất dự báo chắc chắn đúng.",
+      "Confidence in the data currently in use, not the probability that the forecast will be correct."
+    ],
+    [
+      "Hiện cần chú ý:",
+      "Needs attention now:"
+    ],
+    [
+      "Toàn đảo:",
+      "Island-wide:"
+    ],
+    [
+      "hiện chưa thấy tình huống nào vượt ngưỡng theo dõi chính.",
+      "no situation currently exceeds the main watch thresholds."
+    ],
+    [
+      "Hệ thống vẫn cập nhật mưa, gió, mây và biển theo từng chu kỳ.",
+      "The system continues to update rain, wind, clouds and sea conditions each cycle."
+    ],
+    [
+      "ƯU TIÊN RỦI RO",
+      "RISK PRIORITY"
+    ],
+    [
+      "Đang có mưa đáng chú ý",
+      "Notable rain is occurring"
+    ],
+    [
+      "Có mưa nhẹ hoặc rải rác",
+      "Light or scattered rain"
+    ],
+    [
+      "Mưa hiện tại ít",
+      "Little current rain"
+    ],
+    [
+      "mưa cục bộ có thể tăng nhanh trong 0-60 phút",
+      "local rain may intensify quickly in the next 0-60 minutes"
+    ],
+    [
+      "có mây dông đáng chú ý",
+      "notable convective clouds are present"
+    ],
+    [
+      "Chưa đủ dữ liệu địa phương để tóm tắt.",
+      "Not enough local data for a summary."
+    ],
+    [
+      "KHÔNG MƯA",
+      "NO RAIN"
+    ],
+    [
+      "CÓ MƯA",
+      "RAIN"
+    ],
+    [
+      "Trạm",
+      "Gauge"
+    ],
+    [
+      "gần nhất",
+      "nearest"
+    ],
+    [
+      "cách",
+      "away"
+    ],
+    [
+      "có thể ghi khác vì mưa cục bộ.",
+      "may report differently because rain can be highly local."
+    ],
+    [
+      "Phản hồi tại chỗ mới:",
+      "New on-site feedback:"
+    ],
+    [
+      "đang mưa nhiều hơn hệ thống ước tính.",
+      "rain is heavier than the system estimate."
+    ],
+    [
+      "Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc.",
+      "No fresh rain signal has been recorded by the observation system."
+    ],
+    [
+      "đang ghi nhận mưa",
+      "is recording rain"
+    ],
+    [
+      "chưa ghi nhận mưa ngay tại vị trí trạm",
+      "has not recorded rain at the gauge location"
+    ],
+    [
+      "Điều này không có nghĩa toàn khu vực đều khô.",
+      "This does not mean the whole area is dry."
+    ],
+    [
+      "đã ghi nhận tổng",
+      "recorded a total of"
+    ],
+    [
+      "mm trong kỳ",
+      "mm during the observation period"
+    ],
+    [
+      "Trạm mưa gần nhất:",
+      "Nearest rain gauge:"
+    ],
+    [
+      "Có tín hiệu mưa dông cục bộ",
+      "Local thunderstorm signal detected"
+    ],
+    [
+      "Có tín hiệu mưa tại điểm này",
+      "Rain signal detected at this point"
+    ],
+    [
+      "Có tín hiệu mưa nhẹ hoặc rải rác",
+      "Light or scattered rain signal"
+    ],
+    [
+      "Có vùng mây phát triển mạnh cần theo dõi",
+      "Strong cloud development needs watching"
+    ],
+    [
+      "Gió tại điểm đang được ước tính khá mạnh",
+      "Estimated wind at this point is fairly strong"
+    ],
+    [
+      "Có tín hiệu nhiều mây",
+      "Cloudy signal detected"
+    ],
+    [
+      "Chưa đủ dữ liệu mới để kết luận lúc này",
+      "Not enough fresh data for a conclusion right now"
+    ],
+    [
+      "Chưa thấy tín hiệu thời tiết đáng chú ý",
+      "No notable weather signal is currently apparent"
+    ],
+    [
+      "Mưa dông cục bộ",
+      "Local thunderstorms"
+    ],
+    [
+      "Đang có mưa",
+      "Rain occurring"
+    ],
+    [
+      "Mây đang phát triển",
+      "Clouds developing"
+    ],
+    [
+      "Gió khá mạnh",
+      "Fairly strong wind"
+    ],
+    [
+      "Nhiều mây",
+      "Cloudy"
+    ],
+    [
+      "Thời tiết tương đối ổn",
+      "Relatively stable weather"
+    ],
+    [
+      "số đo lúc",
+      "observation at"
+    ],
+    [
+      "DỰ BÁO mốc",
+      "FORECAST step"
+    ],
+    [
+      "không phải số đo lúc này",
+      "not a current observation"
+    ],
+    [
+      "Chưa có số giật tại điểm đủ nguồn và thời gian",
+      "No gust value with sufficient source and timestamp"
+    ],
+    [
+      "Cảnh giác cao",
+      "High caution"
+    ],
+    [
+      "Cần đề phòng",
+      "Use caution"
+    ],
+    [
+      "Chưa thấy tín hiệu rõ",
+      "No clear signal"
+    ],
+    [
+      "Chưa đủ dữ liệu",
+      "Not enough data"
+    ],
+    [
+      "Gió giật 0-30 phút",
+      "Gusts in the next 0-30 minutes"
+    ],
+    [
+      "Khung theo dõi",
+      "Watch window"
+    ],
+    [
+      "Gió nền đáng chú ý nhưng chưa xác định được thời điểm rõ ràng.",
+      "Background wind is notable but timing is not clear enough."
+    ],
+    [
+      "Mốc mô hình gần nhất:",
+      "Nearest model step:"
+    ],
+    [
+      "Đang có mưa ở khu vực này",
+      "Rain is occurring in this area"
+    ],
+    [
+      "Đang có mưa dông gần khu vực",
+      "Thunderstorms are occurring near the area"
+    ],
+    [
+      "Đang có mưa gần khu vực",
+      "Rain is occurring near the area"
+    ],
+    [
+      "Có vùng mây phát triển mạnh - cần để ý mưa dông cục bộ",
+      "Strong cloud development - watch for local thunderstorms"
+    ],
+    [
+      "Có vùng mây đáng chú ý quanh khu vực",
+      "Notable clouds are present around the area"
+    ],
+    [
+      "ƯỚC TÍNH TẠI ĐIỂM",
+      "POINT ESTIMATE"
+    ],
+    [
+      "DỮ LIỆU GẦN NHẤT",
+      "LATEST DATA"
+    ],
+    [
+      "chưa đủ số mới",
+      "not enough fresh values"
+    ],
+    [
+      "tính từ lượng mưa đo tại điểm",
+      "calculated from rainfall measured at the point"
+    ],
+    [
+      "ước tính tại điểm",
+      "point estimate"
+    ],
+    [
+      "chưa có số gió mới",
+      "no fresh wind value"
+    ],
+    [
+      "m Hs · sóng nền dự báo lúc",
+      "m Hs · background-wave forecast at"
+    ],
+    [
+      "đã trễ",
+      "delayed"
+    ],
+    [
+      "m Hs · chưa có mốc biển mới",
+      "m Hs · no fresh marine step"
+    ],
+    [
+      "Trạm sân bay đang ghi nhận mưa dông cách điểm này khoảng",
+      "The airport station is reporting thunderstorms about"
+    ],
+    [
+      "Trạm sân bay đang ghi nhận mưa cách điểm này khoảng",
+      "The airport station is reporting rain about"
+    ],
+    [
+      "Mưa có thể khác nhau giữa các khu vực.",
+      "Rain can differ significantly between areas."
+    ],
+    [
+      "Cảm giác thực tế còn phụ thuộc mưa, gió, mây, bức xạ và vị trí.",
+      "How it feels also depends on rain, wind, cloud cover, radiation and location."
+    ],
+    [
+      "Dữ liệu gần nhất",
+      "Latest data"
+    ],
+    [
+      "Cập nhật tại điểm",
+      "Point updated"
+    ],
+    [
+      "Quan trắc gần khu vực đang ghi nhận mưa dông",
+      "Nearby observations are reporting thunderstorms"
+    ],
+    [
+      "Quan trắc gần khu vực đang ghi nhận mưa",
+      "Nearby observations are reporting rain"
+    ],
+    [
+      "Tín hiệu đối lưu ngắn hạn đang mạnh",
+      "Short-term convective signal is strong"
+    ],
+    [
+      "Có tín hiệu mưa/đối lưu ngắn hạn",
+      "Short-term rain/convective signal detected"
+    ],
+    [
+      "Cập nhật trực tiếp đang trễ - kiểm tra bản đồ",
+      "Live update is delayed - check the map"
+    ],
+    [
+      "Thiếu mưa hoặc cặp gió/giật hợp lệ tại mốc này",
+      "Valid rain or wind/gust values are missing at this step"
+    ],
+    [
+      "mưa lớn",
+      "heavy rain"
+    ],
+    [
+      "mưa vừa",
+      "moderate rain"
+    ],
+    [
+      "mưa nhẹ",
+      "light rain"
+    ],
+    [
+      "gió giật",
+      "gusts"
+    ],
+    [
+      "sóng ngoài khơi",
+      "offshore waves"
+    ],
+    [
+      "không đại diện sát bờ",
+      "not representative of near-shore conditions"
+    ],
+    [
+      "Đang lấy dữ liệu từ Dự báo JoTrip...",
+      "Getting data from JoTrip Forecast..."
+    ],
+    [
+      "Đang đọc các mốc thời tiết còn lại hôm nay.",
+      "Reading the remaining weather steps for today."
+    ],
+    [
+      "Đang chờ chu kỳ dự báo mới",
+      "Waiting for a new forecast cycle"
+    ],
+    [
+      "Hệ thống tự kiểm tra lại mỗi 2 phút. Không dùng bản quá hạn để đánh giá an toàn trên biển.",
+      "The system checks again every 2 minutes. Expired data is not used to assess sea safety."
+    ],
+    [
+      "Dự báo theo giờ chưa đủ mới; quan trắc tại điểm vẫn cập nhật độc lập.",
+      "The hourly forecast is not fresh enough; point observations continue to update independently."
+    ],
+    [
+      "Dự báo JoTrip · ECMWF · mốc 3 giờ",
+      "JoTrip Forecast · ECMWF · 3-hour steps"
+    ],
+    [
+      "kiểm tra lại dữ liệu cũ, chưa có chu kỳ mô hình mới",
+      "old data under review; no new model cycle yet"
+    ],
+    [
+      "Sóng nền Copernicus:",
+      "Copernicus background waves:"
+    ],
+    [
+      "bản đã trễ",
+      "delayed run"
+    ],
+    [
+      "Sóng nền Copernicus chưa có số mới.",
+      "No fresh Copernicus background-wave value."
+    ],
+    [
+      "Sóng từng mốc giờ: dự báo ECMWF tại ô biển ngoài khơi phía",
+      "Hourly waves: ECMWF forecast at the offshore grid cell to the"
+    ],
+    [
+      "Sóng từng mốc giờ: dự báo ECMWF Wave tại ô biển theo cấu hình của điểm.",
+      "Hourly waves: ECMWF Wave forecast at the marine grid cell configured for the point."
+    ],
+    [
+      "Không phải số đo sát bờ.",
+      "This is not a near-shore observation."
+    ],
+    [
+      "Chưa có dự báo sóng cho đúng các mốc giờ. Không lấy sóng nền hiện tại lấp vào giờ thiếu.",
+      "No wave forecast is available for the exact hourly steps. Current background waves are not used to fill missing hours."
+    ],
+    [
+      "BẢN THAM KHẢO · ĐANG TỰ CẬP NHẬT",
+      "REFERENCE RUN · AUTO-UPDATING"
+    ],
+    [
+      "hệ thống tự nạp bản mới mỗi 2 phút · không dùng để quyết định ra biển",
+      "system reloads a new run every 2 minutes · not for making a sea-go/no-go decision"
+    ],
+    [
+      "Đang chờ bản dự báo mới",
+      "Waiting for a fresh forecast run"
+    ],
+    [
+      "Bản tổng hợp trễ",
+      "The combined forecast is delayed"
+    ],
+    [
+      "Không hiển thị các mốc cũ như dự báo hiện tại.",
+      "Old steps are not shown as a current forecast."
+    ],
+    [
+      "Quan trắc tại điểm vẫn được cập nhật riêng.",
+      "Point observations continue to update separately."
+    ],
+    [
+      "Hệ thống đang tự nạp dự báo mới. Số bên dưới là bản mô hình tham khảo, không đánh giá biển an toàn.",
+      "The system is loading a fresh forecast. Values below are a model reference only and do not assess sea safety."
+    ],
+    [
+      "Không còn mốc 3 giờ nào trong hôm nay",
+      "No 3-hour forecast steps remain today"
+    ],
+    [
+      "Xem 10 ngày bên dưới cho ngày mai và các ngày tiếp theo.",
+      "See the 10-day section below for tomorrow and later days."
+    ],
+    [
+      "Hôm nay đã gần hết. JoTrip không nội suy thêm giờ giả để lấp khoảng trống.",
+      "The day is nearly over. JoTrip does not invent interpolated hours to fill the gap."
+    ],
+    [
+      "chưa có theo giờ",
+      "no hourly value"
+    ],
+    [
+      "Ngay lúc này:",
+      "Right now:"
+    ],
+    [
+      "Có mốc nên né khoảng",
+      "There is a time to avoid around"
+    ],
+    [
+      "Đây là dự báo tại điểm, không thay thế thông báo vận hành biển.",
+      "This is a point forecast and does not replace official marine operating notices."
+    ],
+    [
+      "mốc tương đối thuận lợi.",
+      "relatively favorable steps."
+    ],
+    [
+      "Dự báo tại điểm chưa vượt ngưỡng theo dõi thời tiết trên đất liền. Biển cần đánh giá riêng theo tuyến và thông báo chính thức.",
+      "The point forecast does not exceed the land-weather watch thresholds. Sea conditions must be assessed separately by route and official notices."
+    ],
+    [
+      "Đang kết nối lại dữ liệu dự báo",
+      "Reconnecting forecast data"
+    ],
+    [
+      "Hệ thống đang tự kết nối lại dự báo JoTrip.",
+      "The system is reconnecting to JoTrip Forecast."
+    ],
+    [
+      "CHƯA CÓ SỐ MỚI",
+      "NO FRESH VALUE"
+    ],
+    [
+      "tin cậy",
+      "confidence"
+    ],
+    [
+      "quy đổi từ mưa mô hình 3h",
+      "converted from 3-hour model rain"
+    ],
+    [
+      "Chưa đủ dữ liệu mây",
+      "Not enough cloud data"
+    ],
+    [
+      "MÂY RẤT CAO",
+      "VERY HIGH CLOUD TOPS"
+    ],
+    [
+      "ĐANG PHÁT TRIỂN",
+      "DEVELOPING"
+    ],
+    [
+      "CÓ MÂY ĐÁNG CHÚ Ý",
+      "NOTABLE CLOUDS"
+    ],
+    [
+      "ÍT TÍN HIỆU",
+      "LOW SIGNAL"
+    ],
+    [
+      "Himawari · chưa đủ chi tiết",
+      "Himawari · insufficient detail"
+    ],
+    [
+      "Chưa có số đo trực tiếp đang hoạt động",
+      "No active direct observation"
+    ],
+    [
+      "Hiện chỉ dùng mô hình cùng Himawari, AQI và triều ở những nguồn đang có dữ liệu. Không lấy số đo ở Phú Quốc để đại diện cho Rạch Giá.",
+      "Only models, Himawari, AQI and tide sources with available data are used here. Phu Quoc observations are not used to represent Rach Gia."
+    ],
+    [
+      "Chưa có nguồn đo trực tiếp đang hoạt động",
+      "No active direct measurement source"
+    ],
+    [
+      "chưa có số gió giật được công bố",
+      "no published gust value"
+    ],
+    [
+      "Bản quan trắc định kỳ",
+      "Periodic observation"
+    ],
+    [
+      "Áp suất",
+      "Pressure"
+    ],
+    [
+      "Có số đo mới",
+      "Fresh observation available"
+    ],
+    [
+      "CHƯA CÓ DỮ LIỆU HIỆN TẠI",
+      "NO CURRENT DATA"
+    ],
+    [
+      "Không đủ dữ liệu mới để xác định trạng thái mưa.",
+      "Not enough fresh data to determine rain status."
+    ],
+    [
+      "CHƯA CÓ MẪU MƯA MỚI",
+      "NO FRESH RAIN SAMPLE"
+    ],
+    [
+      "Trạm chưa có mẫu mới đủ gần để xác định đang mưa hay không.",
+      "The gauge has no sufficiently recent sample to determine whether it is raining now."
+    ],
+    [
+      "Lượng mưa",
+      "Rainfall"
+    ],
+    [
+      "cường độ",
+      "intensity"
+    ],
+    [
+      "TRẠM MỚI CẬP NHẬT CHƯA GHI NHẬN MƯA",
+      "RECENTLY UPDATED GAUGE HAS NOT RECORDED RAIN"
+    ],
+    [
+      "Tại đúng vị trí trạm chưa ghi nhận thêm lượng mưa trong",
+      "No additional rainfall has been recorded at the exact gauge location in the last"
+    ],
+    [
+      "phút gần nhất. Không dùng kết quả này để kết luận cả khu vực đều không mưa.",
+      "minutes. Do not use this result to conclude that the entire area is rain-free."
+    ],
+    [
+      "VRain tại đúng vị trí trạm hiện ghi 0 mm trong kỳ quan trắc. Mưa cục bộ có thể xảy ra ngoài vị trí trạm.",
+      "VRain currently records 0 mm at the gauge location during the observation period. Local rain may still occur away from the gauge."
+    ],
+    [
+      "VỪA GHI NHẬN CÓ MƯA",
+      "RAIN JUST RECORDED"
+    ],
+    [
+      "Trạm tăng thêm",
+      "The gauge increased by"
+    ],
+    [
+      "Khoảng lấy mẫu quá dài nên không dùng để tính cường độ mưa hiện tại.",
+      "The sampling interval is too long to calculate current rainfall intensity."
+    ],
+    [
+      "ĐÃ CÓ MƯA TRONG KỲ",
+      "RAIN RECORDED DURING THE PERIOD"
+    ],
+    [
+      "Tổng kỳ",
+      "Period total"
+    ],
+    [
+      "chưa đủ hai mẫu gần nhau để kết luận đang mưa ngay lúc này.",
+      "two close samples are not available, so current rain cannot be confirmed."
+    ],
+    [
+      "Quan trắc mặt đất đang cập nhật",
+      "Ground observations are updating"
+    ],
+    [
+      "chưa có tín hiệu mưa mới từ trạm mưa",
+      "no fresh rain signal from the gauge"
+    ],
+    [
+      "Chưa có quan trắc mặt đất đủ mới",
+      "No sufficiently fresh ground observation"
+    ],
+    [
+      "Tốt",
+      "Good"
+    ],
+    [
+      "Trung bình",
+      "Moderate"
+    ],
+    [
+      "Không tốt cho nhóm nhạy cảm",
+      "Unhealthy for sensitive groups"
+    ],
+    [
+      "Không tốt",
+      "Unhealthy"
+    ],
+    [
+      "Rất không tốt",
+      "Very unhealthy"
+    ],
+    [
+      "Nguy hại",
+      "Hazardous"
+    ],
+    [
+      "ĐANG CHỜ DỮ LIỆU AQI",
+      "WAITING FOR AQI DATA"
+    ],
+    [
+      "Điểm này chưa có số AQI trong bản dữ liệu hiện tại.",
+      "This point has no AQI value in the current data set."
+    ],
+    [
+      "Không nội suy AQI từ điểm khác để lấp số.",
+      "AQI is not interpolated from another point to fill a missing value."
+    ],
+    [
+      "CAMS tham chiếu",
+      "CAMS reference"
+    ],
+    [
+      "mô hình tham chiếu",
+      "model reference"
+    ],
+    [
+      "Chênh lệch AQI",
+      "AQI difference"
+    ],
+    [
+      "Điểm tham chiếu",
+      "Reference point"
+    ],
+    [
+      "IQAIR TRỰC TIẾP",
+      "IQAIR LIVE"
+    ],
+    [
+      "AQI cập nhật",
+      "AQI updated"
+    ],
+    [
+      "0-50: tốt · 51-100: trung bình · trên 100: bắt đầu đáng lưu ý.",
+      "0-50: good · 51-100: moderate · above 100: increasing concern."
+    ],
+    [
+      "Đang lên",
+      "Rising"
+    ],
+    [
+      "Đang xuống",
+      "Falling"
+    ],
+    [
+      "Đang đổi nước",
+      "Water changing"
+    ],
+    [
+      "ĐANG CHỜ DỮ LIỆU TRIỀU",
+      "WAITING FOR TIDE DATA"
+    ],
+    [
+      "Chưa có dữ liệu triều phù hợp cho khu vực này trong lần cập nhật hiện tại.",
+      "No suitable tide data is available for this area in the current update."
+    ],
+    [
+      "Triều luôn giữ nhãn MÔ HÌNH, không thay bằng số từ điểm khác.",
+      "Tide data always remains labelled MODEL and is not replaced by values from another point."
+    ],
+    [
+      "Mực triều",
+      "Tide level"
+    ],
+    [
+      "Triều cao kế",
+      "Next high tide"
+    ],
+    [
+      "Triều thấp kế",
+      "Next low tide"
+    ],
+    [
+      "Đổi nước",
+      "Water exchange"
+    ],
+    [
+      "Biên độ 24h",
+      "24-hour range"
+    ],
+    [
+      "cao nhất - thấp nhất",
+      "highest - lowest"
+    ],
+    [
+      "không phải trạm triều",
+      "not a tide gauge"
+    ],
+    [
+      "Triều mô hình cập nhật",
+      "Tide model updated"
+    ],
+    [
+      "Không dùng thay mực nước hải đồ cảng.",
+      "Do not use as a replacement for charted harbour water levels."
+    ],
+    [
+      "Chuỗi triều 24h đang tải nền...",
+      "Loading 24-hour tide series..."
+    ],
+    [
+      "Không đủ chuỗi triều",
+      "Insufficient tide series"
+    ],
+    [
+      "Cụm mây rất cao, đang phát triển nhanh",
+      "Very high cloud cluster, developing rapidly"
+    ],
+    [
+      "Đỉnh mây lạnh đi rõ trong 20 phút",
+      "Cloud tops cooled clearly over 20 minutes"
+    ],
+    [
+      "Cụm mây rất cao, đang phát triển",
+      "Very high cloud cluster, developing"
+    ],
+    [
+      "Đỉnh mây tiếp tục lạnh đi",
+      "Cloud tops continue to cool"
+    ],
+    [
+      "Cụm mây rất cao, có xu hướng yếu dần",
+      "Very high cloud cluster, weakening"
+    ],
+    [
+      "Đỉnh mây đang ấm lên",
+      "Cloud tops are warming"
+    ],
+    [
+      "Cụm mây rất cao",
+      "Very high cloud cluster"
+    ],
+    [
+      "Ít thay đổi trong 20 phút gần đây",
+      "Little change in the last 20 minutes"
+    ],
+    [
+      "Mây cao đáng chú ý",
+      "Notable high clouds"
+    ],
+    [
+      "Đỉnh mây đang lạnh đi",
+      "Cloud tops are cooling"
+    ],
+    [
+      "Theo dõi thêm trên ảnh vệ tinh",
+      "Continue watching satellite imagery"
+    ],
+    [
+      "Có cụm mây đáng chú ý",
+      "Notable cloud cluster present"
+    ],
+    [
+      "Tín hiệu vệ tinh ở mức cần theo dõi",
+      "Satellite signal warrants attention"
+    ],
+    [
+      "Chưa thấy cụm mây dông rõ",
+      "No clear convective cloud cluster"
+    ],
+    [
+      "Tín hiệu vệ tinh hiện thấp",
+      "Satellite signal is currently low"
+    ],
+    [
+      "đỉnh",
+      "top"
+    ],
+    [
+      "Khá rõ",
+      "Fairly clear"
+    ],
+    [
+      "Tạm rõ",
+      "Moderately clear"
+    ],
+    [
+      "Chưa chắc",
+      "Uncertain"
+    ],
+    [
+      "Chưa track được",
+      "Not tracked yet"
+    ],
+    [
+      "Phía",
+      "Direction"
+    ],
+    [
+      "gần hướng",
+      "near"
+    ],
+    [
+      "Hướng chưa ổn định",
+      "Direction not stable"
+    ],
+    [
+      "tốc độ chưa chắc",
+      "speed uncertain"
+    ],
+    [
+      "Đang ảnh hưởng khu vực",
+      "Affecting the area"
+    ],
+    [
+      "Dự kiến đi lệch khu vực",
+      "Expected to pass away from the area"
+    ],
+    [
+      "Chưa dự kiến ảnh hưởng trong 3 giờ",
+      "No impact currently expected within 3 hours"
+    ],
+    [
+      "Chưa đủ dữ liệu để tính",
+      "Not enough data to calculate"
+    ],
+    [
+      "Chưa có cụm mây rõ",
+      "No clear cloud cluster"
+    ],
+    [
+      "Không dự kiến mưa do cụm này",
+      "No rain currently expected from this cluster"
+    ],
+    [
+      "Chờ xác nhận đường đi",
+      "Waiting for movement confirmation"
+    ],
+    [
+      "Chưa đánh giá ngoài 3 giờ",
+      "No assessment beyond 3 hours"
+    ],
+    [
+      "Không dự kiến tác động trực tiếp",
+      "No direct impact currently expected"
+    ],
+    [
+      "Mưa mạnh",
+      "Heavy rain"
+    ],
+    [
+      "Mưa nhẹ đến vừa",
+      "Light to moderate rain"
+    ],
+    [
+      "Nền dự báo ít mưa",
+      "Low-rain forecast background"
+    ],
+    [
+      "cục bộ có thể mạnh hơn",
+      "locally heavier rain is possible"
+    ],
+    [
+      "cục bộ có thể mưa mạnh",
+      "locally heavy rain is possible"
+    ],
+    [
+      "Cụm mây đối lưu ở",
+      "Convective cloud cluster at"
+    ],
+    [
+      "có thể tới khu vực sau",
+      "may reach the area after"
+    ],
+    [
+      "Cụm mây đối lưu đang ở gần khu vực.",
+      "A convective cloud cluster is near the area."
+    ],
+    [
+      "Mây đối lưu đang mạnh, mưa cục bộ có thể tăng trong 0-60 phút.",
+      "Convective clouds are strong; local rain may increase within 0-60 minutes."
+    ],
+    [
+      "Mây đối lưu đang hoạt động mạnh quanh khu vực.",
+      "Strong convective activity is occurring around the area."
+    ],
+    [
+      "Hà Tiên - đối chiếu",
+      "Ha Tien - comparison"
+    ],
+    [
+      "Chưa có dữ liệu chuyển động mây.",
+      "No cloud-motion data."
+    ],
+    [
+      "Chờ ảnh mới",
+      "Waiting for a new image"
+    ],
+    [
+      "Chưa đủ dữ liệu đường đi",
+      "Not enough movement data"
+    ],
+    [
+      "Dữ liệu vệ tinh đang trễ",
+      "Satellite data is delayed"
+    ],
+    [
+      "Theo dõi hành lang mây",
+      "Watch cloud corridor"
+    ],
+    [
+      "Không ước tính giờ đến từ ảnh cũ",
+      "Do not estimate arrival time from old imagery"
+    ],
+    [
+      "đang chờ ảnh mới",
+      "waiting for a new image"
+    ],
+    [
+      "Chưa đủ hai ảnh liên tiếp để tính xu hướng",
+      "Two consecutive images are not available to calculate a trend"
+    ],
+    [
+      "Lạnh thêm",
+      "Cooling"
+    ],
+    [
+      "Đỉnh mây đang phát triển nhanh",
+      "Cloud tops developing rapidly"
+    ],
+    [
+      "Đỉnh mây đang phát triển",
+      "Cloud tops developing"
+    ],
+    [
+      "Ấm lên",
+      "Warming"
+    ],
+    [
+      "Đỉnh mây có xu hướng yếu dần",
+      "Cloud tops are weakening"
+    ],
+    [
+      "Ít thay đổi",
+      "Little change"
+    ],
+    [
+      "Đỉnh mây gần như ổn định trong 20 phút",
+      "Cloud tops have been nearly stable for 20 minutes"
+    ],
+    [
+      "Đỉnh mây lạnh nhẹ",
+      "Cloud tops cooled slightly"
+    ],
+    [
+      "Đỉnh mây ấm nhẹ",
+      "Cloud tops warmed slightly"
+    ],
+    [
+      "chưa đủ dữ liệu",
+      "insufficient data"
+    ],
+    [
+      "thấp đến vừa",
+      "low to moderate"
+    ],
+    [
+      "CẦN THEO DÕI",
+      "WATCH"
+    ],
+    [
+      "CÓ DAO ĐỘNG",
+      "VARIABLE"
+    ],
+    [
+      "KHÁ ỔN ĐỊNH",
+      "FAIRLY STABLE"
+    ],
+    [
+      "Gành Dầu - Cửa Cạn",
+      "Ganh Dau - Cua Can"
+    ],
+    [
+      "Bãi Thơm - Hàm Ninh",
+      "Bai Thom - Ham Ninh"
+    ],
+    [
+      "Bãi Sao - An Thới",
+      "Bai Sao - An Thoi"
+    ],
+    [
+      "Dữ liệu dự báo đang trễ",
+      "Forecast data is delayed"
+    ],
+    [
+      "không rõ thời gian",
+      "time unknown"
+    ],
+    [
+      "THẬN TRỌNG",
+      "CAUTION"
+    ],
+    [
+      "TRUNG BÌNH",
+      "MODERATE"
+    ],
+    [
+      "KHÁ",
+      "FAIR"
+    ],
+    [
+      "Mưa dông cần theo dõi",
+      "Thunderstorms need watching"
+    ],
+    [
+      "Có lúc mưa nhiều",
+      "Periods of heavier rain"
+    ],
+    [
+      "Dễ có mưa rào",
+      "Showers likely"
+    ],
+    [
+      "Khá ổn",
+      "Fairly stable"
+    ],
+    [
+      "Đang mở",
+      "Opening"
+    ],
+    [
+      "Xem theo giờ",
+      "View by hour"
+    ],
+    [
+      "số liệu tại điểm",
+      "point data"
+    ],
+    [
+      "quan trắc mặt đất đang chờ bản mới",
+      "ground observations waiting for a fresh update"
+    ],
+    [
+      "ảnh mây",
+      "cloud imagery"
+    ],
+    [
+      "DỮ LIỆU HIỆN TẠI ĐANG TRỄ",
+      "CURRENT DATA IS DELAYED"
+    ],
+    [
+      "ĐANG CHỜ QUAN TRẮC MỚI",
+      "WAITING FOR FRESH OBSERVATIONS"
+    ],
+    [
+      "Chưa đủ dữ liệu mới để đánh giá điều kiện hiện tại",
+      "Not enough fresh data to assess current conditions"
+    ],
+    [
+      "Không dùng dữ liệu cũ để suy ra trời đang ổn hay đang khô.",
+      "Do not use old data to infer that conditions are stable or dry."
+    ],
+    [
+      "MƯA TÍCH LŨY · SỐ ĐO GẦN NHẤT",
+      "ACCUMULATED RAIN · LATEST OBSERVATION"
+    ],
+    [
+      "Mưa tích lũy lớn, đề phòng ngập ở những nơi thấp",
+      "High accumulated rainfall; watch for flooding in low-lying areas"
+    ],
+    [
+      "Đây không phải lượng mưa một giờ và chưa xác nhận vị trí đường nào đang ngập.",
+      "This is not one-hour rainfall and does not confirm flooding on any specific road."
+    ],
+    [
+      "mưa đang nhiều hơn hệ thống ước tính",
+      "rain is heavier than the system estimate"
+    ],
+    [
+      "Quan sát thực địa mới. Hệ thống giữ riêng phản hồi này và không tự biến nó thành số mm/h.",
+      "New on-site observation. The system keeps this feedback separate and does not convert it into a mm/h value."
+    ],
+    [
+      "gió đang mạnh hơn hệ thống ước tính",
+      "wind is stronger than the system estimate"
+    ],
+    [
+      "Dùng để cảnh báo sai lệch và đối chiếu lại với nguồn đo/mô hình.",
+      "Used to flag a mismatch and recheck observations/models."
+    ],
+    [
+      "có dông được báo tại hiện trường",
+      "thunderstorms reported on site"
+    ],
+    [
+      "đang đối chiếu với Himawari và các nguồn khác.",
+      "being cross-checked against Himawari and other sources."
+    ],
+    [
+      "ĐANG XẢY RA",
+      "HAPPENING NOW"
+    ],
+    [
+      "Trạm sân bay đang ghi nhận mưa dông",
+      "Airport station is reporting thunderstorms"
+    ],
+    [
+      "Đây là số đo tại khu vực sân bay, không đại diện đồng thời cho mọi nơi trên đảo.",
+      "This observation is from the airport area and does not represent every part of the island at once."
+    ],
+    [
+      "Trạm sân bay đang ghi nhận dông",
+      "Airport station is reporting thunderstorms"
+    ],
+    [
+      "Mã quan trắc có dông nhưng chưa có mã mưa đi kèm, nên không dùng tín hiệu này để nói khu vực đang mưa.",
+      "The observation reports thunder but no accompanying rain code, so this signal is not used to state that the area is raining."
+    ],
+    [
+      "Trạm sân bay đang ghi nhận mưa",
+      "Airport station is reporting rain"
+    ],
+    [
+      "đang mưa mạnh",
+      "heavy rain"
+    ],
+    [
+      "đang mưa vừa",
+      "moderate rain"
+    ],
+    [
+      "VRain ghi nhận",
+      "VRain recorded"
+    ],
+    [
+      "tương đương",
+      "equivalent to"
+    ],
+    [
+      "VRain đang ghi nhận",
+      "VRain is recording"
+    ],
+    [
+      "GIÓ GIẬT NGẮN HẠN",
+      "SHORT-TERM GUSTS"
+    ],
+    [
+      "DỰ BÁO MỐC",
+      "FORECAST STEP"
+    ],
+    [
+      "cần đề phòng gió giật",
+      "gusts require caution"
+    ],
+    [
+      "dự báo gió mạnh tại những mốc tới",
+      "stronger winds are forecast at upcoming steps"
+    ],
+    [
+      "Đây là tín hiệu rủi ro 0-30 phút, KHÔNG phải số đo giật.",
+      "This is a 0-30 minute risk signal, NOT a measured gust."
+    ],
+    [
+      "Gió giật mô hình cao nhất",
+      "Highest model gust"
+    ],
+    [
+      "tại các mốc",
+      "at the forecast steps"
+    ],
+    [
+      "Không suy diễn mạnh liên tục giữa hai mốc.",
+      "Do not infer continuous strong wind between model steps."
+    ],
+    [
+      "CHU KỲ MÔ HÌNH",
+      "MODEL CYCLE"
+    ],
+    [
+      "Chưa có dữ liệu mới đủ tin cậy cho cảnh báo gió theo giờ",
+      "No fresh data is reliable enough for an hourly wind warning"
+    ],
+    [
+      "SÓNG DỰ BÁO",
+      "FORECAST WAVES"
+    ],
+    [
+      "mô hình dự báo sóng đáng chú ý",
+      "model forecast shows notable waves"
+    ],
+    [
+      "Hs cao nhất",
+      "Highest Hs"
+    ],
+    [
+      "Đây là sóng có nghĩa tại điểm mô hình, không phải sóng đo sát bờ hay quyết định cấm tàu.",
+      "This is significant wave height at a model point, not a near-shore observation or a vessel-ban decision."
+    ],
+    [
+      "HIỆN TẠI",
+      "CURRENT"
+    ],
+    [
+      "Gió đang mạnh tại",
+      "Wind is strong at"
+    ],
+    [
+      "và một số khu vực khác",
+      "and some other areas"
+    ],
+    [
+      "Gió địa phương ước tính cao nhất khoảng",
+      "Highest estimated local wind is around"
+    ],
+    [
+      "Chưa có số gió giật hiện tại đủ tin cậy.",
+      "No sufficiently reliable current gust value."
+    ],
+    [
+      "Nhiều khu vực trên đảo đang có mây rất cao kèm tín hiệu mưa",
+      "Several parts of the island have very high clouds with rain signals"
+    ],
+    [
+      "Ước tính tại các điểm đang ở khoảng",
+      "Point estimates are around"
+    ],
+    [
+      "DỰ KIẾN",
+      "EXPECTED"
+    ],
+    [
+      "Himawari cho thấy đường đi đang cắt qua khu vực.",
+      "Himawari indicates the cloud track is crossing the area."
+    ],
+    [
+      "Cường độ đang được đối chiếu giữa các mô hình và quan trắc",
+      "Intensity is being cross-checked between models and observations"
+    ],
+    [
+      "mưa có tín hiệu tăng",
+      "rain signal is increasing"
+    ],
+    [
+      "gió có tín hiệu tăng",
+      "wind signal is increasing"
+    ],
+    [
+      "các kịch bản đang phân tán mạnh",
+      "forecast scenarios are widely spread"
+    ],
+    [
+      "có diễn biến cần theo dõi trong 12 giờ tới",
+      "developments need watching over the next 12 hours"
+    ],
+    [
+      "Xem thêm",
+      "See more"
+    ],
+    [
+      "cảnh báo và quan trắc",
+      "alerts and observations"
+    ],
+    [
+      "Đang lấy các mốc từ Dự báo JoTrip...",
+      "Getting forecast steps from JoTrip Forecast..."
+    ],
+    [
+      "Đang tải dự báo theo điểm.",
+      "Loading point forecast."
+    ],
+    [
+      "Dự báo JoTrip chưa có mốc chi tiết cho điểm này trong ngày.",
+      "JoTrip Forecast has no detailed steps for this point today."
+    ],
+    [
+      "Không lấy số liệu vùng thay cho số liệu tại điểm.",
+      "Area data is not substituted for point data."
+    ],
+    [
+      "mốc theo chu kỳ nguồn",
+      "source-cycle step"
+    ],
+    [
+      "chạm ngày khác để đổi.",
+      "select another day to change."
+    ],
+    [
+      "Chưa có theo giờ",
+      "No hourly data"
+    ],
+    [
+      "DỮ LIỆU ĐANG TRỄ",
+      "DATA DELAYED"
+    ],
+    [
+      "XU HƯỚNG",
+      "TREND"
+    ],
+    [
+      "10 ngày tới",
+      "Next 10 days"
+    ],
+    [
+      "Dự báo hiện có",
+      "Available forecast"
+    ],
+    [
+      "Đang tải dự báo JoTrip theo vùng...",
+      "Loading JoTrip area forecast..."
+    ],
+    [
+      "Đang tải dự báo cho khu vực này...",
+      "Loading forecast for this area..."
+    ],
+    [
+      "Đang cập nhật dữ liệu dự báo.",
+      "Updating forecast data."
+    ],
+    [
+      "CHƯA ĐỦ DỮ LIỆU 10 NGÀY",
+      "INSUFFICIENT 10-DAY DATA"
+    ],
+    [
+      "Vùng này chưa có đủ dữ liệu dự báo tổ hợp để công bố.",
+      "This area does not yet have enough ensemble data to publish."
+    ],
+    [
+      "JoTrip không lấy dự báo nguyên bản của một mô hình để lấp vào khi dữ liệu tổng hợp chưa đủ.",
+      "JoTrip does not fill missing combined data with the raw forecast from a single model."
+    ],
+    [
+      "Dự báo JoTrip chưa sẵn sàng.",
+      "JoTrip Forecast is not ready."
+    ],
+    [
+      "Chưa đủ dữ liệu để tóm tắt 10 ngày.",
+      "Not enough data to summarise 10 days."
+    ],
+    [
+      "Giờ Phú Quốc · UTC+7",
+      "Phu Quoc time · UTC+7"
+    ],
+    [
+      "Xem nhanh xu hướng 10 ngày; 3 ngày đầu được theo dõi dày hơn.",
+      "Quick view of the 10-day trend; the first three days are monitored more densely."
+    ],
+    [
+      "Hiện hệ thống có khoảng",
+      "The system currently has about"
+    ],
+    [
+      "ngày dự báo cho khu vực này.",
+      "forecast days for this area."
+    ],
+    [
+      "Có nhiều khung giờ cần để ý thêm, nhất là trong vài ngày đầu.",
+      "Several time windows need extra attention, especially in the first few days."
+    ],
+    [
+      "khung giờ cần để ý thêm.",
+      "time windows need extra attention."
+    ],
+    [
+      "Chưa thấy khung giờ nào nổi bật cần cảnh báo thêm.",
+      "No time window currently stands out for additional warning."
+    ],
+    [
+      "Mây vệ tinh mới nhất cũng được dùng để kiểm tra phần rất gần.",
+      "The latest satellite cloud imagery is also used for the very near term."
+    ],
+    [
+      "Phần rất gần đang chờ ảnh vệ tinh mới hơn.",
+      "The very near term is waiting for newer satellite imagery."
+    ],
+    [
+      "Dữ liệu dự báo đang cập nhật lại. Các ngày bên dưới chỉ nên xem như tham khảo lúc này.",
+      "Forecast data is refreshing. The days below should be treated as reference only for now."
+    ],
+    [
+      "Dự báo JoTrip theo khu vực",
+      "JoTrip Forecast by area"
+    ],
+    [
+      "càng xa ngày, độ chắc chắn càng giảm. Chi tiết chất lượng dữ liệu nằm ở phần nguồn bên dưới.",
+      "confidence decreases with lead time. Data-quality detail is shown in the source section below."
+    ],
+    [
+      "Radar và sét",
+      "Radar & lightning"
+    ],
+    [
+      "Quan trắc VVPQ",
+      "VVPQ observations"
+    ],
+    [
+      "Quan trắc SYNOP 48917",
+      "SYNOP 48917 observations"
+    ],
+    [
+      "Mưa đo VRain",
+      "VRain measured rain"
+    ],
+    [
+      "Chất lượng không khí",
+      "Air quality"
+    ],
+    [
+      "Thủy triều",
+      "Tides"
+    ],
+    [
+      "METAR/SPECI sân bay Phú Quốc đang có quan trắc mới",
+      "Phu Quoc Airport METAR/SPECI has a fresh observation"
+    ],
+    [
+      "Dùng để đối chiếu nhiệt độ, gió, áp suất và trạng thái thời tiết hiện tại.",
+      "Used to cross-check temperature, wind, pressure and current weather state."
+    ],
+    [
+      "Bản tin VVPQ hiện không còn mới",
+      "The VVPQ report is no longer fresh"
+    ],
+    [
+      "Hệ thống vẫn giữ nguồn nhưng không coi dữ liệu cũ là trạng thái hiện tại.",
+      "The source remains available, but old data is not treated as current conditions."
+    ],
+    [
+      "Bản tin SYNOP 48917 khu Dương Đông đang có số liệu mới",
+      "SYNOP 48917 in Duong Dong has fresh data"
+    ],
+    [
+      "Đây là nguồn quan trắc độc lập với VVPQ và hệ thống không gộp hai nguồn.",
+      "This is an observation source independent of VVPQ; the system does not merge the two."
+    ],
+    [
+      "Nguồn SYNOP 48917 vẫn được theo dõi riêng, nhưng bản tin số hiện chưa đủ mới hoặc chưa đủ điều kiện để dùng như quan trắc hiện tại.",
+      "SYNOP 48917 is still monitored separately, but the current report is not fresh enough or suitable to use as a current observation."
+    ],
+    [
+      "Mưa đo thực tế đang nhận từ",
+      "Measured rainfall is being received from"
+    ],
+    [
+      "trạm trên đảo",
+      "gauges on the island"
+    ],
+    [
+      "Dữ liệu mưa đo hiện chưa đủ mới. Việc thiếu bản tin mới không được hiểu là ngoài trời đang không mưa.",
+      "Measured rain data is not fresh enough. Missing fresh data must not be interpreted as no rain outside."
+    ],
+    [
+      "Sẵn sàng",
+      "Ready"
+    ],
+    [
+      "Một phần",
+      "Partial"
+    ],
+    [
+      "Chưa sẵn sàng",
+      "Not ready"
+    ],
+    [
+      "Chưa kết nối",
+      "Not connected"
+    ],
+    [
+      "Phần còn thiếu",
+      "Missing component"
+    ],
+    [
+      "Mã lần cập nhật",
+      "Update ID"
+    ],
+    [
+      "Mã phiên bản",
+      "Version ID"
+    ],
+    [
+      "Tóm tắt hệ thống",
+      "System summary"
+    ],
+    [
+      "Lần kiểm tra tiếp",
+      "Next check"
+    ],
+    [
+      "Ước tính hiện tại được nối với dự báo tổ hợp GEFS q50/q90 tới +72 giờ. 24 giờ đầu hiển thị theo từng giờ, ngày 2-3 theo mỗi 2 giờ bằng nội suy để dễ đọc; không làm tăng độ phân giải thật của mô hình.",
+      "The current estimate is joined to the GEFS q50/q90 ensemble forecast through +72 hours. The first 24 hours are shown hourly; days 2-3 every 2 hours using interpolation for readability, without increasing the model's true resolution."
+    ],
+    [
+      "Ước tính hiện tại và số đo VRain được giữ riêng. GEFS theo mốc 6 giờ được quy đổi về cường độ trung bình rồi nội suy để hiển thị theo 1 giờ/2 giờ; đây là cách trình bày diễn biến, không phải số đo từng giờ.",
+      "Current estimates and VRain observations remain separate. GEFS 6-hour steps are converted to average intensity and interpolated to a 1-hour/2-hour display; this is a presentation of evolution, not hourly measurement."
+    ],
+    [
+      "Ước tính hiện tại + dự báo tổ hợp q50/q90. Ngày đầu hiển thị mỗi giờ, ngày 2-3 mỗi 2 giờ; các điểm giữa mốc nguồn được nội suy để dễ đọc.",
+      "Current estimate + q50/q90 ensemble forecast. Day 1 is shown hourly, days 2-3 every 2 hours; values between source steps are interpolated for readability."
+    ],
+    [
+      "Mức phát triển mây gần hiện tại",
+      "Near-current cloud development"
+    ],
+    [
+      "Chỉ số này dùng độ lạnh/độ cao đỉnh mây và xu hướng phát triển từ Himawari. Không phải xác suất mưa hay sét và không kéo giả tới 72 giờ.",
+      "This index uses cloud-top temperature/height and development trends from Himawari. It is not rain or lightning probability and is not artificially extended to 72 hours."
+    ],
+    [
+      "Chưa thấy cụm mây mạnh",
+      "No strong cloud cluster"
+    ],
+    [
+      "Cụm mây rất cao - nguy cơ mưa dông",
+      "Very high cloud cluster - thunderstorm risk"
+    ],
+    [
+      "Cụm mây rất cao - cần theo dõi",
+      "Very high cloud cluster - watch"
+    ],
+    [
+      "VRain gần nhất chưa mưa",
+      "Latest VRain shows no rain"
+    ],
+    [
+      "Điểm hiển thị nội suy từ mốc mô hình",
+      "Displayed point interpolated from model step"
+    ],
+    [
+      "không tăng độ phân giải nguồn",
+      "does not increase source resolution"
+    ],
+    [
+      "Tham chiếu biển",
+      "Marine reference"
+    ],
+    [
+      "cách ô biển",
+      "from marine grid cell"
+    ],
+    [
+      "Biên q90 / Hmax:",
+      "q90 / Hmax range:"
+    ],
+    [
+      "Chu kỳ sóng:",
+      "Wave period:"
+    ],
+    [
+      "Chạm vào một điểm để xem số liệu.",
+      "Tap a point to see values."
+    ],
+    [
+      "Chưa đủ chuỗi 72 giờ cho layer này tại point đang chọn.",
+      "Not enough 72-hour data for this layer at the selected point."
+    ],
+    [
+      "Chưa có chuỗi dữ liệu phù hợp.",
+      "No suitable data series."
+    ],
+    [
+      "Dự báo q50",
+      "q50 forecast"
+    ],
+    [
+      "Ước tính hiện tại",
+      "Current estimate"
+    ],
+    [
+      "Triều mô hình",
+      "Tide model"
+    ],
+    [
+      "Sóng mô hình",
+      "Wave model"
+    ],
+    [
+      "Mô hình dự phòng",
+      "Fallback model"
+    ],
+    [
+      "Triều cao",
+      "High tide"
+    ],
+    [
+      "Triều thấp",
+      "Low tide"
+    ],
+    [
+      "VVPQ đo thực",
+      "VVPQ observation"
+    ],
+    [
+      "Trạm sân bay",
+      "Airport station"
+    ],
+    [
+      "Ảnh vệ tinh / ước tính tại điểm",
+      "Satellite / point estimate"
+    ],
+    [
+      "Hiện tại",
+      "Current"
+    ],
+    [
+      "Mô hình 72 giờ",
+      "72-hour model"
+    ],
+    [
+      "Biên q90",
+      "q90 range"
+    ],
+    [
+      "0-24h: 1 giờ · 24-72h: 2 giờ · UTC+7 · chạm điểm để xem số",
+      "0-24h: 1 hour · 24-72h: 2 hours · UTC+7 · tap a point for values"
+    ],
+    [
+      "Chưa tải được chuỗi triều 24h",
+      "Could not load 24-hour tide series"
+    ],
+    [
+      "CHƯA TẢI ĐƯỢC DỰ BÁO VÙNG",
+      "COULD NOT LOAD AREA FORECAST"
+    ],
+    [
+      "Phần quan trắc hiện tại vẫn hoạt động bình thường.",
+      "Current observations remain available."
+    ],
+    [
+      "Tạm dừng ảnh vệ tinh",
+      "Pause satellite loop"
+    ],
+    [
+      "Chạy ảnh vệ tinh",
+      "Play satellite loop"
+    ],
+    [
+      "Đang tải chuỗi ảnh...",
+      "Loading image sequence..."
+    ],
+    [
+      "Himawari IR B13 · JMA High-Resolution Asia 1 được đặt theo đúng phạm vi công bố 99–110°E, 7–16°N. Phú Quốc nằm đúng trên nền bản đồ để đối chiếu mây, không dùng crop/marker ước lượng.",
+      "Himawari IR B13 · JMA High-Resolution Asia 1 is georeferenced to its published 99-110°E, 7-16°N extent. Phu Quoc is positioned on the map for cloud comparison without an estimated crop or marker."
+    ],
+    [
+      "GẦN THỜI GIAN THỰC",
+      "NEAR REAL TIME"
+    ],
+    [
+      "Mưa JoTrip",
+      "JoTrip Rain"
+    ],
+    [
+      "Gió JoTrip",
+      "JoTrip Wind"
+    ],
+    [
+      "Sóng nền mô hình",
+      "Model background waves"
+    ],
+    [
+      "Đang tổng hợp số liệu",
+      "Combining data"
+    ],
+    [
+      "Chọn Mây, Mưa, Gió hoặc Sóng ngay trên bản đồ. Kéo timeline để xem diễn biến theo thời gian; chạm bản đồ để đọc số tại điểm chọn.",
+      "Choose Clouds, Rain, Wind or Waves directly on the map. Drag the timeline to see changes over time; tap the map for values at the selected point."
+    ],
+    [
+      "Chưa tải được Bản đồ JoTrip trong lần này. Các số liệu và phần dự báo khác của trang vẫn hoạt động bình thường.",
+      "JoTrip Map could not load this time. Other values and forecast sections on the page remain available."
+    ],
+    [
+      "Radar quan trắc được giữ nguyên để đối chiếu vùng mưa đang xuất hiện quanh đảo.",
+      "Observation radar is kept as a reference for rain occurring around the island."
+    ],
+    [
+      "Windy - lớp gió được giữ để đối chiếu với ước tính tại điểm.",
+      "Windy - wind layer is kept to compare with point estimates."
+    ],
+    [
+      "Windy - mưa dự báo được giữ để đối chiếu với trạm mưa, ước tính tại điểm và Dự báo JoTrip.",
+      "Windy - forecast rain is kept to compare with gauges, point estimates and JoTrip Forecast."
+    ],
+    [
+      "Windy - sóng được giữ nguyên để đối chiếu với lớp biển của JoTrip.",
+      "Windy - waves are kept to compare with JoTrip's marine layer."
+    ],
+    [
+      "Đang gửi phản hồi về JoTrip...",
+      "Sending feedback to JoTrip..."
+    ],
+    [
+      "Đã gửi về JoTrip",
+      "Sent to JoTrip"
+    ],
+    [
+      "phản hồi chờ gửi",
+      "feedback waiting to send"
+    ],
+    [
+      "Đã lưu trên thiết bị · sẽ tự gửi lại khi có mạng",
+      "Saved on this device · will retry automatically when online"
+    ],
+    [
+      "JoTrip Weather - Phú Quốc",
+      "JoTrip Weather - Phu Quoc"
+    ],
+    [
+      "Theo dõi thời tiết hiện tại, biển, chất lượng không khí và Dự báo JoTrip 10 ngày cho Phú Quốc.",
+      "Track current weather, sea conditions, air quality and the 10-day JoTrip Forecast for Phu Quoc."
+    ],
+    [
+      "Đã sao chép link",
+      "Link copied"
+    ],
+    [
+      "Chưa cập nhật được thời tiết lúc này. Bạn thử tải lại trang giúp mình.",
+      "Weather could not update right now. Please reload the page."
+    ],
+    [
+      "CHƯA CẬP NHẬT",
+      "NOT UPDATED"
+    ],
+    [
+      "Hôm nay chạy bình thường",
+      "Operating normally today"
+    ],
+    [
+      "Chưa có cập nhật hôm nay",
+      "No update today"
+    ],
+    [
+      "Chưa có tin mới",
+      "No new update"
+    ],
+    [
+      "Sân bay Phú Quốc",
+      "Phu Quoc Airport"
+    ],
+    [
+      "Đo thực tế tại",
+      "Observed at"
+    ],
+    [
+      "Chưa có thông tin thời tiết mới",
+      "No fresh weather information"
+    ],
+    [
+      "Số đo",
+      "Observation"
+    ],
+    [
+      "Sóng Nam đảo · dự báo biển",
+      "South-island waves · marine forecast"
+    ],
+    [
+      "Chưa có thông tin biển mới",
+      "No fresh sea information"
+    ],
+    [
+      "Cano Nam đảo",
+      "South-island speedboats"
+    ],
+    [
+      "Chưa biết lần cập nhật gần nhất",
+      "Last update unknown"
+    ],
+    [
+      "Có vùng mây đang tiến gần",
+      "A cloud area is approaching"
+    ],
+    [
+      "Xem còn kịp gì",
+      "See what still fits"
+    ],
+    [
+      "Nếu đi ngoài trời, giữ lịch linh hoạt.",
+      "Keep outdoor plans flexible."
+    ],
+    [
+      "Theo dõi thêm vùng mây phát triển quanh đảo.",
+      "Keep watching developing clouds around the island."
+    ],
+    [
+      "Một số trạm đang ghi nhận mưa. Xem đúng khu vực mình sắp tới trước khi đi xa.",
+      "Some gauges are recording rain. Check the exact area you are heading to before travelling far."
+    ],
+    [
+      "Ảnh mây đang cho thấy vùng mây phát triển mạnh, nhưng chưa có nghĩa mặt đất đang mưa.",
+      "Cloud imagery shows strong development, but this does not mean rain is occurring at the ground."
+    ],
+    [
+      "Tìm chỗ dễ đổi lịch",
+      "Choose something easy to change"
+    ],
+    [
+      "Hôm nay nên ưu tiên lịch trên bờ.",
+      "Land-based plans are preferable today."
+    ],
+    [
+      "Cano đang tạm dừng. Chọn một điểm ít phụ thuộc biển sẽ nhẹ lịch hơn.",
+      "Speedboat tours are suspended. A place less dependent on sea conditions may be easier."
+    ],
+    [
+      "Chọn chỗ trên bờ",
+      "Choose a land-based place"
+    ],
+    [
+      "Buổi sáng, chọn một hướng rồi đi.",
+      "In the morning, choose one direction and stay with it."
+    ],
+    [
+      "Chọn Bắc, trung tâm hoặc Nam đảo làm trục sẽ đỡ mất thời gian chạy qua lại.",
+      "Choose the north, central area or south as your main direction to reduce driving back and forth."
+    ],
+    [
+      "Chiều nay chỉ nên chọn thêm một điểm vừa sức.",
+      "This afternoon, add only one realistic stop."
+    ],
+    [
+      "Chọn một điểm hợp giờ này rồi chừa thời gian cho cuối chiều, đừng chạy vòng cả đảo.",
+      "Choose one place that fits the current time and leave room for late afternoon instead of crossing the whole island."
+    ],
+    [
+      "Tối nay cứ chọn một khu rồi đi chậm lại.",
+      "Tonight, choose one area and slow down."
+    ],
+    [
+      "Ăn tối hoặc đi bộ gần nơi bạn ở. Nếu muốn xem biểu diễn, hãy kiểm tra thông báo từng suất.",
+      "Have dinner or walk near where you are staying. If you want a show, check the notice for that performance."
+    ],
+    [
+      "Hoàng hôn chiều nay có thể bị thời tiết ảnh hưởng.",
+      "This afternoon's sunset may be affected by weather."
+    ],
+    [
+      "Quan trắc gần bờ Tây đang ghi nhận thời tiết xấu. Xem khu vực cụ thể trước khi di chuyển.",
+      "Observations near the west coast are showing adverse weather. Check the specific area before travelling."
+    ],
+    [
+      "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rõ hơn quanh",
+      "The forecast around sunset shows a clearer shower signal near"
+    ],
+    [
+      "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa rào rải rác dọc bờ Tây.",
+      "The forecast around sunset shows scattered showers along the west coast."
+    ],
+    [
+      "Dự báo quanh giờ hoàng hôn cho thấy khả năng mưa đáng kể hơn. Hệ thống sẽ tiếp tục cập nhật khi gần giờ.",
+      "The forecast around sunset shows a stronger rain signal. The system will continue updating closer to the time."
+    ],
+    [
+      "Cuối chiều còn một ít bất định. Xem lại khi gần giờ hoàng hôn.",
+      "Late afternoon still has some uncertainty. Recheck closer to sunset."
+    ],
+    [
+      "Có điểm bờ Tây đang ghi nhận mưa. Xem khu vực mình sắp tới trước khi đi.",
+      "A west-coast point is recording rain. Check the area you are heading to before leaving."
+    ],
+    [
+      "Mây đang dày hơn trên hướng chân trời ở",
+      "Cloud cover is increasing toward the horizon at"
+    ],
+    [
+      "Mặt trời có thể bị che lúc lặn.",
+      "The sun may be obscured at sunset."
+    ],
+    [
+      "Một phần bờ Tây có thể bị che lúc mặt trời lặn.",
+      "Part of the west coast may have an obscured sunset."
+    ],
+    [
+      "Ảnh vệ tinh đang thấy mây dày hơn trên hướng chân trời hoàng hôn. Mặt trời có thể bị che lúc lặn.",
+      "Satellite imagery shows thicker cloud toward the sunset horizon. The sun may be obscured."
+    ],
+    [
+      "Một vùng mây phát triển mạnh đang tiến về bờ Tây. Khả năng thấy mặt trời lặn có thể giảm.",
+      "A strongly developing cloud area is moving toward the west coast. The chance of seeing the sun at sunset may decrease."
+    ],
+    [
+      "Tầm nhìn đang giảm. Hoàng hôn có thể kém rõ dù không nhất thiết có mưa.",
+      "Visibility is decreasing. Sunset may be less clear even without rain."
+    ],
+    [
+      "Ảnh mây cho thấy vùng mây phát triển mạnh quanh khu vực. Chưa đủ để coi là mưa tại bờ Tây.",
+      "Cloud imagery shows strong development around the area. This is not enough to state that it is raining on the west coast."
+    ],
+    [
+      "Dự báo quanh giờ hoàng hôn có thể có mưa rào cục bộ quanh",
+      "The sunset-time forecast suggests local showers near"
+    ],
+    [
+      "Dự báo quanh giờ hoàng hôn có thể có mưa rào rải rác dọc bờ Tây.",
+      "The sunset-time forecast suggests scattered showers along the west coast."
+    ],
+    [
+      "Dự báo quanh giờ hoàng hôn có tín hiệu mưa cục bộ. Hệ thống sẽ cập nhật lại khi gần giờ hơn.",
+      "The sunset-time forecast shows a local rain signal. The system will update again closer to the time."
+    ],
+    [
+      "phút tới hoàng hôn.",
+      "minutes until sunset."
+    ],
+    [
+      "Cuối chiều vẫn nên xem lại tình hình bờ Tây.",
+      "Recheck west-coast conditions later this afternoon."
+    ],
+    [
+      "Xem điểm gần hơn",
+      "View a closer point"
+    ],
+    [
+      "Cuối chiều nay, chừa thời gian cho hoàng hôn.",
+      "Leave room for sunset late this afternoon."
+    ],
+    [
+      "Ảnh vệ tinh hiện cho thấy hướng chân trời hoàng hôn khá ít mây.",
+      "Satellite imagery currently shows relatively little cloud toward the sunset horizon."
+    ],
+    [
+      "Có vùng mây phát triển mạnh quanh đảo nhưng đường đi hiện tại đang lệch hoặc đi xa bờ Tây.",
+      "Strong cloud development exists around the island, but its current track is away from or bypassing the west coast."
+    ],
+    [
+      "Hiện chưa thấy tín hiệu thời tiết đáng ngại cho hoàng hôn bờ Tây.",
+      "No concerning weather signal is currently apparent for west-coast sunset."
+    ],
+    [
+      "Tối nay vẫn còn nhiều lựa chọn.",
+      "There are still many options tonight."
+    ],
+    [
+      "Chợ đêm, ăn uống, đi bộ và các chương trình buổi tối phù hợp hơn với một lịch nhẹ.",
+      "Night markets, food, walking and evening shows fit a lighter plan."
+    ],
+    [
+      "Tối nay vẫn còn chỗ để đi.",
+      "There are still places to go tonight."
+    ],
+    [
+      "Chợ đêm, ăn uống hoặc đi bộ gần vẫn là lựa chọn. Muốn xem biểu diễn, kiểm tra thông báo từng suất.",
+      "A nearby night market, food or a walk are still options. Check the notice for each show before going."
+    ],
+    [
+      "Giờ này hợp ăn uống và đi bộ hơn.",
+      "This time is better suited to food and walking."
+    ],
+    [
+      "Muốn xem biểu diễn thì kiểm tra giờ trước khi chạy tới; nhiều suất tối đã bắt đầu.",
+      "Check the show time before travelling there; many evening performances may already have started."
+    ],
+    [
+      "Muốn đi gần hơn? Chọn khu vực trước.",
+      "Want something closer? Choose an area first."
+    ],
+    [
+      "Dương Đông, An Thới, Sunset Town hay Gành Dầu đều có thể xem riêng, không cần bật GPS.",
+      "Duong Dong, An Thoi, Sunset Town and Ganh Dau can each be browsed without enabling GPS."
+    ],
+    [
+      "Chưa xem được thời tiết mới nhất",
+      "Could not load the latest weather"
+    ],
+    [
+      "TIN ĐÃ CŨ",
+      "STALE UPDATE"
+    ],
+    [
+      "Một số điểm trên đảo đang có mưa",
+      "Some island points are recording rain"
+    ],
+    [
+      "ĐANG MƯA",
+      "RAINING"
+    ],
+    [
+      "Ảnh mây cho thấy vùng mây phát triển mạnh quanh đảo",
+      "Cloud imagery shows strong cloud development around the island"
+    ],
+    [
+      "Các trạm mưa đang có dữ liệu hiện chưa ghi nhận mưa. Xem đúng khu vực trước khi đi xa.",
+      "Gauges with current data are not recording rain. Check the exact area before travelling far."
+    ],
+    [
+      "Vùng mây quanh đảo đang phát triển mạnh hơn",
+      "Clouds around the island are developing more strongly"
+    ],
+    [
+      "Các trạm đang theo dõi chưa ghi nhận mưa tương ứng. Nên xem lại trước khi đi xa.",
+      "Monitored gauges have not recorded corresponding rain. Recheck before travelling far."
+    ],
+    [
+      "Chưa thấy tín hiệu thời tiết nổi bật tại các điểm đang theo dõi",
+      "No notable weather signal at monitored points"
+    ],
+    [
+      "Chưa đủ dữ liệu thời tiết mới tại các điểm đang theo dõi",
+      "Not enough fresh weather data at monitored points"
+    ],
+    [
+      "Chưa biết chắc hôm nay",
+      "Today's status is not confirmed"
+    ],
+    [
+      "Hôm nay có thay đổi",
+      "Changed today"
+    ],
+    [
+      "Nên xem lại trước khi đi",
+      "Recheck before going"
+    ],
+    [
+      "Đã ghi nhận chuyến hoạt động",
+      "Operating service recorded"
+    ],
+    [
+      "Tàu cao tốc và phà đều được xác nhận hoạt động hôm nay",
+      "Passenger fast ferries and vehicle ferries are both confirmed operating today"
+    ],
+    [
+      "Đã có chuyến được xác nhận; xem trạng thái từng chuyến trước khi đặt",
+      "At least one service is confirmed; check each service before booking"
+    ],
+    [
+      "Chưa có tin mới về tàu và phà",
+      "No fresh ferry update"
+    ],
+    [
+      "Mở Tàu & Phà để xem thông tin gần nhất.",
+      "Open Ferries to see the latest information."
+    ],
+    [
+      "Tàu hoặc phà có thay đổi hôm nay",
+      "A ferry service changed today"
+    ],
+    [
+      "Tàu và phà chạy bình thường",
+      "Ferry services are operating normally"
+    ],
+    [
+      "Đã ghi nhận chuyến tàu và phà hôm nay",
+      "Today's ferry services have been recorded"
+    ],
+    [
+      "Nên xem lại lịch trước khi đi",
+      "Recheck the schedule before travelling"
+    ],
+    [
+      "cảnh báo đang cần chú ý",
+      "alerts need attention"
+    ],
+    [
+      "Chưa có cảnh báo đáng chú ý",
+      "No notable alerts"
+    ],
+    [
+      "Sân bay chưa có cập nhật mới",
+      "No fresh airport update"
+    ],
+    [
+      "Sân bay đang hoạt động ổn định",
+      "Airport operations are stable"
+    ],
+    [
+      "Mở Sân bay để xem các chuyến hôm nay.",
+      "Open Airport to view today's flights."
+    ],
+    [
+      "Có chuyến bay bị hủy hoặc thay đổi đáng kể. Nếu sắp ra sân bay, nên xem lại chuyến của mình.",
+      "A flight has been cancelled or changed significantly. If you are heading to the airport, recheck your flight."
+    ],
+    [
+      "chuyến đang chậm từ 30 phút. Nếu sắp ra sân bay, nên xem lại chuyến của mình.",
+      "flights are delayed by at least 30 minutes. If you are heading to the airport, recheck your flight."
+    ],
+    [
+      "HẾT CHỖ",
+      "SOLD OUT"
+    ],
+    [
+      "THAY ĐỔI HÔM NAY",
+      "CHANGED TODAY"
+    ],
+    [
+      "LỊCH LINH HOẠT",
+      "FLEXIBLE PLAN"
+    ],
+    [
+      "Đổi biển lấy một câu chuyện trong nhà thùng",
+      "Swap the sea for a story inside a fish sauce barrel house"
+    ],
+    [
+      "Đang có quan trắc mưa ở một số điểm",
+      "Rain is being observed at some points"
+    ],
+    [
+      "THEO DÕI THÊM",
+      "KEEP WATCHING"
+    ],
+    [
+      "HỢP HÔM NAY",
+      "SUITS TODAY"
+    ],
+    [
+      "Ra biển trước hoàng hôn",
+      "Go to sea before sunset"
+    ],
+    [
+      "Ảnh vệ tinh có mây đối lưu; xem khu vực trước khi đi",
+      "Satellite imagery shows convective clouds; check your area before going"
+    ],
+    [
+      "Đã ghi nhận chuyến rời cảng",
+      "A departure has been recorded"
+    ],
+    [
+      "Phà hôm nay xem riêng từng chuyến",
+      "Check each vehicle ferry separately today"
+    ],
+    [
+      "Hôm nay chưa thấy gián đoạn lớn",
+      "No major disruption seen today"
+    ],
+    [
+      "Có dịch vụ cần xem lại",
+      "Some services need rechecking"
+    ],
+    [
+      "Chưa có đủ thông tin",
+      "Not enough information"
+    ]
+  ]
 }
