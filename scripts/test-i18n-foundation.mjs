@@ -51,20 +51,20 @@ assert.match(switcher,/searchParams\.set\("lang",code\)/,
   "Manual language choices must pass through the edge preference endpoint");
 const worker=readFileSync("worker.js","utf8");
 assert.match(worker,/accept-language/i);
-assert.match(worker,/localized-pages\/en\/index\.html/);
-assert.match(worker,/EN_PUBLIC_PAGES/);
-for(const file of [
-  "localized-pages/en/index.html",
-  "localized-pages/en/stories/index.html",
-  "localized-pages/en/stories/article.html",
-  "localized-pages/en/guide/knowledge.html",
-  "localized-pages/en/guide/article.html",
-  "localized-pages/en/food/index.html",
-  "localized-pages/en/food/article.html"
-]){
-  const html=readFileSync(file,"utf8");
-  assert.equal(/[À-ỹĐđ]/.test(html),false,"English public shell contains Vietnamese text: "+file);
-}
+assert.doesNotMatch(worker,/EN_PUBLIC_PAGES/,
+  "English must not use a partial route whitelist");
+assert.doesNotMatch(worker,/localizedTemplatePath/,
+  "English must share the same public shells and runtimes as Vietnamese");
+assert.match(worker,/localizedPageSupported/,
+  "Worker must apply one public-shell locale policy");
+const enRuntime=readFileSync("core/en-full-site.js","utf8");
+assert.match(enRuntime,/MutationObserver/,
+  "English presentation layer must cover dynamically rendered copy");
+assert.match(enRuntime,/site-shell\.json/,
+  "English presentation layer must load the reviewed site-wide shell dictionary");
+assert.ok(readFileSync("data/i18n/en/site-shell.json","utf8").includes('"locale": "en"'));
+assert.match(switcher,/querySelector\("\.site-header, header\.top, header\.knowledge-header/,
+  "Language selector must mount in the public header");
 assert.match(worker,/openpq_lang/);
 assert.match(worker,/private, no-store/);
 console.log("PASS i18n foundation: locale registry, URL policy, canonical paths and publication lock");
