@@ -445,6 +445,15 @@ function freshnessText(iso, prefix = "Cập nhật") {
       const view = window.OpenPQWeatherShortView?.pointView?.(critical, nowcast, pointId) || null;
       return {area, pointId, point, view};
     }
+    let weatherSnapshot = {
+      primary:"--",
+      secondary:wh("no_new_weather", {}, "Chưa có thông tin thời tiết mới"),
+      state:"unknown",
+      freshness:wh("updating", {}, "Đang cập nhật"),
+      sourceClass:"UNAVAILABLE",
+      sourceUpdatedAt:criticalStamp,
+      ageMinutes:criticalAge
+    };
     function renderHomeWeather() {
       const weatherContext = selectedWeatherContext();
       const point = weatherContext.point;
@@ -484,11 +493,26 @@ function freshnessText(iso, prefix = "Cập nhật") {
           : wh("updating", {}, "Đang cập nhật");
       }
 
+      const sourceUpdatedAt = localUsable
+        ? localStamp
+        : (humanWeather?.observedAt || vvpq?.observed_at || criticalStamp);
+      const sourceAge = ageMinutes(sourceUpdatedAt);
+      weatherSnapshot = {
+        primary,secondary,state,freshness,
+        sourceClass:localUsable?"ESTIMATED_NOW":(vvpq?"ACTUAL_REFERENCE":"UNAVAILABLE"),
+        sourceUpdatedAt,
+        ageMinutes:sourceAge
+      };
       setLive("weather", primary, secondary, state, freshness);
       setContext("weather", primary, secondary, state);
       return weatherContext;
     }
     renderHomeWeather();
+    const weatherPrimary = weatherSnapshot.primary;
+    const weatherSecondary = weatherSnapshot.secondary;
+    const weatherState = weatherSnapshot.state;
+    const weatherObservedAt = weatherSnapshot.sourceUpdatedAt;
+    const weatherAge = weatherSnapshot.ageMinutes;
 
     const seaHs = anThoi?.model?.wave_hs_m ?? anThoi?.local?.wave_hs_m ?? null;
     const seaHmax = anThoi?.model?.wave_hmax_m ?? null;
@@ -1153,7 +1177,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
           context: weatherSecondary,
           secondary: weatherSecondary,
           status: islandDecision.status,
-          source_class: vvpq ? "ACTUAL" : "ESTIMATED_NOW",
+          source_class: weatherSnapshot.sourceClass,
           source_updated_at: weatherObservedAt,
           freshness: weatherAge <= 60 ? "fresh" : weatherAge <= 180 ? "aging" : "stale",
           detail_url: "weather/"
