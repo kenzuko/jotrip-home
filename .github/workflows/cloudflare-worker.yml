@@ -83,8 +83,11 @@ on:
 permissions:
   contents: read
 
+# Do not let an obsolete main build block the newest production release.
+# Every run has its own build lane; two freshness gates below ensure only the
+# current main SHA is ever allowed to reach Wrangler deploy.
 concurrency:
-  group: openphuquoc-worker
+  group: openphuquoc-worker-${{ github.sha }}
   cancel-in-progress: false
 
 jobs:
@@ -94,19 +97,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Early stale-run gate
+        run: |
+          CURRENT_MAIN_SHA="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+          echo "Current main: $CURRENT_MAIN_SHA"
+          echo "This run:     $GITHUB_SHA"
+          if [ "$CURRENT_MAIN_SHA" = "$GITHUB_SHA" ]; then
+            echo "OPENPQ_CURRENT_HEAD_EARLY=true" >> "$GITHUB_ENV"
+          else
+            echo "OPENPQ_CURRENT_HEAD_EARLY=false" >> "$GITHUB_ENV"
+            echo "::notice::This Worker build is already stale; expensive build steps will be skipped."
+          fi
+
       - name: Setup Node
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         uses: actions/setup-node@v4
         with:
           node-version: "22"
       - uses: actions/setup-python@v5
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         with:
           python-version: "3.12"
       - name: Check committed Near Me indexes before regenerating
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         run: node scripts/check-derived-views-sync.mjs
       - name: Install CMS weather collectors
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         run: python -m pip install --quiet boto3 s3fs xarray h5netcdf h5py numpy pyproj
 
       - name: Build derived data
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         run: |
           node scripts/build-knowledge-public.mjs
           node -e "const x=require('./data/views/knowledge-public.json'); if(x.count!==128) process.exit(1)"
@@ -115,6 +135,7 @@ jobs:
           node scripts/build-location-index.mjs
 
       - name: Validate data
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         run: |
           node scripts/validate-data.mjs
           node scripts/validate-home-support.mjs
@@ -127,16 +148,19 @@ jobs:
           node scripts/test-transit-snapshot-health.mjs
 
       - name: Check public knowledge
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         run: |
           node --check guide/knowledge.js
           node --check worker.js
 
       - name: Test production Weather Ground Truth engine
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         env:
           PYTHONPATH: scripts/weather-engine
         run: python -m unittest discover -s scripts/weather-engine/weather/tests -v
 
       - name: Test Weather V2 and V3 public contracts
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         run: |
           node --check weather/weather-v2.js
           node scripts/weather-v2-groundtruth-ui.test.mjs
@@ -146,6 +170,7 @@ jobs:
           node scripts/weather-cms-v3-public.test.mjs
 
       - name: Build Worker assets
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         run: |
           # Fail closed. The last deployed Worker is our Last Known Good.
           # Never ship a stale Git-checkout snapshot as a successful fallback.
@@ -163,6 +188,7 @@ jobs:
           test -f dist/transit/index.html
 
       - name: Check Cloudflare credentials
+        if: env.OPENPQ_CURRENT_HEAD_EARLY == 'true'
         env:
           CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
