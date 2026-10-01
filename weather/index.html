@@ -26,8 +26,8 @@
   <meta name="twitter:title" content="Thời tiết & Biển - Open Phu Quoc">
   <meta name="twitter:description" content="Quan trắc, radar - vệ tinh, biển, AQI và dự báo JoTrip 10 ngày dành riêng cho Phú Quốc.">
   <meta name="twitter:image" content="https://openphuquoc.com/assets/share-card.svg">
-  <link rel="stylesheet" href="/weather/weather-v2.css?v=20261001-corev3-1">
-  <link rel="stylesheet" href="/weather/weather-v3-public.css?v=20261001-corev3-1">
+  <link rel="stylesheet" href="/weather/weather-v2.css?v=20261001-human-layer3">
+  <link rel="stylesheet" href="/weather/weather-v3-public.css?v=20261001-human-layer3">
   <link rel="stylesheet" href="/ecosystem-shell.css?v=20260925-tight-master-r1">
   <link rel="stylesheet" href="/weather/weather-openpq.css?v=20260923-edge1">
   <link rel="preload" as="fetch" href="/weather/data/critical.json" crossorigin="anonymous">
@@ -35,9 +35,9 @@
   <script defer src="/weather/weather-wind-guard.js?v=20260924-qc1"></script>
   <script defer src="/weather/weather-gust-outlook.js?v=20260924-0930"></script>
   <script defer src="/weather/weather-human-contract.js?v=20261001-human-scope2"></script>
-  <script defer src="/weather/weather-v3-public-contract.js?v=20261001-corev3-1"></script>
-  <script defer src="/weather/weather-v2.js?v=20261001-human-scope2"></script>
-  <script defer src="/weather/weather-v3-public.js?v=20261001-corev3-1"></script>
+  <script defer src="/weather/weather-v3-public-contract.js?v=20261001-human-layer3"></script>
+  <script defer src="/weather/weather-v2.js?v=20261001-human-layer3"></script>
+  <script defer src="/weather/weather-v3-public.js?v=20261001-human-layer3"></script>
   <script defer src="/weather/weather-connection.js?v=20261001-freshness2"></script>
   <link rel="canonical" href="https://openphuquoc.com/weather/">
   <script type="application/ld+json">
@@ -87,32 +87,18 @@
     <div class="weather-overview-head">
       <div>
         <span class="eyebrow">THỜI TIẾT LÚC NÀY</span>
-        <h1 id="placeName">Dương Đông</h1>
+        <h1 id="placeName">Dương Đông · đang cập nhật</h1>
       </div>
       <div class="updated" id="updatedAt">-</div>
     </div>
 
     <div class="weather-overview-main">
-      <div class="weather-now-primary">
+      <div class="weather-now-primary human-first">
         <div id="heroWeatherIcon" class="weather-now-icon" aria-hidden="true">🌦️</div>
-        <div class="weather-now-temp">
-          <strong id="heroTemp">--</strong>
-          <span id="heroTempClass">ƯỚC TÍNH</span>
-        </div>
         <div class="weather-now-copy">
-          <b id="heroCondition">Đang đọc thời tiết...</b>
-          <p id="heroSummary">Đang cập nhật quan trắc và phân tích tại Phú Quốc...</p>
+          <b id="heroCondition">Đang đọc tình hình lúc này...</b>
+          <p id="heroSummary">Chỉ những thay đổi đáng chú ý quanh điểm đang xem mới được đưa lên đây.</p>
         </div>
-      </div>
-
-      <div id="humanComfortLayer" class="human-comfort-layer" hidden aria-live="polite">
-        <div class="human-comfort-head"><span>THAM CHIẾU SÂN BAY</span><em>METAR/SPECI ĐỊNH KỲ</em></div>
-        <strong id="humanComfortTitle">-</strong>
-        <p id="humanComfortNote">-</p>
-        <small id="humanHeatIndex" class="human-comfort-index" hidden>-</small>
-        <small id="humanHeatIndexMethod" hidden>-</small>
-        <small id="humanHeatIndexNote" class="human-comfort-method" hidden>Số đo sân bay không đại diện trực tiếp cho cảm giác tại điểm đang xem.</small>
-        <small id="humanComfortReason">-</small>
       </div>
 
       <div class="weather-now-facts" aria-label="Thông tin nhanh">
@@ -129,28 +115,31 @@
     </div>
   </section>
 
-  <section id="v3ObservationPanel" class="panel v3-observation-panel" aria-label="Mưa quanh đảo" hidden>
-    <div class="v3-observation-head">
-      <div><span class="eyebrow">THỜI TIẾT V3</span><h2>Mưa quanh đảo - lúc này và vài giờ tới</h2></div>
-      <span id="v3PointLabel" class="v3-beta-badge">Theo Dương Đông</span>
+  <details id="v3ObservationPanel" class="panel v3-observation-panel v3-evidence-disclosure" aria-label="Bằng chứng cho nhận định thời tiết" hidden>
+    <summary><span>Vì sao hệ thống nói vậy?</span><small>Xem số đo mưa và diễn biến mây phía sau phần tóm tắt</small></summary>
+    <div class="v3-evidence-body">
+      <div class="v3-observation-head">
+        <div><span class="eyebrow">THỜI TIẾT V3</span><h2>Bằng chứng quanh điểm đang xem</h2></div>
+        <span id="v3PointLabel" class="v3-beta-badge">Theo Dương Đông</span>
+      </div>
+      <p class="v3-observation-intro">Phần này giải thích bằng chứng phía sau Human Layer. Nó không tạo thêm một kết luận thời tiết thứ hai.</p>
+      <div class="v3-signal-grid">
+        <article id="v3NowCard" class="v3-signal-card neutral">
+          <div class="v3-signal-top"><span>LÚC NÀY</span><em id="v3NowEvidence">CHƯA CÓ SỐ ĐO</em></div>
+          <b id="v3NowTitle">Đang kiểm tra số đo mới...</b>
+          <p id="v3NowDetail">Khi chưa có số đo mới, trang sẽ không tự coi là trời đang khô.</p>
+          <small id="v3NowTime">Đang chờ dữ liệu mới</small>
+        </article>
+        <article id="v3SoonCard" class="v3-signal-card neutral">
+          <div class="v3-signal-top"><span>DIỄN BIẾN NGẮN HẠN</span><em id="v3SoonEvidence">ẢNH VỆ TINH</em></div>
+          <b id="v3SoonTitle">Đang xem vùng mây quanh đảo...</b>
+          <p id="v3SoonDetail">Chỉ hiện nhận định ngắn hạn khi đường đi của vùng mây đủ rõ.</p>
+          <small id="v3SoonTime">Đang chờ ảnh vệ tinh mới</small>
+        </article>
+      </div>
+      <div class="v3-observation-foot"><span>Quan trắc, ước tính tại điểm và diễn biến mây luôn giữ riêng nguồn và thời điểm.</span></div>
     </div>
-    <p class="v3-observation-intro">Số đo mưa và diễn biến mây được đặt cạnh nhau để bạn biết điều gì đang xảy ra quanh điểm mình chọn.</p>
-    <div class="v3-signal-grid">
-      <article id="v3NowCard" class="v3-signal-card neutral">
-        <div class="v3-signal-top"><span>LÚC NÀY</span><em id="v3NowEvidence">CHƯA CÓ SỐ ĐO</em></div>
-        <b id="v3NowTitle">Đang kiểm tra số đo mới...</b>
-        <p id="v3NowDetail">Khi chưa có số đo mới, trang sẽ không tự coi là trời đang khô.</p>
-        <small id="v3NowTime">Đang chờ dữ liệu mới</small>
-      </article>
-      <article id="v3SoonCard" class="v3-signal-card neutral">
-        <div class="v3-signal-top"><span>30-120 PHÚT TỚI</span><em id="v3SoonEvidence">ẢNH VỆ TINH</em></div>
-        <b id="v3SoonTitle">Đang xem vùng mây quanh đảo...</b>
-        <p id="v3SoonDetail">Chỉ hiện nhận định ngắn hạn khi đường đi của vùng mây đủ rõ.</p>
-        <small id="v3SoonTime">Đang chờ ảnh vệ tinh mới</small>
-      </article>
-    </div>
-    <div class="v3-observation-foot"><span>Nhận định 30-120 phút là diễn biến ngắn hạn từ ảnh mây, không phải số đo mưa tại mặt đất.</span></div>
-  </section>
+  </details>
 
   <section class="panel field-feedback-panel" aria-label="Phản hồi tại chỗ">
     <div class="panel-head field-feedback-head">
@@ -203,6 +192,15 @@
     </div>
 
     <div id="actualStrip" class="actual-strip"><div class="skeleton wide"></div></div>
+    <div id="humanComfortLayer" class="human-comfort-layer" hidden aria-live="polite">
+      <div class="human-comfort-head"><span>THAM CHIẾU SÂN BAY</span><em>METAR/SPECI ĐỊNH KỲ</em></div>
+      <strong id="humanComfortTitle">-</strong>
+      <p id="humanComfortNote">-</p>
+      <small id="humanHeatIndex" class="human-comfort-index" hidden>-</small>
+      <small id="humanHeatIndexMethod" hidden>-</small>
+      <small id="humanHeatIndexNote" class="human-comfort-method" hidden>Số đo sân bay không đại diện trực tiếp cho cảm giác tại điểm đang xem.</small>
+      <small id="humanComfortReason">-</small>
+    </div>
     <small class="panel-foot rain-standard-note">Mưa quan trắc: trạng thái có/không mưa dựa trên chênh lệch giữa hai mẫu đo liên tiếp. Lượng mưa ghi bằng mm trong đúng cửa sổ quan trắc; cường độ được quy đổi về mm/h theo chuẩn biến quan trắc WMO.</small>
   </section>
   <div class="journey-heading">

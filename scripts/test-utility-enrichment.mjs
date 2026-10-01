@@ -18,6 +18,16 @@ assert.equal(enrichment.coverage?.canonical_utilities,utilities.length,"Utility 
 assert.equal(enrichment.coverage?.batch_entries,enrichment.entries.length,"Utility batch entry count mismatch");
 
 const seen=new Set();
+for(const conflict of enrichment.conflicts){
+  assert.ok(conflict&&typeof conflict==="object","Invalid utility conflict row");
+  assert.ok(byId.has(conflict.id),"Unresolved utility conflict must reference canonical ID: "+conflict.id);
+  assert.ok(typeof conflict.state==="string"&&conflict.state,"Utility conflict state missing: "+conflict.id);
+  assert.ok(typeof conflict.reason==="string"&&conflict.reason,"Utility conflict reason missing: "+conflict.id);
+  assert.ok(!("map" in conflict)&&!("gps" in conflict),"Utility conflict must not carry/promote GPS: "+conflict.id);
+  assert.notEqual(byId.get(conflict.id)?.operational_status,"ACTIVE_CONFIRMED",
+    "Unresolved conflict cannot also be operation-confirmed: "+conflict.id);
+}
+
 for(const row of enrichment.entries){
   assert.ok(row&&typeof row==="object","Invalid utility enrichment row");
   assert.ok(typeof row.id==="string"&&row.id,"Utility enrichment row missing id");

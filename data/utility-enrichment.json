@@ -764,6 +764,50 @@
       ]
     },
     {
+      "id": "utility_taxi_mailinh",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://mailinh.vn/index.php",
+        "note": "Current Mai Linh site confirms nationwide/island taxi service and 1055; VisitPhuQuoc's April 2026 guide specifically lists Mai Linh Phú Quốc with 0297 3 979 797 or 1055.",
+        "opening_hours_note": "Tổng đài 1055 hoạt động 24/7; tình trạng xe tại Phú Quốc phụ thuộc thời điểm và khu vực."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0297 3 979 797",
+          "scope": "canonical_contact",
+          "source_url": "https://mailinh.vn/index.php"
+        },
+        {
+          "type": "phone",
+          "value": "1055",
+          "scope": "operator_alternate_or_national_hotline",
+          "source_url": "https://mailinh.vn/index.php"
+        }
+      ]
+    },
+    {
+      "id": "utility_taxi_namthang",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://taxinamthang.com/",
+        "note": "Current Nam Thắng operator site explicitly lists Phú Quốc service and the canonical 02973 75 75 75 hotline; VisitPhuQuoc also lists the same Phú Quốc hotline in April 2026.",
+        "opening_hours_note": "Tổng đài/hỗ trợ của hãng được niêm yết 24/7; số lượng xe thực tế phụ thuộc thời điểm và khu vực."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0297 3 757 575",
+          "scope": "canonical_contact",
+          "source_url": "https://taxinamthang.com/"
+        }
+      ]
+    },
+    {
       "id": "utility_taxi_xanhsm",
       "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
       "operations": {
@@ -935,6 +979,44 @@
       ]
     },
     {
+      "id": "utility_vinmec_duong_dong_clinic",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.vinmec.com/vie/co-so-y-te/phong-kham-da-khoa-vinmec-duong-dong-phu-quoc",
+        "note": "Current Vinmec facility page confirms the Dương Đông clinic at 114 Nguyễn Trung Trực; Vinmec's 05/06/2026 schedule gives weekday and Saturday clinic hours.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "07:30",
+              "end": "11:30",
+              "label": "Thứ 2-Thứ 6"
+            },
+            {
+              "start": "13:00",
+              "end": "17:00",
+              "label": "Thứ 2-Thứ 6"
+            },
+            {
+              "start": "07:30",
+              "end": "11:30",
+              "label": "Thứ 7"
+            }
+          ],
+          "note": "Chiều Thứ 7 chỉ một số chuyên khoa làm việc; nên đặt lịch trước."
+        }
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0297 3985 588",
+          "scope": "canonical_contact",
+          "source_url": "https://www.vinmec.com/vie/co-so-y-te/phong-kham-da-khoa-vinmec-duong-dong-phu-quoc"
+        }
+      ]
+    },
+    {
       "id": "utility_vinmec_er",
       "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
       "operations": {
@@ -991,15 +1073,82 @@
       ]
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "state": "LOCATION_CONFIRMED_OPERATION_UNKNOWN",
+      "reason": "Vietcombank sources confirm PGD An Thới at 199 Nguyễn Văn Cừ, but do not prove this specific ATM is currently available/working.",
+      "next_evidence": "Current Vietcombank ATM locator or direct branch confirmation.",
+      "source_url": "https://www.vietcombank.com.vn/-/media/Project/VCB-Sites/VCB/Tin-tuc/2024/Vietcombank/Vietcombank_202411/Vietcombank_20241121/Danh-sach-diem-giao-dich-Vietcombank.pdf"
+    },
+    {
+      "id": "utility_fuel_dong_loi_1",
+      "state": "DIRECTORY_LISTED_OPERATION_UNKNOWN",
+      "reason": "Current Phú Quốc tourism utility directory lists the station and phone, but no operator/live sales-status source was found.",
+      "next_evidence": "Current operator/business-license or first-party confirmation.",
+      "source_url": "https://dulich.phuquoc.gov.vn/iv/detailutilities/?child=1240&id=1240"
+    },
+    {
+      "id": "utility_fuel_my_anh_an_thoi",
+      "state": "DIRECTORY_LISTED_OPERATION_UNKNOWN",
+      "reason": "Current tourism directory lists Cây xăng Mỹ Anh; no sufficiently current operator/live-sales evidence found.",
+      "next_evidence": "Current operator/business-license or first-party confirmation.",
+      "source_url": "https://dulich.phuquoc.gov.vn/iv/detailutilities/?child=1240&id=1240"
+    },
+    {
+      "id": "utility_fuel_nhi_phung_ganh_dau",
+      "state": "LICENSE_AND_DIRECTORY_OPERATION_UNKNOWN",
+      "reason": "Government environmental permit establishes the exact facility and current tourism directory still lists Nhi Phụng, but this does not prove retail sales are open now.",
+      "next_evidence": "Current operator or regulator retail-operation confirmation.",
+      "source_url": "https://phuquoc.angiang.gov.vn/giay-phep-moi-truong-cho-doanh-nghiep-tu-nhan-nhi-phung"
+    },
+    {
+      "id": "utility_parking_sunset_nightmarket",
+      "state": "AREA_SERVICE_OPERATION_UNKNOWN",
+      "reason": "Sunset Town content supports parking availability in the area, but not this exact named parking facility as a continuously operated entity.",
+      "next_evidence": "Current Sun Group/Sunset Town exact parking-facility notice or on-site confirmation.",
+      "source_url": "https://www.sunset-town.com/en/booking/sun-bavaria-gastropub-dining-sunset-town-phu-quoc/"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_67",
+      "state": "MAP_IDENTITY_OPERATION_UNKNOWN",
+      "reason": "Exact structured-map identity exists, but no current operator/municipal operating-hours source was found.",
+      "next_evidence": "Current Sunset Town/municipal facility confirmation.",
+      "source_url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJl-3yUwCVpzERceqfSiIeqEQ"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_02",
+      "state": "MAP_IDENTITY_OPERATION_UNKNOWN",
+      "reason": "Exact structured-map identity exists, but no current operator/municipal operating-hours source was found.",
+      "next_evidence": "Current Sunset Town/municipal facility confirmation.",
+      "source_url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJ2aIjdACVpzER_zly-E9hYs8"
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "state": "REGISTRY_AND_MAP_OPERATION_UNKNOWN",
+      "reason": "Business registry and exact map identity support the entity/location, but no first-party current operation source was found.",
+      "next_evidence": "Current operator page, direct contact confirmation, or recent official business status.",
+      "source_url": "https://masothue.com/8461194714-001-ho-kinh-doanh-one-mart"
+    },
+    {
+      "id": "utility_jotrip_local_service",
+      "state": "FIRST_PARTY_SOURCE_MISSING_IN_DATA",
+      "reason": "Canonical record is verified but currently lacks a public source URL in source_refs; do not infer operation status from ownership/context alone.",
+      "next_evidence": "Current JoTrip public service/contact page URL added as source evidence.",
+      "source_url": null
+    }
+  ],
   "coverage": {
     "canonical_utilities": 182,
-    "batch_scope": "official/current-source high-confidence utilities - batches 1-2",
-    "batch_entries": 44,
-    "operation_confirmed": 44,
-    "opening_hours_structured": 18,
-    "note": "Two current-source batches are complete; community/OSM-only rows and location-only evidence remain fail-closed until independently verified.",
-    "batch_2_entries": 19
+    "batch_scope": "official/current-source high-confidence utilities - batches 1-3",
+    "batch_entries": 47,
+    "operation_confirmed": 47,
+    "opening_hours_structured": 19,
+    "note": "Three current-source batches complete. Nine non-community/high-priority rows remain explicitly unresolved; 122 ODbL community candidates remain fail-closed.",
+    "batch_2_entries": 19,
+    "batch_3_entries": 3,
+    "operation_unresolved_high_priority": 9,
+    "community_candidates_fail_closed": 122
   },
   "updated_at": "2026-10-01"
 }

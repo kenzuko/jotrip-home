@@ -934,7 +934,10 @@ function renderHero(){
   const p=point(),l=p.local||{},m=modelPoint(),n=effectiveNowcast();
   const humanView=globalThis.JoTripHumanWeather?.pointView?.(critical,current)||null;
   const humanRain=humanView?.rain||null;
-  $("placeName").textContent=p.name||current;
+  const humanSummary=globalThis.OpenPQWeatherShortView?.humanSummary?.(
+    critical,fullNowcast,current,Date.now()
+  )||null;
+  $("placeName").textContent=humanSummary?.headline||(p.name||current);
   const localFresh=localDataFresh();
   const nowcastRef=fullNowcast?.sampled_time||(p.nowcast||{}).sampled_time;
   const nowcastFresh=freshEnough(nowcastRef,60);
@@ -966,12 +969,15 @@ function renderHero(){
     condition=weatherCondition(rain,conv,wind,true);
   }
 
-  $("heroTemp").textContent=t===null?"--":fmt(t,1)+"°";
-  const tempClass=String(l.temperature_class||"").toUpperCase();
-  $("heroTempClass").textContent=localFresh&&l.available
-    ?(tempClass==="ACTUAL"?"SỐ ĐO":tempClass==="ESTIMATED_NOW"?"ƯỚC TÍNH TẠI ĐIỂM":"DỮ LIỆU GẦN NHẤT")
-    :"DỮ LIỆU GẦN NHẤT";
-  $("heroCondition").textContent=condition.label;
+  const heroTempEl=$("heroTemp"),heroTempClassEl=$("heroTempClass");
+  if(heroTempEl)heroTempEl.textContent=t===null?"--":fmt(t,1)+"°";
+  if(heroTempClassEl){
+    const tempClass=String(l.temperature_class||"").toUpperCase();
+    heroTempClassEl.textContent=localFresh&&l.available
+      ?(tempClass==="ACTUAL"?"SỐ ĐO":tempClass==="ESTIMATED_NOW"?"ƯỚC TÍNH TẠI ĐIỂM":"DỮ LIỆU GẦN NHẤT")
+      :"DỮ LIỆU GẦN NHẤT";
+  }
+  $("heroCondition").textContent=humanSummary?.situation?.text||humanSummary?.motion?.text||condition.label;
   $("heroWeatherIcon").textContent=heroIconForLocalTime(condition.icon);
   $("heroRain").textContent=rain===null?"--":fmt(rain,1);
   $("heroWind").textContent=wind===null?"--":fmt(wind,0);
@@ -984,13 +990,21 @@ function renderHero(){
     ?("m Hs · sóng nền dự báo lúc "+phuQuocClock(marineTimestamp)+(marineFresh?"":" · đã trễ"))
     :"m Hs · chưa có mốc biển mới";
 
-  let heroSummary=summary(p);
-  if(humanRain?.evidenceClass==="ACTUAL"&&humanRain?.rainObserved===true&&humanRain?.detail)heroSummary=humanRain.detail;
-  else if(nearbyActual?.thunder&&nearbyActual?.rain)heroSummary="Trạm sân bay đang ghi nhận mưa dông cách điểm này khoảng "+fmt(nearbyActual.distance_km,1)+" km. Mưa có thể khác nhau giữa các khu vực.";
-  else if(nearbyActual?.rain)heroSummary="Trạm sân bay đang ghi nhận mưa cách điểm này khoảng "+fmt(nearbyActual.distance_km,1)+" km.";
-  else if(!localFresh&&!nowcastFresh)heroSummary="Dữ liệu tại điểm và ảnh mây đều đang trễ - chưa nên dùng số cũ để kết luận trời đang ổn.";
-  else if(!localFresh&&nowcastFresh&&conv!==null&&conv>=50)heroSummary="Ảnh mây đang có tín hiệu đáng chú ý. Số mưa tại điểm chưa có cập nhật mới - xem kỹ khu vực trước khi ra ngoài.";
+  let heroSummary="";
+  if(humanSummary){
+    const situation=humanSummary.situation?.text||"";
+    const motion=humanSummary.motion?.text||"";
+    heroSummary=situation&&motion?motion:"";
+  }else{
+    heroSummary=summary(p);
+    if(humanRain?.evidenceClass==="ACTUAL"&&humanRain?.rainObserved===true&&humanRain?.detail)heroSummary=humanRain.detail;
+    else if(nearbyActual?.thunder&&nearbyActual?.rain)heroSummary="Trạm sân bay đang ghi nhận mưa dông cách điểm này khoảng "+fmt(nearbyActual.distance_km,1)+" km. Mưa có thể khác nhau giữa các khu vực.";
+    else if(nearbyActual?.rain)heroSummary="Trạm sân bay đang ghi nhận mưa cách điểm này khoảng "+fmt(nearbyActual.distance_km,1)+" km.";
+    else if(!localFresh&&!nowcastFresh)heroSummary="Dữ liệu tại điểm và ảnh mây đều đang trễ - chưa nên dùng số cũ để kết luận trời đang ổn.";
+    else if(!localFresh&&nowcastFresh&&conv!==null&&conv>=50)heroSummary="Ảnh mây đang có tín hiệu đáng chú ý. Số mưa tại điểm chưa có cập nhật mới - xem kỹ khu vực trước khi ra ngoài.";
+  }
   $("heroSummary").textContent=heroSummary;
+  $("heroSummary").hidden=!heroSummary;
 
   const comfortBox=$("humanComfortLayer"),comfort=humanView?.comfort||null;
   if(comfortBox){
@@ -1007,8 +1021,9 @@ function renderHero(){
     }
   }
 
-  $("updatedAt").textContent=(localFresh?"Cập nhật ":"Dữ liệu gần nhất ")+localTime(liveTimestamp())+" · "+ageText(liveTimestamp());
-  $("updatedAt").classList.toggle("stale",!localFresh);
+  const humanStamp=humanSummary?.evidence?.localEstimateAt||liveTimestamp();
+  $("updatedAt").textContent=(humanSummary?.temperature?"Ước tính ":"Cập nhật ")+localTime(humanStamp)+" · "+ageText(humanStamp);
+  $("updatedAt").classList.toggle("stale",!humanSummary?.temperature&&!localFresh);
   if($("scenePoint"))$("scenePoint").textContent=p.name||current;
   if($("sceneTemp"))$("sceneTemp").textContent=t===null?"--":fmt(t,1)+"°";
   if($("sceneUpdated"))$("sceneUpdated").textContent=(localFresh?"Cập nhật tại điểm":"Dữ liệu gần nhất")+" · "+ageText(liveTimestamp());

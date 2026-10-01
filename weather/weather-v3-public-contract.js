@@ -97,11 +97,129 @@
     return {state:"NO_STRONG_SHORT_SIGNAL",evidenceClass:"REMOTE_OBSERVED",
       headline:"Chưa thấy tín hiệu ngắn hạn đáng chú ý.",detail:"Mưa cục bộ vẫn có thể xuất hiện.",observedAt:sampled};
   }
+  const POINT_NAMES={duong_dong:"Dương Đông",an_thoi:"An Thới",ganh_dau:"Gành Dầu",cua_can:"Cửa Cạn",bai_thom:"Bãi Thơm",ham_ninh:"Hàm Ninh",bai_sao:"Bãi Sao",rach_gia:"Rạch Giá"};
+
   function pointView(critical,nowcast,pointId,nowMs=Date.now()){
     if(!pointId)return null;
     return {pointId,status:"PUBLIC_BETA",now:nowView(critical,pointId,nowMs),soon:soonView(nowcast,pointId,nowMs),
       policy:{v2DecisionAuthority:true,pointEstimateNeverActual:true,referenceStationNeverEqualsPoint:true,
         radarNegativeNeverMeansDry:true,preciseEtaDisabled:true,lightningPublicDisabled:true}};
   }
-  return {ageMinutes,isFresh,vvpqWeatherFlags,nowView,soonView,pointView};
+
+  function currentEstimate(critical,pointId,nowMs=Date.now()){
+    const p=critical?.points?.[pointId]||{},local=p.local||{};
+    const stamp=local.analysis_time||critical?.local_generated_at||critical?.generated_at||null;
+    const cls=clean(local.temperature_class).toUpperCase();
+    const temperature=num(local.temperature_c);
+    if(local.available===false||temperature===null||cls!=="ESTIMATED_NOW"||!isFresh(stamp,45,nowMs))return null;
+    return {temperatureC:temperature,at:stamp,evidenceClass:"ESTIMATED_NOW",ageMinutes:ageMinutes(stamp,nowMs)};
+  }
+
+  function estimatedRainSentence(critical,pointId,nowMs=Date.now()){
+    const p=critical?.points?.[pointId]||{},local=p.local||{};
+    const stamp=local.analysis_time||critical?.local_generated_at||critical?.generated_at||null;
+    const cls=clean(local.rain_class).toUpperCase();
+    const rate=num(local.rain_rate_mm_h),confidence=num(local.rain_confidence);
+    if(local.available===false||cls!=="ESTIMATED_NOW"||rate===null||rate<0.2||!isFresh(stamp,45,nowMs))return null;
+    const intro=confidence!==null&&confidence<0.35?"Có tín hiệu ":"Có ";
+    const intensity=rate>=7.5?"mưa lớn":rate>=2.5?"mưa vừa":"mưa nhẹ";
+    return {
+      code:rate>=7.5?"LOCALIZED_HEAVY_RAIN":rate>=2.5?"LOCALIZED_MODERATE_RAIN":"LOCALIZED_LIGHT_RAIN",
+      text:intro+intensity+" cục bộ quanh khu vực.",
+      evidenceClass:"ESTIMATED_NOW",rateMmH:rate,confidence
+    };
+  }
+
+  function stripPointPrefix(text,pointName){
+    let s=clean(text);
+    const lower=s.toLocaleLowerCase("vi-VN"),prefix=(pointName+" ").toLocaleLowerCase("vi-VN");
+    if(lower.startsWith(prefix))s=s.slice(pointName.length+1);
+    return s?s.charAt(0).toLocaleUpperCase("vi-VN")+s.slice(1):"";
+  }
+
+  function motionSentence(soon,pointName){
+    if(!soon)return null;
+    if(soon.state==="MOVING_AWAY")return {
+      code:"MOVING_AWAY",
+      text:"Vùng mây đối lưu gần khu vực đang dịch ra xa "+pointName+".",
+      evidenceClass:soon.evidenceClass
+    };
+    if(soon.state==="PASSING_BY")return {
+      code:"PASSING_BY",
+      text:"Vùng mây đối lưu đang đi ngang gần "+pointName+", chưa thấy đi thẳng vào khu vực.",
+      evidenceClass:soon.evidenceClass
+    };
+    if(soon.state==="NEARBY_CONVECTION")return {
+      code:"NEARBY_NOT_APPROACHING",
+      text:"Vùng mây đối lưu đang ở gần nhưng chưa thấy tiến thẳng vào "+pointName+".",
+      evidenceClass:soon.evidenceClass
+    };
+    if(soon.state==="APPROACHING_CONVECTION"){
+      const windowText=soon.window==="0_30_MIN"?" trong khoảng 30 phút tới":
+        soon.window==="30_60_MIN"?" trong khoảng 30-60 phút tới":
+        soon.window==="60_120_MIN"?" trong 1-2 giờ tới":"";
+      return {
+        code:"APPROACHING",
+        text:"Vùng mây đối lưu đang tiến về phía "+pointName+"."+(
+          windowText?" Cần để ý khả năng mưa"+windowText+".":""
+        ),
+        evidenceClass:soon.evidenceClass
+      };
+    }
+    if(soon.state==="CONVECTIVE_WATCH")return {
+      code:"TRACK_UNCERTAIN",
+      text:"Có vùng mây đối lưu quanh khu vực, nhưng hướng di chuyển chưa đủ rõ.",
+      evidenceClass:soon.evidenceClass
+    };
+    return null;
+  }
+
+  function humanSummary(critical,nowcast,pointId,nowMs=Date.now()){
+    if(!pointId)return null;
+    const p=critical?.points?.[pointId]||{},pointName=p.name||POINT_NAMES[pointId]||pointId;
+    const estimate=currentEstimate(critical,pointId,nowMs);
+    const view=pointView(critical,nowcast,pointId,nowMs);
+    const actualRain=view?.now?.state==="ACTUAL_RAIN"?{
+      code:"ACTUAL_RAIN",
+      text:stripPointPrefix(view.now.headline,pointName),
+      evidenceClass:"ACTUAL",
+      at:view.now.observedAt||null
+    }:null;
+    const estimatedRain=actualRain?null:estimatedRainSentence(critical,pointId,nowMs);
+    const rain=actualRain||estimatedRain;
+    const motion=motionSentence(view?.soon,pointName);
+    const situation=rain?.text||(
+      estimate&&!motion?"Chưa có tín hiệu thời tiết đáng chú ý lúc này.":null
+    );
+    const details=[situation,motion?.text].filter(Boolean);
+    const localFresh=Boolean(estimate);
+    const remoteFresh=view?.soon?.state!=="STALE";
+    const confidence=localFresh&&remoteFresh?"CURRENT":localFresh||remoteFresh?"PARTIAL":"LIMITED";
+    return {
+      pointId,pointName,
+      headline:estimate?pointName+" · khoảng "+Math.round(estimate.temperatureC)+"°C":pointName+" · đang cập nhật",
+      temperature:estimate,
+      situation:{code:rain?.code||(!motion&&estimate?"NO_SIGNIFICANT_SIGNAL":null),text:situation,evidenceClass:rain?.evidenceClass||null},
+      motion,
+      detail:details.join(" "),
+      confidence,
+      evidence:{
+        localEstimateAt:estimate?.at||null,
+        pointRainAt:actualRain?.at||null,
+        nowcastAt:view?.soon?.observedAt||null
+      },
+      policy:{
+        editorialOnly:true,
+        changesDecisionThresholds:false,
+        silenceThreshold:true,
+        causalInferenceRequiresEvidence:true,
+        genericAdviceDisabled:true,
+        maxNarrativeSentences:2,
+        estimatedPointNeverLabeledActual:true,
+        referenceStationNeverPromotedToLocalCurrent:true
+      }
+    };
+  }
+
+  return {ageMinutes,isFresh,vvpqWeatherFlags,nowView,soonView,pointView,currentEstimate,estimatedRainSentence,motionSentence,humanSummary};
 });

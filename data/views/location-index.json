@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-10-01T13:10:00.000Z",
+  "generated_at": "2026-10-01T13:30:00.000Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
@@ -12780,17 +12780,36 @@
       "phone": "0297 3985 588",
       "group": "Y tế",
       "utility_type": "CLINIC_HOSPITAL",
-      "opening_hours": null,
-      "opening_hours_note": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "07:30",
+            "end": "11:30",
+            "label": "Thứ 2-Thứ 6"
+          },
+          {
+            "start": "13:00",
+            "end": "17:00",
+            "label": "Thứ 2-Thứ 6"
+          },
+          {
+            "start": "07:30",
+            "end": "11:30",
+            "label": "Thứ 7"
+          }
+        ],
+        "note": "Chiều Thứ 7 chỉ một số chuyên khoa làm việc; nên đặt lịch trước."
+      },
+      "opening_hours_note": "Chiều Thứ 7 chỉ một số chuyên khoa làm việc; nên đặt lịch trước.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": null,
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": null,
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế",
       "route": "/utilities/",
