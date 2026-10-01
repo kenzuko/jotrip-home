@@ -1,3 +1,4 @@
+// OLD_SYSTEM_FINAL_RELEASE_TRIGGER_20261001 - no runtime behavior change; forces full legacy release pipelines.
 import { rm, mkdir, cp, copyFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
