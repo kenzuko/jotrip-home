@@ -240,6 +240,8 @@ def _public_reference(island:dict)->dict:
         "at":island.get("observed_at"),
         "scope":island.get("spatial_scope"),
         "location":island.get("reference_location_name"),
+        "observation_mode":"PERIODIC_METAR_SPECI",
+        "public_role":"REFERENCE_STATION_ONLY_NOT_LOCAL_OUTDOOR_FEEL",
         "actual":{"temperature_c":actual.get("temperature_c")},
         "derived":{
             "humidity_pct":derived.get("humidity_percent"),

@@ -8,34 +8,32 @@
   const num=v=>{if((typeof v!=="number"&&typeof v!=="string")||(typeof v==="string"&&!v.trim()))return null;const n=Number(v);return Number.isFinite(n)?n:null};
   const clean=s=>String(s||"").trim();
 
-  function comfort(critical){
+  function comfort(critical,pointId=null){
     const reference=critical?.human_weather?.reference;
     if(!reference||reference.status!=="ACTUAL")return null;
-    const actual=reference.actual||{},t=num(actual.temperature_c),d=reference.derived||{},feels=num(d.feels_like_c);
-    if(t===null||!d.label)return null;
+    const actual=reference.actual||{},t=num(actual.temperature_c),d=reference.derived||{};
+    if(t===null)return null;
     const referenceLocation=reference.location||"Sân bay Phú Quốc";
     const humidity=num(d.humidity_pct);
-    const showHeatIndex=feels!==null&&Math.abs(feels-t)>=1;
+    const pointNames={duong_dong:"Dương Đông",an_thoi:"An Thới",cua_can:"Cửa Cạn",ganh_dau:"Gành Dầu",bai_thom:"Bãi Thơm",ham_ninh:"Hàm Ninh",bai_sao:"Bãi Sao"};
+    const pointName=pointNames[pointId]||"điểm đang xem";
     return {
-      title:clean(d.label),
-      note:t.toFixed(1)+"°C đo thực tế tại "+referenceLocation,
-      heatIndexText:showHeatIndex?"Chỉ số cảm giác nóng: khoảng "+Math.round(feels)+"°C":null,
-      heatIndexMethod:showHeatIndex&&humidity!==null
-        ?"Tính từ nhiệt độ "+Math.round(t)+"°C và độ ẩm khoảng "+Math.round(humidity)+"%."
-        :null,
-      heatIndexNote:showHeatIndex?"Đây là chỉ số suy ra, không phải nhiệt độ đo trực tiếp.":null,
-      reason:clean(d.reason),
+      title:"Số đo tham chiếu tại sân bay",
+      note:t.toFixed(1)+"°C tại "+referenceLocation,
+      humidityText:humidity!==null?"Độ ẩm suy ra từ điểm sương: khoảng "+Math.round(humidity)+"%":null,
+      methodText:"VVPQ là METAR/SPECI định kỳ, không phải cảm biến thời tiết liên tục.",
+      scopeNote:"Số đo ở sân bay không đại diện trực tiếp cho cảm giác ngoài trời tại "+pointName+".",
+      reason:"Cảm giác thực tế còn phụ thuộc mưa, gió, mây, bức xạ và vị trí.",
       observedAt:reference.at||null,
       actualTemperatureC:t,
-      feelsLikeC:feels,
+      feelsLikeC:num(d.feels_like_c),
       humidityPct:humidity,
-      actualLabel:"ACTUAL",
-      derivedLabel:"DERIVED_FROM_ACTUAL",
+      actualLabel:"ACTUAL_PERIODIC",
+      derivedLabel:"REFERENCE_ONLY",
       spatialScope:reference.scope||"REFERENCE_STATION_ACTUAL",
       referenceLocation
     };
   }
-
   function pointRain(critical,pointId){
     const item=critical?.human_weather?.rain?.[pointId];
     if(!item)return null;
@@ -56,7 +54,7 @@
   }
 
   function pointView(critical,pointId){
-    return {comfort:comfort(critical),rain:pointRain(critical,pointId)};
+    return {comfort:comfort(critical,pointId),rain:pointRain(critical,pointId)};
   }
 
   return {comfort,pointRain,pointView};
