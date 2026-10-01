@@ -97,11 +97,25 @@ function currentBundle(local,ground,compact,dashboard,previous){
   series[point]=[...byBucket.entries()].sort((a,b)=>a[0]-b[0]).map(x=>x[1]).slice(-48);
  }
  const v=ground.atmosphere?.vvpq;
- const previousActual=previous?.today_series?.date===day?previous.today_series?.actual?.vvpq||[]:[];
- const actual=[...previousActual];
- if(v?.data_class==="ACTUAL"&&v.observed_at)actual.push({time:v.observed_at,wind_kmh:v.wind_speed_kmh,
-   temperature_c:v.temperature_c,data_class:"ACTUAL",source:"VVPQ"});
- const seen=new Map(actual.filter(x=>stamp(x.time)).map(x=>[x.time,x]));
+ const s=ground.atmosphere?.synop_48917;
+ const previousVvpq=previous?.today_series?.date===day?previous.today_series?.actual?.vvpq||[]:[];
+ const vvpqActual=[...previousVvpq];
+ if(v?.data_class==="ACTUAL"&&v.observed_at)vvpqActual.push({time:v.observed_at,wind_kmh:v.wind_speed_kmh,
+   wind_direction_deg:v.wind_direction_deg??null,temperature_c:v.temperature_c,data_class:"ACTUAL",source:"VVPQ",
+   source_namespace:"ICAO",identifier:"VVPQ"});
+ const seenVvpq=new Map(vvpqActual.filter(x=>stamp(x.time)).map(x=>[x.time,x]));
+ const previousSynop=previous?.today_series?.date===day?previous.today_series?.actual?.synop_48917||[]:[];
+ const synopActual=[...previousSynop];
+ if(s?.runtime_eligible&&s.latest_numeric_observed_at){
+  const decoded=s.latest_numeric?.decoded_actual||{};
+  const wind=decoded.wind||{};
+  synopActual.push({
+   time:s.latest_numeric_observed_at,wind_kmh:wind.speed_kmh??null,wind_direction_deg:wind.direction_deg??null,
+   temperature_c:decoded.air_temperature_c??null,data_class:"ACTUAL",source:"WMO_48917",
+   source_namespace:"WMO_INDEX",identifier:"48917",identity_resolution_id:s.identity_resolution_id??null
+  });
+ }
+ const seenSynop=new Map(synopActual.filter(x=>stamp(x.time)).map(x=>[x.time,x]));
  const model=modelHours(dashboard);
  // Keep the last validated hourly marine series when a new model run is incomplete.
  const oldModel=previous?.model_72h?.points||{};
@@ -117,7 +131,10 @@ function currentBundle(local,ground,compact,dashboard,previous){
  return {
   schema_version:"weather-current-v3",generated_at:local.generated_at,groundtruth:ground,
   local_now:local,nowcast:compact,
-  today_series:{date:day,cadence_minutes:30,points:series,actual:{vvpq:[...seen.values()].slice(-70)}},
+  today_series:{date:day,cadence_minutes:30,points:series,actual:{
+   vvpq:[...seenVvpq.values()].slice(-70),
+   synop_48917:[...seenSynop.values()].slice(-70)
+  }},
   model_72h:{
    points:model,references:previous?.model_72h?.references||{},
    note:"CMS-owned series from current model. Wind, gust, rain and Hs are MODEL_ONLY, not actual measurements."
@@ -162,6 +179,28 @@ function forecastScene(ecmwf,previous){
 function assertCore(d){
  if(!d.dashboard?.points||!Object.keys(d.dashboard.points).length)throw Error("No valid forecast dashboard");
  if(!d.ground?.atmosphere||!d.local?.points||!d.compact?.sampled_time)throw Error("Ground, local or satellite compact contract missing");
+ const registry=d.ground.source_registry||{};
+ const registrySources=Array.isArray(registry.sources)?registry.sources:[];
+ if(!registrySources.length)throw Error("Ground Truth source registry missing");
+ const synop=d.ground.atmosphere?.synop_48917||{};
+ const synopRegistry=registrySources.find(x=>x.id==="wmo_48917_synop");
+ if(!synopRegistry)throw Error("WMO 48917 missing from Ground Truth source registry");
+ const active48917=registrySources.filter(x=>
+  x.namespace==="WMO_INDEX"&&String(x.identifier)==="48917"&&
+  ["ACTIVE_REALTIME","ACTIVE_NEAR_REALTIME"].includes(x.tier)
+ );
+ if(active48917.length!==1)throw Error("WMO_INDEX:48917 must have exactly one active runtime registry entry");
+ if(synop.runtime_eligible){
+  const resolution=synop.identity_resolution||{};
+  if(synop.numeric_status!=="FRESH")throw Error("48917 runtime eligible without fresh numeric observation");
+  if(resolution.status!=="LOCKED"||resolution.decision!=="INDEPENDENT_FROM_CURRENT_VVPQ")
+   throw Error("48917 runtime eligible without locked independent identity resolution");
+  if(resolution.registry_source_id!=="wmo_48917_synop"||
+     resolution.resolution_id!==synop.identity_resolution_id)
+   throw Error("48917 runtime identity resolution provenance mismatch");
+  if(synopRegistry.tier!=="ACTIVE_NEAR_REALTIME"||synopRegistry.health!=="HEALTHY")
+   throw Error("48917 runtime eligible while operational registry is not healthy/active");
+ }
  for(const [p,rows] of Object.entries(d.bundle.model_72h.points||{})){
   if(!rows.length)throw Error(p+" has no marine model rows");
   let gustCoverage=0;
@@ -211,14 +250,20 @@ async function main(){
  if(!d.dashboard?.points||!d.tide||!d.compact||!d.marine){
   throw Error("Missing mandatory data; refusing to overwrite deployed CMS weather assets");
  }
- // CMS-owned ground truth collection: METAR VVPQ and VRain, no site-Lab dependency.
+ // CMS-owned Ground Truth collection: VVPQ, VRain and independently-gated
+ // WMO/SYNOP 48917. Sources fail soft independently; no site-Lab dependency.
  const groundPath=await writeTmp(tmp,"ground.json",d.ground||{});
  try{
   runPython("weather.collectors.phuquoc_ground_truth",["--output",groundPath,
     "--previous",dst("data/groundtruth.json")]);
   const observed=json(await readFile(groundPath,"utf8"));
-  if(observed.status==="READY"&&observed.atmosphere?.vvpq?.qc==="PASS")d.ground=observed;
-  else warnings.push("CMS local observation collector returned "+observed.status);
+  const atmosphere=observed.atmosphere||{};
+  const hasUsableObservedSource=
+   ["FRESH","STALE"].includes(atmosphere.vvpq?.status)||
+   ["FRESH","STALE"].includes(atmosphere.synop_48917?.status)||
+   Object.keys(observed.rainfall?.stations||{}).length>0;
+  if(observed.status==="READY"&&hasUsableObservedSource)d.ground=observed;
+  else warnings.push("CMS local Ground Truth collector returned "+observed.status+" without a usable observed source");
  }catch(e){warnings.push("CMS direct ground truth fallback: "+e.message)}
  if(!d.ground?.atmosphere)throw Error("No verified ground truth available");
  const full=d.fullCloud?.spatial?.frames?.length?d.fullCloud:null;
@@ -336,18 +381,28 @@ async function main(){
   source_times:{cloud_sampled_time:cloud.sampled_time,forecast_run_time:forecast.run_time,
     marine_sampled_time:d.marine.wave.sampled_time}
  };
+ const runtimeSynop=d.ground.atmosphere?.synop_48917||{};
+ const runtimeVvpq=d.ground.atmosphere?.vvpq||{};
  const runtimeAuthority={
   schema_version:"openpq-cms-weather-authority-v1",generated_at:now.toISOString(),
   dashboard_snapshot_id:d.dashboard.snapshot_id,groundtruth_generated_at:d.ground.generated_at,
   local_now_generated_at:d.local.generated_at,cloud_sampled_time:cloud.sampled_time,
   marine_sampled_time:d.marine.wave.sampled_time,forecast_run_time:forecast.run_time,
+  synop_48917_observed_at:runtimeSynop.latest_numeric_observed_at||runtimeSynop.latest_observed_at||null,
+  synop_48917_identity_resolution_id:runtimeSynop.identity_resolution_id||null,
+  synop_48917_runtime_eligible:!!runtimeSynop.runtime_eligible,
   policy:"FORECAST_MODEL_ONLY_ACTUAL_OBSERVATIONS_SEPARATE"
  };
  const health={
   generated_at:now.toISOString(),upstream:"JOTRIP_DATA_ENGINE_NOT_WEATHER_LAB_WEBSITE",
   source_status:{groundtruth_age_min:age(d.ground.generated_at),cloud_observation_age_min:age(cloud.sampled_time),
    local_now_age_min:age(d.local.generated_at),marine_sample_age_min:age(d.marine.wave.sampled_time),
-   forecast_run_age_min:age(forecast.run_time)},
+   forecast_run_age_min:age(forecast.run_time),
+   vvpq_status:runtimeVvpq.status||"UNAVAILABLE",
+   vrain_status:d.ground.rainfall?.status||"UNAVAILABLE",
+   synop_48917_status:runtimeSynop.numeric_status||runtimeSynop.status||"UNAVAILABLE",
+   synop_48917_age_min:numeric(runtimeSynop.numeric_age_minutes)?runtimeSynop.numeric_age_minutes:
+    (numeric(runtimeSynop.age_minutes)?runtimeSynop.age_minutes:null)},
   warnings
  };
  if(STRICT&&(age(cloud.sampled_time)>60||age(d.local.generated_at)>45))
