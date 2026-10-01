@@ -74,7 +74,7 @@ const seoHtml=readFileSync("functions/_shared/seo-html.js","utf8");
 assert.match(seoHtml,/i18n-runtime\.js\?v=4/);
 assert.match(seoHtml,/language-switcher\.js\?v=4/);
 assert.match(seoHtml,/data-openpq-language-switcher-server/,"Worker HTML must include a server-rendered VI/EN selector");
-assert.match(seoHtml,/body > \\.opq-language-auto/,"Server selector must remain visible before client enhancement");
+assert.ok(seoHtml.includes("body > .opq-language-auto"),"Server selector must remain visible before client enhancement");
 assert.ok(seoHtml.includes('.on("body"'),"Worker must inject the fallback into the response body");
 assert.match(switcher,/serverFallback/,"Client enhancement must preserve the server selector when locale catalog loading fails");
 assert.match(worker,/private, no-store/);
