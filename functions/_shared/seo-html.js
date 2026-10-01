@@ -147,8 +147,9 @@ export function rewriteLocaleHtml(response,{locale=DEFAULT_LOCALE,pathname="/",a
     .on("head",{element(el){
       const links=alternates.map(x=>'<link rel="alternate" hreflang="'+esc(x.hreflang)+'" href="'+esc(x.href)+'">').join("");
       el.append('<meta name="openpq-locale" content="'+esc(locale)+'">'+links+
-        '<script src="/core/i18n-runtime.js?v=2" defer data-openpq-i18n-runtime></script>'+
-        '<script src="/core/language-switcher.js?v=2" defer data-openpq-language-switcher></script>',{html:true});
+        '<script src="/core/i18n-runtime.js?v=3" defer data-openpq-i18n-runtime></script>'+
+        (locale==="en"?'<script src="/core/en-full-site.js?v=1" defer data-openpq-en-full-site></script>':"")+
+        '<script src="/core/language-switcher.js?v=3" defer data-openpq-language-switcher></script>',{html:true});
     }});
   return writer.transform(response);
 }

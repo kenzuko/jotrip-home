@@ -2,6 +2,7 @@
   "use strict";
 
   const $=s=>document.querySelector(s);
+  const ENGLISH=(document.documentElement?.lang||"vi").toLowerCase().startsWith("en");
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 
   const FALLBACK_AREAS=[
@@ -386,7 +387,8 @@
     const hours=item.opening_hours;
     const windows=hours?.windows||hours?.times||[];
     const schedule=windows.map(x=>[x.start,x.end].filter(Boolean).join('–')+(x.label?' '+x.label:'')).filter(Boolean).join(' · ');
-    if(schedule)return schedule+(hours?.note?' · '+hours.note:'');
+    if(schedule)return schedule+(ENGLISH?"":(hours?.note?' · '+hours.note:''));
+    if(ENGLISH)return item.entity_type==='utility'?'Opening hours have not been confirmed.':'';
     return item.opening_hours_note|| (item.entity_type==='utility'?'Giờ mở cửa chưa được xác nhận.':'');
   }
 
@@ -399,10 +401,10 @@
   }
   function mapInfoLabel(item){
     const map=item.map||{};
-    const precision=map.precision==="area_anchor"?"Pin định hướng khu vực":map.precision==="site_centroid"?"Tâm khuôn viên, có thể khác cổng vào":map.precision?"Độ chính xác: "+map.precision:"";
-    const source=map.source&&!/^https?:\/\//i.test(map.source)?"Đối chiếu: "+map.source:"";
-    const date=map.verified_at?"Kiểm tra lần cuối: "+map.verified_at:"";
-    return [precision,source,date,map.note].filter(Boolean).join(" · ");
+    const precision=map.precision==="area_anchor"?(ENGLISH?"Area reference pin":"Pin định hướng khu vực"):map.precision==="site_centroid"?(ENGLISH?"Site centroid, may differ from entrance":"Tâm khuôn viên, có thể khác cổng vào"):map.precision?(ENGLISH?"Accuracy: ":"Độ chính xác: ")+map.precision:"";
+    const source=map.source&&!/^https?:\/\//i.test(map.source)?(ENGLISH?"Cross-check: ":"Đối chiếu: ")+map.source:"";
+    const date=map.verified_at?(ENGLISH?"Last checked: ":"Kiểm tra lần cuối: ")+map.verified_at:"";
+    return [precision,source,date,ENGLISH?null:map.note].filter(Boolean).join(" · ");
   }
   function typeLabel(item){
     if(item.entity_type==="venue")return category(item.utility_type)?.label||item.group||"Địa điểm";

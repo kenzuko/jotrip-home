@@ -1,9 +1,12 @@
 const DATA=["../data/entities/places.json","../data/entities/activities.json"];
 const PLANNING="../data/views/place-planning-levels.json";
 const VISUALS="../data/visual-context.json";
+const CONTENT_LOCALE=(document.documentElement.lang||"vi").split("-")[0]||"vi";
+const ENGLISH=CONTENT_LOCALE==="en";
+const EXPLAINERS="../data/i18n/"+CONTENT_LOCALE+"/place-explainers.json";
 const $=s=>document.querySelector(s);
 const initialQ=new URLSearchParams(location.search).get("q")||"";
-const state={entities:[],levels:[],planning:new Map(),visuals:{},q:initialQ,region:"all",level:"all",type:"all"};
+const state={entities:[],levels:[],planning:new Map(),visuals:{},explainers:{},q:initialQ,region:"all",level:"all",type:"all"};
 const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 const fold=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[đĐ]/g,"d").toLowerCase();
 
@@ -69,19 +72,21 @@ function mediaFor(x,compact=false){
 
 function view(x){
   const planning=state.planning.get(x.id)||{};
+  const explainer=state.explainers?.[x.id]||{};
+  const englishSummary=String(explainer.lede||"").split(/\n+/)[0].trim();
   return {
     ...x,
     region:areaName(x),
     type:x.categories||x.intents||[],
-    what:x.what_it_is||"",
-    play:x.why_go?[x.why_go]:[],
-    price_ref:x.price_reference||null,
+    what:ENGLISH?englishSummary:(x.what_it_is||""),
+    play:ENGLISH?[]:(x.why_go?[x.why_go]:[]),
+    price_ref:ENGLISH?null:(x.price_reference||null),
     price_dynamic:!!x.live_check_required,
     hashtags:[...(x.categories||[]),...(x.intents||[])].slice(0,8).map(friendly),
     planning_level:planning.level||null,
-    planning_label:state.levels.find(l=>l.id===planning.level)?.label||"",
-    strengths:planning.strengths||[],
-    watch_outs:planning.watch_outs||[]
+    planning_label:ENGLISH?"":(state.levels.find(l=>l.id===planning.level)?.label||""),
+    strengths:ENGLISH?[]:(planning.strengths||[]),
+    watch_outs:ENGLISH?[]:(planning.watch_outs||[])
   };
 }
 
@@ -130,12 +135,14 @@ function render(){
 }
 
 async function load(){
-  const [payloads,planning,visuals]=await Promise.all([Promise.all(DATA.map(url=>fetch(url,{cache:"default"}).then(r=>{
+  const [payloads,planning,visuals,explainers]=await Promise.all([Promise.all(DATA.map(url=>fetch(url,{cache:"default"}).then(r=>{
     if(!r.ok)throw new Error(url+" "+r.status);
     return r.json();
-  }))),fetch(PLANNING,{cache:"default"}).then(r=>r.json()),fetch(VISUALS,{cache:"default"}).then(r=>r.ok?r.json():{}).catch(()=>({}))]);
+  }))),fetch(PLANNING,{cache:"default"}).then(r=>r.json()),fetch(VISUALS,{cache:"default"}).then(r=>r.ok?r.json():{}).catch(()=>({})),
+    fetch(EXPLAINERS,{cache:"default"}).then(r=>r.ok?r.json():{items:{}}).catch(()=>({items:{}}))]);
   state.levels=planning.levels||[];
   state.visuals=visuals||{};
+  state.explainers=explainers.items||{};
   state.planning=new Map((planning.items||[]).map(x=>[x.entity_id,x]));
   state.entities=payloads.flatMap(d=>d.entities||[]);
   if($("#placeSearch"))$("#placeSearch").value=state.q;

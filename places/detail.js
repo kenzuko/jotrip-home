@@ -4,6 +4,7 @@
   const $=s=>document.querySelector(s);
   const VISUALS="../data/visual-context.json";
   const CONTENT_LOCALE=(document.documentElement.lang||"vi").split("-")[0]||"vi";
+  const ENGLISH=CONTENT_LOCALE==="en";
   const EXPLAINERS="../data/i18n/"+CONTENT_LOCALE+"/place-explainers.json";
   const UI="../data/i18n/"+CONTENT_LOCALE+"/ui.json";
   const UI_FALLBACK="../data/i18n/vi/ui.json";
@@ -25,9 +26,9 @@
     if(!el){el=document.createElement("link");el.rel="canonical";document.head.appendChild(el)}
     el.href=url;
   }
-  function applyEntityMeta(entity,image){
+  function applyEntityMeta(entity,image,descriptionOverride=""){
     const title=entity.name+" - Open Phu Quoc";
-    const description=entity.what_it_is||entity.why_go||"Thông tin điểm đến Phú Quốc.";
+    const description=descriptionOverride||entity.what_it_is||entity.why_go||(ENGLISH?"Phu Quoc destination information.":"Thông tin điểm đến Phú Quốc.");
     const key=entity.slug||entity.id;
     const url="https://openphuquoc.com/places/detail.html?id="+encodeURIComponent(key);
     const shareImage=image||"https://openphuquoc.com/assets/logo-master.png";
@@ -76,7 +77,9 @@
   }
 
   function weatherLevel(value){
-    return ({high:"Cao",medium:"Vừa",low:"Thấp",none:"Không đáng kể"})[String(value||"").toLowerCase()]||friendly(value);
+    const key=String(value||"").toLowerCase();
+    if(ENGLISH)return({high:"High",medium:"Moderate",low:"Low",none:"Minimal"})[key]||"Not confirmed";
+    return ({high:"Cao",medium:"Vừa",low:"Thấp",none:"Không đáng kể"})[key]||friendly(value);
   }
   function areaName(entity,zone){
     return zone?.name||areaLabels[String(entity?.area_code||"").toLowerCase()]||"Toàn đảo";
@@ -86,7 +89,7 @@
     return "detail.html?id="+encodeURIComponent(entity.slug||entity.id);
   }
 
-  function renderRelated(entity,lookup){
+  function renderRelated(entity,lookup,explainerData={}){
     const related=(entity.related_entities||[])
       .map(id=>lookup.get(id))
       .filter(Boolean)
@@ -98,7 +101,7 @@
       '<a class="related-card" href="'+detailHref(x)+'">'+
         '<span>'+esc(typeLabel[x.entity_type]||x.entity_type)+'</span>'+
         '<strong>'+esc(x.name)+'</strong>'+
-        '<small>'+esc(x.what_it_is||x.why_go||"")+'</small>'+
+        '<small>'+esc(ENGLISH?(String(explainerData?.items?.[x.id]?.lede||"").split(/\n+/)[0].trim()||"Open for details."):(x.what_it_is||x.why_go||""))+'</small>'+
         '<b>Xem →</b>'+
       '</a>'
     ).join("")+'</div>';
@@ -135,7 +138,12 @@
     const heroIsContext=!heroVisual;
     const heroAlt=heroVisual?.alt||entity.name;
     const extraVisuals=heroVisual?visualImages.filter(x=>x!==heroVisual):visualImages;
-    const facts=[
+    const facts=ENGLISH?[
+      [pc.fact_area||"Area",regionName],
+      [pc.fact_weather||"Weather dependent",entity.weather_dependency?weatherLevel(entity.weather_dependency):"Not confirmed"],
+      [pc.fact_price||"Indicative price",entity.live_check_required?"Check for your travel date":"Check current options"],
+      [pc.fact_before||"Before you go",entity.live_check_required?"Recheck same-day conditions":"No mandatory same-day check"]
+    ]:[
       [pc.fact_area||"Khu vực",regionName],
       [pc.fact_best_time||"Lúc nên đi",entity.best_time||"Tùy lịch"],
       [pc.fact_duration||"Thời lượng",entity.duration||"Tùy trải nghiệm"],
@@ -143,9 +151,10 @@
       [pc.fact_price||"Giá tham khảo",entity.price_reference||priceRows[0]?.price_reference||"Kiểm tra theo ngày"],
       [pc.fact_before||"Trước khi đi",entity.live_check_required?"Xem lại tình hình mới nhất":"Không có bước bắt buộc"]
     ];
-    if(level) facts.unshift([pc.fact_role||"Kiểu ghé phù hợp",level.label]);
+    if(level&&!ENGLISH) facts.unshift([pc.fact_role||"Kiểu ghé phù hợp",level.label]);
 
-    applyEntityMeta(entity,heroImage);
+    const englishLead=String(explainer.lede||"").trim();
+    applyEntityMeta(entity,heroImage,ENGLISH?englishLead:"");
     const now=Date.now();
     const days=Number.isInteger(notices?.retention_days)&&notices.retention_days>0?notices.retention_days:3;
     const datedNotice=(notices?.notices||[]).find(x=>{
@@ -187,16 +196,16 @@
         '<div class="detail-hero-inner">'+
           '<p class="detail-kicker">'+esc(placeTypeLabel)+' · '+esc(regionName.toUpperCase())+'</p>'+
           '<h1>'+esc(entity.name)+'</h1>'+
-          '<p class="lead">'+esc(entity.what_it_is||entity.why_go||"")+'</p>'+
+          '<p class="lead">'+esc(ENGLISH?(englishLead||"Open the sections below for verified details."):(entity.what_it_is||entity.why_go||""))+'</p>'+
           '<div class="detail-badges">'+[...new Set(tags)].slice(0,7).map(t=>'<span>'+esc(friendly(t))+'</span>').join("")+'</div>'+
         '</div>'+
       '</section>'+
       '<section class="detail-shell">'+
         '<div style="margin:18px 0"><button type="button" class="opq-feedback-trigger" data-openpq-feedback data-feedback-id="'+esc(entity.id)+'" data-feedback-name="'+esc(entity.name)+'" data-feedback-type="'+esc(entity.entity_type)+'">Góp ý thông tin về nơi này</button></div>'+
         '<section class="decision-summary">'+
-          '<div class="decision-title"><span>'+esc(pc.quick_choice||"CHỌN NHANH")+'</span><strong>'+(level?esc(level.label):'Có hợp lịch của bạn không?')+'</strong><small>'+(level?esc(level.description):'Nhìn nhanh thời gian, thời tiết và cách ghép điểm trước khi đi.')+'</small></div>'+
-          '<div><span>'+esc(pc.suitable_when||"HỢP KHI")+'</span><strong>'+esc((planning.strengths||[])[0]||entity.why_go||entity.what_it_is||'Bạn thấy chỗ này đúng gu của mình')+'</strong></div>'+
-          '<div class="watch"><span>'+esc(pc.before_go||"TRƯỚC KHI ĐI")+'</span><strong>'+esc((planning.watch_outs||[])[0]||(entity.live_check_required?'Xem lại tình hình trong ngày trước khi khởi hành':'Chưa có lưu ý đặc biệt'))+'</strong></div>'+
+          '<div class="decision-title"><span>'+esc(pc.quick_choice||"CHỌN NHANH")+'</span><strong>'+esc(ENGLISH?"Does it fit your day?":(level?.label||"Có hợp lịch của bạn không?"))+'</strong><small>'+esc(ENGLISH?"Check the essentials below before deciding.":(level?.description||"Nhìn nhanh thời gian, thời tiết và cách ghép điểm trước khi đi."))+'</small></div>'+
+          '<div><span>'+esc(pc.suitable_when||"HỢP KHI")+'</span><strong>'+esc(ENGLISH?"When this place matches your interests and route":((planning.strengths||[])[0]||entity.why_go||entity.what_it_is||"Bạn thấy chỗ này đúng gu của mình"))+'</strong></div>'+
+          '<div class="watch"><span>'+esc(pc.before_go||"TRƯỚC KHI ĐI")+'</span><strong>'+esc(ENGLISH?(entity.live_check_required?"Recheck same-day conditions before leaving":"No special same-day warning is currently attached"):((planning.watch_outs||[])[0]||(entity.live_check_required?"Xem lại tình hình trong ngày trước khi khởi hành":"Chưa có lưu ý đặc biệt")))+'</strong></div>'+
         '</section>'+
         '<div class="detail-main">'+
           (explainer.lede?'<article class="detail-panel detail-explainer-intro"><span>'+esc(pc.why_understand||"VÌ SAO NƠI NÀY ĐÁNG HIỂU")+'</span><h2>'+esc(explainer.lede)+'</h2></article>':'')+
@@ -205,15 +214,15 @@
           (window.OpenPQVisual?OpenPQVisual.infographic(explainer.infographic||visual.infographic||[],{eyebrow:pc.explainer_eyebrow||"HIỂU ĐIỂM ĐẾN",title:pc.explainer_title||"Ba chuyện đáng biết trước khi ghé"}):"")+
           ((explainer.sections||[]).length?'<article class="detail-panel"><span>'+esc(pc.context||"BỐI CẢNH")+'</span><h2>'+esc(pc.context_title||"Đọc chỗ này như một nơi có câu chuyện.")+'</h2><div class="explainer-sections">'+explainer.sections.map(x=>'<section><h3>'+esc(x.heading||"")+'</h3><p>'+esc(x.body||"")+'</p></section>').join("")+'</div></article>':'')+
           ((explainer.visitor_questions||[]).length?'<article class="detail-panel detail-questions"><span>'+esc(pc.questions||"HỎI GÌ KHI TỚI?")+'</span><h2>'+esc(pc.questions_title||"Mấy câu hỏi giúp hiểu nơi này hơn.")+'</h2><ul>'+explainer.visitor_questions.map(x=>'<li>'+esc(x)+'</li>').join("")+'</ul></article>':'')+
-          (entity.why_go?'<article class="detail-panel"><span>'+esc(pc.what_here||"CÓ GÌ Ở ĐÂY")+'</span><h2>'+esc(pc.what_here_title||"Chỗ này đáng ghé vì điều gì?")+'</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
+          (!ENGLISH&&entity.why_go?'<article class="detail-panel"><span>'+esc(pc.what_here||"CÓ GÌ Ở ĐÂY")+'</span><h2>'+esc(pc.what_here_title||"Chỗ này đáng ghé vì điều gì?")+'</h2><p>'+esc(entity.why_go)+'</p></article>':'')+
           '<article class="detail-panel"><span>'+esc(pc.quick_facts||"NẮM NHANH")+'</span><h2>'+esc(pc.quick_facts_title||"Mấy chuyện chính trước khi đi.")+'</h2><div class="fact-grid">'+facts.map(([k,v])=>'<div class="fact"><span>'+esc(k)+'</span><strong>'+esc(v)+'</strong></div>').join("")+'</div></article>'+
           ((planning.price_dimensions||[]).length?'<article class="detail-panel"><span>GIÁ VÉ</span><h2>Giá thay đổi theo những gì?</h2><p>Nếu nguồn chưa công bố đủ, Open Phu Quoc sẽ không tự điền số. Khi xem vé, nhớ chọn đúng:</p><div class="price-dimensions">'+planning.price_dimensions.map(x=>'<span>'+esc(priceDimensionLabel[x]||friendly(x))+'</span>').join("")+'</div></article>':'')+
-          ((entity.tips||[]).length?'<article class="detail-panel"><span>TRƯỚC KHI ĐI</span><h2>Nhớ mấy chuyện này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+
+          (!ENGLISH&&(entity.tips||[]).length?'<article class="detail-panel"><span>TRƯỚC KHI ĐI</span><h2>Nhớ mấy chuyện này.</h2><ul class="tips">'+entity.tips.map(t=>'<li>'+esc(t)+'</li>').join("")+'</ul></article>':'')+
           (priceRows.length?'<article class="detail-panel"><span>'+(inheritedPrice?'GIÁ ĐI CÙNG TRẢI NGHIỆM CHÍNH':'GIÁ THAM KHẢO')+'</span><h2>'+(inheritedPrice?'Quyền lợi này thường đi chung trong vé hoặc combo chính.':'Dùng để dự trù, không phải giá cố định.')+'</h2>'+(inheritedPrice?'<p>Giá bên dưới thuộc vé hoặc combo của trải nghiệm liên quan. Hãy chọn đúng ngày đi, chiều cao, độ tuổi và quyền lợi trước khi thanh toán.</p>':'')+'<div class="related-grid">'+priceRows.map(p=>'<a class="related-card" href="../utilities/#prices"><span>KIỂM TRA ĐÚNG NGÀY</span><strong>'+esc(p.name)+'</strong><small>'+esc(p.price_reference||"")+'</small><b>Kiểm tra →</b></a>').join("")+'</div></article>':'')+
           (entity.id==="activity_big_game_fishing"&&entity.official_url==="https://phuquocfishingtours.com/"?
             '<article class="detail-panel"><span>CÂU CÁ LỚN AN THỚI</span><h2>Lịch và thông tin chuyến câu cá</h2><p>Chuyến sáng 05:00–14:00 · Chuyến chiều–tối 14:00–21:00. Kiểm tra điều kiện biển và xác nhận tàu trong ngày.</p><a class="related-card" href="https://phuquocfishingtours.com/" target="_blank" rel="noopener noreferrer"><strong>Xem tour câu cá của JoTrip ↗</strong></a></article>':"")+
           '<aside class="jotrip-service-card" aria-label="Gợi ý từ JoTrip"><span>GỢI Ý TỪ JOTRIP</span><strong>Muốn có xe riêng hoặc ghép trải nghiệm này vào một ngày trọn gói?</strong><p>JoTrip hỗ trợ xe, tour, vé và lịch trình tại Phú Quốc.</p><div class="jotrip-service-actions"><a href="tel:+84817060067">Gọi +84 817 060 067</a><a href="https://wa.me/84817060067" target="_blank" rel="noopener">WhatsApp</a><a href="https://zalo.me/0817060067" target="_blank" rel="noopener">Zalo</a></div></aside>'+
-          '<article class="detail-panel"><span>'+esc(pc.nearby||"ĐI CÙNG GÌ CHO TIỆN")+'</span><h2>'+esc(pc.nearby_title||"Nếu còn thời gian, đi tiếp đâu?")+'</h2>'+renderRelated(entity,lookup)+'</article>'+
+          '<article class="detail-panel"><span>'+esc(pc.nearby||"ĐI CÙNG GÌ CHO TIỆN")+'</span><h2>'+esc(pc.nearby_title||"Nếu còn thời gian, đi tiếp đâu?")+'</h2>'+renderRelated(entity,lookup,explainerData)+'</article>'+
         '</div>'+
         '<aside class="detail-context">'+
           '<span>'+esc(pc.useful_now||"CẦN DÙNG KHI ĐANG ĐI")+'</span>'+

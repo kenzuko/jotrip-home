@@ -8,7 +8,7 @@ import { execFileSync } from "node:child_process";
 // before regression tests that read data/views/knowledge-public.json, then copy
 // only the newly built public view. This also supports stand-alone Pages builds.
 execFileSync(process.execPath,["--check","worker.js"],{stdio:"inherit"});
-for (const script of ["scripts/test-cms-public-redirect.mjs","scripts/test-i18n-pipeline.mjs","scripts/test-i18n-foundation.mjs","scripts/test-i18n-content.mjs","scripts/test-i18n-translations.mjs","scripts/build-knowledge-public.mjs","scripts/build-story-locations.mjs","scripts/test-article-maps.mjs","scripts/test-place-feedback.mjs","scripts/weather-context-api.test.mjs","scripts/test-cms-shared-api-routes.mjs","scripts/test-weather-context-client.mjs","scripts/test-weather-human-contract.mjs","scripts/test-nearme-venues.mjs","scripts/test-nearme-runtime.mjs","scripts/test-go-engine.mjs","scripts/test-shared-area-and-schedules.mjs","scripts/test-decision-signals.mjs","scripts/test-cano-history-sync.mjs","scripts/test-cano-operations.mjs","scripts/test-go-geo.mjs","scripts/test-go-manual-ui.mjs","scripts/test-home-library.mjs","scripts/test-article-card-links.mjs","scripts/test-editorial-photo-curation.mjs","scripts/test-home-hero-search.mjs","scripts/test-home-hero-gallery.mjs","scripts/test-homepage-five-chapters.mjs","scripts/validate-public-copy.mjs","scripts/test-editorial-published.mjs","scripts/test-public-source-links.mjs","scripts/test-editorial-photo-audit.mjs","scripts/test-explore-labels.mjs","scripts/build-search-index.mjs","scripts/build-map-coverage.mjs","scripts/build-location-index.mjs","scripts/test-nearme-intake.mjs"]) {
+for (const script of ["scripts/test-cms-public-redirect.mjs","scripts/test-i18n-pipeline.mjs","scripts/test-i18n-foundation.mjs","scripts/test-en-full-site.mjs","scripts/test-i18n-content.mjs","scripts/test-i18n-translations.mjs","scripts/build-knowledge-public.mjs","scripts/build-story-locations.mjs","scripts/test-article-maps.mjs","scripts/test-place-feedback.mjs","scripts/weather-context-api.test.mjs","scripts/test-cms-shared-api-routes.mjs","scripts/test-weather-context-client.mjs","scripts/test-weather-human-contract.mjs","scripts/test-nearme-venues.mjs","scripts/test-nearme-runtime.mjs","scripts/test-go-engine.mjs","scripts/test-shared-area-and-schedules.mjs","scripts/test-decision-signals.mjs","scripts/test-cano-history-sync.mjs","scripts/test-cano-operations.mjs","scripts/test-go-geo.mjs","scripts/test-go-manual-ui.mjs","scripts/test-home-library.mjs","scripts/test-article-card-links.mjs","scripts/test-editorial-photo-curation.mjs","scripts/test-home-hero-search.mjs","scripts/test-home-hero-gallery.mjs","scripts/test-homepage-five-chapters.mjs","scripts/validate-public-copy.mjs","scripts/test-editorial-published.mjs","scripts/test-public-source-links.mjs","scripts/test-editorial-photo-audit.mjs","scripts/test-explore-labels.mjs","scripts/build-search-index.mjs","scripts/build-map-coverage.mjs","scripts/build-location-index.mjs","scripts/test-nearme-intake.mjs"]) {
   execFileSync(process.execPath,[script],{stdio:"inherit"});
 }
 
@@ -66,8 +66,7 @@ const dirs=[
   "hotels",
   "about",
   "news",
-  "go",
-  "localized-pages"
+  "go"
 ];
 
 for(const file of rootFiles){
@@ -76,9 +75,6 @@ for(const file of rootFiles){
 for(const dir of dirs){
   if(existsSync(dir)) await cp(dir,`${out}/${dir}`,{recursive:true});
 }
-// Static alias for Cloudflare Pages previews; production Worker still runs
-// first on /en/* and serves the same reviewed templates through locale routing.
-if(existsSync("localized-pages/en")) await cp("localized-pages/en",`${out}/en`,{recursive:true});
 await rm(`${out}/data/knowledge`,{recursive:true,force:true});
 await rm(`${out}/data/knowledge-crawl`,{recursive:true,force:true});
 await mkdir(`${out}/cms`,{recursive:true});
