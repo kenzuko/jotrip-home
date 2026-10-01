@@ -2727,5 +2727,13 @@
       "rule": "Keep official 182A directory address and operator 185 address as separate scoped values until exact property identity is confirmed.",
       "source_url": "https://www.anphuphuquoc.com/lien-he"
     }
-  ]
+  ],
+  "coverage": {
+    "canonical_hotels": 166,
+    "research_pass_complete": 166,
+    "enriched_entries": 135,
+    "canonical_only_no_additional_public_evidence": 31,
+    "note": "Canonical-only means the property was reviewed but no additional field was safe enough to add."
+  },
+  "updated_at": "2026-10-01"
 }
