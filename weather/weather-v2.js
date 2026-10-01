@@ -672,15 +672,22 @@ function renderStatus(){
   const localAge=ageMinutes(critical?.local_generated_at);
   const actualAge=ageMinutes(actualTimestamp());
   const nowAge=ageMinutes(nowcastTimestamp());
-  // The newest unrelated source must never make all sources look fresh.
-  // For the customer-facing header, Local Now is the primary current-time source.
-  const localDelayed=localAge===null||localAge>20;
-  const localStale=localAge===null||localAge>35;
-  const cloudDelayed=nowAge===null||nowAge>35;
-  $("liveDot").className=localDelayed||cloudDelayed?"warn":"ok";
+  // Freshness is source-specific. A delayed Himawari frame must never make
+  // fresh ground observations / Local Now look like the whole Weather system is stale.
+  const localDelayed=!Number.isFinite(localAge)||localAge>20;
+  const localStale=!Number.isFinite(localAge)||localAge>35;
+  const actualFresh=Number.isFinite(actualAge)&&actualAge<=90;
+  const cloudDelayed=!Number.isFinite(nowAge)||nowAge>35;
+  $("liveDot").className=localStale?"warn":(localDelayed||cloudDelayed?"warn":"ok");
   const localLabel=critical?.local_generated_at?"Tại điểm "+ageText(critical.local_generated_at):"Tại điểm chưa có dữ liệu";
-  const cloudLabel=nowcastTimestamp()?" · mây "+ageText(nowcastTimestamp()):" · mây chưa cập nhật";
-  $("liveLabel").textContent=(localStale?"DỮ LIỆU TẠI ĐIỂM ĐANG TRỄ":localDelayed?"ĐANG CHỜ BẢN LÚC NÀY":"LÚC NÀY ĐÃ CẬP NHẬT")+" · "+localLabel+cloudLabel;
+  const cloudLabel=cloudDelayed
+    ?" · đang chờ ảnh mây mới"
+    :(nowcastTimestamp()?" · ảnh mây "+ageText(nowcastTimestamp()):" · đang chờ ảnh mây");
+  let liveState="LÚC NÀY ĐÃ CẬP NHẬT";
+  if(localStale&&!actualFresh)liveState="ĐANG CHỜ DỮ LIỆU MỚI";
+  else if(localStale&&actualFresh)liveState="QUAN TRẮC MẶT ĐẤT VẪN ĐANG CẬP NHẬT";
+  else if(localDelayed)liveState="ĐANG CHỜ BẢN PHÂN TÍCH MỚI";
+  $("liveLabel").textContent=liveState+" · "+localLabel+cloudLabel;
 
   const assessment=islandAssessment();
   const coverage=coverageScore();
@@ -1623,18 +1630,40 @@ function buildQuickWatchEvents(){
   const events=[];
   const now=Date.now();
 
-  // Independent freshness warning. An old successful payload is NOT live.
+  // Independent freshness warning. Delay only the source that is actually old.
+  // Himawari is OBSERVED_SATELLITE, not the authority for ground observations.
   const localAge=ageMinutes(liveTimestamp()),cloudAge=ageMinutes(nowcastTimestamp());
-  if(localAge>35||cloudAge>45){
-    const stale=[];
-    if(localAge>35)stale.push("số liệu tại điểm "+ageText(liveTimestamp()));
-    if(cloudAge>45)stale.push("ảnh mây "+ageText(nowcastTimestamp()));
+  const actualAge=ageMinutes(actualTimestamp());
+  const localStale=!Number.isFinite(localAge)||localAge>35;
+  const cloudStale=!Number.isFinite(cloudAge)||cloudAge>45;
+  const actualFresh=Number.isFinite(actualAge)&&actualAge<=90;
+  if(localStale){
+    const detail=[];
+    if(Number.isFinite(localAge))detail.push("Bản phân tích tại điểm gần nhất "+ageText(liveTimestamp()));
+    else detail.push("Chưa có bản phân tích tại điểm đủ mới");
+    if(cloudStale)detail.push("ảnh mây cũng đang chờ bản mới");
     events.push({
       key:"weather-data-delayed",
-      severity:"alert",when:"DỮ LIỆU ĐANG TRỄ",
-      title:"Chưa có cập nhật đủ mới để kết luận thời tiết đã ổn",
-      detail:stale.join(" · ")+". Không xem dữ liệu cũ là điều kiện hiện tại; ưu tiên cảnh báo chính thức và thông tin thực địa.",
+      severity:"alert",when:"ĐANG CHỜ DỮ LIỆU MỚI",
+      title:actualFresh
+        ?"Quan trắc mặt đất vẫn đang cập nhật, nhưng bản phân tích tại điểm đang chờ làm mới"
+        :"Chưa đủ dữ liệu mới để đánh giá điều kiện hiện tại",
+      detail:detail.join(" · ")+". Không dùng dữ liệu cũ để kết luận trời đang ổn.",
       sort:-9
+    });
+  }else if(cloudStale){
+    events.push({
+      key:"weather-cloud-delayed",
+      severity:"info",when:"ẢNH MÂY",
+      title:"Đang chờ ảnh mây mới",
+      detail:(actualFresh
+        ?"Quan trắc mặt đất và bản phân tích tại điểm vẫn đang cập nhật riêng. "
+        :"Bản phân tích tại điểm vẫn đang cập nhật riêng. ")+
+        (Number.isFinite(cloudAge)
+          ?"Ảnh Himawari gần nhất "+ageText(nowcastTimestamp())+". "
+          :"Himawari hiện chưa có ảnh mới. ")+
+        "Ảnh cũ không được dùng để kết luận điều kiện hiện tại.",
+      sort:-8
     });
   }
 
