@@ -817,9 +817,19 @@
       "source_refs": [
         {
           "source_id": "vinmec_duongdong_current"
+        },
+        {
+          "source_id": "vinmec_duong_dong_clinic__operation_20261001",
+          "url": "https://www.vinmec.com/vie/co-so-y-te/phong-kham-da-khoa-vinmec-duong-dong-phu-quoc",
+          "checked_at": "2026-10-01"
+        },
+        {
+          "source_id": "vinmec_duong_dong_clinic__operation_20261001",
+          "url": "https://www.vinmec.com/vie/bai-viet/gio-lam-viec-tai-cac-benh-vien-da-khoa-quoc-te-vinmec-vi",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "map_review_note": "Đối chiếu POI có tên đúng cơ sở trong Excel cũ. Cổng vào cần thực địa xác minh.",
       "map": {
         "lat": 10.2223133,
@@ -830,6 +840,33 @@
         "source_url": "https://www.openstreetmap.org/node/12617805394",
         "verified_at": "2026-09-25",
         "note": "Tọa độ POI phòng khám Dương Đông, chưa xác nhận chính xác cổng vào; không phải bệnh viện Gành Dầu."
+      },
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "07:30",
+            "end": "11:30",
+            "label": "Thứ 2-Thứ 6"
+          },
+          {
+            "start": "13:00",
+            "end": "17:00",
+            "label": "Thứ 2-Thứ 6"
+          },
+          {
+            "start": "07:30",
+            "end": "11:30",
+            "label": "Thứ 7"
+          }
+        ],
+        "note": "Chiều Thứ 7 chỉ một số chuyên khoa làm việc; nên đặt lịch trước."
+      },
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.vinmec.com/vie/co-so-y-te/phong-kham-da-khoa-vinmec-duong-dong-phu-quoc",
+        "operation_review_note": "Current Vinmec facility page confirms the Dương Đông clinic at 114 Nguyễn Trung Trực; Vinmec's 05/06/2026 schedule gives weekday and Saturday clinic hours."
       }
     },
     {
@@ -1522,9 +1559,27 @@
       "source_refs": [
         {
           "source_id": "visitpq_taxi_2026"
+        },
+        {
+          "source_id": "taxi_mailinh__operation_20261001",
+          "url": "https://mailinh.vn/index.php",
+          "checked_at": "2026-10-01"
+        },
+        {
+          "source_id": "taxi_mailinh__operation_20261001",
+          "url": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Tổng đài 1055 hoạt động 24/7; tình trạng xe tại Phú Quốc phụ thuộc thời điểm và khu vực.",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://mailinh.vn/index.php",
+        "operation_review_note": "Current Mai Linh site confirms nationwide/island taxi service and 1055; VisitPhuQuoc's April 2026 guide specifically lists Mai Linh Phú Quốc with 0297 3 979 797 or 1055."
+      }
     },
     {
       "id": "utility_taxi_namthang",
@@ -1547,9 +1602,27 @@
       "source_refs": [
         {
           "source_id": "visitpq_taxi_2026"
+        },
+        {
+          "source_id": "taxi_namthang__operation_20261001",
+          "url": "https://taxinamthang.com/",
+          "checked_at": "2026-10-01"
+        },
+        {
+          "source_id": "taxi_namthang__operation_20261001",
+          "url": "https://visitphuquoc.com.vn/vi/top-nhung-hang-taxi-phu-quoc-uy-tin-va-bang-gia-cap-nhat-8282",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Tổng đài/hỗ trợ của hãng được niêm yết 24/7; số lượng xe thực tế phụ thuộc thời điểm và khu vực.",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://taxinamthang.com/",
+        "operation_review_note": "Current Nam Thắng operator site explicitly lists Phú Quốc service and the canonical 02973 75 75 75 hotline; VisitPhuQuoc also lists the same Phú Quốc hotline in April 2026."
+      }
     },
     {
       "id": "utility_longchau_suoi_da",
