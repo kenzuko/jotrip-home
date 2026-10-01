@@ -730,7 +730,9 @@
     ". Mục nào chưa chắc sẽ có ghi chú để bạn gọi hoặc xem lại trước.": ". Any uncertain item includes a note so you can call or recheck first.",
     "Chưa mở được danh bạ lúc này. Thử lại sau một chút nhé.": "The directory is unavailable right now. Please try again shortly.",
     "<div class=\"u-fx-loading\">Chưa lấy được tỷ giá. Bạn có thể mở trang Tỷ giá để thử lại.</div>": "<div class=\"u-fx-loading\">Exchange rates are unavailable. Open the Exchange Rates page to try again.</div>",
-    "<div class=\"u-fx-loading\">Chưa có tỷ giá mới cho các đồng tiền phổ biến.</div>": "<div class=\"u-fx-loading\">No fresh exchange rates are available for common currencies.</div>"
+    "<div class=\"u-fx-loading\">Chưa có tỷ giá mới cho các đồng tiền phổ biến.</div>": "<div class=\"u-fx-loading\">No fresh exchange rates are available for common currencies.</div>",
+    "phút": "minutes",
+    ">Đóng</button></div><div class=": ">Close</button></div><div class="
   },
   "routes": {
     "home": {
