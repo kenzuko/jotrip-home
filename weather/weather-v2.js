@@ -510,8 +510,11 @@ function renderHazardBoard(){
       1
     );
   }else{
-    const localRain=localDataFresh()?points.map(x=>({name:x.p.name,rate:num(x.p.local?.rain_rate_mm_h)||0,cls:x.p.local?.rain_class}))
-      .sort((a,b)=>b.rate-a.rate)[0]:null;
+    const localRainValues=localDataFresh()?points
+      .map(x=>({name:x.p.name,rate:num(x.p.local?.rain_rate_mm_h),cls:x.p.local?.rain_class}))
+      .filter(x=>x.rate!==null)
+      .sort((a,b)=>b.rate-a.rate):[];
+    const localRain=localRainValues[0]||null;
     if(localRain&&localRain.rate>=0.5){
       setHazard("hazardRain",
         localRain.name+" ước tính ~"+fmt(localRain.rate,1)+" mm/h",
@@ -520,26 +523,39 @@ function renderHazardBoard(){
       );
     }else{
       const dryNames=gauges.filter(g=>g.rain_observed===false).slice(0,3).map(g=>g.name);
-      const cloudMax=points.map(x=>num(effectiveNowcastFor(x.id)?.convective_score)||0).sort((a,b)=>b-a)[0]||0;
+      const cloudValues=points.map(x=>num(effectiveNowcastFor(x.id)?.convective_score)).filter(v=>v!==null);
+      const cloudMax=cloudValues.length?Math.max(...cloudValues):null;
       if(!gauges.length){
+        if(cloudMax!==null&&cloudMax>=70){
+          setHazard("hazardRain",
+            "Chưa có số đo mưa mới, nhưng vùng mây quanh đảo đang phát triển mạnh",
+            "Trạm mưa chưa có mẫu mới. Ảnh mây vẫn cho thấy khả năng mưa cục bộ cần được theo dõi.",
+            1
+          );
+        }else if(localRain!==null){
+          setHazard("hazardRain",
+            "Chưa có số đo mưa mới tại trạm",
+            "Ước tính tại các điểm hiện chưa cho tín hiệu mưa đáng kể, nhưng đây chưa phải số đo mặt đất.",
+            0
+          );
+        }else{
+          setHazard("hazardRain",
+            "Chưa đủ dữ liệu mới để kết luận mưa lúc này",
+            "Trạm mưa chưa có mẫu mới và lớp ước tính tại điểm cũng chưa đủ dữ liệu.",
+            1
+          );
+        }
+      }else if(cloudMax!==null&&cloudMax>=70){
         setHazard("hazardRain",
-          "Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc",
-          cloudMax>=70
-            ?"Trạm mưa chưa có mẫu mới. Ảnh mây đang thấy vùng mây rất cao quanh đảo, nên vẫn cần để ý mưa cục bộ."
-            :"VRain chưa có mẫu mới. Ước tính mưa hiện tại đang thấp, nhưng đây chưa phải số đo mưa mới tại trạm.",
-          cloudMax>=70?1:0
-        );
-      }else if(cloudMax>=70){
-        setHazard("hazardRain",
-          "Các trạm VRain mới cập nhật chưa ghi nhận mưa tại đúng vị trí trạm",
-          (dryNames.length?("VRain "+dryNames.join(", ")+" đang 0 mm/h. "):"")+
-          "Tuy vậy Himawari đang thấy vùng mây rất cao quanh đảo, nên vẫn có thể có mưa cục bộ giữa các trạm.",
+          "Các trạm mới cập nhật chưa ghi nhận mưa tại đúng vị trí trạm",
+          (dryNames.length?("Các trạm "+dryNames.join(", ")+" hiện chưa ghi nhận mưa. "):"")+
+          "Ảnh mây vẫn cho thấy vùng mây phát triển mạnh quanh đảo, nên mưa cục bộ giữa các trạm vẫn có thể xảy ra.",
           1
         );
       }else{
         setHazard("hazardRain",
-          "Các trạm quan trắc mới cập nhật chưa ghi nhận mưa",
-          dryNames.length?("VRain "+dryNames.join(", ")+" hiện chưa ghi nhận mưa tại vị trí trạm"):"Ước tính mưa hiện tại đang thấp",
+          "Các trạm mới cập nhật chưa ghi nhận mưa tại vị trí đo",
+          dryNames.length?("Các trạm "+dryNames.join(", ")+" hiện chưa ghi nhận mưa."):"Không dùng kết quả tại vài trạm để kết luận cho toàn đảo.",
           0
         );
       }
@@ -819,23 +835,25 @@ function rainActualContext(){
   }
   return "Trạm mưa gần nhất: "+name+" · cách "+dist+" km.";
 }
-function weatherCondition(rain,conv,wind,forecast=false){
-  rain=num(rain)||0;conv=num(conv)||0;wind=num(wind)||0;
-  if(forecast){
-    if(conv>=75&&rain>=1)return {label:"Có khả năng mưa dông cục bộ",icon:"⛈️",mood:"storm"};
-    if(rain>=3)return {label:"Dự báo có mưa",icon:"🌧️",mood:"storm"};
-    if(rain>=.2)return {label:"Có thể có mưa nhẹ hoặc rải rác",icon:"🌦️",mood:"watch"};
-    if(conv>=60)return {label:"Mây đối lưu cần theo dõi",icon:"☁️",mood:"watch"};
-    if(wind>=28)return {label:"Dự báo gió khá mạnh",icon:"💨",mood:"watch"};
-    if(conv>=25)return {label:"Có thể nhiều mây",icon:"⛅",mood:"calm"};
-    return {label:"Dự báo tương đối ổn",icon:"🌤️",mood:"calm"};
+function weatherCondition(rain,conv,wind,estimated=false){
+  rain=num(rain);conv=num(conv);wind=num(wind);
+  if(estimated){
+    if(conv!==null&&rain!==null&&conv>=75&&rain>=1)return {label:"Có tín hiệu mưa dông cục bộ",icon:"⛈️",mood:"storm"};
+    if(rain!==null&&rain>=3)return {label:"Có tín hiệu mưa tại điểm này",icon:"🌧️",mood:"storm"};
+    if(rain!==null&&rain>=.2)return {label:"Có tín hiệu mưa nhẹ hoặc rải rác",icon:"🌦️",mood:"watch"};
+    if(conv!==null&&conv>=60)return {label:"Có vùng mây phát triển mạnh cần theo dõi",icon:"☁️",mood:"watch"};
+    if(wind!==null&&wind>=28)return {label:"Gió tại điểm đang được ước tính khá mạnh",icon:"💨",mood:"watch"};
+    if(conv!==null&&conv>=25)return {label:"Có tín hiệu nhiều mây",icon:"⛅",mood:"calm"};
+    if(rain===null||conv===null||wind===null)return {label:"Chưa đủ dữ liệu mới để kết luận lúc này",icon:"⚠️",mood:"watch"};
+    return {label:"Chưa thấy tín hiệu thời tiết đáng chú ý",icon:"🌤️",mood:"calm"};
   }
-  if(conv>=75&&rain>=1)return {label:"Mưa dông cục bộ",icon:"⛈️",mood:"storm"};
-  if(rain>=3)return {label:"Đang có mưa",icon:"🌧️",mood:"storm"};
-  if(rain>=.2)return {label:"Có mưa nhẹ hoặc rải rác",icon:"🌦️",mood:"watch"};
-  if(conv>=60)return {label:"Mây đang phát triển",icon:"☁️",mood:"watch"};
-  if(wind>=28)return {label:"Gió khá mạnh",icon:"💨",mood:"watch"};
-  if(conv>=25)return {label:"Nhiều mây",icon:"⛅",mood:"calm"};
+  if(conv!==null&&rain!==null&&conv>=75&&rain>=1)return {label:"Mưa dông cục bộ",icon:"⛈️",mood:"storm"};
+  if(rain!==null&&rain>=3)return {label:"Đang có mưa",icon:"🌧️",mood:"storm"};
+  if(rain!==null&&rain>=.2)return {label:"Có mưa nhẹ hoặc rải rác",icon:"🌦️",mood:"watch"};
+  if(conv!==null&&conv>=60)return {label:"Mây đang phát triển",icon:"☁️",mood:"watch"};
+  if(wind!==null&&wind>=28)return {label:"Gió khá mạnh",icon:"💨",mood:"watch"};
+  if(conv!==null&&conv>=25)return {label:"Nhiều mây",icon:"⛅",mood:"calm"};
+  if(rain===null||conv===null||wind===null)return {label:"Chưa đủ dữ liệu mới để kết luận lúc này",icon:"⚠️",mood:"watch"};
   return {label:"Thời tiết tương đối ổn",icon:"🌤️",mood:"calm"};
 }
 function nearbyVvpqActual(maxKm=12,maxMinutes=35){
@@ -945,7 +963,7 @@ function renderHero(){
   }else if(!localFresh&&!nowcastFresh){
     condition={label:"Chưa đủ dữ liệu mới để kết luận lúc này",icon:"⚠️",mood:"watch"};
   }else{
-    condition=weatherCondition(rain,conv,wind,!localFresh);
+    condition=weatherCondition(rain,conv,wind,true);
   }
 
   $("heroTemp").textContent=t===null?"--":fmt(t,1)+"°";
@@ -1773,22 +1791,34 @@ function buildQuickWatchEvents(){
   // 0b) Fresh airport observation is ACTUAL and can override model language nearby.
   const vvpq=critical?.actual?.vvpq||{};
   const vwx=String(vvpq.weather||"").toUpperCase();
-  if(freshEnough(vvpq.observed_at,35)&&(/TS/.test(vwx)||vvpq.convective_cloud)){
+  const vvpqFresh=freshEnough(vvpq.observed_at,35);
+  const vvpqThunder=/TS/.test(vwx);
+  const vvpqRain=/RA|DZ/.test(vwx);
+  if(vvpqFresh&&vvpqThunder&&vvpqRain){
     events.push({
-      key:"vvpq-thunderstorm:"+vvpq.observed_at,
+      key:"vvpq-thunderstorm-rain:"+vvpq.observed_at,
       severity:"alert",
       when:"ĐANG XẢY RA",
-      title:"Khu vực gần sân bay Phú Quốc đang có mưa dông",
-      detail:"Quan trắc VVPQ ghi nhận mưa dông và mây đối lưu. Đây là số liệu thực tế, được ưu tiên hơn dự báo mô hình tại thời điểm này.",
+      title:"Trạm sân bay đang ghi nhận mưa dông",
+      detail:"Đây là số đo tại khu vực sân bay, không đại diện đồng thời cho mọi nơi trên đảo.",
       sort:-1.5
     });
-  }else if(freshEnough(vvpq.observed_at,35)&&/RA|SHRA/.test(vwx)){
+  }else if(vvpqFresh&&vvpqThunder){
+    events.push({
+      key:"vvpq-thunderstorm:"+vvpq.observed_at,
+      severity:"watch",
+      when:"ĐANG XẢY RA",
+      title:"Trạm sân bay đang ghi nhận dông",
+      detail:"Mã quan trắc có dông nhưng chưa có mã mưa đi kèm, nên không dùng tín hiệu này để nói khu vực đang mưa.",
+      sort:-1.4
+    });
+  }else if(vvpqFresh&&vvpqRain){
     events.push({
       key:"vvpq-rain:"+vvpq.observed_at,
       severity:"watch",
       when:"ĐANG XẢY RA",
-      title:"Khu vực gần sân bay Phú Quốc đang có mưa",
-      detail:"Quan trắc VVPQ đang ghi nhận mưa thực tế.",
+      title:"Trạm sân bay đang ghi nhận mưa",
+      detail:"Đây là số đo tại khu vực sân bay, không đại diện đồng thời cho mọi nơi trên đảo.",
       sort:-1.2
     });
   }
