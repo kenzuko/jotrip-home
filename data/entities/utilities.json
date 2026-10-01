@@ -19,9 +19,22 @@
           "source_id": "external",
           "url": "https://xaydungchinhsach.chinhphu.vn/tong-dai-so-112-tiep-nhan-24-7-cac-thong-tin-ve-su-co-thien-tai-tham-hoa-119250902150528929.htm",
           "checked_at": "2026-09-19T04:51:03.080Z"
+        },
+        {
+          "source_id": "112__operation_20261001",
+          "url": "https://xaydungchinhsach.chinhphu.vn/nhung-dieu-can-biet-ve-tong-dai-112-so-dien-thoai-tiep-nhan-thong-tin-va-noi-dung-thong-tin-ve-su-co-tham-hoa-119250714134442873.htm",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.080Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Tổng đài 112 hoạt động 24/7, miễn phí.",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://xaydungchinhsach.chinhphu.vn/nhung-dieu-can-biet-ve-tong-dai-112-so-dien-thoai-tiep-nhan-thong-tin-va-noi-dung-thong-tin-ve-su-co-tham-hoa-119250714134442873.htm",
+        "operation_review_note": "Government guidance confirms 112 is active nationwide and operates 24/7."
+      }
     },
     {
       "id": "utility_113",
@@ -41,9 +54,21 @@
           "source_id": "external",
           "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/3/36965/40179-1-2022289-29004-vbhn-btttt.pdf",
           "checked_at": "2026-09-19T04:51:03.080Z"
+        },
+        {
+          "source_id": "113__operation_20261001",
+          "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/CongBao/2025/9/46259/59058-1-1411-1412.pdf",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.080Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/CongBao/2025/9/46259/59058-1-1411-1412.pdf",
+        "operation_review_note": "Government decision states 113 continues operating normally while 112 is introduced."
+      }
     },
     {
       "id": "utility_114",
@@ -63,9 +88,21 @@
           "source_id": "external",
           "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/3/36965/40179-1-2022289-29004-vbhn-btttt.pdf",
           "checked_at": "2026-09-19T04:51:03.080Z"
+        },
+        {
+          "source_id": "114__operation_20261001",
+          "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/CongBao/2025/9/46259/59058-1-1411-1412.pdf",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.080Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/CongBao/2025/9/46259/59058-1-1411-1412.pdf",
+        "operation_review_note": "Government decision states 114 continues operating normally while 112 is introduced."
+      }
     },
     {
       "id": "utility_115",
@@ -85,9 +122,21 @@
           "source_id": "external",
           "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/VanBan/2022/3/36965/40179-1-2022289-29004-vbhn-btttt.pdf",
           "checked_at": "2026-09-19T04:51:03.080Z"
+        },
+        {
+          "source_id": "115__operation_20261001",
+          "url": "https://congbaocdn.chinhphu.vn/CongBaoCP/CongBao/2025/9/46259/59058-1-1411-1412.pdf",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:03.080Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://congbaocdn.chinhphu.vn/CongBaoCP/CongBao/2025/9/46259/59058-1-1411-1412.pdf",
+        "operation_review_note": "Government decision states 115 continues operating normally while 112 is introduced."
+      }
     },
     {
       "id": "utility_pq_police",
@@ -107,9 +156,21 @@
           "source_id": "official_current_contact",
           "url": "https://phuquoc.angiang.gov.vn/trang-chu",
           "checked_at": "2026-09-24T00:00:00Z"
+        },
+        {
+          "source_id": "pq_police__operation_20261001",
+          "url": "https://phuquoc.angiang.gov.vn/trang-chu",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-24"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://phuquoc.angiang.gov.vn/trang-chu",
+        "operation_review_note": "Current Phú Quốc government homepage lists the police hotline 0988 014 569."
+      }
     },
     {
       "id": "utility_pq_tourism",
@@ -129,9 +190,22 @@
           "source_id": "official_current_contact",
           "url": "https://phuquoc.angiang.gov.vn/phong-ban-chuyen-mon-0",
           "checked_at": "2026-09-24T00:00:00Z"
+        },
+        {
+          "source_id": "pq_tourism__operation_20261001",
+          "url": "https://phuquoc.angiang.gov.vn/trang-chu",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-24"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "phone_alt": "0948 864 606",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://phuquoc.angiang.gov.vn/trang-chu",
+        "operation_review_note": "Current Phú Quốc government homepage lists the Culture-Society tourism hotline; office leadership page still lists the canonical landline."
+      }
     },
     {
       "id": "utility_pq_hcc",
@@ -151,9 +225,22 @@
           "source_id": "official_current_contact",
           "url": "https://phuquoc.angiang.gov.vn/thong-bao-vv-cong-khai-duong-day-nong-tai-trung-tam-phuc-vu-hanh-chinh-cong",
           "checked_at": "2026-09-24T00:00:00Z"
+        },
+        {
+          "source_id": "pq_hcc__operation_20261001",
+          "url": "https://phuquoc.angiang.gov.vn/thong-bao-vv-cong-khai-duong-day-nong-tai-trung-tam-phuc-vu-hanh-chinh-cong",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-24"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "phone_alt": "0944 05 25 95; 0297 3848 352",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://phuquoc.angiang.gov.vn/thong-bao-vv-cong-khai-duong-day-nong-tai-trung-tam-phuc-vu-hanh-chinh-cong",
+        "operation_review_note": "Current public-service-centre notice lists active support lines."
+      }
     },
     {
       "id": "utility_pqc_hotline",
@@ -173,9 +260,21 @@
           "source_id": "official_current_contact",
           "url": "https://sunairport.com/en/phuquoc/contact-us",
           "checked_at": "2026-09-24T00:00:00Z"
+        },
+        {
+          "source_id": "pqc_hotline__operation_20261001",
+          "url": "https://sunairport.com/en/phuquoc/contact-us",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-24"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://sunairport.com/en/phuquoc/contact-us",
+        "operation_review_note": "Current Sun Airport Phú Quốc contact page lists +84 98 498 4341 and airport email."
+      }
     },
     {
       "id": "utility_pqc_lost",
@@ -200,9 +299,21 @@
           "source_id": "official_baggage_guidance",
           "url": "https://sunairport.com/en/phuquoc/guides/baggage-services",
           "checked_at": "2026-09-24T00:00:00Z"
+        },
+        {
+          "source_id": "pqc_lost__operation_20261001",
+          "url": "https://sunairport.com/en/phuquoc/guides/baggage-services",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-24"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://sunairport.com/en/phuquoc/guides/baggage-services",
+        "operation_review_note": "Current airport baggage guidance confirms baggage assistance remains available through airline/ground-handling counters; general airport contact remains current."
+      }
     },
     {
       "id": "utility_superdong",
@@ -222,9 +333,22 @@
           "source_id": "external",
           "url": "https://online.superdong.com.vn/Home/Contact",
           "checked_at": "2026-09-19T04:50:58.552Z"
+        },
+        {
+          "source_id": "superdong__operation_20261001",
+          "url": "https://online.superdong.com.vn/Home/Contact",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:50:58.552Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://online.superdong.com.vn/Home/Contact",
+        "operation_review_note": "Current Superdong contact page lists Phú Quốc headquarters and online booking hotline 0941 130 033.",
+        "support_hours_note": "Hỗ trợ booking online: 06:00-20:30."
+      }
     },
     {
       "id": "utility_pqexpress",
@@ -244,9 +368,21 @@
           "source_id": "external",
           "url": "https://phuquocexpress.com/",
           "checked_at": "2026-09-19T04:50:59.500Z"
+        },
+        {
+          "source_id": "pqexpress__operation_20261001",
+          "url": "https://phuquocexpress.com/en/",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:50:59.500Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://phuquocexpress.com/en/",
+        "operation_review_note": "Current Phú Quốc Express site lists active Phú Quốc routes and booking hotline 0901 868 878."
+      }
     },
     {
       "id": "utility_thanhthoi",
@@ -266,9 +402,21 @@
           "source_id": "external",
           "url": "https://thanhthoi.vn/",
           "checked_at": "2026-09-19T04:51:01.615Z"
+        },
+        {
+          "source_id": "thanhthoi__operation_20261001",
+          "url": "https://thanhthoi.vn/",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:01.615Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://thanhthoi.vn/",
+        "operation_review_note": "Official Thạnh Thới site publishes a live Phú Quốc ferry schedule for 01/10/2026 and hotline 1900 966 908."
+      }
     },
     {
       "id": "utility_vinwonders",
@@ -288,9 +436,21 @@
           "source_id": "external",
           "url": "https://vinwonders.com/en/contact/",
           "checked_at": "2026-09-19T04:51:01.937Z"
+        },
+        {
+          "source_id": "vinwonders__operation_20261001",
+          "url": "https://vinwonders.com/vi/contact/",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:01.937Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://vinwonders.com/vi/contact/",
+        "operation_review_note": "Current VinWonders contact page lists VinWonders Phú Quốc, Safari and Grand World under hotline 1900 6677."
+      }
     },
     {
       "id": "utility_sunworld",
@@ -310,9 +470,21 @@
           "source_id": "external",
           "url": "https://sunworld.vn/vi/hon-thom",
           "checked_at": "2026-09-19T04:51:02.989Z"
+        },
+        {
+          "source_id": "sunworld__operation_20261001",
+          "url": "https://sunworld.vn/vi/hon-thom",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-19T04:51:02.989Z"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://sunworld.vn/vi/hon-thom",
+        "operation_review_note": "Current Sun World Hòn Thơm page is live and publishes today's dynamic operating state; fixed hours are intentionally not copied because schedule changes."
+      }
     },
     {
       "id": "utility_vinmec",
@@ -1266,9 +1438,27 @@
       "source_refs": [
         {
           "source_id": "green_sm_hotline_2026"
+        },
+        {
+          "source_id": "taxi_xanhsm__operation_20261001",
+          "url": "https://www.greensm.com/vn-vi/news/chinh-sach-hap-dan-cho-tai-xe-xanh-sm-car-tai-phu-quoc",
+          "checked_at": "2026-10-01"
+        },
+        {
+          "source_id": "taxi_xanhsm__operation_20261001",
+          "url": "https://www.greensm.com/vn-vi/news/so-dien-thoai-tong-dai-taxi-xanh-sm-tren-toan-quoc-hotline-24-7",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "opening_hours_note": "Tổng đài 1555 hỗ trợ 24/7; tình trạng xe thực tế phụ thuộc ứng dụng/khu vực.",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.greensm.com/vn-vi/news/chinh-sach-hap-dan-cho-tai-xe-xanh-sm-car-tai-phu-quoc",
+        "operation_review_note": "Green SM currently operates and expands service in Phú Quốc; 2026 official hotline is 1555."
+      }
     },
     {
       "id": "utility_grab_phuquoc",
@@ -1293,9 +1483,21 @@
       "source_refs": [
         {
           "source_id": "grab_phuquoc_2026"
+        },
+        {
+          "source_id": "grab_phuquoc__operation_20261001",
+          "url": "https://www.grab.com/global/airport-rides/phu-quoc-international-airport/",
+          "checked_at": "2026-10-01"
         }
       ],
-      "updated_at": "2026-09-21"
+      "updated_at": "2026-10-01",
+      "operational_status": "ACTIVE_CONFIRMED",
+      "source_audit": {
+        "verified_operation": true,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.grab.com/global/airport-rides/phu-quoc-international-airport/",
+        "operation_review_note": "Current Grab page explicitly supports Phú Quốc International Airport transfers and local ride booking."
+      }
     },
     {
       "id": "utility_taxi_mailinh",

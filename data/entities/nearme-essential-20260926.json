@@ -239,7 +239,7 @@
       "phone": null,
       "what_it_is": "Dịch vụ giữ hành lý đặt trước; điểm giao nhận cụ thể được xác nhận sau khi đặt.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -247,18 +247,27 @@
           "source_id": "whalelo_nightmarket_20260924",
           "url": "https://whalelo.net/station/phu-quoc/138",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "luggage_whalelo_nightmarket__operation_20261001",
+          "url": "https://whalelo.net/destination/phu-quoc",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_luggage_whalelo_nightmarket",
         "verified_identity": true,
-        "verified_operation": false,
-        "source_note": "Operator có đăng điểm dịch vụ; không ghim pin khi chưa đặt chỗ và xác nhận địa chỉ. Giờ, giá, nhận đồ quá giờ phải kiểm tra theo ngày."
+        "verified_operation": true,
+        "source_note": "Operator có đăng điểm dịch vụ; không ghim pin khi chưa đặt chỗ và xác nhận địa chỉ. Giờ, giá, nhận đồ quá giờ phải kiểm tra theo ngày.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://whalelo.net/destination/phu-quoc",
+        "operation_review_note": "Current WhaleLO Phú Quốc page lists a Phú Quốc Night Market luggage-storage location as open 24 hours."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "map_review_note": "Điểm giao nhận chỉ được xác định sau khi đặt chỗ; không dẫn đường theo điểm neo khu vực.",
-      "external_verify_url": "https://whalelo.net/station/phu-quoc/138"
+      "external_verify_url": "https://whalelo.net/station/phu-quoc/138",
+      "opening_hours_note": "WhaleLO hiện niêm yết điểm Chợ đêm Phú Quốc mở 24 giờ; địa chỉ chi tiết hiển thị sau khi đặt."
     },
     {
       "id": "utility_luggage_whalelo_grandworld",
@@ -272,7 +281,7 @@
       "phone": null,
       "what_it_is": "Dịch vụ giữ hành lý đặt trước; điểm giao nhận cụ thể được xác nhận sau khi đặt.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -280,18 +289,27 @@
           "source_id": "whalelo_grandworld_20260924",
           "url": "https://whalelo.net/station/phu-quoc/382",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "luggage_whalelo_grandworld__operation_20261001",
+          "url": "https://whalelo.net/destination/phu-quoc",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_luggage_whalelo_grandworld",
         "verified_identity": true,
-        "verified_operation": false,
-        "source_note": "Operator công bố dịch vụ nhưng địa chỉ cụ thể chỉ hiển thị sau khi đặt. Chưa có pin cửa nhận hành lý; không áp giờ 24/24 nếu chưa đối chiếu cho ngày khách sử dụng."
+        "verified_operation": true,
+        "source_note": "Operator công bố dịch vụ nhưng địa chỉ cụ thể chỉ hiển thị sau khi đặt. Chưa có pin cửa nhận hành lý; không áp giờ 24/24 nếu chưa đối chiếu cho ngày khách sử dụng.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://whalelo.net/destination/phu-quoc",
+        "operation_review_note": "Current WhaleLO Phú Quốc page lists Grand World luggage storage as open 24 hours."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "map_review_note": "Điểm giao nhận chỉ được xác định sau khi đặt chỗ; không dẫn đường theo điểm neo khu vực.",
-      "external_verify_url": "https://whalelo.net/station/phu-quoc/382"
+      "external_verify_url": "https://whalelo.net/station/phu-quoc/382",
+      "opening_hours_note": "WhaleLO hiện niêm yết điểm Grand World mở 24 giờ; địa chỉ chi tiết hiển thị sau khi đặt."
     },
     {
       "id": "utility_luggage_whalelo_sunset",
@@ -305,7 +323,7 @@
       "phone": null,
       "what_it_is": "Dịch vụ giữ hành lý đặt trước; điểm giao nhận cụ thể được xác nhận sau khi đặt.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -313,18 +331,36 @@
           "source_id": "whalelo_sunset_20260924",
           "url": "https://whalelo.net/station/phu-quoc/384",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "luggage_whalelo_sunset__operation_20261001",
+          "url": "https://whalelo.net/destination/phu-quoc",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_luggage_whalelo_sunset",
         "verified_identity": true,
-        "verified_operation": false,
-        "source_note": "Operator xác nhận dịch vụ trong khu vực, không có địa chỉ chính xác công khai. Chưa xác minh dịch vụ tắm và thay đồ; không mặc định có."
+        "verified_operation": true,
+        "source_note": "Operator xác nhận dịch vụ trong khu vực, không có địa chỉ chính xác công khai. Chưa xác minh dịch vụ tắm và thay đồ; không mặc định có.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://whalelo.net/destination/phu-quoc",
+        "operation_review_note": "Current WhaleLO Phú Quốc page lists Sunset Town luggage storage 07:30-22:00."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "map_review_note": "Điểm giao nhận chỉ được xác định sau khi đặt chỗ; không dẫn đường theo điểm neo khu vực.",
-      "external_verify_url": "https://whalelo.net/station/phu-quoc/384"
+      "external_verify_url": "https://whalelo.net/station/phu-quoc/384",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "07:30",
+            "end": "22:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Giờ operator đang niêm yết; cần kiểm tra lại trước khi tới vì điểm giao nhận cụ thể chỉ hiện sau khi đặt."
+      }
     },
     {
       "id": "utility_medical_phuquoc_public_hospital",
