@@ -31,10 +31,22 @@ assert.equal(server.splitLocalePath("/vi/stories/").pathname,"/stories/");
 assert.equal(server.routeGroup("/stories/article.html"),"stories");
 assert.equal(server.localeCanServe("vi","/weather/"),true);
 assert.equal(server.localeCanServe("en","/stories/"),false);
+assert.equal(server.localeFromLanguageTag("en-US")?.code,"en");
+assert.equal(server.localeFromLanguageTag("zh-TW")?.code,"zh-Hant");
+assert.equal(server.localeFromLanguageTag("zh-CN")?.code,"zh-Hans");
+assert.equal(server.preferredPublishedLocale("en-US,en;q=0.9","/stories/"),"vi",
+  "Browser locale must never expose an unpublished language");
 assert.equal(server.canonicalFor("/guide/article.html?id=x","vi"),"https://openphuquoc.com/guide/article.html?id=x");
 assert.equal(server.canonicalFor("/guide/article.html?id=x","ko"),"https://openphuquoc.com/ko/guide/article.html?id=x");
 assert.equal(server.alternateSet("/stories/article.html",["vi","en"]).at(-1).hreflang,"x-default");
 const runtime=readFileSync("core/i18n-runtime.js","utf8");
 assert.match(runtime,/OpenPQI18n/);
 assert.match(runtime,/unpublished locales/i);
+const switcher=readFileSync("core/language-switcher.js","utf8");
+assert.match(switcher,/searchParams\.set\("lang",code\)/,
+  "Manual language choices must pass through the edge preference endpoint");
+const worker=readFileSync("worker.js","utf8");
+assert.match(worker,/accept-language/i);
+assert.match(worker,/openpq_lang/);
+assert.match(worker,/private, no-store/);
 console.log("PASS i18n foundation: locale registry, URL policy, canonical paths and publication lock");
