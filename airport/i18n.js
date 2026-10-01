@@ -1,8 +1,12 @@
 
 (function(){
   const LANGS=['vi','en','ko','ru','zh'];
-  let lang='vi';
-  try{lang=localStorage.getItem('jotrip_airport_lang')||'vi'}catch(_){}
+  const pageLocale=document.querySelector('meta[name="openpq-locale"]')?.content||'';
+  let stored='';
+  try{stored=localStorage.getItem('jotrip_airport_lang')||''}catch(_){}
+  const browser=(navigator.languages?.[0]||navigator.language||'').toLowerCase();
+  const browserLang=browser.startsWith('en')?'en':browser.startsWith('ko')?'ko':browser.startsWith('ru')?'ru':browser.startsWith('zh')?'zh':'vi';
+  let lang=pageLocale==='en'?'en':pageLocale==='vi'?'vi':stored||browserLang;
   if(!LANGS.includes(lang))lang='vi';
   window.JT_I18N_ACTIVE=true;
 
@@ -313,6 +317,13 @@
 
   window.JT_SET_LANG=function(next){
     if(!LANGS.includes(next))return;
+    if(next==='vi'||next==='en'){
+      const base='/airport/'+location.search.replace(/(?:^\?|&)lang=[^&]*/,'').replace(/^&/,'?');
+      const target=new URL(base,location.origin);
+      target.searchParams.set('lang',next);
+      location.assign(target.pathname+target.search);
+      return;
+    }
     lang=next;try{localStorage.setItem('jotrip_airport_lang',lang)}catch(_){}
     if(typeof window.renderAll==='function')window.renderAll();
     if(typeof window.JT_RENDER_FIDS==='function')window.JT_RENDER_FIDS(true);

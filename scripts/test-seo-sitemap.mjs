@@ -4,7 +4,8 @@ import {join} from "node:path";
 const root=process.env.OPENPQ_DIST||"dist",base="https://openphuquoc.com";
 const xml=readFileSync(join(root,"sitemap.xml"),"utf8");
 const robots=readFileSync(join(root,"robots.txt"),"utf8");
-assert.match(xml,/<urlset xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9">/);
+assert.match(xml,/<urlset\s+[^>]*xmlns="http:\/\/www.sitemaps.org\/schemas\/sitemap\/0.9"[^>]*>/);
+assert.match(xml,/xmlns:xhtml="http:\/\/www.w3.org\/1999\/xhtml"/,"Multilingual sitemap must declare the XHTML namespace");
 const urls=[...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1].replace(/&amp;/g,"&"));
 assert.ok(urls.length>=30,"Sitemap must include published content");
 assert.equal(urls.length,new Set(urls).size,"No duplicate canonical URLs");
@@ -23,6 +24,10 @@ const expectedGuides=publicGuides.reduce((n,o)=>n+[...published].filter(code=>(c
 const expectedStories=publicStories.reduce((n,o)=>n+[...published].filter(code=>(catalog.availability?.stories?.[code]||[]).includes(o.id)).length,0);
 assert.equal(urls.filter(u=>u.includes("/guide/article.html?id=")).length,expectedGuides);
 assert.equal(urls.filter(u=>u.includes("/stories/article.html?id=")).length,expectedStories);
+if(published.has("en")){
+  assert.match(xml,/hreflang="en"/,"Published English must emit hreflang alternates");
+  assert.match(xml,/https:\/\/openphuquoc\.com\/en\//,"Published English URLs must be listed");
+}
 for(const locale of (catalog.locales||[]).filter(x=>!x.published)){
   assert.ok(!urls.some(u=>new URL(u).pathname.startsWith("/"+locale.url_code+"/")),"Unpublished locale leaked into sitemap: "+locale.code);
 }

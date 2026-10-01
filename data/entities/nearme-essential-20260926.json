@@ -16,7 +16,7 @@
       "phone": "0877 215 765",
       "what_it_is": "Dịch vụ giặt ủi tại Phú Quốc, nên xác nhận giờ và nhận/giao đồ.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -29,20 +29,28 @@
           "source_id": "phuquoc_laundry_official_google_map_embed_20260928",
           "url": "https://phuquoclaundry.online/",
           "checked_at": "2026-09-28"
+        },
+        {
+          "source_id": "laundry_phuquoc_cuaduong__operation_20261001",
+          "url": "https://phuquoclaundry.online/our-services/",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_laundry_phuquoc_cuaduong",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Giờ niêm yết 09:00-21:00; xác minh pin cửa tiệm và phạm vi giao nhận thực tế.",
         "gps_review_at": "2026-09-28",
         "gps_review_status": "SITE_CENTROID_ACCEPTED",
         "verified_entrance": false,
-        "gps_review_note": "Tâm cơ sở lấy từ Google Maps iframe do chính website Phu Quoc Laundry nhúng. Không xác nhận chính xác cửa vào hoặc phạm vi nhận/giao đồ."
+        "gps_review_note": "Tâm cơ sở lấy từ Google Maps iframe do chính website Phu Quoc Laundry nhúng. Không xác nhận chính xác cửa vào hoặc phạm vi nhận/giao đồ.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://phuquoclaundry.online/our-services/",
+        "operation_review_note": "Current operator site lists Bến Tràm address, phone and active laundry/pick-up services; hours not re-promoted in this pass."
       },
-      "updated_at": "2026-09-28",
+      "updated_at": "2026-10-01",
       "map": {
         "lat": 10.2333807689721,
         "lon": 103.99067557668052,
@@ -66,7 +74,7 @@
       "phone": "1800 6928",
       "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -74,22 +82,40 @@
           "source_id": "longchau_official_directory_20260927",
           "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
           "checked_at": "2026-09-27"
+        },
+        {
+          "source_id": "longchau_ham_ninh__operation_20261001",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_longchau_ham_ninh",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm.",
         "official_source_recheck_at": "2026-09-27",
         "official_source_note": "Đã đối chiếu địa chỉ thửa 32/ĐT47 ngã tư Chợ Hàm Ninh trên danh sách cửa hàng chính thức tỉnh An Giang; đường dẫn cũ trỏ nhầm cơ sở An Thới số 46.",
-        "verified_entrance": false
+        "verified_entrance": false,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "operation_review_note": "Current Phú Quốc directory lists Hàm Ninh branch."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "phone_scope": "CHAIN",
       "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
-      "zone_hint": "Hàm Ninh"
+      "zone_hint": "Hàm Ninh",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      }
     },
     {
       "id": "utility_longchau_ben_tram",
@@ -103,7 +129,7 @@
       "phone": "1800 6928",
       "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -111,22 +137,40 @@
           "source_id": "longchau_official_directory_20260927",
           "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
           "checked_at": "2026-09-27"
+        },
+        {
+          "source_id": "longchau_ben_tram__operation_20261001",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_longchau_ben_tram",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm.",
         "official_source_recheck_at": "2026-09-27",
         "official_source_note": "Đã đối chiếu địa chỉ 487 Nguyễn Trung Trực (Chợ Bến Tràm) trên danh sách cửa hàng chính thức tỉnh An Giang; đường dẫn cũ trỏ nhầm cơ sở An Thới số 46.",
-        "verified_entrance": false
+        "verified_entrance": false,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "operation_review_note": "Current Phú Quốc directory lists 487 Nguyễn Trung Trực / Chợ Bến Tràm."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "phone_scope": "CHAIN",
       "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
-      "zone_hint": "Bến Tràm"
+      "zone_hint": "Bến Tràm",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      }
     },
     {
       "id": "utility_longchau_dt45",
@@ -140,7 +184,7 @@
       "phone": "1800 6928",
       "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -148,22 +192,40 @@
           "source_id": "longchau_official_directory_20260927",
           "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/tinh-an-giang",
           "checked_at": "2026-09-27"
+        },
+        {
+          "source_id": "longchau_dt45__operation_20261001",
+          "url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_longchau_dt45",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Khung giờ hệ thống 06:00-23:00, chi nhánh có thể khác; xác minh GPS cửa tiệm.",
         "official_source_recheck_at": "2026-09-27",
         "official_source_note": "Đã sửa link dẫn nhầm cơ sở An Thới sang danh sách cửa hàng chính thức. Chưa xác nhận được chi tiết riêng nhánh ĐT45 trong lượt đối chiếu này; giữ trạng thái mở cửa UNKNOWN, GPS null.",
-        "verified_entrance": false
+        "verified_entrance": false,
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "operation_review_note": "Current Phú Quốc directory lists ĐT45 / Nghĩa trang Liệt sĩ branch."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "phone_scope": "CHAIN",
       "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
-      "zone_hint": null
+      "zone_hint": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      }
     },
     {
       "id": "utility_luggage_whalelo_nightmarket",
@@ -276,7 +338,7 @@
       "phone": "0297 3846 970",
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -289,17 +351,25 @@
           "source_id": "visitpq_public_hospital_hotline_20260924",
           "url": "https://visitphuquoc.com.vn/vi/cau-hoi-thuong-gap",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "medical_phuquoc_public_hospital__operation_20261001",
+          "url": "https://benhandientu.moh.gov.vn/benh-vien/846/trung-tam-y-te-phu-quoc-tinh-an-giang",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_medical_phuquoc_public_hospital",
         "verified_identity": true,
-        "verified_operation": false,
-        "source_note": "Nguồn: https://www.openstreetmap.org/way/1530858355. Tâm khuôn viên bệnh viện, chưa xác nhận cổng cấp cứu."
+        "verified_operation": true,
+        "source_note": "Nguồn: https://www.openstreetmap.org/way/1530858355. Tâm khuôn viên bệnh viện, chưa xác nhận cổng cấp cứu.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://benhandientu.moh.gov.vn/benh-vien/846/trung-tam-y-te-phu-quoc-tinh-an-giang",
+        "operation_review_note": "MOH facility record supports 24/24 operation; specialty clinic hours may differ."
       },
-      "updated_at": "2026-09-26",
-      "opening_hours_note": "Cơ sở đăng ký hoạt động 24/24 theo hồ sơ Sở Y tế 2026; giờ các phòng khám chuyên khoa có thể khác. | Nguồn du lịch địa phương ghi số 0297 3846 972; cần gọi đối chiếu số tiếp nhận.",
+      "updated_at": "2026-10-01",
+      "opening_hours_note": "Cơ sở hoạt động 24/24; giờ từng phòng khám/chuyên khoa có thể khác.",
       "map": {
         "lat": 10.2147385,
         "lon": 103.968147,
@@ -322,7 +392,7 @@
       "phone": null,
       "what_it_is": "Khu vực có dịch vụ ATM theo danh bạ; vị trí từng máy chưa xác minh.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -330,17 +400,25 @@
           "source_id": "airline_pqc_atm_directory_20260924",
           "url": "https://www.sunphuquocairways.com/vn/vi/travel-info/airports-network/airport/phu-quoc",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "pqc_airport_atms__operation_20261001",
+          "url": "https://www.sunphuquocairways.com/vn/vi/travel-info/airports-network/airport/phu-quoc",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_pqc_airport_atms",
         "verified_identity": true,
-        "verified_operation": false,
-        "source_note": "Trang thông tin sân bay của hãng bay liệt kê BIDV, Vietcombank, Agribank tại sảnh đến và tầng 2. Chưa rõ máy nào thuộc từng vị trí; không gắn pin từng ATM và không khẳng định máy sẵn tiền."
+        "verified_operation": true,
+        "source_note": "Trang thông tin sân bay của hãng bay liệt kê BIDV, Vietcombank, Agribank tại sảnh đến và tầng 2. Chưa rõ máy nào thuộc từng vị trí; không gắn pin từng ATM và không khẳng định máy sẵn tiền.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.sunphuquocairways.com/vn/vi/travel-info/airports-network/airport/phu-quoc",
+        "operation_review_note": "Airport service source lists ATM access 24/24; this is not real-time cash/availability confirmation."
       },
-      "updated_at": "2026-09-26",
-      "opening_hours_note": "Nguồn hàng không niêm yết ATM 24/24; không phải xác nhận thời gian thực hay tồn tiền."
+      "updated_at": "2026-10-01",
+      "opening_hours_note": "ATM được nguồn hàng không niêm yết 24/24; không đảm bảo máy đang hoạt động hoặc còn tiền theo thời gian thực."
     },
     {
       "id": "utility_sun_hospital_an_thoi",
@@ -354,7 +432,7 @@
       "phone": null,
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -362,16 +440,24 @@
           "source_id": "sungroup_sun_hospital_opening_20260423",
           "url": "https://sungroup.com.vn/tin-tuc/khanh-thanh-cong-trinh-dau-tien-trong-chuoi-du-an-phuc-vu-apec-2027-benh-vien-mat-troi-phu-quoc-10699",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "sun_hospital_an_thoi__operation_20261001",
+          "url": "https://sungroup.com.vn/du-an/benh-vien-quoc-te-mat-troi-phu-quoc-6622",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_sun_hospital_an_thoi",
         "verified_identity": true,
-        "verified_operation": false,
-        "source_note": "Nguồn: https://www.openstreetmap.org/way/1467992598. Tâm khuôn viên bệnh viện trên OSM. Chưa phải cổng cấp cứu."
+        "verified_operation": true,
+        "source_note": "Nguồn: https://www.openstreetmap.org/way/1467992598. Tâm khuôn viên bệnh viện trên OSM. Chưa phải cổng cấp cứu.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://sungroup.com.vn/du-an/benh-vien-quoc-te-mat-troi-phu-quoc-6622",
+        "operation_review_note": "Sun Group states the hospital was inaugurated 23/04/2026 and has 24/7 emergency capability."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "map": {
         "lat": 10.0388036,
         "lon": 104.0067047,
@@ -380,7 +466,8 @@
         "source_id": "prior_nearme_20260925",
         "verified_at": "2026-09-25",
         "note": "Vị trí khuôn viên hoặc POI tham khảo. Chưa xác minh lối vào."
-      }
+      },
+      "opening_hours_note": "Bệnh viện đã khánh thành; năng lực cấp cứu 24/7. Giờ khám từng khoa cần kiểm tra trước."
     },
     {
       "id": "utility_dng_clinic_duong_dong",
@@ -394,7 +481,7 @@
       "phone": "1900 3315",
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -407,22 +494,30 @@
           "source_id": "dng_official_google_map_embed_20260928",
           "url": "https://dngclinic.com/lien-he/",
           "checked_at": "2026-09-28"
+        },
+        {
+          "source_id": "dng_clinic_duong_dong__operation_20261001",
+          "url": "https://dngclinic.com/lien-he/",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_dng_clinic_duong_dong",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Nguồn OPERATOR. Chưa có pin GPS đã xác minh; không xếp hạng khoảng cách. Operator công bố giờ tham khảo 07:30-11:30 và 13:30-18:30 cả tuần; không mặc định cấp cứu 24/7.",
         "official_source_recheck_at": "2026-09-27",
         "official_source_note": "Website DNG hiện công bố địa chỉ 40-41C khu tái định cư KP10 Dương Đông tại trang Liên hệ; thay link dịch vụ chung không có địa chỉ là nguồn chính.",
         "verified_entrance": false,
         "gps_review_at": "2026-09-28",
         "gps_review_status": "SITE_CENTROID_ACCEPTED",
-        "gps_review_note": "Tâm cơ sở lấy từ Google Maps iframe do chính website DNG nhúng cho trụ sở chính Dương Đông. Không xác nhận chính xác cửa vào, vị trí cấp cứu hay điểm đón trả."
+        "gps_review_note": "Tâm cơ sở lấy từ Google Maps iframe do chính website DNG nhúng cho trụ sở chính Dương Đông. Không xác nhận chính xác cửa vào, vị trí cấp cứu hay điểm đón trả.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://dngclinic.com/lien-he/",
+        "operation_review_note": "Current DNG contact page lists Dương Đông branch, hotline and daily schedule."
       },
-      "updated_at": "2026-09-28",
+      "updated_at": "2026-10-01",
       "map": {
         "lat": 10.232189,
         "lon": 103.97232,
@@ -432,6 +527,21 @@
         "verified_at": "2026-09-28",
         "note": "Tâm cơ sở lấy từ Google Maps iframe do chính website DNG nhúng cho trụ sở chính Dương Đông. Không xác nhận chính xác cửa vào, vị trí cấp cứu hay điểm đón trả.",
         "accuracy": "operator_embedded_google_map_site_centroid"
+      },
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "07:30",
+            "end": "11:30",
+            "label": "sáng hằng ngày"
+          },
+          {
+            "start": "13:30",
+            "end": "18:30",
+            "label": "chiều hằng ngày"
+          }
+        ],
+        "note": "Website DNG niêm yết lịch này từ Thứ 2 đến Chủ nhật."
       }
     },
     {
@@ -446,7 +556,7 @@
       "phone": "1900 3315",
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -464,20 +574,28 @@
           "source_id": "dng_an_thoi_google_place_20260929",
           "url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJU2YY86iWpzERfGNTGD1eM6Q",
           "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "dng_clinic_an_thoi__operation_20261001",
+          "url": "https://dngclinic.com/lien-he/",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_dng_clinic_an_thoi",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Nguồn OPERATOR xác nhận cơ sở An Thới tại S259-S354 Sun Grand City; exact structured business Place ID được khóa ở mức site centroid bằng nhiều probe khoảng cách. Không suy diễn cửa vào, cấp cứu hay trạng thái tiếp nhận.",
         "official_source_recheck_at": "2026-09-29",
         "official_source_note": "Website DNG hiện công bố địa chỉ S259-S354, Sun Grand City An Thới tại trang Liên hệ; thay link dịch vụ chung không có địa chỉ là nguồn chính.",
         "verified_entrance": false,
-        "gps_evidence_class": "operator_identity_structured_business_site_centroid"
+        "gps_evidence_class": "operator_identity_structured_business_site_centroid",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://dngclinic.com/lien-he/",
+        "operation_review_note": "Current DNG contact page lists An Thới branch, hotline and daily schedule."
       },
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "map": {
         "lat": 10.03629,
         "lon": 104.009,
@@ -487,6 +605,21 @@
         "verified_at": "2026-09-29",
         "note": "Tâm cơ sở DNG An Thới để định hướng. Không xác nhận chính xác cửa vào, vị trí cấp cứu hoặc điểm đón trả.",
         "accuracy": "operator_identity_structured_business_site_centroid"
+      },
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "07:30",
+            "end": "11:30",
+            "label": "sáng hằng ngày"
+          },
+          {
+            "start": "13:30",
+            "end": "18:30",
+            "label": "chiều hằng ngày"
+          }
+        ],
+        "note": "Website DNG niêm yết lịch này từ Thứ 2 đến Chủ nhật."
       }
     },
     {
@@ -501,7 +634,7 @@
       "phone": "1900 232 460",
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -519,21 +652,29 @@
           "source_id": "tgdd_operator_map_20260929",
           "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
           "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "tgdd_142a_ntr__operation_20261001",
+          "url": "https://www.thegioididong.com/sieu-thi-so-142a-142b-duong-nguyen-trung-truc-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-935",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_tgdd_142a_ntr",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố.",
         "gps_review_at": "2026-09-29",
         "gps_review_status": "SITE_CENTROID_ACCEPTED",
         "verified_entrance": false,
         "gps_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
-        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch."
+        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.thegioididong.com/sieu-thi-so-142a-142b-duong-nguyen-trung-truc-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-935",
+        "operation_review_note": "Current exact branch page lists 08:00-21:00 including Sundays and holidays."
       },
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "map": {
         "lat": 10.22274,
@@ -545,7 +686,17 @@
         "note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
         "accuracy": "operator_linked_google_maps_coordinate"
       },
-      "map_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào."
+      "map_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      }
     },
     {
       "id": "utility_tgdd_37_hungvuong",
@@ -559,7 +710,7 @@
       "phone": "1900 232 460",
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -579,20 +730,28 @@
           "checked_at": "2026-09-28",
           "license": "ODbL-1.0",
           "attribution": "© OpenStreetMap contributors"
+        },
+        {
+          "source_id": "tgdd_37_hungvuong__operation_20261001",
+          "url": "https://www.thegioididong.com/sieu-thi-37-hung-vuong-khu-pho-5-nga-4-hung-vuong-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-409",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_tgdd_37_hungvuong",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố.",
         "gps_review_at": "2026-09-28",
         "gps_review_status": "SITE_CENTROID_ACCEPTED",
         "verified_entrance": false,
-        "gps_review_note": "Tâm tòa nhà tại 37 Hùng Vương, KP5 theo exact-address result; đối chiếu đúng cơ sở TGDD chính thức. Không xác nhận chính xác cổng vào."
+        "gps_review_note": "Tâm tòa nhà tại 37 Hùng Vương, KP5 theo exact-address result; đối chiếu đúng cơ sở TGDD chính thức. Không xác nhận chính xác cổng vào.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.thegioididong.com/sieu-thi-37-hung-vuong-khu-pho-5-nga-4-hung-vuong-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-409",
+        "operation_review_note": "Exact operator branch is currently listed; existing operator hours are 08:00-21:00."
       },
-      "updated_at": "2026-09-28",
+      "updated_at": "2026-10-01",
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "map": {
         "lat": 10.2287548,
@@ -604,6 +763,16 @@
         "note": "Tâm tòa nhà tại 37 Hùng Vương, KP5 theo exact-address result; đối chiếu đúng cơ sở TGDD chính thức. Không xác nhận chính xác cổng vào.",
         "accuracy": "exact_house_number_street_neighbourhood_operator_crosscheck",
         "source_license": "ODbL-1.0"
+      },
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
       }
     },
     {
@@ -618,7 +787,7 @@
       "phone": "1900 232 460",
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -636,21 +805,29 @@
           "source_id": "tgdd_operator_map_20260929",
           "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
           "checked_at": "2026-09-29"
+        },
+        {
+          "source_id": "tgdd_104_304__operation_20261001",
+          "url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_tgdd_104_304",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố.",
         "gps_review_at": "2026-09-29",
         "gps_review_status": "SITE_CENTROID_ACCEPTED",
         "verified_entrance": false,
         "gps_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
-        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch."
+        "gps_review_context": "Operator directory link contains numeric Google Maps query coordinates for the exact named/addressed branch.",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+        "operation_review_note": "Current operator directory lists the 104 Ba Mươi Tháng Tư branch; existing operator hours are 08:00-21:00."
       },
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "map": {
         "lat": 10.213899,
@@ -662,7 +839,17 @@
         "note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
         "accuracy": "operator_linked_google_maps_coordinate"
       },
-      "map_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào."
+      "map_review_note": "Tọa độ lấy trực tiếp từ nút Tìm đường trên danh sách cửa hàng chính thức TGDD Phú Quốc. Dùng làm tâm cơ sở; chưa xác nhận chính xác cửa vào.",
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      }
     },
     {
       "id": "utility_tgdd_73_nvc",
@@ -676,7 +863,7 @@
       "phone": "1900 232 460",
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -689,22 +876,30 @@
           "source_id": "tgdd_exact_store_20260924",
           "url": "https://www.thegioididong.com/sieu-thi-so-73-duong-nguyen-van-cu-kp-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1054",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "tgdd_73_nvc__operation_20261001",
+          "url": "https://www.thegioididong.com/sieu-thi-so-73-duong-nguyen-van-cu-kp-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1054",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_tgdd_73_nvc",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Nguồn: https://www.openstreetmap.org/node/6483568745. OSM không có số nhà 73. Đây là vị trí chi nhánh trong khu An Thới, cần kiểm tra số nhà/cửa vào.",
         "verified_entrance": false,
         "operator_gps_verified": false,
         "gps_estimate_source": "OSM_BRAND_NAMED_POI",
         "gps_crosscheck_note": "Trang chính thức xác nhận số 73 KP3 An Thới, OSM POI mang tên thương hiệu trong An Thới; nguồn bên ngoài khác ghi 10.0188205,104.0153275 cách OSM khoảng 5m. Geoapify trả điểm xung đột với số 46 nên KHÔNG dùng Geoapify làm tọa độ.",
         "gps_source_osm_ref": "https://www.openstreetmap.org/node/6483568745",
-        "linked_osm_entity_id": "utility_osm_node_6483568745"
+        "linked_osm_entity_id": "utility_osm_node_6483568745",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.thegioididong.com/sieu-thi-so-73-duong-nguyen-van-cu-kp-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1054",
+        "operation_review_note": "Current exact branch page lists 08:00-21:00 including Sundays and holidays."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "map": {
         "lat": 10.0187955,
@@ -717,6 +912,16 @@
         "verified_at": "2026-09-27",
         "accuracy": "operator_name_area_osm_site_estimate",
         "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa."
+      },
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
       }
     },
     {
@@ -731,7 +936,7 @@
       "phone": "1900 232 461",
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "live_check_required": true,
       "source_refs": [
@@ -744,22 +949,30 @@
           "source_id": "tgdd_exact_store_20260924",
           "url": "https://www.thegioididong.com/sieu-thi-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161",
           "checked_at": "2026-09-24"
+        },
+        {
+          "source_id": "dmx_ganhdau_to7__operation_20261001",
+          "url": "https://www.dienmayxanh.com/dien-may-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161",
+          "checked_at": "2026-10-01"
         }
       ],
       "source_audit": {
         "intake_batch": "2026-09-26",
         "prior_record_id": "utility_dmx_ganhdau_to7",
         "verified_identity": true,
-        "verified_operation": false,
+        "verified_operation": true,
         "source_note": "Địa chỉ và giờ theo website vận hành đang niêm yết. Cần kiểm tra pin chính xác cửa tiệm, tồn hàng, khả năng hỗ trợ SIM/eSIM và giờ thực tế. KHÔNG ghim từ tọa độ tuyến phố.",
         "verified_entrance": false,
         "operator_gps_verified": false,
         "gps_estimate_source": "OSM_BRAND_NAMED_POI",
         "gps_crosscheck_note": "Chỉ một cửa hàng Điện máy XANH thuộc khu Gành Dầu trong danh sách 7 chi nhánh chính thức; OSM POI gắn đúng thương hiệu và Gành Dầu, không dùng kết quả Geoapify sai khu.",
         "gps_source_osm_ref": "https://www.openstreetmap.org/node/11873236278",
-        "linked_osm_entity_id": "utility_osm_node_11873236278"
+        "linked_osm_entity_id": "utility_osm_node_11873236278",
+        "operation_review_at": "2026-10-01",
+        "operation_source_url": "https://www.dienmayxanh.com/dien-may-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161",
+        "operation_review_note": "Current exact branch page lists 08:00-21:00 including Sundays and holidays."
       },
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "map": {
         "lat": 10.3706253,
@@ -772,6 +985,16 @@
         "verified_at": "2026-09-27",
         "accuracy": "operator_name_area_osm_site_estimate",
         "note": "Vị trí cơ sở tham khảo từ OSM trùng tên thương hiệu và khu vực niêm yết của nhà vận hành. KHÔNG xác nhận chính xác cổng vào hoặc tình trạng mở cửa."
+      },
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
       }
     },
     {

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-09-30T09:52:19.320Z",
+  "generated_at": "2026-10-01T12:50:00.000Z",
   "purpose": "Near Me / location lookup index. Không chứa nội dung dài; chỉ các trường cần để tìm địa chỉ, pin và đường đi.",
   "summary": {
     "total": 350,
@@ -8291,16 +8291,16 @@
       "group": "ATM",
       "utility_type": "ATM",
       "opening_hours": null,
-      "opening_hours_note": "Nguồn hàng không niêm yết ATM 24/24; không phải xác nhận thời gian thực hay tồn tiền.",
+      "opening_hours_note": "ATM được nguồn hàng không niêm yết 24/24; không đảm bảo máy đang hoạt động hoặc còn tiền theo thời gian thực.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Khu vực có dịch vụ ATM theo danh bạ; vị trí từng máy chưa xác minh.",
       "route": "/utilities/",
@@ -8830,16 +8830,16 @@
       "group": "Y tế",
       "utility_type": "CLINIC_HOSPITAL",
       "opening_hours": null,
-      "opening_hours_note": null,
+      "opening_hours_note": "Bệnh viện đã khánh thành; năng lực cấp cứu 24/7. Giờ khám từng khoa cần kiểm tra trước.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "route": "/utilities/",
@@ -9131,16 +9131,16 @@
       "group": "Y tế",
       "utility_type": "CLINIC_HOSPITAL",
       "opening_hours": null,
-      "opening_hours_note": null,
+      "opening_hours_note": "Cấp cứu hoạt động 24/7; pin là khuôn viên bệnh viện, không phải cổng cấp cứu.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": null,
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": null,
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế",
       "route": "/utilities/",
@@ -10295,17 +10295,26 @@
       "phone": "0297 3885 998",
       "group": "Điện thoại & điện máy",
       "utility_type": "ELECTRONICS",
-      "opening_hours": null,
-      "opening_hours_note": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:30",
+            "end": "21:30",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Điện Máy - Nội Thất Chợ Lớn; chi nhánh có thể thay đổi."
+      },
+      "opening_hours_note": "Khung giờ hệ thống Điện Máy - Nội Thất Chợ Lớn; chi nhánh có thể thay đổi.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": null,
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": null,
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Siêu thị điện máy và thiết bị điện tử. Đây là địa chỉ cửa hàng, không phải GPS trạm xe buýt.",
       "route": "/utilities/",
@@ -10338,17 +10347,26 @@
       "phone": "1900 232 461",
       "group": "Điện thoại & điện máy",
       "utility_type": "ELECTRONICS",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:30",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      },
       "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cửa hàng Điện máy XANH theo danh sách chi nhánh chính thức. Chưa xác minh vị trí cửa vào hay tình trạng mở cửa hiện tại.",
       "route": "/utilities/",
@@ -10385,13 +10403,13 @@
       "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cửa hàng Điện máy XANH theo danh sách chi nhánh chính thức. Chưa xác minh vị trí cửa vào hay tình trạng mở cửa hiện tại.",
       "route": "/utilities/",
@@ -10424,17 +10442,26 @@
       "phone": "1900 232 461",
       "group": "Điện thoại & điện máy",
       "utility_type": "ELECTRONICS",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      },
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": "ODbL-1.0",
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "route": "/utilities/",
@@ -11800,17 +11827,26 @@
       "phone": "1800 6928",
       "group": "Nhà thuốc",
       "utility_type": "PHARMACY",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
       "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": null,
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": "CHAIN",
       "source_license": null,
-      "updated_at": "2026-09-21",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
       "route": "/utilities/",
@@ -11843,17 +11879,26 @@
       "phone": "1800 6928",
       "group": "Nhà thuốc",
       "utility_type": "PHARMACY",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
       "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": null,
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": "CHAIN",
       "source_license": null,
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
       "route": "/utilities/",
@@ -11885,17 +11930,26 @@
       "phone": "1800 6928",
       "group": "Nhà thuốc",
       "utility_type": "PHARMACY",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
       "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": null,
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": "CHAIN",
       "source_license": null,
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
       "route": "/utilities/",
@@ -11927,17 +11981,26 @@
       "phone": "1800 6928",
       "group": "Nhà thuốc",
       "utility_type": "PHARMACY",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
       "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": "CHAIN",
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
       "route": "/utilities/",
@@ -11960,17 +12023,26 @@
       "phone": "1800 6928",
       "group": "Nhà thuốc",
       "utility_type": "PHARMACY",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
       "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": "CHAIN",
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
       "route": "/utilities/",
@@ -11993,17 +12065,26 @@
       "phone": "1800 6928",
       "group": "Nhà thuốc",
       "utility_type": "PHARMACY",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
       "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": null,
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": "CHAIN",
       "source_license": null,
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Nhà thuốc phục vụ nhu cầu y tế và thuốc thiết yếu",
       "route": "/utilities/",
@@ -12026,17 +12107,26 @@
       "phone": "1800 6928",
       "group": "Nhà thuốc",
       "utility_type": "PHARMACY",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
       "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": "CHAIN",
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Nhà thuốc có địa chỉ được hệ thống vận hành công bố. Giờ từng chi nhánh cần kiểm tra riêng.",
       "route": "/utilities/",
@@ -12062,17 +12152,26 @@
       "phone": "1800 6928",
       "group": "Nhà thuốc",
       "utility_type": "PHARMACY",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "06:00",
+            "end": "23:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+      },
       "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": null,
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": "CHAIN",
       "source_license": null,
-      "updated_at": "2026-09-24",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Nhà thuốc Long Châu tại khu Suối Đá - Dương Tơ",
       "route": "/utilities/",
@@ -12568,17 +12667,31 @@
       "phone": "1900 3315",
       "group": "Y tế",
       "utility_type": "CLINIC_HOSPITAL",
-      "opening_hours": null,
-      "opening_hours_note": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "07:30",
+            "end": "11:30",
+            "label": "sáng hằng ngày"
+          },
+          {
+            "start": "13:30",
+            "end": "18:30",
+            "label": "chiều hằng ngày"
+          }
+        ],
+        "note": "Website DNG niêm yết lịch này từ Thứ 2 đến Chủ nhật."
+      },
+      "opening_hours_note": "Website DNG niêm yết lịch này từ Thứ 2 đến Chủ nhật.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "route": "/utilities/",
@@ -12610,17 +12723,31 @@
       "phone": "1900 3315",
       "group": "Y tế",
       "utility_type": "CLINIC_HOSPITAL",
-      "opening_hours": null,
-      "opening_hours_note": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "07:30",
+            "end": "11:30",
+            "label": "sáng hằng ngày"
+          },
+          {
+            "start": "13:30",
+            "end": "18:30",
+            "label": "chiều hằng ngày"
+          }
+        ],
+        "note": "Website DNG niêm yết lịch này từ Thứ 2 đến Chủ nhật."
+      },
+      "opening_hours_note": "Website DNG niêm yết lịch này từ Thứ 2 đến Chủ nhật.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-28",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "route": "/utilities/",
@@ -12700,13 +12827,13 @@
       "opening_hours_note": null,
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-28",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Dịch vụ giặt ủi tại Phú Quốc, nên xác nhận giờ và nhận/giao đồ.",
       "route": "/utilities/",
@@ -13513,17 +13640,26 @@
       "phone": "1900 232 460",
       "group": "Điện thoại & điện máy",
       "utility_type": "ELECTRONICS",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      },
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "route": "/utilities/",
@@ -13556,17 +13692,26 @@
       "phone": "1900 232 460",
       "group": "Điện thoại & điện máy",
       "utility_type": "ELECTRONICS",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      },
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-29",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "route": "/utilities/",
@@ -13599,17 +13744,26 @@
       "phone": "1900 232 460",
       "group": "Điện thoại & điện máy",
       "utility_type": "ELECTRONICS",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      },
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": "ODbL-1.0",
-      "updated_at": "2026-09-28",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "route": "/utilities/",
@@ -13642,17 +13796,26 @@
       "phone": "1900 232 460",
       "group": "Điện thoại & điện máy",
       "utility_type": "ELECTRONICS",
-      "opening_hours": null,
+      "opening_hours": {
+        "windows": [
+          {
+            "start": "08:00",
+            "end": "21:00",
+            "label": "hằng ngày"
+          }
+        ],
+        "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+      },
       "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": "ODbL-1.0",
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cửa hàng điện thoại và hỗ trợ SIM; hãy kiểm tra dịch vụ và tồn hàng trực tiếp.",
       "route": "/utilities/",
@@ -14073,16 +14236,16 @@
       "group": "Y tế",
       "utility_type": "CLINIC_HOSPITAL",
       "opening_hours": null,
-      "opening_hours_note": "Cơ sở đăng ký hoạt động 24/24 theo hồ sơ Sở Y tế 2026; giờ các phòng khám chuyên khoa có thể khác. | Nguồn du lịch địa phương ghi số 0297 3846 972; cần gọi đối chiếu số tiếp nhận.",
+      "opening_hours_note": "Cơ sở hoạt động 24/24; giờ từng phòng khám/chuyên khoa có thể khác.",
       "phone_alt": null,
       "verified": true,
-      "operational_status": "UNKNOWN",
+      "operational_status": "ACTIVE_CONFIRMED",
       "publication_status": "DIRECTORY_REFERENCE",
       "duplicate_of": null,
       "external_verify_url": null,
       "phone_scope": null,
       "source_license": null,
-      "updated_at": "2026-09-26",
+      "updated_at": "2026-10-01",
       "star_rating": null,
       "what_it_is": "Cơ sở y tế có hồ sơ nguồn, chưa xác nhận tiếp nhận hoặc giờ khám hiện tại.",
       "route": "/utilities/",

@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "locale": "vi",
-  "updated_at": "2026-09-30",
+  "updated_at": "2026-10-01",
   "common": {
     "source_image": "Nguồn ảnh ↗",
     "source_map": "Nguồn bản đồ ↗",
@@ -85,7 +85,27 @@
     "practical": "LƯU Ý THỰC TẾ",
     "practical_title": "Nhớ mấy chuyện này.",
     "sources": "NGUỒN THAM KHẢO",
-    "more": "Ăn tiếp món gì?"
+    "more": "Ăn tiếp món gì?",
+    "image_pending": "Ảnh riêng của món đang được bổ sung",
+    "no_match": "Không có món phù hợp.",
+    "random_empty": "Chọn bữa bạn muốn ăn, tớ gợi ý ba món để lựa.",
+    "meal_breakfast": "Ăn sáng",
+    "meal_lunch": "Ăn trưa",
+    "meal_dinner": "Ăn tối",
+    "meal_snack": "Ăn chơi",
+    "meal_dessert": "Món ngọt",
+    "suggestion_today": "Gợi ý hôm nay",
+    "view_dish": "Xem món này →",
+    "recipe_note": "Công thức có thể thay đổi theo quán. Nếu dị ứng hoặc kiêng ăn, hãy hỏi thành phần thực tế tại nơi bạn gọi món.",
+    "not_found_document_title": "Không tìm thấy món - Open Phu Quoc",
+    "not_found_title": "Không tìm thấy món này.",
+    "not_found_description": "Món có thể đã đổi địa chỉ hoặc chưa được công khai.",
+    "all_dishes": "← Xem tất cả món",
+    "crumb": "ĂN PHÚ QUỐC",
+    "default_how_to_eat": "Ăn lúc món còn nóng; nêm theo khẩu vị riêng.",
+    "visual_context_eyebrow": "ẢNH TƯ LIỆU JOTRIP · BỐI CẢNH CHUNG",
+    "visual_context_title": "Hải sản trong bếp - ảnh không gắn với món cụ thể",
+    "load_error": "Chưa mở được danh sách món ăn."
   },
   "stories": {
     "not_found_title": "Không tìm thấy bài viết này.",

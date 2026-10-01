@@ -1,0 +1,667 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-01",
+  "canonical_files": [
+    "data/entities/utilities.json",
+    "data/entities/nearme-essential-20260926.json",
+    "data/entities/nearme-essential-extension-20260926.json",
+    "data/entities/nearme-essential-extension-20260927.json",
+    "data/entities/nearme-essential-extension-20260927b.json",
+    "data/entities/nearme-essential-extension-20260927c.json",
+    "data/entities/nearme-essential-official-electronics-20260927.json"
+  ],
+  "purpose": "Backward-compatible scoped utility operation enrichment for high-confidence official/current-source records. Community candidates remain fail-closed.",
+  "contract": {
+    "operational_status": "ACTIVE_CONFIRMED means a current operator/government source presently lists or operates the entity. It is not an open-now signal.",
+    "opening_hours": "Source-scoped published schedule only. It is not live open/closed state and may change.",
+    "contacts": "Current directory/operator contacts remain source-scoped; chain hotlines are not local direct lines unless explicitly stated.",
+    "gps": "This file never changes or promotes GPS. Existing map precision, HOLD and community-candidate rules remain authoritative.",
+    "community_candidates": "OSM/community-only utilities are intentionally excluded from this batch and stay unverified/UNKNOWN until independently checked."
+  },
+  "entries": [
+    {
+      "id": "utility_dienmaycholon_nguyen_trung_truc",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://dienmaycholon.com/he-thong-sieu-thi",
+        "note": "Current official store directory lists the Phú Quốc branch at 200A Nguyễn Trung Trực and system hours 08:30-21:30 daily.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "08:30",
+              "end": "21:30",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Điện Máy - Nội Thất Chợ Lớn; chi nhánh có thể thay đổi."
+        }
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0297 3885 998",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://dienmaycholon.com/he-thong-sieu-thi"
+        }
+      ]
+    },
+    {
+      "id": "utility_dmx_107_nvc",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723",
+        "note": "Current exact branch page lists 08:00-21:30 including Sundays and holidays.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "08:00",
+              "end": "21:30",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+        },
+        "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 232 461",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.dienmayxanh.com/dien-may-so-107-nguyen-van-cu-khu-pho-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1723"
+        }
+      ]
+    },
+    {
+      "id": "utility_dmx_162_304",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc",
+        "note": "Current Điện máy XANH directory lists 162 đường 30/4; exact branch hours not promoted in this pass.",
+        "opening_hours_note": "Kiểm tra giờ hoạt động cụ thể trên trang chính thức hoặc liên hệ cửa hàng."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 232 461",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.dienmayxanh.com/he-thong-sieu-thi-dien-may/tinh-an-giang/dac-khu-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "utility_dmx_ganhdau_to7",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.dienmayxanh.com/dien-may-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161",
+        "note": "Current exact branch page lists 08:00-21:00 including Sundays and holidays.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "08:00",
+              "end": "21:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+        },
+        "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 232 461",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.dienmayxanh.com/dien-may-to-7-ap-ganh-dau-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-2161"
+        }
+      ]
+    },
+    {
+      "id": "utility_dng_clinic_an_thoi",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://dngclinic.com/lien-he/",
+        "note": "Current DNG contact page lists An Thới branch, hotline and daily schedule.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "07:30",
+              "end": "11:30",
+              "label": "sáng hằng ngày"
+            },
+            {
+              "start": "13:30",
+              "end": "18:30",
+              "label": "chiều hằng ngày"
+            }
+          ],
+          "note": "Website DNG niêm yết lịch này từ Thứ 2 đến Chủ nhật."
+        }
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 3315",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://dngclinic.com/lien-he/"
+        }
+      ]
+    },
+    {
+      "id": "utility_dng_clinic_duong_dong",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://dngclinic.com/lien-he/",
+        "note": "Current DNG contact page lists Dương Đông branch, hotline and daily schedule.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "07:30",
+              "end": "11:30",
+              "label": "sáng hằng ngày"
+            },
+            {
+              "start": "13:30",
+              "end": "18:30",
+              "label": "chiều hằng ngày"
+            }
+          ],
+          "note": "Website DNG niêm yết lịch này từ Thứ 2 đến Chủ nhật."
+        }
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 3315",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://dngclinic.com/lien-he/"
+        }
+      ]
+    },
+    {
+      "id": "utility_laundry_phuquoc_cuaduong",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://phuquoclaundry.online/our-services/",
+        "note": "Current operator site lists Bến Tràm address, phone and active laundry/pick-up services; hours not re-promoted in this pass."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0877 215 765",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://phuquoclaundry.online/our-services/"
+        }
+      ]
+    },
+    {
+      "id": "utility_longchau_an_thoi",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang",
+        "note": "Current exact branch page lists address, phone and daily system hours.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "06:00",
+              "end": "23:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+        },
+        "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1800 6928",
+          "scope": "CHAIN",
+          "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/46-nguyen-van-cu-p-an-thoi-tp-phu-quoc-tinh-kien-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_longchau_ben_tram",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "note": "Current Phú Quốc directory lists 487 Nguyễn Trung Trực / Chợ Bến Tràm.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "06:00",
+              "end": "23:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+        },
+        "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1800 6928",
+          "scope": "CHAIN",
+          "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_longchau_dt45",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "note": "Current Phú Quốc directory lists ĐT45 / Nghĩa trang Liệt sĩ branch.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "06:00",
+              "end": "23:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+        },
+        "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1800 6928",
+          "scope": "CHAIN",
+          "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_longchau_ganh_dau",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/thua-dat-19-ban-do-12-x-ganh-dau-tp-phu-quoc-tinh-kien-giang",
+        "note": "Current exact branch page lists Gành Dầu branch and opening from 06:00.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "06:00",
+              "end": "23:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+        },
+        "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1800 6928",
+          "scope": "CHAIN",
+          "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/thua-dat-19-ban-do-12-x-ganh-dau-tp-phu-quoc-tinh-kien-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_longchau_ham_ninh",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "note": "Current Phú Quốc directory lists Hàm Ninh branch.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "06:00",
+              "end": "23:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+        },
+        "opening_hours_note": "Long Châu niêm yết khung 06:00-23:00 cho hệ thống; từng chi nhánh có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1800 6928",
+          "scope": "CHAIN",
+          "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_longchau_nguyen_trung_truc",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "note": "Current exact branch page and Phú Quốc directory.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "06:00",
+              "end": "23:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+        },
+        "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1800 6928",
+          "scope": "CHAIN",
+          "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_longchau_suoi_da",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/ap-suoi-da-x-duong-to-tp-phu-quoc-tinh-kien-giang",
+        "note": "Current exact branch page lists Suối Đá branch.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "06:00",
+              "end": "23:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+        },
+        "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1800 6928",
+          "scope": "CHAIN",
+          "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/ap-suoi-da-x-duong-to-tp-phu-quoc-tinh-kien-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_longchau_tran_phu",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang",
+        "note": "Current Long Châu directory lists 8 Phú Quốc branches including 42 Trần Phú.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "06:00",
+              "end": "23:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Khung giờ hệ thống Long Châu; từng nhà thuốc có thể thay đổi."
+        },
+        "opening_hours_note": "Long Châu công bố khung hệ thống 06:00-23:00; giờ từng chi nhánh có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1800 6928",
+          "scope": "CHAIN",
+          "source_url": "https://nhathuoclongchau.com.vn/he-thong-cua-hang/327-nguyen-trung-truc-tt-duong-dong-h-phu-quoc-tinh-kien-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_medical_phuquoc_public_hospital",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://benhandientu.moh.gov.vn/benh-vien/846/trung-tam-y-te-phu-quoc-tinh-an-giang",
+        "note": "MOH facility record supports 24/24 operation; specialty clinic hours may differ.",
+        "opening_hours_note": "Cơ sở hoạt động 24/24; giờ từng phòng khám/chuyên khoa có thể khác."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0297 3846 970",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://benhandientu.moh.gov.vn/benh-vien/846/trung-tam-y-te-phu-quoc-tinh-an-giang"
+        }
+      ]
+    },
+    {
+      "id": "utility_pqc_airport_atms",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.sunphuquocairways.com/vn/vi/travel-info/airports-network/airport/phu-quoc",
+        "note": "Airport service source lists ATM access 24/24; this is not real-time cash/availability confirmation.",
+        "opening_hours_note": "ATM được nguồn hàng không niêm yết 24/24; không đảm bảo máy đang hoạt động hoặc còn tiền theo thời gian thực."
+      }
+    },
+    {
+      "id": "utility_sun_hospital_an_thoi",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://sungroup.com.vn/du-an/benh-vien-quoc-te-mat-troi-phu-quoc-6622",
+        "note": "Sun Group states the hospital was inaugurated 23/04/2026 and has 24/7 emergency capability.",
+        "opening_hours_note": "Bệnh viện đã khánh thành; năng lực cấp cứu 24/7. Giờ khám từng khoa cần kiểm tra trước."
+      }
+    },
+    {
+      "id": "utility_tgdd_104_304",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc",
+        "note": "Current operator directory lists the 104 Ba Mươi Tháng Tư branch; existing operator hours are 08:00-21:00.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "08:00",
+              "end": "21:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+        },
+        "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 232 460",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.thegioididong.com/sieu-thi-the-gioi-di-dong/tinh-an-giang/dac-khu-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "utility_tgdd_142a_ntr",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.thegioididong.com/sieu-thi-so-142a-142b-duong-nguyen-trung-truc-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-935",
+        "note": "Current exact branch page lists 08:00-21:00 including Sundays and holidays.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "08:00",
+              "end": "21:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+        },
+        "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 232 460",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.thegioididong.com/sieu-thi-so-142a-142b-duong-nguyen-trung-truc-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-935"
+        }
+      ]
+    },
+    {
+      "id": "utility_tgdd_37_hungvuong",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.thegioididong.com/sieu-thi-37-hung-vuong-khu-pho-5-nga-4-hung-vuong-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-409",
+        "note": "Exact operator branch is currently listed; existing operator hours are 08:00-21:00.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "08:00",
+              "end": "21:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+        },
+        "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 232 460",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.thegioididong.com/sieu-thi-37-hung-vuong-khu-pho-5-nga-4-hung-vuong-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-409"
+        }
+      ]
+    },
+    {
+      "id": "utility_tgdd_73_nvc",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.thegioididong.com/sieu-thi-so-73-duong-nguyen-van-cu-kp-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1054",
+        "note": "Current exact branch page lists 08:00-21:00 including Sundays and holidays.",
+        "opening_hours": {
+          "windows": [
+            {
+              "start": "08:00",
+              "end": "21:00",
+              "label": "hằng ngày"
+            }
+          ],
+          "note": "Operator niêm yết; gồm Chủ nhật và ngày lễ."
+        },
+        "opening_hours_note": "Operator niêm yết 08:00-21:00; không phải trạng thái mở cửa thời gian thực."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "1900 232 460",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.thegioididong.com/sieu-thi-so-73-duong-nguyen-van-cu-kp-3-dac-khu-phu-quoc-tinh-an-giang-viet-nam-id-1054"
+        }
+      ]
+    },
+    {
+      "id": "utility_vinmec",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.vinmec.com/vie/bai-viet/contact_vinmec-healthcare-system-vi",
+        "note": "Current Vinmec contact page lists Vinmec Phú Quốc and hotline 0297 398 5588; outpatient hours vary by specialty."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0297 3985 588",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.vinmec.com/vie/bai-viet/contact_vinmec-healthcare-system-vi"
+        }
+      ]
+    },
+    {
+      "id": "utility_vinmec_er",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.vinmec.com/vie/bai-viet/danh-sach-trung-tam-cap-cuu-o-phu-quoc",
+        "note": "Vinmec states Phú Quốc emergency service and emergency hotline operate 24/7.",
+        "opening_hours_note": "Cấp cứu hoạt động 24/7."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "02973 98 55 11",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.vinmec.com/vie/bai-viet/danh-sach-trung-tam-cap-cuu-o-phu-quoc"
+        }
+      ]
+    },
+    {
+      "id": "utility_vinmec_phuquoc_emergency",
+      "review_state": "ACTIVE_CONFIRMED_CURRENT_SOURCE",
+      "operations": {
+        "status": "ACTIVE_CONFIRMED",
+        "checked_at": "2026-10-01",
+        "source_url": "https://www.vinmec.com/vie/bai-viet/danh-sach-trung-tam-cap-cuu-o-phu-quoc",
+        "note": "Vinmec states Phú Quốc emergency service and hotline operate 24/7.",
+        "opening_hours_note": "Cấp cứu hoạt động 24/7; pin là khuôn viên bệnh viện, không phải cổng cấp cứu."
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "02973 98 55 11",
+          "scope": "current_directory_or_operator",
+          "source_url": "https://www.vinmec.com/vie/bai-viet/danh-sach-trung-tam-cap-cuu-o-phu-quoc"
+        }
+      ]
+    }
+  ],
+  "conflicts": [],
+  "coverage": {
+    "canonical_utilities": 182,
+    "batch_scope": "official/current-source high-confidence utilities - batch 1",
+    "batch_entries": 25,
+    "operation_confirmed": 25,
+    "opening_hours_structured": 17,
+    "note": "This is not a completed research pass for all utilities. Unlisted rows remain canonical-only and retain their prior verification state."
+  },
+  "updated_at": "2026-10-01"
+}
