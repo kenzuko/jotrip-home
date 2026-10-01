@@ -135,10 +135,13 @@ jobs:
           PYTHONPATH: scripts/weather-engine
         run: python -m unittest discover -s scripts/weather-engine/weather/tests -v
 
-      - name: Test Weather V2 Ground Truth UI contract
+      - name: Test Weather V2 and V3 public contracts
         run: |
           node --check weather/weather-v2.js
           node scripts/weather-v2-groundtruth-ui.test.mjs
+          node --check weather/weather-v3-public-contract.js
+          node --check weather/weather-v3-public.js
+          node scripts/weather-cms-v3-public.test.mjs
 
       - name: Build Worker assets
         run: |
@@ -273,6 +276,10 @@ jobs:
           for path in / /go/ /nearme/ /explore/ /weather/ /airport/ /transit/ /bus/ /cano/ /utilities/ /currency/ /guide/knowledge.html /robots.txt /sitemap.xml; do
             curl -fsSL "$origin$path" -o /dev/null || { echo "::error::Production route failed: $path"; exit 1; }
           done
+          curl -fsSL "$origin/weather/?v3=$GITHUB_SHA" -o /tmp/openpq-weather-v3.html
+          grep -Fq 'class="weather-version-badge"' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Weather V3 badge missing"; exit 1; }
+          grep -Fq 'id="v3ObservationPanel"' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Weather V3 panel missing"; exit 1; }
+          grep -Fq '/weather/weather-v3-public.js?v=20261001-corev3-1' /tmp/openpq-weather-v3.html || { echo "::error::Canonical Weather V3 asset missing"; exit 1; }
           curl -fsSL "$origin/" -o /tmp/openpq-home.html
           grep -Fq '<link rel="canonical" href="https://openphuquoc.com/">' /tmp/openpq-home.html || { echo "::error::Homepage canonical is missing or incorrect"; exit 1; }
           curl -fsSL "$origin/robots.txt" -o /tmp/openpq-robots.txt

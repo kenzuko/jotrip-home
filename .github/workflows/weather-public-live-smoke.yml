@@ -1,0 +1,42 @@
+name: Weather public live smoke
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "home-live-v3.js"
+      - "weather/**"
+      - "functions/_shared/weather-edge.js"
+      - "functions/weather/**"
+      - "worker.js"
+      - "scripts/weather-public-live-smoke.mjs"
+      - ".github/workflows/weather-public-live-smoke.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: weather-public-live-smoke
+  cancel-in-progress: true
+
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install Playwright
+        run: npm install --no-save --package-lock=false playwright@1.63.0
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Allow canonical Worker/CDN to settle
+        run: sleep 50
+      - name: Verify homepage and canonical Weather
+        env:
+          OPENPQ_BASE: https://openphuquoc.com
+        run: node scripts/weather-public-live-smoke.mjs
