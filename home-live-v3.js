@@ -430,26 +430,6 @@ function freshnessText(iso, prefix = "Cập nhật") {
       String(fallback).replace(/\{([A-Za-z0-9_]+)\}/g, (_, k) =>
         Object.prototype.hasOwnProperty.call(vars, k) ? String(vars[k]) : "{" + k + "}");
     const humanWeather = window.OpenPQHumanWeather?.homepage?.(critical, {i18n:window.OpenPQI18n}) || null;
-    const weatherTemp = humanWeather?.temperatureC ?? vvpq?.temperature_c ?? dd?.local?.temperature_c ?? null;
-    const weatherWind = vvpq?.wind_kmh ?? dd?.local?.wind_kmh ?? null;
-    const weatherObservedAt = humanWeather?.observedAt || vvpq?.observed_at || criticalStamp;
-    const weatherAge = ageMinutes(weatherObservedAt);
-    const weatherSource = vvpq
-      ? wh("source_actual", {}, "Quan trắc thực tế")
-      : dd?.local?.temperature_class === "ESTIMATED_NOW"
-        ? wh("source_estimated", {}, "Ước tính hiện tại")
-        : "JoTrip Weather";
-    const weatherPrimary = humanWeather?.primary || (weatherTemp != null ? Math.round(weatherTemp) + "°" : "--");
-    const weatherSecondary = humanWeather?.secondary || (weatherTemp != null
-      ? (weatherWind != null ? wh("wind", {speed:Math.round(weatherWind)}, "Gió {speed} km/h") + " · " : "") + weatherSource
-      : wh("no_new_weather", {}, "Chưa có thông tin thời tiết mới"));
-    const weatherState = weatherAge > 180 || islandDecision.status === "unknown" ? "unknown" :
-      islandDecision.status === "normal" && weatherAge <= 60 ? "good" : "watch";
-    const weatherPublicFreshness = weatherAge <= 60
-      ? freshnessText(weatherObservedAt)
-      : weatherAge <= 180
-        ? wh("updating", {}, "Đang cập nhật")
-        : wh("data_delayed", {}, "Dữ liệu đang trễ");
 
     const areaToPoint = {
       zone_central_west:"duong_dong",
@@ -461,17 +441,51 @@ function freshnessText(iso, prefix = "Cập nhật") {
     function selectedWeatherContext() {
       const area = window.OpenPQArea?.get?.() || "all";
       const pointId = areaToPoint[area] || "duong_dong";
+      const point = critical?.points?.[pointId] || critical?.points?.duong_dong || null;
       const view = window.OpenPQWeatherShortView?.pointView?.(critical, nowcast, pointId) || null;
-      return {area, pointId, view};
+      return {area, pointId, point, view};
     }
     function renderHomeWeather() {
       const weatherContext = selectedWeatherContext();
-      const secondary =
-        weatherContext.view?.now?.state === "ACTUAL_RAIN"
+      const point = weatherContext.point;
+      const local = point?.local || {};
+      const localStamp = critical?.local_generated_at || criticalStamp;
+      const localAge = ageMinutes(localStamp);
+      const localTemp = Number(local.temperature_c);
+      const localUsable =
+        local.available !== false &&
+        local.temperature_class === "ESTIMATED_NOW" &&
+        Number.isFinite(localTemp) &&
+        localAge <= 45;
+
+      let primary, secondary, state, freshness;
+      if (localUsable) {
+        primary = Math.round(localTemp) + "°";
+        secondary = weatherContext.view?.now?.state === "ACTUAL_RAIN"
           ? weatherContext.view.now.headline
-          : weatherSecondary;
-      setLive("weather", weatherPrimary, secondary, weatherState, weatherPublicFreshness);
-      setContext("weather", weatherPrimary, secondary, weatherState);
+          : (point?.name || "Phú Quốc") + " · " + wh("source_estimated", {}, "Ước tính lúc này");
+        state = islandDecision.status === "unknown" ? "unknown" :
+          islandDecision.status === "normal" ? "good" : "watch";
+        freshness = freshnessText(localStamp, "Ước tính");
+      } else {
+        const airportTemp = humanWeather?.temperatureC ?? vvpq?.temperature_c ?? null;
+        const airportAt = humanWeather?.observedAt || vvpq?.observed_at || null;
+        const airportAge = ageMinutes(airportAt);
+        primary = airportTemp != null ? Math.round(airportTemp) + "°" : "--";
+        secondary = weatherContext.view?.now?.state === "ACTUAL_RAIN"
+          ? weatherContext.view.now.headline
+          : humanWeather?.secondary || (airportTemp != null
+            ? wh("actual_at", {location:"Sân bay Phú Quốc"}, "Đo thực tế tại {location}")
+            : wh("no_new_weather", {}, "Chưa có thông tin thời tiết mới"));
+        state = airportAge > 180 || islandDecision.status === "unknown" ? "unknown" :
+          islandDecision.status === "normal" && airportAge <= 60 ? "good" : "watch";
+        freshness = Number.isFinite(airportAge)
+          ? freshnessText(airportAt, "Số đo")
+          : wh("updating", {}, "Đang cập nhật");
+      }
+
+      setLive("weather", primary, secondary, state, freshness);
+      setContext("weather", primary, secondary, state);
       return weatherContext;
     }
     renderHomeWeather();
