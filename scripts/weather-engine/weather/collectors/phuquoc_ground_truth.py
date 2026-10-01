@@ -25,8 +25,9 @@ AWC_URL = "https://aviationweather.gov/api/data/metar?ids=VVPQ&format=json&hours
 VRAIN_CURRENT_URL = "https://data.vrain.vn/public/current/all.json"
 VRAIN_TIME_URL = "https://vrain.vn/api/public/v1/time"
 USER_AGENT = "JoTrip-WeatherLab/2.0 ground-truth collector (public data)"
-GROUNDTRUTH_SEED = Path("weather/groundtruth/corpus/observations_seed_v6.csv")
-GROUNDTRUTH_REGISTRY = Path("weather/config/groundtruth_sources.json")
+ENGINE_ROOT = Path(__file__).resolve().parents[1]
+GROUNDTRUTH_SEED = ENGINE_ROOT / "groundtruth" / "corpus" / "observations_seed_v6.csv"
+GROUNDTRUTH_REGISTRY = ENGINE_ROOT / "config" / "groundtruth_sources.json"
 
 PHU_QUOC_RAIN_BOUNDS = (9.80, 10.55, 103.65, 104.25)
 
