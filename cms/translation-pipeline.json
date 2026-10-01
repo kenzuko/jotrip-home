@@ -22,6 +22,16 @@
         "updated_at"
       ]
     },
+    "place_explainers": {
+      "source_path": "data/i18n/vi/place-explainers.json",
+      "target_path_pattern": "data/i18n/{locale}/place-explainers.json",
+      "mode": "document",
+      "exclude_root_keys": [
+        "schema_version",
+        "locale",
+        "updated_at"
+      ]
+    },
     "stories": {
       "source_path": "data/content.json",
       "target_path_pattern": "data/i18n/{locale}/stories.json",
