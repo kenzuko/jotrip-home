@@ -2,7 +2,7 @@
   "use strict";
 
   const $=s=>document.querySelector(s);
-  const ENGLISH=(document.documentElement.lang||"vi").toLowerCase().startsWith("en");
+  const ENGLISH=(document.documentElement?.lang||"vi").toLowerCase().startsWith("en");
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 
   const FALLBACK_AREAS=[
