@@ -140,8 +140,11 @@ assert.match(home,/const weatherPrimary = weatherSnapshot\.primary/);
 assert.match(home,/source_class: weatherSnapshot\.sourceClass/);
 assert.match(home,/const weatherSource = weatherSnapshot\.sourceClass/);
 assert.match(home,/localNow\?\.points\?\.\[pointId\]/);
-assert.ok(home.indexOf('local.temperature_c') < home.indexOf('humanWeather?.temperatureC ?? vvpq?.temperature_c'),
-  "Homepage Weather must prefer the current point estimate before falling back to periodic VVPQ");
+assert.doesNotMatch(home,/humanWeather\?\.temperatureC\s*\?\?\s*vvpq\?\.temperature_c/,
+  "Homepage Weather must never promote periodic VVPQ to current local temperature");
+assert.doesNotMatch(home,/sourceClass:localUsable\?"ESTIMATED_NOW":\(vvpq\?"ACTUAL_REFERENCE"/,
+  "Homepage Weather fallback must not classify VVPQ as the current weather source");
+assert.match(home,/sourceClass = directRain \? "ACTUAL_RAIN" : "UNAVAILABLE"/);
 assert.match(homepage,/weather\/weather-v3-public-contract\.js/);
 assert.match(weather,/id="v3ObservationPanel"/);
 assert.match(weather,/v3-evidence-disclosure/);
