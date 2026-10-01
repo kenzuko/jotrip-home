@@ -42,7 +42,7 @@ async function mount(target,{kind="",id=""}={}){
 }
 async function autoMount(){
   if(!document.body||!root.OpenPQI18n)return false;
-  const header=document.querySelector(".site-header, header.top, header.knowledge-header, header[role=banner], body > header");
+  const header=document.querySelector(".site-header, header.top, header.knowledge-header, header[role=banner], body > header, header");
   if(!header)return false;
   let host=document.querySelector("[data-openpq-language-switcher-auto]");
   if(!host){
