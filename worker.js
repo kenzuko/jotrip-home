@@ -124,29 +124,12 @@ function technicalLocalizedAsset(pathname){
   return /^\/(?:assets|core|data|localized-pages)\//.test(pathname)||
     /\.(?:js|css|json|png|jpe?g|webp|svg|ico|woff2?|map)$/i.test(pathname);
 }
-const EN_PUBLIC_PAGES=new Set([
-  "/","/index.html",
-  "/stories","/stories/","/stories/index.html","/stories/article","/stories/article.html",
-  "/guide/knowledge","/guide/knowledge.html","/guide/article","/guide/article.html",
-  "/food","/food/","/food/index.html","/food/article","/food/article.html",
-  "/airport","/airport/","/airport/index.html"
-]);
 function localizedPageSupported(locale,pathname){
   if(locale===DEFAULT_LOCALE)return true;
-  if(locale==="en")return EN_PUBLIC_PAGES.has(String(pathname||"/"));
-  return false;
-}
-function localizedTemplatePath(locale,pathname){
-  if(locale!=="en")return null;
-  const path=String(pathname||"/");
-  if(path==="/"||path==="/index.html")return"/localized-pages/en/index.html";
-  if(path==="/stories"||path==="/stories/"||path==="/stories/index.html")return"/localized-pages/en/stories/index.html";
-  if(path==="/stories/article"||path==="/stories/article.html")return"/localized-pages/en/stories/article.html";
-  if(path==="/guide/knowledge"||path==="/guide/knowledge.html")return"/localized-pages/en/guide/knowledge.html";
-  if(path==="/guide/article"||path==="/guide/article.html")return"/localized-pages/en/guide/article.html";
-  if(path==="/food"||path==="/food/"||path==="/food/index.html")return"/localized-pages/en/food/index.html";
-  if(path==="/food/article"||path==="/food/article.html")return"/localized-pages/en/food/article.html";
-  return null;
+  // Publication and surface policy are enforced by localeCanServe().
+  // Once a locale is released site-wide, it uses the same public HTML,
+  // engines, APIs and live data as Vietnamese.
+  return locale==="en" && !/^\/(?:admin|api|cms)(?:\/|$)/.test(String(pathname||"/"));
 }
 const LANGUAGE_COOKIE="openpq_lang";
 function cookieValue(request,name){
@@ -278,8 +261,8 @@ export default {
     // Cloudflare may canonicalize *.html to extensionless paths; dropping ?id=
     // here makes the client article reader lose the requested record.
     const assetUrl = new URL(routedUrl);
-    const localizedTemplate=localeRoute.localized?localizedTemplatePath(locale,url.pathname):null;
-    if(localizedTemplate)assetUrl.pathname=localizedTemplate;
+    // All locales share the exact same public shell and application runtime.
+    // Locale-specific presentation is applied by the edge + i18n runtime.
     const assetResponse = await env.ASSETS.fetch(new Request(assetUrl.toString(), routedRequest));
     const available=publishedLocales().filter(x=>localeCanServe(x.code,url.pathname)).map(x=>x.code);
     if(meta){
