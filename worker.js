@@ -128,7 +128,8 @@ const EN_PUBLIC_PAGES=new Set([
   "/","/index.html",
   "/stories","/stories/","/stories/index.html","/stories/article","/stories/article.html",
   "/guide/knowledge.html","/guide/article","/guide/article.html",
-  "/food","/food/","/food/index.html","/food/article","/food/article.html"
+  "/food","/food/","/food/index.html","/food/article","/food/article.html",
+  "/airport","/airport/","/airport/index.html"
 ]);
 function localizedPageSupported(locale,pathname){
   if(locale===DEFAULT_LOCALE)return true;
