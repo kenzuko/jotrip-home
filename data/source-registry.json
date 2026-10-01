@@ -948,6 +948,34 @@
         "price_grand_world_combo_venice_tinh_hoa",
         "price_grand_world_combo_venice_teddy"
       ]
+    },
+    {
+      "id": "sunworld_hon_thom_live_hours_20261001",
+      "type": "OFFICIAL_OPERATOR",
+      "label": "Sun World Hòn Thơm - current operating hours",
+      "url": "https://sunworld.vn/vi/hon-thom",
+      "checked_at": "2026-10-01",
+      "dynamic": true,
+      "trust": "OFFICIAL_OPERATOR_PUBLIC",
+      "used_by": [
+        "activity_hon_thom",
+        "trip_clock",
+        "activity_board"
+      ]
+    },
+    {
+      "id": "visitpq_night_market_current_20260929",
+      "type": "OFFICIAL_TOURISM",
+      "label": "Visit Phu Quoc - night market update 29/09/2026",
+      "url": "https://visitphuquoc.com.vn/vi/thien-duong-am-thuc-trong-cho-dem-lon-nhat-phu-quoc-126",
+      "published_at": "2026-09-29",
+      "checked_at": "2026-10-01",
+      "dynamic": true,
+      "trust": "OFFICIAL_DESTINATION_PORTAL",
+      "used_by": [
+        "place_night_market",
+        "trip_clock"
+      ]
     }
   ],
   "rules": [

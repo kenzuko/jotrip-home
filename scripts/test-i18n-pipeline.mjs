@@ -4,7 +4,7 @@ import {spawnSync} from "node:child_process";
 
 const config=JSON.parse(fs.readFileSync("cms/translation-pipeline.json","utf8"));
 const lifecycle=JSON.parse(fs.readFileSync("cms/translation-lifecycle.json","utf8"));
-const expected=["ui","stories","knowledge","food"];
+const expected=["ui","place_explainers","stories","knowledge","food"];
 assert.deepEqual(Object.keys(config.families),expected);
 assert.deepEqual(lifecycle.families.map(x=>x.id).sort(),[...expected].sort());
 for(const [id,family] of Object.entries(config.families)){
