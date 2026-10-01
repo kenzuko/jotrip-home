@@ -1073,16 +1073,82 @@
       ]
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    {
+      "id": "utility_vcb_atm_an_thoi",
+      "state": "LOCATION_CONFIRMED_OPERATION_UNKNOWN",
+      "reason": "Vietcombank sources confirm PGD An Thới at 199 Nguyễn Văn Cừ, but do not prove this specific ATM is currently available/working.",
+      "next_evidence": "Current Vietcombank ATM locator or direct branch confirmation.",
+      "source_url": "https://www.vietcombank.com.vn/-/media/Project/VCB-Sites/VCB/Tin-tuc/2024/Vietcombank/Vietcombank_202411/Vietcombank_20241121/Danh-sach-diem-giao-dich-Vietcombank.pdf"
+    },
+    {
+      "id": "utility_fuel_dong_loi_1",
+      "state": "DIRECTORY_LISTED_OPERATION_UNKNOWN",
+      "reason": "Current Phú Quốc tourism utility directory lists the station and phone, but no operator/live sales-status source was found.",
+      "next_evidence": "Current operator/business-license or first-party confirmation.",
+      "source_url": "https://dulich.phuquoc.gov.vn/iv/detailutilities/?child=1240&id=1240"
+    },
+    {
+      "id": "utility_fuel_my_anh_an_thoi",
+      "state": "DIRECTORY_LISTED_OPERATION_UNKNOWN",
+      "reason": "Current tourism directory lists Cây xăng Mỹ Anh; no sufficiently current operator/live-sales evidence found.",
+      "next_evidence": "Current operator/business-license or first-party confirmation.",
+      "source_url": "https://dulich.phuquoc.gov.vn/iv/detailutilities/?child=1240&id=1240"
+    },
+    {
+      "id": "utility_fuel_nhi_phung_ganh_dau",
+      "state": "LICENSE_AND_DIRECTORY_OPERATION_UNKNOWN",
+      "reason": "Government environmental permit establishes the exact facility and current tourism directory still lists Nhi Phụng, but this does not prove retail sales are open now.",
+      "next_evidence": "Current operator or regulator retail-operation confirmation.",
+      "source_url": "https://phuquoc.angiang.gov.vn/giay-phep-moi-truong-cho-doanh-nghiep-tu-nhan-nhi-phung"
+    },
+    {
+      "id": "utility_parking_sunset_nightmarket",
+      "state": "AREA_SERVICE_OPERATION_UNKNOWN",
+      "reason": "Sunset Town content supports parking availability in the area, but not this exact named parking facility as a continuously operated entity.",
+      "next_evidence": "Current Sun Group/Sunset Town exact parking-facility notice or on-site confirmation.",
+      "source_url": "https://www.sunset-town.com/en/booking/sun-bavaria-gastropub-dining-sunset-town-phu-quoc/"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_67",
+      "state": "MAP_IDENTITY_OPERATION_UNKNOWN",
+      "reason": "Exact structured-map identity exists, but no current operator/municipal operating-hours source was found.",
+      "next_evidence": "Current Sunset Town/municipal facility confirmation.",
+      "source_url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJl-3yUwCVpzERceqfSiIeqEQ"
+    },
+    {
+      "id": "utility_toilet_sunset_venice_02",
+      "state": "MAP_IDENTITY_OPERATION_UNKNOWN",
+      "reason": "Exact structured-map identity exists, but no current operator/municipal operating-hours source was found.",
+      "next_evidence": "Current Sunset Town/municipal facility confirmation.",
+      "source_url": "https://www.google.com/maps/search/?api=1&query_place_id=ChIJ2aIjdACVpzER_zly-E9hYs8"
+    },
+    {
+      "id": "utility_minimart_one_mart_duong_dong",
+      "state": "REGISTRY_AND_MAP_OPERATION_UNKNOWN",
+      "reason": "Business registry and exact map identity support the entity/location, but no first-party current operation source was found.",
+      "next_evidence": "Current operator page, direct contact confirmation, or recent official business status.",
+      "source_url": "https://masothue.com/8461194714-001-ho-kinh-doanh-one-mart"
+    },
+    {
+      "id": "utility_jotrip_local_service",
+      "state": "FIRST_PARTY_SOURCE_MISSING_IN_DATA",
+      "reason": "Canonical record is verified but currently lacks a public source URL in source_refs; do not infer operation status from ownership/context alone.",
+      "next_evidence": "Current JoTrip public service/contact page URL added as source evidence.",
+      "source_url": null
+    }
+  ],
   "coverage": {
     "canonical_utilities": 182,
     "batch_scope": "official/current-source high-confidence utilities - batches 1-3",
     "batch_entries": 47,
     "operation_confirmed": 47,
     "opening_hours_structured": 19,
-    "note": "Three current-source batches are complete; community/OSM-only and location-only evidence remain fail-closed.",
+    "note": "Three current-source batches complete. Nine non-community/high-priority rows remain explicitly unresolved; 122 ODbL community candidates remain fail-closed.",
     "batch_2_entries": 19,
-    "batch_3_entries": 3
+    "batch_3_entries": 3,
+    "operation_unresolved_high_priority": 9,
+    "community_candidates_fail_closed": 122
   },
   "updated_at": "2026-10-01"
 }
