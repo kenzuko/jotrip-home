@@ -994,7 +994,7 @@ function renderHero(){
   if(humanSummary){
     const situation=humanSummary.situation?.text||"";
     const motion=humanSummary.motion?.text||"";
-    heroSummary=situation&&motion?motion:(!situation&&motion?"":humanSummary.detail||"");
+    heroSummary=situation&&motion?motion:"";
   }else{
     heroSummary=summary(p);
     if(humanRain?.evidenceClass==="ACTUAL"&&humanRain?.rainObserved===true&&humanRain?.detail)heroSummary=humanRain.detail;
