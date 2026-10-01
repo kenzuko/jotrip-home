@@ -115,12 +115,11 @@ for(const p of problems){
 }
 if(unique.length){
   console.error("EN full-site residue audit FAILED:",unique.length,"untranslated UI/prose strings");
-  for(const p of unique.slice(0,250)){
+  for(const p of unique){
     console.error("\n["+p.file+"]");
     console.error("VI:",p.before);
     console.error("EN:",p.after);
   }
-  if(unique.length>250)console.error("\n... plus",unique.length-250,"more");
   process.exit(1);
 }
 console.log("PASS EN full-site residue audit:",files.length,"public HTML/JS files; 0 Vietnamese UI/prose residues");
