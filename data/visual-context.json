@@ -3920,19 +3920,16 @@
       "title": "Câu mực đêm",
       "images": [
         {
-          "url": "/assets/media/jotrip-night-fishing-2025.jpg",
-          "alt": "Khách và thủy thủ trên tàu câu ban đêm với cá vừa đánh bắt",
-          "caption": "Một chuyến câu đêm thực tế trong thư viện JoTrip.",
-          "scope": "field_evidence",
-          "source_label": "Ảnh: JoTrip",
-          "source_file_id": "1SIrqziMxGIvvD7WnKMwk7ARj_Iqio5yr",
-          "source_library": "JOTRIP_LICENSED_IMAGES",
-          "source_modified_at": "2025-11-18",
-          "rights": "JoTrip licensed photo library",
-          "captured_at": "2025-11-18",
+          "url": "https://gcs.tripi.vn/public-tripi/tripi-feed/img/474791pBY/cau-muc-dem-phu-quoc-ivivu-3.jpg",
+          "alt": "Du khách trải nghiệm câu mực đêm trên tàu ở Phú Quốc",
+          "caption": "Trải nghiệm câu mực đêm trên biển Phú Quốc.",
+          "scope": "activity_context",
+          "source_label": "Internet - iVIVU/Tripi",
+          "source_url": "https://gcs.tripi.vn/public-tripi/tripi-feed/img/474791pBY/cau-muc-dem-phu-quoc-ivivu-3.jpg",
           "hero_priority": "primary",
-          "visual_quality": "field",
-          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED"
+          "visual_quality": "hero",
+          "rights_status": "SOURCE_CREDITED_REUSE_PERMISSION_UNVERIFIED",
+          "curated_for_public": true
         }
       ]
     },
