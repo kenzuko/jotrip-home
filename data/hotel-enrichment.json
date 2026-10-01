@@ -7,11 +7,44 @@
     "contacts": "Array of scoped operator/booking/directory contacts; never overwrite canonical phone automatically.",
     "capacity": "Array of source-scoped inventory evidence; never overwrite room_count automatically.",
     "star_claims": "Non-official claims stay separate from official classification.",
-    "operations": "Optional operational facts such as check-in/out/front desk; each should come from the attached entry evidence.",
+    "operations": "Source-scoped operational facts such as check-in/out/front-desk. Do not infer when absent.",
     "conflicts": "Fail-closed identity/address/contact/capacity decisions.",
-    "gps": "This file never promotes GPS and must not be used to bypass hotel GPS HOLD/quarantine."
+    "gps": "This file never promotes GPS and must not be used to bypass hotel GPS HOLD/quarantine.",
+    "amenity_claims": "Source-scoped amenity/service claims; not a promise of current availability. Preserve source and checked_at."
   },
   "entries": [
+    {
+      "id": "hotel_amarin_resort_and_spa",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://amarinresort.com.vn/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://amarinresort.com.vn/"
+      }
+    },
+    {
+      "id": "hotel_bach_duong_resort",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sales@bachduongresort.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/bachduong"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "front_desk_24h",
+            "restaurant"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/bachduong",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
     {
       "id": "hotel_best_western_premier_sonasea_phu_quoc",
       "review_state": "VERIFIED_WEBSITE",
@@ -39,6 +72,120 @@
       ]
     },
     {
+      "id": "hotel_bien_xanh",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sale@bienxanh.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/en/bienxanh"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "pool",
+            "front_desk_24h",
+            "wifi"
+          ],
+          "source_url": "https://checkinangiang.vn/en/bienxanh",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_boulevard",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "http://boulevardphuquoc.com",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "http://boulevardphuquoc.com"
+      }
+    },
+    {
+      "id": "hotel_brenta_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://brentaphuquoc.com",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://brentaphuquoc.com"
+      }
+    },
+    {
+      "id": "hotel_caesar_viet_nam",
+      "review_state": "IDENTITY_PROFILE_ONLY"
+    },
+    {
+      "id": "hotel_camellia_resort_spa",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://camelliaphuquoc.com",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://camelliaphuquoc.com"
+      },
+      "contacts": [
+        {
+          "type": "email",
+          "value": "camelliaphuquoc@gmail.com",
+          "scope": "operator_or_profile",
+          "source_url": "https://tourism.angiang.gov.vn/en/hotel/13921"
+        }
+      ],
+      "capacity": [
+        {
+          "value": 29,
+          "unit": "rooms",
+          "scope": "tourism_profile",
+          "source_url": "https://tourism.angiang.gov.vn/en/hotel/13921"
+        }
+      ],
+      "operations": {
+        "check_in": "12:00",
+        "check_out": "12:00"
+      },
+      "star_claims": [
+        {
+          "value": 3.5,
+          "scope": "tourism_profile",
+          "source_url": "https://tourism.angiang.gov.vn/en/hotel/13921"
+        }
+      ]
+    },
+    {
+      "id": "hotel_chensea",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.chensea-resort.com",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.chensea-resort.com"
+      }
+    },
+    {
+      "id": "hotel_coral_bay_resort_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.coralbayphuquoc.com/en/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.coralbayphuquoc.com/en/"
+      }
+    },
+    {
+      "id": "hotel_cottage_village",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://cottagevillagephuquoc.vn/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://cottagevillagephuquoc.vn/"
+      }
+    },
+    {
       "id": "hotel_crowne_plaza_phu_quoc_starbay",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
@@ -47,6 +194,277 @@
         "verified_at": "2026-10-01",
         "source_url": "https://phuquoc.crowneplaza.com/vi/"
       }
+    },
+    {
+      "id": "hotel_daisy_resort",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://daisyresort.vn/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://daisyresort.vn/"
+      }
+    },
+    {
+      "id": "hotel_dao_ngoc_the_ky_21",
+      "review_state": "REVIEW_CAPACITY",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "info@daongochotel.vn",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/daongoc"
+        }
+      ],
+      "capacity": [
+        {
+          "value": 75,
+          "unit": "rooms",
+          "scope": "tourism_profile_secondary",
+          "source_url": "https://checkinangiang.vn/vi/daongoc"
+        }
+      ]
+    },
+    {
+      "id": "hotel_duc_lam_ha",
+      "review_state": "REVIEW_BRAND_SCOPE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sales@duclamha.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/duclamha"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "indoor_pool",
+            "outdoor_pool",
+            "kids_playground",
+            "hot_tub",
+            "gym",
+            "restaurant",
+            "bar"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/duclamha",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_duong_dong",
+      "review_state": "IDENTITY_PROFILE_ONLY"
+    },
+    {
+      "id": "hotel_elwood_resort_phu_quoc",
+      "review_state": "REVIEW_STAR",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sm@elwoodpremierresort.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/elwood"
+        }
+      ],
+      "star_claims": [
+        {
+          "value": 4,
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/elwood"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "parking",
+            "wifi",
+            "massage",
+            "restaurant",
+            "hot_spring_bath"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/elwood",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_famiana_resort_spa",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.famianaresort.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.famianaresort.com/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 297 3983366",
+          "scope": "operator",
+          "source_url": "https://www.famianaresort.com/"
+        }
+      ]
+    },
+    {
+      "id": "hotel_gaia_hotel",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://gaiaphuquoc.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://gaiaphuquoc.com/"
+      }
+    },
+    {
+      "id": "hotel_galaxy",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "galaxyhotelphuquoc@gmail.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/en/galaxy"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "outdoor_pool",
+            "wifi",
+            "parking",
+            "front_desk_24h",
+            "airport_transfer_paid"
+          ],
+          "source_url": "https://checkinangiang.vn/en/galaxy",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_golden_daisy_hotel_spa",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://goldendaisyhotel.vn/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://goldendaisyhotel.vn/"
+      }
+    },
+    {
+      "id": "hotel_green_tree",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://greentreehotel.vn/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://greentreehotel.vn/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0934277999",
+          "scope": "operator",
+          "source_url": "https://greentreehotel.vn/"
+        },
+        {
+          "type": "email",
+          "value": "greentreehotel.pq@gmail.com",
+          "scope": "operator",
+          "source_url": "https://greentreehotel.vn/"
+        }
+      ],
+      "operations": {
+        "front_desk": "24h"
+      }
+    },
+    {
+      "id": "hotel_halona",
+      "review_state": "HOLD_CONFLICTING_STAR_SOURCE",
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0939601579",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/halona"
+        },
+        {
+          "type": "email",
+          "value": "info@halona.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/halona"
+        }
+      ]
+    },
+    {
+      "id": "hotel_home_park",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.homeparkhotel.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.homeparkhotel.com/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0945676776",
+          "scope": "operator",
+          "source_url": "https://www.homeparkhotel.com/"
+        },
+        {
+          "type": "phone",
+          "value": "0913833744",
+          "scope": "operator",
+          "source_url": "https://www.homeparkhotel.com/"
+        },
+        {
+          "type": "email",
+          "value": "info@homeparkhotel.com",
+          "scope": "operator",
+          "source_url": "https://www.homeparkhotel.com/"
+        }
+      ]
+    },
+    {
+      "id": "hotel_hopapa",
+      "review_state": "REVIEW_CONTACT_STAR_KEEP_GPS_QUARANTINE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sale@hopapa.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/en/hopapahotel"
+        },
+        {
+          "type": "phone",
+          "value": "+84 855 775 269",
+          "scope": "google_hotels_candidate",
+          "source_url": "https://www.google.com.vn/travel/hotels/entity/ChkIptCLnqusu8cwGg0vZy8xMXQ4MjZ2dmQ0EAE"
+        }
+      ],
+      "star_claims": [
+        {
+          "value": 3,
+          "scope": "google_hotels",
+          "source_url": "https://www.google.com.vn/travel/hotels/entity/ChkIptCLnqusu8cwGg0vZy8xMXQ4MjZ2dmQ0EAE"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "spa",
+            "restaurant",
+            "shared_kitchen",
+            "airport_shuttle",
+            "parking",
+            "wifi",
+            "front_desk_24h"
+          ],
+          "source_url": "https://checkinangiang.vn/en/hopapahotel",
+          "checked_at": "2026-10-01"
+        }
+      ]
     },
     {
       "id": "hotel_intercontinental",
@@ -93,218 +511,71 @@
       ]
     },
     {
-      "id": "hotel_melia_vinpearl",
+      "id": "hotel_kim_hoa_resort",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
-        "value": "https://www.melia.com/en/hotels/vietnam/phu-quoc/melia-vinpearl-phu-quoc",
+        "value": "https://kimhoaresort.com/",
         "scope": "operator_or_owner",
         "verified_at": "2026-10-01",
-        "source_url": "https://www.melia.com/en/hotels/vietnam/phu-quoc/melia-vinpearl-phu-quoc"
+        "source_url": "https://kimhoaresort.com/"
       }
     },
     {
-      "id": "hotel_movenpick",
+      "id": "hotel_kosmos_apart_hotel",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
-        "value": "https://movenpick.accor.com/en/asia/vietnam/phu-quoc/resort-waverly-phu-quoc.html",
+        "value": "https://kosmosphuquocaparthotel.com/",
         "scope": "operator_or_owner",
         "verified_at": "2026-10-01",
-        "source_url": "https://movenpick.accor.com/en/asia/vietnam/phu-quoc/resort-waverly-phu-quoc.html"
-      },
-      "contacts": [
+        "source_url": "https://kosmosphuquocaparthotel.com/"
+      }
+    },
+    {
+      "id": "hotel_la_casa_resort_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://lacasaphuquoc.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://lacasaphuquoc.com/"
+      }
+    },
+    {
+      "id": "hotel_le_bonheur",
+      "review_state": "REVIEW_STAR",
+      "star_claims": [
         {
-          "type": "phone",
-          "value": "+84 297 2699999",
-          "scope": "operator",
-          "source_url": "https://movenpick.accor.com/en/asia/vietnam/phu-quoc/resort-waverly-phu-quoc.html"
+          "value": 3,
+          "scope": "destination_profile",
+          "source_url": "https://www.sunset-town.com/booking/le-bonheur-hotel/"
         }
       ]
     },
     {
-      "id": "hotel_novotel",
+      "id": "hotel_levan_hotel",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
-        "value": "https://all.accor.com/hotel/9770/index.en.shtml",
+        "value": "https://www.levanhotel.com/",
         "scope": "operator_or_owner",
         "verified_at": "2026-10-01",
-        "source_url": "https://all.accor.com/hotel/9770/index.en.shtml"
+        "source_url": "https://www.levanhotel.com/"
       }
     },
     {
-      "id": "hotel_premier_residences",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://all.accor.com/hotel/B2Q9/index.en.shtml",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://all.accor.com/hotel/B2Q9/index.en.shtml"
-      }
-    },
-    {
-      "id": "hotel_premier_village",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://all.accor.com/hotel/B2R4/index.en.shtml",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://all.accor.com/hotel/B2R4/index.en.shtml"
-      },
+      "id": "hotel_lien_my_tam",
+      "review_state": "REVIEW_STALE_DOMAIN_CONTACT",
       "contacts": [
         {
           "type": "phone",
-          "value": "+84 297 3546666",
-          "scope": "operator",
-          "source_url": "https://all.accor.com/hotel/B2R4/index.en.shtml"
-        }
-      ],
-      "capacity": [
+          "value": "02973846772",
+          "scope": "business_directory_candidate",
+          "source_url": "https://www.viet-biz.com/lien-my-tam-hotel-0297-3846-772"
+        },
         {
-          "value": 215,
-          "unit": "villas",
-          "scope": "operator_marketing",
-          "source_url": "https://all.accor.com/hotel/B2R4/index.en.shtml"
-        }
-      ]
-    },
-    {
-      "id": "hotel_pullman",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://pullman.accor.com/en/hotels/phu-quoc/A248.html",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://pullman.accor.com/en/hotels/phu-quoc/A248.html"
-      }
-    },
-    {
-      "id": "hotel_radisson_blu",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-phu-quoc",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-phu-quoc"
-      }
-    },
-    {
-      "id": "hotel_regent",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.ihg.com/regent/hotels/gb/en/phu-quoc/pqcrr/hoteldetail",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.ihg.com/regent/hotels/gb/en/phu-quoc/pqcrr/hoteldetail"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "+84 297 3880000",
-          "scope": "operator",
-          "source_url": "https://www.ihg.com/regent/hotels/gb/en/phu-quoc/pqcrr/hoteldetail"
-        }
-      ]
-    },
-    {
-      "id": "hotel_sol_by_melia",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.melia.com/en/hotels/vietnam/phu-quoc/sol-phu-quoc",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.melia.com/en/hotels/vietnam/phu-quoc/sol-phu-quoc"
-      }
-    },
-    {
-      "id": "hotel_salinda_resort",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.salindaresort.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.salindaresort.com/"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "+84 297 3990011",
-          "scope": "operator",
-          "source_url": "https://www.salindaresort.com/"
-        }
-      ]
-    },
-    {
-      "id": "hotel_seashells_phu_quoc_hotel_spa",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.seashellshotel.vn/en/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.seashellshotel.vn/en/"
-      }
-    },
-    {
-      "id": "hotel_sheraton",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.marriott.com/en-us/hotels/pqcsr-sheraton-phu-quoc-long-beach-resort/overview/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.marriott.com/en-us/hotels/pqcsr-sheraton-phu-quoc-long-beach-resort/overview/"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "+84 297 3619999",
-          "scope": "operator",
-          "source_url": "https://www.marriott.com/en-us/hotels/pqcsr-sheraton-phu-quoc-long-beach-resort/overview/"
-        }
-      ]
-    },
-    {
-      "id": "hotel_vinpearl_resort_spa_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://vinpearl.com/en/hotels/vinpearl-resort-spa-phu-quoc",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://vinpearl.com/en/hotels/vinpearl-resort-spa-phu-quoc"
-      }
-    },
-    {
-      "id": "hotel_vinpearl_wonderworld_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://vinpearl.com/en/hotels/vinpearl-wonderworld-phu-quoc",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://vinpearl.com/en/hotels/vinpearl-wonderworld-phu-quoc"
-      }
-    },
-    {
-      "id": "hotel_wyndham_grand_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.wyndhamhotels.com/wyndham-grand/kien-giang-province-vietnam/wyndham-grand-phu-quoc/overview",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.wyndhamhotels.com/wyndham-grand/kien-giang-province-vietnam/wyndham-grand-phu-quoc/overview"
-      }
-    },
-    {
-      "id": "hotel_famiana_resort_spa",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.famianaresort.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.famianaresort.com/"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "+84 297 3983366",
-          "scope": "operator",
-          "source_url": "https://www.famianaresort.com/"
+          "type": "email",
+          "value": "sale@lienmytam.com",
+          "scope": "tourism_profile_historical_domain",
+          "source_url": "https://checkinangiang.vn/iv/lienmytam"
         }
       ]
     },
@@ -319,84 +590,30 @@
       }
     },
     {
-      "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://booking.muongthanh.com/khach-san-muong-thanh-luxury-phu-quoc",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://booking.muongthanh.com/khach-san-muong-thanh-luxury-phu-quoc"
-      }
-    },
-    {
-      "id": "hotel_wyndham_garden_grandworld",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.wyndhamhotels.com/wyndham-garden/phu-quoc-vietnam/wyndham-garden-grandworld-phu-quoc/overview",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.wyndhamhotels.com/wyndham-garden/phu-quoc-vietnam/wyndham-garden-grandworld-phu-quoc/overview"
-      },
-      "contacts": [
+      "id": "hotel_m_resort",
+      "review_state": "REVIEW_ADDRESS_STAR",
+      "star_claims": [
         {
-          "type": "phone",
-          "value": "+84 297 3612999",
-          "scope": "operator",
-          "source_url": "https://www.wyndhamhotels.com/wyndham-garden/phu-quoc-vietnam/wyndham-garden-grandworld-phu-quoc/overview"
+          "value": 4,
+          "scope": "google_hotels",
+          "source_url": "https://www.google.com/travel/hotels/entity/ChoIyYrss-DfruWuARoNL2cvMTFtZHBjYzBtZxAB"
         }
       ],
-      "capacity": [
+      "amenity_claims": [
         {
-          "value": 892,
-          "unit": "rooms",
-          "scope": "operator_marketing",
-          "source_url": "https://www.wyndhamhotels.com/wyndham-garden/phu-quoc-vietnam/wyndham-garden-grandworld-phu-quoc/overview"
+          "values": [
+            "pool",
+            "spa",
+            "breakfast",
+            "wifi",
+            "front_desk_24h",
+            "restaurant",
+            "airport_shuttle"
+          ],
+          "source_url": "https://www.google.com/travel/hotels/entity/ChoIyYrss-DfruWuARoNL2cvMTFtZHBjYzBtZxAB",
+          "checked_at": "2026-10-01"
         }
       ]
-    },
-    {
-      "id": "hotel_sailing_club_signature_resort_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://sc-signaturephuquoc.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://sc-signaturephuquoc.com/"
-      }
-    },
-    {
-      "id": "hotel_sonaga_beach_resort",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://sonagaresortphuquoc.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://sonagaresortphuquoc.com/"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "+84 297 267 8888",
-          "scope": "operator",
-          "source_url": "https://sonagaresortphuquoc.com/"
-        },
-        {
-          "type": "phone",
-          "value": "+84 297 399 5599",
-          "scope": "operator",
-          "source_url": "https://sonagaresortphuquoc.com/"
-        }
-      ]
-    },
-    {
-      "id": "hotel_thien_thanh_resort",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://thienthanhphuquocresort.com.vn/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://thienthanhphuquocresort.com.vn/"
-      }
     },
     {
       "id": "hotel_maison_du_vietnam_resort_spa",
@@ -406,6 +623,61 @@
         "scope": "operator_or_owner",
         "verified_at": "2026-10-01",
         "source_url": "https://resortmaisondu.com/en"
+      }
+    },
+    {
+      "id": "hotel_maison_hotel",
+      "review_state": "REVIEW_CONTACT_ADDRESS",
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 297 2222 222",
+          "scope": "google_hotels",
+          "source_url": "https://www.google.com.vn/travel/hotels/entity/ChkI9LWoza7F3aAeGg0vZy8xMWs2emZjeXFnEAE"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "wifi",
+            "airport_shuttle"
+          ],
+          "source_url": "https://www.booking.com/hotel/vn/po-maison-hotel-phu-quoc.html",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_marriott_phu_quoc",
+      "review_state": "UPCOMING",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sales.vietnam@marriott.com",
+          "scope": "corporate_sales",
+          "source_url": "https://www.marriott.com/en-us/marriott-brands/portfolio/openings.mi"
+        }
+      ],
+      "capacity": [
+        {
+          "value": 826,
+          "unit": "guestrooms",
+          "scope": "announced_opening",
+          "source_url": "https://www.marriott.com/en-us/marriott-brands/portfolio/openings.mi"
+        }
+      ],
+      "operations": {
+        "expected_opening": "Q3/2027"
+      }
+    },
+    {
+      "id": "hotel_melia_vinpearl",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.melia.com/en/hotels/vietnam/phu-quoc/melia-vinpearl-phu-quoc",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.melia.com/en/hotels/vietnam/phu-quoc/melia-vinpearl-phu-quoc"
       }
     },
     {
@@ -433,248 +705,6 @@
       ]
     },
     {
-      "id": "hotel_paralia",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.paraliaphuquoc.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.paraliaphuquoc.com/"
-      }
-    },
-    {
-      "id": "hotel_saigon_phu_quoc_resort_spa",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://saigonphuquocresort.vn/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://saigonphuquocresort.vn/"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "+84 2973 846 999",
-          "scope": "operator",
-          "source_url": "https://saigonphuquocresort.vn/"
-        },
-        {
-          "type": "phone",
-          "value": "+84 915 78 87 68",
-          "scope": "hotline",
-          "source_url": "https://saigonphuquocresort.vn/"
-        }
-      ]
-    },
-    {
-      "id": "hotel_sunset_beach_resort_spa",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://sunsetbeach.vn/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://sunsetbeach.vn/"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "+84 2973 567 888",
-          "scope": "hotel_desk",
-          "source_url": "https://sunsetbeach.vn/"
-        },
-        {
-          "type": "phone",
-          "value": "+84 867 070 006",
-          "scope": "reservation",
-          "source_url": "https://sunsetbeach.vn/"
-        }
-      ]
-    },
-    {
-      "id": "hotel_the_up_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.theupphuquoc.com/en/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.theupphuquoc.com/en/"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "+84 1900 8247",
-          "scope": "operator",
-          "source_url": "https://www.theupphuquoc.com/en/"
-        },
-        {
-          "type": "phone",
-          "value": "+84 90 218 65 88",
-          "scope": "operator",
-          "source_url": "https://www.theupphuquoc.com/en/"
-        }
-      ]
-    },
-    {
-      "id": "hotel_vinholidays_fiesta_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://vinpearl.com/en/hotels/vinholidays-fiesta-phu-quoc",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://vinpearl.com/en/hotels/vinholidays-fiesta-phu-quoc"
-      }
-    },
-    {
-      "id": "hotel_brenta_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://brentaphuquoc.com",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://brentaphuquoc.com"
-      }
-    },
-    {
-      "id": "hotel_coral_bay_resort_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.coralbayphuquoc.com/en/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.coralbayphuquoc.com/en/"
-      }
-    },
-    {
-      "id": "hotel_home_park",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.homeparkhotel.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.homeparkhotel.com/"
-      },
-      "contacts": [
-        {
-          "type": "phone",
-          "value": "0945676776",
-          "scope": "operator",
-          "source_url": "https://www.homeparkhotel.com/"
-        },
-        {
-          "type": "phone",
-          "value": "0913833744",
-          "scope": "operator",
-          "source_url": "https://www.homeparkhotel.com/"
-        },
-        {
-          "type": "email",
-          "value": "info@homeparkhotel.com",
-          "scope": "operator",
-          "source_url": "https://www.homeparkhotel.com/"
-        }
-      ]
-    },
-    {
-      "id": "hotel_kim_hoa_resort",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://kimhoaresort.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://kimhoaresort.com/"
-      }
-    },
-    {
-      "id": "hotel_kosmos_apart_hotel",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://kosmosphuquocaparthotel.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://kosmosphuquocaparthotel.com/"
-      }
-    },
-    {
-      "id": "hotel_chensea",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.chensea-resort.com",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.chensea-resort.com"
-      }
-    },
-    {
-      "id": "hotel_gaia_hotel",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://gaiaphuquoc.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://gaiaphuquoc.com/"
-      }
-    },
-    {
-      "id": "hotel_daisy_resort",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://daisyresort.vn/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://daisyresort.vn/"
-      }
-    },
-    {
-      "id": "hotel_cottage_village",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://cottagevillagephuquoc.vn/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://cottagevillagephuquoc.vn/"
-      }
-    },
-    {
-      "id": "hotel_levan_hotel",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://www.levanhotel.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://www.levanhotel.com/"
-      }
-    },
-    {
-      "id": "hotel_amarin_resort_and_spa",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://amarinresort.com.vn/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://amarinresort.com.vn/"
-      }
-    },
-    {
-      "id": "hotel_la_casa_resort_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://lacasaphuquoc.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://lacasaphuquoc.com/"
-      }
-    },
-    {
-      "id": "hotel_golden_daisy_hotel_spa",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://goldendaisyhotel.vn/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://goldendaisyhotel.vn/"
-      }
-    },
-    {
       "id": "hotel_mey_mansion_hotel",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
@@ -685,122 +715,232 @@
       }
     },
     {
-      "id": "hotel_times_corner_amalfi",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://timescornerphuquoc.com/amalfi",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://timescornerphuquoc.com/amalfi"
-      }
+      "id": "hotel_mojo_boutique",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "amenity_claims": [
+        {
+          "values": [
+            "restaurant",
+            "near_bai_truong"
+          ],
+          "source_url": "https://checkinangiang.vn/en/mojoboutiquehotel/bookinghotel",
+          "checked_at": "2026-10-01"
+        }
+      ]
     },
     {
-      "id": "hotel_times_corner_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://timescornerphuquoc.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://timescornerphuquoc.com/"
-      }
+      "id": "hotel_mon_ami",
+      "review_state": "REVIEW_GENERIC_DOMAIN",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sales@monami.com",
+          "scope": "tourism_profile_generic_domain",
+          "source_url": "https://checkinangiang.vn/en/monami"
+        }
+      ]
     },
     {
-      "id": "hotel_sakurakyo_hotel_spa",
+      "id": "hotel_movenpick",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
-        "value": "https://skyethgroup.com/vi/sakurakyo-hotel-spa-phu-quoc/",
+        "value": "https://movenpick.accor.com/en/asia/vietnam/phu-quoc/resort-waverly-phu-quoc.html",
         "scope": "operator_or_owner",
         "verified_at": "2026-10-01",
-        "source_url": "https://skyethgroup.com/vi/sakurakyo-hotel-spa-phu-quoc/"
-      }
-    },
-    {
-      "id": "hotel_roma_hotel_phu_quoc",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://skyethgroup.com/vi/roma-hotel-phu-quoc/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://skyethgroup.com/vi/roma-hotel-phu-quoc/"
-      }
-    },
-    {
-      "id": "hotel_boulevard",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "http://boulevardphuquoc.com",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "http://boulevardphuquoc.com"
-      }
-    },
-    {
-      "id": "hotel_suoi_may_garden",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://suoimaygardenresort.com/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://suoimaygardenresort.com/"
+        "source_url": "https://movenpick.accor.com/en/asia/vietnam/phu-quoc/resort-waverly-phu-quoc.html"
       },
       "contacts": [
         {
           "type": "phone",
-          "value": "0789654031",
-          "scope": "tourism_profile",
-          "source_url": "https://tourism.angiang.gov.vn/hotel/13889"
-        },
+          "value": "+84 297 2699999",
+          "scope": "operator",
+          "source_url": "https://movenpick.accor.com/en/asia/vietnam/phu-quoc/resort-waverly-phu-quoc.html"
+        }
+      ]
+    },
+    {
+      "id": "hotel_muong_thanh_luxury_phu_quoc_hotel",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://booking.muongthanh.com/khach-san-muong-thanh-luxury-phu-quoc",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://booking.muongthanh.com/khach-san-muong-thanh-luxury-phu-quoc"
+      }
+    },
+    {
+      "id": "hotel_ngoc_chau",
+      "review_state": "REJECT_WRONG_DOMAIN_KEEP_OFFICIAL_IDENTITY",
+      "contacts": [
         {
           "type": "email",
-          "value": "suoimaygarden@gmail.com",
-          "scope": "operator",
-          "source_url": "https://suoimaygardenresort.com/"
+          "value": "sales@ngocchauhotel.com",
+          "scope": "tourism_profile_only_do_not_infer_domain",
+          "source_url": "https://checkinangiang.vn/vi/ngocchau"
         }
       ],
       "capacity": [
         {
-          "value": 74,
+          "value": 48,
           "unit": "rooms",
-          "scope": "tourism_profile_resort_1",
-          "source_url": "https://tourism.angiang.gov.vn/hotel/13889"
+          "scope": "tourism_profile_secondary",
+          "source_url": "https://checkinangiang.vn/vi/ngocchau"
         }
       ],
       "star_claims": [
         {
           "value": 3,
           "scope": "tourism_profile",
-          "source_url": "https://tourism.angiang.gov.vn/hotel/13889"
+          "source_url": "https://checkinangiang.vn/vi/ngocchau"
         }
-      ]
+      ],
+      "operations": {
+        "check_in": "14:00",
+        "check_out": "13:30"
+      }
     },
     {
-      "id": "hotel_camellia_resort_spa",
+      "id": "hotel_nha_khach_tram_giao_dich_ve_so_kien_thiet_can_tho",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
-        "value": "https://camelliaphuquoc.com",
+        "value": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu",
         "scope": "operator_or_owner",
         "verified_at": "2026-10-01",
-        "source_url": "https://camelliaphuquoc.com"
+        "source_url": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu"
       },
       "contacts": [
         {
-          "type": "email",
-          "value": "camelliaphuquoc@gmail.com",
-          "scope": "operator_or_profile",
-          "source_url": "https://tourism.angiang.gov.vn/en/hotel/13921"
+          "type": "phone",
+          "value": "0297 3994823",
+          "scope": "owner",
+          "source_url": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu"
+        },
+        {
+          "type": "phone",
+          "value": "0915 917159",
+          "scope": "owner",
+          "source_url": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu"
         }
       ],
       "capacity": [
         {
-          "value": 29,
-          "unit": "rooms",
+          "value": 43,
+          "unit": "accommodation_units",
+          "scope": "owner_page_2024_18_bungalows_plus_25_rooms",
+          "source_url": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu"
+        }
+      ]
+    },
+    {
+      "id": "hotel_nice_life_hotel",
+      "review_state": "REVIEW_CONTACT",
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0919447595",
           "scope": "tourism_profile",
-          "source_url": "https://tourism.angiang.gov.vn/en/hotel/13921"
+          "source_url": "https://dulich.phuquoc.gov.vn/vi/nicelifehotel"
+        },
+        {
+          "type": "email",
+          "value": "nicelife@gmail.com",
+          "scope": "tourism_profile",
+          "source_url": "https://dulich.phuquoc.gov.vn/vi/nicelifehotel"
         }
       ],
       "operations": {
-        "check_in": "12:00",
-        "check_out": "12:00"
+        "check_in": "24h check-in"
+      },
+      "amenity_claims": [
+        {
+          "values": [
+            "pool",
+            "bar",
+            "restaurant",
+            "wifi",
+            "front_desk_24h",
+            "airport_transfer_paid",
+            "parking_nearby_free"
+          ],
+          "source_url": "https://dulich.phuquoc.gov.vn/vi/nicelifehotel",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_novotel",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://all.accor.com/hotel/9770/index.en.shtml",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://all.accor.com/hotel/9770/index.en.shtml"
+      }
+    },
+    {
+      "id": "hotel_ola_phu_quoc_hotel",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "olahotelphuquoc@gmail.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/en/olahotel"
+        }
+      ]
+    },
+    {
+      "id": "hotel_orange_resort",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "OrangeResort@sales.vn",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/orangeresort"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "private_beach",
+            "outdoor_pool",
+            "restaurant",
+            "front_desk_24h",
+            "airport_shuttle",
+            "wifi",
+            "parking"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/orangeresort",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_orient_resort_cu_vich_resort",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "amenity_claims": [
+        {
+          "values": [
+            "private_beach",
+            "outdoor_pool",
+            "restaurant",
+            "spa",
+            "yoga"
+          ],
+          "source_url": "https://checkinangiang.vn/en/orient",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_paralia",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.paraliaphuquoc.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.paraliaphuquoc.com/"
       }
     },
     {
@@ -849,31 +989,520 @@
       ]
     },
     {
-      "id": "hotel_green_tree",
+      "id": "hotel_phuc_loc",
+      "review_state": "REJECT_WRONG_DOMAIN_KEEP_OFFICIAL_IDENTITY",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sales@phuclochotel.com",
+          "scope": "tourism_profile_only_wrong_current_domain",
+          "source_url": "https://checkinangiang.vn/iv/phucloc"
+        }
+      ]
+    },
+    {
+      "id": "hotel_phuong_dong",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "amenity_claims": [
+        {
+          "values": [
+            "near_night_market",
+            "near_beach",
+            "wifi"
+          ],
+          "source_url": "https://checkinangiang.vn/en/phuongdong/bookinghotel",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_pq_quang_trung",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "quangtrungphuquoc0712@gmail.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/quangtrung"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "front_desk_24h",
+            "wifi",
+            "parking",
+            "airport_shuttle",
+            "bike_rental",
+            "car_rental"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/quangtrung",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_premier_residences",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
-        "value": "https://greentreehotel.vn/",
+        "value": "https://all.accor.com/hotel/B2Q9/index.en.shtml",
         "scope": "operator_or_owner",
         "verified_at": "2026-10-01",
-        "source_url": "https://greentreehotel.vn/"
+        "source_url": "https://all.accor.com/hotel/B2Q9/index.en.shtml"
+      }
+    },
+    {
+      "id": "hotel_premier_village",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://all.accor.com/hotel/B2R4/index.en.shtml",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://all.accor.com/hotel/B2R4/index.en.shtml"
       },
       "contacts": [
         {
           "type": "phone",
-          "value": "0934277999",
+          "value": "+84 297 3546666",
           "scope": "operator",
-          "source_url": "https://greentreehotel.vn/"
+          "source_url": "https://all.accor.com/hotel/B2R4/index.en.shtml"
+        }
+      ],
+      "capacity": [
+        {
+          "value": 215,
+          "unit": "villas",
+          "scope": "operator_marketing",
+          "source_url": "https://all.accor.com/hotel/B2R4/index.en.shtml"
+        }
+      ]
+    },
+    {
+      "id": "hotel_pullman",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://pullman.accor.com/en/hotels/phu-quoc/A248.html",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://pullman.accor.com/en/hotels/phu-quoc/A248.html"
+      }
+    },
+    {
+      "id": "hotel_quoc_thang",
+      "review_state": "REVIEW_CONTACT_ADDRESS_STAR",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sales@quocthanghotel.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/en/quocthang"
+        },
+        {
+          "type": "phone",
+          "value": "+84 792 111 113",
+          "scope": "google_hotels_candidate",
+          "source_url": "https://www.google.com/travel/hotels/entity/ChoIh_eA8pTa3cyxARoNL2cvMTFjbV9odF95dxAB"
+        }
+      ],
+      "star_claims": [
+        {
+          "value": 2,
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/en/quocthang"
+        }
+      ]
+    },
+    {
+      "id": "hotel_quynh_mai_phu_quoc_resort",
+      "review_state": "REVIEW_STAR",
+      "star_claims": [
+        {
+          "value": 3,
+          "scope": "booking_property_claim",
+          "source_url": "https://www.booking.com/hotel/vn/khu-nghi-duong-quynh-mai-phu-quoc.html"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "pool",
+            "restaurant",
+            "wifi",
+            "parking",
+            "front_desk_24h",
+            "airport_shuttle"
+          ],
+          "source_url": "https://www.booking.com/hotel/vn/khu-nghi-duong-quynh-mai-phu-quoc.html",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_radisson_blu",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-phu-quoc",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-resort-phu-quoc"
+      }
+    },
+    {
+      "id": "hotel_regent",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.ihg.com/regent/hotels/gb/en/phu-quoc/pqcrr/hoteldetail",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.ihg.com/regent/hotels/gb/en/phu-quoc/pqcrr/hoteldetail"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 297 3880000",
+          "scope": "operator",
+          "source_url": "https://www.ihg.com/regent/hotels/gb/en/phu-quoc/pqcrr/hoteldetail"
+        }
+      ]
+    },
+    {
+      "id": "hotel_roma_hotel_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://skyethgroup.com/vi/roma-hotel-phu-quoc/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://skyethgroup.com/vi/roma-hotel-phu-quoc/"
+      }
+    },
+    {
+      "id": "hotel_roma_hotel_phu_quoc_3",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://skyethgroup.com/roma-hotel-phu-quoc/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://skyethgroup.com/roma-hotel-phu-quoc/"
+      }
+    },
+    {
+      "id": "hotel_rova_hotel",
+      "review_state": "KEEP_SEPARATE_OFFICIAL_ENTITY"
+    },
+    {
+      "id": "hotel_saigon_phu_quoc_resort_spa",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://saigonphuquocresort.vn/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://saigonphuquocresort.vn/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 2973 846 999",
+          "scope": "operator",
+          "source_url": "https://saigonphuquocresort.vn/"
+        },
+        {
+          "type": "phone",
+          "value": "+84 915 78 87 68",
+          "scope": "hotline",
+          "source_url": "https://saigonphuquocresort.vn/"
+        }
+      ]
+    },
+    {
+      "id": "hotel_sailing_club_signature_resort_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://sc-signaturephuquoc.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://sc-signaturephuquoc.com/"
+      }
+    },
+    {
+      "id": "hotel_sakurakyo_hotel_spa",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://skyethgroup.com/vi/sakurakyo-hotel-spa-phu-quoc/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://skyethgroup.com/vi/sakurakyo-hotel-spa-phu-quoc/"
+      }
+    },
+    {
+      "id": "hotel_salinda_resort",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.salindaresort.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.salindaresort.com/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 297 3990011",
+          "scope": "operator",
+          "source_url": "https://www.salindaresort.com/"
+        }
+      ]
+    },
+    {
+      "id": "hotel_seashells_phu_quoc_hotel_spa",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.seashellshotel.vn/en/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.seashellshotel.vn/en/"
+      }
+    },
+    {
+      "id": "hotel_sen",
+      "review_state": "KEEP_GPS_QUARANTINE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sales@senhotel.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/senhotel"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "bar",
+            "hot_tub",
+            "spa",
+            "massage"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/senhotel",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_sheraton",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.marriott.com/en-us/hotels/pqcsr-sheraton-phu-quoc-long-beach-resort/overview/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.marriott.com/en-us/hotels/pqcsr-sheraton-phu-quoc-long-beach-resort/overview/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 297 3619999",
+          "scope": "operator",
+          "source_url": "https://www.marriott.com/en-us/hotels/pqcsr-sheraton-phu-quoc-long-beach-resort/overview/"
+        }
+      ]
+    },
+    {
+      "id": "hotel_sol_by_melia",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.melia.com/en/hotels/vietnam/phu-quoc/sol-phu-quoc",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.melia.com/en/hotels/vietnam/phu-quoc/sol-phu-quoc"
+      }
+    },
+    {
+      "id": "hotel_sonaga_beach_resort",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://sonagaresortphuquoc.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://sonagaresortphuquoc.com/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 297 267 8888",
+          "scope": "operator",
+          "source_url": "https://sonagaresortphuquoc.com/"
+        },
+        {
+          "type": "phone",
+          "value": "+84 297 399 5599",
+          "scope": "operator",
+          "source_url": "https://sonagaresortphuquoc.com/"
+        }
+      ]
+    },
+    {
+      "id": "hotel_star_hill_resort",
+      "review_state": "REVIEW_STAR",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sale@starhillresort.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/starhill"
+        }
+      ],
+      "star_claims": [
+        {
+          "value": 3,
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/starhill"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "pool",
+            "restaurant",
+            "parking",
+            "airport_shuttle",
+            "front_desk_24h",
+            "wifi",
+            "bicycle"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/starhill",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_stellar",
+      "review_state": "REVIEW_STAR_CONTACT",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sale@stellar.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/stellar"
+        }
+      ],
+      "star_claims": [
+        {
+          "value": 3,
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/stellar"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "restaurant",
+            "bar",
+            "lounge",
+            "terrace",
+            "parking",
+            "front_desk_24h",
+            "airport_shuttle",
+            "wifi"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/stellar",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_suncosy_central_resort_phu_quoc",
+      "review_state": "REVIEW_CONTACT_KEEP_GPS_QUARANTINE",
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 939 222 511",
+          "scope": "google_hotels_candidate",
+          "source_url": "https://www.google.com.vn/travel/hotels/entity/ChkI5fTg-43sveYKGg0vZy8xMXI1c3lnaHE5EAE"
+        }
+      ]
+    },
+    {
+      "id": "hotel_sunrise_boutique",
+      "review_state": "REJECT_STALE_DOMAIN_ENRICHED",
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "02976268111",
+          "scope": "business_directory_candidate",
+          "source_url": "https://www.viet-biz.com/phu-quoc-sunrise-boutique-hotel-0297-6268-111"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "restaurant",
+            "bar",
+            "outdoor_pool"
+          ],
+          "source_url": "https://checkinangiang.vn/en/sunriseboutique",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_sunset_beach_resort_spa",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://sunsetbeach.vn/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://sunsetbeach.vn/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 2973 567 888",
+          "scope": "hotel_desk",
+          "source_url": "https://sunsetbeach.vn/"
+        },
+        {
+          "type": "phone",
+          "value": "+84 867 070 006",
+          "scope": "reservation",
+          "source_url": "https://sunsetbeach.vn/"
+        }
+      ]
+    },
+    {
+      "id": "hotel_suoi_may_garden",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://suoimaygardenresort.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://suoimaygardenresort.com/"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "0789654031",
+          "scope": "tourism_profile",
+          "source_url": "https://tourism.angiang.gov.vn/hotel/13889"
         },
         {
           "type": "email",
-          "value": "greentreehotel.pq@gmail.com",
+          "value": "suoimaygarden@gmail.com",
           "scope": "operator",
-          "source_url": "https://greentreehotel.vn/"
+          "source_url": "https://suoimaygardenresort.com/"
         }
       ],
-      "operations": {
-        "front_desk": "24h"
-      }
+      "capacity": [
+        {
+          "value": 74,
+          "unit": "rooms",
+          "scope": "tourism_profile_resort_1",
+          "source_url": "https://tourism.angiang.gov.vn/hotel/13889"
+        }
+      ],
+      "star_claims": [
+        {
+          "value": 3,
+          "scope": "tourism_profile",
+          "source_url": "https://tourism.angiang.gov.vn/hotel/13889"
+        }
+      ]
     },
     {
       "id": "hotel_thala_hotel",
@@ -900,46 +1529,254 @@
       ]
     },
     {
-      "id": "hotel_roma_hotel_phu_quoc_3",
-      "review_state": "VERIFIED_WEBSITE",
-      "website": {
-        "value": "https://skyethgroup.com/roma-hotel-phu-quoc/",
-        "scope": "operator_or_owner",
-        "verified_at": "2026-10-01",
-        "source_url": "https://skyethgroup.com/roma-hotel-phu-quoc/"
-      }
+      "id": "hotel_thanh_trung",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "amenity_claims": [
+        {
+          "values": [
+            "airport_shuttle",
+            "car_rental",
+            "tours",
+            "bbq",
+            "bar",
+            "laundry",
+            "wifi"
+          ],
+          "source_url": "https://checkinangiang.vn/en/thanhtrung",
+          "checked_at": "2026-10-01"
+        }
+      ]
     },
     {
-      "id": "hotel_nha_khach_tram_giao_dich_ve_so_kien_thiet_can_tho",
+      "id": "hotel_the_up_phu_quoc",
       "review_state": "VERIFIED_WEBSITE",
       "website": {
-        "value": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu",
+        "value": "https://www.theupphuquoc.com/en/",
         "scope": "operator_or_owner",
         "verified_at": "2026-10-01",
-        "source_url": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu"
+        "source_url": "https://www.theupphuquoc.com/en/"
       },
       "contacts": [
         {
           "type": "phone",
-          "value": "0297 3994823",
-          "scope": "owner",
-          "source_url": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu"
+          "value": "+84 1900 8247",
+          "scope": "operator",
+          "source_url": "https://www.theupphuquoc.com/en/"
         },
         {
           "type": "phone",
-          "value": "0915 917159",
-          "scope": "owner",
-          "source_url": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu"
+          "value": "+84 90 218 65 88",
+          "scope": "operator",
+          "source_url": "https://www.theupphuquoc.com/en/"
+        }
+      ]
+    },
+    {
+      "id": "hotel_thien_thanh_resort",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://thienthanhphuquocresort.com.vn/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://thienthanhphuquocresort.com.vn/"
+      }
+    },
+    {
+      "id": "hotel_times_corner_amalfi",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://timescornerphuquoc.com/amalfi",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://timescornerphuquoc.com/amalfi"
+      }
+    },
+    {
+      "id": "hotel_times_corner_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://timescornerphuquoc.com/",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://timescornerphuquoc.com/"
+      }
+    },
+    {
+      "id": "hotel_tung_huong",
+      "review_state": "IDENTITY_PROFILE_ONLY"
+    },
+    {
+      "id": "hotel_tuyet_hien",
+      "review_state": "REVIEW_STAR",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sale@tuyethien.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/en/tuyethien"
+        }
+      ],
+      "star_claims": [
+        {
+          "value": 2,
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/en/tuyethien"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "wifi",
+            "lounge",
+            "terrace",
+            "front_desk_24h",
+            "tour_desk"
+          ],
+          "source_url": "https://checkinangiang.vn/en/tuyethien",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_uyen_gia",
+      "review_state": "KEEP_GPS_QUARANTINE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sale@uuyengia.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/uyengia"
+        }
+      ]
+    },
+    {
+      "id": "hotel_valentina_resort",
+      "review_state": "ACTIVE_EXACT_OTA_IDENTITY",
+      "amenity_claims": [
+        {
+          "values": [
+            "pool",
+            "restaurant"
+          ],
+          "source_url": "https://www.booking.com/hotel/vn/phu-quoc-valentina-villas.html",
+          "checked_at": "2026-10-01"
+        }
+      ]
+    },
+    {
+      "id": "hotel_vinholidays_fiesta_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://vinpearl.com/en/hotels/vinholidays-fiesta-phu-quoc",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://vinpearl.com/en/hotels/vinholidays-fiesta-phu-quoc"
+      }
+    },
+    {
+      "id": "hotel_vinpearl_resort_spa_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://vinpearl.com/en/hotels/vinpearl-resort-spa-phu-quoc",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://vinpearl.com/en/hotels/vinpearl-resort-spa-phu-quoc"
+      }
+    },
+    {
+      "id": "hotel_vinpearl_wonderworld_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://vinpearl.com/en/hotels/vinpearl-wonderworld-phu-quoc",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://vinpearl.com/en/hotels/vinpearl-wonderworld-phu-quoc"
+      }
+    },
+    {
+      "id": "hotel_w_phu_quoc",
+      "review_state": "UPCOMING",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sales.vietnam@marriott.com",
+          "scope": "corporate_sales",
+          "source_url": "https://www.marriott.com/en-us/marriott-brands/portfolio/openings.mi"
         }
       ],
       "capacity": [
         {
-          "value": 43,
-          "unit": "accommodation_units",
-          "scope": "owner_page_2024_18_bungalows_plus_25_rooms",
-          "source_url": "https://xsktcantho.vn/nha-khach-tram-gd-pq/gioi-thieu"
+          "value": 526,
+          "unit": "guestrooms",
+          "scope": "announced_opening",
+          "source_url": "https://www.marriott.com/en-us/marriott-brands/portfolio/openings.mi"
+        }
+      ],
+      "operations": {
+        "expected_opening": "Q3/2027"
+      }
+    },
+    {
+      "id": "hotel_wildland_resort",
+      "review_state": "RESEARCHED_SCOPED_EVIDENCE",
+      "contacts": [
+        {
+          "type": "email",
+          "value": "sale@wildlandresort.com",
+          "scope": "tourism_profile",
+          "source_url": "https://checkinangiang.vn/vi/wildlandresort"
+        }
+      ],
+      "amenity_claims": [
+        {
+          "values": [
+            "pet_friendly",
+            "wifi",
+            "restaurant",
+            "diving",
+            "snorkeling",
+            "cycling"
+          ],
+          "source_url": "https://checkinangiang.vn/vi/wildlandresort",
+          "checked_at": "2026-10-01"
         }
       ]
+    },
+    {
+      "id": "hotel_wyndham_garden_grandworld",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.wyndhamhotels.com/wyndham-garden/phu-quoc-vietnam/wyndham-garden-grandworld-phu-quoc/overview",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.wyndhamhotels.com/wyndham-garden/phu-quoc-vietnam/wyndham-garden-grandworld-phu-quoc/overview"
+      },
+      "contacts": [
+        {
+          "type": "phone",
+          "value": "+84 297 3612999",
+          "scope": "operator",
+          "source_url": "https://www.wyndhamhotels.com/wyndham-garden/phu-quoc-vietnam/wyndham-garden-grandworld-phu-quoc/overview"
+        }
+      ],
+      "capacity": [
+        {
+          "value": 892,
+          "unit": "rooms",
+          "scope": "operator_marketing",
+          "source_url": "https://www.wyndhamhotels.com/wyndham-garden/phu-quoc-vietnam/wyndham-garden-grandworld-phu-quoc/overview"
+        }
+      ]
+    },
+    {
+      "id": "hotel_wyndham_grand_phu_quoc",
+      "review_state": "VERIFIED_WEBSITE",
+      "website": {
+        "value": "https://www.wyndhamhotels.com/wyndham-grand/kien-giang-province-vietnam/wyndham-grand-phu-quoc/overview",
+        "scope": "operator_or_owner",
+        "verified_at": "2026-10-01",
+        "source_url": "https://www.wyndhamhotels.com/wyndham-grand/kien-giang-province-vietnam/wyndham-grand-phu-quoc/overview"
+      }
     }
   ],
   "conflicts": [
