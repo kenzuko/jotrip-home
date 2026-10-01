@@ -7,6 +7,14 @@ import {readFile,writeFile} from "node:fs/promises";
 import {pathToFileURL} from "node:url";
 const FIELDS=["cloud_sampled_time","forecast_run_time","marine_sampled_time"];
 const MAX_AGE={cloud_sampled_time:60,forecast_run_time:24*60,marine_sampled_time:480};
+const MAX_FUTURE_MIN={
+  cloud_sampled_time:5,
+  forecast_run_time:5,
+  // Copernicus wave is a PT3H analysis/forecast field. The packaged
+  // "sampled_time" is the selected model valid time, which may legitimately
+  // be the next 3-hour frame rather than an observation timestamp.
+  marine_sampled_time:180
+};
 const parsed=(value)=>{
   if(typeof value!=="string"||!/(?:Z|[+-]\d\d:\d\d)$/.test(value))return null;
   const t=Date.parse(value);
@@ -31,7 +39,8 @@ export function verifyWeatherRelease(next,previous,now=Date.now()){
     const incoming=parsed(next.source_times?.[field]);
     const prior=parsed(previous.source_times?.[field]);
     if(incoming===null||prior===null)throw Error(field+" timestamp missing/unverifiable");
-    if(incoming>now+5*60_000)throw Error(field+" candidate timestamp lies in future");
+    if(incoming>now+MAX_FUTURE_MIN[field]*60_000)
+      throw Error(field+" candidate timestamp is beyond its allowed future valid-time window");
     if(incoming<prior)throw Error(field+" would roll back deployed Weather data");
     if(now-incoming>MAX_AGE[field]*60_000)throw Error(field+" candidate is outside release freshness budget");
     result.source_times[field]=next.source_times[field];
