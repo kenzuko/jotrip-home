@@ -197,13 +197,13 @@
       "target_path_pattern": "data/i18n/{locale}/stories.json",
       "targets": {
         "en": {
-          "status": "stale",
+          "status": "machine_draft",
           "target_path": "data/i18n/en/stories.json",
-          "translated_from_blob_sha": "4f5de83ac7d1ff8e2b4df1cdb953557f6e1d2d39",
+          "translated_from_blob_sha": "fdc524c0e73d0d1dc6aa7a47412abf81e1884d36",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required. Vietnamese stories source changed on 2026-10-01; translation requires refresh before review/publication."
+          "note": "Editorial model draft refreshed from the final Vietnamese source on 2026-10-01 for the 6 changed Story records; unchanged records retained. Human review required before publication."
         },
         "ko": {
           "status": "stale",
@@ -268,13 +268,13 @@
       "target_path_pattern": "data/i18n/{locale}/food.json",
       "targets": {
         "en": {
-          "status": "stale",
+          "status": "machine_draft",
           "target_path": "data/i18n/en/food.json",
-          "translated_from_blob_sha": "ca423367e8de98b7a44dcec9c79ef63a4ee6d8bb",
+          "translated_from_blob_sha": "46a632e76b60a7397e43de6603c705dd3a4ee937",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required. Vietnamese food source changed on 2026-10-01; translation requires refresh before review/publication."
+          "note": "Editorial model draft refreshed from the final Vietnamese source on 2026-10-01 for the 9 changed Food records; unchanged records retained. Human review required before publication."
         },
         "ko": {
           "status": "stale",
@@ -339,13 +339,13 @@
       "target_path_pattern": "data/i18n/{locale}/knowledge.json",
       "targets": {
         "en": {
-          "status": "stale",
+          "status": "machine_draft",
           "target_path": "data/i18n/en/knowledge.json",
-          "translated_from_blob_sha": "afd227ea530c3f919eca4bcc8dd6371e1a602427",
+          "translated_from_blob_sha": "ae05d7c3cf6abe5f2d6d1c6a47d6d9d7f756256a",
           "reviewed_by": null,
           "reviewed_at": null,
           "published_at": null,
-          "note": "Azure Translator v3 machine draft; human review required. Vietnamese Knowledge source changed on 2026-10-01; translation requires refresh before review/publication."
+          "note": "Editorial model draft refreshed from the final Vietnamese source on 2026-10-01 for the 60 changed Knowledge records; unchanged records retained. Human review required before publication."
         },
         "ko": {
           "status": "stale",
