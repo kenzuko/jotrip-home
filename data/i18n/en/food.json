@@ -247,30 +247,30 @@
       "id": "coi-bien-mai",
       "name": "Còi biên mai (pen-shell adductor muscle)",
       "category": "seafood",
-      "intro": "Còi biên mai is the firm adductor muscle of the pen shell, prized more than the rest of the shellfish. In Phu Quoc it is commonly skewered and grilled with chilli salt. The meat is sweet, springy and slightly crisp, making it a favourite at seafood restaurants.",
-      "how_to_eat": "Eat the scallop muscle just after grilling, with herbs, cucumber or grilled okra on the side. It may be seasoned with chilli salt, satay or fermented bean curd sauce.",
+      "intro": "Grilled còi biên mai with chilli salt is a familiar order at seaside seafood tables in Phu Quoc. The pen shell itself can be as large as a hand, but the prized part is the pair of thick, round adductor muscles. Skewered over charcoal, they stay firm and springy while the chilli-salt seasoning picks up a smoky edge.",
+      "how_to_eat": "Còi biên mai is commonly skewered and grilled with chilli salt or chao. Eat it just cooked, with herbs, cucumber or grilled okra on the side.",
       "tips": [
-        "Pen-shell scallop cooks quickly; overcooking makes it dry and tough.",
-        "If you avoid chilli, ask for spring-onion oil or a mild satay seasoning.",
-        "Confirm whether the price is per plate, skewer or weight before ordering."
+        "Còi biên mai cooks quickly; too much heat makes it tough and dry.",
+        "If you do not eat much chilli, ask for spring-onion oil or a mild satay version.",
+        "Confirm whether the price is per plate, per skewer or by the weight of the fresh meat."
       ],
       "hashtags": [
         "#hai-san",
         "#bien-mai"
       ],
-      "origin": "Pen shells live on the seabed around Phu Quoc. Most of the animal is not commonly eaten; restaurants keep the two round adductor muscles for their firm texture and clean sweetness.",
-      "why_name": "Còi refers to the adductor muscle that opens and closes the shell. Biên mai is the local name for the large triangular pen shell.",
+      "origin": "Pen shells live partly buried in the seabed around Phu Quoc. The adductor muscle - the part that opens and closes the shell - is valued for its distinctive firm, springy bite.",
+      "why_name": "Còi is the adductor muscle that opens and closes the two hard shells. The name points directly to the part of the shellfish that is eaten.",
       "ingredients": [
         "Pen-shell adductor muscle",
-        "Chilli salt or satay - depending on the preparation",
-        "Chao (fermented tofu) - in some grilling styles",
+        "Chilli salt or satay - depending on preparation",
+        "Chao (fermented tofu) - in some versions",
         "Vegetables or herbs - depending on the restaurant"
       ],
-      "taste_texture": "The meat is firm, springy and naturally sweet. Chilli salt adds heat and salinity, while charcoal grilling gives it a light smoky aroma.",
+      "taste_texture": "The meat is firm, springy and naturally sweet. Chilli salt adds heat and salinity, while charcoal gives the edges a light smoky aroma.",
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Pen shell / molluscs",
+          "label": "Molluscs / pen shell",
           "level": "high"
         },
         {
@@ -279,7 +279,7 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Còi biên mai is a mollusc. Versions grilled with chao may contain soy, while satay or marinades can contain peanuts or other allergens. Ask about the marinade if you have food allergies.",
+      "allergy_note": "Versions grilled with chao may contain soy. Satay or other marinades may also contain peanuts or additives, so ask about the sauce if you have allergies.",
       "ask_staff": [
         "Is today's grilled version seasoned with chilli salt, satay or chao?",
         "Does the marinade contain peanuts or soy?"
@@ -637,41 +637,41 @@
     },
     {
       "id": "chao-cha",
-      "name": "Congee with fish cake",
+      "name": "Cháo chả (congee with fish or pork cake)",
       "category": "local",
       "meal_times": [
         "breakfast",
         "lunch",
         "dinner"
       ],
-      "intro": "Congee with fish cake is a gentle breakfast or supper, especially welcome after a run of rich seafood meals. Soft rice porridge is scented with ginger and black pepper and served with slices of springy fish cake.",
-      "how_to_eat": "Take each spoonful with a slice of fish cake. Add ground Phu Quoc pepper and shredded ginger for extra warmth.",
+      "intro": "Cháo chả is a light breakfast or late-night meal that works especially well after several rich seafood dishes. Soft rice congee is scented with shredded ginger and black pepper, then served with slices of springy fish cake or pork cake, depending on the stall.",
+      "how_to_eat": "Take each spoonful of hot congee with a slice of chả. Add a little ground Phu Quoc pepper and shredded ginger for extra warmth.",
       "tips": [
-        "Stir in the ginger and ground pepper so their flavour spreads through the bowl.",
+        "Stir the ginger and ground pepper through the bowl so their flavour spreads evenly.",
         "It is particularly comforting on cool rainy days or when you want something gentle."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#chao-cha"
       ],
-      "origin": "This modest market dish reflects the warm, straightforward cooking of southern Vietnamese homes.",
-      "why_name": "The name describes the dish directly: slow-cooked rice congee served with fish cake.",
+      "origin": "A simple dish found at local markets in Phu Quoc, with the warm, straightforward character of southern Vietnamese home cooking.",
+      "why_name": "The name simply combines its two components: soft rice congee and chả, which may be fish cake or pork cake.",
       "ingredients": [
         "Rice",
-        "Pork rolls (optional ingredients)",
-        "Onion and pepper",
-        "Spices"
+        "Chả - type depends on the stall",
+        "Spring onion and pepper",
+        "Seasoning"
       ],
-      "taste_texture": "The congee is smooth and mild; the fish cake is savoury and springy. Pepper and ginger add warmth.",
+      "taste_texture": "The congee is smooth and mild; the chả is savoury and springy. Ginger and pepper add a warm, aromatic finish.",
       "allergen_flags": [],
-      "allergy_note": "The accompanying patties can be sea fish cakes or pork patties, depending on the restaurant. You should ask if you have a history of seafood allergies.",
+      "allergy_note": "The accompanying chả may be made from sea fish or pork depending on the stall. Ask which type is served if you have a seafood allergy.",
       "ask_staff": [
-        "Does the restaurant serve porridge served with fish cakes or pork cakes?",
-        "Are there any special seasonings or spices in the porridge?"
+        "Is the congee served with fish cake or pork cake?",
+        "Is MSG or any other seasoning already added to the congee?"
       ],
       "sources": [
         {
-          "label": "Foody - Porridge Cha, 30 Thang 4 (commented in 2016, only used to confirm the name of the dish)",
+          "label": "Foody - Cháo Chả on 30 Thang 4 Street (2016 review; used only to confirm the dish name)",
           "url": "https://www.foody.vn/phu-quoc/chao-cha-duong-30-thang-4"
         }
       ]
@@ -957,25 +957,25 @@
         "lunch",
         "dinner"
       ],
-      "intro": "Grouper steamed with ginger and spring onion is a restrained way to showcase very fresh Phu Quoc seafood. The whole fish is gently steamed with shredded ginger, spring onion and light soy sauce until just cooked.",
-      "how_to_eat": "Lift the flesh from the bone and spoon over a little of the aromatic steaming liquor. Eat with rice, or wrap it in rice paper with fresh herbs.",
+      "intro": "Grouper steamed with ginger and spring onion is a simple preparation that puts the freshness of the fish first. A live red or dark grouper is steamed until just cooked with shredded ginger, spring onion and a light soy-based sauce.",
+      "how_to_eat": "Lift the soft grouper flesh from the bone and spoon over some of the ginger-scented steaming liquor. Eat it with rice, or wrap it in rice paper with fresh herbs.",
       "tips": [
-        "A live fish of about 1 to 1.5 kg is often a practical size for even steaming and tender flesh.",
+        "A live grouper of about 1-1.5 kg is often a practical size for even cooking and tender flesh.",
         "The steaming liquor is good with rice, fresh rice vermicelli or bread."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#ca-mu-hap"
       ],
-      "origin": "Grouper is a reef-dwelling fish found around Phu Quoc. Steaming it with ginger and spring onion, a familiar East Asian method, preserves its moisture and clean flavour.",
-      "why_name": "The name identifies both the fish and its cooking method: grouper steamed with fresh ginger and spring onion.",
+      "origin": "Grouper is a reef fish found around Phu Quoc. Steaming with ginger and spring onion is an East Asian-style preparation that keeps the fish moist and lets its natural flavour remain clear.",
+      "why_name": "The name identifies both the main fish and the gentle cooking method: grouper steamed with fresh ginger and spring onion.",
       "ingredients": [
         "Grouper",
-        "Onions",
+        "Spring onion",
         "Ginger",
-        "Sauce"
+        "Sauce - depends on the restaurant"
       ],
-      "taste_texture": "The thick white flesh is moist, firm and naturally sweet. Soft skin, ginger and spring onion add richness and fragrance.",
+      "taste_texture": "The white flesh is thick, moist and naturally sweet, while the skin is soft and rich. Ginger and spring onion add warmth and fragrance.",
       "allergen_flags": [
         {
           "key": "fish",
@@ -983,14 +983,14 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Steamed sauce usually contains soy sauce (with soy and gluten ingredients). Fresh grouper weighs in kilograms, so the price is quite expensive.",
+      "allergy_note": "The steaming sauce often contains soy sauce, which may include soy and gluten. Live grouper is commonly sold by weight, so confirm the price before ordering.",
       "ask_staff": [
-        "How many kilograms does this grouper weigh?",
-        "Hong Kong soy sauce-style fish steamer or traditional ginger onion steamer?"
+        "About how much does this grouper weigh?",
+        "Is it steamed Hong Kong-style with soy sauce, or simply with ginger and spring onion?"
       ],
       "sources": [
         {
-          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "label": "Compiled from Phu Quoc travel and food guides; recipes and prices vary by restaurant.",
           "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
         }
       ]
@@ -1003,25 +1003,25 @@
         "lunch",
         "dinner"
       ],
-      "intro": "After a day outdoors, a bubbling cobia hotpot makes an easy communal meal. Sour bamboo shoots, tomato and herbs flavour the broth, while thick slices of cobia cook at the table.",
-      "how_to_eat": "Bring the broth back to a boil, then add a few slices of cobia and vegetables at a time. Remove the fish as soon as it is cooked and eat with rice vermicelli and fish sauce with chopped chilli.",
+      "intro": "Cobia hotpot is an easy shared meal after a long day outdoors. The broth is gently sour with pickled bamboo shoots, tomato and herbs, while thick slices of cobia are added at the table and cooked only until tender.",
+      "how_to_eat": "Bring the broth to a full boil, then add the cobia and vegetables in small batches. Lift the fish out as soon as it is cooked and eat it with fresh rice vermicelli and fish sauce with chopped chilli.",
       "tips": [
-        "Cook the fish in batches so it stays intact, moist and sweet.",
-        "Fresh rice vermicelli is the usual accompaniment."
+        "Do not add all the fish at once; cooking it in batches helps the pieces stay intact and moist.",
+        "Fresh rice vermicelli is a classic accompaniment."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#lau-ca-bop"
       ],
-      "origin": "Cobia is successfully farmed in the sheltered waters around Phu Quoc. Hotpot with sour bamboo shoots has become a familiar group dish in coastal seafood restaurants.",
-      "why_name": "The dish is a hotpot built around seasoned slices of cobia.",
+      "origin": "Cobia is widely farmed in sheltered waters around Phu Quoc. Hotpot with sour bamboo shoots has become a familiar shared dish at coastal seafood restaurants.",
+      "why_name": "A seafood hotpot built around thick slices of cobia.",
       "ingredients": [
         "Cobia",
         "Vegetables",
         "Broth",
-        "vermicelli or noodles depending on the restaurant"
+        "Rice vermicelli or noodles - depending on the restaurant"
       ],
-      "taste_texture": "Cobia has thick, tender flesh and rich skin. A gently sour, savoury broth balances that richness.",
+      "taste_texture": "Cobia has thick, tender flesh and rich skin. The lightly sour, savoury broth balances that richness.",
       "allergen_flags": [
         {
           "key": "fish",
@@ -1029,14 +1029,14 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "The skin and fat of the cobia are quite fatty. Diners with marine fish allergies should pay attention. It is necessary to remove fish bones carefully when serving to young children.",
+      "allergy_note": "Cobia skin and belly can be rich and fatty. Anyone with a fish allergy should avoid the dish, and bones should be removed carefully when serving young children.",
       "ask_staff": [
-        "How many people is this cobia hot pot for eating?",
-        "Is the hot pot soup cooked according to the taste of sour bamboo shoots or the spicy and sour taste of Thai hot pot?"
+        "How many people is this cobia hotpot intended to serve?",
+        "Is the broth based on sour bamboo shoots or a spicy Thai-style sour broth?"
       ],
       "sources": [
         {
-          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "label": "Compiled from Phu Quoc travel and food guides; recipes and prices vary by restaurant.",
           "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
         }
       ]
@@ -1050,55 +1050,55 @@
         "dinner",
         "snack"
       ],
-      "intro": "Small egg-bearing squid are a seasonal Phu Quoc treat. Grilled whole over charcoal, their bodies turn golden while the roe inside becomes rich and creamy.",
-      "how_to_eat": "Dip the hot grilled squid in green chilli salt or a tangy chilli sauce. Bite carefully, as the roe inside can be very hot.",
+      "intro": "Grilled egg squid is made with small squid carrying roe, a seasonal seafood that is especially satisfying over charcoal. As the squid cooks, the body firms up and browns lightly while the roe inside becomes rich and creamy.",
+      "how_to_eat": "Eat the grilled squid while it is hot, dipping it in green chilli salt or a spicy-sour satay sauce.",
       "tips": [
-        "Plain grilling or a light satay marinade both work well.",
-        "Choose plump, fresh squid if you want a greater chance of roe."
+        "Satay-grilled squid or garlic-satay versions are common preparations.",
+        "Ask whether the squid is in roe season if that is the reason you are ordering it."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#muc-trung-nuong"
       ],
-      "origin": "Egg-bearing squid, sometimes called milk squid locally, are caught around Phu Quoc during their breeding season. Beachside charcoal grilling is a popular preparation.",
-      "why_name": "The name describes small female squid carrying roe inside the body.",
+      "origin": "Egg squid, also called small milk squid in some markets, is caught around Phu Quoc during its reproductive season. Grilling whole fresh squid by the sea is a simple preparation that suits the setting.",
+      "why_name": "The name refers to small female squid carrying roe inside the body.",
       "ingredients": [
         "Egg squid",
-        "Spice dip"
+        "Dipping sauce or seasoning"
       ],
-      "taste_texture": "The squid is lightly crisp and springy outside, with soft, rich roe within. A chilli marinade adds savoury heat.",
+      "taste_texture": "The squid is firm and springy outside, with richer, creamy roe inside. Satay adds a salty, spicy finish.",
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Squid / molluscs",
+          "label": "Molluscs / squid",
           "level": "possible"
         }
       ],
-      "allergy_note": "The amount of roe varies with the fishing season. Squid is a mollusc and can trigger shellfish allergies, so diners with a known mollusc allergy should avoid this dish.",
+      "allergy_note": "The amount of roe varies with the fishing season. Squid is a mollusc and may trigger shellfish allergies.",
       "ask_staff": [
-        "Does the egg squid hold a lot of eggs inside the belly today?",
-        "Is this dish priced by plate or by weight?"
+        "Is today's squid carrying much roe?",
+        "Is this dish priced per plate or by weight?"
       ],
       "sources": [
         {
-          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "label": "Compiled from Phu Quoc travel and food guides; recipes and prices vary by restaurant.",
           "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
         }
       ]
     },
     {
       "id": "oc-huong-nuong",
-      "name": "Tamarind-glazed sweet snails",
+      "name": "Tamarind-glazed ốc hương (fragrant sea snails)",
       "category": "seafood",
       "meal_times": [
         "lunch",
         "dinner",
         "snack"
       ],
-      "intro": "Sweet snails glazed with tamarind are a favourite for diners who enjoy bold sauces. Their firm meat is coated in a glossy mixture of sour tamarind, sugar, chilli and savoury seasoning.",
-      "how_to_eat": "Use a small pick to draw the snail from its shell, turn it through the tamarind sauce and eat. Bread is useful for mopping up the remaining sauce.",
+      "intro": "Ốc hương rang me is a popular snack-style seafood dish. The sea snails arrive coated in a glossy tamarind sauce with a gentle sweet-sour balance, while the meat remains firm and springy.",
+      "how_to_eat": "Use a small pick to pull the snail from its shell, turn it through the tamarind sauce and eat. A piece of crisp bread is useful for mopping up the sauce left on the plate.",
       "tips": [
-        "Order bread if you want to make the most of the tamarind sauce.",
+        "Order plain bread if you want to make the most of the tamarind sauce.",
         "Ask for less chilli when dining with children or anyone sensitive to heat."
       ],
       "hashtags": [
@@ -1106,29 +1106,29 @@
         "#oc-huong",
         "#oc-huong-rang-me"
       ],
-      "origin": "Ốc hương, literally fragrant snails, are prized for their aroma and firm texture. Coating them in sweet-sour tamarind sauce is a popular southern Vietnamese preparation.",
-      "why_name": "The name combines the type of sea snail with its defining tamarind glaze.",
+      "origin": "Ốc hương are valued for their natural aroma and firm texture. Cooking them in a sweet-sour tamarind sauce is a familiar southern Vietnamese seafood preparation.",
+      "why_name": "The dish combines the type of sea snail, ốc hương, with its defining tamarind sauce.",
       "ingredients": [
-        "Snails",
-        "Mother",
-        "Seasonings vary depending on the shop"
+        "Ốc hương (fragrant sea snails)",
+        "Tamarind",
+        "Seasoning - depends on the restaurant"
       ],
-      "taste_texture": "The snail meat is firm, crisp and sweet; the thick sauce brings sour, sweet, salty and spicy notes.",
+      "taste_texture": "The snail meat is thick, firm and naturally sweet; the tamarind sauce brings sour, sweet, salty and spicy notes.",
       "allergen_flags": [
         {
           "key": "mollusc",
-          "label": "Sea snails / molluscs",
+          "label": "Molluscs / sea snails",
           "level": "possible"
         }
       ],
-      "allergy_note": "Tamarind sauce can be seasoned with a lot of sugar or add a little butter/crushed peanuts depending on the restaurant. People with shellfish allergies need to be careful.",
+      "allergy_note": "Tamarind sauce may contain a generous amount of sugar, and some restaurants add butter or crushed peanuts. Anyone with a mollusc allergy should avoid the dish.",
       "ask_staff": [
-        "Are snails large or medium-sized today?",
-        "Can you make tamarind sauce that is less sweet/less spicy as requested?"
+        "Are today's ốc hương large or medium-sized?",
+        "Can you make the tamarind sauce less sweet or less spicy?"
       ],
       "sources": [
         {
-          "label": "Wikimedia Commons - photo of Roasted snail (CC BY-SA 4.0)",
+          "label": "Wikimedia Commons - Ốc hương rang me photo (CC BY-SA 4.0)",
           "url": "https://commons.wikimedia.org/wiki/File:%E1%BB%90c_h%C6%B0%C6%A1ng_rang_me.jpg"
         },
         {
@@ -1145,40 +1145,40 @@
         "lunch",
         "dinner"
       ],
-      "intro": "Salt-roasted mantis shrimp takes a little work to peel but rewards it with thick, sweet meat. The shells are dry-roasted with a fragrant mixture of salt, garlic and spices.",
-      "how_to_eat": "Use scissors to trim the sharp edges along both sides, then peel back the shell to expose the meat. Eat it as it is or dip lightly in lime-pepper salt.",
+      "intro": "Salt-roasted mantis shrimp takes some patience to peel, but the reward is thick, naturally sweet meat. The shell is dry-roasted until lightly browned and coated with fragrant garlic-salt seasoning.",
+      "how_to_eat": "Use scissors to trim the sharp edges along both sides of the shell, then peel back the top shell to expose the meat. Eat it as it is or dip lightly in lime-pepper salt.",
       "tips": [
-        "Ask the restaurant staff to cut the shells if you are not used to peeling mantis shrimp.",
-        "Choose live, active specimens for the firmest meat."
+        "Ask restaurant staff to cut the shell for you if you are not used to peeling mantis shrimp.",
+        "For the firmest meat, choose live, active mantis shrimp where available."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#tom-tich-rang-muoi"
       ],
-      "origin": "Mantis shrimp are common in the warm waters around Phu Quoc. Dry-roasting them with seasoned salt is a widely served seafood preparation.",
-      "why_name": "Mantis shrimp, called bề bề in northern Vietnam, are dry-roasted with salt, garlic, pepper and spices.",
+      "origin": "Mantis shrimp are found in the warm waters around Phu Quoc. Salt-roasting, including Hong Kong-style or salt-and-chilli versions, is a common restaurant preparation.",
+      "why_name": "Mantis shrimp, called bề bề in northern Vietnam, are dry-roasted with salt, garlic, pepper and other seasoning.",
       "ingredients": [
-        "Shrimp",
-        "salt",
-        "Spices",
-        "may have garlic"
+        "Mantis shrimp",
+        "Salt",
+        "Seasoning",
+        "Garlic - may be included"
       ],
       "taste_texture": "The meat is firm, springy and naturally sweet; the seasoned shell is salty, garlicky and mildly spicy.",
       "allergen_flags": [
         {
           "key": "crustacean",
-          "label": "Crustaceans",
+          "label": "Crustaceans / mantis shrimp",
           "level": "possible"
         }
       ],
-      "allergy_note": "The shell of the shrimp is very sharp, easy to cut the hand if not peeled properly. The dish belongs to the group of crustacean seafood.",
+      "allergy_note": "Mantis-shrimp shells have sharp edges and can cut your hands if peeled carelessly. The dish is a crustacean and should be avoided by people with crustacean allergies.",
       "ask_staff": [
-        "Is today's shrimp swimming in the lake or frozen shrimp?",
-        "Does the restaurant support shrimp peeling to help guests at the table?"
+        "Are today's mantis shrimp live or frozen?",
+        "Can the restaurant cut or help peel the shells at the table?"
       ],
       "sources": [
         {
-          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "label": "Compiled from Phu Quoc travel and food guides; recipes and prices vary by restaurant.",
           "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
         }
       ]
@@ -1192,25 +1192,25 @@
         "dinner",
         "snack"
       ],
-      "intro": "Grilled oysters with spring-onion oil make an easy opening dish for a seafood meal. Each oyster is cooked in its shell with fragrant spring-onion oil and crushed roasted peanuts.",
-      "how_to_eat": "Hold the warm shell steady and use a small spoon to take the oyster together with its juices, spring-onion oil and peanuts.",
+      "intro": "Grilled oysters with spring-onion oil make a straightforward starter for a seafood meal. The oysters are cooked in their shells over charcoal with fragrant spring-onion oil and, in the common version, crushed roasted peanuts.",
+      "how_to_eat": "Hold the warm shell steady and use a small spoon to eat the oyster together with its juices and the spring-onion oil.",
       "tips": [
-        "Some restaurants can replace the spring-onion oil with cheese for a creamier preparation.",
-        "Eat only oysters that have been cooked properly and are served hot."
+        "Some restaurants offer a cheese-topped version if you prefer a richer preparation.",
+        "Eat oysters only when they have been cooked properly and are served hot."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#hau-nuong-mo-hanh"
       ],
-      "origin": "Oysters are farmed or harvested around Phu Quoc's coast. Grilling shellfish with spring-onion oil is a familiar southern Vietnamese preparation.",
-      "why_name": "Whole oysters are grilled in their shells with spring-onion oil and usually finished with peanuts.",
+      "origin": "Rock and milk oysters are harvested or farmed around Phu Quoc's coast. Grilling seafood with spring-onion oil is a familiar southern Vietnamese style.",
+      "why_name": "Whole oysters are grilled in their shells with spring-onion oil and are often finished with crushed peanuts.",
       "ingredients": [
         "Oysters",
-        "Green onions",
+        "Spring onion",
         "Oil",
-        "Peanuts or cheese"
+        "Peanuts or cheese - depending on the restaurant"
       ],
-      "taste_texture": "The oyster is soft, juicy and briny; aromatic oil and crisp roasted peanuts add richness and texture.",
+      "taste_texture": "The oyster is soft, juicy and rich; spring-onion oil adds fragrance and roasted peanuts, when used, add a crisp, nutty contrast.",
       "allergen_flags": [
         {
           "key": "mollusc",
@@ -1218,14 +1218,14 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "Roasted peanuts and green onions are required. Diners with peanut or shellfish allergies need to inform the restaurant in advance.",
+      "allergy_note": "The common version may include roasted peanuts as well as oysters. If you have a peanut or mollusc allergy, tell the restaurant and confirm the topping before ordering.",
       "ask_staff": [
-        "Can the restaurant not put peanuts in the grilled oysters for me?",
-        "In addition to grilling spring-onion oil, does the restaurant have grilled oysters with cheese or grilled everything?"
+        "Can you make the grilled oysters without peanuts?",
+        "Do you also serve cheese-grilled or plain grilled oysters?"
       ],
       "sources": [
         {
-          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "label": "Compiled from Phu Quoc travel and food guides; recipes and prices vary by restaurant.",
           "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
         }
       ]
@@ -1238,24 +1238,24 @@
         "lunch",
         "dinner"
       ],
-      "intro": "Southern sour soup with cobia brings colour and freshness to a shared island meal. Tamarind, pineapple and tomato flavour the broth, with okra, bean sprouts and thick pieces of cobia.",
-      "how_to_eat": "Spoon the soup over hot rice. Lift out the fish and dip it in fish sauce with chopped chilli.",
+      "intro": "Canh chua cá bớp is a bright, refreshing soup often served as part of a shared meal. Tomato, pineapple, okra and bean sprouts sit in a gently sour broth with thick pieces of cobia.",
+      "how_to_eat": "Spoon the sour broth over hot rice. Lift out the cobia and dip it in fish sauce with sliced chilli.",
       "tips": [
-        "This is a good shared accompaniment to rice at lunch or dinner.",
-        "Ask for less sourness or chilli if that suits your group."
+        "It works well as a shared soup alongside rice at lunch or dinner.",
+        "Ask the restaurant to adjust the sourness or chilli to suit your group."
       ],
       "hashtags": [
         "#am-thuc-phu-quoc",
         "#canh-chua-ca-bop"
       ],
-      "origin": "Canh chua is a cornerstone of southern Vietnamese home cooking. In Phu Quoc, locally farmed cobia gives the familiar soup an island character.",
-      "why_name": "It is a southern-style sour soup made with cobia as the main protein.",
+      "origin": "Canh chua is a staple of southern Vietnamese home cooking. In Phu Quoc, cobia is a common local seafood choice for the soup.",
+      "why_name": "A southern-style sour soup made with cobia as the main protein.",
       "ingredients": [
         "Cobia",
         "Vegetables",
-        "tamarind or sour ingredients"
+        "Tamarind or another souring ingredient"
       ],
-      "taste_texture": "Tamarind and pineapple make the broth gently sour and fruity. The cobia is tender and rich, while the vegetables remain crisp and juicy.",
+      "taste_texture": "Tamarind and pineapple give the broth a gentle sour-fruity edge. The cobia is rich and firm, while the vegetables add freshness and crunch.",
       "allergen_flags": [
         {
           "key": "fish",
@@ -1263,14 +1263,14 @@
           "level": "possible"
         }
       ],
-      "allergy_note": "The carp meat has a round bone circle in the middle, it is necessary to pay attention to removing the bones when dividing the sour soup for young children.",
+      "allergy_note": "Cobia steaks can contain a round central bone, so remove bones carefully when serving the soup to young children.",
       "ask_staff": [
-        "How many users is this bowl of sour fish soup suitable for?",
-        "Do you cook sour flavors with fresh tamarind or sour bamboo shoots?"
+        "How many people is this bowl of cobia sour soup intended to serve?",
+        "Is the sourness from fresh tamarind or sour bamboo shoots?"
       ],
       "sources": [
         {
-          "label": "Compiled from travel guides and Phu Quoc cuisine content; recipes and prices may vary by restaurant.",
+          "label": "Compiled from Phu Quoc travel and food guides; recipes and prices vary by restaurant.",
           "url": "https://visitphuquoc.com.vn/vi/am-thuc-phu-quoc"
         }
       ]
