@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openphuquoc.com/schemas/openpq-dataset-envelope-v1.json",
+  "title": "OpenPQ Canonical Dataset Envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "dataset",
+    "schema_version",
+    "status",
+    "freshness",
+    "quality",
+    "collected_at",
+    "normalized_at",
+    "published_at",
+    "source_health",
+    "data"
+  ],
+  "properties": {
+    "dataset": {"type": "string", "minLength": 1},
+    "schema_version": {"type": "string", "minLength": 1},
+    "status": {
+      "type": "string",
+      "enum": ["READY", "PARTIAL", "DEGRADED", "UNAVAILABLE"]
+    },
+    "freshness": {
+      "type": "string",
+      "enum": ["FRESH", "STALE", "UNKNOWN"]
+    },
+    "quality": {
+      "type": "string",
+      "enum": ["VERIFIED", "MODEL", "ESTIMATED", "CACHED_LKG", "UNKNOWN"]
+    },
+    "source_time": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "collected_at": {"type": "string", "format": "date-time"},
+    "normalized_at": {"type": "string", "format": "date-time"},
+    "published_at": {"type": "string", "format": "date-time"},
+    "source_health": {"type": "object"},
+    "provenance": {"type": "object"},
+    "data": {}
+  }
+}
