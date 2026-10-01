@@ -37,7 +37,7 @@ const overrides={
 };
 // Only source-reviewed records in the catalog may load from these third-party hosts.
 // Attribution is provenance, not proof of permission to reuse the photo.
-const curatedGuideHosts=new Set(["rootytrip.com","hitour.vn","static.vinwonders.com","mediafr.vietnamplus.vn","photo.znews.vn","cdn11.dienmaycholon.vn","vnn-imgs-f.vgcloud.vn","file.hstatic.net","cdn.tgdd.vn","www.asiatouradvisor.com","www.vietnamairlines.com"]);
+const curatedGuideHosts=new Set(["rootytrip.com","hitour.vn","static.vinwonders.com","mediafr.vietnamplus.vn","photo.znews.vn","cdn11.dienmaycholon.vn","vnn-imgs-f.vgcloud.vn","file.hstatic.net","cdn.tgdd.vn","www.asiatouradvisor.com","www.vietnamairlines.com","gcs.tripi.vn"]);
 const curatedGuidePhoto=x=>{
  if(x.curated_for_public!==true||!x.source_label||!/^https:\/\//.test(x.source_url||""))return false;
  try{const u=new URL(x.url);return u.protocol==="https:"&&curatedGuideHosts.has(u.hostname)&&/\.(?:jpe?g|png|webp)$/i.test(u.pathname);}catch{return false;}
