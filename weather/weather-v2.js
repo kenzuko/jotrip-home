@@ -667,20 +667,39 @@ function renderPointTabs(){
   '<button class="off-island" data-compare="ha_tien" title="Đối chiếu hành lang mây Himawari tại Hà Tiên">Hà Tiên · hành lang mây</button>';
 }
 
+function currentEvidenceStatus(){
+  return critical?.human_weather?.evidence_status||null;
+}
+function groundEvidenceFresh(){
+  return currentEvidenceStatus()?.ground?.status==="FRESH";
+}
+function himawariEvidenceStatus(){
+  return currentEvidenceStatus()?.observed_remote?.himawari||null;
+}
 function renderStatus(){
   if(!critical)return;
   const localAge=ageMinutes(critical?.local_generated_at);
   const actualAge=ageMinutes(actualTimestamp());
   const nowAge=ageMinutes(nowcastTimestamp());
-  // The newest unrelated source must never make all sources look fresh.
-  // For the customer-facing header, Local Now is the primary current-time source.
-  const localDelayed=localAge===null||localAge>20;
-  const localStale=localAge===null||localAge>35;
-  const cloudDelayed=nowAge===null||nowAge>35;
-  $("liveDot").className=localDelayed||cloudDelayed?"warn":"ok";
-  const localLabel=critical?.local_generated_at?"Tại điểm "+ageText(critical.local_generated_at):"Tại điểm chưa có dữ liệu";
-  const cloudLabel=nowcastTimestamp()?" · mây "+ageText(nowcastTimestamp()):" · mây chưa cập nhật";
-  $("liveLabel").textContent=(localStale?"DỮ LIỆU TẠI ĐIỂM ĐANG TRỄ":localDelayed?"ĐANG CHỜ BẢN LÚC NÀY":"LÚC NÀY ĐÃ CẬP NHẬT")+" · "+localLabel+cloudLabel;
+  const evidence=currentEvidenceStatus();
+  // A stale remote source never makes the whole Weather system stale while
+  // independent ground observations are still current.
+  if(evidence){
+    const groundFresh=evidence?.ground?.status==="FRESH";
+    const cloudFresh=evidence?.observed_remote?.himawari?.status==="FRESH";
+    $("liveDot").className=groundFresh&&cloudFresh?"ok":"warn";
+    $("liveLabel").textContent=evidence.headline||(
+      groundFresh?"Quan trắc mặt đất đang cập nhật.":"Đang chờ dữ liệu quan trắc mới."
+    );
+  }else{
+    const localDelayed=localAge===null||localAge>20;
+    const localStale=localAge===null||localAge>35;
+    const cloudDelayed=nowAge===null||nowAge>35;
+    $("liveDot").className=localDelayed||cloudDelayed?"warn":"ok";
+    const localLabel=critical?.local_generated_at?"Tại điểm "+ageText(critical.local_generated_at):"Tại điểm chưa có dữ liệu";
+    const cloudLabel=nowcastTimestamp()?" · mây "+ageText(nowcastTimestamp()):" · mây chưa cập nhật";
+    $("liveLabel").textContent=(localStale?"DỮ LIỆU TẠI ĐIỂM ĐANG TRỄ":localDelayed?"ĐANG CHỜ BẢN LÚC NÀY":"LÚC NÀY ĐÃ CẬP NHẬT")+" · "+localLabel+cloudLabel;
+  }
 
   const assessment=islandAssessment();
   const coverage=coverageScore();
@@ -920,7 +939,8 @@ function renderHero(){
   let heroSummary=summary(p);
   if(nearbyActual?.thunder&&nearbyActual?.rain)heroSummary="Quan trắc VVPQ đang ghi nhận mưa dông cách điểm này khoảng "+fmt(nearbyActual.distance_km,1)+" km. Ưu tiên tình trạng đang xảy ra hơn dự báo mô hình.";
   else if(nearbyActual?.rain)heroSummary="Quan trắc VVPQ đang ghi nhận mưa cách điểm này khoảng "+fmt(nearbyActual.distance_km,1)+" km.";
-  else if(!localFresh&&!nowcastFresh)heroSummary="Dữ liệu tại điểm và ảnh mây đều đang trễ - không nên dùng số cũ để kết luận trời đang ổn.";
+  else if(!localFresh&&!nowcastFresh&&groundEvidenceFresh())heroSummary="Quan trắc mặt đất vẫn đang cập nhật. JoTrip Local Now và ảnh mây đang chờ bản mới.";
+  else if(!localFresh&&!nowcastFresh)heroSummary="Chưa đủ dữ liệu mới để đánh giá điều kiện hiện tại. Không dùng số cũ để kết luận trời đang ổn.";
   else if(!localFresh&&nowcastFresh&&conv!==null&&conv>=50)heroSummary="Tín hiệu vệ tinh đang đáng chú ý. Số mưa tại điểm chưa có cập nhật mới - xem bản đồ nếu chuẩn bị ra ngoài.";
   $("heroSummary").textContent=heroSummary;
   $("updatedAt").textContent=(localFresh?"Cập nhật ":"Dữ liệu tại điểm gần nhất ")+localTime(liveTimestamp())+" · "+ageText(liveTimestamp());
@@ -1157,9 +1177,9 @@ function renderCurrent(){
 }
 
 function renderActual(){
-  const a=critical.actual||{},v=a.vvpq||{},g=a.rain_gauges||[],cards=[];
+  const a=critical.actual||{},v=a.vvpq||{},s=a.synop_48917||{},g=a.rain_gauges||[],cards=[];
   if(current==="rach_gia"){
-    cards.push('<article class="actual-card"><header><b>Rạch Giá</b><em class="badge model">MÔ HÌNH</em></header><strong>Chưa có số đo trực tiếp đang hoạt động</strong><small>Hiện chỉ dùng mô hình cùng Himawari, AQI và triều ở những nguồn đang có dữ liệu. Không lấy VVPQ/VRain Phú Quốc để đại diện cho Rạch Giá.</small></article>');
+    cards.push('<article class="actual-card"><header><b>Rạch Giá</b><em class="badge model">MÔ HÌNH</em></header><strong>Chưa có số đo trực tiếp đang hoạt động</strong><small>Hiện chỉ dùng mô hình cùng Himawari, AQI và triều ở những nguồn đang có dữ liệu. Không lấy quan trắc Phú Quốc để đại diện cho Rạch Giá.</small></article>');
     $("actualStrip").innerHTML=cards.join("");
     $("actualState").textContent="Chưa có nguồn đo trực tiếp đang hoạt động";
     return;
@@ -1168,7 +1188,19 @@ function renderActual(){
     currentBundle?.groundtruth||critical?._groundtruth||null,Date.now());
   const airportGust=verifiedGust?" · giật "+fmt(verifiedGust.gust_kmh,0)+" km/h (METAR)":
     (freshEnough(v.observed_at,35)?" · METAR không có số giật được công bố":"");
-  cards.push('<article class="actual-card"><header><b>VVPQ</b><em class="badge actual">ĐO THỰC</em></header><strong>'+fmt(v.temperature_c,1)+'°C</strong><small>Gió '+fmt(v.wind_kmh,1)+' km/h'+airportGust+' · '+(v.weather?esc(v.weather)+' · ':'')+ageText(v.observed_at)+'</small></article>');
+  if(v.observed_at){
+    cards.push('<article class="actual-card"><header><b>VVPQ · Dương Tơ</b><em class="badge actual">ĐO THỰC</em></header><strong>'+fmt(v.temperature_c,1)+'°C</strong><small>Gió '+fmt(v.wind_kmh,1)+' km/h'+airportGust+' · '+(v.weather?esc(v.weather)+' · ':'')+ageText(v.observed_at)+'</small></article>');
+  }
+  const sd=s.latest_numeric?.decoded_actual||{},sw=sd.wind||{};
+  const synopUsable=s.runtime_eligible===true&&String(s.numeric_status||"").toUpperCase()==="FRESH"&&s.latest_numeric_observed_at;
+  if(synopUsable){
+    const temp=num(sd.air_temperature_c),wind=num(sw.speed_kmh),dir=num(sw.direction_deg),pressure=num(sd.sea_level_pressure_hpa??sd.station_pressure_hpa);
+    const details=[];
+    if(wind!==null)details.push("Gió "+fmt(wind,1)+" km/h"+(dir!==null?" · "+fmt(dir,0)+"°":""));
+    if(pressure!==null)details.push("Áp suất "+fmt(pressure,1)+" hPa");
+    details.push(ageText(s.latest_numeric_observed_at));
+    cards.push('<article class="actual-card"><header><b>WMO 48917 · Dương Đông</b><em class="badge actual">ĐO THỰC</em></header><strong>'+(temp===null?"SYNOP":fmt(temp,1)+"°C")+'</strong><small>'+details.map(esc).join(" · ")+'</small></article>');
+  }
   g.forEach(x=>{
     const win=num(x.increment_min),inc=num(x.increment_mm),rate=num(x.rain_intensity_mm_h),acc=num(x.accum_mm);
     let observed="CHƯA CÓ DỮ LIỆU HIỆN TẠI";
@@ -1202,12 +1234,12 @@ function renderActual(){
   });
   $("actualStrip").innerHTML=cards.join("");
   const vFresh=freshEnough(v.observed_at,45);
+  const synopFresh=synopUsable;
   const rainFresh=g.some(x=>rainGaugeHasCurrentSignal(x,45));
-  $("actualState").textContent=(vFresh&&rainFresh)
-    ?"VVPQ + VRain vừa cập nhật"
-    :vFresh
-      ?"Chưa ghi nhận tín hiệu mưa mới từ hệ thống quan trắc"
-      :"Có nguồn cập nhật chậm";
+  const activeGround=[vFresh?"VVPQ":null,synopFresh?"WMO 48917":null,rainFresh?"VRain":null].filter(Boolean);
+  $("actualState").textContent=activeGround.length
+    ?("Quan trắc mặt đất đang cập nhật · "+activeGround.join(" · ")+(rainFresh?"":" · chưa có tín hiệu mưa mới từ trạm mưa"))
+    :"Chưa có quan trắc mặt đất đủ mới";
 }
 
 function renderFeedbackPoint(){
@@ -1623,9 +1655,49 @@ function buildQuickWatchEvents(){
   const events=[];
   const now=Date.now();
 
-  // Independent freshness warning. An old successful payload is NOT live.
+  // Freshness is source-specific. A late Himawari image does not make
+  // independent ground observations stale, and a late Local Now recomposition
+  // does not erase fresh raw station evidence.
   const localAge=ageMinutes(liveTimestamp()),cloudAge=ageMinutes(nowcastTimestamp());
-  if(localAge>35||cloudAge>45){
+  const evidence=currentEvidenceStatus();
+  if(evidence){
+    const groundFresh=evidence?.ground?.status==="FRESH";
+    const cloudFresh=evidence?.observed_remote?.himawari?.status==="FRESH";
+    if(groundFresh&&!cloudFresh){
+      events.push({
+        key:"weather-cloud-waiting",
+        severity:"info",when:"ĐANG CHỜ ẢNH MÂY MỚI",
+        title:"Quan trắc mặt đất vẫn đang cập nhật",
+        detail:"Himawari chưa có ảnh đủ mới nên hệ thống tạm không dùng ảnh cũ để kết luận mây hiện tại."+
+          (nowcastTimestamp()?" Ảnh gần nhất: "+ageText(nowcastTimestamp())+".":""),
+        sort:-2
+      });
+    }else if(!groundFresh&&cloudFresh){
+      events.push({
+        key:"weather-ground-waiting",
+        severity:"watch",when:"ĐANG CHỜ QUAN TRẮC MẶT ĐẤT",
+        title:"Ảnh mây vừa cập nhật, số đo mặt đất đang chờ dữ liệu mới",
+        detail:"Không dùng sự vắng mặt của trạm để kết luận không mưa, không gió mạnh hoặc không có hiện tượng.",
+        sort:-4
+      });
+    }else if(!groundFresh&&!cloudFresh){
+      events.push({
+        key:"weather-data-delayed",
+        severity:"alert",when:"CHƯA ĐỦ DỮ LIỆU MỚI",
+        title:"Chưa đủ dữ liệu mới để đánh giá điều kiện hiện tại",
+        detail:"Quan trắc mặt đất và ảnh mây đều chưa đủ mới. Không xem dữ liệu cũ là điều kiện hiện tại; ưu tiên cảnh báo chính thức và thông tin thực địa.",
+        sort:-9
+      });
+    }else if(localAge>35){
+      events.push({
+        key:"weather-local-now-recompose",
+        severity:"info",when:"ĐANG GHÉP BẢN LÚC NÀY",
+        title:"Quan trắc vẫn mới, JoTrip Local Now đang cập nhật lại",
+        detail:"Hệ thống giữ quan trắc mặt đất và ảnh mây tách riêng trong lúc chờ bản phân tích địa phương mới.",
+        sort:-1
+      });
+    }
+  }else if(localAge>35||cloudAge>45){
     const stale=[];
     if(localAge>35)stale.push("số liệu tại điểm "+ageText(liveTimestamp()));
     if(cloudAge>45)stale.push("ảnh mây "+ageText(nowcastTimestamp()));
