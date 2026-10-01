@@ -3,6 +3,7 @@
 
   const SRC = {
     critical: "/weather/data/critical.json",
+    localNow: "/weather/data/local-now.json",
     nowcast: "/weather/data/nowcast-compact.json",
     marineOps: "https://raw.githubusercontent.com/kenzuko/Jotrip-Lab/data-marine-ops/data/marine_ops/latest.json",
     airport: "https://jotrip-airport-live.kenzuko.workers.dev",
@@ -401,6 +402,7 @@ function freshnessText(iso, prefix = "Cập nhật") {
 
   Promise.allSettled([
     getJson(SRC.critical),
+    getJson(SRC.localNow),
     getJson(SRC.nowcast),
     getJson(SRC.marineOps + (SRC.marineOps.includes("?") ? "&" : "?") + "t=" + Date.now()),
     getAirport(),
@@ -409,8 +411,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
       ? window.OpenPQPublicData.json("data/operational-notices.json")
       : getJson("data/operational-notices.json"),
     localeUiReady
-  ]).then(([c, w, m, a, e, n]) => {
+  ]).then(([c, l, w, m, a, e, n]) => {
     let critical = c.status === "fulfilled" ? c.value : null;
+    const localNow = l.status === "fulfilled" ? l.value : null;
     const nowcast = w.status === "fulfilled" ? w.value : null;
     const marine = m.status === "fulfilled" ? m.value : null;
     const airport = a.status === "fulfilled" ? a.value : null;
@@ -442,8 +445,9 @@ function freshnessText(iso, prefix = "Cập nhật") {
       const area = window.OpenPQArea?.get?.() || "all";
       const pointId = areaToPoint[area] || "duong_dong";
       const point = critical?.points?.[pointId] || critical?.points?.duong_dong || null;
+      const liveLocal = localNow?.points?.[pointId] || null;
       const view = window.OpenPQWeatherShortView?.pointView?.(critical, nowcast, pointId) || null;
-      return {area, pointId, point, view};
+      return {area, pointId, point, liveLocal, view};
     }
     let weatherSnapshot = {
       primary:"--",
@@ -457,8 +461,16 @@ function freshnessText(iso, prefix = "Cập nhật") {
     function renderHomeWeather() {
       const weatherContext = selectedWeatherContext();
       const point = weatherContext.point;
-      const local = point?.local || {};
-      const localStamp = critical?.local_generated_at || criticalStamp;
+      const liveLocal = weatherContext.liveLocal;
+      const local = liveLocal
+        ? {
+            available:true,
+            temperature_c:liveLocal.temperature_c,
+            temperature_class:liveLocal.temperature?.data_class
+          }
+        : (point?.local || {});
+      const localStamp = liveLocal?.analysis_time || localNow?.generated_at ||
+        critical?.local_generated_at || criticalStamp;
       const localAge = ageMinutes(localStamp);
       const localTemp = Number(local.temperature_c);
       const localUsable =
@@ -513,6 +525,11 @@ function freshnessText(iso, prefix = "Cập nhật") {
     const weatherState = weatherSnapshot.state;
     const weatherObservedAt = weatherSnapshot.sourceUpdatedAt;
     const weatherAge = weatherSnapshot.ageMinutes;
+    const weatherSource = weatherSnapshot.sourceClass==="ESTIMATED_NOW"
+      ? wh("source_estimated", {}, "ước tính lúc này")
+      : weatherSnapshot.sourceClass==="ACTUAL_REFERENCE"
+        ? "số đo tham chiếu sân bay"
+        : wh("updating", {}, "đang cập nhật");
 
     const seaHs = anThoi?.model?.wave_hs_m ?? anThoi?.local?.wave_hs_m ?? null;
     const seaHmax = anThoi?.model?.wave_hmax_m ?? null;
