@@ -999,11 +999,11 @@ function renderHero(){
       $("humanComfortTitle").textContent=comfort.title;
       $("humanComfortNote").textContent=comfort.note;
       const heatIndex=$("humanHeatIndex"),heatMethod=$("humanHeatIndexMethod"),heatNote=$("humanHeatIndexNote");
-      const showHeat=Boolean(comfort.heatIndexText);
-      if(heatIndex){heatIndex.hidden=!showHeat;heatIndex.textContent=comfort.heatIndexText||""}
-      if(heatMethod){heatMethod.hidden=!showHeat;heatMethod.textContent=comfort.heatIndexMethod||""}
-      if(heatNote){heatNote.hidden=!showHeat;heatNote.textContent=comfort.heatIndexNote||""}
-      $("humanComfortReason").textContent=comfort.reason||"Cảm nhận ngoài trời được tính từ các số đo hiện có.";
+      const showHumidity=Boolean(comfort.humidityText);
+      if(heatIndex){heatIndex.hidden=!showHumidity;heatIndex.textContent=comfort.humidityText||""}
+      if(heatMethod){heatMethod.hidden=!comfort.methodText;heatMethod.textContent=comfort.methodText||""}
+      if(heatNote){heatNote.hidden=!comfort.scopeNote;heatNote.textContent=comfort.scopeNote||""}
+      $("humanComfortReason").textContent=comfort.reason||"Cảm giác thực tế còn phụ thuộc mưa, gió, mây, bức xạ và vị trí.";
     }
   }
 
@@ -1253,7 +1253,7 @@ function renderActual(){
   const airportGust=verifiedGust?" · giật "+fmt(verifiedGust.gust_kmh,0)+" km/h (METAR)":
     (freshEnough(v.observed_at,35)?" · chưa có số gió giật được công bố":"");
   if(v.observed_at){
-    cards.push('<article class="actual-card"><header><b>VVPQ · Dương Tơ</b><em class="badge actual">SỐ ĐO</em></header><strong>'+fmt(v.temperature_c,1)+'°C</strong><small>Gió '+fmt(v.wind_kmh,1)+' km/h'+airportGust+' · '+(v.weather?esc(v.weather)+' · ':'')+ageText(v.observed_at)+'</small></article>');
+    cards.push('<article class="actual-card"><header><b>VVPQ · Dương Tơ</b><em class="badge actual">METAR/SPECI</em></header><strong>'+fmt(v.temperature_c,1)+'°C</strong><small>Bản quan trắc định kỳ · gió '+fmt(v.wind_kmh,1)+' km/h'+airportGust+' · '+(v.weather?esc(v.weather)+' · ':'')+ageText(v.observed_at)+'</small></article>');
   }
   const sd=s.latest_numeric?.decoded_actual||{},sw=sd.wind||{};
   const synopAt=s.observed_at||s.latest_numeric_observed_at||null;
@@ -1723,17 +1723,24 @@ function buildQuickWatchEvents(){
   const events=[];
   const now=Date.now();
 
-  // Independent freshness warning. An old successful payload is NOT live.
+  // Current-condition freshness is source-specific. A late satellite frame or
+  // normal model cycle must never make fresh ground observations look stale.
   const localAge=ageMinutes(liveTimestamp()),cloudAge=ageMinutes(nowcastTimestamp());
-  if(localAge>35||cloudAge>45){
-    const stale=[];
-    if(localAge>35)stale.push("số liệu tại điểm "+ageText(liveTimestamp()));
-    if(cloudAge>45)stale.push("ảnh mây "+ageText(nowcastTimestamp()));
+  const evidence=currentEvidenceStatus();
+  const groundFresh=evidence?.ground?.status==="FRESH";
+  const cloudFresh=evidence?.observed_remote?.himawari?.status==="FRESH";
+  const localDelayed=localAge>45;
+  const cloudDelayed=cloudAge>60;
+  if(localDelayed&&!groundFresh){
+    const noCurrentRemote=cloudDelayed||!cloudFresh;
+    const stale=["số liệu tại điểm "+ageText(liveTimestamp()),"quan trắc mặt đất đang chờ bản mới"];
+    if(noCurrentRemote)stale.push("ảnh mây "+ageText(nowcastTimestamp()));
     events.push({
       key:"weather-data-delayed",
-      severity:"alert",when:"DỮ LIỆU ĐANG TRỄ",
-      title:"Chưa có cập nhật đủ mới để kết luận thời tiết đã ổn",
-      detail:stale.join(" · ")+". Không xem dữ liệu cũ là điều kiện hiện tại; ưu tiên cảnh báo chính thức và thông tin thực địa.",
+      severity:noCurrentRemote?"alert":"watch",
+      when:noCurrentRemote?"DỮ LIỆU HIỆN TẠI ĐANG TRỄ":"ĐANG CHỜ QUAN TRẮC MỚI",
+      title:noCurrentRemote?"Chưa đủ dữ liệu mới để đánh giá điều kiện hiện tại":"Quan trắc mặt đất đang chờ bản mới",
+      detail:stale.join(" · ")+". Không dùng dữ liệu cũ để suy ra trời đang ổn hay đang khô.",
       sort:-9
     });
   }
